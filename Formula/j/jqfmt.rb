@@ -18,7 +18,7 @@ class Jqfmt < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/jqfmt/main.go"
+    system "go", "build", *std_go_args, "./cmd/jqfmt/main.go"
   end
 
   test do

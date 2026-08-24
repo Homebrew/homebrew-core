@@ -21,11 +21,13 @@ class Curlcpp < Formula
 
   uses_from_macos "curl"
 
-  # remove use of CURLOPT_CLOSEPOLICY (removed since curl 8.10+), upstream pr ref, https://github.com/JosephP91/curlcpp/pull/159
+  # remove use of CURLOPT_CLOSEPOLICY (removed since curl 8.10+)
   patch do
     on_linux do
       url "https://github.com/JosephP91/curlcpp/commit/bc3800510f30ed74c90227b166d134cd13fd63cf.patch?full_index=1"
       sha256 "0954b32d0304ad9b4acecf3f647242b2c5736f4c6576a390e665e57883dcf10f"
+      type :backport
+      resolves "https://github.com/JosephP91/curlcpp/pull/159"
     end
   end
 

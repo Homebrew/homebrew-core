@@ -33,6 +33,8 @@ class Grantlee < Formula
   patch do
     url "https://github.com/steveire/grantlee/commit/1efeb1cb61947e69b8c99ddbfc5b75cd27013a87.patch?full_index=1"
     sha256 "6c5fa321c5df2b970ec2873df610ec43dd2d50977cb0a104d0d7c4ecb90621c2"
+    type :unofficial
+    resolves "https://github.com/steveire/grantlee/pull/88"
   end
 
   def install

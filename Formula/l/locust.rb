@@ -3,17 +3,17 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/29/dc/b6c5c6f23af38e0951de45b0255da8def1959a7710e6bd56b71047e7a4a5/locust-2.44.3.tar.gz"
-  sha256 "bf3c82843dfebf684c968b5778b8132e9c1f1abd400d25a91c63ea65200b7f29"
+  url "https://files.pythonhosted.org/packages/bc/f7/dfdbc33ad48daaeb3046688df0a461749db730282cc6b3558b7495ac36d6/locust-2.46.3.tar.gz"
+  sha256 "b1d313db9df0a4036d4d905b1dc8585d020a7299239a1bb2e2885b71389253c0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "b2e2ca1dded434679f9a519994e0408da75996a8dff7706494843524e1f8dc05"
-    sha256 cellar: :any, arm64_sequoia: "fca1b680465a9a46d33dcc818da541bec16c7fda1afe0739c8c4693093c109ac"
-    sha256 cellar: :any, arm64_sonoma:  "ec76375a348e6d09494c4efba85e102627523aeeb499f8d7f6e02bd79d3a8f03"
-    sha256 cellar: :any, sonoma:        "ec3527e9b1e271a839b298e75783f38738aff63d59a2d28cd698e808814878a4"
-    sha256 cellar: :any, arm64_linux:   "924cf66f44ef318374362d17e1566f3145c7416ee856d31898a3e92120d7deea"
-    sha256 cellar: :any, x86_64_linux:  "ff3c8b336c75a5a65c31af9d10ff4068dc38838d0865bc867535508436794787"
+    sha256 cellar: :any, arm64_tahoe:   "df27c277a52ab376cdfa457c6aff2421e5b4159c927b4ca75b97ed4687456daa"
+    sha256 cellar: :any, arm64_sequoia: "f56fef6cc7b0b090da372c96737044c6268231d8c910adb9ab3cdc54cb3b142b"
+    sha256 cellar: :any, arm64_sonoma:  "23fd37698ee0394424b6ac4f02db6e7439d76c643d90252d6122a450299ee296"
+    sha256 cellar: :any, sonoma:        "e928161fab02b44fa56a4b416515b32f06be8e005e90b6c5f92ae4fb921af8d4"
+    sha256 cellar: :any, arm64_linux:   "bf31182ef6829de7e3f77a1b8f91935280cc62ff3e2efa5c0dc4cba7f3cf8129"
+    sha256 cellar: :any, x86_64_linux:  "01a0bd3d75fbe820a98f1763602cd8277e5d339f38e2c5b078b9d56e7acddaf8"
   end
 
   depends_on "cmake" => :build # for pyzmq
@@ -40,13 +40,13 @@ class Locust < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "configargparse" do
@@ -70,8 +70,8 @@ class Locust < Formula
   end
 
   resource "gevent" do
-    url "https://files.pythonhosted.org/packages/9e/48/b3ef2673ffb940f980966694e40d6d32560f3ffa284ecaeb5ea3a90a6d3f/gevent-25.9.1.tar.gz"
-    sha256 "adf9cd552de44a4e6754c51ff2e78d9193b7fa6eab123db9578a210e657235dd"
+    url "https://files.pythonhosted.org/packages/9f/5c/92002455a57cb3634383e2b822e3bccf409f43cde34528e46428971475cf/gevent-26.7.0.tar.gz"
+    sha256 "5b333a556e38a302b1b8c80525bef16d437e16f1e7767947789406841856a102"
   end
 
   resource "geventhttpclient" do
@@ -80,8 +80,8 @@ class Locust < Formula
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/6d/6e/802acd792aebb2256fbbee8cacf2727faaeb6f240ac11008f09eae4414bc/greenlet-3.5.1.tar.gz"
-    sha256 "5a56aeb7d5d9cc4b3a735efb5095bd4b4f6f0e4f93e5ca876d0e2315137b7829"
+    url "https://files.pythonhosted.org/packages/a3/74/b13368064b09053253555d3f2839cc2684d22d5aed0d2ccffbf7a6736558/greenlet-3.5.4.tar.gz"
+    sha256 "0232ae1de90a8e07867bb127d7a6ba2301e859145489f25cda8a6096dabe1d20"
   end
 
   resource "h11" do
@@ -115,8 +115,8 @@ class Locust < Formula
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/92/23/6139781ca7aadf656fa8e384fa84693ffb13f299e6931b6526427fe5e297/msgpack-1.2.0.tar.gz"
-    sha256 "8e17af38197bf58e7e819041678f6178f4491493f5b8c8580414f40f7c2c3c41"
+    url "https://files.pythonhosted.org/packages/31/f9/c0a1c127f9049db9155afc316952ea571720dd01833ff5e4d7e8e6352dbb/msgpack-1.2.1.tar.gz"
+    sha256 "04c721c2c7448767e9e3f2520a475663d8ee0f09c31890f6d2bd70fd636a9647"
   end
 
   resource "packaging" do
@@ -140,18 +140,18 @@ class Locust < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/7d/0d/549bd94f1a0a402dc8cf64563a117c0f3765662e2e668477624baeec44d5/pytest-9.0.3.tar.gz"
-    sha256 "b86ada508af81d19edeb213c681b1d48246c1a91d304c6c81a427674c17eb91c"
+    url "https://files.pythonhosted.org/packages/e4/47/b9efed96c114afcfa3c9d3fe98a76a1d14c74a9e266d397cf6eb64be5e01/pytest-9.1.1.tar.gz"
+    sha256 "1088fbde8f2b49d95a549a195707afa7a76a3ce9bcadc26b6d71f0ffda5fe313"
   end
 
   resource "python-engineio" do
-    url "https://files.pythonhosted.org/packages/fa/6d/4384c2723adad93a3d6de4297e6d9c8b93be7f778a407f34f6ee0b2bea3e/python_engineio-4.13.2.tar.gz"
-    sha256 "a7732e99cfb7db6ed1aee31f18d7f73bbae086a92f31dee019bc646155d9684e"
+    url "https://files.pythonhosted.org/packages/cf/56/10a529f5396df653181f747997f970dba31f8f2eac3b9a88c1f9d7bb25c3/python_engineio-4.13.4.tar.gz"
+    sha256 "413cb98d56c62f0f5ef29931592a360d437b82b3fa7ab415da3f6c7d3ebc0cb7"
   end
 
   resource "python-socketio" do
-    url "https://files.pythonhosted.org/packages/07/dd/6fd4112b941f7d39b8171b6ba17902609bd8fa2059c3812a3c29dade13e7/python_socketio-5.16.2.tar.gz"
-    sha256 "ad88c228d921646efa436c0a0df217e364ef30ec072df4041484e54d49c15989"
+    url "https://files.pythonhosted.org/packages/32/2d/ffce71017c106b75099fea569df6518c63fee5d6202ce0cfe7b01e6f22c3/python_socketio-5.16.3.tar.gz"
+    sha256 "89b136f677ae65607a84cecda9b4d6c5377b40a97582c504c25df89af16d520e"
   end
 
   resource "pyzmq" do

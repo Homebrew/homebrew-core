@@ -6,7 +6,7 @@ class Fceux < Formula
     "LGPL-2.1-or-later", # src/drivers/common/{hq2x.cpp,nes_ntsc*}
     "MIT", # src/emufile*, src/drivers/Qt/TasEditor/, src/lua/
   ]
-  revision 10
+  revision 12
   head "https://github.com/TASEmulators/fceux.git", branch: "master"
 
   stable do
@@ -16,18 +16,24 @@ class Fceux < Formula
 
     # patch for `New timeStamp.cpp file renders fceux x86-only` issue
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/fceux/2.6.6-arm.patch"
-      sha256 "0890494f4b5db5fa11b94e418d505cea87dc9b9f55cdc6c97e9b5699aeada4ac"
+      file "Patches/fceux/2.6.6-arm.patch"
+    end
+
+    # Fix builds with FFmpeg 9.
+    patch do
+      file "Patches/fceux/2.6.6-ffmpeg9.patch"
+      type :unofficial
+      resolves "https://github.com/TASEmulators/fceux/pull/850"
     end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "eda75ca31699038d2701df7112e28a64c5576885cf5a7071360dc941a491eaf1"
-    sha256 cellar: :any,                 arm64_sequoia: "93fdf378700e89e4b70cba656619c560afcab371b387d5432f5f384347561eca"
-    sha256 cellar: :any,                 arm64_sonoma:  "51e19e49e7678e85f05ed847d8ece770120abb775d522557ff4e98cfea3cedf1"
-    sha256                               sonoma:        "6d3e851b8a1bfea64f473e05562347575e0a0a0b7dc601085e5549e0cbf9efe3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "671d185e43e348cf7e2b1a72ddd80fa6a08a477dd62f9f22a217492d4a8a50da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79ae76477708e3f7b73e7065f16fd99470770f13bf5e98abfe3b3e02571b1665"
+    sha256 cellar: :any, arm64_tahoe:   "09ce9e2a81d5d7600c1921921d3e402f50c809855b411669c91613b0a8978bef"
+    sha256 cellar: :any, arm64_sequoia: "4741d14865c94f98a5f461304b7e73c725c36aae675c6345b8b36636f12100e8"
+    sha256 cellar: :any, arm64_sonoma:  "b8fae46121fd239d11c29ede067bd8747b2df42c832561d1e71b766c70cd58e2"
+    sha256               sonoma:        "8fe999ab9e68257e6cfb9c49bd98063f712361c4d15df40e2f907dfe1c045b21"
+    sha256 cellar: :any, arm64_linux:   "975c645737c4eab968780d8a9f499ade39d8080dcb4c461c55df98f46f5005b8"
+    sha256 cellar: :any, x86_64_linux:  "fc93c9a70f6d5e50ca69fa68d7513a156360eb2b6e4990c96bcc48115c525647"
   end
 
   depends_on "cmake" => :build
@@ -37,7 +43,7 @@ class Fceux < Formula
   depends_on "libarchive"
   depends_on "minizip"
   depends_on "qtbase"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "x264"
   depends_on "x265"
 
@@ -50,7 +56,7 @@ class Fceux < Formula
   def install
     # Workaround until upstream handles newer minizip 1.3.2 cflags after
     # https://github.com/madler/zlib/commit/7e6f0784cc0c33e8d5fcb368248168c6656f73c8
-    ENV.append_to_cflags "-I#{Formula["minizip"].opt_include}/minizip"
+    ENV.append_to_cflags "-I#{formula_opt_include("minizip")}/minizip"
 
     args = ["-DQT6=ON"]
     args << "-DPUBLIC_RELEASE=1" if build.stable?

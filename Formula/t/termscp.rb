@@ -5,15 +5,16 @@ class Termscp < Formula
   url "https://github.com/veeso/termscp/archive/refs/tags/v1.1.1.tar.gz"
   sha256 "cf3570c396ba36987059729f2704a88b87e4f154914062cf390b038694496be9"
   license "MIT"
+  revision 1
   head "https://github.com/veeso/termscp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "260c1a10e6efb3f42a0c8bb9783d3907ab5cd0b4342631df529e7c7f95be26c3"
-    sha256 cellar: :any, arm64_sequoia: "18dbf7f1aa832ff2b6e180b012a974b35b651e1e45296c0389f5589166472c90"
-    sha256 cellar: :any, arm64_sonoma:  "995f6d04555e31833c0507facf44510420f1d69a6a2e4e7604a4dfcdcbbb41b1"
-    sha256 cellar: :any, sonoma:        "b9fe3904a4b6908bd27b5bdf286c1ae33df88add543eebd96a9f27406a2b6993"
-    sha256 cellar: :any, arm64_linux:   "70cdd12281289e34fa3ed16bcfc0663799e765d1d08d6a412f98af1e38564ecd"
-    sha256 cellar: :any, x86_64_linux:  "6edd3f383487972e4baed9e317f8b49ce307225f70b59f0749185cdca3190e53"
+    sha256 cellar: :any, arm64_tahoe:   "a1aa00689511a407bb92aededa05ccc8342a2b668b73c1bc2fb1405c4ae78719"
+    sha256 cellar: :any, arm64_sequoia: "371b69fcb547e4e5840ce74d631b9fcb530f9886db59a5ef310ced4ba9356a7d"
+    sha256 cellar: :any, arm64_sonoma:  "f54a5b9bae4d01919976d807edd02105ee39a48e49ece8a249e84ae85ef1e647"
+    sha256 cellar: :any, sonoma:        "3e1e60e1f3569e7ddfa67984c2a6a880769a330ed40eb1c7b6fcd65e35533155"
+    sha256 cellar: :any, arm64_linux:   "978de2068124bac2aacf04c4cb34707e9f3508771b1b3da34ec63254804d683a"
+    sha256 cellar: :any, x86_64_linux:  "7bb91b296943f71c73036f4184583688b4b9237f89d7781cef8c302b0fc5256f"
   end
 
   depends_on "pkgconf" => :build
@@ -28,7 +29,7 @@ class Termscp < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
     system "cargo", "install", *std_cargo_args
   end

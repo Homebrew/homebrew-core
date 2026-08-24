@@ -33,13 +33,13 @@ class Ipopt < Formula
     patch do
       # MUMPS does not provide a Makefile.inc customized for macOS.
       on_macos do
-        url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/ipopt/mumps-makefile-inc-generic-seq.patch"
-        sha256 "0c570ee41299073ec2232ad089d8ee10a2010e6dfc9edc28f66912dae6999d75"
+        file "Patches/ipopt/mumps-makefile-inc-generic-seq.patch"
       end
 
       on_linux do
         url "https://gist.githubusercontent.com/dawidd6/09f831daf608eb6e07cc80286b483030/raw/b5ab689dea5772e9b6a8b6d88676e8d76224c0cc/mumps-homebrew-linux.patch"
         sha256 "13125be766a22aec395166bf015973f5e4d82cd3329c87895646f0aefda9e78e"
+        type :unofficial
       end
     end
   end
@@ -70,11 +70,11 @@ class Ipopt < Formula
     args = [
       "--disable-silent-rules",
       "--enable-shared",
-      "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
+      "--with-blas=-L#{formula_opt_lib("openblas")} -lopenblas",
       "--with-mumps-cflags=-I#{buildpath}/mumps_include",
       "--with-mumps-lflags=-L#{lib} -ldmumps -lmpiseq -lmumps_common -lopenblas -lpord",
-      "--with-asl-cflags=-I#{Formula["ampl-asl"].opt_include}/asl",
-      "--with-asl-lflags=-L#{Formula["ampl-asl"].opt_lib} -lasl",
+      "--with-asl-cflags=-I#{formula_opt_include("ampl-asl")}/asl",
+      "--with-asl-lflags=-L#{formula_opt_lib("ampl-asl")} -lasl",
     ]
 
     system "./configure", *args, *std_configure_args

@@ -1,17 +1,17 @@
 class OhMyAgent < Formula
   desc "Portable multi-agent harness for .agents-based skills and workflows"
   homepage "https://firstfluke.com/oh-my-agent/"
-  url "https://registry.npmjs.org/oh-my-agent/-/oh-my-agent-9.9.0.tgz"
-  sha256 "bfa9006edcf0c52c19c3dd1a1fbcfa303ec4508655f55a2965735c1e8f5f465f"
+  url "https://registry.npmjs.org/oh-my-agent/-/oh-my-agent-12.7.0.tgz"
+  sha256 "7197a6b1d98c9f4d98c3b9c6f0c329d96e85d612cc1e35a8d8232735723098a0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "82408df97ab29acdcea60e632a880805b9c33a4ec909802f3e15fd0e169c058a"
-    sha256 cellar: :any, arm64_sequoia: "ccd98a652e277877823861affd2f2d2175bfa102f15183184b225e4ac2a8fc1f"
-    sha256 cellar: :any, arm64_sonoma:  "ccd98a652e277877823861affd2f2d2175bfa102f15183184b225e4ac2a8fc1f"
-    sha256 cellar: :any, sonoma:        "d4ed1279c40e5200802edde5b3011efa731c9b3cc29be52740bd6e38015fe68d"
-    sha256 cellar: :any, arm64_linux:   "d571ca211347bacb1695235f2abfb6984260aacdc74c236db1d5700fc389f944"
-    sha256 cellar: :any, x86_64_linux:  "4e38ae6901f9e7d95d317f6973f99d17c36266f7d18d30fbc51888573c442f7c"
+    sha256 cellar: :any, arm64_tahoe:   "477b55e20d9da2e552b7f1ea690e8b2cd12cdc1f1356d888ab69aa160395349b"
+    sha256 cellar: :any, arm64_sequoia: "68425988691e6901acf18eb6910241a3d323b7dabb6930132f4a15e7cd86e446"
+    sha256 cellar: :any, arm64_sonoma:  "e4394fbc3c696f592a041c7eb0845a6c610d18622d56c7d065802ca6cabb558e"
+    sha256 cellar: :any, sonoma:        "044dee6ae265611415c4e91ccd92005fe404c24ac4a3335bc85aee8d7ff2ec29"
+    sha256 cellar: :any, arm64_linux:   "802ae9df9fa5f928d7e5ee1a5583f9beaeed2afbf162eb1feeba8eeda72e255e"
+    sha256 cellar: :any, x86_64_linux:  "1bb57d6d65af69320ea76c70fa22808bff5844541bf7137edbd3313b0cd74c08"
   end
 
   depends_on "node"
@@ -20,11 +20,14 @@ class OhMyAgent < Formula
     system "npm", "install", *std_npm_args
 
     node_modules = libexec/"lib/node_modules/oh-my-agent/node_modules"
-    # Remove incompatible pre-built `bare-fs`/`bare-os`/`bare-url` binaries
+    # Remove incompatible pre-built `bare-fs`/`bare-os`/`bare-path`/`bare-url` binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    node_modules.glob("{bare-fs,bare-os,bare-url}/prebuilds/*")
+    node_modules.glob("{bare-fs,bare-os,bare-path,bare-url}/prebuilds/*")
                 .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
+
+    rm_r(node_modules.glob("better-sqlite3/prebuilds/*"))
+    cd(node_modules/"better-sqlite3") { system "npm", "run", "build-release" }
 
     bin.install_symlink Dir[libexec/"bin/*"]
   end
@@ -34,7 +37,7 @@ class OhMyAgent < Formula
 
     output = JSON.parse(shell_output("#{bin}/oh-my-agent memory:init --json"))
     assert_empty output["updated"]
-    assert_path_exists testpath/".serena/memories/orchestrator-session.md"
-    assert_path_exists testpath/".serena/memories/task-board.md"
+    assert_path_exists testpath/".agents/state/memories/orchestrator-session.md"
+    assert_path_exists testpath/".agents/state/memories/task-board.md"
   end
 end

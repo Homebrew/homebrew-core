@@ -3,18 +3,18 @@ class Scdl < Formula
 
   desc "Command-line tool to download music from SoundCloud"
   homepage "https://github.com/scdl-org/scdl"
-  url "https://files.pythonhosted.org/packages/2d/99/7b7d8e7f287dfe968e28c34811db7002a65b07bb49fee7072098b5c82008/scdl-3.0.6.tar.gz"
-  sha256 "900bcad4aa9f54ae9ac505d3901b5c33173b3872cf60d7c8cb2da7fbdecb841e"
+  url "https://files.pythonhosted.org/packages/bb/c9/e15c273fa32c58dcc6b46fe18fd9ced7bec268c92cc2e62bf6eb8eb508ac/scdl-3.0.8.tar.gz"
+  sha256 "75384808dfd017bf4b7a6363eb6d605fd116e125ceb3f86a3c72e1d0d18bc62f"
   license "GPL-2.0-only"
   head "https://github.com/scdl-org/scdl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8945269a1e2a4945cf0591bd47177d5a42ad11086847dc931d9507aa987a020d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9405afe9afe3a04096715c9c3a1560ebf1ebe74d132e4fd345d67949a3f0a6b1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c47fe6103d6dbf70a45330e1de543beaa261505cd458a919848d90aae49c05f7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d976045d49abc0a2cb20fc4a29e7bdf66b2ba35ab6aecfb3fe6afb486d5fc03b"
-    sha256 cellar: :any,                 arm64_linux:   "e533f109f48a5eac51a9be2c005f6486c67e7f5f5d17e4c48965be59b62f71bc"
-    sha256 cellar: :any,                 x86_64_linux:  "8db6d40cd16e250d111e8d2aef3b7529c1b56e49a06a059b64e09cfc7afa8cc7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c4a3860381ed36b96d658f199a451fdb4136e1c7dfe237b1ccb21ce3474769de"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "25898cbf916c920405c7c238b37fd8ee5bcfd075fa56821ee28d5faa92c12be8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6c3fadd0f18db7addf267d6c4e1cf9b245bd528e7aee4336fc5b2d36af0971b6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b025e73968a52d5d1d8f0f271088e93f1cf8de98cca8d2215543ee6bf8db6520"
+    sha256 cellar: :any,                 arm64_linux:   "e15730a2076d5502a4474e46cc99dcd8700509e445163ab654e50f0dd6f923a6"
+    sha256 cellar: :any,                 x86_64_linux:  "27c5cbe3a5166e365eaed80d923d53fb3dad49a32c8660ab3cd4ca1a0ad3f633"
   end
 
   depends_on "certifi" => :no_linkage
@@ -50,13 +50,13 @@ class Scdl < Formula
   end
 
   resource "mutagen" do
-    url "https://files.pythonhosted.org/packages/81/e6/64bc71b74eef4b68e61eb921dcf72dabd9e4ec4af1e11891bbd312ccbb77/mutagen-1.47.0.tar.gz"
-    sha256 "719fadef0a978c31b4cf3c956261b3c58b6948b32023078a2117b1de09f0fc99"
+    url "https://files.pythonhosted.org/packages/df/70/1675da133ea92227da41bf5b24e1c66be597ff736a1533ade41da986852f/mutagen-1.48.1.tar.gz"
+    sha256 "8f95637ab9f6f305cec6bd1294e197debe207998e3e068596563c74f86b0a173"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "python-dateutil" do
@@ -80,8 +80,8 @@ class Scdl < Formula
   end
 
   resource "yt-dlp" do
-    url "https://files.pythonhosted.org/packages/88/a4/1b0979d28f87774bb67fbbc66bce44f9dd1aa0e547a99e22985fac945c33/yt_dlp-2026.6.9.tar.gz"
-    sha256 "d50fcb95f48d61bedde33e408c1881d4c279e51c31354a599ce09e96ba0f4b86"
+    url "https://files.pythonhosted.org/packages/1e/e0/832fa4ca334b766a06933a196066edc3dba37cdb6f14cd98d59bcc69a4b4/yt_dlp-2026.8.19.tar.gz"
+    sha256 "9e213e48cea35c66b378e4447903f118f6392a5fa380a2b6d7070ec86f4e0af1"
   end
 
   def install

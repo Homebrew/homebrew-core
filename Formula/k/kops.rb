@@ -1,8 +1,8 @@
 class Kops < Formula
   desc "Production Grade K8s Installation, Upgrades, and Management"
   homepage "https://kops.sigs.k8s.io/"
-  url "https://github.com/kubernetes/kops/archive/refs/tags/v1.35.1.tar.gz"
-  sha256 "deed90394c3955bca86a068bc52c38a71764e4502eee7ff21c335f01ac8a8a5d"
+  url "https://github.com/kubernetes/kops/archive/refs/tags/v1.36.2.tar.gz"
+  sha256 "1d6b92b045eae3bc7c9c49cd2a998bbcda239aaa3fc3cbca3bec63dfd749408e"
   license "Apache-2.0"
   head "https://github.com/kubernetes/kops.git", branch: "master"
 
@@ -12,19 +12,19 @@ class Kops < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d4cde6061a12b1b85661929028d28eda6840b81ac9f3b75acf731dd369537c1b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b28db349355b5ade7fcb0cac9c9968f6e1cade722827dd665106e7e77451f08"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba37495e3c27ad4df6b7970e0e61b8093354963057eefa4592daea04aa7993cf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "48c206af02843445227a2bb8753a7f4340bb3aa84458f97ff487e6c6efa363ec"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d981a3f90f9fd396fd969afbff881bf7d449bdb1a3c52c5c6088bddf5760491f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80ff10f3bd9df541929cb5a428e3b62d290bfb98e1d49906b3667683e5d81494"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5fd4945e3ea9125a5c00e9e9c5e9d9e74c793c5d193443a31b25c04f3e38638c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "79506564b9ca8dcb19709a83b5d3a628e7caf260f5d5c86be377e6b54e492ffa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "560659b0bca30058262b0de9be8e0c7093b8822c01d80794db42a3b7cc8c9a63"
+    sha256 cellar: :any_skip_relocation, sonoma:        "88c42e851da0024293a4af6f2ef3ed0f47d9228d43983c506a1200d8f267957d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "91a5c3878dcae16c39a63ec615d944fb1c5db3971b32aef1a86051a2a708ae6e"
+    sha256 cellar: :any,                 x86_64_linux:  "e1142c65dfd1c350fc1de56a676b18138b48096ad7eae04738109129b2a0aaf3"
   end
 
   depends_on "go" => :build
   depends_on "kubernetes-cli"
 
   def install
-    ldflags = "-s -w -X k8s.io/kops.Version=#{version}"
+    ldflags = "-X k8s.io/kops.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "k8s.io/kops/cmd/kops"
 
     generate_completions_from_executable(bin/"kops", shell_parameter_format: :cobra)

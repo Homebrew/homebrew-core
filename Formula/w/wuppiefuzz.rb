@@ -1,18 +1,18 @@
 class Wuppiefuzz < Formula
   desc "Coverage-guided REST API fuzzer developed on top of LibAFL"
   homepage "https://github.com/TNO-S3/WuppieFuzz"
-  url "https://github.com/TNO-S3/WuppieFuzz/releases/download/v1.5.1/source.tar.gz"
-  sha256 "36fc2fade7e3a3901540c751f0e29c456ecb434dd171960e32a2d338731c09c9"
+  url "https://github.com/TNO-S3/WuppieFuzz/releases/download/v1.6.0/source.tar.gz"
+  sha256 "f22bd5f0f1f922dfa1481e752689fe043e49f68bb1139fab195359b388e461f0"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "45600a8e3e8c3e4d5e0c7e73d585289dc11f2b49d83687ec840b807215b996fb"
-    sha256 cellar: :any, arm64_sequoia: "468c2d2e9c102846d9ceb3566947bf285754a277e389971e1745d0cb18bc2c60"
-    sha256 cellar: :any, arm64_sonoma:  "cd8b0d6dbd2b15fd1bd87737809f376c29e2628429e025b3d0718cf25652e07c"
-    sha256 cellar: :any, sonoma:        "a46d8fbb0f066ae740a129388a10dfd7864d4ffbfdccf3a18bb90352f26e4a30"
-    sha256 cellar: :any, arm64_linux:   "023b77dc6149ad6bdaee167066ef0175bea0a94fb840a99c1d3373592f91c306"
-    sha256 cellar: :any, x86_64_linux:  "13f49800bb6de3aa0ea596fbcb5383b32d7c61f59bf66533138bd307dc269ea2"
+    sha256 cellar: :any, arm64_tahoe:   "ecf9f532793558ed76c7602e8bc625eae1e1d0918afa24cf0d1715c528f07aca"
+    sha256 cellar: :any, arm64_sequoia: "41ad460d67a0e7618f64c8645cbf6693c22fdb9cc390543bbdd1bdb9de21aa74"
+    sha256 cellar: :any, arm64_sonoma:  "839f88a0d2f0629b9e0cc2b7b7910256595e9c75fe2da237fbc994923877b665"
+    sha256 cellar: :any, sonoma:        "298a9a2c84f2eaff5b821e9530e7366c07e43596d3afee70e8004227b5c0f132"
+    sha256 cellar: :any, arm64_linux:   "3d8a1873510193f44f9e4f44b5bb6ee8a383e9b5552a753158b8e4154df433e2"
+    sha256 cellar: :any, x86_64_linux:  "0958a40581dbb98d977a42323467d212184fbb134d19a266c16760a92591c5cd"
   end
 
   depends_on "cmake" => :build
@@ -28,8 +28,8 @@ class Wuppiefuzz < Formula
   end
 
   def install
-    ENV["Z3_LIBRARY_PATH_OVERRIDE"] = Formula["z3"].opt_lib
-    ENV["Z3_SYS_Z3_HEADER"] = Formula["z3"].opt_include/"z3.h"
+    ENV["Z3_LIBRARY_PATH_OVERRIDE"] = formula_opt_lib("z3")
+    ENV["Z3_SYS_Z3_HEADER"] = formula_opt_include("z3")/"z3.h"
     system "cargo", "install", "--no-default-features", *std_cargo_args(features: ["std"])
   end
 

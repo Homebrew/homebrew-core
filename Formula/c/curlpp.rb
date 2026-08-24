@@ -24,13 +24,11 @@ class Curlpp < Formula
   patch do
     # build patch for curl 8.10+
     on_linux do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/curlpp/curl-8.10.patch"
-      sha256 "77212f725bc4916432bff3cd6ecf009e6a24dcec31048a9311b02af8c9b7b338"
+      file "Patches/curlpp/curl-8.10.patch"
     end
   end
 
   def install
-    ENV.cxx11
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -62,7 +60,7 @@ class Curlpp < Formula
         return 0;
       }
     CPP
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-I#{include}",
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", "-I#{include}",
                     "-L#{lib}", "-lcurlpp", "-lcurl"
     system "./test"
   end

@@ -33,10 +33,11 @@ class Sdcv < Formula
   end
 
   # fix type mismatch and memory deallocation build errors
-  # upstream PR ref, https://github.com/Dushistov/sdcv/pull/103
   patch do
     url "https://github.com/Dushistov/sdcv/commit/c2bb4e3fe51f9b9940440ea81d5d97b56d5582e7.patch?full_index=1"
     sha256 "70c4c826c2dcd4c0aad5fa8f27b7e079f4461cfbbb380b4726aa4dfd8fb75a1c"
+    type :unofficial
+    resolves "https://github.com/Dushistov/sdcv/pull/103"
   end
 
   def install

@@ -32,7 +32,7 @@ class PariGaldata < Formula
 
   test do
     expected_output = "[16, -1, 8, \"2D_8(8)=[D(4)]2\"]"
-    output = pipe_output("#{Formula["pari"].opt_bin}/gp -q", "polgalois(x^8-2)").chomp
+    output = pipe_output("#{formula_opt_bin("pari")}/gp -q", "polgalois(x^8-2)").chomp
     assert_equal expected_output, output
   end
 end

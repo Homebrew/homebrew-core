@@ -2,11 +2,12 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.20.2.tar.gz"
-    sha256 "68b69b844bf3bf9990cb7befb06520fc477bb6c3f42de833c6b6a80dd5d0b17c"
+    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.21.0.tar.gz"
+    sha256 "5e2d69f565553aa7287e76570d4540a231bfdf1a37f3be179f497ef1df8a0d9a"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/refs/tags/v0.20.0.tar.gz"
@@ -20,12 +21,12 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8f89230146f8fd4ff20392a2ea44d825e05f080d5292d72a5b6ee9c0ec51150a"
-    sha256 cellar: :any,                 arm64_sequoia: "ffdd12fa768a2b28f896de52f76475c12c841df5244b013646bfc41fd646ecfa"
-    sha256 cellar: :any,                 arm64_sonoma:  "104f9f978fc9cc06a96225eaae4b4697d43045e06a14d71f5b5c3eafe0104ddf"
-    sha256 cellar: :any,                 sonoma:        "78ad9fc995abebd91be759661a3606a04eadebe9ad37a5b72a0b52de481d458c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b247cf6d9b60bfa9a6ddd6ff793207e20ff3995895862e6a420cf076029d8645"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22165537bc0e0e1a58a378a60ae0d0c3cf1546208a1c8a049d2ab047022b91cd"
+    sha256 cellar: :any, arm64_tahoe:   "008aa5f3949504e18a1100dd2ed4d5694ff4376177f3bc9d683754d25ef07d8f"
+    sha256 cellar: :any, arm64_sequoia: "d4738ecb0c7642b9d00d91ca665e7a8d8aaa43541b1e7aa7baf992c7d01f2b37"
+    sha256 cellar: :any, arm64_sonoma:  "1df3d451f7730becd6f19ed5ae8fcb70a18bc1f0a01e8c2a2df63926069ac913"
+    sha256 cellar: :any, sonoma:        "b94a518e6d97f00349300d579f0d98899ffd05a17bdfc90184e42c2a38dce79f"
+    sha256 cellar: :any, arm64_linux:   "85b9e9996abe59d4a87e1b16f08c879ec6cd9978d89d9c7149e3c5bf129ad50a"
+    sha256 cellar: :any, x86_64_linux:  "c10c75388df09b65da27a53d82094fbe3d13052c99bfb3dcfbeeba3b66b5e91e"
   end
 
   head do
@@ -36,10 +37,11 @@ class Crystal < Formula
     end
   end
 
+  depends_on "asciidoctor" => :build
   depends_on "bdw-gc"
   depends_on "gmp" => :no_linkage # std uses it but it's not linked
   depends_on "libyaml"
-  depends_on "llvm"
+  depends_on "llvm@22"
   depends_on "openssl@3" # std uses it but it's not linked
   depends_on "pcre2"
   depends_on "pkgconf" # @[Link] will use pkg-config if available
@@ -126,6 +128,7 @@ class Crystal < Formula
     (buildpath/".build").mkpath
     system "make", "deps"
     system "make", "crystal", *crystal_build_opts
+    system "make", "man/crystal.1"
 
     # Build shards (with recently built crystal)
     resource("shards").stage do

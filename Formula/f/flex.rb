@@ -10,8 +10,7 @@ class Flex < Formula
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+      file "Patches/libtool/configure-big_sur.diff"
     end
   end
 
@@ -57,7 +56,7 @@ class Flex < Formula
 
   def install
     if build.head?
-      ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
+      ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin"
 
       system "./autogen.sh"
     end

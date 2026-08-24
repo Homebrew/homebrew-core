@@ -23,7 +23,7 @@ class Inframap < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/cycloidio/inframap/cmd.Version=v#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X github.com/cycloidio/inframap/cmd.Version=v#{version}")
 
     generate_completions_from_executable(bin/"inframap", shell_parameter_format: :cobra)
   end

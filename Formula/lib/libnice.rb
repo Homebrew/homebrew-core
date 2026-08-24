@@ -5,7 +5,12 @@ class Libnice < Formula
   sha256 "618fc4e8de393b719b1641c1d8eec01826d4d39d15ade92679d221c7f5e4e70d"
   license any_of: ["LGPL-2.1-or-later", "MPL-1.1"]
   compatibility_version 1
-  head "https://github.com/libnice/libnice.git", branch: "master"
+  head "https://gitlab.freedesktop.org/libnice/libnice.git", branch: "master"
+
+  livecheck do
+    url "https://libnice.freedesktop.org/"
+    regex(/href=.*?libnice[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "aff56c13ea1c1b8a67106c35abd4b1e8cfb0c25a050b19a709e9b7dda05a21a6"
@@ -25,10 +30,6 @@ class Libnice < Formula
 
   on_macos do
     depends_on "gettext"
-  end
-
-  on_linux do
-    depends_on "intltool" => :build
   end
 
   def install

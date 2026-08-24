@@ -28,7 +28,7 @@ class Boxes < Formula
     # distro uses /usr/share/boxes change to prefix
     system "make", "GLOBALCONF=#{share}/boxes-config",
                    "CC=#{ENV.cc}",
-                   "YACC=#{Formula["bison"].opt_bin/"bison"}"
+                   "YACC=#{formula_opt_bin("bison")/"bison"}"
 
     bin.install "out/boxes"
     man1.install "doc/boxes.1"

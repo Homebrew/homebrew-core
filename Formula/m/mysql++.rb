@@ -49,7 +49,7 @@ class Mysqlxx < Formula
         return 0;
       }
     CPP
-    system ENV.cxx, "test.cpp", "-I#{Formula["mariadb-connector-c"].opt_include}/mariadb",
+    system ENV.cxx, "test.cpp", "-I#{formula_opt_include("mariadb-connector-c")}/mariadb",
                     "-L#{lib}", "-lmysqlpp", "-o", "test"
     system "./test", "-u", "foo", "-p", "bar"
   end

@@ -1,8 +1,8 @@
 class Mpop < Formula
   desc "POP3 client"
   homepage "https://marlam.de/mpop/"
-  url "https://marlam.de/mpop/releases/mpop-1.4.21.tar.xz"
-  sha256 "4ca0d1e0d01366fe3e0cf490d88d154df511278fb595638713be3ca675665855"
+  url "https://marlam.de/mpop/releases/mpop-1.4.23.tar.xz"
+  sha256 "02fc2ff44f62b8fbf427ed6d8b16e0d374751198254fb1e6ad36eb6d9a938017"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,22 +11,27 @@ class Mpop < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "2439a807bef10bd2cffcbb38c61134bb112a8800e7814b6da5e517772bd9b187"
-    sha256 arm64_sequoia: "150ff82a6b04b43d23e1bd2dd829aada62ce3ea5d9b3fed02b39576f4f63e54a"
-    sha256 arm64_sonoma:  "1153dc80d795fce29566e64d3ef7f2af6f87576253da13a43328713ba7251a06"
-    sha256 arm64_ventura: "2d583441a27b2a280df6638d0f84f3b13a36c3636a8dd688ec85ba452fccb0f4"
-    sha256 sonoma:        "1f53b046ff585b6881305ed39356cf3f17183634e0c36d2efe9368e4cf00c9a2"
-    sha256 ventura:       "1d439effaaa6da0bbc6ec4a4ecc99bda8ee74e7424f368f06de36a16a597da5f"
-    sha256 arm64_linux:   "b74c1df7321d6efde1abe975639b29caaf4bcb45e9e6b5198c407f689636792b"
-    sha256 x86_64_linux:  "2e1ee9de528062ddb2bbe3e5338e6b8856bfa295c5afd755d77574e3adc3e69d"
+    sha256 cellar: :any, arm64_tahoe:   "e6c27bfca49caf2fd741cec067bed4f15b3fcc5974b0a84ea608d89a3b7f32bb"
+    sha256 cellar: :any, arm64_sequoia: "7e068e36b842bd8fb000b54bf191d1b407fe66749a07bf9f92b8a7aa7cc3a7dd"
+    sha256 cellar: :any, arm64_sonoma:  "7440c5d35141cae1d92e437bf8bf9a60f05fbd9b9361eb92d5d8c7679a952b0b"
+    sha256 cellar: :any, sonoma:        "5e79be4e95de101a56ca22a345bfa86abfa60bc2f2e04d6dbf01d45b6bd6f4c2"
+    sha256               arm64_linux:   "43f048d0e7db1270d90445c58e8965da8f25dfff487678bc631709f619e55a13"
+    sha256               x86_64_linux:  "d4eb464313aaa8621da76138c97d8fcba126045be9fcf35929d608f85ad81113"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "gettext"
   depends_on "gnutls"
   depends_on "libidn2"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
+    # gnulib's base64.h (vendored in 1.4.22) uses `bool` without including
+    # <stdbool.h>, assuming C23. Force the include for pre-C23 compilers.
+    ENV.append "CFLAGS", "-include stdbool.h"
+
     system "./configure", *std_configure_args
     system "make", "install"
   end

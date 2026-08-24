@@ -1,10 +1,10 @@
 class Highs < Formula
   desc "Linear optimization software"
   homepage "https://www.maths.ed.ac.uk/hall/HiGHS/"
-  url "https://github.com/ERGO-Code/HiGHS/archive/refs/tags/v1.14.0.tar.gz"
-  sha256 "05931e8dd8c8cac514da8297003c31a206a0004d542b7da500810b85c87c20b9"
+  url "https://github.com/ERGO-Code/HiGHS/releases/download/v1.15.1/source-archive.tar.gz"
+  sha256 "30132da2b21899c62f07c4d6566325a3b869a7da4ce61d8b25f833b38e1562b1"
   license "MIT"
-  compatibility_version 3
+  compatibility_version 4
 
   # Upstream appears to use GitHub releases to indicate that a version is
   # released (and some tagged versions don't end up as a release), so it's
@@ -15,12 +15,12 @@ class Highs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5cef4f4d3548edb590d6bc8fdb2137131cc420c5def0b6a7a0569b951f399eb8"
-    sha256 cellar: :any,                 arm64_sequoia: "d26d1f6efe554d8fcefe6f88dbdb2e976dc9bf3e5f6fd3886ec9bc925a5cacbb"
-    sha256 cellar: :any,                 arm64_sonoma:  "4c6b8d197d4b6e20669a09bf7d7fdb0aa3c4ab288147b006a0f9840addf7b5fb"
-    sha256 cellar: :any,                 sonoma:        "98a9ace95fb8bef7337173bab209953c013b1a79dc8ef28e9b3cc156fb067e70"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "83217af7a3f47e9bfbb82a36fe7c87abad407c2b5a991d2945be13c93035baa5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "018bd3b27f5d43f0c80bc37bd9a0363d3a6e066970071bb7150ad519e3687b88"
+    sha256 cellar: :any, arm64_tahoe:   "d7065ab57341a0f87fc871af14ae92ac4c065fccf93062d1a74683de8d7ae78f"
+    sha256 cellar: :any, arm64_sequoia: "270b098a9d4531bf7231c83229d2a6349b973af0fca85f43a2ad01a2bf3b5586"
+    sha256 cellar: :any, arm64_sonoma:  "0a850956801830bada13e9ddaef57f9e8e83e07b35d426821b1e60e875bb243d"
+    sha256 cellar: :any, sonoma:        "a862c48545dbe8806790523b519b7d4ec62bdd598974e0f0d3591f546856f1f5"
+    sha256 cellar: :any, arm64_linux:   "ec6c40f034ea5c11f80e32ea0a80c7ed95f7ab786933155bb1a67e160fcdf358"
+    sha256 cellar: :any, x86_64_linux:  "0fca654e3d99718bf0308bfe08f5845c9771865af9d0448bf8e730bcae0d2935"
   end
 
   depends_on "cmake" => :build

@@ -1,13 +1,13 @@
 class Libevdev < Formula
   desc "Wrapper library for evdev devices"
   homepage "https://www.freedesktop.org/wiki/Software/libevdev/"
-  url "https://www.freedesktop.org/software/libevdev/libevdev-1.13.6.tar.xz"
-  sha256 "73f215eccbd8233f414737ac06bca2687e67c44b97d2d7576091aa9718551110"
+  url "https://www.freedesktop.org/software/libevdev/libevdev-1.13.7.tar.xz"
+  sha256 "0caf824971108f15bb2ad356433bae198d7d3bf1e82d43f63626e069e060bfa6"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "b1e035ed8ce1a581d5d9c317f04a158fc22a80ca48b8686971935424a3302311"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "70e3e3f2f3524ac16d9380aefe34e1f47d33a06a76a9f460d1bcfcd83df245f7"
+    sha256 cellar: :any, arm64_linux:  "341e16ad15b34c000d1c50d7ebbadf77ff4482ced4e55d8863032417dce60f03"
+    sha256 cellar: :any, x86_64_linux: "28468dd362b31343eff6116d5943cc7ef917763bb627bb6cab6bc93c5b5d7c95"
   end
 
   depends_on "pkgconf" => :build

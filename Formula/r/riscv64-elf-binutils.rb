@@ -1,9 +1,9 @@
 class Riscv64ElfBinutils < Formula
   desc "GNU Binutils for riscv64-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.46.1.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.46.1.tar.bz2"
-  sha256 "324ed40ada2633a28eaa5d104ca5db165fd3cc3162cc1d48a7b7fa9c932da439"
+  url "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.47.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.47.tar.bz2"
+  sha256 "3068128c75cda9f898ccb4211d360246e8e195ffcc9dfb655b23ae23a54800e8"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Riscv64ElfBinutils < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "5ee6eb0665bd0525d40efa737c185534b02f7deb5220d440ce4ae389da99ab3d"
-    sha256 arm64_sequoia: "332bd6874b5b3c9fc61460d41fa42468e337b2c62d02d0a94620e7f6729954be"
-    sha256 arm64_sonoma:  "9e6b722f7ebdd69d457400d86ff76db7c72d309c6faf242dceed716d6350bc43"
-    sha256 sonoma:        "24e863841187b9cec87418c3b4ced7f6dbeec65e4fa6aa1c9467534b04555a11"
-    sha256 arm64_linux:   "dac35ea1b255bd8e3f687242f161a6593af957ba07351c238df19b1f31c9ecad"
-    sha256 x86_64_linux:  "bed24bd67f83ada6f1cf0752ada65015bef3b28aefee16f169d8506393313e91"
+    sha256 arm64_tahoe:   "aea21c1219539fcea27983817f48cbcbb654b87c1c212504d61fb04725a08615"
+    sha256 arm64_sequoia: "acac25b80fedf3dd292f6e972e83451b12148fd436117837d52c34dbd9f58719"
+    sha256 arm64_sonoma:  "b4c630c7b6745af567e2418c87c514afcfce51b982249516bdc9d352ad87cbb5"
+    sha256 sonoma:        "9a2505a4fd66ada2606b91f436a9a5119ff069db53e24ac4fcca3447d2ae334f"
+    sha256 arm64_linux:   "27f39b4aff2e100825ac30353fc241a0091fee631f04d89e6e8aad9f691ff58b"
+    sha256 x86_64_linux:  "0f956bf769438213b7ea9bc36c79b7748eaebd76024b9f8f20f0e0c3e46d1572"
   end
 
   depends_on "pkgconf" => :build

@@ -26,7 +26,7 @@ class Gitql < Formula
   conflicts_with "gql", because: "both install `gitql` binaries"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   test do

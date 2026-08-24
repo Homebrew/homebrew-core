@@ -1,16 +1,11 @@
 class Yamcha < Formula
   desc "NLP text chunker using Support Vector Machines"
   homepage "http://chasen.org/~taku/software/yamcha/"
-  # Upstream is only available via HTTP, so we prefer Debian's HTTPS mirror
-  url "https://deb.debian.org/debian/pool/main/y/yamcha/yamcha_0.33.orig.tar.gz"
+  # Upstream is only available via HTTP, so we prefer pkgsrc's HTTPS mirror
+  url "https://cdn.netbsd.org/pub/pkgsrc/distfiles/yamcha-0.33.tar.gz"
   mirror "http://chasen.org/~taku/software/yamcha/src/yamcha-0.33.tar.gz"
   sha256 "413d4fc0a4c13895f5eb1468e15c9d2828151882f27aea4daf2399c876be27d5"
   license "LGPL-2.1-or-later"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?yamcha[._-]v?(\d+(?:\.\d+)+)\.t/im)
-  end
 
   bottle do
     rebuild 1
@@ -29,6 +24,10 @@ class Yamcha < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ce0b05c30bff796b1ed14c7732670d3fd9b96a20f3b48e1f4953b3e8c9d745c"
   end
 
+  # Last release on 2005-09-05
+  deprecate! date: "2026-07-11", because: :unmaintained
+  disable! date: "2026-10-11", because: :unmaintained
+
   depends_on "tinysvm"
 
   on_arm do
@@ -38,13 +37,11 @@ class Yamcha < Formula
 
   # Use Debian patch to fix error: no matching function for call to 'make_pair'
   patch do
-    url "https://sources.debian.org/data/main/y/yamcha/0.33-2/debian/patches/1011_fix_gcc7_compilation.patch"
-    sha256 "9edb656063290379f640ec772851ec3f559993bf469612a45d5a141277fe3d5b"
+    url "https://snapshot.debian.org/archive/debian-debug/20170926T092903Z/pool/main/y/yamcha/yamcha_0.33-2.debian.tar.xz"
+    sha256 "6a114584af8256504a195e4164308bdd462d1e8860b77951431b4ca7de3a21e8"
+    type :unofficial
+    apply "patches/1011_fix_gcc7_compilation.patch"
   end
-
-  # Fix build failure because of missing #include <cstring>/"stdlib.h" on Linux.
-  # Patch submitted to author by email.
-  patch :DATA
 
   def install
     if Hardware::CPU.arm?
@@ -53,7 +50,10 @@ class Yamcha < Formula
         cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
       end
     end
-    ENV.append "CPPFLAGS", "-std=c++03" if OS.linux?
+
+    # Work around failure because of missing #include <cstring>/<cstdlib> on Linux.
+    ENV.append "CXX", "-include cstring -include cstdlib" if OS.linux?
+
     system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
   end
@@ -94,29 +94,3 @@ class Yamcha < Formula
     end
   end
 end
-
-__END__
-diff --git a/libexec/mkdarts.cpp b/libexec/mkdarts.cpp
-index c012fec..b88bdff 100644
---- a/libexec/mkdarts.cpp
-+++ b/libexec/mkdarts.cpp
-@@ -23,6 +23,7 @@
-
- #include <cstdio>
- #include <cstring>
-+#include <cstdlib>
- #include <iostream>
- #include <fstream>
- #include <string>
-diff --git a/src/param.cpp b/src/param.cpp
-index bbf7761..053e3c8 100644
---- a/src/param.cpp
-+++ b/src/param.cpp
-@@ -26,6 +26,7 @@
- #include <cstdio>
- #include "param.h"
- #include "common.h"
-+#include "string.h"
-
- #ifdef HAVE_CONFIG_H
- #include "config.h"

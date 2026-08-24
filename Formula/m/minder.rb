@@ -1,27 +1,24 @@
 class Minder < Formula
   desc "CLI for interacting with Stacklok's Minder platform"
   homepage "https://mindersec.github.io/"
-  url "https://github.com/mindersec/minder/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "f00ee6ca3f9928d6c569f61b9862324a14261c9a36b3c78c28ba57c4134930df"
+  url "https://github.com/mindersec/minder/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "f44e49a639b742937a3b3841ef5d9ae9181858ef9f793608fb00bc95985e2d77"
   license "Apache-2.0"
   head "https://github.com/mindersec/minder.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "df2b7b2885900d397a14e765556a6aeb51c9f6f4a3ccc563a120727f0b36af9b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "df2b7b2885900d397a14e765556a6aeb51c9f6f4a3ccc563a120727f0b36af9b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df2b7b2885900d397a14e765556a6aeb51c9f6f4a3ccc563a120727f0b36af9b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "97b8fe2c47b3ec75565092743be6a95a8620a2bf89ab3b06ca8dffe8927ec621"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9aaa89da3a0114602f4ced8cccbb803fc0ddded0c75948c1031bbed2965c20af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee20fa72e861b3e2d6ab3d5be950ec08f924d335a81339b9f4807468d8932f5f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c7bf4422fc8e8f2b3623afa2e39a5197c3547b6a457d72ce7082aae7cd0b91c0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f7754c33bdff1378a6df59344cc2e22585552934c3290192b9e3042255cda1e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "84d1cd97ee7cc9895413feafcda0ae40e5dac528634c26b6d48b86b9d671fa45"
+    sha256 cellar: :any_skip_relocation, sonoma:        "001f526a83bd9410023daf401d7bf3e34101032f6403fb7e98abf4c8baa2910c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d1ddaad318f5367e832935e616cbd1c7ddc367848b11c16f61935dc39895c54"
+    sha256 cellar: :any,                 x86_64_linux:  "6f2e471d978f31f0f340b6551215de6e56e3aeedafaae5e08d059e9446a2f1c1"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/mindersec/minder/internal/constants.CLIVersion=#{version}
-    ]
+    ldflags = %W[-X github.com/mindersec/minder/internal/constants.CLIVersion=#{version}]
     system "go", "build", *std_go_args(ldflags:), "./cmd/cli"
 
     generate_completions_from_executable(bin/"minder", shell_parameter_format: :cobra)

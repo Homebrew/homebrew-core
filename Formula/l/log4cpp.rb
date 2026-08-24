@@ -24,7 +24,6 @@ class Log4cpp < Formula
   depends_on "libtool" => :build
 
   def install
-    ENV.cxx11
     args = []
     args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
 

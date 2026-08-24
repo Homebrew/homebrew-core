@@ -4,14 +4,15 @@ class Votca < Formula
   url "https://github.com/votca/votca/archive/refs/tags/v2026.tar.gz"
   sha256 "bf5827e93aecdfd040131ef8427f49efac4ea87d30882c2eb83fea16a054fbc8"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "48327d11d3107d70c65c5e1bd1dd2e1e5209d6179e8c0df0f623ec22e29ad1a1"
-    sha256 cellar: :any,                 arm64_sequoia: "2675954a5c9193d1cc46283914b8312ca4173edd4e34773cc14c3dd75ec9e2ad"
-    sha256 cellar: :any,                 arm64_sonoma:  "7de2373e697dc6c25eb3c04c8c6b877a4172a423ecc67f3106abaa44cda216bf"
-    sha256 cellar: :any,                 sonoma:        "53575de7b3f4627b382f0201874d3da6edc2f295a9151124c8b7553aa87ced39"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a7d9729f829ec9735fceffe634453a2eb822ff5e12f5638a76595fa30b71da07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "298b74dbe679bfbe6fcd723cff91d57588e1812abf73665b5b8379b0d3e0473c"
+    sha256 cellar: :any, arm64_tahoe:   "aeaa3a7b5afff53fc262120ebce590968af269592cc06454246116cd26fa7ae3"
+    sha256 cellar: :any, arm64_sequoia: "eb91e1a25d0e7f44909fc1c39aac058af977b231808ee52849dc7499394ec475"
+    sha256 cellar: :any, arm64_sonoma:  "40da070d2b8b28fcc36ac31f7725ec83e5cffef3d2da30730ecc8e17ae6bf018"
+    sha256 cellar: :any, sonoma:        "df56431fa544e44f964c51294f3a74b4dbc91aa743dd9b9bb7ecc98d0e5bb83a"
+    sha256 cellar: :any, arm64_linux:   "8151ecd3a29e92cd09bb1832b14c8ae818e5e0f39b9304343690bb127eff82ec"
+    sha256 cellar: :any, x86_64_linux:  "ef0dccb6dcee6ad8e7bf6cdd719cf671cbbd72a95e9a4ffbde483e9e6f7bb7d8"
   end
 
   depends_on "cmake" => :build

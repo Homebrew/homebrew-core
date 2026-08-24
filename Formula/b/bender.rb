@@ -1,18 +1,18 @@
 class Bender < Formula
   desc "Dependency management tool for hardware projects"
   homepage "https://github.com/pulp-platform/bender"
-  url "https://github.com/pulp-platform/bender/archive/refs/tags/v0.32.0.tar.gz"
-  sha256 "adfdf9b77802853a4153b4569cb596a89c493b5dab363f1388ed681c57f8208c"
+  url "https://github.com/pulp-platform/bender/archive/refs/tags/v0.32.1.tar.gz"
+  sha256 "0541a4b536588b05601e02b28e35a7506e04fa877dccd15d7d5d477b0f95ff3f"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/pulp-platform/bender.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2fb2ebd5db3927c9345576bd175e4c29080c075dc43cc8e03850189ace599155"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15e0307eb1682cbe7a83e2f2c0f28d948bd935769536f4f611e7c2b006c00134"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "460db10e51f3d328a264d65829eb2b01ebeadd0a67e44f680077d725cfb6960f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5ae303684e253f95fe70708e9a949a6f9e48fccaba247bbefe0c6ce6d278a724"
-    sha256 cellar: :any,                 arm64_linux:   "4cd1b71d8f8366574c2ccdb970927dc6cac54dcc3b47d41e87260eabce3ebac1"
-    sha256 cellar: :any,                 x86_64_linux:  "1ac164653ebd38857071078569d083d6ed835da4bb58e1427b9a28c732e7505e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4330a343a7070d8446296916c499c4115d3061c0355c0532f5cfa9e02f03c355"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "634d2f71374c3dcb5f56774f52acfefddbb675015423b04dbc6668b7ced45134"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f075187ea729b392f93019ea70389cb1af62ec4c1fdad564c2636eec03b18c05"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6fdc6e303dcad1a187a975957149f9a5c77b090fdf54bb92f3ae1b5509cdc227"
+    sha256 cellar: :any,                 arm64_linux:   "5698f75010f323a54810449a8ac2ec63d7b7f07686f0cf00bda249d9de05c1a5"
+    sha256 cellar: :any,                 x86_64_linux:  "2c9d63f07c4f3904552a0b23908555b8c848de0cde99c078c8fc16968d741d41"
   end
 
   depends_on "cmake" => :build # for `bender-slang` crate

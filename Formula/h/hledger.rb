@@ -15,17 +15,20 @@ class Hledger < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3418bbb9913aa3091ac52ec529dd841fb710165d79c142aa6f69c416ba186f5d"
-    sha256 cellar: :any,                 arm64_sequoia: "62dc5190d88662b6bb4b5c1f8215ba2278fe7997484bd0d47e694c4d4d1b25ca"
-    sha256 cellar: :any,                 arm64_sonoma:  "4382f3a7b41c3bcbb5cf62cb508f271008ea2e1aa6129d784de26cf67d42e2bf"
-    sha256 cellar: :any,                 sonoma:        "e87a9220f1832041012e310d8f5ca342c25721767d3b82a3fa629a6253e83830"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a4947e53576045a611dafdb8867fa59f93e4f67b576e6e4d34bdbd6d8828a27f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17ce67ab1b754b86b6c07671793094d6dc89ff9d01d62bba29e6c7560fa38834"
+    rebuild 2
+    sha256 cellar: :any, arm64_tahoe:   "92aa1ed3e0a80dae9261b988c4b6828d8a87b99b068be39a290e692f7525ed38"
+    sha256 cellar: :any, arm64_sequoia: "635f433df126a6367b128a65c48127cd3a6b346fb7ddb5b8bb06484f5f2278ad"
+    sha256 cellar: :any, arm64_sonoma:  "4056ff0483d2b05cd6997c1a21fb3b12e27e79ecc0c9acc624ddcef5033478ed"
+    sha256 cellar: :any, sonoma:        "07a24492b09eee41d831b76297d5ffee6450af23b73184d066036e960823885e"
+    sha256 cellar: :any, arm64_linux:   "6275cbd25abd4449722d1e6abc4bbe19769246e0753f9799b3e114495b6f8e5e"
+    sha256 cellar: :any, x86_64_linux:  "dc62de3a7c6c47e8076e0699e9248aee3f31c937de03378003b24b89ca97781a"
   end
 
   depends_on "ghc" => :build
   depends_on "haskell-stack" => :build
+  depends_on "pkgconf" => :build
   depends_on "gmp"
+  depends_on "libyaml"
 
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
@@ -35,10 +38,34 @@ class Hledger < Formula
   end
 
   def install
-    system "stack", "update"
-    system "stack", "install", "--system-ghc", "--no-install-ghc", "--skip-ghc-check", "--local-bin-path=#{bin}"
-    man1.install Dir["hledger*/*.1"]
-    info.install Dir["hledger*/*.info"]
+    args = %W[
+      --flag=libyaml:system-libyaml
+      --jobs=#{ENV.make_jobs}
+      --local-bin-path=#{bin}
+      --no-install-ghc
+      --skip-ghc-check
+      --system-ghc
+    ]
+    if OS.linux?
+      args << "--ghc-options=-pie"
+
+      # Using global configuration to apply options to all dependencies.
+      # -split-sections helps reduce installation size by over 50%.
+      Pathname("#{Dir.home}/.stack/config.yaml").write <<~YAML
+        ghc-options:
+          "$everything": -split-sections -fPIC -fexternal-dynamic-refs
+      YAML
+    end
+
+    # Let `stack` handle its own parallelization
+    ENV.deparallelize { system "stack", "install", *args }
+
+    # Strip binaries to reduce size by ~100MB (~25%) on macOS. This has no impact on Linux. Also done upstream:
+    # https://github.com/simonmichael/hledger/blob/hledger-1.52.1/.github/workflows/binaries-mac-arm64.yml#L156-L158
+    system "strip", *bin.children if OS.mac?
+
+    man1.install Utils::Gzip.compress(*Dir["hledger*/*.1"])
+    info.install Utils::Gzip.compress(*Dir["hledger*/*.info"])
     bash_completion.install "hledger/shell-completion/hledger-completion.bash" => "hledger"
   end
 

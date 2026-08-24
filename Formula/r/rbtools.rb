@@ -56,7 +56,8 @@ class Rbtools < Formula
     url "https://files.pythonhosted.org/packages/d3/76/ad0677d82b7c75deb4da63151d463a9f90e97f3817b83f4e3f74034eb384/pydiffx-1.1.tar.gz"
     sha256 "0986dbb0a87cbf79e244e2f1c0e2b696d8e86b3861ea2955757a61d38e139228"
 
-    # Workaround needing six pre-installed: https://github.com/beanbaginc/diffx/pull/2
+    # Workaround needing six pre-installed
+    # Backport of https://github.com/beanbaginc/diffx/commit/658bf85d0cf1a96671fc04fe3afb48b035f348a4
     patch :DATA
   end
 
@@ -91,20 +92,19 @@ class Rbtools < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_install_with_resources
 
     bash_completion.install "rbtools/commands/conf/completions/bash" => "rbt"
     zsh_completion.install "rbtools/commands/conf/completions/zsh" => "_rbt"
 
     # Remove tests to make :all bottle
-    rm_r libexec/Language::Python.site_packages("python3.14")/"rbtools/clients/tests"
+    rm_r venv.site_packages/"rbtools/clients/tests"
   end
 
   test do
     system "git", "init"
     system bin/"rbt", "setup-repo", "--server", "https://demo.reviewboard.org"
-    out = shell_output("#{bin}/rbt clear-cache")
-    assert_match "Cleared cache in", out
+    assert_match "Cleared cache in", shell_output("#{bin}/rbt clear-cache")
   end
 end
 

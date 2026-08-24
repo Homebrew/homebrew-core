@@ -4,7 +4,7 @@ class Securefs < Formula
   url "https://github.com/netheril96/securefs/archive/refs/tags/v2.0.0.tar.gz"
   sha256 "d7fac7adc70c09473173aeadee5b7041d7e63fbf392ef40bdd77888590bb12a2"
   license "MIT"
-  revision 8
+  revision 11
   head "https://github.com/netheril96/securefs.git", branch: "master"
 
   livecheck do
@@ -13,9 +13,12 @@ class Securefs < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "1ec72ee27d8120d2ada399eaf2e280e98d5ccc37591617309271cc011c1506fd"
-    sha256 x86_64_linux: "02f93f1afae558869fc140417212107d6259a8371b30595ca11cd83ba54d46ca"
+    sha256 arm64_linux:  "b5b05042aec54595b5545c3050eddd44ffdf303ac49e1a145a6336d725ecad70"
+    sha256 x86_64_linux: "8db7a45b6e3f6fbe5880131e433afc7e94f1a2137d8e18d27a0a66381dba4440"
   end
+
+  deprecate! date: "2026-06-21", because: "needs unmaintained `libfuse@2`"
+  disable! date: "2027-06-21", because: "needs unmaintained `libfuse@2`"
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build

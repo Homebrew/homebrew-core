@@ -40,7 +40,7 @@ class Shtools < Formula
                    "LIBPATH=#{HOMEBREW_PREFIX}/lib",
                    "LIBNAME=SHTOOLS",
                    "FFTW=-L #{HOMEBREW_PREFIX}/lib -lfftw3 -lm",
-                   "LAPACK=-L #{Formula["openblas"].opt_lib} -lopenblas",
+                   "LAPACK=-L #{formula_opt_lib("openblas")} -lopenblas",
                    "BLAS="
   end
 end

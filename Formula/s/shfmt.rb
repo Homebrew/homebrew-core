@@ -20,9 +20,8 @@ class Shfmt < Formula
 
   def install
     ENV["CGO_ENABLED"] = "0"
-    ldflags = "-s -w -extldflags=-static"
     inreplace "cmd/shfmt/main.go", "version = mod.Version", "version = \"#{version}\""
-    system "go", "build", *std_go_args(ldflags:), "./cmd/shfmt"
+    system "go", "build", *std_go_args(ldflags: "-extldflags=-static"), "./cmd/shfmt"
     man1.mkpath
     system "scdoc < ./cmd/shfmt/shfmt.1.scd > #{man1}/shfmt.1"
   end

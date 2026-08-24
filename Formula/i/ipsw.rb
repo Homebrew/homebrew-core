@@ -1,8 +1,8 @@
 class Ipsw < Formula
   desc "Research tool for iOS & macOS devices"
   homepage "https://blacktop.github.io/ipsw"
-  url "https://github.com/blacktop/ipsw/archive/refs/tags/v3.1.694.tar.gz"
-  sha256 "c00aaab3d96364e6b2c56a8367a2b0aeffdbaaf4e76266c214b8582d7dbd9d46"
+  url "https://github.com/blacktop/ipsw/archive/refs/tags/v3.1.711.tar.gz"
+  sha256 "a108e07453da2f8dfcb72664882330630549af8bbe109749859d7b4b5dca310a"
   license "MIT"
   head "https://github.com/blacktop/ipsw.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Ipsw < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a6b862b285d5db8b3e686276185b6ca0a4926f2fc71f504b9a78691c67f9a97c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bee635cf686b98555d82a1c366b0cce091c7acbc783f8adc90a2062ebe33536e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "63f392b3826743e0f23f194d6082933fb7d7d0aa766906d65c4433a30dd0eaf5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e14d6fbb134f9a5ba3018b4fd8c6dc9b32c085c52f49dd7a006afeb9dd8262ee"
-    sha256 cellar: :any,                 arm64_linux:   "e80399d1aa93d33f5868d1e78e334e7ea9fd5c084f393f2313480f467228ad23"
-    sha256 cellar: :any,                 x86_64_linux:  "bd32e3a34a5ad53ccbcb406a0b7f1186ca8c870c09080f3c24d8ae105da1eb72"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c30e172c5b138d1908cbc74a1e3610cbb8943cd4c7a1fe2789caff64c297bcb2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5fc48cb4f6effa5958e1bc8acb85859ca41fc4c15bb8f033d1b94eace094f561"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "165930c563a0818fa7c14848603c7c76f3b5a608a7488ed9d7adf7a3c3081a19"
+    sha256 cellar: :any_skip_relocation, sonoma:        "81dacb7a96a684f9ccd40cc272d13aa90f0e5e8e7ce6e085978d05c32260311b"
+    sha256 cellar: :any,                 arm64_linux:   "7165e129e0af824b1374fff96eff5d897298fff6cb235e180d33499d9f77154c"
+    sha256 cellar: :any,                 x86_64_linux:  "f096c3a5d19f6740912c172bcd373d0f26689addff82b1eaa1cd1205ff246a08"
   end
 
   depends_on "go" => :build
@@ -26,7 +26,6 @@ class Ipsw < Formula
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
 
     ldflags = %W[
-      -s -w
       -X github.com/blacktop/ipsw/cmd/ipsw/cmd.AppVersion=#{version}
       -X github.com/blacktop/ipsw/cmd/ipsw/cmd.AppBuildCommit=#{tap.user}
     ]

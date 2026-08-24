@@ -46,8 +46,17 @@ class LlvmAT17 < Formula
   # Fix arm64 misoptimisation in some cases.
   # https://github.com/Homebrew/homebrew-core/issues/158957
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/llvm/17.x-arm64-opt.patch"
-    sha256 "0e312207fd9474bd26f4a283ee23d94b334d3ec8732086d30bce95f7c8dc2201"
+    file "Patches/llvm/17.x-arm64-opt.patch"
+  end
+
+  # Backport commit for newer macOS CLT
+  patch do
+    on_tahoe :or_newer do
+      url "https://github.com/llvm/llvm-project/commit/a8016e296e6ec161897e7421c5efbc25a6aa3a9f.patch?full_index=1"
+      sha256 "17ef118c305a3fbe9b7143134f998351e92f6c7f24b62447abacbc0731c8b9b1"
+      type :backport
+      resolves "https://github.com/llvm/llvm-project/pull/194836"
+    end
   end
 
   def python3
@@ -112,7 +121,7 @@ class LlvmAT17 < Formula
     builtins_cmake_args = []
 
     if OS.mac?
-      macos_sdk = MacOS.sdk_path_if_needed
+      macos_sdk = MacOS.sdk_path
       args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
       args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
 
@@ -127,15 +136,15 @@ class LlvmAT17 < Formula
       clt_sdk_support_flags = %w[I WATCH TV].map { |os| "-DCOMPILER_RT_ENABLE_#{os}OS=OFF" }
       builtins_cmake_args += clt_sdk_support_flags
     else
-      args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_include}"
-      args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
+      args << "-DFFI_INCLUDE_DIR=#{formula_opt_include("libffi")}"
+      args << "-DFFI_LIBRARY_DIR=#{formula_opt_lib("libffi")}"
 
       # Disable `libxml2` which isn't very useful.
       args << "-DLLVM_ENABLE_LIBXML2=OFF"
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
       # Enable llvm gold plugin for LTO
-      args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}"
+      args << "-DLLVM_BINUTILS_INCDIR=#{formula_opt_include("binutils")}"
       # Parts of Polly fail to correctly build with PIC when being used for DSOs.
       args << "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"
       runtimes_cmake_args += %w[
@@ -278,8 +287,8 @@ class LlvmAT17 < Formula
 
     # These tests should ignore the usual SDK includes
     with_env(CPATH: nil) do
-      # Testing Command Line Tools
-      if OS.mac? && MacOS::CLT.installed?
+      # Testing Command Line Tools; skipped on CLT 26.4+ due to __builtin_clzg added in LLVM 19+
+      if OS.mac? && MacOS::CLT.installed? && MacOS::CLT.version < "26.4"
         toolchain_path = "/Library/Developer/CommandLineTools"
         cpp_base = (MacOS.version >= :big_sur) ? MacOS::CLT.sdk_path : toolchain_path
         system bin/"clang++", "-v",
@@ -294,8 +303,8 @@ class LlvmAT17 < Formula
         assert_equal "Hello World!", shell_output("./testCLT").chomp
       end
 
-      # Testing Xcode
-      if OS.mac? && MacOS::Xcode.installed?
+      # Testing Xcode; skipped on Xcode 26.4+ due to __builtin_clzg added in LLVM 19+
+      if OS.mac? && MacOS::Xcode.installed? && MacOS::Xcode.version < "26.4"
         cpp_base = (MacOS::Xcode.version >= "12.5") ? MacOS::Xcode.sdk_path : MacOS::Xcode.toolchain_path
         system bin/"clang++", "-v",
                "-isysroot", MacOS::Xcode.sdk_path,

@@ -28,7 +28,7 @@ class MenderCli < Formula
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
 
-    ldflags = "-s -w -X github.com/mendersoftware/mender-cli/cmd.Version=#{version}"
+    ldflags = "-X github.com/mendersoftware/mender-cli/cmd.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"mender-cli", shell_parameter_format: :cobra)

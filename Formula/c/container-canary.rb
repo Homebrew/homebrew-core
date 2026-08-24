@@ -21,7 +21,6 @@ class ContainerCanary < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/nvidia/container-canary/internal.Version=#{version}
       -X github.com/nvidia/container-canary/internal.Buildtime=#{time.iso8601}
       -X github.com/nvidia/container-canary/internal.Commit=#{tap.user}

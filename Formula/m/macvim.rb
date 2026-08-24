@@ -25,11 +25,11 @@ class Macvim < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "f518614c9ee190fb118daffe731cd3d863c72813b0edae39ce769f7127bfb477"
-    sha256 cellar: :any, arm64_sequoia: "2fe3d9e559e07493cd4242b8d1af7878b3a35634c6d7d7e685cda86ed0981280"
-    sha256 cellar: :any, arm64_sonoma:  "293c2d5e2396c0672b3909bb76a80f4928dedd0d33ccaa4361e79b431586f8f7"
-    sha256 cellar: :any, sonoma:        "16e427c43e2708455b2a9812aaba204c627d3275bb860b14f1615d448f7e53b5"
+    rebuild 2
+    sha256 cellar: :any, arm64_tahoe:   "2b2a3fe2ca28159e6e2e45d7b6b413962eb48b5af5bab525647dedab90424c1f"
+    sha256 cellar: :any, arm64_sequoia: "40dce5fd57b7807b619d470ba2b29174b9a1304b1ada74fde52c7cf6641203d3"
+    sha256 cellar: :any, arm64_sonoma:  "605d066f99fbaf8429d6fd8566c393e1d1ddc76cae9d34321095a5b7915c3b39"
+    sha256 cellar: :any, sonoma:        "9d4129483f68301a48fa2ecb2a2e5716807658dbeec5d2145416c3897b4425b6"
   end
 
   depends_on "gettext" => :build
@@ -61,7 +61,7 @@ class Macvim < Formula
                           "--with-local-dir=#{HOMEBREW_PREFIX}",
                           "--enable-cscope",
                           "--enable-luainterp",
-                          "--with-lua-prefix=#{Formula["lua"].opt_prefix}",
+                          "--with-lua-prefix=#{formula_opt_prefix("lua")}",
                           "--enable-luainterp",
                           "--enable-python3interp",
                           "--disable-sparkle",
@@ -78,16 +78,36 @@ class Macvim < Formula
     executables = %w[mvimdiff mview mvimex gvim gvimdiff gview gvimex]
     executables += %w[vi vim vimdiff view vimex]
     executables.each { |e| bin.install_symlink "mvim" => e }
+
+    # Reuse the upstream signing script and entitlements to re-sign the app
+    # after install. Homebrew's bottle relocation re-signs the nested `Vim`
+    # binary, which invalidates the bundle's code signature and breaks
+    # launching `vim` on Intel
+    # (https://github.com/Homebrew/homebrew-core/issues/296804).
+    pkgshare.install "src/MacVim/MacVim.entitlements"
+    libexec.install "src/MacVim/scripts/sign-developer-id"
+    chmod 0755, libexec/"sign-developer-id"
+  end
+
+  post_install_steps do
+    run "sign-developer-id",
+        args: ["--adhoc", "{{prefix}}/MacVim.app", "{{pkgshare}}/MacVim.entitlements"],
+        base: :libexec
   end
 
   test do
+    # The app bundle must keep a valid code signature after Homebrew
+    # relocates and re-signs nested binaries on install.
+    assert_match "valid on disk",
+                 shell_output("codesign --verify --deep --strict --verbose=2 #{prefix}/MacVim.app 2>&1")
+
     output = shell_output("#{bin}/mvim --version")
     assert_match "+ruby", output
     assert_match "+gettext", output
     assert_match "+sodium", output
 
     # Simple test to check if MacVim was linked to Homebrew's Python 3
-    py3_exec_prefix = shell_output("#{Formula["python@3.14"].opt_libexec}/bin/python-config --exec-prefix")
+    py3_exec_prefix = shell_output("#{formula_opt_libexec("python@3.14")}/bin/python-config --exec-prefix")
     assert_match py3_exec_prefix.chomp, output
     (testpath/"commands.vim").write <<~VIM
       :python3 import vim; vim.current.buffer[0] = 'hello python3'

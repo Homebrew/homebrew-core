@@ -1,8 +1,8 @@
 class Libdvdcss < Formula
   desc "Access DVDs as block devices without the decryption"
   homepage "https://www.videolan.org/developers/libdvdcss.html"
-  url "https://download.videolan.org/pub/videolan/libdvdcss/1.5.0/libdvdcss-1.5.0.tar.xz"
-  sha256 "529463e4d1befef82e5c6e470db7661a2db0343e092a2fb0d6c037cab8a5c399"
+  url "https://download.videolan.org/pub/videolan/libdvdcss/1.6.0/libdvdcss-1.6.0.tar.xz"
+  sha256 "7ea556c846b7bfc32d47b41cae56d1863a6b6d5f706bb162778d6f298490977c"
   license "GPL-2.0-or-later"
   head "https://code.videolan.org/videolan/libdvdcss.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Libdvdcss < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a5d4c6891b5f9fb44fe66d4ab1317be59dbf8aa9ceb33c6f05b5952547705d0b"
-    sha256 cellar: :any,                 arm64_sequoia: "1aebedeb3811f84a19a05160321eada6ca39130948428e4e0a8af6d2ca6f7c37"
-    sha256 cellar: :any,                 arm64_sonoma:  "c80a83c521635f153f1fc27bc1dfca7651d49c74bc76f449e325f058b898fa47"
-    sha256 cellar: :any,                 sonoma:        "5223d1869afb3e6d00535d49c83eb5c78eef6173fdd9d15c137d6452d9aa6516"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd4ba20cd9a543abf5e6fa9780d535c9ad4751b0ee39464cbb73c0c1f00d6877"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29d4fd7b31ac1726a8778e1c010f6cc0a16c2170263c4932f59b619ec728ca83"
+    sha256 cellar: :any, arm64_tahoe:   "bb4858cde27c4653a31994c596f158eb2c3d11bf72657bf2774e69f91a253835"
+    sha256 cellar: :any, arm64_sequoia: "d3753d4f5e4d4fb74e2129125bf1d5931a61e47ce199010ab55ffd8c27ab9958"
+    sha256 cellar: :any, arm64_sonoma:  "4560b04eac977d1690f7bffdfffdc16c5663e11934a843a6d9fba71cdba19bce"
+    sha256 cellar: :any, sonoma:        "5cc8e9f4b6fd724d386c09ff929de0ef5248c5aceb642bfcd0b5e2dea23c2634"
+    sha256 cellar: :any, arm64_linux:   "e1a61b023693faa0214fa081db8f9ccd19059025cc8a629440c428455afbdd1c"
+    sha256 cellar: :any, x86_64_linux:  "cb4086087962774bd1c9f95f4209447549e8f9ab1a19b1d38d10a1072902c99a"
   end
 
   depends_on "meson" => :build

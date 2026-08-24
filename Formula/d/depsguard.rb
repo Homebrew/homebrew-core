@@ -1,18 +1,18 @@
 class Depsguard < Formula
   desc "Harden package manager configs against supply chain attacks"
   homepage "https://depsguard.com"
-  url "https://github.com/arnica/depsguard/archive/refs/tags/v0.1.38.tar.gz"
-  sha256 "dcddbf0826245f33efa908a2d24b5c4c78bea587771a44a435a0f739d695587d"
+  url "https://github.com/arnica/depsguard/archive/refs/tags/v0.1.40.tar.gz"
+  sha256 "0db158f447f8ebf887466ae57f0d7bf6f02c8d647fa02235d3ebb5852a395193"
   license "MIT"
   head "https://github.com/arnica/depsguard.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b36f9fce889576d0e23f0c0c7cfdbfdaef5176361090b0dd297232abc500d65d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3342942fd269b00626a022365a4aba9b8a605a8a7d5a3b83ecfd02c83f3ee0c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7e7d4d50a4f982cce505a4bad2b02537e7c796c75eb357f34e7be11db64adc82"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2796da5257ee97e14b6df87b923f04b4472a8dacddd2f8ced3b36b05e46dbb9c"
-    sha256 cellar: :any,                 arm64_linux:   "32300323892a77749891db3112970ebd9f1537273a85940d84decab636bb4ac7"
-    sha256 cellar: :any,                 x86_64_linux:  "a76141692ac4d20029f4a237802367695a96cb12de9270cc13254cdd30272929"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2023a696971b4e33163ccbca50feff2db9d235fc1d7effacc4efc09491e79c0b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d084cd22f7a0609625f9a065c33c995178535368db8b9da54ec6531125fe5ceb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7eb9ac73052070de8922d6579d09eff01143121c002f39a0899341ebc646575d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "13bcd49a1df05abd1926ef62f3368613a6f51a566560534f07498783feb44a7b"
+    sha256 cellar: :any,                 arm64_linux:   "40d764c1061365f5d8ede87117ab63a22fdcb4c4b94913e5baddd91101586bf9"
+    sha256 cellar: :any,                 x86_64_linux:  "14681dc85f2cf4cdb02f7ae5b079eb186b9fd9fe46d3220d883389f7c3a5c623"
   end
 
   depends_on "rust" => :build

@@ -1,8 +1,8 @@
 class BareosClient < Formula
   desc "Client for Bareos (Backup Archiving REcovery Open Sourced)"
   homepage "https://www.bareos.com/"
-  url "https://github.com/bareos/bareos/archive/refs/tags/Release/25.0.3.tar.gz"
-  sha256 "3c4d942612dde94b0bc36a339049c90650c846837f1c035c96bb71cc7b40d9b2"
+  url "https://github.com/bareos/bareos/archive/refs/tags/Release/25.1.0.tar.gz"
+  sha256 "3e39bcdb17e1f4b51c7702b1bf6e55a9fae350cee52ede604d4c63f2ba0f4621"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -11,12 +11,12 @@ class BareosClient < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "aa4783a6060df41588447d5fdf4c3fceb089a1ed8be1aaf45dfecdba46c0452c"
-    sha256 arm64_sequoia: "ca3749cc0af8439520f15fd8c7655f3175ecb33cfaaa9ba982af6ec53302a1d8"
-    sha256 arm64_sonoma:  "d10af53f7033b3db03b05f0859a2dfb795d5922f9c859df7e1239c8cc6d77316"
-    sha256 sonoma:        "2018f586d097accce2cdb7c9848facb2d7524174694775b98c500f0013cb2a46"
-    sha256 arm64_linux:   "d44341dbecfc47a9b581f06d03f63b81d8cf6b73128ede5ff304b05405ed84ab"
-    sha256 x86_64_linux:  "47da9a0b939866c852556b1005aac5710edf0eae08c551b835410cbe9294d2f8"
+    sha256 arm64_tahoe:   "a503f0385b4a78789f11cee650abeb9cf29078340570bb01c8e4be0a546d0cf0"
+    sha256 arm64_sequoia: "d97c09b75db36e6517b0b8cb9761b9b5687096a0eac2dd37c21285f902a46fe0"
+    sha256 arm64_sonoma:  "79aa39d5e839e56d34dc7a12a01587da683157a1196b7d12bff164553f27e265"
+    sha256 sonoma:        "91a3242d1c3952645bce8f5340e3327a8255230ea44bb6d6e6baa8cd6b6394f6"
+    sha256 arm64_linux:   "634a7d06028f6cbb43339491c108189f053b412a4a8897eb28f59c0f991a55d5"
+    sha256 x86_64_linux:  "60767ca6d60dce4580518cff04737f297aecdb8fce146a8271f554d2b74490d6"
   end
 
   depends_on "cli11" => :build
@@ -76,13 +76,11 @@ class BareosClient < Formula
     system "cmake", "--install", "build"
   end
 
-  def post_install
-    (var/"lib/bareos").mkpath
-    # If no configuration files are present,
-    # deploy them (copy them and replace variables).
-    unless (etc/"bareos/bareos-fd.d").exist?
-      system lib/"bareos/scripts/bareos-config", "deploy_config", "bareos-fd"
-      system lib/"bareos/scripts/bareos-config", "deploy_config", "bconsole"
+  post_install_steps do
+    mkdir_p "lib/bareos", base: :var
+    unless_path_exists "{{etc}}/bareos/bareos-fd.d" do
+      run "bareos/scripts/bareos-config", args: ["deploy_config", "bareos-fd"], base: :lib
+      run "bareos/scripts/bareos-config", args: ["deploy_config", "bconsole"], base: :lib
     end
   end
 

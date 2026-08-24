@@ -27,15 +27,15 @@ class Mjpegtools < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    file "Patches/libtool/configure-big_sur.diff"
   end
 
   # Fixes: error: 'class Region2D<INDEX, SIZE>' has no member named 'DoesContainPoint'
-  # https://sourceforge.net/p/mjpeg/patches/63/
   patch do
     url "https://sourceforge.net/p/mjpeg/patches/63/attachment/gcc-15.patch"
     sha256 "0bdaf8f7e584183d770925563ce065c8773f1ea7f5327ed2d62be19c6187cd8c"
+    type :unofficial
+    resolves "https://sourceforge.net/p/mjpeg/patches/63/"
   end
 
   def install

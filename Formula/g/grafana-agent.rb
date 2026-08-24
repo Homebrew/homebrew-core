@@ -28,7 +28,6 @@ class GrafanaAgent < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/grafana/agent/internal/build.Branch=HEAD
       -X github.com/grafana/agent/internal/build.Version=v#{version}
       -X github.com/grafana/agent/internal/build.BuildUser=#{tap.user}

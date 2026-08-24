@@ -1,17 +1,17 @@
 class Miniflux < Formula
   desc "Minimalist and opinionated feed reader"
   homepage "https://miniflux.app"
-  url "https://github.com/miniflux/v2/archive/refs/tags/2.3.1.tar.gz"
-  sha256 "2cf82b224aba61dd8dddd60d7e850d3fdd06c1eaf4f1572aabb0818ec0a95ff2"
+  url "https://github.com/miniflux/v2/archive/refs/tags/2.3.3.tar.gz"
+  sha256 "68cd4f16d85faf2045c13990de605cc7b1e2550d7a1d88e3522d2893685b5847"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5414263ec3f4bf77de02a44ab99ec1c4b3f824751d3de9b0f687818bfb0e3b2b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cc2e7d08b424b0de6e9347859c85743362029974f99c283473e86465172642be"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9a935ffd0b1b451179a393456a17fdcf22d9ff6680aa398e3d6b0aa51dbf8980"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0dbe15c16dd32595bfc2306707c4997dd1af1745a0c51c93acb1ce4c95d2a8da"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4563bd95ea033f2ff4c06c9d7b8b639a4f3bde7e0360668e5dfaeb36edbd070c"
-    sha256 cellar: :any,                 x86_64_linux:  "0f1ab61c3f02b54b127b575954e8138547f3adfa718fe10cf1ac6fc2c770bcb4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "55ba97e4c1e63b303b8c0ee564d09a5cec19e50dc496f383c965df9f91f20d09"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6644bbd31fe23073166473f48a65b2d7ec9ca551a5aecafad8853a040fe1c696"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "71bf060d7fd89a9144422561765b34f7413b8d46bba06cc70f6be7c8e2ebd67b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1fe07016bea56ae7e183995da49e8b01d4e24aeeeda3bc3f05584b25a1ccdf0f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8e0cf7f18d0ad1414d6d33f1ec5db810655bb0726742dbc6cbb8bcb13b9d133"
+    sha256 cellar: :any,                 x86_64_linux:  "012c3d315c902ca94d0423001c80ab55be480777f64dc26a1b9a1370afa5ba7d"
   end
 
   depends_on "go" => :build
@@ -19,7 +19,6 @@ class Miniflux < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X miniflux.app/v2/internal/version.Version=#{version}
       -X miniflux.app/v2/internal/version.Commit=#{tap.user}
       -X miniflux.app/v2/internal/version.BuildDate=#{time.iso8601}
@@ -39,7 +38,7 @@ class Miniflux < Formula
     ENV["LC_ALL"] = "C"
 
     pg_port = free_port
-    pg_bin = Formula["postgresql@18"].opt_bin
+    pg_bin = formula_opt_bin("postgresql@18")
     pg_ctl = pg_bin/"pg_ctl"
 
     datadir = testpath/"postgres"

@@ -1,8 +1,8 @@
 class EcflowUi < Formula
   desc "User interface for client/server workflow package"
   homepage "https://ecflow.readthedocs.io"
-  url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.17.0-Source.tar.gz"
-  sha256 "01223d93cc31d976fd955c37a03d4a145cfd27a81db86b5b94878275e94e4ec5"
+  url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.18.0-Source.tar.gz"
+  sha256 "f01826a442671575a5079bc8c57abaf079317e5c14fe45bdc5acbfe24b8bc4b5"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class EcflowUi < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "3f80f7719f07c2f2c303755d4e68ba113c16ccd245cd1bd11681f2f86eb03741"
-    sha256 arm64_sequoia: "cd9853436214453d426ff2a10034c32847229c6cb375553d6904c7a42c251fbc"
-    sha256 arm64_sonoma:  "9c7c033ecea025b045f4b8ae852abd07d57308bed442958d033e1e06a2e51d40"
-    sha256 sonoma:        "c5cbbf0e0a77bc1d6865c3a778e41a1ac1eb5856523f75c29072c24c7a7da718"
-    sha256 arm64_linux:   "9b1e30e99481af09b0f327eaa421bfa4779fe8c3c6fbc1ae5f2bd118ca51d5bb"
-    sha256 x86_64_linux:  "985415aeac483e3f28bd9d77955ec1b1b4bc2f5c977ba104d536944847ae84f9"
+    sha256 arm64_tahoe:   "64c9033f5efa05ab6f3cc6c9dccec3cc670944a747393dae6217b210eaa0d04c"
+    sha256 arm64_sequoia: "0b1d540ad1eb7c833dddb5ebbf945685f58ecf9d1fb513432ec580333a226af1"
+    sha256 arm64_sonoma:  "4d4af797eee6d9726a90ca04cf655663fce35d3ee6d3412096f53d5077492c96"
+    sha256 sonoma:        "2da3f2096d626d793b508411e706c1ff421a11b51d35387dc4b9ed0481ca0526"
+    sha256 arm64_linux:   "a810150bd544ca297c68f0c5a0fbe1aec7b76e01dcadfb8415aa3e1295c1fcad"
+    sha256 x86_64_linux:  "4a3512391bc70e79eb24f185b60a1a52c983e70ebf34ec62e647937180910380"
   end
 
   depends_on "boost" => :build

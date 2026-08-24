@@ -19,7 +19,7 @@ class KubectlTree < Formula
   depends_on "kubernetes-cli"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/kubectl-tree"
+    system "go", "build", *std_go_args, "./cmd/kubectl-tree"
   end
 
   test do

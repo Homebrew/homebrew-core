@@ -1,8 +1,8 @@
 class Jaguar < Formula
   desc "Live reloading for your ESP32"
   homepage "https://toitlang.org/"
-  url "https://github.com/toitlang/jaguar/archive/refs/tags/v1.67.0.tar.gz"
-  sha256 "187630eaeb918ff7c9bdeff24c0910ae6e8fa30d795fe612473fee3245ea6671"
+  url "https://github.com/toitlang/jaguar/archive/refs/tags/v1.71.0.tar.gz"
+  sha256 "52830c096d0431fd7575999b108253cb9a2ce1e74a30b864f165a633b6494bbc"
   license "MIT"
   head "https://github.com/toitlang/jaguar.git", branch: "main"
 
@@ -12,19 +12,18 @@ class Jaguar < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9107392bd82abf48449bc7a86b467b914b3c09918806a298e8ebcf5cd6b01a27"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9107392bd82abf48449bc7a86b467b914b3c09918806a298e8ebcf5cd6b01a27"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9107392bd82abf48449bc7a86b467b914b3c09918806a298e8ebcf5cd6b01a27"
-    sha256 cellar: :any_skip_relocation, sonoma:        "425b534c33e7c2c23779dac264911610f2e9b0265d2bfcca50a039b42251d86c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0915cc59922009f85dda5c8ca03aedefd2491dd03861ca7f7d0464d132e68569"
-    sha256 cellar: :any,                 x86_64_linux:  "45fbec6a5222cbe5c810479dee0a633035cfa487842e96da2ae4dc01b035824f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "acd2a4afb712b1a837db32bd9b1d3cc07efe096f25c49cd427875756fbb68ca1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "acd2a4afb712b1a837db32bd9b1d3cc07efe096f25c49cd427875756fbb68ca1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "acd2a4afb712b1a837db32bd9b1d3cc07efe096f25c49cd427875756fbb68ca1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7070d9bf338218ea4a99dd71f81283faa36ae3f3bae0f6c2fbe3e644fc706d78"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eec098fb40645d567f3105d2a7ad82c60bb50aa3454df8c4c59e5263ddec1995"
+    sha256 cellar: :any,                 x86_64_linux:  "37ba96e3ede21dbc09d35ea299d351152f850900349d559929f668bb409bdd7a"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X main.buildDate=#{time.iso8601}
       -X main.buildMode=release
     ]

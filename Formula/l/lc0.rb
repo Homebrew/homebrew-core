@@ -38,7 +38,7 @@ class Lc0 < Formula
   end
 
   def install
-    ENV.append_to_cflags "-I#{Formula["eigen"].opt_include}/eigen3"
+    ENV.append_to_cflags "-I#{formula_opt_include("eigen")}/eigen3"
 
     args = ["-Dgtest=false", "-Dbindir=libexec"]
 
@@ -47,8 +47,8 @@ class Lc0 < Formula
       # Ref https://github.com/LeelaChessZero/lc0/issues/1814
       args << "-Dmetal=disabled" if MacOS.version <= :big_sur
     else
-      args << "-Dopenblas_include=#{Formula["openblas"].opt_include}"
-      args << "-Dopenblas_libdirs=#{Formula["openblas"].opt_lib}"
+      args << "-Dopenblas_include=#{formula_opt_include("openblas")}"
+      args << "-Dopenblas_libdirs=#{formula_opt_lib("openblas")}"
     end
 
     system "meson", "setup", "build", *args, *std_meson_args

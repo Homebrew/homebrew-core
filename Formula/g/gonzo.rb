@@ -1,18 +1,18 @@
 class Gonzo < Formula
   desc "Log analysis TUI"
   homepage "https://gonzo.controltheory.com/"
-  url "https://github.com/control-theory/gonzo/archive/refs/tags/v0.4.2.tar.gz"
-  sha256 "1b7509fcbc27b571cd52359799d3e7bddce020b5088304d3ff9c0911a65dd78e"
+  url "https://github.com/control-theory/gonzo/archive/refs/tags/v0.4.3.tar.gz"
+  sha256 "cc9b0c79238f39b18f05ac5076c286166984d55056e8583fd9964b6594f7409f"
   license "MIT"
   head "https://github.com/control-theory/gonzo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "00625613841aa03409338310aa165abb7095567306bde7ecdc84fb01a3398160"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "00625613841aa03409338310aa165abb7095567306bde7ecdc84fb01a3398160"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "00625613841aa03409338310aa165abb7095567306bde7ecdc84fb01a3398160"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a9dd414cf01c1034ec85d59b74cc45b9b2cdbd9248ca12b590d02c06c89dc46c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2c3110ebbac1c27777caebcbfbe112af5c615734ffec336d0d0842941c9ad5c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a357cfbecc49a951a197d3b3b0af874eacb91b55fe357ccc4e5f2c2ed1a5385"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2d6602046e138f09da26fa730ac9660480847da629d3fbd85bb6179f64b0deb8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2d6602046e138f09da26fa730ac9660480847da629d3fbd85bb6179f64b0deb8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d6602046e138f09da26fa730ac9660480847da629d3fbd85bb6179f64b0deb8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c4c4aab8a07b939305efa47bc763368bf8a3d43f5df116e0da6fd06cfe2f2e7e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b55d2938983e60a000098a29abf11eb79454823ce68bd682e9cc0c301992f30a"
+    sha256 cellar: :any,                 x86_64_linux:  "3dcda4692cf03c51c582043450024d31e083a0e352270a6633dc46e9880a1c80"
   end
 
   depends_on "go" => :build
@@ -23,7 +23,6 @@ class Gonzo < Formula
     system "make", "web-build"
 
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.commit=#{tap.user}
       -X main.buildTime=#{time.iso8601}

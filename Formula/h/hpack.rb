@@ -7,12 +7,13 @@ class Hpack < Formula
   head "https://github.com/sol/hpack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "cbeb93984ca220d9a0198fd017f3bf825a4e03939d52b2965f1eaac90047e060"
-    sha256 cellar: :any, arm64_sequoia: "548cfd994750ab91c7c4f6671f66b38f1e04b37c6e1e8107777cbe81047e046f"
-    sha256 cellar: :any, arm64_sonoma:  "c74bb0f485278329ee7ce5e7e384cb5f72b3499823ccc27664b2f4ca86a2e3fd"
-    sha256 cellar: :any, sonoma:        "cc1d838228b244f8fd919a5c6d33114081ec01db1cc2b4448ce68896e8495b7f"
-    sha256 cellar: :any, arm64_linux:   "e0ce950252b70b59e9a1dc2c9d86b34f1df707c8ca9d366441042612618b1fb5"
-    sha256 cellar: :any, x86_64_linux:  "a3c3008d4b1ad91ce6e9b9b38973236757d83c871d5f9698f266b66a61249c8b"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "26fd2b22f65fa3a736df0f9fcc7b936f7d609bcd558c510225b5ab6bff5d5022"
+    sha256 cellar: :any, arm64_sequoia: "827399fe456b21b25a93e367d4c06339d35ea01df2052f0fa145b12fe1524656"
+    sha256 cellar: :any, arm64_sonoma:  "e6dd714a1fa74261687a61dfb0c4a7f9e28c0357fe99c62c62aded9a53034dbc"
+    sha256 cellar: :any, sonoma:        "d68cc8dd5761da1fe4d18ecca4e3c47579bb325575a837e74ac46a0deed91a02"
+    sha256 cellar: :any, arm64_linux:   "7c76e69f62a536816dcd7b1a9327509a61037b3813faa90866a4b052c9e94249"
+    sha256 cellar: :any, x86_64_linux:  "b0cafe774054ceabd1888c225082d1d8321455cbeb016b6100a5f2e45743fa14"
   end
 
   depends_on "cabal-install" => :build

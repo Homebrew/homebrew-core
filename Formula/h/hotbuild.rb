@@ -18,14 +18,15 @@ class Hotbuild < Formula
   depends_on "go" => :build
 
   # Bump version
-  # https://github.com/wandercn/hotbuild/pull/15
   patch do
     url "https://github.com/wandercn/hotbuild/commit/1b04ea4e9e1327ef4d462256072d72f4f37040cb.patch?full_index=1"
     sha256 "b0bbcdf106914307265b4ac81d73667a8b2d4c2fd688cc76dd1e303f690b4021"
+    type :unofficial
+    resolves "https://github.com/wandercn/hotbuild/pull/15"
   end
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   test do

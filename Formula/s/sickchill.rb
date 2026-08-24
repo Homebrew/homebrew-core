@@ -6,16 +6,16 @@ class Sickchill < Formula
   url "https://files.pythonhosted.org/packages/31/fc/337b2989dc67bbb505cea34a05c029cbba3056311177586835f704ddc13a/sickchill-2024.3.1.tar.gz"
   sha256 "e7079bb77b415eb6697a63d9018db1ad317d06ad285d0d77893747cbf000aa17"
   license "GPL-3.0-or-later"
-  revision 6
+  revision 7
   head "https://github.com/SickChill/SickChill.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "55057f4cf6802ad9713f04ed649ff9c9b593f45084430a3a4dd1b3eb9c927f0c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30c6b9310e02d8f5c1ad340db37594aa67d1ebf92aefb854b3d864692b82ade7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ff7612f54ac56e83a1541b2d2b05af1b29f1a54c7ee4dc5ae342e7f3ee196b03"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0cddd3354b7b561702aa7e90d53d0672d2944b5925c9f4fd2899ace4574c2ab5"
-    sha256 cellar: :any,                 arm64_linux:   "ede19763927544c60b4a496e0d22ef2604f220ea43ac567592f043a5013d1782"
-    sha256 cellar: :any,                 x86_64_linux:  "8d01e28f97b94aae22f4d6a9ea46fd7a3b811128d615d768cffb70629cabf60e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ffb59de2177491b2689398cb1c963cf0d267f0166c7842f1dc77da1562460736"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2cf0fe01a2e9faf2689384e97443ab6c573280c5b528ce468d432475a9428c80"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c291a97375c1cf33cb173435b78d1ac0750ab8db7cafc76dcabf61377b07e79b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dd73f69f4fc9c35023bcbe1e535621342fa7a3c27d44a20c2a084cd848a9c025"
+    sha256 cellar: :any,                 arm64_linux:   "42986448e4013dce047f308afb7f208bf7820beb4190c3a863f3e71006cefab6"
+    sha256 cellar: :any,                 x86_64_linux:  "526c7115a7076fcf131f72ab47f1b3dc4fa3352f116437af99612f4ff17f7e74"
   end
 
   depends_on "rust" => :build # for cachecontrol
@@ -79,6 +79,8 @@ class Sickchill < Formula
     patch do
       url "https://github.com/cinemagoer/cinemagoer/commit/fec0b1a0f90e2d6201f6fa5fd429f13d9b7a747d.patch?full_index=1"
       sha256 "a9f225c42d011f07e0aabb9b29f19c666f8808206787d7e53f9d56df4d749edd"
+      type :backport
+      resolves "https://github.com/cinemagoer/cinemagoer/pull/543"
     end
     # Backport https://github.com/cinemagoer/cinemagoer/commit/88a86cdacc7737d0fcfe299ad7a2e9b365ff379c and
     # https://github.com/cinemagoer/cinemagoer/commit/cb4b61c3be3d7ed0bfc4f3cb506628c3cbb59828
@@ -126,8 +128,8 @@ class Sickchill < Formula
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/6d/6e/802acd792aebb2256fbbee8cacf2727faaeb6f240ac11008f09eae4414bc/greenlet-3.5.1.tar.gz"
-    sha256 "5a56aeb7d5d9cc4b3a735efb5095bd4b4f6f0e4f93e5ca876d0e2315137b7829"
+    url "https://files.pythonhosted.org/packages/dd/8b/befc3cb36965f397d87e86fb3b00e3ec0dc67c1ecb0986d7f54ee528f018/greenlet-3.5.2.tar.gz"
+    sha256 "c1b906220d83c140361cdd12eef970fb5881a168b98ee58a43786426173da14c"
   end
 
   resource "guessit" do
@@ -186,8 +188,8 @@ class Sickchill < Formula
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/92/23/6139781ca7aadf656fa8e384fa84693ffb13f299e6931b6526427fe5e297/msgpack-1.2.0.tar.gz"
-    sha256 "8e17af38197bf58e7e819041678f6178f4491493f5b8c8580414f40f7c2c3c41"
+    url "https://files.pythonhosted.org/packages/31/f9/c0a1c127f9049db9155afc316952ea571720dd01833ff5e4d7e8e6352dbb/msgpack-1.2.1.tar.gz"
+    sha256 "04c721c2c7448767e9e3f2520a475663d8ee0f09c31890f6d2bd70fd636a9647"
   end
 
   resource "new-rtorrent-python" do
@@ -301,8 +303,8 @@ class Sickchill < Formula
   end
 
   resource "sqlalchemy" do
-    url "https://files.pythonhosted.org/packages/57/da/6fbf010c8ebb347679d0d100b22fe9ba5e13fd04046c5df7280d2f0bf706/sqlalchemy-2.0.50.tar.gz"
-    sha256 "af5607d11ef90fd6a5c0549fe0045dce1663d427426bcfb506dcb5346a85a3b9"
+    url "https://files.pythonhosted.org/packages/02/f1/a7a892f18d4d224e6b26f706531eafccc41e37594d37d304786969ee13cb/sqlalchemy-2.0.51.tar.gz"
+    sha256 "804dccd8a4a6242c4e30ad961e540e18a588f6527202f2d6791b01845d59fdc9"
   end
 
   resource "stevedore" do

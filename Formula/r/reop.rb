@@ -1,15 +1,11 @@
 class Reop < Formula
   desc "Encrypted keypair management"
-  homepage "https://flak.tedunangst.com/post/reop"
-  url "https://flak.tedunangst.com/files/reop-2.1.1.tgz"
-  mirror "https://bo.mirror.garr.it/OpenBSD/distfiles/reop-2.1.1.tgz"
+  homepage "https://web.archive.org/web/20251224210131/https://flak.tedunangst.com/post/reop"
+  url "https://pkg.freebsd.org/ports-distfiles/reop-2.1.1.tgz"
+  mirror "https://ftp.openbsd.org/pub/OpenBSD/distfiles/reop-2.1.1.tgz"
   sha256 "fa8ae058c51efec5bde39fab15b4275e6394d9ab1dd2190ffdba3cf9983fdcac"
   license "ISC"
   revision 1
-
-  livecheck do
-    skip "No longer developed"
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "95b75472fc27e78edb5a78cfce5ee11eab88c09ba2b3344d50f55189c055c038"
@@ -23,6 +19,9 @@ class Reop < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "566db99533e99f809e5fe5dac5f9f671c2612139c0e51099c0b328cbdb7f2f9b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "39a6b6aaa92dc34131e9ecf9c22a8ef890b8d662960a5dba258bb58f87d71516"
   end
+
+  deprecate! date: "2026-06-27", because: :unmaintained
+  disable! date: "2026-09-27", because: :unmaintained
 
   depends_on "libsodium"
 

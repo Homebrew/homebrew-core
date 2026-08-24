@@ -1,9 +1,9 @@
 class Socat < Formula
   desc "SOcket CAT: netcat on steroids"
   homepage "http://www.dest-unreach.org/socat/"
-  url "https://distfiles.alpinelinux.org/distfiles/edge/socat-1.8.1.1.tar.gz"
-  mirror "http://www.dest-unreach.org/socat/download/socat-1.8.1.1.tar.gz"
-  sha256 "f68b602c80e94b4b7498d74ec408785536fe33534b39467977a82ab2f7f01ddb"
+  url "https://distfiles.alpinelinux.org/distfiles/edge/socat-1.8.1.3.tar.gz"
+  mirror "http://www.dest-unreach.org/socat/download/socat-1.8.1.3.tar.gz"
+  sha256 "06602ffd591e98c75b3dc1d66f0f19136cc666b0b2d95caad987d6ab2cb28097"
   license "GPL-2.0-only"
   compatibility_version 1
 
@@ -13,12 +13,12 @@ class Socat < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ac0c47bcebd304502db55e0a67b3fbca2af8b882c331f6f238f00f543c997ea6"
-    sha256 cellar: :any,                 arm64_sequoia: "34e3d8eabea5928b3f37d589b32d118c5aa47e3aef264da0d8b2470e3eb81787"
-    sha256 cellar: :any,                 arm64_sonoma:  "97441f063428c38f4313079e8bafc4ea2835b9c93a9f757ed3d7d022acd46f2d"
-    sha256 cellar: :any,                 sonoma:        "00617f292b2d5e3887321fead711ee7a7de79b773829027f872f66e898ce4bb5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8516bb17bc2e9ff8382a3038ec2ad58c2d2198224cbc1601e0086adeb5bed764"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f5785c495d7e676ca4b2c34d16ad61363fb3c7efd5f2f7e2cc5e7bb1e413fa5"
+    sha256 cellar: :any, arm64_tahoe:   "0b4a8646ec47193f827860cd0c2254b18e96bfaa88fa08fcffc9a08394d6ba81"
+    sha256 cellar: :any, arm64_sequoia: "7d6705023258039de58e71b4eae4343443dcc47ce151c25385f90542c24588be"
+    sha256 cellar: :any, arm64_sonoma:  "b9e5c820a3038987f99e4381c30473ae915a9d0039bc706bc29ebd4089ab837e"
+    sha256 cellar: :any, sonoma:        "918748776fd6d2be50f4982251544048a6e64f9e3c13b577f35530a14077c40f"
+    sha256 cellar: :any, arm64_linux:   "e3587d33ea8c68ad45babcfcb4b15ec291345d3c9eb4138dd807449722822474"
+    sha256 cellar: :any, x86_64_linux:  "70e101e17362a4f49ea45c3bc72ddb05f90b04824b3ae7ce5fec08de758a9e45"
   end
 
   depends_on "openssl@3"

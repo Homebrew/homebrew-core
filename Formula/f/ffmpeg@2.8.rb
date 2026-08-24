@@ -10,7 +10,7 @@ class FfmpegAT28 < Formula
   revision 8
 
   livecheck do
-    url "https://ffmpeg.org/download.html"
+    url "https://ffmpeg.org/olddownload.html"
     regex(/href=.*?ffmpeg[._-]v?(2\.8(?:\.\d+)*)\.t/i)
   end
 

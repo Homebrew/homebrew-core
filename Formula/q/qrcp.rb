@@ -24,7 +24,6 @@ class Qrcp < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/claudiodangelis/qrcp/version.version=#{version}
       -X github.com/claudiodangelis/qrcp/version.date=#{time.iso8601}
     ]

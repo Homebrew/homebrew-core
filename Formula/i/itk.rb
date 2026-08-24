@@ -1,8 +1,8 @@
 class Itk < Formula
   desc "Insight Toolkit is a toolkit for performing registration and segmentation"
   homepage "https://itk.org"
-  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.4.6/InsightToolkit-5.4.6.tar.gz"
-  sha256 "1177567965a2522c53f7c77ed222afd619262f508caaf026646b21e275971e95"
+  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.4.7/InsightToolkit-5.4.7.tar.gz"
+  sha256 "4907033e0e93fb04734df8556b88a670ba630b4f42b52e9f25ed4d084a7ab925"
   license "Apache-2.0"
   revision 1
   head "https://github.com/InsightSoftwareConsortium/ITK.git", branch: "main"
@@ -13,12 +13,12 @@ class Itk < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "bcce74d0894ccc3b4dcc6e0d92e264929f718fedca0a9219093c6b30b3eaea89"
-    sha256 arm64_sequoia: "59b0532ddde3c7e7b82d2869a19d3fd5ab08851a2c7bdbfcd14f4d0c32b31ea0"
-    sha256 arm64_sonoma:  "56095812a041dd41df3c0dba2062b7653f046adb76be83c886553b9a5cd9bf9e"
-    sha256 sonoma:        "79af92257afc03f640da8881a295d51edaa1c538dbc3c81cc59965b82cdb55f5"
-    sha256 arm64_linux:   "2c5059cb05b249b1df209451cb917e36539656c1a5831933763914d5b817120d"
-    sha256 x86_64_linux:  "cb2f54a21adfaf74b9155b79a5b6778de4531f9df13e061591607e4c314df257"
+    sha256 arm64_tahoe:   "e1c1290d28c825b4b220baba9319934f5c7aed768970161fa70f04121af1d481"
+    sha256 arm64_sequoia: "30342110c1bbf0cc4f68f693a3ca6c0b5799f5dbdd9426424a9b7de1b24927cc"
+    sha256 arm64_sonoma:  "254ad3aab989b3efc5e99d9284b6c285488e03106da6d4d05f7abed1589f0103"
+    sha256 sonoma:        "c9a2b2396df06411fb99ab952fd9db690466f73f1310d25a1d7b8dc914b56a14"
+    sha256 arm64_linux:   "f18eb3a8bfc5f322e72bec710de2e2e5d21839b4a6337944a8f6fb537542eef0"
+    sha256 x86_64_linux:  "27697f6c519ea6dbb3b9b0794d0181e64a999965e1f275dae2ffe3665370b2f4"
   end
 
   depends_on "cmake" => :build
@@ -50,7 +50,7 @@ class Itk < Formula
   # TODO: Consider adding a DSL for this or change how we handle Python's `expat` dependency
   def remove_brew_expat
     env_vars = %w[CMAKE_PREFIX_PATH HOMEBREW_INCLUDE_PATHS HOMEBREW_LIBRARY_PATHS PATH PKG_CONFIG_PATH]
-    ENV.remove env_vars, /(^|:)#{Regexp.escape(Formula["expat"].opt_prefix)}[^:]*/
+    ENV.remove env_vars, /(^|:)#{Regexp.escape(formula_opt_prefix("expat"))}[^:]*/
     ENV.remove "HOMEBREW_DEPENDENCIES", "expat"
   end
 

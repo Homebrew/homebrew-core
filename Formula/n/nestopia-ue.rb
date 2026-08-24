@@ -25,7 +25,7 @@ class NestopiaUe < Formula
   depends_on "libarchive"
   depends_on "libepoxy"
   depends_on "libsamplerate"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   on_linux do
     depends_on "mesa"

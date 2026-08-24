@@ -2,17 +2,18 @@ class Lspmux < Formula
   desc "Share one language instance between multiple LSP clients to save resources"
   homepage "https://codeberg.org/p2502/lspmux"
   url "https://codeberg.org/p2502/lspmux/archive/v0.3.0.tar.gz"
-  sha256 "92410dfcda4429e0463db91b67712da00fda5fa9fb5316174126e702eb988440"
+  sha256 "28caab4a2f74dc4b8117ac5eed3af2b30258eab1affb47f47363afece0982243"
   license "EUPL-1.2"
   head "https://codeberg.org/p2502/lspmux.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5d37f6ac1c9841457e8533f39ca4b7090d6f7a0851722a8ed777677798b875f9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9462e1c0d75511447c498250b269c59ce55b226c2badc3aa4ab2724ba0aa4883"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44330c574fbf0a5c14eaa6b85d49a9510d856893c77fb10fe0e6015b1d3be4e1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c3304e7b57e6455f4a8deed2fc292bac9400d5ff0bbc84bd4a96f177b161f506"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e90116b031291bf519f529efac2ab4995b32408f4466121c4c0a756edd43a87c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c45d94f75046f86d12aa28761fd4d29735598fec4277662d2a1f8f3511319c1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f6b268e66689a372808bdd6f377c76ca5ab66b7fea7952d9769babf50e96fe0d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a5820e425d62ac80fdca33bafec1d9dfabb210534d23be782a51032d129e84e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6179b5dce04784dbf17453fa430b689a2a0847d824b0bda507d86db199205239"
+    sha256 cellar: :any_skip_relocation, sonoma:        "24990bb9a334b6327a23db0292983ba8d58a535c54df0d35a098ec519cff5551"
+    sha256 cellar: :any,                 arm64_linux:   "58afbc06899b1680222ee6ca9cf286f38c3005897d63a392c1b40645bdf6a5ed"
+    sha256 cellar: :any,                 x86_64_linux:  "7ea6fe0e8e7e4e0bb918ea9dcdf20a14844df4299a63ab437ecb20bfc5391c51"
   end
 
   depends_on "rust" => :build

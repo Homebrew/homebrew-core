@@ -44,7 +44,8 @@ class GlibNetworking < Formula
   end
 
   post_install_steps do
-    gio_querymodules
+    run "{{HOMEBREW_PREFIX}}/opt/glib/bin/gio-querymodules",
+        args: ["{{HOMEBREW_PREFIX}}/lib/gio/modules"]
   end
 
   test do

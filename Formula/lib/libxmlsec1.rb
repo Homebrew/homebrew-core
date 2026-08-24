@@ -1,11 +1,11 @@
 class Libxmlsec1 < Formula
   desc "XML security library"
   homepage "https://www.aleksey.com/xmlsec/"
-  url "https://github.com/lsh123/xmlsec/releases/download/1.3.11/xmlsec1-1.3.11.tar.gz"
-  mirror "https://www.aleksey.com/xmlsec/download/xmlsec1-1.3.11.tar.gz"
-  sha256 "53675e98fa83b48201d24f7bfbcaeaa1b51496b8b19ff969785856bdeb196af3"
+  url "https://github.com/lsh123/xmlsec/releases/download/1.3.12/xmlsec1-1.3.12.tar.gz"
+  mirror "https://www.aleksey.com/xmlsec/download/xmlsec1-1.3.12.tar.gz"
+  sha256 "24045199af12d93fe5fdbbbf7e386e823e4842071e9432e2b90ac108b889a923"
   license "MIT"
-  compatibility_version 3
+  compatibility_version 4
 
   # Checking the first-party download page persistently fails in the autobump
   # environment, so we check GitHub releases as a workaround.
@@ -15,12 +15,12 @@ class Libxmlsec1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bac1c67f0bd350168eff667a8d681b580f77a76e2d5b4099d5dd2c1bec1c6547"
-    sha256 cellar: :any,                 arm64_sequoia: "a46e425da9b5abbf83145ac8b7e223654c2b91fae79c39f42bfd2a7170d700b0"
-    sha256 cellar: :any,                 arm64_sonoma:  "8991271947badefa216c58643d4f713b598a66133063d2b8204325a36ee8444e"
-    sha256 cellar: :any,                 sonoma:        "19f6197df4950d73a4995bdab59a6a961eaa1b50b7a9dd2ab5f5206797bb1d98"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2d10507c035a546e9de6e052d407271b4b797696328b235ea905778e7bde3e97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48adaa263f332b70297e3aa627aec2be891b30331d84d534961e9d15d477ba33"
+    sha256 cellar: :any, arm64_tahoe:   "9905f22e9a402d3f7c53a68af94fa2a8ed3b1fe208ac42f5090816ebab96065c"
+    sha256 cellar: :any, arm64_sequoia: "1ae88a9a8dc9186f5c9913cea9008ce41077a5724438f91907df7e19d4603761"
+    sha256 cellar: :any, arm64_sonoma:  "84b6624424df9ad086bfb16a004e5c184500dcdbfecea3c9ea331eecdf474783"
+    sha256 cellar: :any, sonoma:        "95612867fe1c0268610d223178ed84a611d601d3d05d4f9f7f7a206677c0da32"
+    sha256 cellar: :any, arm64_linux:   "db3dea165faaaf73250c59732b689e4f872a32015e38fbd97d2f8aaebb70d71f"
+    sha256 cellar: :any, x86_64_linux:  "183450e158f6cf276b42b8260cc078420c61460c37ac54d3449f4802c1e7be94"
   end
 
   depends_on "pkgconf" => :build
@@ -40,7 +40,7 @@ class Libxmlsec1 < Formula
       --disable-mscng
       --without-nss
       --without-nspr
-      --with-openssl=#{Formula["openssl@3"].opt_prefix}
+      --with-openssl=#{formula_opt_prefix("openssl@3")}
     ]
 
     system "./configure", *args, *std_configure_args

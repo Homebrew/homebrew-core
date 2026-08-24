@@ -1,8 +1,8 @@
 class Squid < Formula
   desc "Advanced proxy caching server for HTTP, HTTPS, FTP, and Gopher"
   homepage "https://www.squid-cache.org/"
-  url "https://github.com/squid-cache/squid/releases/download/SQUID_7_6/squid-7.6.tar.bz2"
-  sha256 "29e6d2fcffbbbff0052c5a6a24a09f93c9b934fa95c0629ef2251e64ff8ff8da"
+  url "https://github.com/squid-cache/squid/releases/download/SQUID_7_7/squid-7.7.tar.bz2"
+  sha256 "1a748b91722259e986f17d85e0da9d9403054a50bc20f78394ff90e46ef55601"
   license "GPL-2.0-or-later"
 
   # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
@@ -17,12 +17,12 @@ class Squid < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "5b7238a79d06b8fb9bd7c96b4fe4f94c0edce93aaef611cd14d94b4471c5b0b4"
-    sha256 arm64_sequoia: "1eac848cfc178305a55ccb2c7165c6928ef4f488b5a70a4b956752d57cd301bc"
-    sha256 arm64_sonoma:  "dd8fe32a715cd8be05006c53859cf9bc767c081c58bf4746ff13f31dc6595ca5"
-    sha256 sonoma:        "7b7b33b1477ec716d3fd390ede79275da044b87b12f09645012038a02c51efd6"
-    sha256 arm64_linux:   "5a600a8f4c3bc5396376d447322a20ca493aacd036a43c91a8d37984d59399e9"
-    sha256 x86_64_linux:  "8ebe7c178214bc82ecb4187cace7eb787f72b3d2ddb0766b2d1f090e40b0373f"
+    sha256 arm64_tahoe:   "7b250e8d878110a4c22f93c0a0c44089210d8aa3c3058ec69edaa926a42e983a"
+    sha256 arm64_sequoia: "2f2da58c13f8c6721db90e9c1754ba3aaddc7e6d647a2111dc5b2c6be9d3b362"
+    sha256 arm64_sonoma:  "c951f99d6210f9c700d3bbb8d824f3cf8366b0c4912e2706c2ea0bd634fb8216"
+    sha256 sonoma:        "7e294547d94327e9a6edb905833ade8500ec945abe378bde26ee8faf6d5f161a"
+    sha256 arm64_linux:   "0032de5c0ff11197c0c4ed1759f37146706e79bde51a9fc835127f55e2f286e7"
+    sha256 x86_64_linux:  "9a1093809778462137fa0c9f613ffa29a220976aeeb0e69170391b4b0720999a"
   end
 
   head do

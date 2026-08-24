@@ -1,8 +1,8 @@
 class TwoMs < Formula
   desc "Detect secrets in files and communication platforms"
   homepage "https://github.com/Checkmarx/2ms"
-  url "https://github.com/Checkmarx/2ms/archive/refs/tags/v5.2.4.tar.gz"
-  sha256 "de1fb907ecf113629233f7e7139d791ad7b91d6c4eae2c523a5c79d4b7fc1825"
+  url "https://github.com/Checkmarx/2ms/archive/refs/tags/v5.3.0.tar.gz"
+  sha256 "6f9fa42f8f8fcbfcb1b09c66775682a13c1d9eca2094ae80924c5ae4d779efd9"
   license "Apache-2.0"
   head "https://github.com/Checkmarx/2ms.git", branch: "master"
 
@@ -12,19 +12,18 @@ class TwoMs < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e7b261e974568daf603b5a53d5ae2a1ffae13e9874f002e2f2e587d941752052"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0ad96916091d4fdbbee79de81f654faba76c1e8bc878ed95e7150419d3ba460d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30d1a6c6d052262349dbdfd86b55b7b1402ffab7cad9ad4b3794db7097e81e72"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c4a8f42db758a4b54215f61d4661cebbb0b39b239cf1ddd91996cedc81ffed37"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd5681714e01e3a7266265054982ac57c71b9e6c5260445953dad3728eeb1168"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "37ab46e55dd59bd36e147c7f5a88c2ca1ab0aa3ae84a017b5282d36fb11bec19"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "02aa8626a16da03c41eff843c5570e7025fc04f4cf6cdfa7ba4895d5cbc174bf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc2bdd42c6e958ab6b7abbf067121e97503abcd437b2da6af01dba5d55a3a213"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f224a7d51ed79c472873b09eec884f6c07fc58a873a9734dc54a65dfd2854955"
+    sha256 cellar: :any_skip_relocation, sonoma:        "008cd8c102ab393a2494a756dd85522cb044b73f96b705aa455ab43393030180"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c95acb77ea9aacb9c87ccea0f65d75848dc485dd194c2aedad4d88f946569e5c"
+    sha256 cellar: :any,                 x86_64_linux:  "89234a2a04377e50c7345549cf21505b35cd7d7d937ddd2d0246299682d2c9e2"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/checkmarx/2ms/v#{version.major}/cmd.Version=v#{version}"
+    ldflags = "-X github.com/checkmarx/2ms/v#{version.major}/cmd.Version=v#{version}"
     system "go", "build", *std_go_args(ldflags:, output: bin/"2ms"), "main.go"
     generate_completions_from_executable(bin/"2ms", shell_parameter_format: :cobra)
   end

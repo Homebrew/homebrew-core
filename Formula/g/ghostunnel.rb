@@ -1,24 +1,24 @@
 class Ghostunnel < Formula
   desc "Simple SSL/TLS proxy with mutual authentication"
   homepage "https://ghostunnel.dev/"
-  url "https://github.com/ghostunnel/ghostunnel/archive/refs/tags/v1.10.0.tar.gz"
-  sha256 "0a3a00748d837216051fc1ab031be66a2c937acc9e6bf877d18a4fdd397438e8"
+  url "https://github.com/ghostunnel/ghostunnel/archive/refs/tags/v1.11.3.tar.gz"
+  sha256 "3b7221a474d39cd56598a874d5d9b27b20ebb857c655899b5c6960ccfa3b6a30"
   license "Apache-2.0"
   head "https://github.com/ghostunnel/ghostunnel.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5a8c10137e1a3b8196b5b76cb505d7245b41316705635fb57b4e32e51e5fca1a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7079cb1ba4a200609b4ebc49b4bf2cc836bd5145d4e9a0c6e7695c3f1aacfccd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7c7ac65a9075a3299de812b6b4a838e08c6d54fc3b034b2d13af96afa02418b4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3c92f37cfb2c48751fad6924114b15e1864abe8fcc688f8f78ef10fb7978555e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a151351ff39c3dbadebf9644a6e47823d5e8b224b1d7e5d3a112248f2c333de9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e82f286be8599524da6b5c2eb19f4cc2f1e254cb7f5d5520c48a6cfc3daffe6b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4d7156435b018d4c1589b0d6a88ab90c89447c99f06f2768c7ebbcc0ad9cdfc0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad39cdca5d33ee2e750425871af0261aedc045203dda103d0c935803521035cc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f696c4182c2db6904823945fbcbcc03cc6d417f07ebabea8c875c938c9cb0caa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c8a35e80671eaa28915049a85644e81ef4ee2ddf11089266efdeb8248ae37a2d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "54132df9e01178cac4bf8994120a0dfc05090c51d34e290040226dc04a800d8a"
+    sha256 cellar: :any,                 x86_64_linux:  "a79ade180fa57779b58c096974559ed0618198cb06223b2d1849a4ce2830d88f"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
 
     generate_completions_from_executable(bin/"ghostunnel", shell_parameter_format: "--completion-script-",
                                                            shells:                 [:bash, :zsh])

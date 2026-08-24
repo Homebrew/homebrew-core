@@ -32,6 +32,8 @@ class Sloccount < Formula
   patch do
     url "https://sourceforge.net/p/sloccount/patches/21/attachment/sloccount-suppress-exec-warnings.patch"
     sha256 "4e68a7d9c61d62d4b045d1e5d099c6853456d15f874d659f3ab473e7fc40d565"
+    type :unofficial
+    resolves "https://sourceforge.net/p/sloccount/patches/21"
   end
 
   patch :DATA

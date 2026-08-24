@@ -39,7 +39,7 @@ class Nesc < Formula
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk")
     # nesc is unable to build in parallel because multiple emacs instances
     # lead to locking on the same file
     ENV.deparallelize

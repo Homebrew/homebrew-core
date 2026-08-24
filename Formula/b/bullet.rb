@@ -26,10 +26,6 @@ class Bullet < Formula
   end
 
   def install
-    # C++11 for nullptr usage in examples. Can remove when fixed upstream.
-    # Issue ref: https://github.com/bulletphysics/bullet3/pull/4243
-    ENV.cxx11 if OS.linux?
-
     common_args = %w[
       -DBT_USE_EGL=ON
       -DBUILD_UNIT_TESTS=OFF
@@ -62,7 +58,7 @@ class Bullet < Formula
     python_prefix = if OS.mac?
       Formula["python@#{python_version}"].opt_frameworks/"Python.framework/Versions/#{python_version}"
     else
-      Formula["python@#{python_version}"].opt_prefix
+      formula_opt_prefix("python@#{python_version}")
     end
     prefix_site_packages = prefix/Language::Python.site_packages(python3)
 

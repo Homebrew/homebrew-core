@@ -2,35 +2,35 @@ class Tilt < Formula
   desc "Define your dev environment as code. For microservice apps on Kubernetes"
   homepage "https://tilt.dev/"
   url "https://github.com/tilt-dev/tilt.git",
-      tag:      "v0.37.4",
-      revision: "0b591662e013ba2d551d4861009d7b3c2276c90e"
+      tag:      "v0.37.7",
+      revision: "2b3a4064c6ba84e86c93258c085b498e5364a44b"
   license "Apache-2.0"
   head "https://github.com/tilt-dev/tilt.git", branch: "master"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2daa17f53be87dc230aec1c8973dd54e941a9379ea7f31cd7bd79a3ae57007ea"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "587a31b96c1aba3cb6d6e9887dcaf15fb82357231776f48c5219dea9cb998198"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e848382e13bdf4d1d5c570a0a895ac4563e42c378b3c358076c6965c9992d8ba"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d8bce1e230bbe4299bc4b7fe6e77eef88235f6d3fabde750067d55c9eadc02db"
-    sha256 cellar: :any,                 arm64_linux:   "254efdbcfb120e8533e60be605b218423c98c6c2f103b2832c7439312b4841a8"
-    sha256 cellar: :any,                 x86_64_linux:  "d640687addaf2313d870e85dd330f46bcdc8b117451326c89b50ac74c009b3f8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "29d86973a163e2c6d66c4761cd507a89914637b9a2367cd4381a639e550c1629"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aaad8c4643c5e033f5b3589b2a812b0f24f3e36c0b85fdc3363d93c2451be751"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d968916e24f29dda891bff7c862dead951142c6e13e9bc6835c48ad5bca47f2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4d1ed6d0508132a0c6df2e01deee7a3919660eb05e3706b1db902d9a38c8cfa6"
+    sha256 cellar: :any,                 arm64_linux:   "203c6ac8d7ddf2112d1ef6d2e188c0a06715e9b08ef561a993e73fa69b60cec1"
+    sha256 cellar: :any,                 x86_64_linux:  "5498d06066bd33ee28ca41f0e79ffcacb9dd7d7f611e5c5d2bf9ec34d4f2e8cb"
   end
 
+  depends_on "corepack" => :build # for newer yarn
   depends_on "go" => :build
   depends_on "node" => :build
-  depends_on "yarn" => :build
 
   def install
+    ENV["COREPACK_ENABLE_DOWNLOAD_PROMPT"] = "0"
+
     # bundling the frontend assets first will allow them to be embedded into
     # the final build
-    system "yarn", "config", "set", "ignore-engines", "true" # allow our newer node
     system "make", "build-js"
 
     ENV["CGO_ENABLED"] = "1"
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.commit=#{Utils.git_head}
       -X main.date=#{time.iso8601}

@@ -1,17 +1,17 @@
 class Codanna < Formula
   desc "Code intelligence system with semantic search"
   homepage "https://docs.codanna.sh/"
-  url "https://github.com/bartolli/codanna/archive/refs/tags/v0.9.22.tar.gz"
-  sha256 "885e927e0db2559fdcd32c3120b58be309f5e2a1cba572184e90586f078ec5ae"
+  url "https://github.com/bartolli/codanna/archive/refs/tags/v0.13.3.tar.gz"
+  sha256 "af37f30bdb89cabf656f4be9630def0ada284244d790d0b7fbda26447173b224"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "47e7512adc09aec45715721bcacb7a213c7ad7ec76a4c4a1f4fff401482f07be"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f2c677cc637f6c6544d0be958ebc64b32bb70d5847ddff74517b38c5a7f10328"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "34171eca0da9635bcb178267c6cd03266a3c46dace58f105b40cb3f23d1610a5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2df941f33d0f4edc8da5f48006bcc06b418694758aa53e2a4f10b298cb1831c7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ed89cbb73b3669a05ac5d458fcac3602e0eb0def32c49238f22fa01c0f2329cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2b11bd507e5a228224e9139409bc0cb252f1ca2fe1201e808ed47cd96485c9f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a1552ecc57fb27e18e3ceafa5d21c9dc9f40b1d030cd63cb6e94b4937e51c357"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7d1b7e79f198a45d01bd832954854ea3d6e0468d053303ec6822f2d669b0f9f8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b15a6c23bbd50ea3cde476ac6069f2e36c038fc893c966df66e60442d22c4ef8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0638d8400caac843f93c4dcc6cad4ffff57abbc80fefa55414db313aee60323f"
+    sha256 cellar: :any,                 arm64_linux:   "1f5f4ef902dfe3a950bc135271fda5053bbfb743e933f259f1205edef16b104b"
+    sha256 cellar: :any,                 x86_64_linux:  "938d0cc3556c204de257e81fdd408e9e7ab76f470f865dc8bd9f9bfca31ade9b"
   end
 
   depends_on "pkgconf" => :build

@@ -23,6 +23,7 @@ class Deark < Formula
   patch do
     url "https://github.com/jsummers/deark/commit/d9ad63f9331f7d804c4978a644272810e200eb4c.patch?full_index=1"
     sha256 "0b08bfdd88bd0ff99208c6eb96eb72fc91f421c633a55bfc2ec960c5ee74a1cf"
+    type :backport
   end
 
   def install
@@ -31,9 +32,7 @@ class Deark < Formula
   end
 
   test do
-    require "base64"
-
-    (testpath/"test.gz").write ::Base64.decode64 <<~EOS
+    (testpath/"test.gz").write <<~EOS.unpack1("m")
       H4sICKU51VoAA3Rlc3QudHh0APNIzcnJ11HwyM9NTSpKLVfkAgBuKJNJEQAAAA==
     EOS
     system bin/"deark", "test.gz"

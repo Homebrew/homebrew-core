@@ -1,24 +1,24 @@
 class Keploy < Formula
   desc "Testing Toolkit creates test-cases and data mocks from API calls, DB queries"
   homepage "https://keploy.io"
-  url "https://github.com/keploy/keploy/archive/refs/tags/v3.5.66.tar.gz"
-  sha256 "58d2a8ef5a870f5dbd2b53b0844c78869bb4a178704b284ffdc6b358c312fd86"
+  url "https://github.com/keploy/keploy/archive/refs/tags/v3.6.24.tar.gz"
+  sha256 "a6e547f632636578a023161c391afa671ac6c1afa870599d79d4104b6af09c30"
   license "Apache-2.0"
   head "https://github.com/keploy/keploy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6ef3fe29ea907ec13b5e906e95669c7fb0d4c244d6d1f63d996f56217f5dbd03"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ef3fe29ea907ec13b5e906e95669c7fb0d4c244d6d1f63d996f56217f5dbd03"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ef3fe29ea907ec13b5e906e95669c7fb0d4c244d6d1f63d996f56217f5dbd03"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1fc440a5d42b00b01d4e671149966e42584f828ee5988b4ad5a7343483b04dfa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1ce049e3b4222549a5da84de18c8bb22c3e41241c25b60764c19abc7fc492767"
-    sha256 cellar: :any,                 x86_64_linux:  "3b28548a35f937d0da00f66940a64db333f943b31f3cef90a7431b439d152b57"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "34d70fa86b6523b747e9b0a41ead0a8f55747347b5216314cbf639eb2195e037"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "34d70fa86b6523b747e9b0a41ead0a8f55747347b5216314cbf639eb2195e037"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "34d70fa86b6523b747e9b0a41ead0a8f55747347b5216314cbf639eb2195e037"
+    sha256 cellar: :any_skip_relocation, sonoma:        "568f9627f6b51070d010b9b84c9236e4d4c5d7c75b3a2447eb4290690060a858"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "93adc1d87c7857b98c02d7bf0a16a45e288ed95b6b917d346463c6e7dfc42ffd"
+    sha256 cellar: :any,                 x86_64_linux:  "7527f81d4357a92b8d8e32db19dbd000d25dcedede544c68969883f4da311524"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
   end
 
   test do

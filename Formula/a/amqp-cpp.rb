@@ -24,11 +24,12 @@ class AmqpCpp < Formula
   depends_on "cmake" => :build
   depends_on "openssl@4"
 
-  # Backport fix for CMake 4
-  # PR ref: https://github.com/CopernicaMarketingSoftware/AMQP-CPP/pull/541
+  # Fix for CMake 4
   patch do
     url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/commit/3a80a681ec258807c24f54214a3b6c7fc0dc28c0.patch?full_index=1"
     sha256 "70337b274251cfe890ecf560109d7389e43ae44fb93b43f1279871aa9aa7f139"
+    type :unofficial
+    resolves "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/pull/541"
   end
 
   def install

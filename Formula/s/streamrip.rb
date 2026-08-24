@@ -6,15 +6,15 @@ class Streamrip < Formula
   url "https://files.pythonhosted.org/packages/b8/c9/6997772e0217f3081e4e692c7b8b104aaa564c008f2593341e81bbbd2396/streamrip-2.1.0.tar.gz"
   sha256 "e59b4b406f9ac77eb59c927a1a082644e0902152ffeb6212b6b24af7fbef5540"
   license "GPL-3.0-only"
-  revision 11
+  revision 12
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "121faea78f2a8a98264424119dacc111bd25b00c304265fb392103fae13348a0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e1f3b5e05fc69494d2c80de3a9d83c6125bf729c30203c2c424a3d917d3d7a79"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae32d4c7ad4df16f27aa2465438b43400081dbf0ec0bba19be7dbd67355368a4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6f031bf3e872e7bd5b483055fad31403d7a19b86952ea64c26fc6353bfa2f568"
-    sha256 cellar: :any,                 arm64_linux:   "23151f66d71d0ef4fa9d392080f6fecd5ddc2ef12e8c0299571c03f8ab137d24"
-    sha256 cellar: :any,                 x86_64_linux:  "9ee82b95445c02c4021735725d16d0974bd5953f04e5ec75dd2c8f258a00d6f4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe1a64e868bb72449c1dade554e2d6b49f331549eb6a69580870f492abeb5abb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "21699d89b09bf894ad377ae24ae12195a679c5602d3ce890b738a02b8e563dee"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4486427bbb3ac78741cca78602d4d70e588d4ee2eb74b420fc887bfdcc0b8b24"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fb81f6127d2f5a7585f9f1e30162dbdae5da3e201ef9a46efdfbc3853fc08410"
+    sha256 cellar: :any,                 arm64_linux:   "cc21fc9e3b2613d1683c4ff52f9bc8b29be527dad435ed08df184ae615cfd7b9"
+    sha256 cellar: :any,                 x86_64_linux:  "0efe2399dd6e87b3d50977ba76a7e95cca76a0e0c90dcb27d345f80fda5e5512"
   end
 
   depends_on "certifi" => :no_linkage
@@ -39,13 +39,13 @@ class Streamrip < Formula
   end
 
   resource "aiohappyeyeballs" do
-    url "https://files.pythonhosted.org/packages/33/c6/61a2d7b7572279226bb2e7f61d7a19ca7c90da0329c93fa0d560cbf288d8/aiohappyeyeballs-2.6.2.tar.gz"
-    sha256 "e202810ee718bd01fc6ef49e8ea53d023d5cb6b581076d7925aa499fa55dbe64"
+    url "https://files.pythonhosted.org/packages/ce/f4/eec0465c2f67b2664688d0240b3212d5196fd89e741df67ddb81f8d35658/aiohappyeyeballs-2.7.1.tar.gz"
+    sha256 "065665c041c42a5938ed220bdcd7230f22527fbec085e1853d2402c8a3615d9d"
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/82/78/8ea7308cac6934de8c74a14f3d5f65d1c89287426688be79538d0e5c013d/aiohttp-3.14.1.tar.gz"
-    sha256 "307f2cff90a764d329e77040603fa032db89c5c24fdad50c4c15334cba744035"
+    url "https://files.pythonhosted.org/packages/58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz"
+    sha256 "9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc"
   end
 
   resource "aiolimiter" do
@@ -69,13 +69,13 @@ class Streamrip < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "click-help-colors" do
@@ -124,8 +124,8 @@ class Streamrip < Formula
   end
 
   resource "mutagen" do
-    url "https://files.pythonhosted.org/packages/81/e6/64bc71b74eef4b68e61eb921dcf72dabd9e4ec4af1e11891bbd312ccbb77/mutagen-1.47.0.tar.gz"
-    sha256 "719fadef0a978c31b4cf3c956261b3c58b6948b32023078a2117b1de09f0fc99"
+    url "https://files.pythonhosted.org/packages/df/70/1675da133ea92227da41bf5b24e1c66be597ff736a1533ade41da986852f/mutagen-1.48.1.tar.gz"
+    sha256 "8f95637ab9f6f305cec6bd1294e197debe207998e3e068596563c74f86b0a173"
   end
 
   resource "pathvalidate" do
@@ -179,8 +179,8 @@ class Streamrip < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/79/12/1e8f37460ea0f7eb59c221fdaf0ed75e7ac43e97f8093b9c6f411df50a78/yarl-1.24.2.tar.gz"
-    sha256 "9ac374123c6fd7abf64d1fec93962b0bd4ee2c19751755a762a72dd96c0378f8"
+    url "https://files.pythonhosted.org/packages/31/33/ebe9e3d1f86c7a0b51094c0a146392045ca1631d2664889539dec8088a33/yarl-1.24.5.tar.gz"
+    sha256 "e81b83143bee16329c23db3c1b2d82b29892fcbcb849186d2f6e98a5abe9a57f"
   end
 
   def install

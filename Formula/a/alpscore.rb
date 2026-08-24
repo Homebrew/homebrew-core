@@ -24,7 +24,7 @@ class Alpscore < Formula
     args = %W[
       -DALPS_BUILD_SHARED=ON
       -DALPS_CXX_STD=c++14
-      -DEIGEN3_INCLUDE_DIR=#{Formula["eigen"].opt_include}/eigen3
+      -DEIGEN3_INCLUDE_DIR=#{formula_opt_include("eigen")}/eigen3
       -DENABLE_MPI=ON
       -DTesting=OFF
     ]
@@ -45,8 +45,8 @@ class Alpscore < Formula
     ]
 
     inreplace files_with_cellar_references do |s|
-      s.gsub!(Formula["open-mpi"].prefix.realpath, Formula["open-mpi"].opt_prefix)
-      s.gsub!(Formula["hdf5"].prefix.realpath, Formula["hdf5"].opt_prefix, audit_result: false)
+      s.gsub!(Formula["open-mpi"].prefix.realpath, formula_opt_prefix("open-mpi"))
+      s.gsub!(Formula["hdf5"].prefix.realpath, formula_opt_prefix("hdf5"), audit_result: false)
     end
   end
 

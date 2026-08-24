@@ -1,17 +1,17 @@
 class SentryNative < Formula
   desc "Sentry SDK for C, C++ and native applications"
   homepage "https://docs.sentry.io/platforms/native/"
-  url "https://github.com/getsentry/sentry-native/archive/refs/tags/0.15.0.tar.gz"
-  sha256 "c4a029f90f65dda5272c3be8e7e041d9e4320e0b1da92eaead79f2a24c5e600c"
+  url "https://github.com/getsentry/sentry-native/archive/refs/tags/0.16.3.tar.gz"
+  sha256 "6fdf32c2d6dd6b121e43be4104b05e52f16329d801f3611fd0a08164f716418f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "e7931e5772f5aab7aeea411000bb41414194c2d76076e4a81b53b79e2a09a145"
-    sha256 cellar: :any, arm64_sequoia: "386764f70a507f9bbd06ec914ce2cb5842325c1f5eb65b1cfc75f29ac0712db4"
-    sha256 cellar: :any, arm64_sonoma:  "8fa07140a1c46f482a6891fc2c5302e9a4c4ed1db40775bddc7f8f1903034c09"
-    sha256 cellar: :any, sonoma:        "7c7d964bc57e676009ff2299d8a38d6adb77a1a5a74194bcbbd876764509380a"
-    sha256 cellar: :any, arm64_linux:   "99b78fb5225cf05684a6d293d5aba480297d037dc0242dfac2c2478e6268109e"
-    sha256 cellar: :any, x86_64_linux:  "24f51918c183e69673ed1da821791b382a55c7cc83afa173795f94e8a40a03fd"
+    sha256 cellar: :any, arm64_tahoe:   "bb5dee4e78c875010234068a545390cc6073abf2514ff5742f37e2a8ca9b697f"
+    sha256 cellar: :any, arm64_sequoia: "80b43f44d321013398596a87b879c0c9f02a0620a45b0a7d83981c1e8134e705"
+    sha256 cellar: :any, arm64_sonoma:  "a14f66d7e59521923a55768405e58c6c1884211cf5800d757c0dc6af278de3ed"
+    sha256 cellar: :any, sonoma:        "83f2a44d105a1173f1ef1e1e7beae829b88ec937f21dd98f0665c5e875f0c750"
+    sha256 cellar: :any, arm64_linux:   "c61792b2a73eaeafc51075ee5bc7fc082c8f9416b1020e4040ca5bfefcae7480"
+    sha256 cellar: :any, x86_64_linux:  "357d7aebf2a24d769035c34f3ccca8046fe296990a013b6c3f5767ea9c1fabc3"
   end
 
   depends_on "cmake" => :build
@@ -30,13 +30,13 @@ class SentryNative < Formula
 
   # No recent tagged releases, use the latest commit
   resource "crashpad" do
-    url "https://github.com/getsentry/crashpad/archive/ff141a8c0cc852f9c3d42e13bd9ada551351bc21.tar.gz"
-    sha256 "007b7d57e8dbb8665ddc524350f1c50ea646dcdc55b6278bb6a1a18e206754db"
+    url "https://github.com/getsentry/crashpad/archive/aae505d3daf73e8a48136ccc7398663f16096712.tar.gz"
+    sha256 "cfc713e322f1ec7c9d963a9e25b176937464a39a7e95826ffe588cd0bb9bad62"
   end
 
   resource "crashpad/third_party/mini_chromium/mini_chromium" do
-    url "https://github.com/getsentry/mini_chromium/archive/64339ac9468a8c3af236ca9186b42a33354455b9.tar.gz"
-    sha256 "f3f5b619705ce0aa139f13d654950ba4fdc5a4616dda74efec91e2f5e04b378e"
+    url "https://github.com/getsentry/mini_chromium/archive/bcc80d6edf8b49d9bbe7a06fff308c222287b112.tar.gz"
+    sha256 "009adf4cce8d3aba9e8d5ecd802cdc60eb87d271a3fb5f356c453b4a4122b219"
   end
 
   resource "crashpad/third_party/lss/lss" do

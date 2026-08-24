@@ -30,14 +30,14 @@ class Gptfdisk < Formula
     if OS.mac?
       inreplace "Makefile.mac" do |s|
         s.gsub! "/usr/local/Cellar/ncurses/6.2/lib/libncurses.dylib", "-L/usr/lib -lncurses"
-        s.gsub! "-L/usr/local/lib $(LDLIBS) -lpopt", "-L#{Formula["popt"].opt_lib} $(LDLIBS) -lpopt"
+        s.gsub! "-L/usr/local/lib $(LDLIBS) -lpopt", "-L#{formula_opt_lib("popt")} $(LDLIBS) -lpopt"
       end
 
       system "make", "-f", "Makefile.mac"
     else
       %w[ncurses popt util-linux].each do |dep|
-        ENV.append_to_cflags "-I#{Formula[dep].opt_include}"
-        ENV.append "LDFLAGS", "-L#{Formula[dep].opt_lib}"
+        ENV.append_to_cflags "-I#{formula_opt_include(dep)}"
+        ENV.append "LDFLAGS", "-L#{formula_opt_lib(dep)}"
       end
 
       system "make", "-f", "Makefile"

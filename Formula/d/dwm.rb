@@ -35,7 +35,7 @@ class Dwm < Formula
       "{ MODKEY|ControlMask,           XK_q,      quit,           {0} },"
       inreplace "dwm.1", '.B Mod1\-Shift\-q', '.B Mod1\-Control\-q'
     end
-    system "make", "FREETYPEINC=#{Formula["freetype2"].opt_include}/freetype2", "PREFIX=#{prefix}", "install"
+    system "make", "FREETYPEINC=#{formula_opt_include("freetype2")}/freetype2", "PREFIX=#{prefix}", "install"
   end
 
   def caveats

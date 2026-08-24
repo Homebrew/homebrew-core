@@ -1,8 +1,8 @@
 class Nmap < Formula
   desc "Port scanning utility for large networks"
   homepage "https://nmap.org/"
-  url "https://nmap.org/dist/nmap-7.99.tar.bz2"
-  sha256 "df512492ffd108e53a27a06f26d8635bbe89e0e569455dc8ffef058c035d51b2"
+  url "https://nmap.org/dist/nmap-7.991.tar.bz2"
+  sha256 "a5d507f29437bef3bedd4771ff9aaa8fc1c2a109ddba1f5b1cf12027456929be"
   license :cannot_represent
   compatibility_version 1
   head "https://svn.nmap.org/nmap/"
@@ -13,12 +13,12 @@ class Nmap < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "610785e4dd545c5f71d3af2d221f8a92951714710cf98ac4ed10f6fd0d0c5153"
-    sha256 arm64_sequoia: "5840513b1bcc8c8e20b68a1a9e71977d424827ba9e26c157e79760dc218fb55e"
-    sha256 arm64_sonoma:  "47740d854f1669dc68deabbfd6f5d54036c99ddb606ba39d70e747f7632f4f85"
-    sha256 sonoma:        "a5c5594350aad5168e64c364c6508b669cd5ea2273ad0f88d005b27de75cd5bd"
-    sha256 arm64_linux:   "55edc13eebfb103bdc26cdcb479daf81d709b727d6c6e2e22ae2c447cebc638a"
-    sha256 x86_64_linux:  "71db30907d6cd22b65e60fbb825cbc394ea291123aba6f9422342026bdddd6ad"
+    sha256 arm64_tahoe:   "7b44210db7bec422a6db3551c6ce37c032d549c6e4b7c1fc73dfc3fd84ffcb61"
+    sha256 arm64_sequoia: "53af60fb8bc2a54c94d48522bec7b90c8de5843e1057203e56d5ed922ee05f5e"
+    sha256 arm64_sonoma:  "7f1314efd3f78af8cebad0f254de7c4a8d0b1f4f0e881f99f64bbc42d184d9aa"
+    sha256 sonoma:        "8e0cf28019b8f08cd0c861743fce47446e11197a1c0dd4fa5e6d930ef5c0c78a"
+    sha256 arm64_linux:   "1d20106da65dabc3c10921eac6666505c2433cc4d9646fefc4cfa6a2403fb547"
+    sha256 x86_64_linux:  "d3f0b702152aaba2e73585a51352ec2143ca9f1870f1849058de81fdfed7a116"
   end
 
   depends_on "python-setuptools" => :build
@@ -51,13 +51,13 @@ class Nmap < Formula
     libpcap_path = if OS.mac?
       MacOS.sdk_path/"usr/"
     else
-      Formula["libpcap"].opt_prefix
+      formula_opt_prefix("libpcap")
     end
 
     args = %W[
-      --with-liblua=#{Formula["lua"].opt_prefix}
-      --with-libpcre=#{Formula["pcre2"].opt_prefix}
-      --with-openssl=#{Formula["openssl@3"].opt_prefix}
+      --with-liblua=#{formula_opt_prefix("lua")}
+      --with-libpcre=#{formula_opt_prefix("pcre2")}
+      --with-openssl=#{formula_opt_prefix("openssl@3")}
       --with-libpcap=#{libpcap_path}
       --without-nmap-update
       --disable-universal

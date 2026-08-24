@@ -26,8 +26,8 @@ class Libspectre < Formula
   depends_on "ghostscript"
 
   def install
-    ENV.append "CFLAGS", "-I#{Formula["ghostscript"].opt_include}/ghostscript"
-    ENV.append "LIBS", "-L#{Formula["ghostscript"].opt_lib}"
+    ENV.append "CFLAGS", "-I#{formula_opt_include("ghostscript")}/ghostscript"
+    ENV.append "LIBS", "-L#{formula_opt_lib("ghostscript")}"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"

@@ -30,10 +30,6 @@ class LibniceGstreamer < Formula
     depends_on "gettext"
   end
 
-  on_linux do
-    depends_on "intltool" => :build
-  end
-
   # Enable building only the gstreamer plugin
   # https://gitlab.freedesktop.org/libnice/libnice/-/merge_requests/271
   patch :DATA

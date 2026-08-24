@@ -22,7 +22,6 @@ class ChartReleaser < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/helm/chart-releaser/cr/cmd.Version=#{version}
       -X github.com/helm/chart-releaser/cr/cmd.GitCommit=#{tap.user}
       -X github.com/helm/chart-releaser/cr/cmd.BuildDate=#{time.iso8601}

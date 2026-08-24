@@ -8,7 +8,7 @@ class Stella < Formula
     url "https://github.com/stella-emu/stella/archive/refs/tags/7.0c.tar.gz"
     version "7.0c"
     sha256 "b9309198aa5746cd568e91caaea10bbeab4ca8155493d0243694b41bdb39d7ca"
-    depends_on "sdl2"
+    depends_on "sdl2-compat"
   end
 
   bottle do

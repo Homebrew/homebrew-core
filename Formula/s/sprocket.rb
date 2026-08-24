@@ -1,8 +1,8 @@
 class Sprocket < Formula
   desc "Bioinformatics workflow engine built on the Workflow Description Language (WDL)"
   homepage "https://sprocket.bio"
-  url "https://github.com/stjude-rust-labs/sprocket/archive/refs/tags/v0.26.0.tar.gz"
-  sha256 "8758a9a40f29c088d1f2836f483dc65af2af4457aa1c258c1d78ea75d40b22c9"
+  url "https://github.com/stjude-rust-labs/sprocket/archive/refs/tags/v0.29.0.tar.gz"
+  sha256 "e3fc518640fff8b59ee59ebaeef514f1f8d1ff6c6004f54910b5b5541178a94f"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/stjude-rust-labs/sprocket.git", branch: "main"
 
@@ -12,17 +12,18 @@ class Sprocket < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "245a357deed7dd24dcddc4669a8c420f4976d43f9000d2e7c70330c25e9567e8"
-    sha256 cellar: :any, arm64_sequoia: "b7002c91e337fb56513c14abb338eacce708daa904513aa00fcc69266aad4da5"
-    sha256 cellar: :any, arm64_sonoma:  "e4771f5a212ae014f0be216f1db893d12ae2e946d25cbec5d61edd6ea78f110f"
-    sha256 cellar: :any, sonoma:        "081c57378ac3fd863dfba5e205949437bded85b37272422f872dae3f43045328"
-    sha256 cellar: :any, arm64_linux:   "397bf5360b480e4261c7ce37b0219db9841809ba964a17f52a452ba3b30002dd"
-    sha256 cellar: :any, x86_64_linux:  "3d7e3ac257daab44219463b0238b93e2f871d97841f42cfb4d0b7e539196e3f2"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "26de8d3a0c8d1b0d79fcf1a24b0f762683123fe4aded3d89473d13a67ff786fd"
+    sha256 cellar: :any, arm64_sequoia: "31a4b32ecd922f165695423a29d252ed97ec2988ca5312d369e4347b407a8043"
+    sha256 cellar: :any, arm64_sonoma:  "675c6407bc58131f4f76dda033062b6242ef4e81c7979274be37bf494cad77df"
+    sha256 cellar: :any, sonoma:        "7533d3c097ede54dd5f5e567b2d054efde76b946e448c6d5252551800c438957"
+    sha256 cellar: :any, arm64_linux:   "b9147dce111649fec260e5fb8a51a2e4f2c68fb22ad49cdc4e813e2d9ad478a0"
+    sha256 cellar: :any, x86_64_linux:  "6711351a9120da6255cc33ba9958895c922e2c2df62bc7d08d9011ba746a5784"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"

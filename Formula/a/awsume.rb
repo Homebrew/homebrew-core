@@ -90,7 +90,7 @@ class Awsume < Formula
 
   test do
     assert_match version.to_s, shell_output("bash -c '. #{bin}/awsume -v 2>&1'")
-    assert_match <<~YAML, (testpath/".awsume/config.yaml").read
+    assert_match <<~YAML, (testpath/".config/awsume/config.yaml").read
       colors: true
       fuzzy-match: false
       role-duration: 0

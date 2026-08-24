@@ -2,16 +2,15 @@ class Rocq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://rocq-prover.org/"
   license "LGPL-2.1-only"
-  revision 1
-  compatibility_version 1
+  compatibility_version 2
 
   stable do
-    url "https://github.com/rocq-prover/rocq/releases/download/V9.1.1/rocq-9.1.1.tar.gz"
-    sha256 "35cd03fc4193969b1cce01190340e5c129c1ba8f02242a9e6dff4b83be118759"
+    url "https://github.com/rocq-prover/rocq/releases/download/V9.2.0/rocq-9.2.0.tar.gz"
+    sha256 "a45280ab4fbaac7540b136a6b073b4a6db15739ec1e149bded43fa6f4fc25f20"
 
     resource "stdlib" do
-      url "https://github.com/rocq-prover/stdlib/releases/download/V9.0.0/stdlib-9.0.0.tar.gz"
-      sha256 "1ab6adc42dfc651ddc909604bae1a54ff5623cda837f93677a8b12aab9eec711"
+      url "https://github.com/rocq-prover/stdlib/releases/download/V9.1.0/stdlib-9.1.0.tar.gz"
+      sha256 "2d66421c52ed32719a15cb039c368e063c4d85f670e3d142f5eb7415fb427985"
     end
   end
 
@@ -21,12 +20,12 @@ class Rocq < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "115c48fed35576b8543ee131ce2e7d76aacbaf41bf26ba748da6e91318ac47e6"
-    sha256 arm64_sequoia: "6189d339f699d4741e897e3dd72b5e1b3166882cb5f8daaa0ee1e51577a98c95"
-    sha256 arm64_sonoma:  "00d13e12440801af1ca6c5511d1d25ed42aced5b2bb42156ad115add4abfb76e"
-    sha256 sonoma:        "d8cc0cb44561d73766ce10cdc1bdf105d07f98d0ba1cc478ea97d199500e4da3"
-    sha256 arm64_linux:   "0444ebaece6e0db5bff8c49dccdff11aeda920b641f5bef478ee54a667f7f59b"
-    sha256 x86_64_linux:  "d260c686d4408133e018b5035683bd963f4b0844af66f9890307929965f908b1"
+    sha256 arm64_tahoe:   "2e2a4c16e90c21d3baa45352ff39df6bc934d643c5e9fecdddf9f4ee3483aecd"
+    sha256 arm64_sequoia: "4e5910bd59bf71c5b891591d1f7b039029cbef5415e73dc0bb4448923c403a8b"
+    sha256 arm64_sonoma:  "cab7ab2eff645985a0cfe97c53d99c17dac6bcc192d58f7ad5b38d2de5fee619"
+    sha256 sonoma:        "c1bd10138d7aa10292f4337e33cfc2721b045572738e8f69d77ac6a90e152f82"
+    sha256 arm64_linux:   "f9e9c8d1fef13ded0918f8ba02a9a04e319356bf19a88e50ff69c9e781d2455b"
+    sha256 x86_64_linux:  "61bfbed04999eaabaf499bf0c0f884bd16298300ddd0d692bc819d947f6a1fb3"
   end
 
   head do
@@ -49,15 +48,21 @@ class Rocq < Formula
   def install
     # Work around for https://github.com/Homebrew/homebrew-test-bot/issues/805
     if ENV["HOMEBREW_GITHUB_ACTIONS"] && !(Formula["ocaml-findlib"].etc/"findlib.conf").exist?
-      ENV["OCAMLFIND_CONF"] = Formula["ocaml-findlib"].opt_libexec/"findlib.conf"
+      ENV["OCAMLFIND_CONF"] = formula_opt_libexec("ocaml-findlib")/"findlib.conf"
     end
-    ENV.prepend_path "OCAMLPATH", Formula["ocaml-zarith"].opt_lib/"ocaml"
-    ENV.prepend_path "OCAMLPATH", Formula["ocaml-findlib"].opt_lib/"ocaml"
+    ENV.prepend_path "OCAMLPATH", formula_opt_lib("ocaml-zarith")/"ocaml"
+    ENV.prepend_path "OCAMLPATH", formula_opt_lib("ocaml-findlib")/"ocaml"
 
     packages = %w[rocq-runtime coq-core rocq-core coqide-server]
 
+    # dune 3.24 deleted the `coq` language extension. The default (rule_gen)
+    # build doesn't use it (only the unused `dune.disabled` files do) and the
+    # `(coq ...)` env field only sets dev-profile flags, so drop both to keep
+    # building until a release adopts the Rocq build language.
+    inreplace "dune-project", /^\(using coq [\d.]+\)\n/, ""
+    inreplace "dune", /\n\s*\(coq \(flags :standard -w \+default\)\)\)/, ")"
+
     system "./configure", "-prefix", prefix,
-                          "-mandir", man,
                           "-libdir", HOMEBREW_PREFIX/"lib/ocaml/coq",
                           "-docdir", pkgshare/"latex"
     system "make", "dunestrap"
@@ -79,7 +84,7 @@ class Rocq < Formula
   test do
     # Work around for https://github.com/Homebrew/homebrew-test-bot/issues/805
     if ENV["HOMEBREW_GITHUB_ACTIONS"] && !(Formula["ocaml-findlib"].etc/"findlib.conf").exist?
-      ENV["OCAMLFIND_CONF"] = Formula["ocaml-findlib"].opt_libexec/"findlib.conf"
+      ENV["OCAMLFIND_CONF"] = formula_opt_libexec("ocaml-findlib")/"findlib.conf"
     end
     (testpath/"testing.v").write <<~ROCQ
       Require Stdlib.micromega.Lia.

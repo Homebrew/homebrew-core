@@ -1,20 +1,22 @@
 class Apptainer < Formula
   desc "Application container and unprivileged sandbox platform for Linux"
   homepage "https://apptainer.org/"
-  url "https://github.com/apptainer/apptainer/releases/download/v1.5.1/apptainer-1.5.1.tar.gz"
-  sha256 "ae00a6a2f1949a8f245c082660fd2990d61a6543159c9a28eede7966d89efe62"
+  url "https://github.com/apptainer/apptainer/releases/download/v1.5.3/apptainer-1.5.3.tar.gz"
+  sha256 "5a3bf360a5240086324aa7f7005ab7eeee91095e2091078b3f9783eaf6e7288a"
   license "BSD-3-Clause"
   head "https://github.com/apptainer/apptainer.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "10579022b0544f6da8a32af1eb69c5a55c5b2936348bab496e16b478161f6ba4"
-    sha256 cellar: :any, x86_64_linux: "2b784cb5a5354a5f3fe422c62094cf964004ffc47dd38308d8a7660367320001"
+    sha256 cellar: :any, arm64_linux:  "01fd8bad65282e4318436fa892dd79b825e4cc11564078b96e4bd71b82dfeebe"
+    sha256 cellar: :any, x86_64_linux: "a475188da8cf418e3fa1afed2dedfdd178f18b29195a5c0912b3f983002b7e59"
   end
 
   # No relocation, the localstatedir to find configs etc is compiled into the program
   pour_bottle? only_if: :default_prefix
 
-  depends_on "go" => :build
+  # TODO: unpin go@1.26 when apptainer release supports go 1.27
+  # ref: https://github.com/apptainer/apptainer/pull/3563
+  depends_on "go@1.26" => :build
   depends_on "pkgconf" => :build
   depends_on "libseccomp"
   depends_on :linux

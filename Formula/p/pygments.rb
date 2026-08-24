@@ -3,13 +3,13 @@ class Pygments < Formula
 
   desc "Generic syntax highlighter"
   homepage "https://pygments.org/"
-  url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-  sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+  url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+  sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   license "BSD-2-Clause"
   head "https://github.com/pygments/pygments.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a2aedfa8d78eb732b672d4c674e11bdfa764cecc85c0332f2cd23fabeef103ed"
+    sha256 cellar: :any_skip_relocation, all: "54074e6a643ba4c01e54c4243c300a4f6f941ed6340f91b2fb83766bbf5960ce"
   end
 
   depends_on "python@3.14"

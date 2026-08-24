@@ -1,27 +1,24 @@
 class Qshell < Formula
   desc "Shell Tools for Qiniu Cloud"
   homepage "https://github.com/qiniu/qshell"
-  url "https://github.com/qiniu/qshell/archive/refs/tags/v2.19.8.tar.gz"
-  sha256 "93a865e9186b6e9c7e4d404e6bc609ae76fef9ff499a70d7b954062585045a02"
+  url "https://github.com/qiniu/qshell/archive/refs/tags/v2.19.12.tar.gz"
+  sha256 "47c9c466f83de9d978ddfa62f6066733d7deed7082049ec645d9bb40b892b61f"
   license "MIT"
   head "https://github.com/qiniu/qshell.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6824bf302f3b943453042b57c17eb926af95ad9d51cc07430f7d5f6e5bd795f3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6824bf302f3b943453042b57c17eb926af95ad9d51cc07430f7d5f6e5bd795f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6824bf302f3b943453042b57c17eb926af95ad9d51cc07430f7d5f6e5bd795f3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "812003f767a1085d0a7a52cfba69eb1d87f235afb7ba49c7a1e93cf278373627"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fffe8d950e29065046d45ef5e5f2aba9ab34725cf141580370a71ec8a678ef00"
-    sha256 cellar: :any,                 x86_64_linux:  "829c6194368fd3d13ce1ec24e6bfbcf5d929bbc6bfb69ed932e10440edbccd77"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9cbb3aab95d72e1d49e1dea80fd06996542811abbd7695d72b3c2a5a8c9ae00b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9cbb3aab95d72e1d49e1dea80fd06996542811abbd7695d72b3c2a5a8c9ae00b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9cbb3aab95d72e1d49e1dea80fd06996542811abbd7695d72b3c2a5a8c9ae00b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d205e9bb56c3411afbf9fac88873490ce5c6aac688591efd9c23f9391680fd2f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7ce82e7beaafb70f40ff69d470e2fff38008889f9b34dedd09028f77576f35b6"
+    sha256 cellar: :any,                 x86_64_linux:  "42c316c3369fb350a58afe1ac110801c6d11f3daf991101a52b9edeab1d99c5e"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/qiniu/qshell/v2/iqshell/common/version.version=v#{version}
-    ]
+    ldflags = %W[-X github.com/qiniu/qshell/v2/iqshell/common/version.version=v#{version}]
     system "go", "build", *std_go_args(ldflags:), "./main"
     generate_completions_from_executable(bin/"qshell", shell_parameter_format: :cobra)
   end

@@ -40,7 +40,7 @@ class Ucl < Formula
     # Workaround for ancient config.sub files not recognising aarch64 macos.
     # As above, autoremake would be nicer, but that does not work.
     %w[config.guess config.sub].each do |fn|
-      cp "#{Formula["automake"].opt_prefix}/share/automake-#{Formula["automake"].version.major_minor}/#{fn}",
+      cp "#{formula_opt_prefix("automake")}/share/automake-#{Formula["automake"].version.major_minor}/#{fn}",
          "acconfig/#{fn}"
     end
 

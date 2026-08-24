@@ -11,6 +11,10 @@ class SimpleMtpfs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "c194161a8dbd1095e449cceb1b21e7e64f68d6541ab32c63ff78092260df8d49"
   end
 
+  # Last release on 2020-07-22. Needs `libfuse@2` to build
+  deprecate! date: "2026-06-21", because: :unmaintained
+  disable! date: "2027-06-21", because: :unmaintained
+
   depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build # required for AX_CXX_COMPILE_STDCXX_17
   depends_on "automake" => :build

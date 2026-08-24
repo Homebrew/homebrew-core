@@ -7,13 +7,13 @@ class PscPackage < Formula
   revision 2
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_tahoe:   "853fa3c46cc3d8014091d14617d648cb6b6b93f4c12bde49197b53fe213f85a6"
-    sha256 cellar: :any,                 arm64_sequoia: "6c5928de908600c114d1586d02da4c506a7b19c5cbf575eb1b7f59601b2af724"
-    sha256 cellar: :any,                 arm64_sonoma:  "be21d5ebf43c62b97943a8f695aaeb4c089d09e758025e09fc5d331ff94958cb"
-    sha256 cellar: :any,                 sonoma:        "cfbcf399e9fa7c9ae00731f65705c19e13484e8b4f90f40b355de009eab70d37"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b95340cc6d47cb4a2a0a39e28a6a2f9e5ea9f053610f370dc598687c1f3d85e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c39f2e672013bcc94c77c15c585fc01bafaacbb74026cda1d720bc75b991d876"
+    rebuild 4
+    sha256 cellar: :any, arm64_tahoe:   "f6c81d6b073711eed4bf20c42410ca4ad7d2d669237ecf6def5804c8cc29343d"
+    sha256 cellar: :any, arm64_sequoia: "a14fb9e6b68780fbec104443cd58fe7b04251878c4db46366c935a130df02608"
+    sha256 cellar: :any, arm64_sonoma:  "64b9d40b022646fa005b18f6f6dceee95926d643f9094fc750572721919748d6"
+    sha256 cellar: :any, sonoma:        "3f19426b0c3f3bf4b984094eccd350cbd60b92804441edaeda4aff786b479d4b"
+    sha256 cellar: :any, arm64_linux:   "20af68b4b390cae1e31e867b482a95f0f54794fbb26439baf00cd65f1cf9159c"
+    sha256 cellar: :any, x86_64_linux:  "9338eb156b117da211f19a7f2d82a1ccc318e55cc67e1b459ba66e9f9edd93ff"
   end
 
   depends_on "cabal-install" => :build
@@ -31,6 +31,8 @@ class PscPackage < Formula
   patch do
     url "https://github.com/purescript/psc-package/commit/2817cfd7bbc29de790d2ab7bee582cd6167c16b5.patch?full_index=1"
     sha256 "e49585ff8127ccca0b35dc8a7caa04551de1638edfd9ac38e031d1148212091c"
+    type :backport
+    resolves "https://github.com/purescript/psc-package/pull/168"
   end
 
   # Another patch to fix build. See https://github.com/purescript/psc-package/pull/169.

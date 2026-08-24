@@ -13,6 +13,8 @@ class Grok < Formula
     patch do
       url "https://github.com/jordansissel/grok/commit/f440e9b4ce29a8e803f09d39e37a5725724aba95.patch?full_index=1"
       sha256 "2f92f3b5956224c6d5674940d1d604c1aafa1c3387bda68a266e853c90d0fa86"
+      type :backport
+      resolves "https://github.com/jordansissel/grok/pull/14"
     end
   end
 
@@ -56,9 +58,9 @@ class Grok < Formula
 
     if OS.linux?
       ENV.append "EXTRA_CFLAGS", "-fcommon"
-      ENV.append "EXTRA_CFLAGS", "-I#{Formula["libtirpc"].opt_include}/tirpc"
-      ENV.append "EXTRA_LDFLAGS", "-L#{Formula["libtirpc"].opt_lib} -ltirpc"
-      ENV["GPERF"] = Formula["gperf"].opt_bin/"gperf"
+      ENV.append "EXTRA_CFLAGS", "-I#{formula_opt_include("libtirpc")}/tirpc"
+      ENV.append "EXTRA_LDFLAGS", "-L#{formula_opt_lib("libtirpc")} -ltirpc"
+      ENV["GPERF"] = formula_opt_bin("gperf")/"gperf"
     end
 
     # Race condition in generating grok_capture_xdr.h

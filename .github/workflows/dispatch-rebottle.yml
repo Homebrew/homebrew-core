@@ -46,6 +46,7 @@ env:
   HOMEBREW_GITHUB_ACTIONS: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
   HOMEBREW_NO_INSTALL_FROM_API: 1
+  HOMEBREW_SANDBOX_LINUX_LANDLOCK: 1
   HOMEBREW_SORBET_RECURSIVE: 1
   HOMEBREW_NO_BUILD_ERROR_ISSUES: 1
   RUN_URL: ${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}
@@ -66,7 +67,7 @@ jobs:
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@main
+        uses: Homebrew/actions/setup-homebrew@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           core: true
           cask: false
@@ -105,7 +106,7 @@ jobs:
           echo reason="${DISPATCH_REBOTTLE_REASON}"
 
       - name: Pre-test steps
-        uses: Homebrew/actions/pre-build@main
+        uses: Homebrew/actions/pre-build@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           bottles-directory: ${{ env.BOTTLES_DIR }}
 
@@ -119,7 +120,7 @@ jobs:
 
       - name: Post-build steps
         if: always()
-        uses: Homebrew/actions/post-build@main
+        uses: Homebrew/actions/post-build@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           runner: ${{ matrix.runner }}
           bottles-directory: ${{ env.BOTTLES_DIR }}
@@ -148,7 +149,7 @@ jobs:
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@main
+        uses: Homebrew/actions/setup-homebrew@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           core: true
           cask: false
@@ -162,17 +163,17 @@ jobs:
 
       - name: Setup git
         id: git-user-config
-        uses: Homebrew/actions/git-user-config@main
+        uses: Homebrew/actions/git-user-config@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           username: ${{ (github.actor != 'github-actions[bot]' && github.actor) || 'BrewTestBot' }}
 
       - name: Set up commit signing
-        uses: Homebrew/actions/setup-commit-signing@main
+        uses: Homebrew/actions/setup-commit-signing@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
       - name: Generate build provenance
-        uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26 # v4.1.0
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
         with:
           subject-path: ${{ env.BOTTLES_DIR }}/*.tar.gz
 
@@ -195,7 +196,7 @@ jobs:
           echo "head_sha=$(git -C "$HOMEBREW_CORE_PATH" rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Push commits
-        uses: Homebrew/actions/git-try-push@main
+        uses: Homebrew/actions/git-try-push@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           directory: ${{steps.set-up-homebrew.outputs.repository-path}}
@@ -206,7 +207,7 @@ jobs:
 
       - name: Open PR with bottle commit
         id: create-pr
-        uses: Homebrew/actions/create-pull-request@main
+        uses: Homebrew/actions/create-pull-request@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
           base: ${{github.ref}}
@@ -289,7 +290,7 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - name: Post comment on failure
-        uses: Homebrew/actions/post-comment@main
+        uses: Homebrew/actions/post-comment@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.issue}}

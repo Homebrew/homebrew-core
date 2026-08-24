@@ -1,19 +1,18 @@
 class Kwok < Formula
   desc "Kubernetes WithOut Kubelet - Simulates thousands of Nodes and Clusters"
   homepage "https://kwok.sigs.k8s.io"
-  url "https://github.com/kubernetes-sigs/kwok/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "bf7c686c3ada070104f32fd3263686368cc981206770e81d39d8a27ae04368c0"
+  url "https://github.com/kubernetes-sigs/kwok/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "6b0ee90f5288e73b440e3724bcbafba6988016aa85bd93f32c474c3a1bffbe4f"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kwok.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4c9829a6287114e9ca679cd313933facad7a57b2aceacd0a5d798b2f1d62927a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a802cd90ce86d92663520b4a243db27ab70989f0afc9fd3e452faf679078262"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bb3a5257ca085b1854f846d8efa01a9394699f3a1d9c6ab749a6c6d6c1ed0cc1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "96a706a400c14a9263eb584fa70f3106cdae304f29cefc13bb8d3511148df225"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "335471ec0aedf121022f660336be8989cba4f124904733ac5145b6f03f87a550"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3ca81c0287d077692b4e1c69b426efa10f0cbf01015a4375b6c8856354cad44"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "420e35fbbd71f2f9e1da1f0de80749516abf71b8672a0fadd850f097ec65f851"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d78bef0f7271b0483309997c9a475f2ed0f26024b50e7f975b930bfdac983e92"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d355b9230776cd0912e0d0089115b1491c532613fc1f3c69bec91ccc19410b8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "94a5c0a65312699048aeb5cb1699791237da18950da5a7c5ba5e8556e1831c38"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fffaebcb815d11677ad32fbf8e8535696a020a86ed3e7c27fbe521c44405202e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2972416b9cc071a38241938990d93cb77a99e612627494699b495cf7ab8db34"
   end
 
   depends_on "go" => :build

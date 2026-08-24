@@ -25,6 +25,8 @@ class So < Formula
     depends_on "openssl@3"
   end
 
+  conflicts_with "solod", because: "both install `so` binaries"
+
   def install
     system "cargo", "install", *std_cargo_args
   end

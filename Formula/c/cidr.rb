@@ -19,10 +19,7 @@ class Cidr < Formula
 
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
-    ldflags = %W[
-      -s -w
-      -X github.com/bschaatsbergen/cidr/cmd.version=#{version}
-    ]
+    ldflags = %W[-X github.com/bschaatsbergen/cidr/cmd.version=#{version}]
     system "go", "build", *std_go_args(ldflags:)
   end
 

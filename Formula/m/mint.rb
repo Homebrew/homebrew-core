@@ -16,19 +16,16 @@ class Mint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8475fe55ddddff036a03d1cb6d255167b1c3418bcab0be6fe8e0b1801bcdc5e"
   end
 
-  depends_on xcode: ["12.0", :build]
-
   uses_from_macos "swift" => :build
+
+  on_macos do
+    depends_on xcode: ["12.0", :build]
+  end
 
   conflicts_with "mintoolkit", because: "both install `mint` binaries"
 
   def install
-    args = if OS.mac?
-      ["--disable-sandbox"]
-    else
-      ["--static-swift-stdlib"]
-    end
-    system "swift", "build", *args, "-c", "release"
+    system "swift", "build", *std_swift_args
     bin.install ".build/release/#{name}"
   end
 

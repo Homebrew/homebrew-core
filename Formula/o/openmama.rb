@@ -41,9 +41,9 @@ class Openmama < Formula
 
   def install
     args = %W[
-      -DAPR_ROOT=#{Formula["apr"].opt_prefix}
-      -DAPRUTIL_ROOT=#{Formula["apr-util"].opt_prefix}
-      -DPROTON_ROOT=#{Formula["qpid-proton"].opt_prefix}
+      -DAPR_ROOT=#{formula_opt_prefix("apr")}
+      -DAPRUTIL_ROOT=#{formula_opt_prefix("apr-util")}
+      -DPROTON_ROOT=#{formula_opt_prefix("qpid-proton")}
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DINSTALL_RUNTIME_DEPENDENCIES=OFF
       -DWITH_TESTTOOLS=OFF

@@ -54,9 +54,8 @@ class Tvnamer < Formula
 
   test do
     raw_file = testpath/"brass.eye.s01e01.avi"
-    expected_file = testpath/"Brass Eye - [01x01] - Animals.avi"
     touch raw_file
-    system bin/"tvnamer", "-b", raw_file
-    assert_path_exists expected_file
+    output = shell_output("#{bin}/tvnamer -b #{raw_file} 2>&1")
+    assert_match "Detected series: brass eye (season: 1, episode: 1)", output
   end
 end

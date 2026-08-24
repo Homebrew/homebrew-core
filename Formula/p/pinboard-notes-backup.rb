@@ -7,13 +7,13 @@ class PinboardNotesBackup < Formula
   head "https://github.com/bdesham/pinboard-notes-backup.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "61ab93300efacf6806b22a12a68d41abb160245fbd468320985c72541e74c08a"
-    sha256 cellar: :any,                 arm64_sequoia: "bd015512bf68cff2cce03386ecd6a33a60eda0db5aa5dce024c069f245a57f7b"
-    sha256 cellar: :any,                 arm64_sonoma:  "7f2b54f27fc60f45bd2a54fe75c9c098ee16a2112ab7f323ee0cb618f0151636"
-    sha256 cellar: :any,                 sonoma:        "87d95a1410a2d5f7332b9a86b4b822ef00bec53b26b571be9573308304b44238"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "52b12aa0e866edb547e43aa8b3203a811cdab29f55b3860047a07f4f53bf9ba9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6f27b387f833bca955fe44a98f07222cf8f31539067e5f6b538ad131df13c5a"
+    rebuild 2
+    sha256 cellar: :any, arm64_tahoe:   "9d81ad2cf860dcbbe903d303a5ab7aea6e9bedf73baa748355cb6feb8785d307"
+    sha256 cellar: :any, arm64_sequoia: "317cb613612a6d18c8ed4fe8bc4b7947179455d647d3988a41c1cb2f1f7e214d"
+    sha256 cellar: :any, arm64_sonoma:  "f913b55543f506bada705e43550504c5fa8643d4e1d5f1aeef34e71bb3da923d"
+    sha256 cellar: :any, sonoma:        "d7483dba1f7ad5f27174a39f91f85c06004ed5dc938fdc555ff968f5f951f71f"
+    sha256 cellar: :any, arm64_linux:   "403d32f5dd143781fd39b11100d24b9b2dd772ac3bebf8ee259cf53539a32a5c"
+    sha256 cellar: :any, x86_64_linux:  "2a5fca050ae989d10198ecaa79bb19d8624b52b7f902bbe1e1a73bc85f3e1785"
   end
 
   depends_on "cabal-install" => :build

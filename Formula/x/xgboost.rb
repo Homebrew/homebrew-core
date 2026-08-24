@@ -1,8 +1,8 @@
 class Xgboost < Formula
   desc "Scalable, Portable and Distributed Gradient Boosting Library"
   homepage "https://xgboost.ai/"
-  url "https://github.com/dmlc/xgboost/releases/download/v3.3.0/xgboost-src-3.3.0.tar.gz"
-  sha256 "22d4fba822fba5cd02299bf0c63ec68ff72606bc1b1bd910423d4b83c2f108ff"
+  url "https://github.com/dmlc/xgboost/releases/download/v3.4.1/xgboost-src-3.4.1.tar.gz"
+  sha256 "34a5cb99a67bb98b44f204767eeeae642b65a86b2ecfca60082e4d74fd4d169a"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Xgboost < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "c7801b61e133e2a38583a825548ff11f2c9f59ca00073ab13a458fbacac30865"
-    sha256 cellar: :any, arm64_sequoia: "00ba34786549e5cde61f0adb1984e426b789a2ff7f655e2247dbaf3f9614053b"
-    sha256 cellar: :any, arm64_sonoma:  "e7a65021e8b01503cbd084b4280e2e1b015c2ce986ded669379bf8e7a9ed0bb5"
-    sha256 cellar: :any, sonoma:        "d4b38f0a8d4b4884cee14d5a37e280931e6782cda9d3cce686a651016eb44978"
-    sha256 cellar: :any, arm64_linux:   "f39733a574674cb4dc306f864bfba16b82954df315470332b2f6f7b99e2db6de"
-    sha256 cellar: :any, x86_64_linux:  "88bf96e227bf00b677ca5cf81e9ca1c7a88bab548818655b687e0fb143bddc8e"
+    sha256 cellar: :any, arm64_tahoe:   "0e52eb0f1d5c50e3ffe8043bcdc705f1115d6c1822982aa1a36cb702e27bfb30"
+    sha256 cellar: :any, arm64_sequoia: "740d6fd4fc1df7196a6c07200f5ed8adf8bb86e8d8deb12f94895252a32b1130"
+    sha256 cellar: :any, arm64_sonoma:  "e6274464550e9f4ffaba55a9b274a2abec0b73a7ac74735040f88c8cd878b6a1"
+    sha256 cellar: :any, sonoma:        "0b85787dcd179b6b52647033816b6076227d51f1265407303c55134c969b761f"
+    sha256 cellar: :any, arm64_linux:   "277dc97ea4d1e9d6079ad325ff00784c9c8cf6b3be50c5d0e106bddb66d8d028"
+    sha256 cellar: :any, x86_64_linux:  "2cd992cba15986d33d0adbf41d0610de7858f7f7e8bf3d5173905f3ac8d0c63f"
   end
 
   depends_on "cmake" => :build
@@ -41,9 +41,10 @@ class Xgboost < Formula
 
       int main() {
         std::string train_data = "#{testpath}/demo/data/agaricus.txt.train?format=libsvm";
+        std::string config = "{\\"uri\\": \\"" + train_data + "\\", \\"silent\\": 0}";
 
         DMatrixHandle dtrain;
-        if (XGDMatrixCreateFromFile(train_data.c_str(), 0, &dtrain) != 0) {
+        if (XGDMatrixCreateFromURI(config.c_str(), &dtrain) != 0) {
           std::cerr << "Failed to load training data: " << train_data << std::endl;
           std::cerr << "Last error message: " << XGBGetLastError() << std::endl;
           return 1;

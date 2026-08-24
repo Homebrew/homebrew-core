@@ -1,8 +1,8 @@
 class DartSass < Formula
   desc "Reference implementation of Sass, written in Dart"
   homepage "https://sass-lang.com/dart-sass"
-  url "https://github.com/sass/dart-sass/archive/refs/tags/1.101.0.tar.gz"
-  sha256 "2af48b186eb895f5e70a2fd29e001b0dcb98d51382dd95117ad1be68f600788f"
+  url "https://github.com/sass/dart-sass/archive/refs/tags/1.103.1.tar.gz"
+  sha256 "21d2f2cb02a87432c756786839e75ee642f6debd6790a0d77d0bca7c6bcc5a71"
   license "MIT"
 
   # Some tags are used for sass-api/sass-parser
@@ -12,12 +12,12 @@ class DartSass < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "dd56e48f7b6b5f431eedb7748c243600561361306b4e01339c4bdfb318f11853"
-    sha256 cellar: :any,                 arm64_sequoia: "c7110799ec47c0a41d5d0a167bb0899d5627781a649778648f25a9549973e1e8"
-    sha256 cellar: :any,                 arm64_sonoma:  "ed046bf044f14c8a9e2a504e2cec9100b895a9a9aa7d8cdf3a394c958e79aaeb"
-    sha256 cellar: :any,                 sonoma:        "cff3394ae49a55ff71c01faef336a9317b5b125abb8a9161adfe83b75515d043"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "455a3e31b77d0f7d5ee22deb7a29c52787700cbe78f461ee91a57fee805b9a55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd7d12bbcc0fae52d46a75e50426fa9caff7060b7af14c453fd3de7b244b6eeb"
+    sha256 cellar: :any,                 arm64_tahoe:   "234bb88cb7ce8f87e418b8a050505e440d530309d2aeb2d6b10a4363a0491c5f"
+    sha256 cellar: :any,                 arm64_sequoia: "21d7b2261017c6e559dc965b17b5ca0544d9b119d9bac966cb73cc54a9768727"
+    sha256 cellar: :any,                 arm64_sonoma:  "2511756aa0eb4f1f83790f423a8609502e24f7c6984d9ff2b02fda515d82ce5d"
+    sha256 cellar: :any,                 sonoma:        "354e97fe9fa691c75839e3028e816088780129373281c4a163c3953ef46a1d36"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "117db5057a45e63b9bd4d9e4382d86443f30784e3d8c45969cd69767ea062c65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5265d167760d5b54f7152454286e5f9b492c5972d4a6eb4315f9c01ae126ca9"
   end
 
   depends_on "buf" => :build
@@ -56,7 +56,7 @@ class DartSass < Formula
 
     (bin/"sass").write <<~BASH
       #!/bin/bash
-      exec "#{Formula["dartaotruntime"].opt_bin}/dartaotruntime" "#{libexec}/sass.aot" "$@"
+      exec "#{formula_opt_bin("dartaotruntime")}/dartaotruntime" "#{libexec}/sass.aot" "$@"
     BASH
   end
 

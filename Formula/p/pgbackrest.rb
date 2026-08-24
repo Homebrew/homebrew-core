@@ -1,18 +1,17 @@
 class Pgbackrest < Formula
   desc "Reliable PostgreSQL Backup & Restore"
   homepage "https://pgbackrest.org"
-  url "https://github.com/pgbackrest/pgbackrest/archive/refs/tags/release/2.58.0.tar.gz"
-  sha256 "2517ec0a7f66be0f1bc77795c3a19cd41c4b106699321d3ac511bc539dd2bfca"
+  url "https://github.com/pgbackrest/pgbackrest/releases/download/release/2.59.1/pgbackrest-2.59.1.tar.gz"
+  sha256 "1cd522afc33b8ff846ef88c55dc238717c9c8817a4f6ca7c9f64887de9c7402d"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "ddf0b1c7f851c41a77323611559129b573d908defcf89c0ce441c43d742d02a1"
-    sha256 cellar: :any, arm64_sequoia: "1e88c3515ef3cef29cc6f5b54d36553ea31162934558f664540f87e208fd41d3"
-    sha256 cellar: :any, arm64_sonoma:  "444bfaf0fbdab8e7a838ac28df2b141d28e50d2edca914655f2ac1a79a210dd8"
-    sha256 cellar: :any, sonoma:        "ab091b268bf5912d2d75eac9110303543d9d3e1a21fa30632bd38da38d3b4869"
-    sha256               arm64_linux:   "f94aa5e2ba0c8a37044fc749817bd8bdfa64c37095aee594c758aca26197c681"
-    sha256               x86_64_linux:  "aa984f5a9161767d92ea237ce5a55b01342b93c879da811baaba149ab3e0cabb"
+    sha256 cellar: :any, arm64_tahoe:   "a5b4d48f2e957999ad4cb76044996ff5ece07184115158cae866458709d1bf32"
+    sha256 cellar: :any, arm64_sequoia: "39a0c873cd9b601b37576b4bb9c5d25cef05c0e3bdf9fa00baede5f1177b8cc7"
+    sha256 cellar: :any, arm64_sonoma:  "24429a2d290d2cc0837e9a27461c1f4850fc96f7cfcf89b583f19077f5220528"
+    sha256 cellar: :any, sonoma:        "0caf27c803755915597c4d0bf7cd134d2acbd819e92613af102c8e65f674c1c8"
+    sha256               arm64_linux:   "65dc1e3b628ea02949fdd84c54dbc8baf5ef16dbd3f8471ad7aeca8f156850ac"
+    sha256               x86_64_linux:  "cb3ddfd48f3fecad5d831caf196c6e8e6c7906fec5e71811490af643c24bb778"
   end
 
   depends_on "cmake" => :build
@@ -21,7 +20,6 @@ class Pgbackrest < Formula
   depends_on "pkgconf" => :build
   depends_on "libpq"
   depends_on "libssh2"
-  depends_on "libyaml"
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "zstd"
@@ -34,7 +32,7 @@ class Pgbackrest < Formula
   end
 
   def install
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: Formula["libpq"].opt_lib)}" if OS.linux?
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: formula_opt_lib("libpq"))}" if OS.linux?
 
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

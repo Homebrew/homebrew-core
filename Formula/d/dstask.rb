@@ -19,7 +19,6 @@ class Dstask < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/naggie/dstask.GIT_COMMIT=#{tap.user}
       -X github.com/naggie/dstask.VERSION=#{version}
       -X github.com/naggie/dstask.BUILD_DATE=#{time.iso8601}

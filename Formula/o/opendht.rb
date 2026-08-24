@@ -37,6 +37,7 @@ class Opendht < Formula
   patch do
     url "https://gitlab.archlinux.org/archlinux/packaging/packages/opendht/-/raw/f9240e64a01cdadc5c8401e3a1106ed7cd9bf3ee/nettle-4.patch"
     sha256 "88556b2a0cf071971a565ea312be9164356747656078d3537d3910bc38af8880"
+    type :unofficial
   end
 
   def install

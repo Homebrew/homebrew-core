@@ -37,7 +37,7 @@ class ArgusClients < Formula
   end
 
   def install
-    ENV.append_to_cflags "-I#{Formula["libtirpc"].opt_include}/tirpc" if OS.linux?
+    ENV.append_to_cflags "-I#{formula_opt_include("libtirpc")}/tirpc" if OS.linux?
 
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     resources.each do |r|

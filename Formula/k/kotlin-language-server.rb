@@ -19,10 +19,12 @@ class KotlinLanguageServer < Formula
   depends_on "gradle" => :build
   depends_on "openjdk@21"
 
-  # file permission literal patch, upstream pr ref, https://github.com/fwcd/kotlin-language-server/pull/611
+  # file permission literal patch
   patch do
     url "https://github.com/fwcd/kotlin-language-server/commit/a788e5f7b449dd701adc642c7cfb129f1895bd3e.patch?full_index=1"
     sha256 "cc9f6c68a09c76017099ffdd9bfe242a81b51221131bc33f3a7e2baa5bea6d01"
+    type :backport
+    resolves "https://github.com/fwcd/kotlin-language-server/pull/611"
   end
 
   def install

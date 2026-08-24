@@ -25,7 +25,7 @@ class Libclc < Formula
   depends_on "spirv-llvm-translator" => :build
 
   def install
-    llvm_spirv = Formula["spirv-llvm-translator"].opt_bin/"llvm-spirv"
+    llvm_spirv = formula_opt_bin("spirv-llvm-translator")/"llvm-spirv"
     system "cmake", "-S", "libclc", "-B", "build",
                     "-DLLVM_SPIRV=#{llvm_spirv}",
                     *std_cmake_args
@@ -48,7 +48,7 @@ class Libclc < Formula
       -Xclang -mlink-bitcode-file
       -Xclang #{share}/clc/nvptx64--nvidiacl.bc
     ]
-    llvm_bin = Formula["llvm"].opt_bin
+    llvm_bin = formula_opt_bin("llvm")
 
     system llvm_bin/"clang", *clang_args, "./add_sat.cl"
     ir = shell_output("#{llvm_bin}/llvm-dis ./add_sat.bc -o -")

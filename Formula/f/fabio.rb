@@ -1,25 +1,25 @@
 class Fabio < Formula
   desc "Zero-conf load balancing HTTP(S) router"
   homepage "https://fabiolb.net"
-  url "https://github.com/fabiolb/fabio/archive/refs/tags/v1.7.1.tar.gz"
-  sha256 "b9baa68b6763fd683ba8cddcaa2de091f06fef361e314f95cba367a77db15371"
+  url "https://github.com/fabiolb/fabio/archive/refs/tags/v1.7.3.tar.gz"
+  sha256 "dd329eb7ef6dfca110bcc0f0510f5a6ce6286ae5f9217fc6250db4c81875eae2"
   license "MIT"
   head "https://github.com/fabiolb/fabio.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eb25e969f5d2fabda13b1d12833c11c7a5097920cfde7bded768cbba021f123c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe868a5ae16369edfdd0caec7034bec710fd78a608b63a8a4571a6452cca3ba3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1fb0cb390188d54d104aee606ec39a49f3e7a2c7a19ffe39033fb441ba48fc6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b37285485f1dc7e90730872a5e27b5e05a8922698839da5616dbf65021b02b49"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "18bfe6c7313ce49fc11b24927bf6633e0f64778084c286d9c602a0abf4b01dfe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3860d29e384f93c3f1959acf37171210a88d357c54c1a00e05f983a08d459ad1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7fd8730b0fcc306818ef43c1bea53210008ecd30a686ba66fbd34cf174f71d81"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bafeceffe079baa1dd812eda4536f06874c526189b03f2f6f672420227aef847"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9371f7f607fd7fafdccd9bae173e512d168abcdc3d67119641e672640867da45"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4b596bffcfd4cd2e59f845a937d735618c1c96c8dd5375d15410195b0f81233d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ac5dd704ebe8773269ba1aa640f5c2d9ce8ad9406c4d414a111b605a7a7eac7"
+    sha256 cellar: :any,                 x86_64_linux:  "bf9732ebc51ade4f6994db9e2d72c1de04aee150588453df433c29e6132fcd88"
   end
 
   depends_on "go" => :build
   depends_on "etcd" => :test
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   def port_open?(ip_address, port, seconds = 1)

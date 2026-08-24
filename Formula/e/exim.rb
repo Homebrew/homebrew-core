@@ -1,9 +1,9 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "https://ftp.exim.org/pub/exim/exim4/exim-4.99.4.tar.xz"
-  mirror "https://ftp.exim.org/pub/exim/exim4/old/exim-4.99.4.tar.xz"
-  sha256 "87ff38815700dfb1ee4eb7e8dba7916df7a755905354d2d0faa1ae1790c4fd9d"
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.100.tar.xz"
+  mirror "https://ftp.exim.org/pub/exim/exim4/old/exim-4.100.tar.xz"
+  sha256 "5bd0a3e353dbfcd5c8174388b824316a61ee2455d9052ea2f0877dee939d33b3"
   license "GPL-2.0-or-later"
 
   # Maintenance releases are kept in a `fixes` subdirectory, so it's necessary
@@ -30,12 +30,12 @@ class Exim < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f9d2e5994908b5ace1811de4fddb13052ee70dc2d591ba2218bc585756302fa5"
-    sha256 arm64_sequoia: "6955e79637f1c3fd63df6328b33aed4b35271cedaaad2f93e2cc3ed51b396938"
-    sha256 arm64_sonoma:  "c56b874ca13b2f53120d99ff6511d8d687faf1e6978616037da356184f1df2e1"
-    sha256 sonoma:        "99ea459d96cb16628af6ebbfe8714b1efafea56c9386d933b36b70fabae4fb8c"
-    sha256 arm64_linux:   "5b60bb90c9da8b1573181b57a8b27c8f223b70162cbe3bb3f280c8527c87f0c8"
-    sha256 x86_64_linux:  "44d2a774b0ea201e5cd2cc6b21bfc217fe7dc77ab6cafcda75157a2d9696c77c"
+    sha256 arm64_tahoe:   "a282cebb088427f1a9280595c8d5f47d405032472722464dfd6a5eacfc652ae1"
+    sha256 arm64_sequoia: "805627e4c1eb2c46384002048278dea4ab5441c819d17b7850b79a840c544627"
+    sha256 arm64_sonoma:  "811793d37e5e93d1dc56036d792df911c753236d6f426d869e726915bb4f999a"
+    sha256 sonoma:        "5ee1805dac66afb85c2536640feb9f4a27d92535b3f788e9392222479c707da4"
+    sha256 arm64_linux:   "4177aad431743c3eac49e1a77a2341f6f40ba41a2f4f753707360a58459eb280"
+    sha256 x86_64_linux:  "c2c2e09d16dbd4ee1985cf6fd4bfbae4c2b614c10621df9e994d93891fd897c6"
   end
 
   depends_on "openssl@3"
@@ -62,7 +62,7 @@ class Exim < Formula
     ENV["TZ"] = "UTC"
 
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-    inreplace "OS/Makefile-Default", "/usr/bin/perl", Formula["perl"].opt_bin/"perl" if OS.linux?
+    inreplace "OS/Makefile-Default", "/usr/bin/perl", formula_opt_bin("perl")/"perl" if OS.linux?
 
     resources.each do |r|
       r.stage do

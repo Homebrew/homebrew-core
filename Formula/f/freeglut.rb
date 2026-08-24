@@ -6,12 +6,13 @@ class Freeglut < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c702ef020f0ee587f8a6c583bd91f0e0ae905aae875b19c9ce91a30918b04c77"
-    sha256 cellar: :any,                 arm64_sequoia: "4c326ac55184f3e15dd828ac8f3c39a3f132aaca816a7429492a3a8a7a9e4dc0"
-    sha256 cellar: :any,                 arm64_sonoma:  "7428dbf49dcc32e79623cbf4653640b5e847062f6cd0f0522a893e698734a2fe"
-    sha256 cellar: :any,                 sonoma:        "271aaea7bbd3cce73d950c7dfbe2f68d1246e2dc35d3efd7e1e111f921aa870d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a4028f390685ccdbc27d63e8a13b13ac04eeb38d59ea713a02e0e4cd957cd87e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1a792596562e423cfc3c800166b2347d12b805a70395339bfe175752474d354"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "0f211e5010be3c1e5d5b9eb61f574558fba876456385cc822db183cf67c8c3c6"
+    sha256 cellar: :any, arm64_sequoia: "b83d33f198634143226f771055570cf99ca9893eade73ff1ec798bd953c55a60"
+    sha256 cellar: :any, arm64_sonoma:  "8200a7568a87e1720ebb1ef191c01480ecf69e1d1a43b339d1818473a42f527e"
+    sha256 cellar: :any, sonoma:        "c1f7f6578f454da32643c188b0dfc5bae7bdab0c18cf8de2fd1ab4ffb581b442"
+    sha256 cellar: :any, arm64_linux:   "3bde6f2895079e01081744ae5ba7df996a7e3718f16a8d7dfcb75324e802b938"
+    sha256 cellar: :any, x86_64_linux:  "902ba4a099c5e9cbaf5c36ce2e5112f97603390dd02b8d05eff72e5f0b75ffe2"
   end
 
   depends_on "cmake" => :build
@@ -24,7 +25,6 @@ class Freeglut < Formula
 
   on_linux do
     depends_on "mesa-glu"
-    depends_on "xinput"
   end
 
   resource "init_error_func.c" do
@@ -38,7 +38,11 @@ class Freeglut < Formula
       -DOPENGL_INCLUDE_DIR=#{Formula["mesa"].include}
       -DOPENGL_gl_LIBRARY=#{Formula["mesa"].lib/shared_library("libGL")}
     ]
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    # Prevent CMake from discarding RPATH to mesa.
+    # TODO: Should drop this when we introduce `libglvnd`
+    args << "-DCMAKE_INSTALL_RPATH=#{formula_opt_lib("mesa")}" if OS.linux?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

@@ -1,8 +1,8 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://dnscrypt.info"
-  url "https://github.com/DNSCrypt/dnscrypt-proxy/archive/refs/tags/2.1.16.tar.gz"
-  sha256 "7ba5aa76d3fdc6fbb667689ba13d8ac3e66be27655695a9d412e5ad4afe34f8d"
+  url "https://github.com/DNSCrypt/dnscrypt-proxy/archive/refs/tags/2.1.18.tar.gz"
+  sha256 "9b810d862ba07c383cc0b8f9f7f1f2ca8f74a02f849d818c4c4d37cc21a7dfa6"
   license "ISC"
   head "https://github.com/DNSCrypt/dnscrypt-proxy.git", branch: "master"
 
@@ -12,12 +12,12 @@ class DnscryptProxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9778cd4bea93d6e136689a9cb0ade6a8941aa5ff4520a4831fface5938bc1902"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9778cd4bea93d6e136689a9cb0ade6a8941aa5ff4520a4831fface5938bc1902"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9778cd4bea93d6e136689a9cb0ade6a8941aa5ff4520a4831fface5938bc1902"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c9f6b978cf5a942fb1e3a432801e1dae15a3d07ab84b152eb3cdfe9d67b0e6ed"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d4156c8c64dab12d46fc1dfc8ffc8ae66f20a77a84184f5c8d9079a856c70c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b01ab18cc5e830362e86696b912314f81f8957efc460804fc15e78eb8bf5f3d2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fa94a5704f3a0e916610c37c1bb155a950c23bf7f890fb2b67db363a31726764"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa94a5704f3a0e916610c37c1bb155a950c23bf7f890fb2b67db363a31726764"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fa94a5704f3a0e916610c37c1bb155a950c23bf7f890fb2b67db363a31726764"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e36a6a74f7bea3305fc6d3173b6921637017e4f77ba9eb3464f80983e39f778b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e8114f1087895df88454540d43507aeae301c8b156da0ad81f9b76cd4af07d42"
+    sha256 cellar: :any,                 x86_64_linux:  "1f8798cee558bee552c5c6e4dec0b6af15eb5a01d30fa09a990efb628833b2db"
   end
 
   depends_on "go" => :build

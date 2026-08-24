@@ -1,7 +1,7 @@
 class Libxau < Formula
   desc "X.Org: A Sample Authorization Protocol for X"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXau-1.0.12.tar.xz"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libXau-1.0.12.tar.xz"
   sha256 "74d0e4dfa3d39ad8939e99bda37f5967aba528211076828464d2777d477fc0fb"
   license "MIT"
   compatibility_version 1

@@ -33,6 +33,8 @@ class Crfsuite < Formula
   patch do
     url "https://github.com/chokkan/crfsuite/commit/a6a4a38ccc4738deb0e90fc9ff2c11868922aa11.patch?full_index=1"
     sha256 "8c572cb9d737e058b0a86c6eab96d1ffa8951016b50eee505491c2dae7c7c74d"
+    type :backport
+    resolves "https://github.com/chokkan/crfsuite/pull/29"
   end
 
   def install

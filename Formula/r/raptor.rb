@@ -25,10 +25,11 @@ class Raptor < Formula
   uses_from_macos "libxml2"
 
   # Fix compilation with libxml2 2.11.0 or later. Patch is already applied upstream, remove on next release.
-  # https://github.com/dajobe/raptor/pull/58
   patch do
     url "https://github.com/dajobe/raptor/commit/ac914399b9013c54572833d4818e6ce008136dc9.patch?full_index=1"
     sha256 "d527fb9ad94f22acafcec9f3b626fb876b7fb1b722e6999cf46a158172bb0992"
+    type :backport
+    resolves "https://github.com/dajobe/raptor/pull/58"
   end
 
   def install

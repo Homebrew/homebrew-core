@@ -1,21 +1,20 @@
 class Cffi < Formula
   desc "C Foreign Function Interface for Python"
   homepage "https://cffi.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/eb/56/b1ba7935a17738ae8453301356628e8147c79dbb825bcbc73dc7401f9846/cffi-2.0.0.tar.gz"
-  sha256 "44d1b5909021139fe36001ae048dbdde8214afa20200eda0f64c068cac5d5529"
+  url "https://files.pythonhosted.org/packages/9e/ef/008a1939e372c06329a3fce4279c02f328488f3526744906eeec3da7ad5f/cffi-2.1.1.tar.gz"
+  sha256 "dd31f52ea1086513bb9df30f8fcee9b8918323ae067a3d5b78bc826a000712be"
   license "MIT-0"
-  revision 1
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "04b0f56120f37b235dc1a8063149e279bad1cc9132727b25158393db8c930c2c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f0c87ffc33c6042cf8c12508099ccbed120d6b76ecef0e0745d728960d48e13b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5d588e61a2f80a3c6609fe497c391fc01dc24e2af1fcae3a520a353af32bc827"
-    sha256 cellar: :any_skip_relocation, tahoe:         "1252a16612b1585b96a870ac5c1d0af6beb31c1cfa76449e6599f87b5ec81698"
-    sha256 cellar: :any_skip_relocation, sequoia:       "050dfb668072267e2bb9e2eb03a02b31f6d15ecbce1c823ab0af521da3f05223"
-    sha256 cellar: :any_skip_relocation, sonoma:        "76c34aa7a07dff752819c015de41f2ba14d42441cc07cd7e4a4be7fd8baa8083"
-    sha256                               arm64_linux:   "cb50ba60bbd5cb6b2da0637c3f3090d07d3a68665076c5f553c65bfb061b1734"
-    sha256                               x86_64_linux:  "bad3335bd82f947b8283832392a0c37035e500e5732dd63b0f9878dcaf05d639"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a9f59871dac0d694d909c4d953173dff0c3058d99c5d192368a40f07d0e6deb9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c9529601cff7bb2ee4e727b1063cbdef22d975069c7575c6906cfa7bdaa3dcc2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ca713d885bb196272e12df99ee4e0c8fc7e5e8ab45e54f281157e4afbc083850"
+    sha256 cellar: :any_skip_relocation, tahoe:         "e8d3fba9e24ffa2eda3600b080d5b81f89374f94c2b9d1e81bd3f13c1f4fdf90"
+    sha256 cellar: :any_skip_relocation, sequoia:       "12fbc1cab5b78082948c40d7ff015a910c3ff4013c243423f9b32e02f5f0b18f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "940deace958ce189db5daa6e5d7f7f3144f99cfd6c330bf7e921caebf43cb88f"
+    sha256                               arm64_linux:   "7a26e629b0c99f06aea28340fffa4870aafacbc361a0824d3dee84740a02703c"
+    sha256                               x86_64_linux:  "81811e785c1c31c464b96060339d5d173fc421f39b6cdd537bbef631dcbfabff"
   end
 
   depends_on "python@3.13" => [:build, :test]

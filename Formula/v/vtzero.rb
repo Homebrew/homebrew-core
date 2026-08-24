@@ -49,7 +49,7 @@ class Vtzero < Formula
     CPP
 
     system ENV.cxx, "test.cpp", "-std=c++14", "-I#{include}",
-                    "-I#{Formula["protozero"].opt_include}", "-o", "test"
+                    "-I#{formula_opt_include("protozero")}", "-o", "test"
     system "./test"
   end
 end

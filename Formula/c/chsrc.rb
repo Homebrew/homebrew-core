@@ -1,18 +1,18 @@
 class Chsrc < Formula
   desc "Change Source for every software on every platform from the command-line"
   homepage "https://chsrc.run/"
-  url "https://github.com/RubyMetric/chsrc/archive/refs/tags/v0.2.5.tar.gz"
-  sha256 "4fc7ccbdea9c18aaa06b1efc80cc8a1941e38060b8495c67c947a09d2a0dfeac"
+  url "https://github.com/RubyMetric/chsrc/archive/refs/tags/v0.2.7.tar.gz"
+  sha256 "0c1ff6ec9e8860d6c0455bc2f0e228647e578fbbe1874141850ec253a9693f10"
   license "GPL-3.0-or-later"
   head "https://github.com/RubyMetric/chsrc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c0319a43c6289df4d83667e517fe54dd39c58c4d6486f379a3092461a36550f3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3bf31b588fd5675b656b5c55c33124325508dd4412f4e6f161f3bb8c1a5776d1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f7d072ffd55e02f99c26e5e24a340f6d5ad12ff8192be0d5a3c87486bc51b54"
-    sha256 cellar: :any_skip_relocation, sonoma:        "83241be9635b64cf7217cbfb7d99185e7b0e58caa2a595ef5bf6200fcc2952bb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ee3a48a02b5f98db6ef8b78f90cf5490fe6a5f07169b57d9df250eaf6a196fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "affc34ed5945c691524868219ef73d1a912fb20e65564efbaca58859fb81f727"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d7f90c25de6c9f97b35d02a8e13ae0fd92a55dec3325a17a27af4fefd281be8f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d608a1cce2b8e7fc7fbbaea8ddd3d277cd00e25d3c381bad28ab82259cf96c10"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b439a709ecd0c47ccc6230f64b777fd25358bb648f2bcce97d15e797eb3f7ca8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "95a23c1fe921358ab41fa784cd89561e7d76d6557110b3df996598b70d3ce1ea"
+    sha256 cellar: :any,                 arm64_linux:   "edc2e8809f8a0ed9424a92048b78d42fc1b57df1f1ab1569560a0b392c225969"
+    sha256 cellar: :any,                 x86_64_linux:  "34a2da1cd4b1ca1ae81556b7eda7f9e7da37ef6160b7999ccec37dc0d87fcf0a"
   end
 
   def install

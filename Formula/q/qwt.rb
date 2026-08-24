@@ -29,10 +29,11 @@ class Qwt < Formula
   end
 
   # Apply Fedora patch to fix pkgconfig file.
-  # Issue ref: https://sourceforge.net/p/qwt/bugs/353/
   patch do
     url "https://src.fedoraproject.org/rpms/qwt/raw/ea40e765e46413ae865a00f606688ea05e378e8a/f/qwt-pkgconfig.patch"
     sha256 "7ceb1153ba1d8da4dd61f343023fe742a304fba9f7ff8737c0e62f7dcb0e2bc2"
+    type :unofficial
+    resolves "https://sourceforge.net/p/qwt/bugs/353/"
   end
 
   def install

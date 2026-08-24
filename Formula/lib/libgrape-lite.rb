@@ -21,10 +21,11 @@ class LibgrapeLite < Formula
   depends_on "open-mpi"
 
   # Apply open PR to build with glog >= 0.7.
-  # PR ref: https://github.com/alibaba/libgrape-lite/pull/181
   patch do
     url "https://github.com/alibaba/libgrape-lite/commit/8093d80574c30c041ecd867ab4a8d74328905b8b.patch?full_index=1"
     sha256 "f31b1c59a2b20f83d254f454d565b6a8c8ea27a024f78efff169563af5c40938"
+    type :unofficial
+    resolves "https://github.com/alibaba/libgrape-lite/pull/181"
   end
 
   def install

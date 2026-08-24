@@ -1,18 +1,18 @@
 class Pacparser < Formula
   desc "Library to parse proxy auto-config (PAC) files"
   homepage "https://github.com/manugarg/pacparser"
-  url "https://github.com/manugarg/pacparser/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "88dda1833b5c467ea61d0217fa58fbc7980f7c5a856ca2af325e6a110b1c081d"
+  url "https://github.com/manugarg/pacparser/archive/refs/tags/v1.5.2.tar.gz"
+  sha256 "d744c3972f96e499dcf98fb853112e7b581fd53bb9bb4d9b7df738c2e7519cba"
   license "LGPL-3.0-or-later"
   head "https://github.com/manugarg/pacparser.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ea5cbb98b0b0e6d373ec70d530b833994e4c584a07a840036ec315c2f98a2760"
-    sha256 cellar: :any,                 arm64_sequoia: "8ea1c897777749583547e805e3e3bf24bddff2885f3de19e3e1776a847fd4867"
-    sha256 cellar: :any,                 arm64_sonoma:  "08753fe7e3b8ca81975eb04eaa3910d6a3525c6b47430116a9c7d32a04187e51"
-    sha256 cellar: :any,                 sonoma:        "1919e315e40ae050ec1a688c2d71bd5fba3be3501204846915703bdd8902281c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d2efcb8a835e146afcca260147f23fbac7215e3e72328a1180ccb600883c688"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49f82f1154bb8bec4e99421cd0e1bd4dbcc19df47205ffafe46fec56edcb8d84"
+    sha256 cellar: :any, arm64_tahoe:   "0dedb667324c98e705a42aa5549c3fb792f8eedd6266169ca123c2b2ec256326"
+    sha256 cellar: :any, arm64_sequoia: "f5049f601598f92f754216c0e6abc0f31681cdceedfbbf2af1ebc0658cded65a"
+    sha256 cellar: :any, arm64_sonoma:  "4fb077bb0c6f1412c3bd3056dcc94b215ee4b97bfa754c227a64b7ce157e98bd"
+    sha256 cellar: :any, sonoma:        "22515a30e8f9381a7deafd0e5616de5124f716d3131c1cec84d37823d48662bb"
+    sha256 cellar: :any, arm64_linux:   "c05adf8ba53a8eb4eaef1aabbea6a7d1b9268112bea40677f00531edd5f2ca2b"
+    sha256 cellar: :any, x86_64_linux:  "1dc57e13e0ee31903d0e98b95a23414e09659b64279a8edfa0de59aa7694e28e"
   end
 
   def install

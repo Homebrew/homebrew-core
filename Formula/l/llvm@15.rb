@@ -31,15 +31,18 @@ class LlvmAT15 < Formula
   # We intentionally use Make instead of Ninja.
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
-  # sanitizer_mac.cpp:630:15: error: constexpr function never produces a constant expression [-Winvalid-constexpr]
-  # constexpr u16 GetOSMajorKernelOffset() {
-  depends_on maximum_macos: [:ventura, :build]
   depends_on "python@3.12" => [:build, :test]
   depends_on "zstd"
 
   uses_from_macos "libedit"
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
+
+  on_macos do
+    # sanitizer_mac.cpp:630:15: error: constexpr function never produces a constant expression [-Winvalid-constexpr]
+    # constexpr u16 GetOSMajorKernelOffset() {
+    depends_on maximum_macos: [:ventura, :build]
+  end
 
   on_linux do
     depends_on "pkgconf" => :build
@@ -122,7 +125,7 @@ class LlvmAT15 < Formula
     builtins_cmake_args = []
 
     if OS.mac?
-      macos_sdk = MacOS.sdk_path_if_needed
+      macos_sdk = MacOS.sdk_path
       args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
       args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
 
@@ -145,15 +148,15 @@ class LlvmAT15 < Formula
       clt_sdk_support_flags = %w[I WATCH TV].map { |os| "-DCOMPILER_RT_ENABLE_#{os}OS=OFF" }
       builtins_cmake_args += clt_sdk_support_flags
     else
-      args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_include}"
-      args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
+      args << "-DFFI_INCLUDE_DIR=#{formula_opt_include("libffi")}"
+      args << "-DFFI_LIBRARY_DIR=#{formula_opt_lib("libffi")}"
 
       # Disable `libxml2` which isn't very useful.
       args << "-DLLVM_ENABLE_LIBXML2=OFF"
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
       # Enable llvm gold plugin for LTO
-      args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}"
+      args << "-DLLVM_BINUTILS_INCDIR=#{formula_opt_include("binutils")}"
       # Parts of Polly fail to correctly build with PIC when being used for DSOs.
       args << "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"
       runtimes_cmake_args += %w[

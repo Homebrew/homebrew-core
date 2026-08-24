@@ -28,7 +28,7 @@ class Sdl2Net < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   def install
     inreplace "SDL2_net.pc.in", "@prefix@", HOMEBREW_PREFIX
@@ -51,7 +51,7 @@ class Sdl2Net < Formula
       }
     C
 
-    system ENV.cc, "test.c", "-I#{Formula["sdl2"].opt_include}/SDL2", "-L#{lib}", "-lSDL2_net", "-o", "test"
+    system ENV.cc, "test.c", "-I#{formula_opt_include("sdl2-compat")}/SDL2", "-L#{lib}", "-lSDL2_net", "-o", "test"
     system "./test"
   end
 end

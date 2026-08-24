@@ -35,11 +35,13 @@ class Qtwebengine < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "27c941594e21c1030944063ae89e809e15a51feee81147704ed904c1cb749974"
-    sha256 cellar: :any,                 arm64_sequoia: "17ad5d170ab118eff4c1c1f0e6a525f4a927ee999ff2a66a198068ce1d0f25ae"
-    sha256 cellar: :any,                 arm64_sonoma:  "d17a47708aaf9478ad498c1dede4dab9b55917235c6132ab92ca1810db03c996"
-    sha256 cellar: :any,                 sonoma:        "507e1ad30d3cfbcd7328f6800d341ee75d9bfdb81841bd98b00a3d0cb83978e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6c7431ce6506af0c2012da0dbdb4588b7a73360b393342486cea5aa97c52b8c"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "f0ee3e5e9596bd506d2110a696f29850af219710b49be91afe7684ef8328fcc3"
+    sha256 cellar: :any, arm64_sequoia: "831804a0945af32b9821b3757252f7e79ad32e3812451223ade0d7866b8353a6"
+    sha256 cellar: :any, arm64_sonoma:  "3a3a0b6c13212e567040a19f24f6c44d78597e43755086d02176fb212330a9e3"
+    sha256 cellar: :any, sonoma:        "e6ae27104a2a6656c1bc4737642e43e3c23b768d11ef49a0fdfc4a4ae5214c3d"
+    sha256 cellar: :any, arm64_linux:   "bbd601983a3c70a31d6263cecd9fc74ebfcddc8a8503f145aecc5841d4f7dab5"
+    sha256 cellar: :any, x86_64_linux:  "cd03a64b215cde528f5de4d93f5b8b8882ed505ca95f3379d01681f714abd33a"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -48,9 +50,6 @@ class Qtwebengine < Formula
   depends_on "pkgconf" => [:build, :test]
   depends_on "python@3.14" => :build
   depends_on "qttools" => :build
-  # Chromium needs Xcode 15.3+ and using LLVM Clang is not supported on macOS
-  # See https://bugreports.qt.io/browse/QTBUG-130922
-  depends_on xcode: ["15.3", :build] # for metal and xcodebuild
 
   depends_on "libpng"
   depends_on "qtbase"
@@ -65,6 +64,9 @@ class Qtwebengine < Formula
   uses_from_macos "krb5" # dlopen-ed in http_auth_gssapi_posix.cc
 
   on_macos do
+    # Chromium needs Xcode 15.3+ and using LLVM Clang is not supported on macOS
+    # See https://bugreports.qt.io/browse/QTBUG-130922
+    depends_on xcode: ["15.3", :build] # for metal and xcodebuild
     depends_on "qttools"
   end
 
@@ -120,18 +122,20 @@ class Qtwebengine < Formula
     sha256 "b2e5b40261e20f354d198eae92afc10d750afb487ed5e50f9c4eaf07c184146f"
 
     # Apply Fedora's upstreamed patch to support Python 3.14+
-    # Ref: https://github.com/html5lib/html5lib-python/pull/583
     # Ref: https://src.fedoraproject.org/rpms/python-html5lib/blob/rawhide/f/583.patch
     patch do
       url "https://github.com/html5lib/html5lib-python/commit/379f9476c2a5ee370cd7ec856ee9092cace88499.patch?full_index=1"
       sha256 "97ae2474704eedf72dc5d5c46ad86e2144c10022ea950cb1c42a9ad894705014"
+      type :unofficial
+      resolves "https://github.com/html5lib/html5lib-python/pull/583"
     end
 
     # Python 3.14 with setuptools 81+ compatibility (`pkg_resources` removal)
-    # upstream pr ref, https://github.com/html5lib/html5lib-python/pull/592
     patch do
       url "https://github.com/html5lib/html5lib-python/commit/1dbc19cd6db72cb919885827bc4883423e0cb647.patch?full_index=1"
       sha256 "5951b823f353dd70806ad6e163ab8f46899496c1e8bb53970c99abe8d1df1a78"
+      type :unofficial
+      resolves "https://github.com/html5lib/html5lib-python/pull/592"
     end
   end
 
@@ -146,13 +150,6 @@ class Qtwebengine < Formula
   end
 
   def install
-    # Kill run early to avoid timing out and skipping dependent tests for Qt version bumps
-    # FIXME: Remove when we add a self-hosted runner and automatically handle via labels
-    github_arm64_linux = OS.linux? && Hardware::CPU.arm? &&
-                         ENV["HOMEBREW_GITHUB_ACTIONS"].present? &&
-                         ENV["GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED"].blank?
-    odie "Unable to build on GitHub-hosted arm64 Linux runner!" if github_arm64_linux
-
     python3 = "python3.14"
     venv = virtualenv_create(buildpath/"venv", python3)
     venv.pip_install resources

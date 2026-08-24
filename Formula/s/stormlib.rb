@@ -1,19 +1,18 @@
 class Stormlib < Formula
   desc "Library for handling Blizzard MPQ archives"
   homepage "http://www.zezula.net/en/mpq/stormlib.html"
-  url "https://github.com/ladislav-zezula/StormLib/archive/refs/tags/v9.31.tar.gz"
-  sha256 "c8d77e626cc907c8f2d00bb5c48f9d6c70344848d49cab4468f6234afaf815c1"
+  url "https://github.com/ladislav-zezula/StormLib/archive/refs/tags/v9.40.tar.gz"
+  sha256 "f80b08bae168888702a4251312d6c2279f487673df611c2b5ef4f395e810c3b1"
   license "MIT"
   head "https://github.com/ladislav-zezula/StormLib.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "96e129fd5dd134918fc64ce2a706deb1e7911e7a6ea98bc709e207b797388d75"
-    sha256 cellar: :any,                 arm64_sequoia: "f2e00691eec59dc82510bc91264312663640b906b2f484f209e3d33efb4a813a"
-    sha256 cellar: :any,                 arm64_sonoma:  "4ffca97a33b072d0823035dc6a757c7fbf96041ee7bbf6581dfa6639481bb60d"
-    sha256 cellar: :any,                 sonoma:        "a2e153410331b03506c454ac4240ba49acd06da4e5149cf759f20a6a465d07ca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "77271d55a05e72595f18e3a611b7994b607e6c8fdb7e181a143f80298228d792"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c22bb47d47efd4d54345ab1c348f4e9d9ab81149a3e59b129fd2e5703d3ace05"
+    sha256 cellar: :any, arm64_tahoe:   "eb01da3bc4fd5f900375f2543ee39f03fb878f109eff9f54606faaa668cfc722"
+    sha256 cellar: :any, arm64_sequoia: "fac15e52ced12af3236c07b4247f0c687fa40c6fa7ff41c94823f16c7f20e6ad"
+    sha256 cellar: :any, arm64_sonoma:  "303f4afbd38d37580129a9666aca2fc23e775deb9eaa10308be2f6d250af4b80"
+    sha256 cellar: :any, sonoma:        "c6a04b2548b29f7d188301169d653bbdbaa45df2bfbaa8636df60c73b57ce516"
+    sha256 cellar: :any, arm64_linux:   "6039a46e3b103c3356ccbc94f62204e170d9808502d956063edd3ad7fb609fba"
+    sha256 cellar: :any, x86_64_linux:  "5917da8f3728c4eb24b7da68e0f1e07ee9b70677965f1f92bc1a5aff0179f30c"
   end
 
   depends_on "cmake" => :build

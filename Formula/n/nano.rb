@@ -1,10 +1,9 @@
 class Nano < Formula
   desc "Free (GNU) replacement for the Pico text editor"
   homepage "https://www.nano-editor.org/"
-  url "https://www.nano-editor.org/dist/v9/nano-9.0.tar.xz"
-  sha256 "9f384374b496110a25b73ad5a5febb384783c6e3188b37063f677ac908013fde"
+  url "https://www.nano-editor.org/dist/v9/nano-9.2.tar.xz"
+  sha256 "05ecb99247b782e8a5b3a25ed4101dd034b0236902f7449bc9795b717642f7e9"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://www.nano-editor.org/download.php"
@@ -12,12 +11,12 @@ class Nano < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "23e7b2b57ceede9a52cd9209bb26aedda8443cd262b3eb06e60e2a5143e92568"
-    sha256 arm64_sequoia: "dca384af42bb4ad013a5c7df20311ef4d51f5cfc2009cfafe4f20bb6070cc33a"
-    sha256 arm64_sonoma:  "01e41aa134eef29246085b35b2ccc4e509624c2e7a69ec6467fbf0bdfa7030a1"
-    sha256 sonoma:        "36fa3489bddca5793e81dcacfead40404c9c2c7afa786075e83668ce172e61b8"
-    sha256 arm64_linux:   "98b84362acda79eb1f8c817566c5745da44f7c09a56432e2e305416651441f13"
-    sha256 x86_64_linux:  "2ec7363d14f52dc35d09d40d6deaf81bf95e2fc0e7fe00284108897f79e5a65f"
+    sha256 arm64_tahoe:   "24cf2e6f138405f03f4c2046d0f58834ce7053173a6dea804ccbd68ac8431832"
+    sha256 arm64_sequoia: "5588644e4e2f679372054e2517908ef55c27dd0ba6576cb2ad0b23fb3e35fce5"
+    sha256 arm64_sonoma:  "dbd94f5a2b070ac8c28c0595164ea032d5f5182f9c679196845cac26b8782e0b"
+    sha256 sonoma:        "17ce193c79cd948b1aa49f995827047bf4e431ff58b3e192ab78959ce6581fa1"
+    sha256 arm64_linux:   "c48b12b15a0874080dd90bab4beee81ec7eb677dbd4452c1729ba66d8d3be28f"
+    sha256 x86_64_linux:  "2bd358680b8e96ebb1d3a8c4353612a4123ecd63aea7018eb3e1399457095549"
   end
 
   head do
@@ -45,13 +44,7 @@ class Nano < Formula
   end
 
   def install
-    if build.head?
-      # `aclocal --print-ac-dir` returns automake's versioned path
-      # which fails the check for `pkg.m4` since it is not there
-      inreplace "configure.ac", "$(aclocal --print-ac-dir)", HOMEBREW_PREFIX/"share/aclocal"
-      system "./autogen.sh"
-    end
-
+    system "./autogen.sh" if build.head?
     system "./configure", "--enable-color",
                           "--enable-extra",
                           "--enable-multibuffer",

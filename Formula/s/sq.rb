@@ -1,17 +1,17 @@
 class Sq < Formula
   desc "Data wrangler with jq-like query language"
   homepage "https://sq.io"
-  url "https://github.com/neilotoole/sq/archive/refs/tags/v0.53.0.tar.gz"
-  sha256 "6b0f2862977eb7093be30a0f10b00170d054e51c46a7fe3d53e5d0ac0b0f83ba"
+  url "https://github.com/neilotoole/sq/archive/refs/tags/v0.54.1.tar.gz"
+  sha256 "d56a1582f1a52ed6386718f14c3679ff32e7c3b9de644f55db4dd95220f58e27"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bcf0ffbac5252a20197148725ee0e8a80a975fc05b2a4ee7e6691c5f57adbd7a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c5fd0da4221bf6c87e0ea6576d3529907b851401982d884fbaf3765f4c52b2f5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3634bf77df10e48f1eafd6c08c34a3223a5c52ba5fb701cbd3896e0d5985368c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "096aa6ebdf49a79f0024b34e85245e81ed37f275c29f33ee360c7e74daa30270"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab6b1c080e1a3056f45e8096602a244dc473d3b2667a9a5cbce847fd347e05bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "468263f38ff7410de1a277cde1a40cc689a8623d9af35194acf76ff554e19ad0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "04325812f236a0441a04834f938dcd1d0e0c27244cd5d4e04546bafe0413053d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dffdc5ddab2bb2758e9b3dccd2f2062744ca33b57cbbc266f7f5c07a770d970a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "353f72632a007a63cc8073edd621cfdf76f9cee7e93980f92f3b7881ab1ee71c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "38aac9e723039df412a7fc15448583c85cb4fb1effb523839ef6664ef4c36c55"
+    sha256 cellar: :any,                 arm64_linux:   "545c33e6284b6bdc395d1efd7eadc3a1128bfcef7b0ba47aef8aa35a31e3da69"
+    sha256 cellar: :any,                 x86_64_linux:  "50058a73ff9af9a7abb2275cfb5ecbc8c438758ddff614db446b0836c8d7a62d"
   end
 
   depends_on "go" => :build
@@ -25,7 +25,6 @@ class Sq < Formula
 
     pkg = "github.com/neilotoole/sq/cli/buildinfo"
     ldflags = %W[
-      -s -w
       -X #{pkg}.Version=v#{version}
       -X #{pkg}.Commit=RELEASE
       -X #{pkg}.Timestamp=#{time.iso8601}

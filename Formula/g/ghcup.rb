@@ -2,8 +2,8 @@ class Ghcup < Formula
   desc "Installer for the general purpose language Haskell"
   homepage "https://www.haskell.org/ghcup/"
   # There is a tarball at Hackage, but that doesn't include the shell completions.
-  url "https://github.com/haskell/ghcup-hs/archive/refs/tags/v0.2.6.2.tar.gz"
-  sha256 "a8b4657d235bb14fb8c4ed33cc3059297fbbb2dd98e239f4629c1ed1632041ed"
+  url "https://github.com/haskell/ghcup-hs/releases/download/v0.2.6.2/ghcup-0.2.6.2-src.tar.gz"
+  sha256 "32d05d0a878a31e0ccdbdb6767dc4c2d1940330a9e9e1c477e0db3858825f168"
   license "LGPL-3.0-only"
   head "https://github.com/haskell/ghcup-hs.git", branch: "master"
 
@@ -14,12 +14,13 @@ class Ghcup < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "9327efca408425c3dc66ee2dcfa158ea15c7f44982a5c07ab06103eaf67a2fdb"
-    sha256 cellar: :any, arm64_sequoia: "afa78521778bbe8c86685bbb5e778a42e4b077ad48ce8ef62d8de19a5c1fa936"
-    sha256 cellar: :any, arm64_sonoma:  "ff1bab0922639100dc171a2db067787779ca87ac18f556e013fed82fe799b90f"
-    sha256 cellar: :any, sonoma:        "8775022f9037d4290f6b9801ddc64798ed25d98a71bee33bbafea6351a7a7585"
-    sha256 cellar: :any, arm64_linux:   "e2533fbbf02b03241aa9f9a10d554f280330100b8cee70062aca1047b8765e36"
-    sha256 cellar: :any, x86_64_linux:  "8387bae857f457db7fa3ba137395a5e6bf385cd2453ed4198e46d8f33c253708"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "41ac1d7c50f5cc48c7f797cfa10ac7c3ba815b86ade6fb317f2bea1f1e00ce6d"
+    sha256 cellar: :any, arm64_sequoia: "98ad00690c1f8d6ea6e7e8f859fb4f6d997b25eed1391f18d74a6ac36f456311"
+    sha256 cellar: :any, arm64_sonoma:  "5bb1fe22532e7731ab40a00e98a5558df4f96ede37e6f6a7d26db8a0383fafd8"
+    sha256 cellar: :any, sonoma:        "cdf9bbd2fc71898a50b17e1e92bcc83eda6ecdfb1958da55a0895140afbfb038"
+    sha256 cellar: :any, arm64_linux:   "089fec38ff35dfc54fac87c44bfc3f1b4a863bca6dd1245ad67a8a0b567ac637"
+    sha256 cellar: :any, x86_64_linux:  "df6f982eac74479a58ec6a3ed66b6d01232692b99655688b60d4f20df4854223"
   end
 
   depends_on "cabal-install" => :build
@@ -35,12 +36,11 @@ class Ghcup < Formula
   end
 
   def install
-    # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
-    args = ["--allow-newer=base,containers,template-haskell"]
+    # Workaround to build with GHC 9.14 until serialise > 0.2.6.1 and dhall > 1.42.3 are released
+    args = ["--allow-newer=base,template-haskell"]
 
     system "cabal", "v2-update"
-    # `+disable-upgrade` disables the self-upgrade feature.
-    system "cabal", "v2-install", *args, *std_cabal_v2_args, "--flags=+disable-upgrade"
+    system "cabal", "v2-install", *args, *std_cabal_v2_args
 
     bash_completion.install "scripts/shell-completions/bash" => "ghcup"
     fish_completion.install "scripts/shell-completions/fish" => "ghcup.fish"

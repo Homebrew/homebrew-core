@@ -19,7 +19,7 @@ class Ignite < Formula
   depends_on "node"
 
   def install
-    system "go", "build", "-mod=readonly", *std_go_args(ldflags: "-s -w", output: bin/"ignite"), "./ignite/cmd/ignite"
+    system "go", "build", "-mod=readonly", *std_go_args, "./ignite/cmd/ignite"
   end
 
   test do

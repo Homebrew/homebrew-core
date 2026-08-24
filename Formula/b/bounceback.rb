@@ -18,8 +18,7 @@ class Bounceback < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/bounceback"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/bounceback"
 
     pkgshare.install "data"
     # update relative data path to homebrew pkg path

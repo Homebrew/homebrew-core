@@ -22,6 +22,9 @@ class Copilot < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fbed548a000b6f038d80263542e7f794a6ceaae95ecfd3c2cc321bcf9d89d5bf"
   end
 
+  deprecate! date: "2026-07-06", because: :repo_archived
+  disable! date: "2027-07-06", because: :repo_archived
+
   depends_on "go" => :build
   depends_on "node" => :build
 

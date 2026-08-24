@@ -18,7 +18,6 @@ class Q < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.commit=#{tap.user}
       -X main.date=#{time.iso8601}
@@ -28,6 +27,6 @@ class Q < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/q --version")
-    assert_match "ns: ns1.dnsimple.com.", shell_output("#{bin}/q brew.sh NS --format yaml")
+    assert_match "ns: ns1.dnsimple-edge.com.", shell_output("#{bin}/q brew.sh NS --format yaml")
   end
 end

@@ -1,18 +1,18 @@
 class Nnn < Formula
   desc "Tiny, lightning fast, feature-packed file manager"
   homepage "https://github.com/jarun/nnn"
-  url "https://github.com/jarun/nnn/archive/refs/tags/v5.2.tar.gz"
-  sha256 "f166eda5093ac8dcf8cbbc6224123a32c53cf37b82c5c1cb48e2e23352754030"
+  url "https://github.com/jarun/nnn/archive/refs/tags/v5.3.tar.gz"
+  sha256 "79ee69f3ced7c0778d207df76b4d4d680636975ccda002eeb19d0917fcba3d36"
   license "BSD-2-Clause"
   head "https://github.com/jarun/nnn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9661f5ce4e96704568084671343c92755a1de8b542137f0c56e6deb0a6e41387"
-    sha256 cellar: :any,                 arm64_sequoia: "68ba1617d44b25cd6bf5e2ae7bb27ce1152a26668b6dd6d4e080d251f7d204db"
-    sha256 cellar: :any,                 arm64_sonoma:  "61fbe8b70fbc363a96f266367f6a2daca32f8d2e2ed29df83b633c344369caa1"
-    sha256 cellar: :any,                 sonoma:        "24e92f0826f362840d1424012ebf78bd855d46fb827fb253c80e8313c7db137f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "10959b02a38dd226bfdf72ee603fab91d6906694584f6d16e25d4ca4450d8a41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fc7fd26418ce4ac9a9406ef3fd745cdbdb333828c6e0e0fbbfad0dde5b59d10"
+    sha256 cellar: :any, arm64_tahoe:   "1dd1b5e2beda0057209c3d761c8e7bae2b85c8303017640e1a31cf8a797e5477"
+    sha256 cellar: :any, arm64_sequoia: "61debb9cf8ceb2589b02888804e7769fb2b861b2879b7a1cbff2a9483af0c485"
+    sha256 cellar: :any, arm64_sonoma:  "2893698847a21b95a50d3ba0d084c20942cf2a717cd6844f48e174e3c211da87"
+    sha256 cellar: :any, sonoma:        "6aad5d47550a6708d6d3f1fcaff17f8899c89637e49f6e9e035229bf58210e6f"
+    sha256 cellar: :any, arm64_linux:   "f5a99600b98fa42c6052f2f22d4796dda2ae0dfebd353ebec157fcddaf98e60e"
+    sha256 cellar: :any, x86_64_linux:  "219b9de054400d02c3d1d7b837f5a5c6ecda421c1e7c840e302a53495922e63c"
   end
 
   depends_on "gnu-sed"
@@ -32,6 +32,9 @@ class Nnn < Formula
   test do
     # Testing this curses app requires a pty
     require "pty"
+
+    # nnn 5.3 aborts if XDG_CONFIG_HOME is set but not an accessible directory
+    ENV["XDG_CONFIG_HOME"] = testpath
 
     (testpath/"testdir").mkdir
     PTY.spawn(bin/"nnn", testpath/"testdir") do |r, w, pid|

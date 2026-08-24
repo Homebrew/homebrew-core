@@ -30,9 +30,9 @@ class Cloog < Formula
 
     system "./configure", "--disable-silent-rules",
                           "--with-gmp=system",
-                          "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}",
+                          "--with-gmp-prefix=#{formula_opt_prefix("gmp")}",
                           "--with-isl=system",
-                          "--with-isl-prefix=#{Formula["isl"].opt_prefix}",
+                          "--with-isl-prefix=#{formula_opt_prefix("isl")}",
                           *std_configure_args
     system "make", "install"
   end

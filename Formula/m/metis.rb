@@ -1,7 +1,7 @@
 class Metis < Formula
   desc "Programs that partition graphs and order matrices"
-  homepage "https://karypis.github.io/glaros/software/metis/overview.html"
-  url "https://karypis.github.io/glaros/files/sw/metis/metis-5.1.0.tar.gz"
+  homepage "https://papers.karypis.org/glaros/software/metis/overview.html"
+  url "https://papers.karypis.org/glaros/files/sw/metis/metis-5.1.0.tar.gz"
   mirror "https://ftp.mcs.anl.gov/pub/pdetools/spack-pkgs/metis-5.1.0.tar.gz"
   sha256 "76faebe03f6c963127dbb73c13eab58c9a3faeae48779f049066a21c087c5db2"
   license "Apache-2.0"

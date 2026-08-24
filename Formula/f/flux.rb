@@ -26,6 +26,7 @@ class Flux < Formula
   depends_on "rust" => :build
 
   conflicts_with "fantom", because: "both install `flux` binaries"
+  conflicts_with "fluxcd", because: "both install `flux` binaries"
 
   # NOTE: The version here is specified in the go.mod of influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
@@ -58,7 +59,7 @@ class Flux < Formula
     ENV.prepend_path "PATH", buildpath/"bootstrap"
 
     system "make", "build"
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/flux"
+    system "go", "build", *std_go_args, "./cmd/flux"
     include.install "libflux/include/influxdata"
     lib.install Dir["libflux/target/*/release/libflux.{dylib,a,so}"]
   end

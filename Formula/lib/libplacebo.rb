@@ -58,7 +58,7 @@ class Libplacebo < Formula
     end
 
     # Use Homebrew `fast_float`.
-    inreplace "src/meson.build", "../3rdparty/fast_float/include", Formula["fast_float"].opt_include
+    inreplace "src/meson.build", "../3rdparty/fast_float/include", formula_opt_include("fast_float")
 
     args = %W[
       -Dlcms=enabled

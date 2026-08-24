@@ -1,17 +1,17 @@
 class Readsb < Formula
   desc "ADS-B decoder swiss knife"
   homepage "https://github.com/wiedehopf/readsb"
-  url "https://github.com/wiedehopf/readsb/archive/refs/tags/v3.16.15.tar.gz"
-  sha256 "7a8c3886c6c548578e9a65f7b45a993bcd49aa52f70d5bffe1e76b4cbca9998f"
+  url "https://github.com/wiedehopf/readsb/archive/refs/tags/v3.16.16.tar.gz"
+  sha256 "33831b2718cf6b70f981e5a6e7d1412a25d6519f3047a99b3d203d7d713eecd6"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "80608fc6da82cd0fa55153f571e6052014864962a0e699cbb27ab7e929fedda5"
-    sha256 cellar: :any,                 arm64_sequoia: "5c00bcc415ebd1b5a8220d840d6de66f5ec076f8e125f46829e883f21a01c76f"
-    sha256 cellar: :any,                 arm64_sonoma:  "525232c827d3a651ea45b2ab0937b05f4761a9598afe56f327e5ecd193012196"
-    sha256 cellar: :any,                 sonoma:        "28330af2fb014bf289f82a4bec32dec3c4ae80aa4032df8532f9303cbb949761"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2767725b97c08f2d8eb8a43dabb2cea0e79bb5da045512423ea5f74a09f38ae9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8460b5d1b6975ae821e7b88ebde163fa6594b814d7a1e4785ff65a0bd41e1eac"
+    sha256 cellar: :any, arm64_tahoe:   "346df9e91e771b7eaabb9c322a532b83f3e441417aa15a77236e12139aa7639c"
+    sha256 cellar: :any, arm64_sequoia: "3271582d402f0fede340dfff99e13f09d969125eb0d0ab195044b752aa66b11c"
+    sha256 cellar: :any, arm64_sonoma:  "27a08e51193bfa457db807eba040133107e9229642fb77af830dd692c370cbdf"
+    sha256 cellar: :any, sonoma:        "1fefbc8ae9bac0879e919bfa7a8a8aa66b69d7c9e00f0934e9bc54a03d3bd917"
+    sha256 cellar: :any, arm64_linux:   "ac9f7fb2d1471c3decf4232d6543841b0ed4ec0596c6863ce18be440a47200b1"
+    sha256 cellar: :any, x86_64_linux:  "dfde880221013eb9ad93c82ba8ec62bacc665e0ba293c40a6014a853f016bc66"
   end
 
   depends_on "pkgconf" => :build
@@ -35,8 +35,6 @@ class Readsb < Formula
   end
 
   test do
-    require "base64"
-
     enc = <<~EOS
       goB/en99g4B9gH6Eg35/fICVhJl/gXx9f4F+f36Af4B/f3+AgH9+f39/gH+Af4CBf4F/f3
       9/f3+AgIGAgH9/f4F/gX9/gH+Bf4B/f3+Af4F+f359gX5/f36BgYB9fIeGm46Ig3p+mIGYfX19f
@@ -58,7 +56,7 @@ class Readsb < Formula
       J/k4CRfpVyj3mNdplbj2aAd4Njgm19hnlwdWdxd21zbnRufWw=
     EOS
 
-    (testpath/"input.bin").write Base64.decode64(enc)
+    (testpath/"input.bin").write enc.unpack1("m")
     assert_match "ICAO Address:", shell_output("#{bin}/readsb --device-type ifile --ifile input.bin 2>/dev/null", 1)
   end
 end

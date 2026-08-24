@@ -16,10 +16,40 @@ class Tclap < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make"
     # Installer scripts have problems with parallel make
     ENV.deparallelize
     system "make", "install"
+  end
+
+  test do
+    # Based on https://sourceforge.net/p/tclap/code/ci/1.4/tree/examples/test1.cpp
+    (testpath/"test.cpp").write <<~CPP
+      #include <string>
+      #include <iostream>
+      #include <algorithm>
+      #include "tclap/CmdLine.h"
+
+      using namespace TCLAP;
+      using namespace std;
+
+      int main(int argc, char** argv) {
+        CmdLine cmd("Command description message", ' ', "0.9");
+        ValueArg<string> nameArg("n", "name", "Name to print", true, "homer", "string");
+        cmd.add(nameArg);
+        SwitchArg reverseSwitch("r", "reverse", "Print name backwards", false);
+        cmd.add(reverseSwitch);
+        cmd.parse(argc, argv);
+        string name = nameArg.getValue();
+        bool reverseName = reverseSwitch.getValue();
+        if (reverseName) {
+          reverse(name.begin(), name.end());
+        }
+        cout << name;
+      }
+    CPP
+    system ENV.cxx, "test.cpp", "-o", "test"
+    assert_equal "werbemoH", shell_output("./test -r -n Homebrew")
   end
 end

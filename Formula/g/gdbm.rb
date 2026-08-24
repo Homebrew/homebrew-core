@@ -3,6 +3,7 @@ class Gdbm < Formula
   homepage "https://www.gnu.org.ua/software/gdbm/"
   url "https://ftpmirror.gnu.org/gnu/gdbm/gdbm-1.26.tar.gz"
   mirror "https://ftp.gnu.org/gnu/gdbm/gdbm-1.26.tar.gz"
+  mirror "http://ftp.gnu.org/gnu/gdbm/gdbm-1.26.tar.gz"
   sha256 "6a24504a14de4a744103dcb936be976df6fbe88ccff26065e54c1c47946f4a5e"
   license "GPL-3.0-or-later"
   compatibility_version 1

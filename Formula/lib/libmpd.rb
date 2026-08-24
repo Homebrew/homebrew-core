@@ -28,13 +28,15 @@ class Libmpd < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "gettext"
   depends_on "glib"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
   end
 
   def install
@@ -43,9 +45,8 @@ class Libmpd < Formula
 
     ENV.append "CFLAGS", "-DHAVE_STRNDUP" unless OS.mac?
 
-    args = []
     # Help old config scripts identify arm64 linux
-    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+    args = ["--build=aarch64-unknown-linux-gnu"] if OS.linux? && Hardware::CPU.arm64?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"

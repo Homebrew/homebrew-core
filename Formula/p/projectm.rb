@@ -5,6 +5,24 @@ class Projectm < Formula
   sha256 "b6b99dde5c8f0822ae362606a0429628ee478f4ec943a156723841b742954707"
   license "LGPL-2.1-or-later"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:[.-]\d+)+)$/i)
+    strategy :github_releases do |json, regex|
+      json.map do |release|
+        next if release["draft"] || release["prerelease"]
+
+        # Skip `libprojectM` releases
+        next if release["name"]&.match?(/^libprojectM/i)
+
+        match = release["tag_name"]&.match(regex)
+        next if match.blank?
+
+        match[1]
+      end
+    end
+  end
+
   bottle do
     sha256 arm64_tahoe:    "7f0815b03bcecd38afe7c9a8750a0822d9a17646c7e92f420e0fedb096c2709c"
     sha256 arm64_sequoia:  "a579de759ddbc2ca8b39a3dfc1cd7d2b936369790efaeda1c59efdbd63db5b2f"
@@ -30,7 +48,7 @@ class Projectm < Formula
   end
 
   depends_on "pkgconf" => [:build, :test]
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   on_linux do
     depends_on "xorg-server" => :test
@@ -75,11 +93,21 @@ class Projectm < Formula
     CPP
     flags = shell_output("pkgconf libprojectM sdl2 --cflags --libs").split
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
-    if OS.linux? && ENV.exclude?("DISPLAY")
+    pid = nil
+    if OS.linux?
       # SDL3 (via sdl2-compat) fails if no video driver is available and "dummy" workaround doesn't work
-      system Formula["xorg-server"].bin/"xvfb-run", "./test"
-    else
-      system "./test"
+      IO.pipe do |read_io, write_io|
+        pid = spawn(Formula["xorg-server"].bin/"Xvfb", "-displayfd", write_io.fileno.to_s, write_io => write_io)
+        write_io.close
+        ENV["DISPLAY"] = ":#{read_io.read.strip}"
+      end
+    end
+
+    system "./test"
+  ensure
+    if pid
+      Process.kill "TERM", pid
+      Process.wait pid
     end
   end
 end

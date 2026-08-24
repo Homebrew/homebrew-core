@@ -19,6 +19,8 @@ class Aichat < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access! [:postinstall, :test]
+
   def install
     system "cargo", "install", *std_cargo_args
     bash_completion.install "scripts/completions/aichat.bash" => "aichat"

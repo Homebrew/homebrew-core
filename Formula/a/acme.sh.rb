@@ -1,12 +1,13 @@
 class AcmeSh < Formula
   desc "ACME client"
   homepage "https://github.com/acmesh-official/acme.sh"
-  url "https://github.com/acmesh-official/acme.sh/archive/refs/tags/3.1.3.tar.gz"
-  sha256 "efd12b265252f8875269960b6b31830731ccce2b3e6ff8e7ecfbee21fde35ab4"
+  url "https://github.com/acmesh-official/acme.sh/archive/refs/tags/3.1.4.tar.gz"
+  sha256 "e5f8e187bbf5251e0cd8891f2622daab9850366bd17bea9f92c2fe2ee091fd32"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f323095950742f7e7899c48f5295433b55c6edfb7092eade86e16fcc74618037"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "13ea07a8e98a225adb6ed188db305c805e1cf3677582b9e83074781f7c88dd95"
   end
 
   deny_network_access!
@@ -20,6 +21,7 @@ class AcmeSh < Formula
     ]
 
     bin.install_symlink libexec/"acme.sh"
+    bash_completion.install "acme.sh.completion" => "acme.sh"
   end
 
   test do

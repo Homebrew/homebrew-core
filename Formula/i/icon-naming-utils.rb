@@ -153,7 +153,6 @@ class IconNamingUtils < Formula
 
     libexec.install libexec/"icon-name-mapping" => "icon-name-mapping.pl"
     (libexec/"icon-name-mapping").write_env_script libexec/"icon-name-mapping.pl", PERL5LIB: ENV["PERL5LIB"]
-    chmod "+x", libexec/"icon-name-mapping"
   end
 
   test do

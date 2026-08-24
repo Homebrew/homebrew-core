@@ -22,7 +22,15 @@ class Reg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e1f1396a2eec2571aed2861955e94d41c841e2e57d85202084f263e95ecb1ca"
   end
 
+  deprecate! date: "2026-08-23", because: :unmaintained
+  disable! date: "2027-08-23", because: :unmaintained
+
   depends_on "go" => :build
+
+  # Failing on Intel macOS with Go 1.27 due to outdated golang.org/x/sys dependency
+  on_macos do
+    depends_on arch: :arm64
+  end
 
   def install
     system "go", "build", *std_go_args

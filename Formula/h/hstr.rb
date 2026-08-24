@@ -1,8 +1,8 @@
 class Hstr < Formula
   desc "Bash and zsh history suggest box"
-  homepage "https://github.com/dvorka/hstr"
-  url "https://github.com/dvorka/hstr/archive/refs/tags/v3.2.tar.gz"
-  sha256 "bceab1cb3c3b636d9ff4dfbaf8b035530e76a36d948767ed1735c4e79d7473eb"
+  homepage "https://github.com/dvorka-oss/hstr"
+  url "https://github.com/dvorka-oss/hstr/releases/download/v3.2/hstr-3.2.0-tarball.tgz"
+  sha256 "abf0a8625545b2022d62bf0d1c576e3cc783c4ea7cc2ae2843c518743f77f4c9"
   license "Apache-2.0"
 
   bottle do
@@ -14,16 +14,12 @@ class Hstr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b95920a4bed1c587f8c86e4d3e520ca1849da7cd53107c6890459c7763dca43"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "readline"
 
   uses_from_macos "ncurses"
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
     system "make", "install"
   end

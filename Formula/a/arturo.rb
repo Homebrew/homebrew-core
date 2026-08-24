@@ -36,12 +36,12 @@ class Arturo < Formula
     # FIXME: Unbundle OpenSSL. Should find a way to do this upstream
     inreplace "src/library/Net.nim",
               /\{\.passL: "[^"]*(-lcrypto|libcrypto\.a)[^"]*"\.\}/,
-              "{.passL: \"-Wl,-rpath,#{Formula["openssl@3"].opt_lib} -lssl -lcrypto\".}"
+              "{.passL: \"-Wl,-rpath,#{formula_opt_lib("openssl@3")} -lssl -lcrypto\".}"
 
     # Workaround to use pcre2 after patching `nimble`
     inreplace "src/vm/values/custom/vregex.nim",
               /\{\.passL: "[^"]*(-lpcre|libpcre\.a)[^"]*"\.\}/,
-              "{.passL: \"-Wl,-rpath,#{Formula["pcre2"].opt_lib}\"}"
+              "{.passL: \"-Wl,-rpath,#{formula_opt_lib("pcre2")}\"}"
 
     # Adjust installation path to homebrew one
     inreplace "build.nims", 'targetDir = getHomeDir()/".arturo"', "targetDir=\"#{prefix}\""

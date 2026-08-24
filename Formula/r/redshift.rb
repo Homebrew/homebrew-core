@@ -1,7 +1,7 @@
 class Redshift < Formula
   desc "Adjust color temperature of your screen according to your surroundings"
-  homepage "https://github.com/jonls/redshift"
-  url "https://github.com/jonls/redshift/releases/download/v1.12/redshift-1.12.tar.xz"
+  homepage "https://github.com/sharpbracket/redshift"
+  url "https://github.com/sharpbracket/redshift/releases/download/v1.12/redshift-1.12.tar.xz"
   sha256 "d2f8c5300e3ce2a84fe6584d2f1483aa9eadc668ab1951b2c2b8a03ece3a22ba"
   license "GPL-3.0-or-later"
   revision 1
@@ -24,12 +24,15 @@ class Redshift < Formula
   end
 
   head do
-    url "https://github.com/jonls/redshift.git", branch: "master"
+    url "https://github.com/sharpbracket/redshift.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  deprecate! date: "2026-06-21", because: :repo_archived
+  disable! date: "2027-06-21", because: :repo_archived
 
   depends_on "gettext" => :build
   depends_on "intltool" => :build

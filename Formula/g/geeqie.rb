@@ -1,10 +1,9 @@
 class Geeqie < Formula
   desc "Lightweight Gtk+ based image viewer"
   homepage "https://www.geeqie.org/"
-  url "https://github.com/BestImageViewer/geeqie/releases/download/v2.7/geeqie-2.7.tar.xz"
-  sha256 "9b5f342d3cc47782716711e56c3c7a045b4bbeaa653e192d49ce2d5e87ac8106"
+  url "https://github.com/BestImageViewer/geeqie/releases/download/v3.1/geeqie-3.1.tar.xz"
+  sha256 "ca550826e30fee9d6ccfc621ddd0e4c430d440f51cdfcbebe623cedfe64fd805"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,12 +11,12 @@ class Geeqie < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "09fbec3d3b21662016a7482e167aad3fa692ddb3aeed083ca40583558d00dd63"
-    sha256 cellar: :any, arm64_sequoia: "18c9ccdc9b1fe413a804383a6a123d2355fde97fdd4a431549844d17ef5ab1c7"
-    sha256 cellar: :any, arm64_sonoma:  "f45f38aa132c356c2671a5e04cca80e8e4b49e2fd9ca6ad0fff96129a03087a6"
-    sha256 cellar: :any, sonoma:        "e1875d09c170c48286076cf07a4af96812b13fb24d68ea7619982ee19baaf050"
-    sha256               arm64_linux:   "d9557e4598827db671ea782ab1da9167c7bbdec229a452770f5347e9b4b0d4bf"
-    sha256               x86_64_linux:  "bafe6e63172cb0be136ca68aa7a57574daca5a777e7c9a5ecfeb3c658f713b98"
+    sha256 cellar: :any, arm64_tahoe:   "1ac7a7e716b5c1f253ac8ce8c1329fe69e6eca7fba4acc69d515afc135e70c1b"
+    sha256 cellar: :any, arm64_sequoia: "aa1092c0b0859252bd374eaccfa40f6bea4341dcf56f287fd631bb62b3a296e3"
+    sha256 cellar: :any, arm64_sonoma:  "a563501590477fbc2565b62da57f005b9025519954e48c9a1c1019a90b6ddd08"
+    sha256 cellar: :any, sonoma:        "f7942ef6f84f8c7e401306647d926a093f888a4e04ac71d666ddd96edfa25e8f"
+    sha256               arm64_linux:   "db14107c08e880841f29222f9864666461cc6c3b7f35fcf74575061f3db54954"
+    sha256               x86_64_linux:  "fb44ac9dcf9764a5fa85a234176118e9c5bd60bff3ae37ddfbe4770c78d58f66"
   end
 
   depends_on "gettext" => :build
@@ -32,8 +31,9 @@ class Geeqie < Formula
   depends_on "ffmpegthumbnailer"
   depends_on "gdk-pixbuf"
   depends_on "glib"
+  depends_on "graphene"
   depends_on "gspell" # for spell checks support
-  depends_on "gtk+3"
+  depends_on "gtk4"
   depends_on "imagemagick"
   depends_on "imath"
   depends_on "jpeg-turbo"

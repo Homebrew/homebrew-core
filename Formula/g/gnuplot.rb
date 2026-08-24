@@ -1,18 +1,10 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/6.0.5/gnuplot-6.0.5.tar.gz"
+  sha256 "73237f37f03306d68bfae133a9a50d5e9341384e198d5ab37eeca9ab534deed8"
   license "gnuplot"
-  revision 1
   compatibility_version 1
-
-  stable do
-    url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/6.0.4/gnuplot-6.0.4.tar.gz"
-    sha256 "458d94769625e73d5f6232500f49cbadcb2b183380d43d2266a0f9701aeb9c5b"
-
-    # Backport fix for Lua 5.5
-    # https://sourceforge.net/p/gnuplot/gnuplot-main/ci/4442080c7152ae6b3a541e6389c053bb9f5306fd/
-    patch :DATA
-  end
 
   livecheck do
     url :stable
@@ -20,12 +12,12 @@ class Gnuplot < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "2423f8956648248d70bca9f18a3d01ae80093ba2fb6285456220af59d48f1e88"
-    sha256 arm64_sequoia: "ca167276564b8dde7ffb580be087aa783fcb51d64f6981e434bb08faaf806736"
-    sha256 arm64_sonoma:  "58a259f287608c11bd4533bc8bb2c4809a9141a915608ad520374fed391dd800"
-    sha256 sonoma:        "a85e158ae09b9ea340fb6203d2932c5c59479d2e68530e505d0236590a5e4e77"
-    sha256 arm64_linux:   "28cd7475405d3677b56f326d9a9b35fab9deb3d62110628030ab9e7015c4bfb2"
-    sha256 x86_64_linux:  "dbd1c5da00d909c309acd5354b6063ae903fa1a91961c739b1625af87538de80"
+    sha256 arm64_tahoe:   "a153d761ec3f1cdae50e78d877fd03cb4f4ecc3116e5797649d97f9b1afab4ed"
+    sha256 arm64_sequoia: "3d8efad2b1ce4cd0c1b450e879eb5eec1f4e0faed7d49e0c966f457d70153eb1"
+    sha256 arm64_sonoma:  "96dbce83ca48877b9ba0b150e44bde0dce1f6d4e579f0c26a38c921ebd134bb5"
+    sha256 sonoma:        "9797e19149b8cbeadce635e323996a5db07b9a8449a16c5b639ce0b5b1f8ee93"
+    sha256 arm64_linux:   "b39ea1e52915400931003a9aa108d53b852bbb7edad46be7118c0f6bdc4fc5e4"
+    sha256 x86_64_linux:  "d5d06f7e58bac89c438d57c31df65248ecc23d40b4ffad276afc30c201409917"
   end
 
   head do
@@ -59,7 +51,7 @@ class Gnuplot < Formula
   def install
     args = %W[
       --disable-silent-rules
-      --with-readline=#{Formula["readline"].opt_prefix}
+      --with-readline=#{formula_opt_prefix("readline")}
       --disable-wxwidgets
       --with-qt
       --without-x
@@ -83,19 +75,3 @@ class Gnuplot < Formula
     assert_path_exists testpath/"graph.txt"
   end
 end
-
-__END__
---- a/term/lua/gnuplot-tikz.lua
-+++ b/term/lua/gnuplot-tikz.lua
-@@ -2542,8 +2542,9 @@
- 
- term_help = function(helptext)
-   local w
--  for w in string.gmatch(helptext, "([^\n]*)\n") do
--    w = string.gsub(w, "\\", "\\\\")
-+  local ww
-+  for ww in string.gmatch(helptext, "([^\n]*)\n") do
-+    w = string.gsub(ww, "\\", "\\\\")
-     w = string.gsub(w, "\"", "\\\"")
-     io.write('"'..w.."\",\n")
-   end

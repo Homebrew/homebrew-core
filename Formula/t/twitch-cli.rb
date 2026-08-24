@@ -21,7 +21,7 @@ class TwitchCli < Formula
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
 
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.buildVersion=#{version}", output: bin/"twitch")
+    system "go", "build", *std_go_args(ldflags: "-X main.buildVersion=#{version}", output: bin/"twitch")
 
     generate_completions_from_executable(bin/"twitch", shell_parameter_format: :cobra)
   end

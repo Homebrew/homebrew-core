@@ -1,27 +1,24 @@
 class Gator < Formula
   desc "CLI Utility for Open Policy Agent Gatekeeper"
   homepage "https://open-policy-agent.github.io/gatekeeper/"
-  url "https://github.com/open-policy-agent/gatekeeper/archive/refs/tags/v3.22.2.tar.gz"
-  sha256 "119931023a77c49328fcbe87f32e429ee37152fdeefe7bbd2c11b87c472004b4"
+  url "https://github.com/open-policy-agent/gatekeeper/archive/refs/tags/v3.23.0.tar.gz"
+  sha256 "9c0fd846c8f80f1e9142f17b6a2d08943c3e97cbacd2bdb64beed67b770c38ff"
   license "Apache-2.0"
   head "https://github.com/open-policy-agent/gatekeeper.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "72eec581238b93e57a56229dd8ce358238202a4648f5244f06e5eefae9b9d73a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1c9a9fd131cd3d5b91988648b9a79044b9804c7e936cd93f0cca318995c95ae4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "24de48f93d232253275210a907adfe289a26cf89d58e1465c20a1bc2ce6784d8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "18bc6f0e654eb798621559b4d23547fafba4de978da9238cedd55ae9794922c8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "81d5a20e56524a306c4e9ce56fa67eca340f397938ebc0dcdb3bfd2010170f3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed5832eb93e91b90ab0cf86c806c71403568dc6314ca0b798163b338159bd7e1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf9e11891199e6a7ea0d4d2671e3167c7604f3cffeb9438d49606b25cdd4c173"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ab6e6298a4f9d5b6434c5ff0eb5f5074693dc9e9f94593b235c1e1931ecb0761"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f922facf25fbedac9a5594842da02927e39ab10cdb8a60d5b11a8ae5cd05d64e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "867e4c896c38a76d51cd577c5b681a4d3f1d4447f5b9e5f0c02137c98ebcb724"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "07d5d26fe603cb06afa2017d76ad4f7377b9ce531d2a4f4896ff8527a443aa10"
+    sha256 cellar: :any,                 x86_64_linux:  "4a7871f4fc4459c8e3815619839d1f293b3b1b50507c20f6c6210599a91b8d57"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/open-policy-agent/gatekeeper/v3/pkg/version.Version=#{version}
-    ]
+    ldflags = %W[-X github.com/open-policy-agent/gatekeeper/v3/pkg/version.Version=#{version}]
     system "go", "build", *std_go_args(ldflags:), "./cmd/gator"
 
     generate_completions_from_executable(bin/"gator", shell_parameter_format: :cobra)

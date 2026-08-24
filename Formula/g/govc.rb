@@ -1,8 +1,8 @@
 class Govc < Formula
   desc "Command-line tool for VMware vSphere"
   homepage "https://github.com/vmware/govmomi/tree/main/govc"
-  url "https://github.com/vmware/govmomi/archive/refs/tags/v0.54.1.tar.gz"
-  sha256 "4b9420aeb970087400eff53d09fa72f71a5aa57af28925a0029068ef12aff23f"
+  url "https://github.com/vmware/govmomi/archive/refs/tags/v0.56.0.tar.gz"
+  sha256 "f8f6a90fb59ea6145701b3b2584aed8ce057bb9fcec85a5044e98d7b3bc7c575"
   license "Apache-2.0"
   head "https://github.com/vmware/govmomi.git", branch: "main"
 
@@ -15,19 +15,18 @@ class Govc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "532959340829847c39b9b84f44688c26bc1e1f02f36647a97b45c6b06c4db259"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "532959340829847c39b9b84f44688c26bc1e1f02f36647a97b45c6b06c4db259"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "532959340829847c39b9b84f44688c26bc1e1f02f36647a97b45c6b06c4db259"
-    sha256 cellar: :any_skip_relocation, sonoma:        "72142222d73bb27568b51956c753171831adabddfa4f4998e1d2359dece7c518"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "852ddbdacbf6e8b9a17d3b0555ca3e4f9d8a457da19e4d7803bd52f2ef521673"
-    sha256 cellar: :any,                 x86_64_linux:  "14dd9b7f7dbe6ef9156500b2bbe7cbd63e2932edf9d14375f9231b833a4b5b0b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "98967d1c67dba21ca5a5641bffedf6ab46c655d76c32614ac342ca9c10a62edf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "98967d1c67dba21ca5a5641bffedf6ab46c655d76c32614ac342ca9c10a62edf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "98967d1c67dba21ca5a5641bffedf6ab46c655d76c32614ac342ca9c10a62edf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "25566019f616d1d44f37092c3e9055a7676e734576056a9651a0ec41d5ef8881"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b4a61da1c92a7a162c78996d4e272146b5fedbcf9f665824be3f93261f1f11f7"
+    sha256 cellar: :any,                 x86_64_linux:  "5a6ba08a307fd8cefaa5f161deb956a6783d62da2e8347f728e1cafad4d95ed3"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/vmware/govmomi/cli/flags.BuildVersion=#{version}
       -X github.com/vmware/govmomi/cli/flags.BuildCommit=#{tap.user}
       -X github.com/vmware/govmomi/cli/flags.BuildDate=#{time.iso8601}

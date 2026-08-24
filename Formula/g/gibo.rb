@@ -18,10 +18,7 @@ class Gibo < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/simonwhitaker/gibo/cmd.version=#{version}
-    ]
+    ldflags = %W[-X github.com/simonwhitaker/gibo/cmd.version=#{version}]
     system "go", "build", *std_go_args(ldflags:)
     generate_completions_from_executable(bin/"gibo", shell_parameter_format: :cobra)
   end

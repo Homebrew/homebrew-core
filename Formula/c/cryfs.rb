@@ -6,13 +6,17 @@ class Cryfs < Formula
   url "https://github.com/cryfs/cryfs/releases/download/1.0.3/cryfs-1.0.3.tar.gz"
   sha256 "5550f612f7b692e60c0c10a0331dcefbcc9616ad1411a016de7e4503ad866696"
   license "LGPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/cryfs/cryfs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "aad3465262b4d592cf14d87253fca6f7543c8f1f1b6a5ab177d36befda519fd2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "4d391a757720609a5f34600e573d517e8f061afddb31ff743d4f18737e2cf399"
+    sha256 cellar: :any, arm64_linux:  "f37d5f9737038bc459af168ff87848d3c6385189cb4939c19b6b4136db4e547b"
+    sha256 cellar: :any, x86_64_linux: "f1527479be0986f7cea6a71eb7e95522a9eb133a8dc7e2b697f7d689deb7fcf0"
   end
+
+  # Can be undeprecated if v2 is released or FUSE 3 support is added to v1
+  deprecate! date: "2026-06-21", because: "needs unmaintained `libfuse@2`"
+  disable! date: "2027-06-21", because: "needs unmaintained `libfuse@2`"
 
   depends_on "cmake" => :build
   depends_on "curl" => :build

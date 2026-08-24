@@ -33,14 +33,14 @@ class LldAT21 < Formula
 
   def install
     rpaths = [rpath]
-    rpaths << Formula["llvm@21"].opt_lib.to_s if OS.linux?
+    rpaths << formula_opt_lib("llvm@21").to_s if OS.linux?
 
     system "cmake", "-S", "lld", "-B", "build",
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
                     "-DLLD_BUILT_STANDALONE=ON",
                     "-DLLD_VENDOR=#{tap&.user}",
-                    "-DLLVM_CMAKE_DIR=#{Formula["llvm@21"].opt_lib}/cmake/llvm",
+                    "-DLLVM_CMAKE_DIR=#{formula_opt_lib("llvm@21")}/cmake/llvm",
                     "-DLLVM_ENABLE_LTO=ON",
                     "-DLLVM_INCLUDE_TESTS=OFF",
                     "-DLLVM_USE_SYMLINKS=ON",

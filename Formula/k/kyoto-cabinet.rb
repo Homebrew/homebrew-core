@@ -28,8 +28,8 @@ class KyotoCabinet < Formula
 
   def install
     if OS.linux?
-      ENV.append_to_cflags "-I#{Formula["zlib-ng-compat"].opt_include}"
-      ENV.append "LDFLAGS", "-L#{Formula["zlib-ng-compat"].opt_lib}"
+      ENV.append_to_cflags "-I#{formula_opt_include("zlib-ng-compat")}"
+      ENV.append "LDFLAGS", "-L#{formula_opt_lib("zlib-ng-compat")}"
     end
     ENV.cxx11
     system "./configure", *std_configure_args

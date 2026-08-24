@@ -42,7 +42,10 @@ class ZigAT015 < Formula
   #   https://github.com/ziglang/zig/pull/23264
   # Fix max_rss
   #   https://github.com/Homebrew/homebrew-core/issues/252365
-  patch :DATA
+  patch do
+    file "Patches/zig/0.15.patch"
+    type :unofficial
+  end
 
   def install
     # Workaround for https://github.com/Homebrew/homebrew-core/pull/141453#discussion_r1320821081.
@@ -53,14 +56,8 @@ class ZigAT015 < Formula
                                                       .join(" ")
     end
 
-    cpu = case ENV.effective_arch # See `zig targets`.
-    when :arm_vortex_tempest then "apple_m1"
-    when :armv8 then "xgene1" # Closest to `-march=armv8-a`
-    else ENV.effective_arch
-    end
-
     args = ["-DZIG_SHARED_LLVM=ON"]
-    args << "-DZIG_TARGET_MCPU=#{cpu}" if build.bottle?
+    args << "-DZIG_TARGET_MCPU=#{Hardware.zig_cpu(ENV.effective_arch)}" if build.bottle?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -120,142 +117,3 @@ class ZigAT015 < Formula
     assert Utils.binary_linked_to_library?(bin/"zig", library), "No linkage with #{library}!"
   end
 end
-
-__END__
-From 8f9216e7d10970c21fcda9e8fe6af91a7e0f7db9 Mon Sep 17 00:00:00 2001
-From: Michael Dusan <michael.dusan@gmail.com>
-Date: Mon, 10 Mar 2025 17:32:00 -0400
-Subject: [PATCH] macos stage3: add link support for system libc++
-
-- activates when -DZIG_SHARED_LLVM=ON
-- activates when llvm_config is used and --shared-mode is shared
-- otherwise vendored libc++ is used
-
-closes #23189
----
- build.zig | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
-
-diff --git a/build.zig b/build.zig
-index 15762f0ae881..ea729f408f74 100644
---- a/build.zig
-+++ b/build.zig
-@@ -782,7 +782,13 @@ fn addCmakeCfgOptionsToExe(
-                 mod.linkSystemLibrary("unwind", .{});
-             },
-             .ios, .macos, .watchos, .tvos, .visionos => {
--                mod.link_libcpp = true;
-+                if (static or !std.zig.system.darwin.isSdkInstalled(b.allocator)) {
-+                    mod.link_libcpp = true;
-+                } else {
-+                    const sdk = std.zig.system.darwin.getSdk(b.allocator, &b.graph.host.result) orelse return error.SdkDetectFailed;
-+                    const @"libc++" = b.pathJoin(&.{ sdk, "usr/lib/libc++.tbd" });
-+                    exe.root_module.addObjectFile(.{ .cwd_relative = @"libc++" });
-+                }
-             },
-             .windows => {
-                 if (target.abi != .msvc) mod.link_libcpp = true;
-
---------------------------------------------------------------------------------
-diff --git a/build.zig b/build.zig
-index 9e672a4ca7..77959757f7 100644
---- a/build.zig
-+++ b/build.zig
-@@ -738,7 +738,7 @@ fn addCompilerMod(b: *std.Build, options: AddCompilerModOptions) *std.Build.Modu
- fn addCompilerStep(b: *std.Build, options: AddCompilerModOptions) *std.Build.Step.Compile {
-     const exe = b.addExecutable(.{
-         .name = "zig",
--        .max_rss = 7_800_000_000,
-+        .max_rss = 6_900_000_000,
-         .root_module = addCompilerMod(b, options),
-     });
-     exe.stack_size = stack_size;
-
---------------------------------------------------------------------------------
---- a/src/link/MachO/Dylib.zig	2025-10-10 20:53:18
-+++ b/src/link/MachO/Dylib.zig	2026-03-25 21:28:19
-@@ -730,29 +730,35 @@ pub const TargetMatcher = struct {
-             .cpu_arch = cpu_arch,
-             .platform = platform,
-         };
--        const apple_string = try targetToAppleString(allocator, cpu_arch, platform);
--        try self.target_strings.append(allocator, apple_string);
-+        try self.addTargetStrings(cpuArchToAppleString(cpu_arch));
-+        // In Xcode 26.4, Apple unified their TBD files from having separate `arm64-macos` and `arm64e-macos`
-+        // entries to having just the latter, presumably because the symbol lists are identical anyway. It
-+        // sure would have been nice if they settled on the former as the unified name so as not to break the
-+        // world, but evidently we can't have nice things.
-+        if (cpu_arch == .aarch64) try self.addTargetStrings("arm64e");
- 
--        switch (platform) {
--            .IOSSIMULATOR, .TVOSSIMULATOR, .WATCHOSSIMULATOR, .VISIONOSSIMULATOR => {
--                // For Apple simulator targets, linking gets tricky as we need to link against the simulator
--                // hosts dylibs too.
--                const host_target = try targetToAppleString(allocator, cpu_arch, .MACOS);
--                try self.target_strings.append(allocator, host_target);
--            },
--            .MACOS => {
--                // Turns out that around 10.13/10.14 macOS release version, Apple changed the target tags in
--                // tbd files from `macosx` to `macos`. In order to be compliant and therefore actually support
--                // linking on older platforms against `libSystem.tbd`, we add `<cpu_arch>-macosx` to target_strings.
--                const fallback_target = try std.fmt.allocPrint(allocator, "{s}-macosx", .{
--                    cpuArchToAppleString(cpu_arch),
--                });
--                try self.target_strings.append(allocator, fallback_target);
--            },
-+        return self;
-+    }
-+
-+    fn addTargetStrings(self: *TargetMatcher, arch: []const u8) !void {
-+        try self.target_strings.append(self.allocator, try std.fmt.allocPrint(
-+            self.allocator,
-+            "{s}-{s}",
-+            .{ arch, platformToAppleString(self.platform) },
-+        ));
-+
-+        switch (self.platform) {
-+            .MACCATALYST => {
-+                // Mac Catalyst is allowed to link macOS libraries in a TBD because Apple were apparently too lazy
-+                // to add the proper target strings despite doing so in other places in the format???
-+                try self.target_strings.append(self.allocator, try std.fmt.allocPrint(self.allocator, "{s}-macos", .{arch}));
-+            },
-+            .IOSSIMULATOR, .TVOSSIMULATOR, .WATCHOSSIMULATOR, .VISIONOSSIMULATOR => {
-+                // For Apple simulator targets, we need to link against the simulator host's libraries too.
-+                try self.target_strings.append(self.allocator, try std.fmt.allocPrint(self.allocator, "{s}-macos", .{arch}));
-+            },
-             else => {},
-         }
--
--        return self;
-     }
- 
-     pub fn deinit(self: *TargetMatcher) void {
-@@ -762,7 +767,7 @@ pub const TargetMatcher = struct {
-         self.target_strings.deinit(self.allocator);
-     }
- 
--    inline fn cpuArchToAppleString(cpu_arch: std.Target.Cpu.Arch) []const u8 {
-+    fn cpuArchToAppleString(cpu_arch: std.Target.Cpu.Arch) []const u8 {
-         return switch (cpu_arch) {
-             .aarch64 => "arm64",
-             .x86_64 => "x86_64",
-@@ -770,9 +775,8 @@ pub const TargetMatcher = struct {
-         };
-     }
- 
--    pub fn targetToAppleString(allocator: Allocator, cpu_arch: std.Target.Cpu.Arch, platform: macho.PLATFORM) ![]const u8 {
--        const arch = cpuArchToAppleString(cpu_arch);
--        const plat = switch (platform) {
-+    fn platformToAppleString(platform: macho.PLATFORM) []const u8 {
-+        return switch (platform) {
-             .MACOS => "macos",
-             .IOS => "ios",
-             .TVOS => "tvos",
-@@ -787,7 +791,6 @@ pub const TargetMatcher = struct {
-             .DRIVERKIT => "driverkit",
-             else => unreachable,
-         };
--        return std.fmt.allocPrint(allocator, "{s}-{s}", .{ arch, plat });
-     }
- 
-     fn hasValue(stack: []const []const u8, needle: []const u8) bool {

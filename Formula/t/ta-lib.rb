@@ -1,19 +1,17 @@
 class TaLib < Formula
   desc "Tools for market analysis"
   homepage "https://ta-lib.org/"
-  url "https://github.com/ta-lib/ta-lib/releases/download/v0.6.4/ta-lib-0.6.4-src.tar.gz"
-  sha256 "aa04066d17d69c73b1baaef0883414d3d56ab3775872d82916d1cdb376a3ae86"
+  url "https://github.com/ta-lib/ta-lib/releases/download/v0.7.1/ta-lib-0.7.1-src.tar.gz"
+  sha256 "508981a5b85edab42ecee0b2d9c7dcd2c4ae9831e859e1aa4e549232734c27e1"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7817d0d8bfa2799e2b90618352a6d276dfa36ff1af3f343c9f4d7fe0be8d6240"
-    sha256 cellar: :any,                 arm64_sequoia: "0ef739e4436909635fc3bacd8df2362d37a9467f11631111463dd387776b6b13"
-    sha256 cellar: :any,                 arm64_sonoma:  "8d7deb75b383ebc50513ebd077c4268acdb09d602b19ed4c8878f915f8f8b1e4"
-    sha256 cellar: :any,                 arm64_ventura: "12709c4df99f1dce0315b653a1bdb962f3cc6c429bda41a13d17f4dd43079644"
-    sha256 cellar: :any,                 sonoma:        "c34c5da2df4abefcb86d3f130a7e8fe0b85fad2c83e2343d9e65e4a615c6b235"
-    sha256 cellar: :any,                 ventura:       "151e74186d18550800b5e7e714c50e99e25b1e4f536fc83521e45e4ce389fc0e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e6bc65c4e2fb0d567fb739d473d9ee2b696741bb5d05f0f10c8594e096c875c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "868d1163296be1e3d5f10bcdf4047f0e218eb91617da562eac14fd04cd05433d"
+    sha256 cellar: :any, arm64_tahoe:   "615037c0200f975c14d6f0001028f3426acd8cc0a045c00291a255fc7095da17"
+    sha256 cellar: :any, arm64_sequoia: "0534ee3f9f69847a53671a4812a33e8772f5b5a930cb1c6f5a5dde68623669a0"
+    sha256 cellar: :any, arm64_sonoma:  "4cdab731fd05fab25a8f36aa22e9ec4379bf84aa12d9aad5f594389f288d899d"
+    sha256 cellar: :any, sonoma:        "0e3ab108a472af579c786be012b0863d9e60e84bb325f7ca68fe728d7061450b"
+    sha256 cellar: :any, arm64_linux:   "e05ea2875d1deb8277e32304fc89e628e46bdbe8835707cc839de89ecca8f8eb"
+    sha256 cellar: :any, x86_64_linux:  "0eebdb7a3a2692591b9ffe32e85fb9ac2f9a8db194277b8c16a784420612df8a"
   end
 
   on_macos do

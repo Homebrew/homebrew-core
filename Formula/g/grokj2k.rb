@@ -1,8 +1,8 @@
 class Grokj2k < Formula
   desc "JPEG 2000 Library"
   homepage "https://github.com/GrokImageCompression/grok"
-  url "https://github.com/GrokImageCompression/grok/releases/download/v20.3.5/source-full.tar.gz"
-  sha256 "6f44c581aa195a7e0110a07e29572fab2f89736669d7ea410b5e29eaa5b02f61"
+  url "https://github.com/GrokImageCompression/grok/releases/download/v20.3.13/source-full.tar.gz"
+  sha256 "f7ba54324908ea1a10a18faa9338464f97db46e2702cb96321d1d5e1955e4fb9"
   license "AGPL-3.0-or-later"
   head "https://github.com/GrokImageCompression/grok.git", branch: "master"
 
@@ -12,16 +12,15 @@ class Grokj2k < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "0525aa8d2884f4af33b3d549ceb8e456617d827b8163a4423bf7d7604a4b4c23"
-    sha256 cellar: :any, arm64_sequoia: "487ff6cc35daa0e3f6197911432c17ebb8cf4cad6ac9a1ec3703b79518d794cc"
-    sha256 cellar: :any, arm64_sonoma:  "dc2a20f298cfbc4dd54231de2bdfec42ed8600529effc9c643c935312b14e029"
-    sha256 cellar: :any, sonoma:        "4a0c16902ba6f95dc2ac5005937d5b51940975bd48def2f8166c068dd9fa2d9c"
-    sha256 cellar: :any, arm64_linux:   "794c75c852a722c421811cc5fac3d9a93011f302127db64e07eca9cce43d4a3c"
-    sha256 cellar: :any, x86_64_linux:  "bcc27fde3fc0d32c6c02add938deca77cbcf38a0f1862cdca436b7f8e3d6644d"
+    sha256 cellar: :any, arm64_tahoe:   "9c4a762ae6e7f2023a12f53cfb06d114fd1df81e1c6afc0ffaf58ee237bf677f"
+    sha256 cellar: :any, arm64_sequoia: "b4c7e871dbd112bcc165b1266b88ed50070bc1ce92953e009c12effec2583478"
+    sha256 cellar: :any, arm64_sonoma:  "a95ca9177a95fb60d69febe72487953f675d9d9847535a64ca762466694986bb"
+    sha256 cellar: :any, sonoma:        "fca40db021869f090f36711d6cb6667ae78364a197418067dbca429c21970f5c"
+    sha256 cellar: :any, arm64_linux:   "7d575ce84cee2d7b2912346373393d0b0029365d29ce4394ae9ee6ec30ce6678"
+    sha256 cellar: :any, x86_64_linux:  "877fe95fa7697431b67e2cbdcb0a85299451fbb5b8b2f966f0e74e7ae4ed295e"
   end
 
   depends_on "cmake" => :build
-  depends_on "doxygen" => :build
   depends_on "pkgconf" => :build
   depends_on "exiftool" => :test
   depends_on "fmt"
@@ -56,7 +55,7 @@ class Grokj2k < Formula
     %w[liblcms2 libpng libtiff libz].each { |l| rm_r(buildpath/"thirdparty"/l) }
 
     args = %w[
-      -DGRK_BUILD_DOC=ON
+      -DGRK_BUILD_DOC=OFF
       -DGRK_BUILD_JPEG=OFF
       -DGRK_BUILD_LCMS2=OFF
       -DGRK_BUILD_LIBPNG=OFF

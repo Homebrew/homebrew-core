@@ -1,7 +1,7 @@
 class FontUtil < Formula
   desc "X.Org: Font package creation/installation utilities"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/font/font-util-1.4.2.tar.xz"
+  url "https://xorg.freedesktop.org/archive/individual/font/font-util-1.4.2.tar.xz"
   sha256 "02e4f8afdcf03cc8372ca9c37aa104b1e36b47722dbc79531be08f0a4c622999"
   license "MIT"
 

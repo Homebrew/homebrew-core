@@ -1,6 +1,7 @@
 class Bcoin < Formula
   desc "Javascript bitcoin library for node.js and browsers"
-  homepage "https://bcoin.io"
+  # Original homepage https://bcoin.io is down (GitHub Pages TLS cert not provisioned)
+  homepage "https://github.com/bcoin-org/bcoin"
   url "https://github.com/bcoin-org/bcoin/archive/refs/tags/v2.2.0.tar.gz"
   sha256 "fa1a78a73bef5837b7ff10d18ffdb47c0e42ad068512987037a01e8fad980432"
   license "MIT"

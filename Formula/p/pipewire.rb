@@ -1,8 +1,8 @@
 class Pipewire < Formula
   desc "Server and user space API to deal with multimedia pipelines"
   homepage "https://pipewire.org"
-  url "https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/1.6.7/pipewire-1.6.7.tar.gz"
-  sha256 "a618c0a159055e2443f638c5c9f4b904e6902b655c09a7ff84546fa2447aedf8"
+  url "https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/1.6.8/pipewire-1.6.8.tar.gz"
+  sha256 "8181172a1d95131f6af8bbc0b98f90b2a33349b042b84c3ce57dd5d11348cc58"
   license all_of: [
     "MIT",
     "GPL-2.0-only",      # libjackserver.so
@@ -19,8 +19,8 @@ class Pipewire < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "8508c01ed6cdef2528fa96e7bb5c5aaedd2f4b51877f287b1e605eadbc53844b"
-    sha256 x86_64_linux: "031c9950290afba51128f532a3e5dcd0e3856ddf3cf921e52de8e6fea7cded09"
+    sha256 arm64_linux:  "da402d1fe63dfa6a86503d236a2b8aeb160914e18646f216191611ef1ec35b5c"
+    sha256 x86_64_linux: "11e0db9351d1597f7589b915c145c6c00d53a278c63ab6f712027acb883fbe0f"
   end
 
   depends_on "meson" => :build

@@ -1,8 +1,8 @@
 class Clusterctl < Formula
   desc "Home for the Cluster Management API work, a subproject of sig-cluster-lifecycle"
   homepage "https://cluster-api.sigs.k8s.io"
-  url "https://github.com/kubernetes-sigs/cluster-api/archive/refs/tags/v1.13.2.tar.gz"
-  sha256 "30d77bda139bdf8f98191b93abc007a8df9c955b37a1a24ecc8b4cd57fa249a0"
+  url "https://github.com/kubernetes-sigs/cluster-api/archive/refs/tags/v1.14.0.tar.gz"
+  sha256 "f7f14651f28c08678c4e66402b86ae455e8569e0faa0f6800794bee400a21d48"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/cluster-api.git", branch: "main"
 
@@ -17,19 +17,18 @@ class Clusterctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "149a07dea354793ff15338916544bcd18c977ca453ffc1c24e9749a88f9e1d2f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5df22f03beaac197f70e7a34c5239c8777aea8a139a808021831e158caedb9c9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f29fcfbce13f71bfe49fd5dcfc5b951e88536312f9aef0362a16c639f4c4b5e6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ee531f6d43ce3187e2904358d3df6cce6686858581caa0395070c11ad7ac6114"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "335a71a765e12f5bdde54c8d8cb28affd84e329c3e17c69e6655948ef3efd0da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2bd07a7f256baf6771e7d9bcd5a76cd6088ef9e96df0b2db7c1881aa1e066bca"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "698768dcf93818eb14896aabec2a717567ca23ad22f438ccb266190845daf25f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3a730c843e621c065f5e8c945f304f35fd5d6a5037e1936cd4b8852c3c441f54"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "edf8a6d5915c518bdefe8e853c65dd6856928d3dc5db92b7795759430fc2b44a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "443dfd178cbf57ac21ef2f418be2a5e8d5877e9fb8e7a573dbd1da65ee074791"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf452e8582cf1d3ac88b0bf6317f185696e17fcca4f067e67790762bb10a26cc"
+    sha256 cellar: :any,                 x86_64_linux:  "55e9925c956d9c2413c6cc824a7c498b59f357cdf307eac0d2565fb44e0da539"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X sigs.k8s.io/cluster-api/version.gitMajor=#{version.major}
       -X sigs.k8s.io/cluster-api/version.gitMinor=#{version.minor}
       -X sigs.k8s.io/cluster-api/version.gitVersion=v#{version}

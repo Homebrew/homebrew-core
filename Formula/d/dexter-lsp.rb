@@ -23,7 +23,7 @@ class DexterLsp < Formula
 
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
-    system "go", "build", "-buildvcs=false", *std_go_args(ldflags: "-s -w", output: bin/"dexter"), "./cmd"
+    system "go", "build", "-buildvcs=false", *std_go_args(output: bin/"dexter"), "./cmd"
 
     generate_completions_from_executable(bin/"dexter", "completion")
   end

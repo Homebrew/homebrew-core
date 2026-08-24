@@ -23,7 +23,7 @@ class Fop < Formula
 
     executable = libexec/"fop/fop"
     executable.chmod 0555
-    (bin/"fop").write_env_script executable, JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"fop").write_env_script executable, JAVA_HOME: formula_opt_prefix("openjdk")
 
     resource("hyph").stage do
       (libexec/"fop/build").install "fop-hyph.jar"

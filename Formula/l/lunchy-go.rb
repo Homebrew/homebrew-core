@@ -29,10 +29,11 @@ class LunchyGo < Formula
   patch do
     url "https://github.com/sosedoff/lunchy-go/commit/756ad7892ca91763c9c1e70ff9c6570607843725.patch?full_index=1"
     sha256 "e929312d6bb2441343e488988981e27fedab365fd963020089553608a9f93d5b"
+    type :backport
   end
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"lunchy")
+    system "go", "build", *std_go_args(output: bin/"lunchy")
   end
 
   test do

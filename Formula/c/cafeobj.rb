@@ -16,52 +16,23 @@ class Cafeobj < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "dce62a3729ca96afc0a108ddd59600066e98b82282fd448f3af759660d112537"
-    sha256 cellar: :any,                 arm64_sequoia: "f09b8ca7dd1989923e0c4655ea33c8a42a0c1d11bfbf42565abaccc48d0b530f"
-    sha256 cellar: :any,                 arm64_sonoma:  "259398f625fe7637f8a2858d3ef6527afc3f37f6ca5ad6c981f531ac9d39fa90"
-    sha256 cellar: :any,                 sonoma:        "04d7d82a328ad96e7dcf8fa3d9afabb1f84b0d386c1beed9eef271737ab9ac56"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7f9e673420ee0cba67dc62168fc40be7d88e685929420bd0bc80ea7eba80fdc9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fefc0da02032b0c3f03aee866a9e6db0fbc3b9bcee757a71f5a682703e12ff0b"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3816497dcfe09704825701f9c1d7401906d7d2977d1a237554eb8c014f08934c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1e276e1f6077e65371b1e2ad548736c190c22099ae144db02eef4f04fc1e92d6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d346f3487d50bf95498918a3ebc8fde45369c09f0a0cf48c1ee67a6b472b3f87"
+    sha256 cellar: :any_skip_relocation, sonoma:        "155b179dedb8de24c47ceba4231542916a8d529b0c6aa2b98deb2ee9c9d71f3b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d3d04d93f1d10743cd4a7992b27864c948a1c24bf58d5807d1a70aed62c03118"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49da247664e0e23d8872b0396992af76364d60c64134a2262798ca22c2252935"
   end
 
-  depends_on "sbcl" => :build
-  depends_on "zstd"
-
-  # Does not build with SBCL 2.5: https://github.com/CafeOBJ/cafeobj/issues/8
-  resource "sbcl" do
-    url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.4.11/sbcl-2.4.11-source.tar.bz2"
-    sha256 "4f03e5846f35834c10700bbe232da41ba4bdbf81bdccacb1d4de24297657a415"
-  end
+  depends_on "clisp"
 
   def install
-    resource("sbcl").stage do
-      ENV["SBCL_MACOSX_VERSION_MIN"] = MacOS.version.to_s if OS.mac?
-      system "sh", "make.sh", "--prefix=#{buildpath}/sbcl", "--with-sb-core-compression", "--with-sb-thread"
-      system "sh", "install.sh"
-      ENV.prepend_path "PATH", buildpath/"sbcl/bin"
-    end
-
     # Exclude unrecognized options
     args = std_configure_args.reject { |s| s["--disable-debug"] || s["--disable-dependency-tracking"] }
 
-    system "./configure", "--with-lisp=sbcl", "--with-lispdir=#{elisp}", *args
+    system "./configure", "--with-lisp=clisp", "--with-lispdir=#{elisp}", *args
     system "make", "install"
-
-    # Work around patchelf corrupting the SBCL core which is appended to binary
-    # TODO: Find a better way to handle this in brew, either automatically or via DSL
-    if OS.linux? && build.bottle? && build.stable?
-      cp lib/"cafeobj-#{version.major_minor}/sbcl/cafeobj.sbcl", prefix
-      Utils::Gzip.compress(prefix/"cafeobj.sbcl")
-    end
-  end
-
-  def post_install
-    if (prefix/"cafeobj.sbcl.gz").exist?
-      system "gunzip", prefix/"cafeobj.sbcl.gz"
-      (prefix/"cafeobj.sbcl").chmod (lib/"cafeobj-#{version.major_minor}/sbcl/cafeobj.sbcl").lstat.mode
-      (lib/"cafeobj-#{version.major_minor}/sbcl").install prefix/"cafeobj.sbcl"
-    end
   end
 
   test do

@@ -32,9 +32,9 @@ class Libvncserver < Formula
 
   def install
     args = %W[
-      -DJPEG_INCLUDE_DIR=#{Formula["jpeg-turbo"].opt_include}
-      -DJPEG_LIBRARY=#{Formula["jpeg-turbo"].opt_lib/shared_library("libjpeg")}
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@4"].opt_prefix}
+      -DJPEG_INCLUDE_DIR=#{formula_opt_include("jpeg-turbo")}
+      -DJPEG_LIBRARY=#{formula_opt_lib("jpeg-turbo")/shared_library("libjpeg")}
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
       -DWITH_EXAMPLES=OFF
       -DWITH_GCRYPT=OFF
       -DWITH_GNUTLS=OFF

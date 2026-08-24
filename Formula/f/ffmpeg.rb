@@ -1,13 +1,14 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream select audio and video codecs"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-8.1.2.tar.xz"
-  sha256 "464beb5e7bf0c311e68b45ae2f04e9cc2af88851abb4082231742a74d97b524c"
+  url "https://ffmpeg.org/releases/ffmpeg-9.0.1.tar.xz"
+  sha256 "cf38e0e28c7e5605942c4a77755349b0145804a397af37eb1fb4c77cb237f635"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   # Passing `--enable-version3` changes the license to GPL v3+.
   license "GPL-3.0-or-later"
-  compatibility_version 2
+  revision 1
+  compatibility_version 3
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -16,12 +17,12 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "be65357f2b6fe927a656242e0f01a1515ec313513ef3ba5ae4fe7e78b8776f2e"
-    sha256 arm64_sequoia: "3c342b94ee4784979403c01577a332ad5eeae7f15447bff76458ea41153bbdbb"
-    sha256 arm64_sonoma:  "aff085f726852bf7c41bc77722e0d43b3405bd79f7670a729db705b99ec52908"
-    sha256 sonoma:        "bfa9fd31495a1e38f7be2d45274fc878c7a45771675ea354e96ff99c66ba62cf"
-    sha256 arm64_linux:   "4f134fce043a828fb02bd0768ab80ad2f64b450cfefab0e1ce5f7784c61282a6"
-    sha256 x86_64_linux:  "51560fcded6c80e4d9be2da32cca0b2bbb0a49b844db593a6143d8ac736aaa42"
+    sha256 arm64_tahoe:   "24f31aa47b7cb0aa5ce042023073ca08c342f9c2198edc0819adc1e28e0f5168"
+    sha256 arm64_sequoia: "fe7b941dedd14ad289206c8c53fa16cc18c38e18cc63487f2d2aa98b6217f442"
+    sha256 arm64_sonoma:  "07fd75576a93eff2661ae808024348995c817868db3f1397a114e4463305e05e"
+    sha256 sonoma:        "e867ed8c4d2e211b826ddb30cb6e5ccdff8d1dfa977ffc641abe152a31fbd4a1"
+    sha256 arm64_linux:   "2ddcd9a3518e164c30fb3c8ec1e7d3ca937030ac1991dd538e1665447bf7c79e"
+    sha256 x86_64_linux:  "a74960f1b3fdc81e010629df8aa70c4c8438013f8d78c8387a6a688fd2cfebdc"
   end
 
   depends_on "pkgconf" => :build
@@ -37,10 +38,11 @@ class Ffmpeg < Formula
   depends_on "libvpx"
   depends_on "openssl@3"
   depends_on "opus"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "svt-av1"
   depends_on "x264"
   depends_on "x265"
+  depends_on "xz"
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
@@ -48,7 +50,6 @@ class Ffmpeg < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "libxcb"
-    depends_on "xz"
     depends_on "zlib-ng-compat"
   end
 

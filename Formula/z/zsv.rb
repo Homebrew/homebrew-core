@@ -24,8 +24,8 @@ class Zsv < Formula
     rm(Dir["app/external/{jq,pcre}*"])
 
     args = %W[
-      --jq-prefix=#{Formula["jq"].opt_prefix}
-      --pcre2-8-prefix=#{Formula["pcre2"].opt_prefix}
+      --jq-prefix=#{formula_opt_prefix("jq")}
+      --pcre2-8-prefix=#{formula_opt_prefix("pcre2")}
       --ncurses-dynamic
     ]
 

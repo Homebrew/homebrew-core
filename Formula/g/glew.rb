@@ -27,15 +27,16 @@ class Glew < Formula
   end
 
   # OpenGL extension fixes.
-  # Upstream PR ref: https://github.com/nigels-com/glew/pull/455
   patch do
     url "https://github.com/nigels-com/glew/commit/a7c9cc7c01fa9d59322edf702b6d59e10fe427cb.patch?full_index=1"
     sha256 "d177dc99fb81d310d2b78b051cdddb4432843904806952794040f8201d702c0c"
+    type :backport
+    resolves "https://github.com/nigels-com/glew/pull/455"
   end
 
   def install
     args = ["-DCMAKE_INSTALL_RPATH=#{rpath}"]
-    args << "-DOPENGL_glx_LIBRARY=#{Formula["mesa"].opt_lib}/libGL.so" if OS.linux?
+    args << "-DOPENGL_glx_LIBRARY=#{formula_opt_lib("mesa")}/libGL.so" if OS.linux?
     system "cmake", "-S", "./build/cmake", "-B", "_build", *args,
                     *std_cmake_args(find_framework: "FIRST")
     system "cmake", "--build", "_build"

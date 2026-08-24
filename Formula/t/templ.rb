@@ -17,7 +17,7 @@ class Templ < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/templ"
+    system "go", "build", *std_go_args, "./cmd/templ"
   end
 
   test do

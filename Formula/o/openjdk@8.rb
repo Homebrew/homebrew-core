@@ -1,10 +1,10 @@
 class OpenjdkAT8 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.org/"
-  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u492-ga.tar.gz"
-  version "1.8.0-492"
-  BUILD_NUMBER = "b09".freeze # Please update when a new GA release is available: https://wiki.openjdk.org/spaces/jdk8u/overview
-  sha256 "3744ed83399b4646c6b64cb7ec3539ed43917edae56378e9853a62ede670a9b7"
+  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u504-ga.tar.gz"
+  version "1.8.0-504"
+  BUILD_NUMBER = "b01".freeze # Please update when a new GA release is available: https://wiki.openjdk.org/spaces/jdk8u/overview
+  sha256 "406a990606b3452485b1554d0b9463fa0ef8e34c70cd1033b54ff12dd9a2f611"
   license "GPL-2.0-only"
 
   livecheck do
@@ -16,9 +16,9 @@ class OpenjdkAT8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 sonoma:       "b9c1ddd42f177e05dc609df78a31474055290ad2cc160864decb0cec956ac8d4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "7d4f29f1df0916a69117f664f1c1f3231938807534f3acdb63166841fc8a7825"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "7d1cc59954a6abfb13da30f8a899ce06e7ce83bf1c3ed68adc3c6b1bd43750b3"
+    sha256 cellar: :any, sonoma:       "9db7c964ce0197b0b549a60888557737249bbd40a0622f9db38b7fa400050a9f"
+    sha256 cellar: :any, arm64_linux:  "e405a769ee7379ec5cfb4486de0942742a2dbf68098b85eaad1487c03da0007f"
+    sha256 cellar: :any, x86_64_linux: "588a7eeb97558af07b9d1443c0a543b35adb2332c8fff60eeb88a380ffea2bf9"
   end
 
   keg_only :versioned_formula
@@ -31,9 +31,9 @@ class OpenjdkAT8 < Formula
   depends_on "freetype"
   depends_on "giflib"
 
-  uses_from_macos "cups"
-  uses_from_macos "unzip"
-  uses_from_macos "zip"
+  uses_from_macos "unzip" => :build
+  uses_from_macos "zip" => :build
+  uses_from_macos "cups" => :no_linkage
 
   on_macos do
     depends_on arch: :x86_64
@@ -44,14 +44,14 @@ class OpenjdkAT8 < Formula
   end
 
   on_linux do
+    depends_on "libxt" => :build
     depends_on "alsa-lib"
-    depends_on "fontconfig"
+    depends_on "fontconfig" => :no_linkage
     depends_on "libx11"
     depends_on "libxext"
     depends_on "libxi"
-    depends_on "libxrandr"
+    depends_on "libxrandr" => :no_linkage
     depends_on "libxrender"
-    depends_on "libxt"
     depends_on "libxtst"
   end
 
@@ -89,10 +89,12 @@ class OpenjdkAT8 < Formula
   patch :p0 do
     url "https://raw.githubusercontent.com/macports/macports-ports/04ad4a17332e391cd359271965d4c6dac87a7eb2/java/openjdk8/files/0001-8181503-Can-t-compile-hotspot-with-c-11.patch"
     sha256 "a02e0ea7c70390796e46b8b6565f986fedc17a08aa039ee3306438a39a60538a"
+    type :unofficial
   end
   patch :p0 do
     url "https://raw.githubusercontent.com/macports/macports-ports/04ad4a17332e391cd359271965d4c6dac87a7eb2/java/openjdk8/files/0006-Disable-C-11-warnings.patch"
     sha256 "127d9508b72005e849a6ada6adf04bd49a236731d769810e67793bdf2aa722fe"
+    type :unofficial
   end
   patch :p0, :DATA
 

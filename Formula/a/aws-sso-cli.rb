@@ -1,25 +1,26 @@
 class AwsSsoCli < Formula
   desc "Securely manage AWS API credentials using AWS SSO"
   homepage "https://synfinatic.github.io/aws-sso-cli/"
-  url "https://github.com/synfinatic/aws-sso-cli/archive/refs/tags/v2.2.5.tar.gz"
-  sha256 "e8999b3db5ee6f90f27f44fc5dd4c19a3365d6a9d57a59ac167537963b07484c"
+  url "https://github.com/synfinatic/aws-sso-cli/archive/refs/tags/v2.3.2.tar.gz"
+  sha256 "3847945ad19bf9dddaea3a095095fb6e6425d95f8f1ca30d0a5a1f569aeaeaa3"
   license "GPL-3.0-only"
   head "https://github.com/synfinatic/aws-sso-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "786f8ccf3a1ee4f3288a2c8154dc8e3a10cba86364c833cc27aa2a1e69425b3c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2775fe173c6da56cd5da255e16850c4ea5339cd80cac968a7b02cc44309b83e3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e9b03784e7a64962e3e526bc3df1999f91c067096e49df59a1b2e241d132dc6b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8ee3bc04fe5507cd0d2b77511758d3bacb4d3558ffe7af7da85ffe8e2608cbf5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3a71fb38f30b6e762241d85ad9ce09246cc25c26b4466f712dbf85a95ea639b"
-    sha256 cellar: :any,                 x86_64_linux:  "cf93f9ef86ab35474fb33a1a6f6c0f8ad19c802855d6d46bbf205b6d9e54a599"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f47036c2b8442cebbf46a951d601851b01ce31e6c075dbb30f2d4a179bf8946e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aa4bcaf928d65a51d381adeddc0c82a2f76c25b605dbbfb67474ac0622bdbc14"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe0f94d12f81a718e14ca383c28f7bce59be609673b9af5f456731222d12c1c0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9ef27a3008e909b44d6db8c7c2c7bd75efee8eaedc18277dddc28273b4abe7e6"
+    sha256 cellar: :any,                 arm64_linux:   "e83522c25cf6fe87164978ca43667cce6ad75dcba79cfeeb5ee4589c00f9834b"
+    sha256 cellar: :any,                 x86_64_linux:  "b00d7b1911c9da19a42476f185d956f596663cf0d5e6f20df01d560ba3ae2b81"
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
     ldflags = %W[
-      -s -w
       -X main.Version=#{version}
       -X main.Buildinfos=#{time.iso8601}
       -X main.Tag=#{version}

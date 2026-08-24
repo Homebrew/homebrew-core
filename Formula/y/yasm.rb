@@ -4,7 +4,7 @@ class Yasm < Formula
   # homepage "https://yasm.tortall.net/"
   homepage "https://www.tortall.net/projects/yasm/manual/html/"
   url "https://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz"
-  mirror "https://ftp.openbsd.org/pub/OpenBSD/distfiles/yasm-1.3.0.tar.gz"
+  mirror "https://github.com/yasm/yasm/releases/download/v1.3.0/yasm-1.3.0.tar.gz"
   sha256 "3dce6601b495f5b3d45b59f7d2492a340ee7e84b5beca17e48f862502bd5603f"
   license all_of: [
     "BSD-2-Clause",

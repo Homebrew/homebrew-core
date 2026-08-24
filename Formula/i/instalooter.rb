@@ -12,6 +12,11 @@ class Instalooter < Formula
     sha256 cellar: :any_skip_relocation, all: "0e3363555ffe84689fdc3a1551efd2c01c662b263699fcc632487b8f53441f0a"
   end
 
+  # Last release in 2018, repo description updated as "defunct"
+  # https://github.com/althonos/InstaLooter/issues/374
+  deprecate! date: "2026-07-10", because: :unmaintained, replacement_formula: "instaloader"
+  disable! date: "2027-07-10", because: :unmaintained, replacement_formula: "instaloader"
+
   depends_on "certifi" => :no_linkage
   depends_on "python@3.14"
 

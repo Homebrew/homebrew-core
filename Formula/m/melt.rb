@@ -19,7 +19,7 @@ class Melt < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/melt"
+    system "go", "build", *std_go_args, "./cmd/melt"
 
     generate_completions_from_executable(bin/"melt", shell_parameter_format: :cobra)
   end

@@ -1,21 +1,21 @@
 class Kfr < Formula
   desc "Fast, modern C++ DSP framework"
   homepage "https://www.kfrlib.com/"
-  url "https://github.com/kfrlib/kfr/archive/refs/tags/7.0.1.tar.gz"
-  sha256 "42b36126f2af8719eff6f26e87e9f155816bc3bb110376e4747ba5de536c2cce"
+  url "https://github.com/kfrlib/kfr/archive/refs/tags/7.1.0.tar.gz"
+  sha256 "9ca43ee8f0d7b166c92f06d20953d2a753774c4237b2721bea366115811dff64"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "86b96b05477af3f3661276b223983fadd610b7e471407430f7cc1cf2e314a8eb"
-    sha256 cellar: :any,                 arm64_sequoia: "6949146a34c9d4a8b7b5103627af381974e099ac00db4585e4868352db3f112a"
-    sha256 cellar: :any,                 arm64_sonoma:  "10b71e67e14e341e2929939d3e0ad45f41bdaf04ae6f8821eca18be2ec6cffd7"
-    sha256 cellar: :any,                 sonoma:        "1fdb1f8bef584d04821453d680e647e7391d33c5a99508f2c7a1c166dc4a8a54"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "02b2233a450327c2fe7981153fa72dd2ae1f06ab752d805f66343753b27f66ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae7a12b26f03bbc10216e6b018499cf826967814c5067df3631928b84bce4eb5"
+    sha256 cellar: :any,                 arm64_tahoe:   "f8c0e575d71338be7f1dc85558cca4839ae8881d1c47cbc0c911ce2e099d0e10"
+    sha256 cellar: :any,                 arm64_sequoia: "edea10b7dda7aa1faa2df0a8c2e9c120619099d6ae120937a4683a2d45a6065f"
+    sha256 cellar: :any,                 arm64_sonoma:  "a0b2530179442951d697cd7dec0d9ae8de395787e275947cf0bb636f589f7eff"
+    sha256 cellar: :any,                 sonoma:        "8046d3d9c76ca7c1cd0a728aa41804ad9f90d1910fffba6ac4bac9da4c464348"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f171b125283cf0b0e8c0e091a667cb506650fee41bd9e61c8c723f0470951e6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "846fedfb8e6c84c1a7915efe85ae15fbf788187051c8a6c76c99a4ddf8628397"
   end
 
+  depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "boost"
 
   on_arm do
     # FIXME: `uses_from_macos` is not allowed in `on_arm` block

@@ -19,7 +19,7 @@ class TfProfile < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", tags: "netgo")
+    system "go", "build", *std_go_args(tags: "netgo")
     pkgshare.install "test"
 
     generate_completions_from_executable(bin/"tf-profile", shell_parameter_format: :cobra)

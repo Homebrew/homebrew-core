@@ -38,7 +38,7 @@ class Jed < Formula
   depends_on "s-lang"
 
   def install
-    args = ["--with-slang=#{Formula["s-lang"].opt_prefix}"]
+    args = ["--with-slang=#{formula_opt_prefix("s-lang")}"]
 
     if build.head?
       cd "autoconf" do

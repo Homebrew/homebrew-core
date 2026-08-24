@@ -1,18 +1,18 @@
 class AwsChecksums < Formula
   desc "Cross-Platform HW accelerated CRC32c and CRC32 with fallback"
   homepage "https://github.com/awslabs/aws-checksums"
-  url "https://github.com/awslabs/aws-checksums/archive/refs/tags/v0.2.10.tar.gz"
-  sha256 "cb6509f75e42ee25c372a6d379e8582ce5179e5335183842e808f7d8abb0c314"
+  url "https://github.com/awslabs/aws-checksums/archive/refs/tags/v0.2.11.tar.gz"
+  sha256 "6917e18b8d6079c02f36478ac59174eb3c47dc3bf040ea63bd93d127837f873f"
   license "Apache-2.0"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6d445735de28c8a10112acf0aef35604333dd1e116178049cb14fac250cc2a8e"
-    sha256 cellar: :any,                 arm64_sequoia: "51f9c37d851867716d37defe9144f5835fb6278ca1f35907e911a1d586bb0072"
-    sha256 cellar: :any,                 arm64_sonoma:  "e24b9a1b71244f86bd5fa10251200429c07d8a059c0457f07adecab8ddb7f1ee"
-    sha256 cellar: :any,                 sonoma:        "a61857ac1b1680a507dc293eafaec707cb2d9f3b39f4aa8526cf802f22d53b28"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c915444ca9fc28a35b3b45d8af248c85af9e23b55d0f40e3dead889bd7f500e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36f9b3e8cbcd098bf0ef110583df824360ad86e71dd9265904203872f59c763f"
+    sha256 cellar: :any, arm64_tahoe:   "1b8626139773ebbe0958e66cad6a09ed8578ef710a317f5ad1897ba59223ccf2"
+    sha256 cellar: :any, arm64_sequoia: "251bf75fa42c8e9acb0b2b31cb7e8f7e0d15c8eece127964abb95587410f341a"
+    sha256 cellar: :any, arm64_sonoma:  "d18aa681ef0221eef59e95907480e98736eea1906806fac4a84f2476c3223fb2"
+    sha256 cellar: :any, sonoma:        "bc7b5f31ee89f59b3de05bf416e793adccb0f5197d8061cfe0d975f5e1f8fd69"
+    sha256 cellar: :any, arm64_linux:   "abda43c6a050cfbe4fb0304fb2e55bb31993915e14c71d39fc167ec6caba7c07"
+    sha256 cellar: :any, x86_64_linux:  "a0d4f09f42bb244faffbf620985df9bc2fbec9b68930180bb319444e3bd980b2"
   end
 
   depends_on "cmake" => :build
@@ -45,7 +45,7 @@ class AwsChecksums < Formula
       }
     C
     system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-laws-checksums",
-                   "-L#{Formula["aws-c-common"].opt_lib}", "-laws-c-common"
+                   "-L#{formula_opt_lib("aws-c-common")}", "-laws-c-common"
     system "./test"
   end
 end

@@ -5,6 +5,11 @@ class Libigloo < Formula
   sha256 "ea22e9119f7a2188810f99100c5155c6762d4595ae213b9ac29e69b4f0b87289"
   license "LGPL-2.0-or-later"
 
+  livecheck do
+    url "https://icecast.org/download/"
+    regex(/href=.*?libigloo[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "3d5f68bae027b04b01c5d655f97a468422f9c1c32fe8c82f5402665bad2d0623"
     sha256 cellar: :any,                 arm64_sequoia: "0013eb663812b10c614a73834810c5395a2ed4b7ad6796a45f26db764133313d"

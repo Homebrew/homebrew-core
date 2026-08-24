@@ -59,7 +59,13 @@ module Homebrew
         pr = args.named.first.to_i
         commits = get_pull_request_commits(pr)
 
-        odie "PR##{pr} modifies the bottle block" if commits.any? { |sha| commit_modifies_bottle_block?(sha) }
+        return unless commits.any? { |sha| commit_modifies_bottle_block?(sha) }
+
+        if (github_output = ENV.fetch("GITHUB_OUTPUT", nil))
+          File.write(github_output, "bottle_modified=true\n", mode: "a")
+        end
+
+        odie "PR##{pr} modifies the bottle block"
       end
     end
   end

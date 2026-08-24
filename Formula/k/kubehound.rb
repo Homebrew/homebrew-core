@@ -28,7 +28,6 @@ class Kubehound < Formula
     goarch = Utils.safe_popen_read("#{Formula["go"].bin}/go", "env", "GOARCH").chomp
 
     ldflags = %W[
-      -s -w
       -X github.com/DataDog/KubeHound/pkg/config.BuildVersion=v#{version}
       -X github.com/DataDog/KubeHound/pkg/config.BuildBranch=main
       -X github.com/DataDog/KubeHound/pkg/config.BuildOs=#{goos}

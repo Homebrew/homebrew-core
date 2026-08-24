@@ -19,6 +19,8 @@ class Libffcall < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d42265685ccd225935b647212b027cabcf753fdd4c7f2596d9e30f3be1e8d40"
   end
 
+  conflicts_with "epics-base", because: "both install `callback.h` header"
+
   def install
     ENV.deparallelize
     system "./configure", "--disable-silent-rules", *std_configure_args

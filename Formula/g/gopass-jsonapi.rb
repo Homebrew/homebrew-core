@@ -23,8 +23,7 @@ class GopassJsonapi < Formula
   end
 
   def install
-    ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
   end
 
   test do
@@ -41,13 +40,13 @@ class GopassJsonapi < Formula
     GPG
 
     begin
-      system Formula["gnupg"].opt_bin/"gpg", "--batch", "--gen-key", "batch.gpg"
+      system formula_opt_bin("gnupg")/"gpg", "--batch", "--gen-key", "batch.gpg"
 
-      system Formula["gopass"].opt_bin/"gopass", "init", "--path", testpath, "noop", "testing@foo.bar"
-      system Formula["gopass"].opt_bin/"gopass", "generate", "Email/other@foo.bar", "15"
+      system formula_opt_bin("gopass")/"gopass", "init", "--path", testpath, "noop", "testing@foo.bar"
+      system formula_opt_bin("gopass")/"gopass", "generate", "Email/other@foo.bar", "15"
     ensure
-      system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
-      system Formula["gnupg"].opt_bin/"gpgconf", "--homedir", "keyrings/live",
+      system formula_opt_bin("gnupg")/"gpgconf", "--kill", "gpg-agent"
+      system formula_opt_bin("gnupg")/"gpgconf", "--homedir", "keyrings/live",
                                                  "--kill", "gpg-agent"
     end
 

@@ -16,7 +16,7 @@ class Xcp < Formula
   depends_on :macos
 
   def install
-    system "swift", "build", "--disable-sandbox", "--configuration", "release"
+    system "swift", "build", *std_swift_args
     bin.install ".build/release/xcp"
   end
 

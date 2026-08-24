@@ -16,7 +16,7 @@ class MsgpackCxx < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "boost"
+  depends_on "boost" => :no_linkage
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

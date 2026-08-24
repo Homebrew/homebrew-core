@@ -26,34 +26,28 @@ class Id3lib < Formula
   end
 
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/id3lib/id3lib-main.patch"
-    sha256 "83c8d2fa54e8f88b682402b2a8730dcbcc8a7578681301a6c034fd53e1275463"
+    file "Patches/id3lib/id3lib-main.patch"
   end
 
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/id3lib/id3lib-vbr-overflow.patch"
-    sha256 "0ec91c9d89d80f40983c04147211ced8b4a4d8a5be207fbe631f5eefbbd185c2"
+    file "Patches/id3lib/id3lib-vbr-overflow.patch"
   end
 
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/id3lib/no-iomanip.h.patch"
-    sha256 "da0bd9f3d17f1dd054720c17dfd15062eabdfc4d38126bb1b2ef5e8f39904925"
+    file "Patches/id3lib/no-iomanip.h.patch"
   end
 
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/id3lib/automake.patch"
-    sha256 "c1ae2aa04baee7f92301cbed120340682e62e1f839bb61f8f6d3c459a7faf097"
+    file "Patches/id3lib/automake.patch"
   end
 
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/id3lib/boolcheck.patch"
-    sha256 "a7881dc25665f284798934ba19092d1eb45ca515a34e5c473accd144aa1a215a"
+    file "Patches/id3lib/boolcheck.patch"
   end
 
   # fixes Unicode display problem in easytag: see Homebrew/homebrew-x11#123
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/id3lib/patch_id3lib_3.8.3_UTF16_writing_bug.diff"
-    sha256 "71c79002d9485965a3a93e87ecbd7fed8f89f64340433b7ccd263d21385ac969"
+    file "Patches/id3lib/patch_id3lib_3.8.3_UTF16_writing_bug.diff"
   end
 
   patch :DATA

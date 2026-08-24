@@ -32,6 +32,8 @@ class Ngt < Formula
   patch do
     url "https://github.com/NGT-labs/NGT/commit/ddb97ff021bab08b3bae6144d5971a1616e1477c.patch?full_index=1"
     sha256 "3d622749ca18e34c11bb3ef3ffe61e4b534231937e4c0a321b62dec6cf21a3a0"
+    type :backport
+    resolves "https://github.com/NGT-labs/NGT/pull/194"
   end
 
   def install

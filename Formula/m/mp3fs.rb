@@ -11,6 +11,11 @@ class Mp3fs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "db1aaedbc1b394893b7b3344b0861aeb573f22009c72559c3e2e7cf8037cc986"
   end
 
+  # Last release on 2021-03-08. Needs `libfuse@2` to build.
+  # Can be undeprecated if https://github.com/khenriks/mp3fs/pull/81 is merged
+  deprecate! date: "2026-06-21", because: :unmaintained
+  disable! date: "2027-06-21", because: :unmaintained
+
   depends_on "pkgconf" => :build
   depends_on "flac"
   depends_on "lame"

@@ -6,14 +6,13 @@ class AyatanaIdo < Formula
   license any_of: ["GPL-3.0-or-later", "LGPL-2.0-or-later"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d057f3cc3501c6a142003866281a9290c052086decc8167138488d6a7fc906f8"
-    sha256 cellar: :any,                 arm64_sequoia: "4fed31960fa9d6d907fb7c6e283573b7a456abce909ed30d88e70bbaa9c88d9a"
-    sha256 cellar: :any,                 arm64_sonoma:  "09913ff54d95db83cdacf1f026844761d2973a581fac4c4698ab46b97a7d016e"
-    sha256 cellar: :any,                 arm64_ventura: "c415adf102890257e312cbf46e14e274819d513479c51bedef3ec4beb25c517b"
-    sha256 cellar: :any,                 sonoma:        "a4633dc9cd30e3ccfb1079a42c91df5fefa6c4cf4e2f70e18a0c1538f9cd7356"
-    sha256 cellar: :any,                 ventura:       "8d7ec3123010aa1ff40ff6a84b8369808f5581cd437b6197984157c3b119edfa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8908314215b919c26a433bc0c539510a495a209ddd0361aa14cfe0f4f631558c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0462edd4eaed23ad5557e1e733f4fbb17256f850da3c8a6c1f6cff6a9c95f750"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "fdd3dea9088ce3de66656684a292ac3cabe7540fe8e58df4d42421d356c2bfc5"
+    sha256 cellar: :any, arm64_sequoia: "768bbbd7532ca49a378cd7e79700b73257ae55344f0cc7c2f81817cd899e14be"
+    sha256 cellar: :any, arm64_sonoma:  "0a6a4182d499d52448b951844b5aeae9766b4306c874825bce33c79bb69e9a5b"
+    sha256 cellar: :any, sonoma:        "bcfe9b250aded01df24c30e98a9af7f59dd4977de6943dbdbfbd05790d8039ea"
+    sha256 cellar: :any, arm64_linux:   "f0b910095890cd349897387533b4f43b45c185a3d7f904c29711d35869a67e6a"
+    sha256 cellar: :any, x86_64_linux:  "8f0d6f6881280961dad410b8a81dbc5ef48b7ef76c3e34fbe8c7c3cf63531e40"
   end
 
   depends_on "cmake" => :build
@@ -27,13 +26,12 @@ class AyatanaIdo < Formula
   depends_on "pango"
 
   on_macos do
-    depends_on "at-spi2-core"
     depends_on "gettext"
-    depends_on "harfbuzz"
   end
 
   def install
     args = %w[-DENABLE_TESTS=OFF]
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

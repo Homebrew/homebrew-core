@@ -17,7 +17,7 @@ class TfstateLookup < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/tfstate-lookup"
+    system "go", "build", *std_go_args, "./cmd/tfstate-lookup"
   end
 
   test do

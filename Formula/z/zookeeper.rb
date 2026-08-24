@@ -55,7 +55,7 @@ class Zookeeper < Formula
       bin_name    = path.basename ".sh"
       (bin/bin_name).write <<~BASH
         #!/bin/bash
-        export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+        export JAVA_HOME="${JAVA_HOME:-#{formula_opt_prefix("openjdk")}}"
         . "#{pkgetc}/defaults"
         exec "#{libexec}/bin/#{script_name}" "$@"
       BASH

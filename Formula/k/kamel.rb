@@ -19,7 +19,7 @@ class Kamel < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/apache/camel-k/v#{version.major}/pkg/util/defaults.GitCommit=#{tap.user}-#{version}"
+    ldflags = "-X github.com/apache/camel-k/v#{version.major}/pkg/util/defaults.GitCommit=#{tap.user}-#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/kamel"
   end
 

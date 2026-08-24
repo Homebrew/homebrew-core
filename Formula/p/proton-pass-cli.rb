@@ -1,22 +1,22 @@
 class ProtonPassCli < Formula
   desc "Command-line interface for Proton Pass"
   homepage "https://protonpass.github.io/pass-cli/"
-  url "https://github.com/protonpass/pass-cli/archive/refs/tags/2.1.4.tar.gz"
-  sha256 "32a3c74872b253f796291576d3dc790fba58b86eef1b9897bf5a3f4b5d54edc5"
+  url "https://github.com/protonpass/pass-cli/archive/refs/tags/2.3.2.tar.gz"
+  sha256 "9b15641124c6a29eb7015f510cabc8f209fdef9274ace2821085eb02e37997ff"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "93e2334d241c289b09e7566d75e2b992640c706a615cbe063f186b1c7070c113"
-    sha256 cellar: :any, arm64_sequoia: "297c723a51b24e3a82c1ca85ee2090e30e6b7c40e889b98c7e6d4e8ac3e61ba2"
-    sha256 cellar: :any, arm64_sonoma:  "640288eba678ea752037ec9c163630a88e54cb854c51c80522a01e665f39d1bf"
-    sha256 cellar: :any, sonoma:        "f0803e0ff6c0fbe6ed9b7a54cdeb91f17421090dd07dc949913601c6da52ef36"
-    sha256 cellar: :any, arm64_linux:   "cd011a44ae2bafa8e9e46ea5399fbd401178e12775b415546dacb392b8254123"
-    sha256 cellar: :any, x86_64_linux:  "c97375712d49da73a2b298d672dbd5bddc8f699990cdf3cc2550d99330c65431"
+    sha256 cellar: :any, arm64_tahoe:   "38a6fa2eb26adc431cf0e61cb5ef9ed3d9b498e6ded13693976af4f9c2c61da7"
+    sha256 cellar: :any, arm64_sequoia: "a6d52f9747b9316f3e00b5c0cd03d69109bbdb4aa83cb22d6c8d8e34bac1d23a"
+    sha256 cellar: :any, arm64_sonoma:  "c817d8e5de79dc347620e0bcdb3806a169520d19e56d7cbb5d41f6e7e52553ec"
+    sha256 cellar: :any, sonoma:        "d11daf4c337ccbd8a8e40c88b0700ab2d8f56bfac367077129e004cc326c6075"
+    sha256 cellar: :any, arm64_linux:   "f819202a61dcad8a907a37c805e048bc3fcaabb44164a2b624a2cbb0803b9b60"
+    sha256 cellar: :any, x86_64_linux:  "118336f0c80d347450c1242a180fd7444524480845ea55d2bee3f2a44d0c8f3b"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     system "cargo", "install", *std_cargo_args(path: "pass-cli")
@@ -28,6 +28,15 @@ class ProtonPassCli < Formula
     assert_match "Successful", shell_output("#{bin}/pass-cli logout --force")
 
     # Most operations require an authenticated session or keyring access.
-    assert_match "Error", shell_output("#{bin}/pass-cli login 2>&1", 1)
+    ENV["PROTON_PASS_KEY_PROVIDER"] = "fs"
+    output_log = testpath/"output.log"
+    pid = spawn bin/"pass-cli", "login", [:out, :err] => output_log.to_s
+    sleep 5
+    assert_match "Waiting for authentication to complete", output_log.read
+  ensure
+    if pid
+      Process.kill "TERM", pid
+      Process.wait pid
+    end
   end
 end

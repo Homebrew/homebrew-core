@@ -2,14 +2,14 @@ class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://goreplay.org"
   license "LGPL-3.0-only"
-  head "https://github.com/buger/goreplay.git", branch: "master"
+  head "https://github.com/probelabs/goreplay.git", branch: "master"
 
   stable do
-    url "https://github.com/buger/goreplay/archive/refs/tags/1.3.3.tar.gz"
+    url "https://github.com/probelabs/goreplay/archive/refs/tags/1.3.3.tar.gz"
     sha256 "d8487e4d677546f9533b930e1d5f604628cd904f7e31a260552dfbf7b440876e"
 
     # Backport part of commit needed for arm64 linux support
-    # https://github.com/buger/goreplay/commit/d440b3dc8f2800b8147cd968f68aa10ec8b72e3b
+    # https://github.com/probelabs/goreplay/commit/d440b3dc8f2800b8147cd968f68aa10ec8b72e3b
     patch :DATA
   end
 

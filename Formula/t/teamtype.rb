@@ -1,19 +1,18 @@
 class Teamtype < Formula
   desc "Peer-to-peer, editor-agnostic collaborative editing of local text files"
   homepage "https://teamtype.github.io/teamtype/"
-  url "https://github.com/teamtype/teamtype/archive/refs/tags/v0.9.1.tar.gz"
-  sha256 "8503411b340f00456ac6c1d586637de35a35886b7addbf2cec06816e05bc9873"
+  url "https://github.com/teamtype/teamtype/archive/refs/tags/v0.9.2.tar.gz"
+  sha256 "cbf36fd071512e39101aa7de111cbb8b1ae4c0aebf9bd3508eb33e68712bca0f"
   license "AGPL-3.0-or-later"
   head "https://github.com/teamtype/teamtype.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f305fb49649d180299c2cd52a2e24c92088389058c9069cd07e272d237656019"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3d701160add6b5f51cbd6b8dd79cee38b26ae3bd1dfeba6dd6d5f526e9d309e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b1caebb81e31e88e9d3de8fd439293bf5078c903b021cb79d35806eb87662575"
-    sha256 cellar: :any_skip_relocation, sonoma:        "894b2d5c75a01fce4f124476df1cc0438b160a12688749bb355148162c4e20ad"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "48431d07b888a42dcac294713e26a88f72e68dc1427f9795db5ae31c9728d348"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f13a452a13a112335fece8cb2a97e23414c7164ae7d22eec8a180525ec4553b7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5fb2d7442ecaaea0c5cf243729e22356ccb76ba979e92c76d5531c8dae77f8ba"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7eadb16bb1a0773f7de641bd279069ee49716abbaed50e9b5241820673bdecfa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df7da3909aa55ee7d81883bb41f78944e5a6ee9c1d32d3073f51282734865938"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1f050e83510628bdcbf87b0a9befd19f584fb7901a3d5a44b5a1a178ffe57804"
+    sha256 cellar: :any,                 arm64_linux:   "c4026250f0f68b91cee85c365a3793f75ac41ff77ac93fec33a43d3b32074cbd"
+    sha256 cellar: :any,                 x86_64_linux:  "3e05440ce176a996371de197006bf5a16818eea9011432d7f51fa15a9cb88b6a"
   end
 
   depends_on "rust" => :build
@@ -23,9 +22,7 @@ class Teamtype < Formula
   end
 
   def install
-    cd "daemon" do
-      system "cargo", "install", *std_cargo_args
-    end
+    system "cargo", "install", *std_cargo_args(path: "crates/teamtype")
   end
 
   test do

@@ -1,8 +1,8 @@
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "https://graphviz.org/"
-  url "https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/15.0.0/graphviz-15.0.0.tar.xz"
-  sha256 "937fe4757687260e46a1c9a171cc677e3d4c89abd1efc8885ccb66467c3616ff"
+  url "https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/15.1.1/graphviz-15.1.1.tar.xz"
+  sha256 "afc7c28dd43d3639910f58820bdce7d89655aa9ac0a4961ac67ffcf77e6a9ac3"
   license "EPL-1.0"
   version_scheme 1
   compatibility_version 1
@@ -13,12 +13,12 @@ class Graphviz < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "d9e6126ec4c334ffa46251f345f95c3c7dd569c7ea81be2727829f6508f241b6"
-    sha256 arm64_sequoia: "3d19ecab0dcf0e35661f8f80d0cae140c809fd1304ba5aee28d735630fa6218b"
-    sha256 arm64_sonoma:  "0a77a1e487198836b7b666c34bee1d07b53abb5f8d769dce2b64ebda2cd9db1a"
-    sha256 sonoma:        "5de8061d9582837627ea06f951b45d4339baa5dc7b810bf4c6f831a422dd5a3b"
-    sha256 arm64_linux:   "9d53ed2f98c72b819b238d3920512350c0aa3fd837185c86983f1e564d428d50"
-    sha256 x86_64_linux:  "29533bee06b915f4cefa8633238c42a2a955a00c29967db35b5a713975fbc41c"
+    sha256 arm64_tahoe:   "19c0fafefc3e9732beb182d17baf39b83188f998ba450fb29db70b4671385e58"
+    sha256 arm64_sequoia: "537e91b292ad608e308e051de32158540a8254a655785665be939d85e90fa7f8"
+    sha256 arm64_sonoma:  "322d12799ff9a06979970e820d6c161c7f251746fc3b2c6930b2e566d69c48bf"
+    sha256 sonoma:        "99adaa05b653b77085ce3efac33c0974e863b1cfbcf738a24777b4c0d4f8ebcb"
+    sha256 arm64_linux:   "c3bf965a92f628e3a07fe7acf2cbbe94cf99e14dfa537a788afeb1c185948e8c"
+    sha256 x86_64_linux:  "716a6582df2b9211ff6f0f11a7758fd3639c69f452baee5caac895a2999c0ce9"
   end
 
   head do

@@ -17,7 +17,7 @@ class Wallpaper < Formula
   depends_on :macos
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release"
+    system "swift", "build", *std_swift_args
     bin.install ".build/release/wallpaper"
   end
 

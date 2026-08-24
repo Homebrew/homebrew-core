@@ -19,7 +19,7 @@ class Brename < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(tags: "netgo", ldflags: "-s -w")
+    system "go", "build", *std_go_args(tags: "netgo")
   end
 
   test do

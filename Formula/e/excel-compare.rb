@@ -22,7 +22,7 @@ class ExcelCompare < Formula
 
     (bin/"excel_cmp").write <<~BASH
       #!/bin/bash
-      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+      export JAVA_HOME="${JAVA_HOME:-#{formula_opt_prefix("openjdk")}}"
       exec "${JAVA_HOME}/bin/java" -ea -cp "#{libexec}/*" com.ka.spreadsheet.diff.SpreadSheetDiffer "$@"
     BASH
   end

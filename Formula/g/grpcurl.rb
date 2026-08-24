@@ -17,10 +17,12 @@ class Grpcurl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "14e2492169d85b40c8251c3ca7891c58d35f2f12cd781b720c29582573e12c9a"
   end
 
-  depends_on "go" => :build
+  # TODO: unpin go@1.26 when grpcurl supports go 1.27
+  # ref: https://github.com/fullstorydev/grpcurl/issues/568
+  depends_on "go@1.26" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/grpcurl"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/grpcurl"
   end
 
   test do

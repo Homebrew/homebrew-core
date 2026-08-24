@@ -1,8 +1,8 @@
 class Yalantinglibs < Formula
   desc "Collection of modern C++ libraries"
   homepage "https://alibaba.github.io/yalantinglibs/en/"
-  url "https://github.com/alibaba/yalantinglibs/archive/refs/tags/0.6.0.tar.gz"
-  sha256 "0a7e28a9739d8313d7d9d5e7a04e75875ba19d782e4e3d2f4fbc94954aa89812"
+  url "https://github.com/alibaba/yalantinglibs/archive/refs/tags/0.6.1.tar.gz"
+  sha256 "2ef2089a49a08f764c558e9caf46e1d37697b111e04a48e5c5156f57f3afff24"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/alibaba/yalantinglibs.git", branch: "main"
@@ -13,7 +13,7 @@ class Yalantinglibs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2f7c389133b7d4cdda2635e2285a0b399daaff862bd289c7209c9ef8bb01d61c"
+    sha256 cellar: :any_skip_relocation, all: "3a7c99cc93921b67d8b4ea20eda1da4b4e66624f6d0b1be00f407a44d1a0bcda"
   end
 
   depends_on "cmake" => :build
@@ -22,12 +22,23 @@ class Yalantinglibs < Formula
   depends_on "frozen"
   depends_on "iguana"
 
+  # Bump `YLT_VERSION`, which upstream left at 0.6.0 in the 0.6.1 release
+  patch do
+    url "https://github.com/alibaba/yalantinglibs/commit/8779b22851f6f8a1919e3992cd286953ed724d8c.patch?full_index=1"
+    sha256 "62ceff19d4ef81d92044f5c5ebdceb09d6d9e368b8d74c6fe3a9acd90e33da8a"
+    type :backport
+    resolves "https://github.com/alibaba/yalantinglibs/pull/1203"
+  end
+
   def install
     args = %w[
       -DINSTALL_INDEPENDENT_STANDALONE=OFF
       -DINSTALL_INDEPENDENT_THIRDPARTY=OFF
       -DINSTALL_STANDALONE=OFF
       -DINSTALL_THIRDPARTY=OFF
+      -DBUILD_EXAMPLES=OFF
+      -DBUILD_UNIT_TESTS=OFF
+      -DBUILD_BENCHMARK=OFF
     ]
 
     system "cmake", "-S", ".", "-B", "builddir", *args, *std_cmake_args

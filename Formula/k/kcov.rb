@@ -1,11 +1,21 @@
 class Kcov < Formula
   desc "Code coverage tester for compiled programs, Python, and shell scripts"
   homepage "https://simonkagstrom.github.io/kcov/"
-  url "https://github.com/SimonKagstrom/kcov/archive/refs/tags/v43.tar.gz"
-  sha256 "4cbba86af11f72de0c7514e09d59c7927ed25df7cebdad087f6d3623213b95bf"
   license "GPL-2.0-or-later"
   revision 1
   head "https://github.com/SimonKagstrom/kcov.git", branch: "master"
+
+  stable do
+    url "https://github.com/SimonKagstrom/kcov/archive/refs/tags/v43.tar.gz"
+    sha256 "4cbba86af11f72de0c7514e09d59c7927ed25df7cebdad087f6d3623213b95bf"
+
+    patch do
+      url "https://github.com/SimonKagstrom/kcov/commit/698f612b01e776dfbc4bab11d320097425918423.patch?full_index=1"
+      sha256 "9465fa31cde08a449e03b8b9ac6149d2ad6eb337189c348000def5eabd58d519"
+      type :backport
+      resolves "https://github.com/SimonKagstrom/kcov/issues/475"
+    end
+  end
 
   # We check the Git tags because, as of writing, the "latest" release on GitHub
   # is a prerelease version (`pre-v40`), so we can't rely on it being correct.
@@ -39,10 +49,6 @@ class Kcov < Formula
   end
 
   def install
-    # Fix to find libdwarf header files
-    # Issue ref: https://github.com/SimonKagstrom/kcov/issues/475
-    inreplace "cmake/FindDwarfutils.cmake", "libdwarf-0", "libdwarf-#{Formula["dwarfutils"].version.major}"
-
     system "cmake", "-S", ".", "-B", "build", "-DSPECIFY_RPATH=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

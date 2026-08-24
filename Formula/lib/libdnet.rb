@@ -20,17 +20,10 @@ class Libdnet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b272ad6743af2c89e44ecfa3514d0295f3dc3f1a97ce87796983a27de30411a7"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "pkgconf" => :build
 
   def install
-    # autoreconf to get '.dylib' extension on shared lib
-    ENV.append_path "ACLOCAL_PATH", "config"
-    system "autoreconf", "--force", "--install", "--verbose"
-
-    system "./configure", "--mandir=#{man}", "--disable-check", *std_configure_args
+    system "./configure", "--disable-check", *std_configure_args
     system "make", "install"
   end
 

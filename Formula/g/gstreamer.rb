@@ -2,16 +2,17 @@ class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
+  revision 2
   compatibility_version 1
 
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.28.4/gstreamer-1.28.4.tar.bz2"
-    sha256 "20d636eba1225a02ab6c13424e2d66504ec4b7fd087804c89b229451defcf165"
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.28.6/gstreamer-1.28.6.tar.bz2"
+    sha256 "fd51f0e32fded3f78ed31eab94a7e41b1cd56763abc853f6fd03d740d8bc4b90"
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.28.4/gst-plugins-rs-gstreamer-1.28.4.tar.bz2"
-      sha256 "f98d46d712ece665b2f86f72b0bf0283da4a455ba8dab3ef43a9029939647509"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.28.6/gst-plugins-rs-gstreamer-1.28.6.tar.bz2"
+      sha256 "2e565b9add015d054cc2d1b9e553f75f366f8e13127a74e9366b7d577491492e"
 
       livecheck do
         formula :parent
@@ -25,12 +26,12 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "c27ffedb0569b0e39fedb34dab90ed69644eef368dc87e62831a3dc8fbe8e785"
-    sha256 arm64_sequoia: "34fa87d1a6806e8606034d95ed3541e9e321cc08bb6f6b56836d72cd2edc421e"
-    sha256 arm64_sonoma:  "587823163b603403cff468b0fa300491a2555b02f3f3fd73fa4be585ac649c89"
-    sha256 sonoma:        "9bcf9c2b50e5f635dd46e1bd5dcad5d37dd65f36630eee14baab79c4ad970356"
-    sha256 arm64_linux:   "2783ea0e25243b265265e6bc90737aa07e12e33eaebe7e4fd8abbbb018b422b7"
-    sha256 x86_64_linux:  "9f2afb97f95029df24da4925dd89a1b32ebf7a54757213da71397fc93a6e34bb"
+    sha256 arm64_tahoe:   "34a90fad66faf516a552e1edb8e315a259828f2ee0f47e36fa6855962eeda2f3"
+    sha256 arm64_sequoia: "d730bfdf2237a3b37520376e9c28c9ded378aad87ef9e9fc222399bc6859c4d0"
+    sha256 arm64_sonoma:  "3f685e52aa491faa49868e36b277f6cdd0106a24c439eed82cc6682a299baa15"
+    sha256 sonoma:        "6d8df9bdfeecc82979dea51d275a52bdb06277631229167c4bb217f1d98dfaf1"
+    sha256 arm64_linux:   "31e549289076f2d001571c36b3e833f2fb3a3f9c783a936a44b7dcf9692233a1"
+    sha256 x86_64_linux:  "5b6a20a258a74acf4f8a11271d7cd0d6de6b001aa0fc018c759626dbcad6aedf"
   end
 
   head do
@@ -142,7 +143,7 @@ class Gstreamer < Formula
   end
 
   def python3
-    Formula["python@3.14"].opt_bin/"python3.14"
+    formula_opt_bin("python@3.14")/"python3.14"
   end
 
   skip_clean "lib/gstreamer-1.0/libgstnice.dylib", "lib/gstreamer-1.0/libgstnice.so"
@@ -153,6 +154,14 @@ class Gstreamer < Formula
   link_overwrite "lib/pkgconfig/gst*.pc", "lib/python3.14/site-packages/gi/overrides/*", "include/gstreamer-1.0/*"
   link_overwrite "share/gir-1.0/Gst*.gir", "share/gir-1.0/GES-1.0.gir", "share/gstreamer-1.0/*"
   link_overwrite "share/locale/*/LC_MESSAGES/gst-*.mo", "share/man/man1/g*"
+
+  # Support faac 2.0 API
+  patch do
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/49b4b4129e3b488f246493d3a57dc70652ec9dcf.diff"
+    sha256 "25ef9fc417878e0aac46ffb0f16c5a5d1a44341cd3364c97111980fb5bfd64b8"
+    type :unofficial
+    resolves "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/12148"
+  end
 
   # Avoid overlinking of `gst-python` python extension module.
   # https://gitlab.freedesktop.org/gstreamer/gst-python/-/merge_requests/41
@@ -233,14 +242,14 @@ class Gstreamer < Formula
     ENV.append_to_rustflags "--codegen link-args=-Wl,#{rpath_args.join(",")}"
 
     # Make sure the `openssl-sys` crate uses our OpenSSL.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
 
     # Support finding the `libnice` plugin, which is in a separate formula.
-    libnice_gst_plugin = Formula["libnice-gstreamer"].opt_libexec/"gstreamer-1.0"/shared_library("libgstnice")
+    libnice_gst_plugin = formula_opt_libexec("libnice-gstreamer")/"gstreamer-1.0"/shared_library("libgstnice")
     gst_plugin_dir = lib/"gstreamer-1.0"
     ln_sf libnice_gst_plugin.relative_path_from(gst_plugin_dir), gst_plugin_dir
   end

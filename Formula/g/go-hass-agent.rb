@@ -1,13 +1,13 @@
 class GoHassAgent < Formula
   desc "Native Home Assistant agent for desktop/laptop devices"
   homepage "https://github.com/joshuar/go-hass-agent"
-  url "https://github.com/joshuar/go-hass-agent/archive/refs/tags/v14.12.0.tar.gz"
-  sha256 "8b5c61829b91300a94e07a884f6a8ddddcc38c7821afda08acb12c794377ffdd"
+  url "https://github.com/joshuar/go-hass-agent/archive/refs/tags/v14.15.1.tar.gz"
+  sha256 "e16236a76dbdea35c7c916bbe363eda81ff238985c9f7af594f6505046a6c016"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "bfab4d7344d732e3368636468ba288fa2aedbefbf97b90e2066635b0f45a92b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "5ad7db41a68d59840b02637b1625c30dd71440095f64c234812772915397a956"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "f5ec5938ca5c61d48f6a0735b448b5da781df96b62055ad3fd6c7a367344ddfd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d761aa9249f474f6f45df1c41c1e447f153b20c9c495f12064d74469b5e26e9e"
   end
 
   depends_on "go" => :build
@@ -20,10 +20,7 @@ class GoHassAgent < Formula
     system "npm", "run", "build:css"
     ENV["CGO_ENABLED"] = "0"
 
-    ldflags = %W[
-      -s -w
-      -X github.com/joshuar/go-hass-agent/config.AppVersion=#{version}
-    ]
+    ldflags = %W[-X github.com/joshuar/go-hass-agent/config.AppVersion=#{version}]
     system "go", "build", *std_go_args(ldflags:, output: bin/"go-hass-agent")
   end
 

@@ -19,7 +19,7 @@ class Tracetest < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/kubeshop/tracetest/cli/config.Version=#{version}"
+    ldflags = "-X github.com/kubeshop/tracetest/cli/config.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cli"
 
     generate_completions_from_executable(bin/"tracetest", shell_parameter_format: :cobra)

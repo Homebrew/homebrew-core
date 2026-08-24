@@ -24,7 +24,6 @@ class Xeol < Formula
     inreplace "xeol/db/curator.go", "isBrewTest == \"1\"", "isBrewTest == \"999\""
 
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.gitCommit=#{tap.user}
       -X main.buildDate=#{time.iso8601}

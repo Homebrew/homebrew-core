@@ -28,8 +28,7 @@ class Ain < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.gitSha=#{version}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/ain"
+    system "go", "build", *std_go_args(ldflags: "-X main.gitSha=#{version}"), "./cmd/ain"
   end
 
   test do

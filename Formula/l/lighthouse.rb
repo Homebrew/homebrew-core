@@ -1,8 +1,8 @@
 class Lighthouse < Formula
   desc "Rust Ethereum 2.0 Client"
   homepage "https://lighthouse.sigmaprime.io/"
-  url "https://github.com/sigp/lighthouse/archive/refs/tags/v8.1.3.tar.gz"
-  sha256 "d44b7ea698140c7071c489acd20d99229ff3a37292c4caf47afce58948ca9529"
+  url "https://github.com/sigp/lighthouse/archive/refs/tags/v8.2.2.tar.gz"
+  sha256 "d7c2db0cfb18ad4748600b44c872714a1302b437cb8fd98ea42d4d311a0e3f8f"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Lighthouse < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "37cdfaf07b33e451e5ba2ccda69ef69c376923a5288a299c307f904642d4dfc7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0fa8578bdb7b2c5b08ece260023cb126194ccd4eaf0c452b7cec764e06483a31"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eecfa842c0c66395135e8bf3a1c55b822d3d2a3fd5160d29e82f94cdf638fa48"
-    sha256 cellar: :any_skip_relocation, sonoma:        "26170068df9d96dd160c1c8424aa4f916bf568c1bb4fb00f39d5efaec528ad88"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "69fc772f610f4517fb2edece3a803939dacc7ca0a2a8b1549c45b0e7d0c22db7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86ba88dcc5113e2943e0a2098416d27bdd94265f4ac705a8f7ca605a132d6460"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8b2647bb0c98201ee467e5908cbb70c9fcf7274a2fabe9f4650e777c4ed8a27f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a267a85d21783618b287962ed520c5ee8c095a7d6dbbce350115938fcce7f09e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec9db22729d6dcb6f6460077afae159b5653b6ab2410755d30dec3ed73f2bc39"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ec8d6a540168f52fdaf8bc557cd5e8b3308f9681823e85a0ff410f5405a3ed90"
+    sha256 cellar: :any,                 arm64_linux:   "644cfaab1283328169841955c493d01daae1bb1a2bc2c06900f956711b0b92b9"
+    sha256 cellar: :any,                 x86_64_linux:  "99a1348b937b0e1499ee70a9317bfb733fd56120672247de78245756ad174d82"
   end
 
   depends_on "cmake" => :build
@@ -34,43 +34,9 @@ class Lighthouse < Formula
   def install
     ENV["PROTOC_NO_VENDOR"] = "1"
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
-    # fixing LLVM 22 builds, which got handled in https://github.com/sigp/xdelta3-rs/commit/fe3906605c87b6c0515bd7c8fc671f47875e3ccc
-    inreplace "Cargo.toml", <<~OLD, <<~NEW
-      xdelta3 = { git = "https://github.com/sigp/xdelta3-rs", rev = "4db64086bb02e9febb584ba93b9d16bb2ae3825a" }
-    OLD
-      xdelta3 = { git = "https://github.com/sigp/xdelta3-rs", rev = "fe3906605c87b6c0515bd7c8fc671f47875e3ccc" }
-    NEW
-    inreplace "Cargo.lock", <<~OLD, <<~NEW
-      name = "xdelta3"
-      version = "0.1.5"
-      source = "git+https://github.com/sigp/xdelta3-rs?rev=4db64086bb02e9febb584ba93b9d16bb2ae3825a#4db64086bb02e9febb584ba93b9d16bb2ae3825a"
-      dependencies = [
-       "bindgen",
-       "cc",
-       "futures-io",
-       "futures-util",
-       "libc",
-       "log",
-       "rand 0.8.5",
-      ]
-    OLD
-      name = "xdelta3"
-      version = "0.1.5"
-      source = "git+https://github.com/sigp/xdelta3-rs?rev=fe3906605c87b6c0515bd7c8fc671f47875e3ccc#fe3906605c87b6c0515bd7c8fc671f47875e3ccc"
-      dependencies = [
-       "bindgen 0.72.1",
-       "cc",
-       "futures-io",
-       "futures-util",
-       "libc",
-       "log",
-       "rand 0.9.2",
-      ]
-    NEW
-
-    system "cargo", "install", "--no-default-features", *std_cargo_args(path: "./lighthouse")
+    system "cargo", "install", "--no-default-features", *std_cargo_args(path: "lighthouse")
   end
 
   test do
@@ -84,7 +50,7 @@ class Lighthouse < Formula
     args = [
       "--execution-endpoint", "http://localhost:8551",
       "--execution-jwt", "jwt.hex",
-      "--allow-insecure-genesis-sync", "--http",
+      "--allow-insecure-genesis-sync", "--ignore-ws-check", "--http",
       "--http-port=#{http_port}", "--port=#{free_port}"
     ]
     spawn bin/"lighthouse", "beacon_node", *args

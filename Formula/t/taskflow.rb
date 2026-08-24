@@ -1,13 +1,18 @@
 class Taskflow < Formula
   desc "General-purpose Task-parallel Programming System using Modern C++"
   homepage "https://taskflow.github.io"
-  url "https://github.com/taskflow/taskflow/archive/refs/tags/v4.0.0.tar.gz"
-  sha256 "0a9e0f700e7750834f717d7523660399ff7ec455e51000009b3e17923c26b80d"
+  url "https://github.com/taskflow/taskflow/archive/refs/tags/v4.1.0.tar.gz"
+  sha256 "2107f90e315e48a676922010b036357ff2b0c6b9160ce17fa9396e5860b1d715"
   license "MIT"
   head "https://github.com/taskflow/taskflow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ad26c3494c386b2c0be1bc7b84dfc4a764b2ee710e865bf8f09b9505f9fd010e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3631e5f8b148b811fb31cbc1c17a514b430757d6002b88d8ac94b7feb3834353"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3631e5f8b148b811fb31cbc1c17a514b430757d6002b88d8ac94b7feb3834353"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3631e5f8b148b811fb31cbc1c17a514b430757d6002b88d8ac94b7feb3834353"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3631e5f8b148b811fb31cbc1c17a514b430757d6002b88d8ac94b7feb3834353"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f0096ef03f30a8aa61b82da550af5d355af6c889bad32c910b6b45f46ca7c43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f0096ef03f30a8aa61b82da550af5d355af6c889bad32c910b6b45f46ca7c43"
   end
 
   depends_on "cmake" => :build

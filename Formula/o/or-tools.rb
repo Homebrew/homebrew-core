@@ -4,7 +4,7 @@ class OrTools < Formula
   url "https://github.com/google/or-tools/archive/refs/tags/v9.15.tar.gz"
   sha256 "6395a00a97ff30af878ee8d7fd5ad0ab1c7844f7219182c6d71acbee1b5f3026"
   license "Apache-2.0"
-  revision 7
+  revision 12
   head "https://github.com/google/or-tools.git", branch: "stable"
 
   livecheck do
@@ -13,12 +13,12 @@ class OrTools < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "d5b6c6b75299f92bedbbae58e395b58de141a7b092b1ea1775718e3adb2f7701"
-    sha256               arm64_sequoia: "201289eb3b46473091c40a239d7e1e604683b26629a4713bab22f79a1942add9"
-    sha256               arm64_sonoma:  "205abcf1403c49ab7b1e05bd2da22693842f2efff91e5e035c4dd6866526e605"
-    sha256 cellar: :any, sonoma:        "a6452c3cf7a5a51c430b681dcb8db16dc1b8d8b93e0f2e3cf5950603fe7ddce8"
-    sha256               arm64_linux:   "26e3131dc8a1203ceccf4535e7dad6d8ca03286e8aebad46e2841b6463f986b8"
-    sha256               x86_64_linux:  "44155487131259a96285d38c0a749506ee37a475e794551c2f5210019ac67786"
+    sha256               arm64_tahoe:   "e44ae35ec5dccd826c4bc17e89250f5210faef45ed69681c01db4cb80680a90d"
+    sha256               arm64_sequoia: "a0e591b8182fae4afb9e626b4357f608764f312814f518595bd4ef782eb89567"
+    sha256               arm64_sonoma:  "05c856bd6daa2fc84758b2bda32bab2b60976262fae280bcbf102c4801fbf5b1"
+    sha256 cellar: :any, sonoma:        "d4d1d1c07beb10ea034963f7a4fa4985e0a58e4edb9904e1229613bc86c10e85"
+    sha256               arm64_linux:   "fa6d08b326bbecfd614ede11e3c3ca3b6154d7388785e8934568a4d9729c6512"
+    sha256               x86_64_linux:  "ba1f0c95737cb7654d550ef09cc9cf6f11231474261b59b9be37be676b95ed53"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -45,6 +45,14 @@ class OrTools < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  # Backport abseil 20260526.0 build fix (absl::SourceLocation ODR conflict).
+  patch do
+    url "https://github.com/google/or-tools/commit/a8c25e646e7b645c462db4be7c62e544b252e8fa.patch?full_index=1"
+    sha256 "1a20aa39165cd978c1274932ab19225540338a228e756be5b28f1b29006b03e3"
+    type :backport
+    resolves "https://github.com/google/or-tools/pull/5180"
   end
 
   def install

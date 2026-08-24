@@ -11,12 +11,13 @@ class RubyAT32 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0bc621bf324437da905f23b37e733cfae3ac30850acb48a686bbccbce80d6397"
-    sha256 arm64_sequoia: "24b804e45abe9e2cfb5613c865beaf5400b71196aa223e66d6b5187169a64e02"
-    sha256 arm64_sonoma:  "e47043673f7dc1ff296ab4365634ebdbf986e124081f640ebf78bd452ce01ca9"
-    sha256 sonoma:        "1449eb77d22ecd69f3b9c413febb4810fbdcc194b81907b192e12069feb88327"
-    sha256 arm64_linux:   "4ef4f1cded7bec72ae2adde477272a22f7e226f568af3d691989a7dc6392afbf"
-    sha256 x86_64_linux:  "18b1316026bdb309ace0ab989c349afe01692f466cdb03dd01422da636575eed"
+    rebuild 1
+    sha256 arm64_tahoe:   "779e20d3ac0ef4c7ecc61a230193845ffa45d4c073731558dc1c1474c4893b21"
+    sha256 arm64_sequoia: "f717713eb2b6b7717cc943d7382e2a74e08dc7245eaaa8a675a1dd56708e9a36"
+    sha256 arm64_sonoma:  "affa0aa007084a41f3d5cacdd970c80c8416ad2603a221e7c465405dd2015570"
+    sha256 sonoma:        "869bd98a5ffdbfa780402bc6d820b2721042e48819ac23eeded11e51e1a9112d"
+    sha256 arm64_linux:   "f9e53461b33d9fdb69bc720b9151efc16e56ba692459e2fefa4123e5dae5b0b1"
+    sha256 x86_64_linux:  "a2ddc76f58672ddbbf3a5f6a4c61649e3aefca1e2268998e4718b5088af700c1"
   end
 
   keg_only :versioned_formula
@@ -88,7 +89,7 @@ class RubyAT32 < Formula
     #       https://github.com/Homebrew/brew/pull/12508
     inreplace "tool/mkconfig.rb", /^(\s+val = )'"\$\(SDKROOT\)"'\+/, "\\1"
 
-    paths = %w[libyaml openssl@3 readline].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@3 readline].map { |f| formula_opt_prefix(f) }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
@@ -124,19 +125,6 @@ class RubyAT32 < Formula
     # A newer version of ruby-mode.el is shipped with Emacs
     elisp.install Dir["misc/*.el"].reject { |f| f == "misc/ruby-mode.el" }
 
-    if OS.linux?
-      arch = Utils.safe_popen_read(
-        bin/"ruby", "-rrbconfig", "-e", 'print RbConfig::CONFIG["arch"]'
-      ).chomp
-      # Don't restrict to a specific GCC compiler binary we used (e.g. gcc-5).
-      inreplace lib/"ruby/#{api_version}/#{arch}/rbconfig.rb" do |s|
-        s.gsub! ENV.cxx, "c++"
-        s.gsub! ENV.cc, "cc"
-        # Change e.g. `CONFIG["AR"] = "gcc-ar-11"` to `CONFIG["AR"] = "ar"`
-        s.gsub!(/(CONFIG\[".+"\] = )"(?:gcc|g\+\+)-(.*)-\d+"/, '\\1"\\2"')
-      end
-    end
-
     # This is easier than trying to keep both current & versioned Ruby
     # formulae repeatedly updated with Rubygem patches.
     resource("rubygems").stage do
@@ -168,17 +156,6 @@ class RubyAT32 < Formula
     # instead of in the Cellar, making gems last across reinstalls
     config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
     config_file.write rubygems_config
-  end
-
-  def post_install
-    # Since Gem ships Bundle we want to provide that full/expected installation
-    # but to do so we need to handle the case where someone has previously
-    # installed bundle manually via `gem install`.
-    rm(%W[
-      #{rubygems_bindir}/bundle
-      #{rubygems_bindir}/bundler
-    ].select { |file| File.exist?(file) })
-    rm_r(Dir[HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/gems/bundler-*"])
   end
 
   def rubygems_config

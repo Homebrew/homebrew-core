@@ -1,13 +1,13 @@
 class NifiToolkit < Formula
   desc "Command-line utilities to setup and support NiFi"
   homepage "https://nifi.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=nifi/2.9.0/nifi-toolkit-2.9.0-bin.zip"
-  mirror "https://archive.apache.org/dist/nifi/2.9.0/nifi-toolkit-2.9.0-bin.zip"
-  sha256 "67b729e91b28028c1582a6e896d9e4e3d7bf33fa6c49f3abd19d23b41b1350b8"
+  url "https://www.apache.org/dyn/closer.lua?path=nifi/2.11.0/nifi-toolkit-2.11.0-bin.zip"
+  mirror "https://archive.apache.org/dist/nifi/2.11.0/nifi-toolkit-2.11.0-bin.zip"
+  sha256 "1cbec3a56714609f377465e437f527b9c5ea1579564fba72bae6415025cdbeb6"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "eff9d1d6831ac428d094794abcc96f538e9a2a6872b118f305821d7343c6c7b5"
+    sha256 cellar: :any_skip_relocation, all: "017fbc2b448cda876c98fd14422cba80a1a4c053845724a7cc194607e512a340"
   end
 
   depends_on "openjdk@21"

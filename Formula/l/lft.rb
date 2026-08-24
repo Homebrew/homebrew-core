@@ -1,8 +1,8 @@
 class Lft < Formula
   desc "Layer Four Traceroute (LFT), an advanced traceroute tool"
   homepage "https://pwhois.org/lft/"
-  url "https://pwhois.org/dl/index.who?file=lft-3.98.tar.gz"
-  sha256 "395ced8d95ee2bcc588a837f187e23bb25ce97999a0bb8481b2b3e0c1c633455"
+  url "https://pwhois.org/dl/index.who?file=lft-3.99.tar.gz"
+  sha256 "f34707b543391eb887ba8479f7d2c2670bfefc3afb244dc5d34a2a41d7b317eb"
   license "VOSTROM"
 
   livecheck do
@@ -11,12 +11,13 @@ class Lft < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7f89494bec6e8351e0ce8d648954f8a46bcd966b35113518df85b0b97438a1c2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "419eda32f35554778ee34e24d65104e50fca5bd934de9fc2c5264fe040828f3c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e0f89ea402cb4c6598e3890b25bb03c46a7f1532ec759c127eb68910497e077"
-    sha256 cellar: :any_skip_relocation, sonoma:        "78c94f8f33339c225c2354822384f955ff614916f55629e65f6dae7cda03779a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fac6c8bc94198d5a1a8638fe527c54506b9368891a87e66a1eb6c2b416398101"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f5f45aab33f889b46dba96f3b077f47b5d49638d9439bc1981c299eae110615"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "933eb55aebcd31bad7a92d7f66a16112fb29c210ee304c1a3f4da88613b21ebf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d06753c89b74b036d49a9fb3ff58bb0256ef5079f3e45da74ec26d01a6ef3986"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3ceb356cdbf4981bd828eb00ca62085bfaf85fa41f22bb0041f72e3a97383ad"
+    sha256 cellar: :any_skip_relocation, sonoma:        "875ac88eb54f3107af0c6a51fedfe79b8a10f392f29646e88c81289c3cc58384"
+    sha256 cellar: :any,                 arm64_linux:   "fd71aae2b9658b116d176f399a485fbe461c3c5393428ae1ced2b1dff3d9181e"
+    sha256 cellar: :any,                 x86_64_linux:  "47679beec08006969cbeb24e30c2499aca5dd94361debece13329e7adc7807d6"
   end
 
   uses_from_macos "libpcap"

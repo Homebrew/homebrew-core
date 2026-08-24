@@ -34,8 +34,7 @@ class Libsoxr < Formula
   # code isn't defined on 64-bit Apple Silicon.
   # Upstream pull request: https://sourceforge.net/p/soxr/code/merge-requests/5/
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libsoxr/arm64_defines.patch"
-    sha256 "9df5737a21b9ce70cc136c302e195fad9f9f6c14418566ad021f14bb34bb022c"
+    file "Patches/libsoxr/arm64_defines.patch"
   end
 
   def install

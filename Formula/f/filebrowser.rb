@@ -1,25 +1,24 @@
 class Filebrowser < Formula
   desc "Web File Browser"
   homepage "https://filebrowser.org/"
-  url "https://github.com/filebrowser/filebrowser/archive/refs/tags/v2.63.15.tar.gz"
-  sha256 "fc7b597642769ce47b590933e3b1a345154ea8877817a3a4106e23f24dab6705"
+  url "https://github.com/filebrowser/filebrowser/archive/refs/tags/v2.63.23.tar.gz"
+  sha256 "18020983f6a4e43d679738738c3f95c52a333a282144046ec152491f2341a152"
   license "Apache-2.0"
   head "https://github.com/filebrowser/filebrowser.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6124eac5cb0783bf43986bb5d522a978fac26f6536450d26e1dc45998a9f681c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a4e438604d7462e36df2baa3de6a45bc755579ec85c7a3b9e75a8e43b027d15d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "562545ad76df6ce122aa16b3e083b4a681e852676c0b3a021465edf6fff57554"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b37e251d65748ef1a242cd7f76e2ffe523adba68cb8ca778af4eb26ea2ca863b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9371f4013a5385c1a1a5dd780614a7e407ffe73269aa00ee2491c40b6b8e0337"
-    sha256 cellar: :any,                 x86_64_linux:  "16d44a87080395753aa1a67abe31eff9d5df72cf8fa4ae24de5478acb9dbc709"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8789bd5961b8beb37f046a7adb9b17bd273d54f2207ad059cf30f660fc273028"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c055be1423a5a17e9877f6cb7d43f0a83adce33761f6e57b319c64020e04fba5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "46a7e990c3ea079ca1c181b17dd3c810552a2c08d8a49b465b7899ad9b92541f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "19ab0bb605b587c78696d2a59d6d1b9300f65da1392c30b1ef6918458336e4a3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "639a8f3c6ab1e304030542e019c80a5d15f7d38fb872af02b10fd96e897a823e"
+    sha256 cellar: :any,                 x86_64_linux:  "6977f455d22496075ddc355d6b8dc41cb4c16afcfd938c16953c60432379b138"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/filebrowser/filebrowser/v2/version.Version=#{version}
       -X github.com/filebrowser/filebrowser/v2/version.CommitSHA=#{tap.user}
     ]

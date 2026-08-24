@@ -36,7 +36,7 @@ class Sdl3Net < Formula
         return NET_Version() == SDL_NET_VERSION ? EXIT_SUCCESS : EXIT_FAILURE;
       }
     C
-    system ENV.cc, "test.c", "-I#{Formula["sdl3"].opt_include}", "-L#{lib}", "-lSDL3_net", "-o", "test"
+    system ENV.cc, "test.c", "-I#{formula_opt_include("sdl3")}", "-L#{lib}", "-lSDL3_net", "-o", "test"
     system "./test"
   end
 end

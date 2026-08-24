@@ -26,7 +26,7 @@ class Sdlpop < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_image"
 
   def install

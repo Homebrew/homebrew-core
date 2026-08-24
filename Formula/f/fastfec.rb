@@ -56,8 +56,8 @@ class Fastfec < Formula
       args = ["-DZIG_STATIC_LLVM=ON"]
       args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
       if OS.linux?
-        args << "-DCMAKE_C_COMPILER=#{Formula["llvm@16"].opt_bin}/clang"
-        args << "-DCMAKE_CXX_COMPILER=#{Formula["llvm@16"].opt_bin}/clang++"
+        args << "-DCMAKE_C_COMPILER=#{formula_opt_bin("llvm@16")}/clang"
+        args << "-DCMAKE_CXX_COMPILER=#{formula_opt_bin("llvm@16")}/clang++"
       end
 
       system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args(install_prefix: buildpath/"zig")

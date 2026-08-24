@@ -1,8 +1,8 @@
 class Sentencepiece < Formula
   desc "Unsupervised text tokenizer and detokenizer"
   homepage "https://github.com/google/sentencepiece"
-  url "https://github.com/google/sentencepiece/archive/refs/tags/v0.2.1.tar.gz"
-  sha256 "c1a59e9259c9653ad0ade653dadff074cd31f0a6ff2a11316f67bee4189a8f1b"
+  url "https://github.com/google/sentencepiece/archive/refs/tags/v0.2.2.tar.gz"
+  sha256 "92381f713e094a15a1ccff1ac4a5315a4c4b82a99ac1332d6ac53c9dc8e1bcf1"
   license "Apache-2.0"
   head "https://github.com/google/sentencepiece.git", branch: "master"
 
@@ -12,14 +12,12 @@ class Sentencepiece < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "6f944bb3a143e212d042b1e0236b6482499e34009b9b5b5db5c3cd8d9975b7df"
-    sha256 arm64_sequoia: "fa43d4d4ae2951ed39dde039503b0ff519c87d17d22c3f5476e3628d320cd9a1"
-    sha256 arm64_sonoma:  "090b18e649177086cfb34cd0957691ff0f9ac81763575fdc404f832e8add283a"
-    sha256 arm64_ventura: "1817affe1f40c11b0780f425e0a7211e392a3ebf4aef954d3c9e84eea38a089f"
-    sha256 sonoma:        "def07b0ac6928c502047e5acc59adbc31380324b1b4df2d5bce7a4b4e7e8fde1"
-    sha256 ventura:       "75b11c26c25b5bc00d9ea30446ed37c46dac6caa66b941d6c2785feccecdd5aa"
-    sha256 arm64_linux:   "238a7f7677d07561253da9728aa1d72c2b9f922f6fd6e2d8d0756e396f754d25"
-    sha256 x86_64_linux:  "ebe9a9c2450f19edf2ac38a7d732a7c6143d9f186e5977d2b9affca6b354e84b"
+    sha256 arm64_tahoe:   "7d406f5c4038297a6c4e74d29c787d2e61c4a4e9a3731d932a16ececd3907063"
+    sha256 arm64_sequoia: "bcc1478961f02808a8e6c4aafbba13e45d278a2c6d14c989af893d9bd4667089"
+    sha256 arm64_sonoma:  "b410a67e14a12781d70067321da4428986fa79984fb9bae0cda527ee5e7031b7"
+    sha256 sonoma:        "a805c767d5434b055f66b997f3cfe0aac2e65d69c852023c42eb8f31e758eb8e"
+    sha256 arm64_linux:   "4b1555d09f19e8d0e1511e698f8e91bb085087d0f72b83b6d10ce1d924c6015c"
+    sha256 x86_64_linux:  "e312e1b6fed7ba3c61e922db05bd647b50084c46052f118a3a4d42f7acd041af"
   end
 
   depends_on "cmake" => :build

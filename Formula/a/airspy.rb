@@ -47,20 +47,22 @@ class Airspy < Formula
   depends_on "libusb"
 
   # CMake 4 build patch, remove in the next release
-  # PR refs:
-  # - https://github.com/airspy/airspyone_host/pull/80
-  # - https://github.com/airspy/airspyone_host/pull/103
   patch do
     url "https://github.com/airspy/airspyone_host/commit/7290309a663ced66e1e51dc65c1604e563752310.patch?full_index=1"
     sha256 "982559d6b900aa9aa2de546197153aae4e0de7b852d0cf4404a92ec3c5f00d11"
+    type :backport
+    resolves "https://github.com/airspy/airspyone_host/pull/80"
   end
   patch do
     url "https://github.com/airspy/airspyone_host/commit/3cf6f97976611c2ff6363f7927fe76c465995801.patch?full_index=1"
     sha256 "0d78db431a2c11622200655cbd446cae3543c333eb6fa2fa1a0909b6d72d24e2"
+    type :backport
   end
   patch do
     url "https://github.com/airspy/airspyone_host/commit/f467acd587617640741ecbfade819d10ecd032c2.patch?full_index=1"
     sha256 "5b7cc28179b55245caf379b002ed54eb52ee48b66cc8814b6740bc3d94dc48cf"
+    type :backport
+    resolves "https://github.com/airspy/airspyone_host/pull/103"
   end
 
   def install

@@ -28,7 +28,21 @@ class Tkdiff < Formula
 
   test do
     cmd = "#{bin}/tkdiff --help"
-    cmd = "#{Formula["xorg-server"].bin}/xvfb-run #{cmd}" if OS.linux? && ENV.exclude?("DISPLAY")
+
+    pid = nil
+    if OS.linux?
+      IO.pipe do |read_io, write_io|
+        pid = spawn(Formula["xorg-server"].bin/"Xvfb", "-displayfd", write_io.fileno.to_s, write_io => write_io)
+        write_io.close
+        ENV["DISPLAY"] = ":#{read_io.read.strip}"
+      end
+    end
+
     assert_match "tkdiff FSPEC1 FSPEC2", shell_output(cmd)
+  ensure
+    if pid
+      Process.kill "TERM", pid
+      Process.wait pid
+    end
   end
 end

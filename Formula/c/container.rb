@@ -1,20 +1,19 @@
 class Container < Formula
   desc "Create and run Linux containers using lightweight virtual machines"
   homepage "https://apple.github.io/container/documentation/"
-  url "https://github.com/apple/container/archive/refs/tags/1.0.0.tar.gz"
-  sha256 "9f5379d400d23b6f296b7bae8f71f982dfdc1d52bf072ac81318472a734d21f7"
+  url "https://github.com/apple/container/archive/refs/tags/1.2.2.tar.gz"
+  sha256 "61841d675a6542179aaa1b48ec00dc2ff8b888a58d9ec0d87fa279b30b9b5ced"
   license "Apache-2.0"
   revision 1
   head "https://github.com/apple/container.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "371fc0f685b7ca0499117a9a0b9d28498bc3bd178918f7bd79c233a7fb0674e8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3bf19c9addbff90135818cadbd3bcc6fcbb76a22a886706888538e6f57ca3f5d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "73abfead9c7f27b216ce4c325117bda5ebfce00ac10c4c7085bb05ba5fee8ab2"
   end
 
   depends_on xcode: ["26.0", :build]
   depends_on arch: :arm64
-  depends_on macos: :sequoia
+  depends_on macos: :tahoe
 
   def install
     if build.head?
@@ -23,7 +22,7 @@ class Container < Formula
       ENV["RELEASE_VERSION"] = version
     end
 
-    system "swift", "build", "--disable-sandbox", "--configuration", "release"
+    system "swift", "build", *std_swift_args
 
     release_dir = buildpath/".build/release"
 
@@ -41,6 +40,8 @@ class Container < Formula
       "container-runtime-linux" => { source: "RuntimeLinux",     entitlements: true  },
       "machine-apiserver"       => { source: "MachineAPIServer", entitlements: false,
                                      resources: ["init", "create-user.sh"] },
+      "k8s"                     => { source: "K8s",              entitlements: false,
+                                     resources: ["kindnet.yaml"] },
     }
     plugins.each do |bin_name, opts|
       plugin_dir = libexec/"container-plugins/#{bin_name}"
@@ -76,8 +77,8 @@ class Container < Formula
   # container APIs aren't guaranteed to be backward compatible,
   # so we stop the system service to ensure no components are out of sync.
   # Ref: https://github.com/apple/container/issues/551#issuecomment-3246928923
-  def post_install
-    system libexec/"ensure-container-stopped.sh", "-a"
+  post_install_steps do
+    run "ensure-container-stopped.sh", args: ["-a"], base: :libexec
   end
 
   service do

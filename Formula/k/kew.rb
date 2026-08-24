@@ -1,18 +1,18 @@
 class Kew < Formula
   desc "Command-line music player"
   homepage "https://github.com/ravachol/kew"
-  url "https://github.com/ravachol/kew/archive/refs/tags/v4.0.0.tar.gz"
-  sha256 "6162d87db4013b0611eafb2b0ec1c7882d28b8d703dc9593dc38a3ad2e88f787"
+  url "https://github.com/ravachol/kew/archive/refs/tags/v4.2.7.tar.gz"
+  sha256 "04e505bc7d9f9d13e65f1121556fffb14769f181961712c65732973982195577"
   license "GPL-2.0-or-later"
   head "https://github.com/ravachol/kew.git", branch: "main"
 
   bottle do
-    sha256 arm64_tahoe:   "f6e68fd3e72c6cac5d67d04f471f2900d7271879ccd3e5b1529261846130f1ab"
-    sha256 arm64_sequoia: "26bd0cc6e88f21569f6268d05937be2ff206894c5ca08c5c31e0c62bc1ca6eda"
-    sha256 arm64_sonoma:  "758165796bf2e8e670559675b547d4d597283a5624658f0b7e9b77d5717e869f"
-    sha256 sonoma:        "3e18b5c6e512ed5b7cc6f18b821d36014336475f79c442bf14185201bf95a942"
-    sha256 arm64_linux:   "e3abf0806a388c3c3805a74a5c42c3cf3cc1fded516e0a4278487ddd090a0851"
-    sha256 x86_64_linux:  "902fc7684c2511b7d10034390c00fe99d92022789670015d8590078d60cf4bee"
+    sha256 arm64_tahoe:   "a873612084526aa9e897100cd2f7ce60aa1f1b882b94bfa7f9748e1ab7e16726"
+    sha256 arm64_sequoia: "e73e0045f46c85a525f3073da45bee47593dc3c2bf734b4efcdab3255d9d7362"
+    sha256 arm64_sonoma:  "4c290189efbd517349c689a82d14759c5b86d78ebf329c9d8dff0446b9792604"
+    sha256 sonoma:        "4187891ce7b2eebd74ee610978cad0dee2cac8a2405b7221def646e235cfd084"
+    sha256 arm64_linux:   "d03e92b4bfcd1b7c6ad457792fd221a98757e42bcba64b1aeb8e4c4d5b4759b2"
+    sha256 x86_64_linux:  "441748fcb009c5976cdbae7dc33bf50f06cd004ceec6a22c9ad8ea2fe210545b"
   end
 
   depends_on "pkgconf" => :build
@@ -35,6 +35,14 @@ class Kew < Formula
 
   on_linux do
     depends_on "libnotify"
+  end
+
+  # Fix crash when D-Bus session bus is unavailable
+  patch do
+    url "https://github.com/ravachol/kew/commit/a57240bc8ff60a80ea151e0ce842104ce99496fb.patch?full_index=1"
+    sha256 "98eb8b9217ff2a2c125108128b03160b730f45d33dfb96d967c5b355a81f3c58"
+    type :unofficial
+    resolves "https://github.com/ravachol/kew/pull/564"
   end
 
   def install

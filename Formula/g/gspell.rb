@@ -1,18 +1,18 @@
 class Gspell < Formula
   desc "Flexible API to implement spellchecking in GTK+ applications"
   homepage "https://gitlab.gnome.org/GNOME/gspell"
-  url "https://download.gnome.org/sources/gspell/1.14/gspell-1.14.3.tar.xz"
-  sha256 "e8b39c67556f75495362952f81ca241b5a3c17c75960b77fc93fa702c612a5a4"
+  url "https://download.gnome.org/sources/gspell/1.14/gspell-1.14.4.tar.xz"
+  sha256 "e73a89d68c70f8748aefb6b0f5cfdfec3ff173cf4449837fd6cb17d1e9fcf486"
   license "LGPL-2.1-or-later"
   compatibility_version 1
 
   bottle do
-    sha256 arm64_tahoe:   "36da9381aa9011726e9c7c425a3f7723606f9dfea27c821f60b9f7236ab863ee"
-    sha256 arm64_sequoia: "a7215bb0f1b92a26f9e24038f1a99b6ede7b504c7c543f4b5fb6a06a0f74bdc3"
-    sha256 arm64_sonoma:  "3f7b78a875626ae35214f1143d94f19036eae21336c5a00ee1bb4230714ff56e"
-    sha256 sonoma:        "6014def47ac458969afdeb4cf672b0ee50b6c02f52f70f8034ad2f22056686ea"
-    sha256 arm64_linux:   "00815cf404aaa7f036ca40686b60961b90f5d9f6bab4465721aa2e71dd4613c3"
-    sha256 x86_64_linux:  "c7ffe182b68ab3ff701927cd247b05391e16e0731349abb4a913009ff859ced5"
+    sha256 arm64_tahoe:   "87af8837aee8cd1adae1b5661596b5196af8eb3c08c523fc96b9f8b9c0d409db"
+    sha256 arm64_sequoia: "a6f4e7e2ed7e8f0de24b5cbc4661b21772c7de37123fe654ba6f3cab9c02bc6a"
+    sha256 arm64_sonoma:  "6f1d110f3c3104f99969b8cf31e76b2bc4bff90747d60a2dbc12cdd6dc2331f6"
+    sha256 sonoma:        "e54eaf43813a225a89b194f0ca98f799c59a3771a01b3a2b3c9d87a670f5cf05"
+    sha256 arm64_linux:   "26c7136c48c5a811762ada7f530bc16c73b0b51b8c41473588215d8e63cec930"
+    sha256 x86_64_linux:  "0e948a339951ffe3843a4449ee80abaec0e17ddd2ea5c9378ec1aa0a8660bcf1"
   end
 
   depends_on "gobject-introspection" => :build

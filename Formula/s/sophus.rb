@@ -18,10 +18,11 @@ class Sophus < Formula
   depends_on "fmt"
 
   # Apply open PR to support eigen 5.0.0
-  # PR ref: https://github.com/strasdat/Sophus/pull/558
   patch do
     url "https://github.com/strasdat/Sophus/commit/fd3fcfa116f078d731d062d1d74f2b31aaf8854f.patch?full_index=1"
     sha256 "0f91d6051c9b66051916a1c52fb223b63575a43ec941f5091a68848195aa2429"
+    type :unofficial
+    resolves "https://github.com/strasdat/Sophus/pull/558"
   end
 
   def install

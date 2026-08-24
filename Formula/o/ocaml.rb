@@ -11,10 +11,10 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-5.4/ocaml-5.4.1.tar.xz"
-  sha256 "b1e297adc186635540758eb064c7fab025598ae4436f3b9767e5025188b4e0ab"
+  url "https://caml.inria.fr/pub/distrib/ocaml-5.5/ocaml-5.5.0.tar.xz"
+  sha256 "fcc6ae665d1ec51d52510eaac7834a86a9806bf5a258bb7cca78733fccf015ba"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
-  compatibility_version 2
+  compatibility_version 3
   head "https://github.com/ocaml/ocaml.git", branch: "trunk"
 
   livecheck do
@@ -23,12 +23,12 @@ class Ocaml < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "67867c7587d4add83c1983325c2ffb7107760637fe817fd98bdbbc8ed374d00e"
-    sha256               arm64_sequoia: "8d8d03eebe087c0740b36890ec4d2446004a2f1ad848a5ee5f63bb0a79995aa5"
-    sha256               arm64_sonoma:  "a407be2f74a548097b732f4eeaf50a84bc73436b962eb27cb5e5b8d5e8fc33e9"
-    sha256 cellar: :any, sonoma:        "1dc2f870b89858601afc035baecb02c2aeaf3bcde60f7bf0e7c476812c28a998"
-    sha256               arm64_linux:   "9af91f4fb0c768a44e7747877f5b83c01cf24b323a40cfb9e1ec1e241a269079"
-    sha256               x86_64_linux:  "da0f6cc0e1b0cc66bfefc29d116b3fbffe482953574b8295764de313d40d1ae3"
+    sha256               arm64_tahoe:   "0d48c3078a778fa1de69bfedb7f7696001812add764554d64ead0e8d69206ad9"
+    sha256               arm64_sequoia: "f52b904227f30bc0e67d333f15cd3e6d85e8620c8313ec6d5c435607e9aeb01c"
+    sha256               arm64_sonoma:  "2204aec877a5b2f408bb9b405f34f5d026692f25fc3aad8b0a3df4a5c6a25aa3"
+    sha256 cellar: :any, sonoma:        "c244bd048371c9cccdf514d2aae303094afeac614fce66f626e8b1957d13a7aa"
+    sha256               arm64_linux:   "8727fddf919b9fc6d179ac761d8c24173345d6398901424c23fbdd431733488e"
+    sha256               x86_64_linux:  "2c5dbf3005114fde4cfc7da70edd3f8ef79ae47f10a8cac617582a10b87f406c"
   end
 
   # The ocaml compilers embed prefix information in weird ways that the default

@@ -1,18 +1,18 @@
 class Rad < Formula
   desc "Modern CLI scripts made easy"
   homepage "https://amterp.dev/rad/"
-  url "https://github.com/amterp/rad/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "dd9e76d37f9f99f500c037ae1631c58b83d0ba60e96c587b90a7434de7dddb0c"
+  url "https://github.com/amterp/rad/archive/refs/tags/v0.12.1.tar.gz"
+  sha256 "db6d974c777017724272f34e6b1221746bb850c0859443b9bb9337e1dbcafc1d"
   license "Apache-2.0"
   head "https://github.com/amterp/rad.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3203254b7a4b9c98880bf5ca8f938b8cc7890c13cfc6c23f6dd8ef42d3d7b9f5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8193e7675e167c3e5ffacbf20d569e446141aca9f00515d0495903f6ef40a41e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c715200a45485630e075743e079e93969b0cdd8e63e00790cd3a5bd1cec0df9a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d73213b7a0a76fa4391e4d4becfc37afc0efd8f4039897213dd0b4cb2709755d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b693bfd935fb3d5e7535e338e50c8c0cc2058f0ccc90da572f85b69e0b4e8bb2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a387e44ae1a68ffa0386dc93fff20e0324dd3b0112e3b915e776a87b115182b8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eb296a183ab58ee5ec13af9d735651f12d6033615effe7b6d7800fa71b209dd0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8419fba4cd5a145380279f6de6d7bc2f1e7f5d78ed7a1637d2eec44282dbf04"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "049030a4e8812d08e4b43cb20479f4bd172b3d6fc87596164afbbc2ec6f95638"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c50c411c8674f5005d3fb82c244c882efe26bdc69dfd885bdab221dd0486923a"
+    sha256 cellar: :any,                 arm64_linux:   "b836b078e119ee2a8d6cdfcd3276c51ae72e10c6fe68f4ccb88951f7e1ee6dcf"
+    sha256 cellar: :any,                 x86_64_linux:  "dd35b5d45b4b11867fc5bc47bf11137359e98d75d08a29fb1b8434cee2baad67"
   end
 
   depends_on "go" => :build
@@ -20,8 +20,8 @@ class Rad < Formula
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
 
-    system "go", "build", *std_go_args(ldflags: "-s -w")
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"radls"), "./radls"
+    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(output: bin/"radls"), "./radls"
   end
 
   test do

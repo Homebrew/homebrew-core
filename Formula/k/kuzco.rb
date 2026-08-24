@@ -17,6 +17,10 @@ class Kuzco < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e2c0c1cf10c9a3a8c0ffa27c4cc977738f6c55b08fd0c5da5def1276c1a449a7"
   end
 
+  # upstream repository is removed (or made private)
+  deprecate! date: "2026-07-03", because: :repo_removed
+  disable! date: "2027-07-03", because: :repo_removed
+
   depends_on "go" => :build
   depends_on "opentofu" => :test
 

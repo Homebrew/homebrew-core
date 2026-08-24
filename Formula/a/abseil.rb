@@ -1,19 +1,20 @@
 class Abseil < Formula
   desc "C++ Common Libraries"
   homepage "https://abseil.io"
-  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20260107.1.tar.gz"
-  sha256 "4314e2a7cbac89cac25a2f2322870f343d81579756ceff7f431803c2c9090195"
+  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20260817.0.tar.gz"
+  sha256 "f7e05179df39c45434cad433f5783840bb3788ef322976f9138bc6b72b3a107d"
   license "Apache-2.0"
-  compatibility_version 1
+  compatibility_version 3
   head "https://github.com/abseil/abseil-cpp.git", branch: "master"
 
   bottle do
-    sha256                               arm64_tahoe:   "90697dc0727974c4a873ed19e63c30bc4c9525566cbd0ff968f980ce15047ae8"
-    sha256                               arm64_sequoia: "5b62b81ba6ae8a78d728573226fb1d3abb14a14806e648dca9bfba84e77d5fb4"
-    sha256                               arm64_sonoma:  "e8854f6a2420abecbbaa1c74bbebc2e5427e7688c35d370e88dd8e9620b37be0"
-    sha256 cellar: :any,                 sonoma:        "e26f9da379d1a093b080e00ce65f550a8c1568edc2d66eec623ec3938fe0ea5f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "33017a9d85883c652d83a8df3098066e3f482ec3c07d1247461587c9761df664"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df32cf7d435a18a293204adadceea594bc6c2889765d500d98acc7fb769671ac"
+    rebuild 1
+    sha256               arm64_tahoe:   "ba58c7ded7fbf67a9bcd508055ad1ebd2b3503bf20e0153a92386cc9459d6568"
+    sha256               arm64_sequoia: "8a6b64d5f9d44c579343f1ffa7587d08be653c193f5af24579f6ffc1530431ea"
+    sha256               arm64_sonoma:  "fa3a183c14d2a9ba7e876bb36d9dbcad6cf3d53b2b2d0a6865e9691fa6920552"
+    sha256 cellar: :any, sonoma:        "7dd9d60d2e9ca6c19c97cfb8386f08fd1d5c197564095334e9037bb676c97182"
+    sha256 cellar: :any, arm64_linux:   "f1934d2bc3794311e352fdfb12bf067990a7b0c92290155112af27a969b838f7"
+    sha256 cellar: :any, x86_64_linux:  "3e6674009eb50e1638f9d2edca486de98a4698ca508b8a26834aaf9d29cc9253"
   end
 
   depends_on "cmake" => [:build, :test]

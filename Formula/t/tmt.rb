@@ -3,17 +3,17 @@ class Tmt < Formula
 
   desc "Test Management Tool"
   homepage "https://tmt.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/16/b2/420b709d5006b1c16006abaee8aa61018fc6ab6107a32b7f6e6671df9e73/tmt-1.75.0.tar.gz"
-  sha256 "e9746d7bb5586e4082e39fe7ce82382810c061ad87b90c49f27a638238455660"
+  url "https://files.pythonhosted.org/packages/93/a5/21b0d0cb820b44ee81964eeb75c53e50c436063b01b34f467217e96366aa/tmt-1.77.0.tar.gz"
+  sha256 "41412101942fbb6cd29536443ad159f0c51e7f464bce2419584040b3d94e4f60"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3a50352c81fd4e03e5b36af3f1107cd07a183cd3a99b24a2de9c1f14506304dd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e3d69ab8a89e6bcf78d65b6575dc851e905d5d9b6c709da521c661c622e7b79d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ccfd81dd990c2570f878d1a030d14bea6ac26d9222159d72a1d7a8c99358c78d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a9b319135ba1d9c623127a280326aff38a1b6995f152c285d85ab8223e256598"
-    sha256 cellar: :any,                 arm64_linux:   "8cea36919774f4f6810cc77b5872c756de1e87cf92a73fd9fc77b14717896b71"
-    sha256 cellar: :any,                 x86_64_linux:  "dc2398c2c285899761e2b3a3aa46855b90934e43e7481d2085ce7923ad13b3c3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "144a35a9f5a73104bb43c9b9f6ec85b904ad441b45a43524c767d569ba3dca9f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f8f63f15ca1d04b6869807bc7949adf354e98ff43120371357078f9f665201c3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "322bbae47473bc9a9debf91f4b06ab8d08245e0371a0d187ffcdca9b9e4f0f07"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c0f4dc72e58809b78ea9708b9044544117b6b6b7d26197261e6d148390d0f495"
+    sha256 cellar: :any,                 arm64_linux:   "86c0efc864758d02363c6868f0a144d307745ee3c96ece6317928c6a50793430"
+    sha256 cellar: :any,                 x86_64_linux:  "888211452f9e05c3937cf9d0914327dd44ffc2ed9e2dcdaed70bf68ab26c6e7a"
   end
 
   depends_on "beakerlib"
@@ -30,13 +30,13 @@ class Tmt < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "docutils" do
@@ -45,8 +45,8 @@ class Tmt < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/1f/f9/f38573ed5844586db374d085911740a501ccfa373b455fc9413f09f85237/filelock-3.29.1.tar.gz"
-    sha256 "d97e6b1b9757569626c58caa07dc4beb1613f4a2938b1e8cc81afca398906c9e"
+    url "https://files.pythonhosted.org/packages/f6/57/3ba6e6cb097f85b855b00163d169f35365f44277df044dcf96d55b8f62a3/filelock-3.32.2.tar.gz"
+    sha256 "c33351e1f49cae33414acbc6d56784e6ecee82514ec90795da1161fc4836b5b8"
   end
 
   resource "flexcache" do
@@ -100,8 +100,8 @@ class Tmt < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/47/e4501f49c178ae1d9f4a75073fda4204f52647993f075a9db4d14930e0c5/platformdirs-4.10.0.tar.gz"
-    sha256 "31e761a6a0ca04faf7353ea759bdba55652be214725111e5aac52dfa29d4bef7"
+    url "https://files.pythonhosted.org/packages/78/9b/560e4be8e26f6fd133a03630a8df0c663b9e8d61b4ade152b72005aec83b/platformdirs-4.11.0.tar.gz"
+    sha256 "0555d18370482847566ffabcaa53ad7c6c1c29f195989ae1ed634a05f76ea1e0"
   end
 
   resource "pygments" do
@@ -141,9 +141,14 @@ class Tmt < Formula
   end
 
   test do
-    output = shell_output("#{bin}/tmt init --template mini")
+    # fmf searches for a tree root up to `/`, which the sandbox cannot read
+    (testpath/".fmf").mkpath
+    (testpath/".fmf/version").write "1\n"
+
+    output = shell_output("#{bin}/tmt init --force --template mini project")
+    assert_match "Initialized the fmf tree root", output
     assert_match "Applying template 'mini'", output
-    assert_match <<~YAML, (testpath/"plans/example.fmf").read
+    assert_match <<~YAML, (testpath/"project/plans/example.fmf").read
       execute:
         how: tmt
         script: tmt --help

@@ -14,12 +14,13 @@ class Koka < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "4bc9da87f0e44e511ab343cbffd2ea01efb8ac1dce27699af73c876ff93b4e20"
-    sha256               arm64_sequoia: "d22074509e328133eb5511a075aa8e82a926494055aeb991e09aa5625994cfdc"
-    sha256               arm64_sonoma:  "8adbebe724b806025453e8e8f782899a0b7565a0fdc25e87b8b307cf4634d446"
-    sha256 cellar: :any, sonoma:        "a281980d8135d79077dc98048e17ab6b0f197d1e10a09081c9f3af2a8b8096e2"
-    sha256               arm64_linux:   "1d6f4504698decff324a10b1b923a5af15a8a036625d0939bf312152ad5e1234"
-    sha256               x86_64_linux:  "f7fdbc40fa2ff2a9cc86a55a4c7fb3bc35ee8af4ef7d33f52785bda641eea15c"
+    rebuild 1
+    sha256               arm64_tahoe:   "ac681e7d05be5109301c9bd812815b11a8d6beb1c5ad65274d48474434e405da"
+    sha256               arm64_sequoia: "90dca4c22af849291f5a9bdb2eb0d21d9c6ffc5d04e705455e072b40554b7732"
+    sha256               arm64_sonoma:  "b11d6bcbb28be3e1ca6a5d658e1b52b23fc63c9850d84f492effbb1feaaad68c"
+    sha256 cellar: :any, sonoma:        "633e429728e628ee7b0e38507eb466e115265b530e1b6ecf5ac1530a4f03b879"
+    sha256               arm64_linux:   "2b85809ace4fcc5d9e1da834596344343fadc7e31c0b8ef102772c88aa12003d"
+    sha256               x86_64_linux:  "56a4d9e65b26cd246e51ae2bee021c1d15444dae237b5a1bfa5690870bef499d"
   end
 
   depends_on "cabal-install" => :build
@@ -36,14 +37,11 @@ class Koka < Formula
   def install
     inreplace "src/Compile/Options.hs" do |s|
       s.gsub! '["/usr/local/lib"', "[\"#{HOMEBREW_PREFIX}/lib\""
-      s.gsub! '"-march=haswell"', "\"-march=#{ENV.effective_arch}\"" if Hardware::CPU.intel? && build.bottle?
+      s.gsub! '"-march=haswell"', "\"-march=#{ENV.effective_arch}\"" if Hardware::CPU.intel?
     end
 
-    # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
-    (buildpath/"cabal.project.local").write "allow-newer: base, containers, template-haskell\n"
-
     system "cabal", "v2-update"
-    system "cabal", "v2-build", *std_cabal_v2_args.reject { |s| s["install"] }
+    system "cabal", "v2-build", *std_cabal_v2_args(installdir: false)
     system "cabal", "v2-run", "koka", "--",
            "-e", "util/bundle.kk", "--",
            "--prefix=#{prefix}", "--install", "--system-ghc"

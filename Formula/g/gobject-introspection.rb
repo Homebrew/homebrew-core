@@ -7,16 +7,16 @@ class GobjectIntrospection < Formula
   url "https://download.gnome.org/sources/gobject-introspection/1.86/gobject-introspection-1.86.0.tar.xz"
   sha256 "920d1a3fcedeadc32acff95c2e203b319039dd4b4a08dd1a2dfd283d19c0b9ae"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
-  revision 2
+  revision 3
   compatibility_version 1
 
   bottle do
-    sha256 arm64_tahoe:   "d516a1e37d140117bf326b55b50ddd6006d31d9bca3e997677b3c9267e0d0250"
-    sha256 arm64_sequoia: "e64de3819c37536ff15195c82925070993cd5b767e320a82391242293383b0ae"
-    sha256 arm64_sonoma:  "596894b2d43f43863219f67eb964677bd4bda8d50766c0c4dce76a260adf08a5"
-    sha256 sonoma:        "7e1c0048f6f4820438594175eb963c0c01262dbf380802d4801f5455f55e797d"
-    sha256 arm64_linux:   "a06a12d6de94f9ba01ecb93cfb12804ecca66ee4b09e5b82a0a93b5628d70a7d"
-    sha256 x86_64_linux:  "ed82cf5011d87d3c9fb974dc41a33d99ada58fff4c9bbb77621c821692fdeb1a"
+    sha256 arm64_tahoe:   "7626946518290438bb39682f49b4cbfe48fefa3a2a651314fe7a9e36f9ad7912"
+    sha256 arm64_sequoia: "722743b16501778a92553b0967b4ac4fc00408fd3742ee5ba9b11ea50a7fc22c"
+    sha256 arm64_sonoma:  "d3bab28068563383c77eba96c97de06c4b9acbce372c6b8ff6d5c6c1feb63887"
+    sha256 sonoma:        "d828266a982a993b4c954aaeda6f948adcdf3875ec33b17d9807aaeb3d0551f7"
+    sha256 arm64_linux:   "18d9306f68f5d7059a8a84cff6cc9af37b95d020f72d3a3fe3e146d331e7a0ab"
+    sha256 x86_64_linux:  "fee8fc3524298ee5eec84ba9af6f6e4dc2e41411bff617ad36651eba79c5df23"
   end
 
   depends_on "bison" => :build
@@ -50,8 +50,8 @@ class GobjectIntrospection < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/4f/db/cfac1baf10650ab4d1c111714410d2fbb77ac5a616db26775db562c8fab2/setuptools-82.0.1.tar.gz"
-    sha256 "7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9"
+    url "https://files.pythonhosted.org/packages/34/26/f5d29e25ffdb535afef2d35cdb55b325298f96debd670da4c325e08d70f4/setuptools-83.0.0.tar.gz"
+    sha256 "025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef"
   end
 
   # Fix library search path on non-/usr/local installs (e.g. Apple Silicon)

@@ -1,24 +1,24 @@
 class Ingress2gateway < Formula
   desc "Convert Kubernetes Ingress resources to Kubernetes Gateway API resources"
   homepage "https://github.com/kubernetes-sigs/ingress2gateway"
-  url "https://github.com/kubernetes-sigs/ingress2gateway/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "a3c74ca555df43e40b0acd89743cb0ade9b1ad72bcd61fad0d0bec0b233a9c7c"
+  url "https://github.com/kubernetes-sigs/ingress2gateway/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "881f2599b39d29f14c07e1ae12c60ffbbe636ae07a7ca6e1491d70bb8ab37c5f"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/ingress2gateway.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "62f589debe662edb6b0334b2cc906de5b81168444ab688d77b25cc09a0396a73"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "62f589debe662edb6b0334b2cc906de5b81168444ab688d77b25cc09a0396a73"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "62f589debe662edb6b0334b2cc906de5b81168444ab688d77b25cc09a0396a73"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ed1c1eb32daca7a1a017ccd4b83442dba6eed99ab9d6177be7779de5243d9ea7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "65cfc1a5c64753665a15b70d36ed8ba94a666690599d6de0314a9737e2e38056"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "363ac48d982fe5071d25fbdaaef9f4c3e42481356fd6d01e97951ec60de94b57"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c666d46833c0a2649f64984d970ceb1b1ee40f7d8edf20306872017b169f7b7d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c666d46833c0a2649f64984d970ceb1b1ee40f7d8edf20306872017b169f7b7d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c666d46833c0a2649f64984d970ceb1b1ee40f7d8edf20306872017b169f7b7d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4649d41cf12024af7467b36081fd7030936b0c73b8f58bb80594eb17c09e54e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a5719790e6916160dfc6ad57e3ff613808fbe25609d0431e626f6e29a4268b8f"
+    sha256 cellar: :any,                 x86_64_linux:  "a5935e8ded9b3f9ab4c0ad1e6dc804a5ed0ecd25fca384330ff890b9ce07dc29"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/kubernetes-sigs/ingress2gateway/pkg/i2gw.Version=#{version}"
+    ldflags = "-X github.com/kubernetes-sigs/ingress2gateway/pkg/i2gw.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"ingress2gateway", shell_parameter_format: :cobra)

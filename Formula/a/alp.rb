@@ -19,8 +19,7 @@ class Alp < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/alp"
+    system "go", "build", *std_go_args(ldflags: :goreleaser), "./cmd/alp"
 
     generate_completions_from_executable(bin/"alp", shell_parameter_format: :cobra)
   end

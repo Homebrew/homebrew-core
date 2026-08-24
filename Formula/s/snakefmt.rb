@@ -3,18 +3,18 @@ class Snakefmt < Formula
 
   desc "Snakemake code formatter"
   homepage "https://github.com/snakemake/snakefmt/"
-  url "https://files.pythonhosted.org/packages/1a/40/6c05d546237a73be5e80434682534337854fb7556713447c1c31236ba14c/snakefmt-2.0.2.tar.gz"
-  sha256 "aa037ff2579fcdb76f4d5b722b3438738fff05924d43faf4655ff7eebd64152a"
+  url "https://files.pythonhosted.org/packages/da/9b/c3dce69468a32d9b2dd9366c41c472b59ecafa28971761e8620466fb288f/snakefmt-2.0.3.tar.gz"
+  sha256 "1aecfed46d631eaae8179e4bedd09450c8c306d221cfd4b3594e35a8dccd0618"
   license "MIT"
   head "https://github.com/snakemake/snakefmt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c2d04f6400a75f8aefe4ed3decc2f6b3f5662c5f043e1b43c9a37a40e76a1525"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8b9025c9469a9e962d3297b1511606f3efadd0cae60ac5f5cec0dd79d6012bcd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "45b3453a9cc96d0124b9e5af17a3c5ae2882b3e0e845960d2ad7217378132445"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dd6ad9d59c2f17abc2ad297ee106e459a50f7121a443d02c1925ca10b651d17a"
-    sha256 cellar: :any,                 arm64_linux:   "7199ac2cedc8823f504f6d5fdd49d21a71f597553f000a6d80352344e0fdfa48"
-    sha256 cellar: :any,                 x86_64_linux:  "17e52de697c0f22da12f432e877a83b181a28f87ac815c022a547858e5aa43b9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dd946af9a59c83626ac7853000173f2c4cde885150fa97bd64dd07c568daf02a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "34f75c44e906383165fc9ab77b6ee7b89ac225d645e1d312452531f40aec135b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "de18c359cbd2e9698f571acb1b59ea132dca7554a2d0657fbe853f8346f988ce"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b9264f3424e3dc5d2f7293bda329a865dbc8141aa4e9dc844704f12e6360251b"
+    sha256 cellar: :any,                 arm64_linux:   "c95c7ebbeabc84cc79f15c656f5392f6b41eba98e0452fa885d69e41e64c11ac"
+    sha256 cellar: :any,                 x86_64_linux:  "a295296c9db66ce5aa4fef29428e231b7bc4ff7d020442c6a186d3cb90f3bc15"
   end
 
   depends_on "rust" => :build # pytokens -> mypy -> ast-serialize
@@ -26,8 +26,8 @@ class Snakefmt < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "mypy-extensions" do

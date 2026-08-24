@@ -1,8 +1,8 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://firefox-source-docs.mozilla.org/security/nss/index.html"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_125_RTM/src/nss-3.125.tar.gz"
-  sha256 "1ad541f10da7c58dec01f540ecc44d28cbbc033f741a57473de5a0893d91606d"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_127_RTM/src/nss-3.127.tar.gz"
+  sha256 "5a899cad21ae2c9d3c5132de79726eda8df3b7fdf18eeb239fc544d43b87338b"
   license "MPL-2.0"
   compatibility_version 1
 
@@ -15,12 +15,12 @@ class Nss < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "99da657267deb99a51facb01143a513b9276eb336966a7f718f4bb219bdd49f8"
-    sha256 cellar: :any, arm64_sequoia: "ac59ff8a44e171fca41b0e1b50bff4abeedf793f4fb88c331452fb1e1e9caed7"
-    sha256 cellar: :any, arm64_sonoma:  "b45369bcd4c8385d62e59990ebd0de89f9c51a1390bed14b02514c600ba7b6c2"
-    sha256 cellar: :any, sonoma:        "cd0e2f81ba3e9ead1191fffa53e4ef9307c7737ff77628bdd9d690cdd66ef486"
-    sha256 cellar: :any, arm64_linux:   "5072e49ddd8212360ef4bd4db5d8c6b2c784e56ac9c92e5efb8e86700fcb55b8"
-    sha256 cellar: :any, x86_64_linux:  "74baad24ad95c7c5a9e9b3f05272ad4bb8df562387527bcec07655e0f87f9864"
+    sha256 cellar: :any, arm64_tahoe:   "2e61382f5f1a9f3515f9d2207b94e01d526384ad760001f0940fcbaa7ebb16a3"
+    sha256 cellar: :any, arm64_sequoia: "125fa1f0188ed2e1ce4cb28f2e499850a3bf57243b131a18b975405651f60451"
+    sha256 cellar: :any, arm64_sonoma:  "6ae45d073e6439cd72dd55fa522fa658eb34a493fcf8a1679c0607d2a7b0f3eb"
+    sha256 cellar: :any, sonoma:        "118d0dc28e5a10b839f01bcd9f3a667ffdde7ed19ca0e67735d34d5875d5add3"
+    sha256 cellar: :any, arm64_linux:   "9baab32770beb374c4caa345c7bca9f50cc2eb89423227e96e1426aa2860c507"
+    sha256 cellar: :any, x86_64_linux:  "879e077598059b5aadf16b7d0766f315cda497f0eccb3684504ddfddd70d9f5f"
   end
 
   depends_on "nspr"
@@ -46,8 +46,8 @@ class Nss < Formula
       NSS_ALLOW_SSLKEYLOGFILE=1
       NSS_DISABLE_GTESTS=1
       NSS_USE_SYSTEM_SQLITE=1
-      NSPR_INCLUDE_DIR=#{Formula["nspr"].opt_include}/nspr
-      NSPR_LIB_DIR=#{Formula["nspr"].opt_lib}
+      NSPR_INCLUDE_DIR=#{formula_opt_include("nspr")}/nspr
+      NSPR_LIB_DIR=#{formula_opt_lib("nspr")}
       USE_64=1
     ]
 

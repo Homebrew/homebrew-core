@@ -8,15 +8,13 @@ class ElmFormat < Formula
   head "https://github.com/avh4/elm-format.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "5056133df57fc96439054e34f04ec081bf08d317eefea981336c786a94dd8c2f"
-    sha256 cellar: :any,                 arm64_sequoia: "793a01a476060deff0126e922ff4e6bf3d7f6d4666ee2e2ffa76114036a7838d"
-    sha256 cellar: :any,                 arm64_sonoma:  "15e2ac52c016433bd4ca81958a352dc32d2ce8b309590001bf5cfeef87574941"
-    sha256 cellar: :any,                 arm64_ventura: "1f6526cc7adeb4fc019894188906cd9130f69a02912a73b1599394c16a777f9a"
-    sha256 cellar: :any,                 sonoma:        "6586c687d47970c27ec7a1d5ece3a71b0137ef72f3d6e13db501a9e2d3be5dd5"
-    sha256 cellar: :any,                 ventura:       "4895173ac11f28d140d23c7795ec46a17252862b99b8b17cb762a01e0c2f7e65"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f9b5d8604a3e94980d6b41a8655abfedef71dd6c8407ab2f96a52c04446e64b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0077781afea83af1e8bd983239763b30fae56285f04f86e4a03a849cd87b8f43"
+    rebuild 2
+    sha256 cellar: :any, arm64_tahoe:   "0db604c0ea1d3054599a10069285102c10c6ba52a24b677be8324818cd6caad4"
+    sha256 cellar: :any, arm64_sequoia: "e53fca4d0305acccb8a16a07043dddd5a43a2651da19ec917ef18f8b6395aee1"
+    sha256 cellar: :any, arm64_sonoma:  "714903c2dda4ae3a054d90c371be7892a412a69da4558ec9a6f8e34f9baf4b84"
+    sha256 cellar: :any, sonoma:        "f7201cc2c1179e94a4bcff25fa08e8e28d5191442d70adf77275ae338646377c"
+    sha256 cellar: :any, arm64_linux:   "718d8c84b8703f4473980f65044f94d6935ed50b03fee6ac679527696e06c2fe"
+    sha256 cellar: :any, x86_64_linux:  "40d25c1e6f06c0117822346508af98d3389399aa23236c0f4fcf5d2a06eb120a"
   end
 
   depends_on "cabal-install" => :build
@@ -31,10 +29,12 @@ class ElmFormat < Formula
     (buildpath/"cabal.project.freeze").truncate(0)
     inreplace "cabal.project", /^with-compiler: .*$/, ""
 
+    args = std_cabal_v2_args(installdir: false)
     # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
-    (buildpath/"cabal.project.local").write "allow-newer: base, containers, template-haskell\n"
+    args << "--allow-newer=base,containers,template-haskell"
 
     system "cabal", "v2-update"
+    system "cabal", "v2-configure", *args
 
     # Directly running `cabal v2-install` fails: Invalid file name in tar archive: "avh4-lib-0.0.0.1/../"
     # Instead, we can use the upstream's build.sh script, which utilizes the Shake build system.

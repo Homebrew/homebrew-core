@@ -2,20 +2,20 @@ class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
   license "Ruby"
+  revision 1
   compatibility_version 1
-  head "https://github.com/ruby/ruby.git", branch: "master"
 
   stable do
     # TODO: enable default_user_install when updating to Ruby 4.1
-    url "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.5.tar.gz"
-    sha256 "7d6149079a63f8ae1d326c9fa65c6019ba2dc3155eae7b39159817911c88958e"
+    url "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.6.tar.gz"
+    sha256 "837d299e8f7ddf2be31a229a7a7e019d354979825117989acb3b32b1a9be262a"
 
     # Should be updated only when Ruby is updated (if an update is available).
     # The exception is Rubygem security fixes, which mandate updating this
     # formula & the versioned equivalents and bumping the revisions.
     resource "rubygems" do
-      url "https://rubygems.org/rubygems/rubygems-4.0.11.tgz"
-      sha256 "95fe9d9d5293d022ceb29afac56eee4e2d46f901de309ab46915ff84d5ec68e8"
+      url "https://rubygems.org/rubygems/rubygems-4.0.16.tgz"
+      sha256 "ea9c669526af82874f8f33f69bea1b6ddd99283756e598227a9a890035a5a06a"
 
       livecheck do
         url "https://rubygems.org/pages/download"
@@ -30,27 +30,34 @@ class Ruby < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "9f26dccd8e5aa2158a31170edfdc346624c1f7c66e7dd44b8d56138a50c2b3d4"
-    sha256 arm64_sequoia: "c6c940945bcef445e4e0cd3cfd2e9d7470fb64b41263cd6c03891aa7be9abd04"
-    sha256 arm64_sonoma:  "00b565a069e511790c3c2ea9dc8b05bd8c38acb5064aa0191d041f15a85d5367"
-    sha256 sonoma:        "1180f95a02f846601d88ec663cf3e1c7fb73eba70cf9f204db448616d2bb6979"
-    sha256 arm64_linux:   "96d9f4050272e1834b7454d87a197c250d6061b28043defc97a870ca5fabcf2d"
-    sha256 x86_64_linux:  "caccd8916a52e2ab4c4500ef72e502bac005a4fe091a206e858dd68c89ec757b"
+    sha256 arm64_tahoe:   "4ce78c01101674d6b7f4fabbaf6c4fdc09ee735827faa2865348777b815421b8"
+    sha256 arm64_sequoia: "836525a563d1cb7ff0d141b2a8a520a8e97c839576ab5c967a953b58f77f872c"
+    sha256 arm64_sonoma:  "aaa0345bf1d54313c2a08c1a41ea332e69ff4dea340b3b4af2aa2111e9158ec3"
+    sha256 sonoma:        "1256484800a5d262029f6a72551985ef40b2411b187c6c0e3309718586663382"
+    sha256 arm64_linux:   "244296422f82d4bd785a9d75e893eae8e8137fa271ee424f0592f999d5adf848"
+    sha256 x86_64_linux:  "8f6668cf18a8036389893b2dd38c0b49bd72873c35a386efeef544afaeac3b15"
   end
 
-  depends_on "autoconf" => :build
+  head do
+    url "https://github.com/ruby/ruby.git", branch: "master"
+
+    depends_on "autoconf" => :build
+  end
+
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libyaml"
   depends_on "openssl@3"
 
-  uses_from_macos "gperf"
   uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
+
+  # TODO: remove when enabling default_user_install
+  link_overwrite "bin/bundle", "bin/bundler"
 
   def determine_api_version
     Utils.safe_popen_read(bin/"ruby", "-e", "print Gem.ruby_api_version")
@@ -78,7 +85,7 @@ class Ruby < Formula
   end
 
   def install
-    paths = %w[libyaml openssl@3].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@3].map { |f| formula_opt_prefix(f) }
     # Add versioned Ruby RPATH so user-installed gems can work when user is switched to versioned Ruby
     paths << versioned_opt_prefix if OS.linux? && !versioned_formula?
 
@@ -119,19 +126,6 @@ class Ruby < Formula
     # A newer version of ruby-mode.el is shipped with Emacs
     elisp.install Dir["misc/*.el"].reject { |f| f == "misc/ruby-mode.el" }
 
-    if OS.linux?
-      arch = Utils.safe_popen_read(
-        bin/"ruby", "-rrbconfig", "-e", 'print RbConfig::CONFIG["arch"]'
-      ).chomp
-      # Don't restrict to a specific GCC compiler binary we used (e.g. gcc-5).
-      inreplace lib/"ruby/#{api_version}/#{arch}/rbconfig.rb" do |s|
-        s.gsub! ENV.cxx, "c++"
-        s.gsub! ENV.cc, "cc"
-        # Change e.g. `CONFIG["AR"] = "gcc-ar-11"` to `CONFIG["AR"] = "ar"`
-        s.gsub!(/(CONFIG\[".+"\] = )"(?:gcc|g\+\+)-(.*)-\d+"/, '\\1"\\2"')
-      end
-    end
-
     if build.stable? # Use bundled RubyGems for --HEAD (will be newer)
       # This is easier than trying to keep both current & versioned Ruby
       # formulae repeatedly updated with Rubygem patches.
@@ -167,34 +161,19 @@ class Ruby < Formula
     config_file.write rubygems_config
   end
 
-  def post_install
-    # Since Gem ships Bundle we want to provide that full/expected installation
-    # but to do so we need to handle the case where someone has previously
-    # installed bundle manually via `gem install`.
-    # TODO: remove when enabling default_user_install
-    rm(%W[
-      #{rubygems_bindir}/bundle
-      #{rubygems_bindir}/bundler
-    ].select { |file| File.exist?(file) })
-    rm_r(Dir[HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/gems/bundler-*"])
-
-    # Use versioned opt path so user-installed gems can work when user is switched to versioned Ruby.
-    # Needs to be done in postinstall since install names are modified by brew after install method.
-    # TODO: Consider adding a DSL for this to avoid performance cost of post install and binary patching
-    if OS.mac? && !versioned_formula?
-      dylib = (lib/"libruby.dylib").realpath
-      old_dylib_id = dylib.dylib_id
-      new_dylib_id = old_dylib_id.sub("#{opt_prefix}/", "#{versioned_opt_prefix}/")
-      return if old_dylib_id == new_dylib_id
-      return unless File.exist?(new_dylib_id)
-
-      dylib_mode = dylib.stat.mode
-      begin
-        chmod 0664, dylib
-        MachO::Tools.change_dylib_id(dylib, new_dylib_id)
-        MachO.codesign!(dylib) if Hardware::CPU.arm?
-      ensure
-        chmod dylib_mode, dylib
+  # Since Gem ships Bundle we want to provide that full/expected installation
+  # but to do so we need to handle the case where someone has previously
+  # installed bundle manually via `gem install`.
+  # TODO: remove the `remove` step when enabling default_user_install
+  post_install_steps do
+    remove "{{HOMEBREW_PREFIX}}/lib/ruby/gems/{{version.major_minor}}.0/gems/bundler-*", recursive: true
+    on_macos do
+      if_path_exists "opt/ruby@{{version.major_minor}}/lib/libruby.{{version.major_minor}}.dylib",
+                     base: :homebrew_prefix do
+        change_dylib_id "lib/libruby.dylib",
+                        "{{HOMEBREW_PREFIX}}/opt/ruby@{{version.major_minor}}/" \
+                        "lib/libruby.{{version.major_minor}}.dylib",
+                        resolve_source: true
       end
     end
   end

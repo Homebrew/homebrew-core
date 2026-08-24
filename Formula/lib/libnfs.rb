@@ -1,19 +1,18 @@
 class Libnfs < Formula
   desc "C client library for NFS"
   homepage "https://github.com/sahlberg/libnfs"
-  url "https://github.com/sahlberg/libnfs/archive/refs/tags/libnfs-6.0.2.tar.gz"
-  sha256 "4e5459cc3e0242447879004e9ad28286d4d27daa42cbdcde423248fad911e747"
+  url "https://github.com/sahlberg/libnfs/archive/refs/tags/libnfs-7.0.0.tar.gz"
+  sha256 "d25c70537d60f1ab307b9cb5e9fb01acff71065fc9547b54dfaec109ba993003"
   license "LGPL-2.1-or-later"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "49434cf4624dd2870f29010e9732abf65b3fac22346ebdc1fab0fc6c76b89a59"
-    sha256 cellar: :any,                 arm64_sequoia: "2e9065bfd3abd3ffe1d38f5637551210ee628b9512eedeb4d30ec5889c2cd346"
-    sha256 cellar: :any,                 arm64_sonoma:  "146e3c3bff06a7f0235889cc38a392f4fa2a0371a03523f697a764b2c59ee770"
-    sha256 cellar: :any,                 arm64_ventura: "d7e4428a240be4fd0c4fec619de6b93846305156b054b8e813917a2a70a17a26"
-    sha256 cellar: :any,                 sonoma:        "4509c2de7ad0dc7583d3d4ad6f17719eaf306adf33dcc5e8b272a69c153aa276"
-    sha256 cellar: :any,                 ventura:       "15287f2942eb74117211df3c6b6bdb9bda26755f4d725c6e355bde38e162e7ba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4e709afbb129aa4d910765a61d1c6ad522a793d864d2fc23b42300573a933cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0477428f6b57eb2ebc18e86a9c62951d42623dfb516b6f8e6b409625f943a233"
+    sha256 cellar: :any, arm64_tahoe:   "246ceb7d310d50823a082eb81bbcff812d181f65a4a19073a896922ec931096a"
+    sha256 cellar: :any, arm64_sequoia: "856f595a5f08c47b142d118d7acddee581228f72ced55dabb5e145ec5a1ddd0c"
+    sha256 cellar: :any, arm64_sonoma:  "cd93f0cbb54a6089b5d1a424213bcd35b90b1be6ae3108d43188bbe1e31b0f52"
+    sha256 cellar: :any, sonoma:        "992a6348ca9f3c7d96f6405cff8544c830452e68efdd8039953fcb75b98406ce"
+    sha256 cellar: :any, arm64_linux:   "8aefdb702cf9d593f1aa42c4605d92e21ff1ea33133e4946575c834ddb9120a2"
+    sha256 cellar: :any, x86_64_linux:  "228ed8878690d6eb3dc18876141007da180ba4be0848cba381dc3f83293e6a2e"
   end
 
   depends_on "cmake" => :build

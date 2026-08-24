@@ -1,17 +1,17 @@
 class Xwin < Formula
   desc "Microsoft CRT and Windows SDK headers and libraries loader"
   homepage "https://github.com/Jake-Shadle/xwin"
-  url "https://github.com/Jake-Shadle/xwin/archive/refs/tags/0.9.0.tar.gz"
-  sha256 "6878480d7a4126fb4390fe083ac0509bf43e4d284797e2ddd0a4a01fd614f35b"
+  url "https://github.com/Jake-Shadle/xwin/archive/refs/tags/0.10.0.tar.gz"
+  sha256 "b9e99162096d421cb64ec703297496ad1fba185f4b1a743b2490c19bbdfa2ce9"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "985ce687c46b51744fcee0e62c1dc9099a36be3f533596addc8e62b908714a2b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dab5dab1635297f505374617e69f02b05df6ffd26797ea8c0cb6febb66d71fab"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e7d5721f59a623ef4d90a73872d001f10809e8be36fbb79285aeef5bd5303b4e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d3a803aa1c5d0a44ecd035d621655c0b6e2fffb77ffe00e839caab3dcdb28f0d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "82b561aefd09e770b88fa4310b7b8e5ce469241fd53e34e91c7a77ebb2c2cb92"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40f5ed6b41c2e68fd10bfb4cb0293b1866e2f045fdc34f6b1e958af7f34a18ce"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ea2ec402e94e928e85c1038b249509272510d8952fe142d2cf31ef699af34bd6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "31fe132640de7a5ba939670b4234d78743a91fc082fce95c3283a21578ae55dc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bede9a47eb9d801ef267bb4f6f6348a200132785da7a2684daeac45ba8a34957"
+    sha256 cellar: :any_skip_relocation, sonoma:        "11f292e964bbe84479c92792428b56bf8c2ec6be893f9fdc5fccadadbeeade43"
+    sha256 cellar: :any,                 arm64_linux:   "2f5348b6c554ab360e75587bb8674dbd83fc03587857d95e4b2406855cce24a5"
+    sha256 cellar: :any,                 x86_64_linux:  "f8a172a4698fffb061a17ceca8d45fc0d61433d69d482dc86e60ba770adb6829"
   end
 
   depends_on "rust" => :build

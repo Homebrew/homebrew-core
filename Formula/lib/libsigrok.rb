@@ -13,6 +13,7 @@ class Libsigrok < Formula
     patch do
       url "https://github.com/sigrokproject/libsigrok/commit/5bc8174531df86991ba8aa6d12942923925d9e72.patch?full_index=1"
       sha256 "247bfee9777a39d5dc454a999ce425a061cdc48f4956fdb0cc31ec67a8086ce0"
+      type :backport
     end
 
     resource "fw-fx2lafw" do
@@ -23,14 +24,17 @@ class Libsigrok < Formula
       patch do
         url "https://github.com/sigrokproject/sigrok-firmware-fx2lafw/commit/5aab87d358a4585a10ad89277bb88ad139077abd.patch?full_index=1"
         sha256 "15a9ab04d19231aef165d62c669832638c688d33ebd52021100e60e965a5b4e7"
+        type :backport
       end
       patch do
         url "https://github.com/sigrokproject/sigrok-firmware-fx2lafw/commit/3e08500d22f87f69941b65cf8b8c1b85f9b41173.patch?full_index=1"
         sha256 "75c4a7770fe8f7d615e3be6c35fa336f8771fbd88145e7ce41afb0d8ad559571"
+        type :backport
       end
       patch do
         url "https://github.com/sigrokproject/sigrok-firmware-fx2lafw/commit/96b0b476522c3f93a47ff8f479ec08105ba6a2a5.patch?full_index=1"
         sha256 "a2de37d89144746f6370942faad4c358c6426f8e4e6737f117f05f05d8d44f6a"
+        type :backport
       end
     end
   end
@@ -152,7 +156,7 @@ class Libsigrok < Formula
         return 0;
       }
     C
-    flags = shell_output("#{Formula["pkgconf"].opt_bin}/pkgconf --cflags --libs libsigrok").strip.split
+    flags = shell_output("#{formula_opt_bin("pkgconf")}/pkgconf --cflags --libs libsigrok").strip.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
 

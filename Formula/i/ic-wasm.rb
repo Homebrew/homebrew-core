@@ -1,17 +1,17 @@
 class IcWasm < Formula
   desc "CLI tool for performing Wasm transformations specific to ICP canisters"
   homepage "https://github.com/dfinity/ic-wasm"
-  url "https://github.com/dfinity/ic-wasm/archive/refs/tags/0.9.11.tar.gz"
-  sha256 "579e8085c33b7cf37ed2ddc3b9a34dca5dca083201f7648c5d636bab80f75258"
+  url "https://github.com/dfinity/ic-wasm/archive/refs/tags/0.11.1.tar.gz"
+  sha256 "0ad9b97cc85a66d862f0b855860c4c2fbaa247c62fcc7b6092c18ba4ac4c5199"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f0f9431b78c9425870ccd321f68d572bf229c7878bec10141748683840eef1a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "975a009d2854cdd961491c4043b3a46290e7a336a301bef940fbcfad8c6dd14f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "37b6f1e4c8291331a9496d493278edd1721a5cdc2919f765e5ff40ae3025b329"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4ec91a5d740423514e6a4e0bde2e68ff70cccecdf07701da43edbe078ba7b022"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "39d0a2cad637f4eff061b84ccdd7e3fc70827e29be8abd83f7c3f2ae202f89a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c54ab40750cdaec9ef7f02cc2053b8cfad9775f0c924668686803171f8ef567"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "00c5bd941b3aaba552b0fdf5b484f3a2b6bbfc370c327aee7e3206a9191fdfd8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "db165fc477d53fd00b9dbea404845ed74d01a01193c294795290c233b887a8e6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e861bf507eef93bb35114164df4a18ccaa060376e46c360e1cabd70ea613f2a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9f8eaae57653b8efb76e89ece8b5beb8da7fc0dc598c09372b88e7c0be11647d"
+    sha256 cellar: :any,                 arm64_linux:   "7b5ac667397692b364e3d564b130b5ef9735f5322d5cf25361a737b042b795e3"
+    sha256 cellar: :any,                 x86_64_linux:  "b2eadc7b51e72fdccf409b0647ba811d98290a9f77e4e95ac24423ef355ae4b1"
   end
 
   depends_on "rust" => :build

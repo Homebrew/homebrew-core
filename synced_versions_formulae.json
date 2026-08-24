@@ -13,6 +13,7 @@
     "x86_64-linux-gnu-binutils"
   ],
   ["apache-arrow", "apache-arrow-glib"],
+  ["apache-arrow-adbc", "apache-arrow-adbc-glib"],
   ["avro-c", "avro-cpp", "avro-tools"],
   ["b3sum", "blake3"],
   ["baresip", "libre"],
@@ -43,7 +44,7 @@
   ["libnice", "libnice-gstreamer"],
   ["libtorrent-rakshasa", "rtorrent"],
   ["lima", "lima-additional-guestagents"],
-  ["llvm", "lld", "flang", "wasi-runtimes"],
+  ["llvm", "lld", "lldb", "flang", "wasi-runtimes"],
   ["logcli", "loki"],
   ["qalculate-gtk", "qalculate-qt"],
   ["mame", "rom-tools"],
@@ -113,6 +114,7 @@
     "qtwebview"
   ],
   ["qwt", "qwt-qt5"],
+  ["rust", "rust-wasm"],
   [
     "spirv-headers",
     "spirv-tools",

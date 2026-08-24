@@ -37,7 +37,7 @@ class Yaws < Formula
 
   def install
     # Ensure pam headers are found on Xcode-only installs
-    pam_include = OS.mac? ? "#{MacOS.sdk_path}/usr/include" : Formula["linux-pam"].opt_include
+    pam_include = OS.mac? ? "#{MacOS.sdk_path}/usr/include" : formula_opt_include("linux-pam")
     args = %W[--with-extrainclude=#{pam_include}/security]
 
     system "autoreconf", "--force", "--install", "--verbose"

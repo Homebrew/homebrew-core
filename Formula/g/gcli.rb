@@ -1,18 +1,18 @@
 class Gcli < Formula
   desc "Portable Git(hub|lab|tea)/Forgejo/Bugzilla CLI tool"
   homepage "https://herrhotzenplotz.de/gcli/"
-  url "https://github.com/herrhotzenplotz/gcli/archive/refs/tags/v2.12.0.tar.gz"
-  sha256 "b58210a3e705eb2393fb11d555125450e1f0757646a149d61e34094d9cc62f0b"
+  url "https://github.com/herrhotzenplotz/gcli/archive/refs/tags/v2.13.0.tar.gz"
+  sha256 "3dd25f636e439f7af6187248e46f2b4078dffdca4fe2d506d0edb275515d62b4"
   license "BSD-2-Clause"
   head "https://github.com/herrhotzenplotz/gcli.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "1b49daa90e02db33ef857896799ed2ffd09061301de975645e526845348ed71c"
-    sha256 cellar: :any, arm64_sequoia: "b158e4f5529ffcd3b1c9f3670d67cc4e1d1cb17fe5f29d13611a87dfab1e5bd3"
-    sha256 cellar: :any, arm64_sonoma:  "5ba06459dbf8999f7497a11ac35d6becae221244d6127dbe4388943941495119"
-    sha256 cellar: :any, sonoma:        "28e6d120ae38225791ec4b696a5a2b80f4ac0a3e617902bc00a758efa3146db5"
-    sha256 cellar: :any, arm64_linux:   "cd7aac586687058f3d462180c73fb9cc4967682f5674c978a4070cf4989b3c68"
-    sha256 cellar: :any, x86_64_linux:  "276f57900cf180d02338b542ebc8b27da3cb799537899d486602ec37b38253f8"
+    sha256 cellar: :any, arm64_tahoe:   "74d37ebad8e191a05263ffe032655f5a0e219308d6422b9514b704899aefd377"
+    sha256 cellar: :any, arm64_sequoia: "9d4ad7fba0f3b7acd2ddb2564b15e0ebc2129b77b6f5fc10492f7a15450ebef9"
+    sha256 cellar: :any, arm64_sonoma:  "da4fe62505adb8f7ee4de20db42a8e06f65fa780302a9b33ef905611a1d0c47d"
+    sha256 cellar: :any, sonoma:        "b18efad19821fb1a2ad7b44a28f0d1f9eee41dda49cb82e8a180752252cb13db"
+    sha256 cellar: :any, arm64_linux:   "1b4e90b7ee1c9a8ed8f3df564588ce9f8c49772e8a5d0f4d049656fb63998087"
+    sha256 cellar: :any, x86_64_linux:  "08bc9ed83025725125b2f7854d0c2989ffa62c3603f40a4a0405bd93c3a16042"
   end
 
   depends_on "pkgconf" => :build

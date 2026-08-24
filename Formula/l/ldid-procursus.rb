@@ -16,6 +16,8 @@ class LdidProcursus < Formula
       # See ProcursusTeam/ldid#34 and ProcursusTeam/ldid#14 for more info
       url "https://github.com/ProcursusTeam/ldid/commit/f38a095aa0cc721c40050cb074116c153608a11b.patch?full_index=1"
       sha256 "848caded901d4686444aec79cdae550832cfd3633b2090ad92cd3dd8aa6e98cf"
+      type :backport
+      resolves "https://github.com/ProcursusTeam/ldid/pull/34"
     end
   end
 

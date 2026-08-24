@@ -27,6 +27,7 @@ class Mosml < Formula
   patch do
     url "https://github.com/kfl/mosml/commit/52b00ca99dcd77d64dac5a7600fe64a76ed1ac3a.patch?full_index=1"
     sha256 "e0db36e944b5d60e0e98afd3f3e9463d193ae89b7aa66d2cc7c452c6c6ed8632"
+    type :backport
   end
 
   def install

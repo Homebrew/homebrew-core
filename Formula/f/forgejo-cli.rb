@@ -1,18 +1,29 @@
 class ForgejoCli < Formula
   desc "CLI tool for interacting with Forgejo"
   homepage "https://codeberg.org/forgejo-contrib/forgejo-cli"
-  url "https://codeberg.org/forgejo-contrib/forgejo-cli/archive/v0.5.0.tar.gz"
-  sha256 "028ebcbd744301fbfd144cd9bc5ff0a27e02d99b02c8abafb20742299715c556"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://codeberg.org/forgejo-contrib/forgejo-cli.git", branch: "main"
 
+  stable do
+    url "https://static.crates.io/crates/forgejo-cli/forgejo-cli-0.6.0.crate"
+    sha256 "4d56acd6ab5caab2870d6e301cd6e42741ca98761fc1d5890dad09b21b44780e"
+
+    # Fix issue with shell completions.
+    # Remove with `stable` block with next release.
+    patch do
+      url "https://codeberg.org/forgejo-contrib/forgejo-cli/commit/42136622787b3a289b80565d2756263394dda855.patch"
+      sha256 "f1ac36eb47411b1c11b1200de1750040a94f456b26655eeab1971c3767b28bec"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "da03e5e9283bacfecb9085684ba35701932a95254486a5d25b841f898715bcc5"
-    sha256 cellar: :any,                 arm64_sequoia: "50ef4d22fdd29d0144769db602da1a46098c6649959f702c7193a6ce55a474af"
-    sha256 cellar: :any,                 arm64_sonoma:  "b1d585c8520c57d6cb8a2309e3ea1ca71cdc278e371b3ed35d58645b1ea6af54"
-    sha256 cellar: :any,                 sonoma:        "90fdf8e55f03114a11c912f20ea1eeb60c09f26a69628ce94c6e1a5d9066076b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dee5a25bc9af4873f25cadd9152a7b43a7fe9f281694cc617d9b7c5a181ee4e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8bd9495f4637a8392608b9dfb0cb76c9b1e4a6fac326e5ef29008ee232d1f218"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "90f243937e4a0101b73ad9d50c413f416aef02374aeb2c9344ff8a9151944fc3"
+    sha256 cellar: :any, arm64_sequoia: "b476de6d721cbbdbe3d3787af230cad5763445dfdebe235a6163d74b640e9ae6"
+    sha256 cellar: :any, arm64_sonoma:  "aa0820a87a9905e33308c795156e56f7fc4ffa7801332c79aff99c41b2024727"
+    sha256 cellar: :any, sonoma:        "7b0178a4c92fd7b556843adbc2633b11294da014f2b4d38d8a0c0d709e741413"
+    sha256 cellar: :any, arm64_linux:   "5b66b0f4d1ba7b3b45c341292fbc15ea2009271f665ae3ac567e68602b5cea69"
+    sha256 cellar: :any, x86_64_linux:  "f5b403159bbead7abdc9db660d024559b4eed17799b9e5f32e5ba034c8a22ef8"
   end
 
   depends_on "pkgconf" => :build

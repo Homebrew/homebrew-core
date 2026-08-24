@@ -21,7 +21,7 @@ class Instead < Formula
   depends_on "glib"
   depends_on "gtk+3"
   depends_on "luajit"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"

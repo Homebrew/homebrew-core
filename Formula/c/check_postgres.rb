@@ -37,7 +37,7 @@ class CheckPostgres < Formula
     mv bin/"check_postgres.pl", libexec/"bin/check_postgres.pl"
     inreplace [libexec/"bin/check_postgres.pl", man1/"check_postgres.1p"], "check_postgres.pl", "check_postgres"
 
-    (bin/"check_postgres").write_env_script libexec/"bin/check_postgres.pl", PATH: "#{Formula["libpq"].opt_bin}:$PATH"
+    (bin/"check_postgres").write_env_script libexec/"bin/check_postgres.pl", PATH: "#{formula_opt_bin("libpq")}:$PATH"
 
     rm_r(prefix/"lib")
   end

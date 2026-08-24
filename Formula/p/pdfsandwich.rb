@@ -38,7 +38,7 @@ class Pdfsandwich < Formula
                           "--prefix=#{prefix}"
     system "make"
     system "make", "install"
-    bin.env_script_all_files(libexec/"bin", PATH: "#{Formula["poppler"].opt_bin}:$PATH")
+    bin.env_script_all_files(libexec/"bin", PATH: "#{formula_opt_bin("poppler")}:$PATH")
   end
 
   test do

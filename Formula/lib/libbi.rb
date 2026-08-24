@@ -4,25 +4,30 @@ class Libbi < Formula
   url "https://github.com/lawmurray/LibBi/archive/refs/tags/1.4.5.tar.gz"
   sha256 "af2b6d30e1502f99a3950d63ceaf7d7275a236f4d81eff337121c24fbb802fbe"
   license "GPL-2.0-only"
-  revision 6
+  revision 7
   head "https://github.com/lawmurray/LibBi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8f3492d6763bd53c9d705448646ae73c947d565cd274b66a3b134a9caa208377"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "067ddc67e0af1fb1760fa56d6ae5439c2ab0e4ca132ea3c7aba98d09fd68ac2c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3f97ef0e0721b96a280aae2ed862671aa24bca3196a425f7f157888d6a3fe69f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e1f3d23667728f04406e6805caca846da06390fa314cbd8a3850043ccbbe7e48"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a91700fec63d29480a0137368f5541355c294fbe6124fff98aa8599a575aa0c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5883454a2aa5566a18586e365924c1b2ea48cbd153e545cf41fb5404eba8106"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e3f610a205375cf9c5655c96d7372187faaed42eeef648a510f3d9b2126aaeac"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "95233195d8bfdde4999c2d2c6776406b4810e4f1be7da204e94ecc7e04978edb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f2b2beb1601b8891bf48d8dbf83de8d749fc84a49105c8ee97c5e47482146343"
+    sha256 cellar: :any_skip_relocation, sonoma:        "74145974d8c3a196e866c14567e43dd890d180621d04ca3465a3d6d2dc26e7dc"
+    sha256 cellar: :any,                 arm64_linux:   "e92af287db6563c537037ec7096904097288b4e1d461afc0d1a191931ec43f0d"
+    sha256 cellar: :any,                 x86_64_linux:  "e5493553074c94f9ac1269af3e5fc941b99395a74a9d34ed2c974f78e3d5c385"
   end
 
+  depends_on "autoconf"
   depends_on "automake"
-  depends_on "boost"
-  depends_on "gsl"
-  depends_on "netcdf"
-  depends_on "qrupdate"
+  depends_on "boost" => :no_linkage
+  depends_on "gsl" => :no_linkage
+  depends_on "netcdf" => :no_linkage
+  depends_on "qrupdate" => :no_linkage
 
   uses_from_macos "perl"
+
+  on_linux do
+    depends_on "openblas" => :no_linkage
+  end
 
   resource "Test::Simple" do
     url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302133.tar.gz"

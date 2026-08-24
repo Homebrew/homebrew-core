@@ -1,19 +1,19 @@
 class Libformfactor < Formula
   desc "C++ library for the efficient computation of scattering form factors"
-  homepage "https://jugit.fz-juelich.de/mlz/libformfactor"
-  url "https://jugit.fz-juelich.de/mlz/libformfactor/-/archive/v0.4.0/libformfactor-v0.4.0.tar.bz2"
-  sha256 "9e5f0458c78751121e0efa572f9a03e5965fe8ee2d4ff34939b6cce9bfdc8c36"
+  homepage "https://jugit.fz-juelich.de/mlz/lib/formfactor"
+  url "https://jugit.fz-juelich.de/mlz/lib/formfactor/-/archive/v0.5.1/formfactor-v0.5.1.tar.bz2"
+  sha256 "1394b6c8d08a7ffd19a5f74b1f187d1537a398199fe22ac78c2d441a278e49ae"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9607729d3bafce681cb6678cf675738a1a98f87d613592317a9a96c29085a8d7"
-    sha256 cellar: :any,                 arm64_sequoia: "3ebfbb57a42e68ac20053ee98bb257a6b7670b4c8a1d4719bc2697477e4f8024"
-    sha256 cellar: :any,                 arm64_sonoma:  "e4e54cd941e921522620cd8029646213047f4ca9e10f2371361a2c40617f3c49"
-    sha256 cellar: :any,                 tahoe:         "cebe06822c0a0e5d597b3f076d805f8fd39b72ab73b1f017acabacf8d04e2897"
-    sha256 cellar: :any,                 sequoia:       "52bc4e72d0b86f5cd3b613e9887b0d98e3b4e7c0a050c2bd9b6666b976dcd18f"
-    sha256 cellar: :any,                 sonoma:        "f24757b59a0dd170f63c7726db7b9e8690a30a7331c1cca2a4db5846bbc672a5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "54bb006639bc9991f2f5ff88f066f4013e1ac4da21b0e482541c9fd526a42213"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8771a938b477f59832c5a62d5e142d20c3ffd3abc101887a38d414d88e173c03"
+    sha256 cellar: :any, arm64_tahoe:   "d6ed20ea820a3bbfc39bfa54acf1dc0ae6c3be6f4fae05e6ffc9ad40e2b5706e"
+    sha256 cellar: :any, arm64_sequoia: "f78124b91494b63720a9e1715660480d9c7b60a48eae20d26df180408bbeac62"
+    sha256 cellar: :any, arm64_sonoma:  "ce60d6a12b38bfa806e2ea23aa02a319947402d4a697b8df5f749c8545263f90"
+    sha256 cellar: :any, tahoe:         "97512da00fd1cd73585b59921d6b35ed23d3c7d515a2e2cc2a925a6539bef0b8"
+    sha256 cellar: :any, sequoia:       "e373f8ae492d35dbadb058860a0e88f1a01a2a8a83c860e89ee3a5c715029d31"
+    sha256 cellar: :any, sonoma:        "474ddad22287c63bd0e222d94d7fa552194301044f20fcb9845297446a946955"
+    sha256 cellar: :any, arm64_linux:   "50eaad281e372b31a35fa5aa5c25f3ea9b39d0923487faa1af3333af3cefecfc"
+    sha256 cellar: :any, x86_64_linux:  "ff1747fba1d74e5b92ab1661fb4a2cfe9688ecd1012cf2f199493fa9ba993a34"
   end
 
   depends_on "cmake" => :build
@@ -21,7 +21,7 @@ class Libformfactor < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build",
-                    "-DLibHeinz_DIR=#{Formula["libheinz"].opt_prefix}/cmake",
+                    "-DLibHeinz_DIR=#{formula_opt_prefix("libheinz")}/cmake",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

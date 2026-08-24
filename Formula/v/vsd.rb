@@ -29,7 +29,7 @@ class Vsd < Formula
   end
 
   def install
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
     inreplace "vsd/Cargo.toml", ", path = \"../vsd-mp4\"", ""
 

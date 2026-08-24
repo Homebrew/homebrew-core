@@ -1,7 +1,7 @@
 class Wazero < Formula
   desc "Zero dependency WebAssembly runtime"
   homepage "https://wazero.io"
-  url "https://github.com/tetratelabs/wazero/archive/refs/tags/v1.12.0.tar.gz"
+  url "https://github.com/wazero/wazero/archive/refs/tags/v1.12.0.tar.gz"
   sha256 "81afcc5576db589dda5403f71aa5ae2593222a7ba9671007484bf0ce6e21e7ba"
   license "Apache-2.0"
 
@@ -23,10 +23,7 @@ class Wazero < Formula
   depends_on "wabt" => :test
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/tetratelabs/wazero/internal/version.version=#{version}
-    ]
+    ldflags = %W[-X github.com/tetratelabs/wazero/internal/version.version=#{version}]
     system "go", "build", *std_go_args(ldflags:), "./cmd/wazero"
   end
 

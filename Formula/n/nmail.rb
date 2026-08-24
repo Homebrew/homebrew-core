@@ -1,18 +1,18 @@
 class Nmail < Formula
   desc "Terminal-based email client for Linux and macOS"
   homepage "https://github.com/d99kris/nmail"
-  url "https://github.com/d99kris/nmail/archive/refs/tags/v5.12.6.tar.gz"
-  sha256 "d68dc58ad6eacaeb4e357021ef84365101436bc2f77af50b620a75f5aa02ce2f"
+  url "https://github.com/d99kris/nmail/archive/refs/tags/v5.15.8.tar.gz"
+  sha256 "51f763e310c5f4467a17a926a0e3b8b2eaeb166af888b3f0277c46b2961d56e8"
   license "MIT"
   head "https://github.com/d99kris/nmail.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a9c2c868e7751becd93c378997d3a176f511dedd07f220ebd6bcbe58c34e9e65"
-    sha256 cellar: :any,                 arm64_sequoia: "fef6f541240ee54973579ae8b1677d3d92648e38783d318a39491ac01b3aa34f"
-    sha256 cellar: :any,                 arm64_sonoma:  "119278c6e74cfb33d6d91af96c87d20c6074fd4dda231ab5c6fe82921258136e"
-    sha256 cellar: :any,                 sonoma:        "0d9179053db2765e1bcccecefc8b349b102ab0776b2e0ff43a32a35dded012ba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fc51627e3af0097ce501d79f6776e0355ed6793471088b0e97b3289b2c774bef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "900b111b3aeac466662730872fb8617b0fb3d491deb9e6079417b12b93ea7a20"
+    sha256 cellar: :any, arm64_tahoe:   "d03f95813a44d8d10823aa7658a3a317dafa3090c72265823b9222a7e55ab0e2"
+    sha256 cellar: :any, arm64_sequoia: "743f40ad3da2dabbeb12cf886b5d421a40777c31d4fd9c0b997bef713d21c472"
+    sha256 cellar: :any, arm64_sonoma:  "63a7aac49b893b99575e345a09092f24c3e3b86c40314323b96b2c89bde25cbd"
+    sha256 cellar: :any, sonoma:        "430855416092be503b0c30718d3c23dd2545986a8cc489d72611d8cd3badcf0e"
+    sha256 cellar: :any, arm64_linux:   "ebc0469ab79db456e1ef77c67a5a5c742a1b36cfa4b90ff8f2eab28b1c5d6967"
+    sha256 cellar: :any, x86_64_linux:  "b46e3c70199307c937a6c0723a42bc98def0096a8acbea769652247870f5545f"
   end
 
   depends_on "cmake" => :build

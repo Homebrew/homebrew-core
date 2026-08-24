@@ -57,7 +57,7 @@ class Gabedit < Formula
     opengl_headers = if OS.mac?
       MacOS.sdk_path/"System/Library/Frameworks/OpenGL.framework/Headers"
     else
-      Formula["mesa"].opt_include
+      formula_opt_include("mesa")
     end
 
     (buildpath/"brew_include").install_symlink opengl_headers => "GL"
@@ -71,7 +71,7 @@ class Gabedit < Formula
         # Add PKG_CONFIG_PATH to pangox-compat in gtkglext.
         ENV.append_path "PKG_CONFIG_PATH", Formula["gtkglext"].libexec/"lib/pkgconfig"
         s.gsub! "OGLLIB=-L/usr/lib -lGL -L/usr/lib -lGLU",
-                "OGLLIB=-L#{Formula["mesa"].opt_lib} -lGL -L#{Formula["mesa-glu"].opt_lib} -lGLU"
+                "OGLLIB=-L#{formula_opt_lib("mesa")} -lGL -L#{formula_opt_lib("mesa-glu")} -lGLU"
       end
       s.gsub! "GTKCFLAGS =", "GTKCFLAGS = -I#{buildpath}/brew_include"
 

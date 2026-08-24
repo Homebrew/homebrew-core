@@ -21,7 +21,7 @@ class Btpd < Formula
   depends_on "libtool" => :build
   depends_on "openssl@4"
 
-  conflicts_with "btcli", because: "both install `btcli` binaries"
+  conflicts_with "bittensor", "btcli", because: "both install `btcli` binaries"
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"

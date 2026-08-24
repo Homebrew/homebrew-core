@@ -4,16 +4,15 @@ class Minidlna < Formula
   url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.3.3/minidlna-1.3.3.tar.gz"
   sha256 "39026c6d4a139b9180192d1c37225aa3376fdf4f1a74d7debbdbb693d996afa4"
   license "GPL-2.0-only"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any, arm64_tahoe:   "3b2a0c48265f03090c984a5cda3f33b5aefeb4971d929fd979436e994527a142"
-    sha256 cellar: :any, arm64_sequoia: "6ec3fef5800203a454903f44e9076e1e41cd3e2382ae6b4727e4e5d9990833aa"
-    sha256 cellar: :any, arm64_sonoma:  "3457530f1b8101109604864ed14dc1e2d27148df78f0f2ca1817ddbc799ab123"
-    sha256 cellar: :any, sonoma:        "54c1e14b7dfed36b83b7baab7e4d7f338b43dacec2129e5ae50494f139d8a85f"
-    sha256 cellar: :any, arm64_linux:   "c2dfb2a33179895d051aa64f7152f9be1b9b4a1a52846c2a42354b459aa0df5f"
-    sha256 cellar: :any, x86_64_linux:  "7195f61a472be5dd8c0e7e6855761daecf3637e71c6da100fd8b7c88248964b2"
+    sha256 cellar: :any, arm64_tahoe:   "0653da91cd10baff42e22dc28994fe4886ed4bce3c4e4f9dbe726c5ff2487522"
+    sha256 cellar: :any, arm64_sequoia: "b57474142d19a4bbb15397eb9e46c5e453c89612e3214f4d497e69070b1e423d"
+    sha256 cellar: :any, arm64_sonoma:  "78110a01d94e4c5049b9dd74db05b9481657df38a32824bc78da4c73bfa0acfd"
+    sha256 cellar: :any, sonoma:        "0f689a9ffd74e5f26e174cc600445048cb1316e6d82ccda352a603b849d9bf38"
+    sha256 cellar: :any, arm64_linux:   "dcc32d273382b08b439ca5d6836e473a3a0108c89a7160ad9b190e1198a45232"
+    sha256 cellar: :any, x86_64_linux:  "aed7febbcd7a0c0cf96cac14d1a6126c83e6a9e87360f11e96c208ae8c0a8a50"
   end
 
   head do
@@ -38,11 +37,12 @@ class Minidlna < Formula
     depends_on "gettext"
   end
 
-  # Apply Fedora's patch to support newer FFmpeg. This has an open merge request:
-  # https://sourceforge.net/p/minidlna/git/merge-requests/58/
+  # Apply Fedora's patch to support newer FFmpeg; the upstream merge request is still open
   patch do
     url "https://src.fedoraproject.org/rpms/minidlna/raw/5de0e84859aa974c489b999ba75c83b5697eecb9/f/0001-Add-compatibility-with-FFMPEG-7.0.patch"
     sha256 "871833e6ae0dbf629b1ff3adc9a2e1c76f7e3ac9a07d0db29ad389847ce9fab4"
+    type :unofficial
+    resolves "https://sourceforge.net/p/minidlna/git/merge-requests/58/"
   end
 
   # Add missing include: https://sourceforge.net/p/minidlna/bugs/351/

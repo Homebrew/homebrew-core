@@ -15,7 +15,7 @@ class Autojump < Formula
   depends_on "python@3.14"
 
   def install
-    python_bin = Formula["python@3.14"].opt_libexec/"bin"
+    python_bin = formula_opt_libexec("python@3.14")/"bin"
     system python_bin/"python", "install.py", "-d", prefix, "-z", zsh_completion
 
     # ensure uniform bottles

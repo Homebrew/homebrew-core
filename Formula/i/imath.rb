@@ -1,18 +1,18 @@
 class Imath < Formula
   desc "Library of 2D and 3D vector, matrix, and math operations"
   homepage "https://imath.readthedocs.io/en/latest/"
-  url "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.2.2.tar.gz"
-  sha256 "b4275d83fb95521510e389b8d13af10298ed5bed1c8e13efd961d91b1105e462"
+  url "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.2.3.tar.gz"
+  sha256 "e10c12b3f21f45bf08e09d4215d9c7691368d747beebd840de0b6fefed2df9f8"
   license "BSD-3-Clause"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ce46ad834b2daf8d6e85f8f2ffa5ee5bb0ef241d8f55effedf54bba69e8a6437"
-    sha256 cellar: :any,                 arm64_sequoia: "473751d9832776b48e077e901e51d68bc141f3b53f84d47ea92ea78acab812d2"
-    sha256 cellar: :any,                 arm64_sonoma:  "695ca118bef6d41442b21fe26c5f26dd22be274dc6a914b535e37b93907f9dc2"
-    sha256 cellar: :any,                 sonoma:        "72a4653f1f1b9e820fcb53cd85720264dd29d9de6346d97a600d8177799020af"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "be13320613472344b92cb55712581bdd059a5137d4f3edd60781b5d99946de95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66774757b29808a5fde422b5ddb395c14419f9e8d10bab44897777734fd52d26"
+    sha256 cellar: :any, arm64_tahoe:   "cd0092341705d6b55ef5e9cf76ef8d5b079af1e4bb3a0d403ae0f308e9775e19"
+    sha256 cellar: :any, arm64_sequoia: "4f6c05dd778e795b70d60af8daacc72dfa4b92ecbaece682ad98c36df92be150"
+    sha256 cellar: :any, arm64_sonoma:  "565d60cf2da053d45fc30d4eb9cb3d0e5da4c8c7bb4dead8c402f3a1d518cc1b"
+    sha256 cellar: :any, sonoma:        "1004b5307a29739dacfcc9118478166ced4ff91476e573b22f9cbd1343af9ee7"
+    sha256 cellar: :any, arm64_linux:   "0a14f495df426cce6b9a7e6595937377123951ee327b0ddc0bc75fd2c489b445"
+    sha256 cellar: :any, x86_64_linux:  "3664b41b9a85c26b5735f4a3507f0970e83d4ed53cacb62c7ec2cc36a3e2c74c"
   end
 
   depends_on "cmake" => :build

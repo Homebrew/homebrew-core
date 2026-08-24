@@ -21,30 +21,38 @@ class Castget < Formula
     patch do # clang-format - only style changes
       url "https://github.com/mlj/castget/commit/28a6a96cfab75a0ff8028dd01b299c3fae4f6d5e.patch?full_index=1"
       sha256 "489c5626a7c1e7fa2e8b4110921d1651216f3cb46ce6beaa1d85de0c1087b9c2"
+      type :backport
     end
     patch do # copyright dates - no functional impact
       url "https://github.com/mlj/castget/commit/3a6131b97313dcc197916dcd0a1f659720a1eae5.patch?full_index=1"
       sha256 "2f8e63cc29660f3dde0732b41f8700bcf2d1cc2e922f72b3b642a79ccfd0454b"
+      type :backport
     end
     patch do # removed email - minor change in output message
       url "https://github.com/mlj/castget/commit/d664a9d270c23056be361d1a040a0529f113bdaa.patch?full_index=1"
       sha256 "575f267c42767e6a4ad45239d0e798662bdb527c62149324259a74755e6f23bf"
+      type :backport
     end
     patch do # C includes - only style changes
       url "https://github.com/mlj/castget/commit/498b3423a1ec48eb1a3257abee0a67758825014c.patch?full_index=1"
       sha256 "5a5232fea5bf417b77f1abe1cf642fbaaea47f8d2a3ad75c1055a308d305c869"
+      type :backport
     end
     patch do # README.md update - no functional impact
       url "https://github.com/mlj/castget/commit/bc2363841a97485fa3704a1219a9b8199bfa0ac7.patch?full_index=1"
       sha256 "328e0152cc0df61b45b12881bd019eb07e1370429896709996f20269400b3009"
+      type :backport
     end
     patch do # castgetrc.example update - no functional impact
       url "https://github.com/mlj/castget/commit/def52152b85ff169d0ded740bcae49d57a4fb264.patch?full_index=1"
       sha256 "44e5c945ee0177c0b859b051ab6be36d0699911e03b5cacbc094ce48dbafbf43"
+      type :backport
     end
     patch do
       url "https://github.com/mlj/castget/commit/6ad0c9d791f646e310b733a9d4d4f7797e92c79c.patch?full_index=1"
       sha256 "d979f9b7db5a8cfd2e631e7a28d6674df7295457bff356d89b26dc8448331d51"
+      type :backport
+      resolves "https://github.com/mlj/castget/issues/48"
     end
   end
 

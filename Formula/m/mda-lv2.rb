@@ -35,8 +35,8 @@ class MdaLv2 < Formula
 
   test do
     # Validate mda.lv2 plugin metadata (needs definitions included from lv2)
-    system Formula["sord"].opt_bin/"sord_validate",
-           *Dir[Formula["lv2"].opt_lib/"**/*.ttl"],
+    system formula_opt_bin("sord")/"sord_validate",
+           *Dir[formula_opt_lib("lv2")/"**/*.ttl"],
            *Dir[lib/"lv2/mda.lv2/*.ttl"]
   end
 end

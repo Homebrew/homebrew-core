@@ -19,7 +19,9 @@ class Libmps < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c54043c0fcf718172a1d9f20e9eae7287180d26f4306f652c19f3d460faf68e9"
   end
 
-  depends_on xcode: :build
+  on_macos do
+    depends_on xcode: :build
+  end
 
   def install
     if OS.mac?

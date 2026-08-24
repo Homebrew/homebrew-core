@@ -20,7 +20,6 @@ class JenkinsCli < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/linuxsuren/cobra-extension/version.version=#{version}
       -X github.com/linuxsuren/cobra-extension/version.commit=#{tap.user}
       -X github.com/linuxsuren/cobra-extension/version.date=#{time.iso8601}

@@ -1,8 +1,8 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.25.1.tar.gz"
-  sha256 "0fe8b6277b0959cfd17562debac0aa5f71e0b02dc4ffa9c60271c583edab586f"
+  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.26.0.tar.gz"
+  sha256 "77458a7156e275c0b7b17fabcb357cb12445d95cfcb26fb9bb7d5ecba45e0b63"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/NLnetLabs/unbound.git", branch: "master"
@@ -16,12 +16,12 @@ class Unbound < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "e70af9383d71c712ef5b32dcd38d2a49650e27e4f0159d4f0b48feb8270b12a2"
-    sha256 arm64_sequoia: "240384c7f32948f485565940a73a5e4a724c8c6a381f40c56a6f0cbdc31a8645"
-    sha256 arm64_sonoma:  "a72e00a0af995e8c5cf003f241fa70e616dfbd3613439e9c37d409fc847d0d95"
-    sha256 sonoma:        "9b23b437d3d41d269b8c49488209126aa615e67eaffc672f698a4600fdd64eb9"
-    sha256 arm64_linux:   "545b8ae4cd36a4f51ed41235c834e4facbb7b4528fa8bd3d780531e50da53584"
-    sha256 x86_64_linux:  "bc33286a98306d040db92f0c2187b098119ce3ced6f70c5a19c4e718f2b0cbd1"
+    sha256 arm64_tahoe:   "029c014b5d546a9f1df752aa3eab596900405aba33b2425fba15d545ab2132b4"
+    sha256 arm64_sequoia: "291fdeea9b8decc2ddba0b6fdda9704c68fcf7ed0e3bace8e47299a43490472f"
+    sha256 arm64_sonoma:  "e425db2eb4bb95c81d1820ffbcb6fe1212193182c42f5425a46b1f6018f07447"
+    sha256 sonoma:        "078f66d2720fef061b8c0094de7e2a340e9ec5518039907b68f30da39c226766"
+    sha256 arm64_linux:   "b0a83ff8d726e32eadb98ebca5c707a7acda9b0b64f3d0112992e8babaf32790"
+    sha256 x86_64_linux:  "366ce454604f5929565b050637d256e3f0891ecdb387d5127a29994d87f552ca"
   end
 
   depends_on "libevent"
@@ -31,17 +31,17 @@ class Unbound < Formula
   uses_from_macos "expat"
 
   def install
-    expat_prefix = OS.mac? ? "#{MacOS.sdk_for_formula(self).path}/usr" : Formula["expat"].opt_prefix
+    expat_prefix = OS.mac? ? "#{MacOS.sdk_for_formula(self).path}/usr" : formula_opt_prefix("expat")
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --enable-event-api
       --enable-tfo-client
       --enable-tfo-server
-      --with-libevent=#{Formula["libevent"].opt_prefix}
+      --with-libevent=#{formula_opt_prefix("libevent")}
       --with-libexpat=#{expat_prefix}
-      --with-libnghttp2=#{Formula["libnghttp2"].opt_prefix}
-      --with-ssl=#{Formula["openssl@3"].opt_prefix}
+      --with-libnghttp2=#{formula_opt_prefix("libnghttp2")}
+      --with-ssl=#{formula_opt_prefix("openssl@3")}
     ]
 
     system "./configure", *args
@@ -51,13 +51,11 @@ class Unbound < Formula
     system "make", "install"
   end
 
-  def post_install
-    conf = etc/"unbound/unbound.conf"
-    return unless conf.exist?
-    return unless conf.read.include?('username: "@@HOMEBREW-UNBOUND-USER@@"')
-
-    inreplace conf, 'username: "@@HOMEBREW-UNBOUND-USER@@"',
-                    "username: \"#{ENV["USER"]}\""
+  post_install_steps do
+    if_path_exists "{{etc}}/unbound/unbound.conf" do
+      inreplace "unbound/unbound.conf", 'username: "@@HOMEBREW-UNBOUND-USER@@"', 'username: "{{user}}"',
+                base: :etc, audit_result: false
+    end
   end
 
   service do

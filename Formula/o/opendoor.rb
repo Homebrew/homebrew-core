@@ -3,12 +3,12 @@ class Opendoor < Formula
 
   desc "CLI for web reconnaissance, directory discovery, and exposure assessment"
   homepage "https://github.com/stanislav-web/OpenDoor"
-  url "https://files.pythonhosted.org/packages/df/98/d3ab61a1685f663c6aae6658a75e2a8ebab81732d38e4e1a5db1e2172865/opendoor-5.17.0.tar.gz"
-  sha256 "df69d87da68ee8dcd5c9bea01fdfac358f05b82f2fe6d4234d6107336d78510c"
+  url "https://files.pythonhosted.org/packages/9b/67/f05f0d3a4c2aaea9651d348ddd196ecb84965e2d50586dc08e1a2f649b0d/opendoor-5.18.0.tar.gz"
+  sha256 "f912e876b57b5416bcd1bb9423d74f7440f1366e0289877609e5dd0a8a2b3d67"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c5b562c262c27a2bb4a79249412f0a45f65f97dd0215453277c281d77cb93d8e"
+    sha256 cellar: :any_skip_relocation, all: "78b11419755c4103ea256c866cbd5a30a377697ce98e351301a6d179cb2a4dc1"
   end
 
   depends_on "python@3.14"
@@ -49,12 +49,12 @@ class Opendoor < Formula
     wordlist.write ["opendoor-health.txt", "missing-opendoor.txt", ""].join(10.chr)
     (testpath/"opendoor-health.txt").write "ok"
 
-    server_pid = spawn Formula["python@3.14"].opt_bin/"python3.14",
+    server_pid = spawn formula_opt_bin("python@3.14")/"python3.14",
                        "-m", "http.server", port.to_s,
                        "--bind", "127.0.0.1",
                        "--directory", testpath.to_s
 
-    sleep 2
+    sleep 4
 
     output = shell_output(
       "#{bin}/opendoor --host 127.0.0.1 --port #{port} --scheme http:// " \

@@ -33,7 +33,7 @@ class Cataclysm < Formula
   depends_on "freetype"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"

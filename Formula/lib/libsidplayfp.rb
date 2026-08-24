@@ -1,8 +1,8 @@
 class Libsidplayfp < Formula
   desc "Library to play Commodore 64 music"
   homepage "https://github.com/libsidplayfp/libsidplayfp"
-  url "https://github.com/libsidplayfp/libsidplayfp/releases/download/v3.0.1/libsidplayfp-3.0.1.tar.gz"
-  sha256 "6b8ffedc2f631a4ca53258e60468eab3e6a2dc4e1369b2e59e3a5955f99a2143"
+  url "https://github.com/libsidplayfp/libsidplayfp/releases/download/v3.1.0/libsidplayfp-3.1.0.tar.gz"
+  sha256 "12a7ba238a6f61a811134a31d494e251eba0dd8f1c03b627d2422d8133a3584b"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Libsidplayfp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "69c4987324a6eaa1065f86f163ffec361c69ce68a96c34feed4312ea4b4cd128"
-    sha256 cellar: :any,                 arm64_sequoia: "25229d51be5e28a3c2158025c7fd5da6baa7ba35a8f559f9e4fb1302ededed9d"
-    sha256 cellar: :any,                 arm64_sonoma:  "dd06a02193b11356d6986e7c7f8358ca4e8cc21343329e8ed4606027d7c44f25"
-    sha256 cellar: :any,                 sonoma:        "de7a17072056d0ee80c192b6d9c54f69ac68d0dd705a422a785560015d0dba69"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ac464c1c9e7b3f970a76e954311ab604faca3fba1cb8580edf2f98fc8ac696e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e14acb29bdb264ff2b1d8b89cf469196b004d95d940051dbe8ae2361a63350f3"
+    sha256 cellar: :any, arm64_tahoe:   "055a7aa1496c9db634b2edc40f1350ccfccec0686154a77dc4aea48fa5da1d69"
+    sha256 cellar: :any, arm64_sequoia: "1684328b1f6a4e0d79156db33f802cb71ebb8c0d4f0182cd37d8f761a68c7c05"
+    sha256 cellar: :any, arm64_sonoma:  "a2278e679f0c3069b59235582c285488b54be2281a319f8310dfcdb9bc773538"
+    sha256 cellar: :any, sonoma:        "c80f00a276dbe802327ea031d963d4ef72d322e5761b77ba2e3cd6acbc94460a"
+    sha256 cellar: :any, arm64_linux:   "05fcc8d7f1aa4fdda796505d5604107cb7e5e3a450245b100496bb2bc8d928eb"
+    sha256 cellar: :any, x86_64_linux:  "74633a6bf403aa0851505db0576ae13e390c5296f6a1b1766731f2ac4c919fd8"
   end
 
   head do

@@ -1,17 +1,17 @@
 class Nuspell < Formula
   desc "Fast and safe spellchecking C++ library"
   homepage "https://nuspell.github.io/"
-  url "https://github.com/nuspell/nuspell/archive/refs/tags/v5.1.7.tar.gz"
-  sha256 "9aee944e86924ce44434741cb950fee8f9a6ff9c4f002803ab5f04698c8e4c68"
+  url "https://github.com/nuspell/nuspell/archive/refs/tags/v5.1.8.tar.gz"
+  sha256 "4221df51003a4406717440f617044e03f916dfcb900e2d1f13902c533b0969f8"
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6863e34c58596b85e558b7184ac455bf449ff65cd5b9ac2f3d3f4c509ca155a6"
-    sha256 cellar: :any,                 arm64_sequoia: "d28b1a84a1ec0cfd557fcf6febd53a6c0cf1fd10fb4363ddb7566518b5cd7ea6"
-    sha256 cellar: :any,                 arm64_sonoma:  "5462266d572558109b691dd064870f1bbeb1a7e6b7d455c8c6a7cd7cabf319e4"
-    sha256 cellar: :any,                 sonoma:        "38a0d023c75e8bb42cf442000fcf1e652517dbac3ad292d744a0f405e77e30ff"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d32911d3302e34fc0d672550c67d524070c0313b29f2f8177154644eff4402c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f038716f553adbecc58cf191544f5cca27c9bdcdc0e79f8c380e66a13f1a34e"
+    sha256 cellar: :any, arm64_tahoe:   "730c02fd898abdc8535fb72a8a21f5c86b5be1afaa2de50018bafd8534062a95"
+    sha256 cellar: :any, arm64_sequoia: "ff39a089ac3b7bad56e023934d1890bae37dab47b16ab82be4f64c782a70b9e5"
+    sha256 cellar: :any, arm64_sonoma:  "bb95316eeef45739b00d50b28311bbf861302ca5e3fac5eea560e1b4044e8560"
+    sha256 cellar: :any, sonoma:        "7bbb925dc194ca5ec31528d7fc2ed5e4050000aaeb764d2080519571293d54c0"
+    sha256 cellar: :any, arm64_linux:   "1fd12a096c62e208c24f0ceba66a14c34a4f937bda2383a104135979e26608b1"
+    sha256 cellar: :any, x86_64_linux:  "e176e981474bb728c85385fa332bb063053fa4f14b0fce27e645690af5843d19"
   end
 
   depends_on "cmake" => :build

@@ -24,7 +24,7 @@ class Rsc2fa < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-mod=mod", *std_go_args(ldflags: "-s -w", output: bin/"2fa")
+    system "go", "build", "-mod=mod", *std_go_args(output: bin/"2fa")
   end
 
   test do

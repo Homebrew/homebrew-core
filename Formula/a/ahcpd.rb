@@ -2,6 +2,7 @@ class Ahcpd < Formula
   desc "Autoconfiguration protocol for IPv6 and IPv6/IPv4 networks"
   homepage "https://www.irif.fr/~jch/software/ahcp/"
   url "https://www.irif.fr/~jch/software/files/ahcpd-0.53.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/a/ahcpd/ahcpd_0.53.orig.tar.gz"
   sha256 "a4622e817d2b2a9b878653f085585bd57f3838cc546cca6028d3b73ffcac0d52"
   license "MIT"
 
@@ -27,16 +28,13 @@ class Ahcpd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2007cca57256875a13c8dc554e48d2bbfc9b061101bbd2f24f07910b75f0aa00"
   end
 
-  patch :DATA
-
   def install
-    if OS.mac?
-      # LDLIBS='' fixes: ld: library not found for -lrt
-      system "make", "LDLIBS=''"
-    else
-      system "make"
-    end
-    system "make", "install", "PREFIX=", "TARGET=#{prefix}"
+    args = ["PREFIX=", "TARGET=#{prefix}"]
+    # LDLIBS='' fixes: ld: library not found for -lrt
+    args << "LDLIBS=" if OS.mac?
+
+    system "make", "install", *args
+    share.install prefix/"man"
   end
 
   test do
@@ -64,28 +62,3 @@ class Ahcpd < Formula
     Process.kill("TERM", pid_file.read.to_i)
   end
 end
-
-__END__
-diff --git a/Makefile b/Makefile
-index e52eeb7..28e1043 100644
---- a/Makefile
-+++ b/Makefile
-@@ -40,8 +40,8 @@ install.minimal: all
-	chmod +x $(TARGET)/etc/ahcp/ahcp-config.sh
-
- install: all install.minimal
--	mkdir -p $(TARGET)$(PREFIX)/man/man8/
--	cp -f ahcpd.man $(TARGET)$(PREFIX)/man/man8/ahcpd.8
-+	mkdir -p $(TARGET)$(PREFIX)/share/man/man8/
-+	cp -f ahcpd.man $(TARGET)$(PREFIX)/share/man/man8/ahcpd.8
-
- .PHONY: uninstall
-
-@@ -49,7 +49,7 @@ uninstall:
-	-rm -f $(TARGET)$(PREFIX)/bin/ahcpd
-	-rm -f $(TARGET)$(PREFIX)/bin/ahcp-config.sh
-	-rm -f $(TARGET)$(PREFIX)/bin/ahcp-dummy-config.sh
--	-rm -f $(TARGET)$(PREFIX)/man/man8/ahcpd.8
-+	-rm -f $(TARGET)$(PREFIX)/share/man/man8/ahcpd.8
-
- .PHONY: clean

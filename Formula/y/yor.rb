@@ -21,7 +21,7 @@ class Yor < Formula
 
   def install
     inreplace "src/common/version.go", "Version = \"9.9.9\"", "Version = \"#{version}\""
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   test do

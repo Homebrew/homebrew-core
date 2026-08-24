@@ -18,7 +18,7 @@ class Mufetch < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/ashish0kumar/mufetch/cmd.version=#{version}"
+    ldflags = "-X github.com/ashish0kumar/mufetch/cmd.version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
   end
 

@@ -3,9 +3,10 @@ class Torchvision < Formula
 
   desc "Datasets, transforms, and models for computer vision"
   homepage "https://pytorch.org/vision/stable/index.html"
-  url "https://github.com/pytorch/vision/archive/refs/tags/v0.27.1.tar.gz"
-  sha256 "705d5ab7d01af9ece3bfbb1486eed3c23a2f68414fcc9c9a88910fb3c018c3db"
+  url "https://github.com/pytorch/vision/archive/refs/tags/v0.28.0.tar.gz"
+  sha256 "ecc4451241c8eeadc0c88213bd65c7932c9622d1d0034254b938f25362283ee9"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -13,12 +14,12 @@ class Torchvision < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "6cdbcce923d100be24139f1cf2a2bd822aaddf0067c4ff190949e02f14680bc0"
-    sha256 cellar: :any, arm64_sequoia: "a4b4d02b357636c81f56a1471359752e7b97cfe947817e420bbdb0c43d0e7f63"
-    sha256 cellar: :any, arm64_sonoma:  "440e9ff1c720965c4088c6a1abbf207362a5a2755bf559d0e2d89ce17966709c"
-    sha256 cellar: :any, sonoma:        "9b64a307d4247d60a3230f3b0af35d0f677257e95e869ddf0a8e36134b47e456"
-    sha256 cellar: :any, arm64_linux:   "9af8f4f10fbd0c39efdf83c417e06ec950e1baaeec32901fba07406e10f9a402"
-    sha256 cellar: :any, x86_64_linux:  "f0a737e66a54198a72ca17f13c2027394584639fe9f0d251c7bf2712d22e8031"
+    sha256 cellar: :any, arm64_tahoe:   "b8790d64bebfa9e0eafd5e696263666c843484e1b0ac67e71d2bc8a178d26baf"
+    sha256 cellar: :any, arm64_sequoia: "e11aecc565c72e93041ae7be0cf689519e48051c69e7000e724134ec85d43795"
+    sha256 cellar: :any, arm64_sonoma:  "0278c55c6c9689b909f13831b8239ca2852b65f59153007420beac0fe7944960"
+    sha256 cellar: :any, sonoma:        "96df3ae8931c6857921e860b180ee07e37c3d6569541a0058a6f5de37eb7eeeb"
+    sha256 cellar: :any, arm64_linux:   "e64d59d190a1c223d43f42ba94014b56809c9866d5377276ddba4af1eb51766d"
+    sha256 cellar: :any, x86_64_linux:  "f3e336ad01f0d19511d70d360d812908c28b305e95b684a6175850bec05fd1a4"
   end
 
   depends_on "cmake" => :build
@@ -54,7 +55,7 @@ class Torchvision < Formula
     # This needs to happen _before_ we try to install torchvision.
     # NOTE: This is an exception to our usual policy as building `pytorch` is complicated
     site_packages = Language::Python.site_packages(venv.root/"bin/python3")
-    pth_contents = "import site; site.addsitedir('#{Formula["pytorch"].opt_libexec/site_packages}')\n"
+    pth_contents = "import site; site.addsitedir('#{formula_opt_libexec("pytorch")/site_packages}')\n"
     (venv.site_packages/"homebrew-pytorch.pth").write pth_contents
 
     venv.pip_install_and_link(buildpath, build_isolation: false)

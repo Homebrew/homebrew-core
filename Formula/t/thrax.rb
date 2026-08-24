@@ -4,7 +4,6 @@ class Thrax < Formula
   desc "Tools for compiling grammars into finite state transducers"
   homepage "https://www.openfst.org/twiki/bin/view/GRM/Thrax"
   url "https://www.openfst.org/twiki/pub/GRM/ThraxDownload/thrax-1.3.10.tar.gz"
-  mirror "http://206.196.111.47/twiki/pub/GRM/ThraxDownload/thrax-1.3.10.tar.gz"
   sha256 "78dedada58a0a8543b4ea90c77a36783ac82495cf5456bec5d83baafac74b764"
   license "Apache-2.0"
 
@@ -20,18 +19,11 @@ class Thrax < Formula
     sha256 cellar: :any, sonoma:        "856ef28235ec1772a3b695f448fae21b7b9f65077b947555cd5e6c0ab006c174"
   end
 
-  # Regenerate `configure` to avoid `-flat_namespace` bug.
-  # None of our usual patches apply.
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-
-  depends_on :macos
+  depends_on :macos # Linux runners are unable to download tarball
   depends_on "openfst"
   uses_from_macos "python"
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
     system "make", "install"
     rewrite_shebang detected_python_shebang(use_python_from_path: true), bin/"thraxmakedep"

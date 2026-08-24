@@ -1,8 +1,8 @@
 class VapoursynthBm3d < Formula
   desc "BM3D denoising filter for VapourSynth"
   homepage "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-BM3D"
-  url "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-BM3D/archive/refs/tags/r10.1.tar.gz"
-  sha256 "3a340c23f4d77559d7c766a2a14f4a1e408752a785958930eb4ca41e13392c85"
+  url "https://files.pythonhosted.org/packages/65/83/ecba54a88f9ec1df08a5ad8aa5ef8cd861fff7911018e821dee206b24289/vapoursynth_bm3d-10.1.tar.gz"
+  sha256 "f6cd25142008b1c4843e727bcc3746479198439ac800e258240c6ab0009ea115"
   license "MIT"
   revision 1
   head "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-BM3D.git", branch: "master"

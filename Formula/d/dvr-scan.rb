@@ -6,17 +6,18 @@ class DvrScan < Formula
   url "https://files.pythonhosted.org/packages/47/84/a3256473a827f0c17e3e724c409a33146a26d6515f87df38c3a649547b7d/dvr_scan-1.8.2.1.tar.gz"
   sha256 "e424eaa8f2502a773588c97722bfe163f1317129e6e7073c25c4282bcf5f8e40"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/Breakthrough/DVR-Scan.git", branch: "main"
 
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "019cefcdf7a7564e405248f06e38648816191e7c7b302fdf820f47ac7b280ea4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "14133c2827474d25ec109ccc782dd86172e4597f8b9edd2f0253b73de400cc78"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8aaef53f7eeefb459b38b697469c65c03e6c5f27ac4fca1e91450336a2d3d8e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eddeb367f9bbbf1da189a37416f46156f40e4d167fb5425784ee30e7d861b542"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4418d3c8378126cb6718773b5c1418976e4fb5a3bc40378b290c7afd86305ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46fbe68caeb6038e2f4a533700d76aa8ba81cc6c9695962e0eb0812792139e17"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1b985d7e3d7cd0d6bf7b017d924ef09919d93256cba4142f0c5d87ed9c5bd2b7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7d272ee38eacaf36292a93d6c9705cfb3b0713a691a21c44476a70c101e34022"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f7940a7b39c42c3cef65925e26c7168d4d67bfe8921149363340b156595ccd75"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9267191144d62a235c0a6c2e01cc4bb61389a9f6aae7051295052c4acb8ca77d"
+    sha256 cellar: :any,                 arm64_linux:   "0958b7913a4500f9519a958ec0a11ff2ded19dd9776fd281683cf7068ce4b69e"
+    sha256 cellar: :any,                 x86_64_linux:  "fa4334f8c940bdd4abf258a2ae39f597506901404b9e12760a638a0fac153875"
   end
 
   depends_on "cmake" => :build
@@ -89,11 +90,13 @@ class DvrScan < Formula
 
   test do
     resource "sample-vid" do
-      url "https://download.samplelib.com/mp4/sample-5s.mp4"
-      sha256 "05bd857af7f70bf51b6aac1144046973bf3325c9101a554bc27dc9607dbbd8f5"
+      url "https://raw.githubusercontent.com/Breakthrough/DVR-Scan/6afbff4374e435ce40d51311084e96bf087bf7aa/tests/resources/traffic_camera.mp4"
+      sha256 "cb8dd0170b28c6322b399d78464ff4515a32728b73c14de5e5c3729b98ce82aa"
     end
     resource("sample-vid").stage do
-      assert_match "Detected 1 motion event", shell_output("#{bin}/dvr-scan -i sample-5s.mp4 2>&1")
+      # https://github.com/Breakthrough/DVR-Scan/blob/main/tests/resources/traffic_camera.txt
+      output = shell_output("#{bin}/dvr-scan -i traffic_camera.mp4 -so -roi 631 532 210, 127")
+      assert_match "Detected 3 motion events", output
     end
   end
 end

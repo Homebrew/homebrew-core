@@ -26,20 +26,22 @@ class MinioMc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f8ddb10d84cbd05663a495bb04c778a3d5e4915b2b1c506cc98a6a2a1750dbd"
   end
 
+  deprecate! date: "2026-07-17", because: :repo_archived
+  disable! date: "2027-07-17", because: :repo_archived
+
   depends_on "go" => :build
 
   conflicts_with "midnight-commander", because: "both install an `mc` binary"
 
   def install
     if build.head?
-      system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"mc")
+      system "go", "build", *std_go_args(output: bin/"mc")
     else
       minio_release = stable.specs[:tag]
       minio_version = version.to_s.gsub(/T(\d+)-(\d+)-(\d+)Z/, 'T\1:\2:\3Z')
       proj = "github.com/minio/mc"
 
       ldflags = %W[
-        -s -w
         -X #{proj}/cmd.Version=#{minio_version}
         -X #{proj}/cmd.ReleaseTag=#{minio_release}
         -X #{proj}/cmd.CommitID=#{Utils.git_head}

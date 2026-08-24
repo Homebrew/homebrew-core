@@ -9,6 +9,9 @@ class Autorest < Formula
     sha256 cellar: :any_skip_relocation, all: "b9e9e79e98255f252a645acc787169370311c4822e30d35639cc491e8d67910f"
   end
 
+  deprecate! date: "2026-07-17", because: :deprecated_upstream
+  disable! date: "2027-01-17", because: :deprecated_upstream
+
   depends_on "node"
 
   def install

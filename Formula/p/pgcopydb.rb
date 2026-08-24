@@ -1,21 +1,18 @@
 class Pgcopydb < Formula
   desc "Copy a Postgres database to a target Postgres server"
   homepage "https://github.com/dimitri/pgcopydb"
-  url "https://github.com/dimitri/pgcopydb/archive/refs/tags/v0.17.tar.gz"
-  sha256 "7ed96f7bbc0a5250f3b73252c3a88d665df9c8101a89109cde774c3505882fdf"
+  url "https://github.com/dimitri/pgcopydb/archive/refs/tags/v0.18.tar.gz"
+  sha256 "d1fbc729b3d6aabbebd64f515a956130adf42a0e9104886084d76d5702fb99d0"
   license "PostgreSQL"
   head "https://github.com/dimitri/pgcopydb.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "0922fc7e2a6d606e02d8e140e9d621bb9b865cb9c9ba074a057d132cb1b3b187"
-    sha256 arm64_sequoia: "f0f0c6e9e3ebe35b9d32a1e127cafe4fe120356dc758a1475c6830af13d048b2"
-    sha256 arm64_sonoma:  "ff96b14430ae0b5ccea29365fb3d3b4d37a792534d74744250ebaaf425a6851d"
-    sha256 arm64_ventura: "b1fbef60821224b0230fae583caaebf0b70750d0dd7d8ec0a9ec2ec7cb0eb8bd"
-    sha256 sonoma:        "a3e2806d74af8c705b2077032255a7cd39ac079c4997c980231b49651416c109"
-    sha256 ventura:       "daefeb247366553b851071c3d429869d26695d11b4a675f7e51245039301b3f2"
-    sha256 arm64_linux:   "c92d7b713b5620eee463b7c5a355c9c9d04676cc3d7d5e1bbf298d3bc0c4bd0d"
-    sha256 x86_64_linux:  "6f99b95987e4d9873cb365c5be588e3b55281ccf09e2879f67d63dd97cf8370e"
+    sha256 arm64_tahoe:   "0abe2100b8618872b68755752dc2d39a1ad730eb34e2732d6121724a2e7a844c"
+    sha256 arm64_sequoia: "2434673cf48fbbab5e75f2cb7f03fb1f5b32a14c06182a5f5666ba9b1bf50234"
+    sha256 arm64_sonoma:  "f7403924e8340bfa32ebf98a9862cef1f6ab7275d8c633ea847241d48a2b4e10"
+    sha256 sonoma:        "e8916d9e86be6c9fc1a25e80ea8f2fc8aa309fbce5b211960c116fbb6631e3c1"
+    sha256 arm64_linux:   "9827cba77982afb1555e51cdf3a5a5518b16bd84faaa3c0c88c7779ad582ee77"
+    sha256 x86_64_linux:  "85445fc9a40b676e3ad961d36aeb68eecaacd74ac9e90fcd5a88078294c31de4"
   end
 
   depends_on "sphinx-doc" => :build
@@ -26,7 +23,7 @@ class Pgcopydb < Formula
     system "make", "bin"
     libexec.install "src/bin/pgcopydb/pgcopydb"
 
-    (bin/"pgcopydb").write_env_script libexec/"pgcopydb", PATH: "$PATH:#{Formula["libpq"].opt_bin}"
+    (bin/"pgcopydb").write_env_script libexec/"pgcopydb", PATH: "$PATH:#{formula_opt_bin("libpq")}"
 
     system "make", "-C", "docs", "man"
     man1.install Dir["docs/_build/man/*"]

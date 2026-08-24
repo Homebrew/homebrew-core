@@ -1,18 +1,18 @@
 class Fortitude < Formula
   desc "Fortran linter"
   homepage "https://fortitude.readthedocs.io/en/stable/"
-  url "https://github.com/PlasmaFAIR/fortitude/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "04018554aadd9b846c99b5ffc218fe483c353020daefb777af39a75724a6338e"
+  url "https://github.com/PlasmaFAIR/fortitude/archive/refs/tags/v0.9.2.tar.gz"
+  sha256 "90ea53522c423380079a58e5f8c813d01d487756f25aa3cc1b40a2ce2f55e7d6"
   license "MIT"
   head "https://github.com/PlasmaFAIR/fortitude.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c3aa77b513f1a25b317d4b42eb5f0414e806bf0b39563d0f98eb24522e755f4f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5e9f173ebbbc57e9cf0c5691c064da5b758c47efe2f54220d7b362bdfcf3fe62"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2ccae67fb22d0966ad50cb0d8cabaa5183eaa53061cd29e519f69e2705619c11"
-    sha256 cellar: :any_skip_relocation, sonoma:        "400f4d96043009f5b4258a79178f0bbb95d9cb62d9478f497d712d15cea2ff40"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "546941a3467143b2291927d1e94ae7b6288781cc3f1c91b6d8ddc32c0f895913"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a816f1146d8b65153c7372c856a23f8440068e5ad8aa36e4e79a43ef5acc2a43"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "db7e886c979d9ba7478bd577ab59a72b7caff475384c6923a84b60ce33f75ba6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6cc085a2bf4e106de34b4a1dd7707b623e9d765261f03c9b84c4da52671b3cd5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "04ed4828a178e34842cfaff2c97a85f27865f6d88d1bdc41dc16134aac757a8a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "de4c8463acc9d1a22a7ee49c779252b87fa3b8d9aa8fbf2d7807643caeb62ea0"
+    sha256 cellar: :any,                 arm64_linux:   "f293c61552b068b8e96b84176b53459303a04dba4ddfb56830c88dd4c015cb42"
+    sha256 cellar: :any,                 x86_64_linux:  "6f4d21f8601f25ac226a1a649abe506047f1da590e767ccf5a59cea2c57b4c60"
   end
 
   depends_on "rust" => :build

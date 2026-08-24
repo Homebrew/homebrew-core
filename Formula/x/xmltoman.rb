@@ -8,17 +8,17 @@ class Xmltoman < Formula
   url "https://downloads.sourceforge.net/project/xmltoman/xmltoman/xmltoman-0.4.tar.gz/xmltoman-0.4.tar.gz"
   sha256 "948794a316aaecd13add60e17e476beae86644d066cb60171fc6b779f2df14b0"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1dc66e4edcf9738b149ab2d52a0b50185d94237f473a174c8a3b40a747149f8a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1dc66e4edcf9738b149ab2d52a0b50185d94237f473a174c8a3b40a747149f8a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1dc66e4edcf9738b149ab2d52a0b50185d94237f473a174c8a3b40a747149f8a"
-    sha256 cellar: :any_skip_relocation, tahoe:         "1dc66e4edcf9738b149ab2d52a0b50185d94237f473a174c8a3b40a747149f8a"
-    sha256 cellar: :any_skip_relocation, sequoia:       "1dc66e4edcf9738b149ab2d52a0b50185d94237f473a174c8a3b40a747149f8a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1dc66e4edcf9738b149ab2d52a0b50185d94237f473a174c8a3b40a747149f8a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "820c90d12578e4a1bb4276c03e5acbd0a03d9f0b0317de2b4b1d0c731878a60e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df54ca9aec96466a2d111f21e4fee9fae3b96ade496f0801b2d0bf51ead733d2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5da8397d661fb35e42adec8172bfdc0fbcb5370c59885ec9710f362951a0fd12"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5da8397d661fb35e42adec8172bfdc0fbcb5370c59885ec9710f362951a0fd12"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5da8397d661fb35e42adec8172bfdc0fbcb5370c59885ec9710f362951a0fd12"
+    sha256 cellar: :any_skip_relocation, tahoe:         "5da8397d661fb35e42adec8172bfdc0fbcb5370c59885ec9710f362951a0fd12"
+    sha256 cellar: :any_skip_relocation, sequoia:       "5da8397d661fb35e42adec8172bfdc0fbcb5370c59885ec9710f362951a0fd12"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5da8397d661fb35e42adec8172bfdc0fbcb5370c59885ec9710f362951a0fd12"
+    sha256 cellar: :any,                 arm64_linux:   "bd5e21010f569948d6da34986ff3881e2befdacedd5c755005b0caa8b4ac4a3e"
+    sha256 cellar: :any,                 x86_64_linux:  "13c53ad2a94fa4249c146a7d34a0b3127be4696b8f56dbd0f86aecc1671fb1cd"
   end
 
   uses_from_macos "expat"

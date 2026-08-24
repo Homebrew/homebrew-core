@@ -1,18 +1,18 @@
 class Qqqa < Formula
   desc "Fast, stateless LLM for your shell: qq answers; qa runs commands"
   homepage "https://github.com/iagooar/qqqa"
-  url "https://github.com/iagooar/qqqa/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "a1274ad02b74ccab7be9dbe2034cdcc817096ad8067c1d42b639a40c94abf864"
+  url "https://github.com/iagooar/qqqa/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "1a47852ade8175570c3b0f6358a2850be4281ffa9511e14cc4240420e4d02a75"
   license "MIT"
   head "https://github.com/iagooar/qqqa.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b68fcc1e9cfd889ac4e999468edfe4bd0630a08c6cd14c1fb647b09362df8e09"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "56c864453f7525c592a7bfe08ce8dc360ed00bc216e8c85c98264a12070715f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f8159c9e73f1079322e552f1befa4d0a50369ac1202e42f6c51650388a42be3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c2217c738205d2df48b557f20c6bd9215200dab98c63caf6c707033ebd4ef936"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1100cb26ad99b07e360377cf70294c19e73cfaf6c8c396ca25d0551b3cb10b9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e849ef147830e67fa4a59d2331ca9d88ce6c286ecccc9abd0dead94d6f5b86f7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8312340e34624f23b3671566cb746d62693388516dbc63440e98eb462d92d942"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4078a12a421c9cc8275b7edacefb8b376692bbc1f6e190b2319aaae78e9cd596"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6391ece35a7f749e952e186c2f07dc1a3cfacabbdbb347ecaf838aee84394da6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e930ac79c9748feb95d46f0b9c6fd230c4b83827d971b0e290accc7640c36f49"
+    sha256 cellar: :any,                 arm64_linux:   "990d54cdf9e96d1397e0475830f3a205448ea6496acc495ad8cb44727805024b"
+    sha256 cellar: :any,                 x86_64_linux:  "1983e792d64fd1b766e56f0ee300743ed55dbd293f1279b8045cd4377fb189a7"
   end
 
   depends_on "rust" => :build

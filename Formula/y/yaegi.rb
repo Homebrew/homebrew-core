@@ -21,7 +21,7 @@ class Yaegi < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X=main.version=#{version}"), "./cmd/yaegi"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/yaegi"
   end
 
   test do

@@ -3,13 +3,12 @@ class Imgp < Formula
 
   desc "High-performance CLI batch image resizer & rotator"
   homepage "https://github.com/jarun/imgp"
-  url "https://github.com/jarun/imgp/archive/refs/tags/v2.9.tar.gz"
-  sha256 "4cc3dcbe669ff6b97641ce0c6c332e63934d829a0700fd87171d5be5b1b89305"
+  url "https://github.com/jarun/imgp/archive/refs/tags/v3.0.tar.gz"
+  sha256 "8d11fc1969ec908b996e04d2d266137fa167221152d2a9e4197308393b41bf03"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "1b830407f142350dedaa37c6eb4943fb97d59420c9f37ac79e2c0221ed4350e0"
+    sha256 cellar: :any_skip_relocation, all: "25a228f3fc9be51282ff36029fda1322123215aaa46edede5163a1a31b8156bf"
   end
 
   depends_on "pillow"

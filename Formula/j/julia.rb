@@ -2,8 +2,8 @@ class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
   # Use the `-full` tarball to avoid having to download during the build.
-  url "https://github.com/JuliaLang/julia/releases/download/v1.12.6/julia-1.12.6-full.tar.gz"
-  sha256 "711f3aa8d6ec5c9004593eb8f3d53e3564cd759acba8ad4adae967afc20332cc"
+  url "https://github.com/JuliaLang/julia/releases/download/v1.12.7/julia-1.12.7-full.tar.gz"
+  sha256 "5c7d85b771de3185eeca9fbc2e6173d8bcf6d74f68418622a9e9c43ad752af51"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
@@ -17,12 +17,12 @@ class Julia < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0bb211e4fd86ece2ac70c41d8837dca72ff8f0211aa9c1bf6d145a9dd417eca3"
-    sha256 cellar: :any,                 arm64_sequoia: "7ac7fad8e6b347d701bde5500abd2243821d88f62ce3455c728e643cb5d3ab3d"
-    sha256 cellar: :any,                 arm64_sonoma:  "c2ad6e5fa61633fb49c6ac16eec104860f59502454437c30154f6add53e3b8fc"
-    sha256 cellar: :any,                 sonoma:        "a08682c717772c224125dfb554ee72728e5c113d9767f039123012c8c409bf07"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "031f2fad72004425fda1465d469056ae4b1be7c4b0ab9b4789bb065708c51cb4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "960bce588ddc557aecf7b73089f1c9529c671bc029b7141e6444adf1e232e27c"
+    sha256 cellar: :any, arm64_tahoe:   "37dd4dbde13c3f895761d180caa5ae62353afc50f85826ec66f3dadd6117af32"
+    sha256 cellar: :any, arm64_sequoia: "f5a0d14444fe579d8c103656fe43465582e893146ed6622d13fd3d7fce283f11"
+    sha256 cellar: :any, arm64_sonoma:  "909343a8f9ccc0bfe198adedc881f430110b2300cd56ad2bf0a90d502dcae120"
+    sha256 cellar: :any, sonoma:        "0ec55ac71e10be13892d3c8017e56f4e37f4c76b2a34dcd59b67a79798b494df"
+    sha256 cellar: :any, arm64_linux:   "f17a75dfbfadd7854f856f813372a53e0944717bed3487a88ea8493203d544b9"
+    sha256 cellar: :any, x86_64_linux:  "b502ddf0ac05abaa3e516f7c126c92a584af63dfb417fd562f6499c3a25c7b0c"
   end
 
   depends_on "cmake" => :build # Needed to build LLVM
@@ -93,7 +93,11 @@ class Julia < Formula
     ]
 
     args << "TAGGED_RELEASE_BANNER=Built by #{tap&.user || "unknown user"} (v#{pkg_version})"
-    args << "MACOSX_VERSION_MIN=#{MacOS.version}" if OS.mac?
+    if OS.mac?
+      args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
+      # `-force_load` takes an archive path, so pass the `-lutf8proc` of `USE_SYSTEM_UTF8PROC` through as-is
+      args << "whole_archive=$(if $(filter -l%,$(1)),$(1),-Xlinker -force_load $(1))"
+    end
 
     # Set MARCH and JULIA_CPU_TARGET to ensure Julia works on machines we distribute to.
     # https://github.com/JuliaLang/julia/blob/master/doc/src/devdocs/build/distributing.md#target-architectures
@@ -120,6 +124,9 @@ class Julia < Formula
                         x86-64-v4,-rdrnd,base(1)]
     end
     args << "JULIA_CPU_TARGET=#{cpu_targets.join(";")}"
+
+    # Parallel sysimage shards each hold a full copy of the module, which runs the builder out of memory
+    ENV["JULIA_IMAGE_THREADS"] = "1" if OS.linux? && Hardware::CPU.arm?
 
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/julia"
     # Help Julia find keg-only dependencies

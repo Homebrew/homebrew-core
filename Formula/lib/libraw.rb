@@ -1,8 +1,8 @@
 class Libraw < Formula
   desc "Library for reading RAW files from digital photo cameras"
   homepage "https://www.libraw.org/"
-  url "https://www.libraw.org/data/LibRaw-0.22.1.tar.gz"
-  sha256 "a789dc4e2409e2901d93793a4e0b80c7b49d0d97cf6ad71c850eb7616acfd786"
+  url "https://www.libraw.org/data/LibRaw-0.22.2.tar.gz"
+  sha256 "de86b035655accff8d4010f1a221fdf50d353cb7b1422ba26f14a0db92612cfa"
   license any_of: ["LGPL-2.1-only", "CDDL-1.0"]
   compatibility_version 2
 
@@ -12,12 +12,12 @@ class Libraw < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6d5b21dc4697e4d359934c6d386fa2807319b1cc119e0c74ed47a4226acb9877"
-    sha256 cellar: :any,                 arm64_sequoia: "bae39130d2cb53d6b7fd5f4ee48e3412b5ec27ddcf0d8786a37490ed9f655a2b"
-    sha256 cellar: :any,                 arm64_sonoma:  "3a1c3da28c276df566c71e5646eabb2cc9797f49cd5e66c744217efa1ce3b55a"
-    sha256 cellar: :any,                 sonoma:        "352953a6564709b14b2de0d435bda8de13988b9fd35d0740018d451ae5afa4f6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2c17f5029564905fa71590b18366243fa2b31b5ee8c2b36cf64bf2d475abac39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d93c19ae3ffdd3ab5b5bde74661e427b81ea0d2c7070669ff0a4409e132ac55b"
+    sha256 cellar: :any, arm64_tahoe:   "1954d876dea5007a105c9b72a44c0db378a653879ee19d055e550345171b57a9"
+    sha256 cellar: :any, arm64_sequoia: "4b48386f601bb9918ea42f453fc3b666ef05f573c8a50d1b4780c8578c374658"
+    sha256 cellar: :any, arm64_sonoma:  "2652cda9de7786db17eab618fd990204d8c3a4c76d0f6a7ddc3c1a438cba84d3"
+    sha256 cellar: :any, sonoma:        "a36ddd43c98af6131a823ab3e07a6325406e421b918228d60c42f184d1015347"
+    sha256 cellar: :any, arm64_linux:   "5fb8138d4b81b873f49d8815859f4fa0daab90983aa0aa60a2d3d9383f7d15b2"
+    sha256 cellar: :any, x86_64_linux:  "e4d86d6478134315d8baf92b5f62cd66a7678acc0aa4679e09b24ac1b122bbb5"
   end
 
   head do

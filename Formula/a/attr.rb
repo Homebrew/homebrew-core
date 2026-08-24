@@ -1,9 +1,9 @@
 class Attr < Formula
   desc "Manipulate filesystem extended attributes"
   homepage "https://savannah.nongnu.org/projects/attr"
-  url "https://download.savannah.nongnu.org/releases/attr/attr-2.5.2.tar.gz"
-  mirror "https://mirror.csclub.uwaterloo.ca/nongnu/attr/attr-2.5.2.tar.gz"
-  sha256 "39bf67452fa41d0948c2197601053f48b3d78a029389734332a6309a680c6c87"
+  url "https://download.savannah.nongnu.org/releases/attr/attr-2.6.0.tar.gz"
+  mirror "https://mirror.csclub.uwaterloo.ca/nongnu/attr/attr-2.6.0.tar.gz"
+  sha256 "d42fa374513180bb48cb11a46696f488240e5124ff1e6ad88b0abff706985612"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,9 +12,8 @@ class Attr < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_linux:  "6d22ffeb1ac124b47032e96cfc44264b228f3fcabe9746a426e46a5f7db45c3a"
-    sha256 x86_64_linux: "80c103ddb53c169071d3995ac74c7e4cca59aeed6bea4e5444eac1026d380528"
+    sha256 arm64_linux:  "6cf6153b6390b7efb17d220b68e7ca26afab6778d4db7c7fc1da71029198df5c"
+    sha256 x86_64_linux: "fbb8da02d151687a0ff9c27add3f0600dad7717b44e03160800afbcf0ea9f291"
   end
 
   depends_on :linux

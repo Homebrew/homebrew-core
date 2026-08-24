@@ -72,7 +72,7 @@ class Libxml2 < Formula
 
     # Test build with pkg-config
     ENV.append_path "PKG_CONFIG_PATH", lib/"pkgconfig"
-    args = shell_output("#{Formula["pkgconf"].opt_bin}/pkgconf --cflags --libs libxml-2.0").split
+    args = shell_output("#{formula_opt_bin("pkgconf")}/pkgconf --cflags --libs libxml-2.0").split
     system ENV.cc, "test.c", "-o", "test", *args
     system "./test"
 

@@ -1,17 +1,17 @@
 class Libjuice < Formula
   desc "UDP Interactive Connectivity Establishment (ICE) library"
   homepage "https://github.com/paullouisageneau/libjuice"
-  url "https://github.com/paullouisageneau/libjuice/archive/refs/tags/v1.7.2.tar.gz"
-  sha256 "75159867c4a5a689a6559e11aa0d30c9eba12ce73a4ae3d898b521467e1f635d"
+  url "https://github.com/paullouisageneau/libjuice/archive/refs/tags/v1.7.3.tar.gz"
+  sha256 "86e075ca4732882746b6d5733ff1b6090f942e5750df58630b191b5f00f30010"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f1e78cce2eb6ea006d4ff28b2323925581e538bfb82c93d34d587251cc9c90e4"
-    sha256 cellar: :any,                 arm64_sequoia: "b3f2ee1f575519fdc97872b7e82766480415c197a0fb4c5e5cb5781321a5fa3d"
-    sha256 cellar: :any,                 arm64_sonoma:  "b3b1b90e4695d5ac6186f905e6a26c0cb14c4e3e8519f10f1f82048793e19dbb"
-    sha256 cellar: :any,                 sonoma:        "8953e08c9c6db27015a810656b8db66b1082f185daf47d6d4c69716968b24159"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8259600a2ebb565ec5eee65dad1024857fed43ae0f52deb14ad603a603008a79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "260c2f1c012b30ef8ebd14ccf3fd83ddcf67ca420976f230900cb5477c7dc1d4"
+    sha256 cellar: :any, arm64_tahoe:   "9b280cf11c72a8ce83c81a533ae779c6cb695b680c50d5ffc3e9161bf3a44980"
+    sha256 cellar: :any, arm64_sequoia: "40a5b2578b1edfdae54968907408884612bfbaeeb4cde04158a66baf2fa42064"
+    sha256 cellar: :any, arm64_sonoma:  "aacc7afc57205c401eb2299c1bc90af9d8fca31277cc59f9b9a42a07efb05ae4"
+    sha256 cellar: :any, sonoma:        "954b4eb41b90d6138b0e0a3bb4956165397e87a8e688735c85bc1ddc32efdaf7"
+    sha256 cellar: :any, arm64_linux:   "adbea2a9be0c30c1cbf88fb8fd5dca22f49eaa31c6fd2c929b088c61c1a2dd30"
+    sha256 cellar: :any, x86_64_linux:  "a20cd988fa3b04410e7907c4e437dfbdc851bc4cc46e4c7d8a0c4ba446ee8471"
   end
 
   depends_on "cmake" => :build

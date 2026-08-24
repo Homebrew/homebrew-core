@@ -27,6 +27,8 @@ class Vc4asm < Formula
   patch do
     url "https://github.com/maazl/vc4asm/commit/ff16f635b07e14b07c1de69bf322e3bf7feecd93.patch?full_index=1"
     sha256 "b4c6e87018aa512ff8398cc77bd3f80dd9aaca196c3da76a845db7e25eaac99b"
+    type :backport
+    resolves "https://github.com/maazl/vc4asm/pull/28"
   end
 
   def install

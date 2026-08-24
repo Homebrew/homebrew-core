@@ -1,19 +1,18 @@
 class Lstr < Formula
   desc "Fast, minimalist directory tree viewer"
   homepage "https://github.com/bgreenwell/lstr"
-  url "https://github.com/bgreenwell/lstr/archive/refs/tags/v0.2.1.tar.gz"
-  sha256 "9a59c59e3b4a0a1537f165a4818daa7cf1ee3feb689eaf8c495f70f280c3e547"
+  url "https://github.com/bgreenwell/lstr/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "9b9fe1c43027e6fdc04b67bd60ebfa10166797a4810bdaa9087c0aa817fd6943"
   license "MIT"
-  head "https://github.com/bgreenwell/lstr.git", branch: "main"
+  head "https://github.com/bgreenwell/lstr.git", branch: "devel"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a145541e3eb562c02740fd457f3cd5a603b77718ffd570571ff2ea5fbb047e4a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "96fdc1f49bacf56b1caef9a24869aa968240b58f1ee3c67101d77de66987e55c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9c459cdc51f312f8dc5848af81d469484b43d7f9eb9501836f0ea3723c03f400"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fa3ae1d10d7ca531c029c10588c96e8cd0a02d308cd0b3c77112f45843481397"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "60eff494111d095ffee7343cba34dfb34a26e6aac7bb3fa7bf1108d2b4b0cd13"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "02ce861934304a640142f38b36bc5c1e523f4235766579e6cbac10bc17793b55"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "698ac770271e3e4f724f0f5ce2fbb7491509ae753ba4614b639ff596aaaca002"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "668d9d79e6473212253f028f33594136d578da416e9e3c62fc6d831a34013209"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9e057ef25fc77c4fc75fd7d8bf486cbd06d3d8258469478b4da1c222c7733009"
+    sha256 cellar: :any_skip_relocation, sonoma:        "66ba2207de2df49278428c1b13c61dae93e5e85f7320b94cb94f16244a9b9f09"
+    sha256 cellar: :any,                 arm64_linux:   "d14282b60af3741b2283d8df2c4a3a975770a2b166bd8f476b13216c64e52294"
+    sha256 cellar: :any,                 x86_64_linux:  "8ce0aeb14dbe84867814c0656bc9dd4e11b2a0c009328cb0e433f5e6af4dae4c"
   end
 
   depends_on "rust" => :build

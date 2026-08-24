@@ -4,21 +4,20 @@ class Rtmidi < Formula
   url "https://github.com/thestk/rtmidi/archive/refs/tags/6.0.0.tar.gz"
   sha256 "ef7bcda27fee6936b651c29ebe9544c74959d0b1583b716ce80a1c6fea7617f0"
   license "MIT"
+  revision 1
   head "https://github.com/thestk/rtmidi.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "8907d310bd719956d2142eafa69ff82047aa7b682b9e6bf46def31cb245a527f"
-    sha256 cellar: :any,                 arm64_sequoia: "16b58f421f5acc419193e3e5703910d7984ba6424f2353ad95d7d1d1b4b962aa"
-    sha256 cellar: :any,                 arm64_sonoma:  "496714f725960c2a0675ebbdeb419366b882228ce0c0b025b26ebe7b203b6927"
-    sha256 cellar: :any,                 sonoma:        "02ee430421083f82fc9614fcfb3143c23d501ec4e85903a16adbab4a1735af9e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ccdb2162e771404f89f0019084bf7b62abdade723c7ba3b479d4de2db0e5be6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1eee4ca1fa59c90126083c01a574ef14c0e5b86f61a473a6bc1109c619f6d14f"
+    sha256 cellar: :any, arm64_tahoe:   "ceed684241bc1687094e6052effca2bd7790d7dcf6e50b34ad65dbcbcdd92bda"
+    sha256 cellar: :any, arm64_sequoia: "4d1335014ddd04394a77ea4a9b708c7d9ac5fc6b1f1f0f5007f24e2520c5badd"
+    sha256 cellar: :any, arm64_sonoma:  "8ec6008f1f9002017e8f763b500ec1bcbba1261d4412a87c0394bf95c4105709"
+    sha256 cellar: :any, sonoma:        "0b4c9af10733921f5552f95b6fa52125677c4260462f324c523d6aac8f541137"
+    sha256 cellar: :any, arm64_linux:   "88f2b667e7c648e4bdda70ab47b3714c8ecd7bb4a6b4bacfd1758df17dc82db2"
+    sha256 cellar: :any, x86_64_linux:  "efcba96923a670026dd2655f9dc211ece664cc973bc0cfdb50d3360ff5885b82"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
+  depends_on "pkgconf" => :build
 
   on_linux do
     depends_on "alsa-lib"
@@ -26,10 +25,9 @@ class Rtmidi < Formula
   end
 
   def install
-    ENV.cxx11
-    system "./autogen.sh", "--no-configure"
-    system "./configure", *std_configure_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DRTMIDI_BUILD_TESTING=OFF", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

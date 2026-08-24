@@ -7,7 +7,7 @@ class Buku < Formula
   url "https://github.com/jarun/buku/archive/refs/tags/v5.1.tar.gz"
   sha256 "0f1a3e15f882fe9a0f8e550abae7388d3cb81d4718a1b4309dcf4363633cb7b1"
   license "GPL-3.0-or-later"
-  revision 5
+  revision 6
   head "https://github.com/jarun/buku.git", branch: "master"
 
   livecheck do
@@ -18,12 +18,12 @@ class Buku < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2906b4ee4a80039ea677b576459ca3af725bb8bee20874a16df0466bb554fa0c"
-    sha256 cellar: :any,                 arm64_sequoia: "af3121cbd75be15f2290906d3bc268a102afe4a03c12152e663f9da2288d7726"
-    sha256 cellar: :any,                 arm64_sonoma:  "fac68d7f920d3b8dc8d1df24b131c7bb3f7d43195d05f7bbd47c5c810495216b"
-    sha256 cellar: :any,                 sonoma:        "d0b5585542774ed49ee157bd7e12183faaaf1a8e4de78de521f21d1c9ed71882"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "675c51419f39ce8a996724e50e488fb0dcbe6a93a81b95f25fad890aecd54e2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40e2cc2893a17f53e2707c1d4142adf6eb9645dfcc63118edb8d672079478d16"
+    sha256 cellar: :any, arm64_tahoe:   "59c422dd91e2597a9b6587a296b50eaa6f13e77dea7670f45c3c5f4f9a46b51f"
+    sha256 cellar: :any, arm64_sequoia: "57e550f4582ff9096241744e786a267fa326f45fd94b9af766cd63d40c7f01a4"
+    sha256 cellar: :any, arm64_sonoma:  "a4842de8dd5348d601168af329dd80f763b29b7e54b98e2e473855176386f849"
+    sha256 cellar: :any, sonoma:        "f058ca566cc9e115513f272e8f407a57135eaa9667595a09387966c6122a7671"
+    sha256 cellar: :any, arm64_linux:   "be1dadf4e8c2791f122bc1ded834ded6fa14fb762452630ae9c78392cfa6ff8b"
+    sha256 cellar: :any, x86_64_linux:  "5293e68aa3306349d0eec6ef4faf8c3dd1dea67d75c5a9064ff44d4afa1fa62c"
   end
 
   depends_on "certifi" => :no_linkage
@@ -48,8 +48,8 @@ class Buku < Formula
   end
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/c3/b0/1c6a16426d389813b48d95e26898aff79abbde42ad353958ad95cc8c9b21/beautifulsoup4-4.14.3.tar.gz"
-    sha256 "6292b1c5186d356bba669ef9f7f051757099565ad9ada5dd630bd9de5fa7fb86"
+    url "https://files.pythonhosted.org/packages/43/65/318323f98dbee45d42dff61d8f047181bc6f2268a9068cfad035a46be5af/beautifulsoup4-4.15.0.tar.gz"
+    sha256 "288e3ca7d54b06f2ac191970bc275c1939cb46d450b255bf6718b04aa37ab4f7"
   end
 
   resource "blinker" do
@@ -58,8 +58,8 @@ class Buku < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
-    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "flasgger" do
@@ -96,6 +96,8 @@ class Buku < Formula
     patch do
       url "https://github.com/html5lib/html5lib-python/commit/b90dafff1bf342d34d539098013d0b9f318c7641.patch?full_index=1"
       sha256 "779f8bab52308792b7ac2f01c3cd61335587640f98812c88cb074dce9fe8162d"
+      type :unofficial
+      resolves "https://github.com/html5lib/html5lib-python/issues/588"
     end
   end
 
@@ -125,8 +127,8 @@ class Buku < Formula
   end
 
   resource "mistune" do
-    url "https://files.pythonhosted.org/packages/ca/84/620cc3f7e3adf6f5067e10f4dbae71295d8f9e16d5d3f9ef97c40f2f592c/mistune-3.2.1.tar.gz"
-    sha256 "7c8e5501d38bac1582e067e46c8343f17d57ea1aaa735823f3aba1fd59c88a28"
+    url "https://files.pythonhosted.org/packages/7b/a5/2dab368d6950e6808904dec98f54c7e726ee7be4a0c6afe00e6e011bd52d/mistune-3.3.3.tar.gz"
+    sha256 "c4c6c0c840b8637a2e9b8b6d607eb7c8f00888bf14c754409bcd339e848c2477"
   end
 
   resource "packaging" do
@@ -155,13 +157,13 @@ class Buku < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/7b/ae/2d9c981590ed9999a0d91755b47fc74f74de286b0f5cee14c9269041e6c4/soupsieve-2.8.3.tar.gz"
-    sha256 "3267f1eeea4251fb42728b6dfb746edc9acaffc4a45b27e19450b676586e8349"
+    url "https://files.pythonhosted.org/packages/47/2c/0a5f6f8ee0d5589e48c7640213ed5175d52cf540a06725b628cc1a45d6ce/soupsieve-2.8.4.tar.gz"
+    sha256 "e121fd02e975c695e4e9e8774a5ee35d74714b59307868dcc5319ad2d9e3328e"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
-    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
   end
 
   resource "tzdata" do
@@ -189,14 +191,12 @@ class Buku < Formula
     sha256 "7b00c73f8670f35d4edb0293dcd81b980528bee72fd662b182aaba27ae570b93"
   end
 
-  # Fix type error and missing apidocs: https://github.com/jarun/buku/pull/883
+  # Fix type error and missing apidocs
   patch do
-    url "https://github.com/jarun/buku/commit/291fa9a0e4cafe9ca2261940394de12c2d5403a9.patch?full_index=1"
-    sha256 "ba678c0814589954817da53907399736c1d2e989a875a0957fc8ef8bad706164"
-  end
-  patch do
-    url "https://github.com/jarun/buku/commit/ea0a44a1c20821bd925a3557efabb8905db4337b.patch?full_index=1"
-    sha256 "76fea0fcbaec25376722f598a8dd12012245a650c37f867e27f19dcfa8e43963"
+    url "https://github.com/jarun/buku/commit/8ea88ad2685c57700861c65c16f200324a7f09b0.patch?full_index=1"
+    sha256 "0fb66c7b239e787c57d9a374769d3339c002609404c3ddd192e26cb982cdafe0"
+    type :backport
+    resolves "https://github.com/jarun/buku/pull/883"
   end
 
   def install

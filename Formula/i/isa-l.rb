@@ -1,17 +1,17 @@
 class IsaL < Formula
   desc "Intelligent Storage Acceleration Library"
   homepage "https://github.com/intel/isa-l"
-  url "https://github.com/intel/isa-l/archive/refs/tags/v2.32.0.tar.gz"
-  sha256 "7a194ff80d0f7e20615c497654e8a51b0184d0c79e2e265c7f555f52a26a05a4"
+  url "https://github.com/intel/isa-l/archive/refs/tags/v2.32.1.tar.gz"
+  sha256 "d9f7179ab0e14a3db9b610fac22793854a1435e8423ec9ce07f4cbedc5f92f5e"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5c9267dff7be4ba1ab091dbda0b4b03357c137065c7cddce74d805db366cdd30"
-    sha256 cellar: :any,                 arm64_sequoia: "e019082d409dc6dd43f75fdeb61cb292a3aeef8f75b717fabbb99b1af3a09958"
-    sha256 cellar: :any,                 arm64_sonoma:  "b07dd2b0b39495e6761ea12b1ed3825fb9955e1ab980f750387b01c530b98e38"
-    sha256 cellar: :any,                 sonoma:        "290936d5a39f56f7fa037847e8f54eff05714e914851ee58ebe741a507d699b5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "af4547348a1e1f584e886ac9c916f4591d864c41a5ae6e6954b59fe8cbd0fea1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0818c2fe4f428cd02da5375231cf7e7cdd859fc47eb834ec8e4f0e51243e402"
+    sha256 cellar: :any, arm64_tahoe:   "bc6e6381b5a9df13aef59a6b14b9a4eee9263b09a409cf2dabbacb122aa2e630"
+    sha256 cellar: :any, arm64_sequoia: "13aa54060840fb0f9894541046869602fed6f9cb7ae2d7ec76a7a8b9a896ab7e"
+    sha256 cellar: :any, arm64_sonoma:  "accfcf0c6903777fe6d7b14e6b928091345997906e986e969affdb00c5e0ea25"
+    sha256 cellar: :any, sonoma:        "7a2fdd00e9a2956a2f71f2d48e21ce9319366c4be467d1b42c7a0b4852300e08"
+    sha256 cellar: :any, arm64_linux:   "5dd17424a8280ca9de4e1121304de8fce1024baad20f7f271d5a29262aff5985"
+    sha256 cellar: :any, x86_64_linux:  "1bf091047b0178f924a70cc66aa5d286423a29af04fa48623537cae8947fb1a8"
   end
 
   depends_on "autoconf" => :build

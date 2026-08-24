@@ -41,8 +41,8 @@ class Bat < Formula
     assert_match "Homebrew test", output
 
     [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
-      Formula["oniguruma"].opt_lib/shared_library("libonig"),
+      formula_opt_lib("libgit2")/shared_library("libgit2"),
+      formula_opt_lib("oniguruma")/shared_library("libonig"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"bat", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."

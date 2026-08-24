@@ -38,7 +38,6 @@ class HasuraCli < Formula
     end
 
     ldflags = %W[
-      -s -w
       -X github.com/hasura/graphql-engine/cli/v2/version.BuildVersion=#{version}
       -X github.com/hasura/graphql-engine/cli/v2/plugins.IndexBranchRef=master
     ]

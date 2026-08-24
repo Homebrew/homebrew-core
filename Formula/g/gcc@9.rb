@@ -23,13 +23,13 @@ class GccAT9 < Formula
   # out of the box on Xcode-only systems due to an incorrect sysroot.
   pour_bottle? only_if: :clt_installed
 
-  depends_on maximum_macos: [:monterey, :build]
   depends_on "gmp"
   depends_on "isl"
   depends_on "libmpc"
   depends_on "mpfr"
 
   on_macos do
+    depends_on maximum_macos: [:monterey, :build]
     depends_on arch: :x86_64
     # Align dates to remove Intel macOS support with brew
     # https://docs.brew.sh/Support-Tiers#future-macos-support
@@ -61,7 +61,7 @@ class GccAT9 < Formula
     #  - BRIG
     languages = %w[c c++ objc obj-c++ fortran]
 
-    pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
+    pkgversion = "Homebrew GCC #{pkg_version}"
 
     args = %W[
       --prefix=#{prefix}
@@ -70,10 +70,10 @@ class GccAT9 < Formula
       --enable-checking=release
       --enable-languages=#{languages.join(",")}
       --program-suffix=-#{version_suffix}
-      --with-gmp=#{Formula["gmp"].opt_prefix}
-      --with-mpfr=#{Formula["mpfr"].opt_prefix}
-      --with-mpc=#{Formula["libmpc"].opt_prefix}
-      --with-isl=#{Formula["isl"].opt_prefix}
+      --with-gmp=#{formula_opt_prefix("gmp")}
+      --with-mpfr=#{formula_opt_prefix("mpfr")}
+      --with-mpc=#{formula_opt_prefix("libmpc")}
+      --with-isl=#{formula_opt_prefix("isl")}
       --with-pkgversion=#{pkgversion}
       --with-bugurl=#{tap.issues_url}
     ]
@@ -90,7 +90,7 @@ class GccAT9 < Formula
       args << "--without-build-config" if Hardware::CPU.intel? && DevelopmentTools.clang_build_version >= 1205
 
       # System headers may not be in /usr/include
-      sdk = MacOS.sdk_path_if_needed
+      sdk = MacOS.sdk_path
       if sdk
         args << "--with-native-system-header-dir=/usr/include"
         args << "--with-sysroot=#{sdk}"
@@ -136,79 +136,8 @@ class GccAT9 < Formula
     rm_r(Dir[bin/"*-gcc-tmp"])
   end
 
-  def post_install
-    if OS.linux?
-      gcc = bin/"gcc-#{version_suffix}"
-      libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
-      raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
-
-      glibc = Formula["glibc"]
-      glibc_installed = glibc.any_version_installed?
-
-      # Symlink crt1.o and friends where gcc can find it.
-      crtdir = if glibc_installed
-        glibc.opt_lib
-      else
-        Pathname.new(Utils.safe_popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
-      end
-      ln_sf Dir[crtdir/"*crt?.o"], libgcc
-
-      # Create the GCC specs file
-      # See https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
-
-      # Locate the specs file
-      specs = libgcc/"specs"
-      ohai "Creating the GCC specs file: #{specs}"
-      specs_orig = Pathname.new("#{specs}.orig")
-      rm([specs_orig, specs].select(&:exist?))
-
-      system_header_dirs = ["#{HOMEBREW_PREFIX}/include"]
-
-      if glibc_installed
-        # https://github.com/Linuxbrew/brew/issues/724
-        system_header_dirs << glibc.opt_include
-      else
-        # Locate the native system header dirs if user uses system glibc
-        target = Utils.safe_popen_read(gcc, "-print-multiarch").chomp
-        raise "command failed: #{gcc} -print-multiarch" if $CHILD_STATUS.exitstatus.nonzero?
-
-        system_header_dirs += ["/usr/include/#{target}", "/usr/include"]
-      end
-
-      # Save a backup of the default specs file
-      specs_string = Utils.safe_popen_read(gcc, "-dumpspecs")
-      raise "command failed: #{gcc} -dumpspecs" if $CHILD_STATUS.exitstatus.nonzero?
-
-      specs_orig.write specs_string
-
-      # Set the library search path
-      # For include path:
-      #   * `-isysroot #{HOMEBREW_PREFIX}/nonexistent` prevents gcc searching built-in
-      #     system header files.
-      #   * `-idirafter <dir>` instructs gcc to search system header
-      #     files after gcc internal header files.
-      # For libraries:
-      #   * `-nostdlib -L#{libgcc} -L#{glibc.opt_lib}` instructs gcc to use brewed glibc
-      #     if applied.
-      #   * `-L#{libdir}` instructs gcc to find the corresponding gcc
-      #     libraries. It is essential if there are multiple brewed gcc
-      #     with different versions installed.
-      #     Noted that it should only be passed for the `gcc@*` formulae.
-      #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
-      #     brew libraries.
-      libdir = HOMEBREW_PREFIX/"lib/gcc/#{version_suffix}"
-      specs.write specs_string + <<~EOS
-        *cpp_unique_options:
-        + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
-
-        *link_libgcc:
-        #{glibc_installed ? "-nostdlib -L#{libgcc} -L#{glibc.opt_lib}" : "+"} -L#{libdir} -L#{HOMEBREW_PREFIX}/lib
-
-        *link:
-        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir} -rpath #{HOMEBREW_PREFIX}/lib
-
-      EOS
-    end
+  post_install_steps do
+    configure_gcc_runtime
   end
 
   def add_suffix(file, suffix)

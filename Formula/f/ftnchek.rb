@@ -40,7 +40,7 @@ class Ftnchek < Formula
 
     # When building using brewed soelim (part of groff), the configure
     # script does not properly detect the path to soelim, so set it explicitly.
-    args << "SOELIM=#{Formula["groff"].opt_bin}/soelim" if OS.linux? || (OS.mac? && MacOS.version >= :ventura)
+    args << "SOELIM=#{formula_opt_bin("groff")}/soelim" if OS.linux? || (OS.mac? && MacOS.version >= :ventura)
 
     # Exclude unrecognized options
     args += std_configure_args.reject { |s| s["--disable-debug"] || s["--disable-dependency-tracking"] }

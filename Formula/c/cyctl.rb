@@ -21,7 +21,7 @@ class Cyctl < Formula
 
   def install
     cd "cyctl" do
-      system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/cyclops-ui/cycops-cyctl/common.CliVersion=#{version}")
+      system "go", "build", *std_go_args(ldflags: "-X github.com/cyclops-ui/cycops-cyctl/common.CliVersion=#{version}")
     end
   end
 

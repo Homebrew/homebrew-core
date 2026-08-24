@@ -32,12 +32,19 @@ class Jxrlib < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8b4edc2fe9b2af8b4ac16fc72f1ac97c7c2bd61186250e2edb55c2cd632527d"
   end
 
+  # Original upstream is dead while Debian is only patching last git commit, which we don't track.
+  # Arch Linux did switch to a fork https://github.com/mircomir/jxrlib but does not meet
+  # https://docs.brew.sh/Package-Acceptance-Policy#forks-that-replace-an-existing-project
+  deprecate! date: "2026-08-23", because: :unmaintained
+  disable! date: "2027-02-23", because: :unmaintained
+
   depends_on "cmake" => :build
 
   # Enable building with CMake. Adapted from Debian patch.
   patch do
     url "https://raw.githubusercontent.com/Gcenx/macports-wine/1b310a17497f9a49cc82789cc5afa2d22bb67c0c/graphics/jxrlib/files/0001-Add-ability-to-build-using-cmake.patch"
     sha256 "beebe13d40bc5b0ce645db26b3c8f8409952d88495bbab8bc3bebc954bdecffe"
+    type :unofficial
   end
 
   def install

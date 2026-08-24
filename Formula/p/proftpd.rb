@@ -1,10 +1,9 @@
 class Proftpd < Formula
   desc "Highly configurable GPL-licensed FTP server software"
   homepage "http://www.proftpd.org/"
-  url "https://github.com/proftpd/proftpd/archive/refs/tags/v1.3.9b.tar.gz"
-  mirror "https://fossies.org/linux/misc/proftpd-1.3.9b.tar.gz/"
-  version "1.3.9b"
-  sha256 "a4dd1820aa70abeac7be234d03a806c3ba1cc86566cf6069d2a14566fc5eb5af"
+  url "https://github.com/proftpd/proftpd/archive/refs/tags/v1.3.9d.tar.gz"
+  version "1.3.9d"
+  sha256 "68b094b1c57c775ad00ef469e9a87783dbbf31a85f98f48faf60becc2e84e4ec"
   license "GPL-2.0-or-later"
 
   # Proftpd uses an incrementing letter after the numeric version for
@@ -17,12 +16,12 @@ class Proftpd < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "37c6e346b69d35a6aa282b380c8acbbdb51684e3fe4a970c10074a13fbe1ae36"
-    sha256 arm64_sequoia: "33a23e2b750dbf5b3cc2708cfa6c0710a609c0b74496799f68aeba33db8e4cf8"
-    sha256 arm64_sonoma:  "29b0ce30fb9d1ea6969cc00d6aa13d1b46f78840986e7536a90c0f9ef9cde662"
-    sha256 sonoma:        "2a3b2b3421d10938bffd9a81de3a9ac121b48a709013a296df7ed40c35c347b2"
-    sha256 arm64_linux:   "c1867a20cea3ba1b0611c393b126c6c911695c940cfdc5e23177dfd76a4ecec4"
-    sha256 x86_64_linux:  "ef4fe579723e5e91923b39d02cc573de70806b1a26f7b0d6f9c9c8d9e94be3c0"
+    sha256 arm64_tahoe:   "b8ea38cc378fe88efacdfc5d60bfd464688f8786998c46346da80dc9ab79f2db"
+    sha256 arm64_sequoia: "c9f09a9d1f4b9a8bc19232184e06cef8c2168aa46fd7141aa2984aa4db7293ac"
+    sha256 arm64_sonoma:  "2b154e2f05adc0f926d2c55d4e801858240f311159190e7bf43a705907642de3"
+    sha256 sonoma:        "83270a21221a36d2e9d07e17268f3bef06e0dec27c4c07ca064ad13707777935"
+    sha256 arm64_linux:   "74ec79dd63a01e2efc723e881750fe275eaab901a68f369005f097756f192e31"
+    sha256 x86_64_linux:  "4e4593fe9bc9e4f0481b7934416feafd2f23295877e2827f5c85d959ca487719"
   end
 
   depends_on "inetutils" => :test
@@ -45,11 +44,11 @@ class Proftpd < Formula
       s.gsub! "nogroup", install_group
     end
 
-    system "./configure", "--prefix=#{prefix}",
+    system "./configure", "--enable-nls",
                           "--sbindir=#{sbin}",
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
-                          "--enable-nls"
+                          *std_configure_args
     ENV.deparallelize
     system "make", "all"
     system "make", "INSTALL_USER=#{install_user}", "INSTALL_GROUP=#{install_group}", "install"
@@ -86,7 +85,7 @@ class Proftpd < Formula
     pid = spawn sbin/"proftpd", "--config", testpath/"proftpd.conf", "--nodaemon"
     sleep 2
     output = pipe_output(
-      "#{Formula["inetutils"].opt_bin}/ftp --no-login --no-prompt --verbose",
+      "#{formula_opt_bin("inetutils")}/ftp --no-login --no-prompt --verbose",
       "open 127.0.0.1 #{port}\nuser anonymous anonymous\nquit\n",
       0,
     )

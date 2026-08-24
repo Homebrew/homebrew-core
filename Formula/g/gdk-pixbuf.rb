@@ -1,19 +1,18 @@
 class GdkPixbuf < Formula
   desc "Toolkit for image loading and pixel buffer manipulation"
   homepage "https://gtk.org"
-  url "https://download.gnome.org/sources/gdk-pixbuf/2.44/gdk-pixbuf-2.44.6.tar.xz"
-  sha256 "140c2d0b899fcf853ee92b26373c9dc228dbcde0820a4246693f4328a27466fa"
+  url "https://download.gnome.org/sources/gdk-pixbuf/2.44/gdk-pixbuf-2.44.8.tar.xz"
+  sha256 "919f529512961a12e81cd4b4b466a48c3933469e7f9a310c6513cd4fb252ba3c"
   license "LGPL-2.1-or-later"
-  revision 1
   compatibility_version 1
 
   bottle do
-    sha256               arm64_tahoe:   "a4d80fb6524b4ec95c4a71265bc60f99d9711c7ecb9d98520eadd29ae2688f3e"
-    sha256               arm64_sequoia: "01ab57939eed589824d5d0cb6cbd26a9b00e661de9ccf4daae99a66f2faf17b1"
-    sha256               arm64_sonoma:  "be42103cc1078118b7951be72ac3d2db784569bea8460052b7b8e497067891b0"
-    sha256 cellar: :any, sonoma:        "0d01ce5d645b83497d53663b845122cd367c5011cf3b12331c3135e0a5a1b9c8"
-    sha256               arm64_linux:   "765dfa450fef639af2c7777c82bffcb0112273c816e5f03633310273d8d2dccb"
-    sha256               x86_64_linux:  "a66f6c5bab0d04f877d6cbe785d3d7af1ce804102995f61b727443c6ae4ba507"
+    sha256               arm64_tahoe:   "f0ac042950d94a60fac215407e17eb883fbc9881c2943d972b947512d7b981aa"
+    sha256               arm64_sequoia: "78528797c7e12036f457417018122651f151ad84e40e5a94dab06ab4c928ab90"
+    sha256               arm64_sonoma:  "023a3064bdb11d805971bc221046448ede9aacd21f87d9a2b888ce95f83e5838"
+    sha256 cellar: :any, sonoma:        "311c6af6afa4d53a01cf0834288928254a6131eb249d6bbc1171574dade7928d"
+    sha256               arm64_linux:   "be7d9919b3b9b9df245240ec0451ab0cf5118c31f5b476ae0e2f1cdeaa901ac3"
+    sha256               x86_64_linux:  "13498f2cb02bb122c7befb4e3eaa4a79aca7d736f1c5cb68c85088fc70f37f24"
   end
 
   depends_on "docutils" => :build # for rst2man
@@ -39,7 +38,6 @@ class GdkPixbuf < Formula
     # Use HOMEBREW_PREFIX to find modules installed by dependents without
     # needing environment variables or inreplaces. In order to support this,
     # we need install into a staging directory.
-    meson_args = std_meson_args.map { |s| s.sub prefix, HOMEBREW_PREFIX }
     ENV["DESTDIR"] = buildpath/"stage"
 
     system "meson", "setup", "build", "-Drelocatable=false",
@@ -54,14 +52,14 @@ class GdkPixbuf < Formula
                                       "-Dothers=enabled",
                                       "-Dintrospection=enabled",
                                       "-Dglycin=disabled",
-                                      *meson_args
+                                      *std_meson_args(prefix: HOMEBREW_PREFIX)
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
     prefix.install Pathname(File.join("stage", HOMEBREW_PREFIX)).children
   end
 
   post_install_steps do
-    gdk_pixbuf_query_loaders
+    update_gdk_pixbuf_loaders_cache
   end
 
   test do

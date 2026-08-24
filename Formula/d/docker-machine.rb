@@ -1,27 +1,39 @@
 class DockerMachine < Formula
   desc "Create Docker hosts locally and on cloud providers"
   homepage "https://docs.gitlab.com/runner/executors/docker_machine.html"
-  url "https://gitlab.com/gitlab-org/ci-cd/docker-machine/-/archive/v0.16.2-gitlab.49/docker-machine-v0.16.2-gitlab.49.tar.bz2"
-  version "0.16.2-gitlab.49"
-  sha256 "7cf1733201c09486db68e5d1a7f89bf6ecf18178452239173736d48eef2d42a1"
+  url "https://gitlab.com/gitlab-org/ci-cd/docker-machine/-/archive/v0.16.2-gitlab.52/docker-machine-v0.16.2-gitlab.52.tar.bz2"
+  version "0.16.2-gitlab.52"
+  sha256 "1d67717a83f53e409e1555642af44a1797e1f3d64cc80211599ede19665f9e79"
   license "Apache-2.0"
   compatibility_version 1
   head "https://gitlab.com/gitlab-org/ci-cd/docker-machine.git", branch: "main"
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "47e8c990ab50187d4097095b3d4798a5632074e8872a8f3e2733d22e065df4d5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "47e8c990ab50187d4097095b3d4798a5632074e8872a8f3e2733d22e065df4d5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "47e8c990ab50187d4097095b3d4798a5632074e8872a8f3e2733d22e065df4d5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "633d2315c13dfa2f2e90bb95aeaf43c0cc337b0a25b3a7d0b04ba085c4901fd1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "50a691efd6744833e687a853d1de30460a7a8817c94a327958b7ac10769828b4"
-    sha256 cellar: :any,                 x86_64_linux:  "da4e1d5835ad4a07e57d237b4184c3c9ea5704727b7953275470027baf14a032"
+  # Allow autobump to update formula until end-of-life
+  livecheck do
+    url :stable
   end
+
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aba2cea8fa59c13524831085b70b12467011c4b86f21526cc3e56308404ada79"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aba2cea8fa59c13524831085b70b12467011c4b86f21526cc3e56308404ada79"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aba2cea8fa59c13524831085b70b12467011c4b86f21526cc3e56308404ada79"
+    sha256 cellar: :any_skip_relocation, sonoma:        "869557b665f17804e1ea1b88ccfe5d67532f0f387bd3543d4169d94ce2b927bf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "92a13bf3d0d5beccb79fd560892d9fffa7a0428984d851c27298e57fc8ff08d0"
+    sha256 cellar: :any,                 x86_64_linux:  "a0e24a69e019195f3ecc247fb89dbd12b3d0bec27a8493afdb169f8ccac2bef8"
+  end
+
+  # After Docker ended support for original docker-machine[^1], we have used
+  # GitLab-maintained fork. However, the fork is now officially deprecated[^2]
+  # and scheduled for removal in GitLab 20.0 (May 2027)
+  #
+  # [^1]: https://docs.docker.com/retired/#docker-machine
+  # [^2]: https://docs.gitlab.com/runner/executors/docker_machine/
+  disable! date: "2027-06-30", because: :deprecated_upstream
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/docker-machine"
+    system "go", "build", *std_go_args, "./cmd/docker-machine"
 
     bash_completion.install Dir["contrib/completion/bash/*.bash"]
     zsh_completion.install "contrib/completion/zsh/_docker-machine"

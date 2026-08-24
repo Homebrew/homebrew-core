@@ -12,6 +12,8 @@ class Blink < Formula
     patch do
       url "https://github.com/jart/blink/commit/f93880dd38877914b71c2276bb476329a9e24ed0.patch?full_index=1"
       sha256 "c7f6b41eaf9c0edee25191b6aa9e8dd21d29734c1474919f5f67685893bf20d7"
+      type :backport
+      resolves "https://github.com/jart/blink/issues/166"
     end
   end
 

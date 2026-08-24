@@ -25,8 +25,8 @@ class Avanor < Formula
 
   # Upstream fix for clang: https://sourceforge.net/p/avanor/code/133/
   patch :p0 do
-    url "https://gist.githubusercontent.com/mistydemeo/64f47233ee64d55cb7d5/raw/c1847d7e3a134e6109ad30ce1968919dd962e727/avanor-clang.diff"
-    sha256 "2d24ce7b71eb7b20485d841aabffa55b25b9074f9a5dd83aee33b7695ba9d75c"
+    file "Patches/avanor/r133.diff"
+    type :cherry_pick # from 0.5 branch
   end
 
   def install

@@ -16,6 +16,9 @@ class LtexLs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fba7ce38f22bf78b00f6c297436db4bf134b1d81c1e9d0fb6352b464dc38fc1f"
   end
 
+  deprecate! date: "2026-07-06", because: :repo_archived, replacement_formula: "ltex-ls-plus"
+  disable! date: "2027-07-06", because: :repo_archived, replacement_formula: "ltex-ls-plus"
+
   depends_on "maven" => :build
   depends_on "python@3.14" => :build
   # Do not bump, 25+ is not working with an error: java.lang.IllegalArgumentException: 25
@@ -26,7 +29,7 @@ class LtexLs < Formula
     # Reported upstream at https://github.com/valentjn/ltex-ls/issues/244.
     inreplace "pom.xml", "<arg>-Werror</arg>", ""
 
-    ENV.prepend_path "PATH", Formula["python@3.14"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", formula_opt_libexec("python@3.14")/"bin"
     ENV["JAVA_HOME"] = Language::Java.java_home(Formula["openjdk@21"].version.major.to_s)
     ENV["TMPDIR"] = buildpath
 

@@ -20,16 +20,20 @@ class Cjdns < Formula
   depends_on "rust" => :build
   depends_on "libsodium"
 
-  # remove inode check, upstream pr ref, https://github.com/cjdelisle/cjdns/pull/1272
+  # remove inode check
   patch do
     url "https://github.com/cjdelisle/cjdns/commit/4848490a8532c03d9918adf5ee7d28c66eb65fd1.patch?full_index=1"
     sha256 "4eb2abe4d52270018d8a1d1d938ee1323d9b1675f35e36f5c6bf2f0ba50a47e8"
+    type :unofficial
+    resolves "https://github.com/cjdelisle/cjdns/pull/1272"
   end
 
-  # patch to use system libsodium, upstream pr ref,https://github.com/cjdelisle/cjdns/pull/1273
+  # patch to use system libsodium
   patch do
     url "https://github.com/cjdelisle/cjdns/commit/5ac5ce94028d507041ab4f24d30184b2a8b49c8a.patch?full_index=1"
     sha256 "837f023cd073578282d2cdb217f8c8beece090abad329b1410de6976f56ca734"
+    type :unofficial
+    resolves "https://github.com/cjdelisle/cjdns/pull/1273"
   end
 
   def install

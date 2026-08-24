@@ -14,11 +14,12 @@ class Lbfgspp < Formula
   depends_on "cmake" => :build
   depends_on "eigen"
 
-  # Apply open PR to support eigen 5.0.0
-  # PR ref: https://github.com/yixuan/LBFGSpp/pull/48
+  # Backport support for eigen 5.0.0
   patch do
     url "https://github.com/yixuan/LBFGSpp/commit/b7c91e57a7e5319b4f168ab5e381e92e95236694.patch?full_index=1"
     sha256 "fbd364dae7afe1ae36b344a82425e42d4702f60da7e17e6789d289c03e0bef5e"
+    type :backport
+    resolves "https://github.com/yixuan/LBFGSpp/pull/48"
   end
 
   def install
@@ -69,7 +70,7 @@ class Lbfgspp < Formula
       }
     CPP
     system ENV.cxx, testpath/"test.cpp", "-std=c++14",
-           "-I#{include}", "-I#{Formula["eigen"].opt_include}/eigen3",
+           "-I#{include}", "-I#{formula_opt_include("eigen")}/eigen3",
            "-o", "test"
     assert_equal "1 1 1 1 1 1 1 1 1 1", shell_output(testpath/"test").chomp
   end

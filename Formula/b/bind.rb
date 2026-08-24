@@ -10,8 +10,8 @@ class Bind < Formula
   version_scheme 1
 
   stable do
-    url "https://downloads.isc.org/isc/bind9/9.20.24/bind-9.20.24.tar.xz"
-    sha256 "989fef1fc88ea59d04cd86f854dca5a4616a20a9968bcdde3c1a3668ab36be08"
+    url "https://downloads.isc.org/isc/bind9/9.20.27/bind-9.20.27.tar.xz"
+    sha256 "145ab7a50b33a06d9d488b5e668c887e754f42acf8954e2b5dc7e238b080e4a0"
 
     depends_on "readline" # TODO: Remove in 9.22
   end
@@ -24,12 +24,12 @@ class Bind < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b48a55b476fbfac67f94c86ececdf55b1e6ea6a73b6f571d859ea112149087f4"
-    sha256 arm64_sequoia: "4526f1717119f539d21887b70c056fb5645e47ce9b2aee1f3b24a9fbf4040fbe"
-    sha256 arm64_sonoma:  "218841015053c81bf07814b7ab5c4d9eef4816e84a229be8523ff5524656b1c5"
-    sha256 sonoma:        "4e3d15ab173ce5f2bbc4f1626a24aa0f6bac5256a7adc34e59c7bdacece1c0ed"
-    sha256 arm64_linux:   "bba9eeead10be52b1b66f03980a8266ea13e374a5357f377c5e0e7ea6d1b59b7"
-    sha256 x86_64_linux:  "c3e6a0e216b8b0e64a239fcfd5a9975036b6eb9bdd68b188aa561deaf02e5f35"
+    sha256 arm64_tahoe:   "de9604ac21ed28d4d23e261e114eb0e669f3ca0af6d7ef56e0de6ad3d56e63c9"
+    sha256 arm64_sequoia: "e49e1872ca1d0f649be37f6ece58246d624040f8f1defaa47ee7bf15dd14da71"
+    sha256 arm64_sonoma:  "38ac6287d9eea22ba499706ea4a4a9c1bdb30ce8e580fc5c8f037dc5228041b6"
+    sha256 sonoma:        "bca24548fa6eaa28e6428e0c35c6bd571a75a5f08b76cc6271c3af6d535d9f21"
+    sha256 arm64_linux:   "afe9f95f377fb87ac53c806a9f9ab6a5331653c84679e3065e0c85e5d0fab2cb"
+    sha256 x86_64_linux:  "cfe0a1cd6b944bb62a244d6d2dcefdedb0f3f0476902a62befdf3fc02065d7d0"
   end
 
   head do
@@ -79,8 +79,8 @@ class Bind < Formula
         "--sysconfdir=#{pkgetc}",
         "--localstatedir=#{var}",
         "--with-json-c",
-        "--with-libidn2=#{Formula["libidn2"].opt_prefix}",
-        "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+        "--with-libidn2=#{formula_opt_prefix("libidn2")}",
+        "--with-openssl=#{formula_opt_prefix("openssl@3")}",
         "--without-lmdb",
       ]
 

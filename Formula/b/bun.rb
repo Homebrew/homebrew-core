@@ -3,8 +3,8 @@ class Bun < Formula
   homepage "https://bun.com/"
   # Need git checkout to build. Alternatively could set GIT_SHA if we extract the commit.
   url "https://github.com/oven-sh/bun.git",
-      tag:      "bun-v1.3.14",
-      revision: "0d9b296af33f2b851fcbf4df3e9ec89751734ba4"
+      tag:      "bun-v1.4.0",
+      revision: "34cbb9a40b4bd1bd767d134a7065e66c2432a676"
   license all_of: [
     "MIT",
     "LGPL-2.0-or-later", # JavaScriptCore
@@ -26,18 +26,18 @@ class Bun < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "d2dec7e845cbfb74c96e0f7b8a06a85d555fb36275744036df71cbe81c4b3e35"
-    sha256                               arm64_sequoia: "ef73f22cd191639a8a951421c823a59aa648e0c01c75eec83089fa8b788ac4a5"
-    sha256                               arm64_sonoma:  "b25c23f3ab10fe268dc705cebaea79e803fe7cf53abd0ea123178b88730715d1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "830c03414478f7edea283d58a32783385a6462aa4c5ef29ef7877b30ce458c9a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5a1bae01b22520515d132f3b5b208e7666ec9251bb2848f8a84452a0ae69c6bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7f23ed0cc52b0ddc553a9d95af48bc030146f965639d9c03ed811c96757dc28"
+    sha256                               arm64_tahoe:   "e3b0580902ec45450316af3115ebeb532ad7d13a0762d0c1d2ac8c2c138665f5"
+    sha256                               arm64_sequoia: "bba32ee189892fac6a4a87754f97ed2151bd29ec6921f29a7e5f66d57400e155"
+    sha256                               arm64_sonoma:  "4c9a4fbc278636c9a9124593f52205bd951410415ca945437b3e650f08d188e2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7a4c17c9fb7da44ad94825d7a3bf060f9b1a3596611236cd908a43a9da61a232"
+    sha256                               arm64_linux:   "3d8fbeb5b40a8a3b885d3ef8c0f2c7de65ae353206004ffe21266715cf5fd2c7"
+    sha256                               x86_64_linux:  "a0909fe4fba19d4a6b9abe2b613ea61cab901bd6a320e550284a853ec0a92782"
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm@21" => :build
+  depends_on "llvm@21" => :build # LLVM 22 PR: https://github.com/oven-sh/bun/pull/34299
   depends_on "ninja" => :build
-  depends_on "rust" => :build
+  depends_on "rustup" => :build # needs nightly as uses `-Z` flags and unstable `#![feature(...)]`
 
   uses_from_macos "llvm" => :build
   uses_from_macos "perl" => :build # for webkit
@@ -46,12 +46,12 @@ class Bun < Formula
   uses_from_macos "unzip" => :build
 
   on_linux do
-    # We use a workaround to prevent patchelf of the `bun` binary but this
-    # means brew cannot rewrite paths for users on non-default prefix
-    pour_bottle? only_if: :default_prefix
-
     depends_on "lld@21" => :build
     depends_on "icu4c@78"
+  end
+
+  on_intel do
+    depends_on "nasm" => :build
   end
 
   fails_with :gcc do
@@ -85,6 +85,10 @@ class Bun < Formula
     end
   end
 
+  # Work around superenv only supporting unversioned LLVM which results in enabling
+  # unsupported SVE code. Based on LLVM 22 PR https://github.com/oven-sh/bun/pull/34299
+  patch :DATA
+
   # Performing a manual shallow git clone since a full clone of WebKit repo is ~18GB in size
   # and brew's unpack strategy will duplicate a resource requiring over 36GB of disk space.
   # This exceeds limit of GitHub-hosted runners. A shallow git clone is instead ~7GB.
@@ -99,6 +103,12 @@ class Bun < Formula
       --depth=1
     ]
     system "git", "clone", *clone_args, "https://github.com/oven-sh/WebKit.git", "vendor/WebKit"
+
+    # Homebrew's swiftc shim causes misconfiguration as Apple expects a valid installation
+    on_linux do
+      inreplace "vendor/WebKit/Source/cmake/WebKitFeatures.cmake",
+                "find_program(_WEBKIT_PROBE_SWIFTC NAMES swiftc)", ""
+    end
   end
 
   # Based on https://github.com/oven-sh/bun/blob/main/CONTRIBUTING.md#building-webkit-locally--debug-mode-of-jsc
@@ -106,21 +116,14 @@ class Bun < Formula
     bootstrap_version = File.read(".buildkite/Dockerfile")[/OLD_BUN_VERSION="v?(\d+(?:\.\d+)+)"/i, 1]
     odie "Update bootstrap to #{bootstrap_version}" if resource("bootstrap").version != bootstrap_version
 
-    # Avoid `rustup` dependency by removing usage of nightly Rust features
-    # TODO: Try removing in the next release
-    inreplace "scripts/build/deps/lolhtml.ts", "if (cfg.release && canBuildStdImmediateAbort)", "if (false)"
-
-    zig_cpu = case ENV.effective_arch
-    when :arm_vortex_tempest then "apple_m1" # See `zig targets`.
-    when :armv8 then "xgene1" # Closest to `-march=armv8-a`
-    else ENV.effective_arch
-    end
-
     # Upstream only allows building for specific microarchitectures they support
     # so we need to patch build scripts to be compatible with our CPU targets
     # as part of compilation occurs outside of our superenv.
-    inreplace "scripts/build/zig.ts", "-Dcpu=${zigCpu(cfg)}", "-Dcpu=#{zig_cpu}"
-    inreplace "scripts/build/flags.ts", "-march=nehalem", "-march=#{ENV.effective_arch}" if Hardware::CPU.intel?
+    if Hardware::CPU.intel?
+      inreplace "scripts/build/flags.ts", "-march=nehalem", ENV["HOMEBREW_OPTFLAGS"].to_s
+    elsif OS.linux? && Hardware::CPU.arm64?
+      inreplace "scripts/build/flags.ts", "-march=armv8-a+crc", ENV["HOMEBREW_OPTFLAGS"].to_s
+    end
 
     fetch_webkit
     resource("bootstrap").stage("bootstrap")
@@ -136,26 +139,6 @@ class Bun < Formula
     bash_completion.install "completions/bun.bash" => "bun"
     fish_completion.install "completions/bun.fish"
     zsh_completion.install "completions/bun.zsh" => "_bun"
-
-    # Work around patchelf corrupting the binary and causing segfault.
-    # FIXME: Add a DSL to skip patchelf
-    if OS.linux? && build.bottle?
-      prefix.install bin/"bun"
-      Utils::Gzip.compress(prefix/"bun")
-      (bin/"bun").write <<~SHELL
-        #!/bin/bash
-        echo 'ERROR: Need to run `brew postinstall #{name}`' >&2
-        exit 1
-      SHELL
-    end
-  end
-
-  def post_install
-    if (prefix/"bun.gz").exist?
-      system "gunzip", prefix/"bun.gz"
-      (prefix/"bun").chmod 0755
-      bin.install prefix/"bun"
-    end
   end
 
   test do
@@ -184,3 +167,56 @@ class Bun < Formula
     assert_equal '[ "Sue", "Tim", "Bob" ]', shell_output("#{bin}/bun run db.ts").chomp
   end
 end
+
+__END__
+diff --git a/src/jsc/bindings/highway_json.cpp b/src/jsc/bindings/highway_json.cpp
+index d3fba90f25a1..e6e1180cd2ce 100644
+--- a/src/jsc/bindings/highway_json.cpp
++++ b/src/jsc/bindings/highway_json.cpp
+@@ -1,6 +1,12 @@
+ // SIMD structural indexer for JSON (simdjson-style "stage 1"), runtime-dispatched via Google
+ // Highway. Plain JSON only: a `/` or `'` outside a string sets BUN_JSON_IDX_ODDITY and returns.
+ 
++// BitsFromMask needs a fixed-width vector; Highway only provides it for the
++// fixed-size SVE_256/SVE2_128 variants, not scalable SVE/SVE2. clang >= 22
++// stops marking scalable SVE as HWY_BROKEN, so disable it here explicitly.
++#undef HWY_DISABLED_TARGETS
++#define HWY_DISABLED_TARGETS (HWY_SVE | HWY_SVE2)
++
+ #undef HWY_TARGET_INCLUDE
+ #define HWY_TARGET_INCLUDE "highway_json.cpp"
+ #include <hwy/foreach_target.h>
+diff --git a/src/jsc/bindings/highway_sourcemap.cpp b/src/jsc/bindings/highway_sourcemap.cpp
+index 653cdb5ee8cf..46e0a27de005 100644
+--- a/src/jsc/bindings/highway_sourcemap.cpp
++++ b/src/jsc/bindings/highway_sourcemap.cpp
+@@ -34,6 +34,12 @@
+ //   Muła, "SIMD base64 decoding"  http://0x80.pl/notesen/2016-01-17-sse-base64-decoding.html
+ //   Lemire & Boytsov, "Masked VByte"  https://arxiv.org/abs/1503.07387
+ 
++// BitsFromMask needs a fixed-width vector; Highway only provides it for the
++// fixed-size SVE_256/SVE2_128 variants, not scalable SVE/SVE2. clang >= 22
++// stops marking scalable SVE as HWY_BROKEN, so disable it here explicitly.
++#undef HWY_DISABLED_TARGETS
++#define HWY_DISABLED_TARGETS (HWY_SVE | HWY_SVE2)
++
+ #undef HWY_TARGET_INCLUDE
+ #define HWY_TARGET_INCLUDE "highway_sourcemap.cpp"
+ #include <hwy/foreach_target.h> // Must come before highway.h
+diff --git a/src/jsc/bindings/highway_xml.cpp b/src/jsc/bindings/highway_xml.cpp
+index c7b206412e..6553e3a57e 100644
+--- a/src/jsc/bindings/highway_xml.cpp
++++ b/src/jsc/bindings/highway_xml.cpp
+@@ -4,6 +4,12 @@
+ // U+FFFE / U+FFFF, EF BF BE|BF; units: 0xFFFE / 0xFFFF), and, between a `<` and the next `>`, of
+ // every `\t`, `\n`, `"`, `'` and `=` as well.
+ 
++// BitsFromMask needs a fixed-width vector; Highway only provides it for the
++// fixed-size SVE_256/SVE2_128 variants, not scalable SVE/SVE2. clang >= 22
++// stops marking scalable SVE as HWY_BROKEN, so disable it here explicitly.
++#undef HWY_DISABLED_TARGETS
++#define HWY_DISABLED_TARGETS (HWY_SVE | HWY_SVE2)
++
+ #undef HWY_TARGET_INCLUDE
+ #define HWY_TARGET_INCLUDE "highway_xml.cpp"
+ #include <hwy/foreach_target.h>

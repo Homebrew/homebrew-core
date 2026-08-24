@@ -1,18 +1,18 @@
 class Edbrowse < Formula
   desc "Command-line editor and web browser"
   homepage "https://edbrowse.org"
-  url "https://github.com/edbrowse/edbrowse/archive/refs/tags/v3.8.17.tar.gz"
-  sha256 "676f6d74fc3d7a52f3633318f8220092fd824ae518efeb1996b8f51c533dd2fa"
+  url "https://github.com/edbrowse/edbrowse/archive/refs/tags/v3.8.18.tar.gz"
+  sha256 "fde2fceceeb08befa23289e76f6e8a22a7ba87b77dca79b165adfb4170a98629"
   license "GPL-2.0-or-later"
   head "https://github.com/edbrowse/edbrowse.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "bc52aecbc691e1e62d46d61f76c6dc4dccc777ca2028b8f3eec3b82db4216198"
-    sha256 cellar: :any, arm64_sequoia: "af590e4e5d9ace3bbc92f8a67f3aa181a76f426240829ae4638d653c86388bf4"
-    sha256 cellar: :any, arm64_sonoma:  "ad95e56d3153d115a9015076aa9f021ea60f2f2e5efb01ecca73bc21f9451a87"
-    sha256 cellar: :any, sonoma:        "ecd9cbc3c1b34a2fca4b40ee5440371ae85f9ba5835a9b5d0c97fd9393227797"
-    sha256 cellar: :any, arm64_linux:   "2a9a20dc489518aff7578f1de37e857f077abf31a312b41c0780c930cd6e179a"
-    sha256 cellar: :any, x86_64_linux:  "e2f021419fd975f3353dd311821655ee0a4cc5b60a445ae271a3e80a79e56b54"
+    sha256 cellar: :any, arm64_tahoe:   "67a34ec5929622304a0a9314e7701edb9ee8149fe00556b05421cdbc91560138"
+    sha256 cellar: :any, arm64_sequoia: "a71d976e8437fcb66f651b9a3ae887aca434c1c787c041694591bd182a024fc1"
+    sha256 cellar: :any, arm64_sonoma:  "12dd81f869ad85b71af60d247a5b485c8fc4f05fd78d9ce52c6670062b7e7bd6"
+    sha256 cellar: :any, sonoma:        "f77ef43197f3a7f82b26469c4b84abbc632a99b478e7b8d5e90e78856bd6bb0a"
+    sha256 cellar: :any, arm64_linux:   "84613edf13399a3d74a72c478a10a707f7d72ff9a31f42bb5b6202c263874d25"
+    sha256 cellar: :any, x86_64_linux:  "b56c0b498489b3049ece4ae872b3944acf417ef2cf83b999b82d58e42d8bb70c"
   end
 
   depends_on "pkgconf" => :build
@@ -31,8 +31,8 @@ class Edbrowse < Formula
 
     cd "src" do
       make_args = [
-        "QUICKJS_INCLUDE=#{Formula["quickjs"].opt_include}/quickjs",
-        "QUICKJS_LIB=#{Formula["quickjs"].opt_lib}/quickjs",
+        "QUICKJS_INCLUDE=#{formula_opt_include("quickjs")}/quickjs",
+        "QUICKJS_LIB=#{formula_opt_lib("quickjs")}/quickjs",
         "QUICKJS_LIB_NAME=quickjs",
       ]
 

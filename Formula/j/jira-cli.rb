@@ -22,7 +22,6 @@ class JiraCli < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/ankitpokhrel/jira-cli/internal/version.Version=#{version}
       -X github.com/ankitpokhrel/jira-cli/internal/version.GitCommit=#{tap.user}
       -X github.com/ankitpokhrel/jira-cli/internal/version.SourceDateEpoch=#{time.to_i}

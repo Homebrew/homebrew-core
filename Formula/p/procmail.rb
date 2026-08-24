@@ -19,10 +19,11 @@ class Procmail < Formula
 
   # Apply open PR to fix build on modern Clang/GCC rather than disabling errors.
   # Same patch used by Fedora, Gentoo, MacPorts and NixOS.
-  # PR ref: https://github.com/BuGlessRB/procmail/pull/7
   patch do
     url "https://github.com/BuGlessRB/procmail/commit/8cfd570fd14c8fb9983859767ab1851bfd064b64.patch?full_index=1"
     sha256 "2258b13da244b8ffbd242bc2a7e1e8c6129ab2aed4126e3394287bcafc1018e1"
+    type :unofficial
+    resolves "https://github.com/BuGlessRB/procmail/pull/7"
   end
 
   def install

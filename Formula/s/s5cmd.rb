@@ -21,7 +21,6 @@ class S5cmd < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X=github.com/peak/s5cmd/v2/version.Version=#{version}
       -X=github.com/peak/s5cmd/v2/version.GitCommit=#{tap.user}
     ]

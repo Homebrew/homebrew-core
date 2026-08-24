@@ -22,8 +22,7 @@ class Sqlcmd < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/modern"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/modern"
 
     generate_completions_from_executable(bin/"sqlcmd", shell_parameter_format: :cobra)
   end

@@ -12,6 +12,8 @@ class RustcCompletion < Formula
     patch do
       url "https://github.com/roshan/rust-bash-completion/commit/932e9bb4e9f28c2785de2b8db6f0e8c050f4f9be.patch?full_index=1"
       sha256 "3da76d5469e7fa4579937d107a2661f740d704ac100442f37310aa6430f171a2"
+      type :backport
+      resolves "https://github.com/roshan/rust-bash-completion/pull/2"
     end
   end
 

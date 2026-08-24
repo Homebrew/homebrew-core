@@ -1,20 +1,19 @@
 class Libssh < Formula
   desc "C library SSHv1/SSHv2 client and server protocols"
   homepage "https://www.libssh.org/"
-  url "https://www.libssh.org/files/0.12/libssh-0.12.0.tar.xz"
-  sha256 "1a6af424d8327e5eedef4e5fe7f5b924226dd617ac9f3de80f217d82a36a7121"
+  url "https://www.libssh.org/files/0.12/libssh-0.12.2.tar.xz"
+  sha256 "49560f677d96e3706a904ac2de1116e25f3680937d51e5c92198fcba4a1c1e9f"
   license "LGPL-2.1-or-later"
-  revision 1
   compatibility_version 1
   head "https://git.libssh.org/projects/libssh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "cfbd08103692e8ffbb2cf33596a8b1f40dea83dba35621732994c921dc50e338"
-    sha256 cellar: :any,                 arm64_sequoia: "90d7d2f53f98da8a7f02c13a661575370941603f1409f7e4a3667d7360c4c58a"
-    sha256 cellar: :any,                 arm64_sonoma:  "28078e9854ab58dbedd7f8d9391cb28869932c73907c54a9c00612af2bc689eb"
-    sha256 cellar: :any,                 sonoma:        "95737ba81393b810ef51b6e88e1422067987edc9843dc4263442d3e93b05104d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "488dbc9708070ad0586823f1a17e4a53605205be5a39948aba60af8dacbc6285"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c7bd3b80655c34b25165fef797c3e1bb9b223423d58ba04353d2b6239ea1189"
+    sha256 cellar: :any, arm64_tahoe:   "0d7992b5269b93e53695ab3e52037eb454e846e46627a32d60df416a71fb71ea"
+    sha256 cellar: :any, arm64_sequoia: "6e339868a129237e8fdeadd4934784ad1a877dde2726551610412553e7e5e6aa"
+    sha256 cellar: :any, arm64_sonoma:  "da189379e290d2096857aebd46b8cdb62236d9f4abc3edb4cfc77f6258b0d91a"
+    sha256 cellar: :any, sonoma:        "8307e0351668b49f47dbbc48ddc278cf7a305162020bcd0f2b88809ccc625b09"
+    sha256 cellar: :any, arm64_linux:   "4dba912d87dc73996b5c8b883dd82ffa3b147c792ef509db6fcbc904c9b11d4b"
+    sha256 cellar: :any, x86_64_linux:  "272e64fd608b6c6ce999810bb72e034700f4d785ad852692f6c8dccfaba9ba6d"
   end
 
   depends_on "cmake" => :build

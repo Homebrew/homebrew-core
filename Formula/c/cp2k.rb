@@ -1,10 +1,9 @@
 class Cp2k < Formula
   desc "Quantum chemistry and solid state physics software package"
   homepage "https://www.cp2k.org/"
-  url "https://github.com/cp2k/cp2k/releases/download/v2026.1/cp2k-2026.1.tar.bz2"
-  sha256 "4364c74bcffaa474bc234e11686b09550e4d06932acf2147a341e4f7679dd88e"
+  url "https://github.com/cp2k/cp2k/releases/download/v2026.2/cp2k-2026.2.tar.bz2"
+  sha256 "f9bd86f580f57a53a0768c0045d1417f9f9a1d66d851ed7f662f496200043373"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,12 +11,12 @@ class Cp2k < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "07bc22355e467c9d4e8b65013e9d370b01d099fd011e3758b1371ce1acf9b5a0"
-    sha256 arm64_sequoia: "76fb2d301939f06439dac5c3041d616e540facd946336d719aadbd0fb5d3c4d6"
-    sha256 arm64_sonoma:  "1abf089ae43d3df9b99fccb910c35d608d7afa3d84dd95ce65e2aff6da503a14"
-    sha256 sonoma:        "6bff1f36dd36d4a4da5d87625a4869e558d005388268638bb13065f3e58aa9fe"
-    sha256 arm64_linux:   "2df56fdcdadda4a0f684872a13095d462fa64a9436c0358e2036b318562ed715"
-    sha256 x86_64_linux:  "933366a7dfaa3353854c2e803c25bd9c8272a0fcd979e28c34abd230dab052a1"
+    sha256 arm64_tahoe:   "1f620938be50bc0d11008196f8bf5753c898403e8fcada96a90f7834e238ed58"
+    sha256 arm64_sequoia: "5162daa2c7b513221e36306165fc9b6a706e3252c92c463a45a792cafd4d0573"
+    sha256 arm64_sonoma:  "2f6867d95c43533e39d60db7459f4483f0dc82e3d5c3f417689d33fb1ebe2132"
+    sha256 sonoma:        "5303b0a4f6d783ab6d074536d54ea52f2738f596ff43d8a1bc399b4ca6b545f9"
+    sha256 arm64_linux:   "2be5d917d067209333974a1e7efb377b639709a71a3b317b9988920844942579"
+    sha256 x86_64_linux:  "9190e9449a9cf4f3a519b1b34e7f0da5335f4b93d28a8b07fd229d2e36dadc9f"
   end
 
   depends_on "cmake" => :build
@@ -50,6 +49,7 @@ class Cp2k < Formula
     args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_INSTALL_LIBDIR=#{lib}
       -DCP2K_BLAS_VENDOR=OpenBLAS
       -DCP2K_USE_FFTW3=ON
       -DCP2K_USE_LIBINT2=ON
@@ -60,11 +60,11 @@ class Cp2k < Formula
     if OS.mac?
       args += %W[
         -DOpenMP_Fortran_LIB_NAMES=omp
-        -DOpenMP_omp_LIBRARY=#{Formula["libomp"].opt_lib}/libomp.dylib
+        -DOpenMP_omp_LIBRARY=#{formula_opt_lib("libomp")}/libomp.dylib
       ]
     end
 
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args.reject { |s| s["CMAKE_INSTALL_LIBDIR"] }
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     (pkgshare/"tests").install "tests/Fist/water.inp"
@@ -73,7 +73,7 @@ class Cp2k < Formula
   test do
     if OS.mac?
       require "utils/linkage"
-      libgomp = Formula["gcc"].opt_lib/"gcc/current/libgomp.dylib"
+      libgomp = formula_opt_lib("gcc")/"gcc/current/libgomp.dylib"
       refute Utils.binary_linked_to_library?(lib/"libcp2k.dylib", libgomp), "Unwanted linkage to libgomp!"
     end
 

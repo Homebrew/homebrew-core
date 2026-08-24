@@ -1,17 +1,17 @@
 class MarkdownOxide < Formula
   desc "Personal Knowledge Management System for the LSP"
   homepage "https://oxide.md"
-  url "https://github.com/Feel-ix-343/markdown-oxide/archive/refs/tags/v0.25.10.tar.gz"
-  sha256 "67217dc2f460a21bf64493d2ebe860cb93563a62aa5eecc28c24cf38ee7100ed"
+  url "https://github.com/Feel-ix-343/markdown-oxide/archive/refs/tags/v0.25.12.tar.gz"
+  sha256 "fc7c472c2bd93a9b8f58848d71f054ed02442310f5328081f3036a7ce79040cb"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b2d94fc7f454689e3cccf6a3533195721ed31f2bdf44035a63fd76edab000510"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c62677e78b51bfc6eb2c93f22be1f3c712abf74226a19af6798baf509afc491"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32ff78a4cc7cc1e2712103147cd87bd17bcdbc2265a0135e67c89fe5f501b12f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3d5df3ccfd67daf16cf143ddbe3568c9662bfadaa1762fba43b192f7d4deafc2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "65366cbd11a81ff7bcc17a0d0b7df2a969fececa77b6504404c3502ac1bfd02b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca06dfc9b71540e134322ed34ccf414b8d541555d0758201516d57cf30304627"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "26eee8911b28b3b8df7101eeb5118f12955b5b2ad1e14260e977f4482008cb25"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4a9aa4008a7d922da5e393b40e54b8a7d5ea095774146d75b8b9fafa29652743"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "78d25cd6ca3a605c3487f5eb52218489b616c973d261a2b53981eae632a3489c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bfc4714bddfc452bd56377fd9b815b6da589d5368c7420fa9f26886d29d2fb49"
+    sha256 cellar: :any,                 arm64_linux:   "c3ff98f1cf490ea2d039c52fe402e6360890e3112694d8b11f1fd0fb4340372d"
+    sha256 cellar: :any,                 x86_64_linux:  "bb20c018508074fd3cb7ac662415ac0d4c1ccf037499994e65aeb5c216ee2bfa"
   end
 
   depends_on "rust" => :build

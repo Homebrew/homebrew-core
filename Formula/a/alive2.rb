@@ -2,7 +2,7 @@ class Alive2 < Formula
   desc "Automatic verification of LLVM optimizations"
   homepage "https://github.com/AliveToolkit/alive2"
   license "MIT"
-  revision 4
+  revision 6
   head "https://github.com/AliveToolkit/alive2.git", branch: "master"
 
   stable do
@@ -14,16 +14,26 @@ class Alive2 < Formula
     patch do
       url "https://github.com/AliveToolkit/alive2/commit/a86aaa0ea44c5671ce3e998ec6d422feaa95b236.patch?full_index=1"
       sha256 "6645b59d29e7a4bbe45e91f57391cf9d4e5dbc27ba99a93c89ad13b14d57a7c4"
+      type :backport
+      resolves "https://github.com/AliveToolkit/alive2/pull/1265"
+    end
+
+    # Backport commit for LLVM 23
+    patch do
+      url "https://github.com/AliveToolkit/alive2/commit/155386f37536a8f64d78c0ef7d52f7d3f1926cd1.patch?full_index=1"
+      sha256 "01b319ccbfdb2a8c2a98bd2d5fc2e5b9564511f2738afae1b8d125d014af1678"
+      type :backport
+      resolves "https://github.com/AliveToolkit/alive2/pull/1309"
     end
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "3039025bf1c344c9cc9c1dd9ecf3ce475bbd477cc056d683f8f482c45d022772"
-    sha256 cellar: :any, arm64_sequoia: "d38a8fa8b85942ed8911686f2070cc5fe77f4e7d64e7bcfd656190fd3aa44167"
-    sha256 cellar: :any, arm64_sonoma:  "193e847f12e1c6f8c7ffb50fc2c79f9612eb669a9410c6142847fa0684b5a89d"
-    sha256 cellar: :any, sonoma:        "ec88f99b401d5bbcfdd7b710f2b1e0744ae2d7cf6624e3d25f9e7ec5206ceff5"
-    sha256 cellar: :any, arm64_linux:   "a6202f0f73c17be042a286cdc4228743383c703593d23cdacb2153e6e1bc8877"
-    sha256 cellar: :any, x86_64_linux:  "59149621ca95a00b201d8af18637f00a9f9cfeb79e0b8d5fc299510fc445fd5c"
+    sha256 cellar: :any, arm64_tahoe:   "b9e8841f08496058eff115a0ebf798cdc8c77c37702cea28f6106a9e3ab6d638"
+    sha256 cellar: :any, arm64_sequoia: "619e135e6047099e77321e96e6f5d0a6d6edc7bbb84080425574d883124256d0"
+    sha256 cellar: :any, arm64_sonoma:  "a98cbbdeac8cb881206cd2716beccf6f9da5ef7158316db647ce57718750effa"
+    sha256 cellar: :any, sonoma:        "5efb790e848c145a255d1af531d11b06ca55d67aee8487a131eeaa69388baba4"
+    sha256 cellar: :any, arm64_linux:   "499ba5b84275e135acaa4fef1789b88d079da085791c3f25bec4f4eb8046dda9"
+    sha256 cellar: :any, x86_64_linux:  "7bff7aba2f8248a9ae4bbd2a8ca1d74b96095eac10ef4d972904b0c56c84a508"
   end
 
   depends_on "cmake" => :build
@@ -53,7 +63,7 @@ class Alive2 < Formula
       int main(void) { return 0; }
     C
 
-    clang = Formula["llvm"].opt_bin/"clang"
+    clang = formula_opt_bin("llvm")/"clang"
     system clang, "-O3", "test.c", "-S", "-emit-llvm",
                   "-fpass-plugin=#{lib/shared_library("tv")}",
                   "-Xclang", "-load",

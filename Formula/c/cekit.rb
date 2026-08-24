@@ -6,22 +6,23 @@ class Cekit < Formula
   url "https://files.pythonhosted.org/packages/13/3c/099c13b239c38a09de0225cf7240bc216ff530bb7966bd76bda912552b85/cekit-4.16.0.tar.gz"
   sha256 "1a8bd5c3e86713e28ac01e884cdb7df758791fb022d0beff87ff33d504aa48c9"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "87c37dcbed05db79ec5b50b9276dcf59b919651359aaa4f6dc32d288752eaafe"
-    sha256 cellar: :any,                 arm64_sequoia: "c835d727e0ba9e7433e09aa85f49dffc90a4d55e68c39f643b5c584ce98799e9"
-    sha256 cellar: :any,                 arm64_sonoma:  "c41f78aaf385b0bcae1fd86833ce720883c1f8f93a277e2022c6cbd372065029"
-    sha256 cellar: :any,                 sonoma:        "edb62835bb61b5103635737185c0b0d05f03c6dbcc46d8eea531c9be08bf7e3a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c51f4773091b2ebd1eaf8150882fbf92e26354ce249d35d056418b57c4b0a1c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "298b831ac276a17cc40a389484be26ea952a061d83cf7aeb78ce3c97cdc0fe39"
+    sha256 cellar: :any, arm64_tahoe:   "74ce0199659386d80485f4d3feb3dd7132bcc6cacd3f13637ee178baced8c1e0"
+    sha256 cellar: :any, arm64_sequoia: "ad863ef06f0d94a24f9b8c4a4489bc19fc0000e92aa435c01e78ad27bfbe031b"
+    sha256 cellar: :any, arm64_sonoma:  "098eb2d627d42b5751e702abced54047c677e619a963ec5e38ba9e4cb674ffc3"
+    sha256 cellar: :any, sonoma:        "1d80ac1f3f4b65636d6288413f01dbe3682cbc412889292a39d1710745324070"
+    sha256 cellar: :any, arm64_linux:   "fa7b2c6dfc51fbea72009c8d139f1252bd580ae2e2939fe1eb36d8bb00ada78a"
+    sha256 cellar: :any, x86_64_linux:  "28831baa81f3a2d2d1701c9f18aaf95c15351eb3664e387fcf2aa52348ee088a"
   end
 
   depends_on "libyaml"
   depends_on "python@3.14"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
-    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "colorlog" do
@@ -45,8 +46,8 @@ class Cekit < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
-    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "pykwalify" do

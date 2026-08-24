@@ -1,18 +1,18 @@
 class WasmComponentLd < Formula
   desc "Linker for creating WebAssembly components"
   homepage "https://wasi.dev"
-  url "https://github.com/bytecodealliance/wasm-component-ld/archive/refs/tags/v0.5.25.tar.gz"
-  sha256 "852f2b7a91c92b3f7442e2b839fce21ca235798e4e9fe4cfffa70c2f7dc5c511"
+  url "https://github.com/bytecodealliance/wasm-component-ld/archive/refs/tags/v0.5.30.tar.gz"
+  sha256 "d5e9b986da0807b3059c32cf56690933b93ef910226ebb08ceb434397446fd0f"
   license "Apache-2.0"
   head "https://github.com/bytecodealliance/wasm-component-ld.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4e5e10ac5847ecd8891202f2088f18baf08207479608316a34a32eb1fef04110"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c7a91c1f29895be0682ebbfee6610b922584046685ea070a5268af3d44a9b407"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fdc6348bdd22c1ecf5213a62c4cc1f98a451dfbecc6c3281ffb880d0d450618d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fc135f33ee83e040375c831c6ab86b96bd1d34724b3db7086b6514c195ac1687"
-    sha256 cellar: :any,                 arm64_linux:   "297e6524d48a116183613620d0667866e140e268881726f89f98d3fc6da20ab8"
-    sha256 cellar: :any,                 x86_64_linux:  "cff5846677b9e1c374dd772d8f34fe06dd263d87878d2adcc8ec92068fdcf1bf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aa08b67f61302c1341db1ce19fed71aec3e23c3c8f2438449507c086733c8ef8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "df64a3ebcf842733192d4df93f03f4715ec8b2119487016a04b9e84d01f80dfd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f1968db74abcccf0369442038fbe516afdd148ceee96e929990e08fa9c691dd3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "48fcfe5bea3cc267a0fc7ac60c496a41ca67a1247a58557cfea1d423cb5186f0"
+    sha256 cellar: :any,                 arm64_linux:   "6a49cabf8f30b1411c41626e10ef4a0a78115fb0d5c7034441d36c48d3e9ea66"
+    sha256 cellar: :any,                 x86_64_linux:  "2de5fe408456450bd9bf8a16e4954c7ee8389dfdba3adb0d3327d69ca7d4442f"
   end
 
   depends_on "rust" => :build
@@ -43,7 +43,7 @@ class WasmComponentLd < Formula
       }
     C
 
-    clang = Formula["llvm"].opt_bin/"clang"
+    clang = formula_opt_bin("llvm")/"clang"
     clang_resource_dir = Pathname.new(shell_output("#{clang} --print-resource-dir").chomp)
     testpath.install_symlink clang_resource_dir/"include"
     resource("builtins").stage testpath/"lib/wasm32-unknown-wasip2"

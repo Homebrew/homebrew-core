@@ -3,14 +3,18 @@ class MailDeduplicate < Formula
 
   desc "CLI to deduplicate mails from mail boxes"
   homepage "https://kdeldycke.github.io/mail-deduplicate/"
-  url "https://files.pythonhosted.org/packages/0c/0c/0e83bc1a549394b6c372caa8e6e5859020d23f470362d02276f1d2d56645/mail_deduplicate-8.1.2.tar.gz"
-  sha256 "30ed948490f35f47da27829f239c20068a936010d78e198da44b69f1d65c3d1e"
+  url "https://files.pythonhosted.org/packages/f9/c9/a80d901668896b00d20aab80c91c02cafdd203134245acc8c74099b4a1c7/mail_deduplicate-9.3.0.tar.gz"
+  sha256 "91da1ef5da2d22f125afaeea36a59aa8301707a3843361cce63081e416ef486e"
   license "GPL-2.0-or-later"
-  revision 5
   head "https://github.com/kdeldycke/mail-deduplicate.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "fa4f6668102165f0b50b2855a769775d837562fe4f6461678e29f06384a46c29"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9446e03ee71dee544cf6b5641855f559732700e0f5973d931548700782c37f9b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9446e03ee71dee544cf6b5641855f559732700e0f5973d931548700782c37f9b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9446e03ee71dee544cf6b5641855f559732700e0f5973d931548700782c37f9b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "638ce0ee0d541e1f21379074628e7dedd918a89c8e9f71b7d583f7b1442236dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "638ce0ee0d541e1f21379074628e7dedd918a89c8e9f71b7d583f7b1442236dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "638ce0ee0d541e1f21379074628e7dedd918a89c8e9f71b7d583f7b1442236dc"
   end
 
   depends_on "rust" => :build # for click_extra > uv_build
@@ -18,72 +22,46 @@ class MailDeduplicate < Formula
   depends_on "libyaml"
   depends_on "python@3.14"
 
-  pypi_packages exclude_packages: "certifi",
-                extra_packages:   "click_extra==7.14.1" # 7.15.0 is not compatible, https://github.com/kdeldycke/click-extra/commit/3ebff061fc36be07fd1b04640f23589fe68d16c7
-
-  resource "arrow" do
-    url "https://files.pythonhosted.org/packages/b9/33/032cdc44182491aa708d06a68b62434140d8c50820a087fac7af37703357/arrow-1.4.0.tar.gz"
-    sha256 "ed0cc050e98001b8779e84d461b0098c4ac597e88704a655582b21d116e526d7"
-  end
+  pypi_packages exclude_packages: "certifi"
 
   resource "boltons" do
-    url "https://files.pythonhosted.org/packages/63/54/71a94d8e02da9a865587fb3fff100cb0fc7aa9f4d5ed9ed3a591216ddcc7/boltons-25.0.0.tar.gz"
-    sha256 "e110fbdc30b7b9868cb604e3f71d4722dd8f4dcb4a5ddd06028ba8f1ab0b5ace"
+    url "https://files.pythonhosted.org/packages/47/99/12bace94ae2ba961bdc46d49277ff15d38dba074bc3987b0c0b4355a37a7/boltons-26.1.0.tar.gz"
+    sha256 "5764468aba493b15995ed17f46a16789023f123ca2a62d491a9ce825c1cbe26c"
   end
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/63/9a/fec38644694abfaaeca2798b58e276a8e61de49e2e37494ace423395febc/bracex-2.6.tar.gz"
-    sha256 "98f1347cd77e22ee8d967a30ad4e310b233f7754dbf31ff3fceb76145ba47dc7"
-  end
-
-  resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/ac/01/5f394b8bcd6e5b92f73130990960423bbb19711f906bd9fe9ea5557c667c/bracex-3.0.1.tar.gz"
+    sha256 "4e38e32392e4a4780fe15d644bfc7c8514057cfc3861e060b11814ce829c25e4"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/23/e4/796662cd90cf80e3a363c99db2b88e0e394b988a575f60a17e16440cd011/click-8.4.0.tar.gz"
-    sha256 "638f1338fe1235c8f4e008e4a8a254fb5c5fbdcbb40ece3c9142ebb78e792973"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "click-extra" do
-    url "https://files.pythonhosted.org/packages/20/c9/f02eef46dd487565fac61a0cf7b77bd2c1ce255129bbf04507a6bd3a2cf5/click_extra-7.14.1.tar.gz"
-    sha256 "acfa952375f5051e509643623ef9e66e2691435b9f4ceb50f5fb078e87761028"
+    url "https://files.pythonhosted.org/packages/f6/f2/ab33d5d978f4ceb1b52eb3e4ee0538aa197768913d411380a7b318e45e91/click_extra-8.8.1.tar.gz"
+    sha256 "fc67535bbc186ac608b04f1da3dd1c442903567f08a12f484af89a894653f796"
   end
 
   resource "cloup" do
-    url "https://files.pythonhosted.org/packages/f9/64/7f0a66021ff81d51859c66adc13f3c71f0306c2f8dfb9877a0694cbada05/cloup-3.0.9.tar.gz"
-    sha256 "519f524d3c64040e49a0866b5fc0bfd6af3eac0d3d6a4b2b50b33ab0247db2d7"
+    url "https://files.pythonhosted.org/packages/42/ca/cf02e965cfeb70d65c61fd3abb8022aaf5111a0de71b3c73a6ec2113aa25/cloup-3.1.0.tar.gz"
+    sha256 "637c1e628fe98f3f20a5e44da591a72b42bf54d7d4527190bf39ed5f64af7585"
   end
 
   resource "deepmerge" do
-    url "https://files.pythonhosted.org/packages/a8/3a/b0ba594708f1ad0bc735884b3ad854d3ca3bdc1d741e56e40bbda6263499/deepmerge-2.0.tar.gz"
-    sha256 "5c3d86081fbebd04dd5de03626a0607b809a98fb6ccba5770b62466fe940ff20"
+    url "https://files.pythonhosted.org/packages/2a/78/6e9e20106224083cfb817d2d3c26e80e72258d617b616721a169b87081e0/deepmerge-2.1.0.tar.gz"
+    sha256 "07ca7a7b8935df596c512fa8161877c0487ac61f691c07766e7d71d2b23bdd2f"
   end
 
   resource "extra-platforms" do
-    url "https://files.pythonhosted.org/packages/4c/f6/a20c4586c9bd653f596258455652725405f4b734e6270f7fc07a1a498932/extra_platforms-12.0.3.tar.gz"
-    sha256 "0a3201a05f93f18c840f3e9970d33f756a621eea719cbdfa24a514f96c79de7e"
+    url "https://files.pythonhosted.org/packages/d0/20/3d7ba1bd9cd9235eda78a143adcb2a710c6117f5b3f500237bc2f240808c/extra_platforms-13.6.0.tar.gz"
+    sha256 "92b5800c0ca9767820ae2cf3d48b7037432c1360055ed1804bc43a8269a2a090"
   end
 
-  resource "idna" do
-    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
-    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
-  end
-
-  resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
-    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
-  end
-
-  resource "requests" do
-    url "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz"
-    sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
-    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
+  resource "platformdirs" do
+    url "https://files.pythonhosted.org/packages/36/0a/062135c9a98dac804265073cc3afdbec5ae1aa37980bb354f461bafe81b4/platformdirs-4.11.1.tar.gz"
+    sha256 "bb1af68078f25e2f3e111e2d43b8d536df41b73c8a684b40bb018223b66fae27"
   end
 
   resource "tabulate" do
@@ -91,24 +69,19 @@ class MailDeduplicate < Formula
     sha256 "e2cfde8f79420f6deeffdeda9aaec3b6bc5abce947655d17ac662b126e48a60d"
   end
 
-  resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/ba/19/1b9b0e29f30c6d35cb345486df41110984ea67ae69dddbc0e8a100999493/tzdata-2026.2.tar.gz"
-    sha256 "9173fde7d80d9018e02a662e168e5a2d04f87c41ea174b139fbef642eda62d10"
-  end
-
-  resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
-    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
+  resource "tomlkit" do
+    url "https://files.pythonhosted.org/packages/94/96/e07752635b98536177fa1f37671c8f3cdde2e724c6bcf6034b2cfb571565/tomlkit-0.15.1.tar.gz"
+    sha256 "e25bbf38843005246210a12982776f27f99cb9be67160e14434d0c0d21ee1e97"
   end
 
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/79/3e/c0bdc27cf06f4e47680bd5803a07cb3dfd17de84cde92dd217dcb9e05253/wcmatch-10.1.tar.gz"
-    sha256 "f11f94208c8c8484a16f4f48638a85d771d9513f4ab3f37595978801cb9465af"
+    url "https://files.pythonhosted.org/packages/16/25/1da725838132221e33568973da484ff43813662ccc06ebf7f6e3abddfcd5/wcmatch-11.0.tar.gz"
+    sha256 "55d95c2447789712774b198ceec72939e88b5618f1f8f0a9b605bf7740b63b96"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/2c/ee/afaf0f85a9a18fe47a67f1e4422ed6cf1fe642f0ae0a2f81166231303c52/wcwidth-0.7.0.tar.gz"
-    sha256 "90e3a7ea092341c44b99562e75d09e4d5160fe7a3974c6fb842a101a95e7eed0"
+    url "https://files.pythonhosted.org/packages/34/74/c6428f875774288bec1396f5bfcbc2d925700a4dad61727fd5f2b12f249d/wcwidth-0.8.2.tar.gz"
+    sha256 "91fbef97204b96a3d4d421609b80340b760cf33e26da123ff243d76b1fda8dda"
   end
 
   def install

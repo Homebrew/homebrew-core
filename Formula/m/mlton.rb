@@ -65,7 +65,7 @@ class Mlton < Formula
     bootstrap = buildpath/"bootstrap"
     resource("bootstrap").stage do
       args = %W[
-        WITH_GMP_DIR=#{Formula["gmp"].opt_prefix}
+        WITH_GMP_DIR=#{formula_opt_prefix("gmp")}
         PREFIX=#{bootstrap}
         MAN_PREFIX_EXTRA=/share
       ]
@@ -76,7 +76,7 @@ class Mlton < Formula
     # Support parallel builds (https://github.com/MLton/mlton/issues/132)
     ENV.deparallelize
     args = %W[
-      WITH_GMP_DIR=#{Formula["gmp"].opt_prefix}
+      WITH_GMP_DIR=#{formula_opt_prefix("gmp")}
       DESTDIR=
       PREFIX=#{prefix}
       MAN_PREFIX_EXTRA=/share

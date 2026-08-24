@@ -1,19 +1,19 @@
 class AdaUrl < Formula
   desc "WHATWG-compliant and fast URL parser written in modern C++"
   homepage "https://ada-url.com"
-  url "https://github.com/ada-url/ada/archive/refs/tags/v3.4.4.tar.gz"
-  sha256 "77bc5bbc383ed098cc60266ad6ee912de2431bb62d89248c0e17c4e712dcdaf9"
+  url "https://github.com/ada-url/ada/archive/refs/tags/v4.0.0.tar.gz"
+  sha256 "6d6c7ef7dd2e329320d34eb2ab29ccdc879ee3935af9dfb894a6640e58dc381d"
   license any_of: ["Apache-2.0", "MIT"]
-  compatibility_version 1
+  compatibility_version 2
   head "https://github.com/ada-url/ada.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "14bf3540eb0d168084ff5e748077717f2824badf4697205a2f13135070b1816f"
-    sha256 cellar: :any,                 arm64_sequoia: "9e9b542074a36db6482d9d1d39c191c5410786e5bd3bec1be69489414d958f2f"
-    sha256 cellar: :any,                 arm64_sonoma:  "5cb45c0688bcfbd6d0fbbde936835b6a8ce35974373a40a25e0d3253bff89bbf"
-    sha256 cellar: :any,                 sonoma:        "af4c7c480558d2a2d941857296529606f8c921437df78d66311d0f4878de7cc1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9b870b4f77920e0d5ed1c9d4960085b89d846597819e6e298aeeb3c9d0f151a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e39841ea7a82f8acf968d7583c332014eeb202396fe23864ed6eb127e727509"
+    sha256 cellar: :any, arm64_tahoe:   "e3b125f42e888b49edb6b7a6b65f47585d7740e170d59965ff96a2930e2c58fd"
+    sha256 cellar: :any, arm64_sequoia: "06292729cd3fcf7e6b73704be693e10010d8231e54fe26dac091b4f8ee1c547a"
+    sha256 cellar: :any, arm64_sonoma:  "150fb2c766f3546b98576ebf04e4eac83cd5f1c6031b21133785f3b9b8228d88"
+    sha256 cellar: :any, sonoma:        "27fbcf06b02d39cffbc5187eac0f773feca8cb0bbcfd5492c30b5b3fa974f312"
+    sha256 cellar: :any, arm64_linux:   "ad0f4a73faaf785a75220c6e4c9dfd94e411cba5d0edb4680ca949e8f44cac17"
+    sha256 cellar: :any, x86_64_linux:  "5d9e6918837a81b750fc65b4f9315e99af2a4d8d31846611b456706adf3115e1"
   end
 
   depends_on "cmake" => :build

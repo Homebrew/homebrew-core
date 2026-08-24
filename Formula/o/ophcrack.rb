@@ -24,9 +24,9 @@ class Ophcrack < Formula
   def install
     args = %W[
       --disable-gui
-      --with-libssl=#{Formula["openssl@4"].opt_prefix}
+      --with-libssl=#{formula_opt_prefix("openssl@4")}
     ]
-    args << "--with-libexpat=#{Formula["expat"].opt_prefix}" if OS.linux?
+    args << "--with-libexpat=#{formula_opt_prefix("expat")}" if OS.linux?
 
     # Help old config scripts identify arm64 linux
     args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm64?

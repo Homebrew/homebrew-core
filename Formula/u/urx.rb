@@ -1,17 +1,17 @@
 class Urx < Formula
   desc "Extracts URLs from OSINT Archives for Security Insights"
   homepage "https://urx.hahwul.com"
-  url "https://github.com/hahwul/urx/archive/refs/tags/0.9.0.tar.gz"
-  sha256 "a0e711229d26dc88682d383b656c8e2eb17a63b8316a94f1b69c090e79ea43cd"
+  url "https://github.com/hahwul/urx/archive/refs/tags/0.10.0.tar.gz"
+  sha256 "d05f11d2cb2994c3d79b15a563685cc2b8ca5d9acf4af8ab659ae1d280d58931"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "865f128ab19987d17236c1555768a52dcc5e5372a4440311b8e5f6713f1099c7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "36cc8d2ead79e4aa553b4ecee1fe09329a0030bb4aac954cb409121492f27a39"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49aee02616032da6bf8bd44d807e865aee40b33a8c0c18d7b0fe22f4fa3d9923"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9460b73fd81f82ba9000d80736b1a55c2199e8356f91ea3c36cbde4e8b95157e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b714988c3733c987a0c3178f8b6efba31f683c704f89b20efdd0ba9988e28d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8eaf1b6bfe9e371e1005a9659125ecf545cb6c18dfbee03d0a853d355da240fb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "381d0abcb1b8f6d1718bed9ea9c0409d97813a9d09a2091265a861ca66135c37"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d1bb9fb1a4c943460e7f28fa7529f9fb721640efa5199966ca67414eff543cf2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93cf8a5730338673c973957ca9a0d5d6a12dc66a580f0f1aa4a579b96fbcdf0f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c8a9307d46328586c75ce2ffcdc947762f4645cbe0df984fa4be6a68ad5dcf4f"
+    sha256 cellar: :any,                 arm64_linux:   "cc40c7fec7e4c8042ebc15d34538e6b05c632c0a9ea2da20b81dd90b5734e9bf"
+    sha256 cellar: :any,                 x86_64_linux:  "281af0c4dec67b1320d7e509fdf1b93cf00f95e062223eff6f73616a13cd1af3"
   end
 
   depends_on "pkgconf" => :build

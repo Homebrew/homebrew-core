@@ -19,7 +19,7 @@ class TfplugingenOpenapi < Formula
 
   def install
     commit = build.head? ? Utils.git_short_head : tap.user
-    ldflags = "-s -w -X main.commit=#{commit} -X main.version=#{version}"
+    ldflags = "-X main.commit=#{commit} -X main.version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/tfplugingen-openapi"
   end
 

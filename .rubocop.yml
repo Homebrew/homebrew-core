@@ -3,6 +3,7 @@
 AllCops:
   TargetRubyVersion: 4.0
   NewCops: enable
+  UseProjectIndex: true
   Include:
   - "**/*.rbi"
   Exclude:
@@ -58,7 +59,6 @@ Layout/LineLength:
   - "\"~/Library/Caches/"
   - "\"~/Library/Containers"
   - "\"~/Application Support"
-  - " was verified as official when first introduced to the cask"
 Layout/SpaceAroundOperators:
   Enabled: false
 Layout/SpaceBeforeBrackets:
@@ -74,6 +74,25 @@ Lint/DuplicateBranch:
   - Taps/*/*/*.rb
   - "/**/{Formula,Casks}/**/*.rb"
   - "**/{Formula,Casks}/**/*.rb"
+Lint/ConstantReassignment:
+  Exclude:
+  - "**/*.rbi"
+  - Taps/*/*/*.rb
+  - "/**/Formula/**/*.rb"
+  - "**/Formula/**/*.rb"
+Lint/DeprecatedReference:
+  Enabled: true
+Lint/DuplicateMethods:
+  Exclude:
+  - "**/*.rbi"
+  - Taps/*/*/*.rb
+  - "/**/Formula/**/*.rb"
+  - "**/Formula/**/*.rb"
+Lint/NameTypo:
+  AllowedNames:
+  - IfNode
+  - instance_method
+  - send
 Lint/ParenthesesAsGroupedExpression:
   Exclude:
   - Taps/*/*/*.rb
@@ -176,6 +195,8 @@ Style/HashAsLastArrayItem:
   - Taps/*/*/*.rb
   - "/**/Formula/**/*.rb"
   - "**/Formula/**/*.rb"
+Style/IfUnlessModifier:
+  Enabled: false
 Style/InverseMethods:
   InverseMethods:
     :blank?: :present?
@@ -203,6 +224,8 @@ Style/OptionalBooleanParameter:
   - respond_to_missing?
 Style/RescueStandardError:
   EnforcedStyle: implicit
+Style/RedundantConstantBase:
+  Enabled: false
 Style/ReturnNil:
   Enabled: true
 Style/StderrPuts:

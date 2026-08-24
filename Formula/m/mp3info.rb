@@ -30,8 +30,7 @@ class Mp3info < Formula
   uses_from_macos "ncurses"
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/mp3info/patch-mp3tech.c.diff"
-    sha256 "846d6f85a3fa22908c6104436e774fc109547f7c6e9788c15dd9e602228b7892"
+    file "Patches/mp3info/patch-mp3tech.c.diff"
   end
 
   def install

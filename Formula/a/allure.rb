@@ -1,8 +1,8 @@
 class Allure < Formula
   desc "Flexible lightweight test report tool"
   homepage "https://allurereport.org/"
-  url "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.43.0/allure-commandline-2.43.0.zip"
-  sha256 "cef35074cf2b1b570f01e1c346317066d64dc7ee0d12cba3ae4eaae951c5e2a8"
+  url "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.45.0/allure-commandline-2.45.0.zip"
+  sha256 "a0a840979b6d212e9eee031563d669985eb353cfde60557343b2903bf08570a6"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,7 @@ class Allure < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "93ef6e5a65ca12b899ea22b241b1f765abac3d82eb61943e187c4f5b23e0dc78"
+    sha256 cellar: :any_skip_relocation, all: "a49babf1cbf1ee89ec34817e9944dd39036c8d57f53191b607541b7c9d6c7eca"
   end
 
   depends_on "openjdk"
@@ -22,7 +22,7 @@ class Allure < Formula
 
     libexec.install Dir["*"]
     bin.install libexec.glob("bin/*")
-    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
+    bin.env_script_all_files libexec/"bin", JAVA_HOME: formula_opt_prefix("openjdk")
   end
 
   test do

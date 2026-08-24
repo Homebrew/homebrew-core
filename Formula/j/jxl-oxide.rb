@@ -18,7 +18,7 @@ class JxlOxide < Formula
   depends_on "little-cms2"
 
   def install
-    ENV["LCMS2_LIB_DIR"] = Formula["little-cms2"].opt_lib.to_s
+    ENV["LCMS2_LIB_DIR"] = formula_opt_lib("little-cms2").to_s
     system "cargo", "install", *std_cargo_args(path: "crates/jxl-oxide-cli")
   end
 

@@ -25,12 +25,10 @@ class GoJsonnet < Formula
   conflicts_with "jsonnet", because: "both install binaries with the same name"
 
   def install
-    ldflags = "-s -w"
-
-    system "go", "build", *std_go_args(ldflags:, output: bin/"jsonnet"), "./cmd/jsonnet"
-    system "go", "build", *std_go_args(ldflags:, output: bin/"jsonnetfmt"), "./cmd/jsonnetfmt"
-    system "go", "build", *std_go_args(ldflags:, output: bin/"jsonnet-lint"), "./cmd/jsonnet-lint"
-    system "go", "build", *std_go_args(ldflags:, output: bin/"jsonnet-deps"), "./cmd/jsonnet-deps"
+    system "go", "build", *std_go_args(output: bin/"jsonnet"), "./cmd/jsonnet"
+    system "go", "build", *std_go_args(output: bin/"jsonnetfmt"), "./cmd/jsonnetfmt"
+    system "go", "build", *std_go_args(output: bin/"jsonnet-lint"), "./cmd/jsonnet-lint"
+    system "go", "build", *std_go_args(output: bin/"jsonnet-deps"), "./cmd/jsonnet-deps"
   end
 
   test do

@@ -19,11 +19,10 @@ class Aiac < Formula
 
   depends_on "go" => :build
 
+  deny_network_access! [:postinstall, :test]
+
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/gofireflyio/aiac/v#{version.major}/libaiac.Version=#{version}
-    ]
+    ldflags = %W[-X github.com/gofireflyio/aiac/v#{version.major}/libaiac.Version=#{version}]
     system "go", "build", *std_go_args(ldflags:)
   end
 

@@ -23,7 +23,6 @@ class Kubebuilder < Formula
     goarch = Utils.safe_popen_read("#{Formula["go"].bin}/go", "env", "GOARCH").chomp
 
     ldflags = %W[
-      -s -w
       -X sigs.k8s.io/kubebuilder/v4/cmd.kubeBuilderVersion=#{version}
       -X sigs.k8s.io/kubebuilder/v4/cmd.goos=#{goos}
       -X sigs.k8s.io/kubebuilder/v4/cmd.goarch=#{goarch}

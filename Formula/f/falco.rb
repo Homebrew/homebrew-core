@@ -18,7 +18,7 @@ class Falco < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version}"
+    ldflags = "-X main.version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/falco"
   end
 
@@ -26,23 +26,23 @@ class Falco < Formula
     assert_match version.to_s, shell_output("#{bin}/falco -V 2>&1")
 
     pass_vcl = testpath/"pass.vcl"
-    pass_vcl.write <<~EOS
+    pass_vcl.write <<~VCL
       sub vcl_recv {
       #FASTLY RECV
         return (pass);
       }
-    EOS
+    VCL
 
     assert_match "VCL looks great", shell_output("#{bin}/falco #{pass_vcl} 2>&1")
 
     fail_vcl = testpath/"fail.vcl"
-    fail_vcl.write <<~EOS
+    fail_vcl.write <<~VCL
       sub vcl_recv {
       #FASTLY RECV
         set req.backend = httpbin_org;
         return (pass);
       }
-    EOS
+    VCL
     assert_match "Type mismatch: req.backend requires type REQBACKEND",
       shell_output("#{bin}/falco #{fail_vcl} 2>&1", 1)
   end

@@ -33,7 +33,7 @@ class DosboxStaging < Formula
   depends_on "libslirp"
   depends_on "mt32emu"
   depends_on "opusfile"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_image"
   depends_on "sdl2_net"
   depends_on "speexdsp"

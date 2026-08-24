@@ -4,15 +4,16 @@ class Logstalgia < Formula
   url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.1.5/logstalgia-1.1.5.tar.gz"
   sha256 "028936e9f663c877d6969ad25f145c7b420797e9a3e01c6c184815ed8309f481"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/acaudwell/Logstalgia.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "2bcc3f749465347934eceb6ec6922c9c927e7b8bc04513a263c58e8b69615a87"
-    sha256 arm64_sequoia: "565194f69d3392f0e853b8a317e7e7059ebb68db16ae0da0a12c0c61c50097d6"
-    sha256 arm64_sonoma:  "415cff96d89ec355c65757dbd695e25895f8326e9b4d3acb140ff3724efb339c"
-    sha256 sonoma:        "eeabaeaedb6aa408ffa0d3248d69fb91230c36363b40e872a8248aa9dd109e6b"
-    sha256 arm64_linux:   "a9847ee898ca58d0f4f77492b5fe95428a9ded03a01da144098d7c2275636cfb"
-    sha256 x86_64_linux:  "2a9a18916c48cf23d57b90db044357e2283c8ca13c7956467257a153a09ad692"
+    sha256 arm64_tahoe:   "968fb21de628f1134ff9658143f311a4308d50a70640c56e4cafaaabaa50d6dd"
+    sha256 arm64_sequoia: "ad39fc4b76c2fa15e0dd1c96a7d68138854eac7c140ed672286921e230de1d16"
+    sha256 arm64_sonoma:  "d1451ec4b1fc58006c7913ef852c0301d869f3e42d54e8b290f4fc14ec7a6b28"
+    sha256 sonoma:        "e2e882edcc92ff5dfad8c032afe244879bae0fd7eddab3fbe1ef5e610c9e9ce9"
+    sha256 arm64_linux:   "f77e6de85bf093f3ff77be706f0af9d58d5d44e0dead8dc21b81d27dab3b6aaa"
+    sha256 x86_64_linux:  "8cf25fc1623b2e4e9757a8e63dbd70f13a4f255c66f27849631d6a0b806809f7"
   end
 
   depends_on "autoconf" => :build
@@ -26,7 +27,7 @@ class Logstalgia < Formula
   depends_on "glew"
   depends_on "libpng"
   depends_on "pcre2"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_image"
 
   on_linux do
@@ -39,7 +40,7 @@ class Logstalgia < Formula
 
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules",
-                          "--with-boost-libdir=#{Formula["boost"].opt_lib}",
+                          "--with-boost-libdir=#{formula_opt_lib("boost")}",
                           *std_configure_args
     system "make"
     system "make", "install"

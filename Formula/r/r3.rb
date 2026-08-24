@@ -8,10 +8,11 @@ class R3 < Formula
     url "https://github.com/c9s/r3/archive/refs/tags/1.3.4.tar.gz"
     sha256 "db1fb91e51646e523e78b458643c0250231a2640488d5781109f95bd77c5eb82"
 
-    # Backport of https://github.com/c9s/r3/commit/c105117b40d1a7b2b9ddf1672cd08b11bd565bd9
+    # Backport PCRE2 support (rebased subset of upstream commit c105117)
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/7ecb03ef6d73f3ed71546fb0c34023f9a23dbd74/Patches/r3/1.3.4.patch"
-      sha256 "c00d9af0b30d94d918cf438834f2ca06e1f756ee56ed0205f9f6f82bf909cb0e"
+      file "Patches/r3/1.3.4.patch"
+      type :backport
+      resolves "https://github.com/c9s/r3/pull/153"
     end
   end
 

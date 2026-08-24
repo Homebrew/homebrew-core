@@ -1,8 +1,8 @@
 class Libmpdclient < Formula
   desc "Library for MPD in the C, C++, and Objective-C languages"
   homepage "https://www.musicpd.org/libs/libmpdclient/"
-  url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.25.tar.xz"
-  sha256 "5170a9ae998241a936fce150e6859d84db92330b80ad2d0f2adce6689eeb5401"
+  url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.27.tar.xz"
+  sha256 "88945b5abc11d8f4cea2bb7028e545024a6e060650bd65527a29bc9400daead8"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/MusicPlayerDaemon/libmpdclient.git", branch: "master"
@@ -13,12 +13,12 @@ class Libmpdclient < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "85065fcb5b2aee5bc9d7aacead08d889a2f7d59ea096de716ebc4d52f534d032"
-    sha256 cellar: :any, arm64_sequoia: "02c4eb9f272d2e641c8ab4451d120e038ceb1fbf27f297c8110d0bcbb8da24af"
-    sha256 cellar: :any, arm64_sonoma:  "ef0b2b19130c48bfa9fedb150231d5a5b4b16057334b8a990d3a0fd2c7cd2526"
-    sha256 cellar: :any, sonoma:        "510eb974af100527b0e4a6cbe396080648b18138c25c1fa61de6225c61647435"
-    sha256 cellar: :any, arm64_linux:   "80a6fc7eead5e2c59eff2bae6d0f8f3190c95c3cb3c53a2daeb62c998254aa0b"
-    sha256 cellar: :any, x86_64_linux:  "ecccd87dae1450a2b7500e78cab1c37f953d6644564b70607d4e55476f149357"
+    sha256 cellar: :any, arm64_tahoe:   "6cc02e68cc64ab16097aa692768a74a9aefea3019e2d28c93815d37037d1d452"
+    sha256 cellar: :any, arm64_sequoia: "f9d11ae93a379be01a8a8eccd85a05b3fa32deeca0e460d6b7787d1317bc697a"
+    sha256 cellar: :any, arm64_sonoma:  "18ef29e088182fd692467747b96d0fdca62915c3225e473685a8b26bc29d2e75"
+    sha256 cellar: :any, sonoma:        "2aa2352f1692e61fa919d2f327e55467035581394584f87e0ec92e60ea0d3a96"
+    sha256 cellar: :any, arm64_linux:   "733e9259511c3c6cc0b0539dadde5051979504b4a8015049720d7c8d842e383a"
+    sha256 cellar: :any, x86_64_linux:  "44ad3dec89db20db9c2910d0fea07d29854a7ab44398bd381afad05ea3914c23"
   end
 
   depends_on "meson" => :build

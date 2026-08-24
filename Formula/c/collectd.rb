@@ -2,7 +2,7 @@ class Collectd < Formula
   desc "Statistics collection and monitoring daemon"
   homepage "https://collectd.org/"
   license "MIT"
-  revision 10
+  revision 11
 
   stable do
     url "https://storage.googleapis.com/collectd-tarballs/collectd-5.12.0.tar.bz2"
@@ -10,8 +10,8 @@ class Collectd < Formula
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+      file "Patches/libtool/configure-big_sur.diff"
+      type :unofficial
     end
   end
 
@@ -21,12 +21,12 @@ class Collectd < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "96b35082902fad36f2eebfadecfb13424f4f019cb051fb7cc8a80aa10369e618"
-    sha256 arm64_sequoia: "bd6bbc019cd159129bf0ae691889eb75bdb223852a510b968ac1d9f80e2f0fbe"
-    sha256 arm64_sonoma:  "bb7547382bb6e48626b092b4176b71bce3c3931d7aae4e0f1f181ee82429eeda"
-    sha256 sonoma:        "a43c1a21faa9efe89488e6f8804bafbe299ffa1ef88700257a274b964b9ab94f"
-    sha256 arm64_linux:   "ffdcf420ea811f4ed5dfb2679314260669bd20fa13ff7b309fe112eae86758f7"
-    sha256 x86_64_linux:  "34583c194f6ce6c0b08ebd64e91b079083b038139c24bd9a8d93c1ba35883526"
+    sha256 arm64_tahoe:   "324dda8ec5aa63c4d4b84b36f6858321e63f31c03e46cf692bf6bce2173df4cd"
+    sha256 arm64_sequoia: "7aea2380df608747796f5f7c3aac79ee6c36a301f07beb4ff25db121119a7311"
+    sha256 arm64_sonoma:  "4d93f8eb7f727cfaab7784fb1d94c5efb9763447c29d1f9662a9558859dfb74a"
+    sha256 sonoma:        "315359880ba2c73615ce322d5a56074e72179c75c694b1ad31ef0f2d0d653e46"
+    sha256 arm64_linux:   "3c3fce87eece6ded5ece1b4cf1a377e42df47015287218f88df213c5b299d32d"
+    sha256 x86_64_linux:  "6c17fdeb04fee0e5b58e8b08a2c3586f427c1952dfe95f981ae3cf95ce935d27"
   end
 
   head do
@@ -56,7 +56,7 @@ class Collectd < Formula
     # PROTO3 which is not the protoc maximum 2023.
     # Remove when fixed in `protobuf-c`:
     # https://github.com/protobuf-c/protobuf-c/pull/711
-    ENV["PROTOC_C"] = Formula["protobuf"].opt_bin/"protoc"
+    ENV["PROTOC_C"] = formula_opt_bin("protobuf")/"protoc"
 
     args = %W[
       --localstatedir=#{var}

@@ -4,37 +4,51 @@ class Klee < Formula
 
   desc "Symbolic Execution Engine"
   homepage "https://klee-se.org"
-  url "https://github.com/klee/klee/archive/refs/tags/v3.2.tar.gz"
-  sha256 "83d9b9ce0ba187e48c0e55623bf1a68b5eb61376da7ce82551c9d885715a21dd"
   license "NCSA"
-  revision 3
-  head "https://github.com/klee/klee.git", branch: "master"
+  revision 6
+
+  stable do
+    url "https://github.com/klee/klee/archive/refs/tags/v3.2.tar.gz"
+    sha256 "83d9b9ce0ba187e48c0e55623bf1a68b5eb61376da7ce82551c9d885715a21dd"
+
+    depends_on "llvm@16"
+
+    # klee needs a version of libc++ compiled with wllvm
+    resource "libcxx" do
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.6/llvm-project-16.0.6.src.tar.xz"
+      sha256 "ce5e71081d17ce9e86d7cbcfa28c4b04b9300f8fb7e78422b1feb6bc52c3028e"
+    end
+  end
 
   bottle do
-    sha256 arm64_tahoe:   "9f070c721c8e8c4e075259bf6384bda01bec9697843d3276f5c3bb516f13fb77"
-    sha256 arm64_sequoia: "b3781d0486741928c3c86ad082da7ac45c23b937672470686cba022375f9da0f"
-    sha256 arm64_sonoma:  "9a47aacbf1d5400f215e7789d7f271cbc8ddbd7ba63175cdfb4bf0c7765e9213"
-    sha256 sonoma:        "838b310fc517c17a9cce3801f4cec11d93eaad941db365641c9b460a50d1be0f"
-    sha256 x86_64_linux:  "a59fa6de22b279e1c4be53603e0c19cc3e84c857c8f519960a30f3f92bb623de"
+    sha256 arm64_tahoe:   "11ad8309bdee556b758e0c98f329f331c50a831359b5069458e89e46be0b9294"
+    sha256 arm64_sequoia: "149099ae03066ed219684da84989bcd402fd91a0368d8e23e9a5086d3e61cc58"
+    sha256 arm64_sonoma:  "d1364a17a148f3e433f65dea5c5b50d7c5869d8c3fc2eb3d22b11f6058b60bfa"
+    sha256 sonoma:        "5ede06f54a246b6e73fcf22d9605f26c10aa0212218c8df19eff011ae7179469"
+    sha256 x86_64_linux:  "6e52aeaf2b3ea52145098af1dcf0fa28e6c6363dd05ed173ee4c841e91a34601"
+  end
+
+  head do
+    url "https://github.com/klee/klee.git", branch: "master"
+
+    depends_on "llvm@18"
+
+    # klee needs a version of libc++ compiled with wllvm
+    resource "libcxx" do
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.8/llvm-project-18.1.8.src.tar.xz"
+      sha256 "0b58557a6d32ceee97c8d533a59b9212d87e0fc4d2833924eb6c611247db2f2a"
+    end
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
+  depends_on "wllvm" => :build
 
-  depends_on "cryptominisat"
   depends_on "gperftools"
-  depends_on "llvm@16" # LLVM 17+ issue: https://github.com/klee/klee/issues/1754
   depends_on "python@3.14"
   depends_on "sqlite"
   depends_on "stp"
-  depends_on "wllvm"
   depends_on "z3"
-
-  on_macos do
-    depends_on "cryptominisat"
-    depends_on "gmp"
-    depends_on "minisat"
-  end
 
   on_linux do
     # klee seems to stall when run on arm64. May not be supported yet:
@@ -42,12 +56,6 @@ class Klee < Formula
     # * https://github.com/klee/klee/issues/1767
     depends_on arch: :x86_64
     depends_on "zlib-ng-compat"
-  end
-
-  # klee needs a version of libc++ compiled with wllvm
-  resource "libcxx" do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.6/llvm-project-16.0.6.src.tar.xz"
-    sha256 "ce5e71081d17ce9e86d7cbcfa28c4b04b9300f8fb7e78422b1feb6bc52c3028e"
   end
 
   resource "tabulate" do
@@ -68,7 +76,7 @@ class Klee < Formula
     # https://github.com/klee/klee/blob/v#{version}/scripts/build/p-libcxx.inc
     libcxx_args = std_cmake_args(install_prefix: libcxx_install_dir) + %W[
       -DRUNTIMES_CMAKE_ARGS=-DCMAKE_INSTALL_RPATH=#{rpath}
-      -DLLVM_ENABLE_RUNTIMES=libcxx;libcxxabi
+      -DLLVM_ENABLE_RUNTIMES=libcxx;libcxxabi#{";libunwind" if build.head?}
       -DLLVM_ENABLE_PROJECTS=
       -DLLVM_ENABLE_PROJECTS_USED:BOOL=ON
       -DLLVM_ENABLE_THREADS:BOOL=OFF
@@ -79,6 +87,7 @@ class Klee < Formula
       -DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=#{OS.mac? ? "OFF" : "ON"}
       -DLIBCXXABI_ENABLE_THREADS:BOOL=OFF
     ]
+    libcxx_args << "-DLIBCXXABI_USE_LLVM_UNWINDER:BOOL=ON" if build.head?
 
     with_env(
       CC:                 "wllvm",

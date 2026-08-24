@@ -27,7 +27,7 @@ class Vrpn < Formula
     # a side effect of switching the `jsoncpp` build to meson.
     inreplace "cmake/FindJsonCpp.cmake",
               "set(JSONCPP_LIBRARY ${JSONCPP_IMPORTED_LIBRARY})",
-              "set(JSONCPP_LIBRARY \"#{Formula["jsoncpp"].opt_lib/shared_library("libjsoncpp")}\")"
+              "set(JSONCPP_LIBRARY \"#{formula_opt_lib("jsoncpp")/shared_library("libjsoncpp")}\")"
 
     args = %w[
       -DBUILD_SHARED_LIBS=ON

@@ -28,8 +28,7 @@ class Feishu2md < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd"
   end
 
   test do

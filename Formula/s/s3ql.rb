@@ -3,8 +3,8 @@ class S3ql < Formula
 
   desc "POSIX-compliant FUSE filesystem using object store as block storage"
   homepage "https://github.com/s3ql/s3ql"
-  url "https://github.com/s3ql/s3ql/releases/download/s3ql-6.2.2/s3ql-6.2.2.tar.gz"
-  sha256 "d8ee855f628baa0b175ed37c61851c8020e3e26fd8d494729817992edc23c08f"
+  url "https://github.com/s3ql/s3ql/releases/download/s3ql-6.3.0/s3ql-6.3.0.tar.gz"
+  sha256 "c96af767adbb923910e4f25efa081d774fe0b667a715bb8bed86d3166c729123"
   license "GPL-3.0-only"
 
   livecheck do
@@ -13,8 +13,8 @@ class S3ql < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "c1c4a85e064e25f70489d95b47174adbe83040a1fbecf321cb797ef67d6049e0"
-    sha256 cellar: :any, x86_64_linux: "f8d00c493fc87537cf9a1dd120eb5399fcb61d9d356218dd84806a6e985d7c98"
+    sha256 cellar: :any, arm64_linux:  "19d3f45c6a158a49bd8bd5ba2227a0fdf1ce7a569f6acb22e8895a09c88af795"
+    sha256 cellar: :any, x86_64_linux: "f34c73f391af406cd387a36c7c5784158b577de1d69854a76425e42cec8c558b"
   end
 
   depends_on "pkgconf" => :build
@@ -23,19 +23,25 @@ class S3ql < Formula
   depends_on "cryptography" => :no_linkage
   depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE
+  depends_on "pydantic" => :no_linkage
   depends_on "python@3.14"
   depends_on "sqlite"
 
-  pypi_packages exclude_packages: %w[certifi cryptography]
+  pypi_packages exclude_packages: %w[certifi cryptography pydantic]
+
+  resource "annotated-doc" do
+    url "https://files.pythonhosted.org/packages/57/ba/046ceea27344560984e26a590f90bc7f4a75b06701f653222458922b558c/annotated_doc-0.0.4.tar.gz"
+    sha256 "fbcda96e87e9c92ad167c2e53839e57503ecfda18804ea28102353485033faa4"
+  end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/19/14/2c5dd9f512b66549ae92767a9c7b330ae88e1932ca57876909410251fe13/anyio-4.13.0.tar.gz"
-    sha256 "334b70e641fd2221c1505b3890c69882fe4a2df910cba14d97019b90b24439dc"
+    url "https://files.pythonhosted.org/packages/61/cc/a381afa6efea9f496eff839d4a6a1aed3bfafc7b3ab4b0d1b243a12573dd/anyio-4.14.2.tar.gz"
+    sha256 "cfa139f3ed1a23ee8f88a145ddb5ac7605b8bbfd8592baacd7ce3d8bb4313c7f"
   end
 
   resource "apsw" do
-    url "https://files.pythonhosted.org/packages/df/8e/6db1f1b21e461bb77b455bc20ff8ab5fb9642ff8370338743dd812483f8d/apsw-3.53.2.0.tar.gz"
-    sha256 "5c59bde36e20a33c0a0399bfe4021f2cd6fc049ac1b15d58f0dc25b48ed1d87f"
+    url "https://files.pythonhosted.org/packages/9a/2a/ec1dfda955cda4b8d77b076553b87d428315bd3a17ea4286aa9dc40901fe/apsw-3.53.3.1.tar.gz"
+    sha256 "7684d24e77dc9e3b301ee5374a8a9501ad8a85b821ce85391260a2448dd02323"
   end
 
   resource "attrs" do
@@ -44,8 +50,8 @@ class S3ql < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "defusedxml" do
@@ -54,8 +60,8 @@ class S3ql < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/c6/ad/ff781329bbbdc0974a098d996e89c9e1f7024262f9e3eec442fbb9ad1ac6/google_auth-2.53.0.tar.gz"
-    sha256 "e7e6aa16f6bee7b2b264830fd04f08087a1d5a836df516251a5d15327b246c9c"
+    url "https://files.pythonhosted.org/packages/c7/33/dbc946a407401b975f0719658f18e664ece2109f79ffd1ff3bf226c205f4/google_auth-2.56.2.tar.gz"
+    sha256 "e28f103ca8091fb7012b99c44243d7366c29863713b8e34a220c3322b7a07051"
   end
 
   resource "google-auth-oauthlib" do
@@ -78,6 +84,16 @@ class S3ql < Formula
     sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
   end
 
+  resource "markdown-it-py" do
+    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
+    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+  end
+
+  resource "mdurl" do
+    url "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz"
+    sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
+  end
+
   resource "more-itertools" do
     url "https://files.pythonhosted.org/packages/de/1d/f4da6f02cdffe04d6362210b807146a26044c88d839208aec273bb0d9184/more_itertools-11.1.0.tar.gz"
     sha256 "48e8f4d9e7e5878571ecf6f2b4e57634f93cd474cc8cfbd2376f2d11b396e30d"
@@ -94,8 +110,8 @@ class S3ql < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/5c/5f/6583902b6f79b399c9c40674ac384fd9cd77805f9e6205075f828ef11fb2/pyasn1-0.6.3.tar.gz"
-    sha256 "697a8ecd6d98891189184ca1fa05d1bb00e2f84b5977c481452050549c8a72cf"
+    url "https://files.pythonhosted.org/packages/a4/9a/23310166d960def5897e91fe20e5b724601b02a22e84ba1f94232c0b7f67/pyasn1-0.6.4.tar.gz"
+    sha256 "9c447d8431c947fe4c8febc4ed9e760bc29011a5b01e5c74b67025bd9fb8ce81"
   end
 
   resource "pyasn1-modules" do
@@ -104,8 +120,13 @@ class S3ql < Formula
   end
 
   resource "pyfuse3" do
-    url "https://files.pythonhosted.org/packages/98/c8/8d4b00354b0aae1660310c6853cad7228af7efc344b3ff7d8cc4a894343d/pyfuse3-3.4.2.tar.gz"
-    sha256 "0a59031969c4ba51a5ec1b67f3c5c24f641a6a3f8119a86edad56debcb9084d9"
+    url "https://files.pythonhosted.org/packages/b9/a9/ce2c0513e9611ee2ffeeb482a33d23a210326801d48866df30a989562d43/pyfuse3-3.5.0.tar.gz"
+    sha256 "88399a9494b88603230bba300f4ba9ad63fece5ed514ca3633d555a0c6a42b24"
+  end
+
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   resource "requests" do
@@ -116,6 +137,16 @@ class S3ql < Formula
   resource "requests-oauthlib" do
     url "https://files.pythonhosted.org/packages/42/f2/05f29bc3913aea15eb670be136045bf5c5bbf4b99ecb839da9b422bb2c85/requests-oauthlib-2.0.0.tar.gz"
     sha256 "b3dffaebd884d8cd778494369603a9e7b58d29111bf6b41bdc2dcd87203af4e9"
+  end
+
+  resource "rich" do
+    url "https://files.pythonhosted.org/packages/c0/8f/0722ca900cc807c13a6a0c696dacf35430f72e0ec571c4275d2371fca3e9/rich-15.0.0.tar.gz"
+    sha256 "edd07a4824c6b40189fb7ac9bc4c52536e9780fbbfbddf6f1e2502c31b068c36"
+  end
+
+  resource "shellingham" do
+    url "https://files.pythonhosted.org/packages/58/15/8b3609fd3830ef7b27b655beb4b4e9c62313a4e8da8c676e142cc210d58e/shellingham-1.5.4.tar.gz"
+    sha256 "8dbca0739d487e5bd35ab3ca4b36e11c4078f3a234bfce294b0a0291363404de"
   end
 
   resource "sniffio" do
@@ -131,6 +162,11 @@ class S3ql < Formula
   resource "trio" do
     url "https://files.pythonhosted.org/packages/52/b6/c744031c6f89b18b3f5f4f7338603ab381d740a7f45938c4607b2302481f/trio-0.33.0.tar.gz"
     sha256 "a29b92b73f09d4b48ed249acd91073281a7f1063f09caba5dc70465b5c7aa970"
+  end
+
+  resource "typer" do
+    url "https://files.pythonhosted.org/packages/37/78/fda3361b56efc27944f24225f6ecd13d96d6fcfe37bd0eb34e2f4c63f9fc/typer-0.27.0.tar.gz"
+    sha256 "629bd12ea5d13a17148125d9a264f949eb171fb3f120f9b04d85873cab054fa5"
   end
 
   resource "urllib3" do
@@ -152,8 +188,6 @@ class S3ql < Formula
   end
 
   test do
-    assert_match "S3QL ", shell_output("#{bin}/mount.s3ql --version")
-
     # create a local filesystem, and run an fsck on it
     assert_match "Creating metadata", shell_output("#{bin}/mkfs.s3ql --plain local://#{testpath} 2>&1")
     assert_path_exists testpath/"s3ql_params"

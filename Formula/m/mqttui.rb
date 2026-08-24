@@ -1,17 +1,17 @@
 class Mqttui < Formula
   desc "Subscribe to a MQTT Topic or publish something quickly from the terminal"
   homepage "https://github.com/EdJoPaTo/mqttui"
-  url "https://github.com/EdJoPaTo/mqttui/archive/refs/tags/v0.23.0.tar.gz"
-  sha256 "98cd09e4c81b89be12ea65efd6c88890324c826965bc24d12d40e5449f3616e7"
+  url "https://github.com/EdJoPaTo/mqttui/archive/refs/tags/v0.24.0.tar.gz"
+  sha256 "287de6901f43bf1d879be25acffb02f7601e023afc90b11c8e0504e757a6589f"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "21dd6e39ef549c6703efe250db24bceba6c612c8aa237118092eb8cf546d8b77"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9d3e8ddf45e29222b542dbedc0e2e45deec9de8eb3788339c626015ceaba74ab"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "827a2e3fe86dcb7ccedf5f7ec790376bfb05b2ff79a2f041cb881e1c946d84d0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aff45a6abce9ae8a48ee5f6112432e1af6354edcafdf980754ad24a6dff98c29"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "553f92c13c55fbfcaf1e3c0cd8bd39942c2fb0ad9f9fade702806e102daeda41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ed8f9f0c4ee40ed048cc743a4edf811a61844d183cd2d0d4635274295c8f734"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "63fc5e813bc6e2d15b0a303a97c4e85564518b0544b7e316e78baf1e1358b889"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "baa83e67d90b3d6c98a3dc1adeb5d2579c2a9943d802dd17b0c36c28c07e9548"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "403cec21c8be70b0f4604b230c15d1e85536f42a38c7bfbd394dc508b2261ef5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0adbd8538578615edfec23a56ca12c06a90d3c106456ba776adec82c43f6e278"
+    sha256 cellar: :any,                 arm64_linux:   "1593112b3dc6628198ad7b7f9d9e48c49b69464a1d36e98ab42f6337a9a7ca92"
+    sha256 cellar: :any,                 x86_64_linux:  "5f8f36cb8bdeb9c4e73ac0c185850e7f785e15b1ca2f8540f52d83f83a265545"
   end
 
   depends_on "rust" => :build

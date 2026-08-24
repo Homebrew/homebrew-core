@@ -1,8 +1,8 @@
 class MbedtlsAT3 < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://www.trustedfirmware.org/projects/mbed-tls/"
-  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-3.6.6/mbedtls-3.6.6.tar.bz2"
-  sha256 "8fb65fae8dcae5840f793c0a334860a411f884cc537ea290ce1c52bb64ca007a"
+  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-3.6.7/mbedtls-3.6.7.tar.bz2"
+  sha256 "a7e8bcbec0e6f761b4af24f25677626b35f762f68eef79c08677a363212d11f6"
   license "Apache-2.0"
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class MbedtlsAT3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a363a40850d5eb49bd11028879d2b312eafb9b7b38fefb5cf089014ae3e428f7"
-    sha256 cellar: :any,                 arm64_sequoia: "b3485e10f62304b4b61af65f7b4e0fa9331687b0c74642e50019adf2e7c7ffd2"
-    sha256 cellar: :any,                 arm64_sonoma:  "14ce5476ba9ec9c22b163ef50ae17b89500716d1084a1c6d893ccd9935713011"
-    sha256 cellar: :any,                 sonoma:        "6dad4026c51512381cab9ac7a82e041a2a1cee120c23b869c97822b45e20daa7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3a416c0fe1570337994e7ad7c5bbb6e1110c81abac768fc0a8837e60f9ae9426"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78735c99e399005253f01a93ed4beab4e30600a749f96c4641309b4a1c5d89d2"
+    sha256 cellar: :any, arm64_tahoe:   "fd7f0577e006f5d4b7bae70773a1eb13d55dc00d7aac524d021ea72619b71da5"
+    sha256 cellar: :any, arm64_sequoia: "7cd64fbb7ffb94fd34123f4afcebcb312d38a3d2f1d00b14ed6500291173545a"
+    sha256 cellar: :any, arm64_sonoma:  "c68f39491b22e489486cdca7ce952f937e2ab4d8b80aea4ad4265a15a8d73b62"
+    sha256 cellar: :any, sonoma:        "ab8e98482d1b2709f0de75d57efd496b755e8e81ad07f9c86f2a0a8249de3230"
+    sha256 cellar: :any, arm64_linux:   "6464bb53f579d74a0d25f494487a6dd0f38f202a537e77ce74610b62c750f071"
+    sha256 cellar: :any, x86_64_linux:  "f86301caf03146665db16c0877b10c1423275f3ba40f18f7ee024fb3138cb83a"
   end
 
   keg_only :versioned_formula

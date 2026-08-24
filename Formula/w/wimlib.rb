@@ -4,6 +4,7 @@ class Wimlib < Formula
   url "https://wimlib.net/downloads/wimlib-1.14.5.tar.gz"
   sha256 "84221a3abd5b91228f15f8e6065c335a336237b5738197b75bf419eea561a194"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://wimlib.net/downloads/"
@@ -11,12 +12,12 @@ class Wimlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "951bf9ddae69ebd6442a44d1f1e39679a2c5655c4fcd32510eb6643db62dc3ea"
-    sha256 cellar: :any,                 arm64_sequoia: "f68999bc5e316bdbe49da07b9e19d666d4af22cfb142f5cefa17a6164230f5cc"
-    sha256 cellar: :any,                 arm64_sonoma:  "e1ea0499d1740f2f5068cc4f7a298020559924e9be21c76d30a5dbeb8d93f4ae"
-    sha256 cellar: :any,                 sonoma:        "705581a3fc296d50a26abc3fd4a998e4e09e146366e636c9486ead31855d1372"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a6c19ffd2caac844bbee911908b820cd7345455b089e0aa20438ed4aee1f0319"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be666177d8950f104c6bd2e72d7c19a89477e24e5c1873b66539bce538a0415d"
+    sha256 cellar: :any, arm64_tahoe:   "77c03b228096892b70699b1eaf11ef1ce85d5803667331b29df0eb6f57d2421a"
+    sha256 cellar: :any, arm64_sequoia: "b3f5eab7475ed4a0aecec1197c0843c7e9c83ee77f7e7d6adc19c2c538d047e4"
+    sha256 cellar: :any, arm64_sonoma:  "82219b7fee13ddda4b299b30d64b3db2e9d0a67f9aec84c6ba6364b7f8cb9f33"
+    sha256 cellar: :any, sonoma:        "284d78f65dabe067d5aae734fa3eb27a2e0c527e07ef4c972650e1b8b36c3541"
+    sha256 cellar: :any, arm64_linux:   "edcf4ca1d66dfff2a979a9aa1019cead51fc86eba1327659fb80a374543910c2"
+    sha256 cellar: :any, x86_64_linux:  "182cacc7e7f132b7df8b7b894068b2d215f391a255de9fdbb5266c313b4c4ea7"
   end
 
   depends_on "pkgconf" => :build

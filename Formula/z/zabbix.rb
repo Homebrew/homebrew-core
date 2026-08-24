@@ -1,8 +1,8 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://cdn.zabbix.com/zabbix/sources/stable/7.4/zabbix-7.4.11.tar.gz"
-  sha256 "ba8b85df396b83be92169c64ec4027d7e1ec79d673186ff481c2aaa8e5246bec"
+  url "https://cdn.zabbix.com/zabbix/sources/stable/7.4/zabbix-7.4.13.tar.gz"
+  sha256 "ebc4fb054af919b123622feea9d4c399711cf0507ef193e2ded76713a80ee3c6"
   license "AGPL-3.0-only"
   head "https://github.com/zabbix/zabbix.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Zabbix < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "00f0bc4106542ee5a49990164b71318e62f41d98612318d6db88e8fc4e2ec58b"
-    sha256 arm64_sequoia: "8ec566ab871fd56ef4d047078e8776ce4e4866a7567d71fa9a06e534aded35e9"
-    sha256 arm64_sonoma:  "875bf6618c6b3be27e7982e56e1766decb70fed3c446436863d085001c208b09"
-    sha256 sonoma:        "e7f1f7f4febb99dd8aea9583519e52bb651225c25407d78893f4e925f11d41c0"
-    sha256 arm64_linux:   "d5490165e9ee739b3dde81927b4e45b886c32e9b7a0cecd3694da784dc72f917"
-    sha256 x86_64_linux:  "faff1df17bd1947c86e36720f6eb39c3aac9f03c375531a91da077bd983ee279"
+    sha256 arm64_tahoe:   "8ec39fbfda7a641984f7a2476a8c731b1a3460965a942579d51bb25e3a09c89f"
+    sha256 arm64_sequoia: "97a61c7e877e59eb7ae58c7792d7c270e7c450e11f6bf8636bc335ea0d426fb3"
+    sha256 arm64_sonoma:  "303e3c1227bd7e297ed478c8a4ef56049a54b3287fbcf55a5eb2b8bab391f6f3"
+    sha256 sonoma:        "35766aa5815d4b57c23d2dbc46ee182d27e4cfd69ef82724110c9a75413c670e"
+    sha256 arm64_linux:   "c566a03f33a312988ab70aa828d3eff1c379f692ae9b42a64c8595817d6c9af3"
+    sha256 x86_64_linux:  "4afbc3370a25164cac2c939656fd3ae711e95d912ba63e7fa695e11970cc1769"
   end
 
   depends_on "pkgconf" => :build
@@ -30,7 +30,7 @@ class Zabbix < Formula
       --enable-ipv6
       --with-libpcre2
       --sysconfdir=#{pkgetc}
-      --with-openssl=#{Formula["openssl@4"].opt_prefix}
+      --with-openssl=#{formula_opt_prefix("openssl@4")}
     ]
 
     if OS.mac?

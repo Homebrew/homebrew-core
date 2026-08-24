@@ -30,11 +30,12 @@ class Ht < Formula
 
   # Apply commit from open PR to work around build failure on Apple Silicon
   # ld: building fixups: pointer not aligned at _coff_characteristics+0x1
-  # PR ref: https://github.com/sebastianbiallas/ht/pull/31
   patch do
     on_macos do
       url "https://github.com/sebastianbiallas/ht/commit/a721310665267655d37d9e80db5234d2a7731895.patch?full_index=1"
       sha256 "def983c542112d66f472a4a32323948f812bdd30bb1aa54abc5cb5b3ffef1752"
+      type :unofficial
+      resolves "https://github.com/sebastianbiallas/ht/pull/31"
     end
   end
 
@@ -42,6 +43,7 @@ class Ht < Formula
   patch do
     url "https://github.com/sebastianbiallas/ht/commit/e52dfb86aa2c370d7d1ac2e046a4b9babc93bac9.patch?full_index=1"
     sha256 "0119c3973d2cc4ac56c7f28061ce0426eab169695ae7b81e1514f9347740ab26"
+    type :backport
   end
 
   def install

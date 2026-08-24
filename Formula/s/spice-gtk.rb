@@ -14,28 +14,25 @@ class SpiceGtk < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 arm64_tahoe:   "7ad0ed6ed58e9398be517b16d9ec4b6082d871e0662b49ae45d0228f4e6ce4ee"
-    sha256 arm64_sequoia: "18e571898c70aeb70242562ae79267b34d749f3677902ab487e0a2284084b9f0"
-    sha256 arm64_sonoma:  "0d25f4afe099a8bc79aaf80258f1640ade5e9f40676bb8e2406e2005e1e8c519"
-    sha256 sonoma:        "d52d67c6476174fc7389f1eb999f649097e2c5560ab1571db1489027393cf8b3"
-    sha256 arm64_linux:   "25e897876c6900507c0cd80e3c20717d2526f1bc2240f81967565c84ed98e42b"
-    sha256 x86_64_linux:  "ca84d516eaae38af2beb7f30ebc30beaa744c6c34e84d7dcb3d9a72417b55918"
+    rebuild 4
+    sha256 arm64_tahoe:   "21eceed114b1e4ffa0448d21508d99d2c93ae878325b9b51c146ced4181a31fd"
+    sha256 arm64_sequoia: "249a4261f91fe205b61e1636440d889def5f5e4aec5ffd19821caf0a9e743dea"
+    sha256 arm64_sonoma:  "73b27a8348177262ab9e24628a0139163cfbf8cf264457c504ac1ddd145cbf8b"
+    sha256 sonoma:        "aac4c0b6608b911ac73ca8960add7a8bda7f5f3a316f83430b588140c39b011a"
+    sha256 arm64_linux:   "2a66a37b796347b663e8f75fafe1f47589c091b9a5267c2f78fbb361ecb0d906"
+    sha256 x86_64_linux:  "83c56974836f7c0159133c7058c58fd32b087e2e0fcdd1503abf8c3d86bb55a0"
   end
 
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "intltool" => :build
-  depends_on "libtool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on "python@3.14" => :build
   depends_on "vala" => :build
 
-  depends_on "at-spi2-core"
   depends_on "cairo"
   depends_on "gdk-pixbuf"
-  depends_on "gettext"
   depends_on "glib"
   depends_on "gstreamer"
   depends_on "gtk+3"
@@ -48,13 +45,13 @@ class SpiceGtk < Formula
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "opus"
-  depends_on "pango"
   depends_on "phodav"
   depends_on "pixman"
   depends_on "spice-protocol"
   depends_on "usbredir"
 
   on_macos do
+    depends_on "gettext"
     depends_on "gobject-introspection"
     depends_on "harfbuzz"
   end
@@ -78,17 +75,23 @@ class SpiceGtk < Formula
   patch do
     url "https://gitlab.freedesktop.org/spice/spice-gtk/-/commit/1511f0ad5ea67b4657540c631e3a8c959bb8d578.diff"
     sha256 "67c2b1d9c689dbb8eb3ed7c92996cf8c9d083d51050883593ee488957ad2a083"
+    type :backport
+    resolves "https://gitlab.freedesktop.org/spice/spice-gtk/-/merge_requests/119"
   end
 
   # Backport six removal
   patch do
     url "https://gitlab.freedesktop.org/spice/spice-common/-/commit/91fc091358ac4906a05b68d70e9db94082c0749f.diff"
     sha256 "dd5ef8701bc1d97c0ff20af9ff95dffc660a5e1a3a8a0a92cd4d643d0a3553ed"
+    type :backport
+    resolves "https://gitlab.freedesktop.org/spice/spice-common/-/merge_requests/63"
     directory "subprojects/spice-common"
   end
   patch do
     url "https://gitlab.freedesktop.org/spice/spice-common/-/commit/29dacb5f53f5183fb089a3fb02d081dd08bde8a1.diff"
     sha256 "3c8a0adaf4b088986bef7541ffef399c7652969c5584c4a4c4055f4988ef0f7a"
+    type :backport
+    resolves "https://gitlab.freedesktop.org/spice/spice-common/-/merge_requests/63"
     directory "subprojects/spice-common"
   end
 

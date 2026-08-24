@@ -1,18 +1,18 @@
 class Dtop < Formula
   desc "Terminal dashboard for Docker monitoring across multiple hosts"
   homepage "https://dtop.dev/"
-  url "https://github.com/amir20/dtop/archive/refs/tags/v0.7.7.tar.gz"
-  sha256 "504eb5f81e04cfb40b80cf1893c73e0c3f3bffa85e28d459ee158166b9e12731"
+  url "https://github.com/amir20/dtop/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "acc93fa712659b881d3038db8cfeee83e446fe65ae82b8ab2741c053dc66f1ec"
   license "MIT"
   head "https://github.com/amir20/dtop.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eaa06d9f62d9621b56ff3ba117278c4d8edcf9dcb1e9d9cac67d2ae3863e7c3f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3528fac4df1b3e3d0c3aaa4bd275c95ff4823c9df61af366c860bba33c4a2e1c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d20acd66148638916bd8535263203b0edbbd5b6a57b55bcc96bdbc684bda37dc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e54c462ad770530697605907026a39af9d8a952741a222c353b1520fffdc0c9a"
-    sha256 cellar: :any,                 arm64_linux:   "8771859b084360f1c68c089db3ae42b69c59007b4d77946c76b56184cadd90a4"
-    sha256 cellar: :any,                 x86_64_linux:  "39559e92a926625ca848e80532c4f589631597134d7dfb4b595096e140a781dd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dc0f78ba173292a667eabae05f6e469f6af9b46506c4efa41337e0cd6a0ddeb6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9ca3675262d238fb9aaf0387eb11715af27dad3892e9667a04e926c1b27b9885"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "71f6772f93fcf22499c9750591d4424663758456faf6eec763749e3f39c3ad06"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6a59c8284a8b53a0f9c5f2be5364b177f0b4511a790b67398e082365e15cba6d"
+    sha256 cellar: :any,                 arm64_linux:   "26a6ea354c35a0dfba947157788df2e7e8c3ce5e1d15a9612a9e0ea859928679"
+    sha256 cellar: :any,                 x86_64_linux:  "42238288ad3cfa00c76b52764aaccecc9ce13e98fd3b32e47076f191945c2e4d"
   end
 
   depends_on "rust" => :build

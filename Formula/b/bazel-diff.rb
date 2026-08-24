@@ -1,24 +1,24 @@
 class BazelDiff < Formula
   desc "Performs Bazel Target Diffing between two revisions in Git"
   homepage "https://github.com/Tinder/bazel-diff/"
-  url "https://github.com/Tinder/bazel-diff/archive/refs/tags/v26.0.1.tar.gz"
-  sha256 "4b06c34fc792d861848abe5c982431970ade7e2fb710f62d32120813a0bc367e"
+  url "https://github.com/Tinder/bazel-diff/archive/refs/tags/v44.0.1.tar.gz"
+  sha256 "49b3835655852a8b87f13b2c0f4bca64b265e41700f44159b69b13130dac8e02"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f85a064d0f545a6f40ebe0d8deffeee55650971ac14f08bde67f7d805e330d59"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f85a064d0f545a6f40ebe0d8deffeee55650971ac14f08bde67f7d805e330d59"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f85a064d0f545a6f40ebe0d8deffeee55650971ac14f08bde67f7d805e330d59"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f85a064d0f545a6f40ebe0d8deffeee55650971ac14f08bde67f7d805e330d59"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "30f2cd9dbfdb217d176f9f42ef4a203c1965ecdf8cfbeeeaae37cbf3c910ed37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30f2cd9dbfdb217d176f9f42ef4a203c1965ecdf8cfbeeeaae37cbf3c910ed37"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6f878c26dbb97dc9fd62244eea34cfee6a47bb48aea3ed75fdb88669ab6cc8d6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f878c26dbb97dc9fd62244eea34cfee6a47bb48aea3ed75fdb88669ab6cc8d6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6f878c26dbb97dc9fd62244eea34cfee6a47bb48aea3ed75fdb88669ab6cc8d6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6f878c26dbb97dc9fd62244eea34cfee6a47bb48aea3ed75fdb88669ab6cc8d6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c105ca532535ee03b4285eeccc4a783bd94468ec01141d1b9574c0c59e01dfbd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c105ca532535ee03b4285eeccc4a783bd94468ec01141d1b9574c0c59e01dfbd"
   end
 
   depends_on "bazel" => [:build, :test]
   depends_on "openjdk"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk")
     rm ".bazelversion"
 
     extra_bazel_args = %w[

@@ -3,18 +3,18 @@ class Uvicorn < Formula
 
   desc "ASGI web server"
   homepage "https://uvicorn.dev/"
-  url "https://files.pythonhosted.org/packages/c4/1f/fa18009dea8469069cca78a4e877a008ab78f08b064bfc9ab891579077ff/uvicorn-0.49.0.tar.gz"
-  sha256 "ebf4271aa580d9de97f93192d4595176df6e91f9aae919ca73e4fc07df1e66a3"
+  url "https://files.pythonhosted.org/packages/f2/0f/3f86e61397dd33bf2ccf28188c40db6a740658aeebbbf6e7dbc101a1f487/uvicorn-0.52.4.tar.gz"
+  sha256 "73acfee47a0b133c5de13d219492d62d8a31e935f4fe6e41a232451a15379f86"
   license "BSD-3-Clause"
-  head "https://github.com/encode/uvicorn.git", branch: "main"
+  head "https://github.com/Kludex/uvicorn.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "cdd84ddd51ec75d0f09c7d5d0ff12a3618014bc4d8706aa9a447c14ba99ae0ca"
-    sha256 cellar: :any, arm64_sequoia: "caa7105cff383b74e066a550129f96255218cbe79e4b3e3eb5fbfd601144bd40"
-    sha256 cellar: :any, arm64_sonoma:  "b2c4627a3556ade055e1deb7b8ca5158c0f536940786c36bd5c6c02f7d8a0d9b"
-    sha256 cellar: :any, sonoma:        "330db1cc870d299f57e30f66b576e15339e50911aa34e195ff3d68e053e98cc5"
-    sha256 cellar: :any, arm64_linux:   "87cbb241ac21443f2787bfd68f5eebf0151acf91fa9c7602c225ec92a93f84c9"
-    sha256 cellar: :any, x86_64_linux:  "ce91e79e352ac7fc76464d83be4e678154d68ce26417d36438b36fa48d7954e1"
+    sha256 cellar: :any, arm64_tahoe:   "570d14dabf66471f18963c1a09949b6985399631fd8252be08ad2facea7d0384"
+    sha256 cellar: :any, arm64_sequoia: "241e83dba13dfabd967ba0295c0b822c484b3f9389cf47c4e98f5e4999997ea9"
+    sha256 cellar: :any, arm64_sonoma:  "86a4c496c3e37377526110d99849e49a2d212cf7a864ce9bc5d247666a33a4aa"
+    sha256 cellar: :any, sonoma:        "528dfb22681dc52e72ce6f363a7ff9d50252c0eba1b6a1699f1e51a16db1aaf0"
+    sha256 cellar: :any, arm64_linux:   "94994ef15e6fcf65504ccb2bbd46d2662adad887c87984eda273d6e0579e3b26"
+    sha256 cellar: :any, x86_64_linux:  "5a6cf5901201b6b8b0cbfad7fae20e5578b9fb2ed5186d8e9027b61d7833012e"
   end
 
   depends_on "rust" => :build
@@ -24,13 +24,13 @@ class Uvicorn < Formula
   pypi_packages package_name: "uvicorn[standard]"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/19/14/2c5dd9f512b66549ae92767a9c7b330ae88e1932ca57876909410251fe13/anyio-4.13.0.tar.gz"
-    sha256 "334b70e641fd2221c1505b3890c69882fe4a2df910cba14d97019b90b24439dc"
+    url "https://files.pythonhosted.org/packages/61/cc/a381afa6efea9f496eff839d4a6a1aed3bfafc7b3ab4b0d1b243a12573dd/anyio-4.14.2.tar.gz"
+    sha256 "cfa139f3ed1a23ee8f88a145ddb5ac7605b8bbfd8592baacd7ce3d8bb4313c7f"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "h11" do
@@ -44,13 +44,13 @@ class Uvicorn < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
-    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
+    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
+    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/82/ed/0301aeeac3e5353ef3d94b6ec08bbcabd04a72018415dcb29e588514bba8/python_dotenv-1.2.2.tar.gz"
-    sha256 "2c371a91fbd7ba082c2c1dc1f8bf89ca22564a087c2c287cd9b662adde799cf3"
+    url "https://files.pythonhosted.org/packages/6a/53/ed9d74092561d4b01a2ef1349d52cdbc135e526c245f366b089cfca6de49/python_dotenv-1.2.3.tar.gz"
+    sha256 "a20a594dabeaa385725aa239d5244871c143ecb356add8a20fcf23773a6c3a35"
   end
 
   resource "pyyaml" do
@@ -69,8 +69,8 @@ class Uvicorn < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/04/24/4b2031d72e840ce4c1ccb255f693b15c334757fc50023e4db9537080b8c4/websockets-16.0.tar.gz"
-    sha256 "5f6261a5e56e8d5c42a4497b364ea24d94d9563e8fbd44e78ac40879c60179b5"
+    url "https://files.pythonhosted.org/packages/f7/96/e01084f83a64bcb3a27994bd0cb0db68ff29d9c6707fae37ec19b18ba990/websockets-17.0.1.tar.gz"
+    sha256 "5baa9bc0dfbae8c507e51c8cf1b6d4628086f7a87bbd3a9952bd5f035451f1cc"
   end
 
   def install

@@ -1,18 +1,18 @@
 class Stgit < Formula
   desc "Manage Git commits as a stack of patches"
   homepage "https://stacked-git.github.io"
-  url "https://github.com/stacked-git/stgit/releases/download/v2.6.0/stgit-2.6.0.tar.gz"
-  sha256 "b03f8e123726253013fd1a03d8ebb89d53f1e130cc4612ffbf96ec8d96c8bfc0"
+  url "https://github.com/stacked-git/stgit/releases/download/v2.6.1/stgit-2.6.1.tar.gz"
+  sha256 "45e6db343bac075ae898d3e8616565804c917545d9be45273ddc8f0666133147"
   license "GPL-2.0-only"
   head "https://github.com/stacked-git/stgit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aba595a6726d01e99a46159d6844641d15e31c4d93425fbd5890830973323f89"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9d1e2bf927352329a5621232e8330a7049c6acd869ca2a71faba227a70cc6d43"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7addb698a2de3608ddfa3b836fa9764f6505bec60cfcf65d01612ccb38ac0609"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9894fcc065b4eea2fc8f5bed51cf13b16874bbff0517aeea7e18101949cf1001"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "29ecbd0e882a5de44ecaa410fa5ba8ad568144a237f113290721322fde3df327"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ee51c93a35b3f0573c436c08b4c88720365b27d0b343d4b5e4027aa0bc2868a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ae2ec198a48251325dc21c316971b34858fa9175a44edb759eeccc1e7a8756a4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c5ace2385a4dd49075d852bb751569f2f5dd580cc9d3a5bc5ad3750e7623be38"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3e448f9f286a7a28d8cd3b0b42d2bd3385762696b717fd70bb821f628b64a2c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9e837974ac8f1d336314a516592e546213997595e21a9ff972b569ad3e92811a"
+    sha256 cellar: :any,                 arm64_linux:   "0a8558270df53fcb8e76b2427b0c23f220d72b7889d99f5a1f0ea715577e44a0"
+    sha256 cellar: :any,                 x86_64_linux:  "bfc046e095a326ab0c24f50c326acdb9bff03fc3c63881eab5a09587f7066b41"
   end
 
   depends_on "asciidoc" => :build

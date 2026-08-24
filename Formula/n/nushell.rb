@@ -1,8 +1,8 @@
 class Nushell < Formula
   desc "Modern shell for the GitHub era"
   homepage "https://www.nushell.sh"
-  url "https://github.com/nushell/nushell/archive/refs/tags/0.113.1.tar.gz"
-  sha256 "d2b514b9ec7c1cc5930025528987d730cadcaa0f063227691c837516093328fd"
+  url "https://github.com/nushell/nushell/archive/refs/tags/0.115.1.tar.gz"
+  sha256 "06df93281a0f858019d09ea6cf821b19a7cd9017cdfb9e898cfe8dd4bd8101c2"
   license "MIT"
   head "https://github.com/nushell/nushell.git", branch: "main"
 
@@ -13,12 +13,12 @@ class Nushell < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "d1e015cb3a8d0f96c3e4a64028695e7f8c3fd4882f11d95a9e5071d05f26be67"
-    sha256 cellar: :any, arm64_sequoia: "cdccee78d13657ab79d5661037724a3dc7fe226497796c13887aeebd9a8d1ec6"
-    sha256 cellar: :any, arm64_sonoma:  "c0285c0b7656f9612bbea92859a35086d813f9bc3ce1e74eb6df650aa0e20a18"
-    sha256 cellar: :any, sonoma:        "efb9c0e1bbff2f08c1008a7b3021695d14cc31eca59d7e9b5d0ef2f8ad03cd36"
-    sha256 cellar: :any, arm64_linux:   "040e33f033c3e1cc4e69abb7fae97a048ad8b7238ad4088c663e170cfa64ebba"
-    sha256 cellar: :any, x86_64_linux:  "3aae40449933fda154a901f6446f87e5caa2e5e2356c65e9ddf4fc6e695eb1ab"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7f678dfd862086ff6128b88dc81408627182bea32af9760922c901f33801507f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8ee47a2bf7b7cf524b3d1efb16f98218aee0e7202db44971a799b0580c8af1dd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fba8d351459ae7d1087fbac9e60d76ce8dee32ca1c1dea55c500e80df5c83416"
+    sha256 cellar: :any_skip_relocation, sonoma:        "619eeee5c683cb390c7f7341544c1689de6b99d5fea3fb352e7fdadea996842b"
+    sha256 cellar: :any,                 arm64_linux:   "b51ec5cf71f930dd3ac9cb0a75039a240cc79310ba65e77948c4005523fd9cd1"
+    sha256 cellar: :any,                 x86_64_linux:  "5d781a13a8866c7ee34fb9277da469154b0dfd2977ada6024e7431a5417827fa"
   end
 
   depends_on "pkgconf" => :build

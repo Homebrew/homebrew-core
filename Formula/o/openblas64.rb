@@ -1,8 +1,8 @@
 class Openblas64 < Formula
   desc "Optimized BLAS library"
   homepage "https://www.openblas.net/"
-  url "https://github.com/OpenMathLib/OpenBLAS/archive/refs/tags/v0.3.33.tar.gz"
-  sha256 "6761af1d9f5d353ab4f0b7497be2643313b36c8f31caec0144bfef198e71e6ab"
+  url "https://github.com/OpenMathLib/OpenBLAS/archive/refs/tags/v0.3.34.tar.gz"
+  sha256 "cd7e129868320cc2d033afa920e31202dfe0b8066a5b66661900ccc0f197dfed"
   # The main license is BSD-3-Clause. Additionally,
   # 1. OpenBLAS is based on GotoBLAS2 so some code is under original BSD-2-Clause-Views
   # 2. lapack-netlib/ is a bundled LAPACK so it is BSD-3-Clause-Open-MPI
@@ -17,12 +17,12 @@ class Openblas64 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f24e5a2dbfb97d9ad0b842606a35ad051e429abe5bc006127b7f50de9794ba26"
-    sha256 cellar: :any,                 arm64_sequoia: "8f1927573aef089008401f4d916211319272c73a74dc18817d124427b1ce684f"
-    sha256 cellar: :any,                 arm64_sonoma:  "0fec9c095dd09fcb3e9421dd92deb04d41fba3fa707d975a7d7fa80205b24328"
-    sha256 cellar: :any,                 sonoma:        "af3588a01ee22ed012ab103c2311ccfb992df5910e910eba5cbd8c392bb96dd7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "98214ca0a0d94d4544a36b3dd7e65558f9856991ff404f3c8d0d14de2a2157be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a37f139cca766a751a73743fd0c43365d0af68d94a2c12b335ea59fdc3c953d"
+    sha256 cellar: :any, arm64_tahoe:   "ad0701a4ae17e4d0cb2b44b353c98c277d0eff01ce172ff4382d97832e3e0ca6"
+    sha256 cellar: :any, arm64_sequoia: "cf29492c76448a831a2ffea618c20a1c494dc49dc878c586f1cc3c8c0816092a"
+    sha256 cellar: :any, arm64_sonoma:  "18b40eb1afd95de1725b6363ccd405aac39eafea29f4384986a4ec60cdc31476"
+    sha256 cellar: :any, sonoma:        "3876e6eeb58dd487117e9216d9754f2f22033ff8ca8d43c42d005f08f83e519d"
+    sha256 cellar: :any, arm64_linux:   "ed1d54ddb12f375390ca80ecfe683775b9e85a1e3c2701ae37c136a0043dde6b"
+    sha256 cellar: :any, x86_64_linux:  "7fa3bfcdc68988db2ed5a1accb4f615afcf52817432732a0c5ce578e0e73cc2d"
   end
 
   keg_only "the headers conflict with `openblas`"

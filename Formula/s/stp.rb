@@ -1,20 +1,12 @@
 class Stp < Formula
   desc "Simple Theorem Prover, an efficient SMT solver for bitvectors"
   homepage "https://stp.github.io/"
+  url "https://github.com/stp/stp/archive/refs/tags/2.4.1.tar.gz"
+  sha256 "6f8bca3612e3d61868450dbf7771897b2a909f446e8de460bdf31f13a6cd0318"
   license "MIT"
-  revision 9
+  revision 1
+  compatibility_version 1
   head "https://github.com/stp/stp.git", branch: "master"
-
-  stable do
-    url "https://github.com/stp/stp/archive/refs/tags/2.3.4.tar.gz"
-    sha256 "dc197e337c058dc048451b712169a610f7040b31d0078b6602b831fbdcbec990"
-
-    # Replace distutils for python 3.12+
-    patch do
-      url "https://github.com/stp/stp/commit/fb185479e760b6ff163512cb6c30ac9561aadc0e.patch?full_index=1"
-      sha256 "7e50f26901e31de4f84ceddc1a1d389ab86066a8dcbc5d88e9ec1f0809fa0909"
-    end
-  end
 
   livecheck do
     url :stable
@@ -22,12 +14,12 @@ class Stp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a116d5592fa317bbda40cb6b5b8704b95adea1f89322d6183a20ec695a3a609e"
-    sha256 cellar: :any,                 arm64_sequoia: "5b49ea62bc28988aee733b93243f04fe061dd9ce89275caf430391f6262f95fc"
-    sha256 cellar: :any,                 arm64_sonoma:  "b677368cd71d24a6477f011838407cb2814e3efd66e35749e27824017ebac958"
-    sha256 cellar: :any,                 sonoma:        "22ab44a28ba6d44ff38f6850eaa040b58ff5139ee5e7519061bb8eb6212807f3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "39f08ceaa72d2762cc56c642af6bd9f943bd3b8ca6ac82a57a1a53883d640d26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a8f6222a9dcb368f00e9abfd4025b772354644b99ae3e34209690c9ac09bd86"
+    sha256 cellar: :any, arm64_tahoe:   "8c80280e9010ee4f6d9b8d3209a22db3165174ad547995c864b70deb05c01519"
+    sha256 cellar: :any, arm64_sequoia: "566f097aa3fd82f63b405394b3dfd22d0fc6d97f083771f51c8fe3949c86043f"
+    sha256 cellar: :any, arm64_sonoma:  "6ffeab720b5ba93ee2d2b5aaec0fc0d11be336ceb33cf6c226c87b5dc088608e"
+    sha256 cellar: :any, sonoma:        "3b8b9955b7c6785bcc1223282d97fea39279c6f1bc21d6aff9c9d8647f3b20fd"
+    sha256 cellar: :any, arm64_linux:   "6fed04895b8b20d2e8f7584b33ac235c31d472a5cbbde9f5c525068c33214530"
+    sha256 cellar: :any, x86_64_linux:  "86e662b2511abad1e3044eec93c903554f308e853dad949c4ec45c02939b73a9"
   end
 
   # stp refuses to build with system bison and flex
@@ -42,22 +34,35 @@ class Stp < Formula
 
   uses_from_macos "perl"
 
-  # Use relative import for library_path
-  patch do
-    url "https://github.com/stp/stp/commit/f81d16c4f15863dd742d220d31db646b5d1c824d.patch?full_index=1"
-    sha256 "c0c38f39371cfc9959df522957f45677f423a6b2d861f4ad87097c9201e00ff4"
+  # Must match the `lib/extlib-abc` submodule as stp builds only the ABC sources that revision needs
+  resource "extlib-abc" do
+    url "https://github.com/berkeley-abc/abc.git",
+      revision: "95393064368b7c05da4d6f0264fc3419c175c7cb"
+    version "95393064368b7c05da4d6f0264fc3419c175c7cb"
+
+    livecheck do
+      url "https://api.github.com/repos/stp/stp/contents/lib/extlib-abc?ref=#{LATEST_VERSION}"
+      strategy :json do |json|
+        json["sha"]
+      end
+    end
   end
 
   def install
+    resource("extlib-abc").stage buildpath/"lib/extlib-abc"
+
     python = "python3.14"
     site_packages = prefix/Language::Python.site_packages(python)
     site_packages.mkpath
     inreplace "lib/Util/GitSHA1.cpp.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
 
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DPYTHON_EXECUTABLE=#{which(python)}",
-                    "-DPYTHON_LIB_INSTALL_DIR=#{site_packages}",
-                    *std_cmake_args
+    args = %W[
+      -DPYTHON_EXECUTABLE=#{which(python)}
+      -DPYTHON_LIB_INSTALL_DIR=#{site_packages}
+      -DSTP_ALLOCATOR=system
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

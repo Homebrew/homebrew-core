@@ -6,7 +6,7 @@ class Haxe < Formula
       tag:      "4.3.7",
       revision: "e0b355c6be312c1b17382603f018cf52522ec651"
   license all_of: ["GPL-2.0-or-later", "MIT"]
-  revision 2
+  revision 3
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
   livecheck do
@@ -15,13 +15,12 @@ class Haxe < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "780794ad8ebbd6e46a8b065fea1395f8e36e880abfdee6cbb9c1a75f80dbf69e"
-    sha256 cellar: :any, arm64_sequoia: "4acb949891d907440bdf1b90d47f5ccaf2530ca1b7c9256e53fe5392e7809629"
-    sha256 cellar: :any, arm64_sonoma:  "16769f4a037fa4ca5c1ac5218041150e61275f79ec21bc783c790765c8548edd"
-    sha256 cellar: :any, sonoma:        "236ee018bfc0f0628852bcb490ea2dab1c0acfa9f54537f4089245a4e39b5988"
-    sha256               arm64_linux:   "fa61c88d7c07b125cb86d444e226ed74b827c4e3f0786043f73d48936e9a23cd"
-    sha256               x86_64_linux:  "fd290d4961bf7e566b8d04881ccf8b8fdebab317f64bb1ecb6eafff60bdb9ce4"
+    sha256 cellar: :any, arm64_tahoe:   "e3e44a1008fad87b7dacd36c12af42b2e47effdf570f41f5545a1fc5b98cf692"
+    sha256 cellar: :any, arm64_sequoia: "ead9a4b59aa64ed4672abe196cb614f42631bdee3e17db26123b6585220cfd97"
+    sha256 cellar: :any, arm64_sonoma:  "30cf377cb3bdd57d83dceda64f11706e310c5ef9305f4a9e43fde00a9d52be59"
+    sha256 cellar: :any, sonoma:        "b8aae356d6eddbbc15e8f503c1ad09cf535ac8b83d599f9f9735cb3a60e7d9a5"
+    sha256               arm64_linux:   "0db5ab6a769a2ce06028522bc826b5e76d76b07768d400203cac487e6c635556"
+    sha256               x86_64_linux:  "eee285b19a15c09532b6eec072ac2d501e7c6ccdea0e1df8e3ecf3e1758769ec"
   end
 
   depends_on "ocaml" => :build
@@ -41,12 +40,17 @@ class Haxe < Formula
     # https://github.com/HaxeFoundation/haxe/commit/034178b97ba0d7a97e0230ecf76b5872c4b3c197
     inreplace "haxe.opam", '"dune" {>= "1.11" & < "3.16"}', '"dune" {>= "1.11"}' if build.stable?
 
-    ENV["OPAMROOT"] = buildpath/".opam"
+    ENV["OPAMROOT"] = opamroot = buildpath/".opam"
     ENV["OPAMYES"] = "1"
     ENV["ADD_REVISION"] = "1" if build.head?
 
     system "opam", "init", "--compiler=ocaml-system", "--disable-sandboxing", "--no-setup"
     system "opam", "pin", "add", "ctypes", "0.22.0"
+
+    # OCaml 5.5.0 no longer exposes opam's C stubs (e.g. dllpcre2_stubs.so) for linking.
+    # https://github.com/ocaml/opam-repository/issues/16406
+    ENV.prepend_path "CAML_LD_LIBRARY_PATH", opamroot/"ocaml-system/lib/stublibs"
+
     system "opam", "install", ".", "--deps-only", "--no-depexts"
 
     # Build requires targets to be built in specific order

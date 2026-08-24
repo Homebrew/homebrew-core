@@ -3,13 +3,12 @@ class Visidata < Formula
 
   desc "Terminal spreadsheet multitool for discovering and arranging data"
   homepage "https://www.visidata.org/"
-  url "https://files.pythonhosted.org/packages/aa/c0/ab9f01fcacbfbacde960e143f7c168c4de3c4f7e450873f8fd96fa2fcfb3/visidata-3.3.tar.gz"
-  sha256 "a94f4e398477e038541849cf4df1d1f2efc399da544d77db189bdb7f2fc014c4"
+  url "https://files.pythonhosted.org/packages/eb/dd/682ac00672daf1325a3174d5cb5f32b9d9a2aeb42d3baa18e669278308d0/visidata-3.4.tar.gz"
+  sha256 "f5afcdb6823c570760be9692f33d0642a20cd86925b4cab721d108050d0f8201"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "3ccfa12cd45005b9f4b80b1df0a9f27a41b9f8a16e210605fdb0e6fd10d27d84"
+    sha256 cellar: :any_skip_relocation, all: "8d1cc1740d0894e8e5e114d20875497cf722a57c19b8c72288133d25d7b8d086"
   end
 
   depends_on "python@3.14"
@@ -43,8 +42,6 @@ class Visidata < Formula
 
   def install
     virtualenv_install_with_resources
-
-    man1.install "visidata/man/visidata.1", "visidata/man/vd.1"
   end
 
   test do

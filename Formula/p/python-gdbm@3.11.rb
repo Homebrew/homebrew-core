@@ -1,8 +1,8 @@
 class PythonGdbmAT311 < Formula
   desc "Python interface to gdbm"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.11.15/Python-3.11.15.tgz"
-  sha256 "f4de1b10bd6c70cbb9fa1cd71fc5038b832747a74ee59d599c69ce4846defb50"
+  url "https://www.python.org/ftp/python/3.11.16/Python-3.11.16.tgz"
+  sha256 "6c0bd76ab0ec7d94ed400b1497f01ac6c7751c8822615ee0855a3eb2d893ea76"
   license "Python-2.0"
 
   livecheck do
@@ -10,13 +10,18 @@ class PythonGdbmAT311 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "8ce1e0e7e89582c44620eaf96ede0cd00f5fcbf3618488ff79e859e0aec67411"
-    sha256 cellar: :any, arm64_sequoia: "b88c1f6c34e8015f12650e843f113138edce7f99147dc27cc3b05050ecf34810"
-    sha256 cellar: :any, arm64_sonoma:  "d9fcb84b21a90fabe130886504c41acb3da99ded5275a510e7cef78bf54687ab"
-    sha256 cellar: :any, sonoma:        "34215ebd709302711a7609a7c9164a82d7fea96a8e8cfdec905d44a1067d4506"
-    sha256               arm64_linux:   "0d2c0dd5aef81a49977d51d2f360edecc3f6cc24f86ac99626a83e43777b0dec"
-    sha256               x86_64_linux:  "10625ce8d08009a18fca4da99409be7b5171a301131db5d4ac64607aac0fa7a7"
+    sha256 cellar: :any, arm64_tahoe:   "3f4770b297554d1c56ecad45f3ab52c89e15c980542bfe49724d732971ea27cc"
+    sha256 cellar: :any, arm64_sequoia: "03371e003c7743c2cf7eea1015c468daa6c2f3ea797dfe15ff790cbced5520a5"
+    sha256 cellar: :any, arm64_sonoma:  "8df9c38a3b70c4e77e850468191f5eb97065ed01ee811b6a985c72b969e78b49"
+    sha256 cellar: :any, sequoia:       "4491411ee065136c722506611c5624d22a6e37cff6ee32948854350d0e24261d"
+    sha256 cellar: :any, sonoma:        "5b7b630703553f7f62b43803ef2c595b013717806bcc00860230de224ae54e57"
+    sha256               arm64_linux:   "87b98b5412a45ee79ab384c2a91d0e6d0ed7bb97c935f01a9ecd4fa3338973fa"
+    sha256               x86_64_linux:  "03fc1e9e9cdc07d7abb28e1e0b2b027b9dbbf64ed0aff95cbc9efb0b8288b973"
   end
+
+  # https://devguide.python.org/versions/#versions
+  deprecate! date: "2027-11-01", because: :deprecated_upstream
+  disable! date: "2028-11-01", because: :deprecated_upstream
 
   depends_on "gdbm"
   depends_on "python@3.11"
@@ -35,9 +40,9 @@ class PythonGdbmAT311 < Formula
               version="#{version}",
               ext_modules = [
                 Extension("_gdbm", ["_gdbmmodule.c"],
-                          include_dirs=["#{Formula["gdbm"].opt_include}"],
+                          include_dirs=["#{formula_opt_include("gdbm")}"],
                           libraries=["gdbm"],
-                          library_dirs=["#{Formula["gdbm"].opt_lib}"])
+                          library_dirs=["#{formula_opt_lib("gdbm")}"])
               ]
         )
       PYTHON

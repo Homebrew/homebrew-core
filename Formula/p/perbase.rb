@@ -51,7 +51,7 @@ class Perbase < Formula
   end
 
   def install
-    ENV["LIBCLANG_PATH"] = Formula["llvm"].opt_lib if OS.linux?
+    ENV["LIBCLANG_PATH"] = formula_opt_lib("llvm") if OS.linux?
 
     if build.stable?
       # TODO: remove this check when bump-formula-pr can automatically update resources
@@ -79,7 +79,7 @@ class Perbase < Formula
 
   test do
     cp pkgshare/"test/test.bam", testpath
-    system Formula["bamtools"].opt_bin/"bamtools", "index", "-in", "test.bam"
+    system formula_opt_bin("bamtools")/"bamtools", "index", "-in", "test.bam"
     system bin/"perbase", "base-depth", "test.bam", "-o", "output.tsv"
     assert_path_exists "output.tsv"
   end

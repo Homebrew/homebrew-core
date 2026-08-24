@@ -1,19 +1,20 @@
 class EnterTex < Formula
   desc "TeX/LaTeX text editor"
   homepage "https://gitlab.gnome.org/swilmet/enter-tex"
-  url "https://gitlab.gnome.org/swilmet/enter-tex/-/archive/3.49.0/enter-tex-3.49.0.tar.bz2"
+  url "https://gitlab.gnome.org/World/gedit/enter-tex/-/archive/3.49.0/enter-tex-3.49.0.tar.bz2"
   sha256 "cd83dc75c36edcc9fc53c27b092796f0c1df1c4e1b36a15516a56e7aab48f31d"
   license "GPL-3.0-or-later"
   revision 1
   head "https://gitlab.gnome.org/swilmet/enter-tex.git", branch: "main"
 
   bottle do
-    sha256 arm64_tahoe:   "f502eae1452a1ce9a5620c720358ed52ea861bd8fe7b27dacbab42ae6475d180"
-    sha256 arm64_sequoia: "2f5789f7d0ff10b42d6d8122144c447f2a240a079ef4410ae8249409aec0b069"
-    sha256 arm64_sonoma:  "9fa7b34915c8362871270da348d1feea32c8f6320cbfcfbfb7e10f25a1076eed"
-    sha256 sonoma:        "238adf76e9e013bb87e8ee8649c7d5df5e009596f260a06e4e048b0f02c6d4b2"
-    sha256 arm64_linux:   "f1655115bbe3e30f31a1b669e58e25861951f62bf8ca195d3e93de5aee3f2c23"
-    sha256 x86_64_linux:  "99c7370294d9d727faa05a4dcf1614186284605893cdf47a5c2eb9b3696e616e"
+    rebuild 1
+    sha256 arm64_tahoe:   "642a39bd8896727469dc8e18dee0fb1a78670445b9260c8448735d2ff5224d05"
+    sha256 arm64_sequoia: "91eef2c5d6cb6f7c390598ec473597f8483becb0d8a5412bc4f9e2e6cc8eec04"
+    sha256 arm64_sonoma:  "1523b7a53310d9e1720e7c651339823cde5aaab43eac1a68174fd5447c5bf47c"
+    sha256 sonoma:        "f34d9cb07ef686285a7668f6ed66ff9551ee34462597f13064a4359038f87879"
+    sha256 arm64_linux:   "631738d30fa2e7bb50cce137cfa5232d9961c631e0d9777fced217229bed1e95"
+    sha256 x86_64_linux:  "24376a6463bd801fccafadafa5b1e6a7e76f8021fcd50ea7f57ee9bb5b135132"
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database
@@ -55,9 +56,9 @@ class EnterTex < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-ft", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+  post_install_steps do
+    compile_gsettings_schemas
+    update_gtk_icon_cache
   end
 
   test do

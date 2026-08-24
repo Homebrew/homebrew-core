@@ -12,12 +12,13 @@ class Gegl < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "ea7612df77e9e8694fb3568b5ca487270bc08f5cd68d3b00b187e9383adc2897"
-    sha256 arm64_sequoia: "be75599c4c4c77a7d1683aa44f4c5b05df7c273c7e6688010162ec9200abe153"
-    sha256 arm64_sonoma:  "cef51fde6564b2016506f62dd82ff01f214065b7d2a7eadbbd2273d4ce1011b9"
-    sha256 sonoma:        "b4c99b32ffa0602f60994c3de965e30f901ecf385d0b75715d452330b3ca5a07"
-    sha256 arm64_linux:   "ba52bbb8cb134e243902bc2be32b6242da2815dfe09e6bba64ef6706f0849f4c"
-    sha256 x86_64_linux:  "9686385f6f060df9c992dd4bcfdadded38affd646c6c13e73df624891aee0bd5"
+    rebuild 1
+    sha256 arm64_tahoe:   "2b7db4e2336469f3fc76e64357a2fad4af290886e4fb593f6e8fc605948db2d3"
+    sha256 arm64_sequoia: "1e167377455475816941f959b78e9e98675b9d7a0977cb13ab1a38881270b47f"
+    sha256 arm64_sonoma:  "38ac50dae75b8294e2c4c52bcc95234e3c4764055afbde61d91bdcdef99b147d"
+    sha256 sonoma:        "d5e6f2633c1e1b5c0cb170cf76331c30081198d7646c284b8a1865939086b0ac"
+    sha256 arm64_linux:   "07c9a5de190d526c608329587b9ccb7fde8b1428d19d47ac46535c84b54fc1a3"
+    sha256 x86_64_linux:  "53356701f9f23303c29f2861651c50c69ae41e8a1c68db861af364389f4f8d5a"
   end
 
   depends_on "gettext" => :build
@@ -31,6 +32,7 @@ class Gegl < Formula
   depends_on "glib"
   depends_on "jpeg-turbo"
   depends_on "json-glib"
+  depends_on "libnsgif"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "little-cms2"
@@ -49,7 +51,7 @@ class Gegl < Formula
       -Djasper=disabled
       -Dumfpack=disabled
       -Dlibspiro=disabled
-      --force-fallback-for=libnsgif,poly2tri-c
+      --force-fallback-for=poly2tri-c
     ]
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

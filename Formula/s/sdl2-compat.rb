@@ -19,7 +19,7 @@ class Sdl2Compat < Formula
   depends_on "sdl3" => :no_linkage
 
   def install
-    args = ["-DCMAKE_INSTALL_RPATH=#{rpath(target: Formula["sdl3"].opt_lib)}"] if OS.mac?
+    args = ["-DCMAKE_INSTALL_RPATH=#{rpath(target: formula_opt_lib("sdl3"))}"] if OS.mac?
 
     # We override install_prefix to make sure substituted CMAKE_INSTALL_FULL_* use
     # HOMEBREW_PREFIX path because most build scripts assume that all SDL modules

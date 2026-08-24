@@ -25,6 +25,10 @@ class XbeeComm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf23d16b599dc5427dd3552004d307bacd82b77b89ac2bd0a018bf1f986fc720"
   end
 
+  # Last release on 2012-05-11
+  deprecate! date: "2026-07-19", because: :unmaintained
+  disable! date: "2027-07-19", because: :unmaintained
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 

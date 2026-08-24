@@ -22,14 +22,17 @@ class Massdns < Formula
 
   uses_from_macos "libpcap"
 
-  # upstream patch PR, https://github.com/blechschmidt/massdns/pull/148
   patch do
     url "https://github.com/blechschmidt/massdns/commit/a96b5d213a5643fbe3de1ba6e401e359673f0a21.patch?full_index=1"
     sha256 "10a07d6f8241500cdc6320fe1dc5461b9573ce8d70fbf96b62855192a3829e1b"
+    type :backport
+    resolves "https://github.com/blechschmidt/massdns/pull/148"
   end
   patch do
     url "https://github.com/blechschmidt/massdns/commit/66d30af33d36109d244a92a69691c5deba13fd28.patch?full_index=1"
     sha256 "a3070e5522e612ea5f868e705e5667c38b8437969e2690f8545a247a7a2ee970"
+    type :backport
+    resolves "https://github.com/blechschmidt/massdns/pull/148"
   end
 
   def install

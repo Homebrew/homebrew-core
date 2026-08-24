@@ -1,56 +1,30 @@
 class OsmGpsMap < Formula
   desc "GTK+ library to embed OpenStreetMap maps"
   homepage "https://github.com/nzjrs/osm-gps-map"
+  url "https://github.com/nzjrs/osm-gps-map/releases/download/1.2.1/osm-gps-map-1.2.1.tar.gz"
+  sha256 "277d6835220a6a2954e09eb304a8cd6ff49b72542c97c4fc36e53e905f2a747c"
   license "GPL-2.0-or-later"
-  revision 2
-
-  stable do
-    # TODO: Make autoconf, automake, gtk-doc and libtool HEAD-only on next release
-    url "https://github.com/nzjrs/osm-gps-map/releases/download/1.2.0/osm-gps-map-1.2.0.tar.gz"
-    sha256 "ddec11449f37b5dffb4bca134d024623897c6140af1f9981a8acc512dbf6a7a5"
-
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-
-    # Apply Void Linux's patch for libsoup 3. Remove in the next release.
-    # This is a rebased copy of upstream commit that applies on stable release
-    # https://github.com/nzjrs/osm-gps-map/commit/a7965751821d5bb55f8fb37b4045295d0c44dd9b
-    patch do
-      url "https://raw.githubusercontent.com/void-linux/void-packages/f6b0cf8ca04678301773327b9a2d5efb043dae3d/srcpkgs/libosmgpsmap/patches/libsoup-3.patch"
-      sha256 "045c8c9a6a317aea89158154818399815525f5b5cb0340332f92b250d73e5bc6"
-    end
-
-    # Backport fix for add_point
-    patch do
-      url "https://github.com/nzjrs/osm-gps-map/commit/639ea5e02d2cb47cbc15554d61b1ba6b0ee073b6.patch?full_index=1"
-      sha256 "7979e6d050e83b2e0f84c3e9671828c59de36d491b497a1b780b62bcc9ea1f69"
-    end
-  end
 
   bottle do
-    rebuild 2
-    sha256                               arm64_tahoe:   "e749fe56b5482a3a9418de1bba012a642a932b92fb092d669056f932a4a0f615"
-    sha256                               arm64_sequoia: "1f92caba8e52495b92a2ed81e6e7f6959d25bb7ac12353872df3638d6ecbe7f1"
-    sha256                               arm64_sonoma:  "12026a32374a2a8797d650c925fdc5ad9c19833c1019003d542e507e0fe80448"
-    sha256                               arm64_ventura: "e7a42cd9f4293f91416301dfd756ce762dda325b466c511c4e9cfbeacc996e97"
-    sha256                               sonoma:        "fd61181265716039211a690890598b64359740fc017868051062c23044641343"
-    sha256                               ventura:       "6ab0a704cd25d754617aa95f97fcc8ea447def786f33771a3352c31a1fbc657f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "40a000a5d4c6bc3b19b78e93ca25463f187a59a3f5ecd9187650955164ef7f09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1025b0a42d58429dfad4828bef5b3041e12a1bf54a8a849b3fc302f998a1c5d"
+    sha256               arm64_tahoe:   "bdd8de2894986d597f3bd66c3a51c2cab55256b6e5cf16871e3bb1a60ef69428"
+    sha256               arm64_sequoia: "fd1c1933d296a9cc05ed9bb2a3e3349f0bcb90d493ce35849b3f86bb0051ac46"
+    sha256               arm64_sonoma:  "b4f804b3ecc408958cbd01df994c4c4af8a97e6f5337d7d8f66a23090943256e"
+    sha256               sonoma:        "e5c7bc673363392b5e3f76e4f5ab27711f1d9cd37397e6bd279b95f5176774af"
+    sha256 cellar: :any, arm64_linux:   "7bee7a5fd377ceff39f2f406ca5331d80cc389ced2febea2914b89d813b5b019"
+    sha256 cellar: :any, x86_64_linux:  "a0b65784639acb4e288c00fe6fd6422fb239a42e601f549dfd27d04302fb83dd"
   end
 
   head do
     url "https://github.com/nzjrs/osm-gps-map.git", branch: "master"
+
+    depends_on "autoconf" => :build
     depends_on "autoconf-archive" => :build
+    depends_on "automake" => :build
+    depends_on "gtk-doc" => :build
+    depends_on "libtool" => :build
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "gtk-doc" => :build
-  depends_on "libtool" => :build
   depends_on "pkgconf" => [:build, :test]
 
   depends_on "cairo"
@@ -71,9 +45,6 @@ class OsmGpsMap < Formula
   end
 
   def install
-    # TODO: Remove next release
-    system "autoreconf", "--force", "--install", "--verbose" if build.stable?
-
     configure = build.head? ? "./autogen.sh" : "./configure"
     system configure, "--disable-silent-rules", "--enable-introspection", *std_configure_args
     system "make", "install"

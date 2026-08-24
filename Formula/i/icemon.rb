@@ -1,19 +1,17 @@
 class Icemon < Formula
   desc "Icecream GUI Monitor"
   homepage "https://kfunk.org/tag/icemon/"
-  url "https://github.com/icecc/icemon/archive/refs/tags/v3.3.tar.gz"
-  sha256 "3caf14731313c99967f6e4e11ff261b061e4e3d0c7ef7565e89b12e0307814ca"
+  url "https://github.com/icecc/icemon/archive/refs/tags/v3.4.tar.gz"
+  sha256 "75f79aa21e0524e384c9041b558d3b55ad5e2ce9a8c851d6c7ca94ce0bfe7e9a"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_tahoe:   "d5e4c9d47ec2de4753b84249d420914f615537a8716a8572766bf2f55d537842"
-    sha256 cellar: :any,                 arm64_sequoia: "780134490d63035a304cce1c56538ddce1dfe02ee84ccc61b99a4ad55d385e7a"
-    sha256 cellar: :any,                 arm64_sonoma:  "31a6bdad5b6498e066f6538d31aa06d544bcd6a6f21190ef0437303a5c59f577"
-    sha256 cellar: :any,                 sonoma:        "a6a7e36c351382149cc4bc6f38d02003b62de21a0dbda312c4416314a1f61dfb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c5df5590435ac125e895909b3e5c476db1900ff8706f1ab5a89917c5edf1f5b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f77bec647e7e05d5261669d24196f3cc83f86425df31ca9558593461b45a3bdf"
+    sha256 cellar: :any, arm64_tahoe:   "dbc83718e9cf1dcd6031020258c3b7cecb6a38ff927f7109d0a4a8d7ecb12f63"
+    sha256 cellar: :any, arm64_sequoia: "13f706714d74294a8daabbde4f80b7ab9330b8bda59df22eaf46b457d305f47c"
+    sha256 cellar: :any, arm64_sonoma:  "a87f4da909e0cbcccf5fca219551e1d6a10df55f79204437900986400a2ec510"
+    sha256 cellar: :any, sonoma:        "b5af44cd4aa902669241c8d33b4170648f042b2fb61311e6674ea9ecf715ee3d"
+    sha256 cellar: :any, arm64_linux:   "c2ef677904a70ce81c68f0e171349e1946d680a60d34ef505304fa722747b259"
+    sha256 cellar: :any, x86_64_linux:  "b5d9dd76cd9972ed62fbb7bd0f83ba4d2f457229d1627de1ffc251962f06ac08"
   end
 
   depends_on "cmake" => :build
@@ -34,23 +32,7 @@ class Icemon < Formula
     depends_on "libcap-ng"
   end
 
-  # Backport fix for CMake 4
-  patch do
-    url "https://github.com/icecc/icemon/commit/b07bf3eb0c28ac5cd527d3ab675d2273d1866b48.patch?full_index=1"
-    sha256 "015098bad42e0b020dfefa2fbc8287fa1eb054576ab642b85818ac36cd0755de"
-  end
-
-  # Backport support for Qt 6
-  patch do
-    url "https://github.com/icecc/icemon/commit/d0969453c7d4467e22dcff0f218b31e81136afbe.patch?full_index=1"
-    sha256 "ea808f5daba80a6c92c45f661a53c67742df513cfee430fe724819daab8d551a"
-  end
-
   def install
-    # Workaround for std::unary_function usage
-    # Issue ref: https://github.com/icecc/icemon/issues/80
-    ENV.append "CXXFLAGS", "-D_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION" if ENV.compiler == :clang
-
     args = ["-DECM_DIR=#{Formula["extra-cmake-modules"].opt_share}/ECM/cmake"]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

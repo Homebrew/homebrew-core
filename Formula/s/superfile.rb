@@ -25,7 +25,7 @@ class Superfile < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"spf")
+    system "go", "build", *std_go_args(output: bin/"spf")
   end
 
   test do

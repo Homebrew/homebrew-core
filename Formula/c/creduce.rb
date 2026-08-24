@@ -16,6 +16,8 @@ class Creduce < Formula
     patch do
       url "https://github.com/csmith-project/creduce/commit/e9bb8686c5ef83a961f63744671c5e70066cba4e.patch?full_index=1"
       sha256 "d5878a2c8fb6ebc5a43ad25943a513ff5226e42b842bb84f466cdd07d7bd626a"
+      type :backport
+      resolves "https://github.com/csmith-project/creduce/pull/198"
     end
 
     # Port to LLVM 15.0.
@@ -23,10 +25,13 @@ class Creduce < Formula
     patch do
       url "https://github.com/csmith-project/creduce/commit/e507cca4ccb32585c5692d49b8d907c1051c826c.patch?full_index=1"
       sha256 "71d772bf7d48a46019a07e38c04559c0d517bf06a07a26d8e8101273e1fabd8f"
+      type :backport
     end
     patch do
       url "https://github.com/csmith-project/creduce/commit/8d56bee3e1d2577fc8afd2ecc03b1323d6873404.patch?full_index=1"
       sha256 "d846e2a04c211f2da9a87194181e3644324c933ec48a7327a940e4f4b692cbae"
+      type :backport
+      resolves "https://github.com/csmith-project/creduce/pull/246"
     end
 
     # Port to LLVM 16.0
@@ -34,6 +39,8 @@ class Creduce < Formula
     patch do
       url "https://github.com/csmith-project/creduce/commit/8ab9a69caf13ce24172737e8bfd09de51a1ecb6a.patch?full_index=1"
       sha256 "fb5dfed2f0255ea524f0c0074a5b162ae2acbcabb9ff1f31adf45ca025dd4419"
+      type :backport
+      resolves "https://github.com/csmith-project/creduce/pull/254"
     end
 
     # Port to LLVM 17.0
@@ -41,6 +48,8 @@ class Creduce < Formula
     patch do
       url "https://github.com/csmith-project/creduce/commit/a4f6cf3689d44513fd944b1090ca8fd6d5ae8cd5.patch?full_index=1"
       sha256 "2752eba5204de7f0eeac215bdabc2fb02441b79cbd17e5584e021cc29b8521c5"
+      type :backport
+      resolves "https://github.com/csmith-project/creduce/pull/270"
     end
 
     # Port to LLVM 18.0
@@ -48,16 +57,21 @@ class Creduce < Formula
     patch do
       url "https://github.com/csmith-project/creduce/commit/98baa64699aedb943520f175a5e731582df2806f.patch?full_index=1"
       sha256 "7a5a04ed394de464c09174997020a6cca0cc05154f58a3e855f20c8423fc8865"
+      type :backport
+      resolves "https://github.com/csmith-project/creduce/pull/271"
     end
 
     # More backports needed for updating LLVM
     patch do
       url "https://github.com/csmith-project/creduce/commit/4371cc2d77c771b8b88ded79b95176bac8dfbf09.patch?full_index=1"
       sha256 "f7e88a13deb1db21933d0a81dfe328982beed283d49a66a59e6ef9c2220b1144"
+      type :backport
     end
     patch do
       url "https://github.com/csmith-project/creduce/commit/dff59dae1fc2d62cc1cd240761492587bab364be.patch?full_index=1"
       sha256 "e4c531c73a8cd26cbf9175fa6f094f46a12cda00e5de3ac40e5c13aaf22c0b77"
+      type :backport
+      resolves "https://github.com/csmith-project/creduce/pull/275"
     end
   end
 
@@ -115,24 +129,27 @@ class Creduce < Formula
   end
 
   # Apply open PR to support LLVM 19
-  # PR ref: https://github.com/csmith-project/creduce/pull/285
   patch do
     url "https://github.com/csmith-project/creduce/commit/30d433e5e49c6b5864e5ca7d8aa7cf30cf3191e2.patch?full_index=1"
     sha256 "f0de5d3cf8a17405f4fce908a498feed3aa0d8594092bb3096624dba1ca5b74f"
+    type :unofficial
+    resolves "https://github.com/csmith-project/creduce/pull/285"
   end
 
   # Apply open PR to support LLVM 20
-  # PR ref: https://github.com/csmith-project/creduce/pull/287
   patch do
     url "https://github.com/csmith-project/creduce/commit/62bd78d6d621faca246a1b2b659b75bf721aa184.patch?full_index=1"
     sha256 "fe476690a81b3a6d9cda06058515fc49a250f1a0b6d9ecf30a9a9dc68ab7987d"
+    type :unofficial
+    resolves "https://github.com/csmith-project/creduce/pull/287"
   end
 
   # Apply open PR to support LLVM 21 (via Debian patch to consolidate all commits)
-  # PR ref: https://github.com/csmith-project/creduce/pull/289
   patch do
     url "https://salsa.debian.org/toolchain-team/creduce/-/raw/86e45dd83b7e8e88d9e5398ff8556883c1679629/debian/patches/289.diff"
     sha256 "90a53403a0e1a69227bf46866d8e36f68b218b420695e08c5846bc6f1705fb31"
+    type :unofficial
+    resolves "https://github.com/csmith-project/creduce/pull/289"
   end
 
   def install

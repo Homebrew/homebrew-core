@@ -24,11 +24,7 @@ class FuncE < Formula
   end
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
-    ]
-    system "go", "build", *std_go_args(ldflags:), "./cmd/func-e"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/func-e"
   end
 
   test do

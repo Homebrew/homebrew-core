@@ -1,23 +1,27 @@
 class Atuin < Formula
   desc "Improved shell history for zsh, bash, fish and nushell"
   homepage "https://atuin.sh/"
-  url "https://github.com/atuinsh/atuin/releases/download/v18.16.1/source.tar.gz"
-  sha256 "aec5c91207f080becc4b13593d5b7edc46685e8d4dbfbaef33d31f8058191bc6"
+  url "https://github.com/atuinsh/atuin/releases/download/v18.19.0/source.tar.gz"
+  sha256 "02fc084a925824f9b8ad899803da4c895341a6ae2fcb585ca8eac4fbe1fb454e"
   license "MIT"
   head "https://github.com/atuinsh/atuin.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7c0a9028714c42a158eedafd0e3c616f1e6df335f5e2fe3d4796006d8996d5db"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aabe5a89f5f07effa9b1d93087469c60e3630bbb1f1eef4b4f3e8e63b8c1790b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "409a9e05765cda4f7271eaaa7833afb7d5ad55b71badac5b6459aa78cb85ee0e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ebb8239444b8ce96d114812593e5781d141406097b8348bcf0d5b5ab11619fd0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5edbd418eb0f9d32dedfa1c737e8e66487dd2bc81f02d31d27a807070dc6c7af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51817c931148502c0ba47dbdb24359642c402c5d1697765a482489a5eb8955d6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2eb11c5b9f67dc155ed426a101029a9445c9c088beb520d8b0b8c3b64accf0f0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "258558bbe65a9c54906ad2487778d369c531dd6d400873944202f7188a1d08b1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b387fae485e925a8fa7065bb90a35349f51ae6fd28d3954d20d987c2e659dbad"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8eeb97001326a0cd635aec5e8db823b283ed8fd2e367ba523d0f4474d763ff17"
+    sha256 cellar: :any,                 arm64_linux:   "e5bc75d6b42fc2adae0d7fc04672e03485e41f864f0b36e84a866163b0c448e7"
+    sha256 cellar: :any,                 x86_64_linux:  "52891ba9303cfd0159cf625a9600f1e4162de620459a60b452b2b9c1b78cb553"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
   depends_on "rust" => :build
+
+  on_linux do
+    depends_on "openssl@3"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/atuin")

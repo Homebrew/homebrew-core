@@ -22,26 +22,31 @@ class Dislocker < Formula
   patch do
     url "https://github.com/Aorimn/dislocker/commit/2cfbba2c8cc07e529622ba134d0a6982815d2b30.patch?full_index=1"
     sha256 "07e0e3cac520a04a478f1f08d612340fc2743fd492b0835c7fb41cfdb5ef4244"
+    type :backport
   end
 
   # Backport support for libfuse 3
   patch do
     url "https://github.com/Aorimn/dislocker/commit/7744f87c75fcfeeb414d0957771042b10fb64e62.patch?full_index=1"
     sha256 "63ed9e08ebdad3ee97eb5fc0f3bed67231043b8505a007580d3bc3051c4daa7f"
+    type :backport
   end
   patch do
     url "https://github.com/Aorimn/dislocker/commit/b6aa30ae21a631ef2300f230437fe6a8ebf1ab70.patch?full_index=1"
     sha256 "fee637f1af9c81f0426925a16c91560fed61ef701913f52fe451516de33183ac"
+    type :backport
   end
   patch do
     url "https://github.com/Aorimn/dislocker/commit/7b14a6aa71cad78648443fdec81a5e557903b961.patch?full_index=1"
     sha256 "80d0db6ba8dfb6f6fc60e94eeb75ab9284606b3e5dba14eaf3460335b9a0b8ee"
+    type :backport
   end
 
   # Backport fix for CMake 4
   patch do
     url "https://github.com/Aorimn/dislocker/commit/337d05dc7447436539f2fb481eef0e528a000b66.patch?full_index=1"
     sha256 "7bec70c3528e34949c31ace9a90ee36829fadc7d31a8ad99b707c01d98c74afb"
+    type :backport
   end
 
   def install

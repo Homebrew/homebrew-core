@@ -2,18 +2,17 @@ class Lightgbm < Formula
   desc "Fast, distributed, high performance gradient boosting framework"
   homepage "https://lightgbm.readthedocs.io/en/latest/"
   url "https://github.com/lightgbm-org/LightGBM.git",
-      tag:      "v4.6.0",
-      revision: "d02a01ac6f51d36c9e62388243bcb75c3b1b1774"
+      tag:      "v4.7.0",
+      revision: "8f7036f03627054d5a54a6f965b13f4b9ff2cb63"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "5f1ea9bad948745d1a776b3f6e22de75e68d2bd35b07cc8be5bf2708282edd75"
-    sha256 cellar: :any,                 arm64_sequoia: "941389cbcebba0522f6581f80743288967e6a88f804ae66293d8247278ba9c6c"
-    sha256 cellar: :any,                 arm64_sonoma:  "f5cb2cdb2cf8c0c0dae47767eabf872ae9d7689ec4871ec5137351bfc76c9c81"
-    sha256 cellar: :any,                 sonoma:        "28f87da7161377f42756c169baf7433cf748c06758dbfba1e5a19f151bc425ec"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7560fb6a214227ee5280f19181941f792551ff06811616e21de8963ff80c5b44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef8b3d3e381a03b1f27596284a4c55f4b4939ad23f950a8559945201c7d4d469"
+    sha256 cellar: :any, arm64_tahoe:   "81a2c2e9d6c58ebe62d3ee5ae2bf5afe07967be9ad67320dafbdb799dfe49766"
+    sha256 cellar: :any, arm64_sequoia: "6be02dfd098823dc8835851fc93f0669fd885204bfb30f583c708741a60bc9b7"
+    sha256 cellar: :any, arm64_sonoma:  "feb0f42f3dfe1bc949f4c800b4209ad338a454b33bc0fce95b4390c9472e1483"
+    sha256 cellar: :any, sonoma:        "186ddc835fff711bb086418dbd3433bcaf5ba4ef7808d415b5fbb74113930162"
+    sha256 cellar: :any, arm64_linux:   "3679e77c8bf109a883ac1771bb63df40910e348810b64608ecf049295c0b4954"
+    sha256 cellar: :any, x86_64_linux:  "4b67660b126962ada824f45832f7c2ce9306b99ded52f4c29637e26b4b20d728"
   end
 
   depends_on "cmake" => :build

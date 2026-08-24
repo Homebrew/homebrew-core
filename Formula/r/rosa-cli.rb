@@ -24,7 +24,7 @@ class RosaCli < Formula
   depends_on "awscli"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"rosa"), "./cmd/rosa"
+    system "go", "build", *std_go_args(output: bin/"rosa"), "./cmd/rosa"
 
     generate_completions_from_executable(bin/"rosa", shell_parameter_format: :cobra)
   end

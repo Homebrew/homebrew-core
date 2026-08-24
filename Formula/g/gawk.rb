@@ -1,20 +1,20 @@
 class Gawk < Formula
   desc "GNU awk utility"
   homepage "https://www.gnu.org/software/gawk/"
-  url "https://ftpmirror.gnu.org/gnu/gawk/gawk-5.4.0.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gawk/gawk-5.4.0.tar.xz"
-  sha256 "3dd430f0cd3b4428c6c3f6afc021b9cd3c1f8c93f7a688dc268ca428a90b4ac1"
+  url "https://ftpmirror.gnu.org/gnu/gawk/gawk-5.4.1.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gawk/gawk-5.4.1.tar.xz"
+  sha256 "07f6f7342b7febe4313fc2c2542ad93d64fe20ad8717200109f105a826f5fd37"
   license "GPL-3.0-or-later"
   compatibility_version 1
   head "https://git.savannah.gnu.org/git/gawk.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "e1bc77dcb48a44183688670a386ee6a3cd715eab698ee0b80ee31137315142f1"
-    sha256 arm64_sequoia: "aa754b38ca8ca0faf881045cf942b830c133b1cea8070e0c236219e7833b347d"
-    sha256 arm64_sonoma:  "34ef779d06ace9e63586abd8e2e8d8c53e4b2ee8127de6c6a85281d0c8bb8740"
-    sha256 sonoma:        "5d049a18eed72add370ea73a187e7ee23521321f0b56a228eca4fb32b4e7704d"
-    sha256 arm64_linux:   "7d360bbda03e7212c6c001dfbb9b6dc97fb0c2117f001e7dafffc119f1016c3c"
-    sha256 x86_64_linux:  "299c7fbc71fe23b5c30380b6cc6419536183cd53769630bce5f86fc3311b586b"
+    sha256 arm64_tahoe:   "73633c61674c5ab754b70403f14eb57d21d750fe8629eecc8023d5e4228f26fe"
+    sha256 arm64_sequoia: "299e407ee59def8e8cc48b0885c6d5ea453d3f886cc6edd2e6af781357f8d761"
+    sha256 arm64_sonoma:  "b398c17f49d3e23c59d8b0d92a3603e15a1e1a2eef5418390ed2c07d888877a5"
+    sha256 sonoma:        "17192ebb78bf9dea945724c11258b02ccdabf0f8833902d179f88ebab4491a4d"
+    sha256 arm64_linux:   "ab274a83c365a24dc2f037bca65befc4c1aa1697d3b6bcc2f1bbd857d040db47"
+    sha256 x86_64_linux:  "372c078e81e51049d9f5f15f4aad39b6f0a0c7b3c68d8c5fdbc7d6d81674358a"
   end
 
   depends_on "gmp"
@@ -31,6 +31,11 @@ class Gawk < Formula
 
   def install
     system "./bootstrap.sh" if build.head?
+
+    # case-check needs libc to fold ẞ (U+1E9E) to ß, which Sonoma lacks
+    if OS.mac? && MacOS.version <= :sonoma
+      inreplace "test/Makefile.in", "callparam case-check childin", "callparam childin"
+    end
 
     args = %w[
       --disable-silent-rules

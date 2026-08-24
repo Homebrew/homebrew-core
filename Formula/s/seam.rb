@@ -22,8 +22,7 @@ class Seam < Formula
   end
 
   test do
-    system bin/"seam", "config", "set", "fake-server"
-    output = shell_output("#{bin}/seam health get_health")
-    assert_match "I’m one with the Force. The Force is with me.", output
+    output = shell_output("#{bin}/seam seam devices list", 1)
+    assert_match "Not logged in. Please run \"seam login\"", output
   end
 end

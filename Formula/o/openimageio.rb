@@ -1,9 +1,10 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "https://openimageio.readthedocs.io/en/stable/"
-  url "https://github.com/AcademySoftwareFoundation/OpenImageIO/archive/refs/tags/v3.1.14.1.tar.gz"
-  sha256 "3c3e7c637aad57008b290ebee803df88fa7326c23e39712fdcb0a5b520032cd1"
+  url "https://github.com/AcademySoftwareFoundation/OpenImageIO/archive/refs/tags/v3.1.16.0.tar.gz"
+  sha256 "5af7221be05bbe69d7ec4eb74b5656c6d15b8d1a332410d6af937b1df48647c0"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/AcademySoftwareFoundation/OpenImageIO.git", branch: "main"
 
   livecheck do
@@ -13,12 +14,12 @@ class Openimageio < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "b98d86a7122e586646aeb5030d4df71b0e4f7d3b6620c03cb57026c4acf7c843"
-    sha256 cellar: :any, arm64_sequoia: "08445503f411ad19dafae5946cba18216fa2a7c47b01d12ade48c84423893e64"
-    sha256 cellar: :any, arm64_sonoma:  "d455882b1ae8291ec89b9f737b2c68160299744f8a5156eb24bd94b94910e8e4"
-    sha256 cellar: :any, sonoma:        "0b73337b7948af21b2608efb9b7053c00e417c5f385dab4d39705b3c15f0c37f"
-    sha256 cellar: :any, arm64_linux:   "c9cf268f7535205babb9c56bbf6aca9fd23082d9bc9f385eee1b20d3e14671be"
-    sha256 cellar: :any, x86_64_linux:  "33177f705b0d994ff4b30aa86183550db388347ddaddc87fbce491e92290b37b"
+    sha256 cellar: :any, arm64_tahoe:   "4a003589fc7ad88def4faf28619f9ebb7fe3e9d647a02ad9a972638adaeca153"
+    sha256 cellar: :any, arm64_sequoia: "9f67d131a94686bef44acc5bf57f8c6f0ab4fc22ee4068106a8556f07a1edd86"
+    sha256 cellar: :any, arm64_sonoma:  "a1c00278f2df3d8f4eb35134448be2b9ec51252ec6ef509dc6e71f66c4ab0921"
+    sha256 cellar: :any, sonoma:        "9c9e99c82b70a59851448870b827ef6e62dedbe47e34c9891e5797766b43bc17"
+    sha256 cellar: :any, arm64_linux:   "7b5b4ea3bd8be4e5c2803bdf5149ec325dde02bdc969ae20692e7a2e35beafc6"
+    sha256 cellar: :any, x86_64_linux:  "50dbb8ebe49fa27875f65b79db92512024db1f1aef7b74c8e27768d85432a6f4"
   end
 
   depends_on "cmake" => :build

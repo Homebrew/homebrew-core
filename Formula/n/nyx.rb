@@ -28,6 +28,7 @@ class Nyx < Formula
   patch do
     url "https://github.com/torproject/nyx/commit/dcaddf2ab7f9d2ef8649f98bb6870995ebe0b893.patch?full_index=1"
     sha256 "132cf1c3d4ce6e706cc3ad9dd5cd905d3321c7e62386e18219b4eb08816d6849"
+    type :backport
   end
 
   def install

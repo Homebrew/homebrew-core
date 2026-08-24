@@ -1,18 +1,17 @@
 class Skopeo < Formula
   desc "Work with remote images registries"
-  homepage "https://github.com/containers/skopeo"
-  url "https://github.com/containers/skopeo/archive/refs/tags/v1.23.0.tar.gz"
-  sha256 "de96bfc2bb523c852af675ffdadd934484812ce190aa8620e1d5fd6c51442e25"
+  homepage "https://github.com/podman-container-tools/skopeo"
+  url "https://github.com/podman-container-tools/skopeo/archive/refs/tags/v1.24.0.tar.gz"
+  sha256 "1eea9364e344c4d6cb398fac53bc387663d19690552003b43c75819e8bb55527"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256               arm64_tahoe:   "b9bb3aa152bc76483a65dece4a7b9b4ffc09078bb0fe6c1c470145d901792eeb"
-    sha256               arm64_sequoia: "42bd2618325948979d3d415758bbb9c237c3cc5b13c266604fcb8e3147f800d0"
-    sha256               arm64_sonoma:  "e5d87f4b7cd3a682bfb5e244fd85a525a1e65af6ef0b45bc2b2e562ce34ae6c0"
-    sha256 cellar: :any, sonoma:        "2ba12cb7f52c5935b83bc9fe3aeda780fdbbf718cb962609c8125dbc20341d79"
-    sha256               arm64_linux:   "907ddddc81dcf26d0ca0b47621fd32c57efb0ad5f942346a0858ebd621f5a7ad"
-    sha256               x86_64_linux:  "e992c01b75e47191bd4ed4c4d8cc10266a1812345374b4d987aff199e8b6b1d5"
+    sha256               arm64_tahoe:   "c74b2682dac252629ff09804a4f4e0ed6f553b1b27125c1e31b9366acb98626b"
+    sha256               arm64_sequoia: "dcaecd12aeddc4df66766d0076edb3c699d6e84dc512653aede47ae62b9f8352"
+    sha256               arm64_sonoma:  "4f9d7e60258db1d6c4225519704c569c268c5c296e8f0f8a9be5fcfed0abcb78"
+    sha256 cellar: :any, sonoma:        "39f5447da03e88d5e53a4751f786067ee83f152d379b22065f7c87f6d808163c"
+    sha256               arm64_linux:   "6b909e109ed9289ea283977d6a39540812eca422c1677ce8701c7692867611db"
+    sha256               x86_64_linux:  "bf78f2d80e89cfc8073aa38f412f7ae72d8dbdde0d15dbc7aa800788d67c81fa"
   end
 
   depends_on "go" => :build
@@ -27,7 +26,7 @@ class Skopeo < Formula
   def install
     ENV["CGO_ENABLED"] = "1"
     ENV.append "CGO_FLAGS", ENV.cppflags
-    ENV.append "CGO_FLAGS", Utils.safe_popen_read(Formula["gpgme"].opt_bin/"gpgme-config", "--cflags")
+    ENV.append "CGO_FLAGS", Utils.safe_popen_read(formula_opt_bin("gpgme")/"gpgme-config", "--cflags")
 
     tags = [
       "containers_image_ostree_stub",

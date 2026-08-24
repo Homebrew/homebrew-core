@@ -42,10 +42,10 @@ class ShibbolethSp < Formula
       --disable-silent-rules
       --localstatedir=#{var}
       --sysconfdir=#{etc}
-      --with-xmltooling=#{Formula["xml-tooling-c"].opt_prefix}
-      --with-saml=#{Formula["opensaml"].opt_prefix}
+      --with-xmltooling=#{formula_opt_prefix("xml-tooling-c")}
+      --with-saml=#{formula_opt_prefix("opensaml")}
       --enable-apache-24
-      --with-apxs24=#{Formula["httpd"].opt_bin}/apxs
+      --with-apxs24=#{formula_opt_bin("httpd")}/apxs
       DYLD_LIBRARY_PATH=#{lib}
     ]
 

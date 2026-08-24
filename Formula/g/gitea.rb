@@ -1,10 +1,9 @@
 class Gitea < Formula
   desc "Painless self-hosted all-in-one software development service"
   homepage "https://about.gitea.com/"
-  url "https://dl.gitea.com/gitea/1.26.2/gitea-src-1.26.2.tar.gz"
-  sha256 "ce1462ad93dcbf3221a452457008b8159cbab3d0c93958179b88649df1e401cf"
+  url "https://dl.gitea.com/gitea/1.27.2/gitea-src-1.27.2.tar.gz"
+  sha256 "f6580cc326775969d0e6408d4eefd25e05fa3d4e1803deb2c0566235db809989"
   license "MIT"
-  head "https://github.com/go-gitea/gitea.git", branch: "main"
 
   livecheck do
     url "https://dl.gitea.com/gitea/version.json"
@@ -14,17 +13,22 @@ class Gitea < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ea1c734fc9656d5600e1a7da8633b5ec86a7b870cd81782573e4322cd4a2fcc3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c57339798d6454744d921a9f15709591dfbf098424894fe0f9fc044c975ea23"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "40d2681950f2f014806b77074e1263d85546834a3c5163dfe27c4f28204dfeca"
-    sha256 cellar: :any_skip_relocation, sonoma:        "043cccab3aaf30c662d4b8f71f5b19c1f5ccc6468e35ff76ba1bf199b769d290"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce64c182dfd45a557eefb42233b1baeca13585e45408a00b1f73427d12f6005c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0236f508dd099ef9127624b3797bae170fe5ab6624296e6f347cd430c1d17845"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "62b6a0a893a851d34252a59e946f8f5a2da8385ee10c7300926876bed2249ea6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd5c80e9eadbf35ae5d55834d737d643d1455120a6484e2b3382c6e96efe54d5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "949781b71b06be9fb4987829060559415787e82cd2f6642b80e50da6fba7ea6f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bffd28c535b45581847c6ed39cc2ed9be58c0aff9225214e87c21ab39c9570ef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c34371c29ab7d68764d65e25c473a3b742106cf848db0b50998e6c4f45f9011"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "226d5c8e8f5ffbaf3774edaef525f4397cb0b863e4af8b53d65e9def104eb32c"
+  end
+
+  head do
+    url "https://github.com/go-gitea/gitea.git", branch: "main"
+
+    depends_on "node" => :build
+    depends_on "pnpm" => :build
   end
 
   depends_on "go" => :build
-  depends_on "node" => :build
-  depends_on "yarn" => :build
 
   uses_from_macos "sqlite"
 

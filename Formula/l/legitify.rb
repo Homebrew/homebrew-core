@@ -29,7 +29,6 @@ class Legitify < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/Legit-Labs/legitify/internal/version.Version=#{version}
       -X github.com/Legit-Labs/legitify/internal/version.Commit=#{tap.user}
     ]

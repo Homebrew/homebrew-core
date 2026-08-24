@@ -1,25 +1,24 @@
 class Hcloud < Formula
   desc "Command-line interface for Hetzner Cloud"
   homepage "https://github.com/hetznercloud/cli"
-  url "https://github.com/hetznercloud/cli/archive/refs/tags/v1.65.0.tar.gz"
-  sha256 "85a9d35760c0f694c32a7aa07eac454f48e47b8e826fef8c9d28a720b3d3a17e"
+  url "https://github.com/hetznercloud/cli/archive/refs/tags/v1.67.0.tar.gz"
+  sha256 "e3e0f58c1e893ac1848ec749308ea08f49cf692c6e04762b55f0df73b633cd2c"
   license "MIT"
   head "https://github.com/hetznercloud/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a192d01afde78bb3d8c309828511c1165ec5e99a1991e287bab6e8d172bb2162"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c085888fbf9255d86525f875b22a9b3f74f4f38fb3792dd759b5aa064202788"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f373ba4be60e01fde9bb6969c70e76f665b44c194218ed20e3c9f53a513fc7d1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "25628a01aa050113963df09f17925730961980627223663a85e6fd7e604bff0f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c7196351cd68aba4762199379bb07f8eee6ebc53dea164e1796bc449b2cb024"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aef3f0e881ec70634b5ee11cef46902d52c01a64550107f15a3f0b8242286144"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5eb8da390af6ae7079579a487ba7564ff32ff471d919c1c7ae47e853a1dc66cc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0856455c3d999394def2b96d11fe7a16c0ef937b500c1e75cc874d2bb2df4f7a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6f460b5dbbc75b9b0d9485bbc11a299cd2b28b5da18e981546ec9bbf440e43f5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cd40ccf960de97bd692d7ca2d523bd91a7f0355062bb53b3b857ab25bd5e700c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2496bfd05d4074b443938d78423fb679f3ef860ce9b746a766d723410ccc5dde"
+    sha256 cellar: :any,                 x86_64_linux:  "728679684522e708c67612c51d2f363d02c87338a2da5321a510520beb1ea8f1"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/hetznercloud/cli/internal/version.version=v#{version}
       -X github.com/hetznercloud/cli/internal/version.versionPrerelease=
     ]

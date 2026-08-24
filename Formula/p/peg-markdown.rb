@@ -23,6 +23,10 @@ class PegMarkdown < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1b2212c3e3a3610a02a5f668e3b88785c0bf1c6383f36ed3674abe42cc941bc"
   end
 
+  # https://github.com/jgm/peg-markdown/commit/0e0e9e5d7b5e133bd28849e1d72e9636a3b49109
+  deprecate! date: "2026-07-16", because: :unmaintained
+  disable! date: "2026-10-16", because: :unmaintained
+
   depends_on "pkgconf" => :build
   depends_on "glib"
 

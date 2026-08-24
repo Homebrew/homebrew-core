@@ -28,14 +28,17 @@ class Beecrypt < Formula
   patch do
     url "https://sourceforge.net/p/beecrypt/patches/_discuss/thread/93d63cef/5653/attachment/beecrypt-gcc47.patch"
     sha256 "6cb36ae3e8e9c595420379dc535bb5451d0ee60641a38b29a20ca25c7acbc60d"
+    type :unofficial
+    resolves "https://sourceforge.net/p/beecrypt/patches/10/"
   end
 
   # blockmode.c:162:14: error: call to undeclared function 'swapu32';
   # ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-  # (https://sourceforge.net/p/beecrypt/patches/13/)
   patch do
     url "https://sourceforge.net/p/beecrypt/patches/13/attachment/beecrypt-4.2.1-c99.patch"
     sha256 "460f25ccd4478e5ec435dc9185b3021518d8b2d65cad2c9c1ee71be804471420"
+    type :unofficial
+    resolves "https://sourceforge.net/p/beecrypt/patches/13/"
   end
 
   def install

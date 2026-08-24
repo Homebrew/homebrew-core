@@ -27,7 +27,7 @@ class Argus < Formula
 
   def install
     if OS.linux?
-      ENV.append_to_cflags "-I#{Formula["libtirpc"].opt_include}/tirpc"
+      ENV.append_to_cflags "-I#{formula_opt_include("libtirpc")}/tirpc"
       ENV.append "LIBS", "-ltirpc"
     end
     system "./configure", "--with-sasl", *std_configure_args

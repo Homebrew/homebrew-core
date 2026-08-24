@@ -1,9 +1,9 @@
 class MipsLinuxGnuBinutils < Formula
   desc "GNU Binutils for mips-linux-gnu cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.46.1.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.46.1.tar.bz2"
-  sha256 "324ed40ada2633a28eaa5d104ca5db165fd3cc3162cc1d48a7b7fa9c932da439"
+  url "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.47.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.47.tar.bz2"
+  sha256 "3068128c75cda9f898ccb4211d360246e8e195ffcc9dfb655b23ae23a54800e8"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,13 @@ class MipsLinuxGnuBinutils < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "7a65b4a937d9ee9ee6d45ebb99cc14944991aeab9439a7b8e113c2c7be361226"
-    sha256 arm64_sequoia: "bb6a19f7cdb53158f722543d640154f7790e0e390197e7fe824bc4387b2835f6"
-    sha256 arm64_sonoma:  "d79c33763ebd7a87302cd3369363e9134b7649907f52c015befdac212ffa8c2d"
-    sha256 sonoma:        "810cd203ed457db043664104041a357895f768153e984de84ffcab0f87d5ecef"
-    sha256 arm64_linux:   "370a193c60ef4570baaf561af1c1985496759c74786eb36b76e0f534edc4049d"
-    sha256 x86_64_linux:  "0f286dbf7f079e445f5fd23b254aadb3043e1a85e2b0afc2099db83e25178051"
+    rebuild 1
+    sha256 arm64_tahoe:   "980558e817525f937d255feeb3fe04334261f903a169e76a5cbdef4a5cdffd2b"
+    sha256 arm64_sequoia: "1ec55ff7f1a0c691ab2566c2ef8b42fe48e0602bd3550da8b05329ca30d5a4f4"
+    sha256 arm64_sonoma:  "bc26ae6f64cdfff6bcf45163be239e242087c949b21353a17148cfadbf3e30f0"
+    sha256 sonoma:        "66d0f60b05eae9c0e256998fdee0f175be496dab0490d4d23e40d40220e71627"
+    sha256 arm64_linux:   "efbf454b8d303176868e658774f40a00cf4ef60286d447722338368b2df0690f"
+    sha256 x86_64_linux:  "663da8dfdfd845490e9fdf7fc76dc7a512f1062388a38c4cf3d69adbf4919491"
   end
 
   depends_on "pkgconf" => :build
@@ -30,16 +31,14 @@ class MipsLinuxGnuBinutils < Formula
     depends_on "zlib-ng-compat"
   end
 
-  conflicts_with "mipsel-linux-gnu-binutils", because: "both install `libdep.so` library"
-
   def install
     target = "mips-linux-gnu"
     system "./configure", "--target=#{target}",
-                          "--infodir=#{info}/#{target}",
+                          "--infodir=#{info/target}",
                           "--with-system-zlib",
                           "--with-zstd",
                           "--disable-nls",
-                          *std_configure_args(libdir: lib/"target")
+                          *std_configure_args(libdir: lib/target)
     system "make"
     system "make", "install"
   end

@@ -13,6 +13,7 @@ class ApacheSerf < Formula
     patch do
       url "https://github.com/apache/serf/commit/15ca053c4bfb00ad4d262686e1a30b5795b6ab81.patch?full_index=1"
       sha256 "d2ab43081a2fc60c6d00df1afc6946895921c91d09cac05a186f820282bea9c6"
+      type :backport
     end
   end
 
@@ -40,16 +41,16 @@ class ApacheSerf < Formula
   def install
     # scons ignores our compiler and flags unless explicitly passed
     args = %W[
-      APR=#{Formula["apr"].opt_prefix}
-      APU=#{Formula["apr-util"].opt_prefix}
+      APR=#{formula_opt_prefix("apr")}
+      APU=#{formula_opt_prefix("apr-util")}
       CC=#{ENV.cc}
       CFLAGS=#{ENV.cflags}
-      GSSAPI=#{OS.mac? ? MacOS.sdk_for_formula(self).path/"usr" : Formula["krb5"].opt_prefix}
+      GSSAPI=#{OS.mac? ? MacOS.sdk_for_formula(self).path/"usr" : formula_opt_prefix("krb5")}
       LINKFLAGS=#{ENV.ldflags}
-      OPENSSL=#{Formula["openssl@3"].opt_prefix}
+      OPENSSL=#{formula_opt_prefix("openssl@3")}
       PREFIX=#{prefix}
     ]
-    args << "ZLIB=#{Formula["zlib-ng-compat"].opt_prefix}" if OS.linux?
+    args << "ZLIB=#{formula_opt_prefix("zlib-ng-compat")}" if OS.linux?
 
     system "scons", *args
     system "scons", "install"

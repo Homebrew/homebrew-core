@@ -12,6 +12,8 @@ class GitSecrets < Formula
     patch do
       url "https://github.com/awslabs/git-secrets/commit/65891e23f341f159098300999edcce5983cd3ad8.patch?full_index=1"
       sha256 "add9ad9f5778dd38885a23b8b394601061a203d1862b91cd64c5ca2a0c9a6ab2"
+      type :backport
+      resolves "https://github.com/awslabs/git-secrets/pull/221"
     end
   end
 

@@ -6,16 +6,16 @@ class Aqtinstall < Formula
   url "https://files.pythonhosted.org/packages/76/19/24a588de6c25d43169d172dab47e63a63cd0d8f90e98cf86487acbf00ac7/aqtinstall-3.3.0.tar.gz"
   sha256 "9c7d85fbe7258be2d7d23fda33f8aff2e8b7536817255eaeaaf4226da8546a31"
   license "MIT"
-  revision 8
+  revision 9
   head "https://github.com/miurahr/aqtinstall.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "87d4a11ee59f21d619b0e396b233a7702879110cc6555f7ca69656451c5cc4d5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f903ca12e6095eb3fc66a357a8597a96e3d55e03374d0c908f5cadddc4f55168"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3325481fe5bb4ab801c113b9ccf57f4adb4c87c2a756d8cb66f758170546be9a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f53fbc162a551ad1781abbc6a8b2b7223468a5ed14c727b3745aba5a63b1d7f5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e036336bd36cade9e0ed1aea94502836afb9faeada6ca72766e8c0253f42ec35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b18c07f71bef56e6ce6b3b3f2bb439543d23739d58c3298bf19c71fb3ce88f4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9bc00aefb6e61eb2f0ff3056e6c1d1e7791cb3cb89ef29e68d492bee15fbb642"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3bc2882c26dcf2d066fbef6a033cacbf2ec1e3b79ba1ba42ab45d372f9598465"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8bd0ce0b5271aba65b88a8c65f28c930ac4245ddad476f03a01539019046aca2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a1906536b304bb54ab6a48b18d4753d3bb303239fb1ea13550bcf78e306eee3d"
+    sha256 cellar: :any,                 arm64_linux:   "403c72219af740cecccce0ecf852c067dc331810e71c0f8ad21eca6646d1dee8"
+    sha256 cellar: :any,                 x86_64_linux:  "5330d83430c5207d2ee20ad168c764b5502277afbc985ca21233c9301d412bf0"
   end
 
   depends_on "certifi" => :no_linkage
@@ -24,8 +24,8 @@ class Aqtinstall < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/c3/b0/1c6a16426d389813b48d95e26898aff79abbde42ad353958ad95cc8c9b21/beautifulsoup4-4.14.3.tar.gz"
-    sha256 "6292b1c5186d356bba669ef9f7f051757099565ad9ada5dd630bd9de5fa7fb86"
+    url "https://files.pythonhosted.org/packages/43/65/318323f98dbee45d42dff61d8f047181bc6f2268a9068cfad035a46be5af/beautifulsoup4-4.15.0.tar.gz"
+    sha256 "288e3ca7d54b06f2ac191970bc275c1939cb46d450b255bf6718b04aa37ab4f7"
   end
 
   resource "brotli" do
@@ -54,8 +54,8 @@ class Aqtinstall < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
-    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
+    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
+    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
   end
 
   resource "inflate64" do
@@ -79,8 +79,8 @@ class Aqtinstall < Formula
   end
 
   resource "py7zr" do
-    url "https://files.pythonhosted.org/packages/0c/e6/01fb15361ca75ee5d01df6361825a49816a836c99980c5481da0e40c6877/py7zr-1.1.0.tar.gz"
-    sha256 "087b1a94861ad9eb4d21604f6aaa0a8986a7e00580abd79fedd6f82fecf0592c"
+    url "https://files.pythonhosted.org/packages/59/3f/ac248f25f3901d3d6cf80ac99d5bac6fd1e5e6543c1812c79b02b6074c60/py7zr-1.1.3.tar.gz"
+    sha256 "8d51894abb38355bf14881088bb97f01fe4cb5b14ebe22f66d6297668c7e1a74"
   end
 
   resource "pybcj" do
@@ -109,8 +109,8 @@ class Aqtinstall < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/7b/ae/2d9c981590ed9999a0d91755b47fc74f74de286b0f5cee14c9269041e6c4/soupsieve-2.8.3.tar.gz"
-    sha256 "3267f1eeea4251fb42728b6dfb746edc9acaffc4a45b27e19450b676586e8349"
+    url "https://files.pythonhosted.org/packages/47/2c/0a5f6f8ee0d5589e48c7640213ed5175d52cf540a06725b628cc1a45d6ce/soupsieve-2.8.4.tar.gz"
+    sha256 "e121fd02e975c695e4e9e8774a5ee35d74714b59307868dcc5319ad2d9e3328e"
   end
 
   resource "texttable" do

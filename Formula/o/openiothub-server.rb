@@ -19,16 +19,8 @@ class OpeniothubServer < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
-      -X main.commit=#{Utils.git_head}
-      -X main.date=#{time.iso8601}
-      -X main.builtBy=#{tap.user}
-    ]
-
     (etc/"server-go").mkpath
-    system "go", "build", "-mod=vendor", *std_go_args(ldflags:)
+    system "go", "build", "-mod=vendor", *std_go_args(ldflags: :goreleaser)
     bin.install_symlink bin/"openiothub-server" => "server-go"
     etc.install "server-go.yaml" => "server-go/server-go.yaml"
   end

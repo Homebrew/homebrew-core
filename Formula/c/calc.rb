@@ -39,7 +39,7 @@ class Calc < Formula
       "CALC_INCDIR=#{include}/calc",
       "CALC_SHAREDIR=#{pkgshare}",
       "USE_READLINE=-DUSE_READLINE",
-      "READLINE_LIB=-L#{Formula["readline"].opt_lib} -lreadline",
+      "READLINE_LIB=-L#{formula_opt_lib("readline")} -lreadline",
       "READLINE_EXTRAS=-lhistory -lncurses",
     ]
     args << "INCDIR=#{MacOS.sdk_path}/usr/include" if OS.mac?

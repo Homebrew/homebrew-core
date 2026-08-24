@@ -1,8 +1,8 @@
 class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
-  url "https://dist.duck.sh/duck-src-9.4.1.44384.tar.gz"
-  sha256 "cef789cb1900d03b38606eecd8f05e9e2b02cf50d8100680eb74230dd1a3bc60"
+  url "https://dist.duck.sh/duck-src-9.5.3.45464.tar.gz"
+  sha256 "22ca9fea06ae284d25f785be68dbe69201c196cf743329c4d5e3139e53865a37"
   license "GPL-3.0-only"
   head "https://github.com/iterate-ch/cyberduck.git", branch: "master"
 
@@ -12,21 +12,24 @@ class Duck < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6c7beee978d94549eceb854c2353afae491885e1843ce3c4f21cec0508417e92"
-    sha256 cellar: :any,                 arm64_sequoia: "430326879c496571ba9d1591572ee51039ce861743050f02aa7f3f30ee15406b"
-    sha256 cellar: :any,                 arm64_sonoma:  "91685b49d8fb529457eba7edc03096b12ff6034aee64888053237ab3e7d6883e"
-    sha256 cellar: :any,                 sonoma:        "91455b2daf90459c7045654df2038922b9f74a559cf25f06102346a68cdeeac3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "176967fccc1caf93661202497e940cfce47b1842192dc9f20a1502775bb7a826"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d555076a7fd4a2592f13e94e47c3e5d28ac7e99ae368a7af4a5bde52315b848f"
+    sha256 cellar: :any, arm64_tahoe:   "aaa64c7995f44b96596e7ec8fdd39eae7e9f6aea77001ddf1288d909eddf47ec"
+    sha256 cellar: :any, arm64_sequoia: "7205c2b3150b1ea9db43c7bee77a274bf2f91bbab10d0bfcbf901836c7541f6e"
+    sha256 cellar: :any, arm64_sonoma:  "3dbe404d4402b56590a55241bee6d49fc9ed7402f41c6fc093534fe065d297ef"
+    sha256 cellar: :any, sonoma:        "05846a69ffdfdaab907da63353b0e0d329e5e6c91eeb0bc5be043be770e90944"
+    sha256 cellar: :any, arm64_linux:   "1c863f9737c1aad13a891a086bab1996c4d0978969321f4bbb46bf5657027392"
+    sha256 cellar: :any, x86_64_linux:  "d38e70bac903b3e9c97ed9acae5c8e23adb12315c1623a20476e8be2b3fb32d1"
   end
 
   depends_on "ant" => :build
   depends_on "maven" => :build
   depends_on "pkgconf" => :build
-  depends_on xcode: ["13.1", :build]
   depends_on "openjdk"
 
   uses_from_macos "libffi", since: :monterey # Uses `FFI_BAD_ARGTYPE`.
+
+  on_macos do
+    depends_on xcode: ["13.1", :build]
+  end
 
   on_linux do
     depends_on "alsa-lib"
@@ -47,8 +50,8 @@ class Duck < Formula
   conflicts_with "duckscript", because: "both install `duck` binaries"
 
   resource "jna" do
-    url "https://github.com/java-native-access/jna/archive/refs/tags/5.18.1.tar.gz"
-    sha256 "9af4d468a8b94def8c08761780766e919a0806d636b4c2ac55be0afe94cb8bb9"
+    url "https://github.com/java-native-access/jna/archive/refs/tags/5.19.1.tar.gz"
+    sha256 "33a9e27b5a6eaa024bb117325392d1ccba7ca63f95d201230ad7c33d60f54c23"
   end
 
   resource "rococoa" do
@@ -69,7 +72,7 @@ class Duck < Formula
           libffi_libdir = if MacOS.version >= :monterey
             MacOS.sdk_path/"usr/lib"
           else
-            Formula["libffi"].opt_lib
+            formula_opt_lib("libffi")
           end
           # Add linker flags for libffi because Makefile call to pkg-config doesn't seem to work properly.
           s.change_make_var! "LIBS", "-L#{libffi_libdir} -lffi"
@@ -159,6 +162,7 @@ class Duck < Formula
 
     if OS.mac?
       libexec.install Dir["cli/osx/target/duck.bundle/*"]
+      deuniversalize_machos libdir/"libjansi.jnilib"
 
       # Remove the `*.tbd` files. They're not needed, and they cause codesigning issues.
       buildpath.glob("JavaNativeFoundation.framework/**/JavaNativeFoundation.tbd").map(&:unlink)

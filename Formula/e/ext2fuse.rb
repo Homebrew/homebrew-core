@@ -29,7 +29,7 @@ class Ext2fuse < Formula
     ENV.append "CFLAGS", "-D__i386__"
     ENV.append "CFLAGS", "-DHAVE_TYPE_SSIZE_T"
     ENV.append "CFLAGS", "-DNO_INLINE_FUNCS"
-    ENV.append "CFLAGS", "-I#{Formula["libfuse@2"].opt_include}/fuse"
+    ENV.append "CFLAGS", "-I#{formula_opt_include("libfuse@2")}/fuse"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

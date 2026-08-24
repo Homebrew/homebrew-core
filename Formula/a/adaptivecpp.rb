@@ -34,13 +34,13 @@ class Adaptivecpp < Formula
 
   def install
     args = if OS.mac?
-      libomp_root = Formula["libomp"].opt_prefix
+      libomp_root = formula_opt_prefix("libomp")
       ["-DOpenMP_ROOT=#{libomp_root}"]
     else
       %W[
         -DACPP_EXPERIMENTAL_LLVM=ON
-        -DCLANG_EXECUTABLE_PATH=#{Formula["llvm@21"].opt_bin}/clang++
-        -DACPP_LLD_PATH=#{Formula["lld@21"].opt_bin}/ld.lld
+        -DCLANG_EXECUTABLE_PATH=#{formula_opt_bin("llvm@21")}/clang++
+        -DACPP_LLD_PATH=#{formula_opt_bin("lld@21")}/ld.lld
       ]
     end
 

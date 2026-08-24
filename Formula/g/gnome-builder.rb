@@ -7,12 +7,13 @@ class GnomeBuilder < Formula
   head "https://gitlab.gnome.org/GNOME/gnome-builder.git", branch: "main"
 
   bottle do
-    sha256 arm64_tahoe:   "74032eb53e1d700cc78c2a4998e9cee932218a6f34165f693bdc656eda6e9218"
-    sha256 arm64_sequoia: "2234f01a3e0de815fa96e113c432d0f97eb230084f72b2736e4f39c984345416"
-    sha256 arm64_sonoma:  "15d6808e92f84ddbe25b49cb96ea389b032a14315c7154a28f0d71bbc0e9e8b4"
-    sha256 sonoma:        "de58867704ec2649ba167364d9754013a1b0a77f7da8d6bfbda3f07afe024398"
-    sha256 arm64_linux:   "37242629df0d93a9817706cc2f8f191a7e244467c3e956da22e107c7195b1746"
-    sha256 x86_64_linux:  "48688563a924a20e2e33696e8a47bdf90a6e98822aed449f4a66223258f0d68c"
+    rebuild 1
+    sha256 arm64_tahoe:   "82adf89ed4bc89f83e846a4c12a47f3f99bf21ed637b6cc73686dea62a860b42"
+    sha256 arm64_sequoia: "119151b397a7577f8726b6f0fc6fde53c59416e2b0d4fba2692b9c23b375618a"
+    sha256 arm64_sonoma:  "d01b7896e6b8aadfe27f4d4b867a58341b02f5fac7dccecc1fd2e900a68cff76"
+    sha256 sonoma:        "fb653d68e57b0faff070eec61216cec2184d43cd7d0e5b6da67378b4c39fd4ca"
+    sha256 arm64_linux:   "61cc2bbf19babe959024f950b4d222ac6741a55a71e1673fdf1f717b311ae196"
+    sha256 x86_64_linux:  "76704c6bea1bf2317ff332733759cbf8b72235b3d0f55794abb9fa477a6e447c"
   end
 
   depends_on "desktop-file-utils" => :build
@@ -72,9 +73,9 @@ class GnomeBuilder < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system Formula["glib"].opt_bin/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas"
-    system Formula["gtk4"].opt_bin/"gtk4-update-icon-cache", "-qtf", HOMEBREW_PREFIX/"share/icons/hicolor"
+  post_install_steps do
+    compile_gsettings_schemas
+    update_gtk_icon_cache
   end
 
   test do

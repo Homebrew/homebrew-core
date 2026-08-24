@@ -6,16 +6,16 @@ class MagicWormhole < Formula
   url "https://files.pythonhosted.org/packages/d7/8c/964308aeed7b828ca726da4bbfcc8f2bc89713b39ba768e24ce6331b30f3/magic_wormhole-0.24.0.tar.gz"
   sha256 "c01b4815878e5fbcad7a22cfa190c529349bf271164189a0ad955a34a8d4cde0"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/magic-wormhole/magic-wormhole.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "97ebf37ce9324ccb70246fa49681a59c5a6f8b01a0a147b0803f25938d28a614"
-    sha256 cellar: :any,                 arm64_sequoia: "a7d2453fe97c6632b210fca7785c9b722f0e6056751c83a27b46c9b54db1ea5f"
-    sha256 cellar: :any,                 arm64_sonoma:  "c0a84ce1b5c6ee57e53fa8e3b811bed1958077ce4361da2804859c8c64380048"
-    sha256 cellar: :any,                 sonoma:        "c99c8ce28bfbfb5c8eac86f13a31e88d6b8718d538adda8820571d5012c4c625"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e79daf969e58ab26d9d1460f791749f25d554dcb9c679b36293eeea89ad31a9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e7b07040ae385b707387eba06e9aa72637e8eb0f548c13e2220932992a549c5"
+    sha256 cellar: :any, arm64_tahoe:   "652e98719a7f876dd8097aa0edf63d9cb844523b822f0b97b651ba27ef2c45c7"
+    sha256 cellar: :any, arm64_sequoia: "b226ddba5161b5b37f5804fa52fb13154ed98cc8c00ba8b407e44836c9c8269b"
+    sha256 cellar: :any, arm64_sonoma:  "498f6c2626514e3d360b0f25709a85dbeb95e0f93bd62683322010a32974d013"
+    sha256 cellar: :any, sonoma:        "94426435aa84f0f8dec2d89ac05acc41d277c04055d80ffbd331c800f3e0eebf"
+    sha256 cellar: :any, arm64_linux:   "e43a235604ff7146357c340b428e6787d6f9115b8c9269a6c7c686e7c8201aaf"
+    sha256 cellar: :any, x86_64_linux:  "901e8bbd1f0effc03022baa181adaa265d2b8430df2c0b6ca5f97e739cdc7fd3"
   end
 
   depends_on "rust" => :build # for `cbor2`
@@ -33,8 +33,8 @@ class MagicWormhole < Formula
   end
 
   resource "autobahn" do
-    url "https://files.pythonhosted.org/packages/54/d5/9adf0f5b9eb244e58e898e9f3db4b00c09835ef4b6c37d491886e0376b4f/autobahn-25.12.2.tar.gz"
-    sha256 "754c06a54753aeb7e8d10c5cbf03249ad9e2a1a32bca8be02865c6f00628a98c"
+    url "https://files.pythonhosted.org/packages/c3/05/c2e42c090f868489ea361633c3f37cfd427cc5f524df3eb1244accc98227/autobahn-26.6.1.tar.gz"
+    sha256 "66b27e066a8ea265541eb07fd964e3116e2b8f51d797eea8a46b55c07fd81a07"
   end
 
   resource "automat" do
@@ -43,13 +43,13 @@ class MagicWormhole < Formula
   end
 
   resource "cbor2" do
-    url "https://files.pythonhosted.org/packages/be/db/810437bcfe13cf5e09b68bad1ce57c8fa04ca9272c68946bbf2f4fa522c8/cbor2-6.1.1.tar.gz"
-    sha256 "6f0644869e0fdcd6f3874330b8f1cebd009f33191de43acf609dc2409cd362c4"
+    url "https://files.pythonhosted.org/packages/75/af/473c241e41c142ea06ebef8d1f660fa6ff928fb97210e7bec8ee5974f8cd/cbor2-6.1.2.tar.gz"
+    sha256 "6b43037a66947dee5af0abb1a4c3a13b3abac5a4a3f32f9771efbbcd030fd909"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/23/e4/796662cd90cf80e3a363c99db2b88e0e394b988a575f60a17e16440cd011/click-8.4.0.tar.gz"
-    sha256 "638f1338fe1235c8f4e008e4a8a254fb5c5fbdcbb40ece3c9142ebb78e792973"
+    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
+    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
   end
 
   resource "constantly" do
@@ -68,8 +68,8 @@ class MagicWormhole < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
-    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
+    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
+    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
   end
 
   resource "incremental" do
@@ -83,28 +83,13 @@ class MagicWormhole < Formula
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/4d/f2/bfb55a6236ed8725a96b0aa3acbd0ec17588e6a2c3b62a93eb513ed8783f/msgpack-1.1.2.tar.gz"
-    sha256 "3b60763c1373dd60f398488069bcdc703cd08a711477b5d480eecc9f9626f47e"
+    url "https://files.pythonhosted.org/packages/31/f9/c0a1c127f9049db9155afc316952ea571720dd01833ff5e4d7e8e6352dbb/msgpack-1.2.1.tar.gz"
+    sha256 "04c721c2c7448767e9e3f2520a475663d8ee0f09c31890f6d2bd70fd636a9647"
   end
 
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
     sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
-  end
-
-  resource "py-ubjson" do
-    url "https://files.pythonhosted.org/packages/1d/c7/28220d37e041fe1df03e857fe48f768dcd30cd151480bf6f00da8713214a/py-ubjson-0.16.1.tar.gz"
-    sha256 "b9bfb8695a1c7e3632e800fb83c943bf67ed45ddd87cd0344851610c69a5a482"
-  end
-
-  resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/5c/5f/6583902b6f79b399c9c40674ac384fd9cd77805f9e6205075f828ef11fb2/pyasn1-0.6.3.tar.gz"
-    sha256 "697a8ecd6d98891189184ca1fa05d1bb00e2f84b5977c481452050549c8a72cf"
-  end
-
-  resource "pyasn1-modules" do
-    url "https://files.pythonhosted.org/packages/e9/e6/78ebbb10a8c8e4b61a59249394a4a594c1a7af95593dc933a349c8d00964/pyasn1_modules-0.4.2.tar.gz"
-    sha256 "677091de870a80aae844b1ca6134f54652fa2c8c5a52aa396440ac3106e941e6"
   end
 
   resource "pynacl" do
@@ -113,8 +98,8 @@ class MagicWormhole < Formula
   end
 
   resource "pyopenssl" do
-    url "https://files.pythonhosted.org/packages/1a/51/27a5ad5f939d08f690a326ef9582cda7140555180db71695f6fb747d6a36/pyopenssl-26.2.0.tar.gz"
-    sha256 "8c6fcecd1183a7fc897548dfe388b0cdb7f37e018200d8409cf33959dbe35387"
+    url "https://files.pythonhosted.org/packages/74/b7/da07bae88f5a9506b4def6f2f4903cf4c3b8831e560dba8fa18ca08f758f/pyopenssl-26.3.0.tar.gz"
+    sha256 "589de7fae1c9ea670d18422ed00fc04da787bbde8e1454aea872aa57b49ad341"
   end
 
   resource "qrcode" do
@@ -123,8 +108,8 @@ class MagicWormhole < Formula
   end
 
   resource "service-identity" do
-    url "https://files.pythonhosted.org/packages/07/a5/dfc752b979067947261dbbf2543470c58efe735c3c1301dd870ef27830ee/service_identity-24.2.0.tar.gz"
-    sha256 "b8683ba13f0d39c6cd5d625d2c5f65421d6d707b013b375c355751557cbe8e09"
+    url "https://files.pythonhosted.org/packages/61/87/ad52e2c582c0f0e7f0a1b86950494c38d67422dc0f5ed9044a5fb9569a49/service_identity-26.1.0.tar.gz"
+    sha256 "6358c52882c96e66ac4a55eb3a72c7dd4a70763f8cc6fa4e70abde2656f4bf3b"
   end
 
   resource "spake2" do
@@ -133,8 +118,8 @@ class MagicWormhole < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
-    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
+    url "https://files.pythonhosted.org/packages/87/d7/0535a28b1f5f24f6612fb3ff1e89fb1a8d160fee0f976e0aa6803862134b/tqdm-4.68.3.tar.gz"
+    sha256 "00dfa48452b6b6cfae3dd9885636c23d3422d1ec97c66d96818cbd5e0821d482"
   end
 
   resource "twisted" do
@@ -143,13 +128,13 @@ class MagicWormhole < Formula
   end
 
   resource "txaio" do
-    url "https://files.pythonhosted.org/packages/7f/67/ea9c9ddbaa3e0b4d53c91f8778a33e42045be352dc7200ed2b9aaa7dc229/txaio-25.12.2.tar.gz"
-    sha256 "9f232c21e12aa1ff52690e365b5a0ecfd42cc27a6ec86e1b92ece88f763f4b78"
+    url "https://files.pythonhosted.org/packages/49/de/52729cab9d2c8de679ad015e87f11f69e092d6fb3084eb9a39735df09ce7/txaio-26.6.1.tar.gz"
+    sha256 "3ee900b2331c93457530fddbccc1a320c4e2d7ac8f9073d01c3fbe87762ccb35"
   end
 
   resource "txtorcon" do
-    url "https://files.pythonhosted.org/packages/b9/9f/7815b07d8bc775d9578d9131267bb7ce3e91e31305688736ed796ae724d1/txtorcon-24.8.0.tar.gz"
-    sha256 "befe19138d9c8c5307b6ee6d4fe446d0c201ffd1cc404aeb265ed90309978ad0"
+    url "https://files.pythonhosted.org/packages/0c/59/9b868727e8a41b6b5be4c0dad15b8188b75cb9ca3162aa7cdd20b7cfa808/txtorcon-26.6.0.tar.gz"
+    sha256 "0408f063a9fcb8df529daca57bb7373ea0f5b4ebaffcd5103754b7c561773f68"
   end
 
   resource "typing-extensions" do
@@ -158,8 +143,8 @@ class MagicWormhole < Formula
   end
 
   resource "ujson" do
-    url "https://files.pythonhosted.org/packages/bc/78/937198ea8708182dd1edbf0237bf255a96feab3f511691ad08b84da98e5d/ujson-5.12.1.tar.gz"
-    sha256 "5b7e96406c301a1366534479a7352ec40ec68bb327c0c119091635acd5925e35"
+    url "https://files.pythonhosted.org/packages/89/7a/c8bb37c8f6f3623d60c33d15d18cd6d6655d0f9c3eb31a9969f76361b199/ujson-5.13.0.tar.gz"
+    sha256 "d62e3d7625384c08082abad81a077af587fdef2761bb14c3822f4234b8d07d75"
   end
 
   resource "zipstream-ng" do
@@ -168,8 +153,8 @@ class MagicWormhole < Formula
   end
 
   resource "zope-interface" do
-    url "https://files.pythonhosted.org/packages/9f/65/34a6e6e4dfa260c4c55ee02bb2fc53625e126ff0181485286cf0c9d453d6/zope_interface-8.4.tar.gz"
-    sha256 "9dbee7925a23aa6349738892c911019d4095a96cff487b743482073ecbc174a8"
+    url "https://files.pythonhosted.org/packages/08/dc/50550cfcbb2ea3cbca5f1d7ed05c8aa840f831a0f2d63aec0a953f7c590e/zope_interface-8.5.tar.gz"
+    sha256 "7a3ba1c5877f0f3e3906b02ddf793abed2becc2948116414ce0e1dd820b68d6d"
   end
 
   def install

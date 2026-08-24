@@ -1,8 +1,8 @@
 class DezoomifyRs < Formula
   desc "Tiled image downloader"
   homepage "https://dezoomify-rs.ophir.dev"
-  url "https://github.com/lovasoa/dezoomify-rs/archive/refs/tags/v2.16.0.tar.gz"
-  sha256 "cf896da035dd0e5f59f20f506d343f5fad9fa2102f69ae75ca092d98dfdd7ed5"
+  url "https://github.com/lovasoa/dezoomify-rs/archive/refs/tags/v2.18.1.tar.gz"
+  sha256 "35c9006d408418f453e90194db4dc005e279612814760e837d6ee0940936dd75"
   license "GPL-3.0-only"
   head "https://github.com/lovasoa/dezoomify-rs.git", branch: "master"
 
@@ -15,12 +15,12 @@ class DezoomifyRs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "11b977ac8a4e6d9fa5ebe7d43678bd305970fcc9d70043d16c25264cbe96adf4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "de332846b0bf1796c2e3df40eb28b75722d9f1214438609e9fccd06b556388c7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eba14efdc8f4c9c06bce7534c68524b2c9625472670fe99917e92dd2d9fb4aa5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a483599af8e36b38cca3b5cce33e816141fa5e9dd380fc067b1410a631e57b8b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d7ea14fb198139f5d2fa9879cc183e16538c2b6669885ee1600be6a552f26cdb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50f5b73624ab915ddc1695bb0ca83c1ef9dc953a338feff2ce169a2e5a588e6a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8b41d654f07a5bc5ee9f20f01e25835f0f76caaf8c58662695c404fd6565d86d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0aea37bffd3d25471c46dfdf81c30023e751b88500db7e7019b9a154eae9162"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2342caa95e630623f295c71dfe030360f852818a071b06af812ac9bd96561b63"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a6471c476cfb8d5888a71f888d2bc6646d8d3816b7d4c31579b04847806c6961"
+    sha256 cellar: :any,                 arm64_linux:   "196d2d0a8cf3eb4b5f4f467542fad2390f3a51acec168fdef432e15b11f9e0fd"
+    sha256 cellar: :any,                 x86_64_linux:  "a0ef62c5a0a1419a6b1fa7dabdfc560c120c63c93e6f3d6c563b9549bf771a05"
   end
 
   depends_on "pkgconf" => :build
@@ -49,7 +49,7 @@ class DezoomifyRs < Formula
     (testpath/"testtiles_shasum.txt").write <<~EOS
       d0544af94eac6b418af6824554cb6bbbca8b3772261a1eb5fe9d1afb1eab458b  testtile.png
     EOS
-    dezoom_out = shell_output("#{bin}/dezoomify-rs tiles.yaml 2>&1")
+    dezoom_out = shell_output("#{bin}/dezoomify-rs tiles.yaml testtile.png 2>&1")
     assert_match "Image successfully saved", dezoom_out
     image_dimensions = shell_output("identify -format \"%w×%h\\n\" testtile.png").strip
     assert_equal "512×512", image_dimensions

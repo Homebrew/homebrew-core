@@ -1,9 +1,9 @@
 class TclTk < Formula
   desc "Tool Command Language"
   homepage "https://www.tcl-lang.org"
-  url "https://downloads.sourceforge.net/project/tcl/Tcl/9.0.3/tcl9.0.3-src.tar.gz"
-  mirror "https://fossies.org/linux/misc/tcl9.0.3-src.tar.gz"
-  sha256 "2537ba0c86112c8c953f7c09d33f134dd45c0fb3a71f2d7f7691fd301d2c33a6"
+  url "https://downloads.sourceforge.net/project/tcl/Tcl/9.0.4/tcl9.0.4-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/tcl9.0.4-src.tar.gz"
+  sha256 "d0aed49230bc02a65c1e0229e65f34590a4b037ec40d546f32573b467f7551ea"
   license "TCL"
   compatibility_version 1
 
@@ -13,13 +13,12 @@ class TclTk < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "30e2a53a42dd933ff608651b365604fcccef57accc93ed30657172ecbbce94b0"
-    sha256 arm64_sequoia: "fe275cd50f8ed0b187d76c18026f44d4539ac77911b7c7b3face83b716ff108b"
-    sha256 arm64_sonoma:  "b0378e73a72918c1e3a3f05352d82ded2a4d254c3aa1e0fff2787792c068992a"
-    sha256 sonoma:        "c7eab351e5651328e0107596fdbb6210cc98f21e18a7970f9c2f67a53180b6c4"
-    sha256 arm64_linux:   "1e0207dbf68c0bd42340211b04db0219d579ac230dee989f4473c0f64760e396"
-    sha256 x86_64_linux:  "0a9aedf5c4469a4343e2444ed7501186426c619307a7e15d73d09d8f87d9894d"
+    sha256 arm64_tahoe:   "5f827b236bad97d36743a3abfa75f746f998ccf4d6cf46e55b4ad167cccf14d6"
+    sha256 arm64_sequoia: "337f7db2e9c5b41a61cde887db2d02fe6293f76eedf81502783014b9922bef1e"
+    sha256 arm64_sonoma:  "83ece1e2a0f3d17e5ba0ed2d01203f357d25d008fcc1e3902c99e7200d652ea3"
+    sha256 sonoma:        "7814be4fc08ee90045ad3f6f1758982ab441f31bee964ddb876f6a5c6c6c8790"
+    sha256 arm64_linux:   "410d31028279d7a1d30dc73d4f6b012d54d837ab71cb6dadd1484932b7568b3b"
+    sha256 x86_64_linux:  "bb4f5dc50224e0e6ef9da8fd743964cf26dc43edaf9702c728272f8c839ed0b1"
   end
 
   depends_on "libtommath"
@@ -67,9 +66,9 @@ class TclTk < Formula
   end
 
   resource "tk" do
-    url "https://downloads.sourceforge.net/project/tcl/Tcl/9.0.3/tk9.0.3-src.tar.gz"
-    mirror "https://fossies.org/linux/misc/tk9.0.3-src.tar.gz"
-    sha256 "bf344efadb618babb7933f69275620f72454d1c8220130da93e3f7feb0efbf9b"
+    url "https://downloads.sourceforge.net/project/tcl/Tcl/9.0.4/tk9.0.4-src.tar.gz"
+    mirror "https://fossies.org/linux/misc/tk9.0.4-src.tar.gz"
+    sha256 "d7a146d2917eb8b5cc95276dbf0e3d03c7464d2b19c1675357857c989301dbb4"
 
     livecheck do
       formula :parent
@@ -116,7 +115,8 @@ class TclTk < Formula
     ENV["TCL_PACKAGE_PATH"] = "#{HOMEBREW_PREFIX}/lib"
     cd "unix" do
       system "./configure", *args, "--with-system-libtommath"
-      system "make"
+      # Install the core first so the bundled packages' configure can run tclsh
+      system "make", "install-binaries"
       system "make", "install"
       system "make", "install-private-headers"
       bin.install_symlink "tclsh#{version.to_f}" => "tclsh"
@@ -149,7 +149,7 @@ class TclTk < Formula
     end
 
     resource("tcltls").stage do
-      system "./configure", "--with-openssl-dir=#{Formula["openssl@3"].opt_prefix}",
+      system "./configure", "--with-openssl-dir=#{formula_opt_prefix("openssl@3")}",
                             "--prefix=#{prefix}",
                             "--with-tcl=#{lib}",
                             "--with-tclinclude=#{include}/tcl-tk",

@@ -30,7 +30,7 @@ class Mtoc < Formula
                "-IDEBuildLocationStyle=Custom",
                "-IDECustomDerivedDataLocation=#{buildpath}",
                "CONFIGURATION_BUILD_DIR=build/Release",
-               "HEADER_SEARCH_PATHS=#{Formula["llvm"].opt_include} $(HEADER_SEARCH_PATHS)"
+               "HEADER_SEARCH_PATHS=#{formula_opt_include("llvm")} $(HEADER_SEARCH_PATHS)"
     bin.install "build/Release/mtoc"
     man1.install "man/mtoc.1"
   end

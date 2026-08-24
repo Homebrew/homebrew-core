@@ -6,6 +6,8 @@ class Terramaid < Formula
   license "Apache-2.0"
   head "https://github.com/RoseSecurity/Terramaid.git", branch: "main"
 
+  no_autobump! because: :bumped_by_upstream
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5deb74301c7852a0a2f3f694bd59b45eef093d121936aa907cdedf0569be19b7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5deb74301c7852a0a2f3f694bd59b45eef093d121936aa907cdedf0569be19b7"
@@ -15,11 +17,15 @@ class Terramaid < Formula
     sha256 cellar: :any,                 x86_64_linux:  "c1146e76edb44538f2252fbb80fd13ff11c6f700f6cc5e88337f27cb3a0d7bce"
   end
 
+  # https://github.com/RoseSecurity/Terramaid/issues/565
+  deprecate! date: "2026-07-04", because: :checksum_mismatch
+  disable! date: "2027-07-04", because: :deprecated_upstream
+
   depends_on "go" => [:build, :test]
   depends_on "opentofu" => :test
 
   def install
-    ldflags = "-s -w -X github.com/RoseSecurity/terramaid/cmd.Version=#{version}"
+    ldflags = "-X github.com/RoseSecurity/terramaid/cmd.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"terramaid", shell_parameter_format: :cobra)

@@ -17,10 +17,10 @@ class Asak < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "jack"
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "jack" => :no_linkage
   end
 
   def install

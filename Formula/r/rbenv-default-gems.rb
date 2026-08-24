@@ -14,10 +14,12 @@ class RbenvDefaultGems < Formula
 
   depends_on "rbenv"
 
-  # Upstream patch: https://github.com/rbenv/rbenv-default-gems/pull/3
+  # Fix dependency on rbenv's `gem` shim being in the path
   patch do
     url "https://github.com/rbenv/rbenv-default-gems/commit/ead67889c91c53ad967f85f5a89d986fdb98f6fb.patch?full_index=1"
     sha256 "ac6a5654c11d3ef74a97029ed86b8a7b6ae75f4ca7ff4d56df3fb35e7ae0acb8"
+    type :backport
+    resolves "https://github.com/rbenv/rbenv-default-gems/pull/3"
   end
 
   def install

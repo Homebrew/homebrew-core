@@ -1,18 +1,18 @@
 class Vscli < Formula
   desc "CLI/TUI that launches VSCode projects, with a focus on dev containers"
   homepage "https://github.com/michidk/vscli"
-  url "https://github.com/michidk/vscli/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "af089ab9ccf80b24399575d1cea3014974d04ab73a4688259c53a2525da11d0d"
+  url "https://github.com/michidk/vscli/archive/refs/tags/v1.3.3.tar.gz"
+  sha256 "0e33647b18f805ca2ddf67831df62b03de4cfd96fe1495cc0e2ad9cea3bb06a9"
   license "MIT"
   head "https://github.com/michidk/vscli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2273f8d6dc3e13c957790a6998f02a7d833b99db3b068923da6ded29d0b89817"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "22b01724115be58e091a1944af0e8f8a3b4a663a29e5a3a7ca994cd90842ae4b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ac9796e0c0ac9e59e1939e44138470380f150eb2def5b10d60f4625bbb74db86"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9d47361b0293b964768ac61816149744584184c6e441bc4229a187f6cb8e43df"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e6e8f7c90afd4354a42e678dd887adb959a9e0eb6e756aa3a00da1b90b5218c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b42485a36a1a3586d9873cb8ef5fb3e0dfe6e00c1d04148d712d3064a56be218"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3e8493ee28ab2430c0dabd4d09696370349d6eac2b216228fdaa3bd54c4590fd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "953c3b3f8177f6a161f0d9d6f16c6c5d352253224c94435196f68d05b37523d1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be4ce227301b92660cd226c09cdc627e7b635098719c6c253d1d6f49fc78cc05"
+    sha256 cellar: :any_skip_relocation, sonoma:        "acc116db5023dfb1cdc27cd43fdd9e2f429715a7a34a47dea03830a287659b3e"
+    sha256 cellar: :any,                 arm64_linux:   "f42ebac0f93e61285a342047c30d8a9fe98b02dfe882cff0964e0afa27cf9697"
+    sha256 cellar: :any,                 x86_64_linux:  "3c137d3053e9ee76a2aad1c6ed44562cb3b9c1dda3427d9fe0766930d71385e4"
   end
 
   depends_on "rust" => :build

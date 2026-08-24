@@ -1,13 +1,13 @@
 class TomeePlume < Formula
   desc "Apache TomEE Plume"
   homepage "https://tomee.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-10.1.5/apache-tomee-10.1.5-plume.tar.gz"
-  mirror "https://archive.apache.org/dist/tomee/tomee-10.1.5/apache-tomee-10.1.5-plume.tar.gz"
-  sha256 "d6e8c87766d3b3b7bcec6db8d5141e61fe8275d6bce1775701762ad021ae66c5"
+  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-10.2.0/apache-tomee-10.2.0-plume.tar.gz"
+  mirror "https://archive.apache.org/dist/tomee/tomee-10.2.0/apache-tomee-10.2.0-plume.tar.gz"
+  sha256 "35a3debe0eb845b063f6f68c633bd14365a35f0c689d0780b1832c39bc83a78e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1da6fae7a8b040565c7cb355a5dc58e34b7ccf675770bb53ccac66f3c5bfeea1"
+    sha256 cellar: :any_skip_relocation, all: "4fcfa827e29a8a572710586782997f095e1e2219de5cecd7124c2d8d25c96952"
   end
 
   depends_on "openjdk"
@@ -22,7 +22,7 @@ class TomeePlume < Formula
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*.sh"]
-    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
+    bin.env_script_all_files libexec/"bin", JAVA_HOME: formula_opt_prefix("openjdk")
   end
 
   def caveats

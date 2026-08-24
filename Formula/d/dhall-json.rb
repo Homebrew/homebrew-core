@@ -7,13 +7,13 @@ class DhallJson < Formula
   head "https://github.com/dhall-lang/dhall-haskell.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "5b790ced1db4fd7941d3bf402dd5b24fc89ed2dfd878d29475bb344da661296e"
-    sha256 cellar: :any,                 arm64_sequoia: "3ff0895f95e1bfce054ad771de2e0003d8a28f5b122b24a4b7d0ef9af4b64a1e"
-    sha256 cellar: :any,                 arm64_sonoma:  "8d50f129fd2de08651d0236d9a874df0d4248cfa3c91a7d075b8e50be76cd838"
-    sha256 cellar: :any,                 sonoma:        "8da9034586421f58ba9b51df7ac5ff0fa11175741d2805e6e4b2d3e8e273910b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9e495a9250e2373cc89392183c27f7d4efd4c4ddd60b4a1756f8e0bc7e0c80f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef938910ed4727970c8f3bd2ca25e2610ecaaf41d1b2de45bf9176fb83f7975e"
+    rebuild 3
+    sha256 cellar: :any, arm64_tahoe:   "797620da8d3432df1523f9c08f2fddb86f9131789e9f9b136647773797ac0061"
+    sha256 cellar: :any, arm64_sequoia: "b6a6d0a71613903f299ab837b1a9f832f0feeac31c022730153efcab91c9fbff"
+    sha256 cellar: :any, arm64_sonoma:  "7284a154c865793b6034a47b3cce5698aec8bfecd12c6d1783fbdd9c815138c7"
+    sha256 cellar: :any, sonoma:        "12b5239d5c55e1813c084cb46cec0179a02667e69efa431597f394c85aaf033d"
+    sha256 cellar: :any, arm64_linux:   "12060b10c92e108b8d2aea6386aad76d6d895587fe9e12c2c575c6bb80706439"
+    sha256 cellar: :any, x86_64_linux:  "001857a118079356b3dd1c8aa8645178b061075f67d67e38645602a1837e0219"
   end
 
   depends_on "cabal-install" => :build

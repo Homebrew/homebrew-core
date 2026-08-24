@@ -20,7 +20,6 @@ class VulsioGost < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/vulsio/gost/config.Version=#{version}
       -X github.com/vulsio/gost/config.Revision=#{tap.user}
     ]

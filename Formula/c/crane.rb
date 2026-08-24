@@ -1,27 +1,24 @@
 class Crane < Formula
   desc "Tool for interacting with remote images and registries"
   homepage "https://github.com/google/go-containerregistry"
-  url "https://github.com/google/go-containerregistry/archive/refs/tags/v0.21.7.tar.gz"
-  sha256 "4fa695c6a1f79793598d804cab380a3ba4f03539c0dbd4f0b9f38cdaf175ef3b"
+  url "https://github.com/google/go-containerregistry/archive/refs/tags/v0.21.9.tar.gz"
+  sha256 "6d8bce869afcc485b518cc0d59ea0ffe1090026db965806bc3be8793182528cc"
   license "Apache-2.0"
   head "https://github.com/google/go-containerregistry.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "41df4ff442c4d4a0d59d7a56739b0cb05b372ec5b3c7639be3d02705fea0aa9e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "41df4ff442c4d4a0d59d7a56739b0cb05b372ec5b3c7639be3d02705fea0aa9e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41df4ff442c4d4a0d59d7a56739b0cb05b372ec5b3c7639be3d02705fea0aa9e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5323c7846b2e619bedc98d330f39467d8786f5d4a00fcaade717210c72b3fd3c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d571743d486b443e33591a2952a0e8fc532aef43bf7151540efe3b026afe7eb"
-    sha256 cellar: :any,                 x86_64_linux:  "97a90d0786bc4b5e59ebeb66ae723e7023c28a248a030320b5cc43b3168ce075"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "da9debb8436aab46fea78f6853e4dc46d3cc5f7fa3ee24fba78a20a332e09dca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "da9debb8436aab46fea78f6853e4dc46d3cc5f7fa3ee24fba78a20a332e09dca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "da9debb8436aab46fea78f6853e4dc46d3cc5f7fa3ee24fba78a20a332e09dca"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d2f6eeebed24749d9dfc177269456cc05db1d597d1f1f9bb8baa5fd2256c6b8b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f65aec042a82b024d3b42bd81237e692b747a1afa700186cad7185670c15ee53"
+    sha256 cellar: :any,                 x86_64_linux:  "4c172801cabf797c370af6a7f733f03ed5aa8945f98fbf4fb43ffaae3d21f790"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/google/go-containerregistry/cmd/crane/cmd.Version=#{version}
-    ]
+    ldflags = %W[-X github.com/google/go-containerregistry/cmd/crane/cmd.Version=#{version}]
 
     system "go", "build", *std_go_args(ldflags:), "./cmd/crane"
 

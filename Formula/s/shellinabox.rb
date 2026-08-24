@@ -25,10 +25,10 @@ class Shellinabox < Formula
   end
 
   # Upstream (Debian) patch for OpenSSL 1.1 compatibility
-  # Original patch cluster: https://github.com/shellinabox/shellinabox/pull/467
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/shellinabox/2.20.patch"
-    sha256 "86c2567f8f4d6c3eb6c39577ad9025dbc0d797565d6e642786e284ac8b66bd39"
+    file "Patches/shellinabox/2.20.patch"
+    type :unofficial
+    resolves "https://github.com/shellinabox/shellinabox/pull/467"
   end
 
   def install

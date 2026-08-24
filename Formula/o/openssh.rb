@@ -1,10 +1,10 @@
 class Openssh < Formula
   desc "OpenBSD freely-licensed SSH connectivity tools"
   homepage "https://www.openssh.com/"
-  url "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.3p1.tar.gz"
-  mirror "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.3p1.tar.gz"
-  version "10.3p1"
-  sha256 "56682a36bb92dcf4b4f016fd8ec8e74059b79a8de25c15d670d731e7d18e45f4"
+  url "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.5p1.tar.gz"
+  mirror "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.5p1.tar.gz"
+  version "10.5p1"
+  sha256 "d44d28a839ea9daf969cc69150fde59910b2b39361dad81a3bd6cbd19218db11"
   license "SSH-OpenSSH"
   compatibility_version 1
 
@@ -14,12 +14,12 @@ class Openssh < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "4a735b701fb0c8cb8f23a6e977f48b31fed26a6a7f4a86c686658b1cf768cb84"
-    sha256 arm64_sequoia: "d6230ee440c10fbf3b1dcc748c93384862c63b87ca529abda68f59248204c157"
-    sha256 arm64_sonoma:  "84e026e4820abcbfe4b6dab7ef5f1feb36d78014b1c63258db925d3cba3d1611"
-    sha256 sonoma:        "67b3199c24c5276962e7a9298e58fce3832a72026f1efc5966f8fa509606abbd"
-    sha256 arm64_linux:   "613ce577ca0e33d98c9ffd8d54a1c68b0c16c96aaac71645b646b29b44cfe695"
-    sha256 x86_64_linux:  "f3485a00c3f1d5343b3b7cf5d1ce5f4352fe34ddf7077d136c83df999d3a724f"
+    sha256 arm64_tahoe:   "4c2ccf5627e6f828305f242128b8763bb9360d28ea13a5e3c565a0a8f1a36a1b"
+    sha256 arm64_sequoia: "32a4774dd72242b4a9edc85ef9ac3da1e0a6b890fc5fe794759b25161c03ccd5"
+    sha256 arm64_sonoma:  "eb91e04da08f67b0b52d5dd6991bf511478ab267ebe8ee3d2532d5cbcd5f3645"
+    sha256 sonoma:        "9c3f633ef50138f4dd704567cf80857d4c17a0f03d451c7ef407be80d93ae988"
+    sha256 arm64_linux:   "f8ba944aeedf80c1260a6b746f73c016a804e95e9f24d4b7df20af5124566641"
+    sha256 x86_64_linux:  "7884435d1290c3f9a890cd55c97dc72b23a6ac657d2772f6b4bbf6f56098c9bc"
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.
@@ -55,7 +55,7 @@ class Openssh < Formula
       --with-libedit
       --with-kerberos5
       --with-pam
-      --with-ssl-dir=#{Formula["openssl@3"].opt_prefix}
+      --with-ssl-dir=#{formula_opt_prefix("openssl@3")}
       --with-security-key-builtin
     ]
 

@@ -1,7 +1,7 @@
 class Libopennet < Formula
   desc "Provides open_net() (similar to open())"
-  homepage "https://www.rkeene.org/oss/libopennet"
-  url "https://www.rkeene.org/files/oss/libopennet/libopennet-0.9.9.tar.gz"
+  homepage "https://rkeene.org/oss/libopennet"
+  url "https://rkeene.org/files/oss/libopennet/libopennet-0.9.9.tar.gz"
   sha256 "d1350abe17ac507ffb50d360c5bf8290e97c6843f569a1d740f9c1d369200096"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
@@ -44,5 +44,24 @@ class Libopennet < Formula
     system "./configure", *std_configure_args, "--mandir=#{man}"
     system "make"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <opennet.h>
+      #include <stdio.h>
+
+      int main(void) {
+        char buffer[32];
+        NETFILE *file = fopen_net("input.txt", "r");
+        if (!file || !fgets_net(buffer, sizeof(buffer), file)) return 1;
+        if (fclose_net(file) != 0) return 1;
+        printf("%s", buffer);
+        return 0;
+      }
+    C
+    (testpath/"input.txt").write "libopennet works\n"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lopennet", "-o", "test"
+    assert_equal "libopennet works\n", shell_output("./test")
   end
 end

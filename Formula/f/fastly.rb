@@ -1,18 +1,18 @@
 class Fastly < Formula
   desc "Build, deploy and configure Fastly services"
   homepage "https://www.fastly.com/documentation/reference/cli/"
-  url "https://github.com/fastly/cli/archive/refs/tags/v15.2.0.tar.gz"
-  sha256 "030b48149ac44f5b82c5533e006b98c8ea8dd5d84c90fe70a0e43d9a39d96adb"
+  url "https://github.com/fastly/cli/archive/refs/tags/v16.0.0.tar.gz"
+  sha256 "537e2948843eeebfba80cec6f2018ca2bee96c61783ac4f2408fa9602f732f08"
   license "Apache-2.0"
   head "https://github.com/fastly/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a81386fb20fb11900b24b242645f5807b7100cd4c4336f64fe024961d4d55289"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a81386fb20fb11900b24b242645f5807b7100cd4c4336f64fe024961d4d55289"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a81386fb20fb11900b24b242645f5807b7100cd4c4336f64fe024961d4d55289"
-    sha256 cellar: :any_skip_relocation, sonoma:        "407408efa7bf7b2dc8a87c6a9884ea1a2aaec9ddd6209b616f02ea224f95c0b6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6599d6a831710d8af8f8781817e165cb2912cce60fbab44314ea49e97fc216a3"
-    sha256 cellar: :any,                 x86_64_linux:  "97e1a15924a3d42e5504b4c5702f81d8b75fe14a5b9a6d05c7a7f3af11dc8814"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "210c3d7e4e404b25effba54100cfde4606d2f841383d310331da04bd20bba571"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "210c3d7e4e404b25effba54100cfde4606d2f841383d310331da04bd20bba571"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "210c3d7e4e404b25effba54100cfde4606d2f841383d310331da04bd20bba571"
+    sha256 cellar: :any_skip_relocation, sonoma:        "68426e35f81b7a4d89cdf293169d04e258a2f412691092830ed07e803c8ce4f2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cdda9823eadcb7216f399261d5c2c9e1a719f6439a9a783a041d4c65d5bb2a93"
+    sha256 cellar: :any,                 x86_64_linux:  "308bcb904c6b76beec03ee846f9f5972250731a1f91203aeee4dc14193731adf"
   end
 
   depends_on "go" => :build
@@ -24,7 +24,6 @@ class Fastly < Formula
     arch = Utils.safe_popen_read("go", "env", "GOARCH").strip
 
     ldflags = %W[
-      -s -w
       -X github.com/fastly/cli/pkg/revision.AppVersion=v#{version}
       -X github.com/fastly/cli/pkg/revision.GitCommit=#{tap.user}
       -X github.com/fastly/cli/pkg/revision.GoHostOS=#{os}

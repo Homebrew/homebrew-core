@@ -18,10 +18,7 @@ class Diffoci < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/reproducible-containers/diffoci/cmd/diffoci/version.Version=#{version}
-    ]
+    ldflags = %W[-X github.com/reproducible-containers/diffoci/cmd/diffoci/version.Version=#{version}]
     system "go", "build", *std_go_args(ldflags:), "./cmd/diffoci"
 
     generate_completions_from_executable(bin/"diffoci", shell_parameter_format: :cobra)

@@ -37,7 +37,7 @@ class Dafny < Formula
 
     (bin/"dafny").write <<~BASH
       #!/bin/bash
-      exec "#{Formula["dotnet@8"].opt_bin}/dotnet" "#{libexec}/Dafny.dll" "$@"
+      exec "#{formula_opt_bin("dotnet@8")}/dotnet" "#{libexec}/Dafny.dll" "$@"
     BASH
   end
 

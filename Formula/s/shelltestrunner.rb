@@ -6,12 +6,13 @@ class Shelltestrunner < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9203ada94d9396bb88fe31f717229a5f636451797e0af2e8afec0855684a1d16"
-    sha256 cellar: :any,                 arm64_sequoia: "57038337cd3c74ca18a64f229c8ad48621ab8cf02efe11f67a9bf34c059d9bb8"
-    sha256 cellar: :any,                 arm64_sonoma:  "5999ff7d7e0805fd0abac81fc3fd3385d1725b20fce66d62b2987af70df2eca8"
-    sha256 cellar: :any,                 sonoma:        "2f0bf32fac534b2fa34143ed7d67535890de2161c64aff2ddb7809c2df6f276a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "60bb7a211304833e0a87723390487acae78a771af2cf8fc48603400b683dd89f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b619cc0d9658c4c072ef6ff3164462cde54974faef0cc92527ca88cdfdb160a"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "ec8369c12e98173330963627f5a46010b3f21cf9a63791fd8fd34f723b23c173"
+    sha256 cellar: :any, arm64_sequoia: "eebdab863d9d345eea451899f791305c7acc161c9d74bb123dc29f1abe05c546"
+    sha256 cellar: :any, arm64_sonoma:  "e2e0b72326d3ac35e5efb64503dc8b42d5cb195070942833a55abbfca32895f8"
+    sha256 cellar: :any, sonoma:        "004b1ec0e9f7eee9338fa395db8c854797fcda39e228425afb646e6e32444f4b"
+    sha256 cellar: :any, arm64_linux:   "9df6d6d671e6f85738c64344f239a20d8394c13a62d33f59ef1936135a492395"
+    sha256 cellar: :any, x86_64_linux:  "7a18dcec794974fdc9e79fb999fb6f30ce58549adf0e21842660a47e010cd4b9"
   end
 
   depends_on "cabal-install" => :build

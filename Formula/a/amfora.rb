@@ -23,8 +23,7 @@ class Amfora < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user} -X main.builtBy=#{tap.user}"
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags: :goreleaser)
     pkgshare.install "contrib/themes"
   end
 
@@ -36,11 +35,11 @@ class Amfora < Formula
     input, _, wait_thr = Open3.popen2 "script -q screenlog.txt"
     input.puts "stty rows 80 cols 43"
     input.puts bin/"amfora"
-    sleep 1
+    sleep 2
     input.putc "1"
-    sleep 1
+    sleep 2
     input.putc "1"
-    sleep 1
+    sleep 2
     input.putc "q"
 
     screenlog = (testpath/"screenlog.txt").read

@@ -1,19 +1,17 @@
 class HowardHinnantDate < Formula
   desc "C++ library for date and time operations based on <chrono>"
   homepage "https://github.com/HowardHinnant/date"
-  url "https://github.com/HowardHinnant/date/archive/refs/tags/v3.0.4.tar.gz"
-  sha256 "56e05531ee8994124eeb498d0e6a5e1c3b9d4fccbecdf555fe266631368fb55f"
+  url "https://github.com/HowardHinnant/date/archive/refs/tags/v3.0.5.tar.gz"
+  sha256 "ef786edc203daec76475825640b3af247bd08e31fc52217e5ce8f76107b4bb05"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a6e3a0832d810528b3b0199ad47d10e1f026e0de3559a66312f3343da396a26e"
-    sha256 cellar: :any,                 arm64_sequoia: "fa799d065c7607f2e6997dfcb9d381de6b988b491a11b2d8ec78cafbc48e6914"
-    sha256 cellar: :any,                 arm64_sonoma:  "28b75e11d6e62d271cc828016689daf84f05dcc804abd5652e3de61c8a3ea4f4"
-    sha256 cellar: :any,                 arm64_ventura: "4c9f4bd167d09b5c525e7fca5ffff153a4d61496c22f75fa0455bb6d2e79d929"
-    sha256 cellar: :any,                 sonoma:        "87f1f12799f3987a0f5fbb8d192124596a5e367a403160d39e24cfc2775be2e3"
-    sha256 cellar: :any,                 ventura:       "17e09adc1f5575bd819e4cc6c42e4113b149da4531fd826923cca2b1626fe2e0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cfdca01d3aa4278c4c1a99428cdc1de38a7c3f15a172a2e157facc5e9b4b9930"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8fa6eff9c09d59e6e764b436f1354ef2821be373f44adb97ac158d6562b69fa"
+    sha256 cellar: :any, arm64_tahoe:   "08d425d276d462c1b67bd2ae8e4fc27a6719bfcf614c83a395950a4c748bf520"
+    sha256 cellar: :any, arm64_sequoia: "edfd31d06de8c45bf8494b2be67466ad7119641ffa29faacb37e91c1ba38f0a4"
+    sha256 cellar: :any, arm64_sonoma:  "1d81e0b579ffcf1c93673c1cfe9d882c38b99aaa343342b9b1688309d9c2c876"
+    sha256 cellar: :any, sonoma:        "a69eb41463b79ce173d1f955caf13856abb06dbc1d6639936fcda604e828df73"
+    sha256 cellar: :any, arm64_linux:   "eda5d808784224ffc2841a9c51829514eb22d0408b227f3c2eb7cbd711e08de6"
+    sha256 cellar: :any, x86_64_linux:  "9deaee6eb543f5ada3286b05853300472fd5735cbe61f0f4cec122105e546c5c"
   end
 
   depends_on "cmake" => :build

@@ -6,15 +6,15 @@ class Pyspelling < Formula
   url "https://files.pythonhosted.org/packages/fe/ed/3fe00b8a3f8a74a993e1e08931d674cde7bd718c1af44ef415ff1f6b000b/pyspelling-2.12.1.tar.gz"
   sha256 "9108981dc174d6400a7ed4917cf4af91daf3eb83578d4570c0726b92c2a32e7a"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b83f670c1567255ad8077ae70987a89ddfde7583ab0ccbc1d4147bc502715797"
-    sha256 cellar: :any,                 arm64_sequoia: "2c23257399b2741659bb05d4ac7531407b922267dc4137ee13f8b14f28c75c64"
-    sha256 cellar: :any,                 arm64_sonoma:  "b21e9048e501d3487e9a95b98d0ecb0f5116e392fe7af84ef9083e84e8ff828a"
-    sha256 cellar: :any,                 sonoma:        "76cdc40c40302803ad264b8f4d238d2a611b25e69788765d0fb22e6b839576e3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "15b939f1d658130b42b15a064b1310bb36f6e45abb8d1ad9abfbf6b7c5bd7d51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e138038bbdda3924b4b0a8d4716e0764a06e40aa61b6aea44b74f7870ef172b3"
+    sha256 cellar: :any, arm64_tahoe:   "daefdf93f0ac7b961c87933901482281e75e6ab051434448f80b96007ba6e686"
+    sha256 cellar: :any, arm64_sequoia: "59ae100d401ad1f98c06c01f64222fbac91f55ab26da1c674afdd275e79986ba"
+    sha256 cellar: :any, arm64_sonoma:  "44507880ab060d0e28c87fce3e899ae5910d02eeded812837e63cc1f42ebc751"
+    sha256 cellar: :any, sonoma:        "77b434cba087c6131e57dce44492c532f517eff02b6d93a08e9fe6fdbfe05fc7"
+    sha256 cellar: :any, arm64_linux:   "b7a46ab1812b1d7ccf515427b26ab78881c0f332b6416954404b77d27710ee6a"
+    sha256 cellar: :any, x86_64_linux:  "6dad3d81d92626456cb453ffcb6e8fb43fde73314e638a3ef4474e1346b98288"
   end
 
   depends_on "aspell" => :test
@@ -25,13 +25,13 @@ class Pyspelling < Formula
   uses_from_macos "libxslt"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/c3/b0/1c6a16426d389813b48d95e26898aff79abbde42ad353958ad95cc8c9b21/beautifulsoup4-4.14.3.tar.gz"
-    sha256 "6292b1c5186d356bba669ef9f7f051757099565ad9ada5dd630bd9de5fa7fb86"
+    url "https://files.pythonhosted.org/packages/43/65/318323f98dbee45d42dff61d8f047181bc6f2268a9068cfad035a46be5af/beautifulsoup4-4.15.0.tar.gz"
+    sha256 "288e3ca7d54b06f2ac191970bc275c1939cb46d450b255bf6718b04aa37ab4f7"
   end
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/63/9a/fec38644694abfaaeca2798b58e276a8e61de49e2e37494ace423395febc/bracex-2.6.tar.gz"
-    sha256 "98f1347cd77e22ee8d967a30ad4e310b233f7754dbf31ff3fceb76145ba47dc7"
+    url "https://files.pythonhosted.org/packages/d0/f5/4473ad9b48cd0420a2d762a3750fa0e078e23e060b1af72662e5987e5530/bracex-3.0.tar.gz"
+    sha256 "b73f718d6bd98d8419e45df02426c86e9967c179949f779340d6c3a8c83b9111"
   end
 
   resource "html5lib" do
@@ -39,16 +39,17 @@ class Pyspelling < Formula
     sha256 "b2e5b40261e20f354d198eae92afc10d750afb487ed5e50f9c4eaf07c184146f"
 
     # Fix to build with Python 3.14
-    # PR ref: https://github.com/html5lib/html5lib-python/pull/589
     patch do
       url "https://github.com/html5lib/html5lib-python/commit/b90dafff1bf342d34d539098013d0b9f318c7641.patch?full_index=1"
       sha256 "779f8bab52308792b7ac2f01c3cd61335587640f98812c88cb074dce9fe8162d"
+      type :unofficial
+      resolves "https://github.com/html5lib/html5lib-python/pull/589"
     end
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/28/30/9abc9e34c657c33834eaf6cd02124c61bdf5944d802aa48e69be8da3585d/lxml-6.1.0.tar.gz"
-    sha256 "bfd57d8008c4965709a919c3e9a98f76c2c7cb319086b3d26858250620023b13"
+    url "https://files.pythonhosted.org/packages/05/3b/aab6728cae887456f409b4d75e8a01856e4f04bd510de38052a47768b680/lxml-6.1.1.tar.gz"
+    sha256 "ba96ae44888e0185281e937633a743ea90d5a196c6000f82565ebb0580012d40"
   end
 
   resource "markdown" do
@@ -67,18 +68,18 @@ class Pyspelling < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/7b/ae/2d9c981590ed9999a0d91755b47fc74f74de286b0f5cee14c9269041e6c4/soupsieve-2.8.3.tar.gz"
-    sha256 "3267f1eeea4251fb42728b6dfb746edc9acaffc4a45b27e19450b676586e8349"
+    url "https://files.pythonhosted.org/packages/47/2c/0a5f6f8ee0d5589e48c7640213ed5175d52cf540a06725b628cc1a45d6ce/soupsieve-2.8.4.tar.gz"
+    sha256 "e121fd02e975c695e4e9e8774a5ee35d74714b59307868dcc5319ad2d9e3328e"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
-    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
   end
 
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/79/3e/c0bdc27cf06f4e47680bd5803a07cb3dfd17de84cde92dd217dcb9e05253/wcmatch-10.1.tar.gz"
-    sha256 "f11f94208c8c8484a16f4f48638a85d771d9513f4ab3f37595978801cb9465af"
+    url "https://files.pythonhosted.org/packages/11/15/dc61746d8c0852f6d711ad09c774b63cf7c8211aa49e30871ac3d342b7e2/wcmatch-10.2.1.tar.gz"
+    sha256 "ecac70a5c70e62ba854b78318d3a1408e8651f8f1c96e5837743b71aa6a4fb92"
   end
 
   resource "webencodings" do
@@ -109,13 +110,13 @@ class Pyspelling < Formula
           wordlists:
           - #{testpath}/en-custom.txt
         sources:
-        - #{testpath}/text.txt
+        - text.txt
     YAML
 
     output = shell_output(bin/"pyspelling", 1)
     assert_match <<~EOS, output
       Misspelled words:
-      <text> #{testpath}/text.txt
+      <text> text.txt
       --------------------------------------------------------------------------------
       favourite
       --------------------------------------------------------------------------------

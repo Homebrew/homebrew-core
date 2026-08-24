@@ -24,7 +24,7 @@ class Triangle < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-mod=vendor", *std_go_args(ldflags: "-s -w"), "./cmd/triangle"
+    system "go", "build", "-mod=vendor", *std_go_args, "./cmd/triangle"
   end
 
   test do

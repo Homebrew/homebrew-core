@@ -4,6 +4,7 @@ class Autotrace < Formula
   url "https://github.com/autotrace/autotrace/archive/refs/tags/0.31.10.tar.gz"
   sha256 "14627f93bb02fe14eeda0163434a7cb9b1f316c0f1727f0bdf6323a831ffe80d"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 2
   head "https://github.com/autotrace/autotrace.git", branch: "master"
 
   livecheck do
@@ -12,16 +13,12 @@ class Autotrace < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:    "8f46e9bf0a5498be353f53dcfb86707921065ab3b96935e90e270aa98202520c"
-    sha256 arm64_sequoia:  "c2d1d03bc042ec69198132771c0f609e20e53bb2902ae38318803ad22a642dd5"
-    sha256 arm64_sonoma:   "bb7e5e2c27bd3da06e535a8a06baa26600dd95e864e18bf8600a2aba988069ad"
-    sha256 arm64_ventura:  "d976e8f28196b677548bb11fee10be185632451b5cd5a8d1b0d4752d052118b3"
-    sha256 arm64_monterey: "f75fb3dec8f93b6cd85ba5520010a28103a0c9259f0f4321691651f9b2f5da0f"
-    sha256 sonoma:         "309ada11b08e9bb6477127ba861acf1ea44e2a9c4e4ef366a614d418d7c8ef55"
-    sha256 ventura:        "1da418dcb2e3c56b24a46541728782d9e2853f9d9988f3146c151016dd7c86c6"
-    sha256 monterey:       "21cbef75c9802414f576566503a5d570e878fbaf0d2587d40ce5773371866ab0"
-    sha256 arm64_linux:    "2b49716451cbac5e13837244a3413197cc69e0d5358e519697d104e667f5ac4a"
-    sha256 x86_64_linux:   "4aab08802d48a33cc4d89c858fbc7ecc61dddb7a8d1e6ec250cf8b2dda4b9f8f"
+    sha256 arm64_tahoe:   "ab9f30deffcfe2b3eadbb7a1483f29f5ab1fff7bf4518d0ecf9062fa2839d39b"
+    sha256 arm64_sequoia: "b36ba642259814567ac88161df1330c8e1e1160d0022eb0ff8556992a9ff6c0c"
+    sha256 arm64_sonoma:  "b9725af1513a0da94e283765802022e0e9ae80b0d785a0d5c78da4981a16496e"
+    sha256 sonoma:        "e4d9f47afb4b508a32cbcb02bcb2266c70bc15103337a502c1a5b0b064a1ff8a"
+    sha256 arm64_linux:   "55965727c03a1092493b6e0affc35fcebd8a86e2a4d74b928c9b931ca03ede47"
+    sha256 x86_64_linux:  "b8b573bdd4ece3b522e921a559424bea53474d39b7d0b6484a0719a9c6653f53"
   end
 
   depends_on "autoconf" => :build

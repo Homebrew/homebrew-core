@@ -35,13 +35,13 @@ class Virtualpg < Formula
               "shrext_cmds='.dylib'"
 
     system "./configure", "--disable-silent-rules",
-                          "--with-pgconfig=#{Formula["libpq"].opt_bin}/pg_config",
+                          "--with-pgconfig=#{formula_opt_bin("libpq")}/pg_config",
                           *std_configure_args
     system "make", "install"
   end
 
   test do
     # Verify mod_virtualpg extension can be loaded using Homebrew's SQLite
-    system "echo", "\" SELECT load_extension('#{opt_lib}/mod_virtualpg');\" | #{Formula["sqlite"].opt_bin}/sqlite3"
+    system "echo", "\" SELECT load_extension('#{opt_lib}/mod_virtualpg');\" | #{formula_opt_bin("sqlite")}/sqlite3"
   end
 end

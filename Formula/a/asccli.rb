@@ -1,13 +1,13 @@
 class Asccli < Formula
   desc "App Store Connect CLI to manage apps, versions, and screenshots"
   homepage "https://github.com/tddworks/asc-cli"
-  url "https://github.com/tddworks/asc-cli/archive/refs/tags/v0.18.1.tar.gz"
-  sha256 "7141fca15206f05d041c1f9bd4bbf6ec245f3217e94199ab48264add1eafc2ac"
+  url "https://github.com/tddworks/asc-cli/archive/refs/tags/v0.18.2.tar.gz"
+  sha256 "596fd89435de437961ab7bf74ec42bc967ee0b63c11db9b5ca8c6c6a35b18bc0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d0f233dee399d53790f2a3bd7c886111ef9982d94ef53195d3e71cf43b7f4675"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b03abbe9c0a2cc0b87c3a1f36aef2801c8ca40f229db06096d5a9a5d02102dfd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "08761b55f86167151ff1207a0dda39546fe5ad6639c4fe7da33f5e1194aa0460"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d729af4e0d4a679e29bfc89b3ad2f0e533a17ebb2eb3afe44e566f89329a643"
   end
 
   depends_on xcode: ["26.0", :build]
@@ -17,7 +17,7 @@ class Asccli < Formula
 
   def install
     inreplace "Sources/ASCCommand/Version.swift", 'let ascVersion = "0.1.3"', %Q(let ascVersion = "#{version}")
-    system "swift", "build", "--disable-sandbox", "-c", "release"
+    system "swift", "build", *std_swift_args
     bin.install ".build/release/asc" => "asccli"
   end
 

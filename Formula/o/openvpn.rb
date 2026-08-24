@@ -1,9 +1,9 @@
 class Openvpn < Formula
   desc "SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension"
   homepage "https://openvpn.net/community/"
-  url "https://swupdate.openvpn.org/community/releases/openvpn-2.7.4.tar.gz"
-  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.7.4.tar.gz"
-  sha256 "18db05f3d5eee3663db1914590044e5f96ff5cd47b6e7846c6a350806c23dbce"
+  url "https://swupdate.openvpn.net/community/releases/openvpn-2.7.6.tar.gz"
+  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.7.6.tar.gz"
+  sha256 "10e24a9385f23cc38cc5cf448f3ca0769f939bc4cbecc4f4647d7e006e52db74"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
 
   livecheck do
@@ -12,12 +12,12 @@ class Openvpn < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "65b71c2861f4b45d3e44e15fb84541d3649ea9e5197187a0b702032b06e602b4"
-    sha256 arm64_sequoia: "20ca5074988d9ea5976207d42a70745060a91a0e494ba2199dcf21e839c2150d"
-    sha256 arm64_sonoma:  "f90a2ab2e73d3c18ee338ba5d3f003a054669740bca8f00e3274014ab13ccfc9"
-    sha256 sonoma:        "e14dd35951c347f614e22994e40a36da2ba0440ba59dc29f4ad7c18cb7c577d9"
-    sha256 arm64_linux:   "eb36465f2ce87e1df1610e6f6385e7377dd4c8a29d709e9f5f9954fdc88e7093"
-    sha256 x86_64_linux:  "55bd88f9758d78c578fb5f36f2670cb7e1287e91030a52fdcd867d9111183fd2"
+    sha256 arm64_tahoe:   "7545ba3c3c76b70379e0c955ca481ad081f13445c1828c61122f197bbaa819da"
+    sha256 arm64_sequoia: "185ed9da71ec4823134d81fbc28d5496f191dc9f2d8e0281545d2fa859c1b222"
+    sha256 arm64_sonoma:  "d8972eb6f5461208f57024ce1100bb1be800e2ab05fc6316b15c3e6a4400f1de"
+    sha256 sonoma:        "da147b18605634ccc6b0fed8c28a57ef46928a9086c6fd30ac568b05bdd9b90e"
+    sha256 arm64_linux:   "1f2aa19c18173b1aed5632cf6b0cde05bdb61a3d00ae4e1030eba1fdac513819"
+    sha256 x86_64_linux:  "d3d45532c2bf7f1f8e43a5514e28d9c245f2bf7b7ee046131923c51c07f042ee"
   end
 
   depends_on "pkgconf" => :build
@@ -40,7 +40,7 @@ class Openvpn < Formula
                           *std_configure_args
     inreplace "sample/sample-plugins/Makefile" do |s|
       if OS.mac?
-        s.gsub! Superenv.shims_path/"pkg-config", Formula["pkgconf"].opt_bin/"pkg-config"
+        s.gsub! Superenv.shims_path/"pkg-config", formula_opt_bin("pkgconf")/"pkg-config"
       else
         s.gsub! Superenv.shims_path/"ld", "ld"
       end

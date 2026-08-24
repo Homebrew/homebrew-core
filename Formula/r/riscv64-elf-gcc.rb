@@ -1,9 +1,9 @@
 class Riscv64ElfGcc < Formula
   desc "GNU compiler collection for riscv64-elf"
   homepage "https://gcc.gnu.org"
-  url "https://ftpmirror.gnu.org/gnu/gcc/gcc-16.1.0/gcc-16.1.0.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gcc/gcc-16.1.0/gcc-16.1.0.tar.xz"
-  sha256 "50efb4d94c3397aff3b0d61a5abd748b4dd31d9d3f2ab7be05b171d36a510f79"
+  url "https://ftpmirror.gnu.org/gnu/gcc/gcc-16.2.0/gcc-16.2.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gcc/gcc-16.2.0/gcc-16.2.0.tar.xz"
+  sha256 "e6738e29597f733270731aa90600f37ffdc045079dfc27ec7e8192cc81085c3e"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   livecheck do
@@ -11,12 +11,12 @@ class Riscv64ElfGcc < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0985e2c6299e96159b840255454fc84a380c9fb2c6fa6179eba91e5aad187b72"
-    sha256 arm64_sequoia: "c14e559112a7fcc41909797573c18528d71d47b7a9b22f8d349b43dbb7c178a9"
-    sha256 arm64_sonoma:  "2ac6b66117a20ae9c0e7f817ee3108eb60c04e46147e9838bc741d525bbbd85d"
-    sha256 sonoma:        "1df9c84b735a95d0e41f967b257f07f52801b540e20e4b8c5fac0cbb6d61d54d"
-    sha256 arm64_linux:   "3092ddf2d4fe6b18fb9b38d74e73d3b4a2556161ce5462a1686f422b36e50b54"
-    sha256 x86_64_linux:  "5b4ff7c47122d53d51f1d944a816a45b242a0b22cf3beebe2f938123add687e8"
+    sha256 arm64_tahoe:   "8f7e26c7acdfe47af2a57220b8ad9e2cb220e1056f79523b6c4a3c223bf81c28"
+    sha256 arm64_sequoia: "5859b76f78cc98f21915025f04ba2b4c8a35a7355e07ef2f7aa41ecf015d68e0"
+    sha256 arm64_sonoma:  "0a186aa320a1da1acb909546646e94722b2438faa6c29c5c2ea95dad01a38de5"
+    sha256 sonoma:        "b497e0040c8acaac7f1d7c91f5bcb746e012682f6abf285d0001db0b5bbf0637"
+    sha256 arm64_linux:   "2653235f45468f78ecba44b21ee08aafb10cb34cac844193e54fc9eae836cc9e"
+    sha256 x86_64_linux:  "b2c02e74ba46baeb8b66e2b192674d40a81d3181c1b4d2b28977834504ae3e5a"
   end
 
   depends_on "gmp"

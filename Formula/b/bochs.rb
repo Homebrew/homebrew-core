@@ -1,8 +1,8 @@
 class Bochs < Formula
   desc "Open source IA-32 (x86) PC emulator written in C++"
   homepage "https://bochs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/bochs/bochs/3.0/bochs-3.0.tar.gz"
-  sha256 "cb6f542b51f35a2cc9206b2a980db5602b7cd1b7cf2e4ed4f116acd5507781aa"
+  url "https://downloads.sourceforge.net/project/bochs/bochs/3.1/bochs-3.1.tar.gz"
+  sha256 "14aaf78dbe1337987923fffc4e7a962ae56abcf9a87474ace39e593f9f84ee84"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -11,19 +11,17 @@ class Bochs < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b358cdb2e679f040071c7da9ccf6cad7d82f144d47adb65fc2bafc2fb1ed01c5"
-    sha256 arm64_sequoia: "771309e968819d820ed0b538ed7a6c2365182b6e939e8de95c5a64265dcd0f28"
-    sha256 arm64_sonoma:  "7fc4fd6a6ead512d3b9fb13964529682f17356ffe7e10a7692e6c42940d48f21"
-    sha256 arm64_ventura: "9c9acd2ad176ca2cde5e04bf1041e62649cf32d3ff11a0e272fc0394092c82f4"
-    sha256 sonoma:        "308e5183b90eca43959de4064497c3d76e279c9b7849a7c8a68578fe8e0ec838"
-    sha256 ventura:       "1b8557fd5e2ba1133050f72867b8254401003ac7064d81788046025446367efc"
-    sha256 arm64_linux:   "c90bc3f05f5534d123939bc79e2afa947fc469e9841a2f6339ac8a5ce613ce4c"
-    sha256 x86_64_linux:  "ad4f70d9e3cb7e9139e9542f351869f3e2175903c7bead372d988bb31ea784aa"
+    sha256 arm64_tahoe:   "e21dd77f31eea91a45ec504646e5d8c5ae0f3ded2ed4f6744cec702808c15abe"
+    sha256 arm64_sequoia: "031d39f54f112336f2d3d9abf50787df41e1c082c93fb84ff95572372c50d198"
+    sha256 arm64_sonoma:  "ecc97b5964e9955d9d2acb7a20704491bee4080354d9b464090c29b28d41aacf"
+    sha256 sonoma:        "7c8ea92a5673543fb88c54dcc4c8daeb2905b34c45e715d2dee1aff18e52d95a"
+    sha256 arm64_linux:   "45120b649ca29db55f4a4c53d4778b7a4af822d3ade89978aa601cc697e65b77"
+    sha256 x86_64_linux:  "eeaf0eea56cd550960493c2a1f51a67265eb9cd7e873509238bdc01ad7866848"
   end
 
   depends_on "pkgconf" => :build
   depends_on "libtool"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   uses_from_macos "ncurses"
 

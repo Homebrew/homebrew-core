@@ -1,7 +1,7 @@
 class Jsontoolkit < Formula
   desc "Swiss-army knife library for expressive JSON programming in modern C++"
   homepage "https://jsontoolkit.sourcemeta.com/"
-  url "https://github.com/sourcemeta/jsontoolkit/archive/refs/tags/v2.0.0.tar.gz"
+  url "https://github.com/sourcemeta/core/archive/refs/tags/v2.0.0.tar.gz"
   sha256 "00f82f02166beabec80522e2bbc7b839ee9b7ccb631411c42e6fab65186e80ba"
   license "AGPL-3.0-only"
 

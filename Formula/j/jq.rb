@@ -1,8 +1,8 @@
 class Jq < Formula
   desc "Lightweight and flexible command-line JSON processor"
   homepage "https://jqlang.github.io/jq/"
-  url "https://github.com/jqlang/jq/releases/download/jq-1.8.1/jq-1.8.1.tar.gz"
-  sha256 "2be64e7129cecb11d5906290eba10af694fb9e3e7f9fc208a311dc33ca837eb0"
+  url "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-1.8.2.tar.gz"
+  sha256 "71b8d6e8f5fe81f6c6d0d110e3892251f6ce76ed095abd315e26e6e1193af3af"
   license "MIT"
   compatibility_version 1
 
@@ -12,14 +12,12 @@ class Jq < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "90b0fe4ad51959380f16fe8d84c5be8ab525478c32f1f7034c72d99de2442c9b"
-    sha256 cellar: :any,                 arm64_sequoia: "d7bce557bb82addd6cf01b8bb758d373ee11cb6671e4d7b1dc2a2c89816bcc32"
-    sha256 cellar: :any,                 arm64_sonoma:  "147e512951120ec6f10a36a857c84f5f3300fd33b3d6bcce2f2162b10b0481aa"
-    sha256 cellar: :any,                 arm64_ventura: "efd141679d5a7a57797fc8866aa8f2200b08622b141877117f9b9204b27f6e87"
-    sha256 cellar: :any,                 sonoma:        "a1a5f487f1840d9a18abdecdf1c6c5a5385917725c6ba88f7f819ac5f4cfa801"
-    sha256 cellar: :any,                 ventura:       "1b5303b052e245affedf2e7b1c59caf4424b1e5b3d65de186424dc8dcf6b1ee7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "274b391020473ad15697b0eaf0dc7e44a57312e7eaa7642e1bc8426ca9c0a54d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82883e1f3b674759d0e3d0c37e6805c0f91e3886f3e40c7ebc57f1e0174dfbe7"
+    sha256 cellar: :any, arm64_tahoe:   "f6ec821177b4c55fefb4c58f8e6f5d8386a5fce0a3c5d8811c4d6a0cc818dead"
+    sha256 cellar: :any, arm64_sequoia: "29c079abc7e165583b7fc4d3feba7a21a12160a414a7d4202731f7ffa2e349de"
+    sha256 cellar: :any, arm64_sonoma:  "c5710de7fe77793fda8d4c550e5450b9fd77f9caf4a90c01be3a0969a8c078e8"
+    sha256 cellar: :any, sonoma:        "0a471afde49b03dd7a8a1100c2581dc35ae49b3877a9c37fa219aeccdb998154"
+    sha256 cellar: :any, arm64_linux:   "30137e8a68ffb92bc8e16494f1509f0c08b404cae8a0842e15b63f46e4baf028"
+    sha256 cellar: :any, x86_64_linux:  "c3e26f0bff91db3e6606c3fc23ebe5dc2b1e9854252e6e4a3e03b17f7a3cde4e"
   end
 
   head do

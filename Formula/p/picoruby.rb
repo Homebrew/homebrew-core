@@ -2,18 +2,18 @@ class Picoruby < Formula
   desc "Smallest Ruby implementation for microcontrollers"
   homepage "https://picoruby.org"
   url "https://github.com/picoruby/picoruby.git",
-      tag:      "3.4.5",
-      revision: "d482862af826996fcaa65a42de5e6e51b6ed70c3"
+      tag:      "4.0.3",
+      revision: "9429e1fe39281bbf6aacf1d603ccb4f67bf9b0bf"
   license "MIT"
   head "https://github.com/picoruby/picoruby.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9b39a6e388fc4a4a8e07a9aba13ec4466ceebc47a91e3b163e56d426b9bf15ca"
-    sha256 cellar: :any,                 arm64_sequoia: "69b10536c27a41bc94ab3356bdebbe24aeb97a2b91ae68064b37e769a5b5f9b8"
-    sha256 cellar: :any,                 arm64_sonoma:  "a6138a218f7e78ec38e4f0da290b4358afac249a91d5e58fabaa33a114d7e3e7"
-    sha256 cellar: :any,                 sonoma:        "9e960f3da3fd19199197782c8a9aa9d2d587f4cd85c415283a3bb1f204a40df6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d8b400847bdfb11d01c50db4b95b7acdc45c5968346749a22b4b3991e685b5e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7272eaeff4e2e4782c4db9e2667a0d873e2da24e209b7b9f3cb5e6bab07d2701"
+    sha256 cellar: :any, arm64_tahoe:   "7e167202bce693e8e990a77344a813e049e5c4092ec25c6683bb6c15c986fee7"
+    sha256 cellar: :any, arm64_sequoia: "8ab4340ad4ea16af7517c37e2efc846ab245363012a266ffbc6cd2e523d95530"
+    sha256 cellar: :any, arm64_sonoma:  "904f81c83f03a7ea320377f370d95293f22bd72c989db57de1b0c43c53e1cc96"
+    sha256 cellar: :any, sonoma:        "23f659373a2f2b5bef50002659971924017b1b87c9503baddc12deb15257def4"
+    sha256 cellar: :any, arm64_linux:   "6a77c47d05dc36370e430dfd6c5e029b7a971cc90f898c964e1d0891cf83e630"
+    sha256 cellar: :any, x86_64_linux:  "fd94b60d1dcaed8f4d869df8ed36d9fd3f24dc2f0c7713f8ad1878b504660ad9"
   end
 
   depends_on "ruby" => :build # for numbered block parameter `_1'

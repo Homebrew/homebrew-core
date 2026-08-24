@@ -2,8 +2,8 @@ class Argocd < Formula
   desc "GitOps Continuous Delivery for Kubernetes"
   homepage "https://argoproj.github.io/cd/"
   url "https://github.com/argoproj/argo-cd.git",
-      tag:      "v3.4.4",
-      revision: "443415b5527ac55366e0760c93ef0e1abd0cf273"
+      tag:      "v3.5.1",
+      revision: "109ca7ca71139e514114499d294a492e7910a965"
   license "Apache-2.0"
 
   # There can be a notable gap between when a version is tagged and a
@@ -18,17 +18,17 @@ class Argocd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2f9a1c7a9b5bdb46b0ff3f49999c62639da6e97f894f8c999df28bcc3f487e4c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5242f49fa2fb585bf358e65f9505ea9b7fa74e1a1612a584f022b2ea68f36957"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6a5cfb12bc4084d2b6c40d9284e675ff2e8ed6e04a4abacde9b9ead51cb1221d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "06263c0e2b4adbcbad3a13e4c9098dadc7bb5a670722ef233eb7ea2ec1aa3d65"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "92e397311dbd71be060a9362adf07bda9860179c065ebe79f18d74351672c36b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "430ae4e4056c7125b96f77aaa353604c28c935e6102b4891d78564388cd8416e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dfa1369c7e3f04753018ce40fe4984fdbf11ad7eac8ce0690bf282e4c1ba1a75"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "987e768b953dc9e647743cee29650c36925497ba103d9223e77ebf6b2e11197e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d36181f22b5418d5e822b62e37b5571aa7aee364dd74266bcd99dff417e00b0f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4808f3b3e3c5578c0356a67f91f9b34d9dce8bba12d04497661e72c4a875be9d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "71fd5465eb2374da5d5615c894e42fca28d906955d60b36bf83371bb1f9895d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29fb0739a3a0dc556f6aef6a28a74b2d4fe1a0d41f57beba5848e329cdfbfa97"
   end
 
+  depends_on "corepack" => :build # requires newer `yarn`
   depends_on "go" => :build
   depends_on "node" => :build
-  depends_on "yarn" => :build
 
   def install
     system "make", "dep-ui-local"
@@ -45,7 +45,7 @@ class Argocd < Formula
   end
 
   test do
-    assert_match "argocd controls a Argo CD server",
+    assert_match "argocd controls an Argo CD server",
       shell_output("#{bin}/argocd --help")
 
     # Providing argocd with an empty config file returns the contexts table header

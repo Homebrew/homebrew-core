@@ -2,7 +2,7 @@ class NovaFairwinds < Formula
   desc "Find outdated or deprecated Helm charts running in your cluster"
   homepage "https://github.com/FairwindsOps/nova"
   url "https://github.com/FairwindsOps/nova/archive/refs/tags/v3.12.0.tar.gz"
-  sha256 "49a150a769f64894a5f91fc641ef7d491a1bb3433a63716d8ca7e2cc7d274f36"
+  sha256 "f2bb6e7b16efd5b6667840174693df0f95510baee1354a39ee3477d9a082732d"
   license "Apache-2.0"
   head "https://github.com/FairwindsOps/nova.git", branch: "master"
 
@@ -20,7 +20,7 @@ class NovaFairwinds < Formula
   conflicts_with "open-simh", because: "both install `nova` binaries"
 
   def install
-    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user}"
+    ldflags = "-X main.version=#{version} -X main.commit=#{tap.user}"
     system "go", "build", *std_go_args(output: bin/"nova", ldflags:)
 
     generate_completions_from_executable(bin/"nova", shell_parameter_format: :cobra)

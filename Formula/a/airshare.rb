@@ -6,15 +6,15 @@ class Airshare < Formula
   url "https://files.pythonhosted.org/packages/cb/a2/d59c18cd6a143bf860c29acb70552b7351fd7e0f56213be86b624601106b/Airshare-0.1.6.tar.gz"
   sha256 "138976933bcf2c0bc99f18901242544919e9fafe43735b4f83b19d4ae5964be7"
   license "MIT"
-  revision 24
+  revision 25
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cfd05970249774ee4c51cb1a89194ce85cafdeaaf705dc1a6419bdc55e2cfe97"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7caaf1a5a20501643a444462d6e038e6463d06a8745149ebf8fdbefb31c87e17"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c2f305165587ea2dd2bd4d1e27b66bff5a9c67697603e04941229096a595533"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7d62c8b8792d4bb3d418a965b147549331aeed3db75cd73d886c6fbfd74534c7"
-    sha256 cellar: :any,                 arm64_linux:   "fcb3686f67c89b742f17aa261f72560e8ddeef933204f5671256359d2cd4eb6e"
-    sha256 cellar: :any,                 x86_64_linux:  "fe3f758d85783410ff2e7dcac3d2cd2394ba8c17770ac4403b7a26ddd3bcbc6d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d4dffe6c05eb902f8fa60e686ccd6c97b9db5e4057dd6eeef49cdc73d53b1efb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "79ea751647197fa43b05d98b3846280dc30d80ccd4aaaa237c5f6c1c58b237cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c5350fcd3dc79a15d08feffead828e9eb27eeb6923698729b131741b4d71a24c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e52f2892960228f20f535a559f1b9d04a1ba2f67f660c42045aba941553ddec2"
+    sha256 cellar: :any,                 arm64_linux:   "3f1daf5b5bde34e34bb5cfa75e65377d30ef8074e13c29c503349b6d68c402fb"
+    sha256 cellar: :any,                 x86_64_linux:  "4eaff3e3ee6839036d576bba823a202ffee1e785f060516b9ae4efaa7c1d3a33"
   end
 
   depends_on "certifi" => :no_linkage
@@ -23,13 +23,13 @@ class Airshare < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "aiohappyeyeballs" do
-    url "https://files.pythonhosted.org/packages/33/c6/61a2d7b7572279226bb2e7f61d7a19ca7c90da0329c93fa0d560cbf288d8/aiohappyeyeballs-2.6.2.tar.gz"
-    sha256 "e202810ee718bd01fc6ef49e8ea53d023d5cb6b581076d7925aa499fa55dbe64"
+    url "https://files.pythonhosted.org/packages/ce/f4/eec0465c2f67b2664688d0240b3212d5196fd89e741df67ddb81f8d35658/aiohappyeyeballs-2.7.1.tar.gz"
+    sha256 "065665c041c42a5938ed220bdcd7230f22527fbec085e1853d2402c8a3615d9d"
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/82/78/8ea7308cac6934de8c74a14f3d5f65d1c89287426688be79538d0e5c013d/aiohttp-3.14.1.tar.gz"
-    sha256 "307f2cff90a764d329e77040603fa032db89c5c24fdad50c4c15334cba744035"
+    url "https://files.pythonhosted.org/packages/58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz"
+    sha256 "9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc"
   end
 
   resource "aiosignal" do
@@ -48,13 +48,13 @@ class Airshare < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "colorama" do
@@ -68,8 +68,8 @@ class Airshare < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/ba/66/a3921783d54be8a6870ac4ccffcd15c4dc0dd7fcce51c6d63b8c63935276/humanize-4.15.0.tar.gz"
-    sha256 "1dd098483eb1c7ee8e32eb2e99ad1910baefa4b75c3aff3a82f4d78688993b10"
+    url "https://files.pythonhosted.org/packages/0a/ea/13a1ef3c12d12662905801495283530251918b70d62d368f1d2e0272c70d/humanize-4.16.0.tar.gz"
+    sha256 "7dc2244a2f84a4bfb1d36c37bac80cd78e35cdc5c119206d87b018e1445f3a3f"
   end
 
   resource "idna" do
@@ -113,8 +113,8 @@ class Airshare < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/06/b3/36c8ecf72e8925200671613332db156d84b99b3aee742a41c1938ebb0808/tqdm-4.68.1.tar.gz"
-    sha256 "fc163d96b287bd031e1aa24421ce4411b25559bd0a1be4fe649bdaa4d2c02bf5"
+    url "https://files.pythonhosted.org/packages/21/3b/6c24bec5be5e743ffd99576daa5cc077722fc7d5bbc00bd133fa0c698dc6/tqdm-4.70.0.tar.gz"
+    sha256 "55b0b0dbd97462d06ebee91e4dac24ed4d4702be82b24f07e6c1d27e08cea220"
   end
 
   resource "urllib3" do
@@ -123,13 +123,13 @@ class Airshare < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/79/12/1e8f37460ea0f7eb59c221fdaf0ed75e7ac43e97f8093b9c6f411df50a78/yarl-1.24.2.tar.gz"
-    sha256 "9ac374123c6fd7abf64d1fec93962b0bd4ee2c19751755a762a72dd96c0378f8"
+    url "https://files.pythonhosted.org/packages/31/33/ebe9e3d1f86c7a0b51094c0a146392045ca1631d2664889539dec8088a33/yarl-1.24.5.tar.gz"
+    sha256 "e81b83143bee16329c23db3c1b2d82b29892fcbcb849186d2f6e98a5abe9a57f"
   end
 
   resource "zeroconf" do
-    url "https://files.pythonhosted.org/packages/83/34/c981e760690f7b7dc91532d4d4ad21e3922887aaa425a0e7bff8067152da/zeroconf-0.149.16.tar.gz"
-    sha256 "5e6b5a3b153c2cc2a8d9e6f6f189ec5638f7d9c86fc3e88a6c53eb6863761a5e"
+    url "https://files.pythonhosted.org/packages/09/ea/34bb185645ecaa18d34e5883bffea71aa9bffbbb994634884e8b2f3ad0c4/zeroconf-0.150.0.tar.gz"
+    sha256 "a5fe7feab1de6ef5e541e0a3d07e534fd91629b813fc27281593584100f63164"
   end
 
   def install
@@ -143,7 +143,7 @@ class Airshare < Formula
     pid = spawn bin/"airshare", "-p", port.to_s, "homebrew-demo", "-t", "Hello Homebrew!"
     sleep 20
     # Bypass mDNS discovery by directly querying the server for the shared content
-    output = shell_output("curl -s http://localhost:#{port}/text")
+    output = shell_output("curl -s --retry 5 --retry-connrefused http://localhost:#{port}/text")
     assert_equal "Hello Homebrew!", output
     Process.kill("TERM", pid)
   end

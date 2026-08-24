@@ -1,25 +1,24 @@
 class Karmadactl < Formula
   desc "CLI for Karmada control plane"
   homepage "https://karmada.io/"
-  url "https://github.com/karmada-io/karmada/archive/refs/tags/v1.18.0.tar.gz"
-  sha256 "91a93d38cdb16af28d2e91b52fc2f65dceff6309261c504ad81028a3688c1736"
+  url "https://github.com/karmada-io/karmada/archive/refs/tags/v1.18.2.tar.gz"
+  sha256 "446d79d978a2b98389c98c97a6f505fb021fefec0532fa55abf0e22e72de2bc4"
   license "Apache-2.0"
   head "https://github.com/karmada-io/karmada.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cdc1144720be2b4b3c8aa0f01600343f8d4bc1b9293ea34533b5bfbb41d16855"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cebcadca6e06c9421521b652823dcc96793ee62fcbbc5e0f8b2761fd7f5f92b9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "34dcaa0ee17190786196baad806072205468f5b5491ae3c0456eb8de17ea3edb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bc5ae1e5862a98e8188dd667815dbe70730e398e0d7b51f47240192ef91c54a9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "aec1c08ca3aab78ee5913faf4558ab0ca3798ec46402575ca53eda46dd795db0"
-    sha256 cellar: :any,                 x86_64_linux:  "91e64a7f0e2b8cc5b29c37ad757168593340d96a4eefff9a881b0df660129deb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "52cfa91bb9129ea44a61dc41913624659d1dd487c5d95ff59eec3a9f72105207"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "14485dcde6782a1f454a645718d6abe96fc530b63458fcd03491fffdf03773aa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a202bb5993c6fcb48eb3a1b9332c101df085e7ff2c774f39196a7ccb4758f424"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4fafb5f913e766ac59948f57323b1a7bdfadba373324ef22d99fbbfaea80000f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f96e7857948be8c172d08288efa9760c9aa15e489316389f703919c58f3a0b65"
+    sha256 cellar: :any,                 x86_64_linux:  "01761d355360052d5e82457bc1c9aec5193a1f86046e556bba87a88709e923b4"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/karmada-io/karmada/pkg/version.gitVersion=#{version}
       -X github.com/karmada-io/karmada/pkg/version.gitCommit=
       -X github.com/karmada-io/karmada/pkg/version.gitTreeState=clean

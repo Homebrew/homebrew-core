@@ -1,17 +1,17 @@
 class Ghex < Formula
   desc "GNOME hex editor"
   homepage "https://wiki.gnome.org/Apps/Ghex"
-  url "https://download.gnome.org/sources/ghex/50/ghex-50.2.tar.xz"
-  sha256 "4134d2318b2aaadc7ab3dd33e07d7e6dbf31663cef5bfd2d21ba90ded5f584ab"
+  url "https://download.gnome.org/sources/ghex/50/ghex-50.3.tar.xz"
+  sha256 "30c9ebca3b0e83856e664d13cf6554c0a8beaf7e394268cbb5369434b0f7529a"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "e351a1a6916c1a45dd8930072485a7986cc257ac791d9bbd6e950237b6f47d50"
-    sha256 arm64_sequoia: "1c4be21fabd4188bf6cb2b8d1397295bffc4886d30a20d82114b02c3489bd135"
-    sha256 arm64_sonoma:  "2832ca071805ff523f6358e354f653de87df8b27334bda79fbcddf7375e7a1fb"
-    sha256 sonoma:        "48a371b83b41e736bfd09427fc6dc76dd14c92f89a47b7b88713529718bf8fb0"
-    sha256 arm64_linux:   "449cd325ba6cb8f2dc37974110e07d34e3cc1a02f7b6d776332810504802f00d"
-    sha256 x86_64_linux:  "9a4a3c6e73cc8ed61bd8bd754ab021d972994519ffb9216fa930e271aa292628"
+    sha256 arm64_tahoe:   "3c3b4213094daa429d0c6512809509b36dcf5db16fb37993819fe9ca4922ceca"
+    sha256 arm64_sequoia: "5539cded9d878d4fc36543dd86ecb9c8af770f64f39237b801e669cf0ef9802f"
+    sha256 arm64_sonoma:  "711ac4eb393f5fd8f7e9f5eebaed910ca46b44f23d51802266044d3c7c136ce2"
+    sha256 sonoma:        "799322a011903981cef8aefdf9edad1034bd635ba17cec4c7259328e8352b5d8"
+    sha256 arm64_linux:   "9fd3b9872aababdd5a008cb1d79630b02b29be12927ca8e6ed77ab67c15447a9"
+    sha256 x86_64_linux:  "bbffa19cf3554409e8b3ceee74224f15cfa11b2b6ef4f1cae4c0b5e7e8e4d23b"
   end
 
   depends_on "desktop-file-utils" => :build
@@ -46,9 +46,9 @@ class Ghex < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk4"].opt_bin}/gtk4-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+  post_install_steps do
+    compile_gsettings_schemas
+    update_gtk_icon_cache
   end
 
   test do

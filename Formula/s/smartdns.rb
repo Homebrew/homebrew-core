@@ -1,18 +1,18 @@
 class Smartdns < Formula
   desc "Rule-based DNS server for fast IP resolution, DoT/DoQ/DoH/DoH3 supported"
   homepage "https://github.com/mokeyish/smartdns-rs"
-  url "https://github.com/mokeyish/smartdns-rs/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "4ffd4021d751dcdd572df9dffd2f2b554c12192baa9cdb93a604bace53644bb4"
+  url "https://github.com/mokeyish/smartdns-rs/archive/refs/tags/v0.13.1.tar.gz"
+  sha256 "18e9f15044d9b59dfdd6559f234eac97a73335054d1b64b251274c23d1b1219c"
   license "GPL-3.0-only"
   head "https://github.com/mokeyish/smartdns-rs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cca8fd83bf07a8acdc6376bc063ba43a1f8fcbc9307555cbf101d37bd941deb5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "762c01c1b00e40bbd3ed4a841fdc7ad8ba9a0d2dc098172e25be6ba1ead9f5cf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4bac5030e4ae39efea04295fd4debab619990d48595d9dea45fcc6a62c7a27f6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bb6c57ce62cbc27fc4692c82e5a7e664ec3a900620792f844fc77881f6db1693"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d0a5fab40ff8bd77da35573c3139ef68d955af05e7fb8926b362fa61e601e858"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c7b6a4d74488b51e08444c54a09a6cd24dcc14e3335f1aac18b19af8ee9e379"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "42234518894d332d2b6fc507d559d76245387dd11d06fb73bafda30409688872"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ed79bcd9e295ea141006c22359a2b85e45f6b15567c349acbd5cee3ff2b4031"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3cfa49a349b573ca8d99adcace0d8d5ea1dd7088c58e0051ffa32813ae354933"
+    sha256 cellar: :any_skip_relocation, sonoma:        "895d6856c5080a5d82b3c93fa1ba944df473c6922fcbf36752bee43507c82d7d"
+    sha256 cellar: :any,                 arm64_linux:   "aee9ca8d68cf9f448fb320820fa8d1481d04fdd35eafdff0bd0286194a07be20"
+    sha256 cellar: :any,                 x86_64_linux:  "806929455bc5a9206443ebffef0975f03187711660075cab348248910d805555"
   end
 
   depends_on "rust" => :build

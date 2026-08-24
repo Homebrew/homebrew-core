@@ -6,18 +6,17 @@ class LibcdioParanoia < Formula
   version "10.2-2.0.2"
   sha256 "99488b8b678f497cb2e2f4a1a9ab4a6329c7e2537a366d5e4fef47df52907ff6"
   license "GPL-3.0-only"
+  revision 1
 
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5107f894005e9d2dd51fbd16b522d244335231b572232e18a95ac838e2495d29"
-    sha256 cellar: :any,                 arm64_sequoia: "fb138d8a79b5fa0eecf89a7ca0bcd3b294120aeb05200767558b61d3e4e51533"
-    sha256 cellar: :any,                 arm64_sonoma:  "d91bce7e9b1ecda7021bea7ede886f35e7414f691f06e7f5ca76ffce1d8693f3"
-    sha256 cellar: :any,                 arm64_ventura: "0d2130ca34ade60885f0838c9032563a1cac1267b9c88c99c6e87c1922f8b513"
-    sha256 cellar: :any,                 sonoma:        "8b89fb7bf1812fb9bd7910ab0a323996aade2c07bc46a8a163843fff6c531776"
-    sha256 cellar: :any,                 ventura:       "7b9d73af248b22fab2504e019d3c62daf93e8c6beb91ed9f463905f1e066b514"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a1ec8c229b09241872472ddddea228bd4a8aff3ea7406a8148a12ca78c7b333"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d1e9aab49489534af51d75d1b222be76479ab2d15cfebc930ca570be8dd0d95"
+    sha256 cellar: :any, arm64_tahoe:   "73510e98664655e2f3034b967cc480fa20651cc241e3516452ad8ec826c74484"
+    sha256 cellar: :any, arm64_sequoia: "82158889e0e871069ebf270e7f5d16492f63e2333b987d5a350ae33ff3f178b7"
+    sha256 cellar: :any, arm64_sonoma:  "59f8c2ec7d7a7ed0ded06916eb4260ffd9f19d0375f8b714a0a8cbb3094a41f3"
+    sha256 cellar: :any, sonoma:        "524b0159b361dbe6225bc405283e09b821733ed483bfd29f9ce1d9c145c8ef34"
+    sha256 cellar: :any, arm64_linux:   "b8c497f19d5b22a99bc3a3511c702a7a0aadcfdbe95f15e683e914a3879739b0"
+    sha256 cellar: :any, x86_64_linux:  "b2103860f0925b8a6dc2a0bcecb3c2367190df1814f142f4ad8f3069737be2a8"
   end
 
   depends_on "pkgconf" => :build

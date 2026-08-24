@@ -20,16 +20,18 @@ class Lightning < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8a31092e058742cf79549bb7d50979296326151bec52214ea580dc823748a20"
   end
 
-  depends_on "binutils" => :build
+  depends_on "binutils" => :build # for libopcodes.a
 
   # upstream patch for fixing `Correct wrong ifdef causing missing mprotect call if NDEBUG is not defined`
+  # Using local patch file as repository url can 502-error and server's cgit version is included in patch
+  # https://cgit.git.savannah.gnu.org/cgit/lightning.git/patch/?id=bfd695a94668861a9447b29d2666f8b9c5dcd5bf
   patch do
-    url "https://cgit.git.savannah.gnu.org/cgit/lightning.git/patch/?id=bfd695a94668861a9447b29d2666f8b9c5dcd5bf"
-    sha256 "9264f463ce98e090e1386dd328cf02d542609c6375a6968d4024fbe8a6cabf8b"
+    file "Patches/lightning/bfd695a94668861a9447b29d2666f8b9c5dcd5bf.patch"
+    type :backport
   end
 
   def install
-    system "./configure", "--disable-silent-rules", *std_configure_args.reject { |s| s["--disable-debug"] }
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 

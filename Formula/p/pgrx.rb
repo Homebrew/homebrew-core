@@ -1,26 +1,26 @@
 class Pgrx < Formula
   desc "Build Postgres Extensions with Rust"
   homepage "https://github.com/pgcentralfoundation/pgrx"
-  url "https://github.com/pgcentralfoundation/pgrx/archive/refs/tags/v0.18.1.tar.gz"
-  sha256 "a2a4ec1c90a17fe31a646cc2bd505992c28c375ba8a798d5cdeee27ca5d5ef0b"
+  url "https://github.com/pgcentralfoundation/pgrx/archive/refs/tags/v0.19.2.tar.gz"
+  sha256 "5d36b7d92f334550ff35a732493889fa746456467187246fff266319b2c55c6d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6b681c42f6fcc16861e610db5b3668904cd5351d490e30e3679e837eee9f6db1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7cae13c78789a51d8937868531698ccf680fc5056f267939e1a1f72bb7c96bb7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96136a62114e5d8d78f9922fd2464a06a5a8beb49320192af82aa5f90f3834b0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "701de1691023c4228f28e154bffc4b9062c204d614352a2057337c8c8af5d25c"
-    sha256 cellar: :any,                 arm64_linux:   "a79226b07522827f51bdc06376d8e712e6c08e920894484a445d5ffaea334075"
-    sha256 cellar: :any,                 x86_64_linux:  "6464ed21f015d69b01c82809010b05462d8155d35e5a9ef443d1d3bcd18421d9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "556061ef9dc90c485cff3092c87a6f18227773d8c931f8af65157de9bf7f9fcc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "05ce76447bad80ab2b95034d4c643aedf62060e7ed1585da66735ef2aa6655bb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6298246d4dab3424d595b109882d3888e9ceb5a7191fdc7ddfa039c81cef1779"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fa1193484a327f86a023ef96589404ca032ba9651c8f3c3440a317845c2821be"
+    sha256 cellar: :any,                 arm64_linux:   "f3c115806a6b6af5268ddf015a3a019db5651778cd597f05076971871c436ddd"
+    sha256 cellar: :any,                 x86_64_linux:  "4729d9b62af60df34b07340e95bfb2e34490afda45a1aeac850ff4e2e6ea34ff"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "rustup" => :test
-  depends_on "openssl@3"
 
   on_linux do
-    depends_on "zlib-ng-compat"
+    depends_on "openssl@4"
   end
 
   def install

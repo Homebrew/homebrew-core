@@ -1,46 +1,36 @@
 class Gecode < Formula
   desc "Toolkit for developing constraint-based systems and applications"
-  homepage "https://www.gecode.org/"
-  url "https://github.com/Gecode/gecode/archive/refs/tags/release-6.2.0.tar.gz"
-  sha256 "27d91721a690db1e96fa9bb97cec0d73a937e9dc8062c3327f8a4ccb08e951fd"
+  homepage "https://www.gecode.dev/"
+  url "https://github.com/Gecode/gecode/archive/refs/tags/release-6.4.0.tar.gz"
+  sha256 "4cc0e4f440f821a643e637801094cd42ccb5946caf5248c905f29f5f3a16f260"
   license "MIT"
-  revision 1
+  compatibility_version 1
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any,                 arm64_tahoe:   "4bf3ed46450a9a436678fcf7bc2083d7ba8c9b4847e3846fa66b50423c4e273d"
-    sha256 cellar: :any,                 arm64_sequoia: "fcd5d80e9d1d6fada71c424647c5be7ed126831b83d57deece2b836fa44dfe58"
-    sha256 cellar: :any,                 arm64_sonoma:  "b7653b544c06145b4a39d83311a0583849d4d4cf2873b81c341cddd135bed39f"
-    sha256 cellar: :any,                 sonoma:        "313e206a83f8a8459519f23e0c1d6e96978791ec62b162118aa7f036204615e9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d0762e8669a3b0aff790ec8673ca1fc8dda25b741368d289c3c3cc5c2d559c0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "829f38b21be0258bcc84402afb8b7cefa9272a8a59e36f94aee33b7d8ace7ac4"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "c1af270f7d409a951da92ca72fd36b6ef1e9e93309436bfe4d48abdb19ca4348"
+    sha256 cellar: :any, arm64_sequoia: "9baaf5b2e7a92df403a8803df2b1f5af30167af6e05b1e2ca203237ef785c35e"
+    sha256 cellar: :any, arm64_sonoma:  "09c9a1c1cab4871e9d4579977f2d4cf223eeed16852a1df8d690c49a0784fe32"
+    sha256 cellar: :any, sonoma:        "f6f9fad598c2f3cc07dcc313fa2f35512cabd848bd32a52bfc1ee5bd7bdb229f"
+    sha256 cellar: :any, arm64_linux:   "7c006d234dfec33ffd670506904609655a71cb822be8fb05e1eb2ac917551477"
+    sha256 cellar: :any, x86_64_linux:  "177253ab8d6c6374ca31dc7d77d979784e256f9b8985f38110e120d41a2b1bee"
   end
 
+  depends_on "cmake" => :build
   depends_on "pkgconf" => :test
   depends_on "qtbase"
 
-  # Backport support for Qt6 from release/6.3.0 branch
-  patch do
-    url "https://github.com/Gecode/gecode/commit/c0ca0e5f4406099be22f87236ea8547c2f31ded3.patch?full_index=1"
-    sha256 "233b266a943c0619b027b4cb19912e2a8c9d1f8e4323a3627765cb32b47c59fe"
-  end
-
   def install
-    # Backport parts of upstream commit[^1] and add workarounds to allow configure to build with Qt6
-    #
-    # [^1]: https://github.com/Gecode/gecode/commit/19b9ec3b938f52f5ef5feef15c6be417b5b27e36
-    inreplace "configure", "if test ${ac_gecode_qt_major} -eq 5;", "if test ${ac_gecode_qt_major} -ge 5;"
-    ENV["MOC"] = Formula["qtbase"].opt_share/"qt/libexec/moc"
-    ENV.append "CXXFLAGS", "-std=c++17"
-
-    args = %W[
-      --prefix=#{prefix}
-      --disable-examples
-      --disable-mpfr
-      --enable-qt
+    args = %w[
+      -DGECODE_ENABLE_EXAMPLES=OFF
+      -DGECODE_ENABLE_GIST=ON
+      -DGECODE_ENABLE_MPFR=OFF
+      -DGECODE_ENABLE_QT=ON
     ]
-    system "./configure", *args
-    system "make", "install"
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

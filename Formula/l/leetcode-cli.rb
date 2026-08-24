@@ -1,29 +1,30 @@
 class LeetcodeCli < Formula
   desc "May the code be with you"
   homepage "https://github.com/clearloop/leetcode-cli"
-  url "https://github.com/clearloop/leetcode-cli/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "3ee61769f40fd374461dfe9a7cccd113b38564e828bcccabf1875d9482b9ced9"
+  url "https://github.com/clearloop/leetcode-cli/archive/refs/tags/v0.5.5.tar.gz"
+  sha256 "52bc5bac21dc52a0d498c8b817f9e04c7267ba9febb08d4ed0a158e91893d6cf"
   license "MIT"
   head "https://github.com/clearloop/leetcode-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2714994b45df5976c2f02d57e02a860397738ef3c1b33bae6edb32955636b241"
-    sha256 cellar: :any,                 arm64_sequoia: "5c17215533eadbc515621812fdbce284b89ce60e365dba38672d79a197d40302"
-    sha256 cellar: :any,                 arm64_sonoma:  "391a1860fad787cfcbef1fa1c0dc04335913621944da57999e89957955c67cf6"
-    sha256 cellar: :any,                 sonoma:        "655b0ad5fb1c9a7b7cdc9b09c42193fa11a10dda1008913ccb748bd6d24edf08"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a6da7b9dd64506d8a577505d4b2716ce342bd0fdfd2b843d92996f35c7299b54"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af6826c657dda9c1c44bcfe1f3c8b029168867e994a149cc4353e1fb849aec58"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3181907993e5b87ccaa625d9432561dc02c844ba1df3eec71a8ee1ead47b0cb7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f2c4b7e80ba8bc455fc2fc4355081cfe5d8f8576e76d383d3c92d24708e3a44"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "813ce29f2e10fb14eafc63afc0fa73eef63911b091bbe2becad1ee9aca7d2725"
+    sha256 cellar: :any_skip_relocation, sonoma:        "03158a6ea9c503825788c6c236c35f2f24fe3a54db8d4b2ea53c8c29e9e4a94e"
+    sha256 cellar: :any,                 arm64_linux:   "b7537396bc808fe67a01bdbb467e7be56c09b8a7af03aa8b3760a5e96d23dbf2"
+    sha256 cellar: :any,                 x86_64_linux:  "6d81ad3d3200763b069fcfc2b452792eed482bb33669e046fabf58f5227ecc0a"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "sqlite"
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     system "cargo", "install", *std_cargo_args
 
@@ -32,6 +33,6 @@ class LeetcodeCli < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/leetcode --version")
-    assert_match "[INFO  leetcode_cli::config] Generate root dir", shell_output("#{bin}/leetcode list 2>&1", 101)
+    assert_match "[INFO  leetcode_cli::config] Generate root dir", shell_output("#{bin}/leetcode list 2>&1")
   end
 end

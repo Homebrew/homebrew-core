@@ -66,8 +66,8 @@ class ErlangAT25 < Formula
       --enable-smp-support
       --enable-threads
       --enable-wx
-      --with-odbc=#{Formula["unixodbc"].opt_prefix}
-      --with-ssl=#{Formula["openssl@3"].opt_prefix}
+      --with-odbc=#{formula_opt_prefix("unixodbc")}
+      --with-ssl=#{formula_opt_prefix("openssl@3")}
       --without-javac
       --with-wx-config=#{wx_config}
     ]

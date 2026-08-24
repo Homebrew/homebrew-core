@@ -12,14 +12,7 @@ class Rtags < Formula
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
-    strategy :git do |tags, regex|
-      malformed_tags = ["v3.23"].freeze
-      tags.map do |tag|
-        next if malformed_tags.include?(tag)
-
-        tag[regex, 1]
-      end
-    end
+    strategy :github_latest
   end
 
   bottle do

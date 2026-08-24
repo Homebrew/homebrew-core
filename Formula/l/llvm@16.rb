@@ -31,9 +31,6 @@ class LlvmAT16 < Formula
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
-  # Fails to build with Xcode/CLT 26.4+. Also parts of test fail.
-  # sancov.cpp:521:42: error: chosen constructor is explicit in copy-initialization
-  depends_on maximum_macos: [:sequoia, :build]
   depends_on "ninja" => :build
   depends_on "swig" => :build
   depends_on "python@3.12"
@@ -43,6 +40,12 @@ class LlvmAT16 < Formula
   uses_from_macos "libedit"
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
+
+  on_macos do
+    # Fails to build with Xcode/CLT 26.4+. Also parts of test fail.
+    # sancov.cpp:521:42: error: chosen constructor is explicit in copy-initialization
+    depends_on maximum_macos: [:sequoia, :build]
+  end
 
   on_sequoia do
     depends_on xcode: ["16.4", :build]
@@ -55,16 +58,18 @@ class LlvmAT16 < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # Fixes https://github.com/mesonbuild/meson/issues/11642
   patch do
     url "https://github.com/llvm/llvm-project/commit/ab8d4f5a122fde5740f8c084c8165f51a26c93c7.patch?full_index=1"
     sha256 "9b01de9708e4eb5cef10c18f25dd42e126306ed8cbd9d9a26bb5fbb91ac7d7a3"
+    type :backport
+    resolves "https://github.com/mesonbuild/meson/issues/11642"
   end
 
   # Fix build failure on Sonoma.
   patch do
     url "https://github.com/llvm/llvm-project/commit/73e15b5edb4fa4a77e68c299a6e3b21e610d351f.patch?full_index=1"
     sha256 "b540ef6e3728d7881d95775a163314fac6e2f9207f5d5e8b79c8c73c73ba4dc3"
+    type :backport
   end
 
   def python3
@@ -145,7 +150,7 @@ class LlvmAT16 < Formula
     builtins_cmake_args = []
 
     if OS.mac?
-      macos_sdk = MacOS.sdk_path_if_needed
+      macos_sdk = MacOS.sdk_path
       args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
       args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
 
@@ -163,15 +168,15 @@ class LlvmAT16 < Formula
       clt_sdk_support_flags = %w[I WATCH TV].map { |os| "-DCOMPILER_RT_ENABLE_#{os}OS=OFF" }
       builtins_cmake_args += clt_sdk_support_flags
     else
-      args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_include}"
-      args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
+      args << "-DFFI_INCLUDE_DIR=#{formula_opt_include("libffi")}"
+      args << "-DFFI_LIBRARY_DIR=#{formula_opt_lib("libffi")}"
 
       # Disable `libxml2` which isn't very useful.
       args << "-DLLVM_ENABLE_LIBXML2=OFF"
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
       # Enable llvm gold plugin for LTO
-      args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}"
+      args << "-DLLVM_BINUTILS_INCDIR=#{formula_opt_include("binutils")}"
       # Parts of Polly fail to correctly build with PIC when being used for DSOs.
       args << "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"
       runtimes_cmake_args += %w[

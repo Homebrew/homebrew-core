@@ -34,6 +34,10 @@ class Unzip < Formula
   patch do
     url "https://archive.ubuntu.com/ubuntu/pool/main/u/unzip/unzip_6.0-28ubuntu4.1.debian.tar.xz"
     sha256 "d123c8e6972dbdd17ba1a4920fb57ed2ede9237dbae149dcbf55df829c77baf3"
+    type :unofficial
+    resolves "CVE-2014-8139", "CVE-2014-8140", "CVE-2014-8141", "CVE-2014-9636",
+             "CVE-2015-7696", "CVE-2015-7697", "CVE-2014-9913", "CVE-2016-9844",
+             "CVE-2018-1000035", "CVE-2019-13232", "CVE-2022-0529", "CVE-2022-0530"
     apply %w[
       patches/01-manpages-in-section-1-not-in-section-1l.patch
       patches/02-this-is-debian-unzip.patch

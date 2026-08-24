@@ -17,7 +17,6 @@ class Libjcat < Formula
     sha256               x86_64_linux:  "dde621af7950e4dafa9a1de473158761b7855b2842a118a41457ef5362eca0b0"
   end
 
-  depends_on "gi-docgen" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build

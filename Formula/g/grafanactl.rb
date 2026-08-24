@@ -15,11 +15,13 @@ class Grafanactl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9aee39b653aaf1f4c2f58598eacac6f71dcb2cdc3f7a52f5f4948bbe30e87209"
   end
 
+  deprecate! date: "2026-07-17", because: :deprecated_upstream, replacement_formula: "gcx"
+  disable! date: "2027-01-17", because: :deprecated_upstream, replacement_formula: "gcx"
+
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user} -X main.date=#{time.iso8601}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/grafanactl"
+    system "go", "build", *std_go_args(ldflags: :goreleaser), "./cmd/grafanactl"
 
     generate_completions_from_executable(bin/"grafanactl", shell_parameter_format: :cobra)
   end

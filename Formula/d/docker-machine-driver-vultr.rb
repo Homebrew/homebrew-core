@@ -7,23 +7,24 @@ class DockerMachineDriverVultr < Formula
   head "https://github.com/vultr/docker-machine-driver-vultr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3dda2f729047493afd3de8c833bad9a0d2a92ac9cda6756c6518e30ee7f3b865"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3dda2f729047493afd3de8c833bad9a0d2a92ac9cda6756c6518e30ee7f3b865"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3dda2f729047493afd3de8c833bad9a0d2a92ac9cda6756c6518e30ee7f3b865"
-    sha256 cellar: :any_skip_relocation, sonoma:        "606c6391582f3353b25bf1c2cb58e7c5a0388c9df9aee77445e1b6e5e959261a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fcbda52b4860cc84ddfefa6b21e9b5a9284324cc5e2c9451bf7ca7eb9747fe1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc02dec3304a23cbda77067ae6a1bc315265468eb40cf015ee74e8c04954a03a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8a2113c1e6022f95fd189b597885b1dbd321584adcb48558d5918d8b8c3b82d0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a2113c1e6022f95fd189b597885b1dbd321584adcb48558d5918d8b8c3b82d0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a2113c1e6022f95fd189b597885b1dbd321584adcb48558d5918d8b8c3b82d0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "803bc1f9822027a2f45a6a2713a13f9eca07b17fa4e6b8902f665cd30b388555"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "15d423cb1c6f861f95de022a8df429df7abc0e9684601c03f068eef9b062c72c"
+    sha256 cellar: :any,                 x86_64_linux:  "0a716e6a759a224d1d94a60b87a7565f7bce54a671f7420170a5dd095739e263"
   end
 
   depends_on "go" => :build
-  depends_on "docker-machine"
+  depends_on "rancher-machine"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./machine"
+    system "go", "build", *std_go_args, "./machine"
   end
 
   test do
     assert_match "--vultr-api-key",
-      shell_output("#{Formula["docker-machine"].bin}/docker-machine create --driver vultr -h")
+      shell_output("#{Formula["rancher-machine"].bin}/rancher-machine create --driver vultr -h")
   end
 end

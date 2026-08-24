@@ -6,14 +6,13 @@ class Xinit < Formula
   license all_of: ["MIT", "APSL-2.0"]
 
   bottle do
-    sha256 arm64_tahoe:   "dd3c7693b0185d79555d1f91e559612ad865688fe779f1c4986f86493058ba6b"
-    sha256 arm64_sequoia: "f032d2ee9b34ba1ee42d99701266d51e3dcbdcb30d66883ec8f05033894356bb"
-    sha256 arm64_sonoma:  "12231945f0af6967b64ea1e6f992caedcc760a7ed13d142590dab52ae7fc3e96"
-    sha256 arm64_ventura: "6f5350a1fceed943594b743212e2ae40e37559e1daa82c31e617311a706ee25a"
-    sha256 sonoma:        "14ad40b8e7143eb60fd252ecadaa4012428a33d9572920fc7e4968ac52904d38"
-    sha256 ventura:       "caf7be003b70bc8a6a0a2c0fd64df3b6f1479ecb437ecbb00b4675660bf15319"
-    sha256 arm64_linux:   "5afccb26823574faa9cc8e322ffa73ba0f5466862dd88ca5a8a4c828ab0d95cc"
-    sha256 x86_64_linux:  "8b8186133c32e00a1411809fa7b2569bffacaa9fd2ddbd575605abd3555c6316"
+    rebuild 1
+    sha256               arm64_tahoe:   "3ce6a5600a9a88b1d4018a6ecf88b437563538938ae559129713425112cb032f"
+    sha256               arm64_sequoia: "5727dd128f946d0e16660e2db86ee1ad79cc3d97340bdc9869d867cc077641ff"
+    sha256               arm64_sonoma:  "a992bd591fb51755561d3db0d9b6adf43c69bfc4357c8e9910958d4e89897e95"
+    sha256 cellar: :any, sonoma:        "d18f2e51c72eb9fc51c0de81a4856aeaabba640f3c8acc510ac474de427ebc2d"
+    sha256               arm64_linux:   "8b1f7924f2e2cab4fb2f3282cece3eeb75106105b3f9d84ccaa851dd9b1582a2"
+    sha256               x86_64_linux:  "bfb05c8b3ce100f8a796ebe2d4ea33bcefa72b0c226eacc710f412bc87d9a66e"
   end
 
   depends_on "pkgconf" => :build
@@ -27,9 +26,8 @@ class Xinit < Formula
   depends_on "xterm"
 
   on_macos do
-    depends_on "lndir" => :build
-    depends_on "mkfontscale" => :build
-
+    depends_on "lndir"
+    depends_on "mkfontscale"
     depends_on "quartz-wm"
 
     resource "xquartz" do
@@ -87,7 +85,8 @@ class Xinit < Formula
     ]
 
     system "./configure", *configure_args, *std_configure_args
-    system "make", "RAWCPP=tradcpp"
+    system "make", "RAWCPP=tradcpp",
+                   "libexecdir=#{opt_libexec}"
     system "make", "XINITDIR=#{prefix}/etc/X11/xinit",
                    "sysconfdir=#{prefix}/etc",
                    "bindir=#{bin}", "install"

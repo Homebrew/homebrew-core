@@ -20,7 +20,6 @@ class Kconf < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/particledecay/kconf/build.Version=#{version}
       -X github.com/particledecay/kconf/build.Commit=#{tap.user}
       -X github.com/particledecay/kconf/build.Date=#{time.iso8601}"

@@ -30,7 +30,7 @@ class Boolector < Formula
 
   # Use commit has from `contrib/setup-btor2tools.sh`
   resource "btor2tools" do
-    url "https://github.com/boolector/btor2tools/archive/037f1fa88fb439dca6f648ad48a3463256d69d8b.tar.gz"
+    url "https://github.com/hwmcc/btor2tools/archive/037f1fa88fb439dca6f648ad48a3463256d69d8b.tar.gz"
     sha256 "d6a5836b9e26719c3b7fe1711d93d86ca4720dc9d4bac11d1fc006fa0a140965"
   end
 

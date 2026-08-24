@@ -2,17 +2,18 @@ class CodebergCli < Formula
   desc "CLI for Codeberg"
   homepage "https://codeberg.org/Aviac/codeberg-cli"
   url "https://codeberg.org/Aviac/codeberg-cli/archive/v0.5.5.tar.gz"
-  sha256 "09902e3511c24316e9aab4cbd51492d00eb978ee81429e873de80bc9a485c549"
+  sha256 "d824fa482f122cb6b7189ec5ab75bc2c672a623de65cca8884bbbac54e062af2"
   license "AGPL-3.0-or-later"
   head "https://codeberg.org/Aviac/codeberg-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8bd5f830c3221b1ac74d72d87d2fc73e56600dc2136089223f4e1b254d12f49f"
-    sha256 cellar: :any,                 arm64_sequoia: "83a74d50b902d8ae120a460c8536f66a8a16f4f38a494148d0fc0339d8ce3be8"
-    sha256 cellar: :any,                 arm64_sonoma:  "7c253e2793055098984dbda0ce9298934d269df26a6f12833d0390895e65d1bf"
-    sha256 cellar: :any,                 sonoma:        "6d5995f7e35e1db9126b3777c035b0848915e4cb1b738d2e57230583dee34b58"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c92e3099bddbb7a90d72b69e6d829d203202361e123072fc11838b77b48ecd72"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12d605e557b17e8a81d430e8d5a8bae6aec6b6206b015506a4ed8adfc497a5d2"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "a1cbaf6e9a5b077d36c9a784ff4ae275fef953cfc0f05316a1a5c767788fedff"
+    sha256 cellar: :any, arm64_sequoia: "7db56fb4b4a99261b7e404233545e9313e4ecb44f47f5f18775206d972f43325"
+    sha256 cellar: :any, arm64_sonoma:  "b6659965cec7a554d216d175d167cf0ed4fd39fc1b22eadbc0513fd057c8bc10"
+    sha256 cellar: :any, sonoma:        "cde33866ca9c736d043408bc17a4c079bf2d952b53e2a599559fbc89f25b7fe1"
+    sha256 cellar: :any, arm64_linux:   "26945cdea3daba8ada3eb5c584ee78de52633f70d04c73a3b45e0a87d1a29c4d"
+    sha256 cellar: :any, x86_64_linux:  "97d2407fc68ecbe43e3613c4bbbd8fcda78f9424b08ccdeb29dfc0dd97d180d5"
   end
 
   deprecate! date: "2026-05-13", because: :repo_archived, replacement_formula: "forgejo-cli"

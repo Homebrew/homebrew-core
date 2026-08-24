@@ -1,21 +1,18 @@
 class Lfe < Formula
   desc "Concurrent Lisp for the Erlang VM"
   homepage "https://lfe.io/"
-  url "https://github.com/lfe/lfe/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "5c9de979c64de245ac3ae2f9694559a116b538ca7d18bb3ef07716e0e3a696f3"
+  url "https://github.com/lfe/lfe/archive/refs/tags/v2.2.2.tar.gz"
+  sha256 "19a51ad759a547c35535f8bbbafd982aab647ebfb15b438d233e4102fd8761a3"
   license "Apache-2.0"
   head "https://github.com/lfe/lfe.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d5158c69b0a420798bd81ded50265abbc00cb0da90ad7f237c3e266312092304"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1aee8b425cbd76428a038e8d9d1a074c2e7c3f9c2944673fd9267c77e8d154fb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7c9d4f4a7d9ba6a61e9affb3d8ec94161ac3411c14da462879c348fa59859d0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e257ff304896fce1182b709f35b56112c28eba8e43ac6a149725b42917a9bab7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ed17738b499109261be99c6cd273acf572c4b4a2ea05828aed6ebeaa076f30ec"
-    sha256 cellar: :any_skip_relocation, ventura:       "9e047588e594f9c78f18d8be1966a1987639f98d07e57dcb47f0b2bde46e8199"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a8d62b19bbae7750b68d0c2a91bfb0e6c478e66cd2a5c889048d355bcfeed117"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9aceec9c08993a9e551d5b1657a2162afae1f8a248054e6eba1fc4eb5781386c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7a8623073ae4695d71a1c6ebd25e33982f5919c8f8178674242ab160ee689fc2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd4b14d7ed48b9e86067da8b52c5653954185a0ea9b20213b554ed285a0c0547"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a78872dfe049d0de66bfe02fa858a6fc5eac15537173e65b2c07fba5c7cdb0fb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8f626f1110b40eeca84aaef15e132d9772adf9b4c9735d7a68c482ecf109ca64"
+    sha256 cellar: :any,                 arm64_linux:   "057c7083596b778c609a716850674d64ae64772a45ddf0cda46097a75db509bd"
+    sha256 cellar: :any,                 x86_64_linux:  "48b60321d149efc7263596fbeb6536c03e7883e6002a73a4c9ba9a342b41d29e"
   end
 
   depends_on "emacs" => :build

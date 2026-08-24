@@ -23,7 +23,7 @@ class GitSubrepo < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin" if OS.mac?
+    ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin" if OS.mac?
 
     libexec.mkpath
     system "make", "PREFIX=#{prefix}", "INSTALL_LIB=#{libexec}", "install"

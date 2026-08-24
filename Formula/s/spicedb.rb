@@ -1,24 +1,24 @@
 class Spicedb < Formula
   desc "Open Source, Google Zanzibar-inspired database"
   homepage "https://authzed.com/docs/spicedb/getting-started/discovering-spicedb"
-  url "https://github.com/authzed/spicedb/archive/refs/tags/v1.53.0.tar.gz"
-  sha256 "4d0750ce2b99aed14a98c20361993814fb4f1ed9b49364283337850e2d82c04c"
+  url "https://github.com/authzed/spicedb/archive/refs/tags/v1.56.0.tar.gz"
+  sha256 "e8c15ecc241e3f50feeab0c63062c961e4558608f25376623ce38e44ec3897b1"
   license "Apache-2.0"
   head "https://github.com/authzed/spicedb.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aadf70bedd600402413e645f21db4ad133c5b851a9331384e176f5871c19246c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aba8a9fe90b9116b0456685ac290bc26996cc1f1979bf25a97bd7aa93acdbda6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95d0e3cf046901e80bd31cea3717f84d76cdd7a0ffebd232ddcee8d61c1f4995"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9484d99bf7bc1e984433a50dfbaa07076332dfb5fb030838da3b5a5fb7c2c44a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "76d225128821e72eb0ec8f5f0777ed328f6dab7ff43d19589a8a87016795eb39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71c0fc58e4b467881a6db5b8e020f4003780b12c6df5358889924c31720047aa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5d96cec014f6421be9b1a0f5bc6997e3340eab495e2071c3418ed394d49d7f55"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3cfc8cb92be51820f4688fea839c0b296623df72126fbda56cc2394b24696024"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "522db4869b1135a48fa6098d1a9656a4576e9617257fd028d8263874f3c128fd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b4163f9ebfca13a58b4db264b9c937e48afcdcd0b6c5c08679f9148b456153bc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f55016154543d3bc7c186c222b5eb47307982c11ae14beefc786597420cee89"
+    sha256 cellar: :any,                 x86_64_linux:  "ea8549998563b9e51fd39398d5f5c4ff46b02bb49305e854d95ed97e42843efc"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/jzelinskie/cobrautil/v2.Version=#{version}"
+    ldflags = "-X github.com/jzelinskie/cobrautil/v2.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/spicedb"
 
     generate_completions_from_executable(bin/"spicedb", shell_parameter_format: :cobra)

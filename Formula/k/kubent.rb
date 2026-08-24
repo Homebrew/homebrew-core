@@ -29,7 +29,6 @@ class Kubent < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.gitSha=#{Utils.git_head}
     ]

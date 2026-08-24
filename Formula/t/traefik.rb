@@ -1,8 +1,8 @@
 class Traefik < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
-  url "https://github.com/traefik/traefik/releases/download/v3.7.5/traefik-v3.7.5.src.tar.gz"
-  sha256 "09e44f902945eeced6521c0e561c31c3bdf19f82882945aca049ae31a8e9055d"
+  url "https://github.com/traefik/traefik/releases/download/v3.7.11/traefik-v3.7.11.src.tar.gz"
+  sha256 "e046727bf3a6538f7e2205ca0ac27334441102d01e3a854af710c03a138125a1"
   license "MIT"
   head "https://github.com/traefik/traefik.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Traefik < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7693cce661b41595dcb024ece4441effb86a6b05f21f28bd3bdd717dbb734312"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5b5c05a28d6accebe92d0c580890b1b28eca525e6311f6e0596a3200217b4d55"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e49ed560430f9590b0bab670ec020876c5bf3f2d2c0c62942c0763efc3bacc0a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8889558d57a010dd2793f738ea340bebed21aeb03ddff587c27c5db7d9952eba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "599097a5e18e9a8b9f05cb8c6ee880d0b9dbad95d0193342f1408a228beef30b"
-    sha256 cellar: :any,                 x86_64_linux:  "02f06e0c108b26b3de0204909acb8be4d0672f72a5b05e29253f3a2c1e024e90"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "80029acbde49d82560fef0069b629d32ac33ca4658ebccf2182d354f57fcab0c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "098b00f9776f60eecc215955b30de9e385c53bf9fc78d243c41a342f364a7b17"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "60d8dca7288f320417d416957ec6054c582bdfaef86c85df24e509048c06e73f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e32e4dfebbb6f03f920ab51ec1d26b9e874127760374d6dc47ccfe7690b98f24"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "46cf695ed8de05a8cbdf641676d23256340aff6d545e1c5a2bcb480459082568"
+    sha256 cellar: :any,                 x86_64_linux:  "ec1afbe1dd71e29b79207c853492b6f085cd0a52aae229837f631c215ab914ae"
   end
 
   depends_on "corepack" => :build
@@ -34,10 +34,7 @@ class Traefik < Formula
       system buildpath/"yarn", "build"
     end
 
-    ldflags = %W[
-      -s -w
-      -X github.com/traefik/traefik/v#{version.major}/pkg/version.Version=#{version}
-    ]
+    ldflags = %W[-X github.com/traefik/traefik/v#{version.major}/pkg/version.Version=#{version}]
     system "go", "generate"
     system "go", "build", *std_go_args(ldflags:), "./cmd/traefik"
   end

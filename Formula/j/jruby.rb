@@ -1,8 +1,8 @@
 class Jruby < Formula
   desc "Ruby implementation in pure Java"
   homepage "https://www.jruby.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/jruby/jruby-dist/10.1.0.0/jruby-dist-10.1.0.0-src.zip"
-  sha256 "23fcd9ecbf3980f187d19b021d53dd71635b3e2e6ba7e9c2ccc92624240282d6"
+  url "https://search.maven.org/remotecontent?filepath=org/jruby/jruby-dist/10.1.1.0/jruby-dist-10.1.1.0-src.zip"
+  sha256 "825d47f43ef288b218b965406ef8a97117c9b080986b3ad9883e1850da312166"
   license any_of: ["EPL-2.0", "GPL-2.0-only", "LGPL-2.1-only"]
 
   livecheck do
@@ -11,12 +11,12 @@ class Jruby < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7da1bce0f6c86ddd2e21012388bc6cf502cfbf2eb6a35b76e3ba55884d73baf8"
-    sha256 cellar: :any,                 arm64_sequoia: "3151cfbb6c03860657f7486659019c9301f4f2dd23478d0f38e95704857b9271"
-    sha256 cellar: :any,                 arm64_sonoma:  "a92604f08d6356feb46b314fa6b8f1b4d977050382e5580d97f3b6cb0fa450b6"
-    sha256 cellar: :any,                 sonoma:        "6e1ab08b254db58e577ca641230715c627d7fe82d9c0cd0e6f719d0bfaf64c85"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9be3c3183561da6916f17c3b89e830bbe9c05592c172fb0d85eee0d99c0ff37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35664651f16534720691b92148364014fcbad32ed5f4cc7d0a8737c486adf9db"
+    sha256 cellar: :any, arm64_tahoe:   "ef135ad4275bf5e0e0c2a15dfc86ef1ad8cd81430ce99b1f4bf5d8160073826f"
+    sha256 cellar: :any, arm64_sequoia: "9fc40e6063f4d1657f4f05830c65ae7c3a408d895fa853712e468b20a1456933"
+    sha256 cellar: :any, arm64_sonoma:  "5aee533ae387d52f08194ed37f52b1316860d6e9d4a9b133e486e0f1f28310d5"
+    sha256 cellar: :any, sonoma:        "f925279918b068fbb0ac7257fc448c76126ad3a66154f8315fda98f8b880ec57"
+    sha256 cellar: :any, arm64_linux:   "cae9427d6b4e1f4b065debd0ead51ca33f35b0f52b2f95dd07acec51361517db"
+    sha256 cellar: :any, x86_64_linux:  "791ee764e797b26044ffe9645058435d8de83628706fadc322741f8bda0d5873"
   end
 
   depends_on "ant" => :build # for jffi
@@ -30,8 +30,8 @@ class Jruby < Formula
   uses_from_macos "libffi" # for jffi
 
   resource "jffi" do
-    url "https://github.com/jnr/jffi/archive/refs/tags/jffi-1.3.15.tar.gz"
-    sha256 "2f9dcdede918746c5784ba55c992214e30eaf62b23ad2609561730644917a189"
+    url "https://github.com/jnr/jffi/archive/refs/tags/1.4.0.tar.gz"
+    sha256 "1cc8174ca1fb86a3400da5838705d455c0be59fd93f2d675512dcb2f727fe45f"
 
     livecheck do
       url "https://raw.githubusercontent.com/jruby/jruby/refs/tags/#{LATEST_VERSION}/pom.xml"
@@ -52,11 +52,17 @@ class Jruby < Formula
       ENV["LIBFFI_LIBS"] = if OS.mac?
         MacOS.sdk_for_formula(self).path/"usr/lib/libffi.tbd"
       else
-        Formula["libffi"].opt_lib/shared_library("libffi")
+        formula_opt_lib("libffi")/shared_library("libffi")
       end
 
       # Avoid building universal binaries. Cannot use change_make_var! due to indentation
       inreplace "jni/GNUmakefile", "ARCHES = x86_64 arm64", "ARCHES = #{Hardware::CPU.arch}"
+
+      # Compile the sun.misc.Unsafe-using class with -source/-target (like jffi 1.3)
+      inreplace "pom.xml" do |s|
+        s.gsub!(%r{<configuration>(\s+)<jdkToolchain>\s+<version>8</version>\s+</jdkToolchain>},
+                "<configuration combine.self=\"override\">\\1<source>8</source>\\1<target>8</target>")
+      end
 
       system "ant", "-Duse.system.libffi=1", "jar"
       system "ant", "-Duse.system.libffi=1", "archive-platform-jar"
@@ -99,6 +105,8 @@ class Jruby < Formula
   end
 
   test do
+    ENV["JRUBY_JSA"] = testpath/"jruby.jsa"
+
     assert_equal "hello\n", shell_output("#{bin}/jruby -e 'puts :hello'")
 
     ENV["GEM_HOME"] = testpath

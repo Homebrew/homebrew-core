@@ -57,8 +57,8 @@ class ArgyllCms < Formula
     # * Fix a typo that leads to an undeclared function error:
     #   `parse.c:102:20: error: call to undeclared function 'yylineno'`
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/jam/2.6.1.patch"
-      sha256 "1850cf53c4db0e05978d52b90763b519c00fa4f2fbd6fc2753200e49943821ec"
+      file "Patches/jam/2.6.1.patch"
+      type :unofficial
     end
   end
 

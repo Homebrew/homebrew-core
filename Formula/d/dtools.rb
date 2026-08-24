@@ -1,18 +1,18 @@
 class Dtools < Formula
   desc "D programming language tools"
   homepage "https://dlang.org/"
-  url "https://github.com/dlang/tools/archive/refs/tags/v2.112.0.tar.gz"
-  sha256 "4d3b8d683770f16f1cb2e44a246f17b199a8aabde7b6ce7d7566aebc36a12d32"
+  url "https://github.com/dlang/tools/archive/refs/tags/v2.113.0.tar.gz"
+  sha256 "9fae73963d16ab7330120588c0bbbd15919de087858bfcb1d75d7cc06970179e"
   license "BSL-1.0"
   head "https://github.com/dlang/tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "566757d9c7fabf5dcc81d5139589bf8e601370424fb8f8170ff8ea542c9f0f74"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8fdc39e94c686ee350bf6a92dc7f331182d9fa9e14e89ee6630c7b66d0e9e1b7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "36c4848897bc99843bba6f6306e157c2c22b95ee4b66056573123e366ec04fcd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3e83e31e492dded0024a77bef1fa4916b5c4ba5b91ca12934dda63c18bc5ee35"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b6ab7ef6c758eb003bfcec11dcdadc10c69d6d833b90dc103d1ccb7493caa953"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd470b2b653bfabec84bc5a4798f90260ec2c875c0466ec608cf63c6162209c3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ce57fabe3b74014a9b10af7a84dc0f7c26909223dc12486534fc31c7b3f968ce"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ab910b3ac80d73e1927be18ade7f8b66ffa7a02f18e2c5a1e679477883fd772c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f9052bc298e193fa8c4945d2006da1bcab1ae105d9e7600ebf955e35669152e2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2b111c1df115cb6c1dee5d544c1b1e4274baac630f722f4505d35e6222744e5a"
+    sha256 cellar: :any,                 arm64_linux:   "6a1b406dc0b848c9bfe3667d2d7357a4b95975ad12d5d38b952448a155eee1cf"
+    sha256 cellar: :any,                 x86_64_linux:  "0addf6f9dcf0b96ac06eb68e69af296235a13b6b419301b9877539f45d2c74b6"
   end
 
   depends_on "dub" => :build

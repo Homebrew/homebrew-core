@@ -1,32 +1,32 @@
 class PerconaXtrabackupAT80 < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://downloads.percona.com/downloads/Percona-XtraBackup-8.0/Percona-XtraBackup-8.0.35-35/source/tarball/percona-xtrabackup-8.0.35-35.tar.gz"
-  sha256 "012aa40e35d7186da1d0c4ccd20d703b2b56a69dc0d750056d969245226a3d67"
+  url "https://downloads.percona.com/downloads/Percona-XtraBackup-8.0/Percona-XtraBackup-8.0.35-36/source/tarball/percona-xtrabackup-8.0.35-36.tar.gz"
+  sha256 "a73a5e3e055075524968b116f9c2ca7c49eedcae88f7c5ef8227ba84ea3364b6"
   license "GPL-2.0-only"
-  revision 3
 
   livecheck do
-    url "https://www.percona.com/products-api.php", post_form: {
-      version: "Percona-XtraBackup-#{version.major_minor}",
+    url "https://www.percona.com/wp-admin/admin-ajax.php", post_form: {
+      action:     "percona_downloads",
+      product_id: "Percona-XtraBackup-#{version.major_minor}",
     }
-    regex(/value=["']?[^"' >]*?v?(8\.0(?:[.-]\d+)+)[|"' >]/i)
-    strategy :page_match do |page, regex|
-      page.scan(regex).map do |match|
+    regex(/^Percona-XtraBackup-v?(\d+(?:[.-]\d+)+)$/i)
+    strategy :json do |json, regex|
+      json.dig("data", "versions")&.filter_map do |version|
         # Convert a version like 1.2.3-4.0 to 1.2.3-4 (but leave a version like
         # 1.2.3-4.5 as-is).
-        match[0].sub(/(-\d+)\.0$/, '\1')
+        version[regex, 1]&.sub(/(-\d+)\.0$/, '\1')
       end
     end
   end
 
   bottle do
-    sha256 arm64_tahoe:   "ad076c0ffbb731137a0111d92dcda4fbe8a99c4cfa51739aa473ae68f66fdfdf"
-    sha256 arm64_sequoia: "7fb80ee6ae53eb0cb5443fc1ce8ad19e7e9f0c548b77b741143085cfc26ef13a"
-    sha256 arm64_sonoma:  "b8ff9a2a7bcf46e8358698cdf04df0e2c5302ca68cf651430b7a13c3efbdaa93"
-    sha256 sonoma:        "cf587e17475dcaa04ef20a15bb265ccb7d9ca0820d9c0a16150967f81504bb7b"
-    sha256 arm64_linux:   "e62fe92abac195d95d310176b0efb4888cfcdc2d9265aff2aaf47685ffd227d7"
-    sha256 x86_64_linux:  "16cc250ead1fa47baffece05249ae76ca31ddda39b91438aa3caa9dc160e68fa"
+    sha256 arm64_tahoe:   "0d8453095dd648b3c6d2e71b984d959ad8a3aa933099f9c33b34de24664e4658"
+    sha256 arm64_sequoia: "60f4e29f0faf6aec44fc2bc3b737c54e20d4a252112ceace4459171c98957446"
+    sha256 arm64_sonoma:  "29e37abf3e2b674c802a14728ec36812db73e59bd5204589dca6611fc47d38bb"
+    sha256 sonoma:        "fd4f6b832c36d3845ca43255928bb5305cbba619934c3b609682eb69b6c8e15b"
+    sha256 arm64_linux:   "dc4c5a0084075e2ddce294d86e3b4a408addb6b42aeb979a40c7f2628a359c67"
+    sha256 x86_64_linux:  "fcea77641b8d584bcb1c9b3585ca8c26297d5659f08bb25538f29efbf7f7f4d0"
   end
 
   keg_only :versioned_formula
@@ -76,6 +76,7 @@ class PerconaXtrabackupAT80 < Formula
     patch :p2 do
       url "https://raw.githubusercontent.com/freebsd/freebsd-ports/58a6f3f12a0ab2a65140f588216340d49245880e/databases/mysql80-server/files/patch-boost_boost__1__77__0_boost_mpl_aux___integral__wrapper.hpp"
       sha256 "203ada9cec70fe1feb2796cb7421757d7334452dfd5168120a3e7eb79aaf529d"
+      type :unofficial
     end
   end
 
@@ -83,52 +84,63 @@ class PerconaXtrabackupAT80 < Formula
   patch do
     url "https://github.com/mysql/mysql-server/commit/269abc0409b22bb87ec88bd4d53dfb7a1403eace.patch?full_index=1"
     sha256 "ffcee32804e7e1237907432adb3590fcbf30c625eea836df6760c05a312a84e1"
+    type :backport
+    resolves "https://bugs.mysql.com/bug.php?id=36678092"
   end
 
   # FreeBSD patches for fixing build failure with newer clang
   patch :p0 do
     url "https://raw.githubusercontent.com/freebsd/freebsd-ports/1a02a961a2d53f21bf208f07903a97cc46f43e17/databases/mysql80-server/files/patch-sql_binlog__ostream.cc"
     sha256 "16f86edd2daf5f6c87616781c9f51f76d4a695d55b354e44d639a823b1c3f681"
+    type :unofficial
   end
 
   patch :p0 do
     url "https://raw.githubusercontent.com/freebsd/freebsd-ports/1a02a961a2d53f21bf208f07903a97cc46f43e17/databases/mysql80-server/files/patch-sql_mdl__context__backup.cc"
     sha256 "501646e1cb6ac2ddc5eb42755d340443e4655741d6e76788f48751a2fb8f3775"
+    type :unofficial
   end
 
   patch :p0 do
     url "https://raw.githubusercontent.com/freebsd/freebsd-ports/1a02a961a2d53f21bf208f07903a97cc46f43e17/databases/mysql80-server/files/patch-sql_mdl__context__backup.h"
     sha256 "e515b565d1501648ce3de0add12b67c63aecb3ec4db3794de72c4eeb301ff343"
+    type :unofficial
   end
 
   patch :p0 do
     url "https://raw.githubusercontent.com/freebsd/freebsd-ports/1a02a961a2d53f21bf208f07903a97cc46f43e17/databases/mysql80-server/files/patch-sql_range__optimizer_index__range__scan__plan.cc"
     sha256 "44b5e76373fadd97560d66dae0dac14d98ae9a5c32d58d876bfe694016872bc7"
+    type :unofficial
   end
 
   patch :p0 do
     url "https://raw.githubusercontent.com/freebsd/freebsd-ports/1a02a961a2d53f21bf208f07903a97cc46f43e17/databases/mysql80-server/files/patch-sql_rpl__log__encryption.cc"
     sha256 "bdadcf4317295d1847283e20dd7fbfa2df2c4acebf45d5a13d0670bc7311f7ba"
+    type :unofficial
   end
 
   patch :p0 do
     url "https://raw.githubusercontent.com/freebsd/freebsd-ports/1a02a961a2d53f21bf208f07903a97cc46f43e17/databases/mysql80-server/files/patch-sql_stream__cipher.cc"
     sha256 "ac74c60f6051223993c88e7a11ddd9512c951ac1401d719a2c3377efe1bee3cf"
+    type :unofficial
   end
 
   patch :p0 do
     url "https://raw.githubusercontent.com/freebsd/freebsd-ports/1a02a961a2d53f21bf208f07903a97cc46f43e17/databases/mysql80-server/files/patch-sql_stream__cipher.h"
     sha256 "9a11d4658f60a63f3f10ff97a5170e865afde3ebee3e703d8272aba3cf6e32d0"
+    type :unofficial
   end
 
   patch :p0 do
     url "https://raw.githubusercontent.com/freebsd/freebsd-ports/1a02a961a2d53f21bf208f07903a97cc46f43e17/databases/mysql80-server/files/patch-unittest_gunit_binlogevents_transaction__compression-t.cc"
     sha256 "3bd0c22a2ee30a7b1e682e645dbdf473d4f0d6f8e5ffc447f088c5f1bf21efd7"
+    type :unofficial
   end
 
   patch :p0 do
     url "https://raw.githubusercontent.com/freebsd/freebsd-ports/1a02a961a2d53f21bf208f07903a97cc46f43e17/databases/mysql80-server/files/patch-unittest_gunit_stream__cipher-t.cc"
     sha256 "9e7629a2174e754487737ef0d73c79fc1ed47ba54a982a3a4803e19c72c5dc0f"
+    type :unofficial
   end
 
   # Patch out check for Homebrew `boost`.
@@ -149,7 +161,7 @@ class PerconaXtrabackupAT80 < Formula
 
     perl = "/usr/bin/perl"
     if OS.linux?
-      perl = Formula["perl"].opt_bin/"perl"
+      perl = formula_opt_bin("perl")/"perl"
       # Disable ABI checking
       inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0"
     end
@@ -167,8 +179,8 @@ class PerconaXtrabackupAT80 < Formula
       -DINSTALL_MANDIR=#{man}
       -DWITH_MAN_PAGES=ON
       -DINSTALL_MYSQLTESTDIR=
-      -DBISON_EXECUTABLE=#{Formula["bison"].opt_bin}/bison
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
+      -DBISON_EXECUTABLE=#{formula_opt_bin("bison")}/bison
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}
       -DWITH_ICU=#{icu4c.opt_prefix}
       -DWITH_SYSTEM_LIBS=ON
       -DWITH_BOOST=#{buildpath}/boost
@@ -189,7 +201,7 @@ class PerconaXtrabackupAT80 < Formula
     system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    bin.env_script_all_files(libexec/"bin", PERL5LIB: Formula["perl-dbd-mysql"].opt_libexec/"lib/perl5")
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: formula_opt_libexec("perl-dbd-mysql")/"lib/perl5")
 
     # remove conflicting library that is already installed by mysql
     (lib/"libmysqlservices.a").unlink

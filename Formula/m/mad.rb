@@ -21,6 +21,7 @@ class Mad < Formula
   patch do
     url "https://codeberg.org/tenacityteam/libmad/commit/326363f04e583b563f63941db3cf7f50e76aceb2.diff"
     sha256 "8de5b7e7495ee789ecee07bacc93e2d2ce4be07c83e19c1181778d86fc7185ce"
+    type :backport
   end
 
   def install

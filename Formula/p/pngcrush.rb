@@ -29,21 +29,22 @@ class Pngcrush < Formula
   end
 
   # Use Debian's patch to fix build with `libpng`.
-  # Issue ref: https://sourceforge.net/p/pmt/bugs/82/
   patch do
     url "https://sources.debian.org/data/main/p/pngcrush/1.8.13-1/debian/patches/ignore_PNG_IGNORE_ADLER32.patch"
     sha256 "d1794d1ffef25a1c974caa219d7e33c0aa94f98c572170ec12285298d0216c29"
+    type :unofficial
+    resolves "https://sourceforge.net/p/pmt/bugs/82/"
   end
 
   def install
-    zlib = OS.mac? ? "#{MacOS.sdk_path}/usr" : Formula["zlib-ng-compat"].opt_prefix
+    zlib = OS.mac? ? "#{MacOS.sdk_path}/usr" : formula_opt_prefix("zlib-ng-compat")
     args = %W[
       CC=#{ENV.cc}
       LD=#{ENV.cc}
       CFLAGS=#{ENV.cflags}
       LDFLAGS=#{ENV.ldflags}
-      PNGINC=#{Formula["libpng"].opt_include}
-      PNGLIB=#{Formula["libpng"].opt_lib}
+      PNGINC=#{formula_opt_include("libpng")}
+      PNGLIB=#{formula_opt_lib("libpng")}
       ZINC=#{zlib}/include
       ZLIB=#{zlib}/lib
     ]

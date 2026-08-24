@@ -1,24 +1,24 @@
 class Talhelper < Formula
   desc "Configuration helper for talos clusters"
   homepage "https://budimanjojo.github.io/talhelper/latest/"
-  url "https://github.com/budimanjojo/talhelper/archive/refs/tags/v3.1.11.tar.gz"
-  sha256 "68d8298ef165fca454e2953dc61d403946060bb0b2154c0a4e1cbeb048c96eb6"
+  url "https://github.com/budimanjojo/talhelper/archive/refs/tags/v3.1.16.tar.gz"
+  sha256 "506b53442cbaa3ea34990f182d2db206d6987d7ae3652f91883ab6358af6b2ee"
   license "BSD-3-Clause"
   head "https://github.com/budimanjojo/talhelper.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fc5f9e94995bf687b3d526198adf2fa391ea5a26c68a9a9b0b386708a6384f0b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc5f9e94995bf687b3d526198adf2fa391ea5a26c68a9a9b0b386708a6384f0b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc5f9e94995bf687b3d526198adf2fa391ea5a26c68a9a9b0b386708a6384f0b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2b6f26fc2563d734cd6dd3a8937d39d37979bda48590c7b277bf62807b73b2b1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "277941b47c668c29b253eb93845c5b57ebbe98e21b7cf39b074f1f94c6141240"
-    sha256 cellar: :any,                 x86_64_linux:  "5a7ef848080a16e8084be9660a55a399f66f7bf09d43a00a1ace4eaec0cfcabc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "88519e6f165f13660228652a61851167a91ed5cbb901ea4a2ba2a9402840e684"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "88519e6f165f13660228652a61851167a91ed5cbb901ea4a2ba2a9402840e684"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "88519e6f165f13660228652a61851167a91ed5cbb901ea4a2ba2a9402840e684"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d4986ed2a2ea9faea4ac89f6f2c69135f1c98cc6fb91db9686098df15c3c68df"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "df409811de49059cd385206b56afa0f54dd5327a782fd710cce584742386c529"
+    sha256 cellar: :any,                 x86_64_linux:  "90701026c785f4557e7f367ce26bd7b160dfdd3f92ac00268ed141980bae64dc"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/budimanjojo/talhelper/v#{version.major}/cmd.version=#{version}"
+    ldflags = "-X github.com/budimanjojo/talhelper/v#{version.major}/cmd.version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"talhelper", shell_parameter_format: :cobra)

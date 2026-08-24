@@ -4,6 +4,7 @@ class Backupninja < Formula
   url "https://0xacab.org/liberate/backupninja/-/archive/backupninja_upstream/1.2.2/backupninja-backupninja_upstream-1.2.2.tar.gz"
   sha256 "93ddc72f085d46145b289d35dac1d72e998c15bec1833db78e474b53c9768774"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,13 +12,12 @@ class Backupninja < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d9df3e07340b1c7c046d9d83009c271cb27105940e6be345a50013abcd04357b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9df3e07340b1c7c046d9d83009c271cb27105940e6be345a50013abcd04357b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9df3e07340b1c7c046d9d83009c271cb27105940e6be345a50013abcd04357b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cbf31b7459787f092bd97a26c0a34998dd62552a9ffd074bae6e6701c1bc040e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c1b2ff8288fc767429a63559e1c4a59bee787610a32ed320cd34d57492885f65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1b2ff8288fc767429a63559e1c4a59bee787610a32ed320cd34d57492885f65"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "be738649dff8457723e0ea495cc0465166b65d4fe880d303255b2c0c7e579770"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "be738649dff8457723e0ea495cc0465166b65d4fe880d303255b2c0c7e579770"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be738649dff8457723e0ea495cc0465166b65d4fe880d303255b2c0c7e579770"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eb2a9e90ab34fe14f75996abb1ff9c6512a32aa9ecef2411fdf607c6ce4cbce4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "51d04199b4a1284612e6d1ff704412738c400bb844808c6a4348264ac3b67753"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51d04199b4a1284612e6d1ff704412738c400bb844808c6a4348264ac3b67753"
   end
 
   depends_on "dialog"
@@ -32,7 +32,7 @@ class Backupninja < Formula
       --sysconfdir=#{etc}
       --localstatedir=#{var}
     ]
-    args << "BASH=#{Formula["bash"].opt_bin}/bash" if OS.mac?
+    args << "BASH=#{formula_opt_bin("bash")}/bash" if OS.mac?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"

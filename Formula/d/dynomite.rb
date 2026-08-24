@@ -31,6 +31,8 @@ class Dynomite < Formula
     on_linux do
       url "https://github.com/dmolik/dynomite/commit/303d4ecae95aee9540c48ceac9e7c0f2137a4b52.patch?full_index=1"
       sha256 "a195c75e49958b4ffcef7d84a5b01e48ce7b37936c900e466c1cd2d96b52ac37"
+      type :unofficial
+      resolves "https://github.com/Netflix/dynomite/pull/775"
     end
   end
 

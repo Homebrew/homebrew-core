@@ -1,7 +1,7 @@
 class Libxxf86vm < Formula
   desc "X.Org: XFree86-VidMode X extension"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXxf86vm-1.1.7.tar.gz"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libXxf86vm-1.1.7.tar.gz"
   sha256 "9a983e3cbb7a57905262291a17da962293c0645f99efd475e3c85264bfddc337"
   license "MIT"
   compatibility_version 1

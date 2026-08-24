@@ -18,7 +18,7 @@ class TransifexCli < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/transifex/cli/internal/txlib.Version=#{version}"
+    ldflags = "-X github.com/transifex/cli/internal/txlib.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:, output: bin/"tx")
   end
 

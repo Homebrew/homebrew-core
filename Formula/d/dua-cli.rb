@@ -1,17 +1,22 @@
 class DuaCli < Formula
   desc "View disk space usage and delete unwanted data, fast"
   homepage "https://lib.rs/crates/dua-cli"
-  url "https://github.com/Byron/dua-cli/archive/refs/tags/v2.36.0.tar.gz"
-  sha256 "feb4f0e3cdb2abf2dfd8ab9bdfbc7c43b07f0278b0ad6b02e9909149265aadf6"
+  url "https://github.com/Byron/dua-cli/archive/refs/tags/v2.42.1.tar.gz"
+  sha256 "31a452ce11ff6246da6298b70f892ae6b575eea5669adfd438381afd2157f748"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf6d5074654c1ace040a08630ed5cc4c554f3404a19983eca21617ce32906dca"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fe88364a76300406061a3081f6f0b0041a9de19f3ada1fc957f752af75267594"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "747f6385907fe2e9fdba23b29013b43e9d4e16f99bf3961020a355e1d16d848a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "30d2e6d377d5e5357a38c4223218878c8c01e265d1efd08b22ee42612298e7aa"
-    sha256 cellar: :any,                 arm64_linux:   "42ac0b101d25633e363f225c1bb19a0b827a3f3951556fef8f2a87a611e7f0b6"
-    sha256 cellar: :any,                 x86_64_linux:  "d4a5cfda79c83341e699dfc079fcda7c5645dbae9d93b3c447cebccfb4f48ff1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c3c9710c4e41c26f343c547dc513bac57f042b867c21a87ee7c49c95afa23d68"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "67f70d319699024b2f7e350cbb09d43d342d86b35cdc5a532db673c38a17ac99"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b159795c77d09dc604c664e75d636f8e126dacbb7930081559ea5ba1d336a7f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eaceacce70428ac52bcddc5d76a90fcd501e2df1b3bed2499d9b44e8809b2292"
+    sha256 cellar: :any,                 arm64_linux:   "38c6fc2132cda34fa1222d9544526eea8190358dbb2447a80e8782335849828b"
+    sha256 cellar: :any,                 x86_64_linux:  "4cd3d267cd9f6ff839a49ae3d29c8cfe6740f4fdecc268bec2906152678f50e3"
   end
 
   depends_on "rust" => :build

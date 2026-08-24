@@ -10,10 +10,12 @@ class Libgusb < Formula
     url "https://github.com/hughsie/libgusb/archive/refs/tags/0.4.9.tar.gz"
     sha256 "aa1242a308183d4ca6c2e8c9e3f2e345370b94308ef2d4b6e9c10d5ff6d7763e"
 
-    # add shebang patch for `contrib/generate-version-script.py`, upstream pr ref, https://github.com/hughsie/libgusb/pull/119
+    # add shebang patch for `contrib/generate-version-script.py`
     patch do
       url "https://github.com/hughsie/libgusb/commit/371e851d4229d576e7c3e25a39a0f74449ad2ae3.patch?full_index=1"
       sha256 "cced0c66c9a91bb94b3cc02fe6740ecaf14cd2a8866f1d3e7a8af1378d25ffc8"
+      type :backport
+      resolves "https://github.com/hughsie/libgusb/pull/119"
     end
   end
 

@@ -1,17 +1,17 @@
 class McpServerKubernetes < Formula
   desc "MCP Server for kubernetes management commands"
   homepage "https://github.com/Flux159/mcp-server-kubernetes"
-  url "https://registry.npmjs.org/mcp-server-kubernetes/-/mcp-server-kubernetes-3.9.1.tgz"
-  sha256 "49b240ecc2a533382dcd33067093ddf3292e075b01949ca2f3cd2f6a727b2454"
+  url "https://registry.npmjs.org/mcp-server-kubernetes/-/mcp-server-kubernetes-4.1.4.tgz"
+  sha256 "290ccc8eddc31a70a25deec7e4b329d4982a3a8a368e265610088986b0177da9"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "af3fa32c5ec06512b8830b082c50c3a085b705e295c069daffc2905034ce8d35"
-    sha256 cellar: :any, arm64_sequoia: "c4ffffb56ea49bd5d25f00082ef9a3f5a4f37942bbfb6868344ffeab3f74b425"
-    sha256 cellar: :any, arm64_sonoma:  "c4ffffb56ea49bd5d25f00082ef9a3f5a4f37942bbfb6868344ffeab3f74b425"
-    sha256 cellar: :any, sonoma:        "0cab46eb70b2ac1a4397ec177df5b41d90ff8112e84087af5fb78d7d25955533"
-    sha256 cellar: :any, arm64_linux:   "d7cd4b5fe0c07da0b4e1f74e0642cd2051969f478bdbf0d137ae94d92c4c97ca"
-    sha256 cellar: :any, x86_64_linux:  "dfdd80929c5ac4afaae2bb451db8b97b43d7f20b585595d029e75ee2d7c922b2"
+    sha256 cellar: :any, arm64_tahoe:   "de497759a60b2eeb52a2e80b3a7a4c0a4f52976f78e20cc86cd22eda09a13543"
+    sha256 cellar: :any, arm64_sequoia: "de497759a60b2eeb52a2e80b3a7a4c0a4f52976f78e20cc86cd22eda09a13543"
+    sha256 cellar: :any, arm64_sonoma:  "de497759a60b2eeb52a2e80b3a7a4c0a4f52976f78e20cc86cd22eda09a13543"
+    sha256 cellar: :any, sonoma:        "b672e1c3471c846fb476ff528e274f38142967254a192da4c626615a9d83f1cb"
+    sha256 cellar: :any, arm64_linux:   "853afb3a0b89572b694c7328e13838c565926d81dd98f51320e1fd605cf86d72"
+    sha256 cellar: :any, x86_64_linux:  "e2769380c590c541aa331686b79152b386a80b3e46ba938ec9e619552bfdb627"
   end
 
   depends_on "node"
@@ -24,7 +24,7 @@ class McpServerKubernetes < Formula
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
     node_modules = libexec/"lib/node_modules/mcp-server-kubernetes/node_modules"
-    node_modules.glob("{bare-fs,bare-os,bare-url}/prebuilds/*")
+    node_modules.glob("{bare-fs,bare-path,bare-os,bare-url}/prebuilds/*")
                 .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
   end
 

@@ -21,7 +21,6 @@ class ShuttleCli < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/lunarway/shuttle/cmd.version=#{version}
       -X github.com/lunarway/shuttle/cmd.commit=#{tap.user}
     ]

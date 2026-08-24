@@ -57,7 +57,7 @@ class Ddd < Formula
     ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
 
     # Help configure find freetype headers
-    ENV.append_to_cflags "-I#{Formula["freetype"].opt_include}/freetype2"
+    ENV.append_to_cflags "-I#{formula_opt_include("freetype")}/freetype2"
 
     system "./configure", "--disable-silent-rules",
                           "--enable-builtin-app-defaults",

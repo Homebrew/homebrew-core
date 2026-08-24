@@ -8,12 +8,13 @@ class Gammaray < Formula
   head "https://github.com/KDAB/GammaRay.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ff1decfe3cc1d862994986778991e84acaa926d6a37b3d9486bc6a39c6cf5be0"
-    sha256 cellar: :any,                 arm64_sequoia: "db8abb64ef79a55855e67f267042a3d39b9fce11cac7bdc33317fd166258acf9"
-    sha256 cellar: :any,                 arm64_sonoma:  "a1162b20b59cd51a0a880e1608ba3a2b398d17894b7a5a880666d3a6a88940a9"
-    sha256 cellar: :any,                 sonoma:        "4e20b999b1312561b0edfc160167ca20ff7adabafefb02f28176110d13f6f1b0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d23ddb514491d80bcbe46f3fd32d72a74ccfff0cab3667f9344bf4f7e3bef19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e01581312d2f1d927a2b0f1e4bca488cf57a761f30d1035a8c34e53bf035f3a"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "c0223fd056506e3eabc4fdde27eca3ee0b7d95c2b2d8d3dee7c028f7344873b1"
+    sha256 cellar: :any, arm64_sequoia: "1620f3ce5fc6abac6d87e80022ea773b496e13dc5b69191c1f45a89152577e54"
+    sha256 cellar: :any, arm64_sonoma:  "1c69fefd316a5da83b5dcff89924fa549ecf66a9f8979fc4b4dcad760de528fe"
+    sha256 cellar: :any, sonoma:        "81f1b1ed7c0eb5daf8c4504506911c5f5c0c90e9d026d5b030371f7d8a2d9e32"
+    sha256 cellar: :any, arm64_linux:   "72277a6183c81c8e71994b248be74f1d5532dcfca6f7edbdd1b21a037c864ddc"
+    sha256 cellar: :any, x86_64_linux:  "b5b2546e543d8565d1f487cba7b7a8eb974aff43da5f18f6a1d676e609533ddd"
   end
 
   depends_on "cmake" => :build
@@ -32,7 +33,7 @@ class Gammaray < Formula
     depends_on "qtwebchannel"
   end
 
-  on_sonoma :or_newer do
+  on_system :linux, macos: :sonoma_or_newer do
     depends_on "qtwebengine"
   end
 
@@ -40,18 +41,14 @@ class Gammaray < Formula
     depends_on "elfutils"
     depends_on "qtwayland"
     depends_on "wayland"
-
-    # TODO: Add dependencies on all Linux when `qtwebengine` is bottled on arm64 Linux
-    on_intel do
-      depends_on "qtwebengine"
-    end
   end
 
   # Make rootPath follow symlink to support linked keg.
-  # Submitted upstream: https://github.com/KDAB/GammaRay/pull/1126
   patch do
     url "https://github.com/KDAB/GammaRay/commit/23e98b93e4e430806a43f6cfa5b1dd0ee1ee1c80.patch?full_index=1"
     sha256 "aed9d33a97b4c2dbe11eaff0d06554aa4f80fc2ca10e0f34f1a55526da79423a"
+    type :backport
+    resolves "https://github.com/KDAB/GammaRay/pull/1126"
   end
 
   def install

@@ -46,7 +46,7 @@ class Opensc < Formula
       --enable-openssl
       --enable-pcsc
       --enable-sm
-      --with-xsl-stylesheetsdir=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl
+      --with-xsl-stylesheetsdir=#{formula_opt_prefix("docbook-xsl")}/docbook-xsl
     ]
 
     system "./bootstrap" if build.head?

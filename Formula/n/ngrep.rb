@@ -22,7 +22,7 @@ class Ngrep < Formula
       --enable-ipv6
       --enable-pcre2
     ]
-    args << "--with-pcap-includes=#{Formula["libpcap"].opt_include}"
+    args << "--with-pcap-includes=#{formula_opt_include("libpcap")}"
 
     system "./configure", *args, *std_configure_args
     system "make", "install"

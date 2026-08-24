@@ -3,27 +3,36 @@ class EulerPy < Formula
 
   desc "Project Euler command-line tool written in Python"
   homepage "https://github.com/iKevinY/EulerPy"
-  url "https://files.pythonhosted.org/packages/a6/41/f074081bc036fbe2f066746e44020947ecf06ac53b6319a826023b8b5333/EulerPy-1.4.0.tar.gz"
-  sha256 "83b2175ee1d875e0f52b0d7bae1fb8500f5098ac6de5364a94bc540fb9408d23"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/iKevinY/EulerPy.git", branch: "master"
 
+  stable do
+    url "https://files.pythonhosted.org/packages/a6/41/f074081bc036fbe2f066746e44020947ecf06ac53b6319a826023b8b5333/EulerPy-1.4.0.tar.gz"
+    sha256 "83b2175ee1d875e0f52b0d7bae1fb8500f5098ac6de5364a94bc540fb9408d23"
+
+    # Unpin old click version
+    patch do
+      url "https://github.com/iKevinY/EulerPy/commit/9923d2ee026608e33026909bb95c444724b08ba2.patch?full_index=1"
+      sha256 "43e0474e6efabe576443499c37b280f3b8332321494423c59b1f121306b0759f"
+      type :backport
+      resolves "https://github.com/iKevinY/EulerPy/commit/9923d2ee026608e33026909bb95c444724b08ba2"
+    end
+  end
+
   bottle do
-    rebuild 6
-    sha256 cellar: :any_skip_relocation, all: "6db4a36f8704a74ee7a62cbd6fb742b57b1586b592b0d5d53f6d24e34bb85be5"
+    sha256 cellar: :any_skip_relocation, all: "1f0b353fae5f2356901a0d33ae8c994f35194bc1a23acd06397b6458e892231c"
   end
 
   depends_on "python@3.14"
 
+  # Manually updated
   resource "click" do
-    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
-    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   def install
-    # Unpin old click version: https://github.com/iKevinY/EulerPy/commit/9923d2ee026608e33026909bb95c444724b08ba2
-    inreplace "requirements.txt", "click==4.0", "click"
     virtualenv_install_with_resources
 
     generate_completions_from_executable(bin/"euler", shell_parameter_format: :click)

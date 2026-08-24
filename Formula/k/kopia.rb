@@ -19,7 +19,6 @@ class Kopia < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/kopia/kopia/repo.BuildInfo=#{Utils.git_head}
       -X github.com/kopia/kopia/repo.BuildVersion=#{version}
     ]

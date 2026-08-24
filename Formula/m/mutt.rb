@@ -10,9 +10,9 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://ftp.osuosl.org/pub/mutt/mutt-2.3.3.tar.gz"
-  mirror "http://ftp.mutt.org/pub/mutt/mutt-2.3.3.tar.gz"
-  sha256 "bce753399b28c0efcfa8a446115f0d30d9c27e551ab51b0e53799dd0c373dcc4"
+  url "https://ftp.osuosl.org/pub/mutt/mutt-2.4.1.tar.gz"
+  mirror "http://ftp.mutt.org/pub/mutt/mutt-2.4.1.tar.gz"
+  sha256 "5624321f0b1cc1eff6cab9ef08f25954ff64c51b33d4bf3b99484cf1edd8cfff"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -21,12 +21,12 @@ class Mutt < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "2d344fbcfb436c10035e16fa1a67a89a16b4ad69dea40f38660e952f2be479fe"
-    sha256 arm64_sequoia: "678f0608d1eec720b31ca2fe0261e26a8ce5542b5e44b87f5ff0bf8157120912"
-    sha256 arm64_sonoma:  "759005ae52201085bcf902228a9fd2db62a57348a8521cb2fe97a1d399d55d7b"
-    sha256 sonoma:        "f3999f1242b12be0441fbd58871ff7cb7eb5c4226ddeacb425528864b90b0709"
-    sha256 arm64_linux:   "db4801a134171fd6d0a5e1e455046f14190abebfd2663a4c016972eb867726b5"
-    sha256 x86_64_linux:  "3d1577c84a59ded4da377899533e3c1cb149c82881440232446fb631d1cd8870"
+    sha256 arm64_tahoe:   "b939906be32476b3ddc1a8a9a2a0fedd00f7b0cc35a721fcf79fa5f9c53b3580"
+    sha256 arm64_sequoia: "8aef12e86e2d4efbe49e3e37bc89bdaea897904a47a88c3ee8c075a5ac18558d"
+    sha256 arm64_sonoma:  "d87bfb4ace1ee4f8bc5a9a5cea48d38fba3be68297a146c1d16213586b27bd34"
+    sha256 sonoma:        "1290157843792711b374bd4c09786a1b4ebc719742988f0b26b84348d0338385"
+    sha256 arm64_linux:   "82710e5c9d1bd2ae7b8f429b8542ca36afcd2d776c18d2d2f717a77c9110a7f6"
+    sha256 x86_64_linux:  "fdb2518b71f57a1bbaa760bc3694618e54e70af30a1213d58f263aca02c95a8f"
   end
 
   head do
@@ -82,7 +82,7 @@ class Mutt < Formula
       --with-idn2
       --with-lmdb
       --with-sasl
-      --with-ssl=#{Formula["openssl@3"].opt_prefix}
+      --with-ssl=#{formula_opt_prefix("openssl@3")}
     ]
 
     configure = build.head? ? "./prepare" : "./configure"

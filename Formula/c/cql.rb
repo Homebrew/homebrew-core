@@ -29,13 +29,14 @@ class Cql < Formula
   patch do
     url "https://github.com/CovenantSQL/CovenantSQL/commit/c1d5d81f5c27f0d02688bba41e29b84334eb438c.patch?full_index=1"
     sha256 "ebb9216440dc7061a99ad05be3dc7634db4260585f82966104a29a7c323c903d"
+    type :backport
+    resolves "https://github.com/CovenantSQL/CovenantSQL/pull/379"
   end
 
   def install
     ENV["CGO_ENABLED"] = "1"
 
     ldflags = %W[
-      -s -w
       -X main.version=v#{version}
       -X github.com/CovenantSQL/CovenantSQL/conf.RoleTag=C
       -X github.com/CovenantSQL/CovenantSQL/utils/log.SimpleLog=Y

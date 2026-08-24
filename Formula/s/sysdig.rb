@@ -52,10 +52,11 @@ class Sysdig < Formula
   end
 
   # Fix inclusion of removed `zlib.cmake` module
-  # https://github.com/draios/sysdig/pull/2176
   patch do
     url "https://github.com/draios/sysdig/commit/1f4565219b74c8b8ff9084425e24c50b43ec3d7b.patch?full_index=1"
     sha256 "6002ab9759c08e79d6382b48e43f47e70cf07141981be5a1717bdc4ad503402a"
+    type :unofficial
+    resolves "https://github.com/draios/sysdig/pull/2176"
   end
 
   def install
@@ -74,10 +75,6 @@ class Sysdig < Formula
         -DFALCOSECURITY_LIBS_VERSION=#{resource("falcosecurity-libs").version}
         -DUSE_BUNDLED_DEPS=OFF
       ]
-      # TODO: remove on next release which has dropped option
-      # https://github.com/falcosecurity/libs/commit/d45d53a1e0e397658d23b216c3c1716a68481554
-      args << "-DMINIMAL_BUILD=ON" if OS.mac?
-
       system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args(install_prefix: falco_prefix)
       system "cmake", "--build", "build"
       system "cmake", "--install", "build"

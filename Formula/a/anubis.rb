@@ -1,8 +1,8 @@
 class Anubis < Formula
   desc "Protect resources from scraper bots"
   homepage "https://anubis.techaro.lol"
-  url "https://github.com/TecharoHQ/anubis/archive/refs/tags/v1.25.0.tar.gz"
-  sha256 "e281562dea0b49d0639c3c5e9b0a2a7fe522b1a359e3cec470db06493835bbe7"
+  url "https://github.com/TecharoHQ/anubis/archive/refs/tags/v1.27.0.tar.gz"
+  sha256 "5a3f93d5b763283e2432f2574f30d30434befd5e1788990bd031bdf0696e78b3"
   license "MIT"
   head "https://github.com/TecharoHQ/anubis.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Anubis < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a9acf178b4a331b463edeb7672edbce48d993665ba6b47af2cd20977e0bf7f65"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "673347ccc53830891b3ac4c9a49c5183b1668777664de1f8a16639ececfcc04b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8dc6689df677b524f2968523f9f40a714602f8ac3335ff480813243f11b876be"
-    sha256 cellar: :any_skip_relocation, sonoma:        "19c52c1e6911cb7eda04e793cf546e8113b75052162dcf6714154cc4c2f63641"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "36e0b479bd36da7229c6b3e272b21a49b4b161f9f7b5d9912baaa1c33d8d67f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "798c2f328cdb18c3434120e2568a982a1658e1fd5dd360fcaf2f23cfe2f3ed09"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5cd6295e24a4155cd4f0798f9b35350600511d8e1987600852e292bc4b02357d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6eacc20672b0cb83bd1a4b9fb34c390219267cd25180d1e50489463b21edcfbf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "24f89dd774abe9a05d165249c21320643ecf1df76cd679000fe809bf718aca24"
+    sha256 cellar: :any_skip_relocation, sonoma:        "35afb4c7f9ee12a87b59b74b6f3ffcf51a8542f28d391b1021110ea7a5bcbc29"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c9f395f3b3f990756b5de7910c5e33dbffc1eb2c8fcf2b819cfbeb9bcd3e5a62"
+    sha256 cellar: :any,                 x86_64_linux:  "aef8bf549b530849bc3a795d075125b2eab7f5159824f32321a2d53eda83c613"
   end
 
   depends_on "brotli" => :build
@@ -32,7 +32,7 @@ class Anubis < Formula
 
   def install
     system "make", "assets"
-    ldflags = "-s -w -X github.com/TecharoHQ/anubis.Version=#{version}"
+    ldflags = "-X github.com/TecharoHQ/anubis.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/anubis"
   end
 
@@ -40,7 +40,7 @@ class Anubis < Formula
     webify_port = free_port
     anubis_port = free_port
 
-    webify_pid = spawn Formula["webify"].opt_bin/"webify", "-addr", ":#{webify_port}", "echo", "Homebrew"
+    webify_pid = spawn formula_opt_bin("webify")/"webify", "-addr", ":#{webify_port}", "echo", "Homebrew"
     anubis_pid = spawn bin/"anubis", "-bind", ":#{anubis_port}", "-target", "http://localhost:#{webify_port}",
       "-serve-robots-txt", "-use-remote-address", "127.0.0.1"
 

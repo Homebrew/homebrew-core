@@ -1,8 +1,8 @@
 class Calceph < Formula
   desc "C library to access the binary planetary ephemeris files"
-  homepage "https://www.imcce.fr/inpop/calceph"
-  url "https://www.imcce.fr/content/medias/recherche/equipes/asd/calceph/calceph-4.0.5.tar.gz"
-  sha256 "3460d8a3e10a86e7fe0228d5d9abcda589713b8ed3ee007ce061ae01f8c2e1ea"
+  homepage "https://calceph.imcce.fr"
+  url "https://www.imcce.fr/content/medias/recherche/equipes/asd/calceph/calceph-5.0.0.tar.gz"
+  sha256 "aea5120af73f0a492cea2fdc9c63078ee5b625a181cc4f0622ffa68160a2d20b"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,24 +11,25 @@ class Calceph < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4a1697db0c615f68049b055034beca20f3ebe94327c9976074176ef65141b89f"
-    sha256 cellar: :any,                 arm64_sequoia: "754230b9132b8db3b75dc7eae342772e8e3cd3404e8bda89e0ca63a6bdab9333"
-    sha256 cellar: :any,                 arm64_sonoma:  "8330dada267fd61aed38edb48579a83e57694c70c78b5c5c9064fd672983266c"
-    sha256 cellar: :any,                 arm64_ventura: "0e7de121d382e0277e2d23e8627417493a97e8f7ca95b00f6bfc6b18a9064738"
-    sha256 cellar: :any,                 sonoma:        "17b0aa7869f8977327c1ba0d5838fecc882dd85a3a6a6872806593f375ce0ad7"
-    sha256 cellar: :any,                 ventura:       "614cddd90b7e738303e97d386fa1612ab57fd60766bf8fb8cc781af06adfde39"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "527d6c7622d8df61721200858ab0e1eb2d538fb3e4742e19e1a7ab3ff3692c77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a14165e0bb191f70ea0b083004328096ed866efa64e5b301ddd394c4df12d67"
+    sha256 cellar: :any, arm64_tahoe:   "6eee07b5e3eb9ffe17467f1d4e002607ebcbd0e6240ff17db45d613713550e2f"
+    sha256 cellar: :any, arm64_sequoia: "bd0abe2d6c82207fee9edd8d265c05c6dc91b5694a118f487d5ad887d328cf5d"
+    sha256 cellar: :any, arm64_sonoma:  "f29c80e99a4b49893a5c78e6e7584ea2a9cf3953b67f2fedc0b406612df34d51"
+    sha256 cellar: :any, sonoma:        "c9acd7c2ef7a11e54ea48c48781315682428c5633d573a19aab81ca8d70f437b"
+    sha256 cellar: :any, arm64_linux:   "41840ebcd20d272037f2623f108ab1bf27d4001773d57865a6224e7e8f51906f"
+    sha256 cellar: :any, x86_64_linux:  "b42bb590fb5819332ddad034a2ea82d997bb08158d0fb2bf8fec1c2c4686e950"
   end
 
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
 
   def install
+    # Fall back to gfortran's mangling if Fortran/C interface detection fails.
     args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DENABLE_FORTRAN=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DFortranCInterface_GLOBAL_CASE=LOWER
+      -DFortranCInterface_GLOBAL__SUFFIX=_
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

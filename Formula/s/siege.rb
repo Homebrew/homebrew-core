@@ -1,8 +1,8 @@
 class Siege < Formula
   desc "HTTP regression testing and benchmarking utility"
   homepage "https://www.joedog.org/siege"
-  url "https://download.joedog.org/siege/siege-4.1.7.tar.gz"
-  sha256 "ec140cedd159979383d60dbe87a0151c2c12ada78791095a8fa84ae635b93026"
+  url "https://download.joedog.org/siege/siege-4.2.0.tar.gz"
+  sha256 "78af482fc655f1cf7270fdbc3171581ed4cb3163009f7f4f056fc2b7e2d24453"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class Siege < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "99fd3c249f08543fe28e2ce0feacad9d3f39dfaaab5426353db4556354b48343"
-    sha256 arm64_sequoia: "b3e45c347c9a8357cdd9ec6710f68877902cbe1341c14069fedf90f8d41d2fff"
-    sha256 arm64_sonoma:  "e49efe214fad929f1ecc271233082e9b01cc72ea14f0efd7b934ed2eccc08b68"
-    sha256 sonoma:        "cf8869d12d391139c614e555a0cd38c0b2a55fa04f6b86a441cfbcd8a9f41fd3"
-    sha256 arm64_linux:   "78357dc676f30199d8d7c12e543e9950d89db5a5cfe851d1a6f086f073c453e5"
-    sha256 x86_64_linux:  "8cbf3e2d2cc75149b5940c4148d0e96e5b1a3eb5472b0aaab50c10ec34e787fb"
+    sha256 arm64_tahoe:   "3186ecf8ef3b546c3b2bb32dc002c954e66d093b7a7448fd78e5adaf923a8d24"
+    sha256 arm64_sequoia: "ecd09a37f6ffb889db49b639abc0d2f3178a66c53cd5a1b0254a8c3eab96fdd0"
+    sha256 arm64_sonoma:  "ec7d129c7ebecabd7dbf124362ebf27fd0d5efb2e88b5080f7e7203afa6798b3"
+    sha256 sonoma:        "d82d56e7d981fa198ee87a7f35cc2676e0b92ca10a9cadc02514eda7113ec0d3"
+    sha256 arm64_linux:   "efa16f2f8c71eb84d4e98ead888de7d2aab940e95dfe19bd40a3960de22b6f89"
+    sha256 x86_64_linux:  "770a4c20b41bcd77a748cd667255508b882bd1449440799104a950058ce38635"
   end
 
   depends_on "openssl@4"
@@ -34,10 +33,10 @@ class Siege < Formula
     # To avoid unnecessary warning due to hardcoded path, create the folder first
     (prefix/"etc").mkdir
 
-    zlib = OS.mac? ? "#{MacOS.sdk_path}/usr" : Formula["zlib-ng-compat"].opt_prefix
+    zlib = OS.mac? ? "#{MacOS.sdk_path}/usr" : formula_opt_prefix("zlib-ng-compat")
     args = %W[
       --localstatedir=#{var}
-      --with-ssl=#{Formula["openssl@4"].opt_prefix}
+      --with-ssl=#{formula_opt_prefix("openssl@4")}
       --with-zlib=#{zlib}
     ]
 

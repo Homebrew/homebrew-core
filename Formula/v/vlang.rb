@@ -2,8 +2,8 @@ class Vlang < Formula
   desc "V programming language"
   homepage "https://vlang.io"
   # NOTE: Keep this in sync with V compiler below when updating
-  url "https://github.com/vlang/v/archive/refs/tags/0.5.1.tar.gz"
-  sha256 "444f20a77b57fec8a4e8a31fb2d50c318d277fe8377e0c870c2087395c0de810"
+  url "https://github.com/vlang/v/archive/refs/tags/0.5.2.tar.gz"
+  sha256 "1a05f646fba9516ec6307979b282d0cc5327075bef268d40c0ca7d0b887e4f52"
   license "MIT"
 
   livecheck do
@@ -12,15 +12,18 @@ class Vlang < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "cc874e4768a2864b7e11fdc979890cf1d43523e5ff6a782b47f201754970bd20"
-    sha256                               arm64_sequoia: "d76b8e73e5b582a058176d6f12191e7abc7f2b4abe1c34bc394aebe3d8a3204a"
-    sha256                               arm64_sonoma:  "5bfe1fc97d00ead3636fb5a1bbe1eb86ea64675ecd4c89855f4591bf9d69cc72"
-    sha256 cellar: :any,                 sonoma:        "2aa49153277c1f7e17cfb19417c7c1c90b2c1f1f01d2509ef4be49215e9df24c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "144b1e72ec64c79b0ceb3d6a1b8288a82b4a7ad883d2d4e52ba46b18c5f3e0d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29bb6238dafb1c34d7a82966a929671284df9005d894cb13992777b4e131ba0b"
+    sha256               arm64_tahoe:   "bfcca56799ff42156cbde905da0fb8ddfadd7613d0cd05e147cbb2201af13bc0"
+    sha256               arm64_sequoia: "bce1478d41c56d1977683a5155e1a1575b2b329c9cc8cc6827420f426209d1fd"
+    sha256               arm64_sonoma:  "bce8019e452f8c4cbc92ba4ce84cad16be09ab17cef8379022086c648cadf973"
+    sha256 cellar: :any, sonoma:        "fd6ed7cdab28ef1ecd7236e96cee1c009b952254e4fbb5dfea961c40208ee883"
+    sha256 cellar: :any, arm64_linux:   "9d967dd4448c15167b9d3266c34a4d8a7777499e3c190bebf117a2eed9ba0689"
+    sha256 cellar: :any, x86_64_linux:  "74c220fb73ed5a2290eb7e600a742a35e1abdc77452f5c44f794f2afb3cee506"
   end
 
   depends_on "bdw-gc"
+  # `v sqlite` and the new-in-0.5.2 `v bug` tool import `db.sqlite`, whose C
+  # header is gated on `$pkgconfig('sqlite3')`. Provide sqlite3.pc so it builds.
+  uses_from_macos "sqlite"
 
   conflicts_with "v", because: "both install `v` binaries"
 
@@ -29,27 +32,24 @@ class Vlang < Formula
     # When updating vlang, find the vc commit whose message matches this release:
     #   [v:master] <vlang commit SHA> - V <version>
     # Then use that vc commit's SHA in the URL below.
-    url "https://github.com/vlang/vc/archive/f461dfebcdfac3c75fdf28fec80c07f0a7a9a53d.tar.gz"
-    sha256 "f537c63ff195d3583eb2bfdfb51dfc50d8cbaf0ef8b955954cbe4c9a7343d81c"
+    url "https://github.com/vlang/vc/archive/7eb8c54a3843e5107d5af06d7a8c3e928f322475.tar.gz"
+    sha256 "255d5e999edf71dd2786c06a0fdcda47ecfd79d9fde3c9cf7548e36996284f45"
 
     on_big_sur :or_older do
       patch do
-        url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/vlang/vc.patch"
-        sha256 "0e0a2de7e37c0b22690599c0ee0a1176c2c767ea95d5fade009dd9c1f5cbf85d"
+        file "Patches/vlang/vc.patch"
+        type :unofficial
       end
     end
-  end
-
-  # upstream fix for clang20 + musl qsort signature, https://github.com/vlang/v/issues/24711
-  patch do
-    url "https://github.com/vlang/v/commit/4333e2ddcb5c5e0927c630bc5c17bdf915a71696.patch?full_index=1"
-    sha256 "45fb47de9a17dc391728cc37db2c6409c7ec8915f753179bf9f40eb707451234"
   end
 
   # upstream discussion, https://github.com/vlang/v/issues/16776
   patch :DATA
 
   def install
+    # V's bundled pkg-config reads PKG_CONFIG_PATH but not PKG_CONFIG_LIBDIR, where sqlite3.pc is.
+    ENV.append_path "PKG_CONFIG_PATH", ENV["PKG_CONFIG_LIBDIR"]
+
     # upstream-recommended packaging, https://github.com/vlang/v/blob/master/doc/packaging_v_for_distributions.md
     %w[up self].each do |cmd|
       (buildpath/"cmd/tools/v#{cmd}.v").delete
@@ -58,8 +58,14 @@ class Vlang < Formula
       EOS
     end
 
-    # `v share` requires X11 on Linux, so don't build it
-    mv "cmd/tools/vshare.v", "vshare.v.orig" if OS.linux?
+    # `v share` requires X11 on Linux, so don't build it. `v bug`'s generated C
+    # also fails to compile on Linux in 0.5.2 (a `#undef L_tmpnam` collision
+    # breaks glibc's <stdio.h>), so skip that tool on Linux too.
+    # Upstream issue: https://github.com/vlang/v/issues/28108
+    if OS.linux?
+      mv "cmd/tools/vshare.v", "vshare.v.orig"
+      mv "cmd/tools/vbug-report.v", "vbug-report.v.orig"
+    end
 
     resource("vc").stage do
       system ENV.cc, "-std=c99", "-w", "-o", buildpath/"v1", "v.c", "-lm", "-lpthread"
@@ -69,8 +75,15 @@ class Vlang < Formula
     system "./v1", "-no-parallel", "-o", buildpath/"v2", "-prod", *bootvfflag, "cmd/v"
     system "./v2", "-nocache", "-o", buildpath/"v", "-prod", "-d", "dynamic_boehm", *bootvfflag, "cmd/v"
     rm ["./v1", "./v2"]
-    system "./v", "-prod", "-d", "dynamic_boehm", *bootvfflag, "build-tools"
-    mv "vshare.v.orig", "cmd/tools/vshare.v" if OS.linux?
+    # `v -prod build-tools` regressed in 0.5.2: building some tools with `-prod`
+    # (LTO) exhausts memory and crashes the build. Build the tools without
+    # `-prod`; the `v` binary itself is still built with `-prod` above.
+    # Upstream issue: https://github.com/vlang/v/issues/28108
+    system "./v", "-d", "dynamic_boehm", *bootvfflag, "build-tools"
+    if OS.linux?
+      mv "vshare.v.orig", "cmd/tools/vshare.v"
+      mv "vbug-report.v.orig", "cmd/tools/vbug-report.v"
+    end
 
     (buildpath/"cmd/tools/.disable_autorecompilation").write ""
 
@@ -87,17 +100,17 @@ class Vlang < Formula
     cp pkgshare/"examples/hello_world.v", testpath
     system bin/"v", "-o", "test", "hello_world.v"
     assert_equal "Hello, World!", shell_output("./test").chomp
-    assert !Utils.binary_linked_to_library?("test", Formula["bdw-gc"].opt_lib/shared_library("libgc")),
+    assert !Utils.binary_linked_to_library?("test", formula_opt_lib("bdw-gc")/shared_library("libgc")),
             "v should not produce binary dynamically linked to bdw-gc! Check the patch in the formula!"
   end
 end
 
 __END__
 diff --git a/vlib/builtin/builtin_d_gcboehm.c.v b/vlib/builtin/builtin_d_gcboehm.c.v
-index 444a014..159e5a1 100644
 --- a/vlib/builtin/builtin_d_gcboehm.c.v
 +++ b/vlib/builtin/builtin_d_gcboehm.c.v
-@@ -43,24 +43,13 @@ $if dynamic_boehm ? {
+@@ -65,44 +65,14 @@
+ } $else {
  	$if macos || linux {
  		#flag -DGC_BUILTIN_ATOMIC=1
 -		#flag -I @VEXEROOT/thirdparty/libgc/include
@@ -105,20 +118,40 @@ index 444a014..159e5a1 100644
 +		#flag -I @@HOMEBREW_PREFIX@@/include
 +		$if (!macos && prod && !tinyc && !debug) || !(amd64 || arm64 || i386 || arm32 || rv64) {
  			// TODO: replace the architecture check with a `!$exists("@VEXEROOT/thirdparty/tcc/lib/libgc.a")` comptime call
+ 			#flag -DALL_INTERIOR_POINTERS=1
  			#flag @VEXEROOT/thirdparty/libgc/gc.o
  		} $else {
  			$if !use_bundled_libgc ? {
 -				$if macos {
--					#flag -L@VEXEROOT/thirdparty/tcc/lib
--					#flag -lgc
 -					$if tinyc {
--						// this is a problem for compiler paths, containing spaces and commas, but tcc does not support -Xlinker :-|
--						#flag -Wl,-rpath,"@VEXEROOT/thirdparty/tcc/lib"
+-						$if arm64 {
+-							// tcc on macOS arm64 can leave the bundled GC archive symbols unresolved.
+-							#flag @VEXEROOT/thirdparty/tcc/lib/libgc.dylib
+-							#flag -Wl,-rpath,"@VEXEROOT/thirdparty/tcc/lib"
+-						} $else {
+-							// macOS amd64 tccbin only ships libgc.a (no .dylib).
+-							#flag @VEXEROOT/thirdparty/tcc/lib/libgc.a
+-						}
 -					} $else {
+-						#flag -L@VEXEROOT/thirdparty/tcc/lib
+-						#flag -lgc
 -						#flag -Xlinker -rpath -Xlinker "@VEXEROOT/thirdparty/tcc/lib"
 -					}
 -				} $else {
--					#flag @VEXEROOT/thirdparty/tcc/lib/libgc.a
+-					$if musl ? {
+-						// The bundled tcc libgc archive is built for glibc and
+-						// references __data_start/data_start, which musl does
+-						// not provide. Alpine installs musl-compatible libgc.
+-						$if tinyc {
+-							// Prefer the shared library when present: Alpine's
+-							// static libgc archive can leave weak data segment
+-							// probes unresolved under tcc.
+-							#flag $when_first_existing("/usr/lib/libgc.so", "/usr/local/lib/libgc.so", "/lib/libgc.so")
+-						}
+-						#flag -lgc
+-					} $else {
+-						#flag @VEXEROOT/thirdparty/tcc/lib/libgc.a
+-					}
 -				}
 +				#flag @@HOMEBREW_PREFIX@@/lib/libgc.a
  			}

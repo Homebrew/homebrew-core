@@ -1,8 +1,8 @@
 class BashCompletionAT2 < Formula
   desc "Programmable completion for Bash 4.2+"
   homepage "https://github.com/scop/bash-completion"
-  url "https://github.com/scop/bash-completion/releases/download/2.17.0/bash-completion-2.17.0.tar.xz"
-  sha256 "dd9d825e496435fb3beba3ae7bea9f77e821e894667d07431d1d4c8c570b9e58"
+  url "https://github.com/scop/bash-completion/releases/download/2.18.0/bash-completion-2.18.0.tar.xz"
+  sha256 "88bcf85124f77f74f2f2f8bcd16ac4382d807a827ede742a64940c7116aea33f"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class BashCompletionAT2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ea80dd75c8d7b48e1ed47b5c1b36c5171ec31640ea290ecc3fb8a6f8941d4fbf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ea80dd75c8d7b48e1ed47b5c1b36c5171ec31640ea290ecc3fb8a6f8941d4fbf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ea80dd75c8d7b48e1ed47b5c1b36c5171ec31640ea290ecc3fb8a6f8941d4fbf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f958af6492d1c86a775cb5fedbbece68ea1853208a4b92fa169c527ca12d0cc2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea80dd75c8d7b48e1ed47b5c1b36c5171ec31640ea290ecc3fb8a6f8941d4fbf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea80dd75c8d7b48e1ed47b5c1b36c5171ec31640ea290ecc3fb8a6f8941d4fbf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c4155c66f3e11be146daec64a9c0121f87dadd27fda2f631b1aa55784016a0c6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c4155c66f3e11be146daec64a9c0121f87dadd27fda2f631b1aa55784016a0c6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c4155c66f3e11be146daec64a9c0121f87dadd27fda2f631b1aa55784016a0c6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f96ab73a09477ff6eec8b56c8f02e4c2bf9db31bd35274b21616754ed6d0dad5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4155c66f3e11be146daec64a9c0121f87dadd27fda2f631b1aa55784016a0c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4155c66f3e11be146daec64a9c0121f87dadd27fda2f631b1aa55784016a0c6"
   end
 
   head do

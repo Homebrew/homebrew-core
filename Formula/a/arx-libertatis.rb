@@ -35,7 +35,7 @@ class ArxLibertatis < Formula
   depends_on "freetype"
   depends_on "glew"
   depends_on "innoextract"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   on_linux do
     depends_on "mesa"

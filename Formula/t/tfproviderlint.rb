@@ -8,21 +8,21 @@ class Tfproviderlint < Formula
   head "https://github.com/bflad/tfproviderlint.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6f4bf27d9b61e145f042c164ed14a9a3a01ce9b9caaafabd14dd91764b6f7014"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f7ed7fe0393b6cc3591ca9dbcce920c84698ff11ab9446e29e93888a67a494f8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f7ed7fe0393b6cc3591ca9dbcce920c84698ff11ab9446e29e93888a67a494f8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f7ed7fe0393b6cc3591ca9dbcce920c84698ff11ab9446e29e93888a67a494f8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a6ff646a23f8738c5e0b3dcb848c09b1125182d03e0d7925d58927bb6b066f36"
-    sha256 cellar: :any_skip_relocation, ventura:       "a6ff646a23f8738c5e0b3dcb848c09b1125182d03e0d7925d58927bb6b066f36"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a31f564bfe6ecb8bb9ac76043141bf54674b05d51ef4c0df2cfa964fdf25742c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45dcc2992373e36bd948f80f3a4e9db317c4d209ee2e449c476fbd1e4490854c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "41e55bedd7227335e6654821fcd14e582d8c48514d8df62a9136a8ef15028d90"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "41e55bedd7227335e6654821fcd14e582d8c48514d8df62a9136a8ef15028d90"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41e55bedd7227335e6654821fcd14e582d8c48514d8df62a9136a8ef15028d90"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dfb3b76521fab5b8f81c927e117b1029e48d830268433ac124dabf2df75a6cab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "51b3c2e54371787e3a07785b27add80eddd91c96cdb7d1c96b7d46b294b7f319"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecd9538961f5f67ce00b6249b89fc0e73c132300b0ca9a19e3eb62d10d727fdd"
   end
 
-  depends_on "go" => [:build, :test]
+  # TODO: unpin go@1.26 when tfproviderlint supports go 1.27
+  # ref: https://github.com/bflad/tfproviderlint/issues/345
+  depends_on "go@1.26" => [:build, :test]
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/bflad/tfproviderlint/version.Version=#{version}
       -X github.com/bflad/tfproviderlint/version.VersionPrerelease=#{"dev" if build.head?}
     ]
@@ -35,6 +35,9 @@ class Tfproviderlint < Formula
       url "https://github.com/russellcardullo/terraform-provider-pingdom/archive/refs/tags/v1.1.3.tar.gz"
       sha256 "3834575fd06123846245eeeeac1e815f5e949f04fa08b65c67985b27d6174106"
     end
+
+    # TODO: remove when unpinning go 1.26
+    ENV.prepend_path "PATH", formula_opt_libexec("go@1.26")/"bin" # for keg_only go 1.26 binary
 
     testpath.install resource("homebrew-test_resource")
     assert_match "S006: schema of TypeMap should include Elem",

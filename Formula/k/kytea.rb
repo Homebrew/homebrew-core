@@ -9,14 +9,15 @@ class Kytea < Formula
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
-      sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+      file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
     end
 
     # Fix build with newer Clang
     patch do
       url "https://github.com/neubig/kytea/commit/eab98ce9c45ccc4a0226a87fa6c40b6d0c5ba82b.patch?full_index=1"
       sha256 "aabb381b38592432d97f789520c81e6df46808c611ff541aae093357c06921c6"
+      type :backport
+      resolves "https://github.com/neubig/kytea/pull/29"
     end
   end
 

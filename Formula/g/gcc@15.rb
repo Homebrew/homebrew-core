@@ -12,14 +12,15 @@ class GccAT15 < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "85291c4be12f71cccc0aa9b91caa60adf3427839e3154b93865c4f185b28f209"
-    sha256               arm64_sequoia: "a81cc934a4c1137af62ebf51cc8307b2527920bff41e36f57e166f346f1f6212"
-    sha256               arm64_sonoma:  "ee90b877579753c313b6831473a664474edcd333432e1a12ad8b96e74458a86a"
-    sha256               tahoe:         "b6a4905798c1eaed7a8ffdab8d73c5518c6e29581ae35513aa82a6c5179d0fea"
-    sha256               sequoia:       "00899c6e53c51462b8982b5c70f8844a8a832d4dd0c65a650c8bbad3e0c32c41"
-    sha256               sonoma:        "613be6cf2514f7f84205a7e24b89cd435240e7669399968d8e1395d2edc9fe5d"
-    sha256 cellar: :any, arm64_linux:   "2346e93ac94737aebf25bb753615d0d57d44b67e45838a282e62411e60c724ab"
-    sha256 cellar: :any, x86_64_linux:  "0784305caaaa8674b8c77bb0a335b2e79e6daa374104151762b256ac5849ea81"
+    rebuild 1
+    sha256               arm64_tahoe:   "9d1a7c3069a0c1359c6b5453ad8030b3d7744696bb6c5c46a2bd54b46a3caabc"
+    sha256               arm64_sequoia: "6b2ef487a9bbe2f0f3aac11938fd4faf345447afa366f8511072b6be28f42342"
+    sha256               arm64_sonoma:  "0f461330c058f4e9dce23dfa3942d3a6e716ad0555abf70cfff6bee4a2621ca5"
+    sha256               tahoe:         "a32f2ecc0e5ac64a5eca96a13e439f4358553d234eaccee5f8ccf1ba7b6e7fb2"
+    sha256               sequoia:       "3414427989c7601d4294bdfac3690877ce230aeb920a047e3b6ae9d2273e6870"
+    sha256               sonoma:        "c5d05388d0bbd34d30cdd81a70db9d81c680712f96d4fa9a00bd7f43fc188d00"
+    sha256 cellar: :any, arm64_linux:   "683745e655a72723fdfe3ee2902dc994c449d6a7813c3a04ad277100a43e4a2c"
+    sha256 cellar: :any, x86_64_linux:  "926b74086c0e13dc7cfa9002d6d005ccc5cbebd8b64546d278f4ccae90f32b61"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -78,11 +79,11 @@ class GccAT15 < Formula
       --with-gcc-major-version-only
       --enable-languages=#{languages.join(",")}
       --program-suffix=-#{version.major}
-      --with-gmp=#{Formula["gmp"].opt_prefix}
-      --with-mpfr=#{Formula["mpfr"].opt_prefix}
-      --with-mpc=#{Formula["libmpc"].opt_prefix}
-      --with-isl=#{Formula["isl"].opt_prefix}
-      --with-zstd=#{Formula["zstd"].opt_prefix}
+      --with-gmp=#{formula_opt_prefix("gmp")}
+      --with-mpfr=#{formula_opt_prefix("mpfr")}
+      --with-mpc=#{formula_opt_prefix("libmpc")}
+      --with-isl=#{formula_opt_prefix("isl")}
+      --with-zstd=#{formula_opt_prefix("zstd")}
       --with-pkgversion=#{pkgversion}
       --with-bugurl=#{tap.issues_url}
       --with-system-zlib
@@ -93,13 +94,16 @@ class GccAT15 < Formula
       args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
 
       # System headers may not be in /usr/include
-      sdk = MacOS.sdk_path_if_needed
+      sdk = MacOS.sdk_path
       args << "--with-sysroot=#{sdk}" if sdk
 
       # Avoid this semi-random failure:
       # "Error: Failed changing install name"
       # "Updated load commands do not fit in the header"
-      make_args = %w[BOOT_LDFLAGS=-Wl,-headerpad_max_install_names]
+      make_args = %w[
+        BOOT_LDFLAGS=-Wl,-headerpad_max_install_names
+        LDFLAGS_FOR_TARGET=-Wl,-headerpad_max_install_names
+      ]
     else
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
@@ -112,8 +116,8 @@ class GccAT15 < Formula
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
       inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
-      ENV.append_path "CPATH", Formula["zlib-ng-compat"].opt_include
-      ENV.append_path "LIBRARY_PATH", Formula["zlib-ng-compat"].opt_lib
+      ENV.append_path "CPATH", formula_opt_include("zlib-ng-compat")
+      ENV.append_path "LIBRARY_PATH", formula_opt_lib("zlib-ng-compat")
     end
 
     mkdir "build" do
@@ -150,84 +154,8 @@ class GccAT15 < Formula
     File.rename file, "#{dir}/#{base}-#{suffix}#{ext}"
   end
 
-  def post_install
-    if OS.linux?
-      gcc = bin/"gcc-#{version.major}"
-      libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
-      raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
-
-      glibc = Formula["glibc"]
-      glibc_installed = glibc.any_version_installed?
-
-      # Symlink system crt1.o and friends where gcc can find it.
-      crtdir = if glibc_installed
-        glibc.opt_lib
-      else
-        Pathname.new(Utils.safe_popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
-      end
-      ln_sf Dir[crtdir/"*crt?.o"], libgcc
-
-      # Create the GCC specs file
-      # See https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
-
-      # Locate the specs file
-      specs = libgcc/"specs"
-      ohai "Creating the GCC specs file: #{specs}"
-      specs_orig = Pathname.new("#{specs}.orig")
-      rm([specs_orig, specs].select(&:exist?))
-
-      system_header_dirs = ["#{HOMEBREW_PREFIX}/include"]
-
-      if glibc_installed
-        # https://github.com/Linuxbrew/brew/issues/724
-        system_header_dirs << glibc.opt_include
-      else
-        # Locate the native system header dirs if user uses system glibc
-        target = Utils.safe_popen_read(gcc, "-print-multiarch").chomp
-        raise "command failed: #{gcc} -print-multiarch" if $CHILD_STATUS.exitstatus.nonzero?
-
-        system_header_dirs += ["/usr/include/#{target}", "/usr/include"]
-      end
-
-      # Save a backup of the default specs file
-      specs_string = Utils.safe_popen_read(gcc, "-dumpspecs")
-      raise "command failed: #{gcc} -dumpspecs" if $CHILD_STATUS.exitstatus.nonzero?
-
-      specs_orig.write specs_string
-
-      # Set the library search path
-      # For include path:
-      #   * `-isysroot #{HOMEBREW_PREFIX}/nonexistent` prevents gcc searching built-in
-      #     system header files.
-      #   * `-idirafter <dir>` instructs gcc to search system header
-      #     files after gcc internal header files.
-      # For libraries:
-      #   * `-nostdlib -L#{libgcc} -L#{glibc.opt_lib}` instructs gcc to use
-      #     brewed glibc if applied.
-      #   * `-L#{libdir}` instructs gcc to find the corresponding gcc
-      #     libraries. It is essential if there are multiple brewed gcc
-      #     with different versions installed.
-      #     Noted that it should only be passed for the `gcc@*` formulae.
-      #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
-      #     brew libraries.
-      # Note: *link will silently add #{libdir} first to the RPATH
-      libdir = HOMEBREW_PREFIX/"lib/gcc/#{version.major}"
-      specs.write specs_string + <<~EOS
-        *cpp_unique_options:
-        + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
-
-        *link_libgcc:
-        #{glibc_installed ? "-nostdlib -L#{libgcc} -L#{glibc.opt_lib}" : "+"} -L#{libdir} -L#{HOMEBREW_PREFIX}/lib
-
-        *link:
-        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir}
-
-        *homebrew_rpath:
-        -rpath #{HOMEBREW_PREFIX}/lib
-
-      EOS
-      inreplace(specs, " %o ", "\\0%(homebrew_rpath) ")
-    end
+  post_install_steps do
+    configure_gcc_runtime
   end
 
   test do

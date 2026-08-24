@@ -53,7 +53,7 @@ class Nco < Formula
 
       (buildpath/"bin/antlr").write <<~SH
         #!/bin/sh
-        exec "#{Formula["openjdk"].opt_bin}/java" -classpath "#{buildpath}/libexec/antlr.jar" antlr.Tool "$@"
+        exec "#{formula_opt_bin("openjdk")}/java" -classpath "#{buildpath}/libexec/antlr.jar" antlr.Tool "$@"
       SH
 
       chmod 0755, buildpath/"bin/antlr"

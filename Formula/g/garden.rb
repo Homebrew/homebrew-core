@@ -1,18 +1,18 @@
 class Garden < Formula
   desc "Grow and cultivate collections of Git trees"
   homepage "https://garden-rs.gitlab.io"
-  url "https://github.com/garden-rs/garden/archive/refs/tags/v2.6.0.tar.gz"
-  sha256 "86134b51c5adba8688e5e06f5437234694ee7950bbd3e7219501edf9a0199afe"
+  url "https://github.com/garden-rs/garden/archive/refs/tags/v2.6.2.tar.gz"
+  sha256 "3c5e41cbc0106576762b6456b223bfb173ddadc8df3b81af2491883b60821b75"
   license "MIT"
   head "https://github.com/garden-rs/garden.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e347f01f66eaa9e582bc6af516498c6af3a923359e35ea713ebd4ba4e44d77b3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "46ce400ace29a7079e5196c1ffc90117ed8fbb3ac4478d301dcfb0b0e6acdd04"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8590dee00e58ae8d9e4e108e7451f59df55cfae95500deb4d5bf62e24f15469a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "81e6dfed5c8130b506350fcede2fe6f6c0d8b46c1fb5c93562b94679348d37b4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1709360b691104459b7226b416d2cacf671a52b43fc04bb6cac94fb226d6fca0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e217e78e48287a716d8f43befddd2e1e4b0395070ec0f9ba293a682ee7326533"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fd1f509d71042bb9d37704eac5279bc527e85102c5d12ebdaffc2248a986d232"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7dbc97a78c3a3eff58eabbfd8d7f02d0daec49882350c89404fde7e1e18856ba"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "89cfe7b336f889a105a9a380d4c6f38b750ca5db99b34332f93188233ccc356d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "59bcdb5ddebc889de902a66c096c0fabfe7dec66663a1ff1bc6f38e44c259f35"
+    sha256 cellar: :any,                 arm64_linux:   "98a78e779ae374e554777c724faf2350b273aac13d153650c3cd49157277c9ea"
+    sha256 cellar: :any,                 x86_64_linux:  "52e0002ebef0bb20cd64432e37c18818265ea53d109b9a86318bfa3942b349ef"
   end
 
   depends_on "rust" => :build

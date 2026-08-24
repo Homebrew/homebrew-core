@@ -18,7 +18,7 @@ class Gotpm < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/gotpm"
+    system "go", "build", *std_go_args, "./cmd/gotpm"
     generate_completions_from_executable(bin/"gotpm", shell_parameter_format: :cobra)
   end
 

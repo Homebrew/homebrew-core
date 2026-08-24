@@ -33,6 +33,7 @@ class ZigAT014 < Formula
   depends_on "llvm@19"
 
   on_macos do
+    depends_on maximum_macos: [:sequoia, :build]
     depends_on macos: :big_sur # https://github.com/ziglang/zig/issues/13313
     depends_on "zstd"
   end
@@ -42,7 +43,10 @@ class ZigAT014 < Formula
 
   # Fix linkage with libc++.
   # https://github.com/ziglang/zig/pull/23264
-  patch :DATA
+  patch do
+    file "Patches/zig/0.14.patch"
+    type :unofficial
+  end
 
   def install
     # Workaround for https://github.com/Homebrew/homebrew-core/pull/141453#discussion_r1320821081.
@@ -53,14 +57,8 @@ class ZigAT014 < Formula
                                                       .join(" ")
     end
 
-    cpu = case ENV.effective_arch # See `zig targets`.
-    when :arm_vortex_tempest then "apple_m1"
-    when :armv8 then "xgene1" # Closest to `-march=armv8-a`
-    else ENV.effective_arch
-    end
-
     args = ["-DZIG_SHARED_LLVM=ON"]
-    args << "-DZIG_TARGET_MCPU=#{cpu}" if build.bottle?
+    args << "-DZIG_TARGET_MCPU=#{Hardware.zig_cpu(ENV.effective_arch)}" if build.bottle?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -121,38 +119,3 @@ class ZigAT014 < Formula
     assert Utils.binary_linked_to_library?(bin/"zig", library), "No linkage with #{library}!"
   end
 end
-
-__END__
-From 8f9216e7d10970c21fcda9e8fe6af91a7e0f7db9 Mon Sep 17 00:00:00 2001
-From: Michael Dusan <michael.dusan@gmail.com>
-Date: Mon, 10 Mar 2025 17:32:00 -0400
-Subject: [PATCH] macos stage3: add link support for system libc++
-
-- activates when -DZIG_SHARED_LLVM=ON
-- activates when llvm_config is used and --shared-mode is shared
-- otherwise vendored libc++ is used
-
-closes #23189
----
- build.zig | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
-
-diff --git a/build.zig b/build.zig
-index 15762f0ae881..ea729f408f74 100644
---- a/build.zig
-+++ b/build.zig
-@@ -782,7 +782,13 @@ fn addCmakeCfgOptionsToExe(
-                 mod.linkSystemLibrary("unwind", .{});
-             },
-             .ios, .macos, .watchos, .tvos, .visionos => {
--                mod.link_libcpp = true;
-+                if (static or !std.zig.system.darwin.isSdkInstalled(b.allocator)) {
-+                    mod.link_libcpp = true;
-+                } else {
-+                    const sdk = std.zig.system.darwin.getSdk(b.allocator, b.graph.host.result) orelse return error.SdkDetectFailed;
-+                    const @"libc++" = b.pathJoin(&.{ sdk, "usr/lib/libc++.tbd" });
-+                    exe.root_module.addObjectFile(.{ .cwd_relative = @"libc++" });
-+                }
-             },
-             .windows => {
-                 if (target.abi != .msvc) mod.link_libcpp = true;

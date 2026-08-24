@@ -1,8 +1,8 @@
 class Reprepro < Formula
   desc "Debian package repository manager"
   homepage "https://salsa.debian.org/debian/reprepro"
-  url "https://deb.debian.org/debian/pool/main/r/reprepro/reprepro_5.4.8.orig.tar.xz"
-  sha256 "f25409cf50acfc8b01a8e1e7c4e176292107763beedb058b42d7bf8e56a8e9c2"
+  url "https://deb.debian.org/debian/pool/main/r/reprepro/reprepro_5.5.1.orig.tar.xz"
+  sha256 "475754c864e3285ad77545792b3eae0196dbb3d01498fca5c5fb30b04a72a977"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,12 @@ class Reprepro < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "6172bb6e3ed24a3262ba0347cd673cff1c21aa9070a19e19fd0080a824249827"
-    sha256 cellar: :any,                 arm64_sequoia: "3e5e78adbbf2fe3b280ad12b0c0280cc111cdbbe969d2f8d351e38a1ceb2d898"
-    sha256 cellar: :any,                 arm64_sonoma:  "71cb5d6c6c730747893a2824d488915df53b9ab2363db85151fffeb988e23d35"
-    sha256 cellar: :any,                 sonoma:        "f6c637c7a806b7593e34aabe0fd9a48e325c0badf49bc4ee832fa7e6daa0d94f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e597daa3f957ba29c07f0d49e3248304498da424db9a412f52786a8a59b16a0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cc1062a1b192a2454bcde2ed80996bebba8d6561382b19309b2e307fcb30786"
+    sha256 cellar: :any, arm64_tahoe:   "d105743acb1ed3af2639fa57bc63d091887aafc27590b566010c3862f91f0831"
+    sha256 cellar: :any, arm64_sequoia: "b706bf94071d033c83360f93fce6f18480a89585d5f151426de28c2cb6e3f4ba"
+    sha256 cellar: :any, arm64_sonoma:  "ae0d23de7abe6d702f9b6ab2d5dd888ba98467bc79a8f020cd6b774aac07ef0a"
+    sha256 cellar: :any, sonoma:        "4564c95512ce1c51464cc4c14cd99ddad4bbd9f8625f0d26865f08fe2479cbfd"
+    sha256 cellar: :any, arm64_linux:   "af7b76a524ba1b8221feac874361bde901a90b908bb1c610b7ac83f7938bf992"
+    sha256 cellar: :any, x86_64_linux:  "36e245d92ea74618d932d3780e092d01e56fe6b69e456075eb32a80a7921f7de"
   end
 
   depends_on "autoconf" => :build
@@ -46,10 +45,10 @@ class Reprepro < Formula
   def install
     system "./autogen.sh"
     system "./configure", "--disable-silent-rules",
-                          "--with-gpgme=#{Formula["gpgme"].opt_lib}",
-                          "--with-libarchive=#{Formula["libarchive"].opt_lib}",
+                          "--with-gpgme=#{formula_opt_lib("gpgme")}",
+                          "--with-libarchive=#{formula_opt_lib("libarchive")}",
                           "--with-libbz2=yes",
-                          "--with-liblzma=#{Formula["xz"].opt_lib}",
+                          "--with-liblzma=#{formula_opt_lib("xz")}",
                           *std_configure_args
     system "make", "install"
   end

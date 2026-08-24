@@ -35,8 +35,8 @@ class Openmotif < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    file "Patches/libtool/configure-big_sur.diff"
+    type :unofficial
   end
 
   # Fix 2-level namespace using MacPorts patch
@@ -45,14 +45,15 @@ class Openmotif < Formula
       url "https://raw.githubusercontent.com/macports/macports-ports/8c436a9c53a7b786da8d42cda16eead0fb8733d4/x11/openmotif/files/patch-lib-xm-vendor.diff"
       sha256 "697ac026386dec59b82883fb4a9ba77164dd999fa3fb0569dbc8fbdca57fe200"
     end
+    type :unofficial
   end
 
   # Fix performance of text anti-aliasing:
-  # - https://github.com/justinmeiners/classic-colors/issues/12
   # - http://bugs.motifzone.com/show_bug.cgi?id=1715
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/b18bd78945e11e0b43be4445a52beaac3b37a274/Patches/openmotif/fix-anti-aliasing-performance.patch"
-    sha256 "12907f303766cf1601714181c6276d0ebf94d36624eb2bbd8592ec046342ed77"
+    file "Patches/openmotif/fix-anti-aliasing-performance.patch"
+    type :unofficial
+    resolves "https://github.com/justinmeiners/classic-colors/issues/12"
   end
 
   def install

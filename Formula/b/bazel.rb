@@ -1,8 +1,8 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/9.1.1/bazel-9.1.1-dist.zip"
-  sha256 "a6f66e26c8f4ca04fa83c796a404eff0544bd78336fbbcd122c9e10cbec4a5d7"
+  url "https://github.com/bazelbuild/bazel/releases/download/9.2.0/bazel-9.2.0-dist.zip"
+  sha256 "81af02b33128ec1922c6b60212df3fb6150baa96bb33d32ffa020e5fed47fefc"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Bazel < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d2357021cd84bef04db22bdbd20b5e201b5afb914769734d3dc0ac51bde990f0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6da0f97fb7c27935a03956b723a1646411fc6a29d1a5a054f002d0752fa1c2a2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5c73ab7f2161c03f58c94f8bff88872053f631c5fd2cee27a7d109600cd5e03"
-    sha256 cellar: :any_skip_relocation, sonoma:        "70858f8e66c1e6a6bc0dcede9c169fb61c9060060ea292637fbe38a781c245d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1927333c7c66cd1632a004bdf34ad05a3fca0aa7be2ffa68c34b402d7a42f52a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "278ab2d481cbcdfc8efdbaeaa250ec26e0d7752d7f70ec82c02b78aa228afcce"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1be141bc2abcf1989c825c947acb1d698a744f499f0d0c5bd2e74cd7cca2872c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3c9696a38207a3244871b73bfd7c2970b03db736274e88ebef943a3518e8097c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "79a596df28659fd1a84ba5ed614398cfd01e24b22fcd71628f7c7307e449e7c3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "726ef537561c5a89299326dddb8837df010a8f04cb9f75fa5220bfb20d64075e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "95404562cc7fef7f0d4cd4e6e2f70ef17378f41e8bb33306afb1495d06eb4c26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aab7bcd2bbecb6cf420a75c8661b0d9952c6ae793663a8fe61784174e1a8e064"
   end
 
   depends_on "openjdk@21"
@@ -108,12 +108,9 @@ class Bazel < Formula
     end
   end
 
-  def post_install
-    if File.exist?("#{bazel_real}.gz")
-      rm(bazel_real)
-      system "gunzip", "#{bazel_real}.gz"
-      bazel_real.chmod 0755
-    end
+  post_install_steps do
+    install_gzipped_executable "bin/bazel-real.gz", "bin/bazel-real",
+                                  source_base: :libexec, target_base: :libexec
   end
 
   test do

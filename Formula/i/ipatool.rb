@@ -1,24 +1,25 @@
 class Ipatool < Formula
   desc "CLI tool for searching and downloading app packages from the iOS App Store"
   homepage "https://github.com/majd/ipatool"
-  url "https://github.com/majd/ipatool/archive/refs/tags/v2.3.0.tar.gz"
-  sha256 "36c589ad88cea989b3a5bc3cd35223e12907c609789802b59d3cfb07596a07e7"
+  url "https://github.com/majd/ipatool/archive/refs/tags/v2.3.2.tar.gz"
+  sha256 "669630b7bd181d90ce4a2aa45d5a10548e7a31894bc0eedcef2d709c14bfecd1"
   license "MIT"
   head "https://github.com/majd/ipatool.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7ad348cdaaaa987f5e3865ebe510a871f9436daaadb20ff0466909dc1a1f9fcc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd6e052558cd4fcd1f14acdc0c6f8cc439804ce49c0c10fa533fcb7176b8e3f8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f88e49bc09a1a88b30e740a7ae32a7dacc5e1e9d13a964d086b59dbaccae0dc1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "02cfbd05935f66f7410be475ebd6172c70aaa129b98f555477dd2d13e1adbd3b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6576f22a1a1c0ab725ca2dd65c9dc0cffb264b2b67a7fce2e5acc5866567a027"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "880c488679fcb1d9e0ca4bc6cb4105c4c74c468eb2c8ec8d50fbba6153c9ccac"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "535357deb150616f76de23f7ac760a4351c6632693e812bedaddfdf2db47837e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e8771042c5076a895e6f200235e9f96ef75a6f8270cd936fd22da70cb7259d9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c1673aa30a9d1a3e9dd7a6f20b956fdf17d66d96ed7d8971fca18be588b0da5a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0383f256bd5a51644773085af1173fd11c97884f827d4dc7351ba7d8a8ce99be"
+    sha256 cellar: :any,                 arm64_linux:   "656466f4e4c2fd188d1fea77ca3303b6ebd1ba41b85b4532ff71793f83f8ce6d"
+    sha256 cellar: :any,                 x86_64_linux:  "ce2ba60dacd1f16688d2b96153a4f538809dd26cd6c3d5e383522f4508582996"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/majd/ipatool/v2/cmd.version=#{version}")
+    ENV["CGO_ENABLED"] = "1"
+    system "go", "build", *std_go_args(ldflags: "-X github.com/majd/ipatool/v2/cmd.version=#{version}")
 
     generate_completions_from_executable(bin/"ipatool", shell_parameter_format: :cobra)
   end

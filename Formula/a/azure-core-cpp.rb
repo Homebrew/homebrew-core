@@ -1,10 +1,10 @@
 class AzureCoreCpp < Formula
   desc "Primitives, abstractions and helpers for Azure SDK client libraries"
   homepage "https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/core/azure-core"
-  url "https://github.com/Azure/azure-sdk-for-cpp/archive/refs/tags/azure-core_1.16.3.tar.gz"
-  sha256 "70d5d2aea5ece95148ee8b71fb302ae35a1178e58b58150a14df8866a0c54464"
+  url "https://github.com/Azure/azure-sdk-for-cpp/archive/refs/tags/azure-core_1.16.4.tar.gz"
+  sha256 "25f8badf23c66ae82debd95e0d074d6269b276e5fa2ce5d4d3cff38fda9ab8c2"
   license "MIT"
-  compatibility_version 1
+  compatibility_version 2
 
   livecheck do
     url :stable
@@ -12,12 +12,12 @@ class AzureCoreCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b95692fd239ba779332f8fef3412d8edf61b1fc21bf8b2707ae71572bddb0469"
-    sha256 cellar: :any,                 arm64_sequoia: "b42033893d78e9f66d16c5a6f391a75aa34e0e2bd41c4366c0613a94e1c2acbd"
-    sha256 cellar: :any,                 arm64_sonoma:  "cb3541c5f3c6b37b445fe6d47b624ec3044ac0d9ba34d900efcc77a7c40c1436"
-    sha256 cellar: :any,                 sonoma:        "b1c37a01b888d9123d9efca761cb7d5dbe2dfcb65d5f258b7a22d3a683b4abaf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f3453310ffdb1f66b52201fcf827ed7e055c6da3ece54623c976b065200cc009"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4fbc2a6589ad18fd77001b83f2284f0a7c84d0f1cffb62dd988a6ce6322313b"
+    sha256 cellar: :any, arm64_tahoe:   "278b20974bb5afc458a553213006ce0da4860309ab2df83c9390cf60bc8c9778"
+    sha256 cellar: :any, arm64_sequoia: "b508082cfb2ea85fe887b5f8f174d790d886da721c16931cd2370b4c7243f173"
+    sha256 cellar: :any, arm64_sonoma:  "7892aead1278609b42c310075f280d2d0976b302ed6a84448bf6245bf76570ac"
+    sha256 cellar: :any, sonoma:        "711c420a260ecb876ea996e3cc61b1361e0f82e743bcc094526632c50be2a551"
+    sha256 cellar: :any, arm64_linux:   "ce60d756b60210c4454068bfecd5429bdc2f7c22c816de5afc572b6e9341c37f"
+    sha256 cellar: :any, x86_64_linux:  "4b9f90561cf7322cb06a551a5a6fb9fef2190db6afbbd57c8447a4136adb3489"
   end
 
   depends_on "cmake" => :build

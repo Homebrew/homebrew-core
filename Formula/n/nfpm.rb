@@ -1,24 +1,24 @@
 class Nfpm < Formula
   desc "Simple deb and rpm packager"
   homepage "https://nfpm.goreleaser.com/"
-  url "https://github.com/goreleaser/nfpm/archive/refs/tags/v2.46.3.tar.gz"
-  sha256 "b5b46bc6e7e9b5b9db4c2ffb5937d7d8b371fd573ffcf55f179e8fd81f7d1971"
+  url "https://github.com/goreleaser/nfpm/archive/refs/tags/v2.47.0.tar.gz"
+  sha256 "906b8dde0c5626376779f3ebddea3554b0eb6e1b8450a09bdc746cba92ef5dea"
   license "MIT"
   head "https://github.com/goreleaser/nfpm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5d4a3e5ef9fb2af17bd45870774e4b1b362830a03a7e7eb1bbd469c285b6ed2f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5d4a3e5ef9fb2af17bd45870774e4b1b362830a03a7e7eb1bbd469c285b6ed2f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5d4a3e5ef9fb2af17bd45870774e4b1b362830a03a7e7eb1bbd469c285b6ed2f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d666b225c327cd3c20645c7531fac231f92d7da0ddd2e6f4da9e2c569118ceb9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "583d6a209d683944020c61cb6401d1c1a9220d09b9e3f36cb75501fd2cd5f276"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aafe3b12734344c61d4b6b6d0a8d1fb297c67e44b2c88addcca8aadc6cd8ef09"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "60c13a961c2dbd2dee9691efe6cad1016731ef9d7706692361975a7ee1441739"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "60c13a961c2dbd2dee9691efe6cad1016731ef9d7706692361975a7ee1441739"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "60c13a961c2dbd2dee9691efe6cad1016731ef9d7706692361975a7ee1441739"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2b152ceac3d45544db522af2e1298c6b63aded4d9f7eca5d04cd776975c025ba"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ab518bcdb693665f49f66c7e31c5a18bb12c727a30ad482abca26e06364dd35"
+    sha256 cellar: :any,                 x86_64_linux:  "9d2752ad789936e4b51eeb49095b952ce234fe15efbbe6497bf9f9e949ac654f"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=v#{version}"), "./cmd/nfpm"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=v#{version}"), "./cmd/nfpm"
 
     generate_completions_from_executable(bin/"nfpm", shell_parameter_format: :cobra)
   end

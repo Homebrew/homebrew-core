@@ -25,7 +25,7 @@ class Shepherd < Formula
 
   def install
     ENV["GUILE_LOAD_PATH"] = Formula["guile-fibers"].opt_share/"guile/site/3.0"
-    ENV["GUILE_LOAD_COMPILED_PATH"] = Formula["guile-fibers"].opt_lib/"guile/3.0/site-ccache"
+    ENV["GUILE_LOAD_COMPILED_PATH"] = formula_opt_lib("guile-fibers")/"guile/3.0/site-ccache"
 
     ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
 

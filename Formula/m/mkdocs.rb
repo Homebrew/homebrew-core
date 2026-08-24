@@ -6,16 +6,15 @@ class Mkdocs < Formula
   url "https://files.pythonhosted.org/packages/bc/c6/bbd4f061bd16b378247f12953ffcb04786a618ce5e904b8c5a01a0309061/mkdocs-1.6.1.tar.gz"
   sha256 "7b432f01d928c084353ab39c57282f29f92136665bdd6abf7c1ec8d822ef86f2"
   license "BSD-2-Clause"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "01be89d0831a80d0923aae6b61e491c35c157d58799fc1322f08cbd49eddf4b7"
-    sha256 cellar: :any,                 arm64_sequoia: "fbbd85bbe0bc9e00b24a110d7c63694f7345b5521b4ca3f6315a88d1301ffb81"
-    sha256 cellar: :any,                 arm64_sonoma:  "6f3a4f3c5d027bdd1348f2223ef378d922749e6b013740f72be731e344618a95"
-    sha256 cellar: :any,                 sonoma:        "73ad3704aa4cdf2ac6773e0ec17d31866eaac7d39734b2bf37f1d78f879c8bcf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "72100f5ccf0b634b67e10aa25f7bd35d1d51001b78c10ccb449aaadd642e6592"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2040d82febb29aed1488dc7dc1a8c5550287e8bb51f54546e26e322b46ea656e"
+    sha256 cellar: :any, arm64_tahoe:   "0076411cb8be48c77b98587c1b9b5150a3ac6f2a5ad0e3369b06a76db990f196"
+    sha256 cellar: :any, arm64_sequoia: "c1574a9c537c3296ee92b4f61372821cfd9c380c142d1c3411f7e2c06eca3155"
+    sha256 cellar: :any, arm64_sonoma:  "e1d9f105030abf9be129f221b522cd9798d77c7ca2be1e18e7eeaf79655ac643"
+    sha256 cellar: :any, sonoma:        "f9ac93cc9757a00609a1bb29170a992c1b6dc7619cf824306805df1c03d0c73b"
+    sha256 cellar: :any, arm64_linux:   "7b443a93a680bd1996dc62136aea57c53c07b75fec7cabe11b21729a28de7a90"
+    sha256 cellar: :any, x86_64_linux:  "ef400923cf8275f08b947f051d563e5e5c2b4bd361689039429c29d7938fdbac"
   end
 
   depends_on "libyaml"
@@ -24,8 +23,8 @@ class Mkdocs < Formula
   conflicts_with "mkdocs-material", because: "both install `mkdocs` binaries"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
-    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "ghp-import" do
@@ -39,8 +38,8 @@ class Mkdocs < Formula
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/8d/37/02347f6d6d8279247a5837082ebc26fc0d5aaeaf75aa013fcbb433c777ab/markdown-3.9.tar.gz"
-    sha256 "d2900fe1782bd33bdbbd56859defef70c2e78fc46668f8eb9df3128138f2cb6a"
+    url "https://files.pythonhosted.org/packages/2b/f4/69fa6ed85ae003c2378ffa8f6d2e3234662abd02c10d216c0ba96081a238/markdown-3.10.2.tar.gz"
+    sha256 "994d51325d25ad8aa7ce4ebaec003febcce822c3f8c911e3b17c52f7f589f950"
   end
 
   resource "markupsafe" do
@@ -54,23 +53,23 @@ class Mkdocs < Formula
   end
 
   resource "mkdocs-get-deps" do
-    url "https://files.pythonhosted.org/packages/98/f5/ed29cd50067784976f25ed0ed6fcd3c2ce9eb90650aa3b2796ddf7b6870b/mkdocs_get_deps-0.2.0.tar.gz"
-    sha256 "162b3d129c7fad9b19abfdcb9c1458a651628e4b1dea628ac68790fb3061c60c"
+    url "https://files.pythonhosted.org/packages/ce/25/b3cccb187655b9393572bde9b09261d267c3bf2f2cdabe347673be5976a6/mkdocs_get_deps-0.2.2.tar.gz"
+    sha256 "8ee8d5f316cdbbb2834bc1df6e69c08fe769a83e040060de26d3c19fad3599a1"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/ca/bc/f35b8446f4531a7cb215605d100cd88b7ac6f44ab3fc94870c120ab3adbf/pathspec-0.12.1.tar.gz"
-    sha256 "a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"
+    url "https://files.pythonhosted.org/packages/5a/82/42f767fc1c1143d6fd36efb827202a2d997a375e160a71eb2888a925aac1/pathspec-1.1.1.tar.gz"
+    sha256 "17db5ecd524104a120e173814c90367a96a98d07c45b2e10c2f3919fff91bf5a"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/61/33/9611380c2bdb1225fdef633e2a9610622310fed35ab11dac9620972ee088/platformdirs-4.5.0.tar.gz"
-    sha256 "70ddccdd7c99fc5942e9fc25636a8b34d04c24b335100223152c2803e4063312"
+    url "https://files.pythonhosted.org/packages/d7/47/e4501f49c178ae1d9f4a75073fda4204f52647993f075a9db4d14930e0c5/platformdirs-4.10.0.tar.gz"
+    sha256 "31e761a6a0ca04faf7353ea759bdba55652be214725111e5aac52dfa29d4bef7"
   end
 
   resource "python-dateutil" do

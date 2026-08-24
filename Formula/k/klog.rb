@@ -20,7 +20,6 @@ class Klog < Formula
   def install
     # The commit variable only displays 7 characters, so we can't use #{tap.user} or "Homebrew".
     ldflags = %W[
-      -s -w
       -X main.BinaryVersion=v#{version}
       -X main.BinaryBuildHash=brew
     ]

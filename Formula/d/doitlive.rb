@@ -6,22 +6,23 @@ class Doitlive < Formula
   url "https://files.pythonhosted.org/packages/3f/50/d2715aa1b4dd5bfe1c91e5a332f5123180c2f2b1c8b0879389179b9f9c5e/doitlive-5.2.1.tar.gz"
   sha256 "7587a57c04fa74718e76cb4622f99ef6b762f1c861d0c1c2f843ab6bec53d063"
   license "MIT"
+  revision 1
   head "https://github.com/sloria/doitlive.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ad9ad788d8f55216c2de2ce98bfc1de2f9f93b6f3705d3c20140c920cad71e61"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a47920e296dce436daebe68c3ae423cdee4807ae552b82aa2c14690ddd609109"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "493a7df97e0c82c5e933302a6dceb656880e0c904b432ed41d65a6381cf50a11"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7a644b8fb2f5b57461fc7c26611898285734c646157f3334a5b4f8d0fed1c30c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "060e55176c3398eeaadec86f02006a74ccc51db74f81391843dfcfca9558fc94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed0dcc035ead07431fa4f62a61cc880c3ca4dbb47132fdb6fb8b8f868a13f2cd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f63736eb46a1c347d3ce74bd259ee50969506849a2e3219440ab065189ae6f71"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2350409f62c6a8c9e73d8769f0831197ade60d05bc831da3f6c9dcabb56f1cee"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2634904c1128f98208d75c0f696125f33dccd495566576c986999b40f74d585b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e9ef4ba654fa7b550be5286103dfd6dca5564366ce3e89ae29135c31a3998a05"
+    sha256 cellar: :any,                 arm64_linux:   "15d16a3c252be9c855f0986b169be168ab81c3beb8fa102c563b67fd3c7a8e60"
+    sha256 cellar: :any,                 x86_64_linux:  "ed6d45e5a10dc22ad87e74253d06d23fa29bc73f15f1a84208de3a9effde161b"
   end
 
   depends_on "python@3.14"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
-    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "click-completion" do

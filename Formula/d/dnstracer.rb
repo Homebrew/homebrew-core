@@ -1,8 +1,8 @@
 class Dnstracer < Formula
   desc "Trace a chain of DNS servers to the source"
-  homepage "http://www.mavetju.org/unix/dnstracer.php"
-  url "https://deb.debian.org/debian/pool/main/d/dnstracer/dnstracer_1.9.orig.tar.gz"
-  mirror "http://www.mavetju.org/download/dnstracer-1.9.tar.gz"
+  homepage "https://www.mavetju.org/unix/dnstracer.php"
+  url "https://www.mavetju.org/download/dnstracer-1.9.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/d/dnstracer/dnstracer_1.9.orig.tar.gz"
   sha256 "2ebc08af9693ba2d9fa0628416f2d8319ca1627e41d64553875d605b352afe9c"
   license "BSD-2-Clause"
 
@@ -11,7 +11,7 @@ class Dnstracer < Formula
   # 1.1 on the `/download/` page is given as 1.10 and this is erroneously
   # treated as newer than 1.9.
   livecheck do
-    url "http://www.mavetju.org/unix/general.php"
+    url "https://www.mavetju.org/unix/general.php"
     regex(/href=.*?dnstracer[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

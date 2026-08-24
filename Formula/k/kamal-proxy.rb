@@ -18,7 +18,7 @@ class KamalProxy < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/kamal-proxy"
+    system "go", "build", *std_go_args, "./cmd/kamal-proxy"
   end
 
   test do

@@ -1,8 +1,8 @@
 class Lua < Formula
   desc "Powerful, lightweight programming language"
   homepage "https://www.lua.org/"
-  url "https://www.lua.org/ftp/lua-5.5.0.tar.gz"
-  sha256 "57ccc32bbbd005cab75bcc52444052535af691789dba2b9016d5c50640d68b3d"
+  url "https://www.lua.org/ftp/lua-5.5.1.tar.gz"
+  sha256 "1c4b4068d67061f2a2231ad2b5422e77acea1487ea9890f6320af614f4373dce"
   license "MIT"
   compatibility_version 1
 
@@ -12,19 +12,18 @@ class Lua < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "49abafdff9b515d4efaf88f0924674d9bf904a12994d61ee097b895a6acc995e"
-    sha256 cellar: :any,                 arm64_sequoia: "4edd2e3cca37fbcb60899a874e6c6c8ab109b8fa1799b0cf74b4a13f05ac343d"
-    sha256 cellar: :any,                 arm64_sonoma:  "d4b0fa4b6d251461813ba23f12b119a3d4aa34f7b9f10557d8ed8d70eeebb85a"
-    sha256 cellar: :any,                 sonoma:        "0372a23d7fee9f77f4ec713ad066c9fbb2164571d030e542f196b61fd01ee680"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "71736bbe1a40c02aa07b2588e4b71e2604d707af3327b0e6c2cd9dbcaa8b2f6f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2df2766da50231d52b6f0a24ac465843153bb387c696804548726478217684ea"
+    sha256 cellar: :any, arm64_tahoe:   "494c75d37ed889cd4deaf7cb40613e8ba2206b53af68a5ab3d47167c22138b50"
+    sha256 cellar: :any, arm64_sequoia: "4dc6f450952c63886e1293adb7798fb8bfe9093c72400471ba160561affe6dc4"
+    sha256 cellar: :any, arm64_sonoma:  "e102957f67a1fe9dc8bfd0d6409c4c776791daacb75f28910e28f0a13d1a438b"
+    sha256 cellar: :any, sonoma:        "13ba70d9eeb49a39ed8d44b688f38cee7185bbe2ca88b400796a76a482833423"
+    sha256 cellar: :any, arm64_linux:   "352ef08beb2cb7694bf37e7aa62152ea8b9d60172a7a65ff57c00c1c91dd53e9"
+    sha256 cellar: :any, x86_64_linux:  "d221d3bf5b1ac55775e12cb147d995e6b29dc46a3e5dfc33bc3c6295fed1561e"
   end
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/legacy-homebrew/pull/5043
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/cd752b79c8dc7106cef6c95404308c1b1c400770/Patches/lua/lua-shared.patch"
-    sha256 "7774de7be06126805f189d321bcee595a676858c52d26f6777c79f5c1d789975"
+    file "Patches/lua/lua-shared.patch"
   end
 
   def install

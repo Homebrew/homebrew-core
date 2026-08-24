@@ -1,10 +1,10 @@
 class GitStandup < Formula
   desc "Git extension to generate reports for standup meetings"
-  homepage "https://github.com/kamranahmedse/git-standup"
-  url "https://github.com/kamranahmedse/git-standup/archive/refs/tags/2.3.2.tar.gz"
+  homepage "https://github.com/nilbuild/git-standup"
+  url "https://github.com/nilbuild/git-standup/archive/refs/tags/2.3.2.tar.gz"
   sha256 "48d5aaa3c585037c950fa99dd5be8a7e9af959aacacde9fe94143e4e0bfcd6ba"
   license "MIT"
-  head "https://github.com/kamranahmedse/git-standup.git", branch: "master"
+  head "https://github.com/nilbuild/git-standup.git", branch: "master"
 
   bottle do
     rebuild 2

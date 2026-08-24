@@ -1,8 +1,8 @@
 class Clarinet < Formula
   desc "Command-line tool and runtime for the Clarity smart contract language"
   homepage "https://stackslabs.com/"
-  url "https://github.com/stx-labs/clarinet/archive/refs/tags/v3.20.0.tar.gz"
-  sha256 "6a649db0c593b0d079cdfaa8eb777070c0d59685e24b41f5ca15529cc6ab7cbd"
+  url "https://github.com/stx-labs/clarinet/archive/refs/tags/v3.23.1.tar.gz"
+  sha256 "2799f1a2b49560c529c210de98d322c6c8a30f79078862c0d6d3c4bbe9f95695"
   license "GPL-3.0-only"
   version_scheme 1
   head "https://github.com/stx-labs/clarinet.git", branch: "main"
@@ -13,12 +13,12 @@ class Clarinet < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "83191fb0cf647a74fadeca701347112a251bdbf938fa4e63dfa70d2d2880352a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "17ae1a103b8d749ac612cc0d2fe9e2f1e4b4f82721e37cde53deaa4bdc1e9535"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "766ef40a313f5c6e9d3520d5f17c0a152df50f7a13c72aea4af02420ed463497"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4407e2b8ed0cfcd902a0ece5cfd0f4a07e39c24377963ce9380967477c3b9c82"
-    sha256 cellar: :any,                 arm64_linux:   "2867263c27b6d9894375bddf815aa5bdda48ab20d392a859fce6b84b8e414e2e"
-    sha256 cellar: :any,                 x86_64_linux:  "16150d0881afb62ab153104b5e14a44b4f81308abb6e51dedf02082ea983cc7c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e8802bca32b586f4e3b6d217c485bd3a6b54303c5a9cf2bc31dfd11c1c80b288"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9ec28b86a9b5416f96e43e0a5cf70ae050c39fd519f931eaa20f8b4798bdffe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a06a77a8e0b340421623d624325eeb893fb3c171e007c773907bc9f941cba2ba"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c5a9ad331ac3b1bbcaa5daf939ad80e642be6df6cb9d30cc4065cc9017bd648e"
+    sha256 cellar: :any,                 arm64_linux:   "c13b7eda98fe680f6db6f8bc39ca4f7889e65711c3c70ec06ece4e1d88af4dab"
+    sha256 cellar: :any,                 x86_64_linux:  "45870178ad01038fe244517ebf19e21b3456d43a41e8e813f15a5fa432ba11b7"
   end
 
   depends_on "rust" => :build

@@ -1,18 +1,18 @@
 class Libpqxx < Formula
   desc "C++ connector for PostgreSQL"
   homepage "https://pqxx.org/development/libpqxx/"
-  url "https://github.com/jtv/libpqxx/archive/refs/tags/8.0.1.tar.gz"
-  sha256 "24f878a1b4249035e4b6c07d49351506bf99f88df584d36bf198d58ebf293823"
+  url "https://github.com/jtv/libpqxx/archive/refs/tags/8.0.2.tar.gz"
+  sha256 "028c5fba4982e759fe182af1103ccd08b02bb4e1f9f12a551e01d21cac0c4440"
   license "BSD-3-Clause"
   compatibility_version 2
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "74bd7251500d9ac5f524882e2be5b8cbe87f5e0b487d0166ddc46359fcaf2543"
-    sha256 cellar: :any, arm64_sequoia: "bd1693c778322338101c88fdcc06e2b46ae3beb1492b80ab19507231a2701ffa"
-    sha256 cellar: :any, arm64_sonoma:  "92bc90091b0e175626488aa9efea6cd65635633bb6ee6b9fc3fa4d8a9702f340"
-    sha256 cellar: :any, sonoma:        "0ebf76a99e37fdc0d41565ab8a5e5b820c7c68e412d6874d937fdd1f8647f7d5"
-    sha256 cellar: :any, arm64_linux:   "0451b37525134aabc4b82880f09feccf9136bb5d77ffee435d96e08a3097dc03"
-    sha256 cellar: :any, x86_64_linux:  "b2359b444e05795b3eba91929f48df79b3e259bb26dcbe20a180df25424f5660"
+    sha256 cellar: :any, arm64_tahoe:   "0d30cd49ad4b035df2f372c37c5f263247fea8708b18d0cda5ce8399a52f83db"
+    sha256 cellar: :any, arm64_sequoia: "048591e09583cba17b6064712cac75a8593bb557b3c6a30f7d895789d06a6c71"
+    sha256 cellar: :any, arm64_sonoma:  "1c59d26de230c3d9e72d14ac72b99401a3231a9e29e4df764a8985321ac101ea"
+    sha256 cellar: :any, sonoma:        "01527e47ed423503e4c9dd2f9507fb54ad5295e7c1a96be250fc641b07a68f2a"
+    sha256 cellar: :any, arm64_linux:   "3662aa967964766b3f42c7e04767e4a7743237d49551ef0fd1ab9086255407e1"
+    sha256 cellar: :any, x86_64_linux:  "900be1f444a2ce2301cb3d7e58486c57316225ab467bba7caf26d1b8221aa2bc"
   end
 
   depends_on "cmake" => :build

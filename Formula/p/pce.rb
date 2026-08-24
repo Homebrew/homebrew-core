@@ -29,7 +29,7 @@ class Pce < Formula
 
   head do
     url "git://git.hampa.ch/pce.git", branch: "master"
-    depends_on "sdl2"
+    depends_on "sdl2-compat"
   end
 
   depends_on "nasm" => :build
@@ -45,8 +45,8 @@ class Pce < Formula
       # Workaround to allow macOS libedit to be used instead of readline
       inreplace "configure", " -lhistory ", " "
     else
-      ENV.append_to_cflags "-I#{Formula["libedit"].opt_libexec}/include"
-      ENV.append "LDFLAGS", "-L#{Formula["libedit"].opt_libexec}/lib"
+      ENV.append_to_cflags "-I#{formula_opt_libexec("libedit")}/include"
+      ENV.append "LDFLAGS", "-L#{formula_opt_libexec("libedit")}/lib"
     end
 
     system "./configure", "--enable-readline",

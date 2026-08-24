@@ -20,7 +20,7 @@ class Rename < Formula
   end
 
   def install
-    system "#{Formula["pod2man"].opt_bin}/pod2man", "rename", "rename.1"
+    system "#{formula_opt_bin("pod2man")}/pod2man", "rename", "rename.1"
     bin.install "rename"
     man1.install "rename.1"
   end

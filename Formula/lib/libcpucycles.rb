@@ -1,8 +1,8 @@
 class Libcpucycles < Formula
   desc "Microlibrary for counting CPU cycles"
   homepage "https://cpucycles.cr.yp.to/"
-  url "https://cpucycles.cr.yp.to/libcpucycles-20260105.tar.gz"
-  sha256 "e87dcaaa28e905b574ccf3d49e23e05c73edb3f99136dcd566bca16829ab6694"
+  url "https://cpucycles.cr.yp.to/libcpucycles-20260625.tar.gz"
+  sha256 "74a815bfb5ab645e5d07617125824c946ce5039db139e5233467d1ff33f69afa"
   license any_of: [:public_domain, "CC0-1.0", "0BSD", "MIT-0", "MIT"]
 
   livecheck do
@@ -11,12 +11,12 @@ class Libcpucycles < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6d0d624a923f07935e6e91ea524def9d852f5a6916bf501b8661e4c7983fc2af"
-    sha256 cellar: :any,                 arm64_sequoia: "44eda163d6b173499275564c2a96ca7d51e0156875c2b75674b56839e17ca37c"
-    sha256 cellar: :any,                 arm64_sonoma:  "1596cb50ee60f75911e1b4f05949645f055d7a8775c57ede61f478171be0068b"
-    sha256 cellar: :any,                 sonoma:        "05e0ac733b7b0ba78b14dc929bf41901aceedfc293a9b1aa55f767814d45e79f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "79fa7b230fc71e0576f56eaed3ba4656e76844a52e5272efd4dfa55f04605c35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a6bac3d0373927187fc0aa235374d1c0e1bc9b4df30bff91f80cb3242996504"
+    sha256 cellar: :any, arm64_tahoe:   "89f1fd69d972090bdf0c6e9e7095d87971ad9402aaf58c2fa841b6d5589214df"
+    sha256 cellar: :any, arm64_sequoia: "e0236efc50999493ab9170dfc6cee0d3e162cbaf3d8258d880fba15b75b215c7"
+    sha256 cellar: :any, arm64_sonoma:  "f9b15ca1dd81796fb73ac20d8e2f7adf4d26a24014ef2c9a066851a4196deadd"
+    sha256 cellar: :any, sonoma:        "b0dfb04632627992e32894bb9a47c8362e03e7e1add1037b192c5be93618219c"
+    sha256 cellar: :any, arm64_linux:   "8dd135a6eb7c4b965578e43ace39173540e5f490f6ea69943c6bbb1430dcfb3e"
+    sha256 cellar: :any, x86_64_linux:  "3ec314ba83606d0e13f5b904eee184f7c4d1551f80b68e08700ed13aae094179"
   end
 
   uses_from_macos "python" => :build

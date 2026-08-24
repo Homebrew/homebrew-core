@@ -1,27 +1,18 @@
 class ZxingCpp < Formula
   desc "Multi-format barcode image processing library written in C++"
   homepage "https://github.com/zxing-cpp/zxing-cpp"
+  url "https://github.com/zxing-cpp/zxing-cpp/releases/download/v3.1.1/zxing-cpp-3.1.1.tar.gz"
+  sha256 "c3c02c29c0b519de7bd4e25b376e606e87f0761befd1282815642a2246613d14"
   license "Apache-2.0"
   head "https://github.com/zxing-cpp/zxing-cpp.git", branch: "master"
 
-  stable do
-    url "https://github.com/zxing-cpp/zxing-cpp/releases/download/v3.0.2/zxing-cpp-3.0.2.tar.gz"
-    sha256 "e957f13e2ad4e31badb3d9af3f6ba8999a3ca3c9cc4d6bafc98032f9cce1a090"
-
-    # add support for homebrew specific STB_IMAGE_INCLUDE_DIR config option
-    patch do
-      url "https://github.com/zxing-cpp/zxing-cpp/commit/764f7ac3438f0e7638da27ad00cc2147312a2ea6.patch?full_index=1"
-      sha256 "2174f23e784b8fd68a5f0b3fdf467f9c22c448b73ca40133be711486dfe8d82b"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1957bd2c1cd602a47a0e9458252fb997013ed247a40122dd3bb6f88574cf3977"
-    sha256 cellar: :any,                 arm64_sequoia: "35ef6d8c193f3171538954dca59112faa8afb153a0799a5f8fad14d608491395"
-    sha256 cellar: :any,                 arm64_sonoma:  "3edeab4554d87d39a1e6f786ca85477ebad597ef9c5e4222be692d171f0d148b"
-    sha256 cellar: :any,                 sonoma:        "53c94ba2fdd891d609cee8390895289e1977a524edcea5f02cffde347f85b8e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee67c2111a969786630560ea7f1f19766c487c2ac80a6000edd14a3c9b09eb37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "956f8e6d040fb047032c2ed39956947b40ceeaecd7f6f21b561c14677cbd64fa"
+    sha256 cellar: :any, arm64_tahoe:   "3795a6d9898fa8ef01980dc62af5663ea9c5095bd4632030ca912740aa70ee5d"
+    sha256 cellar: :any, arm64_sequoia: "292f6fc70f5ffc2d7d92c22f211d3a0d78784760b59bd430e80f60f15ee38b7d"
+    sha256 cellar: :any, arm64_sonoma:  "7d236370587c353fc70e88d7967cb3529ee4d5c44d2ddb439d9609e69068ff34"
+    sha256 cellar: :any, sonoma:        "56c38ea9e718f8564f98baeeb3209411c5db1100608936bac2231aa03bf0d3c5"
+    sha256 cellar: :any, arm64_linux:   "528829b770cfe30f3b05704fd8f541fd36206b9dc9918451e0fe4209a1ad31fa"
+    sha256 cellar: :any, x86_64_linux:  "12434a21e3211b17cf5d7825a10e05e60d6d28d198476ecaf29dcbdb036e2f36"
   end
 
   depends_on "cmake" => :build

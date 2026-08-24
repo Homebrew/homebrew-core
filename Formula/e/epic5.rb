@@ -31,7 +31,7 @@ class Epic5 < Formula
   def install
     system "./configure", "--mandir=#{man}",
                           "--with-ipv6",
-                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
+                          "--with-ssl=#{formula_opt_prefix("openssl@3")}",
                           *std_configure_args
     system "make"
     system "make", "install"

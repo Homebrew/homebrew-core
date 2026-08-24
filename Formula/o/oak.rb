@@ -27,7 +27,7 @@ class Oak < Formula
   conflicts_with "oakc", because: "both install `oak` binaries"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   test do

@@ -24,18 +24,19 @@ class FlowTools < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
   end
 
   # Apply Fedora patch to fix implicit function declarations and multiple definitions
   patch do
     url "https://src.fedoraproject.org/rpms/flow-tools/raw/5590477b99c33b61a4d18436453a29e398be01aa/f/flow-tools-c99.patch"
     sha256 "ce1693d53c1dab3a91486a8005ea35ce35a794d6b42dad2a4e05513c40ee9495"
+    type :unofficial
   end
   patch do
     url "https://src.fedoraproject.org/rpms/flow-tools/raw/61ed33ab67251599c26a2e2636f1926b0448ab8a/f/flow-tools-extern.patch"
     sha256 "3b0937004edfabc53d966e035ad2a2c3239bcfccdc1bacef2f54612fccd84290"
+    type :unofficial
   end
 
   def install

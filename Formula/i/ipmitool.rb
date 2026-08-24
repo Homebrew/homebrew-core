@@ -33,24 +33,28 @@ class Ipmitool < Formula
   end
 
   # Patch to fix lan print
-  # https://github.com/ipmitool/ipmitool/issues/388
   patch do
     url "https://github.com/ipmitool/ipmitool/commit/a61349b443c16821e4884cde5ad8c031d619631a.patch?full_index=1"
     sha256 "e026b8a5a5128714a0f36d05b4b26428dca3522dc889ebc21dc8888a2d3f1505"
+    type :unofficial
+    resolves "https://github.com/ipmitool/ipmitool/pull/389",
+             "https://github.com/ipmitool/ipmitool/issues/388"
   end
 
   # Patch to fix enterprise-number URL due to IANA URL scheme change
-  # https://github.com/ipmitool/ipmitool/issues/377
   patch do
     url "https://codeberg.org/IPMITool/ipmitool/commit/1edb0e27e44196d1ebe449aba0b9be22d376bcb6.patch?full_index=1"
     sha256 "044363a930cf6a9753d8be2a036a0ee8c4243ce107eebc639dcb93e1e412e0ed"
+    type :backport
+    resolves "https://github.com/ipmitool/ipmitool/issues/377"
   end
 
   # Patch to fix build on ARM
-  # https://github.com/ipmitool/ipmitool/issues/332
   patch do
     url "https://codeberg.org/IPMITool/ipmitool/commit/206dba615d740a31e881861c86bcc8daafd9d5b1.patch?full_index=1"
     sha256 "86eba5d0000b2d1f3ce3ba4a23ccb5dd762d01fec0f9910a95e756c5399d7fb8"
+    type :backport
+    resolves "https://github.com/ipmitool/ipmitool/issues/332"
   end
 
   def install

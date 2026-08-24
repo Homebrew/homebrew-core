@@ -18,10 +18,12 @@ class Unar < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "128ef931a133a2dba46f9bfacfe00d28830ec81adcea315d026159321fd1a79d"
   end
 
-  depends_on xcode: :build
-
   uses_from_macos "llvm" => :build
   uses_from_macos "bzip2"
+
+  on_macos do
+    depends_on xcode: :build
+  end
 
   on_linux do
     depends_on "gnustep-base"

@@ -1,17 +1,16 @@
 class Vfkit < Formula
   desc "Command-line hypervisor using Apple's Virtualization Framework"
   homepage "https://github.com/crc-org/vfkit"
-  url "https://github.com/crc-org/vfkit.git",
-      tag:      "v0.6.3",
-      revision: "c8f5851f0ec131f04030925ea7ad15cd4e43876b"
+  url "https://github.com/crc-org/vfkit/archive/refs/tags/v0.6.4.tar.gz"
+  sha256 "ff496bd6ee6772ed070f286c4282a8a2e2f5231d4f8e98b2255b883ba69af42d"
   license "Apache-2.0"
   head "https://github.com/crc-org/vfkit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3953a8b58decd41c83de7686212202184e575c3d45bfad7002a7033549612bab"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6fecae760b337abd886f5e0c414aa6ac4be681231f55d50696b9abd485915cd4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "343cd8954cebd64b329487f0ab292d213247eef5026e431cc2e50bb4eb16257c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ee7116feaeeb5feea19c876d8a5f157bf646af00f8dc2d1033965ff5a8c50bfc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "edc280884decf90f3544f21534610bf70bfdd9cda6c3d3177059778432390a81"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d3fca0c9bb4db4dbb061b8af9d998195db6c675aed00255b5db72f8d07d8c657"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22cfba330578f4ded8a1a6d150c7e89229e2e5154a4d89a6f4588c47c3f30ab5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c808cfc48ad52cf87f761575e98e0f85478cf0ec432042f4c426450fcd54e7f5"
   end
 
   depends_on "go" => :build
@@ -19,7 +18,8 @@ class Vfkit < Formula
 
   def install
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
-    system "make", "out/vfkit-#{arch}"
+    version_ldflags = "-X github.com/crc-org/vfkit/pkg/cmdline.gitVersion=#{version}"
+    system "make", "out/vfkit-#{arch}", "VERSION_LDFLAGS=#{version_ldflags}"
     bin.install "out/vfkit-#{arch}" => "vfkit"
   end
 

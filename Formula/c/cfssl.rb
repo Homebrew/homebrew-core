@@ -22,7 +22,7 @@ class Cfssl < Formula
   depends_on "libtool"
 
   def install
-    ldflags = "-s -w -X github.com/cloudflare/cfssl/cli/version.version=#{version}"
+    ldflags = "-X github.com/cloudflare/cfssl/cli/version.version=#{version}"
 
     (buildpath/"cmd").each_child(false) do |cmd|
       system "go", "build", *std_go_args(ldflags:, output: bin/cmd), "./cmd/#{cmd}"

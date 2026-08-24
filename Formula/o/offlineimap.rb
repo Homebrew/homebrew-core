@@ -38,6 +38,7 @@ class Offlineimap < Formula
     patch do
       url "https://github.com/jazzband/imaplib2/commit/da0097f6b421c4b826416ea09b4802c163391330.patch?full_index=1"
       sha256 "ff60f720cfc61bfee9eec0af4d79d307e3a8703e575a19c18d05ef3477cf3a64"
+      type :backport
     end
   end
 

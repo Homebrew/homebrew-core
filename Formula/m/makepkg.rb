@@ -19,8 +19,9 @@ class Makepkg < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "bash"
+  depends_on "bash" # bash >= 4.4.0. On Linux, only needed for RHEL 7 ELS (ends 2029-05-31)
   depends_on "fakeroot"
+  depends_on "gettext" # runs gettext command
   depends_on "libarchive"
   depends_on "openssl@3"
 
@@ -29,11 +30,7 @@ class Makepkg < Formula
   uses_from_macos "libxslt"
 
   on_sonoma :or_older do
-    depends_on "coreutils" => :test # for md5sum
-  end
-
-  on_linux do
-    depends_on "gettext"
+    depends_on "coreutils" # for sha256sum
   end
 
   def install
@@ -53,14 +50,16 @@ class Makepkg < Formula
   end
 
   test do
+    sha256 = "81d6c6a5cb77ba35b89c91004c04a907a1ca6b05de5c048655672f3478340471"
     (testpath/"PKGBUILD").write <<~EOS
       pkgname=androidnetworktester
       pkgname=test
+      arch=('any')
       source=(https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/androidnetworktester/10kb.txt)
       pkgrel=0
       pkgver=0
-      md5sums=('e232a2683c04881e292d5f7617d6dc6f')
+      sha256sums=('#{sha256}')
     EOS
-    assert_match "md5sums=('e232a2683c0", pipe_output("#{bin}/makepkg -dg 2>&1")
+    assert_match "sha256sums=('#{sha256}')", shell_output("#{bin}/makepkg --nodeps --geninteg 2>&1")
   end
 end

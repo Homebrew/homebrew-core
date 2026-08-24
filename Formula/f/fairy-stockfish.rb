@@ -39,7 +39,7 @@ class FairyStockfish < Formula
       end
     elsif Hardware::CPU.avx2?
       "x86-64-avx2"
-    elsif Hardware::CPU.sse4_1?
+    elsif Hardware::CPU.sse4?
       "x86-64-sse41-popcnt"
     elsif Hardware::CPU.ssse3?
       "x86-64-ssse3"

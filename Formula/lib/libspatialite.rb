@@ -7,14 +7,13 @@ class Libspatialite < Formula
 
   stable do
     url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-5.1.0.tar.gz"
-    mirror "https://ftp.netbsd.org/pub/pkgsrc/distfiles/libspatialite-5.1.0.tar.gz"
+    mirror "https://cdn.netbsd.org/pub/pkgsrc/distfiles/libspatialite-5.1.0.tar.gz"
     mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/libspatialite-5.1.0.tar.gz"
     sha256 "43be2dd349daffe016dd1400c5d11285828c22fea35ca5109f21f3ed50605080"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+      file "Patches/libtool/configure-big_sur.diff"
     end
   end
 
@@ -54,10 +53,11 @@ class Libspatialite < Formula
 
   # Apply Debian patch to allow disabling the usage of removed libxml2 HTTP API.
   # Ref: https://groups.google.com/g/spatialite-users/c/nyT4iAJbttY
-  # Ref: https://www.gaia-gis.it/fossil/libspatialite/tktview/ac85f0fca35de00b9aaadb5078061791fc799d9c
   patch do
     url "https://salsa.debian.org/debian-gis-team/spatialite/-/raw/38481157178415322d78a3a45dab18f0c1d45daa/debian/patches/libxml2-nanohttp.patch"
     sha256 "477188c95b635e0abb97bc659ce9ba8883814f9c7d2466352491eabbe7f6a3f9"
+    type :unofficial
+    resolves "https://www.gaia-gis.it/fossil/libspatialite/tktview/ac85f0fca35de00b9aaadb5078061791fc799d9c"
   end
 
   def install
@@ -92,7 +92,7 @@ class Libspatialite < Formula
 
   test do
     # Verify mod_spatialite extension can be loaded using Homebrew's SQLite
-    pipe_output("#{Formula["sqlite"].opt_bin}/sqlite3",
+    pipe_output("#{formula_opt_bin("sqlite")}/sqlite3",
       "SELECT load_extension('#{opt_lib}/mod_spatialite');")
   end
 end

@@ -28,7 +28,7 @@ class Redka < Formula
       ENV.append "GOFLAGS", "-buildmode=pie"
     end
 
-    ldflags = "-s -w -X main.version=v#{version}"
+    ldflags = "-X main.version=v#{version}"
     system "go", "build", *std_go_args(ldflags:, output: bin/"redka"), "./cmd/redka"
   end
 
@@ -42,7 +42,7 @@ class Redka < Formula
     sleep 2
 
     begin
-      output = shell_output("#{Formula["valkey"].opt_bin}/valkey-cli -h 127.0.0.1 -p #{port} ping")
+      output = shell_output("#{formula_opt_bin("valkey")}/valkey-cli -h 127.0.0.1 -p #{port} ping")
       assert_equal "PONG", output.strip
     ensure
       Process.kill("TERM", pid)

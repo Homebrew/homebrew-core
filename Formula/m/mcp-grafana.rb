@@ -1,25 +1,24 @@
 class McpGrafana < Formula
   desc "MCP server for Grafana"
   homepage "https://github.com/grafana/mcp-grafana"
-  url "https://github.com/grafana/mcp-grafana/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "ec7aaa100c31538c8c490c41f8a078361d42d07d056b39a1438afae7ddba527c"
+  url "https://github.com/grafana/mcp-grafana/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "dadf6ecc393e4c53ba802e663993095289b302aa95a7e84f6f61c2eaf4449381"
   license "Apache-2.0"
   head "https://github.com/grafana/mcp-grafana.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c17c48396f7aebd4d373da7085933facf8105ddd1a4a944f321a7c4dbb2bfaa8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "034717cabf71ab5d5be112b1eb6f0125a2267c160cf892122dc3f9594fc290e8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0379c39f61f36b7520d0aabcf887e28ecadd61b1542d0922497ad6f9e9657899"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a4a5758ed8bbd69c385e6031bef07f323df99333935fd14ee2a8f49aa12be8ed"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f23a4b94499f3b4e3d2eb46b5010c3650bd92ae7ad76a2a6eb5a6604cfaf131"
-    sha256 cellar: :any,                 x86_64_linux:  "5036b5b9ca2f56e88a59de19580e2d84c7bc8052af1073b62e94c2cb33f21b0f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b31003506caa34c43c636838bc0d79753d4258a0abf63e5b970a1c3a6db12bcd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9d4c48658a53b76ae43dd420e870bc769abf2aa9e13ab00c0ef80f7794decd8b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "990c2f1af4c81bffef0eb8bd0ec6eafb3467137c824bb061f667029cc4bac68e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "71075c56c9809d1e5eb43347911e65f1965d3862e6a04b562f2f77923f7d8031"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "076e83c2c4547d0a32d3851ee9b0011dba6d56ee256082b574fb91d65b73170d"
+    sha256 cellar: :any,                 x86_64_linux:  "70c7e2b7830eb6d91b9266968ab1522b6b24d3513495cdefe1b82070abbba40a"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.commit=#{tap.user} -X main.date=#{time.iso8601}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/mcp-grafana"
+    system "go", "build", *std_go_args(ldflags: :goreleaser), "./cmd/mcp-grafana"
   end
 
   test do

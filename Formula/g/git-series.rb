@@ -33,7 +33,7 @@ class GitSeries < Formula
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
     ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
@@ -65,11 +65,11 @@ class GitSeries < Formula
     system bin/"git-series", "commit", "-a", "-m", "new feature v1"
 
     linked_libraries = [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
-      Formula["libssh2"].opt_lib/shared_library("libssh2"),
-      Formula["openssl@3"].opt_lib/shared_library("libssl"),
+      formula_opt_lib("libgit2")/shared_library("libgit2"),
+      formula_opt_lib("libssh2")/shared_library("libssh2"),
+      formula_opt_lib("openssl@3")/shared_library("libssl"),
     ]
-    linked_libraries << (Formula["openssl@3"].opt_lib/shared_library("libcrypto")) if OS.mac?
+    linked_libraries << (formula_opt_lib("openssl@3")/shared_library("libcrypto")) if OS.mac?
 
     linked_libraries.each do |library|
       assert Utils.binary_linked_to_library?(bin/"git-series", library),

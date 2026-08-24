@@ -2,8 +2,8 @@ class Solarus < Formula
   desc "Action-RPG game engine"
   homepage "https://www.solarus-games.org/"
   url "https://gitlab.com/solarus-games/solarus.git",
-      tag:      "v2.0.4",
-      revision: "b942f8ce5c0562610a93079dcacf53a51fa88540"
+      tag:      "v2.1.3",
+      revision: "72d81668d6902b99338bbe1926a7d048ec1d3476"
   license "GPL-3.0-or-later"
   compatibility_version 1
 
@@ -13,12 +13,12 @@ class Solarus < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "b76a690587b54d9f03967cc96f2efc195eb394ebbf7daf8b6a8c04ae1136d156"
-    sha256                               arm64_sequoia: "3b0e4aa0a5d17436c5401c49aa8ba45c362e46843eb4366f9ac4fbdd8ffad067"
-    sha256                               arm64_sonoma:  "e0cea3781cca840a5a2028bba7bc54faceb3ce2f646428627e32a42463afb740"
-    sha256                               sonoma:        "6fc0fd0b677a699281b508289b6d3ead8d76ae7209b3f3cf5ed81acac0beec48"
-    sha256                               arm64_linux:   "2fbcca3c7cf963a0d7e09fdea04e9ea170429750ec8661cb44b8fece0ba255e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ad431b0d53d648f4d1f8e71322b2d2f9b40ead2fbae3721f52392be551b2352"
+    sha256               arm64_tahoe:   "6a0d998953da608000d3ce73425fa7550f7ea2736ddd44d9332bb99eb18d68e9"
+    sha256               arm64_sequoia: "6005a573f11a29f5f9b0af9e39998490a961b7993e422510d9f42f58d5c2fc40"
+    sha256               arm64_sonoma:  "b03d148074cf8c445ed744c5774b994e804dd67b037c3a46d3cf76edade8100b"
+    sha256               sonoma:        "6781f92423bb06702a743f1842c5110833ef0e2012a5139ff011fcf0f94ebba8"
+    sha256               arm64_linux:   "3b5aafa521d0c4ff29951141c8099ffa4fb6ad664f0a96a3a8c1591d005e872a"
+    sha256 cellar: :any, x86_64_linux:  "f13ea46007ba8bae769fa3d7116fc462d26e71372e4265e7cdce9e57dd32e777"
   end
 
   depends_on "cmake" => :build
@@ -31,7 +31,7 @@ class Solarus < Formula
   # https://gitlab.com/solarus-games/solarus/-/blob/dev/cmake/modules/FindOpenAL.cmake?ref_type=heads#L38
   depends_on "openal-soft"
   depends_on "physfs"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_image"
   depends_on "sdl2_ttf"
 
@@ -45,10 +45,10 @@ class Solarus < Formula
                     "-DSOLARUS_ARCH=#{Hardware::CPU.arch}",
                     "-DSOLARUS_GUI=OFF",
                     "-DSOLARUS_TESTS=OFF",
-                    "-DVORBISFILE_INCLUDE_DIR=#{Formula["libvorbis"].opt_include}",
-                    "-DOGG_INCLUDE_DIR=#{Formula["libogg"].opt_include}",
-                    "-DGLM_INCLUDE_DIR=#{Formula["glm"].opt_include}",
-                    "-DPHYSFS_INCLUDE_DIR=#{Formula["physfs"].opt_include}",
+                    "-DVORBISFILE_INCLUDE_DIR=#{formula_opt_include("libvorbis")}",
+                    "-DOGG_INCLUDE_DIR=#{formula_opt_include("libogg")}",
+                    "-DGLM_INCLUDE_DIR=#{formula_opt_include("glm")}",
+                    "-DPHYSFS_INCLUDE_DIR=#{formula_opt_include("physfs")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

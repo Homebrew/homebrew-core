@@ -28,7 +28,7 @@ class ChocolateDoom < Formula
   depends_on "fluid-synth"
   depends_on "libpng"
   depends_on "libsamplerate"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_mixer"
   depends_on "sdl2_net"
 

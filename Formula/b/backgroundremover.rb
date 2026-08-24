@@ -3,18 +3,18 @@ class Backgroundremover < Formula
 
   desc "Remove background from images and video using AI"
   homepage "https://backgroundremoverai.com"
-  url "https://files.pythonhosted.org/packages/b1/59/5713f3ddedb43b65c7bef017b5d46b586d2af2af9e31f6c0e2e618bcc35f/backgroundremover-0.4.4.tar.gz"
-  sha256 "b10da99c69cac0c4f5076d3ae5ca3ad28353fbb541e6924ace9bfe05b2756a5b"
+  url "https://files.pythonhosted.org/packages/01/23/b6db66a9a7ad24e34581bae7910e77e16fce103fd9658bd5b6aef4e5effd/backgroundremover-0.4.5.tar.gz"
+  sha256 "b9fe5ebaa234d43bfae02a2f28734e589ee895a861e55c02f6f1a41518587852"
   license "MIT"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "c12c71758bfc3449a3b8e301b1e54391633eb4ca21be82cd75c76331bb40cbbf"
-    sha256 cellar: :any, arm64_sequoia: "d687555694ff22f454d9dcba7747e5b1d619b5445212f390a562b3457ab53b06"
-    sha256 cellar: :any, arm64_sonoma:  "5843f14ac8b3e4bb262e8a69b57301a529718a516b9013bd93ec136b1301ed86"
-    sha256 cellar: :any, sonoma:        "4299460afd307bdd0db7ac58199cf5e3843271711a140599136b47b606214fa4"
-    sha256 cellar: :any, arm64_linux:   "f6536a26206105c79c79288eb4912d46494387a741d286f28df89ad041a8016c"
-    sha256 cellar: :any, x86_64_linux:  "1769bac54914c175f04395961c6ca383ef5200e4077735a7a49be2289784de32"
+    sha256 cellar: :any, arm64_tahoe:   "0d4877caa985c2ffd19edfc45bfd09b9a2f67418a09c5d44aa19e5d6d0ed1f92"
+    sha256 cellar: :any, arm64_sequoia: "f3ea4da8a3bcee196f8ee563ae29f22adbd9255da0f678dd5b94dc02f709ae86"
+    sha256 cellar: :any, arm64_sonoma:  "7e2089dc0601803ef987f676aeef319b272576d00a4bba97f19ef1793078c615"
+    sha256 cellar: :any, sonoma:        "5f9bd9bba1da464c76bc1d778f01ebeae9315da16ab824db9ef36d186d90df2e"
+    sha256 cellar: :any, arm64_linux:   "abb2fbf6c90df60865a79dc8633632089b791f41adf0dfe82bb9aff0697f224b"
+    sha256 cellar: :any, x86_64_linux:  "3768c20557a8fc08ca7dc249a159dc65d0b242c886381975131f103358e0b038"
   end
 
   depends_on "cmake" => :build
@@ -22,8 +22,7 @@ class Backgroundremover < Formula
   depends_on "certifi" => :no_linkage
   depends_on "ffmpeg"
   depends_on "libheif"
-  depends_on "llvm@20"
-  depends_on "numpy"
+  depends_on "llvm@22"
   depends_on "pillow" => :no_linkage
   depends_on "python@3.14"
   depends_on "scikit-image" => :no_linkage
@@ -36,7 +35,7 @@ class Backgroundremover < Formula
   end
 
   pypi_packages exclude_packages: %w[certifi torch torchvision pillow scipy scikit-image],
-                extra_packages:   %w[imageio]
+                extra_packages:   %w[imageio numpy] # numba needs numpy < 2.5, so vendor it as a resource
 
   resource "blinker" do
     url "https://files.pythonhosted.org/packages/21/28/9b3f50ce0e048515135495f198351908d99540d69bfdc8c1d15b73dc55ce/blinker-1.9.0.tar.gz"
@@ -44,13 +43,13 @@ class Backgroundremover < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "commandlines" do
@@ -109,8 +108,8 @@ class Backgroundremover < Formula
   end
 
   resource "llvmlite" do
-    url "https://files.pythonhosted.org/packages/01/88/a8952b6d5c21e74cbf158515b779666f692846502623e9e3c39d8e8ba25f/llvmlite-0.47.0.tar.gz"
-    sha256 "62031ce968ec74e95092184d4b0e857e444f8fdff0b8f9213707699570c33ccc"
+    url "https://files.pythonhosted.org/packages/dc/a0/acc8ffcd5bdc63df0097e22c719bfcd61b604358343089313a8aebbb24ab/llvmlite-0.48.0.tar.gz"
+    sha256 "543b19f9ef8f3c7c60d1468191e4ee1b1537bf9f8a3d56f64c0ddd98de92edd2"
   end
 
   resource "more-itertools" do
@@ -124,8 +123,13 @@ class Backgroundremover < Formula
   end
 
   resource "numba" do
-    url "https://files.pythonhosted.org/packages/f6/c5/db2ac3685833d626c0dcae6bd2330cd68433e1fd248d15f70998160d3ad7/numba-0.65.1.tar.gz"
-    sha256 "19357146c32fe9ed25059ab915e8465fb13951cf6b0aace3826b76886373ab23"
+    url "https://files.pythonhosted.org/packages/ae/a0/570e3dc53e5602b49108f62a13e529f1eec8bfc7ef37d49c825924dcf546/numba-0.66.0.tar.gz"
+    sha256 "b900e63a0e26c05ea9a6d5a3a5a0a177cb64c5011887bf43edb8c3ed2c38d363"
+  end
+
+  resource "numpy" do
+    url "https://files.pythonhosted.org/packages/d0/ad/fed0499ce6a338d2a03ebae59cd15093910c8875328855781952abf6c2fe/numpy-2.4.6.tar.gz"
+    sha256 "f3a3570c4a2a16746ac2c31a7c7c7b0c186b95ce902e33db6f28094ed7387dda"
   end
 
   resource "pillow-heif" do
@@ -164,8 +168,8 @@ class Backgroundremover < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/85/05/0d5260f1f1ca784f4a4a0def9cbe6affe587f5b4025328d446c3d67765f4/tqdm-4.68.2.tar.gz"
-    sha256 "89c230e8dbc67c7615c142487111222f878c77427ea09549960f62389e258add"
+    url "https://files.pythonhosted.org/packages/ae/5f/57ff8b434839e70dab45601284ea413e947a63799891b7553e5960a793a8/tqdm-4.68.4.tar.gz"
+    sha256 "19829c9673638f2a0b8617da4cdcb927e831cd88bcfcb6e78d42a4d1af131520"
   end
 
   resource "urllib3" do
@@ -185,16 +189,19 @@ class Backgroundremover < Formula
 
   def install
     ENV["LLVMLITE_SHARED"] = "1"
-    venv = virtualenv_install_with_resources
+    venv = virtualenv_install_with_resources without: "numba"
 
     # We depend on the formula below, but they are separate formula, so install a `.pth` file to link them.
     # NOTE: This is an exception to our usual policy as building them is complicated
     site_packages = Language::Python.site_packages(venv.root/"bin/python3")
-    torchvision_pth_contents = "import site; site.addsitedir('#{Formula["torchvision"].opt_libexec/site_packages}')\n"
+    torchvision_pth_contents = "import site; site.addsitedir('#{formula_opt_libexec("torchvision")/site_packages}')\n"
     (venv.site_packages/"homebrew-torchvision.pth").write torchvision_pth_contents
 
-    skimage_pth_contents = "import site; site.addsitedir('#{Formula["scikit-image"].opt_libexec/site_packages}')\n"
+    skimage_pth_contents = "import site; site.addsitedir('#{formula_opt_libexec("scikit-image")/site_packages}')\n"
     (venv.site_packages/"homebrew-scikit-image.pth").write skimage_pth_contents
+
+    # We install `numba` separately without build isolation to avoid building another `numpy`
+    venv.pip_install(resource("numba"), build_isolation: false)
   end
 
   test do

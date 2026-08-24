@@ -1,19 +1,17 @@
 class Faad2 < Formula
   desc "ISO AAC audio decoder"
   homepage "https://sourceforge.net/projects/faac/"
-  url "https://github.com/knik0/faad2/archive/refs/tags/2.11.2.tar.gz"
-  sha256 "3fcbd305e4abd34768c62050e18ca0986f7d9c5eca343fb98275418013065c0e"
+  url "https://github.com/knik0/faad2/archive/refs/tags/2.11.3.tar.gz"
+  sha256 "860ab62087e336c1844a70e33196c1790b525fb9a9e7b6ac4fab1a1a4e4d5ce8"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b85c98bb399962a24b327bc0f361d4375169ee0490e2fa540e5958f65b7fe967"
-    sha256 cellar: :any,                 arm64_sequoia: "8778a14f57fd5d09238b9f35247fa3150b5c9fcb80e38bb5d6f730cb5c1cfd82"
-    sha256 cellar: :any,                 arm64_sonoma:  "2474465c5fda244f0841c983afb014b802332b04190ae10cb3a0c4ef00c18515"
-    sha256 cellar: :any,                 arm64_ventura: "de416959deef6759acef50251453fc80ed2dc7cc59756e04014369b61d58ef53"
-    sha256 cellar: :any,                 sonoma:        "c35f541928355a39a84f727c99f1ec98792c7a4ea60cf1e4e4f004a503ef19ce"
-    sha256 cellar: :any,                 ventura:       "561f17f4430cb7808ab93cf94a65852f24f13186bb8dd5d3f5f6f920e5b63dd8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "60e3d314b07dfa58ed8534ff0678217307d811ef4198f7e5abcbb46339757f2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b83a27d69240eda9c177272cf3858a078d10240cd0d45783fda5836bcde86c6f"
+    sha256 cellar: :any, arm64_tahoe:   "b426eb979af4a59a6c22dcb116c23fa9908b9fae589b9caacfa26a596c9d6564"
+    sha256 cellar: :any, arm64_sequoia: "680d23c1d1fe56bebe518361aece7bda88a5600a38b110314f1302f691c80083"
+    sha256 cellar: :any, arm64_sonoma:  "bac842107b966d64277456f353213cbcbe2c87036432a750aead01d641e4fd08"
+    sha256 cellar: :any, sonoma:        "84afc159bc84a55df8b3128bf247817c26d97924b319ae7fda92d6f6e80143ce"
+    sha256 cellar: :any, arm64_linux:   "8df72efd92fe483e9e91baa81b787c4ab539af825f321a7862b73d8b470c0531"
+    sha256 cellar: :any, x86_64_linux:  "8d60ea4c4b02c5577d671ae3311ee173e48e9a5b51bb376635b2109e362f25b4"
   end
 
   depends_on "cmake" => :build

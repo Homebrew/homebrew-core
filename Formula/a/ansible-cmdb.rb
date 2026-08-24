@@ -47,10 +47,12 @@ class AnsibleCmdb < Formula
   end
 
   # from https://github.com/fboender/ansible-cmdb/pull/260
-  # fixes imp being deprecated in python 3.12 https://github.com/fboender/ansible-cmdb/issues/259
+  # fixes imp being deprecated in python 3.12
   patch do
     url "https://github.com/fboender/ansible-cmdb/commit/02242d4eed9d4295d02cf2835a51eb4f422b18cf.patch?full_index=1"
     sha256 "5b63452cd28eb49afa2ea927e61280e864bf04edeaf830f37f5e63620169fd41"
+    type :unofficial
+    resolves "https://github.com/fboender/ansible-cmdb/issues/259"
   end
 
   def install

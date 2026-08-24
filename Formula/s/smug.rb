@@ -1,23 +1,23 @@
 class Smug < Formula
   desc "Automate your tmux workflow"
   homepage "https://github.com/ivaaaan/smug"
-  url "https://github.com/ivaaaan/smug/archive/refs/tags/v0.3.18.tar.gz"
-  sha256 "a7397f62415adc096afdbef87af297a7d1fd625a55abb9c5dac3bc39d1196d0d"
+  url "https://github.com/ivaaaan/smug/archive/refs/tags/v0.3.19.tar.gz"
+  sha256 "d1c43d84b5293cff1982437937367813f34cc1508d44da723b28649999147e3e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1126306e80147d592efcf3b57ff610c40e8bbc02df3eeebf80206eb392551f3f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1126306e80147d592efcf3b57ff610c40e8bbc02df3eeebf80206eb392551f3f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1126306e80147d592efcf3b57ff610c40e8bbc02df3eeebf80206eb392551f3f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cb3aae2c875a366eb6778d839a1a9951e324b77c1e670b52bda045b0e6a309fe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e19a9160964769f02cac3d20edd653fbbde0e3d74fc6e322fb9d39d1b390bc15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8388b2211eb4bb3ec0668353d4005d84da74497827a5a155757d62e5df6f0f47"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f3108a8d3d4075c91b1e289ac91842eb371e06aca98866d7a40c7a9dfddf3f68"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f3108a8d3d4075c91b1e289ac91842eb371e06aca98866d7a40c7a9dfddf3f68"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f3108a8d3d4075c91b1e289ac91842eb371e06aca98866d7a40c7a9dfddf3f68"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c12345af326cbd2946beaf28078797e092ecf31e553132619036cd0b74ac79a8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ac107433c2e386e98923c65c87ede7fb3af30117c90b084d3abeb0b327da186d"
+    sha256 cellar: :any,                 x86_64_linux:  "646b1293932f9c237bedd5a20e9470d734ccbefdbe97de120f183b4ccecbd574"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
 
     bash_completion.install "completion/smug.bash" => "smug"
     fish_completion.install "completion/smug.fish"

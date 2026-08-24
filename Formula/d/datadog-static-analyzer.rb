@@ -1,8 +1,8 @@
 class DatadogStaticAnalyzer < Formula
   desc "Static analysis tool for code quality and security"
   homepage "https://docs.datadoghq.com/security/code_security/static_analysis/"
-  url "https://github.com/DataDog/datadog-static-analyzer/archive/refs/tags/0.8.7.tar.gz"
-  sha256 "ed324328d19c710a5c8d03a04e5ee13dd821765205afd75cf5320440f72d9921"
+  url "https://github.com/DataDog/datadog-static-analyzer/archive/refs/tags/0.9.2.tar.gz"
+  sha256 "0cd456053ce12ad49c4bc9580cf1eae0f6db3ac1fc2afe8c92e88ee9e6f7ecc9"
   license "Apache-2.0"
   head "https://github.com/DataDog/datadog-static-analyzer.git", branch: "main"
 
@@ -12,23 +12,25 @@ class DatadogStaticAnalyzer < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "5a2f484ffab77d59be8701cb5f1648979793cc4c455e891bbf25a8f7cc8a9884"
-    sha256 cellar: :any, arm64_sequoia: "60f0ef43c11bf07fcf31e9d352a6f0f572df51a0f19ae36f06a1dba359f468b9"
-    sha256 cellar: :any, arm64_sonoma:  "7e2e18c0c521823715db82343b9a356c87a51779eb902bb0b2ed7302e29a78e9"
-    sha256 cellar: :any, sonoma:        "a2fcc614b86221c92c48e4bc3848f1f842b80838cb33a0582b0d0e64a8d1cb03"
-    sha256 cellar: :any, arm64_linux:   "9f95fbf89fbdf1a5e92ddad9920ace5aa12259bcea2d724acab8e6625eed6a89"
-    sha256 cellar: :any, x86_64_linux:  "228acaf1b1d26cb1d90d319d967b8df4e547b6b07ae0000e673d6f517277bbe5"
+    sha256 cellar: :any, arm64_tahoe:   "90899615548c4db1891f270526d0f1dfc6e9be3ec17a5f4858d03e0cd7e7eb50"
+    sha256 cellar: :any, arm64_sequoia: "9bcd62a07bdcdda6c76a16a74a81fca7b6041e4c66ea9d4ab139803078f0cb88"
+    sha256 cellar: :any, arm64_sonoma:  "fd1e4035ca3b82bfc454af5d327ea2b61a90e962feefb1db46b46224eb844260"
+    sha256 cellar: :any, sonoma:        "72538e8666635cb1ce0e65d9ebcb632ff27ebca52cd0564891752c271f5576b0"
+    sha256 cellar: :any, arm64_linux:   "b254810b06dc92790b93f1ddc595c00e12b93d42145b49e6fd34c5620364e3f4"
+    sha256 cellar: :any, x86_64_linux:  "970a756b17422a6e9f278933234005770b703e6687b8387389d8bd2b7043b198"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
     system "cargo", "install", "--bin", "datadog-static-analyzer",
                                "--bin", "datadog-static-analyzer-git-hook",
                                *std_cargo_args(path: "crates/bins")

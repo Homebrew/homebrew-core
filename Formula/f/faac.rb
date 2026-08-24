@@ -1,19 +1,19 @@
 class Faac < Formula
   desc "ISO AAC audio encoder"
   homepage "https://sourceforge.net/projects/faac/"
-  url "https://github.com/knik0/faac/archive/refs/tags/faac-1.50.tar.gz"
-  sha256 "e6876cba00cbd786a7f984d9aaada4d5bcb08d2582100366c70f6164d5c89214"
+  url "https://github.com/knik0/faac/archive/refs/tags/faac-2.1.tar.gz"
+  sha256 "1d4b890c7d767361987d80afdacdd654d23a748b4a273d743c174c2d57e9bce5"
   license "LGPL-2.1-or-later"
-  compatibility_version 1
+  compatibility_version 2
   head "https://github.com/knik0/faac.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a574ca25f086a26e78bbba85083d08fba1625eac583926ea225e21abb96c58de"
-    sha256 cellar: :any,                 arm64_sequoia: "14b4c7d0d9a3eff2134d38f3a0390f571ec592963a0b01c2a5d8194e71bae1e6"
-    sha256 cellar: :any,                 arm64_sonoma:  "0c750f3bba82d9544c35948c11097b9d9ede18c93fe61877fd0cbc5454a9e4f2"
-    sha256 cellar: :any,                 sonoma:        "c08f8b6e2c50c8d85b7e48c1e255227d395b9518a1e37d52c4e05969e9e25ae3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "16831fe3c0506720985abc848a75ff201f4c80b378083858289b6615ca2e5b19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80d3a04f6c8279bcaa77e91c22ded1d4b37d414d3d4476189cfe7ba5c5f49efa"
+    sha256 cellar: :any, arm64_tahoe:   "7fb6d41c0a19e3572e4df9c05b0049d09e28f54b38424a628193c05dc0c7203b"
+    sha256 cellar: :any, arm64_sequoia: "95d1fdc48ef74a29d1addfcdfda4ed19fbaf9996b394c02f18f4b37818e9747d"
+    sha256 cellar: :any, arm64_sonoma:  "3b1386b6f68b057a215b3f923fc86eb900d5958da6ad4f6ad3c7e80a4b24fd64"
+    sha256 cellar: :any, sonoma:        "5cef49a9b8e42188fbf9604cb1294b2b448a4a607ebf2a097803fb706e269266"
+    sha256 cellar: :any, arm64_linux:   "ebd25c0a9ef02a689d08ec556f9ab0e7f26f2f96edc224c0659e1f13c0af0bf4"
+    sha256 cellar: :any, x86_64_linux:  "47911348bcd7aba4724b78f524d9a44d226ea630b0f47e7eab25660ade7a6c23"
   end
 
   depends_on "meson" => :build

@@ -6,11 +6,11 @@ class Gitup < Formula
   url "https://files.pythonhosted.org/packages/41/9e/3e47a00bf3c4e47f2acec776732421819b723d5adeae3b0adf0ed5f82c0d/gitup-0.5.2.tar.gz"
   sha256 "e750d63c9f4938cad175619a8a22f8ab3a3854515e4f5ac6e72c88e848fe651c"
   license "MIT"
-  revision 2
+  revision 6
   head "https://github.com/earwig/git-repo-updater.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "42fb7292b9796eb05c9765f6889fc445be31f91bf17de4fdaa29f2b6c8db5920"
+    sha256 cellar: :any_skip_relocation, all: "03c6dfb143147bdec190702f6bdd90216d80c81df7c5d47ffdac6159e692c738"
   end
 
   depends_on "python@3.14"
@@ -26,8 +26,8 @@ class Gitup < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/33/f6/354ae6491228b5eb40e10d89c4d13c651fe1cf7556e35ebdded50cff57ce/gitpython-3.1.50.tar.gz"
-    sha256 "80da2d12504d52e1f998772dc5baf6e553f8d2fcfe1fcc226c9d9a2ee3372dcc"
+    url "https://files.pythonhosted.org/packages/26/d6/5f358ff283325580c2003a6d953aea18cfe10ae87b46f5ebc80fa3a386dc/gitpython-3.1.58.tar.gz"
+    sha256 "621416df10ef3fd0e19fabf9172ddeed0fa704d353d04f194eec56a625a95b22"
   end
 
   resource "smmap" do

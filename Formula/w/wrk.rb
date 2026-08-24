@@ -29,10 +29,10 @@ class Wrk < Formula
   def install
     ENV.deparallelize
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac?
-    ENV.append_to_cflags "-I#{Formula["luajit"].opt_include}/luajit-2.1"
+    ENV.append_to_cflags "-I#{formula_opt_include("luajit")}/luajit-2.1"
     args = %W[
-      WITH_LUAJIT=#{Formula["luajit"].opt_prefix}
-      WITH_OPENSSL=#{Formula["openssl@4"].opt_prefix}
+      WITH_LUAJIT=#{formula_opt_prefix("luajit")}
+      WITH_OPENSSL=#{formula_opt_prefix("openssl@4")}
     ]
     args << "VER=#{version}" if build.stable?
     system "make", *args

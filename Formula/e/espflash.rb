@@ -1,17 +1,17 @@
 class Espflash < Formula
   desc "Serial flasher utility for Espressif SoCs and modules based on esptool.py"
   homepage "https://github.com/esp-rs/espflash"
-  url "https://github.com/esp-rs/espflash/archive/refs/tags/v4.4.0.tar.gz"
-  sha256 "2748bb1d3952e63fba67e3e07cc6496ac2a8658ab3b27ad5d47168a8150ef3d4"
+  url "https://github.com/esp-rs/espflash/archive/refs/tags/v4.5.0.tar.gz"
+  sha256 "78ca6413759329b850221486a2cbb8372f2907d39b4ae6a1bbab2aa5ef3f57cd"
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8ce6d471a3ac8576d0a23338601cdb4e7a04ca970456f7c15054fcc3f6eb32ee"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "64d9779c15d95f959261cf45237af189180656d86535bd97e9f8bb1f17c07801"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f0e4d819490ce64519baf03e97024ffbaa89be6e0b33378a9349947f2774ae1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "57f86958210e14a20f67adfebf0f9eb2194a16f025cab683edeca5afe1fa7fc6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d9209050191bed2bd021b91d7f1eebfeca647635e6c457ee3d32bd5e5e85308"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae73809637c9666fef1d5ee9b594e58f6049a4257ca2a2c0f3a5eed6bd7d49b2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5793089447bbb902b8c3872644e7cf40c52a431ec1acf03e4a66613035c252c4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "00e2fca0b083129253bb2253a4fd6db0a8181c7e47a0ca3971574baec299c0b8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "635163aa7632c665b5e91a0d307abe9dde6ac7fa3c628c06101cb6cc062ef5d5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4c74bd16a6cbcf547ccd22e0cdbcb3fb79136f031a08bd9fca600b8742755218"
+    sha256 cellar: :any,                 arm64_linux:   "2b9bcf9a1d007ca78252a889546a9cbe4e5703c7d05d17919acc567769da48f6"
+    sha256 cellar: :any,                 x86_64_linux:  "e95019da4fa65b2e41c6f9b4f71a3c6e0f56892d34c2bc104d237a0b230a573e"
   end
 
   depends_on "pkgconf" => :build

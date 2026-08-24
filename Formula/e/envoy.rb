@@ -1,10 +1,20 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
-  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.38.2.tar.gz"
-  sha256 "3e3705acb2aa631d02fc4e146da6de58746d8bf7c0fd510b122a1d76ff8a8a06"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
+
+  stable do
+    url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.39.0.tar.gz"
+    sha256 "a6c5b2af8387f7e9eb953d5ea66d61a57ecb1c2bef698ef154631092195b84b7"
+
+    # Allow using host-installed toolchains
+    patch do
+      url "https://github.com/envoyproxy/envoy/commit/be513213e888c443f4e00b1343cc05149f4f92a7.patch?full_index=1"
+      sha256 "363bf44a752c44b3532b7ce6ebc541e8a85b528ae7c79a6f7e621c881358a106"
+      type :backport
+    end
+  end
 
   livecheck do
     url :stable
@@ -12,62 +22,59 @@ class Envoy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f899004bb31d15a65d2d4dcb5a1c82a5b6214e53b1eb931f52bb6e20ecc7d33e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "40dcb76291a41a772c9a9da0d7cf6f56c9255c40925da6b1e2690d9286b8e900"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ed92e00d1630803151e3b3e55b429761cf8139d71a81b0c0fe343fd0f8d5ebae"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f53ada2753a7d81ab5e1e1cf465cee52c8fc3276d524069a92d1fa63656eb242"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "aaa12cce89af6c7cad93cf46ca241cdde8b394773412e30660f886dc94ec909a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c5159a011e7408e4c7505f2629e4243eb827b397fbc731c5aa88d8c94f41d59"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8776d27e81cbae6b257de6832c5e2ecfb8072a06700dd3afcc59512b4261d2ae"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd059504703feb499590b3cd0631c76614cd5e038d4eea4c565a71b7c9ba5115"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "645a647364aabe75e702cc46e414b333395f78ee1e966c5f16151bd44f5899fe"
+    sha256 cellar: :any_skip_relocation, sonoma:        "428848fbb007e6fd69573c604df8291ca6543822ac7dbeed6219a2d89f5b9725"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "11ae4bca7b6447bc19ab7ba0fa6b68aedcb9e6b03fdf7834077a0fab8118826e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1e465ccf788e617c392a5bf8cf100c8c65a7714866ae6c5a887c3664b093405f"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "bazelisk" => :build
+  depends_on "bazel@8" => :build
   depends_on "cmake" => :build
   depends_on "go" => :build
-  depends_on "libtool" => :build
   depends_on "llvm@18" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "wget" => :build
-  depends_on xcode: :build
-  depends_on "yq" => :build
 
-  uses_from_macos "ncurses" => :build
   uses_from_macos "python" => :build
 
   on_macos do
-    depends_on "aspell" => :build
-    depends_on "clang-format" => :build
-  end
-
-  on_linux do
-    depends_on "libxml2" => :build
-    depends_on "lld" => :build
-  end
-
-  def bazelisk
-    Formula["bazelisk"].opt_bin/"bazelisk"
-  end
-
-  def llvm_formula
-    Formula["llvm@18"]
+    depends_on xcode: :build
   end
 
   def install
-    ENV.remove "PATH", "#{Superenv.shims_path}:"
-
-    # rules_foreign_cc CMake try-compile can pick GNU ld from PATH and fail to link
-    # against Envoy's configured sysroot/toolchain. Keep clang/llvm tools but drop binutils.
-    ENV.remove "PATH", ":#{Formula["binutils"].opt_bin}" if OS.linux?
-    env_path = ENV["PATH"]
-
     # Drop hickory DNS: its rust SDK pulls in mockall (incompatible with macOS)
     # and references `@llvm_toolchain_llvm` labels that aren't registered when
     # LLVM is injected via `BAZEL_LLVM_PATH`.
     inreplace "source/extensions/extensions_build_config.bzl",
               /^\s*"envoy\.network\.dns_resolver\.hickory":.*\n/, ""
 
+    # Build with brew Bazel rather than Bazelisk downloading it
+    rm ".bazelversion"
+
+    # Build with brew CMake, Go, Ninja and Python rather than Bazel downloading them
+    # https://github.com/envoyproxy/envoy/blob/main/bazel/README.md#building-with-host-provided-toolchains
+    inreplace "WORKSPACE" do |s|
+      s.gsub! "envoy_dependency_imports()", "envoy_dependency_imports(use_host_tools = True)"
+      s.gsub! "envoy_dependencies_extra()", "envoy_dependencies_extra(use_host_tools = True)"
+    end
+
+    # Stage a local toolchain root to match official LLVM layout needed by upstream
+    ENV["BAZEL_LLVM_PATH"] = llvm_path = buildpath/"llvm-toolchain"
+    ENV["BAZEL_USE_HOST_SYSROOT"] = "True"
+    llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }
+    llvm_path.install_symlink(llvm.opt_prefix.children.select(&:directory?) - [llvm.opt_bin])
+    (llvm_path/"bin").install_symlink llvm.opt_bin.children
+    # TODO: (llvm_path/"bin").install_symlink formula_opt_bin(llvm.name.sub(/^llvm/, "lld")).children
+    (llvm_path/"bin").install_symlink which("libtool") if OS.mac? # rules_foreign_cc expects Apple libtool for AR
+
+    # Bazel cannot run in superenv. Also drop binutils as rules_foreign_cc CMake try-compile
+    # can pick GNU ld from PATH and fail to link against Envoy's configured sysroot/toolchain
+    env_path = (ENV["PATH"].split(":") - [Superenv.shims_path.to_s, formula_opt_bin("binutils").to_s]).join(":")
+
+    bazel_args = %W[--output_user_root=#{buildpath}/user_root]
     args = %W[
       --noenable_bzlmod
       --@envoy//bazel/foreign_cc:parallel_builds
@@ -75,81 +82,35 @@ class Envoy < Formula
       --curses=no
       --noincompatible_strict_action_env
       --verbose_failures
+      --action_env=CMAKE_POLICY_VERSION_MINIMUM=3.5
       --action_env=PATH=#{env_path}
       --host_action_env=PATH=#{env_path}
       --define=wasm=wamr
       --repository_cache=#{HOMEBREW_CACHE}/envoy-repository-cache
       --jobs=#{ENV.make_jobs}
     ]
-    bazel_args = %W[
-      --output_user_root=#{buildpath}/user_root
-    ]
 
-    if OS.linux?
-      args.push(
+    args += if OS.linux?
+      [
         "--config=clang-local",
         "--repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1",
-        "--copt=-Wno-deprecated-literal-operator",
-        "--copt=-Wno-unknown-warning-option",
-        "--copt=-Wno-nontrivial-memcall",
-        "--copt=-Wno-nontrivial-memaccess",
-        "--copt=-Wno-nonportable-include-path",
         "--strategy=BootstrapGNUMake=standalone",
         "--strategy=BootstrapPkgConfig=standalone",
-      )
+        # lld needs help finding libc++.a and libc++abi.a in a non-standard path
+        "--linkopt=-L#{llvm_path}/lib",
+        "--host_linkopt=-L#{llvm_path}/lib",
+        # TODO: Remove in next release as handled by .bazelrc
+        "--copt=-Wno-nullability-completeness",
+      ]
     else
-      args << "--config=macos"
-    end
-
-    # Workaround to build with Xcode 16.3 / Clang 19.
-    args << "--copt=-Wno-nullability-completeness" if OS.linux? || DevelopmentTools.clang_build_version >= 1700
-
-    # Envoy v1.37.0 expects a specific LLVM layout and tools, but Homebrew paths differ.
-    # Stage a local toolchain root matching upstream expectations.
-    llvm_path = buildpath/"llvm-toolchain"
-    llvm = llvm_formula.opt_prefix
-    (llvm_path/"bin").mkpath
-    (llvm_path/"lib").mkpath
-    (llvm/"bin").children.each { |path| ln_sf path, llvm_path/"bin"/path.basename }
-    (llvm/"lib").children.each { |path| ln_sf path, llvm_path/"lib"/path.basename }
-    ln_sf llvm/"include", llvm_path/"include"
-    ln_sf llvm/"libexec", llvm_path/"libexec"
-    ln_sf llvm/"share", llvm_path/"share"
-
-    if OS.mac?
-      # rules_foreign_cc expects "libtool" for AR on Darwin.
-      ln_sf which("libtool"), llvm_path/"bin/libtool"
-    end
-    ln_sf Formula["libtool"].opt_bin/"glibtool", llvm_path/"bin/glibtool"
-    ENV["BAZEL_LLVM_PATH"] = llvm_path
-
-    # clang-common links these archives in foreign_cc bootstrap; provide them from brewed llvm.
-    if OS.linux?
-      libdir = llvm_formula.opt_lib
-      ln_sf libdir/"libc++.a", llvm_path/"lib/libc++.a" if (libdir/"libc++.a").exist?
-      ln_sf libdir/"libc++abi.a", llvm_path/"lib/libc++abi.a" if (libdir/"libc++abi.a").exist?
-
-      args << "--linkopt=-L#{llvm_path}/lib"
-      args << "--host_linkopt=-L#{llvm_path}/lib"
-    end
-
-    output_base = Utils.safe_popen_read(
-      bazelisk, *bazel_args, "info", "output_base"
-    ).chomp
-    odie "Failed to determine bazel output_base" if output_base.empty?
-    yq_bin = Formula["yq"].opt_bin/"yq"
-    platform_suffix = "yq_#{OS.kernel_name.downcase}_#{Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch}"
-    ["yq", platform_suffix].each do |suffix|
-      dir = Pathname(output_base)/"external"/suffix
-      dir.mkpath
-      ln_sf yq_bin, dir/"yq"
+      ["--config=macos"]
     end
 
     # Write the current version SOURCE_VERSION.
     system "python3", "tools/github/write_current_source_version.py", "--skip_error_in_git",
            "--github_api_token_env_name=HOMEBREW_GITHUB_API_TOKEN"
 
-    system bazelisk, *bazel_args, "build", *args, "//source/exe:envoy-static.stripped"
+    system "bazel", *bazel_args, "build", *args, "//source/exe:envoy-static.stripped"
     bin.install "bazel-bin/source/exe/envoy-static.stripped" => "envoy"
     # Copy the configs directory to the pkgshare directory.
     pkgshare.install "configs"

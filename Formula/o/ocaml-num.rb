@@ -4,15 +4,15 @@ class OcamlNum < Formula
   url "https://github.com/ocaml/num/archive/refs/tags/v1.6.tar.gz"
   sha256 "b5cce325449aac746d5ca963d84688a627cca5b38d41e636cf71c68b60495b3e"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "76c722dd8ad6f12ccdda09f952f5f6b0ac5d240c4bbb4ded7d78915cea582c3f"
-    sha256 cellar: :any,                 arm64_sequoia: "6e7f4d21c10922367590c1edce13ed4864b6aa7b75ed33d5533f0b08f9b3c101"
-    sha256 cellar: :any,                 arm64_sonoma:  "93da978a25ffe78f43852b07dd2dee9c06de67534ffaf389e96e8b5d3d152a2b"
-    sha256 cellar: :any,                 sonoma:        "b7eb0c9fbb0d0c9fc3234011c0954abea2c44774aeda331094897ed1363f37d8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1582f04ba6900e23021d99ef4450ae945935fde491e4fae1a24f05c22a690417"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "594ea85e889f5063ea86712ffc6930e71597c8b438b5d82663e925fdfdebd47b"
+    sha256 cellar: :any, arm64_tahoe:   "7d97a11ca99de9facad637811bf78e035b5a5ad856b19b80c587e37f8e9c0628"
+    sha256 cellar: :any, arm64_sequoia: "154565a6ae34f0f39ae5d49fc210cfe30b96fc28a696cac9c959caa41492423b"
+    sha256 cellar: :any, arm64_sonoma:  "fa6c8ca8310d041378a0afc352c4e7493d184975d897c10d7fee8b7bbb1968d3"
+    sha256 cellar: :any, sonoma:        "f395332e2c24a0b5a1ddb7bc7805ffff5a9760b521cd40597a552ef82b8eaa81"
+    sha256 cellar: :any, arm64_linux:   "eda1ad6028d87729064c9db02372bfc62c0a8bfe5ddac5a72671327c267f4e57"
+    sha256 cellar: :any, x86_64_linux:  "8528646cb785d24c4463a68e687c791eee4c36ca854daa37f799fe322240a8ce"
   end
 
   depends_on "ocaml-findlib" => :build
@@ -25,7 +25,7 @@ class OcamlNum < Formula
     inreplace "src/Makefile", "cp META.num META", "mv META.num META"
 
     (lib/"ocaml").mkpath
-    cp Formula["ocaml"].opt_lib/"ocaml/Makefile.config", lib/"ocaml"
+    cp formula_opt_lib("ocaml")/"ocaml/Makefile.config", lib/"ocaml"
 
     # install in #{lib}/ocaml not #{HOMEBREW_PREFIX}/lib/ocaml
     inreplace lib/"ocaml/Makefile.config" do |s|
@@ -43,8 +43,8 @@ class OcamlNum < Formula
 
   test do
     cp_r pkgshare/"test/.", "."
-    system Formula["ocaml"].opt_bin/"ocamlopt", "-I", lib/"ocaml", "-I",
-           Formula["ocaml"].opt_lib/"ocaml", "-o", "test", "nums.cmxa",
+    system formula_opt_bin("ocaml")/"ocamlopt", "-I", lib/"ocaml", "-I",
+           formula_opt_lib("ocaml")/"ocaml", "-o", "test", "nums.cmxa",
            "test.ml", "test_nats.ml", "test_big_ints.ml", "test_ratios.ml",
            "test_nums.ml", "test_io.ml", "end_test.ml"
     assert_match "1... 2... 3", shell_output("./test")

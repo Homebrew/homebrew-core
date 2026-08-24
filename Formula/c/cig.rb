@@ -23,14 +23,18 @@ class Cig < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cda091fe20f715097967b89ee16f611d3f26faac9eb4d3f7861ec5d9cb91201"
   end
 
+  # Last release on 2015-07-19. Needs patches from closed PR to build on maintained Go
+  deprecate! date: "2026-07-10", because: :unmaintained
+  disable! date: "2027-07-10", because: :unmaintained
+
   depends_on "go" => :build
 
   # Patch to remove godep dependency.
-  # Remove when the following PR is merged into release:
-  # https://github.com/stevenjack/cig/pull/44
   patch do
     url "https://github.com/stevenjack/cig/compare/2d834ee..f0e78f0.patch?full_index"
     sha256 "3aa14ecfa057ec6aba08d6be3ea0015d9df550b4ede1c3d4eb76bdc441a59a47"
+    type :unofficial
+    resolves "https://github.com/stevenjack/cig/pull/44"
   end
 
   def install

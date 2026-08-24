@@ -1,25 +1,24 @@
 class Nanobot < Formula
   desc "Build MCP Agents"
   homepage "https://www.nanobot.ai/"
-  url "https://github.com/obot-platform/nanobot/archive/refs/tags/v0.0.85.tar.gz"
-  sha256 "97b55211112f129284dadb63ed0878e93c731457b4b1da6a851fd51c32149b28"
+  url "https://github.com/obot-platform/nanobot/archive/refs/tags/v0.0.92.tar.gz"
+  sha256 "1392bd7ac4e93ff25bb0e42c44416674f408ea698208bd11ae6664d3936b9a97"
   license "Apache-2.0"
   head "https://github.com/obot-platform/nanobot.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a1461c09be4ec61db3e15dc98d93df216f6a6ad339729268ac8e105dbf858b74"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3654cec0c512aff3f743a2b656b13eec2421739e4bb7151cef60f8ee2045628b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "91abb6da39136c7d4996e0c7d406296edc4802f862f7e8bce823962ab1032a0a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "46c902089aa7e2a072ed96c18af436601cd0183565910fa196ecf6729e5869ab"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "98aebb7e6cb9b01376711f1585b6a7e65802b9256b45d498d47412ac827546f6"
-    sha256 cellar: :any,                 x86_64_linux:  "f546f776400d26c22614ad0a0c51c005e8756680a02579bad981bebeec8d0996"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e4c1b343a99644071dd99df10a4f80561230212e092c67905f6c3a3e71d4d1d4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5bef8fc765c60209df6b4a5cfde9b1dd95e3d98236ee712ef62cbc6e7cd6056b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c5dbf4c091f6c730b7385df3f3ca263c8342836bfc2f8bcf87bb4e041a14e0eb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "356edb817b4b6183a6596f7673794e42c60fd6e2b5d6aa9103fb9f465f09be57"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8fab8ebdcfffc6f02b6e38120c7c80a93df343d0da00debefb8cfe76b5ff4dc0"
+    sha256 cellar: :any,                 x86_64_linux:  "02c107f62ab252df059dba9f3a092e28272bcce9d157de2e4d49b5d9e9e0d85a"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/obot-platform/nanobot/pkg/version.Tag=v#{version}
       -X github.com/obot-platform/nanobot/pkg/version.BaseImage=ghcr.io/nanobot-ai/nanobot:v#{version}
     ]

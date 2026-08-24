@@ -1,18 +1,18 @@
 class Eza < Formula
   desc "Modern, maintained replacement for ls"
   homepage "https://eza.rocks"
-  url "https://github.com/eza-community/eza/archive/refs/tags/v0.23.4.tar.gz"
-  sha256 "9fbcad518b8a2095206ac385329ca62d216bf9fdc652dde2d082fcb37c309635"
+  url "https://github.com/eza-community/eza/archive/refs/tags/v0.23.5.tar.gz"
+  sha256 "bbf179f2611c904014431740b559e8055276c12fcf978a7e31c271663548337f"
   license "EUPL-1.2"
   head "https://github.com/eza-community/eza.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "41991ad81cb8fd691125d28eda4bbfa0ebb14c6f902767402dc2ea8763ecf196"
-    sha256 cellar: :any,                 arm64_sequoia: "2bc7df7c601dfb6b9004db58a8033a5633dfb731dbfc0288cb9cc0c4fc1a4df7"
-    sha256 cellar: :any,                 arm64_sonoma:  "4371bc10070f7728a665b3e590903c1861b6882fb37fef7abfed93717e38dbc4"
-    sha256 cellar: :any,                 sonoma:        "40120b86f48af531ff13393db0bbbf9fcb4c304bbdd6cb3bbab3bc70d0236c72"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b8b0bd9691c73ab64a5542c0372d5f2f2e0e96bbc8fae25d5bb278ddde5e49b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2bdf49feadb1e11bf7a5247cb64cf6a0efc6624ef7af0305f11e53bc0463bf77"
+    sha256 cellar: :any, arm64_tahoe:   "49b4351a61ebedbe102726fadb3638998cbfd98a81cb1a5f0e4fd0f1be30444e"
+    sha256 cellar: :any, arm64_sequoia: "94b3b640649a5e89a6f75c15fa2fa66098cf78c4faf742a6d43771fe377f31a0"
+    sha256 cellar: :any, arm64_sonoma:  "c40aba3602dda7fb2327bf8401f9c4b234e2f87a02c066fafb49f917f8cf1a6b"
+    sha256 cellar: :any, sonoma:        "63b565307886da9465e9c8744e112c1872da74cf2a3e5723c38c49f49d5701d9"
+    sha256 cellar: :any, arm64_linux:   "401228759a123919e80302eed23d749f59ced13a5ddd964343ef4c13029f9d2e"
+    sha256 cellar: :any, x86_64_linux:  "246d2197c53ed155fa308c1da349f0c948f3a803642d0e40542abe769ba81894"
   end
 
   depends_on "pandoc" => :build
@@ -60,7 +60,7 @@ class Eza < Formula
     assert_equal "--", eza_output.call
 
     require "utils/linkage"
-    library = Formula["libgit2"].opt_lib/shared_library("libgit2")
+    library = formula_opt_lib("libgit2")/shared_library("libgit2")
     assert Utils.binary_linked_to_library?(bin/"eza", library),
            "No linkage with #{library.basename}! Cargo is likely using a vendored version."
   end

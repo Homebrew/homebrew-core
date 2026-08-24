@@ -64,9 +64,9 @@ class Blast < Formula
         --prefix=#{prefix}
         --with-bin-release
         --with-dll
-        --with-mbedtls=#{Formula["mbedtls@3"].opt_prefix}
+        --with-mbedtls=#{formula_opt_prefix("mbedtls@3")}
         --with-mt
-        --with-pcre2=#{Formula["pcre2"].opt_prefix}
+        --with-pcre2=#{formula_opt_prefix("pcre2")}
         --without-strip
         --with-experimental=Int8GI
         --without-debug

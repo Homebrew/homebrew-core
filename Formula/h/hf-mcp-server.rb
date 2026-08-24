@@ -1,17 +1,17 @@
 class HfMcpServer < Formula
   desc "MCP Server for Hugging Face"
   homepage "https://github.com/evalstate/hf-mcp-server"
-  url "https://registry.npmjs.org/@llmindset/hf-mcp-server/-/hf-mcp-server-0.3.20.tgz"
-  sha256 "ab1bc3f64c8f296d2721304ed605aa41e471846b1584c4a763a0d8462b22344f"
+  url "https://registry.npmjs.org/@llmindset/hf-mcp-server/-/hf-mcp-server-0.4.12.tgz"
+  sha256 "e7b62bcd2fef748c652effd4d1debff41085af843734051dafa8b336280b75e1"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7337a64b89366a1713cc4689c7d30ca26c76b88c49f6127fcc914207b587b53c"
-    sha256 cellar: :any,                 arm64_sequoia: "6e8951d66a35abc67de331e57acbea6b5f117f6cf9852f7e0b217bf552867200"
-    sha256 cellar: :any,                 arm64_sonoma:  "6e8951d66a35abc67de331e57acbea6b5f117f6cf9852f7e0b217bf552867200"
-    sha256 cellar: :any,                 sonoma:        "7312f3bea007a83a0fb837f8f1571db04d5e830995ec77de80f82cd450d04a5c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6282ff8d2493f7e907d04551ff15960e0f3659185b1d438d83769e5f42d8d3dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95cc842168d683f782ae4ba0b1c4627ea53411f72fa85718ec46007146c26f6f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "850455f3f6adf63f61b3a3690b034c676bbb5b7d1d1abb89e606f00364a4eeae"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "850455f3f6adf63f61b3a3690b034c676bbb5b7d1d1abb89e606f00364a4eeae"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "850455f3f6adf63f61b3a3690b034c676bbb5b7d1d1abb89e606f00364a4eeae"
+    sha256 cellar: :any_skip_relocation, sonoma:        "04593c62bbc94f96c95be59cddaa1b77c497a50b783ef530770dcaa5f263c0ee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "536db7c076b5e755ed2c4fe919edaaee70ed40c8211dad5d1f5bc23c25c34fa0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "536db7c076b5e755ed2c4fe919edaaee70ed40c8211dad5d1f5bc23c25c34fa0"
   end
 
   depends_on "node"
@@ -23,6 +23,16 @@ class HfMcpServer < Formula
     node_modules = libexec/"lib/node_modules/@llmindset/hf-mcp-server/node_modules"
     # Remove incompatible and unneeded Bun binaries.
     rm_r(node_modules.glob("@oven/bun-*"))
+    # Remove dev-mode-only bundler and CSS-toolchain prebuilts.
+    prebuilts = %w[
+      @rollup/rollup
+      @rolldown/binding
+      @tailwindcss/oxide
+      lightningcss
+      vite/node_modules/lightningcss
+    ]
+    rm_r(node_modules.glob("{#{prebuilts.join(",")}}-*"))
+
     deuniversalize_machos node_modules/"fsevents/fsevents.node" if OS.mac?
   end
 
@@ -33,7 +43,7 @@ class HfMcpServer < Formula
     output_log = testpath/"output.log"
     pid = spawn bin/"hf-mcp-server", [:out, :err] => output_log.to_s
     sleep 10
-    sleep 10 if OS.mac? && Hardware::CPU.intel?
+    sleep 15 if OS.mac? && Hardware::CPU.intel?
     assert_match "Failed to authenticate with Hugging Face API", output_log.read
   ensure
     Process.kill("TERM", pid)

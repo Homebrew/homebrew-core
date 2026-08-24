@@ -1,20 +1,20 @@
 class Landrun < Formula
   desc "Lightweight, secure sandbox for running Linux processes using Landlock LSM"
   homepage "https://github.com/Zouuup/landrun"
-  url "https://github.com/Zouuup/landrun/archive/refs/tags/v0.1.15.tar.gz"
-  sha256 "61bc92e1b808e1d4443b69a62498b74d5730a997703a70e6879486d95ea53aad"
+  url "https://github.com/Zouuup/landrun/archive/refs/tags/v0.1.17.tar.gz"
+  sha256 "c6b2579ba5e30b77ca83dac2b4ba912edb31afe558d7933cedd43dc917df5e7d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "bd1fe9ee50db6b17e5b6d698951ca85eeb7e635d7aaa9de60e3ca6bf03a5e051"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c390166baa601f71d8dc11c07ec0b3e1780ed5573b9fe35ebaed59046fcfc259"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "2de8d23a677f0f85561215d691275b772fdf57910f3a51ef846634e72161b44f"
+    sha256 cellar: :any,                 x86_64_linux: "cfc357624fdfa2dd7def03fece2741e61b538f1509a11fbb2400902dfa523064"
   end
 
   depends_on "go" => :build
   depends_on :linux
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/landrun"
+    system "go", "build", *std_go_args, "./cmd/landrun"
   end
 
   test do

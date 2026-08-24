@@ -43,6 +43,8 @@ class Halide < Formula
   patch do
     url "https://github.com/halide/Halide/commit/7d7f0b4422594296fed1d561a43dc262d163d2b8.patch?full_index=1"
     sha256 "6b861e585ce4d71aec53b225562e078086ee310e8c6e7a052bf3fd53f03322ab"
+    type :backport
+    resolves "https://github.com/halide/Halide/pull/8923"
   end
 
   def install

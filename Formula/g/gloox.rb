@@ -34,7 +34,7 @@ class Gloox < Formula
   def install
     system "./configure", "--disable-silent-rules",
                           "--with-zlib",
-                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+                          "--with-openssl=#{formula_opt_prefix("openssl@3")}",
                           "--without-tests",
                           "--without-examples",
                           *std_configure_args

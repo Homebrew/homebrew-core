@@ -1,12 +1,12 @@
 class ChipmunkPhysics < Formula
   desc "2D rigid body physics library written in C"
   # cannot resolve host bug report, https://github.com/slembcke/Chipmunk2D/issues/261
-  homepage "https://github.com/slembcke/Chipmunk2D"
+  homepage "https://codeberg.org/slembcke/Chipmunk2D"
   url "https://chipmunk-physics.net/release/Chipmunk-7.x/Chipmunk-7.0.3.tgz"
   mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/chipmunk/Chipmunk-7.0.3.tgz"
   sha256 "048b0c9eff91c27bab8a54c65ad348cebd5a982ac56978e8f63667afbb63491a"
   license "MIT"
-  head "https://github.com/slembcke/Chipmunk2D.git", branch: "master"
+  head "https://codeberg.org/slembcke/Chipmunk2D.git", branch: "master"
 
   livecheck do
     url "https://chipmunk-physics.net/downloads.php"

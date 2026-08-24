@@ -37,6 +37,8 @@ class Clblas < Formula
   patch do
     url "https://github.com/clMathLibraries/clBLAS/commit/68ce5f0b824d7cf9d71b09bb235cf219defcc7b4.patch?full_index=1"
     sha256 "df5dc87e9ae543a043608cf790d01b985627b5b6355356c860cfd45a47ba2c36"
+    type :unofficial
+    resolves "https://github.com/clMathLibraries/clBLAS/pull/360"
   end
 
   def install

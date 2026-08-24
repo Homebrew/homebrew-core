@@ -25,14 +25,8 @@ class Bettercap < Formula
     depends_on "libnetfilter-queue"
   end
 
-  resource "ui" do
-    url "https://github.com/bettercap/ui.git",
-        revision: "ca482e9820552bc71acba6047504efbd0a05043f"
-  end
-
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
-    (buildpath/"modules/ui/ui").install resource("ui")
     system "make", "build"
     bin.install "bettercap"
   end

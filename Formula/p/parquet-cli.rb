@@ -1,18 +1,18 @@
 class ParquetCli < Formula
   desc "Apache Parquet command-line tools and utilities"
   homepage "https://parquet.apache.org/"
-  url "https://github.com/apache/parquet-java/archive/refs/tags/apache-parquet-1.17.1.tar.gz"
-  sha256 "bf68ed249a828213e4b18de8de3865e2f4edbb856cd19057b2f559a7c9e8f1e5"
+  url "https://github.com/apache/parquet-java/archive/refs/tags/apache-parquet-1.18.0.tar.gz"
+  sha256 "2c1f8931177a01beeac7e0b87c53e693598a3157595ca6bf3fbb3bf4db9de2a8"
   license "Apache-2.0"
-  head "https://github.com/apache/parquet-mr.git", branch: "master"
+  head "https://github.com/apache/parquet-java.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c0ec4ebffdd2db0ca29909d274ec16053efaf7f9cb5b58bcff8a6c56888332c9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0ec4ebffdd2db0ca29909d274ec16053efaf7f9cb5b58bcff8a6c56888332c9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c0ec4ebffdd2db0ca29909d274ec16053efaf7f9cb5b58bcff8a6c56888332c9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c0ec4ebffdd2db0ca29909d274ec16053efaf7f9cb5b58bcff8a6c56888332c9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4d6f93054a0d02382f1481ea9b86e42d9d2c969b7241ce45654475f4edbab604"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d6f93054a0d02382f1481ea9b86e42d9d2c969b7241ce45654475f4edbab604"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca813e2df90bc4794cd113ca41691d57025a6b663b60c21ce785d072bba01503"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca813e2df90bc4794cd113ca41691d57025a6b663b60c21ce785d072bba01503"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ca813e2df90bc4794cd113ca41691d57025a6b663b60c21ce785d072bba01503"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ca813e2df90bc4794cd113ca41691d57025a6b663b60c21ce785d072bba01503"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef2d1724811e0051ad4d302b7802d058f1f2d3f172c490bd3d90739c1ecc8dc9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef2d1724811e0051ad4d302b7802d058f1f2d3f172c490bd3d90739c1ecc8dc9"
   end
 
   depends_on "maven" => :build
@@ -30,7 +30,7 @@ class ParquetCli < Formula
       (bin/"parquet").write <<~SH
         #!/bin/sh
         set -e
-        exec "#{Formula["openjdk@21"].opt_bin}/java" -cp "#{libexec}/*" org.apache.parquet.cli.Main "$@"
+        exec "#{formula_opt_bin("openjdk@21")}/java" -cp "#{libexec}/*" org.apache.parquet.cli.Main "$@"
       SH
     end
 

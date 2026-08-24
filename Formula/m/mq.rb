@@ -1,18 +1,18 @@
 class Mq < Formula
   desc "Jq-like command-line tool for markdown processing"
   homepage "https://mqlang.org/"
-  url "https://github.com/harehare/mq/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "747c52757241cc4ab7840e081588132cf9273b9bc34eaf5eed3dcdb3978e3c30"
+  url "https://github.com/harehare/mq/archive/refs/tags/v0.8.3.tar.gz"
+  sha256 "c47874259da3fb1121887e05995ce5992e126d16aad1374f2128adb36b19198d"
   license "MIT"
   head "https://github.com/harehare/mq.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e4a0609529bced214f612be6f1488a33669634e1a740cdb86fe061028f2af6da"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "262df0f11bc6865a2a1985e84e6bbcb998df5022a9675ff2015a32491abd0d48"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e1517b4e25ae1fdc3d9a8415a497244963acb333182ae7450865a8464882f73"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c10b19b9f28c8cd0aa6796ef8b250506ba35b516ee7dc60206d0e2742c4a01f5"
-    sha256 cellar: :any,                 arm64_linux:   "9373b1188c673803d45b201c0bb7fc8685faca260b610bd9c0bd528d123f1f21"
-    sha256 cellar: :any,                 x86_64_linux:  "5860b5dfc08106d2bbcfb98808adc1d7a00dd578311f5fcd3e9a1c037ec4c65f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a6604239016daa434aae5c111c12da2d3091234b4ae7f8ec95c1499ac6a16c80"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e528d33cc81181fb66fdd737af681bb569f5275dcbec9fe8746ed4bce7b2eb8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2ef4f08cda60c9c599ed59cf0b06ef618f4c9765577477f93235f404a766e8dc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7680eae66d8a47bc61826a01ad0bbd526a1d749b886fc2336f84707bde31e762"
+    sha256 cellar: :any,                 arm64_linux:   "b0a7e9a8f1111b27380f7582296342c284adeed51241d55fc34943b60b18c0d8"
+    sha256 cellar: :any,                 x86_64_linux:  "9fdd89c9fb5d7e5eab830b89a76bc086695a0ae33b75b7360fe126ff8ee849d5"
   end
 
   depends_on "rust" => :build

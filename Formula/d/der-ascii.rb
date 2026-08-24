@@ -18,8 +18,8 @@ class DerAscii < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(output: bin/"ascii2der", ldflags: "-s -w"), "./cmd/ascii2der"
-    system "go", "build", *std_go_args(output: bin/"der2ascii", ldflags: "-s -w"), "./cmd/der2ascii"
+    system "go", "build", *std_go_args(output: bin/"ascii2der"), "./cmd/ascii2der"
+    system "go", "build", *std_go_args(output: bin/"der2ascii"), "./cmd/der2ascii"
 
     pkgshare.install "samples"
   end

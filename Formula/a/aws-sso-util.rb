@@ -2,12 +2,12 @@ class AwsSsoUtil < Formula
   include Language::Python::Virtualenv
 
   desc "Smooth out the rough edges of AWS SSO (temporarily, until AWS makes it better)"
-  homepage "https://github.com/benkehoe/aws-sso-util"
+  homepage "https://github.com/61418/aws-sso-util"
   url "https://files.pythonhosted.org/packages/4f/64/f00272ecbc60703d0f1a3b17ab75d893c05ec5d60b0e6e9d59ef9b8b9c61/aws_sso_util-4.33.0.tar.gz"
   sha256 "e48d7f5911443450d28e1ac1613f81b9aa15babb1b2055b4531df87db43a09df"
   license "Apache-2.0"
   revision 8
-  head "https://github.com/benkehoe/aws-sso-util.git", branch: "master"
+  head "https://github.com/61418/aws-sso-util.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "c0ec5f26e1f32323f3f33c5f298496d7167f21b252655b62f2d70d1edf3f5b34"

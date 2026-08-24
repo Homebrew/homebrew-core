@@ -27,6 +27,8 @@ class Mobiledevice < Formula
   patch do
     url "https://github.com/imkira/mobiledevice/commit/0472188d875382c5535916bf4469a2de7696fd39.patch?full_index=1"
     sha256 "76094a3e39e287c88bb60c829d2e9ab8801f8638c116d95a16333198b236147b"
+    type :backport
+    resolves "https://github.com/imkira/mobiledevice/pull/20"
   end
 
   def install

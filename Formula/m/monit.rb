@@ -32,7 +32,7 @@ class Monit < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--localstatedir=#{var}/monit",
                           "--sysconfdir=#{etc}/monit",
-                          "--with-ssl-dir=#{Formula["openssl@3"].opt_prefix}"
+                          "--with-ssl-dir=#{formula_opt_prefix("openssl@3")}"
     system "make"
     system "make", "install"
     etc.install "monitrc"

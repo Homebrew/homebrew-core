@@ -3,26 +3,25 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://docs.gtk.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.88/glib-2.88.1.tar.xz"
-  sha256 "51ab804c56f6eab3e5045c774d1290ac5e4c923d4f9a3d8e33123bee45c1840e"
+  url "https://download.gnome.org/sources/glib/2.88/glib-2.88.3.tar.xz"
+  sha256 "ab24d24e698dfa1e408b7bcdb508f4aafc906185a8b8ce72fdf79bbbdc9b383b"
   license "LGPL-2.1-or-later"
   compatibility_version 1
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "bc99921948ea4943961b8d97e33c6493438d213424ce6de4817c0236016f6375"
-    sha256 arm64_sequoia: "5a272e7c8d7fb0ec8ca0365758a2d3c9fd578d538eaf95ea38f646c656b7f63d"
-    sha256 arm64_sonoma:  "3150238b4703af5bc41fea321a10c46de9270b8877a189c06c867df2f03ec675"
-    sha256 sonoma:        "2ebabe8d075f2a3fa4d7f7086dd29bd9f2af84fa5137fc6a6b9e04e70dd4e9ac"
-    sha256 arm64_linux:   "3df03ebf206bc5e0851ac4dda577916d8f40b3767169624128016bb3269a5616"
-    sha256 x86_64_linux:  "989f663ad507d9b38444972f49f48f10e8c952109de8737f7ec61c30c746a752"
+    sha256 arm64_tahoe:   "56f78bc6c2d3e68fa15a1c37e3ea6531ac90c3af20665e4a6418d285514ba5ce"
+    sha256 arm64_sequoia: "75a92e360363ebd719c655b3170b084dc3491811188b65fce0d97a45d554414e"
+    sha256 arm64_sonoma:  "86dc32e84bcecdb1c1ed1e277bcc7acffff2c8ab153cca0d86b39f048f30b931"
+    sha256 sonoma:        "68ac31bed02121ce2ed0ffd4defd2ed5e85195eb51aeeeae431b2156df788817"
+    sha256 arm64_linux:   "f7ec1dfffe7edcc23308e7c95f92b70f23158941ef4fade6755128cc0c52dccb"
+    sha256 x86_64_linux:  "abe7175c8efb207633f50e94b56d81ad3ce5750062da0b6fc086a2dfafea4333"
   end
 
   depends_on "bison" => :build # for gobject-introspection
   depends_on "gettext" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkgconf" => [:build, :test]
   depends_on "python-setuptools" => :build # for gobject-introspection
   depends_on "python@3.14" => :build
   depends_on "pcre2"
@@ -61,8 +60,7 @@ class Glib < Formula
 
   # replace several hardcoded paths with homebrew counterparts
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/glib/hardcoded-paths.diff"
-    sha256 "d846efd0bf62918350da94f850db33b0f8727fece9bfaf8164566e3094e80c97"
+    file "Patches/glib/hardcoded-paths.diff"
   end
 
   def install
@@ -75,7 +73,7 @@ class Glib < Formula
       --localstatedir=#{var}
       -Dgio_module_dir=#{HOMEBREW_PREFIX}/lib/gio/modules
       -Dbsymbolic_functions=false
-      -Ddtrace=false
+      -Ddtrace=disabled
       -Druntime_dir=#{var}/run
       -Dtests=false
     ]
@@ -85,21 +83,20 @@ class Glib < Formula
     # `glib` is a dependency of `gobject-introspection`.
     # Ref: https://discourse.gnome.org/t/dealing-with-glib-and-gobject-introspection-circular-dependency/18701
     staging_dir = buildpath/"staging"
-    staging_meson_args = std_meson_args.map { |s| s.sub prefix, staging_dir }
-    system "meson", "setup", "build_staging", "-Dintrospection=disabled", *args, *std_meson_args
+    staging_meson_args = std_meson_args(prefix: staging_dir)
+    system "meson", "setup", "build_staging", "-Dintrospection=disabled", *args, *staging_meson_args
     system "meson", "compile", "-C", "build_staging", "--verbose"
     system "meson", "install", "-C", "build_staging"
-    ENV.append_path "PKG_CONFIG_PATH", lib/"pkgconfig"
-    ENV.append_path "LD_LIBRARY_PATH", lib if OS.linux?
+
+    ENV.append_path "PKG_CONFIG_PATH", staging_dir/"lib/pkgconfig"
+    ENV.append_path "LD_LIBRARY_PATH", staging_dir/"lib" if OS.linux?
+    ENV.append_path "PATH", staging_dir/"bin"
 
     resource("gobject-introspection").stage do
       system "meson", "setup", "build", "-Dcairo=disabled", "-Ddoctool=disabled", "-Dtests=false", *staging_meson_args
       system "meson", "compile", "-C", "build", "--verbose"
       system "meson", "install", "-C", "build"
     end
-    ENV.append_path "PKG_CONFIG_PATH", staging_dir/"lib/pkgconfig"
-    ENV.append_path "LD_LIBRARY_PATH", staging_dir/"lib" if OS.linux?
-    ENV.append_path "PATH", staging_dir/"bin"
 
     system "meson", "setup", "build", "--default-library=both", "-Dintrospection=enabled", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
@@ -112,8 +109,7 @@ class Glib < Formula
               "giomoduledir=#{HOMEBREW_PREFIX}/lib/gio/modules",
               "giomoduledir=${libdir}/gio/modules"
 
-    (buildpath/"gio/completion/.gitignore").unlink
-    bash_completion.install (buildpath/"gio/completion").children
+    bash_completion.install (share/"bash-completion/completions").children
     return unless OS.mac?
 
     # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
@@ -128,7 +124,7 @@ class Glib < Formula
   end
 
   post_install_steps do
-    mkdir_p "lib/gio/modules", base: :homebrew_prefix
+    mkdir_p "{{HOMEBREW_PREFIX}}/lib/gio/modules"
   end
 
   test do
@@ -147,8 +143,9 @@ class Glib < Formula
           return (strcmp(str, result_2) == 0) ? 0 : 1;
       }
     C
-    system ENV.cc, "-o", "test", "test.c", "-I#{include}/glib-2.0",
-                   "-I#{lib}/glib-2.0/include", "-L#{lib}", "-lglib-2.0"
+
+    flags = shell_output("pkgconf --cflags --libs glib-2.0").chomp.split
+    system ENV.cc, "-o", "test", "test.c", *flags
     system "./test"
 
     assert_match "This file is generated by glib-mkenum", shell_output(bin/"glib-mkenums")

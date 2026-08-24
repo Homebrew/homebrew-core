@@ -4,6 +4,7 @@ class Gost < Formula
   url "https://github.com/go-gost/gost/archive/refs/tags/v3.2.6.tar.gz"
   sha256 "79874354530b899576dd4866d3b1400651d0b17c1e7a90ad30c44686a0642600"
   license "MIT"
+  revision 1
   head "https://github.com/go-gost/gost.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class Gost < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "925d5ffa1c7f6ffd0c3743b6805308bc39ca041e1c7e93c1333848699f5504cc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "925d5ffa1c7f6ffd0c3743b6805308bc39ca041e1c7e93c1333848699f5504cc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "925d5ffa1c7f6ffd0c3743b6805308bc39ca041e1c7e93c1333848699f5504cc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d5d199aadd5a88043ec9f8bffd7de6f852dafdf4a45fac5a8d3527f7ee489efa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e68d6e4500a83ee8cc60afed486e32e9b6320b5566ce7836b69148627272493d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8e887113b6a3f3715847a8004c6b9d8708212a69cac3ddcaed42eef3d3f148d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a2b479036a3b88053d0179e28ccfb4a980ed85c4e1ebc67dd057c978a2f0f652"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a2b479036a3b88053d0179e28ccfb4a980ed85c4e1ebc67dd057c978a2f0f652"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a2b479036a3b88053d0179e28ccfb4a980ed85c4e1ebc67dd057c978a2f0f652"
+    sha256 cellar: :any_skip_relocation, sonoma:        "57e90424f843be0b5f37193136821911635ae73030e958d272461d07ad873a7f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3ad1f20070403dc1f8ef7b85eaddce8f42c59d6c063c5c3943947a4ac2b8948"
+    sha256 cellar: :any,                 x86_64_linux:  "b37dcfc8866962bc64508f8dfb3c47f301b0eebf1d9f3c5960df0543f6a2a577"
   end
 
   depends_on "go" => :build
@@ -25,16 +26,45 @@ class Gost < Formula
   conflicts_with "vulsio-gost", because: "both install `gost` binaries"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/gost"
+    system "go", "build", *std_go_args, "./cmd/gost"
     prefix.install "README_en.md"
+
+    etc.install "gost.yml"
+  end
+
+  def caveats
+    <<~EOS
+      The config is installed to #{etc}/gost.yml.
+    EOS
+  end
+
+  service do
+    run [opt_bin/"gost", "-C", etc/"gost.yml"]
+    keep_alive true
   end
 
   test do
     bind_address = "127.0.0.1:#{free_port}"
-    spawn bin/"gost", "-L", bind_address
+    (testpath/"gost.yml").write <<~YAML
+      services:
+        - name: test
+          addr: "#{bind_address}"
+          handler:
+            type: auto
+          listener:
+            type: tcp
+    YAML
+    pid = spawn bin/"gost", "-C", testpath/"gost.yml"
     sleep 2
-    output = shell_output("curl -I -x #{bind_address} https://github.com")
+    output = shell_output("curl --max-time 10 -I -x #{bind_address} https://github.com")
     assert_match %r{HTTP/\d+(?:\.\d+)? 200}, output
     assert_match(/Server: GitHub.com/i, output)
+
+    output = shell_output("curl --max-time 10 -I --socks5-hostname #{bind_address} https://github.com")
+    assert_match %r{HTTP/\d+(?:\.\d+)? 200}, output
+    assert_match(/Server: GitHub.com/i, output)
+  ensure
+    Process.kill("TERM", pid)
+    Process.wait(pid)
   end
 end

@@ -1,19 +1,18 @@
 class Findutils < Formula
   desc "Collection of GNU find, xargs, and locate"
   homepage "https://www.gnu.org/software/findutils/"
-  url "https://ftpmirror.gnu.org/gnu/findutils/findutils-4.10.0.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/findutils/findutils-4.10.0.tar.xz"
-  sha256 "1387e0b67ff247d2abde998f90dfbf70c1491391a59ddfecb8ae698789f0a4f5"
+  url "https://ftpmirror.gnu.org/gnu/findutils/findutils-4.11.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/findutils/findutils-4.11.0.tar.xz"
+  sha256 "bfd19cb06cc71f3352d567e90284d8cdac02ac89774bbeadf0b533b0c11432fd"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bbf1fa06d2c0dd2b170e83266bfb76f9b59e6bd8a44423009aebdd23c99b5138"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0ba2122a404aa878c9dc830fa726bd16b15c6c01a00b14837064b788c1deba4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f132d0f2ed5d4805e0c1b6266b7899298d79eb2e79231b3c023e9eba2a4f46e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ee53e5aa5b42856fe2feb224eb8348714e47bfdadb7084f903750ec0d6a9b0f4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "efc2f7cef22fbf5d5926c972fc0340c3c5a2063b744dd86e34df16192e4adcfb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6eca32ebb39b10a1e1f6f78fb60ff1ad2c5b0f9e87c8dcb90ff9a113776fab1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e29d12378878cca95d2b60703f7702e2ce7c37c8a4fe1636c0fc3b2ad2f82fa5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e35180244a00d215d59d1e53f4a3da84f8e5a046c67e72e8d27dd4ce82c958df"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1ce14cc0e2a6ca3415118b94b1c388f337538a11208b9f4ef63b3be1522099ec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "327fd9cdb2d0196d87f01e852f07c571caacdef69760cbe04cec4b91f3d8fbfd"
+    sha256 cellar: :any,                 arm64_linux:   "83ac2251468e03755fa6cd602f99d652279ea1e234a8b809a6e3571199d8530b"
+    sha256 cellar: :any,                 x86_64_linux:  "8b89e4687b71a6ed5b3c3d7e64adfd50901e000c4d1060b2cedd5f7c1dfcf01b"
   end
 
   def install

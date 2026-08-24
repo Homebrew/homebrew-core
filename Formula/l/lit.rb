@@ -34,7 +34,7 @@ class Lit < Formula
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["llvm"].opt_bin
+    ENV.prepend_path "PATH", formula_opt_bin("llvm")
 
     (testpath/"example.c").write <<~C
       // RUN: cc %s -o %t

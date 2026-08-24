@@ -4,6 +4,7 @@ class Ott < Formula
   url "https://github.com/ott-lang/ott/archive/refs/tags/0.34.tar.gz"
   sha256 "c14899fb9f9627f96fcde784829b53c014f4cd2e7633a697ac485ecb9ab8abd6"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/ott-lang/ott.git", branch: "master"
 
   livecheck do
@@ -12,14 +13,12 @@ class Ott < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f26fa61413c7091e27399e1d844a24ac94b69f00805eb6b3f6d9fcd416d90839"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d045d9324681cbb59888db4b0f47cde465b9777faa3ead91b4dafc748698a55a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e64b4f53bc4b32c5c2300ca5e6b4ddc9f336cfc10e9b40561c00433758fd9a6b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "da33fd1e6bfc151dbc8f8f1ed08e086715900c038b29537624944a36e1fb3b52"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8271dd4f6d13603b7353203cbbe021f2fb6359356a6fed14747d9c6761eaa477"
-    sha256 cellar: :any_skip_relocation, ventura:       "606c6ecd10fad0b508c32072a518e8ff135d9a12dc7dce01e95dba94b21154d7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cdcc901f3f3198e2fdedd4d897ba24e554f88a208efdbbe47b87eaaa06041931"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73f293a7ca9b84a8c105e9e5106176695c3207f4e92b98890ba72652dbec2e81"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9d4039e2b9e9c87406c25c32589f9d6b2f6967849565e8710122d157778136cd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "00cab8b9372dce0a39186602627d0755ebc64e9e2173c0b6a03859deebca7d77"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3817587945b256d5acecaf8f35a070f686fe1549068669d783b4f362dbae37cb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a8e41fe66482af077ffffb1d5050d708915cf5eda57dfc4543f625258d3b23f5"
+    sha256 cellar: :any,                 arm64_linux:   "7ee632f8b727db0d3762688c64ff21aa3b31aa8e1c728fb9c862a249c9521073"
+    sha256 cellar: :any,                 x86_64_linux:  "0ff8bad1b988fb83648ff827508c286a016572cf1feeaca40fcf3d7f35330161"
   end
 
   depends_on "gmp" => :build
@@ -28,14 +27,12 @@ class Ott < Formula
   depends_on "pkgconf" => :build
 
   def install
-    ENV["OPAMROOT"] = opamroot = buildpath/".opam"
+    ENV["OPAMROOT"] = buildpath/".opam"
     ENV["OPAMYES"] = "1"
 
-    # Work around https://github.com/ocaml/ocamlfind/issues/107 when `coq` is installed in build environment
-    ENV.prepend_path "OCAMLPATH", opamroot/"ocaml-system/lib" if Formula["coq"].any_version_installed?
-
     system "opam", "init", "--compiler=ocaml-system", "--disable-sandboxing", "--no-setup"
-    system "opam", "install", ".", "--deps-only", "--yes", "--no-depexts"
+    # Only build the `ott` binary; skip `coq-ott.opam` which pulls in coq/rocq
+    system "opam", "install", "./ott.opam", "--deps-only", "--yes", "--no-depexts"
     system "opam", "exec", "--", "make", "world"
 
     bin.install "bin/ott"

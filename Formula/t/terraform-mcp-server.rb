@@ -1,25 +1,24 @@
 class TerraformMcpServer < Formula
   desc "MCP server for Terraform"
   homepage "https://github.com/hashicorp/terraform-mcp-server"
-  url "https://github.com/hashicorp/terraform-mcp-server/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "c214d0d6e49fd87ce0a1bf69d1b615495d6ba99f6659626339d08c47468b2a3c"
+  url "https://github.com/hashicorp/terraform-mcp-server/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "9a091a639d5b8e3de05e2d09ecb59d896d6946a57a8d97fc859427841718dd34"
   license "MPL-2.0"
   head "https://github.com/hashicorp/terraform-mcp-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "74a813620963917bd6296ad9d6eee4c53fd13544fc95b848499907f810cb5904"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "74a813620963917bd6296ad9d6eee4c53fd13544fc95b848499907f810cb5904"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "74a813620963917bd6296ad9d6eee4c53fd13544fc95b848499907f810cb5904"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5dbeb96650d2df8711d34922183e832aa103ba69be3fa79a4bfdd4413b71f764"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8b51c32f38f805c3d1603621d90c5d0923becce8b4c35a54cb524b5c69c5fe5f"
-    sha256 cellar: :any,                 x86_64_linux:  "d11ec4e80676d54497105b3e4c888b7435fbd13fc51d9b5ee945b94f6ceb4b89"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e59ac2058e262574c33cdb3322551813cd1f599dc9469fdac61aa5e056040a2f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e59ac2058e262574c33cdb3322551813cd1f599dc9469fdac61aa5e056040a2f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e59ac2058e262574c33cdb3322551813cd1f599dc9469fdac61aa5e056040a2f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2f9d52b36ecef2e116901b9d40246901b968e26ecff9a6aaa70f4e1131af5cdf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf177c425f7fe68cfa7d1002d99a3ff826c4679692fe49059dd25e43000ff878"
+    sha256 cellar: :any,                 x86_64_linux:  "6d5774bd1de7608d93127b46bd5444bfa980c7ac96b6d0c5174301c91745869d"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/hashicorp/terraform-mcp-server/version.GitCommit=#{tap.user}
       -X github.com/hashicorp/terraform-mcp-server/version.BuildDate=#{time.iso8601}
       -X github.com/hashicorp/terraform-mcp-server/version.Version=#{version}

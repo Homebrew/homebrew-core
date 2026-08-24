@@ -1,8 +1,8 @@
 class Cliproxyapi < Formula
   desc "Wrap Gemini CLI, Codex, Claude Code, Qwen Code as an API service"
   homepage "https://github.com/router-for-me/CLIProxyAPI"
-  url "https://github.com/router-for-me/CLIProxyAPI/archive/refs/tags/v7.2.15.tar.gz"
-  sha256 "81abb0275c8bb62f71d0f4401283bd671df977642935c7928727add1ed9f228b"
+  url "https://github.com/router-for-me/CLIProxyAPI/archive/refs/tags/v7.2.140.tar.gz"
+  sha256 "9cbb3ef2861a4edcfd23c329f8abac3dbcb88ca5a5ce9110ea97e02214cd555f"
   license "MIT"
   head "https://github.com/router-for-me/CLIProxyAPI.git", branch: "main"
 
@@ -13,19 +13,18 @@ class Cliproxyapi < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b9a0bfdf08104f363b59a955d3ac3baa33edc5f42e299cf609456d9d59a6a409"
-    sha256 arm64_sequoia: "756e0a5380dea2985d13a29484577b766dfffcb370adf46eb743737f48ac3675"
-    sha256 arm64_sonoma:  "6d06b2fdf585696c733af640a72a763fcab193d9c53be433c3d4301e4ae3df6a"
-    sha256 sonoma:        "54d4f9e41f971497e76f53b2d99f09e74dec5ae78630548a0e494a61518e8966"
-    sha256 arm64_linux:   "1204d793b22d68b252e3ba3b65ff86512b93165cf9ea175639796ba6fcb232f2"
-    sha256 x86_64_linux:  "5d2a6c203f8bb516133f5ec509b920e220eb756baa6bba606e16f4570ad6ccc1"
+    sha256 arm64_tahoe:   "4197867d6b12e2853fb69472afad1895aec6ac067272bdb7537280d7a815a762"
+    sha256 arm64_sequoia: "e0bd70cf4975a31b063d4ae44c0b83e1ef62a5265ee087ff818d8880601cf8ac"
+    sha256 arm64_sonoma:  "df3bea51ac09631778aa038782a26f9c1a7a80ba9248020d19e6a91f818b77ad"
+    sha256 sonoma:        "32eece043449bfdfb057bf2179c266906bfd211d15f109924d495b73d82f6988"
+    sha256 arm64_linux:   "44180c8dac18ee839fa304599bb843ff58e3a13e7df608b686b20c50dcadb8e2"
+    sha256 x86_64_linux:  "e889b8bfae25b42643e9a8b11602a00d2ca9e3d0b26e9da72208a290307b522c"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X main.Version=#{version}
       -X main.Commit=#{tap.user}
       -X main.BuildDate=#{time.iso8601}
@@ -43,7 +42,7 @@ class Cliproxyapi < Formula
 
   test do
     require "pty"
-    PTY.spawn(bin/"cliproxyapi", "-login", "-no-browser") do |r, _w, pid|
+    PTY.spawn(bin/"cliproxyapi", "-antigravity-login", "-no-browser") do |r, _w, pid|
       sleep 5
       Process.kill "TERM", pid
       assert_match "accounts.google.com", r.read_nonblock(1024)

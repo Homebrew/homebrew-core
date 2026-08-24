@@ -19,7 +19,7 @@ class Freeling < Formula
   # Last release on 2022-07-15, bundles a copy of `dynet` which doesn't work
   # with latest Eigen and requires patching to build with latest ICU
   deprecate! date: "2026-02-02", because: :unmaintained
-  disable! date: "2027-02-02", because: :unmaintained
+  disable! date: "2026-08-13", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "boost"

@@ -1,10 +1,9 @@
 class Bluez < Formula
   desc "Bluetooth protocol stack for Linux"
   homepage "https://www.bluez.org"
-  url "https://mirrors.edge.kernel.org/pub/linux/bluetooth/bluez-5.86.tar.xz"
-  sha256 "99f144540c6070591e4c53bcb977eb42664c62b7b36cb35a29cf72ded339621d"
+  url "https://mirrors.edge.kernel.org/pub/linux/bluetooth/bluez-5.87.tar.xz"
+  sha256 "26bdcf2cebd7310c6f598850606b037ef0c515fe6608ebc54d22c50c4c32b35f"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://mirrors.edge.kernel.org/pub/linux/bluetooth/"
@@ -12,8 +11,8 @@ class Bluez < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "c43c376469bbcfdd56921c23cd76fab1d46cd2afd1d4fd8e80e4fb1a47f3b694"
-    sha256 x86_64_linux: "305929589b4f191eb10bb8110536500176a7d24a04f61bc90ae1a2bcca77ff17"
+    sha256 arm64_linux:  "4ed1db7a33290d4a83a1fdf7a11b4f6a5ce323fe47f0e6ea35e0a3e052814bac"
+    sha256 x86_64_linux: "75b870b992cea33442f71fa849f35597488841b582753f4f8ea8b95987af698c"
   end
 
   head do
@@ -37,7 +36,14 @@ class Bluez < Formula
     ENV.append "LIBS", "-licalvcal"
 
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
-    system "./configure", "--disable-testing", "--disable-manpages", "--enable-library", *std_configure_args
+    # D-Bus and systemd unit dirs default to the read-only dep kegs; use our own prefix
+    system "./configure", "--disable-testing", "--disable-manpages", "--enable-library",
+           "--with-dbusconfdir=#{share}",
+           "--with-dbussystembusdir=#{share}/dbus-1/system-services",
+           "--with-dbussessionbusdir=#{share}/dbus-1/services",
+           "--with-systemdsystemunitdir=#{lib}/systemd/system",
+           "--with-systemduserunitdir=#{lib}/systemd/user",
+           *std_configure_args
     system "make"
     system "make", "install"
   end

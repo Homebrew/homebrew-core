@@ -1,18 +1,19 @@
 class OpenBabel < Formula
   desc "Chemical toolbox"
   homepage "https://github.com/openbabel/openbabel"
-  url "https://github.com/openbabel/openbabel/archive/refs/tags/openbabel-3-2-0.tar.gz"
-  sha256 "9aadf9f01b3d0ff15d49fcd28d7d76b923218d70bf10f99ea4cc466607f4c7e2"
+  url "https://github.com/openbabel/openbabel/archive/refs/tags/openbabel-3-2-1.tar.gz"
+  version "3.2.1"
+  sha256 "e140c25480fe1678d00b9a52462368fa4e7805fba67b12ee496784437f3e239e"
   license "GPL-2.0-only"
   head "https://github.com/openbabel/openbabel.git", branch: "master"
 
   bottle do
-    sha256               arm64_tahoe:   "fe47f3f9a0fcbdc70c449469cd5d8caee18e1861e31d69e8fb4187c585bc078d"
-    sha256               arm64_sequoia: "86b1026f7992fe9c7b8f7ddbca7426267764ad3471b92ba1d64ca0dad7bf7d3d"
-    sha256               arm64_sonoma:  "ee4285d661a4c74da24bc9b3523672a7ff10cbe65a86ab7302afb10bdcc67ebb"
-    sha256               sonoma:        "8a764adf6425fa7b3c505f9af5a91a19f5f5da856a7fee9000c41634bc37f816"
-    sha256 cellar: :any, arm64_linux:   "f5060a0e0d493709b247645fe9da90e5f20b041863fdadf1deae220fd50559ce"
-    sha256 cellar: :any, x86_64_linux:  "8de4b7ab8579307729ddccb05e959d2eded32475c57a34ee3c37777bcfc458e2"
+    sha256 arm64_tahoe:   "d667891c9d9c49a9d60e67cc328614b77424c2d8d5bfcaa5c6566355596961b0"
+    sha256 arm64_sequoia: "5e3c5353ffcd0dc7ca0ecf6dd675d237c572ef05fc53fd88b2d3fa80af739ba1"
+    sha256 arm64_sonoma:  "2324ac199cb685f82b502680dafe7f6be0bbcfcc7d8ee9cd68f70c1bcc101a94"
+    sha256 sonoma:        "6a8e5be4171c9c7ab552226d3a0f8f9a5873f12c8ab83581679f90d969493ae5"
+    sha256 arm64_linux:   "a224c4ad98f57e8492688c854a70982d9955e545f0ae88b0960b6d29e05d1188"
+    sha256 x86_64_linux:  "741ab890bea667e2129f3ca9d4d218ed5cd59a33af0f8d4fdb9b617539fa53ca"
   end
 
   depends_on "cmake" => :build
@@ -39,7 +40,7 @@ class OpenBabel < Formula
 
   def install
     args = %W[
-      -DINCHI_INCLUDE_DIR=#{Formula["inchi"].opt_include}/inchi
+      -DINCHI_INCLUDE_DIR=#{formula_opt_include("inchi")}/inchi
       -DOPENBABEL_USE_SYSTEM_INCHI=ON
       -DRUN_SWIG=ON
       -DPYTHON_BINDINGS=ON

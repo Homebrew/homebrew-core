@@ -23,10 +23,10 @@ class Xz < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "61032fd340234974371a87c9908c998d9a52bebdf056b83e629ebf7aa038840f"
   end
 
-  deny_network_access! [:build, :postinstall]
+  deny_network_access!
 
   def install
-    system "./configure", *std_configure_args, "--disable-silent-rules", "--disable-nls"
+    system "./configure", "--disable-silent-rules", "--disable-nls", *std_configure_args
     system "make", "check"
     system "make", "install"
   end
@@ -43,17 +43,5 @@ class Xz < Formula
     # decompress: data.txt.xz -> data.txt
     system bin/"xz", "-d", "#{path}.xz"
     assert_equal original_contents, path.read
-
-    # Check that http mirror works
-    xz_tar = testpath/"xz.tar.gz"
-    stable.mirrors.each do |mirror|
-      next if mirror.start_with?("https")
-
-      xz_tar.unlink if xz_tar.exist?
-
-      # Set fake CA Cert to block any HTTPS redirects.
-      system "curl", "--location", mirror, "--cacert", "/fake", "--output", xz_tar
-      assert_equal stable.checksum.hexdigest, xz_tar.sha256
-    end
   end
 end

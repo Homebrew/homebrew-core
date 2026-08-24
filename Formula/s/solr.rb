@@ -49,8 +49,7 @@ class Solr < Formula
     # Impossible to start a second Solr node on the same port => exit code 1
     shell_output("#{bin}/solr start --user-managed -p #{port}", 1)
     # Stop a Solr node => exit code 0
-    # Exit code is 1 without init process in a docker container
-    shell_output("#{bin}/solr stop -p #{port}", (OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]) ? 1 : 0)
+    shell_output("#{bin}/solr stop -p #{port}")
     # No Solr node left to stop => exit code 1
     shell_output("#{bin}/solr stop -p #{port}", 1)
   end

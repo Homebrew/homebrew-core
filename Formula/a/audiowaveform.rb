@@ -2,16 +2,17 @@ class Audiowaveform < Formula
   desc "Generate waveform data and render waveform images from audio files"
   homepage "https://codeberg.org/chrisn/audiowaveform"
   url "https://codeberg.org/chrisn/audiowaveform/archive/1.11.1.tar.gz"
-  sha256 "ee6d9ff7fa15a44fde31efe1a1c3d8443b0508f6c827237b9d743150605de516"
+  sha256 "cf827d835efe4edb48c16f48be7a9502d7572c9d6f92f811af5238d64b36bda2"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "605c6c0525c6d6d6bf7ac817becfc7d10c618432a6bf31a814c608c38bc1b0f0"
-    sha256 cellar: :any,                 arm64_sequoia: "ecd72cb74e3a670f4a268ca3ccd4f3a89d622a6261b4e86156a509edbd31723b"
-    sha256 cellar: :any,                 arm64_sonoma:  "a46385af4b7f97f081d4a4099ecbb3937056d4a449e73128253e3dca1b9d17f4"
-    sha256 cellar: :any,                 sonoma:        "b65001da5f4acb902d62002196ac191aa8c473378df725348d7e9d9d668846ff"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca10864e1ed9ff3cb31463d9a5d6463740fcecd3cc0c8ef2f0f6d1514289d11b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0521c882c1d9f0bd62b5d9a5a4f97c4b86725cbca65df7ece44ed8f4f2b9a25"
+    sha256 cellar: :any, arm64_tahoe:   "9172fdfdb61944eb65e4e0a77811ef0b15ab19e5dab5b69562517de137ab1be7"
+    sha256 cellar: :any, arm64_sequoia: "49a5359ac7e0da2120e27fef9b050469ad5da4e7545beaf710b93e4fe72f7505"
+    sha256 cellar: :any, arm64_sonoma:  "2d246ebc85a71145b347c8f34651547e1225e57e4d0847c74fccfc148c8ea461"
+    sha256 cellar: :any, sonoma:        "4d9d1e23e0ce06f6893579ef1bdad1281ba0105411136801ac1c3af2f09b9436"
+    sha256 cellar: :any, arm64_linux:   "ca72f938578beb11f855aa227a6d240c791472c5c6b7c5fef75406ff564d8006"
+    sha256 cellar: :any, x86_64_linux:  "00f8ff508d51d82d730cde316f326bb1b0a6ecb0563d72ac2c3de2540c4cc59e"
   end
 
   depends_on "cmake" => :build

@@ -20,7 +20,7 @@ class Bed < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.revision=#{version}"
+    ldflags = "-X main.revision=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/bed"
   end
 

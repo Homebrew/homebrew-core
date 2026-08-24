@@ -27,7 +27,7 @@ class Huexpress < Formula
   depends_on "scons" => :build
   depends_on "libvorbis"
   depends_on "libzip"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_mixer"
 
   on_macos do

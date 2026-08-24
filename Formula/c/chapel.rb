@@ -3,27 +3,28 @@ class Chapel < Formula
 
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/2.8.0/chapel-2.8.0.tar.gz"
-  sha256 "80e8c3018e33e49674c7a2542e062547ea41d64d6595edb3b799e90c88f963f8"
+  url "https://github.com/chapel-lang/chapel/releases/download/2.9.0/chapel-2.9.0.tar.gz"
+  sha256 "d91ececfc070f0e94c979dd08cdd3f6da84db4ee48fe06f3187ad259ea9553e7"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 arm64_tahoe:   "a73efe05b4551688355d1ddc3707424ae86573fc91352aec8c0eae6e0c4f6ce4"
-    sha256 arm64_sequoia: "9dcd53c9c5b564dfe18e8adab1fcaa9bace0847b05e9a7e0895c9bc2118d0a72"
-    sha256 arm64_sonoma:  "e1deda3af30cfb9d006072dd0b87bb57f76337d5819abad0076a0281495b5589"
-    sha256 sonoma:        "8cdec547c132c71423804efa6c22c49dd802351b5e4984b8caa21ff09130e785"
-    sha256 arm64_linux:   "2a8974a412dad807f368dc6ec6d0e81be099202c12536a741cd414752b864efb"
-    sha256 x86_64_linux:  "69749327935b602942509d11a242e12641fb5d5c3692592cf7794d18519802ac"
+    sha256 arm64_tahoe:   "02a0ac8fd456d4370bf14bead7f287056b2445b083e6023e9c82a3b6bcbf2446"
+    sha256 arm64_sequoia: "fe9c991b88fbbc248466c5ba1597c982f5b95760e1dfec924e54ba94e0aefa64"
+    sha256 arm64_sonoma:  "e65c9c49a4b9f0cf664eadb9bdfcc4b779cdb601d7c1e37e21723c0330412da8"
+    sha256 sonoma:        "16ea1b15ae7f4051236e3483a14091b3b6ff5658fd05a7fb13000d12f18c298f"
+    sha256 arm64_linux:   "80ce9f9f681e7a494740675b0e9cc6deba17d3faeaa53bed0aacce827fdf4bdb"
+    sha256 x86_64_linux:  "df7fc5d6f337777e8be3036def8b5075f780126fa9ac21017aed99432ef283af"
   end
 
   depends_on "cmake"
   depends_on "gmp"
   depends_on "hwloc"
   depends_on "jemalloc"
-  depends_on "llvm@21"
+  depends_on "llvm@22"
   depends_on "pkgconf"
   depends_on "python@3.14"
 
@@ -47,6 +48,11 @@ class Chapel < Formula
     # It should be noted that this will expand to: 'for cmd in python3.14 python3 python python2; do'
     # in our find-python.sh script.
     inreplace "util/config/find-python.sh", /^(for cmd in )(python3 )/, "\\1#{python} \\2"
+
+    # We link jemalloc dynamically, so its `Libs.private` only adds a duplicate C++ runtime
+    inreplace "util/chplenv/chpl_jemalloc.py",
+              'pkgconfig_get_system_link_args("jemalloc")',
+              'pkgconfig_get_system_link_args("jemalloc", static=False)'
 
     # a lot of scripts have a python3 or python shebang, which does not point to python3.12 anymore
     Pathname.glob("**/*.py") do |pyfile|
@@ -117,6 +123,7 @@ class Chapel < Formula
 
       with_env(CHPL_PIP_FROM_SOURCE: "1") do
         system "make", "chpldoc"
+        system "make", "c2chapel"
         system "make", "chplcheck"
         system "make", "chpl-language-server"
       end
@@ -194,6 +201,7 @@ class Chapel < Formula
     ENV["CHPL_LIB_PATH"] = HOMEBREW_PREFIX/"lib"
     ENV["CHPL_IGNORE_GASNET_LD"] = "1"
     ENV["CHPL_RT_SILENCE_UNUSED_CORES"] = "1"
+    ENV["CHPL_START_TEST_ARGS"] = "--test-root #{testpath}"
 
     cd libexec do
       system "util/test/checkChplInstall"
@@ -227,6 +235,8 @@ class Chapel < Formula
            "--print-commands", libexec/"examples/hello.chpl"
     system bin/"chpldoc", "--version"
     system bin/"mason", "--version"
+
+    system bin/"c2chapel", "--version"
 
     # Test chplcheck, if it works CLS probably does too.
     # chpl-language-server will hang indefinitely waiting for a LSP client

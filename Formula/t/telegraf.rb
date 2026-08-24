@@ -1,8 +1,8 @@
 class Telegraf < Formula
   desc "Plugin-driven server agent for collecting & reporting metrics"
   homepage "https://www.influxdata.com/time-series-platform/telegraf/"
-  url "https://github.com/influxdata/telegraf/archive/refs/tags/v1.39.0.tar.gz"
-  sha256 "d072c38088df3ed9c6ed737ff34d6411c2796f231dc6ccdc5d7da3df69cc2838"
+  url "https://github.com/influxdata/telegraf/archive/refs/tags/v1.39.3.tar.gz"
+  sha256 "13b4186fac9a9d29858c532b73efc41e0a1ac8ce93a615b59d5a6e589e71ab2f"
   license "MIT"
   head "https://github.com/influxdata/telegraf.git", branch: "master"
 
@@ -12,19 +12,19 @@ class Telegraf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "494bb4ff5e05d7c843ec6bc0dc489db1af25383afd5f92963fd5e5c76c85e173"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c5096da086aa980a19e87f99773c1c90d42bf5952d39466b1c2d3848b96ba29"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cadf4130697379f2440dd4bf8de3f954fe096d445ab7839dd76c349147225ea2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "81fe5713bb79b29a5be86755fa36b300bf2d5cfdd2d293788e8b533ac22cb879"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "655e112e5f7b693428732795d48d885833852215133ebf219931640d549beff9"
-    sha256 cellar: :any,                 x86_64_linux:  "005cea4727db4e1f0253f3c5f1b06ea0dd96c01a52facdfa08cbb8e4ca4a7f01"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "671843fb120e3426c119f621b4dc3adb261cf82071ebea36e7934c206c8fdc59"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b4ad063600a26f0b643e5b2673e9e111ba9dc77e154ad7c4db032f46cf80f5b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "88b79a1bd4b03f986e3f6b35af0f319c657f9a580eca9df0b06342f4faeca674"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a1139a1b3a520fee1c9b41fb5777e3b28f11fe3ed8e31d05f7a6ea9f4a6d903d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a4d1ff6d2c3fa2e07afb7b4eea567d34781625ad4bccbd3db014ade2ff7950bb"
+    sha256 cellar: :any,                 x86_64_linux:  "6543a2e48d8ae74732450f55622b92dbd06a5f33151dfd0b14a25d45ff7717c7"
   end
 
   depends_on "go" => :build
 
   def install
     build_version = build.head? ? "0.0.0-#{version}" : version
-    ldflags = "-s -w -X github.com/influxdata/telegraf/internal.Version=#{build_version}"
+    ldflags = "-X github.com/influxdata/telegraf/internal.Version=#{build_version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/telegraf"
 
     (buildpath/"telegraf.conf").write Utils.safe_popen_read(bin/"telegraf", "config")

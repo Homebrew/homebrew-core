@@ -2,7 +2,7 @@ class Snow < Formula
   desc "Whitespace steganography: coded messages using whitespace"
   homepage "https://darkside.com.au/snow/"
   url "https://darkside.com.au/snow/snow-20130616.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/snow-20130616.tar.gz"
+  mirror "https://cdn.netbsd.org/pub/pkgsrc/distfiles/snow-20130616.tar.gz"
   sha256 "c0b71aa74ed628d121f81b1cd4ae07c2842c41cfbdf639b50291fc527c213865"
   license "Apache-2.0"
 

@@ -34,7 +34,7 @@ class CucumberCpp < Formula
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["ruby"].opt_bin
+    ENV.prepend_path "PATH", formula_opt_bin("ruby")
     ENV["GEM_HOME"] = testpath
     ENV["BUNDLE_PATH"] = testpath
 

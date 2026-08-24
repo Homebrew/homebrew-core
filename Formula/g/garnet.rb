@@ -1,8 +1,8 @@
 class Garnet < Formula
   desc "High-performance cache-store"
   homepage "https://microsoft.github.io/garnet/"
-  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.1.10.tar.gz"
-  sha256 "aa0603a4a473fd0358f6597f237484f96a0ea9d92b1c1efd271dbd6cd94f9387"
+  url "https://github.com/microsoft/garnet/archive/refs/tags/v2.1.4.tar.gz"
+  sha256 "1af70eb43ce0ad7cd8763942524a4bdb67f8a1a89a330dee38eec9e0b5bbe97e"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,15 @@ class Garnet < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7dfcbab24928dc57256b030f7ca02f728b80fb3f6c0c494de9568b71321b816f"
-    sha256 cellar: :any,                 arm64_sequoia: "ef76776f22f082e8dfd21b1bea7126c45b7b028c3a0d685f812f2d677df62871"
-    sha256 cellar: :any,                 arm64_sonoma:  "6dd38bad6a5e2aa8c59e4c12d9c0e38870d8e923dd48e590bcaa1633a5cf2900"
-    sha256 cellar: :any,                 sonoma:        "fc8941000b281627319955e424ef6a13708045ebb5a076b7dfa0490b18a39943"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4fc7740d2fccff41eccd365d94948484dd16397490b5ac6c942ec5c39063124"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e31e5a8b38b199f13c3d27f630c32a392d5d05e5a3a553e831b1321ee8b02a0f"
+    sha256 cellar: :any, arm64_tahoe:   "d8eab52f97fe1e872c2251b41c4875c2adcbfc884e78a7954f92a3ad964d56f8"
+    sha256 cellar: :any, arm64_sequoia: "d96b8363ebbe84b68c08f96b3189754bf42c1783e3508a2095626b63adf242c2"
+    sha256 cellar: :any, arm64_sonoma:  "2cd0b9df87b436260a1fb421a79b0939e46a1949d99899c1bcead956dbdaf49c"
+    sha256 cellar: :any, sonoma:        "13fcdd65033c4179a274c1f009d3e2655bcb4dcfc57bf9111aa6a81a0d7813fe"
+    sha256 cellar: :any, arm64_linux:   "495761e50424a10db772bba511293a238f912272e1b5944d25b96146b2c97f9c"
+    sha256 cellar: :any, x86_64_linux:  "12642b3017f099a4cef4481ca69aba8e071903d7c9b2abb4178e653fc804ba3e"
   end
 
+  depends_on "rust" => :build
   depends_on "valkey" => :test
   depends_on "dotnet"
 
@@ -32,14 +33,24 @@ class Garnet < Formula
     # Ignore dotnet version specification and use homebrew one
     rm "global.json"
 
+    # Drop the prebuilt BfTree binaries; msbuild rebuilds the library with cargo and prefers its copy
+    rm_r Dir["libs/native/bftree-garnet/runtimes/*"]
+
+    # The device csproj ships every prebuilt runtime it finds, so drop the ones we can't use
+    native_rid = ("linux-#{Hardware::CPU.arm? ? "arm64" : "x64"}" if OS.linux?)
+    device_runtimes = buildpath/"libs/storage/Tsavorite/cs/src/core/Device/runtimes"
+    device_runtimes.each_child { |rid| rm_r(rid) if rid.basename.to_s != native_rid }
+
     if OS.linux?
       cd "libs/storage/Tsavorite/cc" do
-        # Fix to cmake version 4 compatibility
-        arg = "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
-        system "cmake", "-S", ".", "-B", "build", arg, *std_cmake_args
+        args = %w[
+          -DUSE_URING=OFF
+        ]
+        system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
         system "cmake", "--build", "build"
-        rm "../cs/src/core/Device/runtimes/linux-x64/native/libnative_device.so"
-        cp "build/libnative_device.so", "../cs/src/core/Device/runtimes/linux-x64/native/libnative_device.so"
+        native_dir = device_runtimes/native_rid/"native"
+        cp "build/libnative_device.so", native_dir/"libnative_device.so"
+        cp "build/libnative_device.so", native_dir/"libnative_device_libaio.so"
       end
     end
 
@@ -73,7 +84,7 @@ class Garnet < Formula
     end
     sleep 3
 
-    output = shell_output("#{Formula["valkey"].opt_bin}/valkey-cli -h 127.0.0.1 -p #{port} ping")
+    output = shell_output("#{formula_opt_bin("valkey")}/valkey-cli -h 127.0.0.1 -p #{port} ping")
     assert_equal "PONG", output.strip
   end
 end

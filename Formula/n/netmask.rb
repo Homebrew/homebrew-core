@@ -1,8 +1,8 @@
 class Netmask < Formula
   desc "IP address netmask generation utility"
   homepage "https://github.com/tlby/netmask"
-  url "https://github.com/tlby/netmask/archive/refs/tags/v2.5.0.tar.gz"
-  sha256 "f352d8117a4f9377a15919d9ad4989cfba8816958718a914abf1414242a9f636"
+  url "https://github.com/tlby/netmask/releases/download/v2.5.0/netmask-2.5.0.tar.gz"
+  sha256 "5975a37fb84ca7035050e10a10fe48322d8ce184b83bc8482f3f3b49882f4c73"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -15,9 +15,6 @@ class Netmask < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc66aefa5400e4501b5b66157e684899d3790074ae8fc4b163edd957d931c7ba"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "autoconf-archive" => :build
-  depends_on "automake" => :build
   depends_on "pkgconf" => :build
 
   depends_on "check"
@@ -27,7 +24,6 @@ class Netmask < Formula
   end
 
   def install
-    system "./bootstrap"
     system "./configure", *std_configure_args
     system "make", "install"
   end

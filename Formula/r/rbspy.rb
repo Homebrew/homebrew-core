@@ -1,17 +1,17 @@
 class Rbspy < Formula
   desc "Sampling profiler for Ruby"
   homepage "https://rbspy.github.io/"
-  url "https://github.com/rbspy/rbspy/archive/refs/tags/v0.48.0.tar.gz"
-  sha256 "bef36cf5ea8573f671e375ec0043db108012a16de5f68eddc9463a0058b0642b"
+  url "https://github.com/rbspy/rbspy/archive/refs/tags/v0.51.0.tar.gz"
+  sha256 "56c574d1f3f1e57d961b6e2fd383497c68e7490c3968f6358e151645a3612eed"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "09e476f1db7be2263e9b5608487870e74bd53167e1156e74ee9d12e20770eecd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d078a3b6c06309d29372bd64cba7c79e6392e139c11db68da13548a2f0cd7c7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bbdfd15387f058f48b41bc0f8d1e0414edd706508a687f12ee1d214a81cd3eba"
-    sha256 cellar: :any_skip_relocation, sonoma:        "108bf7afed52948a7ab822a1555bd2631a90d7f0d6f6921d56b18106b4d3dd9e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "27f22435005956deb798920a7ad8ba169e86e3a9544c58fb0490c5679e17b7df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9159f32ca8bffab4e40b45ee3abd2f7e82cf00b7a25fb37363f0a1a37b6b4b1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6cf0ac649b88792c7957890107b4e492fa558a190df861fc4e430651c7e33a9a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "241fe2fee5f44f9fc80e872a80394816048c86c2476631b7f41feb68f0b8a5c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "27950ddb3a5c6c72374edd036c613d63979520c790ab4c0b79fbb0f1380be971"
+    sha256 cellar: :any_skip_relocation, sonoma:        "90323590ae132f4879603a264c37cb3335456ec13e9f9c9d04fa63bacec78076"
+    sha256 cellar: :any,                 arm64_linux:   "fffca2ba973325b61a0c7e65e713c00521c36e5128f8082f8c1e5b6f51e33348"
+    sha256 cellar: :any,                 x86_64_linux:  "4c15d92f5a198ed23f67c096062a1cc425571b0ca337bdd56a3fbfeac8046832"
   end
 
   depends_on "rust" => :build
@@ -30,7 +30,7 @@ class Rbspy < Formula
       0lVreuqrlmTC/yPitZXK1rSlrbNV0U/ACePNHUiAwAA
     EOS
 
-    (testpath/"recording.gz").write Base64.decode64(recording.delete("\n"))
+    (testpath/"recording.gz").write recording.delete("\n").unpack1("m")
     system bin/"rbspy", "report", "-f", "summary", "-i", "recording.gz",
                         "-o", "result"
 

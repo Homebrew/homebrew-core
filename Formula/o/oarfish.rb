@@ -1,23 +1,27 @@
 class Oarfish < Formula
   desc "Long read RNA-seq quantification"
   homepage "https://github.com/COMBINE-lab/oarfish"
-  url "https://github.com/COMBINE-lab/oarfish/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "f8715c6fc2a23c1041d30303fa1a9d7a6e463ed5cc8e543526c085a64d5abfe9"
+  url "https://github.com/COMBINE-lab/oarfish/releases/download/v0.10.3/source.tar.gz"
+  sha256 "de886868c4efb9ef7a77d0865bb4bda7effcf7143841c2a74e3ec714e49e4546"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "97b191385b9c87a080f4114487766148bd881481e9385771c86d48225160bd3e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ab18a2ca9ce121fc380b4b0aa577b3694c6841a8ba5afb5cdbb848e86514c1d6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a0fb702c0ff0a6f5925860f37f6cb8d6ff98aa81d8ce4e16d32b59e9aa09d547"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9df4db569d3a4e1ac35af390c4b7f34fdf20ff424637757522657970d5233440"
-    sha256 cellar: :any,                 arm64_linux:   "7636627e3e9dfc3e6a6fe5ef86c405fcab5bc0b6bfdab55afcb721ccebc0ede8"
-    sha256 cellar: :any,                 x86_64_linux:  "6c12bfb6d937fdd394f97fe00e4aedba33ddf6ee3854870667e29df98cf61f5c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a825a935ca973abd17f8e08e48e6242e082e3826f16fbfe37e9caa47c6a493a2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "229428851da26cdccbfd1488e0c4c9a45f0fe57f992e55cd381a7a1aa912b0f8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b688611731642b1dba31f289c043ac84210d254026fabfef1e326d58b2c11af8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "004c3e9a45e1befd52a323082cd33ce6e831a6054f48faf822237da24da33e0f"
+    sha256 cellar: :any,                 arm64_linux:   "466b3bcb324dfecc76f8c4df9c960393987db651c37715a4ce995279bb410029"
+    sha256 cellar: :any,                 x86_64_linux:  "ecde4773d83ccabf13c697747f443f504f949e1b458b2909a0eed0879e3919e0"
   end
 
   depends_on "rust" => :build
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

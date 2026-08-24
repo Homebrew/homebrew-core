@@ -28,6 +28,8 @@ class Afsctool < Formula
         revision: "e634ca58b4821d9f3d560cdc6df5dec02ffc93fd"
   end
 
+  deny_network_access!
+
   def install
     (buildpath/"src/private/lzfse").install resource("lzfse")
     # Workaround to build with CMake 4

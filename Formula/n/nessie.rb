@@ -1,17 +1,17 @@
 class Nessie < Formula
   desc "Transactional Catalog for Data Lakes with Git-like semantics"
   homepage "https://projectnessie.org"
-  url "https://github.com/projectnessie/nessie/archive/refs/tags/nessie-0.108.0.tar.gz"
-  sha256 "6b1ad60b6497188d7651288cd394638f483f4f7f848e68c55f18b1d7f3ea3772"
+  url "https://github.com/projectnessie/nessie/archive/refs/tags/nessie-0.108.4.tar.gz"
+  sha256 "af1501a93443d57fbe0c01d6882eecf0a279fe9741b21f7500e2f49e1c2dc113"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1ad6e81b280999265d8e5bd354cfa32de413310224e3c5a7214eaad6c6850c54"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f0817c59c889fc4b9ba59decf75338993e179157f626c6e76bc40de21d84ce6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ac506d3d86fd18fad8eebdc3e8f87e40fe62e0c9b4b7c80a964b9e46f4ee8956"
-    sha256 cellar: :any_skip_relocation, sonoma:        "85397286214b13de5668c69c68ad2b4b9e40e44e18b0d450d5938f1c33822d48"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ade5954a63dcd622e33cf4f7bfdb56c2fbf8c4ce95da2fc374a76889ce70eeb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c662578a47526a1429befad1dc907c153d8f2d7270a01a1088614d8c580ae30"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "388bf17cf8e473b9b656328b03d4251a2d2caec2fc7b50175038ece3ed6d856c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "66c6b684cb8163762910058023adf25fcb841ba727c93382461316ada514bb69"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f15e7f1a8b100de15ad0f7f8518b822556d9981a99481e56247cb27ccffc559f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0388fd05a8223e3180648a1211b8d4eb234662d71715fc18e5c1e8a293735354"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0586623127425898462bff707a33baa9e9c886e4ecf98680d5ffbdb1548a4c22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41b064ad76a1471f99cfc7f261af9e74072c9cc809f7ec7fb4c391db283f6298"
   end
 
   depends_on "gradle" => :build

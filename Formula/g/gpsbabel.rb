@@ -36,7 +36,6 @@ class Gpsbabel < Formula
   end
 
   def install
-    ENV.cxx11
     # force use of homebrew libusb-1.0 instead of included version.
     # force use of homebrew shapelib instead of included version.
     # force use of system zlib instead of included version.

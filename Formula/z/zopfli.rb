@@ -22,11 +22,12 @@ class Zopfli < Formula
 
   depends_on "cmake" => :build
 
-  # Backport fix for CMake 4 compatibility
-  # PR ref: https://github.com/google/zopfli/pull/207
+  # Fix for CMake 4 compatibility
   patch do
     url "https://github.com/google/zopfli/commit/8ef44ffde0fd2bb2a658f75887e65b31c9e44985.patch?full_index=1"
     sha256 "4a6f0b3dc53ea6de1af245231b821a94389e91eab5bd3056f5735c3de29b0402"
+    type :unofficial
+    resolves "https://github.com/google/zopfli/pull/207"
   end
 
   def install

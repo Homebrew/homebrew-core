@@ -1,17 +1,15 @@
 class Dcmtk < Formula
   desc "OFFIS DICOM toolkit command-line utilities"
-  homepage "https://dicom.offis.de/dcmtk.php.en"
-  url "https://dicom.offis.de/download/dcmtk/dcmtk370/dcmtk-3.7.0.tar.gz"
-  sha256 "f103df876040a4f904f01d2464f7868b4feb659d8cd3f46a5f1f61aa440be415"
+  homepage "https://dcmtk.org/en/dcmtk/", browsed: "2026-08-06"
+  url "https://github.com/DCMTK/dcmtk/archive/refs/tags/DCMTK-3.7.0.tar.gz"
+  sha256 "5bb3ec8317dc465788bed2ca789e76d03ae5848c9381cce3b14c1a3f8b6aca56"
   license "BSD-3-Clause"
   head "https://git.dcmtk.org/dcmtk.git", branch: "master"
 
   livecheck do
-    url "https://dicom.offis.de/en/dcmtk/dcmtk-software-development/"
-    regex(/href=.*?dcmtk[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :head
+    regex(/^dcmtk[._-]v?(\d+(?:\.\d+)+)$/i)
   end
-
-  no_autobump! because: :incompatible_version_format
 
   bottle do
     rebuild 1

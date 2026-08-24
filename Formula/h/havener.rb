@@ -18,7 +18,7 @@ class Havener < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/homeport/havener/internal/cmd.version=#{version}"
+    ldflags = "-X github.com/homeport/havener/internal/cmd.version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/havener"
 
     generate_completions_from_executable(bin/"havener", shell_parameter_format: :cobra)

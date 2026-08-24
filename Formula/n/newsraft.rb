@@ -1,17 +1,17 @@
 class Newsraft < Formula
   desc "Terminal feed reader"
   homepage "https://codeberg.org/newsraft/newsraft"
-  url "https://codeberg.org/newsraft/newsraft/archive/newsraft-0.36.tar.gz"
-  sha256 "769dce748a4de741f1888eb199f71aeb41068b8527e0d5779fe0eb51fbbd72e3"
+  url "https://codeberg.org/newsraft/newsraft/archive/newsraft-0.37.tar.gz"
+  sha256 "725fdbf4c14d87eb7e926aebd9b116f540dca812bea02e73078070156d986ad4"
   license "ISC"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "24efac7ccd97cd933810f8351e6836d17d62b6f8da3224b2c15123ab928cd20c"
-    sha256 cellar: :any,                 arm64_sequoia: "4c9892f68c9f211793b07c82bbba19773d0cf38fb67516eb468fbce07feb60af"
-    sha256 cellar: :any,                 arm64_sonoma:  "f84d2d26f3c357119e1499f6cd1117f80a87934d95d28d1964a02b70e26cae8b"
-    sha256 cellar: :any,                 sonoma:        "c44c9bcca97ce225425e5eb305865a2891ac3c73e1c15caec379e7a08ee4d4a9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e7d1da13d537996da6ea194a16d39eb06c78a71b5058baf0f18c67e3b96b472"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83120bebc5dc9fa38f9f05619f63a3066f3d5f2a8bd1fef70cf0cd1dac4a8590"
+    sha256 cellar: :any, arm64_tahoe:   "3c085a1531896f6539db6f83e6bd691187933d105f2706866b4873eecc693e90"
+    sha256 cellar: :any, arm64_sequoia: "2742670f0ccd78da167aee8a3bb54d31fde6da625a6a4918ea5accea745c47e2"
+    sha256 cellar: :any, arm64_sonoma:  "e0d7d367e2050be474a00b29ada76a7488836a1ad7ebd1245a73a886b894065e"
+    sha256 cellar: :any, sonoma:        "e88480402758470672d11ed32ac885d47e63cbd1d859f0f66d0af8e2ae549f12"
+    sha256 cellar: :any, arm64_linux:   "449cfc643d7f9dc8f350c5dee1e6833422057cb1a955de213e11602d5da4747f"
+    sha256 cellar: :any, x86_64_linux:  "ffcdf22a4e0616b5d88321e3ed9592510414333b4b5bb0de6d9334a14f6b11dd"
   end
 
   depends_on "scdoc" => :build

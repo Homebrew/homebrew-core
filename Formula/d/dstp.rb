@@ -20,7 +20,7 @@ class Dstp < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/dstp"
+    system "go", "build", *std_go_args, "./cmd/dstp"
   end
 
   test do

@@ -17,6 +17,9 @@ class Noseyparker < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "99c219b6991576f9ee16f57cb2f08f5d2081dacb1f5ce8c61136ae8c7ffbf470"
   end
 
+  deprecate! date: "2026-07-17", because: :repo_archived
+  disable! date: "2027-01-17", because: :repo_archived
+
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build

@@ -1,8 +1,8 @@
 class Libpq < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/current/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v18.4/postgresql-18.4.tar.bz2"
-  sha256 "81a81ec695fb0c7901407defaa1d2f7973617154cf27ba74e3a7ab8e64436094"
+  url "https://ftp.postgresql.org/pub/source/v18.6/postgresql-18.6.tar.bz2"
+  sha256 "555610c24d53e4316da5b7d3fc25c279d96856d5e0e23ee308c328c5fa881d9f"
   license "PostgreSQL"
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class Libpq < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f94a7562414ac6fc936a1e5a4c8a9d15ab8ffa9e55f60d28de25829d940b0840"
-    sha256 arm64_sequoia: "330927e9bc9f8737be1f60ebf6c86c4e1b1b2cb0bf9d066d6b62d83ce4d1a742"
-    sha256 arm64_sonoma:  "296732cb2341b80b61bad7b17038cc63ea74b0adf775f5477bc78d8760892a81"
-    sha256 sonoma:        "e16b143662f9bec10d264e91e3ec77178ab8379f49897934ff3a202b389eb7e7"
-    sha256 arm64_linux:   "bce9273e2448b574f4a994aaf79dfe58c3b334f89d2c0ea15b0312fbe53a2ce7"
-    sha256 x86_64_linux:  "4a71086c769b0cd1c4dc273b26b958af2451f031ca6b0982238a27056d4a3769"
+    sha256 arm64_tahoe:   "6fadf0b2e2ba3f6008086e624cb2417823988e78bccbe07b93a5f3cefc7573c1"
+    sha256 arm64_sequoia: "f660d66a19e3960f16426f34b0350a84946672c23ce375408ff1d501e1a6d090"
+    sha256 arm64_sonoma:  "00c6d6128a75ac52740c79f65af01961fd2c0408a3ce0797b7c185408a079c59"
+    sha256 sonoma:        "509cb83e2fb3075e51c44d83a6db67d4f3dc1487a2996b101d4eeb304617b013"
+    sha256 arm64_linux:   "ee5ac4a2e3c39f7756c2781f049068a155f5d6af3e74c56d6e4c05c034bc51e3"
+    sha256 x86_64_linux:  "e4d1403cdb9c4f2c23551036ffc87f0ee3b5bc86df130caffcab9ed9cf6467e7"
   end
 
   keg_only "it conflicts with PostgreSQL"
@@ -30,6 +30,7 @@ class Libpq < Formula
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
   depends_on "openssl@3"
+  depends_on "readline"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -38,13 +39,14 @@ class Libpq < Formula
   uses_from_macos "curl"
 
   on_linux do
-    depends_on "readline"
     depends_on "zlib-ng-compat"
   end
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     ENV.runtime_cpu_detection
+    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("readline")}"
+    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("readline")}"
 
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
@@ -96,5 +98,6 @@ class Libpq < Formula
     C
     system ENV.cc, "libpq.c", "-L#{lib}", "-I#{include}", "-lpq", "-o", "libpqtest"
     assert_equal "Connection to database attempted and failed", shell_output("./libpqtest")
+    assert_match "libreadline", shell_output("otool -L #{bin}/psql") if OS.mac?
   end
 end

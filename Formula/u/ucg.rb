@@ -7,11 +7,11 @@ class Ucg < Formula
     url "https://github.com/gvansickle/ucg/releases/download/0.3.3/universalcodegrep-0.3.3.tar.gz"
     sha256 "116d832bbc743c7dd469e5e7f1b20addb3b7a08df4b4441d59da3acf221caf2d"
 
-    # Fix Xcode 9 compilation issue: https://github.com/gvansickle/ucg/issues/118
-    # Patch adapted from upstream: https://github.com/gvansickle/ucg/commit/395f89
+    # Fix Xcode 9 compilation issue
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/ucg/xcode9.patch"
-      sha256 "3005fda5923cfa3093ce53ad84435fd7a5974f960b2e222e0e59afa90414af90"
+      file "Patches/ucg/xcode9.patch"
+      type :backport
+      resolves "https://github.com/gvansickle/ucg/issues/118"
     end
 
     # Backport fix for Linux

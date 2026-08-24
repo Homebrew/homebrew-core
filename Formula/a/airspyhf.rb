@@ -13,14 +13,17 @@ class Airspyhf < Formula
     patch do
       url "https://github.com/airspy/airspyhf/commit/e9c483aaa6da6faebc648ba2a065608dc7f3ee08.patch?full_index=1"
       sha256 "06d76fc39f1473c7a09bef1883b68c6bf965b56a1e02c870f5c4d7ea528a78f4"
+      type :backport
     end
     patch do
       url "https://github.com/airspy/airspyhf/commit/0aa25232542b2bccab3f94a1f7171d8720709d6d.patch?full_index=1"
       sha256 "850e7e46cc154f12c4a86254e3f8be0d7b5704bef8bb4612819838c0cc99aa86"
+      type :backport
     end
     patch do
       url "https://github.com/airspy/airspyhf/commit/0dbb10cd22e2ef1546c8a79d418529bd577acd23.patch?full_index=1"
       sha256 "8736a181e3e6d2cf377f09df2a086ce950c9323e23b9b02dd00685519c30edcc"
+      type :backport
     end
   end
 

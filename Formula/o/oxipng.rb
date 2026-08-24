@@ -1,17 +1,17 @@
 class Oxipng < Formula
   desc "Multithreaded PNG optimizer written in Rust"
   homepage "https://github.com/oxipng/oxipng"
-  url "https://github.com/oxipng/oxipng/archive/refs/tags/v10.1.1.tar.gz"
-  sha256 "ce19b1f060d586ceb3ea682f27d00e41675ec4093d8ac200a61ccd9d967d0999"
+  url "https://github.com/oxipng/oxipng/archive/refs/tags/v10.2.0.tar.gz"
+  sha256 "0d0da5f245ed3a669bce63d3ca368d476bae67b0014a927c00df912c9d964a44"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "52431e2e7f4d20f8b7562197f639076b33743c421a60b0d20e0169b562eda94a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad379f9ff45cdb9f41d69b45d0bb539786a862488c16b4597c957b07059a7908"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5271f06c822a35a46b730bf92e9416ffb1f87fb99977d02231f0cc1e3ed625e0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7ae6c5a1881f078c7c46615e0ea6b23731ba1436fef46150298c95a6cbf01831"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "49f48ea437f4e369e32698717833d8ccbe7b6bb8d018c9f358e7d5d7f3c214c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60a6642666b1e3b655c6fc6c02bd0c9be07fb2798d8b8bd8447499417acbc451"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "76dcfd94093d2e1925f8c9d10bd723e7ea26d8b6705a449387db0fc2e51c8960"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9f6ca74906c369494ca81243ce19e9bca99c082745cadc6cd66a5fef3fbb8869"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e21a2040e71fd256377c68b96b997527b3cbe678f32e9cd076301dfef0a6fd4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "111b22ddb0826887696cb461f5b27f549f5d2f1a70d37b98aeda453fe566c3e2"
+    sha256 cellar: :any,                 arm64_linux:   "3e56f2e6eb1e12a53debb1102400d77ad78da19ae07a0e496b24ff2d159e3d2f"
+    sha256 cellar: :any,                 x86_64_linux:  "e719f3296949ebddf62b0d66d35245ebd581173899298d279e3941d312df429e"
   end
 
   depends_on "rust" => :build

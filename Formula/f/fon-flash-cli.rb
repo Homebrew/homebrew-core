@@ -23,10 +23,12 @@ class FonFlashCli < Formula
 
   uses_from_macos "libpcap"
 
-  # Apply open PR commit to fix aarch64 linux, https://github.com/ericpaulbishop/gargoyle/pull/1017
+  # Fix aarch64 linux
   patch do
     url "https://github.com/ericpaulbishop/gargoyle/commit/e69325f56366074d771379528d3c8cbf75cbb9e7.patch?full_index=1"
     sha256 "79a053f5796be94bbb6fe2d3d1a1f113236033cc5b8d579edcc4d9f0c63aef26"
+    type :backport
+    resolves "https://github.com/ericpaulbishop/gargoyle/pull/1017"
   end
 
   def install

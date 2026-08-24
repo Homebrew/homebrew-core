@@ -9,11 +9,15 @@ class Saxon < Formula
   livecheck do
     url :stable
     regex(/^SaxonHE[._-]?v?(\d+(?:[.-]\d+)+)$/i)
-    strategy :github_latest do |json, regex|
-      match = json["tag_name"]&.match(regex)
-      next if match.blank?
+    strategy :github_releases do |json, regex|
+      json.map do |release|
+        next if release["draft"] || release["prerelease"]
 
-      match[1]&.tr("-", ".")
+        match = release["tag_name"]&.match(regex)
+        next if match.blank?
+
+        match[1]&.tr("-", ".")
+      end
     end
   end
 

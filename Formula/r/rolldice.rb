@@ -17,17 +17,18 @@ class Rolldice < Formula
 
   uses_from_macos "libedit" # readline's license is incompatible with GPL-2.0-only
 
-  # Submitted upstream at https://github.com/sstrickl/rolldice/pull/25
-  # Remove if merged and included in a tagged release
+  # Submitted upstream; remove if merged and included in a tagged release
   patch do
     url "https://github.com/sstrickl/rolldice/commit/5e53bade81d0fc972857889c1b690dcd830b439b.patch?full_index=1"
     sha256 "133214dcc8c8d8e4620205273c6c932cc0674e11717bf4b2fa432a205e825cc5"
+    type :unofficial
+    resolves "https://github.com/sstrickl/rolldice/pull/25"
   end
 
   def install
     unless OS.mac?
-      ENV.append_to_cflags "-I#{Formula["libedit"].opt_libexec}/include"
-      ENV.append "LDFLAGS", "-L#{Formula["libedit"].opt_libexec}/lib"
+      ENV.append_to_cflags "-I#{formula_opt_libexec("libedit")}/include"
+      ENV.append "LDFLAGS", "-L#{formula_opt_libexec("libedit")}/lib"
     end
 
     system "make", "CC=#{ENV.cc}"

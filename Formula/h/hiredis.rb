@@ -1,19 +1,19 @@
 class Hiredis < Formula
   desc "Minimalistic client for Redis"
   homepage "https://github.com/redis/hiredis"
-  url "https://github.com/redis/hiredis/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "5fa6e719e59cd4f8ae435c52a18ac4035d135251f9ee54e7a045bccf59107ed8"
+  url "https://github.com/redis/hiredis/archive/refs/tags/v1.4.1.tar.gz"
+  sha256 "ca3180359a8b1275838a45415851f8cd5c411e27bdbf18f4823012e45507d2e4"
   license "BSD-3-Clause"
   compatibility_version 2
   head "https://github.com/redis/hiredis.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "6b790b72b583f7b80fb6fa10477286fc24f58e05b15f814fda74c77fb1dcb139"
-    sha256 cellar: :any, arm64_sequoia: "77068c6a45f408fd3f9fa56d6253a157f2e961be310c502ce4095fbdb6ca0de3"
-    sha256 cellar: :any, arm64_sonoma:  "c1594add8d86832e003d0e4ecca2aea251fe06f0fe09f29d87ca352b8084bac7"
-    sha256 cellar: :any, sonoma:        "a6a7bc59e6a82b54671376725bdfe06fa77181c2aba9715e47930811883c8a9c"
-    sha256 cellar: :any, arm64_linux:   "8514ba4a07e070151d9b15399398125ddc33ea2a3e6a214de005af458fc33cea"
-    sha256 cellar: :any, x86_64_linux:  "b41adf32ce488a7cf126674175993c7ea9f19c9f4c1d6fc168bde86c6c12c337"
+    sha256 cellar: :any, arm64_tahoe:   "42b0b6e7412063e9f18126ed8ffbca90a00dbe6f637e91bf18e0466a0662f318"
+    sha256 cellar: :any, arm64_sequoia: "744ba0aede8239ae120916df4089f6d573e7e7d10266b6a80a61c5a261021e3c"
+    sha256 cellar: :any, arm64_sonoma:  "4628795741e6ccedc6bbfa17f200b5b789d6178eb21536c5aa64a40be920242a"
+    sha256 cellar: :any, sonoma:        "b14620a2482fbb380412ace6d8f86a6632e359beed6ed22b5305ce0be77268b9"
+    sha256 cellar: :any, arm64_linux:   "983b187e988c1b5ebdba237d73b2990c6cf025ba95ec0f8933fb470705dcb18d"
+    sha256 cellar: :any, x86_64_linux:  "d6cc6c670dcb707ea52e8dddcf4208de99c111e620329ad79f76ad2adb677f10"
   end
 
   depends_on "openssl@3"

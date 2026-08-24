@@ -27,8 +27,7 @@ class GnuTypist < Formula
   # Use Apple's ncurses instead of ncursesw.
   # TODO: use an IFDEF for apple and submit upstream
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/gnu-typist/2.10.patch"
-    sha256 "26e0576906f42b76db8f7592f1b49fabd268b2af49c212a48a4aeb2be41551b3"
+    file "Patches/gnu-typist/2.10.patch"
   end
 
   def install

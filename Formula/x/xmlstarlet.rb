@@ -19,10 +19,11 @@ class Xmlstarlet < Formula
   uses_from_macos "libxslt"
 
   # Apply Gentoo patch to fix build with libxml2 >= 2.14
-  # Upstream ref: https://sourceforge.net/p/xmlstar/patches/23/
   patch do
     url "https://raw.githubusercontent.com/gentoo/gentoo/ea0797e1f96c7a0e17fc1af24131a0e0c923d08a/app-text/xmlstarlet/files/xmlstarlet-1.6.1-libxml2-2.14.0-compile.patch"
     sha256 "5d2f35d16447e5d4258110a6e83f788ae52c9dc6b3b20eee84977626105dce1e"
+    type :unofficial
+    resolves "https://sourceforge.net/p/xmlstar/patches/23/"
   end
 
   def install

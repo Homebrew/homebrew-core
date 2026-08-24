@@ -1,8 +1,8 @@
 class Htslib < Formula
   desc "C library for high-throughput sequencing data formats"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/htslib/releases/download/1.23.1/htslib-1.23.1.tar.bz2"
-  sha256 "f8a3f36effeec38f043c53ab1f2d9ed45064f14205c5ef8e3c815763b90803c4"
+  url "https://github.com/samtools/htslib/releases/download/1.24/htslib-1.24.tar.bz2"
+  sha256 "28a8de191381c7a97a35675ceac76fa1ea95e7b678d6a2e9d600a7874e4077de"
   license all_of: ["MIT", "BSD-3-Clause"]
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class Htslib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7a0d00e5fbe31dac3e1994e07ed57175acee4d32ad0d88180c89d1f1e966904e"
-    sha256 cellar: :any,                 arm64_sequoia: "f627661b1ec0bac1225e8e179eb583ca214b63fab33ca3bfe4b8646ea8af8e17"
-    sha256 cellar: :any,                 arm64_sonoma:  "cdccdb46501db095f4a746e4681714f9e2a11d40980a4cfeaf332f94c7eb56d8"
-    sha256 cellar: :any,                 sonoma:        "a3f478876c6ebefe567c32b2c15678984ec63621dc12f66fe30fa12806929315"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3b36bac7e8c6084eb5d6ab9a01feab6a2bfd4fa7b247791df59e12866092ed2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "831d616b08a81740389afb6b710dfff4e6a1d012a395e2c69b47341a5958e4c6"
+    sha256 cellar: :any, arm64_tahoe:   "5fbfbd1e6936abb951a1035f66be1b343bddd425e8ce5e330bad96827e30208d"
+    sha256 cellar: :any, arm64_sequoia: "557f5aff701fbb5d230be31d84000508e14bace991451776d7d91358f4c0121e"
+    sha256 cellar: :any, arm64_sonoma:  "f8b2b0f9f21febb627c79195f52f8dcca98aa53614f5268947e119599a34957c"
+    sha256 cellar: :any, sonoma:        "ef7eb37986f3a176eae80679018e6d2ac1b74a40f7cdf183308a6e8c0d6ee921"
+    sha256 cellar: :any, arm64_linux:   "e0eac6114c0301bd47d94fda21c2e9b95212f919987ca33a83db7f528a906755"
+    sha256 cellar: :any, x86_64_linux:  "f23d948a57a9dc4ef393ac5ef1c698897ffe49cf5f79aaf115e9353141993f47"
   end
 
   depends_on "libdeflate"

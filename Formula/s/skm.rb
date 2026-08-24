@@ -18,8 +18,7 @@ class Skm < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/skm"
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}"), "./cmd/skm"
     bash_completion.install "completions/skm.bash"
   end
 

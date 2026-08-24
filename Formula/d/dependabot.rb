@@ -1,27 +1,24 @@
 class Dependabot < Formula
   desc "Tool for testing and debugging Dependabot update jobs"
   homepage "https://github.com/dependabot/cli"
-  url "https://github.com/dependabot/cli/archive/refs/tags/v1.88.0.tar.gz"
-  sha256 "38cd3054e4fb49387d3bf0f395f4889587e50d22e5769f2ce1db7bddba82b023"
+  url "https://github.com/dependabot/cli/archive/refs/tags/v1.92.0.tar.gz"
+  sha256 "11a6cbbb69b75428a0abcd85f7e118c87ba18b2d00cc56b3dcf52379e0f54ca3"
   license "MIT"
   head "https://github.com/dependabot/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a2274c3e3f3d873dc3316be58609cf8216b2253fbc5e0001929cc678165dba97"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a2274c3e3f3d873dc3316be58609cf8216b2253fbc5e0001929cc678165dba97"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a2274c3e3f3d873dc3316be58609cf8216b2253fbc5e0001929cc678165dba97"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ca6d8a37fa9707ea8b48a36adb305d9e948dadc44edf1a8b206a0354c9cb5f53"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf84acfcaf93377b97295d2c868d012396fab0418c3fd1536019d7cfa008ea06"
-    sha256 cellar: :any,                 x86_64_linux:  "7edeba414cddd245075b061e18487deb1a68a05c6a3d80d521c7b10c5903dc10"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "277bcf1556bcb32cd8784d4655bc97de003684fa60e714eeb76802b1649e1a35"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "277bcf1556bcb32cd8784d4655bc97de003684fa60e714eeb76802b1649e1a35"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "277bcf1556bcb32cd8784d4655bc97de003684fa60e714eeb76802b1649e1a35"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a1897ce062452d6ebe4e3ed6686e089f57e01ee0ac180147cb24201dfdf1a1f1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "de69c6ad8668a1e6c262e6c430ab1e4ad7c3ae0d739a32ee48d8362acd71a5e0"
+    sha256 cellar: :any,                 x86_64_linux:  "19d776c916bb5dfdb0f22d246d5a3dc4c2646d90a3404fd16b9236466dafc9b0"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/dependabot/cli/cmd/dependabot/internal/cmd.version=#{version}
-    ]
+    ldflags = %W[-X github.com/dependabot/cli/cmd/dependabot/internal/cmd.version=#{version}]
     system "go", "build", *std_go_args(ldflags:), "./cmd/dependabot"
 
     generate_completions_from_executable(bin/"dependabot", shell_parameter_format: :cobra)

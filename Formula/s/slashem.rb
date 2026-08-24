@@ -46,6 +46,8 @@ class Slashem < Formula
   patch do
     url "https://sourceforge.net/p/slashem/bugs/964/attachment/slashem-c99.patch"
     sha256 "ef21a6e3c64a5cf5cfe83305df7611aa024384ae52ef6be4242b86d3d38da200"
+    type :unofficial
+    resolves "https://sourceforge.net/p/slashem/bugs/964/"
   end
 
   # Fixes user check on older versions of OS X: https://sourceforge.net/p/slashem/bugs/895/
@@ -53,6 +55,8 @@ class Slashem < Formula
   patch :p0 do
     url "https://gist.githubusercontent.com/mistydemeo/76dd291c77a509216418/raw/65a41804b7d7e1ae6ab6030bde88f7d969c955c3/slashem-configure.patch"
     sha256 "c91ac045f942d2ee1ac6af381f91327e03ee0650a547bbe913a3bf35fbd18665"
+    type :backport
+    resolves "https://sourceforge.net/p/slashem/bugs/895/"
   end
 
   def install

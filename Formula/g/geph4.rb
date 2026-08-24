@@ -31,14 +31,14 @@ class Geph4 < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
     rm_r(buildpath/".cargo")
     system "cargo", "install", *std_cargo_args
   end
 
   test do
-    output = shell_output("#{bin}/geph4-client sync --credential-cache ~/test.db auth-password 2>&1", 1)
+    output = shell_output("#{bin}/geph4-client sync --credential-cache ~/test.db auth-password --username x 2>&1", 1)
     assert_match "incorrect credentials", output
 
     assert_match version.to_s, shell_output("#{bin}/geph4-client --version")

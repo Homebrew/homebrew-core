@@ -35,6 +35,7 @@ class Idutils < Formula
     on_macos do
       url "https://raw.githubusercontent.com/macports/macports-ports/b76d1e48dac/editors/nano/files/secure_snprintf.patch"
       sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
+      type :unofficial
     end
   end
 

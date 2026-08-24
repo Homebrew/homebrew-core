@@ -18,7 +18,7 @@ class Csvtk < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./csvtk"
+    system "go", "build", *std_go_args, "./csvtk"
 
     # We do this because the command to generate completions doesn't print them
     # to stdout and only writes them to a file

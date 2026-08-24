@@ -1,19 +1,19 @@
 class Beads < Formula
   desc "Memory upgrade for your coding agent"
-  homepage "https://github.com/steveyegge/beads"
-  url "https://github.com/steveyegge/beads/archive/refs/tags/v1.0.5.tar.gz"
-  sha256 "06e52a953b2e46044c70bc41421554c5d006370b1a25905b752d02eb0b337f0d"
+  homepage "https://github.com/gastownhall/beads"
+  url "https://github.com/gastownhall/beads/archive/refs/tags/v1.2.2.tar.gz"
+  sha256 "892b8b641d1f9eb3fa9f0cddf704f3f41aea0da872e546fe623ddec30b2ea9cf"
   license "MIT"
   compatibility_version 1
   head "https://github.com/gastownhall/beads.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f8fa08df32fb88a784f1487aeb7221e3cbebb9c4fcebfb37bdab4e6f0501b02a"
-    sha256 cellar: :any,                 arm64_sequoia: "6701bd6dd45af074ab1fd2fa679819daf717636d9c49542502b0f3e1a61595bd"
-    sha256 cellar: :any,                 arm64_sonoma:  "adc276608d86df0e2872a65588a91be2185e72ee54233ab314b3799258ec7398"
-    sha256 cellar: :any,                 sonoma:        "873801f3e80106f3a8533705ea4b818dc43c71fd56a0f808f02f0b668bd099c8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3e1ac41bcb03058ceac7373fb1e6a4b384164c8b99449ba3e98c13fe780a5f00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35357e5e576dbbb9144bb87a325d15c7ed01f067d22c8d77e0d22ae23653eccc"
+    sha256 cellar: :any, arm64_tahoe:   "177187f3b96cbb368afeb6c6183df127366542e31b18869b3c73cf1281c29a6e"
+    sha256 cellar: :any, arm64_sequoia: "c5d25601126a203f1aad282f46b1e325b02db54bfd68989067b16d5e1449ee4f"
+    sha256 cellar: :any, arm64_sonoma:  "6dc2c1d63a641b0781b5599185895f55ba36a83bf4a7d4af637d620365a33fbb"
+    sha256 cellar: :any, sonoma:        "94ffc4b49596090b1d917693d4c83ce32673954321aa7d36ad8a7a5ef679e757"
+    sha256 cellar: :any, arm64_linux:   "24bc1bb65a8441983afc2a78427c32e02a2b23efe07241501934162308f9f7ac"
+    sha256 cellar: :any, x86_64_linux:  "69775853ae28bafa20f1b280753424146360231c4a28ff1b324036a69028777d"
   end
 
   depends_on "go" => :build
@@ -28,7 +28,6 @@ class Beads < Formula
     end
 
     ldflags = %W[
-      -s -w
       -X main.Version=#{version}
       -X main.Build=#{tap.user}
       -X main.Branch=#{build.head? ? "HEAD" : "v#{version}"}

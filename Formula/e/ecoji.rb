@@ -17,15 +17,17 @@ class Ecoji < Formula
 
   depends_on "go" => :build
 
-  # Add missing go.sum file needed for module verification, upstream PR, https://github.com/keith-turner/ecoji/pull/39
+  # Add missing go.sum file needed for module verification
   patch do
-    url "https://github.com/keith-turner/ecoji/commit/ecc62c2cea558c776400b1da8161cef97848316c.patch?full_index=1"
-    sha256 "b66530592062f64a03858633d85029271cc83a2b41bb84d31ce31667abcca71e"
+    url "https://github.com/keith-turner/ecoji/commit/bdf4511e7f4390f0f30c7c51c7607416607a09d0.patch?full_index=1"
+    sha256 "37dfa3a641b43acd0bbc805ae2780b5ea9d7e57ecbc73742a7c683a0ffade09e"
+    type :backport
+    resolves "https://github.com/keith-turner/ecoji/pull/39"
   end
 
   def install
     cd "cmd/ecoji" do
-      system "go", "build", *std_go_args(ldflags: "-s -w")
+      system "go", "build", *std_go_args
     end
   end
 

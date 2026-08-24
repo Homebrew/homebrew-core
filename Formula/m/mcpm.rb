@@ -6,15 +6,15 @@ class Mcpm < Formula
   url "https://files.pythonhosted.org/packages/8d/e5/ee958c0ef1ab7f7a7e147217e54715358464f0865b35c34502b8cc82869e/mcpm-2.15.0.tar.gz"
   sha256 "207fb122458db44bc7ea4997941b015641e4571de12f1db53870d75266188942"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "aef6d82ee4216c22a1fbaa2c6773fa9599ebfdbfb96e0b3dfb8d249899e1d7d2"
-    sha256 cellar: :any, arm64_sequoia: "4d8d0bd7a39daccfacc740d09b17c2dca7b97ba8102171cd1df8c34637e612af"
-    sha256 cellar: :any, arm64_sonoma:  "806a0568b6daf02f9f476a4cc2abea4a6af0eb782568dabd4ead67c26e7141f6"
-    sha256 cellar: :any, sonoma:        "cb74fc289a6b24f8e2774c4b5138ab51703c3fd01d298cda8312f1796d32aaa7"
-    sha256 cellar: :any, arm64_linux:   "4e8954c906aa6fbb2dfcec79e5ae31991328c3cae963f6a4d3022da6050d7524"
-    sha256 cellar: :any, x86_64_linux:  "717df2f2514ba28d6604456d055e93be01b0e742eadaee1312f30e7fa83777f1"
+    sha256 cellar: :any, arm64_tahoe:   "ed86e1928c7dce43597f2f51e5792f3bf446f5dbc30f0c7fe46f3f90f30dc83a"
+    sha256 cellar: :any, arm64_sequoia: "09f43c4b516fe712d13aaf1871a43a54bb02bf44787a74b9d72b51111dc86091"
+    sha256 cellar: :any, arm64_sonoma:  "6400d62e99d1ce0017ba4be4516e8352ed26e8fde6567c6f6e6b6f1109a3d33b"
+    sha256 cellar: :any, sonoma:        "57343dab63c43d36f68638ff791a924a7d7fef37338284bfe8485940144ea31b"
+    sha256 cellar: :any, arm64_linux:   "cfb6e08512550e7f46a30aa27e5414e0245be7af0eda458db8394b9c92c17e8c"
+    sha256 cellar: :any, x86_64_linux:  "4b55b64379e92efef4e60ea70ec65ab454a40cf2ca84baa212d42bc535865498"
   end
 
   depends_on "cmake" => :build # for duckdb
@@ -30,8 +30,8 @@ class Mcpm < Formula
   pypi_packages exclude_packages: %w[certifi cryptography pydantic rpds-py]
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/19/14/2c5dd9f512b66549ae92767a9c7b330ae88e1932ca57876909410251fe13/anyio-4.13.0.tar.gz"
-    sha256 "334b70e641fd2221c1505b3890c69882fe4a2df910cba14d97019b90b24439dc"
+    url "https://files.pythonhosted.org/packages/1c/b5/001890774a9552aff22502b8da382593109ce0c95314abaebbb116567545/anyio-4.14.0.tar.gz"
+    sha256 "b47c1f9ccf73e67021df785332508f99379c68fa7d0684e8e3492cb1d4b23f89"
   end
 
   resource "attrs" do
@@ -90,8 +90,8 @@ class Mcpm < Formula
   end
 
   resource "duckdb" do
-    url "https://files.pythonhosted.org/packages/69/00/d579dcb2a536b6ea3a2563cdad6844f77d81a9b2d4b22a858097f2468acf/duckdb-1.5.3.tar.gz"
-    sha256 "df39428eb130faa35ae96fd35245bdeae6ecf43936250b116b5fead568eb9f16"
+    url "https://files.pythonhosted.org/packages/31/29/9bad86ed7aa812d8c822a27c15c355b6d5423b991feeec86ed18027b6daa/duckdb-1.5.4.tar.gz"
+    sha256 "f9e32f1cdd106793d79d190186bed9e75289d51e68bd9174e47c04bffedeab6f"
   end
 
   resource "email-validator" do
@@ -295,8 +295,8 @@ class Mcpm < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/07/60/1d1e59c9c90d54591469ada7d268251f71c24bdb765f1a8a832cee8c6653/pydantic_settings-2.14.1.tar.gz"
-    sha256 "e874d3bec7e787b0c9958277956ed9b4dd5de6a80e162188fdaff7c5e26fd5fa"
+    url "https://files.pythonhosted.org/packages/5c/b5/8f48e906c3e0205276e8bd8cb7512217a87b2685304d64be27cad5b3019f/pydantic_settings-2.14.2.tar.gz"
+    sha256 "c19dd64b19097f1de80184f0cc7b0272a13ae6e170cbf240a3e27e381ed14a5f"
   end
 
   resource "pygments" do
@@ -315,8 +315,8 @@ class Mcpm < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/84/0e/b5858858d74958632c49b72cb25a3976ff9f632397626715be71c89d3971/pytest-9.1.0.tar.gz"
-    sha256 "41dd9148c08072446394cefd3d79701701335a9f4cae69ba92e39f6c7f5c061c"
+    url "https://files.pythonhosted.org/packages/e4/47/b9efed96c114afcfa3c9d3fe98a76a1d14c74a9e266d397cf6eb64be5e01/pytest-9.1.1.tar.gz"
+    sha256 "1088fbde8f2b49d95a549a195707afa7a76a3ce9bcadc26b6d71f0ffda5fe313"
   end
 
   resource "python-dotenv" do

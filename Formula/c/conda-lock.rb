@@ -3,17 +3,18 @@ class CondaLock < Formula
 
   desc "Lightweight lockfile for conda environments"
   homepage "https://conda.github.io/conda-lock/"
-  url "https://files.pythonhosted.org/packages/0c/24/a26b28fbff0eee3c10f8153bcfd9b9dfc234e7acf89c07e08852bd23d0f0/conda_lock-4.0.1.tar.gz"
-  sha256 "b0dea35c2d10ad9fe07bacfcb79c090e4817aa148aa493a9faff55415899bd30"
+  url "https://files.pythonhosted.org/packages/06/44/52deb5012f8ef85c224cb3b1638c09c3b3d70b2f9e101e893bb61b9ee9ba/conda_lock-4.0.2.tar.gz"
+  sha256 "c4ebc4404ea760b1dd0035d6403fa27e291050269a5fd1b629b89fcbc75ef32a"
   license "MIT"
+  revision 5
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "dc08424f059575ba55a1bdd1270476997de0a181ff7af7263de088691c0f0da0"
-    sha256 cellar: :any, arm64_sequoia: "e869cc65dd20d8d236e023396471df7239c6177ccbc7e017d8c6deb4360d6354"
-    sha256 cellar: :any, arm64_sonoma:  "282875996f2ad438e6bf0221e7d180b4da29b7f1a8afd59d90078c76913b585f"
-    sha256 cellar: :any, sonoma:        "7db4e422bb954acb1e4a4aa808194c71a7fe5de2d4a27c5c0e4d4cfd4d924c51"
-    sha256 cellar: :any, arm64_linux:   "d1339ed6ce5753c669d86af9f46f487b66217430ec2c5342e6a45b97b1022e2f"
-    sha256 cellar: :any, x86_64_linux:  "2c74403e87cf0fc21935d61c03b469e0849a37358690b77ccc4b2f275c563fb4"
+    sha256 cellar: :any, arm64_tahoe:   "643222605573964c90b4dc1961947bc5e9d66fe55c24b43a4187ae98be6547ea"
+    sha256 cellar: :any, arm64_sequoia: "3a543d91cc786c2cb82f35202680fce09c94d6b7ad3097fbaf5cfd3d9b953ca9"
+    sha256 cellar: :any, arm64_sonoma:  "2aa0aa7feab71e6a7afb892750490f1d128770b46b55bff627dadcb8d618e71f"
+    sha256 cellar: :any, sonoma:        "c5764081f950501493be985875f6bf3b05dc82cfd0fb5d63ed45f3063a09689e"
+    sha256 cellar: :any, arm64_linux:   "555b769339e7574355534e9f51bf8901c30a22749d5a71147b87b5b1c545ec94"
+    sha256 cellar: :any, x86_64_linux:  "8b53881a117c7d100bd6948979a57602b6d08ad474f11cd256c682db6178cc1f"
   end
 
   depends_on "rust" => :build # for cachecontrol, uv-backend
@@ -37,8 +38,8 @@ class CondaLock < Formula
   end
 
   resource "boltons" do
-    url "https://files.pythonhosted.org/packages/63/54/71a94d8e02da9a865587fb3fff100cb0fc7aa9f4d5ed9ed3a591216ddcc7/boltons-25.0.0.tar.gz"
-    sha256 "e110fbdc30b7b9868cb604e3f71d4722dd8f4dcb4a5ddd06028ba8f1ab0b5ace"
+    url "https://files.pythonhosted.org/packages/47/99/12bace94ae2ba961bdc46d49277ff15d38dba074bc3987b0c0b4355a37a7/boltons-26.1.0.tar.gz"
+    sha256 "5764468aba493b15995ed17f46a16789023f123ca2a62d491a9ce825c1cbe26c"
   end
 
   resource "build" do
@@ -52,13 +53,13 @@ class CondaLock < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "click-default-group" do
@@ -92,13 +93,13 @@ class CondaLock < Formula
   end
 
   resource "fastjsonschema" do
-    url "https://files.pythonhosted.org/packages/20/b5/23b216d9d985a956623b6bd12d4086b60f0059b27799f23016af04a74ea1/fastjsonschema-2.21.2.tar.gz"
-    sha256 "b1eb43748041c880796cd077f1a07c3d94e93ae84bba5ed36800a33554ae05de"
+    url "https://files.pythonhosted.org/packages/e4/98/474719c58eddaf77fa443b063693e76d49db32bbe851bcbaf58d2700119f/fastjsonschema-2.22.1.tar.gz"
+    sha256 "0b83d1ce8d7845b959dcb20e1a5c3c8883b6541d9c52ab02cce5166b75ec805f"
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/e6/dc/be6cbe99670cd6e4ad387123647cb08e0c32975e223f82551e914c5568a6/filelock-3.29.4.tar.gz"
-    sha256 "10cdb3656fc44541cdf30652a93fb10ec6b05325620eb316bd26893e4201538a"
+    url "https://files.pythonhosted.org/packages/f6/57/3ba6e6cb097f85b855b00163d169f35365f44277df044dcf96d55b8f62a3/filelock-3.32.2.tar.gz"
+    sha256 "c33351e1f49cae33414acbc6d56784e6ecee82514ec90795da1161fc4836b5b8"
   end
 
   resource "gitdb" do
@@ -107,8 +108,8 @@ class CondaLock < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/33/f6/354ae6491228b5eb40e10d89c4d13c651fe1cf7556e35ebdded50cff57ce/gitpython-3.1.50.tar.gz"
-    sha256 "80da2d12504d52e1f998772dc5baf6e553f8d2fcfe1fcc226c9d9a2ee3372dcc"
+    url "https://files.pythonhosted.org/packages/26/d6/5f358ff283325580c2003a6d953aea18cfe10ae87b46f5ebc80fa3a386dc/gitpython-3.1.58.tar.gz"
+    sha256 "621416df10ef3fd0e19fabf9172ddeed0fa704d353d04f194eec56a625a95b22"
   end
 
   resource "idna" do
@@ -132,8 +133,8 @@ class CondaLock < Formula
   end
 
   resource "jaraco-functools" do
-    url "https://files.pythonhosted.org/packages/36/cf/ea4ef2920830dea3f5ab2ea4da6fb67724e6dca80ee2553788c3607243d0/jaraco_functools-4.5.0.tar.gz"
-    sha256 "3bb5665ea4a020cf78a7040e89154c77edadb3ca74f366479669c5999aa70b03"
+    url "https://files.pythonhosted.org/packages/6c/1f/c23395957d41ccf27c4e535c3d334c4051e5395b3752057ba4cbaec35c56/jaraco_functools-4.6.0.tar.gz"
+    sha256 "880c577ec9720b3a052d5bc611fb9f2269b3d87902ef42440df443b88e443280"
   end
 
   resource "jeepney" do
@@ -162,13 +163,13 @@ class CondaLock < Formula
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/92/23/6139781ca7aadf656fa8e384fa84693ffb13f299e6931b6526427fe5e297/msgpack-1.2.0.tar.gz"
-    sha256 "8e17af38197bf58e7e819041678f6178f4491493f5b8c8580414f40f7c2c3c41"
+    url "https://files.pythonhosted.org/packages/31/f9/c0a1c127f9049db9155afc316952ea571720dd01833ff5e4d7e8e6352dbb/msgpack-1.2.1.tar.gz"
+    sha256 "04c721c2c7448767e9e3f2520a475663d8ee0f09c31890f6d2bd70fd636a9647"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
-    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "pkginfo" do
@@ -177,8 +178,8 @@ class CondaLock < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/47/e4501f49c178ae1d9f4a75073fda4204f52647993f075a9db4d14930e0c5/platformdirs-4.10.0.tar.gz"
-    sha256 "31e761a6a0ca04faf7353ea759bdba55652be214725111e5aac52dfa29d4bef7"
+    url "https://files.pythonhosted.org/packages/78/9b/560e4be8e26f6fd133a03630a8df0c663b9e8d61b4ade152b72005aec83b/platformdirs-4.11.0.tar.gz"
+    sha256 "0555d18370482847566ffabcaa53ad7c6c1c29f195989ae1ed634a05f76ea1e0"
   end
 
   resource "pyproject-hooks" do
@@ -217,8 +218,8 @@ class CondaLock < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/4f/db/cfac1baf10650ab4d1c111714410d2fbb77ac5a616db26775db562c8fab2/setuptools-82.0.1.tar.gz"
-    sha256 "7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9"
+    url "https://files.pythonhosted.org/packages/34/26/f5d29e25ffdb535afef2d35cdb55b325298f96debd670da4c325e08d70f4/setuptools-83.0.0.tar.gz"
+    sha256 "025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef"
   end
 
   resource "shellingham" do
@@ -232,8 +233,8 @@ class CondaLock < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/51/db/03eaf4331631ef6b27d6e3c9b68c54dc6f0d63d87201fed600cc409307fd/tomlkit-0.15.0.tar.gz"
-    sha256 "7d1a9ecba3086638211b13814ea79c90dd54dd11993564376f3aa92271f5c7a3"
+    url "https://files.pythonhosted.org/packages/94/96/e07752635b98536177fa1f37671c8f3cdde2e724c6bcf6034b2cfb571565/tomlkit-0.15.1.tar.gz"
+    sha256 "e25bbf38843005246210a12982776f27f99cb9be67160e14434d0c0d21ee1e97"
   end
 
   resource "trove-classifiers" do
@@ -282,10 +283,10 @@ class CondaLock < Formula
       channels:
         - conda-forge
       dependencies:
-        - python=3.14
+        - python=3.12
     YAML
     system bin/"conda-lock", "-p", "osx-64", "-p", "osx-arm64",
-                             "--conda", Formula["micromamba"].opt_bin/"mamba"
+                             "--conda", formula_opt_bin("micromamba")/"mamba"
     assert_path_exists testpath/"conda-lock.yml"
   end
 end

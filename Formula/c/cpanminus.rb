@@ -32,7 +32,7 @@ class Cpanminus < Formula
     inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX, audit_result: build.stable?
 
     # Needed for dependents that might use Homebrew perl or system perl.
-    inreplace bin/"cpanm", %r{^#!#{Regexp.escape(Formula["perl"].opt_bin)}/perl$}, "#!/usr/bin/env perl"
+    inreplace bin/"cpanm", %r{^#!#{Regexp.escape(formula_opt_bin("perl"))}/perl$}, "#!/usr/bin/env perl"
   end
 
   test do

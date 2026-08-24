@@ -1,8 +1,8 @@
 class NodeExporter < Formula
   desc "Prometheus exporter for machine metrics"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/node_exporter/archive/refs/tags/v1.11.1.tar.gz"
-  sha256 "d2b5a7740b7526543429b41a5d741bc530277f406f7b121fc64cb3ca583f7387"
+  url "https://github.com/prometheus/node_exporter/archive/refs/tags/v1.12.1.tar.gz"
+  sha256 "a90f1df0fde58d216d4a7d342e64831d2e3257db8084deadbe69754d34b15142"
   license "Apache-2.0"
   head "https://github.com/prometheus/node_exporter.git", branch: "master"
 
@@ -12,19 +12,18 @@ class NodeExporter < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d948b78c2421e07943ed291d48c763f6c1101018651f977c4fc24cafa018fec3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "16e5df568574e4545c085a4158511f4b2b1d0bead68210a62e16565ca0d602a7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7280ed9bd7d83c9205421459f2f462664f6512b29194ad01a639b4e7b76b73a5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aa2331dd0c6c725ace1b027b61009803698caf442f6612e686aecd27f25f3c8b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c156048f29121e32978e067f9c1e18a76b9bd1b446d033a52110b32ab32cf8cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83cf562ab7570c1b71093a20723b505b7285c16dd2ed803336efba9053cd1499"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4940755a005ca7e51e11f28709882b3aa036e8bea5d07e4ef902a76875b66a57"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bb74943f82def0f2e07826688c81fd41842eb4c04c829eed2283018dba2896e1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49702b39916ec9566f96af09e314ed665d7b8775e1c88b4ff3b355644d5b7747"
+    sha256 cellar: :any_skip_relocation, sonoma:        "102f85b6b16a7c8db65a1a48a09a950b09032f6ca3814b0429b9107164406b87"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6e11b10c9859df2b2fc18648e22b6805997fe7b57cee6ec27e2e6a8dfddcf48c"
+    sha256 cellar: :any,                 x86_64_linux:  "e7868f24e2c501f07cfca37d27f881174460ec00574a9378167f6cdb95de710a"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/prometheus/common/version.Version=#{version}
       -X github.com/prometheus/common/version.BuildUser=#{tap.user}
     ]

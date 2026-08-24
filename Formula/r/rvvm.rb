@@ -28,7 +28,7 @@ class Rvvm < Formula
   depends_on "pkgconf" => :build
 
   on_macos do
-    depends_on "sdl2"
+    depends_on "sdl2-compat"
   end
 
   on_linux do

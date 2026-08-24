@@ -7,12 +7,13 @@ class Arrayfire < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "45b5cfac3cb25a07325eac265b8d6cea9e37bbd4fb2f8644504b5fe2e0139bcf"
-    sha256 cellar: :any,                 arm64_sequoia: "96387d61c1ada66f3218a6789a74de0025f77d0c69c7e2b83fcc45dc06890b50"
-    sha256 cellar: :any,                 arm64_sonoma:  "705d9c60155d01650e7688ec5e59a99cbb65503217d30b12e24d67680a3987d3"
-    sha256 cellar: :any,                 sonoma:        "40c0ace3c5ae615ccd637b15fa97fb0a0a9bf82c48b8d145fef0a4180900f559"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f58ae3f1e735ffab39d04c3a0739fb76e82467029fa11c18b6a79832e1542e85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36fc469e1f75325c9c3385617669df228d485f4d1321de4d01dd4f7d31bc1429"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "491e0b57991801e4470cb389008aa512ba573f3a16414f941acbb84ddadbccd2"
+    sha256 cellar: :any, arm64_sequoia: "6ec8984f0c8834ae1a4ac40f02165a377104bbd5929091e4eb3ee389344d3e91"
+    sha256 cellar: :any, arm64_sonoma:  "6dbb89aaccaa450eb89e6d4010c08d0ea1fe7827e07e6e7b310908b0c2218acd"
+    sha256 cellar: :any, sonoma:        "2dcd335dff6f106f88134c5a78c3a4b270a41655c388a7b02e02bb288bf21411"
+    sha256 cellar: :any, arm64_linux:   "06de859182ea4dfb7fae6c1857db3f79e583868d00408eb49e504e58bf9cf268"
+    sha256 cellar: :any, x86_64_linux:  "9b171c8bcf60aafee70410fe13bb3968092b4010373958d533d57f071d6478bb"
   end
 
   depends_on "boost" => :build
@@ -40,8 +41,19 @@ class Arrayfire < Formula
   end
 
   # fmt 11 compatibility
-  # https://github.com/arrayfire/arrayfire/issues/3596
-  patch :DATA
+  patch do
+    file "Patches/arrayfire/fmt-11.patch"
+    type :unofficial
+    resolves "https://github.com/arrayfire/arrayfire/issues/3596"
+  end
+
+  # Fix ambiguous `std::abs` call rejected by newer libc++ (macOS 26 SDK)
+  patch do
+    url "https://github.com/arrayfire/arrayfire/commit/a19abf55660c63f21fdb1f9c24d03e857def2446.patch?full_index=1"
+    sha256 "6cef40ccb4bad3c4224f193c46990190643f00ee7e9b0befc3b0fd9b95154820"
+    type :unofficial
+    resolves "https://github.com/arrayfire/arrayfire/pull/3710"
+  end
 
   def install
     # FreeImage has multiple CVEs (https://github.com/arrayfire/arrayfire/issues/3547) and
@@ -50,8 +62,8 @@ class Arrayfire < Formula
 
     # Fix for: `ArrayFire couldn't locate any backends.`
     rpaths = [
-      rpath(source: lib, target: Formula["fftw"].opt_lib),
-      rpath(source: lib, target: Formula["openblas"].opt_lib),
+      rpath(source: lib, target: formula_opt_lib("fftw")),
+      rpath(source: lib, target: formula_opt_lib("openblas")),
       rpath(source: lib, target: HOMEBREW_PREFIX/"lib"),
     ]
 
@@ -73,7 +85,6 @@ class Arrayfire < Formula
   end
 
   test do
-    ENV.method(DevelopmentTools.default_compiler).call if OS.linux?
     cp pkgshare/"examples/helloworld/helloworld.cpp", testpath/"test.cpp"
     system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-laf", "-lafcpu", "-o", "test"
     # OpenCL does not work in CI.
@@ -82,88 +93,3 @@ class Arrayfire < Formula
     assert_match "ArrayFire v#{version}", shell_output("./test")
   end
 end
-
-__END__
-diff --git a/src/backend/common/jit/NodeIO.hpp b/src/backend/common/jit/NodeIO.hpp
-index ac149d9..edffdfa 100644
---- a/src/backend/common/jit/NodeIO.hpp
-+++ b/src/backend/common/jit/NodeIO.hpp
-@@ -16,7 +16,7 @@
- template<>
- struct fmt::formatter<af::dtype> : fmt::formatter<char> {
-     template<typename FormatContext>
--    auto format(const af::dtype& p, FormatContext& ctx) -> decltype(ctx.out()) {
-+    auto format(const af::dtype& p, FormatContext& ctx) const -> decltype(ctx.out()) {
-         format_to(ctx.out(), "{}", arrayfire::common::getName(p));
-         return ctx.out();
-     }
-@@ -58,7 +58,7 @@ struct fmt::formatter<arrayfire::common::Node> {
-     // Formats the point p using the parsed format specification (presentation)
-     // stored in this formatter.
-     template<typename FormatContext>
--    auto format(const arrayfire::common::Node& node, FormatContext& ctx)
-+    auto format(const arrayfire::common::Node& node, FormatContext& ctx) const
-         -> decltype(ctx.out()) {
-         // ctx.out() is an output iterator to write to.
-
-diff --git a/src/backend/common/ArrayFireTypesIO.hpp b/src/backend/common/ArrayFireTypesIO.hpp
-index e7a2e08..5da74a9 100644
---- a/src/backend/common/ArrayFireTypesIO.hpp
-+++ b/src/backend/common/ArrayFireTypesIO.hpp
-@@ -21,7 +21,7 @@ struct fmt::formatter<af_seq> {
-     }
-
-     template<typename FormatContext>
--    auto format(const af_seq& p, FormatContext& ctx) -> decltype(ctx.out()) {
-+    auto format(const af_seq& p, FormatContext& ctx) const -> decltype(ctx.out()) {
-         // ctx.out() is an output iterator to write to.
-         if (p.begin == af_span.begin && p.end == af_span.end &&
-             p.step == af_span.step) {
-@@ -73,18 +73,16 @@ struct fmt::formatter<arrayfire::common::Version> {
-     }
-
-     template<typename FormatContext>
--    auto format(const arrayfire::common::Version& ver, FormatContext& ctx)
-+    auto format(const arrayfire::common::Version& ver, FormatContext& ctx) const
-         -> decltype(ctx.out()) {
-         if (ver.major() == -1) return format_to(ctx.out(), "N/A");
--        if (ver.minor() == -1) show_minor = false;
--        if (ver.patch() == -1) show_patch = false;
--        if (show_major && !show_minor && !show_patch) {
-+        if (show_major && (!show_minor || ver.minor() == -1) && (!show_patch || ver.patch() == -1)) {
-             return format_to(ctx.out(), "{}", ver.major());
-         }
--        if (show_major && show_minor && !show_patch) {
-+        if (show_major && (show_minor && ver.minor() != -1) && (!show_patch || ver.patch() == -1)) {
-             return format_to(ctx.out(), "{}.{}", ver.major(), ver.minor());
-         }
--        if (show_major && show_minor && show_patch) {
-+        if (show_major && (show_minor && ver.minor() != -1) && (show_patch && ver.patch() != -1)) {
-             return format_to(ctx.out(), "{}.{}.{}", ver.major(), ver.minor(),
-                              ver.patch());
-         }
-diff --git a/src/backend/common/debug.hpp b/src/backend/common/debug.hpp
-index 54e74a2..07fa589 100644
---- a/src/backend/common/debug.hpp
-+++ b/src/backend/common/debug.hpp
-@@ -12,6 +12,7 @@
- #include <boost/stacktrace.hpp>
- #include <common/ArrayFireTypesIO.hpp>
- #include <common/jit/NodeIO.hpp>
-+#include <fmt/ranges.h>
- #include <spdlog/fmt/bundled/format.h>
- #include <iostream>
-
-diff --git a/src/backend/opencl/compile_module.cpp b/src/backend/opencl/compile_module.cpp
-index 89d382c..2c979fd 100644
---- a/src/backend/opencl/compile_module.cpp
-+++ b/src/backend/opencl/compile_module.cpp
-@@ -22,6 +22,8 @@
- #include <platform.hpp>
- #include <traits.hpp>
-
-+#include <fmt/ranges.h>
-+
- #include <algorithm>
- #include <cctype>
- #include <cstdio>

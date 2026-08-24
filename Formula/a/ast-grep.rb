@@ -1,18 +1,18 @@
 class AstGrep < Formula
   desc "Code searching, linting, rewriting"
   homepage "https://ast-grep.github.io/"
-  url "https://github.com/ast-grep/ast-grep/archive/refs/tags/0.43.0.tar.gz"
-  sha256 "1fb6c32a5ae96254d54df7c4358f664e5c6bebdd7754c8b9a3a7db079fe4d525"
+  url "https://github.com/ast-grep/ast-grep/archive/refs/tags/0.45.2.tar.gz"
+  sha256 "b372fdc542b050336c5491c5d7cc91e0648c107bba90c3ad8e02913e5cf2f4ab"
   license "MIT"
   head "https://github.com/ast-grep/ast-grep.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a3b8f1e80564bbad94c72b307999bbbf876462f06004d0b31b98ef8c0977bc0b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa7639de28b4becddd39f68d15f10b0dea2355d362ecfe295ca7ae5d4f293187"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4d302e0f236feed599b2a8bf7e32a97d33bfb6823a4dc5076f7b6f5861337dc1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7fa8c9c82228c329563b194deafeb024e5a4b320105fa95ab519f778f4032758"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "222f7b9deb03c3b45fcac87f830841260a60d676aaa70066ba8a5c35f55f5c49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "197984baf50547ba6248d942393b52eef14f42893117f8453e3a85de33ccc750"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "124d8a95200a444d3472ffd57accd11776cf3784f95ff89edac4a907225caf0e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dc7467e291f6e5a84e9f33d362008ab95b07cc06118682bddf62ae7d3fa47eca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "360de738b6cae685fd270587284d54a318a001485271cf65cabf9d9013a5a84f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e9948fe699ff1e00f67399e5117a136800dbe4f12fa437d49f08567f7a878e19"
+    sha256 cellar: :any,                 arm64_linux:   "b46cd3654f0522f331a74a622f145dba64acaf20e7413d53a511ee1cac07c47c"
+    sha256 cellar: :any,                 x86_64_linux:  "51bf73efa314f51e9c5c6cf67af9b21c07a87a92a973dcac145ff74c433960cf"
   end
 
   depends_on "rust" => :build

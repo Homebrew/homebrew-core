@@ -4,6 +4,7 @@ class Oclgrind < Formula
   url "https://github.com/jrprice/Oclgrind/archive/refs/tags/v26.03.1.tar.gz"
   sha256 "d21a705a2b71491b1505f34a50e14f9666516d1654c0e6745983408bb300e4c2"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,24 +12,25 @@ class Oclgrind < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "aae02edae15b83a6def6ea7eeb6f3704fb0a00d4c41f584f76a77dcdbd65ce65"
-    sha256 cellar: :any,                 arm64_sequoia: "f6c1c97a416c86005e139526b71ee15c4a69f1034c0a866e005a8a6456b4f162"
-    sha256 cellar: :any,                 arm64_sonoma:  "a09b5cd362971cd593b09073addab6934e8a722a5560f126c97f410749ae6cf3"
-    sha256 cellar: :any,                 sonoma:        "c031c0023646178f4f0cf6c5e24bf82a399832d942c00e227f1dab0adcb657dc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "20b53a0ed9e7a6fbc94bbf1e5d5daf0b7d80df2bbb3e83411f5deba007f0dd1d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ddc0208b7338e109df4c48e5a97980d87ff0e47dc0e84f089f35dc7002b6be2"
+    sha256 cellar: :any, arm64_tahoe:   "5ca45349ce2fa614c8337c1480c442a3e358181578b343a993afa9a1805ecb4f"
+    sha256 cellar: :any, arm64_sequoia: "c092799a3eb5d3bde8cd2bf6d87f944dcf2750ee8027763f96e5e465fc772bfb"
+    sha256 cellar: :any, arm64_sonoma:  "8901090df7cdcd4eb51147b2f31bb026d5502174c454c654a68cdc5125cfe1b3"
+    sha256 cellar: :any, sonoma:        "f65c84f9d47f3c62a0dc08627f5be4154b9abf5ccc915376ac7c18ee472b59e3"
+    sha256 cellar: :any, arm64_linux:   "9f4123596fb4b1a955f5af926d38d61ef58b9a88034b85fbfc3a4288c4e86bed"
+    sha256 cellar: :any, x86_64_linux:  "669b3e5304273cbc343ec74aad6016a6447aac6ace4178d5f5127ae36f8ae81e"
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm@19" # FIXME: LLVM 20+ segfaults. Also seen upstream where CI using Homebrew LLVM was disabled
   depends_on "readline"
 
   on_macos do
+    depends_on "llvm@19" # FIXME: LLVM 20+ segfaults. Also seen upstream where CI using Homebrew LLVM was disabled
     depends_on "zstd"
   end
 
   on_linux do
     depends_on "opencl-headers" => :test
+    depends_on "llvm@22"
   end
 
   def install

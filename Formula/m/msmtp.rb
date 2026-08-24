@@ -1,8 +1,8 @@
 class Msmtp < Formula
   desc "SMTP client that can be used as an SMTP plugin for Mutt"
   homepage "https://marlam.de/msmtp/"
-  url "https://marlam.de/msmtp/releases/msmtp-1.8.32.tar.xz"
-  sha256 "20cd58b58dd007acf7b937fa1a1e21f3afb3e9ef5bbcfb8b4f5650deadc64db4"
+  url "https://marlam.de/msmtp/releases/msmtp-1.8.34.tar.xz"
+  sha256 "84e8fe2a5a80a1ee7802013b3fbdb846a3f27a4163cf37a1c6d7c7f888873ead"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,20 +11,27 @@ class Msmtp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "fb73c1d4d6cf6a3eaa9d58dd28e92a3236b7391fae2d952b5905e4b2aaa69f2d"
-    sha256 cellar: :any, arm64_sequoia: "c4bb0636780fd6fc1b2fc13590d52b7b9b3332278494b15a6004a9b6dbf3afbb"
-    sha256 cellar: :any, arm64_sonoma:  "f7ad2eb8f4e8af3da9ac87aec6cab70ffa98851883b9fd91d10fa3fc8bee6c89"
-    sha256 cellar: :any, sonoma:        "48fd217589c9426abb52e7ab4f39f5cb1187cf0deb5771100d8e867d58339f40"
-    sha256               arm64_linux:   "f9d5377da5a884596453a9415f0bd97023e0e658c63b99cae4e1055d48576d4e"
-    sha256               x86_64_linux:  "d59eb5c9d9210d35fa752ba933abdc5f85f58df3106482273b8f73dec56b5bb4"
+    sha256 cellar: :any, arm64_tahoe:   "141d0097dc90c0f2e921a4e771311f70a6e84af1055ab31358184e423c9513d1"
+    sha256 cellar: :any, arm64_sequoia: "4a3b96bb12048cc93be05b45cde23dd1eb6bd1803cd4b0444968e0b981da57ed"
+    sha256 cellar: :any, arm64_sonoma:  "a19ea4f2143fb6b1d0d65133e20bac5003544f08e92722120cfefa982a716dd0"
+    sha256 cellar: :any, sonoma:        "73d756d1a1c5632e284e2db41f4aa72981d7d91a6d4e0a9b5b81723b0987579c"
+    sha256               arm64_linux:   "96b5205fe0788e563c6dda1721424f2016e9c9a5f49411ec15693610c9fac36b"
+    sha256               x86_64_linux:  "3aace6b37e534359cbf95cae9c6ba07a4884a06e65d50821017bd59161d91d09"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "gettext"
   depends_on "gnutls"
   depends_on "libidn2"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
+    # gnulib's base64.h uses `bool` without including
+    # <stdbool.h>, assuming C23. Force the include for pre-C23 compilers.
+    ENV.append_to_cflags "-include stdbool.h"
+
     system "./configure", "--disable-silent-rules", "--with-macosx-keyring", *std_configure_args
     system "make", "install"
     (pkgshare/"scripts").install "scripts/msmtpq"

@@ -1,19 +1,18 @@
 class Aiken < Formula
   desc "Modern smart contract platform for Cardano"
   homepage "https://aiken-lang.org/"
-  url "https://github.com/aiken-lang/aiken/archive/refs/tags/v1.1.21.tar.gz"
-  sha256 "c6bbdba11a37a6452d6a00c6fee9473264b757475912c4dfd9c3fd18ea60ed4c"
+  url "https://github.com/aiken-lang/aiken/archive/refs/tags/v1.1.23.tar.gz"
+  sha256 "e462fd02ee47546b7e1b42fcca54e4a70410fb0fe0e26cbb9f16f11292b2a5d1"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/aiken-lang/aiken.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1880676384c217aebfa1835c94df19fa25a9f30049c1259a037d68d0e532c82e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cd5de1d90c2b519dc31172a78c2561b0ff231089d2c6059ff5cb4cb1ac149fc8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b094e38d7c67bde13386ad4b32f2242dd15cf1f611d5867fc39881ba80b36631"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8bfc0c056f9d7d513c0df13b2ef087130a5d931cfad9ac39fc82489ed996bb45"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca34ae5907f8efe7affd7e3170ea1a4cf8d926cb010c216d217e217175396946"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ee3811ce4cac5efefda4a264ffe65fbf7631bac3ef59aa4cb25aef84525daee"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f65184e76c5db347ce422eed5f1bf92ed85a5d3ed330fdb563a620da5e4e8e69"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "725814eeb6b54a36794a17f75e56e93056be91171c7eed4a65a583adfbbd98d4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0fd508b880d89c9dbc999b11969ccb06e55fb02950cd69ae0d7da1cb62445391"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7cc179f1156417c3cbd28713acc08fe26851cb01f303d2df874ad62ada871986"
+    sha256 cellar: :any,                 arm64_linux:   "85c3601261ad455b427fef0bc15b18b4d2041f4cd55d1e02f3ae040e0630ab0d"
+    sha256 cellar: :any,                 x86_64_linux:  "8d980c15ae590b1ce8b75f1674ae029ff2ac9b5ad7bc17995700ced021cc667f"
   end
 
   depends_on "pkgconf" => :build
@@ -21,18 +20,6 @@ class Aiken < Formula
 
   on_linux do
     depends_on "openssl@4"
-  end
-
-  # Backport openssl part 1
-  patch do
-    url "https://github.com/aiken-lang/aiken/commit/d5aba83a115439384ecd5b4c398c33baf33f7a77.patch?full_index=1"
-    sha256 "499e4f309d5a0ea7c047b0d05c8933019d616b6ec831a5dbaf73ebb982c06bf4"
-  end
-
-  # Backport openssl 4 support https://github.com/aiken-lang/aiken/pull/1312
-  patch do
-    url "https://github.com/aiken-lang/aiken/commit/b1756f6311d383c079dfd976c2a2068aedbf922e.patch?full_index=1"
-    sha256 "423ed0c5a3453f3870f1984cb67c30806e3f506fbdfe5ddbd7955431858a0cb9"
   end
 
   def install

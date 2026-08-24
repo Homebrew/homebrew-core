@@ -29,8 +29,9 @@ class Wput < Formula
   # The patch is to skip inclusion of malloc.h only on OSX. Upstream:
   # https://sourceforge.net/p/wput/patches/22/
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/wput/0.6.2.patch"
-    sha256 "a3c47a12344b6f67a5120dd4f838172e2af04f4d97765cc35d22570bcf6ab727"
+    file "Patches/wput/0.6.2.patch"
+    type :unofficial
+    resolves "https://sourceforge.net/p/wput/patches/22/"
   end
 
   def install

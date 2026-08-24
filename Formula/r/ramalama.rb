@@ -3,17 +3,17 @@ class Ramalama < Formula
 
   desc "Goal of RamaLama is to make working with AI boring"
   homepage "https://ramalama.ai"
-  url "https://files.pythonhosted.org/packages/a7/b4/f35697d69a8f0ed26da2f8cb2da8c42cffd19959ea449de3e9fa3cfe291d/ramalama-0.22.0.tar.gz"
-  sha256 "90733e64a8d83a1b96d8fc614d0191794e64aba002007a100f4244febb417f3c"
+  url "https://files.pythonhosted.org/packages/ae/84/31d8f4f2edc2b03d4737b428bfa2af860561cde175938c6165a666b15dee/ramalama-0.24.0.tar.gz"
+  sha256 "7dae773274d8eb2cc9363cb5cebc32abe1730d278efc337f980b183a7caa6f5e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "26edfe41cb61bee6e36721b617935d89defbce07995d4db039048e6171400829"
-    sha256 cellar: :any, arm64_sequoia: "7b378706ccd5129bff1641bf206bb7901c823fe886272864fc80b2f91a8fb00c"
-    sha256 cellar: :any, arm64_sonoma:  "503e3b18548329ed7627f5d470a89b8d66ba67728ea32a2e9242d967aeaf14ac"
-    sha256 cellar: :any, sonoma:        "8869ef2e2ba921376571912164b657c1aa8836b625a214cecc5d3979f65200f2"
-    sha256 cellar: :any, arm64_linux:   "4d994ae18dc5e847d7da44d1879c9c394704f3d7e086b6f3dee54e400cbb50ad"
-    sha256 cellar: :any, x86_64_linux:  "65d036288697637c2d4de9a539bd73c6c34e59ea63b39de4b3adb67b6a2c5038"
+    sha256 cellar: :any, arm64_tahoe:   "5d5c668e737ddc3025b853e5853c0102cf29a6460b37cdf7bfa9d1f8c09e7200"
+    sha256 cellar: :any, arm64_sequoia: "7da81e9d6bcafac1759a6cdaaa208cabb53743b10438fe96eac610ebb167ece3"
+    sha256 cellar: :any, arm64_sonoma:  "5164b2a47f896717b24dd7d68916a2d066b8266d0826336120efca8f7c953d20"
+    sha256 cellar: :any, sonoma:        "7b8197e4ac87e8f8094914aec7cb1f401fc38a6895a16bd5fad92014f40deb36"
+    sha256 cellar: :any, arm64_linux:   "11011a2c455a78d2c9ce76442a95ed8fae68f27c42a2c9c409db6b18398203e1"
+    sha256 cellar: :any, x86_64_linux:  "64390644c66a4ad7dc0bd0d0bb983bd32aa41042f5e24674ae1ace070c46da9e"
   end
 
   depends_on "libyaml"
@@ -27,8 +27,8 @@ class Ramalama < Formula
   pypi_packages exclude_packages: "rpds-py"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/38/61/0b9ae6399dd4a58d8c1b1dc5a27d6f2808023d0b5dd3104bb99f45a33ff6/argcomplete-3.6.3.tar.gz"
-    sha256 "62e8ed4fd6a45864acc8235409461b72c9a28ee785a2011cc5eb78318786c89c"
+    url "https://files.pythonhosted.org/packages/87/6f/5a73f04007ca950701765949209f068da628bd11f9c2da287278ce91e0ee/argcomplete-3.7.2.tar.gz"
+    sha256 "aad8b69a0b9969edb62db0d1752354c0d50717b10e0cbb00e2a958381b9fc6b9"
   end
 
   resource "jinja2" do

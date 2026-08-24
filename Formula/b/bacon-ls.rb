@@ -1,18 +1,18 @@
 class BaconLs < Formula
   desc "Rust diagnostic provider based on Bacon"
   homepage "https://github.com/crisidev/bacon-ls"
-  url "https://github.com/crisidev/bacon-ls/archive/refs/tags/0.29.0.tar.gz"
-  sha256 "f18311b2a1e60830a3c85078edb06789955eaee1c963a4cb67aa2636271dcb8a"
+  url "https://github.com/crisidev/bacon-ls/archive/refs/tags/0.30.0.tar.gz"
+  sha256 "c26692de95e7f838aeee2353d8e10bd9b32fb1a97b10f63e31aad0fc05285d40"
   license "MIT"
   head "https://github.com/crisidev/bacon-ls.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d78a9c0a390f4893f4412423bb10828fecec14cd9682d9875ad0b4256353b5e5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "18bdeae5cfb6a925b730cbd25ca2b4b1a641b08f45ba4ee76880de209a15eb19"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f611eafd253e3cd00703d4f8259635c606df8678bd8462dbf7f9e68f3a5b72d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "770416f2f8abb9e5243de37ec8b027f31852eddf505f26af800cdccaf1ebd086"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e5eba7e45ffa58a3edda89b8fc287b1cdb88d8a25b357690c7b240ecef188fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7f9f3149741fccf804f00ee8a5be0d50a8861cc4e2bd7186840b48eae779510"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6d2ff68a095584ce52b660d2ca1e8e6605a35b44f5d44380058debf2f817f38d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c66b7399f6768b959e2cda53d317a492750041c29a88832013deb8989602fe83"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "75b27c9eab7ac917b571792bbfc3952dd24faefaa4143386a43a58be0af95989"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d3ec5a595e441a76ae2cd6c037e4be927000045b38502fed2a4976d6484ab5ca"
+    sha256 cellar: :any,                 arm64_linux:   "8acdb035237769e7b410365448f68e6c8a608e777da1c2df25198c05f90d2e3d"
+    sha256 cellar: :any,                 x86_64_linux:  "121d62a251faddd84605ffb92129f39d6b59b8bd5c31b232fda90a9c3658bbd4"
   end
 
   depends_on "rust" => :build

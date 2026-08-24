@@ -9,7 +9,7 @@ class Mgba < Formula
     sha256 "91d6fbd32abcbdf030d58d3f562de25ebbc9d56040d513ff8e5c19bee9dacf14"
 
     depends_on "qt@5"
-    depends_on "sdl2"
+    depends_on "sdl2-compat"
   end
 
   livecheck do

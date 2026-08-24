@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://goteleport.com/"
-  url "https://github.com/gravitational/teleport/archive/refs/tags/v18.9.0.tar.gz"
-  sha256 "4fa55291972767286af81ee4e0e682e38d27eb5541d222f7f288e59f257ac2bf"
+  url "https://github.com/gravitational/teleport/archive/refs/tags/v18.10.0.tar.gz"
+  sha256 "75a6018ebb6e7e5ffc9f74ee6a5352dc1d5a3390f5617945cbef4f1a45f614e5"
   license all_of: ["AGPL-3.0-or-later", "Apache-2.0"]
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -18,12 +18,12 @@ class Teleport < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "ce78c62d581f6ef140a8b0599b8426951b21e48926c3d0b006a97823a5942004"
-    sha256 cellar: :any, arm64_sequoia: "2c940495cb1f39938fd8d972322b70a3407074f39b16e4b9e6be608d15642a78"
-    sha256 cellar: :any, arm64_sonoma:  "5a9ae5b376dfd416721481122141e1f0bdaab02cb9646aae1cef8149f9ff2fef"
-    sha256 cellar: :any, sonoma:        "9f150a8e0c644af04b246e0ac0cffff9ae453268b7e95659b083de543fc53eb4"
-    sha256 cellar: :any, arm64_linux:   "9c43c39cc8b99d8ed644d752e1adc6d390ae0f18b4ac02f92d623c17a0e51f1c"
-    sha256 cellar: :any, x86_64_linux:  "8b6c56f04c32919aa1765a69f30df6875de68234e9e625da46bd57eb991f5205"
+    sha256 cellar: :any, arm64_tahoe:   "99c9ddd6177a247db329b1b08e417d653a7c41270e97ff714558fc694b593ea2"
+    sha256 cellar: :any, arm64_sequoia: "142340f428e131a5634830484c5499426b3c9b26e3c85ddc69992ef0c20e10b2"
+    sha256 cellar: :any, arm64_sonoma:  "773a21d3681278677f591d9c4c3f5fa37806c5c3f9c674ebf2e68734ebf31522"
+    sha256 cellar: :any, sonoma:        "5e8235a2fc9959b9e066b82eb7a6446027051edc034bb8a2f93de13027edd4c1"
+    sha256 cellar: :any, arm64_linux:   "4a83f639d7ddd80bb57929a5937dd0c37a5aec093531796bf2bd2eeec8c26455"
+    sha256 cellar: :any, x86_64_linux:  "7178fa4eb6da2c632f5c522c85c1e5dedf9cb9121f4c62dae2b3c1e0312b5ed8"
   end
 
   depends_on "binaryen" => :build
@@ -44,8 +44,8 @@ class Teleport < Formula
   conflicts_with cask: "tsh", because: "both install `tsh` binaries"
 
   resource "wasm-bindgen" do
-    url "https://github.com/wasm-bindgen/wasm-bindgen/archive/refs/tags/0.2.99.tar.gz"
-    sha256 "1df06317203c9049752e55e59aee878774c88805cc6196630e514fa747f921f2"
+    url "https://github.com/wasm-bindgen/wasm-bindgen/archive/refs/tags/0.2.122.tar.gz"
+    sha256 "3ea60c7c7dffbd4ea1898c5a0046c6ccd4a53d5638f231238936b5464e49d161"
 
     livecheck do
       url "https://raw.githubusercontent.com/gravitational/teleport/refs/tags/v#{LATEST_VERSION}/Cargo.lock"
@@ -80,6 +80,11 @@ class Teleport < Formula
     # Workaround for error: The CPU Jitter random number generator must not be compiled with optimizations.
     # Issue ref: https://github.com/aws/aws-lc-rs/issues/1097
     ENV["AWS_LC_SYS_NO_JITTER_ENTROPY"] = "1"
+
+    # wasm-bindgen 0.2.100+ needs the ironrdp wasm built with reference-types intrinsics
+    inreplace "Makefile",
+              %q(RUSTFLAGS='--cfg getrandom_backend="wasm_js"'),
+              %q(RUSTFLAGS='--cfg getrandom_backend="wasm_js" -C target-feature=+reference-types')
 
     ENV.deparallelize { system "make", "full", "FIDO2=dynamic" }
     bin.install Dir["build/*"]

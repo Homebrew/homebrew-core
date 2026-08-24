@@ -70,8 +70,8 @@ class Heimdal < Formula
       --disable-otp
       --disable-silent-rules
       --disable-static
-      --with-openldap=#{Formula["openldap"].opt_prefix}
-      --with-openssl=#{Formula["openssl@3"].opt_prefix}
+      --with-openldap=#{formula_opt_prefix("openldap")}
+      --with-openssl=#{formula_opt_prefix("openssl@3")}
       --with-hcrypto-default-backend=ossl
       --without-berkeley-db
     ]

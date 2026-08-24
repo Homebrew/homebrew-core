@@ -34,9 +34,9 @@ class Lunasvg < Formula
     args = %W[
       -std=c++11
       -I#{include}/lunasvg
-      -I#{Formula["plutovg"].opt_include}/plutovg
+      -I#{formula_opt_include("plutovg")}/plutovg
       -L#{lib}
-      -L#{Formula["plutovg"].opt_lib}
+      -L#{formula_opt_lib("plutovg")}
       -llunasvg
       -lplutovg
     ]

@@ -35,20 +35,10 @@ class Swiftly < Formula
   end
 
   def install
-    args = %w[
-      --configuration release
-      --disable-sandbox
-      --product swiftly
-    ]
-    if OS.linux?
-      args += %W[
-        --static-swift-stdlib
-        -Xswiftc -I#{HOMEBREW_PREFIX}/include
-        -Xlinker -L#{HOMEBREW_PREFIX}/lib
-      ]
-      ENV.prepend_path "LD_LIBRARY_PATH", Formula["libarchive"].opt_lib
-    end
-    system "swift", "build", *args
+    args = %w[--product swiftly]
+    args += %W[-Xswiftc -I#{HOMEBREW_PREFIX}/include] if OS.linux?
+
+    system "swift", "build", *args, *std_swift_args
     bin.install ".build/release/swiftly"
     generate_completions_from_executable(bin/"swiftly", "--generate-completion-script")
   end

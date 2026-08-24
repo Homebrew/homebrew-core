@@ -33,16 +33,19 @@ class Uudeview < Formula
   patch do
     url "https://github.com/hannob/uudeview/commit/a8f98cf10e2c1ab883c31ed1292f16bfdd43ef33.patch?full_index=1"
     sha256 "1154a62902355105fc61cc38033b9284d488ca29b971ad18744915990ffb31ec"
+    type :backport
   end
 
   patch do
     url "https://github.com/hannob/uudeview/commit/c54cb38ab71363647577fa98bedf4e0a3759c17b.patch?full_index=1"
     sha256 "44347fdb875d5a86909f6c2e6bd25f4325a34c7be83927b6fd5ba4cfe0bea46c"
+    type :backport
   end
 
   patch do
     url "https://github.com/hannob/uudeview/commit/72a52709ea1c79c8747d2c0face50f03873d2f81.patch?full_index=1"
     sha256 "452788a9e81a0839b8bab924406db26542b529dedb8e8073df50eb299aae9dfc"
+    type :backport
   end
 
   def install

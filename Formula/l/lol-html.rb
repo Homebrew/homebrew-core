@@ -1,18 +1,18 @@
 class LolHtml < Formula
   desc "Low output latency streaming HTML parser/rewriter with CSS selector-based API"
   homepage "https://github.com/cloudflare/lol-html"
-  url "https://github.com/cloudflare/lol-html/archive/refs/tags/v3.0.0.tar.gz"
-  sha256 "41ed4231fd05b1c73c0664f1f05f18b0d96a34aabf488e6cb601c3bdc7306af9"
+  url "https://github.com/cloudflare/lol-html/archive/refs/tags/v3.0.1.tar.gz"
+  sha256 "76b29b987ede8ea8971edf4a07a0e2edf5a1dfe21a8d2c073f6534d01b2f5c9f"
   license "BSD-3-Clause"
   head "https://github.com/cloudflare/lol-html.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "996e618aec3e11c7545a6b17599769272e5713b50fa9b9b13630a6c11430122e"
-    sha256 cellar: :any, arm64_sequoia: "0d077d68c9b36ef2d73477d554b5bde706978ad8b2e7426d184f61cdefe470e6"
-    sha256 cellar: :any, arm64_sonoma:  "de61944da3bd3ac5f462ace058a1c6d688d862db275fb4b55d1330d10208177a"
-    sha256 cellar: :any, sonoma:        "d4401724831f7ca8897e20f39707ce932d542e8980509eeea7aa83397d6102fc"
-    sha256 cellar: :any, arm64_linux:   "2e5da20ecb2c9c47860af9f6c78000fd784ea9f0f9795484ef1d122eab536f31"
-    sha256 cellar: :any, x86_64_linux:  "56f4047c7c7f34d1b184997bcb290dcd2d597434efca9023469fb0c3cff85d99"
+    sha256 cellar: :any, arm64_tahoe:   "ff453eb0f46dba632afa582e8ce611b790f85a4c4d28b65573735e6cb6fa6ba2"
+    sha256 cellar: :any, arm64_sequoia: "ac1c72f921e0acec3c69177533e61a2228b2e7c984bfd19fac09ac88aa791594"
+    sha256 cellar: :any, arm64_sonoma:  "b67aa6eb0266db37b7d9bd3ed21dc83134289c99b74d25819e8ea7f35ef6cff3"
+    sha256 cellar: :any, sonoma:        "8510e92a4b70ccf1ef8c0cbe0edba138378e01ec6c646e32d6199b49caf90ab8"
+    sha256 cellar: :any, arm64_linux:   "5f86df27a8b35afad2aebe25c7ef4b6248ec40523a7a4a2ee783b5ab356da532"
+    sha256 cellar: :any, x86_64_linux:  "97ea3cf673dc69a9b570ab00f7e65caf4b8724f819241cad83284c9cc2b1c9e9"
   end
 
   depends_on "cargo-c" => :build

@@ -4,15 +4,15 @@ class Gnumeric < Formula
   url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.61.tar.xz"
   sha256 "2ac135d856572713c1a408b76b50a59f2a9769ed21f1213446b5af255df20a12"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256               arm64_tahoe:   "54f533945d5760b0f49419b1424f76a9c7c4bc30733c800ce19794b293c7437a"
-    sha256               arm64_sequoia: "d640b0d20c0d95b7bbe8d2404ba854a3912b043d4246198bafe1f98663061ffc"
-    sha256               arm64_sonoma:  "48de2745448bf7196568b63c58cfaee2cef1931c63bcf90fc4c7b723e9881f7d"
-    sha256               sonoma:        "b9e086fb15b23fa7eb1748926a04f6a18906856e6b000dc45ee9d5f044dade0a"
-    sha256               arm64_linux:   "7f50e04e0fb25142406b6694c159ae0f9a4a120e24f4d8ed8ae4e5d638b28689"
-    sha256 cellar: :any, x86_64_linux:  "29815bacc39ff55a6e5b7be7c5eb21350055d2330ed7c915457eb7ad9e3d7ebb"
+    sha256               arm64_tahoe:   "185a10ff6b71eddff3a7ef066fa3839888313baff6c52fb42c24a1fa3b3715a1"
+    sha256               arm64_sequoia: "e1eba1be100c19271bd98cfd5db380b7505ede9e3342eac2fe0aba2474837cac"
+    sha256               arm64_sonoma:  "a3fec678565a90976b37a461ae3d23cef37440c779d1ef3f1483739e625b1ea8"
+    sha256               sonoma:        "dd54c441ba904ababfb55f439a5aee6847cd3e439441f2baa5649d83908cc725"
+    sha256               arm64_linux:   "9611234aeac06085b44c798ebe41887e3bb348981bc8b25ea68e680680b31ac2"
+    sha256 cellar: :any, x86_64_linux:  "2cd14049194a54b15501d4ef96c54e87fff5306df243f01074fc84068e3931cd"
   end
 
   depends_on "gettext" => :build

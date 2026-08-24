@@ -1,19 +1,19 @@
 class Thrift < Formula
   desc "Framework for scalable cross-language services development"
   homepage "https://thrift.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=thrift/0.23.0/thrift-0.23.0.tar.gz"
-  mirror "https://archive.apache.org/dist/thrift/0.23.0/thrift-0.23.0.tar.gz"
-  sha256 "1859d932d2ae1f13d16c5a196931208c116310a5ff50f2bfd11d3db03be8f46f"
+  url "https://www.apache.org/dyn/closer.lua?path=thrift/0.24.0/thrift-0.24.0.tar.gz"
+  mirror "https://archive.apache.org/dist/thrift/0.24.0/thrift-0.24.0.tar.gz"
+  sha256 "e0fa5839a4c5c1d631b0931cf2c554ebbfa4e2fee3a9fb3ffd4f82ce4396c6e4"
   license "Apache-2.0"
-  compatibility_version 2
+  compatibility_version 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "37388761423cac9f473862af5fdd46873d4eba832d9260edd419fb35a92e9cb7"
-    sha256 cellar: :any,                 arm64_sequoia: "dd6ed015e1b7a980c3dfa2b0dd1c01d563a8cf73bdb7f3de87d0cc1656fc1e1b"
-    sha256 cellar: :any,                 arm64_sonoma:  "f2fa00c53a8b8d8630df1fdab10ee8f3d65b3665d08bf733c493ebc2b2f815ac"
-    sha256 cellar: :any,                 sonoma:        "e612d135257541b83e49f87a8ee4970db4db526aef405212e05e5887eef4a279"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b3e3ce909464d1ffc26af810160ecb6db3665d742b76a0924f358983767cde5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30dd3f72b9f5c0dc9c73286534b24230ccd6bb6ad58cd43d235e8a79f6107c0f"
+    sha256 cellar: :any, arm64_tahoe:   "de51bdd718da379a12e5cdbaab831ae379e98b233311503a12f79d22fa468914"
+    sha256 cellar: :any, arm64_sequoia: "d4d7301ccfec6227f482147ae3e7b60506f801ec240bdea2106a04e192dc4b52"
+    sha256 cellar: :any, arm64_sonoma:  "a1c4c94c0268dd8066c88e3b6410a376049a99136c229842d45cc76036a34b89"
+    sha256 cellar: :any, sonoma:        "88139860a06592e7b8d6fadf2f9595503a877f812a208c8d0d7664a268206857"
+    sha256 cellar: :any, arm64_linux:   "338f5358b943362edc879865b481fbc864c44efa233fb2b795821ad7869253db"
+    sha256 cellar: :any, x86_64_linux:  "3ccdaa58d273f59637873243322af545c11be400ebd4cd2e7ee9cb7cae700947"
   end
 
   head do
@@ -41,7 +41,7 @@ class Thrift < Formula
       --disable-tests
       --prefix=#{prefix}
       --libdir=#{lib}
-      --with-openssl=#{Formula["openssl@3"].opt_prefix}
+      --with-openssl=#{formula_opt_prefix("openssl@3")}
       --without-java
       --without-kotlin
       --without-python

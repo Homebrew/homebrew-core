@@ -1,18 +1,18 @@
 class UmkaLang < Formula
   desc "Statically typed embeddable scripting language"
   homepage "https://github.com/vtereshkov/umka-lang"
-  url "https://github.com/vtereshkov/umka-lang/archive/refs/tags/v1.5.6.tar.gz"
-  sha256 "cf82ad85745339371172a0785fb44aeb60b7a78142ff55d6b3518d77abaa46ba"
+  url "https://github.com/vtereshkov/umka-lang/archive/refs/tags/v1.5.7.tar.gz"
+  sha256 "b4dce5652a7e974e9ad63182f74b6033269b2d3ecad81b7d88f093816446e646"
   license "BSD-2-Clause"
   head "https://github.com/vtereshkov/umka-lang.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ce9d7f8c1a9b3870eea9dda06784818398d87cb133578c3820ec6658effe167e"
-    sha256 cellar: :any,                 arm64_sequoia: "5f0efe27433aed887a90e1845511bc3fa07034a1969afa4e2d33efffbb652cf1"
-    sha256 cellar: :any,                 arm64_sonoma:  "4315a71b17be81a4c35247621cff8defe46dc9e52db97e31fa1e0e5b03f46437"
-    sha256 cellar: :any,                 sonoma:        "c59889962ffef397dc393568a6faea797c6c3395169a33eef2261ba439aa784e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad9040267c97b992687c236fad2b5ec18cc10709302cca51abd1c0fca6c23695"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd463f7849dcb9b7e59e59d2d81ea80e8dbdc272d3045f9e7b5c70dd84f61cd1"
+    sha256 cellar: :any, arm64_tahoe:   "9ffe7dadd236feba2e82c1f46bc6b6611fe763acd2b870025f14c2a01543793a"
+    sha256 cellar: :any, arm64_sequoia: "d94f2d1e20ac0059aee234c228fafede9805cae32b06bd1055c56da7cae7f623"
+    sha256 cellar: :any, arm64_sonoma:  "785d3f7b167b6c676f6e872a7806244283e39d879f5570ce51bd356cf10a673a"
+    sha256 cellar: :any, sonoma:        "224453b1eb6959eb77c3e11cfc40582fbc03b459a758836b969690e413d1e28b"
+    sha256 cellar: :any, arm64_linux:   "b2f01f3004b96eea9ad51fa1422024e9d5b26de6df0e307870bf8633940dd2a9"
+    sha256 cellar: :any, x86_64_linux:  "44c64007151458d2943d83b9b9e1b65f38c5f521fd31efb89ad6b4895eab7cb6"
   end
 
   def install

@@ -60,7 +60,6 @@ class TclTkAT8 < Formula
   # would cause `bad URI(is not URI?)` error on 12/13 builds
   resource "itk4" do
     url "https://deb.debian.org/debian/pool/main/i/itk4/itk4_4.1.0.orig.tar.gz"
-    mirror "https://src.fedoraproject.org/lookaside/extras/itk/itk4.1.0.tar.gz/sha512/1deed09daf66ae1d0cc88550be13814edff650f3ef2ecb5ae8d28daf92e37550b0e46921eb161da8ccc3886aaf62a4a3087df0f13610839b7c2d6f4b39c9f07e/itk4.1.0.tar.gz"
     sha256 "da646199222efdc4d8c99593863c8d287442ea5a8687f95460d6e9e72431c9c7"
   end
 
@@ -116,7 +115,7 @@ class TclTkAT8 < Formula
 
     resource("tcltls").stage do
       system "./configure", "--with-ssl=openssl",
-                            "--with-openssl-dir=#{Formula["openssl@3"].opt_prefix}",
+                            "--with-openssl-dir=#{formula_opt_prefix("openssl@3")}",
                             "--prefix=#{prefix}",
                             "--mandir=#{man}"
       system "make", "install"

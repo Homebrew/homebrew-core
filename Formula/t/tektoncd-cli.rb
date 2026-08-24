@@ -1,8 +1,8 @@
 class TektoncdCli < Formula
   desc "CLI for interacting with TektonCD"
   homepage "https://github.com/tektoncd/cli"
-  url "https://github.com/tektoncd/cli/archive/refs/tags/v0.45.0.tar.gz"
-  sha256 "c1b90ba3d4830b2ee6c039d32e336378da1f0a5d14100655ed22953d483c2098"
+  url "https://github.com/tektoncd/cli/archive/refs/tags/v0.46.0.tar.gz"
+  sha256 "26ac3109a265de8917a023e9111e34b59e5f2a0d9d7e6b5b0c543b771b9bcbc4"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class TektoncdCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7ced03fd56defd8104ca6ea49e8cf1614d6b093fdb20051b5dfaf1a711ab0dfe"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "83b8a76f775e8a3a0e21566dcb5596c15cf77a2cbeaa18081327f2085891dd2a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0fdd450213d5bf04fb18bab3f5465295de588d943dc374d72eeb043835a6b758"
-    sha256 cellar: :any_skip_relocation, sonoma:        "11007e6d79e38eedf78e036e92afd06c1999915d101ac1ebbc6587e8a71ad303"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a31dbf910228523c8d2238bd98256883e9ac9fb377dc1b59a76c569fe5f22076"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc68cb56e03b5fc5052dd3bfaf89d681bd418677ca564575b8bbfb2dd1ca92a8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "857e9b96087e13801e43ebcef0baa5c1e6b2d64fc9bb52922266224fcace80d3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ab319a753322d43b6ff97d7769b1d01eedd649b4e3297b2767dfc328bccb7455"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a1e7046369dcb8a46f2fffb92590b4813eb8de74534770c4950301561196c9c3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "278b56a3e17ee75fa8017b6080510917411ec9e034792c44744610cbc159fc2a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d1c0516b27108b1712301b1d78b503c8821458d6642e57ae8b4e2c50524e861c"
+    sha256 cellar: :any,                 x86_64_linux:  "7f6ece1c7a1c0c954ff957fe2f9ddcfc2825e7e6281a6453ae403bafd15a3b7b"
   end
 
   depends_on "go" => :build

@@ -15,24 +15,24 @@ class Nanopb < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "51fdb8214773b1431f5f54eb3bb94d583140a2af0aa5d13ba4a7d9a95a175ffe"
-    sha256 cellar: :any,                 arm64_sequoia: "b1a79bde77a10714cd34a651d38323804b6ace9c4882469e8eeff447bd527981"
-    sha256 cellar: :any,                 arm64_sonoma:  "cd834785baaa72e3e9cdff0d38c25eeace2f145df358cea150e379121bffba43"
-    sha256 cellar: :any,                 sonoma:        "24be4b707a3495e707546c5fefb63394c666a8562241c77dcce69942937b2648"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e9954ea9fa95369fd9f1685dff2f75e0a14b8c65a1d7f0519dcbd3651a08f19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3c0b0233455e0d27ab4a16291f6db79aa1f256b28e419cba62cfbf159361319"
+    rebuild 2
+    sha256 cellar: :any, arm64_tahoe:   "b9dc6a78624375cb3a7ebf8e4a6d74b8f007180e4c5f586e4c1c44887f53a440"
+    sha256 cellar: :any, arm64_sequoia: "a7799fdadb39d845e2061dde07c02c19ecc4a984bf58f2eba96e2b5388c41620"
+    sha256 cellar: :any, arm64_sonoma:  "c1bdcb3e4dc5c5a278a36130aa7faa5c4017ba8bf6389a20315be24ca6b6c52a"
+    sha256 cellar: :any, sonoma:        "a60b70973ce8474f00bcf9fdf60b2b11bb81575d87c9eae7adc20e2bc015d78d"
+    sha256 cellar: :any, arm64_linux:   "1d09d93b87e87434ad0cd18adb07fdeca3d15d4fec144f733957c1cc76629cf1"
+    sha256 cellar: :any, x86_64_linux:  "5aad2007371a7ea6410d6ed13dcd7eb417fd0a345aba99be31384b3974b0d5b1"
   end
 
   depends_on "cmake" => :build
-  depends_on "protobuf"
+  depends_on "protobuf" => :no_linkage
   depends_on "python@3.14"
 
   pypi_packages package_name: "nanopb"
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/f2/00/04a2ab36b70a52d0356852979e08b44edde0435f2115dc66e25f2100f3ab/protobuf-7.34.0.tar.gz"
-    sha256 "3871a3df67c710aaf7bb8d214cc997342e63ceebd940c8c7fc65c9b3d697591a"
+    url "https://files.pythonhosted.org/packages/da/01/9ef0afd7999eb9badb3a768b4aedd78c86d4c65cfaf1958ab276199e76b4/protobuf-7.35.1.tar.gz"
+    sha256 "ce115a26fe0c39a2c29973d914d327e516a6455464489fe3cd1e51a1b354f81a"
   end
 
   def install

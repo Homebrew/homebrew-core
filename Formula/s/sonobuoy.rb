@@ -1,24 +1,23 @@
 class Sonobuoy < Formula
   desc "Kubernetes component that generates reports on cluster conformance"
   homepage "https://sonobuoy.io/"
-  url "https://github.com/vmware-tanzu/sonobuoy/archive/refs/tags/v0.57.4.tar.gz"
-  sha256 "5e84f5e4723879b613688ce70522fc0423e5fbe2ada5c341484a60f295715af9"
+  url "https://github.com/vmware-tanzu/sonobuoy/archive/refs/tags/v0.57.5.tar.gz"
+  sha256 "77eab0b152bbaf9836885630b92fa7ab3ca1e561b8db567d9401305a21f166a3"
   license "Apache-2.0"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d38eeff7e2714c2a329f9028c96692c2c4997bf2772d530672dc893b70235735"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d38eeff7e2714c2a329f9028c96692c2c4997bf2772d530672dc893b70235735"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d38eeff7e2714c2a329f9028c96692c2c4997bf2772d530672dc893b70235735"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7520b1997a933d60f51a3ac76778969f722c02d006e26640196b4bfc15a4342d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "27202e2a75ff97b252c812426b61c3e16bed22b1e8de258e61c4c222d8056719"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1415146262a80affb1f033a826e071437e651d443da8f6df933fc58fe9d2b043"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a7c10513bb921264169aef710eb983e686dd4e767199a2b0a49cb591bcecfdf3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a7c10513bb921264169aef710eb983e686dd4e767199a2b0a49cb591bcecfdf3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a7c10513bb921264169aef710eb983e686dd4e767199a2b0a49cb591bcecfdf3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ddd081f74c99d87f5b1294108f4bf8144ece78ec27deef750a011eb6886426c4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "22e2cf9de49490a7d3c6baaf8190981c3b0769d491b06966c4536b78a786ec40"
+    sha256 cellar: :any,                 x86_64_linux:  "c167b3d95ca93752ad0f477b746a1ece1ec799951e3dce27446374239af409a5"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/vmware-tanzu/sonobuoy/pkg/buildinfo.Version=v#{version}"
+    ldflags = "-X github.com/vmware-tanzu/sonobuoy/pkg/buildinfo.Version=v#{version}"
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"sonobuoy", shell_parameter_format: :cobra)

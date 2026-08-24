@@ -3,13 +3,13 @@ class Regipy < Formula
 
   desc "Offline registry hive parsing tool"
   homepage "https://github.com/mkorman90/regipy"
-  url "https://files.pythonhosted.org/packages/ba/80/dd0a588b1762c9e1016f96ae59e3c984269cbcc94ca7b63a3d097bb96416/regipy-6.2.1.tar.gz"
-  sha256 "4e09623cdeb23ba4ad9bd73a0f107c9c60aab2fe9a5dea0ba48c71af1e070dfd"
+  url "https://files.pythonhosted.org/packages/25/a2/9427da67acc61b39cda35be4cc788a9c99e27622b514e1c6ba87a90adb84/regipy-6.3.0.tar.gz"
+  sha256 "9c23f1f0b13680b79104fad4367fad63d8c44935a8a8658baec3e52f39e1ad47"
   license "MIT"
   head "https://github.com/mkorman90/regipy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8ec1159e08804b9ee54ad2a19973f0f8f609aac806c07b9f6ad3fb1880311638"
+    sha256 cellar: :any_skip_relocation, all: "9df471cb308f1a3a3915bf916dbd0e0e067a83196dbac75a62ecd23b3a866452"
   end
 
   depends_on "python@3.14"
@@ -17,8 +17,8 @@ class Regipy < Formula
   pypi_packages package_name: "regipy[cli]"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
-    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "construct" do
@@ -32,13 +32,13 @@ class Regipy < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/f8/bf/abbd3cdfb8fbc7fb3d4d38d320f2441b1e7cbe29be4f23797b4a2b5d8aac/pytz-2025.2.tar.gz"
-    sha256 "360b9e3dbb49a209c21ad61809c7fb453643e048b38924c765813546746e81c3"
+    url "https://files.pythonhosted.org/packages/ff/46/dd499ec9038423421951e4fad73051febaa13d2df82b4064f87af8b8c0c3/pytz-2026.2.tar.gz"
+    sha256 "0e60b47b29f21574376f218fe21abc009894a2321ea16c6754f3cad6eb7cdd6a"
   end
 
   resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
-    sha256 "0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"
+    url "https://files.pythonhosted.org/packages/46/58/8c37dea7bbf769b20d58e7ace7e5edfe65b849442b00ffcdd56be88697c6/tabulate-0.10.0.tar.gz"
+    sha256 "e2cfde8f79420f6deeffdeda9aaec3b6bc5abce947655d17ac662b126e48a60d"
   end
 
   def install

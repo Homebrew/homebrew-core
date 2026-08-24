@@ -4,18 +4,14 @@ class Glyph < Formula
   url "https://github.com/seatedro/glyph/archive/refs/tags/v1.0.11.tar.gz"
   sha256 "7de7936a13b92b18240134bef64c006ab73988850a8776a1b276e22b73377f15"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "fcddc6c86d264cdd659ebbfedc657e38928226f4d5aa4bf287093e063c545c0f"
-    sha256 cellar: :any,                 arm64_sequoia: "d08bfccc02c09b9799d646e37993f36e8c3361db5f07847ddb46a051460bd9d6"
-    sha256 cellar: :any,                 arm64_sonoma:  "1023ab2fe863ebe3d7363f38721ea896612dbf08366ae02d10c9eeaa080974de"
-    sha256 cellar: :any,                 arm64_ventura: "e31e144ff58e79196da8eded25d0e0b926e8c9aa13f7da01986d9c92200d3e1a"
-    sha256 cellar: :any,                 sonoma:        "595e69055e97fcc3f70b3f6f4cfa5debf4bc5656c4848432a5a018b8f980c90a"
-    sha256 cellar: :any,                 ventura:       "45efa20e2e08853b1dce7d98fd30833d617f21da61bbb9d20630a1540c147b38"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee2ef8a524e652aa28de614334a435e07092b963451557b327a2921ac41239b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca9382a91b01f87a5d3cf815c5ad87345fb2ac18e4fd698d224f194ea420b9ee"
+    sha256 cellar: :any, arm64_sequoia: "b02ed837b5d2195d730ce7ddcd189907ef6d39b2ca99b09deaefa38286e40525"
+    sha256 cellar: :any, arm64_sonoma:  "2c9fecb839cda3e0125e815cc6c716ce02b483d5d533d69afa72867e6a23670b"
+    sha256 cellar: :any, sonoma:        "99fd425ed184792fb3d3b37514bd00e90f6fac2b7d6f8c330144ba2ec1058ac1"
+    sha256 cellar: :any, arm64_linux:   "15963411be783330cd38b39f8e25d4a6f62220a191afbfe9fe4ecbba20fa7512"
+    sha256 cellar: :any, x86_64_linux:  "da53112573da11e6175dc4882e8d74a603e3e64c76d0c51c8d45f65439493096"
   end
 
   # Aligned to `zig@0.14` formula. Can be removed if upstream updates to newer Zig.
@@ -25,6 +21,10 @@ class Glyph < Formula
   depends_on "pkgconf" => :build
   depends_on "zig@0.14" => :build # https://github.com/seatedro/glyph/issues/32
   depends_on "ffmpeg"
+
+  on_macos do
+    depends_on maximum_macos: [:sequoia, :build] # TODO: remove with Zig 0.15+
+  end
 
   def install
     system "zig", "build", *std_zig_args

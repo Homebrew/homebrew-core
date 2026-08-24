@@ -18,8 +18,7 @@ class KubectlRookCeph < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w"
-    system "go", "build", *std_go_args(ldflags:, output: "#{bin}/kubectl-rook_ceph"), "./cmd"
+    system "go", "build", *std_go_args(output: "#{bin}/kubectl-rook_ceph"), "./cmd"
   end
 
   test do

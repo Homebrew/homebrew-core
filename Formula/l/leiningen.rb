@@ -7,7 +7,8 @@ class Leiningen < Formula
   head "https://github.com/technomancy/leiningen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e6eb47ee48cf7217ee2b8b7d3a77359a0581d18cb0a6e27e46fb98e24bc14da5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "2dd30cf30c1f139181469c5773596cb27eae48f667a7e2ff2710042800f889b6"
   end
 
   depends_on "openjdk"
@@ -34,7 +35,14 @@ class Leiningen < Formula
 
     (libexec/"bin").install "bin/lein-pkg" => "lein"
     (libexec/"bin/lein").chmod 0755
-    (bin/"lein").write_env_script libexec/"bin/lein", Language::Java.overridable_java_home_env
+
+    # Leiningen resolves the JVM from JAVA_CMD, not JAVA_HOME; derive it so JAVA_HOME is respected
+    # Issue ref: https://codeberg.org/leiningen/leiningen/issues/112
+    java_home = Language::Java.java_home
+    (bin/"lein").write_env_script libexec/"bin/lein",
+      JAVA_HOME: "${JAVA_HOME:-#{java_home}}",
+      JAVA_CMD:  "${JAVA_CMD:-${JAVA_HOME:-#{java_home}}/bin/java}"
+
     bash_completion.install "bash_completion.bash" => "lein"
     zsh_completion.install "zsh_completion.zsh" => "_lein"
   end

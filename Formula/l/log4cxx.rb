@@ -1,18 +1,18 @@
 class Log4cxx < Formula
   desc "Library of C++ classes for flexible logging"
   homepage "https://logging.apache.org/log4cxx/index.html"
-  url "https://www.apache.org/dyn/closer.lua?path=logging/log4cxx/1.7.0/apache-log4cxx-1.7.0.tar.gz"
-  mirror "https://archive.apache.org/dist/logging/log4cxx/1.7.0/apache-log4cxx-1.7.0.tar.gz"
-  sha256 "b943ff170393e4ce381ab4c4914396127bf4d44fb8bd1f0e5ef8453f3c4d364c"
+  url "https://www.apache.org/dyn/closer.lua?path=logging/log4cxx/1.8.0/apache-log4cxx-1.8.0.tar.gz"
+  mirror "https://archive.apache.org/dist/logging/log4cxx/1.8.0/apache-log4cxx-1.8.0.tar.gz"
+  sha256 "6a2e40dfa6b81a9a814ef2083d181b254f88324efff678368e5e61188a58fd3d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ca7af69b56bfcf1180b4635715292f3bd9e14ee5599d33a0fd0a4a6beded079d"
-    sha256 cellar: :any,                 arm64_sequoia: "a4837b88bb67a8dd807016bb5a651f4d55eac575640fbc55d005d48c2691f8d4"
-    sha256 cellar: :any,                 arm64_sonoma:  "f0efff26e2e0c7b10fcdaea035287ad641a3117f71e70844111dde0160c1d08f"
-    sha256 cellar: :any,                 sonoma:        "5cfb39d4ac5f7f3e22d76493b522c68daae732a54fd7a5f3ed32618282c835b5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f1357e5d46a023bee08eb9c9ca34fcc3e45804accdd58e3ad05f95be402e331a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e51f972640d6cec94b172ffa187e83caa9b10b0ef1ef16922e6e252bc859dcf6"
+    sha256 cellar: :any, arm64_tahoe:   "0d7ee7d9aa9ce60bb61374e38eb310beaea6390bf1ccfec1e18df144ca35d176"
+    sha256 cellar: :any, arm64_sequoia: "d912c164e94ed6069b98961cc16fb6cc17e8c61ce65537852fefec4fb1bfd167"
+    sha256 cellar: :any, arm64_sonoma:  "fc6942a54e1a11342b21a8b02d21f2ed3467edfd0a6a3a5429cdceee1ccb5519"
+    sha256 cellar: :any, sonoma:        "434a7da60c211de91e6c14cbe7f195909d442eeb29723db277b842f421180c10"
+    sha256 cellar: :any, arm64_linux:   "c1f1f810a4b3a6e6826411cf81c5e05d22fa8a0f4e23bcc9101ad7f1a235f2dc"
+    sha256 cellar: :any, x86_64_linux:  "fd0de58650d630bb157fcbc21a719f615894360b2336ef06863175aa0ba051c5"
   end
 
   depends_on "cmake" => :build

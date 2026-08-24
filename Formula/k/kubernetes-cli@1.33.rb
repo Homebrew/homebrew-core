@@ -6,11 +6,6 @@ class KubernetesCliAT133 < Formula
       revision: "c029d48d28322ad0369aabdcf8b656fd3195cd30"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-    regex(/^v?(1\.33(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "42a09e00b253c7edb43a8276717773865ea7f0b42f6fbf8d3ef1a9b0c6b8e8a2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "11f809ffb9c2656f1fa11acadf1a105be7211ee7a5c7b48da7f90e2d8b7d6bd5"

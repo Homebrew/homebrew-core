@@ -1,9 +1,10 @@
 class Ispc < Formula
   desc "Compiler for SIMD programming on the CPU"
   homepage "https://ispc.github.io"
-  url "https://github.com/ispc/ispc/archive/refs/tags/v1.30.0.tar.gz"
-  sha256 "73b30c74fdfc56c3097015476df14d0a4bcb6705d9e286c6d51c1ed578d49e22"
+  url "https://github.com/ispc/ispc/archive/refs/tags/v1.31.0.tar.gz"
+  sha256 "671c79bdff2d97aead3897da1a6b67a163af8c4e329350d07cf3e63d592955ff"
   license "BSD-3-Clause"
+  revision 1
 
   # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
   # but are labeled as "pre-release" on GitHub, so it's necessary to use the
@@ -14,19 +15,18 @@ class Ispc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "066c6cbceb92fa5498064ad6cded8c771ee479c7ca4c745f69499435823ca1f2"
-    sha256 cellar: :any,                 arm64_sequoia: "abb0dc3dbeea2724625b3c46a31e009357ade922b026b9bc652ee03b9a842e77"
-    sha256 cellar: :any,                 arm64_sonoma:  "0502f0c6d3be0a8ae5cfb9ebee46c1abe780294eaf3066c242011203c4b60287"
-    sha256 cellar: :any,                 sonoma:        "f25e5c473bc951a15de6fc0b9f00a881cbfffb2d059c5fd3a194064ca50bfcad"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6cf3dae91df21f4e97b9232bb017ef63b3f6e3829f2a4f2ad06101b6e63f07f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4bc30e194268208bc23db431ed09e368124a4ae72e77bd7dca7592306a97783"
+    sha256 cellar: :any, arm64_tahoe:   "1c27e7b22b2d8bc1bdee0e0ce6e167ccecbff130b00d2c407d04bcaaaf9a75bf"
+    sha256 cellar: :any, arm64_sequoia: "ad0ac922f31c76f5ecf0232520466dbec4172c062a7acd7fc83b1c0538dfda45"
+    sha256 cellar: :any, arm64_sonoma:  "4024f80c33dd1bd300fa33c090f55866dba123585fd750f5564fbf65f73400d4"
+    sha256 cellar: :any, sonoma:        "87b33c51f994bfd8ff01557a081643505d0be68295194368ff02e52e035d421a"
+    sha256 cellar: :any, arm64_linux:   "799d33e2c0deda1c85e9761c83e05be55d187c1c4ff7ffeb1d360a53ef7ae5dd"
+    sha256 cellar: :any, x86_64_linux:  "04a0e27587dc7a90b5d6e3dc7b7d18b816fe8d9356b753476cd9cb159d31c0a3"
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
-  depends_on "llvm"
+  depends_on "llvm@22"
 
   uses_from_macos "python" => :build
 

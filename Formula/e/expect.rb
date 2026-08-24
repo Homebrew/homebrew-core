@@ -37,8 +37,7 @@ class Expect < Formula
   # Appears to fix a segfault on ARM Ventura:
   # https://github.com/Homebrew/homebrew-core/pull/123513
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/expect/headers.diff"
-    sha256 "7a4d5c958b3e51a08368cae850607066baf9c049026bec11548e8c04cec363ef"
+    file "Patches/expect/headers.diff"
   end
 
   # Fix a segfault in exp_getptymaster()
@@ -46,6 +45,7 @@ class Expect < Formula
   patch do
     url "https://github.com/iains/darwin-expect/commit/2a98bd855e9bf2732ba6ddbd490b748d5668eeb0.patch?full_index=1"
     sha256 "deb83cfa2475b532c4e63b0d67e640a4deac473300dd986daf650eba63c4b4c0"
+    type :unofficial
   end
 
   def install

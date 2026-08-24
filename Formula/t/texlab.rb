@@ -1,18 +1,18 @@
 class Texlab < Formula
   desc "Implementation of the Language Server Protocol for LaTeX"
   homepage "https://github.com/latex-lsp/texlab/"
-  url "https://github.com/latex-lsp/texlab/archive/refs/tags/v5.25.1.tar.gz"
-  sha256 "7d8435761b0012b6de1cfdb4db37f5eafcba8e670530ef1df44aa9934eef0887"
+  url "https://github.com/latex-lsp/texlab/archive/refs/tags/v5.26.0.tar.gz"
+  sha256 "47af7e71247fe186ddbaa62373ce5fbebc802ab8df9924958ac62788a644f84e"
   license "GPL-3.0-only"
   head "https://github.com/latex-lsp/texlab.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9376f7602a35d01e37ed4b77f3f24d3e7a43ca4d0acd2e9a1ef767b8679a68ab"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6179eb9a7b3d9c97db2022a80e9bbfcfd30f4c362143faa0be707943e84a27f7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6a972dbc7415f5852c580396b52acf2852e2a14df9f6162a06d009c78235a2ea"
-    sha256 cellar: :any_skip_relocation, sonoma:        "44a52722139efe8a385787d1c68fe16bcc619bbd1cf7e0096060f441509255bd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "81ba303fcda29afc73b3cd919511f64a5633a24bbc31130c6e814ea1632f2f26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77a7631e84cc28f6adbf5d55a2797904621be5b7b4f173383f33ae2bff3dce24"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "96ecb13453b54ba2ae5c0aeda507bea6346cdb6b014c01380d5a92175b298a9b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b857d55b6c5fcd0e7019bb7eb40891591eb69d64817b6c28b1405b330be46281"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f3089877fe36b5d51abb9f23df423a3570170a506e2c2525546d198fda0f7a5e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8850b907d971f67f21684de385f8574f9433cdab57de3dd8a1d5c1cd4a24795b"
+    sha256 cellar: :any,                 arm64_linux:   "693e40bb269bbc3020931b51c2480b80382fab2d9786b585d879b0a318a77d9a"
+    sha256 cellar: :any,                 x86_64_linux:  "9a1727d46671375551aa8336d7e3a749e1f030c1fe8a19095d906d7a46e41a0a"
   end
 
   depends_on "rust" => :build

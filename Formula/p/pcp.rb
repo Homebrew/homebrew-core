@@ -32,7 +32,6 @@ class Pcp < Formula
     # TODO: remove `-checklinkname=0` workaround when fixed
     # https://github.com/dennis-tra/pcp/issues/30
     ldflags = %W[
-      -s -w
       -X main.RawVersion=#{version}
       -X main.ShortCommit=#{Utils.git_short_head(length: 7)}
       -checklinkname=0

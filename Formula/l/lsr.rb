@@ -1,7 +1,7 @@
 class Lsr < Formula
   desc "Ls but with io_uring"
-  homepage "https://tangled.sh/@rockorager.dev/lsr"
-  url "https://tangled.sh/@rockorager.dev/lsr",
+  homepage "https://tangled.org/rockorager.dev/lsr"
+  url "https://tangled.org/rockorager.dev/lsr.git",
       tag:      "v1.0.0",
       revision: "9bfcae0be1d3ee2db176bb8001c0f46650484249"
   license "MIT"
@@ -21,7 +21,11 @@ class Lsr < Formula
   deprecate! date: "2026-08-19", because: "does not build with Zig >= 0.15"
   disable! date: "2027-08-19", because: "does not build with Zig >= 0.15"
 
-  depends_on "zig@0.14" => :build # https://tangled.sh/@rockorager.dev/lsr/issues/13
+  depends_on "zig@0.14" => :build # https://tangled.org/rockorager.dev/lsr/issues/13
+
+  on_macos do
+    depends_on maximum_macos: [:sequoia, :build] # TODO: remove with Zig 0.15+
+  end
 
   def install
     system "zig", "build", *std_zig_args(release_mode: :small)

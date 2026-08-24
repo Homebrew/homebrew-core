@@ -6,6 +6,11 @@ class NeovimQt < Formula
   license "ISC"
   head "https://github.com/equalsraf/neovim-qt.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:   "a4ebd18a46757494d4d8914121aea77a08843626580df268d728840f28083fa2"

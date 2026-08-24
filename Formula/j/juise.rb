@@ -25,6 +25,7 @@ class Juise < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "libslax"
+  depends_on :macos # due to libslax
 
   def install
     # Work around undefined symbol ___res_9_state

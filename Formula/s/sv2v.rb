@@ -6,14 +6,13 @@ class Sv2v < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6a3812a608aced60cafc55bd69f20194d4da1aa59a97ee7331113954cec40a80"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "49224a9f8e4f1904b037465be2abcdeba583826c51cf8269cb0397413ced8a56"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a0767a722606d8f2395ed5af345e7c3905d8ea5a5f9c64c81245f6d161f7c4f6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "252e933952b8d680607936324cf65e335bf6287c676ec9b99b853a9a4b10ad64"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6b210f350cfb69d6df2a46f06277e59d62b0e2310ca52b89de86e57125dda49e"
-    sha256 cellar: :any_skip_relocation, ventura:       "ffd19a1ab08b2e06e7d04ddafd34ca60231aa9c591e6c642ae0a2658af2b03b4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "aff1b5dac603d45d117e5f58300311de1d2e9d2d5e2b1a7cf3718f79dfa50b25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1718ff41c4a8701aa9b5ef78f9ea0856fa2de5e739237b70e6cb64ce6f61096"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "97819574809287e39bcce5361e3354aa3a86c6b2885e1292b653d6b9ae89c86f"
+    sha256 cellar: :any, arm64_sequoia: "81804764fa5072d33991cc95ceab0fa212a9929846734a8b5d009e95e6b097d8"
+    sha256 cellar: :any, arm64_sonoma:  "469c8dbd540077f91cb887488cb839a1cfc03a638ceda790e10c35a35f926c15"
+    sha256 cellar: :any, sonoma:        "6846634f25ccc35b2a6c873b964becb5bfc08c2d6cad91b13e1de96bc9b94326"
+    sha256 cellar: :any, arm64_linux:   "8e2f5b5afd187c1afa9d6906b15259ef2236cb146bfe53bfe8083fc94e571ea5"
+    sha256 cellar: :any, x86_64_linux:  "91976ff2075b7e212e2decbcaa8a330affebd310e382d0d7d663e721fbcda888"
   end
 
   depends_on "cabal-install" => :build

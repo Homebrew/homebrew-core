@@ -1,8 +1,8 @@
 class InfluxdbAT1 < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb/archive/refs/tags/v1.12.4.tar.gz"
-  sha256 "72c2d8e49b1e6dc312a4455a8cc1b5d21e3102be2728f02845e65e178e6446ea"
+  url "https://github.com/influxdata/influxdb/archive/refs/tags/v1.13.0.tar.gz"
+  sha256 "02cc7b4ec3c46a0aacee44dd7313aa96006bdb7c48dc7bb8f5cf02c5fc1cc0ea"
   # 1.x is using MIT license while 1.x and 3.x is using dual license (Apache-2.0/MIT)
   license "MIT"
 
@@ -12,12 +12,12 @@ class InfluxdbAT1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "16b3548c415d304a629c379939a0f7379febf35f3d180af60415a791cf261ae6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c2c882c9552f107594bfef76088e39f875507a1a281f48496b074d933d7910f8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "21dc0f1c9ae91464dd244b9536ca2c839d75e8f1afccf1c611ff33d8fdfb3526"
-    sha256 cellar: :any_skip_relocation, sonoma:        "14c6a693ba5ba1e90b6bbe6a454b499e5704e40260b565fac98e806f030aa2c5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4152ccee52235ce87ab368dfadaae872d048a570f23ad4e6edb50b0f43f34b6b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a82e92d4339b7e6383dec00fb60e88cddafa23949749639ca82e635d93dd71b2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7b5f8d0276bc545cab4a9fe3880f2b436e0f8367940221720a1dc131eac6782c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "63fa15d135d8cb70856b1ded888fded93f9ebb88e5480cbfad3ed3ed29f41e0c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aae6aafbfa5597a67d58f16cfe28aaeb800d3d72cec7bfb5ed0002d59260f0be"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b6f71a3f364b528efb42e18fcdd9832e5acd71f206d3727603d5fa4896adcc2a"
+    sha256 cellar: :any,                 arm64_linux:   "51fb720dd2cb00b8593558726f320e0477d986733274f6d6932aa2d3bab19e33"
+    sha256 cellar: :any,                 x86_64_linux:  "1da69f852879346335b0fe53aab77888de9f1525d65c003af2fcefd4e38d9747"
   end
 
   keg_only :versioned_formula
@@ -30,8 +30,8 @@ class InfluxdbAT1 < Formula
   # If you're upgrading to a newer influxdb version, check to see if this needs
   # to be upgraded too.
   resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.14.tar.gz"
-    sha256 "465d2fb3fc6dab9aca60e3ee3ca623ea346f3544d53082505645f81a7c4cd6d3"
+    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.3.0.tar.gz"
+    sha256 "769deabe12733224eaebbfff3b5a9d69491b0158bdf58bbbbc7089326d33a9c8"
   end
 
   def install
@@ -51,10 +51,8 @@ class InfluxdbAT1 < Formula
     end
     ENV.prepend_path "PATH", buildpath/"bootstrap"
 
-    ldflags = "-s -w -X main.version=#{version}"
-
     %w[influxd influx influx_tools influx_inspect].each do |f|
-      system "go", "build", *std_go_args(output: bin/f, ldflags:), "./cmd/#{f}"
+      system "go", "build", *std_go_args(output: bin/f, ldflags: "-X main.version=#{version}"), "./cmd/#{f}"
     end
 
     etc.install "etc/config.sample.toml" => "influxdb.conf"

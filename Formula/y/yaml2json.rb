@@ -22,7 +22,7 @@ class Yaml2json < Formula
   conflicts_with "remarshal", because: "both install `yaml2json` binaries"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   test do

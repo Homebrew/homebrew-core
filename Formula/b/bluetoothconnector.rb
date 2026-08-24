@@ -15,11 +15,12 @@ class Bluetoothconnector < Formula
     sha256 cellar: :any_skip_relocation, ventura:       "360733d6b564009fa2fde910ab9fd67baddd172e2a3763fda858db7ce0626eb4"
   end
 
-  depends_on xcode: ["15.0", :build]
   depends_on :macos
 
+  uses_from_macos "swift" => :build, since: :ventura # swift 5.9+
+
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release", "--static-swift-stdlib"
+    system "swift", "build", *std_swift_args
     bin.install ".build/release/BluetoothConnector"
   end
 

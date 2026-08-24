@@ -24,10 +24,11 @@ class Cpulimit < Formula
 
   # process_group.c:64:15: error: call to undeclared function 'basename';
   # ISO C99 and later do not support implicit function declarations
-  # (https://github.com/opsengine/cpulimit/pull/109)
   patch do
     url "https://github.com/opsengine/cpulimit/commit/4c1e021037550c437c7da3a276b95b5bf79e967e.patch?full_index=1"
     sha256 "0e1cda1dfad54cefd2af2d0677c76192d5db5c18f3ee73318735b5122ccf0e34"
+    type :unofficial
+    resolves "https://github.com/opsengine/cpulimit/pull/109"
   end
 
   def install

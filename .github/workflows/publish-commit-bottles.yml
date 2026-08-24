@@ -236,7 +236,7 @@ jobs:
 
       - name: Post comment on failure
         if: ${{!success()}}
-        uses: Homebrew/actions/post-comment@main
+        uses: Homebrew/actions/post-comment@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
@@ -288,7 +288,7 @@ jobs:
       repository-projects: write # for `gh pr edit`
     steps:
       - name: Post comment once started
-        uses: Homebrew/actions/post-comment@main
+        uses: Homebrew/actions/post-comment@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
@@ -304,19 +304,19 @@ jobs:
 
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@main
+        uses: Homebrew/actions/setup-homebrew@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           core: true
           cask: false
 
       - name: Configure Git user
         id: git-user-config
-        uses: Homebrew/actions/git-user-config@main
+        uses: Homebrew/actions/git-user-config@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           username: ${{ (github.actor != 'github-actions[bot]' && github.actor) || 'BrewTestBot' }}
 
       - name: Set up commit signing
-        uses: Homebrew/actions/setup-commit-signing@main
+        uses: Homebrew/actions/setup-commit-signing@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
@@ -384,7 +384,7 @@ jobs:
           fi
 
       - name: Generate build provenance
-        uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26 # v4.1.0
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
         with:
           subject-path: '${{steps.pr-pull.outputs.bottle_path}}/*.tar.gz'
 
@@ -417,7 +417,7 @@ jobs:
           echo "head_sha=$(git -C "$REPO_PATH" rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Push commits
-        uses: Homebrew/actions/git-try-push@main
+        uses: Homebrew/actions/git-try-push@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
           directory: ${{steps.set-up-homebrew.outputs.repository-path}}
@@ -436,7 +436,7 @@ jobs:
 
       - name: Post comment on failure
         if: failure()
-        uses: Homebrew/actions/post-comment@main
+        uses: Homebrew/actions/post-comment@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
@@ -516,7 +516,7 @@ jobs:
           (steps.approve.conclusion == 'failure' ||
            steps.wait-until-in-sync.conclusion == 'failure' ||
            steps.automerge.conclusion == 'failure')
-        uses: Homebrew/actions/post-comment@main
+        uses: Homebrew/actions/post-comment@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
@@ -550,7 +550,7 @@ jobs:
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@main
+        uses: Homebrew/actions/setup-homebrew@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           core: true
           cask: false
@@ -562,7 +562,7 @@ jobs:
         run: gh pr checkout "$PR" --repo "$GITHUB_REPOSITORY"
 
       - name: Install oras for interacting with GitHub Packages
-        uses: Homebrew/actions/cache-homebrew-prefix@main
+        uses: Homebrew/actions/cache-homebrew-prefix@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           install: oras
           workflow-key: command-not-found-db-entry
@@ -615,25 +615,25 @@ jobs:
       github.repository_owner == 'Homebrew' &&
       needs.upload.result == 'success' &&
       needs.upload.outputs.portable_ruby == 'true'
-    runs-on: ubuntu-latest
+    runs-on: macos-26
     permissions:
       contents: read
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@main
+        uses: Homebrew/actions/setup-homebrew@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           core: true
           cask: false
 
       - name: Configure Git user
         id: git-user-config
-        uses: Homebrew/actions/git-user-config@main
+        uses: Homebrew/actions/git-user-config@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           username: BrewTestBot
 
       - name: Set up commit signing
-        uses: Homebrew/actions/setup-commit-signing@main
+        uses: Homebrew/actions/setup-commit-signing@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
@@ -694,7 +694,7 @@ jobs:
         id: app-token
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         with:
-          app-id: ${{ vars.BREW_COMMIT_APP_ID }}
+          client-id: ${{ vars.BREW_COMMIT_CLIENT_ID }}
           private-key: ${{ secrets.BREW_COMMIT_APP_KEY }}
           owner: Homebrew
           repositories: brew
@@ -703,7 +703,7 @@ jobs:
 
       - name: Push branch
         if: steps.commit.outputs.changes == 'true'
-        uses: Homebrew/actions/git-try-push@main
+        uses: Homebrew/actions/git-try-push@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           token: ${{ steps.app-token.outputs.token }}
           directory: ${{ steps.resolve.outputs.brew_repo }}
@@ -720,7 +720,7 @@ jobs:
           BRANCH: ${{ steps.resolve.outputs.branch }}
         run: |
           cat <<MESSAGE > body.txt
-          Bumps the vendored \`portable-ruby\` to ${PKG_VERSION}.
+          Bumps \`portable-ruby\` to ${PKG_VERSION}.
 
           Source: Homebrew/homebrew-core#${PR}
 
@@ -731,5 +731,5 @@ jobs:
             --repo Homebrew/brew \
             --base main \
             --head "${BRANCH}" \
-            --title "Bump vendored portable-ruby to ${PKG_VERSION}" \
+            --title "Bump portable-ruby to ${PKG_VERSION}" \
             --body-file body.txt

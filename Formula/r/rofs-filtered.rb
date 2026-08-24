@@ -11,6 +11,10 @@ class RofsFiltered < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "ae07e1e4a0daa79c067329aeafc4078dd7f74c793ccb1a2ade7c3dedf0f05ade"
   end
 
+  # Last release on 2016-12-16. Needs `libfuse@2` to build
+  deprecate! date: "2026-06-21", because: :unmaintained
+  disable! date: "2027-06-21", because: :unmaintained
+
   depends_on "cmake" => :build
   depends_on "libfuse@2"
   depends_on :linux # on macOS, requires closed-source macFUSE

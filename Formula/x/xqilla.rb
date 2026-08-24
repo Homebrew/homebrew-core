@@ -53,9 +53,9 @@ class Xqilla < Formula
       }
     CPP
     system ENV.cxx, "-std=c++11", testpath/"test.cpp", "-o", testpath/"test",
-                    "-I#{include}", "-I#{Formula["xerces-c"].opt_include}",
+                    "-I#{include}", "-I#{formula_opt_include("xerces-c")}",
                     "-L#{lib}", "-lxqilla",
-                    "-L#{Formula["xerces-c"].opt_lib}", "-lxerces-c"
+                    "-L#{formula_opt_lib("xerces-c")}", "-lxerces-c"
     system testpath/"test"
   end
 end

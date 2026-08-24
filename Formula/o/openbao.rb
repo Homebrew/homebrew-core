@@ -2,8 +2,8 @@ class Openbao < Formula
   desc "Provides a software solution to manage, store, and distribute sensitive data"
   homepage "https://openbao.org/"
   url "https://github.com/openbao/openbao.git",
-      tag:      "v2.5.5",
-      revision: "028992583c693c4de6350b8aa52ff85e30375a99"
+      tag:      "v2.6.2",
+      revision: "dd9c19c37a878cf4a81b18efb8d6f0599c7da923"
   license "MPL-2.0"
   head "https://github.com/openbao/openbao.git", branch: "main"
 
@@ -13,33 +13,31 @@ class Openbao < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f1d08c3a7dcf17b211038a32481a80e5fb4a34fa09ceadace967fc02da87d933"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "939a15ee7ecafb5ef791910a224eea319d673a8bbaf5c48de96196a299216744"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "970fdb6c62538e9d5e5af3af9dc6c308db49b1604d77464820abe807a1ee1096"
-    sha256 cellar: :any_skip_relocation, sonoma:        "12335d6f37abcc9ea7fb58f60dc3285282d44d0576310c88a00dec15bff59e6d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "93ca620ec6be2ef9e05edbd22d3ba05224962361d39f9179354eae3d698184b6"
-    sha256 cellar: :any,                 x86_64_linux:  "f943e7dc2749d6ab7558f1608a24047616831bf0528db34cf9d4d1b873a74c96"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d0104caeb286c38a7a9f920f9c93e21ec542274fe35fb1618f921fcd52fde4b6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c83911684793c99ce8192304aa6f60ea9741a398bf9e9e51d5623b5ce556797"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f7ef2a38eed42d7a5cc6ec6bda937b8e0edc12dbb313a587d7da92f3b0a7018a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d3d56fe3db5327332c44833c7ad657bd26a79f5d1ea96e0bcae283e5261a33aa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bb438ff14b3e20ce2d3dfc66f810f76af0f437a762e8398749dbb24f0761c552"
+    sha256 cellar: :any,                 x86_64_linux:  "888e53f7fa454054b602a0872cbb8993d5398f71aa9b49b7b5cd8a6c997317ad"
   end
 
   depends_on "go" => :build
   depends_on "node@22" => :build # failed to build with node 23, https://github.com/openbao/openbao/issues/731
-  depends_on "yarn" => :build
+  depends_on "pnpm" => :build
 
   conflicts_with "bao", because: "both install `bao` binaries"
 
   def install
     # Build ui assets
     cd "ui" do
-      ENV.prepend_path "PATH", Formula["node@22"].opt_libexec/"bin" # for npm
-      system "yarn", "install", "--immutable"
-      system "yarn", "build"
+      ENV.prepend_path "PATH", formula_opt_libexec("node@22")/"bin" # for pnpm
+      # Prevent pnpm from downloading another copy due to `packageManager` field
+      (buildpath/"ui/pnpm-workspace.yaml").append_lines "managePackageManagerVersions: false"
+      system "pnpm", "install", "--frozen-lockfile"
+      system "pnpm", "build"
     end
 
-    # Bootstrap go modules
-    system "go", "generate", "-tags", "tools", "tools/tools.go"
-
     ldflags = %W[
-      -s -w
       -X github.com/openbao/openbao/version.fullVersion=#{version}
       -X github.com/openbao/openbao/version.GitCommit=#{Utils.git_head}
       -X github.com/openbao/openbao/version.BuildDate=#{time.iso8601}

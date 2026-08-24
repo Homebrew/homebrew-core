@@ -7,12 +7,13 @@ class Pyqt < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e62ca7ff01540512bdc05484a8efbfff2f0d65b15d6342614697779887952c6c"
-    sha256 cellar: :any,                 arm64_sequoia: "388d246b71ddce911f52017c09819905b3b1f7543a4da9f34114218a2394c38c"
-    sha256 cellar: :any,                 arm64_sonoma:  "2fc53ffefa8cc9999f45d2270e9b667866ed265a58d7ef34d449e5a8a245598e"
-    sha256 cellar: :any,                 sonoma:        "68203f099253e8923d3f401deceeaebc5389f13ec680a929652ba0fa6337494c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "748aca575fe2c52e6f64c3e581c05a459e128eb477cce80032d20da75409b9b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b1254cb5d82fcb2cb48eed163d6429d0498928803fd5a1a41cf6bac8d1cf1b2"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "d623c64edd6be180460e395733ae9413ebdf086341b3ea3060721c3900554b7d"
+    sha256 cellar: :any, arm64_sequoia: "35085ed9d6b66ef762c0f2dc22c81dbf050231a4b8527afb5d33fd578fada68a"
+    sha256 cellar: :any, arm64_sonoma:  "2a5bedcc716b446b2f5de07b57d7824de1f2c6107601dbb2e4c7e29bb47d2add"
+    sha256 cellar: :any, sonoma:        "66b93e60c45d33d2954bf53780628021dcbeef6aeec4e0c74767efc4639c8d2b"
+    sha256 cellar: :any, arm64_linux:   "64d28b91772c0c4276ff9316265ec45b14b83933d26a7b96169a64e951422dce"
+    sha256 cellar: :any, x86_64_linux:  "1d0bc889fd9a71de12a010b8586476a17d374e4bae512ee9913c4135ece03055"
   end
 
   depends_on "pyqt-builder" => :build
@@ -41,15 +42,8 @@ class Pyqt < Formula
     depends_on "qtshadertools"
   end
 
-  on_sonoma :or_newer do
+  on_system :linux, macos: :sonoma_or_newer do
     depends_on "qtwebengine"
-  end
-
-  on_linux do
-    # TODO: Add dependencies on all Linux when `qtwebengine` is bottled on arm64 Linux
-    on_intel do
-      depends_on "qtwebengine"
-    end
   end
 
   pypi_packages exclude_packages: %w[pyqt6-3d-qt6 pyqt6-charts-qt6
@@ -89,18 +83,14 @@ class Pyqt < Formula
     sha256 "15cf49efbbbd4c6bc87653b2c4ae80d6049f800e31620b336734ae2e37cbedae"
   end
 
-  def python3
-    "python3.14"
-  end
+  def python3 = "python3.14"
 
   def webengine_supported?
     on_sonoma :or_newer do
       return true
     end
     on_linux do
-      on_intel do
-        return true
-      end
+      return true
     end
     false
   end
@@ -109,7 +99,7 @@ class Pyqt < Formula
     # HACK: there is no option to set the plugindir
     inreplace "project.py", "builder.qt_configuration['QT_INSTALL_PLUGINS']", "'#{share}/qt/plugins'"
 
-    sip_install = Formula["pyqt-builder"].opt_libexec/"bin/sip-install"
+    sip_install = formula_opt_libexec("pyqt-builder")/"bin/sip-install"
     site_packages = prefix/Language::Python.site_packages(python3)
     args = %W[
       --target-dir #{site_packages}

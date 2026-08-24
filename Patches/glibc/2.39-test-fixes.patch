@@ -358,3 +358,140 @@ index 040cb8dd48..1b7ab4b495 100644
  
  __END_DECLS
  
+From 55873e86e1861ffe010a83455ac7eb5df239ec3e Mon Sep 17 00:00:00 2001
+From: Florian Weimer <fweimer@redhat.com>
+Date: Mon, 4 May 2026 17:18:38 +0200
+Subject: [PATCH] support: Improve tst-support_descriptors compatibility with
+ containers
+
+If /dev/null is bind-mounted, /dev and /dev/null are on different
+devices, so the expected failure has an additional line describe
+the device change.
+
+Reviewed-by: Carlos O'Donell <carlos@redhat.com>
+---
+ support/tst-support_descriptors.c | 41 +++++++++++++++++++++++++------
+ 1 file changed, 34 insertions(+), 7 deletions(-)
+
+diff --git a/support/tst-support_descriptors.c b/support/tst-support_descriptors.c
+index 97d7284c69..d25cb7d67a 100644
+--- a/support/tst-support_descriptors.c
++++ b/support/tst-support_descriptors.c
+@@ -128,21 +128,48 @@ test_run (void)
+   support_capture_subprocess_free (&proc);
+   free (expected);
+ 
+-  expected = xasprintf ("\nDifferences:\n"
+-                        "error: descriptor %d changed from \"/dev/null\""
+-                        " to \"/dev\"\n"
+-                        "error: descriptor %d changed ino ",
+-                        free_descriptor, free_descriptor);
+   good = good && !support_record_failure_is_failed ();
+   proc = support_capture_subprocess (&subprocess_changed_descriptor, NULL);
+   good = good && support_record_failure_is_failed ();
+   support_record_failure_reset (); /* Discard the reported error.  */
+   report_subprocess_output ("subprocess_changed_descriptor", &proc);
+-  TEST_VERIFY (strstr (proc.out.buffer, expected) != NULL);
++
++  expected = xasprintf ("\nDifferences:\n"
++                        "error: descriptor %d changed from \"/dev/null\""
++                        " to \"/dev\"\n"
++                        "error: descriptor %d changed ino ",
++                        free_descriptor, free_descriptor);
++  if (strstr (proc.out.buffer, expected) != NULL)
++    {
++      /* No change of device.  */
++      free (expected);
++    }
++  else
++    {
++      /* The device changed in addition to the inode number.  This
++         happens if /dev/null is bind-mounted from another file
++         system, so that /dev is on a difference device.  */
++      expected = xasprintf ("\nDifferences:\n"
++                            "error: descriptor %d changed from \"/dev/null\""
++                            " to \"/dev\"\n"
++                            "error: descriptor %d changed device ",
++                            free_descriptor, free_descriptor);
++      TEST_VERIFY (strstr (proc.out.buffer, expected) != NULL);
++      free (expected);
++
++      /* We assume that the inode number changes, although in theory
++         it is possible that the directory happens to have the same
++         inode number as the null device because it is on a different
++         file system.  */
++      expected = xasprintf ("\nerror: descriptor %d changed ino ",
++                            free_descriptor);
++      TEST_VERIFY (strstr (proc.out.buffer, expected) != NULL);
++      free (expected);
++    }
++
+   support_capture_subprocess_check (&proc, "subprocess_changed_descriptor",
+                                     0, sc_allow_stdout);
+   support_capture_subprocess_free (&proc);
+-  free (expected);
+ }
+ 
+ static int
+
+From 00899eba260ff3edb62bc6f45c1860bc64fd59e0 Mon Sep 17 00:00:00 2001
+From: Michael Jeanson <mjeanson@efficios.com>
+Date: Mon, 5 Feb 2024 15:22:39 -0500
+Subject: [PATCH] x86/cet: fix shadow stack test scripts
+
+Some shadow stack test scripts use the '==' operator with the 'test'
+command to validate exit codes resulting in the following error:
+
+  sysdeps/x86_64/tst-shstk-legacy-1e.sh: 31: test: 139: unexpected operator
+
+The '==' operator is invalid for the 'test' command, use '-eq' like the
+previous call to 'test'.
+
+Signed-off-by: Michael Jeanson <mjeanson@efficios.com>
+Reviewed-by: H.J. Lu <hjl.tools@gmail.com>
+(cherry picked from commit 155bb9d036646138348fee0ac045de601811e0c5)
+---
+ sysdeps/x86_64/tst-shstk-legacy-1e-static.sh | 2 +-
+ sysdeps/x86_64/tst-shstk-legacy-1e.sh        | 2 +-
+ sysdeps/x86_64/tst-shstk-legacy-1g.sh        | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/sysdeps/x86_64/tst-shstk-legacy-1e-static.sh b/sysdeps/x86_64/tst-shstk-legacy-1e-static.sh
+index 46f1233757..0a9a164a3e 100755
+--- a/sysdeps/x86_64/tst-shstk-legacy-1e-static.sh
++++ b/sysdeps/x86_64/tst-shstk-legacy-1e-static.sh
+@@ -26,7 +26,7 @@ ${common_objpfx}elf/tst-shstk-legacy-1e-static
+ status=$?
+ if test $status -eq 77; then
+   exit 77
+-elif test $status == 139; then
++elif test $status -eq 139; then
+   exit 0
+ else
+   exit 1
+diff --git a/sysdeps/x86_64/tst-shstk-legacy-1e.sh b/sysdeps/x86_64/tst-shstk-legacy-1e.sh
+index 31212453d9..3dec5623e4 100755
+--- a/sysdeps/x86_64/tst-shstk-legacy-1e.sh
++++ b/sysdeps/x86_64/tst-shstk-legacy-1e.sh
+@@ -28,7 +28,7 @@ ${test_program_prefix} \
+ status=$?
+ if test $status -eq 77; then
+   exit 77
+-elif test $status == 139; then
++elif test $status -eq 139; then
+   exit 0
+ else
+   exit 1
+diff --git a/sysdeps/x86_64/tst-shstk-legacy-1g.sh b/sysdeps/x86_64/tst-shstk-legacy-1g.sh
+index e84087068e..249831e816 100755
+--- a/sysdeps/x86_64/tst-shstk-legacy-1g.sh
++++ b/sysdeps/x86_64/tst-shstk-legacy-1g.sh
+@@ -28,7 +28,7 @@ ${test_program_prefix} \
+ status=$?
+ if test $status -eq 77; then
+   exit 77
+-elif test $status == 139; then
++elif test $status -eq 139; then
+   exit 0
+ else
+   exit 1

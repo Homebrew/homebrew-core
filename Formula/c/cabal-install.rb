@@ -1,31 +1,18 @@
 class CabalInstall < Formula
   desc "Command-line interface for Cabal and Hackage"
   homepage "https://www.haskell.org/cabal/"
+  url "https://hackage.haskell.org/package/cabal-install-3.18.1.0/cabal-install-3.18.1.0.tar.gz"
+  sha256 "7e5c3f5e53f7c91f9ff8f0fb075574e772562d0eeb400c402c7d9277558f0821"
   license "BSD-3-Clause"
   head "https://github.com/haskell/cabal.git", branch: "master"
 
-  stable do
-    url "https://hackage.haskell.org/package/cabal-install-3.16.1.0/cabal-install-3.16.1.0.tar.gz"
-    sha256 "9d27bc22989f3933486a7bba6ac0a2d8fef16891bf46a973f4d80f429ae95120"
-
-    # Backport HTTP dependency update
-    patch :p2 do
-      url "https://github.com/haskell/cabal/commit/b49da958030b20554fedfacd612144e836ab3d52.patch?full_index=1"
-      sha256 "877b60af7dac4f5a0b5fd96bbdb8bab9407db3f5850264c336b193a42ee092a5"
-    end
-
-    # Backport https://github.com/haskell/cabal/commit/3a6a26f826f3a67d9f452418c8cd0daa0ca12d7c
-    patch :DATA
-  end
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "7b5a61167c4730638dd45f0b665ff76c4534b0b6a8d62bc8b5d29627b0150e8d"
-    sha256 cellar: :any,                 arm64_sequoia: "b6c71062345d79fc64f3afaa4b787c2f1b07a618cd6a62524b980007fd3bbb4d"
-    sha256 cellar: :any,                 arm64_sonoma:  "269d4e22fa1e7bfaaa5acdf54578d595bc3d0701a401dddddc7295ed20620736"
-    sha256 cellar: :any,                 sonoma:        "f3785b4fb636a5f0ff0fc3a58d47171716e6e2977996b69a0be37ef20f3c484c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "daa322f3e8bd2937ca8676931992686254023eee825c2262866c893cf0c6a992"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fe0e54f097314c3eeb7a457097b51ff077237c0f7c66dffaac41b876af6ab14"
+    sha256 cellar: :any, arm64_tahoe:   "473d34a30b9fc3d87a04787cb6c2c8716c48f1bfa20accbead8dc857e61652c0"
+    sha256 cellar: :any, arm64_sequoia: "ebe7dcba714fdcefeec0ed65d2df2ac5cca0759674a4074873977d759a854808"
+    sha256 cellar: :any, arm64_sonoma:  "a91a0512a3f0b41d424a4ddeab0cff4318565574a1b3211529a99744ec6de289"
+    sha256 cellar: :any, sonoma:        "ed6968cd7f7cf837bdb229f79d111d0d2cfac06a8b8add2f2bfe1e9b47705065"
+    sha256 cellar: :any, arm64_linux:   "84f496193d18b2765e442c04fa4a3a4201685aa2797d8c86a75d10854d3b0e6a"
+    sha256 cellar: :any, x86_64_linux:  "1a46769f5d35b4d6e03f8185eae6342bfa7b99be1c75eaa7fd989953e601a6ee"
   end
 
   depends_on "ghc" => [:build, :test]
@@ -76,16 +63,3 @@ class CabalInstall < Formula
     system bin/"cabal", "--config-file=#{testpath}/config", "info", "Cabal"
   end
 end
-
-__END__
---- a/cabal-install.cabal
-+++ b/cabal-install.cabal
-@@ -66,7 +66,7 @@ common warnings
- 
- common base-dep
-     build-depends:
--      , base >=4.13 && <4.22
-+      , base >=4.13 && <4.23
- 
- common cabal-dep
-     build-depends:

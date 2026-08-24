@@ -7,7 +7,7 @@ class FsUae < Formula
     url "https://github.com/FrodeSolheim/fs-uae/releases/download/v3.2.35/fs-uae-3.2.35.tar.xz"
     sha256 "f3d3cb8d3df34b0b0125c45a5a3e187ff71050be5dc8455cc4505c0380269117"
 
-    depends_on "sdl2"
+    depends_on "sdl2-compat"
   end
 
   livecheck do

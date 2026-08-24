@@ -70,6 +70,6 @@ class Opencoarrays < Formula
     FORTRAN
     system bin/"caf", "tally.f90", "-o", "tally"
     system bin/"cafrun", "-np", "3", "--oversubscribe", "./tally"
-    assert_match Formula["open-mpi"].opt_lib.to_s, shell_output("#{bin}/caf --show")
+    assert_match formula_opt_lib("open-mpi").to_s, shell_output("#{bin}/caf --show")
   end
 end

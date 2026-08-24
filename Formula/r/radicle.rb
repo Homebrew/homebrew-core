@@ -1,8 +1,8 @@
 class Radicle < Formula
   desc "Sovereign code forge built on Git"
   homepage "https://radicle.xyz"
-  url "https://files.radicle.xyz/releases/latest/heartwood-1.9.1.tar.gz"
-  sha256 "e444d2a5e5850490e00e4b13433e474898517c87e5151ec72610d657ac7c9e7c"
+  url "https://files.radicle.xyz/releases/latest/heartwood-1.10.1.tar.gz"
+  sha256 "d46ca92664fd5b44939b362fe80d82a27e00050f01fa45b58451d5e51655e95a"
   license all_of: ["MIT", "Apache-2.0"]
 
   livecheck do
@@ -13,12 +13,12 @@ class Radicle < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "086c30e7599b90dfe1d5476d9c91bdd08dd38843358849d24a24f9a6b2e19f78"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4c00868c9ef91bc50ef55774dad90c1d5a719aa4edc7c446a5294543a6495371"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "913934f0041be9a73e0dd021079dcc991f92ed2ed9e662872df2b3e779cacf72"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e9fa0ea87fa596c11dbb68bc7646ed5dbcc2889f72965eac23c8964168d3014f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9d06b1668b9cfd61e1e3b0c249ba7956ad828784dacf504e575d38c03e9282b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad6cd5851cdf132edcaa41b796b3ab09277c2ed4330c60e3139c582a5c666328"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f96f91ae031be34f66030663e724093c5e3678767aaa8ac94f39a04bdd87239"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6fe8244b94215dc5e8a344e6de76a4b7ab78e5206d9b110a290b8d300c12ce71"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "17b025640876751d56c62acbf97847955b9d8c309da82ce390e06fb4f731fd84"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5df4d5587b53b129bd8b6d393dec4cc446f2c7d50f1dd73345d33de3d4d5bb8e"
+    sha256 cellar: :any,                 arm64_linux:   "a8e2fbd2e2eb455c4e9c4976d748940eca61371c4cfe64dcc4102a2892a9849b"
+    sha256 cellar: :any,                 x86_64_linux:  "281f3f82fefab7ec7daedcef4a132ed3ac41be444d0b41f8b219a12fbbcc06d6"
   end
 
   depends_on "asciidoctor" => :build

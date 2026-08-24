@@ -11,35 +11,26 @@ class Freexl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "c45940e1dd8bad980e3a6e16f2ee83636ea6b92ec106b352d27aa009abac96a0"
-    sha256 cellar: :any,                 arm64_sequoia:  "f1ad6599c594b856dcb08b7aafaddf394b0708924130fbeb53c38d0aba2215d7"
-    sha256 cellar: :any,                 arm64_sonoma:   "9472c48a14d17743af81465d7d8a9bb8f8063d07c50e953b6bc305cdbcfc8b49"
-    sha256 cellar: :any,                 arm64_ventura:  "1fbeb7ff7273a9e9a26eccbbc4d9943167645de04654f5ada57b399262a66eb9"
-    sha256 cellar: :any,                 arm64_monterey: "d5b5f5091fde8145fb4854df71e5a0d4c85064983f0ff50e8649b66e72459436"
-    sha256 cellar: :any,                 arm64_big_sur:  "65496307a6328795f5a4eaeac73e715d3b10852538476a37b141c69500db205b"
-    sha256 cellar: :any,                 sonoma:         "df6da8220ec7db83dd316ed8845036bb7ef3b89a89f76db6e258c457a390398b"
-    sha256 cellar: :any,                 ventura:        "deffaa3f557b73b8bfe491a641ed7bb0727bd8b8f6d81cbb8795f530e7db2624"
-    sha256 cellar: :any,                 monterey:       "3578de5c3c6d52a04ee32fad357d1c4f25ee62a8d2a05dbf21fbe5e5e3595620"
-    sha256 cellar: :any,                 big_sur:        "915b680af0a7f34c12f86630fe22ac48b479fc14e24df6a4fb2c9274b0a971d3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "26dd6ba610ed245687f64deae257c8aa2e21a9878a6430f442a0cbea4a894425"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a23aa6cd549e49b7d3d3f5bf160d97d1125c26587074580b2926060003269e9"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "a3eeadb863696639ca30ce87c4f27b4afda4389b705423244abfd83f3479a5e0"
+    sha256 cellar: :any, arm64_sequoia: "9fdcbb2c4a1ea545ed78a6587928e08f4805046aa01ffe56101c6efe2957be9f"
+    sha256 cellar: :any, arm64_sonoma:  "aed9e170181526ad9b827249bbcc5a862faa81d8851dcd680127e5734b27390b"
+    sha256 cellar: :any, sonoma:        "626d351bf6af78205d0dff5219d9c5f1a7c26e75b35a7f1065c348ab21478f1d"
+    sha256 cellar: :any, arm64_linux:   "5e09ca900e02e38d7402c3575de5dc70efaf841e6bee050ff1f4050301a2a971"
+    sha256 cellar: :any, x86_64_linux:  "1d0329fc0248619e9702b70d4d64ea78597aa90b471da082388560447a957778"
   end
 
-  depends_on "doxygen" => :build
   depends_on "minizip"
 
   uses_from_macos "expat"
 
   def install
-    args = []
+    args = ["--disable-silent-rules"]
     # Help old config scripts identify arm64 linux
-    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm64?
 
-    system "./configure", "--disable-silent-rules", *args, *std_configure_args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
-
-    system "doxygen"
-    doc.install "html"
   end
 
   test do

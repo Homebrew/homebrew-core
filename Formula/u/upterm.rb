@@ -19,7 +19,6 @@ class Upterm < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/owenthereal/upterm/internal/version.Version=#{version}
       -X github.com/owenthereal/upterm/internal/version.Date=#{time.iso8601}
     ]

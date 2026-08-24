@@ -1,8 +1,8 @@
 class Cfitsio < Formula
   desc "C access to FITS data files with optional Fortran wrappers"
   homepage "https://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html"
-  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.6.4.tar.gz"
-  sha256 "227b637b91c9820ea96f39a65eb087f053de567d82f4338e2884f123f8183c55"
+  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.7.0.tar.gz"
+  sha256 "ce573bbea8e75b429f8c3d3e86498741ba3dc9628a1530d2f65268397ad059e8"
   license "CFITSIO"
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class Cfitsio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2353b2536db332cdc37dd7f6c3003957dc9a789388ce6118446c0c4532d0bab3"
-    sha256 cellar: :any,                 arm64_sequoia: "308d9e0e397167131881e0807bde8246bbc542a908a8f02fcf344dcee0cf405e"
-    sha256 cellar: :any,                 arm64_sonoma:  "44c5ef7f5f03f2f10a7d42dc33acd47c86774d5e908ea1adda10ecf8dc4c7b1a"
-    sha256 cellar: :any,                 sonoma:        "e724865bb3af65038616b13c45763c771bff50b34b39439904a11acb359affd0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "df79bedd066ce570fcab74bae86faee9767480c903c51c897a8464f42f3d3a31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9378185a54e7322582fa554444b3d324da60aac3b4e0f95a4cd0e2ee62bf65e"
+    sha256 cellar: :any, arm64_tahoe:   "f9b46bf80fc9722d2b6fcc4f06ade7a3bb8a3862509fd65c62aa9b0d87b44d13"
+    sha256 cellar: :any, arm64_sequoia: "69d71ee19fc9d2b498adbf462dbc57356854839f5911eecfccdb328105e26b9f"
+    sha256 cellar: :any, arm64_sonoma:  "86813032566ed2d9b4ef2b7c0af87b3083c10ce5366e7dbfcfc787a3cc8e700c"
+    sha256 cellar: :any, sonoma:        "16154d55f8f92bd5218f8223783ef4393a3ac01348635e76b17a6710f07563d4"
+    sha256 cellar: :any, arm64_linux:   "0de463b105296c11b1f3b66c6dfbcc3dc92d647f1acd123ea5040601416c5cf2"
+    sha256 cellar: :any, x86_64_linux:  "c2dd6ba3300813af4122055ff521728a3407d5a93bb07d307c5287088476af3f"
   end
 
   depends_on "cmake" => :build

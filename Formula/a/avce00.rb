@@ -7,11 +7,6 @@ class Avce00 < Formula
   sha256 "c0851f86b4cd414d6150a04820491024fb6248b52ca5c7bd1ca3d2a0f9946a40"
   license "MIT"
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?avce00[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "380d933d3d32aa65c7afd933544c0f8a3d4b9fd349288627eeb6211753ad8c0c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "cbfe81486e3dc61f284643a89726e5d94927eaa359f3fe63664baaae8c9bc0ec"
@@ -27,6 +22,10 @@ class Avce00 < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "716bd0aa9bdbc244c1ae81d687a5d2b1755e4e94b7dc131bf08490c18147bf4b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac93d6ed79eb10699125a47c23e8ece19290f75bd186a670dc25396ef32b1f86"
   end
+
+  # Last release on 2006-08-17
+  deprecate! date: "2026-07-17", because: :unmaintained
+  disable! date: "2027-01-17", because: :unmaintained
 
   conflicts_with "gdal", because: "both install a cpl_conv.h header"
 

@@ -11,6 +11,8 @@ class Mpssh < Formula
       # don't install binaries as root (upstream commit)
       url "https://github.com/ndenev/mpssh/commit/3cbb868b6fdf8dff9ab86868510c0455ad1ec1b3.patch?full_index=1"
       sha256 "a6c596c87a4945e6a77b779fcc42867033dbfd95e27ede492e8b841738a67316"
+      type :backport
+      resolves "https://github.com/ndenev/mpssh/pull/22"
     end
   end
 

@@ -1,8 +1,8 @@
 class Sdcc < Formula
   desc "ANSI C compiler for Intel 8051, Maxim 80DS390, and Zilog Z80"
   homepage "https://sdcc.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/sdcc/sdcc/4.5.0/sdcc-src-4.5.0.tar.bz2"
-  sha256 "d5030437fb436bb1d93a8dbdbfb46baaa60613318f4fb3f5871d72815d1eed80"
+  url "https://downloads.sourceforge.net/project/sdcc/sdcc/4.6.0/sdcc-src-4.6.0.tar.bz2"
+  sha256 "5fd6a93e5997ce01756868fe35e441095cfb637894a80c262514a634094973b6"
   license all_of: [
     "GPL-2.0-or-later", # sdcc, sdcdb, ucsim
     "GPL-3.0-or-later", # sdcpp, sdas, sdld, sdbinutils
@@ -17,13 +17,12 @@ class Sdcc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "42efbd33b94c29841d06d3e55dcdaca4d15c580283cafa557bcaa897d229c383"
-    sha256 arm64_sequoia: "d20234031c26f6ce70e990137707f6efdb58f44f0937874cec4ea58c02957a75"
-    sha256 arm64_sonoma:  "b33d78cfa452a144e36cb97e7fa6a21f4bb190d54db6bb66cb93a7dfc3f56661"
-    sha256 sonoma:        "923eff6fa7522d6ef4bb001edb69ed9372b8eb55a143f8f1b392b2ef82604719"
-    sha256 arm64_linux:   "52df93b8ad9113b0a8c560a1702c58f2743e1e39ddba31de70316446a34d9f5c"
-    sha256 x86_64_linux:  "93e44c24cbcd84f457b2e496d544261a4dfbd146824d36b6f86542727f570bae"
+    sha256 arm64_tahoe:   "300fb3c8599a5f4c00cfdec9e12750f09ccca484b7cbbcaa6bc378512a8a0cf7"
+    sha256 arm64_sequoia: "8fd0fe168465571181215aaca52df741fa770071881dac56e4409d9a668463c7"
+    sha256 arm64_sonoma:  "2635b27f7410f33954cea1a595576b658ed11e2b888a1cf828938222399cdcc8"
+    sha256 sonoma:        "9424f0ad933b46ecae302cc0062c256c9d7cb832d5c67cb7f22d710f90760d30"
+    sha256 arm64_linux:   "a04ebca614af7c5a528d9c429a74cdfbbd4706034fb446bb21a6be8810eb4187"
+    sha256 x86_64_linux:  "23029b2b9a02accdb1dd405874997d5a35b109ade0be43c3d89c0a9707bae85a"
   end
 
   depends_on "boost" => :build

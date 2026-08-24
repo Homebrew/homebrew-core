@@ -1,17 +1,17 @@
 class LettaCode < Formula
   desc "Memory-first coding agent"
   homepage "https://docs.letta.com/letta-code"
-  url "https://registry.npmjs.org/@letta-ai/letta-code/-/letta-code-0.27.10.tgz"
-  sha256 "d6c98b90c1987ffa834183d88cfbfbdf648664917ddb6239dce3635a557bfccf"
+  url "https://registry.npmjs.org/@letta-ai/letta-code/-/letta-code-0.30.29.tgz"
+  sha256 "b6c629def4c90b7f8cdff23d1c271eb364c99cbf6e247194d00dafa346e393ac"
   license "Apache-2.0"
 
   bottle do
-    sha256               arm64_tahoe:   "887e5c8d4dc05d44abe42e3ad95edb4d5fd3e684521ed5c15d0a202aee48aff4"
-    sha256               arm64_sequoia: "230da957b33a249f0f0b57e6c442304b1629b47236a61089bb64a60d8b508fda"
-    sha256               arm64_sonoma:  "75620778e46da7763782cc8c48a799d7b91b595cb683b22185b23abb82256026"
-    sha256               sonoma:        "6c2af23f2481769ee02db4e4e277f262d98a54bc60abab1deb41a07c4f7ad554"
-    sha256 cellar: :any, arm64_linux:   "4c044608605cf1daa0b4dc5d622b48a9dd7aaabb75134bb73dd9c9edebcbc1a7"
-    sha256 cellar: :any, x86_64_linux:  "0b8cc490bc7b255c5ab2aaeeac0b43fd2c6b9f9c341663a9260ed433e0b18997"
+    sha256               arm64_tahoe:   "4946b6b27213f495f7670507600bc2fbab2d815843b6e83bc4dbfd0662ffb367"
+    sha256               arm64_sequoia: "36e011dd9025c8cdf43351b36299a46281ecdabe16613b271b6679f06371f010"
+    sha256               arm64_sonoma:  "da6773927443c57f6b58ed67dd38070e68efc671a5e07c7c70ce369bcbb8897d"
+    sha256               sonoma:        "f4c360bec974eedf1efe69dee505e7ed148fcaf97730997d0c88d4720ebb1693"
+    sha256 cellar: :any, arm64_linux:   "44a1467764883cf84c32b2060aabadcdd23fcf198c56917eac84ad0237bf5881"
+    sha256 cellar: :any, x86_64_linux:  "368a136622e3cbb6c1e37d4719ded195c873428967c0b212c18f928dcd18bb19"
   end
 
   depends_on "pkgconf" => :build
@@ -25,8 +25,8 @@ class LettaCode < Formula
   end
 
   resource "node-gyp" do
-    url "https://registry.npmjs.org/node-gyp/-/node-gyp-13.0.0.tgz"
-    sha256 "10e45f33997680c9ea6ebfb8c575aba66bfbe8ad9c782a7426a37440b28b62a6"
+    url "https://registry.npmjs.org/node-gyp/-/node-gyp-13.0.1.tgz"
+    sha256 "455327cde805c299d5a16603419e106853db5b9257dfb85e44eb7f4ec4d99de5"
 
     livecheck do
       url :url
@@ -41,6 +41,9 @@ class LettaCode < Formula
     node_modules = libexec/"lib/node_modules/@letta-ai/letta-code/node_modules"
     rm_r(node_modules.glob("@vscode/ripgrep-*"))
     rm_r(node_modules/"@vscode/ripgrep") # keeping separate from previous rm_r to fail if missing
+
+    # Remove Electron-only sharp fork with x86_64-only pre-built binaries
+    rm_r(node_modules/"@janhapke")
 
     # Replace node-pty pre-built binaries
     cd node_modules/"node-pty" do
@@ -69,6 +72,6 @@ class LettaCode < Formula
     assert_match version.to_s, shell_output("#{bin}/letta --version")
 
     output = shell_output("#{bin}/letta --info")
-    assert_match "Locally pinned agents: (none)", output
+    assert_match "Pinned agents: (none)", output
   end
 end

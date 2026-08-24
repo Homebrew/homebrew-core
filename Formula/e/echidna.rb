@@ -1,9 +1,10 @@
 class Echidna < Formula
   desc "Ethereum smart contract fuzzer"
   homepage "https://secure-contracts.com/program-analysis/echidna/index.html"
-  url "https://github.com/crytic/echidna/archive/refs/tags/v2.3.2.tar.gz"
-  sha256 "c35a6f65c8758743253e91d5ce25017d0d69864f3fad58c41269e9ef4089c1a1"
+  url "https://github.com/crytic/echidna/archive/refs/tags/v2.3.3.tar.gz"
+  sha256 "fab7817640a613856365766031518a8bde5471a9fb14618dfb0b77e3820a7cba"
   license "AGPL-3.0-only"
+  revision 1
   head "https://github.com/crytic/echidna.git", branch: "master"
 
   livecheck do
@@ -12,21 +13,23 @@ class Echidna < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "73ee5125c1c57859fd03769004a15aef0a1a15269ca2347c7ad83d0ecf91ee01"
-    sha256 cellar: :any,                 arm64_sequoia: "d03c58df980548b41ab1142cf07d1a1ef6ef65b35e687250634f3fd508aa9139"
-    sha256 cellar: :any,                 arm64_sonoma:  "7894e8b14c9288b42e4517c82b4a7e55b3b6a90797bb863c155aeec4cd619820"
-    sha256 cellar: :any,                 sonoma:        "a55c55db6a2ac10af2eb9b074e172aa8752307ce21b000ec7f98a8961e9313d8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "772ac3f480f5cb1d4b6c075d856ae2954ca8f211487e438ef7e0a6b270ec251e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a13f6c68f9407099551800aed96a4ec194b7c931b57b1b2f083a4ad781e3f0dd"
+    sha256 cellar: :any, arm64_tahoe:   "301cc7a8227ea14f11273e2ee9824a06f0a64881267c2ddc528c10429a1cf786"
+    sha256 cellar: :any, arm64_sequoia: "a108b24ec074234e2f97e2638ad918fcad080823f0ee60bc0b47377d5db11881"
+    sha256 cellar: :any, arm64_sonoma:  "d94158bc2ea76c2be300f055ba507dcbc378a06ff9222042d51b63781c849f75"
+    sha256 cellar: :any, sonoma:        "c218fbc7ec6693122117803febd2c42855ef3d576bd96669e7c354832616dc7e"
+    sha256 cellar: :any, arm64_linux:   "398632a21131bd0463663a246da6360940a94c29899987c22102bf0788039d7c"
+    sha256 cellar: :any, x86_64_linux:  "a0071a9a2d39c8aee9ae64feda8fe8d3ae700da51e220c2258eb15f78f3975f5"
   end
 
   depends_on "ghc@9.10" => :build
   depends_on "haskell-stack" => :build
+  depends_on "pkgconf" => :build
   depends_on "solidity" => :test
 
   depends_on "crytic-compile"
   depends_on "gmp"
   depends_on "libff"
+  depends_on "libyaml"
   depends_on "secp256k1"
   depends_on "slither-analyzer"
 
@@ -39,23 +42,34 @@ class Echidna < Formula
   def install
     ENV.cxx11
 
-    # Let `stack` handle its own parallelization
-    jobs = ENV.make_jobs
-    ENV.deparallelize
-
-    ghc_args = [
-      "--system-ghc",
-      "--no-install-ghc",
-      "--skip-ghc-check",
-      "--extra-include-dirs=#{Formula["libff"].include}",
-      "--extra-lib-dirs=#{Formula["libff"].lib}",
-      "--extra-include-dirs=#{Formula["secp256k1"].include}",
-      "--extra-lib-dirs=#{Formula["secp256k1"].lib}",
-      "--flag=echidna:-static",
+    args = %W[
+      --extra-include-dirs=#{Formula["libff"].include}
+      --extra-include-dirs=#{Formula["secp256k1"].include}
+      --extra-lib-dirs=#{Formula["libff"].lib}
+      --extra-lib-dirs=#{Formula["secp256k1"].lib}
+      --flag=echidna:-static
+      --flag=libyaml:system-libyaml
+      --jobs=#{ENV.make_jobs}
+      --local-bin-path=#{bin}
+      --no-install-ghc
+      --skip-ghc-check
+      --system-ghc
     ]
+    if OS.linux?
+      args << "--ghc-options=-pie"
 
-    system "stack", "-j#{jobs}", "build", *ghc_args
-    system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install", *ghc_args
+      # Using global configuration to apply options to all dependencies
+      Pathname("#{Dir.home}/.stack/config.yaml").write <<~YAML
+        ghc-options:
+          "$everything": -split-sections -fPIC -fexternal-dynamic-refs
+      YAML
+    end
+
+    # Old version doesn't support base >=4.20 which comes with GHC 9.10+
+    inreplace "stack.yaml", "allow-newer-deps:", "allow-newer-deps:\n- aeson-optics"
+
+    # Let `stack` handle its own parallelization
+    ENV.deparallelize { system "stack", "install", *args }
   end
 
   test do

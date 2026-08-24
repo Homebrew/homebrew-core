@@ -4,16 +4,16 @@ class Dspdfviewer < Formula
   url "https://github.com/dannyedel/dspdfviewer/archive/refs/tags/v1.15.1.tar.gz"
   sha256 "c5b6f8c93d732e65a27810286d49a4b1c6f777d725e26a207b14f6b792307b03"
   license "GPL-2.0-or-later"
-  revision 26
+  revision 27
   head "https://github.com/dannyedel/dspdfviewer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6ad754c8cc8521b9b1d0bc4b70539654a85d21825f8d7f9b3da942b3fe792e1b"
-    sha256 cellar: :any,                 arm64_sequoia: "5f3e2fdaae9aee3810f4c23d4dd7cb0b13ba73573dd550aa719ac6e5bba46e97"
-    sha256 cellar: :any,                 arm64_sonoma:  "9e4e4a152e4a95ee2c88af95de7bb0fd21e98d945977613bf359dc17aa1d049b"
-    sha256 cellar: :any,                 sonoma:        "9cf13da6a32b08051b614bfe1ca5c46a44c4f8082461bb717f0c8df12621cd98"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6916efa94ae9dde44f132bccaf1a7ba400e68c73f3975ed403719275dff24d23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "634605018de8fd7ec5995d15f25fe2a622b1e78d89b74e77fba6f00a2e32b533"
+    sha256 cellar: :any, arm64_tahoe:   "7b9d8549baa17f6f2f8ad9cc797c06e65a53107dc548fbc21ce628ba6f16f7b0"
+    sha256 cellar: :any, arm64_sequoia: "46fc2736a9cf97d2da1ac0fd6601bb7b42dac5cc4958d61178d4bc0a232fb10c"
+    sha256 cellar: :any, arm64_sonoma:  "41c70d79b1ef1c4fe3da1bd6bebe146a68bc65f216b9d0aab92d743d7638d8a6"
+    sha256 cellar: :any, sonoma:        "7006f8059fa870d30aa023e71344554e8ccf1181efa10fcff8b9d7ee1fb4fa82"
+    sha256 cellar: :any, arm64_linux:   "3e04e5be5c5812847aef667280e1bb889ff98ce5834f69caa62fb8fdb10a251a"
+    sha256 cellar: :any, x86_64_linux:  "98cfc06501472d6861e2934517c643f717d5b7bb31cdef357d5ac7b4bc99f2e9"
   end
 
   # Last release on 2016-09-13, last commit on 2023-04-27.

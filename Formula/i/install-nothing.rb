@@ -17,10 +17,12 @@ class InstallNothing < Formula
 
   depends_on "rust" => :build
 
-  # version patch, upstream pr ref, ps://github.com/buyukakyuz/install-nothing/pull/14
+  # version patch
   patch do
     url "https://github.com/buyukakyuz/install-nothing/commit/1933dfd5ac5f8e6572b6cb0d8fde8b152fb51540.patch?full_index=1"
     sha256 "11ffb9c283c1d38933de854468b2f6c6001aa5d4886961a7372dde3ea602d44d"
+    type :backport
+    resolves "https://github.com/buyukakyuz/install-nothing/pull/14"
   end
 
   def install

@@ -1,8 +1,8 @@
 class Ghidra < Formula
   desc "Multi-platform software reverse engineering framework"
   homepage "https://github.com/NationalSecurityAgency/ghidra"
-  url "https://github.com/NationalSecurityAgency/ghidra/archive/refs/tags/Ghidra_12.1.2_build.tar.gz"
-  sha256 "c30fe709ec5d5e68bf799a6c1f4dfc6853dacb189d10203eb882ecbb408db216"
+  url "https://github.com/NationalSecurityAgency/ghidra/archive/refs/tags/Ghidra_12.1.3_build.tar.gz"
+  sha256 "474e327d27fa87aeea9fff8f842351d229a3c8e7a07c02ce3ac53141b79057c2"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Ghidra < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "079007d8a3a477c8d5901e6596947612d86c8641956424a2bcb71ecd798bedcc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "90aa942184fca2337ad0a123f818f37372ea642e8e69e969d45cc144a6f26fdf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "40f68357d6b62a08429c36228907c995e3449283b6d2e08ba5a4e30b53a09725"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e30f8c84b64331f87f6ef1890cbdded6672bb7fcc8b674794ac93e4b3e62ad2b"
-    sha256 cellar: :any,                 arm64_linux:   "95bb260cc1a7986a7c25135f4c78b51ff5c604474aa41b77466323a40ee03ea5"
-    sha256 cellar: :any,                 x86_64_linux:  "038f29e336c2e2a796abb10f62ecf58d3e1d6af3ee36af710d5254f7494b51eb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "11dbbd3b531c84d74560c43c35fa79c2581be71303c3a917ba614f52120c5028"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "13b50282999f82a52e881a7f0d947cf85fafb3773b829a1ee90305e47253258d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "902d39e245123ed991081801b67edd5b271c3d35573c353c9462d018463780dc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fdb2693de04dbafd7c2cde11869fb3bee821d558eb704739ece5405d45a46188"
+    sha256 cellar: :any,                 arm64_linux:   "58bad99dcc15a626545e390f5ebde72c98b01ebfac412474bd28a7f3a2acf4d5"
+    sha256 cellar: :any,                 x86_64_linux:  "5aabf2edd2f8337b0d78d9124a853f6049e6b6146341f2049b18fa9af4f2a4df"
   end
 
   depends_on "gradle" => :build

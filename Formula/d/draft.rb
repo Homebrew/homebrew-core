@@ -18,7 +18,7 @@ class Draft < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/Azure/draft/cmd.VERSION=#{version}"
+    ldflags = "-X github.com/Azure/draft/cmd.VERSION=#{version}"
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"draft", shell_parameter_format: :cobra)

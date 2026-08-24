@@ -9,8 +9,14 @@ class EmacsClangCompleteAsync < Formula
     url "https://github.com/Golevka/emacs-clang-complete-async/archive/refs/tags/v0.5.tar.gz"
     sha256 "151a81ae8dd9181116e564abafdef8e81d1e0085a1e85e81158d722a14f55c76"
 
-    # https://github.com/Golevka/emacs-clang-complete-async/issues/65
-    patch :DATA
+    # Fix `unknown type name 'FILE'` build failure
+    patch do
+      url "https://github.com/Golevka/emacs-clang-complete-async/commit/d75c893a533abe22fcbd81f33166a641f5e73304.patch?full_index=1"
+      sha256 "35c134a969f46a65763ed5732e199c5ba54f71f162ad7eea0745baa3a2c8283c"
+      type :backport
+      resolves "https://github.com/Golevka/emacs-clang-complete-async/issues/65",
+               "https://github.com/Golevka/emacs-clang-complete-async/pull/69"
+    end
   end
 
   bottle do
@@ -31,10 +37,11 @@ class EmacsClangCompleteAsync < Formula
 
   depends_on "llvm"
 
-  # https://github.com/Golevka/emacs-clang-complete-async/pull/59
   patch do
     url "https://github.com/yocchi/emacs-clang-complete-async/commit/5ce197b15d7b8c9abfc862596bf8d902116c9efe.patch?full_index=1"
     sha256 "f5057f683a9732c36fea206111507e0e373e76ee58483e6e09a0302c335090d0"
+    type :unofficial
+    resolves "https://github.com/Golevka/emacs-clang-complete-async/pull/59"
   end
 
   def install
@@ -43,15 +50,3 @@ class EmacsClangCompleteAsync < Formula
     share.install "auto-complete-clang-async.el"
   end
 end
-
-__END__
---- a/src/completion.h	2013-05-26 17:27:46.000000000 +0200
-+++ b/src/completion.h	2014-02-11 21:40:18.000000000 +0100
-@@ -3,6 +3,7 @@
-
-
- #include <clang-c/Index.h>
-+#include <stdio.h>
-
-
- typedef struct __completion_Session_struct

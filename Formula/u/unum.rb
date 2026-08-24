@@ -21,7 +21,7 @@ class Unum < Formula
   uses_from_macos "perl"
 
   def install
-    system "#{Formula["pod2man"].opt_bin}/pod2man", "unum.pl", "unum.1"
+    system "#{formula_opt_bin("pod2man")}/pod2man", "unum.pl", "unum.1"
     bin.install "unum.pl" => "unum"
     man1.install "unum.1"
   end

@@ -27,7 +27,7 @@ class Retdec < Formula
   depends_on "python@3.14"
 
   on_sequoia do
-    depends_on xcode: ["16.4", :build]
+    depends_on xcode: ["16.4", :build] # workaround for std::char_traits<unsigned int> (149025504)
   end
 
   on_linux do

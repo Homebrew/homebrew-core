@@ -1,12 +1,12 @@
 class Svgo < Formula
   desc "Nodejs-based tool for optimizing SVG vector graphics files"
   homepage "https://svgo.dev/"
-  url "https://github.com/svg/svgo/archive/refs/tags/v4.0.1.tar.gz"
-  sha256 "2eae41c56d069a1943c58f0141eb5c747c968e6db7c67dae5f529c01103b5b5d"
+  url "https://github.com/svg/svgo/archive/refs/tags/v4.1.0.tar.gz"
+  sha256 "8c9d43624e108eab29e369fdca68ea160e57b37a364907b499b5d6a4436cb59b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "bc845de2142eee65c2d44293adeb63b606e12581570517b5845f44d252262a90"
+    sha256 cellar: :any_skip_relocation, all: "5351c22c31e538f311094815088539fbb18b4ee409b5de0ae5ff8bed40279242"
   end
 
   depends_on "node"

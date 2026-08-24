@@ -12,28 +12,23 @@ class Moc < Formula
     # 01 to 05 below are backported from patches provided 26 Apr 2018 by
     # upstream's John Fitzgerald
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/moc/01-codec-2.5.2.patch"
-      sha256 "c6144dbbd85e3b775e3f03e83b0f90457450926583d4511fe32b7d655fdaf4eb"
+      file "Patches/moc/01-codec-2.5.2.patch"
     end
 
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/moc/02-codecpar-2.5.2.patch"
-      sha256 "5ee71f762500e68a6ccce84fb9b9a4876e89e7d234a851552290b42c4a35e930"
+      file "Patches/moc/02-codecpar-2.5.2.patch"
     end
 
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/moc/03-defines-2.5.2.patch"
-      sha256 "2ecfb9afbbfef9bd6f235bf1693d3e94943cf1402c4350f3681195e1fbb3d661"
+      file "Patches/moc/03-defines-2.5.2.patch"
     end
 
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/moc/04-lockmgr-2.5.2.patch"
-      sha256 "9ccfad2f98abb6f974fe6dc4c95d0dc9a754a490c3a87d3bd81082fc5e5f42dc"
+      file "Patches/moc/04-lockmgr-2.5.2.patch"
     end
 
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/moc/05-audio4-2.5.2.patch"
-      sha256 "9a75ac8479ed895d07725ac9b7d86ceb6c8a1a15ee942c35eb5365f4c3cc7075"
+      file "Patches/moc/05-audio4-2.5.2.patch"
     end
   end
 
@@ -58,6 +53,11 @@ class Moc < Formula
 
     depends_on "popt"
   end
+
+  # Last release on 2016-11-16 and needs patches to build.
+  # Also removed from Alpine 3.23+ and Arch Linux.
+  deprecate! date: "2026-08-03", because: :unmaintained
+  disable! date: "2027-02-03", because: :unmaintained
 
   # Remove autoconf, automake and gettext for > 2.5.2
   depends_on "autoconf" => :build

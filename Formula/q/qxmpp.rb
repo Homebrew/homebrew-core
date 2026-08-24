@@ -1,31 +1,26 @@
 class Qxmpp < Formula
   desc "Cross-platform C++ XMPP client and server library"
   homepage "https://invent.kde.org/libraries/qxmpp"
-  url "https://invent.kde.org/libraries/qxmpp/-/archive/v1.15.1/qxmpp-v1.15.1.tar.bz2"
-  sha256 "3a492ed1a175f16101f6dae86074ec027b4bc068356a0cf881dd34a0b4130e61"
+  url "https://invent.kde.org/libraries/qxmpp/-/archive/v1.16.3/qxmpp-v1.16.3.tar.bz2"
+  sha256 "8a9833b8e991736584f46b2f70a7c0252366f69846a263fbc2db723628385cad"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3d6148bf2a7b06b7a383220e7441159828140ca7f9080f87a232b25a2b3e0564"
-    sha256 cellar: :any,                 arm64_sequoia: "6f79da5128f78bcab6bfbf55236e0f53e50a6bad2de56b7fcd9f5a5c9e6c2a84"
-    sha256 cellar: :any,                 arm64_sonoma:  "dc2dc9a32f2177e4962d2393e5f411634efd2b1630a02d07925943874991afe4"
-    sha256 cellar: :any,                 sonoma:        "98996a0437486736cea5ec75aa93a4021dc4ebf117649c869554d5fbe0ff0850"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ddbef993a997e0c6abb5d28d59323a73974d14fb275c54cb53c8bc009f6c64ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fe50d190bd252a30f6ab3ce737043ec4a609a76d934203aa8e376d38ce5e39d"
+    sha256 cellar: :any, arm64_tahoe:   "832deac9e6f650ebc0669e896b898244be3e24d09e40f58ea09de546a66c0c2c"
+    sha256 cellar: :any, arm64_sequoia: "effe5b85403cfd24c7778ea64c96977bb24bdc153e5dd61140b4ca3ad521857f"
+    sha256 cellar: :any, arm64_sonoma:  "b32fb781780170ba4f432405a6c65ccd01801468f2eb6aed83a95632b6bc6499"
+    sha256 cellar: :any, sonoma:        "bf79c0f9f1d47a5efb13ccbf23c7543bc903b04c96179bc566a161be06c20a88"
+    sha256 cellar: :any, arm64_linux:   "353f8ffa08bc4b1aaa1067a0b802c74c866274c8afbaadf96e604b679790d277"
+    sha256 cellar: :any, x86_64_linux:  "982c446ead07867951052c839b093f81c679f042da3b50668323f7bae1d1b333"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on xcode: :build
   depends_on "openssl@3"
   depends_on "qtbase"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1400
-  end
-
-  on_linux do
-    depends_on "llvm" => :build if DevelopmentTools.gcc_version < 14
   end
 
   fails_with :clang do
@@ -39,9 +34,7 @@ class Qxmpp < Formula
   end
 
   def install
-    ENV.llvm_clang if OS.linux? && deps.map(&:name).any?("llvm")
-
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_DOCUMENTATION=OFF", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

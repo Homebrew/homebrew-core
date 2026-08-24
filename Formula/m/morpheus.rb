@@ -4,6 +4,7 @@ class Morpheus < Formula
   url "https://gitlab.com/morpheus.lab/morpheus/-/archive/v2.4.1/morpheus-v2.4.1.tar.gz"
   sha256 "27da3928bfbc58c592d598a0c91b81990b97f0e37c00d1b8071fc208d91875fc"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,12 +12,12 @@ class Morpheus < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "acdddfe47739914dc33eef7ccf2899efc629866ab843871fa3ae2e9a7a2f80f3"
-    sha256                               arm64_sequoia: "dbd26be45c744ad834c06065c0f881bd5b8ac651842c86d58067f1cdfa0dd73d"
-    sha256                               arm64_sonoma:  "cac61da310cfd1f9e34f077f6f4d72ec60e845bb16ac67a02d5ee907e6140334"
-    sha256 cellar: :any,                 sonoma:        "9207975bbe3b5d22bf05a102a003de923e5035c295e44b2900956ec66a537064"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2355a73b9accb9f282f596e906e8a85f4ca0edeb8a1ead4c0f1069fa908a2c5e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ca836cc870542012736187d1d5c2ca71a8f1a2856d29eaf116626a0d66b6af8"
+    sha256               arm64_tahoe:   "72759851ae282a2ba52bea87780c8cdcb7f9dc7d8e852bfc1cd5506a5a07bebe"
+    sha256               arm64_sequoia: "4d8cf6c34f1211ff2058cc07a52ebb8fa3f9873cf2e2e30a35e0220b6bac4322"
+    sha256               arm64_sonoma:  "9def5c730d929ec321454ad5a06124aa18b3604c227fa188edd74272a118ec11"
+    sha256 cellar: :any, sonoma:        "4fa0385a3b6ffd3d62746874bb27165c8a6680bcfa1ccd01b1f89e819114784f"
+    sha256 cellar: :any, arm64_linux:   "1f447e55fa70882c92a2b8f98d6c76f86ef6b12a47dd03a62f6a98f6857dac23"
+    sha256 cellar: :any, x86_64_linux:  "eb68b74d3c70d48d28d3cd1a52bb8ec318a9e64361551298424fdbd89128a614"
   end
 
   # Can undeprecate if new release with Qt 6 support is available.
@@ -72,11 +73,19 @@ class Morpheus < Formula
 
     # Set PATH environment variable including Homebrew prefix in macOS app bundle
     inreplace "#{prefix}/Morpheus.app/Contents/Info.plist", "HOMEBREW_BIN_PATH", "#{HOMEBREW_PREFIX}/bin"
+
+    (libexec/"post-install").write <<~SH
+      #!/bin/sh
+      [ "$(uname -m)" = "arm64" ] || exit 0
+      exec /usr/bin/codesign -f -s - "#{opt_prefix}/Morpheus.app"
+    SH
+    chmod 0755, libexec/"post-install"
   end
 
-  def post_install
-    # Sign to ensure proper execution of the app bundle
-    system "/usr/bin/codesign", "-f", "-s", "-", "#{prefix}/Morpheus.app" if OS.mac? && Hardware::CPU.arm?
+  post_install_steps do
+    on_macos do
+      run "post-install", base: :libexec
+    end
   end
 
   test do

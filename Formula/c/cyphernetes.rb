@@ -20,7 +20,7 @@ class Cyphernetes < Formula
 
   def install
     system "make", "operator-manifests"
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}"), "./cmd/cyphernetes"
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}"), "./cmd/cyphernetes"
 
     generate_completions_from_executable(bin/"cyphernetes", shell_parameter_format: :cobra)
   end

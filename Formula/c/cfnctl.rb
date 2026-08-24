@@ -20,7 +20,7 @@ class Cfnctl < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X cli.version=#{version}"), "./cmd/cfnctl"
+    system "go", "build", *std_go_args(ldflags: "-X cli.version=#{version}"), "./cmd/cfnctl"
   end
 
   test do

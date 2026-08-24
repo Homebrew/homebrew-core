@@ -1,7 +1,8 @@
 class Lziprecover < Formula
   desc "Data recovery tool and decompressor for files in the lzip compressed data format"
   homepage "https://www.nongnu.org/lzip/lziprecover.html"
-  url "https://download-mirror.savannah.gnu.org/releases/lzip/lziprecover/lziprecover-1.26.tar.gz"
+  url "https://download.savannah.nongnu.org/releases/lzip/lziprecover/lziprecover-1.26.tar.gz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/lziprecover/lziprecover-1.26.tar.gz"
   sha256 "e234005a756d5649f41686116d3e548736d4a77e5a5ec37b943ca6650787801d"
   license "GPL-2.0-or-later"
 
@@ -36,7 +37,7 @@ class Lziprecover < Formula
     path.write original_contents
 
     # Compress data into archive
-    system Formula["lzip"].opt_bin/"lzip", path
+    system formula_opt_bin("lzip")/"lzip", path
     refute_path_exists path
 
     # Corrupt the archive to test the recovery process

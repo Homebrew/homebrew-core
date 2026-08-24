@@ -11,8 +11,7 @@ class Libgeotiff < Formula
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+      file "Patches/libtool/configure-big_sur.diff"
     end
   end
 
@@ -81,7 +80,7 @@ class Libgeotiff < Formula
     C
 
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lgeotiff",
-                   "-L#{Formula["libtiff"].opt_lib}", "-ltiff", "-o", "test"
+                   "-L#{formula_opt_lib("libtiff")}", "-ltiff", "-o", "test"
     system "./test", "test.tif"
     output = shell_output("#{bin}/listgeo test.tif")
     assert_match(/GeogInvFlatteningGeoKey.*123\.456/, output)

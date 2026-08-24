@@ -7,12 +7,13 @@ class Glade < Formula
   revision 2
 
   bottle do
-    sha256 arm64_tahoe:   "6e30fc8505be745532d54c6ca937ed9112bad06b28a779e635b2a7bd39eec811"
-    sha256 arm64_sequoia: "5873f72c18a9e4ec5fb39e7463dec97632e1e529d676a36720f21cf9cb8ce890"
-    sha256 arm64_sonoma:  "d029fb2f0d9a5180e2d9d0a39e2dfbe384ea4ce8fb5d6baef129453f7a0e3ff2"
-    sha256 sonoma:        "14f49050a388f8e5c976c4f2650f2261d8436dc3a2946c025bfbb65b78cb29d4"
-    sha256 arm64_linux:   "2231d718915f58f039ff8f8b64c2e925a1f4c69da14e0e89065a319e3de970e8"
-    sha256 x86_64_linux:  "d74c163da2a0558dbbb9d167f3ecea4bbc9c653b4a1f6f3539dc99a92452e624"
+    rebuild 1
+    sha256 arm64_tahoe:   "e0a5106b1b40c33b0637a7b713a544023d04aef3006600771947360bcfafe5bf"
+    sha256 arm64_sequoia: "7faf1cfde42ae08400dbe029171e8e0c28e56da3f8a105248a3dcdaab7444477"
+    sha256 arm64_sonoma:  "7821188717113ff0e90a2dcd0784710daeacc2e8eb0bae549538b7ec937ae952"
+    sha256 sonoma:        "3f9b197634b5fad04891dd5181201cfe00ebf6cff650e348b3983862a5cb2d7c"
+    sha256 arm64_linux:   "14206c16e70adf01ddcbc74e3ba1b70171312cca1a6074abbac2c688dce408ce"
+    sha256 x86_64_linux:  "ca74259d91f9c96f10b28453ed7a8f205267d94687ebfc4c79563e80b839287b"
   end
 
   # https://gitlab.gnome.org/GNOME/glade (archived)
@@ -56,8 +57,8 @@ class Glade < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+  post_install_steps do
+    update_gtk_icon_cache
   end
 
   test do

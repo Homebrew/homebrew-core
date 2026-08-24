@@ -1,9 +1,9 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "https://www.mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/refs/tags/mame0288.tar.gz"
-  version "0.288"
-  sha256 "244d916eb3fb8bcd71f2ac51ae71ab6af8cf99869ea7b85d7efc7339ea56c563"
+  url "https://github.com/mamedev/mame/archive/refs/tags/mame0289.tar.gz"
+  version "0.289"
+  sha256 "0929cc749afabcef892900e10dd90bd8b05f94a7dde8f367ac6a5d2082589f84"
   license "GPL-2.0-or-later"
   head "https://github.com/mamedev/mame.git", branch: "master"
 
@@ -14,12 +14,12 @@ class RomTools < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "bc8fda39191f1c1b6c72ea0f627df2646cc6249db7c261161008f473361f2935"
-    sha256 cellar: :any, arm64_sequoia: "3ab7646d02faf9877713e55a19c41e602bd487a4802fc5e8e1056e4d8de2141c"
-    sha256 cellar: :any, arm64_sonoma:  "d393114d8cd44633d5ffe7f392a7a53d04bebdf5e1ef462488f6ed0fe86b3761"
-    sha256 cellar: :any, sonoma:        "62163186c33b9aeebced3ede43d697d0f0b2d1186cd7564832d7210b41f7121c"
-    sha256 cellar: :any, arm64_linux:   "384b2039757dcb7735ec63d1b4ace36a7756e22d4f186bac6ff4f0d29d09a90b"
-    sha256 cellar: :any, x86_64_linux:  "6ac2b3df9ae778d723eb7bef1140db58f20d03a1e45a2b48acad806615407a3d"
+    sha256 cellar: :any, arm64_tahoe:   "9a296c6977cfba6eb1060fb34adef2e9c698fd644c767c4ca8b0aa2b2b695a87"
+    sha256 cellar: :any, arm64_sequoia: "85268495f1b335cd63003f2e6a64a788c4a7db871f9cbcbd1e3f6053d066529d"
+    sha256 cellar: :any, arm64_sonoma:  "189deed5e097b61a91e8d76d837519a8b7596e1a63e94551fd4f9f4eec42a990"
+    sha256 cellar: :any, sonoma:        "6bf2b4db725361ae33ab46c206212ede78bfcc069fba1631e94b3be6bb0dc86a"
+    sha256 cellar: :any, arm64_linux:   "6af319393f4b40e8b3d6c83a2ad89a462dffec0f7c2412a221c2384398dc01cd"
+    sha256 cellar: :any, x86_64_linux:  "7a5f205dd63429dcc371fc46f06b4ca1c1f396247980c1595f0ca5a77a5174bd"
   end
 
   depends_on "asio" => :build
@@ -42,7 +42,7 @@ class RomTools < Formula
   end
 
   def install
-    ENV["QT_HOME"] = Formula["qtbase"].opt_prefix if OS.linux?
+    ENV["QT_HOME"] = formula_opt_prefix("qtbase") if OS.linux?
 
     # Cut sdl2-config's invalid option.
     inreplace "scripts/src/osd/sdl.lua", "--static", ""

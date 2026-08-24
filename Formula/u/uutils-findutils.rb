@@ -1,18 +1,18 @@
 class UutilsFindutils < Formula
   desc "Cross-platform Rust rewrite of the GNU findutils"
   homepage "https://uutils.github.io/findutils/"
-  url "https://github.com/uutils/findutils/archive/refs/tags/0.9.0.tar.gz"
-  sha256 "8b3eb813cac9fe519b77ee36705fdcd46b188d8807e98c0bb7126fabd8f64dda"
+  url "https://github.com/uutils/findutils/archive/refs/tags/0.10.0.tar.gz"
+  sha256 "e36ae3937f889bc59cfbd65820a642baa695c58d7fa1e387e41857e710f40419"
   license "MIT"
   head "https://github.com/uutils/findutils.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "2177bb345ea17795a16743aa6e4687cd236647b7e6cc8bd6d2286a95091e1e47"
-    sha256 cellar: :any, arm64_sequoia: "c63585b24856bd7f886b76161c16e9f61ad0f62100e965dad1d71f5ad19e533b"
-    sha256 cellar: :any, arm64_sonoma:  "4626039dd6d347327b2d68d0313f3368eee9387c507a812ec99d1bd231644527"
-    sha256 cellar: :any, sonoma:        "00df1b94bad75914d80c82460a9d473528b2e4636eb09d141d707fae02f64cc9"
-    sha256 cellar: :any, arm64_linux:   "eefabd0078e2de5db7053401427a5d55622c7a058e89e8385bc8489388075fc5"
-    sha256 cellar: :any, x86_64_linux:  "eb41cfe4b034b32e52ef0e4fc214140c4c8fb9b3d5ed3a1027a943cf993dd00c"
+    sha256 cellar: :any, arm64_tahoe:   "f0b963f1e968acadb40faf068299ff3d95d1141bb6a92b4014183cc001957333"
+    sha256 cellar: :any, arm64_sequoia: "0ff84ee54e9adce4fac0eb5ec3c013eb6ce4e5f625a3b6d20cdb476e55ab38bf"
+    sha256 cellar: :any, arm64_sonoma:  "8f7b577688da476a71ee7f1e3e87457e73871cf38ae07aefe223ac3ed190ad47"
+    sha256 cellar: :any, sonoma:        "09f853a5fc9dae2cf13dc059d1e77126744b764a45ec94279709185442f1d47d"
+    sha256 cellar: :any, arm64_linux:   "f529b71887accd0166c7267a85bfbe978dcd420df91071026e9d2b26a1984919"
+    sha256 cellar: :any, x86_64_linux:  "ba0a289490eae870ea1ef1390d0c842cf87992e009d2616af029db57f877f717"
   end
 
   depends_on "pkgconf" => :build
@@ -69,7 +69,7 @@ class UutilsFindutils < Formula
 
     expected_linkage = {
       libexec/"uubin/find" => [
-        Formula["oniguruma"].opt_lib/shared_library("libonig"),
+        formula_opt_lib("oniguruma")/shared_library("libonig"),
       ],
     }
     missing_linkage = []

@@ -1,8 +1,8 @@
 class Butane < Formula
   desc "Translates human-readable Butane Configs into machine-readable Ignition Configs"
   homepage "https://coreos.github.io/butane/"
-  url "https://github.com/coreos/butane/archive/refs/tags/v0.28.0.tar.gz"
-  sha256 "ae3a4731bc7da29177936a229a962c701249debdf740e10c08c152ff725ad2f7"
+  url "https://github.com/coreos/butane/archive/refs/tags/v0.29.0.tar.gz"
+  sha256 "fb53732f08479a8057f60e7d7535e3717ecd013e362d65f474272b44374e0f97"
   license "Apache-2.0"
   head "https://github.com/coreos/butane.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Butane < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f771dfc7e1104ff265639120ab9200154c8b6ca1e8be3685f9047535f756d426"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f771dfc7e1104ff265639120ab9200154c8b6ca1e8be3685f9047535f756d426"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f771dfc7e1104ff265639120ab9200154c8b6ca1e8be3685f9047535f756d426"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0722708c1add344707e4ea18a5e7f3d160714833b3f51917f967c56d45f24401"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "195178ccfe60813b75c1ca9d7a8f78ff6a03c451295dcd3ae0b8f41f7a1eaa33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40600aba821c7bd340a5bea95aac31a31a85617b8f9ba22d496692d911fa72d2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0549fb450694816c1f3fcecca3d00127d92253719b540042aeb11ee283135f3d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0549fb450694816c1f3fcecca3d00127d92253719b540042aeb11ee283135f3d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0549fb450694816c1f3fcecca3d00127d92253719b540042aeb11ee283135f3d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "89790f467b35bc6555229963bd47490681916a8a7e1345031c2edd30bb0957c6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f55259e0be9b61d2b2aeaea83e4a41505fffadeb111e51e3f735e65a8938011a"
+    sha256 cellar: :any,                 x86_64_linux:  "de5d57fe6a501ebb9a1f28d01d718f2bc0d5bc94c527c1e37caba3f6ca808e9b"
   end
 
   depends_on "go" => :build

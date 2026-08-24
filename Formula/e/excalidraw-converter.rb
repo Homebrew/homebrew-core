@@ -18,7 +18,7 @@ class ExcalidrawConverter < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X diagram-converter/cmd.version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X diagram-converter/cmd.version=#{version}")
     bin.install_symlink "excalidraw-converter" => "exconv"
   end
 

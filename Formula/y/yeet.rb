@@ -1,27 +1,24 @@
 class Yeet < Formula
   desc "Packaging tool that lets you declare build instructions in JavaScript"
   homepage "https://github.com/TecharoHQ/yeet"
-  url "https://github.com/TecharoHQ/yeet/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "b793d07304071c07dde135c656aa6effd5b3bc1d38623a72a3510e5c611672a8"
+  url "https://github.com/TecharoHQ/yeet/archive/refs/tags/v0.12.1.tar.gz"
+  sha256 "c76bd0513c4e7601c1181f99565d2015329622d7cb35dfbde06f40b020f66c90"
   license "MIT"
   head "https://github.com/TecharoHQ/yeet.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0a64ebe364abe919c485ae2c45b8b907d6608d79c26c195c98e2b451f0d79502"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a64ebe364abe919c485ae2c45b8b907d6608d79c26c195c98e2b451f0d79502"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0a64ebe364abe919c485ae2c45b8b907d6608d79c26c195c98e2b451f0d79502"
-    sha256 cellar: :any_skip_relocation, sonoma:        "16ba4cd6fc30270de1613de4b6a51a1c6c5cd0d4af1fc06fffc4a0843d2189c5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "22266d8460064c82256e4196987b72c77b056cac9a2db4f9c0bff8baf38a81fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f6d294ff56054ff457e2da59d46ec8adfcb2fce71572a3a9b67e403947fc3cf8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b7d0ae322fc55da7ae91d4e9a8216c5794e59b2da1985035a6b3df06178787ff"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b7d0ae322fc55da7ae91d4e9a8216c5794e59b2da1985035a6b3df06178787ff"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7d0ae322fc55da7ae91d4e9a8216c5794e59b2da1985035a6b3df06178787ff"
+    sha256 cellar: :any_skip_relocation, sonoma:        "50c5e4231d0606dd7925dd7d13d6b58012e9f0a3016f2c49e21df6203dd8559b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aa12094fd192cddec58727aad205f5c3ea3a1d8aeed846cd42cd2d7f42e04293"
+    sha256 cellar: :any,                 x86_64_linux:  "263b9afeab43805d8d02278fcf30e8fe8674188606bd947f7decf8167b6dda52"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/TecharoHQ/yeet.Version=#{version}
-    ]
+    ldflags = %W[-X github.com/TecharoHQ/yeet.Version=#{version}]
     system "go", "build", *std_go_args(ldflags:), "./cmd/yeet"
   end
 

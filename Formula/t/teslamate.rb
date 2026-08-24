@@ -1,17 +1,17 @@
 class Teslamate < Formula
   desc "Self-hosted data logger for your Tesla"
   homepage "https://docs.teslamate.org"
-  url "https://github.com/teslamate-org/teslamate/archive/refs/tags/v4.0.1.tar.gz"
-  sha256 "508dea91bfcd331d3acfbde90b3e7fe4c5755bb4b8080577053cd8f111f4c3d1"
+  url "https://github.com/teslamate-org/teslamate/archive/refs/tags/v4.2.0.tar.gz"
+  sha256 "423a138df210e2c26748c1d4321667920c2c5e71385d5da75c9f90309ec8990d"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "c2b6b81913b478919a272635f32cb49b1a3f42b2ad32973788245625763c522c"
-    sha256 cellar: :any, arm64_sequoia: "8708c52ad2195f401ae551fda328d243526ef8d7da20ac9bdf7435b7e373fbf3"
-    sha256 cellar: :any, arm64_sonoma:  "62db33e7bd1cb265b103838a28f5199cbd8c5a6a914b2c2f8724e6172fdb4158"
-    sha256 cellar: :any, sonoma:        "7104643be2adf2f809e4809ce12b5e5fe45c89ad696761ff1d7b77319184a755"
-    sha256 cellar: :any, arm64_linux:   "773309a92574ff0eadeac2f6c9350a0b1a6382a2441eb34ef5fa036ac050db53"
-    sha256 cellar: :any, x86_64_linux:  "34d227f71557a1ff5d4ec89241a75fdf10606b76593dfe8e27a34efb986ce520"
+    sha256 cellar: :any, arm64_tahoe:   "41cffdfed0efd57429b6f1d85b02f116083db51cabcd2cf2f9395c148527cab1"
+    sha256 cellar: :any, arm64_sequoia: "85cf442c05824866a7f6ba68da517f097d7e32ab65009ca663b1dd5b53273dc2"
+    sha256 cellar: :any, arm64_sonoma:  "5e80b78e00f9d0df21d40602f0717bb838a984ef13421ce8ba5de2dfd8794fac"
+    sha256 cellar: :any, sonoma:        "6463005c633cc797fb02dd95a994449f0822c3b561bb763c94b091715dae9bd9"
+    sha256 cellar: :any, arm64_linux:   "7d22150814d89449e3e239a3fc1c4feecfa19f982af0966863fdab7b47998197"
+    sha256 cellar: :any, x86_64_linux:  "6b94a2abdae7b276d1c04c9f547687632f5feaf846b2be9e39b24c7cd9a5fd9c"
   end
 
   depends_on "elixir" => :build
@@ -65,7 +65,7 @@ class Teslamate < Formula
     ENV["LC_ALL"] = "C"
 
     pg_port = free_port
-    pg_bin = Formula["postgresql@18"].opt_bin
+    pg_bin = formula_opt_bin("postgresql@18")
     pg_ctl = pg_bin/"pg_ctl"
     datadir = testpath/"postgres"
     system pg_ctl, "init", "-D", datadir
@@ -87,16 +87,18 @@ class Teslamate < Formula
       ENV["DATABASE_HOST"] = "127.0.0.1"
       ENV["DATABASE_PORT"] = pg_port.to_s
       ENV["DISABLE_MQTT"] = "true"
+
       log_file = testpath/"teslamate_test.log"
+      endpoint_message = "Access TeslaMateWeb.Endpoint at http://localhost"
+
       File.open(log_file, "w") do |file|
         pid = spawn(opt_bin/"teslamate_brew_services", out: file, err: file)
-        sleep 20
+        sleep 1 until log_file.read.include?(endpoint_message)
         system opt_bin/"teslamate", "stop"
         Process.kill("KILL", pid)
         Process.wait(pid)
       end
-      output = log_file.read
-      assert_match "Access TeslaMateWeb.Endpoint at http://localhost", output
+      assert_match endpoint_message, log_file.read
     ensure
       system pg_ctl, "stop", "-D", datadir
     end

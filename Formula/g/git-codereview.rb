@@ -18,7 +18,7 @@ class GitCodereview < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./git-codereview"
+    system "go", "build", *std_go_args, "./git-codereview"
   end
 
   test do

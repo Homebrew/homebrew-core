@@ -1,9 +1,8 @@
 class Lld < Formula
   desc "LLVM Project Linker"
   homepage "https://lld.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.7/llvm-project-22.1.7.src.tar.xz"
-  sha256 "5cc4a3f12bba50b6bdfb4b61bdc852117a0ff2517807c3902fc13267fb93562e"
-  # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.8/llvm-project-22.1.8.src.tar.xz"
+  sha256 "922f1817a0df7b1489272d18134ee0087a8b068828f87ac63b9861b1a9965888"
   license "Apache-2.0" => { with: "LLVM-exception" }
   compatibility_version 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
@@ -13,12 +12,12 @@ class Lld < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "27313c2faf8c535fdf997a27aa9b84bdc3af4855981d4ea5e8efe6b92176ff94"
-    sha256 cellar: :any, arm64_sequoia: "b5597f79d3759e0374daff35d12264a5e51639032f7ec318bfee2014867f29ef"
-    sha256 cellar: :any, arm64_sonoma:  "680b25edaf59c89ce0a934d17db7c1d7d06d40938346399da45de751fead02cb"
-    sha256 cellar: :any, sonoma:        "427562857dd6d2a42a8c7caf60651fa5a32cb8254f3452c856228f4ab70f0c15"
-    sha256 cellar: :any, arm64_linux:   "f7e541100d50aec9da7e6a738adfcb85d575914552fb09453631d073f95668f1"
-    sha256 cellar: :any, x86_64_linux:  "44a6d5f037da5e86c222cb57ca7ff607d3fa9071e78479bc88d5b15958639183"
+    sha256 cellar: :any, arm64_tahoe:   "381a963786ccbb157adc92831a4cf7bbf0b2165832791b9248cfc395d135015d"
+    sha256 cellar: :any, arm64_sequoia: "6ff47141e7a3eb51a806c983a2ac8d002467a85ebab92a3d4a05eea5f5ef887f"
+    sha256 cellar: :any, arm64_sonoma:  "172b4b12ec4634ec932b0f81226fa4c3bec89e59a2f17a3aae1545632af1308a"
+    sha256 cellar: :any, sonoma:        "adf487ab016242753e3584b3b4731d60dad8d7ccab2de04d43534a1a0bd901d1"
+    sha256 cellar: :any, arm64_linux:   "32fc6be36a3205a1f50dfe493caf3605acddb83b41f3beb1a5563e822c99bf63"
+    sha256 cellar: :any, x86_64_linux:  "b37de4b98b81ca8667e8bcb5c23d3ca17b1a5f18a3bc4406074993ac26ae4f14"
   end
 
   depends_on "cmake" => :build
@@ -37,7 +36,6 @@ class Lld < Formula
     system "cmake", "-S", "lld", "-B", "build",
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DLLD_BUILT_STANDALONE=ON",
                     "-DLLD_VENDOR=#{tap&.user}",
                     "-DLLVM_ENABLE_LTO=ON",
                     "-DLLVM_INCLUDE_TESTS=OFF",
@@ -48,6 +46,8 @@ class Lld < Formula
   end
 
   test do
+    assert_match version.major_minor_patch.to_s, shell_output("#{bin}/wasm-ld --version")
+
     (testpath/"bin/lld").write <<~BASH
       #!/bin/bash
       exit 1

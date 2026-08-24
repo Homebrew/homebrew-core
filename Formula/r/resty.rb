@@ -10,19 +10,15 @@ class Resty < Formula
   head "https://github.com/micha/resty.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "822ecff7134608cd2f8b77f018ed5cdfe080ff2246ae16676b878d80e37dfee3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ec5b20a27d1c9548291ebe45f91976563e04c018f9c1f8550fd616b715fa6791"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4eb2264c09b0b2578c1bfa8a834bc5d51093f49cb753e2dc192f2ca22a8b3d2a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a3f52cd17e22f2d66c3577cc4f097624db50b8412a7c346568b120367284518"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a3f52cd17e22f2d66c3577cc4f097624db50b8412a7c346568b120367284518"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e5c7150a045b16d9a42e1a15882d3877aae7022500db56222b8ee065ac37a2b7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bc5f8426043e865dfb78710f4df699da3eaadee702b1c0665a0c95630bdc318a"
-    sha256 cellar: :any_skip_relocation, ventura:        "71ee80ce7ac984d228659e5411b95f8e28331b623421a78aa7e5cd70548189ad"
-    sha256 cellar: :any_skip_relocation, monterey:       "71ee80ce7ac984d228659e5411b95f8e28331b623421a78aa7e5cd70548189ad"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0bd9a42083f75c4766e0f880fae27b5a62bdc54c5ce017793f731da663571449"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "6adf9e604e373a8dcb502b444e938daa08a8eee573a1e9b757eb3af4fb2848f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "664f2cbfde2529e7749b5f9b078cf1382fd0cf8f00a984b646d0b6c710a4a3b5"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "142618e3523dfa8518328f4ba6d4bb685acfd7be85116996b7cb7ba4aa8f96a9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "142618e3523dfa8518328f4ba6d4bb685acfd7be85116996b7cb7ba4aa8f96a9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "142618e3523dfa8518328f4ba6d4bb685acfd7be85116996b7cb7ba4aa8f96a9"
+    sha256 cellar: :any_skip_relocation, tahoe:         "a401e4be92df4f5e3ecbd104761ccbcdc35f77376ce428db247dbf8467493914"
+    sha256 cellar: :any_skip_relocation, sequoia:       "a401e4be92df4f5e3ecbd104761ccbcdc35f77376ce428db247dbf8467493914"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a401e4be92df4f5e3ecbd104761ccbcdc35f77376ce428db247dbf8467493914"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c866b5ec9a984338dad43d3d225b39e11847f38723f90b5f1b3032d74f428bf3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0b9d21b797d3a871dac057b6c67ad9d0c52c3d711741fb497f54989eb3f29cd"
   end
 
   uses_from_macos "perl"
@@ -64,6 +60,10 @@ class Resty < Formula
   end
 
   test do
+    # `resty` uses `XDG_DATA_HOME` whenever `XDG_CONFIG_HOME` is set, but only creates the latter.
+    ENV["XDG_DATA_HOME"] = testpath/"share"
+    (testpath/"share/resty").mkpath
+
     cmd = "bash -c '. #{pkgshare}/resty && resty https://api.github.com' 2>&1"
     assert_equal "https://api.github.com*", shell_output(cmd).chomp
     json_pretty_pypp=<<~EOS

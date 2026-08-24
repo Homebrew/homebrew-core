@@ -13,6 +13,8 @@ class Sslsplit < Formula
     patch do
       url "https://github.com/droe/sslsplit/commit/e17de8454a65d2b9ba432856971405dfcf1e7522.patch?full_index=1"
       sha256 "88d558dcb21b1a23fe0b97f41251e7a321b11c37afd70dd07ac1a2d6a4788629"
+      type :backport
+      resolves "https://github.com/droe/sslsplit/issues/290"
     end
   end
 
@@ -39,7 +41,7 @@ class Sslsplit < Formula
   depends_on "openssl@3"
 
   def install
-    ENV["LIBNET_BASE"] = Formula["libnet"].opt_prefix
+    ENV["LIBNET_BASE"] = formula_opt_prefix("libnet")
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end

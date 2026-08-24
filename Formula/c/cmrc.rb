@@ -8,10 +8,12 @@ class Cmrc < Formula
     url "https://github.com/vector-of-bool/cmrc/archive/refs/tags/2.0.1.tar.gz"
     sha256 "edad5faaa0bea1df124b5e8cb00bf0adbd2faeccecd3b5c146796cbcb8b5b71b"
 
-    # cmake 4.0 build patch, upstream pr ref, https://github.com/vector-of-bool/cmrc/pull/48
+    # cmake 4.0 build patch
     patch do
       url "https://github.com/vector-of-bool/cmrc/commit/91c9522ee59654e2f4d9701947a4600a4436d076.patch?full_index=1"
       sha256 "feea3f04cdf49295497f3c48dd3ad5938716e47a9b29aacc98dc6580493d74ff"
+      type :backport
+      resolves "https://github.com/vector-of-bool/cmrc/pull/48"
     end
   end
 

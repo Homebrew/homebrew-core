@@ -5,6 +5,11 @@ class PhraseCli < Formula
   sha256 "c9fe35dee01381c8176a4f6255ebfda16776bcd765bf1699ae5da6f71112e8f3"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   no_autobump! because: :bumped_by_upstream
 
   bottle do
@@ -19,10 +24,7 @@ class PhraseCli < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/phrase/phrase-cli/cmd.PHRASE_CLIENT_VERSION=#{version}
-    ]
+    ldflags = %W[-X github.com/phrase/phrase-cli/cmd.PHRASE_CLIENT_VERSION=#{version}]
     system "go", "build", *std_go_args(ldflags:)
     bin.install_symlink "phrase-cli" => "phrase"
 

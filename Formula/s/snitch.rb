@@ -19,7 +19,6 @@ class Snitch < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/karol-broda/snitch/cmd.Version=#{version}
       -X github.com/karol-broda/snitch/cmd.Date=#{time.iso8601}
       -X github.com/karol-broda/snitch/cmd.Commit=#{tap.user}

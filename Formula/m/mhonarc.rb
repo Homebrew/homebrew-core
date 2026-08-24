@@ -4,11 +4,11 @@ class Mhonarc < Formula
   url "https://cpan.metacpan.org/authors/id/L/LD/LDIDRY/MHonArc-2.6.24.tar.gz"
   sha256 "457dc7374ee59cb75a0729e51cef2f2c52b48180f739d8fd956ea19882815f33"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/sympa-community/mhonarc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d648abb0708b23fccab9dc49db5ced470814ee385962ab662f7209b657fe05e3"
+    sha256 cellar: :any_skip_relocation, all: "b2c159025091e4f1295a217f11f50ec17c9de97c008803cb7de410c963c08db6"
   end
 
   depends_on "perl"
@@ -20,7 +20,7 @@ class Mhonarc < Formula
 
     system "perl", "install.me",
            "-batch",
-           "-perl", Formula["perl"].opt_bin/"perl",
+           "-perl", formula_opt_bin("perl")/"perl",
            "-prefix", prefix
 
     bin.install "mhonarc"

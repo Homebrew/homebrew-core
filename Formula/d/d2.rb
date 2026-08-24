@@ -1,26 +1,24 @@
 class D2 < Formula
   desc "Modern diagram scripting language that turns text to diagrams"
   homepage "https://d2lang.com/"
-  url "https://github.com/terrastruct/d2/archive/refs/tags/v0.7.1.tar.gz"
-  sha256 "b784d6472d53fdaaa7ecc9bdbe23456e2b4a90e18736828028b3f951537e56a1"
+  url "https://github.com/d2lang/d2/archive/refs/tags/v0.8.1.tar.gz"
+  sha256 "e2fb1fe1d7b76196ee01a3a244356e7f22f7d3c30922f8d6a8a193ac05737172"
   license "MPL-2.0"
-  head "https://github.com/terrastruct/d2.git", branch: "master"
+  head "https://github.com/d2lang/d2.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "61a38ce31638ad307378e0031fce216fbf8e5082132ac4866ab5ca81e7337010"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a82ceeada44a2e61646f59f749286ee4347ca364fe568007235089844fe473f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2a82ceeada44a2e61646f59f749286ee4347ca364fe568007235089844fe473f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2a82ceeada44a2e61646f59f749286ee4347ca364fe568007235089844fe473f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cfca943125fe7319b8bd9a09256b9e62a6185d378b2394c307273a488567616e"
-    sha256 cellar: :any_skip_relocation, ventura:       "cfca943125fe7319b8bd9a09256b9e62a6185d378b2394c307273a488567616e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "06d2bb3e6e93b2734ef66111772aefb0120938dabfb2697dad37e119e09f0157"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74e100511019db1329966018c384c0be60853e9e2bb5de50e8d4b092da92552a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "57d3100ef95b35b2f4ee2fe2705f018fb5adaf69760ba13a06c696b7eb4cebdf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "57d3100ef95b35b2f4ee2fe2705f018fb5adaf69760ba13a06c696b7eb4cebdf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "57d3100ef95b35b2f4ee2fe2705f018fb5adaf69760ba13a06c696b7eb4cebdf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "871119c77baa85990ab8b8973f547fa8c5ca0ff9989423df5e41b761f22865c7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c3b084a98f93f3273da808d68bb1ab20c3bae5b936e7c1541b4a4da2e6db6aeb"
+    sha256 cellar: :any,                 x86_64_linux:  "a7203f69bcd53f2dba5c14e004a80e1cb1ed85c1b1e25666bfd480aeaec435e9"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X oss.terrastruct.com/d2/lib/version.Version=#{version}"
+    ldflags = "-X oss.terrastruct.com/d2/lib/version.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
     man1.install "ci/release/template/man/d2.1"
   end

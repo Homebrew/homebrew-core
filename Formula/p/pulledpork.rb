@@ -4,16 +4,18 @@ class Pulledpork < Formula
   url "https://github.com/shirkdog/pulledpork/archive/refs/tags/v0.7.4.tar.gz"
   sha256 "f0149eb6f723b622024295e0ee00e1acade93fae464b9fdc323fdf15e99c388c"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/shirkdog/pulledpork.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c9b5ab56a40129359db878c82837e328f538a1ef9f6db6d7269a1b279bdccb47"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c9b5ab56a40129359db878c82837e328f538a1ef9f6db6d7269a1b279bdccb47"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c9b5ab56a40129359db878c82837e328f538a1ef9f6db6d7269a1b279bdccb47"
-    sha256 cellar: :any_skip_relocation, sonoma:        "23655c1d44460a5b377d2162d7d5516bced7de1ebf83e61cfa9d1bfdc2a79fa8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "df56b23016f75b71f8b064e0cf205087c6ce4b9c8dbcba306a02253ba873ed81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1dc454931a54f5f68d256b1f2aea3cac1fe5fba3ed46661ff71a8184ff684a72"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "291de857f6a091088c7b8d91b0a49e34401673649fdcebee214df00735faa49f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "291de857f6a091088c7b8d91b0a49e34401673649fdcebee214df00735faa49f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "291de857f6a091088c7b8d91b0a49e34401673649fdcebee214df00735faa49f"
+    sha256 cellar: :any_skip_relocation, tahoe:         "47e4de601056914f05561e121cf440a8ee83dda645c750eb3e7e64702b9f78c0"
+    sha256 cellar: :any_skip_relocation, sequoia:       "47e4de601056914f05561e121cf440a8ee83dda645c750eb3e7e64702b9f78c0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "47e4de601056914f05561e121cf440a8ee83dda645c750eb3e7e64702b9f78c0"
+    sha256 cellar: :any,                 arm64_linux:   "04a7b53f00fcb33e5f1e49997284537a91bdf20664a23bdbdca6a4eed03cf6f1"
+    sha256 cellar: :any,                 x86_64_linux:  "2f4d1da872c5d273e5a637684e375304a91a8b65a53002bded83b9c10712afbb"
   end
 
   uses_from_macos "perl"

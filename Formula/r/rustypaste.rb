@@ -1,18 +1,18 @@
 class Rustypaste < Formula
   desc "Minimal file upload/pastebin service"
   homepage "https://blog.orhun.dev/blazingly-fast-file-sharing"
-  url "https://github.com/orhun/rustypaste/archive/refs/tags/v0.17.0.tar.gz"
-  sha256 "1fac087e51b0a635e0a3b2110dcdc34284493b0be70fd6c45ebbccef6f26a610"
+  url "https://github.com/orhun/rustypaste/archive/refs/tags/v0.18.0.tar.gz"
+  sha256 "53db137b8429f44d9bf700063fc42f1047460a60713cac801a5983946facb13f"
   license "MIT"
   head "https://github.com/orhun/rustypaste.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "400cca22276e40f0c2225ea7f5e651c1cc9d7580d106b487a8c7faf58283dd4b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a29fecb11619a84fb25cb72bbea79836e91c34b900a7659237f2c9d0e86560b1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "31effa8cd271b0ffadb2faf5b4beea925a130c3565fff96b1bb591acd2f42107"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5926bdd6eeec5cfb000627980fda648d6e13da689b859bf5f5777b10237d1c0e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e529ca97192236b95261a2b6516c3fca8cb0407d8ff14475973b2897fc6b45f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "368113442cf860e4263f5a176853267ec44ce3cc7f0d47acf741336ba48c8536"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "802cb98ad814a3984f98b38a3306706b63ae590cf87d006f1253dbbb1e33faab"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7badde7285cb1b6ecf3a0677abb0a547af134f2104c0a99598f76a9a7f7cd1a5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a65131e6263546728bd2e131e058037b5e91dad4b4de73e9b53e85623689c0f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9ad50f05f9144817f6a19eed5ea26594c957621675ee582b8c4a91c3f09bc004"
+    sha256 cellar: :any,                 arm64_linux:   "17c58ce436361c03b05ec4d85205e4de8e2919203287321ebfb015c65a9eb83a"
+    sha256 cellar: :any,                 x86_64_linux:  "a9cc542716155d55681257e8edde37e17d38101a99c5d9570a303fe19fc37038"
   end
 
   depends_on "rust" => :build

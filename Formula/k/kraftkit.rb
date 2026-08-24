@@ -1,8 +1,8 @@
 class Kraftkit < Formula
   desc "Build and use highly customized and ultra-lightweight unikernel VMs"
   homepage "https://unikraft.org/docs/cli"
-  url "https://github.com/unikraft/kraftkit/archive/refs/tags/v0.12.13.tar.gz"
-  sha256 "be13ed7ba3e7d640075c3b8b34c6149209c17d67cdbe07d951612456a70f2bde"
+  url "https://github.com/unikraft/kraftkit/archive/refs/tags/v0.12.15.tar.gz"
+  sha256 "285028e9216723ba8b4ec1bf8ce2b4d121ba76f186519b6ebc2fa4b99e53c828"
   license "BSD-3-Clause"
   head "https://github.com/unikraft/kraftkit.git", branch: "staging"
 
@@ -12,12 +12,12 @@ class Kraftkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5734c5fe0827a7c016beb94f612e7e4b6d98e4c99ea953fd42319c991ba52d19"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "884e4a62f40ebd26de51e88052b7aa347f0a2ab17ea639a55849410f0a939500"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "25a39d438a2327d4e8065339866c994fb49ec830adae4357daa0bb6e72ecc667"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8d7ca1800a455ff60530bd50d8d975c0c0de7868b91479e15c8a33d553874474"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3844345bee2029a4ef07742c69f412e1a35409271cf7f5358fedd34f86712974"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "396d3c3fe402989dc2fb43199996113e8bbf5592fd97af24b4c5b70e297f04e4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0a1ff6697028d85f8fcf4e22517155d523209135e395abbc7e654f4a1bf0cbf8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eee06a268e1cd6d16e8530be4651f765a30b459218414824da25b17ada16e729"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0523ba9d72bb17c7e2783a861142d8c499c017f122c7971f921f369dbf73b9ad"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e7b20fdffb21c9b2171a74c37658f002a4550ed2f11eec2016773b3efcfaaac8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a5e8ac3e5594eb862d90ffb7db27cbe4a8deb294692292b1f7326168d04f0cf6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92f2d1640760d6422693fedae1cdcc16a40793625d41e310cc7b65d76f324f73"
   end
 
   depends_on "go" => :build
@@ -26,7 +26,6 @@ class Kraftkit < Formula
     ENV["CGO_ENABLED"] = "1"
 
     ldflags = %W[
-      -s -w
       -X kraftkit.sh/internal/version.version=#{version}
       -X kraftkit.sh/internal/version.commit=#{tap.user}
       -X kraftkit.sh/internal/version.buildTime=#{time.iso8601}

@@ -57,7 +57,7 @@ class Gmime < Formula
     # Avoid hardcoding Cellar paths of dependencies
     inreplace lib/"pkgconfig/gmime-#{version.major}.0.pc" do |s|
       %w[gpgme libassuan libidn2].each do |f|
-        s.gsub! Formula[f].prefix.realpath, Formula[f].opt_prefix
+        s.gsub! Formula[f].prefix.realpath, formula_opt_prefix(f)
       end
     end
 

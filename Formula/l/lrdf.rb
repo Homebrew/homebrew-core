@@ -37,7 +37,7 @@ class Lrdf < Formula
   test do
     cp_r pkgshare/"examples/.", testpath
     system ENV.cc, "add_test.c", "-o", "test", "-I#{include}",
-                   "-I#{Formula["raptor"].opt_include}/raptor2",
+                   "-I#{formula_opt_include("raptor")}/raptor2",
                    "-L#{lib}", "-llrdf"
     system "./test"
     assert_match "<test:id2> <test:foo> \"4\"", File.read("test-out.n3")

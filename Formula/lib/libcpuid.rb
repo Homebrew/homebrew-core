@@ -1,10 +1,9 @@
 class Libcpuid < Formula
   desc "Small C library for x86 CPU detection and feature extraction"
   homepage "https://github.com/anrieff/libcpuid"
-  url "https://github.com/anrieff/libcpuid/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "81f2f40da5d66b8220476e116cb40bca4e6a62c0d22bdeeb8e3856cf14607007"
+  url "https://github.com/anrieff/libcpuid/releases/download/v0.8.1/libcpuid-0.8.1.tar.gz"
+  sha256 "fff2848f25bafadc72063cadaf20095888c1c980d19fdb3df81285e88a94678b"
   license "BSD-2-Clause"
-  head "https://github.com/anrieff/libcpuid.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 sonoma:       "c1e23b9deee10397bca4e32933b1ba265ca04a9649d31a934b17ec561fa9b114"
@@ -13,9 +12,13 @@ class Libcpuid < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "a8bedd7a2bb826cc95ae79026e65ba549cf476e6ce95fa3761e29e80cf6db710"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  head do
+    url "https://github.com/anrieff/libcpuid.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
 
   on_macos do
     depends_on arch: :x86_64
@@ -28,7 +31,7 @@ class Libcpuid < Formula
   end
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose"
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end

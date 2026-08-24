@@ -1,8 +1,8 @@
 class Libngspice < Formula
   desc "Spice circuit simulator as shared library"
   homepage "https://ngspice.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/46/ngspice-46.tar.gz"
-  sha256 "a0d1699af1940b06649276dcd6ff5a566c8c0cad01b2f7b5e99dedbb4d64c19b"
+  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/47/ngspice-47.tar.gz"
+  sha256 "894e649651f1838a14095e5a5439e7d3aa63e87ede14d283173fda4fcdef675f"
   license :cannot_represent
   head "https://git.code.sf.net/p/ngspice/ngspice.git", branch: "master"
 
@@ -11,12 +11,12 @@ class Libngspice < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "00500b457ce45937b6ed298e71f282e31b88a58f6082940601ac4e1e209228b2"
-    sha256 cellar: :any,                 arm64_sequoia: "e1072848e25406c31fa5bb52ca1779c1ca4b256688c9dd6ce2625fb59e7c03a4"
-    sha256 cellar: :any,                 arm64_sonoma:  "a5822141038096046b13ddb18c8a2c6badd0e765f21374198b6b5a3980c3da37"
-    sha256 cellar: :any,                 sonoma:        "5369ab3a5cea69eefebac3568fcded61d1da1508db5d2748903bf4a23bdd5436"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c9b5419a1c2e220a96e88fd71a4e80937cd6a66647b2f4151ee9597ad81e11f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f906342f487dc58e1d53652767a14e6d00181af13096446c4e09a19ed32f24f"
+    sha256 cellar: :any, arm64_tahoe:   "3eab32be60e72229f3d94f6a4360ec55f2a0d7786a2b913163fb675ac7bcc7aa"
+    sha256 cellar: :any, arm64_sequoia: "d69dec3cfc225c7a5e4145d2432e9ba3bb3efa2e85ac70b18a82e16ab00ce5b2"
+    sha256 cellar: :any, arm64_sonoma:  "cec50e5ef2b8bc203c148e97306408ccf69b1c4c24c57e527e8af282f8637c86"
+    sha256 cellar: :any, sonoma:        "967d5992ed420ab0f97b06de1a0f629d9118a8fa4d815f17a8bb442caaf43b0e"
+    sha256 cellar: :any, arm64_linux:   "4c673027778ab5d6bc3ecdd5e119d9798516dae51f629655ed93419a9ac83d8d"
+    sha256 cellar: :any, x86_64_linux:  "edccbf7b471e76ee35481984fd556313e976a214891db61bba35eca41193a6bc"
   end
 
   uses_from_macos "bison" => :build

@@ -1,8 +1,8 @@
 class Podofo < Formula
   desc "Library to work with the PDF file format"
   homepage "https://github.com/podofo/podofo"
-  url "https://github.com/podofo/podofo/archive/refs/tags/1.1.1.tar.gz"
-  sha256 "16943528b37798d8663ffedc97190803e525d0a1dcb021fdbf9d35242831890a"
+  url "https://github.com/podofo/podofo/archive/refs/tags/1.1.2.tar.gz"
+  sha256 "d6ffe6fc173ac6d6e5b00f5cb9db01990cab1bdf7cc03bdeffce3013bc9ec63a"
   license all_of: [
     { any_of: ["LGPL-2.0-or-later", "MPL-2.0"] },
     "GPL-2.0-or-later", # tools/
@@ -23,12 +23,12 @@ class Podofo < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "392967d1daf8e82fdb3f43b5c5fa7af7383eaf92e70a7a81ca735f1fe03f2a77"
-    sha256 cellar: :any, arm64_sequoia: "969d630f0087fac546cf3ed96f36bd66370390f1e0119739554355970a03186e"
-    sha256 cellar: :any, arm64_sonoma:  "a3c7013c1329701490223c332a0fd568137d326026741c43c445a7b7b6980bd9"
-    sha256 cellar: :any, sonoma:        "bb6da5715b993941a7f2b0b2566faf4f732715cd9b373fa5bdd3b6f916d2d04f"
-    sha256 cellar: :any, arm64_linux:   "3d0530719f1b7feff9728dd94ac791cc00b5dc7072d31810bd181c54eeda63f6"
-    sha256 cellar: :any, x86_64_linux:  "e3e5c3282e015433aacc9b1bbf362beec5f533e03507a85c28301ee007c7be86"
+    sha256 cellar: :any, arm64_tahoe:   "1a7b951f6e9d553a2958ed922fd18d08b13a24e429b82820d19ce13787819b7c"
+    sha256 cellar: :any, arm64_sequoia: "0ac2ef3c796d651a47ac64e0b4125b2a3fe1b7d286c1b722f8700145b3bf569b"
+    sha256 cellar: :any, arm64_sonoma:  "6e20f51323ed0c344798ef7f14333b8ec66730d93ce5a7a4d3e77b59e4a3a38f"
+    sha256 cellar: :any, sonoma:        "9c0338f3168227a7c7d5efe212c4333b72f169937e42006903f3b0c0aa8a695d"
+    sha256 cellar: :any, arm64_linux:   "87ce69276e48983f3e63b968fc2b29bca490735691c090467a5d72209a59ac63"
+    sha256 cellar: :any, x86_64_linux:  "e5eb97711f90edd3eb9a85e450010aafcdedc5259912d69f235c3fb9cbf8bd05"
   end
 
   depends_on "cmake" => :build
@@ -59,7 +59,7 @@ class Podofo < Formula
     if OS.mac? && MacOS.version <= :ventura
       # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS
       # rather than LDFLAGS for libc++ in order to correctly link to LLVM's libc++.
-      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", formula_opt_lib("llvm")/"c++"
       # Workaround for error: call to 'from_chars' is ambiguous
       inreplace "src/podofo/private/charconv_compat.h", "#define WANT_FROM_CHARS", ""
     end

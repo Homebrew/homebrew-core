@@ -1,8 +1,8 @@
 class Glooctl < Formula
   desc "Envoy-Powered API Gateway"
   homepage "https://docs.solo.io/gloo-edge/main/reference/cli/glooctl/"
-  url "https://github.com/solo-io/gloo/archive/refs/tags/v1.21.9.tar.gz"
-  sha256 "a623eb34e4c6c6b5c1b5140bf22d252634ea031afaf143efd008269f8bc8483e"
+  url "https://github.com/solo-io/gloo/archive/refs/tags/v1.22.1.tar.gz"
+  sha256 "6ccce7a32746e2ed19f197526107e3096bf20b1b8589cef26435461d30afb739"
   license "Apache-2.0"
   head "https://github.com/solo-io/gloo.git", branch: "main"
 
@@ -16,18 +16,21 @@ class Glooctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d42cfc2be9dc415786a4e6e1f84c83e910050cc76d499c224bb3d2a4cc59ffd5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "750796546036aee5f3734e83b3e91089890d156585be8a0b71aaf1d1672061ee"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5d36bdfae05712e566fd392abbae36c8571cae7ea554f0e0f75900dbb57deacc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d304a2c499c02922b012846a4e5230e3b01643b62959934615ef3d9a72eca851"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e09fff27980d49a8127aea372015f3adfacc8c4b843a8a3aeb55a7930c9f6df"
-    sha256 cellar: :any,                 x86_64_linux:  "6db7690e335124c2f480216d3e9a595922a7f0a74cec6a641d51b4b035974b3d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bdb22a1391da3cf6acdd69b5b0d0e3a19312ac2764641e15c5dd86f70d725cd4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eebfbaf1a68915c9838b13188905d62b91bb2ba93f53a5e21b63f6fe312c7f78"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "18e3be2185fa497aa829d140eced7a376fbe3fe103ab76fb91bf46bef1d52184"
+    sha256 cellar: :any_skip_relocation, sonoma:        "68eb4f1fdad3f2af577c98448772f4f0aed7f0454086e04a29b3eb22997a4ac8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c23f833305e24867ef3ee961077e69a303099de19860cb3ed4d5242bad78f03f"
+    sha256 cellar: :any,                 x86_64_linux:  "c2b9489e7f45a58316995a1cf515f26584eee8e0d208a49a10a752b9d267d799"
   end
+
+  deprecate! date: "2026-12-31", because: :deprecated_upstream
+  disable! date: "2027-12-31", because: :deprecated_upstream
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/solo-io/gloo/pkg/version.Version=#{version}"
+    ldflags = "--X github.com/solo-io/gloo/pkg/version.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./projects/gloo/cli/cmd"
 
     generate_completions_from_executable(bin/"glooctl", "completion", shells: [:bash, :zsh])

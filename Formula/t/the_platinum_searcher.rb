@@ -27,15 +27,16 @@ class ThePlatinumSearcher < Formula
 
   conflicts_with "tcl-tk", because: "both install `pt` binaries"
 
-  # Patch to remove godep dependency. Remove when this is merged into release:
-  # https://github.com/monochromegane/the_platinum_searcher/pull/211
+  # Patch to remove godep dependency. Remove when this is merged into a release.
   patch do
     url "https://github.com/monochromegane/the_platinum_searcher/commit/763f368fe26fa44a12e1a37598185322aa30ba8f.patch?full_index=1"
     sha256 "2ee0f53065663f22f3c44b30c5804e37b8cb49200a30c4513b9ef668441dd543"
+    type :unofficial
+    resolves "https://github.com/monochromegane/the_platinum_searcher/pull/211"
   end
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"pt"), "./cmd/pt"
+    system "go", "build", *std_go_args(output: bin/"pt"), "./cmd/pt"
   end
 
   test do

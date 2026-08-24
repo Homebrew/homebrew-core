@@ -5,4 +5,4 @@ self-hosted-runner:
 # organization. `null` means disabling configuration variables check.
 # Empty array means no configuration variable is allowed.
 config-variables:
-  - BREW_COMMIT_APP_ID
+  - BREW_COMMIT_CLIENT_ID

@@ -138,7 +138,7 @@ class BoostAT185 < Formula
       }
     CPP
     system ENV.cxx, "test.cpp", "-std=c++14", "-o", "test", "-I#{include}",
-                    "-L#{lib}", "-lboost_iostreams", "-L#{Formula["zstd"].opt_lib}", "-lzstd"
+                    "-L#{lib}", "-lboost_iostreams", "-L#{formula_opt_lib("zstd")}", "-lzstd"
     system "./test"
   end
 end

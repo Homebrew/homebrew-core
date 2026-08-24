@@ -31,7 +31,7 @@ class PassOtp < Formula
       %commit
     GPG
     begin
-      system Formula["gnupg"].opt_bin/"gpg", "--batch", "--gen-key", "batch.gpg"
+      system formula_opt_bin("gnupg")/"gpg", "--batch", "--gen-key", "batch.gpg"
       system "pass", "init", "Testing"
       require "open3"
       Open3.popen3("pass", "otp", "insert", "hotp-secret") do |stdin, _, _|
@@ -40,7 +40,7 @@ class PassOtp < Formula
       end
       assert_equal "073348", shell_output("pass otp show hotp-secret").strip
     ensure
-      system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
+      system formula_opt_bin("gnupg")/"gpgconf", "--kill", "gpg-agent"
     end
   end
 end

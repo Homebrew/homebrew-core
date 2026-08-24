@@ -1,19 +1,18 @@
 class Chromaprint < Formula
   desc "Core component of the AcoustID project (Audio fingerprinting)"
   homepage "https://acoustid.org/chromaprint"
-  url "https://github.com/acoustid/chromaprint/releases/download/v1.6.0/chromaprint-1.6.0.tar.gz"
-  sha256 "9d33482e56a1389a37a0d6742c376139fa43e3b8a63d29003222b93db2cb40da"
+  url "https://github.com/acoustid/chromaprint/releases/download/v1.6.1/chromaprint-1.6.1.tar.gz"
+  sha256 "3368805af0ee47b9df74df10b5001a44569e01df2844dab520031720dde9ad23"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4dc6986a45afaf618fee24fad316ea1380dd32ee8c682f0d6486cbe7c4178a29"
-    sha256 cellar: :any,                 arm64_sequoia: "6830a8d152f94b3e23993d6dd85e1edefc1ededcc4af3e98a089b61fe71b1342"
-    sha256 cellar: :any,                 arm64_sonoma:  "ed56a1cf3fc3d3748c593fc9e38d783b8299023000d3197526443410519141b3"
-    sha256 cellar: :any,                 arm64_ventura: "55c4b88f06efd67cfe9f17948f10266ed4ce565bcfdbcb18e5610bd6f31f6978"
-    sha256 cellar: :any,                 sonoma:        "4df5e7cfb646cbc99f90997aefa13232f3531739d76fa4e985cdb09addba8a30"
-    sha256 cellar: :any,                 ventura:       "80d91f255c8ccc0bda1d0d60c3064ce6aa03962dcbf8bf9546b58abd3dd8d75f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f10d33931b5924245417ef9c879ce51712326b150bf839da05b1d8eb8560f9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1ca1441154c133e79dd7bc470b21978df7882ccd8949c33ff1fb0d2f38eea72"
+    sha256 cellar: :any, arm64_tahoe:   "4bbfd1fff49b1e3f602e4c22fc57432e3235ed93c931d18f6e16c9e8f5ac61a8"
+    sha256 cellar: :any, arm64_sequoia: "2707ad3b5485c678f3f291c02ab621d30771c89509b1df446458e49610b3f197"
+    sha256 cellar: :any, arm64_sonoma:  "6ec11502595524570391b3afbd99910216272d8d1444e24214b1570d0c34936d"
+    sha256 cellar: :any, sonoma:        "454684649fd41eace479350f18b1fc2602f4e08747e74f5a0c187a7dd29fec9d"
+    sha256 cellar: :any, arm64_linux:   "1c468590de3d8df81fe2a37748cfaa56a0f972bb01ed86a6bf9a1208bd2463ec"
+    sha256 cellar: :any, x86_64_linux:  "59606ff7903edb508f2b2db6f48e8e7b76943a9010940274db833515c18a5ae9"
   end
 
   depends_on "cmake" => :build

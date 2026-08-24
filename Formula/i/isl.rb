@@ -7,8 +7,8 @@ class Isl < Formula
   # package detection.
   desc "Integer Set Library for the polyhedral model"
   homepage "https://libisl.sourceforge.io/"
-  url "https://libisl.sourceforge.io/isl-0.27.tar.xz"
-  sha256 "6d8babb59e7b672e8cb7870e874f3f7b813b6e00e6af3f8b04f7579965643d5c"
+  url "https://libisl.sourceforge.io/isl-0.28.tar.xz"
+  sha256 "3dc31b8e1b18329e42d5dfbf84dd55e15c59b61569a2ab246f61497d9592f727"
   license "MIT"
 
   livecheck do
@@ -17,18 +17,14 @@ class Isl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "8177901745f0a718e0047b78cead08a40308055e648790272b9fe2b8aefca259"
-    sha256 cellar: :any,                 arm64_sequoia:  "de143fddb0e20b6b73016ead1e625ebd429db53918200d093e4da98f1e758889"
-    sha256 cellar: :any,                 arm64_sonoma:   "8f1af90ff2967e80c1a757e8e6aae61c9f6876a8ad98c1613e252f7daaa8a483"
-    sha256 cellar: :any,                 arm64_ventura:  "7d74b1abc36c01f14202d8d4f3105826cca0a1ac5db3fd831c8fd3673097e2d6"
-    sha256 cellar: :any,                 arm64_monterey: "f09ed357251a8f1771f93c22b5c18441299cf4ecbabf4f83a63b71abba565904"
-    sha256 cellar: :any,                 tahoe:          "1e1c718563e9292e45f35d4dce44eb46a0c47f236a789e5e8ad1c278fe74c1e5"
-    sha256 cellar: :any,                 sequoia:        "edae3d6050998a8b6c40d79244d1c73231537371e7a36a3a72f756ed965088be"
-    sha256 cellar: :any,                 sonoma:         "23be453b3fbe9ab4a1baeb8a99eea31a6362825f03f74a1c7015bb0bda9ad4d8"
-    sha256 cellar: :any,                 ventura:        "df3c2c3161184a8cea83dfda47bbf31f81e3527951c2dc72bdeb2ac1638e2709"
-    sha256 cellar: :any,                 monterey:       "fea18e3734c269de46cb70dc7a263e5784e0e67d16e59598aaea22618c6a4650"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "58237313da104ff5b3f16289cea5fccd51465e4ef88f977ea7f91a2a578be1d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25c8bf618d4e3c68c27eed634bd7695104ff5daa37246253aabce80d7c1ac7f5"
+    sha256 cellar: :any, arm64_tahoe:   "9adc3d36bfaa7652e75d63fa7a61942ef9a9d1c5e857e8e38a578a78636bf4c2"
+    sha256 cellar: :any, arm64_sequoia: "a0b9da629db115bc15e5762887c455fdb13ac0a8028f20ee2639eae1f578c762"
+    sha256 cellar: :any, arm64_sonoma:  "56df07c199b66181731ee140c66d2cf368bbd4a2dc365bd0518782cea7a4494e"
+    sha256 cellar: :any, tahoe:         "2d537de6aaeab09fb237856bba6dec9cb5c24c3cac172ea322eb12a4980ef92d"
+    sha256 cellar: :any, sequoia:       "dca49213f0e9bccffe590c7477de4455a0dfbb65ab542854b1c1f52abfa10213"
+    sha256 cellar: :any, sonoma:        "c1e478f3a363ca5ea1ac4520db7c6c4083139dc77fe58d6d30609795d2c0909d"
+    sha256 cellar: :any, arm64_linux:   "9bb3cf80a3389d78be3ddeb7b6dfddf38ae5e7f036dcb532d53e36bc79bdef18"
+    sha256 cellar: :any, x86_64_linux:  "71ff58966339279d9a1012079f817a53d38f269fd6e4c86bc2ea17534a73c86e"
   end
 
   head do
@@ -47,7 +43,7 @@ class Isl < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--with-gmp=system",
-                          "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}"
+                          "--with-gmp-prefix=#{formula_opt_prefix("gmp")}"
     system "make"
     system "make", "install"
     (share/"gdb/auto-load").install Dir["#{lib}/*-gdb.py"]

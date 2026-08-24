@@ -3,24 +3,20 @@ class Vapoursynth < Formula
 
   desc "Video processing framework with simplicity in mind"
   homepage "https://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/refs/tags/R77.tar.gz"
-  sha256 "f71653355983fc245ef811a64d2b8f5b0ba131c0bb330b3346d435e1926187e2"
+  url "https://files.pythonhosted.org/packages/2d/4d/bb7fcc7f304e7248cf6c83ec0c3c97ee4b4fa2e05bfbbe2a578a9b41fab9/vapoursynth-79.tar.gz"
+  sha256 "01311b79ef22334115f79a78a6d7548bd29f35cc903ee0cea12443d49e142eb1"
   license "LGPL-2.1-or-later"
   compatibility_version 2
   head "https://github.com/vapoursynth/vapoursynth.git", branch: "master"
 
-  livecheck do
-    url :stable
-    regex(/^R(\d+(?:\.\d+)*?)$/i)
-  end
-
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "5b81e80111c8a1f9db2bb554bbdcad5b9c959f763299890c164d837bdb0570ec"
-    sha256 cellar: :any, arm64_sequoia: "49643008017052b21d32126fd2e6f7726bf7d2a793780d14f0b3a9df979d8ebc"
-    sha256 cellar: :any, arm64_sonoma:  "7dad3b4db3d271d81010899df86455ee3b2f06093862e2ae0c555c49b70c4531"
-    sha256 cellar: :any, sonoma:        "6f97e77cc99a99e96c29dd95662da134b5026a32893ff43ab9246c59e5625294"
-    sha256 cellar: :any, arm64_linux:   "a354a21e2ce64835e1ff6198e992476392894b8238e0bbd13237b9f3bfd0c477"
-    sha256 cellar: :any, x86_64_linux:  "7a2a6713edee201c9edab54ad74f0201d347b8416ee6212332d62866086dbdda"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "c5ff77b3f31024cfbfe24773cf1631ef219cc4de0b359bde85a44a8b882d6bf4"
+    sha256 cellar: :any, arm64_sequoia: "e20dd4d4f2548c9a5cd4eefdde4625a71b454e465b209165e5c2581d560bec1b"
+    sha256 cellar: :any, arm64_sonoma:  "f65efd43ac1003437bcd5867249b21985d61dbf1aec80c968a730d54e1aa2e17"
+    sha256 cellar: :any, sonoma:        "56d36a07465ace8bfbd6e31d142b4982fa4d072b7b6c01553100d8f34b7252e0"
+    sha256 cellar: :any, arm64_linux:   "93540be19ad3da0bcb075e8a4a531160e8c6f10f9032393d85eba4e826a77d96"
+    sha256 cellar: :any, x86_64_linux:  "a1e856c46192c84396bcd5d403f1b954323d20f30e77627af0af95b67a0289f5"
   end
 
   depends_on "ninja" => :build
@@ -43,8 +39,8 @@ class Vapoursynth < Formula
   def python3 = "python3.14"
 
   def install
-    ENV.runtime_cpu_detection if Hardware::CPU.intel?
-    ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/c++" if OS.mac? && MacOS.version <= :ventura
+    ENV.runtime_cpu_detection
+    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("llvm")}/c++" if OS.mac? && MacOS.version <= :ventura
 
     # NOTE: Cannot `pip install` into prefix as VapourSynth expects a standard
     # installation and won't work with Homebrew's symlink directory structure.

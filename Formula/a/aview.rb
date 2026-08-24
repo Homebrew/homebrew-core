@@ -29,8 +29,8 @@ class Aview < Formula
   depends_on "aalib"
 
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/aview/1.3.0rc1.patch"
-    sha256 "72a979eff325056f709cee49f5836a425635bd72078515a5949a812aa68741aa"
+    file "Patches/aview/1.3.0rc1.patch"
+    type :unofficial
   end
 
   def install

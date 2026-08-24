@@ -2,7 +2,7 @@ class MscGenerator < Formula
   desc "Draws signalling charts from textual description"
   homepage "https://gitlab.com/msc-generator/msc-generator"
   url "https://gitlab.com/api/v4/projects/31167732/packages/generic/msc-generator/8.6.4/msc-generator-8.6.4.tar.gz"
-  sha256 "4f9b44f5439c512f95b686755526fd8772aa9df8c52e7e13bd60276a2d558557"
+  sha256 "499d8e234dae13ae6b551cb8991b6f4db980bb0f69705501e7505aad01ca5e95"
   license "AGPL-3.0-or-later"
 
   livecheck do
@@ -17,12 +17,13 @@ class MscGenerator < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "77320a8ba2d8b05c1bb4accb40bb8d8c2863326056916faebd02ec5d6baf7f1e"
-    sha256 arm64_sequoia: "d9edc1a402e83f259f311d7b9820ae2d2f25a15aaf2a71fbcab55ad826054823"
-    sha256 arm64_sonoma:  "443bfcb59db4bf1b282fd5a3805c16e60026ffd6d2ebeb40fbd67250dfce8d4b"
-    sha256 sonoma:        "aaf99db5b0360a364b215c53df1b5976a86afde615ccd62f4453fa779d2fb964"
-    sha256 arm64_linux:   "bcf697f0dad4b80dbac6bf30f4de6d20723f0fdacb502eb7d7c3ee61c175df9e"
-    sha256 x86_64_linux:  "c4cd3b10cf1a761607bce952b2ce0a67bf003dfee4027feba19ff2c20bb3bb62"
+    rebuild 1
+    sha256 arm64_tahoe:   "da6b02da65c156fad03acf190e947d13116848bed3cb93af038be2659c8750b1"
+    sha256 arm64_sequoia: "3704e725252a494693cece5391dce8a8c966a6ef9841fa52eb69939a9ec31106"
+    sha256 arm64_sonoma:  "ab8965fd245e03fa88e1d6009a35910376bcd3fecb9870fa5054a7e1c920699e"
+    sha256 sonoma:        "4922c995be679a10e74c100ca1ece8527120d5d2b830b1ae12e76089d6c9b393"
+    sha256 arm64_linux:   "9665fda4d8a10b843b86a7a907b18e72f04e8c9592bc7f31bef7a5f1d5961f63"
+    sha256 x86_64_linux:  "0497fb347a903cfdb1344f3561c4f8bfa7ed8f0fa3b69f803406e4192cdd95be"
   end
 
   depends_on "autoconf" => :build
@@ -36,7 +37,7 @@ class MscGenerator < Formula
   depends_on "glpk"
   depends_on "graphviz"
   depends_on "libpng"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "tinyxml2"
 
   on_macos do
@@ -69,7 +70,7 @@ class MscGenerator < Formula
     if OS.mac?
       args << "OBJCXX=/usr/bin/clang++"
       ENV.append_to_cflags "-DNDEBUG"
-      ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
+      ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin"
       ENV["MAKE"] = make = "gmake"
     end
 

@@ -38,19 +38,19 @@ jobs:
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@main
+        uses: Homebrew/actions/setup-homebrew@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           core: true
           cask: false
 
       - name: Configure Git user
         id: git-user-config
-        uses: Homebrew/actions/git-user-config@main
+        uses: Homebrew/actions/git-user-config@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           username: BrewTestBot
 
       - name: Set up commit signing
-        uses: Homebrew/actions/setup-commit-signing@main
+        uses: Homebrew/actions/setup-commit-signing@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
@@ -60,13 +60,13 @@ jobs:
 
       - name: Remove disabled packages
         id: remove_disabled
-        uses: Homebrew/actions/remove-disabled-packages@main
+        uses: Homebrew/actions/remove-disabled-packages@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         env:
           HOMEBREW_REQUIRE_TAP_TRUST: 1
 
       - name: Push commits
         if: fromJson(steps.remove_disabled.outputs.packages-removed)
-        uses: Homebrew/actions/git-try-push@main
+        uses: Homebrew/actions/git-try-push@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
@@ -77,7 +77,7 @@ jobs:
 
       - name: Create pull request
         if: fromJson(steps.remove_disabled.outputs.packages-removed)
-        uses: Homebrew/actions/create-pull-request@main
+        uses: Homebrew/actions/create-pull-request@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           token: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
           base: ${{ github.event.repository.default_branch }}
@@ -94,7 +94,7 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - name: Create issue on failure
-        uses: Homebrew/actions/create-or-update-issue@main
+        uses: Homebrew/actions/create-or-update-issue@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           title: Disabled package removal failed
           body: Run failed at ${{ env.RUN_URL }}

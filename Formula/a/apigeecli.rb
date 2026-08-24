@@ -24,14 +24,8 @@ class Apigeecli < Formula
 
   def install
     ENV["CGO_ENABLED"] = "0"
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
-      -X main.commit=#{version}
-      -X main.date=#{time.iso8601}
-    ]
     gcflags = 'all="-l"'
-    system "go", "build", *std_go_args(ldflags:, gcflags:), "./cmd/apigeecli"
+    system "go", "build", *std_go_args(ldflags: :goreleaser, gcflags:), "./cmd/apigeecli"
 
     generate_completions_from_executable(bin/"apigeecli", shell_parameter_format: :cobra)
   end

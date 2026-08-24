@@ -20,10 +20,12 @@ class Jerryscript < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :test
 
-  # rpath patch, upstream pr ref, https://github.com/jerryscript-project/jerryscript/pull/5204
+  # rpath patch
   patch do
     url "https://github.com/jerryscript-project/jerryscript/commit/e8948ac3f34079ac6f3d6f47f8998b82f16b1621.patch?full_index=1"
     sha256 "ebce75941e1f34118fed14e317500b0ab69f48182ba9cce8635e9f62fe9aa4d1"
+    type :unofficial
+    resolves "https://github.com/jerryscript-project/jerryscript/pull/5204"
   end
 
   def install

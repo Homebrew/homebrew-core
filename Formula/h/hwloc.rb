@@ -1,8 +1,8 @@
 class Hwloc < Formula
   desc "Portable abstraction of the hierarchical topology of modern architectures"
   homepage "https://www.open-mpi.org/projects/hwloc/"
-  url "https://download.open-mpi.org/release/hwloc/v2.13/hwloc-2.13.0.tar.bz2"
-  sha256 "52e936afb6ebd80f171f763fcf14f7b1f5ce98b125af5dd2f328b873b1fd0dab"
+  url "https://download.open-mpi.org/release/hwloc/v2.14/hwloc-2.14.0.tar.bz2"
+  sha256 "966b9bb3e9f29f8d65ce8d106779e457f40e246a645e584b100772a42f9ae94b"
   license "BSD-3-Clause"
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class Hwloc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9f8b4882a8b58c18900e03bb2ecadabc828ba3a50978fa33e4d9c8f4c83fe674"
-    sha256 cellar: :any,                 arm64_sequoia: "ad9de3dc933720a5e61ef567bee28793b5c283055d51a79e984133b37cc0d635"
-    sha256 cellar: :any,                 arm64_sonoma:  "841bca31067f7ae880010f9abacfc9bb59f2d675d51afdfebd768b06b1cbb7de"
-    sha256 cellar: :any,                 sonoma:        "2232073d9ed0f9d2783309ac0963b0042b2b9db381699a5b023cee251be0c86a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "147461c3c53fb69fa1985ede4a7a1da3d658c675f6d380d51788b7d29c457fa5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "35e4c018c3758ea1f9a6124ea34c1832a71b34b97c5fdab3fe25343f9f2f5fb4"
+    sha256 cellar: :any, arm64_tahoe:   "fadf2b01c4d8501f3143482cd8022f0f3af3d6f82da20007bf56e11e49be8e3c"
+    sha256 cellar: :any, arm64_sequoia: "8c70695320ac8ce21235f5ca2f5f9017f309d3a6b2cd8882184c4b3a2383e281"
+    sha256 cellar: :any, arm64_sonoma:  "4bcf523dc45275b6c7f18cbafea174e15f0e88e4653b15ac5971a93ce50dabd1"
+    sha256 cellar: :any, sonoma:        "df9fa8f78e8708e728184396d4721aca222186cd1c314dba20a04d4dccf956ea"
+    sha256 cellar: :any, arm64_linux:   "8c02236bcac41db3cffd81bf1ca859ee11e9ef34744d5175396e85326a5c39f7"
+    sha256 cellar: :any, x86_64_linux:  "8b4c5dcbbe2171f0f9384915001c086dc2909318ce34b61ba5285644b4222120"
   end
 
   head do

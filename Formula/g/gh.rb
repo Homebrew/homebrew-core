@@ -1,8 +1,8 @@
 class Gh < Formula
   desc "GitHub command-line tool"
   homepage "https://cli.github.com/"
-  url "https://github.com/cli/cli/archive/refs/tags/v2.95.0.tar.gz"
-  sha256 "b6a1c88cbd15f49f60a68d210a117a60b349bcb0d028a0dca0ef2d9dc92bd028"
+  url "https://github.com/cli/cli/archive/refs/tags/v2.98.0.tar.gz"
+  sha256 "abada9e8b550547ac93f99250f3ad4d90ad623fa245cb54cb058f78030a6a5f6"
   license "MIT"
   compatibility_version 1
   head "https://github.com/cli/cli.git", branch: "trunk"
@@ -13,12 +13,12 @@ class Gh < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b124594105ed7619f64f34ae8b85fe9e09b22a1a788c13fc81bb98d03b81b255"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5a3e4bef34be78b518a9acd23588985a3736b4f1a81b66b9f221a70ceaf3fccf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d7734574d0dc55dd79d3666819b433e1f3a4471755d4bfa9b1accaeecd1d555b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8e87ad38891e466431c30ae4af0aedaf79c3a88981b9bcfbdeb708c4d4d48ff7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c288bc5d09ce9d0ef63f0248dfc0110dbaf745649d1a0b09ed1e0d16aba8145"
-    sha256 cellar: :any,                 x86_64_linux:  "38dad566289ecfd555bdcc90cba84a656234787fd9db82a2d598cea40995f6a5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a726b1b74d9ec5d18cdd68df30b1eb1f4d0c2ceff1a93d42f227d9501cc92c07"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "768217b119ea7680432b1f85ea0dbe1adc56d96ec99cec417fdc02119ae16e0b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "334054269a855a8c0a6eb39ceb2e43876c2f83b19f9274f2622195e8994fb80e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f2b15b8c79586e7332309c65323d15bbefb546904edf20e732cbb3d076c43684"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "04fbf1a48ed426df37de4071b395d740c2340ff93123ebbbe96fa8a98f3e3d4f"
+    sha256 cellar: :any,                 x86_64_linux:  "4ceee03c3936c0dda1ec1bf2e69501f75b4861b333d89d9207c4194febecebd4"
   end
 
   depends_on "go" => :build
@@ -33,12 +33,15 @@ class Gh < Formula
     end
 
     ldflags = %w[-s -w]
+    ENV.prepend_path "PATH", buildpath/"bin"
 
     with_env(
       "GH_VERSION"   => gh_version,
+      "GOBIN"        => buildpath/"bin",
       "GO_LDFLAGS"   => ldflags.join(" "),
       "GO_BUILDTAGS" => "updateable",
     ) do
+      system "make", "licenses"
       system "make", "bin/gh", "manpages"
     end
     bin.install "bin/gh"
@@ -50,5 +53,6 @@ class Gh < Formula
     assert_match "gh version #{version}", shell_output("#{bin}/gh --version")
     assert_match "Work with GitHub issues", shell_output("#{bin}/gh issue 2>&1")
     assert_match "Work with GitHub pull requests", shell_output("#{bin}/gh pr 2>&1")
+    assert_match "GitHub CLI third-party dependencies", shell_output("#{bin}/gh licenses")
   end
 end

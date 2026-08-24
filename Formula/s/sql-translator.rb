@@ -4,16 +4,17 @@ class SqlTranslator < Formula
   url "https://cpan.metacpan.org/authors/id/V/VE/VEESH/SQL-Translator-1.66.tar.gz"
   sha256 "f7ff7e369d8293a394cb3783b54b745e7faf44422e8a83bfcc359378a6e56145"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "34f3eb0d5923e69a001f4a993058c0be8a23bc023aca0bbc5f2a535f26aad749"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "34f3eb0d5923e69a001f4a993058c0be8a23bc023aca0bbc5f2a535f26aad749"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "34f3eb0d5923e69a001f4a993058c0be8a23bc023aca0bbc5f2a535f26aad749"
-    sha256 cellar: :any_skip_relocation, tahoe:         "8f8d39dc7182ba755238b95d0917e3aaf9fc81621fbd7894ae23d51b5f5e296b"
-    sha256 cellar: :any_skip_relocation, sequoia:       "8f8d39dc7182ba755238b95d0917e3aaf9fc81621fbd7894ae23d51b5f5e296b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8f8d39dc7182ba755238b95d0917e3aaf9fc81621fbd7894ae23d51b5f5e296b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b9273903ceacc6788c9b65c640c89fcedba9f377bfc49bdb2c6a8ce66a113973"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "793d5e35befc2053f2090c6ace40a2df7f2fece6fe3246c98447b0c147e11944"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4f0a9452de4ebb2cb2cdce95a4c6c915d635a2a7ee0bdfd456e1adf19c7e7ccc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4f0a9452de4ebb2cb2cdce95a4c6c915d635a2a7ee0bdfd456e1adf19c7e7ccc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4f0a9452de4ebb2cb2cdce95a4c6c915d635a2a7ee0bdfd456e1adf19c7e7ccc"
+    sha256 cellar: :any_skip_relocation, tahoe:         "5fbd99a19b9f928cc2885e10ba95730a3f77a3a4aec087e1493a8f3b7c7b62ab"
+    sha256 cellar: :any_skip_relocation, sequoia:       "5fbd99a19b9f928cc2885e10ba95730a3f77a3a4aec087e1493a8f3b7c7b62ab"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5fbd99a19b9f928cc2885e10ba95730a3f77a3a4aec087e1493a8f3b7c7b62ab"
+    sha256 cellar: :any,                 arm64_linux:   "f7a5b25d43110d55ae1204b78c20e2fc41f4fa2f26661c73ac6a431e845b0215"
+    sha256 cellar: :any,                 x86_64_linux:  "8b3ab6f4dd19fca0b7b862e9d61dced2661f9175e9858a2859b33c6e06110a41"
   end
 
   uses_from_macos "perl"

@@ -22,6 +22,8 @@ class Aha < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c018344a8a20792dbcc444893c62279ea87a97539e1cf0141ddf7b2cf538a9fb"
   end
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end

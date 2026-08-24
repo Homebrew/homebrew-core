@@ -25,10 +25,12 @@ class Hof < Formula
 
   depends_on "go" => :build
 
-  # patch to add Go 1.26 testDeps ModulePath, upstream pr ref, https://github.com/hofstadter-io/hof/pull/410
+  # patch to add Go 1.26 testDeps ModulePath
   patch do
     url "https://github.com/hofstadter-io/hof/commit/7d0389788a67be9bed36ab4d9ac8768b6890aff3.patch?full_index=1"
     sha256 "662ef04018e749a0772ad099af209fc4e0caefba4ee0e7633be33182e0741dae"
+    type :backport
+    resolves "https://github.com/hofstadter-io/hof/pull/410"
   end
 
   def install
@@ -36,7 +38,6 @@ class Hof < Formula
     os = OS.kernel_name.downcase
 
     ldflags = %W[
-      -s -w
       -X github.com/hofstadter-io/hof/cmd/hof/verinfo.Version=#{version}
       -X github.com/hofstadter-io/hof/cmd/hof/verinfo.Commit=#{tap.user}
       -X github.com/hofstadter-io/hof/cmd/hof/verinfo.BuildDate=#{time.iso8601}

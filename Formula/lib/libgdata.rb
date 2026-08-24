@@ -44,11 +44,11 @@ class Libgdata < Formula
   end
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("libsoup@2")/"pkgconfig"
     ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup@2"].opt_share
     ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
 
-    curl_lib = OS.mac? ? "#{MacOS.sdk_path}/usr/lib" : Formula["curl"].opt_lib
+    curl_lib = OS.mac? ? "#{MacOS.sdk_path}/usr/lib" : formula_opt_lib("curl")
     ENV.append "LDFLAGS", "-L#{curl_lib} -lcurl"
 
     args = %w[
@@ -76,8 +76,8 @@ class Libgdata < Formula
       }
     C
 
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["icu4c"].opt_lib/"pkgconfig" if OS.mac?
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("icu4c")/"pkgconfig" if OS.mac?
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("libsoup@2")/"pkgconfig"
     flags = shell_output("pkgconf --cflags --libs libgdata").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"

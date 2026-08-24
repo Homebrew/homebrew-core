@@ -14,12 +14,14 @@ class SpeechTools < Formula
     patch do
       url "https://github.com/festvox/speech_tools/commit/06141f69d21bf507a9becb5405265dc362edb0df.patch?full_index=1"
       sha256 "a42493982af11a914d2cf8b97edd287a54b5cabffe6c8fe0e4a9076c211e85ef"
+      type :backport
     end
 
     # Backport fix for building with -fno-common
     patch do
       url "https://github.com/festvox/speech_tools/commit/55bdddcca80906d63090872309c0a7838bf44f44.patch?full_index=1"
       sha256 "0d0b97ea85550a55d09627d388345b16d467f5cbcbb4ab35aa51479950557048"
+      type :backport
     end
   end
 

@@ -1,17 +1,17 @@
 class TechnitiumDns < Formula
   desc "Self host a DNS server for privacy & security"
   homepage "https://technitium.com/dns/"
-  url "https://github.com/TechnitiumSoftware/DnsServer/archive/refs/tags/v15.2.0.tar.gz"
-  sha256 "9247b3c70a8f58d336741819b4550b29937815dc535d1cc0f36ffd7cedb8860c"
+  url "https://github.com/TechnitiumSoftware/DnsServer/archive/refs/tags/v15.4.0.tar.gz"
+  sha256 "07930c2f1d6ac40d18bd73ac897cc49c8bc1effdfe0819e56910e06a53dd41b1"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cfd22e86094c1f55fa0edbd719bae8cefb7faa29e447ff1f1e5836af4a6dabb6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c3178955056ccf75f745a9b66c3f4a9ef9f42dad613d6abbcd29a1407b35017"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "64f8d5ede9fa6cd5cfd6a049ffa02f96bb5e508b365fe2ba7f7227eb9e68ff0c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "703600b68f7becd81a473f9f5a076ba109ac2011c13d2a5ab62b9907adec1689"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "40c15ba74c3a852d580e233d67c741b93fba5fc704ece85d64022e95dbf4b9e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a6ba13b569ff7e40f3c0b59281b4ce69178a2b1b2c27da4f4b83f433181e732"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c1f9589bb845e20fe1656aa2f5497cfc6c38c7e8afac99e43e35e97a2e1e094d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ac6b266bc1b4049133a31fe2dc740c6c4fb78790c4c0c9c86177251b56fc342"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e6be35d3f857eefd16c05243ae0477cc563c1c7c4032807734f2bddc5259217"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dd1e87cc0bcf3e8d38de1973058325cb731ced1fad42abe97551a6c536f50191"
+    sha256 cellar: :any,                 arm64_linux:   "2d4c052c18c61fd0e4084d0c737a47639ae0f443d72a3ffe71a919eb8f38ab8c"
+    sha256 cellar: :any,                 x86_64_linux:  "9d865328dc5a00d9194c26dabbdb5c0fe610bb40e5c738688a5c09ee267c81f0"
   end
 
   depends_on "dotnet"
@@ -42,7 +42,7 @@ class TechnitiumDns < Formula
 
     (bin/"technitium-dns").write <<~SHELL
       #!/bin/bash
-      export DYLD_FALLBACK_LIBRARY_PATH=#{Formula["libmsquic"].opt_lib}
+      export DYLD_FALLBACK_LIBRARY_PATH=#{formula_opt_lib("libmsquic")}
       export DOTNET_ROOT=#{dotnet.opt_libexec}
       exec #{dotnet.opt_libexec}/dotnet #{libexec}/DnsServerApp.dll #{etc}/technitium-dns "$@"
     SHELL

@@ -4,15 +4,16 @@ class Handbrake < Formula
   url "https://github.com/HandBrake/HandBrake/releases/download/1.11.2/HandBrake-1.11.2-source.tar.bz2"
   sha256 "12b046350f2422dc28783ff94229aff4ba5fe5e683431e057355d36163b2593a"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/HandBrake/HandBrake.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "9aab34cd5341ac8b56e1cc56143395979f0c2f8d860be8b0fa6999c12822711f"
-    sha256 cellar: :any, arm64_sequoia: "84d5901e315408398b7389155a09ee58bd0714291b14001fb6c8d112db69e5de"
-    sha256 cellar: :any, arm64_sonoma:  "300222b4c88313e367d0212d30001d6affa2cd2b5038f4dbd727d1858c89400e"
-    sha256 cellar: :any, sonoma:        "c870c41a1c1e9f6e0d7111fecc13205f217e7301a7c1d40d6980ed7d533f45db"
-    sha256 cellar: :any, arm64_linux:   "e62f807a79790358c2d11ee341e834189499a1dac6167e79c4ce10b66d54842f"
-    sha256 cellar: :any, x86_64_linux:  "ef6e24d0f712f7c16b33d15c0a3e90774f7430d4250341275c72b9be2f0b46c7"
+    sha256 cellar: :any, arm64_tahoe:   "ecef10194ca9456ef3677d0c3b2f2731dc0653535b830e78c3d978d4f4f5e655"
+    sha256 cellar: :any, arm64_sequoia: "b33a99ad027686d7125e791646b7b28e011255c20da140e13d28f499187c2fbe"
+    sha256 cellar: :any, arm64_sonoma:  "28c604c4e078fc6205f6c4fca1565560d98700f0e38becf19d317700a2f33a1a"
+    sha256 cellar: :any, sonoma:        "e0008b83289cdd51a964d756e1d2fe8b153b31fcc197e170da14a12fc497c41e"
+    sha256 cellar: :any, arm64_linux:   "1d984884afeb252662d98d0921f0b2cd66c2a96f39bd9829e99d94b2e5766df7"
+    sha256 cellar: :any, x86_64_linux:  "9b053e29f711cc237e06f817c481b629d325400e51eed86d8e91e3938db7f397"
   end
 
   depends_on "autoconf" => :build
@@ -87,7 +88,7 @@ class Handbrake < Formula
                 "-DENABLE_CLI=OFF -DENABLE_SVE2=OFF"
     end
 
-    ENV.append "CFLAGS", "-I#{Formula["libxml2"].opt_include}/libxml2" if OS.linux?
+    ENV.append "CFLAGS", "-I#{formula_opt_include("libxml2")}/libxml2" if OS.linux?
 
     system "./configure", "--prefix=#{prefix}",
                           "--disable-xcode",

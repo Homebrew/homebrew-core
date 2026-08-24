@@ -7,12 +7,13 @@ class LxiTools < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "fb9a2f4a9856de51cd7b6f14d9a81ceb995fcc8405f83349701068a428c653f0"
-    sha256 cellar: :any, arm64_sequoia: "3975c597f3477521ec7110dade8261a4c3ea66920e6054c3ffcd3dcb2ccbed3d"
-    sha256 cellar: :any, arm64_sonoma:  "d0415c9dcb1dddd63a53e6ec24d16b3a95d324aa8d6f319db75c7eb2871ef953"
-    sha256 cellar: :any, sonoma:        "00cef47683c1a2b249a1ee5fea163275d0c8f883f23434d6e8d23e3b35d457a8"
-    sha256               arm64_linux:   "5d9c0399c7871eab15d70272c56a636e8fbbf4c755107b7411957dc1c44e83be"
-    sha256               x86_64_linux:  "878f35d6506d8e5b11f207a6cfb2bbcc4a0e9c013a27b11a9f9990888d38b523"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "5d9424421034893f420799c531a9732e9719d5f69798d656e40b155f276b9ff2"
+    sha256 cellar: :any, arm64_sequoia: "05e3f24a9480e787374399aff7fc7e544ce0722ff0ecf8f6dd02295f8a567da1"
+    sha256 cellar: :any, arm64_sonoma:  "bef05fe16efbfeaa41efefd2457d39175b25840cd163c9b93c2a5b7ed97c8b27"
+    sha256 cellar: :any, sonoma:        "9b441cf6d443718d7b74c6c67084d0693b4c5805e82a112ec502c2449e36ebe2"
+    sha256               arm64_linux:   "83b364ea61ccc15ee0dc5a2b35a9b740db3b396664e5cd42a9635dc139d72b2f"
+    sha256               x86_64_linux:  "3b5754ad16e9b2d57c95f78593f05fa0a9c10a53258895fa9bce169192720427"
   end
 
   depends_on "meson" => :build
@@ -43,10 +44,10 @@ class LxiTools < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system Formula["glib"].opt_bin/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas"
-    system Formula["gtk4"].opt_bin/"gtk4-update-icon-cache", "-f", "-t", HOMEBREW_PREFIX/"share/icons/hicolor"
-    system Formula["desktop-file-utils"].opt_bin/"update-desktop-database", HOMEBREW_PREFIX/"share/applications"
+  post_install_steps do
+    compile_gsettings_schemas
+    update_gtk_icon_cache
+    update_desktop_database
   end
 
   test do

@@ -9,10 +9,11 @@ class Dosfstools < Formula
     sha256 "64926eebf90092dca21b14259a5301b7b98e7b1943e8a201c7d726084809b527"
 
     # remove in next release
-    # https://github.com/dosfstools/dosfstools/pull/166
     patch do
       url "https://github.com/dosfstools/dosfstools/commit/77ffb87e8272760b3bb2dec8f722103b0effb801.patch?full_index=1"
       sha256 "ecbd911eae51ed382729cd1fb84d4841b3e1e842d08e45b05d61f41fbd0a88ff"
+      type :backport
+      resolves "https://github.com/dosfstools/dosfstools/pull/166"
     end
   end
 

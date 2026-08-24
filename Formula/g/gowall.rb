@@ -4,15 +4,16 @@ class Gowall < Formula
   url "https://github.com/Achno/gowall/archive/refs/tags/v0.2.4.tar.gz"
   sha256 "df19d8a7f4d138cfa233415ad71250c788aa1a3d310b4b19ca952fb0750c0c36"
   license "MIT"
+  revision 3
   head "https://github.com/Achno/gowall.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5403ca5cf023b5555606ced24e28faf0ef8fa99b2d3ba4d5d497f041a1747751"
-    sha256 cellar: :any,                 arm64_sequoia: "b4ce509d4c8106042794f659623837f8730936d96c22ea2e1538c2eb536d4aeb"
-    sha256 cellar: :any,                 arm64_sonoma:  "407b60e4da340fda72f2204e5396e15fab23cffe46d53164798d0e0e8d92ecc0"
-    sha256 cellar: :any,                 sonoma:        "3e556619da7d217190c237cd7b9cffbfe95cb508d2cb3f87cdeec1d8d1ff5424"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a0f193d9eb5602cb4d86d124fcc8719849ba24256fba5cbe505c1747a668cc8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a353d21c621447cbd989f9571412c9872947c5854ede194d5e20e5eccb0c6688"
+    sha256 cellar: :any, arm64_tahoe:   "69b91c42af72503eb3b78a9a797094e29ca2463ef962a77f68569e45ddfa73a4"
+    sha256 cellar: :any, arm64_sequoia: "bc76ef208c2fbb84f3bbb4a85a8c759bcd81f62e68993315cecc2ad54106e380"
+    sha256 cellar: :any, arm64_sonoma:  "31f09395246c82190cf06537d916601884dd5d354d131623afba9f43e777f2c6"
+    sha256 cellar: :any, sonoma:        "62eedf4c3041121b124fc8633b12481b8d91af4b51c668e5822c12c35256ccd1"
+    sha256 cellar: :any, arm64_linux:   "208ef4c7b71903b8703bd025de8bb945132908addeb1af4eb78f3affcfe2d806"
+    sha256 cellar: :any, x86_64_linux:  "2c55408ee00191d1d7771aaa191ade16f6ccb9d31e337b0cd36529daa7729e20"
   end
 
   depends_on "go" => :build
@@ -40,7 +41,7 @@ class Gowall < Formula
       ENV.append "GOFLAGS", "-buildmode=pie"
     end
 
-    system "go", "build", *std_go_args(ldflags: "-s -w", tags: "extlib")
+    system "go", "build", *std_go_args(tags: "extlib")
 
     generate_completions_from_executable(bin/"gowall", shell_parameter_format: :cobra)
   end

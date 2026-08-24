@@ -26,7 +26,6 @@ class Goenv < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.commit=#{tap&.user || "homebrew"}
       -X main.buildTime=#{time.iso8601}

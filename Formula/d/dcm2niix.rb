@@ -1,8 +1,8 @@
 class Dcm2niix < Formula
   desc "DICOM to NIfTI converter"
   homepage "https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage"
-  url "https://github.com/rordenlab/dcm2niix/archive/refs/tags/v1.0.20260416.tar.gz"
-  sha256 "dc87a34b8284df2700a5aee433c4ba7ea56b999ac774fcf684962de5e898670d"
+  url "https://github.com/rordenlab/dcm2niix/archive/refs/tags/v1.0.20260724.tar.gz"
+  sha256 "be6478b15aaf1e0c396df242e272a6a695966dc916672f519844ad1682b59e59"
   license "BSD-3-Clause"
   version_scheme 1
   head "https://github.com/rordenlab/dcm2niix.git", branch: "master"
@@ -13,12 +13,12 @@ class Dcm2niix < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "6f1e01c9d3edee9470d14033c1a3b9f6c7bddc7474fc0f916949ce8e4c9dece2"
-    sha256                               arm64_sequoia: "781e5f1d49c8e2811b60cdd71316a10813d1f9fee0637ea4614271e30667c712"
-    sha256                               arm64_sonoma:  "8e78e0a91b0fa02bec640991fe6f07a3766c80bcb816a79b25dd6033f7fb18d3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6d9bab3bc043ae32cb80aa7a64d9f668736b14eec546f529b2f3f8b73e7a52ae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8903003d4c70a0973cace04352d99b7912d6f712421f7a06bc1d45f0f994d879"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af1694c2b47ee8fd650956909c9a46b252d146381d695d46f0fcf35938043443"
+    sha256                               arm64_tahoe:   "d3ff87c2e6393166c0536401079bfd18fdfb1436547447b13431cf2a5bcc2c07"
+    sha256                               arm64_sequoia: "ac3d792c8cbdd089dd85d36efede1090887de3cdcaf3add259d177455c2309a5"
+    sha256                               arm64_sonoma:  "6b8691bda9934782f77d92077ed07bdb1a7b49326ca9e0160463b02d79e2ee7b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "96b1091d236d5f4baf51584e3e5695d1b1aa4b0bbc9078ced2960a22dbbbfddb"
+    sha256 cellar: :any,                 arm64_linux:   "47237fc0c50250d6e27d3599e2cbd25ee3b304513cc1d05b6cf16c13a4fb2960"
+    sha256 cellar: :any,                 x86_64_linux:  "ee4ffc4a6506f8f282ecc80bcba219dfb8479c54bcdfc1bd5b97a56ef287ae9b"
   end
 
   depends_on "cmake" => :build

@@ -15,13 +15,13 @@ class Gptscript < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb2ba5fb7537abadb968090d3133b2ad1e026e66f096dff60eb20278d4fe7263"
   end
 
+  deprecate! date: "2026-07-17", because: :repo_archived
+  disable! date: "2027-01-17", because: :repo_archived
+
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/gptscript-ai/gptscript/pkg/version.Tag=v#{version}
-    ]
+    ldflags = %W[-X github.com/gptscript-ai/gptscript/pkg/version.Tag=v#{version}]
     system "go", "build", *std_go_args(ldflags:)
 
     pkgshare.install "examples"

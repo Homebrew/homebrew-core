@@ -1,25 +1,24 @@
 class VolcanoCli < Formula
   desc "CLI for Volcano, Cloud Native Batch System"
   homepage "https://volcano.sh"
-  url "https://github.com/volcano-sh/volcano/archive/refs/tags/v1.15.0.tar.gz"
-  sha256 "6dc92c70536c7452af982480e78829a73e87fec43b9fa205784a4bfbd9a97dc9"
+  url "https://github.com/volcano-sh/volcano/archive/refs/tags/v1.15.1.tar.gz"
+  sha256 "03f265f27db31f5d0411ecbf4969175251f1293b0a426d58cd06450500c7ffba"
   license "Apache-2.0"
   head "https://github.com/volcano-sh/volcano.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d8a62bd8ce224eac85d05c85fa0bf6531e4320c304e6b2e4bab2b4ceb3a24cde"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "87b7a8247eecd154fbd7462f9c4d74e9ebe988966da67def7a8c696a7dee2726"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96ae1050a554720cabf8163f45c5d40a85ca43375ea336a0e1c5a3db8e887897"
-    sha256 cellar: :any_skip_relocation, sonoma:        "10490f80931bf08484932ca959fd3a943e85110d93a210bcc85161b26891ec4d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d16196ca86217fb243bca71f9986526d826cc4de936f1199dce20f601db1eff"
-    sha256 cellar: :any,                 x86_64_linux:  "dcdb285a5553f2d482e3bcdbd5d33f0c266d6be0fbd5aa61a39f5d47c2f16eae"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6d10c20775c856439fab90cc04f0c2d7e58a11b746a068591d149420144f2333"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8d87232b1d6212ab3ad2901ac2f5b3ec274dd26ff74db6921e490b8bc5dde0b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "114449fb7be58537949e6baba1df3b4fedf8d22c10ba0bac37db59f631b90707"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c9ee08bcab4e2882f3edb370c087c55a1995fc375a38fe0e566ec9f0b929c5b1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "06a3387553b7296267d57de589ce469e99312803c0b27fd8aa905dee8ad7cb28"
+    sha256 cellar: :any,                 x86_64_linux:  "a05d58836b3df6e92f77bf02156c4c94de38ef51e8af44263fd7da71b6172e3f"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X volcano.sh/volcano/pkg/version.GitSHA=#{tap.user}
       -X volcano.sh/volcano/pkg/version.Built=#{time.iso8601}
       -X volcano.sh/volcano/pkg/version.Version=#{version}

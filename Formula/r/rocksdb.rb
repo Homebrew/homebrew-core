@@ -1,19 +1,19 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "https://rocksdb.org/"
-  url "https://github.com/facebook/rocksdb/archive/refs/tags/v11.1.1.tar.gz"
-  sha256 "63f11183fe40725a0e89a9e392f2c86c94b90064f1d95f5173a02cfe40de13f7"
+  url "https://github.com/facebook/rocksdb/archive/refs/tags/v11.8.1.tar.gz"
+  sha256 "618d9726a7cb1cf4ce034f4cdca49de98aa64867dda06b91371a791ae8921aff"
   license any_of: ["GPL-2.0-only", "Apache-2.0"]
   compatibility_version 1
   head "https://github.com/facebook/rocksdb.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2c467e3e32497d7b2d083df17bce39f38e09cdedaee4e16f4bb6a0537dd0c9c2"
-    sha256 cellar: :any,                 arm64_sequoia: "139f202e34c9f459b3100dcdc72941bbbdc4da598e38bc08186027399d48945f"
-    sha256 cellar: :any,                 arm64_sonoma:  "889af840722499d72bb196f6cd9eb0263ecab5616767845488dd179609837ff7"
-    sha256 cellar: :any,                 sonoma:        "8df51978eb1ac052efb44f2fde78a35b38e72b5e2d00a66c443ac25493e931c7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9f7f4e2f7382aec8707d84fa049e22355f33631a0fc72b85c218f1e778888c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25d9cdc531dc4c60490be75c53fd32d1180df3996894698124ef0cb856ddc410"
+    sha256 cellar: :any, arm64_tahoe:   "ef95ef8a35623e1dd9a8302ef767c12f3638d56e6ec56b099ab70692fe7bdbca"
+    sha256 cellar: :any, arm64_sequoia: "81b4c62f79456703f3423e727fa976e6afba4e8c61197e0d913018889797d4d4"
+    sha256 cellar: :any, arm64_sonoma:  "6a17af0698d1a6ad5dd62149a3e23288b8bc9ca6e56acfea9499497d7ef9ba56"
+    sha256 cellar: :any, sonoma:        "26d5039784b879267ab9cba1db8fa37c17cacc24a6858e7f20ad35b193bf0243"
+    sha256 cellar: :any, arm64_linux:   "98cd69a6a34b5af035c73f1c9edbc1d751e68d049a7200b3caac49ef9f2c6833"
+    sha256 cellar: :any, x86_64_linux:  "8f1e3f1fcaa4c0350f3a643e74107e83742a7de8a7dabaa7bc646ad2a38fce5c"
   end
 
   depends_on "cmake" => :build
@@ -80,9 +80,9 @@ class Rocksdb < Formula
                                 *extra_args,
                                 "-lz", "-lbz2",
                                 "-L#{lib}", "-lrocksdb",
-                                "-L#{Formula["snappy"].opt_lib}", "-lsnappy",
-                                "-L#{Formula["lz4"].opt_lib}", "-llz4",
-                                "-L#{Formula["zstd"].opt_lib}", "-lzstd"
+                                "-L#{formula_opt_lib("snappy")}", "-lsnappy",
+                                "-L#{formula_opt_lib("lz4")}", "-llz4",
+                                "-L#{formula_opt_lib("zstd")}", "-lzstd"
     system "./db_test"
 
     assert_match "sst_dump <db_dirs_OR_sst_files...>", shell_output("#{bin}/rocksdb_sst_dump --help 2>&1")

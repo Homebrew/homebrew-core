@@ -1,10 +1,10 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
   homepage "https://botan.randombit.net/"
-  url "https://botan.randombit.net/releases/Botan-3.12.0.tar.xz"
-  sha256 "5370f98dc15f8c222ee1ce52cd61c8756a53be0dc57cc4c1b0714d5a09ad74fb"
+  url "https://botan.randombit.net/releases/Botan-3.13.0.tar.xz"
+  sha256 "12f5a8358890bbee82edfe9d2e7769b0a610b6dd0e0698aea13d20a675d84620"
   license "BSD-2-Clause"
-  compatibility_version 2
+  compatibility_version 3
   head "https://github.com/randombit/botan.git", branch: "master"
 
   livecheck do
@@ -13,12 +13,12 @@ class Botan < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "9ddb5e41836f07812c3cbcbcff97dfbe697cc00b5ef487ed0409805e1924b7ea"
-    sha256 arm64_sequoia: "32d5544145938712b7e244f4eee39337f3ae6de5a8c63cdce158feef47fc499b"
-    sha256 arm64_sonoma:  "7ce2d41fe53a97b9a36aaf8d1575d04a3b50059e589cfb82a036e845b4edf91d"
-    sha256 sonoma:        "f45621da8b9a3f4f30d8db8780cc35e008e7ed7f6c95fffa58d828c85adbd0bd"
-    sha256 arm64_linux:   "93fcae01df8a7ab116b7d3c1358f49ba0b6fcd7f74261df2064eda2ffdd618cb"
-    sha256 x86_64_linux:  "279875db014e61a9a0aa35931538602a57fe38c0b3e8f73b3dd00738057115aa"
+    sha256 arm64_tahoe:   "772694ed0fa9b6b0b7485e1ee6772cc3605fcad2605f6c312ea6768056846d8b"
+    sha256 arm64_sequoia: "624d3920b982a37290cd5111230ae0da8ddfc0693e9c47392ceb454973140435"
+    sha256 arm64_sonoma:  "dcc157679f64f323e9070ce9f34026d5ace2319a713cae3594307cda5a0b89a5"
+    sha256 sonoma:        "b1c30c3273b0b1663045b350c9d6420e643e40f4db74106e0c5abb9cfa12ea4f"
+    sha256 arm64_linux:   "249a35ff5fd21acad1a9c5470c89d77eb384fce407757e8518592b6585e1b8e5"
+    sha256 x86_64_linux:  "1ec44df72694f1fbc8b6f3bfa65a9ac5f1f237e9ef5cf81158326383232b8984"
   end
 
   depends_on "pkgconf" => :build
@@ -59,7 +59,7 @@ class Botan < Formula
     args << "--with-commoncrypto" if OS.mac?
 
     if OS.mac? && DevelopmentTools.clang_build_version <= 1400
-      ldflags = %W[-L#{Formula["llvm"].opt_lib}/c++ -L#{Formula["llvm"].opt_lib}/unwind -lunwind]
+      ldflags = %W[-L#{formula_opt_lib("llvm")}/c++ -L#{formula_opt_lib("llvm")}/unwind -lunwind]
       args << "--ldflags=#{ldflags.join(" ")}"
     end
 

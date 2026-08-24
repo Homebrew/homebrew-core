@@ -1,9 +1,9 @@
 class I686ElfGcc < Formula
   desc "GNU compiler collection for i686-elf"
   homepage "https://gcc.gnu.org"
-  url "https://ftpmirror.gnu.org/gnu/gcc/gcc-16.1.0/gcc-16.1.0.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gcc/gcc-16.1.0/gcc-16.1.0.tar.xz"
-  sha256 "50efb4d94c3397aff3b0d61a5abd748b4dd31d9d3f2ab7be05b171d36a510f79"
+  url "https://ftpmirror.gnu.org/gnu/gcc/gcc-16.2.0/gcc-16.2.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gcc/gcc-16.2.0/gcc-16.2.0.tar.xz"
+  sha256 "e6738e29597f733270731aa90600f37ffdc045079dfc27ec7e8192cc81085c3e"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   livecheck do
@@ -11,12 +11,12 @@ class I686ElfGcc < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "090b7a85c9fbb04e0662104d223e47bb97c4e33b3c3d1da535b15dd5d4aa27a1"
-    sha256 arm64_sequoia: "2a63d7663061fc9232c11a88aa7e0c0d797dad7ef77f298f5196aee83505ade7"
-    sha256 arm64_sonoma:  "15caf35e87a4e5ca9f9825d53c6ee8275de2d17df37fe839a8e2593cea2cdd40"
-    sha256 sonoma:        "b81d61dae7d9a10eea7cf06cb81d881b2fc985251fc8ab49373d371da04c8f9b"
-    sha256 arm64_linux:   "6e0196289c2e49595b737126b9e59b0457634a25703a763a07920ed5c938f363"
-    sha256 x86_64_linux:  "5c0cbb48862b37c1e50479abaf6f39c3000fb21e92f12c73ef8396aad27b6c3e"
+    sha256 arm64_tahoe:   "06ac3ad32b5a3354f93081c71b69d196bb870b675eb673366f7fb1ca1bc2da6a"
+    sha256 arm64_sequoia: "07a994743beac9bb814bfdd9e6f7610706950087520d01bdac77ca49fa695ed3"
+    sha256 arm64_sonoma:  "d5a9c48ac336c523f059c7c2e35742cab925f091c4b5f472287dd130c6861b70"
+    sha256 sonoma:        "9da81e96a037ecf4c5d0e080986b3fc235c84931007e36e871c4352795fbbac4"
+    sha256 arm64_linux:   "4736ca9cb03afb5786a35c8b515af3d10b37af80aa725a4b5306afb358469eb7"
+    sha256 x86_64_linux:  "3e05ece5c7d5db47eb20d4fe9b95fd794f467c1980ddcd4825654f4dea3e1a11"
   end
 
   depends_on "gmp"

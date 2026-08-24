@@ -22,7 +22,7 @@ class TerrapinScanner < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"Terrapin-Scanner")
+    system "go", "build", *std_go_args(output: bin/"Terrapin-Scanner")
   end
 
   test do

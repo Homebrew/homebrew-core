@@ -2,25 +2,26 @@ class Stringtie < Formula
   desc "Transcript assembly and quantification for RNA-Seq"
   homepage "https://github.com/gpertea/stringtie"
   url "https://github.com/gpertea/stringtie/archive/refs/tags/v3.0.3.tar.gz"
-  sha256 "e96b43d1482b5d7fafa8513e8490e55accad14a82e7d9c40b8693748f6e4bb9e"
+  sha256 "cb473760912a7a23b09232171902b57a973ca791510c526a7a60f23616008ec8"
   license "MIT"
+  revision 1
   head "https://github.com/gpertea/stringtie.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8a04a687393f0a23bcac7e9f8e0a45542ae2e95eaf5d9c91ff3ebda1122ad380"
-    sha256 cellar: :any,                 arm64_sequoia: "3eea05d76ae06b8873c6152061cd93b36bf4fd90274cb81e74d82cb2fb8716eb"
-    sha256 cellar: :any,                 arm64_sonoma:  "2e2833f5dc86edfc9bd1897ad07673c0a03e18c2233e32bc884ee5b1b37f172e"
-    sha256 cellar: :any,                 sonoma:        "12b536ae977cdbcb08345151f66222a3b494aa99f43d2e6b4ef5482e393216d1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "38a474188009a577779e293f2286fc943c2dc9430b4a5e38b21f10cedf3d4ffa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26fa7ac3ea5c68176b84c083da76ab9865b61603af6c00ac5efdb9e8581e9540"
+    sha256 cellar: :any, arm64_tahoe:   "9a26d854ed3f0ae70cbbbbef204aa8aa69e55538ab25bd2142f2faee79839a43"
+    sha256 cellar: :any, arm64_sequoia: "b88561bc6091fab88b8f410b0b5aa0492c6b99a10f8435470fb7521c523428b7"
+    sha256 cellar: :any, arm64_sonoma:  "705c00cd726b9af2a9f0a3f95f65b889b49f84f85c75163da83557f7887c0c25"
+    sha256 cellar: :any, sonoma:        "b6d5162f93fd9f12066a22ee38fe33e1d8f7ac65867dd51e9ef179d750572dae"
+    sha256 cellar: :any, arm64_linux:   "355700943f868bd6662ce838e22e784dc8a4e2b7778481e3541d82499938a88b"
+    sha256 cellar: :any, x86_64_linux:  "0462744257f8337aa6f3a61348286d4fdabfcb220cbdee729d9b18aa005890ce"
   end
 
   depends_on "htslib"
 
   def install
     args = [
-      "HTSLIB=#{Formula["htslib"].opt_lib}",
-      "LIBS=-L#{Formula["htslib"].opt_lib} -lhts -lm",
+      "HTSLIB=#{formula_opt_lib("htslib")}",
+      "LIBS=-L#{formula_opt_lib("htslib")} -lhts -lm",
     ]
     system "make", "release", *args
     bin.install "stringtie"

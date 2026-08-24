@@ -1,11 +1,11 @@
 class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
-  homepage "https://github.com/zyedidia/micro"
-  url "https://github.com/zyedidia/micro.git",
+  homepage "https://github.com/micro-editor/micro"
+  url "https://github.com/micro-editor/micro.git",
       tag:      "v2.0.15",
       revision: "6a62575bcfdf4965f187eedafceb3400316e612b"
   license "MIT"
-  head "https://github.com/zyedidia/micro.git", branch: "master"
+  head "https://github.com/micro-editor/micro.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d25910f57cce5ca973e4972f2d44981bd55028d76b0ddd44837f2b1d0dce67c5"

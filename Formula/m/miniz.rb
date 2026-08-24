@@ -1,8 +1,8 @@
 class Miniz < Formula
   desc "Lossless, high-performance data compression library (zlib/Deflate)"
   homepage "https://github.com/richgel999/miniz"
-  url "https://github.com/richgel999/miniz/archive/refs/tags/3.1.1.tar.gz"
-  sha256 "8bb29c7bd6f22356e5583e794bed4a0b3e6dfcbcadb49974fc9270ccca1e5557"
+  url "https://github.com/richgel999/miniz/archive/refs/tags/3.1.2.tar.gz"
+  sha256 "98468f8924934b723276680f85238b6c78bf1f8b49b4459cc9b7214a20e2e9fb"
   license "MIT"
   head "https://github.com/richgel999/miniz.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Miniz < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "1791349309645e97c91130d018596feb202fb4d11a29a43354816f1245e0eb62"
-    sha256 cellar: :any, arm64_sequoia: "afbe55b53018063951693652a50f2b2878721429ade040276c69262ad357e7fc"
-    sha256 cellar: :any, arm64_sonoma:  "eca5fe8bef62f5be332dc6b08daceae477f8bcc9bfbf755ee4eb513de6f66067"
-    sha256 cellar: :any, sonoma:        "4dffddf12309cef740dfbae0a262efe3ee6e1efbf29109f8725608917bb48e73"
-    sha256 cellar: :any, arm64_linux:   "c228f31cb97c7cdf9dd2f8393bd043598211bd9a0512792f65db01aa798b5f89"
-    sha256 cellar: :any, x86_64_linux:  "b53d792c91a7ccd32a153f202d9c309b7da7213a28e9804da5243038e8c54b0e"
+    sha256 cellar: :any, arm64_tahoe:   "c3b7fcfb9025975a0bff330b1920424cfa310246f567f19774a08170f4114b80"
+    sha256 cellar: :any, arm64_sequoia: "2072f21aa15040df0a7153ecfdcf09b381e740523c3eb615f83433497984e3ea"
+    sha256 cellar: :any, arm64_sonoma:  "64ddab612c5731f162f7f8d1d575f7603c3f8b483439c4485c1810031a974a5d"
+    sha256 cellar: :any, sonoma:        "7ed348d512ebd5c8d9daa3e82583effe725cbf97d4d16de3625dc5296ccbc421"
+    sha256 cellar: :any, arm64_linux:   "4d8998700dc148e0056d2ca50d118693b106a82e59cdd33c5f99ed492025d129"
+    sha256 cellar: :any, x86_64_linux:  "33187bef944816294c3f174b66afa12a7c6a35c23760b2173b43a5700443ca34"
   end
 
   depends_on "cmake" => :build

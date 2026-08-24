@@ -43,18 +43,20 @@ class Gd < Formula
   patch do
     url "https://github.com/libgd/libgd/commit/f4bc1f5c26925548662946ed7cfa473c190a104a.patch?full_index=1"
     sha256 "1015f6e125f139a1e922ac4bc2a18abbc498b0142193fa692846bf0f344a3691"
+    type :cherry_pick
+    resolves "https://github.com/libgd/libgd/pull/766"
   end
 
   def install
     system "./bootstrap.sh" if build.head?
     system "./configure", *std_configure_args,
-                          "--with-fontconfig=#{Formula["fontconfig"].opt_prefix}",
-                          "--with-freetype=#{Formula["freetype"].opt_prefix}",
-                          "--with-jpeg=#{Formula["jpeg-turbo"].opt_prefix}",
-                          "--with-avif=#{Formula["libavif"].opt_prefix}",
-                          "--with-png=#{Formula["libpng"].opt_prefix}",
-                          "--with-tiff=#{Formula["libtiff"].opt_prefix}",
-                          "--with-webp=#{Formula["webp"].opt_prefix}",
+                          "--with-fontconfig=#{formula_opt_prefix("fontconfig")}",
+                          "--with-freetype=#{formula_opt_prefix("freetype")}",
+                          "--with-jpeg=#{formula_opt_prefix("jpeg-turbo")}",
+                          "--with-avif=#{formula_opt_prefix("libavif")}",
+                          "--with-png=#{formula_opt_prefix("libpng")}",
+                          "--with-tiff=#{formula_opt_prefix("libtiff")}",
+                          "--with-webp=#{formula_opt_prefix("webp")}",
                           "--without-x",
                           "--without-xpm"
     system "make", "install"

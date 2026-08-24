@@ -1,19 +1,19 @@
 class Lima < Formula
   desc "Linux virtual machines"
   homepage "https://lima-vm.io/"
-  url "https://github.com/lima-vm/lima/archive/refs/tags/v2.1.2.tar.gz"
-  sha256 "23fa5f4621e355236a10200c4e4f61eae9f69c805c57a107247847b51522ab8a"
+  url "https://github.com/lima-vm/lima/archive/refs/tags/v2.2.0.tar.gz"
+  sha256 "cdba3804df7d8c00a2af674a3fe0b24c19673a0e846e5f75ac9badf227ce52f5"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/lima-vm/lima.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b762e573046db099d16a730ac5b0561ad61b823a337d73c0528750ca2d4f9bd6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dcda869caf799be40a9b22b00a4f109cb2e9a50e95340eb4f77e9198d4e4c45e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93bc48f6d86f1a4d78601e2d5a7e1736e9ad4a4fd14337b9996dec2926e47fa6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0e3b4b0f51cb5a08467b6eada8bf23fae67c967ea25c11170c4b6704a885d5da"
-    sha256 cellar: :any,                 arm64_linux:   "2c2440995c7ae53ca76494f96f926c70ade7332ede2755b0c96209596b47a4a5"
-    sha256 cellar: :any,                 x86_64_linux:  "80fe13c85ee20db766fd1f5cfcc7e10a393df7924f379cfd9c49fac39e041390"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9dfb60d4c7d0c6721eee679ab188d8b502ad61d1063c9914b830b66ce795b4a4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf9f97484c9dc02cfd4a0a9dacf6c890652f2b2fb324410db0ca0acaacd326dc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "77c93945bf5f3eb6d0397c1753adf14d2915181a188b79527cf2f60009fe7377"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9e8ec6266703cc3f481b8593416d0c044bd1b5b20a5286d5953dd2b4b9fdeb7f"
+    sha256 cellar: :any,                 arm64_linux:   "14f3457f4425cd0058af128dc69da51f976a5d29deadbdc10c2f3ffb42e31abe"
+    sha256 cellar: :any,                 x86_64_linux:  "759a33791896c5c45f6634aa4b15bbb9a5382eb2673cabe2567d1448ffe5541b"
   end
 
   depends_on "go" => :build

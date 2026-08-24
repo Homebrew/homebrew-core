@@ -28,7 +28,7 @@ class Psalm < Formula
     libexec.install "psalm.phar" => "psalm"
 
     (bin/"psalm").write <<~PHP
-      #!#{Formula["php"].opt_bin}/php
+      #!#{formula_opt_bin("php")}/php
       <?php require '#{libexec}/psalm';
     PHP
   end

@@ -56,58 +56,50 @@ class Gtkglext < Formula
   # All these MacPorts patches have already been included upstream. A new release
   # of gtkglext for gtk+2.0 remains uncertain though.
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/gtkglext/patch-configure.diff"
-    sha256 "aca35cd6ae28613b375301068715f82b59bd066a32b2f4d046177478950ab026"
+    file "Patches/gtkglext/patch-configure.diff"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/gtkglext/patch-examples-pixmap-mixed.c.diff"
-    sha256 "d2fe00bfcf96b3c78dd4b01aa119a7860a34ca6080c57f0ccc7a8e2fc4a3c92b"
+    file "Patches/gtkglext/patch-examples-pixmap-mixed.c.diff"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/gtkglext/patch-examples-pixmap.c.diff"
-    sha256 "d955b18784d3e83c1f698e63875d98de5bad9eae1e84b66549dfe25d9ff94d51"
+    file "Patches/gtkglext/patch-examples-pixmap.c.diff"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/gtkglext/patch-gdk-gdkglglext.h.diff"
-    sha256 "a1b6a97016013d5cda73760bbf2a970bae318153c2810291b81bd49ed67de80b"
+    file "Patches/gtkglext/patch-gdk-gdkglglext.h.diff"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/gtkglext/patch-gdk-gdkglquery.c.diff"
-    sha256 "a419b8d523f123d1ab59e4de1105cdfc72bf5a450db8031809dcbc84932b539f"
+    file "Patches/gtkglext/patch-gdk-gdkglquery.c.diff"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/gtkglext/patch-gdk-gdkglshapes.c.diff"
-    sha256 "bc01fccec833f7ede39ee06ecc2a2ad5d2b30cf703dc66d2a40a912104c6e1f5"
+    file "Patches/gtkglext/patch-gdk-gdkglshapes.c.diff"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/gtkglext/patch-gdk-makefile.in.diff"
-    sha256 "d0bc857f258640bf4f423a79e8475e8cf86e24f9994c0a85475ce87f41bcded6"
+    file "Patches/gtkglext/patch-gdk-makefile.in.diff"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/gtkglext/patch-gtk-gtkglwidget.c.diff"
-    sha256 "7f7918d5a83c8f36186026a92587117a94014e7b21203fe9eb96a1c751c3c317"
+    file "Patches/gtkglext/patch-gtk-gtkglwidget.c.diff"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/gtkglext/patch-gtk-makefile.in.diff"
-    sha256 "49f58421a12c2badd84ae6677752ba9cc23c249dac81987edf94abaf0d088ff6"
+    file "Patches/gtkglext/patch-gtk-makefile.in.diff"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/gtkglext/patch-makefile.in.diff"
-    sha256 "0d112b417d6c51022e31701037aa49ea50f270d3a34c263599ac0ef64c2f6743"
+    file "Patches/gtkglext/patch-makefile.in.diff"
   end
 
   patch :p0 do
     url "https://trac.macports.org/raw-attachment/ticket/56260/patch-index-gdkglshapes-osx.diff"
     sha256 "699ddd676b12a6c087e3b0a7064cc9ef391eac3d84c531b661948bf1699ebcc5"
+    type :unofficial
+    resolves "https://trac.macports.org/ticket/56260"
   end
 
   def install

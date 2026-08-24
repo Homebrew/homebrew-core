@@ -2,20 +2,20 @@ class Mesheryctl < Formula
   desc "Command-line utility for Meshery, the cloud native management plane"
   homepage "https://meshery.io"
   url "https://github.com/meshery/meshery.git",
-      tag:      "v1.0.43",
-      revision: "8dd34747d42ec339669a1618e7f1dd34038c21bc"
+      tag:      "v1.0.68",
+      revision: "018bd3bbb40494464af89ebb8a157044dcef9a01"
   license "Apache-2.0"
   head "https://github.com/meshery/meshery.git", branch: "master"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2690d1b96cf91a5af9d8841da32fc103f769e2c865821f9d628bde24d718055b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7032a538ef33fc39af732a1b8ae97617e6c29b767360a3eeecf6eed783d4a082"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6242983c1a5804763faf765124518b02e3e7003df67e82770bc3da36163c4114"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4706bc39cc3032251aed879c2d0fecb85e1c6bf9eced31759b0abb6e7ca0b0f1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "de46d7b16a7b379492033451cd80188f1a4153b368d8306663ae7d76227350b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f5d40ab4d583e7447027cc9aa72a7d0c6e268da48ea48f68a209c590f17665e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3bbd4ace98fccc371eef43ec9f2375b2b5b4087a7e9fff8a8def624cf3299d0b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "010713a8c4c9c6b63e957c30c53f04940f34e9a737d1154402f2190d47fa5157"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b31e0a7f88e201c98b8542c54bcba1c4137a77f7bf3670b2f932b8fd35410bc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fbd6c5852cdeb0b9d4a5bfbd2fd4ec6492c7a25d772f2e5af875e7f571a4dbbf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d74230bf06473b8392e2f626dfeb7ac8d0f8127e23997b8ead052ea98662a34b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1e5d8b2bf4b858b71be2a06148cb856ddeb6dbd474852cfa9650113945d18b7"
   end
 
   depends_on "go" => :build
@@ -24,7 +24,6 @@ class Mesheryctl < Formula
     ENV["CGO_ENABLED"] = "0" if OS.linux?
 
     ldflags = %W[
-      -s -w
       -X github.com/meshery/meshery/mesheryctl/internal/cli/root/constants.version=v#{version}
       -X github.com/meshery/meshery/mesheryctl/internal/cli/root/constants.commitsha=#{Utils.git_short_head}
       -X github.com/meshery/meshery/mesheryctl/internal/cli/root/constants.releasechannel=stable

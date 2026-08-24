@@ -19,7 +19,7 @@ class Gokey < Formula
   depends_on "go-md2man" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/gokey"
+    system "go", "build", *std_go_args, "./cmd/gokey"
 
     system "go-md2man", "-in=gokey.1.md", "-out=gokey.1"
     man1.install "gokey.1"

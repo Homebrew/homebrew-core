@@ -9,10 +9,12 @@ class Cereal < Formula
     url "https://github.com/USCiLab/cereal/archive/refs/tags/v1.3.2.tar.gz"
     sha256 "16a7ad9b31ba5880dac55d62b5d6f243c3ebc8d46a3514149e56b5e7ea81f85f"
 
-    # clang 19+ build patch, upstream pr ref, https://github.com/USCiLab/cereal/pull/835
+    # clang 19+ build patch
     patch do
       url "https://github.com/USCiLab/cereal/commit/409db5e910279224bd7e78f8188450c7e7d34d87.patch?full_index=1"
       sha256 "ad413ad34abb4ad515777013f1824f6f8eef879d3391f35cb0bf4b7e30937a7c"
+      type :unofficial
+      resolves "https://github.com/USCiLab/cereal/pull/835"
     end
   end
 

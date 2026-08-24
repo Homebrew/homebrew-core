@@ -1,8 +1,8 @@
 class Openapv < Formula
   desc "Open Advanced Professional Video Codec"
   homepage "https://github.com/AcademySoftwareFoundation/openapv"
-  url "https://github.com/AcademySoftwareFoundation/openapv/archive/refs/tags/v0.2.1.3.tar.gz"
-  sha256 "cdb9fb65fc68ba06bf79e2dce8c837b0e03e7c2d721a49f6459586c149e447dd"
+  url "https://github.com/AcademySoftwareFoundation/openapv/archive/refs/tags/v0.3.0.0.tar.gz"
+  sha256 "dc5cd1618a07e8b340e12562cae37d612b3a1467ee80d986c477165ae602a37e"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,12 @@ class Openapv < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "6f538b5b011de386525413a09e82417537339c86df9e93de80f7027203ddab46"
-    sha256 cellar: :any,                 arm64_sequoia: "1835ea4b5a24613cf8e53f5c013ee4bbfa374f31150f3882a329c829d7dcd5f2"
-    sha256 cellar: :any,                 arm64_sonoma:  "fd42e96892caac4a84f251ff2905954d7d487ef151c0414787b0c0eabfd80faf"
-    sha256 cellar: :any,                 sonoma:        "5244cdb3a5835f1d44976e822be1f9871fe94e4df36b4256383c5912a0d07abc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd9b38a99677d5a016cab74e6ec6bc1732710227f3dbd46aa64507e5020ac446"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e19b68fdb1252c5d5fd31d9f1c30d3b4dd705580d6b1b3796bf53a3d7e9af45"
+    sha256 cellar: :any, arm64_tahoe:   "abcd874dce7e4ac8577428fb08bf93b1f839d195b70664f01bba068d087df1ed"
+    sha256 cellar: :any, arm64_sequoia: "8df78dbe5b900706b49d6852bede6262b4d1c1b105828181d43dd83546e26e4b"
+    sha256 cellar: :any, arm64_sonoma:  "b70a48694eb92a8e7f12fa27b7225dbbd5f96b76e6add885d60fd16850529c97"
+    sha256 cellar: :any, sonoma:        "f8be2589dd2e7b95901da0cb88cd93d1523004c73e37569d44414aa8933596e8"
+    sha256 cellar: :any, arm64_linux:   "c14f3f9dc3bf5c7b3d1c5ca7bf6065b5dcd9b447dd2d3e7515ad55b2b4a8a239"
+    sha256 cellar: :any, x86_64_linux:  "1e40f77c375b513d71fb4d7197ccb5592f6c1ace011aed9041e319509b2ad44b"
   end
 
   depends_on "cmake" => :build

@@ -50,10 +50,12 @@ class Thefuck < Formula
     sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
   end
 
-  # Drop distutils for 3.12: https://github.com/nvbn/thefuck/pull/1404
+  # Drop distutils for 3.12
   patch do
     url "https://github.com/nvbn/thefuck/commit/dd26fb91a0fdec42fc1990bb91eab21e2c44a0a8.patch?full_index=1"
     sha256 "ea7824d7e4947fb9cd81ed1b5850b53b0e071a82b7e77acaba2391a8bf161b85"
+    type :unofficial
+    resolves "https://github.com/nvbn/thefuck/pull/1404"
   end
 
   # Drop imp for 3.12: https://github.com/nvbn/thefuck/commit/0420442e778dd7bc53bdbdb50278eea2c207dc74

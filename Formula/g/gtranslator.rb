@@ -6,12 +6,13 @@ class Gtranslator < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "8b3109a1729b655d93d1633ac69ad4400eec4df32265c44ffdc690d6f60e6bad"
-    sha256 arm64_sequoia: "d3852d2a411fcf522fbb2b726666e792a0f9df79f9c1360583054e7ecf872b1c"
-    sha256 arm64_sonoma:  "bb1248e9810dcfd4621c357697f45ad77fe7bd054a05dd1eb89f51b76512ae4c"
-    sha256 sonoma:        "562065e41ea4d65419ddfef02430f0a3e69817e7b01e236cf1e98a51ca95e611"
-    sha256 arm64_linux:   "64f3b299245f9a3dbaaf10a33f0912c821e7c7c77bc6db909fbc9d9a72db873e"
-    sha256 x86_64_linux:  "96a0880c5627f73fc47cff866a6f173f0e966d760bbec15d14e036ced0bbfb58"
+    rebuild 1
+    sha256 arm64_tahoe:   "1dcfec8e7d915866f4e76862ad7b03be26f72d246b03772291ba38b62d96b7eb"
+    sha256 arm64_sequoia: "d5d806c4e21889f9beefe7ab79b8e4960c127aa883dd836742590cb12b8265d1"
+    sha256 arm64_sonoma:  "cc32c2d59b825697c8d8e2a30facf7fef6a39574dda8bf1e8e273a4b8d4b5058"
+    sha256 sonoma:        "47c3ff14f787a675a203bebab85aced943d2ab7402bb8c6a6afc7dac17b1d7f9"
+    sha256 arm64_linux:   "61547a20cc62e78d3c1b770d885b9d1338638dfed2306282043d77533092f43f"
+    sha256 x86_64_linux:  "d7b43a77a44f936920ed8f99a81118d3f5b2435308f502ae4bb06fc9ed5a8bdb"
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database
@@ -22,7 +23,7 @@ class Gtranslator < Formula
 
   depends_on "adwaita-icon-theme" => :no_linkage
   depends_on "cairo"
-  depends_on "gettext"
+  depends_on "gettext" # needs libgettextpo
   depends_on "glib"
   depends_on "gtk4"
   depends_on "gtksourceview5"
@@ -44,9 +45,9 @@ class Gtranslator < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk4"].opt_bin}/gtk4-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+  post_install_steps do
+    compile_gsettings_schemas
+    update_gtk_icon_cache
   end
 
   test do

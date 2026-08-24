@@ -1,24 +1,26 @@
 class Goresym < Formula
   desc "Go symbol recovery tool"
   homepage "https://github.com/mandiant/GoReSym"
-  url "https://github.com/mandiant/GoReSym/archive/refs/tags/v3.3.tar.gz"
-  sha256 "e0afe3faaf824460b611a1ef6e93015341cfea999a6237516c15b59f8936d3f0"
+  url "https://github.com/mandiant/GoReSym/archive/refs/tags/v3.4.tar.gz"
+  sha256 "1c6b703ca1e5db08b93a6d602c826ea6dc7eee8502a0b2f4ad358113d8f513fc"
   license "MIT"
   head "https://github.com/mandiant/GoReSym.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "af273cd572590e674ed4e1f6b46dabdea6dfc5b145a788c371f526a640bd8b48"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af273cd572590e674ed4e1f6b46dabdea6dfc5b145a788c371f526a640bd8b48"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af273cd572590e674ed4e1f6b46dabdea6dfc5b145a788c371f526a640bd8b48"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4a30484f5167d0a9f066a9b7a3472541644c5952566177f7781575ee27ad3d9b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cfbdb148c231c39227cc587681bfdc3c63057e646b158203b498d981d24ad6a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94e43efb77993fb2b917d19cc1422fbdee17fc32b3a16b901f90087c158b1118"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f0c3dd1beaa650082bf2464e79304ac8024741122d364d8dd3e7bb58b72b526b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f0c3dd1beaa650082bf2464e79304ac8024741122d364d8dd3e7bb58b72b526b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0c3dd1beaa650082bf2464e79304ac8024741122d364d8dd3e7bb58b72b526b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9404f725543a4c25b8e1940ffeb3b58d77a7be05551420ba51ce2dc2e6833d06"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7b146d6338145c53d8bf12592f588fc6a644daf7f26bfd8c4cc73e6aa06d7e28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63de26c635c15de736ecfba0ea0e97befe73c3ae06c3fee3323772fafa9fa015"
   end
 
-  depends_on "go" => :build
+  # TODO: unpin go@1.26 when goresym supports go 1.27
+  # ref: https://github.com/mandiant/GoReSym/issues/90
+  depends_on "go@1.26" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   test do

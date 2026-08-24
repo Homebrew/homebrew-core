@@ -1,8 +1,8 @@
 class Babl < Formula
   desc "Dynamic, any-to-any, pixel format translation library"
   homepage "https://www.gegl.org/babl/"
-  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.126.tar.xz"
-  sha256 "3f090f4b2a61fecf7c8dc60a5804bbc77cefd8d778af2ded059f0e367a52930e"
+  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.128.tar.xz"
+  sha256 "e676507b421d414d49db8627415dc1eadbd787536baa7d6fe94a1f1971cbe73e"
   license "LGPL-3.0-or-later"
   # Use GitHub instead of GNOME's git. The latter is unreliable.
   head "https://github.com/GNOME/babl.git", branch: "master"
@@ -13,12 +13,12 @@ class Babl < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "b4eeeeb41469143b10d49950316a5ed2f23b71dc423c5490e0a668f024dd6234"
-    sha256 cellar: :any, arm64_sequoia: "ddf1f588abb1318ff03920b45a0a041e888cfc01950591d11c7387f6c80a8abd"
-    sha256 cellar: :any, arm64_sonoma:  "b54b7059335b3a9b04c1352263a15fc480d704b629fbf25a728de5de41154aa6"
-    sha256 cellar: :any, sonoma:        "75435a454fb8e06256f1de4a9829d29dc2c0ee073ab52dc3c682afde988239b9"
-    sha256               arm64_linux:   "c1fefb9e15036f64d0f2cba345337d3ed576b25243ee44c677645a2d933c81d5"
-    sha256               x86_64_linux:  "a8df7b72aa8292978fc7c7f07b3237c3479c52a63be2cfe6170cf0d9a1dea4fa"
+    sha256 arm64_tahoe:   "62a48f99e10375c85a21c6d8cac6522e3d69969f7aaeaa287f053666b6d044bd"
+    sha256 arm64_sequoia: "b31e9c8879397ac0b7d852678272a5f12806d1aca99e71cae4d728b46b84eab6"
+    sha256 arm64_sonoma:  "1006f4dd3f5b9e19da214bfc604af6006065037da39256a9cc90bf45a7b2b903"
+    sha256 sonoma:        "f32536e8bb1b2db0fc9522252ca1187f148964b8ae9460bba2a55fa1ca574893"
+    sha256 arm64_linux:   "74b3531bd9da3d27ae4fb0177803635508f60654bec64638a31792bb2c97c0d1"
+    sha256 x86_64_linux:  "2a3b46660626a3fa045698091d52ebf8b4633a59e8058b5b231f9561d1a38612"
   end
 
   depends_on "glib" => :build # to add to PKG_CONFIG_PATH for gobject-introspection
@@ -57,6 +57,6 @@ class Babl < Formula
     system ENV.cc, "-I#{include}/babl-0.1", testpath/"test.c", "-L#{lib}", "-lbabl-0.1", "-o", "test"
     system testpath/"test"
 
-    system Formula["gobject-introspection"].opt_bin/"g-ir-inspect", "--print-typelibs", "--print-shlibs", "Babl"
+    system formula_opt_bin("gobject-introspection")/"g-ir-inspect", "--print-typelibs", "--print-shlibs", "Babl"
   end
 end

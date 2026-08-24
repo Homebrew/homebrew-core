@@ -3,7 +3,7 @@ class Graphite2 < Formula
   homepage "https://graphite.sil.org/"
   url "https://github.com/silnrsi/graphite/releases/download/1.3.15/graphite2-1.3.15.tgz"
   sha256 "c6bc8b4252724665297f7cad0c55897285c673f9b8e6db3522ace833593fe0b1"
-  license any_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "MPL-1.1+"]
+  license any_of: ["MIT", "MPL-2.0", "LGPL-2.1-or-later", "GPL-2.0-or-later"]
   head "https://github.com/silnrsi/graphite.git", branch: "master"
 
   bottle do

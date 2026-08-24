@@ -1,18 +1,19 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://wiki.gnome.org/Apps/Terminal/VTE"
-  url "https://download.gnome.org/sources/vte/0.84/vte-0.84.0.tar.xz"
-  sha256 "0414e31583836aeb7878da25f67c515f7e8879917ecc37c92e26b83e8d8fc3e3"
+  url "https://download.gnome.org/sources/vte/0.84/vte-0.84.1.tar.xz"
+  sha256 "aca1caa8478aebcdbb1d67897fb3511eb7601debae6810e16a15b6fa25f31ac8"
   license "LGPL-2.0-or-later"
+  revision 1
   compatibility_version 1
 
   bottle do
-    sha256 arm64_tahoe:   "e8d84b9045e2ad4766cf720d8571e2f3d5ce5bf02272547bf7dfe0867ca5f8c2"
-    sha256 arm64_sequoia: "9909f37286e98bb1923785a40d0c953e21c5ad5ac8b3f87c3646a875570ce289"
-    sha256 arm64_sonoma:  "6b323dc1dff3daac79febb60f696b2f3fb76d95d038ae9c0ee416ff509c4dbf4"
-    sha256 sonoma:        "a5def4efce2aaecf9bc8c8232077f286b7b35a56cf7ab9afd5bb8187965c96aa"
-    sha256 arm64_linux:   "fdefd2a0f307996f347c16c12557070ec87b40143570aac75e8870ff7533fd01"
-    sha256 x86_64_linux:  "7fb10c27d41d88059750995a0cb4f5d2e5a2d63ebab82917cd3ded63793b45d0"
+    sha256 arm64_tahoe:   "248d1049a6a3575a169de7a8dec106879bd17469ad23c7d36fd0ba23eeced75f"
+    sha256 arm64_sequoia: "e9b68c5c927bf676bcb49eff5a0c7df93928cd5239d56e2199f294727d61cd66"
+    sha256 arm64_sonoma:  "68ba7eb19399dc7e938bbbdde11e3033fc3f1cfa499456619c2feab968324421"
+    sha256 sonoma:        "d446f562a18f69ba755b4b57d95b79cb959263e7ef0a56799c92232fdb8ffa82"
+    sha256 arm64_linux:   "b64df1c672df535241644922208d379b3cd31cf29eadaca6e74080fb5989c24b"
+    sha256 x86_64_linux:  "24f5df0e9ad79cdebc13a80f8bf1605552e4a3cd2b8976024b5b2d6e92e882a2"
   end
 
   depends_on "fast_float" => :build
@@ -46,8 +47,6 @@ class Vte3 < Formula
   end
 
   on_linux do
-    # Ubuntu 24.04 has GCC 14 libstdc++ so we can build with brew GCC 14 without impacting GLIBCXX
-    depends_on "gcc@14" => :build if DevelopmentTools.gcc_version < 14
     depends_on "systemd"
   end
 
@@ -64,15 +63,6 @@ class Vte3 < Formula
   end
 
   def install
-    if OS.linux? && deps.map(&:name).any?("gcc@14")
-      # Since brew will prioritize newer GCC versions if installed, we force usage of gcc-14
-      ENV.method(:"gcc-14").call
-
-      # Avoid using the postinstalled specs file which automatically adds an RPATH to gcc@14 libraries
-      libgcc = Pathname.new(Utils.safe_popen_read(ENV.cc, "-print-libgcc-file-name")).parent
-      ENV.append "CXX", "-specs=#{libgcc}/specs.orig"
-    end
-
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
     system "meson", "setup", "build", "-Dgir=true",

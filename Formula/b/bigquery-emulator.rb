@@ -15,7 +15,9 @@ class BigqueryEmulator < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff25d427abf1af93767169775f4259745bebc4ec7a23085dc0a1b3bc49bf407f"
   end
 
-  depends_on "go" => :build
+  # TODO: unpin go@1.26 when bigquery-emulator supports go 1.27
+  # ref: https://github.com/goccy/bigquery-emulator/pull/497
+  depends_on "go@1.26" => :build
 
   uses_from_macos "llvm" => :build
 
@@ -30,7 +32,7 @@ class BigqueryEmulator < Formula
       ENV.append "GOFLAGS", "-buildmode=pie"
     end
 
-    ldflags = "-s -w -X main.version=#{version} -X main.revision=#{tap.user}"
+    ldflags = "-X main.version=#{version} -X main.revision=#{tap.user}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/bigquery-emulator"
   end
 

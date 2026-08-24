@@ -33,7 +33,7 @@ class LldAT20 < Formula
 
   def install
     rpaths = [rpath]
-    rpaths << Formula["llvm@20"].opt_lib.to_s if OS.linux?
+    rpaths << formula_opt_lib("llvm@20").to_s if OS.linux?
 
     system "cmake", "-S", "lld", "-B", "build",
                     "-DBUILD_SHARED_LIBS=ON",

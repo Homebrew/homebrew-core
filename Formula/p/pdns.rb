@@ -1,9 +1,10 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-5.1.1.tar.bz2"
-  sha256 "08937955ce444bbb0aabfdf6a5f18d483dd5893d761539811be17a9b6cf33b6a"
+  url "https://downloads.powerdns.com/releases/pdns-5.1.4.tar.bz2"
+  sha256 "f8a10edbf60e49d8c160e93121989d5ebcdad838d0e0b747f26ef7e89fd220c0"
   license "GPL-2.0-or-later"
+  revision 1
 
   # The first-party download page (https://www.powerdns.com/downloads) isn't
   # always updated for newer versions, so for now we have to check the
@@ -16,12 +17,12 @@ class Pdns < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "9e07d4946755fe1aec08017541d9c9354d270b2053eaf59bd56df2c70353d78b"
-    sha256 arm64_sequoia: "b93470f0e613c73d09c6dfd7a1cf7dd4d6b0c13f68cda16eb4b2e87da945f2de"
-    sha256 arm64_sonoma:  "068349d3191310e9e448a85d9cc8db3a919b5f50de94770aeb9b712cf34b668d"
-    sha256 sonoma:        "c4a1c6af94147b6561d0b695a935f85e01d49d6213fd5071d7055ed5542b41de"
-    sha256 arm64_linux:   "cc28d1b05602158b70e0e0db41418bece5bd195956cbdd416a224bedbe7006f8"
-    sha256 x86_64_linux:  "3c759ecb7a984fd7e8112785bfafbe7ee7d4870ae73ae0724aa0cc9b7dd13abe"
+    sha256 arm64_tahoe:   "f9ae01cc72b5d6cc59ce65aba5838f5846fcb5e1f92d4835a805b5201ef5902e"
+    sha256 arm64_sequoia: "5b028a81bf981f1863681236aef0eda607ce833407e5f4068197bf444231b19a"
+    sha256 arm64_sonoma:  "5d1a24e7b7f12d6f5a5890a7a5b04e9aea362c44244213a9e53815213c0e7719"
+    sha256 sonoma:        "b5033532473e8380f77827e166a378be6d0b395549e36ce39499d91b580c1281"
+    sha256 arm64_linux:   "fa7210190354446861777a132462235040d75859a466cef7c6945a18f511abbc"
+    sha256 x86_64_linux:  "2f0c18cac62b4c6e8e9207e175d39525589557cec16e7b5510c72d8232682ed6"
   end
 
   head do
@@ -46,7 +47,7 @@ class Pdns < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}/powerdns
       --with-lua
-      --with-libcrypto=#{Formula["openssl@3"].opt_prefix}
+      --with-libcrypto=#{formula_opt_prefix("openssl@3")}
       --with-sqlite3
       --with-modules=gsqlite3
     ]

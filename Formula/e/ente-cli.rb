@@ -1,10 +1,10 @@
 class EnteCli < Formula
   desc "Utility for exporting data from Ente and decrypt the export from Ente Auth"
   homepage "https://github.com/ente-io/"
-  url "https://github.com/ente-io/ente/archive/refs/tags/cli-v0.2.3.tar.gz"
-  sha256 "6bd4ab7b60bf15dd52fbf531d7fa668660caf85c60ef8c4b4f619b777068b4e3"
+  url "https://github.com/ente/ente/archive/refs/tags/cli-v0.3.0.tar.gz"
+  sha256 "bcc7620943ed8e3b16f5f2295ab8ff2e7dfe0f9b60abc9f95bf2139a02f27708"
   license "AGPL-3.0-only"
-  head "https://github.com/ente-io/ente.git", branch: "main"
+  head "https://github.com/ente/ente.git", branch: "main"
 
   livecheck do
     url :stable
@@ -12,21 +12,19 @@ class EnteCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "02768405fae7635b534b796b20d1ac47d97688d6f9b52b84f2d0d295b85c646b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2efd5893df437f97c91a84d69d855629921325f6f397c84be29d072723019d91"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2efd5893df437f97c91a84d69d855629921325f6f397c84be29d072723019d91"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2efd5893df437f97c91a84d69d855629921325f6f397c84be29d072723019d91"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9fa97a816bcae266536982077798393b61a08859cfb455fee6a822640f8837ee"
-    sha256 cellar: :any_skip_relocation, ventura:       "9fa97a816bcae266536982077798393b61a08859cfb455fee6a822640f8837ee"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6698caaf273ea5141fec0ad91777d7e85f73f640b186c3332cea1a9513433fc2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8fad672f160147e34db13a96d0867946b3cd5ac076d295eef48b4b3b485d8ace"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2e90b3d7b814ad43fb45d6c89b9bc1b83c5d686018f7bc26ec33d1dae188c054"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2e90b3d7b814ad43fb45d6c89b9bc1b83c5d686018f7bc26ec33d1dae188c054"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e90b3d7b814ad43fb45d6c89b9bc1b83c5d686018f7bc26ec33d1dae188c054"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0d9a6a8a180f866e6f98d36647ac1b0c0cb429a9fbf8e87cbb27afea110b3ed0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "20f4389aa51580b8f1455b247e7bc6d7472e9ee5121a1ca2e7692ceffb517e92"
+    sha256 cellar: :any,                 x86_64_linux:  "f8305eb32e5efc46b81c1993fdb5103802e9ef52352e16bb0d05dbe9f4204f38"
   end
 
   depends_on "go" => :build
 
   def install
     cd "cli" do
-      system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"ente"), "main.go"
+      system "go", "build", *std_go_args(output: bin/"ente"), "main.go"
     end
   end
 

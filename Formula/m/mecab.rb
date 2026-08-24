@@ -38,7 +38,7 @@ class Mecab < Formula
   end
 
   post_install_steps do
-    mkdir_p "lib/mecab/dic", base: :homebrew_prefix
+    mkdir_p "{{HOMEBREW_PREFIX}}/lib/mecab/dic"
   end
 
   test do

@@ -49,7 +49,7 @@ class Qman < Formula
     inreplace pkgetc/"qman.conf", "[misc]", <<~CONF
       [misc]
       system_type=#{systype}
-      groff_path=#{Formula["groff"].opt_bin}/groff
+      groff_path=#{formula_opt_bin("groff")}/groff
     CONF
   end
 
@@ -62,8 +62,8 @@ class Qman < Formula
       cp_r pkgetc, testpath/"qman"
       inreplace testpath/"qman/qman.conf", "[misc]", <<-EOS
         [misc]
-        whatis_path=#{Formula["man-db"].opt_bin}/gwhatis
-        apropos_path=#{Formula["man-db"].opt_bin}/gapropos
+        whatis_path=#{formula_opt_bin("man-db")}/gwhatis
+        apropos_path=#{formula_opt_bin("man-db")}/gapropos
       EOS
       match_str = "This system has been minimized by removing packages and content"
       result = 2

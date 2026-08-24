@@ -2,7 +2,7 @@ class Jdupes < Formula
   desc "Duplicate file finder and an enhanced fork of 'fdupes'"
   homepage "https://codeberg.org/jbruchon/jdupes"
   url "https://codeberg.org/jbruchon/jdupes/archive/v1.31.1.tar.gz"
-  sha256 "c80d4c1deb03cc891a7e938f886952cfc480b8a0bc48baf21b312d350b62d8e3"
+  sha256 "9e318ea3440e5dcd33533aaebf85f8307757bb34ea1d12548ceef8d5d75c4bd9"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,13 @@ class Jdupes < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ec259561869b02c328d62bfe624a1edfb0952222fcb3f9c02013c545cfc299cc"
-    sha256 cellar: :any,                 arm64_sequoia: "97eadd05850f36865713dd989f6d8aa59103adba496c82337dc46a0e558073ba"
-    sha256 cellar: :any,                 arm64_sonoma:  "7f5bfb653d6bf5c768ab9a71e562ae05e93d31a96ef855c28856f32f52ec7307"
-    sha256 cellar: :any,                 sonoma:        "7d143118f5d529d58b96dbdf7cdaf969214fc51ee38b216824019fb73cc6f0c8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "96d668e71e1be10f6039352d2e613d9a55f9eb193df013cb56bfb58194d99490"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe8d8dbf09f5b79df229d4cc2d12cb2895a4eea6351d395c20d50129cbf40e31"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "f482ae6d140f2d57ce79f7f4ce86f883b8cdf3689d7723add2973dab2967bf7a"
+    sha256 cellar: :any, arm64_sequoia: "7b963f3181f00e7b5d6b489ab65cf9bcfe086383b66b3c8371bab40ab0b7937a"
+    sha256 cellar: :any, arm64_sonoma:  "3180b8ef8f149f1da85a9661f5b108ed49fde085cc91475390a9311a4461d8ee"
+    sha256 cellar: :any, sonoma:        "666263c8bab14f6cb705ea5c83b6aaea7ccca5fbe3e6726d205a6f95c4b26fbd"
+    sha256 cellar: :any, arm64_linux:   "78a4997c423477cd39ab75b312553ddf4b30f2968b7da1bba9ec6da42c04c633"
+    sha256 cellar: :any, x86_64_linux:  "39872547225f20c9e98bd23aec2bb7ecbfaa3680c3598f9a33f6bf828ba6259d"
   end
 
   depends_on "libjodycode"

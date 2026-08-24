@@ -1,8 +1,8 @@
 class Libjwt < Formula
   desc "JSON Web Token C library"
   homepage "https://libjwt.io/"
-  url "https://github.com/benmcollins/libjwt/archive/refs/tags/v3.5.0.tar.gz"
-  sha256 "dfb86291a92c3e6373b71164dad7d15ae5c62f90d24b81abf2fe2395ba3057b5"
+  url "https://github.com/benmcollins/libjwt/archive/refs/tags/v3.6.1.tar.gz"
+  sha256 "b483a5f77e548964553f54a0ec5f0c810cc6c0629c5ac5a03610bcced150e7be"
   license "MPL-2.0"
   head "https://github.com/benmcollins/libjwt.git", branch: "master"
 
@@ -12,22 +12,26 @@ class Libjwt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "b396a35b9c3b2bc6ab8c19bcbe085a4fbbf76fadfb4e79bc9ef60bb4aa00a976"
-    sha256 cellar: :any, arm64_sequoia: "fcb429230dd6b6ce04c7ff05cd781bee4baf28cb7ef1a810b16922fd9774b65a"
-    sha256 cellar: :any, arm64_sonoma:  "5078fde701cc620106ff60da5ebba647dfafb3c9db7d17ef48d37d4378f42e50"
-    sha256 cellar: :any, sonoma:        "16bed1e537fb1795a9f3ef9afb45423ae674d6dfbf4c719921f25d7a3dcbad66"
-    sha256 cellar: :any, arm64_linux:   "d2c258f5912da1471399dfdd36cbec692265d65fbe6ea183b7d59628d26e9903"
-    sha256 cellar: :any, x86_64_linux:  "e39b6f496729cbbd9b6e3be80c2a16e21ec3cac1754d6c2906c0895aaa379a6a"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "61773960bcdf648e9ca898014d174d06892a040c24af12c257fb5069cf2ffa13"
+    sha256 cellar: :any, arm64_sequoia: "16500fd9d18377e8abdb79126639f58a9a85098e8960710717aa14204f8e8143"
+    sha256 cellar: :any, arm64_sonoma:  "36b4976416aa72340a3713494eb505a5734bfa002057c00216eadac413ecd52a"
+    sha256 cellar: :any, sonoma:        "3bca716a62e7011009c45c2d3b1ef0b737e2060d1989c164237bc6c56bad56a3"
+    sha256 cellar: :any, arm64_linux:   "282bb91e8bb37caf6c2e99aaf1a79c8163e7459fe97b839e25716edb43cc2dc9"
+    sha256 cellar: :any, x86_64_linux:  "71911a4882b10f56d58dc36f820be5ad41c50e7ce3a2cf7cf82341a5dde8804f"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "gnutls"
   depends_on "jansson"
   depends_on "openssl@3"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DWITH_TESTS=OFF", *std_cmake_args
+    args = %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DWITH_TESTS=OFF
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

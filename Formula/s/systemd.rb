@@ -3,8 +3,8 @@ class Systemd < Formula
 
   desc "System and service manager"
   homepage "https://systemd.io"
-  url "https://github.com/systemd/systemd/archive/refs/tags/v260.2.tar.gz"
-  sha256 "71a9ed11cf773478b0d7a16cd96e39ca3c3939ab37ed9a8ee814c31ea9b4f2b5"
+  url "https://github.com/systemd/systemd/archive/refs/tags/v261.2.tar.gz"
+  sha256 "ed1059ff964f5df35b6056434cc17cc83f86dc913f10489948a0b19b6081c5ec"
   license all_of: [
     # Main license is LGPL-2.1-or-later while systemd-udevd is GPL-2.0-or-later
     "LGPL-2.1-or-later",
@@ -31,8 +31,8 @@ class Systemd < Formula
   head "https://github.com/systemd/systemd.git", branch: "main"
 
   bottle do
-    sha256 arm64_linux:  "18721e5cfbc0d35aa12a020e1e8164e6eaf99cdf562ff11abd17c0e39886502e"
-    sha256 x86_64_linux: "b8944d01099a52b133b8cba2b3e0a1af4f042cd32131214f67875e8b314d4ceb"
+    sha256 arm64_linux:  "2d19968531f892b75098fdbd3180c5464ff717c35f97fe12d1fd4d090503057d"
+    sha256 x86_64_linux: "0b69145eb07e6cea8ba539dc479952e193eb2debe281ad920adac59ae762d04c"
   end
 
   keg_only "it will shadow system systemd if linked"
@@ -107,6 +107,14 @@ class Systemd < Formula
       -Dp11kit=disabled
       -Dpam=disabled
       -Dshellprofiledir=no
+    ]
+
+    # D-Bus dirs default to the read-only dbus keg via pkg-config; use our own prefix
+    args += %W[
+      -Ddbuspolicydir=#{share}/dbus-1/system.d
+      -Ddbussessionservicedir=#{share}/dbus-1/services
+      -Ddbussystemservicedir=#{share}/dbus-1/system-services
+      -Ddbus-interfaces-dir=#{share}/dbus-1/interfaces
     ]
 
     system "meson", "setup", "build", *args, *std_meson_args

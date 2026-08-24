@@ -1,8 +1,8 @@
 class Sapling < Formula
   desc "Source control client"
   homepage "https://sapling-scm.com"
-  url "https://github.com/facebook/sapling/archive/refs/tags/0.2.20260522-084851+1e764c94.tar.gz"
-  sha256 "2b2d3023ec10478e3d9d4db3240b71bc4068a63dd11f98f11d399372c62a5f9a"
+  url "https://github.com/facebook/sapling/archive/refs/tags/0.2.20260811-150444+8fb02b32.tar.gz"
+  sha256 "5815b3b70c73b7731c611bcfeee44ac2bc7be84dbdaf4738366396d0dbc8de4f"
   license "GPL-2.0-or-later"
   head "https://github.com/facebook/sapling.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Sapling < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_tahoe:   "e1df1cfea4ba640bd468431452b111f3ccf1ac291eab9ab13cffabf48b3ab716"
-    sha256 arm64_sequoia: "5f6a363f717c3e61745f81d6e59190171341ac955847fbdb13ddbbc90846709e"
-    sha256 arm64_sonoma:  "5d20e2c3a4bba72331b754b82390b60cfcba76381dee3913d94e32ee39c726a2"
-    sha256 sonoma:        "b680c8f81da061ae08d5be28af6a80d0fbb40fb2e6e94a91fad5b6de2bc9aa6a"
-    sha256 arm64_linux:   "23ef5aa7df9545abbf8f6463dcf9808c7f53b546fe8a1c349cd2000205de6787"
-    sha256 x86_64_linux:  "92dc9b826802432e6fa75663f9e282b9e082fc4aa166d5f297356c20f40259a8"
+    sha256 arm64_tahoe:   "be95ffb437fc3a142b6dea912b7ef36e6cd02d55af963741acfa5717dade0552"
+    sha256 arm64_sequoia: "0fbf197d7028aa47e8130d2faa7d76eac762dffee2a4d6646dfe96116479f7f1"
+    sha256 arm64_sonoma:  "cd329c11db2197f30e3a7071363439dccb95edcef18e35297b7f506cc6889dbb"
+    sha256 sonoma:        "1e74dcea49f06cbe517f50a667e0fd1fdeaaa6c886487a348bf9e6eabbd1e316"
+    sha256 arm64_linux:   "7f59eb4713ed6ef2495103f9680c753bec5308bf6ec348f3970da472f8476412"
+    sha256 x86_64_linux:  "2307350bd965975748a44d3de2e5b0095e05d39cb94b55b7f53bac87165b69d3"
   end
 
   depends_on "cmake" => :build
@@ -32,7 +32,7 @@ class Sapling < Formula
   depends_on "libssh2"
   depends_on "node"
   depends_on "openssl@3"
-  depends_on "python@3.12" # Python 3.13 issue: https://github.com/facebook/sapling/issues/980
+  depends_on "python@3.13"
 
   uses_from_macos "llvm" => :build # for libclang
   uses_from_macos "bzip2"
@@ -92,10 +92,10 @@ class Sapling < Formula
       odie "Inreplace did not modify any branch usage in Cargo.toml manifests!" if no_modification
     end
 
-    python3 = "python3.12"
+    python3 = "python3.13"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV["PYTHON_SYS_EXECUTABLE"] = which(python3)
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["PYTHON_SYS_EXECUTABLE"] = ENV["PYO3_PYTHON"] = which(python3)
     ENV["SAPLING_VERSION"] = if build.stable?
       version
     else
@@ -123,11 +123,11 @@ class Sapling < Formula
     end
 
     dylibs = [
-      Formula["libssh2"].opt_lib/shared_library("libssh2"),
-      Formula["openssl@3"].opt_lib/shared_library("libssl"),
-      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
+      formula_opt_lib("libssh2")/shared_library("libssh2"),
+      formula_opt_lib("openssl@3")/shared_library("libssl"),
+      formula_opt_lib("openssl@3")/shared_library("libcrypto"),
     ]
-    dylibs << (Formula["curl"].opt_lib/shared_library("libcurl")) if OS.linux?
+    dylibs << (formula_opt_lib("curl")/shared_library("libcurl")) if OS.linux?
 
     dylibs.each do |library|
       assert Utils.binary_linked_to_library?(bin/"sl", library),

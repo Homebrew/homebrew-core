@@ -22,7 +22,7 @@ class CargoSpellcheck < Formula
   depends_on "hunspell"
 
   def install
-    ENV["LIBCLANG_PATH"] = Formula["llvm"].opt_lib
+    ENV["LIBCLANG_PATH"] = formula_opt_lib("llvm")
     system "cargo", "install", *std_cargo_args
 
     generate_completions_from_executable(bin/"cargo-spellcheck", shell_parameter_format: :clap,

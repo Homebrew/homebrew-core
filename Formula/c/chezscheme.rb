@@ -20,8 +20,8 @@ class Chezscheme < Formula
   uses_from_macos "ncurses"
 
   def install
-    inreplace "c/version.h", "/usr/X11R6", Formula["libx11"].opt_prefix
-    inreplace "c/expeditor.c", "/usr/X11/bin/resize", Formula["xterm"].opt_bin/"resize"
+    inreplace "c/version.h", "/usr/X11R6", formula_opt_prefix("libx11")
+    inreplace "c/expeditor.c", "/usr/X11/bin/resize", formula_opt_bin("xterm")/"resize"
 
     system "./configure",
               "--installprefix=#{prefix}",

@@ -23,9 +23,10 @@ class Ssh3 < Formula
   uses_from_macos "libxcrypt"
 
   def install
-    ldflags = "-s -w"
-    system "go", "build", *std_go_args(ldflags:, output: bin/"ssh3"), "./cmd/ssh3"
-    system "go", "build", *std_go_args(ldflags:, output: bin/"ssh3-server"), "./cmd/ssh3-server"
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
+    system "go", "build", *std_go_args(output: bin/"ssh3"), "./cmd/ssh3"
+    system "go", "build", *std_go_args(output: bin/"ssh3-server"), "./cmd/ssh3-server"
   end
 
   test do

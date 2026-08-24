@@ -12,7 +12,7 @@ class Burst < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "boost"
+  depends_on "boost" => :no_linkage
 
   def install
     system "cmake", "-S", ".", "-B", "build",
@@ -25,7 +25,7 @@ class Burst < Formula
 
   test do
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 3.8.2)
+      cmake_minimum_required(VERSION 4.0)
       project(TestBurst)
       find_package(Burst 3.1.1 REQUIRED)
 

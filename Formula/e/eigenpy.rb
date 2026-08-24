@@ -4,15 +4,16 @@ class Eigenpy < Formula
   url "https://github.com/stack-of-tasks/eigenpy/releases/download/v3.13.0/eigenpy-3.13.0.tar.gz"
   sha256 "4e5f05ffa68a299732c6284348486d1f0c364e7f2a2bce0f14afa93780226d0b"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/stack-of-tasks/eigenpy.git", branch: "devel"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "48bd2451228e042a5bd892fdbc53bccdadb0f8ba07450a91400c476b3550f10a"
-    sha256 cellar: :any,                 arm64_sequoia: "a154b4025c58b9da0de3a89d5d8e1cf7f17bab21476acc852bcb8d54bbcd70c9"
-    sha256 cellar: :any,                 arm64_sonoma:  "c8939ec903ba742601902ead8aed1d53d2c9fdfea85d0bedc601b8220de78431"
-    sha256 cellar: :any,                 sonoma:        "8ca4115390815304ad72a0e667cf6c531f39dbb7030ebf497ce7db60b2a2491c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "42a2ec2983cb10818c57217afa622d347e4233acac191fa5a730b013e1191402"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b35b3c9b3546bd52ff0947d7f2f6b1f6bc769605dbb8456b374303444e08f46"
+    sha256 cellar: :any, arm64_tahoe:   "f572d6cc00f87716dd9fec9d5c521b6dec79ad982965498c795f58e1ec78a169"
+    sha256 cellar: :any, arm64_sequoia: "937f1be094388c96de9f2aa808206abcc98f7df0d93fb7f138f6898337d9df41"
+    sha256 cellar: :any, arm64_sonoma:  "0e13052278ab3f0cda85a7cee031fe67c974d6f44b6892fccb37eccfada97069"
+    sha256 cellar: :any, sonoma:        "109ac55e508ecbe608b7cbc87efc0db0ad92814c154f5a70fde80b6018540a7d"
+    sha256 cellar: :any, arm64_linux:   "06a631b5f3926a6f9e9426d308549a73ebebc335e14ebdb6658bad495e04b020"
+    sha256 cellar: :any, x86_64_linux:  "7fe4434412f7b4873928616a44653bb70085f1a4b7bd217c17d869c7d5625102"
   end
 
   depends_on "boost" => :build
@@ -30,7 +31,7 @@ class Eigenpy < Formula
   end
 
   def install
-    ENV.prepend_path "PYTHONPATH", Formula["numpy"].opt_prefix/Language::Python.site_packages(python3)
+    ENV.prepend_path "PYTHONPATH", formula_opt_prefix("numpy")/Language::Python.site_packages(python3)
     ENV.prepend_path "Eigen3_DIR", Formula["eigen"].opt_share/"eigen3/cmake"
 
     args = %W[

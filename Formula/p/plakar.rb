@@ -1,8 +1,8 @@
 class Plakar < Formula
   desc "Create backups with compression, encryption and deduplication"
   homepage "https://plakar.io"
-  url "https://github.com/PlakarKorp/plakar/archive/refs/tags/v1.1.3.tar.gz"
-  sha256 "6a23f149e7ac38009d2302b335df746be5408f775da89ef474f8b108bfb72cee"
+  url "https://github.com/PlakarKorp/plakar/archive/refs/tags/v1.1.4.tar.gz"
+  sha256 "3991e0bec18fa098d6a6450e68a6bda21fb2541f9ec95e543568fe23ad78ab6a"
   license "ISC"
 
   livecheck do
@@ -11,18 +11,19 @@ class Plakar < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "952a599361a4b6cf98d7e1f291ab74a122cf6b393c952a0e8a9d5c9402ebd040"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8fd018430210b4af8e0c78cd2d28f19acba2c8b7ec1b5729b5cac459290482d1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "204b58f3fd234537b2bb851a3000a2765457f09b3956af71da391299fb3ce3dd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c6c4f06fd295110ab8392053cfc75a782cfaf79a9668d4c82212b19ecc18b9d3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "919e588517b969beb049a300284f3a2a415104d5ca427b195831e46c8b58ad96"
-    sha256 cellar: :any,                 x86_64_linux:  "2ced989873cf860bf28c56505e302cb3d577db22ef9fc7ba0833ad3e14f4e0ed"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "00d0e67047109b1fb4ba8d52520169ceaaf185c53953c5ff388637d72fde1a36"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd09a166bc4fdb371d720088cf0f283c6d413a75082622c7a21b6b45de658158"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ccde0cba4e20d496c577bbffb088b11845d120c450335bc60038d5d919694ff3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "74ec6d8f6ff5ce7377532d17eada3343c6146483be984f2537ac32b5190c5c15"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "62795975fe20d93d918b95bee8e1c925b8630b347ce87a421a31560f25593c7f"
+    sha256 cellar: :any,                 x86_64_linux:  "9d5af84ab961a3c448c817818ebc309433fa6e5f8a50187552fb0663d9afa1c1"
   end
 
-  depends_on "go" => :build
+  # TODO: unpin go@1.26 when plakar supports go 1.27
+  depends_on "go@1.26" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   test do

@@ -1,23 +1,23 @@
 class Thanos < Formula
   desc "Highly available Prometheus setup with long term storage capabilities"
   homepage "https://thanos.io"
-  url "https://github.com/thanos-io/thanos/archive/refs/tags/v0.41.0.tar.gz"
-  sha256 "7566a654e7ed07f0aed194c4c2fee1f60bddfda0bd8d7458ce735ce2e868ffc8"
+  url "https://github.com/thanos-io/thanos/archive/refs/tags/v0.42.4.tar.gz"
+  sha256 "0f078dcb6d47bde6b3de0e962355d977f6fc017975d882531c4bd70f81f61fae"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "af0661c2a78ef3e92faa2fe71e88020af6e5feb8125dd5bd01de714e9960e120"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c7da513ac84acfd289615cfad300e3d00ec416ead9bf33ec6a3487e16dc35f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2697f75f98288dd410c434ebb30e879b1e57d4bb56df6da1ee6b029ca931427c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "41ad9c6fc6be25934665460fc45f041388c796d20b190dac187b200a6960ac03"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "72c8fc644d15d5c0f9bd3ca3037dad7010787db8eff7c24d9d0b5ffb46bf1adb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f83788c0f27c6634052f2b5bf524510cbecae556d8136b808b2cf1660daf075"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "10f78ac7930b09f4b5da8dc62ed4c53cc52bb5e7cc72a9733e8771fa9a43fdca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d9dad1ff546561ce1e703d5a59c22ce3ab707f9ad3e3c0de7fdde44a87acdeac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0ef94b7eadbe0bd030f0b228141ad0e475b6a8de49099436a7ba071332fa2a1c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c8c2e2b4f814164b3f1cf83a2fefffce4612e2d4026f33ad056c959ef3482306"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f53b1f6a5e60784d352cb8b63b74f830640a43eec615d94efe32d8df0d71f6d1"
+    sha256 cellar: :any,                 x86_64_linux:  "78bc5e297dc8a207b24e80ac7f7fd2232b03cb7fe7881c84652d4b6cb43d0599"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/thanos"
+    system "go", "build", *std_go_args, "./cmd/thanos"
   end
 
   test do

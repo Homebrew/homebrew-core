@@ -1,17 +1,17 @@
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-26.1.0.tgz"
-  sha256 "ce8d2c284b20e2bd1f054ad3652fd9e098d32911c90da48c2b695eadfced39ff"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-27.1.2.tgz"
+  sha256 "97c469dc2a55927d6876852fee57d42f650cfbd967628002073e6a2e49aa85dc"
   license "MIT"
 
   bottle do
-    sha256               arm64_tahoe:   "b2c83b573230e1a2f7f347bfc9138332ed1969506fd236609f8833b2ae478db0"
-    sha256               arm64_sequoia: "39f39a96a83f794ea7efd92b7d2e8193ecd2a5a2dcdd9888d18fd38b78ab46af"
-    sha256               arm64_sonoma:  "6d2227e2469acdb5ce76c4fe0a0721513707992109c27c896347ddad640eeacc"
-    sha256               sonoma:        "5cf5f793ed4e0a5a2479435ae488dc5cda2b0ee62571f22fa62d2cd8f0b891e8"
-    sha256 cellar: :any, arm64_linux:   "75a1ee8ec71526231b5709911af049e78759fb0521dbebce908ca453cd850eda"
-    sha256 cellar: :any, x86_64_linux:  "755949fd94cc52cbcfba6023ada11c7f24c7eead1384ead076f72246eb7e887b"
+    sha256               arm64_tahoe:   "f467cb18d7ac6c6943be9487c300321e4c590aa3f80eb5f6acad6891299458ce"
+    sha256               arm64_sequoia: "bfffd492f0b3533ed5256402a0fe1d7312ad4765c56c614eeb05625a5ea23846"
+    sha256               arm64_sonoma:  "c22645cc08e5c0594091861527791e33b7f68a1535260503c3d233dde497b3d3"
+    sha256               sonoma:        "5b2c38caffe441e233215375abca88d406fc22ab31d863fa2f988c9f0d86fa6c"
+    sha256 cellar: :any, arm64_linux:   "9b0d2cad1a9bce8bf23e4b84d9fae2537ea0c02ab416cadabc670609892d6af1"
+    sha256 cellar: :any, x86_64_linux:  "b02f2b41bedc2187a4d9a68b1592109893e5e7265615bb21626a540c76344296"
   end
 
   depends_on "pkgconf" => :build
@@ -28,11 +28,16 @@ class NetlifyCli < Formula
     depends_on "xsel"
   end
 
-  # Resource needed to build sharp from source to avoid bundled vips
+  # Resources needed to build sharp from source to avoid bundled vips
   # https://sharp.pixelplumbing.com/install/#building-from-source
+  resource "node-addon-api" do
+    url "https://registry.npmjs.org/node-addon-api/-/node-addon-api-8.9.2.tgz"
+    sha256 "4cd65698541b19a33f798f1dc25c02c6ed1c9d7749b8824b1a1ccecdd197c8ea"
+  end
+
   resource "node-gyp" do
-    url "https://registry.npmjs.org/node-gyp/-/node-gyp-12.3.0.tgz"
-    sha256 "d209963f2b21fd5f6fad1f6341897a98fc8fd53025da36b319b92ebd497f6379"
+    url "https://registry.npmjs.org/node-gyp/-/node-gyp-13.0.1.tgz"
+    sha256 "455327cde805c299d5a16603419e106853db5b9257dfb85e44eb7f4ec4d99de5"
   end
 
   def install
@@ -51,13 +56,13 @@ class NetlifyCli < Formula
       linux_dir = clipboardy_fallbacks_dir/"linux"
       linux_dir.mkpath
       # Replace the vendored pre-built xsel with one we build ourselves
-      ln_sf (Formula["xsel"].opt_bin/"xsel").relative_path_from(linux_dir), linux_dir
+      ln_sf (formula_opt_bin("xsel")/"xsel").relative_path_from(linux_dir), linux_dir
     end
 
     # Remove incompatible pre-built `bare-fs`/`bare-os`/`bare-url` binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    node_modules.glob("{bare-fs,bare-os,bare-url}/prebuilds/*")
+    node_modules.glob("{bare-fs,bare-os,bare-path,bare-url}/prebuilds/*")
                 .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
   end
 
@@ -66,7 +71,7 @@ class NetlifyCli < Formula
 
     require "utils/linkage"
     sharp = libexec.glob("lib/node_modules/netlify-cli/node_modules/sharp/src/build/Release/sharp-*.node").first
-    libvips = Formula["vips"].opt_lib/shared_library("libvips")
+    libvips = formula_opt_lib("vips")/shared_library("libvips")
     assert sharp && Utils.binary_linked_to_library?(sharp, libvips),
            "No linkage with #{libvips.basename}! Sharp is likely using a prebuilt version."
   end

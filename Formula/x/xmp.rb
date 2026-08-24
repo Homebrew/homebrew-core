@@ -1,17 +1,17 @@
 class Xmp < Formula
   desc "Command-line player for module music formats (MOD, S3M, IT, etc)"
   homepage "https://xmp.sourceforge.net/"
-  url "https://github.com/libxmp/xmp-cli/releases/download/xmp-4.3.0/xmp-4.3.0.tar.gz"
-  sha256 "8c2bfeba91282bd79fbb3c9b90f9b0f6a7dc61f84c9a4fb2e4a01776ce0f81e1"
+  url "https://github.com/libxmp/xmp-cli/releases/download/xmp-4.3.1/xmp-4.3.1.tar.gz"
+  sha256 "cbfdab11233708c4de6ab965f64d96d4cb5b9d8e14d2d23df3b1b896386f870f"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "4b0ed19e822b10ffb401686f212cd40e8317b2b2a8062131aea81af29e1ca840"
-    sha256 arm64_sequoia: "827d5de28c8c9c3c2f8b91f7e107fa1ec24777e75e70b59ba0f6e22dd7fa6263"
-    sha256 arm64_sonoma:  "f76343ee866498fd243770813aa6540ce0076462ef7ea031093890563fd0b6c6"
-    sha256 sonoma:        "ba07f514ac50b72a5a0af249aa53610b6615778c7dad7edeedc06dd8acea4d6f"
-    sha256 arm64_linux:   "7b8bb21bd902a1b7fb8288e7fbda094b365cd1146bb407a12b68b45e29ca8507"
-    sha256 x86_64_linux:  "2c7e626e658c88f98a46aff117b9fec0b248493840375532d58fcf8660ce333b"
+    sha256 arm64_tahoe:   "8a83641cb1f63efabdcb932c6bfea4c44915514af1186394dab92ee332154332"
+    sha256 arm64_sequoia: "d8a40694abaf2eb15637f85c4faeb950867e74346070e44698dc449e4343ec95"
+    sha256 arm64_sonoma:  "d8ed457bc7507cf37e7418cb679829a2510765f6484f38c2bc18498abb9955d9"
+    sha256 sonoma:        "9834e4b17427595cf9fae5f015121de3495cf217241d952b7986d80a91277fba"
+    sha256 arm64_linux:   "59b38e80194b5cbca5e8c440a7040d9692d333f1fe9b929fcd8c863272821776"
+    sha256 x86_64_linux:  "bc3262ee98ef085100b01524a5ba46c205ab36cb05e04ccf88f04b7480230e61"
   end
 
   head do

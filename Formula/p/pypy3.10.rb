@@ -1,27 +1,23 @@
 class Pypy310 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy3.10-v7.3.17-src.tar.bz2"
-  sha256 "6ad74bc578e9c6d3a8a1c51503313058e3c58c35df86f7485453c4be6ab24bf7"
+  url "https://github.com/pypy/pypy/archive/refs/tags/release-pypy3.10-v7.3.19.tar.gz"
+  sha256 "48648aa0a63f4e5fa30315e06b27999ea7157da68a8d4503ebc4a7ee308b5f66"
   license "MIT"
-  revision 1
   head "https://github.com/pypy/pypy.git", branch: "main"
 
-  livecheck do
-    url "https://downloads.python.org/pypy/"
-    regex(/href=.*?pypy3\.10[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
+  bottle do
+    sha256 cellar: :any, arm64_tahoe:   "b80a1002fd362e89ae2e3353ce566cd4d0e71a1f2c9fa29c1320a28d925dc630"
+    sha256 cellar: :any, arm64_sequoia: "13d02f7c456b3561f313153df622cb3c8291104669bfa10c2c9b99a39c7a701d"
+    sha256 cellar: :any, arm64_sonoma:  "8c19c7d138dabdb6e6caca03d190132722ede28c816b02e607cb4f1a89d9bb68"
+    sha256 cellar: :any, sonoma:        "d825e5ab5629a4da05ca828ca78288653e5235dca4eaddbd003078a7d11a35d1"
+    sha256 cellar: :any, arm64_linux:   "f90b17c54b31bc396034479dadef0461ba7882b109c2c85c55e5dbcd04a6cff1"
+    sha256 cellar: :any, x86_64_linux:  "6bb389560952b0632d23c74ee4cc871bb658e30960fbfed02cea97ed4d677a5b"
   end
 
-  bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "de425a276a64d92a0e2d69d589753d119733d0e3cc18aa985ae329aaf1bfa910"
-    sha256 cellar: :any,                 arm64_sequoia: "311b947a1528ae90983edc2176864a00865fb678c13c2286efe24075463a1796"
-    sha256 cellar: :any,                 arm64_sonoma:  "8276c86a74591aec5dcd72722caeaa9c5a950f922b77c5ac20fc1147e21698b5"
-    sha256 cellar: :any,                 arm64_ventura: "9e80dff6aaa3e465055533fe201daa041baf2e24af5ea96dca4951b56a171589"
-    sha256 cellar: :any,                 sonoma:        "cbac71c93a07a6e926836763d9d67662b157a12525ce5c333504a4e10eff14f6"
-    sha256 cellar: :any,                 ventura:       "f8216079a9bc035470ac314f3dacaab40839ea20edc53b8fea250af4128612e3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6c838f8f2bde36ec834a8d390cd441e75aec83b1cc21126e8e974e05024a5d09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4032a756625270ffb7945d97b0116ac7e9acb1e5731eab7590241874f2fb12d"
-  end
+  # PyPy 3.10 was dropped in 7.3.20 and source tarballs have been removed
+  deprecate! date: "2026-06-22", because: :deprecated_upstream
+  disable! date: "2026-09-22", because: :deprecated_upstream
 
   depends_on "pkgconf" => :build
   depends_on "pypy" => :build
@@ -36,7 +32,10 @@ class Pypy310 < Formula
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # setuptools >= 60 required sysconfig patch
   # See https://github.com/Homebrew/homebrew-core/pull/99892#issuecomment-1108492321
@@ -51,15 +50,6 @@ class Pypy310 < Formula
     sha256 "7fd9972f96db22c8077a1ee2691b172c8089b17a5652a44494a9ecb0d78f9149"
   end
 
-  # Build fixes:
-  # - Disable Linux tcl-tk detection since the build script only searches system paths.
-  #   When tcl-tk is not found, it uses unversioned `-ltcl -ltk`, which breaks build.
-  # Upstream issue ref: https://github.com/pypy/pypy/issues/3538
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/pypy/tcl-tk.diff"
-    sha256 "d17725c11842d83b5432312348715241b1b402173cd68166620c1b6bd8162fbd"
-  end
-
   def abi_version
     stable.url[/pypy(\d+\.\d+)/, 1]
   end
@@ -69,9 +59,16 @@ class Pypy310 < Formula
   end
 
   def install
+    # Avoid statically linking to libffi
+    inreplace "rpython/rlib/clibffi.py", '"libffi.a"', "\"#{shared_library("libffi")}\""
+
     # The `tcl-tk` library paths are hardcoded and need to be modified for non-/usr/local prefix
     tcltk = Formula["tcl-tk@8"]
     inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
+      # Work around https://github.com/pypy/pypy/issues/3538.
+      s.gsub! "elif sys.platform == 'darwin':", "else:"
+      s.gsub! "else:\n    # On some Linux distributions",
+              "if False: # disable Linux system tcl-tk detection\n    # On some Linux distributions"
       s.gsub! "['/usr/local/opt/tcl-tk/include']", "[]"
       # We moved `tcl-tk` headers to `include/tcl-tk` and versioned TCL 8
       # TODO: upstream this.
@@ -96,7 +93,7 @@ class Pypy310 < Formula
     ENV["PYTHONPATH"] = nil
     ENV["PYPY_USESSION_DIR"] = buildpath
 
-    python = Formula["pypy"].opt_bin/"pypy"
+    python = formula_opt_bin("pypy")/"pypy"
     cd "pypy/goal" do
       system python, buildpath/"rpython/bin/rpython",
              "-Ojit", "--shared", "--cc", ENV.cc, "--verbose",
@@ -127,6 +124,10 @@ class Pypy310 < Formula
       lib.install_symlink shared_library("libpypy#{abi_version}-c") => shared_library("libpypy3-c")
     end
 
+    %w[setuptools pip].each do |package|
+      (libexec/"post-install-resources").install resource(package).cached_download => "#{package}.tar.gz"
+    end
+
     return unless OS.linux?
 
     # Delete two files shipped which we do not want to deliver
@@ -134,49 +135,8 @@ class Pypy310 < Formula
     rm([libexec/"bin/libpypy#{abi_version}-c.so.debug", libexec/"bin/pypy#{abi_version}.debug"])
   end
 
-  def post_install
-    # Precompile cffi extensions in lib_pypy
-    # list from create_cffi_import_libraries in pypy/tool/release/package.py
-    %w[_sqlite3 _curses syslog gdbm _tkinter].each do |module_name|
-      quiet_system bin/"pypy#{abi_version}", "-c", "import #{module_name}"
-    end
-
-    # Post-install, fix up the site-packages and install-scripts folders
-    # so that user-installed Python software survives minor updates, such
-    # as going from 1.7.0 to 1.7.1.
-
-    # Create a site-packages in the prefix.
-    site_packages(HOMEBREW_PREFIX).mkpath
-    touch site_packages(HOMEBREW_PREFIX)/".keepme"
-    rm_r(site_packages(libexec))
-
-    # Symlink the prefix site-packages into the cellar.
-    site_packages(libexec).parent.install_symlink site_packages(HOMEBREW_PREFIX)
-
-    # Tell distutils-based installers where to put scripts
-    scripts_folder.mkpath
-    (distutils/"distutils.cfg").atomic_write <<~EOS
-      [install]
-      install-scripts=#{scripts_folder}
-    EOS
-
-    %w[setuptools pip].each do |pkg|
-      resource(pkg).stage do
-        system bin/"pypy#{abi_version}", "-s", "setup.py", "--no-user-cfg", "install", "--force", "--verbose"
-      end
-    end
-
-    # Symlinks to pip_pypy3
-    bin.install_symlink scripts_folder/"pip#{abi_version}" => "pip_pypy#{abi_version}"
-    symlink_to_prefix = [bin/"pip_pypy#{abi_version}"]
-
-    if newest_abi_version?
-      bin.install_symlink "pip_pypy#{abi_version}" => "pip_pypy3"
-      symlink_to_prefix << (bin/"pip_pypy3")
-    end
-
-    # post_install happens after linking
-    (HOMEBREW_PREFIX/"bin").install_symlink symlink_to_prefix
+  post_install_steps do
+    bootstrap_pypy abi_version: "3.10"
   end
 
   def caveats

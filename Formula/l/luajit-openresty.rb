@@ -1,8 +1,8 @@
 class LuajitOpenresty < Formula
   desc "OpenResty's Branch of LuaJIT 2"
   homepage "https://github.com/openresty/luajit2"
-  url "https://github.com/openresty/luajit2/archive/refs/tags/v2.1-20260606.tar.gz"
-  sha256 "8f075a15bfdd2bfefc6f54fec0d35eedccb9b7fbc6ed5dba8ccb03da1f157c5c"
+  url "https://github.com/openresty/luajit2/archive/refs/tags/v2.1-20260824.tar.gz"
+  sha256 "d73577495b63373079fe65e89613aee383db4369c22cf5b88a20a57be3d9f33a"
   license "MIT"
   version_scheme 1
   head "https://github.com/openresty/luajit2.git", branch: "v2.1-agentzh"
@@ -19,12 +19,12 @@ class LuajitOpenresty < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "4f030ddee7ffc8a5cc67d5c961dfa0cf58b50ea4c1f9beba4543e5f2de5812a9"
-    sha256 cellar: :any, arm64_sequoia: "3505210be5ee9ca71f2d0f5acf27c8805bf4abe10dd6db4fe9dc6bb9914baf66"
-    sha256 cellar: :any, arm64_sonoma:  "39f4363f4c13d6b8052058ed383067f4fde6add031df2f978606dc05acdecef7"
-    sha256 cellar: :any, sonoma:        "0e6096bd111660224416d597b62b393bf4bd6ddb03ec21c15a04783513323299"
-    sha256 cellar: :any, arm64_linux:   "6a324f1d223a4c7a1b8850237905904882385859cc607ef8647cd119a6c96b1e"
-    sha256 cellar: :any, x86_64_linux:  "9b6e23e730c55f45a243821a9d4baed6e90397d5ed9759b4d4539340442d5abb"
+    sha256 cellar: :any, arm64_tahoe:   "b43ce37423138d450e7aa1aedbffe4720a87b7f735fef2948bc99454f214fdb0"
+    sha256 cellar: :any, arm64_sequoia: "11412e66f63b5d8cad4b0855dbbcaeb3bc90c32933e0be6d0133ec08540b906d"
+    sha256 cellar: :any, arm64_sonoma:  "63e782ae99725859e0bfdb9a9d9e4ec389f870c5b6ff76004764a4aac033ae4c"
+    sha256 cellar: :any, sonoma:        "4b5e441f5952d085171e036ccaad11c92b25bf04066d583a8e03e79514e19d53"
+    sha256 cellar: :any, arm64_linux:   "51a8cafca2ce9d637daef2483d48c69cff006d58a4728a0a320d545e8138ec2c"
+    sha256 cellar: :any, x86_64_linux:  "66cf08c99451459bad83800276a5239a77d0f76dd167dac1befe20b4598f5c31"
   end
 
   keg_only "it conflicts with the LuaJIT formula"

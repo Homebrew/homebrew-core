@@ -1,25 +1,24 @@
 class Blocky < Formula
   desc "Fast and lightweight DNS proxy as ad-blocker for local network"
   homepage "https://0xerr0r.github.io/blocky/"
-  url "https://github.com/0xerr0r/blocky/archive/refs/tags/v0.32.0.tar.gz"
-  sha256 "9328c83aaecc858e4597a9eea36b1c3c01aec8ab4ef0d61c137748f701599531"
+  url "https://github.com/0xerr0r/blocky/archive/refs/tags/v0.34.0.tar.gz"
+  sha256 "6438c5d04877feac4f41ab1e0306111c93598f386eb03e79ff21627d3f1ac12a"
   license "Apache-2.0"
   head "https://github.com/0xerr0r/blocky.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "05f1b4c03b378da4f8ad2e7e4b826c3ba105d4ecbe5917a08da35bd502f967fa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1590a74987d15e7ddd38f54ec095ef0609ca1e04070304f602d1b30bc8d6debb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d8ad5e96ff795a5748231d315b23b3a1e8361903e094d3ad5e063745c4d14ac"
-    sha256 cellar: :any_skip_relocation, sonoma:        "118897a3feda3f39cd721b29ff763598a80da86dae50d565afc7bf556a7682e6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "78bc29a1ffe45567c11c036ad8d8a8df2d9a6f90d0e997868876f1b7518208f2"
-    sha256 cellar: :any,                 x86_64_linux:  "a7c366f12280be074d9d8ccb4fea60251498c2125c9dab756e3d0ada89dc348a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aaca59d1ac4f155657ddd215852718d237e80ebe43e8e85251b8c6e6f91b2b2e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "86f47784a16ab752ec40fdc97d75de674d11521c9c4a5a91c19d2bcc477e2633"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "92794e98d2b6c3e2c47cf9f058ab7f00cef0ea6bc062022090f9bb30f0b0c56e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "74711118361513a0bc753faf5a9af878b2586c34f662118eb8bd1b1d7dfcc47c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b50a8d8b1b87fe4095a42843117b1ac49ee36e3c568746d9235e6761304b75b3"
+    sha256 cellar: :any,                 x86_64_linux:  "849ffe2c4ad2aa9b0052c429912bbbea2e0536078a5886862f84adfcfa925a54"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/0xERR0R/blocky/util.Version=#{version}
       -X github.com/0xERR0R/blocky/util.BuildTime=#{time.iso8601}
     ]

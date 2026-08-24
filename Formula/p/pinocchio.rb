@@ -1,10 +1,10 @@
 class Pinocchio < Formula
   desc "Efficient and fast C++ library implementing Rigid Body Dynamics algorithms"
   homepage "https://stack-of-tasks.github.io/pinocchio"
-  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v3.9.0/pinocchio-3.9.0.tar.gz"
-  sha256 "60553630d83de492bc0cf1126add2acc591c87f1bc8ea7f70693e7563fc103a3"
+  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v4.1.0/pinocchio-4.1.0.tar.gz"
+  sha256 "b2ac9575bd4f38e0584e0d61586a95de1aeaa17c6877e31e99f1d4b913d602d8"
   license "BSD-2-Clause"
-  revision 3
+  revision 1
   head "https://github.com/stack-of-tasks/pinocchio.git", branch: "devel"
 
   livecheck do
@@ -13,12 +13,12 @@ class Pinocchio < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "a468c62bb5a339ab04c61095f1120aec9dca21ac7958b0c5ddcd1d498e8375c8"
-    sha256                               arm64_sequoia: "283246b15630dd2bc096f243551249b987bc329886b178fefccfc11aa384c1d6"
-    sha256                               arm64_sonoma:  "79ea5083a38361f50fdbc1b92a22a14d3df45011750c352f3212305526df7783"
-    sha256 cellar: :any,                 sonoma:        "15e9bf498912ca86f1f206554ea4cc1192bfa6643e6895436d6a897c32572e0b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "254a16737d86feeb25b5815d61d41e021d068a649ae601f6b7cd4f77a3d78e9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc28f6c90ce7eafa20127797154a6390fd62152bef58aa63866c6268cb23a93d"
+    sha256               arm64_tahoe:   "d7947a10fa1f2686a9863a2ecbc06842546821ea5d4d029dbd6caa4a02f6b9f3"
+    sha256               arm64_sequoia: "334f6aef182583b90310e8811b2c0c6a34a9459684bf392ffc513016470950c2"
+    sha256               arm64_sonoma:  "d2ab116299290cd6fb5812670425263e70074b6f8418c39c41131e87ccbf9991"
+    sha256 cellar: :any, sonoma:        "462915c60ccb1f2e1c74aee084964665daef0359c1ea2b0bdb99cb9267697cd3"
+    sha256 cellar: :any, arm64_linux:   "4218b2339ec4a2504caa409c6dc0bc81f78474452a4aed11ccb7b00fdaab00de"
+    sha256 cellar: :any, x86_64_linux:  "ec8d25fd09bbbe01f8f19084648ff3ac89f42cdacc782c490d4770003d77f0fa"
   end
 
   depends_on "cmake" => :build
@@ -38,20 +38,9 @@ class Pinocchio < Formula
     depends_on "octomap"
   end
 
-  # Apply open PR to fix build with eigen 5.0.0
-  # PR ref: https://github.com/stack-of-tasks/pinocchio/pull/2779
-  patch do
-    url "https://github.com/stack-of-tasks/pinocchio/commit/cd06f874671f44507777663fe36d643035d20300.patch?full_index=1"
-    sha256 "f3bde3a9c1a094aff88ea11d767651f11a245d24857f375f4fed20f0abf58cbf"
-  end
-  patch do
-    url "https://github.com/stack-of-tasks/pinocchio/commit/a25d222611a695a209375a27780cef5579c0e50a.patch?full_index=1"
-    sha256 "1c54ce6f2b0ce1eb4f804794ac3ce812866cdfa784c521beb555d463a332dca2"
-  end
-  patch do
-    url "https://github.com/stack-of-tasks/pinocchio/commit/2dd5857b4fb418de3b37c98d49b5f31fc59c5bb3.patch?full_index=1"
-    sha256 "8a6b1f107af678de080b64f95e4525044e50f31c95a91cf0d892fdd09bdaa2c3"
-  end
+  # Allow building with Boost 1.92.0. Can be dropped once upstream replaces Boost.Python with nanobind
+  # Ref: https://github.com/stack-of-tasks/pinocchio/pull/2873
+  patch :DATA
 
   def python3
     "python3.14"
@@ -84,3 +73,83 @@ class Pinocchio < Formula
     PYTHON
   end
 end
+
+__END__
+diff --git a/include/pinocchio/src/parsers/graph/geometries.hxx b/include/pinocchio/src/parsers/graph/geometries.hxx
+index ade2ba270..1577f9143 100644
+--- a/include/pinocchio/src/parsers/graph/geometries.hxx
++++ b/include/pinocchio/src/parsers/graph/geometries.hxx
+@@ -32,6 +32,11 @@ namespace pinocchio
+       : path(name_path)
+       {
+       }
++
++      bool operator==(const Mesh & other) const
++      {
++        return path == other.path;
++      }
+     };
+ 
+     struct Box
+@@ -43,6 +48,11 @@ namespace pinocchio
+       : size(size)
+       {
+       }
++
++      bool operator==(const Box & other) const
++      {
++        return size == other.size;
++      }
+     };
+ 
+     struct Cylinder
+@@ -54,6 +64,11 @@ namespace pinocchio
+       : size(size)
+       {
+       }
++
++      bool operator==(const Cylinder & other) const
++      {
++        return size == other.size;
++      }
+     };
+ 
+     struct Capsule
+@@ -65,6 +80,11 @@ namespace pinocchio
+       : size(size)
+       {
+       }
++
++      bool operator==(const Capsule & other) const
++      {
++        return size == other.size;
++      }
+     };
+ 
+     struct Sphere
+@@ -76,6 +96,11 @@ namespace pinocchio
+       : radius(r)
+       {
+       }
++
++      bool operator==(const Sphere & other) const
++      {
++        return radius == other.radius;
++      }
+     };
+ 
+     typedef boost::variant<Mesh, Box, Cylinder, Capsule, Sphere> GeomVariant;
+@@ -111,6 +136,13 @@ namespace pinocchio
+       , geometry(geom)
+       {
+       }
++
++      bool operator==(const Geometry & other) const
++      {
++        return name == other.name && type == other.type && scale == other.scale
++               && color == other.color && placement == other.placement
++               && geometry == other.geometry;
++      }
+     };
+   } // namespace graph
+ } // namespace pinocchio

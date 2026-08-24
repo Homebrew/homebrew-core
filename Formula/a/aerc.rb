@@ -1,26 +1,25 @@
 class Aerc < Formula
   desc "Email client that runs in your terminal"
   homepage "https://aerc-mail.org/"
-  url "https://git.sr.ht/~rjarry/aerc/archive/0.21.0.tar.gz"
-  mirror "https://github.com/rjarry/aerc/archive/refs/tags/0.21.0.tar.gz"
-  sha256 "3f1469bbaea982fc58352f2682932ecc2fb50c705994d96b2343e771747745a7"
+  url "https://git.sr.ht/~rjarry/aerc/archive/0.22.0.tar.gz"
+  sha256 "f1cd5e358fd836051d4d88c189ecaa025a108b729281985525b45b13bc49e70f"
   license "MIT"
   head "https://git.sr.ht/~rjarry/aerc", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "a8f207daf51b4be7b0645bf3e81cacc2687190713bb13a59ad246419c469affb"
-    sha256 arm64_sequoia: "1bc0619b2b30691c09fab1382cd6a9510b66278e08b58fb8255e62d2929f08d7"
-    sha256 arm64_sonoma:  "fbd0023ba20b2075790a2a558434aa4c3fe18098d17cb129122f7ade45a8c4d5"
-    sha256 arm64_ventura: "a993460fcf4acfdcef595f4ce9e4ae678358c11f79c9dff6bc7f09d5edb73d94"
-    sha256 sonoma:        "8b46596c840dd14a947428e4669704bdee42c36d6ddaa617d8d69453137e5664"
-    sha256 ventura:       "c04471c53a6b7db1b349937a7b81ecf5ea794f41aad35e9d9bc0e69e309453d0"
-    sha256 arm64_linux:   "6d9361c0ff2d2c7fb8bfb3d80ec789d012547fed90bab51941250c10a07c6024"
-    sha256 x86_64_linux:  "5f8a0e69f2b07a3fbbc3615af3ed930151e4d601632f2c25a3e8928068106492"
+    sha256 arm64_tahoe:   "3f921ff034dee5fc44c1d74e9917e26c12e1059d39dd8f960aa2507236126174"
+    sha256 arm64_sequoia: "c5ea3ee16396f88f9ae4b3e8329004fcece61ade3b7f05b2acbfd19fa4cb2eec"
+    sha256 arm64_sonoma:  "f7580e08063ddbe38615b13b791a08a88bcc43c40b0ead8a195f2fa853e64828"
+    sha256 sonoma:        "0b40acf275466e94b9269185b969d5a4d165c3358f12f2f8fb6b0b2235cabc2e"
+    sha256 arm64_linux:   "7561a5e920b8956729f1ae4923351dc44d7837c5029f93e3cd168041ff9b7640"
+    sha256 x86_64_linux:  "e01cd254230d1a37e95c8ed6bf12500d69901f787d248a47e1e197b51a10bfb8"
   end
 
   depends_on "go" => :build
   depends_on "scdoc" => :build
   depends_on "notmuch"
+
+  deny_network_access! [:postinstall, :test]
 
   def install
     # Workaround to avoid patchelf corruption when cgo is required

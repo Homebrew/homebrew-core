@@ -1,8 +1,8 @@
 class Oasdiff < Formula
   desc "OpenAPI Diff and Breaking Changes"
   homepage "https://www.oasdiff.com/"
-  url "https://github.com/oasdiff/oasdiff/archive/refs/tags/v1.19.1.tar.gz"
-  sha256 "7062c866e3bf1ea4e0089bacc6515425086b3818eb17ded29497927348be21a9"
+  url "https://github.com/oasdiff/oasdiff/archive/refs/tags/v1.29.1.tar.gz"
+  sha256 "50cc87718af4f052cae19b9929b3a454bf60b6fb9573aa026d3c0490d894b363"
   license "Apache-2.0"
   head "https://github.com/oasdiff/oasdiff.git", branch: "main"
 
@@ -13,18 +13,18 @@ class Oasdiff < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ccb6f838c49b6a028d521eb5bcab3638de1f37a033264843b0286018f228f74e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ccb6f838c49b6a028d521eb5bcab3638de1f37a033264843b0286018f228f74e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ccb6f838c49b6a028d521eb5bcab3638de1f37a033264843b0286018f228f74e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b3aca3edc9ac39451ff94e3fa24076502bed32707e5caa1aa2126f4fa9a77f4a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e6bdc1a5b996b31c1080173ddb1c6f4f45a054cd14cbc3d08336ef39cee954ca"
-    sha256 cellar: :any,                 x86_64_linux:  "b4cd2e1d86faec47e223c024303ba09b742ad44ac699948d6699694ae8492b0a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3535e78437c17728161f9fa7101f93ac621a9990ff2dd4e87cc36d6e063bb8a5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3535e78437c17728161f9fa7101f93ac621a9990ff2dd4e87cc36d6e063bb8a5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3535e78437c17728161f9fa7101f93ac621a9990ff2dd4e87cc36d6e063bb8a5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "83694a5c46ef63cea3e4746a9a33695ead44133a5f9f564db8605865203ed584"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d8eb4d6067f8e605c296ccc00a54bf84504509f71f9ab2efd6a78e07d731adc"
+    sha256 cellar: :any,                 x86_64_linux:  "7d7080ab8da8bd6c6941079d1258b679f9142fe7812170de4f611e6971e5bbae"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/oasdiff/oasdiff/build.Version=#{version}"
+    ldflags = "-X github.com/oasdiff/oasdiff/build.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"oasdiff", shell_parameter_format: :cobra)
@@ -44,7 +44,7 @@ class Oasdiff < Formula
     testpath.install resource("homebrew-openapi-test1.yaml")
     testpath.install resource("homebrew-openapi-test5.yaml")
 
-    expected = "11 changes: 3 error, 2 warning, 6 info"
+    expected = "3 error, 2 warning"
     assert_match expected, shell_output("#{bin}/oasdiff changelog openapi-test1.yaml openapi-test5.yaml")
 
     assert_match version.to_s, shell_output("#{bin}/oasdiff --version")

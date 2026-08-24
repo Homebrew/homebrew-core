@@ -24,7 +24,7 @@ class Clipper < Formula
       Utils.safe_popen_read("git", "describe", "--tags", "--dirty").chomp
     end
 
-    ldflags = %W[-s -w -X main.version=#{clipper_version}]
+    ldflags = %W[-X main.version=#{clipper_version}]
     system "go", "build", *std_go_args(ldflags:), "clipper.go"
   end
 

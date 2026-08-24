@@ -35,10 +35,11 @@ class Srecord < Formula
   end
 
   # Apply Fedora patch to build shared library and avoid installing a duplicate libgcrypt
-  # Issue ref: https://github.com/sierrafoxtrot/srecord/issues/29
   patch do
     url "https://src.fedoraproject.org/rpms/srecord/raw/4d2b7a885e73398fe1caf7fa3d514b522a1bca2f/f/srecord-1.65-fedora.patch"
     sha256 "8e6f0b3f71b99700d598b461272a6926ec5b5445b6758df455aaba02f596c8e9"
+    type :unofficial
+    resolves "https://github.com/sierrafoxtrot/srecord/issues/29"
   end
 
   def install

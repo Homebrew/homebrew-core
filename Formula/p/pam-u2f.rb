@@ -37,7 +37,7 @@ class PamU2f < Formula
   def install
     system "autoreconf", "--force", "--install", "--verbose"
 
-    ENV["A2X"] = "#{Formula["asciidoc"].opt_bin}/a2x --no-xmllint"
+    ENV["A2X"] = "#{formula_opt_bin("asciidoc")}/a2x --no-xmllint"
     system "./configure", "--prefix=#{prefix}", "--with-pam-dir=#{lib}/pam"
     system "make", "install"
   end

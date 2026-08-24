@@ -14,6 +14,10 @@ class Weaver < Formula
     sha256 cellar: :any_skip_relocation, ventura:       "0cf043e6335d98a3024183b86305c5375b2b1311637f76a062883cf37d9f6309"
   end
 
+  # https://github.com/scribd/Weaver/blob/master/README.md
+  deprecate! date: "2026-08-11", because: :deprecated_upstream
+  disable! date: "2027-02-11", because: :deprecated_upstream
+
   depends_on xcode: ["11.2", :build]
   depends_on :macos # needs macOS CommonCrypto
 

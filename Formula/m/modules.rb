@@ -32,7 +32,7 @@ class Modules < Formula
       --with-tclsh=#{tcltk.opt_bin}/tclsh
       --without-x
     ]
-    args << "--with-pager=#{Formula["less"].opt_bin}/less" if OS.linux?
+    args << "--with-pager=#{formula_opt_bin("less")}/less" if OS.linux?
 
     system "./configure", *args
     system "make", "install"

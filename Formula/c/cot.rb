@@ -1,17 +1,17 @@
 class Cot < Formula
   desc "Rust web framework for lazy developers"
   homepage "https://cot.rs"
-  url "https://github.com/cot-rs/cot/archive/refs/tags/cot-v0.6.0.tar.gz"
-  sha256 "3c53fb5c2a19daec1d4b495c7b61e04801e2b162ec7016893cc26f1dc312c319"
+  url "https://github.com/cot-rs/cot/archive/refs/tags/cot-v0.7.0.tar.gz"
+  sha256 "8d84e6645e05b213c64e21de4e21200e04cbdcdf934d7b8aa40fa885a1ee74ef"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "454d155e10b009831d5014f79f25db39a0cb49f42c290ae531283a08d6dab395"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "39d5e27f1c722bb31492aada8e6e8dda1f5103863750bfcd8e869517aedaa656"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "194f4bb4e1373580f4b0c8d5bd8a02b0cdcc7be750d2e2831ce53a997da9fc9f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ee3848a97acaa1726100b12d22f0f4cfef4965f36093b124d00f7c1eaf50f4a6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "05d0532eba3440e1f11ee348c9083c20818ce887c4b3e9b3b1dc674161933eaa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8951a89b95eeb21287693d27f179d40aec1bef8b4497742b01af87d1095c4b6b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cdc99de1d94b70b9a00405d722258bcad5ac71f0531c1e1f08072feffcb9ed95"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5dd21744f8789e94970ab3e27c61135377c98f1d5851d214534e5f382dd2c857"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "01ee1546f0f7b16c04bc65846b8cd2a7e4facfae6a0c960e1b2672b325685acb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e949b3b6b04118ad65abef7f6ceaca62071b6892765dbf81590ec6ab22f9c99c"
+    sha256 cellar: :any,                 arm64_linux:   "ed493f2a9f1890becef960f4a8c1f5dbcbbb4fb93596147006c95c14c5e76c34"
+    sha256 cellar: :any,                 x86_64_linux:  "1350a73734e01a1ba85fd36f8de7ad908cf48c5a5ee570e4bf34bd682fe0657f"
   end
 
   depends_on "rust" => :build

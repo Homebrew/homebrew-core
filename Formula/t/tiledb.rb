@@ -37,10 +37,11 @@ class Tiledb < Formula
   end
 
   # Fix version, remove in next release
-  # PR ref: https://github.com/TileDB-Inc/TileDB/pull/5793
   patch do
     url "https://github.com/TileDB-Inc/TileDB/commit/9a89804d24ca736a5baadcc0794c7edede2db1ad.patch?full_index=1"
     sha256 "ea540d60699fc58432ccd0702989bcc1782b5d8f18d64c72548672f54197254b"
+    type :cherry_pick
+    resolves "https://github.com/TileDB-Inc/TileDB/pull/5793"
   end
 
   def install

@@ -64,14 +64,14 @@ class Neomutt < Formula
       --sasl
       --sqlite
       --zlib
-      --with-idn2=#{Formula["libidn2"].opt_prefix}
-      --with-lua=#{Formula["lua"].opt_prefix}
-      --with-ncurses=#{Formula["ncurses"].opt_prefix}
-      --with-ssl=#{Formula["openssl@3"].opt_prefix}
-      --with-sqlite=#{Formula["sqlite"].opt_prefix}
+      --with-idn2=#{formula_opt_prefix("libidn2")}
+      --with-lua=#{formula_opt_prefix("lua")}
+      --with-ncurses=#{formula_opt_prefix("ncurses")}
+      --with-ssl=#{formula_opt_prefix("openssl@3")}
+      --with-sqlite=#{formula_opt_prefix("sqlite")}
     ]
 
-    args << "--with-iconv=#{Formula["libiconv"].opt_prefix}" if OS.mac?
+    args << "--with-iconv=#{formula_opt_prefix("libiconv")}" if OS.mac?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"

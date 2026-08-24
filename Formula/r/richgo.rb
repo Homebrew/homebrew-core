@@ -21,7 +21,7 @@ class Richgo < Formula
   depends_on "go" => [:build, :test]
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   test do
@@ -60,12 +60,7 @@ class Richgo < Formula
     GO
 
     output = shell_output("#{bin}/richgo test ./...")
-
-    expected = if OS.mac?
-      "PASS | github.com/Homebrew/brew-test"
-    else
-      "ok  \tgithub.com/Homebrew/brew-test"
-    end
+    expected = "PASS | github.com/Homebrew/brew-test"
     assert_match expected, output
   end
 end

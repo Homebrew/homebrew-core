@@ -1,18 +1,18 @@
 class DartSdk < Formula
   desc "Dart Language SDK, including the VM, dart2js, core libraries, and more"
   homepage "https://dart.dev"
-  url "https://github.com/dart-lang/sdk/archive/refs/tags/3.12.2.tar.gz"
-  sha256 "e84861c0a725990b6efbec1ec3be7cbf38352983871f8e74c3d42bc259a0a0d8"
+  url "https://github.com/dart-lang/sdk/archive/refs/tags/3.13.1.tar.gz"
+  sha256 "107ab0b58674d35a46553e1848d11cf34ac45f37b8a488c1733dd220492eb921"
   license "BSD-3-Clause"
-  compatibility_version 2
+  compatibility_version 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d98d388dfe2b2af3b1888fa5fd4ec4f722b4e8fc09dd6fb5df45fc5e338f7795"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "577e003e50e2735ca3cde53b2a1b51938b26c01098f6e82b2c57293f0d4e7c44"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a922f73ab00ffea950699afabaa91673fb0e88c9831123680a963138c6e24584"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e2d9edd7488c0659e4b39d45f09e450bac870cea68204cac2c90c7645a6e4aa7"
-    sha256 cellar: :any,                 arm64_linux:   "391cd9ba088a5b24372ec0613b7dde2785bf125a2b60b48f12b026720a1a4fb6"
-    sha256 cellar: :any,                 x86_64_linux:  "8393459aa9cada1b4a07cd5b12e0f4faa53ed358e84b02f5dac621e885bab05a"
+    sha256 cellar: :any, arm64_tahoe:   "09bfc63e0a576f60dec3437521b9968cf1bc3f581cd1a47245609c039f33e745"
+    sha256 cellar: :any, arm64_sequoia: "98ec76af7ccfc555dffb74bb4709de226288e3f42eb073b85fe446258e8fd805"
+    sha256 cellar: :any, arm64_sonoma:  "ea99ad93714a051676ceab9202d0b34d6dfe18c7feb697b74dd48173572fd4a8"
+    sha256 cellar: :any, sonoma:        "d1d3d4c95531ffaa47f9d8b7ee81f5e7f096aa421264256a2f259bb34e5cf541"
+    sha256 cellar: :any, arm64_linux:   "23c2bd344f2f34fb33bad409ef095d4c1611aed9af2b376eb0b9de499917e977"
+    sha256 cellar: :any, x86_64_linux:  "d50b17a88e7b94717536ca7e4d4dad39365abb6ea4553399fef857014ab2708b"
   end
 
   depends_on "ninja" => :build
@@ -25,8 +25,8 @@ class DartSdk < Formula
   # always pull the latest commit from https://chromium.googlesource.com/chromium/tools/depot_tools.git/+/refs/heads/main
   resource "depot-tools" do
     url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
-        revision: "b9d2b54daea64fa757df5ba737e611b691dc6201"
-    version "b9d2b54daea64fa757df5ba737e611b691dc6201"
+        revision: "8ff4a322a17ea014561931720c8153904cd0a9c3"
+    version "8ff4a322a17ea014561931720c8153904cd0a9c3"
 
     livecheck do
       url "https://chromium.googlesource.com/chromium/tools/depot_tools.git/+/refs/heads/main?format=JSON"
@@ -42,14 +42,6 @@ class DartSdk < Formula
 
     system "gclient", "config", "--name", "sdk", "https://dart.googlesource.com/sdk.git@#{version}"
     system "gclient", "sync", "--no-history"
-
-    # Workaround for dependants audit failure: Libraries were compiled with a flat namespace.
-    # Issue ref: https://github.com/dart-lang/sdk/issues/63115
-    # PR ref: https://github.com/dart-lang/sdk/pull/63116
-    inreplace "sdk/runtime/platform/mach_o.h",
-              "MH_NO_REEXPORTED_DYLIBS = 0x100000;",
-              "\\0\nstatic constexpr uint32_t MH_TWOLEVEL = 0x80;"
-    inreplace "sdk/runtime/vm/mach_o.cc", "MH_NO_REEXPORTED_DYLIBS", "\\0 | mach_o::MH_TWOLEVEL"
 
     chdir "sdk" do
       arch = Hardware::CPU.arm? ? "arm64" : "x64"

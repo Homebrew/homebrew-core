@@ -1,15 +1,17 @@
 class Aicommit2 < Formula
   desc "Reactive CLI that generates commit messages for Git and Jujutsu with AI"
   homepage "https://github.com/tak-bro/aicommit2"
-  url "https://registry.npmjs.org/aicommit2/-/aicommit2-2.6.1.tgz"
-  sha256 "6984c813b0daac7dd9b232d9d3932ee18acd4d4da72589fb72377fe4e131797f"
+  url "https://registry.npmjs.org/aicommit2/-/aicommit2-2.11.1.tgz"
+  sha256 "c60685e3f1f4e0d3f496b42980e7aebff87a654313fd32a6d08f2f6f3c77889f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f1f46f44a68a42c054d54d8c8d60b9dac6d7f09b0199292835350c5422d1284d"
+    sha256 cellar: :any_skip_relocation, all: "ae714093bdb7f5d70ed80dbab27cf18f632e5ecbe5d029de97d5ef7eee411776"
   end
 
   depends_on "node"
+
+  deny_network_access! [:postinstall, :test]
 
   def install
     # Optional dependencies include `@github/copilot-sdk`

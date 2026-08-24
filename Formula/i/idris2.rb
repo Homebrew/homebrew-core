@@ -20,7 +20,7 @@ class Idris2 < Formula
   depends_on "chezscheme"
 
   def install
-    scheme = Formula["chezscheme"].opt_bin/"chez"
+    scheme = formula_opt_bin("chezscheme")/"chez"
 
     ENV.deparallelize
     ENV["CHEZ"] = scheme

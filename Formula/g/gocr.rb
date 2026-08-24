@@ -6,11 +6,6 @@ class Gocr < Formula
   license "GPL-2.0-or-later"
   revision 2
 
-  livecheck do
-    url "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/download.html"
-    regex(%r{href=(?:["']?|.*?/)gocr[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "22d93d120980d188dbee305cbec8c1d22aab0a9def0580ff3ecaeaa44fe488e7"
     sha256 cellar: :any,                 arm64_sequoia:  "f38bbed5dfe8ae2150cab6f508e71dc9402d9f05c3c72273f3c9270dd42ff6fa"
@@ -27,13 +22,16 @@ class Gocr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "614341527ffeeb9e65ea13c95c230569bd68316f11b6e4c3d5bbc4c46757faa8"
   end
 
+  # Upstream homepage is gone
+  deprecate! date: "2026-06-22", because: :repo_removed
+  disable! date: "2027-06-22", because: :repo_removed
+
   depends_on "jpeg-turbo"
   depends_on "netpbm"
 
   # Edit makefile to install libs per developer documentation
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/gocr/0.50.patch"
-    sha256 "0ed4338c3233a8d1d165f687d6cbe6eee3d393628cdf711a4f8f06b5edc7c4dc"
+    file "Patches/gocr/0.50.patch"
   end
 
   def install

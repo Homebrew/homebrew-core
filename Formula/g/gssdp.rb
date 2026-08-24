@@ -1,17 +1,17 @@
 class Gssdp < Formula
   desc "GUPnP library for resource discovery and announcement over SSDP"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gssdp/1.6/gssdp-1.6.5.tar.xz"
-  sha256 "34fd824c36ef9f575594d5572728412ddb8c522f606b6c913ef8b5a800aafc4e"
+  url "https://download.gnome.org/sources/gssdp/1.6/gssdp-1.6.6.tar.xz"
+  sha256 "767d2275254ce0efeaeac64419ff9f4f0ad470d134ef672f5c556b2abb786bcb"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "11eeb536299fe7b73abef10de18c75828b8e600c6b8e75dea28fb353e99c8c3c"
-    sha256 cellar: :any, arm64_sequoia: "02fa2e830c238c8de15acda86ae0fcca5b1894955ec691de32a1a02dd05d76df"
-    sha256 cellar: :any, arm64_sonoma:  "f7abf203a981a9c60f74687194c46682655f4106ce4270592b5b91d3bff46b99"
-    sha256 cellar: :any, sonoma:        "d05c95feba8ff9a61786d491a8511b326047c7b1d576a241ba4d11b8fea9db54"
-    sha256               arm64_linux:   "79fdb44abfd486bb395554650aabae71ab754f4b1a4c072f0715162c41f886af"
-    sha256               x86_64_linux:  "e878abe338a5c0b9e3dcc340ccc86e9781f6060f7db09aae12c07b1c1467a519"
+    sha256 cellar: :any, arm64_tahoe:   "4e0ed096a873cd3c8ccc2407bad5c975aa3b6cbb3e54e309f3457dc779efc926"
+    sha256 cellar: :any, arm64_sequoia: "f23aacffe48fc74672e44f272db8f929911725b0cd6d54b5069b665847825dc3"
+    sha256 cellar: :any, arm64_sonoma:  "f151fbe7b2f92e07dc7768691dddbe2cb5a84cbf6613f7394c571dddbb8ded23"
+    sha256 cellar: :any, sonoma:        "3ae47d87ad29f55685a8eb12eccbf29ef39c9f44b4f5d857875b2befd6bc92c0"
+    sha256               arm64_linux:   "d8f578ef049a3a68fe2a094d8cd6847903a1cd7611ad59534d908ce04374265e"
+    sha256               x86_64_linux:  "a219300565d729549e5774cc58eda097008db267c981d647fc6fbc461a0d73be"
   end
 
   depends_on "gobject-introspection" => :build

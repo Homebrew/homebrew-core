@@ -18,7 +18,7 @@ class Galen < Formula
     (bin/"galen").write <<~SH
       #!/bin/sh
       set -e
-      exec "#{Formula["openjdk"].opt_bin}/java" -cp "#{libexec}/galen.jar:lib/*:libs/*" com.galenframework.GalenMain "$@"
+      exec "#{formula_opt_bin("openjdk")}/java" -cp "#{libexec}/galen.jar:lib/*:libs/*" com.galenframework.GalenMain "$@"
     SH
   end
 

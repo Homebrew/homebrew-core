@@ -37,6 +37,8 @@ class Libdill < Formula
   patch do
     url "https://github.com/sustrik/libdill/commit/775bc53e2cf92672cf03cc43019e12948e669c04.patch?full_index=1"
     sha256 "4002852086909a5572c406f3c629df994d06647690e3db113f2701a42e976413"
+    type :backport
+    resolves "https://github.com/sustrik/libdill/pull/197"
   end
 
   def install
@@ -47,7 +49,7 @@ class Libdill < Formula
 
   test do
     # Issue ref: https://github.com/sustrik/libdill/issues/208
-    ENV["CC"] = Formula["llvm"].opt_bin/"clang" if Hardware::CPU.arm?
+    ENV["CC"] = formula_opt_bin("llvm")/"clang" if Hardware::CPU.arm?
 
     (testpath/"test.c").write <<~C
       #include <libdill.h>

@@ -31,8 +31,7 @@ class Hspell < Formula
   # standards this patch creates a .dylib instead
   patch :p0 do
     on_macos do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/hspell/1.3.patch"
-      sha256 "63cc1bc753b1062d1144dcdd959a0a8f712b8872dce89e54ddff2d24f2ca2065"
+      file "Patches/hspell/1.3.patch"
     end
   end
 

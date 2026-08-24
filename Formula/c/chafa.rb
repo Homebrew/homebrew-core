@@ -4,6 +4,7 @@ class Chafa < Formula
   url "https://hpjansson.org/chafa/releases/chafa-1.18.2.tar.xz"
   sha256 "0b8d9ba9f347e8b6c0c71878217c9b0e478b4a42aa4babea0bf20840567239c2"
   license "LGPL-3.0-or-later"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -12,12 +13,12 @@ class Chafa < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7e54e1ad7b3ffca076aa84f9c2031fb9b6b2cb9e8d3b10cb4aa26c60584f3fa9"
-    sha256 cellar: :any,                 arm64_sequoia: "e5e873b1ee62224e64475a25ecc7f4f45018e49a9d165fb4811dd84af8eb05b5"
-    sha256 cellar: :any,                 arm64_sonoma:  "f033ead5057314428ad6caefe760c189fcdfdd0db1955db50a4a13b7065e6aeb"
-    sha256 cellar: :any,                 sonoma:        "c9af1b713bca7cc95181e378ba3edf010e196e3044fd72596f857b002bdd46f3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f79d52cd5d1c0bca9a7f856e2e85084b5a134985427a1f8e8d78d4f413bda18f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d3b052da8221a35b0cd35c22618ad4bb21c474df36372c4d9597331bcc2a940"
+    sha256 cellar: :any, arm64_tahoe:   "50845c434e04dd24ba094b154dbafddf73254170614149c35eeee937da69fb83"
+    sha256 cellar: :any, arm64_sequoia: "7a1afcb60ca9729a97a000130f3368115aa7f8fd2386671ce32c5a7f76104021"
+    sha256 cellar: :any, arm64_sonoma:  "b0d8646c0955ec9efd2f8be4a651521624c88f91d3ac789913717cd694f2351f"
+    sha256 cellar: :any, sonoma:        "9e76a9ec0ebf6fdaeaa75859a7a8a4da97e17efdb12e58111f1d35bd6ec518ba"
+    sha256 cellar: :any, arm64_linux:   "c98df6a020fa9c5decf7cdb558b075b3ab1a6673e9911e04f1765cd2e009d59f"
+    sha256 cellar: :any, x86_64_linux:  "aaa303f5ab0b3b6c4afe51a50e6f91f23d2886f1c7a89e7211c419bac83254a9"
   end
 
   head do

@@ -6,12 +6,13 @@ class Baobab < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "201ffa3b00055221be59e714d0b9d550ece6b77a811139346b64b4204107b3a0"
-    sha256 arm64_sequoia: "f68026988ed1215d921954b1e3d837ee275b3f091a8fb0569125f4b2980006dc"
-    sha256 arm64_sonoma:  "9ba5f0c502674bfe24a96db55fc8ee8b794c86d770003011fa2c30fc64b53c87"
-    sha256 sonoma:        "2fba77061cb9530f9cae2a1a69e7f3bb9b9fdd7ca0d832a9e39554ba17e689e1"
-    sha256 arm64_linux:   "3b646e6805843441709711db33468ea9ddcaab2a1e916244df8e2246a670afc6"
-    sha256 x86_64_linux:  "a4625726683a287c735411240865f6abcf30b8b4da252476215d63fe9db203c7"
+    rebuild 1
+    sha256 arm64_tahoe:   "e7e8fdd100af709c6498bf6e52ae10b1a112e17a7bed316df7c176080b0763ce"
+    sha256 arm64_sequoia: "c4704affacdd5892cdbeae931c8806b9aff5f448bdc84aed9284f406a1f466ae"
+    sha256 arm64_sonoma:  "ddf89d0b8396df36f671658f788aa68bd24aa29e2af95f943f5c3663aea140d8"
+    sha256 sonoma:        "c3b14213ba9c3793909d17b1935dc7149a7db3b8a3ce5e37436c9064d95688a4"
+    sha256 arm64_linux:   "40dfcc1db2ad7ff101f3067a1e219b581e02513f350280d8ce60c5fa31bccebd"
+    sha256 x86_64_linux:  "9a6869ea1a27bf528b72b1bb7dd68357be29912d0f52bf05cb09878f2fa1d9b9"
   end
 
   depends_on "desktop-file-utils" => :build
@@ -48,9 +49,9 @@ class Baobab < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk4"].opt_bin}/gtk4-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+  post_install_steps do
+    compile_gsettings_schemas
+    update_gtk_icon_cache
   end
 
   test do

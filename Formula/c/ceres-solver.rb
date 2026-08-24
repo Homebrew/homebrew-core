@@ -18,6 +18,7 @@ class CeresSolver < Formula
     patch do
       url "https://github.com/ceres-solver/ceres-solver/commit/f9b7b6651b108136a16df44d91fb31735645f5a7.patch?full_index=1"
       sha256 "019006cc850b19b442e108118c599c98b18af8eb06ab37c22e6698c55d55a512"
+      type :backport
     end
   end
 

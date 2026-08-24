@@ -31,17 +31,17 @@ class Ogmtools < Formula
 
   # Borrow patch from MacPorts
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/ogmtools/common.h.diff"
-    sha256 "2dd18dea6de0d2820221bde8dfea163101d0037196cb2e94cd910808d10119c0"
+    file "Patches/ogmtools/common.h.diff"
+    type :unofficial
   end
 
   def install
     ENV.cxx11
 
-    ENV.append "CPPFLAGS", "-I#{Formula["libvorbis"].opt_include}"
+    ENV.append "CPPFLAGS", "-I#{formula_opt_include("libvorbis")}"
     system "./configure", "--mandir=#{man}", *std_configure_args
 
-    system "make", "install", "LIBS=-L#{Formula["libvorbis"].opt_lib} -lvorbis -lvorbisenc"
+    system "make", "install", "LIBS=-L#{formula_opt_lib("libvorbis")} -lvorbis -lvorbisenc"
   end
 
   # Borrow warning from MacPorts

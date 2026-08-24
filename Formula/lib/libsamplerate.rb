@@ -1,8 +1,8 @@
 class Libsamplerate < Formula
   desc "Library for sample rate conversion of audio data"
   homepage "https://github.com/libsndfile/libsamplerate"
-  url "https://github.com/libsndfile/libsamplerate/archive/refs/tags/0.2.2.tar.gz"
-  sha256 "16e881487f184250deb4fcb60432d7556ab12cb58caea71ef23960aec6c0405a"
+  url "https://github.com/libsndfile/libsamplerate/releases/download/0.2.2/libsamplerate-0.2.2.tar.xz"
+  sha256 "3258da280511d24b49d6b08615bbe824d0cacc9842b0e4caf11c52cf2b043893"
   license "BSD-2-Clause"
   compatibility_version 1
 
@@ -22,16 +22,18 @@ class Libsamplerate < Formula
   depends_on "pkgconf" => :build
 
   # Fix CMake deprecation warning CMP0091 (prereq for cmake 4 compatibility fix below)
-  # PR ref: https://github.com/libsndfile/libsamplerate/pull/180
   patch do
     url "https://github.com/libsndfile/libsamplerate/commit/e4a0ab46887029e0f65f145ba3987cc592f18200.patch?full_index=1"
     sha256 "0826fb59d733188645f3dc207c938580970700381b9bc87058b137723cb30bba"
+    type :backport
+    resolves "https://github.com/libsndfile/libsamplerate/pull/180"
   end
   # Fix to cmake 4 compatibility
-  # PR ref: https://github.com/libsndfile/libsamplerate/pull/225
   patch do
     url "https://github.com/libsndfile/libsamplerate/commit/1abc639420b2df8b9ff2e0bdcc28cf6613c7c0d0.patch?full_index=1"
     sha256 "b6fb61c763a0f072ef2ebb3a311037d2429a5e294141f6d5e552ccd25efabdc0"
+    type :backport
+    resolves "https://github.com/libsndfile/libsamplerate/pull/225"
   end
 
   def install

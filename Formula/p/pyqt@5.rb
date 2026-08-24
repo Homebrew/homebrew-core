@@ -65,7 +65,7 @@ class PyqtAT5 < Formula
   end
 
   def install
-    sip_install = Formula["pyqt-builder"].opt_libexec/"bin/sip-install"
+    sip_install = formula_opt_libexec("pyqt-builder")/"bin/sip-install"
     site_packages = prefix/Language::Python.site_packages(python3)
     args = [
       "--target-dir", site_packages,

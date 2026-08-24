@@ -47,13 +47,13 @@ class Guile < Formula
     ENV.append "LDFLAGS", "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib"
 
     # Avoid superenv shim
-    inreplace "meta/guile-config.in", "@PKG_CONFIG@", Formula["pkgconf"].opt_bin/"pkg-config"
+    inreplace "meta/guile-config.in", "@PKG_CONFIG@", formula_opt_bin("pkgconf")/"pkg-config"
 
     system "./autogen.sh" unless build.stable?
 
     system "./configure", "--disable-nls",
-                          "--with-libreadline-prefix=#{Formula["readline"].opt_prefix}",
-                          "--with-libgmp-prefix=#{Formula["gmp"].opt_prefix}",
+                          "--with-libreadline-prefix=#{formula_opt_prefix("readline")}",
+                          "--with-libgmp-prefix=#{formula_opt_prefix("gmp")}",
                           *std_configure_args
     system "make", "install"
 
@@ -67,17 +67,17 @@ class Guile < Formula
     # Homebrew automatically removing Cellar paths from .pc files in favour
     # of opt_prefix usage everywhere.
     inreplace lib/"pkgconfig/guile-3.0.pc" do |s|
-      s.gsub! Formula["bdw-gc"].prefix.realpath, Formula["bdw-gc"].opt_prefix
-      s.gsub! Formula["libffi"].prefix.realpath, Formula["libffi"].opt_prefix unless OS.mac?
+      s.gsub! Formula["bdw-gc"].prefix.realpath, formula_opt_prefix("bdw-gc")
+      s.gsub! Formula["libffi"].prefix.realpath, formula_opt_prefix("libffi") unless OS.mac?
     end
 
     (share/"gdb/auto-load").install Dir["#{lib}/*-gdb.scm"]
   end
 
   post_install_steps do
-    mkdir_p "lib/guile/3.0/site-ccache", base: :homebrew_prefix
-    mkdir_p "lib/guile/3.0/extensions", base: :homebrew_prefix
-    mkdir_p "share/guile/site/3.0", base: :homebrew_prefix
+    mkdir_p "{{HOMEBREW_PREFIX}}/lib/guile/3.0/site-ccache"
+    mkdir_p "{{HOMEBREW_PREFIX}}/lib/guile/3.0/extensions"
+    mkdir_p "{{HOMEBREW_PREFIX}}/share/guile/site/3.0"
   end
 
   def caveats

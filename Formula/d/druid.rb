@@ -93,14 +93,14 @@ class Druid < Formula
     ENV["DRUID_PID_DIR"] = testpath
     ENV["ZOO_LOG_DIR"] = testpath
 
-    system Formula["zookeeper"].opt_bin/"zkServer", "start"
+    system formula_opt_bin("zookeeper")/"zkServer", "start"
     begin
       pid = spawn bin/"druid-broker.sh", "start"
       sleep 40
     ensure
       system bin/"druid-broker.sh", "stop"
       # force zookeeper stop since it is sometimes still alive after druid-broker.sh finishes
-      system Formula["zookeeper"].opt_bin/"zkServer", "stop"
+      system formula_opt_bin("zookeeper")/"zkServer", "stop"
       Process.wait pid
     end
 

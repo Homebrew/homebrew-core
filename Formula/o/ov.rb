@@ -1,8 +1,8 @@
 class Ov < Formula
   desc "Feature-rich terminal-based text viewer"
   homepage "https://noborus.github.io/ov/"
-  url "https://github.com/noborus/ov/archive/refs/tags/v0.53.0.tar.gz"
-  sha256 "b77dc59dc07738f5feb74c31c049f9d8731c71a51eb8687914a57c676aec467b"
+  url "https://github.com/noborus/ov/archive/refs/tags/v0.54.0.tar.gz"
+  sha256 "78248f48adb5deb6ca2e560b57583f0ae66ac5e71704b7dc0b35d2378e0df5ac"
   license "MIT"
   head "https://github.com/noborus/ov.git", branch: "master"
 
@@ -12,18 +12,18 @@ class Ov < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f861ca85d00ddb59a4913b3c861f34bae3ce36dc1cb1cc9f845196589d00be7c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f861ca85d00ddb59a4913b3c861f34bae3ce36dc1cb1cc9f845196589d00be7c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f861ca85d00ddb59a4913b3c861f34bae3ce36dc1cb1cc9f845196589d00be7c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3280d7280ffa96af4216c417380b3f7ff47a00f77227165dda1da9580edbe86e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "beff1b32d331913d1cfb68ed300e3ce109f242fd276fda5905bedbef5f350b68"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9df3914c634a5230dbf1a4688d712a38c59ee9e482f2a30ae7d7dddb9ec7b89c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5b088b9716ec07662400f568b3c12603ff518e471be64594d8f18354a48a8115"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4c9d75a90397c5dac2a1959cf46c5bda96556700be9df5a232c519abc7749c0c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "66e164cfee2763f231e650df2496be029eb6a8bee6d05926ddedb29c7baa8cb5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e53f8d4997f05c4fe5f4ab0dc297bc1e827f41addd5006c012320ac5b2b8e5c9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1f6f3f3188f2cee378e202096bd586ab696c6dff463a9821dcdd5410cffd9552"
+    sha256 cellar: :any,                 x86_64_linux:  "2566302d126f08ac5ce167e677cebb2baf9010f2c736281cf33b3bbfa475b8dc"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.Version=#{version} -X main.Revision=#{tap.user}"
+    ldflags = "-X main.Version=#{version} -X main.Revision=#{tap.user}"
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"ov", shell_parameter_format: :cobra)

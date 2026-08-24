@@ -1,8 +1,8 @@
 class Ethereum < Formula
   desc "Official Go implementation of the Ethereum protocol"
   homepage "https://geth.ethereum.org/"
-  url "https://github.com/ethereum/go-ethereum/archive/refs/tags/v1.17.3.tar.gz"
-  sha256 "fe1fb68c8d3230570fcd20950d29c93768bd4a240070fee84274ce92a759d9a9"
+  url "https://github.com/ethereum/go-ethereum/archive/refs/tags/v1.17.5.tar.gz"
+  sha256 "8428049b30e76efcd19507225aa67c67d5d98c10a0f3a4ea339dfbba285bac7d"
   license "LGPL-3.0-or-later"
   head "https://github.com/ethereum/go-ethereum.git", branch: "master"
 
@@ -12,15 +12,16 @@ class Ethereum < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5a5e4fe02eafa736d249ae6193434b37c3838ab3b3a6859a0e6059f52ae20a08"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0eb69cb38ac24c3b9bea10766d76ee5f4ffb52c15dae54689ca6840c4905e3a6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f176bc9cdb621107a4d5813e13508734a7a086e90b6e98db7b57e00114f30764"
-    sha256 cellar: :any_skip_relocation, sonoma:        "755b46985258180475e89dca654190f668a874800f4b23570747bb8e80998183"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "930674a02afa27bb80425563b977691a67cb8ccd9b1da4903def8aa4943e1e36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a65faddf283b16b63b296d67843222044ab03c1ed1d06c04a256b998e87051f9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "12d2b11da1c0b6619e13d3cc86ad83459410b85a9eb48b5d0a27028fc48c4cb4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec5e60a5b948adf930f7cf08b0bef630e979a86cb842a519ae1a0a4fa30037dd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5fb56f12ee1745b9ee0863cdc5c95e0d78968bd6c0c75f39f63defb1f8400725"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f9f745105329c47aa874d0dbc5af508a89887029489093e824e2557ad183e117"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c85fe88f7e63c5c9737ee9d6b06748531a9ed94b0782cfdd42d060a81ba37a3"
+    sha256 cellar: :any,                 x86_64_linux:  "99e3debd89b376ab8edeca2ec575fa210f0fb4a07bcbec51ba109a2c5fa40934"
   end
 
-  depends_on "go" => :build
+  # TODO: unpin go@1.26 when ethereum supports go 1.27
+  depends_on "go@1.26" => :build
 
   def install
     # Force superenv to use -O0 to fix "cgo-dwarf-inference:2:8: error:
@@ -29,7 +30,6 @@ class Ethereum < Formula
     ENV.O0 if OS.linux?
 
     ldflags = %W[
-      -s -w
       -X github.com/ethereum/go-ethereum/internal/build/env.GitCommitFlag=#{tap.user}
       -X github.com/ethereum/go-ethereum/internal/build/env.GitTagFlag=v#{version}
       -X github.com/ethereum/go-ethereum/internal/build/env.BuildnumFlag=#{tap.user}

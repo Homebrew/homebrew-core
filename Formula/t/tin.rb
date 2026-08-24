@@ -1,8 +1,8 @@
 class Tin < Formula
   desc "Threaded, NNTP-, and spool-based UseNet newsreader"
   homepage "http://www.tin.org"
-  url "https://sunsite.icm.edu.pl/pub/unix/news/tin/v2.6/tin-2.6.5.tar.xz"
-  sha256 "91384d133d72671863494dd9742bc622b4089ea8ea760884a5b8c34095d76dc5"
+  url "https://sunsite.icm.edu.pl/pub/unix/news/tin/v2.6/tin-2.6.6.tar.xz"
+  sha256 "bf8a2ed051bc33d0bfce8bf2163ac80691c91ab3bbe380dce764481f0aae6338"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,12 @@ class Tin < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_tahoe:   "96069ba7501f4b095fa09d2cb6b60e6e3c613ca546422cf8c5cbac897947d1e4"
-    sha256                               arm64_sequoia: "205f564b17a2d485cdbecda830945eda2074f80f51ea235f967ac43161c193ff"
-    sha256                               arm64_sonoma:  "75e3cae279ac058854a43d4d83b0d0dceba012427bb0da4c38bfdaff33d50f14"
-    sha256                               sonoma:        "5240d4c495d46cdcc73409c3ba63bb3a16244defa0cdc24174c2ac2baffe2b6b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "48098319c7de44f58c85885af2cede333bb309c9f663b86cf59f6635e86b92af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "31ab2a4d9691671a8b512319dc59c3cc4112ddb678a5b3079722fdec7cbd601e"
+    sha256               arm64_tahoe:   "1e53cebb5c99bc1f13b9b9590fc9ccfd7e33b8bbcd46ab6c807fc36295d84a77"
+    sha256               arm64_sequoia: "d8d5a7b775fecfaeb97fdece2f059f409b7480f0a91112c49aeb772cdd8430d1"
+    sha256               arm64_sonoma:  "5790b69677cb75e61db5042acab9155528e7d2f01e4c34fae15edd55d3b89532"
+    sha256               sonoma:        "cfce01383930442ad7b49ee9a876cb4057c2f10bab8bfddac4a83d7cb040651c"
+    sha256 cellar: :any, arm64_linux:   "be34926c521936f41c8f19c92390e35a1a638ce7c17d4377b3790c6773785d8a"
+    sha256 cellar: :any, x86_64_linux:  "d293199a9b2094581c28b0660be1e60c4b9342c578484668cf060a70ac7431c9"
   end
 
   depends_on "pcre2"
@@ -41,7 +40,7 @@ class Tin < Formula
     rm_r buildpath/"pcre"
 
     system "./configure", "--mandir=#{man}",
-                          "--with-pcre2-config=#{Formula["pcre2"].opt_prefix}/bin/pcre2-config",
+                          "--with-pcre2-config=#{formula_opt_prefix("pcre2")}/bin/pcre2-config",
                           *std_configure_args
     system "make", "build"
     system "make", "install"

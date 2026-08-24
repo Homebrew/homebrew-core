@@ -1,18 +1,18 @@
 class SpirvLlvmTranslator < Formula
   desc "Tool and a library for bi-directional translation between SPIR-V and LLVM IR"
   homepage "https://github.com/KhronosGroup/SPIRV-LLVM-Translator"
-  url "https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v22.1.2.tar.gz"
-  sha256 "b37196b1a1a60282a24cf937ab7d6807d7d54dc718f2a37a78e211be26df57ac"
+  url "https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v22.1.5.tar.gz"
+  sha256 "3c6dffb4b8d67f5c544370e0c869ec7d22c013d4bb798f24655ec903f26cc5d5"
   license "Apache-2.0" => { with: "LLVM-exception" }
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "733f34bb4555268780bfcee98fe752ca46ae1f51fa00e91eff9616b2788aeaf6"
-    sha256 cellar: :any,                 arm64_sequoia: "5bf5560c2446b57bbfc36112e3a0e807c2ee58cc8dd8c2c31b0a3e3209705516"
-    sha256 cellar: :any,                 arm64_sonoma:  "fab3a5685fbb250058125104ed5d424794d9884e35037b2c19eb24157a0d8bac"
-    sha256 cellar: :any,                 sonoma:        "d4f8e346bce4915a97a67b42c37bf2daf1c06b1653bf7128b47f744e3c5775e8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a8b6428af732a948b54e3873c1bdf9907acae3e41f0a4212029e89fcc0e402a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93733fcfe6dedf795666e92e9099277ad4b5dfe815788517feac3a3e7923152b"
+    sha256 cellar: :any, arm64_tahoe:   "f472360899fd302ed7714a2610fb1139df585ce39f940201f6b39df7685199cc"
+    sha256 cellar: :any, arm64_sequoia: "a1d0f75536ce0489a57c9908761ba560bb0c33b4dd3e45a34da0a294f966dbc8"
+    sha256 cellar: :any, arm64_sonoma:  "7fca1ca6c6a9c1f20691d9861ef87c19fe7c1b274efebc6544214226797dc9d6"
+    sha256 cellar: :any, sonoma:        "07b172978601651fec24066c29e3eabb41c1412dfc75da54008e79916f0f85cf"
+    sha256 cellar: :any, arm64_linux:   "e79778f6c41e607386dd7fe99c2a4232ce772a02b15db4b5f8a857465b3e913b"
+    sha256 cellar: :any, x86_64_linux:  "b09d08c8484b090ca04b45d6544f0b36fb135ab96a5bb1fb27ad1b6b5925d7ae"
   end
 
   depends_on "cmake" => :build
@@ -30,7 +30,7 @@ class SpirvLlvmTranslator < Formula
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-DLLVM_BUILD_TOOLS=ON",
-                    "-DLLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR=#{Formula["spirv-headers"].opt_prefix}",
+                    "-DLLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR=#{formula_opt_prefix("spirv-headers")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

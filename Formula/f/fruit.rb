@@ -27,6 +27,7 @@ class Fruit < Formula
   patch do
     url "https://github.com/google/fruit/commit/b731fdb6426b07bd6674d2d9a057ad13c8e247e7.patch?full_index=1"
     sha256 "dacdf25c966dba2df55526c3c77a036ef48ac1f8fc7a53b17c0e87492963d0f7"
+    type :backport
   end
 
   def install

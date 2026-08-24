@@ -1,24 +1,23 @@
 class Ctrld < Formula
   desc "Highly configurable, multi-protocol DNS forwarding proxy"
   homepage "https://github.com/Control-D-Inc/ctrld"
-  url "https://github.com/Control-D-Inc/ctrld/archive/refs/tags/v1.5.2.tar.gz"
-  sha256 "d5914c7d6989091c8ab27c6fac7eeede5f3d86891e46a500d0f0fafad6120429"
+  url "https://github.com/Control-D-Inc/ctrld/archive/refs/tags/v1.5.6.tar.gz"
+  sha256 "7e20ce9a6fdddcf8029b8f581c4b9c1232f4bc49dd2742f37f155d4618f3dcb6"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6d17c80032ce4eb3d9da29e904d219180a204c2480c0d14d3d9e717d3260fbda"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d17c80032ce4eb3d9da29e904d219180a204c2480c0d14d3d9e717d3260fbda"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6d17c80032ce4eb3d9da29e904d219180a204c2480c0d14d3d9e717d3260fbda"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7063d0b7b044267cee6989e262806d2436280826ea27800ab5ef8ed69a15b799"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4445c3f8bc3cf3a09e60dde45dc27c2887580e49324f2b23be3c9620501041b"
-    sha256 cellar: :any,                 x86_64_linux:  "391db0e3169ced99f99d91db25e4ee6c137493b8359139ca5a21e5d9110e03a9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "465c855c7f15f9bc69bbfd394916a774f22de4d6b7b6a2e32878d2d6286a7ca6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "465c855c7f15f9bc69bbfd394916a774f22de4d6b7b6a2e32878d2d6286a7ca6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "465c855c7f15f9bc69bbfd394916a774f22de4d6b7b6a2e32878d2d6286a7ca6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8602bc5e657a908a06add75fad9303c25e64b022f35ec46a8068d04dc59e61a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "71447537ec977955188836c028499fd424f1f94dc750a2c439e5ca3daec62cf8"
+    sha256 cellar: :any,                 x86_64_linux:  "d5b04a6d8f8df6c5eed343675c297be8581f17cc80f41e473136483a238c08a4"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/Control-D-Inc/ctrld/cmd/cli.version=#{version}
       -X github.com/Control-D-Inc/ctrld/cmd/cli.commit=#{tap.user}
     ]

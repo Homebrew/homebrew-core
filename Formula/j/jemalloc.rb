@@ -1,20 +1,17 @@
 class Jemalloc < Formula
   desc "Implementation of malloc emphasizing fragmentation avoidance"
   homepage "https://jemalloc.net/"
-  url "https://github.com/jemalloc/jemalloc/releases/download/5.3.0/jemalloc-5.3.0.tar.bz2"
-  sha256 "2db82d1e7119df3e71b7640219b6dfe84789bc0537983c3b7ac4f7189aecfeaa"
+  url "https://github.com/jemalloc/jemalloc/releases/download/5.3.1/jemalloc-5.3.1.tar.bz2"
+  sha256 "3826bc80232f22ed5c4662f3034f799ca316e819103bdc7bb99018a421706f92"
   license "BSD-2-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "e4143a4cc719df4053a6f3c77a92afc0c24444d305fe8a5f1be4fafa6771403f"
-    sha256 cellar: :any,                 arm64_sequoia: "10573a40eb77f7ded7ce5825c5f03e3daf53ae04bd01670341418652bc84f0d6"
-    sha256 cellar: :any,                 arm64_sonoma:  "d6eb24407abe8727ef33a295a9685ffbc3c89cd4772c95768575b76dc52d03e7"
-    sha256 cellar: :any,                 arm64_ventura: "63744266dcd09077be2d6803f4f22b19826f9f088282f16ac227d580c6731be9"
-    sha256 cellar: :any,                 sonoma:        "aad0662c3aa09d15cdff15575506efa347c8ea2d83fbd7b62d18df87c6825175"
-    sha256 cellar: :any,                 ventura:       "8979f7acc83f0ac5c7d90b5071ed90b7f60a54237d2f9c43b0e8be6e5520494b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "397758abcc63244fc47ab9183027c9817c37d1d84620cb836049440de3a83147"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "463bbcc1146e18ce0221638a152c6ee3f4820dc27b48b8cc1a39350778fca22d"
+    sha256 cellar: :any, arm64_tahoe:   "5040904022a39fae26c7da8fed26596b15a1ccd88ac8a1335e60311a4a7de632"
+    sha256 cellar: :any, arm64_sequoia: "c0e6201b5be8ae36eb3aeecf2bb2a616860089e637979ab6bf238ad74aebc3be"
+    sha256 cellar: :any, arm64_sonoma:  "0616a2e0a342d8f28eea75db184bdd21f9ab3855530192e4b50e8c5130329959"
+    sha256 cellar: :any, sonoma:        "0783dba303dacc3110b7a15df15c7567a144ca99994f1e69ee1419eb4c75e8bc"
+    sha256 cellar: :any, arm64_linux:   "a80a49c1e8d92bb5bf08b74841fa4fb15ea4d4d3069a40dbfba4bfc77cdaaaae"
+    sha256 cellar: :any, x86_64_linux:  "e3a515d40e76209d400bb170515fae4f25b6ca09736fec178af32654f5aa97b3"
   end
 
   head do
@@ -33,7 +30,7 @@ class Jemalloc < Formula
     args << "--with-lg-page=16" if Hardware::CPU.arm64? && OS.linux?
 
     if build.head?
-      args << "--with-xslroot=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl"
+      args << "--with-xslroot=#{formula_opt_prefix("docbook-xsl")}/docbook-xsl"
       system "./autogen.sh", *args
       system "make", "dist"
     else

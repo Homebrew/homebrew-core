@@ -1,17 +1,22 @@
 class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
-  url "https://github.com/dartsim/dart/archive/refs/tags/v6.19.1.tar.gz"
-  sha256 "cb6eab59a805a40837f3489975fd79d922232a7367f39adc984eb0997951db46"
+  url "https://github.com/dartsim/dart/archive/refs/tags/v6.19.4.tar.gz"
+  sha256 "627a6d21650427da634503829eba6c0c20887cd3441082eb44187fb3f9250150"
   license "BSD-2-Clause"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256               arm64_tahoe:   "7aff1321133e8bdfe7ed56e9123ad9dee19a99ccee02a38242d0d457014f5bc5"
-    sha256               arm64_sequoia: "fb5834d338849e9d049685aaf9e37f3836040cb2b4896faba782d6dc0e264219"
-    sha256               arm64_sonoma:  "d9ae5116a3cc8e2ed243df96dd72691ea3369d502fe6bde48fc344458f936444"
-    sha256               sonoma:        "b2c8cbd81bba6af6543fa967244824c82f01212767d37b6e47dc46867b437f69"
-    sha256               arm64_linux:   "9f28729113066473f8772f75efe2156553d0106bc966626a7981cf68e720a308"
-    sha256 cellar: :any, x86_64_linux:  "4219000692a9ef55a01da3364c6ebdfd85a097264516940116595be1469c1f98"
+    sha256               arm64_tahoe:   "f63057be0ef688c2d1eb482a39aa4f1a4e05cb1709c0d167ef8ecaa3f97c2293"
+    sha256               arm64_sequoia: "776e505b28c9bac1ae279cd6098e99a6c5a802eb5ec2c84b6b459840d6dc07d1"
+    sha256               arm64_sonoma:  "5bb7f57da268c37c6051d3a870b2bd2d0c439ba0c5aa8c553d4b588bcc585445"
+    sha256               sonoma:        "15ef52ed76a01bdb93383be08334b329484af03a709820ef54a27a99daaa9ce5"
+    sha256               arm64_linux:   "ac94c358317cd1172ab84b97b48247a1a2833a676308a6a195c9680edc6da6d6"
+    sha256 cellar: :any, x86_64_linux:  "772da48e17dfcb714fbe921a120e6493b4b61766d5e24d8f20e977c63e0989b4"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -77,9 +82,9 @@ class Dartsim < Formula
     CMAKE
     system ENV.cxx, "test.cpp", "-I#{Formula["eigen"].include}/eigen3",
                     "-I#{include}", "-L#{lib}", "-ldart",
-                    "-L#{Formula["assimp"].opt_lib}", "-lassimp",
-                    "-L#{Formula["libccd"].opt_lib}", "-lccd",
-                    "-L#{Formula["fcl"].opt_lib}", "-lfcl",
+                    "-L#{formula_opt_lib("assimp")}", "-lassimp",
+                    "-L#{formula_opt_lib("libccd")}", "-lccd",
+                    "-L#{formula_opt_lib("fcl")}", "-lfcl",
                     "-std=c++17", "-o", "test"
     system "./test"
     # build with cmake

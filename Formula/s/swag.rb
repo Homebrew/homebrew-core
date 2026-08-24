@@ -21,7 +21,7 @@ class Swag < Formula
     # version patch PR, https://github.com/swaggo/swag/pull/2049
     inreplace "version.go", "1.16.4", version.to_s
 
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/swag"
+    system "go", "build", *std_go_args, "./cmd/swag"
   end
 
   test do

@@ -28,7 +28,7 @@ class Orbuculum < Formula
   depends_on "capstone"
   depends_on "dwarfutils"
   depends_on "libusb"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "zeromq"
 
   uses_from_macos "ncurses"

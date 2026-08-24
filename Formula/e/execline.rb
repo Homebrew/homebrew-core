@@ -1,18 +1,23 @@
 class Execline < Formula
   desc "Interpreter-less scripting language"
   homepage "https://skarnet.org/software/execline/"
-  url "https://skarnet.org/software/execline/execline-2.9.8.1.tar.gz"
-  sha256 "23350d10797909636060522607591cb4a2118328cb58c5e65fb19a2c0d47264e"
+  url "https://skarnet.org/software/execline/execline-2.9.9.2.tar.gz"
+  sha256 "908ed4db3a6b3a23a205d8fd4cf2a71089156f2aeae0f54656045aafad2dee32"
   license "ISC"
   head "git://git.skarnet.org/execline", branch: "main"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?execline[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1821cb1a1f4cb4563107a96a6e4226fbb19f71e2b4f4958ba3072e2320d3cde8"
-    sha256 cellar: :any,                 arm64_sequoia: "7e85921f90d391666a22e1daf7b572164be83fc0bccf6d716afa70eb590ae347"
-    sha256 cellar: :any,                 arm64_sonoma:  "b87efb740ad77909dbcd391cf64b3f258e8de85d88e9222c54a6199e8ec870bb"
-    sha256 cellar: :any,                 sonoma:        "02723eef03476c8dcd5448899b4717e06d9c4c3b94e2d39b4421dc730e27da4e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "49daa9344067f4534f19592352185b0b5a573f2e8420929d65238294770723ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ecaef5ce93cc303329fc01de0290f3b4bd4c7c3b2ef7510eefa5d60b1869ca1"
+    sha256 cellar: :any, arm64_tahoe:   "a34cd2a4118064e562ccf4129012601a1ff827035231835e244613520f04c055"
+    sha256 cellar: :any, arm64_sequoia: "0c821be5ea7210ce575c0dd8dd4555e6f3766192b9ef41a4fb6867461340afc0"
+    sha256 cellar: :any, arm64_sonoma:  "2ff69fef93dc99840fc3a50dc662e2cb9ed039f7f839f17ab53b6367da20d20f"
+    sha256 cellar: :any, sonoma:        "eac033e7d68f6c016a461d3fb5887b2c3d65a70775626fb94cdcdc644dbe26d5"
+    sha256 cellar: :any, arm64_linux:   "de8756b61cd6846ca05ba613ac1ec33c268bf43ee21ea3be1ee5af4dc1c5ea19"
+    sha256 cellar: :any, x86_64_linux:  "6834735c20cd94e60855b47878af70c619ed11eb2b5bd274b25e64c02652a621"
   end
 
   depends_on "pkgconf" => :build
@@ -23,8 +28,8 @@ class Execline < Formula
       --disable-silent-rules
       --enable-shared
       --enable-pkgconfig
-      --with-pkgconfig=#{Formula["pkgconf"].opt_bin}/pkg-config
-      --with-sysdeps=#{Formula["skalibs"].opt_lib}/skalibs/sysdeps
+      --with-pkgconfig=#{formula_opt_bin("pkgconf")}/pkg-config
+      --with-sysdeps=#{formula_opt_lib("skalibs")}/skalibs/sysdeps
     ]
     system "./configure", *args, *std_configure_args
     system "make", "install"

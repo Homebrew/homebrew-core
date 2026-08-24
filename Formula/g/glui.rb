@@ -30,18 +30,24 @@ class Glui < Formula
   patch do
     url "https://github.com/libglui/glui/commit/fc9ad76733034605872a0d1323bb19cbc23d87bf.patch?full_index=1"
     sha256 "b1afada854f920692ab7cb6b6292034f3488936c4332e3e996798ee494a3fdd7"
+    type :backport
+    resolves "https://github.com/libglui/glui/pull/55"
   end
 
   # Backport fix for CMake build linking on macOS
   patch do
     url "https://github.com/libglui/glui/commit/eaca63aea72ed4db055514dfec2abc71a106aa70.patch?full_index=1"
     sha256 "81cd6400037f9082ffd2926a01458c40c0d81c71cb7786cb667909ef64b1541b"
+    type :backport
+    resolves "https://github.com/libglui/glui/pull/54"
   end
 
   # Backport support for CMake install
   patch do
     url "https://github.com/libglui/glui/commit/4299e8fa43bb1e67370be36cad4b21115ab88af9.patch?full_index=1"
     sha256 "9070d9a3f44ffd3787762125fb194d92e24a9bc0b5e27bc5571ac09718199404"
+    type :backport
+    resolves "https://github.com/libglui/glui/pull/60"
   end
 
   def install

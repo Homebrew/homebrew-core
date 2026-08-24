@@ -12,12 +12,13 @@ class Flashrom < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "bddf59497d339e94335a78dcd020f39c2abeb6ab6743d2879425af065cc09cf1"
-    sha256 cellar: :any, arm64_sequoia: "7f44705e5537d6294a8b740c64f5f4ca9ea348d67ebb39e1da7f9bb1ac311568"
-    sha256 cellar: :any, arm64_sonoma:  "a675503867c985d6ff3599597a692283c47009ba672d1b0267e8ea58c7101c84"
-    sha256 cellar: :any, sonoma:        "7fff618fcbcc53469b5ccb96826f2db688098ef222a0afc55ecf2970dc5f6e8f"
-    sha256               arm64_linux:   "fa19b35b685c9ce8e2ba999ee52869440da81e6abe9271c843503548e9cfc85d"
-    sha256               x86_64_linux:  "8746313816786192056a06b6f94cb8aa0111984edca71343560e72af081669c0"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "7f4b534c1651528d2f9d533d1d6086099c275f01ab2ed97d1dca416815ec4ac4"
+    sha256 cellar: :any, arm64_sequoia: "3c4d73c0956dff122759bf402e944c58f68863f3994a1653041287ed58ba6b3f"
+    sha256 cellar: :any, arm64_sonoma:  "6454b4ddab1122eaa09058f771eff661c4c1ad8c8be5489843117f867d329fb3"
+    sha256 cellar: :any, sonoma:        "9ad26e249cfab29b3c643cf7f97cb751beaa552f19ee03e544688ae2e99b8382"
+    sha256               arm64_linux:   "248fab896eaeb96a8ee1c619685d574fa2f3fed37c1e6cc7ba0a908fe874a624"
+    sha256               x86_64_linux:  "8ae4f697a10c6ef1b0da1383cad1e90e338536bc4af9319e99a0611605f72e37"
   end
 
   depends_on "meson" => :build
@@ -25,6 +26,7 @@ class Flashrom < Formula
   depends_on "pkgconf" => :build
 
   depends_on "libftdi"
+  depends_on "libjaylink"
   depends_on "libusb"
   depends_on "openssl@3"
 

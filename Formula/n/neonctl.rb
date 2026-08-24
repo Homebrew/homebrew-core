@@ -1,19 +1,20 @@
 class Neonctl < Formula
   desc "Neon CLI tool"
   homepage "https://neon.tech/docs/reference/neon-cli"
-  url "https://registry.npmjs.org/neonctl/-/neonctl-2.26.6.tgz"
-  sha256 "871c09d8f1342e843f269c21a767703cf7654decfa21455afe3cd78d5ee4c50d"
+  url "https://registry.npmjs.org/neonctl/-/neonctl-3.6.0.tgz"
+  sha256 "0fba6c416f968fddb35cd896567b72cd377f501a855ed1ccca76cf360d41861d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5665aa1f0226a941af1ee552cea9510bdb57b161b05683be1d5bca9549555c21"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5665aa1f0226a941af1ee552cea9510bdb57b161b05683be1d5bca9549555c21"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5665aa1f0226a941af1ee552cea9510bdb57b161b05683be1d5bca9549555c21"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dd28c11c68a3a6b177101f364a925d0b2f8147c412243089b5b06e3d824fb4ca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e34e0f1afeb2b75ed0bce96b643ad63ff78889ddd32cc50f435eac467f30a4c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a9394d97bf66a550b86597579622beac68f92c7b5cfc38cf4ccd38ed96d51e3"
+    sha256 cellar: :any,                 arm64_tahoe:   "c179373bfe0c5838ac8fa35a56acbb938d415409f188d7b1d61aabba3856da7a"
+    sha256 cellar: :any,                 arm64_sequoia: "c179373bfe0c5838ac8fa35a56acbb938d415409f188d7b1d61aabba3856da7a"
+    sha256 cellar: :any,                 arm64_sonoma:  "c179373bfe0c5838ac8fa35a56acbb938d415409f188d7b1d61aabba3856da7a"
+    sha256 cellar: :any,                 sonoma:        "635d6bb02fe0ce8ff9525b6a10970e771056e3f9323c4fef44cfd92a41e676f9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b4b704d882dbf871c8e68a31d4f6946f708c4c8e7cdbe1c263e4c65ac3f4ca64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8457e417395dd2eea126d838bf3e173b3632390c1f6a66d0808fe387feabebec"
   end
 
+  depends_on "esbuild" # replaces the bundled copy
   depends_on "node"
 
   def install
@@ -24,16 +25,56 @@ class Neonctl < Formula
       generate_completions_from_executable(bin/cmd, "completion", shells: [:bash, :zsh])
     end
 
+    node_modules = libexec/"lib/node_modules/neonctl/node_modules"
+
     # Remove incompatible pre-built binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    node_modules = libexec/"lib/node_modules/neonctl/node_modules"
     node_modules.glob("{bare-fs,bare-os,bare-url}/prebuilds/*")
                 .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
+
+    # Remove bundled esbuild to use the `esbuild` formula from PATH; delete the
+    # whole module so neonctl falls back to PATH. Symlinks first to avoid dangling.
+    node_modules.glob("**/.bin/esbuild").each { |bin| rm(bin) }
+    node_modules.glob("**/{esbuild,@esbuild}").select(&:directory?).each { |dir| rm_r(dir) }
   end
 
   test do
     output = shell_output("#{bin}/neonctl --api-key DOES-NOT-EXIST projects create 2>&1", 1)
     assert_match("Authentication failed", output)
+
+    # `neonctl dev` bundles the function with esbuild and serves it, exercising
+    # the `esbuild` dependency. Keep the source in its own dir: `dev` watches the
+    # source's directory and restarts on any change, so the log must live outside it.
+    (testpath/"neon").mkpath
+    (testpath/"neon/index.ts").write <<~TS
+      export default async () => new Response("Hello, Homebrew!");
+    TS
+    port = free_port
+    log = testpath/"dev.log"
+    pid = spawn bin/"neonctl", "dev", "--source", testpath/"neon/index.ts", "--port", port.to_s,
+                "--config-dir", testpath/"config", "--analytics", "false",
+                out: log.to_s, err: log.to_s
+    begin
+      Timeout.timeout(60) do
+        loop do
+          contents = log.read if log.exist?
+          break if contents&.include?("localhost:#{port}")
+
+          refute_match "bundle failed", contents.to_s
+          sleep 0.5
+        end
+      end
+      assert_match "Hello, Homebrew!",
+                   shell_output("curl --silent --retry 5 --retry-connrefused --retry-all-errors " \
+                                "127.0.0.1:#{port}/")
+    ensure
+      begin
+        Process.kill("TERM", pid)
+        Process.wait(pid)
+      rescue Errno::ESRCH, Errno::ECHILD
+        nil
+      end
+    end
   end
 end

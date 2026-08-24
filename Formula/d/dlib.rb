@@ -29,8 +29,8 @@ class Dlib < Formula
     args = %W[
       -DDLIB_USE_BLAS=ON
       -DDLIB_USE_LAPACK=ON
-      -Dcblas_lib=#{Formula["openblas"].opt_lib/shared_library("libopenblas")}
-      -Dlapack_lib=#{Formula["openblas"].opt_lib/shared_library("libopenblas")}
+      -Dcblas_lib=#{formula_opt_lib("openblas")/shared_library("libopenblas")}
+      -Dlapack_lib=#{formula_opt_lib("openblas")/shared_library("libopenblas")}
       -DDLIB_NO_GUI_SUPPORT=ON
       -DDLIB_LINK_WITH_SQLITE3=OFF
       -DBUILD_SHARED_LIBS=ON

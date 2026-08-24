@@ -36,10 +36,12 @@ class Httping < Formula
     depends_on "gettext" # for libintl
   end
 
-  # enable TCP Fast Open on macOS, upstream pr ref, https://github.com/folkertvanheusden/HTTPing/pull/48
+  # enable TCP Fast Open on macOS
   patch do
     url "https://github.com/folkertvanheusden/HTTPing/commit/79236affb75667cf195f87a58faaebe619e7bfd4.patch?full_index=1"
     sha256 "765fd15dcb35a33141d62b70e4888252a234b9f845c8e35059654852a0d19d1c"
+    type :backport
+    resolves "https://github.com/folkertvanheusden/HTTPing/pull/48"
   end
 
   def install

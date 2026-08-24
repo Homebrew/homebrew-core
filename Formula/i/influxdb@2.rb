@@ -78,7 +78,6 @@ class InfluxdbAT2 < Formula
 
     # Build the server.
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.commit=#{Utils.git_short_head(length: 10)}
       -X main.date=#{time.iso8601}

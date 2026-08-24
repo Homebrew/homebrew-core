@@ -1,33 +1,32 @@
 class Pmix < Formula
   desc "Process Management Interface for HPC environments"
-  homepage "https://openpmix.github.io/"
-  license "BSD-3-Clause"
-  revision 1
+  homepage "https://openpmix.org/"
+  license "BSD-3-Clause-Open-MPI"
   compatibility_version 1
 
   stable do
-    url "https://github.com/openpmix/openpmix/releases/download/v5.0.10/pmix-5.0.10.tar.bz2"
-    sha256 "78663f6b932589d68e24feaf7f8a948d60be68d91965f3effbacb4cd88cf9a95"
+    url "https://github.com/openpmix/openpmix/releases/download/v6.1.0/pmix-6.1.0.tar.bz2"
+    sha256 "bb9021c8e100a376f5070ecca727f83a29b5f652dfe381793b88daa79a3b98a2"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+      file "Patches/libtool/configure-big_sur.diff"
+      type :unofficial
     end
   end
 
   livecheck do
     url :stable
-    strategy :github_latest
+    strategy :github_releases
   end
 
   bottle do
-    sha256 arm64_tahoe:   "5ae502e52b0701368cd61fd43b12f67df1c074bd2a6027bf5f1cbe1ef213817d"
-    sha256 arm64_sequoia: "2f1d03fa49fb8731e9e60c03b25670bfe10acbaeeafc20de491eab57bda31c26"
-    sha256 arm64_sonoma:  "6ff719706c1ace854d29922ddbe65a62a64f4f6f356b3af44d6eadcb7511e39e"
-    sha256 sonoma:        "d93205b42ae1181cbfd0b84ee6fe6697cb60f8c6472cfffddc16c6af10f4a174"
-    sha256 arm64_linux:   "d5c71a20e25fd1ad9d512dd40c882eef16c980a387a601e2617195913175c2b1"
-    sha256 x86_64_linux:  "93fd3b3e99b624b63f07fb8580d22684387aaacbcf8c3bf9a89536253b32ce09"
+    sha256 arm64_tahoe:   "e92ef10e3a830c714f77e437c8c0bc95a74e4e271c11a227bec04751f9e39e1e"
+    sha256 arm64_sequoia: "84f5dc1c87771751b12ffc20d210ecdb0ffce10417adb4698046233d895a5cb9"
+    sha256 arm64_sonoma:  "4ebae743971057aedb4bcb9e0c3184dcdf928810a07ca6b9aaf8e392d1040b3b"
+    sha256 sonoma:        "ffea6a8f88516bae345bbb60d0de547a77b21188a84d4389f82df7a90eba7507"
+    sha256 arm64_linux:   "c4d370ae2ff7a7600464f51fee127331073d4aaf1c284705ec04ecb00ff2d109"
+    sha256 x86_64_linux:  "d27aea1dc4807880a160e08f03a2b0a4210e7d731d6be8e702d04501334b2b05"
   end
 
   head do
@@ -36,12 +35,15 @@ class Pmix < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+
+    uses_from_macos "flex" => :build
+    uses_from_macos "python" => :build
   end
 
   depends_on "hwloc"
   depends_on "libevent"
 
-  uses_from_macos "python" => :build
+  uses_from_macos "perl" => :build
 
   on_linux do
     depends_on "zlib-ng-compat"
@@ -49,15 +51,14 @@ class Pmix < Formula
 
   def install
     # Avoid references to the Homebrew shims directory
-    cc = OS.linux? ? "gcc" : ENV.cc
-    inreplace "src/tools/pmix_info/support.c", "PMIX_CC_ABSOLUTE", "\"#{cc}\""
+    inreplace "src/runtime/pmix_info_support.c", "PMIX_CC_ABSOLUTE", "\"#{ENV.cc}\""
 
     args = %W[
       --disable-silent-rules
       --enable-ipv6
       --sysconfdir=#{etc}
-      --with-hwloc=#{Formula["hwloc"].opt_prefix}
-      --with-libevent=#{Formula["libevent"].opt_prefix}
+      --with-hwloc=#{formula_opt_prefix("hwloc")}
+      --with-libevent=#{formula_opt_prefix("libevent")}
       --with-sge
     ]
 
@@ -67,22 +68,38 @@ class Pmix < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~C
+    # Based on https://github.com/openpmix/openpmix/blob/master/examples/simple.c
+    (testpath/"test.c").write <<~'C'
       #include <stdio.h>
+      #include <stdlib.h>
       #include <pmix.h>
 
-      int main(int argc, char **argv) {
-        pmix_value_t *val;
-        pmix_proc_t myproc;
+      static pmix_proc_t myproc;
+
+      int main(void) {
         pmix_status_t rc;
 
-        return 0;
+        if (PMIX_SUCCESS != (rc = PMIx_Init(&myproc, NULL, 0))) {
+          if (PMIX_ERR_UNREACH != rc) {
+            fprintf(stderr, "Client ns %s rank %d: PMIx_Init failed: %s\n", myproc.nspace, myproc.rank,
+                    PMIx_Error_string(rc));
+            return 1;
+          }
+        }
+
+        rc = PMIx_Finalize(NULL, 0);
+        if (PMIX_SUCCESS != rc) {
+          fprintf(stderr, "Finalize failed: %s\n", PMIx_Error_string(rc));
+        }
+
+        fflush(stderr);
+        return rc;
       }
     C
 
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lpmix", "-o", "test"
+    system bin/"pmixcc", "test.c", "-o", "test"
     system "./test"
 
-    assert_match "PMIX: #{version}", shell_output("#{bin}/pmix_info --pretty-print")
+    assert_match version.to_s, shell_output("#{bin}/pmix_info --pretty-print")
   end
 end

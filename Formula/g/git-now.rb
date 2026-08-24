@@ -20,6 +20,7 @@ class GitNow < Formula
     patch do
       url "https://github.com/iwata/git-now/commit/be74736cb95e8213cd06cc6fe85f467e26b9a3c2.patch?full_index=1"
       sha256 "6f13e7baeb0160e937221e51cd5736fabc57e3b8ba9309b88a8b17b5d14bb767"
+      type :backport
     end
   end
 
@@ -33,7 +34,7 @@ class GitNow < Formula
   def install
     (buildpath/"shFlags").install resource("shFlags")
     system "make", "prefix=#{libexec}", "install"
-    (bin/"git-now").write_env_script libexec/"bin/git-now", PATH: "#{Formula["gnu-getopt"].opt_bin}:$PATH"
+    (bin/"git-now").write_env_script libexec/"bin/git-now", PATH: "#{formula_opt_bin("gnu-getopt")}:$PATH"
     zsh_completion.install "etc/_git-now"
   end
 

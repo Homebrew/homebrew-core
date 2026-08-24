@@ -1,17 +1,17 @@
 class Xroar < Formula
   desc "Dragon and Tandy 8-bit computer emulator"
   homepage "https://www.6809.org.uk/xroar/"
-  url "https://www.6809.org.uk/xroar/dl/xroar-1.11.tar.gz"
-  sha256 "70270805ebd52c0b62237cc2f28b32b5c7df9764d10a7c7190de584cfc6e95af"
+  url "https://www.6809.org.uk/xroar/dl/xroar-1.12.1.tar.gz"
+  sha256 "ba525225fbd732c4dbf2cbb571dc9d2810fd9dcedf0482133cf637e2eef61f88"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b45f9f1610c5b78611a942d8d969c6c3e7639aa0584088e4d27c43edf1075282"
-    sha256 cellar: :any,                 arm64_sequoia: "3ec966ecca99940d17b97bfd51da11c2f777a87c019f5019c7434d2f7259548e"
-    sha256 cellar: :any,                 arm64_sonoma:  "0d3d8c27771dff6ce5f3a2ba51e0387ebf3747fc65a1210e1af32f485510a1c7"
-    sha256 cellar: :any,                 sonoma:        "0faa323fba386d1c1fdf6c2eefb5cb5a5a3e237a28d98c4de41f33778ea2c45a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b75ec7faf16dea918b0330b9cfadef8dc9c64a1b1383fd03de0dc5303209ab70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d252d192d37f75cd552a1a0c6da5a8846f66d4534d52afb27912fd7888c45144"
+    sha256 cellar: :any, arm64_tahoe:   "45fc17a5ef64c9f5d03568ab92be47a74f2e063445e22ea7b080216c10616b02"
+    sha256 cellar: :any, arm64_sequoia: "3ce570ced666937ec8de3b7cd32a1365cf1856954e4ab7c9eb518ff000ea83bb"
+    sha256 cellar: :any, arm64_sonoma:  "e73e983da1247571d0d820fff89dcb0838992c0b902becc7b6cdb72453bc8a83"
+    sha256 cellar: :any, sonoma:        "0541fa0834dfdbcf8a72f3dbf1367b0649b335a32e03f6a5600f9e4bb33f5660"
+    sha256 cellar: :any, arm64_linux:   "f21256affa2a7f37611b453f19249adce26768f650eee897d64f722d66b3617f"
+    sha256 cellar: :any, x86_64_linux:  "db0cc1aeeaa264958470c4da85d1a17bbee5a28068510fb7a6f399e2c3a62b41"
   end
 
   head do
@@ -25,7 +25,7 @@ class Xroar < Formula
 
   depends_on "libpng"
   depends_on "libsndfile"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   on_linux do
     depends_on "alsa-lib"

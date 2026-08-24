@@ -1,21 +1,17 @@
 class Wildmidi < Formula
   desc "Simple software midi player"
   homepage "https://github.com/Mindwerks/wildmidi"
-  url "https://github.com/Mindwerks/wildmidi/archive/refs/tags/wildmidi-0.4.6.tar.gz"
-  sha256 "051b8c51699af594ddd3e4e3b06bad3564e9499c3c6b9e6f880cb2f92bcfa9c8"
+  url "https://github.com/Mindwerks/wildmidi/archive/refs/tags/wildmidi-0.5.0.tar.gz"
+  sha256 "2164396d5fe80153fd2af9764fcd991883d06fbf1fdfd96efbc99eed21ed1a2f"
   license all_of: ["GPL-3.0-only", "LGPL-3.0-only"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "fec3c0e1391b9ddce5df2c213ace4a11edf804189f70699e4f333fcd1e642abb"
-    sha256 cellar: :any,                 arm64_sequoia:  "bb7178ae28716d1596dc04796b86318c2b96c3d5fc19a013fb63f3755aeccf7f"
-    sha256 cellar: :any,                 arm64_sonoma:   "1957eaf82b32edbcd7efb37a209ccd6e2ceee82ec576e29b6d1666fc5e05945b"
-    sha256 cellar: :any,                 arm64_ventura:  "5bda39b9e4b7c069bc80baa25a31dba900a78f2cc79f47d798a554e2670fe9e0"
-    sha256 cellar: :any,                 arm64_monterey: "6dfb03870142cd1ca7496d24056f3dd6b501bf58c395e270b0261391fcc7ca40"
-    sha256 cellar: :any,                 sonoma:         "42a524ea0a68475608e63e99e3d2c975f17c5d79d680fadafd17b371acba84ed"
-    sha256 cellar: :any,                 ventura:        "8578920cfff7dc9afb7deecd7397922ebcbd8092cba2bdb55aa830593c56f9de"
-    sha256 cellar: :any,                 monterey:       "eb9ba5cb84a6a5105da658c4f3930f0d3d2c22e4caf39790c261912b48b7cc21"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "c0e66dee3078f0f1c1fa2c727d2af4194da035eb0fb80e9b8be240fd8665a30a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "440af3c41c5ff0b321a6508dc0e531e2518cd78bad6b8ba5467ff65c25d5eb73"
+    sha256 cellar: :any, arm64_tahoe:   "b9e88989d6462d9f862c9c06fe6f12966de089008278ccf243c08add9f1c6520"
+    sha256 cellar: :any, arm64_sequoia: "4959f76d804e6969d248f7456c4817b7825ba9effb1cde9fae7e2fbaa791d4ff"
+    sha256 cellar: :any, arm64_sonoma:  "2e775fa17a5cb1590962a64675b8f042c4b9d2c85c0c7d37b97ae13e65229a47"
+    sha256 cellar: :any, sonoma:        "a9c47e60a47a8b94b17b43537998a4e30589fa5b950877b327797f52f8782660"
+    sha256 cellar: :any, arm64_linux:   "2a4891a8b9a7b031002f597e2f8953560a8b5adac2320718d9bb7d27aa711342"
+    sha256 cellar: :any, x86_64_linux:  "cf8b1587c696774e19827bffed3849b6f7ec4044c544a857b57a4bffbdf4955d"
   end
 
   depends_on "cmake" => :build

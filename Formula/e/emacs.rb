@@ -1,22 +1,19 @@
 class Emacs < Formula
   desc "GNU Emacs text editor"
   homepage "https://www.gnu.org/software/emacs/"
-  # TODO: Bump to use tree-sitter 0.26+ when new Emacs release supports it
-  url "https://ftpmirror.gnu.org/gnu/emacs/emacs-30.2.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/emacs/emacs-30.2.tar.xz"
-  sha256 "b3f36f18a6dd2715713370166257de2fae01f9d38cfe878ced9b1e6ded5befd9"
+  url "https://ftpmirror.gnu.org/gnu/emacs/emacs-31.1.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/emacs/emacs-31.1.tar.xz"
+  sha256 "1da5790d9580c81932b5bf700633114468da7b3412d69faa767daebf974f4586"
   license "GPL-3.0-or-later"
-  revision 2
   compatibility_version 1
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "b543c7f67a1b82570fad2420b29915a1a52ce9ec8fcc48671bdbce77fe9d21c3"
-    sha256 arm64_sequoia: "04cac5742a25b61d4a8bcff66708109f455ec4c758520f542faf41ee55f7cdf1"
-    sha256 arm64_sonoma:  "655ed2f5dc5bd33d1855a302dfee5156608576a5b26b56913256bf9f4cfaa680"
-    sha256 sonoma:        "19cd1d2285e96a773535d7f4f31e39e8405fcc0531d54c143a64bb9e686a7d6f"
-    sha256 arm64_linux:   "56d1d96343d318623ed86f2f785b4bd9a33b36fe1b19cc9f60aa981d86994da5"
-    sha256 x86_64_linux:  "32507fbd3da18c3e6285b2747f2f514273de1a47e2e5a9ae3f5d08521b40a931"
+    sha256 arm64_tahoe:   "d0c7c334b8daad65a3b6b18a4b493c896ba38e3dbd47c0e87920aac7aaee367a"
+    sha256 arm64_sequoia: "453b9b0f9035e7448eacef5da8da7659f053cac6323a6cddb8cd19c36ac69047"
+    sha256 arm64_sonoma:  "1594755ea9f3c58262cc94f1001342958b54bf046eaf4ce4c7fff3139f956a53"
+    sha256 sonoma:        "de654478bf6a2df5bd1f959683079e3a8b20753b5d8349b8c789ad2059b61248"
+    sha256 arm64_linux:   "5e645484523df3a7efc80e8912c62e609462507d2c49b0d8ab18a2352a2ea2cb"
+    sha256 x86_64_linux:  "5b5dcc1b47301905e2da31d3f81ce1fc7e60217671306913197b4132d298b581"
   end
 
   head do
@@ -30,7 +27,7 @@ class Emacs < Formula
   depends_on "texinfo" => :build
   depends_on "gmp"
   depends_on "gnutls"
-  depends_on "tree-sitter@0.25"
+  depends_on "tree-sitter"
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
@@ -63,7 +60,7 @@ class Emacs < Formula
     ]
 
     if build.head?
-      ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
+      ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin"
       system "./autogen.sh"
     end
 
@@ -78,11 +75,6 @@ class Emacs < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
-
-    # Follow MacPorts and don't install ctags from Emacs. This allows Vim
-    # and Emacs and ctags to play together without violence.
-    (bin/"ctags").unlink
-    (man1/"ctags.1.gz").unlink
   end
 
   service do

@@ -10,9 +10,12 @@ class Tcc < Formula
     sha256 "de23af78fca90ce32dff2dd45b3432b2334740bb9bb7b05bf60fdbfc396ceb9c"
 
     depends_on arch: :x86_64
-    # Big Sur and later are not supported
-    # http://savannah.nongnu.org/bugs/?59640
-    depends_on maximum_macos: :catalina
+
+    on_macos do
+      # Big Sur and later are not supported
+      # http://savannah.nongnu.org/bugs/?59640
+      depends_on maximum_macos: :catalina
+    end
   end
 
   livecheck do

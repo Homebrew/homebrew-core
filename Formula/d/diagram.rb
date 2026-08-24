@@ -38,7 +38,7 @@ class Diagram < Formula
       ENV.append "GOFLAGS", "-buildmode=pie"
     end
 
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.defaultFontFile=#{pkgshare}/gloriahallelujah.ttf")
+    system "go", "build", *std_go_args(ldflags: "-X main.defaultFontFile=#{pkgshare}/gloriahallelujah.ttf")
 
     pkgshare.install ["sample.txt", "font/gloriahallelujah.ttf"]
   end

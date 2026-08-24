@@ -1,10 +1,9 @@
 class Simutrans < Formula
   desc "Transport simulator"
   homepage "https://www.simutrans.com/"
-  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "11671"
-  version "124.3.1"
+  url "svn://servers.simutrans.org/simutrans/trunk/", revision: "11993"
+  version "124.5"
   license "Artistic-1.0"
-  revision 1
   head "https://github.com/simutrans/simutrans.git", branch: "master"
 
   livecheck do
@@ -18,13 +17,12 @@ class Simutrans < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "1fd7de0f2f6d759224c301571e17f5057755b13ad09ead31dbc2589c6ea0c4f8"
-    sha256 cellar: :any,                 arm64_sequoia: "5534b80d0083a84792de4c454e8856c96101d3d932bfa04c2b413731119d9530"
-    sha256 cellar: :any,                 arm64_sonoma:  "f5b0dcbb5ee3432922b76039f1f7a8ebd935abb9cab334986a50405e1b172640"
-    sha256 cellar: :any,                 sonoma:        "54bcf8151b603d18cdb4b2c50d627289797bc65b21d58282e41567a601c0bce9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "365b26012ec707690ec42834ab7ac2753d8547246fde48f13bf8e66274f328ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba5871955287bcbe8520ed25d63be1c4ce7c9b797caab0c2cac970676f9b4c44"
+    sha256 cellar: :any, arm64_tahoe:   "9416e74ce4f562883c0ff06baaded29fd451a1287d1547823581f55cc1626742"
+    sha256 cellar: :any, arm64_sequoia: "a6cd38e5e313c1cce8d93316f2fdd573752df936ee0587e272d80578156e2271"
+    sha256 cellar: :any, arm64_sonoma:  "d0208918d7fb9691c3d04ecd169e3ae54e017b1455c84dca9f45ea07ec919729"
+    sha256 cellar: :any, sonoma:        "a023cf4bbea6b5ca1eb15ba383c35ea3ab06d610edaea99e52ad74a0199482ac"
+    sha256 cellar: :any, arm64_linux:   "2c73684b77cc59a82487de4e1b03f5a7c2696f483065b395cfcc33a961411ba1"
+    sha256 cellar: :any, x86_64_linux:  "407b04e50236fb72b705df2ef9583618155c0d8dc452e7825ec43d4087674d9f"
   end
 
   depends_on "cmake" => :build
@@ -34,7 +32,7 @@ class Simutrans < Formula
   depends_on "freetype"
   depends_on "libpng"
   depends_on "miniupnpc"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "zstd"
 
   uses_from_macos "unzip" => :build
@@ -46,8 +44,8 @@ class Simutrans < Formula
   end
 
   resource "pak64" do
-    url "https://downloads.sourceforge.net/project/simutrans/pak64/124-3/simupak64-124-3.zip"
-    sha256 "ecde0e15301320549e92a9113fcdd1ada3b7f9aa1fce3d59a5dc98d56d648756"
+    url "https://downloads.sourceforge.net/project/simutrans/pak64/124-4/simupak64-124-4.zip"
+    sha256 "edc6f9ca8d94af7bfcc9628ce1e7ddf468b07118cde0a50a8b5d0d30c22218ee"
   end
   resource "soundfont" do
     url "https://src.fedoraproject.org/repo/pkgs/PersonalCopy-Lite-soundfont/PCLite.sf2/629732b7552c12a8fae5b046d306273a/PCLite.sf2"
@@ -55,9 +53,6 @@ class Simutrans < Formula
   end
 
   def install
-    # fixed in 9aa819, remove in next release
-    inreplace "cmake/MacBundle.cmake", "SOURCE_DIR}src", "SOURCE_DIR}/src"
-
     # These translations are dynamically generated.
     system "./tools/get_lang_files.sh"
 

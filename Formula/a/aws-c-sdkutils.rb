@@ -1,18 +1,18 @@
 class AwsCSdkutils < Formula
   desc "C99 library implementing AWS SDK specific utilities"
   homepage "https://github.com/awslabs/aws-c-sdkutils"
-  url "https://github.com/awslabs/aws-c-sdkutils/archive/refs/tags/v0.2.5.tar.gz"
-  sha256 "13a03ea87aa67c7db414bf245fbcc623555c783a34d8ba1d7d701fd42717c366"
+  url "https://github.com/awslabs/aws-c-sdkutils/archive/refs/tags/v0.2.10.tar.gz"
+  sha256 "23bfb010c7a5becc48b7e36212a4f401319a46ec3e981eb9adb9d6b215e7a65e"
   license "Apache-2.0"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "c72db8f20cfb94e0d771c20c916362d4597693e1c5e97a5482fd190470c6e88d"
-    sha256 cellar: :any, arm64_sequoia: "6c4e4fbceeefeb1a55a9ccb9e5bad341ca5f661a65c1ebe8709c68193cf853e6"
-    sha256 cellar: :any, arm64_sonoma:  "720f35bcb3c50215a3eb99194f91b7e645e77d23939f569924751d6b66022501"
-    sha256 cellar: :any, sonoma:        "9debf7f306ba663508e030e8e75aee0d81b8cbeae24c0133bb762d00fa9f2272"
-    sha256 cellar: :any, arm64_linux:   "c3e52291f52b019bcd8a9f8081110501b76128203a54e1bb2f546deb9013f0be"
-    sha256 cellar: :any, x86_64_linux:  "446a2499a0723015330032c5766f6a0069c823db4426dc05dcf178e2627ee264"
+    sha256 cellar: :any, arm64_tahoe:   "fb0e452e0d5fd368ebc13c604a4acda9bc81c905c66062d37a8c501b8122489c"
+    sha256 cellar: :any, arm64_sequoia: "3473ca97c45b3386668aa8d5b3b3b24afc4bc8fa7a1c30f04195040e573f8400"
+    sha256 cellar: :any, arm64_sonoma:  "24f208f492d6a867711415024a0f9552073342af72ffaf081635736a2ac803fc"
+    sha256 cellar: :any, sonoma:        "9d906a80ed37da4082ffb6b6a2995498d395759749fbdf019ef3c8623b735018"
+    sha256 cellar: :any, arm64_linux:   "b1b6f25747719c5ddaf03b61f933915574547844b6ea94e4613e81f6ab00cb1b"
+    sha256 cellar: :any, x86_64_linux:  "c78a6f96439c9f0f2a8c51f2ec2e10cfe044c237a21d3caf06f71ccc893ae264"
   end
 
   depends_on "cmake" => :build
@@ -57,7 +57,7 @@ class AwsCSdkutils < Formula
       }
     C
     system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-laws-c-sdkutils",
-                   "-L#{Formula["aws-c-common"].opt_lib}", "-laws-c-common"
+                   "-L#{formula_opt_lib("aws-c-common")}", "-laws-c-common"
     system "./test"
   end
 end

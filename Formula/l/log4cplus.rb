@@ -1,9 +1,10 @@
 class Log4cplus < Formula
   desc "Logging Framework for C++"
   homepage "https://sourceforge.net/p/log4cplus/wiki/Home/"
-  url "https://downloads.sourceforge.net/project/log4cplus/log4cplus-stable/2.1.2/log4cplus-2.1.2.tar.xz"
-  sha256 "fbdabb4ef734fe1cc62169b23f0b480cc39127ac7b09b810a9c1229490d67e9e"
+  url "https://downloads.sourceforge.net/project/log4cplus/log4cplus-stable/2.2.0/log4cplus-2.2.0.1.tar.xz"
+  sha256 "6fc6b1b392921b048dcb0a71b5a1b46e9956bff710d288bdc9c4fc689f1a5f0b"
   license all_of: ["Apache-2.0", "BSD-2-Clause"]
+  compatibility_version 1
 
   livecheck do
     url :stable
@@ -11,14 +12,12 @@ class Log4cplus < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c2a1d0840621edc53d144eeca4f745ba6192061d457e8e0a60e6d28b23ed27e7"
-    sha256 cellar: :any,                 arm64_sequoia: "c2330f21e0b3c6f379e155d8270f758067c67d5086bad74350dd6841114f70ac"
-    sha256 cellar: :any,                 arm64_sonoma:  "8035d145371eff042f792dc7a2627c9b67a3f20530fb2f66e07e7b4bd25eeb93"
-    sha256 cellar: :any,                 arm64_ventura: "b60bac8e9aaf34f6b81055d7ebc3578462e1e144855e1e3d416e54fa87346fab"
-    sha256 cellar: :any,                 sonoma:        "b3cbcf75711ecb77bbf59942f30e8e6767105753b5363cc8cd8ca5d13201314b"
-    sha256 cellar: :any,                 ventura:       "7c62fc3ea51cc81fae1f97f5649898fdb567667b67d99fd419347e237b636fcf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d789ed4a5d65789a09539bb155c14708acd9f7037318c43233933690d10cf474"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "038cc5359e99cc5e80a899304e02f22c54156539c5b3db4e03516982ebdb3c12"
+    sha256 cellar: :any, arm64_tahoe:   "07ec8458d8fafe33456f89aa369d210251a628d10ed88178dc84ec8213921a87"
+    sha256 cellar: :any, arm64_sequoia: "f40b340b18178583be8c3882541d8a58ed295c44d3356933ca4733c40e5679bd"
+    sha256 cellar: :any, arm64_sonoma:  "36d985fe7364c0076b14c8101ca1ddbda683aff45db29af264186616461b3631"
+    sha256 cellar: :any, sonoma:        "1da953d64d8c3095388e513870700067167f8c49a92331aba82ffc72d92426f2"
+    sha256 cellar: :any, arm64_linux:   "32fbbc54d41fb1786f4fda79eeb9a4175509c7b7eb8fb1032a16ffae7074ea13"
+    sha256 cellar: :any, x86_64_linux:  "a55d59db05f1d3017723b0e30c7ce625952bceff65cdd7d543b31814c8c0b50f"
   end
 
   depends_on "pkgconf" => [:build, :test]

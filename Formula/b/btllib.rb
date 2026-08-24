@@ -1,7 +1,7 @@
 class Btllib < Formula
   desc "Bioinformatics Technology Lab common code library"
-  homepage "https://github.com/bcgsc/btllib"
-  url "https://github.com/bcgsc/btllib/releases/download/v1.7.8/btllib-1.7.8.tar.gz"
+  homepage "https://github.com/BirolLab/btllib"
+  url "https://github.com/BirolLab/btllib/releases/download/v1.7.8/btllib-1.7.8.tar.gz"
   sha256 "cd213d20a971ae3441551dd61b0e46a08559e3d9da19cb59ee8dc3397807f121"
   license "GPL-3.0-or-later"
 
@@ -23,11 +23,13 @@ class Btllib < Formula
     depends_on "libomp"
   end
 
-  # Apply FreeBSD patch to fix build with newer Clang, https://github.com/simongog/sdsl-lite/issues/462
+  # Apply FreeBSD patch to fix build with newer Clang
   patch :p0 do
     url "https://raw.githubusercontent.com/freebsd/freebsd-ports/af74f60a871e4a5aa7aea787fc235a2cb760e764/devel/sdsl-lite/files/patch-include_sdsl_louds__tree.hpp"
     sha256 "84aef67058947044c40032ac39d9b6d1b8a285c581f660d565cd23aaa4beade7"
     directory "subprojects/sdsl-lite"
+    type :unofficial
+    resolves "https://github.com/simongog/sdsl-lite/issues/462"
   end
 
   def install

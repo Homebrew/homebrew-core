@@ -32,7 +32,7 @@ class Vcs < Formula
   end
 
   def install
-    inreplace "vcs", "declare GETOPT=getopt", "declare GETOPT=#{Formula["gnu-getopt"].opt_bin}/getopt" if OS.mac?
+    inreplace "vcs", "declare GETOPT=getopt", "declare GETOPT=#{formula_opt_bin("gnu-getopt")}/getopt" if OS.mac?
 
     system "make", "install", "prefix=#{prefix}"
   end

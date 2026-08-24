@@ -1,10 +1,9 @@
 class Libstrophe < Formula
   desc "XMPP library for C"
   homepage "https://strophe.im/libstrophe/"
-  url "https://github.com/strophe/libstrophe/archive/refs/tags/0.14.0.tar.gz"
-  sha256 "adeb9e673d7f8b8cd20a2437cc220a8de581abf6e46594896b622e3e0dfa5c1f"
+  url "https://github.com/strophe/libstrophe/releases/download/0.14.0/libstrophe-0.14.0.tar.gz"
+  sha256 "d079668474d5c3aa4555347c33e77014a1071629603557cc506a6bc6f82e01f5"
   license all_of: ["GPL-3.0-only", "MIT"]
-  head "https://github.com/strophe/libstrophe.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -16,9 +15,14 @@ class Libstrophe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "23e1b9e04065508e411e4590f98e1c0a5b23c51fc183bb1f48a2bf138603c913"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  head do
+    url "https://github.com/strophe/libstrophe.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkgconf" => :build
   depends_on "openssl@3"
 
@@ -29,7 +33,7 @@ class Libstrophe < Formula
   end
 
   def install
-    system "./bootstrap.sh"
+    system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end

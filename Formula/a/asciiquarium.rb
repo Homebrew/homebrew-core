@@ -4,7 +4,7 @@ class Asciiquarium < Formula
   url "https://robobunny.com/projects/asciiquarium/asciiquarium_1.1.tar.gz"
   sha256 "1b08c6613525e75e87546f4e8984ab3b33f1e922080268c749f1777d56c9d361"
   license "GPL-2.0-or-later"
-  revision 6
+  revision 7
 
   livecheck do
     url "https://robobunny.com/projects/asciiquarium/"
@@ -12,13 +12,12 @@ class Asciiquarium < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "4b32a2ef9eccd44115dbbbf648622b9148932d3846ed842b9091d50fe73d0e85"
-    sha256 cellar: :any,                 arm64_sequoia: "aaa66f4be6401098af1104b81f2e05f870701b9892459c6f2fe4fc29acaf069e"
-    sha256 cellar: :any,                 arm64_sonoma:  "7bfb5f807029ce81b3431b08e2ec86d192caa227ff93a7dedf3ae63e2994f9df"
-    sha256 cellar: :any,                 sonoma:        "a9afe38c263f5370a0bcc6ac41bbaebee22d23bb52ff128cd9a6855fe1fbaafe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "60b613a92e9ed7968fdc494724884349c644d03a8d763f8ed3abc15f65c42ec7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b82f3ffd2fd47e88de054aa7d0569bf0a817be6a11017e8739cf7e014eb7681"
+    sha256 cellar: :any, arm64_tahoe:   "ebc54810e56523c2123684e5545afe93c8cdd6f723b53142c7e9fac508ae71e7"
+    sha256 cellar: :any, arm64_sequoia: "dc7d7818866d54974751f18f9718751a34aa2d6101f2f15780ab26f874d0d409"
+    sha256 cellar: :any, arm64_sonoma:  "98559ef65c4e2af4e14ea1d2ef7e0b4f0d1fea65ead318562ed61601873bf9be"
+    sha256 cellar: :any, sonoma:        "b7d8dd2e459fbc17a9377e6314e63dc7ae33a321cfec0135dd834aa6665a4ae4"
+    sha256 cellar: :any, arm64_linux:   "462fde5700c9aabe1b3d4d12e51dd4b31fda33019dd057bbb135584ffdb95cd3"
+    sha256 cellar: :any, x86_64_linux:  "c12b30a0628118b53ea655f55b1067ec530be5f748177f5ef07469fca8cf0f5c"
   end
 
   depends_on "ncurses"

@@ -89,15 +89,16 @@ class GlibcAT217 < Formula
   # Backport of:
   # https://sourceware.org/git/?p=glibc.git;a=commit;h=e9177fba13549a8e2a6232f46080e5c6d3e467b1
   patch do
-    url "https://git.centos.org/rpms/glibc/raw/ca483cc5b0e3e6a595a2c103755dee4d72f14f25/f/SOURCES/glibc-rh1500908.patch"
+    url "https://gitlab.com/CentOS/archives/git.centos.org/rpms/glibc/-/raw/fa3bfd60c9d49f3cfd3e29ac36a808ffc0d9cc75/SOURCES/glibc-rh1500908.patch"
     sha256 "48bfb15f5a26161bbef3d58e18d44876a170ddbfcc5922a39c77fd8da9fe68f6"
+    type :backport
+    resolves "https://bugzilla.redhat.com/show_bug.cgi?id=1500908"
   end
 
   # Backport of:
   # https://sourceware.org/git/?p=glibc.git;a=commit;h=43d06ed218fc8be58987bdfd00e21e5720f0b862
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/glibc/2.17-aarch64-dl-machine.diff"
-    sha256 "ece66819f9ef3a1b73081d0f5cda8c814b5204d25c07f8a7adb8209ee286c39d"
+    file "Patches/glibc/2.17-aarch64-dl-machine.diff"
   end
 
   def install
@@ -158,37 +159,8 @@ class GlibcAT217 < Formula
     ].each(&:unlink)
   end
 
-  def post_install
-    # Compile locale definition files
-    mkdir_p lib/"locale"
-
-    # Get all extra installed locales from the system, except C locales
-    locales = ENV.filter_map do |k, v|
-      v if k[/^LANG$|^LC_/] && v != "C" && !v.start_with?("C.")
-    end
-
-    # en_US.UTF-8 is required by gawk make check
-    locales = (locales + ["en_US.UTF-8"]).sort.uniq
-    ohai "Installing locale data for #{locales.join(" ")}"
-    locales.each do |locale|
-      lang, charmap = locale.split(".", 2)
-      if charmap.present?
-        charmap = "UTF-8" if charmap == "utf8"
-        system bin/"localedef", "-i", lang, "-f", charmap, locale
-      else
-        system bin/"localedef", "-i", lang, locale
-      end
-    end
-
-    # Set the local time zone
-    sys_localtime = Pathname("/etc/localtime")
-    brew_localtime = etc/"localtime"
-    etc.install_symlink sys_localtime if sys_localtime.exist? && !brew_localtime.exist?
-
-    # Set zoneinfo correctly using the system installed zoneinfo
-    sys_zoneinfo = Pathname("/usr/share/zoneinfo")
-    brew_zoneinfo = share/"zoneinfo"
-    share.install_symlink sys_zoneinfo if sys_zoneinfo.exist? && !brew_zoneinfo.exist?
+  post_install_steps do
+    configure_glibc_runtime
   end
 
   test do

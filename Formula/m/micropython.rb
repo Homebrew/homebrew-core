@@ -1,18 +1,18 @@
 class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
-  url "https://github.com/micropython/micropython/releases/download/v1.28.0/micropython-1.28.0.tar.xz"
-  sha256 "4e43c59657b8da33b4bc503509a827cc3ea6cb66c446475c57776cf4467ba215"
+  url "https://github.com/micropython/micropython/releases/download/v1.29.0/micropython-1.29.0.tar.xz"
+  sha256 "d925a7c664e79a2bdf3dfcb285ba5e2237041cc35a0bd4ee573b6c5711efeca0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b9e246967c3fca0f66bf6c65d9937f76fc14a738d04e233c98eb810a8b3ea60a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e04aeea3bbcf80513ca0d2741c48048e29ebebe864dc0086fa6789f6215eee2e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "82c1047381990879ebd8f9a69e7bcb084bc6ae305630a94dae765e4869cd48db"
-    sha256 cellar: :any_skip_relocation, sequoia:       "5c0f58c5e679575f31601cc74a39eb282b7c46c4372106f0ae02860ec2b829a4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4deb6dbd68198e3539a1de7b7ae3f66b8ed5c92582d6c08c0bbecc2057c087b1"
-    sha256 cellar: :any,                 arm64_linux:   "68b57d700836bfcd7d6f490a68dc7a232c3ac96700f326fbb827a7fca6d4e4e3"
-    sha256 cellar: :any,                 x86_64_linux:  "0e529deb327b8e56e20f9d92317de3f08ee7d65609b66342189a77e3b922afea"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "94590668f87b4e8c68591b0ebaefa7ec7aa739082a66abfc87327fb40e188046"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e753189ff0d5b5b8c23c5d586d466ea195ed0fd54c6ce396791d7da063c657d7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be511518e1ed503262886c4ed7a50c712b722f0878bd5462ff4bc6d244c7cab8"
+    sha256 cellar: :any_skip_relocation, sequoia:       "a4c6635bd2a429043a64ff3416a03cd162c8513eaf45f1edf47d417ded3846b7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c478690e086c6e89447463ab23e7368cb6ef7a41f244dc32b696579289a6452f"
+    sha256 cellar: :any,                 arm64_linux:   "5c38fe5e92841b7e294bc1d17e1e37cd1279a3cd0a68215bd1c91b9dbf240831"
+    sha256 cellar: :any,                 x86_64_linux:  "7cf32cd611e2cad51408a2daaa974a105868f36e85a3e2c43706a7c6efc9d556"
   end
 
   depends_on "pkgconf" => :build

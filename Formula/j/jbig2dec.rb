@@ -1,8 +1,8 @@
 class Jbig2dec < Formula
   desc "JBIG2 decoder and library (for monochrome documents)"
   homepage "https://github.com/ArtifexSoftware/jbig2dec"
-  url "https://github.com/ArtifexSoftware/jbig2dec/archive/refs/tags/0.20.tar.gz"
-  sha256 "a9705369a6633aba532693450ec802c562397e1b824662de809ede92f67aff21"
+  url "https://github.com/ArtifexSoftware/jbig2dec/releases/download/0.20/jbig2dec-0.20.tar.gz"
+  sha256 "7b63ff6470289547e7a3a0f145cb8ea6c2afffdd65645b7d87d3b7febc96fb3a"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -20,15 +20,6 @@ class Jbig2dec < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb3732eb4744293f9354ab856ea2f9b350897fa5408ae9c07330ba454f3ec95c"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-
-  resource("test") do
-    url "https://github.com/apache/tika/raw/master/tika-parsers/src/test/resources/test-documents/testJBIG2.jb2"
-    sha256 "40764aed6c185f1f82123f9e09de8e4d61120e35d2b5c6ede082123749c22d91"
-  end
-
   def install
     args = %W[
       --disable-dependency-tracking
@@ -37,12 +28,17 @@ class Jbig2dec < Formula
       --without-libpng
     ]
 
-    system "./autogen.sh", *args
+    system "./configure", *args
     system "make", "install"
   end
 
   test do
-    resource("test").stage testpath
+    resource "homebrew-test" do
+      url "https://github.com/apache/tika/raw/master/tika-parsers/src/test/resources/test-documents/testJBIG2.jb2"
+      sha256 "40764aed6c185f1f82123f9e09de8e4d61120e35d2b5c6ede082123749c22d91"
+    end
+
+    resource("homebrew-test").stage testpath
     output = shell_output("#{bin}/jbig2dec -t pbm --hash testJBIG2.jb2")
     assert_match "aa35470724c946c7e953ddd49ff5aab9f8289aaf", output
     assert_path_exists testpath/"testJBIG2.pbm"

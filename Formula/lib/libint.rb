@@ -45,7 +45,7 @@ class Libint < Formula
 
   test do
     system ENV.cxx, "-std=c++14", pkgshare/"hartree-fock.cc", "-o", "hartree-fock",
-                    "-I#{Formula["eigen"].opt_include}/eigen3", "-L#{lib}", "-lint2"
+                    "-I#{formula_opt_include("eigen")}/eigen3", "-L#{lib}", "-lint2"
     system "./hartree-fock", pkgshare/"h2o.xyz"
   end
 end

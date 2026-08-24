@@ -1,10 +1,9 @@
 class Lhasa < Formula
   desc "LHA implementation to decompress .lzh and .lzs archives"
   homepage "https://fragglet.github.io/lhasa/"
-  url "https://github.com/fragglet/lhasa/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "427c47527f11d157380d90e33c86535a3a0e8eb5c7e2cf0278bd6dbfe733fcee"
+  url "https://github.com/fragglet/lhasa/releases/download/v0.6.0/lhasa-0.6.0.tar.gz"
+  sha256 "9840154367f73e9d9c3196f944a121ab4d398d84e921c8fe8fca8a931274aed7"
   license "ISC"
-  head "https://github.com/fragglet/lhasa.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "fd1ffebee313b2d3aa6c6290799c925366393b65d8f45964c2a96b8617d135b0"
@@ -15,13 +14,22 @@ class Lhasa < Formula
     sha256 cellar: :any, x86_64_linux:  "0c129f9050e1f622e7cb01f5a4929c2344e5d8e8916b2bba4d5be5e41261d982"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  head do
+    url "https://github.com/fragglet/lhasa.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkgconf" => :build
 
   def install
-    system "./autogen.sh", "--prefix=#{prefix}"
+    if build.head?
+      system "./autogen.sh", "--prefix=#{prefix}"
+    else
+      system "./configure", "--prefix=#{prefix}"
+    end
     system "make", "install"
   end
 

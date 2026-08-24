@@ -23,11 +23,11 @@ class OpenTyrian < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_net"
 
   resource "homebrew-test-data" do
-    url "https://camanis.net/tyrian/tyrian21.zip"
+    url "https://www.camanis.net/tyrian/tyrian21.zip"
     sha256 "7790d09a2a3addcd33c66ef063d5900eb81cc9c342f4807eb8356364dd1d9277"
   end
 

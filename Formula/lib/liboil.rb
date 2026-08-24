@@ -7,11 +7,6 @@ class Liboil < Formula
   # The license for liboil/motovec/* is excluded as it is only used on PowerPC.
   license all_of: ["BSD-2-Clause", "BSD-3-Clause"]
 
-  livecheck do
-    url "https://liboil.freedesktop.org/download/"
-    regex(/href=.*?liboil[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_tahoe:    "2952ae2a44d572b8bda832e965e061747b5ed1213ccd0bf0d7a41675f7498156"
@@ -28,6 +23,11 @@ class Liboil < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "12a6d9bd59ede96b60e33f1e1ffcf61b0c66bcd0f5886e6c3a0d76730d514985"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "64127180a4182632dbde62deafdcba4fa391ff4a675e85a6821cebee298887e1"
   end
+
+  # https://lists.freedesktop.org/archives/liboil/2010-February/000251.html
+  # https://gitlab.freedesktop.org/archived-projects/liboil
+  deprecate! date: "2026-08-14", because: :unmaintained, replacement_formula: "orc"
+  disable! date: "2027-02-14", because: :unmaintained, replacement_formula: "orc"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

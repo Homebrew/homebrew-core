@@ -2,8 +2,8 @@ class Tailscale < Formula
   desc "Easiest, most secure way to use WireGuard and 2FA"
   homepage "https://tailscale.com"
   url "https://github.com/tailscale/tailscale.git",
-      tag:      "v1.98.5",
-      revision: "295179bf294d3d076397bcef6815b1d6854e197d"
+      tag:      "v1.102.3",
+      revision: "53a0d659afa51835dd7a9283873cca44261454f8"
   license "BSD-3-Clause"
 
   livecheck do
@@ -13,12 +13,12 @@ class Tailscale < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "720e8a9d94c52a7f994bdd266eac5aa74e551ef6f1237bd9b079a0dab56fa06d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a9d6646ffd507d665a536ea75b4f9b6b42c2afd8b63d2aaacadc680f92813cc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95c0f4a13c6264b44be55fc830b66d59ad4f3e38cdfe91e96b8795ed1dee963f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "643a77ae9202b5592c45bb0bf57aaf38afdf2e03b35779ddefd06eb326f38e26"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "16119e57b69b915099b340f04e1a17bd67fe9f5f0ce0c078802d0e241e823b0c"
-    sha256 cellar: :any,                 x86_64_linux:  "cf7d1fcb1d8ce110a2d22ebeb7ef321bc9c7478d000645f0cd3bcf7feca303df"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "05df4570550a22685b8c237c90efd53313fb72d27277f530fae15841d05ea15b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca9c36e9c17ec9f098447e6957ed1862fe12f4c727dc7dccc460106f286bc087"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "46c67806a1fadef72641f73e214419fbe9589aa96952a7d99d42f0b4393ae23b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "30d20988a55dd0afb46fb6e4fa2f64d0885ba6f07d2506872435c40881037aad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "719be1169e342f835aaccdc3fc020c7ab7abf4590f43d4081a027b64d59a4888"
+    sha256 cellar: :any,                 x86_64_linux:  "cdf2399665e752c51c1010db0618fa034643bc2b2c49e7dc0eeee10728b8add8"
   end
 
   depends_on "go" => :build
@@ -28,7 +28,6 @@ class Tailscale < Formula
   def install
     vars = Utils.safe_popen_read("./build_dist.sh", "shellvars")
     ldflags = %W[
-      -s -w
       -X tailscale.com/version.longStamp=#{vars.match(/VERSION_LONG="(.*)"/)[1]}
       -X tailscale.com/version.shortStamp=#{vars.match(/VERSION_SHORT="(.*)"/)[1]}
       -X tailscale.com/version.gitCommitStamp=#{vars.match(/VERSION_GIT_HASH="(.*)"/)[1]}
@@ -39,8 +38,23 @@ class Tailscale < Formula
     generate_completions_from_executable(bin/"tailscale", shell_parameter_format: :cobra)
   end
 
+  def caveats
+    on_linux do
+      <<~EOS
+        tailscaled needs root privileges to configure iptables/nftables and DNS.
+        Start the root service with:
+          sudo --preserve-env=HOME brew services start tailscale
+
+        To run without root, use userspace-networking mode:
+          tailscaled --tun=userspace-networking
+      EOS
+    end
+  end
+
   service do
     run opt_bin/"tailscaled"
+    # See the caveats for userspace/non-root mode
+    require_root true
     keep_alive true
     log_path var/"log/tailscaled.log"
     error_log_path var/"log/tailscaled.log"

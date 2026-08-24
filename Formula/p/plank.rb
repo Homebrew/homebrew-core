@@ -27,14 +27,17 @@ class Plank < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea941cd9c41a8ac9cb53678eaf17d5f0eeb04930758bcac1be793d17d60fe861"
   end
 
-  depends_on xcode: ["11.3", :build]
-
   uses_from_macos "swift" => :build
 
-  # fix build failures, upstream pr ref, https://github.com/pinterest/plank/pull/301
+  on_macos do
+    depends_on xcode: ["11.3", :build]
+  end
+
+  # fix build failures
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/plank/1.6.patch"
-    sha256 "782de4c235f03d5997c88506cd02e1cf97e5793fecf0e3bbff25d62f5393412a"
+    file "Patches/plank/1.6.patch"
+    type :unofficial
+    resolves "https://github.com/pinterest/plank/pull/301"
   end
 
   def install

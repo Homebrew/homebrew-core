@@ -40,7 +40,7 @@ class Jupp < Formula
   conflicts_with "joe", because: "both install the same binaries"
 
   def install
-    ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin" if OS.mac?
+    ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin" if OS.mac?
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--enable-sysconfjoesubdir=/jupp", *std_configure_args
     system "make", "install"

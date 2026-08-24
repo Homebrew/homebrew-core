@@ -40,7 +40,7 @@ class Opentsdb < Formula
 
   def install
     with_env(JAVA_HOME: Language::Java.java_home("1.8")) do
-      ENV.prepend_path "PATH", Formula["python@3.13"].opt_libexec/"bin"
+      ENV.prepend_path "PATH", formula_opt_libexec("python@3.13")/"bin"
       system "autoreconf", "--force", "--install", "--verbose"
       system "./configure", "--disable-silent-rules",
                             "--localstatedir=#{var}/opentsdb",
@@ -55,7 +55,7 @@ class Opentsdb < Formula
 
     env = Language::Java.java_home_env("11")
     env["PATH"] = "$JAVA_HOME/bin:$PATH"
-    env["HBASE_HOME"] = Formula["hbase"].opt_libexec
+    env["HBASE_HOME"] = formula_opt_libexec("hbase")
     # We weren't able to get HBase native LZO compression working in Monterey
     env["COMPRESSION"] = (OS.mac? && MacOS.version >= :monterey) ? "NONE" : "LZO"
 
@@ -83,17 +83,24 @@ class Opentsdb < Formula
 
     libexec.mkpath
     bin.env_script_all_files(libexec, env)
+
+    (libexec/"post-install").write <<~SH
+      #!/bin/sh
+      set -e
+      cleanup() { "#{formula_opt_bin("hbase")}/stop-hbase.sh"; }
+      trap cleanup EXIT
+      "#{formula_opt_bin("hbase")}/start-hbase.sh"
+      sleep 2
+      "#{opt_pkgshare}/tools/create_table_with_env.sh"
+      trap - EXIT
+      cleanup
+    SH
+    chmod 0755, libexec/"post-install"
   end
 
-  def post_install
-    (var/"cache/opentsdb").mkpath
-    system "#{Formula["hbase"].opt_bin}/start-hbase.sh"
-    begin
-      sleep 2
-      system "#{pkgshare}/tools/create_table_with_env.sh"
-    ensure
-      system "#{Formula["hbase"].opt_bin}/stop-hbase.sh"
-    end
+  post_install_steps do
+    mkdir_p "cache/opentsdb", base: :var
+    run "post-install", base: :libexec
   end
 
   service do
@@ -104,7 +111,7 @@ class Opentsdb < Formula
   end
 
   test do
-    cp_r (Formula["hbase"].opt_libexec/"conf"), testpath
+    cp_r (formula_opt_libexec("hbase")/"conf"), testpath
     inreplace (testpath/"conf/hbase-site.xml") do |s|
       s.gsub!(/(hbase.rootdir.*)\n.*/, "\\1\n<value>file://#{testpath}/hbase</value>")
       s.gsub!(/(hbase.zookeeper.property.dataDir.*)\n.*/, "\\1\n<value>#{testpath}/zookeeper</value>")
@@ -115,7 +122,7 @@ class Opentsdb < Formula
     ENV["HBASE_CONF_DIR"] = testpath/"conf"
     ENV["HBASE_PID_DIR"]  = testpath/"pid"
 
-    system Formula["hbase"].opt_bin/"start-hbase.sh"
+    system formula_opt_bin("hbase")/"start-hbase.sh"
     begin
       sleep 10
 
@@ -139,7 +146,7 @@ class Opentsdb < Formula
       system bin/"tsdb", "query", "1356998000", "1356999000", "sum",
              "homebrew.install.test", "host=webserver01", "cpu=0"
     ensure
-      system "#{Formula["hbase"].opt_bin}/stop-hbase.sh"
+      system "#{formula_opt_bin("hbase")}/stop-hbase.sh"
     end
   end
 end

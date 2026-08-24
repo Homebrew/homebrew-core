@@ -2,6 +2,7 @@ class Audacious < Formula
   desc "Lightweight and versatile audio player"
   homepage "https://audacious-media-player.org/"
   license "BSD-2-Clause"
+  revision 1
 
   stable do
     url "https://distfiles.audacious-media-player.org/audacious-4.6.1.tar.bz2"
@@ -23,12 +24,12 @@ class Audacious < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "04cde63b7247dccdeb11b5b3e308ed067c81815b8bf4cf7826341b05e7585ce7"
-    sha256 arm64_sequoia: "f0c2565c9c49186b656d1e301bfcbca37cbdd105a70ddd602b6a5b5129473446"
-    sha256 arm64_sonoma:  "13decdae5843a78ee442b4c25ca790a6eec08f565dd4e4a762ba249af49a9944"
-    sha256 sonoma:        "14a74c3c1abe1f6e9ec8e2508283599951ff92c28f91b99216fb9ec4c1a0982d"
-    sha256 arm64_linux:   "c73ddbc98ea710461e86f986c17cc5397e1bace4f84f869d7840c8ae5b723f2b"
-    sha256 x86_64_linux:  "66e656d2e30eb02c64fbae93ba946e5ecd8e1b6c525f99224cefff70d1c66379"
+    sha256 arm64_tahoe:   "48dbe878fd9df67c86b7e437c2e4770f033f834cada423a10ae66c3a4c6b1113"
+    sha256 arm64_sequoia: "2cfb53981e028830ddd8bef9502f4561f46f873ae4033799dc7a27aa9edc0cea"
+    sha256 arm64_sonoma:  "314fe296aa6b20dd16824fa0394edbc5212a0096043ef696b492d195666325e4"
+    sha256 sonoma:        "e3490319addfa23b35a3b745bfd62eb6db3a3a363202af70ceaf9774d64cbc48"
+    sha256 arm64_linux:   "6a9f6156904b0ef56f775d6818f0ba9ff33ec855665e62ffbd7925534727ece3"
+    sha256 x86_64_linux:  "3617052325f3933306defaf34cadcef3d0c8b40aca0fb89b47c1b2f5a338f2d3"
   end
 
   head do

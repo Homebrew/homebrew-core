@@ -1,21 +1,20 @@
 class Quazip < Formula
   desc "C++ wrapper over Gilles Vollant's ZIP/UNZIP package"
   homepage "https://github.com/stachenov/quazip/"
-  url "https://github.com/stachenov/quazip/archive/refs/tags/v1.7.1.tar.gz"
-  sha256 "e3c7220e66d9f8024ef4aa98befb2592fea219a01736a400b07b11aa60964d02"
+  url "https://github.com/stachenov/quazip/archive/refs/tags/v1.7.2.tar.gz"
+  sha256 "5240f4a3475648773ba10af8b0ebe549cbfc5d6de00470a517330a80068a4f78"
   license "LGPL-2.1-only"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "a25530d908b8f40c31f4ea13441416792461b3f0b531a9c542f6a060b6afd491"
-    sha256 cellar: :any, arm64_sequoia: "6230ccbb7e433abd3c40669bc233a236302d2618d0e2c6ea5132d2e2ba016fee"
-    sha256 cellar: :any, arm64_sonoma:  "51f5ec3249d0e161c4aada50393070db8c5271e1c1def4f014ef4e5b4fcda10f"
-    sha256 cellar: :any, sonoma:        "aefc424f9c20cd9f511109500e902716033e1786139d425cca13e28cd2e0e405"
-    sha256 cellar: :any, arm64_linux:   "c10e0469fbded61aa17196a82c7af6f96c0466931af9346f63c9ba15e8b79efb"
-    sha256 cellar: :any, x86_64_linux:  "93be15ad51f982d25bb8f2accba397f8400a16bbd65ede23234d57ef9b49e096"
+    sha256 cellar: :any, arm64_tahoe:   "949ca6bbf73c080cbaced4a9611eb02b94876055ed843a2dc1b0fa12463d9ef8"
+    sha256 cellar: :any, arm64_sequoia: "b7c21a9875e6cba5caf39d35749de86f8ce77e35b780e4634f08911299a046e2"
+    sha256 cellar: :any, arm64_sonoma:  "c1052ef03a5ea6e99f1aea0ddbe60257ee51e588f8a1b08be74cf352e42a6c1a"
+    sha256 cellar: :any, sonoma:        "5b3d73973a0b00325fba4110ecc35a66c771cbe3444385b71d3e14f4e85286dc"
+    sha256 cellar: :any, arm64_linux:   "d65b50c2f074355df91b0e8ed9602d614c154aa8b71bf61ccdd4dc0e091999f7"
+    sha256 cellar: :any, x86_64_linux:  "8b5c387b4c62463a67c23f4ebf8959aff6d4b89f459489f69419bd64bb8d6b86"
   end
 
   depends_on "cmake" => :build
-  depends_on xcode: :build
   depends_on "qt5compat"
   depends_on "qtbase"
 

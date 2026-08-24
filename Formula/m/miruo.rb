@@ -24,12 +24,17 @@ class Miruo < Formula
 
   uses_from_macos "libpcap"
 
+  patch do
+    url "https://github.com/KLab/miruo/commit/6f0dde8b60d0a1981620539506be3d9b600aac18.patch?full_index=1"
+    sha256 "14498789cfbf3d755deeade28906cda4684a14ac7bfc4f0a80ff990d5e5304f3"
+    type :backport
+    resolves "https://github.com/KLab/miruo/pull/19"
+  end
+
   def install
-    # https://github.com/KLab/miruo/pull/19
-    inreplace "miruo.h", "#include<stdlib.h>", "#include<stdlib.h>\n#include<ctype.h>"
-    args = [
-      "--prefix=#{prefix}",
-      "--disable-dependency-tracking",
+    args = %W[
+      --prefix=#{prefix}
+      --disable-dependency-tracking
     ]
     args << "--with-libpcap=#{MacOS.sdk_path}/usr" if OS.mac?
     system "./configure", *args

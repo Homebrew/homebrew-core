@@ -15,6 +15,7 @@ class Picoc < Formula
     patch do
       url "https://gitlab.com/zsaleeba/picoc/commit/ed54c519169b88b7b40d1ebb11599d89a4228a71.diff"
       sha256 "45b49c860c0fac1ce2f7687a2662a86d2fcfb6947cf8ad6cf21e2a3d696d7d72"
+      type :backport
     end
   end
 

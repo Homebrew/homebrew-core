@@ -4,14 +4,15 @@ class VimClassic < Formula
   url "https://git.sr.ht/~sircmpwn/vim-classic/archive/v8.3.0.tar.gz"
   sha256 "6e1c97c8269e9354bbc474f0efa7e1e0b23fcdb6075067474d731a9bfac6e8ef"
   license "Vim"
+  revision 1
 
   bottle do
-    sha256               arm64_tahoe:   "7bce18cd76b55002dddd04c9eb9ac47fdfc1a9c92147854455165959bb15ab53"
-    sha256               arm64_sequoia: "bd0739551806f358d2dfdebb5a168fd2f9759c8219c72bc305e323b4147e2225"
-    sha256               arm64_sonoma:  "b67e80a92a1c36f06c3d05f3f004b46b9883d2239ead12c1f877e5ce7d347c8d"
-    sha256 cellar: :any, sonoma:        "ef1d55aac7aa8a441e56f1fc58f9a7aa18153c59f792cd862c38b979066e69bb"
-    sha256               arm64_linux:   "e5f40a11cd33362be0cbe6eac7fa377b9a509b351c085a596548c25adccb7e50"
-    sha256               x86_64_linux:  "8842d6b9aaf6401bdaac782ffff54b17a56819998d4b3559b9249878ac9c07f2"
+    sha256               arm64_tahoe:   "8b12caf8f290174109cbcf4ac7f96c241db1f70436ba4afb32644074f028eaae"
+    sha256               arm64_sequoia: "7f83a8be316c2854e6e3a2ce388a69049445821e3a8835adf32e5d67fb0d3f0a"
+    sha256               arm64_sonoma:  "bafdcdd367475cc91ccd5f3ec2756ef0211966ce501a6e460ae01edfc93a9122"
+    sha256 cellar: :any, sonoma:        "4a98780a59b4fad4d357ea27959fc2586860268dcf01cb9be06c2c72419a2130"
+    sha256               arm64_linux:   "ba446864da4aefa72a614f80c5d884b9476ffb794f06b30377a40a5d524bb639"
+    sha256               x86_64_linux:  "61a37cd38bd938a35feaede87c491839bce33d67b2d5d2a8f4cf65e4dfdbdc06"
   end
 
   # Homebrew Ruby installs (4.x) currently cause a linker error with vim-classic,
@@ -38,7 +39,7 @@ class VimClassic < Formula
   def extra_deps = deps.select { |dep| dep.build? && dep.test? }
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.14"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", formula_opt_libexec("python@3.14")/"bin"
 
     # Allow dynamically loading formulae libraries when not linked
     extra_deps.each do |dep|
@@ -66,7 +67,7 @@ class VimClassic < Formula
            "--disable-gui",
            "--without-x",
            "--enable-luainterp=dynamic",
-           "--with-lua-prefix=#{Formula["lua"].opt_prefix}"
+           "--with-lua-prefix=#{formula_opt_prefix("lua")}"
     system "make"
     # Parallel install could miss some symlinks
     # https://github.com/vim/vim/issues/1031

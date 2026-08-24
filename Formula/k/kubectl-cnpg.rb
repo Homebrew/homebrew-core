@@ -2,25 +2,24 @@ class KubectlCnpg < Formula
   desc "CloudNativePG plugin for kubectl"
   homepage "https://cloudnative-pg.io/"
   url "https://github.com/cloudnative-pg/cloudnative-pg.git",
-      tag:      "v1.29.1",
-      revision: "a4060c152630c9e8958e17d3d23f26b4eb30b69f"
+      tag:      "v1.30.0",
+      revision: "4b5e244a7d031f67e025c83c1555e7726ecbbfa1"
   license "Apache-2.0"
   head "https://github.com/cloudnative-pg/cloudnative-pg.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "22289e63546e6004364d4dae3015faec6624e56580a1f51a7de621829744744b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "976c1238282bb67672b2bc73ecce1dcc24d9f39714a84d535ce5c87d77434295"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "02a073b2a091fe5559ade772b574d8ef3850e609df5589525bc09a0b4b1a8313"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8627df6b5b8b56dbbfc1979c88c15c2503cb149a1f7832d1bff5364756fb6c77"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "13f9639ec5257ded185d53722a51cb8ddbbf907f823c391ae09845421c517564"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9961f8175e6107592de0eece1e8c393e67addd6efc559013a48e8173cc64baa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c3d851e9c702d01d26d9eafc8f27228face0d85222cf9857d62fdf847dbae2ed"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "704de512ab1ccc428982363bf159f08357bece9c42e42eb2d2b2c8094a695fb1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "da76c0b031442f3a338473f030b48a241963a7adf83eca26d5c864b2df80329a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "82ba554323b5252b43fd32f79a86ce1a9259916fd2ddcd0962f2a1e2e32fc170"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa158a9bd1b3baf0a17be94bc2bc5b19e6083b2c2d4c6b6e427298e40fa39d94"
+    sha256 cellar: :any,                 x86_64_linux:  "6b425af985eeb98c57917e78d4db13a8cd893f6138d42104a14cf209fd1b938e"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/cloudnative-pg/cloudnative-pg/pkg/versions.buildVersion=#{version}
       -X github.com/cloudnative-pg/cloudnative-pg/pkg/versions.buildCommit=#{Utils.git_head}
       -X github.com/cloudnative-pg/cloudnative-pg/pkg/versions.buildDate=#{time.iso8601}

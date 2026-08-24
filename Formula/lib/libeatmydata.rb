@@ -13,6 +13,8 @@ class Libeatmydata < Formula
     patch do
       url "https://github.com/stewartsmith/libeatmydata/commit/ae89d0916c0ddd06f4ce7f2b37eaccf8dd543591.patch?full_index=1"
       sha256 "8bf4249f3df141fa321c8c64af4f4442bc23bdfb108e2cf73c22e68a3a71ae15"
+      type :backport
+      resolves "https://github.com/stewartsmith/libeatmydata/pull/33"
     end
   end
 
@@ -44,7 +46,7 @@ class Libeatmydata < Formula
   def install
     # macOS before 12.3 does not support `readlink -f` as used by the `eatmydata` shell wrapper script
     if OS.mac? && MacOS.version <= :monterey
-      inreplace "eatmydata.sh.in", "readlink", "#{Formula["coreutils"].opt_bin}/greadlink"
+      inreplace "eatmydata.sh.in", "readlink", "#{formula_opt_bin("coreutils")}/greadlink"
     end
 
     system "autoreconf", "--force", "--install", "--verbose"
@@ -58,7 +60,7 @@ class Libeatmydata < Formula
     system bin/"eatmydata", "sync"
     return if OS.mac?
 
-    output = shell_output("#{bin}/eatmydata #{Formula["strace"].opt_bin}/strace sync 2>&1")
+    output = shell_output("#{bin}/eatmydata #{formula_opt_bin("strace")}/strace sync 2>&1")
     refute_match(/^[a-z]*sync/, output)
     refute_match("O_SYNC", output)
     assert_match(" exited with 0 ", output)

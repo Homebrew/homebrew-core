@@ -18,7 +18,7 @@ class Ktea < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", tags: "prd"), "./cmd/ktea"
+    system "go", "build", *std_go_args(tags: "prd"), "./cmd/ktea"
   end
 
   test do

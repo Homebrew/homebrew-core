@@ -18,7 +18,7 @@ class SlackMcpServer < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/slack-mcp-server"
+    system "go", "build", *std_go_args, "./cmd/slack-mcp-server"
   end
 
   test do

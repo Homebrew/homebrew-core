@@ -3,18 +3,17 @@ class Gexiv2 < Formula
   homepage "https://wiki.gnome.org/Projects/gexiv2"
   # release info on the website might lag behind, refer to gitlab tags for latest release info
   # see discussions in https://gitlab.gnome.org/GNOME/gexiv2/-/issues/77
-  url "https://download.gnome.org/sources/gexiv2/0.16/gexiv2-0.16.0.tar.xz"
-  sha256 "d96f895f24539f966f577b2bb2489ae84f8232970a8d0c064e4a007474a77bbb"
+  url "https://download.gnome.org/sources/gexiv2/0.16/gexiv2-0.16.2.tar.xz"
+  sha256 "aad9e240fdffbe85e390f46ee0a567e251baea5c29c3d8690260388683dc8d0a"
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "24d603085d106cc7d08e199642d858d2b962ffa9e38c40ee4b23bf9953efeeee"
-    sha256 cellar: :any, arm64_sequoia: "0c2696669b2614cbd240188c86a6e45db6ec4e9d672382ae39723f1bb4afb59f"
-    sha256 cellar: :any, arm64_sonoma:  "26e318f39f877307501fc0f7106a8c5541d0e3d6f3bb4761ce3bab0cf76b5221"
-    sha256 cellar: :any, sonoma:        "0a21ff17505b6557231bad21b09a6aaf47e249aa18c1983018a3620fa73cb923"
-    sha256               arm64_linux:   "6f720afb3387da506741f5c2bd998feefc0b208b4c280e5181b0c2f2f768690f"
-    sha256               x86_64_linux:  "d1a0c6ea1f0c31654fa2aa67ec016dc93ae6b19cab16866c72452400111102f1"
+    sha256 cellar: :any, arm64_tahoe:   "a77214ac1ef891b0c618cb7035823ee8eee2e91761620176b92bfd0733abc9e0"
+    sha256 cellar: :any, arm64_sequoia: "fc96598da3ca91ef05c004dda94b62a4b12675cff1a631d0dfb775823bcaf080"
+    sha256 cellar: :any, arm64_sonoma:  "d0ba02ae08419f39324684ac5678e2c791d308591a8d9b9af54969ed751607a3"
+    sha256 cellar: :any, sonoma:        "db9b422562e9d8041a63ea305cf93dfc3fe7f2456caa1f5313456ae012396758"
+    sha256               arm64_linux:   "23628e31be56d8d63d8cca6a3fd343e5106a43ddae8605f8dfad854a48d2e35e"
+    sha256               x86_64_linux:  "fecb00195dc793205fc06742f040dc2492efc29eaefa1a29d08143c98da57909"
   end
 
   depends_on "gobject-introspection" => :build

@@ -28,12 +28,15 @@ class Helib < Formula
   end
 
   test do
-    cp pkgshare/"examples/BGV_country_db_lookup/BGV_country_db_lookup.cpp", testpath/"test.cpp"
-    mkdir "build"
-    system ENV.cxx, "test.cpp", "-std=c++17", "-L#{lib}", "-L#{Formula["ntl"].opt_lib}",
-                    "-pthread", "-lhelib", "-lntl", "-o", "build/BGV_country_db_lookup"
-
+    cp_r pkgshare/"examples/BGV_country_db_lookup", testpath
     cp_r pkgshare/"examples/tests", testpath
-    system "bats", "."
+    mkdir_p "build/bin"
+    system ENV.cxx, "BGV_country_db_lookup/BGV_country_db_lookup.cpp", "-std=c++17",
+                    "-L#{lib}", "-L#{formula_opt_lib("ntl")}",
+                    "-pthread", "-lhelib", "-lntl", "-o", "build/bin/BGV_country_db_lookup"
+
+    cd "tests" do
+      system "bats", "BGV_country_db_lookup.bats"
+    end
   end
 end

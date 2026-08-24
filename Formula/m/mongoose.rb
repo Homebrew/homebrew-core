@@ -1,17 +1,17 @@
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://mongoose.ws/"
-  url "https://github.com/cesanta/mongoose/archive/refs/tags/7.21.tar.gz"
-  sha256 "d4ddbd12c12f223abefcc0a74417a638ae5c118d7cf10ba546553c6b0e0b5ada"
+  url "https://github.com/cesanta/mongoose/archive/refs/tags/7.23.tar.gz"
+  sha256 "93208f164038b05d156935b8b725063e1afb3984a362dbcf3a9ea37b6f1f2255"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d9e73fd7170840d627053d5e92474219e36168faed700471b6e2514e1a35a74f"
-    sha256 cellar: :any,                 arm64_sequoia: "5081c1f0b966c15abc612a788bf718eb253a5a4eb643652a966c37db7e2e3f0f"
-    sha256 cellar: :any,                 arm64_sonoma:  "ce5776cff5b9ee6423dfc88d3171341a7635d13814bcd1ad64734852fb0b7150"
-    sha256 cellar: :any,                 sonoma:        "214013de2533be9ad3a210551617d328d8086198b666597f0d2219f0afa13655"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8378b416431c43d5486fc6ccfaa85168a8c7ddf0a541603bf0ed01dbea5281b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f33c503bd19499b37d942517704bdb19d05b1a5ad1628bc2e7502f217f22066d"
+    sha256 cellar: :any, arm64_tahoe:   "03a5f71bf23ad471f0fe7352dface9ef16fe83a17351ae92bde850cb7bb8430b"
+    sha256 cellar: :any, arm64_sequoia: "da855f57ed5a209b828f81d9b427870e92f3cc861f9dc4366a69a587a16f39d5"
+    sha256 cellar: :any, arm64_sonoma:  "a606e227eafc2483733dda6a7443609eb69434d0ec195d0f84c4ff248cecaeb0"
+    sha256 cellar: :any, sonoma:        "2b7e2f95b37c22de8dd65949c4e02d9b65dfefa26cb8e09e520b37a32ad5b198"
+    sha256 cellar: :any, arm64_linux:   "dda4bf159cb7d12217c3fe2ad44215c4b578e7ec5acaffa6f158f2cfdca1194c"
+    sha256 cellar: :any, x86_64_linux:  "290d39e1f09d2f9e40fa650569d6aa5bcfc12f2b759c0621f361d1ed25ddcf1b"
   end
 
   def install
@@ -29,6 +29,9 @@ class Mongoose < Formula
     include.install "mongoose.h"
     pkgshare.install "tutorials"
     doc.install Dir["docs/*"]
+
+    # Remove tutorials which have binaries built for a non-native architecture
+    rm_r pkgshare/"tutorials/stm32/nucleo-n657x0-q/" if OS.linux?
   end
 
   test do

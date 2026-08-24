@@ -1,12 +1,13 @@
 class FfmpegAT4 < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.4.7.tar.xz"
-  sha256 "39e7d6d0af050a0a8aae737d610d77264e67b9657f3a346f72bba03312565e2a"
+  url "https://ffmpeg.org/releases/ffmpeg-4.4.8.tar.xz"
+  sha256 "c73848c4ae283d9eaee7be3b276affbc3543380483555500d0dd2c9b7e1c39c3"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   # Passing `--enable-version3` changes the license to GPL v3+.
   license "GPL-3.0-or-later"
+  revision 2
   compatibility_version 1
 
   livecheck do
@@ -15,12 +16,12 @@ class FfmpegAT4 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "7ba445350711c315870adb176af8e86d440884d6162ce6c867c18b671a23e07b"
-    sha256 arm64_sequoia: "4ed4b79d274d0bbf7ee5c002a78afc58d9a2a4da7bbcf45de7648fbd96d985e0"
-    sha256 arm64_sonoma:  "962a01d541fafb58e83e8c10b1b52c863ef323a011e4e1046361676e5563ed97"
-    sha256 sonoma:        "9fd96efa803f041d1b69408facfee34f8d29e205d410f08b3f813cffe82e47af"
-    sha256 arm64_linux:   "d369e3282a14a1117fee46cc8d2b3de4a51971755d8b7bef920812a0080f51f0"
-    sha256 x86_64_linux:  "c8a633b51715226ad07209a56126d415ab17447d317f1c6af92f3d1674cae345"
+    sha256 arm64_tahoe:   "1dc704f1f0afcbc58eb7de210f3d93ba91555e6372f4d04391f5defdc73a43d8"
+    sha256 arm64_sequoia: "8ac5df0df1c550a37563aaae53a25a1278a0f09684de47057801a01e1427eb68"
+    sha256 arm64_sonoma:  "227185fb2caf48864186b9cc8b4a0ed89a6c439cd1f35bbc9a547e7922338e12"
+    sha256 sonoma:        "74dfca5a2aafed4d8c2ce3eb2f714f1454d792a19a289fa53ef1e6a6affc3f3f"
+    sha256 arm64_linux:   "70fbfe8921b129e23672163719c5f53d7922b3d5958abbf0e3ac843633c12118"
+    sha256 x86_64_linux:  "08697a5ab01ddfec41ad7d4a66285e0424327b5fcbaf4f925a044bf52baed129"
   end
 
   keg_only :versioned_formula
@@ -47,7 +48,7 @@ class FfmpegAT4 < Formula
   depends_on "opus"
   depends_on "rav1e"
   depends_on "rubberband"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "snappy"
   depends_on "speex"
   depends_on "srt"

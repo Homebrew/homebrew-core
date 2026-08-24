@@ -18,7 +18,7 @@ class SpiffeHelper < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/spiffe/spiffe-helper/pkg/version.gittag=#{version}"
+    ldflags = "-X github.com/spiffe/spiffe-helper/pkg/version.gittag=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/spiffe-helper"
   end
 

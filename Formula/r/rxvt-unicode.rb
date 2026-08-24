@@ -4,7 +4,7 @@ class RxvtUnicode < Formula
   url "https://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.31.tar.bz2"
   sha256 "aaa13fcbc149fe0f3f391f933279580f74a96fd312d6ed06b8ff03c2d46672e8"
   license "GPL-3.0-only"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://dist.schmorp.de/rxvt-unicode/"
@@ -12,12 +12,12 @@ class RxvtUnicode < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "56d89c32e8e8c8f37ef87d5dace2009efe51caf13d1d6abb0e61ddf0b68d19a6"
-    sha256 arm64_sequoia: "3f1ae6eddce0ba96eefc0b6f984069486e235904b5ff77565d755e7654e92198"
-    sha256 arm64_sonoma:  "87ec60045728d140a90b33b37ad993e22c6cd2c6fc4169fdc63bd37083801ece"
-    sha256 sonoma:        "fc19a29b28b86e958b45e230e2175aaf179f82ac474ee97faa231cfff8d9d462"
-    sha256 arm64_linux:   "3f6b580d76d9d4ba15350626b72a10d86f6d2a87a1c4cdfead5589db7a9a8f21"
-    sha256 x86_64_linux:  "d88dcb3ff493d615da34287043c772da7ccecb0bf3d2ee2b6f63d0230d83e987"
+    sha256 arm64_tahoe:   "e4f9b55040a461f3017d12e2582fc0b6860c34ef8f0009685047b6994cfd8ff3"
+    sha256 arm64_sequoia: "e6faed2630b784a751f9d66fbcc2da0bc787c6bae2e302bb37824e78ad51ef11"
+    sha256 arm64_sonoma:  "3f8197d22312bb97d38faba3b20c2f5130c7d174684fe7306a9053755019a1ce"
+    sha256 sonoma:        "dfd46b5f344974ca6f788c07f9c227b155f4812a3e46a7b8c0505e2b9cfc1278"
+    sha256 arm64_linux:   "d08cc5bcacab747de54e7c232cdb1e0d85cf4591d0b79fd5442f3aef83ef184b"
+    sha256 x86_64_linux:  "b07157e0dc01f637521fce47ee9cdcdbad295f4af457ac8347cfb6366133413b"
   end
 
   depends_on "cmake" => :build
@@ -45,8 +45,8 @@ class RxvtUnicode < Formula
   # Patches 1 and 2 remove -arch flags for compiling perl support
   # Patch 3 fixes `make install` target on case-insensitive filesystems
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/rxvt-unicode/9.22.patch"
-    sha256 "a266a5776b67420eb24c707674f866cf80a6146aaef6d309721b6ab1edb8c9bb"
+    file "Patches/rxvt-unicode/9.22.patch"
+    type :unofficial
   end
 
   def install

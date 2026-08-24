@@ -16,10 +16,15 @@ class Hexd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b62eca23b33b5257e4fb33ec61b9301700d7c732c2efe2037952fdc3b9e8cf8d"
   end
 
-  def install
-    # BSD install does not understand the GNU "-D" flag.
-    inreplace "Makefile", "install -D", "install"
+  # BSD install does not understand the GNU "-D" flag
+  patch do
+    url "https://github.com/FireyFly/hexd/commit/ebfa9b5f76b5c71eea4fc003ab031f83615cea9b.patch?full_index=1"
+    sha256 "620b0186cf47a7736c3636017d17dccb13e358c7d030821989ae4d6006192a1c"
+    type :backport
+    resolves "https://github.com/FireyFly/hexd/commit/ebfa9b5f76b5c71eea4fc003ab031f83615cea9b"
+  end
 
+  def install
     bin.mkdir
     man1.mkpath
     system "make", "install", "PREFIX=#{prefix}"

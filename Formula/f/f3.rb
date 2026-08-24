@@ -21,7 +21,7 @@ class F3 < Formula
 
   def install
     args = []
-    args << "ARGP=#{Formula["argp-standalone"].opt_prefix}" if OS.mac?
+    args << "ARGP=#{formula_opt_prefix("argp-standalone")}" if OS.mac?
     system "make", "all", *args
     bin.install %w[build/f3read build/f3write]
     man1.install "man/f3read.1"

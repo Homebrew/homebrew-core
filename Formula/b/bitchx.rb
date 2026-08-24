@@ -14,8 +14,7 @@ class Bitchx < Formula
     # https://sourceforge.net/p/bitchx/git/ci/4f63d4892995eec6707f194b462c9fc3184ee85d/
     # Remove with next release.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/bitchx/linux.patch"
-      sha256 "99caa10f32bfe4727a836b8cc99ec81e3c059729e4bb90641be392f4e98255d9"
+      file "Patches/bitchx/linux.patch"
     end
 
     # Backport part of upstream commit to add static specifiers needed to fix Sonoma build

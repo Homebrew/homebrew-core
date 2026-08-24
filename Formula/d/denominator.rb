@@ -15,6 +15,9 @@ class Denominator < Formula
     sha256 cellar: :any_skip_relocation, all: "3da7d5704460e94f75bd1241c7d285971b2c22f23633c2cea058cccefc6a65e5"
   end
 
+  deprecate! date: "2026-07-17", because: :repo_archived
+  disable! date: "2027-01-17", because: :repo_archived
+
   depends_on "openjdk"
 
   def install

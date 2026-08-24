@@ -25,8 +25,7 @@ class Lsdvd < Formula
   # Move `dvdlogger` function out of `main()`, as Clang (rightfully) does not allow nested functions
   # Can be removed once this has been merged: https://sourceforge.net/p/lsdvd/git/merge-requests/2/
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/443cea9c2797b473f4069aad0e12ff06521333b7/Patches/lsdvd/logging.patch"
-    sha256 "5879230867a18b52264428b064e2b5f96423563da1409909f85e0f2163e0ae94"
+    file "Patches/lsdvd/logging.patch"
   end
 
   def install

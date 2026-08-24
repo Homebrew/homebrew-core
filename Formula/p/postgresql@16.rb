@@ -1,8 +1,8 @@
 class PostgresqlAT16 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v16.14/postgresql-16.14.tar.bz2"
-  sha256 "f6d077142737920858ce958ccdb75c6ee137a63b5b0853c70693d401ac7e3471"
+  url "https://ftp.postgresql.org/pub/source/v16.15/postgresql-16.15.tar.bz2"
+  sha256 "c1575341fa7bd40f5274ea465b34390f4dc64cdd0770af327005caaeb9f6b7ed"
   license "PostgreSQL"
 
   livecheck do
@@ -11,12 +11,12 @@ class PostgresqlAT16 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "75078938cce1444e511dbd556214f3a596e45f086f45cda98356d93083ee80ea"
-    sha256 arm64_sequoia: "78be07d7f44f23bb6ebd0b1171c8490651dab24db57bb3f5c382cab3606c0458"
-    sha256 arm64_sonoma:  "31f9c5cf829b85fa39850e3a3ce94b39ed65ad14eb5b68d562a02a2b5d29f01f"
-    sha256 sonoma:        "037911424d69c6296ef73e1c9bfe457c75b215f7910dc4b0892f7c86e53ea0c3"
-    sha256 arm64_linux:   "5cea02947bc06f6326ccaeb68b9ab8d3914256b2832566bc95fd7ffd3a85363b"
-    sha256 x86_64_linux:  "b24f7814ab05e9ceb134989df6f9ecbe150b30b589d33fcfbb49bd85bec98c91"
+    sha256 arm64_tahoe:   "6a71ba99313f4611e37752b3136f8033a8f8c88b898f7db88ee7affd7eb289ec"
+    sha256 arm64_sequoia: "f711e46cf78bc1c1070e0f3e0414bbe40957ea68c6eca72d4ff28f118313d9cd"
+    sha256 arm64_sonoma:  "562b294818388706cc0d8fe1a5bb654ee15d2825a2c8e99a7fd1519067bcd5c0"
+    sha256 sonoma:        "d76435530f98232c9ceb8511e64dd5f6a636e53adfa4a8105e0d91c948d2c82d"
+    sha256 arm64_linux:   "351e8981421dfa319d73c371d35c14172ff1b9e29291badeb3607b7dd3647c14"
+    sha256 x86_64_linux:  "7267443fd7502805f7d73a214f98a97555425449f26ad206c4da4e0f32bf843b"
   end
 
   keg_only :versioned_formula
@@ -56,14 +56,14 @@ class PostgresqlAT16 < Formula
   def install
     ENV.runtime_cpu_detection
     ENV.delete "PKG_CONFIG_LIBDIR"
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib} -L#{Formula["readline"].opt_lib}"
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include} -I#{Formula["readline"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@3")} -L#{formula_opt_lib("readline")}"
+    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("openssl@3")} -I#{formula_opt_include("readline")}"
 
     # Fix 'libintl.h' file not found for extensions
     # Update config to fix `error: could not find function 'gss_store_cred_into' required for GSSAPI`
     if OS.mac?
-      ENV.prepend "LDFLAGS", "-L#{Formula["gettext"].opt_lib} -L#{Formula["krb5"].opt_lib}"
-      ENV.prepend "CPPFLAGS", "-I#{Formula["gettext"].opt_include} -I#{Formula["krb5"].opt_include}"
+      ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("gettext")} -L#{formula_opt_lib("krb5")}"
+      ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("gettext")} -I#{formula_opt_include("krb5")}"
     end
 
     args = %W[
@@ -110,14 +110,10 @@ class PostgresqlAT16 < Formula
                                     "includedir_internal=#{include}/postgresql/internal"
   end
 
-  def post_install
-    (var/"log").mkpath
-    postgresql_datadir.mkpath
-
+  post_install_steps do
+    mkdir_p "log", base: :var
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
-    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-
-    system bin/"initdb", "--locale=en_US.UTF-8", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
+    init_data_dir "postgresql@16", using: :postgresql, base: :var
   end
 
   def postgresql_datadir
@@ -126,10 +122,6 @@ class PostgresqlAT16 < Formula
 
   def postgresql_log_path
     var/"log/#{name}.log"
-  end
-
-  def pg_version_exists?
-    (postgresql_datadir/"PG_VERSION").exist?
   end
 
   def caveats
@@ -145,6 +137,7 @@ class PostgresqlAT16 < Formula
     keep_alive true
     log_path f.postgresql_log_path
     error_log_path f.postgresql_log_path
+    stop_timeout 120
     working_dir HOMEBREW_PREFIX
   end
 
@@ -155,6 +148,6 @@ class PostgresqlAT16 < Formula
     assert_equal (opt_lib/"postgresql").to_s, shell_output("#{bin}/pg_config --pkglibdir").chomp
     assert_equal (opt_include/"postgresql").to_s, shell_output("#{bin}/pg_config --pkgincludedir").chomp
     assert_equal (opt_include/"postgresql/server").to_s, shell_output("#{bin}/pg_config --includedir-server").chomp
-    assert_match "-I#{Formula["gettext"].opt_include}", shell_output("#{bin}/pg_config --cppflags") if OS.mac?
+    assert_match "-I#{formula_opt_include("gettext")}", shell_output("#{bin}/pg_config --cppflags") if OS.mac?
   end
 end

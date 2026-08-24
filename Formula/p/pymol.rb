@@ -15,6 +15,8 @@ class Pymol < Formula
     patch do
       url "https://github.com/schrodinger/pymol-open-source/commit/1b3aca8c053336fc5c7f72e79b4801f8fdd1af39.patch?full_index=1"
       sha256 "639261ff5b4d9c930ead3179cbbf64bf1e8fa575678561a0287c11f5a6cfa4d6"
+      type :backport
+      resolves "https://github.com/schrodinger/pymol-open-source/issues/428"
     end
   end
 

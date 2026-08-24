@@ -24,6 +24,8 @@ class Afio < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "93dee32378176bea139dadf874fed07b411076443fee3a7ff33c84eadfc7760d"
   end
 
+  deny_network_access!
+
   def install
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403

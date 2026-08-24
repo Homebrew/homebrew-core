@@ -35,7 +35,7 @@ class EasyrpgPlayer < Formula
   depends_on "libxmp"
   depends_on "mpg123"
   depends_on "pixman"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "speexdsp"
 
   uses_from_macos "expat"

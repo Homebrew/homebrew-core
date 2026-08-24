@@ -1,8 +1,8 @@
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.org/"
-  url "https://github.com/openjdk/jdk26u/archive/refs/tags/jdk-26.0.1-ga.tar.gz"
-  sha256 "1f9c92513a7b7949e6d01b1935c7b6f77096319b2657e0a4c013bc2da44e2d9d"
+  url "https://github.com/openjdk/jdk26u/archive/refs/tags/jdk-26.0.2.1-ga.tar.gz"
+  sha256 "91dd5ddd93e156f00a12c28d9b74b5ee1704e9f12d323d412d158b12e91d56d0"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
   compatibility_version 1
 
@@ -12,19 +12,18 @@ class Openjdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "e1ece1a2fbc8d87b80943f599ee0fdb06bb1e9348a29ee524c600e5da99fe954"
-    sha256 cellar: :any, arm64_sequoia: "93f3ead33652eafdeb9dd0234fcdcd86548a1826ca5db3d3d394ff54658a9faf"
-    sha256 cellar: :any, arm64_sonoma:  "06f2e1584b858a7899e2fedaa9c42e31c6ef90a0308a01eb3aaefe44ac5b0fed"
-    sha256 cellar: :any, sonoma:        "248bc611327dc4f90f997e3c30ea8c83f57355eeeb952806872e2a01474f1255"
-    sha256               arm64_linux:   "26d8bc411c81c951ef4761ac99e1933253ad3850a70d3224ae397529d09a8ac6"
-    sha256               x86_64_linux:  "614eca88358401c50a5a47aa17c411e565e832719df099cb6ffab17e2537529c"
+    sha256 cellar: :any, arm64_tahoe:   "862a8543a74a1d00cc67465694c7da4625554378cb200c3ca7ffb19a45676b96"
+    sha256 cellar: :any, arm64_sequoia: "b68d6286284e063ce998473afe8e86e8cb7646ebf4e9c8db5873b5c8e5b86571"
+    sha256 cellar: :any, arm64_sonoma:  "f1700914e59ae80bc61d8887c67c8c0c909f92a2c7390098ed0ff6fc367daadc"
+    sha256 cellar: :any, sonoma:        "3bfb3cc59a9cd3133f85cf67e5436f64b6bf32e8362663d35458b5c925ce7334"
+    sha256               arm64_linux:   "5c11165dc6e768b8cbc6f34b54563c6e1cd6fa0027b2d4a43dbfbe9be48719ba"
+    sha256               x86_64_linux:  "3db956d316850256d3ee25df12c9e95a2409ba8483da8852c373e289d2b14b6a"
   end
 
   keg_only :shadowed_by_macos
 
   depends_on "autoconf" => :build
   depends_on "pkgconf" => :build
-  depends_on xcode: :build # for metal
   depends_on "freetype"
   depends_on "giflib"
   depends_on "harfbuzz"
@@ -32,19 +31,23 @@ class Openjdk < Formula
   depends_on "libpng"
   depends_on "little-cms2"
 
-  uses_from_macos "cups"
-  uses_from_macos "unzip"
-  uses_from_macos "zip"
+  uses_from_macos "unzip" => :build
+  uses_from_macos "zip" => :build
+  uses_from_macos "cups" => :no_linkage
+
+  on_macos do
+    depends_on xcode: :build # for metal
+  end
 
   on_linux do
+    depends_on "libxt" => :build
     depends_on "alsa-lib"
-    depends_on "fontconfig"
+    depends_on "fontconfig" => :no_linkage
     depends_on "libx11"
     depends_on "libxext"
     depends_on "libxi"
-    depends_on "libxrandr"
+    depends_on "libxrandr" => :no_linkage
     depends_on "libxrender"
-    depends_on "libxt"
     depends_on "libxtst"
     depends_on "zlib-ng-compat"
   end
@@ -53,22 +56,22 @@ class Openjdk < Formula
   resource "boot-jdk" do
     on_macos do
       on_arm do
-        url "https://download.java.net/java/GA/jdk26/c3cc523845074aa0af4f5e1e1ed4151d/35/GPL/openjdk-26_macos-aarch64_bin.tar.gz"
-        sha256 "254586bcd1bf6dcd125ad667ac32562cb1e2ab1abf3a61fb117b6fabb571e765"
+        url "https://download.java.net/java/GA/jdk26.0.1/458fda22e4c54d5ba572ab8d2b22eb83/8/GPL/openjdk-26.0.1_macos-aarch64_bin.tar.gz"
+        sha256 "b2d57405194a312ed4ec6ec08e83b314d3fd2e425e895d704ec5ef8ea6059e17"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk26/c3cc523845074aa0af4f5e1e1ed4151d/35/GPL/openjdk-26_macos-x64_bin.tar.gz"
-        sha256 "8642b89d889c14ede2c446fd5bbe3621c8a3082e3df02013fd1658e39f52929a"
+        url "https://download.java.net/java/GA/jdk26.0.1/458fda22e4c54d5ba572ab8d2b22eb83/8/GPL/openjdk-26.0.1_macos-x64_bin.tar.gz"
+        sha256 "e52bc05aefe4991329a6a103c9b42ae4b9b77240a9f9d3d12f6a7365db1ae16a"
       end
     end
     on_linux do
       on_arm do
-        url "https://download.java.net/java/GA/jdk26/c3cc523845074aa0af4f5e1e1ed4151d/35/GPL/openjdk-26_linux-aarch64_bin.tar.gz"
-        sha256 "403ccf451e88d0be9e1dec129fcb9318de9752121e0eb92dfa9a8cf06f249007"
+        url "https://download.java.net/java/GA/jdk26.0.1/458fda22e4c54d5ba572ab8d2b22eb83/8/GPL/openjdk-26.0.1_linux-aarch64_bin.tar.gz"
+        sha256 "12a3649b2f4a0c9f6491d220bdd04b4fff07cae502b435aaff46eac0e36f4df1"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk26/c3cc523845074aa0af4f5e1e1ed4151d/35/GPL/openjdk-26_linux-x64_bin.tar.gz"
-        sha256 "83c78367f8c81257beef72aca4bbbf8e6dac8ca2b3a4546a85879a09e6e4e128"
+        url "https://download.java.net/java/GA/jdk26.0.1/458fda22e4c54d5ba572ab8d2b22eb83/8/GPL/openjdk-26.0.1_linux-x64_bin.tar.gz"
+        sha256 "2f2802d57b5fc414f1ddf6648ba12cc9a6454cf67b32ac95407c018f2e6ab0b0"
       end
     end
   end
@@ -115,8 +118,8 @@ class Openjdk < Formula
 
       %W[
         --enable-dtrace
-        --with-freetype-include=#{Formula["freetype"].opt_include}
-        --with-freetype-lib=#{Formula["freetype"].opt_lib}
+        --with-freetype-include=#{formula_opt_include("freetype")}
+        --with-freetype-lib=#{formula_opt_lib("freetype")}
         --with-sysroot=#{MacOS.sdk_path}
       ]
     else

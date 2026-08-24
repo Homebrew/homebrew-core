@@ -2,7 +2,7 @@ class Augeas < Formula
   desc "Configuration editing tool and API"
   homepage "https://augeas.net/"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/hercules-team/augeas/releases/download/release-1.14.1/augeas-1.14.1.tar.gz"
@@ -11,8 +11,18 @@ class Augeas < Formula
     # Fixes `implicit-function-declaration` error
     # Remove when merged and released
     patch do
-      url "https://github.com/hercules-team/augeas/commit/26d297825000dd2cdc45d0fa6bf68dcc14b08d7d.patch?full_index=1"
-      sha256 "6bed3c3201eabb1849cbc729d42e33a3692069a06d298ce3f4a8bce7cdbf9f0e"
+      url "https://github.com/hercules-team/augeas/commit/f0a0586d5fa3cd302e6a073f6081c1626471f7dc.patch?full_index=1"
+      sha256 "1147178a78e3522a912b425b7fbe00f378d555043946a1a7351669f907b69556"
+      type :backport
+      resolves "https://github.com/hercules-team/augeas/pull/818"
+    end
+
+    # Backport fix for CVE-2025-2588
+    patch do
+      url "https://github.com/hercules-team/augeas/commit/af2aa88ab37fc48167d8c5e43b1770a4ba2ff403.patch?full_index=1"
+      sha256 "74edfe9248644c88eb0ed78d4f7f677ff00284ed4cef563779238caf3a7aa139"
+      type :backport
+      resolves "CVE-2025-2588"
     end
   end
 
@@ -23,12 +33,12 @@ class Augeas < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "a08a4025060f11bc910787a5d6b162574eade8ff34e7356993a350ddb1e8513e"
-    sha256 arm64_sequoia: "61ecffdbb3274cba9dadd7dd5ec7228ee5f295657770e51bdd373e10c218649e"
-    sha256 arm64_sonoma:  "0a7c0baf3f14c5d22153f4305a6e0a5bed461ea772531e9a241c730e404b49d4"
-    sha256 sonoma:        "c1783548eb059f6683082c9bafa82feb42e14db5f6898fb226491ab280f37cdd"
-    sha256 arm64_linux:   "df6d3bc86b8c810bd1f1584d6487e119dcf4815e64460ce66785ee6c8e040993"
-    sha256 x86_64_linux:  "1cc2e3a0712c76dd52bf5d15b7c816464539de6d400f6a12e30f8474eda0d87e"
+    sha256 arm64_tahoe:   "2892b23195b7b47069e656f53c2421e7d7a72b2bf52e155e88bb2deebdb5aaeb"
+    sha256 arm64_sequoia: "bce63494ef71096631916e4dc8c8ba4f38de70df2ab997a448db5143e7b16615"
+    sha256 arm64_sonoma:  "8d377f15f9e15f40c3ca6b3de2afbdeeb808c08dfa9a89903a8b36c0f0bc2b23"
+    sha256 sonoma:        "460c292b7c6a2e2a3f4bb98b468830a491792e82c92f8f688124903674d7f92c"
+    sha256 arm64_linux:   "5ce934dec1d8de104c5347895c95f02c5f0965145474cdef866dd9a512c497ab"
+    sha256 x86_64_linux:  "ba562790d6783f698cb827068f53004f5fa2c72e61217c378b5f83ff7f4cc1d9"
   end
 
   head do
@@ -46,7 +56,7 @@ class Augeas < Formula
   uses_from_macos "libxml2"
 
   def install
-    ENV.append "LDFLAGS", "-L#{Formula["readline"].opt_lib}"
+    ENV.append "LDFLAGS", "-L#{formula_opt_lib("readline")}"
 
     configure = build.head? ? "./autogen.sh" : "./configure"
     system configure, *std_configure_args

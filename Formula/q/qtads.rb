@@ -38,7 +38,7 @@ class Qtads < Formula
   depends_on "libvorbis"
   depends_on "mpg123"
   depends_on "qt@5" # Qt6 PR: https://github.com/realnc/qtads/pull/21
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   def install
     args = ["DEFINES+=NO_STATIC_TEXTCODEC_PLUGINS"]

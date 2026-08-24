@@ -6,8 +6,10 @@ class Ncview < Formula
   license "GPL-3.0-only"
   revision 1
 
+  # The homepage typically links to the latest tarball but they sometimes
+  # forget, so we check the directory listing page for now.
   livecheck do
-    url :homepage
+    url "https://cirrus.ucsd.edu/~pierce/ncview/"
     regex(/href=.*?ncview[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

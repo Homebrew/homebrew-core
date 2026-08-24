@@ -1,18 +1,18 @@
 class Ed < Formula
   desc "Classic UNIX line editor"
   homepage "https://www.gnu.org/software/ed/ed.html"
-  url "https://ftpmirror.gnu.org/gnu/ed/ed-1.22.5.tar.lz"
-  mirror "https://ftp.gnu.org/gnu/ed/ed-1.22.5.tar.lz"
-  sha256 "56e107ddc2f29dad6690376c15bf9751509e1ee3b8241710e44edbe5c3a158cc"
+  url "https://ftpmirror.gnu.org/gnu/ed/ed-1.22.6.tar.lz"
+  mirror "https://ftp.gnu.org/gnu/ed/ed-1.22.6.tar.lz"
+  sha256 "3f33b22135219c39c3c695f7b7171c2567d3e2a17c798c0a90607320cbb268f2"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "80b2d6d72abc4010a156e6deba62553dd617df431c09afb1b47716bc8a5b3d7d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2be3e0854f079a026ce53c25d6071128f3eef8adb8429eac333aa94a1e88b4c7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9d3c9641f3def99e02c845c46af7bf61dcc6643c8cf3d88116ca7687e6ad8963"
-    sha256 cellar: :any_skip_relocation, sonoma:        "72f5ff75a704c662101223a085c6af24941c68212c64e0ce9a3e675bb710cfbe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae82ddc23421a1b75370233b72b5e5ae5cf11814f28d7e7c36cb5161c0968f24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9aafcf322545be9737d4169d9556998e79b67ba84d0ed77dc10a7ed53149bcb1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6d1b8e53901e0960e73c63de628489abf3fd0168bdcca201ef582bf10809907c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "88bfdc980a1d2425920cba9fa8aa9b85ff54a3f82aeefce29d1216ff65d94616"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fa66fd4854a0d2c9f486ecab1e26e086d4b0c57faffa7a65720dff00998a5271"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9386ff506ed9243bfe18608da0abe294f8eb1dcecc88599291b35e5417db4452"
+    sha256 cellar: :any,                 arm64_linux:   "2083534a9961531dc0ca3a3fb867c8a5e5a6dba75160a9ce3b9f9f9ef2156d48"
+    sha256 cellar: :any,                 x86_64_linux:  "9a6a6501a78591e720edb182f23871dbd4221321a497b50754b518356ce5c1d2"
   end
 
   keg_only :provided_by_macos

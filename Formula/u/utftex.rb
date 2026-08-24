@@ -1,8 +1,8 @@
 class Utftex < Formula
   desc "Pretty print math in monospace fonts, using a TeX-like syntax"
   homepage "https://github.com/bartp5/libtexprintf"
-  url "https://github.com/bartp5/libtexprintf/archive/refs/tags/v1.31.tar.gz"
-  sha256 "265b15619c287119a73269a0d309587f697960867d01827e769826bf86a12216"
+  url "https://github.com/bartp5/libtexprintf/releases/download/v1.31/libtexprintf-1.31.tar.gz"
+  sha256 "8ca5a11d387631a34979295f73f9a2eccc87e17c690dcd4c1454eb65a9e372bc"
   license "GPL-3.0-only"
 
   bottle do
@@ -14,13 +14,8 @@ class Utftex < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "733b373d361275776ee9e70d15b02336adb869b19401d4b700545000b144b3a0"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-
   def install
-    system "./autogen.sh"
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 

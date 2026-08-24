@@ -38,7 +38,6 @@ class Minio < Formula
       minio_version = version.to_s.gsub(/T(\d+)-(\d+)-(\d+)Z/, 'T\1:\2:\3Z')
 
       ldflags = %W[
-        -s -w
         -X github.com/minio/minio/cmd.Version=#{minio_version}
         -X github.com/minio/minio/cmd.ReleaseTag=#{minio_release}
         -X github.com/minio/minio/cmd.CommitID=#{Utils.git_head}
@@ -50,7 +49,7 @@ class Minio < Formula
   end
 
   post_install_steps do
-    mkdir_p "minio"
+    mkdir_p "minio", base: :var
     mkdir_p "minio", base: :etc
   end
 

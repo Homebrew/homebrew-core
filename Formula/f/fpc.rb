@@ -59,6 +59,7 @@ class Fpc < Formula
   patch do
     url "https://gitlab.com/freepascal.org/fpc/source/-/commit/a20a7e3497bccf3415bf47ccc55f133eb9d6d6a0.diff"
     sha256 "7fac043022a6f3ffa91287f856c2c4959fdc374ff9169a244eaf55a3897c76d8"
+    type :backport
   end
 
   def install

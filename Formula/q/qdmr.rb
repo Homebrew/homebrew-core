@@ -1,17 +1,17 @@
 class Qdmr < Formula
   desc "Codeplug programming tool for DMR radios"
   homepage "https://dm3mat.darc.de/qdmr/"
-  url "https://github.com/hmatuschek/qdmr/archive/refs/tags/v0.15.0.tar.gz"
-  sha256 "63fd6b2061ebcfee54fc1c6df77e21484a544e694723725b70b49ca4990138d3"
+  url "https://github.com/hmatuschek/qdmr/archive/refs/tags/v0.15.1.tar.gz"
+  sha256 "209b41d38ee228760ebe50fce0ecaab42aabbdd22872e0437c32799736eab2b2"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c547aa11b729f98207cd3ca10da2684f113299c61096d876370cebef4d122871"
-    sha256 cellar: :any,                 arm64_sequoia: "1808f9a6971ecac365fb1d9f6a4ff3c739c7a19ef6865d27d6ca38c8f031f46f"
-    sha256 cellar: :any,                 arm64_sonoma:  "17c82b226c07ad4f51aeefd564319c874f4024839dafa83cf5c3266ad42ac5ab"
-    sha256 cellar: :any,                 sonoma:        "c25f5ae2f77ba6a208a2924d14e406f54af3f9adbcf579544a99cc615a386c75"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f816ff55ab36371cd96c0b2a4846ceb6e88388952e06589b9e3c6b93594f933e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57a70dfa8b56f6653f105784cee83c46cbf73d8c7fbb29f30d11338463a3986e"
+    sha256 cellar: :any, arm64_tahoe:   "32df27547416b1d925fcf0e6aa83a7da815c3c5713bf8fd79192bbe3f118738b"
+    sha256 cellar: :any, arm64_sequoia: "8dd895f0e54072b336dd3b75f1ded5fc93f3eae9bf949f886ba0207401ff5b5b"
+    sha256 cellar: :any, arm64_sonoma:  "eb4a9ab5a671ea55d2713029f137d68f01da1b50bd894e3a6cb1dd90f6c8aa8d"
+    sha256 cellar: :any, sonoma:        "32c6dc8731628a6ae0ec2236ff161ff9d40f5b5f9b5797cc2a7e90cee9c5c467"
+    sha256 cellar: :any, arm64_linux:   "4bd128e2d61093bb78b400942e8387320584af8f110133475e8e2d364f63ac11"
+    sha256 cellar: :any, x86_64_linux:  "2a3643b0eead3cddc4a90c89f1cfa343254ffd8574696702b3d260280dbf1684"
   end
 
   depends_on "cmake" => :build

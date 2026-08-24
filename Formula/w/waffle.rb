@@ -1,20 +1,21 @@
 class Waffle < Formula
   desc "C library for selecting an OpenGL API and window system at runtime"
   homepage "https://waffle.freedesktop.org/"
-  url "https://waffle.freedesktop.org/files/release/waffle-1.8.2/waffle-1.8.2.tar.xz"
-  sha256 "1254afcddc7e2971fd1f8a543c7d0882d254a09d154fab00fe9fb5f4037b9f1c"
+  url "https://waffle.freedesktop.org/files/release/waffle-1.8.3/waffle-1.8.3.tar.xz"
+  sha256 "333751a6684370717d4d6327061834f2fbdfe687478d7d3c6b1ab27f57c90877"
   license "BSD-2-Clause"
   head "https://gitlab.freedesktop.org/mesa/waffle.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "f2b378a19c7db8dd6503b5e1bfd3effe5580fd91cb82d9b67c1d339d7f031ae0"
-    sha256 cellar: :any, arm64_sequoia: "d3e9d8cb0d6e7ee1b7526d2c03a2c75013ecd63f76d62844e6c5a236144cfc34"
-    sha256 cellar: :any, arm64_sonoma:  "1dc758c373579b8fabc18fdbccf1e82467a4c0cd175d61b251fab7cf82800ef6"
-    sha256 cellar: :any, sonoma:        "5b7a69dfb5adbd9bd9f00dc926da434ba788b61ef08e169e6986e3f4d67e8402"
-    sha256               arm64_linux:   "67044219cec4d300f29b7925db5c85422fa0569683c81fa50a1a358036b24067"
-    sha256               x86_64_linux:  "5222c94e098d3c6bcc26145aab343651db5bdb78d3436f7b7e3e898659acc48c"
+    sha256 cellar: :any, arm64_tahoe:   "2dd69169a48a2d596930174abd4cb49de0c96f34283de5149573b9161a342d90"
+    sha256 cellar: :any, arm64_sequoia: "38ea5644a64bb6ec2ddb776b680a1e66b0c95e8aae5eee55be80bfcee34a4d98"
+    sha256 cellar: :any, arm64_sonoma:  "844f7d199beeefdee0d3c3c2a53cbc36f6aeb1ba353d989cf847cefc83fdd2a9"
+    sha256 cellar: :any, sonoma:        "fa5ab19527be69be3cee70a91c16ac9b76cfcad22060a5b145f61c62d6150702"
+    sha256               arm64_linux:   "2830fb4efe4539177bdf4446132863b66960fdf0b02176e5fae7b70a3364840c"
+    sha256               x86_64_linux:  "ba6db6caea184960fb78adb9a63ba635e739c1cbd226c033e48cadc12756aba3"
   end
 
+  depends_on "cmake" => :build
   depends_on "docbook-xsl" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build

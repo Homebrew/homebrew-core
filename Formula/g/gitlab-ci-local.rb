@@ -1,12 +1,12 @@
 class GitlabCiLocal < Formula
   desc "Run gitlab pipelines locally as shell executor or docker executor"
   homepage "https://github.com/firecow/gitlab-ci-local"
-  url "https://registry.npmjs.org/gitlab-ci-local/-/gitlab-ci-local-4.72.0.tgz"
-  sha256 "0a555ffd10ee07436194d0a74ccd430b964d9243c74b75d2699bc5f71bfe1573"
+  url "https://registry.npmjs.org/gitlab-ci-local/-/gitlab-ci-local-4.75.0.tgz"
+  sha256 "6848c9c2e816b20e6c32790c2c6713892ef3812abae5456496e013902fd90f3b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "84a23183c3dbc87a8b51e5bbe44186c37820ee86794b57b70731be181153cbc6"
+    sha256 cellar: :any_skip_relocation, all: "1c264d63a40477655a83ec5fa8bca046aebc8cf34bd9f5a72b0765edbb46daf0"
   end
 
   depends_on "node"
@@ -14,6 +14,9 @@ class GitlabCiLocal < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
+
+    generate_completions_from_executable(bin/"gitlab-ci-local", "--completion", shell_parameter_format: :none,
+                                                                                shells:                 [:bash, :zsh])
   end
 
   test do

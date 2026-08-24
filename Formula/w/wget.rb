@@ -7,13 +7,13 @@ class Wget < Formula
   compatibility_version 1
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "03be72d23a113a3273245b3e071667b611ea5d81dab6f52e995a84420d0ed734"
-    sha256 arm64_sequoia: "d620e085be7df7e93c7a8e6dc98e71b7a2faedbb40e83daae9b823374ee9b09e"
-    sha256 arm64_sonoma:  "0611b16c2d24332fbb48cf1d75717b3ac3fc579a6ddac33ee1acaa791ff12e8e"
-    sha256 sonoma:        "91995d4d44951e981c36879505e8e294d15e46bbd3ef3965caf94d55424e165b"
-    sha256 arm64_linux:   "6c291dba1e71dcfada741192dbf78790c60488d927fa15c82f4bd0901edfa014"
-    sha256 x86_64_linux:  "09603bb2a51e4bdc94a9f4f3e66442ef6e401a2a2d244213066c58cceb686f95"
+    rebuild 2
+    sha256 arm64_tahoe:   "27e15ca14afaaa7c2016bba7a098452cf66d1d8a74330ed6195a0b6ae7a4dada"
+    sha256 arm64_sequoia: "aa19cf5de262d5b67631af8288cce233a075c251c68050a1e73699314a911e7b"
+    sha256 arm64_sonoma:  "ebac9bd5e93603af8d3dcf3cfed9924f773e0fa5f8a827c12c69ad07cc80a6de"
+    sha256 sonoma:        "32e76ca0ef4b26d7022dd1cad7621e8cd9bccca7677b7d4646d30d2fa009f413"
+    sha256 arm64_linux:   "f6e698ad339b9d9398f9769ad46ffa999809e9e07ab0e6d9a1537ec136dbaf01"
+    sha256 x86_64_linux:  "8f58b44e7482ee12e910df582cf43a4dadb808e4db70bfc760aaf258942652a5"
   end
 
   head do
@@ -26,6 +26,7 @@ class Wget < Formula
 
   depends_on "pkgconf" => :build
   depends_on "libidn2"
+  depends_on "libpsl"
   depends_on "openssl@3"
 
   on_macos do
@@ -43,15 +44,18 @@ class Wget < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--with-ssl=openssl",
-                          "--with-libssl-prefix=#{Formula["openssl@3"].opt_prefix}",
+                          "--with-libssl-prefix=#{formula_opt_prefix("openssl@3")}",
                           "--disable-pcre",
                           "--disable-pcre2",
-                          "--without-libpsl",
+                          "--with-libpsl",
                           "--without-included-regex"
     system "make", "install"
   end
 
   test do
     system bin/"wget", "-O", File::NULL, "https://google.com"
+
+    # Verify PSL support is built in via libpsl
+    assert_match "+psl", shell_output("#{bin}/wget --version")
   end
 end

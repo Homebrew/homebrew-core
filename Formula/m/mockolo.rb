@@ -15,18 +15,15 @@ class Mockolo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7939818512b30239cbda264db9d01481066ff9c76b0f4fb1836591edb7bd9d1"
   end
 
-  depends_on xcode: ["15.3", :build]
-
   uses_from_macos "swift" => :build
+
+  on_macos do
+    depends_on xcode: ["15.3", :build]
+  end
 
   def install
     inreplace "Sources/Mockolo/Version.swift", "development", version.to_s
-    args = if OS.mac?
-      ["--disable-sandbox"]
-    else
-      ["--static-swift-stdlib"]
-    end
-    system "swift", "build", *args, "-c", "release", "--product", "mockolo"
+    system "swift", "build", "--product", "mockolo", *std_swift_args
     bin.install ".build/release/mockolo"
     generate_completions_from_executable(bin/"mockolo", "--generate-completion-script")
   end

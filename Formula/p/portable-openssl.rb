@@ -2,11 +2,9 @@ require File.expand_path("../../Abstract/portable-formula", __dir__)
 
 class PortableOpenssl < PortableFormula
   desc "Cryptography and SSL/TLS Toolkit"
-  homepage "https://openssl.org/"
-  url "https://github.com/openssl/openssl/releases/download/openssl-3.6.2/openssl-3.6.2.tar.gz"
-  mirror "https://www.openssl.org/source/openssl-3.6.2.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/openssl-3.6.2.tar.gz"
-  sha256 "aaf51a1fe064384f811daeaeb4ec4dce7340ec8bd893027eee676af31e83a04f"
+  homepage "https://openssl-library.org"
+  url "https://github.com/openssl/openssl/releases/download/openssl-4.0.1/openssl-4.0.1.tar.gz"
+  sha256 "2db3f3a0d6ea4b59e1f094ace2c8cd536dffb87cdc39084c5afa1e6f7f37dd09"
   license "Apache-2.0"
 
   livecheck do
@@ -28,13 +26,25 @@ class PortableOpenssl < PortableFormula
 
   resource "cacert" do
     # https://curl.se/docs/caextract.html
-    url "https://curl.se/ca/cacert-2026-03-19.pem"
-    sha256 "b6e66569cc3d438dd5abe514d0df50005d570bfc96c14dca8f768d020cb96171"
+    url "https://curl.se/ca/cacert-2026-05-14.pem"
+    sha256 "86a1f3366afac7c6f8ae9f3c779ac221129328c43f0ab2b8817eb2f362a5025c"
 
     livecheck do
       url "https://curl.se/docs/caextract.html"
       regex(/href=.*?cacert[._-](\d{4}-\d{2}-\d{2})\.pem/i)
     end
+  end
+
+  # Backport fix for 70-test_quic_radix.t
+  patch do
+    url "https://github.com/openssl/openssl/commit/1e386aab890b52f46641ab18e1a56cabb1b8c47b.patch?full_index=1"
+    sha256 "636f11a33a39536c1cc69426c73863db2b57be636b5977a4076b0995c342ef30"
+    type :backport
+  end
+  patch do
+    url "https://github.com/openssl/openssl/commit/d9f73e36c5fe720b3367e0fc6501683a3f91193a.patch?full_index=1"
+    sha256 "3508588c5e03ba6d3898512f0e8e3aa1f177e243c026884d6c31020359cae59e"
+    type :backport
   end
 
   def openssldir
@@ -67,7 +77,6 @@ class PortableOpenssl < PortableFormula
       no-legacy
       no-module
       no-shared
-      no-engine
     ]
   end
 

@@ -19,7 +19,7 @@ class Kubecolor < Formula
   depends_on "kubernetes-cli" => :test
 
   def install
-    ldflags = "-s -w -X main.Version=v#{version}"
+    ldflags = "-X main.Version=v#{version}"
 
     system "go", "build", *std_go_args(output: bin/"kubecolor", ldflags:)
   end

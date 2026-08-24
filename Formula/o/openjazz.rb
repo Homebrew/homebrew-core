@@ -6,7 +6,7 @@ class Openjazz < Formula
   stable do
     url "https://github.com/AlisterT/openjazz/archive/refs/tags/20260301.tar.gz"
     sha256 "9c117a8d9aa539c4dcb3fb5788130563a83ca1d9819e538f233721d823f7a650"
-    depends_on "sdl2"
+    depends_on "sdl2-compat"
   end
 
   bottle do

@@ -1,8 +1,8 @@
 class Babeld < Formula
   desc "Loop-avoiding distance-vector routing protocol"
   homepage "https://www.irif.fr/~jch/software/babel/"
-  url "https://www.irif.fr/~jch/software/files/babeld-1.13.1.tar.gz"
-  sha256 "15f24d26da0ccfc073abcdef0309f281e4684f2aa71126f826572c4c845e8dd9"
+  url "https://www.irif.fr/~jch/software/files/babeld-1.14.tar.gz"
+  sha256 "c4ed13c04880ccc3a85a99645dcb64134beac8ab0607fe32a4d07e1057ad73b7"
   license "MIT"
   head "https://github.com/jech/babeld.git", branch: "master"
 
@@ -12,18 +12,12 @@ class Babeld < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f977cf0194b8bb8a3a60a434904a2a858b0b9f336176327800a731ef007ab1a1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "62f048341c61438f5d7fade7659f694402543ca20d8fa7d06d42e87e42144e0c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "daa3da57b19ef571e1f7a235bc7ae6ce7ba610155b0f74b122e460e78d3c4e2b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "de3bd348ee96f4800eebf8e081ba0b02688dd47c05303f4bd7c47b8850a6bc97"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "055e941a8174763608a1eb8b1953d2d60a75f6bd2ac5bc2f57235fc647b10bd8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1c95ab7121b226e24a505064d231e89efe854d2c373f6a362e987b22901ed1cd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "df247b0cb0a9ba370ed3436aca781312806eec813a33a4b87008a8a09871e0ac"
-    sha256 cellar: :any_skip_relocation, ventura:        "fa42c87c9b05ce203d457c7d6e288165ddb658bf830cd297b4fbe8c542ba40a8"
-    sha256 cellar: :any_skip_relocation, monterey:       "69f0e27d20bf8a9febc3922bbcfe6d9ac84685751814d7f8747fcb3a2153d543"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3248b6ab94fada912bfdcb3521dc6c629a6e1a7bb09f9c1d33c232abcfc27a66"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "8ee2de3eeddb40b1c2bc7f4eee384c0e14bc00e4b403cb5f8f46e2e0ba202dd2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73e9228c77443e9d1c349091f0fecb2b5f61daaf340b99a6b2120def482a8f9a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8df1000e25e05a3dbbb5216051fab8b7dd8a340a307924faf4537c4b8e2e58f4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e46f543ffdff4ba057e8f007200fe9973c9a3b227e8034e140c570da9f8db8e9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aeb49eecbae6ebeb3d637a7546ac790ed6e4280903969d2d3561fcec1f90ee48"
+    sha256 cellar: :any_skip_relocation, sonoma:        "185f1c12cb07e891707585e033b1188ea31a61fd5d879581d14b74c3ff4af43a"
+    sha256 cellar: :any,                 arm64_linux:   "bfd5b5f5d460c9df85796fe9e9d521077e7a2842706a47551daadc10b13fc024"
+    sha256 cellar: :any,                 x86_64_linux:  "066c81b6f7cf20af8094d4425e090d322788a98591444d3902a802c5fda52e05"
   end
 
   def install

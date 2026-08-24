@@ -19,17 +19,14 @@ class Squealer < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/owenrumney/squealer/version.Version=#{version}
-    ]
+    ldflags = %W[-X github.com/owenrumney/squealer/version.Version=#{version}]
     system "go", "build", *std_go_args(ldflags:), "./cmd/squealer"
     generate_completions_from_executable(bin/"squealer", shell_parameter_format: :cobra)
   end
 
   test do
-    system "git", "clone", "https://github.com/owenrumney/woopsie.git"
-    output = shell_output("#{bin}/squealer woopsie", 1)
+    system "git", "clone", "https://github.com/owenrumney/squealer.git"
+    output = shell_output("#{bin}/squealer .", 1)
     assert_match "-----BEGIN OPENSSH PRIVATE KEY-----", output
   end
 end

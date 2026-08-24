@@ -1,24 +1,28 @@
 class Ipget < Formula
   desc "Retrieve files over IPFS and save them locally"
   homepage "https://github.com/ipfs/ipget/"
-  url "https://github.com/ipfs/ipget/archive/refs/tags/v0.13.1.tar.gz"
-  sha256 "2c13bc811c4ac4610bf3e6b7bb8586e877c458a8d2f0414b56e29a75a5d677a1"
+  url "https://github.com/ipfs/ipget/archive/refs/tags/v0.13.2.tar.gz"
+  sha256 "e30a9f84633562b4c4d262b4c027260d43a6dcb47630215c7221dcc8066e8816"
   license "MIT"
   head "https://github.com/ipfs/ipget.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "61d41d721f5d93799d5cb4422f3b44d09f602160c4cbcc4b8c974fb6a1c9eb68"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6d63e98d336bf8dc7f11680ad7ea1af775c13280d50d1b5fa911f5b20acc0ee9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c1556693bcd82e85ddf273f098ad2d7609ad6bb8cc439605a52151dde917dbcd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d2660824a7d3b97aa24936aa84ff595ca09f7e0c885cd698761674d45a8b0c31"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "00d6bfd3b6dea6292bafd8c7bc438d52681941dd52c5ee317ab7080b7921961c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd6dafc463b658a9d6db25cc3ed8ad20fbbac60736dfacc4b9da08425eeed1eb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4b686783d575a6a2401b10ad5c6b2e08382b6f6f7d4de27ab5c6d740ca77e886"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "95e527ca8007d1c8eceda8ea79efa8a5e5281b585339f8bdeab5f43b622c021e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4da807a35c627f61137a0f0db170a585e43b46ecde7e17be9801ff8420e9db0b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "43209232b50490c0a84fd95b9ea73890739c0c4cdacb3831d55b7bb98f96cf38"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8db4b3cb414bec705e0e6f62d7f4ce28c1ab6327b910f2cc242c486eced2b7e5"
+    sha256 cellar: :any,                 x86_64_linux:  "6465567cd07e7a520d5d233cdd25951d3b0d2e94baa87c7b7145c02ad30e4522"
   end
 
-  depends_on "go" => :build
+  deprecate! date: "2026-08-21", because: :repo_archived, replacement_formula: "kubo"
+  disable! date: "2027-08-21", because: :repo_archived, replacement_formula: "kubo"
+
+  # TODO: unpin go@1.26 when ipget supports go 1.27
+  depends_on "go@1.26" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   test do

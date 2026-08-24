@@ -20,6 +20,7 @@ permissions:
 env:
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_SANDBOX_LINUX_LANDLOCK: 1
   HOMEBREW_SORBET_RECURSIVE: 1
 
 defaults:
@@ -41,7 +42,7 @@ jobs:
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@main
+        uses: Homebrew/actions/setup-homebrew@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           core: false
           cask: false
@@ -64,7 +65,7 @@ jobs:
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@main
+        uses: Homebrew/actions/setup-homebrew@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           core: false
           cask: false
@@ -86,7 +87,7 @@ jobs:
           echo "prefix=${cache_key_prefix}" >> "${GITHUB_OUTPUT}"
 
       - name: Cache Homebrew Bundler gems
-        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ${{ steps.set-up-homebrew.outputs.gems-path }}
           key: ${{ steps.cache-key.outputs.prefix }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}

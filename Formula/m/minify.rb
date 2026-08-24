@@ -1,28 +1,24 @@
 class Minify < Formula
   desc "Minifier for HTML, CSS, JS, JSON, SVG, and XML"
   homepage "https://go.tacodewolff.nl/minify"
-  url "https://github.com/tdewolff/minify/archive/refs/tags/v2.24.13.tar.gz"
-  sha256 "d81dc3e0793d9a69e24d3655f60cf19be8c5cb62f86f6c3a3a4e7b678bc9b31c"
+  url "https://github.com/tdewolff/minify/archive/refs/tags/v2.24.17.tar.gz"
+  sha256 "f9abc4dfdf19f5079e81dae1790f7780e5a1cadc694d50007ed38ae7501b41d7"
   license "MIT"
   head "https://github.com/tdewolff/minify.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "91f5d949d5f1657fc5d0069e2c7230c5130839c6cc78086c66b53b4c137e0373"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "91f5d949d5f1657fc5d0069e2c7230c5130839c6cc78086c66b53b4c137e0373"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "91f5d949d5f1657fc5d0069e2c7230c5130839c6cc78086c66b53b4c137e0373"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1c790132610f021f784a48963f15a2400595e6e350bd34bb39f3e299b748baf6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a31237df21a69ea40b34f01dd7e5e47471bf32b87898b790a5f9347f40a878c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21baa5fbea3a4819ea59d91d1e54e2c73c0344dea7c2257f230cdbe63e6da7a6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "976488791bb1eb5056f121c4385ce96f09842bb3fc6315f6620554a747a7d2d1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "976488791bb1eb5056f121c4385ce96f09842bb3fc6315f6620554a747a7d2d1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "976488791bb1eb5056f121c4385ce96f09842bb3fc6315f6620554a747a7d2d1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7fc338607ef381338781c98eb8a0d620fd849f42772364f59d320cb3fa540b01"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aea773af393b30e146bae19c99aea0cb6bae4c8dfa21bdfc743c05fbb8bf5d07"
+    sha256 cellar: :any,                 x86_64_linux:  "ed1c321d48c3e8f138fc8ea3b80d9ddeb62d97c9e2893f0647b6a43fcecf56ff"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.Version=#{version}
-    ]
-    system "go", "build", *std_go_args(ldflags:), "./cmd/minify"
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}"), "./cmd/minify"
     bash_completion.install "cmd/minify/bash_completion"
   end
 

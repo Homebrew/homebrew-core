@@ -1,18 +1,17 @@
 class Swtpm < Formula
   desc "Software TPM Emulator based on libtpms"
   homepage "https://github.com/stefanberger/swtpm"
-  url "https://github.com/stefanberger/swtpm/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "f8da11cadfed27e26d26c5f58a7b8f2d14d684e691927348906b5891f525c684"
+  url "https://github.com/stefanberger/swtpm/archive/refs/tags/v0.10.2.tar.gz"
+  sha256 "f61cf6f1e9bbcb4cefb30b70cafaf1c4df54c6961e65cfa63830e8ad0e220134"
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "9a60d0e6adebb8d733ebf8d8513adfea86794e8fa69cc8f26bdcbbc13bd789c3"
-    sha256 arm64_sequoia: "8f798f1a861ba329fb30c2183f369d5a59b6511af160ac49a9daa0d4b1cef746"
-    sha256 arm64_sonoma:  "806ee9bb517067c3969f8877cc59bcfa18bbf5dfb90c1e2c46aa153462e9c5d3"
-    sha256 sonoma:        "c08557ef9d9cd1b03c3af01f03d58715ad9f708460149ed800c124956b8c6482"
-    sha256 arm64_linux:   "a51c9b172f794b7e95b102a6f637f4eb655682e58af37d13a17970e7e7985a31"
-    sha256 x86_64_linux:  "45c2a54bd1d006b674542e4082856783c76fba8260f678951df0bc2b5bdc8a01"
+    sha256 arm64_tahoe:   "7c061c6f76ae1ddac24748f1b1ec3a421ed9b5419a190f64b77d5c6dbb44978f"
+    sha256 arm64_sequoia: "3c0a94003525270a225ad7c92caad295005cb1022656eef611e1d3308f6bc4d7"
+    sha256 arm64_sonoma:  "2c35a122e5c9f031d9665fbcc5767ed26642897a780d4f26801401dd9c892379"
+    sha256 sonoma:        "b5772c37534f67b52b627875152a12d42763d73ef033a70f9681e5fc37d3e80e"
+    sha256 arm64_linux:   "49d2065659915890b1f20a852f5c23a6c206f48f41a7b10448dccbfdb83444c3"
+    sha256 x86_64_linux:  "5c45c9ffb823f66bbf15839301cf2cf11ca06220144009f301200bfab8f49867"
   end
 
   depends_on "autoconf" => :build
@@ -28,8 +27,6 @@ class Swtpm < Formula
   depends_on "libtpms"
   depends_on "openssl@3"
 
-  uses_from_macos "expect"
-
   on_macos do
     depends_on "gettext"
   end
@@ -43,10 +40,12 @@ class Swtpm < Formula
   patch do
     url "https://github.com/stefanberger/swtpm/commit/86c6046cbe0e913e884683d20acec3949a4a1220.patch?full_index=1"
     sha256 "8f0c469d178004128c97645f4bb849355473ad0181d6063c6dc5ba1565b716a0"
+    type :backport
+    resolves "https://github.com/stefanberger/swtpm/pull/1094"
   end
 
   def install
-    system "./autogen.sh", "--with-openssl", *std_configure_args
+    system "./autogen.sh", "--disable-tests", "--with-openssl", *std_configure_args
     system "make"
     system "make", "install"
   end

@@ -4,14 +4,15 @@ class Gource < Formula
   url "https://github.com/acaudwell/Gource/releases/download/gource-0.56/gource-0.56.tar.gz"
   sha256 "332d89b9a979b17417fbce0edd72b19914f1409fd126a13d11787d0e15dc0d79"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_tahoe:   "195d55d440abf1c3e5104a9a672d5bc2e26493ed55b7f8082b491b70f4bd8114"
-    sha256 arm64_sequoia: "bdc1ba6b4089ae9296e1172d7ec5b6e0a1e641ea047d21fe43db0cb6c5836a4c"
-    sha256 arm64_sonoma:  "c1b92f684ac3635b9f0f7a54a5735f42ba3f65a42de81af94c75006e6207a915"
-    sha256 sonoma:        "892e81a39c48e764d9cb54db41544789e29e22578392c6a05ea560aef0b6d2ec"
-    sha256 arm64_linux:   "0d8a1d48795700cc8d69560330eb550bdb6dd68e3bc05b0630e28bf91dcaaf97"
-    sha256 x86_64_linux:  "c042625f61fdcafba8f37a0bfd60181d7ed194101323ab408806c8d5b59a4425"
+    sha256 arm64_tahoe:   "cdd8bd1399f1a13c3cb16530798465f1f48b66d581fbec5ec4c88c5a69099518"
+    sha256 arm64_sequoia: "e2568b1c0414ac98c980879dfcd5b95f4ab5465f24bbee26172639c2cb7852e5"
+    sha256 arm64_sonoma:  "df09b9d501ec3fd2f0a1415a89d4371430b882d7b3ecd5c91556d92964a376bd"
+    sha256 sonoma:        "180f834d9c4d1c87428ecbb308f673c6406e9a82b695cb21d265d8282b08876a"
+    sha256 arm64_linux:   "9eee411e2d309a36a79ac43dc7e97fc67e1c739fc1bdedcc8ce3dfc494cf5451"
+    sha256 x86_64_linux:  "0b072a65436f19c1c66dad5db9222dfcbf8d807488466917104b728fa4d5859e"
   end
 
   head do
@@ -30,7 +31,7 @@ class Gource < Formula
   depends_on "glew"
   depends_on "libpng"
   depends_on "pcre2"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_image"
 
   on_linux do
@@ -44,7 +45,7 @@ class Gource < Formula
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
 
     system "./configure", "--disable-silent-rules",
-                          "--with-boost=#{Formula["boost"].opt_prefix}",
+                          "--with-boost=#{formula_opt_prefix("boost")}",
                           "--without-x",
                           *std_configure_args
     system "make", "install"

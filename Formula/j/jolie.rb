@@ -12,14 +12,14 @@ class Jolie < Formula
   depends_on "openjdk"
 
   def install
-    system Formula["openjdk"].opt_bin/"java",
+    system formula_opt_bin("openjdk")/"java",
     "-jar", "jolie-#{version}.jar",
     "--jolie-home", libexec,
     "--jolie-launchers", libexec/"bin"
     bin.install libexec.glob("bin/*")
     bin.env_script_all_files libexec/"bin",
       JOLIE_HOME: "${JOLIE_HOME:-#{libexec}}",
-      JAVA_HOME:  "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+      JAVA_HOME:  "${JAVA_HOME:-#{formula_opt_prefix("openjdk")}}"
   end
 
   test do

@@ -19,7 +19,7 @@ class Freedink < Formula
   depends_on "glm" => :build
   depends_on "pkgconf" => :build
   depends_on "fontconfig"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_gfx"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
@@ -43,6 +43,7 @@ class Freedink < Formula
   patch :p0 do
     url "https://raw.githubusercontent.com/openbsd/ports/fc8b95c6/games/freedink/game/patches/patch-src_input_cpp"
     sha256 "fa06a8a87bd4f3977440cdde0fb6145b6e5b0005b266b19c059d3fd7c2ff836a"
+    type :unofficial
   end
 
   # Apply Fedora patch to fix error "Please include config.h first."
@@ -50,6 +51,7 @@ class Freedink < Formula
     on_linux do
       url "https://src.fedoraproject.org/rpms/freedink/raw/9cd2c23c5a951b4de3ab53cdf72bd002adab1810/f/gnulib.patch"
       sha256 "1812a5caeece9ffb94ffe65f709635792b26e2acf8ed2bfc1e5735ec0594a2f6"
+      type :unofficial
     end
   end
 

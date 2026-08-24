@@ -1,9 +1,9 @@
 class Spidermonkey < Formula
   desc "JavaScript-C Engine"
   homepage "https://spidermonkey.dev"
-  url "https://archive.mozilla.org/pub/firefox/releases/140.12.0esr/source/firefox-140.12.0esr.source.tar.xz"
-  version "140.12.0"
-  sha256 "85dfb9f6021152b4302b8968ef485d958c8c471cb02415a19853daaad5acce62"
+  url "https://archive.mozilla.org/pub/firefox/releases/140.14.0esr/source/firefox-140.14.0esr.source.tar.xz"
+  version "140.14.0"
+  sha256 "28006bd454e703932e1ea804918165774a1e21478b18e551cd1b38111d664239"
   license "MPL-2.0"
   compatibility_version 1
   head "https://hg.mozilla.org/mozilla-central", using: :hg
@@ -16,12 +16,12 @@ class Spidermonkey < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "5f69763014ce5e58580a048d14b083c88d86b702621bfc7c03f51c5fcb9d4d98"
-    sha256 cellar: :any, arm64_sequoia: "95c23ace47ac4d727671854e128b6f283cacad99837f3f1b28d1eeef6f857457"
-    sha256 cellar: :any, arm64_sonoma:  "1109529e3d9a7bc03b6d57354bdeeafe674e139ff951e2369821f31f635e5c3d"
-    sha256 cellar: :any, sonoma:        "bd9168ac56b9b436cc609ca86b8039f99f4311094576b1e1a7ef66203dda8dcd"
-    sha256               arm64_linux:   "adcc91dd0e89d8062045a6cecf948c455c563b198c0389c64bb97da5a414da65"
-    sha256               x86_64_linux:  "622ec399fb8c9b42ef57f26c83778fd6d2ec10d4976c57c4a1265dacf95833b2"
+    sha256 cellar: :any, arm64_tahoe:   "5b3f0156e8564dfedaf25600a1c0945a10042b630e49ffb356b1a61449e4da39"
+    sha256 cellar: :any, arm64_sequoia: "fc36fb40f1f5e8000596212e2eec339ee6db1c437be43df0124030274d263e79"
+    sha256 cellar: :any, arm64_sonoma:  "406ba71e15741fec91bcb1557cac857c90d4847377f21f2b84deefbc5bb01b0e"
+    sha256 cellar: :any, sonoma:        "32649d8b184f3223035fe422a7c22b0668a3b0fd4e091311c12d5e9efe17af4d"
+    sha256               arm64_linux:   "b04d4203a60206251772ce1854e1d3407d2f72405bb154d8c04c2435cd2d1997"
+    sha256               x86_64_linux:  "f6ed3e5e9b5794d56eece14bfd2435af07b596ac33519f18fba592caeb78e181"
   end
 
   depends_on "cbindgen" => :build
@@ -55,12 +55,13 @@ class Spidermonkey < Formula
   # ERROR: *** The pkg-config script could not be found. Make sure it is
   # *** in your path, or set the PKG_CONFIG environment variable
   # *** to the full path to pkg-config.
-  # Ref: https://bugzilla.mozilla.org/show_bug.cgi?id=1783570
   # Ref: https://discourse.gnome.org/t/gnome-45-to-depend-on-spidermonkey-115/16653
   patch do
     on_macos do
       url "https://github.com/ptomato/mozjs/commit/c82346c4e19a73ed4c7f65a6b274fc2138815ae9.patch?full_index=1"
       sha256 "0f1cd5f80b4ae46e614efa74a409133e8a69fff38220314f881383ba0adb0f87"
+      type :unofficial
+      resolves "https://bugzilla.mozilla.org/show_bug.cgi?id=1783570"
     end
   end
 
@@ -68,12 +69,16 @@ class Spidermonkey < Formula
   patch do
     url "https://github.com/ptomato/mozjs/commit/9aa8b4b051dd539e0fbd5e08040870b3c712a846.patch?full_index=1"
     sha256 "5c2a8c804322ccacbc37f152a4a3d48a5fc2becffb1720a41e32c03899af0be6"
+    type :unofficial
+    resolves "https://bugzilla.mozilla.org/show_bug.cgi?id=1973994"
   end
 
   # Backport support for Python 3.14
   patch do
     url "https://github.com/mozilla-firefox/firefox/commit/d497aa4f770ca02f6083e93b94996a8fe32c2ff4.patch?full_index=1"
     sha256 "026f91a56cd60907a87c62dd4143eac8300d6fc7433b94888229c632a43c34bf"
+    type :backport
+    resolves "https://bugzilla.mozilla.org/show_bug.cgi?id=1969769"
   end
 
   def install
@@ -131,7 +136,7 @@ class Spidermonkey < Formula
     # Avoid writing nspr's versioned Cellar path in js*-config
     inreplace bin/"js#{version.major}-config",
               Formula["nspr"].prefix.realpath,
-              Formula["nspr"].opt_prefix
+              formula_opt_prefix("nspr")
   end
 
   test do

@@ -6,6 +6,11 @@ class Garage < Formula
   license "AGPL-3.0-or-later"
   head "https://git.deuxfleurs.fr/Deuxfleurs/garage.git", branch: "main-v2"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0ce66d3ad9ebe1048f0204180cf99b5412b8df4d0bc0f20e90005d774779b402"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "3159b0141b055b1db39db05a31e82ed49ef890dca34483c409ca2b7fccf74ef2"

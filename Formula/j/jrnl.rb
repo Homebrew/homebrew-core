@@ -3,19 +3,18 @@ class Jrnl < Formula
 
   desc "Command-line note taker"
   homepage "https://jrnl.sh/en/stable/"
-  url "https://files.pythonhosted.org/packages/06/50/c1925fbf8472667b6cee6c211645fdc82a550d120ebe50536645252e4e64/jrnl-4.3.tar.gz"
-  sha256 "19ee865bf289b12bf412723874bd5876e25c2b6fbef7a226ea975fa3fcf0920f"
+  url "https://files.pythonhosted.org/packages/f2/c3/5aeb33596fb901a6f5abad02f756334d7e88a52c1689c3b638d31bd494be/jrnl-4.6.tar.gz"
+  sha256 "971bc5b43a3443470c0c3049fce083d825655036b26a8311e9d8d440ef583abc"
   license "GPL-3.0-only"
-  revision 1
-  head "https://github.com/jrnl-org/jrnl.git", branch: "develop"
+  head "https://github.com/jrnl-org/jrnl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2275dc57689de2ce991e8a344dec4f3feef18a7494fd3875c2d3975a97fc79e9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ae1d9b3836d12b1d08811937382151708bd2a75eb0ba4b7b0661f4de261aeda"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52f4523eda1fdb6c77beb98721d912b25dd140113e044631581e92c0d62cd2e7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "265bc76d88c124e443686cdec1ca720fcdfa29fe684f8b7e8d4a1e52c6d10135"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "24a46665b921592e20b48d48bffecd98122c40b5d09ccebac04bb8140af2cfdb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "928eda5a4a094e449464230a5f56c2d69382cb639571a3d61032cad2711524f9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7970ae1b59b093b7661b6142f54f3ac6b3b4752d04392eb6ca05ed548f6892de"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "37c4571be3f90bb5d3f366b66d4c60d76062062576e6926f9f566dc2f2cbbd8c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a39a5beacd4ab7570d16a63493384ea99aabcc736b95ca762fda6abcc49dea30"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2c96b1647e2ab54db8db0bf9321c2673a98c88f2d1acc0151f034ba3f7be1319"
+    sha256 cellar: :any,                 arm64_linux:   "56f2a75f3a9ff701d5b6aa4f19989050ee46c74357729bdaaa803816c642af8d"
+    sha256 cellar: :any,                 x86_64_linux:  "149c2b58499dbcfb2018f3678083dfb3fad8a53f4842d7614e4d0f825fc8126e"
   end
 
   depends_on "cryptography" => :no_linkage
@@ -41,8 +40,8 @@ class Jrnl < Formula
   end
 
   resource "jaraco-functools" do
-    url "https://files.pythonhosted.org/packages/0f/27/056e0638a86749374d6f57d0b0db39f29509cce9313cf91bdc0ac4d91084/jaraco_functools-4.4.0.tar.gz"
-    sha256 "da21933b0417b89515562656547a77b4931f98176eb173644c0d35032a33d6bb"
+    url "https://files.pythonhosted.org/packages/6c/1f/c23395957d41ccf27c4e535c3d334c4051e5395b3752057ba4cbaec35c56/jaraco_functools-4.6.0.tar.gz"
+    sha256 "880c577ec9720b3a052d5bc611fb9f2269b3d87902ef42440df443b88e443280"
   end
 
   resource "jeepney" do
@@ -56,8 +55,8 @@ class Jrnl < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
-    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
+    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
+    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
   end
 
   resource "mdurl" do
@@ -66,8 +65,8 @@ class Jrnl < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/ea/5d/38b681d3fce7a266dd9ab73c66959406d565b3e85f21d5e66e1181d93721/more_itertools-10.8.0.tar.gz"
-    sha256 "f638ddf8a1a0d134181275fb5d58b086ead7c6a72429ad725c67503f13ba30bd"
+    url "https://files.pythonhosted.org/packages/de/1d/f4da6f02cdffe04d6362210b807146a26044c88d839208aec273bb0d9184/more_itertools-11.1.0.tar.gz"
+    sha256 "48e8f4d9e7e5878571ecf6f2b4e57634f93cd474cc8cfbd2376f2d11b396e30d"
   end
 
   resource "parsedatetime" do
@@ -91,8 +90,8 @@ class Jrnl < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
-    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
+    url "https://files.pythonhosted.org/packages/c0/8f/0722ca900cc807c13a6a0c696dacf35430f72e0ec571c4275d2371fca3e9/rich-15.0.0.tar.gz"
+    sha256 "edd07a4824c6b40189fb7ac9bc4c52536e9780fbbfbddf6f1e2502c31b068c36"
   end
 
   resource "ruamel-yaml" do
@@ -116,8 +115,8 @@ class Jrnl < Formula
   end
 
   resource "tzlocal" do
-    url "https://files.pythonhosted.org/packages/8b/2e/c14812d3d4d9cd1773c6be938f89e5735a1f11a9f184ac3639b93cef35d5/tzlocal-5.3.1.tar.gz"
-    sha256 "cceffc7edecefea1f595541dbd6e990cb1ea3d19bf01b2809f362a03dd7921fd"
+    url "https://files.pythonhosted.org/packages/81/5b/879b2f932adfa7a053c360d50bc896c977fa6426109185f7c12ebdd0cb9d/tzlocal-5.4.4.tar.gz"
+    sha256 "8dbb8660838688a7b6ba4fed31d18dedf842afb4d47ca050d6d891c2c15f3be4"
   end
 
   def install
@@ -137,13 +136,16 @@ class Jrnl < Formula
     # Encrypt the journal. Needs a TTY to read password.
     require "expect"
     require "pty"
-    timeout = 5
+    timeout = 60
     PTY.spawn(bin/"jrnl", "--encrypt") do |r, w, pid|
       refute_nil r.expect("Enter password for journal 'default': ", timeout), "Expected password input"
+      sleep 1
       w.write "homebrew\r"
       refute_nil r.expect("Enter password again: ", timeout), "Expected password confirmation input"
+      sleep 1
       w.write "homebrew\r"
       refute_nil r.expect("store the password in your keychain? [Y/n] ", timeout), "Expected keychain input"
+      sleep 1
       w.write "n\r"
       refute_nil r.expect("Journal encrypted to ", timeout), "Expected result output"
       Process.wait pid

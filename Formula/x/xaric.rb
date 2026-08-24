@@ -24,23 +24,18 @@ class Xaric < Formula
 
   uses_from_macos "ncurses"
 
-  # Fix ODR violations (waiting for the PR accepted)
+  # Fix ODR violations
   patch do
-    url "https://github.com/laeos/xaric/commit/a6fa3936918098fd00ebcfb845360a6110ac4505.patch?full_index=1"
-    sha256 "353ef73a5a408a876f99d4884a7d5c74d06759c60a786ef7c041ca7d8e0abcd3"
-  end
-
-  # Fix ODR violations pt.2 (waiting for the PR accepted)
-  patch do
-    url "https://github.com/laeos/xaric/commit/c365b700a5525cf0a38091c833096c179ee2e40f.patch?full_index=1"
-    sha256 "9e82b5df90b96b096a3556afc3520e7b3e8d649eed4b8b42be622bc428f0ca73"
+    url "https://github.com/laeos/xaric/commit/3eae8e45003e416f418218e68a1055a0e0f0ac43.patch?full_index=1"
+    sha256 "5528ec8d2611bf25fa27762f11537e89d2707f10d136d0757a0a0d8778287a66"
+    type :backport
   end
 
   def install
     # Workaround for newer Clang
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
 
-    system "./configure", "--with-openssl=#{Formula["openssl@4"].opt_prefix}",
+    system "./configure", "--with-openssl=#{formula_opt_prefix("openssl@4")}",
                           *std_configure_args
     system "make", "install"
   end

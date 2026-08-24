@@ -9,8 +9,7 @@ class Loudmouth < Formula
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+      file "Patches/libtool/configure-big_sur.diff"
     end
   end
 
@@ -44,12 +43,15 @@ class Loudmouth < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "gettext"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "libidn"
 
   uses_from_macos "krb5"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     system "./autogen.sh", "-n" if build.head?
@@ -63,10 +65,10 @@ class Loudmouth < Formula
   test do
     cp pkgshare/"examples/lm-send-async.c", testpath
     system ENV.cc, "lm-send-async.c", "-o", "test",
-      "-L#{lib}", "-L#{Formula["glib"].opt_lib}", "-lloudmouth-1", "-lglib-2.0",
+      "-L#{lib}", "-L#{formula_opt_lib("glib")}", "-lloudmouth-1", "-lglib-2.0",
       "-I#{include}/loudmouth-1.0",
-      "-I#{Formula["glib"].opt_include}/glib-2.0",
-      "-I#{Formula["glib"].opt_lib}/glib-2.0/include"
+      "-I#{formula_opt_include("glib")}/glib-2.0",
+      "-I#{formula_opt_lib("glib")}/glib-2.0/include"
     system "./test", "--help"
   end
 end

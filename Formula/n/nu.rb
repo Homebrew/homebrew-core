@@ -46,20 +46,22 @@ class Nu < Formula
   fails_with :gcc
 
   # Fix Snow Leopard or Lion check to avoid `-arch x86_64` being added to ARM build
-  # PR ref: https://github.com/programming-nu/nu/pull/101
   # TODO: Remove if upstream PR is merged and in a release.
   patch do
     url "https://github.com/programming-nu/nu/commit/0a837a407f9e9b8f7861b0dd2736f54c04729642.patch?full_index=1"
     sha256 "6c8567f0c2681f652dc087f6ef4b713bcc598e99729099a910984f9134f6a72c"
+    type :backport
+    resolves "https://github.com/programming-nu/nu/pull/101"
   end
 
   # Fix missing <readline/history.h> include in objc/NuParser.m
   # Build failure details: https://github.com/Homebrew/homebrew-core/pull/126905#issuecomment-1487877021
-  # PR ref: https://github.com/programming-nu/nu/pull/103
   # TODO: Remove if upstream PR is merged and in a release.
   patch do
     url "https://github.com/programming-nu/nu/commit/fdd7cfb3eaf4c456a2d8c1406526f02861c3f877.patch?full_index=1"
     sha256 "d00afd41b68b9f67fd698f0651f38dd9da56517724753f8b4dc6c85d048ff88b"
+    type :unofficial
+    resolves "https://github.com/programming-nu/nu/pull/103"
   end
 
   def install

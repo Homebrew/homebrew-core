@@ -17,7 +17,8 @@ class Winetricks < Formula
 
   depends_on "cabextract"
   depends_on "p7zip"
-  depends_on "unzip"
+
+  uses_from_macos "unzip"
 
   def install
     bin.install "src/winetricks"

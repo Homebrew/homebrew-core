@@ -1,29 +1,29 @@
 class Rustnet < Formula
   desc "Cross-platform network monitoring terminal UI with deep packet inspection"
   homepage "https://github.com/domcyrus/rustnet"
-  url "https://github.com/domcyrus/rustnet/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "846f89a9c6cb5a2de6b9d42cf5a8a435e343906cbe9083776ddcc7fdbbb8857b"
+  url "https://github.com/domcyrus/rustnet/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "245fc7074d5f142fbf1c798233be86b715b4f2ce3b3cfec10fabdcbbc9345ddb"
   license "Apache-2.0"
   head "https://github.com/domcyrus/rustnet.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "60b390d45e6fecd6435a0b7b4fe7f718e66ea4cef1b9c81a00059dd5d17f9cb7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1b15eca38ca0b3c1c3cc7800f4cbd039831b0616b6e70fdca01cb3c9ca49a9a1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1c8324446d3068637c38b9a03526fd58f6b2ffa6b2af7663922d43321e014036"
-    sha256 cellar: :any_skip_relocation, sonoma:        "61613d5a0ccb18b3914ee78aed28f6b46a1b0672f3e33e02a7cd1a6976809e3f"
-    sha256 cellar: :any,                 arm64_linux:   "9408c55b36cc65b45e883f55e4b7639c7e18f3f5f836cbc1988631ccfe5864a0"
-    sha256 cellar: :any,                 x86_64_linux:  "822fcca6989c718a580c3e32b98ca2afd0116604ff1ab2c9e3ceb9199a018e90"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "124e36870eb6df29a1f8c3f8627068768928564a9f641ca1e46c69193aa1be91"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9063bc074d000465e125880133bd14604ea1451f95d951bab92f11cf79ef40cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8c35db42d28e7367dd5ee37faf79c8b780ab9c353e5ab4ef22357b02d754cd4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "49576d784e88386da8d5aa00584d368c41950bd9150aa0a7e4a5e65380751383"
+    sha256 cellar: :any,                 arm64_linux:   "7d12229ed65abffae4bd0a9291a6cb1134c8bdcade0c609e7aa86cee36205316"
+    sha256 cellar: :any,                 x86_64_linux:  "27a018656a865858d48e177fb2893f6e96e5db746ff35ed0163e71a14b1feca0"
   end
 
   depends_on "rust" => :build
 
   uses_from_macos "libpcap"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "llvm" => :build
     depends_on "pkgconf" => :build
     depends_on "elfutils"
+    depends_on "zlib-ng-compat"
   end
 
   def install
@@ -37,7 +37,7 @@ class Rustnet < Formula
       # dir that we place first on PATH; regular C compiles still go through
       # Homebrew's gcc as intended.
       (buildpath/"bpf-clang").mkpath
-      (buildpath/"bpf-clang"/"clang").make_symlink Formula["llvm"].opt_bin/"clang"
+      (buildpath/"bpf-clang"/"clang").make_symlink formula_opt_bin("llvm")/"clang"
       ENV.prepend_path "PATH", buildpath/"bpf-clang"
     end
 

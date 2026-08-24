@@ -1,18 +1,18 @@
 class CargoGenerate < Formula
   desc "Use pre-existing git repositories as templates"
   homepage "https://github.com/cargo-generate/cargo-generate"
-  url "https://github.com/cargo-generate/cargo-generate/archive/refs/tags/v0.23.12.tar.gz"
-  sha256 "de3aac69feb0085bda238344521c2289e757d2211c5950ab8af8ae826908ad0c"
+  url "https://github.com/cargo-generate/cargo-generate/archive/refs/tags/v0.23.14.tar.gz"
+  sha256 "0fcd5c503e471d90ae3debf2238052acf30ab5052bc8bf2deca7e54091385cab"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/cargo-generate/cargo-generate.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "2d964462dbd0ad1a4e450d57f9ad12d6686242638b3c25bf42592f5a9cf5832c"
-    sha256 cellar: :any, arm64_sequoia: "49d60366d1322794c8094b5781fde746eb2c793a13a0b7e329cfd1526184d109"
-    sha256 cellar: :any, arm64_sonoma:  "0168c58898c3b26e540d37db5c1cecce2060993d4fa3490644e886c6e6fa40f4"
-    sha256 cellar: :any, sonoma:        "e4e0f2e4fbe99e5d85e4fadf092d328763da19879dba1c9699e945979d10b7ae"
-    sha256 cellar: :any, arm64_linux:   "74a74a320439234013b2591f1bdee76d45f3b4a8ef252f4fd5ac9e2809ab8e37"
-    sha256 cellar: :any, x86_64_linux:  "ef90d127b3bd3e36aef5ed09e93b33f12aa3d7bb0d090e4b3ed62c5bc33b96a0"
+    sha256 cellar: :any, arm64_tahoe:   "4ed7ccd776762896cae329061f28894faa5878c1c4253df6dc70c6d459afb14c"
+    sha256 cellar: :any, arm64_sequoia: "6dc62f8cdba9d01bf911b9cee55ee0a3c34d1aa9ff52167459a145a55ed711a8"
+    sha256 cellar: :any, arm64_sonoma:  "68869fee25e58c1cc3cb6b3a5204fdadde090c07a8c9667e812753f49880bd75"
+    sha256 cellar: :any, sonoma:        "70b2fedede54de683de486cb11fae2651d602cf69399d2b756a98d23320bdfef"
+    sha256 cellar: :any, arm64_linux:   "14a37cdeba8a4c6bf0e3b1fa948d2bdfbc04e11bce7f318f99e8a5370a40bd1a"
+    sha256 cellar: :any, x86_64_linux:  "96a2e01e1b04b381fd598293afe428585e30ea823ca676500b6dba1ddaba458b"
   end
 
   depends_on "pkgconf" => :build
@@ -25,7 +25,7 @@ class CargoGenerate < Formula
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
     # Ensure the correct `openssl` will be picked up.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
     system "cargo", "install", "--no-default-features", *std_cargo_args
   end
@@ -41,11 +41,11 @@ class CargoGenerate < Formula
     assert_match "brewtest", (testpath/"brewtest/Cargo.toml").read
 
     linked_libraries = [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
-      Formula["libssh2"].opt_lib/shared_library("libssh2"),
-      Formula["openssl@3"].opt_lib/shared_library("libssl"),
+      formula_opt_lib("libgit2")/shared_library("libgit2"),
+      formula_opt_lib("libssh2")/shared_library("libssh2"),
+      formula_opt_lib("openssl@3")/shared_library("libssl"),
     ]
-    linked_libraries << (Formula["openssl@3"].opt_lib/shared_library("libcrypto")) if OS.mac?
+    linked_libraries << (formula_opt_lib("openssl@3")/shared_library("libcrypto")) if OS.mac?
     linked_libraries.each do |library|
       assert Utils.binary_linked_to_library?(bin/"cargo-generate", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."

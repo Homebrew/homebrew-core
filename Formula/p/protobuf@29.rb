@@ -4,6 +4,7 @@ class ProtobufAT29 < Formula
   url "https://github.com/protocolbuffers/protobuf/releases/download/v29.6/protobuf-29.6.tar.gz"
   sha256 "877bf9f880631aa31daf2c09896276985696728137fcd43cc534a28c5566d9ba"
   license "BSD-3-Clause"
+  revision 2
   compatibility_version 1
 
   livecheck do
@@ -12,13 +13,12 @@ class ProtobufAT29 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "529447bb3f3cc0a131ee1a171eef643cf78257d0acc9ab2f83c29751981f60d2"
-    sha256 cellar: :any, arm64_sequoia: "67f2fdacf96b6bfe81ea3049b8a5295d62fa8b3f6dee4d32da6df963c20a1495"
-    sha256 cellar: :any, arm64_sonoma:  "44e99b689da10554f1b40f3141b7db369475c1ddef85ecc9ba9b8c7b011007e8"
-    sha256 cellar: :any, sonoma:        "6543a4d360f528ef50d620460019436745aa4a0c21a56258197492894eba15a9"
-    sha256               arm64_linux:   "838ffb210791c6591c7552126560a2d75df09a01166f34c47f702e03d52a8a08"
-    sha256               x86_64_linux:  "763ca704e1f0a497bfd7fd508b5ae440478d65531e78c22dd595785015e6cdf6"
+    sha256               arm64_tahoe:   "c2effd4944e3617f67cdc91b4ffcd48a9250e362beff8ff3785d35aafe361869"
+    sha256               arm64_sequoia: "00412e2075877e31bfb4da918420dd219981762845ae486df8fa85dc7c406732"
+    sha256               arm64_sonoma:  "fa47cdb16cd6cb0697667764421b6ab2226eecdd4b3b8db859ba048385b74dbc"
+    sha256 cellar: :any, sonoma:        "eaf9d5a787e19d0cb138df62d57dc0643978547001f22e98d4f3bbfe4c712d57"
+    sha256               arm64_linux:   "3612f295657bcb4ee3961de69dbbd41d8aacf7eea99d503a053280d53a76c28e"
+    sha256               x86_64_linux:  "d0a15e23918212083bc319b4a26bddc1dc97acd940f03b9f9c6fe6ec9118866c"
   end
 
   keg_only :versioned_formula
@@ -40,12 +40,16 @@ class ProtobufAT29 < Formula
   patch do
     url "https://github.com/protocolbuffers/protobuf/commit/9dc5aaa1e99f16065e25be4b9aab0a19bfb65ea2.patch?full_index=1"
     sha256 "edc1befbc3d7f7eded6b7516b3b21e1aa339aee70e17c96ab337f22e60e154d7"
+    type :backport
+    resolves "https://github.com/protocolbuffers/protobuf/pull/19363"
   end
 
   # Backport patch for compatibility with new Abseil.
   patch do
     url "https://github.com/protocolbuffers/protobuf/commit/d801cbd86818b587e0ebba2de13614a3ee83d369.patch?full_index=1"
     sha256 "ebab85f5b2c817b4adcd0bc66a7377a0aa4b9ecf667f1893f918c318369d3ef0"
+    type :backport
+    resolves "https://github.com/protocolbuffers/protobuf/pull/20413"
   end
 
   # Backport of (for compatibility with new Abseil):

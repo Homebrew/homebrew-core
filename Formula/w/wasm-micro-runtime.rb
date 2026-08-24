@@ -1,8 +1,8 @@
 class WasmMicroRuntime < Formula
   desc "WebAssembly Micro Runtime (WAMR)"
   homepage "https://github.com/bytecodealliance/wasm-micro-runtime"
-  url "https://github.com/bytecodealliance/wasm-micro-runtime/archive/refs/tags/WAMR-2.4.4.tar.gz"
-  sha256 "03ad51037f06235577b765ee042a462326d8919300107af4546719c35525b298"
+  url "https://github.com/bytecodealliance/wasm-micro-runtime/archive/refs/tags/WAMR-2.4.5.tar.gz"
+  sha256 "1ab09d51099f276ca4a1d6629f6b589aab2bd0caa01445e05031a4bed22c199b"
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/bytecodealliance/wasm-micro-runtime.git", branch: "main"
 
@@ -15,12 +15,12 @@ class WasmMicroRuntime < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cb1fb11460b0ba366b42a53826db2f0dc32c572650a5658f741696f76a0af5aa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4ca95524c2802e0fa4abc778ae0a597688ff236d4a250c23fe60325899e37341"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "887b91d48d7b797b7b8fed98196dfa5c3bed74193195143df8df7c5f8255e0d8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1f916c8ea659a2ea61fa5e5058475823a22002ee0b282cf45c49861428b95e88"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c465af087d23419ecdf9895fe47703c6dcff7a9707c923ee6d8330d9f135ee3f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50a35bc9d1fd6da9029443fd5120883f0deee39044e87bbb755f109c5197c374"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e769b0d5be413880dd81899dcf39bc048297ccdbf951564f24810fda93621fbc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "23d2706a3c3fa49a5ed00c8ee7c993686b5b90382ba74cc438bcfac132d78956"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d52781e7d6f164214c1d76c124328e9c37a0f3ed5e6b4743e74d9eb06eb29bf7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0095403b580d0a6ea1ef91f11eeaef877061610a19069fbd4280de1bb73cd292"
+    sha256 cellar: :any,                 arm64_linux:   "2bf5118b6178edf7bbeb65a83246285d85b2281b8292dd91442d6d59aa38a522"
+    sha256 cellar: :any,                 x86_64_linux:  "e2bab9b7f8cf43b7939ff086919fe10797f267d5bf1e58a2660c094f9b68c2de"
   end
 
   depends_on "cmake" => :build

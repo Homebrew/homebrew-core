@@ -46,7 +46,7 @@ class LibbitcoinConsensus < Formula
 
     system "./autogen.sh"
     system "./configure", "--disable-silent-rules",
-                          "--with-boost-libdir=#{Formula["boost"].opt_lib}",
+                          "--with-boost-libdir=#{formula_opt_lib("boost")}",
                           *std_configure_args
     system "make", "install"
   end

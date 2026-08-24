@@ -127,7 +127,7 @@ class PerlBuild < Formula
     # Replace cellar path to perl with opt path.
     if OS.linux?
       inreplace_files = [libexec/"bin/perl-build", libexec/"bin/config_data"]
-      inreplace inreplace_files, Formula["perl"].bin.realpath, Formula["perl"].opt_bin, global: false
+      inreplace inreplace_files, Formula["perl"].bin.realpath, formula_opt_bin("perl"), global: false
     end
   end
 

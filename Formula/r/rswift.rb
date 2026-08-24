@@ -19,7 +19,7 @@ class Rswift < Formula
   depends_on xcode: "13.3"
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release"
+    system "swift", "build", *std_swift_args
     bin.install ".build/release/rswift"
   end
 

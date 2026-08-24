@@ -2,13 +2,17 @@ class Pgloader < Formula
   desc "Data loading tool for PostgreSQL"
   homepage "https://github.com/dimitri/pgloader"
   license "PostgreSQL"
-  head "https://github.com/dimitri/pgloader.git", branch: "master"
 
   stable do
     # Using git checkout as Makefile runs `git archive` to create bundle
     url "https://github.com/dimitri/pgloader.git",
         tag:      "v3.6.10",
         revision: "af8c3c147297654967a0744052ab2eb8682b1466"
+
+    depends_on "sbcl" => :build
+    depends_on "freetds" => :no_linkage
+    depends_on "openssl@3" => :no_linkage
+    depends_on "zstd"
 
     # Resources to avoid `git clone`-ing them in Makefile
     resource "qmynd" do
@@ -46,50 +50,53 @@ class Pgloader < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f23ab10e44dba2d37a2581cf3ded0f0cfceb731e49af0f4565c98d60278a8a7"
   end
 
-  depends_on "buildapp" => :build
-  depends_on "sbcl" => :build
+  head do
+    url "https://github.com/dimitri/pgloader.git", branch: "main"
 
-  depends_on "freetds" => :no_linkage
-  depends_on "openssl@3" => :no_linkage
-  depends_on "zstd"
+    depends_on "clojure" => :build
+    depends_on "openjdk"
+  end
 
   on_linux do
     # Patchelf will corrupt the SBCL core which is appended to binary.
+    # TODO: Remove in 4.0
     pour_bottle? only_if: :default_prefix
   end
 
   def install
-    bundlename = "pgloader-bundle"
     if build.stable?
+      bundlename = "pgloader-bundle"
       # Improve reproducibility by avoiding master branch and git clones usage
       inreplace "Makefile", /(git archive .*) master /, "\\1 v#{version} "
       resources.each do |r|
         r.stage("build/bundle/#{bundlename}/local-projects/#{r.name}")
       end
-    end
 
-    # Creating bundle to use fixed date for reproducibly fetching dependencies. Increasing date to get
-    # https://github.com/melisgl/named-readtables/commit/6eea56674442b884a4fee6ede4c8aad63541aa5b
-    system "make", "build/#{bundlename}.tgz", "BUNDLENAME=#{bundlename}", "BUNDLEDIST=2026-01-01"
+      # Creating bundle to use fixed date for reproducibly fetching dependencies. Increasing date to get
+      # https://github.com/melisgl/named-readtables/commit/6eea56674442b884a4fee6ede4c8aad63541aa5b
+      system "make", "build/#{bundlename}.tgz", "BUNDLENAME=#{bundlename}", "BUNDLEDIST=2026-01-01"
 
-    bin.mkpath
-    system "tar", "-xf", "build/#{bundlename}.tgz"
-    system "make", "-C", bundlename, "BUILDAPP=#{Formula["buildapp"].bin}/buildapp", "PGLOADER=#{bin}/pgloader"
+      bin.mkpath
+      system "tar", "-xf", "build/#{bundlename}.tgz"
+      system "make", "-C", bundlename, "PGLOADER=#{bin}/pgloader"
 
-    # Work around patchelf corrupting the SBCL core which is appended to binary
-    # TODO: Find a better way to handle this in brew, either automatically or via DSL
-    if OS.linux? && build.bottle?
-      cp bin/"pgloader", prefix
-      Utils::Gzip.compress(prefix/"pgloader")
+      # Work around patchelf corrupting the SBCL core which is appended to binary
+      if OS.linux? && build.bottle?
+        cp bin/"pgloader", prefix
+        Utils::Gzip.compress(prefix/"pgloader")
+      end
+    else
+      cd "clojure" do
+        system "clojure", "-T:build", "uber"
+        libexec.install Dir["target/pgloader*.jar"]
+        bin.write_jar_script libexec/"pgloader.jar", "pgloader"
+      end
     end
   end
 
-  def post_install
-    if (prefix/"pgloader.gz").exist?
-      system "gunzip", prefix/"pgloader.gz"
-      bin.install prefix/"pgloader"
-      (bin/"pgloader").chmod 0755
-    end
+  # TODO: Remove in 4.0
+  post_install_steps do
+    install_gzipped_executable "pgloader.gz", "bin/pgloader"
   end
 
   test do

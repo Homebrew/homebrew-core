@@ -31,7 +31,7 @@ class Widelands < Formula
   depends_on "libpng"
   depends_on "lua"
   depends_on "minizip"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"

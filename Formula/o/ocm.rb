@@ -2,7 +2,7 @@ class Ocm < Formula
   desc "CLI for the Red Hat OpenShift Cluster Manager"
   homepage "https://www.openshift.com/"
   url "https://github.com/openshift-online/ocm-cli/archive/refs/tags/v1.0.15.tar.gz"
-  sha256 "be4d0b086f828926a60807c0f9ab224a68d4abe68333d058d57fdca03ae4bd0d"
+  sha256 "f8fea3b5ef66825646fb3adfeb8dbf0abb76fee3cc1a27f083d37280296bd31f"
   license "Apache-2.0"
   head "https://github.com/openshift-online/ocm-cli.git", branch: "main"
 
@@ -18,8 +18,7 @@ class Ocm < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/ocm"
+    system "go", "build", *std_go_args, "./cmd/ocm"
     generate_completions_from_executable(bin/"ocm", shell_parameter_format: :cobra)
   end
 

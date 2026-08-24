@@ -1,26 +1,30 @@
 class Yosys < Formula
   desc "Framework for Verilog RTL synthesis"
   homepage "https://yosyshq.net/yosys/"
-  url "https://github.com/YosysHQ/yosys/releases/download/v0.66/yosys-src.tar.gz"
-  sha256 "ba567ea7fbb1287e996aef8f20fe902f6fd408593aa50cfaea8ae0c9015ab872"
+  url "https://github.com/YosysHQ/yosys/releases/download/v0.68/yosys.tar.gz"
+  sha256 "ad8d2198e1a486e9089cc51a3158ecc764669267879518723fb98acc6fb24787"
   license "ISC"
   head "https://github.com/YosysHQ/yosys.git", branch: "main"
 
   bottle do
-    sha256 arm64_tahoe:   "1f455673f860c91a7fe654d49fbd4162a3d4c268974871ae1ae328bf2aefb406"
-    sha256 arm64_sequoia: "17485339f20a083a8779c683a7504c69e2fd2a124b862221cea3ddf6499fa85e"
-    sha256 arm64_sonoma:  "bbd41f58cedfe9b1088b368526f9c17a58d470fbb33c3a588c45b331ed57d16b"
-    sha256 sonoma:        "1830ad3f3aad743221bd70e63a582c106b81fc8d79d4749683d35264118d3280"
-    sha256 arm64_linux:   "08d4cc5dd4a7bb5c972b6f5fbc0deec1781cffffa102b81409f248ac388caaaf"
-    sha256 x86_64_linux:  "3cd1dbb658d4716b3372d3b5c8374e7a88f88c799a24ba236a8285dec12913c1"
+    sha256 cellar: :any, arm64_tahoe:   "e9e3261b48e210056dd276dc43bd7b792350cb6e8388b917d9cba8409ea83426"
+    sha256 cellar: :any, arm64_sequoia: "4fb467faeafad7bb32a5a8342570d88f3511c34884b5a8736da2367e052ee1d5"
+    sha256 cellar: :any, arm64_sonoma:  "52884f2196f48f3e1a66fae5f307ca6d492ac19bdde1005ce7eb556ce6b88c7c"
+    sha256 cellar: :any, sonoma:        "1d740875203c981511909cee3b3bc7df3f1f4f7800cc137dc8fbf3fc896b797d"
+    sha256 cellar: :any, arm64_linux:   "1b51932942e20f8f9a69f507ee9627ace67dea582cd68d321749ed1da7e3342b"
+    sha256 cellar: :any, x86_64_linux:  "8d9061b24f8ccd6d4aadf49732698c7bb51502e9bc2a58cba55521729aff9465"
   end
 
   depends_on "bison" => :build
+  depends_on "boost" => :build
+  depends_on "cmake" => :build
   depends_on "flex" => :build
+  depends_on "fmt" => :build
   depends_on "pkgconf" => :build
   depends_on "libtommath"
   depends_on "readline"
   depends_on "tcl-tk"
+  depends_on "tomlplusplus"
 
   uses_from_macos "libffi"
   uses_from_macos "python"
@@ -30,8 +34,17 @@ class Yosys < Formula
   end
 
   def install
-    ENV.append "LINKFLAGS", "-L#{Formula["readline"].opt_lib}"
-    system "make", "install", "PREFIX=#{prefix}", "PRETTY=0"
+    # Avoid shim reference
+    inreplace ["cmake/YosysVersion.cmake", "cmake/YosysConfigScript.cmake"],
+              "${CMAKE_CXX_COMPILER}", ENV.cxx
+
+    args = %w[
+      -DYOSYS_WITHOUT_EDITLINE=ON
+      -DYOSYS_WITHOUT_SLANG=ON
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

@@ -1,8 +1,8 @@
 class Yaf < Formula
   desc "Yet another flowmeter: processes packet data from pcap(3)"
   homepage "https://tools.netsa.cert.org/yaf/"
-  url "https://tools.netsa.cert.org/releases/yaf-2.19.3.tar.gz"
-  sha256 "6b03bc3d25495c01d8d8020b00a908ef1ed28b6edf78f631618208d81e809b30"
+  url "https://tools.netsa.cert.org/releases/yaf-2.20.3.tar.gz"
+  sha256 "fb581317124a2a5064c17e211cc2a0226a41f606c2135a5a5c6f672ecf6e4c9f"
   license "GPL-2.0-only"
 
   # NOTE: This should be updated to check the main `/yaf/download.html`
@@ -13,12 +13,12 @@ class Yaf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "bfcf711422adfa54260c067643bd0a96a2d8bf60fdd2fbd0e06ff8384e0c211e"
-    sha256 cellar: :any, arm64_sequoia: "ad18f1702c4d74ffae5b3170389e99bb411dcfe8c7ee64e1b4dad41a9bf1a7d2"
-    sha256 cellar: :any, arm64_sonoma:  "1ca0f942ce85a4deab36ef21685a17fec1c6496d854708241a18d7a530a1372d"
-    sha256 cellar: :any, sonoma:        "6e81d4d8d6963f765d965caa3d3a9cbb3b9e59babe0f62291c71fedd24868b79"
-    sha256 cellar: :any, arm64_linux:   "7fa6ce4dd4b0306e9b408d534a98a1c9edac323910b8bd49e22ccf90c1ec4a3f"
-    sha256 cellar: :any, x86_64_linux:  "88e2d6f2587e00c40ae787e8ac7e855a9816b7929f5afecd113da23c8e83332b"
+    sha256 cellar: :any, arm64_tahoe:   "7d58b6b29ef0bdac04e40a4f9dbe5cdefec4681d2d164790fd6b1eb77468335f"
+    sha256 cellar: :any, arm64_sequoia: "44f5446df10c09d8c593272f90eb1f601c42d450c97b052a543a7c9cd2876a53"
+    sha256 cellar: :any, arm64_sonoma:  "1a555454646cdab533b4eb2f39c55157797e99857f9137a00a470085c87d5609"
+    sha256 cellar: :any, sonoma:        "4cbac92c29d1eb92dd2ff4212594c833b4268ff0b6889b1f273045d9d60c142b"
+    sha256 cellar: :any, arm64_linux:   "cb70792aba44640ff604d804dd3867537337276e73236cc94800e802c2705357"
+    sha256 cellar: :any, x86_64_linux:  "1fa7b2898c187ae91606eba4d35aaba3bcca74a3120483a73e2c39c88ccc2406"
   end
 
   depends_on "pkgconf" => :build

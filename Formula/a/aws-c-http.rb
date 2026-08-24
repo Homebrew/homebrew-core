@@ -1,18 +1,18 @@
 class AwsCHttp < Formula
   desc "C99 implementation of the HTTP/1.1 and HTTP/2 specifications"
   homepage "https://github.com/awslabs/aws-c-http"
-  url "https://github.com/awslabs/aws-c-http/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "4ccbdd33c798b590288330dec9e93abe2ff6cfb198b7a4db036c9d362f2e6506"
+  url "https://github.com/awslabs/aws-c-http/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "2988843d5c95d92249d40e59480c2a4376533a91d8e38a5106dc4da5a8720ce5"
   license "Apache-2.0"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b9149152c04c5c25c04caa686a8d43e0751f3e0cc6c20b8a8415e8eff9f3029f"
-    sha256 cellar: :any,                 arm64_sequoia: "d2fff11d4a530964c0279fae924269b98a09bb9f6668ad3a2ad21db1b12c814d"
-    sha256 cellar: :any,                 arm64_sonoma:  "bc57d165ad688254fa8285d010d581886302a09c7d1a3c2d7ea3cd2999e8e3da"
-    sha256 cellar: :any,                 sonoma:        "cbbd735ddd8352efe23a14dcd3713d78b90e62802c78e28f94b18a6c52ee05e4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c63ccfb3843bef764d993d953c7ad459ff7e0eaf9d1e271af49972b820a0b17f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80d1a904c01352c85247d261c592f3a1ab15a98086fe4b10750832bfb5f6ad4e"
+    sha256 cellar: :any, arm64_tahoe:   "e386bf876e2c9a818dcbd5e469e933db66d3b04a45b72241498139a55446db73"
+    sha256 cellar: :any, arm64_sequoia: "cae2cb4f557374b37f5c16c06514beab53c5c0efca8b2d6b88141d7619e09e6d"
+    sha256 cellar: :any, arm64_sonoma:  "a0dbe5ecd8fb8dd0376849895f7e81cd6c23c4f75d907f2542313ea720b59673"
+    sha256 cellar: :any, sonoma:        "c47e442b1a24dc7081538707156f0d95107269e6d461df257ac256339bb13c34"
+    sha256 cellar: :any, arm64_linux:   "810dfa3569a76d47f3147eff4643709f2337e8eec7e5d62fe28748771182eff1"
+    sha256 cellar: :any, x86_64_linux:  "e37533670098a93a153822b3d1af29883400a88aeb21d89e9dbb9009a55cde11"
   end
 
   depends_on "cmake" => :build
@@ -20,6 +20,11 @@ class AwsCHttp < Formula
   depends_on "aws-c-common"
   depends_on "aws-c-compression"
   depends_on "aws-c-io"
+
+  on_macos do
+    depends_on "openssl@3"
+    depends_on "s2n"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
@@ -59,7 +64,7 @@ class AwsCHttp < Formula
       }
     C
     system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-laws-c-http",
-                   "-L#{Formula["aws-c-common"].opt_lib}", "-laws-c-common"
+                   "-L#{formula_opt_lib("aws-c-common")}", "-laws-c-common"
     system "./test"
   end
 end

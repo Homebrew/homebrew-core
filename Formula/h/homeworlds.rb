@@ -4,25 +4,26 @@ class Homeworlds < Formula
   url "https://github.com/Quuxplusone/Homeworlds/archive/refs/tags/v1.1.0.tar.gz"
   sha256 "3ffbad58943127850047ef144a572f6cc84fd1ec2d29dad1f118db75419bf600"
   license "BSD-2-Clause"
-  revision 3
+  revision 4
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "45a30b6daf394079ea156c6708a4831b7d3e752e56f5dd7e72c9e0986c56ff5d"
-    sha256 cellar: :any,                 arm64_sequoia: "2dbdfe54a18e00ecdb5829d0bbef94016a8da5997badafe96b9520319885a18d"
-    sha256 cellar: :any,                 arm64_sonoma:  "879e973ac4ce6c0e1db885f6c7cb9901cd5765ff9c418b2e71847ca0edfa17ae"
-    sha256 cellar: :any,                 sonoma:        "e7711669fb6570ea72d2678ab9d6f424efeb17162f65417f86bcfcec336fe410"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1028e2b8dbb347b5a05fb84b47f80ef8c74efb4df461deb24f1e6a868e2fbe1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "029d312f8762b3accec75527e02af6d9d29260aef2b888b2d7190d1ca823794b"
+    sha256 cellar: :any, arm64_tahoe:   "b54d64aa4b808f8e766bd97eb686810c7aaac1a5a75e2da90df5b213459c6561"
+    sha256 cellar: :any, arm64_sequoia: "a1a1e22ec2f4e99dc67ae371a0a51dc0fb423d01bc9fd667d88e00fbb730ceb9"
+    sha256 cellar: :any, arm64_sonoma:  "8c10e66a2b4040f43af16401ab968aa9b1f7bd81082d231e2da508f0ed4db08c"
+    sha256 cellar: :any, sonoma:        "18889c9eb4c4a7af491e70ce902b02f7072e0fa7f8d92b9c8f6c5c64b70ed7a7"
+    sha256 cellar: :any, arm64_linux:   "b1f09b7e626a6703f98721fa0d0e820dc76fb701f0f38b983a37df75138191df"
+    sha256 cellar: :any, x86_64_linux:  "1abe3d5dc91d0b2444e285fac0356e6fabee7e1cb61df19eadf45056c0e9cf15"
   end
 
   depends_on "wxwidgets"
 
   # Fix missing `#include`.
-  # https://github.com/Quuxplusone/Homeworlds/pull/6
   patch do
     url "https://github.com/Quuxplusone/Homeworlds/commit/bb1a5d2395df4e097122b311c0009801107f4d3a.patch?full_index=1"
     sha256 "a133fb4bdeb4a5d2759a7257989089402e0ad84edbaed86780c26d47e58b8d55"
+    type :unofficial
+    resolves "https://github.com/Quuxplusone/Homeworlds/pull/6"
   end
 
   def install

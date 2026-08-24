@@ -1,19 +1,19 @@
 class Pillow < Formula
   desc "Friendly PIL fork (Python Imaging Library)"
   homepage "https://python-pillow.github.io/"
-  url "https://files.pythonhosted.org/packages/8c/21/c2bcdd5906101a30244eaffc1b6e6ce71a31bd0742a01eb89e660ebfac2d/pillow-12.2.0.tar.gz"
-  sha256 "a830b1a40919539d07806aa58e1b114df53ddd43213d9c8b75847eee6c0182b5"
-  license "HPND"
+  url "https://files.pythonhosted.org/packages/1c/3d/bb7fca845737cf9d7dbde16ed1843984665ff2e0a518f5db43e77ec540b9/pillow-12.3.0.tar.gz"
+  sha256 "3b8182a766685eaa002637e28b4ec8d6b18819a0c71f579bf0dbaa5830297cce"
+  license "MIT-CMU"
   compatibility_version 1
   head "https://github.com/python-pillow/Pillow.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "6a1496db5f50e49e8b58127a4bbfdac444d7309ac18f51b4cd18301b48de3433"
-    sha256 cellar: :any, arm64_sequoia: "55149ea37a5ff3fe60129c1b9bc2b45b356f1a9802ab2ff8a81e07f17903b4c2"
-    sha256 cellar: :any, arm64_sonoma:  "797b3cb006116cd15ff08362d6b8452090519a6d2b55e5b22a6434967e91f750"
-    sha256 cellar: :any, sonoma:        "96237b57b45f02bcf8ca12873f171c4d3f57fee7061af6324336b801cd82a0da"
-    sha256               arm64_linux:   "7a656e113d98b8d928ad8bc41c95a1b568b41bd77b4ea54f04a28bc950bf856a"
-    sha256               x86_64_linux:  "fbc5cd28a3d00b3c107eaed67c20e2b4d934b5e4ba8da15a9789f31f3cfee022"
+    sha256 cellar: :any, arm64_tahoe:   "368dd59ca13924d5bb3389dbc251dddc0fa4bc931f8a723cfa132ce1d31055dc"
+    sha256 cellar: :any, arm64_sequoia: "3b3e8bfaa5ca2d7fc699923c86610e18c240bd8bab70e5f54bebfbdc0f7e5de1"
+    sha256 cellar: :any, arm64_sonoma:  "b3df9bfe1c2b7423a9cb2c6e3565bd17e9d4fdc7069e2c733414d46cc8f714e9"
+    sha256 cellar: :any, sonoma:        "5b5f330f08114aee902d719119fa41fd256064dfcde8c6f77690c18c8059009f"
+    sha256               arm64_linux:   "aa36b1124bca6af72026c6b6ab8e4155239f7c9d4a43a3da109aa082c6896878"
+    sha256               x86_64_linux:  "d7968166b5d2d7dba702ad5672f23100b47c876cfd0ef337863742894d649474"
   end
 
   depends_on "cmake" => :build

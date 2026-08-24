@@ -20,7 +20,7 @@ class JdnssecTools < Formula
   def install
     inreplace Dir["bin/*"], /basedir=.*/, "basedir=#{libexec}"
     bin.install Dir["bin/*"]
-    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
+    bin.env_script_all_files libexec/"bin", JAVA_HOME: formula_opt_prefix("openjdk")
     (libexec/"lib").install Dir["lib/*"]
   end
 

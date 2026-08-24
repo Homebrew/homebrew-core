@@ -1,17 +1,17 @@
 class Rrdtool < Formula
   desc "Round Robin Database"
   homepage "https://oss.oetiker.ch/rrdtool/"
-  url "https://github.com/oetiker/rrdtool-1.x/releases/download/v1.10.3/rrdtool-1.10.3.tar.gz"
-  sha256 "843b7caa2a80a815d44ac5c65daa42920cb64586fe804e36d0bc0783554e0635"
+  url "https://github.com/oetiker/rrdtool-1.x/releases/download/v1.11.0/rrdtool-1.11.0.tar.gz"
+  sha256 "24c345b5c077c1b2b2fcbc1a364f1da051650fb6743ad5213096adc04c862ed4"
   license "GPL-2.0-or-later" => { with: "RRDtool-FLOSS-exception-2.0" }
 
   bottle do
-    sha256 arm64_tahoe:   "2a8aef977853e7377eff56723665f698641e386fd42b4c08620b5d35c1ea9afb"
-    sha256 arm64_sequoia: "2b9c0214bfd612bf942910a87d008bf5a0a7d3e4aa7d3bf58700be10d2a68eec"
-    sha256 arm64_sonoma:  "6f760c882a97390cea6d8e6afc59948bfd70620dfc93c164c51c20536bf2a90f"
-    sha256 sonoma:        "d4ecdad71e024a6f06f21b2a21488be1d33d1c746449e51eda0af6c6f75fcbe7"
-    sha256 arm64_linux:   "7c511d76234e3f72ff89482a2eff773bc192e6371283097e5269179bfdcb0855"
-    sha256 x86_64_linux:  "cba6f2b5d2713d2f8cedf52a81ea8c58c1fc12ad71846d6eda908a06d8838b95"
+    sha256 arm64_tahoe:   "5b5771f9ce22660d34ebf057b623c98f28074469d89740d325741eab55b8df39"
+    sha256 arm64_sequoia: "043da3c2de7470fe44ee49730373e7bb40c12c62ed0158500c04e7c07d64ee51"
+    sha256 arm64_sonoma:  "5f024d714cdec495210d9841181f6b8cf1dee01f30c538266c20060f9d392e28"
+    sha256 sonoma:        "eb72757c3d6e43fb1f9f47d6848fb69491e066daf797beb5982d5d8160e5705e"
+    sha256 arm64_linux:   "106515dd0c9596694f8047bfc337cef0718556f25185efe35e456ae62144feac"
+    sha256 x86_64_linux:  "39d8fea0f86a2eec9202dc3abe1d6140e1eca8c00a0fdc6d3592285a801ef6b8"
   end
 
   head do

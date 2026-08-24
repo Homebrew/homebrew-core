@@ -21,7 +21,7 @@ class Savana < Formula
     # lib/* and logging.properties are loaded relative to bin
     prefix.install "bin"
     libexec.install %w[lib logging.properties]
-    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
+    bin.env_script_all_files libexec/"bin", JAVA_HOME: formula_opt_prefix("openjdk")
 
     bash_completion.install "etc/bash_completion" => "sav"
   end

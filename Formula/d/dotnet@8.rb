@@ -2,8 +2,8 @@ class DotnetAT8 < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-  url "https://github.com/dotnet/dotnet/archive/refs/tags/v8.0.128.tar.gz"
-  sha256 "42b2a05ed2758fdc4e18498fac6ec4d888c3643d3c8aa7199ca6c4a3e0059c79"
+  url "https://github.com/dotnet/dotnet/archive/refs/tags/v8.0.130.tar.gz"
+  sha256 "4132551b77ec3179db45338d3e9f7ebe5fd1c647582e44f23d22d7470bc08eff"
   license "MIT"
   compatibility_version 1
 
@@ -13,12 +13,12 @@ class DotnetAT8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "06c7569ab4c2f652722648b38a8b5a60b89ff3f38960217cd51e8b2a808cf02a"
-    sha256 cellar: :any, arm64_sequoia: "cf986c1a7c68cccb52aaccace2d0f109a96b4a04bc16598aca329b99ee2ee07e"
-    sha256 cellar: :any, arm64_sonoma:  "94812ef4c6ef33c0e41f07adf12ec91e95843909606594c641df5c09c203131c"
-    sha256 cellar: :any, sonoma:        "f9d37aaa75984e4e2cfdd88c215c1afeb42ee6f90952bcb6bea11fd7deae6cad"
-    sha256 cellar: :any, arm64_linux:   "f3ca513e45845213c5995891cdfb9e7744e3748486ec7bfcfe5b7ac6e938363a"
-    sha256 cellar: :any, x86_64_linux:  "3e10552f89d91e52603d5af60eaab75ed374c90edf5301f965ae424438c01573"
+    sha256 cellar: :any, arm64_tahoe:   "4e6ca87a324412efac058d7176d40b92222a55ff916d0a0e40bd15995d2b68c7"
+    sha256 cellar: :any, arm64_sequoia: "fd8001f1fa77b2cdaadb280de345232f2daed0da607b95575b6f604ed2eab29e"
+    sha256 cellar: :any, arm64_sonoma:  "98072cee7491c2e87fb0e92fc5b979d8aeb152cd9aeb7baf5df2304e1b87b780"
+    sha256 cellar: :any, sonoma:        "e8d0129e4af0e830a9fd2b9ec0a3ec8928cf675c070590e43b4c6f579f888464"
+    sha256 cellar: :any, arm64_linux:   "66bced854f77920e38cc5e7eaa02395c7e402ae4db317389e2a719e921da1579"
+    sha256 cellar: :any, x86_64_linux:  "ee51c5074efa8a11aaddc397ca631f6ef420998c0c05c052e8aefc9d98d216ec"
   end
 
   keg_only :versioned_formula
@@ -55,8 +55,8 @@ class DotnetAT8 < Formula
   end
 
   resource "release.json" do
-    url "https://github.com/dotnet/dotnet/releases/download/v8.0.128/release.json"
-    sha256 "228deb86b56420fee64fe820ebbe607634e860bedbcca1c495ff713f00e22e6f"
+    url "https://github.com/dotnet/dotnet/releases/download/v8.0.130/release.json"
+    sha256 "f58f6ffc0ff947ccfd6ce6771fc027ef2265a268d6545116b4b0737fc7d544b3"
 
     livecheck do
       formula :parent
@@ -69,8 +69,8 @@ class DotnetAT8 < Formula
 
     # .NET built with Apple Clang 2100 (based on LLVM 21) sporadically crashes
     if DevelopmentTools.clang_build_version >= 2100
-      ENV["CC"] = Formula["llvm@20"].opt_bin/"clang"
-      ENV["CXX"] = Formula["llvm@20"].opt_bin/"clang++"
+      ENV["CC"] = formula_opt_bin("llvm@20")/"clang"
+      ENV["CXX"] = formula_opt_bin("llvm@20")/"clang++"
       ENV.append_to_cflags "-I#{HOMEBREW_PREFIX}/include"
     end
 

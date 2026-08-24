@@ -2,7 +2,7 @@ class Pidgin < Formula
   desc "Multi-protocol chat client"
   homepage "https://pidgin.im/"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   stable do
     url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.14/pidgin-2.14.14.tar.bz2"
@@ -10,6 +10,8 @@ class Pidgin < Formula
 
     depends_on "intltool" => :build
     depends_on "at-spi2-core"
+    depends_on "cairo"
+    depends_on "gdk-pixbuf"
     depends_on "gnutls"
     depends_on "gtk+"
     depends_on "libgcrypt"
@@ -50,18 +52,17 @@ class Pidgin < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "ae1289bca94151de51149aab865e414377fcd3ce385b1b771c7aec98b87c0387"
-    sha256 arm64_sequoia: "e7d8f99958474cadfa8da24b6aca429e53d961af7cd5f3e89f914c833bca21db"
-    sha256 arm64_sonoma:  "aaefbd8740d505e3a6460a7ab075954cde0a9890cc5f52b2ca753a5841fa61fd"
-    sha256 sonoma:        "72919ceb55d3dbaa92f938e4a2850681a5265933fe27a306859d7f05eecee374"
-    sha256 arm64_linux:   "90da19fee3264f2d6a568d87449405fa785219fa39085be9b0e1189d803bf5a0"
-    sha256 x86_64_linux:  "fc8acd8bda4c38df7f4bc5b55e15087196689cb5c40ef000bbbd1eb105bfbe69"
+    sha256 arm64_tahoe:   "07fabdb8ecdca7fc63c9ed7118991e5ebbc54b23ebc3bc76a6ded44e5252948c"
+    sha256 arm64_sequoia: "f71d36dc27fc785264411d14d3228872361adf6df96630519e0a5d4b2d53d8d5"
+    sha256 arm64_sonoma:  "0a29c46da632237c790463a6212d7a338a0df3917cd61dc1cbd24458db4a7a51"
+    sha256 sonoma:        "17e02b2a71fe1fead33d12be64f57757b65c14874dad2b6a17b054ef4df36f74"
+    sha256 arm64_linux:   "b6351202b70a03c5ff1b1f8747753706415c016b8488a8723ea3f42cb6978e27"
+    sha256 x86_64_linux:  "e2e305b1a67c27a3a59c42f9285b93cb1c410c7ca7e7e0dbc29279561caeb59e"
   end
 
   head do
     url "https://keep.imfreedom.org/pidgin/pidgin/", using: :hg
 
-    depends_on "gi-docgen" => :build
     depends_on "gobject-introspection" => :build
     depends_on "gstreamer" => :build
     depends_on "mercurial" => :build
@@ -75,13 +76,12 @@ class Pidgin < Formula
     depends_on "libadwaita"
     depends_on "libsoup"
     depends_on "libspelling"
+    depends_on "qrencode"
     depends_on "sqlite"
   end
 
   depends_on "gettext" => :build
   depends_on "pkgconf" => :build
-  depends_on "cairo"
-  depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "libidn"
   depends_on "pango"
@@ -126,9 +126,9 @@ class Pidgin < Formula
       --disable-vv
       --enable-consoleui
       --enable-gnutls
-      --with-ncurses-headers=#{Formula["ncurses"].opt_include}
-      --with-tclconfig=#{Formula["tcl-tk@8"].opt_lib}
-      --with-tkconfig=#{Formula["tcl-tk@8"].opt_lib}
+      --with-ncurses-headers=#{formula_opt_include("ncurses")}
+      --with-tclconfig=#{formula_opt_lib("tcl-tk@8")}
+      --with-tkconfig=#{formula_opt_lib("tcl-tk@8")}
     ]
     args << "--without-x" if OS.mac?
 
@@ -144,15 +144,15 @@ class Pidgin < Formula
     system "make", "install"
 
     resource("pidgin-otr").stage do
-      ENV.prepend "CFLAGS", "-I#{Formula["libotr"].opt_include}"
+      ENV.prepend "CFLAGS", "-I#{formula_opt_include("libotr")}"
       ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
       system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
       system "make", "install"
     end
   end
 
-  def post_install
-    system Formula["glib"].opt_bin/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas" if build.head?
+  post_install_steps do
+    compile_gsettings_schemas
   end
 
   test do

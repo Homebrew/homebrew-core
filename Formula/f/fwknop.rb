@@ -46,9 +46,9 @@ class Fwknop < Formula
       --disable-silent-rules
       --sysconfdir=#{etc}
       --with-gpgme
-      --with-gpg=#{Formula["gnupg"].opt_bin}/gpg
+      --with-gpg=#{formula_opt_bin("gnupg")}/gpg
     ]
-    args << "--with-iptables=#{Formula["iptables"].opt_prefix}" unless OS.mac?
+    args << "--with-iptables=#{formula_opt_prefix("iptables")}" unless OS.mac?
     system "./configure", *std_configure_args, *args
     system "make", "install"
   end

@@ -1,8 +1,8 @@
 class Libadwaita < Formula
   desc "Building blocks for modern adaptive GNOME applications"
   homepage "https://gnome.pages.gitlab.gnome.org/libadwaita/"
-  url "https://download.gnome.org/sources/libadwaita/1.9/libadwaita-1.9.1.tar.xz"
-  sha256 "2ae34dbb3ea56d270925707cefa36050482ec88a741f1810b7619a5377c41a66"
+  url "https://download.gnome.org/sources/libadwaita/1.9/libadwaita-1.9.3.tar.xz"
+  sha256 "fc59b37028fe0126308e7b805d2f6e4e80227080a1797715e5e6286b8111e723"
   license "LGPL-2.1-or-later"
   compatibility_version 1
   head "https://gitlab.gnome.org/GNOME/libadwaita.git", branch: "main"
@@ -16,12 +16,12 @@ class Libadwaita < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "e61393333e9371e7b320dbe0a127361f51c3eb0a634c313bf81c129af479f63a"
-    sha256 arm64_sequoia: "d8b47b8fba7beece58c3603476ee2e9043e7e20f876490d8f37d892f245728e0"
-    sha256 arm64_sonoma:  "1f7c245ad7490be870f94f7599404ac894e4111686d9bcc6a20c2ce21237d2d3"
-    sha256 sonoma:        "77d8a9ab15bdc744abbb97416ec08ac9ca35ff7b946a2cc97b0ec509c75ba0ba"
-    sha256 arm64_linux:   "274630b8a4f6ea4bd5301e1814f89e85914f6d10a74ce31cda89a92074e8072a"
-    sha256 x86_64_linux:  "ac23956b9d5cd9ebc397499069d120a0fac43864e65726f39e4592a28ad6a82c"
+    sha256 arm64_tahoe:   "c080b1c761ef41b8e5d91bd261577de52d22c1a79b865a44172afc1ebd42816e"
+    sha256 arm64_sequoia: "534de899d272a70daf886ed375ef21946154f128cabfbff4b8b97af93834ba16"
+    sha256 arm64_sonoma:  "33dd7bc157069883664ebf2b3de6eea4918b3857d6a0d04c26a5fbcfacac584e"
+    sha256 sonoma:        "7f3c3aaa8a7b006216f11639741215c87b68dc30d01c113d60e0d18f2dcf93c8"
+    sha256 arm64_linux:   "e249b9c2b3f3671853040092dd286900cd1f7b78f3f5f5b013dad23283444c1c"
+    sha256 x86_64_linux:  "5fa5e2ba1e86b6a3ee66a9f2ef57c92331de78be310debf3c12300911c568923"
   end
 
   depends_on "dart-sass" => :build
@@ -49,16 +49,20 @@ class Libadwaita < Formula
   patch do
     url "https://gitlab.gnome.org/GNOME/libadwaita/-/commit/ad0214cd1f6fb79d743b252d35f2657f875480e8.diff"
     sha256 "b7d8c4920805bf62253738e4d2a7e56bd8c9f4468f082b7c7f8819132a333ea5"
+    type :unofficial
   end
 
   def install
     # Replace deprecated `sassc` with `sass` in the meson build file
+    # Use `expanded`, not `compressed`: GTK's CSS parser rejects dart-sass
+    # compressed output ("Expected ';' at end of block"). `expanded`
+    # matches upstream's `sassc -t compact`.
     inreplace "src/stylesheet/meson.build" do |s|
       s.gsub! "'sassc'", "'sass'"
-      s.gsub! "'-a', '-M', '-t', 'compact'", "'--style', 'compressed'"
+      s.gsub! "'-a', '-M', '-t', 'compact'", "'--style', 'expanded'"
     end
 
-    system "meson", "setup", "build", "-Dtests=false", *std_meson_args
+    system "meson", "setup", "build", "-Dtests=false", "-Dexamples=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
@@ -73,7 +77,7 @@ class Libadwaita < Formula
         return g_application_run (G_APPLICATION (app), argc, argv);
       }
     C
-    flags = shell_output("#{Formula["pkgconf"].opt_bin}/pkgconf --cflags --libs libadwaita-1").strip.split
+    flags = shell_output("#{formula_opt_bin("pkgconf")}/pkgconf --cflags --libs libadwaita-1").strip.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test", "--help"
 

@@ -22,12 +22,12 @@ class Antlr < Formula
 
     (bin/"antlr").write <<~SHELL
       #!/bin/bash
-      CLASSPATH="#{prefix}/antlr-#{version}-complete.jar:." exec "#{Formula["openjdk"].opt_bin}/java" -jar #{prefix}/antlr-#{version}-complete.jar "$@"
+      CLASSPATH="#{prefix}/antlr-#{version}-complete.jar:." exec "#{formula_opt_bin("openjdk")}/java" -jar #{prefix}/antlr-#{version}-complete.jar "$@"
     SHELL
 
     (bin/"grun").write <<~SHELL
       #!/bin/bash
-      exec "#{Formula["openjdk"].opt_bin}/java" -classpath #{prefix}/antlr-#{version}-complete.jar:. org.antlr.v4.gui.TestRig "$@"
+      exec "#{formula_opt_bin("openjdk")}/java" -classpath #{prefix}/antlr-#{version}-complete.jar:. org.antlr.v4.gui.TestRig "$@"
     SHELL
   end
 

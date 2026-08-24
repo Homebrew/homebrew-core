@@ -4,7 +4,7 @@ class OcamlFindlib < Formula
   url "https://github.com/ocaml/ocamlfind/archive/refs/tags/findlib-1.9.8.tar.gz"
   sha256 "d6899935ccabf67f067a9af3f3f88d94e310075d13c648fa03ff498769ce039d"
   license "MIT"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://opam.ocaml.org/packages/ocamlfind/"
@@ -12,12 +12,12 @@ class OcamlFindlib < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "b690ccd47c921760a3fd174d89de314aa63a417db08f3762af5931450b993703"
-    sha256               arm64_sequoia: "f8eab8fc29b9a4ad8c18baddaaa04b79af5baa4a8286d116fc575548045c045b"
-    sha256               arm64_sonoma:  "83c91809db7f64c9fecc52ba362bf77d204200a5465f8c1f8855e484fe4e9549"
-    sha256 cellar: :any, sonoma:        "0edf302c1fe0a1eb98dc206e8ecd200ba8427d7911de83fa07c75bca1ebc05f1"
-    sha256               arm64_linux:   "05a6b6652cbdaf56349e566a394c4b8d12af6e90fd9a0be3f8752026f385179f"
-    sha256               x86_64_linux:  "9749365e2bddc7e75a52a64f1405c56a78f7cbde07b630e93b89e640bbcabdb5"
+    sha256               arm64_tahoe:   "9f0f9c46ea933433d03c7a579a25b1ecfbef128abc01bffd5e10861c03712405"
+    sha256               arm64_sequoia: "f7a6a3d6cd034e2d01c267763e332356895cec34098cdb4bcf17627b34ebc53f"
+    sha256               arm64_sonoma:  "00b7e1d07f8850abb0294ed39375dd287571f79f4efc7672baa88066e87a2684"
+    sha256 cellar: :any, sonoma:        "d311d75665995914aa4c149fe6a1e9b1c20780097c5b9799cc3716ccd68ad914"
+    sha256               arm64_linux:   "06d19ac00cd1f1f2207fa7f6fd74af28a94be2d7e822d61f16699ac1696c1d30"
+    sha256               x86_64_linux:  "7b9dd899788d362e7e5e252d2c9bf2218c416d631c5f6fb9de83de51bc9fd088"
   end
 
   depends_on "ocaml"
@@ -57,7 +57,7 @@ class OcamlFindlib < Formula
       open Findlib;;
       Findlib.init();
     OCAML
-    system Formula["ocaml"].opt_bin/"ocamlopt", "-I", lib/"ocaml/findlib", "-o", "test", "findlib.cmxa", "test.ml"
+    system formula_opt_bin("ocaml")/"ocamlopt", "-I", lib/"ocaml/findlib", "-o", "test", "findlib.cmxa", "test.ml"
     system "./test"
   end
 end

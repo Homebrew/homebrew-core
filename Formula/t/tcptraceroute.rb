@@ -10,10 +10,11 @@ class Tcptraceroute < Formula
     sha256 "57fd2e444935bc5be8682c302994ba218a7c738c3a6cae00593a866cd85be8e7"
 
     # Call `pcap_lib_version()` rather than access `pcap_version` directly
-    # upstream issue: https://github.com/mct/tcptraceroute/issues/5
     patch do
       url "https://github.com/mct/tcptraceroute/commit/3772409867b3c5591c50d69f0abacf780c3a555f.patch?full_index=1"
       sha256 "c08e013eb01375e5ebf891773648a0893ccba32932a667eed00a6cee2ccf182e"
+      type :backport
+      resolves "https://github.com/mct/tcptraceroute/issues/5"
     end
   end
 

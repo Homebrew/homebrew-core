@@ -1,10 +1,9 @@
 class Onioncat < Formula
   desc "VPN-adapter that provides location privacy using Tor or I2P"
   homepage "https://github.com/rahra/onioncat"
-  url "https://github.com/rahra/onioncat/archive/refs/tags/v4.11.0.tar.gz"
-  sha256 "75ff9eed332e97a9efb7999bbe48867d00e06ac20601cc72b87897d5b1859f99"
+  url "https://github.com/rahra/onioncat/releases/download/v4.11.0/onioncat-4.11.0.tar.gz"
+  sha256 "5413a02baa94ef4d986628e6ffc1d03e9dbb231db7bfa5a615cc0726c3aea686"
   license "GPL-3.0-only"
-  head "https://github.com/rahra/onioncat.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "376be0d8ae8f091f6f6dae5beba524fd5ba07e2606264a73c1b827e187dc3ea2"
@@ -21,12 +20,17 @@ class Onioncat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7909dd65c46856bf1ba00a9253d6b51cd4c1b23b2595a57d0018607ca02bd94"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  head do
+    url "https://github.com/rahra/onioncat.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   depends_on "tor"
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose"
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *std_configure_args
     system "make", "install"
   end

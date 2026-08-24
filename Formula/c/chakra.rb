@@ -14,25 +14,27 @@ class Chakra < Formula
     # Fix build with modern compilers.
     # Remove with 1.12.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/chakra/clang10.patch"
-      sha256 "5337b8d5de2e9b58f6908645d9e1deb8364d426628c415e0e37aa3288fae3de7"
+      file "Patches/chakra/clang10.patch"
     end
 
     # Support Python 3.
     # Remove with 1.12.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/chakra/python3.patch"
-      sha256 "61c61c5376bc28ac52ec47e6d4c053eb27c04860aa4ba787a78266840ce57830"
+      file "Patches/chakra/python3.patch"
     end
 
     # Backport fixes needed to build with newer Clang on Linux
     patch do
       url "https://github.com/chakra-core/ChakraCore/commit/a2aae95cfb16cda814c557cc70c4bdb5156fd30f.patch?full_index=1"
       sha256 "07c94241591be4f8c30b5ea68d7fa08e8e71186f26b124ee871eaf17b2590a28"
+      type :backport
+      resolves "https://github.com/chakra-core/ChakraCore/pull/6983"
     end
     patch do
       url "https://github.com/chakra-core/ChakraCore/commit/46af28eb9e01dee240306c03edb5fa736055b5b7.patch?full_index=1"
       sha256 "d59f8bb5bbf716e4971b3a50d5fe2ca84c5901b354981e395a6c37adad8b2bb2"
+      type :backport
+      resolves "https://github.com/chakra-core/ChakraCore/pull/6985"
     end
   end
 

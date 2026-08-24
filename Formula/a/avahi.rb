@@ -6,8 +6,8 @@ class Avahi < Formula
   # CVE-2021-3468, CVE-2021-3502, CVE-2021-36217, CVE-2021-26720, CVE-2023-1981,
   # CVE-2023-38469, CVE-2023-38470, CVE-2023-38471, CVE-2023-38472, CVE-2023-38473,
   # CVE-2025-59529, CVE-2025-68276, CVE-2025-68468, CVE-2025-68471, CVE-2026-24401
-  url "https://github.com/avahi/avahi/archive/refs/tags/v0.9-rc4.tar.gz"
-  sha256 "08fcc57377ed05416ec4b3d8a179da716a7a9376821551a5ae16f8276a1ef0b5"
+  url "https://github.com/avahi/avahi/archive/refs/tags/v0.9-rc5.tar.gz"
+  sha256 "5b0a9d88110b0fc8aaafc5cc0a26e83e7d2a4aca3a36bc27c9b626db7ead27b0"
   license "LGPL-2.1-or-later"
 
   # Remove livecheck after 0.9 release
@@ -17,8 +17,8 @@ class Avahi < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "a86b81c920d871c0f159c3e1008330c29c04170a30da27ed11ce4aac933e43b7"
-    sha256 x86_64_linux: "e9136eabe53604d46164d013c689d1d565fd754069a36dd76eab1d8f2e7bd7e3"
+    sha256 arm64_linux:  "ab5d4c2704d2796fe9957a62f99c8195054d077570596cb09ca71bc4b74b1fd8"
+    sha256 x86_64_linux: "51b84437fd35e39139a86221e62ee8f6b9c70cbb74b2fbdcd5cbd3274ea50090"
   end
 
   depends_on "autoconf" => :build

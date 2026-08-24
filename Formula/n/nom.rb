@@ -20,7 +20,7 @@ class Nom < Formula
   def install
     ENV["CGO_ENABLED"] = "1" # Required by `go-sqlite3`
 
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/nom"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/nom"
   end
 
   test do

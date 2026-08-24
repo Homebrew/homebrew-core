@@ -1,19 +1,19 @@
 class Jadx < Formula
   desc "Dex to Java decompiler"
   homepage "https://github.com/skylot/jadx"
-  url "https://github.com/skylot/jadx/archive/refs/tags/v1.5.5.tar.gz"
-  sha256 "8c1af4a9aebd5334367d5d60c8d56b02755b2027f9f8bc6633b5c3afdc273e1a"
+  url "https://github.com/skylot/jadx/archive/refs/tags/v1.5.6.tar.gz"
+  sha256 "11bb5ebd8c3169ff3f87e6f928d60cff1545f0c55ba1f814ce67e43ba3f2a9e7"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/skylot/jadx.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "056438b2c1a698a28a6989a8ae959b1374c3830a706b46f79ed3e7bee0f12bf0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "056438b2c1a698a28a6989a8ae959b1374c3830a706b46f79ed3e7bee0f12bf0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "056438b2c1a698a28a6989a8ae959b1374c3830a706b46f79ed3e7bee0f12bf0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "056438b2c1a698a28a6989a8ae959b1374c3830a706b46f79ed3e7bee0f12bf0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a2825b8b309e071bed53f619a343dae20959dd2bcc5fe196d62ff2a80b9799a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a2825b8b309e071bed53f619a343dae20959dd2bcc5fe196d62ff2a80b9799a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0d4e73a3db3c8954b505f87d0df7dc900f04ee3158036ebb040d3ac420c24f8b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d4e73a3db3c8954b505f87d0df7dc900f04ee3158036ebb040d3ac420c24f8b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0d4e73a3db3c8954b505f87d0df7dc900f04ee3158036ebb040d3ac420c24f8b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0d4e73a3db3c8954b505f87d0df7dc900f04ee3158036ebb040d3ac420c24f8b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c813f91c5526d181d7571d4040efd27f8ee330a5b8ba1682e2653b549b2fb98f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c813f91c5526d181d7571d4040efd27f8ee330a5b8ba1682e2653b549b2fb98f"
   end
 
   depends_on "gradle" => :build

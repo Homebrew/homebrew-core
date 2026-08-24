@@ -44,8 +44,8 @@ class PostgresqlAT13 < Formula
   def install
     ENV.runtime_cpu_detection
     ENV.delete "PKG_CONFIG_LIBDIR" if OS.mac? && MacOS.version == :catalina
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib} -L#{Formula["readline"].opt_lib}"
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include} -I#{Formula["readline"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@3")} -L#{formula_opt_lib("readline")}"
+    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("openssl@3")} -I#{formula_opt_include("readline")}"
 
     args = %W[
       --disable-debug
@@ -95,14 +95,10 @@ class PostgresqlAT13 < Formula
               "LD = #{HOMEBREW_PREFIX}/bin/ld"
   end
 
-  def post_install
-    (var/"log").mkpath
-    postgresql_datadir.mkpath
-
+  post_install_steps do
+    mkdir_p "log", base: :var
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
-    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-
-    system bin/"initdb", "--locale=en_US.UTF-8", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
+    init_data_dir "postgresql@13", using: :postgresql, base: :var
   end
 
   def postgresql_datadir
@@ -111,10 +107,6 @@ class PostgresqlAT13 < Formula
 
   def postgresql_log_path
     var/"log/#{name}.log"
-  end
-
-  def pg_version_exists?
-    (postgresql_datadir/"PG_VERSION").exist?
   end
 
   def caveats

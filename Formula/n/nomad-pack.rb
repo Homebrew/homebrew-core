@@ -18,7 +18,6 @@ class NomadPack < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/hashicorp/nomad-pack/internal/pkg/version.GitCommit=#{tap.user}
       -X github.com/hashicorp/nomad-pack/internal/pkg/version.GitDescribe=v#{version}
     ]

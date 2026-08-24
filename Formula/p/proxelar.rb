@@ -1,17 +1,17 @@
 class Proxelar < Formula
   desc "Man-in-the-Middle proxy for HTTP/HTTPS traffic"
   homepage "https://proxelar.micheletti.io"
-  url "https://github.com/emanuele-em/proxelar/archive/refs/tags/v0.4.7.tar.gz"
-  sha256 "592edd0211e594de5b4af0c456db7e72fcbd1290f6b552b84a2cc80e994acfb7"
+  url "https://github.com/emanuele-em/proxelar/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "e4f67a2248a87101c4e4d28180b7d707f12cad90070d9687ad2411e7f25e32d9"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "871f620f3da82c0cadabc466b32dc450408a54743989ecdd03a8afda7a404a1a"
-    sha256 cellar: :any, arm64_sequoia: "9fa59540414a5f95e208151b59398877fed76149bb1318fa6d8cc57a6a766bba"
-    sha256 cellar: :any, arm64_sonoma:  "0881cc5d3dc83f113ecdbe0b521e6dd7a12892f5580db2e8803d6a0076b635a6"
-    sha256 cellar: :any, sonoma:        "f3251779f6a9ea211b888739efb78ee2c107ad465c531570bcdd5a2ca039d4f4"
-    sha256 cellar: :any, arm64_linux:   "621b612f5ac601c381efa573ee9d1ef95152d619b447978d934510d0f41c21e0"
-    sha256 cellar: :any, x86_64_linux:  "7c171dc9c5221fffacc3e1a9bc61ef7e67a792ef9051a449f39124ad69c03c68"
+    sha256 cellar: :any, arm64_tahoe:   "1fad1026bd4816fbe670c06d0c0445a5783ff6b930ff8b6afbf85eddafcfdb9c"
+    sha256 cellar: :any, arm64_sequoia: "d143a2b171780859059ca9e04facc4ace2fcc3d2b1897137f10c8a5702b0e9b9"
+    sha256 cellar: :any, arm64_sonoma:  "048a3bc89f12d285d5bc51d09d29290792e0a94643345d1ce0360a6754f5c0cd"
+    sha256 cellar: :any, sonoma:        "7fa9ffd2064347deb33779a5fc904732fea36054aa6ed3e3bf1973a01baec456"
+    sha256 cellar: :any, arm64_linux:   "dde6a18c5092e9993a374c968098935a8236fc7d40a66b6599284c56e2ec0844"
+    sha256 cellar: :any, x86_64_linux:  "b9b6ceba6d4e4cb1267db375c17d43efef594db4e5ff9c33587a32a883088feb"
   end
 
   depends_on "pkgconf" => :build
@@ -19,7 +19,7 @@ class Proxelar < Formula
   depends_on "openssl@4"
 
   def install
-    ENV["OPENSSL_DIR"] = Formula["openssl@4"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
     system "cargo", "install", *std_cargo_args(path: "proxelar-cli")
   end
 

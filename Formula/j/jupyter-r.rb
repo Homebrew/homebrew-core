@@ -145,7 +145,7 @@ class JupyterR < Formula
   end
 
   def install
-    rscript = Formula["r"].opt_bin/"Rscript"
+    rscript = formula_opt_bin("r")/"Rscript"
     site_library = lib/"R/site-library"
     site_library.mkpath
 
@@ -168,17 +168,17 @@ class JupyterR < Formula
 
     inreplace "#{site_library}/pbdZMQ/etc/Makeconf" do |s|
       s.gsub!(/PKG_CONFIG = .+/, "PKG_CONFIG = #{HOMEBREW_PREFIX}/bin/pkg-config")
-      s.gsub! Formula["zeromq"].prefix.realpath, Formula["zeromq"].opt_prefix
+      s.gsub! Formula["zeromq"].prefix.realpath, formula_opt_prefix("zeromq")
     end
 
     ENV["R_LIBS"] = site_library
     system rscript, "-e", "library(IRkernel); IRkernel::installspec(user=FALSE, prefix='#{prefix}')"
-    inreplace share/"jupyter/kernels/ir/kernel.json", Formula["r"].prefix.realpath, Formula["r"].opt_prefix
+    inreplace share/"jupyter/kernels/ir/kernel.json", Formula["r"].prefix.realpath, formula_opt_prefix("r")
   end
 
   test do
     r_version = Formula["r"].version
-    jupyter = Formula["jupyterlab"].opt_bin/"jupyter"
+    jupyter = formula_opt_bin("jupyterlab")/"jupyter"
 
     ENV["JUPYTER_PATH"] = share/"jupyter"
     ENV["R_LIBS_SITE"] = lib/"R/site-library"

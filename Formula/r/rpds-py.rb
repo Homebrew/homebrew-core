@@ -3,18 +3,18 @@ class RpdsPy < Formula
 
   desc "Python bindings to Rust's persistent data structures"
   homepage "https://rpds.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/2e/43/25a8dcd3feedd735039a8f0b5b7e3b118232b5eae288c4fd9ab200d41094/rpds_py-2026.5.1.tar.gz"
-  sha256 "07b24fea40541e28570e5b795a4a38fbdcd12550c06bd0748005ecc8116ca256"
+  url "https://files.pythonhosted.org/packages/aa/2a/9618a122aeb2a169a28b03889a2995fe297588964333d4a7d67bdf46e147/rpds_py-2026.6.3.tar.gz"
+  sha256 "1cebd1337c242e4ec2293e541f712b2da849b29f48f0c293684b71c0632625d4"
   license "MIT"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "9891bd49f258c2938b83836301b897d5233bd5674cf376f9acce3faa387fe21c"
-    sha256 cellar: :any, arm64_sequoia: "fa22ff97d66e66239b52785025ed16ecd3c3f0503ffc7f3c45f2d50522811548"
-    sha256 cellar: :any, arm64_sonoma:  "90eb5cb97727b360594c1ad5754e50914168e9d79b2b1f992ac49888b6fab4ab"
-    sha256 cellar: :any, sonoma:        "a2e44885e2a7f256c67adede77bcae36952ec5b44c6ca6ce51064cf4f3633e9b"
-    sha256 cellar: :any, arm64_linux:   "90348d1888a871b1127b6d8c108d35db52039153546b388509bb692bcd893b08"
-    sha256 cellar: :any, x86_64_linux:  "de4ea069b065799b8c8167a69030b0e248e8aced5743a69e5d5fcb6a3554e8a3"
+    sha256 cellar: :any, arm64_tahoe:   "263f26952c943f8704b81c9d02de7f744f0482537c9b99cf38af8159dd3f880d"
+    sha256 cellar: :any, arm64_sequoia: "659f5e783e028cf5ea05b913597226d7de497c63117440f8957faae3e57fe10f"
+    sha256 cellar: :any, arm64_sonoma:  "65f0b0a05280247f885ac4fd00526870f00d25a483f3b254acd63ffd2aa2722d"
+    sha256 cellar: :any, sonoma:        "3fe3248e249a5fc2bbebbc6cb25b2a5d70a8b9095bfadb27ab84de9c60167ae6"
+    sha256 cellar: :any, arm64_linux:   "58af52827af49ff40a20fa7db4dbd254fb2f9d58c6729e30c0d79340d614e88e"
+    sha256 cellar: :any, x86_64_linux:  "4a2d9a2c14fbe07e34f533e18133f1faee06edd1a648c61d261c77ae3d743ed2"
   end
 
   depends_on "maturin" => :build

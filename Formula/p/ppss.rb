@@ -10,6 +10,9 @@ class Ppss < Formula
     sha256 cellar: :any_skip_relocation, all: "e341e42c45d8ab9d5251b5330405329c45f1342a2cd94a466764b894a2b9ac6c"
   end
 
+  deprecate! date: "2026-07-17", because: :deprecated_upstream
+  disable! date: "2027-01-17", because: :deprecated_upstream
+
   def install
     bin.install "ppss"
   end

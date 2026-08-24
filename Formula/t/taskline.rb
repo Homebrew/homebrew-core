@@ -27,7 +27,7 @@ class Taskline < Formula
     linux_dir.mkpath
     # Replace the vendored pre-built xsel with one we build ourselves.
     # We add unused symlink on macOS to create an all bottle
-    ln_sf (Formula["xsel"].opt_bin/"xsel").relative_path_from(linux_dir), linux_dir
+    ln_sf (formula_opt_bin("xsel")/"xsel").relative_path_from(linux_dir), linux_dir
   end
 
   test do

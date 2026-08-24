@@ -29,7 +29,7 @@ class Kyua < Formula
   uses_from_macos "sqlite"
 
   def install
-    ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
+    ENV.append "CPPFLAGS", "-I#{formula_opt_include("lua")}/lua"
 
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",

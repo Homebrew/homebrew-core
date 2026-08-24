@@ -1,8 +1,8 @@
 class Libksba < Formula
   desc "X.509 and CMS library"
   homepage "https://www.gnupg.org/related_software/libksba/"
-  url "https://gnupg.org/ftp/gcrypt/libksba/libksba-1.8.0.tar.bz2"
-  sha256 "296b9db9095749f2aa104202d7ab7fd09ad10710e00780a709c9754b1a1d9292"
+  url "https://gnupg.org/ftp/gcrypt/libksba/libksba-1.8.1.tar.bz2"
+  sha256 "c2f84393011827219ae117131dba8e7684c2bed0961eed11b0642c2acba440b5"
   license any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"]
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class Libksba < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a14ed50998df34e93b8eeedea30c7b953ebd07d2de779f6f040bcb628a8c03f0"
-    sha256 cellar: :any,                 arm64_sequoia: "0f0fe7be0551bbc43def382b1a57b6c9c0cd389d9f6ff94e4814f13d874d57ab"
-    sha256 cellar: :any,                 arm64_sonoma:  "0d6ac900bba8a7db4d070d0dc105c6d2e1dc4d7db114eada045e05a36b730c94"
-    sha256 cellar: :any,                 sonoma:        "e628ca384fbbd51f879713e75c9c7fbd8c006ebb0774568acb47b92c31b87642"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "daf8a2212c7bee6a9af2eb0ddf9a56c8c6f6d112f0520ec699b009a2fe837afb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a5518938a0b0907d4d12c0153dcba08245d65442e7ee1c0a5663e5935b591305"
+    sha256 cellar: :any, arm64_tahoe:   "3525fe3de3234476c4d8e07607ce8481941c5e866d89c82c4f2d11d40a08f52f"
+    sha256 cellar: :any, arm64_sequoia: "cc1bfa116e5e7550d0caeee4aba27203aa15ceb485083f5a6e91e6ab9c7011dd"
+    sha256 cellar: :any, arm64_sonoma:  "dec0bab0bcff0c515c9b10cbe85f5f2b802489bdd19f421ce6cc13db929b5bca"
+    sha256 cellar: :any, sonoma:        "e5036f50c0f5f015ac66a7d3426cc40d61c830cc52386408b410f3bcc8a7d45f"
+    sha256 cellar: :any, arm64_linux:   "8d33f9a176df2946deab95be35fcbb6d2775a79fbef41a55eaf259a2d1329e6f"
+    sha256 cellar: :any, x86_64_linux:  "74e720998979bbca5597eca92df39202c44229c674cc9368d578e6fbc08109ee"
   end
 
   depends_on "libgpg-error"

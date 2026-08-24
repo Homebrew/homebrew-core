@@ -3,30 +3,30 @@ class B4 < Formula
 
   desc "Tool to work with public-inbox and patch archives"
   homepage "https://b4.docs.kernel.org/en/latest/"
-  url "https://files.pythonhosted.org/packages/c3/34/7f17fce52acb992d7b70aaa956e6dec4dc432ce8d195a176f232fcd6315c/b4-0.15.2.tar.gz"
-  sha256 "b815f2aed2288718cfe2a14c76421a00bc4f0918ea32b45dd1645c999fdda69d"
+  url "https://files.pythonhosted.org/packages/3b/89/70da0dcb6a75833a388aeb15aef12d859950793f8ce68faff757df97d1e3/b4-0.16.0.tar.gz"
+  sha256 "071823a1e904508a6fd9aaf8cc2f9a92697e1dfa270000b4d1130015b56f4137"
   license "GPL-2.0-or-later"
-  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e35e9bcf7da47891d673e85c6c425c5ae67a4cede872e99be1309fac93336225"
-    sha256 cellar: :any,                 arm64_sequoia: "5ae1f5564a87b9eac662bca7687e108b61a5f329ec293b22304424b00c059525"
-    sha256 cellar: :any,                 arm64_sonoma:  "4acd5fa15095f7efd74b0c160338c9453ab652c19f9563f068176e295418060f"
-    sha256 cellar: :any,                 sonoma:        "615edc0412ac2da021633f2d6b9257ef67adc23913118cb8c4a7dd36bcd6f5b4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c061b27b458e12faf4a5507e711e9d9e8fe8296912de58f9d4b8fdc6ba2fe8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e5932989bb4539a3037735929a897d1fe4d8b631bc462a5c28b684df3c949c54"
+    sha256 cellar: :any, arm64_tahoe:   "9c99ebc9e8c3cc07cc9ab7c57115b1c4c572adaad772408fd54d2d8c511b1a6d"
+    sha256 cellar: :any, arm64_sequoia: "afd8552c95c1f88103d20f549627aac0d6051f0cf7deaf535ec005987695ad2d"
+    sha256 cellar: :any, arm64_sonoma:  "10b3ce2c3dda1f14b868d3dac290a20a042e036df6f08a995ebd24cdd38ab848"
+    sha256 cellar: :any, sonoma:        "eb3fda162a22598be3154f03e46c892bf12e35b3bcc3860481f547763f244e7b"
+    sha256 cellar: :any, arm64_linux:   "a01c335753eb1c64f0f0a1383964bd580e11862691169f817050d94e6a70f738"
+    sha256 cellar: :any, x86_64_linux:  "c32838bb2e3745c92fddb0afa6051d003ed16e9ba0cf20040fca5a9837853cdc"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "cffi" => :no_linkage
+  depends_on "libgit2"
   depends_on "libsodium"
   depends_on "python@3.14"
 
   pypi_packages exclude_packages: ["certifi", "cffi"]
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "dkimpy" do
@@ -39,19 +39,29 @@ class B4 < Formula
     sha256 "181d3c6996452cb1189c4046c61599b84a5a86e099562ffde77d26984ff26d0f"
   end
 
-  resource "git-filter-repo" do
-    url "https://files.pythonhosted.org/packages/b9/bb/7a283f568af6b0528ade65e8ace84bd6ba46003e429101bcd62c232d01a5/git_filter_repo-2.47.0.tar.gz"
-    sha256 "411b27e68a080c07a69c233cb526dbc2d848b09a72f10477f4444dd0822cf290"
+  resource "ezgb" do
+    url "https://files.pythonhosted.org/packages/bd/35/b765be847cd02e6282d8374d7082f97eec8afa6ad40efdf8e22e27ff9004/ezgb-0.2.0.tar.gz"
+    sha256 "f758d883ad63efead5afe5a1b311d6adc9ddc22eb67c901d474cced32d66e2f5"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
-    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
+    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
+    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
+  end
+
+  resource "liblore" do
+    url "https://files.pythonhosted.org/packages/fa/1c/977577255b58e57e0c11667e069f943a0cac1b8d74c65bc501e0649032bf/liblore-0.8.1.tar.gz"
+    sha256 "0499dc2f29973d3612d8c49855d891d24f69ef1c8899ad514e730f59cd33c513"
   end
 
   resource "patatt" do
-    url "https://files.pythonhosted.org/packages/17/f9/d9c3ace058873379cec76fbe2ed887e8d47e55d56704018c29b35e30e440/patatt-0.7.0.tar.gz"
-    sha256 "f7b2be8a15f251fbbc90c6b734ab910654a7a9d184369ce9e77b6d26e43b9eea"
+    url "https://files.pythonhosted.org/packages/60/84/ce3398941bcb26a5ee12a066a5d2b052bf9211f713d98ed78573b5364fea/patatt-0.8.0.tar.gz"
+    sha256 "c226b5e7e449a4981b827c48e2586a928fa45b690af19a3892b9279b334f2551"
+  end
+
+  resource "pygit2" do
+    url "https://files.pythonhosted.org/packages/a6/44/415aa93422b4bfc21a6448acb7e16280d5f33a9a3fae38a384e37b046ae4/pygit2-1.19.3.tar.gz"
+    sha256 "a543e6d4ebb43825564935758dc234e770016fed673b84370d46ae9580558831"
   end
 
   resource "pynacl" do
@@ -76,6 +86,7 @@ class B4 < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/b4 --version")
 
+    ENV["GIT_CONFIG_GLOBAL"] = "#{testpath}/.gitconfig"
     (testpath/".gitconfig").write <<~EOS
       [user]
         name = Homebrew

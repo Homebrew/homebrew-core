@@ -1,8 +1,8 @@
 class Gravitino < Formula
   desc "High-performance, geo-distributed, and federated metadata lake"
   homepage "https://gravitino.apache.org"
-  url "https://github.com/apache/gravitino/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "f0c788245f0d6ce0f31ecf53eae8af64add8e601c105cc65fc6eb34591cea3cb"
+  url "https://github.com/apache/gravitino/releases/download/v1.3.0/gravitino-1.3.0-src.tar.gz"
+  sha256 "4fec3128fcec5f38afb77a5aca3d5db80e985461c11939c1bdce7494ff3dbbe2"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Gravitino < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "112c25e374e904df246e33eb0a0ff5d65195d466fbc77f81ffdd93d529061346"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44767d2c12dcb60aa477eb6f4a2b2e02b3620fb83eff1988d99d6027a70f85f6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a5de05de794c047666e48b450b7ce61c7cdb1473f962866a74f39a8e9a0fc377"
-    sha256 cellar: :any_skip_relocation, sonoma:        "359d11ee0a917fbebffa1454104ccb3bc4e1e41eb1fff79ef5fc3ca945ff3efb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "17497e31968f86cd28620b035727b4960bdf9f137255d09f04017e55b1a901e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c1188ad8f1efc7dc453bf6f75f65044c77d8f77bce38745d33f417e7e40c183"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "794b4cc79e434926e460b0d0697ae2e5198efec4fdd6fd9ef73c32c55d8d872c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4901ff795ebf93c216a95118c47f3f4981aeac8cda7c50411b4f0adc5d9ea1c3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf599f7ae3b3366ca3a912d1e38173295ed63a2fa8eec6469542715b4deb31b3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "98ef093c496da92d131e1fadc8f14bf2a2c6fb54ba9ba7568634f14135d1cae4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "401f2545ca7c3e9a6b0bcf6e4cb1ad45be626cf8e2860443a4f76320d79b3781"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7394f88858b425fc22774a867ce23a19e24eb9ad8cceb3a908f851a0b4d5fe14"
   end
 
   depends_on "gradle@8" => :build # Gradle 9 issue ref: https://github.com/apache/gravitino/issues/8571

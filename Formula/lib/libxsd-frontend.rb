@@ -56,7 +56,7 @@ class LibxsdFrontend < Formula
     XSD
 
     system ENV.cxx, "-std=c++11", pkgshare/"test.cxx", "-o", "test",
-                    "-L#{lib}", "-lxsd-frontend", "-L#{Formula["libcutl"].opt_lib}", "-lcutl"
+                    "-L#{lib}", "-lxsd-frontend", "-L#{formula_opt_lib("libcutl")}", "-lcutl"
     assert_equal <<~TEXT, shell_output("./test test.xsd")
       primary
       {

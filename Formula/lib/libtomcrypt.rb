@@ -4,26 +4,27 @@ class Libtomcrypt < Formula
   url "https://github.com/libtom/libtomcrypt/archive/refs/tags/v1.18.2.tar.gz"
   sha256 "d870fad1e31cb787c85161a8894abb9d7283c2a654a9d3d4c6d45a1eba59952c"
   license "Unlicense"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:    "373529c12106df1c9d42ee7b18397378695aab805e3f615578c3c4658773cd23"
-    sha256 cellar: :any,                 arm64_sequoia:  "3572bea96ce1e844e910c3e5ec392de56a789a581dfb1860169c7c30d94359fb"
-    sha256 cellar: :any,                 arm64_sonoma:   "2743b90014a43cb92757b4b4be23cbcd231d821702e680f15180513cf3030af1"
-    sha256 cellar: :any,                 arm64_ventura:  "d1f46d9db67ffb4b33d3419aba1e6e870a9a802b83df1d2aa15c4e6fd32f336a"
-    sha256 cellar: :any,                 arm64_monterey: "59af3e5207ab67b8a0d16f2014516198a299b3acec8181a3b0779ce4161b73ed"
-    sha256 cellar: :any,                 arm64_big_sur:  "b44213ca06c3cd177563cd22daf8cbb912fca0dfd754c69e86851af5a0b35cc3"
-    sha256 cellar: :any,                 sonoma:         "6b0591e8b409b44cc5cd7eeca0e4562b573b8e2eb4d07bcf5332a7085e107ab4"
-    sha256 cellar: :any,                 ventura:        "5fd60ad0923f5288a69d6dfd21b240bf8de82b261567992a1ff064484130a25e"
-    sha256 cellar: :any,                 monterey:       "90264e0441e4796b20e7c13dca05149e582f77187cea53c333f8839417992bd0"
-    sha256 cellar: :any,                 big_sur:        "53181a23459d9a55cdcf9f0283310d3b6ceb9049239c0a223e74202481de7300"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "7118ecc3f9a3986ee0fa6fd49e54d844092c5ead298e59dd6b9adb6a21b37653"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27294aefd23c971546ba62354ee81327a45f84ae4bf5e953c0397def99dfce51"
+    sha256 cellar: :any, arm64_tahoe:   "d82b0b852bedb11cdfe7f28a254014746e93a0328be95bd8e766651bdf0de2ca"
+    sha256 cellar: :any, arm64_sequoia: "244b29efcfb583713abea15ac3f2e9db78db69e446590a0fde61f7f95e68312f"
+    sha256 cellar: :any, arm64_sonoma:  "1b9d391bb3218384bf0aa828237089788f117de17522aba6f1e97179b01c8090"
+    sha256 cellar: :any, sonoma:        "61fe2b3c884b8251113d9ba0ad706d18e9f0e273686b8fafdb98fe9a400be47d"
+    sha256 cellar: :any, arm64_linux:   "31a97ee8228a34c6741ceacd7d143587015cdf8ad3265efaf6ef4f76537bb393"
+    sha256 cellar: :any, x86_64_linux:  "47a647f60c5017666d2313890c33f0448ab9852adedd5eecedf3b5d2df9603b5"
   end
 
   depends_on "libtool" => :build
   depends_on "gmp"
   depends_on "libtommath"
+
+  patch do
+    url "https://github.com/libtom/libtomcrypt/commit/64d1153e5a515740ab56f39c46baf4cf6991a9d3.patch?full_index=1"
+    sha256 "74a7abbe90dd5faf82a139810e13f2978f3a974f57adc463191a0ba1b4378412"
+    type :backport
+    resolves "CVE-2019-17362"
+  end
 
   def install
     ENV.append_to_cflags "-DUSE_GMP -DGMP_DESC -DUSE_LTM -DLTM_DESC"

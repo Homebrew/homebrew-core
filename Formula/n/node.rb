@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v26.3.0/node-v26.3.0.tar.xz"
-  sha256 "319ad5d7d20cc622e55eb75b9f1a2546b77a08bd462b67030d0c89316c2c2349"
+  url "https://nodejs.org/dist/v26.7.0/node-v26.7.0.tar.xz"
+  sha256 "e6b182cbeeab032d1082ca4ac4fe15e3a57de691d3bde78ecf8a761fd56ee356"
   license "MIT"
   compatibility_version 1
   head "https://github.com/nodejs/node.git", branch: "main"
@@ -13,13 +13,12 @@ class Node < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "b4e808869c4e2e264524f3a54279d942321d96d4a1497c06e02533db0863ad81"
-    sha256 cellar: :any, arm64_sequoia: "094aa37e3df29929745fb544e90d27fa975a65cc32ab0baf4764f1610777498a"
-    sha256 cellar: :any, arm64_sonoma:  "d641eb32238d9d618926a5b1fde22c09db786fa4f766b262aa4b88d39a4bf64b"
-    sha256 cellar: :any, sonoma:        "b6e58457b021c00f06785efbcfc2226abf718831c4df29615d757a604e46798b"
-    sha256 cellar: :any, arm64_linux:   "298e09c8d546e06422e524ea3fabbc64384bbaaf829debc3d87f449c097af2e1"
-    sha256 cellar: :any, x86_64_linux:  "3f6963fdec1025e7fcb114aeda76fe792827e9f536061772270289c832970d02"
+    sha256 arm64_tahoe:   "a33a3deba0d6f80ee138d7ffe30afecadd71eb176a881af1e4114303e1678f7d"
+    sha256 arm64_sequoia: "80f02089263fbc62215805a483fea446717e94e782c5e13b3c96261ae3c151a3"
+    sha256 arm64_sonoma:  "50f4b66d98828d14c081cefab39cc007aef223a1731a697d6e1e9050adb6db02"
+    sha256 sonoma:        "c516e962e0667e7ef9cfe6a3665285ac3bed381015e048bf96efb3f3a8fa8630"
+    sha256 arm64_linux:   "b135a5dea295371af3000acab43d7774fe398fb3b63dcd7e0b12e1b7be6a6f37"
+    sha256 x86_64_linux:  "96316cfb7630362c6c0e1371154475b6585371f9bea13d40fe49e21a3137930b"
   end
 
   depends_on "pkgconf" => :build
@@ -71,8 +70,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-11.16.0.tgz"
-    sha256 "30fc15697c771002878665c29f49dddde9aa8667fa5719854b2f52d3cd19230b"
+    url "https://registry.npmjs.org/npm/-/npm-11.19.0.tgz"
+    sha256 "31e9770f7dc71119a58509353b27917557aaf0ac9b5ef1a0465ee7d8ec67ae75"
 
     livecheck do
       url "https://raw.githubusercontent.com/nodejs/node/refs/tags/v#{LATEST_VERSION}/deps/npm/package.json"
@@ -85,13 +84,6 @@ class Node < Formula
   deny_network_access! [:build, :postinstall]
 
   def install
-    # Backport fix for bundled LIEF's bundled spdlog's bundled fmt.
-    # Should be fixed when new LIEF version with following commit is released and used by node:
-    # https://github.com/lief-project/LIEF/commit/710637216b1f6f19569002d62e43fca201b9d91c
-    inreplace "deps/LIEF/third-party/spdlog/include/spdlog/fmt/bundled/format.h",
-              "#ifndef FMT_MODULE\n#  include <cmath>",
-              "#ifndef FMT_MODULE\n#  include <stdlib.h>\n#  include <cmath>"
-
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = which("python3.14")
 
@@ -100,12 +92,14 @@ class Node < Formula
 
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
+    # Disable SEA as incompatible with --shared, https://github.com/nodejs/node/issues/63126
     args = %W[
       --prefix=#{prefix}
       --without-npm
       --with-intl=system-icu
       --shared
       --openssl-use-def-ca-store
+      --disable-single-executable-application
     ]
     args << "--tag=head" if build.head?
 
@@ -136,8 +130,8 @@ class Node < Formula
       rm_r(buildpath/"deps"/subdir)
       args << "--shared-#{flag}"
       if formula
-        args << "--shared-#{flag}-includes=#{Formula[formula].include}"
-        args << "--shared-#{flag}-libpath=#{Formula[formula].lib}"
+        args << "--shared-#{flag}-includes=#{formula_opt_include(formula)}"
+        args << "--shared-#{flag}-libpath=#{formula_opt_lib(formula)}"
       end
     end
 
@@ -145,7 +139,7 @@ class Node < Formula
     # - `--shared-gtest` is only used for building the test suite, which we don't run here.
     # - `--shared-simdutf` seems to result in build failures.
     # - `--shared-temporal_capi` is only used when building with `--v8-enable-temporal-support`
-    # - `--shared-lief` is not available as dependency in Homebrew.
+    # - `--shared-lief` is only used for disabled SEA feature
     ignored_shared_flags = %w[
       gtest
       simdutf
@@ -168,12 +162,11 @@ class Node < Formula
       end
     end
 
-    # Enabling LTO errors on Linux with:
-    # terminate called after throwing an instance of 'std::out_of_range'
+    # Enabling LTO causes brew to error on Linux with a vague message:
+    # Error: Process completed with exit code 123.
     # macOS also can't build with LTO when using LLVM Clang
     # LTO is unpleasant if you have to build from source.
-    # FIXME: re-enable me, currently crashes sequoia runner after 6 hours
-    # args << "--enable-lto" if OS.mac? && DevelopmentTools.clang_build_version > 1699 && build.bottle?
+    args << "--enable-lto" if OS.mac? && ENV.compiler == :clang && build.bottle?
 
     system "./configure", *args
     system "make", "install"
@@ -184,53 +177,57 @@ class Node < Formula
     bootstrap = buildpath/"npm_bootstrap"
     bootstrap.install resource("npm")
     # These dirs must exists before npm install.
-    mkdir_p libexec/"lib"
-    system "node", bootstrap/"bin/npm-cli.js", "install", "-ddd", "--global",
+    (libexec/"lib").mkpath
+    system "node", bootstrap/"bin/npm-cli.js", "install", "--loglevel=silly", "--global",
             "--prefix=#{libexec}", resource("npm").cached_download
 
     # The `package.json` stores integrity information about the above passed
     # in `cached_download` npm resource, which breaks `npm -g outdated npm`.
     # This copies back over the vanilla `package.json` to fix this issue.
-    cp bootstrap/"package.json", libexec/"lib/node_modules/npm"
+    (libexec/"lib/node_modules/npm").install bootstrap/"package.json"
 
     # These symlinks are never used & they've caused issues in the past.
     rm_r libexec/"share" if (libexec/"share").exist?
 
     # Create temporary npm and npx symlinks until post_install is done.
-    ln_s libexec/"lib/node_modules/npm/bin/npm-cli.js", bin/"npm"
-    ln_s libexec/"lib/node_modules/npm/bin/npx-cli.js", bin/"npx"
+    bin.install_symlink libexec/"lib/node_modules/npm/bin/npm-cli.js" => "npm"
+    bin.install_symlink libexec/"lib/node_modules/npm/bin/npx-cli.js" => "npx"
 
     # Use the _npm completion included in Zsh rather than generating broken completion
     generate_completions_from_executable(bin/"npm", "completion", shells: [:bash], shell_parameter_format: :none)
+
+    (libexec/"lib/node_modules/npm/npmrc").write("prefix = #{HOMEBREW_PREFIX}\n")
   end
 
-  def post_install
-    node_modules = HOMEBREW_PREFIX/"lib/node_modules"
-    node_modules.mkpath
-    # Remove npm but preserve all other modules across node updates/upgrades.
-    rm_r node_modules/"npm" if (node_modules/"npm").exist?
-
-    cp_r libexec/"lib/node_modules/npm", node_modules
-    # This symlink doesn't hop into homebrew_prefix/bin automatically so
-    # we make our own. This is a small consequence of our
-    # bottle-npm-and-retain-a-private-copy-in-libexec setup
-    # All other installs **do** symlink to homebrew_prefix/bin correctly.
-    # We ln rather than cp this because doing so mimics npm's normal install.
-    ln_sf node_modules/"npm/bin/npm-cli.js", bin/"npm"
-    ln_sf node_modules/"npm/bin/npx-cli.js", bin/"npx"
-    ln_sf bin/"npm", HOMEBREW_PREFIX/"bin/npm"
-    ln_sf bin/"npx", HOMEBREW_PREFIX/"bin/npx"
-
-    # Create manpage symlinks (or overwrite the old ones)
-    %w[man1 man5 man7].each do |man|
-      # Dirs must exist first: https://github.com/Homebrew/legacy-homebrew/issues/35969
-      mkdir_p HOMEBREW_PREFIX/"share/man/#{man}"
-      # still needed to migrate from copied file manpages to symlink manpages
-      rm(Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.,npx.}*"])
-      ln_sf Dir[node_modules/"npm/man/#{man}/{npm,package-,shrinkwrap-,npx}*"], HOMEBREW_PREFIX/"share/man/#{man}"
+  # Replace npm but preserve all other modules across node updates/upgrades.
+  # The bin symlink is to overwrite the temporary npm and npx symlinks to use
+  # global path. Also create manpage symlinks (or overwrite the old ones).
+  post_install_steps do
+    mkdir_p "{{HOMEBREW_PREFIX}}/lib/node_modules"
+    mkdir_p "{{HOMEBREW_PREFIX}}/share/man/man1"
+    mkdir_p "{{HOMEBREW_PREFIX}}/share/man/man5"
+    mkdir_p "{{HOMEBREW_PREFIX}}/share/man/man7"
+    if_path_exists "{{HOMEBREW_PREFIX}}/lib/node_modules/npm" do
+      remove "{{HOMEBREW_PREFIX}}/lib/node_modules/npm", recursive: true
     end
+    copy "{{libexec}}/lib/node_modules/npm", "{{HOMEBREW_PREFIX}}/lib/node_modules", recursive: true
+    symlink "{{HOMEBREW_PREFIX}}/lib/node_modules/npm/bin/npm-cli.js", "{{bin}}/npm", overwrite: true
+    symlink "{{HOMEBREW_PREFIX}}/lib/node_modules/npm/bin/npx-cli.js", "{{bin}}/npx", overwrite: true
+    symlink "{{HOMEBREW_PREFIX}}/lib/node_modules/npm/man/man1/{npm,npx,package-}*",
+            "{{HOMEBREW_PREFIX}}/share/man/man1", overwrite: true, source_glob: true
+    symlink "{{HOMEBREW_PREFIX}}/lib/node_modules/npm/man/man5/{npm,npx,package-}*",
+            "{{HOMEBREW_PREFIX}}/share/man/man5", overwrite: true, source_glob: true
+    symlink "{{HOMEBREW_PREFIX}}/lib/node_modules/npm/man/man7/{npm,npx,package-}*",
+            "{{HOMEBREW_PREFIX}}/share/man/man7", overwrite: true, source_glob: true
+  end
 
-    (node_modules/"npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
+  # Explain why some features enabled in upstream binaries are disabled in Homebrew.
+  # These require fixes upstream for Homebrew to consider enabling them. Do not open issues.
+  def caveats
+    <<~EOS
+      Single Executable Application is disabled as it doesn't work with shared libnode.
+      Temporal support is disabled as it doesn't work with shared ICU library.
+    EOS
   end
 
   test do

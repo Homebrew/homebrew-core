@@ -1,8 +1,8 @@
 class Libical < Formula
   desc "Implementation of iCalendar protocols and data formats"
   homepage "https://libical.github.io/libical/"
-  url "https://github.com/libical/libical/releases/download/v4.0.3/libical-4.0.3.tar.gz"
-  sha256 "86f29029d0ec9fa30c9001de16c0859a3816ae154ff5b097392b014e21a3d254"
+  url "https://github.com/libical/libical/releases/download/v4.0.5/libical-4.0.5.tar.gz"
+  sha256 "cc09a3ac41d60e6144e644bd3fcf97d47106d659c4a0b8965102581401e67c9c"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class Libical < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "02e90b1fa91e1cf46d5e58e8fef59149bc62f24e12f38dd87128f964c8ae2ba6"
-    sha256 cellar: :any, arm64_sequoia: "3eac51a82310a33d8b91b0018ced3df845b0f4b5ed7b93337a03e347084862d4"
-    sha256 cellar: :any, arm64_sonoma:  "3d2546321333cb02bd8d9403f97fc14634e641f20a0b863c524dddfcde6c2811"
-    sha256 cellar: :any, sonoma:        "400c6e3d47e9054b789ab098d4edfbe62c8b30581f7bfa4bf7fcf4cac6058f03"
-    sha256 cellar: :any, arm64_linux:   "a519b93d30b693aee45f8ba6917b661f684b6985ecbd8a6642d1b9827895fc13"
-    sha256 cellar: :any, x86_64_linux:  "ad3462b6b0ecadcf79391fc00bbb187998e322d6f74328585e44124d87c4a0e1"
+    sha256 cellar: :any, arm64_tahoe:   "f1de09188a68e831bdd83655483216b53ef49c5335e4450b4fac95badf587796"
+    sha256 cellar: :any, arm64_sequoia: "e29340ff7ce9cdb11c7f8f4f9c7a3e9a7412b8cdc8cdaea9e5b5faa5468cbdf4"
+    sha256 cellar: :any, arm64_sonoma:  "62aa6a36d618e228f58564b31286960b34df4241661f8d7ebdd5ad1a99cebfd8"
+    sha256 cellar: :any, sonoma:        "bd4a3ef9c7aca5b77697562c3499f9eb96da5ea4a49c302ad73085ebc6c1f804"
+    sha256 cellar: :any, arm64_linux:   "77f9a63ebfe12a913f3ff7303e91161d8fa38fdf0f29073cec6dd96e160063e3"
+    sha256 cellar: :any, x86_64_linux:  "3184327968b165956effba33099920b62ac22e68ccbaf29ffc259a8513ed24de"
   end
 
   depends_on "cmake" => :build
@@ -56,8 +56,8 @@ class Libical < Formula
     C
 
     system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-lical-glib",
-                   "-I#{Formula["glib"].opt_include}/glib-2.0",
-                   "-I#{Formula["glib"].opt_lib}/glib-2.0/include"
+                   "-I#{formula_opt_include("glib")}/glib-2.0",
+                   "-I#{formula_opt_lib("glib")}/glib-2.0/include"
     system "./test"
   end
 end

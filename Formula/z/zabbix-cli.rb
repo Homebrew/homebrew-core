@@ -3,14 +3,13 @@ class ZabbixCli < Formula
 
   desc "CLI tool for interacting with Zabbix monitoring system"
   homepage "https://unioslo.github.io/zabbix-cli/"
-  url "https://files.pythonhosted.org/packages/90/45/12141a3e7d172993f99299fa3360ab462e6f15265cb069b5bdc681b7825e/zabbix_cli_uio-3.6.3.tar.gz"
-  sha256 "7bed5eaa067e9f32dc597db03204f01d8771d303217e20b15a07b7788a92aa8c"
+  url "https://files.pythonhosted.org/packages/1d/a6/8e6d8fbf6842f2a363807bce5f59ccc7cd97c64b79c282e38af7b5384958/zabbix_cli_uio-3.7.0.tar.gz"
+  sha256 "0f3f923b75a8d4e3b4d57e3d8822177db1dae11ee100f6e4cf9af6cb28fb52bf"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://github.com/unioslo/zabbix-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "81141c60054dcd29cbbf9b4239a3f93dd1cbcb6b9d57a2b43e580472f744b9af"
+    sha256 cellar: :any_skip_relocation, all: "7c04aae0e80559c00fbe49c32eaa943897806f58bfa29a787223a76aef75f344"
   end
 
   depends_on "certifi" => :no_linkage
@@ -26,13 +25,13 @@ class ZabbixCli < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/19/14/2c5dd9f512b66549ae92767a9c7b330ae88e1932ca57876909410251fe13/anyio-4.13.0.tar.gz"
-    sha256 "334b70e641fd2221c1505b3890c69882fe4a2df910cba14d97019b90b24439dc"
+    url "https://files.pythonhosted.org/packages/1c/b5/001890774a9552aff22502b8da382593109ce0c95314abaebbb116567545/anyio-4.14.0.tar.gz"
+    sha256 "b47c1f9ccf73e67021df785332508f99379c68fa7d0684e8e3492cb1d4b23f89"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/23/e4/796662cd90cf80e3a363c99db2b88e0e394b988a575f60a17e16440cd011/click-8.4.0.tar.gz"
-    sha256 "638f1338fe1235c8f4e008e4a8a254fb5c5fbdcbb40ece3c9142ebb78e792973"
+    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
+    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
   end
 
   resource "h11" do
@@ -51,8 +50,8 @@ class ZabbixCli < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
-    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
+    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
+    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
   end
 
   resource "markdown-it-py" do
@@ -71,8 +70,8 @@ class ZabbixCli < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/9f/4a/0883b8e3802965322523f0b200ecf33d31f10991d0401162f4b23c698b42/platformdirs-4.9.6.tar.gz"
-    sha256 "3bfa75b0ad0db84096ae777218481852c0ebc6c727b3168c1b9e0118e458cf0a"
+    url "https://files.pythonhosted.org/packages/d7/47/e4501f49c178ae1d9f4a75073fda4204f52647993f075a9db4d14930e0c5/platformdirs-4.10.0.tar.gz"
+    sha256 "31e761a6a0ca04faf7353ea759bdba55652be214725111e5aac52dfa29d4bef7"
   end
 
   resource "prompt-toolkit" do
@@ -103,6 +102,7 @@ class ZabbixCli < Formula
     patch do
       url "https://github.com/sethmlarson/socksio/commit/b326406915fd98a8185c1c160165c5b8963b30c1.patch?full_index=1"
       sha256 "7aefa906b62e2c9a8df255ea742ca97e155ac2e1238e49ce11e3e56e37ee1f8b"
+      type :backport
     end
   end
 
@@ -114,6 +114,8 @@ class ZabbixCli < Formula
     patch do
       url "https://github.com/irgeek/StrEnum/commit/896bef1b7e4a50c8b53d90c8d2fb5c0164f08ecd.patch?full_index=1"
       sha256 "1d74618b970b04d5548e9efa9134010812c20a941e26381d71bc21b06cfc667b"
+      type :unofficial
+      resolves "https://github.com/irgeek/StrEnum/pull/34"
     end
   end
 
@@ -128,8 +130,8 @@ class ZabbixCli < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/2c/ee/afaf0f85a9a18fe47a67f1e4422ed6cf1fe642f0ae0a2f81166231303c52/wcwidth-0.7.0.tar.gz"
-    sha256 "90e3a7ea092341c44b99562e75d09e4d5160fe7a3974c6fb842a101a95e7eed0"
+    url "https://files.pythonhosted.org/packages/49/b4/51fe890511f0f242d07cb1ebe6a5b6db417262b9d2568b460347c57d95cc/wcwidth-0.8.1.tar.gz"
+    sha256 "faf5b4a5366a72dc49cad48cdf21f52bdf63bdda995178e483ba247ff79089b9"
   end
 
   def install

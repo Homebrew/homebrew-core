@@ -1,40 +1,26 @@
 class Metabase < Formula
   desc "Business intelligence report server"
   homepage "https://www.metabase.com/"
-  url "https://downloads.metabase.com/v0.62.2/metabase.jar"
-  sha256 "caa3986d7cd30fc075dea8c65837c085f62b0de01721b0ba82b28a21a9d825eb"
+  url "https://downloads.metabase.com/v0.63.14/metabase.jar"
+  sha256 "2e0c6d64db01b9fdae2243d42222fbd30b43209fc3ddc5927c61d26f8f476a02"
   license "AGPL-3.0-only"
 
   # The first-party download page only provides an unversioned link to the
   # latest OSS jar file. We check the "latest" GitHub release, as the release
   # body text contains a versioned link to the OSS jar file.
   livecheck do
-    url :head
+    url "https://github.com/metabase/metabase.git"
     strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "85e23b73e84d614a519991ebe9814d17dbd58e7193f5011c6f06d9e2cb5eadce"
-  end
-
-  head do
-    url "https://github.com/metabase/metabase.git", branch: "master"
-
-    depends_on "leiningen" => :build
-    depends_on "node" => :build
-    depends_on "yarn" => :build
+    sha256 cellar: :any_skip_relocation, all: "cd4c10016335788b84b451fd1f4c89987827d2ca3065061a5761536b4c94df0e"
   end
 
   depends_on "openjdk"
 
   def install
-    if build.head?
-      system "./bin/build"
-      libexec.install "target/uberjar/metabase.jar"
-    else
-      libexec.install "metabase.jar"
-    end
-
+    libexec.install "metabase.jar"
     bin.write_jar_script libexec/"metabase.jar", "metabase"
   end
 

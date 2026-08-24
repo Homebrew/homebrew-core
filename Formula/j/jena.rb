@@ -1,13 +1,13 @@
 class Jena < Formula
   desc "Framework for building semantic web and linked data apps"
   homepage "https://jena.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=jena/binaries/apache-jena-6.1.0.tar.gz"
-  mirror "https://archive.apache.org/dist/jena/binaries/apache-jena-6.1.0.tar.gz"
-  sha256 "653108a91fd9b309a89bc756258bae0bca01587cef475942d11852e3beba2ae3"
+  url "https://www.apache.org/dyn/closer.lua?path=jena/binaries/apache-jena-6.2.0.tar.gz"
+  mirror "https://archive.apache.org/dist/jena/binaries/apache-jena-6.2.0.tar.gz"
+  sha256 "14c12ef4aa2f0078a473be4b10b015e0e0b85e767d6867e8581679de8fec3f6e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b91af00edaad8af49ea8d7346c3777cff5797f0c92c6415d2dd02126bc0a0e92"
+    sha256 cellar: :any_skip_relocation, all: "7467ee5fd13c634c65af9e517b7441c93200c0f3ef31a723e12181b65f205503"
   end
 
   depends_on "openjdk"
@@ -18,7 +18,7 @@ class Jena < Formula
 
   def install
     env = {
-      JAVA_HOME: Formula["openjdk"].opt_prefix,
+      JAVA_HOME: formula_opt_prefix("openjdk"),
       JENA_HOME: libexec,
     }
 

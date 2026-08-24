@@ -6,12 +6,13 @@ class GuileGnutls < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "b313105e2382370a54d456742cd85f2a062ab9c39563826f6a325f77d56db83f"
-    sha256 arm64_sequoia: "6509147f21e260e84f94d730b129121ff2a4f7922666b3a2436d8e757cce7729"
-    sha256 arm64_sonoma:  "8ab04c813ed52b7671a1000733412cf4a7989559d92b98ea8ea346cea270db4d"
-    sha256 sonoma:        "750f3b5de59464e339d042f3232e384cb6793f9ff44ab10281ec314cad331970"
-    sha256 arm64_linux:   "8fbe51d775f07fcd3b4b192d593f3cf36e4435414fc695d7b7f5d72aa5516880"
-    sha256 x86_64_linux:  "3aea5102f38be22db21e73e51673a1909946aaf0ecff29ba6a45055f62ee40aa"
+    rebuild 1
+    sha256 arm64_tahoe:   "7a7e4c3927ac3a3a4abf9e783fdbba42efff0156a425c937248a921d461e8bd1"
+    sha256 arm64_sequoia: "4f999b97f86f3b891da3dd638432cd1766567be29ec965c95f2089e765831945"
+    sha256 arm64_sonoma:  "570d2b025ebc591415057e176ac9b19040f80b7e1f4a303e7f22cc06f2dd8846"
+    sha256 sonoma:        "1b0efc78f64687a8bc1202d9f25a1314ddc869fea2f32e8747a5a745b7e766a3"
+    sha256 arm64_linux:   "058ac4f670b9b0813119aed187b93e9d42f009b611879255e8be53a66b8c3d5b"
+    sha256 x86_64_linux:  "ad881df0017917a8e39d7ba4f8ce29e215b13700dd87ec8775ff43736256e9b9"
   end
 
   head do
@@ -42,10 +43,10 @@ class GuileGnutls < Formula
     system "make", "install"
   end
 
-  def post_install
+  post_install_steps do
     # Touch gnutls.go to avoid Guile recompilation.
     # See https://github.com/Homebrew/homebrew-core/pull/60307#discussion_r478917491
-    touch lib/"guile/3.0/site-ccache/gnutls.go"
+    touch "{{lib}}/guile/3.0/site-ccache/gnutls.go"
   end
 
   def caveats

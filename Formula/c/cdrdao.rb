@@ -35,6 +35,8 @@ class Cdrdao < Formula
   patch do
     url "https://github.com/cdrdao/cdrdao/commit/105d72a61f510e3c47626476f9bbc9516f824ede.patch?full_index=1"
     sha256 "0e235c0c34abaad56edb03a2526b3792f6f7ea12a8144cee48998cf1326894eb"
+    type :unofficial
+    resolves "https://github.com/cdrdao/cdrdao/pull/19"
   end
 
   def install

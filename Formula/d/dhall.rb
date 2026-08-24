@@ -11,13 +11,13 @@ class Dhall < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "8d1cada694c3dfd625aeb86fa339784b3fcc62bf88b561cc845bfb74f36d6f33"
-    sha256 cellar: :any,                 arm64_sequoia: "3b7a347308cfa4b651651415e637778f07ae2b5f7a0d5d58d738e194d2c45500"
-    sha256 cellar: :any,                 arm64_sonoma:  "7e537b533bd61f3b7eaa8b0a9f21e934f887f2fbb2a7610e76a12ec25d5d795a"
-    sha256 cellar: :any,                 sonoma:        "1684b9448091971b87dc6e1764028f94f891a874056ebc72b24efdeac50eac01"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae7bc8a7b099ffe0baf3d2c64be38d16b59eb193b9dde5dc593d4821a23d8229"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4988d54246a5d4db6d2419c51ff3ff53f48be865a35223d86a919a544fcb953"
+    rebuild 2
+    sha256 cellar: :any, arm64_tahoe:   "4dc1b8489b6a23b7c9ead22e5f14a2c0cd352006a6a98004d0df11fb066518bc"
+    sha256 cellar: :any, arm64_sequoia: "4efcb45660caf4d565e55e92b72bf91b1f6fa09c7237e09becfb718e3ebdafbd"
+    sha256 cellar: :any, arm64_sonoma:  "d050e8f0751a9c6f323322cd295816c3d0c60da76869009004a35d2aef6e4a96"
+    sha256 cellar: :any, sonoma:        "7586497823854900604eda21ebe86865b311876cd6ef39abfe53d51dbf7b91a3"
+    sha256 cellar: :any, arm64_linux:   "17200bbf9bac101bff87e218fa1ee9a74ca2a13d87df1ef06c7a4c788bbc32f1"
+    sha256 cellar: :any, x86_64_linux:  "bf76e887106f959e317c36a262b1031ef352c63c54a9b3224a6ed39d5fb5fe93"
   end
 
   depends_on "cabal-install" => :build

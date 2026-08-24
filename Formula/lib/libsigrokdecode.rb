@@ -78,7 +78,7 @@ class Libsigrokdecode < Formula
         return 0;
       }
     C
-    flags = shell_output("#{Formula["pkgconf"].opt_bin}/pkgconf --cflags --libs libsigrokdecode").strip.split
+    flags = shell_output("#{formula_opt_bin("pkgconf")}/pkgconf --cflags --libs libsigrokdecode").strip.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

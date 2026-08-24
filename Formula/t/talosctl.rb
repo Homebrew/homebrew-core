@@ -1,25 +1,29 @@
 class Talosctl < Formula
   desc "CLI for out-of-band management of Kubernetes nodes created by Talos"
   homepage "https://www.talos.dev/"
-  url "https://github.com/siderolabs/talos/archive/refs/tags/v1.13.4.tar.gz"
-  sha256 "1d263dad011a6320db175e43a0483210d103c6f62714b3d21873fe81b93d2744"
+  url "https://github.com/siderolabs/talos/archive/refs/tags/v1.13.9.tar.gz"
+  sha256 "d8f328eb5963a7ee65eab01d1095ab14a127d03a2522c6050dcd0ca2b6447ed5"
   license "MPL-2.0"
   head "https://github.com/siderolabs/talos.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "14807fc90ac5b4a94f3e72c2f34deb9ed651941eaa983a695c82d90bbd94c0d6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f02ff35718d03f04bc55f07390cd5714778e7d89632abac69b06dc8be9033260"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2b28dc7543c21114085432700f4a5623ba897ba13897f80f630b2d9b6dd91a46"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6fc4ad16249cebca3b17d143a67bef8f9dc569339a375576b9af7fe79cc30207"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8c9c0b55a77c1d8d5df5806b8546041cd6a903322264e2d57789162d0673766d"
-    sha256 cellar: :any,                 x86_64_linux:  "5f7705820010c86760f501d124718463dd026319f60d83a8ae38e8281bf6cc1c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "561ccce98ffb9e0a84f6f0599434875081127e8e1d9f818f162d0df5089532e4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2e71d2b5ec7cfa2aff8a081c101bb5382176be18d9fb8bdb188d335aa3125ad"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eba555fe36895acfd71276500febdea54f4207bc749d8cdf2685f499c568c9c2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "512fefb31c9fd61fe50f25ec4b18ade4d5faf8d2ba2d312301a944602ca3cc2a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea011916b70089a6ebb3a8d2863de89c97de916d97f18246b31faabe26e07d1e"
+    sha256 cellar: :any,                 x86_64_linux:  "5b40d335eb850d314965ba8c9a8942d32695534f97afb5013daa228af99c9c87"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/siderolabs/talos/pkg/machinery/version.Tag=#{version}
       -X github.com/siderolabs/talos/pkg/machinery/version.Built=#{time.iso8601}
 

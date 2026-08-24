@@ -1,17 +1,17 @@
 class Lune < Formula
   desc "Standalone Luau script runtime"
   homepage "https://lune-org.github.io/docs"
-  url "https://github.com/lune-org/lune/archive/refs/tags/v0.10.4.tar.gz"
-  sha256 "151b7b738b210920297b8afa560f440877662e02a48c64c28ce95baaefc96c95"
+  url "https://github.com/lune-org/lune/archive/refs/tags/v0.10.5.tar.gz"
+  sha256 "09d15b4380e5b02a3656939619e948e6d36d549a4adbb499c1de0707a143adbf"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ecf1f37ac7dd78b1aabff316ac9b558ca85f692f4c5a6e2a7f814df1c0b0c9ca"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "be6a59a97e35371fc0f7a65d189079bf412eab50f199ea2313433eb069760dd2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "305e3a1e29a8820812986cf37d5251bf7096a807134c231c61a0486570f49570"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d76f0677aa4a5a49c75b865635043345ce784a943d58ff8e6765c5f4290a0106"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ca4209df72a72a008f0f3d0adb7e36afd3633d2cd19f02d3cf26a6d29412b7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fe2d764d9a8461e9708528ae0f2899f68558a83eafb149211df8a78af61a0b7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f9ff9627b17489f62f157d51eff318969dea9c4ffe9ae65292d93295101087f2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "92b73b515eaa1a0594b019cf2f160dcc6d67248bab8ebf1db117bae45d1bf1b9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a55af112d3f5e0745c6be835804c4bfefddb6f1e398492976d0095325c29a0f2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "db21862d0f523de06c7d01ded3b00b127430172daa6c6a91e1dadbfbce7af5dd"
+    sha256 cellar: :any,                 arm64_linux:   "c1588be14a565d060dced9664a9e79832960239821be3a93e558494250d0a223"
+    sha256 cellar: :any,                 x86_64_linux:  "4ef9dbe6167235e5e5c8b3e097bf2cd12556baa86bb6ca0235d10dbf765bd923"
   end
 
   depends_on "cmake" => :build

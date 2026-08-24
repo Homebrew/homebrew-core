@@ -4,15 +4,16 @@ class Innotop < Formula
   url "https://github.com/innotop/innotop/archive/refs/tags/v1.16.0.tar.gz"
   sha256 "45645f20e70d54adc5208b5098beb378f5f29fc5e0447237351311418cc9933b"
   license any_of: ["GPL-2.0-only", "Artistic-1.0-Perl"]
+  revision 1
   head "https://github.com/innotop/innotop.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f30a13ed3194557816cbc8be5a8449079346cb98977f8ce7b24d5c1dc3fa544c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f30a13ed3194557816cbc8be5a8449079346cb98977f8ce7b24d5c1dc3fa544c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f30a13ed3194557816cbc8be5a8449079346cb98977f8ce7b24d5c1dc3fa544c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f30a13ed3194557816cbc8be5a8449079346cb98977f8ce7b24d5c1dc3fa544c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "61058c8a1eaf372375401dc6514c8ce0de39126104dfd8c4dabe68a029c5b215"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ddbaf6f86f44a0fbeef939e5ce3e24986e987d7c63932414fb3fb9488868296"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dd276aa717dcc08d7d939494fac97a1a1f84e305a2a9c60e70a8b670eae35fae"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd276aa717dcc08d7d939494fac97a1a1f84e305a2a9c60e70a8b670eae35fae"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd276aa717dcc08d7d939494fac97a1a1f84e305a2a9c60e70a8b670eae35fae"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dd276aa717dcc08d7d939494fac97a1a1f84e305a2a9c60e70a8b670eae35fae"
+    sha256 cellar: :any,                 arm64_linux:   "5d3ec8dc520eca1171bbc01271edbe16b2a16d2777071e4464c9d4a25c0caca2"
+    sha256 cellar: :any,                 x86_64_linux:  "114d95b95a6cf07f722d2c8f2446d7472d0d736ba36f4548574d7131c24d47ee"
   end
 
   depends_on "perl-dbd-mysql"
@@ -27,7 +28,7 @@ class Innotop < Formula
   end
 
   def install
-    ENV.prepend_path "PERL5LIB", Formula["perl-dbd-mysql"].opt_libexec/"lib/perl5"
+    ENV.prepend_path "PERL5LIB", formula_opt_libexec("perl-dbd-mysql")/"lib/perl5"
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
     resources.each do |r|

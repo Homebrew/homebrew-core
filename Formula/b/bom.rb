@@ -20,7 +20,6 @@ class Bom < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X sigs.k8s.io/release-utils/version.gitVersion=v#{version}
       -X sigs.k8s.io/release-utils/version.gitTreeState=clean
     ]

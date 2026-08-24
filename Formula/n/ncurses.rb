@@ -1,13 +1,17 @@
 class Ncurses < Formula
   desc "Text-based UI library"
   homepage "https://invisible-island.net/ncurses/announce.html"
-  url "https://ftpmirror.gnu.org/gnu/ncurses/ncurses-6.6.tar.gz"
-  mirror "https://invisible-mirror.net/archives/ncurses/ncurses-6.6.tar.gz"
-  mirror "ftp://ftp.invisible-island.net/ncurses/ncurses-6.6.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/ncurses/ncurses-6.6.tar.gz"
+  url "https://invisible-mirror.net/archives/ncurses/ncurses-6.6.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnu/ncurses/ncurses-6.6.tar.gz"
+  mirror "http://invisible-mirror.net/archives/ncurses/ncurses-6.6.tar.gz"
   sha256 "355b4cbbed880b0381a04c46617b7656e362585d52e9cf84a67e2009b749ff11"
   license "X11-distribute-modifications-variant"
   compatibility_version 1
+
+  livecheck do
+    url "https://invisible-mirror.net/archives/ncurses/"
+    regex(/href=.*?ncurses[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_tahoe:   "b43443ba3c3c8728e79413c7c3fed4a0eb293bd77c8492c1ec4c5d05233a97f1"

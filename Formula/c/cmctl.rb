@@ -20,7 +20,6 @@ class Cmctl < Formula
   def install
     project = "github.com/cert-manager/cmctl/v2"
     ldflags = %W[
-      -s -w
       -X #{project}/pkg/build.name=cmctl
       -X #{project}/pkg/build/commands.registerCompletion=true
       -X github.com/cert-manager/cert-manager/pkg/util.AppVersion=v#{version}

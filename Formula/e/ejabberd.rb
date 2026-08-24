@@ -1,10 +1,10 @@
 class Ejabberd < Formula
   desc "XMPP application server"
   homepage "https://www.ejabberd.im"
-  url "https://github.com/processone/ejabberd/archive/refs/tags/26.04.tar.gz"
-  sha256 "77deb1053978ae9790f909b7b573ac61c6b94d7c465a84c5b56568292d49e47d"
+  url "https://github.com/processone/ejabberd/archive/refs/tags/26.07.tar.gz"
+  sha256 "7b2e4efe2d5c867d2ced9cb1391731c5e6b9accd6f166ec71e734a3ae97813d7"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 1
   head "https://github.com/processone/ejabberd.git", branch: "master"
 
   # There can be a notable gap between when a version is tagged and a
@@ -16,12 +16,12 @@ class Ejabberd < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "03f174dd628778ecb6301a3dfbb6da50753b0eaf54d0dbc560e25c68c5a7a7e1"
-    sha256 cellar: :any, arm64_sequoia: "e091fb3b4fe98311e3f797f3d9398536b5ab6881b0a62eedab54416776e45f7b"
-    sha256 cellar: :any, arm64_sonoma:  "6399db0bfe396459c5ebcce340eebb75d2e3387c1acd17f1ea6caecc3d67ee87"
-    sha256 cellar: :any, sonoma:        "0fc0e824efa7fae1687994fe2dc80eb9b3cb16e7711eae6eebc2e6f88cb3df65"
-    sha256 cellar: :any, arm64_linux:   "d73d165f77d6a257b906fe80288bf14c7df6b378eae281cbf9965b892fc7abb7"
-    sha256 cellar: :any, x86_64_linux:  "6bba2d33d568059eb7b91e7669b02216db9f7e46cad9226722720ca5f39e129e"
+    sha256 cellar: :any, arm64_tahoe:   "b309a064ee108b15b35fa1feda4001aa06f894a68f0f75bf5a39916c28e6e0c1"
+    sha256 cellar: :any, arm64_sequoia: "19cd1c281bd69940ccde4a76331d029afc9846d55335c5802f01e4149ca5f598"
+    sha256 cellar: :any, arm64_sonoma:  "746e4d31d4bab7976963cdaad524fc59d2349a12be32ce2b814eb1480789ec9f"
+    sha256 cellar: :any, sonoma:        "949f8430d68da474f60368edff9d294994b9bdf80c328726c602c4ec292ddb88"
+    sha256 cellar: :any, arm64_linux:   "332d39cfc9bf8c62898a835ba49326d2e856dc9330e6d9e2b019b32872ddfe96"
+    sha256 cellar: :any, x86_64_linux:  "42e7067209508b0a2beb7d11bccfba5766879370673a5536bb059d42c29cadd3"
   end
 
   depends_on "autoconf" => :build
@@ -76,21 +76,8 @@ class Ejabberd < Formula
     system "make", "install"
 
     (etc/"ejabberd").mkpath
-  end
-
-  def post_install
     (var/"lib/ejabberd").mkpath
     (var/"spool/ejabberd").mkpath
-
-    # Create the vm.args file, if it does not exist. Put a random cookie in it to secure the instance.
-    vm_args_file = etc/"ejabberd/vm.args"
-    unless vm_args_file.exist?
-      require "securerandom"
-      cookie = SecureRandom.hex
-      vm_args_file.write <<~EOS
-        -setcookie #{cookie}
-      EOS
-    end
   end
 
   def caveats
@@ -102,7 +89,7 @@ class Ejabberd < Formula
   end
 
   service do
-    run [opt_sbin/"ejabberdctl", "start"]
+    run [opt_sbin/"ejabberdctl", "foreground"]
     environment_variables HOME: var/"lib/ejabberd"
     working_dir var/"lib/ejabberd"
   end

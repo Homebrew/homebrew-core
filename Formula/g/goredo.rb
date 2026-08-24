@@ -1,23 +1,25 @@
 class Goredo < Formula
   desc "Go implementation of djb's redo, a Makefile replacement that sucks less"
-  homepage "https://goredo.dabase.com/"
-  url "https://goredo.dabase.com/download/goredo-2.9.1.tar.zst"
-  sha256 "dc668707f17b80a62e963e14c05b266f9445e6c88ed137d4108fa8b3833557ad"
+  homepage "http://www.goredo.stargrave.org/"
+  url "http://www.goredo.stargrave.org/download/goredo-2.9.2.tar.zst"
+  sha256 "b15cf99b6d11e586223f24712d90d739e6e115abe4b423d26da9412b90339f41"
   license "GPL-3.0-only"
 
   livecheck do
-    url "https://goredo.dabase.com/NEWS.html"
+    url "http://www.goredo.stargrave.org/NEWS.html"
     regex(/v?(\d+(?:\.\d+)+)/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "39594646d5886a2fed9a3574dd80ee2269c37a653962338a5bc013907b8c2be9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "39594646d5886a2fed9a3574dd80ee2269c37a653962338a5bc013907b8c2be9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "39594646d5886a2fed9a3574dd80ee2269c37a653962338a5bc013907b8c2be9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b978e1253e230cea88f12e5a6a30e29b051b552fda6d739939bc3b6ba1faf4ef"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0951d98cb61b0d9da7152f5209c06100b17a9d6677b8647444ecdd15ff481f2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eaed3d7c4a251b26f67767ba92951a43ed1f89f5414fb25b9ba781d5c96cb5bb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d81a279324994ea6c852dd6bc45717f749a43449c9dc1f0f670bea64a2bf6240"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d81a279324994ea6c852dd6bc45717f749a43449c9dc1f0f670bea64a2bf6240"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d81a279324994ea6c852dd6bc45717f749a43449c9dc1f0f670bea64a2bf6240"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f22082cd19244bc26140bd755706dbfc8e7d4015a8d77c69a33bbcd7f4aea56e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "40130e96098f3b230a9078a20f2e99c9bafd40195a00958f35ed0fcf066071ea"
+    sha256 cellar: :any,                 x86_64_linux:  "8e64cb8bca78f14f3d6040cb27de1c52bd82e8260c65dc531fd675d258ae77e0"
   end
+
+  deprecate! date: "2026-07-02", because: "is not available via HTTPS"
 
   depends_on "go" => :build
 
@@ -25,7 +27,7 @@ class Goredo < Formula
 
   def install
     cd "src" do
-      system "go", "build", *std_go_args(ldflags: "-s -w"), "-mod=vendor"
+      system "go", "build", *std_go_args, "-mod=vendor"
     end
 
     ENV.prepend_path "PATH", bin

@@ -1,21 +1,23 @@
 class Chainsaw < Formula
   desc "Rapidly Search and Hunt through Windows Forensic Artefacts"
   homepage "https://github.com/WithSecureLabs/chainsaw"
-  url "https://github.com/WithSecureLabs/chainsaw/archive/refs/tags/v2.16.0.tar.gz"
-  sha256 "8621299c16be2545d5506448fd9748bc0524424ae46a6ddb3078dc33579e7f90"
+  url "https://github.com/WithSecureLabs/chainsaw/archive/refs/tags/v2.16.4.tar.gz"
+  sha256 "6585bca782e316d0cec7d9cdaaf8e4fca19dc3231bbf1d53cd4d5a9e52bd6bf0"
   license "GPL-3.0-only"
   head "https://github.com/WithSecureLabs/chainsaw.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9f34206032a5e317bfd1a87fd126e3ecdffada44ea2d3a32629e45d411aec756"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ea55b34e5c67c6a54aa1857cdff9f5927ef61a8098ffca8200321855eaa01a4c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e95d00c963763e3bbb6012e6ff40a186f7a50f89d714d0afd706f3829e10e77f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9f9268170a071e4d0202c10b0825bdcf4db3bc353ca7134795944197753062f3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "679ef4103a45e0046f6feca4b3d292cecebedf3972d33fb766687899db19c543"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d204d0e9059777bbf7318481d24a5b85b1391c58b0b9eec84bee0b697280787"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8d9991a41f7b2151f07d6e9c602a826e1c8ba829a97094ee7f8d97af026810bd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "59b48bace2e94800af8e4c3cad83876ad4b1416ff1d7864e01604e5182357f1a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6c5315932ed761a7478ed35a7e18a7ba7603addb48b75d98264ae6caa259560f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0f5040932f95559a7d8486c68aeda42a807d4e4647e1c21aca591fe275ef71dd"
+    sha256 cellar: :any,                 arm64_linux:   "efabf46fc5a2c508e2291b3f84bd78704ca44a71255d9796fd7a264af61476ce"
+    sha256 cellar: :any,                 x86_64_linux:  "f79481fb7c635c60b874c4b8da509bd2381cce352b46cb6100bd80dfc655cb57"
   end
 
   depends_on "rust" => :build
+
+  uses_from_macos "llvm" => :build # for libclang
 
   def install
     system "cargo", "install", *std_cargo_args

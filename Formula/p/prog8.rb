@@ -1,8 +1,8 @@
 class Prog8 < Formula
   desc "Compiled programming language targeting the 8-bit 6502 CPU family"
   homepage "https://prog8.readthedocs.io"
-  url "https://github.com/irmen/prog8/archive/refs/tags/v12.2.tar.gz"
-  sha256 "731efbf7cbdfef2202e7e664f9c9ef2193662c613f2366dd323bb2af26abf6a8"
+  url "https://github.com/irmen/prog8/archive/refs/tags/v12.3.1.tar.gz"
+  sha256 "f73de9784579da94733f218e6ced5377d7450b409dce61e38194c21be4973523"
   license "GPL-3.0-only"
 
   livecheck do
@@ -11,12 +11,12 @@ class Prog8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c4394410424480a860b7c46d9e17a544bbe74252550ed50dfdb9dcea86365cbd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ed695b23a80989394306a1cbd422731da3c0a27d4affbdd9572d4252ba207c33"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d32015534fed4cfc76093e52678806ba74cb353b62059c5e679385855374757e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7c5d2aa66dbb29942c14105231f570407dc2b4af49998fe787f553fbf90da070"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf78de2d1ec83e235686a097c9e42c09b0b00e1f9fc781b3f067a4fbfb93171e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0970031d7b075492c30a4263021c4c673305e4a3fd14a33f528c66b4142b3b5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c385baf69423042ecf1b7822ef481d06e1a0c43d16f5f9e96980867a1af31f4e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ec37d0ba72d71e82d83184c006c3f1e3984f70eaf86d19e929b36628d9d5a3d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af5f6357bbde4884a662a1d7bfe2a3d105717d816d6de9d721946a2f88c43f3a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2b852cb016140f57126536808279d805c0a9c4262f00c302214d4f812f7fa70f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4eb979591ee4514c9946425616b94260263fc1ede2a3704f1f416ecb74a1855e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88aec4e10574388a1723043a7fcd86bc333a793d38cbad36024cf3d62efe1048"
   end
 
   depends_on "gradle" => :build
@@ -29,7 +29,7 @@ class Prog8 < Formula
     system "gradle", "installDist"
 
     libexec.install Dir["compiler/build/install/prog8c/*"]
-    (bin/"prog8c").write_env_script libexec/"bin/prog8c", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"prog8c").write_env_script libexec/"bin/prog8c", JAVA_HOME: formula_opt_prefix("openjdk")
     rm_r(libexec/"bin/prog8c.bat")
 
     pkgshare.install "examples"

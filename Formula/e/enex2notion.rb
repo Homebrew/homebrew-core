@@ -6,15 +6,15 @@ class Enex2notion < Formula
   url "https://files.pythonhosted.org/packages/de/5c/c0ce22d810226345411b03177f9b43c35b82c3a671d5d73f56fc43b0858e/enex2notion-0.3.1.tar.gz"
   sha256 "f11d8a7b6c135b4d08c63e1256279d56b3798cdd48ad3b6e39c0770dc3bd82e6"
   license "MIT"
-  revision 20
+  revision 23
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8c93378a2060516010ce49e0d1313509b139d0a169cb2377fb1232838a3938bd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9efa3de100e1e3e7f23491c41e17e81439310e8306927d41184c113ec87372d2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "085ec321cb6feab539d6183fc266ff2758bb32538a48ba321759926bcfda346f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "28ad48e66b8e8465ad136a650a32c0fa05fe8d6bb58fb49ac3c5c363e7b36b49"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c678cd6e0cdb98443ed54d30fa9a5a5b2f4ccc2e3d69b9d3df1296f2c01d771"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b762486a5fcfac234555d7f694f6c83aae0d1f7713d8de071cc44a9e67c816f2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "394473d02bfcb972eaf802fa70197a5aa120aecc828f46b58276cfee32959873"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb8add6ba4bc306b8693389499fc3ea3eaeab6055e1747788b8a0f819cc20398"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4dd660724a0aee23e8e8464cc450e39041cd25846fc9784433ca46d57c2e1765"
+    sha256 cellar: :any_skip_relocation, sonoma:        "66105b983e017134cafa049ada68fde2b76841697ea11c89a2eea75b416849d0"
+    sha256 cellar: :any,                 arm64_linux:   "449f97ca32adae011e71028c3d3f484c21ec68bfba7b3d9e16c6e32268bfdcfb"
+    sha256 cellar: :any,                 x86_64_linux:  "66db2ecfc227f8f35e3a1242d0c464c3ef99c825f6379d562d70eeb47321434d"
   end
 
   depends_on "certifi" => :no_linkage
@@ -27,8 +27,8 @@ class Enex2notion < Formula
   pypi_packages exclude_packages: %w[certifi lxml pymupdf]
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/c3/b0/1c6a16426d389813b48d95e26898aff79abbde42ad353958ad95cc8c9b21/beautifulsoup4-4.14.3.tar.gz"
-    sha256 "6292b1c5186d356bba669ef9f7f051757099565ad9ada5dd630bd9de5fa7fb86"
+    url "https://files.pythonhosted.org/packages/43/65/318323f98dbee45d42dff61d8f047181bc6f2268a9068cfad035a46be5af/beautifulsoup4-4.15.0.tar.gz"
+    sha256 "288e3ca7d54b06f2ac191970bc275c1939cb46d450b255bf6718b04aa37ab4f7"
   end
 
   resource "bs4" do
@@ -42,13 +42,13 @@ class Enex2notion < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "commonmark" do
-    url "https://files.pythonhosted.org/packages/60/48/a60f593447e8f0894ebb7f6e6c1f25dafc5e89c5879fdc9360ae93ff83f0/commonmark-0.9.1.tar.gz"
-    sha256 "452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"
+    url "https://files.pythonhosted.org/packages/3e/e4/0800832e530c88a8f80cb9e486879ea74257062dfe03a38c1ad535c2860e/commonmark-0.9.2.tar.gz"
+    sha256 "194d693e0c1ac49e83c26455bdeeb2483235e6280313c58b11d0b71c19f58ed1"
   end
 
   resource "dictdiffer" do
@@ -57,8 +57,8 @@ class Enex2notion < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
-    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
+    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
+    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
   end
 
   resource "notion-vzhd1701-fork" do
@@ -102,8 +102,8 @@ class Enex2notion < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/7b/ae/2d9c981590ed9999a0d91755b47fc74f74de286b0f5cee14c9269041e6c4/soupsieve-2.8.3.tar.gz"
-    sha256 "3267f1eeea4251fb42728b6dfb746edc9acaffc4a45b27e19450b676586e8349"
+    url "https://files.pythonhosted.org/packages/47/2c/0a5f6f8ee0d5589e48c7640213ed5175d52cf540a06725b628cc1a45d6ce/soupsieve-2.8.4.tar.gz"
+    sha256 "e121fd02e975c695e4e9e8774a5ee35d74714b59307868dcc5319ad2d9e3328e"
   end
 
   resource "text-unidecode" do
@@ -117,13 +117,13 @@ class Enex2notion < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
-    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
+    url "https://files.pythonhosted.org/packages/ae/5f/57ff8b434839e70dab45601284ea413e947a63799891b7553e5960a793a8/tqdm-4.68.4.tar.gz"
+    sha256 "19829c9673638f2a0b8617da4cdcb927e831cd88bcfcb6e78d42a4d1af131520"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
-    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
   end
 
   resource "tzdata" do

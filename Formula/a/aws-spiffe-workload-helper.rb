@@ -18,7 +18,7 @@ class AwsSpiffeWorkloadHelper < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd"
+    system "go", "build", *std_go_args(ldflags: :goreleaser), "./cmd"
 
     generate_completions_from_executable(bin/"aws-spiffe-workload-helper", shell_parameter_format: :cobra)
   end

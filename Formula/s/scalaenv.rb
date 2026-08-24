@@ -7,8 +7,13 @@ class Scalaenv < Formula
   head "https://github.com/scalaenv/scalaenv.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "9587d95fe717240f70b2d0b7b1b90e17084bb635196e38e6bfc35be17a7cc7e3"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "14d04b14c8bdf554e6fd5482b937cf3fc21faba00487083d64a02d4d847de6ca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "039eef152a101d05fde0923798a63bf7e04c5c96cb9d5b9cbe73011d9b5210de"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "53ad6b36416484fdf7290fadcd052918eb4f25275f3e89bb8338067403b81fab"
+    sha256 cellar: :any_skip_relocation, sonoma:        "53ad6b36416484fdf7290fadcd052918eb4f25275f3e89bb8338067403b81fab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "599f4f4d661d0e96068e4b84f256e0dd21a56e02d19edc4933e6ad20765ddf26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "599f4f4d661d0e96068e4b84f256e0dd21a56e02d19edc4933e6ad20765ddf26"
   end
 
   def install
@@ -19,17 +24,13 @@ class Scalaenv < Formula
     %w[scalaenv-install scalaenv-uninstall scala-build].each do |cmd|
       bin.install_symlink "#{prefix}/default-plugins/scala-install/bin/#{cmd}"
     end
+
+    prefix.install_symlink (var/"lib/scalaenv/plugins").mkpath
+    prefix.install_symlink (var/"lib/scalaenv/versions").mkpath
   end
 
-  def post_install
-    var_lib = HOMEBREW_PREFIX/"var/lib/scalaenv"
-    %w[plugins versions].each do |dir|
-      var_dir = "#{var_lib}/#{dir}"
-      mkdir_p var_dir
-      ln_sf var_dir, "#{prefix}/#{dir}"
-    end
-
-    (var_lib/"plugins").install_symlink "#{prefix}/default-plugins/scala-install"
+  post_install_steps do
+    symlink "{{prefix}}/default-plugins/scala-install", "{{var}}/lib/scalaenv/plugins/scala-install", overwrite: true
   end
 
   test do

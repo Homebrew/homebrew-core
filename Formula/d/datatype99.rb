@@ -46,7 +46,7 @@ class Datatype99 < Formula
           return 0;
       }
     C
-    system ENV.cc, "test.c", "-I#{include}", "-I#{Formula["metalang99"].opt_include}", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-I#{formula_opt_include("metalang99")}", "-o", "test"
     assert_equal "28", shell_output("./test")
   end
 end

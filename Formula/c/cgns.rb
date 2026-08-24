@@ -55,8 +55,8 @@ class Cgns < Formula
       }
     C
     flags = %W[-L#{lib} -lcgns]
-    flags << "-Wl,-rpath,#{lib},-rpath,#{Formula["libaec"].opt_lib}" if OS.linux?
-    system Formula["hdf5"].opt_prefix/"bin/h5cc", "test.c", *flags
+    flags << "-Wl,-rpath,#{lib},-rpath,#{formula_opt_lib("libaec")}" if OS.linux?
+    system formula_opt_prefix("hdf5")/"bin/h5cc", "test.c", *flags
     system "./a.out"
   end
 end

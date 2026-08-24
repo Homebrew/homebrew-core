@@ -1,18 +1,18 @@
 class Rsql < Formula
   desc "CLI for relational databases and common data file formats"
   homepage "https://theseus-rs.github.io/rsql/rsql_cli/"
-  url "https://github.com/theseus-rs/rsql/archive/refs/tags/v0.19.4.tar.gz"
-  sha256 "e8425f9ebfbcd595be079640ee00848e99ca67b480a03e13540b0260b7939515"
+  url "https://github.com/theseus-rs/rsql/archive/refs/tags/v0.20.0.tar.gz"
+  sha256 "6b68d37931b47595aabb4d920be64dbd2042afa98b77d071f5db3930087da645"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/theseus-rs/rsql.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4f615a361f7155424be9f7e6fb86b71a8ae66c95b47be742619194f1e9b89485"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4eb7bcb3cba342667e53dfd0c894dd5c847b9f15d43035cf97be7c3ecf38bc39"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae90f18e3d5e0fbcc52ac6f5894bb2aefc6cbe57be97bc60641283e9dfe084f9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fa41b12a3a4505309a3272070110926d443c499c3e8bd4036bf7e624323cb124"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "455b56c20ae0f0aa500259e4d23534eedab48fd469d1250400caf8f402586532"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b45dfb3c0b5df95a28663c06b435f4a184cf727710a92aae9d5ceea7d261fb68"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3953d453c4a0d3b0c4741d0cb13df9fb9933d0602355b04bfc807e70533a769e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e330767631aa248b8e34b011380d1c200acb91ec4a72fdedb5d301d24c9931d2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9afd4ccf0bddf366efddc46b136675d87dbd95ff6fb0fabdb02c1a49c57e8e87"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f73e8518707ae20152d1f347aa842b8256e4631ba1ea7cdc2d7b70e59235099b"
+    sha256 cellar: :any,                 arm64_linux:   "78dc8e6db9fe9d62e1c22c24329299acf9ebedd88cc56ef09c1436768db54032"
+    sha256 cellar: :any,                 x86_64_linux:  "25e113a3b1587015aeb2b7290c43c43c19d888b9a63b527265f37487e589a0e8"
   end
 
   depends_on "pkgconf" => :build

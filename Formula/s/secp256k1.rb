@@ -1,17 +1,18 @@
 class Secp256k1 < Formula
   desc "Optimized C library for EC operations on curve secp256k1"
   homepage "https://github.com/bitcoin-core/secp256k1"
-  url "https://github.com/bitcoin-core/secp256k1/archive/refs/tags/v0.7.1.tar.gz"
-  sha256 "958f204dbafc117e73a2604285dc2eb2a5128344d3499c114dcba5de54cb7a9e"
+  url "https://github.com/bitcoin-core/secp256k1/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "eb52b0e9239dff7dc26be5f9623567141b8720ec47da29eb3c1e0a660d17c8bb"
   license "MIT"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "da2fa73c7222a2b0ecd611814895c92fe175fd59b4a2e60fb9886993c549b842"
-    sha256 cellar: :any,                 arm64_sequoia: "07ae325f7e07a797ff61e73a6b785ef5066855459990f568604ae387d5154175"
-    sha256 cellar: :any,                 arm64_sonoma:  "329d9345dc3d88b81a2206b921cfd3b0f55241d878e639ce4f2e49b5f1ba5506"
-    sha256 cellar: :any,                 sonoma:        "c6a1dfbc6bfaec13225ebc3a979b131dcce74b475afebc60bb8993dd59087112"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "684efba291dd63c1bae72882e46db5aa6a94b052ea45db027bc776d964544fe1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f11de3494970a0d0e9b4206ea0a8d5eea0fc119efcd3927e309fed714944c19c"
+    sha256 cellar: :any, arm64_tahoe:   "3cfd59f39885c79d2fecdf2bce38c4328d62157caa0e1390abddbefd7f31be24"
+    sha256 cellar: :any, arm64_sequoia: "787baf3e52ae25e66a773250914051e720239832c23aaa6289b43c912c81d315"
+    sha256 cellar: :any, arm64_sonoma:  "161b43d84014e54f778457bd378a463621e3b54c32ff88ec847023e0beaba2dc"
+    sha256 cellar: :any, sonoma:        "92d5961f7d4e51229d41c21d2f4c4ea3c4a506359ee0931fa36fb2f5ce59b56e"
+    sha256 cellar: :any, arm64_linux:   "da03a05f65ef2e7f1cac223c33950890bed80bbaf9d268c89f97cf0e2760d6ce"
+    sha256 cellar: :any, x86_64_linux:  "d1e8e76c37b642980dc7ee04ebc87823daeca6417f0c920bfc2b03f3af812f41"
   end
 
   depends_on "autoconf" => [:build]

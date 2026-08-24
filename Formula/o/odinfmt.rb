@@ -1,17 +1,17 @@
 class Odinfmt < Formula
   desc "Formatter for The Odin Programming Language"
   homepage "https://github.com/DanielGavin/ols"
-  url "https://github.com/DanielGavin/ols/archive/refs/tags/dev-2026-05.tar.gz"
-  sha256 "387b9f47304abab5c7cbe12f041c85de892ddc94a54e03f2789ff6ac9fc16386"
+  url "https://github.com/DanielGavin/ols/archive/refs/tags/dev-2026-06.tar.gz"
+  sha256 "f8055ff723994dc4debc02817c230d0173c43a23df4a9d6a7104fea69bfeeb79"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "30b2ae021be0765ffcaacf7224a586a6733e0e69793035372c75784e7ff837c2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fbf3261e6fc07e272c5a5209a1392ee9253f543b5dc7b88fecbe402ecdac9a01"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "53bd17fd9bf54d9d6a516237daddf8d52afcad5f2a8582438378e9d2b975f19e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "39179f6a02be59aa32e2052b968dad99975808d15d8498381f9984927a96f35f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a7563e87f1fb473998245d26b8389d638e7e2387eafd662c3e4c9db637e3cdc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73da0f82098fb046542067e5b89a45024755623cd82064d071ca97691f61631a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "70212865ff66f0eb72108f544a25a3b64d8e0a2af528b5e0a4c2c44cd037c5e3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "694aa4720fa63d283c888ad3c61d2a70d97c05c688e4b7eb3070124ec091c77b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c37a99961d1c0ab1683686d19000328c296203c49cabba8358c3ef60d7722769"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c248288c86226f43e619f824708c863a18fbc5ba8011bb675f4c5e40f884596c"
+    sha256 cellar: :any,                 arm64_linux:   "68f2b89d834ff871430a4d50c72f07dcda67adc3d869c703cb8ae769812b13cf"
+    sha256 cellar: :any,                 x86_64_linux:  "65e34abfd7ddc0e91b8af794ecc710bc289077b9aff4837b7f1cb0f24a067df3"
   end
 
   depends_on "odin" => :build
@@ -47,7 +47,6 @@ class Odinfmt < Formula
       main :: proc() {
       \tfmt.println("Hellope!")
       }
-
     ODIN
 
     (testpath/"hello.odin").write(input)

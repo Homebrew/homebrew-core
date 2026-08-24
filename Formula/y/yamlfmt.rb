@@ -18,7 +18,7 @@ class Yamlfmt < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user}"
+    ldflags = "-X main.version=#{version} -X main.commit=#{tap.user}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/yamlfmt"
   end
 

@@ -1,9 +1,8 @@
 class Vcluster < Formula
   desc "Creates fully functional virtual k8s cluster inside host k8s cluster's namespace"
   homepage "https://www.vcluster.com"
-  url "https://github.com/loft-sh/vcluster.git",
-      tag:      "v0.35.0",
-      revision: "5b46b288665a520c2072a77adbe2f94c2e7e4b4e"
+  url "https://github.com/loft-sh/vcluster/archive/refs/tags/v0.36.1.tar.gz"
+  sha256 "9c290955988cb609f16e0a8b72a0ff454e13a9521414641738731f6493b83c0a"
   license "Apache-2.0"
   head "https://github.com/loft-sh/vcluster.git", branch: "main"
 
@@ -16,12 +15,12 @@ class Vcluster < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6a4dd31842adc8cc045137b94cd36220ae2a13016167fb365b2121758857f2f3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2c61b153da5b76ba1200d153f3c6915338e0d29629d6852c158384324f822e64"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "060b8102a88fb61b7a3c76a50f78a3e32ef4a4cead06c459205225263f5a9ea2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "11effa214e0af661378e84ed4734e0ac9479a9937509197dc52780aa20fe9622"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "85819901a85d05229d744f05662ba69a92c0e00efee14b09363e244263ffe8b0"
-    sha256 cellar: :any,                 x86_64_linux:  "bc4350efdef3dadf92dddb6f15d8ceabfbec2bb100872d2534a7ffec363b7b4f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4f7cbbae380abb2789619a34ba51d4f570ff0ded069034ef9fa502f69d814692"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5db413cddf2519a1d6a3df66863677276200b4415a0790246f8fdfaa3c99c95c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0c16e3f987bfc01db3abf545a89fb7998c9a695b994d22e3ac34dbdf17379287"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7b70a01d35b559424944d5ed8215e54d9a7907276198dafdb9262918b09cbbae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2cb391979f3119507d8a100f0a9b44a7d885047b143119d72035151b18e0ada"
+    sha256 cellar: :any,                 x86_64_linux:  "10944349f1ffafe5556c3f13fae18529227251480600a2c5627b8045b1385c5f"
   end
 
   depends_on "go" => :build
@@ -29,9 +28,8 @@ class Vcluster < Formula
   depends_on "kubernetes-cli"
 
   def install
-    ldflags = "-s -w -X main.commitHash=#{Utils.git_head} -X main.buildDate=#{time.iso8601} -X main.version=#{version}"
     system "go", "generate", "./..."
-    system "go", "build", "-mod", "vendor", *std_go_args(ldflags:), "./cmd/vclusterctl"
+    system "go", "build", "-mod", "vendor", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/vclusterctl"
 
     generate_completions_from_executable(bin/"vcluster", shell_parameter_format: :cobra)
   end

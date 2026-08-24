@@ -32,18 +32,18 @@ class Proctools < Formula
   depends_on :macos
 
   # Patches via MacPorts
-  {
-    "pfind-Makefile"        => "d3ee204bbc708ee650b7310f58e45681c5ca0b3c3c5aa82fa4b402f7f5868b11",
-    "pfind-pfind.c"         => "88f1bc60e3cf269ad012799dc6ddce27c2470eeafb7745bc5d14b78a2bdfbe96",
-    "pgrep-Makefile"        => "f7f2bc21cab6ef02a89ee9e9f975d6a533d012b23720c3c22e66b746beb493fb",
-    "pkill-Makefile"        => "bac12837958bc214234d47abe204ee6ad0da2d69440cf38b1e39ab986cc39d29",
-    "proctools-fmt.c"       => "1a95516de3b6573a96f4ec4be933137e152631ad495f1364c1dd5ce3a9c79bc8",
-    "proctools-proctools.c" => "1d08e570cc32ff08f8073308da187e918a89a783837b1ea20735ea25ae18bfdb",
-    "proctools-proctools.h" => "7c2ee6ac3dc7b26fb6738496fbabb1d1d065302a39207ae3fbacb1bc3a64371a",
-  }.each do |name, sha|
+  [
+    "pfind-Makefile",
+    "pfind-pfind.c",
+    "pgrep-Makefile",
+    "pkill-Makefile",
+    "proctools-fmt.c",
+    "proctools-proctools.c",
+    "proctools-proctools.h",
+  ].each do |name|
     patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/proctools/patch-#{name}.diff"
-      sha256 sha
+      file "Patches/proctools/patch-#{name}.diff"
+      type :unofficial
     end
   end
 

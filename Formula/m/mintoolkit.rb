@@ -34,7 +34,7 @@ class Mintoolkit < Formula
 
   def install
     system "go", "generate", "./pkg/appbom"
-    ldflags = "-s -w -X github.com/mintoolkit/mint/pkg/version.appVersionTag=#{version}"
+    ldflags = "-X github.com/mintoolkit/mint/pkg/version.appVersionTag=#{version}"
     tags = %w[
       remote
       containers_image_openpgp

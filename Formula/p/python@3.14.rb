@@ -1,8 +1,8 @@
 class PythonAT314 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.14.6/Python-3.14.6.tgz"
-  sha256 "74d0d71d0600e477651a077101d6e62d1e2e69b8e992ba18c993dd643b7ba222"
+  url "https://www.python.org/ftp/python/3.14.7/Python-3.14.7.tgz"
+  sha256 "62859805f6fdf25e2bcbf3fa3217801e1996887ca33e6a2af80674bdfa2dbe07"
   license "Python-2.0"
   compatibility_version 1
 
@@ -12,15 +12,19 @@ class PythonAT314 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "92810d5e3f7e47b9b49c1bca6fb4d9f3cefbb90c77669f4e6785d0babcc1c1b9"
-    sha256 arm64_sequoia: "76505a94aa16b62f002671c0a81c64b4704adcdf05411f3e0a386b3c8610c477"
-    sha256 arm64_sonoma:  "41f0fac6d489a149fd99687d96832a9b2b3948a1924140cec812a98752584109"
-    sha256 tahoe:         "82e86b7276eeaf4cf1f336d2732be2ab8915bb92b71ee63609b9cb3a022f9a93"
-    sha256 sequoia:       "7e04ab45b53a87720413627558e8c72ee44aa6991a300903b6b600a49b793c17"
-    sha256 sonoma:        "564b57b5759f74940b826353d37b9e0c0767ff0a663d321330a673e0138b136a"
-    sha256 arm64_linux:   "c7bc359fda22b9bd1083e2b23b2a0e5f235a7ee71aa02751d2d11287d423cd33"
-    sha256 x86_64_linux:  "4bdc2a2fda5f6c7c5307a3bb9d8d33d5fb79d5d1c72c79a7fb1b32a53e68bd1b"
+    sha256 arm64_tahoe:   "9747ec7c458569bb6c03e5b9e1f5fcb7552f4955794b8164e21d70e6b2839e08"
+    sha256 arm64_sequoia: "e63dcc3e87bf6b04f62e970ca095e18ed973b31df823becfd491d05d8dc7287c"
+    sha256 arm64_sonoma:  "3bb63f5d9b49ef131d6e03e4472fb91fb8c9e311ea7a241e151cb76df4f6d198"
+    sha256 tahoe:         "edaf325ee40b533f6042d84317f06af217267e824d5105cb7cd9a7f05c466e2c"
+    sha256 sequoia:       "5ba706261f57e69d8aeabc910c06862c00224dba129925c2d8a73af9b0f88fdb"
+    sha256 sonoma:        "f0af307ce35e7eb232aff59592ff0d0cdb09f02d9fb5b65daaaa683eeefb85c2"
+    sha256 arm64_linux:   "dc54c583d5f2f05260bf970bbbe873dfc08aa24cd28eaa52ec1dbce3ec1203d0"
+    sha256 x86_64_linux:  "c1094d173aaae36f305c229bec64f43a23c77148f3c95244d1d3d0d4d28e8275"
   end
+
+  # https://devguide.python.org/versions/#versions
+  deprecate! date: "2030-11-01", because: :deprecated_upstream
+  disable! date: "2031-11-01", because: :deprecated_upstream
 
   depends_on "pkgconf" => :build
   depends_on "mpdecimal"
@@ -34,7 +38,6 @@ class PythonAT314 < Formula
   uses_from_macos "libedit"
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "unzip"
 
   on_linux do
     depends_on "zlib-ng-compat"
@@ -61,18 +64,18 @@ class PythonAT314 < Formula
                 extra_packages: %w[flit-core pip wheel]
 
   resource "flit-core" do
-    url "https://files.pythonhosted.org/packages/69/59/b6fc2188dfc7ea4f936cd12b49d707f66a1cb7a1d2c16172963534db741b/flit_core-3.12.0.tar.gz"
-    sha256 "18f63100d6f94385c6ed57a72073443e1a71a4acb4339491615d0f16d6ff01b2"
+    url "https://files.pythonhosted.org/packages/46/ef/34533186e76c526d9ec17a1ad9a10c7354cbfb20f51583cc36dfe4bdccd0/flit_core-4.0.2.tar.gz"
+    sha256 "b6929defd93884b584d7c87829e0e7b5c26ed6be17b0b873979019314aa841c8"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
-    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/01/91/47e7d486260f618783899587af63ccf7980fb60245c3e63dd4571c6b57ad/pip-26.1.2.tar.gz"
-    sha256 "f49cd134c61cf2fd75e0ce2676db03e4054504a5a4986d00f8299ae632dc4605"
+    url "https://files.pythonhosted.org/packages/ae/15/4500e320e6b101ec3b719ae85b697d9940b6cda672bc555bd6016fc60c6f/pip-26.2.1.tar.gz"
+    sha256 "f6ad667e89a1fe78046c8f13232b247200f5258d7828f3f7883d660878e0813f"
   end
 
   resource "wheel" do
@@ -81,11 +84,12 @@ class PythonAT314 < Formula
   end
 
   # Modify default sysconfig to match the brew install layout.
-  # Remove when a non-patching mechanism is added (https://bugs.python.org/issue43976).
+  # Remove when a non-patching mechanism is added.
   # We (ab)use osx_framework_library to exploit pip behaviour to allow --prefix to still work.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/python/3.13-sysconfig.diff"
-    sha256 "9f2eae1d08720b06ac3d9ef1999c09388b9db39dfb52687fc261ff820bff20c3"
+    file "Patches/python/3.13-sysconfig.diff"
+    type :unofficial
+    resolves "https://bugs.python.org/issue43976"
   end
 
   def lib_cellar
@@ -133,7 +137,7 @@ class PythonAT314 < Formula
       --datadir=#{share}
       --without-ensurepip
       --enable-loadable-sqlite-extensions
-      --with-openssl=#{Formula["openssl@3"].opt_prefix}
+      --with-openssl=#{formula_opt_prefix("openssl@3")}
       --enable-optimizations
       --with-system-expat
       --with-system-libmpdec
@@ -172,7 +176,7 @@ class PythonAT314 < Formula
     # `brew install enchant && pip install pyenchant`
     inreplace "./Lib/ctypes/macholib/dyld.py" do |f|
       f.gsub! "DEFAULT_LIBRARY_FALLBACK = [",
-              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{Formula["openssl@3"].opt_lib}',"
+              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{formula_opt_lib("openssl@3")}',"
       f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
     end
 
@@ -387,6 +391,17 @@ class PythonAT314 < Formula
 
        Read more about this behavior here: <https://peps.python.org/pep-0668/>
     INI
+  end
+
+  post_install_steps do
+    on_macos do
+      set_permissions "Python.framework/Versions/{{version.major_minor}}/" \
+                      "lib/python{{version.major_minor}}/venv/scripts/**/*",
+                      "u+w", base: :frameworks, recursive: false
+    end
+    on_linux do
+      set_permissions "python{{version.major_minor}}/venv/scripts/**/*", "u+w", base: :lib, recursive: false
+    end
   end
 
   def sitecustomize

@@ -1,18 +1,23 @@
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
-  url "https://newsboat.org/releases/2.43/newsboat-2.43.tar.xz"
-  sha256 "325107b8a5fa4c432c9f85490dbf4fe61699d239fec161e34b3383345f7d37f5"
+  url "https://newsboat.org/releases/2.44/newsboat-2.44.tar.xz"
+  sha256 "8cb376b14c44809750a41b74c239a47092edb8e496f657c38af9b852dd8e4ea4"
   license "MIT"
   head "https://github.com/newsboat/newsboat.git", branch: "master"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?newsboat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 arm64_tahoe:   "ef48a73e59ab3c06b54c4063501506606b3cecb4b7f8f5d354e8e4b0cca58b0d"
-    sha256 arm64_sequoia: "7709c5149b1ac721a1fbb7ba7838cde5a7cb90067cf52343a9b2c60d7bcfb177"
-    sha256 arm64_sonoma:  "4c5f22a45d69e04d93dea83e9233146a4700496508ddbff6775d40b37b4a1de5"
-    sha256 sonoma:        "ae11cdb00f37c022256ffcd61dfb6ea5de7fa72845d241818fc205733549918d"
-    sha256 arm64_linux:   "a70571c961459ca088be3e9b3be7694fc1b3ac6418614f8eb0948487d2d13231"
-    sha256 x86_64_linux:  "27d7b98c647c4b3cb031f1b99e2aa8bfed729f3be8d2d174eabde91d0a776d7e"
+    sha256 arm64_tahoe:   "91917308c99d3f4c520f0212ab9f597345105d5341a643521b48712f3f1d90ae"
+    sha256 arm64_sequoia: "b809a6a65a626b2e779f57a8c7d2e4e33167fcf69f13e6254621689064ccaffa"
+    sha256 arm64_sonoma:  "7fb79dbc72d0137d2925ed7522f85b6efc789876abca75d916520176518c127f"
+    sha256 sonoma:        "c4b1492ed64c4065c4728491cde8c2de33beebad6297b16a71462db45c473e06"
+    sha256 arm64_linux:   "d000281082142d1e0d75047862d81b52040c6e6a9e617b1fb8d43b050da2d11f"
+    sha256 x86_64_linux:  "b395a1bb45221e70742c3b45ec172f6bd79db497af79e2ed63b62d5166a5c03a"
   end
 
   depends_on "asciidoctor" => :build

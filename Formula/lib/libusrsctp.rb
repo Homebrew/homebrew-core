@@ -15,6 +15,8 @@ class Libusrsctp < Formula
     patch do
       url "https://github.com/sctplab/usrsctp/commit/7569d2ce1e8658534369ad9726ca62139211db84.patch?full_index=1"
       sha256 "6d37314f524ff301546f1e53b605dd276837a984545c6dc1cb21ad87cbd49f6b"
+      type :backport
+      resolves "https://github.com/sctplab/usrsctp/pull/724"
     end
   end
 

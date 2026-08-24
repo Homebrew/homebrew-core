@@ -1,24 +1,24 @@
 class SoftServe < Formula
   desc "Mighty, self-hostable Git server for the command-line"
   homepage "https://github.com/charmbracelet/soft-serve"
-  url "https://github.com/charmbracelet/soft-serve/releases/download/v0.11.6/soft-serve-0.11.6.tar.gz"
-  sha256 "d986f988834615ea602194e35bdbba8ea9eb8948f9603475ce8c5acd4a8df9d6"
+  url "https://github.com/charmbracelet/soft-serve/releases/download/v0.12.2/soft-serve-0.12.2.tar.gz"
+  sha256 "b520cafe241855f3c9db34ede235ab8191c7f638e1bc7d34f5fb1b29a17e1345"
   license "MIT"
   head "https://github.com/charmbracelet/soft-serve.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d66833542b98d14d3970a45fe85e55d6cc3cee5f924ae29afe877580e3057705"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0e47346041f811a823d1a21caee2564ba20cce6564b98fc92e3fc6e1d2c1b6d7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "743cd8be41fafbb21bf558191f7fb67fc9a915e712c1301045d86dd5f0ea5777"
-    sha256 cellar: :any_skip_relocation, sonoma:        "00b22a1ad09e68278a70be051fa0081a1a0e64d901c3bdb3a9d3a6ef030aa138"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "91a85d06ec29af35f1a41750ca77475cc16d37d81a12c3113b0e61d4bd465bd3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e041b4d0dbd0adbd4f4b89217897f62b3cb7b9396de6b0718fe12ed56315485"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "378319d05069e92b9f3822eec232409203921c5e3161088f87c14d361b165d29"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2bea0d6f41da8754e84b15e0fbb9f79542ed00bd7dd1a82b1008ef42e8a45b09"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e410ea6b4df21cab018bc948de6ed8f66a6833806dd6bca4cc5291880dce14ce"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f575e8e100a22b5b71099330220694c05f536fa41f08351f6e604c35fb3cf517"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2501cc13221c19473333335b6240eb641a27253d054331b7d7a1757aeb73bf80"
+    sha256 cellar: :any,                 x86_64_linux:  "4af75d12fe3ba8e7bdc3a479c0af0efdf55df140883a7df34feaf9e83982152a"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.Version=#{version} -X main.CommitSHA=#{tap.user} -X main.CommitDate=#{time.iso8601}"
+    ldflags = "-X main.Version=#{version} -X main.CommitSHA=#{tap.user} -X main.CommitDate=#{time.iso8601}"
     system "go", "build", *std_go_args(ldflags:, output: bin/"soft"), "./cmd/soft"
   end
 

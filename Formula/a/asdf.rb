@@ -1,8 +1,8 @@
 class Asdf < Formula
   desc "Extendable version manager with support for Ruby, Node.js, Erlang & more"
   homepage "https://asdf-vm.com/"
-  url "https://github.com/asdf-vm/asdf/archive/refs/tags/v0.19.0.tar.gz"
-  sha256 "bd2b497b0c58017cb7c863550d9cf585aefbd74e334a567cd6b8dcb339bb1806"
+  url "https://github.com/asdf-vm/asdf/archive/refs/tags/v0.20.0.tar.gz"
+  sha256 "49f47b5b5255c6f29384f7d403d6c27bae9ce9944a4ff9334c67987d4b6c97b4"
   license "MIT"
   head "https://github.com/asdf-vm/asdf.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Asdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4b4f7836d3f8dd1b4b8958612843c0265cec41dd54c61e4e72ddbb7e2f58bf49"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4b4f7836d3f8dd1b4b8958612843c0265cec41dd54c61e4e72ddbb7e2f58bf49"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b4f7836d3f8dd1b4b8958612843c0265cec41dd54c61e4e72ddbb7e2f58bf49"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d41db2d847be8153637321d3b02f09c683c41f676be9fde04c0b8fe382829055"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "607bac77c488c042954081712d7be3ec8640cd2f6c0e5a241aabd65611f8612c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20cda6dddd47e19cf89cb107253e3e716333443d885bde1c82ddd0a41c53a620"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "02a5111019f00e7f2bb4ebc8caedcf2385892e9df1814676574cea32bd61bd47"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "02a5111019f00e7f2bb4ebc8caedcf2385892e9df1814676574cea32bd61bd47"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "02a5111019f00e7f2bb4ebc8caedcf2385892e9df1814676574cea32bd61bd47"
+    sha256 cellar: :any_skip_relocation, sonoma:        "38941222b8c7f94ab50dd4830f3564cfa6685de31b7b2462f809214c977ccf93"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e0ba1c5cbbfe833aa3dd08b2f6aa651534a3e0f90ff063a8cd1f11bc78a9a565"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea6e7c59d07c598e7b70c0f5ddf29f0a1fe4f9d4f34c28c16d7ddd79ba44e172"
   end
 
   depends_on "go" => :build
@@ -27,7 +27,7 @@ class Asdf < Formula
     # relates to https://github.com/Homebrew/homebrew-core/issues/163826
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
 
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/asdf"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/asdf"
     generate_completions_from_executable(bin/"asdf", "completion")
     libexec.install Dir["asdf.*"]
   end

@@ -26,7 +26,7 @@ class FileFormula < Formula
   depends_on "libmagic"
 
   def install
-    ENV.prepend "LDFLAGS", "-L#{Formula["libmagic"].opt_lib} -lmagic"
+    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("libmagic")} -lmagic"
 
     system "./configure", *std_configure_args
     system "make", "install-exec", "file_DEPENDENCIES=", "file_LDADD=$(LDADD) -lm"

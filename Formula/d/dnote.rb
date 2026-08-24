@@ -25,7 +25,7 @@ class Dnote < Formula
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
 
-    ldflags = "-s -w -X main.versionTag=#{version} -X main.apiEndpoint=http://localhost:3001/api"
+    ldflags = "-X main.versionTag=#{version} -X main.apiEndpoint=http://localhost:3001/api"
     system "go", "build", *std_go_args(ldflags:, tags: "fts5"), "./pkg/cli"
   end
 

@@ -1,10 +1,10 @@
 class AwsSdkCpp < Formula
   desc "AWS SDK for C++"
   homepage "https://github.com/aws/aws-sdk-cpp"
-  url "https://github.com/aws/aws-sdk-cpp/archive/refs/tags/1.11.825.tar.gz"
-  sha256 "9596089e8a362590965dd4c7ea2afdce579bb2e379d9f2f223cf123b9d287204"
+  url "https://github.com/aws/aws-sdk-cpp/archive/refs/tags/1.11.870.tar.gz"
+  sha256 "b8eeb6a79f29e6fa92a75450b27419f1e8ec97df7482703b83fb5bb59333069f"
   license "Apache-2.0"
-  compatibility_version 1
+  compatibility_version 3
   head "https://github.com/aws/aws-sdk-cpp.git", branch: "main"
 
   livecheck do
@@ -12,12 +12,12 @@ class AwsSdkCpp < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "0cf621997b7ac83d745cb234e01c22bc3218062a9e387c611412abef74e6fb10"
-    sha256               arm64_sequoia: "51f318cc5343f90a69c7dae93e2ede30e792fe323511d979c193e6d230860e03"
-    sha256               arm64_sonoma:  "9f059113c85b48f232f411ca4b130bbb2c69cb7c6e9e5135de10c7a6a23e6d3e"
-    sha256 cellar: :any, sonoma:        "61c54db2984086764f5198ac4727db6fe340e417272ec941dd51f32a612910e9"
-    sha256 cellar: :any, arm64_linux:   "743cf7d50193db2bae93e995e55fec221d52b2f5b6c95e20730d1efdc5883fd5"
-    sha256 cellar: :any, x86_64_linux:  "43e13678d2a0a09c6410e25e7da05f6d7b8b9ee1c800496833fc66c72955a28f"
+    sha256               arm64_tahoe:   "273fa4254b2588ad97de087a62ade2783685660ef47eb313ba422db7a6e37867"
+    sha256               arm64_sequoia: "0fb4238fb3e1c35cac7e1617dd723d9e849db9bb319ba4acda0c42fae75ae3cd"
+    sha256               arm64_sonoma:  "40b7df3331e4fe3784cf7dadb8a3505130ed660004c7cfea3920a26574292f2b"
+    sha256 cellar: :any, sonoma:        "e241f8eabc494bd3286796b2c22a542610f02a47bd17a56c8d9e132525c8cc46"
+    sha256 cellar: :any, arm64_linux:   "26fdefd5207064ca6c56e396b7991f31706b79febab530c1f361c7a24ef278a2"
+    sha256 cellar: :any, x86_64_linux:  "7ff87a463aaeddfeffb907589e66290823d480845b6513d984d07ebeed983598"
   end
 
   depends_on "cmake" => :build
@@ -45,7 +45,7 @@ class AwsSdkCpp < Formula
 
     args = %W[
       -DBUILD_DEPS=OFF
-      -DCMAKE_MODULE_PATH=#{Formula["aws-c-common"].opt_lib}/cmake/aws-c-common/modules
+      -DCMAKE_MODULE_PATH=#{formula_opt_lib("aws-c-common")}/cmake/aws-c-common/modules
       -DCMAKE_SHARED_LINKER_FLAGS=#{linker_flags.join(" ")}
       -DENABLE_TESTING=OFF
     ]

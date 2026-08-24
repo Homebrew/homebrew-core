@@ -3,18 +3,18 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/1d/89/4bc94f3736d1b0a0f2d639b152192bb036afb6186af1ed246710b109e6e0/conan-2.29.1.tar.gz"
-  sha256 "3a3bc1bfda462237c537d0dd8baa9dd68f6ac29c3ecc98dbb4a668ccc943ff33"
+  url "https://files.pythonhosted.org/packages/f0/2f/f88c73d7042b87924e482cf2081645dfdc4ee4c20071f3d3b4aa08ca2f5e/conan-2.31.2.tar.gz"
+  sha256 "d820e9f5ac44eca1567874f6a7c83586c16a3df5ebca006d9c0c6933fbb375b1"
   license "MIT"
   head "https://github.com/conan-io/conan.git", branch: "develop2"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "04d431c61234b04718dde3c5cc0d4b731b4785c38994601e92d61dae525bc2dd"
-    sha256 cellar: :any, arm64_sequoia: "0d026ffecfa90cf1f78c68b2d589edf0a6006ecb51a1ff573c68cf7e04be6365"
-    sha256 cellar: :any, arm64_sonoma:  "94eb610b840012f804d40ed1dac8ffa04d34396cfffc7ee2ecd95c3b8cb5d154"
-    sha256 cellar: :any, sonoma:        "0787aae7764944f423e6addf8027d1bfaabd8dce417a8fb5429742c58d736b0e"
-    sha256 cellar: :any, arm64_linux:   "d1173d2cfb96cc1ff9c88de0bfebc2e9813f0cc03bc1148e71ce4385b16c118b"
-    sha256 cellar: :any, x86_64_linux:  "c3dd8f41c597b7b614271227dbc599c388a64a45639cbf277617827726c4c6cd"
+    sha256 cellar: :any, arm64_tahoe:   "1c472a422807d34bb027626e4cc17e94452dd12956e9b405552f41301a067a50"
+    sha256 cellar: :any, arm64_sequoia: "ff95446f4b646b2abfe32f0a0b64e59ac7620d103439616b6e69fbba3fb2f8c2"
+    sha256 cellar: :any, arm64_sonoma:  "787d950c2375ae54caa569db92413c68c457e0bf41159dfde8809025b9d06fb8"
+    sha256 cellar: :any, sonoma:        "6cea70528a741e5282ea216487e83e6131b7db8ac1bd328180719f54dd72d4ec"
+    sha256 cellar: :any, arm64_linux:   "9b3fbd1f72351b6fc8f18b2b8ea87d04917265e70a6cc33df5cd580cc6cacf97"
+    sha256 cellar: :any, x86_64_linux:  "f01d3988065086768750b731a5a93524ec07826bfc8bc9f5fe13e1a73689cf52"
   end
 
   depends_on "pkgconf" => :build
@@ -27,8 +27,8 @@ class Conan < Formula
                 extra_packages:   "distro"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "colorama" do

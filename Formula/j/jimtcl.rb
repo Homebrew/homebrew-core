@@ -1,18 +1,17 @@
 class Jimtcl < Formula
   desc "Small footprint implementation of Tcl"
   homepage "https://jim.tcl.tk/index.html"
-  url "https://github.com/msteveb/jimtcl/archive/refs/tags/0.83.tar.gz"
-  sha256 "6f2df00009f5ac4ad654c1ae1d2f8ed18191de38d1f5a88a54ea99cc16936686"
+  url "https://github.com/msteveb/jimtcl/archive/refs/tags/0.84.tar.gz"
+  sha256 "435095b436b38b96dd85e8cda13878144813bf52066057f76368db178dd8fea2"
   license "BSD-2-Clause"
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "05ae4713f0c3a97e7fe336d63e5d8820f5d0e13db8fc85feb26816941fe5ca8a"
-    sha256 arm64_sequoia: "4750bf34906f2399f5047a2af4b941381f91a87ebf23f702556f1e7f9e65acfe"
-    sha256 arm64_sonoma:  "7f11c06f31cd0079cddced37e014f82f7b3e76eef35416e0027a0d3aa6c42209"
-    sha256 sonoma:        "3f903f30f40421547ff9b2c32cd1846776ceb8ed15a1e528342bfa674f789c35"
-    sha256 arm64_linux:   "44285a821b4033b99b40ee6d7689a24eca229e0b9535d64d074af9f6a61f37f4"
-    sha256 x86_64_linux:  "ec2e913ae07ca6964043a8acd6ae2749ee86aba963284d115c64e58191b88a88"
+    sha256 arm64_tahoe:   "49d6948c10c245e1c3899d99310de49518f5497a9cd0e19e5cc47a28d6c2d515"
+    sha256 arm64_sequoia: "07154ce642692bfc22ef3fb224c9929e638ba4cc2afc9ba180febf692f53992c"
+    sha256 arm64_sonoma:  "54bb0f7df7b58b73403d3676da646c1dbab63ff74af371afa5bb2edc7aeeb0ae"
+    sha256 sonoma:        "c372398df5a9c148ce18ead99dec80f0e1345561b6ce6a8b6480b74def2c88b0"
+    sha256 arm64_linux:   "7b8e364487eec1cd03f69fa5fa3278b7da756964d2643cff0574f30c88b59be7"
+    sha256 x86_64_linux:  "33f1669740e1f0587137e8eb19ffaf3b43522de37d15a6ca160b5f8d57cd7025"
   end
 
   depends_on "openssl@3"
@@ -22,12 +21,6 @@ class Jimtcl < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
-  end
-
-  # patch to include `stdio.h``
-  patch do
-    url "https://github.com/msteveb/jimtcl/commit/35e0e1f9b1f018666e5170a35366c5fc3b97309c.patch?full_index=1"
-    sha256 "50f66a70d130c578f57d9569b62cf7071f7a3a285ca15efefd3485fa385469ba"
   end
 
   def install

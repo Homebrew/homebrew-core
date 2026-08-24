@@ -37,7 +37,7 @@ class CassandraCppDriver < Formula
     # Workaround for CMake 4 compatibility
     args = %W[
       -DCMAKE_POLICY_VERSION_MINIMUM=3.5
-      -DLIBUV_ROOT_DIR=#{Formula["libuv"].opt_prefix}
+      -DLIBUV_ROOT_DIR=#{formula_opt_prefix("libuv")}
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

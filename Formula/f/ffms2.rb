@@ -2,12 +2,11 @@ class Ffms2 < Formula
   desc "Libav/ffmpeg based source library and Avisynth plugin"
   homepage "https://github.com/FFMS/ffms2"
   url "https://github.com/FFMS/ffms2/archive/refs/tags/5.0.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/f/ffms2/ffms2_5.0.orig.tar.gz"
   sha256 "7770af0bbc0063f9580a6a5c8e7c51f1788f171d7da0b352e48a1e60943a8c3c"
   # The FFMS2 source is licensed under the MIT license, but its binaries
   # are licensed under the GPL because GPL components of FFmpeg are used.
   license "GPL-2.0-or-later"
-  revision 4
+  revision 5
   head "https://github.com/FFMS/ffms2.git", branch: "master"
 
   livecheck do
@@ -16,12 +15,12 @@ class Ffms2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d457c72653fbc70e59fef5f37bf1921e3b282452d4e84194f16edfb3a49d3260"
-    sha256 cellar: :any,                 arm64_sequoia: "4dae8616980c06dd68cd85802fe951093470fcb84153db6bf480e5e4d33befec"
-    sha256 cellar: :any,                 arm64_sonoma:  "11e888ef33d21dfc94592b867dd2b166334f7ec8e8356cdc87a5d063ef9b4091"
-    sha256 cellar: :any,                 sonoma:        "f58fff43b6b8363fa8f82a0aaafc8820c5ee8b2750da42d637798f6accd9f079"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8b01d6a3f90ead613af15aa9c6c2730150d1a38221431b131c03b4d53285278c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3325cc6b72c476f0a99963dfd702df356d3e0bc2fb76ea4f0d01469b45e2a679"
+    sha256 cellar: :any, arm64_tahoe:   "fb902e7a5250bf15d0f493636c4fcec52880a72d82d37941cd80dac4a2259ec9"
+    sha256 cellar: :any, arm64_sequoia: "62a622df2d25b82b159d45dd43e3be53e100179565aabe66b9d2354833a0b1ec"
+    sha256 cellar: :any, arm64_sonoma:  "bc7b8351939b487d569e3ee5d6ade29a4a14de2623b5d1fa95e45dd943e1cb3d"
+    sha256 cellar: :any, sonoma:        "1e093ed87dee6fac05650182192784231139ead764fa7497169ad265f84523ea"
+    sha256 cellar: :any, arm64_linux:   "8c81538df4dc9528d550e10d4b31aefbc354202085d06223340613855e3317aa"
+    sha256 cellar: :any, x86_64_linux:  "5ece14fd0c674c74b7f5936c76c87523d7d82f955a9f20cf8fb9635df4abd882"
   end
 
   depends_on "autoconf" => :build

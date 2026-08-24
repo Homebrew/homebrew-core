@@ -1,18 +1,18 @@
 class Tuxedo < Formula
   desc "Fast, keyboard-driven terminal UI for todo.txt"
   homepage "https://github.com/webstonehq/tuxedo"
-  url "https://github.com/webstonehq/tuxedo/archive/refs/tags/v2026.6.3.tar.gz"
-  sha256 "1191eb2227360451e665a5bc01584251bc107c7979cc93439c873a35ab20ee8f"
+  url "https://github.com/webstonehq/tuxedo/archive/refs/tags/v2026.8.1.tar.gz"
+  sha256 "3135e38b61bdf12f751143b5f704ebd3b1ec6f25dd7625baeb7f7f30e56b13ea"
   license "MIT"
   head "https://github.com/webstonehq/tuxedo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a17e06b2c94b03eec4adb1c69e6f57c66c20d3f9121d83fefb9745cc1441295d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9bc54acc978679afdca09b5662be0a24a6421b7fb8f0b7546e457bcf770fb8f7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "59621f04cd8edbe3ec6ea2d15d68c301c94847c06c46fde049f006d2b7f5d57d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "91bb6792bb4fbec63078f3f53d8667307b5fbfd4d822a39784f5f0e1d71b516d"
-    sha256 cellar: :any,                 arm64_linux:   "c17d32b388641bb57479902c21f198bbad07e4c79b3a326833c6441888c3269a"
-    sha256 cellar: :any,                 x86_64_linux:  "7e514d4729d180e6bd147c194cb4b87110ed1185bef5c83cad3f8019f47089ea"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "02e596e023b079e75b764569297946a78348faebb31e30fecff0f1f1669c4438"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "53450041aa8827e0c2d94989d2cccd3b3e93ab3f2552abbdd7fcaf94b9fcaabf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dbfb7ffb96b4284a986cb0bf2f5e53159df0cc158a1806b193ed009ef2f321a3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "65ac2f90390b1a167c73f089b0758258a68d1b367f2fde9979b955aa710feb20"
+    sha256 cellar: :any,                 arm64_linux:   "0a5822a1fba2d98d2514e4684c0e3c83daeb1f481e43ee44b5e13280b12814e7"
+    sha256 cellar: :any,                 x86_64_linux:  "7763235b24c20a8be648f8e54df35c12ecf26e60df7d9859cb1040fe1dd232bc"
   end
 
   depends_on "rust" => :build

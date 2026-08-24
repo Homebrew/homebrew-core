@@ -1,9 +1,9 @@
 class Pinentry < Formula
   desc "Passphrase entry dialog utilizing the Assuan protocol"
   homepage "https://www.gnupg.org/related_software/pinentry/"
-  url "https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.3.2.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/pinentry/pinentry-1.3.2.tar.bz2"
-  sha256 "8e986ed88561b4da6e9efe0c54fa4ca8923035c99264df0b0464497c5fb94e9e"
+  url "https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.3.3.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/pinentry/pinentry-1.3.3.tar.bz2"
+  sha256 "c2970f16d6afb66ecddfca767d743936c86239bff936eed7fd7597a678414b63"
   license "GPL-2.0-or-later"
   compatibility_version 1
 
@@ -13,14 +13,12 @@ class Pinentry < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8db428e52232580a5acf1da5a370c39c425e5320a28e967ae091f1c82596b50a"
-    sha256 cellar: :any,                 arm64_sequoia: "f6dfd4bfdda001ddfddbed01c6ad7e06408ff022788a7718d35e443ebcb31274"
-    sha256 cellar: :any,                 arm64_sonoma:  "45317e1d4023306c38e0118f48f75fbdc09df2b22ca0428f747ad4844413bd2c"
-    sha256 cellar: :any,                 arm64_ventura: "114df538a9d7172db7eb15b1c1380617fe8e7f3da735d1941dd3fef520aeaeec"
-    sha256 cellar: :any,                 sonoma:        "d0efed8b2727ae08821905faaae114946dc6ca476acc9e64f05b9d54923ec965"
-    sha256 cellar: :any,                 ventura:       "d5febb0ffec00281abc40d54ebf90929861452ea2a9dee1394a54f9ccb96dc3c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f5b34aeb57f37731401747e632485c6e5d8d6b60f1e025323558d7b0b3dac96e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92da639e8c37468025b9464abc36f6b15d13a2a096c25c0c860450745c7d696d"
+    sha256 cellar: :any, arm64_tahoe:   "21e2614c38af0287f96dd0c288dea2c13bfbb7810ce1d6e659ed82e5c2073c92"
+    sha256 cellar: :any, arm64_sequoia: "eb7ffd4b8a4f31ce85cf0395656bbc1fd5241fdc1b9f92d9900e813993d4e1e0"
+    sha256 cellar: :any, arm64_sonoma:  "e4a96896da1a1a8f6ff7e95dfc39cd3f39d8200a51ef4e1e3097b93aec01088b"
+    sha256 cellar: :any, sonoma:        "590157c44b9ac5eadfdfac5d46897d720ff8d09ef4b64514acaa46432b8d3e1f"
+    sha256 cellar: :any, arm64_linux:   "898bda8003ce5f9e51689351dc6853c0fdde77a0d1d3cc68fd431452b558f2f8"
+    sha256 cellar: :any, x86_64_linux:  "b5e23cb72d88f6ea3c9c9f95aa356231ea072dd8f91886249154366db8ea6c69"
   end
 
   depends_on "pkgconf" => :build

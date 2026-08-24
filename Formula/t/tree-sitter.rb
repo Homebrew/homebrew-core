@@ -1,8 +1,8 @@
 class TreeSitter < Formula
   desc "Incremental parsing library"
   homepage "https://tree-sitter.github.io/"
-  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.26.9.tar.gz"
-  sha256 "8e14780500933f43d86662fcaa1b0ce99ebe9c220f4680bc929dce09a0e0cfc6"
+  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.26.13.tar.gz"
+  sha256 "ece24c3c5e2a76384075e830c7139b59fce8fb01e4ef8436fab08bbe10444c89"
   license "MIT"
   compatibility_version 1
   head "https://github.com/tree-sitter/tree-sitter.git", branch: "master"
@@ -13,12 +13,12 @@ class TreeSitter < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1877f8dfe17f3b673ee80260afa5e2e02c4d7a966cff1e938982ebe5eb7adcd0"
-    sha256 cellar: :any,                 arm64_sequoia: "14c6c001055fb88669ff6f9dbe50d0c749ea7918b7aa5dd7e96b8043de9ee54d"
-    sha256 cellar: :any,                 arm64_sonoma:  "08e49eaf87b519b66617d46e7fca951c22a03d6cdc063c80063da3d3995e3ebf"
-    sha256 cellar: :any,                 sonoma:        "38ff8be56b6a5c39875a93e57350e51522d6ce6e2a78baea8ebdadc65650a0f0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f1218072c309f8ec39f864a8da47e3040e38e3044ccf2656f4ad0a05820ea41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd344be8e97233097f338472b95c9c0b81b925e988ce3633ba36e7cb8b880fb2"
+    sha256 cellar: :any, arm64_tahoe:   "1b2e6621d2ea2e1ccf30653ade30fd1bf5b16772e9812bf19d7039366186ec00"
+    sha256 cellar: :any, arm64_sequoia: "dff993ef75d7d8a729c67f5d63a1b5c8a309f495985a9ff32114bf56e825310d"
+    sha256 cellar: :any, arm64_sonoma:  "5ee26a0b75c4d76e0abeeb2efe1e15873c4540bb5ac0a7c6d03c40e2dd9c0c87"
+    sha256 cellar: :any, sonoma:        "c128eb45623eea6e91083d8f5292d05e9dc1a5a6a94311315b2e18f1111aedfa"
+    sha256 cellar: :any, arm64_linux:   "daebe9449b991a1b8812c239a2437bd1357323d891cbdbe60d33558a44e13e2b"
+    sha256 cellar: :any, x86_64_linux:  "a474f12167e395fff07f7f2443ce1c531b2796d6aedd557f7b25df349be20c9d"
   end
 
   def install

@@ -20,7 +20,6 @@ class Gwctl < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X sigs.k8s.io/gwctl/pkg/version.version=#{version}
       -X sigs.k8s.io/gwctl/pkg/version.gitCommit=#{tap.user}
       -X sigs.k8s.io/gwctl/pkg/version.buildDate=#{time.iso8601}

@@ -1,8 +1,8 @@
 class VulkanProfiles < Formula
   desc "Tools for Vulkan profiles"
   homepage "https://github.com/KhronosGroup/Vulkan-Profiles"
-  url "https://github.com/KhronosGroup/Vulkan-Profiles/archive/refs/tags/vulkan-sdk-1.4.350.0.tar.gz"
-  sha256 "10ae1aee25eae13f68473bf973b011f1c997c605e665211bd7dc307eb9ddab53"
+  url "https://github.com/KhronosGroup/Vulkan-Profiles/archive/refs/tags/vulkan-sdk-1.4.357.0.tar.gz"
+  sha256 "08494e824457659d0399075263deff22226ef2c0c1067f551b7ec84a1b11df53"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Profiles.git", branch: "main"
 
@@ -12,12 +12,12 @@ class VulkanProfiles < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2dbb0f04f4fb96e0cccbda16533ba98e35257e098ca75556cea8000cf79ad527"
-    sha256 cellar: :any,                 arm64_sequoia: "8407f0563149878e8efe414716fe6ccf6c2cf53ea38f68560b083eca95b60714"
-    sha256 cellar: :any,                 arm64_sonoma:  "37c89140dd1180839404cd03890bf0c24439587b31a767e16e73ee07f3b2704f"
-    sha256 cellar: :any,                 sonoma:        "eddec62600223b592e208ac7612c87f94eac0e77e5396ad8fb12eae6de7c0f13"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "155a3a274c2afea621f3214667d74946111539875a1a593298b7e79914f26ef9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "17b4d77a42454dcdf056ceea071e3e9a201d854444ac6528cb809bfb37485ca4"
+    sha256 cellar: :any, arm64_tahoe:   "ba8531a6ca81c6feed8694247f79b20c3449dce1f9da369dab1579e958d27069"
+    sha256 cellar: :any, arm64_sequoia: "e9378f588eff60b4033b53e57432657b02eae60ab87a33b6c53fbbd892faaeee"
+    sha256 cellar: :any, arm64_sonoma:  "b8293e8fa07a8e96129c8561c7b5c696d3bcc7977d181f818eca8348852703e3"
+    sha256 cellar: :any, sonoma:        "42bc6fbc0e2ecf0bb0bb8d7cd24f4aaf588a66db3a2fcb813bd81e73ea06d52a"
+    sha256 cellar: :any, arm64_linux:   "63eb783b015a564896c9d198a0564083b42e5a4973ce6c17b05709a6b2a6a098"
+    sha256 cellar: :any, x86_64_linux:  "93a0602a6878a0b633d70659007f0cbca08e65bc85deafcee1d49bd2d7f4d6a9"
   end
 
   depends_on "cmake" => :build
@@ -48,7 +48,7 @@ class VulkanProfiles < Formula
     inreplace "profiles/test/CMakeLists.txt", "jsoncpp_static", "jsoncpp"
 
     system "cmake", "-S", ".", "-B", "build",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath(target: Formula["vulkan-loader"].opt_lib)}",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath(target: formula_opt_lib("vulkan-loader"))}",
                     "-DPython3_EXECUTABLE=#{which("python3")}",
                     "-DVALIJSON_INSTALL_DIR=#{Formula["valijson"].prefix}",
                     "-DVULKAN_HEADERS_INSTALL_DIR=#{Formula["vulkan-headers"].prefix}",

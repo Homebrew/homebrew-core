@@ -27,11 +27,11 @@ class Webp < Formula
   depends_on "giflib"
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "libtiff"
 
   def install
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_DISABLE_FIND_PACKAGE_TIFF=ON
     ]
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON", *args
     system "cmake", "--build", "build"

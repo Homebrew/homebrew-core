@@ -1,10 +1,9 @@
 class SharedMimeInfo < Formula
   desc "Database of common MIME types"
   homepage "https://wiki.freedesktop.org/www/Software/shared-mime-info"
-  url "https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/2.4/shared-mime-info-2.4.tar.bz2"
-  sha256 "32dc32ae39ff1c1bf8434dd3b36770b48538a1772bc0298509d034f057005992"
+  url "https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/2.5.1/shared-mime-info-2.5.1.tar.bz2"
+  sha256 "b75b420da9b0be9a3d99b1bee6ed87957b56ab54583ac1a97fbd0dc98ddddb25"
   license "GPL-2.0-only"
-  revision 1
   compatibility_version 1
   head "https://gitlab.freedesktop.org/xdg/shared-mime-info.git", branch: "master"
 
@@ -17,13 +16,12 @@ class SharedMimeInfo < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "5411356847e0e209c1ae3622200b3a8ad25dd4b3d7ccc760b69d24f3e414ef08"
-    sha256 cellar: :any, arm64_sequoia: "8dfd77c8baca230f856f57d5c5ffd518c5c147234cb2fb150389909fb0b05acf"
-    sha256 cellar: :any, arm64_sonoma:  "c2c4802af57990d5629237264955223bce6f504a3baab475396d0b66c5621c57"
-    sha256 cellar: :any, sonoma:        "ecf64a0a5743b0726c449ede6e36d9043693ecd5e104d981049d912f00e3edfb"
-    sha256               arm64_linux:   "3397d58c69d02e9cfdca3c01faebe5312c0c6ae45d374444eb2c61f42c9e8c7a"
-    sha256               x86_64_linux:  "ceafdff20dab55cbcb38a71cecf82e71fd1c41b3dbdfb2f6c621f9f85d152354"
+    sha256 cellar: :any, arm64_tahoe:   "175d0d795dfbb1874181f80b2c113d07477e3adcde031bbf4d7dc4eafe9932a7"
+    sha256 cellar: :any, arm64_sequoia: "eb86118daf14319d85ea1cd9e63c240bad0f7d595154a2b2e2c68c362f02ecad"
+    sha256 cellar: :any, arm64_sonoma:  "3d6ca31a073c7dffc0a85df9caf464d5ba1be7761688dbb51bffe4a4236e44cd"
+    sha256 cellar: :any, sonoma:        "c7951cc3967666ed9197cf8c5415cfd0846844b67d9c9daa061142b06f4af668"
+    sha256               arm64_linux:   "9d05cc9cf16ef36f272d845e159d9064d8045aaad2b4dfd8d76311d008037a0b"
+    sha256               x86_64_linux:  "0c437c9eff86b2dec2f79752de0690c1f037584bbcd008a888a845507edfa09f"
   end
 
   depends_on "gettext" => :build
@@ -42,7 +40,7 @@ class SharedMimeInfo < Formula
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
-    system "meson", "setup", "build", *std_meson_args
+    system "meson", "setup", "build", "-Dbuild-tests=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end

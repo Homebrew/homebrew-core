@@ -1,8 +1,8 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://github.com/fish-shell/fish-shell/releases/download/4.7.1/fish-4.7.1.tar.xz"
-  sha256 "6f4d5b438a6338e3f5dcda19a28261e2ece7a9b7ff97686685e6abdc31dbb7df"
+  url "https://github.com/fish-shell/fish-shell/releases/download/4.8.1/fish-4.8.1.tar.xz"
+  sha256 "0eb86a851e865e934a7c2091a73d7695225e78f0e00a7bb96d5f877d76c65782"
   license "GPL-2.0-only"
   compatibility_version 1
   head "https://github.com/fish-shell/fish-shell.git", branch: "master"
@@ -15,12 +15,12 @@ class Fish < Formula
   pour_bottle? only_if: :default_prefix
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d0748afd7677498d11bfba25a9f207637ab4c946a7e3ef44015fafe788b49087"
-    sha256 cellar: :any,                 arm64_sequoia: "72c35917c46817b8ffc7a29a88503dc1c69c480791c00d1153b3c6f080438f24"
-    sha256 cellar: :any,                 arm64_sonoma:  "d2ac9381c0c31e65807936a22878482d9e55e9fb5c3cb6839d14a04638f7b595"
-    sha256 cellar: :any,                 sonoma:        "99dd20315683a455a83a8bed7304b989e4cf6e374b14757bcc27a15f76efdfe0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "83111b56a3eb19014461ff189b9f5032fe216f5d02e197577e3eba9ecee3eae0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ed24872ec681dfaf8c43449bb67242f76e7b4952a678b0b6564889baabc35950"
+    sha256 cellar: :any, arm64_tahoe:   "aca649fa38eeb9e45928c0629942bfaf83bb31e42fe79194f2f38aabd3f4a8ad"
+    sha256 cellar: :any, arm64_sequoia: "85606c0bca9b1423e2482285ff209dc6cc9dcc9a314a6d416ab4ffbc33ae9708"
+    sha256 cellar: :any, arm64_sonoma:  "bb51ea86a6b1162b86a49d41e5b1eb9738ce3537f3fb7cdfe90f9843e7d613d5"
+    sha256 cellar: :any, sonoma:        "3bc7ec406877d60f952c276c8826c8df0bbedb9c677336e32c6341444163de5b"
+    sha256 cellar: :any, arm64_linux:   "4efff2ff60ec41692b0fe6be2c36bc0c5e2525c57bb1a980b81446ed225c8801"
+    sha256 cellar: :any, x86_64_linux:  "cd1d5a4e14b47b287365bea22b27b925bf33ce8060166b25b86f31c353cc35f6"
   end
 
   depends_on "cmake" => :build
@@ -37,12 +37,6 @@ class Fish < Formula
                     "-Dextra_confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-  end
-
-  def post_install
-    (pkgshare/"vendor_functions.d").mkpath
-    (pkgshare/"vendor_completions.d").mkpath
-    (pkgshare/"vendor_conf.d").mkpath
   end
 
   test do

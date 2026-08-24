@@ -39,7 +39,7 @@ class PgTop < Formula
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", "--with-postgresql=#{Formula["libpq"].opt_prefix}", *std_configure_args
+    system "./configure", "--with-postgresql=#{formula_opt_prefix("libpq")}", *std_configure_args
 
     (buildpath/"config.h").append_lines "#define HAVE_DECL_STRLCPY 1"
     # On modern OS/X [v]snprinf() are macros that optionally add some security checks

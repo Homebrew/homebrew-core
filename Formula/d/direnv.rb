@@ -4,7 +4,6 @@ class Direnv < Formula
   url "https://github.com/direnv/direnv/archive/refs/tags/v2.37.1.tar.gz"
   sha256 "4142fbb661f3218913fac08d327c415e87b3e66bd0953185294ff8f3228ead24"
   license "MIT"
-  head "https://github.com/direnv/direnv.git", branch: "master"
 
   bottle do
     sha256 arm64_tahoe:   "5496ce0c1abb38345db8f58db469d2971d477ce4e077930ce52165b91d4a0a7a"
@@ -17,12 +16,18 @@ class Direnv < Formula
     sha256 x86_64_linux:  "5a3705773719544d8c366610498528d6607de6a2961b2ecb1cdedb5781b9d1c6"
   end
 
+  head do
+    url "https://github.com/direnv/direnv.git", branch: "master"
+
+    depends_on "go-md2man" => :build
+  end
+
   depends_on "go" => :build
   depends_on "bash"
 
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
-    system "make", "install", "PREFIX=#{prefix}", "BASH_PATH=#{Formula["bash"].opt_bin}/bash"
+    system "make", "install", "PREFIX=#{prefix}", "BASH_PATH=#{formula_opt_bin("bash")}/bash"
   end
 
   test do

@@ -32,6 +32,7 @@ class Nacl < Formula
     sha256 "d45ad0681434e2f6bc83df0016aa03f3a49ef4c20fe5009b775df53824080ee3"
     apply "patches/0002-fix-ftbfs.patch",
           "patches/0100-cpucycles-disable-build.patch"
+    type :unofficial
   end
 
   def install

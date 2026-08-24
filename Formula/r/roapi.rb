@@ -20,6 +20,7 @@ class Roapi < Formula
   patch do
     url "https://github.com/roapi/roapi/commit/c53bfa489011038cb934735451d88dcd9f39dbe2.patch?full_index=1"
     sha256 "0bdb9950c1f9e69670283f4fb491f2d71ce0f18248345c38869b4a6615ac823e"
+    type :backport
   end
 
   def install

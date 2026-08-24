@@ -35,7 +35,7 @@ class Javacc < Formula
     %w[javacc jjdoc jjtree].each do |script|
       (bin/script).write <<~SH
         #!/bin/bash
-        export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+        export JAVA_HOME="${JAVA_HOME:-#{formula_opt_prefix("openjdk")}}"
         exec "${JAVA_HOME}/bin/java" -classpath '#{libexec}/javacc.jar' #{script} "$@"
       SH
     end

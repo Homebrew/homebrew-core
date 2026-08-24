@@ -1,10 +1,10 @@
 class Ace < Formula
   desc "ADAPTIVE Communication Environment: OO network programming in C++"
   homepage "https://www.dre.vanderbilt.edu/~schmidt/ACE.html"
-  url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-8_0_6/ACE+TAO-8.0.6.tar.bz2"
-  sha256 "3e76a8ffcfdac916859222f8abbd6617b47d07e9f5e419b1df2e201dcd0a875b"
+  url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-8_0_7/ACE+TAO-8.0.7.tar.bz2"
+  sha256 "d61aa5de71a3e1bee09f74a0ff5f1309f09d4af9dd9ee4804483af4cf7cf7495"
   license "DOC"
-  compatibility_version 1
+  compatibility_version 2
 
   livecheck do
     url :stable
@@ -15,12 +15,12 @@ class Ace < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "25b8863e7a987bfd3cb0600fd0b03796543ac9117be55ef9418ff23439ac301a"
-    sha256 cellar: :any,                 arm64_sequoia: "a8472c6240069903212f2d6510bbfea721fbf98d8b32929b0e3a6b018a4f18e7"
-    sha256 cellar: :any,                 arm64_sonoma:  "1c8a43208bd191d3d99f0fd99123c69f4e726ab07b24fb065b2d31e89f2d6a64"
-    sha256 cellar: :any,                 sonoma:        "430f1d9ae9a21b1b9fec6adc46952e04056ca250033d3972ddce64b6661c99b8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "99a2c06217a1da8b8fef9c72638669e355cd5443b0937d245868498ca8ebe9cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f7c1c5865d3faf699ed79c109fa3828aab4f08d0886619a02cb4d12d2ecdbab"
+    sha256 cellar: :any, arm64_tahoe:   "3453c98056d85c2cf90b11dbfc669a5adf6db896c2901fa30bf11ee59462663d"
+    sha256 cellar: :any, arm64_sequoia: "5f1ddaf95f1d5c1e971d6645ec3a8e7da275bce35b305d63b69b74604b80c858"
+    sha256 cellar: :any, arm64_sonoma:  "a2ba34e3ba971e8b4c34975ab7f74a9f97557cc53d677ce6f3b754010db5d2a8"
+    sha256 cellar: :any, sonoma:        "b898fb146aa7ec753ef78cc31c0200b0570877bbf536ee69a5c9a55d61d5032b"
+    sha256 cellar: :any, arm64_linux:   "49a726138235af2706cdedb773e4e15c29ca6264cbbd389eec46ccffcb0a6df3"
+    sha256 cellar: :any, x86_64_linux:  "7fe0511e2d8e4c71b60a0b9416ba7fa47ba932a8c099758d424f3ac6cf3750d3"
   end
 
   deny_network_access!

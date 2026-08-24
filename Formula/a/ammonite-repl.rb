@@ -2,7 +2,6 @@ class AmmoniteRepl < Formula
   desc "Ammonite is a cleanroom re-implementation of the Scala REPL"
   homepage "https://ammonite.io/"
   url "https://github.com/com-lihaoyi/Ammonite/releases/download/3.0.9/3.3-3.0.9"
-  version "3.0.9"
   sha256 "1f7ff08c10c0f1bf9afb81484a884b435d1e07b54e314aa3f8cdfd6d939e7dbc"
   license "MIT"
 
@@ -18,6 +17,9 @@ class AmmoniteRepl < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, all: "1ae1d432270e48a8f23305a392d6a84006d52b1bbd660fa2ff90f1f29ab5a27f"
   end
+
+  deprecate! date: "2026-07-17", because: :deprecated_upstream, replacement_formula: "scala-cli"
+  disable! date: "2027-01-17", because: :deprecated_upstream, replacement_formula: "scala-cli"
 
   depends_on "openjdk"
 

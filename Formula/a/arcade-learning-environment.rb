@@ -1,30 +1,31 @@
 class ArcadeLearningEnvironment < Formula
   desc "Platform for AI research"
   homepage "https://github.com/Farama-Foundation/Arcade-Learning-Environment"
-  url "https://files.pythonhosted.org/packages/96/f2/4256e8074df976edd3ba28be9b6a2f4b3fc47632134dabfead41d32b51be/ale_py-0.12.0.tar.gz"
-  sha256 "6030416b6a049d399bf95420ad2fdbf0ea8f83051b502774d27b477a06000dbc"
+  url "https://files.pythonhosted.org/packages/3e/e8/e69da8a5fb5feafa9fffb32ed8c2b306b7571b77faf779f61e4eb53304ec/ale_py-0.12.1.tar.gz"
+  sha256 "c503d574c5983e1063b451201ccb779d935919c0f6bf116fb0f4f8aa4c86d249"
   license "GPL-2.0-only"
   head "https://github.com/Farama-Foundation/Arcade-Learning-Environment.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "93c2116408dec539ac099675d9e8247a448efa0d1606b346e363b0d5bde5b843"
-    sha256 cellar: :any, arm64_sequoia: "9fbe9df4b54fa9a43abfe51209a406ccd4a7d64447327d06bff381ef83998b8b"
-    sha256 cellar: :any, arm64_sonoma:  "0be9c8aabc25649ec64a7080990ecc3a69f3cb3a2ca0aeb0c046c5c6c57a370f"
-    sha256 cellar: :any, sonoma:        "92c4560f1a4747f7e69cd0598e508800a1f98195112f802c5b9b92d34ea51a4c"
-    sha256 cellar: :any, arm64_linux:   "27eb967b8f7c951b8e4ed93e41e3c4ab69f9f9bf1d1a086595bfc0fad332bb06"
-    sha256 cellar: :any, x86_64_linux:  "2bea153cc0c1b7e4c4cdbf39cfc8e4cc23ca118523f5121b313259546321faff"
+    sha256 cellar: :any, arm64_tahoe:   "1238599d305a9c092143312c8e71e2ca7b7b4a468638d1b33e6b733484d2e822"
+    sha256 cellar: :any, arm64_sequoia: "c572fcd1e2d4d2ad979e426d0d0c4bb81cc57fe958a7c61a7236aa68a9194a0f"
+    sha256 cellar: :any, arm64_sonoma:  "3b44b4e9016f44fe64042ea3a12c6198e00a2c1aa93fe29863be415ecd0dcb50"
+    sha256 cellar: :any, sonoma:        "d60ce709607371bc0f4639123941d8ed454d825a5b6ed3c7dff67dc970e1d273"
+    sha256 cellar: :any, arm64_linux:   "4ae126bae532827def08955d695d51c3c109bdf03ad87655a9aceeb9044af069"
+    sha256 cellar: :any, x86_64_linux:  "71a05850ffc86e03af98c2a62343b77d4e2d92d2402ab37ef84790b7bf9be253"
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "numpy"
   depends_on "python@3.14"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
+
+  pypi_packages exclude_packages: "numpy"
 
   # See https://github.com/Farama-Foundation/Arcade-Learning-Environment/blob/master/scripts/download_unpack_roms.sh
   resource "roms" do
@@ -61,11 +62,9 @@ class ArcadeLearningEnvironment < Formula
 
     # Install ROMs
     resource("roms").stage do
-      require "base64"
-
       pwd = Pathname.pwd
       encoded = (pwd/"Roms.tar.gz.b64").read
-      (pwd/"Roms.tar.gz").write Base64.decode64(encoded)
+      (pwd/"Roms.tar.gz").write encoded.unpack1("m")
 
       system "tar", "-xzf", "Roms.tar.gz"
       (buildpath/"src/python/roms").install pwd.glob("ROM/*/*.bin")

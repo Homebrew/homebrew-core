@@ -1,8 +1,8 @@
 class RpkiClient < Formula
   desc "OpenBSD portable rpki-client"
   homepage "https://www.rpki-client.org/"
-  url "https://ftp.openbsd.org/pub/OpenBSD/rpki-client/rpki-client-9.8.tar.gz"
-  sha256 "42920aac5afd0996173fb9f7848691a2c49dd234e4f10478808c1aa475620861"
+  url "https://ftp.openbsd.org/pub/OpenBSD/rpki-client/rpki-client-9.9.tar.gz"
+  sha256 "24985845b7283b071942c9fa44598517461211ee32a690a219ba81a14835e8c8"
   license "ISC"
 
   livecheck do
@@ -11,12 +11,12 @@ class RpkiClient < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "e2046b634e5c22f5f138c84ec00a3b87e91183f1225a3ae89b92b1796ad55cf3"
-    sha256 arm64_sequoia: "586c2128b794170082532594973c514a084a0cdb38a78c58c915e31bb2c4494a"
-    sha256 arm64_sonoma:  "3f3f3a80380649cc00fd85f271aea649e638ceaafc380c175cad2b19b2d32141"
-    sha256 sonoma:        "1d6e2ae0e9a8b7af170cf6e0c9ed0f279c324af15c2c333d0ed04dcb97c6cc16"
-    sha256 arm64_linux:   "80b7ca5e644eb72c11a7a8cadf75b8f0a9503fd9d128daabd900f7c1b84fb965"
-    sha256 x86_64_linux:  "0ff89bba365126182697998eb6d0b35a8e8009b16b126849b32fe6f85b6f3cf5"
+    sha256 arm64_tahoe:   "7bd007afbc2bdb471b22e548f5a6643f21e81119ebe499a055d4fe9128c53f00"
+    sha256 arm64_sequoia: "1aafe492b3c9a121f681503b8011c271056c51970d3805a9f87e3d0afd65a0dc"
+    sha256 arm64_sonoma:  "623a053b694a19af707c2c64b6f3b56bd3eabde27f6e75d0347396bf4d891bbb"
+    sha256 sonoma:        "c041be5527f63848538fc50b86a63b7028338aefb3be3b2971b08ca53cec0578"
+    sha256 arm64_linux:   "de736d06c33dff5db563efc17676512bcafa9b85167734b51331831e41f828de"
+    sha256 x86_64_linux:  "508fc25958233fc0b29f0cfa1325cfe29d804055bc29b321bd643a5909a3becc"
   end
 
   depends_on "pkgconf" => :build
@@ -31,7 +31,7 @@ class RpkiClient < Formula
   end
 
   def install
-    system "./configure", "--with-rsync=#{Formula["rsync"].opt_bin}/rsync",
+    system "./configure", "--with-rsync=#{formula_opt_bin("rsync")}/rsync",
                           "--disable-silent-rules",
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",

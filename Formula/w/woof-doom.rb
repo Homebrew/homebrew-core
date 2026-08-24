@@ -25,7 +25,7 @@ class WoofDoom < Formula
     url "https://github.com/fabiangreffrath/woof/archive/refs/tags/woof_15.3.0.tar.gz"
     sha256 "ace929952479bf42f2bbf404f6bc95ca5fabde23f3c8d656c6d1339b9baebbcc"
 
-    depends_on "sdl2"
+    depends_on "sdl2-compat"
     depends_on "sdl2_net"
   end
 

@@ -5,16 +5,16 @@ class Ncmpcpp < Formula
   url "https://github.com/ncmpcpp/ncmpcpp/archive/refs/tags/0.10.1.tar.gz"
   sha256 "ddc89da86595d272282ae8726cc7913867b9517eec6e765e66e6da860b58e2f9"
   license "GPL-2.0-or-later"
-  revision 7
+  revision 8
   head "https://github.com/ncmpcpp/ncmpcpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "670759732597402da6dd7e0dc4ed92675e15277f7db85c62e56e771b8ac59dd7"
-    sha256 cellar: :any,                 arm64_sequoia: "6df0785476637cc036dbe07ffd3327a6e86aa03318785d66d416a370ed04df6d"
-    sha256 cellar: :any,                 arm64_sonoma:  "061d5aa9b7f89797caaf12ec7effea0c97411be4ac3facb585c8fab1be8db540"
-    sha256 cellar: :any,                 sonoma:        "fda14cd49fe94f6396050895bceed1de192828a2650423a0037ff175bb9c4f86"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "554b3da3b1e4925251ff8af6703013f911f8c76f915fce30ee478995848b76a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "40b52492754a82d66f7a3a4e094a22f34326d14884d8c443319a9e184a833533"
+    sha256 cellar: :any, arm64_tahoe:   "2e70df09ef0392be678b106644b84817842e5f7662929a69d091f1e23f002f5b"
+    sha256 cellar: :any, arm64_sequoia: "d441950bc1e0da43d6a59a080d4ec899c3ee3241420b20627d7f469c0d357ae8"
+    sha256 cellar: :any, arm64_sonoma:  "1aa131d853f48e829a66dbc8008fc2013af1f763da4712791ad611fd4cf4ac24"
+    sha256 cellar: :any, sonoma:        "860160a2247e6c23fd944d93088ab8aa6101de5bbd864419cd66311e588c3246"
+    sha256 cellar: :any, arm64_linux:   "295b3a2023ab805b8d62662c4c7deafa80f8e57861c089ab72e414e7e5295f00"
+    sha256 cellar: :any, x86_64_linux:  "1cc1a9db3ce0094c788f17be56d9dcc769d871e5292f62b63fd24ca6ed29ab92"
   end
 
   depends_on "autoconf" => :build
@@ -31,18 +31,19 @@ class Ncmpcpp < Formula
 
   uses_from_macos "curl"
 
-  # Apply open PR to fix build with Boost 1.89.0.
-  # PR ref: https://github.com/ncmpcpp/ncmpcpp/pull/636
-  # Issue ref: https://github.com/ncmpcpp/ncmpcpp/issues/633
+  # Backport fix for build with Boost 1.89.0
   patch do
     url "https://github.com/ncmpcpp/ncmpcpp/commit/f67d350aa9beb2abdd12c429e97ae919e5b3102c.patch?full_index=1"
     sha256 "7fa67adf722fec69793f9aa53398195294402bb09519e7bd99b388b7f99a5e59"
+    type :backport
+    resolves "https://github.com/ncmpcpp/ncmpcpp/pull/636",
+             "https://github.com/ncmpcpp/ncmpcpp/issues/633"
   end
 
   def install
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
-    ENV.prepend "LDFLAGS", "-L#{Formula["readline"].opt_lib}"
-    ENV.prepend "CPPFLAGS", "-I#{Formula["readline"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("readline")}"
+    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("readline")}"
     ENV.append "CXXFLAGS", "-D_XOPEN_SOURCE_EXTENDED"
 
     args = %w[

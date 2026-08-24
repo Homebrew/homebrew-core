@@ -1,11 +1,10 @@
 class Rlwrap < Formula
   desc "Readline wrapper: adds readline support to tools that lack it"
   homepage "https://github.com/hanslub42/rlwrap"
-  url "https://github.com/hanslub42/rlwrap/archive/refs/tags/v0.48.tar.gz"
-  sha256 "b2721b1c0147aaafc98e6a31d875316ba032ad336bec7f2a8bc538f9e3c6db60"
+  url "https://github.com/hanslub42/rlwrap/releases/download/v0.48/rlwrap-0.48.zip"
+  sha256 "50ab1eabbb4f5d8a74bcd49bdee91342206c86695a0b63063f48dd682770d5a2"
   license "GPL-2.0-or-later"
   compatibility_version 1
-  head "https://github.com/hanslub42/rlwrap.git", branch: "master"
 
   livecheck do
     url :stable
@@ -21,13 +20,20 @@ class Rlwrap < Formula
     sha256 x86_64_linux:  "6c5a1f7a230f7987b1b78f5cea9c34afc36ec4bdaa7bca0bdb30fd321359d6a9"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  head do
+    url "https://github.com/hanslub42/rlwrap.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   depends_on "libptytty"
   depends_on "readline"
 
+  uses_from_macos "ncurses"
+
   def install
-    system "autoreconf", "--force", "--install", "--verbose"
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *std_configure_args
     system "make", "install"
   end

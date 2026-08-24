@@ -34,6 +34,7 @@ class Olsrd < Formula
     patch do
       url "https://github.com/OLSR/olsrd/commit/17d583258969c1d182361e0e168b3cad79ef64e6.patch?full_index=1"
       sha256 "2c7a210a3a504f1df51da3ceb0908d309c447a9a1566d6da244f4ae9e9e3cab1"
+      type :backport
     end
   end
 
@@ -41,22 +42,26 @@ class Olsrd < Formula
   patch do
     url "https://github.com/OLSR/olsrd/commit/be461986c6b3180837ad776a852be9ce22da56c0.patch?full_index=1"
     sha256 "6ec65c73a09f124f7e7f904cc6620699713b814eed95cd3bc44a0a3c846d28bd"
+    type :backport
   end
 
   # Apply 3 upstream commits to fix build with gpsd >= 3.20
   patch do
     url "https://github.com/OLSR/olsrd/commit/b2dfb6c27fcf4ddae87b0e99492f4bb8472fa39a.patch?full_index=1"
     sha256 "a49a20a853a1f0f1f65eb251cd2353cdbc89e6bbd574e006723c419f152ecbe3"
+    type :backport
   end
 
   patch do
     url "https://github.com/OLSR/olsrd/commit/79a28cdb4083b66c5d3a5f9c0d70dbdc86c0420c.patch?full_index=1"
     sha256 "6295918ed6affdca40c256c046483752893475f40644ec8c881ae1865139cedf"
+    type :backport
   end
 
   patch do
     url "https://github.com/OLSR/olsrd/commit/665051a845464c0f95edb81432104dac39426f79.patch?full_index=1"
     sha256 "e49ee41d980bc738c0e4682c2eca47e25230742f9bdbd69b8bd9809d2e25d5ab"
+    type :backport
   end
 
   def install

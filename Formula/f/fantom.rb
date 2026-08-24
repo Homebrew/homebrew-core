@@ -12,12 +12,13 @@ class Fantom < Formula
   depends_on "openjdk"
 
   conflicts_with "flux", because: "both install `flux` binaries"
+  conflicts_with "fluxcd", because: "both install `flux` binaries"
 
   def install
     rm(Dir["bin/*.exe", "bin/*.dll", "lib/dotnet/*"])
 
     # Select OpenJDK path in the config file
-    java_home = Formula["openjdk"].opt_libexec/"openjdk.jdk/Contents/Home"
+    java_home = formula_opt_libexec("openjdk")/"openjdk.jdk/Contents/Home"
     inreplace "etc/build/config.props", %r{//jdkHome=/System.*$}, "jdkHome=#{java_home}"
 
     libexec.install Dir["*"]

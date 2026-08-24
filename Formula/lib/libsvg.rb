@@ -34,6 +34,7 @@ class Libsvg < Formula
   patch do
     url "https://raw.githubusercontent.com/buildroot/buildroot/45c3b0ec49fac67cc81651f0bed063722a48dc29/package/libsvg/0002-Fix-undefined-symbol-png_set_gray_1_2_4_to_8.patch"
     sha256 "a0ca1e25ea6bd5cb9aac57ac541c90ebe3b12c1340dbc5762d487d827064e0b9"
+    type :unofficial
   end
 
   # Allow building on M1 Macs. This patch is adapted from
@@ -44,7 +45,7 @@ class Libsvg < Formula
     # Workaround to avoid segfault on arm64 linux. Upstream isn't actively maintained
     ENV.append_to_cflags "-include stdlib.h"
     # Workaround for error: unknown type name 'xmlParserCtxtPtr'
-    ENV.append_to_cflags "-I#{Formula["libxml2"].opt_include}/libxml2 -include libxml/tree.h" unless OS.mac?
+    ENV.append_to_cflags "-I#{formula_opt_include("libxml2")}/libxml2 -include libxml/tree.h" unless OS.mac?
 
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
@@ -129,9 +130,9 @@ class Libsvg < Formula
 
     system ENV.cc, "test.c", "-o", "test",
                    "-I#{include}", "-L#{lib}", "-lsvg",
-                   "-L#{Formula["libpng"].opt_lib}", "-lpng",
-                   "-L#{Formula["jpeg-turbo"].opt_lib}", "-ljpeg",
-                   "-Wl,-rpath,#{Formula["jpeg-turbo"].opt_lib}",
+                   "-L#{formula_opt_lib("libpng")}", "-lpng",
+                   "-L#{formula_opt_lib("jpeg-turbo")}", "-ljpeg",
+                   "-Wl,-rpath,#{formula_opt_lib("jpeg-turbo")}",
                    "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib"
     assert_equal "1\n2\n3\n4\n5\n6\nSUCCESS\n", shell_output("./test")
   end

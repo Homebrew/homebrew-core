@@ -1,18 +1,18 @@
 class AwsCS3 < Formula
   desc "C99 library implementation for communicating with the S3 service"
   homepage "https://github.com/awslabs/aws-c-s3"
-  url "https://github.com/awslabs/aws-c-s3/archive/refs/tags/v0.12.6.tar.gz"
-  sha256 "d70061a523ee1fb6f0127e52653e7cc252347893295d675797b3d387e0e46049"
+  url "https://github.com/awslabs/aws-c-s3/archive/refs/tags/v0.13.7.tar.gz"
+  sha256 "f15b0696d915a3189b4eee6b750fe8d1fbc84b33f94518071725a0f3a8ffc63d"
   license "Apache-2.0"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "441e31f41e4b85b5fa09bc829b1db9ccefef1f1f2387a5c73619dae61c0950c2"
-    sha256 cellar: :any, arm64_sequoia: "07250c4e6b0c67a7a9aefda5dc977753a538ef0f92875c366ab1150a6257b2af"
-    sha256 cellar: :any, arm64_sonoma:  "fef59de83a100641bb0bab2ee8443ac5874a5aee74c57c643b9691797d8522bb"
-    sha256 cellar: :any, sonoma:        "b7a014d3e9c3f9bca0c3bb362b41bec112caa4aabb53e5fd70434022a4b42133"
-    sha256 cellar: :any, arm64_linux:   "0162c89c71965bee639185610158e12ac15479b27245e47a326a24466adebb42"
-    sha256 cellar: :any, x86_64_linux:  "5eee8cbc532bb34a03f3e856a93f9f47228146b4d62c88f90253851e94321044"
+    sha256 cellar: :any, arm64_tahoe:   "ca01a7296cab7a1fe25a6ebd393b24deeb9a3518511738e744869f396b9e62f0"
+    sha256 cellar: :any, arm64_sequoia: "a855fc784cd4957b6ab5eca253f1ca7eb73fbcfe76703adabbeece61e324ee09"
+    sha256 cellar: :any, arm64_sonoma:  "ad122a5702bc57c15b72b17fa824e0c2aadcc6b345a49d9190c5e33a77559645"
+    sha256 cellar: :any, sonoma:        "d3be58e329a8c2e3c55bf08c61b33105e76449e3f93fcd7b96800a6213c8dc87"
+    sha256 cellar: :any, arm64_linux:   "979dcabf1e2d50f4fddd81e903dd318d4a12a5bd2d250dbf54b13e091c5dcc17"
+    sha256 cellar: :any, x86_64_linux:  "1beadbf86c2cae078f53a42c8841dbfb889e9f225e34bfc4d86dd691c3726c7d"
   end
 
   depends_on "cmake" => :build
@@ -64,7 +64,7 @@ class AwsCS3 < Formula
       }
     C
     system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-laws-c-s3",
-                   "-L#{Formula["aws-c-common"].opt_lib}", "-laws-c-common"
+                   "-L#{formula_opt_lib("aws-c-common")}", "-laws-c-common"
     system "./test"
   end
 end

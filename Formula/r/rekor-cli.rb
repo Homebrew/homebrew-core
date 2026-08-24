@@ -1,8 +1,8 @@
 class RekorCli < Formula
   desc "CLI for interacting with Rekor"
   homepage "https://docs.sigstore.dev/logging/overview/"
-  url "https://github.com/sigstore/rekor/archive/refs/tags/v1.5.2.tar.gz"
-  sha256 "1a63430a252e680b1dbd11ccc7d5ed0c64fc3b9f0ceef9dde3b39e210ad8e742"
+  url "https://github.com/sigstore/rekor/archive/refs/tags/v1.5.4.tar.gz"
+  sha256 "1624472d50b8002a7d97f62b2585d11a79f0ae776b56e7f89dad1d5c663033eb"
   license "Apache-2.0"
 
   livecheck do
@@ -11,19 +11,18 @@ class RekorCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7055ff35eb8c44d4b8a805a726c28d172c926f60c27d95c95530a58c48e17812"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7055ff35eb8c44d4b8a805a726c28d172c926f60c27d95c95530a58c48e17812"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7055ff35eb8c44d4b8a805a726c28d172c926f60c27d95c95530a58c48e17812"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b9f3875f760e43640bcd8da6e3c2fdff53e89ed83e5cd3d2c9bb6de6fe07518f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "67ca5a974f33862b29c9cb18f0201d48caacca6a1db4fcbc0725a3ead47b1b00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aceaa27243fe91fece46e9288ffe74c0cabd6c394cd0fda63e706cc0931fd340"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6c50af17f11a3993d02c52b109c9850549a5f911b19ecd88f3678bf2ceccf27e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "668954a5d518d9a15d49b519b411eeea7516f39326647711aa72a3f292d5e7fd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "41181b2637443b2f8cb038da34eabcab2a9ae31d747ee429aec2a86c51c6d964"
+    sha256 cellar: :any_skip_relocation, sonoma:        "994ea8d63ce5455f9202b3a7287ef50ce80fd07873e978e72801dd8ad08d3329"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b6642b2a7a704abe1facbae2f54f561b1c686026f6129a1a4195a5a01be1bd2b"
+    sha256 cellar: :any,                 x86_64_linux:  "d2a24232656bf41bd107bf5fd83ed1cd2e4c843722ddcb9e6cb6bd4032b65aa0"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X sigs.k8s.io/release-utils/version.gitVersion=#{version}
       -X sigs.k8s.io/release-utils/version.gitCommit=#{tap.user}
       -X sigs.k8s.io/release-utils/version.gitTreeState=#{tap.user}

@@ -50,14 +50,14 @@ class Gopass < Formula
       %commit
     GPG
     begin
-      system Formula["gnupg"].opt_bin/"gpg", "--batch", "--gen-key", "batch.gpg"
+      system formula_opt_bin("gnupg")/"gpg", "--batch", "--gen-key", "batch.gpg"
 
       system bin/"gopass", "init", "--path", testpath, "noop", "testing@foo.bar"
       system bin/"gopass", "generate", "Email/other@foo.bar", "15"
       assert_path_exists testpath/"Email/other@foo.bar.gpg"
     ensure
-      system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
-      system Formula["gnupg"].opt_bin/"gpgconf", "--homedir", "keyrings/live",
+      system formula_opt_bin("gnupg")/"gpgconf", "--kill", "gpg-agent"
+      system formula_opt_bin("gnupg")/"gpgconf", "--homedir", "keyrings/live",
                                                  "--kill", "gpg-agent"
     end
   end

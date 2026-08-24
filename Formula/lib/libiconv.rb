@@ -25,6 +25,7 @@ class Libiconv < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/patches/9be2793af/libiconv/patch-utf8mac.diff"
     sha256 "e8128732f22f63b5c656659786d2cf76f1450008f36bcf541285268c66cabeab"
+    type :unofficial
   end
 
   patch :DATA

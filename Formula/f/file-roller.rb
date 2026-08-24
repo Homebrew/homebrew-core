@@ -1,17 +1,18 @@
 class FileRoller < Formula
   desc "GNOME archive manager"
   homepage "https://wiki.gnome.org/Apps/FileRoller"
-  url "https://download.gnome.org/sources/file-roller/44/file-roller-44.6.tar.xz"
-  sha256 "9e873b5005bc425799a8cd4b237e1fff430ec8d6b34a992c6033f1dfc6e3764e"
+  url "https://download.gnome.org/sources/file-roller/44/file-roller-44.7.tar.xz"
+  sha256 "67cada96a2409c859f378e82fbe868b0e9c00a69e6b7b885d542c64ea2a1297d"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "95587f5b3683fe7adedfbeb595298ad7523a2d49f42c56afcf197f8d5d0abd8f"
-    sha256 arm64_sequoia: "85dcd5458ca17191e75fc28a1825f0dc85394ec6f69c831bf33b0dfe266578cf"
-    sha256 arm64_sonoma:  "8900422edf3663ad4d46171c5b2cc9f0135aefd198bb8de4d860b277136858bf"
-    sha256 sonoma:        "f7b65189d4a73f7e6301cd87cc6bbe9495992190d87fbdceed98241956516747"
-    sha256 arm64_linux:   "772259e557db001964b5ff2cc5df3b041aba0df75f54e8a41d33c8c9251b4db2"
-    sha256 x86_64_linux:  "babf70dc9b287f09aada756e1b44743e01c39e89137f3b66725e7cf3f1960a3a"
+    rebuild 1
+    sha256 arm64_tahoe:   "9a76432dbf3de2b5f978893f3bfab338e71b100b81ef0cef68a0d51e509851f5"
+    sha256 arm64_sequoia: "7531ab1b2228e2df76eec7f3de2ae197772801a52c1df9daf66102e246f6a521"
+    sha256 arm64_sonoma:  "45933a7e7fb0a10406e8229d3457caa327d3373c3750bbac0e5ede094f91584d"
+    sha256 sonoma:        "607c23912d7aef061787efc23d8358c6affbdc5c72265d2c1045530d778e8435"
+    sha256 arm64_linux:   "3eadf2c56bffc406f031216e18a65eff6fc20d3a34c2c03aefa42e8a4c1bfcaa"
+    sha256 x86_64_linux:  "62ae864f882eee7f9ddafd770ad20762db0d5638982747e67722a341504be546"
   end
 
   depends_on "gettext" => :build
@@ -45,15 +46,26 @@ class FileRoller < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system Formula["glib"].opt_bin/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas"
-    system Formula["gtk4"].opt_bin/"gtk4-update-icon-cache", "-f", "-t", HOMEBREW_PREFIX/"share/icons/hicolor"
-    system Formula["desktop-file-utils"].opt_bin/"update-desktop-database", HOMEBREW_PREFIX/"share/applications"
+  post_install_steps do
+    compile_gsettings_schemas
+    update_gtk_icon_cache
+    update_desktop_database
   end
 
   test do
-    cmd = "#{bin}/file-roller --help"
-    cmd = "#{Formula["xorg-server"].bin}/xvfb-run #{cmd}" if OS.linux? && ENV.exclude?("DISPLAY")
-    assert_match "Create and modify an archive", shell_output(cmd)
+    pids = []
+    if OS.linux?
+      IO.pipe do |read_io, write_io|
+        pids << spawn(Formula["xorg-server"].bin/"Xvfb", "-displayfd", write_io.fileno.to_s, write_io => write_io)
+        write_io.close
+        ENV["DISPLAY"] = ":#{read_io.read.strip}"
+      end
+    end
+    assert_match "Create and modify an archive", shell_output("#{bin}/file-roller --help")
+  ensure
+    pids.reverse_each do |pid|
+      Process.kill "TERM", pid
+      Process.wait pid
+    end
   end
 end

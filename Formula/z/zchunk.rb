@@ -1,24 +1,24 @@
 class Zchunk < Formula
   desc "Compressed file format for efficient deltas"
   homepage "https://github.com/zchunk/zchunk"
-  url "https://github.com/zchunk/zchunk/archive/refs/tags/1.5.3.tar.gz"
-  sha256 "832381dafe192109742c141ab90a6bc0a9d7e9926a4bafbdf98f596680da2a95"
+  url "https://github.com/zchunk/zchunk/archive/refs/tags/1.5.4.tar.gz"
+  sha256 "7e4515412a331b31ebfaef91978c01e937fc907149fd1ab21a4661f4e3799cee"
   license "BSD-2-Clause"
   head "https://github.com/zchunk/zchunk.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "46b7edb3748b367ba4b35700dbd3369744c16b37d31e2843492ca47af28333c1"
-    sha256 cellar: :any, arm64_sequoia: "46a25eac9dab8ba67c4c5180d5016806825d7adb3a1ace059616ff27a1a6ad47"
-    sha256 cellar: :any, arm64_sonoma:  "bc949e0284c77f8794636418979ebc1b45f26a3559bd41b9c566ec79b294733a"
-    sha256 cellar: :any, sonoma:        "39d1b2d55f294285fcdf94c11ead1d87e11ffbc80c541c059867c4d7bbcfe557"
-    sha256               arm64_linux:   "1f97cc161198905c6092068d829cdf206aae5b92609adf419b63cb6bb38edaf1"
-    sha256               x86_64_linux:  "45fae766d814be7734fd3815c7ed8e817feb045f901c270a243cb3d19e7f2e29"
+    sha256 cellar: :any, arm64_tahoe:   "001e71f0d8acc6bf0269090ff5c8cf767d5e882d6c14e816b0e0a3929e173690"
+    sha256 cellar: :any, arm64_sequoia: "f6d47a3e639835edd983cbebd77e2699885224a1c71db966d0b3407040c04b2c"
+    sha256 cellar: :any, arm64_sonoma:  "437e49c0af3f551c9b8a782c113837e8d90470785f0536d58c8fcd98e992345d"
+    sha256 cellar: :any, sonoma:        "9dd5de16c658c7a29f33017286dc686d72b6e5ac3dd6446d4bc7abad05d9053a"
+    sha256               arm64_linux:   "0e2d464108b65668267a5a9e7226a12823f1314c2cd2fc4e9a1b2177dfeceb91"
+    sha256               x86_64_linux:  "815a1909e17eb500e49de8e89ffd0667c3464fd625b50ec71f92aa4db0704afc"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   uses_from_macos "curl"

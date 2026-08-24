@@ -40,24 +40,30 @@ class Libgda < Formula
   patch do
     url "https://gitlab.gnome.org/GNOME/libgda/-/commit/3e0c7583ddcc3649f24ad1f1b5d851072fd3f721.diff"
     sha256 "a6cb1927ef2174267fd5b01ca7d6b1141f4bad969fa6d10560c62998c6150fd4"
+    type :backport
+    resolves "https://gitlab.gnome.org/GNOME/libgda/-/merge_requests/175"
   end
 
   # Backport fix for undefined behavior due to signed integer overflow
   patch do
     url "https://gitlab.gnome.org/GNOME/libgda/-/commit/657b2f8497da907559a6769c5b1d2d7b5bd40688.diff"
     sha256 "bfc26217647e27aaf065a4b6c210b96e1a6f7cd67d780a3a124951c6a5bc566d"
+    type :backport
   end
 
   # Backport fix for macOS dynamic loading of sqlite.dylib
   patch do
     url "https://gitlab.gnome.org/GNOME/libgda/-/commit/98f014c783583e3ad87ee546e8dccf34d50f1e37.diff"
     sha256 "2f2d257085b40ef4fccf2db68fe51407ba0f59d39672fc95fd91be3e46e91ffa"
+    type :backport
+    resolves "https://gitlab.gnome.org/GNOME/libgda/-/merge_requests/187"
   end
 
   # Apply Fedora patch to use `mariadb-connector-c`
   patch do
     url "https://src.fedoraproject.org/rpms/libgda/raw/e33ef2c0af32d1aab4a1255b83882552e36002a4/f/mariadb.patch"
     sha256 "5e2dca080ab2d5d09bba5d41ff4bc7dd63dea5f9f493d6b3e28d592ef48f52fc"
+    type :unofficial
   end
 
   def install

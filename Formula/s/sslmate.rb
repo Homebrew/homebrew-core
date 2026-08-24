@@ -4,6 +4,7 @@ class Sslmate < Formula
   url "https://packages.sslmate.com/other/sslmate-1.10.0.tar.gz"
   sha256 "ca378afc28c54a38f29ab8956f8d405b2d12489e66c0fa7a4fe6acc8769e5f91"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://packages.sslmate.com/other/"
@@ -11,14 +12,14 @@ class Sslmate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "606285c1406a2e5dce609201742f8308849268d7374493e6293d00382ba73dbf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "606285c1406a2e5dce609201742f8308849268d7374493e6293d00382ba73dbf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "606285c1406a2e5dce609201742f8308849268d7374493e6293d00382ba73dbf"
-    sha256 cellar: :any_skip_relocation, tahoe:         "606285c1406a2e5dce609201742f8308849268d7374493e6293d00382ba73dbf"
-    sha256 cellar: :any_skip_relocation, sequoia:       "606285c1406a2e5dce609201742f8308849268d7374493e6293d00382ba73dbf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "606285c1406a2e5dce609201742f8308849268d7374493e6293d00382ba73dbf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce71bcc850c75c1fbeb6f4cb3ae7bdba4ba0999fa29f7205db5e90dca9ad0a63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95bf782697993d0df50f7cb2ab865b07262ab8b1d0b8828cdfda97ef29e44be5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "60ca144e9ecce60f4898bc68699d18242f1e362264cfde911cf0b9267810b10f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "60ca144e9ecce60f4898bc68699d18242f1e362264cfde911cf0b9267810b10f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "60ca144e9ecce60f4898bc68699d18242f1e362264cfde911cf0b9267810b10f"
+    sha256 cellar: :any_skip_relocation, tahoe:         "60ca144e9ecce60f4898bc68699d18242f1e362264cfde911cf0b9267810b10f"
+    sha256 cellar: :any_skip_relocation, sequoia:       "60ca144e9ecce60f4898bc68699d18242f1e362264cfde911cf0b9267810b10f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "60ca144e9ecce60f4898bc68699d18242f1e362264cfde911cf0b9267810b10f"
+    sha256 cellar: :any,                 arm64_linux:   "79b8257c55848f303331a682bb3d99cf2a67f385fc39074bddd9500927ad5e1e"
+    sha256 cellar: :any,                 x86_64_linux:  "daf31006d6a1f25a880cc132bbf25daffe4d31c53f9c381dcb28dc8e57a4e478"
   end
 
   uses_from_macos "perl"

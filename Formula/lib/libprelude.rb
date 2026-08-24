@@ -37,6 +37,7 @@ class Libprelude < Formula
   patch do
     url "https://sources.debian.org/data/main/libp/libprelude/5.2.0-5/debian/patches/025-Fix-PyIOBase_Type.patch"
     sha256 "cd03b3dc208c2a4168a0a85465d451c7aa521bf0b8446ff4777f2c969be386ba"
+    type :unofficial
   end
 
   # Apply Debian patch to fix segmentation fault on arm64 linux
@@ -45,6 +46,8 @@ class Libprelude < Formula
       on_arm do
         url "https://sources.debian.org/data/main/libp/libprelude/5.2.0-5/debian/patches/005-fix_pthread_atfork.patch"
         sha256 "5d3e2961b9901fe2109516c422956f20685da780dfd550d7741f61f5e43f7d0c"
+        type :unofficial
+        resolves "https://www.prelude-siem.org/issues/885"
       end
     end
   end
@@ -67,7 +70,7 @@ class Libprelude < Formula
       --without-swig
       --without-python2
       --without-python3
-      --with-libgnutls-prefix=#{Formula["gnutls"].opt_prefix}
+      --with-libgnutls-prefix=#{formula_opt_prefix("gnutls")}
     ]
 
     system "./configure", *std_configure_args, *args

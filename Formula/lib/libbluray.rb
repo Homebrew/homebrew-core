@@ -1,10 +1,10 @@
 class Libbluray < Formula
   desc "Blu-Ray disc playback library for media players like VLC"
   homepage "https://www.videolan.org/developers/libbluray.html"
-  url "https://download.videolan.org/videolan/libbluray/1.4.1/libbluray-1.4.1.tar.xz"
-  sha256 "76b5dc40097f28dca4ebb009c98ed51321b2927453f75cc72cf74acd09b9f449"
+  url "https://download.videolan.org/videolan/libbluray/1.5.0/libbluray-1.5.0.tar.xz"
+  sha256 "f676408e91a5d321abf8b8d4dfdae36205c297dab5c54c3ec519639025f474a2"
   license "LGPL-2.1-or-later"
-  compatibility_version 1
+  compatibility_version 2
   head "https://code.videolan.org/videolan/libbluray.git", branch: "master"
 
   livecheck do
@@ -13,12 +13,12 @@ class Libbluray < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "3895fef0bbc04ee7271992f3908569416a67d97efba1c492a4ccc053de0a89c3"
-    sha256 cellar: :any, arm64_sequoia: "f20ad084fb722697dd0658fb7de27d94497f5849fd18fa3aacba1e2ea664fbc6"
-    sha256 cellar: :any, arm64_sonoma:  "fa3daea45cc9170bcb15d3d8fd7b238ebdb75ec241afe1488d57dbd7559d9982"
-    sha256 cellar: :any, sonoma:        "1aa87a3cf82c6b914c78856a9283e838e1d7426f4d1377537dae81e1041f64b0"
-    sha256               arm64_linux:   "0839ef787f9411f8056674b5f7e1dd7e68d5b5df330a11ed1e845f1635683ef1"
-    sha256               x86_64_linux:  "153b38bf91479d363e0dcaaef4ddebc96793a7db980baa3993a56f5a0082e477"
+    sha256 cellar: :any, arm64_tahoe:   "6f27f52be0330c4e36c59a6beb6a12255e8e6d51448d35d889246419d20ac042"
+    sha256 cellar: :any, arm64_sequoia: "90d5839c5058c8fc7a1b5504a75c350bdd4ee65617a47c02c80d992fd3bba70c"
+    sha256 cellar: :any, arm64_sonoma:  "ae06908b74795cee1c6f8a948fdd0e41cc3a9dad4130185a06960dec4851664b"
+    sha256 cellar: :any, sonoma:        "eb3a8a82adba66a8c1d367a3165223069c66918b35876754c218bde0469c6887"
+    sha256               arm64_linux:   "d817085614cd670762e86abb19cbded82790c5b2f32fe643b380c8a14f148593"
+    sha256               x86_64_linux:  "8d08e2d914953f2b0737539958d5932ee1b22e7a67da4621df358913ada5ecb7"
   end
 
   depends_on "meson" => :build

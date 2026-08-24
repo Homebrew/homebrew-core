@@ -39,7 +39,7 @@ class Xmlto < Formula
 
   def install
     # GNU getopt is keg-only, so point configure to it
-    ENV["GETOPT"] = Formula["gnu-getopt"].opt_bin/"getopt" if OS.mac?
+    ENV["GETOPT"] = formula_opt_bin("gnu-getopt")/"getopt" if OS.mac?
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 

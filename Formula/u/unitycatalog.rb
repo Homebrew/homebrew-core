@@ -1,8 +1,8 @@
 class Unitycatalog < Formula
   desc "Open, Multi-modal Catalog for Data & AI"
   homepage "https://unitycatalog.io/"
-  url "https://github.com/unitycatalog/unitycatalog/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "d6ea45b16cd8747cdc1179c3fd07c85706e2f2d17bae87fd90041e8d22b794f5"
+  url "https://github.com/unitycatalog/unitycatalog/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "c1a66bac444ce23a472141f1d3c16f2ea7022d93d9537837315cfa71639faa0a"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Unitycatalog < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7669ac406d079ff4c7360867e0c784c6ac6dc51dc1cc2a6e1658d029b98519a7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7669ac406d079ff4c7360867e0c784c6ac6dc51dc1cc2a6e1658d029b98519a7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7669ac406d079ff4c7360867e0c784c6ac6dc51dc1cc2a6e1658d029b98519a7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d725022612d13367871c93c6fe214130739e311d835e89bd97b7d4afccd34e5d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0146047d203688a4708d36c4648e02db373387d170cc0732b5026ef61909e18a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88a87dcd9dded878c524abcfdfedf51bedf414a6e744b3910911f065e6aaf5dc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f46a0ad62350e1623ffc4c18b7fc4dc424037f418db390fc4da48f5d71cfc8c0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f46a0ad62350e1623ffc4c18b7fc4dc424037f418db390fc4da48f5d71cfc8c0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f46a0ad62350e1623ffc4c18b7fc4dc424037f418db390fc4da48f5d71cfc8c0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "073bc389be552f97620a6dd0f9b80f9bfb817c3a9303957441e40682dbad9b49"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7bee58c27c97bec97ae281b329f8e1d401b24d5e44d49cbffbbc6854f39a7848"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b87e02a9d2476cbc9ed5463c80bb666b6e16d3d393302cbbbc9f55ba0c020d94"
   end
 
   depends_on "sbt" => :build

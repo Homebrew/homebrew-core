@@ -59,7 +59,7 @@ class Snappystream < Formula
     CPP
     system ENV.cxx, "test.cxx", "-o", "test",
                     "-L#{lib}", "-lsnappystream",
-                    "-L#{Formula["snappy"].opt_lib}", "-lsnappy"
+                    "-L#{formula_opt_lib("snappy")}", "-lsnappy"
     system "./test < #{__FILE__} > out.dat && diff #{__FILE__} out.dat"
   end
 end

@@ -37,7 +37,7 @@ class Inja < Formula
     CPP
 
     system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test",
-           "-I#{include}", "-I#{Formula["nlohmann-json"].opt_include}"
+           "-I#{include}", "-I#{formula_opt_include("nlohmann-json")}"
     assert_equal "Hello world!\n", shell_output("./test")
   end
 end

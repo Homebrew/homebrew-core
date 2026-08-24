@@ -24,8 +24,7 @@ class GhzWeb < Formula
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
 
-    ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/ghz-web"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/ghz-web"
   end
 
   test do

@@ -8,14 +8,13 @@ class Shellcheck < Formula
   head "https://github.com/koalaman/shellcheck.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a8c12e69512ed369ded8a58cfb81c8d42eea53d8ac51119fe3f83e050e6a6f4d"
-    sha256 cellar: :any,                 arm64_sequoia: "8cba28650eef6739b81380743c58c323a8846c6ff1cf6fd730e434b945244e5c"
-    sha256 cellar: :any,                 arm64_sonoma:  "606603b04a41787ecbafc31c4e769e190719e9a24fdd3fc181e7f10ac92cbd17"
-    sha256 cellar: :any,                 arm64_ventura: "55dc4f40dd13d13d1075910cf0791344f3d9018d04d6fe5c1686710829354d10"
-    sha256 cellar: :any,                 sonoma:        "3608bc5b421ad7cd939f3a8e3268a3c8f6369948ed555afb9d269134a0bfabe6"
-    sha256 cellar: :any,                 ventura:       "31533a851f7dbc8a808a0787dccd80ce0a22e30c099b49e5d588ec555b3d0d93"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b6289eca1e028a336e6090a7ab42efb47993c51194941c43fbe7d156f9f4270"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e84559495ee8f9719be30a9d8139a3016d2f448d31fc79ac4d135ab86a228404"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "102f7f385855df8eabf5c9017b8d729a02a5ccca810aa23e3ae700a46226ab70"
+    sha256 cellar: :any, arm64_sequoia: "7fda74bb60ad4ea2b2a7a6f75ed9d51457a0e238a6abb8c91ad7ce63f4d4d517"
+    sha256 cellar: :any, arm64_sonoma:  "d2ac9b6f5dbe2917337c850cf36693e9055acbe01d9f8470b351227f00c01c9f"
+    sha256 cellar: :any, sonoma:        "e6bd050611cc5d144bda375f77b047a8d5ac4546b35b5438a02a1f25269ce7e8"
+    sha256 cellar: :any, arm64_linux:   "681253c23aa52c9b6247583b0511ef073794139edf47bae138d148f59a192b79"
+    sha256 cellar: :any, x86_64_linux:  "84c28a6b4fd596e784c0d9a2ae24ee349c5499682faa017b969b58ea36ea43b7"
   end
 
   depends_on "cabal-install" => :build

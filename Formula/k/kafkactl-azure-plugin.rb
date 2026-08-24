@@ -22,7 +22,6 @@ class KafkactlAzurePlugin < Formula
   def install
     Dir.chdir("azure") do
       ldflags = %W[
-        -s -w
         -X main.Version=v#{version}
         -X main.GitCommit=#{tap.user}
         -X main.BuildTime=#{time.iso8601}

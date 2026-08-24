@@ -28,7 +28,7 @@ class ApacheBrooklynCli < Formula
 
   def install
     cd "cli" do
-      system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"br"), "./br"
+      system "go", "build", *std_go_args(output: bin/"br"), "./br"
     end
   end
 

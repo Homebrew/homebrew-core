@@ -13,7 +13,8 @@ class Btdu < Formula
   depends_on "btrfs-progs" => :build
   depends_on "dub" => :build
   depends_on "ldc" => :build
-  uses_from_macos "ncurses"
+  depends_on :linux
+  depends_on "ncurses"
 
   def install
     system "dub", "build", "-b", "release", "--compiler=ldc2"

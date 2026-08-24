@@ -1,22 +1,24 @@
 class Xclogparser < Formula
   desc "Tool to parse the SLF serialization format used by Xcode"
   homepage "https://github.com/MobileNativeFoundation/XCLogParser"
-  url "https://github.com/MobileNativeFoundation/XCLogParser/archive/refs/tags/v0.2.48.tar.gz"
-  sha256 "966517c5ec0f564e4952781e479508ded38f1eb63bfc50eb88586ce2d212710f"
+  url "https://github.com/MobileNativeFoundation/XCLogParser/archive/refs/tags/v0.2.49.tar.gz"
+  sha256 "7b4870794236b061c363fd4b28e7e5a121661ea2c75fc1e92a7a53506b00a58e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ad6c12167bfbf86e55a70a383799fef9d0a5ee929766c40f6bc11bc93f441d17"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c2cc1e790c4830454e42d152f61e7ece3710751fd4cfdf1d7ffda717d011e8c7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "57d4a410df90220e16d4a0f9d4aa0e0d8aeb3627efe53ad23032bffa8ef6566a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0b3e4fb2426f6466a112ecd9d054b208d837461f4df3c50e62ded8148bb5cb94"
-    sha256                               arm64_linux:   "91a938a63d46213d7a4ea610ae4b2df86cb24dc9c5dfbbd7f6e64abc4fbc5e0e"
-    sha256                               x86_64_linux:  "9ae66cf545d61d0c8d508af16ba4d9013fab7b3702b73d67e0d938a222b470df"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ed2998409a0b1f0363ca8639676ea0e71b16e50c60b3bb5fd4e2814c9ae11332"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "05df83f062ed38c2b0704327da31ccf4266244fa64c78c5ad69814277249cc41"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e76998bb0350fb114f70dadbb8862c00f8f0fd0e7a9ba371031a231c1fdd531e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "efbc51a1a4268f574a9cbf5ed8b80ec90deb79e277210191b2abff34698a9a18"
+    sha256                               arm64_linux:   "4d9f966510b9b91a9458360c11aec9d8e471ab36e97ac5a587f98fdf41e1b18b"
+    sha256                               x86_64_linux:  "0670849f06a3fbdcc3ac6bcadd760ee43e9319e1d71aa9e15a102d83cb3ffba7"
   end
 
-  depends_on xcode: "13.0"
-
   uses_from_macos "swift"
+
+  on_macos do
+    depends_on xcode: "13.0"
+  end
 
   on_linux do
     depends_on "zlib-ng-compat"
@@ -26,12 +28,7 @@ class Xclogparser < Formula
   end
 
   def install
-    args = if OS.mac?
-      ["--disable-sandbox"]
-    else
-      ["--static-swift-stdlib", "-Xswiftc", "-use-ld=ld"]
-    end
-    system "swift", "build", *args, "--configuration", "release"
+    system "swift", "build", *std_swift_args
     bin.install ".build/release/xclogparser"
     generate_completions_from_executable(bin/"xclogparser", "--generate-completion-script")
   end

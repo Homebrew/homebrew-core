@@ -1,10 +1,9 @@
 class Fail2ban < Formula
   desc "Scan log files and ban IPs showing malicious signs"
   homepage "https://www.fail2ban.org/"
-  url "https://github.com/fail2ban/fail2ban/archive/refs/tags/1.1.0.tar.gz"
-  sha256 "474fcc25afdaf929c74329d1e4d24420caabeea1ef2e041a267ce19269570bae"
+  url "https://github.com/fail2ban/fail2ban/archive/refs/tags/1.1.1.tar.gz"
+  sha256 "4be0ea0488e32de260058462a44a040f0542cd26a9fb6fa6d2514f9dd8ec1609"
   license "GPL-2.0-or-later"
-  revision 2
   head "https://github.com/fail2ban/fail2ban.git", branch: "master"
 
   livecheck do
@@ -13,23 +12,16 @@ class Fail2ban < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "677ea8041843e75cde2773a39155890cc3612fb584411d85316538caf4193168"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "677ea8041843e75cde2773a39155890cc3612fb584411d85316538caf4193168"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "677ea8041843e75cde2773a39155890cc3612fb584411d85316538caf4193168"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cf820863820ce92f23210ed7a2a390ab1cbe86f67db6f68c911e1d11670dad3e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5684265cee6688d49e34a7bc00c529bad87825df415a613b300cf91735e6e53c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5684265cee6688d49e34a7bc00c529bad87825df415a613b300cf91735e6e53c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2b38fcc8c71bc28a4560fac81f04904b1ea7643aeb82242a826d6a54ee063226"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b38fcc8c71bc28a4560fac81f04904b1ea7643aeb82242a826d6a54ee063226"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2b38fcc8c71bc28a4560fac81f04904b1ea7643aeb82242a826d6a54ee063226"
+    sha256 cellar: :any_skip_relocation, sonoma:        "00b19fd0adc0bb5c54b7707bac07940bccd91142465953b94d5993828321dc0e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "13d6912fb1c999bf37ab43d3c326b3b2deb132a01bdd93ec7a760b76252ee9cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13d6912fb1c999bf37ab43d3c326b3b2deb132a01bdd93ec7a760b76252ee9cd"
   end
 
   depends_on "sphinx-doc" => :build
   depends_on "python@3.14"
-
-  # Drop distutils: https://github.com/fail2ban/fail2ban/pull/3728
-  patch do
-    url "https://github.com/fail2ban/fail2ban/commit/a763fbbdfd6486e372965b4009eb3fe5db346718.patch?full_index=1"
-    sha256 "631ca7e59e21d4a9bbe6adf02d0b1ecc0fa33688d145eb5e736d961e0e55e4cd"
-  end
 
   def python3
     deps.map(&:to_formula)
@@ -43,6 +35,13 @@ class Fail2ban < Formula
 
     # Replace paths in config
     inreplace "config/jail.conf", "before = paths-debian.conf", "before = paths-osx.conf"
+
+    # 1.1.1 moved the default `banaction` into the platform paths files dropped
+    # above, so restore the defaults upstream commented out to keep configs valid
+    inreplace "config/jail.conf" do |s|
+      s.gsub! "#banaction = iptables-multiport", "banaction = iptables-multiport"
+      s.gsub! "#banaction_allports = iptables-allports", "banaction_allports = iptables-allports"
+    end
 
     # Replace hardcoded paths
     inreplace_etc_var(Pathname.glob("config/{action,filter}.d/**/*").select(&:file?), audit_result: false)

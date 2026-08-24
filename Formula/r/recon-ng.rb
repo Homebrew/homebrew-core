@@ -96,10 +96,11 @@ class ReconNg < Formula
     sha256 "b2e5b40261e20f354d198eae92afc10d750afb487ed5e50f9c4eaf07c184146f"
 
     # Fix to build with Python 3.14
-    # PR ref: https://github.com/html5lib/html5lib-python/pull/589
     patch do
       url "https://github.com/html5lib/html5lib-python/commit/b90dafff1bf342d34d539098013d0b9f318c7641.patch?full_index=1"
       sha256 "779f8bab52308792b7ac2f01c3cd61335587640f98812c88cb074dce9fe8162d"
+      type :unofficial
+      resolves "https://github.com/html5lib/html5lib-python/pull/589"
     end
   end
 
@@ -218,10 +219,12 @@ class ReconNg < Formula
     sha256 "254b1c37a368c444eac6e2f867405cc9e461b0ed97a3233b2ac1e574efb4140c"
   end
 
-  # Replace `imp` for python 3.12: https://github.com/lanmaster53/recon-ng/pull/204
+  # Replace `imp` for python 3.12
   patch do
     url "https://github.com/lanmaster53/recon-ng/commit/745fe3580e9a974348622163c44eba6bdb531f63.patch?full_index=1"
     sha256 "10eec6be1c49a1fe3bce2b8a8145d98df92ea4d7a94e115f7735b6e53d461a94"
+    type :unofficial
+    resolves "https://github.com/lanmaster53/recon-ng/pull/204"
   end
 
   def install

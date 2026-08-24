@@ -56,7 +56,7 @@ class Suil < Formula
         return suil_ui_supported("my-host", "my-ui");
       }
     C
-    lv2 = Formula["lv2"].opt_include
+    lv2 = formula_opt_include("lv2")
     system ENV.cc, "test.c", "-I#{lv2}", "-I#{include}/suil-0", "-L#{lib}", "-lsuil-0", "-o", "test"
     system "./test"
   end

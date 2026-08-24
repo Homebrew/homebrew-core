@@ -1,19 +1,19 @@
 class LibgeditGtksourceview < Formula
   desc "Text editor widget for code editing"
   homepage "https://gitlab.gnome.org/World/gedit/libgedit-gtksourceview"
-  url "https://gitlab.gnome.org/World/gedit/libgedit-gtksourceview/-/archive/299.7.0/libgedit-gtksourceview-299.7.0.tar.bz2"
-  sha256 "c0baf7fcf756ad0b47150ea17e5de2cacb0833bbda13c6a625f57f3d00aee0bf"
+  url "https://gitlab.gnome.org/World/gedit/libgedit-gtksourceview/-/archive/299.7.1/libgedit-gtksourceview-299.7.1.tar.bz2"
+  sha256 "4fbf466189d38f709bc1e69d85518027a4623cb697368718a94932caede75f58"
   license "LGPL-2.1-only"
   compatibility_version 2
   head "https://gitlab.gnome.org/World/gedit/libgedit-gtksourceview.git", branch: "main"
 
   bottle do
-    sha256 arm64_tahoe:   "eba7a448ca965a266c5a9a3969e8c94b15772a496c0eff4c50d3d7acc51dc4d0"
-    sha256 arm64_sequoia: "0b42ea6b5f592fb0bb96cccd4a547ccb9d896b4269e9796d8f863107b2afc841"
-    sha256 arm64_sonoma:  "4495cb21c41a9acbbb3a9393e2e225792aea8e9d8a97b770433c68bdd1e1f928"
-    sha256 sonoma:        "5c8b691f879716d205ee45bf1bb9f38bb922b2e13e31236f7b5ad206868f74bb"
-    sha256 arm64_linux:   "bcb0352ccb950ff2da94a53498d967f10b2e14583761bc4308b3557c69ad5928"
-    sha256 x86_64_linux:  "41b20d077bea751936bb953453dfc8e7bc7d9c93df1d0db3dabc4b2e7c2be512"
+    sha256 arm64_tahoe:   "14b8b5f92d882ed6bb47f2b2e192f733361b6b334a50abccd75bad671de11bdc"
+    sha256 arm64_sequoia: "89e0543841098d0ccacde6dadd0097f4fd6ea6ca4bef771d76d54a0ba7a135be"
+    sha256 arm64_sonoma:  "4f5c77b5abd7042d53447fa730248e5494452631358b99dbc6d6b656c0697d36"
+    sha256 sonoma:        "017ed33c62c89a0ffdc809647e608029d85ab327e185f4443c81a4515f2990fb"
+    sha256 arm64_linux:   "732ad27e78ae142415070f5e9ad661b5dc65235d5a0b4beb06430cf2fa99fd17"
+    sha256 x86_64_linux:  "4fdd8c722e8e674ed67627c020c97db8d308c014d5c06fdf47d47c6cb503420d"
   end
 
   depends_on "gettext" => :build

@@ -28,7 +28,7 @@ class Plowshare < Formula
   end
 
   def install
-    sed_args = OS.mac? ? ["patch_gnused", "GNU_SED=#{Formula["gnu-sed"].opt_bin}/gsed"] : []
+    sed_args = OS.mac? ? ["patch_gnused", "GNU_SED=#{formula_opt_bin("gnu-sed")}/gsed"] : []
     system "make", "install", *sed_args, "PREFIX=#{prefix}"
   end
 

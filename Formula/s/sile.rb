@@ -166,14 +166,14 @@ class Sile < Formula
     if OS.mac?
       zlib_dir = expat_dir = "#{MacOS.sdk_path}/usr"
     else
-      zlib_dir = Formula["zlib-ng-compat"].opt_prefix
-      expat_dir = Formula["expat"].opt_prefix
+      zlib_dir = formula_opt_prefix("zlib-ng-compat")
+      expat_dir = formula_opt_prefix("expat")
     end
 
     luarocks_args = %W[
       ZLIB_DIR=#{zlib_dir}
       EXPAT_DIR=#{expat_dir}
-      OPENSSL_DIR=#{Formula["openssl@3"].opt_prefix}
+      OPENSSL_DIR=#{formula_opt_prefix("openssl@3")}
       --tree=#{luapath}
       --lua-dir=#{lua.opt_prefix}
     ]

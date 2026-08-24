@@ -35,7 +35,7 @@ class Imgdiet < Formula
       ENV.append "GOFLAGS", "-buildmode=pie"
     end
 
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/imgdiet"
+    system "go", "build", *std_go_args, "./cmd/imgdiet"
   end
 
   test do

@@ -19,7 +19,7 @@ class Umoci < Formula
   depends_on "gpgme"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/umoci"
+    system "go", "build", *std_go_args, "./cmd/umoci"
 
     man1.mkpath
     buildpath.glob("doc/man/*.md").each do |f|

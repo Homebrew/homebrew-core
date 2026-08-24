@@ -14,6 +14,9 @@ class Safestringlib < Formula
     sha256 cellar: :any, x86_64_linux:  "f6961d8a780e8574747673c2ab2ab52b8b670c49d11507dc2a2013bb20461fd0"
   end
 
+  deprecate! date: "2026-07-26", because: :repo_archived
+  disable! date: "2027-01-26", because: :repo_archived
+
   depends_on "cmake" => :build
 
   def install

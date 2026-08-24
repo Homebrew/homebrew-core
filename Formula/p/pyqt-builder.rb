@@ -6,28 +6,28 @@ class PyqtBuilder < Formula
   url "https://files.pythonhosted.org/packages/61/f6/f3b504b4d55a7c4d3393cb90378501f1f5fc7f233bd85c0375674f84d2af/pyqt_builder-1.19.1.tar.gz"
   sha256 "6af6646ba29668751b039bfdced51642cb510e300796b58a4d68b7f956a024d8"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/Python-PyQt/PyQt-builder.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, all: "8f4c0bd1e4b26ea418de6e45ccdf8c71e80d95f357c73bcce0b48a3d6519976b"
+    sha256 cellar: :any_skip_relocation, all: "80cda3b208dcffd8362b46880395136f83b04dbb0a5f14c141654104cb7b821b"
   end
 
   depends_on "python@3.14"
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
-    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/82/f3/748f4d6f65d1756b9ae577f329c951cda23fb900e4de9f70900ced962085/setuptools-82.0.0.tar.gz"
-    sha256 "22e0a2d69474c6ae4feb01951cb69d515ed23728cf96d05513d36e42b62b37cb"
+    url "https://files.pythonhosted.org/packages/34/26/f5d29e25ffdb535afef2d35cdb55b325298f96debd670da4c325e08d70f4/setuptools-83.0.0.tar.gz"
+    sha256 "025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef"
   end
 
   resource "sip" do
-    url "https://files.pythonhosted.org/packages/8e/3d/4245885c0480230d4bc389c6165c841546bf43c1e780fd77995caf5ad7b8/sip-6.15.1.tar.gz"
-    sha256 "dc2e58c1798a74e1b31c28e837339822fe8fa55288ae30e8986eb28100ebca5a"
+    url "https://files.pythonhosted.org/packages/02/b1/79bff1c49a9e19ffe0211cb8905cc514c3f6b8f3f7ae55a40403d346c076/sip-6.15.3.tar.gz"
+    sha256 "bb2516983f9f716d321e5157c00d0de0c12422eba73b8f43a44610a0f6622438"
   end
 
   def python3

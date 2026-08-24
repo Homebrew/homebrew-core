@@ -26,8 +26,8 @@ class Tctl < Formula
   conflicts_with "teleport", because: "both install `tctl` binaries"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/tctl/main.go"
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"tctl-authorization-plugin"),
+    system "go", "build", *std_go_args, "./cmd/tctl/main.go"
+    system "go", "build", *std_go_args(output: bin/"tctl-authorization-plugin"),
       "./cmd/plugins/tctl-authorization-plugin"
   end
 

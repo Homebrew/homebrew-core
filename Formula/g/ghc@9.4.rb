@@ -30,13 +30,16 @@ class GhcAT94 < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on maximum_macos: [:sonoma, :build]
   depends_on "python@3.12" => :build
   depends_on "sphinx-doc" => :build
 
   uses_from_macos "m4" => :build
   uses_from_macos "xz" => :build
   uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on maximum_macos: [:sonoma, :build]
+  end
 
   # Build uses sed -r option, which is not available in Catalina shipped sed.
   on_catalina do
@@ -96,10 +99,11 @@ class GhcAT94 < Formula
 
   # Backport fix for building docs with sphinx-doc 7.
   # TODO: Remove patch if fix is backported to 9.4.
-  # Ref: https://gitlab.haskell.org/ghc/ghc/-/merge_requests/10520
   patch do
     url "https://gitlab.haskell.org/ghc/ghc/-/commit/70526f5bd8886126f49833ef20604a2c6477780a.diff"
     sha256 "54cdde1ca5d1b6fe3bbad8d0eac2b8c112ca1f346c4086d1e7361fa9510f1f44"
+    type :backport
+    resolves "https://gitlab.haskell.org/ghc/ghc/-/merge_requests/10520"
   end
 
   def install
@@ -116,8 +120,8 @@ class GhcAT94 < Formula
     resource("binary").stage do
       binary_args = []
       if OS.linux?
-        binary_args << "--with-gmp-includes=#{Formula["gmp"].opt_include}"
-        binary_args << "--with-gmp-libraries=#{Formula["gmp"].opt_lib}"
+        binary_args << "--with-gmp-includes=#{formula_opt_include("gmp")}"
+        binary_args << "--with-gmp-libraries=#{formula_opt_lib("gmp")}"
       end
 
       system "./configure", "--prefix=#{binary}", *binary_args
@@ -153,8 +157,8 @@ class GhcAT94 < Formula
     (lib/"ghc-#{version}/lib/package.conf.d/package.cache.lock").unlink
   end
 
-  def post_install
-    system bin/"ghc-pkg", "recache"
+  post_install_steps do
+    run "ghc-pkg", args: ["recache"], base: :bin
   end
 
   test do

@@ -16,13 +16,13 @@ class GhcAT910 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "030bfb684494c0b7f5d13dcf23ad531a529e8ec3ee27ed638a876f41f33fa485"
-    sha256 cellar: :any,                 arm64_sequoia: "772bc175945ab38b79bf88cb7d9d2ba028ae7c6cde1391671540f926f9008ff8"
-    sha256 cellar: :any,                 arm64_sonoma:  "1f2e1c66ef293b3deb66e3a244d9a4b9690dea30b905fa7609528877830fd072"
-    sha256 cellar: :any,                 sonoma:        "84afe9e1dab2daab8a716e161aa580a09b26d62ac7ebbdd4bde7e13ae480c1ca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe1cd3d4f0d246f2c6d8e311a6cde3d6d5a4d99926baecc60565db68520188bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af406c8bff2ccb59d78ea00dcdf56250359f2e0a20c2a02f2634c6fc36de3075"
+    rebuild 2
+    sha256 cellar: :any, arm64_tahoe:   "5d45a266d556ab13dfbac50bd09aafe2d9d6b6a16d1ac2c7ffca7f0e7b728dc4"
+    sha256 cellar: :any, arm64_sequoia: "7f565ca7f2097973e3f1fee7414a919c0e894c408df26c2f6f53185f423d2c80"
+    sha256 cellar: :any, arm64_sonoma:  "536c415e3a3e31c4c2c12a6f7bcf93904911f937125ea91679d3465a50e3f7c5"
+    sha256 cellar: :any, sonoma:        "8bf14f971c0a27a20aea6f73a4f8f0cc3e07acaf56d7c06d01eb137bfb5d3718"
+    sha256 cellar: :any, arm64_linux:   "53c74ddc820efa09e79666ead4c88c1c47b3d6da572a3fb68599dd58ac2f5bf3"
+    sha256 cellar: :any, x86_64_linux:  "bbbc4a0cfa6aa36b3f4b08c21ebcdaeefea7fc2a10d7b2070f00670c49d8f4a7"
   end
 
   keg_only :versioned_formula
@@ -114,8 +114,8 @@ class GhcAT910 < Formula
     resource("binary").stage do
       binary_args = []
       if OS.linux?
-        binary_args << "--with-gmp-includes=#{Formula["gmp"].opt_include}"
-        binary_args << "--with-gmp-libraries=#{Formula["gmp"].opt_lib}"
+        binary_args << "--with-gmp-includes=#{formula_opt_include("gmp")}"
+        binary_args << "--with-gmp-libraries=#{formula_opt_lib("gmp")}"
       end
 
       system "./configure", "--prefix=#{binary}", *binary_args
@@ -146,6 +146,10 @@ class GhcAT910 < Formula
       --docs=no-sphinx-html
       --docs=no-sphinx-pdfs
     ]
+    # Build PIC so static libraries can be used to build PIE in dependents. This is the default on ARM:
+    # https://gitlab.haskell.org/ghc/ghc/-/blob/ghc-9.14.1-release/compiler/GHC/Driver/DynFlags.hs#L1275-1300
+    hadrian_args << "*.*.ghc.*.opts += -fPIC -fexternal-dynamic-refs" if OS.linux? && !Hardware::CPU.arm?
+
     # Let hadrian handle its own parallelization
     ENV.deparallelize { system "hadrian/build", "install", *hadrian_args }
 
@@ -154,8 +158,8 @@ class GhcAT910 < Formula
     (lib/"ghc-#{version}/lib/package.conf.d/package.cache.lock").unlink
   end
 
-  def post_install
-    system bin/"ghc-pkg", "recache"
+  post_install_steps do
+    run "ghc-pkg", args: ["recache"], base: :bin
   end
 
   test do

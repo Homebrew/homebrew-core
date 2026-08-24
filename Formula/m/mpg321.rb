@@ -32,14 +32,14 @@ class Mpg321 < Formula
   # https://sourceforge.net/p/mpg321/patches/20/
   # Remove these at: Unknown.  These have not been merged as of 0.3.2.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/mpg321/0.3.2.patch"
-    sha256 "a856292a913d3d94b3389ae7b1020d662e85bd4557d1a9d1c8ebe517978e62a1"
+    file "Patches/mpg321/0.3.2.patch"
   end
 
   # Apply Gentoo patch for Clang 16
   patch do
     url "https://gitweb.gentoo.org/repo/gentoo.git/plain/media-sound/mpg321/files/mpg321-0.3.2-clang16.patch?id=ba6b4630d2b4cc294a3057b1f4770650bcb12c87"
     sha256 "bafc5868a8293fe465449ab27bececc6039001b1519af872ecf4178afabc1a5c"
+    type :unofficial
   end
 
   def install

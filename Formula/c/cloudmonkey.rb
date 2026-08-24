@@ -18,9 +18,8 @@ class Cloudmonkey < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.GitSHA=homebrew -X main.BuildDate=#{time.iso8601}"
-    system "go", "build", *std_go_args(ldflags:, tags: "release", output: bin/"cmk"),
-           "cmk.go"
+    ldflags = "-X main.GitSHA=homebrew -X main.BuildDate=#{time.iso8601}"
+    system "go", "build", *std_go_args(ldflags:, tags: "release", output: bin/"cmk"), "cmk.go"
   end
 
   test do

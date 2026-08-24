@@ -1,12 +1,12 @@
 class SalesforceMcp < Formula
   desc "MCP Server for interacting with Salesforce instances"
   homepage "https://github.com/salesforcecli/mcp"
-  url "https://registry.npmjs.org/@salesforce/mcp/-/mcp-0.30.13.tgz"
-  sha256 "b97b7dfd850fc374fa8b8e4ed04da812f00b6ef1964b3efe1a0935823a974748"
+  url "https://registry.npmjs.org/@salesforce/mcp/-/mcp-0.30.15.tgz"
+  sha256 "7cd9f0a3437b5102d01d8d629fd1666487414c1256487fe60245a86b66e831b6"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "15d7f18c3cda54b2a260d3a4876fbe7bcbd9a86efaeff69bee12faa6ee8a0d2b"
+    sha256 cellar: :any_skip_relocation, all: "2c4efba20a8ae240b9387c3f9f0c25cdf0fdd3a7702b9f46aeadab882671070d"
   end
 
   depends_on "node"
@@ -20,7 +20,7 @@ class SalesforceMcp < Formula
     # TODO: check formula works with nock@14 and then recover npm install.
     system "npm", "ci", "--omit=dev", "--ignore-scripts"
     libexec.install Dir["*"]
-    (bin/"sf-mcp-server").write_env_script libexec/"bin/run.js", PATH: "#{Formula["node"].opt_bin}:$PATH"
+    (bin/"sf-mcp-server").write_env_script libexec/"bin/run.js", PATH: "#{formula_opt_bin("node")}:$PATH"
   end
 
   test do

@@ -13,6 +13,7 @@ class Getdns < Formula
     patch do
       url "https://github.com/getdnsapi/getdns/commit/ee534d10bf1aff0ff62b7ea8c0e2f894e015e429.patch?full_index=1"
       sha256 "7e3afaaaf89fd914eb425de33c3e097ef3df4f467f26434706108ebcda3db10b"
+      type :backport
     end
   end
 

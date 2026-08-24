@@ -23,7 +23,7 @@ class Mupen64plus < Formula
   depends_on "pkgconf" => :build
   depends_on "freetype"
   depends_on "libpng"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   on_linux do
     depends_on "mesa"
@@ -40,6 +40,8 @@ class Mupen64plus < Formula
     url "https://github.com/mupen64plus/mupen64plus-ui-console/commit/1cab2e6dfe46d5fbc4c23e1e7fbb4502a4e57981.patch?full_index=1"
     sha256 "a6e80f36b65406d31f3611f88e695e5c079db52b6f68daa8eb01307f5447194c"
     directory "source/mupen64plus-ui-console"
+    type :backport
+    resolves "https://github.com/mupen64plus/mupen64plus-ui-console/pull/84"
   end
 
   def install

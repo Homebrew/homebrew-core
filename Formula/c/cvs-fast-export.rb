@@ -3,8 +3,8 @@ class CvsFastExport < Formula
 
   desc "Export an RCS or CVS history as a fast-import stream"
   homepage "http://www.catb.org/~esr/cvs-fast-export/"
-  url "https://gitlab.com/esr/cvs-fast-export/-/archive/2.1/cvs-fast-export-2.1.tar.bz2"
-  sha256 "1fd660ddccbeba8f4514ca4268a234be4fb6e3ad6370574b865e4720cd876f68"
+  url "https://gitlab.com/esr/cvs-fast-export/-/archive/2.4/cvs-fast-export-2.4.tar.bz2"
+  sha256 "6ca32d04ebce96a4e0a00d391af53a1f5c670bfc2bc1e2b06a89bce2c5223b39"
   license "GPL-2.0-or-later"
   head "https://gitlab.com/esr/cvs-fast-export.git", branch: "master"
 
@@ -16,12 +16,12 @@ class CvsFastExport < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e1a28987df0517bcef7fec664e1c2ecc6b85ecbf14816f958523f77ed89c7658"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e1a28987df0517bcef7fec664e1c2ecc6b85ecbf14816f958523f77ed89c7658"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1a28987df0517bcef7fec664e1c2ecc6b85ecbf14816f958523f77ed89c7658"
-    sha256 cellar: :any_skip_relocation, sonoma:        "28c891f5cd1f694e55e3faf758d2a02033cdd1ae6bbcf454c343e7ef3a1e441d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8b1db898718bf60129280d96119e1f14cdd95da002aa4d4b1710d651d6ed82c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0098d3debbbd34751c019cfba95503b5ce7db3cce1aa731479f39293c0e8d1e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "51f93ab4538297329f06cd29df096e82f99da9e0ebf1e015c39a4f43a8e6283d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "51f93ab4538297329f06cd29df096e82f99da9e0ebf1e015c39a4f43a8e6283d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "51f93ab4538297329f06cd29df096e82f99da9e0ebf1e015c39a4f43a8e6283d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "463565950ba70ded0f236c4566b700cdd2e84d87944b6b92ac500c9cf8f462e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "38b64a99f9bfd2196f7a611fcaba4f7ac2d7f329b6ca284c1c97ff3ff5616763"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe9331d9d4216cc28b7b3c9d36f9c8fdd5fe8045971680b53851f9c5d5a54f86"
   end
 
   depends_on "asciidoctor" => :build
@@ -32,7 +32,7 @@ class CvsFastExport < Formula
 
   def install
     system "make", "man"
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
     man1.install buildpath.glob("*.1")
     bin.install "cvsconvert", "cvssync"
     rewrite_shebang detected_python_shebang(use_python_from_path: true), *bin.children

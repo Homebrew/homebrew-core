@@ -15,10 +15,11 @@ class Cpptoml < Formula
   depends_on "cmake" => :build
 
   # Fix library support for GCC 11+ by adding include for limits header.
-  # Upstream PR: https://github.com/skystrife/cpptoml/pull/123
   patch do
     url "https://github.com/skystrife/cpptoml/commit/c55a516e90133d89d67285429c6474241346d27a.patch?full_index=1"
     sha256 "29d720fa096f0afab8a6a42b3382e98ce09a8d2958d0ad2980cf7c70060eb2c1"
+    type :unofficial
+    resolves "https://github.com/skystrife/cpptoml/pull/123"
   end
 
   def install

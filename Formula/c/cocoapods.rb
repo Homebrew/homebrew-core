@@ -1,18 +1,17 @@
 class Cocoapods < Formula
   desc "Dependency manager for Cocoa projects"
   homepage "https://cocoapods.org/"
-  url "https://github.com/CocoaPods/CocoaPods/archive/refs/tags/1.16.2.tar.gz"
-  sha256 "3067f21a0025aedb5869c7080b6c4b3fa55d397b94fadc8c3037a28a6cee274c"
+  url "https://github.com/CocoaPods/CocoaPods/archive/refs/tags/1.17.0.tar.gz"
+  sha256 "1a3e63e815e61ad7661326d6e6ba2593328a596ceb94953d4388e3fe01e27f90"
   license "MIT"
-  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7e99020093a04819ec6b1641074829779977180837668593d1cefd9f5a1ac83f"
-    sha256 cellar: :any,                 arm64_sequoia: "b2ac49db7a229b2ccb5c8984ca0f12764f433a4c9d14b186ccdef45cbffbd13b"
-    sha256 cellar: :any,                 arm64_sonoma:  "8757b6f6609c8934bb149cd16a36dd23bb238ee61521628f6afa4d47bf981dc6"
-    sha256 cellar: :any,                 sonoma:        "be1632548200a7d64a0b80b6e6d0640674d7f3462d3ad64a2e31ea2882e44542"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e9d5a71964e1279d0157beaff7ab780807aeb455d4b466e5f12a54c66acc3cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc455c1453ff790433e652d66b708c13fd295c2ec666074c4fd422fb9dfff37e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "636940f284ddcbe62825f3452a581b3d3f66d1db75e495ffdc756ed21caa58f2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "636940f284ddcbe62825f3452a581b3d3f66d1db75e495ffdc756ed21caa58f2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "636940f284ddcbe62825f3452a581b3d3f66d1db75e495ffdc756ed21caa58f2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "57824c73e16eeb4483e532fb0d5898e5182ef66c7c3e9b7290e7bf5fcd4af4a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6fb1ed067c58472749a51f5bca84db230ddf2bdd9e3937a0a49f13d529710b4e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52d6eedadab8ef056483f9ff51c7d5b7307fb8fed2c2dded79a42fe6d3b08897"
   end
 
   depends_on "pkgconf" => :build

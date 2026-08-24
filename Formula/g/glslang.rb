@@ -1,8 +1,8 @@
 class Glslang < Formula
   desc "OpenGL and OpenGL ES reference compiler for shading languages"
   homepage "https://www.khronos.org/opengles/sdk/Reference-Compiler/"
-  url "https://github.com/KhronosGroup/glslang/archive/refs/tags/16.3.0.tar.gz"
-  sha256 "efff5a15258dce1ca2d323bf64c974f5fca03778174615dbc30c8d36db645bf5"
+  url "https://github.com/KhronosGroup/glslang/archive/refs/tags/16.5.0.tar.gz"
+  sha256 "01af17195fbeb59e39e31e9506de35bb39dfd35807ea0c9a1a99d7d1183ddd45"
   license all_of: ["BSD-3-Clause", "GPL-3.0-or-later", "MIT", "Apache-2.0"]
   compatibility_version 1
   head "https://github.com/KhronosGroup/glslang.git", branch: "main"
@@ -13,12 +13,12 @@ class Glslang < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fd99a43cfaf561faf3503b990acec14c0bdb53f53f03b8c3d1130b5f4382b287"
-    sha256 cellar: :any,                 arm64_sequoia: "39d78330b329675a2c72dea2cad0bcea6b88f3b2b7cec71badec87d5328d307b"
-    sha256 cellar: :any,                 arm64_sonoma:  "26b340d94c04da2d20eae8bfb067d3db0a5848b211882b8ac57064bbd23cfd1f"
-    sha256 cellar: :any,                 sonoma:        "77e333b928a4ccc4020b12a76e76075293be6144caceb6f6d7ebec8e987b33ba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "06ea9072fade813efe648a8d9e0b4e49adf70ec8b007691f53a8660745171f03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27164f95b7738da40cd1bdb9473403fa0f0905d3259d3b65f7f14cf06655eeec"
+    sha256 cellar: :any, arm64_tahoe:   "b14c788c5c9c3fd1b115a1ace94e0c88394830906b303415f4099ed6ee34dec4"
+    sha256 cellar: :any, arm64_sequoia: "878541e1f3d9aac590992db34e7f7738a3d596d80b00074c17a786c74a99776e"
+    sha256 cellar: :any, arm64_sonoma:  "03fb2c015a54b7674d6ed5c6feb57ea75df30b79a9249361e3ac25f91c04466d"
+    sha256 cellar: :any, sonoma:        "42735380880b59539e319bb51d6c3444520adf310c933f5624cc61a73e36400e"
+    sha256 cellar: :any, arm64_linux:   "35aa345c2298c4de03542b1a3007c8fef93014e57ce7bb4b6cb8e75b6b0754aa"
+    sha256 cellar: :any, x86_64_linux:  "465e795f4b6e62d9d342107c7e86bfa6337012405a982d1e3181d79c012956be"
   end
 
   depends_on "cmake" => :build

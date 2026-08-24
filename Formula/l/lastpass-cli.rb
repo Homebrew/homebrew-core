@@ -28,17 +28,19 @@ class LastpassCli < Formula
   uses_from_macos "libxslt"
 
   # Workaround for CMake 4 compatibility
-  # PR ref: https://github.com/lastpass/lastpass-cli/pull/716
   patch do
     url "https://github.com/lastpass/lastpass-cli/commit/31a4ad5f735933ff8e96403103d5b4f61faee945.patch?full_index=1"
     sha256 "a4c2a16fd47942a511c0ebbce08bee5ffdb0d6141f6c9b60ce397db9e207d8be"
+    type :unofficial
+    resolves "https://github.com/lastpass/lastpass-cli/pull/716"
   end
 
   # Workaround for for API change in OpenSSL 3.5
-  # PR ref: https://github.com/lastpass/lastpass-cli/pull/718
   patch do
     url "https://github.com/lastpass/lastpass-cli/commit/95fff9accc5832264e31af3f54f49af461339693.patch?full_index=1"
     sha256 "5d7559511b1814c6f9d8cccc02b7c5dbf8a4e6d2927a94cf76d090cc45a47dd2"
+    type :unofficial
+    resolves "https://github.com/lastpass/lastpass-cli/pull/718"
   end
 
   def install
@@ -53,6 +55,8 @@ class LastpassCli < Formula
   end
 
   test do
+    mkdir testpath/".config/lpass"
+
     assert_equal("Error: Could not find decryption key. Perhaps you need to login with `#{bin}/lpass login`.",
       shell_output("#{bin}/lpass passwd 2>&1", 1).chomp)
   end

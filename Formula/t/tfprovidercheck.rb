@@ -19,7 +19,7 @@ class Tfprovidercheck < Formula
   depends_on "opentofu" => :test
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/tfprovidercheck"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/tfprovidercheck"
   end
 
   test do

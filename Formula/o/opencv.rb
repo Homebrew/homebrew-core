@@ -2,16 +2,16 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   license "Apache-2.0"
-  revision 14
-  compatibility_version 1
+  revision 5
+  compatibility_version 2
 
   stable do
-    url "https://github.com/opencv/opencv/archive/refs/tags/4.13.0.tar.gz"
-    sha256 "1d40ca017ea51c533cf9fd5cbde5b5fe7ae248291ddf2af99d4c17cf8e13017d"
+    url "https://github.com/opencv/opencv/archive/refs/tags/5.0.0.tar.gz"
+    sha256 "b0528f5a1d379d59d4701cb28c36e22214cc51cf64594e5b56f2d3e6c0233095"
 
     resource "contrib" do
-      url "https://github.com/opencv/opencv_contrib/archive/refs/tags/4.13.0.tar.gz"
-      sha256 "1e0077a4fd2960a7d2f4c9e49d6ba7bb891cac2d1be36d7e8e47aa97a9d1039b"
+      url "https://github.com/opencv/opencv_contrib/archive/refs/tags/5.0.0.tar.gz"
+      sha256 "c58f6344170c39abf187c56f3843b59cab1fd3e89cf19ba2ce25dc061659b27f"
 
       livecheck do
         formula :parent
@@ -25,19 +25,19 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "61b7389090903e0b1b6770873f0b520dec7efc80df209ff2b0d267d323b8fc01"
-    sha256 arm64_sequoia: "d89666f354b86cc4963b7ba8a4cc7bc026459f8d106e1e8dad2a569f23ab807d"
-    sha256 arm64_sonoma:  "99da9f224b5b17c3d200b7af921a6ae7a5c1971e943a85b0d3f715c403d052ac"
-    sha256 sonoma:        "27de8e63829b909cdfacf5052e4d19628a9fc064268e4076e3d205eb432ac1b2"
-    sha256 arm64_linux:   "19b8b97656e3b90f75a149fc775b2f7f10340b8bc88c706b1f2961d772b75243"
-    sha256 x86_64_linux:  "ec65f45533b88da8dc630d056da40be96cccc1c5ea3c614c3ada04ca946b10f4"
+    sha256 arm64_tahoe:   "e6fe6f704240c4a9ca918bcd7ac825a0e10afa9718b7f4270b313a26c8da12f5"
+    sha256 arm64_sequoia: "e43dd7aa52d9e773932acf6af70dbb475988e70bffa76095561d3333e08839fb"
+    sha256 arm64_sonoma:  "1d0ac2865a6b50180fbf17b7aa3bdb284cec63baeb4021a059d6abc386cb3d00"
+    sha256 sonoma:        "cefab8cb0e54261f3a6a0ac3e6e76a6c7b12a5e9be6e3692c406beea0fa817d0"
+    sha256 arm64_linux:   "16ad78d6817feb48ed3c22e5af8264048d9ec50276522ae76ad837d8ea928b9d"
+    sha256 x86_64_linux:  "d83fae414fe879a3662603255378a99829bc8dc26c97dfc8356c0dbcdf2b5896"
   end
 
   head do
-    url "https://github.com/opencv/opencv.git", branch: "4.x"
+    url "https://github.com/opencv/opencv.git", branch: "5.x"
 
     resource "contrib" do
-      url "https://github.com/opencv/opencv_contrib.git", branch: "4.x"
+      url "https://github.com/opencv/opencv_contrib.git", branch: "5.x"
     end
   end
 
@@ -86,20 +86,44 @@ class Opencv < Formula
     "python3.14"
   end
 
+  # Drop the Caffe protobuf leftovers so DNN builds against external protobuf.
+  patch do
+    url "https://github.com/opencv/opencv/commit/f7ad23157f1b99b59bc9a706e9c7e4c8394947ac.patch?full_index=1"
+    sha256 "3813186a3e0c7f8c366b11c64f112d31a4f8c9709de333a2532e85142bea25bf"
+    type :backport
+    resolves "https://github.com/opencv/opencv/pull/29425"
+  end
+
+  # Fix builds with FFmpeg 9.
+  patch do
+    url "https://github.com/opencv/opencv/commit/7551012b4e1c854c1dc36483c893f90b1c236977.patch?full_index=1"
+    sha256 "0e662fbfd9949c4588138fcdb49bff124bf5e092ecfaa4db07938f50bb3ee1de"
+    type :backport
+    resolves "https://github.com/opencv/opencv/pull/29533"
+  end
+
+  patch do
+    url "https://github.com/opencv/opencv/commit/a6f17e1f6a53f8bb016acfbcd55b61cbe220f5c8.patch?full_index=1"
+    sha256 "f9fc79e1783debed6530600044c73f9a7d816c3b3095c260e1769bd04a62eb7d"
+    type :backport
+    resolves "https://github.com/opencv/opencv/pull/29662"
+  end
+
   def install
     resource("contrib").stage buildpath/"opencv_contrib"
 
+    # Finish PR #29425's file renames that `patch` leaves undone, then drop the emptied Caffe sources.
+    { "modules/dnn/src/caffe/caffe_io.hpp"      => "modules/dnn/src/protobuf_io.hpp",
+      "modules/dnn/src/caffe/glog_emulator.hpp" => "modules/dnn/src/glog_emulator.hpp" }
+      .each { |from, to| mv from, to if File.exist?(from) && !File.exist?(to) }
+    rm_r Dir["modules/dnn/src/caffe", "modules/dnn/misc/caffe"]
+
     # Avoid Accelerate.framework
-    ENV["OpenBLAS_HOME"] = Formula["openblas"].opt_prefix
+    ENV["OpenBLAS_HOME"] = formula_opt_prefix("openblas")
 
     # Remove bundled libraries to make sure formula dependencies are used
-    libdirs = %w[ffmpeg libjasper libjpeg libjpeg-turbo libpng libtiff libwebp openexr openjpeg protobuf tbb zlib]
+    libdirs = %w[ffmpeg libjasper libjpeg-turbo libpng libtiff libwebp openjpeg protobuf tbb zlib]
     libdirs.each { |l| rm_r(buildpath/"3rdparty"/l) }
-
-    # Fix OpenVINO 2026 Tensor::data() constness mismatch, upstream bug report, https://github.com/opencv/opencv/issues/28586
-    inreplace "modules/dnn/src/op_inf_engine.cpp",
-              "return Mat(size, type, blob.data());",
-              "return Mat(size, type, const_cast<void*>(blob.data()));"
 
     # VTK 9.6 stopped transitively including <iostream>;
     # viz uses std::cout/endl directly.
@@ -157,17 +181,17 @@ class Opencv < Formula
       # Disable precompiled headers and force opencv to use brewed libraries on Linux
       %W[
         -DENABLE_PRECOMPILED_HEADERS=OFF
-        -DJPEG_LIBRARY=#{Formula["jpeg-turbo"].opt_lib}/libjpeg.so
-        -DOpenBLAS_LIB=#{Formula["openblas"].opt_lib}/libopenblas.so
-        -DOPENEXR_ILMIMF_LIBRARY=#{Formula["openexr"].opt_lib}/libIlmImf.so
-        -DOPENEXR_ILMTHREAD_LIBRARY=#{Formula["openexr"].opt_lib}/libIlmThread.so
-        -DPNG_LIBRARY=#{Formula["libpng"].opt_lib}/libpng.so
-        -DPROTOBUF_LIBRARY=#{Formula["protobuf"].opt_lib}/libprotobuf.so
+        -DJPEG_LIBRARY=#{formula_opt_lib("jpeg-turbo")}/libjpeg.so
+        -DOpenBLAS_LIB=#{formula_opt_lib("openblas")}/libopenblas.so
+        -DOPENEXR_ILMIMF_LIBRARY=#{formula_opt_lib("openexr")}/libIlmImf.so
+        -DOPENEXR_ILMTHREAD_LIBRARY=#{formula_opt_lib("openexr")}/libIlmThread.so
+        -DPNG_LIBRARY=#{formula_opt_lib("libpng")}/libpng.so
+        -DPROTOBUF_LIBRARY=#{formula_opt_lib("protobuf")}/libprotobuf.so
         -DPROTOBUF_INCLUDE_DIR=#{Formula["protobuf"].include}
         -DPROTOBUF_PROTOC_EXECUTABLE=#{Formula["protobuf"].bin}/protoc
-        -DTIFF_LIBRARY=#{Formula["libtiff"].opt_lib}/libtiff.so
+        -DTIFF_LIBRARY=#{formula_opt_lib("libtiff")}/libtiff.so
         -DWITH_V4L=OFF
-        -DZLIB_LIBRARY=#{Formula["zlib-ng-compat"].opt_lib}/libz.so
+        -DZLIB_LIBRARY=#{formula_opt_lib("zlib-ng-compat")}/libz.so
       ]
     end
 
@@ -212,7 +236,7 @@ class Opencv < Formula
         return 0;
       }
     CPP
-    system ENV.cxx, "-std=c++17", "test.cpp", "-I#{include}/opencv4", "-o", "test",
+    system ENV.cxx, "-std=c++17", "test.cpp", "-I#{include}/opencv#{version.major}", "-o", "test",
                     "-L#{lib}", "-lopencv_core", "-lopencv_imgcodecs"
     assert_equal version.to_s, shell_output("./test").strip
 

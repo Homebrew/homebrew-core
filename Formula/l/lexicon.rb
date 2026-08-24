@@ -6,16 +6,16 @@ class Lexicon < Formula
   url "https://files.pythonhosted.org/packages/4b/37/291063606930c749681b2ad0612952b1bc5374ab2037346566812ba8f2c9/dns_lexicon-3.25.2.tar.gz"
   sha256 "a377bf2b4017ee46de8d5515cf2c204bfda74b49032dc5420bd3100993f28deb"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/dns-lexicon/dns-lexicon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "55b9bba54b98d1350518829b3c9c27501f7d4b11ca4a3884555c4823fff5e8ea"
-    sha256 cellar: :any,                 arm64_sequoia: "8d77fdaf2faad760d1051eb2020405abdf87d233b2ba049361f1a736309a1331"
-    sha256 cellar: :any,                 arm64_sonoma:  "3496850b88c6db04060fda3b4bd563e25471bef98a8803827589106835348e1d"
-    sha256 cellar: :any,                 sonoma:        "6a1eae849eb61f729b9cf49f8c99f24e58f80b13b5363cc93f5638e447fde8ae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b6182a141eb575513ec216dfd5632a1d34585cb9b5f69f7b12fabc5d0340d72"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e6d0f76d08eee312d3d1e6fa223f9d311dccda82fbba77152a4afcc93efeaba"
+    sha256 cellar: :any, arm64_tahoe:   "7266bed9985435d31ef61d5b8bfee1f01df7f06933a77c76f2a7433b1e5e1886"
+    sha256 cellar: :any, arm64_sequoia: "4e55f311777cdd6930565e3f826e53262e3c37bf978343e6d860bb72d528cc81"
+    sha256 cellar: :any, arm64_sonoma:  "ccf6f75efb5bb2b9b7cd28b49de28dabbfe3bc4f5ec2ebc79caa34fb22ae275a"
+    sha256 cellar: :any, sonoma:        "2fdfbebff8dca39285a18a681c192b76237e06b0dc5c48747d405044e2c1ad11"
+    sha256 cellar: :any, arm64_linux:   "1e47d30ce2fb51680d3949b9654fdaaf6f9ffec36aed14ccb7f4f0cf4ca5f06f"
+    sha256 cellar: :any, x86_64_linux:  "e7514ece0436f62ac28c7099cf22d5a66b2df24993ae5d195a2a4777d8c58c88"
   end
 
   depends_on "certifi" => :no_linkage
@@ -35,18 +35,18 @@ class Lexicon < Formula
   end
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/c3/b0/1c6a16426d389813b48d95e26898aff79abbde42ad353958ad95cc8c9b21/beautifulsoup4-4.14.3.tar.gz"
-    sha256 "6292b1c5186d356bba669ef9f7f051757099565ad9ada5dd630bd9de5fa7fb86"
+    url "https://files.pythonhosted.org/packages/43/65/318323f98dbee45d42dff61d8f047181bc6f2268a9068cfad035a46be5af/beautifulsoup4-4.15.0.tar.gz"
+    sha256 "288e3ca7d54b06f2ac191970bc275c1939cb46d450b255bf6718b04aa37ab4f7"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/1e/02/195d56d36b900ba28a75fc4c47c858a16237811acfde8f22f6de08236dae/boto3-1.43.11.tar.gz"
-    sha256 "3567c6a1f31d8e6bf151c95f76a2b1f239cce243a768a31747c2ba141c9a0570"
+    url "https://files.pythonhosted.org/packages/10/9d/794d03504b8c72bf978a1ef93bc9e7d0867951bf5fbbe50881cd50fb26d5/boto3-1.43.33.tar.gz"
+    sha256 "da6e400b2d11eb041fbbb2743ef3ffe6540889676ffdff0e628628e9b4f04cde"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/e9/fa/4bec16fa5a4cde7b593e549238bfeb8ed1bdba9d427888a18c460a1f2352/botocore-1.43.11.tar.gz"
-    sha256 "d7d479cc2809ec2728f2898521003adfb79bfe6a4615c59dfd222ec52b0cee6b"
+    url "https://files.pythonhosted.org/packages/20/d5/8ec6df4e82bec2be4ac417f542736dc6cfe89152693337152421b336eb71/botocore-1.43.33.tar.gz"
+    sha256 "74b3d5626ebeb2677fac1ca12ac975faf328e54349ceb4dcda17f50674d5b9b4"
   end
 
   resource "charset-normalizer" do
@@ -60,8 +60,13 @@ class Lexicon < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/23/e4/796662cd90cf80e3a363c99db2b88e0e394b988a575f60a17e16440cd011/click-8.4.0.tar.gz"
-    sha256 "638f1338fe1235c8f4e008e4a8a254fb5c5fbdcbb40ece3c9142ebb78e792973"
+    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
+    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+  end
+
+  resource "crc32c" do
+    url "https://files.pythonhosted.org/packages/7f/4c/4e40cc26347ac8254d3f25b9f94710b8e8df24ee4dddc1ba41907a88a94d/crc32c-2.7.1.tar.gz"
+    sha256 "f91b144a21eef834d64178e01982bb9179c354b3e9e5f4c803b0e5096384968c"
   end
 
   resource "dnspython" do
@@ -70,13 +75,13 @@ class Lexicon < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/b5/fe/997687a931ab51049acce6fa1f23e8f01216374ea81374ddee763c493db5/filelock-3.29.0.tar.gz"
-    sha256 "69974355e960702e789734cb4871f884ea6fe50bd8404051a3530bc07809cf90"
+    url "https://files.pythonhosted.org/packages/e6/dc/be6cbe99670cd6e4ad387123647cb08e0c32975e223f82551e914c5568a6/filelock-3.29.4.tar.gz"
+    sha256 "10cdb3656fc44541cdf30652a93fb10ec6b05325620eb316bd26893e4201538a"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
-    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
+    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
+    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
   end
 
   resource "isodate" do
@@ -110,13 +115,13 @@ class Lexicon < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/a8/a0/aa6dc0477cab7d977042c245b4014d787c3d9c287c23a51bd58b3d5c79c0/oci-2.175.0.tar.gz"
-    sha256 "a2c0f7a61e26a430cb5d2f611226eca6ee49f113ba6326ca97c8608be54f168c"
+    url "https://files.pythonhosted.org/packages/cf/28/6f09d1fb1f1d7489b978c6dcbab7847941302f9d5ae45b1c2cdca0b42765/oci-2.179.0.tar.gz"
+    sha256 "0b276d22ddc6eabdf4f4c3d8beefbd1f9d9fc80134d739f51ee0c203f6238eba"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/9f/4a/0883b8e3802965322523f0b200ecf33d31f10991d0401162f4b23c698b42/platformdirs-4.9.6.tar.gz"
-    sha256 "3bfa75b0ad0db84096ae777218481852c0ebc6c727b3168c1b9e0118e458cf0a"
+    url "https://files.pythonhosted.org/packages/d7/47/e4501f49c178ae1d9f4a75073fda4204f52647993f075a9db4d14930e0c5/platformdirs-4.10.0.tar.gz"
+    sha256 "31e761a6a0ca04faf7353ea759bdba55652be214725111e5aac52dfa29d4bef7"
   end
 
   resource "prompt-toolkit" do
@@ -135,8 +140,8 @@ class Lexicon < Formula
   end
 
   resource "pyotp" do
-    url "https://files.pythonhosted.org/packages/f3/b2/1d5994ba2acde054a443bd5e2d384175449c7d2b6d1a0614dbca3a63abfc/pyotp-2.9.0.tar.gz"
-    sha256 "346b6642e0dbdde3b4ff5a930b664ca82abfa116356ed48cc42c7d6590d36f63"
+    url "https://files.pythonhosted.org/packages/2d/c6/c5d96a86fd0bf6fa1bbb5c5c341ff3208638b692727a683c8289068d9a11/pyotp-2.10.0.tar.gz"
+    sha256 "d01e9703443616b03c57c700b5cbffd56a1f929c1b0f8f03131bc78c1fca9d3f"
   end
 
   resource "python-dateutil" do
@@ -180,8 +185,8 @@ class Lexicon < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/9b/ec/7c692cde9125b77e84b307354d4fb705f98b8ccad59a036d5957ca75bfc3/s3transfer-0.17.0.tar.gz"
-    sha256 "9edeb6d1c3c2f89d6050348548834ad8289610d886e5bf7b7207728bd43ce33a"
+    url "https://files.pythonhosted.org/packages/f6/94/dcdaeb1713cab9c84def276cfac7388b17c7d9855bbcfe88d77e4dbafd44/s3transfer-0.19.0.tar.gz"
+    sha256 "ce436931687addc4c1712d52d40b32f53e88315723f107ffa20ba82b05a0f685"
   end
 
   resource "six" do
@@ -195,13 +200,13 @@ class Lexicon < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/7b/ae/2d9c981590ed9999a0d91755b47fc74f74de286b0f5cee14c9269041e6c4/soupsieve-2.8.3.tar.gz"
-    sha256 "3267f1eeea4251fb42728b6dfb746edc9acaffc4a45b27e19450b676586e8349"
+    url "https://files.pythonhosted.org/packages/47/2c/0a5f6f8ee0d5589e48c7640213ed5175d52cf540a06725b628cc1a45d6ce/soupsieve-2.8.4.tar.gz"
+    sha256 "e121fd02e975c695e4e9e8774a5ee35d74714b59307868dcc5319ad2d9e3328e"
   end
 
   resource "tencentcloud-sdk-python" do
-    url "https://files.pythonhosted.org/packages/9c/0d/4dcb96017e360884fbf13217457b613429ac2a9b60828d983701e9dfc83c/tencentcloud_sdk_python-3.1.100.tar.gz"
-    sha256 "cdf5429cecfa9757fbcd2bb4ad608177c9f9125dc2febf224682e1b9c705e13f"
+    url "https://files.pythonhosted.org/packages/5a/89/954ed4da7e588395c03e5b27794e2f422a1c1de8788c6e2d825dfccc2eec/tencentcloud_sdk_python-3.1.119.tar.gz"
+    sha256 "59c7e631b4a931a27bd7637d05c6d8686dbee04e55dc29f72f7219c435c7c8b1"
   end
 
   resource "tldextract" do
@@ -220,13 +225,13 @@ class Lexicon < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/2c/ee/afaf0f85a9a18fe47a67f1e4422ed6cf1fe642f0ae0a2f81166231303c52/wcwidth-0.7.0.tar.gz"
-    sha256 "90e3a7ea092341c44b99562e75d09e4d5160fe7a3974c6fb842a101a95e7eed0"
+    url "https://files.pythonhosted.org/packages/49/b4/51fe890511f0f242d07cb1ebe6a5b6db417262b9d2568b460347c57d95cc/wcwidth-0.8.1.tar.gz"
+    sha256 "faf5b4a5366a72dc49cad48cdf21f52bdf63bdda995178e483ba247ff79089b9"
   end
 
   resource "zeep" do
-    url "https://files.pythonhosted.org/packages/e8/06/4f1d3ff61e930163565fb73616c6251e412a4d2fc7ed18214e1c2107258d/zeep-4.3.2.tar.gz"
-    sha256 "1a23a667ce9d73a0dbfdf15745bfa2b7ab0b6402135c0cd5067574838398e0e6"
+    url "https://files.pythonhosted.org/packages/7e/c2/e06e5f177d818d0fc34fcbe2f98c175af2cba63b7d90f4bfcb6fe360d343/zeep-4.3.3.tar.gz"
+    sha256 "99d5059f92f721020998695fd9c85289ccb03ec5a2398ad49c6dbe43f19cfb94"
   end
 
   def install

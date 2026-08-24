@@ -1,7 +1,7 @@
 class Identme < Formula
   desc "Public IP address lookup"
   homepage "https://www.ident.me"
-  url "https://github.com/pcarrier/ident.me/archive/refs/tags/v0.6.0.tar.gz"
+  url "https://github.com/xmit-co/ident.me/archive/refs/tags/v0.6.0.tar.gz"
   sha256 "5e37f2f5b661ebe9731aab8d6d2ecdbea6e2239ea6f5ad1f2b158ea15fea947c"
   license "0BSD"
 

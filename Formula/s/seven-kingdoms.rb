@@ -21,7 +21,7 @@ class SevenKingdoms < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   on_macos do
     depends_on "gettext"

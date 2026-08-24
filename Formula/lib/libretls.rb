@@ -29,7 +29,7 @@ class Libretls < Formula
   def install
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
+                          "--with-openssl=#{formula_opt_prefix("openssl@3")}"
     system "make", "install"
   end
 

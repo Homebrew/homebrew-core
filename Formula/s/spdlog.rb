@@ -51,7 +51,7 @@ class Spdlog < Formula
       int main()
       {
         try {
-          auto console = spdlog::basic_logger_mt("basic_logger", testpath/"basic-log.txt");
+          auto console = spdlog::basic_logger_mt("basic_logger", "#{testpath}/basic-log.txt");
           console->info("Test");
         }
         catch (const spdlog::spdlog_ex &ex)
@@ -62,7 +62,7 @@ class Spdlog < Formula
       }
     CPP
 
-    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{Formula["fmt"].opt_lib}", "-lfmt", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{formula_opt_lib("fmt")}", "-lfmt", "-o", "test"
     system "./test"
     assert_path_exists testpath/"basic-log.txt"
     assert_match "Test", (testpath/"basic-log.txt").read

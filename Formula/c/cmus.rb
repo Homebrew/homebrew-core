@@ -2,7 +2,7 @@ class Cmus < Formula
   desc "Music player with an ncurses based interface"
   homepage "https://cmus.github.io/"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/cmus/cmus.git", branch: "master"
 
   stable do
@@ -10,11 +10,12 @@ class Cmus < Formula
     sha256 "44b96cd5f84b0d84c33097c48454232d5e6a19cd33b9b6503ba9c13b6686bfc7"
 
     # Backport FFmpeg 8 support using Debian patches as recommended by upstream
-    # https://github.com/cmus/cmus/issues/1459#issuecomment-3733435414
     # The same patches are used by Arch Linux.
     patch do
-      url "https://deb.debian.org/debian/pool/main/c/cmus/cmus_2.12.0-2.debian.tar.xz"
-      sha256 "e7b29301e3edd7446fa7bc4c4e89ea5a4580a13e183cc57a59974ca385ec9818"
+      url "https://deb.debian.org/debian/pool/main/c/cmus/cmus_2.12.0-3.debian.tar.xz"
+      sha256 "dcdbda04f42785079be734c3282e8a114a1ee55da01505ac92da56778bd035a4"
+      type :backport
+      resolves "https://github.com/cmus/cmus/issues/1459"
       apply "patches/0003-ip-ffmpeg-more-precise-seeking.patch",
             "patches/0004-ip-ffmpeg-skip-samples-only-when-needed.patch",
             "patches/0005-ip-ffmpeg-remove-excessive-version-checks.patch",
@@ -32,13 +33,12 @@ class Cmus < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "51b42ebc31527eea5562974b745eb1c961436282882ffed5a183e043a997987d"
-    sha256 arm64_sequoia: "9878efe2232228b9e5e67a588ebd22867bb0b13fb9d7155bb1c697d2ecaf0376"
-    sha256 arm64_sonoma:  "c13b26723f0d2547bb8fcc31d8437c738c437f01f4245b281e294e0c3928d7f7"
-    sha256 sonoma:        "09934b3459b7b8d617aa3f46f6a7012d245d92d85d70a3c46fd22f80d8dff083"
-    sha256 arm64_linux:   "5ac1322da5e1d6ab4dd872e5a50dfc938628f9d6e57d2454c8e6435c4eb004cf"
-    sha256 x86_64_linux:  "47bdd3c67a317fd239b8af7b6e0a177e16ba1047c729e30af4dfb4b6598ed878"
+    sha256 arm64_tahoe:   "210377c9fda621f2405c82368826b836f477a2b6c810074ade5827d838bf3dd3"
+    sha256 arm64_sequoia: "cfe58b83c5dcd733e8d0b30920ab783cb68518e6369fd7fa66f2a15f806fa72e"
+    sha256 arm64_sonoma:  "f051ca658766a48c546040fc6fed6d76f2a5014174e2ac8dddd34b23cfa36a88"
+    sha256 sonoma:        "e557635620a6cb4182d3ad7dd754b41ccfd41060183346e808236c2a4438626c"
+    sha256 arm64_linux:   "27ad28ba4977fe3cba76ba21fca347507b66fd97e297761224da4bcb2cc73d9b"
+    sha256 x86_64_linux:  "74ac30d857315bdd36ca022035ba04b2326486ead7c9ab44853536a48e807670"
   end
 
   depends_on "pkgconf" => :build
@@ -48,7 +48,6 @@ class Cmus < Formula
   depends_on "libao" # See https://github.com/cmus/cmus/issues/1130
   depends_on "libvorbis"
   depends_on "mad"
-  depends_on "mp4v2"
   depends_on "ncurses"
   depends_on "opusfile"
 
@@ -58,6 +57,11 @@ class Cmus < Formula
   end
 
   def install
+    # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=765634#10
+    # https://www.gnu.org/licenses/license-list.html#MPL
+    # https://www.mozilla.org/en-US/MPL/1.1/FAQ/
+    odie "mp4v2 is licensed under MPL-1.1 which is incompatible with GPL!" if deps.map(&:name).include?("mp4v2")
+
     args = [
       "prefix=#{prefix}",
       "mandir=#{man}",

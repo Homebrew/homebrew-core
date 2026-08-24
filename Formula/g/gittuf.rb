@@ -1,24 +1,24 @@
 class Gittuf < Formula
   desc "Security layer for Git repositories"
   homepage "https://gittuf.dev/"
-  url "https://github.com/gittuf/gittuf/archive/refs/tags/v0.14.1.tar.gz"
-  sha256 "4b6647429beed2f688fc51add387e285afd80e075a1c47cec5441c6dbaa17cb4"
+  url "https://github.com/gittuf/gittuf/releases/download/v0.15.0/gittuf.src.tar.gz"
+  sha256 "b9fce302e215a2f5c374658e4f24730a800f52cba71aff0185bff208c44404de"
   license "Apache-2.0"
   head "https://github.com/gittuf/gittuf.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "69612a277842fa0f7e81ad6250cc3909df1fa13be0f21aed996460160eee681a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "69612a277842fa0f7e81ad6250cc3909df1fa13be0f21aed996460160eee681a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "69612a277842fa0f7e81ad6250cc3909df1fa13be0f21aed996460160eee681a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e0f99d5fe5bbb44cba8da7650344e90cceb98e857a17cd5bf024187be960195e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8b5a3521f4adb525293e2a5b16ea7563f654030412c435078768801fb8fcd6df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "deae800e44d61d5231621dabb38900b78c4fd9bf921b087357bec9bbf81da485"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "addf01163361488d372ae51d5d725a46eab073131dcb506fc1093bda003f3c30"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "addf01163361488d372ae51d5d725a46eab073131dcb506fc1093bda003f3c30"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "addf01163361488d372ae51d5d725a46eab073131dcb506fc1093bda003f3c30"
+    sha256 cellar: :any_skip_relocation, sonoma:        "04f9d5fa97cb4c403f8283d7c46ab7dc2189d6ea0e08524e73ce84a499e806fa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0def05cb93bf136f1b8f1a03f17b03c1ba26336dc690627fa0f1277be7e84731"
+    sha256 cellar: :any,                 x86_64_linux:  "fe06b5d7f4910677de83a9ced9c6303c7a6d399673edbe6f7f9e1b2ec028435e"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/gittuf/gittuf/internal/version.gitVersion=#{version}"
+    ldflags = "-X github.com/gittuf/gittuf/internal/version.gitVersion=#{version}"
     system "go", "build", *std_go_args(ldflags:)
     system "go", "build", *std_go_args(ldflags:, output: bin/"git-remote-gittuf"), "./internal/git-remote-gittuf"
 

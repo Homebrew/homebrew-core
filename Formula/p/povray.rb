@@ -2,7 +2,7 @@ class Povray < Formula
   desc "Persistence Of Vision RAYtracer (POVRAY)"
   homepage "https://www.povray.org/"
   license "AGPL-3.0-or-later"
-  revision 15
+  revision 16
 
   stable do
     url "https://github.com/POV-Ray/povray/archive/refs/tags/v3.7.0.10.tar.gz"
@@ -15,10 +15,12 @@ class Povray < Formula
       patch :p0 do
         url "https://raw.githubusercontent.com/freebsd/freebsd-ports/6133473e4227abbfcf023bea6ab5eeed9c17e55b/graphics/povray37/files/patch-vfe_vfe.cpp"
         sha256 "81e6ad64dadce1581cbab3be9774d5a5c22307e8738ee1452eb7e4d3e5a7e234"
+        type :unofficial
       end
       patch :p0 do
         url "https://raw.githubusercontent.com/freebsd/freebsd-ports/6133473e4227abbfcf023bea6ab5eeed9c17e55b/graphics/povray37/files/patch-vfe_vfeconf.h"
         sha256 "8e2246c5ded770b0fe835ae062aca44e98fc220314e39ba6c068ed7f270b71b2"
+        type :unofficial
       end
     end
   end
@@ -29,13 +31,12 @@ class Povray < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "55cd4d67cca78d36e98a6997489de220f80403bac07a1747732cdf5c5649ad56"
-    sha256 arm64_sequoia: "033dfeea0176978972432eebf5abd073c33e651586850659a991191363b49a74"
-    sha256 arm64_sonoma:  "40b763e62c00a88dbd0bd01812fe056ebbde2bf93fe346aaa21a0e4db7ebba0f"
-    sha256 sonoma:        "30f0919619a000450453ce8c07f58e421f2e12f8754d6ebc7c34768d61ac24db"
-    sha256 arm64_linux:   "77375757a81bcdd67b267983256491b369a57803df9cd79438a1c48dfee3c204"
-    sha256 x86_64_linux:  "00fdfd84a3e3258f024cd77a80696966cb4b5d57f74bdbe029f913831c92a2de"
+    sha256 arm64_tahoe:   "848f9ea4cc007231c5887b52daade272eeda7eb16f1f621657fcbdfdc9876790"
+    sha256 arm64_sequoia: "0dc49f4371c081f8e07bc6e65e38af465a59f842831c16afc5eac801328092ba"
+    sha256 arm64_sonoma:  "5acf3438e52e2d6194d259d612b7bc62a7fd51da865a4b3d98e56668b2bc6d56"
+    sha256 sonoma:        "d9cd48308ca13736b0ebbf1e37c9b33af82f26e3d6c18b9e536afb8c3cd141ea"
+    sha256 arm64_linux:   "afe3c68e4988994ec185fea805a33f67af19f46e4efcc91370b5e37d673d07cb"
+    sha256 x86_64_linux:  "76dbcf106945d30b13f99d6880a549c2cf67646e6d5f7558520a3527aeae1135"
   end
 
   head do
@@ -78,8 +79,8 @@ class Povray < Formula
       COMPILED_BY=#{tap&.user || "Homebrew"}
       --disable-optimiz
       --mandir=#{man}
-      --with-boost=#{Formula["boost"].opt_prefix}
-      --with-openexr=#{Formula["openexr"].opt_prefix}
+      --with-boost=#{formula_opt_prefix("boost")}
+      --with-openexr=#{formula_opt_prefix("openexr")}
       --without-libsdl
       --without-x
     ]

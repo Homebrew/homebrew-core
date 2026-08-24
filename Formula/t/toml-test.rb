@@ -17,7 +17,7 @@ class TomlTest < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/toml-test"
+    system "go", "build", *std_go_args, "./cmd/toml-test"
     pkgshare.install "tests"
   end
 

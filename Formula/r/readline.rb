@@ -26,6 +26,7 @@ class Readline < Formula
       url "https://ftpmirror.gnu.org/gnu/readline/readline-8.3-patches/readline83-#{p}"
       mirror "https://ftp.gnu.org/gnu/readline/readline-8.3-patches/readline83-#{p}"
       sha256 checksum
+      type :cherry_pick
     end
   end
   compatibility_version 1

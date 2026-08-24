@@ -1,8 +1,8 @@
 class Jenkins < Formula
   desc "Extendable open source continuous integration server"
   homepage "https://www.jenkins.io/"
-  url "https://get.jenkins.io/war/2.569/jenkins.war"
-  sha256 "9aa4df8f1d6515931bf25b07b86f2fc706a94c955dc1cbb39c21b8fa50f27c4e"
+  url "https://get.jenkins.io/war/2.578/jenkins.war"
+  sha256 "20337998ed91270776593167a160be097670f704bb526b096c18f7207c6a64bb"
   license "MIT"
 
   livecheck do
@@ -11,7 +11,7 @@ class Jenkins < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "87731c000ca50479e92463fceab46cf5c8ae1a56e8a18e8aba56956bb1df592c"
+    sha256 cellar: :any_skip_relocation, all: "8a94becf6c2cbe8bf9c696014ec36a012aef821de59bbd169e1ab9f7a22cabbe"
   end
 
   head do
@@ -25,7 +25,7 @@ class Jenkins < Formula
     if build.head?
       system "mvn", "clean", "install", "-pl", "war", "-am", "-DskipTests"
     else
-      system "#{Formula["openjdk@21"].opt_bin}/jar", "xvf", "jenkins.war"
+      system "#{formula_opt_bin("openjdk@21")}/jar", "xvf", "jenkins.war"
     end
     libexec.install Dir["**/jenkins.war", "**/cli-#{version}.jar"]
     bin.write_jar_script libexec/"jenkins.war", "jenkins", java_version: "21"

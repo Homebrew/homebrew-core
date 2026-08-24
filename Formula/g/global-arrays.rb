@@ -21,6 +21,8 @@ class GlobalArrays < Formula
   patch do
     url "https://github.com/GlobalArrays/ga/commit/9f8d8fad67637c75c430a7a3ea887e4115482301.patch?full_index=1"
     sha256 "421d65a117ef3e53899c491ca5887360821170f0f9e735cc15a72efd9fe08882"
+    type :backport
+    resolves "https://github.com/GlobalArrays/ga/pull/376"
   end
 
   def install

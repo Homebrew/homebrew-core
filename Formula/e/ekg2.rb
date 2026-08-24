@@ -12,14 +12,15 @@ class Ekg2 < Formula
     # Fix the build on OS X 10.9+
     # bugs.ekg2.org/issues/152 [LOST LINK]
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/ekg2/0.3.1.patch"
-      sha256 "6efbb25e57581c56fe52cf7b70dbb9c91c9217525b402f0647db820df9a14daa"
+      file "Patches/ekg2/0.3.1.patch"
+      type :unofficial
     end
 
     # Upstream commit, fix build against OpenSSL 1.1
     patch do
       url "https://github.com/ekg2/ekg2/commit/f05815.patch?full_index=1"
       sha256 "207639edc5e6576c8a67301c63f0b28814d9885f0d4fca5d9d9fc465f4427cd7"
+      type :backport
     end
   end
 
@@ -80,7 +81,7 @@ class Ekg2 < Formula
 
     args = %W[
       --enable-unicode
-      --with-readline=#{Formula["readline"].opt_prefix}
+      --with-readline=#{formula_opt_prefix("readline")}
       --without-gtk
       --without-libgadu
       --without-perl

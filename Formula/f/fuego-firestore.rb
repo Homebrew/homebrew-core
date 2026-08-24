@@ -22,7 +22,7 @@ class FuegoFirestore < Formula
   conflicts_with "fuego", because: "both install `fuego` binaries"
 
   def install
-    system "go", "build", *std_go_args(output: bin/"fuego", ldflags: "-s -w")
+    system "go", "build", *std_go_args(output: bin/"fuego")
   end
 
   test do

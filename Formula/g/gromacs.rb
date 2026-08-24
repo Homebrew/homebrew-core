@@ -1,9 +1,10 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "https://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2026.2.tar.gz"
-  sha256 "d27e4455e8246177952366798631a0dad9f2e1f567400a6cb854a168dcc050dd"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2026.3.tar.gz"
+  sha256 "1094b7bbc6a3960223827114626657110b40096cdf9598a727935fc84ebf8aa0"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://ftp.gromacs.org/pub/gromacs/"
@@ -11,13 +12,12 @@ class Gromacs < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_tahoe:   "d4b6551d8a2b82d4cc457f75b741900535f02deee6fb8bbaeed6195d48bd25e5"
-    sha256                               arm64_sequoia: "6076b370560e7c6928ee38baebf929c076e2b0b5af7d9bc1b662776040a8c820"
-    sha256                               arm64_sonoma:  "73321917f0f4cb6aa1c70c88ab131d1087245c3000c39c3db69892c035b056fa"
-    sha256                               sonoma:        "fd3400ec25d38e71c0962d51d31f4453b3b65f39a0f9b05bd05bac09dbc28e60"
-    sha256                               arm64_linux:   "dff057ce590437a44d026993aa71bb061ede049dcf6f391e40a9f86e2f60eb34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1364fb0da96dc7a23b2075ad71590668336fd404473c2acb3feb89960815487c"
+    sha256               arm64_tahoe:   "02a9776d85ea5edd18e2674449a956f98549b395447b10dcdc4f60282e0e7695"
+    sha256               arm64_sequoia: "be4cfd1dc5417cf2bcb041b51d0a3db78aa55763573f8b17e0db63736df356fc"
+    sha256               arm64_sonoma:  "d6bca88f3136dd0d34eec16238f59ddd02cab8213b13c34dff4c22d9e9a8a5a5"
+    sha256               sonoma:        "fd6455f4fc53cb7ae20ec791ac11c3c48ceda71ce773ddcf386cd77eed8c4a8e"
+    sha256               arm64_linux:   "da7f478ef0fbca1925325378c85cbd7b31825364e452f60da5be66e5641f51ad"
+    sha256 cellar: :any, x86_64_linux:  "6850199adbd3321318d8effc07477fe1ddcb2edd41bb1664c97b5f26f434197f"
   end
 
   depends_on "cmake" => :build

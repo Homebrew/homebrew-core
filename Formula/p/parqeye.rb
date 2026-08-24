@@ -1,18 +1,18 @@
 class Parqeye < Formula
   desc "Peek inside Parquet files right from your terminal"
   homepage "https://github.com/kaushiksrini/parqeye"
-  url "https://github.com/kaushiksrini/parqeye/archive/refs/tags/v0.0.2.tar.gz"
-  sha256 "67f896a9fe53a9f85022bdaf2042ae196feb784d2073df7d25eb37648d620139"
+  url "https://github.com/kaushiksrini/parqeye/archive/refs/tags/v0.1.0.tar.gz"
+  sha256 "2b8bc834d91594a708d2eea47f0e9ed2fe79b79dca1e9cad631d20b563a612c3"
   license "MIT"
   head "https://github.com/kaushiksrini/parqeye.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bcdbc3ffdc5238b1d30348983dcc47c1c25a59a1d6a386869780cc99eb3faa98"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "16711b77ea4001da10c1fbd696f74c4e37704059556327a70ac8e1ebd065cd0f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "69dfee9b1c5cebbdeab45ff50f14d450cc582f04e19ef8dbae922b9f7c3e32bb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4f58d4d3834b9dd677ea7f720bcfe4c02dd36c65f28fa8231a227743830041fb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9384c8f25f40c24911f5329fa86ade59496a29b95de02028c4f6c063e96589c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "06ba0ddaec37c77ebe2260ff8aee31a0537e540bd1f0495742209c514b296417"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a0ca576b3be6ce10c5976c13636762b613d16e5027f98572d9ea929e49666e57"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5af5b8e308ae68a7b9905b3af1bf7d696e159f94c4cbf263d87e87c06fb682e0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f910d4ab0ee3bfb6ad00fcfc7316cd8332360215531510cf011bfdab5bcb29f4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5148fda025624a9bdc164e1f98753b7955486a6c1daffdbc29d25aa011477971"
+    sha256 cellar: :any,                 arm64_linux:   "5fcb5d393a5694a69b84139a5f584cacef1851f14ddb55a7a71a908220616127"
+    sha256 cellar: :any,                 x86_64_linux:  "212e477be3a01fa865ef57d13974ce976551e358ad88e4e899ee75ec76cab640"
   end
 
   depends_on "rust" => :build

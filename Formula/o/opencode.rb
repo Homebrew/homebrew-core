@@ -1,8 +1,8 @@
 class Opencode < Formula
   desc "AI coding agent, built for the terminal"
   homepage "https://opencode.ai"
-  url "https://registry.npmjs.org/opencode-ai/-/opencode-ai-1.17.5.tgz"
-  sha256 "05165ae40c9b222db275c8482300c948e881a6767aed2e67056223f43069f99c"
+  url "https://registry.npmjs.org/opencode-ai/-/opencode-ai-1.18.20.tgz"
+  sha256 "d7af626824cab417d9c5c12e5c0187e506f1c903ea93bd8e4b1615be16305d2a"
   license "MIT"
 
   livecheck do
@@ -10,13 +10,12 @@ class Opencode < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_tahoe:   "ca653eb8c0a682d6d18fccfdeff1294768df49a617a3d7c799948fe4d4f1467a"
-    sha256                               arm64_sequoia: "ca653eb8c0a682d6d18fccfdeff1294768df49a617a3d7c799948fe4d4f1467a"
-    sha256                               arm64_sonoma:  "ca653eb8c0a682d6d18fccfdeff1294768df49a617a3d7c799948fe4d4f1467a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "18f5988198e1c8804fb1f14358b59c9ae87a39940613a4dc7d6021266882ca26"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "984002edcfa2b6cd6e1a9aac60fa633c405ba7c84eb4db30177a69a6dabfd09b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b94552644a7fa937b46efbdc86707969caa898a8131aa79561d8412ccc806da"
+    sha256                               arm64_tahoe:   "a9dc7628cd613d1a1c94b42256b0b450af438c0f9c9132651b363fbe14a4f730"
+    sha256                               arm64_sequoia: "a9dc7628cd613d1a1c94b42256b0b450af438c0f9c9132651b363fbe14a4f730"
+    sha256                               arm64_sonoma:  "a9dc7628cd613d1a1c94b42256b0b450af438c0f9c9132651b363fbe14a4f730"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1874884dee4b0c59100926a2061596b806cbeeff2f2f2e9c1b27b8b6c258ea6a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3cdd02b79694885c40f941342c971223076735c4e28887af9a37ec8bd8ba7b23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df13fb71d73abeba66fb514e9f806bda22bbd831c8e66920f16a24d2271c1763"
   end
 
   depends_on "node"

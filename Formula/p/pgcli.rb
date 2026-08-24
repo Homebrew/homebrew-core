@@ -85,7 +85,7 @@ class Pgcli < Formula
     # Help `psycopg` find our `libpq`, which is keg-only so its attempt to use `pg_config --libdir` fails
     resource("psycopg").stage do
       inreplace "psycopg/pq/_pq_ctypes.py", "libname := find_libpq_full_path()",
-                                            "libname := '#{Formula["libpq"].opt_lib/shared_library("libpq")}'"
+                                            "libname := '#{formula_opt_lib("libpq")/shared_library("libpq")}'"
       venv.pip_install Pathname.pwd
     end
 

@@ -1,17 +1,17 @@
 class Plutobook < Formula
   desc "Paged HTML Rendering Library"
   homepage "https://github.com/plutoprint/plutobook"
-  url "https://github.com/plutoprint/plutobook/archive/refs/tags/v0.17.0.tar.gz"
-  sha256 "987374e3779f147ef5108780e90960e1d2d1aae8c9361ba1d418c8649a3ac947"
+  url "https://github.com/plutoprint/plutobook/archive/refs/tags/v0.19.0.tar.gz"
+  sha256 "8f344b446d62a1aa43855e0b0b142aaa192f85ed16b07f9791715da5e3343c3e"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "d13a93753b5a5b01e5b0aaf39afd98bd76a129d3b54ae788f667eca38feeee63"
-    sha256 cellar: :any, arm64_sequoia: "9359a64289134011fea0ced0ec0c34dfa257518a43d0278dd494207457f98c67"
-    sha256 cellar: :any, arm64_sonoma:  "84fa29f6c128199a60db1d68be5073d1ae6f1d4ba845a5e10edd7bc136f8e773"
-    sha256 cellar: :any, sonoma:        "1f1113cfec65c9d482adca3491f748bcdf6e5718a88ea072d54efa1955c530ce"
-    sha256               arm64_linux:   "fda98812409715e73a7a64020b1e30c261e41ab1cfee844cda019fd6faf26c68"
-    sha256               x86_64_linux:  "80771a179a62ef4a5884addf353a1979102613e9cc1e727cd2c0e9403e3bbcf0"
+    sha256 cellar: :any, arm64_tahoe:   "68e18b53ec30bad2c021728e221bab88e647c6b7c92fb9fb764482499bad9817"
+    sha256 cellar: :any, arm64_sequoia: "c2d75d81af62fa8bb5c26fa7007f81315a45319b5c6fbab63db5269225e1337a"
+    sha256 cellar: :any, arm64_sonoma:  "2c9d4a32319a534d4257d9da82a00456300c2e90ea9319bbd94786d687e8bb19"
+    sha256 cellar: :any, sonoma:        "124eda3c1f50005fe02dbe28c49b51dfdf1f14ecf4eec00f269a04dcbc047732"
+    sha256               arm64_linux:   "a33b96066e2d14ed16ddf10d228f27891b193b2c1bd753109f2c1a357b3f8e6f"
+    sha256               x86_64_linux:  "621757a68a187515024a26cd72d6d95e0c37c133d6dd2e1374b26d17e872a659"
   end
 
   depends_on "meson" => :build

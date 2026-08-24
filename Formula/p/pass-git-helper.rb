@@ -29,7 +29,7 @@ class PassGitHelper < Formula
 
   test do
     # Generate temporary GPG key for use with pass
-    pipe_output("#{Formula["gnupg"].opt_bin}/gpg --generate-key --batch", <<~EOS, 0)
+    pipe_output("#{formula_opt_bin("gnupg")}/gpg --generate-key --batch", <<~EOS, 0)
       %no-protection
       %transient-key
       Key-Type: RSA

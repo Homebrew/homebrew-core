@@ -25,16 +25,15 @@ class Chronograf < Formula
   depends_on "kapacitor"
 
   def install
-    ENV["PKG_CONFIG"] = Formula["pkg-config-wrapper"].opt_bin/"pkg-config-wrapper"
+    ENV["PKG_CONFIG"] = formula_opt_bin("pkg-config-wrapper")/"pkg-config-wrapper"
     ENV["CGO_ENABLED"] = "1" if OS.linux?
     ENV["npm_config_build_from_source"] = "true"
 
     system "yarn", "--cwd=ui", "install"
     system "yarn", "--cwd=ui", "build", "--no-cache"
 
-    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/chronograf"
-    system "go", "build", *std_go_args(ldflags:, output: bin/"chronoctl"), "./cmd/chronoctl"
+    system "go", "build", *std_go_args(ldflags: :goreleaser), "./cmd/chronograf"
+    system "go", "build", *std_go_args(ldflags: :goreleaser, output: bin/"chronoctl"), "./cmd/chronoctl"
   end
 
   service do

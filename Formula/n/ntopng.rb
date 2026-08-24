@@ -60,7 +60,7 @@ class Ntopng < Formula
 
     args = %W[
       --with-dynamic-ndpi
-      --with-ndpi-includes=#{Formula["ndpi"].opt_include}/ndpi
+      --with-ndpi-includes=#{formula_opt_include("ndpi")}/ndpi
     ]
 
     system "./autogen.sh"

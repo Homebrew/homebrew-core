@@ -3,18 +3,18 @@ class Aerleon < Formula
 
   desc "Generate firewall configs for multiple firewall platforms"
   homepage "https://aerleon.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/91/27/aeaf0098e517f9eeda65e71f5764f3913d465d2c7557281f69b43a66d83c/aerleon-1.16.0.tar.gz"
-  sha256 "3678e15a1faf00fc63263bbbc413e746261893c59d3383358d23a7f1a04ab61c"
+  url "https://files.pythonhosted.org/packages/65/db/570b7174e40919b131ec3cef0fc373e39213b39398c8adb032a41c99f249/aerleon-1.17.0.tar.gz"
+  sha256 "debb66a0749c3c24df8ba27a3be09b87a70fdc023eb0da4e8a7f20c036f995ea"
   license "Apache-2.0"
   head "https://github.com/aerleon/aerleon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3a26808bb88e041a8681a42639932c0791c5600d6d671cc529afee3b73882b34"
-    sha256 cellar: :any,                 arm64_sequoia: "0d5a369ce5f61009c393f94dea67f520e79e6228458cbabb9864c56f6ac96317"
-    sha256 cellar: :any,                 arm64_sonoma:  "59f04ba3720520a3b573037e60c656bd6385bcf43633ed8cdb48dcaf1c754bc4"
-    sha256 cellar: :any,                 sonoma:        "13327dffd80008987d3d62077fd5b19244df2aac25cb3c4d7e7524f26c05aa86"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f1c14613ced8a37ec2302f2b0e11786d15c457cb33dfb0cc0a53d140bbd490dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa49ed0e1471da0aef020b20852871e99ada06d4e01c3030a9885330b3152bb9"
+    sha256 cellar: :any, arm64_tahoe:   "fa27c7b1c55891f4dc0fc7a7cfef0395a8f10fed362e10c764eb6335ebb58c4c"
+    sha256 cellar: :any, arm64_sequoia: "e5b47a5b21cd6697bf290544505de6d2208504357d708ed419208aadca389e98"
+    sha256 cellar: :any, arm64_sonoma:  "1ac6386bfe9e639f3dba8b77b67d8cd98284933e892028451d028b24b11e4af9"
+    sha256 cellar: :any, sonoma:        "a1765b10e67da0d4f486bf75b9756db9c149f7d6816f4cc0c3a0e6bad81e059e"
+    sha256 cellar: :any, arm64_linux:   "895e7d90e7287c61980c3242040beee1b89d8559767ca501fa7c7d5769361b1a"
+    sha256 cellar: :any, x86_64_linux:  "c8212ba221906cc8b01780cd7864abcef807adae420922404aec23f5430fec9e"
   end
 
   depends_on "libyaml"
@@ -33,9 +33,13 @@ class Aerleon < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
-    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
   end
+
+  # Although the virtualenv_install_with_resources uses the package resources listed above,
+  # pip still needs to fetch the project's chosen build system via the network.
+  deny_network_access! [:postinstall]
 
   def install
     virtualenv_install_with_resources

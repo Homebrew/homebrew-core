@@ -1,18 +1,18 @@
 class AwsCrtCpp < Formula
   desc "C++ wrapper around the aws-c-* libraries"
   homepage "https://github.com/awslabs/aws-crt-cpp"
-  url "https://github.com/awslabs/aws-crt-cpp/archive/refs/tags/v0.40.1.tar.gz"
-  sha256 "697a8fb25167e12e704827e360b4f6b1af8ded48e11ef4d185b9cd72e17479c9"
+  url "https://github.com/awslabs/aws-crt-cpp/archive/refs/tags/v0.43.5.tar.gz"
+  sha256 "8c83897fb827527b67377f08a5b349576c50add2406fa1ff372cf2dd16fc00f4"
   license "Apache-2.0"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "c9739779e09158bbc5af714c02901277d6301225de3418fc720e6f218f82866d"
-    sha256 cellar: :any, arm64_sequoia: "f9ebda4d2b5d499769c60e2da96967ad5185cbb5cf1f85370bd8f0fc3cd5776e"
-    sha256 cellar: :any, arm64_sonoma:  "33291584257e6ac2def329b697a6928f1201b96c8980894ac8344d2f34be9687"
-    sha256 cellar: :any, sonoma:        "7833b0c539bd0509617459e6e4de45a3988b21944612b6c0cbe34d1261f81823"
-    sha256 cellar: :any, arm64_linux:   "d1cf81f10bbf56ffbb7d033abcb65205f9213e53599bbb830a1c896f98f41068"
-    sha256 cellar: :any, x86_64_linux:  "b51a6aa9b3ba2d9ec4dc2323d2eacbbe7c04557120a553e9bcf0d972ab0d738a"
+    sha256 cellar: :any, arm64_tahoe:   "88db81839670dd39027495205f1946ab7e23e332e965f19ca4e6c7a5bb94ac0f"
+    sha256 cellar: :any, arm64_sequoia: "135991a9cbc3f97dd778ede25a8fffa6925b128fe7cc3db572e4592b1efa3cc7"
+    sha256 cellar: :any, arm64_sonoma:  "0baf3eaad4a20bd12cce0da95a152edaf98a625a24677d95035686bf7ab1a287"
+    sha256 cellar: :any, sonoma:        "41a3b98914346a02c5d060fdb6b61718aaeb7dcd5267cc27c82f43f6939358f1"
+    sha256 cellar: :any, arm64_linux:   "99d47c6d0a0b40312031ee09dbc3cbbe38f0850622c3f8ab636ad9b031383ce2"
+    sha256 cellar: :any, x86_64_linux:  "737a198f593bbf7e9cc374eb7bad2c97b00136e277cc4d10445e293cd16974d3"
   end
 
   depends_on "cmake" => :build
@@ -31,7 +31,7 @@ class AwsCrtCpp < Formula
     args = %W[
       -DBUILD_DEPS=OFF
       -DBUILD_SHARED_LIBS=ON
-      -DCMAKE_MODULE_PATH=#{Formula["aws-c-common"].opt_lib}/cmake
+      -DCMAKE_MODULE_PATH=#{formula_opt_lib("aws-c-common")}/cmake
     ]
     # Avoid linkage to `aws-c-compression`
     args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?

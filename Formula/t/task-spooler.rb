@@ -1,8 +1,8 @@
 class TaskSpooler < Formula
   desc "Batch system to run tasks one after another"
   homepage "https://viric.name/soft/ts/"
-  url "https://viric.name/soft/ts/ts-1.0.3.tar.gz"
-  sha256 "fa833311543dc535b60cb7ab83c64ab5ee31128dbaaaa13dde341984e542b428"
+  url "https://viric.name/soft/ts/ts-1.0.4.tar.gz"
+  sha256 "b1ab3db52dca36af3699178b8d0e936a30107f8d5c86a974163c580823b01790"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,16 +11,12 @@ class TaskSpooler < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "78baa7d9fb718eee974a876fcec66405f2c5ed87f46185fad9387fccf41896ce"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ec87fc500e93595c87fc6624bd6321ce23f58e72c3b6050992e6d0f0856f24b2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f452fc17ad06bee57a2b4ea77cc8f8dc353f75de71ff41220675f1d89db96fd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "179ccb94441ab71e1ffbf12b2fbe50b8c74d209cd28f338fdd62afc7ebc73b32"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "592a592ddf965521fa01a4733b80524051f29e9edfff2a4d02eb7070d6a674ba"
-    sha256 cellar: :any_skip_relocation, sonoma:         "dc00ccd9f2d7d917d8844ba3a1a83922a308c9c96f606d4ee393994e6c3d5075"
-    sha256 cellar: :any_skip_relocation, ventura:        "0c672767f6d5836e3e544ffe55ea1aaec1e16d3d1b5ff5fa0bbeb9c0f41712e4"
-    sha256 cellar: :any_skip_relocation, monterey:       "085939ebfcf9dd9d12c920e19961dd80e949fe753a0d5ec436fde0ef3769a4c3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "601305ac8af305e6660eb7b8326287378d7d0f22ece837f4e8de6359023fda26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e4af081f98757cabedf4d83a4177876f3c363ad5fa89b654b0f43830f0c0be1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c6fab747d55e44eee46a7f17c3a0857634ba8b2cda0c49e34580358f2752a6a1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4ff018af3a0e83b17b8ceb146b94af90ef0056ba238d59f4e9967a7dfb607b9b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8395b354eca22e389b532bfc213021857c03c339f7cca0a48856a67fd8cb2401"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c5d5f7e3b8979d117fcf57b767a05fef940a9c7c11f6b7e7e6f64ee1b742543e"
+    sha256 cellar: :any,                 arm64_linux:   "4777e0b42a6118c595bfcfe7dab7da9fcd3903c13d7882c95849c63a2e2e6263"
+    sha256 cellar: :any,                 x86_64_linux:  "ea6f8903f5a2393c5479cad38be3286fea6776eae37d195f6bb60e0c9117e09e"
   end
 
   conflicts_with "moreutils", because: "both install a `ts` executable"

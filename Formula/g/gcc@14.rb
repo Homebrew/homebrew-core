@@ -1,9 +1,9 @@
 class GccAT14 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftpmirror.gnu.org/gnu/gcc/gcc-14.3.0/gcc-14.3.0.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gcc/gcc-14.3.0/gcc-14.3.0.tar.xz"
-  sha256 "e0dc77297625631ac8e50fa92fffefe899a4eb702592da5c32ef04e2293aca3a"
+  url "https://ftpmirror.gnu.org/gnu/gcc/gcc-14.4.0/gcc-14.4.0.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gcc/gcc-14.4.0/gcc-14.4.0.tar.xz"
+  sha256 "752b6f567beac83159c77a7680b1316bdd784738bff9a9d070112c09da90f6d9"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   livecheck do
@@ -12,15 +12,14 @@ class GccAT14 < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256                               arm64_tahoe:   "aa76442b499cc647f5fe254808431f5d657120ee57bf3b0a9657755b6d38815c"
-    sha256                               arm64_sequoia: "cbb525d21563a9fdfc878a75817faad9e470190dad3150d853ab2e3c32649910"
-    sha256                               arm64_sonoma:  "877dda49bf352e911c1a12d9d7df02866fb2f173f0a79915bda55103e0f3f0d7"
-    sha256                               tahoe:         "77d3b260ac37e2746af49c25dd8053ac8a50a53d1232f7f7b48fb3cc491225a0"
-    sha256                               sequoia:       "eea5c507d54cdffcec60c5a69713c7acf2933eec0523f9dc01fbd02ba3c4ca75"
-    sha256                               sonoma:        "057cbf54618e7c73a3aae3ce5becbbb4e219390bdaa6f7900f26bc485761913c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3d972d44e201e63410a28c3056c335d5dbb7903edf58c0e6543edc009a9d12f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bcd375682eaffe0ff9c8d374d76d9ea8a02623adbbc8a39ea8009e419fdd13bc"
+    sha256               arm64_tahoe:   "32dbe52ac8b804ab1a908c22c0c53afa3f5fbbb8144afe5c9738690bf7434e40"
+    sha256               arm64_sequoia: "e526f5bad9ecb0b7189b7694cc4c5bf27ea194d7a6c87ce5afb7f9fd56e48ece"
+    sha256               arm64_sonoma:  "290f1725fa61cda123f659fece41051417810c97e24fa870f07efd878623614d"
+    sha256               tahoe:         "10aad2cd43edcfcf94855822d5ae2f2c687a0be472e9ff8b9f5ab6dd4e1ff3f0"
+    sha256               sequoia:       "61534065f14422d91e32d0469b8c5761ae8192f5f767568bda6fb2a23833c5f4"
+    sha256               sonoma:        "6f85c867f2c246c7621dd7f7c3d925b786a82a139c5267736ff11e1ae82d02ff"
+    sha256 cellar: :any, arm64_linux:   "f6bc7f2f70750893bfa2246c476475a085091a1640f1caeaee4c6c9889b1d9ae"
+    sha256 cellar: :any, x86_64_linux:  "08a1fc055fcd78fad1bdbe3db7060fa69d293e7c4100fb89086776fb1e843402"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -50,8 +49,7 @@ class GccAT14 < Formula
   # Apple Silicon support, located at https://github.com/iains/gcc-14-branch
   patch do
     on_macos do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/gcc/gcc-14.3.0.diff"
-      sha256 "b8611362ae43a5644ab908d6e4d9bfc90346a914c3ba851197086d54148b1289"
+      file "Patches/gcc/gcc-14.4.0.diff"
     end
   end
 
@@ -79,11 +77,11 @@ class GccAT14 < Formula
       --with-gcc-major-version-only
       --enable-languages=#{languages.join(",")}
       --program-suffix=-#{version.major}
-      --with-gmp=#{Formula["gmp"].opt_prefix}
-      --with-mpfr=#{Formula["mpfr"].opt_prefix}
-      --with-mpc=#{Formula["libmpc"].opt_prefix}
-      --with-isl=#{Formula["isl"].opt_prefix}
-      --with-zstd=#{Formula["zstd"].opt_prefix}
+      --with-gmp=#{formula_opt_prefix("gmp")}
+      --with-mpfr=#{formula_opt_prefix("mpfr")}
+      --with-mpc=#{formula_opt_prefix("libmpc")}
+      --with-isl=#{formula_opt_prefix("isl")}
+      --with-zstd=#{formula_opt_prefix("zstd")}
       --with-pkgversion=#{pkgversion}
       --with-bugurl=#{tap.issues_url}
       --with-system-zlib
@@ -94,13 +92,16 @@ class GccAT14 < Formula
       args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
 
       # System headers may not be in /usr/include
-      sdk = MacOS.sdk_path_if_needed
+      sdk = MacOS.sdk_path
       args << "--with-sysroot=#{sdk}" if sdk
 
       # Avoid this semi-random failure:
       # "Error: Failed changing install name"
       # "Updated load commands do not fit in the header"
-      make_args = %w[BOOT_LDFLAGS=-Wl,-headerpad_max_install_names]
+      make_args = %w[
+        BOOT_LDFLAGS=-Wl,-headerpad_max_install_names
+        LDFLAGS_FOR_TARGET=-Wl,-headerpad_max_install_names
+      ]
     else
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
@@ -113,8 +114,8 @@ class GccAT14 < Formula
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
       inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
-      ENV.append_path "CPATH", Formula["zlib-ng-compat"].opt_include
-      ENV.append_path "LIBRARY_PATH", Formula["zlib-ng-compat"].opt_lib
+      ENV.append_path "CPATH", formula_opt_include("zlib-ng-compat")
+      ENV.append_path "LIBRARY_PATH", formula_opt_lib("zlib-ng-compat")
     end
 
     mkdir "build" do
@@ -151,84 +152,8 @@ class GccAT14 < Formula
     File.rename file, "#{dir}/#{base}-#{suffix}#{ext}"
   end
 
-  def post_install
-    if OS.linux?
-      gcc = bin/"gcc-#{version.major}"
-      libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
-      raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
-
-      glibc = Formula["glibc"]
-      glibc_installed = glibc.any_version_installed?
-
-      # Symlink system crt1.o and friends where gcc can find it.
-      crtdir = if glibc_installed
-        glibc.opt_lib
-      else
-        Pathname.new(Utils.safe_popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
-      end
-      ln_sf Dir[crtdir/"*crt?.o"], libgcc
-
-      # Create the GCC specs file
-      # See https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
-
-      # Locate the specs file
-      specs = libgcc/"specs"
-      ohai "Creating the GCC specs file: #{specs}"
-      specs_orig = Pathname.new("#{specs}.orig")
-      rm([specs_orig, specs].select(&:exist?))
-
-      system_header_dirs = ["#{HOMEBREW_PREFIX}/include"]
-
-      if glibc_installed
-        # https://github.com/Linuxbrew/brew/issues/724
-        system_header_dirs << glibc.opt_include
-      else
-        # Locate the native system header dirs if user uses system glibc
-        target = Utils.safe_popen_read(gcc, "-print-multiarch").chomp
-        raise "command failed: #{gcc} -print-multiarch" if $CHILD_STATUS.exitstatus.nonzero?
-
-        system_header_dirs += ["/usr/include/#{target}", "/usr/include"]
-      end
-
-      # Save a backup of the default specs file
-      specs_string = Utils.safe_popen_read(gcc, "-dumpspecs")
-      raise "command failed: #{gcc} -dumpspecs" if $CHILD_STATUS.exitstatus.nonzero?
-
-      specs_orig.write specs_string
-
-      # Set the library search path
-      # For include path:
-      #   * `-isysroot #{HOMEBREW_PREFIX}/nonexistent` prevents gcc searching built-in
-      #     system header files.
-      #   * `-idirafter <dir>` instructs gcc to search system header
-      #     files after gcc internal header files.
-      # For libraries:
-      #   * `-nostdlib -L#{libgcc} -L#{glibc.opt_lib}` instructs gcc to use
-      #     brewed glibc if applied.
-      #   * `-L#{libdir}` instructs gcc to find the corresponding gcc
-      #     libraries. It is essential if there are multiple brewed gcc
-      #     with different versions installed.
-      #     Noted that it should only be passed for the `gcc@*` formulae.
-      #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
-      #     brew libraries.
-      # Note: *link will silently add #{libdir} first to the RPATH
-      libdir = HOMEBREW_PREFIX/"lib/gcc/#{version.major}"
-      specs.write specs_string + <<~EOS
-        *cpp_unique_options:
-        + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
-
-        *link_libgcc:
-        #{glibc_installed ? "-nostdlib -L#{libgcc} -L#{glibc.opt_lib}" : "+"} -L#{libdir} -L#{HOMEBREW_PREFIX}/lib
-
-        *link:
-        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir}
-
-        *homebrew_rpath:
-        -rpath #{HOMEBREW_PREFIX}/lib
-
-      EOS
-      inreplace(specs, " %o ", "\\0%(homebrew_rpath) ")
-    end
+  post_install_steps do
+    configure_gcc_runtime
   end
 
   test do

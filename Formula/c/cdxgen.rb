@@ -1,17 +1,17 @@
 class Cdxgen < Formula
   desc "Creates CycloneDX Software Bill-of-Materials (SBOM) for projects"
   homepage "https://github.com/CycloneDX/cdxgen"
-  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-12.6.0.tgz"
-  sha256 "de10d9d2a6a23d5d6cdda8fdd0d9e26eef960a79fdb070e4c6357f5edca20c2d"
+  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-12.8.4.tgz"
+  sha256 "fe4787e12e4b261af5272ad0a1075cd6e24bfa2792a26c1916a0c806290bea13"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "0d064170b8a2ac8739b667417cbbd8bdf21567146a91b7b473e8545bc6a8ade9"
-    sha256 cellar: :any, arm64_sequoia: "98b712706d0aeb0728bc5458fbdf26cc0c855fce55653e01432bfe641430359d"
-    sha256 cellar: :any, arm64_sonoma:  "9df01532b9b987e2e0c31d9891380c78b31d27f13afa739e1ac7c35bee885315"
-    sha256 cellar: :any, sonoma:        "f0197f06e44a221faa4da8482d88317457f7f3405b06602aadc614e7fa6a4094"
-    sha256 cellar: :any, arm64_linux:   "899574ba7905dbc59c03119a168dc59620d3e60e26ed2eea1719d5365d78b7bb"
-    sha256 cellar: :any, x86_64_linux:  "4982e86ccd7d1dfd3e9e156ec06239c5183dc7a8d6de4353c03ee9584737547d"
+    sha256 cellar: :any, arm64_tahoe:   "be31440d0b9729c7a5658e0c7b79be48e2a0a05bf241bf62e1726a0c234a3ca0"
+    sha256 cellar: :any, arm64_sequoia: "3aa1bded5fdd24c04acd54e17208edf4a64597b80d9206aa7eb989b55d7f3ede"
+    sha256 cellar: :any, arm64_sonoma:  "749c7f518fbcfe0a3f270ed86a13c954d0d9a40bca4d9d648a6719489fa2760d"
+    sha256 cellar: :any, sonoma:        "23af74184e04ca52e9f17ad32dbda5b961e612ee072db1474b9423938727a42f"
+    sha256 cellar: :any, arm64_linux:   "1c2a7aa4cf90bfb75a7edaddde3b08ee1e6863224e71d6fbcc0334c80abd3297"
+    sha256 cellar: :any, x86_64_linux:  "00067faed521ef635df73aa8aeded45f6d71fe58a81b039fdf16edc9f14c2884"
   end
 
   depends_on "dotnet" # for dosai
@@ -21,17 +21,17 @@ class Cdxgen < Formula
   depends_on "trivy"
 
   resource "dosai" do
-    url "https://github.com/owasp-dep-scan/dosai/archive/refs/tags/v3.0.5.tar.gz"
-    sha256 "38229e1c3a909e18a76aea6dd126ce7d148c2787da8fdc431857db2af2b83715"
+    url "https://github.com/owasp-dep-scan/dosai/archive/refs/tags/v3.0.6.tar.gz"
+    sha256 "ab7a4338e2f14f8f357bca95497d086939a396012a3c3a0cbf39266c43668240"
   end
 
   def install
-    # https://github.com/CycloneDX/cdxgen/blob/master/lib/managers/binary.js
+    # https://github.com/cdxgen/cdxgen/blob/master/lib/managers/binary.js
     # https://github.com/AppThreat/atom/blob/main/wrapper/nodejs/rbastgen.js
     cdxgen_env = {
-      RUBY_CMD:         "${RUBY_CMD:-#{Formula["ruby"].opt_bin}/ruby}",
-      SOURCEKITTEN_CMD: "${SOURCEKITTEN_CMD:-#{Formula["sourcekitten"].opt_bin}/sourcekitten}",
-      TRIVY_CMD:        "${TRIVY_CMD:-#{Formula["trivy"].opt_bin}/trivy}",
+      RUBY_CMD:         "${RUBY_CMD:-#{formula_opt_bin("ruby")}/ruby}",
+      SOURCEKITTEN_CMD: "${SOURCEKITTEN_CMD:-#{formula_opt_bin("sourcekitten")}/sourcekitten}",
+      TRIVY_CMD:        "${TRIVY_CMD:-#{formula_opt_bin("trivy")}/trivy}",
     }
 
     system "npm", "install", *std_npm_args
@@ -72,6 +72,9 @@ class Cdxgen < Formula
       rm_r("bundle")
       system "./setup.sh"
     end
+
+    generate_completions_from_executable(bin/"cdxgen", "completion", shell_parameter_format: :none,
+                                                                     shells:                 [:bash, :zsh])
   end
 
   test do

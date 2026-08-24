@@ -1,8 +1,8 @@
 class Iccdev < Formula
   desc "Developer tools for interacting with and manipulating ICC profiles"
   homepage "https://github.com/InternationalColorConsortium/iccDEV"
-  url "https://github.com/InternationalColorConsortium/iccDEV/archive/refs/tags/v2.3.2.1.tar.gz"
-  sha256 "9e990e38881d34d0c31aa7f0035d62376c3f58a6d0d891723663b35776090da9"
+  url "https://github.com/InternationalColorConsortium/iccDEV/archive/refs/tags/v2.3.2.3.tar.gz"
+  sha256 "0748d2759b5c010efa84faf1820d9743f88adf79f4d3dc740651a7b579517e62"
   license "BSD-3-Clause"
 
   # Skip `wasm-` tags
@@ -12,12 +12,12 @@ class Iccdev < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "5efb651a86be2784cb8e74b446b38f50c814d9ef652690a09646db241836d0b0"
-    sha256 cellar: :any, arm64_sequoia: "b7c05ab1ab2bf1d9646c055c16da5a705f28e7a5228aa396f569556ec4e8079e"
-    sha256 cellar: :any, arm64_sonoma:  "21daf21c5f139592dc699941ae43e713f5fa96a1c3c94a8c2d62db67b2d258a0"
-    sha256 cellar: :any, sonoma:        "ed14b2c1860aecc557369e53bafa8afa5c68ec952a3bb129321f08b81fd4a1d3"
-    sha256 cellar: :any, arm64_linux:   "f4e3b59077814b855ee8a8b01522e654c8843627b926d2ca03e8d6b04912518c"
-    sha256 cellar: :any, x86_64_linux:  "767066b063a6e7655a1c7bda3646e6e85b14fbce807d898ce52380f3a75e8c11"
+    sha256 cellar: :any, arm64_tahoe:   "917b5909f944246b9e9093eaf5f6a124f1708d7fc334036b6c4ac37eadf43e4a"
+    sha256 cellar: :any, arm64_sequoia: "202a8c00a26690ed456723e05c812b2b4fc94bcaffab645c3967b6d3931b245f"
+    sha256 cellar: :any, arm64_sonoma:  "79d49ab254744b22ee1ef3bc679bcd5714b35ca44559614352f939bebb53bdc3"
+    sha256 cellar: :any, sonoma:        "57d4dd57501bec9075f035d11c855c042cd415a27769e2d17a429a4d4b4948d3"
+    sha256 cellar: :any, arm64_linux:   "b231cfb681f280049f9d7e1749976274272de6ed9b00f1eb88ad9a7aff67899a"
+    sha256 cellar: :any, x86_64_linux:  "b4d5d14c0c706f716a68261520cea6e22eb1145ee1105277760b057716d36d02"
   end
 
   depends_on "cmake" => :build
@@ -28,6 +28,10 @@ class Iccdev < Formula
   depends_on "wxwidgets"
 
   uses_from_macos "libxml2"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %W[

@@ -31,28 +31,36 @@ class Duti < Formula
   patch do
     url "https://github.com/moretension/duti/commit/825b5e6a92770611b000ebdd6e3d3ef8f47f1c47.patch?full_index=1"
     sha256 "0f6013b156b79aa498881f951172bcd1ceac53807c061f95c5252a8d6df2a21a"
+    type :backport
+    resolves "https://github.com/moretension/duti/pull/32"
   end
 
   # Fix compilation on macOS >= 10.15
   patch do
     url "https://github.com/moretension/duti/commit/4a1f54faf29af4f125134aef3a47cfe05c7755ff.patch?full_index=1"
     sha256 "7c90efd1606438f419ac2fa668c587f2a63ce20673c600ed0c45046fd8b14ea6"
+    type :backport
+    resolves "https://github.com/moretension/duti/pull/43"
   end
 
   # Fix compilation on Monterey
   patch do
     url "https://github.com/moretension/duti/commit/ec195e261f8a48a1a18e262a2b1f0ef26a0bc1ee.patch?full_index=1"
     sha256 "dec21aeea7f31c1a2122a01b44c13539af48840b181a80cecb4653591a9b0f9d"
+    type :backport
+    resolves "https://github.com/moretension/duti/pull/49"
   end
 
   # Fix compilation on Ventura
   patch do
     url "https://github.com/moretension/duti/commit/54a1539b23ac764b32679bcada5659fbad483ecc.patch?full_index=1"
     sha256 "055023ce50903ffe9378c68d630a105d317b7efe778c029e3fe23521be89176f"
+    type :backport
   end
   patch do
     url "https://github.com/moretension/duti/commit/8d31a2f75fefb61381dc7731cf7ecac9237ee64d.patch?full_index=1"
     sha256 "5987230901e63e619bba85c026201dd00ca3f06016a87516e031eebb6cf0e582"
+    type :backport
   end
 
   def install

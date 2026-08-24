@@ -3,18 +3,18 @@ class CheckJsonschema < Formula
 
   desc "JSON Schema CLI"
   homepage "https://github.com/python-jsonschema/check-jsonschema"
-  url "https://files.pythonhosted.org/packages/0a/50/d4d2d090d1a4dd90e1e81125a5de66a32f8f7828dd58ba733cb467176e38/check_jsonschema-0.37.3.tar.gz"
-  sha256 "4d683589005c2b77a5f2dff41129ac5a6f92167e2f2ea0a8534446e3eddba239"
+  url "https://files.pythonhosted.org/packages/a1/a0/d5ab25da3d4612a47b1e68cbbdffdc076ca3a9771027573d4ed9f4304d49/check_jsonschema-0.38.0.tar.gz"
+  sha256 "bb6899cc24ab0ced664e4646423d35b72db245cea75109c0b9e64d13087d1b8c"
   license "Apache-2.0"
   head "https://github.com/python-jsonschema/check-jsonschema.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "3aaf2340e52d43a92c724ecebc4d2b0092131740e5d6704bdf019335b5d74adb"
-    sha256 cellar: :any, arm64_sequoia: "df8dbd844ca77a6f98f47f530a87a4e463e2cf89fae4789b3c45d70b21c8c730"
-    sha256 cellar: :any, arm64_sonoma:  "2c5411b47e0186ac03e4d407cadf0755b5dd1e8069e9c0b639eaaf5c918b15e4"
-    sha256 cellar: :any, sonoma:        "7a578f09c2ba73f8a6847be401f97821f52f826b92d882e268ac7756928378b4"
-    sha256 cellar: :any, arm64_linux:   "745613ffb364cc06a5674f5a5206e98b32ac82c81504df0b48247723e490390f"
-    sha256 cellar: :any, x86_64_linux:  "9dd85b95cc84eb4aacd306508ddffbd245f44e05174ab1d976095529285d4340"
+    sha256 cellar: :any, arm64_tahoe:   "a69d8df6ddbdf88037bce0086307755980b1b69c0aef9ccc17b1713c7d894f7f"
+    sha256 cellar: :any, arm64_sequoia: "1146c9a67f9d18b62701ba4326a08607d413378296c54e50c1b208893a49920c"
+    sha256 cellar: :any, arm64_sonoma:  "41f2ea08a641a701fad2b0f96d30bbf01fa8005e73ffa35e71b09f6e92aae7e0"
+    sha256 cellar: :any, sonoma:        "a481b64df5dd41c62d32aa3ca5171dd83d0a4319a145d5d248db6f8ea97b5fa5"
+    sha256 cellar: :any, arm64_linux:   "1d5f6a0ef3576074538033aa401dad8b3622fb27718eea1a6ef46214347f27cb"
+    sha256 cellar: :any, x86_64_linux:  "f620dba3d5d6a4728ee0825bc46ad425c791b5cf0e01379fbd243d518ba34bf3"
   end
 
   depends_on "rust" => :build # for regress
@@ -37,13 +37,13 @@ class CheckJsonschema < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "fqdn" do
@@ -117,8 +117,8 @@ class CheckJsonschema < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/ba/19/1b9b0e29f30c6d35cb345486df41110984ea67ae69dddbc0e8a100999493/tzdata-2026.2.tar.gz"
-    sha256 "9173fde7d80d9018e02a662e168e5a2d04f87c41ea174b139fbef642eda62d10"
+    url "https://files.pythonhosted.org/packages/92/ff/5a28bdfd8c3ebec42564ac7d0e54ca3db65044a9314a97f9564fa7a1e926/tzdata-2026.3.tar.gz"
+    sha256 "4a1518b8993086a7982523e071643f3c0e5f213e75b21318e78bcabfff9d1415"
   end
 
   resource "uri-template" do

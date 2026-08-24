@@ -1,18 +1,18 @@
 class Libcotp < Formula
   desc "C library that generates TOTP and HOTP"
   homepage "https://github.com/paolostivanin/libcotp"
-  url "https://github.com/paolostivanin/libcotp/archive/refs/tags/v4.1.0.tar.gz"
-  sha256 "e51016eb220647e7f16b67c0baae2a42730b07fec3131aaad0f39a3a2a638b89"
+  url "https://github.com/paolostivanin/libcotp/archive/refs/tags/v4.2.1.tar.gz"
+  sha256 "5f0cc41049e9fa296c1edf09c6fb0bb6dae588b149d5049adbc41d21aefc1bb1"
   license "Apache-2.0"
   head "https://github.com/paolostivanin/libcotp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "109112f087502712ed5814400e416e69fd297633f9f33126910fb0d18cef558d"
-    sha256 cellar: :any,                 arm64_sequoia: "b065711b5ce070c8cc37d352feb02d3c10038b1271d36447d4ca2a4d39d04e7c"
-    sha256 cellar: :any,                 arm64_sonoma:  "39e5ed7667e0661e07a5989cd3b1cfc3de9ad96990cc301ab562af5ed7c55871"
-    sha256 cellar: :any,                 sonoma:        "57c91529239a09b366685c102809be4931df36fe9095cb45f1c15114ec61ed35"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "72d0815bf444b80e9e3d0fb837bccf29420161c496ae69eed3e0ec0f137226ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe129d50e25913db0f719c9ea1ee4078dccb6d1691c4db4653aa7479feb2853e"
+    sha256 cellar: :any, arm64_tahoe:   "89aaa0b61256652958c90a61f3f82c59a7fb6f5afa32364b59c1093308467f7f"
+    sha256 cellar: :any, arm64_sequoia: "069635228f8a0182050038461b51ad26949391ef6bae57e0fd304b83e7e1f661"
+    sha256 cellar: :any, arm64_sonoma:  "0e9bb7e9d5b67337df2bfd7e7f618f506b383d87112ced2e9a3a678e2a9b5683"
+    sha256 cellar: :any, sonoma:        "6dac76c234edfd66e5b6f5a5e5880420f017ce5af6e6c0991c66b399575350d0"
+    sha256 cellar: :any, arm64_linux:   "b4fd5d204436162d64a817f4fe258cf44a6397bf0e2eb27ee89d9027ed76be6b"
+    sha256 cellar: :any, x86_64_linux:  "81790c9183e22d2fb1f2c38ae40d8b3543fc14a1ece83c06556f108c9061e47f"
   end
 
   depends_on "cmake" => :build

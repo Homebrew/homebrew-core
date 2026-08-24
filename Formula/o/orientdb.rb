@@ -1,21 +1,18 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.dev"
-  url "https://search.maven.org/remotecontent?filepath=com/orientechnologies/orientdb-community/3.2.53/orientdb-community-3.2.53.zip"
-  sha256 "d6c9f225849b738fa2f10df78fd82887676717a6692e87e5391821018e060503"
+  url "https://search.maven.org/remotecontent?filepath=com/orientechnologies/orientdb-community/3.2.55/orientdb-community-3.2.55.zip"
+  sha256 "3486b70d5013d961e272e0c0d681cf85dd8df6b23c028e0e671c246097fdf3f1"
   license "Apache-2.0"
 
-  # The GitHub release description contains links to files on Maven.
   livecheck do
-    url :homepage
-    regex(/orientdb-community[._-]v?(\d+(?:\.\d+)+)\.zip/i)
-    strategy :github_latest do |json, regex|
-      json["body"]&.scan(regex)&.map { |match| match[0] }
-    end
+    url "https://orientdb.dev/downloads/"
+    regex(/href=.*?orientdb-community[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7d7746f73ad50077d28d7379fdc3676411a52cc6f816776b0177f947b48815d9"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "ab2ca757924b9ddddd8766ef5a69e2f621b5798bec9bf08f591a695b1b8432ed"
   end
 
   depends_on "maven" => :build
@@ -40,25 +37,34 @@ class Orientdb < Formula
     inreplace "#{libexec}/bin/orientdb.sh", 'su $ORIENTDB_USER -c "cd \"$ORIENTDB_DIR/bin\";', ""
     inreplace "#{libexec}/bin/orientdb.sh", '&"', "&"
 
-    (bin/"orientdb").write_env_script "#{libexec}/bin/orientdb.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
-    (bin/"orientdb-console").write_env_script "#{libexec}/bin/console.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
-    (bin/"orientdb-gremlin").write_env_script "#{libexec}/bin/gremlin.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
-  end
+    (bin/"orientdb").write_env_script "#{libexec}/bin/orientdb.sh", JAVA_HOME: formula_opt_prefix("openjdk")
+    (bin/"orientdb-console").write_env_script "#{libexec}/bin/console.sh", JAVA_HOME: formula_opt_prefix("openjdk")
+    (bin/"orientdb-gremlin").write_env_script "#{libexec}/bin/gremlin.sh", JAVA_HOME: formula_opt_prefix("openjdk")
 
-  def post_install
+    (libexec/"post-install").write <<~SH
+      #!/bin/sh
+      set -e
+      orientdb="#{opt_bin}/orientdb"
+      cleanup() { ORIENTDB_ROOT_PASSWORD=orientdb "$orientdb" stop; }
+      trap cleanup EXIT
+      ORIENTDB_ROOT_PASSWORD=orientdb "$orientdb" stop
+      sleep 3
+      ORIENTDB_ROOT_PASSWORD=orientdb "$orientdb" start
+      sleep 3
+      trap - EXIT
+      cleanup
+    SH
+    chmod 0755, libexec/"post-install"
+
     (var/"db/orientdb").mkpath
     (var/"run/orientdb").mkpath
     (var/"log/orientdb").mkpath
-    touch "#{var}/log/orientdb/orientdb.err"
-    touch "#{var}/log/orientdb/orientdb.log"
+  end
 
-    ENV["ORIENTDB_ROOT_PASSWORD"] = "orientdb"
-    system bin/"orientdb", "stop"
-    sleep 3
-    system bin/"orientdb", "start"
-    sleep 3
-  ensure
-    system bin/"orientdb", "stop"
+  post_install_steps do
+    touch "{{var}}/log/orientdb/orientdb.err"
+    touch "{{var}}/log/orientdb/orientdb.log"
+    run "post-install", base: :libexec
   end
 
   def caveats

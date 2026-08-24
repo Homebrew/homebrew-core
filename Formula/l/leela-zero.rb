@@ -6,16 +6,15 @@ class LeelaZero < Formula
       tag:      "v0.17",
       revision: "3f297889563bcbec671982c655996ccff63fa253"
   license "GPL-3.0-or-later"
-  revision 12
+  revision 13
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "8ccf615e92183ab7d8f06a8148e89ebe79c45e0f3e12ba4c845d15ec9492542d"
-    sha256 cellar: :any,                 arm64_sequoia: "d7d8ddd70a07c331aa0900ba316bfc2f21bb3793ea72784bcf7df910feac651d"
-    sha256 cellar: :any,                 arm64_sonoma:  "16214ba1b05b5cb5854f2f4bd38e5bc0e1af03eb07e6bbd42eb9d4ddaf98ef65"
-    sha256 cellar: :any,                 sonoma:        "9b671b74931247c299cc35f74154b3e433aab14ce3beecbbbe61ef4bd2694435"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8118f4939edb749336936eea44f839b8960cdeded29190c8fbbe9dbccf65824d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30aeb411b41c6d336ee9a21bb7c34613d6a04135993b177ed398a8395e2161df"
+    sha256 cellar: :any, arm64_tahoe:   "ebcec12f4bf9ac5f08ca649e1f5c747ac6ed9fd566191a6f923a2a508008eab7"
+    sha256 cellar: :any, arm64_sequoia: "85999bd9485c5c3618a012f08e3158a9d47b26d51feeb771bfb97f101c250d9f"
+    sha256 cellar: :any, arm64_sonoma:  "a70f5e723931265b9e002844bbed6c5ffd59c6899a64c2500a2433eefd700219"
+    sha256 cellar: :any, sonoma:        "751ba35825b65bcfac431f9ecd3436a721839c4036049c5933107f7dda4974a0"
+    sha256 cellar: :any, arm64_linux:   "3ae95483113aeee4955c35c7caa73d751ca9187aee9415f9c4f1d0a074de779b"
+    sha256 cellar: :any, x86_64_linux:  "d77992e2eb3982eb5026ca9987202627af13e2ceb3b490d1aece28cd8d6409ff"
   end
 
   depends_on "cmake" => :build
@@ -29,7 +28,7 @@ class LeelaZero < Formula
   end
 
   resource "network" do
-    url "https://zero.sjeng.org/networks/00ff08ebcdc92a2554aaae815fbf5d91e8d76b9edfe82c9999427806e30eae77.gz", using: :nounzip
+    url "https://leela.online-go.com/networks/00ff08ebcdc92a2554aaae815fbf5d91e8d76b9edfe82c9999427806e30eae77.gz", using: :nounzip
     sha256 "5302f23818c23e1961dff986ba00f5df5c58dc9c780ed74173402d58fdb6349c"
   end
 

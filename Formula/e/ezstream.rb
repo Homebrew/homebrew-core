@@ -38,10 +38,11 @@ class Ezstream < Formula
   uses_from_macos "libxml2"
 
   # Work around issue with <sys/random.h> not including its dependencies
-  # https://gitlab.xiph.org/xiph/ezstream/-/issues/2270
   patch :p0 do
     url "https://raw.githubusercontent.com/macports/macports-ports/fa368818e58ecee010bd43f3c08e51c523ee8cf6/audio/ezstream/files/sys-types.patch"
     sha256 "a5c39de970e1d43dc2dac84f4a0a82335112da6b86f9ea09be73d6e95ce4716c"
+    type :unofficial
+    resolves "https://gitlab.xiph.org/xiph/ezstream/-/issues/2270"
   end
 
   def install

@@ -39,18 +39,16 @@ class Libdap < Formula
   on_linux do
     depends_on "libtirpc"
     depends_on "util-linux"
-
-    on_arm do
-      # FIXME: illegal instruction in test_simple_3_error_1 with Ubuntu GCC
-      depends_on "gcc@13" => :build
-    end
   end
 
   def install
+    # Work around illegal instruction in test_simple_3_error_1 on arm linux
+    check_args = ["CXX=#{ENV.cxx} -fno-stack-protector"] if OS.linux? && Hardware::CPU.arm?
+
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--with-included-regex", *std_configure_args
     system "make"
-    system "make", "check"
+    system "make", "check", *check_args
     system "make", "install"
   end
 

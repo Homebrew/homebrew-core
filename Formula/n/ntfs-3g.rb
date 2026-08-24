@@ -1,9 +1,10 @@
 class Ntfs3g < Formula
   desc "Read-write NTFS driver for FUSE"
   homepage "https://www.tuxera.com/community/open-source-ntfs-3g/"
-  url "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2026.2.25.tgz"
-  sha256 "7754f3b32e8baf9c472459b4e9c981e3ae0f5039107cdd8d8201aed0a949008a"
+  url "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2026.7.7.tgz"
+  sha256 "d67b769025d32860549d35c2147e45024d172f81c540d750390ce3602c059dab"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
+  compatibility_version 1
 
   # GitHub release descriptions contain a link to the `stable` tarball.
   livecheck do
@@ -12,8 +13,8 @@ class Ntfs3g < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "643403c977e03a706ed801af78100dcfb20c17d05bdcef97547919610a4f5fce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "da5a885ce0f084bf17f9ee5247babadd7f5330d66c6826721096c9afabc7a3f5"
+    sha256 cellar: :any, arm64_linux:  "2250e32fd80e8f93821608aac9c319a5ef4acf4120baa540778a7c16e7719d7a"
+    sha256 cellar: :any, x86_64_linux: "6697249707794af972c247fa4352a7d996ef9c0be1da11a6a2d8d5e8950e57d0"
   end
 
   head do
@@ -27,15 +28,15 @@ class Ntfs3g < Formula
 
   depends_on "pkgconf" => :build
   depends_on "coreutils" => :test
-  depends_on "gettext"
-  depends_on "libfuse@2" # FUSE 3 issue: https://github.com/tuxera/ntfs-3g/issues/54
   depends_on :linux # on macOS, requires closed-source macFUSE
 
   def install
-    args = std_configure_args + %W[
+    # Using upstream-maintained libfuse-lite similar to Debian and Fedora
+    # until FUSE 3 is supported: https://github.com/tuxera/ntfs-3g/issues/54
+    args = %W[
       --exec-prefix=#{prefix}
       --mandir=#{man}
-      --with-fuse=external
+      --with-fuse=internal
       --enable-extras
       --disable-ldconfig
     ]
@@ -43,7 +44,7 @@ class Ntfs3g < Formula
     system "./autogen.sh" if build.head?
     # Workaround for hardcoded /sbin
     inreplace Dir["{ntfsprogs,src}/Makefile.in"], "$(DESTDIR)/sbin/", "$(DESTDIR)#{sbin}/"
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
 

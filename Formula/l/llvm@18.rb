@@ -104,7 +104,7 @@ class LlvmAT18 < Formula
     builtins_cmake_args = []
 
     if OS.mac?
-      macos_sdk = MacOS.sdk_path_if_needed
+      macos_sdk = MacOS.sdk_path
       args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
       args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
 
@@ -123,15 +123,15 @@ class LlvmAT18 < Formula
       clt_sdk_support_flags = %w[I WATCH TV].map { |os| "-DCOMPILER_RT_ENABLE_#{os}OS=OFF" }
       builtins_cmake_args += clt_sdk_support_flags
     else
-      args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_include}"
-      args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
+      args << "-DFFI_INCLUDE_DIR=#{formula_opt_include("libffi")}"
+      args << "-DFFI_LIBRARY_DIR=#{formula_opt_lib("libffi")}"
 
       # Disable `libxml2` which isn't very useful.
       args << "-DLLVM_ENABLE_LIBXML2=OFF"
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
       # Enable llvm gold plugin for LTO
-      args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}"
+      args << "-DLLVM_BINUTILS_INCDIR=#{formula_opt_include("binutils")}"
       # Parts of Polly fail to correctly build with PIC when being used for DSOs.
       args << "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"
       runtimes_cmake_args += %w[
@@ -274,8 +274,8 @@ class LlvmAT18 < Formula
 
     # These tests should ignore the usual SDK includes
     with_env(CPATH: nil) do
-      # Testing Command Line Tools
-      if OS.mac? && MacOS::CLT.installed?
+      # Testing Command Line Tools; skipped on CLT 26.4+ due to __builtin_clzg added in LLVM 19+
+      if OS.mac? && MacOS::CLT.installed? && MacOS::CLT.version < "26.4"
         toolchain_path = "/Library/Developer/CommandLineTools"
         cpp_base = (MacOS.version >= :big_sur) ? MacOS::CLT.sdk_path : toolchain_path
         system bin/"clang++", "-v",
@@ -290,8 +290,8 @@ class LlvmAT18 < Formula
         assert_equal "Hello World!", shell_output("./testCLT").chomp
       end
 
-      # Testing Xcode
-      if OS.mac? && MacOS::Xcode.installed?
+      # Testing Xcode; skipped on Xcode 26.4+ due to __builtin_clzg added in LLVM 19+
+      if OS.mac? && MacOS::Xcode.installed? && MacOS::Xcode.version < "26.4"
         cpp_base = (MacOS::Xcode.version >= "12.5") ? MacOS::Xcode.sdk_path : MacOS::Xcode.toolchain_path
         system bin/"clang++", "-v",
                "-isysroot", MacOS::Xcode.sdk_path,

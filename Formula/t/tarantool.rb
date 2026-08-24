@@ -1,8 +1,8 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/src/tarantool-3.7.0.tar.gz"
-  sha256 "81b044c4852e33115faac851f9542b99af94ccb1d5d9e3454a6922c5d0794185"
+  url "https://hb.bizmrg.com/tarantool_repo/sources/tarantool-3.8.0.tar.gz"
+  sha256 "ee10c839cfdce23f606d2c9787c0633ca9f0d69552a5df04b8a9bed2624c737f"
   license "BSD-2-Clause"
   version_scheme 1
   head "https://github.com/tarantool/tarantool.git", branch: "master"
@@ -15,12 +15,12 @@ class Tarantool < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "153a61210990aaad32a5c5d6232e9d3c0a70294ec9516e20f7c9de3bbb802025"
-    sha256 cellar: :any,                 arm64_sequoia: "1c9abf2f017cae55faeb177b3e46055c8db84167fbe4f0ee84b8b1efdb2db3e9"
-    sha256 cellar: :any,                 arm64_sonoma:  "b18b48dd5540a1c61fd26490ec61deb8c201fc713a155c99d2ba34834aea9d19"
-    sha256 cellar: :any,                 sonoma:        "a80330c3819e6662351de0ddbc1a07c3798b1e29da2146b54a7415755248741d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d9077c4c7a554b59ce9fc6a25c652f394bb08c5c11c686e655a290747f9b8cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6b1304ab43fb31b60c21889f48df3b89ca989e00c6c5488c7b41e4783528771"
+    sha256 cellar: :any, arm64_tahoe:   "e53c04f90824f10a3025937e22def881e766ea110772ad03d76de27ffa8e707f"
+    sha256 cellar: :any, arm64_sequoia: "80866ec668a814568edc16775a1914509e68b3257ffbe22667ad07ca73e5b053"
+    sha256 cellar: :any, arm64_sonoma:  "2e769080f9d6046ea414bb7564b9f7d7c1b35dd7f584c619ad857a81e47200bc"
+    sha256 cellar: :any, sonoma:        "df2423c447ee7225832621a78186cea49e207f54750319737f184d1b71ab9403"
+    sha256 cellar: :any, arm64_linux:   "ff77451ef969fb89eb602b45dc1b78f140b9957e435681d6456b5fd6fda6e7cc"
+    sha256 cellar: :any, x86_64_linux:  "773afc14feb171592d789d02ee228c02c1839bbab1ac4e2002c4df8f5d8f3c33"
   end
 
   depends_on "cmake" => :build
@@ -45,8 +45,8 @@ class Tarantool < Formula
       -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
       -DENABLE_DIST=ON
       -DICU_ROOT=#{icu4c.opt_prefix}
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
-      -DREADLINE_ROOT=#{Formula["readline"].opt_prefix}
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}
+      -DREADLINE_ROOT=#{formula_opt_prefix("readline")}
       -DENABLE_BUNDLED_LIBCURL=OFF
       -DENABLE_BUNDLED_LIBUNWIND=OFF
       -DENABLE_BUNDLED_LIBYAML=OFF

@@ -1,24 +1,32 @@
 class Openvdb < Formula
   desc "Sparse volumetric data processing toolkit"
   homepage "https://www.openvdb.org/"
-  url "https://github.com/AcademySoftwareFoundation/openvdb/archive/refs/tags/v13.0.0.tar.gz"
-  sha256 "4d6a91df5f347017496fe8d22c3dbb7c4b5d7289499d4eb4d53dd2c75bb454e1"
   license "MPL-2.0"
-  revision 1
+  revision 2
   head "https://github.com/AcademySoftwareFoundation/openvdb.git", branch: "master"
 
+  stable do
+    url "https://github.com/AcademySoftwareFoundation/openvdb/archive/refs/tags/v13.0.0.tar.gz"
+    sha256 "4d6a91df5f347017496fe8d22c3dbb7c4b5d7289499d4eb4d53dd2c75bb454e1"
+
+    # Backport fix for TBB 2023+
+    patch do
+      url "https://github.com/AcademySoftwareFoundation/openvdb/commit/d68d0914fc6ed41cadd363bd4330c39a7fb5b1f1.patch?full_index=1"
+      sha256 "f94c85535bf3d9d78bebde35d357407e12465cbda300cd6b1552092dd98fba0f"
+      type :backport
+    end
+  end
+
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "1293e06e4fc2e23da53c13d0ff875e61484d85c6d734a8df1817ac7522b368e9"
-    sha256 cellar: :any,                 arm64_sequoia: "d92c0b472575bdd80490eeb159c01abc9bffcb0c282173067622a13b25cf1273"
-    sha256 cellar: :any,                 arm64_sonoma:  "40b91eee6ca47d33a5d0568ef6f98ae1984cbe312abbbffa6acdec3fc9641afa"
-    sha256 cellar: :any,                 sonoma:        "a7edb4bef446e3b92421e3a66a282b6c0c0fa0440e79e8c8567c00b59f84bbd8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "12ab28558982809431b5d9eb176a8f8e133b59698e40db52bb0fb8682a66b20b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "595a235b9cbabb8f5dd8797681e9bde7d00662a91835b21ad7a961f1ee9fa09b"
+    sha256 cellar: :any, arm64_tahoe:   "3da40ae49c875c33fe3082427990449d36b58efe4e4a521027ed4dd05df3282d"
+    sha256 cellar: :any, arm64_sequoia: "fd013a66ba8876299b4fc74fc300ce40185ba276710da32bd99abaa8200a9f48"
+    sha256 cellar: :any, arm64_sonoma:  "0b54747afa466e2ebbddf6292f48d93ba28de98814f780658ee526eb01a7a769"
+    sha256 cellar: :any, sonoma:        "862bb3dc701dc6d140dc464b8815c3a295df83120f6b9326f8adaba650dd6c9e"
+    sha256 cellar: :any, arm64_linux:   "84438cadcad65e8897d0437884d8050d9a4cac9373cd9fea0e473f8f6cfb1049"
+    sha256 cellar: :any, x86_64_linux:  "5d076c1bf8fe67afe9d695d05bd0d5acb9a5c9ea02e2efa5e1170fce3d6d8956"
   end
 
   depends_on "cmake" => :build
-  depends_on "doxygen" => :build
 
   depends_on "boost"
   depends_on "c-blosc"
@@ -33,7 +41,6 @@ class Openvdb < Formula
   def install
     args = [
       "-DDISABLE_DEPENDENCY_VERSION_CHECKS=ON",
-      "-DOPENVDB_BUILD_DOCS=ON",
       "-DUSE_NANOVDB=ON",
       "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}",
     ]

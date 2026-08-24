@@ -1,8 +1,8 @@
 class UutilsCoreutils < Formula
   desc "Cross-platform Rust rewrite of the GNU coreutils"
   homepage "https://uutils.github.io/coreutils/"
-  url "https://github.com/uutils/coreutils/archive/refs/tags/0.9.0.tar.gz"
-  sha256 "dafe0126ee4ed55c7cd60c6b559f43724a74751deed3c1b078f4f510311acab2"
+  url "https://github.com/uutils/coreutils/archive/refs/tags/0.10.0.tar.gz"
+  sha256 "f8e68cd0e3629378f047544ead272161a83211c43f4985a9f52944e5db8f1a44"
   license "MIT"
   head "https://github.com/uutils/coreutils.git", branch: "main"
 
@@ -12,12 +12,12 @@ class UutilsCoreutils < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "27ecf2c1a51c1d3d5c67f4b3ac500dd025e6313da28fb06d5b7581b451b25db1"
-    sha256 cellar: :any, arm64_sequoia: "d4db7458e28c3c734ad7464fa8b4054a81eaf72f013ab62cbdc66445231bf212"
-    sha256 cellar: :any, arm64_sonoma:  "15ba4294d5e6888fce1fa8896010a19bb29120a5a16542e96dede46565b923b6"
-    sha256 cellar: :any, sonoma:        "f2bde95fd1e238cf67ea2086e6a1607d67a1713f5c49a700650f78c56d2e8242"
-    sha256 cellar: :any, arm64_linux:   "d67bcf18226fd103a0f51f14820f08e25d3f5c0b54ec7898a5b94414feb8cbd1"
-    sha256 cellar: :any, x86_64_linux:  "1957325110ada226f799121f1070ed2e24a4c7edea87ecf673ed150ca927d24d"
+    sha256 cellar: :any, arm64_tahoe:   "b179023f2b0571717c60305f800671c21f4e74fa6137d7a367bb1f389ae240a0"
+    sha256 cellar: :any, arm64_sequoia: "d97b9f9b9c47dd9c00f517b6e84395af965b76aadd55c432526ae4edb5296e7a"
+    sha256 cellar: :any, arm64_sonoma:  "8ba7bf5c12fd0dfc809639c249a563a4c1bf2f962afa145f24bfe68b3bbc65ae"
+    sha256 cellar: :any, sonoma:        "6796fb9dfa6fa236205f5968aaf75c4e98c122a2a0d7f53b1b915df34e406604"
+    sha256 cellar: :any, arm64_linux:   "7cb12e953326cd6ce08e74f6773f739c307f8727aa22c447f171018c2a93f83a"
+    sha256 cellar: :any, x86_64_linux:  "01d7e7b84828e70a70b39cd9387c516df5163fb5729565182f44c446d6b128fc"
   end
 
   depends_on "rust" => :build
@@ -29,7 +29,7 @@ class UutilsCoreutils < Formula
     args = [
       "PROG_PREFIX=uu-",
       "PREFIX=#{prefix}",
-      "SPHINXBUILD=#{Formula["sphinx-doc"].opt_bin}/sphinx-build",
+      "SPHINXBUILD=#{formula_opt_bin("sphinx-doc")}/sphinx-build",
       "MULTICALL=y",
       "LN=ln -sf",
     ]

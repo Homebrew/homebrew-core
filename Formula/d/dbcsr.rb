@@ -1,17 +1,18 @@
 class Dbcsr < Formula
   desc "Distributed Block Compressed Sparse Row matrix library"
   homepage "https://cp2k.github.io/dbcsr/"
-  url "https://github.com/cp2k/dbcsr/releases/download/v2.9.1/dbcsr-2.9.1.tar.gz"
-  sha256 "fa5a4aeba0a07761511af2c26c779bd811b5ea0ef06a5d94535b6dd7b2e0ce59"
+  url "https://github.com/cp2k/dbcsr/releases/download/v2.10.0/dbcsr-2.10.0.tar.gz"
+  sha256 "3d897220fbb4498215331efad6905eb7744881b4cf04eb5c5fb4db7c48a56ef9"
   license "GPL-2.0-or-later"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2baae452ccf21e43a44b6ce2ad134398d68472651d9d27a4b8e95b4a56a9e269"
-    sha256 cellar: :any,                 arm64_sequoia: "e7efc269f64b82c1e2bcebb2e13f9c467ef9d410a25e83301414eeb8d98ee350"
-    sha256 cellar: :any,                 arm64_sonoma:  "d3bfb3075c5772492e86c5a0b15252b9eef61a8ec407cdf0ae4f5ef45041957c"
-    sha256 cellar: :any,                 sonoma:        "c7b10954c91ef37a3baba264687e88b5ccf0256244ec0ec5ffc701ee3305818e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c69b78b719f7d8332acf627f943b7befbbdf7645b11bee16b5bc7939c677f7ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79dbffe498816deaada338e25d783eb51ff6338e2b6df63e1a3c48cc21fce0a0"
+    sha256 cellar: :any, arm64_tahoe:   "c5798454cbb086db2eb403c97e99e4ca0e1ad983cc681af0e79b27ed2acbd2b9"
+    sha256 cellar: :any, arm64_sequoia: "b1c5d55767155b2079b91757aa030e8ff1c80afe2e7ab6dcaa34fd472c6bb1b6"
+    sha256 cellar: :any, arm64_sonoma:  "9d6310a8cb87492dee2e34d86d174d46d219a19873d62fe483ecbcf5572b98b6"
+    sha256 cellar: :any, sonoma:        "a43110decec753e33f4c1ee54d0f5d27b08e61c43e75aaf5d3d76e41a3ac76ca"
+    sha256 cellar: :any, arm64_linux:   "637d0f8cb9bd89c311c1c3715ba6cff6d9476e7e870eba5caef96ad35fac1d31"
+    sha256 cellar: :any, x86_64_linux:  "8ccb25d53cd0fc7d0c6758a4271cd2f75994ab6f10ad288303c6e30ed49faf6a"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -39,7 +40,7 @@ class Dbcsr < Formula
     if OS.mac?
       args += %W[
         -DOpenMP_Fortran_LIB_NAMES=omp
-        -DOpenMP_omp_LIBRARY=#{Formula["libomp"].opt_lib}/libomp.dylib
+        -DOpenMP_omp_LIBRARY=#{formula_opt_lib("libomp")}/libomp.dylib
       ]
     end
 
@@ -52,9 +53,9 @@ class Dbcsr < Formula
   test do
     if OS.mac?
       require "utils/linkage"
-      libgomp = Formula["gcc"].opt_lib/"gcc/current/libgomp.dylib"
+      libgomp = formula_opt_lib("gcc")/"gcc/current/libgomp.dylib"
       refute Utils.binary_linked_to_library?(lib/"libdbcsr.dylib", libgomp), "Unwanted linkage to libgomp!"
-      ENV.append_path "CMAKE_PREFIX_PATH", Formula["libomp"].opt_prefix
+      ENV.append_path "CMAKE_PREFIX_PATH", formula_opt_prefix("libomp")
     end
 
     (testpath/"CMakeLists.txt").write <<~CMAKE

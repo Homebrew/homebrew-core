@@ -36,7 +36,7 @@ class PariGalpol < Formula
   end
 
   test do
-    assert_equal "5", pipe_output("#{Formula["pari"].opt_bin}/gp -q", "galoisgetpol(8)").chomp
-    assert_equal "\"C3 : C4\"", pipe_output("#{Formula["pari"].opt_bin}/gp -q", "galoisgetname(12,1)").chomp
+    assert_equal "5", pipe_output("#{formula_opt_bin("pari")}/gp -q", "galoisgetpol(8)").chomp
+    assert_equal "\"C3 : C4\"", pipe_output("#{formula_opt_bin("pari")}/gp -q", "galoisgetname(12,1)").chomp
   end
 end

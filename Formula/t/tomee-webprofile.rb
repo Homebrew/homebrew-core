@@ -1,13 +1,13 @@
 class TomeeWebprofile < Formula
   desc "All-Apache Java EE 7 Web Profile stack"
   homepage "https://tomee.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-10.1.5/apache-tomee-10.1.5-webprofile.tar.gz"
-  mirror "https://archive.apache.org/dist/tomee/tomee-10.1.5/apache-tomee-10.1.5-webprofile.tar.gz"
-  sha256 "53a2da3872bbc20f21570bb9ba6b4c23243d57a31df2b016bb23bbc7fe831a5f"
+  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-10.2.0/apache-tomee-10.2.0-webprofile.tar.gz"
+  mirror "https://archive.apache.org/dist/tomee/tomee-10.2.0/apache-tomee-10.2.0-webprofile.tar.gz"
+  sha256 "b1143cbf3647160e88ba925bf0de5668d089d96e4f563bf3eeba2a33daf005ec"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e5e4e3ecc8096540ce4946768e8e4bf93176b3159535b1acb4353d7703c95fe4"
+    sha256 cellar: :any_skip_relocation, all: "409470279444311ff22cf41293130644ccf07eab8e20ce6c97e42e43e9d8069c"
   end
 
   depends_on "openjdk"
@@ -35,7 +35,7 @@ class TomeeWebprofile < Formula
   end
 
   test do
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk")
     system "#{opt_libexec}/bin/configtest.sh"
   end
 end

@@ -1,24 +1,27 @@
 class PythonGdbmAT312 < Formula
   desc "Python interface to gdbm"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.12.13/Python-3.12.13.tgz"
-  sha256 "0816c4761c97ecdb3f50a3924de0a93fd78cb63ee8e6c04201ddfaedca500b0b"
+  url "https://www.python.org/ftp/python/3.12.14/Python-3.12.14.tgz"
+  sha256 "6c6df908d2c3fd24e6d76869e92542abd0f33aec9dfc18df8875f89660286d43"
   license "Python-2.0"
-  revision 1
 
   livecheck do
     formula "python@3.12"
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "803fc4ada419af2b97f6c0c1d882d61539baa909300e32928cdd21b92c201d71"
-    sha256 cellar: :any, arm64_sequoia: "d1a5df2a33ac7b9116cbcc42bfe67038b4ae9911b17c7c443f9b48bd7b8249e5"
-    sha256 cellar: :any, arm64_sonoma:  "043613576d5a8ecd144ca7c15c93938c4ee65a085def9a283637e96dee9ccce5"
-    sha256 cellar: :any, sequoia:       "3018def7f26a0960ac3509c216868b9fae2122fd6ce5f740b7f1d7a68878975b"
-    sha256 cellar: :any, sonoma:        "b8af79c9443ddc4582c19b31e2b53b731675c07b7b15ebfeeb85dbe046ed5968"
-    sha256               arm64_linux:   "9afbae2122292edf3140384b2e4d1b4bb6ab66848a858a0448c6755f91455eb4"
-    sha256               x86_64_linux:  "800645a6b8b6fc2f2988706739aa142d89930bd7c0d9e662e6f2cbfc60d0547f"
+    sha256 cellar: :any, arm64_tahoe:   "75975b1f897e54e76b90a3850a35911ef76eb9e259cac479d38afe843b4fc4f8"
+    sha256 cellar: :any, arm64_sequoia: "4213420bbfb08c7ead093166428461e0bfe0dec46c9fe3d0120418ef1294163a"
+    sha256 cellar: :any, arm64_sonoma:  "255d5d94625e742d23e8c9803da6446822a10381d6bfa43f4c35ed15b40b1bb0"
+    sha256 cellar: :any, sequoia:       "8730243f4c28ca7b9be97acf1dfb00c76429612098da62e42e0c49ba8e900fda"
+    sha256 cellar: :any, sonoma:        "18479c82fdb8442c4bd967dae8b74b1ded2529e4099b97a4d4ee23459c8c4a64"
+    sha256               arm64_linux:   "b1f9e90096bc4309da59cc7a18a88b159da3fe3f160aac70556ed47bc9e5fbf8"
+    sha256               x86_64_linux:  "a22ba07736bb4e1841f8b2eeb0cf4d5df4dfc0311e12dabc33d6951383a4824d"
   end
+
+  # https://devguide.python.org/versions/#versions
+  deprecate! date: "2028-11-01", because: :deprecated_upstream
+  disable! date: "2029-11-01", because: :deprecated_upstream
 
   depends_on "gdbm"
   depends_on "python@3.12"
@@ -32,7 +35,7 @@ class PythonGdbmAT312 < Formula
     python_include = if OS.mac?
       Formula["python@#{xy}"].opt_frameworks/"Python.framework/Versions/#{xy}/include/python#{xy}"
     else
-      Formula["python@#{xy}"].opt_include/"python#{xy}"
+      formula_opt_include("python@#{xy}")/"python#{xy}"
     end
 
     (buildpath/"Modules/pyproject.toml").write <<~TOML
@@ -47,18 +50,18 @@ class PythonGdbmAT312 < Formula
       [[tool.setuptools.ext-modules]]
       name = "_gdbm"
       sources = ["_gdbmmodule.c"]
-      include-dirs = ["#{Formula["gdbm"].opt_include}", "#{python_include}/internal"]
+      include-dirs = ["#{formula_opt_include("gdbm")}", "#{python_include}/internal"]
       libraries = ["gdbm"]
-      library-dirs = ["#{Formula["gdbm"].opt_lib}"]
+      library-dirs = ["#{formula_opt_lib("gdbm")}"]
     TOML
 
     (buildpath/"Modules/pyproject.toml").append_lines <<~TOML if OS.linux?
       [[tool.setuptools.ext-modules]]
       name = "_dbm"
       sources = ["_dbmmodule.c"]
-      include-dirs = ["#{Formula["gdbm"].opt_include}", "#{python_include}/internal"]
+      include-dirs = ["#{formula_opt_include("gdbm")}", "#{python_include}/internal"]
       libraries = ["gdbm_compat"]
-      library-dirs = ["#{Formula["gdbm"].opt_lib}"]
+      library-dirs = ["#{formula_opt_lib("gdbm")}"]
       extra-compile-args = ["-DUSE_GDBM_COMPAT", "-DHAVE_GDBM_DASH_NDBM_H"]
     TOML
 

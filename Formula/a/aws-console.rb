@@ -6,10 +6,6 @@ class AwsConsole < Formula
   license "Apache-2.0"
   head "https://github.com/aws-cloudformation/rain.git", branch: "main"
 
-  livecheck do
-    formula "rain"
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "872fec19319083eb2b6286dc049dd352b6df61369cd073ed56a059e90eccd6f5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "872fec19319083eb2b6286dc049dd352b6df61369cd073ed56a059e90eccd6f5"
@@ -19,10 +15,13 @@ class AwsConsole < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "893f775b8331703fa7e40f540e39bc066be95dc7790b6a5e5abd44b085600417"
   end
 
+  deprecate! date: "2026-08-08", because: :repo_archived
+  disable! date: "2027-02-08", because: :repo_archived
+
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/aws-console"
+    system "go", "build", *std_go_args, "./cmd/aws-console"
 
     generate_completions_from_executable(bin/"aws-console", shell_parameter_format: :cobra)
   end

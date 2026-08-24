@@ -18,7 +18,7 @@ class Chiko < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/chiko"
+    system "go", "build", *std_go_args, "./cmd/chiko"
   end
 
   test do
@@ -27,7 +27,7 @@ class Chiko < Formula
 
     PTY.spawn(bin/"chiko") do |r, w, _pid|
       w.write "q"
-      assert_match "The Ultimate Beauty GRPC Client", r.read
+      assert_match "Chiko dev", r.read
     rescue Errno::EIO
       # GNU/Linux raises EIO when read is done on closed pty
     end

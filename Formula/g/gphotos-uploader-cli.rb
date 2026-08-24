@@ -18,10 +18,7 @@ class GphotosUploaderCli < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/gphotosuploader/gphotos-uploader-cli/version.versionString=#{version}
-    ]
+    ldflags = %W[-X github.com/gphotosuploader/gphotos-uploader-cli/version.versionString=#{version}]
     system "go", "build", *std_go_args(ldflags:)
     generate_completions_from_executable(bin/"gphotos-uploader-cli", shell_parameter_format: :cobra)
   end

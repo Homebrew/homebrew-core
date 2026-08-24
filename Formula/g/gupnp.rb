@@ -76,13 +76,13 @@ class Gupnp < Formula
            "-I#{include}/gupnp-#{gnupnp_version}",
            "-L#{lib}",
            "-lgupnp-#{gnupnp_version}",
-           "-I#{Formula["gssdp"].opt_include}/gssdp-#{gssdp_version}",
-           "-L#{Formula["gssdp"].opt_lib}", "-lgssdp-#{gssdp_version}",
-           "-I#{Formula["glib"].opt_include}/glib-2.0",
-           "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
-           "-L#{Formula["glib"].opt_lib}",
+           "-I#{formula_opt_include("gssdp")}/gssdp-#{gssdp_version}",
+           "-L#{formula_opt_lib("gssdp")}", "-lgssdp-#{gssdp_version}",
+           "-I#{formula_opt_include("glib")}/glib-2.0",
+           "-I#{formula_opt_lib("glib")}/glib-2.0/include",
+           "-L#{formula_opt_lib("glib")}",
            "-lglib-2.0", "-lgobject-2.0",
-           "-I#{Formula["libsoup"].opt_include}/libsoup-3.0",
+           "-I#{formula_opt_include("libsoup")}/libsoup-3.0",
            libxml2, "-o", testpath/"test"
     system "./test"
   end

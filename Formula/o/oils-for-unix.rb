@@ -26,7 +26,7 @@ class OilsForUnix < Formula
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--datarootdir=#{share}",
-                          "--readline=#{Formula["readline"].opt_prefix}",
+                          "--readline=#{formula_opt_prefix("readline")}",
                           "--with-readline"
     system "_build/oils.sh"
     system "./install"

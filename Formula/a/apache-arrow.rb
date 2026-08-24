@@ -1,21 +1,34 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-24.0.0/apache-arrow-24.0.0.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-24.0.0/apache-arrow-24.0.0.tar.gz"
-  sha256 "9a8094d24fa33b90c672ab77fdda253f29300c8b0dd3f0b8e55a29dbd98b82c9"
   license "Apache-2.0"
   revision 4
-  compatibility_version 2
+  compatibility_version 3
   head "https://github.com/apache/arrow.git", branch: "main"
 
+  stable do
+    url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-25.0.1/apache-arrow-25.0.1.tar.gz"
+    mirror "https://archive.apache.org/dist/arrow/arrow-25.0.1/apache-arrow-25.0.1.tar.gz"
+    sha256 "43d5de0a581f43cf63a2c06b4dcf13b9ff6fcd800f023324596e5781093bc500"
+
+    # Apply commit from Debian maintainer's upstream PR to support CPUs older than SSE4.2.
+    patch do
+      on_intel do
+        url "https://github.com/apache/arrow/commit/d048f71964fe2df5540be2256048eb15f830962b.patch?full_index=1"
+        sha256 "1a6b6924e505f4d1c70a24240e52be90b00aa25b116e7db52fd69f76d2b7e189"
+        type :backport
+        resolves "https://github.com/apache/arrow/pull/50547"
+      end
+    end
+  end
+
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "745b85cdf2d5d5ef6a36894a56832cdb0464ba1b69595782d0f02401ede2a6cd"
-    sha256 cellar: :any, arm64_sequoia: "233ecf0c7329db7d8c876069a2fa6831aa641c65e901f175cb37eb114c38e552"
-    sha256 cellar: :any, arm64_sonoma:  "53075f05dd701ac510a994679f8602d322442bed53c2ff1ea8c3c63f18798cba"
-    sha256 cellar: :any, sonoma:        "5692da1221974c2f205f2d0d9884260c8a5b27ecebb8b818be997fecc496ce3c"
-    sha256               arm64_linux:   "b38b4f1cce993c943d699dc950c6007fda98502070db9a4760a06c3308037b96"
-    sha256               x86_64_linux:  "6044e4e3c147a3310deb2c30e3eeeb9b71b860a2a78235bc044fb7cd061cc223"
+    sha256 cellar: :any, arm64_tahoe:   "1e6ab34e38048d8836ac710acd3deac3b99a3e60b94b71018c30f3c287e74be0"
+    sha256 cellar: :any, arm64_sequoia: "4d57a0d251040c4b401ee979e72dee36dd3f3ad9141d3308db55e5f5e7bfa031"
+    sha256 cellar: :any, arm64_sonoma:  "9a6955d1b9e797ef1f3603081fbbc283be0e81c5d65e4939a36eb602baec904d"
+    sha256 cellar: :any, sonoma:        "0930a6f0e392a8fef8ef9a15284ae9a9eb1c385a17e4f15d62643548b7c502a8"
+    sha256               arm64_linux:   "005684c7586ab61a15753aa25f45a3289674155beb56f7136bc19fde0065c0c0"
+    sha256               x86_64_linux:  "166c12e4df10327049438d8fde618a76e114a13d3f5d69a9b373081ddce2cdb8"
   end
 
   depends_on "boost" => :build
@@ -28,7 +41,7 @@ class ApacheArrow < Formula
   depends_on "aws-sdk-cpp"
   depends_on "brotli"
   depends_on "grpc"
-  depends_on "llvm"
+  depends_on "llvm@22"
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "protobuf"
@@ -51,9 +64,11 @@ class ApacheArrow < Formula
   end
 
   def install
+    ENV.runtime_cpu_detection
+
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
-      -DLLVM_ROOT=#{Formula["llvm"].opt_prefix}
+      -DLLVM_ROOT=#{formula_opt_prefix("llvm@22")}
       -DARROW_DEPENDENCY_SOURCE=SYSTEM
       -DARROW_ACERO=ON
       -DARROW_COMPUTE=ON
@@ -79,14 +94,14 @@ class ApacheArrow < Formula
       -DARROW_INSTALL_NAME_RPATH=OFF
       -DPARQUET_BUILD_EXECUTABLES=ON
     ]
-    args << "-DARROW_MIMALLOC=ON" unless Hardware::CPU.arm?
     args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac? # Reduce overlinking
+
     # ARROW_SIMD_LEVEL sets the minimum required SIMD. Since this defaults to
     # SSE4.2 on x86_64, we need to reduce level to match oldest supported CPU.
     # Ref: https://arrow.apache.org/docs/cpp/env_vars.html#envvar-ARROW_USER_SIMD_LEVEL
-    if build.bottle? && Hardware::CPU.intel? && (!OS.mac? || !MacOS.version.requires_sse42?)
-      args << "-DARROW_SIMD_LEVEL=NONE"
-    end
+    #
+    # NOTE: Do not remove this while Core 2 is oldest supported CPU
+    args << "-DARROW_SIMD_LEVEL=NONE" if Hardware::CPU.intel?
 
     system "cmake", "-S", "cpp", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

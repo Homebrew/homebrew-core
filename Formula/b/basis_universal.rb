@@ -1,8 +1,8 @@
 class BasisUniversal < Formula
   desc "Basis Universal GPU texture codec command-line compression tool"
   homepage "https://github.com/BinomialLLC/basis_universal"
-  url "https://github.com/BinomialLLC/basis_universal/archive/refs/tags/v2_1_0.tar.gz"
-  sha256 "ee1dbeb4c16699b577a0c78dce337bbede268e04bd2d463946971f8cb1e9c8df"
+  url "https://github.com/BinomialLLC/basis_universal/archive/refs/tags/v2_50.tar.gz"
+  sha256 "216e49e1f4213d4bfa4afaa07527e16bac28533dddd444197d3aa19230ac130c"
   license "Apache-2.0"
   head "https://github.com/BinomialLLC/basis_universal.git", branch: "master"
 
@@ -15,12 +15,12 @@ class BasisUniversal < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8878b4f2ecde5c3ecf036eae7cf1ca38f88e3b0fb334fc4b71cfce53de3a70e3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "996300ae778bc067a3f9ac741afb9867b27d6518e6dd234db25d0c53e6be7ad2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7df7340c87bdea8f7653bfa2295c4d7d27ba0fe9924f599dca110d7d6bcb82b4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ca32b4ccf9598b1c9c49196d55db88a43f2cb70e3b5a2eddbb96d7800e196442"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "192aed9390f05e40a1f084e3dc198d685628f4a56862c457686bd87b9e56b1f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "979f624d35c29a11da6c8959f27c484c7e7c2a12860699854b1cf129debe1166"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca0e7381aecf90e837c290607cbde040524b9d7be5588b2495dd5bb1115a1b82"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7cd539cf6c63cff492c5a697ac2110d232842338bcda7fe94c8b1e561ceb2820"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c878ae8466c61825b4ce69d2919afd22c99ffc216f061cbbfb1f4681e19d022b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "120a5489794e9efc6cb76d825cb62efedd342fb19a0b9154fc3a3fb38901663f"
+    sha256 cellar: :any,                 arm64_linux:   "78d3a5e266102c3d8a44c24fffbda6da2ee8681a8c7ced000a100893b0859251"
+    sha256 cellar: :any,                 x86_64_linux:  "73594c3161ef65b170a21add6063a3a0cdb721c0f9b2abd236e3c7e5ea8b8dff"
   end
 
   depends_on "cmake" => :build

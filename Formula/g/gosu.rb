@@ -1,19 +1,18 @@
 class Gosu < Formula
   desc "Pragmatic language for the JVM"
   homepage "https://gosu-lang.github.io/"
-  url "https://github.com/gosu-lang/gosu-lang/archive/refs/tags/v1.18.7.tar.gz"
-  sha256 "8a0abed3d84409766689e2937c24505f77c1aeff79eb54474fa5d40f8bc991dc"
+  url "https://github.com/gosu-lang/gosu-lang/archive/refs/tags/v1.18.9.tar.gz"
+  sha256 "68eba79f7c322c3fb476ec0b8ccba2f2ac910a28b585e1007cdf5a17467ce5d9"
   license "Apache-2.0"
   head "https://github.com/gosu-lang/gosu-lang.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3e1e6a55fb4a416f905b12ec7ee687c05b3a227ab26e342dd7c4767c935c962f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6dc01806e53d3daa36a2da7f931f801c9398e10344f3df1c4f17166fd66e12a4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c2e65d291ff073a9382737bc72de03800e618c66ec766d3ddbb430e0d0d16706"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4ebf3bd4f90b1eeb0fd04d3f77dd9ab238970de37419a61398e95fec6aec33d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "778b24d3dbdab179a8d574838cc9028c5b786a9716f5e99eb9d96f15aafc2e65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78271f3a4e1df16086ca5be830c0bebb07f44c632b79319c65c18db85af60141"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fd47d8207a58712b0218046f1c182af94df7a059a0e3e7c6974841eba993fd8b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4eea3b9614e2454991f6daac6b488e61e5da2194ae2c3d71a23617d4fd8900d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "71b26b3c09ab63c484baf5ca884957788e060a2dd56641c8c238f8d09702d26c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2bd8cb17e5fef82fcb0309a01f571110cd8bf840d7f88fbea95220831de3a77f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fcee393955e04982baa8e411ce095e752f54a74d617605687c0a0ddc56915d30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "866232a3de70c43170ce22d4923a09d96e0e2a00a7e38ec951aa0074f247a73c"
   end
 
   depends_on "maven" => :build

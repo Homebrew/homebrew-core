@@ -19,7 +19,6 @@ class Dry < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/moncho/dry/version.VERSION=#{version}
       -X github.com/moncho/dry/version.GITCOMMIT=#{tap.user}
     ]

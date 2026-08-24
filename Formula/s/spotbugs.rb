@@ -1,8 +1,8 @@
 class Spotbugs < Formula
   desc "Tool for Java static analysis (FindBugs's successor)"
   homepage "https://spotbugs.github.io/"
-  url "https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/4.10.2/spotbugs-4.10.2.tgz"
-  sha256 "63d7687c35fba12cbc8e55ec2a889a2bbf1b9be299dea91f2b0d351dc285308a"
+  url "https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/4.10.4/spotbugs-4.10.4.tgz"
+  sha256 "72bc0d4edd686e462c0f71f42a049b27bf4da6708797ff7b2b56dd202714b4e5"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,7 +11,7 @@ class Spotbugs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a0b8ee20b30ce01c86c53fc5316e923a0d42e570d9631393dc4427b4be85ba81"
+    sha256 cellar: :any_skip_relocation, all: "e80ff37b2d5081732eb35efe4757539664ad74242e4092e40cacf0b2182a1f2a"
   end
 
   head do
@@ -25,7 +25,7 @@ class Spotbugs < Formula
   conflicts_with "fb-client", because: "both install a `fb` binary"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk")
     if build.head?
       system "gradle", "build"
       system "gradle", "installDist"

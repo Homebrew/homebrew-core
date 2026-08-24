@@ -1,10 +1,10 @@
 class Oauth2c < Formula
   desc "User-friendly CLI for OAuth2"
-  homepage "https://github.com/cloudentity/oauth2c"
-  url "https://github.com/cloudentity/oauth2c/archive/refs/tags/v1.20.0.tar.gz"
+  homepage "https://github.com/SecureAuthCorp/oauth2c"
+  url "https://github.com/SecureAuthCorp/oauth2c/archive/refs/tags/v1.20.0.tar.gz"
   sha256 "36606ec1c5eca7c7fff6bb87d4171031ddc5bfb93474eaf97191fe16b9902f24"
   license "Apache-2.0"
-  head "https://github.com/cloudentity/oauth2c.git", branch: "master"
+  head "https://github.com/SecureAuthCorp/oauth2c.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "496f8d7bdd55e8d793c97349fdce2d60be8cdc9dafcea75b78be79f3c1ed7d16"
@@ -18,9 +18,7 @@ class Oauth2c < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.commit= -X main.version=#{version} -X main.date=#{time.iso8601}"
-
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags: :goreleaser)
 
     generate_completions_from_executable(bin/"oauth2c", shell_parameter_format: :cobra)
   end

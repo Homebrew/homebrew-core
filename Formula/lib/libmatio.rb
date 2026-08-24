@@ -31,9 +31,9 @@ class Libmatio < Formula
     args = %W[
       --enable-extended-sparse=yes
       --enable-mat73=yes
-      --with-hdf5=#{Formula["hdf5"].opt_prefix}
+      --with-hdf5=#{formula_opt_prefix("hdf5")}
     ]
-    args << "--with-zlib=#{Formula["zlib-ng-compat"].opt_prefix}" unless OS.mac?
+    args << "--with-zlib=#{formula_opt_prefix("zlib-ng-compat")}" unless OS.mac?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"

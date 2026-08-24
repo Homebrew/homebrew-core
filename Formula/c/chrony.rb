@@ -30,6 +30,7 @@ class Chrony < Formula
   patch do
     url "https://gitlab.com/chrony/chrony/-/commit/fee12ec914cce805cc704a4c2804d75b4933ad2f.diff"
     sha256 "fe464ab1e5839472c78d6b60f110c1f9315c44e7caa595b90bbfe42e7e79ae84"
+    type :backport
   end
 
   def install

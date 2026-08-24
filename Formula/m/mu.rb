@@ -4,8 +4,8 @@
 class Mu < Formula
   desc "Tool for searching e-mail messages stored in the maildir-format"
   homepage "https://www.djcbsoftware.nl/code/mu/"
-  url "https://github.com/djcb/mu/releases/download/v1.14.2/mu-1.14.2.tar.xz"
-  sha256 "db0732a7bd037d8726ec0c848aa3fe5736c810c90c96d70b597645f1821d9a0d"
+  url "https://github.com/djcb/mu/releases/download/v1.14.3/mu-1.14.3.tar.xz"
+  sha256 "edea1a4e6be390a2bf5260e0156813f9b473c2d91da934b219dbb38229b0930a"
   license "GPL-3.0-or-later"
   head "https://github.com/djcb/mu.git", branch: "master"
 
@@ -18,12 +18,12 @@ class Mu < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "5e466de671e10575a478478f43eba99f1214df593295458abb9e13750ac521d0"
-    sha256 arm64_sequoia: "a80259dc5957757992e568ef65c3094ff948dfef35f9673c465d034b493ffde3"
-    sha256 arm64_sonoma:  "91db9825f023035496eb48a82b59483b00aa1a50052ac8609d7258fc3b28a0bf"
-    sha256 sonoma:        "12c746487f4def3bac9773c9bef16e2287f95712d94871e28a8c8a89e7c37632"
-    sha256 arm64_linux:   "27c47781685ecc6af29207bacf3cd50c89826435736a136b06417f60ca06c56f"
-    sha256 x86_64_linux:  "f0cc35383b0ccbff55438141080e0b1e03974530f1339bf5c25c7429b60d793c"
+    sha256 arm64_tahoe:   "cbdefd2848e92bd6b2e2b8e5c55cd17771e6d0407e03560022339206b2e72c83"
+    sha256 arm64_sequoia: "88bf9d1ff9585cc80194c20926a048dca747d1746432487bb4320a2e3072b44a"
+    sha256 arm64_sonoma:  "4003872b02902f4f7eb9ad8c29943f71fd3d63d370b65d69724c4057a9cf525b"
+    sha256 sonoma:        "f82605595d247fb5a7ef14020f4ce7233197107c59241575576baea7b70e4cba"
+    sha256 arm64_linux:   "678d7927d82e17ba7e043f9fe67e0ba69978e0d73c90303a3e4dadb899e5be81"
+    sha256 x86_64_linux:  "7d03f1d73cf4eae88218d2a0eec4a0fbc7c8a924298fd1801b60a2e6f879425c"
   end
 
   depends_on "cli11" => :build
@@ -35,20 +35,30 @@ class Mu < Formula
   depends_on "pkgconf" => :build
   depends_on "texinfo" => :build
   depends_on "fmt"
-  depends_on "gettext"
   depends_on "glib"
   depends_on "gmime"
   depends_on "guile"
   depends_on "xapian"
 
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1600
+    depends_on "gettext"
+  end
+
   conflicts_with "mu-repo", because: "both install `mu` binaries"
+
+  fails_with :clang do
+    build 1600
+    cause "needs std::views::join, missing from the macOS 14 SDK's libc++"
+  end
 
   def install
     system "meson", "setup", "build", "-Dlispdir=#{elisp}", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
 
-    zsh_completion.install "contrib/mu-completion.zsh" => "_mu"
+    zsh_completion.install "mu/completion/mu-completion.zsh" => "_mu"
+    bash_completion.install "mu/completion/mu-completion.bash" => "mu"
   end
 
   # Regression test for:
@@ -56,7 +66,7 @@ class Mu < Formula
   # https://github.com/djcb/mu/issues/380
   # https://github.com/djcb/mu/issues/332
   test do
-    mkdir (testpath/"cur")
+    (testpath/"cur").mkpath
 
     (testpath/"cur/1234567890.11111_1.host1!2,S").write <<~EOS
       From: "Road Runner" <fasterthanyou@example.com>

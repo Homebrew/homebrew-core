@@ -6,7 +6,7 @@ class Detekt < Formula
   license "Apache-2.0"
 
   livecheck do
-    url :homepage
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 

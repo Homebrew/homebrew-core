@@ -6,16 +6,16 @@ class HttpPrompt < Formula
   url "https://files.pythonhosted.org/packages/bf/e2/bc5b0df107afcac65fde7015df48cbe9b4d877d1d0818203544ed1a41d4c/http-prompt-2.1.0.tar.gz"
   sha256 "eee71a00fed0b8a2a35bb338b269be7a20e8a1a6f6465a65561d76a21521e7f3"
   license "MIT"
-  revision 19
+  revision 20
   head "https://github.com/httpie/http-prompt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5d221ddd746ead7dad46466af26fa3ae0fbc9389d8a1ee2174615a15d34ebe55"
-    sha256 cellar: :any,                 arm64_sequoia: "fd2caed47c69bf2c1983a5e92e3b768655e97e337ecd77a6f1095fc5e74bd928"
-    sha256 cellar: :any,                 arm64_sonoma:  "07a7912b340b97f95c933371505e1e8485a25c977a8beae8a449099c923dc3b3"
-    sha256 cellar: :any,                 sonoma:        "c2924d61e3d14890c02769d63790de52c9704e3c9a71870812ca63ca0737e132"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bce57696274f82ac719e17aafd1f54c580fc78c4a3222027ed49fdd62988ce9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "785b3c15df602ab5ca594a966b9c86e5558c3124148fffb89fb6d7f9807488d0"
+    sha256 cellar: :any, arm64_tahoe:   "a03ac2da7f2a7f5e80e089eed7bca4c25f8b6369728eb4e1e4565dac8b43fb77"
+    sha256 cellar: :any, arm64_sequoia: "478c81b9736eb9b1adc8e3237c4055a7dcf345c480d0d658ffb45f3fe4a50938"
+    sha256 cellar: :any, arm64_sonoma:  "dd9a131787cadc0d8f8b82cbe154b92afc266c393c793a082a23fa5fa0c2b9a3"
+    sha256 cellar: :any, sonoma:        "01048148ff024d2f4f413736d6a8e40ab05bc36858beaed10f4d71bf257989d6"
+    sha256 cellar: :any, arm64_linux:   "2453848456b29378c5215617e6b2cdc0d9290a7649fb0146913db1d8feefdbf6"
+    sha256 cellar: :any, x86_64_linux:  "072d3922428544c8204c4e610da59f4f97a24c93c6f467d6893a1c8813e3b5c1"
   end
 
   depends_on "certifi" => :no_linkage
@@ -25,13 +25,13 @@ class HttpPrompt < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/23/e4/796662cd90cf80e3a363c99db2b88e0e394b988a575f60a17e16440cd011/click-8.4.0.tar.gz"
-    sha256 "638f1338fe1235c8f4e008e4a8a254fb5c5fbdcbb40ece3c9142ebb78e792973"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "defusedxml" do
@@ -45,8 +45,8 @@ class HttpPrompt < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
-    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
+    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
+    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
   end
 
   resource "markdown-it-py" do
@@ -90,8 +90,8 @@ class HttpPrompt < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/dc/0e/49aee608ad09480e7fd276898c99ec6192985fa331abe4eb3a986094490b/regex-2026.5.9.tar.gz"
-    sha256 "a8234aa23ec39894bfe4a3f1b85616a7032481964a13ac6fc9f10de4f6fca270"
+    url "https://files.pythonhosted.org/packages/7b/37/451aaddbf50922f34d744ad5ca919ae1fcfac112123885d9728f52a484b3/regex-2026.7.10.tar.gz"
+    sha256 "1050fedf0a8a92e843971120c2f57c3a99bea86c0dfa1d63a9fac053fe54b135"
   end
 
   resource "requests" do
@@ -110,8 +110,8 @@ class HttpPrompt < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/4f/db/cfac1baf10650ab4d1c111714410d2fbb77ac5a616db26775db562c8fab2/setuptools-82.0.1.tar.gz"
-    sha256 "7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9"
+    url "https://files.pythonhosted.org/packages/34/26/f5d29e25ffdb535afef2d35cdb55b325298f96debd670da4c325e08d70f4/setuptools-83.0.0.tar.gz"
+    sha256 "025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef"
   end
 
   resource "six" do
@@ -125,8 +125,8 @@ class HttpPrompt < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/2c/ee/afaf0f85a9a18fe47a67f1e4422ed6cf1fe642f0ae0a2f81166231303c52/wcwidth-0.7.0.tar.gz"
-    sha256 "90e3a7ea092341c44b99562e75d09e4d5160fe7a3974c6fb842a101a95e7eed0"
+    url "https://files.pythonhosted.org/packages/34/74/c6428f875774288bec1396f5bfcbc2d925700a4dad61727fd5f2b12f249d/wcwidth-0.8.2.tar.gz"
+    sha256 "91fbef97204b96a3d4d421609b80340b760cf33e26da123ff243d76b1fda8dda"
   end
 
   def install

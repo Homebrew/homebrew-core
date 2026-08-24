@@ -1,8 +1,8 @@
 class PythonTkAT312 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.12.13/Python-3.12.13.tgz"
-  sha256 "0816c4761c97ecdb3f50a3924de0a93fd78cb63ee8e6c04201ddfaedca500b0b"
+  url "https://www.python.org/ftp/python/3.12.14/Python-3.12.14.tgz"
+  sha256 "6c6df908d2c3fd24e6d76869e92542abd0f33aec9dfc18df8875f89660286d43"
   license "Python-2.0"
 
   livecheck do
@@ -10,13 +10,17 @@ class PythonTkAT312 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "be653a82d8e175398903977e3e2e97b211be4ae6bc6ac57fa5650c2343274531"
-    sha256 cellar: :any, arm64_sequoia: "95dbdb26255efe4bd5ed355f871f3ebb22dcda4dcf4daa33a94ee627268ca1d9"
-    sha256 cellar: :any, arm64_sonoma:  "8c37f8773abcd3f4fe8981b37bd08d764e28ceca1543788577e6d57cc5cc3589"
-    sha256 cellar: :any, sonoma:        "f12e700bb107bc1c0bbdf98f88704222d56cfe7b1d28231339ec2f412b9d7c7f"
-    sha256               arm64_linux:   "c4d2fc4745fdc3d65a0201de90cc9466ff23461bfe70b282472361a16f25b99f"
-    sha256               x86_64_linux:  "2f3196851e95abd9be0ba5fc29e236dd3c7b0f78e253fc767f7facd317c1ab8b"
+    sha256 cellar: :any, arm64_tahoe:   "d22aca4ad7d947d79141126a425835539ed8f3e6e12e58a5d7044194f543c8aa"
+    sha256 cellar: :any, arm64_sequoia: "61fa20fc0f5020c9848f034f18315b327f476968bd653c6c58059bb3cfff0a80"
+    sha256 cellar: :any, arm64_sonoma:  "aa7a01e4e0d05701a31d658d3bfb0f69cce59c21db5da4151cb7ef9063117c78"
+    sha256 cellar: :any, sonoma:        "ab56890e2acab7e836686926276dae2b4b0364e0c7107470ac8435eb97e88335"
+    sha256               arm64_linux:   "7b085eeca777533d1c38042bc98c5def9228ef7bc4631f29a33bebd2c25326f0"
+    sha256               x86_64_linux:  "76e13c6314f7016643460ca2e08d82aa4503c0163b3dcb4987947bfc6c400959"
   end
+
+  # https://devguide.python.org/versions/#versions
+  deprecate! date: "2028-11-01", because: :deprecated_upstream
+  disable! date: "2029-11-01", because: :deprecated_upstream
 
   depends_on "python@3.12"
   depends_on "tcl-tk"
@@ -26,10 +30,11 @@ class PythonTkAT312 < Formula
   end
 
   # Apply commit from open PR to fix TCL 9 threaded detection
-  # PR ref: https://github.com/python/cpython/pull/128103
   patch do
     url "https://github.com/python/cpython/commit/a2019e226e4650cef35ebfde7ecd7ce044a4a670.patch?full_index=1"
     sha256 "03c4b6a293d4a51f534858657717bdc1465c42acb3b78e64c41f9011f966e449"
+    type :backport
+    resolves "https://github.com/python/cpython/pull/128103"
   end
 
   # Backport of https://github.com/python/cpython/commit/47cbf038850852cdcbe7a404ed7c64542340d58a
@@ -41,7 +46,7 @@ class PythonTkAT312 < Formula
     python_include = if OS.mac?
       Formula["python@#{xy}"].opt_frameworks/"Python.framework/Versions/#{xy}/include/python#{xy}"
     else
-      Formula["python@#{xy}"].opt_include/"python#{xy}"
+      formula_opt_include("python@#{xy}")/"python#{xy}"
     end
 
     cd "Modules" do
@@ -55,9 +60,9 @@ class PythonTkAT312 < Formula
               ext_modules = [
                 Extension("_tkinter", ["_tkinter.c", "tkappinit.c"],
                           define_macros=[("WITH_APPINIT", 1), ("TCL_WITH_EXTERNAL_TOMMATH", 1)],
-                          include_dirs=["#{python_include}/internal", "#{Formula["tcl-tk"].opt_include/"tcl-tk"}"],
+                          include_dirs=["#{python_include}/internal", "#{formula_opt_include("tcl-tk")/"tcl-tk"}"],
                           libraries=["tcl#{tcltk_version}", "tcl#{tcltk_version.major}tk#{tcltk_version}"],
-                          library_dirs=["#{Formula["tcl-tk"].opt_lib}"])
+                          library_dirs=["#{formula_opt_lib("tcl-tk")}"])
               ]
         )
       PYTHON

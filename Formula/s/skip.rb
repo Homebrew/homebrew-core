@@ -1,21 +1,20 @@
 class Skip < Formula
   desc "Tool for building Swift apps for Android"
   homepage "https://skip.dev"
-  url "https://github.com/skiptools/skipstone/archive/refs/tags/1.9.3.tar.gz"
-  sha256 "87a2a527781250fa4858d695e5deaea3ee58658fd43201623d8ed8dcc58e3753"
+  url "https://github.com/skiptools/skipstone/archive/refs/tags/1.9.7.tar.gz"
+  sha256 "6bdd1300dc0d81f06327053991d1fbe7cf694f420b9b3245da0e8200b75d8b20"
   license "AGPL-3.0-only"
   head "https://github.com/skiptools/skipstone.git", branch: "main"
 
   bottle do
-    sha256                               arm64_tahoe:   "4faec1e16e4aff4f5edb1af39cb12739b8065f4c4e1bd1afee05d3de26113889"
-    sha256                               arm64_sequoia: "c10f521fead73910be04a74c8a9f2fa4ac363d1475db8835e562205f568eb959"
-    sha256                               arm64_sonoma:  "5dbe72bb429672d14d095b97fc18ca6ebea3eb5d6fa1f46c5d6205a240da6878"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0319e4db9ace71ecf7a96468bd15257e4d2dda1298f4cf5d47ba4e6580621d82"
-    sha256                               arm64_linux:   "9781bee5ecef09e17f7b553b0a39f026f43d558d4a98ce6b3bfcf6576ad8fbe7"
-    sha256                               x86_64_linux:  "fbca6e22b65dd151964f705a909230cbda82ed0e763d62959bee2e498686258f"
+    sha256                               arm64_tahoe:   "d8e978f8884b17e0dab748978bb7f037d2e9370d66a282c231270377b17c810e"
+    sha256                               arm64_sequoia: "1b14040dc6fa39c9816defe29ce1f265e295835774e195eece69aaf88c517263"
+    sha256                               arm64_sonoma:  "197083ee7e51ed7b83cd8202fd4308442f4a6d26a3679c85d45c5b519e97622d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d96707bfd3aec940265a7066682d63e3f313b46f412544d976841c5c2237858c"
+    sha256                               arm64_linux:   "f3c188b7df244ef4742b8b18b0f8067b46158435d71cf4f73b8ac6cea234fecc"
+    sha256                               x86_64_linux:  "b36440f62d27a49dfb59ca472f699ddf0449b3a43e35e7430fa9be36f3a36df7"
   end
 
-  depends_on xcode: :build
   depends_on "gradle"
   depends_on "openjdk"
   depends_on "swiftly"
@@ -24,14 +23,18 @@ class Skip < Formula
   uses_from_macos "curl"
   uses_from_macos "libxml2"
 
+  on_macos do
+    depends_on xcode: :build
+  end
+
   on_linux do
     depends_on "libarchive"
     depends_on "zlib-ng-compat"
   end
 
   resource "skipsubmodule" do
-    url "https://github.com/skiptools/skip/archive/refs/tags/1.9.3.tar.gz"
-    sha256 "a68ff4db4e214ee9aee4d7b841415d258900567fad1835814b66cdfd015b8791"
+    url "https://github.com/skiptools/skip/archive/refs/tags/1.9.7.tar.gz"
+    sha256 "9e1db7588cc421b2ce68730eb7140ca3d2d5147e97879ec8544911f9b7516118"
 
     livecheck do
       formula :parent
@@ -41,12 +44,7 @@ class Skip < Formula
   def install
     resource("skipsubmodule").stage buildpath/"skip"
 
-    args = if OS.mac?
-      ["--disable-sandbox"]
-    else
-      ["--static-swift-stdlib", "-Xswiftc", "-use-ld=ld"]
-    end
-    system "swift", "build", *args, "--configuration", "release", "--product", "SkipRunner"
+    system "swift", "build", "--product", "SkipRunner", *std_swift_args
     bin.install ".build/release/SkipRunner" => "skip"
     generate_completions_from_executable(bin/"skip", "--generate-completion-script")
   end

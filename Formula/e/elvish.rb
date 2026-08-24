@@ -22,8 +22,8 @@ class Elvish < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build",
-      *std_go_args(ldflags: "-s -w -X src.elv.sh/pkg/buildinfo.VersionSuffix="), "./cmd/elvish"
+    ldflags = "-X src.elv.sh/pkg/buildinfo.VersionSuffix="
+    system "go", "build", *std_go_args(ldflags:), "./cmd/elvish"
   end
 
   test do

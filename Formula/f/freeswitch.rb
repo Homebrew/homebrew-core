@@ -1,13 +1,15 @@
 class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
-  url "https://files.freeswitch.org/releases/freeswitch/freeswitch-1.11.1.-release.tar.gz"
-  version "1.11.1"
-  sha256 "c0ce4cb91f9d8c9c7c8e45e0f5064104a1f710863775364a227cfdc305fec98e"
+  url "https://files.freeswitch.org/releases/freeswitch/freeswitch-1.11.2.-release.tar.gz"
+  version "1.11.2"
+  sha256 "c362690b3bd8e7878ba7a46f5ba88bcdb1dad3eefae33d9e82c5378e6dbe7ba1"
   license all_of: [
     "MPL-1.1",
     "LGPL-2.1-only", # spandsp
   ]
+
+  head "https://github.com/signalwire/freeswitch.git", branch: "master"
 
   livecheck do
     url :head
@@ -15,22 +17,17 @@ class Freeswitch < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b221b91a0d41f4a8dfcf8fbe5683124a57f71a785561109dbbd120a745aab928"
-    sha256 arm64_sequoia: "a5a7086920a29cf6c7725cf2aaa80b94be30c2fa4c9ec62b45787d2ee47d8696"
-    sha256 arm64_sonoma:  "f697a152b7abeb4b0f728861391fed76eea30d8664b2c88b5050feedf1d3a9ad"
-    sha256 sonoma:        "00fc7e1e4371fc7fe7bd424f5a938d8974293daeff2c2536a160fa0e89cc2cc7"
-    sha256 arm64_linux:   "2076d9cc3deb9dbb27a68837c536a2c9e6a36edbbdd8e64ececfa35d81eae02f"
-    sha256 x86_64_linux:  "19bd3f2560cdf2f7596ea91f2e6d66bdea2cf922786d8ef36d83023251f99ba8"
+    sha256 arm64_tahoe:   "657505d9b471e54eadeda1e90544dbd46b7995bf1a1241cfcc70e37b64c56dd7"
+    sha256 arm64_sequoia: "5c6ebb78fe2bb8c7dcebedfd3e2dcf815c234d8005a1b2267291ba54ded463fd"
+    sha256 arm64_sonoma:  "b203eaf94ceb74e7ebddb8dc1b191fb19568ad11947d9baf95091f5b4a1d5abe"
+    sha256 sonoma:        "12b680b0aabd41ccaadaba2f2df88b6af5e9999415cfb0ab783cba393f0e17de"
+    sha256 arm64_linux:   "6fb3118423c2e74943bf7ec99ac6c2851958ad6b0dacffd05c81578e4e4a6d1c"
+    sha256 x86_64_linux:  "1b69c0f2a1a7858ec922ae3420da7d2aa2618440e24625ae3647a5111bfc7940"
   end
 
-  head do
-    url "https://github.com/signalwire/freeswitch.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build # for `spandsp`
+  depends_on "automake" => :build # for `spandsp`
+  depends_on "libtool" => :build # for `spandsp`
   depends_on "pkgconf" => :build
 
   depends_on "freetype"
@@ -156,28 +153,16 @@ class Freeswitch < Formula
 
   #------------------------ End sound file resources --------------------------
 
-  # There's no tags for now https://github.com/freeswitch/spandsp/issues/13
   # Using same source tarball as upstream's `signalwire/signalwire/spandsp` formula:
   # https://github.com/signalwire/homebrew-signalwire/blob/master/Formula/spandsp.rb
   resource "spandsp" do
-    url "https://files.freeswitch.org/downloads/libs/spandsp-3.0.0-0d2e6ac65e.tar.gz"
-    version "3.0.0-0d2e6ac65e"
-    sha256 "29c728fab504eb83aa01eb4172315c2795c8be6ef9094005f21bd1e3463f5f2f"
-
-    livecheck do
-      url "https://raw.githubusercontent.com/signalwire/homebrew-signalwire/refs/heads/master/Formula/spandsp.rb"
-      regex(/url ".*?spandsp[._-]v?(\d+(?:\.\d+)+-\h+)\.t/i)
-    end
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
+    url "https://github.com/freeswitch/spandsp/archive/refs/tags/v3.1.1.tar.gz"
+    sha256 "71b3f1492cd5ca3dacdaa7eb6b54f5d14e0e2267ae0a1df09a87ca93cfeb1401"
   end
 
   def install
     resource("spandsp").stage do
+      system "autoreconf", "--force", "--install", "--verbose"
       system "./configure", "--disable-silent-rules", *std_configure_args(prefix: libexec)
       system "make", "install"
       ENV.append_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"

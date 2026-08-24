@@ -44,8 +44,8 @@ class Libsbol < Formula
   def install
     if ENV.compiler == :clang && DevelopmentTools.clang_build_version >= 1700
       inreplace "source/CMakeLists.txt", 'set(CMAKE_OSX_ARCHITECTURES "x86_64")', ""
-      ENV["CC"] = Formula["llvm@18"].opt_bin/"clang"
-      ENV["CXX"] = Formula["llvm@18"].opt_bin/"clang++"
+      ENV["CC"] = formula_opt_bin("llvm@18")/"clang"
+      ENV["CXX"] = formula_opt_bin("llvm@18")/"clang++"
     end
 
     # upstream issue: https://github.com/SynBioDex/libSBOL/issues/215
@@ -54,8 +54,8 @@ class Libsbol < Formula
     args = %W[
       -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DSBOL_BUILD_SHARED=ON
-      -DRAPTOR_INCLUDE_DIR=#{Formula["raptor"].opt_include}/raptor2
-      -DRASQAL_INCLUDE_DIR=#{Formula["rasqal"].opt_include}
+      -DRAPTOR_INCLUDE_DIR=#{formula_opt_include("raptor")}/raptor2
+      -DRASQAL_INCLUDE_DIR=#{formula_opt_include("rasqal")}
     ]
 
     if OS.mac? && (sdk = MacOS.sdk_path)
@@ -71,7 +71,7 @@ class Libsbol < Formula
 
   test do
     if ENV.compiler == :clang && DevelopmentTools.clang_build_version >= 1700
-      ENV["CXX"] = Formula["llvm@18"].opt_bin/"clang++"
+      ENV["CXX"] = formula_opt_bin("llvm@18")/"clang++"
     end
 
     (testpath/"test.cpp").write <<~CPP
@@ -86,10 +86,10 @@ class Libsbol < Formula
       }
     CPP
     system ENV.cxx, "test.cpp", "-o", "test", "-std=c++11",
-                    "-I#{Formula["raptor"].opt_include}/raptor2",
+                    "-I#{formula_opt_include("raptor")}/raptor2",
                     "-I#{include}", "-L#{lib}",
-                    "-L#{Formula["jsoncpp"].opt_lib}",
-                    "-L#{Formula["raptor"].opt_lib}",
+                    "-L#{formula_opt_lib("jsoncpp")}",
+                    "-L#{formula_opt_lib("raptor")}",
                     "-ljsoncpp", "-lcurl", "-lraptor2", "-lsbol"
     system "./test"
   end

@@ -36,7 +36,7 @@ class Macpine < Formula
   conflicts_with "alpine", because: "both install `alpine` binaries"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"alpine")
+    system "go", "build", *std_go_args(output: bin/"alpine")
     generate_completions_from_executable(bin/"alpine", shell_parameter_format: :cobra)
   end
 

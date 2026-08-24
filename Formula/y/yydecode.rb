@@ -35,9 +35,8 @@ class Yydecode < Formula
   end
 
   test do
-    require "base64"
     test_png = test_fixtures("test.png")
-    (testpath/"test.png.txt").write "begin-base64 644 test.png\n#{Base64.encode64(test_png.binread)}===="
+    (testpath/"test.png.txt").write "begin-base64 644 test.png\n#{[test_png.binread].pack("m")}===="
 
     system bin/"yydecode", "--output-file=test.png", "test.png.txt"
     assert compare_file(testpath/"test.png", test_png), "expected output file and original to be identical"

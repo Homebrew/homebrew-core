@@ -2,7 +2,7 @@ class Mpich < Formula
   desc "Implementation of the MPI Message Passing Interface standard"
   homepage "https://www.mpich.org/"
   url "https://www.mpich.org/static/downloads/5.0.1/mpich-5.0.1.tar.gz"
-  mirror "https://fossies.org/linux/misc/mpich-5.0.1.tar.gz"
+  mirror "https://github.com/pmodels/mpich/releases/download/v5.0.1/mpich-5.0.1.tar.gz"
   sha256 "8c1832a13ddacf071685069f5fadfd1f2877a29e1a628652892c65211b1f3327"
   license "mpich2"
 
@@ -60,7 +60,7 @@ class Mpich < Formula
       --enable-g=dbg
       --enable-romio
       --enable-shared
-      --with-hwloc=#{Formula["hwloc"].opt_prefix}
+      --with-hwloc=#{formula_opt_prefix("hwloc")}
       --with-pm=hydra
       --prefix=#{prefix}
       --mandir=#{man}
@@ -71,7 +71,7 @@ class Mpich < Formula
     if OS.linux?
       # Use libfabric https://lists.mpich.org/pipermail/discuss/2021-January/006092.html
       args << "--with-device=ch4:ofi"
-      args << "--with-libfabric=#{Formula["libfabric"].opt_prefix}"
+      args << "--with-libfabric=#{formula_opt_prefix("libfabric")}"
     end
 
     system "./configure", *args

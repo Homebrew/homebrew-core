@@ -1,19 +1,17 @@
 class G3log < Formula
   desc "Asynchronous, 'crash safe', logger that is easy to use"
   homepage "https://github.com/KjellKod/g3log"
-  url "https://github.com/KjellKod/g3log/archive/refs/tags/2.6.tar.gz"
-  sha256 "afd3d3d8de29825de408e1227be72f3bef8a01c2c0180c46271b4da9bb4fa509"
+  url "https://github.com/KjellKod/g3log/archive/refs/tags/2.6.1.tar.gz"
+  sha256 "65cb6e56e7757221fd4f3f6e97a47834cacf45288010f8fa2b192272eaa63637"
   license "Unlicense"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d709b89aa430846366121b385f710239c46c2f4ca6bd3dbbed07158a633b9bca"
-    sha256 cellar: :any,                 arm64_sequoia: "53d72c30b9c9d193b8130c2801645c67504d5a2c12532984cbf478dd143f81ca"
-    sha256 cellar: :any,                 arm64_sonoma:  "b80a5c5242decc0bd7f779bad92027c92969928c67e5b89b1c6fb15e69a1b932"
-    sha256 cellar: :any,                 arm64_ventura: "c9a0603682f5e3e90ca5d878759b65898c92ad09707357f3581b0eae972412f6"
-    sha256 cellar: :any,                 sonoma:        "9d4fb3f8551b036e1fe0d92c3d7c1f999c7689337981d8e39126491ef5b4bcb1"
-    sha256 cellar: :any,                 ventura:       "62b18373fbcfcd6e4d096db1d501a5f49de0049dcb4d6bd8b41c54882e1dd1e9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2df8ec1d0d5c4cdaeaf8568dbd20ba04216ce52f663fa03daccd046b5d66d0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae9c07ce3d886636fa40e90bab2e89bd0b8997b303a2470035c272f738098c7d"
+    sha256 cellar: :any, arm64_tahoe:   "465bcf7f06b31b9fae69bc916fbc73128fef05c3199e13cecadcbbede7542121"
+    sha256 cellar: :any, arm64_sequoia: "caff3c0ad6f0113d5aef7734e2cfc9f511d874af93e26d1a5fac7038298740ea"
+    sha256 cellar: :any, arm64_sonoma:  "4d4d929ab6d60e6582e6d166bf1b29926d49bc2df2d39bafe1e09b5b01c957a6"
+    sha256 cellar: :any, sonoma:        "1fb84057c3213072be9b7b67ffa8df57ee1dc9f6b7729fddc960151612369eb2"
+    sha256 cellar: :any, arm64_linux:   "bc1b18e3d9c7a32d099b28036ba2030c233c32a187133f28eac99e0363c2eaa2"
+    sha256 cellar: :any, x86_64_linux:  "efaf4e5f98e3ad5403bbfe31aadc156da984faa6daa70a1fde54b26615e1e201"
   end
 
   depends_on "cmake" => :build

@@ -1,17 +1,17 @@
 class Scdoc < Formula
   desc "Small man page generator"
   homepage "https://sr.ht/~sircmpwn/scdoc/"
-  url "https://git.sr.ht/~sircmpwn/scdoc/archive/1.11.4.tar.gz"
-  sha256 "e1a9c2000f855123a1a50c8f897073e0ee95fc41787431efe3864c2f1c2e7092"
+  url "https://git.sr.ht/~sircmpwn/scdoc/archive/1.11.5.tar.gz"
+  sha256 "98780bbdf16c1bce89ef3a8c0f537ac6e4ea77087b609e7698857614488a2a62"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c1ba3c08a09b33b58197d9dfde53fda881d4d4444d3396a7e4b63ba1baded7aa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e01b3bbc592393f2a8114835fe070861cfc0698ba04b8ca2267441bd3f4d5716"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e0388ac90662f8a9551b4fc945f133390e1822b7f288027e906c3937dd9fab9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2e981011c1be208d03d97447d9bfd3451d2fe8925d68a4853527c906481868b6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d8bf46277a5da340b1556cb33cfc56e86564975ff9eccbec7aa3b295861eed3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f53e0feaf57b9e883533ce5d3ec38beeec40f1073b0fb465abaab100be8132d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "802dc7fb1272bca537c94246e9cb406b33ab390e7d204e91e6b0dc6658fd83f7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d8e173d57296622ceb431df136c5501120ab1242864cf83be9f002be73286bf7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "45fb8e2a4c7db5b1e60416f7fad538447615cee2f25a1410a46a5e9b2f058ca3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c3957906c60806e61b4bc8180998aaa6ce2b1b7725bfc0b92913e6bd57f4e2d7"
+    sha256 cellar: :any,                 arm64_linux:   "3d4f870fdf7f9d90e57b5a904a9468d8fc81230ce3fad13a7cabe0a19647c5be"
+    sha256 cellar: :any,                 x86_64_linux:  "e88f2ac7bdd4068537a251a3b91de6eb69c0a93ea76b549755f04836dcffb7b5"
   end
 
   def install

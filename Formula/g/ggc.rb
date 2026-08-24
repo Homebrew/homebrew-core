@@ -1,18 +1,18 @@
 class Ggc < Formula
   desc "Modern Git CLI"
   homepage "https://github.com/bmf-san/ggc"
-  url "https://github.com/bmf-san/ggc/archive/refs/tags/v8.6.8.tar.gz"
-  sha256 "3da45faa65b3d70dce18ebd417d03a05756c9df05531ccd4287940d0aced0a0a"
+  url "https://github.com/bmf-san/ggc/archive/refs/tags/v8.7.3.tar.gz"
+  sha256 "b1ccfb7996670c1f176c96cb66877168c24a17a0da04d92f9d4a5fdfbaad48ae"
   license "MIT"
   head "https://github.com/bmf-san/ggc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "52e9dcdc9873bc17b3cf654cb016d9b5f959150bf0341234fbe1d7a0c6575dbd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "52e9dcdc9873bc17b3cf654cb016d9b5f959150bf0341234fbe1d7a0c6575dbd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52e9dcdc9873bc17b3cf654cb016d9b5f959150bf0341234fbe1d7a0c6575dbd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d031d76ed0267c3117097ae53976e7fa10c227c34d65a88804611c0b8906f57b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0189e36a82c1e60c60fa05f000342a6efe16cda107d671611f9a8f887972866"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad33ca4f81c53c38e2a448b31a4a4f29e7dd1d0a424f331ba20dcb5a0235e3ab"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "13cd9f25dc3e4b8bd24648c412d325cd14db1d46f2237b38ab1599fcb9b0c95d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "13cd9f25dc3e4b8bd24648c412d325cd14db1d46f2237b38ab1599fcb9b0c95d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "13cd9f25dc3e4b8bd24648c412d325cd14db1d46f2237b38ab1599fcb9b0c95d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6d9ce5a3186d1a72bb23d6ddd603916107c7f1dad108bbc8861dc273a3b9ed9f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0d64c6803ef37d889dad903121d7667894dd55a6c5470d8bf7cc7a503e6460fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff2f62831890b8be28a7ae8e481f86689b505bf2bd853606e92ae867d7301f61"
   end
 
   depends_on "go" => :build
@@ -20,8 +20,7 @@ class Ggc < Formula
   uses_from_macos "vim"
 
   def install
-    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user}"
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags: :goreleaser)
   end
 
   test do

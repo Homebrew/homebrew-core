@@ -1,8 +1,8 @@
 class Flang < Formula
   desc "LLVM Fortran Frontend"
   homepage "https://flang.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.7/llvm-project-22.1.7.src.tar.xz"
-  sha256 "5cc4a3f12bba50b6bdfb4b61bdc852117a0ff2517807c3902fc13267fb93562e"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.8/llvm-project-22.1.8.src.tar.xz"
+  sha256 "922f1817a0df7b1489272d18134ee0087a8b068828f87ac63b9861b1a9965888"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/llvm/llvm-project.git", branch: "main"
@@ -12,12 +12,12 @@ class Flang < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "7554e8c3fd8ddafc6904854d037d8e12e92320b7d7759a420552d0c8f957b36c"
-    sha256 cellar: :any, arm64_sequoia: "d92a20649b3d9f177debbd66fad90f9538e4e246ce634ee67ec7a6d91ae8dd67"
-    sha256 cellar: :any, arm64_sonoma:  "68ec7133c7209e3b18d829a191f59d758990539fcb3e2f328a431217a976e40e"
-    sha256 cellar: :any, sonoma:        "3ab36da2d8d28d4b6fc47c5b7a349a7a62aedc58f527d286ec8bed573c1af98e"
-    sha256 cellar: :any, arm64_linux:   "54b761fd78d3c6ad14678ad20e4e28e1e1d6eabe59b6a371b0403a9d2273bc8c"
-    sha256 cellar: :any, x86_64_linux:  "6499470317735cf2afc2860c174e9db7ccad453d03e2c0c75d96a818472d5598"
+    sha256 cellar: :any, arm64_tahoe:   "8892edbaad2e5bf56311a0d0ce8412f30a7fc3932011e96f11e76282b079b0ea"
+    sha256 cellar: :any, arm64_sequoia: "61ad234cf8b2d1c97186a5e41f96972d698528c5e4e6a5a5944190fc895959fb"
+    sha256 cellar: :any, arm64_sonoma:  "10241f1565721777b16e49700503f61660d6ec3b256aa5045af8c9629f6118e9"
+    sha256 cellar: :any, sonoma:        "eb2d34611686a91b0cdaf4082c74905c6d04360d7d497d6eaf4f43e87ceaf5a5"
+    sha256 cellar: :any, arm64_linux:   "b5874d42e2a440f514958fdf226c886b4413779baaed8136d2e1c1524779edf4"
+    sha256 cellar: :any, x86_64_linux:  "89f48f55804fc5cdbd5295b89ea59d77ec8fc3ed11fadfdb473f6a926fdd158e"
   end
 
   depends_on "cmake" => :build

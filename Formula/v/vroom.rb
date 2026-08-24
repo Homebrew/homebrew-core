@@ -27,7 +27,7 @@ class Vroom < Formula
   end
 
   on_sequoia do
-    depends_on xcode: ["26.0", :build] if DevelopmentTools.clang_build_version >= 1700
+    depends_on xcode: ["26.0", :build] if DevelopmentTools.clang_build_version >= 1700 # for std::jthreads
   end
 
   fails_with :clang do
@@ -45,6 +45,8 @@ class Vroom < Formula
   patch do
     url "https://github.com/VROOM-Project/vroom/commit/3bd437aa5951040593d535336a3d7cf86b6ac405.patch?full_index=1"
     sha256 "f9681c0d96265435e3b15477ec9471116159716a2a868b33e4d46eb1009cd1dd"
+    type :backport
+    resolves "https://github.com/VROOM-Project/vroom/pull/1333"
   end
 
   def install
@@ -52,8 +54,8 @@ class Vroom < Formula
     cd "include" do
       rm_r(["cxxopts", "rapidjson"])
       mkdir_p "cxxopts"
-      ln_s Formula["cxxopts"].opt_include, "cxxopts/include"
-      ln_s Formula["rapidjson"].opt_include, "rapidjson"
+      ln_s formula_opt_include("cxxopts"), "cxxopts/include"
+      ln_s formula_opt_include("rapidjson"), "rapidjson"
     end
 
     files = %w[

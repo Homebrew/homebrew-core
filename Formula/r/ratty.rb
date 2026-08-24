@@ -1,18 +1,18 @@
 class Ratty < Formula
   desc "GPU-rendered terminal emulator with inline 3D graphics"
   homepage "https://ratty-term.org/"
-  url "https://github.com/orhun/ratty/archive/refs/tags/v0.4.2.tar.gz"
-  sha256 "78ac873053d680258dc049ad82f92d20b96ea7f3ba86f9fd45744ecc90befeaa"
+  url "https://github.com/orhun/ratty/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "2dd1c273c483d19fe2274075191d181ca33d67f280d52f07a8d6ea2bbe5296b7"
   license "MIT"
   head "https://github.com/orhun/ratty.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cc044ef7854948b559bc91170b30b428ca3f9ae334ff775cf857d201b734de23"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5eee56e4ce94a7a031f6d176c35e0d0a38c025af918f4ad643e5beb02ed332e6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8cac112a0a6244f9911956fc00faf79cfe186677a0ec53f4a539f89fa9dd35ef"
-    sha256 cellar: :any_skip_relocation, sonoma:        "38845c357ae30cf3997510075806e5dc1e404f3bf2c65e1ebbd6ed0d64ad26c9"
-    sha256 cellar: :any,                 arm64_linux:   "92a9629cfcbf3a00237c10c8474a18623f76016d8307947f0a02e45c32d0841c"
-    sha256 cellar: :any,                 x86_64_linux:  "da69f066a2ab0e02473346ebf4324c434b96fb6179e2d813c111cbdb0c95cc03"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f7d6741d7d7a466f44f402084c5562b36a2147cd1f9e686c19a56cd4920c429d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f98033dd7ea0ee6dc61492bbafabb97908cf18f2ca1eeef85130a2237c5bd7ae"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c841f5a7cc1fe0b72caa010c5bb354b8a7d2946ca838205ebeb69bdffd2d58d3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0ff9445078998eb8c40621a83967c2260a6932dfaeec6e567330c7c3e076a578"
+    sha256 cellar: :any,                 arm64_linux:   "a18b16c4a1b59dc4bce51d517edfaf53f71f43e9f2db2d674d43742a82b76215"
+    sha256 cellar: :any,                 x86_64_linux:  "ca0af9c9b837ea078476f227cd78847e2595500997ed67387002c168c2f89916"
   end
 
   depends_on "rust" => :build

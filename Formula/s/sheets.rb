@@ -1,18 +1,18 @@
 class Sheets < Formula
   desc "Terminal based spreadsheet tool"
   homepage "https://github.com/maaslalani/sheets"
-  url "https://github.com/maaslalani/sheets/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "e33563769858abba1812d6f9e1f427241a9a5c65da3a34a87d8784c8a050e25e"
+  url "https://github.com/maaslalani/sheets/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "d65b37c4d40c0a531a87a81848350528387e1247b24d2aa3a04dd5a41338c9fa"
   license "MIT"
   head "https://github.com/maaslalani/sheets.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cb711fb52afd35e5b28695f8600ef9ac1815363a82bbdfb7688bbffe7cd75e82"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb711fb52afd35e5b28695f8600ef9ac1815363a82bbdfb7688bbffe7cd75e82"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb711fb52afd35e5b28695f8600ef9ac1815363a82bbdfb7688bbffe7cd75e82"
-    sha256 cellar: :any_skip_relocation, sonoma:        "24ed5816d010603d66cd4be1b2bf2a565c7f906ed838aef338d153be0d9cc83a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1058fd3f4629b486793774c9b650a459212ac67276e2cb381edc96c3cf702e49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6d6801f2dcb174f7c1bd108489ad67ea77599ac47d713b78ef6374179bde86d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "15ae8d60a16d08c389fa2c33698848b1f17d865c1627be3a6a254ca71dfa3e33"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15ae8d60a16d08c389fa2c33698848b1f17d865c1627be3a6a254ca71dfa3e33"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "15ae8d60a16d08c389fa2c33698848b1f17d865c1627be3a6a254ca71dfa3e33"
+    sha256 cellar: :any_skip_relocation, sonoma:        "59d347c63ceb2a43890ca4862b476bbec5e19512c8eff2146f16addee79631d1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "27b105d00a0fc10b20c8a57e4fd27d1b96face42d7e25c1168f26796677ebd26"
+    sha256 cellar: :any,                 x86_64_linux:  "c49e18d4858247288bedc2da9e2d283e677f7579022f48f2bf1c93f97903ffd2"
   end
 
   depends_on "go" => :build

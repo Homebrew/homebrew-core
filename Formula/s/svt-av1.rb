@@ -1,8 +1,8 @@
 class SvtAv1 < Formula
   desc "AV1 encoder"
   homepage "https://gitlab.com/AOMediaCodec/SVT-AV1"
-  url "https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v4.1.0/SVT-AV1-v4.1.0.tar.bz2"
-  sha256 "184162d3db3a4448882b17230413b4938ca252eef6b3c5e2f1236b2fcf497881"
+  url "https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v4.2.0/SVT-AV1-v4.2.0.tar.bz2"
+  sha256 "512f2ea5649e3e76c2dddcc25c2556fb67a9582baaab207c9c96161c94659dad"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://gitlab.com/AOMediaCodec/SVT-AV1.git", branch: "master"
@@ -13,12 +13,12 @@ class SvtAv1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ef9741a91c2155055fa3dd9682776ac0c59014e0757ea92c789c6d0592273b86"
-    sha256 cellar: :any,                 arm64_sequoia: "dfd452b9d5f752a679a6f810fcdb3906b6884dbc8a279abe558dc61c9bfc3c8a"
-    sha256 cellar: :any,                 arm64_sonoma:  "b3f0cea562b0fcc454889b6aa6f1453be515faf87600021de6a4351c3e6018bf"
-    sha256 cellar: :any,                 sonoma:        "1fcfdbcd821d7267e82e58445931d5b8e6c17d40b4a3a44ff32f715c1b1edcc6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "58cb3abfa77fcdf297a32ba2715a53fd2cd60571ca776632401d6334ac03c0ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ebe93ba0e92ec1fcfff2bb9b360e09442a90c91aaa7b5dcd2392c74d04a8406"
+    sha256 cellar: :any, arm64_tahoe:   "bd6186cc963d1980f0d81d59ecef58c8fa6263eb1124211dd3537b224e04c9e0"
+    sha256 cellar: :any, arm64_sequoia: "2e6f7cbf3ff42f59ca251f3c84d4ad5a3ecfd518340237a6f70a54a428de1676"
+    sha256 cellar: :any, arm64_sonoma:  "3aed847bbc1911739c73b53503bafa33bbf3aa15a792756db1b550738faf51db"
+    sha256 cellar: :any, sonoma:        "413ca9c3ca785dcebb9baae17b4b86a70f1c86e5881fa8af87f55ac7e5d8a5eb"
+    sha256 cellar: :any, arm64_linux:   "2ea5be1d189e4102b1e8c7e32c97ad01ed9958ffd898c8e6b4acbd88b6d435ef"
+    sha256 cellar: :any, x86_64_linux:  "ac3f7f9240381b15060529d4fed8ee1945afddb74a44f0cee8e8741e1d29c6a4"
   end
 
   depends_on "cmake" => :build

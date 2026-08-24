@@ -78,14 +78,14 @@ class Postgis < Formula
       bin.install_symlink postgresql.opt_bin/"postgres"
 
       mkdir "build-pg#{postgresql.version.major}" do
-        system "../configure", "--with-projdir=#{Formula["proj"].opt_prefix}",
-                               "--with-jsondir=#{Formula["json-c"].opt_prefix}",
+        system "../configure", "--with-projdir=#{formula_opt_prefix("proj")}",
+                               "--with-jsondir=#{formula_opt_prefix("json-c")}",
                                "--with-pgconfig=#{postgresql.opt_bin}/pg_config",
-                               "--with-protobufdir=#{Formula["protobuf-c"].opt_bin}",
+                               "--with-protobufdir=#{formula_opt_bin("protobuf-c")}",
                                *std_configure_args
         # Force `bin/pgsql2shp` to link to `libpq`
-        system "make", "PGSQL_FE_CPPFLAGS=-I#{Formula["libpq"].opt_include}",
-                       "PGSQL_FE_LDFLAGS=-L#{Formula["libpq"].opt_lib} -lpq"
+        system "make", "PGSQL_FE_CPPFLAGS=-I#{formula_opt_include("libpq")}",
+                       "PGSQL_FE_LDFLAGS=-L#{formula_opt_lib("libpq")} -lpq"
         # Override the hardcoded install paths set by the PGXS makefiles
         system "make", "install", "bindir=#{bin}",
                                   "docdir=#{doc}",
@@ -111,8 +111,7 @@ class Postgis < Formula
 
   test do
     ENV["LC_ALL"] = "C"
-    require "base64"
-    (testpath/"brew.shp").write ::Base64.decode64 <<~EOS
+    (testpath/"brew.shp").write <<~EOS.unpack1("m")
       AAAnCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoOgDAAALAAAAAAAAAAAAAAAA
       AAAAAADwPwAAAAAAABBAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
       AAAAAAAAAAAAAAAAAAEAAAASCwAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAA
@@ -122,7 +121,7 @@ class Postgis < Formula
       AAAAAAAAAAAABQAAABILAAAAAAAAAAAAAAAAAAAAAAAUQAAAAAAAACJAAAAA
       AAAAAEA=
     EOS
-    (testpath/"brew.dbf").write ::Base64.decode64 <<~EOS
+    (testpath/"brew.dbf").write <<~EOS.unpack1("m")
       A3IJGgUAAABhAFsAAAAAAAAAAAAAAAAAAAAAAAAAAABGSVJTVF9GTEQAAEMA
       AAAAMgAAAAAAAAAAAAAAAAAAAFNFQ09ORF9GTEQAQwAAAAAoAAAAAAAAAAAA
       AAAAAAAADSBGaXJzdCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
@@ -137,7 +136,7 @@ class Postgis < Formula
       ICAgICAgICAgICAgICAgICBQb2ludCAgICAgICAgICAgICAgICAgICAgICAg
       ICAgICAgICAgICAg
     EOS
-    (testpath/"brew.shx").write ::Base64.decode64 <<~EOS
+    (testpath/"brew.shx").write <<~EOS.unpack1("m")
       AAAnCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARugDAAALAAAAAAAAAAAAAAAA
       AAAAAADwPwAAAAAAABBAAAAAAAAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
       AAAAAAAAAAAAAAAAADIAAAASAAAASAAAABIAAABeAAAAEgAAAHQAAAASAAAA

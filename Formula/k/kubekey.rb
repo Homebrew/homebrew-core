@@ -2,8 +2,8 @@ class Kubekey < Formula
   desc "Installer for Kubernetes and / or KubeSphere, and related cloud-native add-ons"
   homepage "https://kubesphere.io"
   url "https://github.com/kubesphere/kubekey.git",
-      tag:      "v4.0.5",
-      revision: "9c3c07659992c4054ee2ae204a1a8b17e1cbaf75"
+      tag:      "v4.0.6",
+      revision: "ee6a16ac1ad781bec21c5f2594b814d5dfadc0e8"
   license "Apache-2.0"
   head "https://github.com/kubesphere/kubekey.git", branch: "main"
 
@@ -16,12 +16,12 @@ class Kubekey < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e2577a24f599b122bffa6888b2222c55f53487f5cdad4bcb1ae7d4c7af3a8335"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4d39566b3e880a4cd2008a96d478bca3cbec38aa23560356ebc95d9d939f93a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fa60a74b8994eda146f687aee593cf4799850a3ac7e42723a30e22272f00adeb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a10bf2c5c99895d410797acaf83b833547b1c81f1229a24ee26395d5a104c9a1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "92daa3cc59e0c491493900303349bf40186327be303f832e32e8762977ace786"
-    sha256 cellar: :any,                 x86_64_linux:  "8dc73979747fd70f483afde498ea7549a865a174e8bbb830bd504084d3f08ed9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "371603592958847cfd4f4afa0072f695ec0f81267626b2347b981756308c6b7a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "84626235a5543487831aad9b113b738ae14afbc4f4a2bfbbe1aea1be7cf95687"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "630ba0a5a3c0beb1feebb1a0bf5d042ee45b73b3b80d45152c2c8cd5c924617b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "72b4e483193c17e0e7b2898f04a76973fecf8861571afb03656f179d1a311d48"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f701d40a6ac36cdb14541a5950fc09624830b0db90117553cc2b8953b689bae2"
+    sha256 cellar: :any,                 x86_64_linux:  "1ad095bf766d55be0458221e902888fef8808e95f289aba27634ff78b30a7e79"
   end
 
   depends_on "go" => :build
@@ -29,7 +29,6 @@ class Kubekey < Formula
   def install
     project = "github.com/kubesphere/kubekey/v#{version.major}"
     ldflags = %W[
-      -s -w
       -X #{project}/version.gitMajor=#{version.major}
       -X #{project}/version.gitMinor=#{version.minor}
       -X #{project}/version.gitVersion=v#{version}

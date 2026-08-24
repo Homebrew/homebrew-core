@@ -15,11 +15,12 @@ class Faceprints < Formula
     sha256 cellar: :any_skip_relocation, ventura:       "560c312597df4258d49e6410276021819721520474298fe5257a4772faee096d"
   end
 
-  depends_on xcode: :build
-  depends_on :macos
+  depends_on macos: :ventura
+
+  uses_from_macos "swift" => :build # swift 5.9+
 
   def install
-    system "swift", "build", "--disable-sandbox", "--configuration", "release"
+    system "swift", "build", *std_swift_args
     bin.install ".build/release/faceprints"
   end
 

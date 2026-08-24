@@ -7,9 +7,9 @@
   "msgpack": "c_master",
   "msgpack-cxx": "cpp_master",
   "ngspice": "master",
+  "opencv": "5.x",
   "r3": "master",
   "rtk": "develop",
-  "sdl2": "SDL2",
   "stlink": "develop",
   "swiftformat": "develop",
   "xmrig": "dev"

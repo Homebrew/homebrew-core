@@ -1,19 +1,17 @@
 class Fpart < Formula
   desc "Sorts file trees and packs them into bags"
   homepage "https://www.fpart.org/"
-  url "https://github.com/martymac/fpart/archive/refs/tags/fpart-1.7.0.tar.gz"
-  sha256 "e5f82dd90001ed53200b2383bcfd520b1d8ee06d6a2a75b39d37d68daef20c88"
+  url "https://github.com/martymac/fpart/archive/refs/tags/fpart-1.7.1.tar.gz"
+  sha256 "512a82320cf5418ed70416b96cd49aa51a5ae418e96482144683cad6609add2e"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "150c62d9d4e4573e9e57877aceb72d7044f25f1f104a0037d888af51464f748e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "62e4da1fc98b89c57755a274ab68045d982e784ddec2a77a4d9f0243947672cd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "02ff854bb224beaa872d0bea7b8128a812f31a902b0469341b4c4562cabf5ce2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a1911af8d359c21a98d9c7337f2a1ecedfcb26f58c1b52087b12c4cf0a0980fb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2c40ec263a1dd6321e2878cc65d6f22c372a7b7846ca2a42c29068dbf41e7ccb"
-    sha256 cellar: :any_skip_relocation, ventura:       "bbb63a308a1a001f6accf2c86294a5c04a3ae5ab2517cf45549108530a0c6b05"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "98050183e715d54e94a44254546c227475622fa4a7dc6e73eb96fbbb88486bbb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52fa28e8ae55c6595258e13f8ee9f093225f1cbed462cbaaa4171571f884cd5d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3a7b6bfbc2279332153d51d52841192833f3ed34ef8c596d27af275231a5b072"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "35796778e1a61ef685e0bc42255ee66de6118206dffd63e2a81c1834e37acabb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "288b3d14e8e04b83a5be53ddbe77c5702412bd6a6e6bb449c1443883ed323f9f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0f801675689144e579ccca49232458b1e242b8719fab4120deea0b99311ceaa9"
+    sha256 cellar: :any,                 arm64_linux:   "96302cefa0fcbeea32aaa400cf7109a7040cac8ddc15f2eaf9f84407eff063cb"
+    sha256 cellar: :any,                 x86_64_linux:  "f8ddc70935f0c39319d88eac68e6c577cae2d74b2beee43e0bf6606dabc2b7e4"
   end
 
   depends_on "autoconf" => :build

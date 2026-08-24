@@ -2,7 +2,7 @@ class Av1an < Formula
   desc "Cross-platform command-line encoding framework"
   homepage "https://github.com/rust-av/Av1an"
   license "GPL-3.0-only"
-  revision 1
+  revision 3
   head "https://github.com/rust-av/Av1an.git", branch: "master"
 
   stable do
@@ -20,12 +20,12 @@ class Av1an < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0e59c6f11824fead9ebdd454be5ededda07cf453f0b68342353a631ced93122f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "efd4ff1cf229885f8f242b90d1d6acf94ce42320249daf7ba6b16e8c1c68998f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4da98b6acae00b4c3387e6c09ac1c73bc481258ecee56b44d0ee17199e94cb13"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2becd76d0713bd7583bba85ed8c3ff866aefdf06c8f0e9d4c402d046c3ec5c78"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "29c62ae87a2f908f2de1e134fa87e08f943d70719a8cdac8e55496982a91659a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55bd69992e240b0dcfc1e9ee91d5658a7d83100c81b4e260bfd22ea0bfa3f5ae"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6408b362fc09ef34a7d5518b4e963f975fbfcab9686605be0aff8b971e9f8ded"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "940cbc4f300478586beeed81b3cbfd1cf8e13e799ab2ce66d1397c8d57ddd72a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1af81225e8802d91363c75c58cfd492308710819c4e9b778db02b2fb612ff45c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1cbb38b5c91e2c114fbc06f49ef3c7693e49447efbdff876a151624e5db8275a"
+    sha256 cellar: :any,                 arm64_linux:   "c200efae60ac1c56f75b277546d1ebe8cfbb0d54ca683830480d351c0b288223"
+    sha256 cellar: :any,                 x86_64_linux:  "cc0d5d979af9062de3ae2d2031749b38e49e3393158385f429732b8a1151fb9b"
   end
 
   depends_on "rust" => :build
@@ -35,6 +35,12 @@ class Av1an < Formula
 
   on_intel do
     depends_on "nasm" => :build
+  end
+
+  # Fix compatibility with FFmpeg 9.
+  patch do
+    url "https://github.com/rust-av/Av1an/commit/9bbd829c480e58625842d43b7c8f54962914e9a6.patch?full_index=1"
+    sha256 "78a74c9f236141bbc35e1a7e039b5f3b45d730ad7bb7bda62b337b95daf50e55"
   end
 
   def install
@@ -48,7 +54,8 @@ class Av1an < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/av1an --version")
 
-    system bin/"av1an", "-i", test_fixtures("test.mp4"), "-o", testpath/"test.av1.mkv"
+    cp test_fixtures("test.mp4"), testpath
+    system bin/"av1an", "-i", testpath/"test.mp4", "-o", testpath/"test.av1.mkv"
     assert_path_exists testpath/"test.av1.mkv"
   end
 end

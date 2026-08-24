@@ -20,10 +20,11 @@ class Cjson < Formula
   depends_on "cmake" => :build
 
   # CMake 4 build patch
-  # PR ref: https://github.com/DaveGamble/cJSON/pull/949
   patch do
-    url "https://github.com/DaveGamble/cJSON/commit/887642c0a93bd8a6616bf90daacac0ea7d4b095e.patch?full_index=1"
-    sha256 "98c2d5ef6cf325ccd089bf4301b0d07e453d4c6276d38a36306c50f106baec82"
+    url "https://github.com/DaveGamble/cJSON/commit/a29814f285cc531c00223743ad3c55cd38c0dc56.patch?full_index=1"
+    sha256 "98485b6f2635d2d6f69c7d1ebb3f316661023f7570b12b89e0e535ddba88981e"
+    type :backport
+    resolves "https://github.com/DaveGamble/cJSON/pull/986"
   end
 
   def install

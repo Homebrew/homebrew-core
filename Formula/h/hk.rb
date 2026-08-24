@@ -3,8 +3,8 @@ class Hk < Formula
   homepage "https://hk.jdx.dev"
   # pull from git tag to get submodules
   url "https://github.com/jdx/hk.git",
-      tag:      "v1.48.0",
-      revision: "0b221a3e11b48aff266eee14b4b37abb7f0bb4a0"
+      tag:      "v1.56.1",
+      revision: "fdbb35c1cb9d1487e8350a0888877c0d74d4b611"
   license "MIT"
   head "https://github.com/jdx/hk.git", branch: "main"
 
@@ -14,18 +14,18 @@ class Hk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9d5317f665b9ad5c561d9654432df9dd944010e69150caa5fe3529563101e04c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "26b22cbd0f9db4dae9090c9117282a7b55a26cde52f5f591164a0b2ea00fd7be"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "068785acf7dedda2ec1131c8856cd19770b4f89275b048dd4d6a5716d8f91fda"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2ef11c0bdcc69cf9646764656815e699dfe2ae5e4769276073476726c7e36d3f"
-    sha256 cellar: :any,                 arm64_linux:   "b1ee804ab869c56d0f4037b6450c62fe8f5c5694f7665f38c310a107ff3aeaf7"
-    sha256 cellar: :any,                 x86_64_linux:  "f67ece31bb75a8be1a4ff297665dbb18a429d1e61efad3b31e40ac3ca4f7c148"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0ebd8140f4f5ea52d0285614931cef0a7cbb71a7bc030e1c9eeeabd3102b7181"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "539baeaeb23ecda168a7ae987fa6ac8012bcee248c4bbb149689c16ff8edc9d5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "91d7a94499741a138d510610f8098286c04fb53d7ecc713dc214d96209e56100"
+    sha256 cellar: :any_skip_relocation, sonoma:        "60786bf44c2aecd99540389f45efad3e41f8d63ff039190f83b6a626ca68d998"
+    sha256 cellar: :any,                 arm64_linux:   "3c67fa0371ce30ea580ec755ddd007e458087057a2c2963852bb9482f3feb37f"
+    sha256 cellar: :any,                 x86_64_linux:  "05609e491e58b51caece2a3bcbcb77369f8fc4db2ada89e43ca8f0a5a1fb854a"
   end
 
+  depends_on "pkl" => :build
   depends_on "rust" => [:build, :test]
 
   depends_on "openssl@3"
-  depends_on "pkl"
   depends_on "usage"
 
   uses_from_macos "python" => :build
@@ -36,7 +36,7 @@ class Hk < Formula
 
   def install
     # Ensure the correct `openssl` will be picked up.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
     system "cargo", "install", *std_cargo_args
 

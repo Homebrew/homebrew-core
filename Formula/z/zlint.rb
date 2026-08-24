@@ -19,8 +19,7 @@ class Zlint < Formula
 
   def install
     cd "v3" do
-      ldflags = "-s -w -X main.version=#{version}"
-      system "go", "build", *std_go_args(ldflags:), "./cmd/zlint"
+      system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/zlint"
     end
   end
 

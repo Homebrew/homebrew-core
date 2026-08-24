@@ -33,7 +33,7 @@ class Yafc < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      --with-readline=#{Formula["readline"].opt_prefix}
+      --with-readline=#{formula_opt_prefix("readline")}
     ]
 
     system "./configure", *args

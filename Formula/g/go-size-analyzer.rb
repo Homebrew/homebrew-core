@@ -1,8 +1,8 @@
 class GoSizeAnalyzer < Formula
   desc "Analyzing the dependencies in compiled Golang binaries"
   homepage "https://gsa.zxilly.dev/"
-  url "https://github.com/Zxilly/go-size-analyzer/archive/refs/tags/v1.13.0.tar.gz"
-  sha256 "160415a10eaa2c1151dda1e8913d5d1ccf912cd7c18e35a673b88ac72667e507"
+  url "https://github.com/Zxilly/go-size-analyzer/archive/refs/tags/v1.14.0.tar.gz"
+  sha256 "66d4b05cc2bd09d10ff1e2c91d00fd1fe96ff30050699c0e57f6c0c0b9a4c2cb"
   license "AGPL-3.0-only"
   head "https://github.com/Zxilly/go-size-analyzer.git", branch: "master"
 
@@ -12,22 +12,28 @@ class GoSizeAnalyzer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "771414597db278af1c70c428d3ff47284e40abf81b00d1778000a395e1d0bf59"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "50df9029e6fb1fad9183d5c5abbb5dea12a9ad9aa003639eae3132f96487dbcf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a4c83b17fc9a100c8b9bb389a8d86804ecf64fd962d24d36b0963a0cda3d4c22"
-    sha256 cellar: :any_skip_relocation, sonoma:        "be045e379f3bb7541361cf17372b57d125b57eefec76446691be0686a72eb41c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2243b30923f131b6a212dcda9f54207a92b3cf4cd5e4a0761ca3470c6881dc12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de27e7ca46898a57ea61a90a659c17620da1c42e84677f88656f089a444adce2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6655c1bce45f4d04f11fa3526c6b2f1ee0250aeeb2a9e0c50f0916c696b98c2d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d66109261d10ef85c3a3a0497dac40c7b5037feab6d1cfaafa751fb4fa9a2051"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "01ce94f0408ee5acc85195fc11a785ecd567423a62eb925766eb0ba8f5e55e88"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c9bd216d1dad3540c53972e6a900f880a66734bb3af68ff5371e95d437c361d5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d0b7d15e1987e25473089abacbb12e28fc2a7c42ee58e4cb6eca7d0256310c6"
+    sha256 cellar: :any,                 x86_64_linux:  "6436688f8162299a030e4ca7501a2ad72aeb01f052823ea9eaab38221ad51f49"
   end
 
   depends_on "go" => [:build, :test]
   depends_on "node" => :build
-  depends_on "pnpm" => :build
+  depends_on "pnpm@10" => :build # frozen build (default on CI) needs upstream changes for pnpm 11
 
   conflicts_with "gwenhywfar", because: "both install `gsa` binaries"
 
   def install
-    system "pnpm", "--dir", "ui", "install"
+    # Prevent pnpm from downloading another copy due to `packageManager` feature
+    odie "Switch to `pnpm with current`!" if deps.map(&:name).exclude?("pnpm@10")
+    (buildpath/"ui/pnpm-workspace.yaml").write <<~YAML
+      managePackageManagerVersions: false
+    YAML
+
+    system "pnpm", "--dir", "ui", "install", "--frozen-lockfile"
     system "pnpm", "--dir", "ui", "build:ui"
 
     mv "ui/dist/webui/index.html", "internal/webui/index.html"
@@ -36,7 +42,6 @@ class GoSizeAnalyzer < Formula
     ENV["GOEXPERIMENT"] = "jsonv2"
 
     ldflags = %W[
-      -s -w
       -X github.com/Zxilly/go-size-analyzer.version=#{version}
       -X github.com/Zxilly/go-size-analyzer.buildDate=#{time.iso8601}
       -X github.com/Zxilly/go-size-analyzer.dirtyBuild=false

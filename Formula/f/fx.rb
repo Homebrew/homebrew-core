@@ -17,8 +17,10 @@ class Fx < Formula
 
   depends_on "go" => :build
 
+  conflicts_with "fx-agent", because: "both install an `fx` binary"
+
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
     generate_completions_from_executable(bin/"fx", "--comp")
   end
 

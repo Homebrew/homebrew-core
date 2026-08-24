@@ -4,7 +4,7 @@ class ProtocGenGrpcWeb < Formula
   url "https://github.com/grpc/grpc-web/archive/refs/tags/2.0.2.tar.gz"
   sha256 "0f0c8c0c1104306d67dad678be7c14efe52a698795a58b2b72ab67a8bb100c15"
   license "Apache-2.0"
-  revision 5
+  revision 9
 
   livecheck do
     url :stable
@@ -12,12 +12,12 @@ class ProtocGenGrpcWeb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "eca3efd24cbd6bbd502e6e85ad606fb34b6b4db00f9cc8648bdd3b28440e5abc"
-    sha256 cellar: :any,                 arm64_sequoia: "4d017bbf599ddf51e85fe2d2ecee539300e19e94c7dcf6547d90aeccc6363dc8"
-    sha256 cellar: :any,                 arm64_sonoma:  "72aab74e8cb9e4aac2e2ff3bd84010473e7f87d0e2b6a602e7472c0649263aeb"
-    sha256 cellar: :any,                 sonoma:        "a9269a12cdbb61272be1be21b8085ee356b3c27898eca1b8a518ddc1a0924843"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "12f2a1a5eb3605977bd2df8ae13e711369b78773a745e18473c09329a2e7c992"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8aee26e9c6442e2f46c7d2ed955fd7f477db739b2c0bc019738ed3f0dc465241"
+    sha256 cellar: :any, arm64_tahoe:   "bb1ea0cbd1f5cff8d0c6ef36c14fecec78d910c5f8ee0dff419c9a48d9650e0a"
+    sha256 cellar: :any, arm64_sequoia: "e3853c17bfa39b10441796202ea30839d3c50776b1a45c8606ed796ff0a0e644"
+    sha256 cellar: :any, arm64_sonoma:  "0113c9e2fa771628facbe7a9fea2855c5176c2f60e822dc143ebe437ecdd6076"
+    sha256 cellar: :any, sonoma:        "ea1c84f39d7ea88e48e082c0d0b43c29d75269673bc659f7ea305f05a1b97a11"
+    sha256 cellar: :any, arm64_linux:   "152465906fafeefd7aa3251118ddf81151cac50f1b517013a45d4cfbeb4bdf23"
+    sha256 cellar: :any, x86_64_linux:  "31f88eeadc6f0bc3fa5ba02b8b5b0ef63ee8825e91a0b37eb523d72cda80b382"
   end
 
   depends_on "cmake" => :build
@@ -28,10 +28,11 @@ class ProtocGenGrpcWeb < Formula
   depends_on "protobuf"
   depends_on "protoc-gen-js"
 
-  # Workaround to build with Protobuf 30+. Issue ref: https://github.com/grpc/grpc-web/issues/1522
+  # Workaround to build with Protobuf 30+.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/d0b7cf85a11a9acfa1a422305948dff6621bbda9/Patches/protoc-gen-grpc-web/protobuf-30.diff"
-    sha256 "9c7e0ddf5ba68c179e7b8edc2c48de5b9b9d4801a6c8fd93ee199e27291aeebd"
+    file "Patches/protoc-gen-grpc-web/protobuf-30.diff"
+    type :unofficial
+    resolves "https://github.com/grpc/grpc-web/issues/1522"
   end
 
   def install

@@ -1,8 +1,8 @@
 class Solana < Formula
   desc "Web-Scale Blockchain for decentralized apps and marketplaces"
   homepage "https://www.anza.xyz/"
-  url "https://github.com/anza-xyz/agave/archive/refs/tags/v4.0.3.tar.gz"
-  sha256 "b0698f0c43e1299bf4d80df6d0153e99d1c5964065b7a8623d987f0cad3b7a30"
+  url "https://github.com/anza-xyz/agave/archive/refs/tags/v4.2.1.tar.gz"
+  sha256 "00740ce34e90d1ca4500e4f8029936f2101d328cd51926312286d049ce1a490b"
   license "Apache-2.0"
   version_scheme 1
 
@@ -12,12 +12,12 @@ class Solana < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "f85ca9b3d63593de7c5bfc12b41167c92a261d51fd7f70731fe54a9ba5efcde8"
-    sha256 cellar: :any, arm64_sequoia: "bbf5b1ae8f71ef5b7c7406184844d5e265025317424a984c13c4d31c967e16e4"
-    sha256 cellar: :any, arm64_sonoma:  "ae23403052d77f7c03440fd3df55456d1cfb1f469b985b2fa10c0e065d730443"
-    sha256 cellar: :any, sonoma:        "e4465b5a99dfbdf87c67bc8ec05ba6aa5379465c754813aaa5225b8b6d9f9a6d"
-    sha256 cellar: :any, arm64_linux:   "58068c641c11d3a37b19ea9c6cf3f8e1ae23374f152a2eabfde94be5e691e97f"
-    sha256 cellar: :any, x86_64_linux:  "5fe435590140b451deacb53455807ce265abf07a6210ff08dcd972a887288bf4"
+    sha256 cellar: :any, arm64_tahoe:   "49fbe4dcbfd34a434204b200ade816e1c700e91a543fbc28e587fe0eddd9a650"
+    sha256 cellar: :any, arm64_sequoia: "de94f619fd8caf19fbf313e6f1f8b7b1bb020784e81a02dd71bbc465d49ee2d5"
+    sha256 cellar: :any, arm64_sonoma:  "2965904a30f587140d1f1b6419d4a44dd3ea06c001b4f5e00f0d97244f4c5585"
+    sha256 cellar: :any, sonoma:        "8dfbbec823fecc52e8d484c90364ee1ebda9fe55400d9c05079c7522012b8f06"
+    sha256 cellar: :any, arm64_linux:   "88e265680f46e44ae2a6e6e440869cc15a90c58397c6117995a742ca0f5dced1"
+    sha256 cellar: :any, x86_64_linux:  "b34610ef6de57c35f4c590ab587ccb00124427056843c8ffb29bdec313c34a79"
   end
 
   depends_on "llvm" => :build # for libclang
@@ -29,17 +29,13 @@ class Solana < Formula
 
   uses_from_macos "bzip2"
 
-  # Work around Homebrew-specific issue using Apple Clang 1700 (LLVM 19) by updating cc-rs
-  # https://github.com/Homebrew/brew/issues/21112
-  patch :DATA
-
   def install
     # Work around librocksdb-sys build failure with Apple libclang, "Library not loaded: @rpath/libclang.dylib"
-    ENV["LIBCLANG_PATH"] = Formula["llvm"].opt_lib.to_s if OS.mac?
+    ENV["LIBCLANG_PATH"] = formula_opt_lib("llvm").to_s if OS.mac?
 
     # Use brew dependencies
-    ENV["PROTOC"] = Formula["protobuf"].opt_bin/"protoc"
-    ENV["ROCKSDB_LIB_DIR"] = Formula["rocksdb"].opt_lib
+    ENV["PROTOC"] = formula_opt_bin("protobuf")/"protoc"
+    ENV["ROCKSDB_LIB_DIR"] = formula_opt_lib("rocksdb")
 
     bins = %w[
       cli
@@ -69,21 +65,3 @@ class Solana < Formula
     assert_match version.to_s, shell_output("#{bin}/solana-keygen --version")
   end
 end
-
-__END__
-diff --git a/Cargo.lock b/Cargo.lock
-index 045adc06b4..5ffbb89f1c 100644
---- a/Cargo.lock
-+++ b/Cargo.lock
-@@ -1720,9 +1720,9 @@ checksum = "37b2a672a2cb129a2e41c10b1224bb368f9f37a2b16b612598138befd7b37eb5"
- 
- [[package]]
- name = "cc"
--version = "1.2.16"
-+version = "1.2.21"
- source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "be714c154be609ec7f5dad223a33bf1482fff90472de28f7362806e6d4832b8c"
-+checksum = "8691782945451c1c383942c4874dbe63814f61cb57ef773cda2972682b7bb3c0"
- dependencies = [
-  "jobserver",
-  "libc",

@@ -36,14 +36,14 @@ class Quilt < Formula
       "--without-getopt",
     ]
     if OS.mac?
-      args << "--with-sed=#{Formula["gnu-sed"].opt_bin}/gsed"
+      args << "--with-sed=#{formula_opt_bin("gnu-sed")}/gsed"
       args << "--with-stat=/usr/bin/stat" # on macOS, quilt expects BSD stat
       if MacOS.version >= :ventura
-        args << "--with-diff=#{Formula["diffutils"].opt_bin}/diff"
-        args << "--with-patch=#{Formula["gpatch"].opt_bin}/gpatch"
+        args << "--with-diff=#{formula_opt_bin("diffutils")}/diff"
+        args << "--with-patch=#{formula_opt_bin("gpatch")}/gpatch"
       end
     else
-      args << "--with-sed=#{Formula["gnu-sed"].opt_bin}/sed"
+      args << "--with-sed=#{formula_opt_bin("gnu-sed")}/sed"
     end
     system "./configure", *args
 

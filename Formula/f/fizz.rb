@@ -1,19 +1,19 @@
 class Fizz < Formula
   desc "C++14 implementation of the TLS-1.3 standard"
   homepage "https://github.com/facebookincubator/fizz"
-  url "https://github.com/facebookincubator/fizz/archive/refs/tags/v2026.06.15.00.tar.gz"
-  sha256 "6f14e7c83ae846eb9f99f242cf1b6a89a9e065fac6982d06990523e7a2e10d6b"
+  url "https://github.com/facebookincubator/fizz/archive/refs/tags/v2026.07.27.00.tar.gz"
+  sha256 "69c66da4de72c6392cd2c7431895e9eb4a0c802a7046840d45c442bb0035bbe5"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/facebookincubator/fizz.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "abb60a3740975b7929737060cc59b4af47a2bf2031c8c183a342d3c09ed211bd"
-    sha256 cellar: :any, arm64_sequoia: "5711a3de66f7eee94e111081f68ad3c7cf85ae0a32ffe4e904304bf80a97c474"
-    sha256 cellar: :any, arm64_sonoma:  "659831cbe5c9ed93f8451f959c77423f75b55223f90ef516be4d89cb3c17bcf0"
-    sha256 cellar: :any, sonoma:        "93bbb18368fedfbf3480df2a8807d2d4988a91f13912e3c1db84f9ad1e90e461"
-    sha256 cellar: :any, arm64_linux:   "21ee0c757a2a526ad6ff6766459a36d082923b33c83b8e6cb15ae9a1a2e22189"
-    sha256 cellar: :any, x86_64_linux:  "2cf2ddaf79587d03bcf8bd07703cd257b2e08d1d79fbff5de81fa74c37e94d15"
+    sha256 cellar: :any, arm64_tahoe:   "236aba1c724770c49a91b37973de8e0b737232e6614fdf305e8dc401e9015693"
+    sha256 cellar: :any, arm64_sequoia: "6d163c05900b8b8b946b9517a94aaa0827a07adae508d08939d52fbf88223056"
+    sha256 cellar: :any, arm64_sonoma:  "392b009a7c424840f2b843f7463eafb235b33d95c623507ca1c113458fac8e1f"
+    sha256 cellar: :any, sonoma:        "48eea039c51c16063d35f1180a8e52ca87cd090cc922efd98a75498b962be39c"
+    sha256 cellar: :any, arm64_linux:   "16390ec86086b08db0d3767778bb1cfc12de0e346b1175daf5ab593b2c585bfc"
+    sha256 cellar: :any, x86_64_linux:  "ac877423e026e24b9ec74909bf7a9b28fdbcec0d2ce3994d6928441b9106db89"
   end
 
   depends_on "cmake" => [:build, :test]

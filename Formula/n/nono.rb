@@ -1,19 +1,22 @@
 class Nono < Formula
   desc "Capability-based sandbox shell for AI agents with OS-enforced isolation"
   homepage "https://nono.sh"
-  url "https://github.com/always-further/nono/archive/refs/tags/v0.63.0.tar.gz"
-  sha256 "0199ba14cedeab5d1cdab835ce074b655b635440c7eba8c1cf325c3f952964bc"
+  url "https://github.com/nolabs-ai/nono/archive/refs/tags/v0.74.0.tar.gz"
+  sha256 "e3af961a0993644c2bef7676b183cf7af67bffd3488bee272e315e8aff83002b"
   license "Apache-2.0"
 
-  no_autobump! because: :bumped_by_upstream
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9b109f205b8e65de9d788d50e04f4a95c404719b92ccbe046f36249807332d20"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "456fbcd44f958e4a4d2266e77cb3550e79a994e9e74aae4119e4d5c0fa5002e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ddfe29abf54e469f6d04d4a9e6123becdcb8271a637cde90441142d2d7296742"
-    sha256 cellar: :any_skip_relocation, sonoma:        "93cbed3005de0e382a33dcfcb4cdd0c7010154a60dd03a8a7041b90e806f1618"
-    sha256 cellar: :any,                 arm64_linux:   "865b76b5d880daddc1427c48130c060b02ecd31233d33dfa8100ab4880406352"
-    sha256 cellar: :any,                 x86_64_linux:  "aabfd1bf5bb9b65207cd0de615eb674205f8c2268ebf9ccda3ceed5931bdb86b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6258568f63774b692fc04539644b8d92faf3439f88a392ab4ca59beee3ee386d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7a0d8377a374e5c4c8d3823b53bf22eb88921f82a65bf889943a4128447f3c3f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "47bd402cdf6c9f8f9b914934ab7dcc514798a86d843692657c37612a5d4826b4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d4c09f0e1ec17c744eef363dc108fe913f6d437741c048b68924d35533f83e0f"
+    sha256 cellar: :any,                 arm64_linux:   "0a2b99ae04d4dc1573cf5df0f2f3c56d1f8865d73e792ddb272311c5f5578834"
+    sha256 cellar: :any,                 x86_64_linux:  "402d0bd7ab53d0be3e9d3e8c5a4eb2b855f5e7d94fac6a43073b2f641d29194d"
   end
 
   depends_on "pkgconf" => :build
@@ -25,6 +28,7 @@ class Nono < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/nono-cli")
+    generate_completions_from_executable(bin/"nono", "completion", "--silent")
   end
 
   test do

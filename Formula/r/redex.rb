@@ -7,15 +7,16 @@ class Redex < Formula
   url "https://github.com/facebook/redex/archive/refs/tags/v2026.04.30.tar.gz"
   sha256 "60c638403ce608b7d96d76592f4e2bfcb5e541b2eee33f97d06f771f2c147880"
   license "MIT"
+  revision 1
   head "https://github.com/facebook/redex.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "32f739c723e58daaf41aa654de4131ab30615c9e58b3cc236fbbf1b3d3e614e7"
-    sha256 cellar: :any, arm64_sequoia: "c93576486cf574355e2ca3d80ccc585dfa27da29c43bbcbbcc6921e376a1c8a3"
-    sha256 cellar: :any, arm64_sonoma:  "b00f40d922448092e969721c8bdc157853bccace0163d088df48ae2035576112"
-    sha256 cellar: :any, sonoma:        "2e57edc7c2c16f166a50ddca433909053602769a67577852acf2eed99315f06f"
-    sha256 cellar: :any, arm64_linux:   "65153d035700f0859adb7fcb523ef9d1ff13b972231be182e683bc4ba8a440ec"
-    sha256 cellar: :any, x86_64_linux:  "3c2b5fb75e403a1356a4fab208a21554ff26fd59e68ed0bd3005294004d48a9f"
+    sha256 cellar: :any, arm64_tahoe:   "bedc7d74c8c6aae4dfde67293b461ddfb8cf0391466a0bca535377adb7546ab4"
+    sha256 cellar: :any, arm64_sequoia: "8b7979ae9df58e485b86d4de4bdade6e851b7748a256c11ded8bd22f50580357"
+    sha256 cellar: :any, arm64_sonoma:  "80f2572ec3edecb40908bc0de68f18625ec71ac6c21cba6143617e92ef5bd164"
+    sha256 cellar: :any, sonoma:        "3392e2b95d7d3cf00d250e2875fa877f9844d289283470d0591b9a7434438ffd"
+    sha256 cellar: :any, arm64_linux:   "a96632b9d002482b4b69a16a045cac8d05b46c0297d9362e447a7bc6d42c3fc7"
+    sha256 cellar: :any, x86_64_linux:  "f0421685457e0b1657c294396973da261c0e3be40059a5a23c07ebb37ab907f8"
   end
 
   depends_on "cmake" => :build
@@ -40,22 +41,24 @@ class Redex < Formula
   end
 
   # Patch to allow redex.py to detect redex-binary
-  # PR: https://github.com/facebook/redex/pull/982
   patch do
     url "https://github.com/facebook/redex/commit/f1d9211256ac03d92a4176bea36fb97bee581f41.patch?full_index=1"
     sha256 "d3ce5c0b758ae7f61c30ca7ebea115d782abe43af61672454874be9810201ce1"
+    type :unofficial
+    resolves "https://github.com/facebook/redex/pull/982"
   end
 
   # Backport macOS SDK .tbd zlib detection, missing from the v2026.04.30 release
-  # PR: https://github.com/facebook/redex/pull/980
   patch do
     url "https://github.com/facebook/redex/commit/a885d52ce6121ed96b78c511d1920116de10ff86.patch?full_index=1"
     sha256 "ca1321b1fb500203110f5da701106eaab89f61ecbdc62182e94f8747b17cfc65"
+    type :backport
+    resolves "https://github.com/facebook/redex/pull/980"
   end
 
   def install
     zlib_home = if OS.linux?
-      Formula["zlib-ng-compat"].opt_prefix
+      formula_opt_prefix("zlib-ng-compat")
     else
       MacOS.sdk_for_formula(self).path/"usr"
     end

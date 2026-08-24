@@ -1,8 +1,8 @@
 class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "https://www.freetds.org/"
-  url "https://www.freetds.org/files/stable/freetds-1.5.18.tar.bz2"
-  sha256 "6b2c8b93b9ee7c83855daf745de5878790032f14dbaee553d83a9d211b84dd4b"
+  url "https://www.freetds.org/files/stable/freetds-1.5.19.tar.bz2"
+  sha256 "0dc2df2fea9934e3a99e00d417f3d192e9897572f6aff3905bd48f2507d16dff"
   license "GPL-2.0-or-later"
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class Freetds < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "04255031703dd87bc594f1bba35bd507eb75ab0a7df0b1fa85fc64d6a8798791"
-    sha256 arm64_sequoia: "4227980af018668e860120a319066f8c701823156821d806de69d089198ed2c3"
-    sha256 arm64_sonoma:  "955417a5ee2d8fc5259ae59549f78bf9bd7f81b2f188caf4545740137236ffee"
-    sha256 sonoma:        "6fcee5bc09ff8ffec162a2d6ba547fa7f5930381303e6dfacd8b0f2534412796"
-    sha256 arm64_linux:   "7296b8bd471f270f419e4ce39d713b2a7961bca5eba6df0777f56e4bbc869456"
-    sha256 x86_64_linux:  "79349cab9e40ae1e20506398940d6765caa81602c9a57f7cb7874d9e55b288a8"
+    sha256 arm64_tahoe:   "b0eb61b463d521f6cd42af3ac201894f4fa0c74f75357cdbbbecc9640d2824e5"
+    sha256 arm64_sequoia: "df9e2fd1fd5a5db20d45ac9e984faed821c5670048053bfed54fd9ed653ee2e7"
+    sha256 arm64_sonoma:  "e96dfe999ccb7345619352b5c82351ce156ce4ef795ecc2165762248970533e2"
+    sha256 sonoma:        "03b6477d1d6c762d741a44a9467494a6ab5397e673a84647a3b7b72b1b1901c4"
+    sha256 arm64_linux:   "b61b900dbb31021d101e73005b478b2ee4eb03b84350138199710a6d09641185"
+    sha256 x86_64_linux:  "98de300451af07921cbad4f678cd66a8162156681b56309247a5ec81f76f70f1"
   end
 
   head do
@@ -45,8 +45,8 @@ class Freetds < Formula
       --with-tdsver=7.3
       --mandir=#{man}
       --sysconfdir=#{etc}
-      --with-unixodbc=#{Formula["unixodbc"].opt_prefix}
-      --with-openssl=#{Formula["openssl@3"].opt_prefix}
+      --with-unixodbc=#{formula_opt_prefix("unixodbc")}
+      --with-openssl=#{formula_opt_prefix("openssl@3")}
       --enable-sybase-compat
       --enable-krb5
       --enable-odbc-wide

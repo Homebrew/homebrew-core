@@ -21,10 +21,12 @@ class Torsocks < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  # https://gitlab.torproject.org/legacy/trac/-/issues/28538
+  # Guard Linux-only accept4 so it builds on macOS
   patch do
     url "https://gitlab.torproject.org/legacy/trac/uploads/9efc1c0c47b3950aa91e886b01f7e87d/0001-Fix-macros-for-accept4-2.patch"
     sha256 "97881f0b59b3512acc4acb58a0d6dfc840d7633ead2f400fad70dda9b2ba30b0"
+    type :unofficial
+    resolves "https://gitlab.torproject.org/legacy/trac/-/issues/28538"
   end
 
   def install

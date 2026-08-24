@@ -1,8 +1,8 @@
 class Psqlodbc < Formula
   desc "Official PostgreSQL ODBC driver"
   homepage "https://odbc.postgresql.org"
-  url "https://github.com/postgresql-interfaces/psqlodbc/archive/refs/tags/REL-18_00_0001.tar.gz"
-  sha256 "2cf6f19d72765f0b8c2a8a9f4000f1ae1835e737c4899dc931dd6d7a7a0c87dc"
+  url "https://github.com/postgresql-interfaces/psqlodbc/archive/refs/tags/REL-18_00_0002.tar.gz"
+  sha256 "54c07372478d1085f4f7f98753d6454f8b231c155ff29c5aca4b34aa95bfc51f"
   license "LGPL-2.0-or-later"
   head "https://github.com/postgresql-interfaces/psqlodbc.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Psqlodbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8ea1a4ecf8e6a609fdc9b2c38efc6a1f48c905420eee73abc502e466de797328"
-    sha256 cellar: :any,                 arm64_sequoia: "904625a0bf31b2b254a7e6832a98a4e9cd9ac738895564a69ade039223b22b90"
-    sha256 cellar: :any,                 arm64_sonoma:  "85e059770deb50b4132d96040507431fe243470b4273102432ba9b6a84a1f6ba"
-    sha256 cellar: :any,                 sonoma:        "319330d341a6d3bab2fe8f0c197f9f647fb3255cb07e8f539199dcee639014c1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f0ddc9cac55df470dfe893d2bc17678471f17723acadbcebb82615539c3872f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7ef65df1154b69caecb031b91196a70c3c9c2f46561149f5655a2909ee1bdb7"
+    sha256 cellar: :any, arm64_tahoe:   "2aac053918a25fbae7120aee158d59b468fed678201d5a92d7d0f66aacb25cfd"
+    sha256 cellar: :any, arm64_sequoia: "775570e12994cfedbb333cffb16ad6717e9c37681b4aef44318ddb49809834f9"
+    sha256 cellar: :any, arm64_sonoma:  "6eb23efb1c4ce46cbfc7055f777ae4e0ed4562181076218e826ca63e0c0fde14"
+    sha256 cellar: :any, sonoma:        "18c3b760f0cf3fa2ab1d4df676998b7417a284e31d7dca14ff15084ec290d1c6"
+    sha256 cellar: :any, arm64_linux:   "278530d1ef05ad8be0769c46e21da3cbcf09c22cabd5e4929a86577e7d59a17b"
+    sha256 cellar: :any, x86_64_linux:  "5cf83ae262b45476a1a8c7f15197c79a26cda0dc4612eabb6bd155f6f8328761"
   end
 
   depends_on "autoconf" => :build
@@ -32,7 +32,7 @@ class Psqlodbc < Formula
   def install
     system "./bootstrap"
     system "./configure", "--prefix=#{prefix}",
-                          "--with-unixodbc=#{Formula["unixodbc"].opt_prefix}"
+                          "--with-unixodbc=#{formula_opt_prefix("unixodbc")}"
     system "make"
     system "make", "install"
   end

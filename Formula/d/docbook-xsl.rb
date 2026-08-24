@@ -14,8 +14,15 @@ class DocbookXsl < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "201ddedf7dcf5ac0d6eb0a2554ff329ee9856ce5f79d95db9c5d6db7703d9b84"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "97d7b10fee85c4ad08218efa4b9527b40a412d1e6b439612a76c5eb9c3fe22cd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "97d7b10fee85c4ad08218efa4b9527b40a412d1e6b439612a76c5eb9c3fe22cd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "97d7b10fee85c4ad08218efa4b9527b40a412d1e6b439612a76c5eb9c3fe22cd"
+    sha256 cellar: :any_skip_relocation, tahoe:         "51db3d441aca723d738e3524a4de0e892c0cc659b4ea3f14f3c921c0176e3769"
+    sha256 cellar: :any_skip_relocation, sequoia:       "51db3d441aca723d738e3524a4de0e892c0cc659b4ea3f14f3c921c0176e3769"
+    sha256 cellar: :any_skip_relocation, sonoma:        "51db3d441aca723d738e3524a4de0e892c0cc659b4ea3f14f3c921c0176e3769"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "97d7b10fee85c4ad08218efa4b9527b40a412d1e6b439612a76c5eb9c3fe22cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97d7b10fee85c4ad08218efa4b9527b40a412d1e6b439612a76c5eb9c3fe22cd"
   end
 
   depends_on "docbook"
@@ -32,9 +39,7 @@ class DocbookXsl < Formula
 
   # see https://www.linuxfromscratch.org/blfs/view/9.1/pst/docbook-xsl.html for this patch
   patch do
-    url "https://www.linuxfromscratch.org/patches/blfs/9.1/docbook-xsl-nons-1.79.2-stack_fix-1.patch"
-    mirror "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/docbook-xsl/docbook-xsl-nons-1.79.2-stack_fix-1.patch"
-    sha256 "a92c39715c54949ba9369add1809527b8f155b7e2a2b2e30cb4b39ee715f2e30"
+    file "Patches/docbook-xsl/docbook-xsl-nons-1.79.2-stack_fix-1.patch"
   end
 
   def install
@@ -55,37 +60,35 @@ class DocbookXsl < Formula
     end
 
     bin.write_exec_script "#{prefix}/docbook-xsl/epub/bin/dbtoepub"
+
+    (libexec/"post-install").write <<~SH
+      #!/bin/sh
+      set -e
+      catalog="#{etc}/xml/catalog"
+      export XML_CATALOG_FILES="$catalog"
+      for names in "xsl xsl-nons" "xsl-ns xsl"; do
+        set -- $names
+        old_name="$1"
+        new_name="$2"
+        location="file://#{opt_prefix}/docbook-$old_name"
+        entry="$location/catalog.xml"
+        xmlcatalog --noout --del "$entry" "$catalog"
+        xmlcatalog --noout --add nextCatalog "" "$entry" "$catalog"
+        for url in "https://cdn.docbook.org/release/$new_name" \
+                   "http://docbook.sourceforge.net/release/$old_name"; do
+          for version in "#{version}" current; do
+            xmlcatalog --noout --del "$url/$version" "$catalog"
+            xmlcatalog --noout --add rewriteSystem "$url/$version" "$location" "$catalog"
+            xmlcatalog --noout --add rewriteURI "$url/$version" "$location" "$catalog"
+          done
+        done
+      done
+    SH
+    chmod 0755, libexec/"post-install"
   end
 
-  def post_install
-    etc_catalog = etc/"xml/catalog"
-    ENV["XML_CATALOG_FILES"] = etc_catalog
-
-    {
-      "xsl"    => "xsl-nons",
-      "xsl-ns" => "xsl",
-    }.each do |old_name, new_name|
-      loc = "file://#{opt_prefix}/docbook-#{old_name}"
-
-      # add/replace catalog entries
-      cat_loc = "#{loc}/catalog.xml"
-      system "xmlcatalog", "--noout", "--del", cat_loc, etc_catalog
-      system "xmlcatalog", "--noout", "--add", "nextCatalog", "", cat_loc, etc_catalog
-
-      # add rewrites for the new and old catalog URLs
-      rewrites = ["rewriteSystem", "rewriteURI"]
-      [
-        "https://cdn.docbook.org/release/#{new_name}",
-        "http://docbook.sourceforge.net/release/#{old_name}",
-      ].each do |url_prefix|
-        [version.to_s, "current"].each do |ver|
-          system "xmlcatalog", "--noout", "--del", "#{url_prefix}/#{ver}", etc_catalog
-          rewrites.each do |rewrite|
-            system "xmlcatalog", "--noout", "--add", rewrite, "#{url_prefix}/#{ver}", loc, etc_catalog
-          end
-        end
-      end
-    end
+  post_install_steps do
+    run "post-install", base: :libexec
   end
 
   test do

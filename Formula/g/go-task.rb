@@ -1,18 +1,18 @@
 class GoTask < Formula
   desc "Task is a task runner/build tool that aims to be simpler and easier to use"
   homepage "https://taskfile.dev/"
-  url "https://github.com/go-task/task/archive/refs/tags/v3.51.1.tar.gz"
-  sha256 "ee12bd4bd445df59de17d9b4376f8afb6a623facce34169479af8b0569220034"
+  url "https://github.com/go-task/task/archive/refs/tags/v3.53.1.tar.gz"
+  sha256 "dd22395f4548ba58bc3adf83cb9ce33f1c5fad7e7c5f0a229bb2709af439fa9a"
   license "MIT"
   head "https://github.com/go-task/task.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b93976b25adf359bad5f5cd976790a502bdac7151565871ee60235d709b46b8c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b93976b25adf359bad5f5cd976790a502bdac7151565871ee60235d709b46b8c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b93976b25adf359bad5f5cd976790a502bdac7151565871ee60235d709b46b8c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "12aba0edc52fc4c24313886e794c9d07f540edb0aca69b977aacafbfabacfe82"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "665657e6f482dbad332bbc1d53a5ace1042d2a0a9b032c7704ab17953f0bad51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d51acfa8c17844026ac669f0048c1916735f7a6d586c0826f190eb63e1c0a681"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "256f64599187c98918e3358555c9917d2ba3fc24b64e7cfea1ef93ebfe682442"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "256f64599187c98918e3358555c9917d2ba3fc24b64e7cfea1ef93ebfe682442"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "256f64599187c98918e3358555c9917d2ba3fc24b64e7cfea1ef93ebfe682442"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5f12db57cc70597ef669c911ce3515d0612da37c9b0069331f2de23f85ad1af0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "00c6e269eec92ea2870266e9e2deff42f7d1dd16c0adb5efa8a17fcf97077d53"
+    sha256 cellar: :any,                 x86_64_linux:  "fca26b81d8aaf1e98294ba86189badaf5683198d09a0535cfe7496df63d5797f"
   end
 
   depends_on "go" => :build
@@ -21,7 +21,6 @@ class GoTask < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/go-task/task/v3/internal/version.version=#{version}
       -X github.com/go-task/task/v3/internal/version.sum=#{tap.user}
     ]

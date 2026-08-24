@@ -21,10 +21,12 @@ class Envv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9cb0c8481042567e17ff04b7d5dd3cc46fccbc0e321203770791588fc51d11b7"
   end
 
-  # Fix missing header includes, see https://github.com/jakewendt/envv/pull/4
+  # Fix missing header includes
   patch do
     url "https://github.com/jakewendt/envv/commit/0445a7e4ada9067b3817d1b03edfb91ba59a8962.patch?full_index=1"
     sha256 "7c778b4ab19f53feefaef65003249e9dbd09ac80fb4a7c0828bb357422eb8683"
+    type :backport
+    resolves "https://github.com/jakewendt/envv/pull/4"
   end
 
   def install

@@ -1,8 +1,8 @@
 class Tenv < Formula
   desc "OpenTofu / Terraform / Terragrunt / Terramate / Atmos version manager"
   homepage "https://tofuutils.github.io/tenv/"
-  url "https://github.com/tofuutils/tenv/archive/refs/tags/v4.14.8.tar.gz"
-  sha256 "41094ae845744e9db572875415f8fbcffa8d335491f96567fa998dca36487f9d"
+  url "https://github.com/tofuutils/tenv/archive/refs/tags/v4.15.1.tar.gz"
+  sha256 "dcdc001456b1a3d5d2f680f20cb4ef3f049eb17d9def9abc96b0303c6b16b99f"
   license "Apache-2.0"
   head "https://github.com/tofuutils/tenv.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Tenv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fc9a1b8dd4cb987e274abedb8148939d4ddf74fc451d6331adb2c395b570204b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc9a1b8dd4cb987e274abedb8148939d4ddf74fc451d6331adb2c395b570204b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc9a1b8dd4cb987e274abedb8148939d4ddf74fc451d6331adb2c395b570204b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "809ff42447f52302e6364103ea0fe985ea4955aef505922236035d8f8095293a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "34fc7f700f8b56b84ad25d4e75a524444ab51b9ae34af055bf817e21cce63417"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4bc8852c54b59ee2cfae3302fc949e85ae86e4cc8b289b1d2748cc27d9996519"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c00d676a520557da303dd5c5b935b743fecccfbe0dde580a45df709757530d74"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c00d676a520557da303dd5c5b935b743fecccfbe0dde580a45df709757530d74"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c00d676a520557da303dd5c5b935b743fecccfbe0dde580a45df709757530d74"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d6e5a0efc047cf8d30dc20fd98e5110c2a3638890bee1f0b33246c55c18313e3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cce50f66d1dce85930c5b9d2712d1e1067f553ca764f475a353861d4e229ce9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1826eb6b2ab65c9a9bc2143b2bbe6e79d8bfa22cbbbaebb295ad54aa4f6163b"
   end
 
   depends_on "go" => :build
@@ -31,7 +31,7 @@ class Tenv < Formula
 
   def install
     ENV["CGO_ENABLED"] = "0"
-    ldflags = "-s -w -X main.version=#{version}"
+    ldflags = "-X main.version=#{version}"
     %w[tenv terraform terragrunt terramate tf tofu atmos].each do |f|
       system "go", "build", *std_go_args(ldflags:, output: bin/f), "./cmd/#{f}"
     end

@@ -40,11 +40,14 @@ class Unac < Formula
   patch do
     url "https://sources.debian.org/data/main/u/unac/1.8.0-8/debian/patches/gcc-4-fix-bug-556379.patch"
     sha256 "f91d2c376826ff05eba7a13ee37b8152851f2c24ced29ee88afdf9b42b6a2fc8"
+    type :unofficial
+    resolves "https://bugs.debian.org/556379"
   end
 
   patch do
     url "https://sources.debian.org/data/main/u/unac/1.8.0-8/debian/patches/update-autotools.diff"
     sha256 "8310103e199edf477e3f3fd961a2ecb09bf361ba1602871b8a223b1ee65cc11a"
+    type :unofficial
   end
 
   def install

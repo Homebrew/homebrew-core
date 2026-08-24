@@ -1,13 +1,9 @@
 class Atari800 < Formula
   desc "Atari 8-bit machine emulator"
   homepage "https://atari800.github.io/"
+  url "https://github.com/atari800/atari800/releases/download/ATARI800_7_1_2/atari800-7.1.2-src.tgz"
+  sha256 "9602badfd7c45551cb5c4cc77f862af377c43a07caaa0bfc77ac87f9179673e3"
   license "GPL-2.0-or-later"
-
-  stable do
-    url "https://github.com/atari800/atari800/releases/download/ATARI800_5_2_0/atari800-5.2.0-src.tgz"
-    sha256 "3874d02b89d83c8089f75391a4c91ecb4e94001da2020c2617be088eba1f461f"
-    depends_on "sdl12-compat"
-  end
 
   livecheck do
     url :stable
@@ -18,13 +14,12 @@ class Atari800 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "8ee4d61f11fc57cc49859acab122eb2496d334f6e9907fb7dcfd4170c4765e50"
-    sha256 cellar: :any,                 arm64_sequoia: "3edaff9d17021ae93a506a9d7dbc4777a78defbae57f1048e1e4ccd3fa02fe9c"
-    sha256 cellar: :any,                 arm64_sonoma:  "c185ab09782ff89d74a1224e5524e2c9135426372a685c478266b52e7b021221"
-    sha256 cellar: :any,                 sonoma:        "78268655a61188a6720ce820e5eb52e6ad9fc0265d10b6d04d29a1e0305889fd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef23849a07d7554863256ffc128394a76a4e47eda8f93628a74e828dc66bec31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a30c9a3ddb2ceaa47e20b75a14833b53aebdd8851d893f306c42ebd8a79fbee"
+    sha256 cellar: :any, arm64_tahoe:   "ead342a44a99702268f6ac063affae6865e23dbb958c5816bbd36d74bd7a5b76"
+    sha256 cellar: :any, arm64_sequoia: "b4b5a4e801826dd486726a8ad2475115c3ebfdda8aad73bbb04fc2dd68c92a4b"
+    sha256 cellar: :any, arm64_sonoma:  "8a729644bf33cb139b3ba9b5402e9f7501784ffc3e6b9bba9f5a2c71700b1abc"
+    sha256 cellar: :any, sonoma:        "01da96e221060afbb1f74ce602208bc83a73653f287044b3cd1674028f3b24ff"
+    sha256 cellar: :any, arm64_linux:   "3ee1fbff7fa7788a73771565abf5e56632817bf0b9be2312ecd0183b94a656f8"
+    sha256 cellar: :any, x86_64_linux:  "36fa5a1669964012f938dbad4b4e4172376b38139ea2e74d9b428042f7fa125c"
   end
 
   head do
@@ -33,10 +28,10 @@ class Atari800 < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-    depends_on "sdl2"
   end
 
   depends_on "libpng"
+  depends_on "sdl2-compat"
 
   on_linux do
     depends_on "readline"

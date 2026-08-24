@@ -28,8 +28,8 @@ class Aspcud < Formula
 
   def install
     args = %W[
-      -DASPCUD_GRINGO_PATH=#{Formula["clingo"].opt_bin}/gringo
-      -DASPCUD_CLASP_PATH=#{Formula["clingo"].opt_bin}/clasp
+      -DASPCUD_GRINGO_PATH=#{formula_opt_bin("clingo")}/gringo
+      -DASPCUD_CLASP_PATH=#{formula_opt_bin("clingo")}/clasp
       -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     ]
 

@@ -1,17 +1,17 @@
 class Pgstream < Formula
   desc "PostgreSQL replication with DDL changes"
   homepage "https://github.com/xataio/pgstream"
-  url "https://github.com/xataio/pgstream/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "8800a4889fd8d062a45117bbc57434bb46d873e3c7db631520a4373c5d1c3684"
+  url "https://github.com/xataio/pgstream/archive/refs/tags/v1.4.1.tar.gz"
+  sha256 "1212cad5c18a857db4449d4a7d740619c5e74cbc98c6f98aa6eb195aed231dc7"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "712249f75dfbe96ad904a53441e9ef32907dd0f21d26a096996731c7dcfbae15"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "712249f75dfbe96ad904a53441e9ef32907dd0f21d26a096996731c7dcfbae15"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "712249f75dfbe96ad904a53441e9ef32907dd0f21d26a096996731c7dcfbae15"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6a59feaeedaf5d7f2b5a6210065f0915a27ad5ffb89af35f0213490b2a1b70ac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7ee451e366e111df4cd6640015088caa29e6f28f5cf6f490f02e0b6c845ed30c"
-    sha256 cellar: :any,                 x86_64_linux:  "e88c0836a5e76017e51aabfc6d78090ac7e3234e74b93d534723fca8bc4d8dca"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d1143ca9e88333ae0aaa9a023f610119a92343abb71ca10daee22aa10b534669"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ab210737a475ff60142c9f0edd8468ad9e117685c9f138797202a6950dbebf1c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "25b03cfab3789be274d8c47224bc1c7cd9ab1be5718a046f87c369516accc4be"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fce07e158eef31ca4c6c64a66502b5a8d5bd8854890f4da1b306076b74848de4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b4d21f19a45d4762221482dfa1c40af9ec2b86d08a39fcafe6413d7cb64b67df"
+    sha256 cellar: :any,                 x86_64_linux:  "7d1c854872d1c503881df9e851f9ba6f97c445a6be57761ad8e7e50662e55021"
   end
 
   depends_on "go" => :build
@@ -19,7 +19,7 @@ class Pgstream < Formula
   depends_on "wal2json" => :test
 
   def install
-    ldflags = "-s -w -X github.com/xataio/pgstream/cmd.Version=#{version}"
+    ldflags = "-X github.com/xataio/pgstream/cmd.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"pgstream", shell_parameter_format: :cobra)
@@ -38,6 +38,7 @@ class Pgstream < Formula
     (testpath/"test/postgresql.conf").write <<~CONF, mode: "a+"
       port = #{port}
       shared_preload_libraries = 'wal2json'
+      output_plugin_libraries = 'pgoutput, test_decoding, wal2json'
       wal_level = logical
     CONF
     system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"

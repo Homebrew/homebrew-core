@@ -1,10 +1,10 @@
 class Kokkos < Formula
   desc "C++ Performance Portability Ecosystem for parallel execution and abstraction"
   homepage "https://kokkos.org"
-  url "https://github.com/kokkos/kokkos/releases/download/5.1.1/kokkos-5.1.1.tar.gz"
-  sha256 "8bdbee0f0ac383436743ad8a9e3e928705b34b31a25a92dc5179c52a3aa98519"
+  url "https://github.com/kokkos/kokkos/releases/download/5.2.1/kokkos-5.2.1.tar.gz"
+  sha256 "3f754c99aa6130b1dd6520d904db7b2fd44ed618cd91e0dfd921956f23f6812d"
   license "Apache-2.0"
-  revision 1
+  compatibility_version 1
   head "https://github.com/kokkos/kokkos.git", branch: "develop"
 
   livecheck do
@@ -13,12 +13,12 @@ class Kokkos < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "67df6bee45072b72e93fd0558234bff4e761f8205921c7213460c82167ad1f24"
-    sha256 cellar: :any,                 arm64_sequoia: "f95bda78be3db9f757a285a7b83dfa4d562438e9f4d7d388bb0e1fbefa1cd183"
-    sha256 cellar: :any,                 arm64_sonoma:  "45a5269e3b68ef17296a4f02d31e31fac57bac302407692cabb69c57609b6278"
-    sha256 cellar: :any,                 sonoma:        "4ad47a155b302b6c3740cf88273cb000fdd9da93673b90dd1bcdca8fbb06a9ef"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e991ab7077e883453986fdf5b95539c3626abc77da9d3a3cabae7483ebe1150f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7418f122faf85fff6bc17a369cb11f24bbd747fd33570545d42f9eac2f21d68b"
+    sha256 cellar: :any, arm64_tahoe:   "5dcb045088638adcc72fee127b7df17c3fd109373b4838ad2c665e53898b10af"
+    sha256 cellar: :any, arm64_sequoia: "2da092ed063f1fdb11b9c5a387f3d5454d853c5e2c0f4397b0484a3e2da8bae0"
+    sha256 cellar: :any, arm64_sonoma:  "90fde3ab2c665c9996eed846741bcd91300523e1d4dcb3776de614bfd14a3c5c"
+    sha256 cellar: :any, sonoma:        "0210b6301a661415c6ad367531c2e59cd09794beda01d5ab1e91c9353312238d"
+    sha256 cellar: :any, arm64_linux:   "c31df52d82804f75715089d5f25121526bef3d9ae3fa6beed89254a0f580a11b"
+    sha256 cellar: :any, x86_64_linux:  "c0bf9d61a3f347f92dbbc472475358099bd6f8d3abed7fb2485c15a98425fded"
   end
 
   depends_on "cmake" => :build
@@ -58,7 +58,7 @@ class Kokkos < Formula
 
     # Platform-specific OpenMP linking flags
     extra_args = if OS.mac?
-      %W[-Xpreprocessor -fopenmp -I#{Formula["libomp"].opt_include} -L#{Formula["libomp"].opt_lib} -lomp]
+      %W[-Xpreprocessor -fopenmp -I#{formula_opt_include("libomp")} -L#{formula_opt_lib("libomp")} -lomp]
     else
       # Linux - use GCC's built-in OpenMP
       %w[-fopenmp]

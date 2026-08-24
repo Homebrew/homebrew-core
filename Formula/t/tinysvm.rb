@@ -29,8 +29,8 @@ class Tinysvm < Formula
 
   # Use correct compilation flag, via MacPorts.
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/tinysvm/patch-configure.diff"
-    sha256 "b4cd84063fd56cdcb0212528c6d424788528a9d6b8b0a17aa01294773c62e8a7"
+    file "Patches/tinysvm/patch-configure.diff"
+    type :unofficial
   end
 
   def install

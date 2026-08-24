@@ -4,15 +4,15 @@ class Pokerstove < Formula
   url "https://github.com/andrewprock/pokerstove/archive/refs/tags/v1.1.tar.gz"
   sha256 "ee263f579846b95df51cf3a4b6beeb2ea5ea0450ce7f1c8d87ed6dd77b377220"
   license "BSD-3-Clause"
-  revision 7
+  revision 8
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "281850608e647a17bb2b36e1ec2bb048a939687cf6fead379293d7ae54f9d602"
-    sha256 cellar: :any,                 arm64_sequoia: "1c122bdfdbbebabf98e2a3f9550239c0813deabb18443a365906c95821659759"
-    sha256 cellar: :any,                 arm64_sonoma:  "acd2db1e2142cde60afd927f6dfa11df1e9d9876e8a771ebd3626c0847f822f8"
-    sha256 cellar: :any,                 sonoma:        "ac9b605f3ae5dcd1fa51f1654ee40f884a19bf0158269513962c64c5ea912ee0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce7fe6adf71766c05a0cad8c86b3ded6903b8f5733387840dc0e6f37f905f350"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5ff08553bb991b7c07f03059117deca775f910cf782c6cbc28642ff9d7cd1f5"
+    sha256 cellar: :any, arm64_tahoe:   "657cfd5f80138b60153e00a80f29083bfe533354e8bb59d01ea05f05e12e473d"
+    sha256 cellar: :any, arm64_sequoia: "f53dc63b9fb78d0ec507f40e790822eb151177bc78363f0ce9edbe09bb784380"
+    sha256 cellar: :any, arm64_sonoma:  "0969644a32bc7ab0b013c266915d15799fd61827016099c25582bf89b7a2b6ad"
+    sha256 cellar: :any, sonoma:        "1f1a681481f881041d11a65af1053cf9bb92bc9d6631de73be1d5c454bff59d9"
+    sha256 cellar: :any, arm64_linux:   "b59ef4fcdad2d4e2e0e8618fcd4bc655dfe5774ab9af18c4a3b79f900d6eb210"
+    sha256 cellar: :any, x86_64_linux:  "7583766bf3fb8b7bc9290ae0b66214d79d019a33e07080736e9c655c3d27e22b"
   end
 
   depends_on "cmake" => :build
@@ -23,6 +23,7 @@ class Pokerstove < Formula
   patch do
     url "https://github.com/andrewprock/pokerstove/commit/8ca71960b3ee68bf7cbc419d5aee2065276054bb.patch?full_index=1"
     sha256 "379461a6e3258ebf9803ff4a52020d027a745e1676d7aee865f5dd035c51c6e9"
+    type :backport
   end
 
   def install

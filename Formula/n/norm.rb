@@ -27,10 +27,11 @@ class Norm < Formula
   # Fix warning: 'visibility' attribute ignored [-Wignored-attributes]
   # Remove in the next release
   #
-  # Ref https://github.com/USNavalResearchLaboratory/norm/pull/27
   patch do
     url "https://github.com/USNavalResearchLaboratory/norm/commit/476b8bb7eba5a9ad02e094de4dce05a06584f5a0.patch?full_index=1"
     sha256 "08f7cc7002dc1afe6834ec60d4fea5c591f88902d1e76c8c32854a732072ea56"
+    type :backport
+    resolves "https://github.com/USNavalResearchLaboratory/norm/pull/27"
   end
 
   def install

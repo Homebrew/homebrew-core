@@ -18,7 +18,7 @@ class Peco < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/peco/peco.version=#{version}"
+    ldflags = "-X github.com/peco/peco.version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/peco"
   end
 

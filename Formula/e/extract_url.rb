@@ -4,17 +4,17 @@ class ExtractUrl < Formula
   url "https://github.com/m3m0ryh0l3/extracturl/archive/refs/tags/v1.6.2.tar.gz"
   sha256 "5f0b568d5c9449f477527b4077d8269f1f5e6d6531dfa5eb6ca72dbacab6f336"
   license "BSD-2-Clause"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "160fbf5e75d447edf2f1769a1d4960906df27652a6849d19ac122689102b47ef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a565d71f29f03e9160f187615c545935db2ae098ebb8aff901932d8579500d3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f2a3eb7fe036307b921324ba71eead19534b37c3bbb47f16481d76c1fdb13b29"
-    sha256 cellar: :any_skip_relocation, tahoe:         "eb0760f5c01a362d6f704fcf1e005d38f3a41228dbc041072bfb6927c0fb74de"
-    sha256 cellar: :any_skip_relocation, sequoia:       "b4726e6215dc76ad8f1cf403618557361379644780e0727feb9e65a241ad3d24"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b1a9b40af8d79f7c0db5d3bcd88ddebf0e2bccf6c7057a189d189af6cd12765f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fb17c0cf4ed6894006819a6d8df16b1657fd6bda55626bc4201d2350048c3bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b82abb25a1f169aa7ae9507c37283fd2d0586447b877e1ca5973dd1535fa3152"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e49fb941f701db09e15f864a94e2950b92b94fb8e7f903c297c9239dcb3c3e8f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bee5b2a30c280fc97bb669c3530387ed70b6e0c93981737c268235925ac664b8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d98341a22d52656e3932bdc20df31e77c303e1095f642b5b041047d4e02528fe"
+    sha256 cellar: :any_skip_relocation, tahoe:         "66f6953eaccccb55671092b39efccffd9886ceb7ff51d9014d48e708fb1fa541"
+    sha256 cellar: :any_skip_relocation, sequoia:       "c1b2c90aaeac29164af289ca7c0de006c8bba6bcc44139d3b188bd874117c8a4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e909daf137e28f7b570ad455cac60bc25a05323a75c3cacb2e0e587e1d63d396"
+    sha256 cellar: :any,                 arm64_linux:   "e213d55363dc693fba0f0e078052ea85cfe2fed1b8a5ffc26658c4f9afa3833d"
+    sha256 cellar: :any,                 x86_64_linux:  "ba8446fe253d6287ef21a1818a8e3bb8d6f8580b07e5949bbbe6e8a38d9d0c16"
   end
 
   uses_from_macos "ncurses"

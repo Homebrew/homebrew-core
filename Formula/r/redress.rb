@@ -1,8 +1,8 @@
 class Redress < Formula
   desc "Tool for analyzing stripped Go binaries compiled with the Go compiler"
   homepage "https://github.com/goretk/redress"
-  url "https://github.com/goretk/redress/archive/refs/tags/v1.2.75.tar.gz"
-  sha256 "ca44859e236db18b30b8cc67ed8560f7f9b822e5648f362048f1de5f09b406fc"
+  url "https://github.com/goretk/redress/archive/refs/tags/v1.2.82.tar.gz"
+  sha256 "616cad47d47a70173c50b86263bfe690e70468b66c764daa8e1e80b10a256402"
   license "AGPL-3.0-only"
   head "https://github.com/goretk/redress.git", branch: "develop"
 
@@ -12,12 +12,12 @@ class Redress < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "087b64c75a8d1d6f0961ce6361770f9e4fbb5449c04574c3a0740e7131b1e413"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6cc3b7cdbc4aecce17696a7677e0affe1418b6a481b41abc1be283e92b0f3dfd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5f0ff0fee0bd08634f74bdc3b4f7d9cc4b36d2f0eac9b0fca523e55ea72f7f1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8c712bd41dd87dafded75676073d177cbe2804b31c7518b5aef7d62ed670455d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c223baeab5464d64cedb5018e631d22eaefea60c826c4b57787b3c70dfe038d2"
-    sha256 cellar: :any,                 x86_64_linux:  "fe36fc0416ad90a17b62ddf8a18d2f0211ead1acf4fe483867c54efcff04daaa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ad1d1553847f6437942feca30f26fcc5c5418a618919776588dc8a10eb6a9c1e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "76d3741a38cbe597984eaced076c81aa08ca8274dcd8d7464e56e76bb55bc24e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "19709850ec3b3084fec812a38e8b7765b46fab692c4db00628d41436488c9ce3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8e69627c68dab6538fdfc96fc35541ea9b73ff8f912c92388e514234bf331d9c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ffaf76c2ce387de9377b17647c88a514f75372819692571730f4456623b2270b"
+    sha256 cellar: :any,                 x86_64_linux:  "e57f192814a7281c1745d8fc5f79adf5e69d6c65ec24f1519832fd98114e7f59"
   end
 
   depends_on "go" => :build
@@ -27,7 +27,6 @@ class Redress < Formula
     gore_version = File.read(buildpath/"go.mod").scan(%r{goretk/gore v(\S+)}).flatten.first
 
     ldflags = %W[
-      -s -w
       -X main.redressVersion=#{version}
       -X main.goreVersion=#{gore_version}
       -X main.compilerVersion=#{Formula["go"].version}

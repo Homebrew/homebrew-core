@@ -38,7 +38,7 @@ class Pgslice < Formula
 
   def install
     ENV["GEM_HOME"] = libexec
-    ENV["PG_CONFIG"] = Formula["libpq"].opt_bin/"pg_config"
+    ENV["PG_CONFIG"] = formula_opt_bin("libpq")/"pg_config"
 
     resources.each do |r|
       r.fetch

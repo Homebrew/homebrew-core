@@ -21,13 +21,7 @@ class KubeScore < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
-      -X main.commit=#{Utils.git_head}
-      -X main.date=#{time.iso8601}
-    ]
-    system "go", "build", *std_go_args(ldflags:), "./cmd/kube-score"
+    system "go", "build", *std_go_args(ldflags: :goreleaser), "./cmd/kube-score"
   end
 
   test do

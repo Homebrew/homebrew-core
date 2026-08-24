@@ -1,18 +1,18 @@
 class Hysteria < Formula
   desc "Feature-packed proxy & relay tool optimized for lossy, unstable connections"
   homepage "https://hysteria.network/"
-  url "https://github.com/apernet/hysteria/archive/refs/tags/app/v2.9.2.tar.gz"
-  sha256 "d3d0e7b2e49f0cebb861fb215aa1625e4efa895a902d768db7ea45227d88b555"
+  url "https://github.com/apernet/hysteria/archive/refs/tags/app/v2.12.2.tar.gz"
+  sha256 "8db04a112e73685a1e5916d5d4d3df3ed897dbabc3e639fda4880b7ca9a7d18e"
   license "MIT"
   head "https://github.com/apernet/hysteria.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f11d979c0462bb60749915eeb953754e720056050b75075ffe38ef5975b73805"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f11d979c0462bb60749915eeb953754e720056050b75075ffe38ef5975b73805"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f11d979c0462bb60749915eeb953754e720056050b75075ffe38ef5975b73805"
-    sha256 cellar: :any_skip_relocation, sonoma:        "989e501798a819d372e4d508c0367f7f3cb112aa17a17c1c67cb243226739290"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7a9fc42dc9074b42e025cbf4bde45cea69898f33a72bd35a28644a27a04c9741"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf4bfe658f90d0b1ae97e618c5b0890e2c846586dbec74d881b2708e4c0610e5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "96198a0789c732b710ccb76f09460e75b0bc7b9fa3a201e2411b2ffeb2f96f22"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "96198a0789c732b710ccb76f09460e75b0bc7b9fa3a201e2411b2ffeb2f96f22"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96198a0789c732b710ccb76f09460e75b0bc7b9fa3a201e2411b2ffeb2f96f22"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9460173265af8924e06a30a98a824775a9980234acabea7b11f46fc9dd7442fd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c5c86915f4cc156fa46a053f5b5ccb865974f56c9a7b8987e4c438d1bf5a63fb"
+    sha256 cellar: :any,                 x86_64_linux:  "0a911acced4493696869621f004728df8e8e29bc7fc5cd26b66ce0c55f67961a"
   end
 
   depends_on "go" => :build
@@ -20,7 +20,6 @@ class Hysteria < Formula
   def install
     pkg = "github.com/apernet/hysteria/app/v2/cmd"
     ldflags = %W[
-      -s -w
       -X #{pkg}.appVersion=v#{version}
       -X #{pkg}.appDate=#{time.iso8601}
       -X #{pkg}.appType=release

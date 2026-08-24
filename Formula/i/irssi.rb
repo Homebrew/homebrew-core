@@ -4,7 +4,7 @@ class Irssi < Formula
   url "https://github.com/irssi/irssi/releases/download/1.4.5/irssi-1.4.5.tar.xz"
   sha256 "72a951cb0ad622785a8962801f005a3a412736c7e7e3ce152f176287c52fe062"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -12,13 +12,12 @@ class Irssi < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "380f42555868ac5b61259d1dddcd47d94d15e3b86829b379b750beaf2a47c6c9"
-    sha256 arm64_sequoia: "6cda96f843ce728a0493321ca5b9003a37ff61013939697bd314b168b7fd9ebd"
-    sha256 arm64_sonoma:  "e7aef7fff21ebc2f2e6abe9dba1768307bf2eb454a1ddba7a085c166bcb599ad"
-    sha256 sonoma:        "83c6d196ae4f4ddd984ae7b056de427a0ffb59118c4e3a29261e2aab483b0aba"
-    sha256 arm64_linux:   "5b9b324500185f2ab9dd750ab8d32c8318ae26f7baf077ec6837ee273c648df4"
-    sha256 x86_64_linux:  "b304553e132ba3665e7a2b6daca8393da7c6a4ec4ef24141dd437c979edd33be"
+    sha256 arm64_tahoe:   "320bd94484beb359b8a802a58496e081ddbf4c5fd1160e614c72e0a8db23d1a8"
+    sha256 arm64_sequoia: "69df4f8eb16990eb29a65c168fcbd296400c2d71645f9d230ef5bda0279b9596"
+    sha256 arm64_sonoma:  "52a6038357be2290d73699c90c3d562621b2a4c0701dec7d8f156e0977ebaa7d"
+    sha256 sonoma:        "29de29330e0ffc6cacfcea52980e9ce81e87e63164938d3b4a9e141abcd8a9c2"
+    sha256 arm64_linux:   "3f5dfe48c7d5a032a1cb69ac5327ecda63bb65d309033e10d8f81b24cb096607"
+    sha256 x86_64_linux:  "444b5e769de9168ffa56ce868435b86ecf8963eb3998e2b83885e4605c97d911"
   end
 
   depends_on "meson" => :build

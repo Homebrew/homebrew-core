@@ -69,7 +69,7 @@ class Poselib < Formula
       }
     CPP
     system ENV.cxx, "test.cpp", "-std=c++17",
-                    "-I#{Formula["eigen"].opt_include}/eigen3",
+                    "-I#{formula_opt_include("eigen")}/eigen3",
                     "-L#{lib}", "-lPoseLib", "-o", "test"
 
     expected_output = <<~EOS

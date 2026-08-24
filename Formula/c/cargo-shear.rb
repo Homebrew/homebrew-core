@@ -1,18 +1,18 @@
 class CargoShear < Formula
   desc "Detect and remove unused dependencies from `Cargo.toml` in Rust projects"
   homepage "https://github.com/Boshen/cargo-shear"
-  url "https://github.com/Boshen/cargo-shear/archive/refs/tags/v1.13.1.tar.gz"
-  sha256 "3da17c403b45d4a4c1f0547d8f1ee459465510c636f22a59190e449c69fc3352"
+  url "https://github.com/Boshen/cargo-shear/archive/refs/tags/v1.13.4.tar.gz"
+  sha256 "93016cfddda03e3862f2d25c63f7c18a100edbbda4df0f4bca1584a6b5a01394"
   license "MIT"
   head "https://github.com/Boshen/cargo-shear.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9983a0ffd0272b8b381eeceef3481e4a378b4f93c20a6036ae6cc05b72c5f08d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8fa68f4f2b59b2739a4b5f0746606ee55e73c912348f3682565d75d170b8bcc2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8404f8bc7a5ca8ac54a0f002692bdd468660bc38456c767c6e1e0988e4e9f57"
-    sha256 cellar: :any_skip_relocation, sonoma:        "35ce1a5990a9ca7ef74cb336c2b609df650d08fc87c66acd886568844ff8615a"
-    sha256 cellar: :any,                 arm64_linux:   "9d8bcc78127e6affe597c67e2653d86a55f7367f3c2ca52e6a2256a58cf7d0ab"
-    sha256 cellar: :any,                 x86_64_linux:  "54afff98e6a17a7ecd6543b87ff7f142a547c7d87a9f0ea628d3ce8e05618b68"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d8c6946d51bde74ffbe441073a1d2a6b732b5a179a74593703072eb29a017391"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b8df819ba03aac3f2d791f307beac1d4612a0af37132716b6ce1218e5e8b86a7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9fdd1396f60bd0a49f988435946a3c41105db7d0079e211820db5524472db3a9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "965f1147bfb5f3111289dfcc9004366a29985f79c033b5be685b0825bf7e749f"
+    sha256 cellar: :any,                 arm64_linux:   "c49dfe03cf94d021718f02df4f1346b85a68721e9b660eb806acd4ff30f4b619"
+    sha256 cellar: :any,                 x86_64_linux:  "55fedd67a8c48bb8a36b87222890f8fdf02d368ec7fcb54c0de82238c87b94d0"
   end
 
   depends_on "rust" => :build

@@ -76,7 +76,7 @@ class Mpfr < Formula
         return 0;
       }
     C
-    system ENV.cc, "test.c", "-L#{lib}", "-L#{Formula["gmp"].opt_lib}",
+    system ENV.cc, "test.c", "-L#{lib}", "-L#{formula_opt_lib("gmp")}",
                    "-lgmp", "-lmpfr", "-o", "test"
     system "./test"
   end

@@ -45,9 +45,9 @@ class Autodiff < Formula
 
   test do
     system ENV.cxx, pkgshare/"test/forward.cpp", "--std=c++17",
-                    "-I#{include}", "-I#{Formula["eigen@3"].opt_include}/eigen3", "-o", "forward"
+                    "-I#{include}", "-I#{formula_opt_include("eigen@3")}/eigen3", "-o", "forward"
     system ENV.cxx, pkgshare/"test/reverse.cpp", "--std=c++17",
-                    "-I#{include}", "-I#{Formula["eigen@3"].opt_include}/eigen3", "-o", "reverse"
+                    "-I#{include}", "-I#{formula_opt_include("eigen@3")}/eigen3", "-o", "reverse"
     assert_match "u = 8.19315\ndu/dx = 5.25\n", shell_output(testpath/"forward")
     assert_match "u = 8.19315\nux = 5.25\n", shell_output(testpath/"reverse")
     system python3, "-c", "import autodiff"

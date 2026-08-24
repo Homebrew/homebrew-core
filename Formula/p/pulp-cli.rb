@@ -3,18 +3,18 @@ class PulpCli < Formula
 
   desc "Command-line interface for Pulp 3"
   homepage "https://github.com/pulp/pulp-cli"
-  url "https://files.pythonhosted.org/packages/52/3a/94a5d16377d3d5c11a168ac642714653457b34bc44078f217eee9570ace2/pulp_cli-0.40.1.tar.gz"
-  sha256 "54d3c6f6e8fa935ae7c7b7f3f25e8f22c621ff359f4fbfeab7d33e9ee329df14"
+  url "https://files.pythonhosted.org/packages/01/98/99659e641d3ceda9543da064f537372b57ecb518767169631f0642903de6/pulp_cli-0.40.3.tar.gz"
+  sha256 "9ebd9fc847f757dc7bd2b5c5db30b4aa74bd452ca18e01b322f87c9a294d38be"
   license "GPL-2.0-or-later"
   head "https://github.com/pulp/pulp-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "99573ed0120168d488f7fc8234af58b79024eaaa76f88ff71cad5a0fe757ca60"
-    sha256 cellar: :any, arm64_sequoia: "bf944ae19edfc9b9000dc34c70778e1430bca28bf1c57fefc31fd8005471d09f"
-    sha256 cellar: :any, arm64_sonoma:  "3cf7db98e4e59c99cbdb295398d1f8c12734cf215bfb6353c6edae01350e61a2"
-    sha256 cellar: :any, sonoma:        "6160b3492d22f182ce0ad42033947501a1220f372f105ade6918ca3e22ff182f"
-    sha256 cellar: :any, arm64_linux:   "8a19cb188afabab40c53922cb9a253845898b814b0e510376bebc8b2827c3676"
-    sha256 cellar: :any, x86_64_linux:  "78bf811bca1ffd1a5fd87b42086b9598563cb85ab55e921683805b9864ef9401"
+    sha256 cellar: :any, arm64_tahoe:   "f59845463973b8b92d0288fec9a63735a2697a07c84151ca12ec1f4da62a6bd6"
+    sha256 cellar: :any, arm64_sequoia: "d0daddeeff6fb81c4a18215fbb75a4000e1802af2b974ab22ded39a22b8ebfbd"
+    sha256 cellar: :any, arm64_sonoma:  "f7860efbb06f2c9521636d8d870a244c333ce99c0d7105a3caf5fc559eff5273"
+    sha256 cellar: :any, sonoma:        "9edf8d64b75b7430f0b2a14cc58a920374a6fdabd62426e0e698839b7edc7c3d"
+    sha256 cellar: :any, arm64_linux:   "1674c13ce6b1ef4f121ca5afb82f9dc2e479721123d09fcc53365229d08afd75"
+    sha256 cellar: :any, x86_64_linux:  "03f8b43186285aaa4fa3e30ec217dfc662008ebbcc879783941412ad9dc9f1eb"
   end
 
   depends_on "certifi" => :no_linkage
@@ -25,18 +25,18 @@ class PulpCli < Formula
   pypi_packages exclude_packages: %w[certifi pydantic]
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
+    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
-    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
+    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
+    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
   end
 
   resource "multidict" do
@@ -50,8 +50,8 @@ class PulpCli < Formula
   end
 
   resource "pulp-glue" do
-    url "https://files.pythonhosted.org/packages/b3/9f/806e2466368921fc25307bd6a32e292fbd4c3603f4460164937ef3447065/pulp_glue-0.40.1.tar.gz"
-    sha256 "6305b2184545eb2decd13dc6133b71fa8ca9bc093c82fb4e4eb8c29d23fd62bc"
+    url "https://files.pythonhosted.org/packages/7d/43/d8c18db4fe3d1a624901bc4b23c0ff4dfa20f8ef6c3984946255776ebd68/pulp_glue-0.40.3.tar.gz"
+    sha256 "c0dfc6a314bc2b0ad8fae3a2b1943ba17644ae2f67c353845959c469a813fa31"
   end
 
   resource "pyyaml" do

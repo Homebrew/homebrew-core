@@ -25,6 +25,10 @@ class CKermit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "694f5ef3996f1e14a0ef1c1117902226f1eaba0488a27dbc248a52af354121b1"
   end
 
+  # development on c-kermit has stopped and moved to openkermit instead
+  deprecate! date: "2026-08-09", because: :unmaintained, replacement_formula: "openkermit"
+  disable! date: "2027-08-09", because: :unmaintained, replacement_formula: "openkermit"
+
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
 
@@ -45,10 +49,10 @@ class CKermit < Formula
     # Makefile only supports system libraries on Linux
     if OS.linux?
       inreplace "makefile" do |s|
-        s.gsub! "/usr/include/ncurses", "#{Formula["ncurses"].opt_include}/ncurses"
-        s.gsub! "/usr/lib/libncurses", "#{Formula["ncurses"].opt_lib}/libncurses"
-        s.gsub! "/usr/include/crypt", "#{Formula["libxcrypt"].opt_include}/crypt"
-        s.gsub! "/usr/lib/libcrypt", "#{Formula["libxcrypt"].opt_lib}/libcrypt"
+        s.gsub! "/usr/include/ncurses", "#{formula_opt_include("ncurses")}/ncurses"
+        s.gsub! "/usr/lib/libncurses", "#{formula_opt_lib("ncurses")}/libncurses"
+        s.gsub! "/usr/include/crypt", "#{formula_opt_include("libxcrypt")}/crypt"
+        s.gsub! "/usr/lib/libcrypt", "#{formula_opt_lib("libxcrypt")}/libcrypt"
       end
     end
 

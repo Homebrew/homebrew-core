@@ -31,8 +31,8 @@ class Libmpc < Formula
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *std_configure_args,
-                          "--with-gmp=#{Formula["gmp"].opt_prefix}",
-                          "--with-mpfr=#{Formula["mpfr"].opt_prefix}"
+                          "--with-gmp=#{formula_opt_prefix("gmp")}",
+                          "--with-mpfr=#{formula_opt_prefix("mpfr")}"
     system "make"
     system "make", "check"
     system "make", "install"
@@ -54,8 +54,8 @@ class Libmpc < Formula
         return 0;
       }
     C
-    system ENV.cc, "test.c", "-L#{lib}", "-L#{Formula["mpfr"].opt_lib}",
-                   "-L#{Formula["gmp"].opt_lib}", "-lmpc", "-lmpfr",
+    system ENV.cc, "test.c", "-L#{lib}", "-L#{formula_opt_lib("mpfr")}",
+                   "-L#{formula_opt_lib("gmp")}", "-lmpc", "-lmpfr",
                    "-lgmp", "-o", "test"
     system "./test"
   end

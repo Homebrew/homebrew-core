@@ -8,17 +8,16 @@ class Po4a < Formula
   url "https://github.com/mquinson/po4a/archive/refs/tags/v0.74.tar.gz"
   sha256 "6e390eb7707501a86f2e648d78fddb0d211d1e8699aa1ee201176e9f966a798b"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/mquinson/po4a.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "08b9a793f7b589dc09de4e2a9973fb4a944c2814e87bfbdd42a3b2344ffab49e"
-    sha256 cellar: :any,                 arm64_sequoia: "5ccc2e17840df2c7e6c1296c7d594adec3543b3b230819bf6164b0ea384e8bfb"
-    sha256 cellar: :any,                 arm64_sonoma:  "af2dada6c7c576abb28bfab0db2b74f06f476376c7e75515d72b2d88323ceb7f"
-    sha256 cellar: :any,                 sonoma:        "3a6cc9bd1e076edb447eada1df96fadcd0c4b0f74f23302e548dd8f6f1e6647b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "09e05f340a3e093c01436be844d9c5998ecc5e5740deb3daf8af71d56c80ef8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5927670f77918b411a03fa7ed9200ae7e9cd07076dbdfea62a414848bff525e9"
+    sha256 cellar: :any, arm64_tahoe:   "f6f1d45d8787fb77d22d7896a87c036547faa3c8a59366785459d13c05c7b27e"
+    sha256 cellar: :any, arm64_sequoia: "19d019214006692dd6c8e3768d39c8a69cd668dfbb4505fdc9573fb10de6e01b"
+    sha256 cellar: :any, arm64_sonoma:  "10ce9d9e847fd191905691b07dabdc36294ec65735dcf644b8fdfe70809f1d5c"
+    sha256 cellar: :any, sonoma:        "5ef8ddab8e773edf56404818f5f5a8ff96196ca509d84539ce61332c8e5c4d1d"
+    sha256 cellar: :any, arm64_linux:   "efe403c50630b82642ff4319a9c046b82cd6f8ccfe19c9c46ab4cd925c5758e3"
+    sha256 cellar: :any, x86_64_linux:  "40cf7d3c114d176b69f657e38c55ab3d880b7bf9c5ab662ea82a4b60e14f3cc8"
   end
 
   depends_on "docbook-xsl" => :build
@@ -124,7 +123,7 @@ class Po4a < Formula
         # Workaround for macOS perl as MakeMaker can only search libraries in perl compile-time paths
         # Issue ref: https://github.com/Perl-Toolchain-Gang/ExtUtils-MakeMaker/issues/277
         if OS.mac? && r.name == "Locale::gettext"
-          inreplace "Makefile.PL", '$libs = "-lintl"', "$libs = \"-L#{Formula["gettext"].opt_lib} -lintl\""
+          inreplace "Makefile.PL", '$libs = "-lintl"', "$libs = \"-L#{formula_opt_lib("gettext")} -lintl\""
         end
 
         if File.exist?("Makefile.PL")

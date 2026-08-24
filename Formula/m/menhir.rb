@@ -4,14 +4,15 @@ class Menhir < Formula
   url "https://gitlab.inria.fr/fpottier/menhir/-/archive/20260209/menhir-20260209.tar.bz2"
   sha256 "06f6e571aadd7d66cc3da808052d9a65f8be96fe27e0ad7e57bbbf8c20f4a832"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1862c8df45f52dc404b17fe9273be393cd9a95915f2d286f27f9319fb0e3371a"
-    sha256 cellar: :any,                 arm64_sequoia: "173d3774f8c1497230e9be8850443ac0783e36d9b84aa565f4bf5d1e8faab5f4"
-    sha256 cellar: :any,                 arm64_sonoma:  "255ee4bfbeaa8d28092704f8d068877943b7d379e6e5fc5a2eec84b98724cdbe"
-    sha256 cellar: :any,                 sonoma:        "8c7615312513871d4cf19ea6a1a5148992432b1df6118a11258503ebe63cf8f4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9fc0ee0e90cd8e7e838c1264e6e75f5b65f037c70252f9cd406157a61f2d6db5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b30a760335b79a8b54de203a47de4e1e66d93bf96551cb00ec1ddc234fd25d3"
+    sha256 cellar: :any, arm64_tahoe:   "d1a66c4b6941afb80b0aadb164785119b861126372ed35ffbe676fb64fe8661f"
+    sha256 cellar: :any, arm64_sequoia: "cf4092141bf3aa6c254724e787b839e63bfa29b4d1f8bf6897e5d9c12ed7d768"
+    sha256 cellar: :any, arm64_sonoma:  "b83889d4561b8329dfebd154a8253965dc7e7c1686e09fe4e68d543e1ac1e0e7"
+    sha256 cellar: :any, sonoma:        "c6e4c120b6d81d5744a1413cd5f2db5bf947997973378a6b59f33cdf7b448302"
+    sha256 cellar: :any, arm64_linux:   "dae63b81d9880d515ee22f6bbb580d7b56df526f2ce9a0e4557866cbba37fbcd"
+    sha256 cellar: :any, x86_64_linux:  "a0eb1b47d06bd256da1f007f63f02cb743797a0cbec9d0726233a1a3f365f97d"
   end
 
   depends_on "dune" => :build

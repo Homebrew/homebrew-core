@@ -26,11 +26,12 @@ class Netcat < Formula
   depends_on "automake" => :build
 
   # Fix running on Linux ARM64, using patch from Arch Linux ARM.
-  # https://sourceforge.net/p/netcat/bugs/51/
   patch do
     on_arm do
       url "https://raw.githubusercontent.com/archlinuxarm/PKGBUILDs/05ebc1439262e7622ba4ab0c15c2a3bad1ac64c4/extra/gnu-netcat/gnu-netcat-flagcount.patch"
       sha256 "63ffd690c586b164ec2f80723f5bcc46d009ffd5e0dd78bbe56fd1b770fd0788"
+      type :unofficial
+      resolves "https://sourceforge.net/p/netcat/bugs/51/"
     end
   end
 

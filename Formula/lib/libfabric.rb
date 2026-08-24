@@ -1,8 +1,8 @@
 class Libfabric < Formula
   desc "OpenFabrics libfabric"
   homepage "https://ofiwg.github.io/libfabric/"
-  url "https://github.com/ofiwg/libfabric/releases/download/v2.5.1/libfabric-2.5.1.tar.bz2"
-  sha256 "ac34788a52b3e4a3a1ef712ec29bc4261c63dfbd9e5e4d6e202a0c3687be368d"
+  url "https://github.com/ofiwg/libfabric/releases/download/v2.6.0/libfabric-2.6.0.tar.bz2"
+  sha256 "1ee2ab6eb16462c0fe7a836f9df52b8f12309dfee3f3774aa93a86f521a8e8b1"
   license any_of: ["BSD-2-Clause", "GPL-2.0-only"]
   head "https://github.com/ofiwg/libfabric.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Libfabric < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0024a4b494c4e3d9faf169cfaf2b54731e04f5ce55a8437dda4f65ba4708a744"
-    sha256 cellar: :any,                 arm64_sequoia: "62c444eed0e93afe6728eeebbaa267eeb1635420f94da75c6f55f2800c64b86f"
-    sha256 cellar: :any,                 arm64_sonoma:  "b033948b9f2f49338e754f5b60027baae361ebb4ab684a9ade76df5c41cdc139"
-    sha256 cellar: :any,                 sonoma:        "f65db186fc2dc198706755b2a7c96ff998756b22f1c9135ab168a47589b9a4a6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae797cfbcc6935530c8e42a7acb3ff4d7f8ff144a71b3554293190fcaf4f3638"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d466a23b9207ec21d04354ee3a81b832bd0ccbe7ec38b812ce3606ac03eadb9c"
+    sha256 cellar: :any, arm64_tahoe:   "f5c27820d3d5ab09cc1b6dedb83d9130e0ad4681b0394a03d89207c36532b229"
+    sha256 cellar: :any, arm64_sequoia: "0a5d94acf1897471bda1d148fbc898aba833dd61f1ba8afdf8a2b26e8d2fcd8c"
+    sha256 cellar: :any, arm64_sonoma:  "ce609666bd9a47dec6ff1ddba8029797b17b9f3cdca9bcaa5d940b7e85a3c9db"
+    sha256 cellar: :any, sonoma:        "5c1d12aa2aeda2bbda52c62cc3333ab1606cb1b6315041ef64e0c3fb5418f6b2"
+    sha256 cellar: :any, arm64_linux:   "a49929c131b79248a953bd13324f41f7c5285702cf81f20150b3fcfe28df7c1c"
+    sha256 cellar: :any, x86_64_linux:  "ae5a82abd6528b7b146eb3812aa7dcb47acbfd6ed6f2c70963b3596173d1821b"
   end
 
   depends_on "autoconf" => :build

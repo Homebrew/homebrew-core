@@ -1,17 +1,17 @@
 class Nbping < Formula
   desc "Ping Tool in Rust with Real-Time Data and Visualizations"
-  homepage "https://github.com/hanshuaikang/Nping"
-  url "https://github.com/hanshuaikang/Nping/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "344d49df5a117be5b52662113c84581f8b8c245b3f50cae40bbb944a4fce89c0"
+  homepage "https://github.com/hanshuaikang/NBping"
+  url "https://github.com/hanshuaikang/NBping/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "1a73f125601cac5ddc456b15d58b5145b859c46da24ce2024288fe4343050e5d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "625e690b7582d4d189badfebff0500f2e9441e4898cef08bbea8c5c293f00933"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44177c9497a794ae77d79d80d92edd5cc79b0bb8f545f929886ab64489cde4e2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c7dfe5cab7431bc0057affd87d89f58fbbf7d32aaefcddbbc81a9e3e93c8d94f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ffa1c814f94c2683f16361f473068bc4b7dabecd7626a118df74f77b6678935d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b469f18b32f694f0610b98cad74975fc1781d82e4832cb265d0beea09bba5d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77e799254eeb959040edec57f0efb47c877b2a776ff7afcb9682ec4eebc7ea8f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6027aa61b2d10461ee2e064be0b233e8a9940cdbe9799093e8fee3f21861acf4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d5fd281acb289638ed17e4a1b5ecae853a42a0e341df00b90427c25004d068aa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5dfd2f512be1b7cc9787fddcf5d9a08713d88a576c1147c22f18e33642589911"
+    sha256 cellar: :any_skip_relocation, sonoma:        "53efa2a79664589ca6993e1bb42c4bdb1b255c6b055c3beb79c8ed3b91c3f724"
+    sha256 cellar: :any,                 arm64_linux:   "66b75bb0513e38adb7ee3483ad97d30ed5728a0783db61526ee4385714aa7226"
+    sha256 cellar: :any,                 x86_64_linux:  "927c17ec1c17ae1e63080262ea7715aa90a0ce8b06f41861305660af23b272d8"
   end
 
   depends_on "rust" => :build

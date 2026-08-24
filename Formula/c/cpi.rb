@@ -1,18 +1,23 @@
 class Cpi < Formula
   desc "Tiny c++ interpreter"
   homepage "https://treefrogframework.github.io/cpi/"
-  url "https://github.com/treefrogframework/cpi/archive/refs/tags/v2.2.3.tar.gz"
-  sha256 "f56f3e529b6c3bb954a997a4c97f4b5d2d425e7a078428803624784eaed1b499"
+  url "https://github.com/treefrogframework/cpi/archive/refs/tags/v2.2.4.tar.gz"
+  sha256 "a8b86198eefcf262e8831e9691eb69d15b9b514aba282f28f471bb0fe7e54c36"
   license "MIT"
   head "https://github.com/treefrogframework/cpi.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1a48e8aed8aa76f0efa7ed70fd9373f4a103d1a33eaa2ddcecc4bb24d42b9327"
-    sha256 cellar: :any,                 arm64_sequoia: "d3bf08b3f16a80e47e60e5069a6f40fae0bc543a3aa95c18b90bbede7d0d4127"
-    sha256 cellar: :any,                 arm64_sonoma:  "774fb1b2760baf8e39779faa61e4d75ed2041e62ed1e199e8f5c1407600d4516"
-    sha256 cellar: :any,                 sonoma:        "c030076ba10edc7bd91d4fe57d386b2bcfea1c6c00311aac02c45251e73dfbd7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe3211c60ad46f4753fdfb8d9e2c46757acfd684fba08db2d2d46f14c4bba14f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f57105bbfacb083a3523871f80acb287f4dde789ceef34239f709ebb26d3bb6"
+    sha256 cellar: :any, arm64_tahoe:   "f771dd06a98c519e0a9576f6a679d0ab15e899014ac9e6bb5811110d527f6ead"
+    sha256 cellar: :any, arm64_sequoia: "752ffd2ad9bbd2c801da3497fe20cfb2c30ea8d810935b1c595157109a82bc9e"
+    sha256 cellar: :any, arm64_sonoma:  "4594edf513fd5cf6cbc37f1703139bd11c2a735b0537ddc44142a4882e3d8c25"
+    sha256 cellar: :any, sonoma:        "898d699dd206f14039d10d0afa160209aa5b84c4f806f999280f32c321499403"
+    sha256 cellar: :any, arm64_linux:   "b1a0fbdf6323461029f40fdf4df188f5214dd5d807728e6ab9b6be24994cbc1c"
+    sha256 cellar: :any, x86_64_linux:  "ce98d2bd9a45d1e8d866097929051fed95f20cbb7a924a591bd1537fa936b522"
   end
 
   depends_on "qtbase"

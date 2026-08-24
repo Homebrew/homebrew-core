@@ -1,18 +1,18 @@
 class PocketId < Formula
   desc "Open-source identity provider for secure user authentication"
   homepage "https://pocket-id.org"
-  url "https://github.com/pocket-id/pocket-id/archive/refs/tags/v2.9.0.tar.gz"
-  sha256 "5938a9aed5d41c75ff0d58bdf43c4f63eaf2f479783a09ee301dd38e7c9d3bcf"
+  url "https://github.com/pocket-id/pocket-id/archive/refs/tags/v2.14.0.tar.gz"
+  sha256 "bf04835908e5ad80ac8d5c3b7fd136f43d5e1bbe1953cb6d531a3226e2beec5d"
   license "BSD-2-Clause"
   head "https://github.com/pocket-id/pocket-id.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fa462fbeedb01a10c5aee89fb321b3d0e149f6081924bbf95a5c6f5567309431"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1fa645a38443ead1fce06a6db91f3164a9d0bd8efcc94cacf87b1d03311dd949"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1805849d2263c0eb9cecaf8c795f994b82bad47ff976390584e652f2ca22d4f7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "21119bb67b3f77c47a589f171dd08184030e29b813bc2c093f1f5eb1bfb7abb7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3b39ab62279013d2ea1edaae68006b72c6ffabd7015a184fce9965e68afa19e"
-    sha256 cellar: :any,                 x86_64_linux:  "6bd1d45ef40c0578419543d0f7be07c8dfe4d5799cd0f64813734d21d8a582d6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f04580a868a6b6e1864e441752a4826e98f339196e1e763cfcacfc53709935aa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5ec4ac3f5a8ada65a315b6591f79068cfa3f43b38b087e3c4fa9dc7ac9c3014"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2367ec8a7763724edb613b9249fb86074be774036287d71d3caafc6b685a6853"
+    sha256 cellar: :any_skip_relocation, sonoma:        "34dd587d7dd3b3c1cda1a55b3e175324982a29cfd65ca40472d82378da91a164"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "de7b921d1ffb712c6a8b071f9487b9c30c94b8dd60e7e89bf1bef3078cf62a79"
+    sha256 cellar: :any,                 x86_64_linux:  "224088ae6824d117440d1d8d6d2aa33886fc012d668303bb18793c9436d6a234"
   end
 
   depends_on "go" => :build
@@ -20,17 +20,9 @@ class PocketId < Formula
   depends_on "pnpm" => :build
 
   def install
-    # Prevent pnpm from downloading another copy due to `packageManager` feature
-    (buildpath/"pnpm-workspace.yaml").append_lines <<~YAML
-      managePackageManagerVersions: false
-    YAML
-
-    system "pnpm", "--dir", "frontend", "install", "--frozen-lockfile"
-    system "pnpm", "--dir", "frontend", "run", "build"
-
-    cd "backend/cmd" do
-      system "go", "build", *std_go_args(output: bin/"pocket-id", ldflags: "-s -w")
-    end
+    system "pnpm", "with", "current", "--dir", "frontend", "install", "--frozen-lockfile", "--ignore-scripts"
+    system "pnpm", "with", "current", "--dir", "frontend", "run", "build"
+    system "go", "build", "-C", "backend/cmd", *std_go_args(output: bin/"pocket-id")
   end
 
   service do

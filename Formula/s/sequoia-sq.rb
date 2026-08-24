@@ -1,8 +1,8 @@
 class SequoiaSq < Formula
   desc "Sequoia-PGP command-line tool"
   homepage "https://sequoia-pgp.org"
-  url "https://gitlab.com/sequoia-pgp/sequoia-sq/-/archive/v1.3.1/sequoia-sq-v1.3.1.tar.gz"
-  sha256 "9f112096f413e195ec737c81abb5649604f16e1f6dbe64a8accc5bb3ad39e239"
+  url "https://gitlab.com/sequoia-pgp/sequoia-sq/-/archive/v1.4.0/sequoia-sq-v1.4.0.tar.gz"
+  sha256 "c856bfb0f0c94a1b8f4b72a04a6eff1e1d3d24c377cb0b1e495688e9aad8467a"
   license "LGPL-2.0-or-later"
   head "https://gitlab.com/sequoia-pgp/sequoia-sq.git", branch: "main"
 
@@ -12,13 +12,12 @@ class SequoiaSq < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "19aea334d358be2cc1ceef010acf929d5878e06a049c7c5fc0857e11811c770f"
-    sha256 cellar: :any,                 arm64_sequoia: "a1a5edfd41e376367742c538e096a482a3ec74410a5b86e5687d774ea91d8a3e"
-    sha256 cellar: :any,                 arm64_sonoma:  "824517c9fb8af79ed92d680d516afaf6359cb02153cfe453e6dd841b0d2bb2df"
-    sha256 cellar: :any,                 sonoma:        "31860aa77c849ceb1e9f700b43ab293b6308d45627fb0fdf0a7e9b23b5aae893"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "09c647e848febcff9a447a124ebe3701ce1b7c340f08bf4b7e1f3f2386659a9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15bd1a4c8b63463a27f65cac2e61af18bedceacb8e0a08c776caa8f1bb3b40d5"
+    sha256 cellar: :any, arm64_tahoe:   "e9e61d139b48df4a934d57d48e4cdb18d6e524204121ce04018a9aa7a2cb6fc5"
+    sha256 cellar: :any, arm64_sequoia: "04acde3c23daadeeea490a1a1165597720c25afab32ad5d167b04455800b8ac4"
+    sha256 cellar: :any, arm64_sonoma:  "13cbe320497f9f9540034e69d0afc7398a315f488b547f32aef83caf8e343f32"
+    sha256 cellar: :any, sonoma:        "190655e0e1e9f7367ebb1d9c066b559096355a84718d7676e3a61c1d4f8f1f0e"
+    sha256 cellar: :any, arm64_linux:   "94ba7de7db749cb3be45e591deff4ca4646a77099fd0f499770c35ea7e31b2cd"
+    sha256 cellar: :any, x86_64_linux:  "cecce68199801ece553c7ff977e6d676565b8509baed406af51922aa5de70260"
   end
 
   depends_on "capnp" => :build
@@ -34,7 +33,7 @@ class SequoiaSq < Formula
   conflicts_with "sq", "squirrel-lang", because: "both install `sq` binaries"
 
   def install
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
     ENV["ASSET_OUT_DIR"] = buildpath
 
     system "cargo", "install", "--no-default-features", *std_cargo_args(features: "crypto-openssl")

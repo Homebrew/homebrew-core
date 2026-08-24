@@ -30,6 +30,8 @@ class Libnatpmp < Formula
   patch do
     url "https://github.com/miniupnp/libnatpmp/commit/5f4a7c65837a56e62c133db33c28cd1ea71db662.patch?full_index=1"
     sha256 "4643048d7e24f8aed4e11e572f3e22f79eae97bb289ae1bbf103b84e8e32f61a"
+    type :backport
+    resolves "https://github.com/miniupnp/libnatpmp/pull/22"
   end
 
   def install

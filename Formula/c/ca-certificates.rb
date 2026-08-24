@@ -1,8 +1,8 @@
 class CaCertificates < Formula
   desc "Mozilla CA certificate store"
   homepage "https://curl.se/docs/caextract.html"
-  url "https://curl.se/ca/cacert-2026-05-14.pem"
-  sha256 "86a1f3366afac7c6f8ae9f3c779ac221129328c43f0ab2b8817eb2f362a5025c"
+  url "https://curl.se/ca/cacert-2026-08-13.pem"
+  sha256 "f66dff1bdf8f96060b8177976f8b7d9254bc89bc4db933d769f7384d28480bc9"
   license "MPL-2.0"
   compatibility_version 1
 
@@ -12,175 +12,143 @@ class CaCertificates < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "be025e23565f2d7e012185e26fe716eaefa792a0e80b3fc34e4e10e966e89cd4"
+    sha256 cellar: :any_skip_relocation, all: "797af9bcf375fb49a98db40c3d5674276db1eb1b5e605ec98359619ed50948ba"
   end
 
   def install
     pkgshare.install "cacert-#{version}.pem" => "cacert.pem"
+
+    post_install = libexec/"post-install"
+    post_install.write <<~'BASH'
+      #!/bin/bash
+      # Build a CA bundle from trusted system and Mozilla certificates.
+      set -euo pipefail
+      shopt -s nullglob
+
+      if [[ "$#" -ne 2 ]]; then
+        echo "usage: post-install SOURCE DESTINATION" >&2
+        exit 1
+      fi
+
+      source_file="$1"
+      destination="$2"
+      destination_dir="${destination%/*}"
+      mkdir -p "$destination_dir"
+
+      # Build beside the destination so the final rename cannot expose a partial bundle.
+      work_dir="$(mktemp -d "${destination_dir}/.ca-certificates.XXXXXX")"
+      trap 'rm -rf "$work_dir"' EXIT
+      fingerprints_file="$work_dir/fingerprints"
+      bundle_file="$work_dir/cert.pem"
+      : >"$fingerprints_file"
+      : >"$bundle_file"
+
+      # Split concatenated PEM bundles so each certificate can be validated independently.
+      split_certificates() {
+        local input_file="$1"
+        local output_dir="$2"
+        mkdir -p "$output_dir"
+        awk -v output_dir="$output_dir" '
+          /-----BEGIN CERTIFICATE-----/ {
+            certificate = ""
+            writing_certificate = 1
+          }
+          writing_certificate {
+            certificate = certificate $0 ORS
+          }
+          /-----END CERTIFICATE-----/ && writing_certificate {
+            output_file = output_dir "/" ++certificate_count ".pem"
+            printf "%s", certificate > output_file
+            close(output_file)
+            writing_certificate = 0
+          }
+        ' "$input_file"
+      }
+
+      # Track fingerprints while appending to discard malformed and duplicate certificates.
+      append_unique_certificate() {
+        local certificate_file="$1"
+        local openssl_command="$2"
+        local fingerprint
+        fingerprint="$("$openssl_command" x509 -inform pem -fingerprint -sha256 -noout \
+          <"$certificate_file" 2>/dev/null)" || return 0
+        grep -Fqx "$fingerprint" "$fingerprints_file" && return
+
+        printf '%s\n' "$fingerprint" >>"$fingerprints_file"
+        cat "$certificate_file" >>"$bundle_file"
+        printf '\n' >>"$bundle_file"
+      }
+
+      # Append every valid, unique certificate from a PEM bundle.
+      append_bundle() {
+        local input_file="$1"
+        local output_dir="$2"
+        local openssl_command="$3"
+        local certificate_file
+        split_certificates "$input_file" "$output_dir"
+        for certificate_file in "$output_dir"/*.pem; do
+          append_unique_certificate "$certificate_file" "$openssl_command"
+        done
+      }
+
+      # Include only unexpired keychain certificates trusted for server TLS.
+      append_keychain() {
+        local keychain="$1"
+        local purpose="$2"
+        local output_dir="$work_dir/keychain-$purpose"
+        local certificate_file
+        /usr/bin/security find-certificate -a -p "$keychain" >"$work_dir/keychain.pem"
+        split_certificates "$work_dir/keychain.pem" "$output_dir"
+        for certificate_file in "$output_dir"/*.pem; do
+          /usr/bin/openssl x509 -inform pem -checkend 0 -noout <"$certificate_file" &>/dev/null || continue
+          /usr/bin/openssl x509 -inform pem -purpose -noout <"$certificate_file" 2>/dev/null |
+            grep -Fq "SSL server CA : Yes" || continue
+          /usr/bin/security verify-cert -l -L -c "$certificate_file" -p "$purpose" -R offline &>/dev/null ||
+            continue
+          append_unique_certificate "$certificate_file" /usr/bin/openssl
+        done
+      }
+
+      if [[ "$(uname -s)" == "Darwin" ]]; then
+        # Begin with system trust, then append Mozilla certificates not already present.
+        append_keychain "/Library/Keychains/System.keychain" ssl
+        append_keychain "/System/Library/Keychains/SystemRootCertificates.keychain" basic
+        append_bundle "$source_file" "$work_dir/mozilla" /usr/bin/openssl
+      else
+        # Merge the first standard system CA bundle found with the Mozilla bundle.
+        system_bundle=""
+        for candidate in \
+          /etc/ssl/certs/ca-certificates.crt \
+          /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem \
+          /etc/ssl/ca-bundle.pem; do
+          if [[ -f "$candidate" && -r "$candidate" ]]; then
+            system_bundle="$candidate"
+            break
+          fi
+        done
+        openssl_command="$(command -v openssl || true)"
+        if [[ -n "$system_bundle" && -n "$openssl_command" ]]; then
+          append_bundle "$system_bundle" "$work_dir/system" "$openssl_command"
+          append_bundle "$source_file" "$work_dir/mozilla" "$openssl_command"
+        else
+          echo "Cannot find a readable system CA bundle or OpenSSL; using Mozilla certificates only." >&2
+          output_dir="$work_dir/mozilla"
+          split_certificates "$source_file" "$output_dir"
+          for certificate_file in "$output_dir"/*.pem; do
+            cat "$certificate_file" >>"$bundle_file"
+            printf '\n' >>"$bundle_file"
+          done
+        fi
+      fi
+
+      chmod 0644 "$bundle_file"
+      mv -f "$bundle_file" "$destination"
+    BASH
+    chmod 0755, post_install
   end
 
-  def post_install
-    if OS.mac?
-      macos_post_install
-    else
-      linux_post_install
-    end
-  end
-
-  def macos_post_install
-    ohai "Regenerating CA certificate bundle from keychain, this may take a while..."
-
-    keychains = {
-      "/Library/Keychains/System.keychain"                        => "ssl",
-      "/System/Library/Keychains/SystemRootCertificates.keychain" => "basic",
-    }
-
-    trusted_certificates = []
-    keychains.each do |keychain, purpose|
-      certificates =
-        Utils.safe_popen_read("/usr/bin/security", "find-certificate", "-a", "-p", keychain)
-             .scan(
-               /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
-             )
-
-      # Check that the certificate has not expired
-      certificates.select! do |certificate|
-        begin
-          Utils.safe_popen_write("/usr/bin/openssl", "x509", "-inform", "pem",
-                                                             "-checkend", "0",
-                                                             "-noout") do |openssl_io|
-            openssl_io.write(certificate)
-          end
-        rescue ErrorDuringExecution
-          # Expired likely.
-          next
-        end
-
-        # Only include certificates that are designed to act as a SSL root.
-        openssl_purpose = Utils.safe_popen_write("/usr/bin/openssl", "x509", "-inform", "pem",
-                                                                     "-purpose",
-                                                                     "-noout") do |openssl_io|
-          openssl_io.write(certificate)
-        end
-        openssl_purpose.include?("SSL server CA : Yes")
-      end
-
-      # Check that the certificate is trusted in keychain
-      trusted_certificates += begin
-        tmpfile = Tempfile.new
-
-        verify_args = %W[
-          -l -L
-          -c #{tmpfile.path}
-          -p #{purpose}
-          -R offline
-        ]
-
-        certificates.select do |certificate|
-          tmpfile.rewind
-          tmpfile.write certificate
-          tmpfile.truncate certificate.size
-          tmpfile.flush
-          Utils.safe_popen_read("/usr/bin/security", "verify-cert", *verify_args)
-          true
-        rescue ErrorDuringExecution
-          # Invalid.
-          false
-        end
-      ensure
-        tmpfile&.close!
-      end
-    end
-
-    # Get SHA256 fingerprints for all trusted certificates
-    fingerprints = trusted_certificates.to_set do |certificate|
-      get_certificate_fingerprint(certificate, "/usr/bin/openssl")
-    end
-
-    # Now process Mozilla certificates we downloaded.
-    # Read as raw bytes to avoid locale-dependent encoding errors
-    pem_certificates_list = (pkgshare/"cacert.pem").binread.force_encoding(Encoding::ASCII_8BIT)
-    pem_certificates = pem_certificates_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
-    )
-
-    # Append anything new.
-    trusted_certificates += pem_certificates.select do |certificate|
-      fingerprint = get_certificate_fingerprint(certificate, "/usr/bin/openssl")
-      fingerprints.add?(fingerprint)
-    end
-
-    pkgetc.mkpath
-    (pkgetc/"cert.pem").atomic_write(trusted_certificates.join("\n") << "\n")
-  end
-
-  def get_certificate_fingerprint(certificate, openssl_binary = "openssl")
-    Utils.safe_popen_write(openssl_binary, "x509", "-inform", "pem",
-                                                   "-fingerprint",
-                                                   "-sha256",
-                                                   "-noout") do |openssl_io|
-      openssl_io.write(certificate)
-    end
-  end
-
-  def load_certificates_from_file(file_path, trusted_certificates, fingerprints, certificate_type)
-    # Read as raw bytes to avoid locale-dependent encoding errors
-    certificates_list = file_path.binread.force_encoding(Encoding::ASCII_8BIT)
-    certificates = certificates_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
-    )
-    loaded_count = 0
-    certificates.each do |certificate|
-      fingerprint = get_certificate_fingerprint(certificate)
-      if fingerprints.add?(fingerprint)
-        trusted_certificates << certificate
-        loaded_count += 1
-      end
-    rescue ErrorDuringExecution
-      # Skip invalid certificate
-      next
-    end
-    puts "Loaded #{loaded_count} #{certificate_type} certificates" if loaded_count.positive?
-  end
-
-  def linux_post_install
-    rm(pkgetc/"cert.pem", force: true)
-    pkgetc.mkpath
-
-    ca_certificate_paths = [
-      "/etc/ssl/certs/ca-certificates.crt", # Debian/Ubuntu, Alpine Linux, Arch Linux
-      "/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem", # RHEL/CentOS/Fedora, Amazon Linux
-      "/etc/ssl/ca-bundle.pem", # SUSE/openSUSE
-    ]
-    system_ca_certificates = ca_certificate_paths.map { |p| Pathname.new(p) }
-                                                 .find { |pn| pn.file? && pn.readable? }
-    return unless system_ca_certificates
-
-    # Integrate system certificates if OpenSSL is available
-    unless which("openssl")
-      opoo "Cannot find OpenSSL: skipping system certificates."
-      puts <<~EOS
-        To include custom system certificates run:
-          brew install openssl
-          brew postinstall ca-certificates
-      EOS
-      return
-    end
-
-    trusted_certificates = []
-    fingerprints = Set.new
-
-    # First, load system certificates from standard Linux location
-    load_certificates_from_file(system_ca_certificates, trusted_certificates, fingerprints, "system")
-
-    # Now process Mozilla certs and append only new ones
-    load_certificates_from_file(pkgshare/"cacert.pem", trusted_certificates, fingerprints, "Mozilla")
-
-    (pkgetc/"cert.pem").atomic_write(trusted_certificates.join("\n") << "\n")
-    ohai "CA certificates have been bootstrapped from the system CA store at #{system_ca_certificates}"
-  ensure
-    # Ensure a PEM file always exists, even if the method exits early or fails
-    cp pkgshare/"cacert.pem", pkgetc/"cert.pem" unless (pkgetc/"cert.pem").exist?
+  post_install_steps do
+    run "post-install", args: ["{{pkgshare}}/cacert.pem", "{{pkgetc}}/cert.pem"], base: :libexec
   end
 
   def caveats
@@ -206,5 +174,6 @@ class CaCertificates < Formula
   test do
     assert_path_exists pkgshare/"cacert.pem"
     assert_path_exists pkgetc/"cert.pem"
+    assert_match "-----BEGIN CERTIFICATE-----", (pkgetc/"cert.pem").read
   end
 end

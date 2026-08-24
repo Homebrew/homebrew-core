@@ -28,7 +28,7 @@ class Libmowgli < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}"
+                          "--with-openssl=#{formula_opt_prefix("openssl@3")}"
     system "make"
     system "make", "install"
   end

@@ -1,31 +1,30 @@
 class Bagel < Formula
   desc "CLI to audit posture and evaluate compromise blast radius"
   homepage "https://boostsecurityio.github.io/bagel/"
-  url "https://github.com/boostsecurityio/bagel/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "fe7d91c2887e32d638fb163975f099fedd32be11d533a00a91024332bd4de26f"
+  url "https://github.com/boostsecurityio/bagel/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "2707877746844c2c769e817eb64f5d3b3c696f723fec927284e93451236882af"
   license "GPL-3.0-or-later"
   head "https://github.com/boostsecurityio/bagel.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "22b44df0b60070e7b15fbbf00a5bc6aea08eed50cbf3c0cb03cfe8f799b8b53a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "22b44df0b60070e7b15fbbf00a5bc6aea08eed50cbf3c0cb03cfe8f799b8b53a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22b44df0b60070e7b15fbbf00a5bc6aea08eed50cbf3c0cb03cfe8f799b8b53a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "767be387ffd0275451a0948a26082a9e59fd50a77549e7b4f01fc278125f26c2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "20621b1c3778d0488f9b9b3d255da9bf5bcf2b696ea7e46b9dead572d451b9f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8ddeefee9b398829ef5b4dca00b152e660ea20a819ffe917eb47f22a53ae099"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0cf715981bf87fdb4aef2cdd6eb4af837f3338607aa1ffacc0676caa59fc27bf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0cf715981bf87fdb4aef2cdd6eb4af837f3338607aa1ffacc0676caa59fc27bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0cf715981bf87fdb4aef2cdd6eb4af837f3338607aa1ffacc0676caa59fc27bf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "51f18c4663f5db81ae945b5c3fa8a656de8ddaf77007965d1052a37a8583b361"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e37d48d76657f3789b37ca3d3d996680f6efd53e55856bbd7d36a880f895b9e"
+    sha256 cellar: :any,                 x86_64_linux:  "b6ee520ff010322d113ad92fb6dd41bab9cdb0aa683864732f04895495322490"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X main.Version=#{version}
       -X main.Commit=#{tap.user}
       -X main.Date=#{time.iso8601}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/bagel"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/bagel"
 
     generate_completions_from_executable(bin/"bagel", "completion")
   end

@@ -1,18 +1,18 @@
 class Opentofu < Formula
   desc "Drop-in replacement for Terraform. Infrastructure as Code Tool"
   homepage "https://opentofu.org/"
-  url "https://github.com/opentofu/opentofu/archive/refs/tags/v1.12.2.tar.gz"
-  sha256 "f1e13ed2c1552ea7828156a10588a544d8b6b0d2c25f801a07fdf666734604fd"
+  url "https://github.com/opentofu/opentofu/archive/refs/tags/v1.12.6.tar.gz"
+  sha256 "d6b49908a66ad277d7de33e9a218ae11b956cd094e39c82300b9b75cac2479ba"
   license "MPL-2.0"
   head "https://github.com/opentofu/opentofu.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f640c15df5b1f652f318b32636b15925c9d1524a585e725eabdff2e15aaa2d18"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "41d6bf1a886db10154de314f850fa1a07a8c95174f902c7105cc0fdb765e5dac"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6bc6b84168415ac48debb83b0e11d72dde583dfe50c2999ae22adce3042b49bb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1b7977c866522dea951546ba013188ebc605c3d38d77de0e8b4150cad9a9b9ed"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "01a58d3c1f506d43034bff7e89e71eda4dd2d52733e5cf39cbb4d609584c62b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1ff8d70510891e69b7017197d674ce5832da8da3e4b707b004d9fa53cdb23c0d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ef005cac5765e8ca0a3935ced7cdc22a10acc1b2d71e4b9e384900c507607428"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6c1f629a74b053fcd4b5f93503e1232e08912323b8853c8c2c6202dafe0fe02d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "17185f281019ba6dfd26a8978758aaea0fd508a29ce92af79d59fa8499b99cbc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1e2d8cb3e2bc1aa0f4229b391bef967933a866d536952948bbd9864131b7bfce"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f38acebf07da4844e33b8065e57379c5412e5f2c83fb74a9cc359dd4221b5de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c217fa12380b0aaf4836ec0dd9d53cb124755aa4d7975073a84b5cec85caac24"
   end
 
   depends_on "go" => :build
@@ -21,7 +21,7 @@ class Opentofu < Formula
 
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
-    ldflags = "-s -w -X github.com/opentofu/opentofu/version.dev=no"
+    ldflags = "-X github.com/opentofu/opentofu/version.dev=no"
     system "go", "build", *std_go_args(output: bin/"tofu", ldflags:), "./cmd/tofu"
   end
 

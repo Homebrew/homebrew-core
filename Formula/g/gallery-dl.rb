@@ -2,19 +2,19 @@ class GalleryDl < Formula
   include Language::Python::Virtualenv
 
   desc "Command-line downloader for image-hosting site galleries and collections"
-  homepage "https://github.com/mikf/gallery-dl"
-  url "https://files.pythonhosted.org/packages/4b/0c/bd908d5de020ddddb4bb99757adbda4213028ed3af263eedb21226615906/gallery_dl-1.32.3.tar.gz"
-  sha256 "038059880b9b5bedea0f0226e04dc91f92e759c992ccf2a706d6912776db103b"
+  homepage "https://codeberg.org/mikf/gallery-dl"
+  url "https://files.pythonhosted.org/packages/b1/60/5131cd00162b86dbf3f4528d348eba2f97bc22e2b452855b23c51d5fe340/gallery_dl-1.32.9.tar.gz"
+  sha256 "6847cf1b8fcb231b3a214965470ac64bfbe4f63e92f1d7dbda2d533c3930f07d"
   license "GPL-2.0-only"
-  head "https://github.com/mikf/gallery-dl.git", branch: "master"
+  head "https://codeberg.org/mikf/gallery-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "b6d816aa833faa883120e784cf47952d3d2f5f0f03db0e6bfc9cf659ce177fe2"
-    sha256 cellar: :any, arm64_sequoia: "a545a60e86a433a0335dfa3843162ee82141f01cab04521efcd3e661234622da"
-    sha256 cellar: :any, arm64_sonoma:  "d3f1215346c3b1bb6125018b75cb36f7868360a335749a5464aa13077a144623"
-    sha256 cellar: :any, sonoma:        "79110e233ba91439c15bd64e68f8b1529d574f19584070395fe519219af47ccd"
-    sha256 cellar: :any, arm64_linux:   "26fca862004a9ae8c5c60a4bef8316dcebade167bc0da86f36679c8fb997b72b"
-    sha256 cellar: :any, x86_64_linux:  "a679003dd18a9a38ef7c17302056326c50b06783ff7c5b0248458d08eacc4779"
+    sha256 cellar: :any, arm64_tahoe:   "7733b678884b8f65f07a51614e617e4b7422bac7cffce4cfd55bd43acf49c405"
+    sha256 cellar: :any, arm64_sequoia: "4b402b6f06afad01dd4a132256b40a89e5c23e57a0d53bd09e7fb65f865ec3a2"
+    sha256 cellar: :any, arm64_sonoma:  "838d1f30a9da2c4abf1f6c32fc62fd1196e99427db1911ecdee0f70e99f9a872"
+    sha256 cellar: :any, sonoma:        "d6b32c9fbfc326b95a1acb17ed1f4a2041566b0a51f1369c4a78d89d641400db"
+    sha256 cellar: :any, arm64_linux:   "648379506e4526b049cb22d1abb0bbaab6ce2ff6487e88da4d96387ed28cab5c"
+    sha256 cellar: :any, x86_64_linux:  "780afe7a72daa3a516ef4d6a5b546a2df18048a87996f7b995f72278f9329225"
   end
 
   depends_on "certifi" => :no_linkage
@@ -33,8 +33,8 @@ class GalleryDl < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "idna" do
@@ -58,8 +58,8 @@ class GalleryDl < Formula
   end
 
   resource "mutagen" do
-    url "https://files.pythonhosted.org/packages/81/e6/64bc71b74eef4b68e61eb921dcf72dabd9e4ec4af1e11891bbd312ccbb77/mutagen-1.47.0.tar.gz"
-    sha256 "719fadef0a978c31b4cf3c956261b3c58b6948b32023078a2117b1de09f0fc99"
+    url "https://files.pythonhosted.org/packages/df/70/1675da133ea92227da41bf5b24e1c66be597ff736a1533ade41da986852f/mutagen-1.48.1.tar.gz"
+    sha256 "8f95637ab9f6f305cec6bd1294e197debe207998e3e068596563c74f86b0a173"
   end
 
   resource "pycryptodomex" do
@@ -98,8 +98,8 @@ class GalleryDl < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/04/24/4b2031d72e840ce4c1ccb255f693b15c334757fc50023e4db9537080b8c4/websockets-16.0.tar.gz"
-    sha256 "5f6261a5e56e8d5c42a4497b364ea24d94d9563e8fbd44e78ac40879c60179b5"
+    url "https://files.pythonhosted.org/packages/f7/96/e01084f83a64bcb3a27994bd0cb0db68ff29d9c6707fae37ec19b18ba990/websockets-17.0.1.tar.gz"
+    sha256 "5baa9bc0dfbae8c507e51c8cf1b6d4628086f7a87bbd3a9952bd5f035451f1cc"
   end
 
   resource "yt-dlp-ejs" do

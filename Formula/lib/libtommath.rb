@@ -30,6 +30,7 @@ class Libtommath < Formula
   patch do
     url "https://github.com/MoarVM/libtommath/commit/db0d387b808d557bd408a6a253c5bf3a688ef274.patch?full_index=1"
     sha256 "e5eef1762dd3e92125e36034afa72552d77f066eaa19a0fd03cd4f1a656f9ab0"
+    type :unofficial
   end
 
   def install

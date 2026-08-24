@@ -23,7 +23,7 @@ class Xcdiff < Formula
   def install
     system "make", "update_version"
     system "make", "update_hash"
-    system "swift", "build", "--disable-sandbox", "--configuration", "release"
+    system "swift", "build", *std_swift_args
     bin.install ".build/release/xcdiff"
     generate_completions_from_executable(bin/"xcdiff", "--generate-completion-script")
   end

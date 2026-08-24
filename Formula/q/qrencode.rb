@@ -4,19 +4,17 @@ class Qrencode < Formula
   url "https://github.com/fukuchi/libqrencode/archive/refs/tags/v4.1.1.tar.gz"
   sha256 "5385bc1b8c2f20f3b91d258bf8ccc8cf62023935df2d2676b5b67049f31a049c"
   license "LGPL-2.1-or-later"
-  compatibility_version 1
+  revision 1
+  compatibility_version 2
   head "https://github.com/fukuchi/libqrencode.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "43022662b77fc3e4181eb5b0d8e671f6208c9217c307073c2e76d4e5c98ea9f9"
-    sha256 cellar: :any,                 arm64_sequoia: "3fec9ad635eb185c133cca4e3ab3e8ab7c2094453c462c457b1e5624960bca35"
-    sha256 cellar: :any,                 arm64_sonoma:  "74e41b86ddec16b100ac17a756235f377b0e7b8990af8e37a66571b204db40c8"
-    sha256 cellar: :any,                 arm64_ventura: "01e05ae6c40b460ebc0dbba2fe76a4310ee538a692e7712dda77c07e18789ed8"
-    sha256 cellar: :any,                 sonoma:        "b9af340917ff148b24e48c24e5313423e16df56a99a7a612d0b23af59e2394b9"
-    sha256 cellar: :any,                 ventura:       "6995e471fbd7e8f9c3c507e7576ba53a5636fb329a049f61f54494b7b5d9fe2c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a598b96cd3fa15c9c028d7c6d86f884ece57ac86feca9939e862b17a14143bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "181bcd364cef78e8be564a42859f3b431febc429fc3db940d5c06bb572493999"
+    sha256 cellar: :any, arm64_tahoe:   "52a9ea0465a3446c8b0930bbd7c0d5ac0c84c350992fe4937de39301758e2f20"
+    sha256 cellar: :any, arm64_sequoia: "8f2cb82a0924e1d5b2ce0f5edbc59884bfb35b5ab8a7dae5a7b3f362679e278a"
+    sha256 cellar: :any, arm64_sonoma:  "4f2202e6beb0a9526a4cda427da325a019a1eca2dcc60e6a3986c8221828a7da"
+    sha256 cellar: :any, sonoma:        "3e025adbdbbab93dcaf86de897a088fc123ce3e950d7de7ca5feb61918286671"
+    sha256 cellar: :any, arm64_linux:   "cca7bf38108300b9a5c9e0cec11fa387f789ca9191847a39e3a5fae13691858b"
+    sha256 cellar: :any, x86_64_linux:  "cc915641ac9e2b18c6973ea1c1396b2aa5fe53b3ad21104b5ebe1dcd52b39f55"
   end
 
   depends_on "cmake" => :build
@@ -24,7 +22,11 @@ class Qrencode < Formula
   depends_on "libpng"
 
   def install
-    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    args = %W[
+      -DBUILD_SHARED_LIBS=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+    ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

@@ -2,18 +2,18 @@ class Kn < Formula
   desc "Command-line interface for managing Knative Serving and Eventing resources"
   homepage "https://github.com/knative/client"
   url "https://github.com/knative/client.git",
-      tag:      "knative-v1.22.1",
-      revision: "67a85d32ee5df847ac57b7ec198f973c93c142da"
+      tag:      "knative-v1.23.0",
+      revision: "e411e88475005c36abaa42530521065210c8588d"
   license "Apache-2.0"
   head "https://github.com/knative/client.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "297abe669c986eb66b91db42cf8aee508ad4efe7da3952e5b4d51d2d52844d4c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "422625f0d0af4d843a17aa3d4a50773ac05bb3f8fead72240da4857b3bcdd630"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67a49cbbabd436b451406a5f1166ff7e16ebd6391d8c5b65eaffd76c7da8deb1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4623c5241c5d9c665e0bbd32e2f184429e0c4830f901d8645de92304d8508c08"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9951a8c864d11c239fd89fd0ff5676b51cd582e06a13da64d1f3758d13a419b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a62e34853aa11ebabaea607b2086d4a1477f383fc57e5026a16cf2602f4b6b52"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9fa42c082218b8b828f4b1b32bef27c70177defaeb5bab1f8322e232c5eb54fa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "002bb1f5bee5ced0408be0497f90d49180e5231eb4aa64fa263801e2281429f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e9e1ebd135d62b449e6d717dc7fb5aec9e319800a75b05eb9101be4ea1f0aeb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c93dc1d9fef9b153e9ffc7dd444ec17e550774ca02f8c0cac9ee9f8e0c07ead7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "51dcfe063122ef3400b7d43e0519491f5435c67377ed81a84c7885265a45ff10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d780f9623ccb237493eb530278fd023f4b5dc79fdb0fbbd91fd377b9d8deda8"
   end
 
   depends_on "go" => :build
@@ -22,7 +22,6 @@ class Kn < Formula
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
 
     ldflags = %W[
-      -s -w
       -X knative.dev/client/pkg/commands/version.Version=v#{version}
       -X knative.dev/client/pkg/commands/version.GitRevision=#{Utils.git_head(length: 8)}
       -X knative.dev/client/pkg/commands/version.BuildDate=#{time.iso8601}

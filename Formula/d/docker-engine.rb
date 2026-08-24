@@ -2,8 +2,8 @@ class DockerEngine < Formula
   desc "Pack, ship and run any application as a lightweight container (Daemon)"
   homepage "https://www.docker.com/"
   url "https://github.com/moby/moby.git",
-      tag:      "docker-v29.5.3",
-      revision: "285b47192d4b2f183aba5dd360a92cd52d723004"
+      tag:      "docker-v29.7.2",
+      revision: "6a43e3d5afddf4111da0f864bbc7cae5d7e95001"
   license "Apache-2.0"
   head "https://github.com/moby/moby.git", branch: "master"
 
@@ -13,8 +13,8 @@ class DockerEngine < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "b8436d4380dedcc02f7435175e16e610e58255c602de0223592285a214c5bde8"
-    sha256 cellar: :any,                 x86_64_linux: "79dcb96d1f20d1fc7d8c13797d395b32cbe811bdad51e24f7494545bff4824ed"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "2bd700421dff71a1821569dff0ebe826f19438a448a5a35500da77d8f3191843"
+    sha256 cellar: :any,                 x86_64_linux: "524318efca2f663d6399311c7746719edc03621e4b3994055615d833da9dd635"
   end
 
   depends_on "go" => :build
@@ -28,7 +28,6 @@ class DockerEngine < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/moby/moby/v2/dockerversion.BuildTime=#{time.iso8601}
       -X github.com/moby/moby/v2/dockerversion.GitCommit=#{Utils.git_short_head}
       -X github.com/moby/moby/v2/dockerversion.Version=#{version}

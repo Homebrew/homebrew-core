@@ -1,22 +1,20 @@
 class Libesedb < Formula
   desc "Library and tools for Extensible Storage Engine (ESE) Database files"
   homepage "https://github.com/libyal/libesedb"
-  url "https://github.com/libyal/libesedb/releases/download/20240420/libesedb-experimental-20240420.tar.gz"
-  sha256 "07250741dff8a1ea1f5e38c02f1b9a1ae5e9fa52d013401067338842883a5b9f"
+  url "https://github.com/libyal/libesedb/releases/download/20260704/libesedb-experimental-20260704.tar.gz"
+  sha256 "78f5e4cd11b551e673db270a9d40abf3c8ec8523b91939a9251ca80ee5a83bd1"
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d36e22ce4b36711d56c57c00138f650d3820cc868b00943efe923b85ab475c93"
-    sha256 cellar: :any,                 arm64_sequoia: "19df457c00efc39b7ca068cdfa7beac035646a39c7e53e7112eeb00d1f222a74"
-    sha256 cellar: :any,                 arm64_sonoma:  "4e0a0ca5c1634e6523359a2705b314e34d455b8c9403c9a471509202234fc19e"
-    sha256 cellar: :any,                 arm64_ventura: "26c666149c74a54e744f41d18e75ab750b147a8f60ad14bade6beae81e1039a6"
-    sha256 cellar: :any,                 sonoma:        "ca35e641f9022088e61dd568b98b928beac7247b6606a3dda6e5c925e6ded138"
-    sha256 cellar: :any,                 ventura:       "85d5028c3fe1e6db45290397b9f5fd4773fdb70336058266a8f25e67b80e041a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "07462cd653aae3448ae737536aebe605064ae7c75113dd467787fbc767ee8f3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0de46fa5de3819ee8025595a4579aac0982dcac0345302d6293228258bdee6dd"
+    sha256 cellar: :any, arm64_tahoe:   "e63439975c686ac79d7d641ea4c1e8784908e41034ff79bcc79e5bbde7b83d88"
+    sha256 cellar: :any, arm64_sequoia: "6a7b88c41fe74eb4d9be40809121a31bd33eb137dc33ac50b15c1067e09b15b8"
+    sha256 cellar: :any, arm64_sonoma:  "36ebfc0cb8c8352a72e164aa90b0cc202d38a3cc929714cea56901b3c8ed2d08"
+    sha256 cellar: :any, sonoma:        "32cc0adcd218995ae9a7d899d271979575169f4019483a3da77dc943477a45a9"
+    sha256 cellar: :any, arm64_linux:   "bdbb98771f0ab027a4604406da6bc8f78180b85beb72b1ca0348bf69e1b12e2f"
+    sha256 cellar: :any, x86_64_linux:  "6e32f9d839bab70585e87cca6a6a6382697a4da6400a95dcd55779d9f586a1ce"
   end
 
-  depends_on "pkgconf" => :test
+  depends_on "pkgconf" => [:build, :test]
 
   def install
     system "./configure", *std_configure_args

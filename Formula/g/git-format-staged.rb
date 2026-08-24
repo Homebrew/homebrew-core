@@ -3,13 +3,13 @@ class GitFormatStaged < Formula
 
   desc "Git command to transform staged files using a formatting command"
   homepage "https://github.com/hallettj/git-format-staged"
-  url "https://github.com/hallettj/git-format-staged/archive/refs/tags/v4.0.1.tar.gz"
-  sha256 "40ceeb211ccd0832492cf807348c688205c64721d895271518514197d0df1b32"
+  url "https://github.com/hallettj/git-format-staged/archive/refs/tags/v4.0.2.tar.gz"
+  sha256 "1144e9ebf9fdecb3ba4fd9520b72dafa80ede998b833ec9865547c9b1410bdf3"
   license "MIT"
   head "https://github.com/hallettj/git-format-staged.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7b2a54a5139e51ae7bf954ea8714a6cf8b62b72be5c5f3e81d05724582743979"
+    sha256 cellar: :any_skip_relocation, all: "666a072db7821d60c7bbfa4455dcc15adf3726757e6a6f20c974ace2c99fd5d9"
   end
 
   uses_from_macos "python"

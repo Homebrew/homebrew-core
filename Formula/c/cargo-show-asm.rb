@@ -1,18 +1,18 @@
 class CargoShowAsm < Formula
   desc "Show assembly, LLVM-IR, MIR, and WASM generated for Rust code"
   homepage "https://github.com/pacak/cargo-show-asm"
-  url "https://github.com/pacak/cargo-show-asm/archive/refs/tags/0.2.61.tar.gz"
-  sha256 "caa5d9fa7b7b67a42d23a67d8312dfee5aa7a7e89735a3ac229ad2ea1bb7c62b"
+  url "https://github.com/pacak/cargo-show-asm/archive/refs/tags/0.2.62.tar.gz"
+  sha256 "fa49db55969fd1d627daf88214995f5907c9a9f076baa6dbbca56f1afbf73b03"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/pacak/cargo-show-asm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "acabbcfbf101fb872e4d25231f6a40b8c71ce3106fe28ff194929737d59d4ab2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b68d7b7a2b8a658a41eaaa706f0281fdbe3267dbfdf388454ea9cf04a084fb75"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df31a81279f3364a73cd4b87a34142505f204ee6bc6b203f66d346fad6dcce05"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d00698e175be894c9f2a50d75e1996252ecafbd4ebdca014aeb8a67bcc963997"
-    sha256 cellar: :any,                 arm64_linux:   "325815a7c39baa0cf4e5ba9c7d3a146409129a71f4587d5d329746b8325b7f96"
-    sha256 cellar: :any,                 x86_64_linux:  "7d3a6761b5cac90744931fe4da327d2a0afe369142ce4a49b027f8480e4ca94d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b4d9be4aadb7d4d767cc20f97a4029490842b86a5f16f83aa2b0cf807ac72140"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fb97375bd038261fd0f99772627925a325b979c861d985d91a86ae97a051c5c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba4fd404ba4a5ec376614e3273fe3cb5c2ae75ddd8b1e9d4c23d73a4d2d96114"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0af8329cf99d77c21e719aa61a8505452a40150a9a29963c36bf7e9121a58558"
+    sha256 cellar: :any,                 arm64_linux:   "f9b415ed141300e7f4e5111892ef5234b17488157224cff4de870745774ba6ea"
+    sha256 cellar: :any,                 x86_64_linux:  "a73752bb7daa48ec4d826e3c263c5f2385241900f5a071885890679274dde8a0"
   end
 
   depends_on "rust" => :build

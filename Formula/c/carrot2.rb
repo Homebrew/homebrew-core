@@ -46,7 +46,7 @@ class Carrot2 < Formula
     end
 
     (bin/"carrot2").write_env_script "#{libexec}/dcs/dcs",
-      JAVA_CMD:    "exec '#{Formula["openjdk"].opt_bin}/java'",
+      JAVA_CMD:    "exec '#{formula_opt_bin("openjdk")}/java'",
       SCRIPT_HOME: libexec/"dcs"
   end
 

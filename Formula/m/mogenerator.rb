@@ -24,10 +24,11 @@ class Mogenerator < Formula
   depends_on xcode: :build
   depends_on :macos
 
-  # https://github.com/rentzsch/mogenerator/pull/390
   patch do
     url "https://github.com/rentzsch/mogenerator/commit/20d9cce6df8380160cac0ce07687688076fddf3d.patch?full_index=1"
     sha256 "de700f06c32cc0d4fbcb1cdd91e9e97a55931bc047841985d5c0905e65b5e5b0"
+    type :backport
+    resolves "https://github.com/rentzsch/mogenerator/pull/390"
   end
 
   def install

@@ -52,7 +52,7 @@ class Gfold < Formula
     # libgit2 linkage test to avoid using vendored one
     # https://github.com/Homebrew/homebrew-core/pull/125393#issuecomment-1465250076
     require "utils/linkage"
-    library = Formula["libgit2"].opt_lib/shared_library("libgit2")
+    library = formula_opt_lib("libgit2")/shared_library("libgit2")
     assert Utils.binary_linked_to_library?(bin/"gfold", library),
            "No linkage with #{library.basename}! Cargo is likely using a vendored version."
   end

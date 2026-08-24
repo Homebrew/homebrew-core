@@ -1,18 +1,18 @@
 class Gnunet < Formula
   desc "Framework for distributed, secure and privacy-preserving applications"
   homepage "https://gnunet.org/"
-  url "https://ftpmirror.gnu.org/gnu/gnunet/gnunet-0.27.0.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/gnunet/gnunet-0.27.0.tar.gz"
-  sha256 "9dd8feb3f3b8d0993766a49ab618f80bb93017f3bc795b6dda84697397302a07"
+  url "https://ftpmirror.gnu.org/gnu/gnunet/gnunet-0.29.0.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/gnunet/gnunet-0.29.0.tar.gz"
+  sha256 "c27055165d347388dd487a07d7d131506cae2eeca5ee2d49cfcccada1ac29acc"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "056d46173e490e99d20a9a745bc5aa663f9848cc06131ad6ecfa9b04b6ac6f59"
-    sha256 cellar: :any, arm64_sequoia: "4ea40d021709b5effb91c1599c92cc61ed38db01c4ad9e20a99a2fb5ceddad12"
-    sha256 cellar: :any, arm64_sonoma:  "39dffccef2f229ea2ee723bdaf15f9c35ca5ac97046bc302479a2b74c5a02fce"
-    sha256 cellar: :any, sonoma:        "29c2c40b192f09055ce531bdf0959a570739cd0c2b704a4fcc6f6cb5385e92cf"
-    sha256               arm64_linux:   "1af534f987e8bb580f89808a4e273da007d7d69baea284cb64d8ef278ea37273"
-    sha256               x86_64_linux:  "2e09b29bffd50dc8efbb3c5c2a191ca72a6101a99f233c449b049aec20d7af95"
+    sha256 cellar: :any, arm64_tahoe:   "513e270330d0c56631842589d582ab4a072cbcce68a6125704970c14e22a725a"
+    sha256 cellar: :any, arm64_sequoia: "a16011195aae1fbfde5459847c841a0dc3c8484f238a4af7c8005ddbf11f80de"
+    sha256 cellar: :any, arm64_sonoma:  "16bf3f20c41059221006cefcdd8b3ec43e5afd10301b6ab283dfaa360e9d026d"
+    sha256 cellar: :any, sonoma:        "1ec97c87af9ac2e8ef40b4331e5b77e83ef59e13d33e92bc3c7455a8bbf5661d"
+    sha256               arm64_linux:   "33d82b9f1fa3f52a2c9e384dd3b1abad20608f724b057f97d446583689a71132"
+    sha256               x86_64_linux:  "9afd0a258c95b2ba102e1f265739585dcb47a6d303a8f21874409af9e84b9da4"
   end
 
   depends_on "meson" => :build

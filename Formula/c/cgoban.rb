@@ -32,8 +32,8 @@ class Cgoban < Formula
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--with-x",
-                          "--x-includes=#{Formula["libx11"].opt_include}",
-                          "--x-libraries=#{Formula["libx11"].opt_lib}"
+                          "--x-includes=#{formula_opt_include("libx11")}",
+                          "--x-libraries=#{formula_opt_lib("libx11")}"
     system "make", "install"
   end
 

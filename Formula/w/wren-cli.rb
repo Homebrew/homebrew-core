@@ -25,6 +25,8 @@ class WrenCli < Formula
   patch do
     url "https://github.com/wren-lang/wren-cli/commit/18553636618a4d33f10af9b5ab92da6431784a8c.patch?full_index=1"
     sha256 "ee10f762901cecd897702aa5397868e880d64cfaded95ac76653ee1e01892eec"
+    type :backport
+    resolves "https://github.com/wren-lang/wren/issues/1086"
   end
 
   def install

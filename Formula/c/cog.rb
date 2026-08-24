@@ -1,8 +1,8 @@
 class Cog < Formula
   desc "Containers for machine learning"
   homepage "https://cog.run/"
-  url "https://github.com/replicate/cog/archive/refs/tags/v0.21.0.tar.gz"
-  sha256 "f327885fa484656292c70dfbe71b4bf8e33343b3f751b0f5c976fc6bfb0453d0"
+  url "https://github.com/replicate/cog/archive/refs/tags/v0.22.0.tar.gz"
+  sha256 "1fff8e5d7c62ae14fcbc3e7fea9262e301a6adabd4c75e0f7fa28490e09db78e"
   license "Apache-2.0"
   head "https://github.com/replicate/cog.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Cog < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "84b4629b2f9cd611ce9a06de46328e93df6c00f994d4da94c59782b10f0b96cb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c2c9985059cb40206ddab448b37aeb7b252544bba969afc2a83841df0c71cba2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8740d8dca174e76901db502aef3a86d1501323ce4ee74adf4fb1ffad77ba85f5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "85a31781f5e39caccbff1533dde1cb969c4919232883e7c12e70c7e188ea3a8a"
-    sha256 cellar: :any,                 arm64_linux:   "006f0779aea4ff9f71da8afe5e0421b4912242e627e847deb2ce510cb986c7d4"
-    sha256 cellar: :any,                 x86_64_linux:  "5d059bedfa270b95cdb5a44defbae181c4c21e485fe2245de8fc5592391db779"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4ee52c65d1f6f71bbc0b4e4c94e5cd5749980e70e8473f0b627b162f2f396fba"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3b1b1a33d3e13aadeae0e92ada04fe2d94aaf1a9e1c68c20559d93c3e01e74c7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c9f8a8ae4dd426fe7db53cc907e068bd22161b9ea6d319583d31ab7ab5e72592"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cfeb6c46b8da833d49d5056f8d312465ff0b0fefeff8d9915c93b8d4d51957c1"
+    sha256 cellar: :any,                 arm64_linux:   "c6d733304e92cff429befff4a242ee1ac5e3d448a29ecb762cf6c55ee7c7376a"
+    sha256 cellar: :any,                 x86_64_linux:  "d218e4224914a82dbdf05ddb2909aef481185d8f552f7c8320baf509d49064dc"
   end
 
   depends_on "go" => :build
@@ -28,7 +28,6 @@ class Cog < Formula
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
 
     ldflags = %W[
-      -s -w
       -X github.com/replicate/cog/pkg/global.Version=#{version}
       -X github.com/replicate/cog/pkg/global.Commit=#{tap.user}
       -X github.com/replicate/cog/pkg/global.BuildTime=#{time.iso8601}

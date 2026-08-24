@@ -21,7 +21,7 @@ class Globstar < Formula
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
 
     system "make", "generate-registry"
-    system "go", "build", *std_go_args(ldflags: "-s -w -X globstar.dev/pkg/cli.version=#{version}"), "./cmd/globstar"
+    system "go", "build", *std_go_args(ldflags: "-X globstar.dev/pkg/cli.version=#{version}"), "./cmd/globstar"
   end
 
   test do

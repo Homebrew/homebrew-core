@@ -39,6 +39,8 @@ class NodeAT18 < Formula
   patch do
     url "https://github.com/nodejs/node/commit/81517faceac86497b3c8717837f491aa29a5e0f9.patch?full_index=1"
     sha256 "79a5489617665c5c88651a7dc364b8967bebdea5bdf361b85572d041a4768662"
+    type :backport
+    resolves "https://github.com/nodejs/node/pull/55563"
   end
 
   def install
@@ -79,8 +81,8 @@ class NodeAT18 < Formula
     system "make", "install"
   end
 
-  def post_install
-    (lib/"node_modules/npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
+  post_install_steps do
+    write_file "lib/node_modules/npm/npmrc", "prefix = {{HOMEBREW_PREFIX}}\n", base: :prefix
   end
 
   test do

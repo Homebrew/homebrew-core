@@ -20,7 +20,7 @@ class Gau < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/gau"
+    system "go", "build", *std_go_args, "./cmd/gau"
   end
 
   test do

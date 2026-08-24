@@ -25,7 +25,7 @@ class F2 < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/f2"
+    system "go", "build", *std_go_args, "./cmd/f2"
 
     bash_completion.install "scripts/completions/f2.bash" => "f2"
     fish_completion.install "scripts/completions/f2.fish"

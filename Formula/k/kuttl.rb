@@ -21,7 +21,6 @@ class Kuttl < Formula
   def install
     project = "github.com/kudobuilder/kuttl"
     ldflags = %W[
-      -s -w
       -X #{project}/internal/version.gitVersion=v#{version}
       -X #{project}/internal/version.gitCommit=#{tap.user}
       -X #{project}/internal/version.buildDate=#{time.iso8601}
@@ -36,7 +35,7 @@ class Kuttl < Formula
     assert_match version.to_s, version_output
     assert_match stable.specs[:revision].to_s, version_output
 
-    kubectl = Formula["kubernetes-cli"].opt_bin / "kubectl"
+    kubectl = formula_opt_bin("kubernetes-cli") / "kubectl"
     assert_equal version_output, shell_output("#{kubectl} kuttl version")
 
     (testpath / "kuttl-test.yaml").write <<~YAML

@@ -18,7 +18,7 @@ class Jd < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./v2/jd/main.go"
+    system "go", "build", *std_go_args, "./v2/jd/main.go"
   end
 
   test do

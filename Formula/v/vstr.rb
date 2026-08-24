@@ -6,11 +6,6 @@ class Vstr < Formula
   sha256 "d33bcdd48504ddd21c0d53e4c2ac187ff6f0190d04305e5fe32f685cee6db640"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url "http://www.and.org/vstr/latest/"
-    regex(/href=.*?vstr[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "2725b8c09c36af9b495587022630130f5561972343fa3d91bba4de2773f7c76e"
     sha256 cellar: :any,                 arm64_sequoia:  "578ee5248bf780a885cfc3dc8a806949ded7af743c3be7e7c839fe4d190a43cd"
@@ -26,6 +21,10 @@ class Vstr < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "a7507e113107828ddec905dfb3c2b373d11f676800cc342fdf080a12038df960"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8346f2277202db06584db705dcf754a00ca364c547791d911e7c3395072b1b6e"
   end
+
+  # Last release on 2006-03-06
+  deprecate! date: "2026-07-17", because: :unmaintained
+  disable! date: "2027-01-17", because: :unmaintained
 
   depends_on "pkgconf" => :build
 

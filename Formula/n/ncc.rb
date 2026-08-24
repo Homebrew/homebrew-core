@@ -1,12 +1,12 @@
 class Ncc < Formula
   desc "Compile a Node.js project into a single file"
   homepage "https://github.com/vercel/ncc"
-  url "https://registry.npmjs.org/@vercel/ncc/-/ncc-0.44.0.tgz"
-  sha256 "10522cbd6c2386cc4aeee6c9b44ec0c3ed566fd7ecfb93e79cc920c6610b6a17"
+  url "https://registry.npmjs.org/@vercel/ncc/-/ncc-0.45.0.tgz"
+  sha256 "b9f6fffbe1db54510b548433170d891431bb6ce9a76acc0be769f8a7695786cf"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4e855df73941de89ec1fd8be54fafa5fd7151de540d930efabf3a3df591e53aa"
+    sha256 cellar: :any_skip_relocation, all: "c3a5e1e497e8dfbff6fc57270f30baf0ad1e55bb8ec193441dd0a986c18c4409"
   end
 
   depends_on "node"

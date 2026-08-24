@@ -6,12 +6,13 @@ class Libkiwix < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "2a779996b714c51dc1df5aa842d20211e71477b04e3e7163f496967c61c65d4f"
-    sha256 cellar: :any, arm64_sequoia: "f365ae439494f7c27d998ba4e875865bfe90e916c53ece33ff3b772aae685eac"
-    sha256 cellar: :any, arm64_sonoma:  "5748766af7090d35b313fe2fb417d119af58d82c2f60c0d3f52189e1ce250a59"
-    sha256 cellar: :any, sonoma:        "3cc3db2a4700a01f92c713ff9a3fd51d65ba2651847e1d73c79e4179a536b970"
-    sha256               arm64_linux:   "10e8b84fae2fbbd98bf4edb3c26c2b2648fc208b4ba8a01bb8b94fcfb0638ddc"
-    sha256               x86_64_linux:  "cc58c24a8642d767352e224a8db4f00136467fd909d7a46600147d916c6df7a7"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "1a163b339857896a25e7ca137ea5b89b9e694b373504ff96e4c0ce54571cb415"
+    sha256 cellar: :any, arm64_sequoia: "39923d9fa6b7814243a0f16bde23b4748f8a22d6700b1b3e60a522e603bd2a53"
+    sha256 cellar: :any, arm64_sonoma:  "f1459f38b2a666ee732745d1b3f721387effe6eabac795d9032787268f29255a"
+    sha256 cellar: :any, sonoma:        "36b65cfdc8f4a14eec5306166e155ad619ae44daa3fe82d55294978fd7e0b221"
+    sha256               arm64_linux:   "7136c54709fc11a9c35aa4ad5ca1935eb99decbb4cbc534ab09ce9a9d0935378"
+    sha256               x86_64_linux:  "6757a377743d2dd7fc5a7a51872dad662f04e2448d5ad313a2e46bf883f44024"
   end
 
   depends_on "meson" => :build
@@ -26,7 +27,10 @@ class Libkiwix < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "curl"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   # TODO: separate as a new formula once upstream release a new tag
   resource "mustache" do

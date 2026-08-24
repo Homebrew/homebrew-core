@@ -1,25 +1,25 @@
 class ProtocGenGo < Formula
   desc "Go support for Google's protocol buffers"
   homepage "https://github.com/protocolbuffers/protobuf-go"
-  url "https://github.com/protocolbuffers/protobuf-go/archive/refs/tags/v1.36.11.tar.gz"
-  sha256 "517b935001f3d43640489cd1aab531a3ed5927fb34379fa6cb1c1a514e9cb8e8"
+  url "https://github.com/protocolbuffers/protobuf-go/archive/refs/tags/v1.36.12.tar.gz"
+  sha256 "23a247d69c52872ecbfd6bcbee3216793b2672fa5a7b99497777bf9c3563756f"
   license "BSD-3-Clause"
   head "https://github.com/protocolbuffers/protobuf-go.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7ffe39568f56c274132445b57eb04377bbb37799611dbbe21bd02c9cc532eaf6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ffe39568f56c274132445b57eb04377bbb37799611dbbe21bd02c9cc532eaf6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7ffe39568f56c274132445b57eb04377bbb37799611dbbe21bd02c9cc532eaf6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e93a78dd2905297ab4ae984982582673dea8e5a1122a8990e6fd167699475bf4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3c6519f898f2a050cc8bb02b08609a658ab4e01d2166c1d832c8b91d065fba52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "829e7d23214131c9a84cd91899bb7a6888d6d7938b18bab9a65f52eaf37078e8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1d3ea7f6966d72d75289a2a65be6afaf14ff71a8061ae323b9533519ea95dc47"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d3ea7f6966d72d75289a2a65be6afaf14ff71a8061ae323b9533519ea95dc47"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d3ea7f6966d72d75289a2a65be6afaf14ff71a8061ae323b9533519ea95dc47"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0ff0aefc9da584d321fcb514ff467f5217dc9fe48cd161806acbc29f6ec59923"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "78c56311cb7a4e33ab06f030341dc242e58af64d99f94ccd766748abb6e497ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9da9a84d24bd16f9122e25769a65e4fa6b6c7e415d618b65af5923fda9c2453a"
   end
 
   depends_on "go" => :build
-  depends_on "protobuf"
+  depends_on "protobuf" => :no_linkage
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/protoc-gen-go"
+    system "go", "build", *std_go_args, "./cmd/protoc-gen-go"
   end
 
   test do

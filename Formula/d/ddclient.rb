@@ -1,10 +1,9 @@
 class Ddclient < Formula
   desc "Update dynamic DNS entries"
   homepage "https://ddclient.net/"
-  url "https://github.com/ddclient/ddclient/archive/refs/tags/v4.0.0.tar.gz"
-  sha256 "4b37c99ac0011102d7db62f1ece7ff899b06df3d4b172e312703931a3c593c93"
+  url "https://github.com/ddclient/ddclient/releases/download/v4.0.0/ddclient-4.0.0.tar.gz"
+  sha256 "15c73d4b61e8e4974707379df1dbf15ab9f933835c6968947d2b56173388c6f0"
   license "GPL-2.0-or-later"
-  head "https://github.com/ddclient/ddclient.git", branch: "main"
 
   livecheck do
     url :stable
@@ -21,13 +20,17 @@ class Ddclient < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d963690c63fb5f28fe5729c3a98d43dc3822508658b4f5e9a335bd19b6956903"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  head do
+    url "https://github.com/ddclient/ddclient.git", branch: "main"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
 
   uses_from_macos "perl"
 
   def install
-    system "./autogen"
+    system "./autogen" if build.head?
     system "./configure", "--sysconfdir=#{etc}", "--localstatedir=#{var}", "CURL=curl", *std_configure_args
     system "make", "install", "CURL=curl"
 

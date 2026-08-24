@@ -6,19 +6,22 @@ class Iqtree3 < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fb5bab78cec04ce9c1ef1937fc7f3b7270e2884a705adc76c2b82b824aee4ac5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "97a3ccb3cf2246ede9938bee894ac5d6eb23961e1a90dcbf0630135a4ec05063"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "003bc18dc66b43701ac5f41f12095094ce1ed2e145c26ff443cd868675ff069f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c1c5810ba0468d089f62f4b96b4f01a0ba9d9b3a2fb8f62f5855aaf712973169"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ddfc94e068ec16c99a267d70e371e61ee8e89a58d0e3e02d07fbe154ccfdbad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4b3e39d526332c45b3e11b1540e39d45fba9af976f98faa3b8c156e020e69e4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ae6440023e30272346d61eb64544cad03cdcd28ce5534881ea57e68741d9804a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7be3601ecc0577748794a0cedc0f2bcb559c6c58f30b4b2d9d71ddf708b390fc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1aa9e27195328385963ee3820070cd3fe336c96f53e2e3db1f89ae23de05ed05"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c87a0732f7b3d034580a7c12ca67a4adbe3e783ddf46468d229e7e800123abb4"
+    sha256 cellar: :any,                 arm64_linux:   "5c93f778819bb6cbad85f83b54597776ee4f70ced9053cb6554f6faf78f08f1b"
+    sha256 cellar: :any,                 x86_64_linux:  "aed8a1b92653deafe99be38cef420dd6fcb6388f5cc07a99cf1e637ee750ac2e"
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "eigen" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   resource "lsd2" do
     url "https://github.com/tothuhien/lsd2.git",
@@ -29,7 +32,7 @@ class Iqtree3 < Formula
     resource("lsd2").stage buildpath/"lsd2"
 
     args = %W[
-      -DEIGEN3_INCLUDE_DIR=#{Formula["eigen"].opt_include}/eigen3
+      -DEIGEN3_INCLUDE_DIR=#{formula_opt_include("eigen")}/eigen3
       -DIQTREE_FLAGS=single
       -DUSE_CMAPLE=OFF
       -DUSE_TERRAPHAST=OFF

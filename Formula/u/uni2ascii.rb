@@ -29,8 +29,8 @@ class Uni2ascii < Formula
 
   # notified upstream about this patch
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/uni2ascii/uni2ascii-4.20.patch"
-    sha256 "250a529eda136d0edf9e63b92a6fe95f4ef5dfad3f94e6fd8d877138ada857f8"
+    file "Patches/uni2ascii/uni2ascii-4.20.patch"
+    type :unofficial
   end
 
   def install

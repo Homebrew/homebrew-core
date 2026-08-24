@@ -42,19 +42,25 @@ class AircrackNg < Formula
   patch do
     url "https://github.com/aircrack-ng/aircrack-ng/commit/adbb91bbec99b8c12924966314714a26ec86f504.patch?full_index=1"
     sha256 "b3b4eae6987f1a0a812f30426b7ceb77cd50da958c05415840291f69cbe005d6"
+    type :backport
   end
   patch do
     url "https://github.com/aircrack-ng/aircrack-ng/commit/88408f6441a1527b6e7e55ab5bccd113cfad4156.patch?full_index=1"
     sha256 "fe162569841b0f101759e019ba2034e7370555c2bea7b2b9113c70910708b062"
+    type :backport
   end
   patch do
     url "https://github.com/aircrack-ng/aircrack-ng/commit/f7d65bdbdd83ba8ae4ea0f145939da7a5a2fb0d1.patch?full_index=1"
     sha256 "98a675f0bca1fc7a8e85b8ac67f1a0e554aae824679b849b0e41f77d2d84a69f"
+    type :backport
   end
 
   # Remove root requirement from OUI update script. See:
   # https://github.com/Homebrew/homebrew/pull/12755
-  patch :DATA
+  patch do
+    file "Patches/aircrack-ng/remove-root-requirement.patch"
+    type :unofficial
+  end
 
   def install
     system "./autogen.sh", "--disable-silent-rules",
@@ -77,33 +83,3 @@ class AircrackNg < Formula
     assert_match expected_simd, shell_output("#{bin}/aircrack-ng --simd-list")
   end
 end
-
-__END__
---- a/scripts/airodump-ng-oui-update
-+++ b/scripts/airodump-ng-oui-update
-@@ -20,25 +20,6 @@ fi
-
- AIRODUMP_NG_OUI="${OUI_PATH}/airodump-ng-oui.txt"
- OUI_IEEE="${OUI_PATH}/oui.txt"
--USERID=""
--
--
--# Make sure the user is root
--if [ x"`which id 2> /dev/null`" != "x" ]
--then
--	USERID="`id -u 2> /dev/null`"
--fi
--
--if [ x$USERID = "x" -a x$(id -ru) != "x" ]
--then
--	USERID=$(id -ru)
--fi
--
--if [ x$USERID != "x" -a x$USERID != "x0" ]
--then
--	echo Run it as root ; exit ;
--fi
--
-
- if [ ! -d "${OUI_PATH}" ]; then
- 	mkdir -p ${OUI_PATH}

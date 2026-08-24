@@ -100,6 +100,7 @@ class GhcAT96 < Formula
   patch do
     url "https://gitlab.haskell.org/ghc/ghc/-/commit/c9731d6d3cad01fccb88c99c4f26070a44680389.diff"
     sha256 "f7e921f7096c97bd4e63ac488186a132eb0cc508d04f0c5a99e9ded51bf16b25"
+    type :backport
   end
 
   def install
@@ -119,8 +120,8 @@ class GhcAT96 < Formula
     resource("binary").stage do
       binary_args = []
       if OS.linux?
-        binary_args << "--with-gmp-includes=#{Formula["gmp"].opt_include}"
-        binary_args << "--with-gmp-libraries=#{Formula["gmp"].opt_lib}"
+        binary_args << "--with-gmp-includes=#{formula_opt_include("gmp")}"
+        binary_args << "--with-gmp-libraries=#{formula_opt_lib("gmp")}"
       end
 
       system "./configure", "--prefix=#{binary}", *binary_args
@@ -164,8 +165,8 @@ class GhcAT96 < Formula
     (lib/"ghc-#{version}/lib/package.conf.d/package.cache.lock").unlink
   end
 
-  def post_install
-    system bin/"ghc-pkg", "recache"
+  post_install_steps do
+    run "ghc-pkg", args: ["recache"], base: :bin
   end
 
   test do

@@ -6,15 +6,15 @@ class Apkleaks < Formula
   url "https://files.pythonhosted.org/packages/1e/e6/203661abe151dbc59096de65d6f0cf392d1aad3acba32f4e9f3f389acad0/apkleaks-2.6.3.tar.gz"
   sha256 "e247b59acf4448f3c2e45449bc7564bc5b7a216ebfb166236baf602d625b1df5"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9f306c7278077caa6a4068d501adfb95345fe39bc6add9ceb759f70fb965057b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d390af53ad407f1cf952e8b23d5688850440100a6f944393119c6591ee3638ad"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "054cd745343049dfb4113ea39e7ec69bbf471d4c3a9a37947351e9ac5403547d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8e524812eb29c7b3eec58d93466856bc1583332b46c33c6fb3155068c4a291ed"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9143ccbd89bb4ba2641dc4127c277aebe4bf55d27e888d4c5af94298d3c0e8eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc01ebfa7068a19c809ce7241cbafb88c0e518fdac5274a435e3c8584eb25dde"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7ef094fc6874927d49109a7c73252c69eac52fe02d3793044e3bab92ec365f9b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "733f1ecaa0a6c12911466fdab9c9c9cef1832b7321b95c6d646aa4184cc9d503"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "afa56250146ce1dd5003da93014dfd4317852ef14a699245de170d07aa3ae11c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "54119887fb5d7d6c54bf7cab9afccff751e3e1e16ad8edfef7789612126d3fec"
+    sha256 cellar: :any,                 arm64_linux:   "9838d6b1fe8a7d5b3b851150eee4b9980163470b7e636ef9ec90ecbe09f7a5ef"
+    sha256 cellar: :any,                 x86_64_linux:  "148cbd6e620031a36ca4f6c2a2c534e9b4c819ac0a5ed3f8302073704c9129fc"
   end
 
   depends_on "jadx"
@@ -29,13 +29,13 @@ class Apkleaks < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/57/75/31212c6bf2503fdf920d87fee5d7a86a2e3bcf444984126f13d8e4016804/click-8.3.2.tar.gz"
-    sha256 "14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/28/30/9abc9e34c657c33834eaf6cd02124c61bdf5944d802aa48e69be8da3585d/lxml-6.1.0.tar.gz"
-    sha256 "bfd57d8008c4965709a919c3e9a98f76c2c7cb319086b3d26858250620023b13"
+    url "https://files.pythonhosted.org/packages/05/3b/aab6728cae887456f409b4d75e8a01856e4f04bd510de38052a47768b680/lxml-6.1.1.tar.gz"
+    sha256 "ba96ae44888e0185281e937633a743ea90d5a196c6000f82565ebb0580012d40"
   end
 
   resource "pyaxmlparser" do

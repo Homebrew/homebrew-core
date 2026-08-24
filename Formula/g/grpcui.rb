@@ -1,8 +1,8 @@
 class Grpcui < Formula
   desc "Interactive web UI for gRPC, along the lines of postman"
   homepage "https://github.com/fullstorydev/grpcui"
-  url "https://github.com/fullstorydev/grpcui/archive/refs/tags/v1.4.3.tar.gz"
-  sha256 "7fa3039bfa6c06a688c1094177445f759c592be2f04574a234da7a88ab2d0efd"
+  url "https://github.com/fullstorydev/grpcui/archive/refs/tags/v1.5.2.tar.gz"
+  sha256 "43e127082396b1ea11f4687a6f69555579b34501538e7ca361c9db35e486139d"
   license "MIT"
   head "https://github.com/fullstorydev/grpcui.git", branch: "master"
 
@@ -12,20 +12,18 @@ class Grpcui < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "96371f211cdbdcd5d568f474d105235f0b3ebdb624b46af9d29691a7769f9c28"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9ac35799e9b7d1c2a6c9eb8b1672f10ba975d0e32efe2665de2ecdc55d10ceeb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ac35799e9b7d1c2a6c9eb8b1672f10ba975d0e32efe2665de2ecdc55d10ceeb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9ac35799e9b7d1c2a6c9eb8b1672f10ba975d0e32efe2665de2ecdc55d10ceeb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ba7e1920f634f492ee2b36de11763a0dc3b3f16e6c4691ef66bf5d1a6c651a30"
-    sha256 cellar: :any_skip_relocation, ventura:       "ba7e1920f634f492ee2b36de11763a0dc3b3f16e6c4691ef66bf5d1a6c651a30"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "678cb499d5e1ff8120437eb008be019761b5afc74175df5ac292262a09dec25f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a604659d4ba4f40852cc1d2b7924e0540f3e59f9f5628472826dfc6b0022dde"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cf74d97098a29197ee6c9ae3c21a911c779478d507e931d8459b66f0d2737ff7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf74d97098a29197ee6c9ae3c21a911c779478d507e931d8459b66f0d2737ff7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf74d97098a29197ee6c9ae3c21a911c779478d507e931d8459b66f0d2737ff7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4ce138c823addafcf29598383b96e2f2faa293ecc096a73e49a2fc8fdba01233"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b398f493cd63ed826569391fd6fff8b0debaa000f847dbefce603d04e09957c"
+    sha256 cellar: :any,                 x86_64_linux:  "44d6f84caed7dddad5cd4043924e4e6594ca219da1d55c4fe9b9ddc0dfcbf5a5"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/grpcui"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/grpcui"
   end
 
   test do

@@ -3,11 +3,12 @@ class Woof < Formula
 
   desc "Ad-hoc single-file webserver"
   homepage "https://www.home.unix-ag.org/simon/woof.html"
+  # TODO: change to codeberg when tag is available
   url "https://github.com/simon-budig/woof/archive/refs/tags/woof-20220202.tar.gz"
   sha256 "cf29214aca196a1778e2f5df1f5cc653da9bee8fc2b19f01439c750c41ae83c1"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://github.com/simon-budig/woof.git", branch: "master"
+  head "https://codeberg.org/nomis/woof.git", branch: "main"
 
   bottle do
     rebuild 2
@@ -22,6 +23,8 @@ class Woof < Formula
   patch do
     url "https://github.com/simon-budig/woof/commit/f501798350f98338678832010a26d53f9c33e9d6.patch?full_index=1"
     sha256 "8f4b895081cb177ae9aa9b0acee0c42775d2072495eb31c1a2ae9bccd97cce47"
+    type :unofficial
+    resolves "https://github.com/simon-budig/woof/pull/21"
   end
 
   def install

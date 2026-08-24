@@ -1,18 +1,18 @@
 class Blake3 < Formula
   desc "C implementation of the BLAKE3 cryptographic hash function"
   homepage "https://github.com/BLAKE3-team/BLAKE3"
-  url "https://github.com/BLAKE3-team/BLAKE3/archive/refs/tags/1.8.5.tar.gz"
-  sha256 "220bd81286e2a0585beac66d41ac3f4c2c33ae8a4e339fc88cf22d5e00514fe9"
+  url "https://github.com/BLAKE3-team/BLAKE3/archive/refs/tags/1.8.7.tar.gz"
+  sha256 "c6782a28842b1c0478524ac06a4f2ede784038ee298d6e2162c0b089c4306a3c"
   license any_of: ["CC0-1.0", "Apache-2.0"]
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "80e977e2e9668c55d5ca1d53195a04d451c878fe97f4f57e1a172b54f1f148bf"
-    sha256 cellar: :any,                 arm64_sequoia: "0a24accc0cda47ffd83ba4668046e3dac514cfd9204596a86b03efe0a900c6bb"
-    sha256 cellar: :any,                 arm64_sonoma:  "9ae1041f6e39cb3d9e639aba9908f84d64582292a44de080d4ad4a52ea0a1b94"
-    sha256 cellar: :any,                 sonoma:        "d50b522ab3b02bec3489cd6f27d7316cabefa2ad50a367f0d5adb5fa8823cdd8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6436d2783c1b7583df65fb3cb8e59112f1344c19f8af9c48cff34d73b7d9ecd3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c7ef98730437bd12515491ae32ccade7b4623d4cfaca35d53a711cb577cbe38"
+    sha256 cellar: :any, arm64_tahoe:   "58e8c92c82c52ff4290097cd31c6b6cfc61f9095b8ece8ab4157338f9ebd22f9"
+    sha256 cellar: :any, arm64_sequoia: "dcb28e5b04890bd9c788e9ed948ace5c4e1ad7782faec3061e40e20300271204"
+    sha256 cellar: :any, arm64_sonoma:  "a3fec96703f5afaa29e78be7a8d00c811d506a6e134d3875349b93e99a3453d7"
+    sha256 cellar: :any, sonoma:        "c7611f7cd8e93ecbcf1b9e325e6dfdf2a7b5e2d451321b5e97d9028d17d6b854"
+    sha256 cellar: :any, arm64_linux:   "3c09c17aaa702ec0e77d643fb6624042cb852f60a819e300c53bae50b3780968"
+    sha256 cellar: :any, x86_64_linux:  "b9de15ad16931c25be34da4f9ede237100aeea4613a4cb8eb415f92c270c9874"
   end
 
   depends_on "cmake" => :build

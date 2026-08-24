@@ -6,17 +6,20 @@ class Spoa < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ad55584bc1d671174019fc33fba25846d45695b1495a8a58e4f569df3f51e4a7"
-    sha256 cellar: :any,                 arm64_sequoia: "e78b56f6b7ccd0c550496370806409371af5aa0e247b19fb6a19766dc8588b98"
-    sha256 cellar: :any,                 arm64_sonoma:  "a233dfaffda20031385fff9037eed19790d91745b7a158c251924de0710eac83"
-    sha256 cellar: :any,                 sonoma:        "6e5926cd309fa1eeac6595bc1bedad2d27a1b9073c263829509cd9a598b286b3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "13f431aa4da78f6726cf32c9d188b5bde27f7120d54db94763cb5f1f7aef29fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d45598cf9672ff7d9daa64cdb07d315980580e21fddb16100b4de4c8c2b849c9"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "c9fccbc0014b8c1f495ddc9073dd51f69d0a10aefc46e10b166311c1e4724d60"
+    sha256 cellar: :any, arm64_sequoia: "44cbe5908a4d582d75edf115868fadb1247b1f6111ca0f2974e50a1e74b5f440"
+    sha256 cellar: :any, arm64_sonoma:  "749823a0c1e16ab05d1d916d45bfb74f9abda75bee68c6d6ae65955efb76bedb"
+    sha256 cellar: :any, sonoma:        "f5773e569d8b1bb47043cff37f3dcde4d11e5142a28a7ffd8b8465d77e410583"
+    sha256 cellar: :any, arm64_linux:   "caf94661a23225cae4a559cdd3867f368e62b5eb44af4fc05d256284cb05d0ef"
+    sha256 cellar: :any, x86_64_linux:  "1185760cad8547073d91443bbe6965ac39a88fe8d9b04e6098d6d170d36809bd"
   end
 
   depends_on "cmake" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     args = %w[

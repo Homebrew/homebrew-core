@@ -19,7 +19,7 @@ class Quasi88 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "afb05e1ae465626203a6b28662dc320fc35720dff2d90b60f5e0491325606b88"
   end
 
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   def install
     ENV.deparallelize

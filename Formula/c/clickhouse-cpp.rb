@@ -4,15 +4,16 @@ class ClickhouseCpp < Formula
   url "https://github.com/ClickHouse/clickhouse-cpp/archive/refs/tags/v2.6.2.tar.gz"
   sha256 "bac497857759e991fa4e1638bccf936cb36d10ad79273695a570272cc4891428"
   license "Apache-2.0"
+  revision 2
   head "https://github.com/ClickHouse/clickhouse-cpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7501cd357dbba8e12e7c90d2fb29fda26bb7277d522238748ef7cc1bf576fb88"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f7d28907449989318328940cf10c77a80db3dc1623a4e1b9b73385f04e6212af"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae1ba7f154c556ecf82807fd2fd22f8e0fbd3bba56129451c02c506dc0b04a37"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fbef61f1019163ab48478b4264dd2d5a3d9f3b313b8b8293b97a1ce9496a0c76"
-    sha256 cellar: :any,                 arm64_linux:   "3aceb0d5257ad07ef2f5ac54aa5756f86dd0c5ef08d9580be6307feb92fb7583"
-    sha256 cellar: :any,                 x86_64_linux:  "ce66a13d493bf370aee5c365be52e5438beed57479e8b2be002709c774fecdc3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cc59c8e3812ac0243f69277819fb097c4b94edff75ec71eaf442d4fd08b87566"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca145c9c1ae7a243e04cf0a778f4584c4bd94670856caf81a8cbaa1b12b1b19d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d5137ef34624dc1d60aab6785255f463573817185a5f8c7ddbd522759bf482d2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f317b491cfea5a75a3b80ae807030bd39d9de290137567ff124f67f6d685abe4"
+    sha256 cellar: :any,                 arm64_linux:   "7aad58121084d70034101aebbb4dc4ea48849d9bb00dc8cfead4f09ae6c15066"
+    sha256 cellar: :any,                 x86_64_linux:  "be84342d0c97860051537d8c5e2557e16ffbc8d26cbf5419f8b6bab9532b6e64"
   end
 
   depends_on "cmake" => :build
@@ -27,7 +28,7 @@ class ClickhouseCpp < Formula
     #   https://github.com/ClickHouse/clickhouse-cpp/pull/301#issuecomment-1520592157
     rm_r(Dir["contrib/*"] - ["contrib/cityhash"])
     args = %W[
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@4"].opt_prefix}
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
       -DWITH_OPENSSL=ON
       -DWITH_SYSTEM_ABSEIL=ON
       -DWITH_SYSTEM_CITYHASH=OFF
@@ -85,9 +86,9 @@ class ClickhouseCpp < Formula
 
     args = %W[
       -std=c++17 -I#{include} -L#{lib} -lclickhouse-cpp-lib
-      -L#{Formula["openssl@4"].opt_lib} -lcrypto -lssl
-      -L#{Formula["lz4"].opt_lib} -llz4
-      -L#{Formula["zstd"].opt_lib} -lzstd
+      -L#{formula_opt_lib("openssl@4")} -lcrypto -lssl
+      -L#{formula_opt_lib("lz4")} -llz4
+      -L#{formula_opt_lib("zstd")} -lzstd
     ]
     args << "-lcityhash" if OS.mac?
     system ENV.cxx, "main.cpp", *args, "-o", "test-client"

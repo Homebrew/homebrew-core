@@ -1,12 +1,12 @@
 class PrismCli < Formula
   desc "Set of packages for API mocking and contract testing"
   homepage "https://stoplight.io/open-source/prism"
-  url "https://registry.npmjs.org/@stoplight/prism-cli/-/prism-cli-5.15.11.tgz"
-  sha256 "0e3594a4e30afb747d6d9e5ff8a61004fd5c596f4f46e3685ab1aafcbb5474fb"
+  url "https://registry.npmjs.org/@stoplight/prism-cli/-/prism-cli-5.16.0.tgz"
+  sha256 "666ebea18de24d25766c6b0c6f8eaacb0f2fd1e695635d53dd78638c7fe25b89"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a7e8aecb82bb0a2fa5f374894fef957cc3eae8eaf9058246b2eeee1978bf49e2"
+    sha256 cellar: :any_skip_relocation, all: "babed443a850d3e503927c4a436c1532e9ba5cfbd18bde500bb1f233ae8f1883"
   end
 
   depends_on "node"

@@ -7,13 +7,13 @@ class Cornelis < Formula
   head "https://github.com/agda/cornelis.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "3ab116742d0b8c90533803a535510040520b1a90d8e0b68e9a9d10fc6ca065af"
-    sha256 cellar: :any,                 arm64_sequoia: "f539829b0e192eb0891a00b8a200ccf0e6c11002499662de544535214dbc3f2d"
-    sha256 cellar: :any,                 arm64_sonoma:  "4a907e326af68978aa8c5a1bca6bc3f29557e7d94a5397a0ceff6b5a1e63468b"
-    sha256 cellar: :any,                 sonoma:        "05c0bca472d34b3ab32a48d4e67005584e2be329c93996817029724ffb857547"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "681e3180af2e1f4bd4c88f2ecaf47b73c5cf3999bfbe61fe9497bc3e618ebef0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26837b1b79f08ab9ed366fd425cabec1d927cea8ba6d3355480c8e324be9476f"
+    rebuild 2
+    sha256 cellar: :any, arm64_tahoe:   "823e1f7d48f7728b1938bfdc6f13d5d019eed5aea1dcaf0ffe76c0bf023b5c1d"
+    sha256 cellar: :any, arm64_sequoia: "4c512b4a244010948e8610c46841d572bbbb27c6e9240a1b755a42cabafcfb51"
+    sha256 cellar: :any, arm64_sonoma:  "c7646126bbcbc556b004d0a9d3ebd6339d6bdb5e2fdd05f290aa60dd24f1193e"
+    sha256 cellar: :any, sonoma:        "dea66e9e498f4fc6ef595c67b62c522361bccff0e9432e438c021ac4768e39f2"
+    sha256 cellar: :any, arm64_linux:   "8c6c596bab2944981e4a97e71ea42feedb60fbca35276e20cad140bfc3f6ffcd"
+    sha256 cellar: :any, x86_64_linux:  "9ddb0a476cd96d13c732d6e41464ca3308279ff2918aeb2dc88d2be38135447d"
   end
 
   depends_on "cabal-install" => :build

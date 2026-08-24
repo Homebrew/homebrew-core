@@ -33,7 +33,7 @@ class PariSeadata < Formula
 
   test do
     expected_output = "[x^4 + 36*x^3 + 270*x^2 + (-y + 756)*x + 729, 0]"
-    output = pipe_output("#{Formula["pari"].opt_bin}/gp -q", "ellmodulareqn(3)").chomp
+    output = pipe_output("#{formula_opt_bin("pari")}/gp -q", "ellmodulareqn(3)").chomp
     assert_equal expected_output, output
   end
 end

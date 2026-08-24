@@ -1,8 +1,8 @@
 class Ocp < Formula
   desc "UNIX port of the Open Cubic Player"
   homepage "https://stian.cubic.org/project-ocp.php"
-  url "https://stian.cubic.org/ocp/ocp-3.3.1.tar.xz"
-  sha256 "924c07f53d45e2bda3e9a4c404ff520dfa49ffed7718ebe6f1d352479bca9ad3"
+  url "https://stian.cubic.org/ocp/ocp-3.5.0.tar.xz"
+  sha256 "914e6ed4ae7702fed569c72bac778ddec377150767c5942aa9aa491f08818eec"
   license "GPL-2.0-or-later"
   head "https://github.com/mywave82/opencubicplayer.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Ocp < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "425581f0286925a8dd284435cf64a6f58de1cc70d68925634dfdf26007d74c3b"
-    sha256 arm64_sequoia: "174a49cea9b579bb1e5f84590fadeb644b9c1d188158d244b603a9dd97fd18c5"
-    sha256 arm64_sonoma:  "7efda933b50036b71ada2ef5dcbbac1fe3d8f71d2af070b2fbeec8611bb9f695"
-    sha256 sonoma:        "25ac3da1aa03447608c1b6daa75bd30f9870cb90cf3a81a517495090a8ddacc9"
-    sha256 arm64_linux:   "45abf429ba52975346f5956a6d575b70594c98ad02c2a6c34ed97309e8d18695"
-    sha256 x86_64_linux:  "b2b5b971a9489b9c584a8996a442754a81159cf772d3c7f683f5060d303df9a9"
+    sha256 arm64_tahoe:   "7f029bd8a9ea98c6a85482757e87978c7abdca9ac088ceda8b3b46d328815381"
+    sha256 arm64_sequoia: "6500942cdd655aedbde7a7d187215bb8e5e0969a3073fe17c277ca6a92d4d0d6"
+    sha256 arm64_sonoma:  "5f3bd8bfdec82a2914ee872553fec8f45c705990b8b8d689553ef3f63b1af8d2"
+    sha256 sonoma:        "48f7c62aa7f0b6120c1171cd645766ba9180e439f21a88bbf8ecfa7997ed19d2"
+    sha256 arm64_linux:   "df9e75706cb63e6c3f0164bc70d671e399d2a3dcc5a0c13093961f230d1a10ba"
+    sha256 x86_64_linux:  "bc4e8d0a25baabe06d61d3c16cf3af0ea861341a5181536376648cc17d23abc1"
   end
 
   depends_on "pkgconf" => :build
@@ -30,6 +30,7 @@ class Ocp < Formula
   depends_on "game-music-emu"
   depends_on "jpeg-turbo"
   depends_on "libdiscid"
+  depends_on "libogg"
   depends_on "libpng"
   depends_on "libvorbis"
   depends_on "mad"
@@ -38,20 +39,21 @@ class Ocp < Formula
   uses_from_macos "bzip2"
   uses_from_macos "ncurses"
 
-  on_macos do
-    depends_on "libogg"
-  end
-
   on_linux do
     depends_on "util-linux" => :build # for `hexdump`
     depends_on "alsa-lib"
+    depends_on "opus"
     depends_on "zlib-ng-compat"
   end
 
-  # https://github.com/mywave82/opencubicplayer/blob/master/mingw/versionsconf.sh#L20
   resource "unifont" do
-    url "https://ftpmirror.gnu.org/gnu/unifont/unifont-17.0.04/unifont-17.0.04.tar.gz"
-    sha256 "5c52c5d56ef98089ddbca62e68560ceccc57ea88940b9d38cc3c888fe3b59a34"
+    url "https://ftpmirror.gnu.org/gnu/unifont/unifont-17.0.05/unifont-17.0.05.tar.gz"
+    sha256 "f287cffb26e22723aa36e6684869b0f3ff3bfb822c4b01008bd847911ec1b631"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/mywave82/opencubicplayer/refs/heads/master/mingw/versionsconf.sh"
+      regex(/^UNIFONT_VERSION="(\d+(?:\.\d+)+)"$/i)
+    end
   end
 
   def install

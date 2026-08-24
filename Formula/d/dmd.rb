@@ -4,12 +4,12 @@ class Dmd < Formula
   license "BSL-1.0"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/refs/tags/v2.112.0.tar.gz"
-    sha256 "33592dc18855bd113914ca065d9e88018745afaa5fbf85b971fbc1a6663c9ec5"
+    url "https://github.com/dlang/dmd/archive/refs/tags/v2.113.0.tar.gz"
+    sha256 "2d1d39388c2afa72859d22aec1f005a969163b9463a5e0e6743ac187aedb4c8d"
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/refs/tags/v2.112.0.tar.gz"
-      sha256 "99e046c1107bc3f365910f5cb52937483c9a5528f2d4ef543b8690ad66723f16"
+      url "https://github.com/dlang/phobos/archive/refs/tags/v2.113.0.tar.gz"
+      sha256 "df0c7cf6b162debade3921b424546be94ae9e1e6c3940283587016454853353a"
 
       livecheck do
         formula :parent
@@ -23,8 +23,8 @@ class Dmd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, sonoma:       "a746a1c494721caba7ca9193a97d9c9c550599dcc3bfec608a937d1460f3963d"
-    sha256                               x86_64_linux: "c54dda66e096b2640e6c0432c73b984033c16daede0f0da46d78caee726d320b"
+    sha256 cellar: :any_skip_relocation, sonoma:       "faed91bc46031d13aa176b5b329126f11991fe1b2d3be14af5769959c78a9e99"
+    sha256                               x86_64_linux: "c6b0c28384360b83fa9be4cc523e433eb07abbd70e69da38083a41fc07784b2f"
   end
 
   head do
@@ -51,7 +51,7 @@ class Dmd < Formula
     dmd_make_args = %W[
       INSTALL_DIR=#{prefix}
       SYSCONFDIR=#{etc}
-      HOST_DMD=#{Formula["ldc"].opt_bin}/ldmd2
+      HOST_DMD=#{formula_opt_bin("ldc")}/ldmd2
       ENABLE_RELEASE=1
       VERBOSE=1
     ]
@@ -85,27 +85,6 @@ class Dmd < Formula
       DFLAGS=-I#{opt_include}/dlang/dmd -L-L#{opt_lib}
     INI
     etc.install "dmd.conf"
-  end
-
-  # Previous versions of this formula may have left in place an incorrect
-  # dmd.conf.  If it differs from the newly generated one, move it out of place
-  # and warn the user.
-  def install_new_dmd_conf
-    conf = etc/"dmd.conf"
-
-    # If the new file differs from conf, etc.install drops it here:
-    new_conf = etc/"dmd.conf.default"
-    # Else, we're already using the latest version:
-    return unless new_conf.exist?
-
-    backup = etc/"dmd.conf.old"
-    opoo "An old dmd.conf was found and will be moved to #{backup}."
-    mv conf, backup
-    mv new_conf, conf
-  end
-
-  def post_install
-    install_new_dmd_conf
   end
 
   def caveats

@@ -7,6 +7,7 @@ class Hevea < Formula
     "QPL-1.0", # source files
     "GPL-2.0-only", # binaries
   ]
+  revision 1
 
   livecheck do
     url "https://hevea.inria.fr/old/"
@@ -14,12 +15,12 @@ class Hevea < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "807e064c4a8f903cd9ef077f1e272392e2a4ca4a4c4f5ba370ade28637c07ac5"
-    sha256 arm64_sequoia: "9e91fe2232484d28116dcd15e582753ab92e3b51f1f951caea28914357467247"
-    sha256 arm64_sonoma:  "6f9908f7e88641bb865999655faef19943fcc78264df848377d53f3f5a8c5cef"
-    sha256 sonoma:        "4abee9f15ba945b2a7e9df32509827f3fa79388dc4f15f371d0eaa3ab4b79687"
-    sha256 arm64_linux:   "dbf9630c685fe8d90adce84c80cfda8d3c915f86d02a44fc78835e5bac20298a"
-    sha256 x86_64_linux:  "d44b4d1c07b514272c2cbdaf70590061b965879e23c57dd5c361323fad5e7e23"
+    sha256 arm64_tahoe:   "7adec0a68d97c8aa59a28322012169104df01b8e690673cb929a05fb773623e0"
+    sha256 arm64_sequoia: "d76ea47bca0a2df7900e6ae6e6cec15f8c3faecf1debcb33b2849fccd12510a9"
+    sha256 arm64_sonoma:  "0e91ca0dd3705101d51598f6f8046eeacab49f8a117431b68583008d6ecfb8ab"
+    sha256 sonoma:        "691dd44898b2be35dd30128fd36402786b81484c78cc403f8044b786cb2d2277"
+    sha256 arm64_linux:   "d6dc20bf781879c8d9021b4dfcde5ecdc23451d6a722640ae5b90ba7dedf0d4f"
+    sha256 x86_64_linux:  "19d843f8b251e66fd43d6c4c1be42c20af8faf2cb4aaac756887064e9a22f263"
   end
 
   depends_on "ocamlbuild" => :build

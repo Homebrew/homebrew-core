@@ -4,6 +4,7 @@ class Siril < Formula
   url "https://free-astro.org/download/siril-1.4.4.tar.bz2"
   sha256 "b1682f2129d2e06b034445ed225766a06e38cfaa7451b92d606a3ee36eb077a4"
   license "GPL-3.0-or-later"
+  revision 3
   head "https://gitlab.com/free-astro/siril.git", branch: "master"
 
   livecheck do
@@ -12,12 +13,12 @@ class Siril < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "df29b26fb44ebe46e97597e78f519eec6b67e27b77cd529a8eebf7ff1b6ba46a"
-    sha256 arm64_sequoia: "27bff4780bffec5e5a882d19abd7487e60bbe398539fdb37950bf3f14f8a5125"
-    sha256 arm64_sonoma:  "90b34fc6d8a90e271f898132bcfbf37912e08aa8f7292c0cedbb8167d72f3253"
-    sha256 sonoma:        "ec619eedca0e1d9b0954a1a1f476bf67627f1592eca5b19181fde4d0a71ae014"
-    sha256 arm64_linux:   "5b83a5b7d3c088acfd9836a5cd9175025155ebaf48646db3484f0b324f421c80"
-    sha256 x86_64_linux:  "1f700107507468b1d1daf44cc2287a96c919dcdeaa29b233a79b738cc4afd8ca"
+    sha256 arm64_tahoe:   "79f0432d71030f24f2d61ee3ec3133120c7152a82c781f582614ed7b742f9b05"
+    sha256 arm64_sequoia: "f0c7f4a4fd7e2a808ca653658a89b01090b2f5ea73fd454933b3e873b462a14c"
+    sha256 arm64_sonoma:  "9875c99864be912d6ff46ca851041095c9c1e775c56637e282704ff61a8d1656"
+    sha256 sonoma:        "4e48ab315e239eb2c48286e5ae2161f644938f61c15a80b0f86517555c59cc6d"
+    sha256 arm64_linux:   "4c825693969a87f660ba20308cb4df2e0c1cfcd3a746a9d827e923f38beda642"
+    sha256 x86_64_linux:  "4ecb1ff88405db5f59aec103935f1faa37b83f7386cf26d17edffdee8c17012f"
   end
 
   depends_on "cmake" => :build
@@ -61,6 +62,16 @@ class Siril < Formula
     depends_on "gettext"
     depends_on "libomp"
   end
+
+  # Build against opencv 5.
+  patch do
+    url "https://gitlab.com/free-astro/siril/-/commit/743956900c65129ab12421951781c12b94c6e996.diff"
+    sha256 "c07b0e62efea0c9622808992bbee77a9e707fb5aaeebf4cd44d9c9a6e680a7c0"
+    type :backport
+    resolves "https://gitlab.com/free-astro/siril/-/merge_requests/1073"
+  end
+
+  deny_network_access!
 
   def install
     args = %w[

@@ -49,7 +49,7 @@ class OpenclIcdLoader < Formula
     cp_r (pkgshare/"loader_test").children, testpath
     system ENV.cc, *testpath.glob("*.c"), "-o", "icd_loader_test",
                    "-DCL_TARGET_OPENCL_VERSION=310",
-                   "-I#{Formula["opencl-headers"].opt_include}", "-I#{testpath}",
+                   "-I#{formula_opt_include("opencl-headers")}", "-I#{testpath}",
                    "-L#{lib}", "-lOpenCL"
     assert_match "ERROR: App log and stub log differ.", shell_output("#{testpath}/icd_loader_test", 1)
   end

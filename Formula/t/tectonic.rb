@@ -1,8 +1,8 @@
 class Tectonic < Formula
   desc "Modernized, complete, self-contained TeX/LaTeX engine"
   homepage "https://tectonic-typesetting.github.io/"
-  url "https://github.com/tectonic-typesetting/tectonic/archive/refs/tags/tectonic@0.16.9.tar.gz"
-  sha256 "9861d4d4230b987d8560f1b84fe6c8a550738401be65b9425b0c7d0466178f2b"
+  url "https://github.com/tectonic-typesetting/tectonic/archive/refs/tags/tectonic@0.17.0.tar.gz"
+  sha256 "30adda98f67dd5389844f6023adeeb54b5475c17a54b777900644468fbc9765d"
   license "MIT"
   head "https://github.com/tectonic-typesetting/tectonic.git", branch: "master"
 
@@ -15,12 +15,12 @@ class Tectonic < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4bf0bc26d2c17b8f634de7950a210a8bbd5cc2f7567c4adfa20649b6731c90cb"
-    sha256 cellar: :any,                 arm64_sequoia: "4fe59b794a9b21039edfd84a23c9dee722cec9647d8b823f518d12731a456e8a"
-    sha256 cellar: :any,                 arm64_sonoma:  "1ced7eecb83209b942b27221528cce685254a3f94fc45c0d7611f816c8b8262c"
-    sha256 cellar: :any,                 sonoma:        "f59976400ce7c94f3b40a14dc1cc152f148848a53bad00301bc0f1d5b9a3007a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d3a08fa8228b9c146a9ea5145835f6231a18bd71f6b528593738649a7f7826dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e76fde85d4a89ad25e04159555dad0c1afa3112a97df58148edd8383adbba09a"
+    sha256 cellar: :any, arm64_tahoe:   "ee7d67061132d36e8cc70e643698a95228fc7c798d6717f349f523a78782ac8f"
+    sha256 cellar: :any, arm64_sequoia: "6a82627d47f54e626c1db4bf1e0c217dc7cd8438c231f3bfd04ea19e50852466"
+    sha256 cellar: :any, arm64_sonoma:  "02eca8f626b8063a4d386654e9d4147df8abeb8abb0a33afa48118cf88104284"
+    sha256 cellar: :any, sonoma:        "b34a2b38838e4dcba6fb692d71ed8f4f87c6fe349425584a21377db1976cab7e"
+    sha256 cellar: :any, arm64_linux:   "4ebbf66c75acbe74cd38b0cc9f0643c8bc4e1441b0979853b752d3353f315484"
+    sha256 cellar: :any, x86_64_linux:  "b3b37f5506ed4d1bfbe9bd7662a2dfaf93a76a4b02c47033009b03b72e5da538"
   end
 
   depends_on "pkgconf" => :build
@@ -42,7 +42,7 @@ class Tectonic < Formula
 
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
     system "cargo", "install", *std_cargo_args(features: "external-harfbuzz")
     bin.install_symlink bin/"tectonic" => "nextonic"

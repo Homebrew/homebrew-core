@@ -1,17 +1,17 @@
 class Killport < Formula
   desc "Command-line tool to kill processes listening on a specific port"
   homepage "https://github.com/jkfran/killport"
-  url "https://github.com/jkfran/killport/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "06e01de691c0fd0244cef340ac6bd0fb991d779191b0f5014f97353691a508e3"
+  url "https://github.com/jkfran/killport/archive/refs/tags/v2.0.2.tar.gz"
+  sha256 "01c30e5a213582daf829332aa8bf96f41404f6871e58d85f5a5af53f454d8127"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe2f63551697527506e0fe8f97b7c21b28e0eec96dd6b923611a3c292105f3ac"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4084ec7d357dbfb28eba4577097d03c402af83cebaf37d45b4728f3d2f15a7fc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "518d331177158c7f98b6f3614bebfdae1ec7222d90351b30c97e4d949995b09f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2b014c0628cebc3706b16476b2d268d75be4502aba623bd80802ea9efc0db0c5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ebaa7fef654c5cb054a995279e9dd2f2178985e75efdd2f482e442902fd6ca4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76db18b18f55cb5500a8681356308de355fa008e196013aba8837f2eeaf987a7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "807f206c9b4afbc6ff9330ec419784cc4ba5d650ef44972f8231febb1e952327"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4f29375dd1edb5e503d0bc301c04420771d98045206ec95c875dcc7270474fb1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "abe2333cf794807d6b75d8f08bf0e7f9dc6e7145a45ed12d37a23567cc38f420"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1cfc9dde00d56793d4a70e268117a6845a8c8433a147d5d5800c207b1d9b4031"
+    sha256 cellar: :any,                 arm64_linux:   "8741318089474d3c29d3caffea827c5e17c21c4fc4750238daec4805a6e5acc6"
+    sha256 cellar: :any,                 x86_64_linux:  "e64559d2c9dca3621b670c9856a56ab632a5507a6aef9784962d133a0faaf09b"
   end
 
   depends_on "rust" => :build

@@ -2,24 +2,24 @@ class Cue < Formula
   desc "Validate and define text-based and dynamic configuration"
   homepage "https://cuelang.org/"
   url "https://github.com/cue-lang/cue.git",
-      tag:      "v0.16.1",
-      revision: "6d609d768f1686f9a3a2a20197cacdbb70e5c79d"
+      tag:      "v0.17.1",
+      revision: "fc6c0b2ecd3666da92f7053d13fcfbf009b7d7a3"
   license "Apache-2.0"
   head "https://github.com/cue-lang/cue.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3312dbb6e144f0594bd8fc1d5aec3583cd316cc17900a9665d4f09eb77e5517f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3312dbb6e144f0594bd8fc1d5aec3583cd316cc17900a9665d4f09eb77e5517f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3312dbb6e144f0594bd8fc1d5aec3583cd316cc17900a9665d4f09eb77e5517f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e5c4bff74f92bb2f489cba7a2738afc25e0b43c93529ac368fb6bfa6ef2d6e41"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1779d12d9c17b8d27e30772f7d8203f78408afed6cd8401922f5fb40b2735bb0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d57d40fa0b3785329070c48e0b8090c651eb9d100285bec72aa788185fb127f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "28328657d4ede5a008dbc9bcf4d801da8a3a29655d972a262c9413c9beef01b2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "28328657d4ede5a008dbc9bcf4d801da8a3a29655d972a262c9413c9beef01b2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "28328657d4ede5a008dbc9bcf4d801da8a3a29655d972a262c9413c9beef01b2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "253990366845c4df79de18ce17e2ac59e3d2efd0770b7349bf8089853f95f64b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "610270ca741c90e91413b2373e676c68bbe113c2dd713e278ec41d91eeff66ab"
+    sha256 cellar: :any,                 x86_64_linux:  "55c44871b0e063cf490702c467b17c47498d48b3d0dc21a4755a7ae039265fb1"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cue"
+    system "go", "build", *std_go_args, "./cmd/cue"
 
     generate_completions_from_executable(bin/"cue", shell_parameter_format: :cobra)
   end

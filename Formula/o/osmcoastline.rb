@@ -36,14 +36,14 @@ class Osmcoastline < Formula
   # TODO: Consider adding a DSL for this or change how we handle Python's `expat` dependency
   def remove_brew_expat
     env_vars = %w[CMAKE_PREFIX_PATH HOMEBREW_INCLUDE_PATHS HOMEBREW_LIBRARY_PATHS PATH PKG_CONFIG_PATH]
-    ENV.remove env_vars, /(^|:)#{Regexp.escape(Formula["expat"].opt_prefix)}[^:]*/
+    ENV.remove env_vars, /(^|:)#{Regexp.escape(formula_opt_prefix("expat"))}[^:]*/
     ENV.remove "HOMEBREW_DEPENDENCIES", "expat"
   end
 
   def install
     remove_brew_expat if OS.mac? && MacOS.version < :sequoia
 
-    protozero = Formula["protozero"].opt_include
+    protozero = formula_opt_include("protozero")
     args = %W[
       -DPROTOZERO_INCLUDE_DIR=#{protozero}
     ]

@@ -1,21 +1,20 @@
 class Yap < Formula
   desc "On-device audio transcription using Speech.framework"
   homepage "https://github.com/finnvoor/yap"
-  url "https://github.com/finnvoor/yap/archive/refs/tags/1.2.0.tar.gz"
-  sha256 "bbaeba13b2c9cd73e89564d97e6fc85ab05273648e81d6dd61ca79bd7f453295"
+  url "https://github.com/finnvoor/yap/archive/refs/tags/1.2.1.tar.gz"
+  sha256 "0ee7ea1bd8b724acdf95575baa832365dd843caab81f9e57b33a28a5712921eb"
   license "CC0-1.0"
   head "https://github.com/finnvoor/yap.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "2f3886f0ad5dd5f823b83dd6447a0899caf5f47b5c5a95085b610edd9630f2f9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "b8d6f115bdf9d2b8dbec1319cc03fd4b173408bd3014fb36be16f0ccd7194e29"
   end
 
-  depends_on xcode: ["26.0", :build]
   depends_on macos: :tahoe
-  uses_from_macos "swift" => [:test]
+  uses_from_macos "swift" => [:build, :test]
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release", "--product", "yap"
+    system "swift", "build", "--product", "yap", *std_swift_args
     bin.install ".build/release/yap"
   end
 

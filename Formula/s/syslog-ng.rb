@@ -6,6 +6,7 @@ class SyslogNg < Formula
   url "https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-4.12.0/syslog-ng-4.12.0.tar.gz"
   sha256 "03a03d19ac203dca53c7ec79a7005c8a850665a95ff4cd0f1e7bb4c497c64d46"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  revision 6
   head "https://github.com/syslog-ng/syslog-ng.git", branch: "develop"
 
   livecheck do
@@ -14,12 +15,12 @@ class SyslogNg < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "6ef226cb8df9f8713dd9845a89ebf78f834dafe93d664f39ae539a1a5479d25a"
-    sha256 arm64_sequoia: "54249c9b90d203b6a8ab7803f2379e720c6c47d41354ef66f4b5ff63c87a381e"
-    sha256 arm64_sonoma:  "3ad006537b1d890d6e1bdb407b21d797012a8966a3e763392d71123a0ca40ccd"
-    sha256 sonoma:        "0ea037c006de5f4ac5201f5e77594e6fb36cf23fecce2407d4bb26b39b22a8a0"
-    sha256 arm64_linux:   "aa0391a47506bb6695a0b67b118e42197a6d118be46e3184fe039c90700cdce3"
-    sha256 x86_64_linux:  "01f037ca2835a98a4abbcf759cb7a3a335e94bc3a0a85c1c865bc949468417ff"
+    sha256 arm64_tahoe:   "a64cb6d1c60ae4cd202d9232bb6d9a1579ab2b3eb72e066ad22769330a4d9918"
+    sha256 arm64_sequoia: "04d3b6fe64eb2d2bd45d834dfe319cce6d77ddefdb3ea6d8e49867d2588de6d1"
+    sha256 arm64_sonoma:  "ca62076ac9ee51ea1d2866f5314c53ae6db7d10bfc8dcbe51d352cdae18dff0d"
+    sha256 sonoma:        "5c9c60721c3f73bfa5913ea18e6a105f1aab2106fa26fd85533036097c5d87ef"
+    sha256 arm64_linux:   "2ec855c1bc9762529ce5f3fc6e73009262ff5fefa32204731d7184186caa5937"
+    sha256 x86_64_linux:  "5455b29821f1b7f1f22435c03626b9c00d66bebf0f1d1b18f74777b6ab31e1af"
   end
 
   depends_on "pkgconf" => :build
@@ -35,6 +36,7 @@ class SyslogNg < Formula
   depends_on "libnet"
   depends_on "libpaho-mqtt"
   depends_on "librdkafka"
+  depends_on "libyaml"
   depends_on "mongo-c-driver"
   depends_on "net-snmp"
   depends_on "openssl@3"
@@ -51,6 +53,15 @@ class SyslogNg < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
     depends_on "gettext"
+
+    # Drop `-no-undefined` so modules resolve core symbols at load time; remove in next release.
+    # macOS-only: `autoreconf` only runs there and the mtime bump breaks the Linux dist build.
+    patch do
+      url "https://github.com/syslog-ng/syslog-ng/commit/97e2a3e5281af6fab88354bc2cc408bfb662c3c6.patch?full_index=1"
+      sha256 "112d45c528ab9c872b81444d2aa1e5b0bd88c65244583ee38cf172cee50f0338"
+      type :backport
+      resolves "https://github.com/syslog-ng/syslog-ng/pull/5743"
+    end
   end
 
   on_linux do

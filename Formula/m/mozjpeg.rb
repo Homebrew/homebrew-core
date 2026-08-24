@@ -36,6 +36,7 @@ class Mozjpeg < Formula
   patch do
     url "https://github.com/mozilla/mozjpeg/commit/1644bdb7d2fac66cd0ce25adef7754e008b5bc1e.patch?full_index=1"
     sha256 "bcb23a9c7aec269f472b30b44a31aea5ccc60ea1fc8342325999420e61e4efbd"
+    type :backport
   end
 
   def install

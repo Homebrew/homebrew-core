@@ -1,27 +1,31 @@
 class CyclonedxGomod < Formula
   desc "Creates CycloneDX Software Bill of Materials (SBOM) from Go modules"
   homepage "https://cyclonedx.org/"
-  url "https://github.com/CycloneDX/cyclonedx-gomod/archive/refs/tags/v1.10.0.tar.gz"
-  sha256 "14d71dcce1164ada13832c6f61b6bb4f804e21966b03ff937b47609752b112f8"
+  url "https://github.com/CycloneDX/cyclonedx-gomod.git",
+      tag:      "v1.12.0",
+      revision: "07257d5b9cbd2a3d4338a880c0ca50081e1ac445"
   license "Apache-2.0"
   head "https://github.com/CycloneDX/cyclonedx-gomod.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dd7b3ce89ec8361b5c32558c62582a62f21f3574fcfd4d7f39ddfeffaa89ceef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd7b3ce89ec8361b5c32558c62582a62f21f3574fcfd4d7f39ddfeffaa89ceef"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd7b3ce89ec8361b5c32558c62582a62f21f3574fcfd4d7f39ddfeffaa89ceef"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8c59b92233c8beba9f3a9ac8f3ee90d86239eef28e3db002f0c30566d57787c0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d20cbef64f5f8167a18d0edd98d5f9780df07032683c1ddf0c6882791f1c367b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0264d8f7838c67048cfebe524bad1caf684ccde316a8140300d15c01d41d696d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bebe56e8e2a7d80c8df3b178aa9738603e09c0bce0db2930956bb6967d851f00"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bebe56e8e2a7d80c8df3b178aa9738603e09c0bce0db2930956bb6967d851f00"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bebe56e8e2a7d80c8df3b178aa9738603e09c0bce0db2930956bb6967d851f00"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ec71729b3cfd701f685750b625d58ee649d74faf7dabb150c2e10470de536093"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b249e6395e54b8ab5f706c867a2b913266b512de02d7c83971259b0496fe7cd3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88a6a9fe3f35772910e96766438479b135b8cda7d2f2d842050047864fb50122"
   end
 
   depends_on "go" => [:build, :test]
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cyclonedx-gomod"
+    ENV["CGO_ENABLED"] = "0"
+    system "go", "build", *std_go_args, "./cmd/cyclonedx-gomod"
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/cyclonedx-gomod version")
+
     (testpath/"go.mod").write <<~GOMOD
       module github.com/Homebrew/brew-test
 

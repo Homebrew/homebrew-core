@@ -11,6 +11,8 @@ class Mp3unicode < Formula
     patch do
       url "https://github.com/alonbl/mp3unicode/commit/a4958c3b5cbfd7464a2d05f5212c0eb21ddf7210.patch?full_index=1"
       sha256 "7cdaf35bb09b5d4ee9c3ef4703bed415ed9df8be5e64f06dc7b4654739e58ab4"
+      type :backport
+      resolves "https://github.com/alonbl/mp3unicode/pull/5"
     end
   end
 

@@ -1,33 +1,30 @@
 class Xcsift < Formula
   desc "Swift tool to parse xcodebuild output for coding agents"
   homepage "https://ldomaradzki.github.io/xcsift/"
-  url "https://github.com/ldomaradzki/xcsift/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "47aa9295c04e53033805c74069c73fe2d6e091f4ccbba5889c74bfe10b138294"
+  url "https://github.com/ldomaradzki/xcsift/archive/refs/tags/v1.4.2.tar.gz"
+  sha256 "ed7a8a3aba5b24e1d3c6a6bd27396e5f26f452b83484f45122c58142a05be421"
   license "MIT"
   head "https://github.com/ldomaradzki/xcsift.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ec142d86fa655ebc0d4024dfef55d255bfa2901b8708abeaef3f29f34338bc05"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f62b48cfbc2d4d7384c6f24172b03be3b129ee69268864bba5602541c6d6a1af"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "21e4bf2f2278704cdfe56c052c04198d20a72f9b0ec28a5338a4ffc35cc89546"
-    sha256 cellar: :any_skip_relocation, sonoma:        "77339974c2a08a80a272ea9b51d69d5f229a6ecc6b971267e13d42c6f2bbcab9"
-    sha256 cellar: :any,                 arm64_linux:   "2de2b2d90ea995cbbf44ca575197a7908b183f169fe77824e780d49c744af42d"
-    sha256 cellar: :any,                 x86_64_linux:  "5be4785031071d0b9821a9f010f33e6121fb01c25e634f6584a951b06abb8c82"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "44c5c7e287892fe83f77609ce088278a9838d2d6dbc70e2669a870030f7586a4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f22782ffcca14dc1709443d3ef1b8e58d971bf4958dd68da1c654d162455efe0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c749b9eb77197a07bae75528b22c2cfe2f0c2948e89ea31beeeb2c4609df5818"
+    sha256 cellar: :any_skip_relocation, sonoma:        "186300c0546362c6252c418eff4cb7b1d19a4b4f167fbccbadcb475650cbcd7f"
+    sha256 cellar: :any,                 arm64_linux:   "5a55b3b904aa27ea656a7c9abb440009c276d6826a5ed754051f95d8eeabd75a"
+    sha256 cellar: :any,                 x86_64_linux:  "0a0af63860c90f0c6ff95fa001c88549414dd200e00aa9df77b99ebf3f9bd751"
   end
 
-  depends_on xcode: ["16.0", :build]
   uses_from_macos "swift" => :build, since: :sonoma
+
+  on_macos do
+    depends_on xcode: ["16.0", :build]
+  end
 
   def install
     inreplace "Sources/xcsift/main.swift", "VERSION_PLACEHOLDER", version.to_s
 
-    args = if OS.mac?
-      ["--disable-sandbox"]
-    else
-      ["--static-swift-stdlib"]
-    end
-
-    system "swift", "build", *args, "-c", "release"
+    system "swift", "build", *std_swift_args
     bin.install ".build/release/xcsift"
   end
 

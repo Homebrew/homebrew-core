@@ -1,18 +1,19 @@
 class Lanraragi < Formula
   desc "Web application for archival and reading of manga/doujinshi"
   homepage "https://lrr.tvc-16.science"
-  url "https://github.com/Difegue/LANraragi/archive/refs/tags/v.0.9.71.tar.gz"
-  sha256 "4dab46dddd2c227bd0428eef4318cad673fca1e2a1420eee1fa2110043827408"
+  url "https://github.com/Difegue/LANraragi/archive/refs/tags/v.0.9.81.tar.gz"
+  sha256 "d4ded2cde7d30b5d565da8a0f85014a245cefe9a8f969a45aa0eec57854beadc"
   license "MIT"
+  revision 1
   head "https://github.com/Difegue/LANraragi.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "82f115b1051d6ae57411796a4a239c639106ee35ccdf1d73c4c4bb5b0979dcb1"
-    sha256 cellar: :any,                 arm64_sequoia: "e09a9184d798b6dfe60d293111c0f353546581f772b9ad3e45de40a851d50f53"
-    sha256 cellar: :any,                 arm64_sonoma:  "5656dc03498a8963e26890841f82298174fc928c8b5a6d0089b402fc97a0cf87"
-    sha256 cellar: :any,                 sonoma:        "339388cc5e250d86fe2022def364a219eebca2f0595f95bb6ac4685d3e897d9e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c177edbccbda0156e095788003c56ac911fc515d3ad941a079ac98d8ff4cb58"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0157925219e3eb6d4b3ba454387d9b66d1eb41b9560e24da521d701b7d106f11"
+    sha256 cellar: :any, arm64_tahoe:   "02cbfef2afa717a23561d235b8dce37fe3cd30a5241319feec8e7bd14bafdd8e"
+    sha256 cellar: :any, arm64_sequoia: "aa264163195fa4b019be99e155468a69856996b4904dc28885da9f3dcf47ce10"
+    sha256 cellar: :any, arm64_sonoma:  "855f4ba8df233db48991edab679a1bd8f293f8ca5f9da762809725e137c71f74"
+    sha256 cellar: :any, sonoma:        "16633e3eae9473433674819bd6bc944712043b99acea860c1d8c98196dcd17d9"
+    sha256 cellar: :any, arm64_linux:   "ac4d358b763fb0eaaac350aa66844bc409744351669c080d91c4bf7548e2e9f9"
+    sha256 cellar: :any, x86_64_linux:  "241b3853dd472045b0e99bac8057bef50c2a16e7c554c00a2e341ed80cf30866"
   end
 
   depends_on "cpanminus" => :build
@@ -21,13 +22,12 @@ class Lanraragi < Formula
   depends_on "ghostscript"
   depends_on "imagemagick"
   depends_on "libarchive"
+  depends_on "libffi" # TODO: uses_from_macos when node supports it
   depends_on "node"
   depends_on "openssl@3"
   depends_on "perl" # perl >= 5.36.0
   depends_on "redis" # TODO: migrate to `valkey`
   depends_on "zstd"
-
-  uses_from_macos "libffi"
 
   resource "Image::Magick" do
     url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/Image-Magick-7.1.2-3.tar.gz"
@@ -39,10 +39,17 @@ class Lanraragi < Formula
     end
   end
 
+  # The last stable release does not build with perl 5.44's stricter `xsubpp`
+  # TODO: Remove this when the next release of this resource is out.
+  resource "Sys::CpuAffinity" do
+    url "https://cpan.metacpan.org/authors/id/M/MO/MOB/Sys-CpuAffinity-1.13_05.tar.gz"
+    sha256 "cd5ac2f3e2dfd60c4eb8a6f8df04646337611caf24fdcfce5e026e01b492125f"
+  end
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-    ENV["OPENSSL_PREFIX"] = Formula["openssl@3"].opt_prefix
-    ENV["ARCHIVE_LIBARCHIVE_LIB_DLL"] = Formula["libarchive"].opt_lib/shared_library("libarchive")
+    ENV["OPENSSL_PREFIX"] = formula_opt_prefix("openssl@3")
+    ENV["ARCHIVE_LIBARCHIVE_LIB_DLL"] = formula_opt_lib("libarchive")/shared_library("libarchive")
     ENV["ALIEN_INSTALL_TYPE"] = "system"
 
     imagemagick = Formula["imagemagick"]
@@ -57,6 +64,8 @@ class Lanraragi < Formula
     end
 
     system "cpanm", "Config::AutoConf", "--notest", "-l", libexec
+    resource("Sys::CpuAffinity").stage { system "cpanm", ".", "--notest", "-l", libexec }
+
     system "npm", "install", *std_npm_args(prefix: false)
     system "perl", "./tools/install.pl", "install-full"
 

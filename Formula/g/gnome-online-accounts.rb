@@ -7,12 +7,13 @@ class GnomeOnlineAccounts < Formula
   head "https://gitlab.gnome.org/GNOME/gnome-online-accounts.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "7680e500d62687a66ba70ac217d37a6317fe3fd3db0d2d6a766d54df287c607a"
-    sha256 arm64_sequoia: "574da1d24eed0441c4133d189b0261a2baa3e7e82a0c5d2e34be9f5a37959c5b"
-    sha256 arm64_sonoma:  "78a3b457f5c8a705f89de36b35aa4b7dd3ca79b856e31e23782ce914bdb32348"
-    sha256 sonoma:        "eea8358e69a79b4cf2d62a3c2134fb5e7003341d54c18fec14515fe076a48fa9"
-    sha256 arm64_linux:   "aceb1b22aac2ff751a97ef49720de4c065faa7175fd72b519998b2a32fc65fca"
-    sha256 x86_64_linux:  "f4cc1202c4fdb8db1a8dfcc920fefc0ed7ce62dcfc427da9b4ecedb08364d7cc"
+    rebuild 1
+    sha256 arm64_tahoe:   "04cf13423a86157fcdea4e74c97705f0450c53afc44794a71d5833760db100af"
+    sha256 arm64_sequoia: "569c6f34e4ea94f239a0658f77ab1d10a77d02fc70bc2ad61de233cf48f49778"
+    sha256 arm64_sonoma:  "f2eeca5d607caa40105168e758381e55e59f38de52f8e88ad05c70ca425520cc"
+    sha256 sonoma:        "5cd23d2d6387c197c34111949750f2d894f61db35400b41d9a776537febf96c5"
+    sha256 arm64_linux:   "21b0d3091f9e7ac60d62bbdf7751f41b6b1384395f7da8585ee75c6e7fca04ec"
+    sha256 x86_64_linux:  "b470a5116c0d3a9164ad846b92925e57c40a78bab53c35a9a61b6fb79dc858f8"
   end
 
   depends_on "dbus" => :build
@@ -62,9 +63,9 @@ class GnomeOnlineAccounts < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system Formula["glib"].opt_bin/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas"
-    system Formula["gtk4"].opt_bin/"gtk4-update-icon-cache", "-f", "-t", HOMEBREW_PREFIX/"share/icons/hicolor"
+  post_install_steps do
+    compile_gsettings_schemas
+    update_gtk_icon_cache
   end
 
   test do

@@ -1,19 +1,19 @@
 class X265 < Formula
   desc "H.265/HEVC encoder"
-  homepage "https://bitbucket.org/multicoreware/x265_git"
-  url "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.2.tar.gz"
-  sha256 "40b1ea0453e0309f0eba934e0ddf533f8f6295966679e8894e8f1c1c8d5e1210"
+  homepage "https://github.com/Multicorewareinc/x265"
+  url "https://github.com/Multicorewareinc/x265/releases/download/4.3/x265_4.3.tar.gz"
+  sha256 "83c53e4c8bbb8f1e33ed59e10a7d621d1d7801ca853910c3eb41f038b8ffb121"
   license "GPL-2.0-or-later"
-  compatibility_version 1
-  head "https://bitbucket.org/multicoreware/x265_git.git", branch: "master"
+  compatibility_version 2
+  head "https://github.com/Multicorewareinc/x265.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ee3075f8af9807bdb30a890b22c1e948a5930f6001c7123eb57faa87c4d15c85"
-    sha256 cellar: :any,                 arm64_sequoia: "29300af7c34c7bc5fd84549b2e0173909026c264060d56bf6d35d79da3808506"
-    sha256 cellar: :any,                 arm64_sonoma:  "614fd3ece81d8eaf67d18d2a8fb5d8d04f8004982547bbdaa1743bf621b1bc7e"
-    sha256 cellar: :any,                 sonoma:        "661c9c3a348ce2c6677204fa20bc7751bd5c6e32cffac91b41a01194257ba35d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1cd1acdf8fe735cd2ca65e7f480ff487166aa6c73038fc14d9487e0ece0d597e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "828f429ad04ef1e539d1539de78b84e3c10c295edee9b512ba64e8d029abf0d1"
+    sha256 cellar: :any, arm64_tahoe:   "844a99704d4b41e0b33331b795d3a0bba7756001f68c1925dc3dea88d5aa3a18"
+    sha256 cellar: :any, arm64_sequoia: "d7a29d4ca9769865867553e82966934fa9bc28c82e28a5b3c7a58aab1b198aed"
+    sha256 cellar: :any, arm64_sonoma:  "43a69b4518ba9d8d805293f004eda174e755e82da2281d647a328e9e1958a188"
+    sha256 cellar: :any, sonoma:        "4897c4847fd853aa6504f46afeeed3ede5be35f3e81c77085ce1c637a6864bc3"
+    sha256 cellar: :any, arm64_linux:   "6453c51228d07d5dc9df25f958b72a3e661bde039165e61cc52c3059bdeeb637"
+    sha256 cellar: :any, x86_64_linux:  "2a9573f55f4c30c18fcd56604e255f8b2c26528ac3de08e015b6469503ebd637"
   end
 
   depends_on "cmake" => :build

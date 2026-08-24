@@ -35,8 +35,8 @@ class Ctail < Formula
     system "autoreconf", "--force", "--install", "--verbose" if Hardware::CPU.arm?
 
     system "./configure", *std_configure_args,
-                          "--with-apr=#{Formula["apr"].opt_bin}",
-                          "--with-apr-util=#{Formula["apr-util"].opt_bin}"
+                          "--with-apr=#{formula_opt_bin("apr")}",
+                          "--with-apr-util=#{formula_opt_bin("apr-util")}"
     system "make", "LIBTOOL=glibtool --tag=CC"
     system "make", "install"
   end

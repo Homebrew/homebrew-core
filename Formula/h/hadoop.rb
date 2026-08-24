@@ -39,9 +39,6 @@ class Hadoop < Formula
     libexec.glob("libexec/*.sh").each do |path|
       (libexec/File.basename(path)).write_env_script path, hadoop_env
     end
-
-    # Temporary fix until https://github.com/Homebrew/brew/pull/4512 is fixed
-    chmod 0755, libexec.glob("*.sh")
   end
 
   test do
@@ -67,7 +64,7 @@ class Hadoop < Formula
     pid = Process.spawn({
       "JAVA_HOME" => Language::Java.java_home("17"),
       "CLASSPATH" => classpaths.join(":"),
-    }, Formula["openjdk@17"].opt_bin/"java", "org.apache.hadoop.yarn.server.resourcemanager.ResourceManager",
+    }, formula_opt_bin("openjdk@17")/"java", "org.apache.hadoop.yarn.server.resourcemanager.ResourceManager",
                                              "-Dyarn.resourcemanager.webapp.address=127.0.0.1:#{port}")
     sleep 15
 

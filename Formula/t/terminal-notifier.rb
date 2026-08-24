@@ -1,23 +1,16 @@
 class TerminalNotifier < Formula
   desc "Send macOS User Notifications from the command-line"
   homepage "https://github.com/julienXX/terminal-notifier"
-  url "https://github.com/julienXX/terminal-notifier/archive/refs/tags/2.0.0.tar.gz"
-  sha256 "6f22a7626e4e68e88df2005a5f256f7d3b432dbf4c0f8a0c15c968d9e38bf84c"
+  url "https://github.com/julienXX/terminal-notifier/archive/refs/tags/3.0.0.tar.gz"
+  sha256 "ed6463d38166785fd5db70b7b7063b276d4d376bbe714784d372b29f952c52bd"
   license "MIT"
   head "https://github.com/julienXX/terminal-notifier.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f2dfafb7ab7b14b1ce364454f260da7a23d4007fea1c863dbe78391db5bf3b3d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "838ac4918afdb8464694e9236c4c61cde9b6d36caa35d01bbc00c6445015c77e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9814bfe9969788afd44c03f4469cf732ab61931a645da58a00b33f95126a381c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "20ebb413679d76521e4434cb4351560f35052985a11cbb1f85c12e45bef95919"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9862b6cf8d3b299ef67dcfb6e31d3040670bdfe58110d04797b117b3702de42"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d1268e236f13f5bb4cd5fead9cf54cfb54ceefb98e34861bd39cf3c7e6ef34cf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bab8943d11a5f323b8963455e07e23bfd569873956cdc9660a9b6f32dfecc316"
-    sha256 cellar: :any_skip_relocation, ventura:        "29c41b914cd8299dba529d1fc6029e4af981ee90010f8a8b11dc4ded8e097855"
-    sha256 cellar: :any_skip_relocation, monterey:       "6513db788b33570b1b89d2b0215e3176d629814b3233c993e995ec9806ad32df"
-    sha256 cellar: :any_skip_relocation, big_sur:        "91f14694ebce08887492aa75138753cd9ff74977868927b15b52559728280055"
-    sha256 cellar: :any_skip_relocation, catalina:       "78eff95b7436480521ee68a8581ff2df0c615adefccd279486f2491f1b1c0a4b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "921a84b3b65356359a6961c9ab61d22e3f590cb0c1ead5df8084b7af5bac623e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f0b0d837ef0a64cbbe1c6dff4865149897eb97e37e05181d1193db2788b6067"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "74f1340c27d4714414a23fd61401e35c290303ff8f8a99bd10f9b31b6511f607"
+    sha256 cellar: :any_skip_relocation, sonoma:        "75d0ea18fea636edcef8b8638d0d250b6053680e289bcb67bd60fc97db087ca0"
   end
 
   depends_on xcode: :build

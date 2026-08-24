@@ -60,6 +60,6 @@ class Opal < Formula
     assert_equal "Hello world!", shell_output("#{bin}/opal --runner quickjs test.rb").strip
 
     system bin/"opal", "--compile", "test.rb", "--output", "test.js"
-    assert_equal "Hello world!", shell_output("#{Formula["quickjs"].opt_bin}/qjs test.js").strip
+    assert_equal "Hello world!", shell_output("#{formula_opt_bin("quickjs")}/qjs test.js").strip
   end
 end

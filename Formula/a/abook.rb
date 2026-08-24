@@ -14,8 +14,11 @@ class Abook < Formula
     url "https://abook.sourceforge.io/devel/abook-0.6.2.tar.gz"
     sha256 "2d6bde2d2d03523f164f930e4fdec6025f3a94abe48a43706f543880a1a21ebe"
 
-    # Backport include from https://sourceforge.net/p/abook/git/ci/39484721c44629fb1f54d92f09c92ef4c3201302/
-    patch :DATA
+    # Backport of https://sourceforge.net/p/abook/git/ci/39484721c44629fb1f54d92f09c92ef4c3201302/
+    patch do
+      file "Patches/abook/39484721c44629fb1f54d92f09c92ef4c3201302.patch"
+      type :backport
+    end
   end
 
   livecheck do
@@ -58,17 +61,3 @@ class Abook < Formula
     system bin/"abook", "--formats"
   end
 end
-
-__END__
-diff --git a/database.c b/database.c
-index 384223e..eb9b4b0 100644
---- a/database.c
-+++ b/database.c
-@@ -12,6 +12,7 @@
- #include <string.h>
- #include <unistd.h>
- #include <assert.h>
-+#include <ctype.h>
- #ifdef HAVE_CONFIG_H
- #      include "config.h"
- #endif

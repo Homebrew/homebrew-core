@@ -19,8 +19,7 @@ class Saml2aws < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/saml2aws"
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}"), "./cmd/saml2aws"
 
     generate_completions_from_executable(bin/"saml2aws", shell_parameter_format: "--completion-script-",
                                                          shells:                 [:bash, :zsh])

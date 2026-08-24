@@ -1,18 +1,18 @@
 class Kubevpn < Formula
   desc "Offers a Cloud-Native Dev Environment that connects to your K8s cluster network"
   homepage "https://www.kubevpn.dev"
-  url "https://github.com/kubenetworks/kubevpn/archive/refs/tags/v2.10.2.tar.gz"
-  sha256 "1f9e6a52f111024a804cbf42cff495ff9b5f007bac3794d12ef0d96b5602ce73"
+  url "https://github.com/kubenetworks/kubevpn/archive/refs/tags/v2.11.6.tar.gz"
+  sha256 "d59d09e6fdc69832ecf8efe0098d522bb0192b7b2382db1d4c94447ac0297718"
   license "MIT"
   head "https://github.com/kubenetworks/kubevpn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "509c0578e264675fdb22febbcf92b4a7c32c0ec44eb5ae2c1478484510302f88"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0bf70935592770751c611207eb78ada15e2670af613b0666e4896136ec3c03b7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1e14ef24d0fd1d3bfe9f126bff1cf29fb132b6cd3857bcf55fb6e7fbce535f8d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "914113b6012b5a0d6772a3a301e8aa9d465625c0358f4f4ecb7505c513ed54d3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6032a520dcd9b137078c3e980fe994ce44910c6c9c7c227d8c6369a8f01a9cda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af4155bfe10ec35fdb8ea1e1290fec8bb3c51b5dc67fa58973187f7f3e424741"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "910a77c1903ce50ac54ee0f8296a6fca9a3a2c8e240cc6ae82fbff690da478cc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0bbd5fff591516bdf22650175e2cf676a39ff673bd7175f2ed29742a5c49abf2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "58871846608830e98414be248d0d7ebd0bce983559c803688eb31d128524b0b1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "66e710dc1065ad18230d21d954532fa42b62b2e7d82b91ff5b5c561e4238ca25"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f46fd4f57bd456d420183ee9ca13d3c3f2ad540868d986a3d3898de1473ecae5"
+    sha256 cellar: :any,                 x86_64_linux:  "42b82a32f5228c198621314309ca72f3e003f6c64e0c20827a469c970cc0de1a"
   end
 
   depends_on "go" => :build
@@ -22,7 +22,6 @@ class Kubevpn < Formula
     goarch = Utils.safe_popen_read("#{Formula["go"].bin}/go", "env", "GOARCH").chomp
     project = "github.com/wencaiwulue/kubevpn/v2"
     ldflags = %W[
-      -s -w
       -X #{project}/pkg/config.Image=ghcr.io/kubenetworks/kubevpn:v#{version}
       -X #{project}/pkg/config.Version=v#{version}
       -X #{project}/pkg/config.GitCommit=#{tap.user}

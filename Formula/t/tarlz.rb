@@ -1,9 +1,9 @@
 class Tarlz < Formula
   desc "Data compressor"
   homepage "https://www.nongnu.org/lzip/tarlz.html"
-  url "https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.29.tar.lz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.29.tar.lz"
-  sha256 "7e127f1e1b1b62ca6e3417fde32f3ae0481ba5886f56a8553a215b19d81c6c19"
+  url "https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.30.tar.lz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.30.tar.lz"
+  sha256 "c6339319413f37fc4b155b1ba8a58640a7fee36498b095d3b6d3c13d9c7f286c"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,12 +12,12 @@ class Tarlz < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "335d682a3b430cba57a287119c7e87b46f1c90d6a50bc426ea6312a33aaaafc1"
-    sha256 cellar: :any,                 arm64_sequoia: "1f521f67485ce19c2224ce90ddc08c1a21d12c1bb0f90b0e298ea0faa832f544"
-    sha256 cellar: :any,                 arm64_sonoma:  "193f7909ef30f70836db95c0f28593e2f4154cf90a8addebffcefec1bec4137e"
-    sha256 cellar: :any,                 sonoma:        "d45112e00709bb96c1a60b4ca33f789a5f0e1ae6cf26d9b356173a8dea5270fd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "762ba14cdcc171ec8f7e6884f7fe4ba7d21e916d0ed95cfd6cac379c9850b200"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e55b50e47918fb42455d602c9c900d851c7ff4875cb8fdfa06e60f46ed25b98a"
+    sha256 cellar: :any, arm64_tahoe:   "1c39f86e634b0a13f0614047a41694748d26a75ab32c0a4b15fd3c4c87426f85"
+    sha256 cellar: :any, arm64_sequoia: "016449a5c0caeb49d96fb2527aa349d2a7eba7a973fc752c3cf7832ecf6a1a77"
+    sha256 cellar: :any, arm64_sonoma:  "12903a0aeed39ee40488a1002a6a38cb4d66ef24d2e2e05cae22d7d163034f4d"
+    sha256 cellar: :any, sonoma:        "519b3f566e1e46725938f5977ba4d05575289504991af71ef2d0df10c9aec8fa"
+    sha256 cellar: :any, arm64_linux:   "6b515b803fbd636ec1bd9cf5bd4993ed6938a4fbb788d46f421a98679a02fce0"
+    sha256 cellar: :any, x86_64_linux:  "7d177431afd66cbada06599e62702594724f02f7a1bba544668b053051ad0ae8"
   end
 
   depends_on "lzlib"

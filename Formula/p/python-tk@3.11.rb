@@ -1,8 +1,8 @@
 class PythonTkAT311 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.11.15/Python-3.11.15.tgz"
-  sha256 "f4de1b10bd6c70cbb9fa1cd71fc5038b832747a74ee59d599c69ce4846defb50"
+  url "https://www.python.org/ftp/python/3.11.16/Python-3.11.16.tgz"
+  sha256 "6c0bd76ab0ec7d94ed400b1497f01ac6c7751c8822615ee0855a3eb2d893ea76"
   license "Python-2.0"
 
   livecheck do
@@ -10,13 +10,17 @@ class PythonTkAT311 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9d4c3595e2ea5d5cd9023119821ef0bd2a0de04e95747f61afee97c37163222a"
-    sha256 cellar: :any,                 arm64_sequoia: "4ba4218e08f4544b714d7a1985390c4774de9dc3c10c55ddd135d285bbe9fc99"
-    sha256 cellar: :any,                 arm64_sonoma:  "acfb91bc8ba2025471a0d707549b0ac30fed7dcdbd23f2256b5905c1c43ab008"
-    sha256 cellar: :any,                 sonoma:        "b5e63b585151fdf740650d132c819c8d536ad515dae9adc2ea4dca3168b2d912"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8dcf8018fd89bb9e1341e8aa2cbebbe4a6f738e244a64d1db71c587a63e87d9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd083f95a984b7d674e4399acbe1278ebfa44653de01af5789dd59f8f6e33801"
+    sha256 cellar: :any, arm64_tahoe:   "470ac510a2c4129762343393289fa65071a6f1f69274a18e897db5fb8e123df9"
+    sha256 cellar: :any, arm64_sequoia: "493a85e0ee00b45d4534ce96d07a09c65f93c650ea2d9256badc39bb10713839"
+    sha256 cellar: :any, arm64_sonoma:  "106c220bb1ee721fb10cde87b0535baa745b29df9dd9f9c4d455af2aaaf091a6"
+    sha256 cellar: :any, sonoma:        "1c0783f75312bfab9a1d451580855cfdbfba0292c7e933f2dacfb386d18cd443"
+    sha256 cellar: :any, arm64_linux:   "8f108754cb35d7b225ad25444e9e81b7091046f962a8be3cbdd3181d0255a306"
+    sha256 cellar: :any, x86_64_linux:  "21bf69d4e87a35ac77d989e239860f64d1c286aafab8376d29a88c495366aa92"
   end
+
+  # https://devguide.python.org/versions/#versions
+  deprecate! date: "2027-11-01", because: :deprecated_upstream
+  disable! date: "2028-11-01", because: :deprecated_upstream
 
   depends_on "python@3.11"
   depends_on "tcl-tk@8"

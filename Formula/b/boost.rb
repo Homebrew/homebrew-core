@@ -1,11 +1,10 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://github.com/boostorg/boost/releases/download/boost-1.90.0/boost-1.90.0-b2-nodocs.tar.xz"
-  sha256 "9e6bee9ab529fb2b0733049692d57d10a72202af085e553539a05b4204211a6f"
+  url "https://github.com/boostorg/boost/releases/download/boost-1.92.0/boost-1.92.0-b2-nodocs.tar.xz"
+  sha256 "ea7b982002cc9dfbe59b0b217b206f470dc75f3de0bb2973d844118934d82411"
   license "BSL-1.0"
-  revision 1
-  compatibility_version 1
+  compatibility_version 2
   head "https://github.com/boostorg/boost.git", branch: "master"
 
   livecheck do
@@ -17,12 +16,12 @@ class Boost < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "47ceccf6792941c223a6464f974b6ac56e1d3457e6d72e1f71b4fdb742cef1d0"
-    sha256                               arm64_sequoia: "48b32cf2c35011a4b7e9b6ac8a68247aebb872b39f4629dbfc3f343d9f6a2b2d"
-    sha256                               arm64_sonoma:  "900f3a5db294a038351027a97e5de0c72d3f3fb754b081294dbea4267b69963d"
-    sha256 cellar: :any,                 sonoma:        "29e1095cff0cab11964d27ad12ca18556ff9715f2c6b3216f0deb389ffdba653"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "533706af6bd0f1e62589e7421f190466451755f4e7bc91937661e3b2a13560c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "175119f6f95179930c676c24615133249fea40b9bd86e1f37340c1544c18f9bc"
+    sha256               arm64_tahoe:   "686277661ee32946032c02d6e365b0183dd7763f2e220be6c7949595458cef57"
+    sha256               arm64_sequoia: "8a2db0c95ead0763e46c7fb7c0d54324d83f8aa03f742c01b7d7d5b93112669b"
+    sha256               arm64_sonoma:  "38f6e06f86998a21aae14d5279a50d134f325930bdc46fbf081f5d1a183cba4b"
+    sha256 cellar: :any, sonoma:        "325c74a0d2fa3f71a83e89c4d26cf7a75de061061c26480d1ed1bbadc355bd0e"
+    sha256 cellar: :any, arm64_linux:   "1ebcec8766e8505b2a58df8dc4682e1dc71766917330158b0c02109d87c70a77"
+    sha256 cellar: :any, x86_64_linux:  "d90cc7b74ac1cba91e00f675b1cb36da5a94e5092eaed846f6a2e1e2974f59d3"
   end
 
   depends_on "icu4c@78"
@@ -33,13 +32,6 @@ class Boost < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
-  end
-
-  # Fix for `ncmpcpp`, pr ref: https://github.com/boostorg/range/pull/157
-  patch :p3 do
-    url "https://github.com/boostorg/range/commit/9ac89e9936b826c13e90611cb9a81a7aa0508d20.patch?full_index=1"
-    sha256 "914464ffa1d53b3bf56ee0ff1a78c25799170c99c9a1cda075e6298f730236ad"
-    directory "boost"
   end
 
   def install
@@ -142,7 +134,7 @@ class Boost < Formula
       }
     CPP
     system ENV.cxx, "test.cpp", "-std=c++17", "-o", "test", "-L#{lib}", "-lboost_iostreams",
-                    "-L#{Formula["zstd"].opt_lib}", "-lzstd"
+                    "-L#{formula_opt_lib("zstd")}", "-lzstd"
     system "./test"
   end
 end

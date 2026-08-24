@@ -20,7 +20,6 @@ class Blahtexml < Formula
   depends_on "xerces-c"
 
   def install
-    ENV.cxx11
     if OS.mac?
       system "make", "blahtex-mac"
       system "make", "blahtexml-mac"

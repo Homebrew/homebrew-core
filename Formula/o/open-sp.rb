@@ -37,6 +37,7 @@ class OpenSp < Formula
   patch do
     url "https://gitweb.gentoo.org/repo/gentoo.git/plain/app-text/opensp/files/opensp-1.5.2-c11-using.patch?id=688d9675782dfc162d4e6cff04c668f7516118d0"
     sha256 "3ebd2526e0f41a12b9107a09ece834043678d499252c28941eeb2a5676b1ce5e"
+    type :unofficial
   end
 
   def install

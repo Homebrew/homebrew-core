@@ -31,10 +31,11 @@ class Bpytop < Formula
   end
 
   # Tolerate SMC error from osx-cpu-temp
-  # https://github.com/aristocratos/bpytop/pull/405
   patch do
     url "https://github.com/aristocratos/bpytop/commit/5634526721b1bc98dc7a7003801cdf99686419ed.patch?full_index=1"
     sha256 "0158252936cfd1adcbe5e664f641a0c2bb6093270bedf4282cf5c7ff49a7d238"
+    type :unofficial
+    resolves "https://github.com/aristocratos/bpytop/pull/405"
   end
 
   def install

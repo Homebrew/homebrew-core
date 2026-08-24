@@ -152,7 +152,7 @@ class GetFlashVideos < Formula
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     unless OS.mac?
       ENV["PERL_MM_USE_DEFAULT"] = "1"
-      ENV["OPENSSL_PREFIX"] = Formula["openssl"].opt_prefix
+      ENV["OPENSSL_PREFIX"] = formula_opt_prefix("openssl")
     end
 
     resources.each do |r|
@@ -174,7 +174,7 @@ class GetFlashVideos < Formula
     if OS.linux?
       inreplace libexec/"bin/get_flash_videos",
                 Formula["perl"].bin.realpath,
-                Formula["perl"].opt_bin
+                formula_opt_bin("perl")
     end
 
     man1.install "blib/man1/get_flash_videos.1"

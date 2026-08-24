@@ -6,10 +6,6 @@ class CfnFormat < Formula
   license "Apache-2.0"
   head "https://github.com/aws-cloudformation/rain.git", branch: "main"
 
-  livecheck do
-    formula "rain"
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "49758cff5c060a914dd2517a7c2d2d5bae834904e76ce7456734de86f94a4d58"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "49758cff5c060a914dd2517a7c2d2d5bae834904e76ce7456734de86f94a4d58"
@@ -19,10 +15,13 @@ class CfnFormat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "38974e3efdb8278453debe03d7b12937024bb972a583ba205d81aeb2526ac959"
   end
 
+  deprecate! date: "2026-08-08", because: :repo_archived
+  disable! date: "2027-02-08", because: :repo_archived
+
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cfn-format"
+    system "go", "build", *std_go_args, "./cmd/cfn-format"
   end
 
   test do

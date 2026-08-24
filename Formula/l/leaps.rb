@@ -22,10 +22,13 @@ class Leaps < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c1f94e5c2315b93194e5b5573de8ac9d57fe7b791e20538839df29b940d4824"
   end
 
+  deprecate! date: "2026-07-17", because: :unmaintained
+  disable! date: "2027-01-17", because: :unmaintained
+
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/leaps"
+    system "go", "build", *std_go_args, "./cmd/leaps"
   end
 
   test do

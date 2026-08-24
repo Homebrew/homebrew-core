@@ -31,6 +31,10 @@ class Zigup < Formula
 
   depends_on "zig@0.14" => :build
 
+  on_macos do
+    depends_on maximum_macos: [:sequoia, :build] # TODO: remove with Zig 0.15+
+  end
+
   def install
     system "zig", "build", *std_zig_args.reject { |s| s["-Doptimize="] }
   end

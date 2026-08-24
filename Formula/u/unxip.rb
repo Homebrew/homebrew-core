@@ -34,16 +34,10 @@ class Unxip < Formula
   end
 
   def install
-    args = %w[--configuration release]
-    if OS.mac?
-      args << "--disable-sandbox"
-    else
-      args += %w[--static-swift-stdlib -Xswiftc -use-ld=ld]
-      # Swift doesn't run our CC so manually pass in shim include paths to find correct headers
-      ENV["HOMEBREW_ISYSTEM_PATHS"].to_s.split(":").each { |path| args += %W[-Xcc -isystem#{path}] }
-      ENV["HOMEBREW_INCLUDE_PATHS"].to_s.split(":").each { |path| args += %W[-Xcc -I#{path}] }
-    end
-    system "swift", "build", *args
+    # Swift doesn't run our compiler shim so manually pass in include paths to find correct headers
+    args = %W[-Xswiftc -I#{HOMEBREW_PREFIX}/include] unless OS.mac?
+
+    system "swift", "build", *args, *std_swift_args
     bin.install ".build/release/unxip"
   end
 

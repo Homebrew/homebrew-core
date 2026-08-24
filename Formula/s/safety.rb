@@ -6,15 +6,16 @@ class Safety < Formula
   url "https://files.pythonhosted.org/packages/c2/7b/8e1d580c5178f0736b806b7199827e61e2a2569eec5b49ec75da6273bbdf/safety-3.8.1.tar.gz"
   sha256 "e646123b976bbb6707cfaacae8c926e2f886b744a60e0f410e8610a3a4eaf7be"
   license "MIT"
+  revision 1
   head "https://github.com/pyupio/safety.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c539eec5462c9aaa6cc6bcc271f4b04f9bdbef2af15dd5b1573a6f8244bd5cba"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b5308a76f4d01a34f28463af39f23d4c269bf4cea0c4b9ee0e6cbaec44228f4b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a4c4d3d75f04996ad53f2ce5b1b01fd797362814101ec4285243d37f625aa31b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1543a9d884d941edeb2ae79388fe98e41ff99c8e75b04582231e55f187367600"
-    sha256 cellar: :any,                 arm64_linux:   "7143ef2da07fb48af6cf9ebd5b30cd7499b4b0e9f75035c498eedc4e9107bb67"
-    sha256 cellar: :any,                 x86_64_linux:  "01335f7bd650ee401441c2a744431a403a22d28bd3d7fae6abe948228fac33a5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d59b789494b8c508e064b8f8a0727d437902fbfffe587b977b9e3128e468fc05"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4cfb77d241c90e8a87b5effc9e47f2a566c36cd6e742a720bbedc5abd6767ffe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad0dcadb16a7eb8e5a68e3b7c1c9a65ba0b5be5392a68bf01337916dc861a72a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "df325f27181584c41760c0b1ee1cf97eb942f955596572ab68475cff024b9986"
+    sha256 cellar: :any,                 arm64_linux:   "1c7f28a075791ce15c1589494dff00ee3668edc3be5787da5ee6900406ea941c"
+    sha256 cellar: :any,                 x86_64_linux:  "24fa0b2c334f7633a1cc9f2ae37b1f8834780be5e6d97b4d5f5cca0f3f31213c"
   end
 
   depends_on "certifi" => :no_linkage
@@ -30,8 +31,8 @@ class Safety < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/19/14/2c5dd9f512b66549ae92767a9c7b330ae88e1932ca57876909410251fe13/anyio-4.13.0.tar.gz"
-    sha256 "334b70e641fd2221c1505b3890c69882fe4a2df910cba14d97019b90b24439dc"
+    url "https://files.pythonhosted.org/packages/3b/72/5562aabb8dd7181e8e860622a38bea08d17842b99ecd4c91f84ac95251b0/anyio-4.14.1.tar.gz"
+    sha256 "8d648a3544c1a700e3ff78615cd679e4c5c3f149904287e73687b2596963629e"
   end
 
   resource "authlib" do
@@ -40,8 +41,13 @@ class Safety < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+  end
+
+  resource "defusedxml" do
+    url "https://files.pythonhosted.org/packages/0f/d5/c66da9b79e5bdb124974bfe172b4daf3c984ebd9c2a06e2b8a4dc7331c72/defusedxml-0.7.1.tar.gz"
+    sha256 "1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"
   end
 
   resource "dparse" do
@@ -50,8 +56,8 @@ class Safety < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/b5/fe/997687a931ab51049acce6fa1f23e8f01216374ea81374ddee763c493db5/filelock-3.29.0.tar.gz"
-    sha256 "69974355e960702e789734cb4871f884ea6fe50bd8404051a3530bc07809cf90"
+    url "https://files.pythonhosted.org/packages/35/94/00f2059e4835eace3ae8fde680b932c496f8ec7bdc99168dfa53fb2e6b79/filelock-3.29.7.tar.gz"
+    sha256 "5b481979797ae69e72f0b389d89a80bdd585c260c5b3f1fb9c0a5ba9bb3f195d"
   end
 
   resource "h11" do
@@ -70,8 +76,8 @@ class Safety < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/b9/28/99c51f664567218d824af024c0251650fb27e4ca066df188dab0769c5b91/idna-3.17.tar.gz"
-    sha256 "5eb0cb53bc467c12eadcf6de83163ad8527cec9416f44b9b61b19caedad2b87f"
+    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
+    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
   end
 
   resource "jinja2" do
@@ -85,8 +91,8 @@ class Safety < Formula
   end
 
   resource "joserfc" do
-    url "https://files.pythonhosted.org/packages/5d/ac/d4fd5b30f82900eac60d765f179f0ba005825ac462cc8ced6e13ec685ab3/joserfc-1.6.8.tar.gz"
-    sha256 "878620c553a6ebdd76ccdc356782fee3f735f21a356d079a546b42a4670ace5f"
+    url "https://files.pythonhosted.org/packages/f1/26/abe1ad855eb334b5ebc9c6495d4798e12bee70e5e8e815d54570710b8312/joserfc-1.7.2.tar.gz"
+    sha256 "537ffb8888b2df039cb5b6d017d7cff6f09d521ce65d89cc9b8ab752b1cff947"
   end
 
   resource "markdown-it-py" do
@@ -110,8 +116,8 @@ class Safety < Formula
   end
 
   resource "nltk" do
-    url "https://files.pythonhosted.org/packages/74/a1/b3b4adf15585a5bc4c357adde150c01ebeeb642173ded4d871e89468767c/nltk-3.9.4.tar.gz"
-    sha256 "ed03bc098a40481310320808b2db712d95d13ca65b27372f8a403949c8b523d0"
+    url "https://files.pythonhosted.org/packages/96/02/df4f105b28a7c16b0e41423bc09cf0f1b8a305df4ef0b10ca74a2e4c648c/nltk-3.10.0.tar.gz"
+    sha256 "4fbac1d98203cbcd1b5d94a2877fb822300072d80604a5e7fae49d2c5f84e8c1"
   end
 
   resource "packaging" do
@@ -125,8 +131,8 @@ class Safety < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/dc/0e/49aee608ad09480e7fd276898c99ec6192985fa331abe4eb3a986094490b/regex-2026.5.9.tar.gz"
-    sha256 "a8234aa23ec39894bfe4a3f1b85616a7032481964a13ac6fc9f10de4f6fca270"
+    url "https://files.pythonhosted.org/packages/f1/05/e4f219230e11e774a6c9987d2ab0d0c6b8573e13a17e143d0015bee710ef/regex-2026.6.28.tar.gz"
+    sha256 "3cb4b6c5cb3060cc31efdc1fbb27c25fb9b29044afd87e40601a1c4d9db54342"
   end
 
   resource "rich" do
@@ -160,8 +166,8 @@ class Safety < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
-    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
+    url "https://files.pythonhosted.org/packages/ae/5f/57ff8b434839e70dab45601284ea413e947a63799891b7553e5960a793a8/tqdm-4.68.4.tar.gz"
+    sha256 "19829c9673638f2a0b8617da4cdcb927e831cd88bcfcb6e78d42a4d1af131520"
   end
 
   resource "truststore" do

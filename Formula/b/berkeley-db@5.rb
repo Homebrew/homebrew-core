@@ -30,8 +30,7 @@ class BerkeleyDbAT5 < Formula
 
   # Fix build with recent clang
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/berkeley-db@4/clang.diff"
-    sha256 "86111b0965762f2c2611b302e4a95ac8df46ad24925bbb95a1961542a1542e40"
+    file "Patches/berkeley-db@4/clang.diff"
     directory "src"
   end
 
@@ -39,12 +38,12 @@ class BerkeleyDbAT5 < Formula
   patch :p0 do
     url "https://raw.githubusercontent.com/NetBSD/pkgsrc/6034096dc85159a02116524692545cf5752c8f33/databases/db5/patches/patch-src_dbinc_db.in"
     sha256 "302b78f3e1f131cfbf91b24e53a5c79e1d9234c143443ab936b9e5ad08dea5b6"
+    type :unofficial
   end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
     directory "dist"
   end
 

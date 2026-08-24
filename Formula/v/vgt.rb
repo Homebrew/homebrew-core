@@ -18,7 +18,7 @@ class Vgt < Formula
   depends_on "go"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   test do

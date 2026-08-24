@@ -19,16 +19,7 @@ class Resticprofile < Formula
   depends_on "restic"
 
   def install
-    commit = build.head? ? Utils.git_short_head : tap.user
-    ldflags = %W[
-      -s -w
-      -X 'main.version=#{version}'
-      -X 'main.commit=#{commit}'
-      -X 'main.date=#{time.iso8601}'
-      -X 'main.builtBy=#{tap.user}'
-    ]
-
-    system "go", "build", *std_go_args(ldflags:, tags: "no_self_update")
+    system "go", "build", *std_go_args(ldflags: :goreleaser, tags: "no_self_update")
 
     bash_completion.install "contrib/completion/bash-completion.sh" => "resticprofile"
     fish_completion.install "contrib/completion/fish-completion.fish" => "resticprofile.fish"

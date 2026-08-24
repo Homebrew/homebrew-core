@@ -1,24 +1,24 @@
 class Slackdump < Formula
   desc "Export Slack data without admin privileges"
   homepage "https://github.com/rusq/slackdump"
-  url "https://github.com/rusq/slackdump/archive/refs/tags/v4.4.0.tar.gz"
-  sha256 "1790327a065a8b51d5bf051c1e6aa9b66f2518bf64450575b513893489a13809"
+  url "https://github.com/rusq/slackdump/archive/refs/tags/v4.4.4.tar.gz"
+  sha256 "14edec13c1b462574ff06dfe548294b76031049a75b4e709ea29411dacb19b4c"
   license "AGPL-3.0-only"
   head "https://github.com/rusq/slackdump.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "38dd699e7c668526b11681c32a7b75f840e56e9cfdca3e3e977c8efbd1cecafc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "38dd699e7c668526b11681c32a7b75f840e56e9cfdca3e3e977c8efbd1cecafc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38dd699e7c668526b11681c32a7b75f840e56e9cfdca3e3e977c8efbd1cecafc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "41f442c739aed94a30baa61b542b53204e62ead0dfd7083b91d0516a29660ad5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "64499d2c19e9b56805d428de10043428b5384c45b942262bb322989774f4d2c8"
-    sha256 cellar: :any,                 x86_64_linux:  "9b33b26608e32046cc6897cef066296ec9243cce1e535368f61c703a162853d3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "94f002a462afadfcec856d768d7139d27f364ef9d58231bb369bba3fbfd9e4fa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "94f002a462afadfcec856d768d7139d27f364ef9d58231bb369bba3fbfd9e4fa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "94f002a462afadfcec856d768d7139d27f364ef9d58231bb369bba3fbfd9e4fa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "df3317b260b170051692aec61658c9bca140f4f6ff32a3f675d00088849388ec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "af8013415385e8a9600b1212b0a3d04a414041cc749129a541cec2d8ba332ff9"
+    sha256 cellar: :any,                 x86_64_linux:  "4542a5de1084a536541ba71ba3555ebcd3020620ab389ba39f51110b0cb08109"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version} -X main.date=#{time.iso8601} -X main.commit=#{tap.user}"
+    ldflags = "-X main.version=#{version} -X main.date=#{time.iso8601} -X main.commit=#{tap.user}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/slackdump"
   end
 

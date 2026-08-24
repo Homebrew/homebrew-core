@@ -12,20 +12,13 @@ class Espeak < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:    "b3714356a1701d170fc7c6eb121a3db31c25e43c3ebae3e91dd5a6438d060c60"
-    sha256 arm64_sequoia:  "c3130662b76d81b56b2202aa390e49548bf4c657781a82e2a411ab85962ee29a"
-    sha256 arm64_sonoma:   "d36a7fc671b9d843dd352df7969883226346c0393a92878ec5c5692e70afcd49"
-    sha256 arm64_ventura:  "d2ded3f1dd697a128defd54554a3ebee69a2ed566734449b755fbf649a76e885"
-    sha256 arm64_monterey: "03f0966e004a09d71f4607a458cd168a5b055eb110487158f723f602eb20e91b"
-    sha256 arm64_big_sur:  "0bd59ad014f2deeb623f5128f44e48a06f34106e3c46d228452595e44b6cdf17"
-    sha256 sonoma:         "ec64d2aee34ce3390d2828eea71bf20c5a66df66e9e58de7b0ca5d5826c6c4ad"
-    sha256 ventura:        "5e9fbcc6b6987dd44fd14bfb5e6ff7e4a39ad42c3b5f18b4625c0352f97a12e5"
-    sha256 monterey:       "aae3368a900e67099b2f4916af1266cbadae620c129f5cc2aeee959342e213ca"
-    sha256 big_sur:        "c8d5f5fd950e7f47f48affb043ba950694c6480d7a12231eb1f2606ab4e05dbe"
-    sha256 catalina:       "9e3a743f118a7ca9d177d005d260814d576fc9c72f5cad369204a8c42c54ffb4"
-    sha256 arm64_linux:    "6ef48951fe27d54ad89d80539bf1ff67f32ddc4c0cad9ac2d1349d376d452328"
-    sha256 x86_64_linux:   "cd49a93ccf04b77d8bf926c77cb322615c25ef27d2b01cd8c08e45945bd01183"
+    rebuild 2
+    sha256 arm64_tahoe:   "79fcbb8b62d46c59ae01252339039e5370c4b9c267a4239466c14cf351521685"
+    sha256 arm64_sequoia: "ac1da3a5f93deb24bce3a169193104a8d57b6e7d25ba5b757d381b7bdcdae8b0"
+    sha256 arm64_sonoma:  "8b43605a396132f440a9f40b776d909a3b0371bc33efb59c054df4a5e2345c8a"
+    sha256 sonoma:        "e1db33fd0da749daa8c099e6cec84781fceb7815306813386c5d4b92c6acf4a8"
+    sha256 arm64_linux:   "8dc1f69d9bdb22493f5aaf487d58126ddcda76ad701c05572ae1a58a61445c82"
+    sha256 x86_64_linux:  "3f19dd3507512ae024acb0f24ccf18a704ff9c3426d2f114f456f658fd44bd56"
   end
 
   # SourceForge page (https://sourceforge.net/projects/espeak/) says:
@@ -71,7 +64,7 @@ class Espeak < Formula
       lib.install "libespeak.so.1.#{version.major_minor}" => libespeak
       lib.install_symlink libespeak => shared_library("libespeak", 1)
       lib.install_symlink libespeak => shared_library("libespeak")
-      MachO::Tools.change_dylib_id("#{lib}/libespeak.dylib", "#{lib}/libespeak.dylib") if OS.mac?
+      change_dylib_id lib/"libespeak.dylib", lib/"libespeak.dylib", resolve_source: true if OS.mac?
     end
   end
 

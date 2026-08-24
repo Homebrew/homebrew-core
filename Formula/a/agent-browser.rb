@@ -1,21 +1,23 @@
 class AgentBrowser < Formula
   desc "Browser automation CLI for AI agents"
   homepage "https://agent-browser.dev/"
-  url "https://github.com/vercel-labs/agent-browser/archive/refs/tags/v0.28.0.tar.gz"
-  sha256 "6d8e38eaca9294c7f23f556f34df084e89535417e547489476a1a5582a2824a5"
+  url "https://github.com/vercel-labs/agent-browser/archive/refs/tags/v0.34.0.tar.gz"
+  sha256 "9f7b8e0ff1ad2c414b0661e3910382c47d0e3cdc72ece07c00cf7f6319657074"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "366f1f879a5e2684bd37a79f6b5268b03830b7793bae192e790af112f5bd733a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f75d475503d5d5fd112874190ce3939a214282208392e8c04c52423f26f25c5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d633dfa840f36bcad91250e1013b5f2d94d2b06695a8d6adf88fdd0361e5b79"
-    sha256 cellar: :any_skip_relocation, sonoma:        "157d93e4923d22e6e590eeda52b201b5f7f70eab198373d9c3aa263a3c27d689"
-    sha256 cellar: :any,                 arm64_linux:   "dba96b86cf912c72cb0e78c0185fff205d7f504b1021884b4b9719cde3ecf7d7"
-    sha256 cellar: :any,                 x86_64_linux:  "3f193702eede3de8bf29dc05d67988b8c000f70023aedf3d20895eb0f2fc55e7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ece820bb4131e01775055576f3c4583d8ef2bbe72b947f50c24a4e5c871921d7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a25f2da0592d21272c7cb9e86a05d84ae0213048fff28f59618f73705b183f86"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35c1c0c14795234e8c54e0311684769dcd69bbac7f2ac4c38a06ed0185538c4a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "75700283d2474e6c8a9e6fbfc79112da5a6116696bac61490206423bf398f0ab"
+    sha256 cellar: :any,                 arm64_linux:   "fb0b771f164107cd1354529504aa317961e0997ed050cbdb4435b5e6a18ca7d9"
+    sha256 cellar: :any,                 x86_64_linux:  "b4048a43ca45bf8f8b93099d4929c0db197fd62b1a23eafe7f14df4bf49e52e1"
   end
 
   depends_on "rust" => :build
   depends_on "node"
+
+  deny_network_access! [:postinstall, :test]
 
   def install
     system "npm", "run", "build:native"

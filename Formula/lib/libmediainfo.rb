@@ -43,6 +43,8 @@ class Libmediainfo < Formula
   patch do
     url "https://github.com/MediaArea/MediaInfoLib/commit/f90c003eef186c41f8929e4ff5da86861835c1a8.patch?full_index=1"
     sha256 "4a1ad20304c638e8cbd91b9246df8a1bd979104df516b3d5bda749164270230e"
+    type :backport
+    resolves "https://github.com/MediaArea/MediaInfoLib/pull/2624"
   end
 
   def install

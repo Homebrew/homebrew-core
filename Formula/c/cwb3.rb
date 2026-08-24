@@ -11,8 +11,7 @@ class Cwb3 < Formula
     # Backport support for PCRE2 to help with EOL `pcre` deprecation
     # https://sourceforge.net/p/cwb/code/1831/
     patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/071dacd02a9613204ca265eeb18fe74a1a838329/Patches/cwb3/r1831.diff"
-      sha256 "b20d91efc9eb7bc515880ba9a29f49c553615cc9ab1cfbc6d09638ad677de4a7"
+      file "Patches/cwb3/r1831.diff"
     end
   end
 
@@ -22,13 +21,13 @@ class Cwb3 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "29bea0c252b17882c4f5b6bd3dbc8f754ba28f49b65ea07b2635ee9b8f1d8723"
-    sha256 cellar: :any,                 arm64_sequoia: "2633ae43e4b9cdb574706bd8c95ca5748ba182388cd570dce3b96bf05503e220"
-    sha256 cellar: :any,                 arm64_sonoma:  "3ac7b013866746a8a820daa9e60b50f4c49687a1e827820fd498437d99142d7b"
-    sha256 cellar: :any,                 sonoma:        "647782abbc558ce33f2ba5f8395c87f1766a97f29f1579e4e4a90e68ee726b95"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9bd38dd9f85b5bf1fea476b21c524d2c7ccd4cdac339f455f3b971516d0ea255"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c67cd104f2291f73ba6785c1a023c39677e7132dbb23673fed7729a73aebb669"
+    rebuild 2
+    sha256 cellar: :any, arm64_tahoe:   "83bb0c489a53d017c4ed20aac40dc6b02eef4315211bc391fa0be982ca7e0575"
+    sha256 cellar: :any, arm64_sequoia: "1f2794123aaf9ba47ae274a2e1f15c8d026cf36c73b6db8a9f38cdd20278fdb7"
+    sha256 cellar: :any, arm64_sonoma:  "f166a6610937476512354e391fdbb5b1ad3c80f18e39a7c4a9de11a6878afe2f"
+    sha256 cellar: :any, sonoma:        "243e7983c86e88d74881ba0200982892d2736757ea9a7e834f03cbaf7ac55ae8"
+    sha256 cellar: :any, arm64_linux:   "80833ab422207dc1b15be8575bb32b17eba9af9bf5fd2d6087e5302fcac7ab54"
+    sha256 cellar: :any, x86_64_linux:  "1fe243d8ba65dff4a36a8064c9a97b98ba17fe0215a1245d311ef7bbc45c5f39"
   end
 
   depends_on "pkgconf" => :build
@@ -63,25 +62,21 @@ class Cwb3 < Formula
     system "make", "install", *args
 
     # Avoid rebuilds when dependencies are bumped.
+    glib_prefix = formula_opt_prefix("glib")
+    pcre2_prefix = formula_opt_prefix("pcre2")
     inreplace bin/"cwb-config" do |s|
-      s.gsub! Formula["glib"].prefix.realpath, Formula["glib"].opt_prefix
-      s.gsub! Formula["pcre2"].prefix.realpath, Formula["pcre2"].opt_prefix
+      s.gsub! glib_prefix.realpath, glib_prefix
+      s.gsub! pcre2_prefix.realpath, pcre2_prefix
     end
   end
 
-  def default_registry
-    HOMEBREW_PREFIX/"share/cwb/registry"
-  end
-
-  def post_install
+  post_install_steps do
     # make sure default registry exists
-    default_registry.mkpath
+    mkdir_p "{{HOMEBREW_PREFIX}}/share/cwb/registry"
   end
 
   def caveats
-    <<~STOP
-      CWB default registry directory: #{default_registry}
-    STOP
+    "CWB default registry directory: #{HOMEBREW_PREFIX}/share/cwb/registry"
   end
 
   test do

@@ -25,7 +25,6 @@ class Davix < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "doxygen" => :build
   depends_on "openssl@3"
 
   uses_from_macos "python" => :build

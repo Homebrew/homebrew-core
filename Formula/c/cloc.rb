@@ -1,18 +1,18 @@
 class Cloc < Formula
   desc "Statistics utility to count lines of code"
   homepage "https://github.com/AlDanial/cloc/"
-  url "https://github.com/AlDanial/cloc/archive/refs/tags/v2.08.tar.gz"
-  sha256 "8099b6275c124f662690f2db3581cd2ad4e9ad4e08332288719838ded00d1da5"
+  url "https://github.com/AlDanial/cloc/archive/refs/tags/v2.10.tar.gz"
+  sha256 "a8fac35f4cf42728765580ba11afc2568ad205509a22204663f526169548436d"
   license "GPL-2.0-or-later"
   head "https://github.com/AlDanial/cloc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "510402328ad2e7168f94ba8bc210a96cccdb504fa0eb03bec5b5ff8704529c60"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "510402328ad2e7168f94ba8bc210a96cccdb504fa0eb03bec5b5ff8704529c60"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "510402328ad2e7168f94ba8bc210a96cccdb504fa0eb03bec5b5ff8704529c60"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0315d2e9392d3c831b8669f6c960eb31dc86f71d0b4c42e95cba771a0fd913a0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7cb99d35e6037db0b92b9b6887f881499229c09941d8bd431ebdde45c62b9360"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "505c01b326543a8c2841457a793e4213b6069d8f0f568d9f636eeef94663b7e0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4ebeea424f284c38dee5dee3a3a3616a91d12c256e6b15ee7f5b38e459bd93ac"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4ebeea424f284c38dee5dee3a3a3616a91d12c256e6b15ee7f5b38e459bd93ac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4ebeea424f284c38dee5dee3a3a3616a91d12c256e6b15ee7f5b38e459bd93ac"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e6e69dc850dc0753eecd820ae8f8e546a8ba58157ea56b42583f33406c5cf189"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "788294e319ab096390573ba49942bd61625ef741b3fb5510f343447a0b041964"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b910e0c4b436a259954e56325baf43988867891164b4e4664ee7e87a0ef2256"
   end
 
   uses_from_macos "perl"

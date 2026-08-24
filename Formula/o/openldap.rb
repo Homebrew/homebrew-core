@@ -1,10 +1,10 @@
 class Openldap < Formula
   desc "Open source suite of directory software"
   homepage "https://www.openldap.org/software/"
-  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.13.tgz"
-  mirror "http://fresh-center.net/linux/misc/openldap-2.6.13.tgz"
-  mirror "http://fresh-center.net/linux/misc/legacy/openldap-2.6.13.tgz"
-  sha256 "d693b49517a42efb85a1a364a310aed16a53d428d1b46c0d31ef3fba78fcb656"
+  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.7.0.tgz"
+  mirror "http://fresh-center.net/linux/misc/openldap-2.7.0.tgz"
+  mirror "http://fresh-center.net/linux/misc/legacy/openldap-2.7.0.tgz"
+  sha256 "9e86f37da375aa948a1b478dd76fe87b02090e47c21facae19223588e3407922"
   license "OLDAP-2.8"
   compatibility_version 1
 
@@ -14,12 +14,12 @@ class Openldap < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "a7e2d742e8b2d70ab77446b4a596bb10f7efd2ee0589f2eaeec24a37e4c2744a"
-    sha256 arm64_sequoia: "28c2a98c69c5e64adbbbf2da4f3ff4cdea5169277679e26cb5e721c0d9dca513"
-    sha256 arm64_sonoma:  "d1b5d4cf45357617d67c11d4e8830563cca78fff27436ab39030809ff5facf55"
-    sha256 sonoma:        "e2041deb3ff2c7d88578218c3a414f9b870c0f3d3f8a111909ef1c0bdff3cbaa"
-    sha256 arm64_linux:   "5de6229ea5d0fa4844d49d256ad34664b1b0295f8f3a773b78b2fcd32938c737"
-    sha256 x86_64_linux:  "5a958deb06792794bc4ccbca62276d85998cdde566c517d55c127935927e0bf7"
+    sha256 arm64_tahoe:   "4bb40d8d714d937604d04b14118c147d1365852b7c3007a5a0bbcab8b4ca9410"
+    sha256 arm64_sequoia: "bfbe567a6248b92bd3b60d86190ddbd26f49145c0d63d3272e0208ea0436cf7c"
+    sha256 arm64_sonoma:  "48ec4f171be8555951b1a0abf35598530ea44c14f4faa1f9d1157a12e5a3aa67"
+    sha256 sonoma:        "ee2a37853fc33298bb5133d8c9ffce05848484d1fd632e5ab61e229d0ee6e9a4"
+    sha256 arm64_linux:   "6d6959866e6dbc80aef7d9ba7e46250dc7d1659b82a9fc1d4fa6d0580aa51937"
+    sha256 x86_64_linux:  "f720a0f32095519560fe769c978a53d4f5b701bc6c9d06a1c013fc23c4087162"
   end
 
   keg_only :provided_by_macos
@@ -29,14 +29,23 @@ class Openldap < Formula
   uses_from_macos "mandoc" => :build
   uses_from_macos "cyrus-sasl"
 
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1600
+  end
+
   on_linux do
     depends_on "util-linux"
   end
 
+  fails_with :clang do
+    build 1600
+    cause "needs C23 label-before-declaration support, completed in clang 18"
+  end
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    file "Patches/libtool/configure-big_sur.diff"
+    type :unofficial
   end
 
   def install

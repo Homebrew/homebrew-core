@@ -1,23 +1,21 @@
 class Anyquery < Formula
   desc "Query anything with SQL"
   homepage "https://anyquery.dev"
-  url "https://github.com/julien040/anyquery/archive/refs/tags/0.4.5.tar.gz"
-  sha256 "8387a2e9d7c69a0430b330c93c5e0076f882340b8e3f15d0f0e6b5db5d5766d4"
+  url "https://github.com/julien040/anyquery/archive/refs/tags/0.5.0.tar.gz"
+  sha256 "9ffd6d41e41f51e5e648442c9c6a1621c6a64183756bb3ef1d4d9ba659c81fd4"
   license "AGPL-3.0-only"
   head "https://github.com/julien040/anyquery.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1d8090ba59202a1f92ad22f684842b29495ccfb92fc47149e54a8fe27d506201"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb4edcd47b4dca8dae0ebdabe79342985d199975255fc7460b02f78fa1f6dd85"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f7cbf404925ea69b93934ac3fdfacfcd076e578587fe7af4352ef53b13278aae"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7e560ac288958b5e635c313d8099e2356da1b095e49dcb2445ddf3cbc706bb43"
-    sha256 cellar: :any,                 arm64_linux:   "5885762dc6c9a78aa0aa202813d38fa3bbaca984fc63906551c30fbca86e7e7b"
-    sha256 cellar: :any,                 x86_64_linux:  "00a2af01fb4fa1804c998689309855c6b6cf080d2304d787c56e3e9d0bde4162"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7fce2013172c302466960dd0e00a1771a847f61b332d94c1f6bf7ba2f95e42f2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cff58e5c8b25397464c13cf853375450b83d088433c0983cbd59ce34c8aa59c0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6be0926405ef1ae54d05a9e3535c32d244ff84b4c264dbb5b27f8a65fb48bb32"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c3a363c0339df4d31a761e2755407e9a562bb953c807256ba916e580994bc3e8"
+    sha256 cellar: :any,                 arm64_linux:   "61694bc8ce079a0789d0da0e69fb787ec4b047f19fae4d6c9b7e27aa16c6ae9f"
+    sha256 cellar: :any,                 x86_64_linux:  "0d6f1036bf6d5a994c7723b407497e24a606c72497aae3b703a825c33aa4c305"
   end
 
-  # unpin Go when Anyquery supports Go 1.26
-  # (when go.mod references vitess > v23.0.2, ref https://github.com/vitessio/vitess/pull/19367)
-  depends_on "go@1.25" => :build
+  depends_on "go" => :build
   depends_on "mysql-client" => :test
 
   def install
@@ -29,7 +27,7 @@ class Anyquery < Formula
       sqlite_json
       sqlite_math_functions
     ]
-    system "go", "build", *std_go_args(ldflags: "-s -w", tags:)
+    system "go", "build", *std_go_args(tags:)
 
     generate_completions_from_executable(bin/"anyquery", shell_parameter_format: :cobra)
   end

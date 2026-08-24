@@ -1,32 +1,26 @@
 class Rttr < Formula
   desc "C++ Reflection Library"
   homepage "https://www.rttr.org"
-  url "https://github.com/rttrorg/rttr/archive/refs/tags/v0.9.6.tar.gz"
-  sha256 "058554f8644450185fd881a6598f9dee7ef85785cbc2bb5a5526a43225aa313f"
+  url "https://github.com/rttrorg/rttr/releases/download/v0.9.6/rttr-0.9.6-src.zip"
+  sha256 "d6853be1bfc38da6fb4512ae4c0a116662f86fa81a6b2aab1c4dada2c16f375f"
   license "MIT"
   head "https://github.com/rttrorg/rttr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "b7fbefc620c98f69bcb1b28040e8e12b972b59a462d6e0155eab4f9d962fe156"
-    sha256 cellar: :any,                 arm64_sequoia:  "fb6ba7f707377b4817a16a4e9afa427d8e4117d8ea02b82d8af5e198c04cd6f6"
-    sha256 cellar: :any,                 arm64_sonoma:   "e82299210a49d335b1563afe4dc0abaa3bcf1b6aeab8876f1904e9015b6cc101"
-    sha256 cellar: :any,                 arm64_ventura:  "fa3316e83f1ef591accfaf47c509009633178b817e6a6d064c293faa53445bf0"
-    sha256 cellar: :any,                 arm64_monterey: "4aeeb410f8918197af10c1f52ed56d98c7d150b6c08ea3da94b1ef176abfc75b"
-    sha256 cellar: :any,                 arm64_big_sur:  "8064ec9a745621fcd2e913f48e188fbbdb01a870fe76ba3c66ebb88e20295556"
-    sha256 cellar: :any,                 sonoma:         "79a60c3feaa552808753851ac7a5ee7c48d62160b17e3133d9ceea36a0288769"
-    sha256 cellar: :any,                 ventura:        "8572bb48a52460b98f4292e253b0f441fe6036d766b1e6272fd891bdc7da159f"
-    sha256 cellar: :any,                 monterey:       "276fea35306e5bb1f9d56520a4cb1ebdc6cb99183abe7f40338c9eccf3c9f357"
-    sha256 cellar: :any,                 big_sur:        "b1e8b3136ef06805c2e2f7638747e18f03fec35fd71ce2d0f12bb67a340ec635"
-    sha256 cellar: :any,                 catalina:       "84e56a259db377594ffd19dbbcd8740f901a59a5c1e4dd112aba54600448d919"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "c467dad3aa2b7d571f87ce82afa6e62afcfb128b4fefeb8a1a4e0914b0def40d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2773d72369cd12e7ab3c26af035f13a68e908fbd69a0faad42e54d3185d25097"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "7fea9cfe909f2c178adda52aa0ad4d6bcabd86fc59143a6bf529f3012dce1661"
+    sha256 cellar: :any, arm64_sequoia: "e0ccf9ad193022b31554136cd5b6000bea3de91a2773bd252921a6b9d1c829c0"
+    sha256 cellar: :any, arm64_sonoma:  "fa9c86b1ab2b643f7ee8c827e369ded119d210fff3a14fa9e5bdeb7dc22e0357"
+    sha256 cellar: :any, sonoma:        "5649dfbcc6bc5fed517f407f32bf7e013afd3204ba476be021e629f1d4827997"
+    sha256 cellar: :any, arm64_linux:   "fe4dafc0187aa65ff41620af4852f3f221f78a8de85679736f779154631dc7c5"
+    sha256 cellar: :any, x86_64_linux:  "b61af2cbe570a6bbed52ce7a740737237243eeaa1347e4dfc9aa571d472474cd"
   end
 
   depends_on "cmake" => :build
-  depends_on "doxygen" => :build
 
   def install
     args = %w[
+      -DBUILD_DOCUMENTATION=OFF
       -DBUILD_UNIT_TESTS=OFF
       -DCMAKE_CXX_FLAGS=-Wno-deprecated-declarations
     ]

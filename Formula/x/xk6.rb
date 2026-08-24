@@ -1,8 +1,8 @@
 class Xk6 < Formula
   desc "Build k6 with extensions"
   homepage "https://k6.io"
-  url "https://github.com/grafana/xk6/archive/refs/tags/v1.4.6.tar.gz"
-  sha256 "d94c601185883a11ddb07e76d5f56967c80bac4b17074983260aeaac437a7bad"
+  url "https://github.com/grafana/xk6/releases/download/v1.4.11/xk6_1.4.11_source.tar.gz"
+  sha256 "f2cbc51317272aaa6bbabc4e8003f334af41f007af3276c81c60f3079130d719"
   license "Apache-2.0"
   head "https://github.com/grafana/xk6.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Xk6 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3ccaf3c64bb6b5d241ca138c5758011bc5e41951dd38236a61f3ebba2da53902"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ccaf3c64bb6b5d241ca138c5758011bc5e41951dd38236a61f3ebba2da53902"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ccaf3c64bb6b5d241ca138c5758011bc5e41951dd38236a61f3ebba2da53902"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a6e76cc15287c83262a2e6eee30d6bb8cc3e245285b1882c9ccb654a04aca10d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a58b9eaf6286b2f0cbabec319004c1aac16de51af37aa73c1320faaafdcd5c87"
-    sha256 cellar: :any,                 x86_64_linux:  "a535c670ee6e3b2264552fe07e14cc46b219877ddc428a5d3d4d21269ee11bf9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9b9633006a7ea57de327c53ae7b60caf60422f563620e40603f2927e61d329cb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b9633006a7ea57de327c53ae7b60caf60422f563620e40603f2927e61d329cb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b9633006a7ea57de327c53ae7b60caf60422f563620e40603f2927e61d329cb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ed91f5035dde369b3b5671a6f3f992df6026d6070af6fa8600a5937c06e9ff04"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2d3dd7740ce5a16698a98d767b5d3a7d1209c5e34891f9232b7936b96211274e"
+    sha256 cellar: :any,                 x86_64_linux:  "542b04437927f271fc6819e7a42992520181c3a67891d67437034282605bcd98"
   end
 
   depends_on "go"
@@ -25,7 +25,7 @@ class Xk6 < Formula
   depends_on "govulncheck"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X go.k6.io/xk6/internal/cmd.version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X go.k6.io/xk6/internal/cmd.version=#{version}")
   end
 
   test do

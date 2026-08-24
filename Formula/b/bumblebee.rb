@@ -1,8 +1,8 @@
 class Bumblebee < Formula
   desc "Read-only developer endpoint scanner for supply-chain exposure"
   homepage "https://github.com/perplexityai/bumblebee"
-  url "https://github.com/perplexityai/bumblebee/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "559a5fa9ca48128fb113644e7800048b0b6c2ff3a33bc56fe5236582ba1686b0"
+  url "https://github.com/perplexityai/bumblebee/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "6ed6c27ae6b5c040eb018e247c09e53baa2fdea43bba1c3e63515d14d46157d2"
   license "Apache-2.0"
   head "https://github.com/perplexityai/bumblebee.git", branch: "main"
 
@@ -12,19 +12,18 @@ class Bumblebee < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3fca2487780ec10950f973b94c747cf243b100a52c34d1099c6c675930a5712e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3fca2487780ec10950f973b94c747cf243b100a52c34d1099c6c675930a5712e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3fca2487780ec10950f973b94c747cf243b100a52c34d1099c6c675930a5712e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "86f50f0a53373452b8e152dcd5dabac8cf2b4e81cd744cc396fafdb78fb1c0fb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "31b484194ae4f54898f47a2bf797b086048e36022d6e3c2ef6ddd2f86bcd6721"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cda1d4525da9b234e1243ef703916c830be214e18d2abb34536622b87dac3965"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6dbfe7e8d0492c91365a14e8431707c6ddbb75dd83b465087981cd13a018958a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6dbfe7e8d0492c91365a14e8431707c6ddbb75dd83b465087981cd13a018958a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6dbfe7e8d0492c91365a14e8431707c6ddbb75dd83b465087981cd13a018958a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "70dc47858de6093e94ef9d4ca23753564c392db18da1db57c1e023e933e06952"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ebcfb6442909c462f37b22ac723e24c2c141a6463c285587194595851fa00811"
+    sha256 cellar: :any,                 x86_64_linux:  "a9e7b989b1259e38fc8601f043ccf43b35c7de756d3dfa86176220179ed47e71"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.Version=v#{version}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/bumblebee"
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=v#{version}"), "./cmd/bumblebee"
     pkgshare.install "threat_intel"
   end
 

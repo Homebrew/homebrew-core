@@ -62,7 +62,7 @@ class Moreutils < Formula
 
     inreplace "Makefile" do |s|
       s.gsub! "/usr/share/xml/docbook/stylesheet/docbook-xsl",
-              "#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl"
+              "#{formula_opt_prefix("docbook-xsl")}/docbook-xsl"
     end
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

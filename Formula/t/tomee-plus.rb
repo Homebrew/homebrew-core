@@ -1,13 +1,13 @@
 class TomeePlus < Formula
   desc "Everything in TomEE Web Profile and JAX-RS, plus more"
   homepage "https://tomee.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-10.1.5/apache-tomee-10.1.5-plus.tar.gz"
-  mirror "https://archive.apache.org/dist/tomee/tomee-10.1.5/apache-tomee-10.1.5-plus.tar.gz"
-  sha256 "e19e2f51cf4f08d4aef427c9391ed9c2ea2e89a24bad983d5abfd18b797135da"
+  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-10.2.0/apache-tomee-10.2.0-plus.tar.gz"
+  mirror "https://archive.apache.org/dist/tomee/tomee-10.2.0/apache-tomee-10.2.0-plus.tar.gz"
+  sha256 "57939efc1017d0c215c337e010a6df5013d159e1fc955443a4da687e93c9d0c2"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e391507a45be6927fc2127d426471bc1e26f271168b740df914f348afdecce61"
+    sha256 cellar: :any_skip_relocation, all: "1f1ab7c339cd4dad07b5726aec47ae69e36095d894e65c81ac91299d4e476fb5"
   end
 
   depends_on "openjdk"
@@ -35,7 +35,7 @@ class TomeePlus < Formula
   end
 
   test do
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk")
     system "#{opt_libexec}/bin/configtest.sh"
   end
 end

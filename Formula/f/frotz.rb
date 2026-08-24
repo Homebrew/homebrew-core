@@ -26,7 +26,7 @@ class Frotz < Formula
   depends_on "libsndfile"
   depends_on "libvorbis"
   depends_on "ncurses"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_mixer"
 
   on_linux do
@@ -37,6 +37,7 @@ class Frotz < Formula
   patch do
     url "https://gitlab.com/DavidGriffith/frotz/-/commit/52be64afc92a6ea0a982ff83205a67cbfb94b619.diff"
     sha256 "d9105caf79c436d98fa80b8091b1dd05de88c8c7f26c2a688133879b7dfa3477"
+    type :backport
   end
 
   def install

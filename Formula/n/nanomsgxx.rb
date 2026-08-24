@@ -41,12 +41,16 @@ class Nanomsgxx < Formula
   patch do
     url "https://github.com/achille-roussel/nanomsgxx/commit/f5733e2e9347bae0d4d9e657ca0cf8010a9dd6d7.patch?full_index=1"
     sha256 "e6e05e5dd85b8131c936750b554a0a874206fed11b96413b05ee3f33a8a2d90f"
+    type :backport
+    resolves "https://github.com/achille-roussel/nanomsgxx/pull/9"
   end
 
   # Add support for newer version of waf
   patch do
     url "https://github.com/achille-roussel/nanomsgxx/commit/08c6d8882e40d0279e58325d641a7abead51ca07.patch?full_index=1"
     sha256 "fa27cad45e6216dfcf8a26125c0ff9db65e315653c16366a82e5b39d6e4de415"
+    type :unofficial
+    resolves "https://github.com/achille-roussel/nanomsgxx/pull/13"
   end
 
   def install

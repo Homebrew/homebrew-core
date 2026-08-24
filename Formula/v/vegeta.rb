@@ -19,7 +19,6 @@ class Vegeta < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.Version=#{version}
       -X main.Date=#{time.iso8601}
     ]

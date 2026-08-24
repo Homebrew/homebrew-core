@@ -1,8 +1,8 @@
 class Logcli < Formula
   desc "Run LogQL queries against a Loki server"
-  homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/refs/tags/v3.7.2.tar.gz"
-  sha256 "f91b7737cc0ca352dfb99e9307bc2f6a67135d6827922374ab4a31676d280790"
+  homepage "https://grafana.com/oss/loki"
+  url "https://github.com/grafana/loki/archive/refs/tags/v3.7.6.tar.gz"
+  sha256 "0dd21abbe613ff51807e4e58cafe4ce71dd1561396c4dc7eb4d7f7e8f577baf1"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/loki.git", branch: "main"
 
@@ -11,12 +11,12 @@ class Logcli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c7bb7e4bfd4c57ebaa6d2a61d3d8c31e84a1e893d4898b0b989f7883b3c56a4d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8c9d6d13aac45ed7c176525727fc201bf0d9c674962cafeef432daa6d1de7e04"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "91266473d3b8d9e346f44d60963a1bfb9ff66ff58d9fae52cbf21ae794f6d62c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1a176ef53c33f1939fa3281dd6b16e97d5546702de7e35c98cdf4a3398d275ea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a25ea9011f312f19e74db7488b1dd7b73d876532671f91293e145f8b60442a5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60158271c85ca816e64c98caedf00b693435a21c512ef61c7c08ffe404161e97"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ea1b1d50cf8ed3e4b7719f9183f5682616b3066768027d6ab399608b76282cd0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3a41b7586ed73441e5a2a76a48a0c78d9cebb4305ed773ecd258ef9e005ebe87"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e69f9cd29e94351dd82f3ae2dba19f3e242f5da87464c014747a5f3666f704b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d42a8688ab1895a8bf6ca2b753ef355bfe2848a54783317392916d7d5d7b41fb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c0e6566ea5a035657818ba3bd395c29a5d788607014b2ec3d4470ec15f5bf649"
+    sha256 cellar: :any,                 x86_64_linux:  "042e18f7acb1bdb29dbb5aae494964c768d777cd2e82b94f6e4c4bf5c09ca966"
   end
 
   depends_on "go" => :build
@@ -24,7 +24,6 @@ class Logcli < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/grafana/loki/pkg/util/build.Branch=main
       -X github.com/grafana/loki/pkg/util/build.Version=#{version}
       -X github.com/grafana/loki/pkg/util/build.BuildUser=#{tap.user}

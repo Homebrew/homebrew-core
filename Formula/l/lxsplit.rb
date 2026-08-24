@@ -21,6 +21,9 @@ class Lxsplit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5be1da254e8200601318c6258e63e4052dea5d43446d10872f8aab55e83abd4b"
   end
 
+  deprecate! date: "2026-07-17", because: :unmaintained
+  disable! date: "2027-01-17", because: :unmaintained
+
   def install
     bin.mkpath
     inreplace "Makefile", "/usr/local/bin", bin

@@ -1,8 +1,8 @@
 class Risor < Formula
   desc "Fast and flexible scripting for Go developers and DevOps"
   homepage "https://risor.io/"
-  url "https://github.com/deepnoodle-ai/risor/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "68aea48e715636482a24b1f5aa6505152c89f339374a4e8225cd1d83edc14ec7"
+  url "https://github.com/deepnoodle-ai/risor/archive/refs/tags/v2.2.0.tar.gz"
+  sha256 "9b6cbb53b629ec9cf7d0c6090c7f7df498f86ed86b8861403b00b1e57dd80ebc"
   license "Apache-2.0"
   head "https://github.com/deepnoodle-ai/risor.git", branch: "main"
 
@@ -12,19 +12,19 @@ class Risor < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "408a5f4219a77976b126cbe0646aaa9827d252fb01934d2d6d53f2e97bbac270"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3f7bef7deebd4731e5d35247bf11634995fe6f8143ac1ce8bb6272587b9ec734"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f1916fd748d446b003dc941675879f94dd6016f29f56e086dddca7faf3a6c3ed"
-    sha256 cellar: :any_skip_relocation, sonoma:        "64993ffcab950ef5a0bf2794ddb69ceddb5334536d0cf9c55159b68bb0b1da73"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ef43e3c3c8efc1d84e2982b7edc30b50e0955af1aec6f2fd0452c6df69842ea9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4aaaf7d78b1f909ebd7e17e3beb011b07fac18df4d4238b77ad8d477feaf16b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7bc21d4e333d70e16c7280b8ac97a47c4ee8316de5e92363ee5667ce7958c488"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7bc21d4e333d70e16c7280b8ac97a47c4ee8316de5e92363ee5667ce7958c488"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7bc21d4e333d70e16c7280b8ac97a47c4ee8316de5e92363ee5667ce7958c488"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ea9438d801ad32cfa599c17bc4f8b7f2e05b8063087b115c8cf35cd8e3e10746"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "736a5633f6fc6967a4b47d96cf901a15895a939353e949d34cd7f4ccf9c7e401"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e633e2c0ab2d0f0a0822cfb438498172dcd4cafe6e7cc73c57f7c8ae6e264b1"
   end
 
   depends_on "go" => :build
 
   def install
     chdir "cmd/risor" do
-      ldflags = "-s -w -X 'main.version=#{version}' -X 'main.date=#{time.iso8601}'"
+      ldflags = "-X 'main.version=#{version}' -X 'main.date=#{time.iso8601}'"
       tags = "aws,k8s,vault"
       system "go", "build", *std_go_args(ldflags:, tags:)
       generate_completions_from_executable(bin/"risor", shell_parameter_format: :cobra,

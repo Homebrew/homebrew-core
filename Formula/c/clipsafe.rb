@@ -4,7 +4,7 @@ class Clipsafe < Formula
   url "https://waxandwane.org/download/clipsafe-1.1.tar.gz"
   sha256 "7a70b4f467094693a58814a42d272e98387916588c6337963fa7258bda7a3e48"
   license "GPL-2.0-or-later"
-  revision 5
+  revision 6
 
   livecheck do
     url :homepage
@@ -12,14 +12,14 @@ class Clipsafe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a1e669adb584521510edd954b4e9220d7a597fce06352bc30d992f2dad0b30e4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b25081afcd8b418a0e5945f90d905f8a96313e9fc0fdc9ff2cab2969d7852cdf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8cf56744d86571882b25ad7b61675e5246b66ee1305b80e0dd0e0da722279e7c"
-    sha256 cellar: :any_skip_relocation, tahoe:         "2659e4263f3bf6a6278a5f0c368a06586097e5b6d86938ef3f999470078007a4"
-    sha256 cellar: :any_skip_relocation, sequoia:       "92731545c8e8841a56dca54f685edd2fa2e0e48a96d5f1446d0916f38eb59a3b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "95fa5a2b661123e038200a0b67724382f2a5ebba0e35f2f1453b6648cb108c3c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e9e0c9380c893077b1850cd538ab48c5160a114ef7bcb9bc60196b0981b8736d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd77e7b9fc202db5b34f402485377bffafc3356c771094ba3bc67f02f38d7df9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c81602f2769e1cecfaeb10e5b3d215e6835158be752ebc3aecc817e947d09bdd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9379f8959156b91c966640b53a91f95dcca6ddf3f75512e513aecfe41d6ba0cd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95ce1b6a9954ff9899dbc98e64113b7081c75d68035e61619b71a6ac6ed2ee40"
+    sha256 cellar: :any_skip_relocation, tahoe:         "5f4dc1f2bdbe1d3db787c9139a09a2d5b71065bd29f2e25fa2b86da8e576ae2a"
+    sha256 cellar: :any_skip_relocation, sequoia:       "4cba385379c44050a16e5201a5adc509802df7f6338d9bed84ab969ec3fa475e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c6fa6f2e9648522dca691258adbaefce5a99559faa050567dac8969a0e65f35d"
+    sha256 cellar: :any,                 arm64_linux:   "9469f3e2f1f8bb369417f98274a7dcd8b509c98af7f8b030db28d24a6a171102"
+    sha256 cellar: :any,                 x86_64_linux:  "104e76f3a89fd353d6ab855c29d1321edfc909e3a44e3342d30f22957fc75bbf"
   end
 
   uses_from_macos "perl"

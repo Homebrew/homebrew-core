@@ -68,7 +68,7 @@ class Phpmyadmin < Formula
   end
 
   test do
-    php = Formula["php"].opt_bin/"php"
+    php = formula_opt_bin("php")/"php"
     cd pkgshare do
       assert_match "German", shell_output("#{php} #{pkgshare}/index.php")
     end

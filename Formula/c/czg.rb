@@ -1,12 +1,12 @@
 class Czg < Formula
   desc "Interactive Commitizen CLI that generate standardized commit messages"
   homepage "https://cz-git.qbb.sh"
-  url "https://registry.npmjs.org/czg/-/czg-1.13.1.tgz"
-  sha256 "b2d9d5673f20357218922078f057dfc0ad57d1367cb4224acc2ece511a86048d"
+  url "https://registry.npmjs.org/czg/-/czg-1.14.0.tgz"
+  sha256 "74a4c978a8fc8a1a1b11b4947a568a8693dde45cfb9d23bfde5a04c99a944a5a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d74856f5a0e89a8cde2043dec2fda8b204ec107e38333edc10253531b800b3b5"
+    sha256 cellar: :any_skip_relocation, all: "795a8e706b718384c33d98f12801fbf489c654ec3b7ac3d54fe8a953bf31d0a8"
   end
 
   depends_on "node"

@@ -1,8 +1,8 @@
 class Pumba < Formula
   desc "Chaos testing tool for Docker"
   homepage "https://github.com/alexei-led/pumba"
-  url "https://github.com/alexei-led/pumba/archive/refs/tags/1.1.7.tar.gz"
-  sha256 "99938ad3e3e248ef46e046ee78b45fd7157daf837059ed966d6e2fce0ba0c8f2"
+  url "https://github.com/alexei-led/pumba/archive/refs/tags/1.2.1.tar.gz"
+  sha256 "1b4cebc76127d1557cf63a1aa8493506d434321bb55e2b09e65d4f88b8c5707e"
   license "Apache-2.0"
   head "https://github.com/alexei-led/pumba.git", branch: "master"
 
@@ -12,25 +12,18 @@ class Pumba < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "562be2ebdaf6315497a755bc7cc30c12d5dc35dcce96aa93a7973ae834d0fb32"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "562be2ebdaf6315497a755bc7cc30c12d5dc35dcce96aa93a7973ae834d0fb32"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "562be2ebdaf6315497a755bc7cc30c12d5dc35dcce96aa93a7973ae834d0fb32"
-    sha256 cellar: :any_skip_relocation, sonoma:        "38366cc604649dc120268f74f3650b1b3dd26324e070e013fa5edd2daca40dfc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dd6eb504a3e2a059f75c96fc1475cc8e7cea3651646aa6ce106e097c33c511e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ae8a3e706530f47f0ef95ae4f28182dfc7886655c9c1111690199418fc5f321"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cff1960d49a0be15691339f89e8069d7820d769bf7420e9b5513247b670092b0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cff1960d49a0be15691339f89e8069d7820d769bf7420e9b5513247b670092b0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cff1960d49a0be15691339f89e8069d7820d769bf7420e9b5513247b670092b0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "306c23343c0854f79b767ed66c55821d2fcf7b1f36de629c0a73e449b3c7de24"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "73142262c8323399cd361b28186cedc1530fbccf2763817b0d780d9336d2e570"
+    sha256 cellar: :any,                 x86_64_linux:  "7c45b4903a52abca7aae91ac96206365e9e1a05e4b371a4d2a6db95aea3b8cd6"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
-      -X main.commit=#{tap.user}
-      -X main.branch=master
-      -X main.buildTime=#{time.iso8601}
-    ]
-    system "go", "build", *std_go_args(ldflags:), "./cmd"
+    system "go", "build", *std_go_args(ldflags: :goreleaser), "./cmd"
   end
 
   test do

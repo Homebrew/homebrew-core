@@ -24,7 +24,7 @@ class ActionsBatch < Formula
   deny_network_access! [:postinstall]
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
 
     pkgshare.install "examples"
   end

@@ -1,19 +1,18 @@
 class Libtins < Formula
   desc "C++ network packet sniffing and crafting library"
   homepage "https://libtins.github.io/"
-  url "https://github.com/mfontanini/libtins/archive/refs/tags/v4.5.tar.gz"
-  sha256 "6ff5fe1ada10daef8538743dccb9c9b3e19d05d028ffdc24838e62ff3fc55841"
+  url "https://github.com/mfontanini/libtins/archive/refs/tags/v4.6.tar.gz"
+  sha256 "37a9cc407929c56c2081e717347cac455287ba354016bad5bad6243d1f0a4a7a"
   license "BSD-2-Clause"
   head "https://github.com/mfontanini/libtins.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "38159a186f5cfc1814d2213988961c0722fa0516c3e3e358cce144ca75deeb9b"
-    sha256 cellar: :any,                 arm64_sequoia: "90d59f1f6bfbae9ed0df679f1d5b01e5fbf0250a06952bea0569c730ef91308f"
-    sha256 cellar: :any,                 arm64_sonoma:  "3453d410232d79ff731aa368d989f39330673f81dd4c8bd0c639d0a3d3edd256"
-    sha256 cellar: :any,                 sonoma:        "38e9b99edfe1ecc2fc1fd4b631d23003d68c9328c27af7562e0882caced2a0bd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce171f76d72665a789898ef1699e48c13fa8006b3ccd3c2a54d8fd6f9c843b0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3dcbd72e7f1c30f197318654896be2ad81b9d16f910ec1cde31a264c8a850a7d"
+    sha256 cellar: :any, arm64_tahoe:   "5f9dd0ceecbbd2b48bcff2ece82a88d8133b5634b832eb5cf85944b24c634417"
+    sha256 cellar: :any, arm64_sequoia: "e7ea99156bc05bfd80c3ebbb119d773c5ea73204e176598ebfc9b514777b1009"
+    sha256 cellar: :any, arm64_sonoma:  "1c06733acb014da750f46daaa0466b0ae466a942b25ac833983f5f896afafc39"
+    sha256 cellar: :any, sonoma:        "68c16bbce3fd5e2ff19d5ed279a64d8ca9610f62369215cb7e9339f386991b12"
+    sha256 cellar: :any, arm64_linux:   "67d8adb52d21249c3b5cb7fb4444a061aa5cf85bcdda828362dd99192967a1d8"
+    sha256 cellar: :any, x86_64_linux:  "8ec6113b595cd5354418cc5243bed822f3be14340b7ce57074ec518af8f052c1"
   end
 
   depends_on "cmake" => :build

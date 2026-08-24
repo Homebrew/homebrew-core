@@ -31,7 +31,7 @@ class Xpipe < Formula
   end
 
   def install
-    inreplace "Makefile", "${PREFIX}/include/bsd", "#{Formula["libbsd"].opt_include}/bsd"
+    inreplace "Makefile", "${PREFIX}/include/bsd", "#{formula_opt_include("libbsd")}/bsd"
     system "make", "PREFIX=#{prefix}", "install"
   end
 

@@ -1,22 +1,24 @@
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
-  url "https://github.com/Genymobile/scrcpy/archive/refs/tags/v4.0.tar.gz"
-  sha256 "a62bc2639e1d56b3e7ebaa20d8deb4947dd02954b3362bdebe2ef9f7eae41b00"
+  url "https://github.com/Genymobile/scrcpy/archive/refs/tags/v4.1.tar.gz"
+  sha256 "537b2ade623cb94b6edddfa5c61bf0b0af21484aa8365ea2531b686ea573249a"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
-    sha256 arm64_tahoe:   "eabcf80c0dbf37cc934f115f4c1f0a245439c61849be9c72c1edf1a21042d05e"
-    sha256 arm64_sequoia: "cb7e5b0ae72ab7617e4e060fd6402ad3a0d56cb8585a6d5a3180e2e30a8f811b"
-    sha256 arm64_sonoma:  "be6e7f37c3993a0edc3f00a0f2d3bd1d7db2301147323530143dc728e78d714c"
-    sha256 sonoma:        "7bb41ddd18585288d2b3beb05c406e0dd16a9d0bc434800e50fa533966c26509"
-    sha256 arm64_linux:   "a1d3eb81ee74c829b9dd6a329c5df28cdc68886271dcf1ee6f48c4b5c4c363c6"
-    sha256 x86_64_linux:  "6048206364fcf021a887f856c8100a88db8f0621e459f9b9e267695fef43c35f"
+    sha256 arm64_tahoe:   "645018bb3c49bf575317e28c286e9c27b79c378044b774bef8a0061a97857417"
+    sha256 arm64_sequoia: "c52aeac3da0f31a41357daec5b29e9c739cce303c8d4425db14c28c7064eefec"
+    sha256 arm64_sonoma:  "3138af17805ee58bf974e234863402c5f4e829004f6113b80e52ee39c011ae32"
+    sha256 sonoma:        "d0f1333995560049557f0258839bda2cb4895964f7b9579a79af267033f24dff"
+    sha256 arm64_linux:   "cbc29f4775bccc612a2a6a1758348770c8b7d9b783b5485f7716d3ffac997b60"
+    sha256 x86_64_linux:  "6fc8bd0bcfb4b15d52997791f58cbca8cde6536f95ffed1156c6394fbe269bce"
   end
 
   depends_on "meson" => :build
@@ -27,8 +29,8 @@ class Scrcpy < Formula
   depends_on "sdl3"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v4.0/scrcpy-server-v4.0", using: :nounzip
-    sha256 "84924bd564a1eb6089c872c7521f968058977f91f5ff02514a8c74aff3210f3a"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v4.1/scrcpy-server-v4.1", using: :nounzip
+    sha256 "deacb991ed2509715160ffdc7907e47b4160eb30d1566217e9047fd5b8850cae"
 
     livecheck do
       formula :parent

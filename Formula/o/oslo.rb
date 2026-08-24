@@ -19,8 +19,7 @@ class Oslo < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/oslo"
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}"), "./cmd/oslo"
 
     generate_completions_from_executable(bin/"oslo", shell_parameter_format: :cobra)
 

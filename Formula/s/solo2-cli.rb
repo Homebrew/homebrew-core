@@ -7,17 +7,17 @@ class Solo2Cli < Formula
   head "https://github.com/solokeys/solo2-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "dad9f3c2ecd0fa082e66d3013262b487a46c9d5000dd93af6ecb092d1c1b9298"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0eeda3ebb79864789018e56cdd4bf347b798478c754f9f3be29e26ce788cc604"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ac06ba094da706b68c527fa6904187aa9c2d21fd26246bf9a343a4a14a4d8dd9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8c876fcb91927f6c382994c92cbd8fcf3041d12ee2e43f6239c325bd852d4d3b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "30c6fd9a7c4eaa8345fc68740a10232ffe26755d9c19b3bd4f7f86e650471d3e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4b0ce4ae4cc661cb11b6746b536e736256c6a3b978af3508ea36997bd667d0c9"
-    sha256 cellar: :any_skip_relocation, ventura:        "9529d0379455886612d51ade076b55ff1bffe3395b09fe80edba6ebb571d119c"
-    sha256 cellar: :any_skip_relocation, monterey:       "ffb93967fd1171798157e502212337d93d644f6e31f8e1457f17c0c62f088a01"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "9a38668bcd74a109b726bc666553352c1688ee7c9b51061e2f0767cd3bb7d06a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00c7bd01f05ac244c1b50fbfc559a9dcc641c23d71a2f9664e8d88d22a522316"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "56e93747406fb09f278a2dc2506e8006c5105744580b3af8c65d83e5df2f675a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "50ee660ad214d9fa3cf5e103ae11482ca620796956e8d8e4ddc862c60ffa8a13"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "54b51487dab6b1f46921c3a2ac5abbdd0a7c26ee3fa588c1192d329c37c481d6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dd347d17f99e031793c283d4d161eda583ce6807a2fc8a7ec9b13a0a01bf59fd"
+    sha256 cellar: :any,                 arm64_linux:   "49fa148943abb5f308b98439a3658dd23c9a0ae52531b732033c40def49d7667"
+    sha256 cellar: :any,                 x86_64_linux:  "30961888e19a8438a16527313659240b9a16bca8e60b543b80d90a9f22274c0b"
   end
+
+  deprecate! date: "2026-07-24", because: :repo_archived
+  disable! date: "2027-01-24", because: :repo_archived
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
@@ -31,6 +31,8 @@ class Solo2Cli < Formula
   patch do
     url "https://github.com/solokeys/solo2-cli/commit/c4b3f28062860c914f3922ad58604f0bc36ead93.patch?full_index=1"
     sha256 "1f3e08c4c6f17022e8762852ef8e2de94e1c0161d4409d60e5b04f23d72b632d"
+    type :unofficial
+    resolves "https://github.com/solokeys/solo2-cli/pull/122"
   end
 
   def install

@@ -6,12 +6,13 @@ class Evince < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "923f1a8b070907f738b721c5679808fd8edc7e4ce5e71b87513316efcadaf370"
-    sha256 arm64_sequoia: "bcfecd2f93943eebb8aea3ad8b52898c6d3be91d0df4183dd808ec7c4f17944e"
-    sha256 arm64_sonoma:  "4ce89c822d5ad2b119ea61540206ed09891eae79b5fb938d185c35454af86798"
-    sha256 sonoma:        "3d9445cdd69197e11e053425b47b8ab08d98e3e1fed4f54082e2e9c044a5ff88"
-    sha256 arm64_linux:   "455027196a3f4544a628861d242bd21ffed47e77f4915d1972f51883a40340cd"
-    sha256 x86_64_linux:  "e0d069b917e21e53124fc26c1fd4ad4fa7848f2c9ba44a24a9a47422b41e48a2"
+    rebuild 1
+    sha256 arm64_tahoe:   "50fd46e30a5ad1bd12b39a183b2dfa2b1a7a33720caeb507582277a42b088a30"
+    sha256 arm64_sequoia: "744afff8b2653517ecbd8d92ce03ed8da0723dd6bb3b5d72f9f697f09e4b68fc"
+    sha256 arm64_sonoma:  "e2ac1a99c1a4a34a2e35567608a23c18389b803d8fe6ba316cc0144b459b1091"
+    sha256 sonoma:        "6acf1c1c2f9f8ba50197ec410154c7e2f5e65cbbe30f4d822d3f2c4f86500f6d"
+    sha256 arm64_linux:   "c653ea149c80a57e11499d1d71906d38d22f4dc77eab85c70f71eeb2f781aee2"
+    sha256 x86_64_linux:  "25c5975817e4c02e346b2f75c3eaeb27bbba00216d0f77c9d2ebeeeb91272906"
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database
@@ -71,9 +72,9 @@ class Evince < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+  post_install_steps do
+    compile_gsettings_schemas
+    update_gtk_icon_cache
   end
 
   test do

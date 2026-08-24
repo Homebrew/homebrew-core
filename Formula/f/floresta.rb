@@ -26,7 +26,7 @@ class Floresta < Formula
   depends_on "rust" => :build
 
   def install
-    ENV["LIBCLANG_PATH"] = Formula["llvm"].opt_lib.to_s
+    ENV["LIBCLANG_PATH"] = formula_opt_lib("llvm").to_s
     system "cargo", "install", *std_cargo_args(path: "bin/florestad")
     system "cargo", "install", *std_cargo_args(path: "bin/floresta-cli")
   end

@@ -1,17 +1,17 @@
 class Qtkeychain < Formula
   desc "Platform-independent Qt API for storing passwords securely"
   homepage "https://github.com/frankosterfeld/qtkeychain"
-  url "https://github.com/frankosterfeld/qtkeychain/archive/refs/tags/0.16.0.tar.gz"
-  sha256 "3be26ec4ae30eecf0c2ff7572ba83799791b157c76e15a05ef35f23dc25e4054"
+  url "https://github.com/frankosterfeld/qtkeychain/archive/refs/tags/0.17.0.tar.gz"
+  sha256 "3b85c3929034b0a99da777130c34d99f006fcd3a9d56564159399a33fee0e504"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "41f6d22dfd217ea9b48f9c04f870110de63ae4976058fb2f0440b809f89ca0d0"
-    sha256 cellar: :any,                 arm64_sequoia: "ba494276b36b760cfe65977b69b17c512f56fd44702a51597249f68f3ba7c7af"
-    sha256 cellar: :any,                 arm64_sonoma:  "043664ceb869b0cddd4cea963e93f8c7ae59a891ac26577e88e5bb167c21fca1"
-    sha256 cellar: :any,                 sonoma:        "9ed1e42e2b34aecfdfb1a2fc9a8c3956331929ec80e12a058c287a2238b3e244"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "48eb663efa321d756a6ba5c367b48424df7774a805a45835c28be6aa9189846a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c306524e585af4bfbe79793e2146de8caf466d26bc12568640964464fffa243"
+    sha256 cellar: :any, arm64_tahoe:   "8e9469126a98d8041fd8b093a8df0f929cbf97ececfcc9e80b7a3d79df3b27e7"
+    sha256 cellar: :any, arm64_sequoia: "40f012d8e0e7f63981808b5661449cd4fdc0e84b588e49ea32de91ce2321435b"
+    sha256 cellar: :any, arm64_sonoma:  "462c46b3dbc6bbf23128e7a323906818700aebdab5c80c7bf82bc680ee3d1f93"
+    sha256 cellar: :any, sonoma:        "969cf3e7a55a06e227c165f0d155c28d63c1dfbed321c57a1ee06f3f64975cbe"
+    sha256 cellar: :any, arm64_linux:   "b6382871174cde2b776ff6a79feef7431706af8d3a73302f284b23ac867eb128"
+    sha256 cellar: :any, x86_64_linux:  "378481561da9a13eafd6e87e32aa5ec0c4570c42cbfd9a4c0b2426f9b0215ffa"
   end
 
   depends_on "cmake" => :build
@@ -38,17 +38,17 @@ class Qtkeychain < Formula
         return 0;
       }
     CPP
-    flags = ["-I#{Formula["qtbase"].opt_include}"]
+    flags = ["-I#{formula_opt_include("qtbase")}"]
     flags += if OS.mac?
       [
-        "-F#{Formula["qtbase"].opt_lib}",
+        "-F#{formula_opt_lib("qtbase")}",
         "-framework", "QtCore"
       ]
     else
       [
         "-fPIC",
-        "-L#{Formula["qtbase"].opt_lib}", "-lQt6Core",
-        "-Wl,-rpath,#{Formula["qtbase"].opt_lib}",
+        "-L#{formula_opt_lib("qtbase")}", "-lQt6Core",
+        "-Wl,-rpath,#{formula_opt_lib("qtbase")}",
         "-Wl,-rpath,#{lib}"
       ]
     end

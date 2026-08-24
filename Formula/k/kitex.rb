@@ -1,8 +1,8 @@
 class Kitex < Formula
   desc "Golang RPC framework for microservices"
   homepage "https://www.cloudwego.io/docs/kitex/"
-  url "https://github.com/cloudwego/kitex/archive/refs/tags/v0.16.2.tar.gz"
-  sha256 "748d1f5f8f9a96d293e49d83e02cc4bd51b7a0f74ccbeac0de16f21e4b00d996"
+  url "https://github.com/cloudwego/kitex/archive/refs/tags/v0.16.3.tar.gz"
+  sha256 "89a82cb1e86b2c8f7cdee8d73ba243674d159c22a23d33c398291a5cfd79b725"
   license "Apache-2.0"
   head "https://github.com/cloudwego/kitex.git", branch: "main"
 
@@ -12,19 +12,19 @@ class Kitex < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8f238af142c3494e560def4808196be3f80ba1831126243bb680af54b263d459"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f238af142c3494e560def4808196be3f80ba1831126243bb680af54b263d459"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f238af142c3494e560def4808196be3f80ba1831126243bb680af54b263d459"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2a32d3bafbaae26e40b050fefee8c47164ab765173ad1fa27e61f3dd4e839d4c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "86883041d650d45b7cea432cb339d8e05268fba84f2f1d115006877ce5c796b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1149dfbbbe8fff9e7d6bf64bea24789b58d91e3068de2ef80844c4d217a706f9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "be43c1e06d59d842f383f33b47936081dfa7b77135cb9da4b038fc57f15378cb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "be43c1e06d59d842f383f33b47936081dfa7b77135cb9da4b038fc57f15378cb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be43c1e06d59d842f383f33b47936081dfa7b77135cb9da4b038fc57f15378cb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f0ba4c22202fc0250924a741a6714f0065301b6d041e2a2db3f7473789493292"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4b0bc54797bac50553f1698389b1e1bfba1925ae2bed74ae3d2c032ce477274c"
+    sha256 cellar: :any,                 x86_64_linux:  "5f7c68f560204daa51ae253db75092409469068ae00c5bae751d9e9ab8bde6d4"
   end
 
   depends_on "go" => [:build, :test]
   depends_on "thriftgo" => :test
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./tool/cmd/kitex"
+    system "go", "build", *std_go_args, "./tool/cmd/kitex"
   end
 
   test do

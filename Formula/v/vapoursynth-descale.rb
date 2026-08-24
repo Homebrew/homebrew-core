@@ -26,14 +26,14 @@ class VapoursynthDescale < Formula
 
   def install
     # Help outdated #includes paths find VapourSynth
-    vapoursynth_include = Formula["vapoursynth"].libexec/Language::Python.site_packages(python3)/"vapoursynth/include"
-    buildpath.install_symlink vapoursynth_include => "vapoursynth"
+    vapoursynth_dir = "#{Language::Python.site_packages(python3)}/vapoursynth"
+    buildpath.install_symlink formula_opt_libexec("vapoursynth")/vapoursynth_dir/"include" => "vapoursynth"
 
     # Upstream build system wants to install directly into vapoursynth's libdir and does not respect
     # prefix, but we want it in a Cellar location instead.
     inreplace "meson.build",
               "installdir = join_paths(vs.get_pkgconfig_variable('libdir'), 'vapoursynth')",
-              "installdir = '#{prefix/Language::Python.site_packages(python3)}/vapoursynth/plugins'"
+              "installdir = '#{prefix/vapoursynth_dir}/plugins'"
 
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

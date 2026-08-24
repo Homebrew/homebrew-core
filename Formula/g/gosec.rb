@@ -1,24 +1,24 @@
 class Gosec < Formula
   desc "Golang security checker"
   homepage "https://securego.io/"
-  url "https://github.com/securego/gosec/archive/refs/tags/v2.27.1.tar.gz"
-  sha256 "166addad13e5b0a7b9f2745c4606e8435e17216a7658e3a256dae4a23628ae07"
+  url "https://github.com/securego/gosec/archive/refs/tags/v2.28.0.tar.gz"
+  sha256 "ccf7fa75b606c2adfcafadd6a3830966a161c4350a90fdfe4f15d6230da86d8f"
   license "Apache-2.0"
   head "https://github.com/securego/gosec.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a54b50f5ac2edc9104f6b820ac01a93922c7e10ecfaad6d707926cacc05b54b5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a54b50f5ac2edc9104f6b820ac01a93922c7e10ecfaad6d707926cacc05b54b5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a54b50f5ac2edc9104f6b820ac01a93922c7e10ecfaad6d707926cacc05b54b5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f347f278e4cff4dfee09c0d7af0e6cc8ff6f00aebecbeec17d2cce5b2d43b541"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5b2ca42eb5132b2b3ec53087ce82b3b1a82582e475bcc1088482bda335edf9f"
-    sha256 cellar: :any,                 x86_64_linux:  "4ca47bd577aad12ae37866df3f24b18722b2efc1c0a77ff18e23248c8afb05ad"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b7d36f2587bced92f1d14c0fb21798ce455b65884c7711d8b1d7c884b011e882"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b7d36f2587bced92f1d14c0fb21798ce455b65884c7711d8b1d7c884b011e882"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7d36f2587bced92f1d14c0fb21798ce455b65884c7711d8b1d7c884b011e882"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7bbb7e27f4ab01dad78e7523d565170be1067232e89579ae3d73477ac8a185af"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5226d50a149a1c03d221d279a92547e32ce8de15ae188aa47a71de1e18324e7f"
+    sha256 cellar: :any,                 x86_64_linux:  "3f4678ae89f7fa2e2361cd4fb205d49d426d11fe1fb40af266deaa1b04ffb0e3"
   end
 
   depends_on "go"
 
   def install
-    ldflags = "-s -w -X main.Version=#{version} -X main.GitTag= -X main.BuildDate=#{time.iso8601}"
+    ldflags = "-X main.Version=#{version} -X main.GitTag= -X main.BuildDate=#{time.iso8601}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/gosec"
   end
 

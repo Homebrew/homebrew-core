@@ -31,8 +31,8 @@ class BaculaFd < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    type :unofficial
   end
 
   def install
@@ -51,7 +51,7 @@ class BaculaFd < Formula
                           "--with-logdir=#{var}/log/bacula",
                           "--enable-client-only",
                           "--disable-conio",
-                          "--with-readline=#{Formula["readline"].opt_prefix}"
+                          "--with-readline=#{formula_opt_prefix("readline")}"
 
     system "make"
     system "make", "install"

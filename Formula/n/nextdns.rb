@@ -6,6 +6,11 @@ class Nextdns < Formula
   license "MIT"
   head "https://github.com/nextdns/nextdns.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "014bc8b37811f6bc5827936cd4feda6ffcf0fa563d198fb0be2248103ad262a2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ac0d0c58752f5b475ea139c3446d3c38746f7b7825ffd1242fa79e4d0f4a085a"
@@ -18,11 +23,7 @@ class Nextdns < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
-    ]
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
   end
 
   test do

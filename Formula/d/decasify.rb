@@ -1,18 +1,17 @@
 class Decasify < Formula
   desc "Utility for casting strings to title-case according to locale-aware style guides"
   homepage "https://github.com/alerque/decasify"
-  url "https://github.com/alerque/decasify/releases/download/v0.11.3/decasify-0.11.3.tar.zst"
-  sha256 "2404c9f1c163b4290aeb93694d3ad49181c0a389c3aea7ed6abab22489d14e93"
+  url "https://github.com/alerque/decasify/releases/download/v0.11.4/decasify-0.11.4.tar.zst"
+  sha256 "37e56750c7ccbe725f44dd065c6dbc170f92afa950c335e7f8256f21ba3b8fcc"
   license "LGPL-3.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e4ff19c29a173914d458494a071d57926dae0d7144f8fdc02d4896da4937a523"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "310a18371e2755a252635f86b206b2316ae0a9d126c57a2e9bc01835c1a95575"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96c10a27579028fcadedf827d1b5f73225f807a3ddbb8d7b99f94282f847c452"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b78974c9dd3ccfb401c2ebb9c9a44ab44cf75e9cd81f27c7fc118822f4c70b6c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "39912a574e08da91ded66573bb340a5a5cbacafcea47a0030d44abfe496df055"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eaebb4b35dc5f6bdfd169b106bcc2b73c2b71d15943100aafda52beb2e1dc09f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8f6984e5c6a88b14f0c82c3b726a14ab54dfa0ce824118af032bd9bf65549980"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "22ea4a70d1b78471a9bd978c3f706eacc1e2809cba9b7a42cd5d765c9efc5275"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f4713febbe2c420cd82d201d28481ca859f4edd89497338530555aa31345e355"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2991315a3c4330139406a1355a1be6131cdf94f93a21aab07351bff785cd81fe"
+    sha256 cellar: :any,                 arm64_linux:   "1b16c31fd1ff05b83b43ee2152bcd6b00e296c74ca09d13e853b803cddd854c1"
+    sha256 cellar: :any,                 x86_64_linux:  "29c14f6786b551c0e2e7839e05100bacb7a77e5b4b4542f7bbb4b63425b2291e"
   end
 
   head do

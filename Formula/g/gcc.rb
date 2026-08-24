@@ -6,15 +6,15 @@ class Gcc < Formula
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   stable do
-    url "https://ftpmirror.gnu.org/gnu/gcc/gcc-16.1.0/gcc-16.1.0.tar.xz"
-    mirror "https://ftp.gnu.org/gnu/gcc/gcc-16.1.0/gcc-16.1.0.tar.xz"
-    sha256 "50efb4d94c3397aff3b0d61a5abd748b4dd31d9d3f2ab7be05b171d36a510f79"
+    url "https://ftpmirror.gnu.org/gnu/gcc/gcc-16.2.0/gcc-16.2.0.tar.xz"
+    mirror "https://ftp.gnu.org/gnu/gcc/gcc-16.2.0/gcc-16.2.0.tar.xz"
+    sha256 "e6738e29597f733270731aa90600f37ffdc045079dfc27ec7e8192cc81085c3e"
 
     # Branch from the Darwin maintainer of GCC, with a few generic fixes and
     # Apple Silicon support, located at https://github.com/iains/gcc-16-branch
     patch do
       on_macos do
-        file "Patches/gcc/gcc-16.1.0.diff"
+        file "Patches/gcc/gcc-16.2.0.diff"
       end
     end
   end
@@ -25,14 +25,14 @@ class Gcc < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "144b48c317fe5406a36b57ca30171c78c0eddf91cd236b56246c3cf523f7d202"
-    sha256 arm64_sequoia: "924a3b36fe34a4ac9e2d281ef139cb0d331a0e36c41aac738ef6b4aac9a35421"
-    sha256 arm64_sonoma:  "6a17969b924c2dc491180f5bccf466339b4a7849f86c58bdf13d4d4f02ba4849"
-    sha256 tahoe:         "05c7d066d2bff334d820c221803ae27dd14dd59340e4fd23eccde2f1fd9b13b0"
-    sha256 sequoia:       "01b8293a065c6328517f4243f50c432ebcda7912b5b25e95767d6f6d8e8a4902"
-    sha256 sonoma:        "16a6a69c8c2a390272bb0a751b7e2dac7b11457192db807797f68c867b036166"
-    sha256 arm64_linux:   "a5cbd6e7bd013cb8f81fb79b65c46c3841f1d76b3a962a8b89d0a13417ed84a1"
-    sha256 x86_64_linux:  "a0ea9c0f9d2090ce7d3cce85c2f0c62566837d966d953edae48104613348c418"
+    sha256               arm64_tahoe:   "5dd619486ae1058d5f9e03b095fd3bd609d89bcdef20bbf8bdeefadb99ce93fb"
+    sha256               arm64_sequoia: "5208c1f9de436c2705e9beeecc34221fc9c4ac93720970099699fe4774acd08b"
+    sha256               arm64_sonoma:  "10cffc904d65f73911df97b08bc23a1f0fd284b623ef839d2f9c14db80cce52b"
+    sha256               tahoe:         "41f93e52b5b4c817e6713905f295272d70630166337da22cfceade121cef8937"
+    sha256               sequoia:       "d9c228e06901cfdc5c91b01f0119a56ea634ae3ed6504d15a3af03a65ae687f0"
+    sha256               sonoma:        "3f9610408a8560db7e1f51d04be26e9ef87b8935bf66d1ba24d84a02d478477e"
+    sha256 cellar: :any, arm64_linux:   "4518a9029b3b05bfecb18eb268698327f2379577a74bb66c6179baf6ae481e5c"
+    sha256 cellar: :any, x86_64_linux:  "3d6138ca259a3f3cbe2fc4e5f5103522119668b97e0f4060b1d1ecafd5d56c12"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -75,13 +75,11 @@ class Gcc < Formula
     #  - Cobol, not fully stable yet
     #  - Go, currently not supported on macOS
     #  - BRIG
+    #  - Modula-2 on macOS, https://github.com/Homebrew/homebrew-core/pull/221029
     languages = %w[c c++ objc obj-c++ fortran]
+    languages << "m2" unless OS.mac?
 
-    # Modula-2 has problems with macOS 15 for now
-    # https://github.com/Homebrew/homebrew-core/pull/221029
-    languages << "m2" if !OS.mac? || MacOS.version < :sequoia
-
-    pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
+    pkgversion = "Homebrew GCC #{pkg_version}"
 
     # Use `lib/gcc/current` to provide a path that doesn't change with GCC's version.
     args = %W[
@@ -92,11 +90,11 @@ class Gcc < Formula
       --with-gcc-major-version-only
       --enable-languages=#{languages.join(",")}
       --program-suffix=-#{version_suffix}
-      --with-gmp=#{Formula["gmp"].opt_prefix}
-      --with-mpfr=#{Formula["mpfr"].opt_prefix}
-      --with-mpc=#{Formula["libmpc"].opt_prefix}
-      --with-isl=#{Formula["isl"].opt_prefix}
-      --with-zstd=#{Formula["zstd"].opt_prefix}
+      --with-gmp=#{formula_opt_prefix("gmp")}
+      --with-mpfr=#{formula_opt_prefix("mpfr")}
+      --with-mpc=#{formula_opt_prefix("libmpc")}
+      --with-isl=#{formula_opt_prefix("isl")}
+      --with-zstd=#{formula_opt_prefix("zstd")}
       --with-pkgversion=#{pkgversion}
       --with-bugurl=#{tap.issues_url}
       --with-system-zlib
@@ -106,17 +104,19 @@ class Gcc < Formula
       cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
       args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
 
-      # System headers may not be in /usr/include
-      sdk = MacOS.sdk_path_if_needed
+      sdk = MacOS.sdk_path
       args << "--with-sysroot=#{sdk}" if sdk
 
       # Avoid this semi-random failure:
       # "Error: Failed changing install name"
       # "Updated load commands do not fit in the header"
-      make_args = %w[BOOT_LDFLAGS=-Wl,-headerpad_max_install_names]
+      make_args = %w[
+        BOOT_LDFLAGS=-Wl,-headerpad_max_install_names
+        LDFLAGS_FOR_TARGET=-Wl,-headerpad_max_install_names
+      ]
     else
-      # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
+      args << "--with-linker-hash-style=gnu"
 
       # Enable to PIE by default to match what the host GCC uses
       args << "--enable-default-pie"
@@ -126,26 +126,21 @@ class Gcc < Formula
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
       inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
-      # Use our own (recent) binutils for as
-      args << "--with-as=#{Formula["binutils"].opt_bin}/as"
-
-      ENV.append_path "CPATH", Formula["zlib-ng-compat"].opt_include
-      ENV.append_path "LIBRARY_PATH", Formula["zlib-ng-compat"].opt_lib
+      ENV.append_path "CPATH", formula_opt_include("zlib-ng-compat")
+      ENV.append_path "LIBRARY_PATH", formula_opt_lib("zlib-ng-compat")
     end
 
     mkdir "build" do
-      system "../configure", *args
-      system "gmake", *make_args
-
-      # Do not strip the binaries on macOS, it makes them unsuitable
-      # for loading plugins
+      # Do not strip the binaries on macOS, it makes them unsuitable for loading plugins
       install_target = OS.mac? ? "install" : "install-strip"
 
       # To make sure GCC does not record cellar paths, we configure it with
       # opt_prefix as the prefix. Then we use DESTDIR to install into a
       # temporary location, then move into the cellar path.
-      system "gmake", install_target, "DESTDIR=#{Pathname.pwd}/../instdir"
-      mv Dir[Pathname.pwd/"../instdir/#{opt_prefix}/*"], prefix
+      system "../configure", *args
+      system "gmake", *make_args
+      system "gmake", install_target, "DESTDIR=#{buildpath}/instdir"
+      prefix.install buildpath.glob("instdir/#{opt_prefix}/*")
     end
 
     bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
@@ -158,16 +153,10 @@ class Gcc < Formula
     # Only the newest brewed gcc should install gfortan libs as we can only have one.
     lib.install_symlink lib.glob("gcc/current/libgfortran.*") if OS.linux?
 
-    # Handle conflicts between GCC formulae and avoid interfering
-    # with system compilers.
-    # Rename man7.
+    # Rename man7 to avoid conflicts between GCC formulae
     man7.glob("*.7") { |file| add_suffix file, version_suffix }
     # Even when we disable building info pages some are still installed.
     rm_r(info)
-
-    # Work around GCC install bug
-    # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=105664
-    rm_r(bin.glob("*-gcc-tmp"))
   end
 
   def add_suffix(file, suffix)
@@ -177,84 +166,8 @@ class Gcc < Formula
     File.rename file, "#{dir}/#{base}-#{suffix}#{ext}"
   end
 
-  def post_install
-    if OS.linux?
-      gcc = bin/"gcc-#{version_suffix}"
-      libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
-      raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
-
-      glibc = Formula["glibc"]
-      glibc_installed = glibc.any_version_installed?
-
-      # Symlink system crt1.o and friends where gcc can find it.
-      crtdir = if glibc_installed
-        glibc.opt_lib
-      else
-        Pathname.new(Utils.safe_popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
-      end
-      ln_sf Dir[crtdir/"*crt?.o"], libgcc
-
-      # Create the GCC specs file
-      # See https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
-
-      # Locate the specs file
-      specs = libgcc/"specs"
-      ohai "Creating the GCC specs file: #{specs}"
-      specs_orig = Pathname.new("#{specs}.orig")
-      rm([specs_orig, specs].select(&:exist?))
-
-      system_header_dirs = ["#{HOMEBREW_PREFIX}/include"]
-
-      if glibc_installed
-        # https://github.com/Linuxbrew/brew/issues/724
-        system_header_dirs << glibc.opt_include
-      else
-        # Locate the native system header dirs if user uses system glibc
-        target = Utils.safe_popen_read(gcc, "-print-multiarch").chomp
-        raise "command failed: #{gcc} -print-multiarch" if $CHILD_STATUS.exitstatus.nonzero?
-
-        system_header_dirs += ["/usr/include/#{target}", "/usr/include"]
-      end
-
-      # Save a backup of the default specs file
-      specs_string = Utils.safe_popen_read(gcc, "-dumpspecs")
-      raise "command failed: #{gcc} -dumpspecs" if $CHILD_STATUS.exitstatus.nonzero?
-
-      specs_orig.write specs_string
-
-      # Set the library search path
-      # For include path:
-      #   * `-isysroot #{HOMEBREW_PREFIX}/nonexistent` prevents gcc searching built-in
-      #     system header files.
-      #   * `-idirafter <dir>` instructs gcc to search system header
-      #     files after gcc internal header files.
-      # For libraries:
-      #   * `-nostdlib -L#{libgcc} -L#{glibc.opt_lib}` instructs gcc to use
-      #     brewed glibc if applied.
-      #   * `-L#{libdir}` instructs gcc to find the corresponding gcc
-      #     libraries. It is essential if there are multiple brewed gcc
-      #     with different versions installed.
-      #     Noted that it should only be passed for the `gcc@*` formulae.
-      #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
-      #     brew libraries.
-      # Note: *link will silently add #{libdir} first to the RPATH
-      libdir = HOMEBREW_PREFIX/"lib/gcc/current"
-      specs.write specs_string + <<~EOS
-        *cpp_unique_options:
-        + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
-
-        *link_libgcc:
-        #{glibc_installed ? "-nostdlib -L#{libgcc} -L#{glibc.opt_lib}" : "+"} -L#{libdir} -L#{HOMEBREW_PREFIX}/lib
-
-        *link:
-        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir}
-
-        *homebrew_rpath:
-        -rpath #{HOMEBREW_PREFIX}/lib
-
-      EOS
-      inreplace(specs, " %o ", "\\0%(homebrew_rpath) ")
-    end
+  post_install_steps do
+    configure_gcc_runtime
   end
 
   test do
@@ -298,8 +211,8 @@ class Gcc < Formula
     system bin/"gfortran", "-o", "test", "test.f90"
     assert_equal "Done\n", shell_output("./test")
 
-    # Modula-2 is temporarily disabled on macOS 15
-    return if OS.mac? && MacOS.version >= :sequoia
+    # Modula-2 is temporarily disabled on macOS
+    return if OS.mac?
 
     (testpath/"hello.mod").write <<~MODULA2
       MODULE hello;

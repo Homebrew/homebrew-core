@@ -1,18 +1,18 @@
 class Miniupnpc < Formula
   desc "UPnP IGD client library and daemon"
-  homepage "https://miniupnp.tuxfamily.org"
-  url "https://miniupnp.tuxfamily.org/files/download.php?file=miniupnpc-2.3.3.tar.gz"
-  mirror "http://miniupnp.free.fr/files/miniupnpc-2.3.3.tar.gz"
+  homepage "http://miniupnp.free.fr/"
+  url "https://github.com/miniupnp/miniupnp/releases/download/miniupnpc_2_3_3/miniupnpc-2.3.3.tar.gz"
   sha256 "d52a0afa614ad6c088cc9ddff1ae7d29c8c595ac5fdd321170a05f41e634bd1a"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/miniupnp/miniupnp.git", branch: "master"
 
-  # We only match versions with only a major/minor since versions like 2.1 are
-  # stable and versions like 2.1.20191224 are unstable/development releases.
   livecheck do
-    url "https://miniupnp.tuxfamily.org/files/"
-    regex(/href=.*?miniupnpc[._-]v?(\d+\.\d+(?>.\d{1,7})*)\.t/i)
+    url :stable
+    regex(/^miniupnpc[._-]v?(\d+(?:[._]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.tr("_", ".") }
+    end
   end
 
   bottle do
@@ -30,9 +30,7 @@ class Miniupnpc < Formula
     # When building from head we have to cd into the miniupnpc directory
     build_dir = build.head? ? "miniupnpc" : "."
 
-    cd build_dir do
-      system "make", "INSTALLPREFIX=#{prefix}", "install"
-    end
+    system "make", "-C", build_dir, "INSTALLPREFIX=#{prefix}", "install"
   end
 
   test do

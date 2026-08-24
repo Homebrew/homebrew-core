@@ -1,12 +1,12 @@
 class TypescriptLanguageServer < Formula
   desc "Language Server Protocol implementation for TypeScript wrapping tsserver"
   homepage "https://github.com/typescript-language-server/typescript-language-server"
-  url "https://registry.npmjs.org/typescript-language-server/-/typescript-language-server-5.3.0.tgz"
-  sha256 "398cacc17fff2108652e7b4050e3182008d17063246b3fea7dcf5fae2ce1560e"
+  url "https://registry.npmjs.org/typescript-language-server/-/typescript-language-server-6.0.0.tgz"
+  sha256 "6e23b48efc76af4e70928cdfe62ea6e6cfef67ab4c1e7579c4e82dd284fbdfd2"
   license all_of: ["MIT", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8c98a7ade2a6b709b01fe5075e8663d616df5cc82e6bfd1cb07bb822a0e28680"
+    sha256 cellar: :any_skip_relocation, all: "e32077036e769522780f323b3f6774ac43e163c8559c19f27b8a3eacd77dbd57"
   end
 
   depends_on "node"
@@ -16,7 +16,7 @@ class TypescriptLanguageServer < Formula
     system "npm", "install", *std_npm_args
 
     node_modules = libexec/"lib/node_modules"
-    typescript = Formula["typescript"].opt_libexec/"lib/node_modules/typescript"
+    typescript = formula_opt_libexec("typescript")/"lib/node_modules/typescript"
     ln_sf typescript.relative_path_from(node_modules), node_modules
 
     bin.install_symlink libexec.glob("bin/*")

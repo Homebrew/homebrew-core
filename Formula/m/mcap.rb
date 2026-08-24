@@ -1,8 +1,8 @@
 class Mcap < Formula
   desc "Serialization-agnostic container file format for pub/sub messages"
   homepage "https://mcap.dev"
-  url "https://github.com/foxglove/mcap/archive/refs/tags/releases/mcap-cli/v0.2.0.tar.gz"
-  sha256 "6969ccf8e85436eb786b5f5e25a6a30cb52d42d5f2672883f8dbbb93bffa9b5c"
+  url "https://github.com/foxglove/mcap/archive/refs/tags/releases/mcap-cli/v0.3.0.tar.gz"
+  sha256 "9a6dbbd938dbd3bdd4c1bc9fb5541b43c644c6e238c9143c256fc54d45e964c0"
   license "MIT"
   head "https://github.com/foxglove/mcap.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Mcap < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0b2d74f50c4d3c86690a205d2a22420ced9784cfeea64b67872f9f618a832a52"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd347c9103354a86933ac80873f83284bf96ed46ffa5920e77f3eda553f9e9ab"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "117aafa770f4f7f7d33d8ecbc51adce021c0d614feae2a262fe7588514151472"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bab1bc09f31c8f13f9de8b0ae35f5018e34835cd2834fd0789376abfbeb36795"
-    sha256 cellar: :any,                 arm64_linux:   "aa17cc5bc5cb7c74730f1543b34a2a5549b26fb9ca6db43b0695ddc26345c1ea"
-    sha256 cellar: :any,                 x86_64_linux:  "74577b9ce6ba2d42c44559d609c6cf035edca7ba2af3ce4d6572d994e9f819f1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d0b6c8ce8fea0d56e96c8536b79ee01f46ac9f5e3311d96cdf5e9efee59112e8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "848830bf79df06bccebad1810d1430a5136b1dd2eb3db52294573c92fae4ec7d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "897ddc0b46acd24061961ee3d3ece4dccd2b3367e00cccc1724ef527001d5e60"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eb05daa81ec10a19bed7d563ef61a73a3cf05c10ef1d48dfe530727e01f3b800"
+    sha256 cellar: :any,                 arm64_linux:   "ed87fd8673d0d4ce72aceef6848f708fe6bc3c7276b1ae7013c291506eb3bda3"
+    sha256 cellar: :any,                 x86_64_linux:  "38dd65f00c7325d49abb8dbefdf2adfe33964ef0f4b581873b6a618e28c9c77e"
   end
 
   depends_on "rust" => :build

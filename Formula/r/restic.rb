@@ -1,18 +1,18 @@
 class Restic < Formula
   desc "Fast, efficient and secure backup program"
   homepage "https://restic.net/"
-  url "https://github.com/restic/restic/archive/refs/tags/v0.19.0.tar.gz"
-  sha256 "800779b6c4c2396971c0567b09ccdd435e03155e1a0ec94e8bbf3d98641a8bc2"
+  url "https://github.com/restic/restic/archive/refs/tags/v0.19.1.tar.gz"
+  sha256 "bb9b1a19040744d26d8a79be029d4e6b189c45ccc9d8831d7fe367d3c33df725"
   license "BSD-2-Clause"
   head "https://github.com/restic/restic.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b69c21f735a13de6c74d6a097199fc6e98fd794c48e287a035dbff434bfcae41"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b69c21f735a13de6c74d6a097199fc6e98fd794c48e287a035dbff434bfcae41"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b69c21f735a13de6c74d6a097199fc6e98fd794c48e287a035dbff434bfcae41"
-    sha256 cellar: :any_skip_relocation, sonoma:        "88bd2806d4f39f51283c47acc731fdb4f40be48fecc8dc21b4052fec4adfeb06"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dcbdd753bbc27c3f5a799759e604f4ba766b2d0f9e955f96b240be0c18e4d61b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67694c26cba2e014f9cba9fa7e00ae8b8d43610ab7a9fea58cae3a3c57919928"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "46e8a729f34715368444f8b7d4b6e99dca7ec575f7c677bba40bec71764c1dea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "46e8a729f34715368444f8b7d4b6e99dca7ec575f7c677bba40bec71764c1dea"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "46e8a729f34715368444f8b7d4b6e99dca7ec575f7c677bba40bec71764c1dea"
+    sha256 cellar: :any_skip_relocation, sonoma:        "03df89b7f2a18bafe9021cfd24f32cf7920cac3f118bb8cc8fe042670370e93f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "13fa3948a9e6b498bb2e38178eef94685b0cc60760ac3875941e72595ec20a8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3fda69d9bba81b3d9fa3e9854377bd2b02c23681ba1d2eb4a8925dc3cb936d3"
   end
 
   depends_on "go" => :build

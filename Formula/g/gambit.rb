@@ -1,8 +1,8 @@
 class Gambit < Formula
   desc "Software tools for game theory"
   homepage "https://www.gambit-project.org/"
-  url "https://github.com/gambitproject/gambit/archive/refs/tags/v16.6.0.tar.gz"
-  sha256 "5d0ac6809841b02347b31accfb6ee31d6ae0593f33dcf58b71b9ca543b465fd9"
+  url "https://github.com/gambitproject/gambit/releases/download/v16.7.0/gambit-16.7.0.tar.gz"
+  sha256 "35a2d7df4f8181cb216ce9a2b10ca820724768d8c69787a608a4a2725a745278"
   license all_of: ["GPL-2.0-or-later", "Zlib"]
 
   livecheck do
@@ -11,23 +11,19 @@ class Gambit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1981b508d7ec1e7f9bd9abd0f9cc604e1f0953b1261b9ad5478ab74dc13aff3c"
-    sha256 cellar: :any,                 arm64_sequoia: "ca7a9c1c14a39a81072f117e3f4ccc89a41f1502d5be242c3aaea9574982eceb"
-    sha256 cellar: :any,                 arm64_sonoma:  "917c3966b4a0b41a0e4dc605430eb816da5d48bc5bd585c45b96925e1c9f88da"
-    sha256 cellar: :any,                 sonoma:        "04f5090eea9d0a69cf46f6e6c0f868394ab5470032b426b387accfb13d876b4b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8bdcb2fd44695f5fe0ede13b74a9fb25bf400b5785de2c01eac50d9e6d98ecbe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e73a3408e96fa4501a02949808f405324017d2acb50415cc11c77c252a2cb33"
+    sha256 cellar: :any, arm64_tahoe:   "0727eb839f30f8bc978b7deed309c23c7bff1be758f5acaa17c3ea79c76e9ca7"
+    sha256 cellar: :any, arm64_sequoia: "c309326124d22ee43aef98998f01a8804c1a2c1ee5372bbee66d93c17dc9dd62"
+    sha256 cellar: :any, arm64_sonoma:  "1e7fe6989b942d49e6cedffcede4e32eb982bf5f6eb01264ca832c7037e4e8f4"
+    sha256 cellar: :any, sonoma:        "ffd11bbd944404a6a9f3a2d2f06df897ea72ae30c46f1b856012a0fbd2532b87"
+    sha256 cellar: :any, arm64_linux:   "53f7dfdff2e9bdc1d53d30b03f00e822bc3995900f53530bdcd73130c16ed858"
+    sha256 cellar: :any, x86_64_linux:  "695ba8a45f1c897a7c3c913e7c26cbad9e254c1ad88a76915c4d5db845dd19de"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "wxwidgets"
 
   def install
     wxwidgets = deps.find { |dep| dep.name.match?(/^wxwidgets(@\d+(\.\d+)*)?$/) }.to_formula
     wx_config = wxwidgets.opt_bin/"wx-config-#{wxwidgets.version.major_minor}"
-    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules",
                           "--with-wx-config=#{wx_config}",
                           *std_configure_args

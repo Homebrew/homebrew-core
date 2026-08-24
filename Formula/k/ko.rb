@@ -1,25 +1,24 @@
 class Ko < Formula
   desc "Build and deploy Go applications on Kubernetes"
   homepage "https://ko.build"
-  url "https://github.com/ko-build/ko/archive/refs/tags/v0.18.1.tar.gz"
-  sha256 "1006eb94b6260690ab3ec79cbd03342e09cb0f32cecdd1b8743fa216e2fe7b0e"
+  url "https://github.com/ko-build/ko/archive/refs/tags/v0.19.1.tar.gz"
+  sha256 "7accc1f4ad074285086573b084387bef5871872ef16e3f292d5818a99e4feeae"
   license "Apache-2.0"
   head "https://github.com/ko-build/ko.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0bde2f0196739939b8d40c71a749f703663511d505757d0c037d47a4452aa3e1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0bde2f0196739939b8d40c71a749f703663511d505757d0c037d47a4452aa3e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0bde2f0196739939b8d40c71a749f703663511d505757d0c037d47a4452aa3e1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9cbfa0acc43aa64e3f99f16c54fb117bddb6eda078de8b411d8815115b90233f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6b17a62d65df38d8e704d192a17fa800a56a487427cdbfb0c5b25e3f5f3ee544"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d92244e21a8a0f4f080d93831ad9f873809aeb50f5308fa9e19667de080978c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dbde500ed751d4ff2c9e31c0253631653b527187d1dc6814a3d6f78d8eb38f90"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dbde500ed751d4ff2c9e31c0253631653b527187d1dc6814a3d6f78d8eb38f90"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dbde500ed751d4ff2c9e31c0253631653b527187d1dc6814a3d6f78d8eb38f90"
+    sha256 cellar: :any_skip_relocation, sonoma:        "daed15d71cb650df58ab5d6aa8e3ee6a48499ac31560f3d3121bc3bea71d175d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3410988c67cb735edf75c617eb58a84970af090b22f9a0c305db2094fcb271a5"
+    sha256 cellar: :any,                 x86_64_linux:  "bde47c117e53e1b8fe0a955f83e07b77023f6b454366a64addc7f0a47cbff0a9"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/google/ko/pkg/commands.Version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X github.com/google/ko/pkg/commands.Version=#{version}")
 
     generate_completions_from_executable(bin/"ko", shell_parameter_format: :cobra)
   end

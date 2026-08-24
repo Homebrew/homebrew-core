@@ -24,8 +24,8 @@ class Beakerlib < Formula
     make_args = [
       "DD=#{prefix}",
     ]
-    make_args << "GETOPT_CMD=#{Formula["gnu-getopt"].opt_bin}/getopt" if OS.mac?
-    make_args << "READLINK_CMD=#{Formula["coreutils"].opt_bin}/greadlink" if OS.mac?
+    make_args << "GETOPT_CMD=#{formula_opt_bin("gnu-getopt")}/getopt" if OS.mac?
+    make_args << "READLINK_CMD=#{formula_opt_bin("coreutils")}/greadlink" if OS.mac?
     system "make", *make_args, "install"
   end
 

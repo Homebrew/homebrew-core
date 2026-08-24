@@ -6,12 +6,13 @@ class SimpleScan < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "a869b0d7b8904def7e1054b7dce454df9415cd0fdf6bab2df7d9d3e53a9c1a35"
-    sha256 arm64_sequoia: "deec11bead0cda8b1de5cbf92549a2837207ec94c58c5539e4c18590063c0f4a"
-    sha256 arm64_sonoma:  "140753330f6fb9150a48ee983da40c620fa6d0c4755716d1c4dcdd8b804ec59b"
-    sha256 sonoma:        "14d80b1475f30ae41a55c686f493d05abfd02a3d9df8be916ee75061519139b6"
-    sha256 arm64_linux:   "3b07c5ccdde6168b3f39e0be2e8fb73cee7841c64542387f2664e19fac653e0d"
-    sha256 x86_64_linux:  "69cd72385ad10852e92f4f3195ba6d52a8ca6c080c892d148a986a89f28ddd58"
+    rebuild 1
+    sha256 arm64_tahoe:   "30596e583545482e3ed302507f1bf848eb62758e673acd3b9f2512244319c780"
+    sha256 arm64_sequoia: "cc55f2d2bd85105945f2d5c9fa45d11d7e3ef0135b8a4981e7ab535df97c8848"
+    sha256 arm64_sonoma:  "cee480b30875f61de0f962abaab0c8e8ee881405786af4fcc112885d23c5c85c"
+    sha256 sonoma:        "0a33f961743392ae645d5488f16cda857bf93c4d4156f89c6d1f0fb067e40d35"
+    sha256 arm64_linux:   "29b8609af62a6d93ce0d13e23f57871281f1fd03e06d330d532ef64c316beb72"
+    sha256 x86_64_linux:  "9e044bd94171164c7e90ff3c0ae2765316c250c5ddebe15c0bbb37ec1fae6c2b"
   end
 
   depends_on "gettext" => :build # for msgfmt
@@ -45,9 +46,9 @@ class SimpleScan < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk4"].opt_bin}/gtk4-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+  post_install_steps do
+    compile_gsettings_schemas
+    update_gtk_icon_cache
   end
 
   test do

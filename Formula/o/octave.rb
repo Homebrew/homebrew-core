@@ -16,12 +16,13 @@ class Octave < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f244857ee56ac75e318a48ecc160228ffe285d38fabb3f27730d38fc8c9c66cd"
-    sha256 arm64_sequoia: "2f27b42ac0f3bedc9497a193df2f06cb583f78daa9aa1d9b2381887ca9aaab10"
-    sha256 arm64_sonoma:  "4528265504f6d16e79c9f1fb3390074c8626256ed68fd7c4ae5cc1d3b976e5b6"
-    sha256 sonoma:        "e79a12d1fb8c32ee94625e5273e67c25e74619372b4c29909f17c568f24d63a5"
-    sha256 arm64_linux:   "d9c8c3901aacb2fd1945751c40ae927106d1179f51df31e0fedf263d670273d6"
-    sha256 x86_64_linux:  "2bed748ae6fe1760aedc028b4b33285ea563cefb1f55feb6323038181559fe3f"
+    rebuild 1
+    sha256 arm64_tahoe:   "dd3e934bb9760b775520968d4427efd88af85f1e30ac179b9ee274e69a8b6d65"
+    sha256 arm64_sequoia: "9b3c413e48d96a1ab083b21aaa46a445ce66f383a317a403c5e6c96123b2a36c"
+    sha256 arm64_sonoma:  "f180b9a2804c0ea11642650743cadffa7eac78395f7f27e7faa4a32fd121114b"
+    sha256 sonoma:        "4f8f068612a8799a6565fa081eb2a6e8fc1f3dd7c64920fc19057ab8b2bc00f7"
+    sha256 arm64_linux:   "37a808b18b16d29308da0bf4837aa6c65e2b5e76bef081f68fa3feb6f63c766d"
+    sha256 x86_64_linux:  "b2ca79f1d0ec0d7f0a11a9c7a844519b801f3704f1b7a8d6d47fa3d8f3759e9d"
   end
 
   head do
@@ -81,8 +82,7 @@ class Octave < Formula
   end
 
   on_linux do
-    depends_on "autoconf"
-    depends_on "automake"
+    depends_on "libx11"
     depends_on "mesa"
     depends_on "mesa-glu"
     depends_on "wayland"
@@ -95,29 +95,14 @@ class Octave < Formula
       "--disable-silent-rules",
       "--enable-shared",
       "--disable-static",
-      "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}",
-      "--with-hdf5-libdir=#{Formula["hdf5"].opt_lib}",
-      "--with-java-homedir=#{Formula["openjdk"].opt_prefix}",
-      "--with-x=no",
-      "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
+      "--with-hdf5-includedir=#{formula_opt_include("hdf5")}",
+      "--with-hdf5-libdir=#{formula_opt_lib("hdf5")}",
+      "--with-java-homedir=#{formula_opt_prefix("openjdk")}",
+      "--with-blas=-L#{formula_opt_lib("openblas")} -lopenblas",
       "--with-portaudio",
       "--with-sndfile",
     ]
-
-    if OS.linux?
-      # Explicitly specify aclocal and automake without versions
-      args << "ACLOCAL=aclocal"
-      args << "AUTOMAKE=automake"
-
-      # Mesa OpenGL location must be supplied by LDFLAGS on Linux
-      args << "LDFLAGS=-L#{Formula["mesa"].opt_lib} -L#{Formula["mesa-glu"].opt_lib}"
-
-      # Docs building is broken on Linux
-      args << "--disable-docs"
-
-      # Need to regenerate aclocal.m4 so that it will work with brewed automake
-      system "aclocal"
-    end
+    args << "--with-x=no" if OS.mac?
 
     system "./configure", *args, *std_configure_args
     # https://github.com/Homebrew/homebrew-core/pull/170959#issuecomment-2351023470
@@ -126,14 +111,16 @@ class Octave < Formula
     end
 
     # Avoid revision bumps whenever fftw's, gcc's or OpenBLAS' Cellar paths change
+    fftw_prefix = formula_opt_prefix("fftw")
+    gcc_prefix = formula_opt_prefix("gcc")
     inreplace "src/mkoctfile.cc" do |s|
-      s.gsub! Formula["fftw"].prefix.realpath, Formula["fftw"].opt_prefix
-      s.gsub! Formula["gcc"].prefix.realpath, Formula["gcc"].opt_prefix
+      s.gsub! fftw_prefix.realpath, fftw_prefix
+      s.gsub! gcc_prefix.realpath, gcc_prefix
     end
 
     # Make sure that Octave uses the modern texinfo at run time
     rcfile = buildpath/"scripts/startup/site-rcfile"
-    rcfile.append_lines "makeinfo_program(\"#{Formula["texinfo"].opt_bin}/makeinfo\");"
+    rcfile.append_lines "makeinfo_program(\"#{formula_opt_bin("texinfo")}/makeinfo\");"
 
     system "make", "install"
   end
@@ -165,12 +152,12 @@ class Octave < Formula
       assert(oct_demo, 42)
     MATLAB
 
-    if OS.linux?
-      ENV["QT_QPA_PLATFORM"] = "minimal"
-      system bin/"octave", "--gui"
-    else
-      pid = spawn(bin/"octave", "--gui")
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
+    pid = spawn(bin/"octave", "--gui")
+    begin
       sleep 5
+    ensure
       system "pkill", "-KILL", "octave-gui"
       Process.wait(pid)
     end

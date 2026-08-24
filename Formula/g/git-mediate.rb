@@ -1,19 +1,17 @@
 class GitMediate < Formula
   desc "Utility to help resolve merge conflicts"
   homepage "https://github.com/Peaker/git-mediate"
-  url "https://github.com/Peaker/git-mediate/archive/refs/tags/1.1.0.tar.gz"
-  sha256 "f8bacc2d041d1bef9288bebdb20ab2ee6fbd7d37d4e23c84f8dda27ff5b8ba59"
+  url "https://github.com/Peaker/git-mediate/archive/refs/tags/1.2.0.tar.gz"
+  sha256 "841f48c18f83f3be05a7227f429310d0ff3fc2275e285b46fc23c38bd7407ac7"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "42134552e6c948a352c7a2819178ca7fdd34254d5932ac9867635a31813dcebe"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c8be0d8c2ccb6e709e05b0744a8ae7485692993d492d3dbcac2ff7312bfb56a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5fea46d5954c87f70437d452dc81625aacd6d8538649d7a5b535771d9822026"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b57ee5c16d7e4747d9f255bc02109fc0da671ba7cfda9d13798286bf80958e38"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f9b46bfa29542509a7fa1b33dadf15a415dbd154066ea58ec7683861a9ab3544"
-    sha256 cellar: :any_skip_relocation, ventura:       "45a20d5499cf2ed0a7c0037459b50222cbcf0d18643142c66a3958bc227b2d09"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "58caff9b2789c99a435feb86be3fc3f7e6a9b05c4fffba13e8c87b23886eb11a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54dd625814a87c231bc8d8fc83ddb4b3366ca87f068a0a6f63e17ace1e842744"
+    sha256 cellar: :any, arm64_tahoe:   "8c13903130eae451fc26489fe0d5649eea73d90e20a179ebf981e8045d78e782"
+    sha256 cellar: :any, arm64_sequoia: "b2ac564be2115a343eead38b9f39b50ccb1327cbbade8bb6f27858cae5969883"
+    sha256 cellar: :any, arm64_sonoma:  "3469431bc834ffd3ff6debe44fade46b9bc21139d5888eb5677820fef94f74d0"
+    sha256 cellar: :any, sonoma:        "41a5cd8f4e1b89da621108410d33fb442aadb4c36af73c0f0d82530b1ff595fd"
+    sha256 cellar: :any, arm64_linux:   "c4b7dd5f856589897576c95975b0f844b3511f5d8772c2e83a9752994544c788"
+    sha256 cellar: :any, x86_64_linux:  "c227d7594c93ec201e98a6ebb8735114d81720b6926a777f5bcb5fa39d789cf3"
   end
 
   depends_on "cabal-install" => :build

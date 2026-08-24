@@ -6,15 +6,16 @@ class Ldeep < Formula
   url "https://files.pythonhosted.org/packages/8e/bf/cadc67e213fecdfc338a722dc51a04ec0e897e3b9738d8025f1a773b263c/ldeep-2.0.3.tar.gz"
   sha256 "a7a085d495ba12edff9e0186a6d92a4a989aceabebcf79e321059ee124907021"
   license "MIT"
+  revision 1
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5459875e8583e83da5632d6ad1b99d7313feaa8ede6b57346d7788a556209d45"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f40017002925de9f4e8a4d5808e46c38f4b1110ea804ee68a0a0cf4f3eac57ce"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "97135d98f5ed513404a8aedc49703f0333ee74244f4751edaedd7aa70b9d01e8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "343e91951cbbdf39f25107dc2320147f7e04d9660686b9b98c7caa734cc72cac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee57e31f38e9096275aa4fcb69c609b9fbcedc9820e695ed74f9568725920981"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e65dc3bb362727b1b6f88c9548ad0fa797bbb49149f7f47909c798a29773bad9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d1453d714f4787f80489d251e1c4bd7b164b5408490fb62df823da25b4bf183d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0bbdb84955a14b508dbeb4bf9a6d73448625f2341a21b38d87e8bf37268f2929"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e8f87e3a08848622fa003dccf3e5943a387518a8c191c3515465abc8340c58eb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ede6322847a47590bbab6c373abf32647e9e85e7992c1a67b29be45a1e78a9c5"
+    sha256 cellar: :any,                 arm64_linux:   "40d7dc7581bf884699bd5c16281cb958ecacaa1b731ef1be7a62cc0515d37974"
+    sha256 cellar: :any,                 x86_64_linux:  "61f5856924b01b509c7ddf747fb7c12e6bf5f4c85b755700843ddacf5c856f03"
   end
 
   depends_on "cryptography" => :no_linkage
@@ -60,8 +61,8 @@ class Ldeep < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/5c/5f/6583902b6f79b399c9c40674ac384fd9cd77805f9e6205075f828ef11fb2/pyasn1-0.6.3.tar.gz"
-    sha256 "697a8ecd6d98891189184ca1fa05d1bb00e2f84b5977c481452050549c8a72cf"
+    url "https://files.pythonhosted.org/packages/a4/9a/23310166d960def5897e91fe20e5b724601b02a22e84ba1f94232c0b7f67/pyasn1-0.6.4.tar.gz"
+    sha256 "9c447d8431c947fe4c8febc4ed9e760bc29011a5b01e5c74b67025bd9fb8ce81"
   end
 
   resource "pycryptodome" do
@@ -85,8 +86,8 @@ class Ldeep < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
-    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
+    url "https://files.pythonhosted.org/packages/8c/69/40407dfc835517f058b603dbf37a6df094d8582b015a51eddc988febbcb7/tqdm-4.69.0.tar.gz"
+    sha256 "700c5e85dcd5f009dd6222588a29180a193a748247a5d855b4d67db93d79a53b"
   end
 
   def install

@@ -1,8 +1,8 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
-  url "https://github.com/tmux/tmux/releases/download/3.6b/tmux-3.6b.tar.gz"
-  sha256 "390759d25fdba016887ec982b808927e637070fd7d03a8021f8ef3102b9ae3c7"
+  url "https://github.com/tmux/tmux/releases/download/3.7c/tmux-3.7c.tar.gz"
+  sha256 "7c60cae9a0e25288e2e24750aafc9e8800fc7fd4555e447e1b29ee4201cfb3bf"
   license "ISC"
   compatibility_version 1
 
@@ -13,13 +13,12 @@ class Tmux < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "eea20efb40cb19e2c3a55c0607ab171cf4cda5cbfaeb547b4fe13776d7b79f20"
-    sha256 cellar: :any,                 arm64_sequoia: "199b6026e3d8216fb8fc6394ba047e96e177b8283bc832c8fd784a27951aa0b3"
-    sha256 cellar: :any,                 arm64_sonoma:  "239749337e5b4b435670bf05fccc3373a001c0c018078ede8640b3e45203e316"
-    sha256 cellar: :any,                 sonoma:        "367eb4c58e2c4aca023a7331a6649444c6c115658224988654ffecd19a23ce5b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "71a11a462753c538c074fb25784490bf49b9e65cdfedd091a62eea13b22e1665"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "566c10149a1560226818f2cc6a82c3b7a626773d41cca1a96c4013314671a7f8"
+    sha256 cellar: :any, arm64_tahoe:   "7752f62ec95bf0e4ce2ff72b5d3a93ea0416f74011bfbd9a162e6313a9f21212"
+    sha256 cellar: :any, arm64_sequoia: "79e68da943f4c22dce73525b0f43498e67e1a58003cd8fa7280e7fa9ef7a4389"
+    sha256 cellar: :any, arm64_sonoma:  "aa65f94dccdcaeb83b9795527fcba569e74939dd032609c888418cd3d39e08dd"
+    sha256 cellar: :any, sonoma:        "73d79ea663a78fb72cfa7eafb7a692b6b00e29e2d6cabf1d1c23f880254e709b"
+    sha256 cellar: :any, arm64_linux:   "d8539cc91c249cf306b1a3accccf79b7566887475d4dd193d98c7807c512b422"
+    sha256 cellar: :any, x86_64_linux:  "f1549155ee257ad755f551c227b0160437efc77d7d89e63e723515df2d30b555"
   end
 
   head do
@@ -36,6 +35,12 @@ class Tmux < Formula
   depends_on "utf8proc"
 
   uses_from_macos "bison" => :build # for yacc
+
+  on_macos do
+    # https://github.com/tmux/tmux/blob/62044f02dff22d304da78ac81b69afcf84872ac7/CHANGES#L169-L170
+    # https://github.com/tmux/tmux/issues/5385
+    depends_on "jemalloc"
+  end
 
   def install
     system "sh", "autogen.sh" if build.head?

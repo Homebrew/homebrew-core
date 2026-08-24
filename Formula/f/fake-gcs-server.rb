@@ -1,24 +1,24 @@
 class FakeGcsServer < Formula
   desc "Emulator for Google Cloud Storage API"
   homepage "https://github.com/fsouza/fake-gcs-server"
-  url "https://github.com/fsouza/fake-gcs-server/archive/refs/tags/v1.54.0.tar.gz"
-  sha256 "12a874a6e3e8160a59c820e52ce1a5100c1c213720f0b033067269480d92cd6e"
+  url "https://github.com/fsouza/fake-gcs-server/archive/refs/tags/v1.56.1.tar.gz"
+  sha256 "a322297f949d5339a8e521eb15a35b80c8023f970b0f6511a7bb84e72932ca2c"
   license "BSD-2-Clause"
   head "https://github.com/fsouza/fake-gcs-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9874810bbac6adc4a82460c22755680f02d16be0af9b6cb951fa3443ac2e02d4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9874810bbac6adc4a82460c22755680f02d16be0af9b6cb951fa3443ac2e02d4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9874810bbac6adc4a82460c22755680f02d16be0af9b6cb951fa3443ac2e02d4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "49ecdca1f224a4495343611ad17cec9be45d7ec037f799ec78dcf950c259248f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e79602e94a2c884818627eace2e9a4adb0a1ba944240f8892547764859762ce9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7338498911cb9cb566c7d367ef8e2bb710be7a549e936e1c0ab273eaadc08a65"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "09cc9a797930a9cd579a0db109fb0687920a20b98b1902a325f1ec9828977bd0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "09cc9a797930a9cd579a0db109fb0687920a20b98b1902a325f1ec9828977bd0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "09cc9a797930a9cd579a0db109fb0687920a20b98b1902a325f1ec9828977bd0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "db7bbf7e644c9ddfdbe990bf0afb342067508a6267a4438e20faf220be88f7c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d1a1677d834a9c8088c95f9099ebefdb2c86dc90322996256d5d6b4f9733fd0c"
+    sha256 cellar: :any,                 x86_64_linux:  "7d05fae639d582f0821930036a2602157da8d22f2b573b7f282d6f14a4328289"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/fsouza/fake-gcs-server.Version=#{version}"
+    ldflags = "-X github.com/fsouza/fake-gcs-server.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
   end
 

@@ -1,10 +1,10 @@
 class Imagemagick < Formula
   desc "Tools and libraries to manipulate images in select formats"
-  homepage "https://imagemagick.org/index.php"
-  url "https://github.com/ImageMagick/ImageMagick/releases/download/7.1.2-25/ImageMagick-7.1.2-25.7z"
-  sha256 "a83f48a58e9d5f0fd7a6712bdc1ee76281c8f429d1dbc9b05b47719eaabb1dfb"
+  homepage "https://imagemagick.org"
+  url "https://github.com/ImageMagick/ImageMagick/releases/download/7.1.2-30/ImageMagick-7.1.2-30.7z"
+  sha256 "3ef82a66a4b28af069ac4f826ed958c17ad9baac6393368db7ec6d5920f6be7d"
   license "ImageMagick"
-  compatibility_version 1
+  compatibility_version 3
   head "https://github.com/ImageMagick/ImageMagick.git", branch: "main"
 
   livecheck do
@@ -14,12 +14,12 @@ class Imagemagick < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "4bf60da9f162896e27798f7e95036f5675dee9af2b404f8b82b43cc8202e571a"
-    sha256 arm64_sequoia: "440c3c25de2111cfea357c7b01571cbd2e6d8eee2550a08e3f550e5dd37e0d32"
-    sha256 arm64_sonoma:  "e258997a8c6266aef133eff6cd887633f95e393a1c41daef81c383da9fae6cbd"
-    sha256 sonoma:        "249a896708b5a45b736a2a09cb82339cf25313ee77e3600817c15f0d83610665"
-    sha256 arm64_linux:   "7f4fc242ad4742203cb4e93eec19acc8229e67bd37d6d1c21bd22b212b9ccde1"
-    sha256 x86_64_linux:  "bf7b73727561884518679549ffb7d10999abbce9ba766be652d1211942ed15ca"
+    sha256 arm64_tahoe:   "e4dc1c8ce8d4ace4b4ef8035bb1901210ea2dbbaaa657b4d33837e0c3df9ee8a"
+    sha256 arm64_sequoia: "d37caa2095d1bc4fa706de9b0b6dc6e095d810fb0c886193144c21645811ae0d"
+    sha256 arm64_sonoma:  "9d33ef2f40876425cbfd46608e7a6c9c04811b89cd700b1e27d2146e1960401f"
+    sha256 sonoma:        "b72c5b2944aae1a7b88fc7167b365ad945eb972b60cbb730f447ecdce8567568"
+    sha256 arm64_linux:   "beca67c63a4d7dd8168dce83afa5bd103a90303629b8b447ed1d870ba4585c34"
+    sha256 x86_64_linux:  "8465fd0ff8e169910bb017b6effc32aebefc83f147970e4132c974277f779666"
   end
 
   depends_on "pkgconf" => :build
@@ -49,7 +49,7 @@ class Imagemagick < Formula
 
   def install
     # Avoid references to shim
-    inreplace Dir["**/*-config.in"], "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
+    inreplace Dir["**/*-config.in"], "@PKG_CONFIG@", formula_opt_bin("pkg-config")/"pkg-config"
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_BASE_VERSION}", "${PACKAGE_NAME}"
 

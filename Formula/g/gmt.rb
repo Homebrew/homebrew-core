@@ -1,11 +1,10 @@
 class Gmt < Formula
   desc "Tools for manipulating and plotting geographic and Cartesian data"
   homepage "https://www.generic-mapping-tools.org/"
-  url "https://github.com/GenericMappingTools/gmt/releases/download/6.6.0/gmt-6.6.0-src.tar.xz"
-  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.6.0-src.tar.xz"
-  sha256 "18ac98b11b8fc924463ce5138385c02e9426780fba9ff63a991e2e8ecdbd1082"
+  url "https://github.com/GenericMappingTools/gmt/archive/refs/tags/6.7.0.tar.gz"
+  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.7.0-src.tar.xz"
+  sha256 "1a0c2ce2d1d8d19eecbff806876c37f986f442435031da56ea57d31de6579126"
   license "LGPL-3.0-or-later"
-  revision 2
   head "https://github.com/GenericMappingTools/gmt.git", branch: "master"
 
   livecheck do
@@ -14,12 +13,12 @@ class Gmt < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0b8146614b014a2b1fa9545e81e25526117f4283bdd0c1fcf9617ab155bdb2fc"
-    sha256 arm64_sequoia: "60fcbcd6fc98937a5dc68bcc6d944eef355668c82a36c5791433493183f9fa52"
-    sha256 arm64_sonoma:  "33e7eabb17005fbbb8bcb37c3c6b3253a7001abd115f585152ea62ebeadf8c4d"
-    sha256 sonoma:        "bddcd00c06947e457e68ac2a342960481bb7aa6cf4f9094c769898af96e3b5b9"
-    sha256 arm64_linux:   "ac4b6389876270ac42ea5592cf8b24bbfd7688db6fc4e86880e7316aba336ce7"
-    sha256 x86_64_linux:  "0ff278d952d35a5abf7c30e7d686a727d2a60ff801d531909f00a349b2430321"
+    sha256 arm64_tahoe:   "8426d92d217b614cb0fd5066c486fc93191fb2cf675bd038e001c040a9284f54"
+    sha256 arm64_sequoia: "3e935e5a493a00f309aecbea1fd3f3221350b29dfb254be5f96d76c87838bae6"
+    sha256 arm64_sonoma:  "3e3e036dd4c5240ae42368fd3e7f9cc6dd15ddbd2224e4be586558185636e5e0"
+    sha256 sonoma:        "28fab84c6fab03639ae90774f12b054daa953570d3422dd929853238c5bcbade"
+    sha256 arm64_linux:   "5584f987ee3454a4579c697642e7246bb8c1a2e529f2b62dab59f22c1a493311"
+    sha256 x86_64_linux:  "52d1c66b978f82152ebf68fc61d692f50ef7d16dd7779f0d0eb6d2f92f5044dc"
   end
 
   depends_on "cmake" => :build
@@ -62,10 +61,10 @@ class Gmt < Formula
       -DDCW_ROOT=#{buildpath}/dcw
       -DCOPY_DCW:BOOL=TRUE
       -DPCRE_ROOT=FALSE
-      -DFFTW3_ROOT=#{Formula["fftw"].opt_prefix}
-      -DGDAL_ROOT=#{Formula["gdal"].opt_prefix}
-      -DNETCDF_ROOT=#{Formula["netcdf"].opt_prefix}
-      -DPCRE2_ROOT=#{Formula["pcre2"].opt_prefix}
+      -DFFTW3_ROOT=#{formula_opt_prefix("fftw")}
+      -DGDAL_ROOT=#{formula_opt_prefix("gdal")}
+      -DNETCDF_ROOT=#{formula_opt_prefix("netcdf")}
+      -DPCRE2_ROOT=#{formula_opt_prefix("pcre2")}
       -DFLOCK:BOOL=TRUE
       -DGMT_INSTALL_MODULE_LINKS:BOOL=FALSE
       -DGMT_INSTALL_TRADITIONAL_FOLDERNAMES:BOOL=FALSE

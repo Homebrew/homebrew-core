@@ -1,18 +1,18 @@
 class Ijq < Formula
   desc "Interactive jq"
   homepage "https://codeberg.org/gpanders/ijq"
-  url "https://codeberg.org/gpanders/ijq/archive/v1.3.0.tar.gz"
-  sha256 "b65cf7f5285affe3ab9a1887d12e6c313f437b18a5cf2b52add6cfd7e76dd2c7"
+  url "https://codeberg.org/gpanders/ijq/archive/v1.4.0.tar.gz"
+  sha256 "3bc925a05755f621926ac21051a257220f924bb7fa6dd85dc1367cd508b391cb"
   license "GPL-3.0-or-later"
   head "https://codeberg.org/gpanders/ijq.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f71e8a5e46903cb8f61ad5177ac882d6c652d427c2a11170772835216a4a025"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6934f0c8a0ae8352ab44ab1bf4d1ed2d5eb79d59d8709371152d3f64f9101805"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1eb043ea52bdb123f3e673f084152606d02e35bec68a65231c97c7bea9b4426e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bf74ff77d3d2af3f69e4d8f271bcbd39f4a42aed9802fc74e82eff9be044dd3e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a091da8484e89d2cf988973d8c44af367fd59de321382fe50f96c91473a3f89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "252b73640ebef012fae413591033b3a90a820a96a0f8e6195b874cc05e4425fc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "13d3c521194f5cf432f787a993ca5ef9c32b02953b5bb2be514f0ac2602e9bf9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "67f3a41b5f1a6924916d0e8d216da83dbdc273c253e82929b0064a93ca36a8ae"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f978d17e05a71ed4fc7da15ae9eb6d000900b80c4fd0eefd04ce3d9ce408dee0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1d1d6f14e2540892f375d93666ba3f4f7eec93833d49e2e22eb7448db8603f9d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec1a6d78030c28b2dfaf94d330d61efe313ffd778fc93a219e0f0d729da57570"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a2a01a981e0f6ee906a5b0d6e889c989f159c3a3f50b11f05665f8ffde6cdc2"
   end
 
   depends_on "go" => :build
@@ -25,13 +25,17 @@ class Ijq < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/ijq -V")
+
     ENV["TERM"] = "xterm"
 
     (testpath/"filterfile.jq").write '["foo", "bar", "baz"] | sort | add'
+    output_log = testpath/"output.log"
 
     require "expect"
     require "pty"
-    PTY.spawn("#{bin}/ijq -H '' -M -n -f filterfile.jq > result") do |r, w, pid|
+    PTY.spawn(bin/"ijq", "-H", "", "-M", "-n", "-f", "filterfile.jq",
+              [:out, :err] => output_log.to_s) do |r, w, pid|
       refute_nil r.expect("barbazfoo", 5), "Expected barbazfoo"
       w.write "\r"
       r.read
@@ -42,6 +46,6 @@ class Ijq < Formula
       w.close
       Process.wait(pid)
     end
-    assert_equal "\"barbazfoo\"\n", (testpath/"result").read
+    assert_match "\"barbazfoo\"", output_log.read
   end
 end

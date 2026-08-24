@@ -13,12 +13,13 @@ class Gnucobol < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "8d42fa5a5cf8b4b2a63826ffd2a4f12fa7508d7ceef895df62bfecfa306a49a1"
-    sha256 arm64_sequoia: "959e8f74d52e0bdf664261059d8015cbffbed70a8c8582991a11cea5fb35fe0f"
-    sha256 arm64_sonoma:  "af67c79ed00bd2d40e2b7d3e76d7fa455fbbafb86a0d7113b3c094af227b13ee"
-    sha256 sonoma:        "e344e4ca89e2743f23cc26b3912d202412e00d9db8a17aa6f28230ded56dc994"
-    sha256 arm64_linux:   "6d7d93f1fe409fe630dbc1eeb046794044f34c80505e2550bd7088ef828e377e"
-    sha256 x86_64_linux:  "9a20bd40153987a491058f2791fa3e55a62adec8320a2891f0e3117d84086ed5"
+    rebuild 1
+    sha256 arm64_tahoe:   "0da362ef857db439f16aa86c368d1bcd1fa1817c053b7ce4738df232560d4616"
+    sha256 arm64_sequoia: "db7def7151f5ab71dc6c6cbb1c1e243b80e57d078aa439803a965d7a16513ab4"
+    sha256 arm64_sonoma:  "845547cd0cc67d04c3709f2014581b22913725ee09a94cc9ac965b179261c4a5"
+    sha256 sonoma:        "54090e13a0028e18a5b2e21893f8e030ca6ac2ffdf4ea15550fd66d992dfc733"
+    sha256 arm64_linux:   "c467815b822a5f133c8a4aba9c167a0aa9090bc3b5caa543beda2d4fe6690495"
+    sha256 x86_64_linux:  "aa7e8ed2578fda5825551832c980f261810fc559ed6e985d968b51f3efbf75d4"
   end
 
   head do

@@ -43,9 +43,9 @@ class Libwpg < Formula
       }
     CPP
     system ENV.cc, "test.cpp",
-                   "-I#{Formula["librevenge"].opt_include}/librevenge-0.0",
+                   "-I#{formula_opt_include("librevenge")}/librevenge-0.0",
                    "-I#{include}/libwpg-0.3",
-                   "-L#{Formula["librevenge"].opt_lib}",
+                   "-L#{formula_opt_lib("librevenge")}",
                    "-L#{lib}",
                    "-lwpg-0.3", "-lrevenge-0.0",
                    "-o", "test"

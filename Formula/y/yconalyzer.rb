@@ -32,8 +32,9 @@ class Yconalyzer < Formula
   # Fix build issues issue on OS X 10.9/clang
   # Patch reported to upstream - https://sourceforge.net/p/yconalyzer/bugs/3/
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/yconalyzer/1.0.4.patch"
-    sha256 "a4e87fc310565d91496adac9343ba72841bde3b54b4996e774fa3f919c903f33"
+    file "Patches/yconalyzer/1.0.4.patch"
+    type :unofficial
+    resolves "https://sourceforge.net/p/yconalyzer/bugs/3/"
   end
 
   def install

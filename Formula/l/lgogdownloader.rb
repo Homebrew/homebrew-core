@@ -4,7 +4,7 @@ class Lgogdownloader < Formula
   url "https://github.com/Sude-/lgogdownloader/releases/download/v3.18/lgogdownloader-3.18.tar.gz"
   sha256 "1974f09cb0e0cdfed536937335488548addd92e5c654f4229ac22594a22f8ae0"
   license "WTFPL"
-  revision 2
+  revision 3
   head "https://github.com/Sude-/lgogdownloader.git", branch: "master"
 
   livecheck do
@@ -13,12 +13,12 @@ class Lgogdownloader < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3fe96a9615c0a202089916f23840e7f42a470bb4cefd2fc8f7f479efb07a2f42"
-    sha256 cellar: :any,                 arm64_sequoia: "767059314331b099bb3e36828786cfbb70111f554fd98211276dbb58f0e87a39"
-    sha256 cellar: :any,                 arm64_sonoma:  "206ba19cf3a71d379a02612c6022c760c1e4f146056de4957bc751a996b8842c"
-    sha256 cellar: :any,                 sonoma:        "b254dc0f83eb097b2b217afd548ea468d15aef35843fceb97d69c2add5165481"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e1a01aa5ec328d12d2fd5313530727b17331cc9e185fdb960a5c57b81e984ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "771b4f2db2f1f6fedab5297c4b7fdb4778bf21bd48ef97f1da73346f7fd4f92c"
+    sha256 cellar: :any, arm64_tahoe:   "33cbe0ecd9eb99bb077d9ed1f1da5cb0ddf9d001136f86588deb5b1fc126da4a"
+    sha256 cellar: :any, arm64_sequoia: "614ecc245aa7b7981ede76536576e1d37f2a42865f06880f2908cdcefc533a18"
+    sha256 cellar: :any, arm64_sonoma:  "449eb4a69d20405fef5d304abf212928a07236fc8a4f23b76858ff4ff8232df5"
+    sha256 cellar: :any, sonoma:        "0897dbade424f4c690312d768f07b77af4a94cb97abf47c8ec13968b8c91dd0b"
+    sha256 cellar: :any, arm64_linux:   "280d394ace8a794562a9725c9b2fe8675661c307ce78efe7f61c2a202dfa5ce5"
+    sha256 cellar: :any, x86_64_linux:  "ab18a0bc52bc3d62e3a53bad413e53296d1faeba2119832681e35d224e583359"
   end
 
   depends_on "cmake" => :build
@@ -35,8 +35,8 @@ class Lgogdownloader < Formula
 
   def install
     args = %W[
-      -DJSONCPP_INCLUDE_DIR=#{Formula["jsoncpp"].opt_include}
-      -DBoost_INCLUDE_DIR=#{Formula["boost"].opt_include}
+      -DJSONCPP_INCLUDE_DIR=#{formula_opt_include("jsoncpp")}
+      -DBoost_INCLUDE_DIR=#{formula_opt_include("boost")}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

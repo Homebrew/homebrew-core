@@ -25,7 +25,7 @@ class Kubefirst < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/konstructio/kubefirst-api/configs.K1Version=v#{version}"
+    ldflags = "-X github.com/konstructio/kubefirst-api/configs.K1Version=v#{version}"
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"kubefirst", shell_parameter_format: :cobra)

@@ -1,10 +1,11 @@
 class Coal < Formula
   desc "Extension of the Flexible Collision Library"
   homepage "https://github.com/coal-library/coal"
-  url "https://github.com/coal-library/coal/releases/download/v3.0.3/coal-3.0.3.tar.gz"
-  sha256 "d1afcc0c22477a61e93e070a01cc8ed1d256a96ec65d308844d24b9caf771d36"
+  url "https://github.com/coal-library/coal/releases/download/v3.0.4/coal-3.0.4.tar.gz"
+  sha256 "0a9091aa281f51b9513f11aae39758a6188bca63010524f36b3bdc566381ca4a"
   license "BSD-2-Clause"
-  compatibility_version 1
+  revision 1
+  compatibility_version 2
   head "https://github.com/coal-library/coal.git", branch: "devel"
 
   livecheck do
@@ -13,12 +14,12 @@ class Coal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b7fe4df0b934288e12efb12f02ced3be04048554ec4dbb5443d82f8e75e6e316"
-    sha256 cellar: :any,                 arm64_sequoia: "0ce2c1748d1a38984096d874ea55d77e876765baaf4369d85e31ec5af334caba"
-    sha256 cellar: :any,                 arm64_sonoma:  "480d1274af46ebf2654d8a74c9b6af5b3eb0f47dd5a53a9b32fa010d55da5675"
-    sha256 cellar: :any,                 sonoma:        "5b6f314be22e5c0364cf100fdc54811bd9fe34d9070b6cd73eec12a49937225c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f49f1616f37151a19ef15beffe6383aaec0c45d8464ab6c2d8ab4dda1e007c69"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88cd0bfd149b14bac9666ac6609dfc76ef7314bbbe098a5c541c5eb463cc94cd"
+    sha256 cellar: :any, arm64_tahoe:   "495cdffb94bd2ade436176c1bd351c3c4fc78db6ecab39870efa080322253f24"
+    sha256 cellar: :any, arm64_sequoia: "6b5394dc00cd7799e76ff788967d781bf5df4b9218e3fbb773e2be967eeadce8"
+    sha256 cellar: :any, arm64_sonoma:  "09cb242a343665a4dd26e03bad28d2f2aa5d030b1ec05c713feb52983a252e46"
+    sha256 cellar: :any, sonoma:        "1c2fbb8235fae840e539ed6e5e4f4e408f3429a280869b63a2fe0354323d1b8b"
+    sha256 cellar: :any, arm64_linux:   "02bb279ea8edf73cd667d3d4fecfe038ed5f9418da1d960230e0f9e54ac50f59"
+    sha256 cellar: :any, x86_64_linux:  "c7bb161695df442bfe9bbb3612c3753e9aaf086e160b4da4771d1474149c8a23"
   end
 
   depends_on "cmake" => :build
@@ -37,7 +38,7 @@ class Coal < Formula
   end
 
   def install
-    ENV.prepend_path "PYTHONPATH", Formula["eigenpy"].opt_prefix/Language::Python.site_packages(python3)
+    ENV.prepend_path "PYTHONPATH", formula_opt_prefix("eigenpy")/Language::Python.site_packages(python3)
     ENV.prepend_path "Eigen3_DIR", Formula["eigen"].opt_share/"eigen3/cmake"
 
     # enable backward compatibility with hpp-fcl

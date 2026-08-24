@@ -34,7 +34,6 @@ class Qtbase < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on "vulkan-headers" => [:build, :test]
-  depends_on xcode: :build
 
   depends_on "brotli"
   depends_on "dbus"
@@ -57,6 +56,7 @@ class Qtbase < Formula
 
   on_macos do
     depends_on "molten-vk" => :build
+    depends_on xcode: :build
   end
 
   on_linux do
@@ -230,7 +230,7 @@ class Qtbase < Formula
       CONFIG  -= app_bundle
       TEMPLATE = app
       SOURCES += main.cpp
-      INCLUDEPATH += #{Formula["vulkan-headers"].opt_include}
+      INCLUDEPATH += #{formula_opt_include("vulkan-headers")}
     QMAKE
 
     (testpath/"main.cpp").write <<~CPP

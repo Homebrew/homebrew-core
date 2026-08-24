@@ -12,23 +12,19 @@ class Jack < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:    "70eae572ab2834459171f64ab8e715aa90496a16b58dd312affe30ed26d0380d"
-    sha256 arm64_sequoia:  "e3cd7f8ab3b70baa1766b3a131b16ffe7a62a398f20a3ce7b6d6935c222b5925"
-    sha256 arm64_sonoma:   "39affd1f135d3745a22bf4907e46509cdb4b1b3a8e654e23179e1a1ad92193bc"
-    sha256 arm64_ventura:  "6210ae0eeab831aa965d6d737f22b7476224d1cd1daa1105cee116dd37a3627a"
-    sha256 arm64_monterey: "e9ff1f4cef83787cd63bb788cd2c1818b64798d85c7081ed3b2ba42a8f40b149"
-    sha256 sonoma:         "15b133b0d5b27e9a1e054fec07cd8c0c3e4972ace51ca2d6ec9b57b8ee4c5c85"
-    sha256 ventura:        "6d6e8934386e7609ad4ab4af7ba321ffc0bf8673f93b2d2deca7fb3bc3207688"
-    sha256 monterey:       "5079ca572c21ee6acc9574a0db44938e2c6099242d38a3cbd39bc4e4bc643c08"
-    sha256 arm64_linux:    "13cdb9547db6f443c750059b2f230085bac7465964ff22d88aeb4b2eb5e08873"
-    sha256 x86_64_linux:   "1632a4f4ebdf3e82dd5186dd71dd498a83bf47f4ef610b319d22bb201727e463"
+    rebuild 1
+    sha256 arm64_tahoe:   "fff5cd2469005f7ce17c430b5b0702ddae63ffc10fffeee4265eaa4eff14d586"
+    sha256 arm64_sequoia: "db8845aed88dd26297e2b9e128b0a6325b57e83c977c82c9764dabab0f5eb5a2"
+    sha256 arm64_sonoma:  "1d10444db8e31dea0532e9947398366dd3f9d2ecf94f937a4a4bd994abf48b11"
+    sha256 sonoma:        "cfc72eb5ff3bd8e524f1120b06e3629b8562cf428bc0bab2e4fcb189a078a7de"
+    sha256 arm64_linux:   "41d6192aa532805d5ba0ada750c27b40bfb431d1543005716181a0cefc40011e"
+    sha256 x86_64_linux:  "638c07b7fd17581e2cb03676f5f86fa3957f1f100d9ea42eacb33c04b1336cd6"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
-  depends_on "berkeley-db@5" # keep berkeley-db < 6 to avoid AGPL-3.0 restrictions
   depends_on "libsamplerate"
 
   uses_from_macos "python" => :build
@@ -46,10 +42,14 @@ class Jack < Formula
   patch do
     url "https://github.com/jackaudio/jack2/commit/250420381b1a6974798939ad7104ab1a4b9a9994.patch?full_index=1"
     sha256 "919f94a5eb4a00854f90b6618a35be4ba9ab3d8cc56f09a1fba2277030363b20"
+    type :backport
+    resolves "https://github.com/jackaudio/jack2/pull/953"
   end
 
   def install
-    system "python3", "./waf", "configure", "--prefix=#{prefix}"
+    # Disabling metadata feature as it needs unmaintained Berkeley DB.
+    # Can restore if upstream switches to an alternative, https://github.com/jackaudio/jack2/issues/557
+    system "python3", "./waf", "configure", "--prefix=#{prefix}", "--db=no"
     system "python3", "./waf", "build"
     system "python3", "./waf", "install"
   end

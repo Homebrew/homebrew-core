@@ -21,16 +21,19 @@ class Kallisto < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # PR ref: https://github.com/pachterlab/kallisto/pull/506
   # Fix error: no member named 'sz_link' in 'DataStorage<Unitig_data_t>'
   patch do
     url "https://github.com/pachterlab/kallisto/commit/a5caefb608611c48e102d63e91eafd3660d3e569.patch?full_index=1"
     sha256 "e29be49cc52a18f78b13b381f2d97cdf047ea45ba6b61b94caa54d46e195d0e2"
+    type :unofficial
+    resolves "https://github.com/pachterlab/kallisto/pull/506"
   end
   # Fix missing hdf5 libraries
   patch do
     url "https://github.com/pachterlab/kallisto/commit/e79245b1386d984849f2274fd2287a85682991bc.patch?full_index=1"
     sha256 "0a2e28de1bbe247842f5f6082a00ac60158ffe3d3264b639131d16b9c8c2e1a5"
+    type :unofficial
+    resolves "https://github.com/pachterlab/kallisto/pull/506"
   end
 
   def install

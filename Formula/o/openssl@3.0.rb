@@ -11,37 +11,36 @@ class OpensslAT30 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "8d5ecfbe8c72557bf1ecca3714daae32f442ee320bcf102c86d58ea3d4d95391"
-    sha256 arm64_sequoia: "9791d6cf6542287660bcd831c00249cb588c846499bc1e033bb661e382908026"
-    sha256 arm64_sonoma:  "4bfb476c4e4d3d0c8dde8fc46aae71e1fb8a7118d9df33529e90a89d2fc9be93"
-    sha256 sonoma:        "bfeef14aaffc04c4e6ddae4dee08378cc7d46f20bfd36c25aaaa1a6545c63cc9"
-    sha256 arm64_linux:   "5b447bf2ab4b7e16e49a109c85e99260ac5c71b04d31463731931e30e1a76135"
-    sha256 x86_64_linux:  "8344a48c2d1835f3c2ec02f89f317ccc7ec44871a5cb4b4627d99ea859492626"
+    rebuild 1
+    sha256 arm64_tahoe:   "d3cc1ee8b295fec57f78eb337ce5f14f99f6dd55d31aafeb54e6c54fdcd3d8cf"
+    sha256 arm64_sequoia: "2c3f0cf3de87f2828963b7e7ce6b655e15025a54d37ba375b0eec30af46f4947"
+    sha256 arm64_sonoma:  "a6cb61370578baed8a2465753dd5e4b851842ed4cd43537ff43fc9f5f789181b"
+    sha256 sonoma:        "347ac55b827131428725ded872f7891ec7fc4be2ebe5311cedb700a880029fae"
+    sha256 arm64_linux:   "739cb6e8d5f7831ac0752f5fb6cb8e6be32cc40842c75a151f45e4dda74ddeb3"
+    sha256 x86_64_linux:  "2e44d7b402d2429114f09c8f72c2aefb5e3b7f933bf9ca819a700fab0ae468d4"
   end
 
   keg_only :versioned_formula
 
   # See: https://www.openssl.org/policies/releasestrat.html
   deprecate! date: "2026-09-07", because: :unsupported
+  disable! date: "2027-03-07", because: :unsupported
 
-  depends_on "ca-certificates"
+  depends_on "ca-certificates" => :no_linkage
 
   on_linux do
     resource "Test::Harness" do
       url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.52.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.52.tar.gz"
       sha256 "8fe65cfc0261ed3c8a4395f0524286f5719669fe305f9b03b16cf3684d62cd70"
     end
 
     resource "Test::More" do
       url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302220.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302220.tar.gz"
       sha256 "bbca30d9fb64a67a28ccd9086cdc08cdb6046423fa032d9101f978d7ccd46cf9"
     end
 
     resource "ExtUtils::MakeMaker" do
       url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.78.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.78.tar.gz"
       sha256 "43b33c20f8d82dba7cc48f8cd702f8fc9811e9d07880886dfd31b7077bd4a3a6"
     end
   end
@@ -81,13 +80,10 @@ class OpensslAT30 < Formula
       end
     end
 
-    # This could interfere with how we expect OpenSSL to build.
-    ENV.delete("OPENSSL_LOCAL_CONFIG_DIR")
-
     # This ensures where Homebrew's Perl is needed the Cellar path isn't
     # hardcoded into OpenSSL's scripts, causing them to break every Perl update.
     # Whilst our env points to opt_bin, by default OpenSSL resolves the symlink.
-    ENV["PERL"] = Formula["perl"].opt_bin/"perl" if which("perl") == Formula["perl"].opt_bin/"perl"
+    ENV["PERL"] = formula_opt_bin("perl")/"perl" if which("perl") == formula_opt_bin("perl")/"perl"
 
     arch_args = []
     if OS.mac?
@@ -108,13 +104,10 @@ class OpensslAT30 < Formula
     touch %w[certs private].map { |subdir| openssldir/subdir/".keepme" }
   end
 
-  def openssldir
-    etc/"openssl@3.0"
-  end
+  def openssldir = pkgetc
 
-  def post_install
-    rm(openssldir/"cert.pem") if (openssldir/"cert.pem").exist?
-    openssldir.install_symlink Formula["ca-certificates"].pkgetc/"cert.pem"
+  post_install_steps do
+    symlink "{{etc}}/ca-certificates/cert.pem", "{{pkgetc}}/cert.pem", overwrite: true
   end
 
   def caveats

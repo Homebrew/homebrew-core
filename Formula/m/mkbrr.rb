@@ -1,24 +1,24 @@
 class Mkbrr < Formula
   desc "Is a tool to create, modify and inspect torrent files. Fast"
   homepage "https://mkbrr.com/introduction"
-  url "https://github.com/autobrr/mkbrr/archive/refs/tags/v1.23.0.tar.gz"
-  sha256 "3ccce5e227301bc74cf86600ac593a0d2cce2b2b05b271e70fdf8950e079908b"
+  url "https://github.com/autobrr/mkbrr/archive/refs/tags/v1.25.0.tar.gz"
+  sha256 "8ae71c48e7615b6753f3d10dc255ecc6a41985a000b263f2d69aac467afb4fdc"
   license "GPL-2.0-or-later"
   head "https://github.com/autobrr/mkbrr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d7c1b9e63d824ccaa4ecc13f6e32956ea4749d63b19dcefbd7cad3a11cf007a5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7c1b9e63d824ccaa4ecc13f6e32956ea4749d63b19dcefbd7cad3a11cf007a5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d7c1b9e63d824ccaa4ecc13f6e32956ea4749d63b19dcefbd7cad3a11cf007a5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4d8e05cba844fb42ac38455dbdac3310e296651d47a2a6d42cd040bd598afa93"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fa1abd05da434a5fc7b54be1d45c9b3cc08692be43d84e27a7f36749d6acff26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8709a080a84f59fa4eb5f8311287112e64afb0428e66ba4d734e50247c24cdb5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6bbd8371f8f34981a60227fed3b54ec24225f8a621c2f729ba93a643c1272f11"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6bbd8371f8f34981a60227fed3b54ec24225f8a621c2f729ba93a643c1272f11"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6bbd8371f8f34981a60227fed3b54ec24225f8a621c2f729ba93a643c1272f11"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b14b5fae3a96620ba0abd81471553d1e130aab84b6858cb850fc9439032030c9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8aaf4a309c68c3226af1c857b6aaf2c9a32da2bd9e97ac501eebd29203605bc0"
+    sha256 cellar: :any,                 x86_64_linux:  "5e2fb50b3c294bca1e67fc59b32275867a09c6b05f51cb50a3195ead2bfc374a"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version} -X main.buildTime=#{time.iso8601}")
+    system "go", "build", *std_go_args(ldflags: :goreleaser)
   end
 
   test do

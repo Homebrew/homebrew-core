@@ -37,12 +37,12 @@ class Networkit < Formula
     site_packages = Language::Python.site_packages(python3)
 
     ENV.prepend_create_path "PYTHONPATH", prefix/site_packages
-    ENV.append_path "PYTHONPATH", Formula["cython"].opt_libexec/site_packages
+    ENV.append_path "PYTHONPATH", formula_opt_libexec("cython")/site_packages
 
     networkit_site_packages = prefix/site_packages/"networkit"
-    extra_rpath = rpath(source: networkit_site_packages, target: Formula["libnetworkit"].opt_lib)
+    extra_rpath = rpath(source: networkit_site_packages, target: formula_opt_lib("libnetworkit"))
     system python3, "setup.py", "build_ext", "--networkit-external-core",
-                                             "--external-tlx=#{Formula["tlx"].opt_prefix}",
+                                             "--external-tlx=#{formula_opt_prefix("tlx")}",
                                              "--rpath=#{loader_path};#{extra_rpath}"
 
     system python3, "-m", "pip", "install", *std_pip_args, "."

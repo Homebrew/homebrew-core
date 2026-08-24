@@ -16,9 +16,11 @@ class Iblinter < Formula
     sha256                               x86_64_linux:  "c3a4dcb0445ce6cc30ee0d563919b23c5f7acd012cb83316d3f9a389343ad74c"
   end
 
-  depends_on xcode: ["10.2", :build]
-
   uses_from_macos "swift"
+
+  on_macos do
+    depends_on xcode: ["10.2", :build]
+  end
 
   # Fetch a copy of SourceKitten in order to fix build with newer Swift.
   # Issue ref: https://github.com/IBDecodable/IBLinter/issues/189

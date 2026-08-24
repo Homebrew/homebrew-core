@@ -1,25 +1,24 @@
 class Gickup < Formula
   desc "Backup all your repositories with Ease"
   homepage "https://cooperspencer.github.io/gickup-documentation/"
-  url "https://github.com/cooperspencer/gickup/archive/refs/tags/v0.10.44.tar.gz"
-  sha256 "07aeec9ea820595fd6beba7bdf76cd746988b0d64ae84275ab2b61edc7eedf6f"
+  url "https://github.com/cooperspencer/gickup/archive/refs/tags/v0.10.45.tar.gz"
+  sha256 "61cb2fef81f719bdf4bce8061aae2a0280985e13e194121455ffbfb4d2cfce24"
   license "Apache-2.0"
   head "https://github.com/cooperspencer/gickup.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "55376e634d07e7373fd4f77822537cfa25e46676bf6e81b2c0a10e72ff9c173e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "56f6bc182eb495b4e9fae7d53d3fed03f1b31dbdbb057beba472557b994baa1c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "75f4fb204fc72cfa8799977a3eb584f0d0acced40145120ad84ec5420224d102"
-    sha256 cellar: :any_skip_relocation, sonoma:        "14783329f9822943c2bec7422aed72eec4423566c3690c368150b5fb04775fad"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "faa480161224d2c65641451e5358adaafea739f6e1684f7e19a65d452a50b31c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3361a6bfa882bf1a94de357e37e9c96cab87b82527f2903bd93270684449d33"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e1586abdf7bfa7dd0af34f71a5a8945fb6597027c1e1627adbd029b0533a577f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "632e67a9e877fd61a56cb2e9d0113c796836ba09dfa05f4d5be74e773f1e8a3b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3402fd4096eec4fca03a862f631d44e7eaf353951aaefe07c1f71b30a6e9654f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a0f5feae3a42c79d6e5435308bd7df0c45d4f49312f93db7bfc09d8d474f366e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5003dae48a7adf9411e7fa24783626babc08e5b68897decb17314eaccf26da8d"
+    sha256 cellar: :any,                 x86_64_linux:  "187f44f4270b28979bcaa3a8ce7b91715e3c218d68f46c77785a96561b6a29ff"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
   end
 
   test do

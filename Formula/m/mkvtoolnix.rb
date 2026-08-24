@@ -1,10 +1,11 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://mkvtoolnix.download/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-99.0.tar.xz"
-  mirror "https://fossies.org/linux/misc/mkvtoolnix-99.0.tar.xz"
-  sha256 "bcd99b49b0d18f0d7321fbbe36bbc7d2456dbfe707ba6ac3ce3f9e6bfcacaed6"
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-100.0.tar.xz"
+  mirror "https://fossies.org/linux/misc/mkvtoolnix-100.0.tar.xz"
+  sha256 "74480d07a261beeaa8baf898248e668ecc56335e2527bbffa841ef056dc028a1"
   license "GPL-2.0-or-later"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -13,12 +14,12 @@ class Mkvtoolnix < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "f05d9439d294873a94e59f8591cc3161da561cec5473143e376653a06c1dd563"
-    sha256 cellar: :any, arm64_sequoia: "b893c02620f0ec706014fc9c5018b9e4a018b034f996b95b232b290014c630fd"
-    sha256 cellar: :any, arm64_sonoma:  "ce1b5632c8a94d9a0dbf6b26f506b9233c73e7a317c05b4c859e9fd110bd4868"
-    sha256 cellar: :any, sonoma:        "87001e7ada2d79387d992b0b799974339c85c2f0a27571cafe35263208bbbeb9"
-    sha256               arm64_linux:   "789cd350f21ea292d263d6a3a4323578ddd4e6056b721f53afbf4a1ddf86ee52"
-    sha256               x86_64_linux:  "2ae17be7cd631ce80624116639d569ad81c590224435744960c3bcb9c6247ead"
+    sha256 cellar: :any, arm64_tahoe:   "52eb23767fbd584b2e031aa579499490c07c2f7fb019f47d9590ff70b8d4b04b"
+    sha256 cellar: :any, arm64_sequoia: "8991df383d4864b9abfa415213c7e4303c949cd86459bcbadaf930346638e85a"
+    sha256 cellar: :any, arm64_sonoma:  "08213519ac3a191b670dcebbef75996ace3bd59e7ee5e3d336b77b02238a9f5b"
+    sha256 cellar: :any, sonoma:        "9b02181683dadf4e184faf6fd4ea574ac2f1ecd423fce46b575ad1dc8835a2e0"
+    sha256               arm64_linux:   "d613bee84bbdde1b66fab2da93a8df321659a2c59f777eb20f6dae8f305e6d64"
+    sha256               x86_64_linux:  "0cd2df8bc5402cdcb14fb1fec812346c03a6b26bd076264c88404bccd5efa3f0"
   end
 
   head do
@@ -68,16 +69,16 @@ class Mkvtoolnix < Formula
     extra_includes = ""
     extra_libs = ""
     features.each do |feature|
-      extra_includes << "#{Formula[feature].opt_include};"
-      extra_libs << "#{Formula[feature].opt_lib};"
+      extra_includes << "#{formula_opt_include(feature)};"
+      extra_libs << "#{formula_opt_lib(feature)};"
     end
-    extra_includes << "#{Formula["utf8cpp"].opt_include}/utf8cpp;"
+    extra_includes << "#{formula_opt_include("utf8cpp")}/utf8cpp;"
     extra_includes.chop!
     extra_libs.chop!
 
     system "./autogen.sh" if build.head?
-    system "./configure", "--with-boost=#{Formula["boost"].opt_prefix}",
-                          "--with-docbook-xsl-root=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl",
+    system "./configure", "--with-boost=#{formula_opt_prefix("boost")}",
+                          "--with-docbook-xsl-root=#{formula_opt_prefix("docbook-xsl")}/docbook-xsl",
                           "--with-extra-includes=#{extra_includes}",
                           "--with-extra-libs=#{extra_libs}",
                           "--disable-gui",

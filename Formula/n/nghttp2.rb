@@ -1,18 +1,17 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.69.0/nghttp2-1.69.0.tar.gz"
-  mirror "http://fresh-center.net/linux/www/nghttp2-1.69.0.tar.gz"
-  sha256 "c866b7477cbb7512ab6863a685027adbb1bb8da8fc3bab7429ed43d3281d5aa9"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.70.0/nghttp2-1.70.0.tar.gz"
+  sha256 "aa317e2cf9dca6afa0aed68f8fad6ff303ec6982e25a78c75c0b65e2b9b3ded5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b2e05c11cc4a132f3b38c5cc1a724f3c7db34fb28f99f0ed5220c849d815119e"
-    sha256 cellar: :any,                 arm64_sequoia: "4cb7547b401741b6f3d908f3e8cd15546ad6f79bd08c30682eba5a7a775e8a53"
-    sha256 cellar: :any,                 arm64_sonoma:  "69224a4a6f324e65af2d5ff259af6ec30702ad1e1abd61c1f9489d6d6f91c26b"
-    sha256 cellar: :any,                 sonoma:        "7a700d492e5f10c3af5fdc8231000247095b9c24a889de40f772744b6835123c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ebf951646a2bf3ae5357eb28b1eff1814557ca1eb05f33533846d4032127af8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "888926049373d180eedbad78d96728728d3a9901b8750de8bec18240c4c5e4f6"
+    sha256 cellar: :any, arm64_tahoe:   "2f36cb8a86910371dfcd4963b1d50ae82522c077d37041ed56198181262a3b03"
+    sha256 cellar: :any, arm64_sequoia: "32b441750d304f3621feaf0424880dfb6aa0bb6563fcc85e59bc361a895f45a2"
+    sha256 cellar: :any, arm64_sonoma:  "926f2b7a4c85a24ce41d46bfaf3fe97daa0047233377f44fcd8322967340c72e"
+    sha256 cellar: :any, sonoma:        "3dbdd0376f89bd63e9b473993ad9d5db5dacb46f38b8431d435b1642f33433c0"
+    sha256 cellar: :any, arm64_linux:   "5606a9f74f3670f803f91cab65703119cd264b088f319e79483ecf7ebe4c731a"
+    sha256 cellar: :any, x86_64_linux:  "bb8ceeb4c929cf58760de0004852e160811df4ae409993cd0373409bd851817a"
   end
 
   head do
@@ -42,12 +41,12 @@ class Nghttp2 < Formula
 
   fails_with :clang do
     build 1500
-    cause "Requires C++20 support"
+    cause "Requires C++23 <print> header"
   end
 
   fails_with :gcc do
-    version "11"
-    cause "Requires C++20 support"
+    version "13"
+    cause "Requires C++23 <print> header"
   end
 
   def install

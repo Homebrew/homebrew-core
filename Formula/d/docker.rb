@@ -2,8 +2,8 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/cli.git",
-      tag:      "v29.5.3",
-      revision: "d1c06ef6b41d88d76866aea43c246cd7c63d04fa"
+      tag:      "v29.7.2",
+      revision: "a7dcaa6fdb6ed04aacbfdc76357fdae01605609e"
   license "Apache-2.0"
   head "https://github.com/docker/cli.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Docker < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bc5abed82384f4456e06b53bea84b71b0f6c0f5dbc249c44b727cb8e2b87510c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fbf055342f59dedcab58c65501162d8d6d57248f36e6b39523abdaf980e3b51f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bb84908515f0c9cf22b062d6ba058584898a3626b29ec106c7c99bb22753e036"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1375de0e42d03ff5823e7ab1bb04ac58a375a0cb497ef22613badf02c6155a7b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1908d73d5f175064aa656cbd6c64fb1a6468a9aaf28d408aba607aea743d298b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d327d9e856c3b636da0a034c6a497cc9d5796eea29daa51388b809ea96d5d598"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b061dbca62960f6bbf16b983b156cb960bf810e678e14c6bd366b58506eb4f1a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad069f0ad9f8396362a1c8d5bd8d6e764e0ed5846f31366346d539c377480bb4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d409d0b8e1824db53a2348dd11ace24dcf03e794a11b144ea0458dae26c3110b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "94e117e3b7892b9d5404dfc4361a976a3d3801f3722d4509b23538780a1d8b1c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2709b1c25296e3f150204c9f7547e2c6ea322c49d16aeaaf3deb9a6a4daed99a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f8c811bfc6bad2e27e2a1b812a8e66aa6f93fe3335a0e7c82aabc689a306472"
   end
 
   depends_on "go" => :build
@@ -34,7 +34,6 @@ class Docker < Formula
     (buildpath/"src/github.com/docker").install_symlink buildpath => "cli"
 
     ldflags = %W[
-      -s -w
       -X github.com/docker/cli/cli/version.BuildTime=#{time.iso8601}
       -X github.com/docker/cli/cli/version.GitCommit=#{Utils.git_short_head}
       -X github.com/docker/cli/cli/version.Version=#{version}

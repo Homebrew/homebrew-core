@@ -1,8 +1,8 @@
 class PostgresqlAT18 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v18.4/postgresql-18.4.tar.bz2"
-  sha256 "81a81ec695fb0c7901407defaa1d2f7973617154cf27ba74e3a7ab8e64436094"
+  url "https://ftp.postgresql.org/pub/source/v18.6/postgresql-18.6.tar.bz2"
+  sha256 "555610c24d53e4316da5b7d3fc25c279d96856d5e0e23ee308c328c5fa881d9f"
   license "PostgreSQL"
 
   livecheck do
@@ -11,13 +11,12 @@ class PostgresqlAT18 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "3dd3a49b3cda7f61de2c8d27697c6a48a3dfe990f74a4eaed8733455a1401bc8"
-    sha256 arm64_sequoia: "edf0f9a317242e09efbdfa2e1a56d36f2466c0386e86b4a6cf51ba780f62e314"
-    sha256 arm64_sonoma:  "3b2416636b872589d07e7cd02a1a5bb408b5827d259cbaca9e8b558991d9a0b3"
-    sha256 sonoma:        "b138867601984b90b7e7e67ee615e47b73c3cf25007321d47984b0f9839d2dd6"
-    sha256 arm64_linux:   "a588c6d7bab03cd7936de98889ebc07a2ff86e268db92050948a218d08473c24"
-    sha256 x86_64_linux:  "652990f1ed2c117bcf7ee7baec44b80bfc72a4c59f97b9080ee53dff4e765ac0"
+    sha256 arm64_tahoe:   "01bed50e337f559e3818e6ece88a6f3f7a0e550eb833e62df56ad7d8cdca71f6"
+    sha256 arm64_sequoia: "e4198d57ab3743928847184a294339921a450a39a14c32d09b32fe2b494a8304"
+    sha256 arm64_sonoma:  "7305bae0536d2eb69c73e8539272511e19afde052700fd55baaa7365ee1e1648"
+    sha256 sonoma:        "3d6375c9f23f3904465f26e99eed103f13568abf6aa42b5f4fc703b5b183c99e"
+    sha256 arm64_linux:   "09f349c59243be46d36d3f41a2dcf37d7679eb94a10d90b867efa0d0c5ad10af"
+    sha256 x86_64_linux:  "9bc83832f2724c1318364921e24bdd00487b2b850b8c573def2f33ba2109bc53"
   end
 
   keg_only :versioned_formula
@@ -66,14 +65,14 @@ class PostgresqlAT18 < Formula
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     ENV.runtime_cpu_detection
     ENV.delete "PKG_CONFIG_LIBDIR"
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib} -L#{Formula["readline"].opt_lib}"
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include} -I#{Formula["readline"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@3")} -L#{formula_opt_lib("readline")}"
+    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("openssl@3")} -I#{formula_opt_include("readline")}"
 
     # Fix 'libintl.h' file not found for extensions
     # Update config to fix `error: could not find function 'gss_store_cred_into' required for GSSAPI`
     if OS.mac?
-      ENV.prepend "LDFLAGS", "-L#{Formula["gettext"].opt_lib} -L#{Formula["krb5"].opt_lib}"
-      ENV.prepend "CPPFLAGS", "-I#{Formula["gettext"].opt_include} -I#{Formula["krb5"].opt_include}"
+      ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("gettext")} -L#{formula_opt_lib("krb5")}"
+      ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("gettext")} -I#{formula_opt_include("krb5")}"
     end
 
     args = %W[
@@ -117,37 +116,17 @@ class PostgresqlAT18 < Formula
     inreplace makefile, "-install_name '#{lib}/postgresql/", "-install_name '$(libdir)/"
   end
 
-  def post_install
-    (var/"log").mkpath
-    postgresql_datadir.mkpath
-
+  post_install_steps do
+    mkdir_p "log", base: :var
     # Manually link files from keg to non-conflicting versioned directories in HOMEBREW_PREFIX.
-    %w[include lib share].each do |dir|
-      dst_dir = HOMEBREW_PREFIX/dir/name
-      src_dir = prefix/dir/"postgresql"
-      src_dir.find do |src|
-        dst = dst_dir/src.relative_path_from(src_dir)
-
-        # Retain existing real directories for extensions if directory structure matches
-        next if dst.directory? && !dst.symlink? && src.directory? && !src.symlink?
-
-        rm_r(dst) if dst.exist? || dst.symlink?
-        if src.symlink? || src.file?
-          Find.prune if src.basename.to_s == ".DS_Store"
-          dst.parent.install_symlink src
-        elsif src.directory?
-          dst.mkpath
-        end
-      end
-    end
-
+    # Retain existing real directories for extensions if directory structure matches
+    symlink_tree "include/postgresql", "include/{{formula_name}}"
+    symlink_tree "lib/postgresql", "lib/{{formula_name}}"
+    symlink_tree "share/postgresql", "share/{{formula_name}}"
     # Also link versioned executables
-    bin.each_child { |f| (HOMEBREW_PREFIX/"bin").install_symlink f => "#{f.basename}-#{version.major}" }
-
+    symlink_children "bin", suffix: "-{{version.major}}"
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
-    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-
-    system bin/"initdb", "--locale=en_US.UTF-8", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
+    init_data_dir formula_name, using: :postgresql, base: :var
   end
 
   def postgresql_datadir
@@ -156,10 +135,6 @@ class PostgresqlAT18 < Formula
 
   def postgresql_log_path
     var/"log/#{name}.log"
-  end
-
-  def pg_version_exists?
-    (postgresql_datadir/"PG_VERSION").exist?
   end
 
   def caveats
@@ -178,6 +153,7 @@ class PostgresqlAT18 < Formula
     keep_alive true
     log_path f.postgresql_log_path
     error_log_path f.postgresql_log_path
+    stop_timeout 120
     working_dir HOMEBREW_PREFIX
   end
 
@@ -189,7 +165,7 @@ class PostgresqlAT18 < Formula
       assert_equal "#{HOMEBREW_PREFIX}/lib/#{name}", shell_output("#{pg_config} --pkglibdir").chomp
       assert_equal "#{HOMEBREW_PREFIX}/include/#{name}", shell_output("#{pg_config} --pkgincludedir").chomp
       assert_equal "#{HOMEBREW_PREFIX}/include/#{name}/server", shell_output("#{pg_config} --includedir-server").chomp
-      assert_match "-I#{Formula["gettext"].opt_include}", shell_output("#{pg_config} --cppflags") if OS.mac?
+      assert_match "-I#{formula_opt_include("gettext")}", shell_output("#{pg_config} --cppflags") if OS.mac?
     end
     assert_path_exists lib/"postgresql/#{shared_library("libpq-oauth-18")}"
   end

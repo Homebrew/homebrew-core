@@ -36,6 +36,7 @@ class Mmix < Formula
   patch do
     url "https://gitlab.lrz.de/mmix/mmixware/-/commit/2eddd633bc98fd320e317bbcd6c98399250e68ec.diff"
     sha256 "512fc7d27b974bf5a58781464d4dba1c2147142ba749a2eb17c1a7b358ef8db9"
+    type :backport
   end
 
   def install

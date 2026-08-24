@@ -3,8 +3,8 @@ class Katago < Formula
   homepage "https://katagotraining.org/"
   # Occasionally check upstream docs in case recommended model/network is changed.
   # Ref: https://github.com/lightvector/KataGo?tab=readme-ov-file#other-questions
-  url "https://github.com/lightvector/KataGo/archive/refs/tags/v1.16.4.tar.gz"
-  sha256 "51b1a9b48053b0de910f44abf2cc95160de7b6d43bb22300e0b80ea0b3ed0ca8"
+  url "https://github.com/lightvector/KataGo/archive/refs/tags/v1.18.1.tar.gz"
+  sha256 "011a205c60c22f83008ba92d31f91196640f620edbfc2f09af79ef3f3311750c"
   license all_of: [
     "MIT",
     "CC0-1.0", # g170 resources
@@ -16,13 +16,12 @@ class Katago < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "ca788bdfeb3514240e1c591fcdd996aa5f55b5dc83c8454caa81532eae5f77ee"
-    sha256 cellar: :any,                 arm64_sequoia: "d2f5e090c380b977c953a151517b3e1c769bd251b1db88dff9a9bbdc0acf23e1"
-    sha256 cellar: :any,                 arm64_sonoma:  "8617afbae0ac910f2e99019073442bb4daa93b97db7b06eb51be9ac23d77db22"
-    sha256 cellar: :any,                 sonoma:        "fb01d1d449451165e36c66d243d2fd438b61899ea32971229fcc1b21a286398c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "845e10c3bcde03fb13b7f32a2c33147032df5a75cade3e7b3e9bd8a12fb184d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5f371b838c53aff816996bce34cb078be71e7487551c1f7946f2c18e40652cf"
+    sha256 cellar: :any, arm64_tahoe:   "650da5fa5faa80adf6b67232202e989e1a1c1b4e8babd13d8b05b581c0c011ff"
+    sha256 cellar: :any, arm64_sequoia: "e5a2034b437f8aeabc4f887b71553bb81334d174ea07371f47ba0d3e25d8e440"
+    sha256 cellar: :any, arm64_sonoma:  "879bf418f72256c80b1bd8fdd16342ba73eb707027aa3142b91d8f50736102a3"
+    sha256 cellar: :any, sonoma:        "e0572e9a20f07c060943bc843cc3163663b10e665eeffb762a5b60c856dc2482"
+    sha256 cellar: :any, arm64_linux:   "6c8f22022095d76bef65b0811969b1b9716f9f60a0998b508b60db579ae16e71"
+    sha256 cellar: :any, x86_64_linux:  "0b109bd42e1956050b78864a0a987339509d3b62579595dc2fd6c992e56e3552"
   end
 
   depends_on "cmake" => :build
@@ -30,6 +29,12 @@ class Katago < Formula
 
   on_macos do
     depends_on "ninja" => :build
+
+    on_arm do
+      depends_on "pkgconf" => :build
+      depends_on "abseil"
+      depends_on "protobuf"
+    end
 
     on_intel do
       depends_on "eigen" => :build
@@ -77,11 +82,15 @@ class Katago < Formula
   end
 
   def install
+    # `quick_exit` is absent from the macOS 14 SDK; map it to the equivalent `_Exit`.
+    ENV.append_to_cflags "-Dquick_exit=_Exit" if OS.mac? && DevelopmentTools.clang_build_version <= 1600
+
     args = ["-DNO_GIT_REVISION=1"]
     args += if OS.mac? && Hardware::CPU.arm?
-      ["-DUSE_BACKEND=METAL", "-GNinja"]
+      # Reserve header space for relocation (executable is linked by swiftc).
+      ["-DUSE_BACKEND=METAL", "-GNinja", "-DCMAKE_Swift_FLAGS=-Xlinker -headerpad_max_install_names"]
     else
-      ["-DUSE_BACKEND=EIGEN", "-DEIGEN3_INCLUDE_DIRS=#{Formula["eigen"].opt_include}/eigen3"]
+      ["-DUSE_BACKEND=EIGEN", "-DEIGEN3_INCLUDE_DIRS=#{formula_opt_include("eigen")}/eigen3"]
     end
 
     system "cmake", "-S", "cpp", "-B", "build", *args, *std_cmake_args

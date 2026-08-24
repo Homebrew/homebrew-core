@@ -2,8 +2,8 @@ class Flyctl < Formula
   desc "Command-line tools for fly.io services"
   homepage "https://fly.io"
   url "https://github.com/superfly/flyctl.git",
-      tag:      "v0.4.59",
-      revision: "d10482182142f259db338dcef34556a67702290c"
+      tag:      "v0.4.87",
+      revision: "3eb236fab6a9226928554243ba163e5fb13aa3a4"
   license "Apache-2.0"
   head "https://github.com/superfly/flyctl.git", branch: "master"
 
@@ -18,12 +18,12 @@ class Flyctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8b10adef80c49736e9ffd39097e255f3081fb01dd27ee6c0e9d8477b2a34d474"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8b10adef80c49736e9ffd39097e255f3081fb01dd27ee6c0e9d8477b2a34d474"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b10adef80c49736e9ffd39097e255f3081fb01dd27ee6c0e9d8477b2a34d474"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0e5ab4962d1bf62f629ced3da4b6f6e7cea96fc3b2c326d2ebfe8d755a1541b0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d549708f690ca34829152fac0f613c29a12c8a4a3497935fd2b8a7dfd1543845"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "310ca5984c33604532a26482d8aca9904f1d6e037a3f69df051d0e22f0414850"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0497c9cc140a40ece854389cf826eeea190f9aae05aba0a54345ca625507fc89"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0497c9cc140a40ece854389cf826eeea190f9aae05aba0a54345ca625507fc89"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0497c9cc140a40ece854389cf826eeea190f9aae05aba0a54345ca625507fc89"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fb2606a8c8eeda8b7d9b95e2b878c6c20b3f1172e65f22f5b33bbe1971e02ebf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a650b91145a7746c5a7f34a33215b00c0e4192b3221bd0e4f160cdd596fdea40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d81a6add2c4ebf041b9b629ac2bdd3e1fe55e1911211a605f6ed88b501aa2b06"
   end
 
   depends_on "go" => :build
@@ -31,7 +31,6 @@ class Flyctl < Formula
   def install
     ENV["CGO_ENABLED"] = "0"
     ldflags = %W[
-      -s -w
       -X github.com/superfly/flyctl/internal/buildinfo.buildDate=#{time.iso8601}
       -X github.com/superfly/flyctl/internal/buildinfo.buildVersion=#{version}
       -X github.com/superfly/flyctl/internal/buildinfo.commit=#{Utils.git_short_head}

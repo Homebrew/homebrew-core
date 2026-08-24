@@ -13,6 +13,8 @@ class Speedread < Formula
     patch do
       url "https://github.com/pasky/speedread/commit/24c3946d14f7f310a7012be1f9d3cbccf0b16765.patch?full_index=1"
       sha256 "df8d576ad920f32c6dc3e934f4883f7b2d43fb7d2453bb007620513100df076a"
+      type :backport
+      resolves "https://github.com/pasky/speedread/pull/21"
     end
   end
 

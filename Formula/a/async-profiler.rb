@@ -1,18 +1,18 @@
 class AsyncProfiler < Formula
   desc "Sampling CPU & HEAP profiler for Java using AsyncGetCallTrace + perf_events"
   homepage "https://github.com/async-profiler/async-profiler"
-  url "https://github.com/async-profiler/async-profiler/archive/refs/tags/v4.4.tar.gz"
-  sha256 "888483f6fc482b32dfc76dc9ecb254dc954c1e5c893de325a895b41e2f9bbbf6"
+  url "https://github.com/async-profiler/async-profiler/archive/refs/tags/v4.5.tar.gz"
+  sha256 "807b83aefc86fcb067395d526684f3ea127919d611fe3bde1647938af7522869"
   license "Apache-2.0"
   head "https://github.com/async-profiler/async-profiler.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "56d2adc45828051bcdd6fd6a2549fff196916dc6a2b548da3509ac69eb627244"
-    sha256 cellar: :any,                 arm64_sequoia: "a39fdee58eb4114f3682dd4f4cff62c9dbda2331c3dbabb99c30ffe39fafb52d"
-    sha256 cellar: :any,                 arm64_sonoma:  "4ea1630c71f5b51a727c9f08f202cc4afe8fc2d86cfabbd0aadb93df28ff4848"
-    sha256 cellar: :any,                 sonoma:        "3d69c4c9ab10e2fa4b6ad557c6eaa5ac464964af8eafc117f17e94cc78103acf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf8739df298c90ac9a73905323fa493bd19b7ddab6e24b9bafc31e854eed54e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f512a5fd52cc4120f2036d1a0254f732e9ea12e0652cab4895dee7c3dcd40c2"
+    sha256 cellar: :any, arm64_tahoe:   "7a6ef5d802f552069cae0f1bf996d2531a483e0b1f6ff1eecde005c5a80a43e3"
+    sha256 cellar: :any, arm64_sequoia: "0fe8ba37688e5010871840251b95b9ce59fff80f482865a329a603cb655fa4c7"
+    sha256 cellar: :any, arm64_sonoma:  "7eb94695c8ef4e80ba95292113ac2f95558e026a8f3b50ebfe44d6ad59a6a4cb"
+    sha256 cellar: :any, sonoma:        "9f374919114caf5d1d80318db54edea72c0aa81b5c0551ed54651d2fa0c0cc19"
+    sha256 cellar: :any, arm64_linux:   "ebca17f909478321a9d7185b97637af9cd72c30633bcc3fdfb5d02449b179cb0"
+    sha256 cellar: :any, x86_64_linux:  "8e5e7eb07a23f364a054285bf0eb1b77d85023e7af378c6b8ab426503593e9f4"
   end
 
   depends_on "cmake" => :build
@@ -31,7 +31,7 @@ class AsyncProfiler < Formula
 
   test do
     # Set JAVA_HOME for tools that need it (like jfrconv)
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk")
 
     # Verify version output
     output = shell_output("#{bin}/asprof --version")

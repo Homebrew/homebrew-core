@@ -46,6 +46,7 @@ class Bash < Formula
         mirror "https://mirrors.kernel.org/gnu/bash/bash-5.3-patches/bash53-#{p}"
         mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-5.3-patches/bash53-#{p}"
         sha256 checksum
+        type :cherry_pick
       end
     end
   end

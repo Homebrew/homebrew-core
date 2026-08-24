@@ -30,6 +30,8 @@ class Drafter < Formula
   patch do
     url "https://github.com/apiaryio/drafter/commit/481d0ba83370d2cd45aa1979308cac4c2dbd3ab3.patch?full_index=1"
     sha256 "3c3579ab3c0ae71a4449f547b734023b40a872b82ea81a8ccc0961f1d47e9a25"
+    type :backport
+    resolves "https://github.com/apiaryio/drafter/pull/796"
   end
 
   def install

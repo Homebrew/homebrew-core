@@ -33,8 +33,7 @@ class Darkstat < Formula
   # Patch reported to upstream on 2017-10-08
   # Work around `redefinition of clockid_t` issue on 10.12 SDK or newer
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/darkstat/clock_gettime.patch"
-    sha256 "001b81d417a802f16c5bc4577c3b840799511a79ceedec27fc7ff1273df1018b"
+    file "Patches/darkstat/clock_gettime.patch"
   end
 
   def install

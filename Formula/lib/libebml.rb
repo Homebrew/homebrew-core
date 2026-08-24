@@ -1,8 +1,8 @@
 class Libebml < Formula
   desc "Sort of a sbinary version of XML"
   homepage "https://www.matroska.org/"
-  url "https://dl.matroska.org/downloads/libebml/libebml-1.4.5.tar.xz"
-  sha256 "4971640b0592da29c2d426f303e137a9b0b3d07e1b81d069c1e56a2f49ab221b"
+  url "https://dl.matroska.org/downloads/libebml/libebml-1.4.7.tar.xz"
+  sha256 "5b08214f929ee54c6187c370f84235fc9d0f2a2258c4d320d68eae6e2bdfd3f7"
   license "LGPL-2.1-or-later"
   head "https://github.com/Matroska-Org/libebml.git", branch: "master"
 
@@ -12,26 +12,19 @@ class Libebml < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "b0156cbf1955e582256e75bdc14616f47df280ae9aecdf8b0b8fa5f9b5124aaa"
-    sha256 cellar: :any,                 arm64_sequoia:  "2d15f6ce6df5cab89843ca6a7512a601b90ade25bbf7bcae17286664d72e11d0"
-    sha256 cellar: :any,                 arm64_sonoma:   "77cc696e94a5ae2f8a4ccab765ff7adfe84ba6a804479c50d46ede90662d1e81"
-    sha256 cellar: :any,                 arm64_ventura:  "23a888049e631dac6a467f726376aa4a00e5468910d1d37bc7bdc28ce2ad6d4a"
-    sha256 cellar: :any,                 arm64_monterey: "21ced2ff88c6a8962a6fc1daa91c1e947e4090a0dac825968b077fdfa195c14c"
-    sha256 cellar: :any,                 sonoma:         "1239efbef88129a1f69b8e160177912d565f10ac0ff311db0a82861755c24cc1"
-    sha256 cellar: :any,                 ventura:        "d091018498ff6c3e107131187ea17cc489d7544751742eb89ce33b457bddc036"
-    sha256 cellar: :any,                 monterey:       "1ac61d09f0ac6290a4aff9d2eec355ffc28c12499aab5331f355b101dcf3343c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "a84f082ce4f338d50887d393e1b44965bb42daf3df9690f981d3e67de6298c0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c102b368af523e56e6ebfca14a0e5ff544849992f06d90a0c7768aa8026d4378"
+    sha256 cellar: :any, arm64_tahoe:   "7d5c5e9913544130b8d5b7eeb1ed4027a62520c07bb1546e43d16707a7386a2d"
+    sha256 cellar: :any, arm64_sequoia: "5b60dc631dd96becbdd1ef9aa17711697feb3cc57c478b8a1248600a2c7fddf3"
+    sha256 cellar: :any, arm64_sonoma:  "03cf729ca8007eea4bbb7130850137a392f15c22e25fa0b1b10dd6483e2ffef2"
+    sha256 cellar: :any, sonoma:        "039207dc37ef7ba4ba3cd16e88a6c306ea503976182d5c3af90bf1790b305354"
+    sha256 cellar: :any, arm64_linux:   "0a75bcd86d089f537a3671b2d528e135896f064134cbf59fb8aedaaddcd526bd"
+    sha256 cellar: :any, x86_64_linux:  "55442b033a637e363bd95d2582320402d886ff644e1dabd70f69161b14d1517a"
   end
 
   depends_on "cmake" => :build
+  depends_on "utf8cpp" => :build
 
   def install
-    args = %w[
-      -DBUILD_SHARED_LIBS=ON
-    ]
-    # Workaround to build with CMake 4
-    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    args = %w[-DBUILD_SHARED_LIBS=ON]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -51,7 +44,7 @@ class Libebml < Formula
       }
     CPP
 
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}", "-lebml"
+    system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}", "-lebml"
     system "./test"
   end
 end

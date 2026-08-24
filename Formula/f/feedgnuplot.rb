@@ -4,6 +4,7 @@ class Feedgnuplot < Formula
   url "https://github.com/dkogan/feedgnuplot/archive/refs/tags/v1.64.tar.gz"
   sha256 "30c3952600b694a98a0e0ee20ecbbc02d0c70ca96194e3719e9177409af6c5c9"
   license any_of: ["GPL-1.0-or-later", "Artistic-1.0"]
+  revision 1
 
   # Ignore `debian/<version>` tags
   livecheck do
@@ -12,12 +13,12 @@ class Feedgnuplot < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5913ce76652d920426826c9a478dbf06c59e32c7e190a0b3b48689bc4817b7bf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5913ce76652d920426826c9a478dbf06c59e32c7e190a0b3b48689bc4817b7bf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5913ce76652d920426826c9a478dbf06c59e32c7e190a0b3b48689bc4817b7bf"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5913ce76652d920426826c9a478dbf06c59e32c7e190a0b3b48689bc4817b7bf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5cc574aff748aabbe843444bece9a6f8780385de955de9c81d1a9b8574dabffa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6201cd96f7ebc4fd240944e10b530797484f4faefc03323bf5aef28b0223c52"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4aa93cbbde9e9eb7cf1e7055b9f05c5505651d7d12144562edd7df09f659494d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4aa93cbbde9e9eb7cf1e7055b9f05c5505651d7d12144562edd7df09f659494d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4aa93cbbde9e9eb7cf1e7055b9f05c5505651d7d12144562edd7df09f659494d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4aa93cbbde9e9eb7cf1e7055b9f05c5505651d7d12144562edd7df09f659494d"
+    sha256 cellar: :any,                 arm64_linux:   "c0465a09f1dccb5a55c9a7ab5180476632c4f26d8849826bb88ecbbee10349ff"
+    sha256 cellar: :any,                 x86_64_linux:  "0dd97735229dd022127f4be649158145c3647d5e4769a3cbbc502e0667e5fd8f"
   end
 
   depends_on "gnuplot"

@@ -1,18 +1,28 @@
 class Parca < Formula
   desc "Continuous profiling for analysis of CPU and memory usage"
   homepage "https://www.parca.dev/"
-  url "https://github.com/parca-dev/parca/archive/refs/tags/v0.27.1.tar.gz"
-  sha256 "8db291778d7ef1eed8d69fad6c640970cd5a2b901ecdbd8041f3dc0817d6991e"
   license "Apache-2.0"
   head "https://github.com/parca-dev/parca.git", branch: "main"
 
+  stable do
+    url "https://github.com/parca-dev/parca/archive/refs/tags/v0.28.0.tar.gz"
+    sha256 "1b19d722b88db0e6a31aeef1b8846156a3f38568cf1af059a287ffbb608599c8"
+
+    # Backport migration to pnpm 11
+    patch do
+      url "https://github.com/parca-dev/parca/commit/cce673deb34ae93cdeeba37f5391c077e1a6e53c.patch?full_index=1"
+      sha256 "b8b3392ea97bcffa4ec2d178acc9eee24092eae0638d1b8b6391867c1b654a46"
+      type :backport
+    end
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "444ca30f5001ba44cde28eee198e4a8caffb61b8d436756b15ca94e29cf7853b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4fa1854bf735ff49318694ea473f75d5cf98f3b16f96a360113e6a8d228b87a8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd445b28683b8d66b6129af652859f45afd16581c5e684975eac67819fb1eea4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6eb1eaaf6047c4403e8529ede8c3e9fd51ce23bebfb935173d40fef994a23756"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "49e01bc5b0ebe871eeaccf7d3bc3424a3b8d897d4545d8b62a85a61818dd960f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d82e2a78abd1930274e94f5a5ffaf76065f2e5d8e5e0fee8607aae8006b64c0e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2d21f675c0cca9a7e326dd62a6911944c5e2ddf6fe79632b8f64261b7da8fe56"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "10e7d8fdff5314eaf0c69538db05b8c1359ddf32c3973da2e250751a1c2848ad"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4339e9f89bff3817e65ba94a2a32f7d79c4cb7cfc03c7530b0a2e67e49146143"
+    sha256 cellar: :any_skip_relocation, sonoma:        "adfe5aef4131d721cc19299c8c14344fcfe61ecd9aa244cbea7d03fda44dae30"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe22b4f736e5c788166bde18c3b19418024b8b77188a422836f431cd8f5d382e"
+    sha256 cellar: :any,                 x86_64_linux:  "e9ad672a3c90fff570752744eed9442ef58f8560f938fb562be17a35d5a50abc"
   end
 
   depends_on "go" => :build
@@ -20,11 +30,10 @@ class Parca < Formula
   depends_on "pnpm" => :build
 
   def install
-    system "pnpm", "--dir", "ui", "install"
-    system "pnpm", "--dir", "ui", "run", "build"
+    system "pnpm", "with", "current", "--dir", "ui", "install", "--frozen-lockfile"
+    system "pnpm", "with", "current", "--dir", "ui", "run", "build"
 
-    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user} -X main.date=#{time.iso8601}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/parca"
+    system "go", "build", *std_go_args(ldflags: :goreleaser), "./cmd/parca"
   end
 
   test do

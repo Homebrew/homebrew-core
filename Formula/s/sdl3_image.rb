@@ -4,6 +4,7 @@ class Sdl3Image < Formula
   url "https://github.com/libsdl-org/SDL_image/releases/download/release-3.4.4/SDL3_image-3.4.4.tar.gz"
   sha256 "29751304a13d25ac513f24305fa25b06a6edd9607718c90129b8350d35fc5573"
   license "Zlib"
+  revision 1
   head "https://github.com/libsdl-org/SDL_image.git", branch: "main"
 
   livecheck do
@@ -12,12 +13,12 @@ class Sdl3Image < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5c76110cfbc7506eb501369d6334b463a36936008b6863df7cb835c45517ca76"
-    sha256 cellar: :any,                 arm64_sequoia: "5d44ce88bca1f3f21de950fcba15fd3bb8bbc38f32ac44838e5c1f27561a14ec"
-    sha256 cellar: :any,                 arm64_sonoma:  "6a9d78b8b78e56f0ceb2606b3db67803ef2a66013a93e7c333780d49490fed1d"
-    sha256 cellar: :any,                 sonoma:        "74e04b9a96a5072a753b6c37b6d1531bffa0237c1865419d93c0650375133e65"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "23ca98bffc99d3088671ea84bc5ba2c53c8ef1f9baa907ac10dfeb33b4abc683"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95e28fb18a16b1b66d515bf635919a8b7bf44dd1d483d938c031925ea95f511a"
+    sha256 cellar: :any, arm64_tahoe:   "b32d53354e38f094fc1fdd92a9f6aea1cce9de58bd984bb1f11af3fe5cf75f6e"
+    sha256 cellar: :any, arm64_sequoia: "cf1473822e8723702ab7467342a2041a4ee1972a428405860e4c376b4a14adc6"
+    sha256 cellar: :any, arm64_sonoma:  "25891eef22524eb1905e3ef05056b02659bafa062cc25213753a6bbd6a6afffb"
+    sha256 cellar: :any, sonoma:        "37636b26f17c37c603aad09462e1ba6d50111621f4e549363e69a4bc2b554ec7"
+    sha256 cellar: :any, arm64_linux:   "ee1c0fb432242364dabfc925800e3c8ecf318a32739041125eec3bc8440a90bb"
+    sha256 cellar: :any, x86_64_linux:  "d8954215ae9481088ee4736d7eead475b28479669d46f027d80c53ce2d9e5496"
   end
 
   depends_on "cmake" => :build
@@ -57,7 +58,7 @@ class Sdl3Image < Formula
         return IMG_Version() == SDL_IMAGE_VERSION ? EXIT_SUCCESS : EXIT_FAILURE;
       }
     C
-    system ENV.cc, "test.c", "-I#{Formula["sdl3"].opt_include}", "-L#{lib}", "-lSDL3_image", "-o", "test"
+    system ENV.cc, "test.c", "-I#{formula_opt_include("sdl3")}", "-L#{lib}", "-lSDL3_image", "-o", "test"
     system "./test"
   end
 end

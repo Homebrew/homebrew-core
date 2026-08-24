@@ -56,7 +56,7 @@ class OclIcd < Formula
 
   test do
     cp pkgshare/"ocl_test.c", testpath
-    system ENV.cc, "ocl_test.c", "-o", "test", "-I#{Formula["opencl-headers"].opt_include}", "-L#{lib}", "-lOpenCL"
+    system ENV.cc, "ocl_test.c", "-o", "test", "-I#{formula_opt_include("opencl-headers")}", "-L#{lib}", "-lOpenCL"
     ENV["OCL_ICD_VENDORS"] = testpath/"vendors"
     assert_equal "No platforms found!", shell_output("./test").chomp
   end

@@ -3,13 +3,13 @@ class Mlx < Formula
 
   desc "Array framework for Apple silicon"
   homepage "https://ml-explore.github.io/mlx/build/html/index.html"
-  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.31.2.tar.gz"
-  sha256 "bdb9b619f80962dd00c0bffb65e59c53f565c2b550f189a1467f8bc6089401ab"
+  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.32.1.tar.gz"
+  sha256 "34fe1ec0e6baf886eee16c9a1d4c7bd26bbe74fe051225f0eb88a982fc9d2494"
   license all_of: [
     "MIT", # main license
     "Apache-2.0", # metal-cpp resource
   ]
-  compatibility_version 3
+  compatibility_version 5
   head "https://github.com/ml-explore/mlx.git", branch: "main"
 
   livecheck do
@@ -18,9 +18,9 @@ class Mlx < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "def8a7ae1e6a6506eed4dea45bf52b55be0f52f8364f8a928da6e65b1204a371"
-    sha256 cellar: :any, arm64_sequoia: "79e643d23e3f55a315461919d69d1ef7b3ba103405fe4ccc0645229c049a6b4e"
-    sha256 cellar: :any, arm64_sonoma:  "76e09c7c3393af4a4d171c4dee580efcd945c83b702e60f12c7ed9ebd647fc0b"
+    sha256 cellar: :any, arm64_tahoe:   "5077bbcacc880777a11e7c1288e8ba4f1a392b559b57ed4effb5add2b67877f1"
+    sha256 cellar: :any, arm64_sequoia: "5eb3cc2571ebca454931f6048202a8cda40eec62f2a89e69b1c6cdb6956c9af8"
+    sha256 cellar: :any, arm64_sonoma:  "1de4af659278713837dea58652d15845b7da04750e54c73c70500ac6ad2ed592"
   end
 
   depends_on "cmake" => :build
@@ -54,7 +54,7 @@ class Mlx < Formula
   end
 
   def install
-    ENV.append_to_cflags "-I#{Formula["nlohmann-json"].opt_include}/nlohmann"
+    ENV.append_to_cflags "-I#{formula_opt_include("nlohmann-json")}/nlohmann"
     (buildpath/"gguflib").install resource("gguflib")
 
     mlx_python_dir = prefix/Language::Python.site_packages(python3)/"mlx"

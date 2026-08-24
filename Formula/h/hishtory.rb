@@ -25,7 +25,6 @@ class Hishtory < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/ddworken/hishtory/client/lib.Version=#{version}
       -X github.com/ddworken/hishtory/client/lib.GitCommit=#{tap.user}
     ]

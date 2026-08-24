@@ -1,19 +1,19 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/archive/refs/tags/v2026.06.15.00.tar.gz"
-  sha256 "015676bd85c570870dc80d6d7862cc5bee19c815097076b4c6b66df8ab7346de"
+  url "https://github.com/facebook/wangle/archive/refs/tags/v2026.07.27.00.tar.gz"
+  sha256 "308f7205e7840eca987d953549336835a3bd7e29f6b5697e44eeaf50d56ca4ca"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/facebook/wangle.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "ba8586f36eb60beae07de5395475e0a919c78ee6f529e29b6c8eb2f9e1763a5b"
-    sha256 cellar: :any, arm64_sequoia: "2e77e5713b57b65386546b259b1818db332a71a8ccc19403efd5835fb95a27d4"
-    sha256 cellar: :any, arm64_sonoma:  "f5f282324077a4711302a891153a27ac0eb410b8435394f4599c03bff7e2c474"
-    sha256 cellar: :any, sonoma:        "753fc55afa274a49e9e57dfd98e9dce87ae869be7401b416a0889c2c7b96c01d"
-    sha256 cellar: :any, arm64_linux:   "050d08c7f420905267ce48987a8d4cfdcb777577a0ccb62f25bf1b003665a3d5"
-    sha256 cellar: :any, x86_64_linux:  "9f5eed4e221a1061adba4915e15aa55b4327cfca29b6037582c300d7688ebf2e"
+    sha256 cellar: :any, arm64_tahoe:   "6986b7db7544f902675204e5c03d9771abf6fb2a422b2c2ae44b2ffe2ce3f014"
+    sha256 cellar: :any, arm64_sequoia: "9707ee79a12672f2ea69460a5ac8d51d9d2da9dd69ccfbda0604e82701676c88"
+    sha256 cellar: :any, arm64_sonoma:  "8fb5200b73a39e2f5aae9c8a28bfc0af94fb9ab0b27b179153413d62636cbcc3"
+    sha256 cellar: :any, sonoma:        "5b296934e1f83a7a338e0bee70de412d1f9e3950c343ad533c3678ea05a5ecdf"
+    sha256 cellar: :any, arm64_linux:   "3a9c0f847eb6c479111ce27fb0caed5304c2e67455439973bcbebd2e45d73758"
+    sha256 cellar: :any, x86_64_linux:  "9766e9dbe9afb23b931311813633e03b571ffae73fe55459ff5cb7e5850e8982"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -48,7 +48,7 @@ class Wangle < Formula
       project(Echo LANGUAGES CXX)
       set(CMAKE_CXX_STANDARD 20)
 
-      list(APPEND CMAKE_MODULE_PATH "#{Formula["fizz"].opt_libexec}/cmake")
+      list(APPEND CMAKE_MODULE_PATH "#{formula_opt_libexec("fizz")}/cmake")
       find_package(gflags REQUIRED)
       find_package(folly CONFIG REQUIRED)
       find_package(fizz CONFIG REQUIRED)

@@ -1,12 +1,12 @@
 class Xcinfo < Formula
   desc "Tool to get information about and install available Xcode versions"
-  homepage "https://github.com/xcodereleases/xcinfo"
+  homepage "https://github.com/XcodeReleasesOrg/xcinfo"
   license "MIT"
-  head "https://github.com/xcodereleases/xcinfo.git", branch: "master"
+  head "https://github.com/XcodeReleasesOrg/xcinfo.git", branch: "master"
 
   stable do
     # TODO: Remove maximum_macos on the next release and update license
-    url "https://github.com/xcodereleases/xcinfo/archive/refs/tags/1.0.3.tar.gz"
+    url "https://github.com/XcodeReleasesOrg/xcinfo/archive/refs/tags/1.0.3.tar.gz"
     sha256 "b22f56193e4de8b71bbdaf99c17cec03f291d333d095311ad7aab74b5fb50c5a"
     depends_on maximum_macos: [:sonoma, :build]
   end
@@ -17,6 +17,10 @@ class Xcinfo < Formula
     sha256 cellar: :any_skip_relocation, sonoma:        "209fabe73333978156fc9bf344645a62b1eaeaa5c9fa872ce52993f4b1717533"
     sha256 cellar: :any_skip_relocation, ventura:       "f3b5b7c1fa92151ca33febdc63092f6af054f3c8bd7f9b5fb668157bf139b19d"
   end
+
+  # Last release on 2023-04-03 and no longer builds on Tier 1
+  deprecate! date: "2026-08-10", because: :does_not_build
+  disable! date: "2027-02-10", because: :does_not_build
 
   depends_on xcode: ["14.2", :build]
   depends_on macos: :ventura

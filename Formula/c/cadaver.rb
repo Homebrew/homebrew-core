@@ -43,8 +43,8 @@ class Cadaver < Formula
       system "./autogen.sh"
     end
     system "./configure", "--with-ssl=openssl",
-                          "--with-libs=#{Formula["openssl@3"].opt_prefix}",
-                          "--with-neon=#{Formula["neon"].opt_prefix}",
+                          "--with-libs=#{formula_opt_prefix("openssl@3")}",
+                          "--with-neon=#{formula_opt_prefix("neon")}",
                           *std_configure_args
     system "make"
     system "make", "install"

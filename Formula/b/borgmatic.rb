@@ -3,13 +3,13 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/00/20/4f28c29b14876bee6438d8dd698b80f9188cad066258b8068e3f40676a4e/borgmatic-2.1.6.tar.gz"
-  sha256 "320c7c3e719f4dae63ebee774559ed3c76b91032406363500b77ef9b2463db86"
+  url "https://files.pythonhosted.org/packages/6c/8a/3652e103c7d1908d8bf93109921614af093e6cda1319d783395166494f9c/borgmatic-2.1.7.tar.gz"
+  sha256 "aac07ce7ae3009605e9acc67eef2019a7b5d69bccad63eda80ff192b69f375cf"
   license "GPL-3.0-or-later"
   head "https://projects.torsion.org/borgmatic-collective/borgmatic.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c312444da81d043316febdc6a224da60cc16061b5fda85d65afc0bceba19881c"
+    sha256 cellar: :any_skip_relocation, all: "240707f0c2369f7522d62c009bc2421c2ab525e41d9c0aa24b93919b447863fd"
   end
 
   depends_on "certifi" => :no_linkage
@@ -24,13 +24,13 @@ class Borgmatic < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/cb/31/4971872b3ed8715346231fb6eb4da8fcba65a4143c189db151ee28a2812b/charset_normalizer-3.5.0.tar.gz"
+    sha256 "49bd5feb59b0bf3cbf6ebcf4352e371c95b9da9bacd4449f8b64d0ad2c10a26e"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/b9/28/99c51f664567218d824af024c0251650fb27e4ca066df188dab0769c5b91/idna-3.17.tar.gz"
-    sha256 "5eb0cb53bc467c12eadcf6de83163ad8527cec9416f44b9b61b19caedad2b87f"
+    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
+    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
   end
 
   resource "jsonschema" do
@@ -44,8 +44,8 @@ class Borgmatic < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
-    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "referencing" do
@@ -109,7 +109,7 @@ class Borgmatic < Formula
     JSON
 
     # Create a fake borg executable to log requested commands
-    borg.write <<~SHELL
+    borg.write <<~SH
       #!/bin/sh
       echo $@ >> #{log_path}
 
@@ -135,7 +135,7 @@ class Borgmatic < Formula
       if [ "$1" = "create" ]; then
         exit 0
       fi
-    SHELL
+    SH
 
     borg.chmod 0755
 
@@ -168,21 +168,21 @@ class Borgmatic < Formula
     # Assert that the proper borg commands were executed
     expected_log = <<~EOS
       --version --log-json --debug --show-rc
-      info --critical --log-json --json #{repo_path}
+      info --log-json --json #{repo_path}
       init --encryption repokey --debug #{repo_path}
       --version --log-json
       create --patterns-from #{testpath}/borgmatic-.{8}/borgmatic/tmp.{8} #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} --dry-run --list
       create --patterns-from #{testpath}/borgmatic-.{8}/borgmatic/tmp.{8} --log-json #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f}
       prune --keep-daily 7 --glob-archives {hostname}-* --log-json #{repo_path}
       compact --log-json #{repo_path}
-      info --critical --log-json --json #{repo_path}
+      info --log-json --json #{repo_path}
       check --glob-archives {hostname}-* --log-json #{repo_path}
       --version --log-json
       create --patterns-from #{testpath}/borgmatic-.{8}/borgmatic/tmp.{8} #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} --dry-run --list
       create --patterns-from #{testpath}/borgmatic-.{8}/borgmatic/tmp.{8} --log-json --json #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f}
       prune --keep-daily 7 --glob-archives {hostname}-* --log-json #{repo_path}
       compact --log-json #{repo_path}
-      info --critical --log-json --json #{repo_path}
+      info --log-json --json #{repo_path}
     EOS
     expected = expected_log.split("\n").map(&:strip)
 

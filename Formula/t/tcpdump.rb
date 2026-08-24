@@ -27,7 +27,7 @@ class Tcpdump < Formula
   def install
     system "./configure", "--disable-smb",
                           "--disable-universal",
-                          "--with-crypto=#{Formula["openssl@4"].opt_prefix}",
+                          "--with-crypto=#{formula_opt_prefix("openssl@4")}",
                           *std_configure_args
     system "make", "install"
   end

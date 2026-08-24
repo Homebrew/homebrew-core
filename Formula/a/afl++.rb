@@ -1,9 +1,9 @@
 class Aflxx < Formula
   desc "American Fuzzy Lop++"
   homepage "https://aflplus.plus/"
-  url "https://github.com/AFLplusplus/AFLplusplus/archive/refs/tags/v5.01c.tar.gz"
-  version "5.01c"
-  sha256 "5d33fb1eb59043a0c2b72e4ef38d235cd47bfdced503d4915f74002be6c75fb3"
+  url "https://github.com/AFLplusplus/AFLplusplus/archive/refs/tags/v5.02c.tar.gz"
+  version "5.02c"
+  sha256 "118415843e5d289d63bd6d8f2252c18212978f15ac9e86acbbc75766cd45acde"
   license "Apache-2.0"
 
   livecheck do
@@ -12,12 +12,12 @@ class Aflxx < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "54b9017df4bcc9086dda75eee50811b5f8e2f631079fa532d0d4023b54bca8f2"
-    sha256 arm64_sequoia: "8d90e8eec72709c1005fe217907cc1637ecfb9b7bffea0753ce15834d1f582c0"
-    sha256 arm64_sonoma:  "14941d0722efac1de4869d01ac6b9849f26826b92cb0d0be15fdfa5eb60b53c2"
-    sha256 sonoma:        "3f4b2589a59b5cc996a5e76038e2c00280d51281412c0b2d840cd89adc273155"
-    sha256 arm64_linux:   "e3c07c94a9e7b99114724611b984a513117bc05dea0f7355f3ebbe68d7509fb8"
-    sha256 x86_64_linux:  "7d19b3d80760bd0129d14db1c39e1be620f018e160f2e415bfaca25faaa082af"
+    sha256 arm64_tahoe:   "a08c76e82f2deed0634e35b4447a5ea12b37814a236a2b0c0f92db36a0881932"
+    sha256 arm64_sequoia: "93ea9be855ca2a1b3c0d191a3e6a21947dca7e0aa31340b2f9fe5cea0d1f542e"
+    sha256 arm64_sonoma:  "0048a20058a4e870230b2dfebf27da2d072da464343b30b58ad4678f75cdd80a"
+    sha256 sonoma:        "8856b27c4d4cf0aee89bc61d51164e3ecf062193f84184485800b2fd0c80cca1"
+    sha256 arm64_linux:   "190a177af46d4dff6baf0564bca510e644095c461be2a0287adb45d1336542f0"
+    sha256 x86_64_linux:  "fa3a4b32f0064229d5ac5adf7b744abf5032b6d3c3415a4305da648ee426729a"
   end
 
   depends_on "coreutils" => :build
@@ -32,6 +32,8 @@ class Aflxx < Formula
   # The Makefile will insist on compiling with LLVM clang even without this.
   fails_with :clang
   fails_with :gcc
+
+  deny_network_access!
 
   def install
     ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin"

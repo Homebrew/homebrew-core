@@ -1,25 +1,22 @@
 class Tinysearch < Formula
   desc "Tiny, full-text search engine for static websites built with Rust and Wasm"
   homepage "https://github.com/tinysearch/tinysearch"
-  url "https://github.com/tinysearch/tinysearch/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "6262df7566e9bd5557f60a9217258cbd73bc62061c74fb372e07cf4188775ccb"
+  url "https://github.com/tinysearch/tinysearch/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "bdad7f94e06f7fd13056adc05779ea5c9a3fcf1611e81940fa3fc7709c7f8a99"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/tinysearch/tinysearch.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3c9705d7d8912da7e4a11f967b57b026a974a3232a998e3cf555c154f668f0ad"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "139c066dad7c16d8da58919d2d48f7aaadc41237f300c3632a88e5060d41f282"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "252f534d5748d9f8d9845c878eae6e2f39664ff2ee0f0fcb25c9a74ec9eb8418"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "60b2fd76408155e7dc31bde94dc8253cb59cf8b7ded087be2cc794d451e76b45"
-    sha256 cellar: :any_skip_relocation, sonoma:        "14490663c0beb01f76937ff1023980806e75d51bb97912f00f2490f7a485bc09"
-    sha256 cellar: :any_skip_relocation, ventura:       "c05ac327ccaba7f59ce94631ba82d4083ccc442de3232f3513292c6f759d66e7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2372210d0075d8b401f1b5de4a06359432aa6489cf6e3fadab578cacc67e4329"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7746d68cca7ebd9ad68eb6e0ead34dfed4741b924b561abaaf5c16ae4507c9ab"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7aefd105de246475466e2380976a4733d98ae205c3921ec5b8599c1b1eebbf0a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15a44c8146f71015c80e88f23013adc7278950d1b7507c9cae256005592b1f46"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5a6b9d6fcc69307077a6fb98dc8d76668a8b060f94446631358cd0b6b2ccd5ac"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0ac427e1f459091938feb40fffd8a6d8c496a0d185eb61e5f5c7fba317b3c96f"
+    sha256 cellar: :any,                 arm64_linux:   "3d1fe77c281a926ae96bde81080bd20e9a845d77bcc8e70b9e179dd6d999345f"
+    sha256 cellar: :any,                 x86_64_linux:  "20ef0ab80ef985feba30185c98adeea28542803fe3ff81bc9239a848e4b65f01"
   end
 
   depends_on "rust" => :build
-
-  depends_on "rustup"
+  depends_on "rustup" => :test
   depends_on "wasm-pack"
 
   def install

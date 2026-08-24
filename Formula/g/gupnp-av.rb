@@ -15,13 +15,10 @@ class GupnpAv < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "intltool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on "vala" => :build
-
-  depends_on "gettext"
   depends_on "glib"
 
   uses_from_macos "libxml2"

@@ -1,14 +1,14 @@
 class LibcapNg < Formula
   desc "Library for Linux that makes using posix capabilities easy"
   homepage "https://people.redhat.com/sgrubb/libcap-ng/"
-  url "https://github.com/stevegrubb/libcap-ng/archive/refs/tags/v0.9.3.tar.gz"
-  sha256 "fe11ebbb55904763b3532f19069f13ec319042634620180a03bd4653d301563e"
+  url "https://github.com/stevegrubb/libcap-ng/archive/refs/tags/v0.9.5.tar.gz"
+  sha256 "a2b4211f59b231d607c61ea2a13e9ecb38f446fe769b44e12da939d5af6d978a"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
   head "https://github.com/stevegrubb/libcap-ng.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "6dd678906bd60a3abd618109a3bf6e0968c2ba1983251a5345192f88336603ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "50b33e8da4ed5daf4ed149254786fe602c5f33cdb8700148ad64c5421633eada"
+    sha256 cellar: :any, arm64_linux:  "9b5345ea736341602998de12decfa168c638942d06038453638d174a646875e9"
+    sha256 cellar: :any, x86_64_linux: "897940ce996c3a44e0d6067644676e17a6e87900a6e8891f4746700b57af7655"
   end
 
   depends_on "autoconf" => :build

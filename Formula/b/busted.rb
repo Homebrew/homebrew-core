@@ -22,7 +22,7 @@ class Busted < Formula
   uses_from_macos "unzip" => :build
 
   def install
-    system "luarocks", "make", "--tree=#{libexec}", "--local", "--lua-dir=#{Formula["lua"].opt_prefix}"
+    system "luarocks", "make", "--tree=#{libexec}", "--local", "--lua-dir=#{formula_opt_prefix("lua")}"
     bin.install_symlink libexec.glob("bin/*")
   end
 

@@ -5,6 +5,7 @@ class Synfig < Formula
   url "https://github.com/synfig/synfig/releases/download/v1.5.5/synfig-1.5.5.tar.gz"
   sha256 "95783c92925bd8ae494e00fdab0340caba9b19d2a0aac989fd8c200434b26f06"
   license "GPL-3.0-or-later"
+  revision 3
   head "https://github.com/synfig/synfig.git", branch: "master"
 
   livecheck do
@@ -13,12 +14,12 @@ class Synfig < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "0075ee7f2b25f9de48de93254a812e88fa322d69aa957f7ea5b6e476568a2fe2"
-    sha256                               arm64_sequoia: "5152754bac39e931dc349b505fcf372efb685c2cce060f4b55f699209ad1461a"
-    sha256                               arm64_sonoma:  "a42fa1cdaf0f9e9747cdc428856f7aae6a2d956ff2a02aa0b9813c0629711931"
-    sha256                               sonoma:        "5de592eda1f7ea792af3d7e997a57389caa25a865c68f0153c2a38287f8b12d4"
-    sha256                               arm64_linux:   "32554a263478194272fddda52532ee6a7cb8092cc470776c65cef8249bb72c39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea2ec08203b96158a0a24897ce37ff1a2f40d94ae01691df1f8df89f88f7cc33"
+    sha256               arm64_tahoe:   "56262007c9628dcd690ae70aa289dc4b8477dfc01619cb793d6b3eb956f83c38"
+    sha256               arm64_sequoia: "fe1fd898b8234fb8584ac6eaf3372e34b276d411e1313623ebb0d50052039f43"
+    sha256               arm64_sonoma:  "570dad6af3a79433cc0fe59b06ce98a0ba6183b2472749cafad6c657b1fc8689"
+    sha256               sonoma:        "4c7bed5a5e0be48560355477f2f710fab0b0a3d9fdf6499b562b8311524c4a78"
+    sha256               arm64_linux:   "d2789b688ed8a45e45623113b8aa9d17644873c5b6c9b65d16663b7df3018c09"
+    sha256 cellar: :any, x86_64_linux:  "92da725ae700b13a6282c7d757dc1d6ce45f5c1ec7c6be0e6bc4760252dfc39b"
   end
 
   depends_on "autoconf" => :build

@@ -60,7 +60,7 @@ class Libidn2 < Formula
 
   def install
     args = ["--disable-silent-rules", "--with-packager=Homebrew"]
-    args << "--with-libintl-prefix=#{Formula["gettext"].opt_prefix}" if OS.mac?
+    args << "--with-libintl-prefix=#{formula_opt_prefix("gettext")}" if OS.mac?
 
     if build.head?
       ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin" if OS.mac?

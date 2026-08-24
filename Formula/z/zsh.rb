@@ -9,14 +9,14 @@ class Zsh < Formula
   ]
 
   stable do
-    url "https://downloads.sourceforge.net/project/zsh/zsh/5.9.1/zsh-5.9.1.tar.xz"
-    mirror "https://www.zsh.org/pub/zsh-5.9.1.tar.xz"
-    sha256 "5d20bec03f981dc4e9a09ec245e7415388ff641f79c5c5c416b5042e58d8280d"
+    url "https://downloads.sourceforge.net/project/zsh/zsh/5.9.2/zsh-5.9.2.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.9.2.tar.xz"
+    sha256 "36fa734374b44783582cec09bcd67822e2f992c779ec1624ab5596df078d2f81"
 
     resource "htmldoc" do
-      url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.9.1/zsh-5.9.1-doc.tar.xz"
-      mirror "https://www.zsh.org/pub/zsh-5.9.1-doc.tar.xz"
-      sha256 "c40b34cb332ddbee627f8d9a3e4cb92e2c851942b33e6c178b1d571375b80f67"
+      url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.9.2/zsh-5.9.2-doc.tar.xz"
+      mirror "https://www.zsh.org/pub/zsh-5.9.2-doc.tar.xz"
+      sha256 "020ee644be1749507b282e619cdcd95c56ff36144e79b7a3c245458aacd9458f"
 
       livecheck do
         formula :parent
@@ -29,12 +29,12 @@ class Zsh < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "19d5c07ae6c903d410ce5d4a2bc7577b64d960d2f4fec8659a1855102efcdafd"
-    sha256 arm64_sequoia: "17ca8e77c287c86c8ef84cb6d29d04ba880a3640d8f568a33e2344cc71dbaa08"
-    sha256 arm64_sonoma:  "74aae0cb5ef080e857156a270ea11171b2d9209cf1ff3a0520291f6ff8bc3d67"
-    sha256 sonoma:        "0c831556a632b10585c62e12eac0043e23a2693b42c9e66eed35203535d01446"
-    sha256 arm64_linux:   "bee42cb9e4a63c5dfcaae67e0988946d536a474d5fcd876fd3e12139b2d5b461"
-    sha256 x86_64_linux:  "61309af530692ca2440f75459731e5e7260148e65877d4a05747122f4d628093"
+    sha256 arm64_tahoe:   "7618b2874959eecd76463c8d78747074e94121074b7df1a663b8c01e0155c280"
+    sha256 arm64_sequoia: "2755dbf52a9eb647285732df520d3fd202b6f7d815c761386e6dd57b0bedf9bf"
+    sha256 arm64_sonoma:  "991385b48f8767e6119df36c1c400f9697b2f40e157e7df5b1229c2b6aea530f"
+    sha256 sonoma:        "6a59dc38fe84a329977fb79f76f84cce057e23c99930652dd188c0da0f560af9"
+    sha256 arm64_linux:   "e516bc11ee0252de694e5da3caa775284d9f0696389a35ac85de388afc37c5f7"
+    sha256 x86_64_linux:  "36eb699ea0d90cea4cc87514dfb0bc4ee853af432fdbc28688f314fd5a8d9dd6"
   end
 
   head do
@@ -50,27 +50,26 @@ class Zsh < Formula
   end
 
   def install
-    # Fix compile with newer Clang. Remove in the next release
-    # Ref: https://sourceforge.net/p/zsh/code/ci/ab4d62eb975a4c4c51dd35822665050e2ddc6918/
-    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
-
     system "Util/preconfig" if build.head?
 
-    system "./configure", "--prefix=#{prefix}",
-           "--enable-fndir=#{pkgshare}/functions",
-           "--enable-scriptdir=#{pkgshare}/scripts",
-           "--enable-site-fndir=#{HOMEBREW_PREFIX}/share/zsh/site-functions",
-           "--enable-site-scriptdir=#{HOMEBREW_PREFIX}/share/zsh/site-scripts",
-           "--enable-runhelpdir=#{pkgshare}/help",
-           "--enable-cap",
-           "--enable-maildir-support",
-           "--enable-multibyte",
-           "--enable-pcre",
-           "--enable-zsh-secure-free",
-           "--enable-unicode9",
-           "--enable-etcdir=/etc",
-           "--with-tcsetpgrp",
-           "DL_EXT=bundle"
+    args = %W[
+      --enable-fndir=#{pkgshare}/functions
+      --enable-scriptdir=#{pkgshare}/scripts
+      --enable-site-fndir=#{HOMEBREW_PREFIX}/share/zsh/site-functions
+      --enable-site-scriptdir=#{HOMEBREW_PREFIX}/share/zsh/site-scripts
+      --enable-runhelpdir=#{pkgshare}/help
+      --enable-maildir-support
+      --enable-multibyte
+      --enable-pcre
+      --enable-zsh-secure-free
+      --enable-unicode9
+      --enable-etcdir=/etc
+      --with-tcsetpgrp
+    ]
+
+    args << "--enable-cap" if OS.linux?
+
+    system "./configure", *args, *std_configure_args, "DL_EXT=bundle"
 
     # Do not version installation directories.
     inreplace ["Makefile", "Src/Makefile"],

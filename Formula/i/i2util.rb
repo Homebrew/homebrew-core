@@ -1,8 +1,8 @@
 class I2util < Formula
   desc "Internet2 utility tools"
   homepage "https://github.com/perfsonar/i2util"
-  url "https://github.com/perfsonar/i2util/archive/refs/tags/v5.2.5.tar.gz"
-  sha256 "7a36fc5d645ee0d2803cddccdfebccb0dc874f809de7172302374c5537a8f289"
+  url "https://github.com/perfsonar/i2util/archive/refs/tags/v5.2.6.tar.gz"
+  sha256 "8e9e15f6ccf7b7c5edd509350de6f7507b3f8121f09d9f9de4439d18e4026ea0"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class I2util < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f94e66e27adc62bec2cb2998d562201961430b90c0f6ae00529c550cf2c86d6c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4c081fd5e817348709a7c85ef679e2ee0fbc4dc3addc88f7a876f722a4d7962"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f437dd20186783bb6011dc8a62ad7dcd76e915ce9f36806d9de9753e22ce17b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f1912b9918aeee385c2ae5497152f8cc9eda682064b15ceb00b1014a84a96160"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7f99e480e98717db1e0d2a53bd626fc05edb54e67d740d82f8d84b16840d66de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cba1ba6297b2ac2ad6366d69ef10369ef2110bec8392f223ce2ea76006b0d5db"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3c96db26d6b8b745ce518cdcf0fc8cce58cf28e7c24f297f23109f3a456a5d3f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd21bc4ade8f7f27ff994db78401d0446eb0f0a8ae004c32d0356b2a9a521571"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e20d2e9f814df8076dab2acba0752286ba4f06f86a5f67ceb9fac04ae6c7d2e9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "68c9b6889c197f540ffe6da0a856b8230757e525c5fe1888225bfcb65893108b"
+    sha256 cellar: :any,                 arm64_linux:   "ac7f625e99eb5be3d9d96343d152bb5f62f632adb8819d5575a2d4b2f51bf790"
+    sha256 cellar: :any,                 x86_64_linux:  "f49bc0d2e186c8720a3dd716f6bbe159a4a11f4d2cf222e013fcbc529844b52b"
   end
 
   depends_on "autoconf" => :build

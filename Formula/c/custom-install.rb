@@ -40,7 +40,7 @@ class CustomInstall < Formula
 
     inreplace "custominstall.py",
               "save3ds_fuse_path = join(script_dir, 'bin', platform, 'save3ds_fuse')",
-              "save3ds_fuse_path = '#{Formula["save3ds_fuse"].opt_bin}/save3ds_fuse'"
+              "save3ds_fuse_path = '#{formula_opt_bin("save3ds_fuse")}/save3ds_fuse'"
     libexec.install "custominstall.py"
     (bin/"custom-install").write <<~BASH
       #!/bin/bash

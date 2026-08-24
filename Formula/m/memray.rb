@@ -3,24 +3,25 @@ class Memray < Formula
 
   desc "Memory profiler for Python applications"
   homepage "https://bloomberg.github.io/memray/"
-  url "https://files.pythonhosted.org/packages/96/04/5b886a36df947599e0f37cd46e6e44e565299815f044e2303ab2ae9f8870/memray-1.19.3.tar.gz"
-  sha256 "4e0fb29ff0a50c0ec9dc84294d8f2c83419feba561a37628b304c2ae4fe73d03"
+  url "https://files.pythonhosted.org/packages/99/3b/8f9736cbf698e62cb7efb0e1715a30d6d06b3cffd980b435209eb522d5f8/memray-1.20.0.tar.gz"
+  sha256 "ce1f1d900948d57d7db5b5d8d81f4ebfcb798eff674493503ce5bfaafcea84dc"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2c9246f78d99696f620bb859e31279790114279c677a4b5cf796371fb405e008"
-    sha256 cellar: :any,                 arm64_sequoia: "b8e3b30e9e0b3553666cb1e21f580983245f4e98ba61c3b4200dc529d1d7d1db"
-    sha256 cellar: :any,                 arm64_sonoma:  "a08d9a49e81c5a30d57caffd8fb8148d8dd3b5ed7fca341736a1ac45a79ad7d5"
-    sha256 cellar: :any,                 sonoma:        "a8d40b7ef0a91ee3135aa4c26f92effc88608665cabc867bc3c4bd144f20041b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a64abbe70926bfd4e42f345dc9a31937724bddf6d5cf1ba42e92bded7bf1bd31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b09c6cc73a3fa3daabf69546b9adb9db92cbdfd9cc4001cfe68a099f061fd82"
+    sha256 cellar: :any, arm64_tahoe:   "931a06d3b9bc7a10bc91908c9fc29b0c26a1a7979af85c05b7731f54fa5fcc02"
+    sha256 cellar: :any, arm64_sequoia: "af4a425d98494847be17734de83b9b71babe4d5c3702e1186fe3178e5ce1a385"
+    sha256 cellar: :any, arm64_sonoma:  "ed0cfb730baf4cd99c24824f24e1fea3d1a38bb257b35d9670b0293c7562461d"
+    sha256 cellar: :any, sonoma:        "834b12c893a578fab68fd2e1c41e23a2f6cb8484db98d7e93a96ed523b42b1e8"
+    sha256 cellar: :any, arm64_linux:   "199b0f1382e5374c85fee2a943766049bb47f84ad9d9e6d47836aa08707554c8"
+    sha256 cellar: :any, x86_64_linux:  "7f1a0f9d7aead5e974a449d68a26926b8bcc50e7047b87249ca609382484546d"
   end
 
+  depends_on "cmake" => :build
+  depends_on "pkgconf" => :build
   depends_on "lz4"
   depends_on "python@3.14"
 
   on_linux do
-    depends_on "pkgconf" => :build # for libdebuginfod
     depends_on "curl" # for libdebuginfod
     depends_on "elfutils" # for libdebuginfod
     depends_on "json-c" # for libdebuginfod
@@ -49,8 +50,8 @@ class Memray < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
-    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
+    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
+    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
   end
 
   resource "markupsafe" do
@@ -59,8 +60,8 @@ class Memray < Formula
   end
 
   resource "mdit-py-plugins" do
-    url "https://files.pythonhosted.org/packages/b2/fd/a756d36c0bfba5f6e39a1cdbdbfdd448dc02692467d83816dff4592a1ebc/mdit_py_plugins-0.5.0.tar.gz"
-    sha256 "f4918cb50119f50446560513a8e311d574ff6aaed72606ddae6d35716fe809c6"
+    url "https://files.pythonhosted.org/packages/59/fc/f8d0863f8862f25602c0404d75568e89fb6b4109804645e5cdfb1be5cf56/mdit_py_plugins-0.6.1.tar.gz"
+    sha256 "a2bca0f039f39dbd35fb74ae1b5f998608c437463371f0ff7f49a19a17a114d0"
   end
 
   resource "mdurl" do
@@ -69,8 +70,8 @@ class Memray < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/19/56/8d4c30c8a1d07013911a8fdbd8f89440ef9f08d07a1b50ab8ca8be5a20f9/platformdirs-4.9.4.tar.gz"
-    sha256 "1ec356301b7dc906d83f371c8f487070e99d3ccf9e501686456394622a01a934"
+    url "https://files.pythonhosted.org/packages/78/9b/560e4be8e26f6fd133a03630a8df0c663b9e8d61b4ade152b72005aec83b/platformdirs-4.11.0.tar.gz"
+    sha256 "0555d18370482847566ffabcaa53ad7c6c1c29f195989ae1ed634a05f76ea1e0"
   end
 
   resource "pygments" do
@@ -79,18 +80,18 @@ class Memray < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
-    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
+    url "https://files.pythonhosted.org/packages/c0/8f/0722ca900cc807c13a6a0c696dacf35430f72e0ec571c4275d2371fca3e9/rich-15.0.0.tar.gz"
+    sha256 "edd07a4824c6b40189fb7ac9bc4c52536e9780fbbfbddf6f1e2502c31b068c36"
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/cf/2f/d44f0f12b3ddb1f0b88f7775652e99c6b5a43fd733badf4ce064bdbfef4a/textual-8.2.3.tar.gz"
-    sha256 "beea7b86b03b03558a2224f0cc35252e60ef8b0c4353b117b2f40972902d976a"
+    url "https://files.pythonhosted.org/packages/00/21/39a76b01bd5eea82a04baaca7580e105d8c59450df03998345bb2cfb307b/textual-8.2.8.tar.gz"
+    sha256 "3f106a9fbc73e39dd266c9712432087de78a6d644084c7c241d6a25c3169115b"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
-    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
   end
 
   resource "uc-micro-py" do
@@ -101,7 +102,7 @@ class Memray < Formula
   def install
     if OS.linux?
       without = "elfutils"
-      libelf = Formula["elfutils"].opt_lib/"libelf.so"
+      libelf = formula_opt_lib("elfutils")/"libelf.so"
       resource("elfutils").stage do
         # https://github.com/bloomberg/memray/blob/main/pyproject.toml#L96-L104
         system "./configure", "--disable-debuginfod",

@@ -19,7 +19,7 @@ class Fsql < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/fsql"
+    system "go", "build", *std_go_args, "./cmd/fsql"
   end
 
   test do

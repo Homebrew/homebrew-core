@@ -43,6 +43,8 @@ class Tracy < Formula
     depends_on "wayland"
   end
 
+  conflicts_with "tracy-genomics", because: "both install `tracy` binaries"
+
   resource "capstone" do
     url "https://github.com/capstone-engine/capstone/releases/download/6.0.0-Alpha6/capstone-6.0.0-Alpha6.tar.xz"
     sha256 "8ad244c35508b28d6c0751e3610a25380f34ddd892c968212794ed6a90d8e3cb"

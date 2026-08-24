@@ -45,7 +45,7 @@ class PariNflistdata < Formula
                       "x^5 - 2*x^4 + x^2 + 4*x - 5, " \
                       "x^5 - x^4 + 3*x^3 - 3*x^2 + 5*x - 1, " \
                       "x^5 - 2*x^4 + x^3 - 5*x^2 + x - 2]"
-    output = pipe_output("#{Formula["pari"].opt_bin}/gp -q", "nflist(\"A5\")").chomp
+    output = pipe_output("#{formula_opt_bin("pari")}/gp -q", "nflist(\"A5\")").chomp
     assert_equal expected_output, output
   end
 end

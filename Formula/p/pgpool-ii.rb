@@ -38,7 +38,7 @@ class PgpoolIi < Formula
               "char *p = strchr(status[i].value, '\\n');\nif (p) *p = '\\\\0';"
 
     system "./configure", "--sysconfdir=#{etc}",
-                          "--with-memcached=#{Formula["libmemcached"].opt_include}",
+                          "--with-memcached=#{formula_opt_include("libmemcached")}",
                           *std_configure_args
     system "make", "install"
 

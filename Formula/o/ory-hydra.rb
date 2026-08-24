@@ -28,7 +28,6 @@ class OryHydra < Formula
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
 
     ldflags = %W[
-      -s -w
       -X github.com/ory/hydra/v2/driver/config.Version=v#{version}
       -X github.com/ory/hydra/v2/driver/config.Date=#{time.iso8601}
       -X github.com/ory/hydra/v2/driver/config.Commit=#{Utils.git_head}

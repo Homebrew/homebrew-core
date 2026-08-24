@@ -17,7 +17,7 @@ class WasmPack < Formula
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
-  depends_on "rustup"
+  depends_on "rustup" => :test
 
   def install
     system "cargo", "install", *std_cargo_args

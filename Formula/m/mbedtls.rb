@@ -1,8 +1,8 @@
 class Mbedtls < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://www.trustedfirmware.org/projects/mbed-tls/"
-  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-4.1.0/mbedtls-4.1.0.tar.bz2"
-  sha256 "377a09cf8eb81b5fb2707045e5522d5489d3309fed5006c9874e60558fc81d10"
+  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-4.2.0/mbedtls-4.2.0.tar.bz2"
+  sha256 "2bed9d713b4668f76553b097e72b8aa30bc8f112a940d7ae228d524bbde6ffea"
   license "Apache-2.0"
   head "https://github.com/Mbed-TLS/mbedtls.git", branch: "development"
 
@@ -13,12 +13,12 @@ class Mbedtls < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "afb5b23bad6eb87cd8674539459d29bbdf9faa8d73af0e2ded7b668f240f510e"
-    sha256 cellar: :any,                 arm64_sequoia: "258007b03b55a6921a80ea8866ec93cb7b339c60a39d66c114098e87fe94a69e"
-    sha256 cellar: :any,                 arm64_sonoma:  "d07a25b71b81662643550226f26d111cdde1b3edd270ff2d1e274ac0903309c9"
-    sha256 cellar: :any,                 sonoma:        "835b7a62734a707f1429660356219758f0b0106cfbd48f844050d4456fd7e507"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1d406f785dbdad88c23ada7d185006570c83ca60d6cf6aa48adf196603e1ac6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15cac95836fbe3f6cd9ed6252f9651960d8e0d59842e0ac790ee0a87e282533a"
+    sha256 cellar: :any, arm64_tahoe:   "aba0d174acd033034f91058720d55cf5c935b836c9ab95d64ebba77dc4876ec9"
+    sha256 cellar: :any, arm64_sequoia: "1616865611b7ecf8b2c1480ba6b5a40210221222d78ac19f2c7d13cf936d0b4c"
+    sha256 cellar: :any, arm64_sonoma:  "be5f181affb2f2648ef3c6c437224515044d11e6890eb42c7d6d7d556ae281ad"
+    sha256 cellar: :any, sonoma:        "aa97a192ca8652e95ba40a174c8d61cac795fc9dedcffa8a557f97d44efbe372"
+    sha256 cellar: :any, arm64_linux:   "5ce5e9e48b1610b58604b80d3deb594f4cfd27ad5eb53fb04726b28d9beb0d56"
+    sha256 cellar: :any, x86_64_linux:  "ed76153a02aa91fa411c67ec1b6ccaa59417b7da9c4ac9974c3de39f77b36939"
   end
 
   depends_on "cmake" => :build

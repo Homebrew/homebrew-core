@@ -18,10 +18,7 @@ class Gmailctl < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/mbrt/gmailctl/cmd/gmailctl/cmd.version=#{version}
-    ]
+    ldflags = %W[-X github.com/mbrt/gmailctl/cmd/gmailctl/cmd.version=#{version}]
     system "go", "build", *std_go_args(ldflags:), "cmd/gmailctl/main.go"
 
     generate_completions_from_executable(bin/"gmailctl", shell_parameter_format: :cobra)

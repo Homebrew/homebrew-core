@@ -11,17 +11,17 @@ class Aravis < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "ec4e6e6006fd2bd55fc2c88a2318fccafdea3ada23f6d7e4e4b1ebb4465b660f"
-    sha256 arm64_sequoia: "a8d4bd460bfa0d913b71792959d5e5a95ccc5794264b1171e67eb90f1c80b18e"
-    sha256 arm64_sonoma:  "0339abdd5f408a8eba88430494a3ebaa40e72e8877cc710be6c8cc1282430e9f"
-    sha256 sonoma:        "e019edb2783c6d1ccaa2ba4d9ebc36697565bafbfba45caf6b936f13d69b0f40"
-    sha256 arm64_linux:   "60c037bfb1d513b7120abb53716abc1a05d59ee7c91662cb2cfa5486caf29321"
-    sha256 x86_64_linux:  "bfca87730aad222743588257dd29c5a17d8d86f88540bd69f175cc0ef704baa6"
+    rebuild 2
+    sha256 arm64_tahoe:   "e8d380d1205bfed309d38e061c3b16e3f37158a6b479655e7aa35554f65fb9da"
+    sha256 arm64_sequoia: "400d547af062c952574b486a527d3786426c2eb3b47565127c403ff34398835f"
+    sha256 arm64_sonoma:  "e78f7ca072dc2131c0907a606ff7ada754ebffddb3f6d4ea6ea5598857eb034d"
+    sha256 sonoma:        "2a070b911bdbc1533cfb68d00720a42244e64db5c2b41020766265b3077a55ca"
+    sha256 arm64_linux:   "567ebd2a64d8f9e4510cde9d566d90a3fbe5d2838763f8ae20c2acae4932291e"
+    sha256 x86_64_linux:  "75d4c78de8f32363d240b1d556b2da2c137173cf1ce02f9b99ead801dd352f7d"
   end
 
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "gtk-doc" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
@@ -30,19 +30,12 @@ class Aravis < Formula
   depends_on "glib"
   depends_on "gstreamer"
   depends_on "gtk+3"
-  depends_on "intltool"
-  depends_on "libnotify"
   depends_on "libusb"
 
   uses_from_macos "libxml2"
 
   on_macos do
-    depends_on "at-spi2-core"
-    depends_on "cairo"
-    depends_on "gdk-pixbuf"
     depends_on "gettext"
-    depends_on "harfbuzz"
-    depends_on "pango"
   end
 
   on_linux do
@@ -57,8 +50,8 @@ class Aravis < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+  post_install_steps do
+    update_gtk_icon_cache
   end
 
   def caveats

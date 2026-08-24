@@ -19,16 +19,19 @@ class Staq < Formula
   depends_on "gmp"
 
   # Backport fix to error: no member named 'row' in 'col_vec2_t<T>'
-  # Issue ref: https://github.com/softwareQinc/staq/issues/85
   patch do
     url "https://github.com/softwareQinc/staq/commit/4ac5dcd13ae46dd629ee938602452a5c8ec0b7c0.patch?full_index=1"
     sha256 "c71447c1fd065e8818894965219e0fad652c3a8649be645296d4bc9ca5a9d656"
+    type :backport
+    resolves "https://github.com/softwareQinc/staq/issues/85"
   end
 
   # Backport newer bundled fmt
   patch do
     url "https://github.com/softwareQinc/staq/commit/6847ebed2d167a0f1aa476cfb1d2b62b54fde6f9.patch?full_index=1"
     sha256 "acdcdd7afd9650425f1659b0b3b0e601c27e368d3722385416dcc5ee145528f1"
+    type :backport
+    resolves "https://github.com/softwareQinc/staq/pull/86"
   end
 
   def install

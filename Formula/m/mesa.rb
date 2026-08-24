@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-26.1.2.tar.xz"
-  sha256 "bac2bca9121897a2b8162e79636b50ac998fca799c8e6cf914edd85962babdf0"
+  url "https://archive.mesa3d.org/mesa-26.2.1.tar.xz"
+  sha256 "c47e81bddc4760360a41ac3c5acec38acb81f9d750ecef47e7f3adc7021a4442"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -24,12 +24,12 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
-    sha256 arm64_tahoe:   "419e92c9d1f1554b6664c008787873f87ed5522302d5feb96629f77df6567829"
-    sha256 arm64_sequoia: "4d0d4fcfd12557f83254d015fd8983970d0cc5c587c23e6bd06a3ea76c819a96"
-    sha256 arm64_sonoma:  "7522a45f79464654a7a67321997e8ebc248b0a8a39d94775d8e435c88faeed31"
-    sha256 sonoma:        "6fb5201bb2f4a21ec1a116ecba1d8d98df1860f95b06e92570888796c3165b8b"
-    sha256 arm64_linux:   "09c666b47432eb57c830465698968ff0dac1dbacbd642927390e53d921d8f1ae"
-    sha256 x86_64_linux:  "a4dd966af88335d8210ca2983fc4fe53cf3ee32f0679f4bc41efb5212ed7fd9d"
+    sha256 arm64_tahoe:   "97f2ab1247866148c9add4c3a3489f12176fd68555e02ac60e2d61f3cd1c524e"
+    sha256 arm64_sequoia: "04d10985fa2ce1aaa4c7cf4d98091f62653779af6a6692ccf0f0f66e62d3e372"
+    sha256 arm64_sonoma:  "ebbde7b1e22519b7e2477842dda4ddb4ba42ed9c4813f3d313c6de6b90792fb2"
+    sha256 sonoma:        "ac0af0a1067160159fe0977dd8cc11b1cbf0a5476adbd567c5e91b4e3cc99040"
+    sha256 arm64_linux:   "0d7faeb7a213ab14525a761b426285f277d72fbbe363fb88b694c370a230a4ad"
+    sha256 x86_64_linux:  "c1b6bbd647aa21c703668b494f89e3864472212fa0b44b827082ee4c29147a47"
   end
 
   depends_on "bindgen" => :build
@@ -39,6 +39,7 @@ class Mesa < Formula
   depends_on "libxrender" => :build
   depends_on "libxshmfence" => :build
   depends_on "libyaml" => :build
+  depends_on "llvm@22" => :build # FIXME: https://github.com/rust-lang/rust-bindgen/issues/3397
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
@@ -63,13 +64,6 @@ class Mesa < Formula
 
   on_macos do
     depends_on "molten-vk"
-
-    # Apply MacPorts patch to revert change causing avoid infinite loop on macOS
-    # Issue ref: https://gitlab.freedesktop.org/mesa/mesa/-/work_items/15528
-    patch :p0 do
-      url "https://raw.githubusercontent.com/macports/macports-ports/1db035904139d7a3d0e0575f63ccd2371384956c/x11/mesa/files/patch-src-meson.diff"
-      sha256 "7390de495a94749eb3070d579aae5db79a75887d8aaa4d547b053559c1eb9aeb"
-    end
   end
 
   on_linux do
@@ -98,8 +92,8 @@ class Mesa < Formula
                 extra_packages: %w[mako packaging ply pyyaml]
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/00/62/791b31e69ae182791ec67f04850f2f062716bbd205483d63a215f3e062d3/mako-1.3.12.tar.gz"
-    sha256 "9f778e93289bd410bb35daadeb4fc66d95a746f0b75777b942088b7fd7af550a"
+    url "https://files.pythonhosted.org/packages/2a/12/b5fa2353e2754cd67fb9f83793fa48ff42c213a5da7e719869d2301f6ab8/mako-1.4.1.tar.gz"
+    sha256 "d7904710b662996425a21627710c4777c45053146942cf8a7aebf757c92b8c27"
   end
 
   resource "markupsafe" do
@@ -108,8 +102,8 @@ class Mesa < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
-    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "ply" do
@@ -130,11 +124,15 @@ class Mesa < Formula
     # Work around superenv to avoid mixing `expat` usage in libraries across dependency tree.
     # Brew `expat` usage in Python has low impact as it isn't loaded unless pyexpat is used.
     # TODO: Consider adding a DSL for this or change how we handle Python's `expat` dependency
+    env_vars = %w[CMAKE_PREFIX_PATH HOMEBREW_INCLUDE_PATHS HOMEBREW_LIBRARY_PATHS PATH PKG_CONFIG_PATH]
     if OS.mac? && MacOS.version < :sequoia
-      env_vars = %w[CMAKE_PREFIX_PATH HOMEBREW_INCLUDE_PATHS HOMEBREW_LIBRARY_PATHS PATH PKG_CONFIG_PATH]
-      ENV.remove env_vars, /(^|:)#{Regexp.escape(Formula["expat"].opt_prefix)}[^:]*/
+      ENV.remove env_vars, /(^|:)#{Regexp.escape(formula_opt_prefix("expat"))}[^:]*/
       ENV.remove "HOMEBREW_DEPENDENCIES", "expat"
     end
+    # TODO: Remove once bindgen issue is fixed: https://github.com/rust-lang/rust-bindgen/issues/3397
+    ENV.remove env_vars, /(^|:)#{Regexp.escape(formula_opt_prefix("llvm@22"))}[^:]*/
+    ENV.remove "HOMEBREW_DEPENDENCIES", "llvm@22"
+    ENV["CLANG_PATH"] = formula_opt_bin("llvm@22")/"clang"
 
     venv = virtualenv_create(buildpath/"venv", python3)
     venv.pip_install resources.reject { |r| OS.mac? && r.name == "ply" }
@@ -154,7 +152,8 @@ class Mesa < Formula
       # Work around .../rusticl_system_bindings.h:1:10: fatal error: 'stdio.h' file not found
       ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path
 
-      vulkan_drivers = (MacOS.version >= :sequoia) ? "kosmickrisp,swrast" : "swrast"
+      # KosmicKrisp requires Metal 4 / macOS 26, see https://docs.mesa3d.org/drivers/kosmickrisp.html
+      vulkan_drivers = (MacOS.version >= :tahoe) ? "kosmickrisp,swrast" : "swrast"
 
       %W[
         -Dgallium-drivers=llvmpipe,zink
@@ -162,6 +161,7 @@ class Mesa < Formula
         -Dtools=etnaviv,glsl,nir,nouveau,dlclose-skip
         -Dvulkan-drivers=#{vulkan_drivers}
         -Dvulkan-layers=intel-nullhw,overlay,screenshot,vram-report-limit
+        --force-fallback-for=syn
       ]
     else
       # Not all supported drivers are being auto-enabled on x86 Linux.
@@ -198,7 +198,7 @@ class Mesa < Formula
       s.change_make_var! "dridriverdir", HOMEBREW_PREFIX/"lib/dri"
     end
 
-    # https://gitlab.freedesktop.org/mesa/mesa/-/issues/13119
+    # https://gitlab.freedesktop.org/mesa/mesa/-/work_items/13119
     if OS.mac?
       inreplace %W[
         #{prefix}/etc/OpenCL/vendors/rusticl.icd

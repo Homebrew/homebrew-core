@@ -1,8 +1,8 @@
 class Stress < Formula
   desc "Tool to impose load on and stress test a computer system"
   homepage "https://github.com/resurrecting-open-source-projects/stress"
-  url "https://github.com/resurrecting-open-source-projects/stress/archive/refs/tags/1.0.7.tar.gz"
-  sha256 "cdaa56671506133e2ed8e1e318d793c2a21c4a00adc53f31ffdef1ece8ace0b1"
+  url "https://github.com/resurrecting-open-source-projects/stress/releases/download/1.0.7/stress-1.0.7.tar.gz"
+  sha256 "80d966622c4e8d0981f64f56c06a191ef7c9a32c2660b3b957ef7f014dfd78cd"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -20,11 +20,7 @@ class Stress < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffa76db1094886481f76dcba90c949bd03f5d29971e943d9dce96a5f53f6da78"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-
   def install
-    system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

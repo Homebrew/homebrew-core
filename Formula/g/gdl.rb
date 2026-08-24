@@ -43,10 +43,11 @@ class Gdl < Formula
   end
 
   # Fix build with libxml2 2.12. Remove if upstream PR is merged and in release.
-  # PR ref: https://gitlab.gnome.org/GNOME/gdl/-/merge_requests/4
   patch do
     url "https://gitlab.gnome.org/GNOME/gdl/-/commit/414f83eb4ad9e5576ee3d089594bf1301ff24091.diff"
     sha256 "715c804e6d03304bc077b99f667bbeb062c873b3bbd737182fb2cd47a295de95"
+    type :unofficial
+    resolves "https://gitlab.gnome.org/GNOME/gdl/-/merge_requests/4"
   end
 
   def install

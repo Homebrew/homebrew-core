@@ -18,8 +18,7 @@ class Kaf < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version} -X main.commit=Homebrew"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/kaf"
+    system "go", "build", *std_go_args(ldflags: :goreleaser), "./cmd/kaf"
 
     generate_completions_from_executable(bin/"kaf", shell_parameter_format: :cobra)
   end

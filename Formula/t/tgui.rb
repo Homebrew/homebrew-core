@@ -1,8 +1,8 @@
 class Tgui < Formula
   desc "GUI library for use with sfml"
   homepage "https://tgui.eu"
-  url "https://github.com/texus/TGUI/archive/refs/tags/v1.12.1.tar.gz"
-  sha256 "70eb5ffcc203e53fb905fcc18a9974f80cdea3f2f4e59d8bcc1124d5d597c981"
+  url "https://github.com/texus/TGUI/archive/refs/tags/v1.13.0.tar.gz"
+  sha256 "6e6000b5b130d6ddf73d593ff62cdd6f5c2045a1f8ffacb10262aedcb7ea7465"
   license "Zlib"
 
   livecheck do
@@ -11,12 +11,12 @@ class Tgui < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "16887bdff35b75d7bef32b90539524a1383500870ec1418c5964fbb4f378eb13"
-    sha256 cellar: :any,                 arm64_sequoia: "b410ee41f08763ea6e06e01f03f6dad5a79f78a48e57ce98bc82fa2d13b666b3"
-    sha256 cellar: :any,                 arm64_sonoma:  "57ac7394cf1e1d8e1ac96cdd52db07e88abeb728c46a98db70715beb0c78f449"
-    sha256 cellar: :any,                 sonoma:        "05639ca47bd0268d1ce5ae0579d37e7489282d63527a7354ab55ed2f8691b425"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e9c9a49822c85eb87f56710fba20e3e1f08205943b02c95676ea86d1f660e7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52b4cbc78761dca0ba65bda49b70a8b7fe12dcf852c9ccb00bef0a17e9739fec"
+    sha256 cellar: :any, arm64_tahoe:   "ac9ad29abf0f6a3cccd59a5cf2243a43aa358371d599d766be6ad33eae76392f"
+    sha256 cellar: :any, arm64_sequoia: "86a3bdd39b884ecb48cdb543c6ec730de37613ce5c8faa9d6609e60d66d68982"
+    sha256 cellar: :any, arm64_sonoma:  "01ea5a223bff9f443a33d5bfb39e95de15b617e018551c74f3cd0e586c4802f3"
+    sha256 cellar: :any, sonoma:        "8c3f0e9603581ab53438679d6d286e234a07695dad2cdd29b5578889f2c5347a"
+    sha256 cellar: :any, arm64_linux:   "cff015f7071d445fd1564c061d080f5a101ecede8b371eb506e0e4b18b937da3"
+    sha256 cellar: :any, x86_64_linux:  "de466c0cec114b5970e36674792036bf700eda325ed4129763f56bf0cb7a6322"
   end
 
   depends_on "cmake" => :build
@@ -54,8 +54,8 @@ class Tgui < Formula
       }
     CPP
 
-    system ENV.cxx, "test.cpp", "-std=c++17", "-I#{include}", "-I#{Formula["sfml"].opt_include}",
-      "-L#{lib}", "-L#{Formula["sfml"].opt_lib}",
+    system ENV.cxx, "test.cpp", "-std=c++17", "-I#{include}", "-I#{formula_opt_include("sfml")}",
+      "-L#{lib}", "-L#{formula_opt_lib("sfml")}",
       "-ltgui", "-lsfml-graphics", "-lsfml-system", "-lsfml-window",
       "-o", "test"
 

@@ -25,7 +25,7 @@ class Adplay < Formula
   depends_on "pkgconf" => :build
   depends_on "adplug"
   depends_on "libbinio"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   on_linux do
     depends_on "alsa-lib"

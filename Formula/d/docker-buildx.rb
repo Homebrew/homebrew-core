@@ -1,18 +1,18 @@
 class DockerBuildx < Formula
   desc "Docker CLI plugin for extended build capabilities with BuildKit"
   homepage "https://docs.docker.com/buildx/working-with-buildx/"
-  url "https://github.com/docker/buildx/archive/refs/tags/v0.35.0.tar.gz"
-  sha256 "790e4eb0c98da49c60d2c94cebcd3f1658cd7aca3be82093fcb19b9c1d0ac06b"
+  url "https://github.com/docker/buildx/archive/refs/tags/v0.36.1.tar.gz"
+  sha256 "8959987919445ab61564f50decde4dae810137063d84e2d3c969c9a4a68ecdeb"
   license "Apache-2.0"
   head "https://github.com/docker/buildx.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bb8a00f55798493e9fa48fedd4b5d4fcb4e1c7b3d20451a97c88015320ae77de"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "efcd40d36bef6b8571440c893b5ff1d033b611775a8f000f61aca33ad6331a59"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c5553eb27dd1bb4bd9e4eccbbb3aea980bb37fbf67bc60c55ba3b4fe76c4b08"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cb5693bdb0145b8a9b5c2dee9a932f517f2015b0773dd26926ec7bedd12e4264"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "34cef927d09d6c710146027df24e60f5541bf00dee8e5203bbdd24c624bdca63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7b1a422409c3112066c3cdb904afc5d9848b11e3ba57b290d73a6924e9d06e5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "df6823aae7eb4f2b9b70e2282f24c5b37f204483b6c2cb2f75c3485b7e4decbb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "df6823aae7eb4f2b9b70e2282f24c5b37f204483b6c2cb2f75c3485b7e4decbb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "df6823aae7eb4f2b9b70e2282f24c5b37f204483b6c2cb2f75c3485b7e4decbb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "df0c110b3832d58d66f7c9d60187f8f269bcaa81f461ab4f719468348bd6ae5a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7ee75d42106649818625a3457ee2d0b144d041516f07c6cd8bc1f9edfdcb16ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28609e0af08bef6423475f6dac7ef61b5c8601fe3e819c552cc2035042416875"
   end
 
   depends_on "go" => :build
@@ -20,7 +20,6 @@ class DockerBuildx < Formula
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
     ldflags = %W[
-      -s -w
       -X github.com/docker/buildx/version.Version=v#{version}
       -X github.com/docker/buildx/version.Revision=#{tap.user}
     ]

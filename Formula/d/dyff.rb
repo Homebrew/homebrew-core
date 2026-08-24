@@ -18,7 +18,7 @@ class Dyff < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/homeport/dyff/internal/cmd.version=#{version}"
+    ldflags = "-X github.com/homeport/dyff/internal/cmd.version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/dyff"
 
     generate_completions_from_executable(bin/"dyff", shell_parameter_format: :cobra)

@@ -14,13 +14,13 @@ class Imapsync < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "965e00bdc9ebeb638179d508afbf1b40c53762fa86dcc9c41f46bd84413afeec"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c3226f22365a2a589c0f256ab5626028e4efe7b79dfac78668197a41dc06c21"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5065fd3ae71fd7c7fdbe71de82198b95fc091652b87d9a5b13dfbb3210d6c70c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4d8ec5703a89b1486a13c11b2c2efa15273c4c9d5e7747dade01b579eaf88e61"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eca8142d92a9cac7d7ade73bb2673a35f3d52f4ec0257bb1f67331fa6d0db09b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6ace18f9b7a36d71151ac94d4b61477b60c6043e1f0820f4702a349090a1b8c"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7d6eb2699657f7785a288db80bd25ae97c357fe0eb9d53a498e1fa74a62fee02"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a02a6577a4677416aaced6be8c7de5c27eb302a21e3a9b1c264c0ec40f85a657"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "524cb92af305ac1500f8400b84cf13e5469667d400f05ab81f48f46e153f73db"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1fc333d3c458eea4e684d76a3104ba836ce56cef6da9b5dd5e1ccc8fd36fe33a"
+    sha256 cellar: :any,                 arm64_linux:   "8522ca218f7572eb3fedc5cdabf9ba4340fc465036c68a7e569c6c2e4a9e9745"
+    sha256 cellar: :any,                 x86_64_linux:  "f53106c74646fb572a462858c610d936f6e19f8311ca6c186e039a96abf31949"
   end
 
   depends_on "pod2man" => :build
@@ -166,6 +166,7 @@ class Imapsync < Formula
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+    ENV["PERL_MM_USE_DEFAULT"] = "1"
 
     build_pl = ["Module::Build", "JSON::WebToken", "Module::Build::Tiny", "Readonly", "IO::Socket::IP"]
 
@@ -191,7 +192,7 @@ class Imapsync < Formula
     end
 
     system "perl", "-c", "imapsync"
-    system "#{Formula["pod2man"].opt_bin}/pod2man", "imapsync", "imapsync.1"
+    system "#{formula_opt_bin("pod2man")}/pod2man", "imapsync", "imapsync.1"
     bin.install "imapsync"
     man1.install "imapsync.1"
     bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])

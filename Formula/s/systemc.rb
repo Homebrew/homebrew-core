@@ -11,25 +11,21 @@ class Systemc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "15b664b77b7660ce613e8219fb38b3dc192431896fe645906b97a57ce3ef03d2"
-    sha256 cellar: :any,                 arm64_sequoia: "be8e6a1922de610fda5745e21b8a2f1a8ae64db9afef613395ada807f218caf9"
-    sha256 cellar: :any,                 arm64_sonoma:  "e4c83297291edc511fcef51f9a87d919b4a7bb05059cf90be30de4614dd4f360"
-    sha256 cellar: :any,                 sonoma:        "6e344cab620163cae309e39ddfef2a322d4906340b75b73a5ce236939f5dbfa9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fa78339db2c12469cd5b4af5b79be4c5b0ec1c75cee2d28a54a049f62ad4ffb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b646135f7f9d2940ab5b0c4c6eafc5fcf0c2632933664964d5747cf9e1c87ac"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "00716d64cbf73b299bc4196805922c068bad1b23a802eba56272e18bfcdfce65"
+    sha256 cellar: :any, arm64_sequoia: "28d7da347948cd78f7193fbb099b257d8d3f946d07bc21742c7b7e690fbf5fe5"
+    sha256 cellar: :any, arm64_sonoma:  "053cf8d14692e94ce4b21efad3d9ec03e881589e58906d0696aadbf41bce7c1e"
+    sha256 cellar: :any, sonoma:        "20aa078e51eb304521647411756566b1bac49d85303c1bf47ce9c5c944298563"
+    sha256 cellar: :any, arm64_linux:   "c206aedbe2c0bd668aa28cef896418cc1ecf2997a7ec303eb1d1aa3edeef25dc"
+    sha256 cellar: :any, x86_64_linux:  "0eb26842c8208705f29dd7906859f3323de39cd358a6133ebee013837d892fdc"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "autoconf-archive" => :build
-  depends_on "automake" => :build
-  depends_on "doxygen" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
 
   def install
-    ENV.append "CXXFLAGS", "-std=gnu++17"
-    system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", "--with-unix-layout", *std_configure_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

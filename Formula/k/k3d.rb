@@ -31,7 +31,6 @@ class K3d < Formula
     raise "Invalid k3s version" unless k3s_version.match?(/\Av\d+\.\d+\.\d+-k3s\d+\z/)
 
     ldflags = %W[
-      -s -w
       -X github.com/k3d-io/k3d/v#{version.major}/version.Version=v#{version}
       -X github.com/k3d-io/k3d/v#{version.major}/version.K3sVersion=#{k3s_version}
     ]

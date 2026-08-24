@@ -82,7 +82,7 @@ class Xsd < Formula
     assert_path_exists testpath/"meaningoflife.cxx"
 
     system ENV.cxx, "-std=c++11", "xsdtest.cxx", "meaningoflife.cxx", "-o", "xsdtest",
-                    "-L#{Formula["xerces-c"].opt_lib}", "-lxerces-c"
+                    "-L#{formula_opt_lib("xerces-c")}", "-lxerces-c"
     system "./xsdtest", "meaningoflife.xml"
   end
 end

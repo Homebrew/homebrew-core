@@ -41,8 +41,8 @@ class Redland < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    type :unofficial
   end
 
   def install
@@ -102,14 +102,14 @@ class Redland < Formula
 
     includes = %W[
       -I#{include}
-      -I#{Formula["raptor"].opt_include}/raptor2
-      -I#{Formula["rasqal"].opt_include}/rasqal
+      -I#{formula_opt_include("raptor")}/raptor2
+      -I#{formula_opt_include("rasqal")}/rasqal
     ]
 
     libs = %W[
       -L#{lib}
-      -L#{Formula["raptor"].opt_lib}
-      -L#{Formula["rasqal"].opt_lib}
+      -L#{formula_opt_lib("raptor")}
+      -L#{formula_opt_lib("rasqal")}
       -lrdf -lraptor2 -lrasqal
     ]
 

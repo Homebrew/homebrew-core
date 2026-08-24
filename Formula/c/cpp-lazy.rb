@@ -1,8 +1,8 @@
 class CppLazy < Formula
   desc "C++11 (and onwards) library for lazy evaluation"
   homepage "https://github.com/Kaaserne/cpp-lazy"
-  url "https://github.com/Kaaserne/cpp-lazy/archive/refs/tags/v9.0.1.tar.gz"
-  sha256 "16cbaf58002ed46d369e8b87df4ac4b1fc47265fdffed0c5009b3ff8c7f013db"
+  url "https://github.com/Kaaserne/cpp-lazy/releases/download/v9.0.1/cpp-lazy-src.zip"
+  sha256 "675fd6a494608e0e2e88fedc9b34c7349c7acbd11aaa07fe30e099cc54acb44d"
   license "MIT"
   head "https://github.com/Kaaserne/cpp-lazy.git", branch: "master"
 

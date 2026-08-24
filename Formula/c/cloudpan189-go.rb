@@ -29,7 +29,7 @@ class Cloudpan189Go < Formula
   def install
     # TODO: remove `-checklinkname=0` workaround when fixed
     # https://github.com/tickstep/cloudpan189-go/issues/101
-    system "go", "build", *std_go_args(ldflags: "-s -w -checklinkname=0")
+    system "go", "build", *std_go_args(ldflags: "-checklinkname=0")
   end
 
   test do

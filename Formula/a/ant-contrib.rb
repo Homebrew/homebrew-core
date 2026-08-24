@@ -36,6 +36,6 @@ class AntContrib < Formula
         </target>
       </project>
     XML
-    system Formula["ant"].opt_bin/"ant"
+    system formula_opt_bin("ant")/"ant"
   end
 end

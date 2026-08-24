@@ -1,18 +1,18 @@
 class Msolve < Formula
   desc "Library for Polynomial System Solving through Algebraic Methods"
   homepage "https://msolve.lip6.fr"
-  url "https://github.com/algebraic-solving/msolve/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "213caf0d0e19447d0adbc3bc946c03ba5054da79495c207b9cd8577fddf86a4c"
+  url "https://github.com/algebraic-solving/msolve/archive/refs/tags/v0.10.1.tar.gz"
+  sha256 "ce0743cc33d1dc8484193268d9220e8624ed015e521903b9228b3b38a5981291"
   license "GPL-2.0-or-later"
   head "https://github.com/algebraic-solving/msolve.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "10270248ca53dbba45c49fa9e79f649845f90fdc76d0bcb84302bc9453e6b96f"
-    sha256 cellar: :any, arm64_sequoia: "a9f53f4cee39f9bf05d2744dfe351aa103bbd889e1561b9dd98dcd79abdb1a5c"
-    sha256 cellar: :any, arm64_sonoma:  "ed66818f6344c8ca648667a09e01dd8f71f35cea26b67b698adcafff10bdcee6"
-    sha256 cellar: :any, sonoma:        "278e5d198b57020323a90bdd4375bbd6415850955a6f52882dfc8e7d70aefda9"
-    sha256 cellar: :any, arm64_linux:   "64c1b5757894df7f871c17b68683f1c9a8d19b29408acc1e24a32766aed3af0c"
-    sha256 cellar: :any, x86_64_linux:  "c68e919956a1fac874534fa75a99aa31565ea09e3071ab3fcbc23bc9138f8a71"
+    sha256 cellar: :any, arm64_tahoe:   "79d6b85a8ca28320a093311fe1130a64f97d3c1f76d9a3a468233cd7896b4057"
+    sha256 cellar: :any, arm64_sequoia: "316c2a38885642417f8bad4e1a73d00682c6f03526ee534caa2ec7ba8755a2c3"
+    sha256 cellar: :any, arm64_sonoma:  "01a30a9ba289f138e5c2a372ab4e085f4e3355bc2d283c89fe5aaceeef70a26c"
+    sha256 cellar: :any, sonoma:        "47fa3b47a0c23b6b95a7b27489e75d7ad76d3e6a9681df1193e2e8bc131baa4e"
+    sha256 cellar: :any, arm64_linux:   "4a0545412f2d460027ae1dedfb04a8695a949aa73feb611c17fc7446149f8731"
+    sha256 cellar: :any, x86_64_linux:  "cafb3f44b92c861a4ddf2eaddd3ace04de7902a9bf2f6127e40fd015e27678a1"
   end
 
   depends_on "autoconf" => :build

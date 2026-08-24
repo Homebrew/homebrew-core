@@ -26,13 +26,24 @@ class SdlGfx < Formula
   depends_on "sdl12-compat"
 
   def install
-    extra_args = []
-    extra_args << "--disable-mmx" if Hardware::CPU.arm?
+    args = ["--disable-sdltest"]
+    args << "--disable-mmx" if Hardware::CPU.arm?
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-sdltest",
-                          *extra_args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <SDL/SDL_imageFilter.h>
+
+      int main()
+      {
+        int mmx = SDL_imageFilterMMXdetect();
+        return 0;
+      }
+    C
+    system ENV.cc, "test.c", "-L#{lib}", "-lSDL_gfx", "-o", "test"
+    system "./test"
   end
 end

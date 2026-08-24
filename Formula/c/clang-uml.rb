@@ -1,24 +1,24 @@
 class ClangUml < Formula
   desc "Customizable automatic UML diagram generator for C++ based on Clang"
   homepage "https://github.com/bkryza/clang-uml"
-  url "https://github.com/bkryza/clang-uml/archive/refs/tags/0.6.2.tar.gz"
-  sha256 "004540c328699f81abebceb33a4661b548ab3a5f74096da2c025b9971b2b17ff"
+  url "https://github.com/bkryza/clang-uml/archive/refs/tags/0.6.3.tar.gz"
+  sha256 "6bd077062761e18881b5d4a300993243c09730f0cda449a9920333db6e1fccdd"
   license "Apache-2.0"
-  revision 3
+  revision 1
   head "https://github.com/bkryza/clang-uml.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "09d6e2f4a448df8604d583726c4bc4fad23804c6cb3cb11bcdb4007ebdf2c71f"
-    sha256 cellar: :any,                 arm64_sequoia: "8596889c658b3b6695bb5cf5be228046eace2abd2677a0d42a0a7da953c18548"
-    sha256 cellar: :any,                 arm64_sonoma:  "a4966abf98faf0a18785840502690082e24e010606ed9ab26476005a858e277d"
-    sha256 cellar: :any,                 sonoma:        "1ae21e3d38f4ed9136b5ce7f36690306581114f09412127ca984ef082e027668"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ac1e9e7930ab31e993181bc157bca9c3492522181d20aa64e1a76afebe66139d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "053e3c88b09c766f03ff7ce0068399201d1e4c5893f5bf4704f343414365e266"
+    sha256 cellar: :any, arm64_tahoe:   "b0973e4c60640441b2437dbf1300330c2edbd15dacd28d91f36fe2002de78dba"
+    sha256 cellar: :any, arm64_sequoia: "b0e81d9d8c5bb4b5132d5a2b7a0c2989ab584a7454dc1a740025a51a64ec22b2"
+    sha256 cellar: :any, arm64_sonoma:  "53ffcb31c0cb681a84dffc177b313fdcd2c5edfbe382916d575d9a64aa20221e"
+    sha256 cellar: :any, sonoma:        "058f3a7265843d4cb03ad3a1297498ac84333c5008680f92ec19aefab854cd12"
+    sha256 cellar: :any, arm64_linux:   "9529b1fa7f299dc8c338c521454a85f5ded7ff321edbea04dc2ea6a0602ffc01"
+    sha256 cellar: :any, x86_64_linux:  "fbd208536d3b5d16849d7ce2dcfbbf2e0b54033b3d5e3ba5b5c6b1edb82f1b86"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "pkgconf" => :build
-  depends_on "llvm@21"
+  depends_on "llvm@22"
   depends_on "yaml-cpp"
 
   def llvm

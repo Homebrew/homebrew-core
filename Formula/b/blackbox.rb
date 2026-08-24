@@ -40,14 +40,14 @@ class Blackbox < Formula
       %commit
     EOS
     begin
-      system Formula["gnupg"].opt_bin/"gpg", "--batch", "--gen-key", "batch.gpg"
+      system formula_opt_bin("gnupg")/"gpg", "--batch", "--gen-key", "batch.gpg"
       system "git", "init"
       system bin/"blackbox_initialize", "yes"
       add_created_key = shell_output("#{bin}/blackbox_addadmin Testing 2>&1")
       assert_match "<testing@foo.bar>", add_created_key
     ensure
-      system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
-      system Formula["gnupg"].opt_bin/"gpgconf", "--homedir", "keyrings/live",
+      system formula_opt_bin("gnupg")/"gpgconf", "--kill", "gpg-agent"
+      system formula_opt_bin("gnupg")/"gpgconf", "--homedir", "keyrings/live",
                                                  "--kill", "gpg-agent"
     end
   end

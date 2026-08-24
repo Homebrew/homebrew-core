@@ -29,8 +29,8 @@ class Dbxml < Formula
 
   # No public bug tracker or mailing list to submit this to, unfortunately.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/2c3abc44ccac26dc8ecf09a8fb6cf33f47b5cfc9/Patches/dbxml/cxx11.patch"
-    sha256 "98d518934072d86c15780f10ceee493ca34bba5bc788fd9db1981a78234b0dc4"
+    file "Patches/dbxml/cxx11.patch"
+    type :unofficial
   end
 
   def install
@@ -45,11 +45,11 @@ class Dbxml < Formula
     end
 
     args = %W[
-      --with-xqilla=#{Formula["xqilla"].opt_prefix}
-      --with-xerces=#{Formula["xerces-c"].opt_prefix}
-      --with-berkeleydb=#{Formula["berkeley-db"].opt_prefix}
+      --with-xqilla=#{formula_opt_prefix("xqilla")}
+      --with-xerces=#{formula_opt_prefix("xerces-c")}
+      --with-berkeleydb=#{formula_opt_prefix("berkeley-db")}
     ]
-    args << "--with-zlib=#{Formula["zlib-ng-compat"].opt_prefix}" unless OS.mac?
+    args << "--with-zlib=#{formula_opt_prefix("zlib-ng-compat")}" unless OS.mac?
     # Help old config scripts identify arm64 linux
     args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm64?
 

@@ -1,19 +1,18 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
-  url "https://download.gnome.org/sources/gjs/1.88/gjs-1.88.0.tar.xz"
-  sha256 "30a0b9f3317e8e60b1896db2903c70e8b0cd33df953c328755803a75191dc453"
+  url "https://download.gnome.org/sources/gjs/1.88/gjs-1.88.1.tar.xz"
+  sha256 "767bab80e665d672cb00563c25f0b392a9ec8c2996ed1d4454c698b4c2f0a3d9"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
   head "https://gitlab.gnome.org/GNOME/gjs.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "5d0a14b4ac86338949a15e5f374e208d38887514075d22f22c144a364dfe8557"
-    sha256 arm64_sequoia: "22f7d9bc15419b48a6fce97f6ff0cc8fec2f2508aa157e887ef01b10d779ee69"
-    sha256 arm64_sonoma:  "c768be21228e57f2837bc9be96b3b10d59438a85c33bb1ef4145b05a772537c4"
-    sha256 sonoma:        "0174fe5ca9ccfd3176d986aed546dbd8cde0b86c717d66213c2d17c55d18cd35"
-    sha256 arm64_linux:   "47c4e9ebbb18242cac5ff5c1b8276c15aa4d77882eb1cf6a94282380af0d4f16"
-    sha256 x86_64_linux:  "500a526ee59d19864fd08b18a441d3e01e2759236928b6e5257697ec4e7a2995"
+    sha256 arm64_tahoe:   "cd60dfefcd32590d2bad0baa7b9e8b62a9ef17ed66b519c1c242aaec870c956d"
+    sha256 arm64_sequoia: "4f56f844683bd3adde37fc5324b0cda2d241015d1b164bcaa41eb63df4f26a88"
+    sha256 arm64_sonoma:  "80a5d74f635a3d6511a242e30aa06a4f580d135ad4ce5cc4a8a8beb02593119e"
+    sha256 sonoma:        "cb10584a8d4f5e23b81e40096e9a1a1b4841d2bf8f097537c23ac5c78eb6ced2"
+    sha256 arm64_linux:   "ed006abd3321b958ba48d5369056af0ae1c1463d0b93c3203bbab158c97fbacc"
+    sha256 x86_64_linux:  "1e0d9a70aebf146c9ac9d0f1b051631d15923f1b70909051b7f65ae4b32db07c"
   end
 
   depends_on "gobject-introspection" => :build # for generate_gir
@@ -38,7 +37,7 @@ class Gjs < Formula
     ENV["DESTDIR"] = "/"
 
     # work around "Failed to load shared library 'libgobject-2.0.0.dylib'"
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: Formula["glib"].opt_lib)}" if OS.mac?
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: formula_opt_lib("glib"))}" if OS.mac?
 
     args = %w[
       -Dprofiler=disabled

@@ -6,18 +6,18 @@ class Iredis < Formula
   url "https://files.pythonhosted.org/packages/24/3c/9d26458a7e1a064f417fbdca8e9c0656c3c1a0afda225bf6ad76c3ff4f70/iredis-1.16.1.tar.gz"
   sha256 "862a67a59e05710cb6547bdff55e3b6801298578f78d39e7fa953424f68793df"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
   head "https://github.com/laixintao/iredis.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f83cdbfeca5c561f00d1849cb9a6effe8a96de0b83f244bcb83d6d03a2a8e8d2"
+    sha256 cellar: :any_skip_relocation, all: "f9a0e893b05e02a102f67c7f886566ba5680cd6042dfa2845bd5eefb8c56a6cf"
   end
 
   depends_on "python@3.14"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
-    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "configobj" do
@@ -26,8 +26,8 @@ class Iredis < Formula
   end
 
   resource "mistune" do
-    url "https://files.pythonhosted.org/packages/ca/84/620cc3f7e3adf6f5067e10f4dbae71295d8f9e16d5d3f9ef97c40f2f592c/mistune-3.2.1.tar.gz"
-    sha256 "7c8e5501d38bac1582e067e46c8343f17d57ea1aaa735823f3aba1fd59c88a28"
+    url "https://files.pythonhosted.org/packages/7b/a5/2dab368d6950e6808904dec98f54c7e726ee7be4a0c6afe00e6e011bd52d/mistune-3.3.3.tar.gz"
+    sha256 "c4c6c0c840b8637a2e9b8b6d607eb7c8f00888bf14c754409bcd339e848c2477"
   end
 
   resource "packaging" do
@@ -51,8 +51,8 @@ class Iredis < Formula
   end
 
   resource "redis" do
-    url "https://files.pythonhosted.org/packages/7b/7f/3759b1d0d72b7c92f0d70ffd9dc962b7b7b5ee74e135f9d7d8ab06b8a318/redis-7.4.0.tar.gz"
-    sha256 "64a6ea7bf567ad43c964d2c30d82853f8df927c5c9017766c55a1d1ed95d18ad"
+    url "https://files.pythonhosted.org/packages/51/93/05e7d4a65285066a74f48697f9b9cde5cfce71398033d69ed83c3d98f5c9/redis-7.4.1.tar.gz"
+    sha256 "1a1df5067062cf7cbe677994e391f8ee0840f499d370f1a71266e0dd3aa9308e"
   end
 
   resource "six" do
@@ -61,8 +61,8 @@ class Iredis < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/2c/ee/afaf0f85a9a18fe47a67f1e4422ed6cf1fe642f0ae0a2f81166231303c52/wcwidth-0.7.0.tar.gz"
-    sha256 "90e3a7ea092341c44b99562e75d09e4d5160fe7a3974c6fb842a101a95e7eed0"
+    url "https://files.pythonhosted.org/packages/34/74/c6428f875774288bec1396f5bfcbc2d925700a4dad61727fd5f2b12f249d/wcwidth-0.8.2.tar.gz"
+    sha256 "91fbef97204b96a3d4d421609b80340b760cf33e26da123ff243d76b1fda8dda"
   end
 
   def install

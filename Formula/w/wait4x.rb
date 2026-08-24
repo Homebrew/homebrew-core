@@ -1,18 +1,17 @@
 class Wait4x < Formula
   desc "Wait for a port or a service to enter the requested state"
   homepage "https://wait4x.dev"
-  url "https://github.com/wait4x/wait4x/archive/refs/tags/v3.6.0.tar.gz"
-  sha256 "5b8e4ceaefd3902cda157aebd01dae76e29d7c93893fba7eacf7eb1a0ef17c27"
+  url "https://github.com/wait4x/wait4x/archive/refs/tags/v3.7.1.tar.gz"
+  sha256 "36b1e0d3e7894ab20d29dfed19ec306c19e94608c2cb1a61ef5084d5127dfca8"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "017b09c350d278a5916f10ed69d2120c43835ce0a7670e37c22c94ad4a4faeeb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "58fd9669cd088fcf3d427ebdde2465d6667e49de0de40387fca77ba3d24e6671"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a3fc7eb786fc3559418a298daaf03037dd0beee74c5bcf72873f54abe933bf74"
-    sha256 cellar: :any_skip_relocation, sonoma:        "743feaa258230868fe79d09e1805c007191ed582976313e274fed1dc65ab24ea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2d012089d4f4b6615ec8cc185bff353f4a5ac192d92d4b4563453dcd5ebf39fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb771083743f1f09be76c98a42da409d1fd11e43055d580b6f5de70ebd42515c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4da6bfdb8a6dc72b8ac91582928f8948ca7cf6f78f8cb79abc255115e5746e04"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "76ee44ccaa3a6e7572a93fafe409ef2a28fa28147551bfaabe0e7da7a9f39d82"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "81d21d37a78296987be49ac49ba3ef618aa89920871402ad4b9977ae3c724ab8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3cbe17c4dccc6bc02b0a32d952a8e20e05aebb4b88b89b60afe0da105a7f3f21"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c554115fa790e91f6c42ba600ac7bac454eb78b1355aec6157150e1d3cf1645"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a94b6e7f58cdb63547b00ab415245f97cdd65c86a588693f06e0f115b053948"
   end
 
   depends_on "go" => :build

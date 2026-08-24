@@ -23,7 +23,7 @@ class Smimesign < Formula
   depends_on :macos
 
   def install
-    ldflags = "-s -w -X main.versionString=#{version}"
+    ldflags = "-X main.versionString=#{version}"
     system "go", "build", *std_go_args(ldflags:)
   end
 

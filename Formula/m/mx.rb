@@ -1,8 +1,8 @@
 class Mx < Formula
   desc "Command-line tool used for the development of Graal projects"
   homepage "https://github.com/graalvm/mx"
-  url "https://github.com/graalvm/mx/archive/refs/tags/7.83.1.tar.gz"
-  sha256 "2ab63914e6c58858fa83f8a7d34a1abdd729c41906a3514e100f62a8dab4da82"
+  url "https://github.com/graalvm/mx/archive/refs/tags/7.85.1.tar.gz"
+  sha256 "475ca3716610e3e98eb4ec4ef0dd9d2a45a089b3344460e802a107ae99cc1f0c"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,7 +11,7 @@ class Mx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b53c979b2fbd33fae40cc2c069339cec15335f9a0ed03360069c6d9f8ead12a3"
+    sha256 cellar: :any_skip_relocation, all: "24721b974551c5ee10947f158c58065e7dfeec1fb6c9e78bda1014b23e48d1bb"
   end
 
   depends_on "openjdk" => [:build, :test]
@@ -19,13 +19,12 @@ class Mx < Formula
 
   def install
     libexec.install Dir["*"]
-    (bin/"mx").write_env_script libexec/"mx", MX_PYTHON: "#{Formula["python@3.14"].opt_libexec}/bin/python"
+    (bin/"mx").write_env_script libexec/"mx", MX_PYTHON: "#{formula_opt_libexec("python@3.14")}/bin/python"
     bash_completion.install libexec/"bash_completion/mx" => "mx"
 
     # Run a simple `mx` command to create required directories inside libexec
     ENV["JAVA_HOME"] = Language::Java.java_home
     ENV.remove "PATH", Superenv.shims_path # avoid ninja shim
-    chmod 0555, bin/"mx"
     system bin/"mx", "version"
   end
 

@@ -39,8 +39,7 @@ class GccAT12 < Formula
   # Branch from the Darwin maintainer of GCC, with a few generic fixes and
   # Apple Silicon support, located at https://github.com/iains/gcc-12-branch
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/8ce16876120a7c9b08682f6128e24aca41ebac60/Patches/gcc/gcc-12.4.0.diff"
-    sha256 "6178f6473bd2c225ed80745834d584e1c3beff9597f5afa982f249efb39ca084"
+    file "Patches/gcc/gcc-12.4.0.diff"
   end
   # Backport commits to build on Sonoma/Sequoia to allow rebottling.
   # TODO: create merged patch if https://github.com/iains/gcc-12-branch is synced to 12.5.0
@@ -48,12 +47,14 @@ class GccAT12 < Formula
     on_macos do
       url "https://github.com/iains/gcc-12-branch/compare/e300c1337a48cf772b09e7136601fd7f9f09d6f1..914cec39148b1c8a697976275629aa8526ea1050.patch"
       sha256 "f622b8fb9d36d679bed2c98adc47c46029d40923646410704eb8e04cd672de96"
+      type :unofficial
     end
   end
   patch do
     on_macos do
       url "https://github.com/iains/gcc-12-branch/compare/f0f9d56ffca2da2cab9af21c0c378ffe4d9cf908...99533d94172ed7a24c0e54c4ea97e6ae2260409e.patch"
       sha256 "7aa45104e32a4fd288a8f3b931848dc5c306d0b295ca28c8bf60a048edd8d2a5"
+      type :unofficial
     end
   end
 
@@ -77,11 +78,11 @@ class GccAT12 < Formula
       --with-gcc-major-version-only
       --enable-languages=#{languages.join(",")}
       --program-suffix=-#{version.major}
-      --with-gmp=#{Formula["gmp"].opt_prefix}
-      --with-mpfr=#{Formula["mpfr"].opt_prefix}
-      --with-mpc=#{Formula["libmpc"].opt_prefix}
-      --with-isl=#{Formula["isl"].opt_prefix}
-      --with-zstd=#{Formula["zstd"].opt_prefix}
+      --with-gmp=#{formula_opt_prefix("gmp")}
+      --with-mpfr=#{formula_opt_prefix("mpfr")}
+      --with-mpc=#{formula_opt_prefix("libmpc")}
+      --with-isl=#{formula_opt_prefix("isl")}
+      --with-zstd=#{formula_opt_prefix("zstd")}
       --with-pkgversion=#{pkgversion}
       --with-bugurl=#{tap.issues_url}
       --with-system-zlib
@@ -92,7 +93,7 @@ class GccAT12 < Formula
       args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
 
       # System headers may not be in /usr/include
-      sdk = MacOS.sdk_path_if_needed
+      sdk = MacOS.sdk_path
       args << "--with-sysroot=#{sdk}" if sdk
 
       # Work around a bug in Xcode 15's new linker (FB13038083)
@@ -112,8 +113,8 @@ class GccAT12 < Formula
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
       inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
-      ENV.append_path "CPATH", Formula["zlib-ng-compat"].opt_include
-      ENV.append_path "LIBRARY_PATH", Formula["zlib-ng-compat"].opt_lib
+      ENV.append_path "CPATH", formula_opt_include("zlib-ng-compat")
+      ENV.append_path "LIBRARY_PATH", formula_opt_lib("zlib-ng-compat")
     end
 
     mkdir "build" do
@@ -150,84 +151,8 @@ class GccAT12 < Formula
     File.rename file, "#{dir}/#{base}-#{suffix}#{ext}"
   end
 
-  def post_install
-    if OS.linux?
-      gcc = bin/"gcc-#{version.major}"
-      libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
-      raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
-
-      glibc = Formula["glibc"]
-      glibc_installed = glibc.any_version_installed?
-
-      # Symlink system crt1.o and friends where gcc can find it.
-      crtdir = if glibc_installed
-        glibc.opt_lib
-      else
-        Pathname.new(Utils.safe_popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
-      end
-      ln_sf Dir[crtdir/"*crt?.o"], libgcc
-
-      # Create the GCC specs file
-      # See https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
-
-      # Locate the specs file
-      specs = libgcc/"specs"
-      ohai "Creating the GCC specs file: #{specs}"
-      specs_orig = Pathname.new("#{specs}.orig")
-      rm([specs_orig, specs].select(&:exist?))
-
-      system_header_dirs = ["#{HOMEBREW_PREFIX}/include"]
-
-      if glibc_installed
-        # https://github.com/Linuxbrew/brew/issues/724
-        system_header_dirs << glibc.opt_include
-      else
-        # Locate the native system header dirs if user uses system glibc
-        target = Utils.safe_popen_read(gcc, "-print-multiarch").chomp
-        raise "command failed: #{gcc} -print-multiarch" if $CHILD_STATUS.exitstatus.nonzero?
-
-        system_header_dirs += ["/usr/include/#{target}", "/usr/include"]
-      end
-
-      # Save a backup of the default specs file
-      specs_string = Utils.safe_popen_read(gcc, "-dumpspecs")
-      raise "command failed: #{gcc} -dumpspecs" if $CHILD_STATUS.exitstatus.nonzero?
-
-      specs_orig.write specs_string
-
-      # Set the library search path
-      # For include path:
-      #   * `-isysroot #{HOMEBREW_PREFIX}/nonexistent` prevents gcc searching built-in
-      #     system header files.
-      #   * `-idirafter <dir>` instructs gcc to search system header
-      #     files after gcc internal header files.
-      # For libraries:
-      #   * `-nostdlib -L#{libgcc} -L#{glibc.opt_lib}` instructs gcc to use
-      #     brewed glibc if applied.
-      #   * `-L#{libdir}` instructs gcc to find the corresponding gcc
-      #     libraries. It is essential if there are multiple brewed gcc
-      #     with different versions installed.
-      #     Noted that it should only be passed for the `gcc@*` formulae.
-      #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
-      #     brew libraries.
-      # Note: *link will silently add #{libdir} first to the RPATH
-      libdir = HOMEBREW_PREFIX/"lib/gcc/#{version.major}"
-      specs.write specs_string + <<~EOS
-        *cpp_unique_options:
-        + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
-
-        *link_libgcc:
-        #{glibc_installed ? "-nostdlib -L#{libgcc} -L#{glibc.opt_lib}" : "+"} -L#{libdir} -L#{HOMEBREW_PREFIX}/lib
-
-        *link:
-        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir}
-
-        *homebrew_rpath:
-        -rpath #{HOMEBREW_PREFIX}/lib
-
-      EOS
-      inreplace(specs, " %o ", "\\0%(homebrew_rpath) ")
-    end
+  post_install_steps do
+    configure_gcc_runtime
   end
 
   test do

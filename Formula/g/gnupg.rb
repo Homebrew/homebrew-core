@@ -1,8 +1,8 @@
 class Gnupg < Formula
   desc "GNU Privacy Guard (OpenPGP)"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.5.20.tar.bz2"
-  sha256 "6461266e99c308419a379abe6c356d54c214136c4589bd65951091138989ffc6"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.5.21.tar.bz2"
+  sha256 "e3af2c8caa46a66a9329fa7c6880af260451914d819595beabc2c26597b31352"
   license "GPL-3.0-or-later"
   compatibility_version 1
 
@@ -18,12 +18,12 @@ class Gnupg < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "97b693dac83b61c9e6e3ec51c2a2dd8e22c70cd51e50aa334bfc64b693005839"
-    sha256 arm64_sequoia: "3af7e31aa9d7b338fb5d5829452b66fa303f5914fcb1a974106107a8fa1915e4"
-    sha256 arm64_sonoma:  "2fbb4e6a008b159b9733e7e374aaab0d84f94c9d813703a880a04e6f345e24db"
-    sha256 sonoma:        "4bcfb0d2cae7c2135fa9049731e2b838b27ba40e2634bba417f5dedd89f6b448"
-    sha256 arm64_linux:   "171fa43da17a222d11cd0c3d826604335df0fe831c6151047ce669f4b2580366"
-    sha256 x86_64_linux:  "8968cbe8875ec54539111c9b25e1aff019f72d0ac942f151a7ed4419ad2214d5"
+    sha256 arm64_tahoe:   "77a293d5ac76a99d7ca1fca4d57860bd76bb25b3c334b2504fc9b7fc145f1502"
+    sha256 arm64_sequoia: "8583235dd83654392b878f06833405b8bac255fb5f96c942259b1efd206b0ae8"
+    sha256 arm64_sonoma:  "d5148b6ad728f3f6a5660d17cc33d1a47def81f34a738dcd6667b12b520b42c1"
+    sha256 sonoma:        "b8da334b8bc5df2deecededfbcdf725b44a9dddfd344051ad7dcb8c1eb1d2046"
+    sha256 arm64_linux:   "bf5ac44775f2c6f6c67f31cd2bb10a35d780e484f386442b479a80f08257de99"
+    sha256 x86_64_linux:  "2dd827488b6c6b1927cf5be2eb70638e0e59ad34ba9db3e9aaaca866c4ed3c29"
   end
 
   depends_on "pkgconf" => :build
@@ -62,8 +62,8 @@ class Gnupg < Formula
       system "../configure", "--disable-silent-rules",
                              "--enable-all-tests",
                              "--sysconfdir=#{etc}",
-                             "--with-pinentry-pgm=#{Formula["pinentry"].opt_bin}/pinentry",
-                             "--with-readline=#{Formula["readline"].opt_prefix}",
+                             "--with-pinentry-pgm=#{formula_opt_bin("pinentry")}/pinentry",
+                             "--with-readline=#{formula_opt_prefix("readline")}",
                              *std_configure_args
       system "make"
       system "make", "check"
@@ -81,9 +81,9 @@ class Gnupg < Formula
     end
   end
 
-  def post_install
-    (var/"run").mkpath
-    quiet_system "killall", "gpg-agent"
+  post_install_steps do
+    mkdir_p "run", base: :var
+    terminate_process "gpg-agent", must_succeed: false
   end
 
   test do

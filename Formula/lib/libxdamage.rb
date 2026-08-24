@@ -1,7 +1,7 @@
 class Libxdamage < Formula
   desc "X.Org: X Damage Extension library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXdamage-1.1.7.tar.xz"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libXdamage-1.1.7.tar.xz"
   sha256 "127067f521d3ee467b97bcb145aeba1078e2454d448e8748eb984d5b397bde24"
   license "MIT"
 

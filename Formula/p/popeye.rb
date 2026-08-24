@@ -19,7 +19,6 @@ class Popeye < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/derailed/popeye/cmd.version=#{version}
       -X github.com/derailed/popeye/cmd.commit=#{tap.user}
       -X github.com/derailed/popeye/cmd.date=#{time.iso8601}

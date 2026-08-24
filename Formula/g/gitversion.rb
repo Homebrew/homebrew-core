@@ -1,19 +1,19 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://gitversion.net/docs/"
-  url "https://github.com/GitTools/GitVersion/archive/refs/tags/6.7.0.tar.gz"
-  sha256 "8e1dc9d5d1a3dd0458893f18cd9d0890d069f3d19126977fdac738ace39a7747"
+  url "https://github.com/GitTools/GitVersion/archive/refs/tags/6.8.2.tar.gz"
+  sha256 "02b7efc0b9cfee26971c0f89b27724eb51d33c3230788963e77dc94070173c21"
   license "MIT"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bbfe0b04de824a2194d870db449fb42678a81e7476a28bb8e973ac179ff7fa6e"
-    sha256 cellar: :any,                 arm64_sequoia: "80b8d5e429bfff54917e3de8996ec80d7eb72a2f5b1cac60f7246d450d538500"
-    sha256 cellar: :any,                 arm64_sonoma:  "053005c2bfab0bbb2358b5b5ac4a1fe62f268b16d0a4576efbcc71a82322944f"
-    sha256 cellar: :any,                 sonoma:        "424f3fd7d9716e4ee6b1eb695c234fddcfa7eed1928b61652c99eb1640fb01ea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3a4c45fc6bb92cbdbbb0d6d7727bd767a931f8fed8edcba087ec3f9b0595f94d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8af97fe84db6f4dc3c9a436646af2eba1bb2575995bbd095a3338a16739caa6d"
+    sha256 cellar: :any, arm64_tahoe:   "2125213b57952276cb8061484e008859ad0657a8bba56dd312ec6400c771b482"
+    sha256 cellar: :any, arm64_sequoia: "0bf4cd2cd05aba7af483e41ff29468133f2a94a98fb1a74d5750252cc61ec285"
+    sha256 cellar: :any, arm64_sonoma:  "e3508fdfa8135122614d0ac7cb5facc9adab96253ca742f60d31b25a1092d257"
+    sha256 cellar: :any, sonoma:        "595228141204dfb9ee0c78852290f8c8bae44fc776e308d7f6702a61b48769c0"
+    sha256 cellar: :any, arm64_linux:   "bf2329ef9f28eda35385d77f101d0c4ac475b6d7d8894a05f8685cc032bf9d48"
+    sha256 cellar: :any, x86_64_linux:  "caf15de5aeb5ed923dfff139899257411c0eb81fa5435ee28750ba1544130a96"
   end
 
   depends_on "dotnet"
@@ -40,7 +40,7 @@ class Gitversion < Formula
     system "dotnet", "publish", "src/GitVersion.App/GitVersion.App.csproj", *args
     env = { DOTNET_ROOT: "${DOTNET_ROOT:-#{dotnet.opt_libexec}}" }
     # Ensure OpenSSL is available for cryptography operations on Linux
-    env["LD_LIBRARY_PATH"] = "#{Formula["openssl"].opt_lib}:$LD_LIBRARY_PATH" if OS.linux?
+    env["LD_LIBRARY_PATH"] = "#{formula_opt_lib("openssl")}:$LD_LIBRARY_PATH" if OS.linux?
     (bin/"gitversion").write_env_script libexec/"gitversion", env
   end
 

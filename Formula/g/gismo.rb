@@ -41,16 +41,16 @@ class Gismo < Formula
     args = %W[
       -DGISMO_BUILD_EXAMPLES=OFF
       -DBLA_VENDOR=OpenBLAS
-      -DSUPERLUDIR=#{Formula["superlu"].opt_prefix}
+      -DSUPERLUDIR=#{formula_opt_prefix("superlu")}
       -DGISMO_WITH_SUPERLU=ON
-      -DUMFPACKDIR=#{Formula["suite-sparse"].opt_prefix}
+      -DUMFPACKDIR=#{formula_opt_prefix("suite-sparse")}
       -DGISMO_WITH_UMFPACK=ON
       -DGISMO_WITH_OPENMP=ON
       -DTARGET_ARCHITECTURE=none
     ]
 
     # Tweak clang to compile OpenMP parallelized source code
-    args << "-DOpenMP_CXX_FLAGS=-Xpreprocessor -fopenmp -I#{Formula["libomp"].opt_include}" if OS.mac?
+    args << "-DOpenMP_CXX_FLAGS=-Xpreprocessor -fopenmp -I#{formula_opt_include("libomp")}" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
     system "cmake", "--build", "build"

@@ -1,7 +1,7 @@
 class Libxaw < Formula
   desc "X.Org: X Athena Widget Set"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXaw-1.0.16.tar.xz"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libXaw-1.0.16.tar.xz"
   sha256 "731d572b54c708f81e197a6afa8016918e2e06dfd3025e066ca642a5b8c39c8f"
   license all_of: [
     "MIT-open-group",    # "The Open Group"
@@ -37,6 +37,8 @@ class Libxaw < Formula
     on_macos do
       url "https://gitlab.freedesktop.org/xorg/lib/libxaw/-/commit/cce2abf00fa2c9a695f1d0e5c931c70c1ba579cf.diff"
       sha256 "64bfebc3fcb788582abbf2589514e64b3fa62457089c77e644177f1c0a80c10f"
+      type :backport
+      resolves "https://gitlab.freedesktop.org/xorg/lib/libxaw/-/merge_requests/33"
     end
   end
 

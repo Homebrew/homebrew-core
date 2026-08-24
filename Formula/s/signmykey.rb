@@ -19,10 +19,7 @@ class Signmykey < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/signmykeyio/signmykey/cmd.versionString=#{version}
-    ]
+    ldflags = %W[-X github.com/signmykeyio/signmykey/cmd.versionString=#{version}]
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"signmykey", shell_parameter_format: :cobra)

@@ -3,32 +3,22 @@ class Gersemi < Formula
 
   desc "Formatter to make your CMake code the real treasure"
   homepage "https://github.com/BlankSpruce/gersemi"
-  url "https://files.pythonhosted.org/packages/01/45/93f06bcc8fd631e50875ae70c542de7a46e6a06b9e19f39fb903b61e8ac8/gersemi-0.27.7.tar.gz"
-  sha256 "f598d62bd2bee0b6cbfc4e71f82c86f768ab31d135a312585fabbd7e57b64e09"
+  url "https://files.pythonhosted.org/packages/24/e8/089e6b68a3640ca8e16ec99280a4f1b3504865d04f00179b0a1b58d64b43/gersemi-0.28.1.tar.gz"
+  sha256 "a05086e4b975fd784d562b8053ddd96340cdc64ca092cc63a77c3e6be5a2c43f"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "40f514ed646f3bf4011cfb96147ddc9cb28082abf22570852f721d6318ebf8fd"
-    sha256 cellar: :any,                 arm64_sequoia: "a3a38b689dc042b47791b588bcba5a0448ef5c4890c052397de5a5f3d35adcf8"
-    sha256 cellar: :any,                 arm64_sonoma:  "57bafcf2c4fe5ec9c02ced9efcce5b2f8c62f67c7698ac5361340b427adec6df"
-    sha256 cellar: :any,                 sonoma:        "9bc9bb2a19cabc5c012e66248b0a8c8a2bb13af7255b713498b8eab71de6fd99"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2eef01191c2f4bd8de66b0375069d379051efd53eaa25c847b4cfff864ddd09e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d94f56fb57bb2ca8b7352b835a2a20b01860bde387f519b4353a22da8ed5da1c"
+    sha256 cellar: :any, arm64_tahoe:   "9f6ed0fbd6e98d100079f24715f3985cdd660f976a2c472f7de8e394a21f6833"
+    sha256 cellar: :any, arm64_sequoia: "61d8d2c16fa995becf416e58abc49f05e65bf9786aa17e1a09a122d334cfe009"
+    sha256 cellar: :any, arm64_sonoma:  "5c548f75e248cd9dba5910cd3ba7b27fd5a1a027a2094d2aa1242f87b7f403b3"
+    sha256 cellar: :any, sonoma:        "4ec361fb3fc1c0d74de401307a64cbd51cdbc92acfa48da68f533a09254adf3d"
+    sha256 cellar: :any, arm64_linux:   "19de9cd79a606ddf7ed17629839f04b4ebd4594a99b77a7228e274a0aebbdccc"
+    sha256 cellar: :any, x86_64_linux:  "b4f165b6440befe7195eeab580636cc152cf4d190df9fc65839a4f808352a472"
   end
 
   depends_on "rust" => :build
   depends_on "libyaml"
   depends_on "python@3.14"
-
-  resource "ignore-python" do
-    url "https://files.pythonhosted.org/packages/f4/4a/37928a560a345c6efb207452cf81d3c14f25a6d83df0fa5a00752c0c912b/ignore_python-0.3.3.tar.gz"
-    sha256 "dc80ac80ace112da6d02f44681b6beb2ccecb68d6ac2b5e1b82d7f84347e1cf6"
-  end
-
-  resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/9f/4a/0883b8e3802965322523f0b200ecf33d31f10991d0401162f4b23c698b42/platformdirs-4.9.6.tar.gz"
-    sha256 "3bfa75b0ad0db84096ae777218481852c0ebc6c727b3168c1b9e0118e458cf0a"
-  end
 
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"

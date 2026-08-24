@@ -3,17 +3,17 @@ class Apprise < Formula
 
   desc "Send notifications from the command-line to popular notification services"
   homepage "https://pypi.org/project/apprise/"
-  url "https://files.pythonhosted.org/packages/a8/f8/83f4e2aaaa0342dc67f783bf84427d9ff5cfa4ecde3a52d9b587740a91ee/apprise-1.11.0.tar.gz"
-  sha256 "3b1e6f5365b302d1fae270c0c8007958e54224b9b7808acec69006ea27f5b8a2"
+  url "https://files.pythonhosted.org/packages/0c/36/80a0e7f99f59902ca5a30051c2034938dc9387eeca7d78f750fb1585c890/apprise-1.13.0.tar.gz"
+  sha256 "9a56964bf3ca004b3e0db98ab8a8d87fad051d8edb377bc166dc4be826666c81"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "e83eaf381d97317610cee20482b7298fe7ed1c752a8f5ad538a31806803e54ef"
-    sha256 cellar: :any, arm64_sequoia: "a18d28aa001fa6754914d30b2b72f67b400c6b6555c8e3c792de276aaa2ac3ff"
-    sha256 cellar: :any, arm64_sonoma:  "2e2acf535628eef8a746b80753df70680e88707827c3dcc7c2ad6d8c9e602065"
-    sha256 cellar: :any, sonoma:        "69580d263a44cf450ca4c2a89824a28017d75a004d5aea28afefd8f93ddcd4a3"
-    sha256 cellar: :any, arm64_linux:   "8374d8c21c5ab599643ba2e6937a3296ae618514eb255e12ba54c4f17396eaa2"
-    sha256 cellar: :any, x86_64_linux:  "d5c183c47ed152dc58225520ba14eb252c95db378001b5cb0c3d4a786561737f"
+    sha256 cellar: :any, arm64_tahoe:   "6cd605b8cea76047c0074db0e665c83c9ab18ecb03b01d7a5957c7d1b08483ad"
+    sha256 cellar: :any, arm64_sequoia: "a0b95e9e3588d0297d91e0775247e1ea7a166ab6ca20dd7c9fba30f0f0b91271"
+    sha256 cellar: :any, arm64_sonoma:  "99396646b30eaf313fa701c85298ff4b65c682e2a1a9b54327f50e5cf42c6895"
+    sha256 cellar: :any, sonoma:        "15c5a3c1363f526a7598a79160a6ea0ffaf9d9d05854aa78b75dac81a98bf86d"
+    sha256 cellar: :any, arm64_linux:   "ec725af982ffa9012ec743ef55ca13d1a936f89e102b1717d4622f6fc6ba1ccf"
+    sha256 cellar: :any, x86_64_linux:  "cae4a5e8d4d073d8896dd3798586a2b9e74c3cbd15565a741aa9ed5ebab96a86"
   end
 
   depends_on "certifi"
@@ -23,23 +23,23 @@ class Apprise < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
+    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/b9/28/99c51f664567218d824af024c0251650fb27e4ca066df188dab0769c5b91/idna-3.17.tar.gz"
-    sha256 "5eb0cb53bc467c12eadcf6de83163ad8527cec9416f44b9b61b19caedad2b87f"
+    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
+    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/2b/f4/69fa6ed85ae003c2378ffa8f6d2e3234662abd02c10d216c0ba96081a238/markdown-3.10.2.tar.gz"
-    sha256 "994d51325d25ad8aa7ce4ebaec003febcce822c3f8c911e3b17c52f7f589f950"
+    url "https://files.pythonhosted.org/packages/29/6f/da4c6aea59b3001f2e8c0ec7497475aadaf3b021c10cab5b2858f0f32b26/markdown-3.10.3.tar.gz"
+    sha256 "3589362618f743188b4d955b874402bc814f4f83f544dc207719f4baa7d9c45f"
   end
 
   resource "oauthlib" do

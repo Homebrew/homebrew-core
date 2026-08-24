@@ -16,18 +16,26 @@ class Io < Formula
         patch do
           url "https://github.com/IoLanguage/io/commit/27d3900e8a88d0ee45773666a5a257ca735eb0b0.patch?full_index=1"
           sha256 "937ba88cecf017b19791b13e8f721060b91af319ba753463b40353a56d6fa99d"
+          type :backport
+          resolves "https://github.com/IoLanguage/io/pull/360"
         end
         patch do
           url "https://github.com/IoLanguage/io/commit/27e87f614992df745d894b5190c95180baf9cf4b.patch?full_index=1"
           sha256 "142761908bc1cb2e04c442e1d97397f39b063d64d10079750b396316280ccf7e"
+          type :backport
+          resolves "https://github.com/IoLanguage/io/pull/366"
         end
         patch do
           url "https://github.com/IoLanguage/io/commit/72c8a7ec1e0711ba54754b17def08e3fdcea4f66.patch?full_index=1"
           sha256 "634ded26ac1e1015ec1ece869c7311ec1db7639b6c6bfb976f74c7617c7b417f"
+          type :backport
+          resolves "https://github.com/IoLanguage/io/pull/384"
         end
         patch do
           url "https://github.com/IoLanguage/io/commit/b200c7f0e0f899a19d576852e931badb542f37a7.patch?full_index=1"
           sha256 "85f942c3b25238ab722d26944ff2c11d8e55cd6c3d4373e8121c2a31d1fe1fd5"
+          type :backport
+          resolves "https://github.com/IoLanguage/io/pull/471"
         end
 
         # Backport some clang-format whitespace changes from
@@ -38,6 +46,8 @@ class Io < Formula
         patch do
           url "https://github.com/IoLanguage/io/commit/bb5fa48fc272e0e8febda40c0f9f6c85cd788a60.patch?full_index=1"
           sha256 "b6f1100606dc2539abdd0707fe6a578cd7e462db7f70d192a9613860e67bf760"
+          type :backport
+          resolves "https://github.com/IoLanguage/io/pull/476"
         end
       end
     end
@@ -46,12 +56,16 @@ class Io < Formula
     patch do
       url "https://github.com/IoLanguage/io/commit/92fe8304c55b84a17b0624613a7006e85a0128a2.patch?full_index=1"
       sha256 "183367979123123671fcd076aba3820ed20066add66725211a396eb5c621a6c6"
+      type :backport
+      resolves "https://github.com/IoLanguage/io/pull/359"
     end
 
     # build patch for sysctl.h as glibc 2.32 removed <sys/sysctl.h>
     patch do
       url "https://github.com/IoLanguage/io/commit/9f3e4d87b6d4c1bf583134d55d1cf92d3464c49f.patch?full_index=1"
       sha256 "2ee70f5e61d1b798bea172fb357381c7781eecd465714de7ad56c56fd89f5c1c"
+      type :backport
+      resolves "https://github.com/IoLanguage/io/pull/446"
     end
   end
 

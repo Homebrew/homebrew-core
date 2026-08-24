@@ -32,11 +32,15 @@ class Ykpers < Formula
   patch do
     url "https://github.com/Yubico/yubikey-personalization/commit/0aa2e2cae2e1777863993a10c809bb50f4cde7f8.patch?full_index=1"
     sha256 "349064c582689087ad1f092e95520421562c70ff4a45e411e86878b63cf8f8bd"
+    type :backport
+    resolves "https://github.com/Yubico/yubikey-personalization/pull/159"
   end
   # Fix device access issues on macOS Catalina and later. Remove with the next release.
   patch do
     url "https://github.com/Yubico/yubikey-personalization/commit/7ee7b1131dd7c64848cbb6e459185f29e7ae1502.patch?full_index=1"
     sha256 "bf3efe66c3ef10a576400534c54fc7bf68e90d79332f7f4d99ef7c1286267d22"
+    type :backport
+    resolves "https://github.com/Yubico/yubikey-personalization/pull/165"
   end
 
   def install
@@ -45,7 +49,7 @@ class Ykpers < Formula
 
     args = %W[
       --disable-silent-rules
-      --with-libyubikey-prefix=#{Formula["libyubikey"].opt_prefix}
+      --with-libyubikey-prefix=#{formula_opt_prefix("libyubikey")}
     ]
     args << if OS.mac?
       "--with-backend=osx"

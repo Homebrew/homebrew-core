@@ -1,8 +1,8 @@
 class CodeCli < Formula
   desc "Command-line interface built-in Visual Studio Code"
   homepage "https://code.visualstudio.com"
-  url "https://github.com/microsoft/vscode/archive/refs/tags/1.125.0.tar.gz"
-  sha256 "6fa57b17a1860c2d17e46a64273991069fddb1057e98f51690496a0abddda5e0"
+  url "https://github.com/microsoft/vscode/archive/refs/tags/1.134.0.tar.gz"
+  sha256 "aadbaa0830a4e0bbb4224f590cef9bdb5e0c3378a278bca51d0ffe71948fdd35"
   license "MIT"
   head "https://github.com/microsoft/vscode.git", branch: "main"
 
@@ -12,12 +12,12 @@ class CodeCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "e39a17ef3df9b14a03a9b591cd8b64015a1e0544c265199f9527d343dbf1ebaf"
-    sha256 cellar: :any, arm64_sequoia: "f55220a3739c59fd02ba499582af2debca83b43af3af8df9dfaa2cc349cfe0bc"
-    sha256 cellar: :any, arm64_sonoma:  "908b5d7f6a30076e5be23e859125b6773aa85fe563434f8cac5ab143b3efa46d"
-    sha256 cellar: :any, sonoma:        "05bcf75da507d8b03b6e391a0c0af32353276fd56ef621a516dc3a7793a3766d"
-    sha256 cellar: :any, arm64_linux:   "89935c6d031a6fd5ae978a1c98381bf1212df12f54d422bd64b465afe2c1617c"
-    sha256 cellar: :any, x86_64_linux:  "4feb13cbefd2c7f5d92806c548cb29664865bbc329967dc37529df508dcc2129"
+    sha256 cellar: :any, arm64_tahoe:   "b72f55788f15e5c70c0539914f7a8f651743b77ccf8a3c1f8bf4e42394f1f366"
+    sha256 cellar: :any, arm64_sequoia: "a1d986577cd99b8bb443959992e20013e56cc0accfb50dd0991796edd096ddda"
+    sha256 cellar: :any, arm64_sonoma:  "58cc9c987731b1f13496e9978fc199fa2c694d0ac13ea1faf02345e605f538ee"
+    sha256 cellar: :any, sonoma:        "3fd7d0b7c56272d7e4602da5e71796a6c7b540956625406868a7cd4f6f0612ac"
+    sha256 cellar: :any, arm64_linux:   "65734db137136466afce44903cac3a91f8374da4bf46e01761b005c93b78c1f4"
+    sha256 cellar: :any, x86_64_linux:  "a6c9052a925acb78afa38db4c8f22cc6b86ed4baca8e03cfa0f8d66d085e8ea0"
   end
 
   depends_on "pkgconf" => :build
@@ -38,7 +38,10 @@ class CodeCli < Formula
     ENV["OPENSSL_DIR"] = openssl.opt_prefix
 
     ENV["VSCODE_CLI_NAME_LONG"] = "Code OSS"
-    ENV["VSCODE_CLI_VERSION"] = version
+
+    # The 1.134.0 tag was cut after `package.json` was bumped to the next release.
+    odie "Check if the `package.json` rewrite is still needed!" if build.stable? && version > "1.134.0"
+    inreplace "package.json", /"version": "[^"]*"/, "\"version\": \"#{version}\""
 
     cd "cli" do
       system "cargo", "install", *std_cargo_args

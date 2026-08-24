@@ -1,25 +1,25 @@
 class Dockerize < Formula
   desc "Utility to simplify running applications in docker containers"
   homepage "https://github.com/jwilder/dockerize"
-  url "https://github.com/jwilder/dockerize/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "152d612550d932167a5a4d87dae828a2433222b75fdd02617c0baf907637ccd7"
+  url "https://github.com/jwilder/dockerize/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "1e5b0dfe177d96574f43d03057572d853a3d11f64c46eebd01a7e9434ad933b1"
   license "MIT"
   head "https://github.com/jwilder/dockerize.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "22e025a1e437cb4eada2675b1377a106e7c13d6c7d30f8cc5de98fea5844c0e6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "22e025a1e437cb4eada2675b1377a106e7c13d6c7d30f8cc5de98fea5844c0e6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22e025a1e437cb4eada2675b1377a106e7c13d6c7d30f8cc5de98fea5844c0e6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fe8d0675a5edefa1564d2ecd566824f19baef3b4be3dae955a2051565c9f8e0d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a5a7c04bc046ed8d03eb8c9d90266f4cfa7638be708fe9e9189687ca74c4825"
-    sha256 cellar: :any,                 x86_64_linux:  "fba1ac8bcd9e25b2cd3964589320d7dde2c68e074fff63bb3ca2ee4a35b341d7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cb7664884e286907024b0442d642bfe3eb9779810b06d20bc97c24d888049dcc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cb7664884e286907024b0442d642bfe3eb9779810b06d20bc97c24d888049dcc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb7664884e286907024b0442d642bfe3eb9779810b06d20bc97c24d888049dcc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2f1f422d9b0ccf94052bfea259e9671975d40655350ca4e274c149ddf6ceb1d4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fec1e0ddbfb6824e17d2d8f6bff5c5baf2fd86c3e3530015dff63c251c359f2f"
+    sha256 cellar: :any,                 x86_64_linux:  "971b610f4fd5e7e61fa2364f588b4a552cb058d0fe33f0ccf940691c01e0b914"
   end
 
   depends_on "go" => :build
   conflicts_with "powerman-dockerize", because: "powerman-dockerize and dockerize install conflicting executables"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.buildVersion=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.buildVersion=#{version}")
   end
 
   test do

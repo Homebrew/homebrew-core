@@ -33,7 +33,7 @@ class PyenvVirtualenv < Formula
     system "./install.sh"
 
     # macOS Big Sur and earlier do not support `readlink -f`
-    inreplace bin/"pyenv-virtualenv-prefix", "readlink", "#{Formula["coreutils"].opt_bin}/greadlink" if OS.mac?
+    inreplace bin/"pyenv-virtualenv-prefix", "readlink", "#{formula_opt_bin("coreutils")}/greadlink" if OS.mac?
   end
 
   test do

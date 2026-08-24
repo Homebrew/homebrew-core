@@ -1,24 +1,24 @@
 class FluidSynth < Formula
   desc "Real-time software synthesizer based on the SoundFont 2 specs"
   homepage "https://www.fluidsynth.org"
-  url "https://github.com/FluidSynth/fluidsynth/archive/refs/tags/v2.5.5.tar.gz"
-  sha256 "0827eefc06f66157c332d7bd0d65ee81be5d4c795f214db7ba0e1c70ee394430"
+  url "https://github.com/FluidSynth/fluidsynth/archive/refs/tags/v2.6.0.tar.gz"
+  sha256 "6d17570ea2086dd6fbcac995465773a6f316e689089b7fb7ba0b34c2ec6f680d"
   license "LGPL-2.1-or-later"
   compatibility_version 1
   head "https://github.com/FluidSynth/fluidsynth.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "99df367d3acfb2e27dba8cd01582037ee8165ff8cd34cc25ba059577e7803998"
-    sha256 cellar: :any, arm64_sequoia: "156b07821ee19f5e5cb139183be06f2621751cecf3eda9190b96f71ae634a2e6"
-    sha256 cellar: :any, arm64_sonoma:  "61b9ac5be2a566a46dcbb5be46800d451740950967a6ba6f0740b4eccbc79c58"
-    sha256 cellar: :any, sonoma:        "3398123e73af7ff9cede52f6783bed6bbdfc8c47996bbc7275a9fd62800dd8d3"
-    sha256 cellar: :any, arm64_linux:   "70ea877f622cf6b453bd2d5d74550e8b752044f7777d35d265beedc0c5af55c3"
-    sha256 cellar: :any, x86_64_linux:  "e34688e7ad835c2afe717e0b260ed9db7ac9aac405f7b003d1c67d36bba33506"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "d8b747a9ff97a161f4070893f4696b0b38d97b4df330cbc65a928310d59db070"
+    sha256 cellar: :any, arm64_sequoia: "a4e9f7ee53c7686e9754f9cda183fd3c0c67016066fe94d5d95e51dbcf55e347"
+    sha256 cellar: :any, arm64_sonoma:  "2117d00c6144072495f32a990651eb26c6035cb9997d31485e47771208623f79"
+    sha256 cellar: :any, sonoma:        "fde767271878df2ac852e8441e21c4bc6fd50a38ce6498c3be2b90c64d625d48"
+    sha256 cellar: :any, arm64_linux:   "f75a056938d32df69fce52ab30269a10e246c62446563459925c50f72bb719e6"
+    sha256 cellar: :any, x86_64_linux:  "aca3051684229e9c139c1d3f01e685de2931d2ef82029d0fb63747ed84a25616"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "glib"
   depends_on "libsndfile"
   depends_on "readline"
 
@@ -42,7 +42,6 @@ class FluidSynth < Formula
       -Denable-coverage=OFF
       -Denable-coreaudio=#{OS.mac?}
       -Denable-coremidi=#{OS.mac?}
-      -Denable-dart=OFF
       -Denable-dbus=OFF
       -Denable-dsound=OFF
       -Denable-floats=OFF
@@ -51,8 +50,6 @@ class FluidSynth < Formula
       -Denable-ipv6=ON
       -Denable-jack=#{OS.linux?}
       -Denable-ladspa=OFF
-      -Denable-lash=OFF
-      -Denable-libinstpatch=OFF
       -Denable-libsndfile=ON
       -Denable-midishare=OFF
       -Denable-network=ON
@@ -65,7 +62,7 @@ class FluidSynth < Formula
       -Denable-profiling=OFF
       -Denable-pulseaudio=#{OS.linux?}
       -Denable-readline=ON
-      -Denable-sdl2=OFF
+      -Denable-sdl3=OFF
       -Denable-systemd=#{OS.linux?}
       -Denable-trap-on-fpe=OFF
       -Denable-threads=ON
@@ -82,16 +79,12 @@ class FluidSynth < Formula
     if OS.mac?
       inreplace "build/fluidsynth.pc",
                 "readline",
-                "#{Formula["readline"].opt_lib}/pkgconfig/readline.pc"
+                "#{formula_opt_lib("readline")}/pkgconfig/readline.pc"
     end
 
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "sf2"
-
-    system "cmake", "-S", ".", "-B", "static", *args, *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
-    system "cmake", "--build", "static"
-    lib.install "static/src/libfluidsynth.a"
   end
 
   test do

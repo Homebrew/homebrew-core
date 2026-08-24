@@ -1,8 +1,8 @@
 class Ripgrep < Formula
   desc "Search tool like grep and The Silver Searcher"
   homepage "https://github.com/BurntSushi/ripgrep"
-  url "https://github.com/BurntSushi/ripgrep/archive/refs/tags/15.1.0.tar.gz"
-  sha256 "046fa01a216793b8bd2750f9d68d4ad43986eb9c0d6122600f993906012972e8"
+  url "https://github.com/BurntSushi/ripgrep/archive/refs/tags/15.2.0.tar.gz"
+  sha256 "7605249d3eb0d5f170e3414498e3344e26b1e7a147aec518b57090b80036a562"
   license "Unlicense"
   compatibility_version 1
   head "https://github.com/BurntSushi/ripgrep.git", branch: "master"
@@ -13,12 +13,12 @@ class Ripgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f4dc761b07edb8e6438b618d22f7e57252903e2f2b973e2c7aa0da518fc374b9"
-    sha256 cellar: :any,                 arm64_sequoia: "0153b06af62b4b8c6ed3f2756dcc4859f74a6128a286f976740468229265cfbe"
-    sha256 cellar: :any,                 arm64_sonoma:  "d9c83b35f30d48925b8c573afa83ec32b10aaca8f247bc938650a838d188c5df"
-    sha256 cellar: :any,                 sonoma:        "ab382b4ae86aba1b7e6acab3bc50eb64be7bb08cf33a37a32987edb8bc6affe4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bbdef955d5752e53473be06b698c45ce31682cd47d75e7c706365450bd08ff44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "349bc55db5ad4b4e8935b889d44c745ae23605c1d57d6eb639dbd5c86d573a88"
+    sha256 cellar: :any, arm64_tahoe:   "70d2dd4c77e3095797b768a1b6c1d092a1ef6db5ba81b38b422920b7b87c9886"
+    sha256 cellar: :any, arm64_sequoia: "aa54bb41d674d2872cd1586f4a71b9a712ab20dc5e80b58d464bb64462732fcc"
+    sha256 cellar: :any, arm64_sonoma:  "24ec18fde1c3dee7cd9646a67b92642bb3ee3f33ee4bdabbb27e03feb742b0a7"
+    sha256 cellar: :any, sonoma:        "1218ff07ff11402fc41e7cd2f52d4dc1ba50fde0568713e473c14e1cde51ef39"
+    sha256 cellar: :any, arm64_linux:   "f9aaf3150f27c6ee3c67a05e6c54a1d030fd57144eb33e87b2db67784b8b5ff9"
+    sha256 cellar: :any, x86_64_linux:  "1380aa0ce79e4e494201d66b55fa4301c4e23d72d70ceceb2c1c61e7613bf59f"
   end
 
   depends_on "asciidoctor" => :build

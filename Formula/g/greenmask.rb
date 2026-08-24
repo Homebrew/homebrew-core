@@ -1,8 +1,8 @@
 class Greenmask < Formula
   desc "PostgreSQL dump and obfuscation tool"
   homepage "https://www.greenmask.io/"
-  url "https://github.com/GreenmaskIO/greenmask/archive/refs/tags/v0.2.21.tar.gz"
-  sha256 "076538538f16a3e40586b0ac25e78e8b4de54d91a5dee4e757a38d8c1a0da7b1"
+  url "https://github.com/GreenmaskIO/greenmask/archive/refs/tags/v0.2.23.tar.gz"
+  sha256 "f951d9d349497b669cb438141d5c4671d632d4bf29ea710f48cdc633289ebd6d"
   license "Apache-2.0"
   head "https://github.com/GreenmaskIO/greenmask.git", branch: "main"
 
@@ -12,18 +12,18 @@ class Greenmask < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6f5183747155a6dfb828abae3934fd8ef9dcc6bcc4d75f902d63ce956430c174"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f5183747155a6dfb828abae3934fd8ef9dcc6bcc4d75f902d63ce956430c174"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6f5183747155a6dfb828abae3934fd8ef9dcc6bcc4d75f902d63ce956430c174"
-    sha256 cellar: :any_skip_relocation, sonoma:        "646212290560c2c3a5c6c0f983e1c829c8b905cb6fd4d144e251b39cc024562a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a6889156b0b408f1f922f442a7d8daddd4db49fc8913b5df47905056d0d6b6b8"
-    sha256 cellar: :any,                 x86_64_linux:  "0150333b7f1e926f86bd69dbb0e7bdda0b6ec0ca17bd1e5a56a593e05eace45f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fc72c2cef0359080e79c3ce727852430df16f4cc23d00f95480e84c5a04f83ee"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fc72c2cef0359080e79c3ce727852430df16f4cc23d00f95480e84c5a04f83ee"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc72c2cef0359080e79c3ce727852430df16f4cc23d00f95480e84c5a04f83ee"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8ac4aebe53c9af3ca63ba274be9505f6fd37a4e74066eb85fee83e77c40a3369"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8b54fd753ad573adbb01f813b4c7728b1eb77a251afce6fbeb88073f48c76be9"
+    sha256 cellar: :any,                 x86_64_linux:  "5a20bb35ca0105564a1aee82a0e8eb86e0655493d1f95e72f92a65e1e53939ea"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/greenmaskio/greenmask/cmd/greenmask/cmd.Version=#{version}"
+    ldflags = "-X github.com/greenmaskio/greenmask/cmd/greenmask/cmd.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:, tags: "viper_bind_struct"), "./cmd/greenmask"
 
     generate_completions_from_executable(bin/"greenmask", shell_parameter_format: :cobra)

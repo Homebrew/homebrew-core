@@ -1,11 +1,11 @@
 class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
-  url "https://github.com/microsoft/onnxruntime/archive/refs/tags/v1.26.0.tar.gz"
-  sha256 "2a90eb9a306c1eeb29213f5b165a55008ac5cb7d27e0935c4458c51a49ef091d"
+  url "https://github.com/microsoft/onnxruntime/archive/refs/tags/v1.29.0.tar.gz"
+  sha256 "0f065cfd3816eaa4b709a057ea0e237ebc6463843af44a439e0d81af76d6620e"
   license "MIT"
-  revision 1
-  compatibility_version 3
+  revision 2
+  compatibility_version 7
 
   livecheck do
     url :stable
@@ -13,12 +13,12 @@ class Onnxruntime < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3b2f527fee7cdaa01e9bba89633c6996270d31b62e216217ecf6dd154fee0f74"
-    sha256 cellar: :any,                 arm64_sequoia: "878c771f4caf47d1910d5350a849f81b41f940ee56bc26ca8018edddc6ce9a10"
-    sha256 cellar: :any,                 arm64_sonoma:  "fd2105f87fd5ef7918c4556b4128cc6100313fecfc3f2e4468de30539ee2f8c2"
-    sha256 cellar: :any,                 sonoma:        "afe69511a14f1b9351074b0bf9e5de65858d25a6795ab7f228ba78b149079c3d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f10c28845f8854adc8f4560f34437c37062b992b43e55d0e94471c2ccef761bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "80ee97a0c725735cc31fb3ff5afab1da7ed05d61d29f32c3912170178f2d2ad2"
+    sha256 cellar: :any, arm64_tahoe:   "1b8c832d01a9a462ded8fdfc264e7145c2fa1b5362be4f49db2a509d29d5c9d5"
+    sha256 cellar: :any, arm64_sequoia: "bece78a25a14f27526b1a08f970cdfe33025254151817a9d254587feab3cad4e"
+    sha256 cellar: :any, arm64_sonoma:  "8c7abfa0c742891ae50a8835a09f293e95dfe29c3abd28e408900305aaa34032"
+    sha256 cellar: :any, sonoma:        "6cc9d10df9bf90508440244579a6dd5f500f41b6b53a2b9bdf2404deebdc375b"
+    sha256 cellar: :any, arm64_linux:   "0e5c70652dd957f2cbe3eff471e32eb554652fd9ae6203ea6bc728884a7b857c"
+    sha256 cellar: :any, x86_64_linux:  "6448e9f76906fceb3b3d4a34b31fec4e77ef2efb565a1e1af80299443e408aeb"
   end
 
   depends_on "boost" => :build
@@ -36,9 +36,9 @@ class Onnxruntime < Formula
   depends_on "re2"
 
   resource "pytorch_cpuinfo" do
-    url "https://github.com/pytorch/cpuinfo/archive/403d652dca4c1046e8145950b1c0997a9f748b57.tar.gz"
-    version "403d652dca4c1046e8145950b1c0997a9f748b57"
-    sha256 "c33bcad94ccbdd4966cc21291f0dcacd40d1dd04eb4c2a6ef1c8da669c01e024"
+    url "https://github.com/pytorch/cpuinfo/archive/4628dc060ce4e82345dc166bbac875609db4ff69.tar.gz"
+    version "4628dc060ce4e82345dc166bbac875609db4ff69"
+    sha256 "a550205e891f9f1982044a306cb54556347645cba129af34cd907160f83bd0f1"
 
     livecheck do
       url "https://raw.githubusercontent.com/microsoft/onnxruntime/refs/tags/v#{LATEST_VERSION}/cmake/deps.txt"
@@ -100,9 +100,9 @@ class Onnxruntime < Formula
       -DHOMEBREW_ALLOW_FETCHCONTENT=ON
       -DFETCHCONTENT_FULLY_DISCONNECTED=ON
       -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
-      -DFETCHCONTENT_SOURCE_DIR_MP11=#{Formula["boost"].opt_prefix}
+      -DFETCHCONTENT_SOURCE_DIR_MP11=#{formula_opt_prefix("boost")}
       -DPython_EXECUTABLE=#{python3}
-      -DONNX_CUSTOM_PROTOC_EXECUTABLE=#{Formula["protobuf"].opt_bin}/protoc
+      -DONNX_CUSTOM_PROTOC_EXECUTABLE=#{formula_opt_bin("protobuf")}/protoc
       -Donnxruntime_BUILD_SHARED_LIB=ON
       -Donnxruntime_BUILD_UNIT_TESTS=OFF
       -Donnxruntime_GENERATE_TEST_REPORTS=OFF
@@ -117,7 +117,7 @@ class Onnxruntime < Formula
     end
 
     # Regenerate C++ bindings to use newer `flatbuffers`
-    flatc = Formula["flatbuffers"].opt_bin/"flatc"
+    flatc = formula_opt_bin("flatbuffers")/"flatc"
     system python3, "onnxruntime/core/flatbuffers/schema/compile_schema.py", "--flatc", flatc
     system python3, "onnxruntime/lora/adapter_format/compile_schema.py", "--flatc", flatc
 
@@ -186,11 +186,10 @@ class Onnxruntime < Formula
       }
     CPP
 
-    require "base64"
     mul_1_onnx = "CAMSBmNoZW50YTpwChUKAVgKAVcSAVkaBW11bF8xIgNNdWwSCG11bCB0ZXN" \
                  "0KiMIAwgCEAEiGAAAgD8AAABAAABAQAAAgEAAAKBAAADAQEIBV1oTCgFYEg" \
                  "4KDAgBEggKAggDCgIIAmITCgFZEg4KDAgBEggKAggDCgIIAkIECgAQBw=="
-    (testpath/"mul_1.onnx").write Base64.decode64(mul_1_onnx)
+    (testpath/"mul_1.onnx").write mul_1_onnx.unpack1("m")
 
     system ENV.cxx, "-std=c++17", "-I#{include}", "test.cc", "-L#{lib}", "-lonnxruntime", "-o", "test"
     output_lines = shell_output("./test 2>&1").lines

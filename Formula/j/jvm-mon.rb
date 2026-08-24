@@ -28,7 +28,7 @@ class JvmMon < Formula
   def install
     cd "jvm-mon-go" do
       system "./make-agent.sh"
-      system "go", "build", *std_go_args(ldflags: "-s -w")
+      system "go", "build", *std_go_args
     end
   end
 

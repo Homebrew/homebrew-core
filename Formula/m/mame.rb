@@ -1,9 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/refs/tags/mame0288.tar.gz"
-  version "0.288"
-  sha256 "244d916eb3fb8bcd71f2ac51ae71ab6af8cf99869ea7b85d7efc7339ea56c563"
+  url "https://github.com/mamedev/mame/archive/refs/tags/mame0289.tar.gz"
+  version "0.289"
+  sha256 "0929cc749afabcef892900e10dd90bd8b05f94a7dde8f367ac6a5d2082589f84"
   license "GPL-2.0-or-later"
   head "https://github.com/mamedev/mame.git", branch: "master"
 
@@ -21,12 +21,12 @@ class Mame < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "80ee365df2df6066a447f46d36942b725d555cd17aec509b0a4ab5208430d962"
-    sha256 cellar: :any, arm64_sequoia: "e84d41fabeef59a6102707c5043a394e7c463f70717cb0f0a4ff219c0d0295ea"
-    sha256 cellar: :any, arm64_sonoma:  "91465fb27249e7608d70246bc0700aad9a0f1628c7bb01ee451f7111b3b35d81"
-    sha256 cellar: :any, sonoma:        "9ddb8ef571c5fa528f79d80d0e3a32d4fbbafced4ed7bf87364eb1978ce4bf61"
-    sha256 cellar: :any, arm64_linux:   "406514e68e754f0fee9715d26c73b1d9b6c85585406f421ae1de0332cd655e73"
-    sha256 cellar: :any, x86_64_linux:  "9f1d260b96b84e4fdcc2163ccc2d92c1145f474eecfe2ca789fdc5c44653720c"
+    sha256 cellar: :any, arm64_tahoe:   "8b15aa506cb2926763edbdb69833e7b308e3ba4904afa0ca32cd966cc8860ba4"
+    sha256 cellar: :any, arm64_sequoia: "d16d30d95cba83260dd91600f6b7b37d708d36f182a338e9d4994e273f222bc7"
+    sha256 cellar: :any, arm64_sonoma:  "38df7c25402a221fda81c09d53ce5a96110ec67830db14f8749c90e567b51f4f"
+    sha256 cellar: :any, sonoma:        "4afdae543ae6fdccb34f47dbcadf8b4ca758d299e941efb8c07b5f5719aa8ae0"
+    sha256 cellar: :any, arm64_linux:   "757ba5c64d0fc470d272f9a197444ff8c26626660b0795e5b038699635f48869"
+    sha256 cellar: :any, x86_64_linux:  "2be8a7b5e3dac0090541c7f110caea8135dbf65d19dd25969987704868a2a683"
   end
 
   # `asio`` v1.30.1 is bundled and it is not compatible with the `asio` formula
@@ -57,10 +57,15 @@ class Mame < Formula
     depends_on "qtbase"
     depends_on "sdl3_ttf"
     depends_on "zlib-ng-compat"
+
+    on_arm do
+      # System `ld` fails to insert range-extension stubs: R_AARCH64_CALL26 relocation truncated to fit
+      depends_on "binutils" => :build
+    end
   end
 
   def install
-    ENV["QT_HOME"] = Formula["qtbase"].opt_prefix if OS.linux?
+    ENV["QT_HOME"] = formula_opt_prefix("qtbase") if OS.linux?
 
     # Cut sdl2-config's invalid option.
     inreplace "scripts/src/osd/sdl.lua", "--static", ""

@@ -1,18 +1,18 @@
 class Prek < Formula
   desc "Fast Git hook manager written in Rust, drop-in alternative to pre-commit"
   homepage "https://prek.j178.dev/"
-  url "https://github.com/j178/prek/archive/refs/tags/v0.4.5.tar.gz"
-  sha256 "16126573633d4b1f1034a2a96ac7d628784e85ce3a82dc08bbd7301718259fd8"
+  url "https://github.com/j178/prek/archive/refs/tags/v0.4.14.tar.gz"
+  sha256 "6f0d3615690382d4a1339a81a2ada2330ac5141481eb79459ed8d63026efb9a0"
   license "MIT"
   head "https://github.com/j178/prek.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f0fdaf74500414c30862a9d3150d8c2aeda9cc1b0978c0cd0ac5824620293c86"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c11bdd58eae18bf5772521653d17c6064eb2a0c4510c770f383863402d50038e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "615cd140847210cb919aa0d24fd9a4fe74e575ffddccb2db7e169b97dca6ad21"
-    sha256 cellar: :any_skip_relocation, sonoma:        "46e3a70aca35529927326928c8993de4b744e3cfdb1f4dd4abc62aa7269daa51"
-    sha256 cellar: :any,                 arm64_linux:   "4910f09231cd99853d9d256aa438ab8c01d17157304cc49089bf7595a8ec57d0"
-    sha256 cellar: :any,                 x86_64_linux:  "21a8fc60b150ae89821aaf8ce4f178afe4eaa0ec377309d499490aa16fcf265f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b3d92eb3168595f5279080ce37adb3ef33321c455ca119dd3f49d520f62cfb3a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4c5745e84841143f8203304b5a3ac36d57b5e1d339af6106300a245484aa9132"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8da279b2ea4287c1c248caa2c6f7a92d979dfb9b8c4a87f56ad5678fd6309a1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eb54d34352cd55efe70ab499bc232970b995747c0812d0eca5a8870d8026d4f0"
+    sha256 cellar: :any,                 arm64_linux:   "23e1290e031b54e77141747e2faec3d14d823eb56484c6e52a5dd0b20f444465"
+    sha256 cellar: :any,                 x86_64_linux:  "36bda3ede820778930431ccdcb37cca2fd9d7864084adeb2d6c9992f76305433"
   end
 
   depends_on "rust" => :build
@@ -28,6 +28,6 @@ class Prek < Formula
     assert_match version.to_s, shell_output("#{bin}/prek --version")
 
     output = shell_output("#{bin}/prek sample-config")
-    assert_match "See https://pre-commit.com for more information", output
+    assert_match "See https://prek.j178.dev for more information", output
   end
 end

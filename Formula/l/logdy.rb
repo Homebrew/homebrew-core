@@ -19,8 +19,7 @@ class Logdy < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}")
 
     generate_completions_from_executable(bin/"logdy", shell_parameter_format: :cobra)
   end

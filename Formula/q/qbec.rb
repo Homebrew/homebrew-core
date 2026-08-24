@@ -19,7 +19,6 @@ class Qbec < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/splunk/qbec/internal/commands.version=#{version}
       -X github.com/splunk/qbec/internal/commands.commit=#{tap.user}
       -X github.com/splunk/qbec/internal/commands.goVersion=#{Formula["go"].version}

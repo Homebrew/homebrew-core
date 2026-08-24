@@ -17,7 +17,7 @@ class PythonArgcomplete < Formula
   depends_on "python@3.14"
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_install_with_resources
 
     # Bash completions are not compatible with Bash 3 so don't use v1 directory.
     # Ref: https://kislyuk.github.io/argcomplete/#global-completion
@@ -26,8 +26,7 @@ class PythonArgcomplete < Formula
     zsh_completion.install_symlink bash_completion/"python-argcomplete" => "_python-argcomplete"
 
     # Build an `:all` bottle by replacing comments
-    site_packages = libexec/Language::Python.site_packages("python3")
-    inreplace site_packages/"argcomplete-#{version}.dist-info/METADATA",
+    inreplace venv.site_packages/"argcomplete-#{version}.dist-info/METADATA",
               "/opt/homebrew/bin/bash",
               "$HOMEBREW_PREFIX/bin/bash"
   end

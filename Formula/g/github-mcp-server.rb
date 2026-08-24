@@ -1,8 +1,8 @@
 class GithubMcpServer < Formula
   desc "GitHub Model Context Protocol server for AI tools"
   homepage "https://github.com/github/github-mcp-server"
-  url "https://github.com/github/github-mcp-server/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "aa3400f2677fe3f8443b496b9028c48d31429db17de7397bce9de1ff7cb21b13"
+  url "https://github.com/github/github-mcp-server/archive/refs/tags/v1.10.1.tar.gz"
+  sha256 "a418ebd3c8900d5e23a8d5795265f785f82e4a74f6f1770f505e4bc4c2fb28a5"
   license "MIT"
   head "https://github.com/github/github-mcp-server.git", branch: "main"
 
@@ -12,19 +12,18 @@ class GithubMcpServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "419830389d911f1c13ff859cb9ed03a85e53421272edfd92e874c46fab796180"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "419830389d911f1c13ff859cb9ed03a85e53421272edfd92e874c46fab796180"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "419830389d911f1c13ff859cb9ed03a85e53421272edfd92e874c46fab796180"
-    sha256 cellar: :any_skip_relocation, sonoma:        "902c0dd5c7109ab9b4a20f4a35375a9c4a25c2da939f734f32cf27bd4f96d977"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e8e0d61635724391b1b1cc407fb8bbff4294777c0c06daad619c04a00d5d6a73"
-    sha256 cellar: :any,                 x86_64_linux:  "be4c86b14a31752326db9d5b3eadfe620626dd1e323181cb58da0345f92d76df"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b3d878b35d9c81cde07c55b59dbdd21e7c904ca6b602bd203fddad5d7e95d10d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b3d878b35d9c81cde07c55b59dbdd21e7c904ca6b602bd203fddad5d7e95d10d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b3d878b35d9c81cde07c55b59dbdd21e7c904ca6b602bd203fddad5d7e95d10d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b29cabb5023444830783de9e521003a480034dfb9ab30a5e065b7d26cd7676a0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "901f9c05371df17710ed0b5f5864de5977019d3482adcb56f8346bace22a6a4e"
+    sha256 cellar: :any,                 x86_64_linux:  "4503e238905d0d7db39c6e6e0219e52031e4d5db42720a13fe53a1d4a67b00e8"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user} -X main.date=#{time.iso8601}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/github-mcp-server"
+    system "go", "build", *std_go_args(ldflags: :goreleaser), "./cmd/github-mcp-server"
 
     generate_completions_from_executable(bin/"github-mcp-server", shell_parameter_format: :cobra)
   end

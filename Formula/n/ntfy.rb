@@ -1,18 +1,18 @@
 class Ntfy < Formula
   desc "Send push notifications to your phone or desktop via PUT/POST"
   homepage "https://ntfy.sh/"
-  url "https://github.com/binwiederhier/ntfy/archive/refs/tags/v2.24.0.tar.gz"
-  sha256 "4b9e47923fe4b99af9f359da3dbbcd3e07dc1e5543fbc08f6cce095b36ce45c1"
+  url "https://github.com/binwiederhier/ntfy/archive/refs/tags/v2.27.0.tar.gz"
+  sha256 "1f46463acc177479860861cca8d7ec7da92244eab7ea42d20a89c17055d6641c"
   license any_of: ["Apache-2.0", "GPL-2.0-only"]
   head "https://github.com/binwiederhier/ntfy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ebcb1db2b1648b695f1488625b9982f79f5cc137d9babfc19dd08fc009f42379"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ebcb1db2b1648b695f1488625b9982f79f5cc137d9babfc19dd08fc009f42379"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ebcb1db2b1648b695f1488625b9982f79f5cc137d9babfc19dd08fc009f42379"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b5dec867ed637c2e7de4f47c414f8bc7c9243a5927832ec156848b07beacf3b8"
-    sha256 cellar: :any,                 arm64_linux:   "bf441da11144becbca1c6c5ed46ebb224907aff70d85f4b0a6b3faa6e3857d5e"
-    sha256 cellar: :any,                 x86_64_linux:  "f75d55eca137a3306aea1ba0b78ac972c868e3e40295bd0adbf46f9bae01e6ad"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f1339293ed92f4e8ce56cd4c7c7b0ec8d988ed1398d958b251b3dc2ff452d201"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f1339293ed92f4e8ce56cd4c7c7b0ec8d988ed1398d958b251b3dc2ff452d201"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f1339293ed92f4e8ce56cd4c7c7b0ec8d988ed1398d958b251b3dc2ff452d201"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d66235b8266fa36d75fbed66579c8faea60e8bc45f2ad22f1a5d83c1af8237b0"
+    sha256 cellar: :any,                 arm64_linux:   "f26f12609259dd7d6d28216ec20b92ca5236a00f2434c85cb90ee6faae573f9a"
+    sha256 cellar: :any,                 x86_64_linux:  "5b6e865be9c3d231f28e65389e098540e45d49847b7ada28262a6bce1ffdca7e"
   end
 
   depends_on "go" => :build
@@ -30,7 +30,7 @@ class Ntfy < Formula
     end
 
     system "make", "cli-deps-static-sites"
-    ldflags = "-s -w -X main.version=#{version} -X main.date=#{time.iso8601} -X main.commit=#{tap.user}"
+    ldflags = "-X main.version=#{version} -X main.date=#{time.iso8601} -X main.commit=#{tap.user}"
     system "go", "build", *std_go_args(ldflags:, tags:)
   end
 

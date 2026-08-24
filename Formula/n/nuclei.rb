@@ -1,24 +1,24 @@
 class Nuclei < Formula
   desc "HTTP/DNS scanner configurable via YAML templates"
   homepage "https://docs.projectdiscovery.io/tools/nuclei/overview"
-  url "https://github.com/projectdiscovery/nuclei/archive/refs/tags/v3.9.0.tar.gz"
-  sha256 "40b4b736071377dd11e9637c02ae956797faa6f497e8401012aaa8870d283303"
+  url "https://github.com/projectdiscovery/nuclei/archive/refs/tags/v3.11.1.tar.gz"
+  sha256 "64c6e21eb8cd141d39cbb0241228fb40fd4370dbe39dc9f13e1069c718b711f9"
   license "MIT"
   head "https://github.com/projectdiscovery/nuclei.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5b41dc96d8b2ca3522c57b9d98fb47c6b020502bd85ddd13a9f1298969cf54cc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "17fb7a52dfe2e0ffc8bb9b1979f39a3d8f04d3a4b9a46d6c8657ff38b8063dfe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0ef8abee0f71aa82c4e358a16cd7d5c1e8b7108196f239754cfe0897b1af0d4b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "64f20d0fcca6e3e47fed23da49f6649bd6c81f85647a7f8eead849e9d171e894"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a9dbf1706a2ea2880d793ee4702862b7f918b2dc0854992227f79effb76f9511"
-    sha256 cellar: :any,                 x86_64_linux:  "f56729cb488fea489085387652fcbdbf22cbe50511429e51ec35aeab3c4e609a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c8d0c64e09343f95f1afd89c84ad73051931de9ec28648e6a2f0baa492bd65fc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "06fb27168c496a8b99dc97450369e7c044ac44833b62413bceebcb8bf96e1ebe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eedf87c6e5efcc42bd5f7b06fa2141cd3df9572376da9a28b4e58bed66717508"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d1ab57416a2c71a5d940593f8a55d3bfe13cdd918bb93c3db1eb246fb9f6c214"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fbe81d5ddca4a68e4255f317d0f8f2e1d92898b534ac97175249a840e6e28ee6"
+    sha256 cellar: :any,                 x86_64_linux:  "3856a91aa7ff88a791f7c1f16e1feac256c6ed9a967d1ce461a2bd5a0cb67742"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/nuclei"
+    system "go", "build", *std_go_args, "./cmd/nuclei"
   end
 
   test do

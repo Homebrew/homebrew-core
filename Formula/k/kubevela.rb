@@ -2,18 +2,18 @@ class Kubevela < Formula
   desc "Application Platform based on Kubernetes and Open Application Model"
   homepage "https://kubevela.io"
   url "https://github.com/kubevela/kubevela.git",
-      tag:      "v1.10.8",
-      revision: "25473ac9fc1a980965cec80be1fc7c2f092c127a"
+      tag:      "v1.11.0",
+      revision: "a1860544f0556828e165ef68701b2926730671a7"
   license "Apache-2.0"
   head "https://github.com/kubevela/kubevela.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "faeb5b0f63de6a37570b340f0ca1ad99107d707f293d8eea9440a535ff4c999f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "faeb5b0f63de6a37570b340f0ca1ad99107d707f293d8eea9440a535ff4c999f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "faeb5b0f63de6a37570b340f0ca1ad99107d707f293d8eea9440a535ff4c999f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f22a9d471e57c955e094355c0280c9fae796dd411aad8cd91513ef93302963e7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1cd09d84da425205b6b930941b5d4f436e5a26468700074744c310d41723160"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f620a6c63e1996a7a5132ac42fa6018eac2c9d80b82bf729e9941e18018415f5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1da421dd9805aa03e28bd3cc04d5b7457201c1247e88cabca303dba574efecc2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1da421dd9805aa03e28bd3cc04d5b7457201c1247e88cabca303dba574efecc2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1da421dd9805aa03e28bd3cc04d5b7457201c1247e88cabca303dba574efecc2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5911ff4f6043b697b6642b87c30d8816dd232a2bf9709885d57fd37198eed110"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "74bf4c2db0bf524b0692c073c6903366ea80a1147a87611ad4296149d5032d43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f6e0c0810ff9c97596622e63e59ae10f8b51104056f266bb426fe20d0c9b7f4"
   end
 
   depends_on "go" => :build
@@ -21,7 +21,6 @@ class Kubevela < Formula
   def install
     ENV["CGO_ENABLED"] = "0"
     ldflags = %W[
-      -s -w
       -X github.com/oam-dev/kubevela/version.VelaVersion=#{version}
       -X github.com/oam-dev/kubevela/version.GitRevision=#{Utils.git_head}
     ]

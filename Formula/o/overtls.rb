@@ -1,18 +1,18 @@
 class Overtls < Formula
   desc "Simple proxy tunnel for bypassing the GFW"
   homepage "https://github.com/ShadowsocksR-Live/overtls"
-  url "https://github.com/ShadowsocksR-Live/overtls/archive/refs/tags/v0.3.10.tar.gz"
-  sha256 "da83e27ff9196d1b1055db814f6b86511427ec935c64a9c2862642bfc1737fc8"
+  url "https://github.com/ShadowsocksR-Live/overtls/archive/refs/tags/v0.3.13.tar.gz"
+  sha256 "0362d1844db2c2adaffcb0a315fa5fa6c30ae05a0810affb63ab7270eab17cc2"
   license "MIT"
   head "https://github.com/ShadowsocksR-Live/overtls.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "19973cad3219f12aa7d184b854eb141dfc57dd29b5529b50c9147b96e4ec5603"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "07d2326b203875add91db6e5d261b2a080e33b790810df899ab60beee53a33bd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d713106267f9a2c299c8b2cfcee4b913d9bbeebd6b67ec21c96cdd7733c6a86"
-    sha256 cellar: :any_skip_relocation, sonoma:        "870fd18d5f528442f3a26ee09ff5254f644a709c5f834e4b6d4627780e878a0f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f110f85db97164cd3a028cab525eafed6516634cd4266406d7ac6abf32250cd2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e2874ba0e263e8bf4c5e8bc191988a254499244ddad2c1c6c93b464b7db4ff8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d8a07d8d3154be6490f141dc453d69b746f33cfb1012995be5b6634fce80f18f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d93ed28badbd48f2e498b069efc036b4967c141a80505d8823df780fa9b3accc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4118339e23b456fefcfeb7c1ef192dbf733d3b93fc839514c1251237862e4154"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f4679aa9b5d17fc0e51ece4cd1fe2291c722f93dc8a55e91a1fe88af90bd1c1c"
+    sha256 cellar: :any,                 arm64_linux:   "7bff3fc87fe117b2eee8a9e8c63258a175a92cda52ec599523f5f4d6bc998427"
+    sha256 cellar: :any,                 x86_64_linux:  "6601a2161882705d5227ffed702eb5ae7a9cac7cf798cfa0b2aab798e138d317"
   end
 
   depends_on "rust" => :build

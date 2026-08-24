@@ -1,8 +1,8 @@
 class Stackql < Formula
   desc "SQL interface for arbitrary resources with full CRUD support"
   homepage "https://stackql.io/"
-  url "https://github.com/stackql/stackql/archive/refs/tags/v0.10.500.tar.gz"
-  sha256 "98d13dcc8afab8fd89dc49681cfdfd3a0327c88a27f689c7e80a48346cc1139e"
+  url "https://github.com/stackql/stackql/archive/refs/tags/v0.10.605.tar.gz"
+  sha256 "1f32717086c6d1291057f0aaa93f4d6c0846dbac4195bffd898e1bf90a23648d"
   license "MIT"
   head "https://github.com/stackql/stackql.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Stackql < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "16d07ebb2bd570d08aade87d756c149d8bda8654ec11ed19e492b621557026ca"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2cebf473d97fff6a90d5862ab5536372dcb2c55db4db689ed23b821bdb925d7d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d145ee36bf3d67a2084ace59049db146eae9851cec9ef0d7b3025f0826d81c91"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a056a380d2271436e10fb0d149314f6229794a7f6edc55d4680ec9ddcf34df70"
-    sha256 cellar: :any,                 arm64_linux:   "f31b7b14ac736948958db0adc04da0c949f5300b8692cfe9de9e4da427be39d3"
-    sha256 cellar: :any,                 x86_64_linux:  "38ddf1ff5ca33db69251789f577969579f11f5e69ac75e0f861c50317b895d8a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "456dfd478b556179dedff562e1f1bc29916142185e8a97a41841ad55ccf9b3e8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ba9869a2dff9bd56cb7de6619260d63feb71f6f727ed24dd190ffcd68fd0aad8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d16f00b4323ca29719d9b515db41fb20846c26c713e919b9c44d6bf6c1145628"
+    sha256 cellar: :any_skip_relocation, sonoma:        "15d07cbf4074d90bd2658f8544d67f3198af9a9cf0875d71add1bcaf5058ecfc"
+    sha256 cellar: :any,                 arm64_linux:   "8be759c6a2c72046bd9706d522336e2d154f8dd689d96ead3c7794261fb9eff4"
+    sha256 cellar: :any,                 x86_64_linux:  "2cceee0dbb29a1867c9bad321302a00dd58502936301f3a57fa12f53a2d1439e"
   end
 
   depends_on "go" => :build
@@ -25,7 +25,6 @@ class Stackql < Formula
   def install
     ENV["CGO_ENABLED"] = "1"
     ldflags = %W[
-      -s -w
       -X github.com/stackql/stackql/internal/stackql/cmd.BuildMajorVersion=#{version.major}
       -X github.com/stackql/stackql/internal/stackql/cmd.BuildMinorVersion=#{version.minor}
       -X github.com/stackql/stackql/internal/stackql/cmd.BuildPatchVersion=#{version.patch}

@@ -21,7 +21,9 @@ class Kapacitor < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6561b70701cb82e1390bf52d2eaf674cdce8c8b529c3358f6cadababce7950e5"
   end
 
-  depends_on "go" => :build
+  # TODO: unpin go@1.26 when kapacitor supports go 1.27
+  # ref: https://github.com/influxdata/kapacitor/pull/2902
+  depends_on "go@1.26" => :build
   depends_on "pkgconf" => :build # for `pkg-config-wrapper`
   depends_on "rust" => :build
 
@@ -57,14 +59,8 @@ class Kapacitor < Formula
     end
     ENV.prepend_path "PATH", buildpath/"bootstrap"
 
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
-      -X main.commit=#{Utils.git_head}
-    ]
-
-    system "go", "build", *std_go_args(ldflags:), "./cmd/kapacitor"
-    system "go", "build", *std_go_args(ldflags:, output: bin/"kapacitord"), "./cmd/kapacitord"
+    system "go", "build", *std_go_args(ldflags: :goreleaser), "./cmd/kapacitor"
+    system "go", "build", *std_go_args(ldflags: :goreleaser, output: bin/"kapacitord"), "./cmd/kapacitord"
 
     inreplace "etc/kapacitor/kapacitor.conf" do |s|
       s.gsub! "/var/lib/kapacitor", "#{var}/kapacitor"

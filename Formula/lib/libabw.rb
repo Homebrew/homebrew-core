@@ -110,8 +110,8 @@ class Libabw < Formula
     assert_equal "This word is bold.\n", shell_output("#{bin}/abw2text test.abw")
 
     args = %W[
-      -I#{include/"libabw-0.1"} -I#{Formula["librevenge"].opt_include/"librevenge-0.0"}
-      -L#{lib} -L#{Formula["librevenge"].opt_lib}
+      -I#{include/"libabw-0.1"} -I#{formula_opt_include("librevenge")/"librevenge-0.0"}
+      -L#{lib} -L#{formula_opt_lib("librevenge")}
       -labw-0.1 -lrevenge-stream-0.0 -lrevenge-generators-0.0 -lrevenge-0.0
     ]
     system ENV.cxx, "test.cpp", *args, "-o", "test"

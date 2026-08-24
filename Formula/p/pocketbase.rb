@@ -1,17 +1,17 @@
 class Pocketbase < Formula
   desc "Open source backend for your next project in 1 file"
   homepage "https://pocketbase.io/"
-  url "https://github.com/pocketbase/pocketbase/archive/refs/tags/v0.39.4.tar.gz"
-  sha256 "0a5b8731e694840830fb9e11999fe63268c25d8595c58047d5f55aa2f493f033"
+  url "https://github.com/pocketbase/pocketbase/archive/refs/tags/v0.40.0.tar.gz"
+  sha256 "5150686ca4d4dcecfd53f714b32efe0b57870a28868e43de5797383dd1dff04b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "09c945735c2d42dc128a76e7f466b1d7a7a5c5f568ff95dc436c32ebeeb1c231"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "09c945735c2d42dc128a76e7f466b1d7a7a5c5f568ff95dc436c32ebeeb1c231"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "09c945735c2d42dc128a76e7f466b1d7a7a5c5f568ff95dc436c32ebeeb1c231"
-    sha256 cellar: :any_skip_relocation, sonoma:        "352684a9ecd3824105e63e8c8d62c49519a1f05f318e027f2276dc533d9a5155"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f687edb7ebe6921974329bcb90bcf27b77e9b3ca04e71a8e252bed54c243f455"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6952cc0c8a2e3e7351c4a98cbf99e335e1735bbe67b674c5e37025507f59ae8a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6bf57948be27eaf6842d1e8a07326fa9b61596fa1a33746ce181b105b013007a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6bf57948be27eaf6842d1e8a07326fa9b61596fa1a33746ce181b105b013007a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6bf57948be27eaf6842d1e8a07326fa9b61596fa1a33746ce181b105b013007a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "919740032ce21b7956796bb9307fda73a68d8cc5cabd584a840c05a9758b428c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec150c605c731bd28b66fbe5eb9f4dea50197c9442c4c0a7d9887f596a8ff40c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef99a1a36a8bf9a5053060d776afc3c861ac8cbaf626f0640814c3f32b6a77a1"
   end
 
   depends_on "go" => :build
@@ -19,7 +19,7 @@ class Pocketbase < Formula
   def install
     ENV["CGO_ENABLED"] = "0"
 
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/pocketbase/pocketbase.Version=#{version}"), "./examples/base"
+    system "go", "build", *std_go_args(ldflags: "-X github.com/pocketbase/pocketbase.Version=#{version}"), "./examples/base"
   end
 
   test do

@@ -1,21 +1,23 @@
 class VampPluginSdk < Formula
   desc "Audio processing plugin system sdk"
   homepage "https://www.vamp-plugins.org/"
-  # curl fails to fetch upstream source, using Debian's instead
-  url "https://deb.debian.org/debian/pool/main/v/vamp-plugin-sdk/vamp-plugin-sdk_2.10.0.orig.tar.gz"
-  mirror "https://code.soundsoftware.ac.uk/attachments/download/2691/vamp-plugin-sdk-2.10.0.tar.gz"
+  url "https://github.com/vamp-plugins/vamp-plugin-sdk/releases/download/vamp-plugin-sdk-v2.10/vamp-plugin-sdk-2.10.0.tar.gz"
   sha256 "aeaf3762a44b148cebb10cde82f577317ffc9df2720e5445c3df85f3739ff75f"
   license all_of: ["X11", "BSD-3-Clause"]
   revision 1
-  head "https://code.soundsoftware.ac.uk/hg/vamp-plugin-sdk", using: :hg
+  head "https://github.com/vamp-plugins/vamp-plugin-sdk.git", branch: "master"
 
-  # code.soundsoftware.ac.uk has SSL certificate verification issues, so we're
-  # using Debian in the interim time. If/when the `stable` URL returns to
-  # code.soundsoftware.ac.uk, the previous `livecheck` block should be
-  # reinstated: https://github.com/Homebrew/homebrew-core/pull/75104
   livecheck do
-    url "https://deb.debian.org/debian/pool/main/v/vamp-plugin-sdk/"
-    regex(/href=.*?vamp-plugin-sdk[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+    url :stable
+    regex(/^vamp-plugin-sdk[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    strategy :github_latest do |json, regex|
+      json["assets"]&.map do |asset|
+        match = asset["name"]&.match(regex)
+        next if match.blank?
+
+        match[1]
+      end
+    end
   end
 
   bottle do

@@ -6,7 +6,7 @@ class Simgrid < Formula
   url "https://gitlab.inria.fr/simgrid/simgrid/-/archive/v4.1/simgrid-v4.1.tar.bz2"
   sha256 "a3d02f52cfb9c2e341c380cd8e3b43da4b4885161d8e96f4b033e0d3cc8af611"
   license "LGPL-2.1-only"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -14,16 +14,15 @@ class Simgrid < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "034c76ebb8ad1d5afe856a54ff4cdd3fdeb60dba91ba0273d6008a20b360ca2b"
-    sha256 arm64_sequoia: "375e79079d89dc581c9530f1588564ba5ce0db257be5b79985c99aa08a4100da"
-    sha256 arm64_sonoma:  "c0ffdf86b7c64b721333f7580ba02c9c794056e0e12e69962b10bc6cd21fe0ee"
-    sha256 sonoma:        "13c3d84855a6e9788c77ba476525669d4873291eca0b5b8cd93866782879dee3"
-    sha256 arm64_linux:   "dcea28cc28e8c118a7f2ae3c49ffa92a82df38b0feebbd4b9176d2915f6ebe5b"
-    sha256 x86_64_linux:  "20872441e0def64e91fe941260e2a627af91e1ac4e8808bb6ebd50a59a852093"
+    sha256 arm64_tahoe:   "77b3136c87202cbbcce161d618abe84602c1b96b1e06345f889a49fd4e5ef931"
+    sha256 arm64_sequoia: "8a5e0543c8818290db5ec03196186b01233d47ffa23a88c873d7f42c0a7c6350"
+    sha256 arm64_sonoma:  "c88ea297908af97ab66431aa39cebb289f5dfac3e13dd9f958f2c125598f2b07"
+    sha256 sonoma:        "91b95272182e454700e72b3ba2a2f0250528b07d33dc07025d4182162333b0e1"
+    sha256 arm64_linux:   "17b3c64251e4e4822c11d2bc3a11f0e83a54deabf6f1a98cf978bad3ec6be414"
+    sha256 x86_64_linux:  "40f48076ff0c3af00505a23f223759d30c4448e4cc9b4415f1386f93deca9662"
   end
 
   depends_on "cmake" => :build
-  depends_on "doxygen" => :build
   depends_on "boost"
   depends_on "graphviz"
 
@@ -35,7 +34,7 @@ class Simgrid < Formula
     inreplace "src/smpi/smpicxx.in", "@CMAKE_CXX_COMPILER@", DevelopmentTools.locate(ENV.cxx)
 
     # Work around build error: ld: library not found for -lcgraph
-    ENV.append "LDFLAGS", "-L#{Formula["graphviz"].opt_lib}"
+    ENV.append "LDFLAGS", "-L#{formula_opt_lib("graphviz")}"
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DPython3_EXECUTABLE=#{which("python3")}",

@@ -46,13 +46,13 @@ class Dynare < Formula
     # [^2]: https://git.dynare.org/Dynare/dynare/-/commit/6ff7d4c56c26a2b7546de633dbcfe2f163bf846d
     # [^3]: https://git.dynare.org/Dynare/dynare/-/issues/1977
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/c49717c390cb2e587793b2db757c1f445f096219/Patches/dynare/clang.diff"
-      sha256 "2d174336fc8db4d8989cda214a972ef49c6302bb12a64d717140869e546e17d0"
+      file "Patches/dynare/clang.diff"
+      type :unofficial
     end
   end
 
   on_sequoia do
-    depends_on xcode: ["26.0", :build] # for std::jthreads
+    depends_on xcode: ["26.0", :build] if DevelopmentTools.clang_build_version >= 1700 # for std::jthreads
   end
 
   fails_with :clang do
@@ -70,7 +70,7 @@ class Dynare < Formula
     octave = Formula["octave"]
     if OS.linux?
       ENV.append "LDFLAGS", "-Wl,-rpath,#{octave.opt_lib}/octave/#{octave.version.major_minor_patch}"
-      ENV["BOOST_ROOT"] = Formula["boost"].opt_prefix.to_s
+      ENV["BOOST_ROOT"] = formula_opt_prefix("boost").to_s
     end
 
     system "meson", "setup", "build", "-Dbuild_for=octave", *std_meson_args
@@ -118,7 +118,7 @@ class Dynare < Formula
       dynare bkk.mod console
     MATLAB
 
-    system Formula["octave"].opt_bin/"octave", "--no-gui",
+    system formula_opt_bin("octave")/"octave", "--no-gui",
            "--no-history", "--path", "#{lib}/dynare/matlab", "dyn_test.m"
   end
 end

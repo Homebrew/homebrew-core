@@ -32,7 +32,6 @@ class Aria2 < Formula
   end
 
   def install
-    ENV.cxx11
     ENV.append "LIBS", "-framework Security" if OS.mac?
 
     args = %w[

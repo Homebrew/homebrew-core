@@ -7,14 +7,13 @@ class Hlint < Formula
   head "https://github.com/ndmitchell/hlint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "80a07ff5c8c5bdce01b738119532b94fc47e3334e5d9e355a22c27e1653a4c77"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9f3a91f79fe82520ad8dfabefbce65bb2ea46b6204b4502f273e77c25ad6506"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e5145bf4f71231257b00c87da12917717656ef7ce2cc3b0ab34ab0eda2b27c34"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ca888410bda893835a17d6b612b1d81c6b27c3b7d48a8f3c235b8300bde6211c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1fabac4ad28935c5b1f84a5e2ca98e3e5d10ad97bd3ef4ec43df68e13be4236a"
-    sha256 cellar: :any_skip_relocation, ventura:       "25bddf78c27dcd1c33697450946158fa12af8f8a487c38b906490878e4f8c3a7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e138950b30faf4adfc02f70d7a9e61c34ff51bd102ea11aa63da02d8706d4955"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2217e05a4e5a0fc44c950f63111bcbd4bd48d2148fa95ec8820a7f50f9a5ea6e"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "8895a29ca2131a788f2ea046e1536014e10814e06db0b20ccf17aac20d4ae44f"
+    sha256 cellar: :any, arm64_sequoia: "ac21cffb2a6f0c3e001be4fc90533bbdf55d6759dc92ab6614d8f344e841a5a0"
+    sha256 cellar: :any, arm64_sonoma:  "70d59584802f076d591fac5018ab9a9be374ebb40583d70841b0694ec5232a63"
+    sha256 cellar: :any, sonoma:        "e7e6690be96877ae75c5628af12084051eb90c602118053265d2f3aa1bb2a66a"
+    sha256 cellar: :any, arm64_linux:   "8917cf56b9640d594be9e5400eff427e23a186497f11097fc9d3f19b0f4ba6f3"
+    sha256 cellar: :any, x86_64_linux:  "57ecaa7fd8afea0066d2d42d925e402038f5043f45230a4074d7e4078790a50a"
   end
 
   depends_on "cabal-install" => :build

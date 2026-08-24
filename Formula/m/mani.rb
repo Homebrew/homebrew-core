@@ -19,7 +19,6 @@ class Mani < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/alajmo/mani/cmd.version=#{version}
       -X github.com/alajmo/mani/core/tui.version=#{version}
       -X github.com/alajmo/mani/cmd.commit=#{tap.user}

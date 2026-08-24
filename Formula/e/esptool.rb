@@ -3,18 +3,17 @@ class Esptool < Formula
 
   desc "ESP8266 and ESP32 serial bootloader utility"
   homepage "https://docs.espressif.com/projects/esptool/en/latest/esp32/"
-  url "https://files.pythonhosted.org/packages/82/ca/aa2a6aafe214b3338eb56c5dc941e7e83a0f9e8b9bd05ac91b5d1a6ee9c9/esptool-5.3.0.tar.gz"
-  sha256 "0a077cb3ee8e60e223882c06ab7dae9b3686816c2547904d7472a42e6284e7de"
+  url "https://files.pythonhosted.org/packages/76/ac/d2016cf6b3709d0e0166f45f84bc6e2d717757b5f59020ccb34de08d1b9b/esptool-5.3.1.tar.gz"
+  sha256 "125781f36e6a2d08c484524a45f340694675368b5eeead9d0cb21b2034a91d98"
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "f9492ff25b0aac73628c42738a1bf173aa0337a922f0bc18a8c4bb6bbafb39dd"
-    sha256 cellar: :any, arm64_sequoia: "0f137591be78f8047214a79b4e8411101164fd711e327dcd2060fba48a06a5f7"
-    sha256 cellar: :any, arm64_sonoma:  "a15d98ae5784a8cd2abccca05ba80f825e474dd68146e0cec9acbc93d79d6521"
-    sha256 cellar: :any, sonoma:        "e8f0551702320dcc3d1988019e28955fe4ef68c639f8cdb507ed742b9d597367"
-    sha256 cellar: :any, arm64_linux:   "0d4fa28265eb2c7c58008132593f534b2bc1ff47e634e87ab44014f5e92378ac"
-    sha256 cellar: :any, x86_64_linux:  "a677fbb67c5f3a9d18ac835094e71e0344b301392d36ca6f495be59ac89aa98e"
+    sha256 cellar: :any, arm64_tahoe:   "8b930d3b8d51cb9472f89e931be90d6e1064f12b3a17075a38db613e6522113c"
+    sha256 cellar: :any, arm64_sequoia: "08075ab40f95da3e47f9948961c6fed359ed658be05488a79a248c622627a708"
+    sha256 cellar: :any, arm64_sonoma:  "1b9e102465989d4e895e973d85237df6daee80e514d71f5755acab3d464fc405"
+    sha256 cellar: :any, sonoma:        "3e960a0d8a4347e6d220845c6c0688671ef254f51dd418874746b983cb851612"
+    sha256 cellar: :any, arm64_linux:   "55a6134137e0139d48259c281b092ac1c5c6b570bea9ff15314c128de1cc01bb"
+    sha256 cellar: :any, x86_64_linux:  "540d83c156c2406a671e7ecedd3572831a97b702827f2c19784eb59fb1d873a6"
   end
 
   depends_on "rust" => :build # for tibs
@@ -25,8 +24,8 @@ class Esptool < Formula
   pypi_packages exclude_packages: "cryptography"
 
   resource "bitarray" do
-    url "https://files.pythonhosted.org/packages/fc/47/b5da717e7bbe97a6dc4c986f053ca55fd3276078d78f68f9e8b417d1425a/bitarray-3.8.1.tar.gz"
-    sha256 "f90bb3c680804ec9630bcf8c0965e54b4de84d33b17d7da57c87c30f0c64c6f5"
+    url "https://files.pythonhosted.org/packages/bb/9b/ca307b554eaa233d004cae07d5594f9d45affd1f8e118687059aa06fcc6b/bitarray-3.8.2.tar.gz"
+    sha256 "2675a0c17c0b2d12d0fbcf3b27eb833f96936a588da47ac445c0743c5aa69e6b"
   end
 
   resource "bitstring" do
@@ -35,8 +34,8 @@ class Esptool < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "intelhex" do
@@ -95,13 +94,11 @@ class Esptool < Formula
   end
 
   test do
-    require "base64"
-
     assert_match version.to_s, shell_output("#{bin}/esptool.py version")
     assert_match "Usage: espefuse", shell_output("#{bin}/espefuse --help")
     assert_match version.to_s, shell_output("#{bin}/espsecure.py --help")
 
-    (testpath/"helloworld-esp8266.bin").write ::Base64.decode64 <<~EOS
+    (testpath/"helloworld-esp8266.bin").write <<~EOS.unpack1("m")
       6QIAICyAEEAAgBBAMAAAAFDDAAAAgP4/zC4AQMwkAEAh/P8SwfAJMQH8/8AAACH5/wH6/8AAAAb//wAABvj/AACA/j8QAAAASGVsbG8gd29ybGQhCgAAAAAAAAAAAAAD
     EOS
 

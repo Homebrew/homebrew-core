@@ -26,9 +26,9 @@ class Gnuastro < Formula
 
   def install
     args = %W[
-      --with-gsl=#{Formula["gsl"].opt_prefix}
-      --with-cfitsio=#{Formula["cfitsio"].opt_prefix}
-      --with-wcslib=#{Formula["wcslib"].opt_prefix}
+      --with-gsl=#{formula_opt_prefix("gsl")}
+      --with-cfitsio=#{formula_opt_prefix("cfitsio")}
+      --with-wcslib=#{formula_opt_prefix("wcslib")}
     ]
     system "./configure", *args, *std_configure_args
     system "make", "install"

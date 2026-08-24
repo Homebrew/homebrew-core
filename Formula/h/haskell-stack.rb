@@ -12,12 +12,13 @@ class HaskellStack < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "4523cc57f76a0a71d0603dcf85e2e6e502d9ee07dd2e8c151c7fba2120c71b65"
-    sha256 cellar: :any, arm64_sequoia: "ec3dc5be42d89efc0b511e1bbedef20968fd9d8762a7a11e14ad9dcd3b9cc3a2"
-    sha256 cellar: :any, arm64_sonoma:  "0d45efb41df5506a38429b1e5061b7bc860a3444ae2edb400bd37e6cbfc74b7a"
-    sha256 cellar: :any, sonoma:        "ee48a31fc1520113ec18d518e36b0ab5e4edb9a9e0b167f473090c98a3e79716"
-    sha256 cellar: :any, arm64_linux:   "1b8c15ae51db3980c6fb7438d8005dbc284182cc04c61862ac2ee70575bb366b"
-    sha256 cellar: :any, x86_64_linux:  "8a36c71b8ee3719d147a300d72e9520f336084739637f874e925c295ea44439d"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "b2f986313c4ee456d9d790c70784bd7d42bfbb42340620f855d6feaf1704dfe1"
+    sha256 cellar: :any, arm64_sequoia: "d37bbf5226d1537437cdd3c52c83f1042fafd02425f700caee0c7a37906a76c4"
+    sha256 cellar: :any, arm64_sonoma:  "1112bf679a87e281a3f975d85dbe8d167b765ac62e187c71665cee82289fce66"
+    sha256 cellar: :any, sonoma:        "acdf16539f35a64471a7f1d7d0ef1eac58e0f8f046cf301c21093b492935e9b9"
+    sha256 cellar: :any, arm64_linux:   "80a7c608538746562744ac54033a1638a37a3722e982c430756c5a9c1aba9695"
+    sha256 cellar: :any, x86_64_linux:  "d93c120626eedc29ab2c5c374f759ceb0b30a359096690aa66f119944f00d928"
   end
 
   depends_on "cabal-install" => :build
@@ -38,8 +39,8 @@ class HaskellStack < Formula
       packages: .
     CABAL
 
-    # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
-    args = ["--allow-newer=base,containers,template-haskell"]
+    # Workaround to build persistent with GHC 9.14, https://github.com/yesodweb/persistent/issues/1619
+    args = ["--allow-newer=template-haskell"]
 
     system "cabal", "v2-update"
     system "cabal", "v2-install", *args, *std_cabal_v2_args

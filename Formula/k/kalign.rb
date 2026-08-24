@@ -6,16 +6,20 @@ class Kalign < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8f71e40d9b45732086ee415ec130e03e09db751f393cffb319bc842992ea28b2"
-    sha256 cellar: :any,                 arm64_sequoia: "2358d378a572b07517447d5211684f215a6b6f5b406c976c1b4db4cbc5a78379"
-    sha256 cellar: :any,                 arm64_sonoma:  "9e6edbd6b9e00a838c9ab9183cd9a0664c2ba097d3beffc7b8d5389f77ecea58"
-    sha256 cellar: :any,                 sonoma:        "10acec6e6df25811d99e0719a143a5a7c7bba1e1c223baf2e249b942c3dfb0f0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "86fb9adacf8e8c08495cf7c8673618272540df6c7b26cc4d584d850b066b1d64"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f797b66afe74876d22fb87c3e59b2d0ba9f004873d2127e631a4026178409e5f"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "11bcedd722af4c6c3703fbac5785f7e8c6b6fbe24d618fc4d56f54c088a8a0c0"
+    sha256 cellar: :any, arm64_sequoia: "fbbac6301fca1689cbcb009a337d5f3f592f344e99d88c554e000322b4406fe6"
+    sha256 cellar: :any, arm64_sonoma:  "bdda94dc4686d7f8321b0ecea9546b46af48e70ec16a0e90425dade6b42d37dd"
+    sha256 cellar: :any, sonoma:        "31ded0e6f6a5be3ff4722b577735dbf1680b02207034bad00450540bc47c209f"
+    sha256 cellar: :any, arm64_linux:   "2ff9b4489430c6f92b8f7c2bda793cea799e70a086d149316ed3c3f17dc4f617"
+    sha256 cellar: :any, x86_64_linux:  "f13dc7d95b1f7e5696259cea071a1a3e79233ab2f75d6d1ddc4fc46309ecf3f2"
   end
 
   depends_on "cmake" => :build
-  depends_on "libomp"
+
+  on_macos do
+    depends_on "libomp"
+  end
 
   def install
     args = %w[

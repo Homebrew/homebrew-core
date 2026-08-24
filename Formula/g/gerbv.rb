@@ -30,10 +30,12 @@ class Gerbv < Formula
     depends_on "pango"
   end
 
-  # Backport CMake fixes, upstream pr ref, https://github.com/gerbv/gerbv/pull/303
+  # Backport CMake fixes
   patch do
-    url "https://github.com/chenrui333/gerbv/commit/13e73c2767f0170cd4ff660ba0ccceac7c080573.patch?full_index=1"
+    url "https://github.com/gerbv/gerbv/commit/13e73c2767f0170cd4ff660ba0ccceac7c080573.patch?full_index=1"
     sha256 "d1e8adc4371cfa3b2cc033b06c26daf2aa219cdd8d7a58b3fadfbdc0cbf9f920"
+    type :backport
+    resolves "https://github.com/gerbv/gerbv/pull/303"
   end
 
   def install

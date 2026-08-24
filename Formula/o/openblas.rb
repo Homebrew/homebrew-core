@@ -1,8 +1,8 @@
 class Openblas < Formula
   desc "Optimized BLAS library"
   homepage "https://www.openblas.net/"
-  url "https://github.com/OpenMathLib/OpenBLAS/archive/refs/tags/v0.3.33.tar.gz"
-  sha256 "6761af1d9f5d353ab4f0b7497be2643313b36c8f31caec0144bfef198e71e6ab"
+  url "https://github.com/OpenMathLib/OpenBLAS/archive/refs/tags/v0.3.34.tar.gz"
+  sha256 "cd7e129868320cc2d033afa920e31202dfe0b8066a5b66661900ccc0f197dfed"
   # The main license is BSD-3-Clause. Additionally,
   # 1. OpenBLAS is based on GotoBLAS2 so some code is under original BSD-2-Clause-Views
   # 2. lapack-netlib/ is a bundled LAPACK so it is BSD-3-Clause-Open-MPI
@@ -18,12 +18,12 @@ class Openblas < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7e308979f08a28be401712b746ce51642c4027c1bd638dc40c6faa636cc75f76"
-    sha256 cellar: :any,                 arm64_sequoia: "71a07baa0f1a4adebb3d23a13949a5ec86fe38db357571071200f0bd3c6b43af"
-    sha256 cellar: :any,                 arm64_sonoma:  "54c462531e9335cb4c5a8391e59a78357e38d0e2afeec29afcc733ab98ad87fe"
-    sha256 cellar: :any,                 sonoma:        "67ad998c289b0be14631f94fe6e0617554fd45c503dbd352b54693e6d81ac2a6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "85600720d9ea271290ce7af7cfa191f0a8c8dc8e2d7fff194b7c9f49b4b3bfc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44756438b701c2ec082c9f1f6f0e690aeb0e38e582de1a0fcdd42c0219a3cce2"
+    sha256 cellar: :any, arm64_tahoe:   "8cc0a53629065fb114b2e9514d03c661764ef6b40607a273267e86d5086253f7"
+    sha256 cellar: :any, arm64_sequoia: "779aa71127f0c6ce10db5f68a0a00fbeccb9146c4a2889d0f423d538fb9d4f60"
+    sha256 cellar: :any, arm64_sonoma:  "ef33d12414f3620418459bbe9899642a0664f7199daca8a3e762ed1423796618"
+    sha256 cellar: :any, sonoma:        "bcd874fc9ec787f6196278aded086a6100424af3b8def4105d9aaf479604087b"
+    sha256 cellar: :any, arm64_linux:   "f6041cf31f7603cb7c67c61e3cf8418a2640f05e88ee00596efef5c805d344aa"
+    sha256 cellar: :any, x86_64_linux:  "e144980ce9ba119e05b4683cda44ac25e6ac01e5cdb550fc9ae404959ce0522c"
   end
 
   keg_only :shadowed_by_macos, "macOS provides BLAS in Accelerate.framework"
@@ -41,12 +41,12 @@ class Openblas < Formula
     # https://cpufun.substack.com/p/is-mixing-openmp-runtimes-safe
     if ENV.compiler == :clang
       inreplace "Makefile.install" do |s|
-        s.gsub! ":= -fopenmp", ":= -I#{Formula["libomp"].opt_include} -Xpreprocessor -fopenmp"
-        s.gsub! "+= -lgomp", "+= -L#{Formula["libomp"].opt_lib} -lomp"
+        s.gsub! ":= -fopenmp", ":= -I#{formula_opt_include("libomp")} -Xpreprocessor -fopenmp"
+        s.gsub! "+= -lgomp", "+= -L#{formula_opt_lib("libomp")} -lomp"
       end
       inreplace "Makefile.system" do |s|
         s.gsub! "+= -fopenmp", "+= -Xpreprocessor -fopenmp"
-        s.gsub! "+= -lgfortran", "+= -L#{Formula["gcc"].opt_lib}/gcc/current -lgfortran"
+        s.gsub! "+= -lgfortran", "+= -L#{formula_opt_lib("gcc")}/gcc/current -lgfortran"
       end
     end
 
@@ -85,8 +85,8 @@ class Openblas < Formula
   test do
     if OS.mac?
       require "utils/linkage"
-      libgomp = Formula["gcc"].opt_lib/"gcc/current/libgomp.dylib"
-      libomp = Formula["libomp"].opt_lib/"libomp.dylib"
+      libgomp = formula_opt_lib("gcc")/"gcc/current/libgomp.dylib"
+      libomp = formula_opt_lib("libomp")/"libomp.dylib"
       refute Utils.binary_linked_to_library?(lib/"libopenblas.dylib", libgomp), "Unwanted linkage to libgomp!"
       assert Utils.binary_linked_to_library?(lib/"libopenblas.dylib", libomp), "Missing linkage to libomp!"
     end

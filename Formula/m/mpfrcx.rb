@@ -6,6 +6,11 @@ class Mpfrcx < Formula
   license "GPL-3.0-or-later"
   head "https://gitlab.inria.fr/enge/mpfrcx.git", branch: "master"
 
+  livecheck do
+    url "https://www.multiprecision.org/mpfrcx/download.html"
+    regex(/href=.*?mpfrcx[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "0040f42d09efca8b3d759eb4b6f52158d89edbd1019d4919152d56666eb9de81"
     sha256 cellar: :any,                 arm64_sequoia:  "e9d9fcb8796dc03e08d4f3b1d1e6e1cd054befac43f75f20f6592891e01c366f"
@@ -42,7 +47,7 @@ class Mpfrcx < Formula
     Dir[pkgshare/"tests/*"].each do |src|
       testname = File.basename(src, ".c")
       system ENV.cc, src, "-I#{include}", "-L#{lib}",
-             "-L#{Formula["gmp"].opt_lib}", "-L#{Formula["libmpc"].opt_lib}", "-L#{Formula["mpfr"].opt_lib}",
+             "-L#{formula_opt_lib("gmp")}", "-L#{formula_opt_lib("libmpc")}", "-L#{formula_opt_lib("mpfr")}",
              "-lmpfrcx", "-lgmp", "-lmpc", "-lmpfr",
              "-o", testname
       system testpath/testname

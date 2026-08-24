@@ -1,8 +1,8 @@
 class Victoriametrics < Formula
   desc "Cost-effective and scalable monitoring solution and time series database"
   homepage "https://victoriametrics.com/"
-  url "https://github.com/VictoriaMetrics/VictoriaMetrics/archive/refs/tags/v1.145.0.tar.gz"
-  sha256 "4767d6a05468d370b7777cbdb0fc657e20052f9e3b70d99613784fea0f02ff54"
+  url "https://github.com/VictoriaMetrics/VictoriaMetrics/archive/refs/tags/v1.150.0.tar.gz"
+  sha256 "0692a0841ddbf8b715f3920a1d1926db541f5db84107361ee1c954fcf9761ba6"
   license "Apache-2.0"
 
   # There are tags like `pmm-6401-v1.89.1` in the upstream repo. They don't
@@ -14,18 +14,18 @@ class Victoriametrics < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5fc557c0416f747b866c532752ca836c95fd120085e6b4eccfff5dca8fbb70c2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7871d35a239cf7e236af10724eb4ec9bbe471d6935a1a6628231ea3d8c9517b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "daa9296d32d24ebe86d60d5ea7d77a767bcdc2e0241246e99a4e0d450c4ffd83"
-    sha256 cellar: :any_skip_relocation, sonoma:        "92507a7a1335e81c162309f6f698ed00a6ebba1d4bd14ee5ca85fa9f29425bd7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5d2fee0231434e2aeded1fb4c03e4a657f7dce9b45b3db50a06c5f45924504d2"
-    sha256 cellar: :any,                 x86_64_linux:  "10ad0e845a1ac4fc3cb72d26fc680c23c59afabaaf86dfb7a1b811813218b921"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "79c97a842866cc4e894b445baec4f3c7660b62579dda726bb98e4789d48684b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c95ff55876d334c7e60b11f1c9be31ec23f569ce5e9897dc6554421a5fdb4a3d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b384640c43e69842a52590c06426d9b8e8f7dd8aaec0711a391d3f4de1be1079"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7aec6957a654189ef13dcf8cea2181d01f8127c1a523ebbf0169e19f25f4c0e6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2847443c18e3e8deaa6989879f58a7f73be8a066fbe5c9ed51c099516bc449ba"
+    sha256 cellar: :any,                 x86_64_linux:  "009deb8c8921eda9a6b13423ae2a80ff6ada7e690aa7b0ca89aa15a15c590003"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/VictoriaMetrics/VictoriaMetrics/lib/buildinfo.Version=#{version}"
+    ldflags = "-X github.com/VictoriaMetrics/VictoriaMetrics/lib/buildinfo.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:, output: bin/"victoria-metrics"), "./app/victoria-metrics"
 
     (etc/"victoriametrics/scrape.yml").write <<~YAML

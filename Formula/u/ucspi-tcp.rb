@@ -31,6 +31,7 @@ class UcspiTcp < Formula
   patch do
     url "https://raw.githubusercontent.com/homebrew/patches/2b3e4da/ucspi-tcp/patch-0.88-ipv6.diff"
     sha256 "c2d6ce17c87397253f298cc28499da873efe23afe97e855bdcf34ae66374036a"
+    type :unofficial
   end
 
   def install

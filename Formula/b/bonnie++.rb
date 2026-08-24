@@ -31,8 +31,8 @@ class Bonniexx < Formula
   # also incorrectly tests for it in the first place. The ideal fix would be to
   # replace the AC_TRY_RUN() in configure.in if the fail code actually worked.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/bonnie%2B%2B/remove-large-file-support-macros.diff"
-    sha256 "368a7ea0cf202a169467efb81cb6649c1b6306999ccd54b85641fd4b458a46b7"
+    file "Patches/bonnie%2B%2B/remove-large-file-support-macros.diff"
+    type :unofficial
   end
 
   def install

@@ -1,9 +1,9 @@
 class WasiRuntimes < Formula
   desc "Compiler-RT and libc++ runtimes for WASI"
   homepage "https://wasi.dev"
-  # TODO: Check if any build changes are needed after https://github.com/WebAssembly/wasi-sdk/pull/585
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.7/llvm-project-22.1.7.src.tar.xz"
-  sha256 "5cc4a3f12bba50b6bdfb4b61bdc852117a0ff2517807c3902fc13267fb93562e"
+  # TODO: update targets and other steps when wasi-sdk-34 / wasi-libc 34 is stable
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.8/llvm-project-22.1.8.src.tar.xz"
+  sha256 "922f1817a0df7b1489272d18134ee0087a8b068828f87ac63b9861b1a9965888"
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
@@ -12,12 +12,13 @@ class WasiRuntimes < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "126fac197a1cb7d5fe621e34144aff542dcead712af5123083dee21e98986298"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd46a11ecaff84104dfbc782297f146e7e9a8495abfaa47851b3459b91807627"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "54e9036a147d5c0ab45672a5c1021c08c019eb65ede38df9086188d748a007f3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cd6df876ff1d61f875d1d589913adfb22b8f168d0534d4d3dad5bfac745c550f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4bf4fcc59b95c8ff8bd01293d63ac1cacac83c6ec757678a9aa6c6468b0d4243"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e58b0c28a6a9766107397fc2c82b21c625722f4beed13740a4ce4d0f9ecaf45"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5c2cd9eb8102c4a91286d21af5ddc935fc7f3ed21943e6059a545dab84936072"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "abf0eebacf4a2ccfaf6eccdd9a4eb5622f1bd14e43b1a94c15049e36701414c0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38c9096f0ab3199dc258ba2b6c4289f85390e787aae1e383ae125a7f94537d4e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3661c844d01caaeaa5e63a9fac964b8ad6d8dca4674f723394f7ee5159a5d201"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "27f87111b1e253b3cb75993b94f33f982a55acfdbe0a318dcd0580c60608b11e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45e7c3dec6673695879c3bf861f37018d23e498c21dd47fe7bd2caaa5d58e698"
   end
 
   depends_on "cmake" => :build
@@ -27,8 +28,10 @@ class WasiRuntimes < Formula
   depends_on "wasmtime" => :test
   depends_on "llvm"
 
+  uses_from_macos "python" => :build
+
   def wasi_sdk_targets
-    # See targets at: https://github.com/WebAssembly/wasi-sdk/blob/wasi-sdk-30/CMakeLists.txt#L14-L15
+    # See targets at: https://github.com/WebAssembly/wasi-sdk/blob/wasi-sdk-33/CMakeLists.txt#L14
     %w[
       wasm32-wasi
       wasm32-wasip1
@@ -48,7 +51,7 @@ class WasiRuntimes < Formula
     wasi_sdk_cpu_cflags = "-mcpu=lime1"
 
     # Compiler flags taken from following tag, excluding unused CMAKE_MODULE_PATH
-    # https://github.com/WebAssembly/wasi-sdk/blob/wasi-sdk-30/cmake/wasi-sdk-sysroot.cmake#L40-L57
+    # https://github.com/WebAssembly/wasi-sdk/blob/wasi-sdk-33/cmake/wasi-sdk-sysroot.cmake#L56-L73
     default_cmake_args = %W[
       -DCMAKE_SYSTEM_NAME=WASI
       -DCMAKE_SYSTEM_VERSION=1
@@ -70,8 +73,8 @@ class WasiRuntimes < Formula
       -DCMAKE_VERBOSE_MAKEFILE=ON
       -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=#{HOMEBREW_LIBRARY_PATH}/cmake/trap_fetchcontent_provider.cmake
     ]
-    # Compiler flags taken from following commit (HEAD at time of update):
-    # https://github.com/WebAssembly/wasi-sdk/blob/a64d51d14378e306add001fad180d5733df1491c/cmake/wasi-sdk-sysroot.cmake#L75-L95
+    # Configuration taken from:
+    # https://github.com/WebAssembly/wasi-sdk/blob/wasi-sdk-33/cmake/wasi-sdk-sysroot.cmake#L90-L110
     compiler_rt_args = %W[
       -DLLVM_ENABLE_PER_TARGET_RUNTIME_DIR=ON
       -DCOMPILER_RT_BAREMETAL_BUILD=ON
@@ -130,7 +133,7 @@ class WasiRuntimes < Formula
 
     wasi_sdk_targets.each do |target|
       # Configuration taken from:
-      # https://github.com/WebAssembly/wasi-sdk/blob/wasi-sdk-30/cmake/wasi-sdk-sysroot.cmake#L209-L215
+      # https://github.com/WebAssembly/wasi-sdk/blob/wasi-sdk-33/cmake/wasi-sdk-sysroot.cmake#L244-L250
       pic = target.end_with?("-threads") ? "OFF" : "ON"
       target_flags = target.end_with?("-threads") ? ["-pthread"] : []
 
@@ -146,26 +149,23 @@ class WasiRuntimes < Formula
       #   `-DLIBCXX_ENABLE_SHARED=#{pic}`
       #   `-DLIBCXXABI_ENABLE_SHARED=#{pic}`
       # but the build fails with linking errors.
-      # See: https://github.com/WebAssembly/wasi-sdk/blob/a64d51d14378e306add001fad180d5733df1491c/cmake/wasi-sdk-sysroot.cmake#L255-L305
-      # NOTE: disabled LIBCXX_HAS_MUSL_LIBC for LLVM 22 based on https://github.com/WebAssembly/wasi-sdk/pull/585
+      #
+      # Configuration taken from:
+      # https://github.com/WebAssembly/wasi-sdk/blob/wasi-sdk-33/cmake/wasi-sdk-sysroot.cmake#L302-L346
       target_cmake_args = %W[
         -DCMAKE_INSTALL_INCLUDEDIR=#{share}/wasi-sysroot/include/#{target}
         -DCMAKE_STAGING_PREFIX=#{share}/wasi-sysroot
         -DCMAKE_POSITION_INDEPENDENT_CODE=#{pic}
-        -DCXX_SUPPORTS_CXX11=ON
         -DLIBCXX_ENABLE_THREADS:BOOL=ON
         -DLIBCXX_HAS_PTHREAD_API:BOOL=ON
         -DLIBCXX_HAS_EXTERNAL_THREAD_API:BOOL=OFF
-        -DLIBCXX_BUILD_EXTERNAL_THREAD_LIBRARY:BOOL=OFF
         -DLIBCXX_HAS_WIN32_THREAD_API:BOOL=OFF
         -DLLVM_COMPILER_CHECKED=ON
         -DLIBCXX_ENABLE_SHARED:BOOL=OFF
-        -DLIBCXX_ENABLE_EXPERIMENTAL_LIBRARY:BOOL=OFF
         -DLIBCXX_ENABLE_EXCEPTIONS:BOOL=OFF
         -DLIBCXX_ENABLE_FILESYSTEM:BOOL=ON
         -DLIBCXX_ENABLE_ABI_LINKER_SCRIPT:BOOL=OFF
         -DLIBCXX_CXX_ABI=libcxxabi
-        -DLIBCXX_CXX_ABI_INCLUDE_PATHS=#{buildpath}/libcxxabi/include
         -DLIBCXX_HAS_MUSL_LIBC:BOOL=OFF
         -DLIBCXX_ABI_VERSION=2
         -DLIBCXXABI_ENABLE_EXCEPTIONS:BOOL=OFF
@@ -174,9 +174,7 @@ class WasiRuntimes < Formula
         -DLIBCXXABI_ENABLE_THREADS:BOOL=ON
         -DLIBCXXABI_HAS_PTHREAD_API:BOOL=ON
         -DLIBCXXABI_HAS_EXTERNAL_THREAD_API:BOOL=OFF
-        -DLIBCXXABI_BUILD_EXTERNAL_THREAD_LIBRARY:BOOL=OFF
         -DLIBCXXABI_HAS_WIN32_THREAD_API:BOOL=OFF
-        -DLIBCXXABI_ENABLE_PIC:BOOL=#{pic}
         -DLIBCXXABI_USE_LLVM_UNWINDER:BOOL=OFF
         -DUNIX:BOOL=ON
         -DCMAKE_C_FLAGS=#{extra_cflags}
@@ -229,11 +227,11 @@ class WasiRuntimes < Formula
       }
     CPP
 
-    clang = Formula["llvm"].opt_bin/"clang"
+    clang = formula_opt_bin("llvm")/"clang"
     wasi_sdk_targets.each do |target|
       system clang, "--target=#{target}", "-v", "test.c", "-o", "test-#{target}"
       wasmtime_flags = if target.end_with?("-threads")
-        "-W threads=y -W shared-memory=y -S threads=y"
+        "-W threads=y -W shared-memory=y"
       else
         ""
       end

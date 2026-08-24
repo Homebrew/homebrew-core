@@ -22,6 +22,10 @@ class Anyzig < Formula
 
   depends_on "zig@0.14" => :build # https://github.com/marler8997/anyzig/pull/76
 
+  on_macos do
+    depends_on maximum_macos: [:sequoia, :build] # TODO: remove with Zig 0.15+
+  end
+
   conflicts_with "zig", because: "both install `zig` binaries"
 
   def install

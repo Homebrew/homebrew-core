@@ -4,6 +4,7 @@ class Re2 < Formula
   url "https://github.com/google/re2/releases/download/2025-11-05/re2-2025-11-05.tar.gz"
   sha256 "87f6029d2f6de8aa023654240a03ada90e876ce9a4676e258dd01ea4c26ffd67"
   license "BSD-3-Clause"
+  revision 2
   version_scheme 1
   compatibility_version 1
   head "https://github.com/google/re2.git", branch: "main"
@@ -14,12 +15,12 @@ class Re2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c3d8133e1af82433fd8491050aafc3cdf81e2728c1d171818e187001f5c5efb1"
-    sha256 cellar: :any,                 arm64_sequoia: "9dfd8e748444eb04b1180dfa861cef831d720588d016051c60bf1b9bc77bea4f"
-    sha256 cellar: :any,                 arm64_sonoma:  "2417787aad7998e86107097674b67fa1f32bed1eadc7a60261f6f1a024a1c55a"
-    sha256 cellar: :any,                 sonoma:        "336269669bfd8cab867b5ea69d99706e2b73dc0fa796ac987f5ad665010735cf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "74f2417e6840a1af5020085db3513cdc047e5dbe24bf9213871eb388b2af6bcc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d2b0fa3b0b1954bd06ca343641936d0d0833d0a80a7aa543eaca0a95332c055"
+    sha256 cellar: :any, arm64_tahoe:   "6e96aaf1115b4b532ec7f59ee986372c2d0ab7b0eb27ff41d5216e1a4f3957ef"
+    sha256 cellar: :any, arm64_sequoia: "41a23f8a657a72326621e241bab27e53bc1105c34dbe1528beae97a5b2fd3b51"
+    sha256 cellar: :any, arm64_sonoma:  "6aefa9488158d9c8f096e2a802e9a755e68356e82f99a88adfe763af4769b88d"
+    sha256 cellar: :any, sonoma:        "dca2f070c420737d68abb0af8108c35fe8355796acd675bff8dbe8ab94e2756e"
+    sha256 cellar: :any, arm64_linux:   "21373cdf8b18b43c0139d1f62fe758b00b9ca11fd2c4ebb77836444eaa954dbe"
+    sha256 cellar: :any, x86_64_linux:  "b743c2a713b079e718ef7d6af0cadc118faa6dc9039bb8ad6fe72b8f60fdd6bd"
   end
 
   depends_on "cmake" => :build

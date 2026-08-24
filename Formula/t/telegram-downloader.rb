@@ -1,27 +1,26 @@
 class TelegramDownloader < Formula
   desc "Telegram Messenger downloader/tools written in Golang"
   homepage "https://docs.iyear.me/tdl/"
-  url "https://github.com/iyear/tdl/archive/refs/tags/v0.20.3.tar.gz"
-  sha256 "a0bafa3e7054f05305f145e87c5f31827c1f36c71286080e573ae7d5a1df64f2"
+  url "https://github.com/iyear/tdl/archive/refs/tags/v0.20.4.tar.gz"
+  sha256 "e82ee4753a40df3b9b36564ae504dfce06514d018676481e0d967fd9a092c532"
   license "AGPL-3.0-only"
   head "https://github.com/iyear/tdl.git", branch: "master"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c908ec74176bbbb0642feea3cb685924f7fc5d0461ef74d4c27d4c42332ef616"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b414576f5e768f7680dccd54fd2b1b1d221a71d9c967ef273c097d66234f752a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7610888ba8515d4aaf7b467a71acfd48e87163cb2054d6d1ea90901f8666f81"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7f3ca5cadfe56e206864f4d9e61e4e64e82094e0c99a31f11e989543575181d1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e598933fd4cc7db464dbe3f67d1028fb4dc9eff7f4264989f40bf3e54b4dbf24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48945745c8d80a4b82172529a7c89d730c85ca3707f620855c86c2ebb052f72b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f61906ac73ffdb3984ecaba9cb54432f7fbb9d3750ced03ee72dfabbe0a555b0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4fdc82bc1b3824d652ab90c19700abbfe1f49d7d250372b3b08939d7dbc5c048"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a2ddcd983ef7b9b9bb06aeba8db61a4b11f2698a7647bb7ce3e5dde394c4767d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3901ab3b9294e8a23e745dc0db43a62829bdfd2b419561c88d5cb5a2636ca82b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1e0de0113174cc4a55de2e7145e72eefcbf9596a8d48e945c0f533e86ba3dca"
+    sha256 cellar: :any,                 x86_64_linux:  "4b5818c14f95fb94cd78fac93d430b79cdd6e8c0be2bc9e86b9a66ef96801efb"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/iyear/tdl/pkg/consts.Version=#{version}
       -X github.com/iyear/tdl/pkg/consts.Commit=#{tap.user}
       -X github.com/iyear/tdl/pkg/consts.CommitDate=#{time.iso8601}

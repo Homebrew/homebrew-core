@@ -2,8 +2,8 @@ class Apt < Formula
   desc "Advanced Package Tool"
   homepage "https://wiki.debian.org/Apt"
   # Using git tarball as Debian does not retain old versions at deb.debian.org
-  url "https://salsa.debian.org/apt-team/apt/-/archive/3.2.0/apt-3.2.0.tar.bz2"
-  sha256 "5ee51677f2240b6d40b39233407fd8d00c7a86e92cd3d0c2e57c9c752ed1d164"
+  url "https://salsa.debian.org/apt-team/apt/-/archive/3.3.3/apt-3.3.3.tar.bz2"
+  sha256 "2900914cefd4ee9f6f7c742d47600b27082bf2f917a58072fb9e960a2e1bb214"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,9 +12,8 @@ class Apt < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_linux:  "a6826d1bf9633466fcd4ed4405c4328da5fb5278c2f3ca5caf48a5287555da1f"
-    sha256 x86_64_linux: "f278561afbeeb0c7bbb399a478d47806ef25b7070435b8dbdfb1f17a8564fa29"
+    sha256 arm64_linux:  "6bc96e57276465f6a88b57871585328823f3cf0b5ceb5017633eac1c01c9fdf5"
+    sha256 x86_64_linux: "089dd9ecd81b9c930db619d9604a542e9bf206b267547df7b4b3e80209aa61f6"
   end
 
   keg_only "it conflicts with system apt"
@@ -71,9 +70,9 @@ class Apt < Formula
     end
 
     system "cmake", "-S", ".", "-B", "build",
-                    "-DDPKG_DATADIR=#{Formula["dpkg"].opt_libexec}/share/dpkg",
-                    "-DDOCBOOK_XSL=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl",
-                    "-DBERKELEY_INCLUDE_DIRS=#{Formula["berkeley-db@5"].opt_include}",
+                    "-DDPKG_DATADIR=#{formula_opt_libexec("dpkg")}/share/dpkg",
+                    "-DDOCBOOK_XSL=#{formula_opt_prefix("docbook-xsl")}/docbook-xsl",
+                    "-DBERKELEY_INCLUDE_DIRS=#{formula_opt_include("berkeley-db@5")}",
                     "-DWITH_TESTS=OFF",
                     *std_cmake_args
     system "cmake", "--build", "build"
@@ -83,7 +82,7 @@ class Apt < Formula
   end
 
   test do
-    assert_match "apt does not have a stable CLI interface. Use with caution in scripts",
-                 shell_output("#{bin}/apt list 2>&1")
+    assert_match "Listing", shell_output("#{bin}/apt list 2>&1")
+    assert_match "Dir \"/\"", shell_output("#{bin}/apt-config dump")
   end
 end

@@ -70,15 +70,15 @@ class Arjun < Formula
           def log_message(self, *args):
               pass
 
-      HTTPServer(("127.0.0.1", #{port}), Handler).serve_forever()
+      HTTPServer(("localhost", #{port}), Handler).serve_forever()
     PYTHON
 
     server_pid = spawn python3, testpath/"server.py"
-    sleep 2
+    sleep 10
 
     begin
       dbfile = libexec/Language::Python.site_packages(python3)/"arjun/db/small.txt"
-      output = shell_output("#{bin}/arjun -u http://127.0.0.1:#{port}/ -m GET -w #{dbfile}")
+      output = shell_output("#{bin}/arjun -u http://localhost:#{port}/ -m GET -w #{dbfile}")
       assert_match "No parameters were discovered", output
     ensure
       Process.kill("TERM", server_pid)

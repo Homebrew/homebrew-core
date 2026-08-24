@@ -8,12 +8,13 @@ class GetIplayer < Formula
   head "https://github.com/get-iplayer/get_iplayer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6649b501cf57ce9a491ddca1d29121b5dc788c992c76923bc3646fde1c72064d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6649b501cf57ce9a491ddca1d29121b5dc788c992c76923bc3646fde1c72064d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6649b501cf57ce9a491ddca1d29121b5dc788c992c76923bc3646fde1c72064d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7e3d88866060016afedd3a9f2f1e0391b23acc14382965aaccc5b69f3c78d67b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3da975c4e996da72f40d5e744461409a18eedf3001d3d75c66bac1446e75b2d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f59d1d219e4d21eac63b70301c62e9c5bc28f82e4d63530ba88f02f2b2b36d8f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f0e8ea02559b99d735440c901312dee0fef077666a88a1de8a301588cb88e26b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f0e8ea02559b99d735440c901312dee0fef077666a88a1de8a301588cb88e26b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f0e8ea02559b99d735440c901312dee0fef077666a88a1de8a301588cb88e26b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "73a27b064a43def552d682249045185a96c75fad66916acf71ff2a910ea83749"
+    sha256 cellar: :any,                 arm64_linux:   "50ab7b51670a7ea85cf788a4f2474636f333a65664899f40653a6be4c1672135"
+    sha256 cellar: :any,                 x86_64_linux:  "e68ca32c02021d2b9698efa63938054069dcecb9b6b7e5773505ee31808a9159"
   end
 
   depends_on "atomicparsley"
@@ -114,6 +115,7 @@ class GetIplayer < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV["NO_NETWORK_TESTING"] = "1"
+    ENV["PERL_MM_USE_DEFAULT"] = "1"
 
     resources.each do |r|
       r.stage do

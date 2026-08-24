@@ -3,8 +3,8 @@ class OpensearchDashboards < Formula
   homepage "https://docs.opensearch.org/latest/dashboards/"
   # Build fails if not a git repository
   url "https://github.com/opensearch-project/OpenSearch-Dashboards.git",
-      tag:      "3.7.0",
-      revision: "dd15c5757c758bc51d8992e979e05f975a605434"
+      tag:      "3.8.0",
+      revision: "aa72a9818a045ad4e290a5eb9be59e025b90634d"
   license "Apache-2.0"
 
   livecheck do
@@ -13,12 +13,12 @@ class OpensearchDashboards < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "516d03721d2a4753447b75251fc73517d8f6eee67ffeafe5309793dc0e5c79ec"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "516d03721d2a4753447b75251fc73517d8f6eee67ffeafe5309793dc0e5c79ec"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "516d03721d2a4753447b75251fc73517d8f6eee67ffeafe5309793dc0e5c79ec"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fdafd106302cd5eab75e17985f5c1c07e04b917edb1b4cfb878c656663824b61"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e36abb9886291ad5c2f6f575b164d04e069e574851276ccb7aa727d3779601a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c6d896ea6e457696aa3f4c0826d7d0851599266d4c6146686679fe1f1a452cd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "105a7e00de200c30b5aecc55187eb153babe4afdf029a6661d6b82303c09a23d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "105a7e00de200c30b5aecc55187eb153babe4afdf029a6661d6b82303c09a23d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "105a7e00de200c30b5aecc55187eb153babe4afdf029a6661d6b82303c09a23d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ee21abd38e1505837c08e109de761fb1968186224269f8dcfb3ec5b4c5e62413"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4ee91ce73af6bfeaae384067bfa10cf00b1c55f6f0cb86374cfcb143313ab60b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b923566fd977afe7d39955c8e84fe4140db2f95f54c90415d2d901a525be743"
   end
 
   depends_on "yarn" => :build
@@ -37,7 +37,7 @@ class OpensearchDashboards < Formula
     cd "build/opensearch-dashboards-#{version}-#{os}-#{arch}" do
       inreplace "bin/use_node",
                 /NODE=".+"/,
-                "NODE=\"#{Formula["node@22"].opt_bin}/node\""
+                "NODE=\"#{formula_opt_bin("node@22")}/node\""
 
       inreplace "config/opensearch_dashboards.yml",
                 /#\s*pid\.file: .+$/,

@@ -6,23 +6,21 @@ class LibayatanaIndicator < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "6c85a40732344dd09a745df53a87af7e203eed256ca48d2190bbc02f912367bc"
-    sha256 cellar: :any, x86_64_linux: "51b1d81aba0e7f193a4c424157fc86cf393fea36d884317eb97ed7c9291dbec7"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "8a0b1232e8286fdfd594d28265f9abcf1a34fb072e092c1039fe7f5ae16b43ac"
+    sha256 cellar: :any, arm64_sequoia: "39b911c2dde3c755f012186cd0407d768df3b559d9ebf31445a0e55dd3018dda"
+    sha256 cellar: :any, arm64_sonoma:  "eaac58be65a31c92df88b5921bd8ae935306eb80561336591aafd814417d6d02"
+    sha256 cellar: :any, sonoma:        "34fd9878b314e332ac13684560479f5aa64b60bea29602cff93f86151fd7ef0e"
+    sha256 cellar: :any, arm64_linux:   "3dde14db9845cc2e58a511355f08d1ea8ec4b021e1adb0a582280fe17d07234d"
+    sha256 cellar: :any, x86_64_linux:  "3e040ae1a0fea59df64f5ccea4fd2d2f5a1b6b42fe42481a89b77783b01c7d66"
   end
 
   depends_on "cmake" => :build
-  depends_on "gobject-introspection" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "vala" => :build
-  depends_on "at-spi2-core"
   depends_on "ayatana-ido"
-  depends_on "cairo"
   depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "gtk+3"
-  depends_on "harfbuzz"
-  depends_on :linux # PR ref: https://github.com/AyatanaIndicators/libayatana-indicator/pull/77
-  depends_on "pango"
 
   def install
     args = %w[
@@ -31,6 +29,12 @@ class LibayatanaIndicator < Formula
       -DENABLE_TESTS=OFF
       -DFLAVOUR_GTK3=ON
     ]
+    if OS.mac?
+      args += [
+        "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs -Wl,-rpath,#{rpath(source: libexec/name)}",
+        "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs",
+      ]
+    end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

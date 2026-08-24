@@ -1,17 +1,17 @@
 class QwenCode < Formula
   desc "AI-powered command-line workflow tool for developers"
   homepage "https://github.com/QwenLM/qwen-code"
-  url "https://registry.npmjs.org/@qwen-code/qwen-code/-/qwen-code-0.18.2.tgz"
-  sha256 "bccbaed6b086a8f082cfd37cb0d84571888c6d36f2a94be7ea6a73aea468f653"
+  url "https://registry.npmjs.org/@qwen-code/qwen-code/-/qwen-code-0.22.0.tgz"
+  sha256 "c0ae0ad006c4dd8b69ebe1705d13bb57d37d1c808dcb891c5bfcde91e66670c2"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fbf37ef705b5f3a318f362f578c6caab17a053a9f7311b679e4eb188eb4ace22"
-    sha256 cellar: :any,                 arm64_sequoia: "dbd4f5c89d47846843c60dda633b17ceea836464413f3c2985c6d8fc155f2d1b"
-    sha256 cellar: :any,                 arm64_sonoma:  "dbd4f5c89d47846843c60dda633b17ceea836464413f3c2985c6d8fc155f2d1b"
-    sha256 cellar: :any,                 sonoma:        "bef1de14b5c48923337d2c3ffdeb79450daa7f50152308b1bc37d534dde2532b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5a01e3385a59da68eb200af72541e0b2bfffb5bd3abd10f28a379b8525cd7f1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3c0f6c4ae37324fc340bbe1dee9358391433c877c008edec657e30a5cb7edae"
+    sha256 cellar: :any, arm64_tahoe:   "fbab4bb1d15842704f7aced7c27f6d6b51fffe3f9f02d7347bcb6e69c5dbec5b"
+    sha256 cellar: :any, arm64_sequoia: "fbab4bb1d15842704f7aced7c27f6d6b51fffe3f9f02d7347bcb6e69c5dbec5b"
+    sha256 cellar: :any, arm64_sonoma:  "fbab4bb1d15842704f7aced7c27f6d6b51fffe3f9f02d7347bcb6e69c5dbec5b"
+    sha256 cellar: :any, sonoma:        "041f709ab2408e6c27996b3a094f33b582c4ff4c0bc903f8f1b72f8cf7b14c6e"
+    sha256 cellar: :any, arm64_linux:   "dea2356339b5a16dd592857bbe456a70d0dc9b227bb27824040ce37666851c9d"
+    sha256 cellar: :any, x86_64_linux:  "3ec373f15cc68953d26fd679946d7573815de85339a73162f32e5516c3d76eca"
   end
 
   depends_on "node"
@@ -29,6 +29,10 @@ class QwenCode < Formula
     os = OS.mac? ? "darwin" : "linux"
     arch = Hardware::CPU.intel? ? "x64" : "arm64"
     (qwen_code/"node_modules/node-pty/prebuilds").glob("*").each do |dir|
+      rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}"
+    end
+
+    qwen_code.glob("node_modules/@qwen-code/audio-capture/prebuilds/*").each do |dir|
       rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}"
     end
   end

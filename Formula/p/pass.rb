@@ -56,12 +56,12 @@ class Pass < Formula
       %commit
     GPG
     begin
-      system Formula["gnupg"].opt_bin/"gpg", "--batch", "--gen-key", "batch.gpg"
+      system formula_opt_bin("gnupg")/"gpg", "--batch", "--gen-key", "batch.gpg"
       system bin/"pass", "init", "Testing"
       assert_match "The generated password for", shell_output("#{bin}/pass generate Email/testing@foo.bar 15")
       assert_path_exists testpath/".password-store/Email/testing@foo.bar.gpg"
     ensure
-      system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
+      system formula_opt_bin("gnupg")/"gpgconf", "--kill", "gpg-agent"
     end
   end
 end

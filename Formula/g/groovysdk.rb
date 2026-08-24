@@ -1,8 +1,8 @@
 class Groovysdk < Formula
   desc "SDK for Groovy: a Java-based scripting language"
   homepage "https://www.groovy-lang.org/"
-  url "https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-sdk-5.0.6.zip"
-  sha256 "401f2b34d835838201d250cfaeecfe0cc48a668359154d1fbbfabb3ca75b7c1e"
+  url "https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-sdk-5.1.0.zip"
+  sha256 "0b5f04833e69968c23270f983fa72074ef6b8598386e5b68478aaa8271855ac2"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,7 @@ class Groovysdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "659850968a85f3935bdae36dbd466e3cec4955c2bd3c8da0a041f08c8e71157c"
+    sha256 cellar: :any_skip_relocation, all: "52eb299bac3a2f7eb29b1bf15a13b01f69d8dc0136ff2d5f345c14f413ca5653"
   end
 
   depends_on "openjdk"
@@ -26,7 +26,7 @@ class Groovysdk < Formula
     libexec.install "conf", "lib", "src", "doc"
     bin.env_script_all_files libexec/"bin",
                              GROOVY_HOME: libexec,
-                             JAVA_HOME:   "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+                             JAVA_HOME:   "${JAVA_HOME:-#{formula_opt_prefix("openjdk")}}"
   end
 
   test do

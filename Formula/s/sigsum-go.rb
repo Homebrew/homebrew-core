@@ -25,7 +25,7 @@ class SigsumGo < Formula
       sigsum-verify
       sigsum-witness
     ].each do |cmd|
-      system "go", "build", *std_go_args(output: bin/cmd, ldflags: "-s -w"), "./cmd/#{cmd}"
+      system "go", "build", *std_go_args(output: bin/cmd), "./cmd/#{cmd}"
     end
   end
 

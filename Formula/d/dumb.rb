@@ -28,7 +28,7 @@ class Dumb < Formula
 
   depends_on "cmake" => :build
   depends_on "argtable"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   def install
     args = std_cmake_args + %w[

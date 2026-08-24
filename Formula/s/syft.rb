@@ -1,25 +1,24 @@
 class Syft < Formula
   desc "CLI for generating a Software Bill of Materials from container images"
   homepage "https://github.com/anchore/syft"
-  url "https://github.com/anchore/syft/archive/refs/tags/v1.45.1.tar.gz"
-  sha256 "eeae4dceb6d3efded3a7209da5d051bfcba9387dbe15722f22bde5f90eb2200d"
+  url "https://github.com/anchore/syft/archive/refs/tags/v1.51.0.tar.gz"
+  sha256 "d48bca3091ec4862f5041af6cbdeedb3f2322ae7a059199a22d99e099cabd4ae"
   license "Apache-2.0"
   head "https://github.com/anchore/syft.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e7a72bf67f4afd3c73172116ac92fab762a8fb78e1c9f8f0f7a9e37c516f3181"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4d200289f5ea3fa1a7ce795ac496afb0eb1fc967cae41d33d632dfd0fd7aa2a1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "305764231ae21b662f1148aa8f890de1363d1fcd3612e9a51328a44586a3fbe0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "087fce301b22657c00ea9c34ffd4d4cb7daa00d37e9281a09dab92ac55838bb6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8585733dfcb9991c770e256f9282126c8c776fdf581192311d1b36600ccf200f"
-    sha256 cellar: :any,                 x86_64_linux:  "69dd10bc17d4a8dcc49c8a5c33fa7ff187a13b0472dd0a72d14558b107afa306"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "37aa3d3abaee265b2cea65f50f4269eee65c71137e37cf24b2fab1b52c49c431"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7bd16589eca221710588572088897f9bcecdf8366ad3141e794df5b87a9e4641"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ae9c4a780f8f378cb2bf1ef3d40386e7bc2d50f867b4ab55ea0232572c870a88"
+    sha256 cellar: :any_skip_relocation, sonoma:        "cf7bfdad9a11b00032def27afd6fbd2f6f9dda0e1a5e1e26096cd9b6c53c06fe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ecc19889369004d514e13e79dd1bb297fb0bd071909bb4a1331282ead7e1fc3b"
+    sha256 cellar: :any,                 x86_64_linux:  "4e0a5066e8ec542936f935771d8cd622dbbb68c413e4be2d0e7c82c8fe2fb319"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.gitCommit=#{tap.user}
       -X main.buildDate=#{time.iso8601}

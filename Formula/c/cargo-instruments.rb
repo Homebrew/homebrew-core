@@ -17,7 +17,7 @@ class CargoInstruments < Formula
   depends_on "openssl@4"
 
   def install
-    ENV["OPENSSL_DIR"] = Formula["openssl@4"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
     system "cargo", "install", *std_cargo_args
   end
 

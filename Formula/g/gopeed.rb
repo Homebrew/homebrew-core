@@ -1,5 +1,5 @@
 class Gopeed < Formula
-  desc "Modern download manager that supports all platform"
+  desc "Multi protocol download manager"
   homepage "https://gopeed.com"
   url "https://github.com/GopeedLab/gopeed/archive/refs/tags/v1.9.3.tar.gz"
   sha256 "da8da9516fbe2a01db1dab11dda97c7e3096e43a14a7c13202a2f92976aa6db9"
@@ -18,7 +18,7 @@ class Gopeed < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/gopeed"
+    system "go", "build", *std_go_args, "./cmd/gopeed"
   end
 
   test do

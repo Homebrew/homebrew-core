@@ -33,7 +33,7 @@ class Tinc < Formula
 
   def install
     system "./configure", "--sysconfdir=#{etc}",
-                          "--with-openssl=#{Formula["openssl@4"].opt_prefix}",
+                          "--with-openssl=#{formula_opt_prefix("openssl@4")}",
                           *std_configure_args
     system "make", "install"
 

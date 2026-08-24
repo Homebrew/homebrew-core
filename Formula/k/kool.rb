@@ -18,7 +18,7 @@ class Kool < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X kool-dev/kool/commands.version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X kool-dev/kool/commands.version=#{version}")
 
     generate_completions_from_executable(bin/"kool", shell_parameter_format: :cobra)
   end

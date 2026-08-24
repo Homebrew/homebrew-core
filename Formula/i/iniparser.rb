@@ -18,7 +18,6 @@ class Iniparser < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "doxygen" => :build
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

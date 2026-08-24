@@ -3,22 +3,21 @@ class Libxmlb < Formula
 
   desc "Library for querying compressed XML metadata"
   homepage "https://github.com/hughsie/libxmlb"
-  url "https://github.com/hughsie/libxmlb/releases/download/0.3.27/libxmlb-0.3.27.tar.xz"
-  sha256 "63fa0275f7454d77c10e0af37f79dfdb071821caf429a57dbd9598ea3a9defd6"
+  url "https://github.com/hughsie/libxmlb/releases/download/0.3.29/libxmlb-0.3.29.tar.xz"
+  sha256 "448294be33bfae62f00fa66e506f1cae80237ce71b7ab6530aefa75005eeb08a"
   license "LGPL-2.1-or-later"
   compatibility_version 1
   head "https://github.com/hughsie/libxmlb.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "120816663f8ba794566de8da00a63f09bfa240c421f63d7c472acba407eccdbe"
-    sha256 cellar: :any, arm64_sequoia: "ac73d2e3d04f7ddf51298c32aeb2bc489a8ec8edce256e368d99bff2523ab514"
-    sha256 cellar: :any, arm64_sonoma:  "76091a4c52e65f0186b6cabcd3b090a78ff32fb9ba709502a906d2ad37682eb1"
-    sha256 cellar: :any, sonoma:        "b164a5170af54cf0e0cfad9324463401fab99d87c7a482a0f0c343afaf19da3e"
-    sha256               arm64_linux:   "5532d4dd0ecd14bd730d12c0f24622286fa4ddafc79463b93d0585334714b6d8"
-    sha256               x86_64_linux:  "f185f321d12c0810b383e3fc289fd35c1ec416f5d9558f8e05b7086180699319"
+    sha256 cellar: :any, arm64_tahoe:   "74ca7fceb54bfd53a6cde29046221ee8aba126cfa46606c5cc77686f1e5fb4d4"
+    sha256 cellar: :any, arm64_sequoia: "db700b5477855d7392277d6e0c6e2adb5d2ef8bc7a85a43f898a825bd02112ea"
+    sha256 cellar: :any, arm64_sonoma:  "7475e67ffa742121e2808fa7d462b1e8e4f065f1d00a4ab9eba5d3711d25722b"
+    sha256 cellar: :any, sonoma:        "f780e8399cb1b3ff57373f2c5ba345d0f454dc41d531293483e8421e07dc8440"
+    sha256               arm64_linux:   "17e851b7249e9176ecf9219a7a64a3f82ffa8d82a74cbb79c4d63357df27f95a"
+    sha256               x86_64_linux:  "a64a9b8b8e43a14508becec1a0e7a2948cc2b605587d36f58d1ef85af5ad557c"
   end
 
-  depends_on "gi-docgen" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build

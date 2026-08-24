@@ -18,7 +18,7 @@ class GoStatik < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(output: bin/"statik", ldflags: "-s -w")
+    system "go", "build", *std_go_args(output: bin/"statik")
   end
 
   test do

@@ -8,23 +8,27 @@ class Cmix < Formula
     url "https://github.com/byronknoll/cmix/archive/refs/tags/v21.tar.gz"
     sha256 "c0ff50f24604121bd7ccb843045c0946db1077cfb9ded10fe4c181883e6dbb42"
 
-    # patch makefile, upstream pr ref, https://github.com/byronknoll/cmix/pull/69
+    # patch makefile
     patch do
       url "https://github.com/byronknoll/cmix/commit/702022a974cbf7906bcbaed898f1de95d3cbb32d.patch?full_index=1"
       sha256 "62143fadb5dda1024b0d51c1bb86263eb15d842193e02550a65924b3ac86c28a"
+      type :backport
+      resolves "https://github.com/byronknoll/cmix/pull/69"
     end
 
     # Workaround for the error: "This header is only meant to be used on x86 and x64 architecture"
     patch do
       url "https://github.com/byronknoll/cmix/commit/51c8f57570e4c1eb08056f929a96b3101c0156bb.patch?full_index=1"
       sha256 "c199390a27bce681e42ac23c8adfaa7261d4ec11fd76f14f9aab00dc629c2d33"
+      type :backport
     end
 
     # Fix to error: unknown type name '__m128i' on intel architectures
-    # PR ref: https://github.com/byronknoll/cmix/pull/74
     patch do
       url "https://github.com/byronknoll/cmix/commit/b5b77acd112985cf8577ec01910c74fb70c98f36.patch?full_index=1"
       sha256 "e9ea39d1d343bd5bc59de497e899d6e124e4d2aa8768e8d0a7fe47ff7a80dc38"
+      type :backport
+      resolves "https://github.com/byronknoll/cmix/pull/74"
     end
   end
 

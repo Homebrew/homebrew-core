@@ -22,7 +22,6 @@ class GitBug < Formula
   def install
     ENV["GOBIN"] = bin
     ldflags = %W[
-      -s -w
       -X github.com/git-bug/git-bug/commands.GitCommit="v#{tap.user}"
       -X github.com/git-bug/git-bug/commands.GitLastTag="v#{version}"
       -X github.com/git-bug/git-bug/commands.GitExactTag="v#{version}"

@@ -34,7 +34,7 @@ class Flye < Formula
   def install
     # Replace bundled samtools
     rm_r(Dir["lib/samtools*"])
-    (buildpath/"bin").write_exec_script Formula["samtools"].opt_bin/"samtools"
+    (buildpath/"bin").write_exec_script formula_opt_bin("samtools")/"samtools"
     (buildpath/"bin").install "bin/samtools" => "flye-samtools"
     chmod 0755, "bin/flye-samtools"
 

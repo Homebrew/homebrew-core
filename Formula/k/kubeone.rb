@@ -1,25 +1,24 @@
 class Kubeone < Formula
   desc "Automate cluster operations on all your environments"
   homepage "https://kubeone.io"
-  url "https://github.com/kubermatic/kubeone/archive/refs/tags/v1.13.5.tar.gz"
-  sha256 "72011cf2f32ac03c38c1bd0d952d0db0f1cb01552ad523b3c9ee267991117a4c"
+  url "https://github.com/kubermatic/kubeone/archive/refs/tags/v1.14.3.tar.gz"
+  sha256 "24af68b7971592c95c67517d129098d2a1332bb88d64f8f1d180d07e5e4c1e8c"
   license "Apache-2.0"
   head "https://github.com/kubermatic/kubeone.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "06933354b47fed3f13e8cc4bb635313e066e645fd898427c569067599f4f26ab"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "71fd211ff4b1c1bcef5309315aa0f016649a24f947cdf9808bfa896c81795a90"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3c3866db5bc5bf41f0c12425172212d3fcd31f98582ca3572d1fc914fbcc75a4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "313fba9a4a22ab50e5f760e0fd50fa9bc66de39a117e1b99affff20124c9967b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "15a54f2cc7248f98db56dc4b140e39c1f752d2ec476314859ee48b58682bb813"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f3ea16b807f87dd2663f660e7d7c81f8f079b32aa87f6aabcfe4934c80f5549"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3addb3af6f2574921dc5f7124903c657e622177c5f39f8a27d0ccf7fb5eef147"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "22625a9730f22f1e4f6b4eb3838bd800575b61721edc1ddc37ae790d209d1a34"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "78053b6af184a209f4f6bcf466c1502a27b7eff3c660dd46b4623fd81ffac1f5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2cace3b1670b7a1502dc0672e5a25e17ab4c811328adde5c34f1549926388671"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab3b3b23ebe81ebb7de82b06515d209cb671c0af31468be4033ffd9d7592c555"
+    sha256 cellar: :any,                 x86_64_linux:  "d1f1f0aa0fb03b50c413756f8804f7137fa88f86b7cfea7bdd50145935759dbb"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X k8c.io/kubeone/pkg/cmd.version=#{version}
       -X k8c.io/kubeone/pkg/cmd.date=#{time.iso8601}
     ]

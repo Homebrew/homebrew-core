@@ -1,8 +1,8 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
   homepage "https://rgbds.gbdev.io"
-  url "https://github.com/gbdev/rgbds/archive/refs/tags/v1.0.1.tar.gz"
-  sha256 "193469d38229a653bb33a25ebb73fd0ae33da4be80191d83bce8d427d23b7704"
+  url "https://github.com/gbdev/rgbds/archive/refs/tags/v1.0.3.tar.gz"
+  sha256 "e79e51bdc0e53d8b52b5b9b58a5cbe15d6a380092da67dd625aeca29f6679660"
   license "MIT"
   head "https://github.com/gbdev/rgbds.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Rgbds < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fedb922933f87988dedef927823d41d3426509ab9b203baab00747ec86bb227e"
-    sha256 cellar: :any,                 arm64_sequoia: "b7da5ca6fb3eb3d3a9016e9089a7e6ee8f05b59717503faddb49e8b4ea76bbc6"
-    sha256 cellar: :any,                 arm64_sonoma:  "ee01628a3b4b7e3af26905957aa60d41bff57e45ada79ca1ea43f80587534f19"
-    sha256 cellar: :any,                 sonoma:        "4b787f2390864c7d1fe0aff76137fd0ee77e74320100925813b81a672c988561"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5dacc9e6e1a2791f7dbfcea1e34a6bd178b767664d21b225527247044e9b401c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a835c2383da7339dbd7d22dd817484207a7a04e0e26fd664c7068cfcb5dd0de6"
+    sha256 cellar: :any, arm64_tahoe:   "93f31d34c69552e6d490335e18de854608534d0c0eb63e267a33f35eb3017015"
+    sha256 cellar: :any, arm64_sequoia: "006fb511cf3db6207326617600434daafcf0b090bba5d38b77696135c8991b33"
+    sha256 cellar: :any, arm64_sonoma:  "1db73630c13c6f99ac6ddeadecec65a95ec05b30a4d98694ff7723819ff0f62e"
+    sha256 cellar: :any, sonoma:        "8b4ea62968b4e34822e2bacbf6043b9bcbb23fcf6a3739e5868b913ab2e7c34b"
+    sha256 cellar: :any, arm64_linux:   "5a2e8a0bd0ea76f9766a079103f10d9b36f47766750a14b64690df67883f4f11"
+    sha256 cellar: :any, x86_64_linux:  "5487484080210eb64058c40f4747bc9a3e0b09034e8a4dd04b48062e45e5c0b8"
   end
 
   depends_on "bison" => :build
@@ -26,13 +26,22 @@ class Rgbds < Formula
   depends_on "rust" => :build
   depends_on "libpng"
 
+  on_linux do
+    depends_on "zlib-ng-compat" => :build
+  end
+
   resource "rgbobj" do
     url "https://github.com/gbdev/rgbobj/archive/refs/tags/v1.0.0.tar.gz"
     sha256 "9078bfff174b112efa55fa628cbbddaa2aea740f6b2f75a1debe2f35534f424e"
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    args = %w[
+      -DHOMEBREW_ALLOW_FETCHCONTENT=ON
+      -DFETCHCONTENT_FULLY_DISCONNECTED=ON
+      -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     resource("rgbobj").stage do

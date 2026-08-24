@@ -6,17 +6,17 @@ class PerlDbdMysql < Formula
   url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-5.013.tar.gz"
   sha256 "aeb0a6e1c26fc28a5cf6de1161e0f056ddcbb739f87954dba7cb1c5acb4e1c33"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
-  revision 1
+  revision 2
   compatibility_version 1
   head "https://github.com/perl5-dbi/DBD-mysql.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "46058ff8375c1910f2659d74bf7d970660caa254c904a8ce7471404dd92ea753"
-    sha256 cellar: :any,                 arm64_sequoia: "04dab546b5f1b2beea4f48e2652ee330e291d1de91be072e4551f7778fed0b70"
-    sha256 cellar: :any,                 arm64_sonoma:  "3de7bb854dd36cf5a4814534fd458ec7bcd5f321b07c820d439fbe353024641a"
-    sha256 cellar: :any,                 sonoma:        "63fc77caa080333bb8c3d556a63a118b37de0e0ed1d3d2693ee7742dd89ea238"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e5ef3810cdbdef812e17eb7853009477a2ee8d2686cf167bf508009235542b63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f4505f4880b300ef75af71b5c4628b3406f358bfbd35098688747292a9f2f0b"
+    sha256 cellar: :any, arm64_tahoe:   "722a4fe1171da879885f2153bbf3a6100070663c002f0b2b0421c9d653294c06"
+    sha256 cellar: :any, arm64_sequoia: "769dca01680b8dd122820f8c4b26614c621fbf2525ff6732372bfd4a55ae9f14"
+    sha256 cellar: :any, arm64_sonoma:  "e08cef78e2659e0cb1ba664602ab5f89ed8c6ffb4cf228a901561cad028a0f92"
+    sha256 cellar: :any, sonoma:        "04048bde5e19f835d7d5db7f4d95e14f2a6290e25b71495953e3b188d2224a4c"
+    sha256 cellar: :any, arm64_linux:   "1896b31b7903fb882cb84e9a74baa978e38dff5058f1d83f60ec197df7f7ce22"
+    sha256 cellar: :any, x86_64_linux:  "32b7e598696ac82933ebc27bd98d830e12dd045e7c1daef816bc81124b8d2953"
   end
 
   keg_only <<~EOS

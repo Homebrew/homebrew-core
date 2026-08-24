@@ -24,7 +24,7 @@ class E1s < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/e1s"
+    system "go", "build", *std_go_args, "./cmd/e1s"
   end
 
   test do

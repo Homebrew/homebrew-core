@@ -37,6 +37,7 @@ class Libflowmanager < Formula
   patch do
     url "https://github.com/LibtraceTeam/libflowmanager/commit/a60a04a3b4a12faf48854b34908f9db0c4f080b0.patch?full_index=1"
     sha256 "15d93f863374eff428c69e6e1733bdc861c831714f8d7d7c1323ebf1b9ba9a4c"
+    type :backport
   end
 
   def install

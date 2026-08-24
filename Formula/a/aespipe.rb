@@ -22,6 +22,8 @@ class Aespipe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b78adabc6a957ed1ff8947cda33e32704dcc0104149a0347fcfd735d7ff91b78"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"

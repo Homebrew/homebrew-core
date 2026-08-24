@@ -35,9 +35,9 @@ class Dynamips < Formula
   def install
     cmake_args = ["-DANY_COMPILER=1"]
     cmake_args << if OS.mac?
-      "-DLIBELF_INCLUDE_DIRS=#{Formula["libelf"].opt_include}/libelf"
+      "-DLIBELF_INCLUDE_DIRS=#{formula_opt_include("libelf")}/libelf"
     else
-      "-DLIBELF_INCLUDE_DIRS=#{Formula["elfutils"].opt_include}"
+      "-DLIBELF_INCLUDE_DIRS=#{formula_opt_include("elfutils")}"
     end
 
     system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args

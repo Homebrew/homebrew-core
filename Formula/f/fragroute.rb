@@ -35,18 +35,15 @@ class Fragroute < Formula
   uses_from_macos "libpcap"
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/fragroute/configure.patch"
-    sha256 "215e21d92304e47239697945963c61445f961762aea38afec202e4dce4487557"
+    file "Patches/fragroute/configure.patch"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/fragroute/fragroute.c.patch"
-    sha256 "f4475dbe396ab873dcd78e3697db9d29315dcc4147fdbb22acb6391c0de011eb"
+    file "Patches/fragroute/fragroute.c.patch"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/fragroute/pcaputil.c.patch"
-    sha256 "c1036f61736289d3e9b9328fcb723dbe609453e5f2aab4875768068faade0391"
+    file "Patches/fragroute/pcaputil.c.patch"
   end
 
   def install
@@ -66,14 +63,14 @@ class Fragroute < Formula
       --prefix=#{prefix}
       --mandir=#{man}
       --sysconfdir=#{etc}
-      --with-libevent=#{Formula["libevent"].opt_prefix}
-      --with-libdnet=#{Formula["libdnet"].opt_prefix}
+      --with-libevent=#{formula_opt_prefix("libevent")}
+      --with-libdnet=#{formula_opt_prefix("libdnet")}
     ]
 
     args << if OS.mac?
       "--with-libpcap=#{MacOS.sdk_path}/usr"
     else
-      "--with-libpcap=#{Formula["libpcap"].opt_prefix}"
+      "--with-libpcap=#{formula_opt_prefix("libpcap")}"
     end
 
     system "./configure", *args

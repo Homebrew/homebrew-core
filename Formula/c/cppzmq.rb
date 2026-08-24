@@ -24,7 +24,7 @@ class Cppzmq < Formula
   test do
     cp pkgshare/"examples/hello_world.cpp", testpath
     system ENV.cxx, "-std=c++11", "hello_world.cpp", "-I#{include}",
-                    "-L#{Formula["zeromq"].opt_lib}", "-lzmq", "-o", "test"
+                    "-L#{formula_opt_lib("zeromq")}", "-lzmq", "-o", "test"
     system "./test"
   end
 end

@@ -42,8 +42,8 @@ class Lnav < Formula
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
-                          "--with-libarchive=#{Formula["libarchive"].opt_prefix}",
+    system "./configure", "--with-sqlite3=#{formula_opt_prefix("sqlite")}",
+                          "--with-libarchive=#{formula_opt_prefix("libarchive")}",
                           *std_configure_args
     system "make", "install", "V=1"
   end

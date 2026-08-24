@@ -17,10 +17,13 @@ class TsnetServe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "040a566fb79644a0870e5f6b877e616555a92a148fbaff66cb327be3b62d8a1e"
   end
 
+  deprecate! date: "2026-07-17", because: :repo_archived
+  disable! date: "2027-01-17", because: :repo_archived
+
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
   end
 
   test do

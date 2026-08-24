@@ -30,7 +30,7 @@ class Termshark < Formula
   depends_on "wireshark"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/termshark"
+    system "go", "build", *std_go_args, "./cmd/termshark"
   end
 
   test do

@@ -26,7 +26,7 @@ class Bazelisk < Formula
 
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/bazelbuild/bazelisk/core.BazeliskVersion=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X github.com/bazelbuild/bazelisk/core.BazeliskVersion=#{version}")
 
     bin.install_symlink "bazelisk" => "bazel"
 

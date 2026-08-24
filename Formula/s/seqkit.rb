@@ -18,7 +18,7 @@ class Seqkit < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./seqkit"
+    system "go", "build", *std_go_args, "./seqkit"
 
     # generate_completions_from_executable(bin/"seqkit", "genautocomplete", "--shell")
     # We do this because the command to generate completions doesn't print them

@@ -33,7 +33,7 @@ class Tundra < Formula
   depends_on "googletest" => :build
 
   def install
-    ENV.append "CFLAGS", "-I#{Formula["googletest"].opt_include}/googletest/googletest"
+    ENV.append "CFLAGS", "-I#{formula_opt_include("googletest")}/googletest/googletest"
     inreplace "Makefile", "c++11", "c++17"
 
     system "make"

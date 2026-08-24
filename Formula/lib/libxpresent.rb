@@ -1,7 +1,7 @@
 class Libxpresent < Formula
   desc "Xlib-based library for the X Present Extension"
   homepage "https://gitlab.freedesktop.org/xorg/lib/libxpresent"
-  url "https://www.x.org/archive/individual/lib/libXpresent-1.0.2.tar.xz"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libXpresent-1.0.2.tar.xz"
   sha256 "4e5b21b4812206a4b223013606ae31170502c1043038777a1ef8f70c09d37602"
   license "MIT"
 

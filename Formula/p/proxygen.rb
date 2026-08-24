@@ -1,24 +1,28 @@
 class Proxygen < Formula
   desc "Collection of C++ HTTP libraries"
   homepage "https://github.com/facebook/proxygen"
-  url "https://github.com/facebook/proxygen/releases/download/v2026.06.15.00/proxygen-v2026.06.15.00.tar.gz"
-  sha256 "80f941c46c0c509bd14655d1745fb4cf1c92753e975cd0aa71aff84f86a4f1b3"
+  url "https://github.com/facebook/proxygen/releases/download/v2026.07.27.00/proxygen-v2026.07.27.00.tar.gz"
+  sha256 "f9293844b00001549dcba2c10d453ccc2af268a45b52a31c622b543ee0cfe7e9"
   license "BSD-3-Clause"
   head "https://github.com/facebook/proxygen.git", branch: "main"
 
-  bottle do
-    sha256 cellar: :any, arm64_tahoe:   "d29e589c25866f98a7c0e05544c09396d0162750201159cd02f47b5442901ddd"
-    sha256 cellar: :any, arm64_sequoia: "3883a65c1b8a6b39eb7d9e2fa54d42a04432212fa4a4640aab625b552d827886"
-    sha256 cellar: :any, arm64_sonoma:  "1d478ef7de4cb5b954b8485593dae98dc5af6d995a5db7cdf14bd3315939bbc1"
-    sha256 cellar: :any, sonoma:        "5f44aa1b59ddd16cf8f385a04519aac4691ce1eb019709e9001c9d3d81d33a31"
-    sha256 cellar: :any, arm64_linux:   "b9c34dc253470cc2ef3ba80b201f80f8fd95799c59cb94bf9e00fd5de6842751"
-    sha256 cellar: :any, x86_64_linux:  "0eb9dc5ea11d5bdc8471c4eb448d799e8469aff989ef4eb5cc2f91ac107a55e6"
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
+  bottle do
+    sha256 cellar: :any, arm64_tahoe:   "969cc065653958e34e6e69e774e5bac9462958bb02d7b33b2f964aa8a2b0ebda"
+    sha256 cellar: :any, arm64_sequoia: "7bbcd2f81d69dea5c5563b36b933faf36398255e7f439f01a1ff95b11d374bf0"
+    sha256 cellar: :any, arm64_sonoma:  "5d52bf0644406a742adefe8aed3d6c00f4b308e6e264c639d05ac8346592305f"
+    sha256 cellar: :any, sonoma:        "6a117d96fb0b944cb5f99a6b43c7d5d9727d33b232cfbb6dd6cc07c749e6a81d"
+    sha256 cellar: :any, arm64_linux:   "69679b7f048fe80b8884d3385a6ac5729c9bc68aa87f6c6efdfec22e844e3db0"
+    sha256 cellar: :any, x86_64_linux:  "02bc3fd314ae4743c21a57c05070b50d26e482b51df93c0346b0793d0e2eb9fd"
+  end
+
+  depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "boost"
   depends_on "c-ares"
-  depends_on "double-conversion"
   depends_on "fizz"
   depends_on "fmt"
   depends_on "folly"

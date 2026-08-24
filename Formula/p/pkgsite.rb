@@ -1,8 +1,8 @@
 class Pkgsite < Formula
   desc "Documentation server for Go packages"
   homepage "https://pkg.go.dev/golang.org/x/pkgsite"
-  url "https://github.com/golang/pkgsite/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "e7091b7d1db3559b5cc2754c5f9fe6ab1ebf0d65462f8699f4855a18b15fc6b9"
+  url "https://github.com/golang/pkgsite/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "7cc5627428e42bf5a8f99608d704a98cd888fbff2bb2bf292f14f0af15b5692a"
   license "BSD-3-Clause"
   head "https://go.googlesource.com/pkgsite.git", branch: "master"
 
@@ -12,18 +12,18 @@ class Pkgsite < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "81a69fc09bda084b278abbf2181e845ee492d853c7fd231dc42c942143ba5d64"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "81a69fc09bda084b278abbf2181e845ee492d853c7fd231dc42c942143ba5d64"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "81a69fc09bda084b278abbf2181e845ee492d853c7fd231dc42c942143ba5d64"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aff8659e1ec65827447c75cf4cfe9f48680aed9cefbf45ce7122023126634554"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b26829257cdb739e01d2aa4bb12985b5296f4d51f887d941f3fdc0d7d9b0e057"
-    sha256 cellar: :any,                 x86_64_linux:  "c79fdd8074e5cf46b6da34d07e5d9196d1e9e37f592b3de41cb323d695c74356"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "399d070feceabd99a1da7dcaaf77a848e5e0bc5ce74c11e85c791d53a5666413"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "399d070feceabd99a1da7dcaaf77a848e5e0bc5ce74c11e85c791d53a5666413"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "399d070feceabd99a1da7dcaaf77a848e5e0bc5ce74c11e85c791d53a5666413"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1a2ddb5a4ee1a0381547289212385dd0f6b76cd17a5205ad36a91b5ba384a576"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "23e681a207a737aa7053be601aae567bcbdc3bfe558af9658d66de2f9bec94aa"
+    sha256 cellar: :any,                 x86_64_linux:  "1d5c2974829ec84b0ffe43f7c6a976e930b26484bbef1596630a97b828d929e4"
   end
 
   depends_on "go" => [:build, :test]
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/pkgsite"
+    system "go", "build", *std_go_args, "./cmd/pkgsite"
   end
 
   test do

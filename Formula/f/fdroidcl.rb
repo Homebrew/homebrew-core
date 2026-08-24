@@ -20,14 +20,14 @@ class Fdroidcl < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   test do
     assert_match "f-droid.org/repo", shell_output("#{bin}/fdroidcl update")
 
     categories = shell_output("#{bin}/fdroidcl list categories").split("\n")
-    %w[Browser Games News Weather].each do |category|
+    %w[Browser Graphics News Weather].each do |category|
       assert_includes categories, category
     end
 

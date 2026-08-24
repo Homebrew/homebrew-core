@@ -19,10 +19,11 @@ class Rslint < Formula
   depends_on "rust" => :build
 
   # Fix to error: implicit autoref creates a reference to the dereference of a raw pointer
-  # PR ref: https://github.com/rslint/rslint/pull/165
   patch do
     url "https://github.com/rslint/rslint/commit/1ceaa3a78d591599a5fe30f702bdb3dae1004f70.patch?full_index=1"
     sha256 "31186aec32f3a587f6401e2610ffa0dec2b37adc1bc4d9a88f816d87f57aa5a4"
+    type :unofficial
+    resolves "https://github.com/rslint/rslint/pull/165"
   end
 
   def install

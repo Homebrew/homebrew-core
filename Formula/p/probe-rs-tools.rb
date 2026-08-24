@@ -1,8 +1,8 @@
 class ProbeRsTools < Formula
   desc "Collection of on chip debugging tools to communicate with microchips"
   homepage "https://probe.rs"
-  url "https://github.com/probe-rs/probe-rs/archive/refs/tags/v0.31.0.tar.gz"
-  sha256 "7a5022d6956daaa8dba96bb3aedf2ace0b5a76a60729d93971c9dab439ac045e"
+  url "https://github.com/probe-rs/probe-rs/archive/refs/tags/v0.32.0.tar.gz"
+  sha256 "9c4ba2046d4709f6a07e47933b1aa7edaf72a4d0a9f482b81d81798879070229"
   license "Apache-2.0"
   head "https://github.com/probe-rs/probe-rs.git", branch: "master"
 
@@ -12,13 +12,12 @@ class ProbeRsTools < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f8504d65b58632718d04633f2fa4e7a8071911a51c1a3d35e01d5c658c0add46"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5db28b08012d601203218b1a98f02826b7a237fcedc02e8221cac8936b526d73"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3487bdba126c8a24fe522f77492f41a1c7c338db02b0a5d674f41ba506cca8c4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "069e5194da136493154b590703e424390984c67f0704479576e2a584789f7334"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "016c7c2ea0f71f6079af477f649c989d3dc1a9a5bdb9cf76a2b781281efe9de6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff012f42ad627145f6b19023b0f6dd75c82efcca65509911f285b3c68715b7c9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f662812458dd2e5fc4d839d875f0612a1e75534e645710bc74a5641d4fba0250"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dbdf7481e300d0e28aa756ec20d1bf0c32b66148bc697c188d5977226d58c756"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3e4a973d21b9b4391de22b9b53041e5ccb4b9851c60b19113778aaa386d2e27"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3e6ab7ce96483065bf33540fba35dc66ea2cdf2e5813c08a08c87119c1fac043"
+    sha256 cellar: :any,                 arm64_linux:   "91d1a70e174345ee2e621a97a4cf4e557b2e01ace22ae7e29800e86883ed87b1"
+    sha256 cellar: :any,                 x86_64_linux:  "caa09152d35d4ec991f19f08e5aa65a15cb3dc003e7f81e3228c096d05b622f1"
   end
 
   depends_on "cmake" => :build

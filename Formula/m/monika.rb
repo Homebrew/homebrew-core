@@ -39,7 +39,7 @@ class Monika < Formula
   end
 
   def install
-    system "npm", "install", "--sqlite=#{Formula["sqlite"].opt_prefix}", *std_npm_args(ignore_scripts: false)
+    system "npm", "install", "--sqlite=#{formula_opt_prefix("sqlite")}", *std_npm_args(ignore_scripts: false)
     bin.install_symlink libexec.glob("bin/*")
 
     # Replace pre-built binaries

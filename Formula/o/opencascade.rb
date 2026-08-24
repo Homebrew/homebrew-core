@@ -19,12 +19,13 @@ class Opencascade < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ee074a5e0dac9f36e41231af3741dddc93501417b014443eadf212f680e9e91c"
-    sha256 cellar: :any,                 arm64_sequoia: "6ef97324bd4b35bdb86edf6e95ea25fb227fa932f7052995f3c7a98b7eabc209"
-    sha256 cellar: :any,                 arm64_sonoma:  "d2cec039010d0a23e41375ff1e745d0041f3cf3e3a36826d9af9a8fc2e938512"
-    sha256 cellar: :any,                 sonoma:        "a47410e2c2a5aa1460c8953001969edff4204bb16244d4c5551d9c2f167c748d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3a3c89ab9ca41058d5afe03c5327501a2a0835b78b7bcf13348d4b7478ce836"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0cc020558ef5d2441e2d157fe7c98d039f876a815a17835f0b5fd14f610f24c"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "7f142d6d6e9e14e95f63a4d44251930ceddbe1a1e105187a6c7afe0d3bc4c2c9"
+    sha256 cellar: :any, arm64_sequoia: "ae642e896bd65bb440b1a27392d917dd459512a81d3ef75431cff5287ad2fafd"
+    sha256 cellar: :any, arm64_sonoma:  "406660387186268f468a229c1b911d3579c7a001cff117cfdf4f56d5690230f4"
+    sha256 cellar: :any, sonoma:        "83ac6a62d80fa2e56d28ebf48aa9abadc832f69232e75e7c9c3d789122f8776c"
+    sha256 cellar: :any, arm64_linux:   "dc913ed6e8b8e4d1bd217d9687fc439eccb10b1377303d192563851719c32cfa"
+    sha256 cellar: :any, x86_64_linux:  "5139ef26e7b86024f68541d005a1681810690098fb303b47a37b8de0f58f4299"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -33,11 +34,15 @@ class Opencascade < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "tbb"
-  depends_on "tcl-tk@8" # TCL 9 issue: https://tracker.dev.opencascade.org/view.php?id=33725
+
+  on_macos do
+    depends_on "tcl-tk@8" # FIXME: TCL 9 causes segfaults in `f3d`
+  end
 
   on_linux do
     depends_on "libx11"
     depends_on "mesa" # For OpenGL
+    depends_on "tcl-tk"
   end
 
   def install
@@ -45,9 +50,14 @@ class Opencascade < Formula
     # Ref: https://archlinux.org/todo/drop-freeimage/
     odie "FreeImage should not be a dependency!" if deps.map(&:name).include?("freeimage")
 
-    tcltk = Formula["tcl-tk@8"]
+    if OS.mac?
+      tcltk = Formula["tcl-tk@8"]
+      libtk = tcltk.opt_lib/shared_library("libtk#{tcltk.version.major_minor}")
+    else
+      tcltk = Formula["tcl-tk"]
+      libtk = tcltk.opt_lib/shared_library("libtcl#{tcltk.version.major}tk#{tcltk.version.major_minor}")
+    end
     libtcl = tcltk.opt_lib/shared_library("libtcl#{tcltk.version.major_minor}")
-    libtk = tcltk.opt_lib/shared_library("libtk#{tcltk.version.major_minor}")
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DUSE_FREEIMAGE=OFF",
@@ -55,10 +65,10 @@ class Opencascade < Formula
                     "-DUSE_TBB=ON",
                     "-DINSTALL_DOC_Overview=ON",
                     "-DBUILD_RELEASE_DISABLE_EXCEPTIONS=OFF",
-                    "-D3RDPARTY_FREETYPE_DIR=#{Formula["freetype"].opt_prefix}",
-                    "-D3RDPARTY_RAPIDJSON_DIR=#{Formula["rapidjson"].opt_prefix}",
-                    "-D3RDPARTY_RAPIDJSON_INCLUDE_DIR=#{Formula["rapidjson"].opt_include}",
-                    "-D3RDPARTY_TBB_DIR=#{Formula["tbb"].opt_prefix}",
+                    "-D3RDPARTY_FREETYPE_DIR=#{formula_opt_prefix("freetype")}",
+                    "-D3RDPARTY_RAPIDJSON_DIR=#{formula_opt_prefix("rapidjson")}",
+                    "-D3RDPARTY_RAPIDJSON_INCLUDE_DIR=#{formula_opt_include("rapidjson")}",
+                    "-D3RDPARTY_TBB_DIR=#{formula_opt_prefix("tbb")}",
                     "-D3RDPARTY_TCL_DIR:PATH=#{tcltk.opt_prefix}",
                     "-D3RDPARTY_TK_DIR:PATH=#{tcltk.opt_prefix}",
                     "-D3RDPARTY_TCL_INCLUDE_DIR:PATH=#{tcltk.opt_include}/tcl-tk",
@@ -112,7 +122,7 @@ class Opencascade < Formula
 
     # Make sure hardcoded library name references in our CMake config files are valid.
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 3.5)
+      cmake_minimum_required(VERSION 4.0)
       set(CMAKE_CXX_STANDARD 11)
       project(test LANGUAGES CXX)
       find_package(OpenCASCADE REQUIRED)

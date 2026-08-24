@@ -1,18 +1,18 @@
 class Gearman < Formula
   desc "Application framework to farm out work to other machines or processes"
   homepage "https://gearman.org/"
-  url "https://github.com/gearman/gearmand/releases/download/1.1.22/gearmand-1.1.22.tar.gz"
-  sha256 "c5d18f6a13625ebdd7e514596aed39e31203358eee688dfedcedd989a2f02d7a"
+  url "https://github.com/gearman/gearmand/releases/download/2.0.0/gearmand-2.0.0.tar.gz"
+  sha256 "690cb9c7a58c03d6be18031dc4a1a93778f6fa713590b4ce527ceb8b43ea0688"
   license "BSD-3-Clause"
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5d3c72680496377b84301a11829ce50486c4303b36e6fced1fded664a3e9e884"
-    sha256 cellar: :any,                 arm64_sequoia: "9e6adef3fb88b33c1dafc83b2836780d15ec5dbca6e85426252910d74fb1328d"
-    sha256 cellar: :any,                 arm64_sonoma:  "20e8012a0a1163aec0122be7ede14c1b67d8a9f2029c48fe4b0fd31bf6a7033f"
-    sha256 cellar: :any,                 sonoma:        "34281099e7a338e50184e5297726d0fde308c108f8324cd4c8a807c2079b8525"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c334d173303374e69d753ac458fbb7499c3bf5b7730bf9a98c9b77f061569531"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3248cb1b494fc13da4014574ae3be3a88f592862de39ef275ed6a7824a996baf"
+    sha256 cellar: :any, arm64_tahoe:   "80e57d251960e8922de58fa5d9326743b379e7a0f55868598721d1571cc6e924"
+    sha256 cellar: :any, arm64_sequoia: "d9836d744dd0d211fdb475e80ec1f332c3344c5d255dfaaef2106aa54d90e93c"
+    sha256 cellar: :any, arm64_sonoma:  "33b8280d25a752a8be5acc0cf3eb243644b1f659e6493558db296d0830ddc89f"
+    sha256 cellar: :any, sonoma:        "6463291352d58eda0e8115138afa6603c6d800ee5659f4c10318a0b4be852eea"
+    sha256 cellar: :any, arm64_linux:   "fa91bb0b62358dd526722015e63ee80861af1205ec26f3850c644de911dd5678"
+    sha256 cellar: :any, x86_64_linux:  "c76971cf595ff460a3d4dcdc70bdc9a60e91dbcc383afa0c94e920b6c625a67a"
   end
 
   depends_on "pkgconf" => :build
@@ -29,13 +29,6 @@ class Gearman < Formula
   end
 
   def install
-    # https://bugs.launchpad.net/gearmand/+bug/1368926
-    Dir["tests/**/*.cc", "libtest/main.cc"].each do |test_file|
-      next unless File.read(test_file).include?("std::unique_ptr")
-
-      inreplace test_file, "std::unique_ptr", "std::auto_ptr"
-    end
-
     args = %W[
       --prefix=#{prefix}
       --localstatedir=#{var}
@@ -48,8 +41,8 @@ class Gearman < Formula
       --disable-libtokyocabinet
       --disable-ssl
       --enable-libmemcached
-      --with-boost=#{Formula["boost"].opt_prefix}
-      --with-memcached=#{Formula["memcached"].opt_bin}/memcached
+      --with-boost=#{formula_opt_prefix("boost")}
+      --with-memcached=#{formula_opt_bin("memcached")}/memcached
       --with-sqlite3
       --without-mysql
       --without-postgresql

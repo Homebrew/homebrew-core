@@ -1,18 +1,18 @@
 class Weave < Formula
   desc "Entity-level semantic merge driver for Git using tree-sitter"
   homepage "https://ataraxy-labs.github.io/weave/"
-  url "https://github.com/Ataraxy-Labs/weave/archive/refs/tags/v0.3.6.tar.gz"
-  sha256 "3795fcc28ada8b522fb0081a1b8f3ace6e4f61d7be46fdb3cf588777b5f0608f"
+  url "https://github.com/Ataraxy-Labs/weave/archive/refs/tags/v0.5.2.tar.gz"
+  sha256 "f28df8d0ef3d3ab3d8d614d27e6cbb930519350b93ebc6af7232a28547698b51"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/Ataraxy-Labs/weave.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "eb079cf08f69a75c497116a47d3819a5f281321484a9c319e440d72871a4b691"
-    sha256 cellar: :any, arm64_sequoia: "abf4ba376ddea9c2ffabd2d7d85a76a9d6a28ed67e2ca47377c9bc9c211322a2"
-    sha256 cellar: :any, arm64_sonoma:  "939a7a987580f91d21c2f5f8e35cba4a3a3773e6a408a407efd3b692f97ed930"
-    sha256 cellar: :any, sonoma:        "4b9143760b2dbd574d05fc61ce794f052e799677a522a470fd96cdb99ecafb24"
-    sha256 cellar: :any, arm64_linux:   "885faf28efaef1b93f8eb623b863553b7ddae4fda1b47326dcf78614e3967a81"
-    sha256 cellar: :any, x86_64_linux:  "d2da3f1e3a12401c147af121d879eddfce1064d7b8f1fc49d05000b98b75e1c2"
+    sha256 cellar: :any, arm64_tahoe:   "ee475dc1f4b49e80f702519f7e4f7e1e4d30727a448a05833dc3a9e4a2328720"
+    sha256 cellar: :any, arm64_sequoia: "de3a0381fc20e4aae743642a5c1f03162dfc05c8921efbfb0a594057c5c072eb"
+    sha256 cellar: :any, arm64_sonoma:  "222c6066333a7999c6bbdeb0931b7cd1d7197c50cf239cf459b12313e38e2ad1"
+    sha256 cellar: :any, sonoma:        "3f4ebfdbe4ea04e88b05cc2181d49aacefb25ed314f28b2ba8fa788fa120d45a"
+    sha256 cellar: :any, arm64_linux:   "81f893f6d8ca41f8dc0ee8c51a260387c6e37031abfadc48729008824988c003"
+    sha256 cellar: :any, x86_64_linux:  "d3cae05f1f8dc153676e8fc76f17f71a420e819344511441de0125a856ecc805"
   end
 
   depends_on "pkgconf" => :build
@@ -24,9 +24,12 @@ class Weave < Formula
     depends_on "zlib-ng-compat"
   end
 
+  conflicts_with "texlive", because: "both install a `weave` binary"
+
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/weave-cli")
     system "cargo", "install", *std_cargo_args(path: "crates/weave-driver")
+    system "cargo", "install", *std_cargo_args(path: "crates/weave-mcp")
   end
 
   test do

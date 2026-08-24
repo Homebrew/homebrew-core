@@ -1,8 +1,8 @@
 class Hdf5Mpi < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/solutions/hdf5/"
-  url "https://github.com/HDFGroup/hdf5/releases/download/2.1.1/hdf5-2.1.1.tar.gz"
-  sha256 "efff93b5a904d66e8f626d7da60b5eedc9faf544be27dbabbaa87967b8ad798b"
+  url "https://github.com/HDFGroup/hdf5/releases/download/2.2.0/hdf5-2.2.0.tar.gz"
+  sha256 "1a1ab8209b35586fbc1aa279ba76d102130b95badcb20ca329587219112d8c16"
   license "BSD-3-Clause"
   version_scheme 1
   compatibility_version 1
@@ -12,12 +12,12 @@ class Hdf5Mpi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "be826b39d4bae3f28fcb17eff9b1e1eb7d943dfe9032ddf87d61a23b57d78f4d"
-    sha256 cellar: :any,                 arm64_sequoia: "2c75d9f0921baeddc4a86bb616bc31f3a99c9fea78b3d6a8370fdcab70c617c8"
-    sha256 cellar: :any,                 arm64_sonoma:  "bd79c2dc5fdd0875830eaf3ed7bd4a02ff25c0592d0dade5e6b9e450e9bb463a"
-    sha256 cellar: :any,                 sonoma:        "2745926da93d021d27287fbbefab8053f1fbfef4d990058ea0684dff955c6341"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0f1ef56161bcb8235bd9b65b78c61aca298cf6d4c49b7de52c8547450eb292a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fed39da8c3d3e958bfbf7bb9423b2a7aeb961d7a0bc481f3403ddbbede297b1"
+    sha256 cellar: :any, arm64_tahoe:   "7619ad58ef3140d8e332b8bf8403eb0bbc2b4c1ced963ee6fd9cb8e3d53c5701"
+    sha256 cellar: :any, arm64_sequoia: "e317498a31ac53e715a7e1a817457c9c95aabd6a1dc772bcd7609e821ff28031"
+    sha256 cellar: :any, arm64_sonoma:  "109e12ef3e81e7657288259a0ac95cc25373a258599c5575c9ff8da93ef0d2ce"
+    sha256 cellar: :any, sonoma:        "5f50a4bd64bf2ae3354e48c5a6d48b92564f834db54b6570e21245fb2688702a"
+    sha256 cellar: :any, arm64_linux:   "547b553ffd128e023ed935fe83634c68f90962fc8e863ecab2a94676a879aac7"
+    sha256 cellar: :any, x86_64_linux:  "38fe45a6fb92a1a150ecdb3bb654d405fd9ddde252ce50c4625bee78626f3786"
   end
 
   depends_on "cmake" => :build
@@ -103,6 +103,6 @@ class Hdf5Mpi < Formula
 
     # Make sure that it was built with SZIP/libaec
     config = shell_output("#{bin}/h5cc -showconfig")
-    assert_match %r{I/O filters.*DECODE}, config
+    assert_match %r{I/O filters.*LIBAEC}, config
   end
 end

@@ -25,7 +25,7 @@ class Scalapack < Formula
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
-    blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
+    blas = "-L#{formula_opt_lib("openblas")} -lopenblas"
     system "cmake", "-S", ".", "-B", "build",
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DBLAS_LIBRARIES=#{blas}",

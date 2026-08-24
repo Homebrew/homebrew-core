@@ -1,14 +1,14 @@
 class Procps < Formula
   desc "Utilities for browsing procfs"
   homepage "https://gitlab.com/procps-ng/procps"
-  url "https://gitlab.com/procps-ng/procps/-/archive/v4.0.6/procps-v4.0.6.tar.gz"
-  sha256 "1bbe8ff21dcd05a6adcda99a67d2e99cbd515c9e3a78fd3cc915b12aeb330d40"
+  url "https://gitlab.com/procps-ng/procps/-/archive/v4.0.7/procps-v4.0.7.tar.gz"
+  sha256 "468dfe0f29a77498286b459fcc33e24fcc2031c11a890244ba9cf1481a4f5df7"
   license "GPL-2.0-or-later"
   head "https://gitlab.com/procps-ng/procps.git", branch: "master"
 
   bottle do
-    sha256 arm64_linux:  "c0d42a966b121bb5adc0ae6fbd70ad38061fdda92f4e49ecc55ed5ece21bfb03"
-    sha256 x86_64_linux: "a1a5259bfa1c75975bab8e502dfe76958c9a4e812ae652a8268c72aa5e4ec984"
+    sha256 arm64_linux:  "a168acd0224c76cdc89022836f48194e007d6ffa6b5e883858c716518a4b45db"
+    sha256 x86_64_linux: "e4422bdda0cf4e375f9c7d1a5c02b127ea54542554c63a463595a3113f42e278"
   end
 
   depends_on "autoconf" => :build

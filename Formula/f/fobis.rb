@@ -3,12 +3,12 @@ class Fobis < Formula
 
   desc "KISS build tool for automatically building modern Fortran projects"
   homepage "https://github.com/szaghi/FoBiS"
-  url "https://files.pythonhosted.org/packages/6d/2d/da153567289dc3fddb242602f4de822b3877cbc9d7865d38801fb0bbac12/fobis_py-3.8.12.tar.gz"
-  sha256 "ac7c3606bd144b8bd6d9c6d7c9695a9d828dfdb311fba7acf97b6321a234f364"
+  url "https://files.pythonhosted.org/packages/5e/22/cae6bd3787a1248ed858c50ed137d462dcd031e2bb136836700517657d27/fobis_py-3.8.22.tar.gz"
+  sha256 "deb32ff46e260a1546a2000836f54446c7e03e073d868099e122b049392c0d35"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c4b1bba25ff145d61626d9b4039be88cc4e6e93082ec0242134c2ab07da3486a"
+    sha256 cellar: :any_skip_relocation, all: "3e1a0520825333165c54dfae4d582cb1ab03bb05540e55b2f96b91509932f46b"
   end
 
   depends_on "gcc" # for gfortran
@@ -18,11 +18,6 @@ class Fobis < Formula
   resource "annotated-doc" do
     url "https://files.pythonhosted.org/packages/57/ba/046ceea27344560984e26a590f90bc7f4a75b06701f653222458922b558c/annotated_doc-0.0.4.tar.gz"
     sha256 "fbcda96e87e9c92ad167c2e53839e57503ecfda18804ea28102353485033faa4"
-  end
-
-  resource "click" do
-    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
-    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "markdown-it-py" do
@@ -51,12 +46,13 @@ class Fobis < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/e4/51/9aed62104cea109b820bbd6c14245af756112017d309da813ef107d42e7e/typer-0.25.1.tar.gz"
-    sha256 "9616eb8853a09ffeabab1698952f33c6f29ffdbceb4eaeecf571880e8d7664cc"
+    url "https://files.pythonhosted.org/packages/7c/f7/68adc395201b20b872d68e975386832e8005ffeacedd43a1d837a32815be/typer-0.26.8.tar.gz"
+    sha256 "c244a6bd558886fe3f8780efb6bdd28bb9aff005a94eedebaa5cb32926fe2f7e"
   end
 
   def install
     virtualenv_install_with_resources
+    generate_completions_from_executable(bin/"fobis", shell_parameter_format: :typer)
   end
 
   test do

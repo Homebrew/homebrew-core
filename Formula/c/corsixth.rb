@@ -1,8 +1,8 @@
 class Corsixth < Formula
   desc "Open source clone of Theme Hospital"
   homepage "https://github.com/CorsixTH/CorsixTH"
-  url "https://github.com/CorsixTH/CorsixTH/archive/refs/tags/v0.69.2.tar.gz"
-  sha256 "cbad15f9a16edd4c068ce14fb17f39cdb811dab0135fca80fafffa9a45732aec"
+  url "https://github.com/CorsixTH/CorsixTH/archive/refs/tags/v0.70.0.tar.gz"
+  sha256 "e8f9803f6f64d23f057506202fbf275fe136c3245bab4bc19ff4c63691459cb7"
   license "MIT"
   revision 1
   head "https://github.com/CorsixTH/CorsixTH.git", branch: "master"
@@ -16,43 +16,43 @@ class Corsixth < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b4f772b1be3d58659f0f2a8edf319f3d75a5cabce381c00a24249936ccb4c6f1"
-    sha256 arm64_sequoia: "259ef9b4fc61dd9ff3056679d97bfc5f63a2312a671e7432e6f99337f32a486a"
-    sha256 arm64_sonoma:  "37df3671019913aa6856fa54ef77b104b7050c1302e69af55f35744171ed53d7"
-    sha256 sonoma:        "b2fe6522ea0a6678c8ccd1d04c685d5eda18ce288aa9d52f283cab0ab38034d5"
-    sha256 arm64_linux:   "1abb0a5d9fce89718f14d908306a2bcd904cbfa6b9276309f3c7c2455daadc15"
-    sha256 x86_64_linux:  "6590db90107ccdd804ee592950f8f70719d0215feabc76e22bdb2f3525437770"
+    sha256 arm64_tahoe:   "8dda55adc97e54242a3c4e1c2229f78263f117a8adbbaf1e02e03009d9d4ac9b"
+    sha256 arm64_sequoia: "06450af92e3a1a2d2583a90ec8c1d08bd3b6946d7a3031887ce5b277bed46ae0"
+    sha256 arm64_sonoma:  "0db373ffb97cc6951975e3c71787cde04539253e32a10d165022adee7642b911"
+    sha256 sonoma:        "5b04b97ae0475912357864c670ad60519fb36372d66c85e2928812a109fdcdd0"
+    sha256 arm64_linux:   "2aa9985af2b19dbb5eb9adcf78bf37761ac3284aa873bd6b0f727147bb6cb521"
+    sha256 x86_64_linux:  "e5f3eb35cf8ca7e49d9bdf81bd4f6b19518d49cc5879c1564335ecb071507705"
   end
 
   depends_on "cmake" => :build
   depends_on "luarocks" => :build
   depends_on "ffmpeg"
   depends_on "freetype"
+  depends_on "libpng"
   depends_on "lpeg" => :no_linkage
-  depends_on "lua@5.4"
-  depends_on "sdl2"
+  depends_on "lua"
+  depends_on "rtmidi"
+  depends_on "sdl2-compat"
   depends_on "sdl2_mixer"
 
   uses_from_macos "curl"
 
   on_linux do
     depends_on "mesa"
+    depends_on "zlib-ng-compat"
   end
 
   resource "luafilesystem" do
-    url "https://github.com/keplerproject/luafilesystem/archive/refs/tags/v1_9_0.tar.gz"
+    url "https://github.com/lunarmodules/luafilesystem/archive/refs/tags/v1_9_0.tar.gz"
     sha256 "1142c1876e999b3e28d1c236bf21ffd9b023018e336ac25120fb5373aade1450"
   end
 
   # Make sure I point to the right version!
   def lua
-    Formula["lua@5.4"]
+    Formula["lua"]
   end
 
   def install
-    # https://github.com/orgs/CorsixTH/projects/15
-    odie 'Switch to `depends_on "lua"`' if build.stable? && version >= "0.70.0"
-
     ENV["TARGET_BUILD_DIR"] = "."
     ENV["FULL_PRODUCT_NAME"] = "CorsixTH.app"
 

@@ -32,9 +32,9 @@ class Ntbtls < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}",
-                          "--with-libgcrypt-prefix=#{Formula["libgcrypt"].opt_prefix}",
-                          "--with-libksba-prefix=#{Formula["libksba"].opt_prefix}"
+                          "--with-libgpg-error-prefix=#{formula_opt_prefix("libgpg-error")}",
+                          "--with-libgcrypt-prefix=#{formula_opt_prefix("libgcrypt")}",
+                          "--with-libksba-prefix=#{formula_opt_prefix("libksba")}"
     system "make", "check" # This is a TLS library, so let's run `make check`.
     system "make", "install"
     inreplace bin/"ntbtls-config", prefix, opt_prefix

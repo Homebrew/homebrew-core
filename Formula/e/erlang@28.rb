@@ -3,8 +3,8 @@ class ErlangAT28 < Formula
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
   # Don't forget to update the documentation resource along with the url!
-  url "https://github.com/erlang/otp/releases/download/OTP-28.5.0.2/otp_src_28.5.0.2.tar.gz"
-  sha256 "70d000de601c1cf695b551bab5209226555363ad3cb810639810a3fc6c5306eb"
+  url "https://github.com/erlang/otp/releases/download/OTP-28.5.0.5/otp_src_28.5.0.5.tar.gz"
+  sha256 "5231ba18f31f8041c2d6514cc8842e46954d3b39a53f1617f03f2abe6fea59c7"
   license "Apache-2.0"
 
   livecheck do
@@ -13,12 +13,12 @@ class ErlangAT28 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "bb61e02b41db74c4d7caaf1c593b160fd11dab6315a8e749d0502504aec02959"
-    sha256 cellar: :any, arm64_sequoia: "7a67303c37f85fcfddebd7e84a06ae53e56e481bed864e686e284e5569f02a90"
-    sha256 cellar: :any, arm64_sonoma:  "0a2587bcaae26fbd4ea5dafb4127083d10ca55e1b843953d8d83403b5107bd01"
-    sha256 cellar: :any, sonoma:        "92a94232543a40cc3a6765594ab50807803946195f7b5421a7af449ffb49fc55"
-    sha256 cellar: :any, arm64_linux:   "5d5927e0d08ee7ca5c51bb3d08a90252b6841a7f6920c5b50f84034394b1c781"
-    sha256 cellar: :any, x86_64_linux:  "e031b5844557a54aac770d71f1a7fbaa49cbfd1ef9ebf2f375c79abf172afdf9"
+    sha256 cellar: :any, arm64_tahoe:   "95aa80bc28635ef53f18b03dc879aa49233ace6a55017b5e8b7fa18aaf1ae8a1"
+    sha256 cellar: :any, arm64_sequoia: "795d7f1c53f937efbd54ab405aa495c8318454eb447357286e33fb3ee89d959c"
+    sha256 cellar: :any, arm64_sonoma:  "435131d57383e5dded4c810a4bd00568a6c4e1dfcdfb601bfc23108d9d629d5b"
+    sha256 cellar: :any, sonoma:        "d13aecd43711d9af4de04e981f143d2eaf4e88fb53b43dfca7114ab20e15fc43"
+    sha256 cellar: :any, arm64_linux:   "196f4e2c990663d350193062eec3afd6645b42292e8760d2b4595457ec04a6a2"
+    sha256 cellar: :any, x86_64_linux:  "5a038b61ef28cc8ac4db44a6764da766fd2a555554234d4717a39a59cc566cfe"
   end
 
   keg_only :versioned_formula
@@ -36,8 +36,8 @@ class ErlangAT28 < Formula
   end
 
   resource "html" do
-    url "https://github.com/erlang/otp/releases/download/OTP-28.5.0.2/otp_doc_html_28.5.0.2.tar.gz"
-    sha256 "d0a22561e93764fd8eefc7d494b3fd3da56f6e50680d22a1a86d65ac1be9d040"
+    url "https://github.com/erlang/otp/releases/download/OTP-28.5.0.5/otp_doc_html_28.5.0.5.tar.gz"
+    sha256 "e7a368ce7fc64e3be2929e31d5881d4afef8969b7f511e2263fbd3b93c476bc6"
 
     livecheck do
       formula :parent
@@ -72,8 +72,8 @@ class ErlangAT28 < Formula
     wx_config = wxwidgets.opt_bin/"wx-config-#{wxwidgets.version.major_minor}"
     args = %W[
       --enable-dynamic-ssl-lib
-      --with-odbc=#{Formula["unixodbc"].opt_prefix}
-      --with-ssl=#{Formula["openssl@3"].opt_prefix}
+      --with-odbc=#{formula_opt_prefix("unixodbc")}
+      --with-ssl=#{formula_opt_prefix("openssl@3")}
       --without-javac
       --with-wx-config=#{wx_config}
     ]

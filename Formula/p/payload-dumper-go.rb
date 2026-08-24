@@ -1,33 +1,30 @@
 class PayloadDumperGo < Formula
   desc "Android OTA payload dumper written in Go"
   homepage "https://github.com/ssut/payload-dumper-go"
-  url "https://github.com/ssut/payload-dumper-go/archive/refs/tags/1.3.0.tar.gz"
-  sha256 "d7ba33a80c539674c0b63443b8c6dd9c2040ec996323f38ffe72e024d302eb2d"
+  url "https://github.com/ssut/payload-dumper-go/archive/refs/tags/2.0.2.tar.gz"
+  sha256 "76ee9b4798fc6fd270885b15640e794bb5e9fd5739b843d0a68c2637a06e50c8"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "97ce35198d98de962751f7815760e8ba1a9887feb3b999aa65f68a04d2e47e57"
-    sha256 cellar: :any,                 arm64_sequoia: "298d73ff6bdcbe98ec51938eda5d6df35f4a67eb48538ab3d0a8d5e7f5ededea"
-    sha256 cellar: :any,                 arm64_sonoma:  "a6be6a71b98e5cbccf85f5fd5ddf49ec28792545ebdff739a275c6c32a7ee34c"
-    sha256 cellar: :any,                 arm64_ventura: "adc25ef9cc348ff0f4e72aee84a8d73d4eecc77ec8228b8ef451a1ba52947a3c"
-    sha256 cellar: :any,                 sonoma:        "43c27225c84681b696cc133dd3027dcdb8a99434eaaae57adf9d24b10a761b09"
-    sha256 cellar: :any,                 ventura:       "9a7fe312cc474f61625712007bb096a34ec93fb165afe887cd2786c7fbd71ee1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f89b0e2f2ffb8fc2ec9c58f91aa50ea18243bbb2c15c4682df72931fda29c21c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dec1676646bcf9b015900ac1d9c7f5f1912671bdd034e511235b38c95e63cc3c"
+    sha256 cellar: :any, arm64_tahoe:   "1f40d23e05a8ce1e81cc64d772a521d8bff997af3cdff1d69b63993674db4f7c"
+    sha256 cellar: :any, arm64_sequoia: "7005af14505be5f4582db4b9696bea16e2461791374e9c2a5c91b0ef2cd5e7e9"
+    sha256 cellar: :any, arm64_sonoma:  "2eb565646c5fa6b9d80d254e6aebfd8136981cc05d27cdc98e84d21180cd66b7"
+    sha256 cellar: :any, sonoma:        "21692997384aa75a4a7b431593ebab71f3d62b24b847ae42cb1dda83b32dbaaf"
+    sha256 cellar: :any, arm64_linux:   "dc0003def87970fc4e904881a45f7d7cd594c4fab6f874742dd99c80338de3c7"
+    sha256 cellar: :any, x86_64_linux:  "dc00c729b29a11397ade1c6077e9bd01164e3f093d7135ee369856db51fef768"
   end
 
   depends_on "go" => :build
   depends_on "xz"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
+    system "go", "build", *std_go_args
   end
 
   test do
-    require "base64"
-
-    (testpath/"payload.bin").write ::Base64.decode64 <<~EOS
+    (testpath/"payload.bin").write <<~EOS.unpack1("m")
       Q3JBVQAAAAAAAAACAAAAAAAAAQEAAAAAGIAgYABqlgEKBmtlcm5lbDonCICAgAISIMUdnt6vEEPv
       5BJXyuvBM2rCHkEau27UGDMkvm6EHESMQjAIARAAGL4KMgUIABCABEIg4dp6wOpVauyGK1xdrKTF
       UvIDzO1u9nPhCGdU58+dK05CMQgBEL4KGE8yBgiABBCABEIgknB+/7eKIOYXKq8Be1HG6J582bBO

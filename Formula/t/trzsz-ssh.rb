@@ -1,17 +1,17 @@
 class TrzszSsh < Formula
   desc "Highly OpenSSH-compatible client with extended features"
   homepage "https://trzsz.github.io/tssh"
-  url "https://github.com/trzsz/trzsz-ssh/archive/refs/tags/v0.1.25.tar.gz"
-  sha256 "9a692854733333643b6108f68bed0239b266c461e15125781503d957c9b47842"
+  url "https://github.com/trzsz/trzsz-ssh/archive/refs/tags/v0.1.26.tar.gz"
+  sha256 "67c9082543e1785ece3f5ab09f6299cd655e3657593d55cc85751c097c1bb381"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7d78c3aeb716de54f2eddb73c3299ff4fae02a079f87250a96ef683b8d9f0778"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7d78c3aeb716de54f2eddb73c3299ff4fae02a079f87250a96ef683b8d9f0778"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7d78c3aeb716de54f2eddb73c3299ff4fae02a079f87250a96ef683b8d9f0778"
-    sha256 cellar: :any_skip_relocation, sonoma:        "19c333aaec33670a97e7a1773f9e783c617e46207f7413ebdb8604f7c8b38541"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "df41555cba2702c68478592972f6b589ebb6d1b599cef82d7f13145baf268e12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7f91c7455f1af3c84e9b7206c8e49fe97014854ec83b2c2ed44d5b90169559f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "25d9347e231161ded28bd30b6372f1af327148c753a803b8fb4c87689ccead52"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "25d9347e231161ded28bd30b6372f1af327148c753a803b8fb4c87689ccead52"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "25d9347e231161ded28bd30b6372f1af327148c753a803b8fb4c87689ccead52"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d11fa6e154eca29b481906cf219ed5660964e21867ba1412b1d322f18f7cb563"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b0485e744eb41a00e334e8e9d1c456bd94ec40cab1d1a2510b36b77904aea389"
+    sha256 cellar: :any,                 x86_64_linux:  "6b6d164a14fcade3738be4672279032468e2ea521bbf86fb661bae2477bc82c0"
   end
 
   depends_on "go" => :build
@@ -19,7 +19,7 @@ class TrzszSsh < Formula
   conflicts_with "tssh", because: "both install `tssh` binaries"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"tssh"), "./cmd/tssh"
+    system "go", "build", *std_go_args(output: bin/"tssh"), "./cmd/tssh"
   end
 
   test do

@@ -21,7 +21,7 @@ class Wllvm < Formula
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["llvm"].opt_bin
+    ENV.prepend_path "PATH", formula_opt_bin("llvm")
     (testpath/"test.c").write "int main() { return 0; }"
 
     with_env(LLVM_COMPILER: "clang") do

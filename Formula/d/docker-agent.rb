@@ -1,18 +1,18 @@
 class DockerAgent < Formula
   desc "Agent Builder and Runtime by Docker Engineering"
   homepage "https://docker.github.io/docker-agent/"
-  url "https://github.com/docker/docker-agent/archive/refs/tags/v1.82.0.tar.gz"
-  sha256 "fcedcd9ed8d4c290baa972ae54a1a6c000b1191795959b36ff609c336daa275d"
+  url "https://github.com/docker/docker-agent/archive/refs/tags/v1.127.0.tar.gz"
+  sha256 "d2ea20d6ab54c7e308602620b3e9b7c22a408170f0c6e55a134cee928c4965fc"
   license "Apache-2.0"
   head "https://github.com/docker/docker-agent.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8d95c381edd0cd0ffa2416effc1d5d12d0f494b07aef2638c1ed818e31c92994"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9220df73858fb36aa29abe7682be1c2268185ea24b31669afd9d5cde96fe7ab"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a63e9ce00604a9d3837f9a2480c9ab86ab8796742fd8b9cf720a191458d7a53c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0e1ca542ab3619796b014b9ed435a5ac94aa9ba1e0d3752466a24eb47c6afd02"
-    sha256 cellar: :any,                 arm64_linux:   "4615842274cd7d5c7a170b817737f2da4c59bb198655b01fa71374b8c161ae23"
-    sha256 cellar: :any,                 x86_64_linux:  "211b09dbfb4316037e738725ea8757d9232fa0fa5154df81f9d24fe6991969d6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "152960b4dbc93188387cc4f92c0b655be703ee0419041442836bf9f8d5f7c7f7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fa1aacb76e7479d239f3cc2026981d2614926fc1542ff7187bfcf243e95e3877"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b2e332e153004432303a0c337b487ee6857c8d3b5ed7f1b160ee61c2f74b0302"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5e7f79392108152fa0ead3e7ba4f0cc97f8f55fdf50911e87c913a7f19f422fe"
+    sha256 cellar: :any,                 arm64_linux:   "3ea8257733169020c8d5a7ceb8b3b6a48f0e1be573c597ed99eebebb7f8bf2d3"
+    sha256 cellar: :any,                 x86_64_linux:  "115773eabea846bdef1b2bb05ffaefdc4e3046081440c7233a88b7254d5fc571"
   end
 
   depends_on "go" => :build
@@ -21,7 +21,6 @@ class DockerAgent < Formula
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
 
     ldflags = %W[
-      -s -w
       -X github.com/docker/docker-agent/pkg/version.Version=v#{version}
       -X github.com/docker/docker-agent/pkg/version.Commit=#{tap.user}
     ]

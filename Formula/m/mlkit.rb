@@ -1,8 +1,8 @@
 class Mlkit < Formula
   desc "Compiler for the Standard ML programming language"
   homepage "https://melsman.github.io/mlkit"
-  url "https://github.com/melsman/mlkit/archive/refs/tags/v4.7.14.tar.gz"
-  sha256 "2fdffd543c9d8337e8a20d9270f5b1738873b78b631daa46735d5fd2a6b80ece"
+  url "https://github.com/melsman/mlkit/archive/refs/tags/v4.7.22.tar.gz"
+  sha256 "b8dcf6047595da0bd1a5a18168d7f430eb74e9927c092d20bfeacecea9b8a397"
   license "GPL-2.0-or-later"
   head "https://github.com/melsman/mlkit.git", branch: "master"
 
@@ -12,9 +12,8 @@ class Mlkit < Formula
   end
 
   bottle do
-    sha256 sonoma:       "d4811d05a7d8f1f90c4341f352abbbff6586f2887f4c646ea205487db66458ac"
-    sha256 ventura:      "cf4286e1c5a3f318030c427fc17c4bebf559f39ea8a22ded62f6c85bfb0dd97e"
-    sha256 x86_64_linux: "f27db5bb19c7b0adca6b68b048acf397bd816fae125ffd3fe311bc210cb0e18d"
+    sha256 sonoma:       "b541fe0ef24e6c2bd3099b2e12462de310d1358d6ed8c5ff817bea516bda408e"
+    sha256 x86_64_linux: "1f19cf6f078616b113668e9b37766e0879746f64669c9634811b5ab320c6ca24"
   end
 
   depends_on "autoconf" => :build
@@ -29,6 +28,10 @@ class Mlkit < Formula
   end
 
   def install
+    # AArch64 inline asm is gated on the compiler rather than the target arch, breaking x86_64 clang
+    # https://github.com/melsman/mlkit/commit/f1811c7c8da109f4ef1a9d6314edb20f65d84cc6
+    inreplace "src/Runtime/Region.c", "#ifdef __clang__", "#if defined(__aarch64__)"
+
     system "sh", "./autobuild"
     system "./configure", "--prefix=#{prefix}"
 

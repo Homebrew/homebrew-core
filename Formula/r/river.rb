@@ -26,7 +26,7 @@ class River < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
     system "cargo", "install", *std_cargo_args(path: "source/river")
   end
@@ -44,8 +44,8 @@ class River < Formula
     system bin/"river", "--validate-configs", "--config-toml", testpath/"example-config.toml"
 
     [
-      Formula["openssl@3"].opt_lib/shared_library("libssl"),
-      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
+      formula_opt_lib("openssl@3")/shared_library("libssl"),
+      formula_opt_lib("openssl@3")/shared_library("libcrypto"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"river", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."

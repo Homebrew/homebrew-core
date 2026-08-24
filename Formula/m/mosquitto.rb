@@ -7,6 +7,7 @@ class Mosquitto < Formula
   # EDL-1.0 is pretty the same as BSD-3-Clause,
   # see discussions in https://github.com/spdx/license-list-XML/issues/1149
   license any_of: ["EPL-1.0", "BSD-3-Clause"]
+  revision 1
 
   livecheck do
     url "https://mosquitto.org/download/"
@@ -14,13 +15,12 @@ class Mosquitto < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "675c3115d192817ed3e8581991ec8b550f0ca88ba3509d99a76d8030b2220014"
-    sha256 cellar: :any, arm64_sequoia: "0e3b6e88355b17ee6b3ba9fe2c49998dd9fefe45d89419ce2a4561c36ddd4e86"
-    sha256 cellar: :any, arm64_sonoma:  "42015e87839e23880b3256658549851747ded188645d81ca91cbb047390eeb9d"
-    sha256 cellar: :any, sonoma:        "79c0b0e9ab76295bb4cfbadfc32da88a680950b854d38023cb2dbc1b983e4813"
-    sha256 cellar: :any, arm64_linux:   "6c4103f1b093feecfc4659a001cd4662cf7b548f904363ade5d67ffff3509a67"
-    sha256 cellar: :any, x86_64_linux:  "a8725b3326e97d9a4f99f8cc38f13f741004baefaa90772655d10730381f2b0d"
+    sha256 cellar: :any, arm64_tahoe:   "3d356bb96333aa2fb4e512d4be6df36eec4b6b171be14707e51e16e94d3cb95d"
+    sha256 cellar: :any, arm64_sequoia: "bc05eadb0b5387d4dc9c232a2e3b0588c25339c69b6784edf544efea4de0a9ac"
+    sha256 cellar: :any, arm64_sonoma:  "1c4d34f060368585fbafc2e1abcc769eb482545b68b0e7996a5c0d99a1c74050"
+    sha256 cellar: :any, sonoma:        "ca8649a93eaca061ea9ddfbf3c0b26de1be9cee0acddc0e7043a41fd844aee4d"
+    sha256 cellar: :any, arm64_linux:   "fb24ad3850e62be951333db9ed37cf7da0189cac94c2f14807209a42e770f871"
+    sha256 cellar: :any, x86_64_linux:  "1e436a8fcaa2ea3f62efa61336195542d9a6d484466be0d9667d6445feab6880"
   end
 
   depends_on "cmake" => :build

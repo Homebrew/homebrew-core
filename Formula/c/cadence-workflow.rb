@@ -1,11 +1,11 @@
 class CadenceWorkflow < Formula
   desc "Distributed, scalable, durable, and highly available orchestration engine"
   homepage "https://cadenceworkflow.io/"
-  url "https://github.com/uber/cadence.git",
-      tag:      "v1.4.0",
-      revision: "1a42a949010b4257020c0641f88cbcd385184bb8"
+  url "https://github.com/cadence-workflow/cadence.git",
+      tag:      "v1.4.1",
+      revision: "3410187d214d4b6bc19fd74e34b8cb11d112f93c"
   license "Apache-2.0"
-  head "https://github.com/uber/cadence.git", branch: "master"
+  head "https://github.com/cadence-workflow/cadence.git", branch: "master"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
   # labeled as "pre-release" on GitHub before the version is released, so it's
@@ -16,12 +16,12 @@ class CadenceWorkflow < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c8a3964e7a66146c41e9513dc6c9a1186595e2e80e58ab4b008e146c4d2716b5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e2b72d6ad8a73fb6e918794eaaa96d599d51efeffbade48ed933e77bf2f39c3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "168814777006447c91ae02f9aa9a6549b4949c6a00f44e1f578f7b16f1fe3d9f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "95c75946272ffdeb70ce9265054e41845b8741da3f25b65df63f03adc05aed81"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "980bb6386730269f3e5e4c8907cef1f1539e46aa82b908f93db1a54cfde78cda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91650d5bac50e659793533f28ab8fc036b77734fc30237d73061be3e6df5b41d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "83967799528abc05e2d8d4cdc63eb2310a26eabdee9103ed2fe6d8f162ade0af"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "940105d1f7548ae8aac4e1c36014c2d0dc6f668fa6ce43247fe8864a4b734b4a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1fe5ed3fc9fe5ebf020dda5d58892915aed73725deb67854e596837e755448b9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "66c97e89bc92c2b3b032493454c80f44591c4dde2f5161980b4b8e04548ca374"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc8686c857b14d9a8bf8c01e4dba2a1f02146e95803cafa3e93579e16d55e51e"
+    sha256 cellar: :any,                 x86_64_linux:  "d5d49406904313d8865c861eaafddbbb850d7feab408b8aead5f14e8a078be5b"
   end
 
   depends_on "go" => :build

@@ -39,8 +39,7 @@ class Libftdi < Formula
   # http://developer.intra2net.com/git/?p=libftdi;a=commit;h=cdb28383402d248dbc6062f4391b038375c52385
   # Backport commits to increase to cmake 3.5 minimum needed by cmake 4
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/982ad54cbe05e716249a9da25463b20f816d0231/Patches/libftdi/1.5.patch"
-    sha256 "0533956c5fb6785a6ec93431bc70982544ba46ae0dd69fcc51f1857c49f9f123"
+    file "Patches/libftdi/1.5.patch"
   end
 
   def install

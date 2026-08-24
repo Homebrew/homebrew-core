@@ -1,27 +1,24 @@
 class Gotify < Formula
   desc "Command-line interface for pushing messages to gotify/server"
   homepage "https://github.com/gotify/cli"
-  url "https://github.com/gotify/cli/archive/refs/tags/v2.3.2.tar.gz"
-  sha256 "e3b798d89138fdbc355a66d0fc2ca96676591366460f72c8f38b81365bebe5ba"
+  url "https://github.com/gotify/cli/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "d33622db87549355b8ccc3d4a4e342cfc769fa96c45213e682b53a0971c8c41d"
   license "MIT"
   head "https://github.com/gotify/cli.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "20c6354746bab0413fb7471f2803bd16834ff63588906115f73c137b71cc60f3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1bc9a055bd7ad8170b2779875eea4d07012fc5210b0da9fb304ee49ab75229a9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1bc9a055bd7ad8170b2779875eea4d07012fc5210b0da9fb304ee49ab75229a9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1bc9a055bd7ad8170b2779875eea4d07012fc5210b0da9fb304ee49ab75229a9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cddf34e9ad638380806a0805f7b2433e0222971046bb76d1abf099a8b12ee441"
-    sha256 cellar: :any_skip_relocation, ventura:       "cddf34e9ad638380806a0805f7b2433e0222971046bb76d1abf099a8b12ee441"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b762bcafcc18f90c82476ca1a077fb9a7ddf6df2da627b680832b91c25f20b0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8a14521daabae09419dbdd267df3598fa07e80fc418d2512a551807b26601f4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d41413c95f0690361e42655275578fe1bfca727c2f590e1cb46d30751b3f56d5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d41413c95f0690361e42655275578fe1bfca727c2f590e1cb46d30751b3f56d5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d41413c95f0690361e42655275578fe1bfca727c2f590e1cb46d30751b3f56d5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ebf635645387e72e4fc89c9028dbb1cb1349280b761748750aece59eb73b8640"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fbaf64b7affa2483a49f6e10fc0389a0ddda2797a2ddc57d66006270218e5680"
+    sha256 cellar: :any,                 x86_64_linux:  "a51cb1c52b5c99b2373146265e91ef7f3c5a1ae3ea711b92d760d218f1bb56fc"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.Version=#{version} -X main.BuildDate=#{time.iso8601} -X main.Commit="
+    ldflags = "-X main.Version=#{version} -X main.BuildDate=#{time.iso8601} -X main.Commit="
     system "go", "build", *std_go_args(ldflags:)
   end
 

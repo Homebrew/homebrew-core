@@ -20,7 +20,7 @@ class ChaosClient < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"chaos"), "./cmd/chaos"
+    system "go", "build", *std_go_args(output: bin/"chaos"), "./cmd/chaos"
   end
 
   test do

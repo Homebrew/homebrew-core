@@ -2,16 +2,17 @@ class SoundTouch < Formula
   desc "Audio processing library"
   homepage "https://www.surina.net/soundtouch/"
   url "https://codeberg.org/soundtouch/soundtouch/archive/2.4.1.tar.gz"
-  sha256 "e07abf20ce8f95850c280132e1f61ad400fc1f4011b7fac698a503de6aab6733"
+  sha256 "35d404e6e8c2ebd12fb4000da6fadd75c99e37eed2126a04721828c11c0377ec"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "39c7a9f7b42d7eceab47adbe2dd62a299a2bc6696cde16e8bfefbe13048407ce"
-    sha256 cellar: :any,                 arm64_sequoia: "e3c88c3e3f09f770a320d5bcbc66deab58b7aadb7f45903ab44656e7f8dcc23c"
-    sha256 cellar: :any,                 arm64_sonoma:  "b748642ae9a1df505261660b2d40836d9d072f8350820a5b8a456c3ebf9ef7c3"
-    sha256 cellar: :any,                 sonoma:        "a98b143aff369357b87c07197525e221f461b62af1bce6ebcf31a55827b93533"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b61df500d6bf34c8a0cf7f443c19f7373479b5f90f7428345bdd113cf8d8ec6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8516cc0bf2c85ede1f7cb438287a1e1ba936001aeda358ef2f2a03ab3847d6db"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "c7951228bbd5d138811489e81d1e2f40de1332a2ba27787d4a3e1346f0023393"
+    sha256 cellar: :any, arm64_sequoia: "d20df6d0628adb9974e1182d76c386a0434705d3707251c1f53341c3d3dea294"
+    sha256 cellar: :any, arm64_sonoma:  "c88b7c7ec159c0bb73b577af4f2be1bd93de6eae1910e147ae1b4269f7a0654b"
+    sha256 cellar: :any, sonoma:        "9ae6abc9a6bce8dcfff95aab4b5ebf275a8816c9f1c535153fe16d440c7bc643"
+    sha256 cellar: :any, arm64_linux:   "4898ccdbf89841539f4c85d68da4a4886f721ed2f52c8bff5b4f9feebd3a5b2e"
+    sha256 cellar: :any, x86_64_linux:  "912b3755559a178642af08f10ebd4c540e751b91ed7c7faac9a9eca9cc446b75"
   end
 
   depends_on "autoconf" => :build

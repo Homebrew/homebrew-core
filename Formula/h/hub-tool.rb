@@ -17,11 +17,13 @@ class HubTool < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "975161f22332ee0ed88c51528cea62b39144d231fff94f460c4c1650ccb23228"
   end
 
+  deprecate! date: "2026-07-08", because: :repo_archived
+  disable! date: "2026-10-08", because: :repo_archived
+
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/docker/hub-tool/internal.Version=#{version}
       -X github.com/docker/hub-tool/internal.GitCommit=#{tap.user}
     ]

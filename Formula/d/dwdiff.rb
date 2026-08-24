@@ -30,7 +30,7 @@ class Dwdiff < Formula
 
   def install
     if OS.mac?
-      ENV.append "LDFLAGS", "-L#{Formula["gettext"].opt_lib}"
+      ENV.append "LDFLAGS", "-L#{formula_opt_lib("gettext")}"
       ENV.append "LDLIBS", "-lintl"
     end
 

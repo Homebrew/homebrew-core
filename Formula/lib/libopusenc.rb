@@ -68,7 +68,7 @@ class Libopusenc < Formula
       }
     C
     system ENV.cc, "test.c", "-o", "test", "-Wall",
-                   "-I#{Formula["opus"].opt_include}/opus",
+                   "-I#{formula_opt_include("opus")}/opus",
                    "-I#{include}/opus",
                    "-L#{lib}", "-lopusenc"
     system "./test"

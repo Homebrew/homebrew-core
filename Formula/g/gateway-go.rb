@@ -19,7 +19,6 @@ class GatewayGo < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/OpenIoTHub/gateway-go/v2/info.Version=#{version}
       -X github.com/OpenIoTHub/gateway-go/v2/info.Commit=
       -X github.com/OpenIoTHub/gateway-go/v2/info.Date=#{time.iso8601}

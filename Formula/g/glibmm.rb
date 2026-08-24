@@ -1,18 +1,18 @@
 class Glibmm < Formula
   desc "C++ interface to glib"
   homepage "https://gtkmm.gnome.org/"
-  url "https://download.gnome.org/sources/glibmm/2.88/glibmm-2.88.0.tar.xz"
-  sha256 "a6549da3a6c43de83b8717dae5413c57a60d92f6ecc624615c612d0bb0ad0fe2"
+  url "https://download.gnome.org/sources/glibmm/2.88/glibmm-2.88.1.tar.xz"
+  sha256 "c139f962b1575c8827cd39d1ac21b7a367be3bda1409c0c7e21a29090f371506"
   license "LGPL-2.1-or-later"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "004d7f1ab6701eb47259e35466edede4a59c1a9f224018000e71ee0d82bbd411"
-    sha256 cellar: :any, arm64_sequoia: "b9a29a482b2dcf1fe705476bcdcbc363c48fa2cbaa05b5132b4d4509d6ce0310"
-    sha256 cellar: :any, arm64_sonoma:  "466bf9f96c97bac7dad5747b089aa5a527357434651c59ee3a4574c6862ae75a"
-    sha256 cellar: :any, sonoma:        "c074041d507860b7da2e5c39321d5112ebd9065b3a6260c812d9c4ea2513a5ee"
-    sha256               arm64_linux:   "18b0c3b26d6d8f266fd4466f8577fe90ce40c1197d28f87e9dee421f0b4de70d"
-    sha256               x86_64_linux:  "1e806c45a2aaa2c21a79dc61369ff79f4b2ff72fdcdb6f610f1e6d3b294ac0ff"
+    sha256 cellar: :any, arm64_tahoe:   "1820b1d736061b49c2b659e70809dcc79acdc47d5229d58ec19fcf9081565d70"
+    sha256 cellar: :any, arm64_sequoia: "8123fe33bb48afcc1518f58f2d8f5d5432b34efa17bd47bcf12bc1849a00070d"
+    sha256 cellar: :any, arm64_sonoma:  "75665105fafb18f9b5b057cac75f853da291e2597d802f71fe5fc090a231a7bf"
+    sha256 cellar: :any, sonoma:        "72600139d4fec0a5a4a560cf5f677aa2d63b00e53ecc430baa9796a53d758a19"
+    sha256               arm64_linux:   "021fe24e5650a79bd327a012cccf84fd853d358e548ea135215fc1c346267f51"
+    sha256               x86_64_linux:  "1e8eee26d278df95a8a7b9a859bf2ed42319b2599c80dfc811d881fcf6f9d809"
   end
 
   depends_on "meson" => :build

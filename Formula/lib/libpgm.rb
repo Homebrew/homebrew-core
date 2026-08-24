@@ -13,6 +13,8 @@ class Libpgm < Formula
     patch do
       url "https://github.com/steve-o/openpgm/commit/8d507fc0af472762f95da44036fb77662ff4cd2a.patch?full_index=1"
       sha256 "070c3b52fd29f6c594bb6728a960bc19e4ea7d00b2c7eac51e33433e07d775b3"
+      type :backport
+      resolves "https://github.com/steve-o/openpgm/pull/71"
     end
   end
 

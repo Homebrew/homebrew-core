@@ -31,7 +31,7 @@ class Mdbtools < Formula
 
   def install
     system "./configure", "--enable-man",
-                          "--with-unixodbc=#{Formula["unixodbc"].opt_prefix}",
+                          "--with-unixodbc=#{formula_opt_prefix("unixodbc")}",
                           *std_configure_args
     system "make", "install"
   end

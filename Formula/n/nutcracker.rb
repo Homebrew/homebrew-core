@@ -31,8 +31,7 @@ class Nutcracker < Formula
   # Use Homebrew libyaml instead of the vendored one.
   # Adapted from Debian's equivalent patch.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/nutcracker/use-system-libyaml.patch"
-    sha256 "9105f2bd784f291da5c3f3fb4f6876e62ab7a6f78256f81f5574d593924e424c"
+    file "Patches/nutcracker/use-system-libyaml.patch"
   end
 
   def install

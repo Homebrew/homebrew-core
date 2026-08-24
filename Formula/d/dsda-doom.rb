@@ -13,13 +13,13 @@ class DsdaDoom < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "8701e733a61839e8a4dd604f981070c7767340ee1d631e59b359cf6e1956c008"
-    sha256 arm64_sequoia: "3aac3390bc253c004d90862f0d3f255f7b8040a006580fb537e6073bc61e9896"
-    sha256 arm64_sonoma:  "034195036cc006dcbd1f2421411e96e9d25e37550c726f06043ac3572e03f932"
-    sha256 sonoma:        "4ff911beb7b369f23aaeaff11085d13c82415489a7b602f8049ee7608bf97c82"
-    sha256 arm64_linux:   "abaabc928dea3ce2cdd7a7ee142f20d7abf49d1abb0ea2b86cf0ca86afe6acec"
-    sha256 x86_64_linux:  "d5c2769b080becbee945530cb009a8f67557ed78447bd39b26d32c1f698e90b8"
+    rebuild 2
+    sha256 arm64_tahoe:   "15c0a32900bbf971c5b7758a03cc4b61a2f0db53c5ff254e631e0b2cfe9f8f06"
+    sha256 arm64_sequoia: "689d26af598ac1a327a18d6883252e5534815db0ecca891284b4937ec4b374b2"
+    sha256 arm64_sonoma:  "0a324c2ff0906654bac84e2f9da9ee7a546f9d877ff42ba161cfd3ab5153a515"
+    sha256 sonoma:        "1652649499a950c253f5c67c07025947a5e38bb775113ce1788c91a4dca0087e"
+    sha256 arm64_linux:   "f23bd0d5da42072a33111733dc060f3c840e5702912099ceb3190d8743577407"
+    sha256 x86_64_linux:  "8f4ea27fb97d991806bf690ff9cc756979824672dd7b3f3184bedf28a4663923"
   end
 
   depends_on "cmake" => :build
@@ -32,7 +32,7 @@ class DsdaDoom < Formula
   depends_on "libzip"
   depends_on "mad"
   depends_on "portmidi"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
 
@@ -60,21 +60,29 @@ class DsdaDoom < Formula
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    (libexec/"post-install").write <<~SH
+      #!/bin/sh
+      set -e
+      parent="#{HOMEBREW_PREFIX}/share/games"
+      if [ -L "$parent" ]; then
+        original="$(cd "$parent" && pwd -P)"
+        rm "$parent"
+        mkdir -p "$parent"
+        if [ -d "$original" ]; then
+          for child in "$original"/* "$original"/.[!.]* "$original"/..?*; do
+            [ -e "$child" ] || [ -L "$child" ] || continue
+            ln -s "$child" "$parent/$(basename "$child")"
+          done
+        fi
+      fi
+      mkdir -p "$parent/doom"
+    SH
+    chmod 0755, libexec/"post-install"
   end
 
-  def post_install
-    path = doomwaddir(HOMEBREW_PREFIX)
-
-    # "share/games/" can be a symlink to another formula's keg so we need to
-    # convert it to a real directory to avoid writing into another keg.
-    # Could make "share/games/" into a :mkpath directory in brew to avoid this.
-    if (parent = path.parent).symlink?
-      original_path = parent.resolved_path
-      rm(parent)
-      parent.install_symlink original_path.children if original_path.exist?
-    end
-
-    path.mkpath
+  post_install_steps do
+    run "post-install", base: :libexec
   end
 
   def caveats

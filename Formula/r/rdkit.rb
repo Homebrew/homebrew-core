@@ -2,9 +2,10 @@ class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
   # NOTE: Make sure to update RPATHs if any "@rpath-referenced libraries" show up in `brew linkage`
-  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2026_03_3.tar.gz"
-  sha256 "21e22e5e6b3a313527256fbde41c757f22d834b19caf2908e3c2dd11061e1fea"
+  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2026_03_5.tar.gz"
+  sha256 "336b3ffd9b691e4bfcdf97d361c01e553de34d2ca85c64a941473e9e2f8b707e"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
   livecheck do
@@ -16,12 +17,12 @@ class Rdkit < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "5aabba619ade43b01f70db66387c5b93bf89a9bc5c4124e5ade6a7d64e0c1ac0"
-    sha256               arm64_sequoia: "b2b000b7aad1c6237e67809b6b70c3d1630b8d80290eba98a99275bfe73750a1"
-    sha256               arm64_sonoma:  "392f0456e50e67ad323cef5044ef3ea93474f9a2dd58e1a323bef5a087e0b90b"
-    sha256 cellar: :any, sonoma:        "cf7b72d3cb5dc2a1c5a8fb3d6e3473f9986ba894ba2ddad7a4576177625baa2b"
-    sha256 cellar: :any, arm64_linux:   "d37e17e1a2c2e8e5454887cb4885fd2d7fc50221b0462e0a2e333bcb3f1bc720"
-    sha256 cellar: :any, x86_64_linux:  "6480b255f3f442b60bac912744ba4e6f81b1abd7f02cc05063246fb3c8c216d7"
+    sha256               arm64_tahoe:   "6db624a7e38978b358c930c0441e954bf068c4ca2b5a60b8b1e8294a40f7adfc"
+    sha256               arm64_sequoia: "2b810c84305bec10472b21914905147b669fde9bf1835e176d7c86593b8191f1"
+    sha256               arm64_sonoma:  "b222954b3fafe44f5c2263135d20b30df93e45c40c83c25713ebea9af0ec38ee"
+    sha256 cellar: :any, sonoma:        "5c4f7d1acbbfc885c56eab5fecc1a79b8ff9f3a4a51d8e44ec3e5c6e561d60f7"
+    sha256 cellar: :any, arm64_linux:   "11818f50edead9c8fca69fd6c133f654dbe61a2efe4f8c9cec90da479aa46af7"
+    sha256 cellar: :any, x86_64_linux:  "d7a6f19c660be57ea45476edfbba04c5afd1fe582898ecf9da75477e304ba3c9"
   end
 
   depends_on "catch2" => :build
@@ -41,9 +42,26 @@ class Rdkit < Formula
   depends_on "py3cairo" => :no_linkage
   depends_on "python@3.14"
 
+  uses_from_macos "expat", since: :sequoia # minimum macOS due to python
+
+  # Workaround for https://github.com/Homebrew/brew/issues/19315
+  on_sequoia :or_newer do
+    on_intel do
+      depends_on "expat"
+    end
+  end
+
   resource "better_enums" do
     url "https://github.com/aantron/better-enums/archive/refs/tags/0.11.3.tar.gz"
     sha256 "1b1597f0aa5452b971a94ab13d8de3b59cce17d9c43c8081aa62f42b3376df96"
+  end
+
+  # Support building with Boost 1.92.0
+  patch do
+    url "https://github.com/rdkit/rdkit/commit/831c34510763a073cc849911f84dc3f069f42010.patch?full_index=1"
+    sha256 "dde4a5a39547c5c23f05add61d63ec6d264e7dd4aa72b13daeb7034ba670c9fa"
+    type :unofficial
+    resolves "https://github.com/rdkit/rdkit/pull/9494"
   end
 
   def python3
@@ -64,12 +82,12 @@ class Rdkit < Formula
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DCMAKE_MODULE_LINKER_FLAGS=#{python_rpaths.map { |path| "-Wl,-rpath,#{path}" }.join(" ")}
-      -DCMAKE_PREFIX_PATH='#{Formula["maeparser"].opt_lib};#{Formula["coordgen"].opt_lib}'
+      -DCMAKE_PREFIX_PATH='#{formula_opt_lib("maeparser")};#{formula_opt_lib("coordgen")}'
       -DCMAKE_REQUIRE_FIND_PACKAGE_coordgen=ON
       -DCMAKE_REQUIRE_FIND_PACKAGE_maeparser=ON
       -DCMAKE_REQUIRE_FIND_PACKAGE_Inchi=ON
       -DFETCHCONTENT_SOURCE_DIR_BETTER_ENUMS=#{buildpath}/better_enums
-      -DINCHI_INCLUDE_DIR=#{Formula["inchi"].opt_include}/inchi
+      -DINCHI_INCLUDE_DIR=#{formula_opt_include("inchi")}/inchi
       -DRDK_INSTALL_INTREE=OFF
       -DRDK_BUILD_SWIG_WRAPPERS=OFF
       -DRDK_BUILD_AVALON_SUPPORT=ON
@@ -113,8 +131,6 @@ class Rdkit < Formula
       system "cmake", "--build", "#{builddir}/Code/PgSQL/rdkit"
       system "cmake", "--install", builddir, "--component", "pgsql"
     end
-
-    rm lib/"libexpat.a" # conflicts with `expat` formula
   end
 
   def caveats

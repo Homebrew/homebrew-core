@@ -1,17 +1,22 @@
 class RRig < Formula
   desc "R Installation Manager"
   homepage "https://github.com/r-lib/rig"
-  url "https://github.com/r-lib/rig/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "a6f0331d45e0277629515cf6659b4db359387be80c8788a6110145e4350a7947"
+  url "https://github.com/r-lib/rig/archive/refs/tags/v0.8.1.tar.gz"
+  sha256 "a0f00e7c84573c15819cf7d907dd8668ad67a31784b07e1edd59039e514675fd"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe5defa6b5af48a59774d14dae1556d402c603f89572c07168089c935e898010"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "33fa01a2f31adccd71f719eea4615382a595d785813a35ee2c114208d81ae838"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8fa195e9987e430abe4f57498a00f2558c1ea0a4f70aff6744dc2ee2b03b48d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fcec14e3f72dbf0c8f8da5de56219bbaf77dd1d5db7b145579830c57561db6b5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a3b7fc23b8e34ca7aa1a6a80c4e908c00f76f247328255f8caccd88194562e1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cf6f120a7d70fcde340d7b9736a00f678423d91d3b7242f628b0ea9991d3120"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "65b85df1c4324713324196fb256f99a49b66699dada1f040e71451610c39eae6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d4e421e0ab51394d40e0e8e72513a0465753840c809808c87605dd471a6b7bc9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5cd7e40ecc47ec03a4a9c27dfa8ca18f2dfe298d07c936e4f5d281513e505e67"
+    sha256 cellar: :any_skip_relocation, sonoma:        "37d62621eb1f01413a185009e93b424efa6ed14a5de5e14e81e8f367af78cb35"
+    sha256 cellar: :any,                 arm64_linux:   "78301c10dda15d1c359a552706b603ae3bd87ae66c45f95061dc89a0e62dd27a"
+    sha256 cellar: :any,                 x86_64_linux:  "b278bf851710cf4251259f1870c64d3b23868eeece7fbd19d1c4456b582f187c"
   end
 
   depends_on "rust" => :build

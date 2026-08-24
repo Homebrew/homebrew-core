@@ -1,8 +1,8 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.54.0.tar.xz"
-  sha256 "f689162364c10de79ef89aa8dbf48731eb057e34edbbd20aca510ce0154681a3"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.55.0.tar.xz"
+  sha256 "457fdb04dc8728e007d4688695e6912e6f680727920f2a40bf11eacc17505357"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later",  # imap-send.c; trace.c; ...
@@ -19,13 +19,12 @@ class Git < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "631dd8d46c16e37e827638953b00009741e6ef6007dc287e49dd904d7fb17ad5"
-    sha256 arm64_sequoia: "247e29b9be076e75b8f1c294665bc20eaf93ebdb9a0b2a6ba8ed79bfa189d8cb"
-    sha256 arm64_sonoma:  "18464d0dfa49ca25903f1aea3be66c1c0739b0af8096036b113137a7d0fc3a97"
-    sha256 sonoma:        "b1b54c9acd9777bfca354740fcf3e05179e57bb38a23a446ff8641dbe717d921"
-    sha256 arm64_linux:   "44ed639210d6d5edeeed420ce33f1612e123f93334af1cc6d6d84b3b1827ecf5"
-    sha256 x86_64_linux:  "edc8e8f1a7b3861e06e66ec3b337968a3c9e2c206da52cfd1e4f950d36ebfb30"
+    sha256 arm64_tahoe:   "8cae58826d317457128023d07c07f00ac00aaf3019356ff72a837e804f5d0306"
+    sha256 arm64_sequoia: "5df08160c5e705ffcce25edfe1bb189d50fd3366a0e451fc254a8d70904adc5f"
+    sha256 arm64_sonoma:  "3d7a66500cc7bf1530d7a5e862f4b4c2e317ed53c95bf76c012ce8ff7ec92ae7"
+    sha256 sonoma:        "f7477c65f53669d1f9fd90ad2d633e6c009d5f6b0e10e039c15ebc022ac18bde"
+    sha256 arm64_linux:   "ea73cb7a909a7c80c2c5474b15b53659dd04b1222efd678e9a693bb06a7ed314"
+    sha256 x86_64_linux:  "01365c33768a2cb170a34f8f201ea3f3a7bb8c0d2140640ff3fbc58584e9758e"
   end
 
   depends_on "gettext" => :build
@@ -53,8 +52,8 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.54.0.tar.xz"
-    sha256 "7ff72bfdfed4f20563f34416cf27614fb9c35bfad590db0062f2a0a9636514e4"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.55.0.tar.xz"
+    sha256 "d1142c4e28b469d297d6df6519653e92a76c952f55202fde17a72a3b03d49437"
 
     livecheck do
       formula :parent
@@ -62,8 +61,8 @@ class Git < Formula
   end
 
   resource "man" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.54.0.tar.xz"
-    sha256 "292062d18f3a215213ea8317ed22b94f02ad9572520b9293164d7db3eb888953"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.55.0.tar.xz"
+    sha256 "a32d432f80df46a14a05d1104c72d5a13fe27e9feba9aa0f017e54131db6b982"
 
     livecheck do
       formula :parent
@@ -88,7 +87,7 @@ class Git < Formula
     ENV["PERL_PATH"] = which("perl")
     ENV["USE_LIBPCRE2"] = "1"
     ENV["INSTALL_SYMLINKS"] = "1"
-    ENV["LIBPCREDIR"] = Formula["pcre2"].opt_prefix
+    ENV["LIBPCREDIR"] = formula_opt_prefix("pcre2")
     ENV["V"] = "1" # build verbosely
 
     perl_version = Utils.safe_popen_read("perl", "--version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
@@ -114,12 +113,13 @@ class Git < Formula
       CFLAGS=#{ENV.cflags}
       LDFLAGS=#{ENV.ldflags}
       NO_TCLTK=1
+      NO_RUST=1
     ]
 
     args += if OS.mac?
       %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]
     else
-      openssl_prefix = Formula["openssl@3"].opt_prefix
+      openssl_prefix = formula_opt_prefix("openssl@3")
 
       %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
     end
@@ -136,9 +136,7 @@ class Git < Formula
     # Install the macOS keychain credential helper
     if OS.mac?
       cd "contrib/credential/osxkeychain" do
-        system "make", "CC=#{ENV.cc}",
-                       "CFLAGS=#{ENV.cflags}",
-                       "LDFLAGS=#{ENV.ldflags}"
+        system "make", *args
         git_core.install "git-credential-osxkeychain"
         system "make", "clean"
       end

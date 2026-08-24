@@ -1,18 +1,17 @@
 class Libmwaw < Formula
   desc "Library for converting legacy Mac document formats"
   homepage "https://sourceforge.net/p/libmwaw/wiki/Home/"
-  url "https://downloads.sourceforge.net/project/libmwaw/libmwaw/libmwaw-0.3.22/libmwaw-0.3.22.tar.xz"
-  sha256 "a1a39ffcea3ff2a7a7aae0c23877ddf4918b554bf82b0de5d7ce8e7f61ea8e32"
+  url "https://downloads.sourceforge.net/project/libmwaw/libmwaw/libmwaw-0.3.23/libmwaw-0.3.23.tar.xz"
+  sha256 "ac3590f691a2904eb8c7dc8b757b8a29f125f592449e421459ae8fa928b399eb"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "fa0e72719088f76b8996124a739c41c4b34547cf9c4f260e58afd6ddcc870cd4"
-    sha256 cellar: :any,                 arm64_sequoia: "1c5bce00ac14d8cf3e3a757459c885fdd0d590d36ffa38934632e1f574a06701"
-    sha256 cellar: :any,                 arm64_sonoma:  "57398e513b5e82df0b1e72065f63e92b5260f9138c8a425e1f78c69ba54ca3cd"
-    sha256 cellar: :any,                 sonoma:        "ea299bef81d475c92fcfad1e645938f555c6d84a5079736731c0bbffde56713a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "798c441a0e2c4381934c01b24f9092f808c3a40bd7535947b9bb16eea05f010c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e148bc4687e804b19b7b4d6efa771453929595be6bd06d11957c2a91be6960c"
+    sha256 cellar: :any, arm64_tahoe:   "f8d25c7c58f0171849af7f60db0d87f2086ff27075a126f55c8524a765353caf"
+    sha256 cellar: :any, arm64_sequoia: "876db022c48d3d9bdfc7974d80b9410bf29b5df4e6be016b84b914819f5abfeb"
+    sha256 cellar: :any, arm64_sonoma:  "53960c2cdef6d3c978bf5f32e3bfba68bd7b889cf1dce3e476f2654503bd8011"
+    sha256 cellar: :any, sonoma:        "7387a6e3c8b1a816bbf6be7de71bb2acaca6c5286f67b9a20967338bc80a1ce5"
+    sha256 cellar: :any, arm64_linux:   "0ab494479d8cff29f5334448530a761c69f4a1a9294a001ec7553210fd5c38f6"
+    sha256 cellar: :any, x86_64_linux:  "ad976802e1baea7704a6e8968821f4471a69a934b395f7e6977be5e067b6e2e9"
   end
 
   depends_on "pkgconf" => :build

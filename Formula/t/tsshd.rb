@@ -1,23 +1,23 @@
 class Tsshd < Formula
   desc "UDP-based SSH server with roaming support"
   homepage "https://trzsz.github.io/tsshd"
-  url "https://github.com/trzsz/tsshd/archive/refs/tags/v0.1.8.tar.gz"
-  sha256 "1d19f99a95f19933d8058df1209b421400eaca8c2bf2e045747c8f6c68887d56"
+  url "https://github.com/trzsz/tsshd/archive/refs/tags/v0.1.9.tar.gz"
+  sha256 "fdf05a2323c8cc4ecef30e5258714d1651d80206f1bc0a5a88a45d716e82bb18"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8f5be597f86f01b03876a95c9a3fb96225bfff5d3bee624b4e0d2ecda4df79a9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f5be597f86f01b03876a95c9a3fb96225bfff5d3bee624b4e0d2ecda4df79a9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f5be597f86f01b03876a95c9a3fb96225bfff5d3bee624b4e0d2ecda4df79a9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ca646b2423f59e9288f9218286c941f14462f2af80a11a8a25d7572a398040c2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0a5ebc66805178c28e62c2dd2fcf45c6b8c13d55d7cb09052d92d18b0b3e1964"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0b89897053dac6610ad70656272742242c88d1851db6e5a69310ddba404f316"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f77c287527df5f703cb15528a108d187302250e72ca4b91f97f9ef32c1d7ba9e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f77c287527df5f703cb15528a108d187302250e72ca4b91f97f9ef32c1d7ba9e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f77c287527df5f703cb15528a108d187302250e72ca4b91f97f9ef32c1d7ba9e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8878152451bb39054a6bb6ebdca95e518991b4c54c40f27a078c4406058f24c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0bcbefe58e929be3fea5385cea1d06b8ee0c03a41452ab1afd9f53de0265ae7f"
+    sha256 cellar: :any,                 x86_64_linux:  "183495229596f2905fcc1adcb1a9cda90edbcb05074d832298a2cf3c1a2fcded"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/tsshd"
+    system "go", "build", *std_go_args, "./cmd/tsshd"
   end
 
   test do

@@ -1,8 +1,8 @@
 class PostgresqlAT15 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v15.18/postgresql-15.18.tar.bz2"
-  sha256 "11df0df97fe3ea4ba9a791faaf39cee1d2fe571e78885b5b55d8517d27c323b4"
+  url "https://ftp.postgresql.org/pub/source/v15.19/postgresql-15.19.tar.bz2"
+  sha256 "e1a64a87a46b825b88c082e4518161a47aab53c45694964f8ba1df28f7859f89"
   license "PostgreSQL"
 
   livecheck do
@@ -11,12 +11,12 @@ class PostgresqlAT15 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b40404405b34e66d364b5726b8bd3e08411ad8ff3669266fad907880a46bb48c"
-    sha256 arm64_sequoia: "ca4705ea9a1e65947f9d838dc9d596a48792218dba965a1a2f909651dc91750e"
-    sha256 arm64_sonoma:  "02406d51b47789b9db9e97dfe6201ab33595cc5930c6b1b08092bd882a4790af"
-    sha256 sonoma:        "bb9f711c63be11539325e6dc468cde6249299d158e51ae7af83c0638ac74fdd9"
-    sha256 arm64_linux:   "f5f389addf4bd7a534cb8a4f7b8ec74c33c2ddcb9ec9422a2e8218ebf8199a06"
-    sha256 x86_64_linux:  "384279f54a6bce7bdd6e1e2d140f41ea88b700ae5e2c045be23e071b84359c0b"
+    sha256 arm64_tahoe:   "017e310db188186c2384ba7cbbe52edd3bee728c485866613022810b4e849495"
+    sha256 arm64_sequoia: "4f454e0f48e7494a5012d6f3107de482d811e9475b3f7319fbbfc0d77f2a6a61"
+    sha256 arm64_sonoma:  "b26d0c354a7ea88c6889a2fe2a39806086ff25b175fb4f9e8f77eb9e19f1e7a1"
+    sha256 sonoma:        "b638bfe162853f492cda81e1c76684e0094cdaf0edd438f4bfb7344efe1a102b"
+    sha256 arm64_linux:   "1629771f554d4ad8a85c16cf859b3db57a0c7b2e4a0db21f3ac68a69b9430eb9"
+    sha256 x86_64_linux:  "92d1cb7f96bddf480aebd047919ca2ace548ff4e587e37c69f1b9bc842f0c375"
   end
 
   keg_only :versioned_formula
@@ -56,13 +56,13 @@ class PostgresqlAT15 < Formula
   def install
     ENV.runtime_cpu_detection
     ENV.delete "PKG_CONFIG_LIBDIR"
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib} -L#{Formula["readline"].opt_lib}"
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include} -I#{Formula["readline"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@3")} -L#{formula_opt_lib("readline")}"
+    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("openssl@3")} -I#{formula_opt_include("readline")}"
 
     # Fix 'libintl.h' file not found for extensions
     if OS.mac?
-      ENV.prepend "LDFLAGS", "-L#{Formula["gettext"].opt_lib}"
-      ENV.prepend "CPPFLAGS", "-I#{Formula["gettext"].opt_include}"
+      ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("gettext")}"
+      ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("gettext")}"
     end
 
     args = std_configure_args + %W[
@@ -115,14 +115,10 @@ class PostgresqlAT15 < Formula
               "LD = #{HOMEBREW_PREFIX}/bin/ld"
   end
 
-  def post_install
-    (var/"log").mkpath
-    postgresql_datadir.mkpath
-
+  post_install_steps do
+    mkdir_p "log", base: :var
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
-    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-
-    system bin/"initdb", "--locale=en_US.UTF-8", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
+    init_data_dir "postgresql@15", using: :postgresql, base: :var
   end
 
   def postgresql_datadir
@@ -131,10 +127,6 @@ class PostgresqlAT15 < Formula
 
   def postgresql_log_path
     var/"log/#{name}.log"
-  end
-
-  def pg_version_exists?
-    (postgresql_datadir/"PG_VERSION").exist?
   end
 
   def caveats
@@ -150,6 +142,7 @@ class PostgresqlAT15 < Formula
     keep_alive true
     log_path f.postgresql_log_path
     error_log_path f.postgresql_log_path
+    stop_timeout 120
     working_dir HOMEBREW_PREFIX
   end
 
@@ -160,6 +153,6 @@ class PostgresqlAT15 < Formula
     assert_equal (opt_lib/"postgresql").to_s, shell_output("#{bin}/pg_config --pkglibdir").chomp
     assert_equal (opt_include/"postgresql").to_s, shell_output("#{bin}/pg_config --pkgincludedir").chomp
     assert_equal (opt_include/"postgresql/server").to_s, shell_output("#{bin}/pg_config --includedir-server").chomp
-    assert_match "-I#{Formula["gettext"].opt_include}", shell_output("#{bin}/pg_config --cppflags") if OS.mac?
+    assert_match "-I#{formula_opt_include("gettext")}", shell_output("#{bin}/pg_config --cppflags") if OS.mac?
   end
 end

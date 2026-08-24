@@ -1,18 +1,18 @@
 class Yozefu < Formula
   desc "TUI for exploring data in a Kafka cluster"
   homepage "https://maif.github.io/yozefu/"
-  url "https://github.com/MAIF/yozefu/archive/refs/tags/v0.0.30.tar.gz"
-  sha256 "9ca0943ed41464e224a6ebc5a289975999fa9c8529438f2bf06ea0b712d2ffb5"
+  url "https://github.com/MAIF/yozefu/archive/refs/tags/v0.0.31.tar.gz"
+  sha256 "0e0c40c9778a007e49b7eb2475a73e718b3c65b0ea1b02821c691826cc86890f"
   license "Apache-2.0"
   head "https://github.com/MAIF/yozefu.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "3e402d8851c364c5a49767ea2b66d701e7dec08e9c95334cd6d7933ff411b000"
-    sha256 cellar: :any, arm64_sequoia: "0f3f21676e2b30f696615555ce9ee1b822e10d1aa066da36fdcae102ac4e6908"
-    sha256 cellar: :any, arm64_sonoma:  "81bfcfc5e76532298bd8aa587bdee9a13c1721b0fbfedbce0c3be50672bc4baa"
-    sha256 cellar: :any, sonoma:        "9c3e0c4ed843d7a5b7f11bbb9a0a1e6cea02a3786b1c2c862782f95e9ad1f904"
-    sha256 cellar: :any, arm64_linux:   "33577dbc235f79fe3c9e587823c1b540d600056dcf8f4b7118884f9429121175"
-    sha256 cellar: :any, x86_64_linux:  "edddb6b4066539f3f1004698250ea8954463bfc8e85ed704519ac62540157165"
+    sha256 cellar: :any, arm64_tahoe:   "72bf12665a6975799181010917e871c9f26b2e556aa5dcc04415af3ef10914b8"
+    sha256 cellar: :any, arm64_sequoia: "023bf8bf5882ff6c9bdc6e1a824c84ad954805cbed9b15d3309340b73b186f28"
+    sha256 cellar: :any, arm64_sonoma:  "943a16f737dfc1c3799bd7f91e6f3a3bb853eae5f3aa5edc19db947bd77bd530"
+    sha256 cellar: :any, sonoma:        "5ee6eca8b51ffd85ea9d4337a2528fabc51ff646a683dd8c7286bb2dd764146e"
+    sha256 cellar: :any, arm64_linux:   "994132efb9fb2a3f1aea33d137e3c9196f64b348df89f0b57694d20ae53fdc9d"
+    sha256 cellar: :any, x86_64_linux:  "d9f58ceb6a4007f291261b4004e68f98fa8e0a5025558b1e276a1ebdabb5b033"
   end
 
   depends_on "cmake" => :build
@@ -24,7 +24,7 @@ class Yozefu < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
     system "cargo", "install", *std_cargo_args(path: "crates/bin")
   end
@@ -38,8 +38,8 @@ class Yozefu < Formula
     assert_match "Error: There is no 'a' property in the config file", output
 
     [
-      Formula["openssl@3"].opt_lib/shared_library("libssl"),
-      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
+      formula_opt_lib("openssl@3")/shared_library("libssl"),
+      formula_opt_lib("openssl@3")/shared_library("libcrypto"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"yozf", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."

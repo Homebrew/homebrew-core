@@ -1,6 +1,6 @@
 class Libart < Formula
   desc "Library for high-performance 2D graphics"
-  homepage "https://github.com/armon/libart"
+  homepage "https://gitlab.gnome.org/Archive/libart_lgpl"
   url "https://download.gnome.org/sources/libart_lgpl/2.3/libart_lgpl-2.3.21.tar.bz2"
   sha256 "fdc11e74c10fc9ffe4188537e2b370c0abacca7d89021d4d303afdf7fd7476fa"
   license "LGPL-2.0-or-later"
@@ -13,25 +13,21 @@ class Libart < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "5ef5d23e77d46adf971b467cdba6493e2ffb2dc153042ebc994723c8f0fd0317"
-    sha256 cellar: :any,                 arm64_sequoia:  "3a01d5d537487e82c16a96a58e50cbfc189c6e2312fc9b93ce3d0ae110585a00"
-    sha256 cellar: :any,                 arm64_sonoma:   "b966bb5a144183755880f3256404abc104d91444d10620c9cafd847bcc76265d"
-    sha256 cellar: :any,                 arm64_ventura:  "6264e9bdd039ee87e34893b8565f776309f21d9e0730a1cf48fa801453369cd5"
-    sha256 cellar: :any,                 arm64_monterey: "5dc4edf96205d8064d34eca369566f41be1b0df69c4a598bece713550e5aeb26"
-    sha256 cellar: :any,                 arm64_big_sur:  "8daf6e0691d2fc7f919716cb760a80bbba53295aa5c92d8b05aef4aa1172b09b"
-    sha256 cellar: :any,                 sonoma:         "084ad1df397fb243b05af1b4d7a6c8856f2d6687c2cf60bdc31dbc9a3c3cf63c"
-    sha256 cellar: :any,                 ventura:        "9547ae5b20144048c3c37a7486a06cc50e6b4d6b4924c2a15fda580765b2abb3"
-    sha256 cellar: :any,                 monterey:       "0d0cecb8fccc2fc80a1268bda9c863dae95b45c1cacd73da5e8182d513d41241"
-    sha256 cellar: :any,                 big_sur:        "1204889805658d4aeb3ec37251e8ab064e995654008be97588bc034505b77314"
-    sha256 cellar: :any,                 catalina:       "54ca46ebc37bba1fdc39e8b28c166202e7d488d93cc5b4acfb042a14adec84f9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "cd57523ef3d776e1c33ceb83f155ed36426f1f109847b004052cd748f8c20146"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b28ae4a3601b0bace6e40c19e616e2e321f17231a378241dae4aa9db9764d75"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "53304bb1b776948ef6b9bd1a57a6f18be0b60fefee04e6fc107ece7e31939f3f"
+    sha256 cellar: :any, arm64_sequoia: "de3242b54a2271d41f9a2ad9a54ad56211a71d20a98efdceaebf8202e39cd304"
+    sha256 cellar: :any, arm64_sonoma:  "a9fbb96bc9d2b1ecabb2ae03143bc1f722e655a09fc057e5e88f3c1dd3c03701"
+    sha256 cellar: :any, sonoma:        "2297b2b9a168d0870e069efa0718ef30ebd0afcb0af636e35922e6b1665ad373"
+    sha256 cellar: :any, arm64_linux:   "4df630f902f3e455534208b71838cb1919ff13564a48797a992b5394bc3ca11b"
+    sha256 cellar: :any, x86_64_linux:  "348b3a8eafa51bc243132a60926c566d942e2fe9d67f8fe3d5028dbfd6abe536"
   end
+
+  deprecate! date: "2026-07-17", because: :repo_archived
+  disable! date: "2027-01-17", because: :repo_archived
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
   end
 
   def install

@@ -6,12 +6,13 @@ class GnomePapers < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "98c68656ee6483dcf25d27d097dc0cf807c3e1d740d3c17dfc3bc2dfcb024954"
-    sha256 arm64_sequoia: "077277f2062fd73029727c9b6ab918a6ffafeb9d392ad973bb66144c82ea143b"
-    sha256 arm64_sonoma:  "2462bf43afd33817e8c145fcff14a41956e3f08ba974387348df8593631a3c77"
-    sha256 sonoma:        "037b655b6c9f416a5b4bbb5c482558c109d65074133319c45956ed24eebfecbb"
-    sha256 arm64_linux:   "10bde00f855ce35a237c35e930beb42d37d4d7033c86f13d2cd124db733fb788"
-    sha256 x86_64_linux:  "636534488387fc473aa07baae21d660286196ce4e111f97196d3872f4a77a24e"
+    rebuild 1
+    sha256 arm64_tahoe:   "3f7bb27f681c69012d108287647ae77c02ad7b56be6d60477aa70f39bc4d0486"
+    sha256 arm64_sequoia: "0a7eb9f5d98d177e80765e227713aea126a80f02864e27e72776dbba9c3fc046"
+    sha256 arm64_sonoma:  "feb32fc65382b39775ee259b439866b6d04715d216a334c4de2a9206b5a87b11"
+    sha256 sonoma:        "b02a90873c3167c99796f386f3db964fc49a214271dc599ed2fe44d2cdde2cff"
+    sha256 arm64_linux:   "24661722391d382acff3ae510a5f18cddff50e849fa97bdd5ee142cf483fae90"
+    sha256 x86_64_linux:  "290f60f324b8222008683b05d02dc55495f0f76f04c3394ffe58b635e4a0a3b8"
   end
 
   depends_on "blueprint-compiler" => :build
@@ -82,9 +83,9 @@ class GnomePapers < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system Formula["glib"].opt_bin/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas"
-    system Formula["gtk4"].opt_bin/"gtk4-update-icon-cache", "-f", "-t", HOMEBREW_PREFIX/"share/icons/hicolor"
+  post_install_steps do
+    compile_gsettings_schemas
+    update_gtk_icon_cache
   end
 
   test do

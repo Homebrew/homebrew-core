@@ -22,6 +22,9 @@ class Guetzli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f75d76355fa17bf7709842f7e1dab879c5cae613908bfd7196f6cc553238644f"
   end
 
+  deprecate! date: "2026-07-14", because: :repo_archived
+  disable! date: "2027-01-14", because: :repo_archived
+
   depends_on "pkgconf" => :build
   depends_on "libpng"
 

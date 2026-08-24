@@ -37,7 +37,6 @@ class TrojanGo < Formula
   def install
     execpath = libexec/name
     ldflags = %W[
-      -s -w
       -X github.com/p4gefau1t/trojan-go/constant.Version=v#{version}
       -X github.com/p4gefau1t/trojan-go/constant.Commit=#{Utils.git_head}
     ]

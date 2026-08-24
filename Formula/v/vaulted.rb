@@ -25,7 +25,7 @@ class Vaulted < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
     man1.install Dir["doc/man/vaulted*.1"]
   end
 

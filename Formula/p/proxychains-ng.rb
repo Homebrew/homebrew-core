@@ -12,6 +12,8 @@ class ProxychainsNg < Formula
     patch do
       url "https://github.com/rofl0r/proxychains-ng/commit/fffd2532ad34bdf7bf430b128e4c68d1164833c6.patch?full_index=1"
       sha256 "86b5db00415bb7d81a8dc1a3d2429ddafbf135090dc67e57620cd18cd71f3b28"
+      type :backport
+      resolves "https://github.com/rofl0r/proxychains-ng/issues/557"
     end
   end
 

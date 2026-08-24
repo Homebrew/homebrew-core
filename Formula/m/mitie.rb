@@ -20,7 +20,7 @@ class Mitie < Formula
   depends_on "python@3.14"
 
   on_sequoia do
-    depends_on xcode: ["15.3", :build]
+    depends_on xcode: ["16.4", :build] # https://github.com/mit-nlp/MITIE/issues/225
   end
 
   resource "models-english" do

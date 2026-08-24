@@ -31,7 +31,7 @@ class Libfixbuf < Formula
   end
 
   def install
-    system "./configure", "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+    system "./configure", "--with-openssl=#{formula_opt_prefix("openssl@3")}",
                           "--mandir=#{man}",
                           *std_configure_args
     system "make", "install"

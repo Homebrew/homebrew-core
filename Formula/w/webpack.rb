@@ -3,20 +3,25 @@ require "json"
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-5.107.2.tgz"
-  sha256 "7dfa3afc1ffb4be54f2d665c480cc18fecba5d5feea7b832cab93da35511edd0"
+  url "https://registry.npmjs.org/webpack/-/webpack-5.109.2.tgz"
+  sha256 "3edd36c4196801c74b283e8fe662e1fdb9965a947bf996d487d578422539925d"
   license "MIT"
   head "https://github.com/webpack/webpack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "882ab5a780efb37e12189d2ea707eee2a1915b5366a8b33b3788fc725ec60284"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b56aab962de498a33f9d966babe9edb976764d96c660926e2f978936ad7f9168"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b56aab962de498a33f9d966babe9edb976764d96c660926e2f978936ad7f9168"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b56aab962de498a33f9d966babe9edb976764d96c660926e2f978936ad7f9168"
+    sha256 cellar: :any_skip_relocation, sonoma:        "61d5fae456accab215aa861b1482aff0ab932e8639db983dce2caa7d958001af"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b56aab962de498a33f9d966babe9edb976764d96c660926e2f978936ad7f9168"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b56aab962de498a33f9d966babe9edb976764d96c660926e2f978936ad7f9168"
   end
 
   depends_on "node"
 
   resource "webpack-cli" do
-    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-7.0.2.tgz"
-    sha256 "aff76cea56dd87feb531c2fa0681c1672abd2bf0955d368986c1ad21741cbe82"
+    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-7.2.2.tgz"
+    sha256 "95bfe3dd162da7c65fdfa4bacbfba6bc8a157cc4ae470afab5689f20c6c26e74"
   end
 
   def install

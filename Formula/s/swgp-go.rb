@@ -18,7 +18,7 @@ class SwgpGo < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/swgp-go"
+    system "go", "build", *std_go_args, "./cmd/swgp-go"
   end
 
   test do

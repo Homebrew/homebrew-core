@@ -1,13 +1,18 @@
 class Astgen < Formula
   desc "Generate AST in json format for JS/TS"
-  homepage "https://github.com/joernio/astgen"
-  url "https://github.com/joernio/astgen/archive/refs/tags/v3.42.0.tar.gz"
-  sha256 "fdaa0b63ec5ce7b718011cc4df302d415a8d7b80ba68a62599221a8e256610fd"
+  homepage "https://github.com/joernio/astgen-monorepo"
+  url "https://github.com/joernio/astgen-monorepo/archive/refs/tags/javascript-astgen/v3.47.0.tar.gz"
+  sha256 "471a1c6392fd620a153e64d5755f84e1ce0251315020bb1b80243ad9e038c2fb"
   license "Apache-2.0"
-  head "https://github.com/joernio/astgen.git", branch: "main"
+  head "https://github.com/joernio/astgen-monorepo.git", branch: "main"
+
+  livecheck do
+    url :stable
+    regex(%r{^javascript[._-]astgen/v?(\d+(?:\.\d+)+)$}i)
+  end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5415f948a456b8a335b2f52c2f79bbaca22c0cae02cf888cbb8598ce509dca16"
+    sha256 cellar: :any_skip_relocation, all: "cecdb58c1cbee3ab8a97cea19079b401fe2da5fc4f241b0ba0b68b713e4c38d0"
   end
 
   depends_on "node"
@@ -17,12 +22,14 @@ class Astgen < Formula
   end
 
   def install
-    # Install `devDependency` packages to compile the TypeScript files
-    system "npm", "install", *std_npm_args(prefix: false), "-D"
-    system "npm", "run", "build"
+    cd "javascript-astgen" do
+      # Install `devDependency` packages to compile the TypeScript files
+      system "npm", "install", *std_npm_args(prefix: false), "-D"
+      system "npm", "run", "build"
 
-    system "npm", "install", *std_npm_args
-    bin.install_symlink libexec.glob("bin/*")
+      system "npm", "install", *std_npm_args
+      bin.install_symlink libexec.glob("bin/*")
+    end
   end
 
   test do

@@ -20,7 +20,7 @@ class Pipet < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/pipet"
+    system "go", "build", *std_go_args, "./cmd/pipet"
   end
 
   test do

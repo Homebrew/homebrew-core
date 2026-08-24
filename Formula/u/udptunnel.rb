@@ -1,11 +1,8 @@
 class Udptunnel < Formula
   desc "Tunnel UDP packets over a TCP connection"
-  # The original webpage (and download) is still available at the original
-  # site, but currently www.cs.columbia.edu returns a 404 error if you
-  # try to fetch them over https instead of http
-  homepage "http://www1.cs.columbia.edu/~lennox/udptunnel/"
-  url "https://pkg.freebsd.org/ports-distfiles/udptunnel-1.1.tar.gz"
-  mirror "https://sources.voidlinux.org/udptunnel-1.1/udptunnel-1.1.tar.gz"
+  homepage "https://www.cs.columbia.edu/~lennox/udptunnel/"
+  url "https://www.cs.columbia.edu/~lennox/udptunnel/udptunnel-1.1.tar.gz"
+  mirror "https://pkg.freebsd.org/ports-distfiles/udptunnel-1.1.tar.gz"
   sha256 "45c0e12045735bc55734076ebbdc7622c746d1fe4e6f7267fa122e2421754670"
   license "BSD-3-Clause"
 
@@ -39,7 +36,7 @@ class Udptunnel < Formula
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
 
-    ENV["LIBS"] = "-L#{Formula["libnsl"].opt_lib}" if OS.linux?
+    ENV["LIBS"] = "-L#{formula_opt_lib("libnsl")}" if OS.linux?
 
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules", *std_configure_args

@@ -31,7 +31,6 @@ class Spoofdpi < Formula
 
     # Prepare linker flags to inject version information
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.commit=#{File.read("COMMIT")}
       -X main.build=homebrew

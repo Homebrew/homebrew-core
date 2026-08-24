@@ -19,7 +19,7 @@ class Asciidoctorj < Formula
   def install
     rm_r(Dir["bin/*.bat"]) # Remove Windows files.
     libexec.install Dir["*"]
-    (bin/"asciidoctorj").write_env_script libexec/"bin/asciidoctorj", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"asciidoctorj").write_env_script libexec/"bin/asciidoctorj", JAVA_HOME: formula_opt_prefix("openjdk")
   end
 
   test do

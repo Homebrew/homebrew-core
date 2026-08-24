@@ -24,7 +24,7 @@ class Kdoctor < Formula
   depends_on :macos
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
+    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk@21")
     mac_suffix = Hardware::CPU.intel? ? "X64" : Hardware::CPU.arch.to_s.capitalize
     build_task = "linkReleaseExecutableMacos#{mac_suffix}"
     system "gradle", "clean", build_task, "--no-daemon"

@@ -1,8 +1,8 @@
 class Acl < Formula
   desc "Commands for manipulating POSIX access control lists"
   homepage "https://savannah.nongnu.org/projects/acl/"
-  url "https://download.savannah.nongnu.org/releases/acl/acl-2.3.2.tar.gz"
-  sha256 "5f2bdbad629707aa7d85c623f994aa8a1d2dec55a73de5205bac0bf6058a2f7c"
+  url "https://download.savannah.nongnu.org/releases/acl/acl-2.4.0.tar.gz"
+  sha256 "73c853c3d44e1f693e5a96a986f1bd19d3d0dac2c7d453e796177774bc4e5f6a"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   livecheck do
@@ -11,9 +11,8 @@ class Acl < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_linux:  "df5af5425e87eda102251eacdf2a56622bfbda1b285441d438186d471cbd4cb7"
-    sha256 x86_64_linux: "65c9042358cb23a7510fb0a52f938e5b4e48d32c1a19c756165c6c814dd5146e"
+    sha256 arm64_linux:  "48bae129ac5466a87580baa10d4c9fa6e371767b7d0d86380c25d6f642a4d64f"
+    sha256 x86_64_linux: "cf320c35f8f78b11ae1d7dfcf0dcc8e4f532755ecb13d346cffa363e5eef7f2b"
   end
 
   depends_on "attr" => :build

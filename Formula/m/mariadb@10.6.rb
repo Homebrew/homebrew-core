@@ -1,8 +1,8 @@
 class MariadbAT106 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://archive.mariadb.org/mariadb-10.6.27/source/mariadb-10.6.27.tar.gz"
-  sha256 "8eb76ad3b1b3d14c56611ccc910428141fe56160043819e6474160385f69665e"
+  url "https://archive.mariadb.org/mariadb-10.6.28/source/mariadb-10.6.28.tar.gz"
+  sha256 "13d9330f3120c739757b215a3220a9c9e2ddf3c3c1b8beff5cd43942868f3d72"
   license "GPL-2.0-only"
 
   livecheck do
@@ -18,12 +18,12 @@ class MariadbAT106 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "62cd1e440a00555a81bdc79c48860c46d35251f57bbd7f990833df729e32147c"
-    sha256 arm64_sequoia: "848ea8ca1c5f6f75bb705bc3061247184e945257ca8a71c16ab99a630d15ddc6"
-    sha256 arm64_sonoma:  "1f9d87c9d6f84b8691c4bb7e9046108ba023fcc87fe4c3e230e9227060a1baf3"
-    sha256 sonoma:        "8ba62934b8dd39cac3b15dd052597a22c2faf25305d6413fe9ec65a6a6862f51"
-    sha256 arm64_linux:   "aa460b378dc7ef236d8a8bb26a66fd8d80606dc6831973d41c06547947e4298b"
-    sha256 x86_64_linux:  "6883a41cac28d735db56137b01646a6030f28a4ad3b23c05be40eaa83a034c09"
+    sha256 arm64_tahoe:   "471e4a478644b18ed523abe8aece3cd5772eb8ca773dcffe0a05bebe12c73c0a"
+    sha256 arm64_sequoia: "0109bf421a2cf5bc6fc1ca1a08ee4c8aeb374ee11daf9f20abef6a0b36f502a6"
+    sha256 arm64_sonoma:  "a03c29b40f789e271cfac556bba422a52cc774d103b310b95029c3fd571916b6"
+    sha256 sonoma:        "262ab92bdd8193966c01221f5bf0304dca0701e16ccabf20b0b7893b52382a16"
+    sha256 arm64_linux:   "ea9aedf3657d21bd344709c3d2a62a952bede94311f23b979f44ae79fec01dbf"
+    sha256 x86_64_linux:  "d33179d1b909fb23f311f1f7691a74f7878fe5a83a32995efee66d8a9e0e03e6"
   end
 
   keg_only :versioned_formula
@@ -147,18 +147,10 @@ class MariadbAT106 < Formula
     etc.install "my.cnf"
   end
 
-  def post_install
+  post_install_steps do
     # Make sure the var/mysql directory exists
-    (var/"mysql").mkpath
-
     # Don't initialize database, it clashes when testing other MySQL-like implementations.
-    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-
-    unless File.exist? "#{var}/mysql/mysql/user.frm"
-      ENV["TMPDIR"] = nil
-      system bin/"mysql_install_db", "--verbose", "--user=#{ENV["USER"]}",
-        "--basedir=#{prefix}", "--datadir=#{var}/mysql", "--tmpdir=/tmp"
-    end
+    init_data_dir "mysql", using: :mariadb, base: :var
   end
 
   def caveats

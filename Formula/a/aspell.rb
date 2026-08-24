@@ -552,9 +552,6 @@ class Aspell < Formula
     sha256 "3fa255cd0b20e6229a53df972fd3c5ed8481db11cfd0347dd3da629bbb7a6796"
   end
 
-  # const problems with llvm: https://www.freebsd.org/cgi/query-pr.cgi?pr=180565&cat=
-  patch :DATA
-
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
@@ -573,25 +570,3 @@ class Aspell < Formula
     assert_equal "worrd", pipe_output("#{bin}/aspell list -d en_US", "misspell worrd", 0).strip
   end
 end
-
-__END__
-diff --git a/interfaces/cc/aspell.h b/interfaces/cc/aspell.h
-index 9c8e81b..2cd00d4 100644
---- a/interfaces/cc/aspell.h
-+++ b/interfaces/cc/aspell.h
-@@ -237,6 +237,7 @@ void delete_aspell_can_have_error(struct AspellCanHaveError * ths);
- /******************************** errors ********************************/
-
-
-+#ifndef __cplusplus
- extern const struct AspellErrorInfo * const aerror_other;
- extern const struct AspellErrorInfo * const aerror_operation_not_supported;
- extern const struct AspellErrorInfo * const   aerror_cant_copy;
-@@ -322,6 +323,7 @@ extern const struct AspellErrorInfo * const   aerror_missing_magic;
- extern const struct AspellErrorInfo * const   aerror_bad_magic;
- extern const struct AspellErrorInfo * const aerror_expression;
- extern const struct AspellErrorInfo * const   aerror_invalid_expression;
-+#endif
-
-
- /******************************* speller *******************************/

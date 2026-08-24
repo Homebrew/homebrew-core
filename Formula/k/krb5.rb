@@ -2,6 +2,7 @@ class Krb5 < Formula
   desc "Network authentication protocol"
   homepage "https://web.mit.edu/kerberos/"
   url "https://kerberos.org/dist/krb5/1.22/krb5-1.22.2.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/krb5-1.22.2.tar.gz"
   sha256 "3243ffbc8ea4d4ac22ddc7dd2a1dc54c57874c40648b60ff97009763554eaf13"
   # From Fedora: https://src.fedoraproject.org/rpms/krb5/blob/rawhide/f/krb5.spec
   license all_of: [

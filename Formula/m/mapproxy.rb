@@ -3,17 +3,17 @@ class Mapproxy < Formula
 
   desc "Accelerating web map proxy"
   homepage "https://mapproxy.org/"
-  url "https://files.pythonhosted.org/packages/65/1f/f53a4c633d8b202b28dae4b846e6efd93411d10c5e8775c41ed704530677/mapproxy-6.1.1.tar.gz"
-  sha256 "40a141d1e03a1b185c3f970a29991da1f6f7484217017b7b2b22d22f7866773c"
+  url "https://files.pythonhosted.org/packages/61/e1/6c490f14d9f34ea94938d48d544c186ab49699c3ade9fe9f14518e6f2622/mapproxy-7.0.0.tar.gz"
+  sha256 "43c4972d98a01b04a2887f88eda5ad74e527233ad8fd01fd943a541907465d56"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "c2f8b62db9332725caa967a6183ffa6eb2637335903718b76e78b04f4b8ed11b"
-    sha256 cellar: :any, arm64_sequoia: "3cf2b43e13101e0a042e01e2a64f3eec1926f7c07eaec9d14563e7cbb295cc03"
-    sha256 cellar: :any, arm64_sonoma:  "7564a1572820660285492cfcefc5d4a689e8d3163b067d85aed1cca82e354489"
-    sha256 cellar: :any, sonoma:        "91e29c01060046b9e82709128013326c3e828732b3a19d678ac0747f7609c316"
-    sha256 cellar: :any, arm64_linux:   "e4c790608b77f4f88d1c8e11698ff23d71f9cdc4ec54a4340fa4379ff6b09196"
-    sha256 cellar: :any, x86_64_linux:  "d3dfa400a7e3d7ac920285c0451a0223ae229890957e5aab609daf0b508e9404"
+    sha256 cellar: :any, arm64_tahoe:   "558488e5c488614a77140ca07c1bda683ca1465d9e4817b913e6f7e2e25b909e"
+    sha256 cellar: :any, arm64_sequoia: "c148f0d03e022f289302fd292cc025dafa62135a044a3e9b4d07689f42f8ece5"
+    sha256 cellar: :any, arm64_sonoma:  "edb6fbdc52eca1fa9b064146ff0fd517f5b1a893298175db342d6b959868b06d"
+    sha256 cellar: :any, sonoma:        "808b3ff90bd2a904525fa9f95f02f1798ed09e982ac829aefb26db77d1fda243"
+    sha256 cellar: :any, arm64_linux:   "b061b482c59553beb5b5fc64c2c9c8a867e9913d874b2b691adc584b79885b9c"
+    sha256 cellar: :any, x86_64_linux:  "66a8857e1c8a7d2d8f72025a6fae6f2293eea6b13fe8aa0e7a2245dee8798021"
   end
 
   depends_on "pkgconf" => :build
@@ -48,8 +48,13 @@ class Mapproxy < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
+  end
+
+  resource "dill" do
+    url "https://files.pythonhosted.org/packages/81/e1/56027a71e31b02ddc53c7d65b01e68edf64dea2932122fe7746a516f75d5/dill-0.4.1.tar.gz"
+    sha256 "423092df4182177d4d8ba8290c8a5b640c66ab35ec7da59ccfa00f6fa3eea5fa"
   end
 
   resource "future" do
@@ -85,6 +90,11 @@ class Mapproxy < Formula
   resource "markupsafe" do
     url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
     sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+  end
+
+  resource "multiprocess" do
+    url "https://files.pythonhosted.org/packages/a2/f2/e783ac7f2aeeed14e9e12801f22529cc7e6b7ab80928d6dcce4e9f00922d/multiprocess-0.70.19.tar.gz"
+    sha256 "952021e0e6c55a4a9fe4cd787895b86e239a40e76802a789d6305398d3975897"
   end
 
   resource "pyproj" do
@@ -137,9 +147,9 @@ class Mapproxy < Formula
   end
 
   def install
-    numpy_include = Formula["numpy"].opt_lib/Language::Python.site_packages(python3)/"numpy/_core/include"
-    geos_include = Formula["geos"].opt_include
-    geos_lib = Formula["geos"].opt_lib
+    numpy_include = formula_opt_lib("numpy")/Language::Python.site_packages(python3)/"numpy/_core/include"
+    geos_include = formula_opt_include("geos")
+    geos_lib = formula_opt_lib("geos")
 
     ENV.prepend "CFLAGS", "-I#{numpy_include} -I#{geos_include}"
     ENV.prepend "LDFLAGS", "-L#{geos_lib}"

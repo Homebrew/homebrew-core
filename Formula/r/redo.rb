@@ -6,11 +6,10 @@ class Redo < Formula
   url "https://github.com/apenwarr/redo/archive/refs/tags/redo-0.42d.tar.gz"
   sha256 "47056b429ff5f85f593dcba21bae7bc6a16208a56b189424eae3de5f2e79abc1"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 7
-    sha256 cellar: :any_skip_relocation, all: "fb1815e2abd0a29b23eb4fe2111213fa1942ec1e48bb53d40601a5a06e7ccb26"
+    sha256 cellar: :any_skip_relocation, all: "14dfa35e1537c7decfa87f8f39414c6c08e4e031be133aa69739984f33a74923"
   end
 
   depends_on "python@3.14"
@@ -22,8 +21,8 @@ class Redo < Formula
                 extra_packages: %w[beautifulsoup4 markdown]
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/c3/b0/1c6a16426d389813b48d95e26898aff79abbde42ad353958ad95cc8c9b21/beautifulsoup4-4.14.3.tar.gz"
-    sha256 "6292b1c5186d356bba669ef9f7f051757099565ad9ada5dd630bd9de5fa7fb86"
+    url "https://files.pythonhosted.org/packages/43/65/318323f98dbee45d42dff61d8f047181bc6f2268a9068cfad035a46be5af/beautifulsoup4-4.15.0.tar.gz"
+    sha256 "288e3ca7d54b06f2ac191970bc275c1939cb46d450b255bf6718b04aa37ab4f7"
   end
 
   resource "markdown" do
@@ -32,13 +31,13 @@ class Redo < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/7b/ae/2d9c981590ed9999a0d91755b47fc74f74de286b0f5cee14c9269041e6c4/soupsieve-2.8.3.tar.gz"
-    sha256 "3267f1eeea4251fb42728b6dfb746edc9acaffc4a45b27e19450b676586e8349"
+    url "https://files.pythonhosted.org/packages/47/2c/0a5f6f8ee0d5589e48c7640213ed5175d52cf540a06725b628cc1a45d6ce/soupsieve-2.8.4.tar.gz"
+    sha256 "e121fd02e975c695e4e9e8774a5ee35d74714b59307868dcc5319ad2d9e3328e"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
-    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
   end
 
   def install
@@ -51,7 +50,7 @@ class Redo < Formula
     venv.pip_install resources
 
     # Set PYTHONPATH rather than prepending PATH with venv as shebangs are set to detected python.
-    ENV.prepend_path "PYTHONPATH", buildpath/"venv"/Language::Python.site_packages(python3)
+    ENV.prepend_path "PYTHONPATH", venv.site_packages
 
     ENV["DESTDIR"] = ""
     ENV["PREFIX"] = prefix

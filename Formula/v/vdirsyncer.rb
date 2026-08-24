@@ -6,18 +6,18 @@ class Vdirsyncer < Formula
   url "https://files.pythonhosted.org/packages/2e/f6/94ed82de371cc80784ffe90e0dac8ce9f5d272c01d614415a5e800ffb303/vdirsyncer-0.20.0.tar.gz"
   sha256 "feb1a533500a95c14fd155733a1056fe359192553d82c07c6ba04fcbfc40b12d"
   license "BSD-3-Clause"
-  revision 7
+  revision 8
   head "https://github.com/pimutils/vdirsyncer.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fea6423dc6a442738784b00ba6d6d699be0b2dae45790917440f8dbd0f619ec9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bbbb038034d1c8d997409c9337811df502f5d816b4b8dfc61fd758d4e634ce5e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e904213eac06bcc87ab8f8088c83872b7cc818387d89f5ed9c2829b7df3862a"
-    sha256 cellar: :any_skip_relocation, tahoe:         "284cee7530d6b4cb66269aadede88e24d9e3951afea9ac320b09c7595bca1da5"
-    sha256 cellar: :any_skip_relocation, sequoia:       "819be4a476b1b0c4357cae7d469a72cbff72f226db61afa1dec52c30d0186ed0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "36747cddbcf69cb43ba630d1d04ee6789557ba7b4dc8e333ed6f33f68b2ebe6b"
-    sha256 cellar: :any,                 arm64_linux:   "e4f00d650b14bc7315cf2c976bb39c4917109c51de69da30882ca945971aef6c"
-    sha256 cellar: :any,                 x86_64_linux:  "7fcb20152d5dc9e0b7271b7cc1e684cb07ca2aee31baca52979db80683be29e7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5f98be7779f9aa806741ebf8fd55cccc8da57d250816b5bcd638ab13daeafb96"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b28349a7f47d6d38c10d6790dc53a3b38ae55850eac105db54ce80d332655f63"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e32e73a3a00d918d49cec2cb8741ee33a4f7c49ecec15b4cb5cc27ffbbe115fb"
+    sha256 cellar: :any_skip_relocation, tahoe:         "0619ebdc3086487f61efdb8476c1f727cf540a1d00b17a6169aa84576636d3bc"
+    sha256 cellar: :any_skip_relocation, sequoia:       "fe57a605d6f98655598456829bba254aeb7a0230c14c6dd67ff20298d9afe9fe"
+    sha256 cellar: :any_skip_relocation, sonoma:        "31b8313dcbe82b93e8c2c2997684506d0600abc798daa47c0e70a69792c4c79e"
+    sha256 cellar: :any,                 arm64_linux:   "2ebe65fb583e94f19055433e3210b90c934d41d70801cb8ce1e9a84a334ad329"
+    sha256 cellar: :any,                 x86_64_linux:  "32ce94dd9f32b51a3bf760dd04c5fe3d3078595153c934f84a5c89e689c295e9"
   end
 
   depends_on "certifi"
@@ -27,13 +27,13 @@ class Vdirsyncer < Formula
                 exclude_packages: "certifi"
 
   resource "aiohappyeyeballs" do
-    url "https://files.pythonhosted.org/packages/33/c6/61a2d7b7572279226bb2e7f61d7a19ca7c90da0329c93fa0d560cbf288d8/aiohappyeyeballs-2.6.2.tar.gz"
-    sha256 "e202810ee718bd01fc6ef49e8ea53d023d5cb6b581076d7925aa499fa55dbe64"
+    url "https://files.pythonhosted.org/packages/ce/f4/eec0465c2f67b2664688d0240b3212d5196fd89e741df67ddb81f8d35658/aiohappyeyeballs-2.7.1.tar.gz"
+    sha256 "065665c041c42a5938ed220bdcd7230f22527fbec085e1853d2402c8a3615d9d"
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/82/78/8ea7308cac6934de8c74a14f3d5f65d1c89287426688be79538d0e5c013d/aiohttp-3.14.1.tar.gz"
-    sha256 "307f2cff90a764d329e77040603fa032db89c5c24fdad50c4c15334cba744035"
+    url "https://files.pythonhosted.org/packages/58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz"
+    sha256 "9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc"
   end
 
   resource "aiohttp-oauthlib" do
@@ -57,13 +57,13 @@ class Vdirsyncer < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "click-log" do
@@ -102,8 +102,8 @@ class Vdirsyncer < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
-    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
   end
 
   resource "urllib3" do
@@ -112,8 +112,8 @@ class Vdirsyncer < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/79/12/1e8f37460ea0f7eb59c221fdaf0ed75e7ac43e97f8093b9c6f411df50a78/yarl-1.24.2.tar.gz"
-    sha256 "9ac374123c6fd7abf64d1fec93962b0bd4ee2c19751755a762a72dd96c0378f8"
+    url "https://files.pythonhosted.org/packages/31/33/ebe9e3d1f86c7a0b51094c0a146392045ca1631d2664889539dec8088a33/yarl-1.24.5.tar.gz"
+    sha256 "e81b83143bee16329c23db3c1b2d82b29892fcbcb849186d2f6e98a5abe9a57f"
   end
 
   def install

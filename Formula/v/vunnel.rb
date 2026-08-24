@@ -3,18 +3,18 @@ class Vunnel < Formula
 
   desc "Tool for collecting vulnerability data from various sources"
   homepage "https://github.com/anchore/vunnel"
-  url "https://files.pythonhosted.org/packages/a9/da/ebc522ddf6486b7a4427c370939f72a6c15842c969068af07ca5263d1cca/vunnel-0.60.0.tar.gz"
-  sha256 "c827f502928191c1ada666af156917011847fc51407f47a084cbe8ee8381a06b"
+  url "https://files.pythonhosted.org/packages/23/18/838d892c5617bd84482dcadeb45e19bc0eb6b1ed922b2a8cfce611b00506/vunnel-0.63.1.tar.gz"
+  sha256 "facdd100473a606e88ae227d3589a81924641def9aacee962b9c874bc2af88f0"
   license "Apache-2.0"
   head "https://github.com/anchore/vunnel.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "4ae65491edfc0a922610c9c774b35ab14cab218525c779dafe7f4085454e0225"
-    sha256 cellar: :any, arm64_sequoia: "b355012ab8d7ed8dd6181c33a8f52e17e9bd3b5122e2b1acceab0fba04dae12e"
-    sha256 cellar: :any, arm64_sonoma:  "68e9701085864a2029ff43b0204918053d35be21e06c90d9bbacc80b1f71340a"
-    sha256 cellar: :any, sonoma:        "ec4661390c8f16256aa409dfc0958ea3be344b02922b4454e0e0d8a214d5587d"
-    sha256 cellar: :any, arm64_linux:   "692a9a50f5ed6ef4f3840b08475e148b2445519ba8516c02c3520a6306d54176"
-    sha256 cellar: :any, x86_64_linux:  "3a111e03d8c0b4ef036c6177f4f305f1ab4f2d927bb7e4f800a1eb930d1e574c"
+    sha256 cellar: :any, arm64_tahoe:   "b38ef0dfcb6673e6950ac718de8c6c43b40c644c4da64508eb79bba7b51918d3"
+    sha256 cellar: :any, arm64_sequoia: "4ee5572ac0ab6a469fdb060e5e7985b85824913277533acecbc2710b5701816c"
+    sha256 cellar: :any, arm64_sonoma:  "5fda6927dad11605175dd64f28ecf8fd18019542aa7461f06e97a90c213e5b62"
+    sha256 cellar: :any, sonoma:        "8cc4221ff37f5a891d524210854a6c9663afc601133b65fb20042b5abc0bc1ae"
+    sha256 cellar: :any, arm64_linux:   "24783ec7d658d7951c0e8fbbf379fb9d78e24bd5012fd55316e0c9a074fafed6"
+    sha256 cellar: :any, x86_64_linux:  "6b5c7b8f4c679db8c0efe651611730c6be1b7fa4223703de5296dd324473cd8a"
   end
 
   depends_on "rust" => :build
@@ -22,6 +22,8 @@ class Vunnel < Formula
   depends_on "libyaml"
   depends_on "python@3.14"
   depends_on "rpds-py" => :no_linkage
+  depends_on "xxhash"
+  depends_on "zstd"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
@@ -34,18 +36,18 @@ class Vunnel < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "colorlog" do
-    url "https://files.pythonhosted.org/packages/a2/61/f083b5ac52e505dfc1c624eafbf8c7589a0d7f32daa398d2e7590efa5fda/colorlog-6.10.1.tar.gz"
-    sha256 "eb4ae5cb65fe7fec7773c2306061a8e63e02efc2c72eba9d27b0fa23c94f1321"
+    url "https://files.pythonhosted.org/packages/8c/55/ba79756cb90c8d69d599d57785398ac87bba7b19c80e87f4e8a562197c93/colorlog-6.12.0.tar.gz"
+    sha256 "2a7924c1dadf18b22a0eb8b06d1c7b01d5341707ec1641eb6fcc4fde0c3e8e5f"
   end
 
   resource "cvss" do
@@ -59,8 +61,8 @@ class Vunnel < Formula
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/6d/6e/802acd792aebb2256fbbee8cacf2727faaeb6f240ac11008f09eae4414bc/greenlet-3.5.1.tar.gz"
-    sha256 "5a56aeb7d5d9cc4b3a735efb5095bd4b4f6f0e4f93e5ca876d0e2315137b7829"
+    url "https://files.pythonhosted.org/packages/a3/74/b13368064b09053253555d3f2839cc2684d22d5aed0d2ccffbf7a6736558/greenlet-3.5.4.tar.gz"
+    sha256 "0232ae1de90a8e07867bb127d7a6ba2301e859145489f25cda8a6096dabe1d20"
   end
 
   resource "idna" do
@@ -69,8 +71,8 @@ class Vunnel < Formula
   end
 
   resource "ijson" do
-    url "https://files.pythonhosted.org/packages/f4/57/60d1a6a512f2f0508d0bc8b4f1cc5616fd3196619b66bd6a01f9155a1292/ijson-3.5.0.tar.gz"
-    sha256 "94688760720e3f5212731b3cb8d30267f9a045fb38fb3870254e7b9504246f31"
+    url "https://files.pythonhosted.org/packages/3a/06/b31f040a8764336a11152e474a7abcb3782fedb0d1cdf78f442b82878c56/ijson-3.5.1.tar.gz"
+    sha256 "af40bd1a85f55db0b8b30715c858761306bd92d5590148636f75c3309e6e76bd"
   end
 
   resource "importlib-metadata" do
@@ -154,8 +156,8 @@ class Vunnel < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/7d/0d/549bd94f1a0a402dc8cf64563a117c0f3765662e2e668477624baeec44d5/pytest-9.0.3.tar.gz"
-    sha256 "b86ada508af81d19edeb213c681b1d48246c1a91d304c6c81a427674c17eb91c"
+    url "https://files.pythonhosted.org/packages/e4/47/b9efed96c114afcfa3c9d3fe98a76a1d14c74a9e266d397cf6eb64be5e01/pytest-9.1.1.tar.gz"
+    sha256 "1088fbde8f2b49d95a549a195707afa7a76a3ce9bcadc26b6d71f0ffda5fe313"
   end
 
   resource "pytest-snapshot" do
@@ -184,8 +186,8 @@ class Vunnel < Formula
   end
 
   resource "ruff" do
-    url "https://files.pythonhosted.org/packages/84/6f/a76f7d96e5c962f5b69cee865e49c15c1116897c01990faa8a57edb62e7f/ruff-0.15.15.tar.gz"
-    sha256 "b8dff018130b46d8e5bf0f926ef6b60cf871d6d5ae45fc9334e09632daa741d6"
+    url "https://files.pythonhosted.org/packages/4d/94/1e5e4967626faf12fa56999cd6222dff6992ceb086ad7945756baf70c7a7/ruff-0.16.0.tar.gz"
+    sha256 "e460aafd5495ec89efaa6ced2e4a9a581116451e1c88b9d37ef497e0f8e93982"
   end
 
   resource "six" do
@@ -194,8 +196,8 @@ class Vunnel < Formula
   end
 
   resource "sqlalchemy" do
-    url "https://files.pythonhosted.org/packages/57/da/6fbf010c8ebb347679d0d100b22fe9ba5e13fd04046c5df7280d2f0bf706/sqlalchemy-2.0.50.tar.gz"
-    sha256 "af5607d11ef90fd6a5c0549fe0045dce1663d427426bcfb506dcb5346a85a3b9"
+    url "https://files.pythonhosted.org/packages/02/f1/a7a892f18d4d224e6b26f706531eafccc41e37594d37d304786969ee13cb/sqlalchemy-2.0.51.tar.gz"
+    sha256 "804dccd8a4a6242c4e30ad961e540e18a588f6527202f2d6791b01845d59fdc9"
   end
 
   resource "toposort" do
@@ -204,8 +206,8 @@ class Vunnel < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
-    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
   end
 
   resource "urllib3" do
@@ -219,8 +221,8 @@ class Vunnel < Formula
   end
 
   resource "xxhash" do
-    url "https://files.pythonhosted.org/packages/24/2f/e183a1b407002f5af81822bee18b61cdb94b8670208ef34734d8d2b8ebe9/xxhash-3.7.0.tar.gz"
-    sha256 "6cc4eefbb542a5d6ffd6d70ea9c502957c925e800f998c5630ecc809d6702bae"
+    url "https://files.pythonhosted.org/packages/8e/63/71aa56b151a1b28770037a61bd4e461c2619cfc8866a4fcaf1548605e325/xxhash-3.8.1.tar.gz"
+    sha256 "b0de4bf3aa66363552d52c6a89003c479911f12098cd48a53d44a0f7a25f7c46"
   end
 
   resource "zipp" do
@@ -234,7 +236,14 @@ class Vunnel < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    ENV["XXHASH_LINK_SO"] = "1"
+    venv = virtualenv_install_with_resources without: "zstandard"
+
+    resource("zstandard").stage do
+      args = std_pip_args(prefix: false, build_isolation: true)
+      args << "--config-settings=--build-option=--system-zstd"
+      system venv.root/"bin/python", "-m", "pip", "install", *args, "."
+    end
 
     generate_completions_from_executable(bin/"vunnel", shell_parameter_format: :click)
   end

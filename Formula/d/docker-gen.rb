@@ -1,25 +1,24 @@
 class DockerGen < Formula
   desc "Generate files from docker container metadata"
   homepage "https://github.com/nginx-proxy/docker-gen"
-  url "https://github.com/nginx-proxy/docker-gen/archive/refs/tags/0.16.6.tar.gz"
-  sha256 "db645ad89e20d93f8c3a1d68b0e8a6a50b4391005975acd8e82103735a9fee96"
+  url "https://github.com/nginx-proxy/docker-gen/archive/refs/tags/0.17.2.tar.gz"
+  sha256 "dfea32f45e8b3f0c61f93927375d538de6bb94c2089b0fb4adbbbce3289df378"
   license "MIT"
   head "https://github.com/nginx-proxy/docker-gen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d313e3162aa0bfa3afb27b7eec5ca37e6cdef6275e49725f9842fd3dfe2d8c01"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d313e3162aa0bfa3afb27b7eec5ca37e6cdef6275e49725f9842fd3dfe2d8c01"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d313e3162aa0bfa3afb27b7eec5ca37e6cdef6275e49725f9842fd3dfe2d8c01"
-    sha256 cellar: :any_skip_relocation, sonoma:        "71d1ae987e48b6045047066a19a575e4e3037397510fedc5cd26f161f28ea47f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4bafee36b5ff2ef1dd5ac091ab8599577bbb886a401bc770664e42c4edcbfb7e"
-    sha256 cellar: :any,                 x86_64_linux:  "cdaf7efbd7b614b85df89f95c57b83d0498b2c660a394da1965f2574a5af18d9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e26612f4c00564bde9145c6f571b25a23af2beeeb09b7ea6dc56be98db3bd69f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e26612f4c00564bde9145c6f571b25a23af2beeeb09b7ea6dc56be98db3bd69f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e26612f4c00564bde9145c6f571b25a23af2beeeb09b7ea6dc56be98db3bd69f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a5354c4a97e7c8ac8ce8c08aee51cb556153e60b4b2897ba86e9c09d552fdb43"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8bcbb7cdfe7534c6827b44e9e2b07bc1ac28f3543f8c648a678b5692c3039034"
+    sha256 cellar: :any,                 x86_64_linux:  "e3a0a26d527a2ab7033d8e401389637931e153fdcdd711563f9df77d8c9f81f7"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.buildVersion=#{version}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/docker-gen"
+    system "go", "build", *std_go_args(ldflags: "-X main.buildVersion=#{version}"), "./cmd/docker-gen"
   end
 
   test do

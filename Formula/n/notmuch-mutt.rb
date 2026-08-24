@@ -4,6 +4,7 @@ class NotmuchMutt < Formula
   url "https://notmuchmail.org/releases/notmuch-0.40.tar.xz"
   sha256 "4b4314bbf1c2029fdf793637e6c7bb15c1b1730d22be9aa04803c98c5bbc446f"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
   livecheck do
@@ -11,12 +12,12 @@ class NotmuchMutt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "416cbe715372f285c5aefc891c5e262bb8013d7edfd453030d94a24a686c31b6"
-    sha256 cellar: :any,                 arm64_sequoia: "77085ee9f759b4139b8d2745f65fa461b98764d6398140ed4d6e993571e0d953"
-    sha256 cellar: :any,                 arm64_sonoma:  "db4f899114fb9ffff3df3f26efcad73b6c12c71b54f030fe8068ad478e16ed20"
-    sha256 cellar: :any,                 sonoma:        "cafa1e87b69bfc80ecb950fad01dedbebd44b9e2f6986d1838667509e6446ed2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c011d1c128f855ca6ef81f325e31f499cfd821c8e3deb4701ec1e34630cd0c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e0c078f57da841c53e682927afc5603b81be7099c03676de0c08c18c9f844b4"
+    sha256 cellar: :any, arm64_tahoe:   "78ee0b60d9ae205c4101089e2037db0e604359a079459205d5f313fed1178c32"
+    sha256 cellar: :any, arm64_sequoia: "bb39b12da4d6f81cf26304730d7cb973cbd2fda2df4eb2b65a29543cdf2902e5"
+    sha256 cellar: :any, arm64_sonoma:  "1fa77a7291f27bcec6ae02300e58beed3bbb6a3583277eb30a97134b1522b6e9"
+    sha256 cellar: :any, sonoma:        "a3a502ef167f223d968dd662bb858854f02cbdaf241d46cfced83a55e4216b3c"
+    sha256 cellar: :any, arm64_linux:   "7ac3cbba7428d47d611b159ebbbfec9322088d855c302f096555550adfa92a8f"
+    sha256 cellar: :any, x86_64_linux:  "e4201bdf44b9947a7a28b5dd0bef3059fbed201b2a216db7dbccf438a3780d2b"
   end
 
   depends_on "notmuch"

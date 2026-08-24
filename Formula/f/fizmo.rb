@@ -26,7 +26,7 @@ class Fizmo < Formula
   depends_on "libpng"
   depends_on "libsndfile"
   depends_on "libx11"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"

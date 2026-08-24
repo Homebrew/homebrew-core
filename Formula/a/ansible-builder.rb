@@ -6,14 +6,15 @@ class AnsibleBuilder < Formula
   url "https://files.pythonhosted.org/packages/fe/6b/0525894e5dd510c3a67da0b8819209333ca939cfa94b7f0d3ef041a628ec/ansible_builder-3.1.1.tar.gz"
   sha256 "9d88bc15acc7d31056d0c51914a6102dac8e5ad73f9f2d35ba98378c89714ed2"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "030e0175318b171c3d580e0e1300b1d387a947b1e6d1d6a1bd619dab0cc46ce6"
-    sha256 cellar: :any,                 arm64_sequoia: "33a173da8eba8ee2ae6fb00ca9266c62eccb47cf0e93f79b59da14c523d55499"
-    sha256 cellar: :any,                 arm64_sonoma:  "573391108eac3b6a9466ffda19876b44366b44e3be2f7d4d342e96ec230dc265"
-    sha256 cellar: :any,                 sonoma:        "a81de84cbf633d655d4089ae76c19c28ab55b30db050873d8abdc46d917f619a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "00f7fc506d516b318030fe07e59d2ef21435353014bf2d660d756a49940e8129"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "140f9e227e3758a28f256a5b213f54b73e8e130d7ebcf5784e5f8444b50021d0"
+    sha256 cellar: :any, arm64_tahoe:   "a3c7948caddd81ba892ad8c0ac781b33d26aaaa0f884f035af192fd523fdd43d"
+    sha256 cellar: :any, arm64_sequoia: "b8b984f597adeebaea844aa67d8d2b9f98289f98fd1a681399156ce2c7b02a10"
+    sha256 cellar: :any, arm64_sonoma:  "89a2129d196ad564997ff6825672a1213f3296d9ec925c47e13db4460e67f661"
+    sha256 cellar: :any, sonoma:        "5e959e4f95270a8e9a1a9951ae86278e239e2b07d713cc60454ce725259f66a2"
+    sha256 cellar: :any, arm64_linux:   "b6157ba9546a46a72aa44758a12240cfc6e4af81b1b5cd465fb98fc641c24130"
+    sha256 cellar: :any, x86_64_linux:  "678f255237e8825954cc8dad01272a881729f1486c96ffa01cd3202903b5d59a"
   end
 
   depends_on "libyaml"
@@ -23,13 +24,13 @@ class AnsibleBuilder < Formula
   pypi_packages exclude_packages: "rpds-py"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz"
-    sha256 "16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"
+    url "https://files.pythonhosted.org/packages/9a/8e/82a0fe20a541c03148528be8cac2408564a6c9a0cc7e9171802bc1d26985/attrs-26.1.0.tar.gz"
+    sha256 "d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32"
   end
 
   resource "bindep" do
-    url "https://files.pythonhosted.org/packages/e9/e4/fdefd8289e79f3a2f9f692f9ef64b0c835856dd023f335c96c8225e776cb/bindep-2.13.0.tar.gz"
-    sha256 "df7564753e583033bb113338150d772540145b4d189a4801ec56a25b5ede5050"
+    url "https://files.pythonhosted.org/packages/be/c2/a549e0286fd2711e401dc240184fb89c06e2ff1642fb7c6cac7a95fe0c8c/bindep-2.14.0.tar.gz"
+    sha256 "0c804c7e48dd17db24cb39121ade7171f684fb463c8aa01d0338cd11d254364a"
   end
 
   resource "distro" do
@@ -38,8 +39,8 @@ class AnsibleBuilder < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/74/69/f7185de793a29082a9f3c7728268ffb31cb5095131a9c139a74078e27336/jsonschema-4.25.1.tar.gz"
-    sha256 "e4a9655ce0da0c0b67a085847e00a3a51449e1157f4f75e9fb5aa545e122eb85"
+    url "https://files.pythonhosted.org/packages/b3/fc/e067678238fa451312d4c62bf6e6cf5ec56375422aee02f9cb5f909b3047/jsonschema-4.26.0.tar.gz"
+    sha256 "0c26707e2efad8aa1bfc5b7ce170f3fccc2e4918ff85989ba9ffa9facb2be326"
   end
 
   resource "jsonschema-specifications" do
@@ -48,8 +49,8 @@ class AnsibleBuilder < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "parsley" do
@@ -58,8 +59,8 @@ class AnsibleBuilder < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/ad/8d/23253ab92d4731eb34383a69b39568ca63a1685bec1e9946e91a32fc87ad/pbr-7.0.1.tar.gz"
-    sha256 "3ecbcb11d2b8551588ec816b3756b1eb4394186c3b689b17e04850dfc20f7e57"
+    url "https://files.pythonhosted.org/packages/5e/ab/1de9a4f730edde1bdbbc2b8d19f8fa326f036b4f18b2f72cfbea7dc53c26/pbr-7.0.3.tar.gz"
+    sha256 "b46004ec30a5324672683ec848aed9e8fc500b0d261d40a3229c2d2bbfcedc29"
   end
 
   resource "pyyaml" do
@@ -73,8 +74,8 @@ class AnsibleBuilder < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+    url "https://files.pythonhosted.org/packages/34/26/f5d29e25ffdb535afef2d35cdb55b325298f96debd670da4c325e08d70f4/setuptools-83.0.0.tar.gz"
+    sha256 "025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef"
   end
 
   def install

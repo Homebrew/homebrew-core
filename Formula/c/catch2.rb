@@ -1,18 +1,18 @@
 class Catch2 < Formula
   desc "Modern, C++-native, test framework"
   homepage "https://github.com/catchorg/Catch2"
-  url "https://github.com/catchorg/Catch2/archive/refs/tags/v3.15.1.tar.gz"
-  sha256 "be23a52b85cf04cd9587612147a10b023d59ed9757fa1843cc99e615d6c0893c"
+  url "https://github.com/catchorg/Catch2/archive/refs/tags/v3.15.3.tar.gz"
+  sha256 "b0299ae552918220a7a6e21e7de5b714777f4e8c883fb70c4bb23fe01df8c6e3"
   license "BSL-1.0"
   head "https://github.com/catchorg/Catch2.git", branch: "devel"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "afa4627a6296e58c6fad7437c2b386ec3d1c99934f84507d5735a8f0b5ee32a5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "49aec47f88237d3721f6a441aad7fbce4c6d2e23569feaa0406b8aab383824b7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f88232406903a5e0fbf27894f76ff15437e97f3f36a2125d0dee955ecf05849f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4e63a2daca556d3e6c640c850cc3e0ed46d90519de3fe3d43031b65c5cc680fe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "482bd29bddc2a27f39e501a97b3ff2a46092e3b10d36d062e2c56780cae89811"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30edf1d7c906ceb9c605e89c239033db6f8dd4ac88807bb908dc650de29ffeaf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b3109c5326c756a4a5d89cd8076f6ba7db18e17da88281009fc207e5a6137989"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3fd63352b291f2bc879cb3f639ffc58fab8ba172d8d2bd3f8b576f252d9c5695"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e9f0d96ff1207ca04c45d94777179cea2cc27eb3d908426146ab3a9aefbda29"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2680a04726a05af1f32b00e517724c18613834392d1e212f839f1891e248712b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ffe9ffceecf9401710f4ccde65376973ce876ef524e560de8af77cd4d2abd555"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "744e13a1b0c407257efc04d8090a0c934cbd41ab79cf407494875c48f4216cb5"
   end
 
   depends_on "cmake" => :build

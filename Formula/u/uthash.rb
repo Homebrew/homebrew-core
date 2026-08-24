@@ -1,14 +1,13 @@
 class Uthash < Formula
   desc "C macros for hash tables and more"
   homepage "https://troydhanson.github.io/uthash/"
-  url "https://github.com/troydhanson/uthash/archive/refs/tags/v2.3.0.tar.gz"
-  sha256 "e10382ab75518bad8319eb922ad04f907cb20cccb451a3aa980c9d005e661acc"
+  url "https://github.com/troydhanson/uthash/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "387ba027946d7c64e9aa19cc53b2edcd714f8f9dca9fa8e3aaef17e0e8e3d736"
   license "BSD-1-Clause"
   head "https://github.com/troydhanson/uthash.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "7332f52405884ffd9db409700b607565d8afeca373d6954ef84f03ed5842ddbe"
+    sha256 cellar: :any_skip_relocation, all: "5ccdd063c00f0d308b33f2ddecd943e15d4ee9bfbdd8ad1e1bad30a334aec8ec"
   end
 
   def install

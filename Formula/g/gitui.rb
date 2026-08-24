@@ -28,7 +28,7 @@ class Gitui < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
     system "cargo", "install", *std_cargo_args
   end
@@ -65,8 +65,8 @@ class Gitui < Formula
     assert_match "Sha: 9c2a31846c417d8775a346ceaf38e77b710d3aab", screenlog
 
     linked_libraries = [
-      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
-      Formula["openssl@3"].opt_lib/shared_library("libssl"),
+      formula_opt_lib("openssl@3")/shared_library("libcrypto"),
+      formula_opt_lib("openssl@3")/shared_library("libssl"),
     ]
     linked_libraries.each do |library|
       assert Utils.binary_linked_to_library?(bin/"gitui", library),

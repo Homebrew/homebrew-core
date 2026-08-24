@@ -1,25 +1,38 @@
 class Zuban < Formula
   desc "Python language server and type checker, written in Rust"
   homepage "https://zubanls.com/"
-  # pull from git tag to get submodules
-  url "https://github.com/zubanls/zuban.git",
-      tag:      "v0.8.2",
-      revision: "eb1aaf55eb1b4d8e17917ec436af416b413052c8"
+  url "https://github.com/zubanls/zuban/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "02c73169050cc309bc5df9587481a8222888312f2e5aec46c94cb8f78e4bbca2"
   license "AGPL-3.0-only"
   head "https://github.com/zubanls/zuban.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe74defc4c1c9e880c9647a42af15d6cbf1fefca702c2f81cd57da91fd338e6b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dba3de458bf35e84c18d171341059efff1a3492cd32109697b57e0beb2da85be"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1339df2137eb5475ee8268c4249447a144b444f657eb889ebdcb85029111d475"
-    sha256 cellar: :any_skip_relocation, sonoma:        "00b0a6eba19e65826fd5de804925080a88dfb93791f5567a326af1dc4957d331"
-    sha256 cellar: :any,                 arm64_linux:   "ddd430cf60de377d7f4782192479b3015e9a99f1f7b9de2fae5f2b78650e2ddc"
-    sha256 cellar: :any,                 x86_64_linux:  "87f7c219530008a1216ffdfdc27e8639202ba4a040f48885f10a95022ec3ed00"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e7841ba0176a94538b4d4a9c608a7c349595e0e8f1b1e43bc6f47e5d32df5d6b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1cd47c2307b91001b1490c5337fc99c09c2e156e49b53414765f6594eef37458"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2ce722f31f67c97def519c1cc4d0ceaa748127093085da2d97db9f5dbc44a440"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fa737a8e95c058441655ea3bf313f4eeecd0f433fe323f3f5e40b488d6f5b6e5"
+    sha256 cellar: :any,                 arm64_linux:   "5da51daefcd309778eba0dbbb44f11420cfa4d5981c8ddcae5d4365a1bca9c1c"
+    sha256 cellar: :any,                 x86_64_linux:  "2ab592e58f34bc26cc80fb2b25407be28da61c1cfa8d78f2980c5459763d6529"
   end
 
   depends_on "rust" => :build
 
+  resource "typeshed" do
+    url "https://github.com/python/typeshed/archive/aaefc85a95431045b0726b297d0ad1f4786ba1e2.tar.gz"
+    version "aaefc85a95431045b0726b297d0ad1f4786ba1e2"
+    sha256 "46980e94b26f9653d50ac6d1fc3d5a5f58fc90bb3f1b6517d9ca51ec381a71ae"
+
+    livecheck do
+      url "https://api.github.com/repos/zubanls/zuban/contents/third_party/typeshed?ref=v#{LATEST_VERSION}"
+      strategy :json do |json|
+        json["sha"]
+      end
+    end
+  end
+
   def install
+    (buildpath/"third_party/typeshed").install resource("typeshed")
+
     system "cargo", "install", *std_cargo_args(path: "crates/zuban")
     libexec.install (buildpath/"third_party/typeshed").children
     bin.env_script_all_files libexec/"bin", ZUBAN_TYPESHED: libexec

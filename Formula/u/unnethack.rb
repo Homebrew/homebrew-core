@@ -11,12 +11,14 @@ class Unnethack < Formula
     patch do
       url "https://github.com/UnNetHack/UnNetHack/commit/04f0a3a850a94eb8837ddcef31303968240d1c31.patch?full_index=1"
       sha256 "5285dc2e57b378bc77c01879399e2af248ef967977ed50e0c13a80b1993a7081"
+      type :backport
     end
 
     # Fix implicit `ioctl` function declaration. Remove with the next release.
     patch do
       url "https://github.com/UnNetHack/UnNetHack/commit/33a3bb6539452875a88efbf6da0148a1cccc00c1.patch?full_index=1"
       sha256 "07e1bb472c4f20957dafc6cfc49fcfd3178a5e04fcebf93a4fc7922ec8c0a963"
+      type :backport
     end
   end
 
@@ -63,7 +65,7 @@ class Unnethack < Formula
     # Ref: https://github.com/UnNetHack/UnNetHack/commit/00dd95ccad390e72d6a4fb2e058df48ed509b564
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
 
-    ENV["LUA_INCLUDE"] = "-I#{Formula["lua"].opt_include}/lua" if build.head?
+    ENV["LUA_INCLUDE"] = "-I#{formula_opt_include("lua")}/lua" if build.head?
 
     # directory for version specific files that shouldn't be deleted when
     # upgrading/uninstalling

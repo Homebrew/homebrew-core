@@ -25,7 +25,7 @@ class NumUtils < Formula
 
   def install
     %w[average bound interval normalize numgrep numprocess numsum random range round].each do |p|
-      system "#{Formula["pod2man"].opt_bin}/pod2man", p, "#{p}.1"
+      system "#{formula_opt_bin("pod2man")}/pod2man", p, "#{p}.1"
       bin.install p
       man1.install "#{p}.1"
     end

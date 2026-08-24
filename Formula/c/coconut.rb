@@ -6,22 +6,22 @@ class Coconut < Formula
   url "https://files.pythonhosted.org/packages/06/f4/38f315a1d8568257a74fe482e925368a2ef4bccc9b1d5751f003570bccc5/coconut-3.2.0.tar.gz"
   sha256 "0c64554deef3a35b2688368315cc2087dd8244e1b13d6b869fe5c2e679d6a0ad"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4dccf150ed03aedc51fd8a10bbc9c4633cdd55187e0303e09c5c1fbe07ce121d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7440e8824b741645ab98713c2968538b90a7ce70057d702ac4e2a05cc491a881"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "60edb417688597b8616690ffb55c94beed1a37936bd5402bb52677623df5e9ca"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6697f68b51123621d97fa2bc4f5c807c620ed3ecec41d334686dcbc15d2b5c4f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7f57cfee3efeb87d561d5f3fffae7220effb19bf88f45c9dd5cad63dc608395b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e84fd40d69646e2d3d20926a2267d9c0b79d9e097e34899abeead71c8b4a552"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "538a62b97871385608dd5820c2a9d6c37b271f7f1d32990b5a157f78d508ee8e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "61b1c8111d87b4ce6ed09293c15836c203298fb829a794fda31e206f01bd9f5a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "61ea103d0bbdfb65e0d636d4314339e591602b5bf75b63c96483f977932fdd2a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "32f19d651349f30b38ce231b88a58775f5d5fa48a2ef54c2e2d9ced4f8c8e4f1"
+    sha256 cellar: :any,                 arm64_linux:   "92ca75a87b794d2798099598e9ea284a2a009a73d4cd41645406efa854567463"
+    sha256 cellar: :any,                 x86_64_linux:  "2b220236fcef89a79fe191ed502801d40ca5af1717388e78055cb0adcbf69a00"
   end
 
   depends_on "python@3.14"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/19/14/2c5dd9f512b66549ae92767a9c7b330ae88e1932ca57876909410251fe13/anyio-4.13.0.tar.gz"
-    sha256 "334b70e641fd2221c1505b3890c69882fe4a2df910cba14d97019b90b24439dc"
+    url "https://files.pythonhosted.org/packages/61/cc/a381afa6efea9f496eff839d4a6a1aed3bfafc7b3ab4b0d1b243a12573dd/anyio-4.14.2.tar.gz"
+    sha256 "cfa139f3ed1a23ee8f88a145ddb5ac7605b8bbfd8592baacd7ce3d8bb4313c7f"
   end
 
   resource "async-generator" do
@@ -35,8 +35,8 @@ class Coconut < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
-    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
+    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
+    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
   end
 
   resource "prompt-toolkit" do
@@ -55,8 +55,8 @@ class Coconut < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/4f/db/cfac1baf10650ab4d1c111714410d2fbb77ac5a616db26775db562c8fab2/setuptools-82.0.1.tar.gz"
-    sha256 "7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9"
+    url "https://files.pythonhosted.org/packages/34/26/f5d29e25ffdb535afef2d35cdb55b325298f96debd670da4c325e08d70f4/setuptools-83.0.0.tar.gz"
+    sha256 "025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef"
   end
 
   resource "tstr" do
@@ -65,13 +65,13 @@ class Coconut < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
-    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/2c/ee/afaf0f85a9a18fe47a67f1e4422ed6cf1fe642f0ae0a2f81166231303c52/wcwidth-0.7.0.tar.gz"
-    sha256 "90e3a7ea092341c44b99562e75d09e4d5160fe7a3974c6fb842a101a95e7eed0"
+    url "https://files.pythonhosted.org/packages/34/74/c6428f875774288bec1396f5bfcbc2d925700a4dad61727fd5f2b12f249d/wcwidth-0.8.2.tar.gz"
+    sha256 "91fbef97204b96a3d4d421609b80340b760cf33e26da123ff243d76b1fda8dda"
   end
 
   def install

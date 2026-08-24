@@ -1,8 +1,8 @@
 class Azcopy < Formula
   desc "Azure Storage data transfer utility"
   homepage "https://github.com/Azure/azure-storage-azcopy"
-  url "https://github.com/Azure/azure-storage-azcopy/archive/refs/tags/v10.32.4.tar.gz"
-  sha256 "7be97b7ebd84ca3bf80c1e158bf8f8b385745bc95468486b584f00e4a97897d8"
+  url "https://github.com/Azure/azure-storage-azcopy/archive/refs/tags/v10.32.7.tar.gz"
+  sha256 "94dafadafaed121ee3a5c0a487b9fd3331e8c4e676a623ad53041d1ae0cba7b2"
   license "MIT"
   head "https://github.com/Azure/azure-storage-azcopy.git", branch: "main"
 
@@ -12,18 +12,18 @@ class Azcopy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5d1bf091bf97bee28207e94fb097fbbc8ff878efb42a55df80609a3e909102f3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f2602bd20c5d1eae53fb7eca222f60c3ded53c068f04337c93af7d74d13ec12"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0a905266ceb80c5cf544f151ef0fb442578665f5b78a9a2c7378b0b3bb4f4ae8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "82802df3ad22b7e59e87290290c90e2e35a900b47034987c4158ef704404ec91"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f664673377ca06b69d241e91c82f7313183f73894b4af1b9a69af82a15e2bea8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a283b4c781a7c2c270e1cf459fe3ff367ac35adc67e5c79aa512b37611b95a6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "00a107dda7bebdde553c175f5dac7e898dae0fc207187bd8280f6c4813e8540c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7397010ac769d88d963142ac675138a213d170f6cfb30bd658e9937af180b05f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5bfe89821455837c4365536c95c55b18ae5a79cbe4495f24be9b758d45267dd2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fd34da33c6844cdd1165f743651b52dc217abfc2606e905fd43c1e4845f9c178"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e92b37daacdf94cba3fe60e82974299b7b018bd7e595f6cbd7ef07a5b4ed891"
+    sha256 cellar: :any,                 x86_64_linux:  "40f71ed79e785906e2dcc83bfce022c582d0c2fe8aa679ced6a067f74deadae0"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
 
     generate_completions_from_executable(bin/"azcopy", shell_parameter_format: :cobra)
   end

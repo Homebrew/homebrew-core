@@ -6,16 +6,16 @@ class Gruyere < Formula
   url "https://files.pythonhosted.org/packages/16/0f/d951dda46ba3b3dcbdf14f55355130b016445f9aa6b021dd70a9a567026a/gruyere-0.1.0.tar.gz"
   sha256 "3fe1ff4eef9a53ed46f17a7aa5efa2eb0212a2c6de618c2b36735bcc71d358be"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/savannahostrowski/gruyere.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9d1b48d44a3433291a798e417cc844f7448aafb949b0f533d10b0711ba55d93c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c82a0b330b65e5c4afb8c451c38977b719e7fff9ace05d212bb1fe8de50a89a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b56bddc4970aa1d0e21f68267f0dc0c6414cee2a0e8809bd4736516b5c4d0ae3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "44c80c357c86174ce2707d6591e95541769ab7235cc9b530b7daa61d59414b38"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd39ee2bd91ce5180df116a6cf31ba687b62dd1bdc02a4a7d4ceb11bd505db86"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e00b20fe9f56d71ec66ccc5a4f51ac823432db2f1379754b448e11938b155d23"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "694fd038c4d1c47d5a6d0ba2c4114df3ea79999e83397599d7d921c61266e8ad"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f16d9cdb47405b6e0de3d95586d527b16d48986c39c8518510ec8c5f94641874"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2482c1d061eb2ec5e4e1214c0a609c5e9550e145d9da19dc71cc5c3469ea59c1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "03a66ad8b082ab473e8965cb50d9d72af1de9f3276aa2a7e3c1121ab3e0106df"
+    sha256 cellar: :any,                 arm64_linux:   "67aabde28e84ab6afdbd34503a60947a9e07312c9059b66eb7877bea329e90d9"
+    sha256 cellar: :any,                 x86_64_linux:  "66c678beb441a73d45ea7a4eea968d3ec447bd0ef483925053a20127ec8669fa"
   end
 
   depends_on "python@3.14"
@@ -25,14 +25,9 @@ class Gruyere < Formula
     sha256 "fbcda96e87e9c92ad167c2e53839e57503ecfda18804ea28102353485033faa4"
   end
 
-  resource "click" do
-    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
-    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
-  end
-
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
-    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
+    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
+    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
   end
 
   resource "mdurl" do
@@ -51,13 +46,13 @@ class Gruyere < Formula
   end
 
   resource "readchar" do
-    url "https://files.pythonhosted.org/packages/dd/f8/8657b8cbb4ebeabfbdf991ac40eca8a1d1bd012011bd44ad1ed10f5cb494/readchar-4.2.1.tar.gz"
-    sha256 "91ce3faf07688de14d800592951e5575e9c7a3213738ed01d394dcc949b79adb"
+    url "https://files.pythonhosted.org/packages/ed/49/a10341024c45bed95d13197ec9ef0f4e2fd10b5ca6e7f8d7684d18082398/readchar-4.2.2.tar.gz"
+    sha256 "e3b270fe16fc90c50ac79107700330a133dd4c63d22939f5b03b4f24564d5dd8"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
-    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
+    url "https://files.pythonhosted.org/packages/c0/8f/0722ca900cc807c13a6a0c696dacf35430f72e0ec571c4275d2371fca3e9/rich-15.0.0.tar.gz"
+    sha256 "edd07a4824c6b40189fb7ac9bc4c52536e9780fbbfbddf6f1e2502c31b068c36"
   end
 
   resource "shellingham" do
@@ -66,8 +61,8 @@ class Gruyere < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/f5/24/cb09efec5cc954f7f9b930bf8279447d24618bb6758d4f6adf2574c41780/typer-0.24.1.tar.gz"
-    sha256 "e39b4732d65fbdcde189ae76cf7cd48aeae72919dea1fdfc16593be016256b45"
+    url "https://files.pythonhosted.org/packages/7c/f7/68adc395201b20b872d68e975386832e8005ffeacedd43a1d837a32815be/typer-0.26.8.tar.gz"
+    sha256 "c244a6bd558886fe3f8780efb6bdd28bb9aff005a94eedebaa5cb32926fe2f7e"
   end
 
   def install

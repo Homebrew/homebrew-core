@@ -5,11 +5,6 @@ class Ccal < Formula
   sha256 "3d4cbdc9f905ce02ab484041fbbf7f0b7a319ae6a350c6c16d636e1a5a50df96"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?ccal[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "886e52e30ce5de3a7be8fecca2367e09629a0832f48d286d61b122e77fc98f95"
@@ -26,6 +21,10 @@ class Ccal < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "c88444adaeb8ba5d457d6332da395b62ee03b8ffc25ec9001db44db2ce0fb15c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3d0a1bcea11bb75c5a13e8217bab044677bb6d8e905d84a2c4ba53d8b0b8e5e"
   end
+
+  # Upstream homepage is gone
+  deprecate! date: "2026-06-22", because: :repo_removed
+  disable! date: "2027-06-22", because: :repo_removed
 
   def install
     system "make", "-e", "BINDIR=#{bin}", "install"

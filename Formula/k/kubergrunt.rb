@@ -26,7 +26,7 @@ class Kubergrunt < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.VERSION=v#{version}"), "./cmd"
+    system "go", "build", *std_go_args(ldflags: "-X main.VERSION=v#{version}"), "./cmd"
   end
 
   test do

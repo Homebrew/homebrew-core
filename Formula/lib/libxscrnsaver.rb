@@ -1,7 +1,7 @@
 class Libxscrnsaver < Formula
   desc "X.Org: X11 Screen Saver extension client library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXScrnSaver-1.2.5.tar.xz"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libXScrnSaver-1.2.5.tar.xz"
   sha256 "5057365f847253e0e275871441e10ff7846c8322a5d88e1e187d326de1cd8d00"
   license "MIT"
 

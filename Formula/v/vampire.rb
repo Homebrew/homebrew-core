@@ -1,8 +1,8 @@
 class Vampire < Formula
   desc "High-performance theorem prover"
   homepage "https://vprover.github.io/"
-  url "https://github.com/vprover/vampire/releases/download/v5.0.1/vampire.tar.gz"
-  sha256 "3d991c914e9f400641d8b2e4362065c218c0ecb08079b96b0da1714aa6842520"
+  url "https://github.com/vprover/vampire/releases/download/v5.1.0/vampire.tar.gz"
+  sha256 "80a4c52237618d451a344d1fbb42c932992b4eb1633049a9516a37501819ce25"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Vampire < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f7ddec00fee445a0e1bfd5caca53a28e4a30e41fcb0cdfe4e9c5497bfc78f70d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0cd98ea75f19465e88f05a2da929d1758c71989744ed1035d58413ca5a0a16d0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bedd8ba34e0e8e1f5752b14cd7c812787f3e3cec5f2b2b7a74d6e17cced04fba"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e6b03fb0f7a8a6461626d8548a762fe7ae49d5c42792a47758cf2ccf45e7e333"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "41ade77fd28eef439c3133270c8f8f99ee598266d5b83243ebbe79f99b62632d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c71ff5f94b3d9cfb3a346e2c0c85c3b16ec51a378f8b201fccd45657d4ee104"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "03f7dad715035dd222387a3631ece4133d90b54d89955cd2930a32fb56354bf2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "722420c1fb9b5e812d831ee663fdcbc00ded8f25c8e5f7066bafb292bff6812e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "20196b618f28eacd86372743f549e36763642b262421e0663c77699bfe5545e9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "89da007d0b6fb41231aca6bad7cd4f2e956c482384bd09205428d94af43e8ddd"
+    sha256 cellar: :any,                 arm64_linux:   "9b614fdded0ae6a296fa5dcdc0c9876472c2e1a0bc871c695b391a4d3955f13a"
+    sha256 cellar: :any,                 x86_64_linux:  "8eeeb7b30593bc00d0170f3727f1ec99a5ba5276e8c6f04c68118ded997de35c"
   end
 
   depends_on "cmake" => :build

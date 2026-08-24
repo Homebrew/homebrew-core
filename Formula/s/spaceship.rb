@@ -1,20 +1,20 @@
 class Spaceship < Formula
   desc "Zsh prompt for Astronauts"
   homepage "https://spaceship-prompt.sh/"
-  url "https://github.com/spaceship-prompt/spaceship-prompt/archive/refs/tags/v4.22.3.tar.gz"
-  sha256 "12506d2fca2b1ab887a81b13cd18fb28877e19e0d36310404b3933b2c764f2f8"
+  url "https://github.com/spaceship-prompt/spaceship-prompt/archive/refs/tags/v4.22.5.tar.gz"
+  sha256 "2b82500b06efd7bca5c5a104279d247ec24466f90f38df0e65cbfa4509e67fe9"
   license "MIT"
   head "https://github.com/spaceship-prompt/spaceship-prompt.git", branch: "master"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "82ae5018b987a7759dc5a06c5f254eb557e8a35795a057a1b864602d1676a8e1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "82ae5018b987a7759dc5a06c5f254eb557e8a35795a057a1b864602d1676a8e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5ff1b8c7edc9492a47913a702a2b5282f1083e2f6da1933af8495ad565ec0a2f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2001cb2835c020c761c2314b357da5e5ca668f7abbcb4240a86905ea46f98008"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c626c7b4ba5010073ecb8061c814a397779cab88d80c00a5f223e266f664b12a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c626c7b4ba5010073ecb8061c814a397779cab88d80c00a5f223e266f664b12a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3a646af652df5cc0f9b0a727a7b8ce00f315116171ae399f376b8892438676d4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3a646af652df5cc0f9b0a727a7b8ce00f315116171ae399f376b8892438676d4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f11b7507cb3342fee0734cf0f74e8cafb8184d31a5d025c794ab47d22cf045c1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1ab63848954d69c9a5692aaa49971e00fa6ef9b9cf546c577088f74acee1fff9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "78271d687c2539835dd5cecb577c56430fe099337261598d1d58b36926cbcf7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78271d687c2539835dd5cecb577c56430fe099337261598d1d58b36926cbcf7e"
   end
 
   depends_on "zsh-async"

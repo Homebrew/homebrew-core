@@ -1,18 +1,18 @@
 class StellarXdr < Formula
   desc "Stellar command-line tool for encoding/decoding XDR for the Stellar network"
   homepage "https://developers.stellar.org"
-  url "https://static.crates.io/crates/stellar-xdr/stellar-xdr-27.0.0.crate"
-  sha256 "05ff843326969bdf1ef673dcdba94c08f4a3c8f1e58d6e6ef39b1bd4f749179a"
+  url "https://static.crates.io/crates/stellar-xdr/stellar-xdr-28.0.0.crate"
+  sha256 "f93d09ff8b9f919b084f664003c4c546ac66a76affd5429460dbe29f4b326f8e"
   license "Apache-2.0"
   head "https://github.com/stellar/rs-stellar-xdr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1270e918bef555c55e93969d1094185d218dcdcd4b473e3529cf301ba8b898b7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4482d1042aef02d6697f0af1306ec15a2fe3aeb9dab40351a6a3029b2ed0aa33"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6a7f2e6ebcf2ad6c69a7ee43eb0525f5513e5d0d527590a629a3ca7b80a95979"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cdf5b3c9e96e7f9d954cfd809d8fab216234c717169998bfb20dd63c6c326464"
-    sha256 cellar: :any,                 arm64_linux:   "3f65a7b4d73864c6f6d5359c3ae37d69869fd24dbe95c28d9e6eba2c4faa4a68"
-    sha256 cellar: :any,                 x86_64_linux:  "03101617fdbb68a7730bca02a083838925b1b49f6038ca716694207fe8db256e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "12a145eab1f18733f4ee40c956958630948a07f3ffb62e194704b838c5061ff3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "033e0dbed90219741ce2377a892787ab0b9bf9d79be7e6d19b538dff44c73521"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a41396a2a48c01cd26f0be33adba5b14cc278a15e62991327d18722070a4da91"
+    sha256 cellar: :any_skip_relocation, sonoma:        "37ed4eb3ad936f0e1050577e410c76e8813d8ae1d3aef60572472a2b074069f3"
+    sha256 cellar: :any,                 arm64_linux:   "63e8b2fa5fd95d102af68d1dc929ef2adc3168c3d4e63e43f00de140353d8112"
+    sha256 cellar: :any,                 x86_64_linux:  "895952e4875cbe537553a63a32cd2de4461307ec446689d8d800154927830b0c"
   end
 
   depends_on "rust" => :build

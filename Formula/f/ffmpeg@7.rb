@@ -1,12 +1,13 @@
 class FfmpegAT7 < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-7.1.4.tar.xz"
-  sha256 "71f4aac3573ed9060489cb62526a6c7dda815ae10993789611acd7be9fa9fbf4"
+  url "https://ffmpeg.org/releases/ffmpeg-7.1.5.tar.xz"
+  sha256 "de668509caf9e35e3cd162473441fdb29538c6d96ed080292b3cf9e6fc5d558f"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   # Passing `--enable-version3` changes the license to GPL v3+.
   license "GPL-3.0-or-later"
+  revision 3
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -14,12 +15,12 @@ class FfmpegAT7 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "08623dcad485e539bbeb7e82950e163a30ea34c3df81a0de0013ea86b5521365"
-    sha256 arm64_sequoia: "8e0f0c6f03bcfc7665d3a11db3e9d648d6dec8001df3e33ce22dba7fcb251881"
-    sha256 arm64_sonoma:  "439b2d54e18fb35027ace36dc64fc790c39c7ad2bd5ce61f43233a8e19267b7a"
-    sha256 sonoma:        "649e9438a7832b1fe98e4410bb4daf492898fd4d660f0eaa5f6c30a5b8beb6ed"
-    sha256 arm64_linux:   "e3312db8229779f222abda6f638270c7720500759300b15aab7e6905b4e43ea1"
-    sha256 x86_64_linux:  "0ba5c935f641f3d82d15c8e09b1ad44e24696854a785ca82e770306217ab3631"
+    sha256 arm64_tahoe:   "d749053ce58efb23f6aecf53cc923523561c3a32a1fb2e5ccd690b4b7fb8f240"
+    sha256 arm64_sequoia: "406fff85c8de693aebb92cbcce3830d538dc912e63a65dd39e9c023f49823dc1"
+    sha256 arm64_sonoma:  "173d2c9d8793a78a0e19a6135fd8e3ca2cc13f7c9d915506a7f30373df6d86ae"
+    sha256 sonoma:        "4c4b49b30121f9cfe00ea53f3a503da382095f540077b5cd4e8d43190789124e"
+    sha256 arm64_linux:   "630000657febcda4d66320f5d8fb03719ef6d4cda4bcd8c4ada7261d08028ab6"
+    sha256 x86_64_linux:  "ab03a467a44d08eb910c35e7f192f4402748017ef6bf47a94cb5ba29a53b6704"
   end
 
   keg_only :versioned_formula
@@ -51,7 +52,7 @@ class FfmpegAT7 < Formula
   depends_on "opus"
   depends_on "rav1e"
   depends_on "rubberband"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "snappy"
   depends_on "speex"
   depends_on "srt"

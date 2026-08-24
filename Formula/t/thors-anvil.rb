@@ -2,17 +2,18 @@ class ThorsAnvil < Formula
   desc "Set of modern C++20 libraries for writing interactive Web-Services"
   homepage "https://github.com/Loki-Astari/ThorsAnvil"
   url "https://github.com/Loki-Astari/ThorsAnvil.git",
-      tag:      "10.2.3",
-      revision: "0d5baccc7801f1ca6fb34d85e168403e1392cddd"
+      tag:      "11.1.0",
+      revision: "679f2c1136293f0275a87f7a718c161aa085ee20"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4ff481b04c15a188a9ec47f1a1307b3521fb5aa9cd3039f76f3bbaf23ce73752"
-    sha256 cellar: :any,                 arm64_sequoia: "5f139c4cec14af2ae2283d1bf935e70e605ca410308db11c6a94b041037e8d70"
-    sha256 cellar: :any,                 arm64_sonoma:  "58f66840702b2d2cd9b68e5dc8ce601e8c182d0b1aeaa20266f79aa149d48fe3"
-    sha256 cellar: :any,                 sonoma:        "cd510380f6c43bd9c1e3a7af31d56481b9a19b9a72f0b9a52498c75e97746a2a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e279891d2a6c03d6aa5020d78b9288e4f9e023ae01daaef1be56475cacdd743"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e95b70877410f8c8e91f5da832f76af119b2d484a0530b9f3d01dc1377d7f00b"
+    sha256 cellar: :any, arm64_tahoe:   "2544b7aa94ce443da0d0ae863a181e29ac0c6fba861c9eabca8fb341181a05c2"
+    sha256 cellar: :any, arm64_sequoia: "a5751ffc5b5c81c242e4c34f5e0f7120a5e67dcc0b66c9e54dcc50bf30d15a0d"
+    sha256 cellar: :any, arm64_sonoma:  "78b1dada91506f410ed24d7e8e3fdeda40e9a42853a033d2590faec265c1d84e"
+    sha256 cellar: :any, sonoma:        "7d8bb0fd63ab2d0f8d733c1f1166faa39fd2ed0aabe922300b5ad23e02147b6c"
+    sha256 cellar: :any, arm64_linux:   "2bb706d4679b692f40111dd490c55d99aeaf64cadd63fba352fdbea47ccdfea1"
+    sha256 cellar: :any, x86_64_linux:  "b5fcf673d47240a619240294336cf441c4aed32fb7635b6f3b0ec543b3e4465d"
   end
 
   depends_on "cmake" => :build
@@ -34,7 +35,6 @@ class ThorsAnvil < Formula
     # src/Serialize/./StringInput.h:104:27: error: call to deleted function 'from_chars'
     ENV.append_to_cflags "-DNO_STD_SUPPORT_FROM_CHAR_DOUBLE=1" if DevelopmentTools.clang_build_version == 1700
 
-    system "./brew/init"
     system "./configure", "--disable-vera",
                           "--disable-test-with-integration",
                           "--disable-test-with-mongo-query",

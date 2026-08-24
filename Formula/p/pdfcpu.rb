@@ -1,8 +1,8 @@
 class Pdfcpu < Formula
   desc "PDF processor written in Go"
   homepage "https://pdfcpu.io"
-  url "https://github.com/pdfcpu/pdfcpu/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "d7e657051aef697d39da63a5366850d476485b33d5ad100b829b86153df8c094"
+  url "https://github.com/pdfcpu/pdfcpu/archive/refs/tags/v0.15.0.tar.gz"
+  sha256 "69924a7363ea19b4f3d4799ebf78bcabfec75a735c9569983a6e2834b5e8c6b3"
   license "Apache-2.0"
 
   livecheck do
@@ -11,19 +11,18 @@ class Pdfcpu < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3ac0374501ea12b2af335cc3dbbee4242fe7d1f8356800c7d38c550865aeca0d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ac0374501ea12b2af335cc3dbbee4242fe7d1f8356800c7d38c550865aeca0d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3ac0374501ea12b2af335cc3dbbee4242fe7d1f8356800c7d38c550865aeca0d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0692dcf8d08edafa081826fa09cfc16195bc45c7174f5e07da2ab6a8e3456f61"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3976935844e64c9fc47bd0b1dc3789ca7fd636b26f65fd47070b8f7eaa16cbf0"
-    sha256 cellar: :any,                 x86_64_linux:  "04958b9fac91e60a8b19011e51b7e3f241aa33b5611f998eebf5471db30ab5f5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e9b49c8c5a894d6e6e80cfd9dbef28033d26fc83c497907625d012bfd8eb8ff2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e9b49c8c5a894d6e6e80cfd9dbef28033d26fc83c497907625d012bfd8eb8ff2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e9b49c8c5a894d6e6e80cfd9dbef28033d26fc83c497907625d012bfd8eb8ff2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "42c337d706a85d5577f81fd45abb9b3ad21226c9aefdf9092b75ff3a8cb03165"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "af3a53e00dc41d3ad9bb4ce473cb18c8af49ba38e4051ec7990ae559d3f446f1"
+    sha256 cellar: :any,                 x86_64_linux:  "86b1cd8dce6af8d0cba20388938747e408ac2309c108fe368f9a749663393eff"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X github.com/pdfcpu/pdfcpu/pkg/pdfcpu.VersionStr=#{version}
       -X main.commit=#{tap.user}
@@ -58,6 +57,6 @@ class Pdfcpu < Formula
                 Page sizes: 500.00 x 800.00 points
     EOS
 
-    assert_match "validation ok", shell_output("#{bin}/pdfcpu validate #{test_fixtures("test.pdf")}")
+    assert_match "validation ok", shell_output("#{bin}/pdfcpu validate #{test_fixtures("test.pdf")} 2>&1")
   end
 end

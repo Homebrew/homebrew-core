@@ -1,9 +1,9 @@
 class Kafka < Formula
   desc "Open-source distributed event streaming platform"
   homepage "https://kafka.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=kafka/4.3.0/kafka_2.13-4.3.0.tgz"
-  mirror "https://archive.apache.org/dist/kafka/4.3.0/kafka_2.13-4.3.0.tgz"
-  sha256 "28cfdb0ca55b4ad85e84d090c10e3f4f970e250db226ae3756b209461e48b54d"
+  url "https://www.apache.org/dyn/closer.lua?path=kafka/4.3.1/kafka_2.13-4.3.1.tgz"
+  mirror "https://archive.apache.org/dist/kafka/4.3.1/kafka_2.13-4.3.1.tgz"
+  sha256 "f118328b2d053497350d5befd82c08db7ffd710327ff52943dd5caaa1b25db21"
   license "Apache-2.0"
 
   livecheck do
@@ -12,12 +12,13 @@ class Kafka < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5ccf4e1a66e5a9d4b645d6ff977724a0742addcf57a948dd3d6021130262c763"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ccf4e1a66e5a9d4b645d6ff977724a0742addcf57a948dd3d6021130262c763"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5ccf4e1a66e5a9d4b645d6ff977724a0742addcf57a948dd3d6021130262c763"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4927ae68e03a5d6e182aad16e257a8b63600c3650ef5a74d9589deae3e358c0c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ccf4e1a66e5a9d4b645d6ff977724a0742addcf57a948dd3d6021130262c763"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ccf4e1a66e5a9d4b645d6ff977724a0742addcf57a948dd3d6021130262c763"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "662d21cb0fe569996ba5fefb88fe9cac09a58571a2ed9de96ea0c3a0155aefa1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "662d21cb0fe569996ba5fefb88fe9cac09a58571a2ed9de96ea0c3a0155aefa1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "662d21cb0fe569996ba5fefb88fe9cac09a58571a2ed9de96ea0c3a0155aefa1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ae6e70b0289c5b3428193e366dac966e91bbb52cce3d3b418899121a0094c6e7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "662d21cb0fe569996ba5fefb88fe9cac09a58571a2ed9de96ea0c3a0155aefa1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "662d21cb0fe569996ba5fefb88fe9cac09a58571a2ed9de96ea0c3a0155aefa1"
   end
 
   depends_on "openjdk"
@@ -46,13 +47,22 @@ class Kafka < Formula
     mv "config", "kafka"
     etc.install "kafka"
     libexec.install_symlink etc/"kafka" => "config"
+
+    (libexec/"post-install").write <<~SH
+      #!/bin/sh
+      set -e
+      storage="#{opt_bin}/kafka-storage"
+      uuid="$($storage random-uuid)"
+      exec "$storage" format --standalone -t "$uuid" -c "#{etc}/kafka/server.properties"
+    SH
+    chmod 0755, libexec/"post-install"
   end
 
-  def post_install
-    # create directory for kafka stdout+stderr output logs when run by launchd
-    (var/"log/kafka").mkpath
-
-    generate_log_dir(etc/"kafka/server.properties") unless (var/"lib/kraft-combined-logs/meta.properties").exist?
+  post_install_steps do
+    mkdir_p "log/kafka", base: :var
+    unless_path_exists "lib/kraft-combined-logs/meta.properties", base: :var do
+      run "post-install", base: :libexec
+    end
   end
 
   def generate_log_dir(path)

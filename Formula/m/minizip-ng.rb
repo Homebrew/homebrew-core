@@ -1,18 +1,18 @@
 class MinizipNg < Formula
   desc "Zip file manipulation library with minizip 1.x compatibility layer"
   homepage "https://github.com/zlib-ng/minizip-ng"
-  url "https://github.com/zlib-ng/minizip-ng/archive/refs/tags/4.2.1.tar.gz"
-  sha256 "3cc35c2cb925dbe67cc801e3234b31b0f30197812a99377352fa1b551ab3d011"
+  url "https://github.com/zlib-ng/minizip-ng/archive/refs/tags/4.2.2.tar.gz"
+  sha256 "71af7b9799856d8b03619df3949e9c1be9703f8de0795af71399ba283cb27aac"
   license "Zlib"
   head "https://github.com/zlib-ng/minizip-ng.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "02c53028eb50485f554371a65e128575b4460e65cae3125a6ae90421847fca6a"
-    sha256 cellar: :any,                 arm64_sequoia: "41d177457fc9fd7af37b608b314c193883b41644390a7179eacc2ff4caa128d1"
-    sha256 cellar: :any,                 arm64_sonoma:  "6ff38323e940b58e79cf732ac4cf7f5b7adec62f73a66aa65f2ca3bf8442a138"
-    sha256 cellar: :any,                 sonoma:        "21baa62cd8c44df28b98c0aa884993847310ee7741ccd7aeb665a779966a4f78"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c5ee8d773e8593260e58169246ddcdd2ed491460fb6b14e2c8fd4937cbdd5eee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "969fb9fcb3a3729cad28504fc87168f4b2e941ff41a4ea91396b015cc956e414"
+    sha256 cellar: :any, arm64_tahoe:   "8cab9fe8070040f62235accd234ee50857f8499dc42866edbe6575e20899afe5"
+    sha256 cellar: :any, arm64_sequoia: "a6bddf61850919db0f00c2db6e8df33b590b255765c26fe47fc7fd0dd314852c"
+    sha256 cellar: :any, arm64_sonoma:  "7341652834f05bd3a3e851e87c11ee30c63778b9b94afb1b5ba333414fe90882"
+    sha256 cellar: :any, sonoma:        "00adbf770209ca79b14e81a72b2e50098cc5fb16aeb0373e2713a52f95544e5a"
+    sha256 cellar: :any, arm64_linux:   "9a811e393d62ac722750aa8ff09ec1a2d3ede379e8eee27204409d37bfab2dfd"
+    sha256 cellar: :any, x86_64_linux:  "0f02d738511328c8c08a9a424bb06d44df5eaf23386767d815d45f02ba8be17e"
   end
 
   depends_on "cmake" => :build

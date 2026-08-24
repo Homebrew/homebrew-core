@@ -1,19 +1,18 @@
 class SequoiaSqv < Formula
   desc "Simple OpenPGP signature verification program"
   homepage "https://sequoia-pgp.org/"
-  url "https://gitlab.com/sequoia-pgp/sequoia-sqv/-/archive/v1.3.0/sequoia-sqv-v1.3.0.tar.bz2"
-  sha256 "cfa9159cbeda4e4d0e3c2778374b24004037bb21d5ea6441f0fb80c68cedfce0"
+  url "https://gitlab.com/sequoia-pgp/sequoia-sqv/-/archive/v1.5.0/sequoia-sqv-v1.5.0.tar.bz2"
+  sha256 "695749c7b8dc006c0d5ade1830bf6263453eff8211d1e18402f6686327124800"
   license "LGPL-2.0-or-later"
   head "https://gitlab.com/sequoia-pgp/sequoia-sqv.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "845015f993740f9d1698ad2cd74e6b4d6ca5520b230ef79f751c7b16074a4adb"
-    sha256 cellar: :any,                 arm64_sequoia: "0d2d0d9d29c1cffd455b11ffc5bc740500af785ab7812c997d83c179c89fc517"
-    sha256 cellar: :any,                 arm64_sonoma:  "5485c94b874a9c8a4fd40e946c2e1c43e64db3a9a4a0916bdf04634174313150"
-    sha256 cellar: :any,                 sonoma:        "0d605f0ec76c4a4e085be2a7b4d97c74b5afcef2e7fa9b094dfde1b5f79289e9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a60d77009dbda5d2a4b93c79c67d2a13a2d3f84e7d1dd099eb620b5b6f7e0e39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "232098b16c3f1b096bc2a5e11088baf698f090cec86a43c9be1ab8345cee2191"
+    sha256 cellar: :any, arm64_tahoe:   "3ea889ab5ab37e22d8f432bfbe0057d0e01e89659995f514bd0a118af31495b1"
+    sha256 cellar: :any, arm64_sequoia: "87912a68b3dd4307bcf61b2af41679a248b91cd39f6bb050bd347a298d66e805"
+    sha256 cellar: :any, arm64_sonoma:  "f56d097deb461baf37bedacd0b2afb0ee23ba8f4d1229b12a7dbdf7fc164a04b"
+    sha256 cellar: :any, sonoma:        "2fcddfb42c6c83daa1f0d845c35084926507b8ccdedd9c7689a5079dd16e2cd5"
+    sha256 cellar: :any, arm64_linux:   "8ae453705f3a164ce38fd8733a857d770b16e8ae2b28aaf3d075df988b586652"
+    sha256 cellar: :any, x86_64_linux:  "d5eb5a4f73054fb8d4f215ba3767d87adc351394e832d8cab10ac9fb68bfb6d1"
   end
 
   depends_on "pkgconf" => :build
@@ -21,8 +20,10 @@ class SequoiaSqv < Formula
 
   depends_on "openssl@3"
 
+  uses_from_macos "llvm" => :build # for libclang (bindgen)
+
   def install
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
     ENV["ASSET_OUT_DIR"] = buildpath
     system "cargo", "install", "--no-default-features", *std_cargo_args(features: "crypto-openssl")
 

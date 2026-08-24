@@ -26,12 +26,11 @@ class BuildpulseTestReporter < Formula
   depends_on "go" => :build
 
   def install
-    goldflags = %W[
-      -s -w
+    ldflags = %W[
       -X main.Version=#{version}
       -X main.Commit=#{tap.user}
     ]
-    system "go", "build", *std_go_args(ldflags: goldflags), "./cmd/test-reporter"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/test-reporter"
   end
 
   test do

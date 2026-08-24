@@ -1,9 +1,15 @@
 class Supertux < Formula
   desc "Classic 2D jump'n run sidescroller game"
   homepage "https://www.supertux.org/"
-  url "https://github.com/SuperTux/supertux/releases/download/v0.7.0/SuperTux-v0.7.0-Source.tar.gz"
-  sha256 "32fc5b99b9994ed58e58341d6f21de925764b381256e108591136de53bc31da5"
   license "GPL-3.0-or-later"
+
+  stable do
+    url "https://github.com/SuperTux/supertux/releases/download/v0.7.0/SuperTux-v0.7.0-Source.tar.gz"
+    sha256 "32fc5b99b9994ed58e58341d6f21de925764b381256e108591136de53bc31da5"
+
+    depends_on "sdl2-compat"
+    depends_on "sdl2_image"
+  end
 
   livecheck do
     url :stable
@@ -22,8 +28,9 @@ class Supertux < Formula
   head do
     url "https://github.com/SuperTux/supertux.git", branch: "master"
 
-    depends_on "fmt"
-    depends_on "openal-soft"
+    depends_on "sdl3"
+    depends_on "sdl3_image"
+    depends_on "sdl3_ttf"
   end
 
   depends_on "cmake" => :build
@@ -37,8 +44,6 @@ class Supertux < Formula
   depends_on "libvorbis"
   depends_on "openal-soft"
   depends_on "physfs"
-  depends_on "sdl2"
-  depends_on "sdl2_image"
 
   uses_from_macos "curl"
 
@@ -52,7 +57,7 @@ class Supertux < Formula
       "-DINSTALL_SUBDIR_BIN=bin",
       "-DINSTALL_SUBDIR_SHARE=share/supertux",
       # Without the following option, Cmake intend to use the library of MONO framework.
-      "-DPNG_PNG_INCLUDE_DIR=#{Formula["libpng"].opt_include}",
+      "-DPNG_PNG_INCLUDE_DIR=#{formula_opt_include("libpng")}",
       "-DCMAKE_INSTALL_RPATH=#{rpath}",
     ]
 
@@ -60,10 +65,12 @@ class Supertux < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
+    return unless OS.mac?
+
     # Remove unnecessary files
     rm_r(share/"applications")
     rm_r(share/"pixmaps")
-    rm_r(prefix/"MacOS") if OS.mac?
+    rm_r(prefix/"MacOS")
   end
 
   test do

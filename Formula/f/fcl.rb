@@ -13,23 +13,30 @@ class Fcl < Formula
     patch do
       url "https://github.com/flexible-collision-library/fcl/commit/1257b4183e0ae4890294b0edea780605c2533cfd.patch?full_index=1"
       sha256 "d3bb6bc82e926d4a89c19064f79b11506fa9899d52c46a482e3f9b41785b1291"
+      type :backport
+      resolves "https://github.com/flexible-collision-library/fcl/pull/645"
     end
 
     # Backport commits to apply subsequent patch
     patch do
       url "https://github.com/flexible-collision-library/fcl/commit/beffa1bb54da6686e8167843e051a3f9a2bad6f7.patch?full_index=1"
       sha256 "ab2058f7316e8ad6e9caa253e94c6f8dcad633ae02473d6353b9003552909525"
+      type :backport
+      resolves "https://github.com/flexible-collision-library/fcl/pull/594"
     end
     patch do
       url "https://github.com/flexible-collision-library/fcl/commit/3c2b993a0b1a10f888a53cce4f3c73035ab862c3.patch?full_index=1"
       sha256 "a483773630e9f28c59ace7edacb0a782c9b6a1830514b92e1465ce4828e1111d"
+      type :backport
+      resolves "https://github.com/flexible-collision-library/fcl/pull/634"
     end
 
     # Apply open PR to add cassert includes needed for eigen 5.0.0
-    # PR ref: https://github.com/flexible-collision-library/fcl/pull/649
     patch do
       url "https://github.com/flexible-collision-library/fcl/commit/75ad2bc55acefb6c5638ed2730827530b4b7a176.patch?full_index=1"
       sha256 "6265c1178fe237313e107ae19386d7fc5d69638213d705290ddb61aea0b0fda2"
+      type :unofficial
+      resolves "https://github.com/flexible-collision-library/fcl/pull/649"
     end
   end
 

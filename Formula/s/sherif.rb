@@ -1,18 +1,17 @@
 class Sherif < Formula
   desc "Opinionated, zero-config linter for JavaScript monorepos"
   homepage "https://github.com/QuiiBz/sherif"
-  url "https://github.com/QuiiBz/sherif/archive/refs/tags/v1.11.1.tar.gz"
-  sha256 "4069bb60326caf7d50d06d15e85e838707206f061319461867101046e4fe01b8"
+  url "https://github.com/QuiiBz/sherif/archive/refs/tags/v1.13.0.tar.gz"
+  sha256 "5d5f97533ecce6fc0abce023f7e6bf6490d4c4cd8042691a4ea44cd83cd0fa6d"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d81facdf032e213d960203de863bf618c1d6a5f057698bfe14fdc7978f3d68e4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c2f0eeed242d165e3186234c46d99d71a5235d8e1e47a3f7ee42ccd53087b34a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b95376ac37e29a81cddddfa69a78eee8d35308fad1dc558c7dd6f02f2984617"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c757836175ed5ec663e39bd6bc447ad76420875d2df55ef6051b47a77826b4d3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2bf55bd7259fdf733e2f00e1c5a15b6be9227a956874fc451bb8e18ea1ffd97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1194e9f1532b1564119bae43384fefe0f92a503c86b759bfa69768575b1b6b50"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4cb38a1b8127c958cd237731d484186f7b3177e4ae596a56b143c675e72e735c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca3f323e25e5cae7bc1073f24d0bc736ade0a786e52f02b831ad41e0429375e0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b62496d7065e54232b0c26f5077a8e1671bce5448124a5462688a8381acdee1d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f7b1b6341eec69b3f58bb4c6763cf10abb1c7c180abd9ec83a0ca8fcb3e0b481"
+    sha256 cellar: :any,                 arm64_linux:   "b83cc581ff370265c14eed9457445326b4ffcdb6e3bd023ff5b91453d9181162"
+    sha256 cellar: :any,                 x86_64_linux:  "b832f9ca5a5a306b2d5b7a86d97eb7b3643d464772f3a3cb2b3a5667cc3e760d"
   end
 
   depends_on "rust" => :build

@@ -1,24 +1,24 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.io"
-  url "https://github.com/fnproject/cli/archive/refs/tags/0.6.60.tar.gz"
-  sha256 "d614fd3d6e2a741d416e8fec752f1c5f9961208fae546f30b688f5fb2ebc2fc6"
+  url "https://github.com/fnproject/cli/archive/refs/tags/0.6.63.tar.gz"
+  sha256 "764eaa60ad7dc3e8daf25c28753392af178b1e47ac08d12c43e1d8e50ed7b20d"
   license "Apache-2.0"
   head "https://github.com/fnproject/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "645df28f810cdac3e31df511670e240b5e27cd3cb2d460d8e721b9502cae3632"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "645df28f810cdac3e31df511670e240b5e27cd3cb2d460d8e721b9502cae3632"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "645df28f810cdac3e31df511670e240b5e27cd3cb2d460d8e721b9502cae3632"
-    sha256 cellar: :any_skip_relocation, sonoma:        "819c1fe550394a806dfaa8681726a5f63585218fe9d234f37b5b0c018bdc8c85"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ce455d010d527b8b66eb3b4ea0fe3d33f23ff02bbd21a1a4523c9a7e07690d6"
-    sha256 cellar: :any,                 x86_64_linux:  "5d5a00ee519572666e534b7f3846418e923233aebeb450ed9a37c67d41438854"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7e2c2d0022e5397b8e57de69fe0d17181c8ba79f40ee161070fb845297c29c39"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e2c2d0022e5397b8e57de69fe0d17181c8ba79f40ee161070fb845297c29c39"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7e2c2d0022e5397b8e57de69fe0d17181c8ba79f40ee161070fb845297c29c39"
+    sha256 cellar: :any_skip_relocation, sonoma:        "47513e7ee26d546953a30e912a9fffd05406f1c81a95548a72fc0acac6734580"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2cddba1916be0055bc875d91902d0ef89b6cf2725794ab82badd405ca12cf4a8"
+    sha256 cellar: :any,                 x86_64_linux:  "f78b558a53ef1eb97e88fcd8678f309189ca6a642270861807faba96ad191faf"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   test do

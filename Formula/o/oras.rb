@@ -1,25 +1,29 @@
 class Oras < Formula
   desc "OCI Registry As Storage"
   homepage "https://oras.land"
-  url "https://github.com/oras-project/oras/archive/refs/tags/v1.3.2.tar.gz"
-  sha256 "33a44023666e00b6e32b5bd022a77f0813a488bdeab90c7d728b811d5f97df48"
+  url "https://github.com/oras-project/oras/archive/refs/tags/v1.3.3.tar.gz"
+  sha256 "77170b1c2af19c4d9e0125c98b0709764534b9080de60b94fb3a2952bdce3ebf"
   license "Apache-2.0"
   head "https://github.com/oras-project/oras.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7854879fac23c228f80368e88f0836825a5969c028d06d3550f2912fa51ac6a8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7854879fac23c228f80368e88f0836825a5969c028d06d3550f2912fa51ac6a8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7854879fac23c228f80368e88f0836825a5969c028d06d3550f2912fa51ac6a8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "23b787ed090524b9988d6098e9bd1f39fd06fa2f71c99f2071befac3c66b7ac6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9320a667afc254c4bcfcabaa2abf652a445a23ad5652f3e4932d905c37db943a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44ba928ae32fb6b7ada4583648b641daf0767874a148ac3e9c8db55f886faef0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "de03e01f23509ff7ba40d2bc0b0dd01040df19e25a14ba2fa87600903f1a5b59"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "de03e01f23509ff7ba40d2bc0b0dd01040df19e25a14ba2fa87600903f1a5b59"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "de03e01f23509ff7ba40d2bc0b0dd01040df19e25a14ba2fa87600903f1a5b59"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7a80978e2364878e9aa76ca4bbdc9d813f6c077f47b600c666a004a34f9e6772"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9a24178505ef17aa22bc6815c5c41a024447e43dfe230ec64d2c3c79c647cdfe"
+    sha256 cellar: :any,                 x86_64_linux:  "7f54ab4408b7820c8bdf2ad60de53cb95626426dee50feb2c88badc93337d05c"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X oras.land/oras/internal/version.Version=#{version}
       -X oras.land/oras/internal/version.BuildMetadata=#{tap.user}
     ]

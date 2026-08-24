@@ -1,8 +1,8 @@
 class Coturn < Formula
   desc "Free open source implementation of TURN and STUN Server"
   homepage "https://github.com/coturn/coturn"
-  url "https://github.com/coturn/coturn/archive/refs/tags/4.13.1.tar.gz"
-  sha256 "c8f8db0e2d2d04d20535b2c928f9792ed5aa8cfd0af34f323a61749b2c7baba6"
+  url "https://github.com/coturn/coturn/archive/refs/tags/4.17.2.tar.gz"
+  sha256 "645a1beaeeba2684139d9b342d30320ac57a415577b6356dad9df20025cf5315"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Coturn < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "6ecc663901ce25f27ca800f9492c63c160451101cdd15a9c0a2aec3470ee5bfc"
-    sha256               arm64_sequoia: "45277bd234e75d51d167ab5cc88b08b0a6427fbe694ec4418474c81346280bb1"
-    sha256               arm64_sonoma:  "ceafc629beb932a88cfa2ea3ee7ee5a92a5622f93a616f1be12f5b5617958ce7"
-    sha256 cellar: :any, sonoma:        "edfe9f050f53936144ff6783c739b86baae24211d6a44051ff20e957af61a08a"
-    sha256               arm64_linux:   "5cb93ad5cb9c15899c0d90b9e26ddc4a247dfb456678823eede5fb0222c1b012"
-    sha256               x86_64_linux:  "933d68d617d5c4d13c2e98de0cd89bdc11b0f94762ceaf0d060df198e4413a95"
+    sha256               arm64_tahoe:   "a10c093d03a416a56bae9263b6d6893c789e318a727d417a273e7d5114c9f145"
+    sha256               arm64_sequoia: "4c60869d1258268bce5a08fcc6b1c8fcbbb0d16d92ed6105aaf8729e6cd0d9e9"
+    sha256               arm64_sonoma:  "88786774d6c275a9549805c07d18a1a0124a1cf0413596ef0f26cffe2c48c352"
+    sha256 cellar: :any, sonoma:        "ffc01cb8524b0edf21112c82357c68f30b7f54ed7b5bbb5f75a2aca3588bf5ce"
+    sha256               arm64_linux:   "224a402b1649fa4df1948cf1c795037f0a0f6e871da1f4b367e107cc0f33468f"
+    sha256               x86_64_linux:  "686dbfd99af8c408c17f5d03b96aecb374c7f5e04ecd930246308ed4695029f9"
   end
 
   depends_on "pkgconf" => :build
@@ -28,8 +28,8 @@ class Coturn < Formula
   uses_from_macos "sqlite"
 
   def install
-    ENV["SSL_CFLAGS"] = "-I#{Formula["openssl@3"].opt_include}"
-    ENV["SSL_LIBS"] = "-L#{Formula["openssl@3"].opt_lib} -lssl -lcrypto"
+    ENV["SSL_CFLAGS"] = "-I#{formula_opt_include("openssl@3")}"
+    ENV["SSL_LIBS"] = "-L#{formula_opt_lib("openssl@3")} -lssl -lcrypto"
     system "./configure", "--disable-silent-rules",
                           "--mandir=#{man}",
                           "--localstatedir=#{var}",

@@ -43,7 +43,7 @@ class Liblxi < Formula
     C
 
     args = %W[-I#{include} -L#{lib} -llxi]
-    args += %W[-L#{Formula["libtirpc"].opt_lib} -ltirpc] if OS.linux?
+    args += %W[-L#{formula_opt_lib("libtirpc")} -ltirpc] if OS.linux?
 
     system ENV.cc, "test.c", *args, "-o", "test"
     system "./test"

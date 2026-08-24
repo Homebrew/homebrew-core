@@ -1,8 +1,8 @@
 class Xapian < Formula
   desc "C++ search engine library"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/2.0.0/xapian-core-2.0.0.tar.xz"
-  sha256 "6cea3f49952a47224439a40bdb3608f928d121ad8721b9921cc42802d548ecf8"
+  url "https://oligarchy.co.uk/xapian/2.1.0/xapian-core-2.1.0.tar.xz"
+  sha256 "8e1259586d342e3d12b5e1f772e9185a10f2ba16e541566b5c3c239f71b8aacc"
   license "GPL-2.0-or-later"
   version_scheme 1
   compatibility_version 1
@@ -13,12 +13,12 @@ class Xapian < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5b3662944f7d62252755c60a30a9d45c278030ec35ff2b26df81a1f771db6679"
-    sha256 cellar: :any,                 arm64_sequoia: "acea926df0ec8313a5ce4200b0d16d37799e6061c3faaffe1758b5fd44c7da03"
-    sha256 cellar: :any,                 arm64_sonoma:  "21eda4fcd6301dcc53653840f69fb24299b132b9d4ce17fc45888cb132f0e5bd"
-    sha256 cellar: :any,                 sonoma:        "6991ce3e145fddebb0081696d5b590b2e5b93cbadbc76a958263ba170bcb7b82"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8a2cd147c9b3b56210d73a97acc54106953e62619b08af56c8236e5b6a73a251"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d1c8e93aa12e1285ecbf15640e8fcede10547801eacea3333833417255eaa02"
+    sha256 cellar: :any, arm64_tahoe:   "caebee6380675c6e7fdff05cb7ec7ed345ca2d736a425991fe572fb387b65ade"
+    sha256 cellar: :any, arm64_sequoia: "ae5b3fb391054b0ee57d332b3fe2f04c907a3998dacadca392801a50537d4e70"
+    sha256 cellar: :any, arm64_sonoma:  "1543d604bd57b6d7881cdfaea23ed496d7be019b7a40cc1d9cf21c33b918fe20"
+    sha256 cellar: :any, sonoma:        "d5b371abe5b578dc1c7ffad9dd449ca675ebbbe94f9ec37e419e1e1b59414bec"
+    sha256 cellar: :any, arm64_linux:   "43470f42143afcd6821981500736b01ee0f7393414e8176b06ce706c4099a2ec"
+    sha256 cellar: :any, x86_64_linux:  "e59b982d200537bda5d76b279bf5ef73af38fc34fec7defd8a3b90f596803aa2"
   end
 
   depends_on "python@3.14" => [:build, :test]
@@ -32,8 +32,8 @@ class Xapian < Formula
   skip_clean :la
 
   resource "bindings" do
-    url "https://oligarchy.co.uk/xapian/2.0.0/xapian-bindings-2.0.0.tar.xz"
-    sha256 "9a544b69c31355a92edbcd4102cf0f1ec4407fd0a4645f4870fb52300b736910"
+    url "https://oligarchy.co.uk/xapian/2.1.0/xapian-bindings-2.1.0.tar.xz"
+    sha256 "f52ec189f13b4fa66ea625a6eb94bb32dd651b9ec806be6a911dda54cbe3875c"
 
     livecheck do
       formula :parent
@@ -58,8 +58,8 @@ class Xapian < Formula
       site_packages = Language::Python.site_packages(python3)
       ENV.prepend_create_path "PYTHON3_LIB", prefix/site_packages
 
-      ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/site_packages
-      ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"vendor"/site_packages
+      ENV.append_path "PYTHONPATH", formula_opt_libexec("sphinx-doc")/site_packages
+      ENV.append_path "PYTHONPATH", formula_opt_libexec("sphinx-doc")/"vendor"/site_packages
 
       system "./configure", *std_configure_args, "--disable-silent-rules", "--with-python3"
       system "make", "install"

@@ -7,15 +7,13 @@ class StylishHaskell < Formula
   head "https://github.com/haskell/stylish-haskell.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "636a0426df19f6ff5e1bf0ce1256bf57b69c9e8563653e984bce28d75a04c6c4"
-    sha256 cellar: :any,                 arm64_sequoia: "cd766c7c8c5cb06debbe9c331916280058dfa6245a8a22ff3b055859dc982909"
-    sha256 cellar: :any,                 arm64_sonoma:  "7a470983136a1c6ec36b477f9dfac734781afcf907a33d85d83d1faa17bb5501"
-    sha256 cellar: :any,                 arm64_ventura: "44d4be8b570687514592eef731c60ad2f34e6e48d6ee57141ae90eaa28d89a10"
-    sha256 cellar: :any,                 sonoma:        "adb984643626bd491580f169f3578f22639d4f1532a22a97c88f32a057996b33"
-    sha256 cellar: :any,                 ventura:       "4bbdbc8b5a5cc050f6a6cb47297c3f9f77ab3f90da7d56758e750a3ddc499fa8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3be00f8a82099f4031c5068c33f6be734a36b2a21c30941805a9238f84e12849"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "442f39eb248892c063cc1dc89aa2ed7b1acb33e99d8ce76fc1493b8f63d9886e"
+    rebuild 4
+    sha256 cellar: :any, arm64_tahoe:   "a4f78bcd8ce59aec4e06a0cfc88954a75684ebb8305ac5e0c58e45e79a21c66c"
+    sha256 cellar: :any, arm64_sequoia: "b1e5697193a7f1cf3b72032cd8979406c074fba9f016eeeb189bc64b1ff807f7"
+    sha256 cellar: :any, arm64_sonoma:  "437113d6529d3f00612edff31bb8b89b4c149754c47884b3b5a66026b434c698"
+    sha256 cellar: :any, sonoma:        "0c9c411096f25025890fc55cb4825ff6c6e502e831322ebcac7682bfba7453a2"
+    sha256 cellar: :any, arm64_linux:   "56ff3634ea64b1be1fc7c5fb0eaef1ed7dc0571502c1b15386f7ab2bec84fc6b"
+    sha256 cellar: :any, x86_64_linux:  "413b44a4bc58973d5568bfdaf4d18092707c83802879d30cdcfb3917f3c16083"
   end
 
   depends_on "cabal-install" => :build
@@ -23,6 +21,14 @@ class StylishHaskell < Formula
   depends_on "gmp"
 
   uses_from_macos "libffi"
+
+  # Support Cabal 3.18
+  patch do
+    url "https://github.com/haskell/stylish-haskell/commit/8982d5ebb30fd26afffc6a4bb4c7757891ee8c86.patch?full_index=1"
+    sha256 "6be3185315aeff68f05c2539376f3ab0b1e3ac858913fd1d888f2d3e7d8a50dd"
+    type :unofficial
+    resolves "https://github.com/haskell/stylish-haskell/pull/502"
+  end
 
   def install
     # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
@@ -60,6 +66,9 @@ class StylishHaskell < Formula
       import           Data.Map            (Map, keys, (!))
       import qualified Data.Map            as M
     HASKELL
-    assert_equal expected, shell_output("#{bin}/stylish-haskell test.hs")
+    # Pass the config explicitly; searching for one walks up to `/`, which the sandbox denies
+    (testpath/"config.yaml").write shell_output("#{bin}/stylish-haskell --defaults")
+
+    assert_equal expected, shell_output("#{bin}/stylish-haskell --config config.yaml test.hs")
   end
 end

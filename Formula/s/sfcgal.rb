@@ -4,18 +4,20 @@ class Sfcgal < Formula
   url "https://gitlab.com/sfcgal/SFCGAL/-/archive/v2.3.0/SFCGAL-v2.3.0.tar.gz"
   sha256 "5f6aa1838e5ae31523ebf410cde0240b7a88d7e062b7ffff945e4fae2aaba0fa"
   license "LGPL-2.0-or-later"
+  revision 1
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "670b480cb5d2bc39b82cd44eb88036db3c5760662650f942ccdb0601fad7214e"
-    sha256 cellar: :any, arm64_sequoia: "9479bc005dd3623c205bbb219050dd6d8fd4126a49eefad7763ba9da8bf1371f"
-    sha256 cellar: :any, arm64_sonoma:  "2ab6ae6bdf02ffc9e14eddd124492cccc1e44ba6ff3b025bf3d127dc7c6a4af0"
-    sha256 cellar: :any, sonoma:        "947e01f26a488842713b55d4b2c6c378f0518233f253bc564e47f3572f925993"
-    sha256 cellar: :any, arm64_linux:   "4494d02b8b01087ff8ee0c2c8b6432f56942df2df68427d4f3bc3ed83480bb4d"
-    sha256 cellar: :any, x86_64_linux:  "76fba11c983750b09a694fb1ccb933d32990cc32da98027491f8de8772e83fb8"
+    sha256 cellar: :any, arm64_tahoe:   "db74c9aca42ddbe59b08e178673d939fe9f8a6ad5b6c88fa3f091fa31beeb30c"
+    sha256 cellar: :any, arm64_sequoia: "5025298f7c948a1032271d10dab015ca661a2142573c005cfe89958c8d6f8454"
+    sha256 cellar: :any, arm64_sonoma:  "a4b5d99028fbc0ce19aa4bbff6166c3472f5ec53e0e2b22747ca14b2535e9bd9"
+    sha256 cellar: :any, sonoma:        "98d28a19be0ab74b4e81f3a32be12f392cb6a9dd995418a6a9a750b62f7f29b2"
+    sha256 cellar: :any, arm64_linux:   "218dfcd3098a775a7308c5e6054ff31a1453b93bab71a82c3a151f12db53cb2a"
+    sha256 cellar: :any, x86_64_linux:  "631f71a2b0cb80fa65a9f222ddff8cde1bb9096ee0b5df4cc765131e845414be"
   end
 
   depends_on "cmake" => :build
+  depends_on "eigen" => :build
   depends_on "nlohmann-json" => :build
   depends_on "boost"
   depends_on "cgal"
@@ -23,7 +25,9 @@ class Sfcgal < Formula
   depends_on "mpfr"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # TODO: Drop SFCGAL_WITH_EIGEN=ON once SFCGAL enbles it when Eigen is detected
+    # See: https://gitlab.com/sfcgal/SFCGAL/-/merge_requests/778
+    system "cmake", "-S", ".", "-B", "build", "-DSFCGAL_WITH_EIGEN=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

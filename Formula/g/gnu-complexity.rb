@@ -30,6 +30,7 @@ class GnuComplexity < Formula
   patch do
     url "https://salsa.debian.org/debian/complexity/-/raw/69a7b9d27eb5c2ba8aa43966518971df74d55657/debian/patches/01_fix_autobuild.patch"
     sha256 "3c2403be83ae819bbdfe7d1b0f14e2637d504387d1237f15b24e149cd66f56b1"
+    type :unofficial
   end
 
   def install

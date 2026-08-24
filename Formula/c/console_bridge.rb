@@ -28,6 +28,8 @@ class ConsoleBridge < Formula
   patch do
     url "https://github.com/ros/console_bridge/commit/81ec67f6daf3cd19ef506e00f02efb1645597b9c.patch?full_index=1"
     sha256 "b2746b536b72e391c1a37363a1d8e2203d50229057bf0767f3ceae8e57784a16"
+    type :backport
+    resolves "https://github.com/ros/console_bridge/issues/100"
   end
 
   def install

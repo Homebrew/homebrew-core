@@ -1,8 +1,8 @@
 class HeadscaleCli < Formula
   desc "CLI for headscale, an open-source implementation of the Tailscale control server"
   homepage "https://github.com/juanfont/headscale"
-  url "https://github.com/juanfont/headscale/archive/refs/tags/v0.29.0.tar.gz"
-  sha256 "9ee04c5ade81fc36ed83e3a6d5ed28e9ab25e8ceb50f64ea7fa9a62394dd1cc8"
+  url "https://github.com/juanfont/headscale/archive/refs/tags/v0.29.3.tar.gz"
+  sha256 "9c2b6020b51a1d53641fe8e282fd849b4d00eca8945fef93d63454655a90ba0d"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,18 +11,18 @@ class HeadscaleCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "39c180a34f48cf8aeee6fc7beba84f8728d11a9bca631b8670e5e7a7f5e963ac"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5ee0f77a646e178724b1de75796c036340257f5e6ccb79e872ea537aa6a86ec"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "063d6a6da1280b38be7b6f7f391e4d1f3f3ff5f7e10fa0527c471e117ffb7cb8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "36a5ea26c7d12336d5eca8f7246f3eebdf8b77499ac45c137dde3b687228b02a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2f4d79336c3ce923c9dc040263ad5f7f73a3a1a7d1a819ef72798faf4e2584ac"
-    sha256 cellar: :any,                 x86_64_linux:  "4a886ced23974cd52404573ff3ad9cc7ca6f6b4d933cbf18adb53373cc6a8686"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6114ea7d64e423dd3d0c6e473b3eb7c9b2a56ad88285550ef68c368074362d12"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a2636b371992ad4f49f4d3bd76d264a0be9fb24776d5fa20fb07c86cc000bbaf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38d32dc36e758fac95495bac999cf6d2bcd00ca3ac2f4aa1e22722c88373ca58"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bba4570479819538375c813a51144011d37ec62d4b4b675692cf8b2b8cb8efc3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9956734bd49b726d9e6d451b93054b811b7aa8a0c6a645dd43dc4119c42aeb8f"
+    sha256 cellar: :any,                 x86_64_linux:  "c246afb358ee76fca8b6a7b115f71087fe42cc78b6ee32ce733e191d77e3cad2"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"headscale"), "./cmd/headscale"
+    system "go", "build", *std_go_args(output: bin/"headscale"), "./cmd/headscale"
 
     generate_completions_from_executable(bin/"headscale", shell_parameter_format: :cobra)
   end

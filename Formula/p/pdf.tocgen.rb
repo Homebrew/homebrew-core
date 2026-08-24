@@ -6,10 +6,11 @@ class PdfTocgen < Formula
   url "https://files.pythonhosted.org/packages/77/44/e6dafea2c491e84425ed725b69b689e58703609b1d70e7b7f49f28cf5df7/pdf_tocgen-1.3.4.tar.gz"
   sha256 "090758832614727eaf1fd0ba0075d5a10eb8f268d1d534fabd7131170a8ac79e"
   license "GPL-3.0-or-later"
+  revision 2
   head "https://github.com/Krasjet/pdf.tocgen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4178fa0d5eae318d730fde9f7114d19ed07d9d819c8c5412de7099d550d5595a"
+    sha256 cellar: :any_skip_relocation, all: "b9fb09fc5314e9f2e9bc7fd66ad664a4afcc4aa26f0a38c4fecd728cca4abdc2"
   end
 
   depends_on "pymupdf"
@@ -32,6 +33,9 @@ class PdfTocgen < Formula
   end
 
   test do
+    # Keep pymupdf's `fitz` deprecation warning out of the recipe file
+    ENV["PYMUPDF_MESSAGE"] = "fd:2"
+
     resource "pdf" do
       url "https://raw.githubusercontent.com/Krasjet/pdf.tocgen/refs/heads/master/spec/files/level2.pdf"
       sha256 "021e4d025341d31babee19e6b75afb26f167923db42d1d038610edb328b82da2"

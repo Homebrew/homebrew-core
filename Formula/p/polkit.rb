@@ -32,12 +32,12 @@ class Polkit < Formula
     depends_on "systemd"
   end
 
-  # Apply commit from open PR to fix macOS build. Can remove if one of following PRs are part of release:
-  # Ref: https://github.com/polkit-org/polkit/pull/629
-  # Ref: https://github.com/polkit-org/polkit/pull/624
+  # Backport macOS build fix (merged upstream via PR #629); remove once released
   patch do
-    url "https://github.com/polkit-org/polkit/commit/33330b0feaa36fc8a3637e7d36f792cebd421687.patch?full_index=1"
-    sha256 "d306d0eeebc2c950582a46bdbaf19180f371574e2fb71080ffc247597f2e7e4b"
+    url "https://github.com/polkit-org/polkit/commit/066b55bf2e2b82c4d9b75306aaada9416296e9e9.patch?full_index=1"
+    sha256 "5aad9b8df059fcc99d2f3eb8918e0d0aceaee366c41089e0c66db11d31adac7a"
+    type :backport
+    resolves "https://github.com/polkit-org/polkit/pull/629"
   end
 
   def install

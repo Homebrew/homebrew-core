@@ -1,18 +1,18 @@
 class Kanata < Formula
   desc "Cross-platform software keyboard remapper for Linux, macOS and Windows"
   homepage "https://github.com/jtroo/kanata"
-  url "https://github.com/jtroo/kanata/archive/refs/tags/v1.11.0.tar.gz"
-  sha256 "42e71c76202ab1d39a4898851558deca277fc3619f11a7dcf0e376c5ffc287bb"
+  url "https://github.com/jtroo/kanata/archive/refs/tags/v1.12.0.tar.gz"
+  sha256 "7081073d1d22fe4e404cf8e7d1dfa3f72562fb2d96538367c07f64877dcbf87a"
   license "LGPL-3.0-only"
   head "https://github.com/jtroo/kanata.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1e33042a173476ca96bae7cbda19836a4efc074089ed3dbb558f929c3e20b15e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f46f564fb6abea62e5b58593ee3f38f9597c33934a284f900c2ea9eee45c1d1a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "962193383f5f79208291702f4fc88921c85e19f513fae2198886b6604069d888"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3f77ca47aa8567ebbd73a4b818cae0ae19d59fd343aae43bbc5b8dc0fef28d0c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5620864dec3da6c090906d8582fc95e05fb06b6835f039f9843cf583db01af00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a453561372b89c594e1ca37945f577f39648e30098012c9fad3469a03e7eb07e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ae04c41b6513e95f6af3a314c8eff4c1350f6b3277325a4e3009c52f7a779bf9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "93140a2725b06daeed151c8d47aa77c5db2b083b70081437015160ce3aeffc74"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7408702c3e805859bd7781dceffe8977860197ac5c1dcf8d5f87f5a8fcddaca4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2f8d6f9e8f5fd7d434968a5c24c1039089297a6c7072f372270afa5e1060cc4e"
+    sha256 cellar: :any,                 arm64_linux:   "c1e3f33114e33735271c47df820293dcc9d4930f8c2bab848bcb090698881432"
+    sha256 cellar: :any,                 x86_64_linux:  "50893ea6f72657b9ba4da720b43683d5d885a6e1d68644d03091352d70ee7d66"
   end
 
   depends_on "rust" => :build

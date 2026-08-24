@@ -1,8 +1,8 @@
 class Nmstatectl < Formula
   desc "Command-line tool that manages host networking settings in a declarative manner"
   homepage "https://nmstate.io/"
-  url "https://github.com/nmstate/nmstate/releases/download/v2.2.60/nmstate-2.2.60.tar.gz"
-  sha256 "93c157c27b922968dfc6e8f649bacb00287303e0fd83b13cf1ff15a98fb3599c"
+  url "https://github.com/nmstate/nmstate/releases/download/v2.2.61/nmstate-2.2.61.tar.gz"
+  sha256 "25cb1b4055c3f1c9d6e98c7efd3084f09d38f105b34ce6d80132d4427a98ed16"
   license "Apache-2.0"
   head "https://github.com/nmstate/nmstate.git", branch: "base"
 
@@ -12,12 +12,12 @@ class Nmstatectl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a8f879302d3a276b42f433bd6754d14280b779020757918e13387bba386b5949"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dd4994135f9e26a7a4f168e3a5318bf86dc34978f77723d2ef183cbd5df2805b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6eb93f7b7809622eb65fd3d1c0091cd4097d10408c552068c49bb93a49d38406"
-    sha256 cellar: :any_skip_relocation, sonoma:        "556c1b0b49cf92bc858f011876947d63065329646d094b65b548a746a6a3ada4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f3c39c5fadc2e7e4513fa2a5e7873a4de8fb24d3a99976ec957cc4fe3c048b8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73b48651f675cdbda8d9fa8f921035561df1d21e09e7a71d9b2d656578664af5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe7693d842f55a3685575f3058770099e6e2d12c03b1490ced989dec9d4f0640"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "262bfed2939368d0728f61c7e06f5bc359d1b1bfff5d16fd450d083bb20efe94"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e27e116084daa4c81fee81e25ed4b275162f428d57a599d0f7953991a837e5ce"
+    sha256 cellar: :any_skip_relocation, sonoma:        "767e856db0525b77ddff1e73237f6389230e32cbb8a697dde664bf7602aa2197"
+    sha256 cellar: :any,                 arm64_linux:   "981a0dae8bb62db11f2c1c0f0610f4b8a88c4b2128471055574d89c52ef77a81"
+    sha256 cellar: :any,                 x86_64_linux:  "1dc22c752a82d3fb810f142ebdcc2908557be0e02dfff394338698c195d74d9a"
   end
 
   depends_on "rust" => :build

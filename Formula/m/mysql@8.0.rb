@@ -6,7 +6,7 @@ class MysqlAT80 < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.46.tar.gz"
   sha256 "dff4332ee7f8f37fc0516c66763600a22a81c8192c743c477b6484206e314f2f"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 1
+  revision 4
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/8.0.html?tpl=files&os=src&version=8.0"
@@ -14,12 +14,13 @@ class MysqlAT80 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "e9cc330dccbc512af209ba4ac472d45775ca8537cce5fe4c24b9e78a2ba43021"
-    sha256 arm64_sequoia: "06cbc398a0349d3e3830aa83c23fe80694b5bdf98c5e60e1fe1282162f29fe5a"
-    sha256 arm64_sonoma:  "132c5f068dc8860d8853cdfcc102b9159d16730f97634d476e0d90bdf5d4390b"
-    sha256 sonoma:        "af39ce230cc98af2881041df03171a40a3e28c8da3bec8eaa3f77af0eeac4f42"
-    sha256 arm64_linux:   "f296784fcd55e2192b113459ac46585f6a3ec6dd96c2b6a2b7522fa16c236b8c"
-    sha256 x86_64_linux:  "acc3b13d420c4caeaab91d55f9f79d2402b5a31f35b5578a8b93e43d636b48f5"
+    rebuild 1
+    sha256 arm64_tahoe:   "2450010c6a2401e25d9d2e1cc7cf72b82207eb89fa2f15b9d2c30902b2740a03"
+    sha256 arm64_sequoia: "2876647bac269589a4c2080abe62aa5d2dd210e5dcd8341af572334a1d8fad68"
+    sha256 arm64_sonoma:  "8c79fcf6c154b7e1d0c81c34e755b8031cd68079284fde5ca0ab0bacc329b1c2"
+    sha256 sonoma:        "24da64c116680528306461bedfa4ce46154e3d0eb10a4197c4d3137aff8e5014"
+    sha256 arm64_linux:   "f7ef9fe52ad93528c521a62a8d92419fc15da7f041ed5affd45b3527153ddae7"
+    sha256 x86_64_linux:  "451f5c614508c35214def32966770a620af791a677163ec86455d80142dcffe8"
   end
 
   keg_only :versioned_formula
@@ -84,8 +85,8 @@ class MysqlAT80 < Formula
       -DINSTALL_PLUGINDIR=lib/plugin
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
-      -DBISON_EXECUTABLE=#{Formula["bison"].opt_bin}/bison
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
+      -DBISON_EXECUTABLE=#{formula_opt_bin("bison")}/bison
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}
       -DWITH_ICU=#{icu4c.opt_prefix}
       -DWITH_SYSTEM_LIBS=ON
       -DWITH_BOOST=boost
@@ -132,29 +133,17 @@ class MysqlAT80 < Formula
     etc.install "my.cnf"
   end
 
-  def post_install
+  post_install_steps do
     # Make sure the var/mysql directory exists
-    (var/"mysql").mkpath
-
-    if (my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x })
-      opoo <<~EOS
-        A "#{my_cnf}" from another install may interfere with a Homebrew-built
-        server starting up correctly.
-      EOS
-    end
-
     # Don't initialize database, it clashes when testing other MySQL-like implementations.
-    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-
-    unless (datadir/"mysql/general_log.CSM").exist?
-      ENV["TMPDIR"] = nil
-      system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
-                           "--basedir=#{prefix}", "--datadir=#{datadir}", "--tmpdir=/tmp"
-    end
+    init_data_dir "mysql", using: :mysql, base: :var
   end
 
   def caveats
     <<~EOS
+      A "/etc/my.cnf" or "/etc/mysql/my.cnf" from another install may interfere
+      with a Homebrew-built server starting up correctly.
+
       We've installed your MySQL database without a root password. To secure it run:
           mysql_secure_installation
 

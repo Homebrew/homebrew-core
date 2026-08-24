@@ -1,8 +1,8 @@
 class WxwidgetsAT32 < Formula
   desc "Cross-platform C++ GUI toolkit"
   homepage "https://www.wxwidgets.org"
-  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.10/wxWidgets-3.2.10.tar.bz2"
-  sha256 "d66e929569947a4a5920699539089a9bda83a93e5f4917fb313a61f0c344b896"
+  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.11/wxWidgets-3.2.11.tar.bz2"
+  sha256 "6a129015bce2e914e4bf61ec4411854ad962801d47e92f2eb8340adb6a90af08"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
   compatibility_version 1
 
@@ -13,12 +13,12 @@ class WxwidgetsAT32 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "74d1a1c9bcf676f71f37091d5dc8070c0582dee03507d0d8cb49a7be43cbd225"
-    sha256 cellar: :any,                 arm64_sequoia: "087534b47e6145c177e14b283e4aa481275e24cd5434d373fa7568560862ce6f"
-    sha256 cellar: :any,                 arm64_sonoma:  "2496f42ac6c200388af114193b96d61f47b911460bee0c1a273ebdcd166e543a"
-    sha256 cellar: :any,                 sonoma:        "6fdcb464921d5f8c6e6970af6cc0cecfce808492b5ee527162f1c155593d873c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5d37fc9e718dc139fdc289f4bd24d496d857f92c93195cfb82ca0a625e6e5317"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "77e184af60c727675b07335acaa9aaaaa2c2029512c62a56026592faffe6d74e"
+    sha256 cellar: :any, arm64_tahoe:   "8bbb9af7070b41a14137e5fdb8096415048cdbe311099c03b3f43ced44bf71de"
+    sha256 cellar: :any, arm64_sequoia: "01eb58b0173a88a4bb53c653533ff9fe680605d97d6acb2d8f5ed34ef438bfaa"
+    sha256 cellar: :any, arm64_sonoma:  "f7f4bc9692b4580c616d5a5a76f1e0e7dd5ad7e28b5ed6d1f4b97aa633606ff0"
+    sha256 cellar: :any, sonoma:        "2c386a5df7a8ad9dcf27abf0a78c8280d10347ca2457af0094a1c10d64dabcff"
+    sha256 cellar: :any, arm64_linux:   "f836b6a081a978491924be60f005a0f3b78ac7b99fabb4c3746f1fb696f2bb72"
+    sha256 cellar: :any, x86_64_linux:  "d56ad2762090edea55becb9e16817bc9dc67b864c33277a72312aa0d473186b5"
   end
 
   depends_on "pkgconf" => :build

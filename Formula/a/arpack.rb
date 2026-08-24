@@ -30,7 +30,7 @@ class Arpack < Formula
 
   def install
     args = %W[
-      --with-blas=-L#{Formula["openblas"].opt_lib}\ -lopenblas
+      --with-blas=-L#{formula_opt_lib("openblas")}\ -lopenblas
       F77=mpif77
       --enable-mpi
       --enable-icb
@@ -47,7 +47,7 @@ class Arpack < Formula
   test do
     system "gfortran", "-o", "test", pkgshare/"dnsimp.f", pkgshare/"mmio.f",
                        "-L#{lib}", "-larpack",
-                       "-L#{Formula["openblas"].opt_lib}", "-lopenblas"
+                       "-L#{formula_opt_lib("openblas")}", "-lopenblas"
     cp_r pkgshare/"testA.mtx", testpath
     assert_match "reached", shell_output("./test")
   end

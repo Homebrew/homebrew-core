@@ -1,8 +1,8 @@
 class CassandraReaper < Formula
   desc "Management interface for Cassandra"
   homepage "https://cassandra-reaper.io/"
-  url "https://github.com/thelastpickle/cassandra-reaper/releases/download/4.2.5/cassandra-reaper-4.2.5-release.tar.gz"
-  sha256 "85312540fc9815b9349d199615d361f8c11a98090f6880a62839d3aacc88cef0"
+  url "https://github.com/thelastpickle/cassandra-reaper/releases/download/5.0.0/cassandra-reaper-5.0.0-release.tar.gz"
+  sha256 "2f18bbf39165c32489c07853eeb793276a138cc53af261afebeac4e7814356b9"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,7 @@ class CassandraReaper < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6b569473a88446f9dfc34edc4847c88541223ac6f35a1597defbbd58531f54c6"
+    sha256 cellar: :any_skip_relocation, all: "72b28dde10e6204190c44ae0ff7cc1635236c13933fde63817afd45bf508c649"
   end
 
   depends_on "openjdk"

@@ -31,6 +31,7 @@ class Sambamba < Formula
   patch do
     url "https://github.com/biod/sambamba/commit/5fdcf6f3015cb17b805514397223f7513bc92613.patch?full_index=1"
     sha256 "f51a32a00102478aa8c9a0c36975a33438fd474992127a757d9a4732b10e6695"
+    type :backport
   end
 
   def install

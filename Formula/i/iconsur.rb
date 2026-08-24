@@ -17,6 +17,9 @@ class Iconsur < Formula
     sha256 cellar: :any_skip_relocation, sonoma:        "395551a9edc345cfcaf5741a75d6d5b117f7a4e34691c542ae880ed7d2511359"
   end
 
+  deprecate! date: "2026-08-01", because: :repo_archived
+  disable! date: "2027-02-01", because: :repo_archived
+
   depends_on :macos
   depends_on "node"
 

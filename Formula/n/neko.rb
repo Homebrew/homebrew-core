@@ -39,15 +39,15 @@ class Neko < Formula
 
   def install
     args = %W[
-      -DMARIADB_CONNECTOR_LIBRARIES=#{Formula["mariadb-connector-c"].opt_lib/"mariadb"/shared_library("libmariadb")}
+      -DMARIADB_CONNECTOR_LIBRARIES=#{formula_opt_lib("mariadb-connector-c")/"mariadb"/shared_library("libmariadb")}
       -DRELOCATABLE=OFF
       -DRUN_LDCONFIG=OFF
     ]
     if OS.linux?
-      args << "-DAPR_LIBRARY=#{Formula["apr"].opt_lib}"
-      args << "-DAPR_INCLUDE_DIR=#{Formula["apr"].opt_include}/apr-1"
-      args << "-DAPRUTIL_LIBRARY=#{Formula["apr-util"].opt_lib}"
-      args << "-DAPRUTIL_INCLUDE_DIR=#{Formula["apr-util"].opt_include}/apr-1"
+      args << "-DAPR_LIBRARY=#{formula_opt_lib("apr")}"
+      args << "-DAPR_INCLUDE_DIR=#{formula_opt_include("apr")}/apr-1"
+      args << "-DAPRUTIL_LIBRARY=#{formula_opt_lib("apr-util")}"
+      args << "-DAPRUTIL_INCLUDE_DIR=#{formula_opt_include("apr-util")}/apr-1"
     end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

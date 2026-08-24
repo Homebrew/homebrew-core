@@ -3,19 +3,20 @@ class Llvm < Formula
   homepage "https://llvm.org/"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 1
+  revision 2
   compatibility_version 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.7/llvm-project-22.1.7.src.tar.xz"
-    sha256 "5cc4a3f12bba50b6bdfb4b61bdc852117a0ff2517807c3902fc13267fb93562e"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.8/llvm-project-22.1.8.src.tar.xz"
+    sha256 "922f1817a0df7b1489272d18134ee0087a8b068828f87ac63b9861b1a9965888"
 
     # Fix triple config loading for clang-cl
-    # https://github.com/llvm/llvm-project/pull/111397
     patch do
       url "https://github.com/llvm/llvm-project/compare/1381ad497b9a6d3da630cbef53cbfa9ddf117bb6...40a8c7c0ff3f688b690e4c74db734de67f0f89e9.diff"
       sha256 "f6dafd762737eb79761ab7ef814a9fc802ec4bb8d20f46691f07178053b0eb36"
+      type :unofficial
+      resolves "https://github.com/llvm/llvm-project/pull/111397"
     end
   end
 
@@ -25,12 +26,12 @@ class Llvm < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "a15e0d2475fb1dc25325b66cc2a67eff63f6f174928db29aa95baaceaabccf49"
-    sha256               arm64_sequoia: "8178470cbbcd260dc7bf48126676130360f31735af1ff6f4c3824ed121c08d27"
-    sha256               arm64_sonoma:  "4a706c8342804c2e0a528d0f6bf3658c69fef34bf0494a666412198c72aad08f"
-    sha256 cellar: :any, sonoma:        "01f5ebe8da18be14b5dd805b27ac5096417e99c65f030aee4610bd5ae8f945d3"
-    sha256 cellar: :any, arm64_linux:   "dfe04855e86297f37ebf11c49a4d92eeca63f36b851e0ff4ef0c11eb2136371f"
-    sha256 cellar: :any, x86_64_linux:  "f873ad8cad9b67e1a8df486e0bcd0388f9387fc0a06d8d0c1aba2bb800e9123c"
+    sha256               arm64_tahoe:   "2658532afda21bbcda52807c463b1efddf2bc1e7d59f7415fd7bd295c72f5d3e"
+    sha256               arm64_sequoia: "9879522c00f5f7eda58b81ea0bc626b4e025a2f5b8ae155ec2699a1312e908aa"
+    sha256               arm64_sonoma:  "6cb18d6c4307825ca4e1db3b420e1e6061d9225ec60baf50d194a5d76c031ff4"
+    sha256 cellar: :any, sonoma:        "9201a38c2614edf8243dc5e3b1734f3c48a359059a5f5dadf1e56472dcf384ea"
+    sha256 cellar: :any, arm64_linux:   "e35875ebf6f9d968b163be1cccd8dc1f2f94ad8efc7f6fb4971f905a9be253cd"
+    sha256 cellar: :any, x86_64_linux:  "acecee779a55db8a3931ff0481c676299dbc887047e177690e60b7e7cec5aed4"
   end
 
   keg_only :provided_by_macos
@@ -87,6 +88,7 @@ class Llvm < Formula
     ]
 
     unless versioned_formula?
+      odie "Remove Z3 solver!" if build.stable? && version >= "24"
       enable_z3 = deps.map(&:name).include?("z3")
       projects << "lldb"
 
@@ -121,6 +123,7 @@ class Llvm < Formula
       -DLLVM_ENABLE_EH=OFF
       -DLLVM_ENABLE_FFI=ON
       -DLLVM_ENABLE_RTTI=ON
+      -DLLVM_INCLUDE_BENCHMARKS=OFF
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INCLUDE_TESTS=OFF
       -DLLVM_INSTALL_UTILS=ON
@@ -155,7 +158,7 @@ class Llvm < Formula
     builtins_cmake_args = []
 
     if OS.mac?
-      macos_sdk = MacOS.sdk_path_if_needed
+      macos_sdk = MacOS.sdk_path
       args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
       args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
 
@@ -176,15 +179,15 @@ class Llvm < Formula
       clt_sdk_support_flags = %w[I WATCH TV].map { |os| "-DCOMPILER_RT_ENABLE_#{os}OS=OFF" }
       builtins_cmake_args += clt_sdk_support_flags
     else
-      args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_include}"
-      args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
+      args << "-DFFI_INCLUDE_DIR=#{formula_opt_include("libffi")}"
+      args << "-DFFI_LIBRARY_DIR=#{formula_opt_lib("libffi")}"
 
       # Disable `libxml2` which isn't very useful.
       args << "-DLLVM_ENABLE_LIBXML2=OFF"
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
       # Enable llvm gold plugin for LTO
-      args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}"
+      args << "-DLLVM_BINUTILS_INCDIR=#{formula_opt_include("binutils")}"
       # Parts of Polly fail to correctly build with PIC when being used for DSOs.
       args << "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"
       runtimes_cmake_args += %w[
@@ -299,7 +302,7 @@ class Llvm < Formula
       if OS.linux?
         # Make sure brewed glibc will be used if it is installed.
         linux_library_paths = [
-          Formula["glibc"].opt_lib,
+          formula_opt_lib("glibc"),
           HOMEBREW_PREFIX/"lib",
         ]
         linux_linker_flags = linux_library_paths.map { |path| "-L#{path} -Wl,-rpath,#{path}" }
@@ -478,42 +481,18 @@ class Llvm < Formula
   # We use the extra layer of indirection in `arch` because the FormulaAudit/OnSystemConditionals
   # doesn't want to let us use `Hardware::CPU.arch` outside of `install` or `post_install` blocks.
   def write_config_files(macos_version, kernel_version, arch)
-    clang_config_file_dir.mkpath
+    require "utils/clang"
 
-    arches = Set.new([:arm64, :x86_64, :aarch64])
-    arches << arch
-
-    sysroot = if macos_version.blank? || MacOS.version > macos_version
-      "#{MacOS::CLT::PKG_PATH}/SDKs/MacOSX.sdk"
-    else
-      "#{MacOS::CLT::PKG_PATH}/SDKs/MacOSX#{macos_version}.sdk"
-    end
-
-    {
-      darwin: kernel_version,
-      macosx: macos_version,
-    }.each do |system, version|
-      arches.each do |target_arch|
-        config_file = "#{target_arch}-apple-#{system}#{version}.cfg"
-        (clang_config_file_dir/config_file).atomic_write <<~CONFIG
-          -isysroot #{sysroot}
-        CONFIG
-      end
-    end
+    Utils::Clang.write_system_config_files(
+      config_dir:     clang_config_file_dir,
+      macos_version:,
+      kernel_version:,
+      arch:,
+    )
   end
 
-  def post_install
-    return unless OS.mac?
-
-    config_files = {
-      darwin: OS.kernel_version.major,
-      macosx: MacOS.version,
-    }.map do |system, version|
-      clang_config_file_dir/"#{Hardware::CPU.arch}-apple-#{system}#{version}.cfg"
-    end
-    return if config_files.all?(&:exist?)
-
-    write_config_files(MacOS.version, OS.kernel_version.major, Hardware::CPU.arch)
+  post_install_steps do
+    configure_clang_system
   end
 
   def caveats
@@ -523,6 +502,9 @@ class Llvm < Formula
 
       LLD is now provided in a separate formula:
         brew install lld
+
+      Z3 solver support will be removed in LLVM 24 as it is unsupported upstream,
+      see https://github.com/llvm/llvm-project/pull/205370
     EOS
 
     on_macos do

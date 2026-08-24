@@ -13,6 +13,7 @@ class Qtmultimedia < Formula
     "GPL-3.0-only", # Qt6MultimediaTestLib
     "MIT",          # bundled signalsmith-stretch (Linux)
   ]
+  revision 2
   compatibility_version 1
   head "https://code.qt.io/qt/qtmultimedia.git", branch: "dev"
 
@@ -21,12 +22,12 @@ class Qtmultimedia < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2af68cbebbb2bb8babe819343cb284f3ff08587f69180d0f889c769f2e4f1eea"
-    sha256 cellar: :any,                 arm64_sequoia: "ed53cf4393ae04cc5dbcdf29e649cb8a966170c0200b9b1185dfdc64e2706c38"
-    sha256 cellar: :any,                 arm64_sonoma:  "99e1ae4a0ca5e8d7f8d1eb0fab56c86083d7d51c255bd9e41ccff0815dbfbe76"
-    sha256 cellar: :any,                 sonoma:        "614b3b3840f64968fc3a0bdb39936e92b26cb9311048cdad89e46ce1d313254e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "115c580ad70d0e64394d5cbb49c297c98cb61391a82419196a95a0521540abfd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2888625da63c9befe8e790d6ae6bbedd4282a9b3457c9500bb98fa2e50faa17f"
+    sha256 cellar: :any, arm64_tahoe:   "947e3d26408c8b66b7bd959e93f34ab0b78038abcbac0fc12b5b4e18dbf775d0"
+    sha256 cellar: :any, arm64_sequoia: "b6716189169e728d1cb0b49c1030477b9c880ef670219c797e97baf26e21dc69"
+    sha256 cellar: :any, arm64_sonoma:  "3ce64000ecb049c693b4411578a02da4eb729d77d7b55d4889b11e35d9f46167"
+    sha256 cellar: :any, sonoma:        "7bd552448a559c538272bf41ec1a5873872ff4c870e8a1516d716b9a81fda65a"
+    sha256 cellar: :any, arm64_linux:   "5a1820a127c4e61698738c6e04fced0538eae5ddea2e9c92801382422a63a668"
+    sha256 cellar: :any, x86_64_linux:  "7e47654ff71ef237b73ad23abf20e9b50dd0471923773a83279de377f389457f"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -62,6 +63,11 @@ class Qtmultimedia < Formula
   conflicts_with "qt@5", because: "both link conflicting binaries"
 
   def install
+    # Allow -march options to be passed through, as Qt builds
+    # arch-specific code with runtime detection of capabilities:
+    # https://bugreports.qt.io/browse/QTBUG-113391
+    ENV.runtime_cpu_detection
+
     args = ["-DCMAKE_STAGING_PREFIX=#{prefix}"]
     if OS.mac?
       args << "-DQT_FEATURE_ffmpeg=OFF"

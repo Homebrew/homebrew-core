@@ -5,6 +5,7 @@ class Glslviewer < Formula
     tag:      "3.5.2",
     revision: "edb58380ba8523d32e72966d0d0508ba78c28ffd"
   license "BSD-3-Clause"
+  revision 1
   version_scheme 1
   head "https://github.com/patriciogonzalezvivo/glslViewer.git", branch: "main"
 
@@ -14,12 +15,12 @@ class Glslviewer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5f1579f56c5a86e383914f713e890eac7d18f78389edee0b66343a42ea8fa462"
-    sha256 cellar: :any,                 arm64_sequoia: "79ba95dd1db4c757f3fbbac82965bebaaa59296e9642d852068132435bd8b0c2"
-    sha256 cellar: :any,                 arm64_sonoma:  "ad1602c476e6866b3f9b482a2e499ddd98ec4e5c4c8a73aa92e49f0d086e77c7"
-    sha256 cellar: :any,                 sonoma:        "db23b8590ebdbbbeed58dfd817ab2d52a3a838abf18e740ea55d330c8016f535"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a33b5a5f882330cd436aed165045841b8a84f6f627fc56c270f032c5035f50ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4df83c750277d08f1b53aa5aa065e2d35075c122ec34dc8568e441ab06bbad2"
+    sha256 cellar: :any, arm64_tahoe:   "ef4a5d219028d7ea4a08bf1a050e3c67f20c78a24eebe767b740528868659cfb"
+    sha256 cellar: :any, arm64_sequoia: "95ed442adc21687a48ea4013dc18894dd52969bc67278275f406bc153cb2fe18"
+    sha256 cellar: :any, arm64_sonoma:  "b25427a43b2278f8c59d649c692d6e95d9fd9955b8ff2cce72e7f11bb6a6e1b1"
+    sha256 cellar: :any, sonoma:        "2e59c5551318183fbecf74205826837c759bbd7a6f1bfa366fa7ed2b89b852f0"
+    sha256 cellar: :any, arm64_linux:   "42508b4a7db0c548b63214c56007ef10b14da631632f6c8873486004be6e3905"
+    sha256 cellar: :any, x86_64_linux:  "044cdd2f70fed82506cb21b420e1898f582519049aa03cb6e198a41bca222b71"
   end
 
   depends_on "cmake" => :build

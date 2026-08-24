@@ -46,8 +46,8 @@ class Librsvg < Formula
   end
 
   def install
-    gdk_pixbuf_moduledir = Formula["gdk-pixbuf"].opt_lib.glob("gdk-pixbuf-*/*/loaders").fetch(0)
-    gdk_pixbuf_moduledir = prefix/gdk_pixbuf_moduledir.relative_path_from(Formula["gdk-pixbuf"].opt_prefix)
+    gdk_pixbuf_moduledir = formula_opt_lib("gdk-pixbuf").glob("gdk-pixbuf-*/*/loaders").fetch(0)
+    gdk_pixbuf_moduledir = prefix/gdk_pixbuf_moduledir.relative_path_from(formula_opt_prefix("gdk-pixbuf"))
 
     # Set `RPATH` since `cargo-c` doesn't seem to.
     rpath_flags = [rpath, rpath(source: gdk_pixbuf_moduledir)].map { |rp| "-rpath,#{rp}" }
@@ -73,7 +73,7 @@ class Librsvg < Formula
   end
 
   post_install_steps do
-    gdk_pixbuf_query_loaders
+    update_gdk_pixbuf_loaders_cache
   end
 
   test do

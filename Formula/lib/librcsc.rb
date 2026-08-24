@@ -1,18 +1,17 @@
 class Librcsc < Formula
   desc "RoboCup Soccer Simulator library"
   homepage "https://github.com/helios-base/librcsc"
-  url "https://github.com/helios-base/librcsc/archive/refs/tags/rc2024.tar.gz"
-  sha256 "81a3f86c9727420178dd936deb2994d764c7cd4888a2150627812ab1b813531b"
+  url "https://github.com/helios-base/librcsc/archive/refs/tags/rc2026.tar.gz"
+  sha256 "876d2903eace3f46be3a91b184ccce96a7885c73903c0e73d52cf0df3d79b9d5"
   license "LGPL-3.0-or-later"
-  revision 6
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "58bba310c7abcb9a65a3193bc1b9b2cf93ec27c7b5291dcfa17f1d8b4d0e3a46"
-    sha256 cellar: :any,                 arm64_sequoia: "a88635fe96fcd19aeb4ca66fbb6b3f92303ac151129b7b76cea00af23e02c271"
-    sha256 cellar: :any,                 arm64_sonoma:  "ef3a0f46cfc44eb09becdf11483aff810ab565236d3931a72960a9e72507e633"
-    sha256 cellar: :any,                 sonoma:        "2ce74234bcc5bb8cbfa54308536f440a94823aeb4e9b33a459f5585d204e903b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "50815b0242db98f4ec164f83332898aa7524da22e974ad69371c1be7cf31e0ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9aba2e1ff156cea48ad4e8d3999c060e07a2ae6c5457bc49fc93d97e50bd4ed"
+    sha256 cellar: :any, arm64_tahoe:   "22e97da85a53bb46ae2e25a3b8a26e067c9d67ad48ec5e3733e4d8f2cf6c279a"
+    sha256 cellar: :any, arm64_sequoia: "ae48b5d96ab1d195aa015a6ba7f7b5e9248c3280c0e985b6805432289c11b406"
+    sha256 cellar: :any, arm64_sonoma:  "b4caa311ede10c91c77ae087097b639442acbb38342dbf8c5683e2181f009c37"
+    sha256 cellar: :any, sonoma:        "312f196b314dca9fe928353821cb17c5928a10c98b26884c9c8630eedc72b83d"
+    sha256 cellar: :any, arm64_linux:   "e7589456904f712bfdb879416b96017c03587a6698bd785807b3a57e9b0c30ba"
+    sha256 cellar: :any, x86_64_linux:  "516e9f063d5110fbd7c9551f30ff732a1e6e9d05137a5f7ae3d885586b4c1ba0"
   end
 
   depends_on "autoconf" => :build
@@ -24,13 +23,6 @@ class Librcsc < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
-  end
-
-  # Add missing header to fix build on Monterey
-  # Issue ref: https://github.com/helios-base/librcsc/issues/88
-  patch do
-    url "https://github.com/helios-base/librcsc/commit/3361f89cf9bb99239a7483783b86de1648d5f359.patch?full_index=1"
-    sha256 "cd9df87f8f8dd0c7e3dd0a0bf325b9dd66f8ba9e42cb0e6fab230872dc5ce243"
   end
 
   # Unbundle simdjson
@@ -49,7 +41,7 @@ class Librcsc < Formula
 
     system "./bootstrap"
     system "./configure", "--disable-silent-rules",
-                          "--with-boost=#{Formula["boost"].opt_prefix}",
+                          "--with-boost=#{formula_opt_prefix("boost")}",
                           *boost_workaround,
                           *std_configure_args
     system "make", "install"

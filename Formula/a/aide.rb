@@ -39,6 +39,8 @@ class Aide < Formula
 
   conflicts_with cask: "aide-app"
 
+  deny_network_access!
+
   def install
     # use sdk's strnstr instead
     ENV.append_to_cflags "-DHAVE_STRNSTR"

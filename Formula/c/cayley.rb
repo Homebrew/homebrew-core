@@ -36,7 +36,6 @@ class Cayley < Formula
       system "go", "run", "github.com/gobuffalo/packr/v2/packr2"
 
       ldflags = %W[
-        -s -w
         -X github.com/cayleygraph/cayley/version.Version=#{version}
         -X github.com/cayleygraph/cayley/version.GitHash=#{Utils.git_short_head}
       ]
@@ -52,12 +51,10 @@ class Cayley < Formula
     end
   end
 
-  def post_install
-    unless File.exist? var/"cayley"
-      (var/"cayley").mkpath
-
-      # Initialize the database
-      system bin/"cayley", "init", "--config=#{etc}/cayley.yml"
+  post_install_steps do
+    unless_path_exists "cayley", base: :var do
+      mkdir_p "cayley", base: :var
+      run "cayley", args: ["init", "--config={{etc}}/cayley.yml"], base: :bin
     end
   end
 

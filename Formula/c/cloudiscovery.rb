@@ -149,6 +149,8 @@ class Cloudiscovery < Formula
   patch do
     url "https://github.com/Cloud-Architects/cloudiscovery/commit/905c1dc15812000dc7ed2beb9d5193bd6bbe6131.patch?full_index=1"
     sha256 "7a75658504faa46ad9c5424a836d7a1df25e56b64bec88d57ccddf7c06025d5d"
+    type :unofficial
+    resolves "https://github.com/Cloud-Architects/cloudiscovery/pull/192"
   end
 
   def install

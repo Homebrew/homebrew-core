@@ -1,24 +1,24 @@
 class McpPublisher < Formula
   desc "Publisher CLI tool for the Official Model Context Protocol (MCP) Registry"
   homepage "https://github.com/modelcontextprotocol/registry"
-  url "https://github.com/modelcontextprotocol/registry/archive/refs/tags/v1.7.9.tar.gz"
-  sha256 "1347619339d3e6ecbbe4d17a4503bc331da17122a00a3d804eaf26898f40ea47"
+  url "https://github.com/modelcontextprotocol/registry/archive/refs/tags/v1.8.1.tar.gz"
+  sha256 "e9de5b2fb214a2a7f4da80d4a795d20b5918ca819c441c10b8e3aa109617f004"
   license "MIT"
   head "https://github.com/modelcontextprotocol/registry.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "37792e8554ad120a2c1ee3db5a4854042af66ced363ccd506a3dedc44c7189f2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "37792e8554ad120a2c1ee3db5a4854042af66ced363ccd506a3dedc44c7189f2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "37792e8554ad120a2c1ee3db5a4854042af66ced363ccd506a3dedc44c7189f2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e4de96faa7eba89f45ba13373f578823c7b11159083a861f91302bb8b90afaed"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "618d321d7403a818d65d006a4efe27da8c038b73fe699de151e3bd1b7344a4f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b262e2e7bff8a0400d3df2e3878e65d93e10c52cf36574ef04a604ceed431c58"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c1ab02af45e7054a0104ab6fdfdc682b685aa94c873d3c18e91d9dc561d068c6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1ab02af45e7054a0104ab6fdfdc682b685aa94c873d3c18e91d9dc561d068c6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c1ab02af45e7054a0104ab6fdfdc682b685aa94c873d3c18e91d9dc561d068c6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4951d39d8d9476e78206616b639216ab1a5a029357d0b96cb1a784ce0c3efaa2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0306032369607e8ef425fd5461b2e1fae0b8c5151485eaab6844045bf18f81c0"
+    sha256 cellar: :any,                 x86_64_linux:  "ec4115143e7155829f3f8cfea82db317c21b73238c8852234b59a14df7b6e3a1"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.Version=#{version} -X main.GitCommit=#{tap.user} -X main.BuildTime=#{time.iso8601}"
+    ldflags = "-X main.Version=#{version} -X main.GitCommit=#{tap.user} -X main.BuildTime=#{time.iso8601}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/publisher"
   end
 

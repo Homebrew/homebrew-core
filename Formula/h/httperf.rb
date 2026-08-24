@@ -11,8 +11,7 @@ class Httperf < Formula
     # Upstream patch for OpenSSL 1.1 compatibility
     # https://github.com/httperf/httperf/pull/48
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/httperf/openssl-1.1.diff"
-      sha256 "69d5003f60f5e46d25813775bbf861366fb751da4e0e4d2fe7530d7bb3f3660a"
+      file "Patches/httperf/openssl-1.1.diff"
     end
   end
 

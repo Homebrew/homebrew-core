@@ -19,7 +19,7 @@ class GitGet < Formula
   depends_on "go-md2man" => :build
 
   def install
-    ldflags = "-s -w -X git-get/pkg/cfg.version=#{version}"
+    ldflags = "-X git-get/pkg/cfg.version=#{version}"
     system "go", "build", *std_go_args(ldflags:, output: bin/"git-get"), "./cmd"
     bin.install_symlink "git-get" => "git-list"
 

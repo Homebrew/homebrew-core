@@ -1,22 +1,22 @@
 class Speech < Formula
   desc "On-device speech toolkit for Apple Silicon: ASR, TTS, VAD, diarization"
   homepage "https://soniqo.audio"
-  url "https://github.com/soniqo/speech-swift/archive/refs/tags/v0.0.21.tar.gz"
-  sha256 "c276f02ecc707c49f099c3ef4d2dd0239b90928ffc9e015be10b1a94f908ef97"
+  url "https://github.com/soniqo/speech-swift/archive/refs/tags/v0.0.26.tar.gz"
+  sha256 "2f158806c4e9670489c939bb988a3cd03d9c92dbcdd782296922e9f9544a0bde"
   license "Apache-2.0"
   head "https://github.com/soniqo/speech-swift.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6ecfef805c68d043ffde035569faf03e9e94a171b2a489613ea3a56e5e78448f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2562cad0d8108b4f5bd5756304bf8d1de827b234f79a6bfbc3ed417eecd6c4c9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "130fcb8f18f84e65e251a4c610f93cb08bfb5d482acc2ce389e43213f3904c03"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b8967e440fd098397f30391fb30896a6583432c183a3b4c057958f8851b12955"
   end
 
-  depends_on xcode: ["16.0", :build]
+  depends_on xcode: ["16.3", :build]
   depends_on arch: :arm64
   depends_on macos: :sequoia
 
   def install
-    system "swift", "build", "-c", "release", "--disable-sandbox"
+    system "swift", "build", *std_swift_args
     system "./scripts/build_mlx_metallib.sh", "release"
 
     %w[speech speech-server].each do |name|
@@ -24,10 +24,12 @@ class Speech < Formula
       bin.write_exec_script libexec/name
     end
     libexec.install ".build/release/mlx.metallib"
-    libexec.install ".build/release/Qwen3Speech_KokoroTTS.bundle"
+    libexec.install Dir[".build/release/*.bundle"]
   end
 
   test do
+    assert_match "--model", shell_output("#{bin}/speech voice-chat --help")
+
     # Error path: nonexistent input triggers the audio-loading code path and
     # the binary exits non-zero with a CoreAudio error message.
     output = shell_output("#{bin}/speech transcribe /nonexistent.wav 2>&1", 1)

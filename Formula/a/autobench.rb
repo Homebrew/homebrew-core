@@ -1,15 +1,10 @@
 class Autobench < Formula
   desc "Automatic webserver benchmark tool"
-  homepage "http://www.xenoclast.org/autobench/"
+  homepage "https://web.archive.org/web/20260501190636/http://www.xenoclast.org/autobench/"
   url "https://distfiles.macports.org/autobench/autobench-2.1.2.tar.gz"
   mirror "http://www.xenoclast.org/autobench/downloads/autobench-2.1.2.tar.gz"
   sha256 "d8b4d30aaaf652df37dff18ee819d8f42751bc40272d288ee2a5d847eaf0423b"
   license "GPL-2.0-or-later"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?autobench[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3647ac7b205e7a115aae29fc33d72dc21ab5465b98081711240899fdbde2c096"
@@ -26,6 +21,10 @@ class Autobench < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "480b1dd43d675961961fe91a4d1f6fd39ba7a4187127d51fa177a694856f0b7e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f33306a0edae89cab46f98344c30feeab7a3d9d03e1d6c21e578720c8cac794f"
   end
+
+  # Last activity in 2012. Homepage is no longer available.
+  deprecate! date: "2026-06-30", because: :unmaintained
+  disable! date: "2026-09-30", because: :unmaintained
 
   depends_on "httperf"
 

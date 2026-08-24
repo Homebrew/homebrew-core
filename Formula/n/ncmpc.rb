@@ -1,10 +1,9 @@
 class Ncmpc < Formula
   desc "Curses Music Player Daemon (MPD) client"
   homepage "https://www.musicpd.org/clients/ncmpc/"
-  url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.52.tar.xz"
-  sha256 "3af225496fe363a8534a9780fb46ae1bd17baefd80cf4ba7430a19cddd73eb1a"
+  url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.54.tar.xz"
+  sha256 "f678e6c600200af4c5d36174de4e1e82e423962c41b6f52844a25d6d1ec4cb11"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://www.musicpd.org/download/ncmpc/0/"
@@ -12,12 +11,12 @@ class Ncmpc < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "79925b06f7a4619e7e1e062db3ce4cac42646b6e3152de52554cad995969cbe1"
-    sha256 arm64_sequoia: "0f280c690e83b4c4d4cb20aca9084c5bbcafb8046ac0c90b524f001ca4a45fcf"
-    sha256 arm64_sonoma:  "4047ec4992db95e0b22057f9164dfcbbf69104d765674f62d5acb502e56c61e2"
-    sha256 sonoma:        "57f3acdb57163d256a7470b702b6630cf79585c84822cfc6b1d10784c18a8fcc"
-    sha256 arm64_linux:   "40bc8c01c1dfcd01f160e9ee0286225a681ebcf2962a47d820137d54a5bc50c8"
-    sha256 x86_64_linux:  "8244e48ef47afc6f03c012409429e6fd1c2c8631a53a197d31b0df9ac88a7628"
+    sha256 arm64_tahoe:   "01f27e1ff0a2f605890c0173ad0b85a898c8d6a51596d5be1dd2e89fc485d9c3"
+    sha256 arm64_sequoia: "945ee2a8f5973177f18a5b99802874d267edb9babc287b2b5620d3d24fc6efb0"
+    sha256 arm64_sonoma:  "98abc7f9c86e2b88b2f0bc3b31acfe469819d2239206630084fa2baebba5f522"
+    sha256 sonoma:        "b29421ee05719bc3ff95bee08d23a9536a05287d2beef8dcdadb75cfdfe90b28"
+    sha256 arm64_linux:   "190d8bd3e1cf22bf5b4dcb3f652aadc20f0f69a010a784a3f30a2adc5ca3974f"
+    sha256 x86_64_linux:  "b206451d9cd88eb6487f0483c8bee838331619bc2c5e6eec8b41222ce6132337"
   end
 
   depends_on "boost" => :build
@@ -40,6 +39,8 @@ class Ncmpc < Formula
     patch do
       url "https://github.com/MusicPlayerDaemon/ncmpc/commit/af478b5ba2447592c640c5b7f86c47d9a412c639.patch?full_index=1"
       sha256 "193f6c3192ba39974a2f1ef4935c623d58e0614f9978b2e6545c6231fd5ffdb5"
+      type :unofficial
+      resolves "https://github.com/MusicPlayerDaemon/ncmpc/pull/160"
     end
   end
 
@@ -54,6 +55,9 @@ class Ncmpc < Formula
   end
 
   def install
+    # Apple Clang 16 rejects `constexpr` with `reinterpret_cast` (P2448 needs LLVM 17), e.g. GetSteadyPart()
+    ENV.append "CXXFLAGS", "-Wno-invalid-constexpr" if OS.mac? && DevelopmentTools.clang_build_version < 1700
+
     system "meson", "setup", "build", "-Dcolors=false", "-Dnls=enabled", "-Dregex=enabled", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"

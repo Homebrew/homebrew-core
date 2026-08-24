@@ -1,21 +1,18 @@
 class Serf < Formula
   desc "Service orchestration and management tool"
   homepage "https://github.com/hashicorp/serf"
-  url "https://github.com/hashicorp/serf/archive/refs/tags/v0.10.2.tar.gz"
-  sha256 "bcccbf847024af099e164faf6d6d111345edf166eb24e53e3ccc7f37d6e281a1"
+  url "https://github.com/hashicorp/serf/archive/refs/tags/v0.10.4.tar.gz"
+  sha256 "14b667203f34dd0a2cb54fcf863cd91799268f8b20230ad893fc36c23a1c7a00"
   license "MPL-2.0"
   head "https://github.com/hashicorp/serf.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2901eb9d2de6b46caefd9bf736b479a4fdbde4f83856c4c57bc114411a332134"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "13e3b04200c7af32b917a447452939a6dbf82ebc40e7937465e4150c2fa2418d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "13e3b04200c7af32b917a447452939a6dbf82ebc40e7937465e4150c2fa2418d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "13e3b04200c7af32b917a447452939a6dbf82ebc40e7937465e4150c2fa2418d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d6d6ae5c6519299a5066731b9a37a7503453400849633423839d85cdf80e7d98"
-    sha256 cellar: :any_skip_relocation, ventura:       "d6d6ae5c6519299a5066731b9a37a7503453400849633423839d85cdf80e7d98"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8a687881da8ed7915ff023c57afcbece681a54dd3c9a267df6d3c849db209de2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd73aa1d5303d52c424bb871db029524e8f64619c0aa0dfd1bccde4f9d023211"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "405fa10a1160c4be7af2b49daf1e8695ec698e8083c989fbe1681b75ddc70278"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "405fa10a1160c4be7af2b49daf1e8695ec698e8083c989fbe1681b75ddc70278"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "405fa10a1160c4be7af2b49daf1e8695ec698e8083c989fbe1681b75ddc70278"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fbcde3482f611e66d3a4c341b3831881a9003f071f2a2bf6e1646598188b2595"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cbdfdf4b95ef7c5cc9ce92e8bd465b7c950d74656e3ab0c1e93e409886db705d"
+    sha256 cellar: :any,                 x86_64_linux:  "4259471cae03202c99b8a6368dea5bc3772c513753c990380013a2a7cdcb6764"
   end
 
   depends_on "go" => :build
@@ -24,7 +21,6 @@ class Serf < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/hashicorp/serf/version.Version=#{version}
       -X github.com/hashicorp/serf/version.VersionPrerelease=
     ]

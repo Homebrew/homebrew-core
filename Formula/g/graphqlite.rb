@@ -62,6 +62,6 @@ class Graphqlite < Formula
           RETURN fof.name
       ');
     SQL
-    assert_match '{"fof.name": "Charlie"}', pipe_output("#{Formula["sqlite"].opt_bin}/sqlite3", sql)
+    assert_match '{"fof.name": "Charlie"}', pipe_output("#{formula_opt_bin("sqlite")}/sqlite3", sql)
   end
 end

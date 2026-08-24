@@ -1,20 +1,19 @@
 class Muon < Formula
   desc "Meson-compatible build system"
   homepage "https://muon.build"
-  url "https://git.sr.ht/~lattis/muon/archive/0.5.0.tar.gz"
-  sha256 "565c1b6e1e58f7e90d8813fda0e2102df69fb493ddab4cf6a84ce3647466bee5"
+  url "https://git.sr.ht/~lattis/muon/archive/0.6.0.tar.gz"
+  sha256 "5300e58c4b4d43e3026856004c79d746075aaa9d9e66d76ba9f32ce249495b81"
   license "GPL-3.0-only"
+  revision 1
   head "https://git.sr.ht/~lattis/muon", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "ee83480a39f996d669a98cec8b764ae5411b5ffb22ba81c2576a529a90d45f82"
-    sha256 cellar: :any, arm64_sequoia: "830db56ee195c9fc5541176c4ff9abaf02e255440879c089f66e91582c720915"
-    sha256 cellar: :any, arm64_sonoma:  "34a03c29eafa2fed72cd8f065b6339b562019e3a84a7d1455be2b4748c6cb57d"
-    sha256 cellar: :any, arm64_ventura: "fc1623b314de7b4d3e138d0bed0fe271ae2da205eb032bc5da2462bd6927d318"
-    sha256 cellar: :any, sonoma:        "7b84b3449e6fab539f2a740c055419775388cf9155711adf63c88f3fe140d0ad"
-    sha256 cellar: :any, ventura:       "525804c85af78bda0109ba747ec613d6089312f9bc4d157d2fd1b0dde86c9d71"
-    sha256               arm64_linux:   "23221d5b0b3fe07ec7510852ed6cd065326204d26b95bd2ac254d07507cdd07b"
-    sha256               x86_64_linux:  "333c9fadf69b0e182ccca75f781c8017e5a5dbc2f0bde8924f6e59b0b1a47ac5"
+    sha256 cellar: :any, arm64_tahoe:   "9bce6352af4d970a3b54f28a21601f5348a15a564d5e7533c2ee1fcac824573a"
+    sha256 cellar: :any, arm64_sequoia: "19129ebd38d6de26680e50a50aa89535456ac8b1b2fa45c99114849541292f2b"
+    sha256 cellar: :any, arm64_sonoma:  "a6c7d5852da7a68dafb411b8c8e87e651151eb1bfbd35cefd4ce0a3750a0d13c"
+    sha256 cellar: :any, sonoma:        "38d553b4ccd78ae8c5f46aef7a36f4262771b3e4a7642a57bdc72ca8402714e7"
+    sha256               arm64_linux:   "40dce766e246b6c82ebd7980f023919acf99e33d84a55fde0c2fe1597f0e8570"
+    sha256               x86_64_linux:  "ca66c70c23f9b9f31826d84de3bd608e7c6ee576695f9249b35ad3b33a189464"
   end
 
   depends_on "meson" => :build
@@ -24,6 +23,11 @@ class Muon < Formula
   depends_on "pkgconf"
 
   uses_from_macos "curl"
+
+  # Build against the libpkgconf 3.0.0 API (pkgconf_client_init args; tuple_find -> variable_eval_name)
+  # https://lists.sr.ht/~lattis/muon/patches/70538
+  # https://todo.sr.ht/~lattis/muon/145
+  patch :DATA
 
   def install
     args = %w[
@@ -35,7 +39,6 @@ class Muon < Formula
       -Dlibpkgconf=enabled
       -Dsamurai=disabled
       -Dtracy=disabled
-      --force-fallback-for=tinyjson
     ]
 
     system "meson", "setup", "build", *args, *std_meson_args
@@ -63,3 +66,35 @@ class Muon < Formula
     assert_equal "hi", shell_output("build/hello").chomp
   end
 end
+
+__END__
+diff --git a/src/external/pkgconfig_libpkgconf.c b/src/external/pkgconfig_libpkgconf.c
+index ee4697fe..c58c3cdf 100644
+--- a/src/external/pkgconfig_libpkgconf.c
++++ b/src/external/pkgconfig_libpkgconf.c
+@@ -40,7 +40,11 @@ muon_pkgconf_init(struct workspace *wk, struct pkgconf_client *c, enum machine_k
+ {
+ 	TracyCZoneAutoS;
+ 	c->personality = pkgconf_cross_personality_default();
+-	pkgconf_client_init(&c->client, error_handler, NULL, c->personality);
++	pkgconf_client_init(&c->client, error_handler, NULL, c->personality
++#if defined(LIBPKGCONF_VERSION) && LIBPKGCONF_VERSION >= 20991
++		, NULL, NULL
++#endif
++	);
+
+ 	struct obj_array *pkg_config_path;
+ 	{
+@@ -263,7 +267,11 @@ apply_variable(pkgconf_client_t *client, pkgconf_pkg_t *world, void *_ctx, int m
+ 	pkgconf_pkg_t *pkg = dep->match;
+
+ 	if (pkg != NULL) {
++#if defined(LIBPKGCONF_VERSION) && LIBPKGCONF_VERSION >= 20995
++		var = pkgconf_variable_eval_name(client, &pkg->vars, ctx->var);
++#else
+ 		var = pkgconf_tuple_find(client, &pkg->vars, ctx->var);
++#endif
+ 		if (var != NULL) {
+ 			*ctx->res = make_str(ctx->wk, var);
+ 			found = true;
+

@@ -4,7 +4,7 @@ class Zbar < Formula
   url "https://linuxtv.org/downloads/zbar/zbar-0.23.93.tar.bz2"
   sha256 "83be8f85fc7c288fd91f98d52fc55db7eedbddcf10a83d9221d7034636683fa0"
   license "LGPL-2.1-only"
-  revision 2
+  revision 4
 
   livecheck do
     url :homepage
@@ -12,14 +12,13 @@ class Zbar < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "cc7a5ed357e5cbfed0707cbaf736d9519473252cffa52dff1a449640be47a9af"
-    sha256 arm64_sequoia: "fe42da9d30318b93a75645b76806c1ffe684db56c7f6c0e608c718f9cc7f8f37"
-    sha256 arm64_sonoma:  "c6a2988931330f8b9330b259d53096e58b25c9c54a3dc167688774412f885993"
-    sha256 arm64_ventura: "22dcfaed8be4e8e396d6e7f6ca5b9dafc04d83e16c78674a665c0742ba9c0c67"
-    sha256 sonoma:        "63ecefc21c58f41dcc73346b81fd1defabf3f2db855ec4a18fd0b63ec0cd5326"
-    sha256 ventura:       "420f056fecb135dd17684d4f7c62825368e2a0a52df6aabbaaf9823c819d6ba6"
-    sha256 arm64_linux:   "53a60318800d01d8d5571cd82ada66c60dc14a7c739c5f4810358dbbbcbcd649"
-    sha256 x86_64_linux:  "ecb7269a350f91339a4c6c05d014e27f38311431e54e948fa575aacb2056f03e"
+    rebuild 1
+    sha256 arm64_tahoe:   "b4deb14c35eead04e9aba7f9f8bf990e8adb3987efd2f721c8a600bcb8c91ba1"
+    sha256 arm64_sequoia: "1dc038ef320116fc0189292e46e6b1849df3caf33c45e53e2861a804c9a8986f"
+    sha256 arm64_sonoma:  "427a79a4f97bdf6e67de3feb529981a962e26b11003ddcc8ee7b4b0fd530d52b"
+    sha256 sonoma:        "69272a54a24e5899c18a2f1eb6d631528fcc12ffe29f0170d8d9b984aa7f6f81"
+    sha256 arm64_linux:   "0f702ac6c4a6c3fce3fc6cfaa596b7d80b7858dce5e67e7a39205c893f2bf09e"
+    sha256 x86_64_linux:  "9bd3a7733de4b5c4b15d7a1b8de0450a2176bcea9b995a0203f31cb8d5d3b722"
   end
 
   head do
@@ -52,8 +51,20 @@ class Zbar < Formula
     depends_on "dbus"
   end
 
+  # Fix pointer wrap-around UB that SIGSEGVs zbarimg on images taller than 1px with newer Clang.
+  patch do
+    url "https://github.com/mchehab/zbar/commit/3fa414aa82375648635281924904557cbe4d2d83.patch?full_index=1"
+    sha256 "580ba483ea402dfbd9c5ea5f7459e6f531f4b61a644eddb74196d31552e2926c"
+    type :unofficial
+    resolves "https://github.com/mchehab/zbar/pull/299"
+  end
+
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+
+    # zbar uses gettext but upstream only links libintl on Windows, and the
+    # newer macOS linker no longer resolves it transitively. Link it explicitly.
+    ENV.append "LDFLAGS", "-lintl" if OS.mac?
 
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
 
@@ -65,9 +76,14 @@ class Zbar < Formula
                           "--without-x",
                           *std_configure_args
     system "make", "install"
+
+    pkgshare.install "examples/qr-code.png"
   end
 
   test do
-    system bin/"zbarimg", "-h"
+    assert_match version.to_s, shell_output("#{bin}/zbarimg --version")
+
+    output = shell_output("#{bin}/zbarimg -1 #{pkgshare}/qr-code.png 2>/dev/null")
+    assert_match "QR-Code:https://github.com/mchehab/zbar", output
   end
 end

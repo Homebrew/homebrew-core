@@ -46,7 +46,7 @@ class GnomeThemesExtra < Formula
 
   def install
     # To find gtk-update-icon-cache
-    ENV.prepend_path "PATH", Formula["gtk+"].opt_libexec
+    ENV.prepend_path "PATH", formula_opt_libexec("gtk+")
     system "./configure", "--disable-gtk3-engine",
                           "--disable-silent-rules",
                           *std_configure_args

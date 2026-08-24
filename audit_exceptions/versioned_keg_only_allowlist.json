@@ -42,6 +42,5 @@
   "python-tk@3.12",
   "python-tk@3.13",
   "python-tk@3.14",
-  "spidermonkey@115",
   "wxwidgets@3.2"
 ]

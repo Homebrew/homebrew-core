@@ -4,23 +4,15 @@ class Libcddb < Formula
   url "https://downloads.sourceforge.net/project/libcddb/libcddb/1.3.2/libcddb-1.3.2.tar.bz2"
   sha256 "35ce0ee1741ea38def304ddfe84a958901413aa829698357f0bee5bb8f0a223b"
   license "LGPL-2.0-or-later"
-  revision 4
+  revision 5
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:    "6324ea57171157edaca9aa78bbc30d5bc2389a5b9357bd8929a71bbdb7800720"
-    sha256 cellar: :any,                 arm64_sequoia:  "eef9f2fe8b5a7994d21a6b2f53103e6a85b116c94c5f7bf69aa1f990a14c30d5"
-    sha256 cellar: :any,                 arm64_sonoma:   "a12e153d3e00e99bbd7ccde361edd5ae2a1bf7aba9fa24c86478181d246385a8"
-    sha256 cellar: :any,                 arm64_ventura:  "6955c8dbcc4de9ca756070ac11c0ea5da3d873f974d53b477bda94a09835f388"
-    sha256 cellar: :any,                 arm64_monterey: "f12def876ae4aef3aed938fea3342da5eefd80ee164c05926b4bac8b7ea9d93a"
-    sha256 cellar: :any,                 arm64_big_sur:  "5c01ee6149ed61a23ad7d8a2c09250fedf3b605638552fe82057cf77b0ac61f1"
-    sha256 cellar: :any,                 sonoma:         "ffd7868a8476a26e39995963a2732f1b9737052a0b6e3c4bb18bfee923617742"
-    sha256 cellar: :any,                 ventura:        "6756f179196e583816d73f558fe1dcf52a98406895d4f8402b51e993f49d3bd9"
-    sha256 cellar: :any,                 monterey:       "134c99dc37719b7fbb915c17afcc5e9f08256ba2ecd295f3f0375d69f764dd8e"
-    sha256 cellar: :any,                 big_sur:        "e19fbf67a440482346f40076ceae29a8b72590ef1376e6c5454d9f7814984e3b"
-    sha256 cellar: :any,                 catalina:       "ca3cb9caeed526ef59a167293871d7b739c2ee6271571225dd1640f4af101140"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "2f420c361caf0d48657e9f488aab6fcb7abc5929b7c24e05494952b2c24bcb44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a96b2ab16f2b983fa13921bc81d7b368a594620efd857d84ee8fb1667a18799d"
+    sha256 cellar: :any, arm64_tahoe:   "f0a1bd45cdf2b26cc99ab0206abb9cbbe41f2d76b7f15e19be180a4d36c46291"
+    sha256 cellar: :any, arm64_sequoia: "88b9e48b5e68d994010a18cfda8862b7bd561c85814e23d01fdb3384a3da3951"
+    sha256 cellar: :any, arm64_sonoma:  "a3d83ba8561cabef84fb98eb97f270aea3770da1420ba460267faa6fb47864d6"
+    sha256 cellar: :any, sonoma:        "1d0899b18cfd4aa5c68b5378d7b13a18d8dc2dea9ce43c8cb32bce3016800a9a"
+    sha256 cellar: :any, arm64_linux:   "e948881758d30afcd4fce9291384cf3d669534a1fdabea6edcaf1372a98eb659"
+    sha256 cellar: :any, x86_64_linux:  "21fb0f06d53ff95e28280df8a7f49d9614e98e3ae62d44f6e2bc0e2a4cfd5053"
   end
 
   depends_on "pkgconf" => :build

@@ -40,7 +40,6 @@ class QtAT5 < Formula
   disable! date: "2027-05-19", because: :unsupported
 
   depends_on "pkgconf" => :build
-  depends_on xcode: :build
   depends_on "freetype"
   depends_on "glib"
   depends_on "jpeg-turbo"
@@ -56,6 +55,7 @@ class QtAT5 < Formula
   uses_from_macos "krb5"
 
   on_macos do
+    depends_on xcode: :build
     depends_on "gettext"
   end
 
@@ -77,7 +77,7 @@ class QtAT5 < Formula
     depends_on "libxkbcommon"
     depends_on "mesa"
     depends_on "pulseaudio"
-    depends_on "sdl2"
+    depends_on "sdl2-compat"
     depends_on "systemd"
     depends_on "wayland"
     depends_on "xcb-util-image"
@@ -99,28 +99,32 @@ class QtAT5 < Formula
       url "https://invent.kde.org/qt/qt/qtlocation-mapboxgl/-/commit/35d566724c48180c9a372c2ed50a253871a51574.diff"
       sha256 "9e61d46c0a8ae39903cbcbb228e384f2878a06e50448f3bba60ec65fe2890081"
       directory "qtlocation/src/3rdparty/mapbox-gl-native"
+      type :cherry_pick
     end
   end
 
   # Fix build with Xcode 14.3.
-  # https://bugreports.qt.io/browse/QTBUG-112906
   patch do
     url "https://invent.kde.org/qt/qt/qtlocation-mapboxgl/-/commit/5a07e1967dcc925d9def47accadae991436b9686.diff"
     sha256 "4f433bb009087d3fe51e3eec3eee6e33a51fde5c37712935b9ab96a7d7571e7d"
     directory "qtlocation/src/3rdparty/mapbox-gl-native"
+    type :cherry_pick
+    resolves "https://bugreports.qt.io/browse/QTBUG-112906"
   end
 
   # Fix build with Xcode 26 with backport from Qt6
   # https://github.com/qt/qtbase/commit/cdb33c3d5621ce035ad6950c8e2268fe94b73de5
   patch :DATA
 
-  # Apply patch from Gentoo bug tracker (https://bugs.gentoo.org/936486) to fix build
-  # on macOS. Not possible to upstream as the final Qt5 commercial release is done.
+  # Apply patch from Gentoo bug tracker to fix build on macOS.
+  # Not possible to upstream as the final Qt5 commercial release is done.
   patch do
     on_sequoia :or_newer do
       url "https://bugs.gentoo.org/attachment.cgi?id=916782"
       sha256 "6b655ba61128c04811e0426a1e25456914fc79c845469da6df10f2d3e29aa510"
       directory "qtlocation"
+      type :unofficial
+      resolves "https://bugs.gentoo.org/936486"
     end
   end
 
@@ -130,6 +134,8 @@ class QtAT5 < Formula
       url "https://github.com/boostorg/mpl/commit/8499ae7e4ff0cf798367ebe6ea9fb991aa43db6c.patch?full_index=1"
       sha256 "2bac4e4eaabce759c09b86b716149aad8e2bfcc921d7d946a31d24a3b9e25ac3"
       directory "qtlocation/src/3rdparty/mapbox-gl-native/deps/boost/1.65.1"
+      type :backport
+      resolves "https://github.com/boostorg/mpl/pull/77"
     end
   end
   patch do
@@ -137,6 +143,8 @@ class QtAT5 < Formula
       url "https://github.com/boostorg/mpl/commit/fb6b861834e29a93ba71a2e2501a42ecfd3c5655.patch?full_index=1"
       sha256 "1213dc3e1b8d9cfc9ed42fc1639f10fa350f2a921d378b184c2c0a1d4936f7f3"
       directory "qtlocation/src/3rdparty/mapbox-gl-native/deps/boost/1.65.1"
+      type :backport
+      resolves "https://github.com/boostorg/mpl/pull/77"
     end
   end
 
@@ -145,6 +153,8 @@ class QtAT5 < Formula
     url "https://salsa.debian.org/qt-kde-team/qt/qtlocation/-/raw/4ec161bda76cd4c80d2e50fff223a94594cc6b4c/debian/patches/gcc_13.diff"
     sha256 "85ef9bb775540d639cea03894101ab2b7476f633cbb7ff49a1ea0a6bbca82168"
     directory "qtlocation"
+    type :unofficial
+    resolves "https://github.com/mapbox/mapbox-gl-native/pull/16669"
   end
 
   def install
@@ -215,7 +225,7 @@ class QtAT5 < Formula
     # Remove reference to shims directory
     inreplace prefix/"mkspecs/qmodule.pri",
               /^PKG_CONFIG_EXECUTABLE = .*$/,
-              "PKG_CONFIG_EXECUTABLE = #{Formula["pkgconf"].opt_bin}/pkg-config"
+              "PKG_CONFIG_EXECUTABLE = #{formula_opt_bin("pkgconf")}/pkg-config"
 
     # Install a qtversion.xml to ease integration with QtCreator
     # As far as we can tell, there is no ability to make the Qt buildsystem

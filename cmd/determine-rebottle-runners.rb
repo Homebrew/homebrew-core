@@ -19,12 +19,17 @@ module Homebrew
         hide_from_man_page!
       end
 
+      sig { returns(String) }
+      def ephemeral_suffix
+        "-#{ENV.fetch("GITHUB_RUN_ID")}-dispatch"
+      end
+
       sig { params(arch: Symbol, timeout: Integer).returns(T::Hash[Symbol, T.any(String, T::Hash[Symbol, String])]) }
       def linux_runner_spec(arch, timeout)
-        linux_runner = if arch == :arm64
+        linux_runner = if timeout > 360
+          "linux-#{arch}#{ephemeral_suffix}"
+        elsif arch == :arm64
           OS::LINUX_CI_ARM_RUNNER
-        elsif timeout > 360
-          "linux-self-hosted-1"
         else
           "ubuntu-latest"
         end
@@ -33,7 +38,7 @@ module Homebrew
           runner:    linux_runner,
           container: {
             image:   "ghcr.io/homebrew/brew:main",
-            options: "--user=linuxbrew -e GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED",
+            options: "--user=linuxbrew --env=HOMEBREW_SANDBOX_LINUX_LANDLOCK=1",
           },
           workdir:   "/github/home",
         }
@@ -54,7 +59,6 @@ module Homebrew
             if macos_version.outdated_release? || macos_version.prerelease?
               nil
             else
-              ephemeral_suffix = "-#{ENV.fetch("GITHUB_RUN_ID")}-dispatch"
               macos_runners = [{ runner: "#{macos_version}-x86_64#{ephemeral_suffix}" }]
               macos_runners << { runner: "#{macos_version}-arm64#{ephemeral_suffix}" }
               macos_runners

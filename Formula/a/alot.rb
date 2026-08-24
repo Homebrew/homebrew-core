@@ -129,7 +129,7 @@ class Alot < Formula
     zsh_completion.install "extra/completion/alot-completion.zsh" => "_alot"
 
     ENV["LC_ALL"] = "en_US.UTF-8"
-    ENV["SPHINXBUILD"] = Formula["sphinx-doc"].opt_bin/"sphinx-build"
+    ENV["SPHINXBUILD"] = formula_opt_bin("sphinx-doc")/"sphinx-build"
     ENV.prepend_path "PYTHONPATH", venv.site_packages
     cd "docs" do
       system "make", "pickle"

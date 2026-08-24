@@ -1,17 +1,17 @@
 class Vpcs < Formula
   desc "Virtual PC simulator for testing IP routing"
   homepage "https://vpcs.sourceforge.net/"
-  url "https://github.com/GNS3/vpcs/archive/refs/tags/v0.8.3.tar.gz"
-  sha256 "73018c923fdb8bbd7d76ddf4877bb7b3babbabed014f409f6b78a2e2b0a33da7"
+  url "https://github.com/GNS3/vpcs/archive/refs/tags/v0.8.4.tar.gz"
+  sha256 "2b816f8943cddc83f450812d3969da22e97314208221a23df9658887aea5a587"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3b63b4dc350e0e33be9b151a3fe2a47385d4474fdc109087d8d04110dfd13aff"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d951f1bdd6279046aa0443e1c950eb60f3c6b144a84a9f20fa8e56f857dc1153"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "841d5350b1c1a9086bb1fe1ec5d443dbdfc79676fa98c33f3d070f19eceae858"
-    sha256 cellar: :any_skip_relocation, sonoma:        "27946758ffa7ab9b03d92439362bfdaf9b622ca71adf1aa36724afb774cf4da7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "558242139637e0815cdbfdaed4321ac10c971d349557432f72228f21798d0537"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2a55d28182cfe00e2761fc39f7014cebf227cf98a019bca9cca6045de5529b2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "26eb3efc1f583dcf455b593966bf334fa7d2311ac72e1e6511d6ceea4a196772"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8af6d317ac16318a07c1e64ea5aaaf7634207a5d6f2a784da4194b79c48a0a9c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9f5f649b4fdb3e2f688a108d907701db39d5ab779c2024a1e1d5ba4ae7ad7561"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0e990b9acd8e86b7a2ca5e0a9a66904db6351b31ecec847f2a0ed37e32137b60"
+    sha256 cellar: :any,                 arm64_linux:   "590cd07464845587549fc079fcfd88c0aa12d670fea2dd4435b83a837cb6f142"
+    sha256 cellar: :any,                 x86_64_linux:  "c8bb368e1a345412369519f736646f7f65e7f7939ad3601c945dd8ab60335343"
   end
 
   def install

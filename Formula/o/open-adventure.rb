@@ -3,8 +3,8 @@ class OpenAdventure < Formula
 
   desc "Colossal Cave Adventure, the 1995 430-point version"
   homepage "http://www.catb.org/~esr/open-adventure/"
-  url "https://gitlab.com/esr/open-adventure/-/archive/1.21/open-adventure-1.21.tar.bz2"
-  sha256 "8ddff48254f868999957bef5f9a1606140d8cacae4a4d87f676fd819876e57c6"
+  url "https://gitlab.com/esr/open-adventure/-/archive/1.22/open-adventure-1.22.tar.bz2"
+  sha256 "d3e48baee13fe953e041f1b8264580bf96bc893edee62586151de234350c3ccb"
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/open-adventure.git", branch: "master"
 
@@ -16,12 +16,12 @@ class OpenAdventure < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e1e756daba18ba6acb0c2d8cb5ed79fb5cac368236cc721258ceed36c1c309ab"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "346050e4b4607a2b6b8c1a7cfcc7637d65c7338e2c5a5b3dba17fe54b1f16933"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c901cfdd624cdba01051559e5a8e8821ed8217c942f4f93b5b3d8512b4243cb8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3fce249b0871056bb4f9dac69c8ca5f0c64be4ad05250cf5752f51f547342511"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "400454c31641b59ca8ec560bb119463501d9734f47bf4f2f52af013fa2241afc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b91344d5502ac8058a2ab367275a177da5e029edf4ee2d9a31068dade907beb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5a85e36b9ca1263f3c649ab8901c626948771987728870c9e06a1f5e739be23b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "84e3ba5f82737e3f2d69144e443a0cbb042cec9ed646c2e3648890d72d73085c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22e0a54e27022d53946bf903de98e046ae26c63dde49dedd47ec50ca3d8bb284"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dbd2aced4cdfcfcad1156dbb413876df209b802d8a57cf15380c003627f82dd4"
+    sha256 cellar: :any,                 arm64_linux:   "1709022ce11a1790a14725e4c764d941c14583e768ddeb957e7ad3b9b41282cc"
+    sha256 cellar: :any,                 x86_64_linux:  "5d5af052ec2e2dcb1fd4075320717f84863bffd2d8a276daeea972419aee93b1"
   end
 
   depends_on "asciidoctor" => :build

@@ -34,7 +34,7 @@ class Llnode < Formula
     ENV.append_path "PATH", Formula["node"].libexec/"lib/node_modules/npm/node_modules/node-gyp/bin"
     inreplace "Makefile", "node-gyp", "node-gyp.js"
 
-    ENV["LLNODE_LLDB_INCLUDE_DIR"] = Formula["llvm"].opt_include
+    ENV["LLNODE_LLDB_INCLUDE_DIR"] = formula_opt_include("llvm")
     system "make", "plugin"
     bin.install "llnode.js" => "llnode"
     llnode_so.dirname.install shared_library("llnode")

@@ -1,19 +1,17 @@
 class Amber < Formula
   desc "Crystal web framework. Bare metal performance, productivity and happiness"
   homepage "https://amberframework.org/"
-  url "https://github.com/amberframework/amber/archive/refs/tags/v1.4.1.tar.gz"
-  sha256 "92664a859fb27699855dfa5d87dc9bf2e4a614d3e54844a8344196d2807e775c"
+  url "https://github.com/amberframework/amber/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "12c7b576a5f2e0dba53962ca23d18435526a2b685924783d57cb0d507bd93a03"
   license "MIT"
-  revision 2
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "3f029e40ff7e31d3768f46e99580bce3b3c7d1b509deaa7812dd3da9cdb624b1"
-    sha256 arm64_sequoia: "b41377d50fd655c9bd41f3a894c57e6662fb55189b4b410f6be681bfd0038ab6"
-    sha256 arm64_sonoma:  "9cee3079e0c86fd4db11501fe0ebb08a686e8fa8d8aaada670ae0b83f73ecbd7"
-    sha256 sonoma:        "41d3124e51cd3918c92660744aa2a3a8432c9f8a89d553aa8e30517f36c0ea06"
-    sha256 arm64_linux:   "c5a94b2181e3729c44668843bb97e9a51b6372eb991511a7dbde980e08c42c08"
-    sha256 x86_64_linux:  "c8379f58651cf3bf1ecf4489e40c9232367e9827a7657b27ceb341f7547d40d9"
+    sha256 arm64_tahoe:   "6e720185a4c012a566b4399e728cbd43553a6eb27541c48c77b8552b8e98e37b"
+    sha256 arm64_sequoia: "5ed58ee7e3f2883971712b2cf058e8717a13dcf00a40bbb5ce74a3d75f6896df"
+    sha256 arm64_sonoma:  "07294ec9c0106cf3efc94f91f0cdccdae25288cdcb05627785f4fba5d41d5720"
+    sha256 sonoma:        "03a76a11085d2a54a377f4c0980e5c94e6dedb58377a1ff63dbdab005c4876d6"
+    sha256 arm64_linux:   "65fb21b950336bf46af9f6edd3255ee2adc62448c572911fb7cb429efa80c0e6"
+    sha256 x86_64_linux:  "de9d850afa9b038d4ccfe909feb126f6e1ca950ec454232a31f052696518ccee"
   end
 
   depends_on "bdw-gc"
@@ -28,15 +26,8 @@ class Amber < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # patch granite to fix db dependency resolution issue
-  # upstream patch https://github.com/amberframework/amber/pull/1339
-  patch do
-    url "https://github.com/amberframework/amber/commit/54b1de90cd3e395cd09326b1d43074e267c79695.patch?full_index=1"
-    sha256 "be0e30f08b8f7fcb71604eb01136d82d48b7e34afac9a1c846c74a7a7d2f8bd6"
-  end
-
   def install
-    system "shards", "install"
+    system "shards", "install", "--without-development"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
@@ -55,7 +46,8 @@ class Amber < Formula
     end
 
     cd "test_app" do
-      assert_match "Building", shell_output("#{Formula["crystal"].bin}/shards build test_app")
+      shards = Formula["crystal"].bin/"shards"
+      assert_match "Building", shell_output("#{shards} --without-development build test_app -Dwithout_mt")
     end
     assert_path_exists testpath/"test_app/bin/test_app"
   end

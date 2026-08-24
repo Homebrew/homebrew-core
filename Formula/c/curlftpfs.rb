@@ -12,6 +12,10 @@ class Curlftpfs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "8a22354132db88625d88108d012df48264971d6afb561c6cbc348267d27b819e"
   end
 
+  # Last release on 2008-05-28. Needs `libfuse@2` to build
+  deprecate! date: "2026-06-21", because: :unmaintained
+  disable! date: "2027-06-21", because: :unmaintained
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

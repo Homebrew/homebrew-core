@@ -19,10 +19,7 @@ class Gebug < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/moshebe/gebug/version.Version=#{version}
-    ]
+    ldflags = %W[-X github.com/moshebe/gebug/version.Version=#{version}]
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"gebug", shell_parameter_format: :cobra)

@@ -1,17 +1,17 @@
 class Sonic < Formula
   desc "Fast, lightweight & schema-less search backend"
   homepage "https://github.com/valeriansaliou/sonic"
-  url "https://github.com/valeriansaliou/sonic/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "52fb402422dfc8cbf42826309f0836bd255916b9caab1eb8990424d1ca603147"
+  url "https://github.com/valeriansaliou/sonic/archive/refs/tags/v1.8.1.tar.gz"
+  sha256 "41e18e27fc8f1aa5d156877497fbc8960a4800c771cbd76ac5d221b0c203c95f"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e628ba0b3fd23ff4f6437130f74327f8d4837214f12722fdc8bd80c13b1a2300"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dc876ad1a89d8e5620e74ca54dbe31daa28996c1df0aab8b1a4abc1cde1cf4e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f555e6a5d85c4d4129d75e33fdc185ca502adc9c4faaaf081ef372395e56a76"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eafc2c84ce00855eda2a20c3a0b52a60ae040286919ecf9e6c162dafd6bdbed6"
-    sha256 cellar: :any,                 arm64_linux:   "7aa741fba67bf375b8df82e790ecd5045bd240b80421a4489f2de71bd75239a7"
-    sha256 cellar: :any,                 x86_64_linux:  "d5e833de13dd121136808bcd6f3f163962c9b065be7dcf523139c473c6e3ea79"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "62f7f84c587f8dcd4b10bb2f6d5d1d90f41d801a48a71e961ce3c0578c366a1c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "36253e08494b81dda36c123ff2087b5eca859cb40ede9ca24f67880d999d78ab"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a893cd56f7143dc605d4c16ef6e42476181a15398f9ceaa0bff4a9ebdf69f396"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6b836a5514f7f2433f84fdc8a3423ffec0c9a2ce46b37280cb1c9881b016237b"
+    sha256 cellar: :any,                 arm64_linux:   "386ad2610ffa0db0f447b0a275297f698a5a40e99bbea68d1079945d7d285871"
+    sha256 cellar: :any,                 x86_64_linux:  "13a3c03f6e821b12af217c45b65202df0102c90a8d3767120023e9ae893a9eb8"
   end
 
   depends_on "rust" => :build

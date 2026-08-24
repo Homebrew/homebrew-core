@@ -1,12 +1,12 @@
 class Portless < Formula
   desc "Replace port numbers with stable, named local URLs for humans and agents"
   homepage "https://portless.sh"
-  url "https://registry.npmjs.org/portless/-/portless-0.14.0.tgz"
-  sha256 "7d104fcd05aae1a29440f65b936db6391e8c3a857b8ab1b4066b0c2342833197"
+  url "https://registry.npmjs.org/portless/-/portless-0.15.5.tgz"
+  sha256 "f76fb7f8d390d6e0836a25e0f954a10665428eacd4c72f3708caa2c7b5043d2e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e806b2b0565036c5b7fb2943a2804617a0abe292fa01245512551880d32b228f"
+    sha256 cellar: :any_skip_relocation, all: "956753fdda764a05bba3aa7fe6060296cd440b921bd7d790a4d62d8cdbe96c8e"
   end
 
   depends_on "node"
@@ -37,7 +37,7 @@ class Portless < Formula
     ENV["PORTLESS_STATE_DIR"] = (testpath/".portless").to_s
     ENV["PORTLESS_HTTPS"] = "0"
 
-    pid = spawn bin/"portless", "myapp", Formula["node"].opt_bin/"node", server
+    pid = spawn bin/"portless", "myapp", formula_opt_bin("node")/"node", server
 
     begin
       output = shell_output("curl --silent --fail --retry-connrefused --retry 5 #{expected_url}")

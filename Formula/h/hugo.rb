@@ -1,8 +1,8 @@
 class Hugo < Formula
   desc "Configurable static site generator"
   homepage "https://gohugo.io/"
-  url "https://github.com/gohugoio/hugo/archive/refs/tags/v0.163.2.tar.gz"
-  sha256 "69d6e84705d5453ce69d6827901f1320878ef7238f95370b31aff7c5aeb1f0db"
+  url "https://github.com/gohugoio/hugo/archive/refs/tags/v0.165.0.tar.gz"
+  sha256 "e9c1e7d8e6e09356cc56317fd01b7493d712692390b89b3d33810cfe1305650e"
   license "Apache-2.0"
   head "https://github.com/gohugoio/hugo.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Hugo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cbfb9c971920982ddf0b4e396b75800ff216f7f4b33f2622a249a70af5c1b4f9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c9e8ac888b6d4a5214604bf4e57f11d99bbcc52ce42e99035e869dc1d9d4dba"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4937e86f381200df3f665b1166b64243d6c1fa0687597f76d9afe78c66fae6cc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e5476541cf7cb4496f5a9047dbaf1a148fb1acab4194690da1f57db4fd59ad39"
-    sha256 cellar: :any,                 arm64_linux:   "2b322fffe93ab68b0455f47b4728b32a7e1209a4adea0ea1f1123f1c5891d7e1"
-    sha256 cellar: :any,                 x86_64_linux:  "c31016e1c2765abdf61da594ec94baf3b4bd6711d744801ecb1ae14da10b3200"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "38f208a800efd615fe615a6d8925d264909fecb28267ac5cbd21c89cf39fd55d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "db7e84d12b64abb26230695518a00e7cb9577fc53d3190a266b352876f587977"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "370fe497280ffe1c0e92a08c01a4abe4fec561808082c29f6e99d27227250f92"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0781f87539899a343da7d6030a29ac08bc6063e843d3ba7dd75bb2773603db9d"
+    sha256 cellar: :any,                 arm64_linux:   "e5a257be2eca8ba07bcfd6a260fc2b0445da0b5ab1aa3828caa293748ea7b772"
+    sha256 cellar: :any,                 x86_64_linux:  "6abd5139da56ac783f4f25eba12ed12b237ae49fa730ce6f8f3f7a80ac04f335"
   end
 
   depends_on "go" => :build
@@ -27,7 +27,6 @@ class Hugo < Formula
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
 
     ldflags = %W[
-      -s -w
       -X github.com/gohugoio/hugo/common/hugo.commitHash=#{tap.user}
       -X github.com/gohugoio/hugo/common/hugo.buildDate=#{time.iso8601}
       -X github.com/gohugoio/hugo/common/hugo.vendorInfo=#{tap.user}

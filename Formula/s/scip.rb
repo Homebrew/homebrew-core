@@ -1,8 +1,8 @@
 class Scip < Formula
   desc "Solver for mixed integer programming and mixed integer nonlinear programming"
   homepage "https://scipopt.org"
-  url "https://scipopt.org/download/release/scip-10.0.2.tgz"
-  sha256 "7544647007c9a63a770a71f5884a50ac81da37372bb6958d08588870bd58a50b"
+  url "https://scipopt.org/download/release/scip-10.0.3.tgz"
+  sha256 "7fe90d216e1481b430eaed2bfc25c0349ffd73bfad6201bd96fa082dc54c1438"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Scip < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7c19c0c741487ae4510c4b6c9a1153a281a88f34fac38a003f7dd3c44c4b9079"
-    sha256 cellar: :any,                 arm64_sequoia: "9b4274caff954b9a3c1cf1e9c7d40fc463bd85e2c2bb17a4d5ce655bd4efc4b4"
-    sha256 cellar: :any,                 arm64_sonoma:  "74592695f57e9711b936f200c414bd56512ce0e58b5e103ea74a23d7084f0625"
-    sha256 cellar: :any,                 sonoma:        "45073bd25f64ab72d9eba4dc9f2df699da72f3b7f309ca3fa22066af2a8a4a98"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9996d235dfe0374db8fbda66a93bef51d4c59ebcc63d44579764d8268068a2c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "36cc79aa4cea363dfcc9356b9cefbba3d260c6cb27a69b83fb9f06b997c65262"
+    sha256 cellar: :any, arm64_tahoe:   "7a5d94c82d1e704abb4b64a0a3ae21bbea51307268bb191111d6705952a25107"
+    sha256 cellar: :any, arm64_sequoia: "df296a77a559c5263983273bc68a3b30c001ab540c27798aacd0258bbbcf5abd"
+    sha256 cellar: :any, arm64_sonoma:  "dc10945a5455bb3f2b7c9215dea89e2049aa458f3d48e23cc2fd4c6a1239cd64"
+    sha256 cellar: :any, sonoma:        "2b68f3acd9a4c0197380b7a10876550b142f65936e8d4dddae1df55ce9c01fb1"
+    sha256 cellar: :any, arm64_linux:   "7ccedb8dfa5ee651209e01c90326b4d84b1284a6970369a5103481e534d4cee3"
+    sha256 cellar: :any, x86_64_linux:  "de5eaca960c321ad20b9e798514d9a3e3f662f43a92d552df5474ac6fb815edb"
   end
 
   depends_on "cmake" => :build

@@ -20,7 +20,7 @@ class Cheat < Formula
   conflicts_with "bash-snippets", because: "both install a `cheat` executable"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cheat"
+    system "go", "build", *std_go_args, "./cmd/cheat"
 
     generate_completions_from_executable(bin/"cheat", "--completion", shells: [:bash, :zsh, :fish, :pwsh])
 

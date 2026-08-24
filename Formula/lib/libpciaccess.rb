@@ -20,7 +20,7 @@ class Libpciaccess < Formula
 
   def install
     # Work around Meson's automatic removal of RPATHs by explicitly passing in LDFLAGS
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{Formula["zlib-ng-compat"].opt_lib}"
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{formula_opt_lib("zlib-ng-compat")}"
 
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

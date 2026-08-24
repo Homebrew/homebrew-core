@@ -1,24 +1,18 @@
 class Multimarkdown < Formula
   desc "Turn marked-up plain text into well-formatted documents"
   homepage "https://fletcher.github.io/MultiMarkdown-6/"
-  url "https://github.com/fletcher/MultiMarkdown-6/archive/refs/tags/6.7.0.tar.gz"
-  sha256 "aa386f54631dbc4e0beeb6b9cf9eb769db95a3f505a69b663140a80008cf0595"
+  url "https://github.com/fletcher/MultiMarkdown-6/archive/refs/tags/6.8.0.tar.gz"
+  sha256 "6568d1e5ccaffab3a8689909fe21f64066c13d5716a0010a4c3fffcb308d3f9e"
   license "MIT"
   head "https://github.com/fletcher/MultiMarkdown-6.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "bb4f39ee0e9e4ab40f4ce5c8e5aa5d57ef8739035769400d0c5b8ea17d0f0661"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "eea3968401cd2eca776486368efbf1572da6dee6bb9cf5c5396448f0da811578"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f04dd2552dc7725620fc3e64e6b803652c0510e20e33242f4bd00bbde327ea74"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d889681d3fd0ed644c4a80e951aed473b5ad9d26256e7e8f2f1922d0f2673b15"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "10659d4c872d03814f36e999ec7db8a2340272bbab6ecf190726a727be05caf4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cbb095b60ddeae5e2062aad184841505442c118b47f4ac374f9862e9a944e13d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c448456b2f4f00e34499e81f3843235e55f0e5d793fd92b0ee831f98ba20c089"
-    sha256 cellar: :any_skip_relocation, ventura:        "ff9c00f98d2eac80faa49cef2f404b05edf2ac7ba43c1b8dc4c411c61ce4cd8b"
-    sha256 cellar: :any_skip_relocation, monterey:       "67847004a22109bbc67413b0d1f407414338fe0b353ab8ac8e85726928eecb08"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c457aa21210a34ebbb29cc09df87a3bb56dbf80e7dca3f5ecd744f97668af195"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "e89c26994747dd3843c5104bb0b8ae4f65cb0611459c8b21c443873e1432d85e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b80ef1a499056e60b9a189b3afbbd7beefc2091578dc8699ad87d6d405ea2e5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8464a52cbbc398b38438e3da65b17cd346fb766477904d686c6cf9314f6d6798"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "96c714c15dfd86fbaed058206c70a57d56cdb88aa50640a7a65d9f9b8929e563"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b75dbe8648f77c5b61c2be840157c8b60df53f87b9f7a6070c322308629ce9c5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3e9d7f695bca48fe2dcd296f69e6f68b47194e98da433da42d21b48417c0a55c"
+    sha256 cellar: :any,                 arm64_linux:   "a046aecc79a69c5554ba8d8fddeb1834e9c89187a112ae85a26e40bcb51b7297"
+    sha256 cellar: :any,                 x86_64_linux:  "3ce18f8985e0e2ea7fe49270fbc02c6a7ad1766fecd77fbedfb3079c78f43f6c"
   end
 
   depends_on "cmake" => :build
@@ -26,12 +20,6 @@ class Multimarkdown < Formula
   conflicts_with "mtools", because: "both install `mmd` binaries"
   conflicts_with "markdown", because: "both install `markdown` binaries"
   conflicts_with "discount", because: "both install `markdown` binaries"
-
-  # Workaround for CMake 4 compatibility
-  patch do
-    url "https://github.com/fletcher/MultiMarkdown-6/commit/655c0908155758e7c94858af2fb99dc992709075.patch?full_index=1"
-    sha256 "1ca4b7ea07c19981685786f8f469aad9c9d0d6af8394bc9d3b92608de929495c"
-  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

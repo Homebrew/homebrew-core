@@ -26,7 +26,7 @@ class CfrDecompiler < Formula
   depends_on "openjdk@21"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
+    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk@21")
     # changing the compiler because 6 is used by upstream and openjdk no longer supports it
     system Formula["maven"].bin/"mvn", "package", "-Dmaven.compiler.source=8", "-Dmaven.compiler.target=8"
 

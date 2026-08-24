@@ -23,10 +23,12 @@ class Ffsend < Formula
     depends_on "openssl@3"
   end
 
-  # rust 1.87.0 patch, upstream pr ref, https://gitlab.com/timvisee/ffsend/-/merge_requests/44
+  # rust 1.87.0 patch
   patch do
     url "https://gitlab.com/timvisee/ffsend/-/commit/29eb167d4367929a2546c20b3f2bbf890b63c631.diff"
     sha256 "e5171b23ffd3cc0f4f1d47b29d110735c211ce96ba601a166a66537df28ed1c4"
+    type :backport
+    resolves "https://gitlab.com/timvisee/ffsend/-/merge_requests/44"
   end
 
   def install

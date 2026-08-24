@@ -6,7 +6,7 @@ class Exult < Formula
   stable do
     url "https://github.com/exult/exult/archive/refs/tags/v1.12.1.tar.gz"
     sha256 "5e5113e31dd8010b8dfd00b6b08f76681dc1e88254d357c92f15c202f7ed7e1f"
-    depends_on "sdl2"
+    depends_on "sdl2-compat"
   end
 
   livecheck do

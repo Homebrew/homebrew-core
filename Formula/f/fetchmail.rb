@@ -1,8 +1,8 @@
 class Fetchmail < Formula
   desc "Client for fetching mail from POP, IMAP, ETRN or ODMR-capable servers"
   homepage "https://www.fetchmail.info/"
-  url "https://downloads.sourceforge.net/project/fetchmail/branch_6.6/fetchmail-6.6.5.tar.xz"
-  sha256 "ab0320fe4df0b5ee8659189e66590d9de96aadbf929fe59f353ae7a317e9ef1e"
+  url "https://downloads.sourceforge.net/project/fetchmail/branch_6.6/fetchmail-6.6.6.tar.xz"
+  sha256 "da99f8c573c4d9e63f493c7e24447126aea25b53b4c076ec79266874e29b1975"
   license all_of: [
     "LGPL-2.1-or-later",
     "ISC",
@@ -17,12 +17,12 @@ class Fetchmail < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "49199d800fc9c87a05750539ab02e0ec689ba8d915e573f52bb42af49c5af59c"
-    sha256 cellar: :any, arm64_sequoia: "7ecf9dca4fa2df5dd9f6717c5db7b3d589c5ac301dc0ac3018d48b9442396185"
-    sha256 cellar: :any, arm64_sonoma:  "5daea1b47c71f43d924840fc65ad522bcdec3ea31548d4961464052e201e7f9f"
-    sha256 cellar: :any, sonoma:        "54d4c0f1908e079c8d25188cb1fc6e3cefd197bbec4009fef4607e34d2ef0fdb"
-    sha256               arm64_linux:   "460103641154b235dfabf0010973b69976c557266ee12954a5d0ec3d1f5225e6"
-    sha256               x86_64_linux:  "576d5567b35b0e9b54d8b7ccb2e428943bb2e954011c78478789b660538702a6"
+    sha256 cellar: :any, arm64_tahoe:   "f19a199d1ed656336f51e062aa360aa5d8385d57cb3ff85383f0d8e0e389f66b"
+    sha256 cellar: :any, arm64_sequoia: "650b7cd7ecf3c6f1dbfbc1647a2cfed8a4dbe8fc1551ea266601c313d3a629fd"
+    sha256 cellar: :any, arm64_sonoma:  "20b7fb1b194c347d6f0f1d2f7bb467722e321e063df047034c6d0c7f240d4e20"
+    sha256 cellar: :any, sonoma:        "30adc2bebd73af90e2e04037ab09f9827ed2bd366b982b08ac03791fe670d0c1"
+    sha256               arm64_linux:   "d76e98adc6fb8bb49f3d3ae31e3017a4c499918f30d0f4f133aff0d4bdf36015"
+    sha256               x86_64_linux:  "9cc25b3725db740398b50d4003a184073d1ccc6b955962217b1524555d870182"
   end
 
   depends_on "pkgconf" => :build
@@ -31,7 +31,7 @@ class Fetchmail < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}"
+                          "--with-ssl=#{formula_opt_prefix("openssl@3")}"
     system "make", "install"
   end
 

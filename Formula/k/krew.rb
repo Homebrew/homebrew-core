@@ -33,7 +33,7 @@ class Krew < Formula
 
   test do
     ENV["KREW_ROOT"] = testpath
-    kubectl = Formula["kubernetes-cli"].opt_bin/"kubectl"
+    kubectl = formula_opt_bin("kubernetes-cli")/"kubectl"
 
     system bin/"kubectl-krew", "update"
     system bin/"kubectl-krew", "install", "ctx"

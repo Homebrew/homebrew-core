@@ -39,7 +39,7 @@ class Lunarml < Formula
     system bin/"lunarml", "compile", "--lua", "factorial.sml"
     system bin/"lunarml", "compile", "--nodejs", "factorial.sml"
 
-    assert_equal "3628800", shell_output("#{Formula["lua"].opt_bin}/lua factorial.lua").chomp
-    assert_equal "3628800", shell_output("#{Formula["node"].opt_bin}/node factorial.mjs").chomp
+    assert_equal "3628800", shell_output("#{formula_opt_bin("lua")}/lua factorial.lua").chomp
+    assert_equal "3628800", shell_output("#{formula_opt_bin("node")}/node factorial.mjs").chomp
   end
 end

@@ -59,7 +59,7 @@ class Interface99 < Formula
         printf("%d %d", VCALL(r, perim), VCALL(t, perim));
       }
     C
-    system ENV.cc, "test.c", "-I#{include}", "-I#{Formula["metalang99"].opt_include}", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-I#{formula_opt_include("metalang99")}", "-o", "test"
     assert_equal "24 60 120 300", shell_output("./test")
   end
 end

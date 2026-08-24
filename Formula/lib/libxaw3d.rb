@@ -32,6 +32,8 @@ class Libxaw3d < Formula
     on_macos do
       url "https://gitlab.freedesktop.org/xorg/lib/libxaw3d/-/commit/b2365950e5314b0453dd7cf2a552aa30ec19c046.diff"
       sha256 "18919b30bfafd2642895a4f9497f54b8d263e4eb593f192a923340732ed4afa8"
+      type :backport
+      resolves "https://gitlab.freedesktop.org/xorg/lib/libxaw3d/-/merge_requests/13"
     end
   end
 

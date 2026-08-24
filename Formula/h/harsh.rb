@@ -18,7 +18,7 @@ class Harsh < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/wakatara/harsh/cmd.version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X github.com/wakatara/harsh/cmd.version=#{version}")
     generate_completions_from_executable(bin/"harsh", shell_parameter_format: :cobra)
   end
 

@@ -2,18 +2,18 @@ class Cosign < Formula
   desc "Container Signing"
   homepage "https://github.com/sigstore/cosign"
   url "https://github.com/sigstore/cosign.git",
-      tag:      "v3.1.1",
-      revision: "7914231b348c4057891edeb321772aad3ed04fce"
+      tag:      "v3.1.3",
+      revision: "11926fa5bbbbde47e88fc006b625a17769b743b2"
   license "Apache-2.0"
   head "https://github.com/sigstore/cosign.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e790a4037d2e95e9a8b7e128bb77b54c48f0b6146114414d85cc447ddb29756c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e790a4037d2e95e9a8b7e128bb77b54c48f0b6146114414d85cc447ddb29756c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e790a4037d2e95e9a8b7e128bb77b54c48f0b6146114414d85cc447ddb29756c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cbbfaecc0c28971354d6328e24676ecb74fa7ad3002cc1671d33867947c62bcc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7043d1d71b84829ab85007c61e00e806e88190eba876995687cdc1bc321b7ea3"
-    sha256 cellar: :any,                 x86_64_linux:  "0dc328b3860327ea18b89b3a2e1ec772a0f1e458e865d51c1e38cb4c60e3ce58"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0a945ba6dbde67cfc2a079b21e74875e2cbd3dcd46b190a64878fb7c08a84431"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a945ba6dbde67cfc2a079b21e74875e2cbd3dcd46b190a64878fb7c08a84431"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0a945ba6dbde67cfc2a079b21e74875e2cbd3dcd46b190a64878fb7c08a84431"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0ad7d41284b44486c19adc12f96201c36638f5edcd73d07b5fa2385b38774d18"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1729b9ae1608e63f92786b59332ad0d2a58ee3eb719af943b354cf04381944eb"
+    sha256 cellar: :any,                 x86_64_linux:  "ec952c936a5a3c70afabbc9cd9be14385bca6b57063c1e195a359ed95945757a"
   end
 
   depends_on "go" => :build
@@ -21,7 +21,6 @@ class Cosign < Formula
   def install
     pkg = "sigs.k8s.io/release-utils/version"
     ldflags = %W[
-      -s -w
       -X #{pkg}.gitVersion=#{version}
       -X #{pkg}.gitCommit=#{Utils.git_head}
       -X #{pkg}.gitTreeState="clean"

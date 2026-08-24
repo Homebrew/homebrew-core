@@ -12,6 +12,10 @@ class FuseZip < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "0e87dbeae5e24ded35705e704caf66faec39dc8971742ff43c7a45882ef6e349"
   end
 
+  # Last release on 2021-01-31. Needs `libfuse@2` to build
+  deprecate! date: "2026-06-21", because: :unmaintained
+  disable! date: "2027-06-21", because: :unmaintained
+
   depends_on "pkgconf" => :build
   depends_on "libfuse@2"
   depends_on "libzip"

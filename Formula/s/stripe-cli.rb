@@ -1,17 +1,17 @@
 class StripeCli < Formula
   desc "Command-line tool for Stripe"
   homepage "https://docs.stripe.com/stripe-cli"
-  url "https://github.com/stripe/stripe-cli/archive/refs/tags/v1.42.13.tar.gz"
-  sha256 "5920bd906332c381fa6e5449f5a8e97fe8b0464fffd3b31c06b20b625890faa2"
+  url "https://github.com/stripe/stripe-cli/archive/refs/tags/v1.50.4.tar.gz"
+  sha256 "c18b77cc72e32816f3f571b794bcdf1532a27384439a4d44ea7f18375e007085"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e952c0a2daa3cae9046cbdc584c874e5c3567600ec3f86907a4bb891e7308f37"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "58c1bbc6c7885f5538b92871c23e7ae4334ce86a76d1a40ffc61cfb1c0b78c9d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dd7c465b23e362b251e6084b2c1121583471521456fbc936eeb4fbe22089fc71"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d5643435a5f3c38aee9afbda6f834ec3e3dea09c0ca9124ff4b2c749a85a3c46"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fddcd54481c5ffbbcd03f692485101d7d60ff99bb162690aa4d3c03681c5c8e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bae23757dd42c223ca98079ede0527d0e449e1e0bc136e87b745546b7169af1c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a9af7bc09a681f6a9fa384cc496d07d6607f2bbab5e8eef314ef4daa955e75a2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a9af7bc09a681f6a9fa384cc496d07d6607f2bbab5e8eef314ef4daa955e75a2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a9af7bc09a681f6a9fa384cc496d07d6607f2bbab5e8eef314ef4daa955e75a2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9aaee20fe91e5d32733c31515b2e4b171ca16a6a54eaf2accd9a5ddedbafc238"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "57d63969a3b772029e3d3f5778eebb4651a416137988b2aca3f26c0a6568d565"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eadcb34e53c061d6017539c5a6750e93404bc482bdf06ca9144f6466864bca0b"
   end
 
   depends_on "go" => :build
@@ -19,7 +19,7 @@ class StripeCli < Formula
   def install
     # See configuration in `.goreleaser` directory
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
-    ldflags = %W[-s -w -X github.com/stripe/stripe-cli/pkg/version.Version=#{version}]
+    ldflags = %W[-X github.com/stripe/stripe-cli/pkg/version.Version=#{version}]
     system "go", "build", *std_go_args(ldflags:, output: bin/"stripe"), "cmd/stripe/main.go"
 
     generate_completions_from_executable(bin/"stripe", "completion", "--write-to-stdout", "--shell")

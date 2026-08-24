@@ -48,7 +48,7 @@ class JsonFortran < Formula
       if (json%failed()) error stop 'error'
       end program example
     FORTRAN
-    ENV.prepend_path "PATH", Formula["binutils"].opt_bin if OS.linux?
+    ENV.prepend_path "PATH", formula_opt_bin("binutils") if OS.linux?
     system "gfortran", "-o", "test", "json_test.f90", "-I#{include}",
                        "-L#{lib}", "-ljsonfortran"
     system "./test"

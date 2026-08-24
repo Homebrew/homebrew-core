@@ -1,8 +1,8 @@
 class Pari < Formula
   desc "Computer algebra system designed for fast computations in number theory"
   homepage "https://pari.math.u-bordeaux.fr/"
-  url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.17.3.tar.gz"
-  sha256 "8d9c4fcd584c468d27e0f23c36836587284452094c4b1c404c20c4b810462dcb"
+  url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.17.4.tar.gz"
+  sha256 "02651d99c391007d384b3fadbc20abc6916b77036f9e496c99e9ce8688ca4b53"
   license "GPL-2.0-or-later"
   compatibility_version 1
 
@@ -12,14 +12,14 @@ class Pari < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "687e5d1d2fa3ef5d2833933b52b3137c4894bdb3d56a1b4e04dcd045b271abc3"
-    sha256 arm64_sequoia: "8ced75493e3475237d74a086aa8816ca1801ed5d500894525c7d98cd18e8cd23"
-    sha256 arm64_sonoma:  "3d21c691097747448ab40e08dfa67f8fd36f5a182f15f0bce7e29fa3dc0433ed"
-    sha256 tahoe:         "edecfbb507dc4abb0779a15e664d3ab0a292e88bd847f49c18dd41133d17f951"
-    sha256 sequoia:       "a6491dc92759d74111fb8b25a20a01178c821f5dd3b336a670e04844810f97dd"
-    sha256 sonoma:        "0e06fd81183ff0471eb14c5d92acd38ec890b26237a913c9b1636d860d15651a"
-    sha256 arm64_linux:   "1be7e33bcdf15fdddc9e4344ecc2fa87526aa2028b99ff15a9383de2056af163"
-    sha256 x86_64_linux:  "91b8c8184e5bc18e90a54da5f87bc5ba678a40b7cbb6338a14558162f0bb5f31"
+    sha256 arm64_tahoe:   "4a86a32a47d544444b4d6bd72bbc39e9231c748d0be5b85883f49fb6985bb65c"
+    sha256 arm64_sequoia: "a4d89db11849cd0dc9949330b4216955516ea3d3fe4b3688d78019923fa0e71b"
+    sha256 arm64_sonoma:  "e101dd4185f5d3b5951c2993ecc412f8004a525b97850851e61e885a66b2b8e9"
+    sha256 tahoe:         "393167d1ddd79f88f11ad0e60231d8755e724e713b72bffe09c1a21ad35647cf"
+    sha256 sequoia:       "caecf47acfe7ed16dd0317a45d39eaf86796498c13655959f5601bbd80e2ff1b"
+    sha256 sonoma:        "f5255fa7875d040651679e22907d00cd19e7967a82407f9f2f28aea77f308f92"
+    sha256 arm64_linux:   "403a9888502eabf27e2af4d60faefdb9aa645643074e4be48620004ce503c328"
+    sha256 x86_64_linux:  "3b0eac8b485db142627ed66b9b1517ddbda868651e11e2b3a1ed106f5e0bee1c"
   end
 
   depends_on "gmp"
@@ -31,8 +31,8 @@ class Pari < Formula
     # Ref: https://pari.math.u-bordeaux.fr/cgi-bin/bugreport.cgi?bug=2608
     ENV.O1 if ENV.compiler == :clang
 
-    readline = Formula["readline"].opt_prefix
-    gmp = Formula["gmp"].opt_prefix
+    readline = formula_opt_prefix("readline")
+    gmp = formula_opt_prefix("gmp")
     system "./Configure", "--prefix=#{prefix}",
                           "--with-gmp=#{gmp}",
                           "--with-readline=#{readline}",

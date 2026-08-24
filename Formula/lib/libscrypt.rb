@@ -25,6 +25,8 @@ class Libscrypt < Formula
   patch do
     url "https://github.com/technion/libscrypt/commit/7b574b9c517a3d1f9bd0e265a5f287155293cb85.patch?full_index=1"
     sha256 "5f3b4eaef826191318b57d1c0fe2889d76d18bf17746af2ba5417ccf27ec039f"
+    type :backport
+    resolves "https://github.com/technion/libscrypt/pull/62"
   end
 
   def install

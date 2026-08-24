@@ -1,8 +1,8 @@
 class Tllist < Formula
   desc "C header file only implementation of a typed linked list"
   homepage "https://codeberg.org/dnkl/tllist"
-  url "https://codeberg.org/dnkl/tllist/archive/1.1.0.tar.gz"
-  sha256 "0e7b7094a02550dd80b7243bcffc3671550b0f1d8ba625e4dff52517827d5d23"
+  url "https://codeberg.org/dnkl/tllist/releases/download/1.1.0/tllist-1.1.0.tar.gz"
+  sha256 "a1f0ce0dc4fcb4ce59c37202a1d914c853a8bd2d7c5d57d623b15a8dd9778767"
   license "MIT"
 
   bottle do

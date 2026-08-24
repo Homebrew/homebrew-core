@@ -20,7 +20,7 @@ class Bunster < Formula
   depends_on "go"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/bunster"
+    system "go", "build", *std_go_args, "./cmd/bunster"
   end
 
   test do

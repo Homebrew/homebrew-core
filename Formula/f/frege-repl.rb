@@ -22,7 +22,7 @@ class FregeRepl < Formula
   def install
     rm(Dir["bin/*.bat"])
     libexec.install "bin", "lib"
-    (bin/"frege-repl").write_env_script libexec/"bin/frege-repl", JAVA_HOME: Formula["openjdk@17"].opt_prefix
+    (bin/"frege-repl").write_env_script libexec/"bin/frege-repl", JAVA_HOME: formula_opt_prefix("openjdk@17")
   end
 
   test do

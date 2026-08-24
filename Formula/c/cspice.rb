@@ -41,7 +41,7 @@ class Cspice < Formula
     # Use brewed csh on Linux because it is not installed in CI.
     unless OS.mac?
       inreplace Dir["src/*/*.csh"] do |s|
-        s.gsub! "/bin/csh", Formula["tcsh"].opt_bin/"csh"
+        s.gsub! "/bin/csh", formula_opt_bin("tcsh")/"csh"
         s.gsub! '= "-m64 ', '= "' if Hardware::CPU.arm?
       end
     end

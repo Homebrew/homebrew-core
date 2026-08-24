@@ -1,18 +1,20 @@
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
-  url "https://github.com/mltframework/mlt/releases/download/v7.38.0/mlt-7.38.0.tar.gz"
-  sha256 "b8f0a23c89e9250edc5038d745537c382367bf2ad3dad5d5c7cd13b0fe1c4144"
+  url "https://github.com/mltframework/mlt/releases/download/v7.40.0/mlt-7.40.0.tar.gz"
+  sha256 "f11c30e21670f62a3dfc56a31306ac02f3feea00908a2821a4a0bf3e989d3d6a"
   license "LGPL-2.1-only"
+  revision 2
   head "https://github.com/mltframework/mlt.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "d0d8cdc099296f231676fe28f13b5fcd0b6428e09aed6bb0cbb0dbfefab44edc"
-    sha256 arm64_sequoia: "fd830c5b8d17a78cc6786ded35b36bd7f644ea15782bec8d3d785aa94695ea24"
-    sha256 arm64_sonoma:  "8dc4129a794787deee30182412f18e43f15df46d232f0053ecf5dc6f769e3cb4"
-    sha256 sonoma:        "a2d6002992efc17a5ca53bfd219c7645189269ee0cced1c0f33da433bc6b85c5"
-    sha256 arm64_linux:   "3f584f88115f90ca62c6c67252aa51e12ba1b0123dba520c69e633177f7091d9"
-    sha256 x86_64_linux:  "3fab7905fc5fb4ff025f2a3cde2bb9100a7741f1f24eda53ab75b44e71909294"
+    rebuild 1
+    sha256 arm64_tahoe:   "da7b97a9f64c6d6106cbd82ae611ba51bdc5ee072031f19dac6dfe8fb16d6f74"
+    sha256 arm64_sequoia: "35b0784f25599dac56ec438093aa3876617104c3bdbdd44c3e55aadbf84a18c4"
+    sha256 arm64_sonoma:  "2fb1066b94087ba9369d64710c1c014bf8f0bf38b345dfa109c27d3a0fb3b6a7"
+    sha256 sonoma:        "b40e167e1035ef9157794e90a7ffbf54aabf4e16d047bc6ff94724e859ffac22"
+    sha256 arm64_linux:   "1a3f61c4bd14c1af14057de48edd773ad7becb055da316d0bafecc0991e0602d"
+    sha256 x86_64_linux:  "8aaa1d6afd45f7259db3a639870c0b7eaade242227f96e418d55f0c65de69ebb"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +28,6 @@ class Mlt < Formula
   depends_on "glib"
   depends_on "libdv"
   depends_on "libexif"
-  depends_on "libomp"
   depends_on "libsamplerate"
   depends_on "libvidstab"
   depends_on "libvorbis"
@@ -36,7 +37,7 @@ class Mlt < Formula
   depends_on "qtbase"
   depends_on "qtsvg"
   depends_on "rubberband"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sox"
 
   uses_from_macos "libxml2"
@@ -45,11 +46,20 @@ class Mlt < Formula
     depends_on "freetype"
     depends_on "gettext"
     depends_on "harfbuzz"
+    depends_on "libomp"
   end
 
   on_linux do
     depends_on "alsa-lib"
     depends_on "pulseaudio"
+  end
+
+  # Fix builds with FFmpeg 9. Remove with the next release.
+  patch do
+    url "https://github.com/mltframework/mlt/commit/68bceba12a3c3278ce69033c3e7dadaa13d45811.patch?full_index=1"
+    sha256 "a2e7acbb2c3b585a36ae5fcddada634220c8bb30ebb75922958b5b7b30d49f96"
+    type :backport
+    resolves "https://github.com/mltframework/mlt/pull/1281"
   end
 
   def install
@@ -65,6 +75,7 @@ class Mlt < Formula
                     "-DMOD_QT6=ON",
                     "-DMOD_SDL1=OFF",
                     "-DMOD_MOVIT=OFF",
+                    "-DMOD_RNNOISE=OFF",
                     "-DRELOCATABLE=OFF",
                     *std_cmake_args
     system "cmake", "--build", "build"

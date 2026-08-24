@@ -1,16 +1,16 @@
 class Vapor < Formula
   desc "Command-line tool for Vapor (Server-side Swift web framework)"
   homepage "https://vapor.codes"
-  url "https://github.com/vapor/toolbox/archive/refs/tags/20.0.0.tar.gz"
-  sha256 "b3b215a69ae8b5235d4f37229313ee1947de5c5b9ad2142a76b17c105dd758cf"
+  url "https://github.com/vapor/toolbox/archive/refs/tags/20.0.2.tar.gz"
+  sha256 "7891c84f8d58fb4724054c69feb803181c27238579f4554ce8e300228004df14"
   license "MIT"
   head "https://github.com/vapor/toolbox.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ad33e861b01620717b6a38a87ff83fe4b79e3447067be1eede4db6d2fa544bc0"
-    sha256 cellar: :any,                 arm64_sequoia: "9db6e2d0f5e2c9d5dea8f930db379e2f8a899d5af09f402d29521074cb05afdd"
-    sha256                               arm64_linux:   "b91ac9e335b8342682cf2032ea9a91336c870f01ebad067ce2bb1523ada305aa"
-    sha256                               x86_64_linux:  "7d4caa94d7be2095ee335b2c954bea42d308e4f79aa641bf4d345671bb8445f1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "74cfa46115a5eed7f286976223201bf8591812c99a40a99f4ac5a92aa9556dab"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4ce207c66f4c6041934098bdd900d82c0d74290dbf52d0f6cc18c8d9899e780"
+    sha256 cellar: :any,                 arm64_linux:   "1649275728cd8456e616cb802216706b72a0b2f5c803efdbbea190c70ecee0e8"
+    sha256 cellar: :any,                 x86_64_linux:  "57eb082ec54f0d0a837e422f332ed464877df153bc795443bbe9cd12cfd0d380"
   end
 
   depends_on xcode: ["26.0", :build]
@@ -22,12 +22,7 @@ class Vapor < Formula
   end
 
   def install
-    args = if OS.mac?
-      ["--disable-sandbox"]
-    else
-      ["--static-swift-stdlib"]
-    end
-    system "swift", "build", *args, "-c", "release", "-Xswiftc", "-cross-module-optimization"
+    system "swift", "build", "-Xswiftc", "-cross-module-optimization", *std_swift_args
     bin.install ".build/release/vapor"
   end
 

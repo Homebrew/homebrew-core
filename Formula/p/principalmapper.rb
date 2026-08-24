@@ -58,6 +58,8 @@ class Principalmapper < Formula
   patch do
     url "https://github.com/nccgroup/PMapper/commit/88bad89bd84a20a264165514363e52a84d39e8d7.patch?full_index=1"
     sha256 "9c731e2613095ea5098eda7141ae854fceec3fc8477a7a7e3202ed6c751e68dc"
+    type :backport
+    resolves "https://github.com/nccgroup/PMapper/issues/106"
   end
 
   def install

@@ -21,7 +21,7 @@ class Superlu < Formula
   def install
     args = %W[
       -Denable_internal_blaslib=NO
-      -DTPL_BLAS_LIBRARIES=#{Formula["openblas"].opt_lib}/#{shared_library("libopenblas")}
+      -DTPL_BLAS_LIBRARIES=#{formula_opt_lib("openblas")}/#{shared_library("libopenblas")}
       -DBUILD_SHARED_LIBS=YES
     ]
 

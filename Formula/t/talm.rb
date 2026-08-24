@@ -1,24 +1,24 @@
 class Talm < Formula
   desc "Manage Talos Linux configurations the GitOps way"
   homepage "https://github.com/cozystack/talm"
-  url "https://github.com/cozystack/talm/archive/refs/tags/v0.31.0.tar.gz"
-  sha256 "b7ac081fcd6628efe8c5fb5f76fffc0064cfa6c72ff0f342eaddb871eab91fd6"
+  url "https://github.com/cozystack/talm/archive/refs/tags/v0.34.0.tar.gz"
+  sha256 "459b97ccbbd76f4daec83b95dc6f4ffc4f1563b60623323e0a4d2e1f7f0c3f79"
   license "Apache-2.0"
   head "https://github.com/cozystack/talm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d1cb0190edc00e5990ce3b4769851e6ae4967227dcf81004edc1186e7e23c913"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "48dd973e86723e585b3b4756771b0ff4e73be747a22f6bc176176ef1f54e14bf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "620a8b758f564638aadb37b0366a2406b4739eaeaf2088f600a2dbf29f49b09d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c46ff160d3e3f7e159af08be2a9fe7db9ea56e03765b7d94c0a938ca4081fb7d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e562cada2e0a82f22533ccd7d4826698c27a5bb8f67b12d85cc6ddf51e09a2f"
-    sha256 cellar: :any,                 x86_64_linux:  "e469a20bf214c2215b5bc14fe283882d77f5decb12f3a66a54f3d4ca457e0ff3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aa184a0a78a0e492ac0e31f91bd3e6b848c2ee8a13c3c03c33b5e04314df42d4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "093605a417b9f7e2e8bef5a64de4b4fc7f1d61285d78075a8f14f236cb20f2ea"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a7836b4c613a73ba46258f3c6977a7c8ce5ae4ba1a274928031abb22debef138"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8a8fbc96a20e24797ed6d48a9ed26f832617cbc3fc9c8e001577d755b81b6a98"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4ad454982bfd720343c01764e6613fa3a1aee0af468ad70c65e895ae553b7746"
+    sha256 cellar: :any,                 x86_64_linux:  "314f67dca38af98c692290742f6f2247481485fca9ad10d7b405e9f140dcbb2e"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}")
     generate_completions_from_executable(bin/"talm", "completion")
   end
 

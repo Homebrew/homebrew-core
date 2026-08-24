@@ -11,15 +11,15 @@ class Libgnt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "8e41afafab8780d6c9415e0be6819934f2256539126ac13ca992f20a735a4dec"
-    sha256 cellar: :any, arm64_sequoia: "54589732aa242fcd90ecc861024846b94b55280206e11300614a5b537fad3809"
-    sha256 cellar: :any, arm64_sonoma:  "695500c7f125f6c406172b912c445ee7d94af2520af5ae2553a65d1ab8996e4e"
-    sha256 cellar: :any, sonoma:        "2bf80b7019063730cf2969de24002cee9fd5d5198607273b38b472bb92747701"
-    sha256               arm64_linux:   "56791137e22a683d5eda5e39807f75c4a7350009c9d218969b5add59f54f7802"
-    sha256               x86_64_linux:  "7b441c9f9f4ef6546098899d79a1a28705715d232e16e43cf1050ba96df1b00b"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "f194c5894d88e0a404bacc329bebc7e07a30af1f61ec7e2b6f8204e88b466aef"
+    sha256 cellar: :any, arm64_sequoia: "6e2509cb3857c6e6f3bf0ee75c4a1fbfdfafbd4bb31259480b201b24e6d1a32f"
+    sha256 cellar: :any, arm64_sonoma:  "9eab534c24c28acf0f8b40b9133372a22ad41871c0148d4695c88614f239c49f"
+    sha256 cellar: :any, sonoma:        "ac8130649a42b951a8135577fe6e6187000a1529662b26f661f55c8389bde2bb"
+    sha256               arm64_linux:   "be782198220e55ec2a36f237fb74adf716fd9eb7ad25c70c875412808b7269f3"
+    sha256               x86_64_linux:  "0ea6543956c903e13d322177daf7e700bec8c264e7c8e25b98179fc7624a4be6"
   end
 
-  depends_on "gtk-doc" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
@@ -34,13 +34,11 @@ class Libgnt < Formula
   end
 
   def install
-    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
-
     # upstream bug report on this workaround, https://issues.imfreedom.org/issue/LIBGNT-15
     inreplace "meson.build", "ncurses_sys_prefix = '/usr'",
-                             "ncurses_sys_prefix = '#{Formula["ncurses"].opt_prefix}'"
+                             "ncurses_sys_prefix = '#{formula_opt_prefix("ncurses")}'"
 
-    system "meson", "setup", "build", "-Dpython2=false", *std_meson_args
+    system "meson", "setup", "build", "-Ddoc=false", "-Dpython2=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
@@ -58,11 +56,11 @@ class Libgnt < Formula
     C
 
     flags = [
-      "-I#{Formula["glib"].opt_include}/glib-2.0",
-      "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+      "-I#{formula_opt_include("glib")}/glib-2.0",
+      "-I#{formula_opt_lib("glib")}/glib-2.0/include",
       "-I#{include}",
       "-L#{lib}",
-      "-L#{Formula["glib"].opt_lib}",
+      "-L#{formula_opt_lib("glib")}",
       "-lgnt",
       "-lglib-2.0",
     ]

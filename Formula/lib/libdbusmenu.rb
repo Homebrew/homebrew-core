@@ -74,8 +74,8 @@ class Libdbusmenu < Formula
 
     flags = shell_output("pkgconf --cflags --libs dbusmenu-glib-0.4 gobject-2.0").chomp.split
     system ENV.cc, "test.c", "-o", "test",
-           "-I#{Formula["glib"].opt_include}/glib-2.0",
-           "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+           "-I#{formula_opt_include("glib")}/glib-2.0",
+           "-I#{formula_opt_lib("glib")}/glib-2.0/include",
            *flags
     system "./test"
   end

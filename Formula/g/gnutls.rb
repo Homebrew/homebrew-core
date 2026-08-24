@@ -32,12 +32,13 @@ class Gnutls < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "734c0efdecbab73827b30af2d46ecb7e4236eb9dbfa55b81b4293d369d434b2a"
-    sha256 cellar: :any, arm64_sequoia: "65c4d021683d2caf362f28a44962ed91d2fc2baf3dfff3e5d1013c2a48528e73"
-    sha256 cellar: :any, arm64_sonoma:  "f0e71d1231213068342c729c70cf8dd5421ec1c87d5b2d21736db4fe4803a301"
-    sha256 cellar: :any, sonoma:        "eb1d17b2a4abf89c34b79dd55b8808c24321ea6fed41da6550f3abbab70ad297"
-    sha256               arm64_linux:   "22abe8b61096729057db1937b2e7d219bac0835e450da4eee0fc9fa9f21f3e23"
-    sha256               x86_64_linux:  "be86239b5f1738315dfb08c0df9a36eee05dc5f2a1db0511efec2bf063c0dac2"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "a2334eb50a165945aad7df804a3e846053de62973f6aee8060fec8c16c59446b"
+    sha256 cellar: :any, arm64_sequoia: "0c8ba0cb42636a98b28a2c173b33c4298a286972a9838d27602f0bbc860acdbb"
+    sha256 cellar: :any, arm64_sonoma:  "3e7fd6bf0a203f1b700c3c7e73d3a99b06c678eeb5335341339659ab5f00655c"
+    sha256 cellar: :any, sonoma:        "77ec479ca9c1a6c80058f5bc9a908a1afd271f39a5cf69935e07fea4129a3824"
+    sha256               arm64_linux:   "1f5ee025df39e40fb4197fdb0ab82f4f657a70972554e8296af6b910d80f9e47"
+    sha256               x86_64_linux:  "8ac010d174af7ca336b9113fa208aa05104eb6b60e4e42f86c4212ad77ff6ad2"
   end
 
   depends_on "pkgconf" => :build
@@ -58,6 +59,8 @@ class Gnutls < Formula
   patch do
     url "https://gitlab.com/gnutls/gnutls/-/commit/29c2027c963cf559817d0da37c1fc2efd0c1bd6a.diff"
     sha256 "c0bfc0164ff131c9d2e1c4d0367430f8b767b64c9c21e0f408bd634d21fb0302"
+    type :backport
+    resolves "https://gitlab.com/gnutls/gnutls/-/merge_requests/2106"
   end
 
   def install
@@ -83,9 +86,8 @@ class Gnutls < Formula
     mv man1/"certtool.1", man1/"gnutls-certtool.1"
   end
 
-  def post_install
-    rm(pkgetc/"cert.pem") if (pkgetc/"cert.pem").exist?
-    pkgetc.install_symlink Formula["ca-certificates"].pkgetc/"cert.pem"
+  post_install_steps do
+    symlink "{{etc}}/ca-certificates/cert.pem", "{{pkgetc}}/cert.pem", overwrite: true
   end
 
   def caveats

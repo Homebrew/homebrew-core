@@ -23,7 +23,7 @@ class Mspdebug < Formula
   end
 
   def install
-    ENV.append_to_cflags "-I#{Formula["hidapi"].opt_include}/hidapi"
+    ENV.append_to_cflags "-I#{formula_opt_include("hidapi")}/hidapi"
     system "make", "PREFIX=#{prefix}", "install"
   end
 

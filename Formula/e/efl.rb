@@ -65,15 +65,22 @@ class Efl < Formula
   patch do
     url "https://git.enlightenment.org/enlightenment/efl/commit/0fcaf460c4a33eb54a51b9d8cb38321603019529.patch"
     sha256 "45492dcea5141814763ed17ac22b068aa74bb165e40afa0fc6cef72af5632335"
+    type :backport
+    resolves "https://git.enlightenment.org/enlightenment/efl/issues/84"
   end
   patch do
     url "https://git.enlightenment.org/enlightenment/efl/commit/628c40cce2de0a18818b40615d3351b0c9e9b889.patch"
     sha256 "13823eb598c2dd81c0a3f143a5b043d0163e8d3b843e397ec4666302943b56d9"
+    type :backport
   end
 
   # Remove LuaJIT 2.0 linker args -pagezero_size and -image_base
   # to fix ARM build using LuaJIT 2.1+
-  patch :DATA
+  patch do
+    url "https://git.enlightenment.org/enlightenment/efl/commit/0c4f145ca20905d53cca75b5d2ccc15e4261483d.patch"
+    sha256 "376cddafab12d167abb055d23c140cb8b780bda0f1e93b4704999b4acb46da51"
+    type :backport
+  end
 
   def install
     args = %w[
@@ -112,19 +119,3 @@ class Efl < Formula
     system bin/"eet", "-V"
   end
 end
-
-__END__
-diff --git a/meson.build b/meson.build
-index a1c5967b82..b10ca832db 100644
---- a/meson.build
-+++ b/meson.build
-@@ -32,9 +32,6 @@ endif
-
- #prepare a special linker args flag for binaries on macos
- bin_linker_args = []
--if host_machine.system() == 'darwin'
--  bin_linker_args = ['-pagezero_size', '10000', '-image_base', '100000000']
--endif
-
- windows = ['windows', 'cygwin']
- #bsd for meson 0.46 and 0.47

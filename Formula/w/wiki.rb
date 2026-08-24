@@ -24,7 +24,7 @@ class Wiki < Formula
   patch :DATA
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/wiki"
+    system "go", "build", *std_go_args, "./cmd/wiki"
   end
 
   test do

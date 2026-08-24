@@ -64,16 +64,16 @@ class Nwchem < Formula
 
       # needed to use python 3.X to skip using default python2
       ENV["PYTHONVERSION"] = Language::Python.major_minor_version "python3.14"
-      ENV["BLASOPT"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
-      ENV["LAPACK_LIB"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
+      ENV["BLASOPT"] = "-L#{formula_opt_lib("openblas")} -lopenblas"
+      ENV["LAPACK_LIB"] = "-L#{formula_opt_lib("openblas")} -lopenblas"
       ENV["BLAS_SIZE"] = "4"
-      ENV["SCALAPACK"] = "-L#{Formula["scalapack"].opt_prefix}/lib -lscalapack"
+      ENV["SCALAPACK"] = "-L#{formula_opt_prefix("scalapack")}/lib -lscalapack"
       ENV["SCALAPACK_SIZE"] = "4"
       ENV["USE_64TO32"] = "y"
       ENV["USE_HWOPT"] = "n"
       ENV["OPENBLAS_USES_OPENMP"] = "y"
-      ENV["LIBXC_LIB"] = Formula["libxc"].opt_lib.to_s
-      ENV["LIBXC_INCLUDE"] = Formula["libxc"].opt_include.to_s
+      ENV["LIBXC_LIB"] = formula_opt_lib("libxc").to_s
+      ENV["LIBXC_INCLUDE"] = formula_opt_include("libxc").to_s
       os = OS.mac? ? "MACX64" : "LINUX64"
       system "make", "nwchem_config", "NWCHEM_MODULES=all python gwmol bsemol", "USE_MPI=Y"
       system "make", "NWCHEM_TARGET=#{os}", "USE_MPI=Y"
@@ -88,7 +88,7 @@ class Nwchem < Formula
   test do
     if OS.mac?
       require "utils/linkage"
-      libgomp = Formula["gcc"].opt_lib/"gcc/current/libgomp.dylib"
+      libgomp = formula_opt_lib("gcc")/"gcc/current/libgomp.dylib"
       refute Utils.binary_linked_to_library?(bin/"nwchem", libgomp), "Unwanted linkage to libgomp!"
     end
 

@@ -1,19 +1,18 @@
 class GitGraph < Formula
   desc "Command-line tool to show clear git graphs arranged for your branching model"
-  homepage "https://github.com/mlange-42/git-graph"
-  url "https://github.com/mlange-42/git-graph/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "105980d19b93324e27ee714abde35cb05b29e21d3c42cd972afe4d4500af05ee"
+  homepage "https://github.com/git-bahn/git-graph"
+  url "https://github.com/git-bahn/git-graph/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "906ef8f5931c32324ab372ac0047b6440faf76b8ce61fda811d8b85cdc3da577"
   license "MIT"
-  head "https://github.com/mlange-42/git-graph.git", branch: "master"
+  head "https://github.com/git-bahn/git-graph.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1048c932a8deab74c8eb90e4cdae3a4a4b63fd73f945607a85ae507fcc89a043"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "17350cc0ec47ea241a5c3a99448f0aa6960615cefb7bf83c639fe17a8a4f423e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "43198bde0bdccff80d898f21481970b18ebf67073982e9c5eb1d1ddbd7ee3b83"
-    sha256 cellar: :any_skip_relocation, sonoma:        "138badaf5ce366f4c77866725e3b367eb706ba8d6a1d309c5e8d58c4ced62f2c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "62c0d6fd0d897f0ae8825a34463d50c764f5942c80c8106a255c5ae9b879261e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b7173c050dfb74dd21608c3fd490921e68219491015baa161cf66153dea32ae"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d218513d03440a2e708b1e0db2dd69cd3a65c05095c79877a00ecc54af02a8a5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "28c60f5a5ad5d0c78a45a90ad885f0b7cd5e267a6b601bd4213227d782f29404"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "70e3960271105a63db8967644c82b7921d42f3de432e89e051ef3bc1671d4de5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8baaad794c7a987496607a4800e6ead23a0e6cda613dcc48ccea6d3eaa9afa84"
+    sha256 cellar: :any,                 arm64_linux:   "b9f8138ba429d8cf37ffa784e5f69f0f19c7efced6aaa74da5e95b1fcf22c711"
+    sha256 cellar: :any,                 x86_64_linux:  "31f133c95d92f675c41bf6d5d0a44e342040f9bc3416ae50ab07fd66ee160007"
   end
 
   depends_on "rust" => :build

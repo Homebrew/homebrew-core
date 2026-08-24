@@ -1,11 +1,21 @@
 class Castxml < Formula
   desc "C-family Abstract Syntax Tree XML Output"
   homepage "https://github.com/CastXML/CastXML"
-  url "https://github.com/CastXML/CastXML/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "e70728229db5444384befcba9681a01497e9a19e35166ce1ffef3b5cbc8eeefe"
   license "Apache-2.0"
   revision 1
   head "https://github.com/CastXML/castxml.git", branch: "master"
+
+  stable do
+    url "https://github.com/CastXML/CastXML/archive/refs/tags/v0.7.0.tar.gz"
+    sha256 "e70728229db5444384befcba9681a01497e9a19e35166ce1ffef3b5cbc8eeefe"
+
+    # Backport for LLVM 23. Local file to remove README.rst changes
+    # https://github.com/CastXML/CastXML/commit/315fbacc4e4b9c7ea21d25ad489a90b73a526326
+    patch do
+      file "Patches/castxml/315fbacc4e4b9c7ea21d25ad489a90b73a526326.diff"
+      type :backport
+    end
+  end
 
   livecheck do
     url :stable

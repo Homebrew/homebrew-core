@@ -1,8 +1,8 @@
 class Dust < Formula
   desc "More intuitive version of du in rust"
   homepage "https://github.com/bootandy/dust"
-  url "https://github.com/bootandy/dust/archive/refs/tags/v1.2.4.tar.gz"
-  sha256 "2f6768534bd01727234e67f1dd3754c9547aa18c715f6ee52094e881ebac50e3"
+  url "https://github.com/bootandy/dust/archive/refs/tags/v1.2.5.tar.gz"
+  sha256 "4445e61f1341ea567e9e49367f275a1f4b026a60526e60048265f7af4a4943fd"
   license "Apache-2.0"
   head "https://github.com/bootandy/dust.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Dust < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2ea7278341b70f5971cbcbb35c5dbb817eb69865e1acd6c59335a09ecba1ba26"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "14b3826c4f2109aa86d30b1952748620968130ce6af0ccd2a94d0ffacf49def0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "251e220c57fc640bdaa2962c2428a4f1738b732a0f2c0418bb6a1d7d04b8f63e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2b883a64823bb7861927ae575bbd3be0065f6ceccfe2b38f1f2924b51752f469"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e05fcc7b985571840fae0e6a9efc9f604ab1f9443525f2e0cb31c261485e07b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63c496858bede87bdd74dd11ff493cdaa855bed9321f0ba16899b6c12c6569a0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a959a4c2fcaa73b15c1dbc33500913b46652431ff2080c6ef2b21e2fb5dfb568"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a387723fd85c6c45ff6b2f9f6cd0f28897c11fbe5a4d087be8402fa5d70073b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "80a6ec6ad5cacbbd7b85fe48884b84bfa8765bc91d40ab5811536b7ec42ee30f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eadeb1f952f6fdf552800939c71ae43f7e20df8e3e14d8f3c4760e8da714bb1f"
+    sha256 cellar: :any,                 arm64_linux:   "db0bdd78f8b22e1e256a695af1c0cde94b94d10ac98d2152273330a63858a095"
+    sha256 cellar: :any,                 x86_64_linux:  "f2c79cba60ce1bdefd759502d5be8f68482bbd76daaeac6b4f0abc4fd453b6df"
   end
 
   depends_on "rust" => :build

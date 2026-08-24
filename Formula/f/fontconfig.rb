@@ -1,8 +1,8 @@
 class Fontconfig < Formula
   desc "XML-based font configuration API for X Windows"
   homepage "https://wiki.freedesktop.org/www/Software/fontconfig/"
-  url "https://gitlab.freedesktop.org/fontconfig/fontconfig/-/archive/2.18.1/fontconfig-2.18.1.tar.gz"
-  sha256 "e9309564717b6301230112b173f36c288489479d381d2f0add1210ca5b16ba7e"
+  url "https://gitlab.freedesktop.org/fontconfig/fontconfig/-/archive/2.18.3/fontconfig-2.18.3.tar.gz"
+  sha256 "9ae01e1d53acdef56010c5451cd34aa41d325b2faccd8606448d8fa01b2496b3"
   license all_of: [
     "HPND-sell-variant",
     "Unicode-3.0",        # fc-case/CaseFolding.txt
@@ -19,12 +19,12 @@ class Fontconfig < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "3e5fe5ced46e677b036a434f33bfad015b26ec599896e13431f90880fefc2db2"
-    sha256 arm64_sequoia: "1538844d9dcd7ace123b4c55220506782726cb6803ad96a132a30e85720b3699"
-    sha256 arm64_sonoma:  "f4854307ce84898d35564e9a7027cd200973736c74bc9b783a8b34cc1fffd821"
-    sha256 sonoma:        "30bdb67e3e52cdd396a19668313a580850ae94ca1a6fb355d2320cd803dd1be6"
-    sha256 arm64_linux:   "b78fd19a27aa988fb4b22f5381ed0a0a75010708a636a1a5c5e110d5009e212e"
-    sha256 x86_64_linux:  "1006f26b98bfe4b9c032e8b93842ce5ef8b0342b7582915b5aafcb17e53a3518"
+    sha256 arm64_tahoe:   "ad1c5a3054313853e9eefa9a07c32a3ff7b11c4fbcff9e73affc2a50233dbafe"
+    sha256 arm64_sequoia: "a5f5df5f8d02e8a5b2587cac464c7bd45128447da06b7ab39938a9645982ef49"
+    sha256 arm64_sonoma:  "24bd9a2d42f9bc46d4cd51aa51299cbe2c59b2c848656a7657875b0aaedc223b"
+    sha256 sonoma:        "dbc9016619292284590e7e16e6492d911e0926b976ebe6d502f6e86fe01fd64c"
+    sha256 arm64_linux:   "8e7ed20aac7298e92bfb46c5fbb34fd8784f111507e256fde4f2fb354f1c48eb"
+    sha256 x86_64_linux:  "56c35f5cc20e978189ba6693eef8ed1167de1d04ef9e5289e9a9dff8b5077049"
   end
 
   depends_on "gettext" => :build
@@ -42,14 +42,6 @@ class Fontconfig < Formula
   end
 
   def install
-    font_dirs = %w[
-      /System/Library/Fonts
-      /Library/Fonts
-      ~/Library/Fonts
-    ]
-
-    font_dirs << Dir["/System/Library/Assets{,V2}/com_apple_MobileAsset_Font*"].max if OS.mac?
-
     args = %W[
       --default-library=both
       --localstatedir=#{var}
@@ -58,17 +50,29 @@ class Fontconfig < Formula
       -Dtests=disabled
       -Dtools=enabled
       -Dcache-build=disabled
-      -Ddefault-fonts-dirs=#{font_dirs}
       -Dadditional-fonts-dirs=no
     ]
+
+    # Cannot use default dirs on macOS due to fc-cache recursing unnecessary directories
+    # Issue ref: https://gitlab.freedesktop.org/fontconfig/fontconfig/-/work_items/547
+    if OS.mac?
+      font_dirs = %w[
+        /System/Library/Fonts
+        /Library/Fonts
+        ~/Library/Fonts
+      ]
+      font_dirs << Dir["/System/Library/Assets{,V2}/com_apple_MobileAsset_Font*"].max
+
+      args << "-Ddefault-fonts-dirs=#{font_dirs}"
+    end
+
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    ohai "Regenerating font cache, this may take a while"
-    system bin/"fc-cache", "--force", "--really-force", "--verbose"
+  post_install_steps do
+    run "fc-cache", args: ["--force", "--really-force", "--verbose"], base: :bin
   end
 
   test do

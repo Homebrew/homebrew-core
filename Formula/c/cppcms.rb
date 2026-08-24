@@ -30,6 +30,8 @@ class Cppcms < Formula
   patch do
     url "https://github.com/artyom-beilis/cppcms/commit/92164714273bddfc032d930d3d89f78428110939.patch?full_index=1"
     sha256 "7934a74f9b39d2108944895f826d960ee34d4b88f52f2482a683f15d395fd74a"
+    type :backport
+    resolves "https://github.com/artyom-beilis/cppcms/pull/106"
   end
 
   def install

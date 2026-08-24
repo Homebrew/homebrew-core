@@ -23,22 +23,19 @@ class Sdl12Compat < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "sdl2"
+  depends_on "sdl2-compat" => :no_linkage
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DSDL2_PATH=#{Formula["sdl2"].opt_prefix}",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath(target: Formula["sdl2"].opt_lib)}",
-                    "-DSDL12DEVEL=ON",
-                    "-DSDL12TESTS=OFF",
-                    *std_cmake_args
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
-    (lib/"pkgconfig").install_symlink "sdl12_compat.pc" => "sdl.pc"
+    args = ["-DSDL12TESTS=OFF"]
+    args << "-DCMAKE_INSTALL_RPATH=#{rpath(target: formula_opt_lib("sdl2-compat"))}" if OS.mac?
 
-    # we have to do this because most build scripts assume that all sdl modules
+    # We override install_prefix to make sure substituted CMAKE_INSTALL_FULL_* use
+    # HOMEBREW_PREFIX path because most build scripts assume that all SDL modules
     # are installed to the same prefix. Consequently SDL stuff cannot be keg-only
-    inreplace [bin/"sdl-config", lib/"pkgconfig/sdl12_compat.pc"], prefix, HOMEBREW_PREFIX
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args(install_prefix: HOMEBREW_PREFIX)
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build", "--prefix", prefix
+    (lib/"pkgconfig").install_symlink "sdl12_compat.pc" => "sdl.pc"
   end
 
   test do

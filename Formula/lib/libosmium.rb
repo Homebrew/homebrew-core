@@ -27,7 +27,7 @@ class Libosmium < Formula
       -DBUILD_WITH_CCACHE=OFF
       -DINSTALL_GDALCPP=ON
       -DINSTALL_UTFCPP=ON
-      -DPROTOZERO_INCLUDE_DIR=#{Formula["protozero"].opt_include}
+      -DPROTOZERO_INCLUDE_DIR=#{formula_opt_include("protozero")}
     ]
 
     # We only install headers, so we can skip `cmake --build`.

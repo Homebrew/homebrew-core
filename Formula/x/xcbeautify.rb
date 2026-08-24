@@ -27,12 +27,7 @@ class Xcbeautify < Formula
   end
 
   def install
-    args = if OS.mac?
-      %w[--disable-sandbox]
-    else
-      %w[--static-swift-stdlib -Xswiftc -use-ld=ld]
-    end
-    system "swift", "build", *args, "--configuration", "release"
+    system "swift", "build", *std_swift_args
     bin.install ".build/release/xcbeautify"
     generate_completions_from_executable(bin/"xcbeautify", "--generate-completion-script")
   end

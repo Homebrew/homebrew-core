@@ -1,7 +1,7 @@
 class Libdrawtext < Formula
   desc "Library for anti-aliased text rendering in OpenGL"
   homepage "http://nuclear.mutantstargoat.com/sw/libdrawtext/"
-  url "https://github.com/jtsiomb/libdrawtext/archive/refs/tags/v0.6.tar.gz"
+  url "https://github.com/jtsiomb/libdrawtext/releases/download/v0.6/libdrawtext-0.6.tar.gz"
   sha256 "714d94473622d756bfe7d70ad6340db3de7cc48f4f356a060e3cb48900c6da01"
   license "LGPL-3.0-or-later"
   head "https://github.com/jtsiomb/libdrawtext.git", branch: "master"

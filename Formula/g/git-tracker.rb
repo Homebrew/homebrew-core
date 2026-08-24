@@ -29,7 +29,7 @@ class GitTracker < Formula
     system "rake", "standalone:install", "prefix=#{prefix}"
 
     # Replace `ruby` cellar path in shebang
-    inreplace bin/"git-tracker", Formula["ruby"].prefix.realpath, Formula["ruby"].opt_prefix unless OS.mac?
+    inreplace bin/"git-tracker", Formula["ruby"].prefix.realpath, formula_opt_prefix("ruby") unless OS.mac?
   end
 
   test do

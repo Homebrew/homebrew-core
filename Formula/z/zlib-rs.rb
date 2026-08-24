@@ -1,18 +1,18 @@
 class ZlibRs < Formula
   desc "C API for zlib-rs"
   homepage "https://github.com/trifectatechfoundation/zlib-rs/tree/main/libz-rs-sys-cdylib#libz-rs-sys-cdylib"
-  url "https://github.com/trifectatechfoundation/zlib-rs/archive/refs/tags/v0.6.3.tar.gz"
-  sha256 "a705fba2e98dc82fc2993a6572d3a200d41cbd070a52d33897927a4cce17d793"
+  url "https://github.com/trifectatechfoundation/zlib-rs/archive/refs/tags/v0.6.7.tar.gz"
+  sha256 "a2dac1f1102f01a2da1ec5b708f8f3832cedad138a6732f241204fa0f3617b81"
   license "Zlib"
   head "https://github.com/trifectatechfoundation/zlib-rs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "93f8170aa05a16177d7a9b9e82935e1a6f4d821ee8a21c50ac75b9dcd390ffc1"
-    sha256 cellar: :any,                 arm64_sequoia: "c449fe85176de2ae96715abfc2cc9c873314ecb781e6daf54072f5c5e38db1fa"
-    sha256 cellar: :any,                 arm64_sonoma:  "26dc11f0ed9e39e02d334b0522033bdff751cc4e6951a9e7700f8646689e6ed7"
-    sha256 cellar: :any,                 sonoma:        "adf8703625fe9399c277e0ec25f4d847b33454e1c70041cc8ed1325c32aed43b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "64bdb816774fae459ba97b7929253c33c2fd143bb02cc63acf09ba51ecff7c32"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b759889976a07c698067025d0eb02d3cea042f433497645349566a7d4c0dffed"
+    sha256 cellar: :any, arm64_tahoe:   "23045e7acabdf73ca3fca0ea9aa6676dfdfaa1454afeedebf323977348a82da6"
+    sha256 cellar: :any, arm64_sequoia: "91fbda2138f199f09f2e0c2a46e44a5f36a627bd5aabda6eba9f30c678499ce7"
+    sha256 cellar: :any, arm64_sonoma:  "6fd19133e9c2dbca2edc81ddbf5079eccc807e6d05b86ecc106c7212aaae3e11"
+    sha256 cellar: :any, sonoma:        "1712abb67f3c33a8db75982d144cbcb7ded9549e08fafdee2678a6b93fb2d6a7"
+    sha256 cellar: :any, arm64_linux:   "0ae5139c20f4017cde276757f6350efd8c7aa439358188f648e250b568b3eb17"
+    sha256 cellar: :any, x86_64_linux:  "dc27d1acaf6fa799684d8a98eb8edfbc5854ee22d1b3eeabee0c2090ac3faca2"
   end
 
   depends_on "cargo-c" => :build
@@ -38,7 +38,7 @@ class ZlibRs < Formula
     end
 
     testpath.install resource("zpipe.c")
-    ENV.append_to_cflags "-I#{Formula["zlib-ng-compat"].opt_include}" if OS.linux?
+    ENV.append_to_cflags "-I#{formula_opt_include("zlib-ng-compat")}" if OS.linux?
     system ENV.cc, "zpipe.c", *ENV.cflags.to_s.split, "-L#{lib}", "-lz_rs", "-o", "zpipe"
 
     text = "Hello, Homebrew!"

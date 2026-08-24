@@ -1,18 +1,18 @@
 class LivekitCli < Formula
   desc "Command-line interface to LiveKit"
   homepage "https://livekit.io"
-  url "https://github.com/livekit/livekit-cli/archive/refs/tags/v2.16.6.tar.gz"
-  sha256 "fddbe59b625114d244d65708c350b2fdf2bd1f2dab65e827db6f3abbd42a8823"
+  url "https://github.com/livekit/livekit-cli/archive/refs/tags/v2.18.2.tar.gz"
+  sha256 "068bcc02cfaa5a8b22107763b81b8c7904113d9bbbf022cb0db3d3931539469b"
   license "Apache-2.0"
   head "https://github.com/livekit/livekit-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "f400fa8bae30d2b74c2409223d0f08827757afa0cb5b8af840cb4707481c2a44"
-    sha256 cellar: :any, arm64_sequoia: "15575e16de1d58660ab9f31a4b3935c5c69da8e12bd718323fac1b9e86f12054"
-    sha256 cellar: :any, arm64_sonoma:  "b51dd35b6c127f93b601a56b5e56310734f0bd0bad8dbb6ca88050e890bd34f7"
-    sha256 cellar: :any, sonoma:        "3203598a2a2654ba87e007d6704511e8e6ffa63edb23b69677bc55e22dc13a0f"
-    sha256 cellar: :any, arm64_linux:   "ec108d02799b3704663f195d7ae5e071b0291ad240ae0f2572619f7e82ec3c3d"
-    sha256 cellar: :any, x86_64_linux:  "740bff5df71a54323ddf7bcc0fa5b2b926fe1367a795244dd9dee1f5e93ceada"
+    sha256 cellar: :any, arm64_tahoe:   "dc8a0b85c2bcc0f6a773de2cfdc3d28a83aa971956ad11dcffe6aff5d473ce8b"
+    sha256 cellar: :any, arm64_sequoia: "05c20ea203d6a57e2897106d7e758c0ba1d3a9a392cc1efb8ec3fc50de845d9c"
+    sha256 cellar: :any, arm64_sonoma:  "af2724b5a50954c5c9005cd52e031810845701ed67b1de4b03111562fa09e0d7"
+    sha256 cellar: :any, sonoma:        "88d9299c171e1f639d30cc957ee0788813a787a63c3579b85bb60ceb6abaaaf9"
+    sha256 cellar: :any, arm64_linux:   "9c6118fed94dbfc60e31c4b8aea8a061e17120d1f270e943b531f7fc90b68f7b"
+    sha256 cellar: :any, x86_64_linux:  "438a6c0019e05180907b3198eb3524a352679a98fdcbd5b7ef0abbea3eee9431"
   end
 
   depends_on "go" => :build
@@ -21,8 +21,7 @@ class LivekitCli < Formula
 
   def install
     ENV["CGO_ENABLED"] = "1"
-    ldflags = "-s -w"
-    system "go", "build", *std_go_args(ldflags:, tags: "portaudio_system", output: bin/"lk"), "./cmd/lk"
+    system "go", "build", *std_go_args(tags: "portaudio_system", output: bin/"lk"), "./cmd/lk"
 
     bin.install_symlink "lk" => "livekit-cli"
 

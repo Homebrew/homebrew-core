@@ -1,19 +1,19 @@
 class Riff < Formula
   desc "Diff filter highlighting which line parts have changed"
   homepage "https://github.com/walles/riff"
-  url "https://github.com/walles/riff/archive/refs/tags/3.6.1.tar.gz"
-  sha256 "d360058f0e51d162235307498485f92dc57518877f5646f00521b97e92957bbe"
+  url "https://github.com/walles/riff/archive/refs/tags/3.6.2.tar.gz"
+  sha256 "2d84d005f33444143eb8f68eb72024cd7eb9addd0b933665aaf44de7e071c175"
   license "MIT"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "08f487befc18a19c17342e9981152de7c15d73014a99b2a3f414f071521b7b91"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "99bff9a830876f3566bd2bc054b96cd6938d521235327f1f12723d103d5ab436"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7c73c8cd55833b760109d8e421b653ac8c05fc841b5f9f07bfe3e845df985de8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "439db215e250db18856f7efe62bc33dea7be3e1f5bbf9be1bc377e799f5d6d5d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e5920fc8b61db3bf10d058e65ec057d7838ef2b7cea135a0b7b857992bf40e1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51692f8697578dc0a6d169cdf0389103cf215289f71d46854bac396d465dd8f2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5aa412dccc395131028d01afc6e32c01347c7078d23a0ee558cadd7d5224c739"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "22eec652825897de91472e6bda3e5f290934bf735fa1f70d3644a3613ccf5e1c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e2e5b0568def3a676a62ff9951f0026ff790e04eba02f96691b8b745955e5f5c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0b3bc7507689850740c9b970cf317f7904e2d6613d5a8a20ba837a4a9c7c33d0"
+    sha256 cellar: :any,                 arm64_linux:   "a3ed8bc0ebc606221409bdf83c331ec87ebc7f7615410e06237ae438fdf4f307"
+    sha256 cellar: :any,                 x86_64_linux:  "cb1ff04dee157a498709afdd2e576a2c435edeef81cb86e55a125df78af0947d"
   end
 
   depends_on "rust" => :build

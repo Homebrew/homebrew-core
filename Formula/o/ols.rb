@@ -1,17 +1,17 @@
 class Ols < Formula
   desc "Language server for The Odin Programming Language"
   homepage "https://github.com/DanielGavin/ols"
-  url "https://github.com/DanielGavin/ols/archive/refs/tags/dev-2026-05.tar.gz"
-  sha256 "387b9f47304abab5c7cbe12f041c85de892ddc94a54e03f2789ff6ac9fc16386"
+  url "https://github.com/DanielGavin/ols/archive/refs/tags/dev-2026-06.tar.gz"
+  sha256 "f8055ff723994dc4debc02817c230d0173c43a23df4a9d6a7104fea69bfeeb79"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0b86200160fe6bbe50d438f0f49eef4aa8de99cce1ceff70e571c4af45ca058e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "baf3c09acefeab047e1fe8c66fde82060be216dae4c3be42827609e8a380cd61"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b2abcae76c0e31ff66f3325c55b643ca43326053ad50937a366350eed81e9ae"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b7eade8583b1949046fe500c0ff0ab8fe1c6f79941a26fbe83c466398abaf6bc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8afd8529388e1d5cc1020da1680c46ae51b5b315f6ce944caf0e3f90993607fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46cea1e0dd6a69174dd7edde69b09c4d6c98df7efd2d0f057a792e330866c27b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2a49baea6971a77139c64f502528c92a03cad8e372752698adfcac62a71ac6e6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7df0ff6be994f67f0d71f3a3d94dbda07f7abfbb7f52e5e4d2108e1e3f4c292c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e52573666caed3630c0d028498e48b69341990b85eae91c2ed99ba7eb0c6a64"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f6d9609fb41f362866430a73e9471d73c476d38b04b2f62b1d5f724382e983cd"
+    sha256 cellar: :any,                 arm64_linux:   "d56a278faf220adeb6c3a0c246bcbc746c9d7c006da2094ca8eb3f2ac5a56f2b"
+    sha256 cellar: :any,                 x86_64_linux:  "41ac14ccad569877bc735c1e6dc9de3dc6f52cff7cf9cf85b408532cecbd809b"
   end
 
   depends_on "odin" => :build

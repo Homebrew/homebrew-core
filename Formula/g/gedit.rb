@@ -8,12 +8,13 @@ class Gedit < Formula
   head "https://gitlab.gnome.org/World/gedit/gedit.git", branch: "main"
 
   bottle do
-    sha256 arm64_tahoe:   "fe10240fa0bdb15052bd461c290ce73714de7f23cda543fb2e96bd4ce1775341"
-    sha256 arm64_sequoia: "67d0b8286d28daecbf600a82a9de3d345a25026703f1e2596fbf09d0e3b0d3ab"
-    sha256 arm64_sonoma:  "cdb11eff0b46607f810c9317a3a148bd1e27dd8de36af513127fec408417fca4"
-    sha256 sonoma:        "a18b5a3cdff4ebda4c1b01212b972b39ced2927a5ea66084c05067c9f3213cf8"
-    sha256 arm64_linux:   "30eb60d1434a171ee0d8d9be4d7fac80636228412d2c624fda1e08a81a6c29f3"
-    sha256 x86_64_linux:  "b9f5d5e202aafb0690e961b1a5c5a65f5738cf7e1ec26ae21cc78f52d3952bd1"
+    rebuild 1
+    sha256 arm64_tahoe:   "9d05e61bc6f082489bd0c183cc7eb20067b415a43a7dc49778990e6db91ed9ce"
+    sha256 arm64_sequoia: "a42bdc40d34a9f665aa0d266720a698b28a115f7e527e5776f2f14142a55c799"
+    sha256 arm64_sonoma:  "651816294d7db144a7c9ae5189ed52d7b030c28a4d755a59965e4934d4a30b9c"
+    sha256 sonoma:        "a29b74a068bab86876bcbf911c27c9e8b329c2793de4e88360bb2411807d8618"
+    sha256 arm64_linux:   "16b04de90044b42cd9a893b119ddf9f5e8c1b039228cc72ebdaedc4052dfeb0d"
+    sha256 x86_64_linux:  "8a4627de62983183afbd42bac7368ab75436e7d1288376d5e15b887b3f8ace43"
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database
@@ -71,14 +72,14 @@ class Gedit < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system Formula["glib"].opt_bin/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas"
-    system Formula["gtk+3"].opt_bin/"gtk3-update-icon-cache", "-qtf", HOMEBREW_PREFIX/"share/icons/hicolor"
+  post_install_steps do
+    compile_gsettings_schemas
+    update_gtk_icon_cache
   end
 
   test do
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["icu4c"].opt_lib/"pkgconfig" if OS.mac?
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libpeas@1"].opt_lib/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("icu4c")/"pkgconfig" if OS.mac?
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("libpeas@1")/"pkgconfig"
 
     # main executable test
     system bin/"gedit", "--version"

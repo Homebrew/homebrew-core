@@ -1,10 +1,10 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-26.06.0.tar.xz"
-  sha256 "4cb4e5a3dc8cb5eec751c8a23c8ba19f61f96dedc0cd07d2aee6b0c8e2cf6ba4"
+  url "https://poppler.freedesktop.org/poppler-26.08.0.tar.xz"
+  sha256 "dc906e68cea698109706ac6aa3d2c9d4512fcfcac42d90b8afcda486d1b9abd0"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"] # see README-XPDF
-  compatibility_version 4
+  compatibility_version 6
   head "https://gitlab.freedesktop.org/poppler/poppler.git", branch: "master"
 
   livecheck do
@@ -13,12 +13,12 @@ class Poppler < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "595f642965f19f62860b5c9b0267a4e78daa8ada47ae1f5dbaab76ac1f74b10d"
-    sha256 arm64_sequoia: "d7510cb2202c997dd75212d0a45ed17adc6ef67604a59da0f745322687eb1c23"
-    sha256 arm64_sonoma:  "a7f99ac7d30f36e9e00359552f07f87b6ee9eba369ca36a67359a74ce62dabab"
-    sha256 sonoma:        "e07dda384ec18f4644e2f3a6654cfe849dae68638a54dfd4c000073945cceb8b"
-    sha256 arm64_linux:   "71a442b763ece24e2e439ee1a4c287649f15848090cb00c5dcf0f27161027256"
-    sha256 x86_64_linux:  "3b4833a94144e71c2427224d774392f671426214b796c48059fde359f1542f5a"
+    sha256 arm64_tahoe:   "172f98096fe98c89233976d068755fdee0df52df13dfc35dcbb14327a65a0d19"
+    sha256 arm64_sequoia: "b1dabd3575777dad0b98948c30bb05ed160df36466277f78264993442c3277ce"
+    sha256 arm64_sonoma:  "03238f789bfbc36e00a6fab18e632367aac490917bddbe9abfcef51ff75de1a6"
+    sha256 sonoma:        "18f024db4c6578dc52b52247d460a52a3898a5d88dd45cbeecc73104d0d70351"
+    sha256 arm64_linux:   "3a68ed5765392b088303862d3de240a3ce273e275bb0a0dec58f92843071cfd3"
+    sha256 x86_64_linux:  "a42554d2a406339d6d00d200fbae1876c809f7ced17d79f251d168ce85b4de3f"
   end
 
   depends_on "cmake" => :build
@@ -40,7 +40,7 @@ class Poppler < Formula
   depends_on "openjpeg"
 
   uses_from_macos "gperf" => :build
-  uses_from_macos "curl", since: :monterey # 7.68.0 required by poppler as of https://gitlab.freedesktop.org/poppler/poppler/-/commit/8646a6aa2cb60644b56dc6e6e3b3af30ba920245
+  uses_from_macos "curl", since: :sonoma # needs curl >= 8.5
 
   on_macos do
     depends_on "gettext"
@@ -62,13 +62,6 @@ class Poppler < Formula
       url "https://poppler.freedesktop.org/"
       regex(/href=.*?poppler-data[._-]v?(\d+(?:\.\d+)+)\.t/i)
     end
-  end
-
-  # Fix mutex lock crash on macOS
-  # MR ref: https://gitlab.freedesktop.org/poppler/poppler/-/merge_requests/2262
-  patch do
-    url "https://gitlab.freedesktop.org/poppler/poppler/-/commit/e263f50b8ecac8aaad458a4c45d8ca9761dd8878.diff"
-    sha256 "b61ff6d4a474503f00bdd96a0bf60ee245adc9e23b77bba2096da47da182513a"
   end
 
   def install

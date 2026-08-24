@@ -12,17 +12,18 @@ class Patat < Formula
     patch do
       url "https://github.com/jaspervdj/patat/commit/16d568bc414f4f0ced8b4f897c3584fd82a7797a.patch?full_index=1"
       sha256 "1a0f9aa653b9dd8b47acbdaabee3b50b557b87ca8d2c364a85a8f8b8ec637abc"
+      type :backport
     end
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "5078a6ef677ef802f2f78ca950c5e0d756ec8058a00ac43c990af4cc42b641e5"
-    sha256 cellar: :any,                 arm64_sequoia: "a959da2b101e50e8066aa852735b17ef36976a7d72bcd6af8c8e069e02352b79"
-    sha256 cellar: :any,                 arm64_sonoma:  "bb22958819bdc12b2d484ebfd732513d7f370f096d460f5010bdd029967a7d3c"
-    sha256 cellar: :any,                 sonoma:        "027fcd9e810e61b16f996ba16d4406b56c77f0928db0001eea1c2a1904e40fcd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bddf7b47c06f8906f627ef84ff4105e87e75777f4e6d6cdc3f834804e5702813"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb2810208b1abbb9b541d3eb0d576bce58c57e4af2c0b1ddad3dd465138dc962"
+    rebuild 3
+    sha256 cellar: :any, arm64_tahoe:   "03e84a0cdfb59b453fb6b9cd4351b59c8a9287a3097b1bc9bff077892bb59a16"
+    sha256 cellar: :any, arm64_sequoia: "1e0c475a35d23f87451dd54c16ba46a4f3be52d28c4ccc944515b735d42c1da8"
+    sha256 cellar: :any, arm64_sonoma:  "2d2225afc359f0241e0986c82eefb75ccfd7b5b589b05b53213d099bdadc6d41"
+    sha256 cellar: :any, sonoma:        "4ec7119a84b0fe9f8d6cce16b88c36a6d7ba2aca7788681612c10b1dcc61f273"
+    sha256 cellar: :any, arm64_linux:   "daeb16652d5773835524d1c2e29cf181e01bc34b405c9c43c53e8dd0bb6e6053"
+    sha256 cellar: :any, x86_64_linux:  "4e109ffdd3a69f4ad1314319c45b7edb64f8247289c9acbdcd0f178b4be4cb1e"
   end
 
   depends_on "cabal-install" => :build

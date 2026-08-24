@@ -19,10 +19,12 @@ class Mbpoll < Formula
   depends_on "pkgconf" => :build
   depends_on "libmodbus"
 
-  # fix missing INT_MAX/INT_MIN definitions, upstream pr ref: https://github.com/epsilonrt/mbpoll/pull/105
+  # fix missing INT_MAX/INT_MIN definitions
   patch do
     url "https://github.com/epsilonrt/mbpoll/commit/8a8bd34d803ef8f4daa5aad13eabbe838e2f3fad.patch?full_index=1"
     sha256 "9c663ed9c66e6c62423957a2f19f0916d3ff577433f06f088b721db62c6c080b"
+    type :backport
+    resolves "https://github.com/epsilonrt/mbpoll/pull/105"
   end
 
   def install

@@ -26,6 +26,7 @@ class Tractorgen < Formula
   patch do
     url "https://github.com/kfish/tractorgen/commit/294162055ba4ab3a5a80a5ae1cfbdcbe92584239.patch?full_index=1"
     sha256 "1848b797ec759c1dfe97fe42cb20f5316b08b7b710fd1dba19b7443879af8dfb"
+    type :backport
   end
 
   def install

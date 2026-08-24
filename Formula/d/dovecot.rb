@@ -1,8 +1,8 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.4/dovecot-2.4.3.tar.gz"
-  sha256 "e0b30330fe51e47ecfcf641bc16041184d91bdd0ac3db789b7cef54e3a75ac9b"
+  url "https://dovecot.org/releases/2.4/dovecot-2.4.4.tar.gz"
+  sha256 "670f98d55a29b02ae6a97281e51374e553b94496480ab0a07439571ab30ca8c3"
   license all_of: ["BSD-3-Clause", "LGPL-2.1-or-later", "MIT", "Unicode-DFS-2016", :public_domain]
 
   livecheck do
@@ -24,12 +24,12 @@ class Dovecot < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "33d00f9e5aa9aa95297325dac2ad87c6551e5c703e1f0799524d10ad4ea1a2c7"
-    sha256 arm64_sequoia: "4c9f732d67423229e91d66d09a23db271a177487ef48c9e2bb4f063a84604e1e"
-    sha256 arm64_sonoma:  "5f5065b7ea5eca7665268d801f4eb95b0278d7aab53aabbce0882a86319d8280"
-    sha256 sonoma:        "f32f1eeedcfc044bd5993b879cccec41acbb2b41edbccba8bd781d9bcc23c4ae"
-    sha256 arm64_linux:   "b775760a632ba0794ab7bd5f0e65d1b06dd00e25278b348461c1f00d4803bea0"
-    sha256 x86_64_linux:  "5c4c4725815b329a0aef8bca76ba442bef55b57602eb021d4aa0adb15b66b97f"
+    sha256 arm64_tahoe:   "4fa34bd69496d02bdfb8c64c038b5e2de03810f7f97f6b66444bf3d46521209c"
+    sha256 arm64_sequoia: "b290b77243009dd0846888dbe59d4463e7567263548fe4a68405c20da147078e"
+    sha256 arm64_sonoma:  "3af4c12601fb9823912ff2dedb4d9de673957f8b9e478510d0ab6f8150b1d8fa"
+    sha256 sonoma:        "33403991fb03d4426bdfa0b378ec583bbcac7755b6427955a41f6beb3d8047b3"
+    sha256 arm64_linux:   "0c4b5d8405094e61a5831d7ec1d3edc6719d1fdb20c82415df77043a1dcf1351"
+    sha256 x86_64_linux:  "d2a8c71de64c864776ead15da14349c874a18253d66810aa5b4cff838b0cf8a9"
   end
 
   depends_on "pkgconf" => :build
@@ -53,18 +53,20 @@ class Dovecot < Formula
   end
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.4/dovecot-pigeonhole-2.4.3.tar.gz"
-    sha256 "219c472a5fa3e6f7a6cb76ff5118bcbead73e14cd4157d3701425245756cb5f8"
+    url "https://pigeonhole.dovecot.org/releases/2.4/dovecot-pigeonhole-2.4.4.tar.gz"
+    sha256 "73c54f75359bf613c5c78e570ae98419f9295fe4451db6493e28ecb995bcd214"
 
     livecheck do
       formula :parent
     end
   end
 
-  # `uoff_t` and `plugins/var-expand-crypt` patches, upstream pr ref, https://github.com/dovecot/core/pull/232
+  # `uoff_t` and `plugins/var-expand-crypt` patches
   patch do
     url "https://github.com/dovecot/core/commit/bbfab4976afdf38a7fa966752de33481f9d2c2e5.patch?full_index=1"
     sha256 "f5a77eeaf5978b75a6c7d1d9d4b7623679aec047c3dae63516105774ae6c04de"
+    type :unofficial
+    resolves "https://github.com/dovecot/core/pull/232"
   end
   # `plugins/var-expand-crypt` and `lib-storage-lua` missing `lib-var-expand` in LIBADD
   patch :DATA
@@ -195,3 +197,15 @@ diff --git a/src/lib-storage-lua/Makefile.in b/src/lib-storage-lua/Makefile.in
  
  libdovecot_storage_lua_la_LDFLAGS = -export-dynamic
  headers = \
+diff --git a/src/auth/Makefile.in b/src/auth/Makefile.in
+--- a/src/auth/Makefile.in
++++ b/src/auth/Makefile.in
+@@ -1119,7 +1119,7 @@
+ 	$(am__append_8)
+ auth_CPPFLAGS = $(AM_CPPFLAGS) $(BINARY_CFLAGS)
+ auth_LDADD = $(auth_libs) $(LIBDOVECOT) $(AUTH_LIBS) $(BINARY_LDFLAGS) $(AUTH_LUA_LDADD)
+-auth_DEPENDENCIES = $(auth_libs) $(LIBDOVECOT_DEPS)
++auth_DEPENDENCIES = $(filter %.la,$(auth_libs)) $(LIBDOVECOT_DEPS)
+ auth_SOURCES = main.c $(auth_common_sources)
+ ldap_sources = db-ldap.c db-ldap-sasl.c db-ldap-settings.c passdb-ldap.c userdb-ldap.c
+ lua_sources = db-lua.c passdb-lua.c userdb-lua.c

@@ -18,7 +18,7 @@ class TftpNow < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", tags: "netgo")
+    system "go", "build", *std_go_args(tags: "netgo")
   end
 
   test do

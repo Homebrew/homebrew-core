@@ -11,8 +11,7 @@ class Liblqr < Formula
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+      file "Patches/libtool/configure-big_sur.diff"
     end
   end
 
@@ -59,8 +58,8 @@ class Liblqr < Formula
 
     system ENV.cc, "test.c", "-o", "test",
                    "-I#{include}/lqr-1",
-                   "-I#{Formula["glib"].opt_include}/glib-2.0",
-                   "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+                   "-I#{formula_opt_include("glib")}/glib-2.0",
+                   "-I#{formula_opt_lib("glib")}/glib-2.0/include",
                    "-L#{lib}", "-llqr-1"
     system "./test"
   end

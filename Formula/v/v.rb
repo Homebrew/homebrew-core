@@ -13,6 +13,8 @@ class V < Formula
     patch do
       url "https://github.com/rupa/v/commit/d19e6ea79fe361c2c62fbf514d52691042ff83e1.patch?full_index=1"
       sha256 "13ca8ba595db0b168fc0a8b8363386ecdbc216cc3d6a94811b5bfa30d5abbbbf"
+      type :backport
+      resolves "https://github.com/rupa/v/issues/22"
     end
   end
 

@@ -1,8 +1,8 @@
 class Crossplane < Formula
   desc "Build control planes without needing to write code"
   homepage "https://github.com/crossplane/cli"
-  url "https://github.com/crossplane/cli/archive/refs/tags/v2.3.2.tar.gz"
-  sha256 "dcafe7e43a2aa718b4c766754800cedf0ce5b7d8df9f6b013f26d24414460e71"
+  url "https://github.com/crossplane/cli/archive/refs/tags/v2.5.0.tar.gz"
+  sha256 "a88c0068f9d6f5a7589d5a0ef21ddb3268e617d709e68d25863f13b60ce6d5f6"
   license "Apache-2.0"
   head "https://github.com/crossplane/cli.git", branch: "main"
 
@@ -12,21 +12,18 @@ class Crossplane < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "615972f2fd8fce3ea25835cccad1ed481f621492a34cf9851bf65f9e580c2aac"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d201f391bc8a058fcd5d88f3fc90b2ce0e1c99aa464152c5da00c0d659e15aec"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5161cb5f396bbf129fe0e546effe21bbda510670a78f970c8f3f66a26b412116"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0ed2fd00cdf06bc1019e51746c8ae5e89936049d0678a5200f1dfc8afe5ead8d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4a13066c0571691fb14ea4690791b0e110b0d90728ca9a3bb7ba1989cb78a1fd"
-    sha256 cellar: :any,                 x86_64_linux:  "01fe2d0ac90d9e0227741d259b24e2628ca2419274303851ea8796c4e184f708"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "713c34cbd9a3951d907b8bae70b3e605996bf7375926ad05686a00ccb38784d1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a462f8b1785494d2fd3a184934a56ca44fbded226ed233afe2d9e1b58ca2c32"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "13eb4045d85d373b5eaef41f3b2f22cbec0269740e0bd2e2584febb68c5538f7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0ab41885929f315f08a592a9924a642d32f0206f9acb815acc6298973a0258ae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0355e7520918ddc2530db7d0568d405cbc5fe47fefef063c950af576e4bb5386"
+    sha256 cellar: :any,                 x86_64_linux:  "c5f32b36d92bf4cc949386dee8a71594a7d5eb122726cc419098bc9a38a64a32"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/crossplane/crossplane-runtime/v#{version.major}/pkg/version.version=v#{version}
-    ]
+    ldflags = %W[-X github.com/crossplane/crossplane-runtime/v#{version.major}/pkg/version.version=v#{version}]
     system "go", "build", *std_go_args(ldflags:), "./cmd/crossplane"
   end
 

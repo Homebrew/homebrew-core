@@ -1,8 +1,8 @@
 class GitCredentialLibsecret < Formula
   desc "Git helper for accessing credentials via libsecret"
   homepage "https://git-scm.com"
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.54.0.tar.xz"
-  sha256 "f689162364c10de79ef89aa8dbf48731eb057e34edbbd20aca510ce0154681a3"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.55.0.tar.xz"
+  sha256 "457fdb04dc8728e007d4688695e6912e6f680727920f2a40bf11eacc17505357"
   license "GPL-2.0-or-later"
   head "https://github.com/git/git.git", branch: "master"
 
@@ -11,12 +11,12 @@ class GitCredentialLibsecret < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "60dda60ed23adbd2cef8010ae0d38691e639e2b0f05baee72464bfa4960954ab"
-    sha256 cellar: :any,                 arm64_sequoia: "fa4a6ddd91c846890a75391fee75882b9045bb8394753683dffa3064603de05e"
-    sha256 cellar: :any,                 arm64_sonoma:  "314221fc285e619d14f6a5198b563143f21b1c0c9978b449993903e88fdb79b1"
-    sha256 cellar: :any,                 sonoma:        "ce042515f2c7d83297e8a94862438e7459c533800d0b352d689648e94faac998"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c752d6dacb824652db503fe3a36861e3d58ff6791622d97c0661f34ee38a62e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c292305d48c6c1ec599c3421ed7a4379b6b508679df5e1b82df1e2409213218"
+    sha256 cellar: :any, arm64_tahoe:   "af1df5e563c6acfde0ae8bcbf963e55dcc7d929af61b910bde1b1e444d21c177"
+    sha256 cellar: :any, arm64_sequoia: "64bc742211afe645d8140ee8d91cb918e3fe5e1183e418bd19c80dc0a270c573"
+    sha256 cellar: :any, arm64_sonoma:  "968f847ff4f8ec19d14c16c2ce2fed0e4c181eac670a6513bff88c0ccd403d69"
+    sha256 cellar: :any, sonoma:        "0c41becc1bf285597eee3976d3fffefc81351cbb87296768fff353825f9e3866"
+    sha256 cellar: :any, arm64_linux:   "7618504e71dbed0967c5f86aa5bbeeb91cf09ce56c677b31f46b988e087eaa8c"
+    sha256 cellar: :any, x86_64_linux:  "648a11486967539af6109e28582781c06fdab19c0acbc53d73c97dda077d17e5"
   end
 
   depends_on "pkgconf" => :build

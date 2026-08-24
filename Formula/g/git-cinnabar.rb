@@ -1,19 +1,18 @@
 class GitCinnabar < Formula
   desc "Git remote helper to interact with mercurial repositories"
   homepage "https://github.com/glandium/git-cinnabar"
-  url "https://static.crates.io/crates/git-cinnabar/git-cinnabar-0.7.3.crate"
-  sha256 "18adcda45eeb4a1e82f28f404f788ed9051125c6fd760e468fd2763f17dd6cfe"
+  url "https://static.crates.io/crates/git-cinnabar/git-cinnabar-0.7.4.crate"
+  sha256 "e2ab2733835fdc77f978814ed919f539bbd785b2c0d8e5bbb3ca5a35ef642d49"
   license all_of: ["MPL-2.0", "GPL-2.0-only"]
   head "https://github.com/glandium/git-cinnabar.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "47b06591734734c4dbe34b9172cb62e65fb79b1349ec81b058eeba46e9d2e917"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "da1e839b2a39b20a5aa8136e2be5686275a0cd0f0e3c58d2f9688b27c3c0b5e9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6cc05fcdd91d94b52b65055dd953e476c26749d0062e8ddae14f1fc3e5ca1d08"
-    sha256 cellar: :any_skip_relocation, sonoma:        "71939c24c0359e4776f84468c34677094e7cf15a973cb126b3bc5fe57fa5d65b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bf3538e386b2274c833fb1f902ffb2ad1c58c3fb4319d7f7ae8a6870e4a7775d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c274e3418ef3507c849e77dcf5ffdaf74bdec0c79f28b385550b5896f04151a3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8e9610b98370409f73bcc8426e5efcff7ad8b731dd427f0b5150c433440fabd9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c6f6a7d5fb70f964de07af170d7283436c85e78ffec77b3d980970e2e1eb751"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "102e5de66074df517c80a4115b92508cffd25b5bd948fdf05f7a1d80017f5d89"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7c82e58f99fa5b1502c7e1800cac793a8f6fe60bc7e51818d09c4d2bdb8bd20e"
+    sha256 cellar: :any,                 arm64_linux:   "da53d18385ea9fcd4403183fd0c4acb7d7f4f816b6138e90d8c125e4e07bdba1"
+    sha256 cellar: :any,                 x86_64_linux:  "49c5cec419698c90ed42c5442e92ac6c31628a6a78005d8c0968c379d53e2d89"
   end
 
   depends_on "rust" => :build

@@ -24,7 +24,6 @@ class Kustomize < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X sigs.k8s.io/kustomize/api/provenance.version=#{name}/v#{version}
       -X sigs.k8s.io/kustomize/api/provenance.buildDate=#{time.iso8601}
     ]

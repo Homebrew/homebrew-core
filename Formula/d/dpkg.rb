@@ -46,18 +46,18 @@ class Dpkg < Formula
     # We need to specify a recent gnutar, otherwise various dpkg C programs will
     # use the system "tar", which will fail because it lacks certain switches.
     ENV["TAR"] = if OS.mac?
-      Formula["gnu-tar"].opt_bin/"gtar"
+      formula_opt_bin("gnu-tar")/"gtar"
     else
-      Formula["gnu-tar"].opt_bin/"tar"
+      formula_opt_bin("gnu-tar")/"tar"
     end
 
     # Since 1.18.24 dpkg mandates the use of GNU patch to prevent occurrences
     # of the CVE-2017-8283 vulnerability.
     # https://www.openwall.com/lists/oss-security/2017/04/20/2
     ENV["PATCH"] = if OS.mac?
-      Formula["gpatch"].opt_bin/"gpatch"
+      formula_opt_bin("gpatch")/"gpatch"
     else
-      Formula["gpatch"].opt_bin/"patch"
+      formula_opt_bin("gpatch")/"patch"
     end
 
     # Theoretically, we could reinsert a patch here submitted upstream previously

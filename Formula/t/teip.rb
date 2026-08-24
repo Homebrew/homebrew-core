@@ -40,7 +40,7 @@ class Teip < Formula
     assert_match "<1>23", pipe_output("#{bin}/teip -c 1", "123", 0)
 
     [
-      Formula["oniguruma"].opt_lib/shared_library("libonig"),
+      formula_opt_lib("oniguruma")/shared_library("libonig"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"teip", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."

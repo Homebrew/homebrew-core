@@ -6,7 +6,7 @@ class Ballerburg < Formula
   stable do
     url "https://framagit.org/baller/ballerburg/-/archive/v1.2.3/ballerburg-v1.2.3.tar.bz2"
     sha256 "2e55087c70e10a827a270493732d3928f8fb0abb6b583661f80cbbe1efac80f7"
-    depends_on "sdl2"
+    depends_on "sdl2-compat"
   end
 
   bottle do

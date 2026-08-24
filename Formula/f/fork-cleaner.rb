@@ -15,10 +15,13 @@ class ForkCleaner < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee7dc6c7d5b873e5fb7a52ebb8080ec5c544380842527522b161fdca7f79a593"
   end
 
+  deprecate! date: "2026-07-16", because: :repo_archived
+  disable! date: "2027-01-16", because: :repo_archived
+
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "./cmd/fork-cleaner"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/fork-cleaner"
   end
 
   test do

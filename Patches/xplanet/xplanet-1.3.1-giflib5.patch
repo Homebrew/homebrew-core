@@ -1,6 +1,17 @@
---- a/src/libimage/gif.c.old	2017-04-05 00:02:06.000000000 +0200
-+++ b/src/libimage/gif.c	2017-04-05 00:02:34.000000000 +0200
-@@ -179,7 +179,11 @@ read_gif(const char *filename, int *widt
+Index: src/libimage/gif.c
+===================================================================
+diff --git a/src/libimage/gif.c b/src/libimage/gif.c
+--- a/src/libimage/gif.c	(revision 213)
++++ b/src/libimage/gif.c	(revision 214)
+@@ -20,6 +20,7 @@
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <stdbool.h>
+ #include <string.h>
+ 
+ #include <gif_lib.h>
+@@ -179,7 +180,11 @@
  	}
      }
      
@@ -12,7 +23,16 @@
  	return(0);
      }
  
-@@ -493,7 +497,11 @@ SortCmpRtn(const void *Entry1,
+@@ -240,7 +245,7 @@
+  *   Also non of the parameter are allocated by this routine.
+  *   This function returns GIF_OK if succesfull, GIF_ERROR otherwise.
+  ******************************************************************************/
+-static int
++int
+ QuantizeBuffer(unsigned int Width,
+                unsigned int Height,
+                int *ColorMapSize,
+@@ -493,7 +498,11 @@
  static void QuitGifError(GifFileType *GifFile)
  {
      fprintf(stderr, "Error writing GIF file\n");
@@ -24,7 +44,7 @@
  }
  
  int 
-@@ -589,7 +597,11 @@ write_gif(const char *filename, int widt
+@@ -589,7 +598,11 @@
  	Ptr += width;
      }
  

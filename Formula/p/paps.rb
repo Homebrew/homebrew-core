@@ -29,17 +29,19 @@ class Paps < Formula
 
   # Apply open PR to fix build with recent `glib`. This restores behavior before
   # https://gitlab.gnome.org/GNOME/glib/-/commit/c583162cc6d7078ff549c72615617092b0bc150a
-  # PR ref: https://github.com/dov/paps/pull/71
   patch do
     url "https://github.com/dov/paps/commit/e6ec698be127822661e31f7fca7d2e0107944b24.patch?full_index=1"
     sha256 "52848f9618dab9bc98c1554cc8a7a0b3ce419cfca53781b909d543ec4e4b27ea"
+    type :backport
+    resolves "https://github.com/dov/paps/pull/71"
   end
 
   # Fix compatibility with fmt 12.
-  # https://github.com/dov/paps/pull/77
   patch do
     url "https://github.com/dov/paps/commit/a26a20d7ca3feb08476a8a19fd97c3ececcc1e2e.patch?full_index=1"
     sha256 "604bc9e60b33162b522d18f251e3436745ca20b39a763202cfc7660423d9a9fe"
+    type :backport
+    resolves "https://github.com/dov/paps/pull/77"
   end
 
   def install

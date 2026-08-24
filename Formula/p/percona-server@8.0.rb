@@ -1,32 +1,33 @@
 class PerconaServerAT80 < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.45-36/source/tarball/percona-server-8.0.45-36.tar.gz"
-  sha256 "137cdb24a1f5b8afbd1fef38457b98ead8d73e3cc73c22a3c6facc94ab3871de"
+  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.46-37/source/tarball/percona-server-8.0.46-37.tar.gz"
+  sha256 "cedff3c191ff160dfc0ce1c574440165f3f2bfe7a621699170adf4d1dc556617"
   license "BSD-3-Clause"
-  revision 3
+  revision 2
 
   livecheck do
-    url "https://www.percona.com/products-api.php", post_form: {
-      version: "Percona-Server-#{version.major_minor}",
+    url "https://www.percona.com/wp-admin/admin-ajax.php", post_form: {
+      action:     "percona_downloads",
+      product_id: "Percona-Server-#{version.major_minor}",
     }
-    regex(/value=["']?[^"' >]*?v?(\d+(?:[.-]\d+)+)[|"' >]/i)
-    strategy :page_match do |page, regex|
-      page.scan(regex).map do |match|
+    regex(/^Percona-Server-v?(\d+(?:[.-]\d+)+)$/i)
+    strategy :json do |json, regex|
+      json.dig("data", "versions")&.filter_map do |version|
         # Convert a version like 1.2.3-4.0 to 1.2.3-4 (but leave a version like
         # 1.2.3-4.5 as-is).
-        match[0].sub(/(-\d+)\.0$/, '\1')
+        version[regex, 1]&.sub(/(-\d+)\.0$/, '\1')
       end
     end
   end
 
   bottle do
-    sha256 arm64_tahoe:   "592be5449a8ce142df4778fba52525118f2044b0a8c800f468e6ac5f6bbb6b12"
-    sha256 arm64_sequoia: "016f615112e8909748352be8ec82c3e4c51e4fbb237f28535f1b7edf27e56d9f"
-    sha256 arm64_sonoma:  "353a32e73bf923f240610ce167317fec6b1c855c8dd8bfdc65ac45492592a1eb"
-    sha256 sonoma:        "371980062a96f7544b77ead49a93b4dc582507d56abb21e7063eb853b00bc0a6"
-    sha256 arm64_linux:   "bd49b50545b4990b2fa6d7597e9d8a4200c7214b9ee60a7c4e797e3acc650812"
-    sha256 x86_64_linux:  "a26443b24f1212dd8d8148da72ae934e5b7b84da6ff203393d6147737ea30a1c"
+    sha256 arm64_tahoe:   "7dbdefce759675d7c4ba887cce8bca497e26c6c28f422a32c6d76fbf810b981a"
+    sha256 arm64_sequoia: "1da65c56489717d417a16f087764696088a91a9101f006901ac855126b3ff135"
+    sha256 arm64_sonoma:  "37e3d848c139355ad5772547ad971d25d5e1bad433a41b0aa65d0c1957e1bfbf"
+    sha256 sonoma:        "6caf0adb3b488f8d0ea2513d5dab3870fcae99e86275e8d42d47222465e84dd6"
+    sha256 arm64_linux:   "48ef9e61d5903f0dd7f780fe5b613fdc1d4bb2001ac11e5159bdbfffbc24408a"
+    sha256 x86_64_linux:  "e0e25d3f8aa9909a78833ce458d9f3745da874574341ffb398d2e07294537785"
   end
 
   keg_only :versioned_formula
@@ -70,10 +71,11 @@ class PerconaServerAT80 < Formula
   end
 
   # Fix for system ssl add_library error
-  # Issue ref: https://perconadev.atlassian.net/jira/software/c/projects/PS/issues/PS-9641
   patch do
     url "https://github.com/percona/percona-server/commit/a693e5d67abf6f27f5284c86361604babec529c6.patch?full_index=1"
     sha256 "d4afcdfb0dd8dcb7c0f7e380a88605b515874628107295ab5b892e8f1e019604"
+    type :backport
+    resolves "https://perconadev.atlassian.net/jira/software/c/projects/PS/issues/PS-9641"
   end
 
   # Patch out check for Homebrew `boost`.
@@ -119,8 +121,8 @@ class PerconaServerAT80 < Formula
       -DINSTALL_PLUGINDIR=lib/percona-server/plugin
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
-      -DBISON_EXECUTABLE=#{Formula["bison"].opt_bin}/bison
-      -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
+      -DBISON_EXECUTABLE=#{formula_opt_bin("bison")}/bison
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}
       -DWITH_ICU=#{icu4c.opt_prefix}
       -DWITH_SYSTEM_LIBS=ON
       -DWITH_BOOST=#{buildpath}/boost
@@ -178,26 +180,11 @@ class PerconaServerAT80 < Formula
     etc.install "my.cnf"
   end
 
-  def post_install
-    # Make sure the var/mysql directory exists
-    (var/"mysql").mkpath
-
-    if (my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x })
-      opoo <<~EOS
-
-        A "#{my_cnf}" from another install may interfere with a Homebrew-built
-        server starting up correctly.
-      EOS
+  post_install_steps do
+    if_path_exists "/etc/{my.cnf,mysql/my.cnf}" do
+      warn "A system my.cnf may interfere with a Homebrew-built server starting correctly."
     end
-
-    # Don't initialize database, it clashes when testing other MySQL-like implementations.
-    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-
-    unless (datadir/"mysql/general_log.CSM").exist?
-      ENV["TMPDIR"] = nil
-      system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
-                           "--basedir=#{prefix}", "--datadir=#{datadir}", "--tmpdir=/tmp"
-    end
+    init_data_dir "mysql", using: :mysql, base: :var
   end
 
   def caveats

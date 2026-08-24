@@ -4,15 +4,16 @@ class Timg < Formula
   url "https://github.com/hzeller/timg/archive/refs/tags/v1.6.3.tar.gz"
   sha256 "59c908867f18c81106385a43065c232e63236e120d5b2596b179ce56340d7b01"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/hzeller/timg.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "29d6beebc4277ef79f9d14c083fa370a7b929b03a769d676ac9b2bb87964ed68"
-    sha256 cellar: :any,                 arm64_sequoia: "0c8ee925cc198a9795f2ff70674a1ef3cbc8bee913c5d9372babe3ab74120b54"
-    sha256 cellar: :any,                 arm64_sonoma:  "1e322a578c3f81fd6cbfcb27dd55dd5f9504525668abc56590ef155d0eaa65ba"
-    sha256 cellar: :any,                 sonoma:        "2bdef3af0e1ae32d4e893d6f8d5984bb1568b9f36e3d91276dbf87d40d7abe3e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "318dbf7ec1b15f1e72f684b4d8b749ad81e777e3149d5f86a27956f46c79205f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83740c7f5cc8839d160a8c269e5c4a483e50c0869213a73dd82abecd0ab389bc"
+    sha256 cellar: :any, arm64_tahoe:   "78332097424ff280db9f9c94370942017c542f0cd30fe090cf7e4459cbc2fb60"
+    sha256 cellar: :any, arm64_sequoia: "f59fdca979f3257b299eb7310b5c4379ec1a3c37a22c8ae684f7ce07dae4a896"
+    sha256 cellar: :any, arm64_sonoma:  "8e499f724ace59217c4f8f6915710f5b07f68b64aab5e4249ac18e4f2ef7d8fe"
+    sha256 cellar: :any, sonoma:        "d38851084b2c94bfd4e68dbb8c5a77aacda5bf5c0d83ea8301144f90b9a3f4d4"
+    sha256 cellar: :any, arm64_linux:   "f9c3b81e2601b71b40c1a991e41a78fda4db36d8d559374e36f1e1a147f0a1db"
+    sha256 cellar: :any, x86_64_linux:  "13dce32e5a416b027a52c2a88d8f79b4481671e2a89b0f7eec5ce47919b4e631"
   end
 
   depends_on "cmake" => :build

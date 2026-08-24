@@ -1,8 +1,8 @@
 class RubyAT33 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.11.tar.gz"
-  sha256 "59f0fafb1a59a05dc3765117af3fa68e153eb48254708549f321c1e9e078d7a0"
+  url "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.12.tar.gz"
+  sha256 "b06d63beae271933033e27f0a389bc582a009e7845357d44365c39de525a051b"
   license "Ruby"
 
   livecheck do
@@ -11,12 +11,12 @@ class RubyAT33 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "5a7ed215d0f36ef6eace83824aa82bc8338719efecff5d844477cb67a6983f83"
-    sha256 arm64_sequoia: "5ac78d6da4430380e2fbb13014d36ece144c5cda1f0a76f525dc45cbc07ff588"
-    sha256 arm64_sonoma:  "354ea0e876c66fc0a31486fd3780fe7dcd0865c776210b14ed09f9d9a1476482"
-    sha256 sonoma:        "077f5a0f18025a1010d556436aec97f37aad2eb669a0f88ff08bf2a9423743df"
-    sha256 arm64_linux:   "4bd9d79381ac0897e830ea3eeb07128e7d996f9ea3cdee55d8fc8e82dbf5a282"
-    sha256 x86_64_linux:  "ba673a5b6e384874269a80aab923a083b9d9da42b4119dd452f5b433a831abf0"
+    sha256 arm64_tahoe:   "0a340019199aa1f9d303dd0f093461ab4f675ee97216dcd5ea11419754a9c6f7"
+    sha256 arm64_sequoia: "2356ca0b89aab03f334907657a16b115776b4aef143060cb5973809b2b5b6433"
+    sha256 arm64_sonoma:  "e954f713ad92da6a7be3a62ec0c5806b64edc7775f811aab439b823c1e08101e"
+    sha256 sonoma:        "128ad390731cf2122ff735097d5cf6e88373990142d396e78b8961310586f1ec"
+    sha256 arm64_linux:   "670caddd903b4a539a56feb104551cc6ae9800e3e4e068db99c95c932e90619f"
+    sha256 x86_64_linux:  "c932d9838da780f30e58e76ca6596bcbdc2e0e222f5cd35fe6afc1a0fac12efc"
   end
 
   keg_only :versioned_formula
@@ -39,8 +39,8 @@ class RubyAT33 < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-4.0.9.tgz"
-    sha256 "39b1e2c878946e420116c3c26e4e708c0ddbdf7cd4a13c48dd0fc0774c7add8d"
+    url "https://rubygems.org/rubygems/rubygems-4.0.16.tgz"
+    sha256 "ea9c669526af82874f8f33f69bea1b6ddd99283756e598227a9a890035a5a06a"
 
     livecheck do
       url "https://rubygems.org/pages/download"
@@ -65,7 +65,7 @@ class RubyAT33 < Formula
     #       https://github.com/Homebrew/brew/pull/12508
     inreplace "tool/mkconfig.rb", /^(\s+val = )'"\$\(SDKROOT\)"'\+/, "\\1"
 
-    paths = %w[libyaml openssl@3].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@3].map { |f| formula_opt_prefix(f) }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
@@ -101,19 +101,6 @@ class RubyAT33 < Formula
     # A newer version of ruby-mode.el is shipped with Emacs
     elisp.install Dir["misc/*.el"].reject { |f| f == "misc/ruby-mode.el" }
 
-    if OS.linux?
-      arch = Utils.safe_popen_read(
-        bin/"ruby", "-rrbconfig", "-e", 'print RbConfig::CONFIG["arch"]'
-      ).chomp
-      # Don't restrict to a specific GCC compiler binary we used (e.g. gcc-5).
-      inreplace lib/"ruby/#{api_version}/#{arch}/rbconfig.rb" do |s|
-        s.gsub! ENV.cxx, "c++"
-        s.gsub! ENV.cc, "cc"
-        # Change e.g. `CONFIG["AR"] = "gcc-ar-11"` to `CONFIG["AR"] = "ar"`
-        s.gsub!(/(CONFIG\[".+"\] = )"(?:gcc|g\+\+)-(.*)-\d+"/, '\\1"\\2"')
-      end
-    end
-
     # This is easier than trying to keep both current & versioned Ruby
     # formulae repeatedly updated with Rubygem patches.
     resource("rubygems").stage do
@@ -145,17 +132,6 @@ class RubyAT33 < Formula
     # instead of in the Cellar, making gems last across reinstalls
     config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
     config_file.write rubygems_config
-  end
-
-  def post_install
-    # Since Gem ships Bundle we want to provide that full/expected installation
-    # but to do so we need to handle the case where someone has previously
-    # installed bundle manually via `gem install`.
-    rm(%W[
-      #{rubygems_bindir}/bundle
-      #{rubygems_bindir}/bundler
-    ].select { |file| File.exist?(file) })
-    rm_r(Dir[HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/gems/bundler-*"])
   end
 
   def rubygems_config

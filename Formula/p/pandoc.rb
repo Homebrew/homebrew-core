@@ -1,19 +1,19 @@
 class Pandoc < Formula
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://github.com/jgm/pandoc/archive/refs/tags/3.10.tar.gz"
-  sha256 "fc82815542c29802d087c25e2c1421146030806b71255ec40fc0e828fe1df877"
+  url "https://github.com/jgm/pandoc/archive/refs/tags/3.10.2.tar.gz"
+  sha256 "ec4c5d36e355785802601986637369ada24079ac20af6c0ee85c79502d77b3f0"
   license "GPL-2.0-or-later"
-  compatibility_version 4
+  compatibility_version 6
   head "https://github.com/jgm/pandoc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "5fb1bbd496bb7dabe3bdd89199759a17c6e6ad760d4cceb95a8b988308f19064"
-    sha256 cellar: :any, arm64_sequoia: "ff92446512f37d280f6f9ee81c3a112302e39b16807d5547eeabf662e72ad859"
-    sha256 cellar: :any, arm64_sonoma:  "d54dbe1affc75d52fd6d1e5f822ec08f5ec4a012dfe00f4575bb6e4bed0d337a"
-    sha256 cellar: :any, sonoma:        "213602b8c8032a28e1e12cc71c99882a2d598a8dd5ba50021d15c09e9b5f4a3e"
-    sha256 cellar: :any, arm64_linux:   "0d2710e2926fed8236965628cffaf6b0f361525bfb9a60441c3046a88118b75b"
-    sha256 cellar: :any, x86_64_linux:  "a9eb90312967775e88be6532e36894fdfbe482e46b9e4bbccd2394981abd1bf0"
+    sha256 cellar: :any, arm64_tahoe:   "8d1cc3844967e7de17be86186f4272e828fdf3988eda88454cd7b5d1281927e4"
+    sha256 cellar: :any, arm64_sequoia: "39351d86c108d14d23271f647dc6a307d755148bc24092c3581bfc56d009c188"
+    sha256 cellar: :any, arm64_sonoma:  "b55150ef693cde9704ca8b99ed2b6f70a0749524ede94b28fd8798ed1d9872bf"
+    sha256 cellar: :any, sonoma:        "80243f4d67b4333ee46f14b8b4641ede4d6bd317b360418ebe7677ee8ce04c55"
+    sha256 cellar: :any, arm64_linux:   "4e614977f043dbc85ca15887f0cae0a87d43943d17a10284fca0426bea98047d"
+    sha256 cellar: :any, x86_64_linux:  "dfcec331aa31d35673bbee451f59202579b5ac22139e8275d0cef0c699b4c61b"
   end
 
   depends_on "cabal-install" => :build

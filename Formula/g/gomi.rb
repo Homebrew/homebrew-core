@@ -19,7 +19,6 @@ class Gomi < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.version=v#{version}
       -X main.revision=#{tap.user}
       -X main.buildDate=#{time.iso8601}

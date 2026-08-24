@@ -184,10 +184,11 @@ class Sgr < Formula
   end
 
   # Switch build-system to poetry-core to avoid rust dependency on Linux.
-  # Remove when merged/released: https://github.com/splitgraph/sgr/pull/813
   patch do
     url "https://github.com/splitgraph/sgr/commit/234bcc12d21860852a40e78a22976ae33d2f2f57.patch?full_index=1"
     sha256 "1308f9172de2268cadc7ae7521a0f109df3cdc40d60f4908d69934acb777a2d5"
+    type :unofficial
+    resolves "https://github.com/splitgraph/sgr/pull/813"
   end
 
   def install

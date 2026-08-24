@@ -1,9 +1,10 @@
 class Gpac < Formula
   desc "Multimedia framework for research and academic purposes"
   homepage "https://gpac.io/"
-  url "https://github.com/gpac/gpac/archive/refs/tags/v26.02.0.tar.gz"
-  sha256 "7a265e1cd58b317d8c9175816a54e0ab14199c21d81eb779047d7088fca52ae4"
+  url "https://github.com/gpac/gpac/archive/refs/tags/v26.07.0.tar.gz"
+  sha256 "57822c1a74dcb83d76ff1f671e1b4fae2e7614e8194a5adb9f20661e0e9421dd"
   license "LGPL-2.1-or-later"
+  revision 1
   compatibility_version 1
   head "https://github.com/gpac/gpac.git", branch: "master"
 
@@ -13,13 +14,12 @@ class Gpac < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "b2d9c99d0d9bc24cd5c392091cb890363af39d9214ee1a2c35422208f06bff2c"
-    sha256 cellar: :any,                 arm64_sequoia: "be8bb6b0bbbf25456bbd19a39cbca7110e1b49e6bd6dba5eb3e12d9c0e8b1329"
-    sha256 cellar: :any,                 arm64_sonoma:  "182ced8e20d0530398046fe48a6b0a5dbdf816a271cadda5d612b8fda236a70c"
-    sha256                               sonoma:        "f31f73e8e8c7a7aec8b554b7a860b9e49081d0bc45299083e86316ded86be2f6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c7ad558c0a70fcf23b5fa5d5e30adfeccd1776c3d96306a2e2e9e3b55ffa4232"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a2cd87687f784c99df64a1580d282cf9b93c0922f3f4fe1457ba11c0ffc308e"
+    sha256 cellar: :any, arm64_tahoe:   "e96bcef96cb863772ecc39922b7b5c85a2fa2e31776391547b51120903dae916"
+    sha256 cellar: :any, arm64_sequoia: "3a8c864c93a3ca709180e85ea9b44bc068e2f4f67fe251f8f70c6d026eb20c19"
+    sha256 cellar: :any, arm64_sonoma:  "6d734eed6998ec195b9c7bd3624c962d267b123a98ec78ba3b87b21cbd449337"
+    sha256               sonoma:        "900b5e077c394eb1bf117fa4657a710a3d04937679cec2906a3b03f27c21da22"
+    sha256 cellar: :any, arm64_linux:   "3cb38c73094fff869812074cc079df8da73fd6d16ebc26318ede069374229848"
+    sha256 cellar: :any, x86_64_linux:  "6988e4e4b5b612961b0834ac9ff7d90d3d742066987a7fd0a166e06816b9ade3"
   end
 
   depends_on "pkgconf" => :build
@@ -33,7 +33,7 @@ class Gpac < Formula
   depends_on "libxext"
   depends_on "openjpeg"
   depends_on "openssl@3"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "theora"
   depends_on "xz"
 
@@ -46,6 +46,15 @@ class Gpac < Formula
     depends_on "libxv"
     depends_on "pulseaudio"
     depends_on "zlib-ng-compat"
+  end
+
+  # Fix builds with FFmpeg 9, which removed the deprecated `AVCodec` capability
+  # arrays in favour of `avcodec_get_supported_config`.
+  # Issue ref: https://github.com/gpac/gpac/issues/3850
+  patch do
+    url "https://gitlab.archlinux.org/archlinux/packaging/packages/gpac/-/raw/270a935296832d1daba2e459354a654e60f0fa68/ffmpeg-9.patch"
+    sha256 "d1867a638ac3dd83df1c11e46467b96cec13b757317af1bbb9003da926fd8fc7"
+    type :unofficial
   end
 
   def install

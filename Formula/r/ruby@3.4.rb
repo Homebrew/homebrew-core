@@ -1,8 +1,8 @@
 class RubyAT34 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.9.tar.gz"
-  sha256 "7bb4d4f5e807cc27251d14d9d6086d182c5b25875191e44ab15b709cd7a7dd9c"
+  url "https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.10.tar.gz"
+  sha256 "ecee2d072a14f2d14347dd56dfd8fe5c3130abf5117bfaacbda0f4ef9cc429ec"
   license "Ruby"
 
   livecheck do
@@ -11,12 +11,13 @@ class RubyAT34 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "449c9ab89c0ed6b7dd8b262ae9ccbf8144f78f1182aa1d1b6196a5c6b3e3704c"
-    sha256 arm64_sequoia: "d28fd735cc6f80a43c2ea6fcf7f9e58b450c094bc8872999d0d488444edd1c9f"
-    sha256 arm64_sonoma:  "3e5abc58ff33009673baa34acfbd758d5ab9df64e6d376cedda6fa22a91c033b"
-    sha256 sonoma:        "c9f1a9e0a8c144c0f1e7492a8b9645dbfe05b1fa612bd9578efa696618028f51"
-    sha256 arm64_linux:   "660e4810da2324a25d09231c1eba9236d146e69a35ac0061d12471fa9911cb15"
-    sha256 x86_64_linux:  "ba42da3c7d461d80ef87ab35cc2e434a9f27046e892116497d647bf2258830b0"
+    rebuild 1
+    sha256 arm64_tahoe:   "65bef4e095e90fe491394673e5ba08107e3719621f09a271cd791699ae62d70c"
+    sha256 arm64_sequoia: "b7e8376697932898b02f941e817807578b1a7390da11d4d0384adf2d1bed2fee"
+    sha256 arm64_sonoma:  "ffd35b48a286ec986c9a9f0a05205c438b6d4447556174089d47e641f6f9ce22"
+    sha256 sonoma:        "a2357c44241be30cd28a4c33833fcd1b6ae209c7a3b74a4adbe6bd97e664ff1e"
+    sha256 arm64_linux:   "4e820ed2b0c652229a52333be8557f422ce4898f38e66cff1e842a339ef64178"
+    sha256 x86_64_linux:  "aaceb4ae9d15d102bc8197e50008c260680ae97ccc394e59e90d3911bdada33d"
   end
 
   keg_only :versioned_formula
@@ -39,8 +40,8 @@ class RubyAT34 < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-4.0.8.tgz"
-    sha256 "b18663def26384e467f2594bf27190c580771df0ca7ba444afa1d76609881813"
+    url "https://rubygems.org/rubygems/rubygems-4.0.15.tgz"
+    sha256 "ec63459a0746d6e33804c0d6cbbcd1bcc6359f44fcada267b0f489cc84083687"
 
     livecheck do
       url "https://rubygems.org/pages/download"
@@ -69,7 +70,7 @@ class RubyAT34 < Formula
     #       https://github.com/Homebrew/brew/pull/12508
     inreplace "tool/mkconfig.rb", /^(\s+val = )'"\$\(SDKROOT\)"'\+/, "\\1"
 
-    paths = %w[libyaml openssl@3].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@3].map { |f| formula_opt_prefix(f) }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
@@ -109,19 +110,6 @@ class RubyAT34 < Formula
     # A newer version of ruby-mode.el is shipped with Emacs
     elisp.install Dir["misc/*.el"].reject { |f| f == "misc/ruby-mode.el" }
 
-    if OS.linux?
-      arch = Utils.safe_popen_read(
-        bin/"ruby", "-rrbconfig", "-e", 'print RbConfig::CONFIG["arch"]'
-      ).chomp
-      # Don't restrict to a specific GCC compiler binary we used (e.g. gcc-5).
-      inreplace lib/"ruby/#{api_version}/#{arch}/rbconfig.rb" do |s|
-        s.gsub! ENV.cxx, "c++"
-        s.gsub! ENV.cc, "cc"
-        # Change e.g. `CONFIG["AR"] = "gcc-ar-11"` to `CONFIG["AR"] = "ar"`
-        s.gsub!(/(CONFIG\[".+"\] = )"(?:gcc|g\+\+)-(.*)-\d+"/, '\\1"\\2"')
-      end
-    end
-
     resource("rubygems").stage do
       ENV.prepend_path "PATH", bin
 
@@ -151,17 +139,6 @@ class RubyAT34 < Formula
     # instead of in the Cellar, making gems last across reinstalls
     config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
     config_file.write rubygems_config
-  end
-
-  def post_install
-    # Since Gem ships Bundle we want to provide that full/expected installation
-    # but to do so we need to handle the case where someone has previously
-    # installed bundle manually via `gem install`.
-    rm(%W[
-      #{rubygems_bindir}/bundle
-      #{rubygems_bindir}/bundler
-    ].select { |file| File.exist?(file) })
-    rm_r(Dir[HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/gems/bundler-*"])
   end
 
   def rubygems_config

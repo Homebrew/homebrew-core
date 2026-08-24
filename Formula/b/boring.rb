@@ -1,33 +1,33 @@
 class Boring < Formula
   desc "Simple command-line SSH tunnel manager that just works"
   homepage "https://alebeck.github.io/boring/"
-  url "https://github.com/alebeck/boring/archive/refs/tags/v0.15.0.tar.gz"
-  sha256 "13b5a6df9696f545dd4d2bd82a7d18e5ed80c5eaa5c2adb0373bc05ca0eb6bd0"
+  url "https://github.com/alebeck/boring/archive/refs/tags/v0.16.1.tar.gz"
+  sha256 "cd3acf4650385afe1136cfb8d31a5fa341adfb1baacc81b04436e87643c5684b"
   license "MIT"
   head "https://github.com/alebeck/boring.git", branch: "main"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "66247cee164ba7522f7ce1a578ca9009764a44690b944ee697483bfee9127f81"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "66247cee164ba7522f7ce1a578ca9009764a44690b944ee697483bfee9127f81"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "66247cee164ba7522f7ce1a578ca9009764a44690b944ee697483bfee9127f81"
-    sha256 cellar: :any_skip_relocation, sonoma:        "22982707922325ae26fdbdbe5163a6ea3e6907de23d893f4a7a36c5fc2aaee17"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb4248ca4eacaac0ecc400fca3fc47d24e12e13a8f7871a0c0e592f99384a094"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0655261923746f8a5af097c979950f1853e92cd375b5c83e47e7264f2acb982b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f4465b8e6a1c84d71815794f38416f4f2d40805498f819eb9583aa8cc9e939b2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4465b8e6a1c84d71815794f38416f4f2d40805498f819eb9583aa8cc9e939b2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f4465b8e6a1c84d71815794f38416f4f2d40805498f819eb9583aa8cc9e939b2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d6ca44ab2dd4bf82558179fdba76cf2c0a783ac90f9b95e78f59a902c60f4aaf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3024490e6a2aa46faee3aa41f4d0bce401b00be38fd35083dfb430cbddca78b3"
+    sha256 cellar: :any,                 x86_64_linux:  "c475db8c8b1957008af45e0f1d9264d29bfe410f85b566ecedc487bd005de36c"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/alebeck/boring/internal/buildinfo.Version=#{version}"
+    ldflags = "-X github.com/alebeck/boring/internal/buildinfo.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/boring"
 
     generate_completions_from_executable(bin/"boring", "--shell")
   end
 
-  def post_install
-    quiet_system "killall", "boring"
+  post_install_steps do
+    terminate_process "boring", must_succeed: false
   end
 
   test do

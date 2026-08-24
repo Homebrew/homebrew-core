@@ -1,8 +1,8 @@
 class Pgroonga < Formula
   desc "PostgreSQL plugin to use Groonga as index"
   homepage "https://pgroonga.github.io/"
-  url "https://packages.groonga.org/source/pgroonga/pgroonga-4.0.6.tar.gz"
-  sha256 "d0048944763c18f91bc67e043aafa64c2c53f6246547c9474311efbc05ccfe66"
+  url "https://packages.groonga.org/source/pgroonga/pgroonga-4.0.8.tar.gz"
+  sha256 "09509b7c23f29bcb00d8c769b222156a023ee7ddd896ee875b0a4acdcd657498"
   license "PostgreSQL"
 
   livecheck do
@@ -11,12 +11,12 @@ class Pgroonga < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "c7d13b628043228b867a2d311cf4a13630c26db57c06e7beb24d031fcdf90aec"
-    sha256 cellar: :any, arm64_sequoia: "6a71ca5148df32e9601dff81f3c49f21f1ad649dc3b2223f1b98280d4b8e5085"
-    sha256 cellar: :any, arm64_sonoma:  "b5bb47b972c031080d18d56b4c9b65e483293429177822af19e5f2c54292d98d"
-    sha256 cellar: :any, sonoma:        "42e56a4cc35cad3dbba9993bac2ca1bf61a4d3348a791cb7b9e28b43370a23cd"
-    sha256               arm64_linux:   "7056be2b697c3407f960f0fec4e1e0abba10b368d4f95f52469d082de4f0328f"
-    sha256               x86_64_linux:  "0bfaf194f28687b2e804b6fd5e17b95be323fe5eb461a2aabdc4383a2e123bcc"
+    sha256 cellar: :any, arm64_tahoe:   "be226018f10397f393fc94b08be1cb8aae94d4c0f03b09c05c4a559902bf3688"
+    sha256 cellar: :any, arm64_sequoia: "43782ac2bec73ec954972ab95473a9bfa9e68cfe146b3a118b1c016a4c4ae403"
+    sha256 cellar: :any, arm64_sonoma:  "f170aea63296b816880ef4dc7778d078a28fd4dd85ecf7c02aa26006436c92b6"
+    sha256 cellar: :any, sonoma:        "1a1d445f5cf62200b3b0a3051cba3d7a5297818f140d1024955a2d5a8f66427e"
+    sha256               arm64_linux:   "9eed0d181b97fe6efc875d6fb0b0cdbf649a8c41ad71f2b6feab6cc3975d7598"
+    sha256               x86_64_linux:  "9d37fa0c32b65e643908f80a037168d5f477a42fbfc622c543c55bb2a4ea1945"
   end
 
   depends_on "meson" => :build

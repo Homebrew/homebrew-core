@@ -36,8 +36,8 @@ class Usbutils < Formula
   conflicts_with "lsusb", "lsusb-laniksj", because: "both provide an `lsusb` binary"
 
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/usbutils/portable.patch"
-    sha256 "ec09531017e1fa45dbc37233b286a736a24d7f98668e38a92e3697559f739c7f"
+    file "Patches/usbutils/portable.patch"
+    type :unofficial
   end
 
   def install

@@ -45,6 +45,8 @@ class TremorRuntime < Formula
   patch do
     url "https://github.com/tremor-rs/tremor-runtime/commit/986fae5cf1022790e60175125b848dc84f67214f.patch?full_index=1"
     sha256 "ff772097264185213cbea09addbcdacc017eda4f90c97d0dad36b0156e3e9dbc"
+    type :backport
+    resolves "https://github.com/tremor-rs/tremor-runtime/pull/2320"
   end
 
   def install

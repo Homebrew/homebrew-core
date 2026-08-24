@@ -11,7 +11,7 @@ class Portablegl < Formula
     sha256 cellar: :any_skip_relocation, all: "93cc376fab3fc5dbc505e3bce5dea8056a50e37880282a63433498410cac015a"
   end
 
-  depends_on "sdl2" => :test
+  depends_on "sdl2-compat" => :test
 
   def install
     include.install "portablegl.h"

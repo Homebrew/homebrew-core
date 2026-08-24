@@ -1,18 +1,18 @@
 class Ocicl < Formula
   desc "OCI-based ASDF system distribution and management tool for Common Lisp"
   homepage "https://github.com/ocicl/ocicl"
-  url "https://github.com/ocicl/ocicl/archive/refs/tags/v2.16.13.tar.gz"
-  sha256 "067408f0443119a25c2b34a323a829fb953542e367bb039365bdcc0a0b388500"
+  url "https://github.com/ocicl/ocicl/archive/refs/tags/v2.17.0.tar.gz"
+  sha256 "6cc0337bd96f37e91fbac0335e77aa824e603234e862d3fcad7d345ca01b3923"
   license "MIT"
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a66bba9a715611e0f63da5689bc49cabfc9be203a0605b8ec9a88d85033d7a57"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c88e599b0a72d4c6998290eb371aaf1d1f919060433c9dfcb099597ee973195"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "231865da964148a4973fda68ce91a3fbe8579331d88b6a3996e00a3783df1ade"
-    sha256 cellar: :any_skip_relocation, sonoma:        "516826df68588ea9d14866416241b0f544ccff19768b19cccb92b8d72ce4ea31"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "96ef4fc922385d2c80e75661a337980fc756031023efffad3df9d558d97239d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c39b4a1be6b0f5bd042266ca5e224508c3f3260bf757211cc54c77a908139de"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3f705c755476a21cb4aff53957834d1eb5d29fa67501375daba15645d911fc1f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e6dd4ec8faf74e5071a64c6ccde055aa01ff21f2741fc327a5bae70481ad489"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3feeb064bd5ed8b00d2da0d6560c637787c2bedeb956543b41ef783733469546"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f26a6aae215194f687b9384f44383e1c7776befd50850e1f3bbce0c5da0be6ac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dbb737bc84708fe4fba423fb5a4bb69c1939fd3c41365ca06231585b3c511387"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "726742075c5fe25fb4aa3f2d5fe5677ca62258395084fbd1dbf58282557c8c1b"
   end
 
   depends_on "sbcl"

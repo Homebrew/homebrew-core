@@ -17,10 +17,12 @@ class Laszip < Formula
 
   depends_on "cmake" => :build
 
-  # build patch to scope C++ standard flag, upstream pr ref, https://github.com/LASzip/LASzip/pull/122
+  # Backport commit to fix setting C++ standard
   patch do
-    url "https://github.com/LASzip/LASzip/commit/a2060ce7bbdde90774e067579fbfd1f53837a015.patch?full_index=1"
-    sha256 "131816847a2e44df85e34c945e5e60f5112d94e6f9781c25316293832f08510c"
+    url "https://github.com/LASzip/LASzip/commit/0bcd1a507be50c845ea62f75d602663b2b3f3b73.patch?full_index=1"
+    sha256 "743450909335a7f8170cd40756733b3eae57671b093a5613a42ec26c0d2c99f7"
+    type :backport
+    resolves "https://github.com/LASzip/LASzip/pull/129"
   end
 
   def install

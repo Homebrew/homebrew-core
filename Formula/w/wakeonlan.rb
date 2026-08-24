@@ -1,13 +1,12 @@
 class Wakeonlan < Formula
   desc "Sends magic packets to wake up network-devices"
   homepage "https://github.com/jpoliv/wakeonlan"
-  url "https://github.com/jpoliv/wakeonlan/archive/refs/tags/v0.42.tar.gz"
-  sha256 "4f533f109f7f4294f6452b73227e2ce4d2aa81091cf6ae1f4fa2f87bad04a031"
+  url "https://github.com/jpoliv/wakeonlan/archive/refs/tags/v0.50.tar.gz"
+  sha256 "cbbf9d75db0cc0b8deb9d43ae0b0a320864bc6f00e032771f11a926b0aa2463f"
   license "Artistic-1.0-Perl"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "0859c811ae72fce06de1a607d36b0955517c80f5ea73431ee6c1dd38c749a0c6"
+    sha256 cellar: :any_skip_relocation, all: "a8b61b7acecad943d4a65502db27f0761c10b974930234b7750e36f868ecacf4"
   end
 
   # Build with Homebrew `perl` to build an `:all` bottle.

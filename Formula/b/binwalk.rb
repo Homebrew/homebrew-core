@@ -1,10 +1,21 @@
 class Binwalk < Formula
   desc "Searches a binary image for embedded files and executable code"
   homepage "https://github.com/ReFirmLabs/binwalk"
-  url "https://github.com/ReFirmLabs/binwalk/archive/refs/tags/v3.1.0.tar.gz"
-  sha256 "06f595719417b70a592580258ed980237892eadc198e02363201abe6ca59e49a"
   license "MIT"
   head "https://github.com/ReFirmLabs/binwalk.git", branch: "master"
+
+  stable do
+    url "https://github.com/ReFirmLabs/binwalk/archive/refs/tags/v3.1.0.tar.gz"
+    sha256 "06f595719417b70a592580258ed980237892eadc198e02363201abe6ca59e49a"
+
+    # Backport switch to 7zip
+    patch do
+      url "https://github.com/ReFirmLabs/binwalk/commit/b83242ffbd54997d11c7f7e304c17bf9582e38fe.patch?full_index=1"
+      sha256 "3a9e9f43ee552d6c3ab3d8069524a786b95f1256969f30400c679b1cc19e026c"
+      type :backport
+      resolves "https://github.com/ReFirmLabs/binwalk/pull/735"
+    end
+  end
 
   livecheck do
     url :stable
@@ -12,22 +23,21 @@ class Binwalk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "11b3d0c518f81eaba097392205c002a136e25b73a81ec35551b9ca1e3858c700"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "00db81d196265d847f7241a8771bade058a6077c0db8701fa0345496b7ba1f42"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d2640baf0e4b7943cef7df7ff1280ebdf1bc47ba711cc53d984eef63d24c5022"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f0ff3203c523ad5b7551b711b4ac5cacd6fe1d1d934c9e8c8a54a6745f5b7826"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3666d1ed2f81484d360d03bba8eb74a5175dd5a0461175c20bf1aa559e6add6f"
-    sha256 cellar: :any_skip_relocation, ventura:       "048ab0f16801129c741006603da6545c267ec98ea3c349537f22ce8d03ceb038"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c28f00bf24601ddcb037e1822dbea082dceda5f26ac9a152e11d78532a488b5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bad450fef7ba5832e71804dc11fcb87d817fabbbf735c2b1dc9fa6c508a1090"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "80c4dfbfe2c50dcd3f11b76d393828aca82f80c95276d614c52678c444b74457"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2e02cd149f0d1ebfb784f2643048c13ca755370ee86d0b872dcfd8acce80f3b5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2e523d08d8abf564f4c2cdd4f3af8256c7673f97dee2e1bedcfe12d47e6b3879"
+    sha256 cellar: :any_skip_relocation, sonoma:        "50dc5e36ebd07c8b390e84fed31cc21219142550274fddb9a476246443ee86de"
+    sha256 cellar: :any,                 arm64_linux:   "2b768196bb7a654e79e96961c0b1c54498e9034e6c21e9082a18008da25a6bbd"
+    sha256 cellar: :any,                 x86_64_linux:  "f88d21e81013dfbd4446479d227d52b024402ab593c47f625326a9581b7d00fe"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "p7zip"
-  depends_on "xz"
+  depends_on "sevenzip" # for 7zz
 
   uses_from_macos "bzip2"
+  uses_from_macos "xz"
 
   on_linux do
     depends_on "fontconfig"

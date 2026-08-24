@@ -28,7 +28,11 @@ class OdoDev < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9480c0fa8376a3f2b839965f2d7095fd712dd306a975032479e45419f482679"
   end
 
+  deprecate! date: "2026-07-17", because: :repo_archived
+  disable! date: "2027-01-17", because: :repo_archived
+
   depends_on "go" => :build
+
   conflicts_with "odo", because: "odo also ships 'odo' binary"
 
   def install

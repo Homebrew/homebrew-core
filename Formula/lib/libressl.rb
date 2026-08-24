@@ -13,12 +13,13 @@ class Libressl < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "76d955fdb9c556608ba23fe7f0474ff81f0cf6b321ef60a74b80e092d3c35c80"
-    sha256 arm64_sequoia: "cf88284fbd82632e6e368d8dda525c9cdc8a20533c142fa9d7f9eb5522fbf845"
-    sha256 arm64_sonoma:  "8903b4833944e4435b5b5ed8bc08462887786726a7e432ad47c20aba50b18071"
-    sha256 sonoma:        "39e22c373554bd43f99b10a57e4f8f93b48ad2076b0929e060f7a711b6489845"
-    sha256 arm64_linux:   "f67fe7ea826433c71eb04c827d050e40fafc45f2d87cd5ca53cf00749fa18499"
-    sha256 x86_64_linux:  "5b34254c709120de67438ae5494e9971c2b043f27f10484cba41853c6dbd9d70"
+    rebuild 1
+    sha256 arm64_tahoe:   "d7f59fb77e249e6499cc8c3031e471d48b439afcb2eebbd50f99d35b48f3c991"
+    sha256 arm64_sequoia: "9e826fa4c8fc297ad979a7f5efac314c2d873a6d52ab02a32a86ce56b3432dc3"
+    sha256 arm64_sonoma:  "dc47df0307f526c64c05165b3d184ab88c1ab39a2c9fffae78cb75ac55b217e5"
+    sha256 sonoma:        "ffd12aa7317281477581314261af6708b45d2fe8e5472dae65a5a05def4332ae"
+    sha256 arm64_linux:   "2b9597ee1a7667b55c5c0ace8d7522fdae204706d0f7dcaaf6e4698518171f00"
+    sha256 x86_64_linux:  "e018a0cefa50aab8fe96a39e0fcb6911b9f1479280023dc73435950a38f5947a"
   end
 
   head do
@@ -48,9 +49,8 @@ class Libressl < Formula
     system "make", "install"
   end
 
-  def post_install
-    rm(pkgetc/"cert.pem") if (pkgetc/"cert.pem").exist?
-    pkgetc.install_symlink Formula["ca-certificates"].pkgetc/"cert.pem"
+  post_install_steps do
+    symlink "{{etc}}/ca-certificates/cert.pem", "{{pkgetc}}/cert.pem", overwrite: true
   end
 
   def caveats

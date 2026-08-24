@@ -1,24 +1,24 @@
 class Hoverfly < Formula
   desc "API simulations for development and testing"
   homepage "https://hoverfly.io/"
-  url "https://github.com/SpectoLabs/hoverfly/archive/refs/tags/v1.12.9.tar.gz"
-  sha256 "24f24bf18f9e8fbf325ae403002f444d091e238a44ed84658f69f929562c0b02"
+  url "https://github.com/SpectoLabs/hoverfly/archive/refs/tags/v1.12.12.tar.gz"
+  sha256 "aed545a456346fd269f6f77611d08fb654a1b53ac927e8b290f155908f3f7af9"
   license "Apache-2.0"
   head "https://github.com/SpectoLabs/hoverfly.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f31e2d5096864ca3f09deac2015a2b99b81b5adc3f2d2be83f0ee98941b33dde"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f31e2d5096864ca3f09deac2015a2b99b81b5adc3f2d2be83f0ee98941b33dde"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f31e2d5096864ca3f09deac2015a2b99b81b5adc3f2d2be83f0ee98941b33dde"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3fcfaffde4336c1cf77c5704e0733e351b916bb3899ed3b059e842df15d2c903"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "768edc5e2cc53ceda3a1a408901a8007cdf9a725bd8ff17d8d85ae31bc79dc09"
-    sha256 cellar: :any,                 x86_64_linux:  "a223d1c3fc9969107a3d4d1b599093df120f01d118a3409721d3800c2f84cb43"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1225066a20530302a494f374bc8b128cd81b440d19ae483dc9eec07b7845b273"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1225066a20530302a494f374bc8b128cd81b440d19ae483dc9eec07b7845b273"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1225066a20530302a494f374bc8b128cd81b440d19ae483dc9eec07b7845b273"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d9f17c63c34f6ddd17954172c2bdcd6c069a98d25d93c5265f9f875664fda4f9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f66db3c522d634dcee7bd76d7ad7e11ec8c61b80a874766e6b269551c489fcb2"
+    sha256 cellar: :any,                 x86_64_linux:  "2667c70c50bf5d34ef61b8fe2b49bacdb86f6a9f82d91a213c1de45b567c1f83"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.hoverctlVersion=#{version}"
+    ldflags = "-X main.hoverctlVersion=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./core/cmd/hoverfly"
   end
 

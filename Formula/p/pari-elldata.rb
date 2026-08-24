@@ -34,7 +34,7 @@ class PariElldata < Formula
   test do
     expected_output = "[0, -1, 1, -10, -20, -4, -20, -79, -21, 496, 20008, -161051, -122023936/161051, " \
                       "Vecsmall([1]), [Vecsmall([128, -1])], [0, 0, 0, 0, 0, 0, 0, 0]]"
-    output = pipe_output("#{Formula["pari"].opt_bin}/gp -q", "ellinit(\"11a1\")").chomp
+    output = pipe_output("#{formula_opt_bin("pari")}/gp -q", "ellinit(\"11a1\")").chomp
     assert_equal expected_output, output
   end
 end

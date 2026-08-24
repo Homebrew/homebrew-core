@@ -1,8 +1,8 @@
 class UBootTools < Formula
   desc "Universal boot loader"
   homepage "https://www.denx.de/wiki/U-Boot/"
-  url "https://ftp.denx.de/pub/u-boot/u-boot-2026.04.tar.bz2"
-  sha256 "ac7c04b8b7004923b00a4e5d6699c5df4d21233bac9fda690d8cfbc209fff2fd"
+  url "https://ftp.denx.de/pub/u-boot/u-boot-2026.07.tar.bz2"
+  sha256 "78e8bfc382fe388f9b55aa1daf8c563522a037779b5d4c349d1415e381f1243e"
   license all_of: ["GPL-2.0-only", "GPL-2.0-or-later", "BSD-3-Clause"]
 
   livecheck do
@@ -11,12 +11,12 @@ class UBootTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a9ca64f16581d0f3c90d1b39b20f3d94e07bca1c8a65a40cdaca63171e73c431"
-    sha256 cellar: :any,                 arm64_sequoia: "a5886b8319d63b74bff1fe8786cace9aafd69f83d610acaafb14eba93ee89bc2"
-    sha256 cellar: :any,                 arm64_sonoma:  "db49877c14f39a27e753b3851204ddd6b5b58ef1b47ec88355f002b3f30133fb"
-    sha256 cellar: :any,                 sonoma:        "85656af6c548d88e472b97dcfeec8f36d83c19b4e634da9246309c1054ee12ab"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5f74ae017b09cfb0be45813a77e93d5d56bfcc23004f49e6c2df2c225dcb3d48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "212eba5d4045ea47b8522a0a0c5aae4fabab8c2d8e94cfdf20b211290b4151d5"
+    sha256 cellar: :any, arm64_tahoe:   "ea87d08776a7558bc088e0980bd4ffa5a909f32a8b87a02c3f0abce5169d6a01"
+    sha256 cellar: :any, arm64_sequoia: "489b685038756e004ae0c3fa37b7c39f1e2a3746d1cbe33f9c200182b913f190"
+    sha256 cellar: :any, arm64_sonoma:  "a9bda8ec3ce0a54fe3f2e88ae1d24bb19763ce9f600cead8852d0a0333430724"
+    sha256 cellar: :any, sonoma:        "d8c740f96f87129cb241298427efbc2a424b31b4ee529cf02b65ba11c78296df"
+    sha256 cellar: :any, arm64_linux:   "477a60d03ccb7634e37dba8dea6ff001cdae5492bfdc3beafc6642e44bbb700f"
+    sha256 cellar: :any, x86_64_linux:  "04c316e3bf4ed2cf6dd25300418022eb7485902eb8b99a8497d1b951a2acb158"
   end
 
   depends_on "coreutils" => :build # Makefile needs $(gdate)

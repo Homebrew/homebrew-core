@@ -1,8 +1,8 @@
 class Rmw < Formula
   desc "Trashcan/recycle bin utility for the command-line"
   homepage "https://theimpossibleastronaut.github.io/rmw-website/"
-  url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.9.5/rmw-0.9.5.tar.xz"
-  sha256 "5fa336da39228d4ef6d1314fd86b5dfb0622e80485ebf7b78152198278090050"
+  url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.10.0/rmw-0.10.0.tar.xz"
+  sha256 "8f96fd96831b69bffc8019cb000483ffe92a7764765484df57f63a6515d26fd9"
   license "GPL-3.0-or-later"
   head "https://github.com/theimpossibleastronaut/rmw.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Rmw < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b57378a8a4d9f75baa34ee883b097ff89520a72c080acc369e83aa9158d3e8fa"
-    sha256 arm64_sequoia: "55c6ae6efe3afc942a5740fadccaf7eb40826cede8ba926b958d0c401daed786"
-    sha256 arm64_sonoma:  "64142a822629df1a6e933259c75f64cde96ad2166366b9bafa34d6f597beba39"
-    sha256 sonoma:        "a957b72407bd6253273d0d853903d73db999022ab388e474c6e0eeea460b019e"
-    sha256 arm64_linux:   "d1ac5afdcf0c542b5c86959f917303932321aeffa124f92b41b7c9336c026a82"
-    sha256 x86_64_linux:  "391320c552df905d3fbd84a4d278b8564beb452e277f01387b89e90eefa31f65"
+    sha256 arm64_tahoe:   "582a1e00f4cfa06abc1d1c928db5e6e9ddf37e6b510b6be414991ee75b9b6b0b"
+    sha256 arm64_sequoia: "6ac0b6ae8b0fdb7c34048cbe2b65a32e8e1c18a75b25cc6ec5486cf487e05882"
+    sha256 arm64_sonoma:  "c3149b07cca673b4ed9e4c880cd72e9bc72123fc17e922482f43355907fd5e05"
+    sha256 sonoma:        "139d63a0fb57843bd1ebaea407547b0f94cae4e107def758f12f1fef5115bb29"
+    sha256 arm64_linux:   "628897b6cd4cad5395e8590af75f9e19dab5211eb19bdf19a25a637ffdd2496c"
+    sha256 x86_64_linux:  "39fc9e9f2eee1cb58a285d47708967c49ede620db7f40cafc62c9612a585f3e3"
   end
 
   depends_on "gettext" => :build
@@ -25,6 +25,7 @@ class Rmw < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "canfigger"
+  depends_on "glib"
   # Slightly buggy with system ncurses
   # https://github.com/theimpossibleastronaut/rmw/issues/205
   depends_on "ncurses"
@@ -46,7 +47,7 @@ class Rmw < Formula
     refute_path_exists file
     system bin/"rmw", "-u"
     assert_path_exists file
-    assert_match "/.local/share/Waste", shell_output("#{bin}/rmw -l")
+    assert_match "/.local/share/Trash", shell_output("#{bin}/rmw -l")
     assert_match "purging is disabled", shell_output("#{bin}/rmw -vvg")
   end
 end

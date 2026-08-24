@@ -1,18 +1,18 @@
 class Miller < Formula
   desc "Like sed, awk, cut, join & sort for name-indexed data such as CSV"
   homepage "https://github.com/johnkerl/miller"
-  url "https://github.com/johnkerl/miller/archive/refs/tags/v6.18.1.tar.gz"
-  sha256 "db9eca9fdfc2e524a8ad8a03bdfb748fa3747898ca6191a33493da945e72aa8f"
+  url "https://github.com/johnkerl/miller/releases/download/v6.21.0/miller-6.21.0.tar.gz"
+  sha256 "d05b6edb506c16d448e9c66308b0169c80c93e0f3f2ef6ad248d22520684990f"
   license "BSD-2-Clause"
   head "https://github.com/johnkerl/miller.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8c857867ad36dae107712b7381c8ce71ba0889b02aa22cd49f4c1612da802815"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d7a005f1b3983d3339fbb01108d099ac540a7b25df04829253d28e9694df454e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b83fbaa9fe3560bfaebd93360fa5eb4b94be545f9798b6006c9a1c053f93e019"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9dcac59c9b20beda3a9d83fb20a3d10e386098913df90c9aa05b33dbb3abce13"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c33b58178ab898eb62f21fa70cdf8a2475d80f7309e431cabd9a2b05760eb2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b71ef5228258936742b3d2abe525845d3d055de27efad677535d86ae075dec9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3887ac6b342f53eaa8c92f8a51e96e8ffadf3b2df11979e5addb31b5a25a9502"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b4be4e1b6ef9dee802b72ba1f397d57bba85e4cdd1f4b9b5d3a2328e206353d6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3915388a6c1334b285898a9dff8df2359ecf801baf40027fb67def6de803ccc4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "36a9e686fcd4c2f54d604a37fc70316e1800e7b743dc81a4a5a55942da6cf4c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c11495d2c6c448791a7adcdce76482e6d08e6ea7fead526a8edd41a41d34475e"
+    sha256 cellar: :any,                 x86_64_linux:  "92472be416628948acb0e2627976a29680d0222b69f4b62f2d673a5395e1a105"
   end
 
   depends_on "go" => :build

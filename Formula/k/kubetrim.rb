@@ -23,7 +23,7 @@ class Kubetrim < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/alexellis/kubetrim/pkg.Version=#{version} -X github.com/alexellis/kubetrim/pkg.GitCommit=#{tap.user}"
+    ldflags = "-X github.com/alexellis/kubetrim/pkg.Version=#{version} -X github.com/alexellis/kubetrim/pkg.GitCommit=#{tap.user}"
     system "go", "build", *std_go_args(ldflags:)
   end
 

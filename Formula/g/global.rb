@@ -4,18 +4,18 @@ class Global < Formula
 
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "https://ftpmirror.gnu.org/gnu/global/global-6.6.15.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/global/global-6.6.15.tar.gz"
-  sha256 "cf0937cb3ed521b2ab1acfa7aff45103040b860bb642c4c2f094ac3a3fe86024"
+  url "https://ftpmirror.gnu.org/gnu/global/global-6.7.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/global/global-6.7.tar.gz"
+  sha256 "fdab590c9bda2d68d55e99c51c7e60c2c8595ae4dcebab9bbbb0795f2a5c8bf7"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "d192083b6c0875317da2cba73a6af81cd6e24be02acad180842ea204ea0f3e5a"
-    sha256 arm64_sequoia: "6f7ab338adf043b0c71c00c0b3afafa3894a760db6346456f8e876e35d90d02b"
-    sha256 arm64_sonoma:  "46fd9e06f4da66276f2345ec3c6dbea02a15ad15d84dd26b0c8151baf77127a5"
-    sha256 sonoma:        "d8f92e4aeae48996005d37060ee68a44248e92279fb971a659fbf160253dfd76"
-    sha256 arm64_linux:   "23f94bd65ad80e82795de7a67a8f8c9ab4d8b81ac1b5b42a5b3c5658fddcffd3"
-    sha256 x86_64_linux:  "bf89b742174fc7e608111a0af851f2e1b638138f4ae8372a63852eeb54bade6b"
+    sha256 arm64_tahoe:   "61becbfb303939428359773d7ae7c96d5e6d869dc05e6d7437cbf73b0bde364a"
+    sha256 arm64_sequoia: "104437cf6c9a196013efeac2bd195b94edacf4fd113980944200a67eb25e6772"
+    sha256 arm64_sonoma:  "0ecdc3b9e6d7e912336f4ac722acad2e96904ff6da0f6cc206e67e2c9eff7c74"
+    sha256 sonoma:        "bbc374bb1ec1ef3e45102eadd08614cfb674d0f0c30be1dd788098c306ca5235"
+    sha256 arm64_linux:   "39b589b953e08dbd0714e21311c69564433d7493cbba01bcb6611982c1284ce0"
+    sha256 x86_64_linux:  "55f9d6c8fa78c5fd9e0980b57c9bd2d56dd72d6611c7823092c2944464aea56d"
   end
 
   head do
@@ -55,9 +55,9 @@ class Global < Formula
     args = %W[
       --disable-dependency-tracking
       --sysconfdir=#{etc}
-      --with-sqlite3=#{Formula["sqlite"].opt_prefix}
+      --with-sqlite3=#{formula_opt_prefix("sqlite")}
       --with-python-interpreter=#{venv.root}/bin/python
-      --with-universal-ctags=#{Formula["universal-ctags"].opt_bin}/ctags
+      --with-universal-ctags=#{formula_opt_bin("universal-ctags")}/ctags
     ]
 
     system "./configure", *args, *std_configure_args

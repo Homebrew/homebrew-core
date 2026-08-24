@@ -34,7 +34,7 @@ class Slrn < Formula
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
 
     system "./configure", *std_configure_args,
-                          "--with-ssl=#{Formula["openssl@4"].opt_prefix}",
+                          "--with-ssl=#{formula_opt_prefix("openssl@4")}",
                           "--with-slrnpull=#{var}/spool/news/slrnpull",
                           "--with-slang=#{HOMEBREW_PREFIX}"
     ENV.deparallelize

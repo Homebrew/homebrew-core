@@ -29,6 +29,8 @@ class Servus < Formula
   patch do
     url "https://github.com/HBPVIS/Servus/commit/53bf825cd995a7d2f569157f20431daf0cc860f8.patch?full_index=1"
     sha256 "bb5d44dd39b63a091c9cc89fcdfc25e914f184eac5af9256b54975cf300575a5"
+    type :backport
+    resolves "https://github.com/HBPVIS/Servus/pull/96"
   end
 
   def install
@@ -132,7 +134,7 @@ class Servus < Formula
       }
     CPP
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lServus", "-DBOOST_TEST_DYN_LINK",
-                    "-L#{Formula["boost"].opt_lib}", "-lboost_unit_test_framework",
+                    "-L#{formula_opt_lib("boost")}", "-lboost_unit_test_framework",
                     "-std=gnu++11", "-o", "test"
     system "./test"
   end

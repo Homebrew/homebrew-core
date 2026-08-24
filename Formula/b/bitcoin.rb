@@ -1,8 +1,8 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoincore.org/"
-  url "https://bitcoincore.org/bin/bitcoin-core-31.0/bitcoin-31.0.tar.gz"
-  sha256 "0ba0ef5eea3aefd96cc1774be274c3d594812cfac0988809d706738bb067b3e3"
+  url "https://bitcoincore.org/bin/bitcoin-core-31.1/bitcoin-31.1.tar.gz"
+  sha256 "50411d5b43c7e4c90099394759eb6c2add6e7c2dbe728840893d638b6fc6afc9"
   license all_of: [
     "MIT",
     "BSD-3-Clause", # src/crc32c, src/leveldb
@@ -17,12 +17,12 @@ class Bitcoin < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9ab247a55851a7722c335d480a4981d06faf29ca60ae8027911be71b6ed91948"
-    sha256 cellar: :any,                 arm64_sequoia: "b7022fa13275e49e74dbba57fca956d26ec158edc97d47f8c1914ec686537bfa"
-    sha256 cellar: :any,                 arm64_sonoma:  "8a25f7b508590b98f885591485702369c8f21f3b41e6c1c1f792ca5c83ddc5bd"
-    sha256 cellar: :any,                 sonoma:        "29f6ee5ffdb64ab5690d4a0e12db15cef5538cc4f9b9ce528f7a08ece12221ca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9c22ee4cbd61b46cc2bc926ed8f152f8f5d472dc895a66d7854118f01e58afa9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6761039b6f88ec3587c9c9befd2a10c168c4e21b824632ed5583ce94dfe7053f"
+    sha256 cellar: :any, arm64_tahoe:   "25eb3100de0efdbbc3673d8afe07e2a32df3f68847ad4d5ff10ae2b4f8c22bb8"
+    sha256 cellar: :any, arm64_sequoia: "a57d478221b6de21b5a9cc5a62b8ea882a958b2bd0b376a15b295be57932dbb5"
+    sha256 cellar: :any, arm64_sonoma:  "5024963b269d7f21ec6a7125f7d1fbfdce5d24324c9e8e8b8f4a416a3c59b607"
+    sha256 cellar: :any, sonoma:        "71329ebc26775ff50a12240dd5fc0aa20c783eeeadd9a61c27d73866ad857d76"
+    sha256 cellar: :any, arm64_linux:   "097b870be991319fdbf343795723c47bdb67c70c9301652b84d52caf78599815"
+    sha256 cellar: :any, x86_64_linux:  "827c1ae0789963fd003a4287b1f19ae161b4872275e712f0520e1fd2211751db"
   end
 
   depends_on "boost" => :build

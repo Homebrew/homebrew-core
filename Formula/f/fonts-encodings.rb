@@ -1,7 +1,7 @@
 class FontsEncodings < Formula
   desc "Font encoding tables for libfontenc"
   homepage "https://gitlab.freedesktop.org/xorg/font/encodings"
-  url "https://www.x.org/archive/individual/font/encodings-1.1.0.tar.xz"
+  url "https://xorg.freedesktop.org/archive/individual/font/encodings-1.1.0.tar.xz"
   sha256 "9ff13c621756cfa12e95f32ba48a5b23839e8f577d0048beda66c67dab4de975"
   license :public_domain
 

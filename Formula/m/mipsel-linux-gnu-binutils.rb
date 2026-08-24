@@ -1,9 +1,9 @@
 class MipselLinuxGnuBinutils < Formula
   desc "GNU Binutils for mipsel-linux-gnu cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.46.1.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.46.1.tar.bz2"
-  sha256 "324ed40ada2633a28eaa5d104ca5db165fd3cc3162cc1d48a7b7fa9c932da439"
+  url "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.47.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.47.tar.bz2"
+  sha256 "3068128c75cda9f898ccb4211d360246e8e195ffcc9dfb655b23ae23a54800e8"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,13 @@ class MipselLinuxGnuBinutils < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "e52c96985840f427b635170bb3c976ac5169b8b28dc774fe2179935947a83667"
-    sha256 arm64_sequoia: "d8e6026c4c23c42d7afbc29ba338ad4042ea7002bada21443481f349d6d17eee"
-    sha256 arm64_sonoma:  "7579ca155484d41d5c0de51c202d9a860a1976533613e7e0318592f4f4fe2211"
-    sha256 sonoma:        "443cab5cd377cb271ae37312acad62d793e261252d134ecfd1f3ab75121c4491"
-    sha256 arm64_linux:   "02c12881114ec2f65f5313f02d3a3583c6adae66d313098abbd86cadb853e333"
-    sha256 x86_64_linux:  "1c91713474b21ffaa919d4edc42393d3ddbe7dafe2ac8d3924808b82c7c9efbd"
+    rebuild 1
+    sha256 arm64_tahoe:   "94b594f3b82445d2508a7bbbf23c82b7a0de3d61cf9e657a2e9d23913ae2e533"
+    sha256 arm64_sequoia: "8819ec12a0d970f550d30c2689257c63f0eaf47f53d83a428ecb979df4bf4dea"
+    sha256 arm64_sonoma:  "5fc7b613f8aae5059f398bd8f1edf251980eeec047ee8ae0d8355a3f21c34526"
+    sha256 sonoma:        "0b0c8bc1a2c99e12580ae8ac700074383321d163d8558109994c86bcbe6640d4"
+    sha256 arm64_linux:   "3c9dc197b2c8ee65be7102f723e1e5b40f38f5bee7301a5be2fb775868ca7311"
+    sha256 x86_64_linux:  "26d2ae87384660ae92caf7e29292d517452108e0d1f27ec76c0f5d9358ac77da"
   end
 
   depends_on "pkgconf" => :build
@@ -30,16 +31,14 @@ class MipselLinuxGnuBinutils < Formula
     depends_on "zlib-ng-compat"
   end
 
-  conflicts_with "mips-linux-gnu-binutils", because: "both install `libdep.so` library"
-
   def install
     target = "mipsel-linux-gnu"
     system "./configure", "--target=#{target}",
-                          "--infodir=#{info}/#{target}",
+                          "--infodir=#{info/target}",
                           "--with-system-zlib",
                           "--with-zstd",
                           "--disable-nls",
-                          *std_configure_args(libdir: lib/"target")
+                          *std_configure_args(libdir: lib/target)
     system "make"
     system "make", "install"
   end

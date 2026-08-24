@@ -92,7 +92,7 @@ class Libtensorflow < Formula
       //tensorflow/tools/graph_transforms:summarize_graph
       //tensorflow/tools/graph_transforms:transform_graph
     ] + libtensorflow_deps.map { |dep| "//tensorflow/tools/lib_package:#{dep}" }
-    system Formula["bazelisk"].opt_bin/"bazelisk", "build", *bazel_args, *targets
+    system formula_opt_bin("bazelisk")/"bazelisk", "build", *bazel_args, *targets
 
     bin.install %w[
       bazel-bin/tensorflow/tools/benchmark/benchmark_model
@@ -103,7 +103,7 @@ class Libtensorflow < Formula
       system "tar", "-C", prefix, "-xf", "bazel-bin/tensorflow/tools/lib_package/#{dep}.tar"
     end
 
-    ENV.prepend_path "PATH", Formula["gnu-getopt"].opt_prefix/"bin" if OS.mac?
+    ENV.prepend_path "PATH", formula_opt_prefix("gnu-getopt")/"bin" if OS.mac?
     system "tensorflow/c/generate-pc.sh", "--prefix", opt_prefix, "--version", version.to_s
     (lib/"pkgconfig").install "tensorflow.pc"
   end

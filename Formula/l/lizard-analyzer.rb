@@ -3,17 +3,17 @@ class LizardAnalyzer < Formula
 
   desc "Extensible Cyclomatic Complexity Analyzer"
   homepage "https://github.com/terryyin/lizard"
-  url "https://files.pythonhosted.org/packages/5b/94/4967d0868e7db39a72fa2dbef9a798c4d661178f3836bfec58091606f0f3/lizard-1.23.0.tar.gz"
-  sha256 "ed75cd45f086a2f51d6be64b0149b71bda820f92f95e30898254528bb949f795"
+  url "https://files.pythonhosted.org/packages/a5/c9/97837b967a1a6bb64acb0e1738e19a154393ae1a9a448b9958176be5b10a/lizard-1.24.0.tar.gz"
+  sha256 "2e88a7af9d23a98d3f4a30767134361bd4b7dde02c410209c6c72732a43bbb65"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf1aa9b4f777ad52961f55430c39f8455c04963127e5275d5c19c09cd7a0a0fc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30a87d7d8d0ca0d4e7eaf9301dd48ffcce692d5734575a69393bdcf1d100d537"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cc5a2b75321d54efd4d73b538b824dbd5da410077711a05e53f15af598caabbe"
-    sha256 cellar: :any_skip_relocation, sonoma:        "16e18661fb1b18a9a0a78605c426dfbb0941a9d2ed20e9faaefd1b878f2e73d1"
-    sha256 cellar: :any,                 arm64_linux:   "a58e605483938f8836a0331ad36849bc9de85cc04ea9178b6280c7ce3a674570"
-    sha256 cellar: :any,                 x86_64_linux:  "786e725a906e69a7bf05e4ee71bcafb4725b639004084dc4a82905e28f6e76e7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d0d16eb179c7271c49067edfb92719159a03f9cd1916a66c74ba5bc6c44033b6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0e50984849f360c0026ba30871cfd1b68dc815b1917037451ebd63e7f7ad2be"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d9c8d4c6fbe4c80e261c50db54bffa90fac0244bd088940722b265937b06e966"
+    sha256 cellar: :any_skip_relocation, sonoma:        "983a3304998df6a3b63e609202c36b93ef29d03b46dbf1e33bc124d69ae36118"
+    sha256 cellar: :any,                 arm64_linux:   "da5e93b83d95f8f08a03414eafa42bf977a77b56d894cee880c7c54478382676"
+    sha256 cellar: :any,                 x86_64_linux:  "04bfaa0ea9aeabe01f45165350789c14653b59727191dbcad41a4f4edf89ffa0"
   end
 
   depends_on "python@3.14"
@@ -38,8 +38,8 @@ class LizardAnalyzer < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   def install

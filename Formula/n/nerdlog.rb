@@ -25,7 +25,6 @@ class Nerdlog < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/dimonomid/nerdlog/version.version=#{version}
       -X github.com/dimonomid/nerdlog/version.commit=#{tap.user}
       -X github.com/dimonomid/nerdlog/version.date=#{time.iso8601}

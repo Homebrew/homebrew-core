@@ -12,23 +12,25 @@ class DhallLspServer < Formula
     patch :p2 do
       url "https://github.com/dhall-lang/dhall-haskell/commit/a621e1438df5865d966597e2e1b0bb37e8311447.patch?full_index=1"
       sha256 "89b768b642c0a891e5d0a33ac43c84f07f509c538cf2a035fad967ce6af074ef"
+      type :backport
     end
 
     # Backport support for text 2.1.2 picked by GHC 9.10+
     patch :p2 do
       url "https://github.com/dhall-lang/dhall-haskell/commit/9f2d4d44be643229784bfc502ab49184ec82bc05.patch?full_index=1"
       sha256 "877ac62d2aa87d8aeb13e021b134298a299917f30b6a7a5962d5a06407c38067"
+      type :backport
     end
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "62e173a901ac5df5613428d1453d556686766e950e039ca8448531048421dc23"
-    sha256 cellar: :any,                 arm64_sequoia: "f81418294d9b140abcff481884ca1821ba45d03bb216bcd44380fab63ddb2a24"
-    sha256 cellar: :any,                 arm64_sonoma:  "16cfd71bb784211c5d5ea281c31e9b3825d2ed6be743f795c32e44cd8f6be755"
-    sha256 cellar: :any,                 sonoma:        "50e77b999e1af1e2bb5b4cdc4a29f3e0061d69062e7a155eaa74171e5d6803e9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "00df60a9a813b1e271e7ca3760bf200d9fb9eb0aa55e055b217588ad7c0deed6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "921a9aa115b3dcf194ed4046ed626bea502bf14c7220c9dffb6942b242e4e0be"
+    rebuild 3
+    sha256 cellar: :any, arm64_tahoe:   "a6daaa49d5c98125647b3cde6f70c733acbf19d244a67d3a3b8b664ec17e57c3"
+    sha256 cellar: :any, arm64_sequoia: "aab22a2fee405b6ec9218b9d82c303fa382456fc4e40c057f7ae10568f246492"
+    sha256 cellar: :any, arm64_sonoma:  "1057143024d6abf1c4ee0200824502cb01ccfad21fcf3d82c5eb80ca515f958a"
+    sha256 cellar: :any, sonoma:        "91d18c95a5784d68c1e142260dfd3567a1d265e7a630d5fd38dc2e7bc13fa596"
+    sha256 cellar: :any, arm64_linux:   "2850717581a83df04f78fd41249a77cdc12cb3df735ebdebaca53d0ab3bb72ef"
+    sha256 cellar: :any, x86_64_linux:  "4f3ae9995258d100e40afd58c269aa5779f6b38a13ba3646f4129a5a873854b7"
   end
 
   depends_on "cabal-install" => :build

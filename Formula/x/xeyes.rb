@@ -1,7 +1,7 @@
 class Xeyes < Formula
   desc "Follow the mouse X demo using the X SHAPE extension"
   homepage "https://gitlab.freedesktop.org/xorg/app/xeyes"
-  url "https://www.x.org/archive/individual/app/xeyes-1.3.1.tar.xz"
+  url "https://xorg.freedesktop.org/archive/individual/app/xeyes-1.3.1.tar.xz"
   sha256 "5608d76b7b1aac5ed7f22f1b6b5ad74ef98c8693220f32b4b87dccee4a956eaa"
   license "X11"
 

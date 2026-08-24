@@ -1,8 +1,8 @@
 class Aqua < Formula
   desc "Declarative CLI Version manager"
   homepage "https://aquaproj.github.io/"
-  url "https://github.com/aquaproj/aqua/archive/refs/tags/v2.60.1.tar.gz"
-  sha256 "96a9ef64b6501822b42a4ef136c2af61e35dd374ace3aff23087048a91f8a11c"
+  url "https://github.com/aquaproj/aqua/archive/refs/tags/v2.62.3.tar.gz"
+  sha256 "fceb5a55a9e8dc7996ed8b6cafbb463997c82ba44e07c39ffc5f0b8fa3f67417"
   license "MIT"
   head "https://github.com/aquaproj/aqua.git", branch: "main"
 
@@ -15,19 +15,18 @@ class Aqua < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8d45485dafa850339f096237268c3c5e79f0df126839d1dc24437fb1c7114ce0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d45485dafa850339f096237268c3c5e79f0df126839d1dc24437fb1c7114ce0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8d45485dafa850339f096237268c3c5e79f0df126839d1dc24437fb1c7114ce0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b4463c159da6e622fb84fb63e1fc8acf2ec000565dd4a783c689b938f5f4be98"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6f976866dba6b00d21a16b50d6f5edb4e883876eee86594789c3b080875a27bf"
-    sha256 cellar: :any,                 x86_64_linux:  "009ac4a4fbc4299f447252981c1074513d97cac64a6a810871e572a0018e649a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8fb23fb94fa385f14e61ca47bab5538293dbe9ddd8d1d022edc2fe2946be46aa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8fb23fb94fa385f14e61ca47bab5538293dbe9ddd8d1d022edc2fe2946be46aa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8fb23fb94fa385f14e61ca47bab5538293dbe9ddd8d1d022edc2fe2946be46aa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "017efd0c98534cd260d5eb6b277e69722688017aa17fced63b3a6da5beab8c23"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a800cb77b7a76c37d0d0b6e8c2151cb41e300ad906f00d2ccbf774c25e3b5e8"
+    sha256 cellar: :any,                 x86_64_linux:  "3f37611acbe58ef2fc004b4dc4105610aa6c61c2257b86cf8ad2f1fb4cf1b433"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user} -X main.date=#{time.iso8601}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/aqua"
+    system "go", "build", *std_go_args(ldflags: :goreleaser), "./cmd/aqua"
 
     generate_completions_from_executable(bin/"aqua", "completion")
   end

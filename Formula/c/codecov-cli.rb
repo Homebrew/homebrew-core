@@ -3,18 +3,17 @@ class CodecovCli < Formula
 
   desc "Codecov's command-line interface"
   homepage "https://cli.codecov.io/"
-  url "https://files.pythonhosted.org/packages/5d/a6/7de4ab8ac19a3ab83b1844173c5dc4a819c55f7fa6c2dc7aa7c47ada6075/codecov_cli-11.2.8.tar.gz"
-  sha256 "39daded2fe9f618fdd7e249891d5cb1e4fb413c203b8a83d5d0f79c18b674ac4"
+  url "https://files.pythonhosted.org/packages/b8/c3/d097b669f1d794d956e4afc52cf5d2ce3d1d0bc42cb3505092fbb5b4d319/codecov_cli-11.3.1.tar.gz"
+  sha256 "316bd39d0e90491b9bd609bc4ad0c2c037ee9c724faf4b2b72c1f70755d4e616"
   license "Apache-2.0"
-  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e2b15a939a4b42cf2e0568f81180b7f6fef45fe9a05ef673b8336e2e6606c1c4"
-    sha256 cellar: :any,                 arm64_sequoia: "3ec3c437f4f200c09a9e912aa2bcfa74926e91919e465b964e5558604429aad0"
-    sha256 cellar: :any,                 arm64_sonoma:  "454f4dfb81de213a2f15fc2c589c466780af23eb7c33323f0b4c36758a29b580"
-    sha256 cellar: :any,                 sonoma:        "607e95ca77409c7d6db8baf1d7ecdab29cc796b13c3c8926f6878c6c7cd76e95"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "09bc194013aefdd3f1a8577808bd75795b3ec4a6f00876d2e278fd9a4d17884a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33fec18c637e4f92c143f8da1658851b5c82acef5ae80cf42b1f5d9bd765483d"
+    sha256 cellar: :any, arm64_tahoe:   "95d320429fad70ed6f5e0247b26aaf7a363d24dffe0a90f169b170e04c2f40ea"
+    sha256 cellar: :any, arm64_sequoia: "1b5b70c4ffa1e44ad6f0e86910df40e60141795c877d606a75f93b21648b5fae"
+    sha256 cellar: :any, arm64_sonoma:  "4ad3da9686921f3c6fb0688813f7d69be01da5ed33723df733dc503fed0d760d"
+    sha256 cellar: :any, sonoma:        "dadc1647832a92dfa13f85542b4ea14bfaf2be0172708be86e73e116945b5727"
+    sha256 cellar: :any, arm64_linux:   "a7d8b91c9b81ac8c410d3cbbf916d5f255ba34d392c530268625ed6d201d6652"
+    sha256 cellar: :any, x86_64_linux:  "67356e9a85d1b0656f9ad03b7e2bd4cf4d8abf5fd1611a3543167b8815dad720"
   end
 
   depends_on "rust" => :build
@@ -25,8 +24,8 @@ class CodecovCli < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "click" do
@@ -35,13 +34,13 @@ class CodecovCli < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
-    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
+    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
+    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
   end
 
   resource "ijson" do
-    url "https://files.pythonhosted.org/packages/f4/57/60d1a6a512f2f0508d0bc8b4f1cc5616fd3196619b66bd6a01f9155a1292/ijson-3.5.0.tar.gz"
-    sha256 "94688760720e3f5212731b3cb8d30267f9a045fb38fb3870254e7b9504246f31"
+    url "https://files.pythonhosted.org/packages/3a/06/b31f040a8764336a11152e474a7abcb3782fedb0d1cdf78f442b82878c56/ijson-3.5.1.tar.gz"
+    sha256 "af40bd1a85f55db0b8b30715c858761306bd92d5590148636f75c3309e6e76bd"
   end
 
   resource "pyyaml" do
@@ -55,8 +54,8 @@ class CodecovCli < Formula
   end
 
   resource "sentry-sdk" do
-    url "https://files.pythonhosted.org/packages/54/a2/2e6c090db384cc515069f4f85542bd5baf6786852073020ea73d4a76d3ea/sentry_sdk-2.60.0.tar.gz"
-    sha256 "0bd25e54e78ca02d0be512529fa644bbbf9e8470d7b26371294012d4ca93c978"
+    url "https://files.pythonhosted.org/packages/60/31/b7341f156a5f6f36f0b4845d6f1c28a2ae4799171dba7007f3a1e9b234b4/sentry_sdk-2.64.0.tar.gz"
+    sha256 "68be2c29e14ae310f8a39e1a79916b6d85c6cb41dcce789d14ff05fe293e4c55"
   end
 
   resource "test-results-parser" do

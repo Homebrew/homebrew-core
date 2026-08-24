@@ -3,25 +3,24 @@ class ErlangLanguagePlatform < Formula
   homepage "https://whatsapp.github.io/erlang-language-platform/"
   # We require the submodules, so we fetch via git
   url "https://github.com/WhatsApp/erlang-language-platform.git",
-      tag:      "2026-02-27",
-      revision: "3a65019ef3b85a7b0f58c998f5d5a545d7394b15"
+      tag:      "2026-08-10",
+      revision: "81ddb608598ff652a44a362f7a65cf2516bf6d1e"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
   head "https://github.com/WhatsApp/erlang-language-platform.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8576d3b5737facfdf4eb2337763f3e161a5ed02d5072fb80d674697f3d301b3d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "951b548a94eddf55a00d497154356f0dd536bd5f6c743982b0b8171cf4cf9f77"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf6944548b7f14fbfb4e420f593e3279e2b89496dc2273859f5ce04c39afcc75"
-    sha256 cellar: :any_skip_relocation, sonoma:        "89e23670e8fd9e570690e6b893f6240b76ec74c5a7487470a6c3e029786a59b4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "efc14ca44ba1e1fd97f240e33f5b143589d97d8a19a11be57049008cbb5cba99"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d73ccda29804be2a0d64c887a20a7e6210a2320efe97a158ba13dda52ce61474"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9ad391d900393c25caf48f2e470dc335f5108cd845a45efdf8f57d367e87ea4b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20574935d89a229c0197046b9b02e4c7769dee68c6d138319a07d21c287144d7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5402341a7bcdde555e295f4f64c99f346a74b63f83bb7f3654e028e2e97c5f3f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "26bc1cbb9f6d29613e99c898512f0553b961ac58bc3c6c93ffb93ca4cdadd11c"
+    sha256 cellar: :any,                 arm64_linux:   "05ad6aa17d87cca92348616e11462d600506a3d5d35ecf037b4bf567f2ba08eb"
+    sha256 cellar: :any,                 x86_64_linux:  "b56acf483def3caa12fa96f3c0f973ee79d32b1ca5635445d79859edc86284dd"
   end
 
   depends_on "rust" => :build
   depends_on "sbt" => :build
   depends_on "scala" => :build
-  depends_on "erlang@28"
+  depends_on "erlang"
   depends_on "openjdk"
   depends_on "rebar3"
 
@@ -39,7 +38,7 @@ class ErlangLanguagePlatform < Formula
     system "cargo", *build_args, *std_cargo_args.reject { |arg| arg["--root"] || arg["--path"] }
     bin.install "target/release/elp"
     generate_completions_from_executable(bin/"elp", "generate-completions")
-    bin.env_script_all_files libexec, PATH: "#{Formula["erlang@28"].opt_bin}:${PATH}"
+    bin.env_script_all_files libexec, PATH: "#{formula_opt_bin("erlang")}:${PATH}"
   end
 
   test do
@@ -63,7 +62,7 @@ class ErlangLanguagePlatform < Formula
     ERL
 
     # Run ELP lint to detect diagnostics
-    output = shell_output("#{bin}/elp lint my_module.erl")
+    output = shell_output("#{bin}/elp lint")
 
     # Verify that ELP detected the unused variable diagnostic
     assert_match("variable 'X' is unused", output)

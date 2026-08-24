@@ -1,18 +1,17 @@
 class GupnpTools < Formula
   desc "Free replacements of Intel's UPnP tools"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gupnp-tools/0.12/gupnp-tools-0.12.2.tar.xz"
-  sha256 "4c92f2d1a3d454ec1f5fb05ef08ca34df9c743af64c8b5965c35884d46cb005c"
+  url "https://download.gnome.org/sources/gupnp-tools/0.12/gupnp-tools-0.12.4.tar.xz"
+  sha256 "2c7f6f538fb36a15322be532217e5de161182c943c0a8b0da4458cf970b4092f"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
-  revision 1
 
   bottle do
-    sha256 arm64_tahoe:   "2085bbc212516df9466cfb8c53c5bd9faf9864c8dc021ed238d6ea6b1510283c"
-    sha256 arm64_sequoia: "37dd3ac2195ffdf423e3b2e21ba907bfec6c42ad419363108ca2eb1dfde4a131"
-    sha256 arm64_sonoma:  "fcfb7d8815e459dedff64b0359b94cd2e1e805ec4eddbda785fd88aa4c6408c5"
-    sha256 sonoma:        "17c6d68b82e895036376b40d0300f96edd9bae8134e8f6bd5b1350d77b0e1861"
-    sha256 arm64_linux:   "9abd9fc3ecf06cebe86951add9411a5d3c6df8bf82718774ee8ab194d8956954"
-    sha256 x86_64_linux:  "0561372946dc1e5ca75fb568d5d6eff2157694641bd42380a8c1ae0d51aa1e57"
+    sha256 arm64_tahoe:   "1f8c360d4f56cd627694c21e3509cbf0d1701173209cb3edfb16ac097943b134"
+    sha256 arm64_sequoia: "ae5404b7b818841b847afe4e35efa62ea6a80dd913a883ff3a9497f917adf107"
+    sha256 arm64_sonoma:  "46316d893d7e940ce3668bd28dc2f0c36e8175912f7899e4dfb3de6e5e199057"
+    sha256 sonoma:        "fe4d6cf65324bd8a15c03b41d5effa1bc9790a8f4ea05eee71982038d2439056"
+    sha256 arm64_linux:   "c5eac35732988ece280ca3feccafc85148f3eedf81698535bc10fd5e58a7352d"
+    sha256 x86_64_linux:  "7d506830e37f84b41996947133d30d5363fcdc367403d06c7db627d70cbf6e1a"
   end
 
   depends_on "meson" => :build
@@ -31,6 +30,10 @@ class GupnpTools < Formula
 
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "gettext" => :build
   end
 
   def install

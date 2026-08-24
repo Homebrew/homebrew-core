@@ -20,7 +20,7 @@ class GoRice < Formula
   depends_on "go" => [:build, :test]
 
   def install
-    ldflags = "-s -w -X main.BuildVersion=#{version}"
+    ldflags = "-X main.BuildVersion=#{version}"
     system "go", "build", *std_go_args(ldflags:, output: bin/"rice"), "./rice"
   end
 

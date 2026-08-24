@@ -53,7 +53,7 @@ class Carla < Formula
     depends_on "libx11"
     depends_on "mesa"
     depends_on "pulseaudio"
-    depends_on "sdl2"
+    depends_on "sdl2-compat"
   end
 
   def install

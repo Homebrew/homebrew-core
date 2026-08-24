@@ -1,7 +1,8 @@
 class Lunzip < Formula
   desc "Decompressor for lzip files"
   homepage "https://www.nongnu.org/lzip/lunzip.html"
-  url "https://download-mirror.savannah.gnu.org/releases/lzip/lunzip/lunzip-1.16.tar.gz"
+  url "https://download.savannah.nongnu.org/releases/lzip/lunzip/lunzip-1.16.tar.gz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/lunzip/lunzip-1.16.tar.gz"
   sha256 "f13809a1aeaf953f32b07f822c3804bfb11056c08d465b93750b4e45190becda"
   license "GPL-2.0-or-later"
 
@@ -32,7 +33,7 @@ class Lunzip < Formula
     path.write original_contents
 
     # compress: data.txt -> data.txt.lz
-    system Formula["lzip"].opt_bin/"lzip", path
+    system formula_opt_bin("lzip")/"lzip", path
     refute_path_exists path
 
     # decompress: data.txt.lz -> data.txt

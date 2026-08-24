@@ -1,8 +1,8 @@
 class PythonTkAT313 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.13.14/Python-3.13.14.tgz"
-  sha256 "5ae535a36af0ebca6fca176ecb8197f5db9c1cb8c8f0cd12cdf1787046db1f41"
+  url "https://www.python.org/ftp/python/3.13.15/Python-3.13.15.tgz"
+  sha256 "c28d9d213c09b5b5ab2c29812950e12f746999e099b82894231be954b26baed9"
   license "Python-2.0"
 
   livecheck do
@@ -10,13 +10,17 @@ class PythonTkAT313 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "fdcdd3a87c952ff659073150f57cbcb8b6179df4aa2cbc689571d142868c0bcc"
-    sha256 cellar: :any, arm64_sequoia: "c8b869ae45093905c01bdf4658e6c5a5e871f0d9c6532e81ce9d3df66d4e14ce"
-    sha256 cellar: :any, arm64_sonoma:  "e379ac296d9648bada82f84a2804c57cb4635e776a29649bb7e7ad8bcaca0929"
-    sha256 cellar: :any, sonoma:        "25f6818a3c403d82421d14622b4bde9a17ef6de90607948f8e45b534e6737772"
-    sha256               arm64_linux:   "8d1c0638cf4ff3b4ba4fab4ea0433128040c52c2d4bfa1089e12ee146a02253a"
-    sha256               x86_64_linux:  "623a548e4b9d5f914169bd3341471dd4358b2045c43c308ea9f83c188eb99b4c"
+    sha256 cellar: :any, arm64_tahoe:   "c7e599b02f51f15761d86ba2c9f0c55ab93cec6e82d9bac1151d7121c34a07a5"
+    sha256 cellar: :any, arm64_sequoia: "7ebe2c996053c91ecd84826b816ddd51917bfdc5effc1362686d7efc73e74d9b"
+    sha256 cellar: :any, arm64_sonoma:  "c9a070cebd62c3361674667d0b9fc6828ef56c907e56120f97da04e8544911c0"
+    sha256 cellar: :any, sonoma:        "69dbb019a84f3ddd823f322e482d6a956225fbacc116f6e337a9bb9f3e3bcd08"
+    sha256               arm64_linux:   "70bd60c894bf824819141bc82aeec9739b14244fc2b7f41bec977f04622e2e3d"
+    sha256               x86_64_linux:  "a2c7d8f1c7f765a863ef509733b32541db0e3d872eba443297823388f4e349e9"
   end
+
+  # https://devguide.python.org/versions/#versions
+  deprecate! date: "2029-11-01", because: :deprecated_upstream
+  disable! date: "2030-11-01", because: :deprecated_upstream
 
   depends_on "python@3.13"
   depends_on "tcl-tk"
@@ -34,7 +38,7 @@ class PythonTkAT313 < Formula
     python_include = if OS.mac?
       Formula["python@#{xy}"].opt_frameworks/"Python.framework/Versions/#{xy}/include/python#{xy}"
     else
-      Formula["python@#{xy}"].opt_include/"python#{xy}"
+      formula_opt_include("python@#{xy}")/"python#{xy}"
     end
 
     tcltk_version = Formula["tcl-tk"].any_installed_version.major_minor
@@ -51,9 +55,9 @@ class PythonTkAT313 < Formula
       name = "_tkinter"
       sources = ["_tkinter.c", "tkappinit.c"]
       define-macros = [["WITH_APPINIT", "1"], ["TCL_WITH_EXTERNAL_TOMMATH", "1"]]
-      include-dirs = ["#{python_include}/internal", "#{Formula["tcl-tk"].opt_include/"tcl-tk"}"]
+      include-dirs = ["#{python_include}/internal", "#{formula_opt_include("tcl-tk")/"tcl-tk"}"]
       libraries = ["tcl#{tcltk_version}", "tcl#{tcltk_version.major}tk#{tcltk_version}"]
-      library-dirs = ["#{Formula["tcl-tk"].opt_lib}"]
+      library-dirs = ["#{formula_opt_lib("tcl-tk")}"]
     TOML
     system python3, "-m", "pip", "install", *std_pip_args(prefix: false, build_isolation: true),
                                             "--target=#{libexec}", "./Modules"

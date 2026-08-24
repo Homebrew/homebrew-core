@@ -21,14 +21,16 @@ class Tetra < Formula
 
   depends_on "go" => :build
 
-  # Add missing darwin stub for bpfProbes function, upstream pr ref, https://github.com/cilium/tetragon/pull/4933
+  # Add missing darwin stub for bpfProbes function
   patch do
     url "https://github.com/cilium/tetragon/commit/c99f6bc0b8bebb40cf3cdaf1216e62c8717d85cc.patch?full_index=1"
     sha256 "1a09f1f9324394a117a3f09a995ef56a5d7d4633169b9a8fe103425fabc840f3"
+    type :backport
+    resolves "https://github.com/cilium/tetragon/pull/4933"
   end
 
   def install
-    ldflags = "-s -w -X github.com/cilium/tetragon/pkg/version.Version=#{version}"
+    ldflags = "-X github.com/cilium/tetragon/pkg/version.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:, output: bin/"tetra"), "./cmd/tetra"
 
     generate_completions_from_executable(bin/"tetra", shell_parameter_format: :cobra)

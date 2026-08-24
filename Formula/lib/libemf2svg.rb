@@ -26,10 +26,6 @@ class Libemf2svg < Formula
   end
 
   def install
-    # Bypass to check brew setup
-    # https://github.com/kakwa/libemf2svg/issues/50
-    inreplace "CMakeLists.txt", "Darwin", "PASS" if OS.mac?
-
     args = %W[-DCMAKE_INSTALL_RPATH=#{rpath}]
     args << "-DEXTERNAL_ICONV=iconv" if OS.mac?
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

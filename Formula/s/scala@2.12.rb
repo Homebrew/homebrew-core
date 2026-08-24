@@ -2,7 +2,6 @@ class ScalaAT212 < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
   url "https://github.com/scala/scala/releases/download/v2.12.21/scala-2.12.21.tgz"
-  mirror "https://www.scala-lang.org/files/archive/scala-2.12.21.tgz"
   sha256 "13bad6399f433ae244e98834aa79f393cb43b46b94ec34662d50d678cb4009ea"
   license "Apache-2.0"
 

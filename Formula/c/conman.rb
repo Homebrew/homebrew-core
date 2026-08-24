@@ -1,8 +1,8 @@
 class Conman < Formula
   desc "Serial console management program supporting a large number of devices"
   homepage "https://github.com/dun/conman"
-  url "https://github.com/dun/conman/archive/refs/tags/conman-0.3.1.tar.gz"
-  sha256 "cd47d3d9a72579b470dd73d85cd3fec606fa5659c728ff3c1c57e970f4da72a2"
+  url "https://github.com/dun/conman/releases/download/conman-0.3.1/conman-0.3.1.tar.xz"
+  sha256 "69b449e4a9e992f7e1c6becfb3689be723cefaf94c75226a0bae685df3bc4cb3"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -20,12 +20,9 @@ class Conman < Formula
     sha256 x86_64_linux:   "af3f62841fa09e43d3e42e41f7a1d5eaaa57112851b87221ea46a96a0fad6d52"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "freeipmi"
 
   def install
-    system "./bootstrap"
     system "./configure", *std_configure_args, "--disable-silent-rules", "--sysconfdir=#{etc}"
     system "make", "install"
     inreplace pkgshare.glob("examples/*.exp"), "/usr/share/", "#{opt_share}/"

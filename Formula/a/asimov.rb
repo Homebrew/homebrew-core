@@ -1,18 +1,19 @@
 class Asimov < Formula
   desc "Automatically exclude development dependencies from Time Machine backups"
-  homepage "https://github.com/stevegrunwell/asimov"
-  url "https://github.com/stevegrunwell/asimov/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "77a0ef09c86d9d6ff146547902c749c43bc054f331a12ecb9992db9673469fab"
+  homepage "https://github.com/AsimovMac/asimov"
+  url "https://github.com/AsimovMac/asimov/archive/refs/tags/v0.12.0.tar.gz"
+  sha256 "1bd90fbf33d5e72bf578be3959c3a9e3cfb36951e364572d5f9f607889da86db"
   license "MIT"
-  head "https://github.com/stevegrunwell/asimov.git", branch: "develop"
+  head "https://github.com/AsimovMac/asimov.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, all: "3af345aae1664e1077e95f587e8439f5f580da014a3dc4b0ffea7058d14492dd"
+    sha256 cellar: :any_skip_relocation, all: "752278f6104a90ad8a42ede78f72583c85494a3e2601269d0388425f7228b8fb"
   end
 
   def install
-    bin.install buildpath/"asimov"
+    bin.install "bin/asimov"
+    libexec.install "lib/asimov"
+    pkgshare.install Dir["data/*"]
   end
 
   # Asimov will run in the background on a daily basis
@@ -23,7 +24,6 @@ class Asimov < Formula
   end
 
   test do
-    assert_match "Finding dependency directories with corresponding definition files…",
-                 shell_output(bin/"asimov")
+    assert_match "No new directories to exclude", shell_output(bin/"asimov")
   end
 end

@@ -4,15 +4,17 @@ class PerlXmlParser < Formula
   url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.59.tar.gz"
   sha256 "a358fd7c49f5e27717a644a9102bd21dc7fc25a415983279c59b1580e2b62a58"
   license "Artistic-2.0"
+  revision 1
   head "https://github.com/cpan-authors/XML-Parser.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c57352fbabcea8144c0016fe0e5efe605f62973b471e3a353ab80859d75bf235"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b00c4634cb1610f5f72b5c19724fd909999d7fdd01fcd7d430d831bb9b70d86c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b8cb9abec7c27e96e3adfb7328fefa2c718682b497f065a6b98b41a81f17b666"
-    sha256 cellar: :any_skip_relocation, sonoma:        "953c075a6311b82f184e2bb1fa93f8a1eea4641382c41b34c2c7b75cc36938d1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f259ec7e84a5e4df245a9550ba594dfbe9c2bb68f235efc45529f3313c7e5d0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f621416e0df9289a64074f9885d1c89da47d299a21d3d6077de89f452cf02a7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2c8f72929220beadb381e32462802abfa92f68678d85918810e0ffd0e231f204"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "41ff11acec89cd4a2df099c0d1d9e1672ae428cc60b893c660f6007423c7d6ba"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b519062690b4bfbc83d4c4ce96aa3a7522ca75f238698ab86075a61894251d70"
+    sha256 cellar: :any_skip_relocation, sequoia:       "b2cb806d417b799971c8e653089080b149c8358d5efe759bc78fab897ee61ac6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8956f78a4d928735e7dc00c068e7efe32926e9d334e55fcaced6571106a371ae"
+    sha256 cellar: :any,                 arm64_linux:   "dd5144a6f6daa055daa791f8d092d3a961366af925408864a629e128411944bc"
+    sha256 cellar: :any,                 x86_64_linux:  "4dce3130c0a91ce63f62d4da28e31c0b43a7a657c30f6317f5cb073069318578"
   end
 
   depends_on "perl" # macOS Perl already has the XML::Parser module
@@ -42,6 +44,6 @@ class PerlXmlParser < Formula
   end
 
   test do
-    system Formula["perl"].opt_bin/"perl", "-e", "require XML::Parser;"
+    system formula_opt_bin("perl")/"perl", "-e", "require XML::Parser;"
   end
 end

@@ -1,7 +1,7 @@
 class Libxrender < Formula
   desc "X.Org: Library for the Render Extension to the X11 protocol"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXrender-0.9.12.tar.gz"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libXrender-0.9.12.tar.gz"
   sha256 "0fff64125819c02d1102b6236f3d7d861a07b5216d8eea336c3811d31494ecf7"
   license "MIT"
   compatibility_version 1

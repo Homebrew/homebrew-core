@@ -6,10 +6,11 @@ class Todoman < Formula
   url "https://files.pythonhosted.org/packages/d9/9e/063e7e63e5fb1d595b139916f3d2477bedcae9fa0d23ba8119f45ccf1c8d/todoman-4.7.0.tar.gz"
   sha256 "59f26db40eaa049c48a06b052dbfb5db86fb493eef6f65cd61fefc12c12b389d"
   license "ISC"
+  revision 1
   head "https://github.com/pimutils/todoman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6110800ecba08aee802442fbe824af9b0a18d41ef22cec89ce2f41335852d27b"
+    sha256 cellar: :any_skip_relocation, all: "1be6813d8b7f6f127d4b532ea4269aca0fc099e7694bd578f570fb7f4bfc4c6c"
   end
 
   depends_on "jq" # Needed for ZSH completions.
@@ -18,8 +19,8 @@ class Todoman < Formula
   conflicts_with "bash-snippets", because: "both install `todo` binaries"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/57/75/31212c6bf2503fdf920d87fee5d7a86a2e3bcf444984126f13d8e4016804/click-8.3.2.tar.gz"
-    sha256 "14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "click-log" do
@@ -28,13 +29,13 @@ class Todoman < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/ba/66/a3921783d54be8a6870ac4ccffcd15c4dc0dd7fcce51c6d63b8c63935276/humanize-4.15.0.tar.gz"
-    sha256 "1dd098483eb1c7ee8e32eb2e99ad1910baefa4b75c3aff3a82f4d78688993b10"
+    url "https://files.pythonhosted.org/packages/0a/ea/13a1ef3c12d12662905801495283530251918b70d62d368f1d2e0272c70d/humanize-4.16.0.tar.gz"
+    sha256 "7dc2244a2f84a4bfb1d36c37bac80cd78e35cdc5c119206d87b018e1445f3a3f"
   end
 
   resource "icalendar" do
-    url "https://files.pythonhosted.org/packages/b8/60/6b0356a2ed1c9689ae14bd8e44f22eac67c420a0ecca4df8306b70906600/icalendar-7.0.3.tar.gz"
-    sha256 "95027ece087ab87184d765f03761f25875821f74cdd18d3b57e9c868216d8fde"
+    url "https://files.pythonhosted.org/packages/2e/6c/3a20edd47656272f2d4016f6680f5bec6e2eb5ec7a23db97ebd1c15c384b/icalendar-7.2.0.tar.gz"
+    sha256 "32dacc396101825b82f9f1bbdf691c02be613130d5ab7a457e553fcd20959fdd"
   end
 
   resource "parsedatetime" do
@@ -57,19 +58,24 @@ class Todoman < Formula
     sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
+  end
+
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/19/f5/cd531b2d15a671a40c0f66cf06bc3570a12cd56eef98960068ebbad1bf5a/tzdata-2026.1.tar.gz"
-    sha256 "67658a1903c75917309e753fdc349ac0efd8c27db7a0cb406a25be4840f87f98"
+    url "https://files.pythonhosted.org/packages/92/ff/5a28bdfd8c3ebec42564ac7d0e54ca3db65044a9314a97f9564fa7a1e926/tzdata-2026.3.tar.gz"
+    sha256 "4a1518b8993086a7982523e071643f3c0e5f213e75b21318e78bcabfff9d1415"
   end
 
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/1c/09/afbd44c7c57b1124d94ffe6321154798b816bd09c00e0aaabb701583a1c8/urwid-4.0.0.tar.gz"
-    sha256 "58ddc5c65eb3109b69e2e95469553f9f86070645cc1b553d6ee3fe8dbac2e0ba"
+    url "https://files.pythonhosted.org/packages/e0/7d/4400463fb3f66c83094d97bc6c532d207996c928c83f150896cb3533422c/urwid-4.0.3.tar.gz"
+    sha256 "0f9a1d9b51a529f04c363d04c53dc446dada47a9eab641a82244ff9d1fe5029b"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
-    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
+    url "https://files.pythonhosted.org/packages/34/74/c6428f875774288bec1396f5bfcbc2d925700a4dad61727fd5f2b12f249d/wcwidth-0.8.2.tar.gz"
+    sha256 "91fbef97204b96a3d4d421609b80340b760cf33e26da123ff243d76b1fda8dda"
   end
 
   def install

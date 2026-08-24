@@ -1,18 +1,18 @@
 class Navidrome < Formula
   desc "Modern Music Server and Streamer compatible with Subsonic/Airsonic"
   homepage "https://www.navidrome.org"
-  url "https://github.com/navidrome/navidrome/archive/refs/tags/v0.62.0.tar.gz"
-  sha256 "4e1d3c8cdb5b16deadbe2e7b29f6cc147aadc466a771eb929daec95153ac1cb0"
+  url "https://github.com/navidrome/navidrome/archive/refs/tags/v0.63.2.tar.gz"
+  sha256 "a2602f00b429325f37efedba5e67918269f5ad2687266629dad23b740135cd4c"
   license "GPL-3.0-only"
   head "https://github.com/navidrome/navidrome.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8d9d63571f4dd4367bf583302583f65e0eabffea57e7643077e560e0b06043ce"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c427b61bc9acf38e700e39ffa91d8be2c29a4cd3f16cc090d2a6596ed418b47e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a7069ac28c7dae89f507a0254cbcad8585caf242fdfbf0c759e9045debdfd99"
-    sha256 cellar: :any_skip_relocation, sonoma:        "66f5fcd1380e4433980aff601dc51635188ab1149cba09526174b8991e6a3d30"
-    sha256 cellar: :any,                 arm64_linux:   "eeab8d7555c3a19221d14bedf4692d4add535680e37828f73f7802f7ca6487d7"
-    sha256 cellar: :any,                 x86_64_linux:  "0efc7038bc25d744ab90f27ccf9237509baf2d4d5df6d88a041517f6d2e3452c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f6a5c34510a05cfc77c69946557413d9fd17a912ae629f280f51a99dba94f17e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "224fd0685025a711555dd52a7aebdff54d0f05bb2e79879b0c41f013132caf41"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c471eb99460303cd65f5ee390738c2fea71ddd46dd93b1efd9b53426c962b6df"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dc4cab18aa31487a00f147808d4b41f45d17a46c004b7c8936d2ee89a9501e0a"
+    sha256 cellar: :any,                 arm64_linux:   "de010186ef07469d275ddcd9668731b4627b88363c3db39b69ac3a626935e0d0"
+    sha256 cellar: :any,                 x86_64_linux:  "f41af6129a9f714e99b7e17c852ca17f7e23c050b7401a0e920a62deb965c162"
   end
 
   depends_on "go" => :build
@@ -30,7 +30,6 @@ class Navidrome < Formula
     end
 
     ldflags = %W[
-      -s -w
       -X github.com/navidrome/navidrome/consts.gitTag=v#{version}
       -X github.com/navidrome/navidrome/consts.gitSha=source_archive
     ]

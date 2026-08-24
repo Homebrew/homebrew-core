@@ -27,7 +27,7 @@ class CargoGeiger < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
     system "cargo", "install", *std_cargo_args(path: "cargo-geiger")
   end
@@ -65,8 +65,8 @@ class CargoGeiger < Formula
     require "utils/linkage"
 
     [
-      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
-      Formula["openssl@3"].opt_lib/shared_library("libssl"),
+      formula_opt_lib("openssl@3")/shared_library("libcrypto"),
+      formula_opt_lib("openssl@3")/shared_library("libssl"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"cargo-geiger", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."

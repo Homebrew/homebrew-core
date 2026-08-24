@@ -1,8 +1,8 @@
 class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://www.openfaas.com/"
-  url "https://github.com/openfaas/faas-cli/archive/refs/tags/0.18.10.tar.gz"
-  sha256 "912125b727325ca12a98c0b8c3d2a50849fc030d1c379430b7641c2b5d3d8bff"
+  url "https://github.com/openfaas/faas-cli/archive/refs/tags/0.18.12.tar.gz"
+  sha256 "8f2a3b8e4ab084f417e46c3b92a3a44affc086e948a52cf7ba3d84957c3ffda0"
   license "MIT"
   head "https://github.com/openfaas/faas-cli.git", branch: "master"
 
@@ -12,12 +12,12 @@ class FaasCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aba52186c03000dd1cc3fea55073a9126a84d43c20414aa2d9cb29a4b67c1fdc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aba52186c03000dd1cc3fea55073a9126a84d43c20414aa2d9cb29a4b67c1fdc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aba52186c03000dd1cc3fea55073a9126a84d43c20414aa2d9cb29a4b67c1fdc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5f5cba34f233acf3f802af8f6bb2c69491128c7620a4c146c562a64c12be0498"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4fe73c1059aeb68839fa656bc3173309d8f9694304feef1e4f957cb949f7919f"
-    sha256 cellar: :any,                 x86_64_linux:  "68aba3706ffb78dc079465ff1bb1243d03bad3ca4db17afacbdbf5d61760f337"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9897e92f7d0571a2d726655db4544a6680202369a12e91e85d8550f1c11ea378"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9897e92f7d0571a2d726655db4544a6680202369a12e91e85d8550f1c11ea378"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9897e92f7d0571a2d726655db4544a6680202369a12e91e85d8550f1c11ea378"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a75d99b6ebaaab1cba37591b91f5a683b2f7e65e03709ec129da59563e5fee04"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5297d921c390253e28529bc75545b8aed1677ac22ca613184e8aba056e97e9c3"
+    sha256 cellar: :any,                 x86_64_linux:  "45545314e1465e55e6847d03432112e0d2e0275cffe494996174987b3b5c514a"
   end
 
   depends_on "go" => :build
@@ -27,7 +27,6 @@ class FaasCli < Formula
     ENV["XC_ARCH"] = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
     project = "github.com/openfaas/faas-cli"
     ldflags = %W[
-      -s -w
       -X #{project}/version.GitCommit=
       -X #{project}/version.Version=#{version}
     ]

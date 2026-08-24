@@ -39,10 +39,11 @@ class LlvmAT21 < Formula
   end
 
   # Fix triple config loading for clang-cl
-  # https://github.com/llvm/llvm-project/pull/111397
   patch do
     url "https://github.com/llvm/llvm-project/compare/1381ad497b9a6d3da630cbef53cbfa9ddf117bb6...40a8c7c0ff3f688b690e4c74db734de67f0f89e9.diff"
     sha256 "f6dafd762737eb79761ab7ef814a9fc802ec4bb8d20f46691f07178053b0eb36"
+    type :unofficial
+    resolves "https://github.com/llvm/llvm-project/pull/111397"
   end
 
   def python3
@@ -120,7 +121,7 @@ class LlvmAT21 < Formula
     builtins_cmake_args = []
 
     if OS.mac?
-      macos_sdk = MacOS.sdk_path_if_needed
+      macos_sdk = MacOS.sdk_path
       args << "-DFFI_INCLUDE_DIR=#{macos_sdk}/usr/include/ffi"
       args << "-DFFI_LIBRARY_DIR=#{macos_sdk}/usr/lib"
 
@@ -141,15 +142,15 @@ class LlvmAT21 < Formula
       clt_sdk_support_flags = %w[I WATCH TV].map { |os| "-DCOMPILER_RT_ENABLE_#{os}OS=OFF" }
       builtins_cmake_args += clt_sdk_support_flags
     else
-      args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_include}"
-      args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
+      args << "-DFFI_INCLUDE_DIR=#{formula_opt_include("libffi")}"
+      args << "-DFFI_LIBRARY_DIR=#{formula_opt_lib("libffi")}"
 
       # Disable `libxml2` which isn't very useful.
       args << "-DLLVM_ENABLE_LIBXML2=OFF"
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
       # Enable llvm gold plugin for LTO
-      args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}"
+      args << "-DLLVM_BINUTILS_INCDIR=#{formula_opt_include("binutils")}"
       # Parts of Polly fail to correctly build with PIC when being used for DSOs.
       args << "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"
       runtimes_cmake_args += %w[
@@ -247,42 +248,18 @@ class LlvmAT21 < Formula
   # We use the extra layer of indirection in `arch` because the FormulaAudit/OnSystemConditionals
   # doesn't want to let us use `Hardware::CPU.arch` outside of `install` or `post_install` blocks.
   def write_config_files(macos_version, kernel_version, arch)
-    clang_config_file_dir.mkpath
+    require "utils/clang"
 
-    arches = Set.new([:arm64, :x86_64, :aarch64])
-    arches << arch
-
-    sysroot = if macos_version.blank? || MacOS.version > macos_version
-      "#{MacOS::CLT::PKG_PATH}/SDKs/MacOSX.sdk"
-    else
-      "#{MacOS::CLT::PKG_PATH}/SDKs/MacOSX#{macos_version}.sdk"
-    end
-
-    {
-      darwin: kernel_version,
-      macosx: macos_version,
-    }.each do |system, version|
-      arches.each do |target_arch|
-        config_file = "#{target_arch}-apple-#{system}#{version}.cfg"
-        (clang_config_file_dir/config_file).atomic_write <<~CONFIG
-          -isysroot #{sysroot}
-        CONFIG
-      end
-    end
+    Utils::Clang.write_system_config_files(
+      config_dir:     clang_config_file_dir,
+      macos_version:,
+      kernel_version:,
+      arch:,
+    )
   end
 
-  def post_install
-    return unless OS.mac?
-
-    config_files = {
-      darwin: OS.kernel_version.major,
-      macosx: MacOS.version,
-    }.map do |system, version|
-      clang_config_file_dir/"#{Hardware::CPU.arch}-apple-#{system}#{version}.cfg"
-    end
-    return if config_files.all?(&:exist?)
-
-    write_config_files(MacOS.version, OS.kernel_version.major, Hardware::CPU.arch)
+  post_install_steps do
+    configure_clang_system
   end
 
   def caveats

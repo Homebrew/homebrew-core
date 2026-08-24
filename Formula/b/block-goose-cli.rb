@@ -1,8 +1,8 @@
 class BlockGooseCli < Formula
   desc "Open source, extensible AI agent that goes beyond code suggestions"
   homepage "https://goose-docs.ai/"
-  url "https://github.com/aaif-goose/goose/archive/refs/tags/v1.38.0.tar.gz"
-  sha256 "4637e38ecc9e9ed88ac0c6d53c17cbe445ec02501454c7c5a99335b14e5b4617"
+  url "https://github.com/aaif-goose/goose/archive/refs/tags/v1.47.0.tar.gz"
+  sha256 "0a4470fb0412f464528148f7b20812a2297494a3d72552b21c58a816b1f6fcc9"
   license "Apache-2.0"
   head "https://github.com/aaif-goose/goose.git", branch: "main"
 
@@ -12,12 +12,12 @@ class BlockGooseCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d26767e82b41d27862d9f73066ebbbff7edb217986da719047d5808efe77b2fa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0494b4098eac6919f5160820fd6d21d02ea06fea9a5f75bf0fb77bcdf36ba423"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3193679d02250274b1c2c974f93b95badfc93a9e75cfbdc5a36a963221003e48"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f8c2d553db95f6258f934d2dda8faf49096973456d5dea16441e77ea3131e0fa"
-    sha256 cellar: :any,                 arm64_linux:   "b2e96fe7b0b24a391d5632b8bb546927334ca843af7f213adffc5321b40bbef7"
-    sha256 cellar: :any,                 x86_64_linux:  "2d85294f1afa9e4563cf0253cc958edbbc9dd34e02a4cb49cd24de095a15a2ca"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4569309b6126f645d94ebc8d6999e36c1a856234658c80ebc66e1356b4a7bc5d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c30a964ba9567d9eb313a4a6846b827057d80a777541d40a49501c17f9cc443f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "04d14547e6a8014e366a95e3ddc3d147fbbd0f65a1dfd016fa685bba003920eb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1b8a6d4a94843fbac560dedc2d404ecca4a049d514ee6b5011d141ab82345e18"
+    sha256 cellar: :any,                 arm64_linux:   "99d6243e3faebc62cfc8ef9b15056f1aac2ccb057855f1af1263d39bbf2bebf9"
+    sha256 cellar: :any,                 x86_64_linux:  "99e5ed271ef9c01eabb40cbc986d69306cfb899edf3dea4d7a159dc06f88e7d6"
   end
 
   depends_on "cmake" => :build

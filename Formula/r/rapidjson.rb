@@ -12,6 +12,8 @@ class Rapidjson < Formula
     patch do
       url "https://github.com/Tencent/rapidjson/commit/9bd618f545ab647e2c3bcbf2f1d87423d6edf800.patch?full_index=1"
       sha256 "ce341a69d6c17852fddd5469b6aabe995fd5e3830379c12746a18c3ae858e0e1"
+      type :backport
+      resolves "https://github.com/Tencent/rapidjson/pull/719"
     end
   end
 

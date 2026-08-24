@@ -1,7 +1,7 @@
 class Djvulibre < Formula
   desc "DjVu viewer"
   homepage "https://djvu.sourceforge.net/"
-  url "https://downloads.sourceforge.net/djvu/djvulibre-3.5.30.tar.gz"
+  url "https://downloads.sourceforge.net/project/djvu/DjVuLibre/3.5.30/djvulibre-3.5.30.tar.gz"
   sha256 "ee5e457d4cfebe566f94b99e5e3d3cc7f5c79ddb741c2ac2ba2e456f00329644"
   license "GPL-2.0-or-later"
   compatibility_version 1

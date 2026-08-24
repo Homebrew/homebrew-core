@@ -7,18 +7,15 @@ class ClearlooksPhenix < Formula
   head "https://github.com/jpfleury/clearlooks-phenix.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "37f83957b60d7f567870434c313d3d02340d40ff4cc32a7deb81134fe2570b96"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "8020fbb50e62286fb222ef6f5003c16db25df20a8571226597c4c0dded41ef1f"
   end
 
   depends_on "gtk+3"
 
   def install
     (share/"themes/Clearlooks-Phenix").install %w[gtk-2.0 gtk-3.0 index.theme]
-  end
-
-  def post_install
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f",
-           HOMEBREW_PREFIX/"share/themes/Clearlooks-Phenix"
+    system formula_opt_bin("gtk+3")/"gtk3-update-icon-cache", "-f", share/"themes/Clearlooks-Phenix"
   end
 
   test do

@@ -12,6 +12,7 @@ class Fastga < Formula
     patch do
       url "https://github.com/thegenemyers/FASTGA/commit/6de7b91e6ee92ff3973af63255e51f08d9f77e35.patch?full_index=1"
       sha256 "3cf4c88286b7fe37fa3305c819b80aacb094da97cb30b8c227c62b7b79c0d1b0"
+      type :backport
     end
   end
 

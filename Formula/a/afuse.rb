@@ -11,6 +11,11 @@ class Afuse < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "2d36270c3d62319e03cf6f11756308f5a1f1daef36cebb7ef19376a795002014"
   end
 
+  # Last release on 2022-02-21. Needs `libfuse@2` to build.
+  # Can be undeprecated if https://github.com/pcarrier/afuse/pull/14 is merged
+  deprecate! date: "2026-06-21", because: :unmaintained
+  disable! date: "2027-06-21", because: :unmaintained
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkgconf" => :build

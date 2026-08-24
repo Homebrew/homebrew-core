@@ -24,7 +24,6 @@ class Libgtop < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "intltool" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on "glib"
   depends_on "libxau"

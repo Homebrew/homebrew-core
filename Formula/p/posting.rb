@@ -6,15 +6,15 @@ class Posting < Formula
   url "https://files.pythonhosted.org/packages/5e/81/8e3c84cba1f0e83e0e2d0263e6cd2370ec66ebedfd58fa9fd330095965e1/posting-2.10.0.tar.gz"
   sha256 "4563f7c34bb0827a74b097490189f925fab825b1096e787c22171657531147f1"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ede47906169e5af227a5859326c09bc1a865d301649f9a134c4f333ab9486e8e"
-    sha256 cellar: :any,                 arm64_sequoia: "b0bd4272077714fd93c8dfd52be04f057f63da89b98e1567126f2ae30b83c4a7"
-    sha256 cellar: :any,                 arm64_sonoma:  "4be2a91fb1ac9525efaeda4bf7a6e46c5fed92e601eb91761a05c43728cead93"
-    sha256 cellar: :any,                 sonoma:        "cf65e69c4cdad097450701fc3e67b3f4cf3f8b8d3ea4adc40ee7cb8340921a78"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a56f685d5ffe45cdb1ddd6797b42af303b6d04bc85ac3b84c0dd79f3a31e6ccb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bcb33eccc3646ecef05229b70a7ee92241b46d6217a44b782610e43734e02fd"
+    sha256 cellar: :any, arm64_tahoe:   "f224ad63ecf5b6e9495967514073b3434bda53bc46c9aab654fbed86d8e2e7d6"
+    sha256 cellar: :any, arm64_sequoia: "441d0679c8cf9db6011f7192f6d5d26f8f38c3d2f5508e494e06e69a85de71d2"
+    sha256 cellar: :any, arm64_sonoma:  "2dc51567bf12347b4ec43242fc36954a48848f6907c90cb1a7bedc82d04b41f8"
+    sha256 cellar: :any, sonoma:        "a1b1da6aa6bf915dbed34bb7ca34a2967e426c9ee468d4cfd6850008fe954dfc"
+    sha256 cellar: :any, arm64_linux:   "69fcfe6061c03bacc48c95c345f8a73c9aa2d0b0105b3c057dc7415c2173f61e"
+    sha256 cellar: :any, x86_64_linux:  "98641212da02a1b74298662a8a1530dcf7cf3456f8a675137008ebfeb48c6f4b"
   end
 
   depends_on "cmake" => :build
@@ -30,8 +30,8 @@ class Posting < Formula
   pypi_packages exclude_packages: ["certifi", "pydantic"]
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/19/14/2c5dd9f512b66549ae92767a9c7b330ae88e1932ca57876909410251fe13/anyio-4.13.0.tar.gz"
-    sha256 "334b70e641fd2221c1505b3890c69882fe4a2df910cba14d97019b90b24439dc"
+    url "https://files.pythonhosted.org/packages/1c/b5/001890774a9552aff22502b8da382593109ce0c95314abaebbb116567545/anyio-4.14.0.tar.gz"
+    sha256 "b47c1f9ccf73e67021df785332508f99379c68fa7d0684e8e3492cb1d4b23f89"
   end
 
   resource "brotli" do
@@ -40,8 +40,8 @@ class Posting < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/23/e4/796662cd90cf80e3a363c99db2b88e0e394b988a575f60a17e16440cd011/click-8.4.0.tar.gz"
-    sha256 "638f1338fe1235c8f4e008e4a8a254fb5c5fbdcbb40ece3c9142ebb78e792973"
+    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
+    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
   end
 
   resource "click-default-group" do
@@ -65,8 +65,8 @@ class Posting < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
-    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
+    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
+    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
   end
 
   resource "linkify-it-py" do
@@ -95,13 +95,13 @@ class Posting < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/9f/4a/0883b8e3802965322523f0b200ecf33d31f10991d0401162f4b23c698b42/platformdirs-4.9.6.tar.gz"
-    sha256 "3bfa75b0ad0db84096ae777218481852c0ebc6c727b3168c1b9e0118e458cf0a"
+    url "https://files.pythonhosted.org/packages/d7/47/e4501f49c178ae1d9f4a75073fda4204f52647993f075a9db4d14930e0c5/platformdirs-4.10.0.tar.gz"
+    sha256 "31e761a6a0ca04faf7353ea759bdba55652be214725111e5aac52dfa29d4bef7"
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/07/60/1d1e59c9c90d54591469ada7d268251f71c24bdb765f1a8a832cee8c6653/pydantic_settings-2.14.1.tar.gz"
-    sha256 "e874d3bec7e787b0c9958277956ed9b4dd5de6a80e162188fdaff7c5e26fd5fa"
+    url "https://files.pythonhosted.org/packages/5c/b5/8f48e906c3e0205276e8bd8cb7512217a87b2685304d64be27cad5b3019f/pydantic_settings-2.14.2.tar.gz"
+    sha256 "c19dd64b19097f1de80184f0cc7b0272a13ae6e170cbf240a3e27e381ed14a5f"
   end
 
   resource "pygments" do

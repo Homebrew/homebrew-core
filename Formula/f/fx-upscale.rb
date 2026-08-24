@@ -1,21 +1,22 @@
 class FxUpscale < Formula
   desc "Metal-powered video upscaling"
   homepage "https://github.com/finnvoor/fx-upscale"
-  url "https://github.com/finnvoor/fx-upscale/archive/refs/tags/1.2.6.tar.gz"
-  sha256 "ced81b777a5b0892754f1be1c2c6772ffab3b7becd867f312300f1a296b66375"
+  url "https://github.com/finnvoor/fx-upscale/archive/refs/tags/1.3.2.tar.gz"
+  sha256 "4dc10cbbd23acbede656215259ac3644e9472915840243409b34c6bc471ff11d"
   license "CC0-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a0f620bda60b7d000408b66c42e1e96605035df1405052d68256cdcb56ef5406"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c97e26e89b16e1b5757f59f6a663d49a7e02d4abcb50cc1bf2720bd6ea2a995"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f7ec14d59739a1c80918ae3021a350cecec106c22858ec1b9cd3138d4a0efcdd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "716acd22ebfeb3e4fc274d5a6e7a8a46f33b08f1c44a52c1dd6aea8f2e8790a8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e70bc33a0cd634e64e7d4cbffb3776d3240a6bd43b892c2c2ea128bd673e94d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "915c54fd5c3260a3b7f213b54de693275572e1589bea652e4032e771ccc872d0"
   end
 
-  depends_on xcode: ["15.0", :build]
-  depends_on :macos
+  depends_on macos: :ventura
+
+  uses_from_macos "swift" => :build # swift 5.9+
 
   def install
-    system "swift", "build", "--disable-sandbox", "--configuration", "release"
+    system "swift", "build", *std_swift_args
     bin.install ".build/release/fx-upscale"
   end
 

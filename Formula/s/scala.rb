@@ -27,7 +27,7 @@ class Scala < Formula
 
     inreplace libexec/"libexec/cli-common-platform",
               /SCALA_CLI_CMD_BASH=.*/,
-              "SCALA_CLI_CMD_BASH=(\"#{Formula["scala-cli"].opt_bin}/scala-cli\")"
+              "SCALA_CLI_CMD_BASH=(\"#{formula_opt_bin("scala-cli")}/scala-cli\")"
 
     bin.install "bin/scala", "bin/scalac", "bin/scaladoc"
     bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env

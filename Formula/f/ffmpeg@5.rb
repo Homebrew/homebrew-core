@@ -1,12 +1,13 @@
 class FfmpegAT5 < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-5.1.9.tar.xz"
-  sha256 "d9b593bb2ba93d4b50f74177e0cdcd41747e708596367deed0c30348a71dd176"
+  url "https://ffmpeg.org/releases/ffmpeg-5.1.10.tar.xz"
+  sha256 "392306d6fc45dab0e9e0ea55381e071842e83a2fb31d320aeda40477a7766293"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   # Passing `--enable-version3` changes the license to GPL v3+.
   license "GPL-3.0-or-later"
+  revision 2
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -14,12 +15,12 @@ class FfmpegAT5 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "4cc82cf99f1c6c50d468f55660cdd09326ab57e29c51b55e8586d4512bdd50ef"
-    sha256 arm64_sequoia: "068ed2aeea39ed8983b87c75162a0efe54dc7acb16d0425f648d35c3f6ed7129"
-    sha256 arm64_sonoma:  "ac5cafd824a79ff2841b264cf078d8f46c99eccb9605349cab53dc23568c0fdc"
-    sha256 sonoma:        "996d58af23f47de140fe8b6b4fc1a3e04c05ba15921f3edff111de58ffd14794"
-    sha256 arm64_linux:   "9552021d0709c1fe1f0e7407252b0ba1d1e3851eb42450497e47496526a39d68"
-    sha256 x86_64_linux:  "d7208f3dc212d6c21d2ebbb68f18a9c55a85c667f9fe9376ee8f7ddf212a775a"
+    sha256 arm64_tahoe:   "00a0694e72b000d3bb48b478317c6bf2402049cb157b6000a346cfa0cd21070f"
+    sha256 arm64_sequoia: "53b00d152f58da5e2af779c48d6977d22d783a99649cc9d914aec49e02ec2503"
+    sha256 arm64_sonoma:  "20a9832d6d518ecfc1ed802e80650e76d1a28f379e25faca9006b9bf7e26d72e"
+    sha256 sonoma:        "9b5a57cbebfa4cd6ff55e268446190918705e93845f6770d3da9d99da7890b52"
+    sha256 arm64_linux:   "0eb41cb73e42cd14012f6d40f3fc038d31b1d04db58da59db650a9bc392095f0"
+    sha256 x86_64_linux:  "69f171e83d45ef026328044675cb8b9fbf8fb607937ced58102c5d20c83b8449"
   end
 
   keg_only :versioned_formula
@@ -48,7 +49,7 @@ class FfmpegAT5 < Formula
   depends_on "opus"
   depends_on "rav1e"
   depends_on "rubberband"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "snappy"
   depends_on "speex"
   depends_on "srt"
@@ -87,12 +88,14 @@ class FfmpegAT5 < Formula
   patch do
     url "https://github.com/FFmpeg/FFmpeg/commit/d1ed5c06e3edc5f2b5f3664c80121fa55b0baa95.patch?full_index=1"
     sha256 "0eb23ab90c0e5904590731dd3b81c86a4127785bc2b367267d77723990fb94a2"
+    type :backport
   end
 
   # Backport support for svt-av1 4.x
   patch do
-    url "https://git.ffmpeg.org/gitweb/ffmpeg.git/patch/a5d4c398b411a00ac09d8fe3b66117222323844c"
-    sha256 "1dbbc1a4cf9834b3902236abc27fefe982da03a14bcaa89fb90c7c8bd10a1664"
+    url "https://github.com/FFmpeg/FFmpeg/commit/a5d4c398b411a00ac09d8fe3b66117222323844c.patch?full_index=1"
+    sha256 "19bae44a05aa7adbdabfe7479ee2f20e6ed6ad1f4b8adee6f646edba12d47030"
+    type :backport
   end
 
   def install

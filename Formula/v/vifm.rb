@@ -22,7 +22,7 @@ class Vifm < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-curses=#{Formula["ncurses"].opt_prefix}",
+                          "--with-curses=#{formula_opt_prefix("ncurses")}",
                           "--without-gtk",
                           "--without-libmagic",
                           "--without-X11"

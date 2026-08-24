@@ -20,8 +20,7 @@ class Zfind < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.appVersion=#{version}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/zfind"
+    system "go", "build", *std_go_args(ldflags: "-X main.appVersion=#{version}"), "./cmd/zfind"
   end
 
   test do

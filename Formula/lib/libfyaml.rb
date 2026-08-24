@@ -7,26 +7,29 @@ class Libfyaml < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "50fb30d6db3da0bbda7d36d346e78bf30a82a13b9ed263661ab679f9fab2e2a5"
-    sha256 cellar: :any,                 arm64_sequoia: "0ecf0978f6f3abc4197219df6e0516cae6fb70224140194e8431233a5d46c661"
-    sha256 cellar: :any,                 arm64_sonoma:  "27587d70e74d903bcd0d43a2632c18a69c4d0a585dd8de4f7d6423e97bff694c"
-    sha256 cellar: :any,                 sonoma:        "6bb2bf4968461df7d2469cbab44074a2c7b3f39b2c39aea1de741b7550e1cfeb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2dc2fcfb912ad0a464b48f0e6674416d627591c06882ee61f45134c548341687"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df9c7be47669e502ab428f136732a9200c344ef8b56d390bafec34fc1151e71d"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "136a14b21e893b22e406404feccdcb478056fe48dcd9ad9449202ac1620e5294"
+    sha256 cellar: :any, arm64_sequoia: "e9dfc578d1d8a9b612a439dcae6bf01b7b8994556be9aaad47d115c777b87022"
+    sha256 cellar: :any, arm64_sonoma:  "b873d5ae917e943b1862f12d6f974e766b38e9259a922ce7fb7da2c5ad78ac87"
+    sha256 cellar: :any, sonoma:        "6ef1d63d2fba0cc36edfbd8630e590d8d4960ce5d0c3a80e0be0d367e6ea2973"
+    sha256 cellar: :any, arm64_linux:   "04cc26685b812dd7cb9ef33f4b5184866efbec2d83a9eb1df073d893bb683dd6"
+    sha256 cellar: :any, x86_64_linux:  "73fee9b57749aebf0ea4918e7a46b9abc1583e339771e1adcda6bff2a404dee6"
   end
 
-  uses_from_macos "m4" => :build
+  depends_on "cmake" => :build
 
-  # TODO: Remove patch when https://github.com/pantoniou/libfyaml/pull/267 is merged
+  # TODO: Remove patch in next release
   patch do
-    url "https://github.com/pantoniou/libfyaml/commit/45faa819b6c3eb54b2d63b46d4c7690fa1e8e8ff.patch?full_index=1"
-    sha256 "22fbbb360b96cf879397f1ab3dadf8876277f8d77708b6252c0908d37e09a4f9"
+    url "https://github.com/pantoniou/libfyaml/commit/1026d76850909dc9b1c5f95b8cd94e865a313fd5.patch?full_index=1"
+    sha256 "05e07134edfae8c4d6b81fd25b013c471a3790736f61d6888035409d570ce636"
+    type :backport
+    resolves "https://github.com/pantoniou/libfyaml/pull/267"
   end
 
   def install
-    system "./configure", *std_configure_args, "--disable-silent-rules"
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

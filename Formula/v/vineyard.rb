@@ -19,7 +19,7 @@ class Vineyard < Formula
   # - https://github.com/v6d-io/v6d/issues/2041
   # - https://github.com/v6d-io/v6d/pull/2066
   deprecate! date: "2026-02-13", because: :unsupported
-  disable! date: "2027-02-13", because: :unsupported
+  disable! date: "2026-08-13", because: :unsupported
 
   depends_on "cmake" => [:build, :test]
   depends_on "llvm" => :build # for clang Python bindings
@@ -50,17 +50,19 @@ class Vineyard < Formula
   end
 
   # apache-arrow 21.0.0 support
-  # https://github.com/v6d-io/v6d/pull/2052
   patch do
     url "https://github.com/v6d-io/v6d/commit/cab3ed986e15464d6b544a98bac4db38d0e89e3a.patch?full_index=1"
     sha256 "ce1325c893f210a3eae9ff29a8ab6cfa377d6672ab260db58de8522857856206"
+    type :backport
+    resolves "https://github.com/v6d-io/v6d/pull/2052"
   end
 
-  # Apply open PR to build with glog >= 0.7
-  # PR ref: https://github.com/v6d-io/v6d/pull/2066
+  # Build with glog >= 0.7
   patch do
     url "https://github.com/v6d-io/v6d/commit/45e06b0309397f713437ad64b545dc26fb18863d.patch?full_index=1"
     sha256 "bb5745c04b86b9a31847b24b00973bf87891a3bb7896cf9f204592032a419af1"
+    type :unofficial
+    resolves "https://github.com/v6d-io/v6d/pull/2066"
   end
 
   def install
@@ -108,8 +110,8 @@ class Vineyard < Formula
       "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
       "-DCMAKE_FIND_PACKAGE_PREFER_CONFIG=ON", # for newer protobuf
       "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
-      "-DLIBGRAPELITE_INCLUDE_DIRS=#{Formula["libgrape-lite"].opt_include}",
-      "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
+      "-DLIBGRAPELITE_INCLUDE_DIRS=#{formula_opt_include("libgrape-lite")}",
+      "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}",
       "-DPYTHON_EXECUTABLE=#{which(python3)}",
       "-DUSE_EXTERNAL_ETCD_LIBS=ON",
       "-DUSE_EXTERNAL_HIREDIS_LIBS=ON",

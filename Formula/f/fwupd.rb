@@ -3,18 +3,18 @@ class Fwupd < Formula
 
   desc "Firmware update daemon"
   homepage "https://github.com/fwupd/fwupd"
-  url "https://github.com/fwupd/fwupd/releases/download/2.1.5/fwupd-2.1.5.tar.xz"
-  sha256 "9bde8d85ceb4ea30c92272cfe17941d8cd25ab469402864bc6981585d7eacc07"
+  url "https://github.com/fwupd/fwupd/releases/download/2.1.7/fwupd-2.1.7.tar.xz"
+  sha256 "472e9426f7a1b18fa9d199666c15482d4ee51ea35e916ca53bb3ca25919edb10"
   license "LGPL-2.1-or-later"
   head "https://github.com/fwupd/fwupd.git", branch: "main"
 
   bottle do
-    sha256 arm64_tahoe:   "22b19fc94b22a8301651e006744d24be16b840a1a17afb97a96b7c89fc7d70b3"
-    sha256 arm64_sequoia: "d324179c0ff617be09a88d4ba7fc8fb89449a91dedd234c162a08500a8bc9f46"
-    sha256 arm64_sonoma:  "99a2926bd803ea79fed54d5e388a4623ea82bd5a3d46ff355d3f6eda32a9629f"
-    sha256 sonoma:        "9ceeead750b48b2318382223bdba915b2dd66837673eb889f1329b8196350bb3"
-    sha256 arm64_linux:   "879672ec4e8cb8d86c65522c84e87523dfe6d9bc15a43d7911f8080839725b87"
-    sha256 x86_64_linux:  "532502ebdf1b6643a8b661478748b380f9f3334679cfb76a82b5702c0d4536ce"
+    sha256 arm64_tahoe:   "2c13bbb68ba70e822eef84b8aa6e14de77cef14b300e339e36afaefa2045c3cc"
+    sha256 arm64_sequoia: "a734cb1f1e20c4ba1b1aad778f2f433b4c050a4e0bc6b6d63e0ea66296f00900"
+    sha256 arm64_sonoma:  "152453522babdd351986ef97f23a416e05c82f40b6fe26ceea1d7762ebccaf13"
+    sha256 sonoma:        "3fef4c9f1a7cdbc2adb5d4d3dc9ce8dce99bf1606ddbe083bee8f9fa3b409db9"
+    sha256 arm64_linux:   "5562a3a0da5f0f416a7343af282609493650de5d9ff6f68cd7dd5ce85e9f8c4b"
+    sha256 x86_64_linux:  "1173b922171ee90211fa684d1ee6eb66229036fb08369caed07fa83f2d6ed159"
   end
 
   depends_on "gettext" => :build # for msgfmt
@@ -60,14 +60,11 @@ class Fwupd < Formula
     sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
-  def python3
-    "python3.14"
-  end
-
   def install
+    python3 = "python3.14"
     venv = virtualenv_create(buildpath/"venv", python3)
     venv.pip_install resources
-    ENV.prepend_path "PYTHONPATH", venv.root/Language::Python.site_packages(python3)
+    ENV.prepend_path "PYTHONPATH", venv.site_packages
 
     args = [
       "-Dbuild=standalone", # this is used as PolicyKit is not available on macOS
@@ -79,6 +76,8 @@ class Fwupd < Formula
       "-Ddocs=disabled",
       "-Dvendor_ids_dir=#{Formula["usb.ids"].opt_share}/misc/usb.ids",
     ]
+    # avoid installing into systemd's read-only Cellar
+    args << "-Dsystemd=disabled" if OS.linux?
 
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

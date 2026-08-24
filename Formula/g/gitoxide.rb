@@ -1,8 +1,8 @@
 class Gitoxide < Formula
   desc "Idiomatic, lean, fast & safe pure Rust implementation of Git"
   homepage "https://github.com/GitoxideLabs/gitoxide"
-  url "https://github.com/GitoxideLabs/gitoxide/archive/refs/tags/v0.54.0.tar.gz"
-  sha256 "865f981e88a645131ad5acb4266bfc369b7d82f9481599d528ef435ef9c9abff"
+  url "https://github.com/GitoxideLabs/gitoxide/archive/refs/tags/v0.58.0.tar.gz"
+  sha256 "af8210e01903e0995aa5899d8c8cd3f4f2b115ec38a924fa7bf3c7d8ba949077"
   license "Apache-2.0"
   head "https://github.com/GitoxideLabs/gitoxide.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Gitoxide < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "756e8f92caaf2197ec078130ee7be34b71a6b3f5e68b144c7207f454a8771029"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "949484a0cdafa90c0b791be194a1e19b744db35e6ce7c85e4fc94a00042654cd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c690d9730301f7e8ceb702608d333954248b560a4924c85139c54ed20bb1cde3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ca21a9148462e2e6daca089ac331524dd188c3998c1f6f77bb69ad8f9df0dc65"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc45aa829f020273279c2b612cf26d1c48c11dafecd5f355d8aee3f63d7a3d07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e4b32e6ff4863ac4e664478a53959119872ba5904cc18da8c44dc664f997203"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "32ca00124fd799e5370a82d2d1dcf562f4de6d6f3e7bc2f74da999b5a7811af9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "099f0bf01952571da155ad4c82fecb1eafe64b1502c1b19eb88d7b1a13504dbb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7238c914d60dcdf930ea33b98c4fc1dc03b1c6c39315b96d2f815276feafea18"
+    sha256 cellar: :any_skip_relocation, sonoma:        "992eecad6b1556e41617cd5f5ad5024fdf5351acd3a490100a0b6e7056737c1a"
+    sha256 cellar: :any,                 arm64_linux:   "2cf5607c68a23f4dc39793ec845828742e37769c09fb6ebc0f934dc753013a18"
+    sha256 cellar: :any,                 x86_64_linux:  "32d500e29deb0aa8afdc809274d934516a239ede6eb1f41ed0a82717a0d4a165"
   end
 
   depends_on "pkgconf" => :build

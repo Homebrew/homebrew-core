@@ -27,7 +27,7 @@ class Gcl < Formula
   patch :DATA
 
   def install
-    ENV.append "CPPFLAGS", "-I#{Formula["libtirpc"].opt_include}/tirpc"
+    ENV.append "CPPFLAGS", "-I#{formula_opt_include("libtirpc")}/tirpc"
     ENV["GCL_MULTIPROCESS_MEMORY_POOL"] = buildpath
 
     system "./configure", "--disable-silent-rules", "--with-lispdir=#{elisp}", *std_configure_args

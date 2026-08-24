@@ -24,7 +24,7 @@ class Brag < Formula
     bin.install "brag"
     # macOS needs /usr/bin before #{HOMEBREW_PREFIX}/bin to avoid incompatible TCL 9.
     # We prepend both PATH on all OS to retain `all` bottle.
-    bin.env_script_all_files libexec, PATH: "#{Formula["tcl-tk@8"].opt_bin}:/usr/bin:${PATH}"
+    bin.env_script_all_files libexec, PATH: "#{formula_opt_bin("tcl-tk@8")}:/usr/bin:${PATH}"
     man1.install "brag.1"
   end
 

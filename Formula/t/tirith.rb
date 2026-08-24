@@ -1,18 +1,23 @@
 class Tirith < Formula
   desc "Detect terminal injection, homograph, and pipe-to-shell attacks"
   homepage "https://tirith.sh/"
-  url "https://github.com/sheeki03/tirith/archive/refs/tags/v0.3.2.tar.gz"
-  sha256 "57f74fc7d0d3b508865f9d3d60d14c988c5c1aeb27c5202046388680c230381e"
+  url "https://github.com/sheeki03/tirith/archive/refs/tags/v0.3.3.tar.gz"
+  sha256 "f6d4d66d7f151a3ddf4a3a8763e204b2301278cd016e8d496c4eb07cfc8ddc35"
   license "AGPL-3.0-only"
   head "https://github.com/sheeki03/tirith.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "85d08c684dc6fd1b6578d3aa4b9b90767bf6281b7e3af547e1efc952d3ce33ac"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "73d3f0ed2cd362fad03a922a22672536bc5f539048c49d0c6c5307c46f4ddeca"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d70324f80a4d366484604455999785a3db9876404bf4f72f484d54633e4c267c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2d040ffa55bd244e364be96ec712d6b58e3837bc15a6e2e7d330bcb98f14da3f"
-    sha256 cellar: :any,                 arm64_linux:   "d2503d015176cf71d19db06c5c3b5783334c5f8800545c5c14462f0bba5642fb"
-    sha256 cellar: :any,                 x86_64_linux:  "4166b3c68b952f7e980ea8eb7eadb0c835121de985cc3338db04648506107e56"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d1a108ede7dbee8d79478a2f0f5ace568c9d49d710e9134edda2f3b0bcbd52ba"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "578c71cac0891bb1c1867b5937c314bf7e56c11d5408f3a01ebc8f424a187a69"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8973a15f420ba80854740c1b87b06cf202c3a4c074253bcc3f29e125426809d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "26d397923226ec6ceb6d48778d27dd5796f688c95b908227c54b6bf4e94d29d2"
+    sha256 cellar: :any,                 arm64_linux:   "d9c0b9dfdeb11fc7654e225eb4d3051a0fa25e8cc98f44c2ac5f0c6b8f3e758a"
+    sha256 cellar: :any,                 x86_64_linux:  "70d7c1c39fffccae139b247a3b0b72518d7537a49eafe30861daa946a75bde93"
   end
 
   depends_on "rust" => :build

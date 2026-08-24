@@ -6,35 +6,34 @@ class NeovimRemote < Formula
   url "https://files.pythonhosted.org/packages/69/50/4fe9ef6fd794929ceae73e476ac8a4ddbf3b0913fa248d834c9bb72978b7/neovim-remote-2.5.1.tar.gz"
   sha256 "4b3cc35463544c5747c895c52a0343cfdbba15d307647d7f57f1cce0c6a27d02"
   license "MIT"
-  revision 3
+  revision 5
   head "https://github.com/mhinz/neovim-remote.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "39fb97daec07a2e2afaa777ab9e7decb4de2f2c6aba92368eb34f5559f01ca61"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c016ce47264192f694be56ef9a9da7b4507447a4ec2fea4ffa3c68778975f911"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5a7f0c2abb2a19edc3f2c809974abdf609035da5473593f8f34e6b6a1a12befc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bdadf165dd2f228dc45df5cd7708ff0b76659762d1f6bc429de1c621298e27c8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2ae1769694653c05cde760892623a734d5793d8c86facd3e1cd45b50e64cb2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07600909a154a7328424524eb6656bac2933a8fb4a588aef301c6ee24a04c1f7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cfb949ec950642802834a0ab4885e98f7d517220494ac0a6eaa7b0b1ca4c61fb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3fa3ef8fa2a23963aec8669e2cae440cf4434b08ba03249de079d6b3d94e963c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "623652dfbc99465ae0c33239e8bf31953429bbc33ed3853cf6de0c894a7a23ed"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0731379bdcc3b07973413bba69b66b5b834a6e6f78b1fff727f7bf433b45cba4"
+    sha256 cellar: :any,                 arm64_linux:   "60120ccb99254d4a7b398f81f447130f370157d75f2738fef45b54a0d36f6462"
+    sha256 cellar: :any,                 x86_64_linux:  "cf476f45b1c79a985a3d11f8d1441171059652c20831e57b9973bc6b447eb963"
   end
 
   depends_on "neovim"
   depends_on "python@3.14"
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/03/b8/704d753a5a45507a7aab61f18db9509302ed3d0a27ac7e0359ec2905b1a6/greenlet-3.2.4.tar.gz"
-    sha256 "0dca0d95ff849f9a364385f36ab49f50065d76964944638be9691e1832e9f86d"
+    url "https://files.pythonhosted.org/packages/e2/f1/fbbfef6af0bad0548f09bc28948ea3c275b4edb19e17fc5ca9900a6a634d/greenlet-3.5.3.tar.gz"
+    sha256 "a61efc018fd3eb317eeca31aba90ee9e7f26f22884a79b6c6ec715bf71bb62f1"
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/4d/f2/bfb55a6236ed8725a96b0aa3acbd0ec17588e6a2c3b62a93eb513ed8783f/msgpack-1.1.2.tar.gz"
-    sha256 "3b60763c1373dd60f398488069bcdc703cd08a711477b5d480eecc9f9626f47e"
+    url "https://files.pythonhosted.org/packages/31/f9/c0a1c127f9049db9155afc316952ea571720dd01833ff5e4d7e8e6352dbb/msgpack-1.2.1.tar.gz"
+    sha256 "04c721c2c7448767e9e3f2520a475663d8ee0f09c31890f6d2bd70fd636a9647"
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/b3/31/4723d756b59344b643542936e37a31d1d3204bcdc42a7daa8ee9eb06fb50/psutil-7.1.0.tar.gz"
-    sha256 "655708b3c069387c8b77b072fc429a57d0e214221d01c0a772df7dfedcb3bcd2"
+    url "https://files.pythonhosted.org/packages/aa/c6/d1ddf4abb55e93cebc4f2ed8b5d6dbad109ecb8d63748dd2b20ab5e57ebe/psutil-7.2.2.tar.gz"
+    sha256 "0746f5f8d406af344fd547f1c8daa5f5c33dbc293bb8d6a16d80b4bb88f59372"
   end
 
   resource "pynvim" do
@@ -43,8 +42,8 @@ class NeovimRemote < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+    url "https://files.pythonhosted.org/packages/34/26/f5d29e25ffdb535afef2d35cdb55b325298f96debd670da4c325e08d70f4/setuptools-83.0.0.tar.gz"
+    sha256 "025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef"
   end
 
   def install
@@ -56,7 +55,7 @@ class NeovimRemote < Formula
     file = testpath/"test.txt"
 
     nvim = spawn(
-      Formula["neovim"].opt_bin/"nvim", "--headless", "-i", "NONE", "-u", "NONE", "--listen", socket, file,
+      formula_opt_bin("neovim")/"nvim", "--headless", "-i", "NONE", "-u", "NONE", "--listen", socket, file,
       [:out, :err] => "/dev/null"
     )
     sleep 1 until socket.exist? && socket.socket?

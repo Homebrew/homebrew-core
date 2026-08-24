@@ -3,17 +3,17 @@ class AnsibleCreator < Formula
 
   desc "CLI tool for scaffolding Ansible Content"
   homepage "https://ansible.readthedocs.io/projects/creator/"
-  url "https://files.pythonhosted.org/packages/29/43/b6d5e389fb41f689459fd0d148c6f4f7e7bc3c30f1d8ec9e3386415973e8/ansible_creator-26.4.3.tar.gz"
-  sha256 "db8a33fa765f5a3cb4f17ac6856a2e9e93b2434a7ecf5cbbdd495d96b0ec71d1"
+  url "https://files.pythonhosted.org/packages/97/3d/e4083537f694a2e5b529d52fc1535455bc8b19126a934dd3351100e5a2b2/ansible_creator-26.8.0.tar.gz"
+  sha256 "f902fdd5e476eb471b886cf88b9d3d88ad7de25c2ebceea87001d0c92d4a23de"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "27fe01ad3071ef63436825c0740688e6a7096930889ac89791652b72ca6d4bbe"
-    sha256 cellar: :any,                 arm64_sequoia: "cca13bed50f7b6a587273c4a3ba19f2e03502375cae07ff2ebf98bad5a12dcd4"
-    sha256 cellar: :any,                 arm64_sonoma:  "31a37437fac1a014d6b97eb47cf24bfb35dd8272ff617ce1b8ef4d18284915a2"
-    sha256 cellar: :any,                 sonoma:        "11962a0e6e5d6749d356b52c6ca1526df301ee436b5bace99080a803ea3dcfd2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9eb26b48f7cd02a6f9faf9b5ce7d4e18eea406d1884a3d6e91febcfaadea3d54"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "319779c6d1dca218828a49adef95a06de4d1a229b5d3e7333ec49047f33926f1"
+    sha256 cellar: :any, arm64_tahoe:   "22df5b679c2a8ff591fbe60bb1657c96711246a114610e6c4e61ae766ce63ec7"
+    sha256 cellar: :any, arm64_sequoia: "8514864bfd0bd006ba63237b4619bb57fa4018504c7d151bd3b769c73e2954e4"
+    sha256 cellar: :any, arm64_sonoma:  "721e3c54b9f4866d4890d5ca57c78647b13c158c8fab833f5eee28a12c4e53e9"
+    sha256 cellar: :any, sonoma:        "85b50c34875b9676f752a7272ce36e2a909807f0e57266d00fcd5e66c82feddd"
+    sha256 cellar: :any, arm64_linux:   "72c7776b69c2bb988ecac356fe087fa2ef7266cb49fbd6e7f13a745d88b240d6"
+    sha256 cellar: :any, x86_64_linux:  "8190988c62d0ced7d2aa4d06704a467ea9967ed984e301e1ce1377253a408b03"
   end
 
   depends_on "libyaml"

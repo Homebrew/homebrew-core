@@ -1,14 +1,13 @@
 class ArpScan < Formula
   desc "ARP scanning and fingerprinting tool"
   homepage "https://github.com/royhills/arp-scan"
-  url "https://github.com/royhills/arp-scan/archive/refs/tags/1.10.0.tar.gz"
-  sha256 "204b13487158b8e46bf6dd207757a52621148fdd1d2467ebd104de17493bab25"
+  url "https://github.com/royhills/arp-scan/releases/download/1.10.0/arp-scan-1.10.0.tar.gz"
+  sha256 "a078fe8711ecbb8b99121c3d8be26ae7e7f339f11010ef61318be4f33394d012"
   license all_of: [
     "GPL-3.0-or-later",
     "BSD-3-Clause", # mt19937ar.c
     "ISC", # strlcpy.c (Linux)
   ]
-  head "https://github.com/royhills/arp-scan.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -24,15 +23,19 @@ class ArpScan < Formula
     sha256 x86_64_linux:   "18935cd6c4a1d707abca5e0d3b0119d696bf6f834714393b018650f973287656"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  head do
+    url "https://github.com/royhills/arp-scan.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
 
   uses_from_macos "libpcap"
 
   conflicts_with "arp-scan-rs", because: "both install `arp-scan` binaries"
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose"
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end

@@ -23,11 +23,18 @@ class TerraformLsp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7eae59625f858958621455404b365659464230b5a54783cb20be44e4569d539f"
   end
 
+  deprecate! date: "2026-08-23", because: :unmaintained
+  disable! date: "2027-08-23", because: :unmaintained
+
   depends_on "go" => :build
+
+  # Failing on Intel macOS with Go 1.27 due to outdated golang.org/x/sys dependency
+  on_macos do
+    depends_on arch: :arm64
+  end
 
   def install
     ldflags = %W[
-      -s -w
       -X main.Version=#{version}
       -X main.GitCommit=#{Utils.git_head}
       -X main.Date=#{time.iso8601}

@@ -5,14 +5,6 @@ class Cmuclmtk < Formula
   sha256 "d23e47f00224667c059d69ac942f15dc3d4c3dd40e827318a6213699b7fa2915"
   license "BSD-2-Clause"
 
-  # We check the "cmuclmtk" directory page since versions aren't present in the
-  # RSS feed as of writing.
-  livecheck do
-    url "https://sourceforge.net/projects/cmusphinx/files/cmuclmtk/"
-    regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/?["' >]}i)
-    strategy :page_match
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "e382dbebb03c49d129bb2eacd23102d828d9814296bb751f275e2bd5cd4ac8e4"
     sha256 cellar: :any,                 arm64_sequoia:  "17749777bf2cedd02ab511ce2bab36a69389ea9c1f0b03c8a92927e3e54a5fae"
@@ -29,6 +21,9 @@ class Cmuclmtk < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "708324bb6cf751c76f927c6a648416ee38012499dddfc80c4b2c50cf36431c4d"
   end
 
+  deprecate! date: "2026-07-18", because: :unmaintained
+  disable! date: "2027-01-18", because: :unmaintained
+
   depends_on "pkgconf" => :build
 
   conflicts_with "julius", because: "both install `binlm2arpa` binaries"
@@ -39,8 +34,7 @@ class Cmuclmtk < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
   end
 
   def install

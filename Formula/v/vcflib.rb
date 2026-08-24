@@ -6,12 +6,13 @@ class Vcflib < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "dae474cbc0c7e6df472e8a8b7d903fcc326706e985391a533a92eecdcab56dc5"
-    sha256 cellar: :any,                 arm64_sequoia: "ef9292a2426c8dde700d72dbef0a8c90b64aca16e13408dcebff8153381563f7"
-    sha256 cellar: :any,                 arm64_sonoma:  "f20a7074ff10f55f5f61b7c1c7664c695716ab9e423580b0ec58c9b909c88408"
-    sha256 cellar: :any,                 sonoma:        "3e65b889529b3887e5ee65f67aca8cf7321bd151635af66767f0a1eb2a9ff009"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "593cc2e3478b480c04250f7396747e8d4a3e3dff01ac220a592b6cf3d4aaa03b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b270eec4b3a5cecdcef38f0f2fd32bf813d46753eeacbbb5471688b3855645e4"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "837e94d79bd6b94f62aa5da9ada2695c30421933fbbf121bff6d3bc32bfe8ac0"
+    sha256 cellar: :any, arm64_sequoia: "ce48bd31457f57bbdc44ccca1bcc198a7002d7a91069fb352c980318d19241ef"
+    sha256 cellar: :any, arm64_sonoma:  "0bbc25128abb0a232e460042373b9d8ac516c6f47dae1d5107d66c591b4b0de7"
+    sha256 cellar: :any, sonoma:        "572645a1d26f3f0de4c7dd2a704fec02a70b53bc9f209c9147d9b0f3951ddd4f"
+    sha256 cellar: :any, arm64_linux:   "9151d202f36c0f4ec53c44ae264a7f5a0466aff4a7c477c70d5ac32e03de2c02"
+    sha256 cellar: :any, x86_64_linux:  "3262faae8a544bd217c646635d6309e2555612aeec51fdc6ebb77f07cacdde69"
   end
 
   depends_on "cmake" => :build
@@ -23,10 +24,13 @@ class Vcflib < Formula
   depends_on "xz"
 
   uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_macos do
     depends_on "libomp"
+  end
+
+  on_linux do
+    depends_on "zlib-ng-compat"
   end
 
   def install

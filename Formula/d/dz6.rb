@@ -1,17 +1,17 @@
 class Dz6 < Formula
   desc "Fast Vim-inspired TUI hex editor"
   homepage "https://dz6.dev.br"
-  url "https://github.com/mentebinaria/dz6/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "2ee4f2cdd065d751387cdc023fac988406320c52a6d0efaf1b017b93d6d9b76e"
+  url "https://github.com/mentebinaria/dz6/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "be984784453a0964ff87d3987e488e1aa5a95bf7938ecec28fd5a3a670293f00"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "827842d7edbe838bcef4216c404a7fa407aca18714f3f169b266d75555cf812f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e74f7a02638b73224bb5c3774039c688715f1d29e9be94ea4d690764cba49827"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "db05c1e280a48aaab7a32d509a5401f97f110c314c8cee321c4d4894f470a959"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a79f0617d6d80d560ed2602d193b6ec792c7aeb72652e6633da56edd9e28f4ea"
-    sha256 cellar: :any,                 arm64_linux:   "b40dfe29315797bdca04d439cd9feab90d1b829acb4463084380b337e4adcaf6"
-    sha256 cellar: :any,                 x86_64_linux:  "e50ab6925db3259a807fb8b5d6750001de6f0911f01bda4d61b01aa159e8eb24"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ff565c7dbad7d90479a7d6e9b87131c8ded227fe976c1be9a85bc985b70c3c1b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3e0cebf4ba28505cc46c9aff95f53a15324393c0c38e852b85fce01478a727e3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8804f0c3ed7b489336611d67340750c04fb985212085dfcf0fa2fc1fb9bc84d6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "90d4347b63d2b677a54538d02d66f1a5eb192a59aaa15d7ab71237f358f8979f"
+    sha256 cellar: :any,                 arm64_linux:   "c06250af9cb88df2862cb539e1ff344646450c1ee89c806233958eca00f374bc"
+    sha256 cellar: :any,                 x86_64_linux:  "47b4e7cce4b7e593e3297da6d2d732879525ef398ef4b661ec9ec73c9dd631b2"
   end
 
   depends_on "rust" => :build

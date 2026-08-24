@@ -50,7 +50,7 @@ class Montage < Formula
     inreplace "MontageLib/Makefile", %r{^.*/lib/src/(?:#{libs.join("|")}).*$\n}, ""
     inreplace "MontageLib/Viewer/Makefile.#{OS.kernel_name.upcase}",
               "-I../../lib/freetype/include/freetype2",
-              "-I#{Formula["freetype"].opt_include}/freetype2"
+              "-I#{formula_opt_include("freetype")}/freetype2"
 
     ENV.deparallelize # Build requires targets to be built in specific order
     system "make"

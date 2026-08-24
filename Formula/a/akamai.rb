@@ -1,18 +1,18 @@
 class Akamai < Formula
   desc "CLI toolkit for working with Akamai's APIs"
   homepage "https://github.com/akamai/cli"
-  url "https://github.com/akamai/cli/archive/refs/tags/v2.0.4.tar.gz"
-  sha256 "5f0d5217e3434fc57bfc821519379a1705ed749ae754853ea1d40ff65e21eb69"
+  url "https://github.com/akamai/cli/archive/refs/tags/v2.0.5.tar.gz"
+  sha256 "42d47d0fdf4c737cf0cdfd882877f6e91bf416bb165b03acbce5c3d82aada299"
   license "Apache-2.0"
   head "https://github.com/akamai/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dedaaaa6a7fcfc8572806b0d144c2247d6c0183e5c61e4a2eafd0a226b1cd6fd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dedaaaa6a7fcfc8572806b0d144c2247d6c0183e5c61e4a2eafd0a226b1cd6fd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dedaaaa6a7fcfc8572806b0d144c2247d6c0183e5c61e4a2eafd0a226b1cd6fd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d7dadc36ca24042ac563d79c38702241441c3e612068fb4d5dc0cc8cd560c4d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "80d9bbb4b17ea216ee17f55fb8a1ee62bc5da795a6ff31d06e79d5c42026db70"
-    sha256 cellar: :any,                 x86_64_linux:  "f31fa9703eff54b8664821e7c16644d405cd9976635abe2e273dae0b46256a64"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e0cba1b386b224c80b5be52e3eac7477626457cc5939713b12645c972e226512"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0cba1b386b224c80b5be52e3eac7477626457cc5939713b12645c972e226512"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0cba1b386b224c80b5be52e3eac7477626457cc5939713b12645c972e226512"
+    sha256 cellar: :any_skip_relocation, sonoma:        "446884295a157802ad1e88c9443dde229e8559f31df651b0a75f9d85838205cf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4655009c7c9f9a9b568c62126402f968d79a57428fb7297b434ec913481850b8"
+    sha256 cellar: :any,                 x86_64_linux:  "a8b646286f3e91de9a9226669ca6ded6eb5e8b4e5e19ab50abf93371c5f11bf9"
   end
 
   depends_on "go" => [:build, :test]
@@ -22,7 +22,7 @@ class Akamai < Formula
       noautoupgrade
       nofirstrun
     ]
-    system "go", "build", *std_go_args(ldflags: "-s -w", tags:), "./cli"
+    system "go", "build", *std_go_args(tags:), "./cli"
   end
 
   test do

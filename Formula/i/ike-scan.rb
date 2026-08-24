@@ -12,6 +12,8 @@ class IkeScan < Formula
     patch do
       url "https://github.com/royhills/ike-scan/commit/9949ce4bdf9f4bcb616b2a5d273708a7ea9ee93d.patch?full_index=1"
       sha256 "99e46df8b50e26982f0462d633cf3638f9b3ff2f65b7b4588241f17628e0f9d7"
+      type :backport
+      resolves "https://github.com/royhills/ike-scan/pull/39"
     end
   end
 
@@ -40,7 +42,7 @@ class IkeScan < Formula
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--mandir=#{man}",
-                          "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+                          "--with-openssl=#{formula_opt_prefix("openssl@3")}",
                           *std_configure_args
     system "make", "install"
   end

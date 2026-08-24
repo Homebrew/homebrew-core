@@ -77,12 +77,12 @@ class Harbour < Formula
     # The vendored version of minilzo is used because the Homebrew version of lzo does not include minilzo.
     ENV["HB_INSTALL_PREFIX"] = prefix
     ENV["HB_WITH_X11"] = "no"
-    ENV["HB_WITH_JPEG"] = Formula["jpeg-turbo"].opt_include
-    ENV["HB_WITH_LIBHARU"] = Formula["libharu"].opt_include
-    ENV["HB_WITH_MINIZIP"] = Formula["minizip"].opt_include/"minizip"
-    ENV["HB_WITH_PCRE"] = Formula["pcre"].opt_include
-    ENV["HB_WITH_PNG"] = Formula["libpng"].opt_include
-    ENV["HB_WITH_XDIFF"] = Formula["libxdiff"].opt_include
+    ENV["HB_WITH_JPEG"] = formula_opt_include("jpeg-turbo")
+    ENV["HB_WITH_LIBHARU"] = formula_opt_include("libharu")
+    ENV["HB_WITH_MINIZIP"] = formula_opt_include("minizip")/"minizip"
+    ENV["HB_WITH_PCRE"] = formula_opt_include("pcre")
+    ENV["HB_WITH_PNG"] = formula_opt_include("libpng")
+    ENV["HB_WITH_XDIFF"] = formula_opt_include("libxdiff")
 
     if OS.mac?
       ENV["HB_COMPILER"] = ENV.cc
@@ -95,12 +95,12 @@ class Harbour < Formula
       ENV["HB_WITH_SQLITE3"] = MacOS.sdk_path/"usr/include"
       ENV["HB_WITH_ZLIB"] = MacOS.sdk_path/"usr/include"
     else
-      ENV["HB_WITH_BZIP2"] = Formula["bzip2"].opt_include
-      ENV["HB_WITH_CURL"] = Formula["curl"].opt_include
-      ENV["HB_WITH_CURSES"] = Formula["ncurses"].opt_include
-      ENV["HB_WITH_EXPAT"] = Formula["expat"].opt_include
-      ENV["HB_WITH_SQLITE3"] = Formula["sqlite"].opt_include
-      ENV["HB_WITH_ZLIB"] = Formula["zlib-ng-compat"].opt_include
+      ENV["HB_WITH_BZIP2"] = formula_opt_include("bzip2")
+      ENV["HB_WITH_CURL"] = formula_opt_include("curl")
+      ENV["HB_WITH_CURSES"] = formula_opt_include("ncurses")
+      ENV["HB_WITH_EXPAT"] = formula_opt_include("expat")
+      ENV["HB_WITH_SQLITE3"] = formula_opt_include("sqlite")
+      ENV["HB_WITH_ZLIB"] = formula_opt_include("zlib-ng-compat")
     end
 
     ENV.deparallelize

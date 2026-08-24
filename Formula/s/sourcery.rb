@@ -17,8 +17,6 @@ class Sourcery < Formula
     sha256                               x86_64_linux:  "017c7fc58e6665e6cd19bf0fc37af3dd77c2bc93d991d329b69814ff6b4f20f9"
   end
 
-  depends_on xcode: "14.3"
-
   uses_from_macos "ruby" => :build
   uses_from_macos "swift" => :build, since: :sonoma # swift 5.10+
   uses_from_macos "curl"
@@ -26,6 +24,10 @@ class Sourcery < Formula
   uses_from_macos "ncurses"
   uses_from_macos "sqlite"
   uses_from_macos "swift"
+
+  on_macos do
+    depends_on xcode: "14.3"
+  end
 
   def install
     # Build script is unfortunately not customisable.

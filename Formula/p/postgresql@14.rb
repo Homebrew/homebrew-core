@@ -1,8 +1,8 @@
 class PostgresqlAT14 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v14.23/postgresql-14.23.tar.bz2"
-  sha256 "cc7216822b546330e29c2f91e123c8734a4c41795082145bb962aa712e8c94a5"
+  url "https://ftp.postgresql.org/pub/source/v14.24/postgresql-14.24.tar.bz2"
+  sha256 "a7fa7ed3d558172355f51406097a7bd4f6b473be80f311ef7cda96bf383d8897"
   license "PostgreSQL"
 
   livecheck do
@@ -11,12 +11,12 @@ class PostgresqlAT14 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0322195d5cf1702c7c070f072a6c470cf5d4de374436d7e5660903dc2405ae93"
-    sha256 arm64_sequoia: "d30043059262150c75cce78f8136cc240e067f36be3b319a03feea5502e86ba2"
-    sha256 arm64_sonoma:  "8131c03a311e69b1263342994550c4b634ac0f4a1d3cae1d9b0b390acab3c2ea"
-    sha256 sonoma:        "7584def6106fefecd718ec7c076a48004827a7ceddc4bc568b4b80cead474ecc"
-    sha256 arm64_linux:   "f36a5345168110d2a60f491e864096908add1c662e50d8cae727913ad6d68030"
-    sha256 x86_64_linux:  "0a8306e23122766cf7a14a3ffbdc1359d822bf641d8226993c12e71882a0440e"
+    sha256 arm64_tahoe:   "8e7717ecebd0dc94bf7e109ee9193095bd53c9ba68c54f71f4ebb7479050d30a"
+    sha256 arm64_sequoia: "fa85e17006952656df354cf0b79621425c4cb730b861c6444b1534219da15a9e"
+    sha256 arm64_sonoma:  "f9daa68a9da56602b0a2fc53b29442f54c4c71879e9c1dbe7f92f06dee9a1f10"
+    sha256 sonoma:        "f7afb4270306ca7ffa3d22c8b0fe793e5482e8ef22e7dfc8d59a5f916566fbbc"
+    sha256 arm64_linux:   "899706aeff56d11431b2b6d87272f45378c1745647814dee3f4af4e9c7a69e98"
+    sha256 x86_64_linux:  "069f271a6ea2b2705e770ffaf8c695e6a85f8f9a3ea754318f99f2de7306afb7"
   end
 
   # deprecating one year before the last release,
@@ -48,8 +48,8 @@ class PostgresqlAT14 < Formula
 
   def install
     ENV.runtime_cpu_detection
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib} -L#{Formula["readline"].opt_lib}"
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include} -I#{Formula["readline"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@3")} -L#{formula_opt_lib("readline")}"
+    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("openssl@3")} -I#{formula_opt_include("readline")}"
 
     args = %W[
       --disable-debug
@@ -92,27 +92,10 @@ class PostgresqlAT14 < Formula
               "LD = #{HOMEBREW_PREFIX}/bin/ld"
   end
 
-  def post_install
-    (var/"log").mkpath
-    postgresql_datadir.mkpath
-
-    old_postgres_data_dir = var/"postgres"
-    if old_postgres_data_dir.exist?
-      opoo "The old PostgreSQL data directory (#{old_postgres_data_dir}) still exists!"
-      puts <<~EOS
-        Previous versions of postgresql shared the same data directory.
-
-        You can migrate to a versioned data directory by running:
-          mv -v "#{old_postgres_data_dir}" "#{postgresql_datadir}"
-
-        (Make sure PostgreSQL is stopped before executing this command)
-      EOS
-    end
-
+  post_install_steps do
+    mkdir_p "log", base: :var
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
-    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
-
-    system bin/"initdb", "--locale=en_US.UTF-8", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
+    init_data_dir "postgresql@14", using: :postgresql, base: :var
   end
 
   def postgresql_datadir
@@ -123,12 +106,15 @@ class PostgresqlAT14 < Formula
     var/"log/#{name}.log"
   end
 
-  def pg_version_exists?
-    (postgresql_datadir/"PG_VERSION").exist?
-  end
-
   def caveats
+    old_postgres_data_dir = var/"postgres"
     <<~EOS
+      If an old PostgreSQL data directory (#{old_postgres_data_dir}) still exists,
+      you can migrate to a versioned data directory by running:
+        mv -v "#{old_postgres_data_dir}" "#{postgresql_datadir}"
+
+      (Make sure PostgreSQL is stopped before executing this command)
+
       This formula has created a default database cluster with:
         initdb --locale=en_US.UTF-8 -E UTF-8 #{postgresql_datadir}
     EOS
@@ -139,6 +125,7 @@ class PostgresqlAT14 < Formula
     keep_alive true
     log_path f.postgresql_log_path
     error_log_path f.postgresql_log_path
+    stop_timeout 120
     working_dir HOMEBREW_PREFIX
   end
 

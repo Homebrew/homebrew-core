@@ -1,8 +1,8 @@
 class Fheroes2 < Formula
   desc "Recreation of the Heroes of Might and Magic II game engine"
   homepage "https://ihhub.github.io/fheroes2/"
-  url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.1.16.tar.gz"
-  sha256 "b5ecc32c199f00b930097f68d8654451ba415c573ef4d808744c55b6650f6084"
+  url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.1.17.tar.gz"
+  sha256 "29f0be1a15ecce658e647b8c3d3fe2e6acddf6fa2144b1e05c82984846f568a1"
   license "GPL-2.0-or-later"
   head "https://github.com/ihhub/fheroes2.git", branch: "master"
 
@@ -12,19 +12,19 @@ class Fheroes2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "be682f20a41d0981fddb80aca2e805624cb584235f84a3ea745fbed76fab52c2"
-    sha256 cellar: :any, arm64_sequoia: "c148e958fa943e66ea428a1336d6e83e5c357441541b3334972198b8debbbc5c"
-    sha256 cellar: :any, arm64_sonoma:  "d7b0e6de184fc1686b97b1033c09b1a198ad905a188030dff0b4d38c05412d3e"
-    sha256 cellar: :any, sonoma:        "3c16e9073fb5a8c619baa0e9390706fe60b1b58471602cffe1eb4bca53d7d82f"
-    sha256               arm64_linux:   "197b30e1c30e3dc80ac515bc9f5a466a4fd1f22b538261609a268f3920f9d85c"
-    sha256               x86_64_linux:  "bca6a2c2704b2f588364236d182bee4c422675ea3784036e8232fda0e9df9f1f"
+    sha256 cellar: :any, arm64_tahoe:   "878cfa8eb85196e83fd74b55f83c5d97c36e0edc93984fadd876104cf2b61f7f"
+    sha256 cellar: :any, arm64_sequoia: "69fd136cb1953c8411b8177bb0d9585d410deed4fc59c46a2bd2cdcf7f9d7817"
+    sha256 cellar: :any, arm64_sonoma:  "e7a134f5a1d7a129fbde3d23ac64a12154c7d5615c2ddf82a5f5b1fc18b12ff4"
+    sha256 cellar: :any, sonoma:        "805c8fe3209c3956dc3cd20c114b768335a94fdaa5b0b5f2e81751d1441d0ada"
+    sha256               arm64_linux:   "5a90b5be8f3d31374d1958624cce9d94a168baae2997f82d5b0e89894d88f39b"
+    sha256               x86_64_linux:  "5709d2a7e0caf309bc449450e7986f949eee70dc2e886d2cbf920e5796beea47"
   end
 
   depends_on "cmake" => :build
   depends_on "gettext" => :build
 
   depends_on "innoextract"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_mixer"
 
   on_linux do

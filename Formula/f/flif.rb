@@ -16,10 +16,13 @@ class Flif < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fe8d950811505c384945d0dd7901010b548cd1f06a59bd6438f2f8417cc01b3"
   end
 
+  deprecate! date: "2026-07-17", because: :deprecated_upstream, replacement_formula: "jpeg-xl"
+  disable! date: "2027-01-17", because: :deprecated_upstream, replacement_formula: "jpeg-xl"
+
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "libpng"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   def install
     args = %W[

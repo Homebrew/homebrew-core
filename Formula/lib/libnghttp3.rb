@@ -1,20 +1,20 @@
 class Libnghttp3 < Formula
   desc "HTTP/3 library written in C"
   homepage "https://nghttp2.org/nghttp3/"
-  url "https://github.com/ngtcp2/nghttp3/releases/download/v1.16.0/nghttp3-1.16.0.tar.xz"
-  mirror "http://fresh-center.net/linux/www/nghttp3-1.16.0.tar.xz"
-  sha256 "776f59a99905c9a348846807b2e5ac9bb3485fc0f8c0250ba803018d5238a16e"
+  url "https://github.com/ngtcp2/nghttp3/releases/download/v1.18.0/nghttp3-1.18.0.tar.xz"
+  mirror "http://fresh-center.net/linux/www/nghttp3-1.18.0.tar.xz"
+  sha256 "aad782c23d3f01bd4bb52c8bac7a553b631ef8115fd1612703df6183449fef19"
   license "MIT"
   compatibility_version 1
   head "https://github.com/ngtcp2/nghttp3.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "772d72a87a7e8b71d1f088180059ab96654cd56acd4e121ae4e2925aba0f09d8"
-    sha256 cellar: :any, arm64_sequoia: "884f76eb493310492dbd50f3f331637e6f82904c9cf40244149f8b43e1ad7381"
-    sha256 cellar: :any, arm64_sonoma:  "bc258aa321f040002529543aa980a6b4b5c9fe5c4992ebb5a16ffe251214fe7b"
-    sha256 cellar: :any, sonoma:        "ec58e60d0f633355ad595ff7cee87bc1874b973a54842525ef6cc209cb9b5818"
-    sha256 cellar: :any, arm64_linux:   "20b22937ccd9cb8c6c0ccbd4066b5a9dcc5c43adbd78854133b62b030dfe376a"
-    sha256 cellar: :any, x86_64_linux:  "2db7779c13d68dde7683120d0202a12fb62e15f5c7d5f11190ce56994bdc594b"
+    sha256 cellar: :any, arm64_tahoe:   "896929daeacaf435ed2a119156d648526ee7ab83394f50f207b5a4dda376025a"
+    sha256 cellar: :any, arm64_sequoia: "7d805c2219e1473377ac0d7b6ba6465d278ad016e71a535d9c89308c4e7f95fd"
+    sha256 cellar: :any, arm64_sonoma:  "47258af952ff526bd115d4c7973186487ba21cafbe2b4d48082be6309fc26781"
+    sha256 cellar: :any, sonoma:        "f7166812a06ced8bae92fa85019699d74084574149271030ba3cfbc329b6cbe0"
+    sha256 cellar: :any, arm64_linux:   "36ede951ed147d201e0012f6084fb41ef52f46731c111511b8ae2710996f1fd1"
+    sha256 cellar: :any, x86_64_linux:  "23d4c3f5d3b91b6fab9f77b66e96484ba9c389a88768e3d792037cbf2c46c2e4"
   end
 
   depends_on "cmake" => :build

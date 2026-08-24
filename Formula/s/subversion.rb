@@ -12,18 +12,19 @@ class Subversion < Formula
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+      file "Patches/libtool/configure-big_sur.diff"
+      type :unofficial
     end
   end
 
   bottle do
-    sha256 arm64_tahoe:   "5e038b0cc26af690210dccba99843496bbfec1aeb880c4dd4e9d46f4d2a730a7"
-    sha256 arm64_sequoia: "6b7e822daf9fa486cd647077813e476c261cd86fb444e27ef750377ffb7748c7"
-    sha256 arm64_sonoma:  "cf34643fbdd5481f92294d8a4a4d90618f87972ab1994e966c4081e0d7e9b4bc"
-    sha256 sonoma:        "6d063196b675e9b5c514d1425061c798cfe78bea4f0a5704e44e4d9302e692c8"
-    sha256 arm64_linux:   "b949a958992ca6cdd90fd3c0540f0cff78f52e459b8b73abab8210f39f85e9ea"
-    sha256 x86_64_linux:  "c3dfdd9e92e870c396b53d2bdf3f410b4b5369386e467186e4b4fa86214ea02d"
+    rebuild 1
+    sha256 arm64_tahoe:   "9533cee4407ac04b7490f359f4270eba5d6b93e97f98342a51a4e9dcca5fe48c"
+    sha256 arm64_sequoia: "fd07a1c28bb13c19c7573ab2135e9f21be955939254f5b0da6ee533532b136fa"
+    sha256 arm64_sonoma:  "a823a4f2a62c5f4c09bb47d210be76e6e38dd13a27a62e13e7f6f73e793e4ca5"
+    sha256 sonoma:        "33a262adddf6363b241ca6f0f8d737df49d5747a2e3237e9e928e916a19e4121"
+    sha256 arm64_linux:   "8002da7e341966edb214286526abf10bfe45c184fd7b4228220ce60980476b19"
+    sha256 x86_64_linux:  "2b44fafc593cd1c5d7400f99ea8acfee639e3506a9442538cd361a21c6c84fb4"
   end
 
   head do
@@ -55,6 +56,7 @@ class Subversion < Formula
   end
 
   on_linux do
+    depends_on "cyrus-sasl"
     depends_on "zlib-ng-compat"
   end
 
@@ -75,8 +77,8 @@ class Subversion < Formula
     if OS.mac?
       zlib = sqlite = MacOS.sdk_for_formula(self).path/"usr"
     else
-      zlib = Formula["zlib"].opt_prefix
-      sqlite = Formula["sqlite"].opt_prefix
+      zlib = formula_opt_prefix("zlib")
+      sqlite = formula_opt_prefix("sqlite")
     end
 
     perl = DevelopmentTools.locate("perl")
@@ -86,12 +88,12 @@ class Subversion < Formula
       --enable-optimize
       --disable-mod-activation
       --disable-plaintext-password-storage
-      --with-apr-util=#{Formula["apr-util"].opt_prefix}
-      --with-apr=#{Formula["apr"].opt_prefix}
+      --with-apr-util=#{formula_opt_prefix("apr-util")}
+      --with-apr=#{formula_opt_prefix("apr")}
       --with-apxs=no
       --with-ruby-sitedir=#{lib}/ruby
       --with-py3c=#{py3c_prefix}
-      --with-serf=#{Formula["apache-serf"].opt_prefix}
+      --with-serf=#{formula_opt_prefix("apache-serf")}
       --with-sqlite=#{sqlite}
       --with-swig-perl=#{perl}
       --with-swig-python=#{which(python3)}

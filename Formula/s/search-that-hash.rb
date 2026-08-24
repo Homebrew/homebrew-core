@@ -2,12 +2,12 @@ class SearchThatHash < Formula
   include Language::Python::Virtualenv
 
   desc "Searches Hash APIs to crack your hash quickly"
-  homepage "https://github.com/bee-san/Search-That-Hash"
+  homepage "https://github.com/Jayy001/Search-That-Hash"
   url "https://files.pythonhosted.org/packages/5e/b9/a304a92ba77a9e18b3023b66634e71cded5285cef7e3b56d3c1874e9d84e/search-that-hash-0.2.8.tar.gz"
   sha256 "384498abbb9a611aa173b20d06b135e013674670fecc01b34d456bfe536e0bca"
   license "GPL-3.0-or-later"
   revision 16
-  head "https://github.com/bee-san/Search-That-Hash.git", branch: "main"
+  head "https://github.com/Jayy001/Search-That-Hash.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "42e0c7eb93061ad01c4644c50bce1039d5561830e92cbc12e7a8507e0e3f5360"
@@ -118,7 +118,7 @@ class SearchThatHash < Formula
 
   def install
     # Switch build-system to poetry-core to avoid rust dependency on Linux.
-    # Remove when merged/released: https://github.com/bee-san/Search-That-Hash/pull/184
+    # Remove when merged/released: https://github.com/Jayy001/Search-That-Hash/pull/184
     inreplace "pyproject.toml", 'requires = ["poetry>=0.12"]', 'requires = ["poetry-core>=1.0"]'
     inreplace "pyproject.toml", 'build-backend = "poetry.masonry.api"', 'build-backend = "poetry.core.masonry.api"'
 

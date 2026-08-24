@@ -62,6 +62,8 @@ class Sherlock < Formula
     patch do
       url "https://github.com/pandas-dev/pandas/commit/0e978b68ba68e0f3b1f8b9f6b5a38072948638f0.patch?full_index=1"
       sha256 "6d182353395464070bf683048dd3b7e79e11f66b4f38e053d2c49d1d060cbb99"
+      type :backport
+      resolves "https://github.com/pandas-dev/pandas/pull/63406"
     end
   end
 

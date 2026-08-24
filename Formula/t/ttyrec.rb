@@ -8,11 +8,6 @@ class Ttyrec < Formula
   license "BSD-4-Clause"
   revision 1
 
-  livecheck do
-    url :homepage
-    regex(/href=["']?ttyrec[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "2b44b170e50cd4a45a34866f55c074aa7178b26a733350d471dff58709831cf0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1bc483dbae460cdc63985077a07ab767d1f3b3b2d614ef276a038a07bbaa479c"
@@ -28,6 +23,12 @@ class Ttyrec < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "ea3a96ddfe71319d95009cd84257f98d42a335e692aea071b9d9a718e2d58a89"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2dd1acdb4519d34c1b28fced057623dcd6457c60def91150fd042ed6be04e481"
   end
+
+  # Last release on 2006-06-11
+  deprecate! date: "2026-07-17", because: :unmaintained
+  disable! date: "2027-01-17", because: :unmaintained
+
+  conflicts_with "ovh-ttyrec", because: "both install the same binaries"
 
   # Fixes "ttyrec.c:209:20: error: storage size of ‘status’ isn’t known";
   # check `man 2 wait3`.

@@ -35,23 +35,24 @@ class Squashfs < Formula
   end
 
   # Fix Darwin `struct stat` field selection (`st_atimespec` vs `st_atim`).
-  # Upstream PR ref: https://github.com/plougher/squashfs-tools/pull/356
   patch do
     url "https://github.com/plougher/squashfs-tools/commit/f88f4a659d6ab432a57e90fe2f6191149c6b343f.patch?full_index=1"
     sha256 "3f3f568514c57fd50f508fef67e0e293a9668067801f42d4471b429a79bd1575"
+    type :backport
+    resolves "https://github.com/plougher/squashfs-tools/pull/356"
   end
 
   def install
     args = %W[
       EXTRA_CFLAGS=-std=gnu99
-      LZ4_DIR=#{Formula["lz4"].opt_prefix}
+      LZ4_DIR=#{formula_opt_prefix("lz4")}
       LZ4_SUPPORT=1
-      LZO_DIR=#{Formula["lzo"].opt_prefix}
+      LZO_DIR=#{formula_opt_prefix("lzo")}
       LZO_SUPPORT=1
-      XZ_DIR=#{Formula["xz"].opt_prefix}
+      XZ_DIR=#{formula_opt_prefix("xz")}
       XZ_SUPPORT=1
       LZMA_XZ_SUPPORT=1
-      ZSTD_DIR=#{Formula["zstd"].opt_prefix}
+      ZSTD_DIR=#{formula_opt_prefix("zstd")}
       ZSTD_SUPPORT=1
       XATTR_SUPPORT=1
     ]
@@ -63,7 +64,7 @@ class Squashfs < Formula
       bin.install commands
     end
 
-    ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
+    ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin"
     mkdir_p man1
     cd "squashfs-tools/generate-manpages" do
       commands.each do |command|

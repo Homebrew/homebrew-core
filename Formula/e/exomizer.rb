@@ -1,13 +1,18 @@
 class Exomizer < Formula
   desc "File compressor optimized for decompression in 8-bit environments"
-  homepage "https://bitbucket.org/magli143/exomizer/wiki/Home"
-  url "https://bitbucket.org/magli143/exomizer/wiki/downloads/exomizer-3.1.2.zip"
-  sha256 "8896285e48e89e29ba962bc37d8f4dcd506a95753ed9b8ebf60e43893c36ce3a"
+  homepage "https://bitbucket.org/magli143/exomizer/"
+  url "https://bitbucket.org/magli143/exomizer/get/3.1.2.tar.gz"
+  sha256 "01713f2ee39efc86cbe54bb6011613e097efc3bc532cdc640809e7589cd9c043"
   license all_of: [
     "Zlib",
     "GPL-3.0-or-later" => { with: "Bison-exception-2.2" },
   ]
   head "https://bitbucket.org/magli143/exomizer.git", branch: "master"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "56448e95a835779566679e80a082ca12284cf6412a299194e363f7f06bb0440d"

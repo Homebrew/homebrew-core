@@ -13,6 +13,7 @@ class Openmsx < Formula
     patch do
       url "https://github.com/openMSX/openMSX/commit/bef559e0e2e1413ba8abbef882224a5919214c5a.patch?full_index=1"
       sha256 "3744a1693d43c86a678c416836f0e2fa900023f0b9176c63116080f009c5bbb9"
+      type :backport
     end
   end
 
@@ -41,7 +42,7 @@ class Openmsx < Formula
   depends_on "libogg"
   depends_on "libpng"
   depends_on "libvorbis"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_ttf"
   depends_on "tcl-tk"
   depends_on "theora"
@@ -69,10 +70,10 @@ class Openmsx < Formula
 
   def install
     if OS.mac? && MacOS.version <= :ventura
-      ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("llvm")}/unwind -lunwind"
       # When using Homebrew's superenv shims, we need to use HOMEBREW_LIBRARY_PATHS
       # rather than LDFLAGS for libc++ in order to correctly link to LLVM's libc++.
-      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib/"c++"
+      ENV.prepend_path "HOMEBREW_LIBRARY_PATHS", formula_opt_lib("llvm")/"c++"
     end
 
     # Hardcode prefix
@@ -81,7 +82,7 @@ class Openmsx < Formula
     inreplace "build/probe.py", "/usr/local", HOMEBREW_PREFIX
 
     # Help finding Tcl (https://github.com/openMSX/openMSX/issues/1082)
-    ENV["TCL_CONFIG"] = Formula["tcl-tk"].opt_lib
+    ENV["TCL_CONFIG"] = formula_opt_lib("tcl-tk")
 
     system "./configure"
     system "make", "CXX=#{ENV.cxx}", "LDFLAGS=#{ENV.ldflags}"

@@ -38,8 +38,7 @@ class Libnids < Formula
   # Patch fixes -soname and .so shared library issues. Unreported.
   patch do
     on_macos do
-      url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libnids/1.24.patch"
-      sha256 "d9339c16f89915a02025f10f26aab5bb77c2af85926d2d9ff52e9c7bf2092215"
+      file "Patches/libnids/1.24.patch"
     end
   end
 

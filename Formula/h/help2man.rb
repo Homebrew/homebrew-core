@@ -5,16 +5,15 @@ class Help2man < Formula
   mirror "https://ftp.gnu.org/gnu/help2man/help2man-1.49.3.tar.xz"
   sha256 "4d7e4fdef2eca6afe07a2682151cea78781e0a4e8f9622142d9f70c083a2fd4f"
   license "GPL-3.0-or-later"
-  revision 4
+  revision 5
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "e3d3923d95ff50d31167bb31b79bfb5b5ff04ed958662d6097b87a8e7af80145"
-    sha256 cellar: :any,                 arm64_sequoia: "c32c8674bc6c07b61531fcb0e077a4a3566ef57628257bd258992708ec4c0a61"
-    sha256 cellar: :any,                 arm64_sonoma:  "1c1953fb1180f4ed0bca07f6befadec13ee94d6a3a7e86607e649457de47dc04"
-    sha256 cellar: :any,                 sonoma:        "59d2b48fe6b83c4e94ffda8e2ca12c99825dc11d14042aa4c59033be929f84c9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f2a8a07d29e873804a3b89e0f1549813359a0aab0bd5716b66454a1987ded35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9b95c2631c19512416b4e912e95517a81c1d9fddffd53e662e90c76511b6412"
+    sha256 cellar: :any, arm64_tahoe:   "e7da765e631d20ed655e5cd3a488288e0922f44b61f2b30d00ba345acfc93999"
+    sha256 cellar: :any, arm64_sequoia: "f3ae41d9332c1117fe072a56d5847877eada2b3fc3aa4e6ba872f0aee159f208"
+    sha256 cellar: :any, arm64_sonoma:  "261c8dd21fcf7febdcd05f7d6df8ff4159b3da0c4a23f0131090ba87eb381e61"
+    sha256 cellar: :any, sonoma:        "2654cbaecdd1429aaa206075492ae392394333143d7b25e4ee1879673dfe5e21"
+    sha256 cellar: :any, arm64_linux:   "d847d6874c494a32d659bd7e4a84766a0a6bb4f54f01c66db24c1d2804a38ad1"
+    sha256 cellar: :any, x86_64_linux:  "eb20fb548e3eabb081167661c9d3406a3984ace247b5eec71a851e9e4a6de7bc"
   end
 
   depends_on "gettext"
@@ -35,7 +34,7 @@ class Help2man < Formula
     resource("Locale::gettext").stage do
       # Workaround for macOS perl as MakeMaker can only search libraries in perl compile-time paths
       # Issue ref: https://github.com/Perl-Toolchain-Gang/ExtUtils-MakeMaker/issues/277
-      inreplace "Makefile.PL", '$libs = "-lintl"', "$libs = \"-L#{Formula["gettext"].opt_lib} -lintl\"" if OS.mac?
+      inreplace "Makefile.PL", '$libs = "-lintl"', "$libs = \"-L#{formula_opt_lib("gettext")} -lintl\"" if OS.mac?
 
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "NO_MYMETA=1"
       system "make", "install"

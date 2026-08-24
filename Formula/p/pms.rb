@@ -1,10 +1,23 @@
 class Pms < Formula
   desc "Practical Music Search, an ncurses-based MPD client"
   homepage "https://kimtore.github.io/pms/"
-  url "https://downloads.sourceforge.net/project/pms/pms/0.42/pms-0.42.tar.bz2"
-  sha256 "96bf942b08cba10ee891a63eeccad307fd082ef3bd20be879f189e1959e775a6"
   license "MIT"
   revision 1
+
+  stable do
+    url "https://downloads.sourceforge.net/project/pms/pms/0.42/pms-0.42.tar.bz2"
+    sha256 "96bf942b08cba10ee891a63eeccad307fd082ef3bd20be879f189e1959e775a6"
+
+    depends_on "gettext" => :build
+    depends_on "pkgconf" => :build
+    depends_on "glib"
+
+    uses_from_macos "ncurses"
+
+    on_macos do
+      depends_on "gettext"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:    "9ea144b1cf1481050e378149ef8731963f537878c38d74faa182a687e85d64a0"
@@ -22,16 +35,20 @@ class Pms < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c3d1cf4ac839cd2c6ae549d4c303dfeed70951bf0473b4919bcbe62a2530961"
   end
 
-  depends_on "pkgconf" => :build
+  head do
+    url "https://github.com/kimtore/pms.git", branch: "master"
 
-  depends_on "gettext"
-  depends_on "glib"
-
-  uses_from_macos "ncurses"
+    depends_on "go" => :build
+  end
 
   def install
-    system "./configure", *std_configure_args
-    system "make", "install"
+    if build.head?
+      system "go", "build", *std_go_args(ldflags: "-X main.buildVersion=#{version}")
+    else
+      ENV.append "CXXFLAGS", "-include ctime" # workaround for old C++ code. Upstream switched to Go
+      system "./configure", *std_configure_args
+      system "make", "install"
+    end
   end
 
   test do

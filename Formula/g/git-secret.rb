@@ -43,7 +43,7 @@ class GitSecret < Formula
       %commit
     GPG
     begin
-      system Formula["gnupg"].opt_bin/"gpg", "--batch", "--gen-key", "batch.gpg"
+      system formula_opt_bin("gnupg")/"gpg", "--batch", "--gen-key", "batch.gpg"
       system "git", "init"
       system "git", "config", "user.email", "testing@foo.bar"
       system "git", "secret", "init"
@@ -54,7 +54,7 @@ class GitSecret < Formula
       system "git", "secret", "hide"
       assert_path_exists testpath/"shh.txt.secret"
     ensure
-      system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
+      system formula_opt_bin("gnupg")/"gpgconf", "--kill", "gpg-agent"
     end
   end
 end

@@ -1,8 +1,8 @@
 class DockerCompose < Formula
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://github.com/docker/compose/archive/refs/tags/v5.1.4.tar.gz"
-  sha256 "363ce6ccca46f836648f5f4ec9ecfdb6f631daa126570cc3fc69140edeed6794"
+  url "https://github.com/docker/compose/archive/refs/tags/v5.5.0.tar.gz"
+  sha256 "504ed1541f4bc5c301dc9cf7b86ae8e2d26b57a558a248d9b832af188b298bba"
   license "Apache-2.0"
   head "https://github.com/docker/compose.git", branch: "main"
 
@@ -15,12 +15,12 @@ class DockerCompose < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0f168e11e7152a10266336d79e1b3bff13fd7334a41f654d30e55a714b3dde6e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a2b182b7cd39c4309112627c7014253aeef19a934f1876c68c1d19419dcb25cc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e53db8ef5a47a6931a97ea1610314f425b9a7abda371f6dc9307d868972ffe66"
-    sha256 cellar: :any_skip_relocation, sonoma:        "54dfb611519db44e990d5a8113c5e746a95d874efca6f1909b0c16a4ff256b64"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1db0df21e2c8fbe0408dd96feac03ef8400651cf2fcf5bb8a884348e81ecdafc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7434d8e07ab042d1973d69a3a568530fcd3f2f4d8a4a3fcb64eb43c50d0d8730"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c083ba0e63eee3c81dd62aaff61e6f485d6cc66ae1f6887da82b8ac75449c2ed"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "87babe68cce186e09b9b53e650e9421e01d0a2fb0e51cb5bcbcc7c01860cc4ad"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9125be4b1e07ab1a90c36891917dce031d2377d59c61a350639fae456e2d65ef"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0786e339e6b4d309e21b808b86db88d518cce20c2702f58e5a467af2aa2a8cdc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b8b778825c59efae7699e949f9f633b3af9b599b4f06d8581db2a322a6398ec6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ebe987ffe0310687345b08109e24bcc3bc5c63333939e8eeb2651e784febe9a"
   end
 
   depends_on "go" => :build
@@ -29,10 +29,7 @@ class DockerCompose < Formula
 
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
-    ldflags = %W[
-      -s -w
-      -X github.com/docker/compose/v#{version.major}/internal.Version=#{version}
-    ]
+    ldflags = %W[-X github.com/docker/compose/v#{version.major}/internal.Version=#{version}]
     tags = %w[fsnotify] if OS.mac?
     system "go", "build", *std_go_args(ldflags:, tags:), "./cmd"
 

@@ -7,18 +7,19 @@ class Committed < Formula
   head "https://github.com/crate-ci/committed.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b0ba1b869ec35634f88a7be9be9681495649044c783de5a8919aafe3ccc08545"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "69d0840a3cd73a541795542ce7cdc7ebc068d3988f04f100e52a4a6726c13d8e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "943b0bd708823ed8a4111ac9b6279493d975f9490b4468f01699920f8e971302"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ff58466048d4e980b120aa381e8fafca7fc15f4317c088b2dd9e8f10922442dc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d629fdb8f4e20bdf7577b37ba53dea36fe7702c0db4c0682ad09f5cf939d4238"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "289b4fffa6f5339cd7e6e6a0e9c04bce7b82e762acbf244646468630e4140088"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3d7c4964ba5f02e337add48870263525ab618dda39c5e69d8e51dc03320771d5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f4aced867d8d33a939457f3e171800d2fc996e558da920956c0ff8088d7154eb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ef02f7b8ab4411a9fb0ed02e74abc573aa596043dce6bd30564df80157f9eff4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "452aca8c27ab273d9acffc134b3b2bf8e059fc7918cd9d9e3ad8af951a8668fe"
+    sha256 cellar: :any,                 arm64_linux:   "06366f236d9d86d4370a9cf65c58a74aa8499a34ac5e09e676e50621aa59d525"
+    sha256 cellar: :any,                 x86_64_linux:  "f1846d0480f02007eabe6bcf1fb99f37e00d0fe526b724a3baf52976d2306a06"
   end
 
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "zlib"
+    depends_on "zlib-ng-compat"
   end
 
   def install

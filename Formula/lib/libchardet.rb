@@ -1,8 +1,8 @@
 class Libchardet < Formula
   desc "Mozilla's Universal Charset Detector C/C++ API"
   homepage "https://github.com/Joungkyun/libchardet"
-  url "https://github.com/Joungkyun/libchardet/archive/refs/tags/1.0.6.tar.gz"
-  sha256 "425f3fa9e7afa0ebc3f4e3572637fb87bd6541e2716ad2c18f175995eb2021f0"
+  url "https://github.com/Joungkyun/libchardet/releases/download/1.0.6/libchardet-1.0.6.tar.bz2"
+  sha256 "8958d5738c8f7af351cc8f718e922c7961fd2f095fc668bff59ae2a531231592"
   license any_of: ["MPL-1.1", "LGPL-2.1-only"]
 
   bottle do
@@ -14,13 +14,15 @@ class Libchardet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b265b1b47cad3b74174e44a0a46c11b8e99e01613bc35c93281962f318f89409"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "pkgconf" => :test
 
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    type :unofficial
+  end
+
   def install
-    system "autoreconf", "--install"
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
@@ -50,7 +52,7 @@ class Libchardet < Formula
         }
       }
     C
-    flags = shell_output("#{Formula["pkgconf"].opt_bin}/pkgconf --cflags --libs chardet").strip.split
+    flags = shell_output("#{formula_opt_bin("pkgconf")}/pkgconf --cflags --libs chardet").strip.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
 

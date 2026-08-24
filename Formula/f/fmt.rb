@@ -1,19 +1,19 @@
 class Fmt < Formula
   desc "Open-source formatting library for C++"
   homepage "https://fmt.dev/"
-  url "https://github.com/fmtlib/fmt/releases/download/12.1.0/fmt-12.1.0.zip"
-  sha256 "695fd197fa5aff8fc67b5f2bbc110490a875cdf7a41686ac8512fb480fa8ada7"
+  url "https://github.com/fmtlib/fmt/releases/download/12.2.0/fmt-12.2.0.zip"
+  sha256 "a2f4a8d51178f954e4c339007f77edd76ba0cb2e36f87a48e5a5403d9be5878f"
   license "MIT"
-  compatibility_version 1
-  head "https://github.com/fmtlib/fmt.git", branch: "master"
+  compatibility_version 2
+  head "https://github.com/fmtlib/fmt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "008ec3a1b84d5db3334383279f6aaf1da457a1173efb14e9bd1d41beb7f6d6da"
-    sha256 cellar: :any,                 arm64_sequoia: "18312bbc96d1074563572481084b3db66e35119b8f76b321f37a74d6a9d46b46"
-    sha256 cellar: :any,                 arm64_sonoma:  "ee29782046b7c86462e2a0cef189868a5a861c7d2b5989923da0499de3698ee6"
-    sha256 cellar: :any,                 sonoma:        "dedd10167d4ad5aa173d40ed13a19e1648db680fb0569114caffe822bad14554"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "84463daea1c23f94ae58abbf951987bea488c0161be4d9cbc785594d88f02d63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c7c4de1f40ac72b6f014ee7690e9a005b6689d270d6ace076719de7484c7d85b"
+    sha256 cellar: :any, arm64_tahoe:   "a218679bf77ccb0c76b316556f71a0bc5d5a1980d8cd3d2ea197a5829a140d65"
+    sha256 cellar: :any, arm64_sequoia: "301a1bbf99d3401d4e971d957eeab6c07d08fe304a690b269e04df5424fcc9d9"
+    sha256 cellar: :any, arm64_sonoma:  "2e7c7c3093a62b44a4ba23a73463558b6073ee7a63e9162403701edab9403739"
+    sha256 cellar: :any, sonoma:        "125d40bb96aec4f198a16252ec5358ba1c96243003e2f05d74826d867e012ddd"
+    sha256 cellar: :any, arm64_linux:   "95ede71090e1b588dc9accf17d79730b8a99e82abce47bfd580fb2b7c6a32cd5"
+    sha256 cellar: :any, x86_64_linux:  "9d7617cdafe71a36c5371511cdeffbe0d171c1eb93eea555a1e4028af440f5c2"
   end
 
   depends_on "cmake" => :build

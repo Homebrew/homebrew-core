@@ -24,7 +24,6 @@ class ArduinoCli < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/arduino/arduino-cli/internal/version.versionString=#{version}
       -X github.com/arduino/arduino-cli/internal/version.commit=#{tap.user}
       -X github.com/arduino/arduino-cli/internal/version.date=#{time.iso8601}

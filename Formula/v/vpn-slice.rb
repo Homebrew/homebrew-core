@@ -12,10 +12,11 @@ class VpnSlice < Formula
     sha256 "28d02dd1b41210b270470350f28967320b3a34321d57cc9736f53d6121e9ceaa"
 
     # Backport commit to drop setuptools dep
-    # https://github.com/dlenski/vpn-slice/pull/149
     patch do
       url "https://github.com/dlenski/vpn-slice/commit/4e26adbfd14de2be5e77933e96d353ea7d200107.patch?full_index=1"
       sha256 "e80b63d2da61f47011d924fbcc48de9a7461c76a6cc977ee08fce99995bb155b"
+      type :backport
+      resolves "https://github.com/dlenski/vpn-slice/pull/149"
     end
   end
 

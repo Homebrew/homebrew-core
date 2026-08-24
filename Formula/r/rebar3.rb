@@ -36,7 +36,7 @@ class Rebar3 < Formula
     end
 
     # Ensure we're building with versioned `erlang`
-    ENV.remove "PATH", "#{Formula["erlang"].opt_bin}:"
+    ENV.remove "PATH", "#{formula_opt_bin("erlang")}:"
     system "./bootstrap"
     bin.install "rebar3"
 

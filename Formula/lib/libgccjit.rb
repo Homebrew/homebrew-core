@@ -5,15 +5,15 @@ class Libgccjit < Formula
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   stable do
-    url "https://ftpmirror.gnu.org/gnu/gcc/gcc-16.1.0/gcc-16.1.0.tar.xz"
-    mirror "https://ftp.gnu.org/gnu/gcc/gcc-16.1.0/gcc-16.1.0.tar.xz"
-    sha256 "50efb4d94c3397aff3b0d61a5abd748b4dd31d9d3f2ab7be05b171d36a510f79"
+    url "https://ftpmirror.gnu.org/gnu/gcc/gcc-16.2.0/gcc-16.2.0.tar.xz"
+    mirror "https://ftp.gnu.org/gnu/gcc/gcc-16.2.0/gcc-16.2.0.tar.xz"
+    sha256 "e6738e29597f733270731aa90600f37ffdc045079dfc27ec7e8192cc81085c3e"
 
     # Branch from the Darwin maintainer of GCC, with a few generic fixes and
     # Apple Silicon support, located at https://github.com/iains/gcc-16-branch
     patch do
       on_macos do
-        file "Patches/gcc/gcc-16.1.0.diff"
+        file "Patches/gcc/gcc-16.2.0.diff"
       end
     end
   end
@@ -23,21 +23,21 @@ class Libgccjit < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "97505cedf1e502c3b948e69cd48b9a3b78e4f61011cf275c4c963f76e34e933d"
-    sha256 arm64_sequoia: "a444a8d15c975b6bacc110928b80be9f9649547e325e71abbaeae64dcf03ce4f"
-    sha256 arm64_sonoma:  "f9a76ab97d22ad3c17d7d6cafa4566c18ab7009ccecec65c724098548e4e1fa3"
-    sha256 tahoe:         "45beaae24bfc185cf533177261ce568aafe975f4b3a5710d21fec94a987d56e5"
-    sha256 sequoia:       "bee819aabaf0c215d85ac6e3b14bab37ee9d61e9f888391aba2fbed1e94dcb27"
-    sha256 sonoma:        "326bd8002f8468200000f0081f2627c5cf5acb7b2013ff96dd9b993320de07cd"
-    sha256 arm64_linux:   "94c7d6b0162d06915340e852a51c43c7406427f4d323fc8a1908a78b1d62c7a4"
-    sha256 x86_64_linux:  "ce69005d6f81130017f8a503a1dda2dd1c07a433988741c0bf774ce409ae6629"
+    sha256 arm64_tahoe:   "92e3a44e340eec005d2c8b369bde2a70e38db3e6faca802531045f951002a1ee"
+    sha256 arm64_sequoia: "ebc0baa7092cbac69594436379007335a8228c813fb99224d69aba72787f088b"
+    sha256 arm64_sonoma:  "85fd73681a32498448d22d8aa74a33ff04387eb2711e6ed116a87cf06e565573"
+    sha256 tahoe:         "00bbe775ee78a09cebe0bc15a01b5132a414af45c14943d2f09861d570fd9e9b"
+    sha256 sequoia:       "74f541a27b4ac0820c9718cba1a78f458a09fb55442c3ce8795671cec931b96a"
+    sha256 sonoma:        "e56737c614ca8481a73de1de333cf2b2b72e1f0ad931bccfd2fa2370c4b660b9"
+    sha256 arm64_linux:   "20f37027cabf6d3d9a6ede11b3e8ebbcf7802f687e65674135e26ff3344499d5"
+    sha256 x86_64_linux:  "3a6a4159265a032abe8d0714304f8f1d37e35171c9390f2e4c36fbae3c57c856"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
   # out of the box on Xcode-only systems due to an incorrect sysroot.
   pour_bottle? only_if: :clt_installed
 
-  depends_on "gcc" => :test
+  depends_on "gcc" => [:build, :test]
   depends_on "gmp"
   depends_on "isl"
   depends_on "libmpc"
@@ -59,7 +59,12 @@ class Libgccjit < Formula
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
-    pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
+    # We can skip bootstrap process by using our already built GCC formula.
+    gcc_version = Formula["gcc"].version.major
+    ENV["CC"] = formula_opt_bin("gcc")/"gcc-#{gcc_version}"
+    ENV["CXX"] = formula_opt_bin("gcc")/"g++-#{gcc_version}"
+
+    pkgversion = "Homebrew GCC #{pkg_version}"
 
     # Use `lib/gcc/current` to align with the GCC formula.
     args = %W[
@@ -68,11 +73,11 @@ class Libgccjit < Formula
       --disable-nls
       --enable-checking=release
       --with-gcc-major-version-only
-      --with-gmp=#{Formula["gmp"].opt_prefix}
-      --with-mpfr=#{Formula["mpfr"].opt_prefix}
-      --with-mpc=#{Formula["libmpc"].opt_prefix}
-      --with-isl=#{Formula["isl"].opt_prefix}
-      --with-zstd=#{Formula["zstd"].opt_prefix}
+      --with-gmp=#{formula_opt_prefix("gmp")}
+      --with-mpfr=#{formula_opt_prefix("mpfr")}
+      --with-mpc=#{formula_opt_prefix("libmpc")}
+      --with-isl=#{formula_opt_prefix("isl")}
+      --with-zstd=#{formula_opt_prefix("zstd")}
       --with-pkgversion=#{pkgversion}
       --with-bugurl=#{tap.issues_url}
       --with-system-zlib
@@ -82,8 +87,7 @@ class Libgccjit < Formula
       cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
       args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
 
-      # System headers may not be in /usr/include
-      sdk = MacOS.sdk_path_if_needed
+      sdk = MacOS.sdk_path
       args << "--with-sysroot=#{sdk}" if sdk
 
       # Avoid this semi-random failure:
@@ -93,12 +97,11 @@ class Libgccjit < Formula
 
       # Fix linkage with `libgcc_s.1.1`. See: https://github.com/orgs/Homebrew/discussions/5364
       if Hardware::CPU.intel?
-        ldflags << "-Wl,-rpath,#{rpath(source: lib/"gcc/current", target: Formula["gcc"].opt_lib/"gcc/current")}"
+        ldflags << "-Wl,-rpath,#{rpath(source: lib/"gcc/current", target: formula_opt_lib("gcc")/"gcc/current")}"
       end
 
       make_args = %W[BOOT_LDFLAGS=#{ldflags.join(" ")}]
     else
-      # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
 
       # Change the default directory name for 64-bit libraries to `lib`
@@ -106,18 +109,17 @@ class Libgccjit < Formula
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
       inreplace "gcc/config/aarch64/t-aarch64-linux", "lp64=../lib64", "lp64="
 
-      # Use our own (recent) binutils
-      args << "--with-as=#{Formula["binutils"].opt_bin}/as"
-
-      ENV.append_path "CPATH", Formula["zlib-ng-compat"].opt_include
-      ENV.append_path "LIBRARY_PATH", Formula["zlib-ng-compat"].opt_lib
+      ENV.append_path "CPATH", formula_opt_include("zlib-ng-compat")
+      ENV.append_path "LIBRARY_PATH", formula_opt_lib("zlib-ng-compat")
     end
 
     # Building jit needs --enable-host-shared, which slows down the compiler.
-    mkdir "build-jit" do
-      system "../configure", *args, "--enable-languages=jit", "--enable-host-shared"
+    mkdir "build" do
+      install_target = OS.mac? ? "install" : "install-strip"
+
+      system "../configure", *args, "--enable-languages=jit", "--enable-host-shared", "--disable-bootstrap"
       system "make", *make_args
-      system "make", "install"
+      system "make", install_target
     end
 
     # We only install the relevant libgccjit files from libexec and delete the rest.
@@ -182,18 +184,16 @@ class Libgccjit < Formula
     C
 
     gcc_major_ver = Formula["gcc"].any_installed_version.major
-    gcc = Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}"
+    gcc = formula_opt_bin("gcc")/"gcc-#{gcc_major_ver}"
     libs = HOMEBREW_PREFIX/"lib/gcc/current"
     test_flags = %W[-I#{include} test-libgccjit.c -o test -L#{libs} -lgccjit]
 
     system gcc.to_s, *test_flags
     assert_equal "hello world", shell_output("./test")
 
-    # The test below fails with the host compiler on Linux.
-    return if OS.linux?
-
     # Also test with the host compiler, which many users use with libgccjit
     (testpath/"test").unlink
+    test_flags << "-Wl,-rpath,#{libs}" if OS.linux?
     system ENV.cc, *test_flags
     assert_equal "hello world", shell_output("./test")
   end

@@ -1,27 +1,25 @@
 class Gum < Formula
   desc "Tool for glamorous shell scripts"
   homepage "https://github.com/charmbracelet/gum"
-  url "https://github.com/charmbracelet/gum/archive/refs/tags/v0.17.0.tar.gz"
-  sha256 "763a7f89dfebf8e77f86e680bace48a09423cfb9e4b4f4ba22d2c9836d311f95"
+  url "https://github.com/charmbracelet/gum/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "8a5baa1e1647cdc3f7fdf91939de5372791ab133117416c8e3d944afbf0b3c9c"
   license "MIT"
   compatibility_version 1
   head "https://github.com/charmbracelet/gum.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe88a443c148f8f6fc401cf6dfe57ad4af214feb85163c8b15c6d6423edb6c1f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "901cb800319abaade91650d15c8023b6b810ef61eca36750880eb084269161eb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "901cb800319abaade91650d15c8023b6b810ef61eca36750880eb084269161eb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "901cb800319abaade91650d15c8023b6b810ef61eca36750880eb084269161eb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e56fe5dc19856295e738967aa43c63ee61afb66df20b51aa1076531aa849db40"
-    sha256 cellar: :any_skip_relocation, ventura:       "e56fe5dc19856295e738967aa43c63ee61afb66df20b51aa1076531aa849db40"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "754abdb73b22a1d828430072b07fffd9314d8db96cd3ef92dffb4c794c7c3a10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4606f16bda2cdeea33c9b4528617d4262eda00905892440d8d438f13fd27dab"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "62f953e983eeeaa57e1b7cc564064a77e1db2daa592312e953b35910c1c2086b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "62f953e983eeeaa57e1b7cc564064a77e1db2daa592312e953b35910c1c2086b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "62f953e983eeeaa57e1b7cc564064a77e1db2daa592312e953b35910c1c2086b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e4fba4ac72c88f97e16ea1791edfdd75edf7fc71128df6d1ce12c3c052e56705"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3516c6d5516bc7107b1c1c758ac0a63181362a3cda31f07f4b5dc4707e42405a"
+    sha256 cellar: :any,                 x86_64_linux:  "ef27dde74918165706959ed46799fb50fa3a03c88e02582ba584835b8a8c007a"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}")
 
     man_page = Utils.safe_popen_read(bin/"gum", "man")
     (man1/"gum.1").write man_page

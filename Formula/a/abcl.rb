@@ -1,18 +1,14 @@
 class Abcl < Formula
   desc "Armed Bear Common Lisp: a full implementation of Common Lisp"
-  # upstream bug report about site issue, https://github.com/armedbear/abcl/issues/711
-  homepage "https://github.com/armedbear/abcl"
-  url "https://deb.debian.org/debian/pool/main/a/abcl/abcl_1.9.2.orig.tar.gz"
-  mirror "https://abcl.org/releases/1.9.2/abcl-src-1.9.2.tar.gz"
+  homepage "https://abcl.org/"
+  url "https://abcl.org/releases/1.9.2/abcl-src-1.9.2.tar.gz"
   sha256 "4e2f4b8f85e2d95d95e5bdbcd9fa17ad6131a17e2fcf12bc19ffb97b48bc1d38"
-  license "GPL-2.0-or-later" => {
-    with: "Classpath-exception-2.0",
-  }
+  license "GPL-2.0-or-later" => { with: "Classpath-exception-2.0" }
   head "https://abcl.org/svn/trunk/abcl/", using: :svn
 
   livecheck do
-    url "https://deb.debian.org/debian/pool/main/a/abcl/"
-    regex(/href=.*?abcl[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+    url :homepage
+    regex(/href=.*?abcl-src[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
@@ -37,7 +33,7 @@ class Abcl < Formula
   deny_network_access! [:postinstall, :test]
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV["JAVA_HOME"] = Language::Java.java_home
 
     system "ant", "abcl.properties.autoconfigure.openjdk.8"
     system "ant"
@@ -50,6 +46,18 @@ class Abcl < Formula
 
   test do
     (testpath/"test.lisp").write "(print \"Homebrew\")\n(quit)"
-    assert_match(/"Homebrew"$/, shell_output("#{bin}/abcl --load test.lisp").strip)
+
+    require "io/console"
+    require "pty"
+    # `abcl` wraps java with rlwrap, which needs a sized tty
+    PTY.spawn("#{bin}/abcl --load test.lisp > out") do |r, _w, pid|
+      r.winsize = [24, 80]
+      r.read
+    rescue Errno::EIO
+      # GNU/Linux raises EIO when read is done on closed pty
+    ensure
+      Process.wait(pid)
+    end
+    assert_match(/"Homebrew"$/, (testpath/"out").read.strip)
   end
 end

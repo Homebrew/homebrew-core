@@ -35,25 +35,31 @@ class JohnJumbo < Formula
   conflicts_with "john", because: "both install the same binaries"
 
   # Fixed setup `-mno-sse4.1` for some machines.
-  # See details for example from here: https://github.com/openwall/john/pull/4100
   patch do
     url "https://github.com/openwall/john/commit/a537bbca37c1c2452ffcfccea6d2366447ec05c2.patch?full_index=1"
     sha256 "bb6cfff297f1223dd1177a515657b8f1f780c55f790e5b6e6518bb2cb0986b7b"
+    type :backport
+    resolves "https://github.com/openwall/john/pull/4100"
   end
 
   # Fixed setup of openssl@1.1 over series of patches
-  # See details for example from here: https://github.com/openwall/john/pull/4101
   patch do
     url "https://github.com/openwall/john/commit/4844c79bf43dbdbb6ae3717001173355b3de5517.patch?full_index=1"
     sha256 "8469b8eb1d880365121491d45421d132b634983fdcaf4028df8ae8b9085c98ae"
+    type :backport
+    resolves "https://github.com/openwall/john/pull/4101"
   end
   patch do
     url "https://github.com/openwall/john/commit/26750d4cff0e650f836974dc3c9c4d446f3f8d0e.patch?full_index=1"
     sha256 "43d259266b6b986a0a3daff484cfb90214ca7f57cd4703175e3ff95d48ddd3e2"
+    type :backport
+    resolves "https://github.com/openwall/john/pull/4101"
   end
   patch do
     url "https://github.com/openwall/john/commit/f03412b789d905b1a8d50f5f4b76d158b01c81c1.patch?full_index=1"
     sha256 "65a4aacc22f82004e102607c03149395e81c7b6104715e5b90b4bbc016e5e0f7"
+    type :backport
+    resolves "https://github.com/openwall/john/pull/4101"
   end
 
   # Upstream M1/ARM64 Support.
@@ -64,14 +70,15 @@ class JohnJumbo < Formula
   # https://github.com/openwall/john/commit/c9825e688d1fb9fdd8942ceb0a6b4457b0f9f9b4
   # https://github.com/openwall/john/commit/716279addd5a0870620fac8a6e944916b2228cc2
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/john-jumbo/john_jumbo_m1.diff"
-    sha256 "6658f02056fd6d54231d3fdbf84135b32d47c09345fc07c6f861a1feebd00902"
+    file "Patches/john-jumbo/john_jumbo_m1.diff"
   end
 
   # Fix alignment compile errors on GCC 11. Remove in the next release
   patch do
     url "https://github.com/openwall/john/commit/8152ac071bce1ebc98fac6bed962e90e9b92d8cf.patch?full_index=1"
     sha256 "efb4e3597c47930d63f51efbf18c409f436ea6bd0012a4290b05135a54d7edd4"
+    type :backport
+    resolves "https://github.com/openwall/john/pull/4611"
   end
 
   def install
@@ -83,8 +90,8 @@ class JohnJumbo < Formula
       ENV.append "CFLAGS", "-mno-sse4.1"
     end
 
-    ENV["OPENSSL_LIBS"] = "-L#{Formula["openssl@3"].opt_lib}"
-    ENV["OPENSSL_CFLAGS"] = "-I#{Formula["openssl@3"].opt_include}"
+    ENV["OPENSSL_LIBS"] = "-L#{formula_opt_lib("openssl@3")}"
+    ENV["OPENSSL_CFLAGS"] = "-I#{formula_opt_include("openssl@3")}"
 
     cd "src" do
       system "./configure", "--disable-native-tests"

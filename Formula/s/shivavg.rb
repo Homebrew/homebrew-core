@@ -35,6 +35,8 @@ class Shivavg < Formula
   patch do
     url "https://github.com/Ecognize/ShivaVG/commit/fe3bb03d7b03591b26ab7c399f51edcd130f0f4e.patch?full_index=1"
     sha256 "f4eb595afb053eb0a093dcf50748b54e01eff729f4589f82deb8f6f2ce8f571b"
+    type :unofficial
+    resolves "https://github.com/Ecognize/ShivaVG/issues/12"
   end
 
   def install

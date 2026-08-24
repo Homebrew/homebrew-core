@@ -45,6 +45,8 @@ class Freebayes < Formula
     patch do
       url "https://github.com/ekg/intervaltree/commit/aa5937755000f1cd007402d03b6f7ce4427c5d21.patch?full_index=1"
       sha256 "7ae1070e3f776f10ed0b2ea1fdfada662fcba313bfc5649d7eb27e51bd2de07b"
+      type :backport
+      resolves "https://github.com/ekg/intervaltree/pull/32"
     end
   end
 
@@ -54,7 +56,7 @@ class Freebayes < Formula
       s.gsub! "incdir = include_directories(", "incdir = include_directories('contrib',"
 
       # add tabixpp to library directories, https://github.com/mesonbuild/meson/issues/8091
-      s.gsub! "find_library('tabixpp'", "\\0, dirs: '#{Formula["tabixpp"].opt_lib}'"
+      s.gsub! "find_library('tabixpp'", "\\0, dirs: '#{formula_opt_lib("tabixpp")}'"
     end
 
     # install intervaltree

@@ -1,20 +1,18 @@
 class Fuc < Formula
   desc "Modern, performance focused unix commands"
   homepage "https://github.com/supercilex/fuc"
-  url "https://github.com/supercilex/fuc/archive/refs/tags/3.1.1.tar.gz"
-  sha256 "a26265c85d1f13fec555606a8aaa5b978d84e637de2b3cf321dd85c843339f93"
+  url "https://github.com/supercilex/fuc/archive/refs/tags/3.2.0.tar.gz"
+  sha256 "2f9f3572e7a956015593ec7e5f8225f704601404bac7d1e471e1d67632cbf074"
   license "Apache-2.0"
   head "https://github.com/supercilex/fuc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9eb97d285b25f3b351a962c0337c2c8d4068623a6fded827eb1a6881823bb859"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "922d25d5722345f87db9538f0ac9f874f0c1704d9e3a5c76616542b39946f31a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9c8e9a362bd9d9e75260e34a7dab484e6e5952837297561913e23f154adef36"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "611ecc7ae60430242540d1c9914a396e6ee3d0d332a120b13467e3cc4d8ce0c9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "12eea25b2e7186591f94a4562d18de6d841bb3ae46f89a90b28d78532a762edd"
-    sha256 cellar: :any_skip_relocation, ventura:       "7721f0285f24ef46a14c0bec6e7572e949db387caecd6a9d0612b3f42b0bbade"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c03bbd8be10360367f47b2297d333c0f1bbc2f1fd9f1f993d0af6d76523ebfdf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a0972d6b58867a0183cd447faacc117e7900f168f8150e7a10b73dadf8520e7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "233689ca282c04d10b6110abb317240f458dfb7d52f55a3e479fefc7a950505e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec876dd9f75bd22e4195cf5a7814103c272217d1ce75ae567728bcbf6fda4bbb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5954bb9c04258d9115a63d1be7a7924428aec2f5177ce1219080b216599cdf80"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fd510b9bf56bb0553a5295dc4966dcaf43dd0397d610b4195179052544aa513b"
+    sha256 cellar: :any,                 arm64_linux:   "78270c2365ffb15103240718c3ce4e36bb80c464f898d8e479668f98ef45f892"
+    sha256 cellar: :any,                 x86_64_linux:  "40ac06437dcda2e1b1ce57ad2ec77373435cefb895f013874254c8993a7e4919"
   end
 
   depends_on "rust" => :build

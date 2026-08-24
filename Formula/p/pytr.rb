@@ -3,18 +3,17 @@ class Pytr < Formula
 
   desc "Use TradeRepublic in terminal and mass download all documents"
   homepage "https://github.com/pytr-org/pytr"
-  url "https://files.pythonhosted.org/packages/11/91/6296f202e588f830437d27d0876745eca4e21555d9a11a504ac8270f1e4e/pytr-0.4.9.tar.gz"
-  sha256 "cd9a9547ba8de75caf9322bb205e71871890a57a69512a6e48a72bb354866332"
+  url "https://files.pythonhosted.org/packages/05/ac/c3d75b9337f81bb3a54fa61d54d44ad4672812a6613cfb4649e221f57132/pytr-0.4.10.tar.gz"
+  sha256 "41dbb9446d290fc36b21410b5547504088e7fdf49a6e637675c900ec353381d5"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "071227d7c5f44ea716bbd7ec8c99c36fd6c83c7b7d09d8a462cef79511feda8b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "16c1478c63171b89c9f17677d1747281874f64cd101e3d75263632f2a0b134c7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "36a49070efaf26303f77d52e5bac79dfbed911a94921a7b85d891c1551dbe72e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4a7331a1acc0ed754343f0301637952b8aabc3877e4abf1c78b3a449455f2589"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e01bf623fc03e2ad9d459d32d95e385251d78f4b9fcde59eb1f379f4ae5c40ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4c9f629a2a59356231ef495bc72bd6a13bf3df50e827e083c95043d722b16df"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ff0dd7978d079ca3419445b04b392dd408fe1f0ca7340f3d1ed135e356767812"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b2b5787e79e832821ea7f02533dbdecb5ab573c6ea662162b63ba07d7d1672d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b69a562854b7e7d824155997bc969fbd965e9d36ec1143fa784f89aaf0526846"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9e62397faaf36d50f1f150980c7c63e1308cb681173f4f3055daec9f576e04e8"
+    sha256 cellar: :any,                 arm64_linux:   "ece585b389693d8f425a6f4809d8b2a58986e9608f9c3956353064fca4363ae7"
+    sha256 cellar: :any,                 x86_64_linux:  "86c3a0e855c59609371e6839f8dd61b5d374d5f310409f57510125b2d947f501"
   end
 
   depends_on "certifi" => :no_linkage
@@ -28,8 +27,8 @@ class Pytr < Formula
   # No sdist on PyPI, so we use the GitHub tarball
   # Ref: https://github.com/microsoft/playwright-python/issues/2579
   resource "playwright" do
-    url "https://github.com/microsoft/playwright-python/archive/refs/tags/v1.58.0.tar.gz"
-    sha256 "27ce34440c0a73d8123f721f8288689db57a40358e40f1ab234c936f4a2c08eb"
+    url "https://github.com/microsoft/playwright-python/archive/refs/tags/v1.62.0.tar.gz"
+    sha256 "30cc72a0c00a22c3d287539233d3d6abd579becbfe7d02aef80bd3e75c951455"
 
     livecheck do
       url :url
@@ -42,8 +41,8 @@ class Pytr < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "coloredlogs" do
@@ -52,13 +51,13 @@ class Pytr < Formula
   end
 
   resource "curl-cffi" do
-    url "https://files.pythonhosted.org/packages/48/5b/89fcfebd3e5e85134147ac99e9f2b2271165fd4d71984fc65da5f17819b7/curl_cffi-0.15.0.tar.gz"
-    sha256 "ea0c67652bf6893d34ee0f82c944f37e488f6147e9421bef1771cc6545b02ded"
+    url "https://files.pythonhosted.org/packages/b4/23/d32e113b16dbfb458bea408871ed98dd12f306a366a04215e84537e0af7e/curl_cffi-0.16.0.tar.gz"
+    sha256 "b00b423da8028eb6221e3b63bcd63d681150c07cee8b16000d1f7ea292731895"
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/3c/3f/dbf99fb14bfeb88c28f16729215478c0e265cacd6dc22270c8f31bb6892f/greenlet-3.5.0.tar.gz"
-    sha256 "d419647372241bc68e957bf38d5c1f98852155e4146bd1e4121adea81f4f01e4"
+    url "https://files.pythonhosted.org/packages/a3/74/b13368064b09053253555d3f2839cc2684d22d5aed0d2ccffbf7a6736558/greenlet-3.5.4.tar.gz"
+    sha256 "0232ae1de90a8e07867bb127d7a6ba2301e859145489f25cda8a6096dabe1d20"
   end
 
   resource "humanfriendly" do
@@ -67,23 +66,13 @@ class Pytr < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
-    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
-  end
-
-  resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
-  end
-
-  resource "mdurl" do
-    url "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz"
-    sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
+    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
+    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
-    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "pathvalidate" do
@@ -102,8 +91,8 @@ class Pytr < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/43/b8/7a707d60fea4c49094e40262cc0e2ca6c768cca21587e34d3f705afec47e/requests-2.34.0.tar.gz"
-    sha256 "7d62fe92f50eb82c529b0916bb445afa1531a566fc8f35ffdc64446e771b856a"
+    url "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz"
+    sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
   end
 
   resource "requests-futures" do
@@ -111,19 +100,14 @@ class Pytr < Formula
     sha256 "6b7eb57940336e800faebc3dab506360edec9478f7b22dc570858ad3aa7458da"
   end
 
-  resource "rich" do
-    url "https://files.pythonhosted.org/packages/c0/8f/0722ca900cc807c13a6a0c696dacf35430f72e0ec571c4275d2371fca3e9/rich-15.0.0.tar.gz"
-    sha256 "edd07a4824c6b40189fb7ac9bc4c52536e9780fbbfbddf6f1e2502c31b068c36"
-  end
-
   resource "shtab" do
-    url "https://files.pythonhosted.org/packages/b0/7a/7f131b6082d8b592c32e4312d0a6da3d0b28b8f0d305ddd93e49c9d89929/shtab-1.8.0.tar.gz"
-    sha256 "75f16d42178882b7f7126a0c2cb3c848daed2f4f5a276dd1ded75921cc4d073a"
+    url "https://files.pythonhosted.org/packages/fb/79/789eac85ffa705c1405e8524bd99b88b882b4495cd6d2bf30bfa9af909e7/shtab-1.9.3.tar.gz"
+    sha256 "76d9b980cb7fca90b808380f9f1d251f37891d1abc30e1d63f6bde030f804c02"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
-    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
   end
 
   resource "urllib3" do
@@ -132,8 +116,8 @@ class Pytr < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/04/24/4b2031d72e840ce4c1ccb255f693b15c334757fc50023e4db9537080b8c4/websockets-16.0.tar.gz"
-    sha256 "5f6261a5e56e8d5c42a4497b364ea24d94d9563e8fbd44e78ac40879c60179b5"
+    url "https://files.pythonhosted.org/packages/f7/96/e01084f83a64bcb3a27994bd0cb0db68ff29d9c6707fae37ec19b18ba990/websockets-17.0.1.tar.gz"
+    sha256 "5baa9bc0dfbae8c507e51c8cf1b6d4628086f7a87bbd3a9952bd5f035451f1cc"
   end
 
   def install
@@ -149,15 +133,33 @@ class Pytr < Formula
     # Replace bundled node
     bundled_node = venv.site_packages/"playwright/driver/node"
     rm(bundled_node)
-    ln_sf (Formula["node"].opt_bin/"node").relative_path_from(bundled_node.dirname), bundled_node
+    ln_sf (formula_opt_bin("node")/"node").relative_path_from(bundled_node.dirname), bundled_node
   end
 
   test do
-    output = shell_output(
-      "#{bin}/pytr --debug-logfile pytr.log login -n +4912345678 -p 1234 2>&1", 1
-    )
-    assert_match "Retrieving AWS WAF token using Playwright", output
-    assert_path_exists testpath/"pytr.log"
-    assert_match "Looks like Playwright was just installed or updated", (testpath/"pytr.log").read
+    events = testpath/"events.json"
+    events.write <<~JSON
+      [
+        {
+          "id": "deposit-001",
+          "timestamp": "2024-06-03T17:07:26.374+0000",
+          "title": "Test deposit",
+          "subtitle": null,
+          "amount": {"value": 200.0},
+          "eventType": "ACCOUNT_TRANSFER_INCOMING",
+          "details": {"sections": []}
+        }
+      ]
+    JSON
+
+    output = testpath/"transactions.json"
+    system bin/"pytr", "export_transactions", "--load-event-database", events,
+           "--format", "json", "--no-date-with-time", "--lang", "en", output
+
+    transaction = JSON.parse(output.read)
+    assert_equal "2024-06-03", transaction["Date"]
+    assert_equal "Deposit", transaction["Type"]
+    assert_equal 200.0, transaction["Value"]
+    assert_equal "Test deposit", transaction["Note"]
   end
 end

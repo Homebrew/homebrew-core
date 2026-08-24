@@ -21,11 +21,11 @@ class Tfautomv < Formula
   depends_on "opentofu" => :test
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
   end
 
   test do
-    tofu = Formula["opentofu"].opt_bin/"tofu"
+    tofu = formula_opt_bin("opentofu")/"tofu"
     output = shell_output("#{bin}/tfautomv --terraform-bin #{tofu} 2>&1", 1)
     assert_match "No configuration files", output
 

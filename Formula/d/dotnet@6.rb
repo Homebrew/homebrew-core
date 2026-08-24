@@ -191,8 +191,8 @@ class DotnetAT6 < Formula
     if OS.linux?
       icu4c = deps.map(&:to_formula).find { |f| f.name.match?(/^icu4c@\d+$/) }
       ENV.append_path "LD_LIBRARY_PATH", icu4c.opt_lib if OS.linux?
-      ENV.append_to_cflags "-I#{Formula["krb5"].opt_include}"
-      ENV.append_to_cflags "-I#{Formula["zlib"].opt_include}"
+      ENV.append_to_cflags "-I#{formula_opt_include("krb5")}"
+      ENV.append_to_cflags "-I#{formula_opt_include("zlib")}"
     end
 
     (buildpath/".dotnet").install resource("dotnet-install.sh")

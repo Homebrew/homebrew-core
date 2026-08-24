@@ -51,7 +51,7 @@ class Libgxps < Formula
   def install
     # Tell meson to search for brewed zlib before host zlib on Linux.
     # This is not the same variable as setting LD_LIBRARY_PATH!
-    ENV.append "LIBRARY_PATH", Formula["zlib-ng-compat"].opt_lib unless OS.mac?
+    ENV.append "LIBRARY_PATH", formula_opt_lib("zlib-ng-compat") unless OS.mac?
 
     system "meson", "setup", "build", "-Denable-test=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
@@ -99,7 +99,7 @@ class Libgxps < Formula
       XML
     end
 
-    zip = OS.mac? ? "/usr/bin/zip" : Formula["zip"].opt_bin/"zip"
+    zip = OS.mac? ? "/usr/bin/zip" : formula_opt_bin("zip")/"zip"
     Dir.chdir(testpath) do
       system zip, "-qr", (testpath/"test.xps"), "_rels", "Documents", "FixedDocumentSequence.fdseq"
     end

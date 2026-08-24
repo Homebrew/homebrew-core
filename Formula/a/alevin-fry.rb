@@ -1,17 +1,17 @@
 class AlevinFry < Formula
   desc "Efficient and flexible tool for processing single-cell sequencing data"
   homepage "https://github.com/COMBINE-lab/alevin-fry"
-  url "https://github.com/COMBINE-lab/alevin-fry/archive/refs/tags/v0.15.0.tar.gz"
-  sha256 "62ba4c02b4b86dd56ccc8c8c0ec8728f0f159f1107cea37e27a02ee4b54de7bb"
+  url "https://github.com/COMBINE-lab/alevin-fry/archive/refs/tags/v0.18.0.tar.gz"
+  sha256 "303d469b2ec432d7ff4a2eaaadbf532decd0a1f2852a7c83cc56c3fd164290e3"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca901ca2a9ac15e8a47b88ea375a5f547bef5d844761984d502651cb0fb98a8d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "25b176a2e9bed1a272f9443755ddd8508ec931e04397ced2ad1885afe86858a2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4ba16f4db85a9be1591d0085fcd86d78f39546abaf5a4ff3c918722aa275a0f6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dd80d1031837879ecea24efe2b5f60d3d584d5b1d2649a7f6d51dc29a346f80c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b512e105675e0c8e0a73ac5c40e1841862c3d8bcd39e89deb15002c651542937"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ccda4728813e88fd2bf47c71434fc4aecc652e6413e026d97738d1f250de679"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "887269ac72342116194c94e2ae5ebffa587068044d45da9a2670a1fa74c3bd64"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8b09d560cfaf596ac860756e5b2f01aa7b7c0193c5c35f48d58f122183c8418"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "07379e2508a5f16470d9753cd6be6e09e06c9be2f9844b1ddd80d759f7f70108"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bf64c3c1dc0bdb7855e6e6cb639691124f3074f7a18ad81ce2f1c43659624637"
+    sha256 cellar: :any,                 arm64_linux:   "06f1c6c18aac2b159a2169d0ab269bf4d5d3dacbabbf47f3a1b0b3373e7b5009"
+    sha256 cellar: :any,                 x86_64_linux:  "9a6d9317d60a7a3029e891396acf31823f3a806f6d9be2596097501f4d104886"
   end
 
   depends_on "cmake" => :build

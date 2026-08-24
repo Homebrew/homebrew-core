@@ -1,8 +1,8 @@
 class Giza < Formula
   desc "Scientific plotting library for C/Fortran built on cairo"
   homepage "https://danieljprice.github.io/giza/"
-  url "https://github.com/danieljprice/giza/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "d45f1f930b4e4a3c77e0b110b97b732c290d169bf9ae0c3fc7dcd2895c1b3afe"
+  url "https://github.com/danieljprice/giza/releases/download/v1.5.0/giza-v1.5.0.tar.gz"
+  sha256 "dfd9f257c620b22ebe9177e068f194ace7887d55ec5207e7cffec46115dc3a59"
   license "LGPL-3.0-only"
   head "https://github.com/danieljprice/giza.git", branch: "master"
 
@@ -39,10 +39,10 @@ class Giza < Formula
 
     flags = %W[
       -I#{include}
-      -I#{Formula["cairo"].opt_include}/cairo
+      -I#{formula_opt_include("cairo")}/cairo
       -L#{lib}
-      -L#{Formula["libx11"].opt_lib}
-      -L#{Formula["cairo"].opt_lib}
+      -L#{formula_opt_lib("libx11")}
+      -L#{formula_opt_lib("cairo")}
       -lX11
       -lcairo
       -lgiza

@@ -1,33 +1,32 @@
 class Appwrite < Formula
   desc "Command-line tool for Appwrite"
   homepage "https://appwrite.io"
-  url "https://registry.npmjs.org/appwrite-cli/-/appwrite-cli-21.0.1.tgz"
-  sha256 "af79417d56ecdcc9bad6d7a805c2a967e013d04f38a3a95681b95994135e2d16"
+  url "https://github.com/appwrite/sdk-for-cli/archive/refs/tags/27.2.0.tar.gz"
+  sha256 "b82ebb057ad81eaef278d579588e3717f24e710bd8f4e3f43a403e82c9f70e48"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "51f537279f972c970a46b2003d254c03a055d768c8459e1cc82753525e85c04c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1ac4a45dedfebaa095f696f4b7b5aefc1a0f3bbe09429f763caa48fece113890"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1ac4a45dedfebaa095f696f4b7b5aefc1a0f3bbe09429f763caa48fece113890"
-    sha256 cellar: :any_skip_relocation, sonoma:        "49e403c2fdc661aa3e35a20e2af3cc3e0e16c695753df17ca60be9e66d20ffb9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a787b01e9dfe15c0f04b8602a000de3588bc135817203d7dd2846c3b33a149f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a787b01e9dfe15c0f04b8602a000de3588bc135817203d7dd2846c3b33a149f0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "571281a9a404ad11e8973afc2aafe3a0d76c840a2f90d3939b3163269fb5b4fa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "571281a9a404ad11e8973afc2aafe3a0d76c840a2f90d3939b3163269fb5b4fa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "571281a9a404ad11e8973afc2aafe3a0d76c840a2f90d3939b3163269fb5b4fa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7ab87bf3639443dfdf6b5a9f64b578f615e43a2f9ae3f8e4d1420f84108afa64"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bffccd38723b54ad149ec42e54a8d6da67cdced51c41326f4b774ae087b44f75"
+    sha256 cellar: :any,                 x86_64_linux:  "5aa875abfd65a6ac9d3deaee57e6296d294a56c79cdf7263a57ad9b77e70a1ee"
   end
 
-  depends_on "node"
+  depends_on "go" => :build
 
   def install
-    system "npm", "install", *std_npm_args
-    bin.install_symlink libexec.glob("bin/*")
+    # https://github.com/appwrite/sdk-for-cli/blob/4399a3321898f40cf982acbd4859d506c9d4d9f4/.goreleaser.yaml#L19-L22
+    system "go", "mod", "tidy"
+    system "go", "build", *std_go_args(ldflags: "-X github.com/appwrite/sdk-for-cli/internal/app.Version=#{version}")
 
-    node_modules = libexec/"lib/node_modules/appwrite-cli/node_modules"
-    machos = %w[fsevents/fsevents.node app-path/main]
-    machos.each { |macho| deuniversalize_machos node_modules/macho } if OS.mac?
+    generate_completions_from_executable(bin/"appwrite", "completion")
   end
 
   test do
     output = shell_output("#{bin}/appwrite client --endpoint http://localhost/v1 2>&1", 1)
-    assert_match "Error: Invalid endpoint", output
+    assert_match "Error: invalid endpoint", output
 
     assert_match version.to_s, shell_output("#{bin}/appwrite --version")
   end

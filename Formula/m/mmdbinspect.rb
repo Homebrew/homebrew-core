@@ -18,7 +18,7 @@ class Mmdbinspect < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/mmdbinspect"
+    system "go", "build", *std_go_args, "./cmd/mmdbinspect"
   end
 
   test do

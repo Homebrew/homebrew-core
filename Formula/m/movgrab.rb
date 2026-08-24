@@ -38,22 +38,19 @@ class Movgrab < Formula
   # https://github.com/ColumPaget/libUseful/issues/1
   # https://github.com/ColumPaget/libUseful/pull/2
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/movgrab/libUseful_xattr_backport.diff"
-    sha256 "d77c6661386f1a6d361c32f375b05bfdb4ac42804076922a4c0748da891367c2"
+    file "Patches/movgrab/libUseful_xattr_backport.diff"
   end
 
   # Backport fix for GCC linker library search order
   # Upstream ref: https://github.com/ColumPaget/Movgrab/commit/fab3c87bc44d6ce47f91ded430c3512ebcf7501b
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/movgrab/linker.patch"
-    sha256 "e23330f110cb8ea2ed29ebc99180250fa5498d53706303b4d1878dc44aa483d3"
+    file "Patches/movgrab/linker.patch"
   end
 
   # build patch to fix pointer conversion issues
   # upstream bug report, https://github.com/ColumPaget/Movgrab/issues/6
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/movgrab/pointer-conv.patch"
-    sha256 "9b5c0bb666d92c87966e610e3c2db9736371507b646359b5421f2a4fa7d68222"
+    file "Patches/movgrab/pointer-conv.patch"
   end
 
   def install

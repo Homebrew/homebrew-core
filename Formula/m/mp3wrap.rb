@@ -27,6 +27,9 @@ class Mp3wrap < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e666ba56f6a93702e3a37b4dd6f8d908b6a16246ba9ad5467518c970f4ac30ab"
   end
 
+  deprecate! date: "2026-07-17", because: :unmaintained
+  disable! date: "2027-01-17", because: :unmaintained
+
   def install
     # Workaround for arm64 linux. Upstream isn't actively maintained
     ENV.append_to_cflags "-fsigned-char" if OS.linux? && Hardware::CPU.arm?

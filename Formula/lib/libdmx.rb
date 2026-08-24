@@ -1,7 +1,7 @@
 class Libdmx < Formula
   desc "X.Org: X Window System DMX (Distributed Multihead X) extension library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libdmx-1.1.5.tar.xz"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libdmx-1.1.5.tar.xz"
   sha256 "35a4e26a8b0b2b4fe36441dca463645c3fa52d282ac3520501a38ea942cbf74f"
   license "MIT"
 

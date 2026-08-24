@@ -24,12 +24,12 @@ class Step < Formula
 
   def install
     ENV["CGO_ENABLED"] = "0" if OS.linux?
-    ldflags = %W[-s -w -X main.Version=#{version} -X main.BuildTime=#{time.iso8601}]
+    ldflags = %W[-X main.Version=#{version} -X main.BuildTime=#{time.iso8601}]
     system "go", "build", *std_go_args(ldflags:), "./cmd/step"
     generate_completions_from_executable(bin/"step", "completion")
 
     resource("certificates").stage do |r|
-      ldflags = %W[-s -w -X main.Version=#{r.version} -X main.BuildTime=#{time.iso8601}]
+      ldflags = %W[-X main.Version=#{r.version} -X main.BuildTime=#{time.iso8601}]
       system "go", "build", *std_go_args(ldflags:, output: bin/"step-ca"), "./cmd/step-ca"
     end
   end

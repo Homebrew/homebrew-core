@@ -2,8 +2,8 @@ class Libmsquic < Formula
   desc "Cross-platform, C implementation of the IETF QUIC protocol"
   homepage "https://github.com/microsoft/msquic"
   url "https://github.com/microsoft/msquic.git",
-      tag:      "v2.5.8",
-      revision: "bf10e4a60dd03c471343623eccd35b4ea671937f"
+      tag:      "v2.6.0",
+      revision: "e7e7a114e20a55ec2d5f723cf6bdf3bfb7b0b24a"
   license "MIT"
 
   livecheck do
@@ -12,12 +12,12 @@ class Libmsquic < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "db4983b53d42728b269d454b9c15ddb8a1a9f8fd175c47284c38ac0d0c057c3f"
-    sha256 cellar: :any,                 arm64_sequoia: "8ae7bfade1dbf4e5899dad6e492103af2b78d781f98181e4969fc4a7211651f0"
-    sha256 cellar: :any,                 arm64_sonoma:  "0ca66c8ed9d7d8d4b86e41ac93bbed9e60956d8ae6baddaad1132ebe61fe5d6b"
-    sha256 cellar: :any,                 sonoma:        "ce8ee9c89975a16267be6e3dec745b82b91ada68d463b8572df31b418f3e6c49"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0bf675bed2e5f13b273020f19a758d863ab7237d0ad21d45f111b0da90e119ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a38a3b3d7d11b227b4b6dc415bb07e638be204a8f896c88f6d8b7cb03a1f41b"
+    sha256 cellar: :any, arm64_tahoe:   "7f6bf364230410b5148e749b61910466c41977eb744d4a6d3c325d7ab90cd2b0"
+    sha256 cellar: :any, arm64_sequoia: "cf99ce711231b21b79dcfc5afd1e7c21cfe62bfa8017300368455b6153731200"
+    sha256 cellar: :any, arm64_sonoma:  "0358fa7671e1c62c1920bb1cd18dc9c24f66077cdfe1eb1daf79535e385c37e6"
+    sha256 cellar: :any, sonoma:        "e31736904c5f9024858019febe8f3d5849c57f07871b629424e3c6c40a2c9dff"
+    sha256 cellar: :any, arm64_linux:   "4ce71e44e4ea2eee733ad8a45e48240f14b3246b30ca02cf9ae2f9d14cc60ae0"
+    sha256 cellar: :any, x86_64_linux:  "ea0b5aa7cf5d2aa2e07cd21d85dc5779ed08253b338b00dfe726ef712c214c75"
   end
 
   depends_on "cmake" => :build

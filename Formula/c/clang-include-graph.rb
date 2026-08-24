@@ -4,16 +4,16 @@ class ClangIncludeGraph < Formula
   url "https://github.com/bkryza/clang-include-graph/archive/refs/tags/0.2.0.tar.gz"
   sha256 "174bbf961a2426030102bcf444eb2ca4ac10c05cfd5b993fef24bf4d492c420c"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/bkryza/clang-include-graph.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b91cadc2503430beeeb5007a71b88e6876f847f4498f7a03cb73ad4f9108de5f"
-    sha256 cellar: :any,                 arm64_sequoia: "53c10e1ad6a3dfdf71cb4c8076f86feb3dadb35167c4dc6f522a32296ffd093b"
-    sha256 cellar: :any,                 arm64_sonoma:  "b91fd2b8751569ebc551ff314ed1c4add18570652f6f771f3ea7ee396e1cd876"
-    sha256 cellar: :any,                 sonoma:        "189c2348eb50bd617bd426baee9d24c82027f0c84fe014de6be1d1d1a4293030"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "52658f4d4518c469688b333c5214393ef52853becbd85756d8a833c7c627bbe3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2fd912046181d18a635eac4bf5e1b44071ac369cf2acc9f84986e347ae47353"
+    sha256 cellar: :any, arm64_tahoe:   "c423cbe1c07f46fec7da9366441926e5432b1397cf4089c73eb5f0c8b02b3c35"
+    sha256 cellar: :any, arm64_sequoia: "6d72273c3217f8a0bb4a2ed452022f589e0f04f9b916012441e481e28df609ab"
+    sha256 cellar: :any, arm64_sonoma:  "9bf1beab39649328eb15ce500637316d62e4a0490c3106b451154b7428efff1f"
+    sha256 cellar: :any, sonoma:        "e9c4fb65b8be86416e8d654754423612f82a7842eb1f7d31b4c9433b8bc1bccf"
+    sha256 cellar: :any, arm64_linux:   "50dfe4ed236421e9cb31a1c918af2c3ca1d6f8e9b84ed5422e0f9ff35295833c"
+    sha256 cellar: :any, x86_64_linux:  "7e8b46b1abc48211e97c88b05a752e5971b01f1ac01d21ff1272133df5c6329e"
   end
 
   depends_on "cmake" => [:build, :test]

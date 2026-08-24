@@ -1,23 +1,34 @@
 class Hindent < Formula
   desc "Haskell pretty printer"
   homepage "https://github.com/mihaimaruseac/hindent"
-  url "https://github.com/mihaimaruseac/hindent/archive/refs/tags/v6.3.0.tar.gz"
-  sha256 "2726bdbf137691624997f181c29392f22f8566ebc87c5f82e420adfb0068ef07"
   license "BSD-3-Clause"
   head "https://github.com/mihaimaruseac/hindent.git", branch: "master"
 
+  stable do
+    url "https://github.com/mihaimaruseac/hindent/archive/refs/tags/v6.3.0.tar.gz"
+    sha256 "2726bdbf137691624997f181c29392f22f8566ebc87c5f82e420adfb0068ef07"
+
+    # GHC 9.14 support
+    patch do
+      url "https://github.com/mihaimaruseac/hindent/commit/38e5fff0a224dd2137bb6ee4cace6ae792b6a527.patch?full_index=1"
+      sha256 "14d79ab840c44d8a1991f38d0d3d34bcd246f3148fa7cfaec1e3c28e1445e91e"
+      type :backport
+      resolves "https://github.com/mihaimaruseac/hindent/issues/1155"
+    end
+  end
+
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "a9064e9f051f701b3838a050166eb32ff0d3b63658931e8d2e29ed6805b4a2e2"
-    sha256 cellar: :any,                 arm64_sequoia: "7e8875034d3dd3f855cce38ce39f5b0e08b4f9cd712f2af63134372b0ee17261"
-    sha256 cellar: :any,                 arm64_sonoma:  "4f100aab2d28aa161eadcd116b80f475ab2fff06f4285a58f5a6a170c7a0b7fc"
-    sha256 cellar: :any,                 sonoma:        "abaaaad9675273a1b29ecac2a408e184828dcdcfa51a15c2fb1c5ef3faa28892"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e6c786888802e34042a222067dde33ae147d1d44ce79ec04be7547dc442068ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fc168486315c2d03459ab2025810d2c88c6e8268c0f1b3d938cfd7ea29d390e"
+    rebuild 2
+    sha256 cellar: :any, arm64_tahoe:   "e8ab81d0caf17d6c2834d90e76481868c73f0d8a1cd636ed02c33e2362d7b669"
+    sha256 cellar: :any, arm64_sequoia: "db776bdb9ae061d14d2863d2dc1baac79033855793f36f7ca7eeb0576624f26c"
+    sha256 cellar: :any, arm64_sonoma:  "336147fde1d403757ede257d316008b5ef457eb3603b790c7a8907f08edd245f"
+    sha256 cellar: :any, sonoma:        "333600903abc0b0b0dfb649e3afb7cf4e794bdb66d78f4112ddbce461460c72b"
+    sha256 cellar: :any, arm64_linux:   "da224e795271d01684762d7ad21b7e3f9e74fa61bf136a773d38e107b33d0141"
+    sha256 cellar: :any, x86_64_linux:  "e8f838f6c8f27a13b50575b8cd9f3ee25278acffca98f47b12fddcdb9d6e6120"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.12" => :build # GHC 9.14 issue: https://github.com/mihaimaruseac/hindent/issues/1155
+  depends_on "ghc" => :build
   depends_on "gmp"
 
   uses_from_macos "libffi"

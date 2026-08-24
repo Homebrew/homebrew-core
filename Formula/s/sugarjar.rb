@@ -1,18 +1,17 @@
 class Sugarjar < Formula
   desc "Helper utility for a better Git/GitHub experience"
   homepage "https://github.com/jaymzh/sugarjar/"
-  url "https://github.com/jaymzh/sugarjar/archive/refs/tags/v3.0.0.tar.gz"
-  sha256 "abccb802954dbf1cf37941516e3f750c64d56f24c99a730585c49609135f3456"
+  url "https://github.com/jaymzh/sugarjar/archive/refs/tags/v4.0.0.tar.gz"
+  sha256 "1b698e12a0dc641046669ca87ca71c80fd96520c4cb6d350287a0d44df0df86d"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "d3b0cff1f4580225d6a3e7eac8c851309a4b7a634608dde778093d5f84319439"
-    sha256 cellar: :any, arm64_sequoia: "83694e0b651543ea1b51ce0311b93ff03574bffcaab978de7bbd6704b6841ff9"
-    sha256 cellar: :any, arm64_sonoma:  "443c66a932d97244812ab60754d2051e56f145c321f0e2caa9ccb3ced226cc51"
-    sha256 cellar: :any, sonoma:        "cb2dd88eb42cb99ab3b015b8a29e046148b6e8afc39b6d5647b4b9d52fda5e25"
-    sha256 cellar: :any, arm64_linux:   "8c70dca9d32ea5845a28baf1ed56a7b81d064b8bed430a0e03f06a5fca11ca3b"
-    sha256 cellar: :any, x86_64_linux:  "1d175b8ff9dfcc10e818bcf6ea390d6a02cd2b3fb1b33079603b009d740875f6"
+    sha256 cellar: :any, arm64_tahoe:   "8427791235915a6c04a209ec93a570f060c34206dced895593bf2a384686a6fb"
+    sha256 cellar: :any, arm64_sequoia: "0e27ea6b6d4afa239bc22eae321ad933fe0183287ed2c4a2a36ab9eb0d3d8936"
+    sha256 cellar: :any, arm64_sonoma:  "b7ec9cb4ef766783f1d252867884818d4ee07054d6df31659f95b98b31a5d7b5"
+    sha256 cellar: :any, sonoma:        "74eddea21cdd2e2ed6448ed71589d430cbf64739cebb8bb0a321401d5cf8c607"
+    sha256 cellar: :any, arm64_linux:   "5df793971cdd9ea81a48541983ea24d73c1b6541fcfd971c6668b4d53d88b167"
+    sha256 cellar: :any, x86_64_linux:  "974aeda705a2caa1d5c785763aa50fe3bebc2da2b0e6c2710f1ed31f37257f72"
   end
 
   depends_on "gh"

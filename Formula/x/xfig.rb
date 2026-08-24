@@ -46,7 +46,7 @@ class Xfig < Formula
 
     # Xft #includes <ft2build.h>, not <freetype2/ft2build.h>, hence freetype2
     # must be put into the search path.
-    ENV.append "CFLAGS", "-I#{Formula["freetype"].opt_include}/freetype2"
+    ENV.append "CFLAGS", "-I#{formula_opt_include("freetype")}/freetype2"
 
     system "./configure", "--with-appdefaultdir=#{etc}/X11/app-defaults",
                           "--disable-silent-rules",

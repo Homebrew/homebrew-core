@@ -34,7 +34,7 @@ class Imake < Formula
     ENV.deparallelize
 
     # imake runtime is broken when used with clang's cpp
-    cpp_program = Formula["tradcpp"].opt_bin/"tradcpp"
+    cpp_program = formula_opt_bin("tradcpp")/"tradcpp"
     (buildpath/"imakemdep.h").append_lines <<~C
       #define DEFAULT_CPP "#{cpp_program}"
       #undef USE_CC_E"
@@ -61,6 +61,6 @@ class Imake < Formula
   test do
     # Use pipe_output because the return code is unimportant here.
     output = pipe_output("#{bin}/imake -v -s/dev/null -f/dev/null -T/dev/null 2>&1")
-    assert_match "#{Formula["tradcpp"].opt_bin}/tradcpp", output
+    assert_match "#{formula_opt_bin("tradcpp")}/tradcpp", output
   end
 end

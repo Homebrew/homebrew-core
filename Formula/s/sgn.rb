@@ -20,7 +20,7 @@ class Sgn < Formula
 
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux?
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/EgeBalci/sgn/config.Version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X github.com/EgeBalci/sgn/config.Version=#{version}")
   end
 
   test do

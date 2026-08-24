@@ -1,22 +1,21 @@
 class Rootlesskit < Formula
   desc "Linux-native \"fake root\" for implementing rootless containers"
   homepage "https://github.com/rootless-containers/rootlesskit"
-  url "https://github.com/rootless-containers/rootlesskit/archive/refs/tags/v3.0.1.tar.gz"
-  sha256 "6d70d1be48fabe0e2b6e24eb1532b4de8d7689374eaf178a67d54d675c10c22b"
+  url "https://github.com/rootless-containers/rootlesskit/archive/refs/tags/v3.1.0.tar.gz"
+  sha256 "71213cea8077681cb4c1894929b99942c11c525d09bd90f6246b5d3343ff1648"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "db234340c95f0ca968ac87679afa3d0ce4bfe5688ee33b58101da67480f5fc3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ef58c07911b767a74e3941deb8505ec9c43d859fba21278e7f980bd93f7fceb7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "339fdbcea8681640c6a8f84b63a0e7253cfde334f4e1d07f057293a696cd0c87"
+    sha256 cellar: :any,                 x86_64_linux: "89af051915253db2a4206290f2602b26877d478a9eab136f4697a4c3e05fb8c6"
   end
 
   depends_on "go" => :build
   depends_on :linux
 
   def install
-    ldflags = "-s -w"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/rootlesskit"
-    system "go", "build", *std_go_args(ldflags:, output: bin/"rootlessctl"), "./cmd/rootlessctl"
+    system "go", "build", *std_go_args, "./cmd/rootlesskit"
+    system "go", "build", *std_go_args(output: bin/"rootlessctl"), "./cmd/rootlessctl"
     # cmd/rootlesskit-docker-proxy is not installed here, because it has been deprecated
     # since the feature was merged into Docker v28.
     doc.install Dir["docs/*"]

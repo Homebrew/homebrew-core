@@ -9,6 +9,9 @@ class McpGet < Formula
     sha256 cellar: :any_skip_relocation, all: "437f1d04f354dfd572a891eb46ee55475be918ac4173e32634cb0017e69213cd"
   end
 
+  deprecate! date: "2026-07-08", because: :repo_archived, replacement_formula: "smithery-cli"
+  disable! date: "2026-07-08", because: :repo_archived, replacement_formula: "smithery-cli"
+
   depends_on "node"
 
   def install

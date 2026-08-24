@@ -1,18 +1,18 @@
 class Tmuxinator < Formula
   desc "Manage complex tmux sessions easily"
   homepage "https://github.com/tmuxinator/tmuxinator"
-  url "https://github.com/tmuxinator/tmuxinator/archive/refs/tags/v3.4.0.tar.gz"
-  sha256 "ea043d727660d4a10e0e851c0f44128849ac420b9fba477dad2a436b6f568173"
+  url "https://github.com/tmuxinator/tmuxinator/archive/refs/tags/v3.4.1.tar.gz"
+  sha256 "090589171e15f92d00b544c4f7fd23cf042468d813204e25951ebf45f6057548"
   license "MIT"
   head "https://github.com/tmuxinator/tmuxinator.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "870ef6c223f76183219c895a8978dfaa1a8292e34e803f602a5dee1d490aaa08"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "870ef6c223f76183219c895a8978dfaa1a8292e34e803f602a5dee1d490aaa08"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "870ef6c223f76183219c895a8978dfaa1a8292e34e803f602a5dee1d490aaa08"
-    sha256 cellar: :any_skip_relocation, sonoma:        "870ef6c223f76183219c895a8978dfaa1a8292e34e803f602a5dee1d490aaa08"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6aeaca89f64b38147568e5c0473e1fc5668c18d7a7e21379d0d8de36395179fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6aeaca89f64b38147568e5c0473e1fc5668c18d7a7e21379d0d8de36395179fc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9465d1b308bdca3a11efe97cbd4c0e29e8053b76b943e4abfb1d4dc1ab3900d0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9465d1b308bdca3a11efe97cbd4c0e29e8053b76b943e4abfb1d4dc1ab3900d0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9465d1b308bdca3a11efe97cbd4c0e29e8053b76b943e4abfb1d4dc1ab3900d0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9465d1b308bdca3a11efe97cbd4c0e29e8053b76b943e4abfb1d4dc1ab3900d0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b08d319c7d8cfa1ebc81f5df7dfd0daa779dc8a7b21dbfa3913ee26d3c32189b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b08d319c7d8cfa1ebc81f5df7dfd0daa779dc8a7b21dbfa3913ee26d3c32189b"
   end
 
   depends_on "ruby"

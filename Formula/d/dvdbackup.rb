@@ -25,10 +25,10 @@ class Dvdbackup < Formula
   depends_on "libdvdread"
 
   # Fix compatibility with libdvdread 6.1.0. See:
-  # https://bugs.launchpad.net/dvdbackup/+bug/1869226
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/dvdbackup/compat.patch"
-    sha256 "12d54bc08b0eb2acf6429c256373d1d98ba3f6f14821c2bebbbb571eb7b9d82b"
+    file "Patches/dvdbackup/compat.patch"
+    type :unofficial
+    resolves "https://bugs.launchpad.net/dvdbackup/+bug/1869226"
   end
 
   def install

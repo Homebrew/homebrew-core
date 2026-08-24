@@ -18,7 +18,7 @@ class Decompose < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.GitTag=#{version} -X main.GitHash=#{tap.user} -X main.BuildDate=#{time.iso8601}"
+    ldflags = "-X main.GitTag=#{version} -X main.GitHash=#{tap.user} -X main.BuildDate=#{time.iso8601}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/decompose"
   end
 

@@ -54,7 +54,7 @@ class Notmuch < Formula
   def install
     ENV.append "CXXFLAGS", "-std=c++17"
     site_packages = Language::Python.site_packages(python3)
-    with_env(PYTHONPATH: Formula["sphinx-doc"].opt_libexec/site_packages) do
+    with_env(PYTHONPATH: formula_opt_libexec("sphinx-doc")/site_packages) do
       system "./configure", "--prefix=#{prefix}",
                             "--mandir=#{man}",
                             "--emacslispdir=#{elisp}",

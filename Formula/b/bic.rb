@@ -24,12 +24,15 @@ class Bic < Formula
         patch do
           url "https://github.com/hexagonal-sun/bic/commit/97296b610350b3ae6abfb546dcae43fd32a002b3.patch?full_index=1"
           sha256 "32e732260a974cc48d757c0ed0a457467ed8f88025faf5637feca6e37a6e7788"
+          type :backport
         end
 
         # Apply all commits from PR https://github.com/hexagonal-sun/bic/pull/49
         patch do
           url "https://github.com/hexagonal-sun/bic/compare/631cfb449eec35a2df52eb317f4e9add33c1dea9..7748c44eed2c53ce82b9d45a9f629f68f8cc4f99.patch"
           sha256 "bf10454ec8fededce5e9688d7ebabc0f74df3d50c24322efc0f4ee215a1879a9"
+          type :backport
+          resolves "https://github.com/hexagonal-sun/bic/pull/49"
         end
       end
     end
@@ -39,6 +42,7 @@ class Bic < Formula
       on_intel do
         url "https://github.com/hexagonal-sun/bic/commit/77f2993cd5b41bfa21fb21636588e459c6aaf45c.patch?full_index=1"
         sha256 "c7037e4f3b05be997744ccdea0f51786e5eafaddebc131763d5f45745e90cf00"
+        type :backport
       end
     end
   end
@@ -73,8 +77,8 @@ class Bic < Formula
 
   def install
     unless OS.mac?
-      ENV.append_to_cflags "-I#{Formula["libedit"].opt_libexec}/include"
-      ENV.append "LDFLAGS", "-L#{Formula["libedit"].opt_libexec}/lib"
+      ENV.append_to_cflags "-I#{formula_opt_libexec("libedit")}/include"
+      ENV.append "LDFLAGS", "-L#{formula_opt_libexec("libedit")}/lib"
     end
 
     system "autoreconf", "--force", "--install", "--verbose" if build.head? || (OS.mac? && Hardware::CPU.arm?)

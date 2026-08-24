@@ -9,7 +9,10 @@ class BerkeleyDb < Formula
 
   livecheck do
     url "https://www.oracle.com/database/technologies/related/berkeleydb-downloads.html"
-    regex(/Berkeley\s*DB[^(]*?\(\s*v?(\d+(?:\.\d+)+)\s*\)/i)
+    regex(%r{/berkeleydb/html/changelog[._-]v?(\d+(?:[._]\d+)+)\.html?}i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| match[0].tr("_", ".") }
+    end
   end
 
   bottle do
@@ -33,9 +36,9 @@ class BerkeleyDb < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
     directory "dist"
+    type :unofficial
   end
 
   def install

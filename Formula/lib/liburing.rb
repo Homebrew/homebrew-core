@@ -2,14 +2,14 @@ class Liburing < Formula
   desc "Helpers to setup and teardown io_uring instances"
   homepage "https://github.com/axboe/liburing"
   # not need to check github releases, as tags are sufficient, see https://github.com/axboe/liburing/issues/1008
-  url "https://github.com/axboe/liburing/archive/refs/tags/liburing-2.14.tar.gz"
-  sha256 "5f80964108981c6ad979c735f0b4877d5f49914c2a062f8e88282f26bf61de0c"
+  url "https://github.com/axboe/liburing/archive/refs/tags/liburing-2.15.tar.gz"
+  sha256 "8d052f2622dcb3678cbaee5ff582a87572672a6c0a56533cdda5b65cb636120a"
   license any_of: ["MIT", "LGPL-2.1-only"]
   head "https://github.com/axboe/liburing.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "c5b6cfcdea7906367c5d6d15f85d994f671f4b92a21d7b603327288e56bd7120"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a93f7ddc433b025ba053e7aed0c6be08c439ae6259f2eb17dca6bf69122f3f68"
+    sha256 cellar: :any, arm64_linux:  "5c14e93ed3fef11f661c7a2c57683d4c6aae389719b00464c7669769bd25a483"
+    sha256 cellar: :any, x86_64_linux: "fd4d058f57bb17d59ad2ed868146a48b857b9a7caeb38917d7555fccf2562e15"
   end
 
   depends_on :linux

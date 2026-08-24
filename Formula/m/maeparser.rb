@@ -4,16 +4,16 @@ class Maeparser < Formula
   url "https://github.com/schrodinger/maeparser/archive/refs/tags/v1.3.3.tar.gz"
   sha256 "78e7571a779ea4952e752ecef57c62fb26463947e29ef7f4b31b11988d88ca07"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/schrodinger/maeparser.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4ab72f0ad5c5537a43ca12641ea09bb11aaadbe4ac1e4a165dc1c4c9f083550f"
-    sha256 cellar: :any,                 arm64_sequoia: "a91901b461024886fc5a21c50a04ec1feb18632037747775d21bf2a6f2d078e5"
-    sha256 cellar: :any,                 arm64_sonoma:  "0395ee6964880665d0ed6ea81c3c74fbc865f7f0d1cada62c5fc710c89ea9033"
-    sha256 cellar: :any,                 sonoma:        "dd48a5685b50947fdc18cc1d553911a988ac672094741c5f959d41d43e367bee"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "adad547947d2aef9ae2c1824bdafd8b1be4e65149b9a8729823ff68cb6725640"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74f789cea08e79f32d0b2f8dfe2c5f718bd8e5797e4c8960b94cbdb08a153bf5"
+    sha256 cellar: :any, arm64_tahoe:   "9016cea0792cb1dac70619b30aa6f00ddd5e698a54e55e628d77b2395bb63457"
+    sha256 cellar: :any, arm64_sequoia: "559fa0910133740fab4e00c566397636da7c801f7dec9c49df04f93ac89ccfcc"
+    sha256 cellar: :any, arm64_sonoma:  "4c64742f5685ca7108f58144fce791b3084fea5ffda72c4daddb4c8653e2b5e7"
+    sha256 cellar: :any, sonoma:        "97f849072e73cfac704cbf41a790e2a7008602d42c016458012568ad9efe5f86"
+    sha256 cellar: :any, arm64_linux:   "bcb3ac9183f0bcc919674f10f866cd68e9a4327493ce5997a6911b92e486d4cb"
+    sha256 cellar: :any, x86_64_linux:  "0a371a7ed3253e9a11fa3b7f0037c8b432ab2809e0a127a8309f0a90ac41c622"
   end
 
   depends_on "cmake" => :build
@@ -31,7 +31,7 @@ class Maeparser < Formula
     system ENV.cxx, "-std=c++11", "MainTestSuite.cpp", "UsageDemo.cpp", "-o", "test",
                     "-DTEST_SAMPLES_PATH=\"#{testpath}\"", "-DBOOST_ALL_DYN_LINK",
                     "-I#{include}/maeparser", "-L#{lib}", "-lmaeparser",
-                    "-L#{Formula["boost"].opt_lib}", "-lboost_filesystem", "-lboost_unit_test_framework"
+                    "-L#{formula_opt_lib("boost")}", "-lboost_filesystem", "-lboost_unit_test_framework"
     system "./test"
   end
 end

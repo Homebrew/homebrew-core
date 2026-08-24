@@ -24,7 +24,7 @@ class Nuvie < Formula
     url "https://github.com/nuvie/nuvie.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
-    depends_on "sdl2"
+    depends_on "sdl2-compat"
   end
 
   # https://github.com/nuvie/nuvie/commit/759cc0c33bb1a555d6935976c467e52007c3aea1

@@ -1,18 +1,18 @@
 class Ubi < Formula
   desc "Universal Binary Installer"
   homepage "https://github.com/houseabsolute/ubi"
-  url "https://github.com/houseabsolute/ubi/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "81f04e80b246dbac7371da822ea22afa2411ec0bde0fd04fa575c9c1a52f8471"
+  url "https://github.com/houseabsolute/ubi/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "4d84b02d8f7f764209085674b95964702cbaa90bde731bc95fae43097f4df0e1"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/houseabsolute/ubi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "760699c2377dc0f5624ab15da20ae3e2283cc497a5ed9ac57b1b85a2df80954c"
-    sha256 cellar: :any,                 arm64_sequoia: "457fb31dd150c9002f50fcd9bce9907fa11e5863c970c59657e4f04c08929dc5"
-    sha256 cellar: :any,                 arm64_sonoma:  "d9913549a762e66598afe801150369ed3dbafead3bd85b88a1fe64e2c52fdce5"
-    sha256 cellar: :any,                 sonoma:        "cc544dc0a7eed7f1b239caefabca618d6217d6f0954939ab350a6a809587de3d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "582fe47be0a3bf56cc2696c21de8cc69ca636a92e3eb7bbd338be4f9c74cc0de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9a99c46d9f23a0ff48f46dfbc524f63066b52981b88af55d76ce009a3718f20"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "faaa84da96b0fb52e8a143c9a79158cc9df60f62a1f0a356445c12e207ab2a2b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "973d477ff4a69494e8941d937dfa86c33b2ec401190d5125754e2401efa559e4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a253d8119f13fb80d2ba4f06c970e84917801811a10b5cec9585bce4b8edacb1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "43382cf96b8c17c32eb99e6343e9f35b96b433dc72e3c605710799948f4f8f79"
+    sha256 cellar: :any,                 arm64_linux:   "64470508000e0341a7b11f79511c1832280953279a1c0496df7095cd01204ca4"
+    sha256 cellar: :any,                 x86_64_linux:  "9d2e890fa64b3ba9b3a795c77c58e76de616cf08e71789a54d93d9545573ca13"
   end
 
   depends_on "pkgconf" => :build

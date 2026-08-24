@@ -12,12 +12,13 @@ class Pypy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e6f30b9a3f4c02befac0e9ead7b841ebe845a8d8f6a398992e10c5f60894a5ef"
-    sha256 cellar: :any,                 arm64_sequoia: "320906c7c9252293dd38a0a24ae27b97c52092997c355ee293a23549041c29a9"
-    sha256 cellar: :any,                 arm64_sonoma:  "c66e716e5a72ff5fe70b9f1d0aa0bd66ec22e85d69fb78edbe7a899aca0325a0"
-    sha256 cellar: :any,                 sonoma:        "9fa654ef0b701c9a0dbd9e33ca667cd0bf8a6604258b57f58122863588f02419"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e32c3120a2fc7d7a083af392433d9bc8e687d1108b74a50e18181c8cceabd6d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2c339cfee64a5d42a83e1a4b27d536c0d9f3248a791fab24ca0ac2e5b87c3ab"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "f403fcf0e3dc6ea661c1f2beea1a9230fa296b99d92ca3dc130c981dda34e719"
+    sha256 cellar: :any, arm64_sequoia: "88a6553cd49af39771447c20095bd6fc500caeed422a2f932e8f2075eaf250e0"
+    sha256 cellar: :any, arm64_sonoma:  "85f7eab78c8a24c73377af3791bbaf7a6ff275105b008020fd4bb6f91fe6ef17"
+    sha256 cellar: :any, sonoma:        "395b16e6d61733b95ecf1006994d54fb66cccdffcc9a55b78f5dbbe3f386f9be"
+    sha256 cellar: :any, arm64_linux:   "1f98e9cba9cdc685d855555a4b20c5b50a4914e09dc92268e1e328a4dcafcdd3"
+    sha256 cellar: :any, x86_64_linux:  "a7aaf47dac6ff47d8ee48fff1a496baba49fc52c0ff461ff7807b053772acdcb"
   end
 
   depends_on "pkgconf" => :build
@@ -30,11 +31,17 @@ class Pypy < Formula
   uses_from_macos "expat"
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
-  uses_from_macos "unzip"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
+
+  link_overwrite "lib/pypy/site-packages/README"
+  link_overwrite "lib/pypy/site-packages/easy-install.pth"
+  link_overwrite "lib/pypy/site-packages/pip*"
+  link_overwrite "lib/pypy/site-packages/setuptools*"
+  link_overwrite "share/pypy/easy_install*"
+  link_overwrite "share/pypy/pip*"
 
   resource "bootstrap" do
     on_macos do
@@ -77,39 +84,33 @@ class Pypy < Formula
   # - Disable Linux tcl-tk detection since the build script only searches system paths.
   #   When tcl-tk is not found, it uses unversioned `-ltcl -ltk`, which breaks build.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/f3c99d21d0b8fe79a579ef1a7405f10fa18ccde8/Patches/pypy/tcl-tk.diff"
-    sha256 "ed10c9fc9d3a5b8f43ef51c23224605e0ac7bca07aa2e8dc20335b69d13a082f"
+    file "Patches/pypy/tcl-tk.diff"
+    type :unofficial
+    resolves "https://github.com/pypy/pypy/issues/3538"
   end
 
-  def install
-    # Work-around for build issue with Xcode 15.3
-    # upstream bug report, https://github.com/pypy/pypy/issues/4931
-    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+  # Where setuptools will install executable scripts
+  def scripts_folder = HOMEBREW_PREFIX/"share/pypy"
 
+  # The Cellar location of distutils
+  def distutils = libexec/"lib-python/2.7/distutils"
+
+  def install
     # Avoid statically linking to libffi
     inreplace "rpython/rlib/clibffi.py", '"libffi.a"', "\"#{shared_library("libffi")}\""
-
-    # The `tcl-tk` library paths are hardcoded and need to be modified for non-/usr/local prefix
-    tcltk = Formula["tcl-tk@8"]
-    inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
-      s.gsub! "['/usr/local/opt/tcl-tk/include']", "[]"
-      s.gsub! "(homebrew + '/opt/tcl-tk@8/include/tcl-tk')", "('#{tcltk.opt_include}/tcl-tk')"
-      s.gsub! "(homebrew + '/opt/tcl-tk@8/lib')", "('#{tcltk.opt_lib}')"
-    end
 
     if OS.mac?
       # Allow python modules to use ctypes.find_library to find homebrew's stuff
       # even if homebrew is not a /usr/local/lib. Try this with:
       # `brew install enchant && pip install pyenchant`
-      inreplace "lib-python/2.7/ctypes/macholib/dyld.py" do |f|
-        f.gsub! "DEFAULT_LIBRARY_FALLBACK = [",
+      inreplace "lib-python/2.7/ctypes/macholib/dyld.py" do |s|
+        s.gsub! "DEFAULT_LIBRARY_FALLBACK = [",
                 "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib',"
-        f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
+        s.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [",
+                "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
       end
     end
 
-    # See https://github.com/Homebrew/homebrew/issues/24364
-    ENV["PYTHONPATH"] = ""
     ENV["PYPY_USESSION_DIR"] = buildpath
 
     resource("bootstrap").stage buildpath/"bootstrap"
@@ -131,50 +132,31 @@ class Pypy < Formula
     libexec.mkpath
     system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xf", "pypy.tar.bz2"
 
+    %w[setuptools pip].each do |pkg|
+      resource(pkg).stage do
+        system libexec/"bin/pypy", "-s", "setup.py", "--no-user-cfg", "install", "--force", "--verbose"
+      end
+    end
+
     # The PyPy binary install instructions suggest installing somewhere
     # (like /opt) and symlinking in binaries as needed. Specifically,
     # we want to avoid putting PyPy's Python.h somewhere that configure
     # scripts will find it.
     bin.install_symlink libexec/"bin/pypy"
+    bin.install_symlink libexec/"bin/pip" => "pip_pypy"
+    bin.install_symlink libexec/"bin/easy_install" => "easy_install_pypy"
     lib.install_symlink libexec/"bin"/shared_library("libpypy-c")
-  end
-
-  def post_install
-    # Post-install, fix up the site-packages and install-scripts folders
-    # so that user-installed Python software survives minor updates, such
-    # as going from 1.7.0 to 1.7.1.
-
-    # Create a site-packages in the prefix.
-    prefix_site_packages.mkpath
+    pkgshare.install_symlink (libexec/"bin").children
 
     # Symlink the prefix site-packages into the cellar.
-    unless (libexec/"site-packages").symlink?
-      # fix the case where libexec/site-packages/site-packages was installed
-      rm_r(libexec/"site-packages/site-packages") if (libexec/"site-packages/site-packages").exist?
-      mv Dir[libexec/"site-packages/*"], prefix_site_packages
-      rm_r(libexec/"site-packages")
-    end
-    libexec.install_symlink prefix_site_packages
+    (lib/"pypy").install libexec/"site-packages"
+    libexec.install_symlink HOMEBREW_PREFIX/"lib/pypy/site-packages"
 
     # Tell distutils-based installers where to put scripts
-    scripts_folder.mkpath
     (distutils/"distutils.cfg").atomic_write <<~INI
       [install]
       install-scripts=#{scripts_folder}
     INI
-
-    %w[setuptools pip].each do |pkg|
-      resource(pkg).stage do
-        system bin/"pypy", "-s", "setup.py", "--no-user-cfg", "install", "--force", "--verbose"
-      end
-    end
-
-    # Symlinks to easy_install_pypy and pip_pypy
-    bin.install_symlink scripts_folder/"easy_install" => "easy_install_pypy"
-    bin.install_symlink scripts_folder/"pip" => "pip_pypy"
-
-    # post_install happens after linking
-    %w[easy_install_pypy pip_pypy].each { |e| (HOMEBREW_PREFIX/"bin").install_symlink bin/e }
   end
 
   def caveats
@@ -190,27 +172,8 @@ class Pypy < Formula
       so you don't overwrite tools from CPython.
 
       Setuptools and pip have been installed, so you can use easy_install_pypy and
-      pip_pypy.
-      To update setuptools and pip between pypy releases, run:
-          pip_pypy install --upgrade pip setuptools
-
-      See: https://docs.brew.sh/Homebrew-and-Python
+      pip_pypy. These are now managed by the formula and should not be modified.
     EOS
-  end
-
-  # The HOMEBREW_PREFIX location of site-packages
-  def prefix_site_packages
-    HOMEBREW_PREFIX/"lib/pypy/site-packages"
-  end
-
-  # Where setuptools will install executable scripts
-  def scripts_folder
-    HOMEBREW_PREFIX/"share/pypy"
-  end
-
-  # The Cellar location of distutils
-  def distutils
-    libexec/"lib-python/2.7/distutils"
   end
 
   test do

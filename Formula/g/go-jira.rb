@@ -32,7 +32,7 @@ class GoJira < Formula
   conflicts_with "jira-cli", because: "both install `jira` binaries"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"jira"), "cmd/jira/main.go"
+    system "go", "build", *std_go_args(output: bin/"jira"), "cmd/jira/main.go"
   end
 
   test do

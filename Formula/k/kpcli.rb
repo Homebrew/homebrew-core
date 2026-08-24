@@ -4,7 +4,7 @@ class Kpcli < Formula
   url "https://downloads.sourceforge.net/project/kpcli/kpcli-4.1.3.pl"
   sha256 "c91363e4e07f3521a867f68db602c95b53dc167e4366ee7ff254252b4176c62f"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -12,14 +12,14 @@ class Kpcli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1e53483c46df116c1f9d3a05b932dcd09e5bd1656a3144c0bc83ad210cbb6edd"
-    sha256 cellar: :any,                 arm64_sequoia: "5b1aee92cd03c609b34d0fcd86f97d9ea38696136efeb3e6811c466c929b838b"
-    sha256 cellar: :any,                 arm64_sonoma:  "bf459126cdac64c3193c977998618a49dfa4a6556cfab7781c423894940ada71"
-    sha256 cellar: :any,                 tahoe:         "0a2d315fe00606775c74d73b3ceeff9ad88f5fc29011987417c73951ef4450c4"
-    sha256 cellar: :any,                 sequoia:       "ec63a3956eab847eb1e6678bbef3161b901e3ecc845fbdf4a600b96c8731bbeb"
-    sha256 cellar: :any,                 sonoma:        "f2a646079c617087d3e1b9479297de6022039ff3040f06b1fa65dc34748b7905"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fe8641b4a34aabded3af096c3b1456b6e6c2dce601b3f749d9785e10fcf84466"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "113958b15f87cf17ecbbf2e458da972e19e41dd07247c321441496b3230efc58"
+    sha256 cellar: :any, arm64_tahoe:   "e0ae609c2cc96fea3b5b840b1c2129403405cfcaa5b3e8c9441a0df7e1f9aa9e"
+    sha256 cellar: :any, arm64_sequoia: "328a45daca1f2b366cc9e39c030e570a50b909e17c5eb3f40f23a3cf53dc9d33"
+    sha256 cellar: :any, arm64_sonoma:  "9ea88ccdc07297312b83d197992faa1804720ba6efd472b9a220ab6afb850db3"
+    sha256 cellar: :any, tahoe:         "cc33849f2206d6680bd40bc6c61547e4b4d886bea263c64cdd52257c2417c46f"
+    sha256 cellar: :any, sequoia:       "80e6cc121a3cfc33d4105323af5994dc4f3a2ff71af50e19db15af27d1ea1fa8"
+    sha256 cellar: :any, sonoma:        "3cd8bd72986cfb8920bbcc097fd126f547e5577c45736f84d3572a75eada9776"
+    sha256 cellar: :any, arm64_linux:   "829278e4ef6d3057e1f77bae898626b662ccb8d7a6752a979f14e087b7161028"
+    sha256 cellar: :any, x86_64_linux:  "cef290dfb2cd7da018353cd78e129e1972e5411ca73c4e0ae92a0d7035271071"
   end
 
   depends_on "readline"
@@ -116,8 +116,8 @@ class Kpcli < Formula
       ENV.refurbish_args
 
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}",
-                     "--includedir=#{Formula["readline"].opt_include}",
-                     "--libdir=#{Formula["readline"].opt_lib}"
+                     "--includedir=#{formula_opt_include("readline")}",
+                     "--libdir=#{formula_opt_lib("readline")}"
       system "make", "install"
     end
 

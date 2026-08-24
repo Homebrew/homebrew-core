@@ -1,8 +1,8 @@
 class Topgrade < Formula
   desc "Upgrade all the things"
   homepage "https://github.com/topgrade-rs/topgrade"
-  url "https://github.com/topgrade-rs/topgrade/archive/refs/tags/v17.6.1.tar.gz"
-  sha256 "c25274461f61b8fa469c1645a892bb5b52236bb64dc448152c6f485f9ec1cb1d"
+  url "https://github.com/topgrade-rs/topgrade/archive/refs/tags/v17.9.0.tar.gz"
+  sha256 "58d86e921cbe25aa4e913ae3a24ff95c3ab7aad46fe0cc5f0c8d9b4bd38a8929"
   license "GPL-3.0-or-later"
   head "https://github.com/topgrade-rs/topgrade.git", branch: "main"
 
@@ -14,12 +14,12 @@ class Topgrade < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "36eb775ad2b6cb2f30a1ea4f05634e5df8a2a7881d938d2473fc699f62d93682"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c075e343a0305ed449069ff3e8927aea06c80e05fe5be253abf00d075066fee3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe85fcc548030aa358c29e81618b6ce12131c56e9423aa83a2e66d8acfc1ea6e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "74271afd987a3b6f0a4ad2aadf7117af6eb0eff5384ec69ec2e029f5ed1ddbe9"
-    sha256 cellar: :any,                 arm64_linux:   "5f1467716629f5d32d2e1386ee380fb41705ee8ca13f2281b87c83e4969c53de"
-    sha256 cellar: :any,                 x86_64_linux:  "3f259917c8c18f3f840d6b1bdc16010ca5f7d2cd40942f9211df69090f27202d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "394d3ed4b2da40a96e908b9c35a2ad172a2c25f0c5bdeeabb15d86fa0f18d1bf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "38d70601ebf9f4f952d58c4f205529ffe336e9fd4c35140d376089d752ece67e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8dd1f339a90883bd19a5cfb42bec88090219833925900f0bb6097baa52039bcd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3cf2e71fa45c6450cb1aaf66333f6d32b788806fb103a00a124c9ecdbb0f9bf5"
+    sha256 cellar: :any,                 arm64_linux:   "65ba3dc848e6c5a7ddd8fcb8c605080788466eb855d4a85fd0601f9dc87680ad"
+    sha256 cellar: :any,                 x86_64_linux:  "779a44f790059a177b6ce8f4c95ca21be3905d912bfd9699ef9821f1c04fd402"
   end
 
   depends_on "rust" => :build

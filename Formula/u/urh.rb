@@ -19,6 +19,9 @@ class Urh < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "07c1c8a80f51c56feeed46ceeb671839ef925ddafffefc669ce3a67fc0c5947f"
   end
 
+  deprecate! date: "2026-07-17", because: :repo_archived
+  disable! date: "2027-07-17", because: :repo_archived
+
   depends_on "pkgconf" => :build
   depends_on "hackrf"
   depends_on "numpy"

@@ -7,23 +7,25 @@ class Libnotify < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "d8ee57b001510f29334c55080553cf34f41b9e8643484429ec1a0d4852f9fb58"
-    sha256 cellar: :any, arm64_sequoia: "4081e1a50cd23929e7c1ae070e81bf2dc85e6099a274d4e1b98a60da459d0cb6"
-    sha256 cellar: :any, arm64_sonoma:  "2f5cab371969079dbee0c140accfc7a3267bbf006c63e3a1935c153fde4033a7"
-    sha256 cellar: :any, sonoma:        "43ec242ea169e80dda511f44370f9df94f2f50d0996a60149f236c9bbcc515ef"
-    sha256               arm64_linux:   "30a82c884d084884e6d52521fd84aa30c4192e60bca5756b8973a4a786280cf1"
-    sha256               x86_64_linux:  "8a89fcc90b7fc4b1a4559cadd439c9565ea597d4b6184125eb7e17ece817e483"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "668a377fae94a6562e98b1d66786417d41fb0026442995262d5b6142090cd06d"
+    sha256 cellar: :any, arm64_sequoia: "a911b9312b4c1cf01f9906c95c75f4b9298d92172f00732f8ab4ad1467983349"
+    sha256 cellar: :any, arm64_sonoma:  "6d462a1db3c40bdc532a3f7b4ef2585a585938445c84fc6362055416bfd5d6c7"
+    sha256 cellar: :any, sonoma:        "0ea64c170cd514761100480749196bb5b42407af35e6c3a9e5e608d6b629607d"
+    sha256               arm64_linux:   "c319b8b7d0b49559e2167fb0413f8c207dffc14b7d31a5bb3c6e1f189cdddf48"
+    sha256               x86_64_linux:  "38ec72fa936aaffdaef6293c61cd029f0347f9e1f3d1b242b7f6238c8c7170be"
   end
 
   depends_on "docbook-xsl" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "gtk-doc" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
 
   depends_on "gdk-pixbuf"
   depends_on "glib"
+
+  uses_from_macos "libxslt" => :build # for xsltproc
 
   on_macos do
     depends_on "gettext"
@@ -34,7 +36,7 @@ class Libnotify < Formula
 
     args = %w[
       -Dgtk_doc=false
-      -Dman=false
+      -Dman=true
       -Dtests=false
     ]
 

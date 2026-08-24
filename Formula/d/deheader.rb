@@ -3,8 +3,8 @@ class Deheader < Formula
 
   desc "Analyze C/C++ files for unnecessary headers"
   homepage "http://www.catb.org/~esr/deheader/"
-  url "https://gitlab.com/esr/deheader/-/archive/1.12/deheader-1.12.tar.bz2"
-  sha256 "08ca718429db0d3fbe4388d62239d6604a08f979a5421fc4f1a1b55cb688a4d3"
+  url "https://gitlab.com/esr/deheader/-/archive/1.13/deheader-1.13.tar.bz2"
+  sha256 "9d048b84c6459b44ecc8cd56d1bc407dc30419eb4c7263311f887a4587eb9f4b"
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/deheader.git", branch: "master"
 
@@ -16,7 +16,7 @@ class Deheader < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a50361d052ca4a600d876ef7f12a4286551f3bbe2fe72645d8c856e98aa3c230"
+    sha256 cellar: :any_skip_relocation, all: "6f8f29cb6ec6a901c6beb182a2d98a1e4dc767339f0110e05d995ac8367a443e"
   end
 
   depends_on "asciidoctor" => :build

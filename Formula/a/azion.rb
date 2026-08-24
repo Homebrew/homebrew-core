@@ -19,7 +19,6 @@ class Azion < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/aziontech/azion-cli/pkg/cmd/version.BinVersion=#{version}
       -X github.com/aziontech/azion-cli/pkg/constants.StorageApiURL=https://api.azion.com/v4
       -X github.com/aziontech/azion-cli/pkg/constants.AuthURL=https://sso.azion.com/api

@@ -37,7 +37,7 @@ class Minidjvu < Formula
   end
 
   def install
-    inreplace "Makefile.in", "/usr/bin/gzip", Formula["gzip"].opt_bin/"gzip" unless OS.mac?
+    inreplace "Makefile.in", "/usr/bin/gzip", formula_opt_bin("gzip")/"gzip" unless OS.mac?
 
     ENV.deparallelize
     # force detection of BSD mkdir (macos)

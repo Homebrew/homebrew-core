@@ -46,7 +46,6 @@ class Gtksourceviewmm3 < Formula
   end
 
   def install
-    ENV.cxx11
     system "./configure", *std_configure_args
     system "make", "install"
   end
@@ -62,7 +61,7 @@ class Gtksourceviewmm3 < Formula
     CPP
 
     flags = shell_output("pkgconf --cflags --libs gtksourceviewmm-3.0").chomp.split
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", *flags
     system "./test"
   end
 end

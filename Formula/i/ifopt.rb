@@ -20,11 +20,12 @@ class Ifopt < Formula
   depends_on "eigen"
   depends_on "ipopt"
 
-  # Apply open PR to support eigen 5.0.0
-  # PR ref: https://github.com/ethz-adrl/ifopt/pull/110
+  # Backport support for eigen 5.0.0
   patch do
     url "https://github.com/ethz-adrl/ifopt/commit/deb3209d5e34cdaa896c7432f6ee1138148ddfda.patch?full_index=1"
     sha256 "95e1ee352d1842811b2e015a78be304bfce0af867f8233f7e5e7e94aa01aae2d"
+    type :backport
+    resolves "https://github.com/ethz-adrl/ifopt/pull/110"
   end
 
   def install
@@ -37,7 +38,7 @@ class Ifopt < Formula
   test do
     cp pkgshare/"test/ex_test_ipopt.cc", "test.cpp"
     system ENV.cxx, "-std=c++14", "test.cpp", "-o", "test",
-                    "-I#{Formula["eigen"].opt_include}/eigen3",
+                    "-I#{formula_opt_include("eigen")}/eigen3",
                     "-L#{lib}", "-lifopt_core", "-lifopt_ipopt"
     assert_match "Optimal Solution Found", shell_output("./test")
   end

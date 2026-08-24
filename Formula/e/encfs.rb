@@ -29,6 +29,10 @@ class Encfs < Formula
     depends_on "libfuse"
   end
 
+  # Can be undeprecated if 2.0.0 is released
+  deprecate! date: "2026-06-21", because: "needs unmaintained `libfuse@2`"
+  disable! date: "2027-06-21", because: "needs unmaintained `libfuse@2`"
+
   depends_on "pkgconf" => :build
   depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "openssl@4"

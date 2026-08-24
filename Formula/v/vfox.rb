@@ -23,7 +23,7 @@ class Vfox < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
 
     bash_completion.install "completions/bash_autocomplete" => "vfox"
     zsh_completion.install "completions/zsh_autocomplete" => "_vfox"

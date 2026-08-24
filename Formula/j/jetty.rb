@@ -1,8 +1,8 @@
 class Jetty < Formula
   desc "Java servlet engine and webserver"
   homepage "https://jetty.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-home/12.1.10/jetty-home-12.1.10.tar.gz"
-  sha256 "e7f478fe6ae68b18427de9aa5db65c3702d2618e75a7f217faf4f88e1182a9be"
+  url "https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-home/12.1.12/jetty-home-12.1.12.tar.gz"
+  sha256 "eec07131a682bcbfbb0411232932a72196b58f187412862962af07adebb777bc"
   license any_of: ["Apache-2.0", "EPL-2.0"]
 
   livecheck do
@@ -11,7 +11,7 @@ class Jetty < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "be538158bfd9c70d49cba085860e04b2c93c1210219b4ed21ce7ba8d62ee2a1d"
+    sha256 cellar: :any_skip_relocation, all: "0331f93c76a4e019b4e840ace655d2eb8f9a9d5eb43f8e02f0e7eff34bbd28d2"
   end
 
   depends_on "openjdk"
@@ -22,7 +22,7 @@ class Jetty < Formula
 
     (bin/"jetty").write <<~EOS
       #!/bin/bash
-      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+      export JAVA_HOME="${JAVA_HOME:-#{formula_opt_prefix("openjdk")}}"
       export JETTY_HOME="#{libexec}"
       exec "${JAVA_HOME}/bin/java" -jar "${JETTY_HOME}/start.jar" "$@"
     EOS

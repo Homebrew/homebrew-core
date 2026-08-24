@@ -31,8 +31,7 @@ class Cdargs < Formula
   # fixes zsh usage using the patch provided at the cdargs homepage
   # (See https://www.skamphausen.de/cgi-bin/ska/CDargs)
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/cdargs/1.35.patch"
-    sha256 "adb4e73f6c5104432928cd7474a83901fe0f545f1910b51e4e81d67ecef80a96"
+    file "Patches/cdargs/1.35.patch"
   end
 
   def install

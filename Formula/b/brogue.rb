@@ -15,7 +15,7 @@ class Brogue < Formula
     sha256 x86_64_linux:  "55d19558ca6df95ac0ec02fa3c43160c4e20926948dfa9bfe0b1827c7ca53957"
   end
 
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_image"
 
   uses_from_macos "ncurses"

@@ -20,6 +20,8 @@ class AgePluginYubikey < Formula
 
   uses_from_macos "pcsc-lite"
 
+  deny_network_access! [:postinstall, :test]
+
   def install
     system "cargo", "install", *std_cargo_args
   end

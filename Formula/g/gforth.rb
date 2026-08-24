@@ -33,7 +33,7 @@ class Gforth < Formula
     cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
     ENV.deparallelize
     system "./configure", "--prefix=#{prefix}"
-    system "make", "EMACS=#{Formula["emacs"].opt_bin}/emacs"
+    system "make", "EMACS=#{formula_opt_bin("emacs")}/emacs"
     elisp.mkpath
     system "make", "install", "emacssitelispdir=#{elisp}"
 

@@ -3,19 +3,19 @@ class Overturemaps < Formula
 
   desc "Python tools for interacting with Overture Maps data"
   homepage "https://overturemaps.org"
-  url "https://files.pythonhosted.org/packages/d0/65/8327d6961f9e5f526e899d1db376c277094c36f20f23d1a278b66e6939a6/overturemaps-1.0.0.tar.gz"
-  sha256 "2fb9f5d37e2a215259cc1994ddcdf3f312f54f0491aee5457ce48aa9c0514240"
+  url "https://files.pythonhosted.org/packages/36/fc/5b779bf6df4b3b868c26a0ca2d54af2700e630ebdd89d224bd51f3684455/overturemaps-1.0.1.tar.gz"
+  sha256 "c8a975dd8f64442187ce8a9e64840469cfcfac1c930ad09015acfcb1481e548b"
   license "MIT"
+  revision 1
   head "https://github.com/OvertureMaps/overturemaps-py.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any, arm64_tahoe:   "e436dc93a1b2b9f3825ad786a5b06e7bd2f0cbd81f6d7f0dee0c9a5ce3c0e678"
-    sha256 cellar: :any, arm64_sequoia: "8ffc9506084db3f3363043dad8fc165b02e19c89d93963d09c7e334c43670787"
-    sha256 cellar: :any, arm64_sonoma:  "467c0bb238224a829951ae88f76e5f25dbab1e68bb4290c5f7452b99e67ae2ab"
-    sha256 cellar: :any, sonoma:        "ae8e2849c3822aecaf321198012eaff9d0eaad6952762a647d037a0895b32f8a"
-    sha256 cellar: :any, arm64_linux:   "f1125bcf4580eb8370f2cd5fd1269aed88f3c03b9a73b990ae1be000690948fa"
-    sha256 cellar: :any, x86_64_linux:  "5e218c84add4dcbd46f627fe2d52a9ccca75fd50b9d81a007e3a80d532053895"
+    sha256 cellar: :any, arm64_tahoe:   "510af7586610fd3d7f9d173b118494da65415a600a2eaaefa4107d83b7bcc9f9"
+    sha256 cellar: :any, arm64_sequoia: "3aa55683cbb1da65b94ed34a7848cb982e48326fa4efdd4f0a9012fa42a91d88"
+    sha256 cellar: :any, arm64_sonoma:  "7367ac74cd858fd4c4e6fee3f57bf995d39eb29d1f4d64ff4729e80d431b83e5"
+    sha256 cellar: :any, sonoma:        "6e054714c642ccf4e0846712047c7352fdb0217d1e66707afd5e6d3ca4003118"
+    sha256 cellar: :any, arm64_linux:   "131b20bc244fb5de833bad3399f3385ec6c5e765ba826cb63d988204b1e4143f"
+    sha256 cellar: :any, x86_64_linux:  "f97f4deee47bafb97897ec65492da3963fbb47ab0299da267cb54335094af49b"
   end
 
   depends_on "cmake" => :build  # for pyarrow
@@ -33,8 +33,8 @@ class Overturemaps < Formula
   pypi_packages exclude_packages: "numpy"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
-    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "colorama" do
@@ -63,15 +63,15 @@ class Overturemaps < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
-    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
+    url "https://files.pythonhosted.org/packages/87/d7/0535a28b1f5f24f6612fb3ff1e89fb1a8d160fee0f976e0aa6803862134b/tqdm-4.68.3.tar.gz"
+    sha256 "00dfa48452b6b6cfae3dd9885636c23d3422d1ec97c66d96818cbd5e0821d482"
   end
 
   def install
     python3 = "python3.14"
-    numpy_include = Formula["numpy"].opt_lib/Language::Python.site_packages(python3)/"numpy/_core/include"
-    geos_include = Formula["geos"].opt_include
-    geos_lib = Formula["geos"].opt_lib
+    numpy_include = formula_opt_lib("numpy")/Language::Python.site_packages(python3)/"numpy/_core/include"
+    geos_include = formula_opt_include("geos")
+    geos_lib = formula_opt_lib("geos")
 
     ENV.prepend "CFLAGS", "-I#{numpy_include} -I#{geos_include}"
     ENV.prepend "LDFLAGS", "-L#{geos_lib}"

@@ -35,7 +35,7 @@ class Dcled < Formula
     end
 
     system "make", "CC=#{ENV.cc}",
-                   "LIBUSB_CFLAGS=-I#{Formula["libusb"].opt_include}/libusb-1.0"
+                   "LIBUSB_CFLAGS=-I#{formula_opt_include("libusb")}/libusb-1.0"
     system "make", "install",
                    "FONTDIR=#{share}/#{name}",
                    "INSTALLDIR=#{bin}"

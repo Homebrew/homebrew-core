@@ -44,7 +44,7 @@ class Khiva < Formula
   test do
     cp pkgshare/"examples/matrixExample.cpp", testpath
     system ENV.cxx, "-std=c++11", "matrixExample.cpp",
-                    "-L#{Formula["arrayfire"].opt_lib}", "-laf",
+                    "-L#{formula_opt_lib("arrayfire")}", "-laf",
                     "-L#{lib}", "-lkhiva",
                     "-o", "test"
     # OpenCL does not work on ephemeral ARM CI.

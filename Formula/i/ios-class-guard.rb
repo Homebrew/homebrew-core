@@ -32,6 +32,9 @@ class IosClassGuard < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "807b425c949e9a25331abd13967721d6f58d3a1674fcc8175744e713e81ee5d3"
   end
 
+  deprecate! date: "2026-07-17", because: :deprecated_upstream
+  disable! date: "2027-01-17", because: :deprecated_upstream
+
   depends_on xcode: :build
   depends_on :macos
 

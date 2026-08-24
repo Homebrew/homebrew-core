@@ -29,7 +29,7 @@ class Jsvc < Formula
       ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
       system "autoreconf", "--force", "--install", "--verbose"
-      system "./configure", "--with-java=#{Formula["openjdk"].opt_prefix}"
+      system "./configure", "--with-java=#{formula_opt_prefix("openjdk")}"
       system "make"
 
       libexec.install "jsvc"

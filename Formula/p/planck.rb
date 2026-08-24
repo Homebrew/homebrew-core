@@ -13,6 +13,8 @@ class Planck < Formula
     patch do
       url "https://github.com/planck-repl/planck/commit/0e336f722b52f18e130d3866d4c512b20bafcbd7.patch?full_index=1"
       sha256 "685fb05b666f5ed419d986be6a35bda6448f062eaeb6666a9910a2c4dd4fd16a"
+      type :backport
+      resolves "https://github.com/planck-repl/planck/pull/1107"
     end
   end
 
@@ -31,13 +33,16 @@ class Planck < Formula
   depends_on "clojure" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on xcode: :build
   depends_on "icu4c@78"
   depends_on "libzip"
 
   uses_from_macos "vim" => :build # for xxd
   uses_from_macos "curl"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on xcode: :build
+  end
 
   on_linux do
     depends_on "webkitgtk"
@@ -51,7 +56,7 @@ class Planck < Formula
     ENV["JAVA_HOME"] = Language::Java.java_home
 
     if OS.linux?
-      ENV.prepend_path "PATH", Formula["openjdk"].opt_bin
+      ENV.prepend_path "PATH", formula_opt_bin("openjdk")
 
       # The webkitgtk pkg-config .pc file includes the API version in its name (ex. javascriptcore-4.1.pc).
       # We extract this from the filename programmatically and store it in javascriptcore_api_version

@@ -31,10 +31,11 @@ class Enscript < Formula
   conflicts_with "cspice", because: "both install `states` binaries"
 
   # Fix implicit declarations of strcmp, strncmp, strlen when compiling compat/getopt.c
-  # See https://savannah.gnu.org/bugs/?64307
   patch :p0 do
     url "https://raw.githubusercontent.com/macports/macports-ports/a24179380383ebda2ad9209f958ef8dd4ce7354d/print/enscript/files/patch-string_h.diff"
     sha256 "0238849f8b78777b30cf2043d19d866ff722992225926440e925a4e49d3ae5a8"
+    type :unofficial
+    resolves "https://savannah.gnu.org/bugs/?64307"
   end
 
   def install

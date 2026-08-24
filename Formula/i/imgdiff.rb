@@ -24,7 +24,7 @@ class Imgdiff < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd"
+    system "go", "build", *std_go_args, "./cmd"
   end
 
   test do

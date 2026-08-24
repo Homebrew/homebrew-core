@@ -1,17 +1,17 @@
 class CargoEdit < Formula
   desc "Utility for managing cargo dependencies from the command-line"
   homepage "https://killercup.github.io/cargo-edit/"
-  url "https://github.com/killercup/cargo-edit/archive/refs/tags/v0.13.11.tar.gz"
-  sha256 "bf67d37526a4c7c4381b37780d0839dd71545c058eb3cb1a15ea051f973f67eb"
+  url "https://github.com/killercup/cargo-edit/archive/refs/tags/v0.13.13.tar.gz"
+  sha256 "fc8c476f3ef1a32b6fb11db2c365fbea25f1face73d1df9ef18318d4be294006"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b259d3fd8c29722056744d1bd2280a054ab54c9492fb8c0edc82f3e087d37bf6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f426727b781a993bdc710662c3fe8ee695dbe2f7770414b6a72d06527045422"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "212d55b4a2a5a426e24d064c5ffae91d93a7614136439c1c07af74d5c979cbfd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "486cb1799c6423f38167296f779183105885169398197238e36eaed809c5d93f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ec04ddd3a7740964b18f74445a3fcba93edbd3c9817dbecfa7943be60553a65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87429f7bf1876a473e17a7ff0b5f52ef690e5c495741b4bd0b96d5d412d1a9df"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a89d2720f711167d40a4f7a972647dd6a95aeefed5d8d7cb8b3771c1598d5ce5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "36dfe29b73d0cafc0bfa51fc6ce5579f4baa772d059281c386468b4a06be8980"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9d5b8ca40f21d7bda60c61cb92fe5091885589b424bb47e5f3a502c34a8e921"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e2a769690da67f50c85efc392bf2fb6eb5c460821b14e8cefd21487935651e37"
+    sha256 cellar: :any,                 arm64_linux:   "21ef79781f2f37d0e88007a444db547cc68f77bd893645811c31ec974b2c6c47"
+    sha256 cellar: :any,                 x86_64_linux:  "f0ff81adcc0ed06d32456e4825a030de769d7e0ebb5db7f80a22aef7af23bb17"
   end
 
   depends_on "pkgconf" => :build

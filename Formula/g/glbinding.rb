@@ -56,7 +56,7 @@ class Glbinding < Formula
     end
     system ENV.cxx, "-o", "test", "test.cpp", "-std=c++11",
                     "-I#{include}/glbinding", "-I#{lib}/glbinding", *open_gl,
-                    "-L#{lib}", "-lglbinding", "-L#{Formula["glfw"].opt_lib}", "-lglfw",
+                    "-L#{lib}", "-lglbinding", "-L#{formula_opt_lib("glfw")}", "-lglfw",
                     *ENV.cflags.to_s.split
     system "./test"
   end

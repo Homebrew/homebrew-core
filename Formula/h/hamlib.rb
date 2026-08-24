@@ -1,18 +1,18 @@
 class Hamlib < Formula
   desc "Ham radio control libraries"
   homepage "http://www.hamlib.org/"
-  url "https://github.com/Hamlib/Hamlib/releases/download/4.7.1/hamlib-4.7.1.tar.gz"
-  sha256 "d197a08a3d5d936d7571ae573f745bbba619e88998742c8267e3fcb0fb3d5974"
+  url "https://github.com/Hamlib/Hamlib/releases/download/4.7.2/hamlib-4.7.2.tar.gz"
+  sha256 "ae1fcf2dbc80ea0786ea8f047b09399c3f7737d1930442f61a031708ed33e88f"
   license "LGPL-2.1-or-later"
   head "https://github.com/hamlib/hamlib.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a15d17d84db87b76f1cefff6599cddd5987e4a1bd06a62c24934db82d1afaecd"
-    sha256 cellar: :any,                 arm64_sequoia: "5602a7cceeb1f70927ff9bd8f9789801ca99e20839927be69af1d69f11df8169"
-    sha256 cellar: :any,                 arm64_sonoma:  "5d5ef6222b66202c64fd5f3920006248a6bac227af541348aa271a0b4002e259"
-    sha256 cellar: :any,                 sonoma:        "e0a06769fb90de54e742255eeadf6f2ca102a77ff8fe253eeafbee677e92c09a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ecb6d74a31b9a263f8f5fd15429fd00f163d65ad636391820676383ea6db2d66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd85b22bf603d9166733d57e2720be95d1da42f164558de1cfd53474657780f8"
+    sha256 cellar: :any, arm64_tahoe:   "5b3121253c6c02cb3e4408c34ecc4ad5d0e542df2370b4d62a945c080a68fdcc"
+    sha256 cellar: :any, arm64_sequoia: "0272727195c00b85ac9991545e3a86ea1d1c84c2da785a1573879d10d59db69f"
+    sha256 cellar: :any, arm64_sonoma:  "45a87a2b474931b39d2e8407ef931b7753681be7d992536acbf9c71b9e54bc29"
+    sha256 cellar: :any, sonoma:        "fba407c9ce0e3a36dfe739e5df61ee05c4d437d350a851a6b9b1d78fa1ff6f8a"
+    sha256 cellar: :any, arm64_linux:   "e4b13e3f8b5c3721fc3edceb8cc75310e9c247ebba62399cd6097facc482e1ce"
+    sha256 cellar: :any, x86_64_linux:  "30656fd2ae24e51a21f81b28ca3e47f1d5b9d657a8ec67b5a606f1d61fd0a2d2"
   end
 
   depends_on "autoconf" => :build

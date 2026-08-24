@@ -5,17 +5,19 @@ class Freeciv < Formula
   head "https://github.com/freeciv/freeciv.git", branch: "main"
 
   stable do
-    url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.2/3.2.4/freeciv-3.2.4.tar.xz"
-    sha256 "e0a19508bf69dc4fb7c251d391253794d772bfcce2dbd30fa453521244edd32c"
+    url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.2/3.2.5/freeciv-3.2.5.tar.xz"
+    sha256 "d32808f02a9b9f49ef159bcbf266b16ce2a3ce6ea8f71115d80f952c3cc609e8"
 
     # Backport support for Lua 5.5
     patch do
       url "https://github.com/freeciv/freeciv/commit/b427d038fab6c96983cef54cf618a4b07bd1a62f.patch?full_index=1"
       sha256 "4a0665180ff33e733809ec1185d484e6cc1dfed38ef7acd88f0f4e8042e5349f"
+      type :backport
     end
     patch do
       url "https://github.com/freeciv/freeciv/commit/4718723428fc8009b7d46f9b6133d0fd76f056ab.patch?full_index=1"
       sha256 "5d5cb19715488f34c0bb40b3379609a48454353d0aa1967b9c58ccbbff502faa"
+      type :backport
     end
   end
 
@@ -25,12 +27,12 @@ class Freeciv < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "109cfd1ecf6d7b7a583e63adcf244196d5b11fc1be132bef50c51d4a69f07453"
-    sha256 arm64_sequoia: "530b2aa5b7880af861e5e17d4ab95ce0980e26cc7cf27f88ebe51d9dea34d8e9"
-    sha256 arm64_sonoma:  "dbec237b1ed34f256535f8e45f2dc858b626a92d7c8a82972a90d650ecaab4f4"
-    sha256 sonoma:        "da78add7aeb770b21dc4e52682b281963a01cf8a324d15703db5cd1f852f6f8b"
-    sha256 arm64_linux:   "319677b0a829fb1aad86babc3ae3175ca0996d08a42ad5ae370cddcf08d0c26e"
-    sha256 x86_64_linux:  "8f2bf88e394e20849d65b6b5283b4d3661b7ccf3b7faa00ad8598f1862d52771"
+    sha256 arm64_tahoe:   "7a17bcfe46ffcc395f97535ad6fe3581d99db0b0b75fed9c3f159d829c786e31"
+    sha256 arm64_sequoia: "ac0471224fd92b3de08c75013cc3c0e94d24cadbd8df44dba922ff4212d327e0"
+    sha256 arm64_sonoma:  "d4ad3a062ac09caf16f370eff68e6242ed69dc95a415b6a5afaa7b5bfe92ed8c"
+    sha256 sonoma:        "1175e793db4c19a87d468c8cddefe9edb6b150fa00c68404cc9fdee373936c44"
+    sha256 arm64_linux:   "2b4fade431692d440364f7c3875e20f42000c1c7f5a2b9d919824b703937d379"
+    sha256 x86_64_linux:  "1bde8a4627a7473cd18dad1df0cef9ecb30179c4ad365eb46bbe2d7c3c21d37f"
   end
 
   depends_on "meson" => :build
@@ -45,7 +47,7 @@ class Freeciv < Formula
   depends_on "lua"
   depends_on "pango"
   depends_on "readline"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_mixer"
   depends_on "xz"
   depends_on "zstd"
@@ -63,7 +65,6 @@ class Freeciv < Formula
   end
 
   def install
-    ENV.cxx11
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath}" if OS.mac?
 
     # Remove bundled lua

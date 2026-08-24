@@ -2,7 +2,6 @@ class IcarusVerilog < Formula
   desc "Verilog simulation and synthesis tool"
   homepage "https://steveicarus.github.io/iverilog/"
   url "https://github.com/steveicarus/iverilog/archive/refs/tags/v13_0.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_13.0.orig.tar.gz"
   sha256 "c897bbfa9848688982c6d5c30529fc29d68df0b9ff22ffa73bad89db73a7ce49"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   head "https://github.com/steveicarus/iverilog.git", branch: "master"
@@ -40,7 +39,7 @@ class IcarusVerilog < Formula
   def install
     system "autoconf"
     system "./configure", "--prefix=#{prefix}"
-    system "make", "install", "BISON=#{Formula["bison"].opt_bin}/bison"
+    system "make", "install", "BISON=#{formula_opt_bin("bison")}/bison"
   end
 
   test do

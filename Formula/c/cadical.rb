@@ -1,8 +1,8 @@
 class Cadical < Formula
   desc "Clean and efficient state-of-the-art SAT solver"
   homepage "https://fmv.jku.at/cadical/"
-  url "https://github.com/arminbiere/cadical/archive/refs/tags/rel-3.0.0.tar.gz"
-  sha256 "282b1c9422fde8631cb721b86450ae94df4e8de0545c17a69a301aaa4bf92fcf"
+  url "https://github.com/arminbiere/cadical/archive/refs/tags/rel-3.0.1.tar.gz"
+  sha256 "0a8ea563b5a25f5aa064634814edab45cc0e45111ea0f5d412a565f806fd7e11"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class Cadical < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2967cc0540cdaf175371d3a4f566ada6998c14f565af4f3a0e844c38655e25d0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "34eb631b3ca9f327844f593b90c8caf146e677c34221dece4e06d6e70309bf14"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "117549d37410d5cb9466328e14940c6d97aa1e7349536f146abac6df7e8dfb64"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c79fc253f0b70e9271afec97af7ccfa616c27399ae98469493bf269cd0329e27"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b1269bb97bdc24a8a221815916362376d69f3a9f200adf44eb7052a6cb37161"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d52a60004435c341e172b804ab0aa96e12170ab4b94e6f2919707a61f59b9e6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "77962818debd60f5d12591b3dc589f5ceec70f7fc3fca65b69cc145ba06aa76e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ecf44191d1ed10a61bb47ce009d91e520abc637fbcf3608004cc7cf463fe2271"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5632faabd6d7090f603752a52eea7ace1cc7f101694eef8f7a4eb8de66803d35"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dd05c41f479807a91b72b33fc3f120d40d25e416e8f5adbbd988ee462865a85e"
+    sha256 cellar: :any,                 arm64_linux:   "d3c1c53581a8f3f802a062318f9a4b23e503fa0bf9846040d69dac729ca421c5"
+    sha256 cellar: :any,                 x86_64_linux:  "cef0be1bad5d61be121bd000090bf1639d2ac89279892278312b647742c38625"
   end
 
   def install

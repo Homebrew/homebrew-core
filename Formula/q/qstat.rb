@@ -1,7 +1,7 @@
 class Qstat < Formula
   desc "Query Quake servers from the command-line"
-  homepage "https://github.com/Unity-Technologies/qstat"
-  url "https://github.com/Unity-Technologies/qstat/archive/refs/tags/v2.18.tar.gz"
+  homepage "https://github.com/rocketsciencegg/qstat"
+  url "https://github.com/rocketsciencegg/qstat/archive/refs/tags/v2.18.tar.gz"
   sha256 "a74564bd9c31db3dc1fcc0a68ffaf694630b9e67f0d31ff76b2a3c3196ee4f1f"
   license "Artistic-2.0"
 

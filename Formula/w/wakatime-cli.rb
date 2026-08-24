@@ -2,18 +2,18 @@ class WakatimeCli < Formula
   desc "Command-line interface to the WakaTime api"
   homepage "https://wakatime.com/"
   url "https://github.com/wakatime/wakatime-cli.git",
-      tag:      "v2.19.0",
-      revision: "0a8c6760f4632dfbded7152546ed6b00b9edae9d"
+      tag:      "v2.24.4",
+      revision: "3675b05025a571637358fc1cac3f29cc94284459"
   license "BSD-3-Clause"
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c9c12bf2caca5786cdfefb35599aa27300197d0b8dcca253c32c4f79fe43b465"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c9c12bf2caca5786cdfefb35599aa27300197d0b8dcca253c32c4f79fe43b465"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c9c12bf2caca5786cdfefb35599aa27300197d0b8dcca253c32c4f79fe43b465"
-    sha256 cellar: :any_skip_relocation, sonoma:        "406998ac6d20f9c3738bc26e39be7ca49b6f75ef7ae2a82121d9def9876da2cd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "627b33bded7e02e0dd26f4a0f0310ce79ed8d4cbc53eba78aac333a52ea9f312"
-    sha256 cellar: :any,                 x86_64_linux:  "bb4dbe5bbd0d9f636d6626a875aef8cb971468fb0dae870fcef51f1ba284680b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2def22a60342cbbaa1f3c56eb21d8b79f9f9af21224438332a40e3550ef6e194"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2def22a60342cbbaa1f3c56eb21d8b79f9f9af21224438332a40e3550ef6e194"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2def22a60342cbbaa1f3c56eb21d8b79f9f9af21224438332a40e3550ef6e194"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1c72c5d473ff926f4bd96ead48f72f8c14b535abaa014600d603e3938ec6378d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1fc1b72927ac6c5fd5f23bbde67ca028ef10f4cf42b66eacd1eef78d812dd5f8"
+    sha256 cellar: :any,                 x86_64_linux:  "f729475a1a73a0508ba734d4458aee00b42c3450beeb4f81bd3faf72260654b2"
   end
 
   depends_on "go" => :build
@@ -21,13 +21,12 @@ class WakatimeCli < Formula
   def install
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
     ldflags = %W[
-      -s -w
       -X github.com/wakatime/wakatime-cli/pkg/version.Arch=#{arch}
       -X github.com/wakatime/wakatime-cli/pkg/version.BuildDate=#{time.iso8601}
       -X github.com/wakatime/wakatime-cli/pkg/version.Commit=#{Utils.git_head(length: 7)}
       -X github.com/wakatime/wakatime-cli/pkg/version.OS=#{OS.kernel_name.downcase}
       -X github.com/wakatime/wakatime-cli/pkg/version.Version=v#{version}
-    ].join(" ")
+    ]
     system "go", "build", *std_go_args(ldflags:)
     generate_completions_from_executable(bin/"wakatime-cli", shell_parameter_format: :cobra)
   end

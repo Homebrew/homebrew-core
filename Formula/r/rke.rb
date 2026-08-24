@@ -24,11 +24,13 @@ class Rke < Formula
     sha256 cellar: :any,                 x86_64_linux:  "07fe86aecc48fb728a7211c139c8233ec8fc3d4ad9da692fd2f098629e74f6ac"
   end
 
+  deprecate! date: "2026-07-31", because: :deprecated_upstream
+  disable! date: "2027-07-31", because: :deprecated_upstream
+
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.VERSION=v#{version}"
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags: "-X main.VERSION=v#{version}")
   end
 
   test do

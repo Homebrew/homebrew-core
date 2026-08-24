@@ -4,7 +4,7 @@ class Qca < Formula
   url "https://download.kde.org/stable/qca/2.3.10/qca-2.3.10.tar.xz"
   sha256 "1c5b722da93d559365719226bb121c726ec3c0dc4c67dea34f1e50e4e0d14a02"
   license "LGPL-2.1-or-later"
-  revision 5
+  revision 6
   head "https://invent.kde.org/libraries/qca.git", branch: "master"
 
   livecheck do
@@ -13,12 +13,12 @@ class Qca < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4bea07e0d10d689e6d1cedccae2c0bd7c2b5ccb8d13a6b9548f90ce5fd734ae0"
-    sha256 cellar: :any,                 arm64_sequoia: "c36105d102c5015030076c38fdc0d42940df1378b4d1c2953c4b16e67704eeda"
-    sha256 cellar: :any,                 arm64_sonoma:  "bddd51df7a662b953dcfbd7fd42dea92f50bfbd95fcb7c7330625fa1bb3b1c1b"
-    sha256 cellar: :any,                 sonoma:        "1eb3d9c8c5e997ccdbb12ff8ea0aebedabe8e68b09e16c85b652a2eea0ef89aa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "195c18875bc89c15ce17b8a0e4c6e73b7b57c5e71afafea7f683776d1eddf296"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "220cf9d9b004882e4428fb04dae0971a60a5d3db9b947c7fc33976b001ba4f08"
+    sha256 cellar: :any, arm64_tahoe:   "5a6bfd54adc4e5ed70a78af3854f79ca747c85a972b872097d3ac1ec45b64055"
+    sha256 cellar: :any, arm64_sequoia: "2c594f99d538a1649ae31440f181e33ecff6f6c81074b91025f882839520b79d"
+    sha256 cellar: :any, arm64_sonoma:  "623128b7cd99bd594b51dfd22b16455d1447bdac2c9dd2b90dae395a2d28ce8f"
+    sha256 cellar: :any, sonoma:        "787043e5a1b58014a80d4f31f74df8c465f2c51c31419de1a55d85792e8a6b21"
+    sha256 cellar: :any, arm64_linux:   "768682786b53cfce293e229e834cd44bc8e15485103654d4809e6173f08381b5"
+    sha256 cellar: :any, x86_64_linux:  "cad4eeb33ee0c7f5dcf1c707f191df4f5e67a4b727ea6cf02bde7a79881edb9a"
   end
 
   depends_on "cmake" => :build
@@ -47,7 +47,7 @@ class Qca < Formula
 
   def install
     if OS.mac? && DevelopmentTools.clang_build_version <= 1400
-      ENV.append "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/c++ -L#{Formula["llvm"].opt_lib}/unwind -lunwind"
+      ENV.append "LDFLAGS", "-L#{formula_opt_lib("llvm")}/c++ -L#{formula_opt_lib("llvm")}/unwind -lunwind"
     end
 
     ENV["QC_CERTSTORE_PATH"] = Formula["ca-certificates"].pkgetc/"cert.pem"

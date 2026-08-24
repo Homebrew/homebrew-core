@@ -40,10 +40,11 @@ class Qt3d < Formula
   conflicts_with "qt@5", because: "both link conflicting binaries"
 
   # Apply Arch Linux patches for assimp 6 support
-  # Issue ref: https://bugreports.qt.io/browse/QTBUG-137996
   patch do
     url "https://gitlab.archlinux.org/archlinux/packaging/packages/qt6-3d/-/raw/811dd8b18b4042f7120722b63953499830b51ddd/assimp-6.patch"
     sha256 "244589b0a353da757d61ce6b86d4fcf2fc8c11e9c0d9c5b109180cec9273055a"
+    type :unofficial
+    resolves "https://bugreports.qt.io/browse/QTBUG-137996"
   end
 
   def install

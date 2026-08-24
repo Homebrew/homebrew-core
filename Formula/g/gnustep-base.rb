@@ -54,7 +54,7 @@ class GnustepBase < Formula
   def install
     ENV.prepend_path "PATH", Formula["gnustep-make"].libexec
     ENV["GNUSTEP_MAKEFILES"] = if OS.mac?
-      Formula["gnustep-make"].opt_prefix/"Library/GNUstep/Makefiles"
+      formula_opt_prefix("gnustep-make")/"Library/GNUstep/Makefiles"
     else
       Formula["gnustep-make"].share/"GNUstep/Makefiles"
     end

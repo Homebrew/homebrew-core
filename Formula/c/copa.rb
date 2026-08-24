@@ -1,25 +1,24 @@
 class Copa < Formula
   desc "Tool to directly patch container images given the vulnerability scanning results"
   homepage "https://project-copacetic.github.io/copacetic/"
-  url "https://github.com/project-copacetic/copacetic/archive/refs/tags/v0.14.1.tar.gz"
-  sha256 "2f1a34928192afa3c81cfd8e069e61443e4a1041f8c5cd58c74f9425fea8df4f"
+  url "https://github.com/project-copacetic/copacetic/archive/refs/tags/v0.14.2.tar.gz"
+  sha256 "035d87fb7589234102d17c354ab35e1f2c28f1f80df875bc9438b92a19a86804"
   license "Apache-2.0"
   head "https://github.com/project-copacetic/copacetic.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "30dee3cd36f3833d836fee55efb1e7d501f764c60d92fe630af59b07834a4817"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30dee3cd36f3833d836fee55efb1e7d501f764c60d92fe630af59b07834a4817"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "30dee3cd36f3833d836fee55efb1e7d501f764c60d92fe630af59b07834a4817"
-    sha256 cellar: :any_skip_relocation, sonoma:        "66cf669fed416c58c45a7de831ba7d9b5fd46d4824e8d9c0a714f73614057ffd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "adfb1e400fafd193842b1f8b33acd0cf19560b65f918a1e5c29af6f12efdde94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89ba4a0ab08e28dc815a3d5112b8633d9d3aa4b9ae35566bd8c505ebe03b278e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f92e017c1f99ef926c939150ca09c2faa2a02c377cf9535d1b45ebbc199f5ca9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f92e017c1f99ef926c939150ca09c2faa2a02c377cf9535d1b45ebbc199f5ca9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f92e017c1f99ef926c939150ca09c2faa2a02c377cf9535d1b45ebbc199f5ca9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5c1b1c08db56ab1b75a79e35136075bf6984c284564862f96f980bd8df47d6e0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7ca2ce4ee5893e7dd3cb3cb9554422ff97be5a747eca67d88ce3cbe911d7894b"
+    sha256 cellar: :any,                 x86_64_linux:  "6ddc9a3602ed9074882746a41ffe31ccfc211018575236f9cdb4bc416b0221c6"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/project-copacetic/copacetic/pkg/version.GitVersion=#{version}
       -X github.com/project-copacetic/copacetic/pkg/version.GitCommit=#{tap.user}
       -X github.com/project-copacetic/copacetic/pkg/version.BuildDate=#{time.iso8601}

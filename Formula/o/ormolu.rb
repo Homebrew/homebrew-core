@@ -1,18 +1,18 @@
 class Ormolu < Formula
   desc "Formatter for Haskell source code"
   homepage "https://ormolu-live.tweag.io"
-  url "https://hackage.haskell.org/package/ormolu-0.8.1.0/ormolu-0.8.1.0.tar.gz"
-  sha256 "120f20bb158b756f8d4dbcac94c2fd0227816e072d3447d83c65c18bdae1f542"
+  url "https://hackage.haskell.org/package/ormolu-0.9.0.0/ormolu-0.9.0.0.tar.gz"
+  sha256 "212ee5ec17638f802a406122c8b839e3e6aa05d9b5886bfeb46cc90935f0bc6f"
   license "BSD-3-Clause"
   head "https://github.com/tweag/ormolu.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "84548060ac56af705b53354434b59ec5be97349d69795c052ded4ef2aacd31be"
-    sha256 cellar: :any,                 arm64_sequoia: "7ca0573df8ed4627e4369b68733e101080f926747e055fe9303fd4f40e14bb3f"
-    sha256 cellar: :any,                 arm64_sonoma:  "273e9f6d6622b9017610a5a7809baaf44046f2cb8b931faaa6de952b4fc0a9b1"
-    sha256 cellar: :any,                 sonoma:        "fcb5033eb834355988bd87f8e9da2d785889d29e5ae608b05cedca09737144a4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "83bfb4a1ffb4f303ba9df932daa29af38ecc28bd332712aff1deaf5dc07ecc90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8d4b12ba62e0cd091118111a92eb77972eaa162cdb56c62040221b2d940096e"
+    sha256 cellar: :any, arm64_tahoe:   "a0d2968ad5d9a2144cc94351275ce28b9af5f6dff6517f14da77fe6ebdbf2251"
+    sha256 cellar: :any, arm64_sequoia: "72c109afa8ebc7bc4556d4c71d5a3a2fd0e05636b7eae53239b2c747a0e26f7a"
+    sha256 cellar: :any, arm64_sonoma:  "e51526f5bc4986724a7fbee4ba107e73013d1d229738c116c638027ac441d47f"
+    sha256 cellar: :any, sonoma:        "16dc3c3f910761a01c85f21456bed4ce421d9d0a4a3a24e9a3b74bd4a3c46e18"
+    sha256 cellar: :any, arm64_linux:   "45e819a6c660aab72f9718146de53ef3ba8951ea174fe4f956280508bd8dbac7"
+    sha256 cellar: :any, x86_64_linux:  "2b8544e19ff689de38a3c156c04270fd575552aecec73516a70e3e3a5b29661e"
   end
 
   depends_on "cabal-install" => :build

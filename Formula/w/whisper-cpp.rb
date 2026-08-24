@@ -1,8 +1,8 @@
 class WhisperCpp < Formula
   desc "Port of OpenAI's Whisper model in C/C++"
   homepage "https://github.com/ggml-org/whisper.cpp"
-  url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.9.0.tar.gz"
-  sha256 "58252617f539320c42f8f40052433bce0556f78977d3f47f0ddcfe31a4722146"
+  url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.9.2.tar.gz"
+  sha256 "a6abd064fcca8b85e794d205abf328c522e9451db43a3eadc178b883b7d0e9cd"
   license "MIT"
   compatibility_version 1
   head "https://github.com/ggml-org/whisper.cpp.git", branch: "master"
@@ -13,18 +13,18 @@ class WhisperCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "70e9b11807728b73d8066639189a7033c4355cbee8dd495f781aa6b8db059a1e"
-    sha256 cellar: :any, arm64_sequoia: "3c99a805d8a9c3f8d201397a32a11bbcd91fe67e12f2cfcfb20e6e11e5978b26"
-    sha256 cellar: :any, arm64_sonoma:  "0416cc247adfbbf85e260e05cdb1db7ded2fccbcaa33e24d7acf29a36651c266"
-    sha256 cellar: :any, sonoma:        "7ae29361acd96059bf88e835a256e43ba607a5800191781c874603d6d747b483"
-    sha256 cellar: :any, arm64_linux:   "d7dac20868d1cd24b2abd58fa03be82bd09e1881b19dec88171f6bcf9f6b9a31"
-    sha256 cellar: :any, x86_64_linux:  "8ebd7590c310bf80de392584e21b8706e6c0ab479c9e1b81a286bd375f66613c"
+    sha256 cellar: :any, arm64_tahoe:   "c96d59cc9322a25f3b488b5f01d2a91aa6e2298ba2f39239108e1c85cb549460"
+    sha256 cellar: :any, arm64_sequoia: "02156714e65c742f708af0843f6b3bcfc40495ef22b2475819dd6bccdd52eefb"
+    sha256 cellar: :any, arm64_sonoma:  "e5954e14cd822aeb32d2e6752310bf2f349f9c0ea26d6f8e2f8ab72094b083ab"
+    sha256 cellar: :any, sonoma:        "0898a0a1a1c8fefdde20b675538b28a73ca3aa762859af63a4ee172e9386821b"
+    sha256 cellar: :any, arm64_linux:   "b74a47aa041d7c4226e90bf969222ac44af48bf4d93211a7dc7e7b02e145425b"
+    sha256 cellar: :any, x86_64_linux:  "6b353d39c1dbdd25671ddb54228446c4c0d16342c8b4c18dabaf7d3f913ae7ad"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :test
   depends_on "ggml" # NOTE: reject all PRs that try to bundle ggml
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   def install
     args = %W[

@@ -1,19 +1,19 @@
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://junegunn.github.io/fzf/"
-  url "https://github.com/junegunn/fzf/archive/refs/tags/v0.73.1.tar.gz"
-  sha256 "ae4f49f8606a7d28498208fa1b93c5d3b890719eea97e02559e66160138b750c"
+  url "https://github.com/junegunn/fzf/archive/refs/tags/v0.74.3.tar.gz"
+  sha256 "5b142217c3068647a7d8faa9c678cffada100b5f11a48609aa79c94ce04b28ef"
   license "MIT"
   compatibility_version 1
   head "https://github.com/junegunn/fzf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3fa0b080ba98e6623c45fc44f149c7b10203f00c76df512ad6e7ef28996edaea"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3fa0b080ba98e6623c45fc44f149c7b10203f00c76df512ad6e7ef28996edaea"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3fa0b080ba98e6623c45fc44f149c7b10203f00c76df512ad6e7ef28996edaea"
-    sha256 cellar: :any_skip_relocation, sonoma:        "88bfd644209e526508b628142543a755008ca00a9d54116f4f679eea835d0c67"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "20c5aa7cf606cdb123a56ae08b67ad6fe3ef50f6eb2523e358357454f5a05a65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da9cc75073e76c383b51e28d7549be331ed670c681c588d9b8169e0e2536af7d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a00d85ae60381a4a945db1c6e0564a7d9236237242ac107f95f63269f891d2db"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a00d85ae60381a4a945db1c6e0564a7d9236237242ac107f95f63269f891d2db"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a00d85ae60381a4a945db1c6e0564a7d9236237242ac107f95f63269f891d2db"
+    sha256 cellar: :any_skip_relocation, sonoma:        "72719ff9522c1fce3245cfe9fcb04f6dd07c82788b78cb4f2bfcd7a05264de0b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dd6d27a30bfec18151611fcdc4699a8bf23698d3414c680ac818a9e5d80d0150"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3da8748919980918205f6dd549a946bb95b10253c8f3c8f84c2dec39bf7e184d"
   end
 
   depends_on "go" => :build
@@ -23,7 +23,6 @@ class Fzf < Formula
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.revision=#{tap.user}
     ]

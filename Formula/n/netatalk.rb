@@ -1,8 +1,8 @@
 class Netatalk < Formula
   desc "File server for Macs, compliant with Apple Filing Protocol (AFP)"
   homepage "https://netatalk.io"
-  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-5-0/netatalk-4.5.0.tar.xz"
-  sha256 "62d77f5a491e69086c1706ff7d9e016912e0e48b43d0c3a7ae60c384b6d625b3"
+  url "https://github.com/Netatalk/netatalk/releases/download/netatalk-4-5-1/netatalk-4.5.1.tar.xz"
+  sha256 "f091de10b0c40996ebf7d6502cf947cfd87dfe1a7e62f9d96013225573938524"
   license all_of: [
     "GPL-2.0-or-later",
 
@@ -20,13 +20,12 @@ class Netatalk < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "a34ddecb88d6c79ab8b1bc149a26dcf7bbd82c300f6dad2d5c604d0fafa2ada8"
-    sha256 arm64_sequoia: "d8ccfee9249cbdc7c3eb75e0d6eed1ee731b7c8c18bed51d446f62adbe5bee2c"
-    sha256 arm64_sonoma:  "6f557473b242401dda3c38c1b4bd57271e4dfdce53cd9b796880069947a18d89"
-    sha256 sonoma:        "59d535e9ad0d6ed14b30cb37931ff08f3b5952c38a71c6e60693f3b1e3ed8e2b"
-    sha256 arm64_linux:   "6e7765cb1e13aac3cd28119be04bc12716ee1d6ff8e2e4f1fb98e4afe02646d2"
-    sha256 x86_64_linux:  "d157c8e2aa8d8150f9eb114149ec9add8addcf73670d7a5cac96f7aeac153c7c"
+    sha256 arm64_tahoe:   "79282f97575727d3dc810dc4fa5e82731f8e75aee663f4da727aea69262c034f"
+    sha256 arm64_sequoia: "dfc0b161d7da35b0fab02d3d6120bc1958cae43514c3cdc352b688fbb4d8c08a"
+    sha256 arm64_sonoma:  "5e108feb158ad350824175f547b15a7b3a3702f93031dae6cce91ad7b97cb7e3"
+    sha256 sonoma:        "d2763c8b029a43395688f3f67af6d626f4ab81821e5ccecfd5577f9ba867eb59"
+    sha256 arm64_linux:   "48517c99de56b9dfe2cfd30fc7214ab886b03bae3610638fb2d4c530a2ca403e"
+    sha256 x86_64_linux:  "8f0197f5d21f264645081158083ced7d4f98d692cb39c925f0cbf60f4fec8abf"
   end
 
   depends_on "cmark-gfm" => :build
@@ -61,11 +60,11 @@ class Netatalk < Formula
     inreplace "distrib/initscripts/macos.netatalk.plist.in", "@bindir@", opt_bin
     inreplace "distrib/initscripts/macos.netatalk.plist.in", "@sbindir@", opt_sbin
     inreplace "distrib/initscripts/systemd.netatalk.service.in", "@sbindir@", opt_sbin
-    bdb5_rpath = rpath(target: Formula["berkeley-db@5"].opt_lib)
+    bdb5_rpath = rpath(target: formula_opt_lib("berkeley-db@5"))
     ENV.append "LDFLAGS", "-Wl,-rpath,#{bdb5_rpath}" if OS.linux?
     args = [
       "-Dwith-appletalk=#{OS.linux?}", # macOS doesn't have an AppleTalk stack
-      "-Dwith-bdb-path=#{Formula["berkeley-db@5"].opt_prefix}",
+      "-Dwith-bdb-path=#{formula_opt_prefix("berkeley-db@5")}",
       "-Dwith-cups-libdir-path=#{libexec}",
       "-Dwith-cups-pap-backend=#{OS.linux?}",
       "-Dwith-docs=man,readmes,html_manual",

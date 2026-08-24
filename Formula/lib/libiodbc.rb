@@ -1,8 +1,8 @@
 class Libiodbc < Formula
   desc "Database connectivity layer based on ODBC. (alternative to unixodbc)"
   homepage "https://www.iodbc.org/"
-  url "https://github.com/openlink/iODBC/archive/refs/tags/v3.52.16.tar.gz"
-  sha256 "a0cf0375b462f98c0081c2ceae5ef78276003e57cdf1eb86bd04508fb62a0660"
+  url "https://github.com/openlink/iODBC/releases/download/v3.52.16/libiodbc-3.52.16.tar.gz"
+  sha256 "3898b32d07961360f6f2cf36db36036b719a230e476469258a80f32243e845fa"
   license any_of: ["BSD-3-Clause", "LGPL-2.0-only"]
 
   bottle do
@@ -22,12 +22,13 @@ class Libiodbc < Formula
 
   keg_only "it conflicts with `unixodbc`"
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    file "Patches/libtool/configure-big_sur.diff"
+    type :unofficial
+  end
 
   def install
-    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end

@@ -15,10 +15,12 @@ class Taskopen < Formula
       patch do
         url "https://codeberg.org/jschlatow/taskopen/commit/555e27161057b38b5d30c1d9e2b0778d66b93622.diff"
         sha256 "b0356a7fd6dc47b77b6099b4c8fc38ed7a5932a6e059a0923985f85172e716f9"
+        type :backport
       end
       patch do
         url "https://codeberg.org/jschlatow/taskopen/commit/2e89ece66cbc9a038f50774f1a15e9e93f4d2dac.diff"
         sha256 "2b30129c16bdf43761294a9f7c93653ce973bf81665c7b470f5e9ee487b6593d"
+        type :backport
       end
     end
   end

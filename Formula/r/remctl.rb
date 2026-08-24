@@ -34,7 +34,7 @@ class Remctl < Formula
   def install
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--with-pcre2=#{Formula["pcre2"].opt_prefix}"
+                          "--with-pcre2=#{formula_opt_prefix("pcre2")}"
     system "make", "install"
   end
 

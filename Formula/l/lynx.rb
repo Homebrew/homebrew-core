@@ -41,10 +41,10 @@ class Lynx < Formula
                           "--enable-default-colors",
                           "--with-zlib",
                           "--with-bzlib",
-                          "--with-ssl=#{Formula["openssl@4"].opt_prefix}",
+                          "--with-ssl=#{formula_opt_prefix("openssl@4")}",
                           "--enable-ipv6",
                           "--with-screen=ncurses",
-                          "--with-curses-dir=#{Formula["ncurses"].opt_prefix}",
+                          "--with-curses-dir=#{formula_opt_prefix("ncurses")}",
                           "--enable-externs",
                           "--disable-config-info"
     system "make", "install"

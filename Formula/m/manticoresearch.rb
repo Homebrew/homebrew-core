@@ -1,8 +1,8 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/25.0.0.tar.gz"
-  sha256 "9ee49b6a876ece2058c848aa5a2e87d2a4db8ebbcc925836fc760962a84fb0fb"
+  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/29.0.2.tar.gz"
+  sha256 "e2d0184acd2583c69ffab76a1b854146cc47f9980afb60679e171c3ebf132e5b"
   license all_of: [
     "GPL-3.0-or-later",
     "GPL-2.0-only", # wsrep
@@ -10,7 +10,7 @@ class Manticoresearch < Formula
     { any_of: ["Unlicense", "MIT"] }, # uni-algo (our formula is too new)
   ]
   version_scheme 1
-  head "https://github.com/manticoresoftware/manticoresearch.git", branch: "master"
+  head "https://github.com/manticoresoftware/manticoresearch.git", branch: "main"
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created, so we check the "latest" release instead
@@ -21,12 +21,12 @@ class Manticoresearch < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "67c2e79378210fdbd67a2e88ae51b043758a20c163653e59640e3faf387580ff"
-    sha256 arm64_sequoia: "8a505dfeba395d354ca33d866a62193bb573e4f1a88a7b148e66052a351426c9"
-    sha256 arm64_sonoma:  "8eaa016cb689a4b83a3d1c4f446f8a9b94cc6b83d491954669b9e15f8c2e31f8"
-    sha256 sonoma:        "b48c4066eef4c604caf32da79a9c4f2e92fb50aab483a17adb6180f8a050b860"
-    sha256 arm64_linux:   "8bd546d39cee024ff23644152d5bed12200d92a289ddf123e4731901293734fa"
-    sha256 x86_64_linux:  "831cec3202e72a4c5c09055d18066d93de1ca954bae902bfda833ffc86c5d87b"
+    sha256 arm64_tahoe:   "b96d843a5023ed1c3c92d4794b2f21a37f6849549dc1843c7b1cf3c4ea4267fe"
+    sha256 arm64_sequoia: "38dfadcf951b18de50f0de234c1fda400e448037602cb3f830005c3f587fadf2"
+    sha256 arm64_sonoma:  "f699654fd343925286515b3318fb8fabf2983fe9b7031587af8cd236daa3eaec"
+    sha256 sonoma:        "b76b8e6ca791c87cafc355b0386faacea5aea670dda8fc78a80d210821d7a374"
+    sha256 arm64_linux:   "a9f86e38bcdda37fc37949eee1cc2ec7873eb12553a6694bb8f9141102ef3661"
+    sha256 x86_64_linux:  "a746694fdf5b25540b2d62e9536dc07f299c0ac9ddf862a6f580cae7d4e5ec32"
   end
 
   depends_on "cmake" => :build
@@ -53,18 +53,37 @@ class Manticoresearch < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # Workaround for Boost 1.89.0 until fixed upstream.
-  # Issue ref: https://github.com/manticoresoftware/manticoresearch/issues/3673
+  resource "mcl" do
+    url "https://github.com/manticoresoftware/columnar/archive/dbc40aa7a6955ddb33be3b1f777f74576f65a6a6.tar.gz"
+    version "dbc40aa7a6955ddb33be3b1f777f74576f65a6a6"
+    sha256 "8b3edb801951f1e7d1dc4ee7c0b9c3728dbc4626e927b91a745750db60791759"
+
+    livecheck do
+      url "https://api.github.com/repos/manticoresoftware/manticoresearch/contents/mcl?ref=#{LATEST_VERSION}"
+      strategy :json do |json|
+        json["sha"]
+      end
+    end
+  end
+
+  # Workarounds for building with Boost 1.89+ and GCC, until fixed upstream:
+  # - galera: disable Boost (Boost.System stub removed in 1.89)
+  #   Issue ref: https://github.com/manticoresoftware/manticoresearch/issues/3673
+  # - searchdbuddy: include Boost.Process v1 environment header
+  #   (`<boost/process.hpp>` now pulls Process v2 where `environment` is a namespace)
+  # - sortergroup: drop redundant `using` that GCC rejects as private
   patch :DATA
 
   def install
+    resource("mcl").stage buildpath/"mcl"
+
     # Avoid statically linking to boost
     inreplace "src/CMakeLists.txt", "set ( Boost_USE_STATIC_LIBS ON )", "set ( Boost_USE_STATIC_LIBS OFF )"
 
     ENV["ICU_ROOT"] = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
                           .to_formula.opt_prefix.to_s
-    ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@3"].opt_prefix.to_s
-    ENV["PostgreSQL_ROOT"] = Formula["libpq"].opt_prefix.to_s
+    ENV["OPENSSL_ROOT_DIR"] = formula_opt_prefix("openssl@3").to_s
+    ENV["PostgreSQL_ROOT"] = formula_opt_prefix("libpq").to_s
 
     args = %W[
       -DDISTR_BUILD=homebrew
@@ -76,8 +95,8 @@ class Manticoresearch < Formula
       -DCMAKE_REQUIRE_FIND_PACKAGE_re2=ON
       -DCMAKE_REQUIRE_FIND_PACKAGE_stemmer=ON
       -DCMAKE_REQUIRE_FIND_PACKAGE_xxHash=ON
-      -DMYSQL_CONFIG_EXECUTABLE=#{Formula["mariadb-connector-c"].opt_bin}/mariadb_config
-      -DRE2_LIBRARY=#{Formula["re2"].opt_lib/shared_library("libre2")}
+      -DMYSQL_CONFIG_EXECUTABLE=#{formula_opt_bin("mariadb-connector-c")}/mariadb_config
+      -DRE2_LIBRARY=#{formula_opt_lib("re2")/shared_library("libre2")}
       -DWITH_ICU_FORCE_STATIC=OFF
       -DWITH_RE2_FORCE_STATIC=OFF
       -DWITH_STEMMER_FORCE_STATIC=OFF
@@ -130,3 +149,27 @@ index 0ffa9caf1..806c929b4 100644
 -# file configured from cmake/galera-imported.cmake.in
 \ No newline at end of file
 +# file configured from cmake/galera-imported.cmake.in
+diff --git a/src/searchdbuddy.cpp b/src/searchdbuddy.cpp
+index 39985f6..9c83062 100644
+--- a/src/searchdbuddy.cpp
++++ b/src/searchdbuddy.cpp
+@@ -24,6 +24,7 @@
+ #include <boost/process/v1/error.hpp>
+ #include <boost/process/v1/handles.hpp>
+ #include <boost/process/v1/io.hpp>
++#include <boost/process/v1/env.hpp>
+ #else
+ #include <boost/process.hpp>
+ #endif
+diff --git a/src/sortergroup.cpp b/src/sortergroup.cpp
+index 13c4feb..d1f91ad 100644
+--- a/src/sortergroup.cpp
++++ b/src/sortergroup.cpp
+@@ -347,7 +347,6 @@ protected:
+ 	using BaseGroupSorter_c::AggrSetup;
+ 	using BaseGroupSorter_c::AggrUpdate;
+ 	using BaseGroupSorter_c::AggrUngroup;
+-	using BaseGroupSorter_c::AggrDiscard;
+ 
+ 	using CSphMatchQueueTraits::m_iSize;
+ 	using CSphMatchQueueTraits::m_dData;

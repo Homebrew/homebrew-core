@@ -77,7 +77,7 @@ class LibreadlineJava < Formula
 
   # Testing libreadline-java (can we execute and exit libreadline without exceptions?)
   test do
-    java_path = Formula["openjdk"].opt_bin/"java"
+    java_path = formula_opt_bin("openjdk")/"java"
     assert(/Exception/ !~ pipe_output(
       "#{java_path} -Djava.library.path=#{lib} -cp #{pkgshare}/libreadline-java.jar test.ReadlineTest",
       "exit",

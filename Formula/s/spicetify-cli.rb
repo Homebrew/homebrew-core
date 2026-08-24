@@ -1,39 +1,40 @@
 class SpicetifyCli < Formula
   desc "Command-line tool to customize Spotify client"
   homepage "https://spicetify.app/"
-  url "https://github.com/spicetify/cli/archive/refs/tags/v2.43.2/v2.43.2.tar.gz"
-  sha256 "3debce8af8e071ff9ec75b6a8a296bbd0bb5963151721b0ad2723660b64f65c5"
+  url "https://github.com/spicetify/cli/archive/refs/tags/v2.44.0/v2.44.0.tar.gz"
+  sha256 "aafdfceeae5ff926ffe27bf3808cd4228e3a2725f7f3539531f4f5c0ac98962d"
   license "LGPL-2.1-only"
+  revision 1
   head "https://github.com/spicetify/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "010375334bbc13df70abc2df72ebde83833e1993b8aeab420386a437db147d62"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "010375334bbc13df70abc2df72ebde83833e1993b8aeab420386a437db147d62"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "010375334bbc13df70abc2df72ebde83833e1993b8aeab420386a437db147d62"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5a715a62d9abbe8abd79d956544e668b723cb12a74332cf71cf4e82c27666c60"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e1e94a0550a9142b95b97dcee2779ea1856dc328a3c21c33e70bc3f36b48e17"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e376ea3851c6eee248a0ff15c1414f5cd79b279699ba9d173317ae65b84c237a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a5e3ac3dddee5a8cf47fbecc45ad7ba67e2dfb5870131c63b35a159b74087a34"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a5e3ac3dddee5a8cf47fbecc45ad7ba67e2dfb5870131c63b35a159b74087a34"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a5e3ac3dddee5a8cf47fbecc45ad7ba67e2dfb5870131c63b35a159b74087a34"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8d55eff227a058202b96d673c7814aae9386594db3de6da875ab51497b664987"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9496a44e7a97861a41e26121b3dddd03b11dfe7381bb78c8d3cf0aa8fd965df3"
+    sha256 cellar: :any,                 x86_64_linux:  "0709541332b4ed3092ba6562ca0b6991f5ce510b110c5a7ac8e7e317128da3d3"
   end
 
   depends_on "go" => :build
+  depends_on "node" => :build
+  depends_on "pnpm" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}", output: libexec/"spicetify")
+
+    system "pnpm", "with", "current", "install", "--frozen-lockfile"
+    system "pnpm", "with", "current", "run", "build:wrapper"
+
+    libexec.install [
+      "css-map.json",
+      "CustomApps",
+      "Extensions",
+      "globals.d.ts",
+      "jsHelper",
+      "Themes",
     ]
-    system "go", "build", *std_go_args(ldflags:, output: libexec/"spicetify")
-    cd buildpath do
-      libexec.install [
-        "css-map.json",
-        "CustomApps",
-        "Extensions",
-        "globals.d.ts",
-        "jsHelper",
-        "Themes",
-      ]
-      bin.install_symlink libexec/"spicetify"
-    end
+    bin.install_symlink libexec/"spicetify"
   end
 
   test do

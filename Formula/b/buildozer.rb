@@ -18,7 +18,7 @@ class Buildozer < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./buildozer"
+    system "go", "build", *std_go_args, "./buildozer"
   end
 
   test do

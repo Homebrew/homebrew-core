@@ -20,7 +20,6 @@ class Dockerfilegraph < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/patrickhoefler/dockerfilegraph/internal/cmd.gitVersion=#{version}
       -X github.com/patrickhoefler/dockerfilegraph/internal/cmd.gitCommit=#{tap.user}
       -X github.com/patrickhoefler/dockerfilegraph/internal/cmd.buildDate=#{time.iso8601}

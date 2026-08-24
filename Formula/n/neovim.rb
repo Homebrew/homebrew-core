@@ -6,8 +6,8 @@ class Neovim < Formula
   head "https://github.com/neovim/neovim.git", branch: "master"
 
   stable do
-    url "https://github.com/neovim/neovim/archive/refs/tags/v0.12.3.tar.gz"
-    sha256 "36a6c66bfbba5d96fa512110aecddb981148a4d013b5ecd01a42877c49855a41"
+    url "https://github.com/neovim/neovim/archive/refs/tags/v0.12.5.tar.gz"
+    sha256 "a810c95332317bd0017e1ca07e376a8472c79075cbed00fa3737d190a8a0a45a"
 
     # Keep resources updated according to:
     # https://github.com/neovim/neovim/blob/v#{version}/cmake.deps/deps.txt
@@ -83,12 +83,12 @@ class Neovim < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "c6afc7ce2d91a302dd5945ac1699e32a72bd6122de9e101d32484eafb358414b"
-    sha256 arm64_sequoia: "4f346d05ead887cfc11e6531cc8fabf39c95fb3ee47809524f5a547489854e5e"
-    sha256 arm64_sonoma:  "ad3f08b6ea7c78a92fe187d6aec7e6be7a32b7958bf63555abbda7bbf57d6976"
-    sha256 sonoma:        "b9df347458b8c059c94576f422225e9dc950ae580cd08bfe6f1d55611ebf2d89"
-    sha256 arm64_linux:   "5cfafd456ed6fb8d4dfe2a797cc5467f5ed6622be1d87fb7ff789ab7d095dce0"
-    sha256 x86_64_linux:  "7f7b6c58f93f8a9916c6990ca77ae84b72424ff7afb3ce53d42da34154070f64"
+    sha256 arm64_tahoe:   "3677fd9ffb9fbb388e23f8239f44da1d8f8492bfb71e9c8e7711081cefae2f2b"
+    sha256 arm64_sequoia: "338205e7567ef418d6a5c32150a98c4d2b10634f87818809ef635c6bcd5e48e6"
+    sha256 arm64_sonoma:  "4c31c0b656cd55751894c3f4673f46b669a0ea7553143ced9a0f718469d08ed8"
+    sha256 sonoma:        "15e794d22519249ad9239dc5d8fe67e166d3717b85e0a37af83bc2ce9638dfd7"
+    sha256 arm64_linux:   "fcc394610c91a69d677a0d6c2d2947b9e81580f68ebc8ec09005c9936b73074c"
+    sha256 x86_64_linux:  "7f7b773ae7229ce58d1f96b4cd9ab63ebe5a225010de9e1f5d4c969e36b528cc"
   end
 
   depends_on "cmake" => :build
@@ -154,9 +154,9 @@ class Neovim < Formula
     inreplace "cmake/GenerateVersion.cmake", "--dirty", "--dirty=-Homebrew"
 
     args = [
-      "-DLUV_LIBRARY=#{Formula["luv"].opt_lib/shared_library("libluv")}",
-      "-DLIBUV_LIBRARY=#{Formula["libuv"].opt_lib/shared_library("libuv")}",
-      "-DLPEG_LIBRARY=#{Formula["lpeg"].opt_lib/shared_library("liblpeg")}",
+      "-DLUV_LIBRARY=#{formula_opt_lib("luv")/shared_library("libluv")}",
+      "-DLIBUV_LIBRARY=#{formula_opt_lib("libuv")/shared_library("libuv")}",
+      "-DLPEG_LIBRARY=#{formula_opt_lib("lpeg")/shared_library("liblpeg")}",
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

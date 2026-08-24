@@ -15,6 +15,9 @@ class CargoSweep < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "36c2b2a5eab5851f3217b5ea39694cf3f7e58b72be8a3fb858ecfaf65502cb2c"
   end
 
+  deprecate! date: "2026-07-17", because: :deprecated_upstream
+  disable! date: "2027-01-17", because: :deprecated_upstream
+
   depends_on "rust" => :build
   depends_on "rustup" => :test
 

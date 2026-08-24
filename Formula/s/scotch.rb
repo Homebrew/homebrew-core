@@ -1,8 +1,8 @@
 class Scotch < Formula
   desc "Package for graph partitioning, graph clustering, and sparse matrix ordering"
   homepage "https://gitlab.inria.fr/scotch/scotch"
-  url "https://gitlab.inria.fr/scotch/scotch/-/archive/v7.0.12/scotch-v7.0.12.tar.bz2"
-  sha256 "3bdba84f2067398ee8931de5d4b1f3608b483ac56316fd5f348f9c0a594d57ae"
+  url "https://gitlab.inria.fr/scotch/scotch/-/archive/v7.0.13/scotch-v7.0.13.tar.bz2"
+  sha256 "63204a121fb2ea814f74a87b4c5f519f747bfb091e1288af391b62a44424c398"
   license "CECILL-C"
   head "https://gitlab.inria.fr/scotch/scotch.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Scotch < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "152624c343f650deb2c9583f4c5b45e0bf71aa412d57ebb6e40281a0d2345f36"
-    sha256 cellar: :any, arm64_sequoia: "d075c4d7f52199161c95e39b1296649814245ec030de46cd90024d8f54e54154"
-    sha256 cellar: :any, arm64_sonoma:  "09db3f367b1a100d4148be83137010faaa3ed70533d402d9fa49d3c652221b2e"
-    sha256 cellar: :any, sonoma:        "5dbdeb5ec40e99c3d04e218f719ed04046b0ca7a07cd2aa8850361109f3c4c33"
-    sha256 cellar: :any, arm64_linux:   "693f8fbe46a4184a2c8f4fd237903ed2b98a07355e5a13a04b2e6c65bc033ef8"
-    sha256 cellar: :any, x86_64_linux:  "095c3e63f49390a948d4b5d9a0990bba6cf66dd95f5105eda2fd97911f8deb0d"
+    sha256 cellar: :any, arm64_tahoe:   "7443e1bcf19514065b9ebf47e6d13cc28c045297e0ea1d1545cbe047d22bddfd"
+    sha256 cellar: :any, arm64_sequoia: "d3dd97eeadec62736035cc2183c1596702eda00635d7b818a86e7721773cffce"
+    sha256 cellar: :any, arm64_sonoma:  "4e1fa927efa0a873c2d05a1216e0de7131e0ce2462efbe05a06e503b18a17bd5"
+    sha256 cellar: :any, sonoma:        "83d358a865264b876371bc494bd9b62b4828f9baae68c2265b661597782f405b"
+    sha256 cellar: :any, arm64_linux:   "4fe06abc204cf98f13c80896521631701c704d957a4c931e6fe2d292c3a96772"
+    sha256 cellar: :any, x86_64_linux:  "30744e69c4750650b797b19c673009c8f07f80e7a0f6765f7e52c8c7c7096ff1"
   end
 
   depends_on "bison" => :build
@@ -67,7 +67,7 @@ class Scotch < Formula
     C
 
     args = %W[-I#{include} -L#{lib} -lscotch -lscotcherr -pthread -lz -lm]
-    args << "-L#{Formula["zlib-ng-compat"].opt_lib}" if OS.linux?
+    args << "-L#{formula_opt_lib("zlib-ng-compat")}" if OS.linux?
 
     system ENV.cc, "test.c", *args
     assert_match version.to_s, shell_output("./a.out")

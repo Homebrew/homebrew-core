@@ -21,7 +21,15 @@ class Pget < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6edaa4e8d20796136fa7f95f21390d4827e88b4f596b04756489cde00260fa6"
   end
 
+  deprecate! date: "2026-08-23", because: :unmaintained
+  disable! date: "2027-08-23", because: :unmaintained
+
   depends_on "go" => :build
+
+  # Failing on Intel macOS with Go 1.27 due to outdated golang.org/x/sys dependency
+  on_macos do
+    depends_on arch: :arm64
+  end
 
   def install
     ldflags = "-s -w -X main.version=#{version}"

@@ -19,7 +19,6 @@ class Html2markdown < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.commit=#{tap.user}
       -X main.date=#{time.iso8601}

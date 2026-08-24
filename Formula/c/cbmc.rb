@@ -2,17 +2,17 @@ class Cbmc < Formula
   desc "C Bounded Model Checker"
   homepage "https://www.cprover.org/cbmc/"
   url "https://github.com/diffblue/cbmc.git",
-      tag:      "cbmc-6.9.0",
-      revision: "0656298e0d023347862ada3da078c0447943f761"
+      tag:      "cbmc-6.11.0",
+      revision: "820ff0f555b43fb78e0cd9332e498461bd14244b"
   license "BSD-4-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "88c96469270fa1ee0452d1eec6cfb8dfbf94dd9eab03b4dfa417dbec8d1159df"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "740bcdbfc1e87a78cbd4673e6dc9dfb87faeb8401686d11943d09e86843a9402"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "311dc85117244dc3fc2bb567d6bdd8d36dbd8dff1bd2f3959546b85224c9e422"
-    sha256 cellar: :any_skip_relocation, sonoma:        "93bda8326f842d975726f847d510d41c16987b666987545e8ac0d3989cfbfc1e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "41345904385da8b00248054e5e23e442ef5d058e8cae0f2a3f54c457efb00444"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "effa07c230cbecdaa6108bb10a6667312c6432b93511f2e5e792d3f7d5903c71"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3fb094c69d4a877d89c3471c0c0adff0526220261e593f7ffb6f13d4224129f8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d5e988a02557886e4e11dee46c3726a2f3d4ba709a58cbf363cca5ee700d5afd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4717be1732386e1b7958ce6f83e0d8043a77e30feab747cf8179230c4696dd82"
+    sha256 cellar: :any_skip_relocation, sonoma:        "24f77ab6ee97f3b4685a1538c2264f2c7b887f1315ba8b96f4a7f8a3a45f73c2"
+    sha256 cellar: :any,                 arm64_linux:   "2aa5c8b901344d36371aa94a80ec0bd31b0387424f4e7e12a85773ac20b6c184"
+    sha256 cellar: :any,                 x86_64_linux:  "a188dfd31e82ab5dc7ae792f08bbdbb99317e7dd22102fb286c10e886489a256"
   end
 
   depends_on "cmake" => :build
@@ -27,7 +27,7 @@ class Cbmc < Formula
     # Fixes: *** No rule to make target 'bin/goto-gcc',
     # needed by '/tmp/cbmc-20240525-215493-ru4krx/regression/goto-gcc/archives/libour_archive.a'.  Stop.
     ENV.deparallelize
-    ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
+    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk@21")
 
     system "cmake", "-S", ".", "-B", "build", "-Dsat_impl=minisat2;cadical", *std_cmake_args
     system "cmake", "--build", "build"

@@ -34,7 +34,7 @@ class YubicoPivTool < Formula
   end
 
   def install
-    ENV.append_to_cflags "-I#{Formula["pcsc-lite"].opt_include}/PCSC" unless OS.mac?
+    ENV.append_to_cflags "-I#{formula_opt_include("pcsc-lite")}/PCSC" unless OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"

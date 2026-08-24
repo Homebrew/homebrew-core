@@ -1,58 +1,40 @@
 class CodexAcp < Formula
-  desc "Use Codex from ACP-compatible clients such as Zed!"
-  homepage "https://github.com/zed-industries/codex-acp"
-  url "https://github.com/zed-industries/codex-acp/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "08765b8cfbc9218fc7192348065da22820657dba040f31119de13ba6a20be7e2"
+  desc "ACP server that exposes Codex CLI functionality for ACP-compatible clients"
+  homepage "https://github.com/agentclientprotocol/codex-acp"
+  url "https://registry.npmjs.org/@agentclientprotocol/codex-acp/-/codex-acp-1.6.2.tgz"
+  sha256 "03449fd0d37739203821edb6f6fbb845a8e6a20f7da294cedd4a6cc7121219d6"
   license "Apache-2.0"
-  head "https://github.com/zed-industries/codex-acp.git", branch: "main"
+  head "https://github.com/agentclientprotocol/codex-acp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "df2b45deb6d78341b196a8ee4085d85c33f47e18adde859ba17d142584ff8b18"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "07298359e6b33af582e3d464db5a23a01928a25b66215ee25ece19c85019a1bb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fde82fd314bdeea7110005ddf864668948b1ce9adb93645053b84483c8cfe3b2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8554790778f55fff91b2297d772d337da2f6f0e7fc66f6870401602b85164fd9"
-    sha256 cellar: :any,                 arm64_linux:   "33048793ab006d7ca43f12dae3ac306380d50392ffc2c4cbff8c23c243f2e451"
-    sha256 cellar: :any,                 x86_64_linux:  "ea5f8f4915a88f34b11f2c286eaa6267d0a23d0e1354dbb42450a4ee110b9442"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ca1a12c975dfac0b7038a1da10807b83686e15318e6c493f1d06d7440d823681"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca1a12c975dfac0b7038a1da10807b83686e15318e6c493f1d06d7440d823681"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ca1a12c975dfac0b7038a1da10807b83686e15318e6c493f1d06d7440d823681"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6dab632cd6e29e782ce86084da8269c7538d293773e1e1adf629ed1fba669731"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "99a3ecf9da6141d578f042b96643f90d063795856c8e98ab77face7d2c966984"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "319ca3be57bf9a9abc96b818459482bf95c70797da069fad0b12d159751c1a23"
   end
 
-  depends_on "pkgconf" => :build
-  depends_on "rust" => :build
-
-  uses_from_macos "bzip2"
-
-  on_linux do
-    depends_on "libcap" => :build
-    depends_on "openssl@4"
-    depends_on "zlib-ng-compat"
-  end
+  depends_on "node"
 
   def install
-    ENV["OPENSSL_DIR"] = Formula["openssl@4"].opt_prefix if OS.linux?
-    system "cargo", "install", *std_cargo_args
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
+    rm libexec.glob("lib/node_modules/**/codex-resources/zsh/bin/zsh") if OS.linux?
   end
 
   test do
-    require "open3"
-    require "timeout"
-
     json = <<~JSON
       {"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":1}}
     JSON
 
-    Open3.popen3(bin/"codex-acp") do |stdin, stdout, _stderr, wait_thr|
-      stdin.write(json)
-      stdin.close
-
-      line = Timeout.timeout(15) { stdout.gets }
-      assert_match "\"protocolVersion\":1", line
-    ensure
-      if wait_thr&.alive?
-        begin
-          Process.kill("TERM", wait_thr.pid)
-        rescue Errno::ESRCH
-          # Process already exited between alive? check and kill.
-        end
-      end
+    Open3.popen3(bin/"codex-acp") do |stdin, stdout, _e, w|
+      stdin.write json
+      sleep 3
+      output = stdout.readline
+      assert_match("\"protocolVersion\":1", output)
+      assert_match("\"agentInfo\":{\"name\":\"@agentclientprotocol/codex-acp\"", output)
+      Process.kill("KILL", w.pid)
     end
   end
 end

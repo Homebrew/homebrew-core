@@ -55,8 +55,8 @@ class Httpd < Formula
       libxml2 = "#{MacOS.sdk_for_formula(self).path}/usr"
       zlib = "#{MacOS.sdk_for_formula(self).path}/usr"
     else
-      libxml2 = Formula["libxml2"].opt_prefix
-      zlib = Formula["zlib-ng-compat"].opt_prefix
+      libxml2 = formula_opt_prefix("libxml2")
+      zlib = formula_opt_prefix("zlib-ng-compat")
     end
 
     system "./configure", "--enable-layout=Slackware-FHS",
@@ -76,14 +76,14 @@ class Httpd < Formula
                           "--with-suexec-caller=_www",
                           "--with-port=8080",
                           "--with-sslport=8443",
-                          "--with-apr=#{Formula["apr"].opt_prefix}",
-                          "--with-apr-util=#{Formula["apr-util"].opt_prefix}",
-                          "--with-brotli=#{Formula["brotli"].opt_prefix}",
+                          "--with-apr=#{formula_opt_prefix("apr")}",
+                          "--with-apr-util=#{formula_opt_prefix("apr-util")}",
+                          "--with-brotli=#{formula_opt_prefix("brotli")}",
                           "--with-libxml2=#{libxml2}",
                           "--with-mpm=prefork",
-                          "--with-nghttp2=#{Formula["libnghttp2"].opt_prefix}",
-                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
-                          "--with-pcre=#{Formula["pcre2"].opt_prefix}/bin/pcre2-config",
+                          "--with-nghttp2=#{formula_opt_prefix("libnghttp2")}",
+                          "--with-ssl=#{formula_opt_prefix("openssl@3")}",
+                          "--with-pcre=#{formula_opt_prefix("pcre2")}/bin/pcre2-config",
                           "--with-z=#{zlib}",
                           "--disable-lua",
                           "--disable-luajit"

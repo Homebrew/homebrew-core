@@ -13,12 +13,13 @@ class Gtk4 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "e72d082698cc77c270987578821d1304a2a6b746a157a3fd464cb51a6e46c0dc"
-    sha256 arm64_sequoia: "137f69e0c877c7f095f91b383e6364646cdd6e1b0d92ee78bcc80571e884a1fc"
-    sha256 arm64_sonoma:  "099c3e9f16b6fba159f1a9b666a9ef4eb6a2d5fcd147d89e04ea6b53f275d791"
-    sha256 sonoma:        "a96eed73a25bae3791146e8111fdf665023a29e017843d8ef12aa96a7c9c48f6"
-    sha256 arm64_linux:   "75db66988a5d5f6372b1ab0e30b227850f78693268d335699a12a49e0c8932bb"
-    sha256 x86_64_linux:  "05da937708e49fbb87da0369a59f8bc65a75ede89d4751372fbb7c285606b5b2"
+    rebuild 1
+    sha256 arm64_tahoe:   "a94ac6fd1d2be90bf6ec253ab513421b37a27fca1b37b167ae483eedf7298998"
+    sha256 arm64_sequoia: "3664803b3abc282ba6226df952cf07d46f5f7f0c62be302cac03a0f69d22270b"
+    sha256 arm64_sonoma:  "4f743664c8da8222805293fd4e57e9de829fd271401da04bf232ad86ebba63e1"
+    sha256 sonoma:        "feac21bdf3f9625e7ee42e7e2398ad4c07a37c0b3d976aab6365ad4c0d5aaf17"
+    sha256 arm64_linux:   "02d0eefc90a863e4bac1cf32ea5f9392597da49efcecdacac8e27faeabc78830"
+    sha256 x86_64_linux:  "f16a8f7dea7cb1e0d9f17ee1d67fefa3867f50ba72e0fc31aef5581e70baa0df"
   end
 
   depends_on "dart-sass" => :build
@@ -102,10 +103,9 @@ class Gtk4 < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system bin/"gtk4-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
-    system "#{Formula["glib"].opt_bin}/gio-querymodules", "#{HOMEBREW_PREFIX}/lib/gtk-4.0/4.0.0/printbackends"
+  post_install_steps do
+    compile_gsettings_schemas
+    update_gtk_icon_cache
   end
 
   test do
@@ -118,7 +118,7 @@ class Gtk4 < Formula
       }
     C
 
-    flags = shell_output("#{Formula["pkgconf"].opt_bin}/pkgconf --cflags --libs gtk4").strip.split
+    flags = shell_output("#{formula_opt_bin("pkgconf")}/pkgconf --cflags --libs gtk4").strip.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
     # include a version check for the pkg-config files

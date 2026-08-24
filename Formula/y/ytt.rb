@@ -1,24 +1,24 @@
 class Ytt < Formula
   desc "YAML templating tool that works on YAML structure instead of text"
   homepage "https://carvel.dev/ytt/"
-  url "https://github.com/carvel-dev/ytt/archive/refs/tags/v0.55.1.tar.gz"
-  sha256 "4591a3b659dba43a6e8b3d5dd2ef9cb03011868bacab66684c0cfb6b7a698eb1"
+  url "https://github.com/carvel-dev/ytt/archive/refs/tags/v0.55.2.tar.gz"
+  sha256 "e36439c836b24a572f465c8404c53d65eecdca737a6d98e0d79d5e82babe1e4e"
   license "Apache-2.0"
   head "https://github.com/carvel-dev/ytt.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "49c2512a79b4efe7bc1dd3a124361e6efc6fc3086174682b4566b4845c473cb6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "49c2512a79b4efe7bc1dd3a124361e6efc6fc3086174682b4566b4845c473cb6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49c2512a79b4efe7bc1dd3a124361e6efc6fc3086174682b4566b4845c473cb6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1fc030271391010313aec7599176946381bf241fd2f59fd7fa0e6a97410550de"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "96a0cdf8f82d9f8b88026554ccbc3facf11ce35307b5293e20a6b80535c75609"
-    sha256 cellar: :any,                 x86_64_linux:  "2218d229cb67ca11821e44411734247eb1504d53feb7fd19cdca4fc1990bf3f5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "abf4b834dd9a9a35e3c081bee48ae17fa06b6aedf82bf96b21ebd192a33da518"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "abf4b834dd9a9a35e3c081bee48ae17fa06b6aedf82bf96b21ebd192a33da518"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "abf4b834dd9a9a35e3c081bee48ae17fa06b6aedf82bf96b21ebd192a33da518"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b78c7d96cc24c024a1837434f7e7260141f38fd634f7abb3633ca3b22b3b40ce"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9f527d2b7c87f083d7bd61ca887d5a2fc2cc37c772e5ee48fc9e357a8758f89e"
+    sha256 cellar: :any,                 x86_64_linux:  "53fea3af70d08529a2e8b7def3adee4057ad1626a9d28d333d4963410491a0bc"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X carvel.dev/ytt/pkg/version.Version=#{version}"
+    ldflags = "-X carvel.dev/ytt/pkg/version.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/ytt"
 
     generate_completions_from_executable(bin/"ytt", shell_parameter_format: :cobra)

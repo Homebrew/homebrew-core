@@ -89,8 +89,7 @@ class GlibcAT213 < Formula
   # Fix getconf files having random bytes at the end of their names.
   # Backport of patch included in 2.16.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/glibc/2.13-getconf.diff"
-    sha256 "e945c11c76655cba6f3e1c13d847e57d6e591a5af3fd7d3eb2c200475bfcdaed"
+    file "Patches/glibc/2.13-getconf.diff"
   end
 
   def install
@@ -152,37 +151,8 @@ class GlibcAT213 < Formula
     ].each(&:unlink)
   end
 
-  def post_install
-    # Compile locale definition files
-    mkdir_p lib/"locale"
-
-    # Get all extra installed locales from the system, except C locales
-    locales = ENV.filter_map do |k, v|
-      v if k[/^LANG$|^LC_/] && v != "C" && !v.start_with?("C.")
-    end
-
-    # en_US.UTF-8 is required by gawk make check
-    locales = (locales + ["en_US.UTF-8"]).sort.uniq
-    ohai "Installing locale data for #{locales.join(" ")}"
-    locales.each do |locale|
-      lang, charmap = locale.split(".", 2)
-      if charmap.present?
-        charmap = "UTF-8" if charmap == "utf8"
-        system bin/"localedef", "-i", lang, "-f", charmap, locale
-      else
-        system bin/"localedef", "-i", lang, locale
-      end
-    end
-
-    # Set the local time zone
-    sys_localtime = Pathname("/etc/localtime")
-    brew_localtime = etc/"localtime"
-    etc.install_symlink sys_localtime if sys_localtime.exist? && !brew_localtime.exist?
-
-    # Set zoneinfo correctly using the system installed zoneinfo
-    sys_zoneinfo = Pathname("/usr/share/zoneinfo")
-    brew_zoneinfo = share/"zoneinfo"
-    share.install_symlink sys_zoneinfo if sys_zoneinfo.exist? && !brew_zoneinfo.exist?
+  post_install_steps do
+    configure_glibc_runtime
   end
 
   test do

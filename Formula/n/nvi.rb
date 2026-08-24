@@ -44,23 +44,21 @@ class Nvi < Formula
   # Patches per MacPorts
   # The first corrects usage of BDB flags.
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/nvi/patch-common__db.h"
-    sha256 "d6c67a129cec0108a0c90fd649d79de65099dc627b10967a1fad51656f519800"
+    file "Patches/nvi/patch-common__db.h"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/nvi/patch-dist__port.h.in"
-    sha256 "674adb27810da8f6342ffc912a54375af0ed7769bfa524dce01600165f78a63b"
+    file "Patches/nvi/patch-dist__port.h.in"
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/nvi/patch-ex_script.c.diff"
-    sha256 "742c4578319ddc07b0b86482b4f2b86125026f200749e07c6d2ac67976204728"
+    file "Patches/nvi/patch-ex_script.c.diff"
   end
 
   patch :p0 do
     url "https://raw.githubusercontent.com/macports/macports-ports/a0cae35e9fce0f3d591af204ff72aa0a98606d05/editors/nvi/files/patch-common_key.h.diff"
     sha256 "3f923f33b98c90a5f96b7e8853d753871abcf93acd75052964ade2d9574502c5"
+    type :unofficial
   end
 
   # Upstream have been pretty inactive for a while, so we may want to kill this
@@ -68,6 +66,9 @@ class Nvi < Formula
   patch do
     url "https://deb.debian.org/debian/pool/main/n/nvi/nvi_1.81.6-17.debian.tar.xz"
     sha256 "4f81fa274e71093d212ca981dc510e9bf2f1d4716f3c447ec2402607aa394bca"
+    type :backport
+    # 31regex_heap_overflow.patch fixes the Henry Spencer regex overflow, see https://bugs.debian.org/778412
+    resolves "CVE-2015-2305"
     apply "patches/03db4.patch",
           "patches/19include_term_h.patch",
           "patches/20glibc_has_grantpt.patch",

@@ -1,8 +1,8 @@
 class OpenjdkAT25 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.org/"
-  url "https://github.com/openjdk/jdk25u/archive/refs/tags/jdk-25.0.3-ga.tar.gz"
-  sha256 "24080b39d5bb28c34d1fa738e8704db411c6fc7dac0962cc33305536b0391b9e"
+  url "https://github.com/openjdk/jdk25u/archive/refs/tags/jdk-25.0.4.1-ga.tar.gz"
+  sha256 "1e5908f90d732e0ed3f737aac7603863c2cc157e464e036ac0accadb87af4391"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class OpenjdkAT25 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "997131a0e1a727695d03bc69168b52edc857d9594e44eac7b2d41d9ba8f0a649"
-    sha256 cellar: :any, arm64_sequoia: "f3fa9b9c83b5cae6afc187bfd909eaf51d0c3456d35b08445eee22e1e77fa961"
-    sha256 cellar: :any, arm64_sonoma:  "2745b135ce440b0008eeee16180abe43379328c74231290f8ccdd61f679d3eb0"
-    sha256 cellar: :any, sonoma:        "75973113fd1ead44163214f34fc606e955a9c198a956469c3225bca624df1bab"
-    sha256               arm64_linux:   "877bf7fe3d97b9e5c849a9a98a6686805479262e2057b36dd1c0300e41a61ae3"
-    sha256               x86_64_linux:  "44b6bbcf9a8a1d7599fd64a59c1cb44de5d0dc4bddecb86e436cac642ea29bdf"
+    sha256 cellar: :any, arm64_tahoe:   "c8213a28dbfae072498205cfe160a62e4cdcacd6f8f0b437cd7432e053f358c7"
+    sha256 cellar: :any, arm64_sequoia: "b677cf89896c762f1504c2ebff7b3356ce3d328fbe12dc5ef3f4788e7e9db0eb"
+    sha256 cellar: :any, arm64_sonoma:  "2ea2061a48c1becdb312229da028c4b4a0a576a272bf33f2011574ee4b868005"
+    sha256 cellar: :any, sonoma:        "8a89fe789e457c24a0c532e08e1dac46494feebf569ba274ad27405effddc12e"
+    sha256               arm64_linux:   "125aed54ff2195afb6b3e7f60f003dcbddf922600be2b39ac0a9399136901fb3"
+    sha256               x86_64_linux:  "6620d9ad7e34506d0e052c06dd9bc08561f07233028714e10903ab1020e1532a"
   end
 
   keg_only :versioned_formula
@@ -27,7 +27,6 @@ class OpenjdkAT25 < Formula
 
   depends_on "autoconf" => :build
   depends_on "pkgconf" => :build
-  depends_on xcode: :build # for metal
   depends_on "freetype"
   depends_on "giflib"
   depends_on "harfbuzz"
@@ -35,19 +34,23 @@ class OpenjdkAT25 < Formula
   depends_on "libpng"
   depends_on "little-cms2"
 
-  uses_from_macos "cups"
-  uses_from_macos "unzip"
-  uses_from_macos "zip"
+  uses_from_macos "unzip" => :build
+  uses_from_macos "zip" => :build
+  uses_from_macos "cups" => :no_linkage
+
+  on_macos do
+    depends_on xcode: :build # for metal
+  end
 
   on_linux do
+    depends_on "libxt" => :build
     depends_on "alsa-lib"
-    depends_on "fontconfig"
+    depends_on "fontconfig" => :no_linkage
     depends_on "libx11"
     depends_on "libxext"
     depends_on "libxi"
-    depends_on "libxrandr"
+    depends_on "libxrandr" => :no_linkage
     depends_on "libxrender"
-    depends_on "libxt"
     depends_on "libxtst"
     depends_on "zlib-ng-compat"
   end
@@ -118,8 +121,8 @@ class OpenjdkAT25 < Formula
 
       %W[
         --enable-dtrace
-        --with-freetype-include=#{Formula["freetype"].opt_include}
-        --with-freetype-lib=#{Formula["freetype"].opt_lib}
+        --with-freetype-include=#{formula_opt_include("freetype")}
+        --with-freetype-lib=#{formula_opt_lib("freetype")}
         --with-sysroot=#{MacOS.sdk_path}
       ]
     else

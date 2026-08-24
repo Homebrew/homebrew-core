@@ -1,8 +1,8 @@
 class VulkanVolk < Formula
   desc "Meta loader for Vulkan API"
   homepage "https://github.com/zeux/volk"
-  url "https://github.com/zeux/volk/archive/refs/tags/vulkan-sdk-1.4.350.0.tar.gz"
-  sha256 "a04f26f76e9a4f9acf936bd2c159f5c4c8348f8ebaf118ff72ba6a9637ad3e80"
+  url "https://github.com/zeux/volk/archive/refs/tags/vulkan-sdk-1.4.357.0.tar.gz"
+  sha256 "6400c7b23e24d17e4f04bac49b55b06c4e87677d33398e90344743ec73560ca6"
   license "MIT"
   head "https://github.com/zeux/volk.git", branch: "master"
 
@@ -12,12 +12,12 @@ class VulkanVolk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "42737514660db3603287af33cba34c8284657afb65602d1c515f8559471f522b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b019c6e850ca86b1944fcfbf0ebb5f118152a2f1f2115ad25459927b53da37a0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b90c534582929c2324a7694986b254f3c2924f6b83e990e368e9187e3fc3daf8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "581afb0ef931e3e0d09a0f345037f76495b4cdb03349ceb9ca07134b4fb57e85"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "22e9b161000d55a7a4a544168a8502d3d0a949a61d44321a1bbc49584db2362c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1192aef4a85f5fc28530ffde25c0e28f740bc495bf2359295968a51ce96c5bc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c68e2b309f5483a7967a8a45bde15b16aa084608c5b55a13f04aeae9686ed180"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "827a0398cc40ce8c3ffd7cfa883459b277fc850eba4cad861ed863524cb416c3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2680a97c3ccbffc566040644922cb52041a805bc2ec8b736a224ec662e076213"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f9f6d6c01b85710adde91a40688e1744da5e97867d7254ce7ea08499756eb53b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b730e103d15e781283e168fba2721d6d207020215949a210386f9a7fc2c4241"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81ee606b88cf14a3398406d18fec110038458e8c7dff1cd5f2cf95c96e00fdc1"
   end
 
   depends_on "cmake" => :build
@@ -42,7 +42,7 @@ class VulkanVolk < Formula
            "-DVOLK_INSTALL=ON",
            "-DVULKAN_HEADERS_INSTALL_DIR=#{Formula["vulkan-headers"].prefix}",
            "-DVOLK_STATIC_DEFINES=#{volk_static_defines}",
-           "-DCMAKE_INSTALL_RPATH=#{rpath(target: Formula["vulkan-loader"].opt_lib)}",
+           "-DCMAKE_INSTALL_RPATH=#{rpath(target: formula_opt_lib("vulkan-loader"))}",
            *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -68,7 +68,7 @@ class VulkanVolk < Formula
            "-I#{include}", "-L#{lib}",
            "-I#{Formula["vulkan-headers"].include}",
            "-lvolk", "-D#{volk_static_defines}",
-           "-Wl,-rpath,#{Formula["vulkan-loader"].opt_lib}",
+           "-Wl,-rpath,#{formula_opt_lib("vulkan-loader")}",
            "-o", testpath/"test"
     system testpath/"test"
   end

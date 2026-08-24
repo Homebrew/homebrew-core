@@ -1,8 +1,8 @@
 class Elvis < Formula
   desc "Erlang Style Reviewer"
   homepage "https://github.com/inaka/elvis"
-  url "https://github.com/inaka/elvis/archive/refs/tags/5.0.4.tar.gz"
-  sha256 "d4326c8c8c753274db207a384e1751dda40ea71ef586e9688c134e05d52c3fcb"
+  url "https://github.com/inaka/elvis/archive/refs/tags/6.0.0.tar.gz"
+  sha256 "ea0d3438062d94b686b375e98995584ed7b6b8863582f77b1966971299e400f4"
   license "Apache-2.0"
   head "https://github.com/inaka/elvis.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Elvis < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d2b3fde99a5b6cf1a25a61caf877ba77f067a3df7162552b5df2edb9fade39e0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b64c33563f4c4f1a9cb6605c13b5416ef0a3dcc7f5afb80c8ff77100117ea360"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "16453bc7eb918fe755262aa64af5ca8f7e6d25052d473a0d870a0e9eccffbff3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "158c15e1673c21f3b516035286e29d255f2207a5ae55ea5427c7373ba0b26687"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "426b1a66a9fcb647261838b47dc1ea9e21605c9e5d176ed9f5a93a30d3c03457"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "403a0286a0fef2aa36facf7afd20ace43d5ded29e38725c6d7e28d20946152f5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7944f413096aaee873497e06a63b29efcc90d2a6a58d6a4e38cb26cb48bfa52f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "983206b5588ed463a0d0fcc6b30a65697fb61639ce1d920cf0a8cdaa0eee1a3b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1c6b3a722fb62be43761a0eb24495fc76eb66f9b33a8bd875b8212b8b35b7abe"
+    sha256 cellar: :any_skip_relocation, sonoma:        "dde60b82cd915810d314b7534662b5641a2000e8078bb4b8f67c7ae851bebad5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e6a71c3ad39225794ffe021b07aa06d50d2c0430d574fac02626cb6cedbf41a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5311e07f8ea291a5210df67517e484beffc53b7a487a149a255c031d745fbc73"
   end
 
   depends_on "rebar3" => :build

@@ -4,6 +4,7 @@ class Apkeep < Formula
   url "https://github.com/EFForg/apkeep/archive/refs/tags/1.0.0.tar.gz"
   sha256 "0c7a9c84b5dff12c356b22878e4f88ff3f1b44500ff80436c9e64cee17146388"
   license "MIT"
+  revision 1
   head "https://github.com/EFForg/apkeep.git", branch: "master"
 
   livecheck do
@@ -12,19 +13,19 @@ class Apkeep < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "965dc2b86a46baf0d1e9d8b589939f4b710435ee7c95a7c83d3a8558a7bac46c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4dfe63e1fcab476184a2d0f8aa56f45b805d1f07b7d2fdc460f388324a313286"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "20436b7b3d5b419ed0adf748845138820d64259a29145241278c10996d8e23d1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "eb37623192c9d223be4588150c3fdaa141094882632a0b46bd5ea5869c987e90"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5c38626aac992337f797dd8c51082fa89e81bf0f3f2244f828f58d935d95cc09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "929ef5f479c16ebf5e521b0d8c3fc4bc63e25d022eb510859dd82befc696f82e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4b0b3044c728dc7e348c3183c19a0c0771e055570d94c8d98b439d3be20f48c3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7bb0009f121096812f482f7f476c50546346daecd2d0a3aea5c19a9eb81d96e3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e7900765e83e8c263db7346ca8e5d9a810098bdb165494f6c0305833ad5efd22"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1b83813507b5f61fffc83f85f7cd04cd71e304759daa741ea0011977e551a5f9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9135054d2ddc100bb59462b0f5d76311cd561611425eac9d0f2c68ce07fdf86c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c5e13c382bd54d59495c0dc10e09f52f65a7a0ab2560dc7463b89537e455b542"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   def install

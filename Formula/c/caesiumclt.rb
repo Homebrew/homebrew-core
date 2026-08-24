@@ -1,17 +1,17 @@
 class Caesiumclt < Formula
   desc "Fast and efficient lossy and/or lossless image compression tool"
   homepage "https://github.com/Lymphatus/caesium-clt"
-  url "https://github.com/Lymphatus/caesium-clt/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "9b0417f00ae7fa8fa963ce1435abf3c3ab259bb8e770e13f83a82b66e153f4f0"
+  url "https://github.com/Lymphatus/caesium-clt/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "3dc4bc062536fcaa368d044aea873afd695feeabd9310d6118a7d45b2f0ad52e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3152fd5fc87211130c82a61d508a0bffa20e9e3bec67c3e502fa73e235606465"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ee9971b68bbcc8a220fd001967bf0c77537bec53b5b8d24445353e41302bf70"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f343bee4be468bc8f566f78499a570238be77c62b7a033cbf0763e07f5537484"
-    sha256 cellar: :any_skip_relocation, sonoma:        "781d9229dc1795a7698dd996c81a9cd59b0ad06dc3923276c5501d95a6ac5eb7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e3c459d4fb32f23f756e8f4b8288bafb1871fc0db69f9b46f40b6e25a47412cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6eb9191cecd9a876d2239ab50af367e0b4278005aee4da60a8feadd800df480c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1c50f3e42e3527ceb4377b11b6e6db2540459772e1c40e0f6792d33021e51cdf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "32c6e28ace8e0d1f131276ad61ce8d85db62c11f87763d793751f3c2d72da9a5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "616830712d3b4408ed2a31b6de2a7df99704386ffe7417f9e92e4ea9e3937f9e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "174a134a4e548157966ab5b453b8e666e3ea66bddab0564c741bcff68d50de39"
+    sha256 cellar: :any,                 arm64_linux:   "dcdd5f0d49a76163fa4d40010b1fad16745d97f48dac751df1d2a1b3db1309b4"
+    sha256 cellar: :any,                 x86_64_linux:  "2e01d5481434637c05935155d543d60118cb13cd5d8be4f96da832c76ec97a51"
   end
 
   depends_on "rust" => :build

@@ -12,12 +12,13 @@ class Libosinfo < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "4773ff32945a3d4c0b60862f9d922197cccd51007e8ef68be8406a1d47377d83"
-    sha256 arm64_sequoia: "007bbf084f955d4977136156f0a4b04ab76b5b78c28c7c4312b56a100470696f"
-    sha256 arm64_sonoma:  "f80f6cb7e7e20720683e5f4acbbb0a8b18888cd45d8e86c8dfb85c8c11578947"
-    sha256 sonoma:        "8695c32adedebb47e0193b2630bf5e4be7face356688702edd6fcd3cf2100c5d"
-    sha256 arm64_linux:   "4f2544454bcb943bb021c39e9533262b1c1384f86cbd642f192f036e5ba7aaa5"
-    sha256 x86_64_linux:  "c543a59fcf39583b1f55839d2ec00ea5575aa88b8956ed86e0a284131411dacd"
+    rebuild 1
+    sha256 arm64_tahoe:   "4112a597915e4822ba7f67beae18af91725b4ccce1771917ec0c9076201396c2"
+    sha256 arm64_sequoia: "fe7b7b7c87405e3719fbde6309318ca2ab771116debb3ec7c2ad15b1d8463ab8"
+    sha256 arm64_sonoma:  "ba5f315aa802a84fdd0bbffbb598dd15ba9e6a03e98224ebe2ee4753d18994c8"
+    sha256 sonoma:        "019a2a7fa88fb2d781f03f9d91b084646e5b84cf2a324115006d7aa1d9d0a3b5"
+    sha256 arm64_linux:   "5c3b5acf526dbbfd955c6e0e5642295fafce2b6048ba148162d71d0d419f7a1b"
+    sha256 x86_64_linux:  "6009fdb51f4d951b99750674b9d62444427d0c39b6caaed385b29bb867d779c2"
   end
 
   depends_on "gettext" => :build
@@ -46,9 +47,9 @@ class Libosinfo < Formula
   end
 
   # Backport fix for libxml2 >= 2.14
+  # Remove in the next release: https://gitlab.com/libosinfo/libosinfo/-/merge_requests/162
   patch do
-    url "https://gitlab.com/libosinfo/libosinfo/-/commit/0adf38535637ec668e658d43f04f60f11f51574f.diff"
-    sha256 "19fd45d55549decb981a6c1d83e4c8177eab88054ec545e4d97b63ab787df4d0"
+    file "Patches/libosinfo/libxml2_deprecated_apis.patch"
   end
 
   def install

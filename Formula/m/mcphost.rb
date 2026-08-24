@@ -15,10 +15,13 @@ class Mcphost < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8ff47f19f95d5594b56ceee0dfd7aca5295d5301503d9fd8caf8d98ba845fd5"
   end
 
+  deprecate! date: "2026-07-17", because: :repo_archived
+  disable! date: "2027-01-17", because: :repo_archived
+
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
 
     generate_completions_from_executable(bin/"mcphost", shell_parameter_format: :cobra)
   end

@@ -19,7 +19,6 @@ class Humanlog < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X main.versionMajor=#{version.major}
       -X main.versionMinor=#{version.minor}
       -X main.versionPatch=#{version.patch}

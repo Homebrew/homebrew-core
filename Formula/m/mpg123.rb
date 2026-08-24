@@ -1,9 +1,9 @@
 class Mpg123 < Formula
   desc "MP3 player for Linux and UNIX"
   homepage "https://www.mpg123.de/"
-  url "https://www.mpg123.de/download/mpg123-1.33.6.tar.bz2"
-  mirror "https://downloads.sourceforge.net/project/mpg123/mpg123/1.33.6/mpg123-1.33.6.tar.bz2"
-  sha256 "929a7c18ba662b8927aed4de229ad9ae8ab2b4806dd0f30b90113eb1b4e2195a"
+  url "https://www.mpg123.de/download/mpg123-1.33.7.tar.bz2"
+  mirror "https://downloads.sourceforge.net/project/mpg123/mpg123/1.33.7/mpg123-1.33.7.tar.bz2"
+  sha256 "31d0e35a4ca567ec9b5ebda6c3062bb4435d6d3eacd6ef0d95cadd7854dc03ee"
   license "LGPL-2.1-only"
   compatibility_version 1
 
@@ -13,12 +13,12 @@ class Mpg123 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "eb93e41985cb05d4209c4b7bdb4bc03a451a1c66f1c00f4296f07ed2a5cd229f"
-    sha256 arm64_sequoia: "1d2b91939a37d8cc408561e533f5ade45945b8daa2be4efce2fd6fa7ab2548a8"
-    sha256 arm64_sonoma:  "326924a8bdde4315f5692ebb7c4b54b24c77d05b3669052a5fb4b0894efe8464"
-    sha256 sonoma:        "a6369b5d5e8b30eac98418531feb1c49f818af20ffa4902ec671d28909c0196f"
-    sha256 arm64_linux:   "acf6b628abd6bb2620156ea57920026ef56795c73f5cfbbc37d23d88650ec698"
-    sha256 x86_64_linux:  "3b28d270477d43f1033a292c433e7afbb29a78b18ffd534b63c6f3d9f3ac0947"
+    sha256 arm64_tahoe:   "acabaed07a2aa95e360e1047df604cb45845254f2ff136671b9fb0d4bafc69ce"
+    sha256 arm64_sequoia: "9c77394d85530cafc6a0a753e98fa2a7f00e8df87e3e3c57411a7b896ce2e0f4"
+    sha256 arm64_sonoma:  "3d42cc9e1a044fe3c566e909bd122bb6a5b01f2696c110e915b2aee52a0c3142"
+    sha256 sonoma:        "88dbf616a98aea2f4229012c97dad6e243688bac7c76e63b410187cbb038cd08"
+    sha256 arm64_linux:   "9abac5b4cc29fd338a37d149afc0e271750327e1a2046b4c62190d8221a6cf13"
+    sha256 x86_64_linux:  "abaf6777eb51cb88f6d56dd33e9172bc7a208ac94b892652a3b422e5efa97ce0"
   end
 
   def install

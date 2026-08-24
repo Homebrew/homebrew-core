@@ -1,8 +1,8 @@
 class Bgpdump < Formula
   desc "C library for analyzing MRT/Zebra/Quagga dump files"
   homepage "https://github.com/RIPE-NCC/bgpdump/wiki"
-  url "https://github.com/RIPE-NCC/bgpdump/archive/refs/tags/v1.6.2.tar.gz"
-  sha256 "415692c173a84c48b1e927a6423a4f8fd3e6359bc3008c06b7702fe143a76223"
+  url "https://github.com/RIPE-NCC/bgpdump/releases/download/v1.6.2/libbgpdump-1.6.2.tgz"
+  sha256 "7c6dc32c367590a527752ca84c727ab4cbedc16a5abe5384dc523e563907abe0"
   license "GPL-2.0-only"
 
   livecheck do
@@ -20,8 +20,6 @@ class Bgpdump < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3e87438d5bebcb4e594b7af638eb0f5b81b89838a5deca962c319d1027a25d7f"
   end
 
-  depends_on "autoconf" => :build
-
   uses_from_macos "bzip2"
 
   on_linux do
@@ -29,7 +27,6 @@ class Bgpdump < Formula
   end
 
   def install
-    system "./bootstrap.sh"
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"

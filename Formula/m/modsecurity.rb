@@ -1,18 +1,17 @@
 class Modsecurity < Formula
   desc "Libmodsecurity is one component of the ModSecurity v3 project"
   homepage "https://github.com/owasp-modsecurity/ModSecurity"
-  url "https://github.com/owasp-modsecurity/ModSecurity/releases/download/v3.0.15/modsecurity-v3.0.15.tar.gz"
-  sha256 "c276c838df6b61d96aa52075aee17d426af52755e16d09edca9f9d718696fda7"
+  url "https://github.com/owasp-modsecurity/ModSecurity/releases/download/v3.0.16/modsecurity-v3.0.16.tar.gz"
+  sha256 "739be3c71b1939f14e91afe1eeae654acbd440da11bd29790458840bc315b4c0"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "e51b958e7f3ec2ebe0324cb0f133aa6af929c429d22589bb042ac5a9f524eeb7"
-    sha256 cellar: :any,                 arm64_sequoia: "47d9a27168331fe29ea86eb6c398a94ee9c0d7c2a295ab62cdf2364e5de29d73"
-    sha256 cellar: :any,                 arm64_sonoma:  "fc6b93dc556fc26c55831e5c0365fdc6e45261dcf8ecb3a6271ac6a49f6c48f9"
-    sha256 cellar: :any,                 sonoma:        "8bfd7a7e85fe4102ae34638c5bdd7a3c5135aa57e5610f7411c069c47788f050"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e8efcb21e3ece35ac7c3df4bc83c0b38f10ce86881d45f80098a0946ef9467aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c901de2b4e8c412d29aa69ac9974a0e52786fa689172619c72269904e3b3685"
+    sha256 cellar: :any, arm64_tahoe:   "c5da00e5e5acf53ce53798e9e0bfcd768d6b46f4063ca021d589165d00a7cd84"
+    sha256 cellar: :any, arm64_sequoia: "ed15406a6e8b0194ba73746044697c4b89941c1aeffe7cb470f5510fc2a96366"
+    sha256 cellar: :any, arm64_sonoma:  "2defe052614124fa7e20e16358c4d18429009a78028d9bb1bb0eff5d04f19878"
+    sha256 cellar: :any, sonoma:        "48b159b5e26675c53e6fe6d0f54d8d77cfe3b9f5b5b3a29859a6d61f97b71a68"
+    sha256 cellar: :any, arm64_linux:   "00cb4763e7114913214907f09f3064aa5d31c1b01468ddef6dd27f9591b4f81c"
+    sha256 cellar: :any, x86_64_linux:  "44b13d984cff8b0f4b75ac029cc6bf69f55990dea11efd4e2902753113350a2f"
   end
 
   depends_on "autoconf" => :build
@@ -30,7 +29,7 @@ class Modsecurity < Formula
   def install
     system "autoreconf", "--force", "--install", "--verbose"
 
-    libxml2 = OS.mac? ? "#{MacOS.sdk_path}/usr" : Formula["libxml2"].opt_prefix
+    libxml2 = OS.mac? ? "#{MacOS.sdk_path}/usr" : formula_opt_prefix("libxml2")
 
     args = [
       "--disable-debug-logs",
@@ -38,9 +37,9 @@ class Modsecurity < Formula
       "--disable-examples",
       "--disable-silent-rules",
       "--with-libxml=#{libxml2}",
-      "--with-lua=#{Formula["lua@5.4"].opt_prefix}",
-      "--with-pcre2=#{Formula["pcre2"].opt_prefix}",
-      "--with-yajl=#{Formula["yajl"].opt_prefix}",
+      "--with-lua=#{formula_opt_prefix("lua")}",
+      "--with-pcre2=#{formula_opt_prefix("pcre2")}",
+      "--with-yajl=#{formula_opt_prefix("yajl")}",
       "--without-geoip",
     ]
 

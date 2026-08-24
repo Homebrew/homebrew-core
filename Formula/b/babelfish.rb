@@ -21,7 +21,7 @@ class Babelfish < Formula
   depends_on "fish" => :test
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-w -s", gcflags: "all=-l -B -wb=false")
+    system "go", "build", *std_go_args(gcflags: "all=-l -B -wb=false")
     fish_function.install "babel.fish"
   end
 

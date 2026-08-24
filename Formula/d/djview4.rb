@@ -36,7 +36,7 @@ class Djview4 < Formula
                             "--disable-nsdejavu",
                             "--#{OS.mac? ? "disable" : "enable"}-desktopfiles",
                             "--#{OS.mac? ? "enable" : "disable"}-mac",
-                            "--with-tiff=#{Formula["libtiff"].opt_prefix}",
+                            "--with-tiff=#{formula_opt_prefix("libtiff")}",
                             *std_configure_args
     system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}"
 

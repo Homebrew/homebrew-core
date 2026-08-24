@@ -12,6 +12,10 @@ class Ext4fuse < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "0f92633dbef2c93356457d0c0a45b16b5376ca739b20f7a3bc6e6f74298f1f7c"
   end
 
+  # Last release on 2013-02-07, last activity 2020-09-29. Needs `libfuse@2` to build
+  deprecate! date: "2026-06-21", because: :unmaintained
+  disable! date: "2027-06-21", because: :unmaintained
+
   depends_on "pkgconf" => :build
   depends_on "libfuse@2"
   depends_on :linux # on macOS, requires closed-source macFUSE

@@ -5,11 +5,6 @@ class Sha2 < Formula
   sha256 "67bc662955c6ca2fa6a0ce372c4794ec3d0cd2c1e50b124e7a75af7e23dd1d0c"
   license "BSD-3-Clause"
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?sha2[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     rebuild 4
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "55b0e8d020c0e19723dac33bf78a7766ad2a9bc1fbf0ae532909fed61f9c5685"
@@ -26,6 +21,10 @@ class Sha2 < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "82d260e0a84cc48d8442d041c3da6305a586be869936e999a80abb4f58548849"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "027526015a81f4aec75269a3c104a0fab290359471f228d87f0922a788eedee0"
   end
+
+  # Upstream homepage is gone
+  deprecate! date: "2026-06-22", because: :repo_removed
+  disable! date: "2027-06-22", because: :repo_removed
 
   def install
     # Xcode 12 made -Wimplicit-function-declaration an error by default so we need to

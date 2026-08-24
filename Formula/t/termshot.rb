@@ -17,10 +17,7 @@ class Termshot < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/homeport/termshot/internal/cmd.version=#{version}
-    ]
+    ldflags = %W[-X github.com/homeport/termshot/internal/cmd.version=#{version}]
     system "go", "build", *std_go_args(ldflags:), "./cmd/termshot"
   end
 

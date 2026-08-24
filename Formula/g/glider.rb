@@ -22,11 +22,7 @@ class Glider < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
-    ]
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
 
     etc.install buildpath/"config/glider.conf.example" => "glider.conf"
   end
@@ -43,7 +39,7 @@ class Glider < Formula
     begin
       sleep 3
       output = shell_output("curl --socks5 127.0.0.1:#{proxy_port} -L https://brew.sh")
-      assert_match "The Missing Package Manager for macOS (or Linux)", output
+      assert_match "The Package Manager for Everywhere", output
     ensure
       Process.kill 9, glider
       Process.wait glider

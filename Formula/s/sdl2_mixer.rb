@@ -35,7 +35,7 @@ class Sdl2Mixer < Formula
   depends_on "libxmp"
   depends_on "mpg123"
   depends_on "opusfile"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "wavpack"
 
   def install
@@ -94,7 +94,7 @@ class Sdl2Mixer < Formula
           return success == INIT_FLAGS ? EXIT_SUCCESS : EXIT_FAILURE;
       }
     C
-    system ENV.cc, "-I#{Formula["sdl2"].opt_include}/SDL2",
+    system ENV.cc, "-I#{formula_opt_include("sdl2-compat")}/SDL2",
            "test.c", "-L#{lib}", "-lSDL2_mixer", "-o", "test"
     system "./test"
   end

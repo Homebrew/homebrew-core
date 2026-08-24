@@ -3,15 +3,15 @@ class Mat2 < Formula
 
   desc "Metadata anonymization toolkit"
   homepage "https://github.com/jvoisin/mat2"
-  url "https://files.pythonhosted.org/packages/ba/e1/9a8abf4f5ab3c3e214197e310e3f33418d79769ee89911da939a6c891d4f/mat2-0.14.0.tar.gz"
-  sha256 "7f07db8c587f91bdfb15fb384bca05d741edc31888bd9844b9e91290c0f529c3"
+  url "https://files.pythonhosted.org/packages/01/3d/53616b3b1070f284a196147360f3a6179fb08d0362e7cee8c41d91c834c8/mat2-0.15.0.tar.gz"
+  sha256 "0732df32ebbd800e3a680339fa049c96624e59430c9ddbf4136ad82459ef6231"
   license "LGPL-3.0-or-later"
 
   # FIXME: Fails trying to resolve pygobject as pip tries compiling it but cannot find cairo
   no_autobump! because: "`update-python-resources` cannot determine dependencies"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "17024db2dbe23577339a098b09c29f5a6675af803530aed35a85d156bac2f22e"
+    sha256 cellar: :any_skip_relocation, all: "3994d3c3034d60f2d69cbc9c1da795a49742bcac3d36869d75f028245f267354"
   end
 
   depends_on "exiftool"
@@ -26,8 +26,8 @@ class Mat2 < Formula
   pypi_packages exclude_packages: "pygobject"
 
   resource "mutagen" do
-    url "https://files.pythonhosted.org/packages/81/e6/64bc71b74eef4b68e61eb921dcf72dabd9e4ec4af1e11891bbd312ccbb77/mutagen-1.47.0.tar.gz"
-    sha256 "719fadef0a978c31b4cf3c956261b3c58b6948b32023078a2117b1de09f0fc99"
+    url "https://files.pythonhosted.org/packages/df/70/1675da133ea92227da41bf5b24e1c66be597ff736a1533ade41da986852f/mutagen-1.48.1.tar.gz"
+    sha256 "8f95637ab9f6f305cec6bd1294e197debe207998e3e068596563c74f86b0a173"
   end
 
   def install

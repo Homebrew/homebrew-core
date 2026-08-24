@@ -1,8 +1,8 @@
 class Lmdb < Formula
   desc "Lightning memory-mapped database: key-value data store"
-  homepage "https://www.symas.com/symas-embedded-database-lmdb"
-  url "https://git.openldap.org/openldap/openldap/-/archive/LMDB_0.9.35/openldap-LMDB_0.9.35.tar.bz2"
-  sha256 "98e28ab0a5c23fb2eb8ad12c12d7ad5fc5e4c3563f41d0b91e9420a075974d6f"
+  homepage "https://www.symas.com/lmdb.php"
+  url "https://git.openldap.org/openldap/openldap/-/archive/LMDB_1.0.1/openldap-LMDB_1.0.1.tar.bz2"
+  sha256 "1ae17f11ebdeb0d69e53416bb6e0a7479a7d3d5b5ca443a474bff5b5f886a348"
   license "OLDAP-2.8"
   version_scheme 1
   compatibility_version 1
@@ -14,12 +14,12 @@ class Lmdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "ff8ea47014d75d42bf16d283dadd6b342953175fda71ec580cba3751ffbf14c9"
-    sha256 cellar: :any,                 arm64_sequoia: "5fd57c67d053246fc8f47f996feb06226fb6532f7ee474b4e4ed125b4b647b85"
-    sha256 cellar: :any,                 arm64_sonoma:  "7f3c10a0579bd56cc9d0d73ca40c908ab67c9c428e1e4357b3610da9359e46d5"
-    sha256 cellar: :any,                 sonoma:        "74efd6cfd1355ccd8f1ea00232c9a163b939999fb209fc04111f622c9a59231b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "438f6fde81f43d28c4774ab7e5bfcc907c5c2093b5fdf636aa3ef4e4af75adb3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aedd3488e577959f8e83ad4d26329e3d5c878e3c6be837d5d09ae7e5012756ff"
+    sha256 cellar: :any, arm64_tahoe:   "4e63ac4f1ee1a664b39877162ea66cba4761fccb868fad984bec7c3282218414"
+    sha256 cellar: :any, arm64_sequoia: "2e0d8aadbabf97148fe9c572a87add07e02d52c61669c848205b54feb2e6bc80"
+    sha256 cellar: :any, arm64_sonoma:  "9f5d865c6622999ad3b99dad56197ea5b4c01fb6bd80231ecd784b01355d7900"
+    sha256 cellar: :any, sonoma:        "472ac24635bef354ee174db475f0cfd6c7aed98f6aaad1692e78de4e0e2fa026"
+    sha256 cellar: :any, arm64_linux:   "8232f467c13a8c6ee225081d8f44c842f1ba2aab4dbf9ace3733d6509a44d04d"
+    sha256 cellar: :any, x86_64_linux:  "f0b73e63e3954123ffea927bd082d1c30f5caf44e289eb870f931ae4aca84ad0"
   end
 
   depends_on "pkgconf" => :test
@@ -27,7 +27,11 @@ class Lmdb < Formula
   def install
     cd "libraries/liblmdb" do
       args = []
-      args << "SOEXT=.dylib" if OS.mac?
+      if OS.mac?
+        args << "SOEXT=.dylib"
+        # Apple's ld has no -soname; upstream suggests this alternative in the Makefile
+        args << "VERSION_OPT=-Wl,-compatibility_version,$(LIBVER) -Wl,-current_version,$(VEREXT)"
+      end
       system "make", *args
       system "make", "install", *args, "prefix=#{prefix}"
     end

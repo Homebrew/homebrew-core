@@ -15,14 +15,10 @@ class Samurai < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e94dd3b80ffbddb9853e86dcaf2a8ee4a4031b00eb7a3f9d587cb34c4f9e8aaf"
   end
 
-  # Only link librt on Linux, upstream PR ref, https://github.com/michaelforney/samurai/pull/121
-  patch do
-    url "https://github.com/michaelforney/samurai/commit/d17ee9ae9448731e7707b4af5824453298ce69d9.patch?full_index=1"
-    sha256 "16d65b7857f982085a76d9594ad8899a2b6a2743cb9b8379747cded6facc8dd3"
-  end
-
   def install
-    system "make", "PREFIX=#{prefix}", "install"
+    args = ["PREFIX=#{prefix}"]
+    args << "LDLIBS=" if OS.mac?
+    system "make", "install", *args
   end
 
   test do

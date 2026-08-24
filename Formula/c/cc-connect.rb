@@ -1,36 +1,29 @@
 class CcConnect < Formula
   desc "Bridges local AI coding agents to messaging platforms"
   homepage "https://github.com/chenhg5/cc-connect"
-  url "https://github.com/chenhg5/cc-connect/archive/refs/tags/v1.3.4.tar.gz"
-  sha256 "e3b8576d741e764b4fd6e0982b609d6dca6a980dbc66a9433b552369a9e719ff"
+  url "https://github.com/chenhg5/cc-connect/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "23904ca3c3d73dcc84316a039c30ff87448fcbb33f4170633ffd32cf3eea599d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "50afcd45b7597fb8a32f6b48401a7ae1349cdeba8f6f98e8f1028fe4ec92b769"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "50afcd45b7597fb8a32f6b48401a7ae1349cdeba8f6f98e8f1028fe4ec92b769"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "50afcd45b7597fb8a32f6b48401a7ae1349cdeba8f6f98e8f1028fe4ec92b769"
-    sha256 cellar: :any_skip_relocation, sonoma:        "214d56901d3c7b2966ac715c05718aa5a767eb3a5a3be0532cedc98665a1ea7b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d0ba1039d7a63bca705c4346e4071ce4dc775800a51ba9125a683478238314ae"
-    sha256 cellar: :any,                 x86_64_linux:  "eb6dfe531980ff4e241026036d2287aa46b1603e169f6f7a5b40eb0ab3fda8dc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "27cdce6fc16b6bc75a22a7b2158ce3d7ff0747c885fa4fe5d4e5de02bf19db18"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "27cdce6fc16b6bc75a22a7b2158ce3d7ff0747c885fa4fe5d4e5de02bf19db18"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "27cdce6fc16b6bc75a22a7b2158ce3d7ff0747c885fa4fe5d4e5de02bf19db18"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d13532caf2cb94ea70f453d1704c871841080d1fdf63e484541e7e651431f2f5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e29b824eb1cc5f57fcffed836a5d0b41c3da53ef646571f19789f67f9bec4fdf"
+    sha256 cellar: :any,                 x86_64_linux:  "b89d982451e283ed2437f93c6b11aeaee9a571dca65c3de622ad147013705297"
   end
 
   depends_on "go" => :build
   depends_on "node" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
-      -X main.commit=#{tap.user}
-      -X main.buildTime=#{time.iso8601}
-    ]
-
     cd "web" do
       system "npm", "install", *std_npm_args(prefix: false)
       system "npm", "run", "build"
     end
 
-    system "go", "build", *std_go_args(ldflags:), "./cmd/cc-connect"
+    system "go", "build", *std_go_args(ldflags: :goreleaser), "./cmd/cc-connect"
 
     pkgetc.install "config.example.toml" => "config.toml"
   end

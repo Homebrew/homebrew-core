@@ -1,18 +1,17 @@
 class Wxpython < Formula
   desc "Python bindings for wxWidgets"
   homepage "https://www.wxpython.org/"
-  url "https://files.pythonhosted.org/packages/22/43/81657a6b126ffc19163500a8184d683cec08eb4e1d06905cd0c371c702d0/wxpython-4.2.5.tar.gz"
-  sha256 "44e836d1bccd99c38790bb034b6ecf70d9060f6734320560f7c4b0d006144793"
+  url "https://files.pythonhosted.org/packages/3d/dd/026f6286f8beefcdd9551ad2e05b4e3edb45e638cdc067db211c53c950ce/wxpython-4.3.1.tar.gz"
+  sha256 "4e3a95b63175be8e10f0662de506a36d8cc6cb86ecc5b30ae880c8dafb34a0cd"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "f386143a6e4461fde98aaa60c28f8dc1c87270ad53aaef1fc3b059753ca7d04b"
-    sha256 cellar: :any, arm64_sequoia: "101056218733233f473e26ed0836b3c385fc55a8cb6653ab4840241df62c444e"
-    sha256 cellar: :any, arm64_sonoma:  "1d8b4b5e2a4548a25fd602ceca03f1d217a508f6160b528c88cabd5da92379ac"
-    sha256 cellar: :any, sonoma:        "fb2da74fde2f55b27d36418a776ed1a3a3f884319d406618d022f8e409450ba6"
-    sha256               arm64_linux:   "4321aecdd3168f3f2bb0ae102d2f93da7449c0f4968f5c746f18e2e25feabf39"
-    sha256               x86_64_linux:  "8b3b5bea2efe6ccac67b575e3d308d9d5688120e9da07693be91c47ff5f6f0c5"
+    sha256 cellar: :any, arm64_tahoe:   "5959abf9051bc6e3b58611bbbb2a9661180fd629b3208be9f7eb027dfbba7084"
+    sha256 cellar: :any, arm64_sequoia: "49736a27d51fe1746a6a48a23afcc0e5856f84a8eaeba51c255d471ba6214b4b"
+    sha256 cellar: :any, arm64_sonoma:  "d8ae9530fb20c86e77773dba1beb7887600f37603a5ae92be293d4b4916b42b3"
+    sha256 cellar: :any, sonoma:        "bfbb387d2f21f1cb4f5e589ca73e040914c04be752ca204870e015d3ea41e6fc"
+    sha256               arm64_linux:   "9a4c43dfef170d50b1e3f4679264d7a9f485ebee5f946ed5f463993bd8b7180a"
+    sha256               x86_64_linux:  "8ad63c8a655e368e6daeb8c26dceab15fe739b43e7042755b0d663485b5ccd84"
   end
 
   depends_on "cython" => :build
@@ -22,7 +21,7 @@ class Wxpython < Formula
   depends_on "numpy"
   depends_on "pillow"
   depends_on "python@3.14"
-  depends_on "wxwidgets@3.2" # issue ref: https://github.com/wxWidgets/Phoenix/issues/2764
+  depends_on "wxwidgets"
 
   on_linux do
     depends_on "pkgconf" => :build
@@ -30,6 +29,10 @@ class Wxpython < Formula
   end
 
   pypi_packages exclude_packages: %w[numpy pillow]
+
+  # Upstream pins Doxygen 1.9.1, which keeps `constexpr` in the XML type; ours is newer
+  # and reports it as an attribute, so `constexpr` members get a setter and fail to build.
+  patch :DATA
 
   def python
     "python3.14"
@@ -40,9 +43,9 @@ class Wxpython < Formula
     wx_config = wxwidgets.opt_bin/"wx-config-#{wxwidgets.version.major_minor}"
     ENV["WX_CONFIG"] = wx_config.to_s
 
-    ENV.append_path "PYTHONPATH", Formula["cython"].opt_libexec/Language::Python.site_packages(python)
+    ENV.append_path "PYTHONPATH", formula_opt_libexec("cython")/Language::Python.site_packages(python)
     ENV.cxx11
-    ENV["DOXYGEN"] = Formula["doxygen"].opt_bin/"doxygen"
+    ENV["DOXYGEN"] = formula_opt_bin("doxygen")/"doxygen"
     system python, "-u", "build.py", "dox", "touch", "etg", "sip", "build_py",
                    "--release",
                    "--use_syswx",
@@ -58,3 +61,18 @@ class Wxpython < Formula
     assert_match version.to_s, output
   end
 end
+
+__END__
+diff --git a/etgtools/extractors.py b/etgtools/extractors.py
+index 5c3b1d4..b6e9b2d 100644
+--- a/etgtools/extractors.py
++++ b/etgtools/extractors.py
+@@ -222,6 +222,8 @@ class VariableDef(BaseDef):
+     def extract(self, element):
+         super(VariableDef, self).extract(element)
+         self.type = flattenNode(element.find('type'))
++        if element.get('constexpr') == 'yes' and not self.type.startswith('const'):
++            self.type = 'const ' + self.type
+         self.definition = element.find('definition').text
+         self.argsString = element.find('argsstring').text
+ 

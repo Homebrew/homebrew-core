@@ -40,7 +40,7 @@ class Qdbm < Formula
       # Does not want to build on Linux
       args << "--enable-bzip"
     else
-      ENV.append "LDFLAGS", "-L#{Formula["zlib-ng-compat"].opt_lib}"
+      ENV.append "LDFLAGS", "-L#{formula_opt_lib("zlib-ng-compat")}"
     end
 
     # GCC < 13 with -O2 or higher can cause segmentation faults from loop optimisation bug

@@ -1,18 +1,23 @@
 class XorgServer < Formula
   desc "X Window System display server"
   homepage "https://www.x.org"
-  url "https://www.x.org/releases/individual/xserver/xorg-server-21.1.23.tar.xz"
-  sha256 "e39832e5617dadaf072fdf9f0e19e5d2e1c2a13607ac280bac1aba9f8fe14634"
+  url "https://www.x.org/releases/individual/xserver/xorg-server-21.1.24.tar.xz"
+  sha256 "1a4eb36ca65cc3b1b936566d677a9786e13c11cd5806e951ac55f3f5ce3984af"
   license all_of: ["MIT", "APSL-2.0"]
   compatibility_version 1
 
+  livecheck do
+    url :stable
+    regex(/href=.*?xorg-server[._-]v?(\d+\.\d+(?:\.(?:\d|[0-8]\d+))+)\.t/i)
+  end
+
   bottle do
-    sha256 arm64_tahoe:   "5eb5288787f02f75e41d4fe9491f36213dea58c6d1ca0cc2f53418fc35580db8"
-    sha256 arm64_sequoia: "6ece7c1e1979624191d5d0906a6e5b6a40966432a1633e3f5da8a751e1d73a83"
-    sha256 arm64_sonoma:  "65c196817c2dd27b1c52b556a2cdc2f866212aff7311f230a29c0604351798f1"
-    sha256 sonoma:        "d1134ab8bfa1fb1711a471b3412ebce9cb11f475056b6d0dd492120232ead4ce"
-    sha256 arm64_linux:   "bbb6c1df36e85af051256da93d91c36e89ac2165a7a32df4d301a65fe3f264f1"
-    sha256 x86_64_linux:  "e9c7c7537e53ab4279f1b9febacd5c3d17ca0906877e78bcf87e6cd0b61e712b"
+    sha256 arm64_tahoe:   "277d48e1ae129f621928d182dfb59d436bee94ef8c82f8ab18740b117b599ad0"
+    sha256 arm64_sequoia: "0d8b6a8652cae487783f961c1a6d0f77f64542ca0d3a268f4f0386005ec538ff"
+    sha256 arm64_sonoma:  "7d571a9fe7dbf3520b5059f25e6ccde4ceec3da503ae1c37df27052501fb4c32"
+    sha256 sonoma:        "d00d56efb37d75edfee2a1fc44a03d297904d6eaecdfaa4c88cdd659798ffb12"
+    sha256 arm64_linux:   "49ebbe4fc3a9117f274e5c1ab0f5e1c0942ab07fa855ac5c3b7086f8865390e3"
+    sha256 x86_64_linux:  "7c4871c037d6635b9d798825c58f1745d19d3fc4e29cf1c588bd758f7375c4ef"
   end
 
   depends_on "font-util"   => :build
@@ -57,7 +62,7 @@ class XorgServer < Formula
     depends_on "libtirpc"
     depends_on "libxcvt"
     depends_on "libxshmfence"
-    depends_on "nettle"
+    depends_on "openssl@3"
     depends_on "systemd"
 
     resource "xvfb-run" do
@@ -74,7 +79,7 @@ class XorgServer < Formula
   def install
     # ChangeLog contains some non relocatable strings
     rm "ChangeLog"
-    meson_args = std_meson_args.map { |s| s.sub prefix, HOMEBREW_PREFIX } + %W[
+    meson_args = std_meson_args(prefix: HOMEBREW_PREFIX) + %W[
       -Dxephyr=true
       -Dxf86bigfont=true
       -Dxcsecurity=true
@@ -83,13 +88,16 @@ class XorgServer < Formula
       -Dbuilder_addr=#{tap.remote}
       -Dbuilder_string=#{tap.name}
     ]
-    # macOS doesn't provide `authdes_cred` so `secure-rpc=false`
-    # glamor needs GLX with `libepoxy` on macOS
-    if OS.mac?
-      meson_args += %w[
+    meson_args += if OS.mac?
+      # macOS doesn't provide `authdes_cred` so `secure-rpc=false`
+      # glamor needs GLX with `libepoxy` on macOS
+      %w[
         -Dsecure-rpc=false
         -Dapple-applications-dir=libexec
       ]
+    else
+      # Linux dependency tree already includes OpenSSL
+      %w[-Dsha1=libcrypto]
     end
 
     # X11.app need startx etc. in the same directory

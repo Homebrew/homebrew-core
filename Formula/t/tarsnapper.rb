@@ -47,10 +47,12 @@ class Tarsnapper < Formula
     sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
-  # Drop unneeded argparse requirement: https://github.com/miracle2k/tarsnapper/pull/72
+  # Drop unneeded argparse requirement
   patch do
     url "https://github.com/miracle2k/tarsnapper/commit/def72ae8499b38ab4726d826d7363490de6564fb.patch?full_index=1"
     sha256 "927ff17243b2e751afc7034b059365ca0373db74dcc8d917b8489058a66b2d1c"
+    type :unofficial
+    resolves "https://github.com/miracle2k/tarsnapper/pull/72"
   end
 
   def install

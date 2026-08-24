@@ -1,8 +1,8 @@
 class ErofsUtils < Formula
   desc "Utilities for Enhanced Read-Only File System"
   homepage "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git"
-  url "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/erofs-utils-1.9.1.tar.gz"
-  sha256 "a9ef5ab67c4b8d2d3e9ed71f39cd008bda653142a720d8a395a36f1110d0c432"
+  url "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/erofs-utils-1.9.4.tar.gz"
+  sha256 "7d135aa2550326a5acf20f53c518aea5a8900015ce50700044e40f818c31dd80"
   license "GPL-2.0-or-later"
   head "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git", branch: "master"
 
@@ -12,12 +12,12 @@ class ErofsUtils < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fcd98111d3eaf796ebb28e1714fca383c2b750c75aa7a692991d2b1abaeec321"
-    sha256 cellar: :any,                 arm64_sequoia: "fc05f424e0cac372e60490b710d30184ee92faaee899de8759c4f2f3b6e12ca9"
-    sha256 cellar: :any,                 arm64_sonoma:  "d35a4cdbd72dd9b04bf33ec14f2d786da070606eca70c93a9c3040a507a09c46"
-    sha256 cellar: :any,                 sonoma:        "781c2d8a935ba8e8c7b8a5f2721d3a1cfbe695927c1afe67da0392d462f19229"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec5a0c1d3922c42c26d84c5b3f2cfe8ceaa0e18db0256da169fa8722a1fce6d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7635fad4505da693bfa9b47be3669fb7bffcbd70425e04c099b48dfb868d5d2c"
+    sha256 cellar: :any, arm64_tahoe:   "2e9e4f282caf94e14e3fb09f4ddcf9a7efd637bb60ff777b0ce1c675769e45ee"
+    sha256 cellar: :any, arm64_sequoia: "87e9ef8002a87275c018cffd127f7eb11de4553cc53edd7b20b81a8e407580c4"
+    sha256 cellar: :any, arm64_sonoma:  "90b65cd37db371ea91983ed8ca90b04d4325408368bfded618375f401ef5f3d0"
+    sha256 cellar: :any, sonoma:        "477efe0142e48843a22a67f19434952502f032e5ed9cf0a4a078249a10a423fc"
+    sha256 cellar: :any, arm64_linux:   "41c13dbf80ce34a685bca834c6e54b0547ca7cf6b84bd1f18b5f8c866b61052c"
+    sha256 cellar: :any, x86_64_linux:  "8c0c99d07dc9b93cf8df32716ee1b50cb51acf70478e463d0019b6d75d493991"
   end
 
   depends_on "autoconf" => :build
@@ -35,7 +35,7 @@ class ErofsUtils < Formula
 
   def install
     # Link to liblzma from brew rather than system
-    ENV.append "LDFLAGS", "-L#{Formula["xz"].opt_lib}"
+    ENV.append "LDFLAGS", "-L#{formula_opt_lib("xz")}"
 
     args = %w[
       --disable-silent-rules

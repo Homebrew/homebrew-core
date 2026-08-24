@@ -35,8 +35,8 @@ class Sox < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
-    sha256 "83af02f2aa2b746bb7225872cab29a253264be49db0ecebb12f841562d9a2923"
+    file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    type :unofficial
   end
 
   # Applies Eric Wong's patch to fix device name length in MacOS.
@@ -46,6 +46,7 @@ class Sox < Formula
   patch do
     url "https://80x24.org/sox.git/patch?id=bf2afa54a7dec"
     sha256 "0cebb3d4c926a2cf0a506d2cd62576c29308baa307df36fddf7c6ae4b48df8e7"
+    type :unofficial
   end
 
   def install

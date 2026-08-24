@@ -20,7 +20,7 @@ class SqlMigrate < Formula
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
 
-    system "go", "build", *std_go_args(ldflags: "-s -w -X Main.Version=#{version}"), "./sql-migrate"
+    system "go", "build", *std_go_args(ldflags: "-X Main.Version=#{version}"), "./sql-migrate"
   end
 
   test do

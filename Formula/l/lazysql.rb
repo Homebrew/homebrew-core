@@ -1,8 +1,8 @@
 class Lazysql < Formula
   desc "Cross-platform TUI database management tool"
   homepage "https://github.com/jorgerojas26/lazysql"
-  url "https://github.com/jorgerojas26/lazysql/archive/refs/tags/v0.5.4.tar.gz"
-  sha256 "f2ee82ca2bb4063eae8cb12c63cedaba39b1665dbe65492695105f4262c1c865"
+  url "https://github.com/jorgerojas26/lazysql/archive/refs/tags/v0.5.6.tar.gz"
+  sha256 "ec2cd213f36b4fee1e73f8da528a8e19344d1013d4a1af5005f66bc44f0b93fc"
   license "MIT"
   head "https://github.com/jorgerojas26/lazysql.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Lazysql < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "80cd4f58c70c6afafe80c54b23bdf887dc7b10f2eaf64f3cab3b4823079fbcab"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "80cd4f58c70c6afafe80c54b23bdf887dc7b10f2eaf64f3cab3b4823079fbcab"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "80cd4f58c70c6afafe80c54b23bdf887dc7b10f2eaf64f3cab3b4823079fbcab"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d5273969f300f652d94d803a7029d8c339327abf7edfaf08a8bde169f3840766"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9fc3193d09ebf549922e77c5683aed50ae69f56dcbf9b55f95ec5dcf2aeabb36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1299771cadff601b795ce006215912ad14564106397bf31064475174ded93bc3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "95b6fc40e3925055714300088775f3183f9d09d7bee8864dc293c71c809fd59a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "95b6fc40e3925055714300088775f3183f9d09d7bee8864dc293c71c809fd59a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95b6fc40e3925055714300088775f3183f9d09d7bee8864dc293c71c809fd59a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3a9d80ae2a881cbf722da8667519bc09d0b47871ba42c62db2d35a1246749c56"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1181c1224118e18d50f31cb01e27cd05b943209e3d408aeea45527fb8d56c877"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67cc5f41f881aa63617deeb753fe9c996b54d6b361cf7e4e1fbe0b8d86122c79"
   end
 
   depends_on "go" => :build
@@ -25,7 +25,7 @@ class Lazysql < Formula
 
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
   end
 
   test do

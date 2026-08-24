@@ -6,7 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.12.0.tar.gz"
   sha256 "fe78ad9f74c8ebf93d5c8ad6fa2c13236af330f3c67149d91a0647b3dc6f3958"
   license "GPL-3.0-or-later"
-  revision 11
+  revision 12
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
@@ -15,12 +15,13 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "04b24dab7794061979cfe115228969b8164835bac1b1c53539b03d3ee15d87f9"
-    sha256 cellar: :any,                 arm64_sequoia: "6e4f6fdc30c70e88f1340aea1b97ec8cbeda7c86b1c38c5b39cb99d305c35a93"
-    sha256 cellar: :any,                 arm64_sonoma:  "c04ade2daaea459c03e67089f8736aeabc4b30cabc56b96d3edd9668146e11d0"
-    sha256 cellar: :any,                 sonoma:        "b9c1172e9b14064cb0cd5c09cad7ce4910d0c7e42ef133575cac203903ab4046"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d467ad9df35d96bd47c2032ab0b1b49b139e8e16a9a3c4ccf31818a304b1aa05"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ec015bf6a0f0091abf7502acefccb202895e590b3beeae8e9edb0dbf6946fd1"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "c58f17fb1842b683ca2b1da90e1ce945ffbcc1a12fd3cd5d06f5f23181d00dcf"
+    sha256 cellar: :any, arm64_sequoia: "3276915ae3de66a9e12a3438d9bf3218c656e597fedcfe7b0d17da500649ec7b"
+    sha256 cellar: :any, arm64_sonoma:  "ea636cd143aad90f1ac466764f31e6f6f4c1b51254bca2ba6c192641ac604fe0"
+    sha256 cellar: :any, sonoma:        "b9c9ca90bcc5392396f71e22906f037f843cc932966419d185f7a41d4de7e889"
+    sha256 cellar: :any, arm64_linux:   "8b67a7f5ec5eddc173271d488f83df23dd102c76c6cad2e626c572ace7de706c"
+    sha256 cellar: :any, x86_64_linux:  "a9275f625dc889a850fea0c1a2d74fb4700ece22c1010db2ac8ad2f30b881d92"
   end
 
   # Can undeprecate if new release with Qt 6 support is available.
@@ -28,12 +29,11 @@ class Gnuradio < Formula
   deprecate! date: "2026-05-19", because: "needs end-of-life Qt 5. gr-qtgui support will be removed after 2026-11-19"
 
   depends_on "cmake" => :build
-  depends_on "doxygen" => :build
+  depends_on "cppzmq" => :build
   depends_on "pkgconf" => :build
   depends_on "pybind11" => :build
   depends_on "adwaita-icon-theme"
   depends_on "boost"
-  depends_on "cppzmq"
   depends_on "fftw"
   depends_on "fmt"
   depends_on "gmp"
@@ -42,15 +42,14 @@ class Gnuradio < Formula
   depends_on "jack"
   depends_on "libsndfile"
   depends_on "libyaml"
-  depends_on "numpy"
+  depends_on "numpy" => :no_linkage
   depends_on "portaudio"
-  depends_on "pygobject3"
-  depends_on "pyqt@5"
+  depends_on "pygobject3" => :no_linkage
+  depends_on "pyqt@5" => :no_linkage
   depends_on "python@3.14"
   depends_on "qt@5" # Qt6 issue: https://github.com/gnuradio/gnuradio/issues/7708
   depends_on "qwt-qt5"
-  depends_on "rpds-py"
-  depends_on "soapyrtlsdr"
+  depends_on "rpds-py" => :no_linkage
   depends_on "soapysdr"
   depends_on "spdlog"
   depends_on "uhd"
@@ -62,7 +61,7 @@ class Gnuradio < Formula
 
   on_linux do
     depends_on "alsa-lib"
-    depends_on "llvm"
+    depends_on "libunwind"
   end
 
   pypi_packages package_name:     "",
@@ -143,10 +142,12 @@ class Gnuradio < Formula
     sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
-  # Fix build with Boost 1.89.0, pr ref: https://github.com/gnuradio/gnuradio/pull/7904
+  # Fix build with Boost 1.89.0
   patch do
     url "https://github.com/gnuradio/gnuradio/commit/02aa698a05935fe350fb1772226e29605abd335e.patch?full_index=1"
     sha256 "246d540bdd2025b3ad2ffc84adea84b378ea0d640e73809e3f0e48f9bb6d3881"
+    type :backport
+    resolves "https://github.com/gnuradio/gnuradio/pull/7904"
   end
 
   def python3
@@ -154,7 +155,6 @@ class Gnuradio < Formula
   end
 
   def install
-    ENV.cxx11
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
     site_packages = Language::Python.site_packages(python3)
@@ -168,9 +168,9 @@ class Gnuradio < Formula
       s.gsub! "${CMAKE_CXX_COMPILER}", ENV.cxx
     end
 
-    qwt = Formula["qwt-qt5"].opt_lib
+    qwt = formula_opt_lib("qwt-qt5")
     qwt_lib = OS.mac? ? qwt/"qwt.framework/qwt" : qwt/"libqwt.so"
-    qwt_include = OS.mac? ? qwt/"qwt.framework/Headers" : Formula["qwt-qt5"].opt_include
+    qwt_include = OS.mac? ? qwt/"qwt.framework/Headers" : formula_opt_include("qwt-qt5")
 
     args = %W[
       -DGR_PKG_CONF_DIR=#{etc}/gnuradio/conf.d
@@ -181,8 +181,8 @@ class Gnuradio < Formula
       -DPYTHON_VERSION_MAJOR=3
       -DQWT_LIBRARIES=#{qwt_lib}
       -DQWT_INCLUDE_DIRS=#{qwt_include}
-      -DCMAKE_PREFIX_PATH=#{Formula["qt@5"].opt_lib}
-      -DQT_BINARY_DIR=#{Formula["qt@5"].opt_bin}
+      -DCMAKE_PREFIX_PATH=#{formula_opt_lib("qt@5")}
+      -DQT_BINARY_DIR=#{formula_opt_bin("qt@5")}
       -DENABLE_TESTING=OFF
       -DENABLE_INTERNAL_VOLK=OFF
     ]
@@ -254,10 +254,9 @@ class Gnuradio < Formula
       }
     CPP
 
-    boost = Formula["boost"]
-    system ENV.cxx, testpath/"test.c++", "-std=c++17", "-I#{boost.opt_include}", "-L#{lib}",
+    system ENV.cxx, testpath/"test.c++", "-std=c++17", "-I#{formula_opt_include("boost")}", "-L#{lib}",
                     "-lgnuradio-blocks", "-lgnuradio-runtime", "-lgnuradio-pmt",
-                    "-L#{Formula["fmt"].opt_lib}", "-lfmt",
+                    "-L#{formula_opt_lib("fmt")}", "-lfmt",
                     "-o", testpath/"test"
     system "./test"
 

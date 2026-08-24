@@ -1,8 +1,8 @@
 class AwsCMqtt < Formula
   desc "C99 implementation of the MQTT 3.1.1 specification"
   homepage "https://github.com/awslabs/aws-c-mqtt"
-  url "https://github.com/awslabs/aws-c-mqtt/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "9bc044a9c2f0d80c384ae6a6907c8817e0b40f673f75c4615c83b20f83140374"
+  url "https://github.com/awslabs/aws-c-mqtt/archive/refs/tags/v0.16.2.tar.gz"
+  sha256 "0a4da233f2532203b245d2459e4b12c9e556fee5ed2c92185d5e3f1dd4289c8c"
   license "Apache-2.0"
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class AwsCMqtt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a74167566a7bf2b20fe580263056776e6da26b09ecf15026bff6a9ba52e4bd35"
-    sha256 cellar: :any,                 arm64_sequoia: "135c03cd46a4bdcbf0a4933c83a122427af00eea1cfb35f8135f395c126467cb"
-    sha256 cellar: :any,                 arm64_sonoma:  "646ddca9d136d4d1f3ecc5b5da7a86ca6cea3fa72a64cd9990d15b7e8f3bfddf"
-    sha256 cellar: :any,                 sonoma:        "a62dabdc4176ad788ccf8b5a2d88025c58278c1646d2e1e436b750cc6e340768"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0caf142228a9426743089b42c7f2330a3057929d6ce48621a3c81c680ca65727"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "45311e3f0f92312f19913aa4e2ef0d151f53cb14872605ef8eab6e01c882495f"
+    sha256 cellar: :any, arm64_tahoe:   "33a89b5b46a15e27dbfda7b12b3e30a9e0f4c5e3302c0c6786a8099b88617ffc"
+    sha256 cellar: :any, arm64_sequoia: "e0b437a06ec7a8d20290424e308d12937873c7fa5a0cd2449cca47352a094175"
+    sha256 cellar: :any, arm64_sonoma:  "8d9e284bd042d9a619a6be69a21848093300c29ec38e838157f51fb8a8320fbb"
+    sha256 cellar: :any, sonoma:        "9cded0184be16d852b1b88787e44d2f090a65667f4626d4cb9f8eeeaa57a0552"
+    sha256 cellar: :any, arm64_linux:   "9f3eeb601bb70719bc5bf1395c8149b25b390223a713745e6e0891f06e20d644"
+    sha256 cellar: :any, x86_64_linux:  "9ee700a5d468af1ce2fce2246338e1d0cf819a33544d0e1306f6912a4209be16"
   end
 
   depends_on "cmake" => :build
@@ -48,7 +48,7 @@ class AwsCMqtt < Formula
       }
     C
     system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-laws-c-mqtt",
-                   "-L#{Formula["aws-c-common"].opt_lib}", "-laws-c-common"
+                   "-L#{formula_opt_lib("aws-c-common")}", "-laws-c-common"
     system "./test"
   end
 end

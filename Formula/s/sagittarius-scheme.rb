@@ -1,8 +1,8 @@
 class SagittariusScheme < Formula
   desc "Free Scheme implementation supporting R6RS and R7RS"
   homepage "https://github.com/ktakashi/sagittarius-scheme"
-  url "https://github.com/ktakashi/sagittarius-scheme/releases/download/v0.9.14/sagittarius-0.9.14.tar.gz"
-  sha256 "2f464a0a249b9de59ed7e7338fcdf1f9b0873d9c35bae612749c0a1e9e2a4e79"
+  url "https://github.com/ktakashi/sagittarius-scheme/releases/download/v0.9.15/sagittarius-0.9.15.zip"
+  sha256 "81044f1dfe567125bf83f18f21d2c31a4c9c6b476a2d8e63d7547fe1bdb8d4e4"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,19 +11,18 @@ class SagittariusScheme < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "d503f7f4a9bf5d88253b78a4acca89481bdd7ba73532fb3773b64df7fe60c692"
-    sha256 cellar: :any,                 arm64_sequoia: "c1bd54cd081ccb062d90ccd6ffe19374fc8db9711dbc7cd5a10763bde4ad49e3"
-    sha256 cellar: :any,                 arm64_sonoma:  "d0ec1780ff4e4a091b6220596a748334a97fdcd7c83eea4224cb328bf749f53f"
-    sha256 cellar: :any,                 sonoma:        "22f6d67387b47bbf00765825ec7712299badd39c15158e6136b305055066e142"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "94a20ad75bb3787ac9b9c9244956d13379ce57be536cb35d76a6c6a1a2329a60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "582e0af6f35a245bb4357f06908eb06913f1a1252e0e62980ba43bcd4669a1b5"
+    sha256 cellar: :any, arm64_tahoe:   "4b5179ebf49b9a7b9b0ce0b9c88a3b90470875dfdc351c73ce2341b3c701a43b"
+    sha256 cellar: :any, arm64_sequoia: "69fd440a93deb6eb0691814116e8e4c049faf2c85ce4bffa09ab8fbe873f1329"
+    sha256 cellar: :any, arm64_sonoma:  "5aa56c2bf406cab788092245c9311d93e6d2f5a42b4d72b65bdb933a677ef453"
+    sha256 cellar: :any, sonoma:        "57191c461ca4d5e3ecd7676a788dfa0d6c3042e22e632c1930ce5584fefa72d8"
+    sha256 cellar: :any, arm64_linux:   "2ef225fb754ce2915909159c4bc9c0b80fcb547113f698cd5d74abef8e014572"
+    sha256 cellar: :any, x86_64_linux:  "93776c5c3618e967f0ef36cad2f2abf1c3a730b4d32a1dc72ab3475b95bea206"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "bdw-gc"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "unixodbc"
 
   uses_from_macos "libffi"

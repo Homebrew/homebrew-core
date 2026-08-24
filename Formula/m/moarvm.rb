@@ -1,8 +1,8 @@
 class Moarvm < Formula
   desc "VM with adaptive optimization and JIT compilation, built for Rakudo"
   homepage "https://moarvm.org"
-  url "https://github.com/MoarVM/MoarVM/releases/download/2026.05/MoarVM-2026.05.tar.gz"
-  sha256 "aa6d39debc9154fb353c94debb78690a52e61de0745f744d7f2f7144451e7295"
+  url "https://github.com/MoarVM/MoarVM/releases/download/2026.08/MoarVM-2026.08.tar.gz"
+  sha256 "805154e842baeb0a56194ed98c66a6fc94546a6dab8b3ffb982ebe97d7080a7a"
   license "Artistic-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Moarvm < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "eced0c08e9e831f66c2855d05ba0c86a1bbad1c01d60ffeaa0317f66298bf09b"
-    sha256 arm64_sequoia: "324acabb152750ff63ef300dc0d639cd56cdc60199af44d8c53e073cc3951e34"
-    sha256 arm64_sonoma:  "3d45b62ed6e050f5d6d5905e13780d304c99dca90c1469c6b4863678876c7bbb"
-    sha256 sonoma:        "189c33140397dfe91e0bf8ae0c5be592a6156c33b5fee9cad3be6b0fd80dae7a"
-    sha256 arm64_linux:   "2abb07760e92d6768db97fb592f2af2912d796f5d5caa728d0c26b94416a120d"
-    sha256 x86_64_linux:  "06aaa205434061f92bce5db70d0647cd2132963a76bceb747bce7de0d67b6bbc"
+    sha256 arm64_tahoe:   "de85977b03bedd6f270b16c6d7a997c73925a08368477677aefe4c023a21532d"
+    sha256 arm64_sequoia: "04532be031e89a5050e2d949a4b0698aaab67f6c8f4e9e59916ae1db285cf9ef"
+    sha256 arm64_sonoma:  "d2757433e0433227778b1017a133c5fe61b3f660c59f56bb278d5d78f3922582"
+    sha256 sonoma:        "db0a5d9d558b57da40111544d4ee1634cfee7adf67e1c319346d6f72e6de1c21"
+    sha256 arm64_linux:   "d0d2c476fee4926c17aa5dcea420ef1add5cd84909974da81714920deeaad322"
+    sha256 x86_64_linux:  "87cbe488915b858ed796e1ccf43f2336766083f84e0651277d9748b681a7924d"
   end
 
   depends_on "pkgconf" => :build
@@ -35,8 +35,8 @@ class Moarvm < Formula
   conflicts_with "rakudo-star", because: "rakudo-star currently ships with moarvm included"
 
   resource "nqp" do
-    url "https://github.com/Raku/nqp/releases/download/2026.05/nqp-2026.05.tar.gz"
-    sha256 "f43085635bcda97c6e4163e827bcca34e46840f72316126246b94bc04ab58ebf"
+    url "https://github.com/Raku/nqp/releases/download/2026.08/nqp-2026.08.tar.gz"
+    sha256 "120de1ac6f3246e7c5d04261ef18e64d9c3663f6670e952528d0d5c04b889cf2"
 
     livecheck do
       formula :parent
@@ -53,7 +53,7 @@ class Moarvm < Formula
       --has-libtommath
       --has-mimalloc
       --optimize
-      --pkgconfig=#{Formula["pkgconf"].opt_bin}/pkgconf
+      --pkgconfig=#{formula_opt_bin("pkgconf")}/pkgconf
       --prefix=#{prefix}
     ]
     # FIXME: brew `libuv` causes runtime failures on Linux, e.g.

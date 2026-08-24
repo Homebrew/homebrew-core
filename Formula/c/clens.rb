@@ -36,6 +36,8 @@ class Clens < Formula
   patch do
     url "https://github.com/conformal/clens/commit/83648cc9027d9f76a1bc79ddddcbed1349b9d5cd.patch?full_index=1"
     sha256 "c70833eff6f98eab6166e9c341bb444eae542617f4937a29514fe5c6bbd3d8b0"
+    type :backport
+    resolves "https://github.com/conformal/clens/pull/3"
   end
 
   def install

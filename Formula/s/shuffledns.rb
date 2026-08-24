@@ -18,7 +18,7 @@ class Shuffledns < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/shuffledns"
+    system "go", "build", *std_go_args, "./cmd/shuffledns"
   end
 
   test do

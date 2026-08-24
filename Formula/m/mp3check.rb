@@ -25,6 +25,8 @@ class Mp3check < Formula
   patch do
     url "https://salsa.debian.org/reichel/mp3check/-/raw/2154e6fcb25189ab45c3ae6f787adc8526ad1377/debian/patches/fix_ftbfs_with_gcc_9"
     sha256 "00c90ab89e181cbbfe8ac54280acd17cfe6a1d3f4844685aca0426b9291f932f"
+    type :unofficial
+    resolves "https://bugs.debian.org/925782"
   end
 
   def install

@@ -135,6 +135,8 @@ class ConanAT1 < Formula
   patch do
     url "https://github.com/conan-io/conan/commit/21089afd5d260c4d2d688ca8a44fb406d1dd1a75.patch?full_index=1"
     sha256 "ede46dfde4ab3b96299854ff6f6adde4267a8e8939799f3f79a694aae696129a"
+    type :unofficial
+    resolves "https://github.com/conan-io/conan/pull/18445"
   end
 
   def install

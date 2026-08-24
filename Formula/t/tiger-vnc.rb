@@ -54,6 +54,7 @@ class TigerVnc < Formula
   patch do
     url "https://gitlab.archlinux.org/archlinux/packaging/packages/tigervnc/-/raw/3acb330ccb03832085c20b0f1bedec665c9a886f/nettle-4.patch"
     sha256 "5d290368a537a0d354773a06c096c1c1b36fd2de4d03860a5d82456f0b527a9b"
+    type :unofficial
   end
 
   def install

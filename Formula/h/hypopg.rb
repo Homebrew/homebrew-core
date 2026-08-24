@@ -1,8 +1,8 @@
 class Hypopg < Formula
   desc "Hypothetical Indexes for PostgreSQL"
   homepage "https://github.com/HypoPG/hypopg"
-  url "https://github.com/HypoPG/hypopg/archive/refs/tags/1.4.2.tar.gz"
-  sha256 "30596ca3d71b33af53326cdf27ed9fc794dc6db33864c531fde1e48c1bf7de7d"
+  url "https://github.com/HypoPG/hypopg/archive/refs/tags/1.4.3.tar.gz"
+  sha256 "498a961d88cf37057fd9e98027d06fe805c8959d51895c3d9b94c9eb4e14f706"
   license "PostgreSQL"
 
   livecheck do
@@ -11,13 +11,12 @@ class Hypopg < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "62a5a0b0c592109dbfd59cc2ed251cfc61139444fa11dd43c6a813bf5721dc05"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fdeda4712d8f810bbef1018e34bc93f250736e7d06b52c46237fb72f0203d6b6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5944371d52b74079759b3c1697219a83afa8668897d99727d3a8178915d4a0d8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "489ad1c03c7445f390a0b5343368138b5e7f9fcd09f2d93cb2788b77d82c02f9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "85797620c0d3f1115917e23044e64b4526d2913b15044a6156d3c69037ca23d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a2cf8d3428a7e9e63c750f8fe2d45a5d0235c0b88d661089e1bc72bfcebff68"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bd9b3f0fd688be3fb87a4358ceb1fa26795d0656e4259471c1dc4d06226e491c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4400da6e1c03a1191731970937b77bb51658a3d511a8072a4a5d6b1671ebb334"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eb8da815fc50ef28c904f5f2e708362fe1a009edbe296448d405dc7475eaa7b2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "134f43444d5b25257deca0e280efac9402ab8b4463b917a46bf0224a4c01ec8d"
+    sha256 cellar: :any,                 arm64_linux:   "342602a4162d72a7c3f422402224da25921ef6e8decc2227cfbae9eec920dee7"
+    sha256 cellar: :any,                 x86_64_linux:  "a684953f0358ecc052b5ac2d27387d837c3557423bf8a6e9674ab8f2b130a4f6"
   end
 
   depends_on "postgresql@17" => [:build, :test]

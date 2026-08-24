@@ -19,15 +19,13 @@ class Homebank < Formula
     sha256 x86_64_linux:  "48a3475d25060f8741d09f725417b78e99f2c1056f6da28d6f8eb2daa0991932"
   end
 
+  depends_on "gettext" => :build
   depends_on "intltool" => :build
   depends_on "pkgconf" => :build
 
   depends_on "adwaita-icon-theme"
   depends_on "cairo"
-  depends_on "fontconfig"
-  depends_on "freetype"
   depends_on "gdk-pixbuf"
-  depends_on "gettext"
   depends_on "glib"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
@@ -39,6 +37,7 @@ class Homebank < Formula
 
   on_macos do
     depends_on "at-spi2-core"
+    depends_on "gettext"
     depends_on "harfbuzz"
   end
 

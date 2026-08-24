@@ -33,7 +33,7 @@ class Ant < Formula
     rm bin/"ant"
     (bin/"ant").write <<~SHELL
       #!/bin/bash
-      JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}" exec "#{libexec}/bin/ant" -lib #{HOMEBREW_PREFIX}/share/ant "$@"
+      JAVA_HOME="${JAVA_HOME:-#{formula_opt_prefix("openjdk")}}" exec "#{libexec}/bin/ant" -lib #{HOMEBREW_PREFIX}/share/ant "$@"
     SHELL
 
     resource("ivy").stage do

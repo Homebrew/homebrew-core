@@ -19,7 +19,6 @@ class Kbld < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X carvel.dev/kbld/pkg/kbld/version.Version=#{version}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/kbld"

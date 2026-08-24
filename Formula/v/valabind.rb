@@ -33,7 +33,7 @@ class Valabind < Formula
     # Upstream bug report, https://github.com/radare/valabind/issues/61
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
-    system "make", "VALA_PKGLIBDIR=#{Formula["vala"].opt_lib}/vala-#{Formula["vala"].version.major_minor}"
+    system "make", "VALA_PKGLIBDIR=#{formula_opt_lib("vala")}/vala-#{Formula["vala"].version.major_minor}"
     system "make", "install", "PREFIX=#{prefix}"
   end
 

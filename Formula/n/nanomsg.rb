@@ -1,8 +1,8 @@
 class Nanomsg < Formula
   desc "Socket library in C"
   homepage "https://nanomsg.org/"
-  url "https://github.com/nanomsg/nanomsg/archive/refs/tags/1.2.2.tar.gz"
-  sha256 "3ffeafa9335245a23a99827e8d389bfce5100610f44ebbe4bfaf47e8192d5939"
+  url "https://github.com/nanomsg/nanomsg/archive/refs/tags/1.2.4.tar.gz"
+  sha256 "be255a26452400a6ff79039e1c76592694bc602e7b1e0c40a64b841ba0e434ed"
   license "MIT"
   head "https://github.com/nanomsg/nanomsg.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Nanomsg < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "236e9d3c6a8a96e0cab956bd5dfd22e598a0cde9648d9ca850e385aef13c876f"
-    sha256 cellar: :any,                 arm64_sequoia: "2d674ed0ff11c730865b07f3110d650d88e097d27ea0ce62f39d96d2a59a6367"
-    sha256 cellar: :any,                 arm64_sonoma:  "e9feaeab9e2f2b38117f1b62f682b6abeb86d41925bc329562c110e578c59f73"
-    sha256 cellar: :any,                 sonoma:        "e3ee4bae6bf7df70c071c32fd0d12470406e146af552ee4de7f7701016a6609a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b03db650de3044ee4d0ed1bce200947e1018f34f76d4d06b9362ccae87134fee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13450a2b72db7c3d7f91b65d2f8153d73caedecb378921d6cf9e386afea4d322"
+    sha256 cellar: :any, arm64_tahoe:   "50c6516a86030cbd91d73602d7d0d6f6128fda0402350e726dd7325e72ea1360"
+    sha256 cellar: :any, arm64_sequoia: "de0df18a43425a6207735394523dd5db76786c8be145b4b94a2c13eea7292e91"
+    sha256 cellar: :any, arm64_sonoma:  "ea96ba83b9e1f442fe84c397b20e1135c80fd2d79b50073af2c6f2ca161cbe50"
+    sha256 cellar: :any, sonoma:        "f979caeeda756a5555f7d490214026c675ef9f630d99a7fc48484252f9c64db4"
+    sha256 cellar: :any, arm64_linux:   "7b3139cada267ee03c2b867d9f9f11213275fec0f399ade09a88ca0dd271e178"
+    sha256 cellar: :any, x86_64_linux:  "7470de366576351a9d17e99df46cbba2bdd4d1a042203486debf44b4c9431505"
   end
 
   depends_on "cmake" => :build

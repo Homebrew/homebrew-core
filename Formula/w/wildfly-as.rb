@@ -1,8 +1,8 @@
 class WildflyAs < Formula
   desc "Managed application runtime for building applications"
   homepage "https://www.wildfly.org/"
-  url "https://github.com/wildfly/wildfly/releases/download/40.0.0.Final/wildfly-40.0.0.Final.tar.gz"
-  sha256 "6b75f6de39dcf7e94b96f82006b96ec257b6358fc769a29d9817284c31c1e793"
+  url "https://github.com/wildfly/wildfly/releases/download/41.0.0.Final/wildfly-41.0.0.Final.tar.gz"
+  sha256 "d240795958e7d99b638cd4c3e0f9ba4b7d4c53b4f7996dfec1008250c4d48191"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class WildflyAs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6c67d1861063a65f1ab9ef20879e18ba8c94777731a741a3e359393d7daa16b4"
-    sha256 cellar: :any,                 arm64_sequoia: "579965426c87302233a400557885720a1e444ea60ecad112247054f067ebd702"
-    sha256 cellar: :any,                 arm64_sonoma:  "ab4426117b4f66fccb9f791dff5b1b777d10631679da611d09978305fb22c483"
-    sha256 cellar: :any,                 sonoma:        "1eaa7ed390ec3d276515575d17ab8b81f1635e8a2436cdd2d2b74ac16a010c99"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a85e794f5f823c7bba7a4e089d73a908c1e2173e5a415843b662bea0ae27998"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8aa73f9afb99fbdc86904069617fcb1b10d44fc174c999ed473d362942311b86"
+    sha256 cellar: :any, arm64_tahoe:   "e6252f6d35b807bba7c4f12ab27c05ea909f2c9e9227a4da2258c91a6f3e4512"
+    sha256 cellar: :any, arm64_sequoia: "78fe24869f16ad21eb1bb6a940a74eb10c8e370a22b92f6182c694642806b817"
+    sha256 cellar: :any, arm64_sonoma:  "293ccabb7deae42550f918314154d4b26b1e4d8be0b227fc906cdc689764698a"
+    sha256 cellar: :any, sonoma:        "df794e48f1f9641cf7a979af6437d3c3636316fab8f5db592885108c38f61b40"
+    sha256 cellar: :any, arm64_linux:   "83f43dd0d6c6963734c8eb1c16647f86c169975e59d1afd137c9c9835716dd95"
+    sha256 cellar: :any, x86_64_linux:  "587eb162f2c06165ad6159e50557f0d3095e840775167926f3bd710d9f3f3d99"
   end
 
   depends_on "autoconf" => :build
@@ -43,8 +43,8 @@ class WildflyAs < Formula
   end
 
   resource "netty" do
-    url "https://github.com/netty/netty/archive/refs/tags/netty-4.1.133.Final.tar.gz"
-    sha256 "6335f5255307668c58818629cada4c3ecf11e30771df714c219b9af3a5e7db7d"
+    url "https://github.com/netty/netty/archive/refs/tags/netty-4.1.136.Final.tar.gz"
+    sha256 "109bb2ccfe821eb51288343836d8b8c98be74e7871af95344f0386d3b5601672"
 
     livecheck do
       url "https://raw.githubusercontent.com/wildfly/wildfly/refs/tags/#{LATEST_VERSION}.Final/pom.xml"
@@ -178,7 +178,7 @@ class WildflyAs < Formula
     build_netty_transport_native
     build_wildfly_openssl_natives
 
-    inreplace "bin/standalone.sh", /JAVA="[^"]*"/, "JAVA='#{Formula["openjdk"].opt_bin}/java'"
+    inreplace "bin/standalone.sh", /JAVA="[^"]*"/, "JAVA='#{formula_opt_bin("openjdk")}/java'"
 
     libexec.install Dir["*"]
     (libexec/"standalone/log").mkpath

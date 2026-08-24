@@ -1,8 +1,8 @@
 class Libsepol < Formula
   desc "SELinux binary policy manipulation library"
   homepage "https://github.com/SELinuxProject/selinux"
-  url "https://github.com/SELinuxProject/selinux/releases/download/3.10/libsepol-3.10.tar.gz"
-  sha256 "d555586797fa9f38344496d2a7ec1147b6caaf3fcc44c42d8d5173edd7a79a71"
+  url "https://github.com/SELinuxProject/selinux/releases/download/3.11/libsepol-3.11.tar.gz"
+  sha256 "79f3d2c88f44b7eb5cf54d9792e03232297e17f97a179163f2750099a00f164d"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,12 +11,12 @@ class Libsepol < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7b70e27cd3f015e277465bb7092996febc26b869fce6417315bc00cb5fe33359"
-    sha256 cellar: :any,                 arm64_sequoia: "d32a529f97883e5a848de14546b2da0795a1477ea81d87da03a941b13d40ff02"
-    sha256 cellar: :any,                 arm64_sonoma:  "19951145b7bd0d84330c2106a52f9a304c39435c172afc7ece9f5a18fda7f46f"
-    sha256 cellar: :any,                 sonoma:        "6fb7ec4b1d0a6b41a26f754d0cbf588db433852a9b32b1051fd006560ed9f84e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "15fa5b86884032378074358d534e3d09728bf088b186586cb1ba8f3d29184067"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c8a7db4cbdafa80b865af18bb9a82349b9049fbe056b6052e1e87dc5dd48fb4"
+    sha256 cellar: :any, arm64_tahoe:   "5ac2c0ebc7c086598a60b278d4d5fee2a9a4ca777458d56bac01e70cad1a1a6d"
+    sha256 cellar: :any, arm64_sequoia: "a20b8bb3630860f9a4f767e2618197a45236e91be7dc215daee8374b55d2102d"
+    sha256 cellar: :any, arm64_sonoma:  "f8250e62eea04416711d611a79761f4fd43c6e9df90b1a6a6f8f184b824b5f1b"
+    sha256 cellar: :any, sonoma:        "3d1ba0dac3c2aaf2fbdf99de512dfdb75d775debb39f3196e4c100848b5621c1"
+    sha256 cellar: :any, arm64_linux:   "1edbd72b4c0b1494cbfc31379f05366bec73eb7100436a59c3f7aad352d25c6a"
+    sha256 cellar: :any, x86_64_linux:  "cb6027d6cc54aaf3d30a717c236836957a0439b9398783edd5c42885dabdfe0a"
   end
 
   depends_on "rpm2cpio" => :test

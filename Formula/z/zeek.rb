@@ -1,8 +1,8 @@
 class Zeek < Formula
   desc "Network security monitor"
   homepage "https://zeek.org/"
-  url "https://github.com/zeek/zeek/releases/download/v8.2.0/zeek-8.2.0.tar.gz"
-  sha256 "885fd067e27da7655bc616e125a65b33ee0637c33c551b0349c821a11f4034ce"
+  url "https://github.com/zeek/zeek/releases/download/v8.2.2/zeek-8.2.2.tar.gz"
+  sha256 "a3b6d60ef6bec3eb12818fe32caec707f9b6d63053eaeee942e4ec9af64d862c"
   license "BSD-3-Clause"
   head "https://github.com/zeek/zeek.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Zeek < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "601af89976f18212d1e139d495fcff96d13182bb493c080f0c6ba154edca6a1d"
-    sha256 arm64_sequoia: "2f6a8ebb5f1930dd85ea2dd675eec219d7ab74745938bc3cd51418f0e2758b20"
-    sha256 arm64_sonoma:  "84c260d92d25a896c781e2c955b61337576824c62c4f0cab2375a5180b2f627c"
-    sha256 sonoma:        "7218a0cba3d0afd191488f6cdde07bce0dc99eb9ae5cd1985036dc165e5184cd"
-    sha256 arm64_linux:   "e5b53b9d334e7cbf448eb14aa215377dec3a4644d841068c0d0829a494d0db26"
-    sha256 x86_64_linux:  "39bd86998660da9b3cf0ae7571ffa58a71a980449fdb16903d998a0bed8ae3b6"
+    sha256 arm64_tahoe:   "7fb16a75374d6da3411667e22f229c77ad11591a0ec1faef7da085b1cd03e6dc"
+    sha256 arm64_sequoia: "56222db303c6779bb90a04ad098057ec05760a58d5e80f3a01b20a8e64269c4e"
+    sha256 arm64_sonoma:  "2f2351d94aa134bedcd202382f823cc68911b1f8f0138513f9305458ec863171"
+    sha256 sonoma:        "dcad9d7f36ac957f9cbfbd93b47a8ebf76c842a750d1eb6841be770aab9ef92f"
+    sha256 arm64_linux:   "64a75d8e56df913863d76d29c1a78c72bb4f522ba49e54de080c99f6b8ce8de0"
+    sha256 x86_64_linux:  "2e91ac8ae93e05274108f20071df18529433a5aa0d9f165bafdd96c92d4206c0"
   end
 
   depends_on "bison" => :build
@@ -55,15 +55,15 @@ class Zeek < Formula
                     "-DINSTALL_AUX_TOOLS=on",
                     "-DINSTALL_ZEEKCTL=on",
                     "-DUSE_GEOIP=on",
-                    "-DCARES_ROOT_DIR=#{Formula["c-ares"].opt_prefix}",
-                    "-DCARES_LIBRARIES=#{Formula["c-ares"].opt_lib/shared_library("libcares")}",
-                    "-DLibMMDB_LIBRARY=#{Formula["libmaxminddb"].opt_lib/shared_library("libmaxminddb")}",
-                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
+                    "-DCARES_ROOT_DIR=#{formula_opt_prefix("c-ares")}",
+                    "-DCARES_LIBRARIES=#{formula_opt_lib("c-ares")/shared_library("libcares")}",
+                    "-DLibMMDB_LIBRARY=#{formula_opt_lib("libmaxminddb")/shared_library("libmaxminddb")}",
+                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}",
                     "-DPYTHON_EXECUTABLE=#{which("python3.14")}",
                     "-DZEEK_ETC_INSTALL_DIR=#{etc}",
                     "-DZEEK_LOCAL_STATE_DIR=#{var}",
                     "-DDISABLE_JAVASCRIPT=off",
-                    "-DNODEJS_ROOT_DIR=#{Formula["node@24"].opt_prefix}",
+                    "-DNODEJS_ROOT_DIR=#{formula_opt_prefix("node@24")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

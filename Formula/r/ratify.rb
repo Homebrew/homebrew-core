@@ -1,25 +1,31 @@
 class Ratify < Formula
   desc "Artifact Ratification Framework"
   homepage "https://ratify.dev"
-  url "https://github.com/notaryproject/ratify/archive/refs/tags/v1.4.1.tar.gz"
-  sha256 "58db052b8a02a7d5cc78dde837530c5d7fe0f525facd84d8aac4ef7ab93f5ce2"
+  url "https://github.com/notaryproject/ratify/archive/refs/tags/v1.4.5.tar.gz"
+  sha256 "82b05fc373327e71495cbec472afd2eec81e08a30b472e2c634eda507d3baa00"
   license "Apache-2.0"
   head "https://github.com/notaryproject/ratify.git", branch: "main"
 
+  # Upstream moves the tag until a release is finally made and marked as latest,
+  # so we have to use the `GithubLatest` strategy to avoid picking up a pre-release.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6fdbdf1f9e1245d66cdb6dfda5362bba5dd3f1b826f76100604b8d94a7e47e17"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b52b32cd9d05985a26682e45778cb96350625b7fb6bbee7b1d9727e9c1a98690"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "33e9edfb4e23350e884ed0b1cec13e68b3fe9f723a35323bf4f7863c05cf3ebb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "681c43566783f430dcf3a6ac6ed88956c579e6e62e83843607d15ce7dc5a413c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "27a457749e095c1d67637103a5e9d492963d098f4cd41a667f2723aae843771e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95c21492f783fb26e8c404033a3a71ce79ad3c01db421c1dc69e5f71bd98ad09"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "138ff2891fc6d28cffa3afc63552d7800abdcf7ac5e3b943f6c4c50712554dc1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bccb8c1b10b819dece823328d6bc546aa2d7199f3947bb480a4f65932739e065"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b41d9dae5ef28639388da97e914ccc17515d1726dd36e1e41868dc978f03d354"
+    sha256 cellar: :any_skip_relocation, sonoma:        "573b841032f0500c9d80c9fec0e5d323a7ab17fd90616a5719f087b1c0570301"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e0d4355b3d54e5e99f6f33aa50ed324c962a91e4f4ae2281e64070934c78ee3"
+    sha256 cellar: :any,                 x86_64_linux:  "9ad4310af1f42945f2b52f78991a0a2efefecc9dba064a9f6d38793f8a100a8a"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/ratify-project/ratify/internal/version.GitTag=#{version}
       -X github.com/ratify-project/ratify/internal/version.GitCommitHash=#{tap.user}
     ]

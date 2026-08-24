@@ -12,15 +12,13 @@ class Daemontools < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4d2dc1ed742ae4b8ab911aef610c8315ea79b9dce79a4a9d21028f413352bd6c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1caba2a88c37b416bf48c950f376693b1412a06f54bc62c815a6e8679f30b41d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4079bdac80d383b3423b5daf190a2abc5583db2d5e33939ccd0e3c637ab57033"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "414c519a3f46d28c74e28d95f882b68dae09dcd9604b8f207c93539d4af34cd3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b2fbc29b09bf37004b7a31ff2a7f57bd705e757cef0b1970b2b9723f624bc8d9"
-    sha256 cellar: :any_skip_relocation, ventura:       "813c64aa076209409ab420484007a7d43e7bfa86ce26842829d8800501e9b138"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "78eeabb0f8b6f6d678f97dfcf0a84e51c1b0f667e5fba8c6a1ef4707f85a91ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f527c08fac6754686403613d81fe344434ead8477130d596ffa05862b4962fe"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "da992fd278ff1a26880a1a254f7a54e2440ef886c565bef4d52335a53a0efe99"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d5272511ffc8ff84d1a6a86ff7a4b643530c9d1feab3cfca5b70cea23e7855ba"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7e6c9db0f8c6137035c15da9445fbdac2dfd0475eb3ae3bb563237affe0f6867"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9181744087c4ab10deb008bfd08bb892ba7c00dd6cfa092be93c8fb37018c659"
+    sha256 cellar: :any,                 arm64_linux:   "2b086e3eb960e1f213b829504158a83246c196cbbad30e548d0bdd396ef8292b"
+    sha256 cellar: :any,                 x86_64_linux:  "ec457300fd92eaf1f7f3fad1e5a7904b9f02665b85d78b5e4628d176bc0a4008"
   end
 
   resource "man" do
@@ -31,14 +29,14 @@ class Daemontools < Formula
   # Fix build failure due to missing #include <errno.h> on Linux.
   # Patch submitted to author by email.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/daemontools/errno.patch"
-    sha256 "b7beb4cfe150b5cad1f50f4879d91cd8fc72e581940da4a716b99467d3a14937"
+    file "Patches/daemontools/errno.patch"
+    type :unofficial
   end
 
   # Fix build failure due to missing headers for POSIX-related functions.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/daemontools/posix-headers.patch"
-    sha256 "288afdf9b7ba4f05a791f714ddea22b0a18020f54face020e45311135f0c92c1"
+    file "Patches/daemontools/posix-headers.patch"
+    type :unofficial
   end
 
   def install
@@ -62,13 +60,8 @@ class Daemontools < Formula
     end
   end
 
-  def post_install
-    (etc/"service").mkpath
-
-    Pathname.glob("/service/*") do |original|
-      target = "#{etc}/service/#{original.basename}"
-      ln_s original, target unless File.exist?(target)
-    end
+  post_install_steps do
+    mkdir_p "service", base: :etc
   end
 
   def caveats

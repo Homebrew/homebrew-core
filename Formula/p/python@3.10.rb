@@ -1,10 +1,9 @@
 class PythonAT310 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.10.20/Python-3.10.20.tgz"
-  sha256 "4ff5fd4c5bab803b935019f3e31d7219cebd6f870d00389cea53b88bbe935d1a"
+  url "https://www.python.org/ftp/python/3.10.21/Python-3.10.21.tgz"
+  sha256 "f276987f06270ae6c1fb4da620bd105edf78c31368c2f7e85e6c1d51c560b04b"
   license "Python-2.0"
-  revision 3
   compatibility_version 1
 
   livecheck do
@@ -13,13 +12,13 @@ class PythonAT310 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "c9d898ed70b1e70fdfe1c7f59aeeb8cc7f3b3c76d7f73003f1f15bc8dbb535e7"
-    sha256 arm64_sequoia: "e1811c47aab0741cfc674db32f737b63cf3b4e1da50763729115e170274fa3a0"
-    sha256 arm64_sonoma:  "7d694ce9c7795a74c588dc035025614023a832883896a2ea266f54a8bfc0e602"
-    sha256 sequoia:       "81185ceccf36e3e0e5c6e66be6ee295c881e97fb4e1afabda3553306776a93dd"
-    sha256 sonoma:        "2b312b67e7c4d73fbe86895a17eff3076f341a526ee03120cc2d1367e94a34f1"
-    sha256 arm64_linux:   "30767a30d2fe6b7e873f32451cb232a178219a52f3570b6fb42fb0c9a07af565"
-    sha256 x86_64_linux:  "aefc6613852d4a68aa09c9affa9dcf2018663cee8c8eb306ec79f70478fe9581"
+    sha256 arm64_tahoe:   "8504eaa9a4b4cf052c1c1620e88fb6ceae15868a34a7b5e04785d79f33b34db7"
+    sha256 arm64_sequoia: "88daade5b0e3e3c2d52502fa88d83f9d63b635c25d4d75e91d8b272933add252"
+    sha256 arm64_sonoma:  "63e4a7a2eeb97ec66beba93be7f3fd24e065daa5900ad166e7b8521e23f15ae8"
+    sha256 sequoia:       "1a1580395c24ae740dac208faa6a3b6329106732cd108a93128ae106497b1401"
+    sha256 sonoma:        "f8392affff160948f4282b65c4dc34dec295c911ac7a0708e768375938e2d715"
+    sha256 arm64_linux:   "8766e2d78a83f379aa6dd695426cc5a1705b7a6f026e72b39886a2b39ea66e52"
+    sha256 x86_64_linux:  "d5a0e35333527cb6d80d9f61ed8d746f68c9c304f2a69188cc328a147a1a4b98"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -43,7 +42,6 @@ class PythonAT310 < Formula
   uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
-  uses_from_macos "unzip"
 
   on_linux do
     depends_on "libnsl"
@@ -56,43 +54,44 @@ class PythonAT310 < Formula
 
   # Always update to latest release
   resource "flit-core" do
-    url "https://files.pythonhosted.org/packages/69/59/b6fc2188dfc7ea4f936cd12b49d707f66a1cb7a1d2c16172963534db741b/flit_core-3.12.0.tar.gz"
-    sha256 "18f63100d6f94385c6ed57a72073443e1a71a4acb4339491615d0f16d6ff01b2"
+    url "https://files.pythonhosted.org/packages/46/ef/34533186e76c526d9ec17a1ad9a10c7354cbfb20f51583cc36dfe4bdccd0/flit_core-4.0.2.tar.gz"
+    sha256 "b6929defd93884b584d7c87829e0e7b5c26ed6be17b0b873979019314aa841c8"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
-    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/01/91/47e7d486260f618783899587af63ccf7980fb60245c3e63dd4571c6b57ad/pip-26.1.2.tar.gz"
-    sha256 "f49cd134c61cf2fd75e0ce2676db03e4054504a5a4986d00f8299ae632dc4605"
+    url "https://files.pythonhosted.org/packages/ae/15/4500e320e6b101ec3b719ae85b697d9940b6cda672bc555bd6016fc60c6f/pip-26.2.1.tar.gz"
+    sha256 "f6ad667e89a1fe78046c8f13232b247200f5258d7828f3f7883d660878e0813f"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/4f/db/cfac1baf10650ab4d1c111714410d2fbb77ac5a616db26775db562c8fab2/setuptools-82.0.1.tar.gz"
-    sha256 "7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9"
+    url "https://files.pythonhosted.org/packages/6d/44/f5da03a8ef95d369145c5bb53050e7877c9f3d312e128605fd9504829143/setuptools-84.0.0.tar.gz"
+    sha256 "f4695c21257f0d9b537ec2692c941d02ee143b7cc1276941349a546573b2ef73"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/39/62/75f18a0f03b4219c456652c7780e4d749b929eb605c098ce3a5b6b6bc081/wheel-0.47.0.tar.gz"
-    sha256 "cc72bd1009ba0cf63922e28f94d9d83b920aa2bb28f798a31d0691b02fa3c9b3"
+    url "https://files.pythonhosted.org/packages/d0/20/50ed6bdf27dec98b568a8ae25dc599f35baa3d9709f9e83fd1edb56b9a90/wheel-0.48.0.tar.gz"
+    sha256 "94800765601e9171bf5d58d066e640662842bcedcbab982b2c90787a2c987322"
   end
 
   # Modify default sysconfig to match the brew install layout.
-  # Remove when a non-patching mechanism is added (https://bugs.python.org/issue43976).
+  # Remove when a non-patching mechanism is added.
   # We (ab)use osx_framework_library to exploit pip behaviour to allow --prefix to still work.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/python/3.10-sysconfig.diff"
-    sha256 "51bc741a7f201bf7382067f5561a10968476c98d952e54a4f1931f17f1397ef8"
+    file "Patches/python/3.10-sysconfig.diff"
+    type :unofficial
+    resolves "https://bugs.python.org/issue43976"
   end
 
   # Make bundled distutils look at preferred sysconfig scheme.
   # Remove with Python 3.12.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/python/3.10-distutils-scheme.diff"
-    sha256 "d1a29b3c9ecf8aecd65e1e54efc42fb1422b2f5d05cba0c747178f4ef8a69683"
+    file "Patches/python/3.10-distutils-scheme.diff"
+    type :unofficial
   end
 
   def lib_cellar
@@ -140,7 +139,7 @@ class PythonAT310 < Formula
       --datadir=#{share}
       --without-ensurepip
       --enable-loadable-sqlite-extensions
-      --with-openssl=#{Formula["openssl@3"].opt_prefix}
+      --with-openssl=#{formula_opt_prefix("openssl@3")}
       --with-dbmliborder=gdbm:ndbm
       --enable-optimizations
       --with-system-expat
@@ -185,12 +184,12 @@ class PythonAT310 < Formula
     # superenv makes cc always find includes/libs!
     inreplace "setup.py",
       /do_readline = self.compiler.find_library_file\(self.lib_dirs,\s*readline_lib\)/,
-      "do_readline = '#{Formula["readline"].opt_lib/shared_library("libhistory")}'"
+      "do_readline = '#{formula_opt_lib("readline")/shared_library("libhistory")}'"
 
     inreplace "setup.py" do |s|
       s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
       s.gsub! "for d_ in self.inc_dirs + sqlite_inc_paths:",
-              "for d_ in ['#{Formula["sqlite"].opt_include}']:"
+              "for d_ in ['#{formula_opt_include("sqlite")}']:"
     end
 
     if OS.linux?
@@ -200,7 +199,7 @@ class PythonAT310 < Formula
       # See https://github.com/Homebrew/linuxbrew-core/pull/22307#issuecomment-781896552
       # We want our ncurses! Override system ncurses includes!
       inreplace "configure", 'CPPFLAGS="$CPPFLAGS -I/usr/include/ncursesw"',
-                             "CPPFLAGS=\"$CPPFLAGS -I#{Formula["ncurses"].opt_include}\""
+                             "CPPFLAGS=\"$CPPFLAGS -I#{formula_opt_include("ncurses")}\""
     end
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
@@ -208,7 +207,7 @@ class PythonAT310 < Formula
     # `brew install enchant && pip install pyenchant`
     inreplace "./Lib/ctypes/macholib/dyld.py" do |f|
       f.gsub! "DEFAULT_LIBRARY_FALLBACK = [",
-              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{Formula["openssl@3"].opt_lib}',"
+              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{formula_opt_lib("openssl@3")}',"
       f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
     end
 
@@ -337,71 +336,8 @@ class PythonAT310 < Formula
     end
   end
 
-  def post_install
-    ENV.delete "PYTHONPATH"
-
-    # Fix up the site-packages so that user-installed Python software survives
-    # minor updates, such as going from 3.3.2 to 3.3.3:
-
-    # Create a site-packages in HOMEBREW_PREFIX/lib/python#{version.major_minor}/site-packages
-    site_packages.mkpath
-
-    # Symlink the prefix site-packages into the cellar.
-    site_packages_cellar.unlink if site_packages_cellar.exist?
-    site_packages_cellar.parent.install_symlink site_packages
-
-    # Remove old sitecustomize.py. Now stored in the cellar.
-    rm_r(Dir["#{site_packages}/sitecustomize.py[co]"])
-
-    # Remove old setuptools installations that may still fly around and be
-    # listed in the easy_install.pth. This can break setuptools build with
-    # zipimport.ZipImportError: bad local file header
-    # setuptools-0.9.8-py3.3.egg
-    rm_r(Dir["#{site_packages}/setuptools[-_.][0-9]*", "#{site_packages}/setuptools"])
-    rm_r(Dir["#{site_packages}/distribute[-_.][0-9]*", "#{site_packages}/distribute"])
-    rm_r(Dir["#{site_packages}/pip[-_.][0-9]*", "#{site_packages}/pip"])
-    rm_r(Dir["#{site_packages}/wheel[-_.][0-9]*", "#{site_packages}/wheel"])
-
-    system python3, "-Im", "ensurepip"
-
-    # Install desired versions of setuptools, pip, wheel using the version of
-    # pip bootstrapped by ensurepip.
-    # Note that while we replaced the ensurepip wheels, there's no guarantee
-    # ensurepip actually used them, since other existing installations could
-    # have been picked up (and we can't pass --ignore-installed).
-    bundled = lib_cellar/"ensurepip/_bundled"
-    system python3, "-Im", "pip", "install", "-v",
-           "--no-deps",
-           "--no-index",
-           "--upgrade",
-           "--isolated",
-           "--target=#{site_packages}",
-           bundled/"setuptools-#{resource("setuptools").version}-py3-none-any.whl",
-           bundled/"pip-#{resource("pip").version}-py3-none-any.whl",
-           libexec/"wheel-#{resource("wheel").version}-py3-none-any.whl"
-
-    # pip install with --target flag will just place the bin folder into the
-    # target, so move its contents into the appropriate location
-    mv (site_packages/"bin").children, bin
-    rmdir site_packages/"bin"
-
-    rm_r(bin.glob("pip{,3}"))
-    mv bin/"wheel", bin/"wheel#{version.major_minor}"
-
-    # Install unversioned and major-versioned symlinks in libexec/bin.
-    {
-      "pip"    => "pip#{version.major_minor}",
-      "pip3"   => "pip#{version.major_minor}",
-      "wheel"  => "wheel#{version.major_minor}",
-      "wheel3" => "wheel#{version.major_minor}",
-    }.each do |short_name, long_name|
-      (libexec/"bin").install_symlink (bin/long_name).realpath => short_name
-    end
-
-    # post_install happens after link
-    %W[wheel#{version.major_minor} pip#{version.major_minor}].each do |e|
-      (HOMEBREW_PREFIX/"bin").install_symlink bin/e
-    end
+  post_install_steps do
+    bootstrap_cpython
   end
 
   def sitecustomize

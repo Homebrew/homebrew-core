@@ -1,8 +1,8 @@
 class Yek < Formula
   desc "Fast Rust based tool to serialize text-based files for LLM consumption"
   homepage "https://github.com/mohsen1/yek"
-  url "https://github.com/mohsen1/yek/archive/refs/tags/v0.25.4.tar.gz"
-  sha256 "337e126814f745c6ec5d948d7aec33bd1d42066e764e17b6482679f77927e102"
+  url "https://github.com/mohsen1/yek/archive/refs/tags/v0.25.5.tar.gz"
+  sha256 "e74cdfc577bdfb6577324afc086546ff306c7c43053f526e7ae30031c4433ab4"
   license "MIT"
   head "https://github.com/mohsen1/yek.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Yek < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "59107fb3fed6bb1932d97063fdf0947d93e627226c67b3466d2217a3118ae1e1"
-    sha256 cellar: :any, arm64_sequoia: "6b7307433a733c29ab866e3f6935daf3e49dfb650da6df3819e431097ed30873"
-    sha256 cellar: :any, arm64_sonoma:  "52a480c9d5c26edb14c98b2cd3ef159b9012e8ad86feab593be35e48c00ec9c4"
-    sha256 cellar: :any, sonoma:        "1d2a61cef60b1cc3a104004b9b312e24eb0b967666c71867969c14c6c690d6eb"
-    sha256 cellar: :any, arm64_linux:   "4539e527afb3f67939b87abf6f50a20de4c54092786f7ee26c1d30f34e764a89"
-    sha256 cellar: :any, x86_64_linux:  "b30777bfc5feafdaab3802bf5de4a4e3611c83ca4a5e7d8e2bbb11a33cbf2e18"
+    sha256 cellar: :any, arm64_tahoe:   "9586588ae2852e2affef7e90f638a0286c2d12a99fa6954a0ac54e8c828f8e21"
+    sha256 cellar: :any, arm64_sequoia: "ea3206eea01170abc93eadb1cf006c9c6352084e5ac0ba33dbc10c7be410f040"
+    sha256 cellar: :any, arm64_sonoma:  "bbf81c18dbf3db911ca81c6aa8ea579dfd255ac34b85ed976e990a38d26714f6"
+    sha256 cellar: :any, sonoma:        "83529651f3e1033f8bd1aa1454ea2f745680c158c0f87ff5d82c725fd5dfad28"
+    sha256 cellar: :any, arm64_linux:   "9a13a14899b745a629600b1a9d89bed5eb7966989ae06ead7680cf954a3a65de"
+    sha256 cellar: :any, x86_64_linux:  "00fd5a8a7e3a95196732699ff4ce771f58b91086514b20868a0bc6944a82af93"
   end
 
   depends_on "pkgconf" => :build
@@ -30,7 +30,7 @@ class Yek < Formula
   end
 
   def install
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
     system "cargo", "install", *std_cargo_args
   end

@@ -4,6 +4,7 @@ class AzureStorageCommonCpp < Formula
   url "https://github.com/Azure/azure-sdk-for-cpp/archive/refs/tags/azure-storage-common_12.14.0.tar.gz"
   sha256 "68b3d88d5f1358b3607b4fb76674373c91e1dd840920de05e5a82cf09fcc6e5b"
   license "MIT"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -12,12 +13,12 @@ class AzureStorageCommonCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "814ad310d0b7adba81bb9e2cc11217d8945bf9c82c7806113cf576d59bc4a3f9"
-    sha256 cellar: :any, arm64_sequoia: "473115bf466b5489eb0570e2750a254a59ce173a6b734c17879a181c827c9663"
-    sha256 cellar: :any, arm64_sonoma:  "3c201c24e5e456cb1bb1ccfafe0d529dd9e57f1302520349de0ab29b3da04cce"
-    sha256 cellar: :any, sonoma:        "cd76a1b84ba3dff09bd030d474d28c724a484ccd8915eec88a2e00e83d6a4b2b"
-    sha256 cellar: :any, arm64_linux:   "0d2f4af9a49d4f67cc3bfdc3f225b3bcdde086f7c0a47e857f411f77e550898a"
-    sha256 cellar: :any, x86_64_linux:  "6fd2701ff2981b1f5497dd3583e2178ba7f41fd286033e75802ac906694c6b41"
+    sha256 cellar: :any, arm64_tahoe:   "e2d914c191a9eb1296b8b37238e7c519e3af7d8a60d9673c5af5f82ff053f73c"
+    sha256 cellar: :any, arm64_sequoia: "a7dcf5922c055a18da2ad78b611c7e707ade1e115007578e097e1468355ab5a8"
+    sha256 cellar: :any, arm64_sonoma:  "5ad44e27669167fb22b00026ab8ed38b4ad456de277ce8bd95c939b8141da6b0"
+    sha256 cellar: :any, sonoma:        "b8805b24efce0ffd2ab6f63c8ac80bcb512a4607dc925122dea6ff4e742d02a7"
+    sha256 cellar: :any, arm64_linux:   "a577bad4ab187a026340ad4d4ef32af18627957041d0137b6593b9002256796b"
+    sha256 cellar: :any, x86_64_linux:  "04542da5a420d6c2a456a8f1665f9c25e5e391bf80346087a41481b820fbb8a6"
   end
 
   depends_on "cmake" => :build
@@ -54,7 +55,7 @@ class AzureStorageCommonCpp < Formula
     CPP
     system ENV.cxx, "-std=c++14", "test.cpp", "-o", "test",
                     "-L#{lib}", "-lazure-storage-common",
-                    "-L#{Formula["azure-core-cpp"].opt_lib}", "-lazure-core"
+                    "-L#{formula_opt_lib("azure-core-cpp")}", "-lazure-core"
     system "./test"
   end
 end

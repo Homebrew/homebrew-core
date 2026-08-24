@@ -12,6 +12,9 @@ class RbenvChefdk < Formula
     sha256 cellar: :any_skip_relocation, all: "dcdf8e0ad350e940be7783e378bf8c146bda6e446a13109511a9d4ed705170c0"
   end
 
+  deprecate! date: "2026-07-17", because: :deprecated_upstream
+  disable! date: "2027-01-17", because: :deprecated_upstream
+
   depends_on "rbenv"
 
   def install

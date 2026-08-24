@@ -1,8 +1,8 @@
 class Cdncheck < Formula
   desc "Utility to detect various technology for a given IP address"
   homepage "https://projectdiscovery.io"
-  url "https://github.com/projectdiscovery/cdncheck/archive/refs/tags/v1.2.40.tar.gz"
-  sha256 "05476e0f943846d0114d94fcf620eb088e290f120a59ddcf085b546de7abe766"
+  url "https://github.com/projectdiscovery/cdncheck/archive/refs/tags/v1.2.50.tar.gz"
+  sha256 "0c702bcb9fb59409a50539c5ad44ea6948b6aebe14d0dad1050a5148cbf8b6ad"
   license "MIT"
   head "https://github.com/projectdiscovery/cdncheck.git", branch: "main"
 
@@ -12,18 +12,18 @@ class Cdncheck < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "eac21995bba33f2a34eb50b7ff20dc01f3cfc3e6a38abd6f8bf9da6f72540758"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd986e3057e68b8821563ae7ba376c17846d02a6b48d0e44d422e3ba575ef099"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c5a794b05abe8511a9f6b65795b0af4892a8e11dbd92fa5d8633eb0e19fba735"
-    sha256 cellar: :any_skip_relocation, sonoma:        "697c393c4a98c9129639880d416106dc62b469212e596e4fa58fe3c22424e836"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b94f197fe1ee24060a5b69f3b3006bbf1890849aa4f0d1fabe82e04d6e0d093a"
-    sha256 cellar: :any,                 x86_64_linux:  "b0682c90fe0e4a4e3188924f223dfb986c45eeebf35ddfcff1a7764c6417a34d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4d5708fdae3848e904d0dedf720f57685699df076a58d4b37238b1e4103ce94f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15400ebe2788cd632681d84534d38211bcf5bce53416071718b63d0ab41f0c22"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7f863236bea799d7ef243adb72508acf16da053a83a21168d8a96abbc421bf27"
+    sha256 cellar: :any_skip_relocation, sonoma:        "636c700d58c8039ea4d9cb02396b7ca9b89a19921f31a66331a30f8a5c5c3b53"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d793bf1b363e817b7c0d0efcc2fbac71e7de6b119bd495fb4a87c19b4e1a1365"
+    sha256 cellar: :any,                 x86_64_linux:  "57a226eeaa9ca8137d41fe686e4d48e6eb4155cca768cb559c152f8fca5e22dc"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cdncheck"
+    system "go", "build", *std_go_args, "./cmd/cdncheck"
   end
 
   test do

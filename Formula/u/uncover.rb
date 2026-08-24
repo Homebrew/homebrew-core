@@ -18,7 +18,7 @@ class Uncover < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/uncover"
+    system "go", "build", *std_go_args, "./cmd/uncover"
   end
 
   test do

@@ -18,7 +18,7 @@ class Regclient < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/regclient/regclient/internal/version.vcsTag=#{version}"
+    ldflags = "-X github.com/regclient/regclient/internal/version.vcsTag=#{version}"
     ["regbot", "regctl", "regsync"].each do |f|
       system "go", "build", *std_go_args(ldflags:, output: bin/f), "./cmd/#{f}"
 

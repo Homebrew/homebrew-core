@@ -6,23 +6,17 @@ class Ttygif < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d5fce5ba582f5b18009dc239f63010c981ebf1181a5f34072d6550f73f2e8053"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b6e237ea0e9b4a23fd56ec73b8946859eebcc2b4fb732c6268a9ce942db6ad8e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "440b8d0af646eb7601a60d54d5af8813aa268593ebc3edd5dd1961f19915aee0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d782d59a6f04174b4d94642784cd3a3d3d3f9005c13f8e22a53d6c0473ebf4e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c953e6967a6bc0c649d81c226565818a223a509fc11e556c7bd242b347c888f0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "59d6b52ffd6c8f0680e6dda60fdf17dd1f445abb1339be73687dac519b847517"
-    sha256 cellar: :any_skip_relocation, sonoma:         "660c1ff6f6e028646a79a81f535084202bcea231e9d574c74b6e3b01e8ba3373"
-    sha256 cellar: :any_skip_relocation, ventura:        "3a0f3584b025375422648b2f6c7f5b59b1623253e61a5400f84e6974c62111d4"
-    sha256 cellar: :any_skip_relocation, monterey:       "4c955eb6cda1e45e9668ad7eb8cd2f4c8d03754a4fb877a08fc4ffeb6c8602cb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fd4346a5d4ff4e7fdbb5fefad4ab5943f927e43d7fb4fe5a45a496d6f8bf62f3"
-    sha256 cellar: :any_skip_relocation, catalina:       "c9fcc9f4e6331acefe39cd12ed8c8ae353d028040526c84f98d6f656cd34af03"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "6f640f1292cd1506f8c97f9f177cb9dbeffa113ca28c36c65da9609c1770551b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6db4dfad8975d11c05ab0ffad2da2ca5864872948ba4e872323e9dee07c26289"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8c2801e9fd3037e19b2505cf7d066fc65d08970895db9df569bdaadfe72b6dea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e1677ae4c695a79d31461441374113ef860629ba4670f35232aefe2fd22ac932"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "46a1d592292b40738d6ec36a627aa460861b6534b836e205ea197eba6eafb1e2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c912d39e94ccc7732340d50660b7de8253b615ae256e3abcd8b14abcb7e5b167"
+    sha256 cellar: :any,                 arm64_linux:   "9b33a027b0e482b5c56f047f037e77988d3bb52b19c8d5feb05499b8de0ceba3"
+    sha256 cellar: :any,                 x86_64_linux:  "2faf0bb18bfa73230fe00e07f95b4673a12dfb987b1245454268ca006f53f599"
   end
 
   depends_on "imagemagick"
-  depends_on "ttyrec"
+  depends_on "ovh-ttyrec"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

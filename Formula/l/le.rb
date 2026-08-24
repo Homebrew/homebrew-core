@@ -33,6 +33,8 @@ class Le < Formula
   patch do
     url "https://github.com/lavv17/le/commit/f5582ae199e4c4b80d32e4764715d630203b44f6.patch?full_index=1"
     sha256 "aa7ce012a03b86a5e3e7724fcd1c4d3cd304a92193510905eb71e614473c66ef"
+    type :backport
+    resolves "https://github.com/lavv17/le/pull/39"
   end
 
   def install

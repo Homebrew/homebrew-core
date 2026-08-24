@@ -7,13 +7,13 @@ class Licensed < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "12b2cddfdf4d6d8c1dc2f0ff4429d2c44dc4f2ea4dee4085fbdee5b2a76f0f5f"
-    sha256 cellar: :any, arm64_sequoia: "46c79b35931c3e943ee005a4d99a2c1ccf08ce3899357c48d1f56a1af0640d8b"
-    sha256 cellar: :any, arm64_sonoma:  "99109301a0936326e65ca219ebdb1cbdf8902ecd7fd35910e3478f7d18c90f5e"
-    sha256 cellar: :any, sonoma:        "1bdc8956cf16cf765a198e67c9c41ef476190a95cca2b0fe10f81ed047cabe5f"
-    sha256 cellar: :any, arm64_linux:   "11eb0613dcffa3a921615fdcaba762404491fb9b2a91a44aab1fa725de86be62"
-    sha256 cellar: :any, x86_64_linux:  "6c613e206e9b571fc3fe0edb0f0a19f996c5745a9320caf007a35b66daeb0ef4"
+    rebuild 2
+    sha256 cellar: :any, arm64_tahoe:   "bf458db419e1e6824d7a37a817cb1f8c7c81ee308d799b83985699f7004249f8"
+    sha256 cellar: :any, arm64_sequoia: "7e3c06e73f0ce734a57fbef409a23925b27d772f9004a3919b4b7888ac833a1a"
+    sha256 cellar: :any, arm64_sonoma:  "efb54e532db76b99df76c3f9c74514429f4e7b0dbf51f44983b5519c7c082eb6"
+    sha256 cellar: :any, sonoma:        "77f6ca7ced25d6cb48b645e7968f4899e0820eeb3fa5547953eb92110ba30578"
+    sha256 cellar: :any, arm64_linux:   "7e50eee9470029e114665010af6c006a504eed6c429223ebcd36de38ed60a857"
+    sha256 cellar: :any, x86_64_linux:  "14a2b4ea61f0503c58770ae2f041a87b63ad56b63429f721999b9818ce23a1c3"
   end
 
   depends_on "cmake" => :build
@@ -28,29 +28,14 @@ class Licensed < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # TODO: Remove resource when there is a new release
-  resource "rugged" do
-    url "https://github.com/libgit2/rugged.git",
-        tag:      "v1.9.0",
-        revision: "5b28daf1fca547f875489650345bf9067e78fa25"
-
-    # Backport fix to use brew libgit2
-    patch do
-      url "https://github.com/libgit2/rugged/commit/5fee507fef1a322efabceee6f938195795d90eea.patch?full_index=1"
-      sha256 "4495f461391564df09ece50e7eb16bc8242af11c7a732180f9ce76e8b824e660"
-    end
-  end
-
   def install
     ENV["BUNDLE_FORCE_RUBY_PLATFORM"] = "1"
     ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
     ENV["BUNDLE_WITHOUT"] = "development test"
     ENV["GEM_HOME"] = libexec
 
-    resource("rugged").stage do |r|
-      system "gem", "build", "rugged.gemspec"
-      system "gem", "install", "--ignore-dependencies", "rugged-#{r.version}.gem", "--", "--use-system-libraries"
-    end
+    # Locked rugged 1.9.0 cannot detect libgit2 1.9; remove once upstream updates Gemfile.lock
+    inreplace "Gemfile.lock", "rugged (1.9.0)", "rugged (1.9.6)"
 
     system "bundle", "config", "set", "build.nokogiri", "--use-system-libraries"
     system "bundle", "config", "set", "build.rugged", "--use-system-libraries"

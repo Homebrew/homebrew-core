@@ -44,6 +44,7 @@ class Libetonyek < Formula
   patch :p0 do
     url "https://src.fedoraproject.org/rpms/libetonyek/raw/65a93fb7f21fb0e668d78644ec6aa7843e5372f5/f/mdds3.patch"
     sha256 "cd390fa4280b78fd0d1a7f587ab576d8ef0c4848036c8b0c821b576c6745db17"
+    type :unofficial
   end
 
   def install

@@ -21,7 +21,6 @@ class DockerDebug < Formula
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
     ldflags = %W[
-      -s -w
       -X github.com/zeromake/docker-debug/version.Version=#{version}
       -X github.com/zeromake/docker-debug/version.GitCommit=#{tap.user}
       -X github.com/zeromake/docker-debug/version.BuildTime=#{time.iso8601}

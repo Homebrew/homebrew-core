@@ -2,7 +2,7 @@ class Unixodbc < Formula
   desc "ODBC 3 connectivity for UNIX"
   homepage "https://www.unixodbc.org/"
   url "https://www.unixodbc.org/unixODBC-2.3.14.tar.gz"
-  mirror "https://fossies.org/linux/privat/unixODBC-2.3.14.tar.gz"
+  mirror "https://github.com/lurcher/unixODBC/releases/download/v2.3.14/unixODBC-2.3.14.tar.gz"
   sha256 "4e2814de3e01fc30b0b9f75e83bb5aba91ab0384ee951286504bb70205524771"
   license all_of: [
     "LGPL-2.1-or-later", # libraries
@@ -24,6 +24,13 @@ class Unixodbc < Formula
     sha256 x86_64_linux:  "3f04884aa241e341fea833df1fcb51ec7b181e5a75ff4a7b86ca87dc4c7a24dd"
   end
 
+  head do
+    url "https://github.com/lurcher/unixODBC.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   depends_on "libtool"
 
   conflicts_with "virtuoso", because: "both install `isql` binaries"
@@ -34,6 +41,7 @@ class Unixodbc < Formula
   link_overwrite "lib/libodbc.a", "lib/libodbc.so"
 
   def install
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-gui",
                           "--enable-static",
                           "--sysconfdir=#{etc}",

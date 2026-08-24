@@ -1,10 +1,10 @@
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
-  url "https://github.com/Z3Prover/z3/archive/refs/tags/z3-4.16.0.tar.gz"
-  sha256 "c68c3e5e4810b16126b8cb4c47eee85c1ac3e24a81914c8e371b40de9dd33ac7"
+  url "https://github.com/Z3Prover/z3/archive/refs/tags/z3-5.1.0.tar.gz"
+  sha256 "c433e1add0431c5edf1644bd9951c40588024d2d288f0e4215e5fcb6e3b4277d"
   license "MIT"
-  compatibility_version 2
+  compatibility_version 4
   head "https://github.com/Z3Prover/z3.git", branch: "master"
 
   livecheck do
@@ -14,18 +14,25 @@ class Z3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "ee99aab378c77dfd90c002bcceb28164c1c78d9705df789151e781dfa26f0177"
-    sha256 cellar: :any, arm64_sequoia: "08478660968932e8353796d24fee205a57321a4945d48991e8f82dae723d97a3"
-    sha256 cellar: :any, arm64_sonoma:  "39fedb4ba76f08619e473adc746bd9637a77c3b3265f92c2112281519e65532b"
-    sha256 cellar: :any, sonoma:        "a520309ac4d170897f5bcd9b238231bdec1cbb4f0f326c62abe7eb06b7616975"
-    sha256 cellar: :any, arm64_linux:   "8c7a3224690e55f5d676f9c11c03279c97e7dcee5e82a7476aea430688f602a4"
-    sha256 cellar: :any, x86_64_linux:  "3cbce2db8b73bd7095b0ad82606a338e4ef7c262f0d6e6f182c32141d53f9ac2"
+    sha256 cellar: :any, arm64_tahoe:   "5968f6ca3a4c4f2b12e4711b9ca7556fa65a82937f1af7a2a210456ab754adb7"
+    sha256 cellar: :any, arm64_sequoia: "7012e78ff0eb81f292949f7992afa7a64388c950151f3435fb4fed4e6926db39"
+    sha256 cellar: :any, arm64_sonoma:  "36ccc33c5688b5cd5fc08e16ecc769959b3a64095673a8c51e6fe7df6b9f4c9c"
+    sha256 cellar: :any, sonoma:        "c425f32bab80691b5f38e709fbe2c66de6cec21c393128829eab1b80bd0d98c1"
+    sha256 cellar: :any, arm64_linux:   "531a1a0d7fa7aefce9e8ea3311ebd64b1a2d3738997db2311c1afb5aa249debc"
+    sha256 cellar: :any, x86_64_linux:  "910d6637017f0fcef428944738466811290a242d34932b4253c2b2d222482b1f"
   end
 
   depends_on "cmake" => :build
   # Has Python bindings but are supplementary to the main library
   # which does not need Python.
   depends_on "python@3.14" => [:build, :test]
+
+  # The following macOS conditional should be the inverse of LLVM's Z3 conditional
+  on_ventura :or_older do
+    fails_with :clang do
+      cause "Requires C++20 std::format, https://developer.apple.com/xcode/cpp/#c++20"
+    end
+  end
 
   fails_with :gcc do
     version "12"

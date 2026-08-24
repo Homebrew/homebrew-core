@@ -4,6 +4,7 @@ class S2geometry < Formula
   url "https://github.com/google/s2geometry/archive/refs/tags/v0.14.0.tar.gz"
   sha256 "8c1f0a4b98472ed9df9807f5ec10ee57928cca388e16c13f430b652790d3ad8b"
   license "Apache-2.0"
+  revision 2
 
   livecheck do
     url :homepage
@@ -11,16 +12,24 @@ class S2geometry < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f1e66537c44677c6acc41f697b8209a89573008505724870efdb10a8101fd863"
-    sha256 cellar: :any,                 arm64_sequoia: "2dbce9de0564529e134fc86b1565712feb394280b1963f787b6dcd43b82c6617"
-    sha256 cellar: :any,                 arm64_sonoma:  "c791357599b318746fe242dba401fd149a5b046367fe7e28581886edf7dcbd0c"
-    sha256 cellar: :any,                 sonoma:        "04ac6f0a4272a6d7a425a8c1bde01c4ace478495dc75f41e724648737d50bbd1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f8ccfdca48aec18b4bf6e5ced582b67942f052fc72f83df492575b0dc500f067"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d2994885b05afddfd60030c799d240573de7a010588bca9c4f98201b2665fc9"
+    sha256 cellar: :any, arm64_tahoe:   "0426b4c5e9017fbe4afa6fbfbfb65293f2d80555ddac3b3ceaeb00313d32d240"
+    sha256 cellar: :any, arm64_sequoia: "32a5490b6ae786d73a902b611d33301bbfc94e9a12d06f3b40622fd175f11b8c"
+    sha256 cellar: :any, arm64_sonoma:  "096a3c6fad687de052197824dcb43020e6646d626717a2da9f6823aebc84d8f3"
+    sha256 cellar: :any, sonoma:        "af115ca24f307db843213dc2881cb875fece946bc69e6de0eada2ea7e57bbb52"
+    sha256 cellar: :any, arm64_linux:   "78f0e76dc592932a9ea5a3da064a8608c97a212adbd9023280ce0870ef0cc20e"
+    sha256 cellar: :any, x86_64_linux:  "293de6f03f83cf9db424ae74d343ab44cb3a5f72f67990a34d3064bd384f81db"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "abseil"
+
+  # Backport abseil 20260526.0 build fix (throw_delegate moved to a public header).
+  patch do
+    url "https://github.com/google/s2geometry/commit/424bc82d412cb939412e0952c1b3da22b5e19d66.patch?full_index=1"
+    sha256 "adebc643e21044eb440bf07dbf7dc22ac1aae8eb448249592200fcdecc00c05b"
+    type :backport
+    resolves "https://github.com/google/s2geometry/pull/653"
+  end
 
   def install
     # Keep C++ standard in sync with `abseil.rb`.
@@ -28,10 +37,6 @@ class S2geometry < Formula
       -DBUILD_TESTS=OFF
       -DCMAKE_CXX_STANDARD=17
     ]
-
-    # Fix missing include of unaligned.h
-    # Issue ref: https://github.com/google/s2geometry/issues/481
-    inreplace "CMakeLists.txt", "src/s2/util/gtl/requires.h", "\\0 src/s2/util/gtl/unaligned.h"
 
     system "cmake", "-S", ".", "-B", "build/shared", *args, *std_cmake_args
     system "cmake", "--build", "build/shared"

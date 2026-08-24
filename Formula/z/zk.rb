@@ -1,8 +1,8 @@
 class Zk < Formula
   desc "Plain text note-taking assistant"
   homepage "https://zk-org.github.io/zk/"
-  url "https://github.com/zk-org/zk/archive/refs/tags/v0.15.5.tar.gz"
-  sha256 "a3260eb1c6309a70a27d0e81c32fce58a9856905e781ea4138aa87d523e910aa"
+  url "https://github.com/zk-org/zk/archive/refs/tags/v0.15.6.tar.gz"
+  sha256 "ac4e1744655bc5c42caf132ca667e0d882dda2e05ba08762f9f49dd784bec115"
   license "GPL-3.0-only"
   head "https://github.com/zk-org/zk.git", branch: "dev"
 
@@ -12,12 +12,12 @@ class Zk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "fd5a26e3163acc9ed2c44788594a3374c5f9049a1838f15ffe46a2b2cf369dc2"
-    sha256 cellar: :any, arm64_sequoia: "a56e02e6a2be6804eabfc51c7b00a4e4be071dee1b7080f0ccc30cc7308c6d0e"
-    sha256 cellar: :any, arm64_sonoma:  "b98538e297470a91e21a57148fe1c3aa0226dfc68ea7e2f16d6972312d806263"
-    sha256 cellar: :any, sonoma:        "6c27636944aa3e758ffd1328eb4b6d1d6d6fa2467bdaa4e472450514811bead0"
-    sha256 cellar: :any, arm64_linux:   "252c76eae815d1af8887493001cede24b3f8b0bcffeb559ab05ecf68e9408fa3"
-    sha256 cellar: :any, x86_64_linux:  "2d5ab432f142f7343cb369e4786e72d1980e28fbb7f5c66ba4d6698543e435fb"
+    sha256 cellar: :any, arm64_tahoe:   "1971a61ffabe5373bc6f702724e11637e09be825d0a2cd681b65569a685b7f77"
+    sha256 cellar: :any, arm64_sequoia: "c499482cdc173715708750ce76abdbbb237a7a8560f3f7e3cd5d28e2718cebf9"
+    sha256 cellar: :any, arm64_sonoma:  "59250e660fa7b8684e0f423689891c6e1afc204b3a7327c81f4b76ebcb6afb84"
+    sha256 cellar: :any, sonoma:        "a0c337e067e1491ebf19f3684bf6e97a02318e2618686153f14bfdece4d6ba2e"
+    sha256 cellar: :any, arm64_linux:   "8b20d3a7054bd2e0fc4cfae836f3f159b29eea5a3a4e18d58591cb68a57d840e"
+    sha256 cellar: :any, x86_64_linux:  "a581655c423fdd954a8d16cfc75b4ce2ff4c344ecb44cb9e0a33818d258039b2"
   end
 
   depends_on "go" => :build
@@ -28,7 +28,7 @@ class Zk < Formula
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
 
-    ldflags = "-s -w -X main.Version=#{version} -X main.Build=#{tap.user}"
+    ldflags = "-X main.Version=#{version} -X main.Build=#{tap.user}"
     tags = %w[fts5 icu]
     system "go", "build", *std_go_args(ldflags:, tags:)
   end

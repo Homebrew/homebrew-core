@@ -1,8 +1,8 @@
 class Gping < Formula
   desc "Ping, but with a graph"
   homepage "https://github.com/orf/gping"
-  url "https://github.com/orf/gping/archive/refs/tags/gping-v1.20.1.tar.gz"
-  sha256 "0df965111429d5fcef832a4ff23b452a1ec8f683d51ed31ce9b10902c0a18a9c"
+  url "https://github.com/orf/gping/archive/refs/tags/gping-v1.20.4.tar.gz"
+  sha256 "63baad8181b8161ed1f1d9091c1a0e8a7f5a63c5f680c7272d0a164596100e25"
   license "MIT"
   head "https://github.com/orf/gping.git", branch: "master"
 
@@ -15,15 +15,15 @@ class Gping < Formula
     regex(/^gping[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
+  no_autobump! because: :bumped_by_upstream
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2ea7c7e96a88df4ee9e8cf12a47849a778eabdd015c2c56e0ac1b46dba8b329f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4b724bca246855e7c11aa972489d8a99fff3b1775ee68832ce55b645d219210"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a9e5e2357d554380b42514cc043dfca7e24dbd00eed6c49640aa984a5dd8d551"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c3825f08e0158e83a76fc27c7103364db82d748010c72f1afb1d607f8aa79fa8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "88b15ad904d11c0353fb62c62a0e8aef8cbe054275324d281fcb1c36d2ca4882"
-    sha256 cellar: :any_skip_relocation, ventura:       "f042f035aa83f1ac2a29ef5e3f7437fba693a50fb14c939e6b4fc08a9e100f86"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a071b10dbf714a17277fc3d007876025e8eeb7ccd8233871cec335845c2b15e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "773e0bb37bb0a63656ad1ff05f8f135054b5bb935440b58936f22726392aef09"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a84a6e00d0cf56256665788cf25d37cc12aec4914dc4f2b5a454be3410986c00"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6bb597a96151bdcac0d2d4df9c58e793fa0e7b66a442bb2f99c4c25d83690f30"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d6b04d7f864ab14d631ae2443a6c9b6a18367857c614237bd1e685954b9fe181"
+    sha256 cellar: :any_skip_relocation, sonoma:        "99c430a7517e10523ca1c1f94070135ffc353452b3dacb3a6175905f91512068"
+    sha256 cellar: :any,                 arm64_linux:   "291d93da352740cc3f845f1265a0e0318622e72697b7839d81a13c59a2deca09"
+    sha256 cellar: :any,                 x86_64_linux:  "02eaf5c13a5ed3a950d686c97d2f878762c83a63dbd80cde695e88cbebff2fed"
   end
 
   depends_on "pkgconf" => :build

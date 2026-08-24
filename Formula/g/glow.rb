@@ -1,24 +1,24 @@
 class Glow < Formula
   desc "Render markdown on the CLI"
   homepage "https://github.com/charmbracelet/glow"
-  url "https://github.com/charmbracelet/glow/archive/refs/tags/v2.1.2.tar.gz"
-  sha256 "1b933139da1d08647bf5b3f112cab9548fdc2b40c056c7fa3d84d8706de5265a"
+  url "https://github.com/charmbracelet/glow/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "18df6f3c09157021366b8c702b5badba405d37dbb42f132353eb50c1b0d3f464"
   license "MIT"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "efafef80669a8776fd80e6126ee3f874dde5cf1ae25260c90ab843543f56c0a7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "efafef80669a8776fd80e6126ee3f874dde5cf1ae25260c90ab843543f56c0a7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "efafef80669a8776fd80e6126ee3f874dde5cf1ae25260c90ab843543f56c0a7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5147e48f551c32ef0753e98927895c8468ca97a4896b641423640d2d27381058"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d45a6d2d331f5409907eab72abfaa9268edf1eb6a9dbf4d75a31347c258d29d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c0bb657054bb32edd7f3823268f2f76b5871edbd731769088eb7e8a30ae2356"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7c98cc5916747344f2d89f9c0c0900398992e2c85866c600ee5543df4276728a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c98cc5916747344f2d89f9c0c0900398992e2c85866c600ee5543df4276728a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7c98cc5916747344f2d89f9c0c0900398992e2c85866c600ee5543df4276728a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "928a487495eb5f657b320be84189f8d5b61f3494e738189975fe559ea66a9a69"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fc9c51318c1e09e23649f5025d46302fd4b2b2f7cd09765515b2320834b76aaf"
+    sha256 cellar: :any,                 x86_64_linux:  "f3ac00f52053e69fc281dbdb52cd9339fa1a25cca1e139f4dfabdf6d298d2037"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}")
 
     generate_completions_from_executable(bin/"glow", shell_parameter_format: :cobra)
   end

@@ -30,10 +30,11 @@ class Mongrel2 < Formula
   end
 
   # Fix src/server.c:185:23: error: #elif with no expression
-  # PR ref: https://github.com/mongrel2/mongrel2/pull/358
   patch do
     url "https://github.com/mongrel2/mongrel2/commit/d6c38361cb31a3de8ddfc3e8a3971330a40eb241.patch?full_index=1"
     sha256 "52afa21830d5e3992136c113c5a54ad55cccc07f763ab7532f7ba122140b3e6b"
+    type :unofficial
+    resolves "https://github.com/mongrel2/mongrel2/pull/358"
   end
 
   def install

@@ -36,7 +36,7 @@ class Civl < Formula
         aliases = z3;
         kind = Z3;
         version = "#{Formula["z3"].version} - 64 bit";
-        path = "#{Formula["z3"].opt_bin}/z3";
+        path = "#{formula_opt_bin("z3")}/z3";
         timeout = 10.0;
         showQueries = false;
         showInconclusives = false;

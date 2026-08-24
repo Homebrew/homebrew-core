@@ -6,6 +6,11 @@ class Libupnpp < Formula
   license "LGPL-2.1-or-later"
   head "https://framagit.org/medoc92/libupnpp.git", branch: "master"
 
+  livecheck do
+    url "https://www.lesbonscomptes.com/upmpdcli/downloads/"
+    regex(/href=.*?libupnpp[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "85c47c5801796e4737a029ab321194f24dd0aa0bbf4bf593eba870a3f4649b8f"
     sha256 cellar: :any, arm64_sequoia: "fabd8de54a9455badfff09e2a871fd6205afc1077846c927667e0286f44acad8"

@@ -38,8 +38,7 @@ class BashCompletion < Formula
   # Backports the following upstream patch from 2.x:
   # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=740971
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/bash-completion/bug-740971.patch"
-    sha256 "bd242a35b8664c340add068bcfac74eada41ed26d52dc0f1b39eebe591c2ea97"
+    file "Patches/bash-completion/bug-740971.patch"
   end
 
   # Backports (a variant of) an upstream patch to fix man completion.

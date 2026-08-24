@@ -41,7 +41,10 @@ class Zig < Formula
   # libLLVM.dylib's, breaking comparisons across the boundary — e.g. `zig ar`
   # can't create new archives with ZIG_SHARED_LLVM=ON.
   # https://github.com/Homebrew/homebrew-core/issues/278849
-  patch :DATA
+  patch do
+    file "Patches/zig/0.16.patch"
+    type :unofficial
+  end
 
   def install
     # Reduce max_rss to build on CI with less than 8GB memory available
@@ -63,14 +66,8 @@ class Zig < Formula
                                                       .join(" ")
     end
 
-    cpu = case Hardware.oldest_cpu # See `zig targets`.
-    when :arm_vortex_tempest then "apple_m1"
-    when :armv8 then "xgene1" # Closest to `-march=armv8-a`
-    else Hardware.oldest_cpu
-    end
-
     args = ["-DZIG_SHARED_LLVM=ON"]
-    args << "-DZIG_TARGET_MCPU=#{cpu}" if build.bottle?
+    args << "-DZIG_TARGET_MCPU=#{Hardware.zig_cpu(ENV.effective_arch)}" if build.bottle?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -138,25 +135,3 @@ class Zig < Formula
     assert Utils.binary_linked_to_library?(bin/"zig", library), "No linkage with #{library}!"
   end
 end
-
-__END__
-diff --git a/build.zig b/build.zig
---- a/build.zig
-+++ b/build.zig
-@@ -859,7 +859,15 @@
-                 mod.linkSystemLibrary("unwind", .{});
-             },
-             .driverkit, .ios, .maccatalyst, .macos, .tvos, .visionos, .watchos => {
--                mod.link_libcpp = true;
-+                const io = b.graph.io;
-+                if (static or !std.zig.system.darwin.isSdkInstalled(b.allocator, io)) {
-+                    mod.link_libcpp = true;
-+                } else {
-+                    const sdk = std.zig.system.darwin.getSdk(b.allocator, io, target) orelse
-+                        return error.SdkDetectFailed;
-+                    const libcpp_tbd = b.pathJoin(&.{ sdk, "usr/lib/libc++.tbd" });
-+                    mod.addObjectFile(.{ .cwd_relative = libcpp_tbd });
-+                }
-             },
-             .windows => {
-                 if (target.abi != .msvc) mod.link_libcpp = true;

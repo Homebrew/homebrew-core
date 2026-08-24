@@ -21,8 +21,8 @@ class Gqlplus < Formula
   depends_on "libedit"
 
   def install
-    ENV.append_to_cflags "-I#{Formula["libedit"].opt_libexec}/include"
-    ENV.append "LDFLAGS", "-L#{Formula["libedit"].opt_libexec}/lib"
+    ENV.append_to_cflags "-I#{formula_opt_libexec("libedit")}/include"
+    ENV.append "LDFLAGS", "-L#{formula_opt_libexec("libedit")}/lib"
 
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403

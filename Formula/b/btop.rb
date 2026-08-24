@@ -23,11 +23,6 @@ class Btop < Formula
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1600
   end
 
-  on_linux do
-    # Ubuntu 24.04 has GCC 14 libstdc++ so we can build with brew GCC 14 without impacting GLIBCXX
-    depends_on "gcc@14" => :build if DevelopmentTools.gcc_version < 14
-  end
-
   fails_with :clang do
     build 1600
     cause "Requires C++23 support for `std::ranges::to`"
@@ -39,15 +34,6 @@ class Btop < Formula
   end
 
   def install
-    if OS.linux? && deps.map(&:name).any?("gcc@14")
-      # Since brew will prioritize newer GCC versions if installed, we force usage of gcc-14
-      ENV.method(:"gcc-14").call
-
-      # Avoid using the postinstalled specs file which automatically adds an RPATH to gcc@14 libraries
-      libgcc = Pathname.new(Utils.safe_popen_read(ENV.cc, "-print-libgcc-file-name")).parent
-      ENV.append "CXX", "-specs=#{libgcc}/specs.orig"
-    end
-
     system "make", "CXX=#{ENV.cxx}", "STRIP=true"
     system "make", "PREFIX=#{prefix}", "install"
   end

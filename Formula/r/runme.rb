@@ -1,25 +1,24 @@
 class Runme < Formula
   desc "Execute commands inside your runbooks, docs, and READMEs"
   homepage "https://runme.dev/"
-  url "https://github.com/runmedev/runme/archive/refs/tags/v3.16.11.tar.gz"
-  sha256 "ab4bcdcb7404b5d903fe0f5a38bcf9d5c6532471b9839937146dde575da72ebf"
+  url "https://github.com/runmedev/runme/archive/refs/tags/v3.17.5.tar.gz"
+  sha256 "d7c550e8e11fd5bb9533275885e92d2862eed5dee93c3c4f402860ed0e34ea28"
   license "Apache-2.0"
   head "https://github.com/runmedev/runme.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f8884e841f796d8d3714aa5f5db7407c781331f31ac63f1e00c454a1503dfb00"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b7a4aed2504454d3b97c390281a387bd27a7de10fa00ce22a9331f5e4415e935"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "143fc5163cd66cd81d32276c9aa4843e7259ce32f9603bee38a135ab0c862837"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1f86528b280f4c0cad096f7987b005bd9091c46da6b3fb1b7b754bad811c1675"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "db48bb92ad412cb2ec6c20540812f99c45d70446190ea5a3fc5a62999df86f23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9d8a832558c09b29edeb6331cf2c388adc4847dae56537281c565ec52892e9f7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9a04ba2e5832728b80961cd35a2ed6379f9f7f5fcd3a969eea17fd6e9037a3eb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2542d4a9fb82dc14fcb107d871f44273990b56adfd1d592fc5e068878b6f3660"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "39f4600a865dcd993035fdf2cec528b8d2161cef5516d005004cb2e3aba3cb5c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "73531e9931e4e2a3f448191ecb2c75a036b2b3f083bee1ddb73abb09a19703e4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "da897f6f2c6c756fa20119c1856eb1802838e14f56d5a01f6c67b474d00b5deb"
+    sha256 cellar: :any,                 x86_64_linux:  "018f0a7b5cd46c83d1dcc1eb7ff7826453d173184c906acdbc4e1b33995b6edf"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/runmedev/runme/v3/internal/version.BuildDate=#{time.iso8601}
       -X github.com/runmedev/runme/v3/internal/version.BuildVersion=#{version}
       -X github.com/runmedev/runme/v3/internal/version.Commit=#{tap.user}

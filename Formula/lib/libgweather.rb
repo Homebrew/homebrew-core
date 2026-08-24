@@ -79,7 +79,7 @@ class Libgweather < Formula
         return 0;
       }
     C
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["icu4c"].opt_lib/"pkgconfig" if OS.mac?
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("icu4c")/"pkgconfig" if OS.mac?
     flags = shell_output("pkgconf --cflags --libs gweather4").chomp.split
     system ENV.cc, "-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE=1", "test.c", "-o", "test", *flags
     system "./test"

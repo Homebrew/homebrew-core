@@ -26,10 +26,11 @@ class Rathole < Formula
     depends_on "openssl@3"
   end
 
-  # rust 1.80 build patch, upstream bug report, https://github.com/rathole-org/rathole/issues/380
+  # rust 1.80 build patch
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/rathole/rust-1.80.patch"
-    sha256 "deca6178df16517f752c309f6290678cbddb24cd3839057f746d0817405965f9"
+    file "Patches/rathole/rust-1.80.patch"
+    type :unofficial
+    resolves "https://github.com/rathole-org/rathole/issues/380"
   end
 
   def install

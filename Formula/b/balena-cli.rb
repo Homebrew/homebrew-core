@@ -1,8 +1,8 @@
 class BalenaCli < Formula
   desc "Command-line tool for interacting with the balenaCloud and balena API"
   homepage "https://docs.balena.io/reference/balena-cli/latest/"
-  url "https://registry.npmjs.org/balena-cli/-/balena-cli-25.1.8.tgz"
-  sha256 "2ff46ecb4f58b47ef12717e2c35e975d985e4b3b906e3c3baf0618661fbd1622"
+  url "https://registry.npmjs.org/balena-cli/-/balena-cli-25.2.5.tgz"
+  sha256 "6fe4c4471b9f37fdc2ae9ff6060e4f74d531db3621f95bc61f81456e4b6f9f2b"
   license "Apache-2.0"
 
   livecheck do
@@ -13,12 +13,12 @@ class BalenaCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "27060eff21c3811ec4d814e0406867715a592bae399d202032f218e74fea37a5"
-    sha256 cellar: :any, arm64_sequoia: "6fb394154d68df9c2de8eaae7ad627ca0ed4d714699c9ccbe6888e00de9800a9"
-    sha256 cellar: :any, arm64_sonoma:  "6fb394154d68df9c2de8eaae7ad627ca0ed4d714699c9ccbe6888e00de9800a9"
-    sha256 cellar: :any, sonoma:        "c1e7c57466b9d6eefc32791a6002369f8c69ea74df6834de9d2a3fde4ac0c040"
-    sha256 cellar: :any, arm64_linux:   "bc1060cfc0080e663bc2748496f749b49a22000bf19533fa518bfd6195ca8d2d"
-    sha256 cellar: :any, x86_64_linux:  "227ec0ba30ff36d16b656b3493f88d0e6409927213dec4eb150f4b6afdb7578f"
+    sha256 cellar: :any, arm64_tahoe:   "ef276cc6ef6aaebe0fad616ac5aa19ce9d8ce74bf658bfaf980453bab2f813d5"
+    sha256 cellar: :any, arm64_sequoia: "ef276cc6ef6aaebe0fad616ac5aa19ce9d8ce74bf658bfaf980453bab2f813d5"
+    sha256 cellar: :any, arm64_sonoma:  "ef276cc6ef6aaebe0fad616ac5aa19ce9d8ce74bf658bfaf980453bab2f813d5"
+    sha256 cellar: :any, sonoma:        "97b7f9fa0e52fac3f9e5611619698e45cd6da523fd1e36c96ced49c6725512f2"
+    sha256 cellar: :any, arm64_linux:   "f405dbc8489a175a103f8d4c449f249f533ece8f66dbe587fc02e44ad8f85964"
+    sha256 cellar: :any, x86_64_linux:  "f77cd84ba64af05bf404c778bfe4998bdc9bb769cf3b61d97131410d954fecaa"
   end
 
   depends_on "go" => :build
@@ -48,6 +48,7 @@ class BalenaCli < Formula
     modules = %w[
       bare-fs
       bare-os
+      bare-path
       bare-url
       bcrypt
       lzma-native

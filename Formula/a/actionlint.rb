@@ -24,7 +24,6 @@ class Actionlint < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X "github.com/rhysd/actionlint.version=#{version}"
       -X "github.com/rhysd/actionlint.installedFrom=installed from Homebrew"
     ]

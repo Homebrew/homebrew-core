@@ -29,10 +29,11 @@ class XmlSecurityC < Formula
   patch do
     url "https://sources.debian.org/data/main/x/xml-security-c/3.0.0-2/debian/patches/Provide-the-Xerces-URI-Resolver-for-the-tests.patch"
     sha256 "585938480165026990e874fecfae42601dde368f345f1e6ee54b189dbcd01734"
+    type :unofficial
   end
 
   def install
-    system "./configure", "--with-openssl=#{Formula["openssl@3"].opt_prefix}", *std_configure_args
+    system "./configure", "--with-openssl=#{formula_opt_prefix("openssl@3")}", *std_configure_args
     system "make", "install"
   end
 

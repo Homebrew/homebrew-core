@@ -1,8 +1,8 @@
 class Netcdf < Formula
   desc "Libraries and data formats for array-oriented scientific data"
   homepage "https://www.unidata.ucar.edu/software/netcdf/"
-  url "https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.10.0.tar.gz"
-  sha256 "ce160f9c1483b32d1ba8b7633d7984510259e4e439c48a218b95a023dc02fd4c"
+  url "https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.10.1.tar.gz"
+  sha256 "33c27231c478c3b35da7c7758fbdd02da1fe407abcb16ddfe195f69d164f930d"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/Unidata/netcdf-c.git", branch: "main"
@@ -13,12 +13,12 @@ class Netcdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c9ddcf980457c6068593640c746b5ed0e7d9b252b251172f6417f8ec2053ea66"
-    sha256 cellar: :any,                 arm64_sequoia: "163fed6be2e0d4aa70b327be4ca3cc702562764d8138ec2fa5a64c6da5c62e96"
-    sha256 cellar: :any,                 arm64_sonoma:  "951763c3895c6634ed1de5f58a33f5b6df4f42b13fb7863d39eddcd3d88e2c70"
-    sha256 cellar: :any,                 sonoma:        "cdb43a113fbd0ffeb4451c3152c8c1c07fcbabbc90cc8575edf4681ebf0093b2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "451da8be1f36b126818e0f0ddb8bde360fd49c7b2af26ed7b920915d4e4caab8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33334198a494db895097576ac2a797497979a47617ae8cd19c13abe2d8052c41"
+    sha256 cellar: :any, arm64_tahoe:   "272165524f912aa099b679354b2c9124254b07382ff24a91d4cb7a814b2946df"
+    sha256 cellar: :any, arm64_sequoia: "63678e98f8f593e10084bf456d6ff078a23cb3854b37286561c08ef71a30c56a"
+    sha256 cellar: :any, arm64_sonoma:  "44cbf680507e42a8075cef9aea20bb7ad67408a51f5a51e9fd08c09b729e0a8a"
+    sha256 cellar: :any, sonoma:        "8e34878912d54227043c575f477dcb0eef9fc6065766378b423bdc575600edbf"
+    sha256 cellar: :any, arm64_linux:   "13b70976978d8bbcde2532441c2cb4e542589f1799070e0244a2f9d7146b4d0d"
+    sha256 cellar: :any, x86_64_linux:  "689b1695b3a3647120d4965fb4d1c85b8e6ab86ad6c26807355a4416901030ac"
   end
 
   depends_on "cmake" => :build

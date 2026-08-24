@@ -1,8 +1,8 @@
 class Gomplate < Formula
   desc "Command-line Golang template processor"
   homepage "https://gomplate.ca/"
-  url "https://github.com/hairyhenderson/gomplate/archive/refs/tags/v5.1.0.tar.gz"
-  sha256 "b6763aaf2c52a2e57a02f5e4cae199166b1ae8df8beb43ef5c927bb10ca775fc"
+  url "https://github.com/hairyhenderson/gomplate/archive/refs/tags/v5.2.0.tar.gz"
+  sha256 "fb08872f54f776863a30adcd58dce0437529d0e6a468839d107803bbff1d0b23"
   license "MIT"
   head "https://github.com/hairyhenderson/gomplate.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Gomplate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e1e6fcfbc4df69b0781db938897865c4d19fc6f041942ef46d926e25a86f3dad"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a6e4d1a76818d726400dda71d3248b33a2fa2507840fd9affa0800dfdf0b258a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a66df46aa8bb55ff8cf299d12d6a1c2733045c00e795040e08ae0c82310053ab"
-    sha256 cellar: :any_skip_relocation, sonoma:        "51c0787636be3f1aab43e33edbaf3b35fb34989e23d4e85543f27cf579b08a28"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "da27c139a5761775a12ac41373a4bc93eb3202a90d13aef508f1c8b07b225bd8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad43e2fad7f5fe507982997695fd73e2670f6af865c6d2aa1c940b7b42c3cbfb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dae55e481fddcb3061a57c06a811cb96e19d834fbfb266a771aa405770b0e848"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b9a43e55f2cd1262f4a88e382c60995cc592bcd02a9b186593e2d2d2fac6dbb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "66c78605986e1e271d4d3bdbfd5751a26f7d5c3451d108cd8597ae51f529534a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "86e3848d04ccab8b7bbb8ff4f06caa0db4095ad6db9af9c7af8c27b8b25833bb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f838a801831f98711045834053845c247dcf96760b75f4e366e2cf8d0949a322"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ea170a4986806c104a4f7151c3253f16bc46a812a5ea6c1d75389377ddcb8e2"
   end
 
   depends_on "go" => :build

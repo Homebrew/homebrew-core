@@ -26,6 +26,6 @@ class Microsocks < Formula
     spawn bin/"microsocks", "-p", port.to_s
     sleep 2
     output = shell_output("curl --socks5 0.0.0.0:#{port} https://brew.sh")
-    assert_match "The Missing Package Manager for macOS (or Linux)", output
+    assert_match "The Package Manager for Everywhere", output
   end
 end

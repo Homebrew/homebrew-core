@@ -19,18 +19,17 @@ class Whalebrew < Formula
   depends_on "go" => :build
   depends_on "docker" => :test
 
-  # Run "go mod tidy": https://github.com/whalebrew/whalebrew/pull/299
+  # Run "go mod tidy"
   patch do
-    url "https://github.com/whalebrew/whalebrew/commit/f64b9db9a5f1c91571a622a58eb93233f8c59642.patch?full_index=1"
-    sha256 "62d5cb208d60ed123a5be234a1c3d48aeead703a83eb262408a101aec66bd0d6"
+    url "https://github.com/whalebrew/whalebrew/commit/bfff941dadba679e3e8bb63afa1da3326b16e5ba.patch?full_index=1"
+    sha256 "10da25bcd3b52e79a47af741edbed7f2c315fd61b3783bbf3ad0051625e69a76"
+    type :backport
+    resolves "https://github.com/whalebrew/whalebrew/pull/299"
   end
 
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
-    ldflags = %W[
-      -s -w
-      -X github.com/whalebrew/whalebrew/version.Version=#{version}+homebrew
-    ]
+    ldflags = %W[-X github.com/whalebrew/whalebrew/version.Version=#{version}+homebrew]
     system "go", "build", *std_go_args(ldflags:)
     generate_completions_from_executable(bin/"whalebrew", shell_parameter_format: :cobra)
   end

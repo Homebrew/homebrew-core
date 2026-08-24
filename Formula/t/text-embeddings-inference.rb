@@ -19,10 +19,11 @@ class TextEmbeddingsInference < Formula
   depends_on "openssl@3"
 
   # Fix lifetime error for `metrics` package
-  # PR ref: https://github.com/huggingface/text-embeddings-inference/pull/850
   patch do
     url "https://github.com/huggingface/text-embeddings-inference/commit/574132b3ee9ebccb63e223a35ef50e42559f5666.patch?full_index=1"
     sha256 "10438e9f9428db4fc0be52dba7fabeff7a26fd906763b6a1d182e0cb710dec2c"
+    type :backport
+    resolves "https://github.com/huggingface/text-embeddings-inference/pull/850"
   end
 
   def install

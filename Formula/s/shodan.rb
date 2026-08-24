@@ -74,10 +74,11 @@ class Shodan < Formula
   end
 
   # Drop setuptools dep
-  # https://github.com/achillean/shodan-python/pull/209
   patch do
     url "https://github.com/achillean/shodan-python/commit/a99fbf53139bad62fe5ba8f41ac130d5212cbf71.patch?full_index=1"
     sha256 "3f674707548497ea79c760697e4cd44afe0e0df4433b3b49af8ea3637903acd7"
+    type :unofficial
+    resolves "https://github.com/achillean/shodan-python/pull/209"
   end
 
   def install

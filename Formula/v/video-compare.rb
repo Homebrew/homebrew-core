@@ -1,21 +1,22 @@
 class VideoCompare < Formula
   desc "Split screen video comparison tool using FFmpeg and SDL2"
   homepage "https://github.com/pixop/video-compare"
-  url "https://github.com/pixop/video-compare/archive/refs/tags/20260502.tar.gz"
-  sha256 "558e9a97e381929fa6c30ec46e5187cf4ceb3505dffe8c0da0a581a0d2b60202"
+  url "https://github.com/pixop/video-compare/archive/refs/tags/20260708.tar.gz"
+  sha256 "ddb012b4f47c7c373de9f9007e00200cf887c49057addd689cc4ebfddd7ae4ce"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fc3c0fec10001f65404f1cd67d8cd257348a6da497c398acf42a1a881d850c21"
-    sha256 cellar: :any,                 arm64_sequoia: "5726abc21eb979672204e19bd56f85aa10918f478d0996bb124b46c5fb74f4be"
-    sha256 cellar: :any,                 arm64_sonoma:  "d28bcb6138a920cd3317af53165b806958cc7c161b06b6b775eff032693ef9dc"
-    sha256 cellar: :any,                 sonoma:        "16b5ea0f93beb11832fa4a522a0aa517982aff6504234da333e07b1182225c4b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1aa08d155e466382fedf8f3d6db7c2889f9a67e7ed02f598657a4ea2ee131c99"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afa9e13bbdf8e06f26e96260aee90e343b2337b20fcbbaa0cf022a3c20175b1e"
+    sha256 cellar: :any, arm64_tahoe:   "0f8c266566b1603138bf2982a77cbc56909ba40b49f4b86edb660cb45f3691d7"
+    sha256 cellar: :any, arm64_sequoia: "ac3ae19f5adfc110a58a0484589de295e156a2581f7355411789f7754ee2fdb5"
+    sha256 cellar: :any, arm64_sonoma:  "d31b97afa9203bd5e81eb681235765f6dda6a9fee48d11e726b0c07b529f69dd"
+    sha256 cellar: :any, sonoma:        "67daccdca15d312f44a41fe17f1854968afc311d69a8eb6c6ef4f32c7b299356"
+    sha256 cellar: :any, arm64_linux:   "390975cdd2e9a62ad280bea2230cea9b0c1bfc8b99022bf85d55d0d16c6988e7"
+    sha256 cellar: :any, x86_64_linux:  "aa230f2ef34316172a760a4ee200b138358e26aaeae67fc1eee69114fbd5464d"
   end
 
   depends_on "ffmpeg"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_ttf"
 
   def install

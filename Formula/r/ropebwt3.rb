@@ -26,7 +26,7 @@ class Ropebwt3 < Formula
 
   def install
     args = []
-    args << "LIBS=-L#{Formula["libomp"].opt_lib} -lomp -lpthread -lz -lm" if OS.mac?
+    args << "LIBS=-L#{formula_opt_lib("libomp")} -lomp -lpthread -lz -lm" if OS.mac?
     system "make", *args
     bin.install "ropebwt3"
   end

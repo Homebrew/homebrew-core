@@ -6,11 +6,11 @@ class Compiledb < Formula
   url "https://files.pythonhosted.org/packages/0e/62/d0fc807871757841c32e6fbe433ebad422528a468336a0cf82fea226f41d/compiledb-0.10.7.tar.gz"
   sha256 "97752d8810b6977654a11a22cdc41bf6b71473bcdb5da312bc135f36d6af8271"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/nickdiego/compiledb.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "be28658b5cf0b082588b3ab1e46a5f76327e79efb90c417ded660671559de3ff"
+    sha256 cellar: :any_skip_relocation, all: "7f6e5ece68a904147b3799e19de9f2cc9fbb6a53240ac3292bb7c10d8bdc1158"
   end
 
   depends_on "python@3.14"
@@ -21,8 +21,8 @@ class Compiledb < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
-    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   def install

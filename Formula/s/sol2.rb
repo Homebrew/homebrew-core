@@ -14,17 +14,21 @@ class Sol2 < Formula
   depends_on "pkgconf" => :build
 
   # Add Lua 5.5 support
-  # https://github.com/ThePhD/sol2/pull/1723
   patch do
     url "https://github.com/ThePhD/sol2/commit/16a9fabb7ae525d644d3343f15b1de39c8865ecd.patch?full_index=1"
     sha256 "dee0b86ef931000e93f9214e72a8d4803dcf7ffd43365ce07d40184586d10cea"
+    type :unofficial
+    resolves "https://github.com/ThePhD/sol2/pull/1723"
+  end
+
+  patch do
+    url "https://github.com/ThePhD/sol2/commit/8f80cd79f60613b96c877cec2bba3efee2a78225.patch?full_index=1"
+    sha256 "1f6ca6d8ec416d9e78f48cb67616f4dc4c3af68cf0d266796f3e8e2abaf39bf0"
+    type :unofficial
+    resolves "https://github.com/ThePhD/sol2/pull/1676"
   end
 
   def install
-    # Fix `usertype_container` compilation for associative containers.
-    # https://github.com/ThePhD/sol2/pull/1676
-    inreplace "include/sol/usertype_container.hpp", "auto& end = i.end();", "auto& end = i.sen();"
-
     system "cmake", "-S", ".", "-B", "build", "-DSOL2_BUILD_LUA=OFF", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -45,7 +49,7 @@ class Sol2 < Formula
     CPP
 
     system ENV.cxx, "test.cpp", "-std=c++17", "-I#{include}",
-                    "-L#{Formula["lua"].opt_lib}", "-llua", "-o", "test"
+                    "-L#{formula_opt_lib("lua")}", "-llua", "-o", "test"
     system "./test"
   end
 end

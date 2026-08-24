@@ -27,7 +27,7 @@ class Zboy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2baaf6491fe70279c22f669b2a64bd5467506ea9be7aa86807a06519f0b9311"
   end
 
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   def install
     system "make", "-f", "Makefile.linux"

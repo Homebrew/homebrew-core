@@ -1,37 +1,60 @@
 class Iowow < Formula
   desc "C utility library and persistent key/value storage engine"
   homepage "https://github.com/Softmotions/iowow"
-  url "https://github.com/Softmotions/iowow/archive/refs/tags/v1.4.18.tar.gz"
-  sha256 "ef4ee56dd77ce326fff25b6f41e7d78303322cca3f11cf5683ce9abfda34faf9"
+  url "https://github.com/Softmotions/iowow/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "6a5205f36f502e03528e545c98df4f6996276418670ed0ff175cd71566ffea88"
   license "MIT"
   head "https://github.com/Softmotions/iowow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "b21a214c32770aca0640784c45fdf33489db118e3051c66d8bfa2c9958386a8e"
-    sha256 cellar: :any,                 arm64_sequoia:  "037aeefb4df2c9cc2c239192b51713f918271e48455c48bdebbcf2d688bb212f"
-    sha256 cellar: :any,                 arm64_sonoma:   "2fba078871f285e4275e5335150ef00f6615d5739d7a9280919edf787f9a0b5f"
-    sha256 cellar: :any,                 arm64_ventura:  "653db3534479fa6987b0276850e13ae821507a3eb40131f9170e4ce1158bf56e"
-    sha256 cellar: :any,                 arm64_monterey: "02ac4f8dc19959efbfd5bbac2685c2532e9de9488f3f51a218e15b2767727559"
-    sha256 cellar: :any,                 sonoma:         "bfdd0df35ade257dfc24898f77d0134176f5d3c13a12338c4d0e705451bb269d"
-    sha256 cellar: :any,                 ventura:        "e222abf0c1723ef6439607386f136582ef7384aa2c5df9e989386f3be4c5e5c1"
-    sha256 cellar: :any,                 monterey:       "791aad132a5be42cbde1b97c8f38dc6c63f84f382aa94980b9fc5371778deb20"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "4b3ddbc7bd008a380416bef79e794b4ab3e1085309c6b5f22b2fed244dceca09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c50abbc4cf8ac933da6dc4be5dab2ca27db4e653fa7eb7189f00378561c3d7e"
+    sha256 cellar: :any, arm64_tahoe:   "64c7b7229c2eac8a23114ec5870756f06b3f46067bb8e1ca45c4c4eb44008b5e"
+    sha256 cellar: :any, arm64_sequoia: "ed1890a1691b99cdd2b3ef3fe267d6755d1a5131628ab73bc275794412bcfb86"
+    sha256 cellar: :any, arm64_sonoma:  "baf38d7a4da7b14d04aa82fee364e08d9b5247dadbf038dc51532fc0e1f7baad"
+    sha256 cellar: :any, sonoma:        "4d9f2a9787929dffef6b73cf919ebfc956581dffc80e0f4800b0ef2202d10b33"
+    sha256 cellar: :any, arm64_linux:   "89ecec5de8fcaf41c6827b3466193e65d3c404a1c9f35b8bd9441e6deeea3967"
+    sha256 cellar: :any, x86_64_linux:  "63ef94d475a593f2ea26fa2ff35fd831c3e27a7321f28e96d008a307160cfc9b"
   end
 
-  depends_on "cmake" => :build
+  depends_on "pkgconf" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
+    ENV["BUILD_TYPE"] = "Release"
+    system "./build.sh", "--prefix=#{prefix}", "--libdir=lib", "--includedir=include",
+                         "--pkgconfdir=lib/pkgconfig", "--jobs=#{ENV.make_jobs}",
+                         "-DIOWOW_BUILD_SHARED_LIBS=1", "--install"
 
-    inreplace "src/kv/examples/example1.c", "#include \"iwkv.h\"", "#include <iowow/iwkv.h>"
-    (pkgshare/"examples").install "src/kv/examples/example1.c"
+    # Upstream also installs a copy of the source tree.
+    rm_r pkgshare
   end
 
   test do
-    system ENV.cc, pkgshare/"examples/example1.c", "-I#{include}", "-L#{lib}", "-liowow", "-o", "example1"
-    assert_match "put: foo => bar\nget: foo => bar\n", shell_output("./example1")
+    (testpath/"test.c").write <<~'EOS'
+      #include <iowow/iwkv.h>
+      #include <stdio.h>
+
+      int main(void) {
+        IWKV_OPTS opts = { .path = "test.db", .oflags = IWKV_TRUNC };
+        IWKV iwkv;
+        IWDB db;
+        if (iwkv_open(&opts, &iwkv) || iwkv_db(iwkv, 1, 0, &db)) return 1;
+
+        IWKV_val key = { .data = "foo", .size = 3 };
+        IWKV_val val = { .data = "bar", .size = 3 };
+        if (iwkv_put(db, &key, &val, 0)) return 1;
+
+        val.data = 0;
+        val.size = 0;
+        if (iwkv_get(db, &key, &val)) return 1;
+        printf("%.*s => %.*s\n", (int) key.size, (char *) key.data,
+               (int) val.size, (char *) val.data);
+
+        iwkv_val_dispose(&val);
+        iwkv_close(&iwkv);
+        return 0;
+      }
+    EOS
+
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-liowow", "-o", "test"
+    assert_equal "foo => bar\n", shell_output("./test")
   end
 end

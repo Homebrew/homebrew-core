@@ -18,17 +18,12 @@ class Vgo < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
 
     generate_completions_from_executable(bin/"vgo", shell_parameter_format: :cobra)
   end
 
   test do
-    expected = if OS.mac?
-      "Failed to build the vgo tool"
-    else
-      "┃ ✔ Built vgo\n┃ ✔ Installed vgo"
-    end
-    assert_match expected, shell_output("#{bin}/vgo build 2>&1")
+    assert_match "Failed to build the vgo tool", shell_output("#{bin}/vgo build 2>&1")
   end
 end

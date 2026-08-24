@@ -31,7 +31,7 @@ class Pixz < Formula
   uses_from_macos "libxslt"
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("libarchive")/"pkgconfig"
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"

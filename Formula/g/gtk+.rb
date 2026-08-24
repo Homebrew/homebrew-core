@@ -58,8 +58,7 @@ class Gtkx < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    file "Patches/libtool/configure-big_sur.diff"
   end
 
   # Patch to allow Eiffel Studio to run in Cocoa / non-X11 mode, as well as Freeciv's freeciv-gtk2 client
@@ -73,6 +72,8 @@ class Gtkx < Formula
   patch do
     url "https://gitlab.gnome.org/GNOME/gtk/uploads/2a194d81de8e8346a81816870264b3bf/gdkimage.patch"
     sha256 "ce5adf1a019ac7ed2a999efb65cfadeae50f5de8663638c7f765f8764aa7d931"
+    type :unofficial
+    resolves "https://gitlab.gnome.org/GNOME/gtk/-/issues/580"
   end
 
   def backend

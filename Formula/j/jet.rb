@@ -18,7 +18,7 @@ class Jet < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/jet"
+    system "go", "build", *std_go_args, "./cmd/jet"
   end
 
   test do

@@ -12,6 +12,7 @@ class Zzz < Formula
     patch do
       url "https://github.com/Orc/Zzz/commit/2bf4284ecdbdfd0d629ed00752bcda5d0d0f63f6.patch?full_index=1"
       sha256 "b861283f25c6c6f160929c630203861dc9bbaf501d89cb6e6d7a3b383c53bf20"
+      type :backport
     end
   end
 

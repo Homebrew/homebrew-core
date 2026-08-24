@@ -172,7 +172,7 @@ class Pwntools < Formula
   end
 
   def install
-    ENV["LIBUNICORN_PATH"] = Formula["unicorn"].opt_lib
+    ENV["LIBUNICORN_PATH"] = formula_opt_lib("unicorn")
     ENV["SODIUM_INSTALL"] = "system"
     venv = virtualenv_install_with_resources
 
@@ -180,7 +180,7 @@ class Pwntools < Formula
     # `unicorn` is unlinked as fallback load can find lib from linked path
     pyunicorn_lib = venv.site_packages/"unicorn/lib"
     pyunicorn_lib.mkpath
-    Formula["unicorn"].opt_lib.glob(shared_library("libunicorn", "*")).each do |libunicorn|
+    formula_opt_lib("unicorn").glob(shared_library("libunicorn", "*")).each do |libunicorn|
       ln_s libunicorn.relative_path_from(pyunicorn_lib), pyunicorn_lib
     end
 

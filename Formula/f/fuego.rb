@@ -4,7 +4,7 @@ class Fuego < Formula
   url "https://svn.code.sf.net/p/fuego/code/trunk", revision: "1981"
   version "1.1"
   license any_of: ["GPL-3.0-only", "LGPL-3.0-only"]
-  revision 16
+  revision 17
   version_scheme 1
   head "https://svn.code.sf.net/p/fuego/code/trunk"
 
@@ -16,12 +16,12 @@ class Fuego < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256                               arm64_tahoe:   "3985560eb7b1c53182f39df987972bbcd06bd8bcd6c16eb609623a43eb19de2f"
-    sha256                               arm64_sequoia: "357f8554c146ab3791a6103ba4d9729cb50828db85da47572d5522c7e954521f"
-    sha256                               arm64_sonoma:  "1d1dc9eb0d6f42dc020b1832149f266405638e0ca59d3cadf53f709026e26c23"
-    sha256                               sonoma:        "edb923e3b530b4a3c54c92ef05cc4166747173fdf04495e7d1ee6583e09dbf0e"
-    sha256                               arm64_linux:   "7608d687864d3edb733ad68725d273f05da35477398bbcd4ada9d468e669be0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af8c62d00784576b78a9dd73f796cde7bfc29ffde66cd17c437eb3759630d013"
+    sha256               arm64_tahoe:   "b4f73b3cf1d971fb3d7d59dc767e93f0edd04f849e9587f79eb67d7c2332e6d7"
+    sha256               arm64_sequoia: "db06e5eee19bf7459b5573c9739c64b45bb6232efb8367ab140ce1afce29ac78"
+    sha256               arm64_sonoma:  "210784b0b6b3333aaff2b05aa3f8fdacd2882034970f6ef18ae4327b774ff944"
+    sha256               sonoma:        "ce658e6cba50c132720e14dad2e6622449ab7368d3ad7aef85ced966362a9e68"
+    sha256               arm64_linux:   "ce2c4cc6da7ea605087ebd5ad79260ea76cd9f5ca57f3e6af7eac8458f3276fe"
+    sha256 cellar: :any, x86_64_linux:  "80308e9cf1b751c2a0956b81070ceb7f412456481c2404b5bf572887d9195b7f"
   end
 
   depends_on "autoconf" => :build
@@ -36,10 +36,11 @@ class Fuego < Formula
     inreplace "fuegomain/FuegoMain.cpp", ".branch_path()", ".parent_path()"
     inreplace "smartgame/SgStringUtil.cpp", /^(\s*)(normalizedFile)\.normalize\(\);$/,
                                             "\\1\\2 = \\2.lexically_normal();"
+    ENV.cxx11 # for Boost 1.92.0+
 
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules",
-                          "--with-boost=#{Formula["boost"].opt_prefix}",
+                          "--with-boost=#{formula_opt_prefix("boost")}",
                           *std_configure_args
     system "make", "install", "LIBS=-lpthread"
   end

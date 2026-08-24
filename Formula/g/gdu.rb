@@ -1,18 +1,18 @@
 class Gdu < Formula
   desc "Disk usage analyzer with console interface written in Go"
   homepage "https://github.com/dundee/gdu"
-  url "https://github.com/dundee/gdu/archive/refs/tags/v5.36.1.tar.gz"
-  sha256 "dd31ea9afd848edf734143aabd5fdf66236ce2c866dc09f9dededb61d39fe63c"
+  url "https://github.com/dundee/gdu/archive/refs/tags/v5.37.0.tar.gz"
+  sha256 "48e20d39a1bf706b3e11bbfeae550a0890610d3e6030a73952903f5fcf062347"
   license "MIT"
   head "https://github.com/dundee/gdu.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "423c661dc89fa77e52901d6684f851ae0935f3a6d98805e52eba47608f758775"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "423c661dc89fa77e52901d6684f851ae0935f3a6d98805e52eba47608f758775"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "423c661dc89fa77e52901d6684f851ae0935f3a6d98805e52eba47608f758775"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b64522ba91afde648b7480c06ab1cb2b21567d71caef8c0dd77a53ca9454aa20"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "35c4528f10ec56d64c6213d9870ad3b786961ef57ff4b87c81b6207b8e134042"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a89b5a53737c2b86fcdda423d4469b73b02f4a034b90bb3661db5dfe49654fbc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5c4b4a14ba21ed7b64e559fcded8270b5601f0e08bc8ca354b4581002c652477"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5af0d6ab4cd0fa08fcff0c6af24847e12647061577fa2eea215bdaaca146057f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3889a28bae2f083b01b6cdf59cbf4b2fd47c4e01808f3c5e15f93938161f183f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "97bf3e1a963714c7dcac61eff9347d2a8c48ad9059e58acf46712cd4fd593802"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e492034ec1cb80396d7c150d9dd0c44361afa0648ce3b71d5020a4dfb54ae8ef"
+    sha256 cellar: :any,                 x86_64_linux:  "a3a2b7c01e473a0962095e8f824faad4a56a4bb7d1e4ea3ecdb144399fd95598"
   end
 
   depends_on "go" => :build
@@ -22,7 +22,6 @@ class Gdu < Formula
     major = version.major
 
     ldflags = %W[
-      -s -w
       -X "github.com/dundee/gdu/v#{major}/build.Version=v#{version}"
       -X "github.com/dundee/gdu/v#{major}/build.Time=#{time}"
       -X "github.com/dundee/gdu/v#{major}/build.User=#{user}"

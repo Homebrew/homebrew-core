@@ -18,8 +18,7 @@ class MultiGitter < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user} -X main.date=#{time.iso8601}"
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags: :goreleaser)
 
     generate_completions_from_executable(bin/"multi-gitter", shell_parameter_format: :cobra)
   end

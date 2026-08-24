@@ -29,6 +29,9 @@ class Morse < Formula
   patch do
     url "https://salsa.debian.org/debian-hamradio-team/morse/-/raw/7acc68ab78dc8b634c0c81dc56fee0634fc9fc3b/debian/patches/04fix-pa_simple_write-with-mono-output.patch"
     sha256 "ae37ff290eba510fd52fe8babbe86c3ab56755b3ad5a9b7f9949b6a899b06288"
+    type :unofficial
+    resolves "https://bugs.debian.org/784285",
+             "https://launchpad.net/bugs/1461755"
   end
 
   def install

@@ -1,8 +1,8 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://virustotal.github.io/yara/"
-  url "https://github.com/VirusTotal/yara/archive/refs/tags/v4.5.5.tar.gz"
-  sha256 "d38e30fd9c1e1c7921d1c4568262d94f5c2d6b5da139fe49572a43ffbc5c53f6"
+  url "https://github.com/VirusTotal/yara/archive/refs/tags/v4.5.8.tar.gz"
+  sha256 "c322414975ff6f701149856613afdcd92a7e6939c284c798ae3c85618197efaa"
   license "BSD-3-Clause"
   head "https://github.com/VirusTotal/yara.git", branch: "master"
 
@@ -15,12 +15,12 @@ class Yara < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f50c08d6d468502fb468d9401c8087a31ed6e2193b518d9f2497e5306dac3df5"
-    sha256 cellar: :any,                 arm64_sequoia: "bed2c8becb6623fc30f867d7399b9b1c8847a0ec40c740cf041ed99adc249aa0"
-    sha256 cellar: :any,                 arm64_sonoma:  "320fd862a8a32c5ad2ed2b58c6db1dba4ff1869cab0b9f5b0998a1d8b255c4e7"
-    sha256 cellar: :any,                 sonoma:        "df647efb738f895f459dce114d2f5cd2add6b0013ef1b754256fcd695064ed1d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dd2508d80b2e65d4e31548677fc7376e225498b09928b1ef3938bc08fc39f801"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b76a81e19bf1ca4a3f073e9c1811107b61b341e4d3bbd7ed2002cbb9c106c13c"
+    sha256 cellar: :any, arm64_tahoe:   "80ded2d2c86e1965afd2c4eba62f9b523bb1c43c52c0b457f32caf8aa3b2e219"
+    sha256 cellar: :any, arm64_sequoia: "927bd2eb002d26487d2b0dbd9b8aeff3e70e6ba1c7f538d645f38b729b0f48d4"
+    sha256 cellar: :any, arm64_sonoma:  "3354f8c1e306db901a5221bfadd8f7866d08902d6ed3f29839d074f575276629"
+    sha256 cellar: :any, sonoma:        "c5ab41d7df224f7d8431826a1cac0a67885b9f7b0bae46e1923ac12591d98dd2"
+    sha256 cellar: :any, arm64_linux:   "6d3e0841ae01c788fd8e58226aa10aab09bcaaaec5a993600e2070c334644406"
+    sha256 cellar: :any, x86_64_linux:  "841e62a7d14767c5228c82a65c8873e5be5668b9525579c35571d16fe2214a3d"
   end
 
   depends_on "autoconf" => :build

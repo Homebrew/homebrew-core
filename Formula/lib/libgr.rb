@@ -4,14 +4,15 @@ class Libgr < Formula
   url "https://github.com/sciapp/gr/archive/refs/tags/v0.73.26.tar.gz"
   sha256 "6dfe5bbd0c321d0714f391ad2e65b983fc0c34f518df773f7c7fa18545fd0fb5"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 arm64_tahoe:   "07b476006d6586ec2ed7894d8164a51c5e825bd637437cf9bf47ee38a727e445"
-    sha256 arm64_sequoia: "f61b6cfb59fa3b3a8b6d4d867eaf4a097264276434412d1ced44b17330f97f1b"
-    sha256 arm64_sonoma:  "30425591dc9e79ad6b2c392e72aed74940f7f6f9de99fea86654e75a67f7d860"
-    sha256 sonoma:        "6931ebb56ae025f69a26769b2c97396e8f4d655bd3cf15c240f0f652cb117a71"
-    sha256 arm64_linux:   "d2a0cec1fb6405ebafd88d26cf93b63dc855a33e1c6500d97d9e1f3dcd511bbe"
-    sha256 x86_64_linux:  "afd5fc8b8e06a4407cf167ae23ac5901d899aa132ddf55bc3029ea15cd3861ec"
+    sha256 arm64_tahoe:   "df84bca8c6672788b45ac0fd47d526325642e507481bf572732aefc8d8dc2e9d"
+    sha256 arm64_sequoia: "7c99767fd4717119bc3e1ec42ced9d45746c335e05a2e5b7e5562979d0ec91a6"
+    sha256 arm64_sonoma:  "54c1bd6545bb169622b4019fdc9f2fa1063018430728a4bab65d1dc9f34a8ecb"
+    sha256 sonoma:        "8b2f783b9c422a569bdbb309eafee70565fb16647238bf49a6a4a2b3fcd0ee17"
+    sha256 arm64_linux:   "ae7f272f71041b2752b8d36cade1bdaf7890a7b046ae7925f5d4b30f7fa66ef9"
+    sha256 x86_64_linux:  "9d10dcbe39053245393e5b5defa607c93d15e373a1333d3a5af38f6fb1ccba87"
   end
 
   depends_on "cmake" => :build
@@ -35,7 +36,9 @@ class Libgr < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DGR_PREFER_XCODEBUILD=OFF", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DGR_PREFER_XCODEBUILD=OFF",
+                                              "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                                              *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

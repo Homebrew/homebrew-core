@@ -1,8 +1,8 @@
 class SpirvTools < Formula
   desc "API and commands for processing SPIR-V modules"
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
-  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/vulkan-sdk-1.4.350.0.tar.gz"
-  sha256 "446b288fe76d3f31bbf9a405d62b97020ac0f135edb0ed5dbdf1136c488138f5"
+  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/vulkan-sdk-1.4.357.0.tar.gz"
+  sha256 "d31e7109b6ef3559067e53e520870eafed7c9534d00db9728814b6df03fa4a5e"
   license "Apache-2.0"
   version_scheme 1
   compatibility_version 1
@@ -14,14 +14,14 @@ class SpirvTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "222c0a9b473dc3dd13e5af62507989e06b9be055a9054a9aba9a871f81422a76"
-    sha256 cellar: :any,                 arm64_sequoia: "e082532c8ab7713b492639a5492a53d53cb031cc9df9759a886df34ddc9b959a"
-    sha256 cellar: :any,                 arm64_sonoma:  "af7d9efce6e0201bb85d45ea09daced89e545658fa07bfbb7544bbe3703baf8e"
-    sha256 cellar: :any,                 tahoe:         "347c9d17ee92b5876118f63d14964b9b183a063fb5effde0d0a8b4cc42983f15"
-    sha256 cellar: :any,                 sequoia:       "015b80024dec204617b38ea6d3efb918f5a939afc79c7306ed521995ee7535e4"
-    sha256 cellar: :any,                 sonoma:        "9453a45a63ed4af048da2b02f912c50ca93ea7b67877a155958f11dbaeb5709b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a61e701db32778377214820b77675df215fa7702c9b8f8ca25db183b87a8b349"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1daf579c6fcf86454a23ae9478ffc61d7982cb591f94834aaf52719fa3101679"
+    sha256 cellar: :any, arm64_tahoe:   "a00b484190a546a8b5284da248deebb92ab6fac0688f3f3ba1b334fe8f127f74"
+    sha256 cellar: :any, arm64_sequoia: "b7b146efc7de27c2f4bae1abe2c8f010502345f7012d2850f1259a71a380789c"
+    sha256 cellar: :any, arm64_sonoma:  "a9f495c0fe5ada11a30bf0dd5b25445d4311761296175668e8cd120d4397dbd1"
+    sha256 cellar: :any, tahoe:         "32bf9b87fb105c18498e0884e72a93b61a77a64fb4fc6e74d2ce7189221576e3"
+    sha256 cellar: :any, sequoia:       "1b24b6eb9d0a13ffe266f4e690b33abee1d83eb649636b7ed180fba023d3af8f"
+    sha256 cellar: :any, sonoma:        "6aaa2f3af843c0cc540ec797ea023da04105278f680bbec07ed0597b980a54e8"
+    sha256 cellar: :any, arm64_linux:   "82567fecec69427f8955336904bc0b68b1811fd418ba8c276c004bd6ca8cebc7"
+    sha256 cellar: :any, x86_64_linux:  "97e24d85956d591dfbf4cc9a6c8de703593dfff3bbb220359a5090c23ec0bef0"
   end
 
   depends_on "cmake" => :build
@@ -34,7 +34,7 @@ class SpirvTools < Formula
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DPython3_EXECUTABLE=#{which("python3")}",
-                    "-DSPIRV-Headers_SOURCE_DIR=#{Formula["spirv-headers"].opt_prefix}",
+                    "-DSPIRV-Headers_SOURCE_DIR=#{formula_opt_prefix("spirv-headers")}",
                     "-DSPIRV_SKIP_TESTS=ON",
                     "-DSPIRV_TOOLS_BUILD_STATIC=OFF",
                     *std_cmake_args

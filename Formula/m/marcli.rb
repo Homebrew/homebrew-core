@@ -20,7 +20,7 @@ class Marcli < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/marcli"
+    system "go", "build", *std_go_args, "./cmd/marcli"
   end
 
   test do

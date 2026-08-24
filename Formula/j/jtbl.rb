@@ -6,6 +6,7 @@ class Jtbl < Formula
   url "https://files.pythonhosted.org/packages/9e/7c/b21f3383ca611b56dbc281081cca73a24274c3f39654e7fe196d73a67af6/jtbl-1.6.0.tar.gz"
   sha256 "7de0cb08ebb2b3a0658229a8edd4204c6944cbd9e3e04724a9ea235a61c115a5"
   license "MIT"
+  head "https://github.com/kellyjonbrazil/jtbl.git", branch: "master"
 
   bottle do
     rebuild 3
@@ -20,12 +21,11 @@ class Jtbl < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_install_with_resources
     man1.install "man/jtbl.1"
 
     # Build an `:all` bottle
-    packages = libexec/Language::Python.site_packages("python3")
-    inreplace packages/"jtbl-#{version}.dist-info/METADATA", "/usr/local/Cellar", "#{HOMEBREW_PREFIX}/Cellar"
+    inreplace venv.site_packages/"jtbl-#{version}.dist-info/METADATA", "/usr/local/Cellar", "#{HOMEBREW_PREFIX}/Cellar"
   end
 
   test do

@@ -1,18 +1,19 @@
 class NextpnrIce40 < Formula
   desc "Portable FPGA place and route tool for Lattice iCE40"
   homepage "https://github.com/YosysHQ/nextpnr"
-  url "https://github.com/YosysHQ/nextpnr/archive/refs/tags/nextpnr-0.10.tar.gz"
-  sha256 "374393094cdf7b2aae415cebf0994840b4a355bb95e89c683ef19f95f0b14dc2"
+  url "https://github.com/YosysHQ/nextpnr/archive/refs/tags/nextpnr-0.11.1.tar.gz"
+  sha256 "2af682d94abf3f3e116f2fad36dc7db314fa93bfbb185e63619f2ec4f5fe40dc"
   license "ISC"
+  revision 1
   head "https://github.com/YosysHQ/nextpnr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f8d35ebf37436515566c1d2dd1bb0a87e9fb11815d1729ed3d0b7a7fb46d56d8"
-    sha256 cellar: :any,                 arm64_sequoia: "7d29a823778a62e5316b2a60301e256f9c351ba19c3f2e52b0b3b8932c37ded3"
-    sha256 cellar: :any,                 arm64_sonoma:  "db90d1891b3bb2a427704793460190973b4a4f9ee9a93f0c5c702ec1026e2e96"
-    sha256 cellar: :any,                 sonoma:        "4842370686c14ab5cfd921120c8f1bd8f9773103420d58acc65afce1c89785a5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e274bb3f988d996725a644c6461e3a6d0d4e90328cdafdda635141e0774f542f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2cefe1fa9d3b1b178e88c74eb073512487d5f0874c72c13b7ea0452dce528dd7"
+    sha256 cellar: :any, arm64_tahoe:   "06da19337d5526520681227e15b7a67a60add9a4deef6c96b7a12e8248fdff4b"
+    sha256 cellar: :any, arm64_sequoia: "21172ef4af4a7b965b33a811b7399d0ece75a9a6bd5cbbdc731e35e7e17f9fde"
+    sha256 cellar: :any, arm64_sonoma:  "6a3bf25630d719bcbe77000d92ea2ce177c091739af3e1ab46620480d82b8d45"
+    sha256 cellar: :any, sonoma:        "5475075b5e67b7edce0671caec59b011787a7c2003cfb4f77b5687e71835e887"
+    sha256 cellar: :any, arm64_linux:   "af1abce4aa122decb55f37a2835a1c9bb1aa2596b482e42ee05646ce499c2eeb"
+    sha256 cellar: :any, x86_64_linux:  "44d5867bdfd66a47ecc5afa81343a1daf0394b88f1367e53d2d05711589885c4"
   end
 
   depends_on "cmake" => :build
@@ -36,8 +37,8 @@ class NextpnrIce40 < Formula
   end
 
   test do
-    yosys = Formula["yosys"].opt_bin/"yosys"
-    icepack = Formula["icestorm"].opt_bin/"icepack"
+    yosys = formula_opt_bin("yosys")/"yosys"
+    icepack = formula_opt_bin("icestorm")/"icepack"
     cp_r (pkgshare/"examples/blinky").children, testpath
     system yosys, "blinky.ys"
     system bin/"nextpnr-ice40", "--hx1k", "--package", "tq144", "--json", "blinky.json",

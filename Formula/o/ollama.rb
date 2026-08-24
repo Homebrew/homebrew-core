@@ -2,8 +2,8 @@ class Ollama < Formula
   desc "Create, run, and share large language models (LLMs)"
   homepage "https://ollama.com/"
   url "https://github.com/ollama/ollama.git",
-      tag:      "v0.30.10",
-      revision: "e1f7f9cbdbdad30b9811d5b673cf3d3f9c624dc2"
+      tag:      "v0.32.15",
+      revision: "b7871fc0d1d82fe109536efa3e0e8e411c766c75"
   license "MIT"
   head "https://github.com/ollama/ollama.git", branch: "main"
 
@@ -16,14 +16,15 @@ class Ollama < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8be18b8df1f51d2542310b278a96eb3bfc7cefa3aca7542b5b20e3021d3dcc22"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b0fcfccb15df909c5edf35d71f8cd802dbdc989abf493b30d3ebeae6a151f58c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ac6c83ba6cc0482b24ac3fc5f537473f2e44e7f4b248bec9aa30a86345bc1416"
-    sha256 cellar: :any,                 sonoma:        "cbd3c9032ac4c50c2147c6c666397af20cfbec63be32e9e9cdd896cb5650a34e"
-    sha256 cellar: :any,                 arm64_linux:   "b1ff94936ea4a6e61cf6858e78cbb5e0cd60640b349e4f183bc79e7263a4b75c"
-    sha256 cellar: :any,                 x86_64_linux:  "e4e4160f609e5500128de992aaaec3014b47da1a122424c1f21ecd2fadb8495e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2bc9bd9efad19830386fdbae22dc55d488bdb7d5d2d1b627987fd84376cce92f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8c50ade984dff2df2be40cf25c3ab731964c1016bbcc308efe874953221b104e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "584febeaa14ce3e2bfce934195dd2b06145ad2f992225d817f7468c3d76439b9"
+    sha256 cellar: :any,                 sonoma:        "56ef64a61d95c82538bbb99455edb23b8029ad63cd8739cdd8716168b434046f"
+    sha256 cellar: :any,                 arm64_linux:   "4999786a4444aed7d99767bd36959615507080cea80f7df96313ec3c1906a335"
+    sha256 cellar: :any,                 x86_64_linux:  "d80922c4f01abef0c6cd3814b836e71917ccb142e4f6f4acdd1fc08384192a30"
   end
 
+  depends_on "ccache" => :build
   depends_on "cmake" => :build
   depends_on "go" => :build
 
@@ -31,14 +32,9 @@ class Ollama < Formula
     on_arm do
       depends_on "mlx-c" => :no_linkage
 
-      if build.stable?
-        # Fixes x/imagegen/mlx wrapper generation with system-installed mlx-c headers.
-        # upstream pr ref, https://github.com/ollama/ollama/pull/14201
-        patch do
-          url "https://github.com/ollama/ollama/commit/c051122297824c223454b82f4af3afe94379e6dd.patch?full_index=1"
-          sha256 "a22665cd1acec84f6bb53c84dd9a40f7001f2b1cbe2253aed3967b4401cde6a0"
-        end
-      end
+      # Build with the mlx-c bindings for tagged MLX 0.32.1. Upstream targets a later MLX commit:
+      # https://github.com/ollama/ollama/commit/0bb09259203ff8f6d361faae1d40c4f83d2a99f7
+      patch :DATA
     end
   end
 
@@ -47,8 +43,8 @@ class Ollama < Formula
   # Pinned dependency required by llama-server
   resource "llama.cpp" do
     url "https://github.com/ggml-org/llama.cpp.git",
-        tag:      "b9672",
-        revision: "74ade52741203e5c8f81eaf06a96cb1cfe15f2a3"
+        tag:      "b10488",
+        revision: "9d77fa17254e1dee4b9e92504c91611a60b1359f"
 
     livecheck do
       url "https://raw.githubusercontent.com/ollama/ollama/refs/tags/v#{LATEST_VERSION}/LLAMA_CPP_VERSION"
@@ -59,6 +55,7 @@ class Ollama < Formula
     patch do
       url "https://github.com/ggml-org/llama.cpp/commit/1f92170dc9d4620b5aadb9bacba502c726e5b587.patch?full_index=1"
       sha256 "1e51afe4b8cfed5653289270064370d926258b5bbd662a93eac240d7a37f2735"
+      type :unofficial
     end
   end
 
@@ -89,7 +86,6 @@ class Ollama < Formula
     ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
 
     ldflags = %W[
-      -s -w
       -X github.com/ollama/ollama/version.Version=#{version}
       -X github.com/ollama/ollama/server.mode=release
     ]
@@ -98,12 +94,17 @@ class Ollama < Formula
 
     # Flags for MLX (Apple silicon only)
     if OS.mac? && Hardware::CPU.arm?
-      mlx_rpath = rpath(target: Formula["mlx-c"].opt_lib)
+      mlx_rpath = rpath(target: formula_opt_lib("mlx-c"))
       ldflags << "-extldflags '-Wl,-rpath,#{mlx_rpath}'"
       mlx_args << "-tags=mlx"
+
+      # Generate wrappers from our mlx-c; the vendored headers are newer and declare symbols it lacks
+      mlx_headers = buildpath/"x/mlxrunner/mlx/include/mlx"
+      rm_r(mlx_headers/"c")
+      mlx_headers.install_symlink formula_opt_include("mlx-c")/"mlx/c"
+      system "go", "generate", *mlx_args, "./x/mlxrunner/mlx"
     end
 
-    system "go", "generate", *mlx_args, "./x/imagegen/mlx"
     # Build into libexec so the mlx runner's required `<exe_dir>/lib/ollama/`
     # sibling can be populated without tripping the non-executables-in-bin audit.
     system "go", "build", *mlx_args, *std_go_args(ldflags:, output: libexec/"ollama")
@@ -113,7 +114,7 @@ class Ollama < Formula
     # Using `opt` keeps the link stable across mlx-c version bumps.
     if OS.mac? && Hardware::CPU.arm?
       (libexec/"lib/ollama/mlx_metal_v3").mkpath
-      ln_sf Formula["mlx-c"].opt_lib/"libmlxc.dylib", libexec/"lib/ollama/mlx_metal_v3/libmlxc.dylib"
+      ln_sf formula_opt_lib("mlx-c")/"libmlxc.dylib", libexec/"lib/ollama/mlx_metal_v3/libmlxc.dylib"
     end
   end
 
@@ -147,14 +148,21 @@ class Ollama < Formula
       assert_match "libmlx.dylib", output
     end
 
-    # Check llama-server binary
+    # Check llama-server binary; it needs a model as upstream builds it without router mode support
+    resource "homebrew-test-model" do
+      url "https://huggingface.co/ggml-org/models/resolve/499bc8821c6b12b4e53c5bffcb21ec206f212d81/tinyllamas/stories260K.gguf"
+      sha256 "270cba1bd5109f42d03350f60406024560464db173c0e387d91f0426d3bd256d"
+    end
+    testpath.install resource("homebrew-test-model")
+
     require "pty"
 
+    llama_port = free_port
     output = +""
-    r, _w, pid = PTY.spawn(libexec/"lib/ollama/llama-server")
+    r, _w, pid = PTY.spawn(libexec/"lib/ollama/llama-server", "-m", "stories260K.gguf", "--port", llama_port.to_s)
     begin
       timeout = Time.now + 20
-      until output.include?("starting router server")
+      until output.include?("listening on")
         raise "timed out waiting for llama-server to start\n#{output}" if Time.now > timeout
 
         begin
@@ -166,10 +174,19 @@ class Ollama < Formula
         end
       end
 
-      assert_match "starting router server", output
+      assert_match "listening on http://127.0.0.1:#{llama_port}", output
     ensure
       Process.kill "TERM", pid
       Process.wait pid
     end
   end
 end
+
+__END__
+diff --git a/x/mlxrunner/mlx/fast.go b/x/mlxrunner/mlx/fast.go
+index 27d5724..f38a670 100644
+--- a/x/mlxrunner/mlx/fast.go
++++ b/x/mlxrunner/mlx/fast.go
+@@ -24 +24 @@ func FastScaledDotProductAttention(q, k, v *Array, scale float32, mode string, m
+-	C.mlx_fast_scaled_dot_product_attention(&out.ctx, q.ctx, k.ctx, v.ctx, C.float(scale), cMode, maskCtx, sinks.ctx, C.bool(false), DefaultStream().ctx)
++	C.mlx_fast_scaled_dot_product_attention(&out.ctx, q.ctx, k.ctx, v.ctx, C.float(scale), cMode, maskCtx, sinks.ctx, DefaultStream().ctx)

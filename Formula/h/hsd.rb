@@ -48,7 +48,7 @@ class Hsd < Formula
         await node.ensure();
       })();
     JS
-    system Formula["node"].opt_bin/"node", testpath/"script.js"
+    system formula_opt_bin("node")/"node", testpath/"script.js"
     assert_predicate testpath/".hsd", :directory?
   end
 end

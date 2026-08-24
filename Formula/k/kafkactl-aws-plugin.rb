@@ -20,9 +20,8 @@ class KafkactlAwsPlugin < Formula
   depends_on "kafkactl"
 
   def install
-    Dir.chdir("aws") do
+    cd "aws" do
       ldflags = %W[
-        -s -w
         -X main.Version=v#{version}
         -X main.GitCommit=#{tap.user}
         -X main.BuildTime=#{time.iso8601}

@@ -21,7 +21,7 @@ class Mdxmini < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "152c18564d3252af6530331c08788108b99fbac328066ace0c58f94428fe7b4e"
   end
 
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   resource "test_song" do
     url "https://ftp.modland.com/pub/modules/MDX/-%20unknown/Popful%20Mail/pop-00.mdx"
@@ -69,7 +69,8 @@ class Mdxmini < Formula
           printf("%s\\n", title);
       }
     C
-    system ENV.cc, "mdxtest.c", "-L#{lib}", "-L#{Formula["sdl2"].opt_lib}", "-lmdxmini", "-lSDL2", "-o", "mdxtest"
+    sdl2 = Formula["sdl2-compat"]
+    system ENV.cc, "mdxtest.c", "-L#{lib}", "-L#{sdl2.opt_lib}", "-lmdxmini", "-lSDL2", "-o", "mdxtest", "-lm"
 
     result = shell_output("#{testpath}/mdxtest #{testpath}/pop-00.mdx #{testpath}").chomp
     result.force_encoding("ascii-8bit") if result.respond_to? :force_encoding

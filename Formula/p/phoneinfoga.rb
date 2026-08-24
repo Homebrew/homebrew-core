@@ -25,10 +25,11 @@ class Phoneinfoga < Formula
   depends_on "node"
 
   # Bump `node-gyp` to v10+ to avoid requiring distutils
-  # https://github.com/sundowndev/phoneinfoga/pull/1512
   patch do
     url "https://github.com/sundowndev/phoneinfoga/commit/6a5b3cc849f989fe390170a127e22d990ba5c122.patch?full_index=1"
     sha256 "07ec8c3255c2183f6f42286ae498625cd51041c27a7c44130151a772d31bfcd6"
+    type :backport
+    resolves "https://github.com/sundowndev/phoneinfoga/pull/1512"
   end
 
   def install
@@ -39,7 +40,6 @@ class Phoneinfoga < Formula
     end
 
     ldflags = %W[
-      -s -w
       -X github.com/sundowndev/phoneinfoga/v2/build.Version=v#{version}
       -X github.com/sundowndev/phoneinfoga/v2/build.Commit=#{tap.user}
     ]

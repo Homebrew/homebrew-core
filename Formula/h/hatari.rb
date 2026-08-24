@@ -6,7 +6,7 @@ class Hatari < Formula
   stable do
     url "https://framagit.org/hatari/releases/-/raw/main/v2.6.1/hatari-2.6.1.tar.bz2"
     sha256 "b7dc09ebffc1b77da6837d37b116bc5a9b2fd46affff1021124101e3f6e76bc5"
-    depends_on "sdl2"
+    depends_on "sdl2-compat"
   end
 
   bottle do

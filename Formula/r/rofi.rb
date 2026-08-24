@@ -30,9 +30,7 @@ class Rofi < Formula
 
   depends_on "cairo"
   depends_on "gdk-pixbuf"
-  depends_on "gettext"
   depends_on "glib"
-  depends_on "harfbuzz"
   depends_on "libxcb"
   depends_on "libxkbcommon"
   depends_on "pango"

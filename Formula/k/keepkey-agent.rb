@@ -76,6 +76,8 @@ class KeepkeyAgent < Formula
     patch do
       url "https://github.com/romanz/trezor-agent/commit/68e39c14216f466c8710bf65ef133c744f8f92da.patch?full_index=1"
       sha256 "a2b2279ba0eaf7a11d2a2e1f79155829bc8939942848b01602062f6c269b68b0"
+      type :backport
+      resolves "https://github.com/romanz/trezor-agent/pull/480"
     end
   end
 

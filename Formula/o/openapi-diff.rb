@@ -13,7 +13,7 @@ class OpenapiDiff < Formula
   depends_on "openjdk"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk")
 
     system "mvn", "clean", "install", "-DskipTests"
     libexec.install "cli/target/openapi-diff-cli-#{version}-all.jar" => "openapi-diff-cli-all.jar"

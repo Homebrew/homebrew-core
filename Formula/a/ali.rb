@@ -20,8 +20,7 @@ class Ali < Formula
   conflicts_with "nmh", because: "both install `ali` binaries"
 
   def install
-    ldflags = "-s -w -X main.version=#{version} -X main.commit= -X main.date=#{time.iso8601}}"
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags: :goreleaser)
   end
 
   test do

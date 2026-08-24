@@ -3,18 +3,18 @@ class TranslateToolkit < Formula
 
   desc "Toolkit for localization engineers"
   homepage "https://toolkit.translatehouse.org/"
-  url "https://files.pythonhosted.org/packages/73/72/5a2de371d9d06817108957b5aa8f3405090c65502b876a9ed70dfe02e63b/translate_toolkit-3.19.11.tar.gz"
-  sha256 "e0b6139ce84053a820f3b78782dd889263da97be2715f101fad698b254b54be6"
-  license "GPL-2.0-or-later"
+  url "https://files.pythonhosted.org/packages/bc/1b/2824215bc282e52bd6ee4b699e931fa7d64ea30fd8831529fdd0920f5969/translate_toolkit-3.19.18.tar.gz"
+  sha256 "ef1496e9e0d6d5f9647cd7365f91be161c3197104704e81f3a0017ccc7f4f5b9"
+  license "GPL-3.0-or-later"
   head "https://github.com/translate/translate.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "011a15ce86def648137628378b2df6aa34c0d12b45e8eb44e7c433fc5fb61ae5"
-    sha256 cellar: :any, arm64_sequoia: "4c3eccc39054668c8061f57fe741f992636905127a8914b91d6b43c69a44532a"
-    sha256 cellar: :any, arm64_sonoma:  "7ee26c8630a4cd9a69e00aaddde2ef34e6aa3dc30d654a078138375273a37cb8"
-    sha256 cellar: :any, sonoma:        "2054760d73464e800d1e36ab51b6def1a27243b6eeaa6c3192a4d177fa837863"
-    sha256 cellar: :any, arm64_linux:   "779a29f0fda58128496bb05444c6a87f10aaa8c53f45c1e23501315b664bb298"
-    sha256 cellar: :any, x86_64_linux:  "82d5d5d29a8827419bc3473a54dad397018a310f1e251d9b8c40bd88cadf929e"
+    sha256 cellar: :any, arm64_tahoe:   "44ab7dbee6b16f4289aadc8e41b2e8d66aed0d65fe2dd3ea70ea7258651d68e1"
+    sha256 cellar: :any, arm64_sequoia: "cfc3568d9e7bf3283c2eee7c8f1046e720cbc196979595e15230f99580227e3d"
+    sha256 cellar: :any, arm64_sonoma:  "ff15ea09987393f16a57976f43e6b0412c6766705d73036a2904ff3ad5a596c1"
+    sha256 cellar: :any, sonoma:        "daf089fa3f040387b7ac1c7d9a737a3a8a41e162c23155d5ed9b04be333640ce"
+    sha256 cellar: :any, arm64_linux:   "03075cefffcb8f1cf6d54cbdeceaf1edc985e1bf584c96ac14e4824c7645221b"
+    sha256 cellar: :any, x86_64_linux:  "38f946ad4f28d17df05f4ca98a58a39f3dfc6e659b2fc9ac4131daa01d5d4a62"
   end
 
   depends_on "rust" => :build # for `unicode_segmentation_py`
@@ -24,13 +24,13 @@ class TranslateToolkit < Formula
   uses_from_macos "libxslt"
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/05/3b/aab6728cae887456f409b4d75e8a01856e4f04bd510de38052a47768b680/lxml-6.1.1.tar.gz"
-    sha256 "ba96ae44888e0185281e937633a743ea90d5a196c6000f82565ebb0580012d40"
+    url "https://files.pythonhosted.org/packages/ad/a9/970b8fa0ecc4fbf1dfaed0d89bbc1fc1421b25ec26a2038c91e872dc6c8e/lxml-6.1.2.tar.gz"
+    sha256 "1055241852f2b02068af4a625a5d32c087db193c12251928af2562ecd2239f18"
   end
 
   resource "unicode-segmentation-rs" do
-    url "https://files.pythonhosted.org/packages/15/cd/36adf321a9ba23906f44c1358164d6f69a149350c53802e366a270f7d82c/unicode_segmentation_rs-0.2.4.tar.gz"
-    sha256 "d22f419787e77baeac966076d1bf09272cc1087bddfec14f74ce994437d3779d"
+    url "https://files.pythonhosted.org/packages/0b/02/e5804acc54945ecf29a280f5f173db61c019166bfe3adeee386f4c135f17/unicode_segmentation_rs-0.3.3.tar.gz"
+    sha256 "d6625b2d3435ca814c9dd6590d39ae58ebeb8a4891eecb81446ad8b3e917f39b"
   end
 
   def install

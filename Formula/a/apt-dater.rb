@@ -36,6 +36,7 @@ class AptDater < Formula
   patch do
     url "https://github.com/DE-IBH/apt-dater/commit/70a6e4a007d2bbd891442794080ab4fe713a6f94.patch?full_index=1"
     sha256 "de100e8ddd576957e7e2ac6cb5ac43e55235c4031efd7ee6fd0e0e81b7b0b2f4"
+    type :backport
   end
 
   def install

@@ -36,7 +36,7 @@ class Otf2bdf < Formula
 
     # `otf2bdf.c` uses `#include <ft2build.h>`, not `<freetype2/ft2build.h>`,
     # so freetype2 must be put into the search path.
-    ENV.append "CFLAGS", "-I#{Formula["freetype"].opt_include}/freetype2"
+    ENV.append "CFLAGS", "-I#{formula_opt_include("freetype")}/freetype2"
 
     system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"

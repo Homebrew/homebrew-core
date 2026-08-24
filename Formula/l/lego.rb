@@ -1,8 +1,8 @@
 class Lego < Formula
   desc "Let's Encrypt client and ACME library"
   homepage "https://go-acme.github.io/lego/"
-  url "https://github.com/go-acme/lego/archive/refs/tags/v5.2.2.tar.gz"
-  sha256 "8d8d51415e39a4d5377b6a8448b915d820f67caa148aa828d0f682744f872cc6"
+  url "https://github.com/go-acme/lego/archive/refs/tags/v5.4.0.tar.gz"
+  sha256 "af297c5fffa4270b647405967500ba4c6531f611932e3a66e018e84ac2c33b40"
   license "MIT"
   head "https://github.com/go-acme/lego.git", branch: "main"
 
@@ -12,18 +12,18 @@ class Lego < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "44174c6a2b27d6447b6c3d72adacadb87120294d59424e6961e8e9bc8d8bbf0d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44174c6a2b27d6447b6c3d72adacadb87120294d59424e6961e8e9bc8d8bbf0d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44174c6a2b27d6447b6c3d72adacadb87120294d59424e6961e8e9bc8d8bbf0d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ae931eaea34d7a50af2b22bf5c5c9aab7aba4d2dbb27850d60322a607e49987a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "45e7f8628d8b8acc3c4aa0bdcc0179adf383ee555a03d0c465d36c9f252d7ff2"
-    sha256 cellar: :any,                 x86_64_linux:  "4b355896afebf3764cac701616375d41de3c38bc3a314197e3c113d42162e11d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "491bb4f9d4c1ba2da2a9b3eb6046bc1b7eb3562ebda5a3bab4be38465eb44ae7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "491bb4f9d4c1ba2da2a9b3eb6046bc1b7eb3562ebda5a3bab4be38465eb44ae7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "491bb4f9d4c1ba2da2a9b3eb6046bc1b7eb3562ebda5a3bab4be38465eb44ae7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7d6420279014bc5716d3800c29ad00cea1ff12df72dc6f59264e0d90e48bfecc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bd6f730beb9a4c4b76dd72ac8edc4ed2c948989ff7ee0f1359876efb89783b94"
+    sha256 cellar: :any,                 x86_64_linux:  "445cf192e322688b19e0031d3d42a2cdbcb3cc71f7f512deb7d3880d133c3e06"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
   end
 
   test do

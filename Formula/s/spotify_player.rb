@@ -1,18 +1,18 @@
 class SpotifyPlayer < Formula
   desc "Command driven spotify player"
   homepage "https://github.com/aome510/spotify-player"
-  url "https://github.com/aome510/spotify-player/archive/refs/tags/v0.23.0.tar.gz"
-  sha256 "19397e2bc685e18a702aab3796f35c69ab1dc6ea093a2623386749b0d1887be3"
+  url "https://github.com/aome510/spotify-player/archive/refs/tags/v0.24.1.tar.gz"
+  sha256 "211da7f76d412708315ccd36b77424bd53bc4ad19813ed69de44451779812f1f"
   license "MIT"
   head "https://github.com/aome510/spotify-player.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e68b97b935b10d158a034c302d8d39126c96aa681696d7e9056fe10fbb0af97c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "da7d5ecff4d8b798ebd910d4833a63de31830a02751cf7e2010db146a3a454cd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ed37254eefca0aff98b0004cfa6ea71a825036e5b225aaee2b08ea7da1c8d499"
-    sha256 cellar: :any_skip_relocation, sonoma:        "caba15b57d15c19477d63e1fa6d675639a39225619f47e96576439f4a0a8a13d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "da9eb275d75392705fbf1d48f026e167d2877319ca0211c5819f47943edee00c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e07623c21cb25f979c3d47f8c3f129a26defaaad97c949799ed2ceff984e0089"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "db22d6b4ba7fff47594a867c7ec81ab50489e16b45190a3209086c9b9fa365a5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5c9f3c68992746840ffdbca379fe4691c57fc43f425a42e8a976be333b4dba5a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ab0b47ed58794f384550de3381493950a7354cd8afc8f5821f1e9de8190ac8e5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d9482fce68c1132819b380aea1795cb2e70f31e9fe9982d1dc407c05f4360694"
+    sha256 cellar: :any,                 arm64_linux:   "cc2e4c5b8bcb035b3d210149592e8d44f1195e38326136250590f25d675105d2"
+    sha256 cellar: :any,                 x86_64_linux:  "ce23435b21baba082dbaa40ab180333bfc3510fb5079d225babc40bef9ce803c"
   end
 
   depends_on "pkgconf" => :build
@@ -26,7 +26,7 @@ class SpotifyPlayer < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
     features = ["image", "notify"]
     system "cargo", "install", *std_cargo_args(path: "spotify_player", features:)

@@ -1,17 +1,17 @@
 class Himalaya < Formula
   desc "CLI email client written in Rust"
   homepage "https://pimalaya.org"
-  url "https://github.com/pimalaya/himalaya/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "3d04afdf6f753219c2203feb8094a2ec82c77bab7f9acbe1811773e2a4562877"
+  url "https://github.com/pimalaya/himalaya/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "491c7e51aa58874e2b70b4a0377e1770a1d3522392b9a9b867f965ac9d75aaa5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e1375ecd904d222cde2932a96620b405074f6a478441e21709a81183b873499e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ccf165d1e218a8146995cbe7ccc33f39128b2cc9eeacd24f7b2d186df8303f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bb6882e8b3b147600931627d740784d9f45a194202d2c2ca89ded9fbf5edd5ec"
-    sha256 cellar: :any_skip_relocation, sonoma:        "54440c8555788e20be0b89d3e13d1dbc763a83ae86a103a8356f3106ff474ea6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3a098e3f2bc26c7c138b7f0d6f44696859d17fdad9fde7f405713c2cb76f8ce8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "584bd8c006a35b6ee48d9783da040152948df2e3d26132c329c75eef05c506ca"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf93247c63b1452a46d4dd5cef349a422116c41d7523b3715d7df715156c0b37"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a49034e4c13c93092c494ff52ed5469371a087e41c7c9e8aae5621b82085fbb1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d8bd69f718b12a0a0f23239cd4b858e8c4f3be8811f9b822ca8b7a9a4ba8fbc7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3f7b50b2533d2638842096a32c3c24360fed668fb43894e52a826304c9b5702d"
+    sha256 cellar: :any,                 arm64_linux:   "8638c2ba2f083f0b76448dfd647c55c2910529f652d40d4ad1f7694422f374b3"
+    sha256 cellar: :any,                 x86_64_linux:  "e7406de7206ff4bb320b73bc72b401b524b1a57af4143228b2262cbdf4cd0e19"
   end
 
   depends_on "pkgconf" => :build
@@ -56,6 +56,6 @@ class Himalaya < Formula
       message.send.backend.auth.cmd = "*****"
     TOML
 
-    assert_match "cannot authenticate to IMAP server", shell_output("#{bin}/himalaya 2>&1", 1)
+    assert_match "gmail", shell_output("#{bin}/himalaya account list")
   end
 end

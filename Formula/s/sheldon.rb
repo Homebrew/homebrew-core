@@ -32,7 +32,7 @@ class Sheldon < Formula
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
     # Ensure the correct `openssl` will be picked up.
-    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
     system "cargo", "install", "--no-default-features", *std_cargo_args
 
@@ -48,12 +48,12 @@ class Sheldon < Formula
     assert_path_exists testpath/"plugins.lock"
 
     libraries = [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
-      Formula["libssh2"].opt_lib/shared_library("libssh2"),
-      Formula["openssl@3"].opt_lib/shared_library("libssl"),
-      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
+      formula_opt_lib("libgit2")/shared_library("libgit2"),
+      formula_opt_lib("libssh2")/shared_library("libssh2"),
+      formula_opt_lib("openssl@3")/shared_library("libssl"),
+      formula_opt_lib("openssl@3")/shared_library("libcrypto"),
     ]
-    libraries << (Formula["curl"].opt_lib/shared_library("libcurl")) if OS.linux?
+    libraries << (formula_opt_lib("curl")/shared_library("libcurl")) if OS.linux?
 
     libraries.each do |library|
       assert Utils.binary_linked_to_library?(bin/"sheldon", library),

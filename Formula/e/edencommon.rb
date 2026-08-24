@@ -1,19 +1,20 @@
 class Edencommon < Formula
   desc "Shared library for Watchman and Eden projects"
   homepage "https://github.com/facebookexperimental/edencommon"
-  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2026.06.15.00.tar.gz"
-  sha256 "d3ea68ebd3ee8d921ab01d033e7182f842127084b450cf649b0a1e2fcfef5e57"
+  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2026.07.27.00.tar.gz"
+  sha256 "7be895a8d9a6eb88523488142503ce9b14d097b518967dd50b9c4cf7675c8080"
   license "MIT"
+  revision 1
   compatibility_version 1
   head "https://github.com/facebookexperimental/edencommon.git", branch: "main"
 
   bottle do
-    sha256               arm64_tahoe:   "7a39af88ed6b7eb075f27e87c0426155cc6ebff5e0fe105adfa8ea0ee8ce0851"
-    sha256               arm64_sequoia: "f916af69b73010c4bd3ae8e0541205679b60e7b0d801020d65a778fa59fc9bd7"
-    sha256               arm64_sonoma:  "c4cf223cfc28ea9200f8d9bacd9e8dcf4f87a966cabc55f04ef413404f8d8ca9"
-    sha256 cellar: :any, sonoma:        "9aabc7f71a6ef13d1d1a5c3e507685626715c7ba860823483e7f59a8fdcbbac8"
-    sha256 cellar: :any, arm64_linux:   "723f49f37594f5b065b3019e903a3ea723f955f9c254a61569a63ea4acdd4dcc"
-    sha256 cellar: :any, x86_64_linux:  "8bfc344e45d01ce8ef0d87421978b18662abed369b866b5b74078553bfb87b5e"
+    sha256               arm64_tahoe:   "a383d39e667eddaf4e0e99aec0ea721c259a85a024825a37051ff494f6d8b494"
+    sha256               arm64_sequoia: "4a467cb502c1c63b9ea93a41cfbb5023914d56b46b81fe794266045a7b4432c1"
+    sha256               arm64_sonoma:  "191759e6fcee746840053a1905bd5aa5c86d49fe01879b42806fd1c500a8c7a9"
+    sha256 cellar: :any, sonoma:        "f81229eb96a146cac1d15bc610b9e106d08d798e3d60fa6a936704e9f94e9cb7"
+    sha256 cellar: :any, arm64_linux:   "502b1f1a25c311f44ff1e1a20ab3baa9cdb9c550a9b85a6eb0be5523b7926e93"
+    sha256 cellar: :any, x86_64_linux:  "e5cabb86e645026ad23c8a0d83e9035aba08ca59494a81f1a3b0c0d187555147"
   end
 
   depends_on "cmake" => :build
@@ -27,6 +28,15 @@ class Edencommon < Formula
   depends_on "fb303"
   depends_on "fmt"
   depends_on "folly"
+
+  # GCC 13 libstdc++ no longer pulls in <string> via <string_view>.
+  # PR ref: https://github.com/facebookexperimental/edencommon/pull/32
+  patch do
+    url "https://github.com/facebookexperimental/edencommon/commit/7dc082da238446cde535b03370be0b709701b7ac.patch?full_index=1"
+    sha256 "1becb3b9bcba13f19cb697baa015bece72b0330e4beae6db5a459f4e6fbff5a5"
+    type :unofficial
+    resolves "https://github.com/facebookexperimental/edencommon/pull/32"
+  end
 
   def install
     # Fix "Process terminated due to timeout" by allowing a longer timeout.
@@ -69,8 +79,8 @@ class Edencommon < Formula
     CPP
 
     system ENV.cxx, "-std=c++20", "-I#{include}", "test.cc",
-                    "-L#{lib}", "-L#{Formula["folly"].opt_lib}",
-                    "-L#{Formula["boost"].opt_lib}", "-L#{Formula["glog"].opt_lib}", "-L#{Formula["fmt"].opt_lib}",
+                    "-L#{lib}", "-L#{formula_opt_lib("folly")}",
+                    "-L#{formula_opt_lib("boost")}", "-L#{formula_opt_lib("glog")}", "-L#{formula_opt_lib("fmt")}",
                     "-ledencommon_utils", "-lfolly", "-lfmt", "-lboost_context", "-lglog", "-o", "test"
     assert_match "ruby", shell_output("./test #{Process.pid}")
   end

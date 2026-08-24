@@ -2,18 +2,18 @@ class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://etcd.io"
   url "https://github.com/etcd-io/etcd.git",
-      tag:      "v3.6.12",
-      revision: "90b034a02766ab83e425f9b79262311f508dba4e"
+      tag:      "v3.7.1",
+      revision: "5e7fd0de9a57db03ecc11794dc40403a734c07bb"
   license "Apache-2.0"
   head "https://github.com/etcd-io/etcd.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e350b6c62a122012e7a11c1d772e69ecac520c0b9c708774502b5b11f988eef8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e350b6c62a122012e7a11c1d772e69ecac520c0b9c708774502b5b11f988eef8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e350b6c62a122012e7a11c1d772e69ecac520c0b9c708774502b5b11f988eef8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c7b8b73d5e6aa3b6a9a7c6b89ef00f52264eaa8a3407905fac714e1aac49e6af"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0c291308bddde79820ced3f7721e82eb2a93b45154b1ce128451d3d33fd52339"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "84772fe095eda68e860919019a4af4df7f85d3730ff5f06371695971adbd8896"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e77c3f1ce01a9acf550251a874879769d738fa893dce62ac3c9ffa84197dba4f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e77c3f1ce01a9acf550251a874879769d738fa893dce62ac3c9ffa84197dba4f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e77c3f1ce01a9acf550251a874879769d738fa893dce62ac3c9ffa84197dba4f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f8de28b8fc4b368984a14eafeefd824b8ab46a39aea039ce8d32dafae1938578"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "91f3b43636ec5cd82663db1a232217483158de6687561dcded40419d1595c6fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2536b0d8da2ccc0367830ea57888093e0eb01c9c91717048385e1bedbf5200e7"
   end
 
   depends_on "go" => :build
@@ -36,8 +36,8 @@ class Etcd < Formula
     etcd_pid = spawn bin/"etcd", "--force-new-cluster", "--logger=zap", "--data-dir=#{testpath}"
     sleep 10
 
-    key_base64 = Base64.strict_encode64("brew_test")
-    value_base64 = Base64.strict_encode64(test_string)
+    key_base64 = ["brew_test"].pack("m0")
+    value_base64 = [test_string].pack("m0")
 
     # PUT the key using the v3 API
     put_payload = { key: key_base64, value: value_base64 }.to_json
@@ -49,7 +49,7 @@ class Etcd < Formula
     response_hash = JSON.parse(curl_output)
 
     retrieved_value_base64 = response_hash.dig("kvs", 0, "value")
-    retrieved_value = Base64.decode64(retrieved_value_base64)
+    retrieved_value = retrieved_value_base64.unpack1("m")
 
     assert_equal test_string, retrieved_value
 

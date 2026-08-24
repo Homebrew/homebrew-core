@@ -40,7 +40,7 @@ class WpebackendFdo < Formula
         printf("%u.%u.%u", wpe_fdo_get_major_version(), wpe_fdo_get_minor_version(), wpe_fdo_get_micro_version());
       }
     C
-    ENV.append_to_cflags "-I#{include}/wpe-fdo-1.0 -I#{Formula["libwpe"].opt_include}/wpe-1.0"
+    ENV.append_to_cflags "-I#{include}/wpe-fdo-1.0 -I#{formula_opt_include("libwpe")}/wpe-1.0"
     ENV.append "LDFLAGS", "-L#{lib}"
     ENV.append "LDLIBS", "-lWPEBackend-fdo-1.0"
     system "make", "wpe-fdo-test"

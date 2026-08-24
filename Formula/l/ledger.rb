@@ -4,7 +4,7 @@ class Ledger < Formula
   url "https://github.com/ledger/ledger/archive/refs/tags/v3.4.1.tar.gz"
   sha256 "1cf012cdc8445cab0efc445064ef9b2d3f46ed0165dae803c40fe3d2b23fdaad"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/ledger/ledger.git", branch: "master"
 
   livecheck do
@@ -13,12 +13,12 @@ class Ledger < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "afa0ba3d1ce8b6b36853e2f440429535dbdb0ca7c8a87802ebb4b43238291dc7"
-    sha256 cellar: :any,                 arm64_sequoia: "23780fbf483e4ba89a0639b27407207ea8134ce8e06e17ebf2d7130beda7da4c"
-    sha256 cellar: :any,                 arm64_sonoma:  "99bd6079ab40e3bc792762167c71ad8076fe61ca96ce8cfa0b1caf793ae68901"
-    sha256 cellar: :any,                 sonoma:        "2fea951eeccff3bc8ecde0a05f8583bab5d33fbfabf88040476cad0fe940465f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "128c7d8d7ad3481d4f56dba950236df2433e2d07582fa1f0a0ac8e79dcd88543"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5520b6e7dec3bbb30c4962b507962dc0c0ea3fae89141d4e74497a169b0cf100"
+    sha256 cellar: :any, arm64_tahoe:   "aea0cf04c15d978a7cac17f8536febd31b720b6e01b0a890325a85b56f157738"
+    sha256 cellar: :any, arm64_sequoia: "56ead85deaf625e42cbfe6653113235207b7ea948cf90a7562113c73d7553838"
+    sha256 cellar: :any, arm64_sonoma:  "2a7e53b0ee3eeeba9b0e89a5200c3ce135fe1b004c181f4c40b2a5fa5da888ae"
+    sha256 cellar: :any, sonoma:        "5b5cb3a934fcf0cd479766523380a0d5bea6ff7544fe7bbec4f1bda3f0d54a69"
+    sha256 cellar: :any, arm64_linux:   "ef553d06835dcd445da99e14af1c8503739c30a0252fd259c5bc3ded341f2f0f"
+    sha256 cellar: :any, x86_64_linux:  "3850091948830b9296f8095d86a47cb4dbe5633b25fa2b1cd03e944d30085a73"
   end
 
   depends_on "cmake" => :build
@@ -38,20 +38,20 @@ class Ledger < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.14"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", formula_opt_libexec("python@3.14")/"bin"
 
     args = %W[
       --jobs=#{ENV.make_jobs}
       --output=build
       --prefix=#{prefix}
-      --boost=#{Formula["boost"].opt_prefix}
+      --boost=#{formula_opt_prefix("boost")}
       --
       -DBUILD_DOCS=1
       -DBUILD_WEB_DOCS=1
       -DBoost_NO_BOOST_CMAKE=ON
       -DPython_FIND_VERSION_MAJOR=3
       -DUSE_GPGME=1
-      -DCMAKE_CXX_STANDARD=14
+      -DCMAKE_CXX_STANDARD=17
     ] + std_cmake_args
 
     system "./acprep", "opt", "make", *args

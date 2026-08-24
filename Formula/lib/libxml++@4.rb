@@ -44,7 +44,7 @@ class LibxmlxxAT4 < Formula
          return 0;
       }
     CPP
-    command = "#{Formula["pkgconf"].opt_bin}/pkgconf --cflags --libs libxml++-4.0"
+    command = "#{formula_opt_bin("pkgconf")}/pkgconf --cflags --libs libxml++-4.0"
     flags = shell_output(command).strip.split
     system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", *flags
     system "./test"

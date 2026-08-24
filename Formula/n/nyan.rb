@@ -18,7 +18,7 @@ class Nyan < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/toshimaru/nyan/cmd.version=#{version}"
+    ldflags = "-X github.com/toshimaru/nyan/cmd.version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
   end
 

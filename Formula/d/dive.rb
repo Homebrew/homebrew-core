@@ -20,7 +20,7 @@ class Dive < Formula
 
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
 
     generate_completions_from_executable(bin/"dive", shell_parameter_format: :cobra)
   end

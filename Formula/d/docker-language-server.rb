@@ -20,10 +20,7 @@ class DockerLanguageServer < Formula
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
 
-    ldflags = %W[
-      -s -w
-      -X github.com/docker/docker-language-server/internal/pkg/cli/metadata.Version=v#{version}
-    ]
+    ldflags = %W[-X github.com/docker/docker-language-server/internal/pkg/cli/metadata.Version=v#{version}]
 
     system "go", "build", *std_go_args(ldflags:), "./cmd/docker-language-server"
   end

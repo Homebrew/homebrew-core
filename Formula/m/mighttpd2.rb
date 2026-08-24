@@ -7,12 +7,13 @@ class Mighttpd2 < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "66fbd63b606e13da4d46baebd96a6a26de5dc555553ede663a49be878d6091d7"
-    sha256 cellar: :any,                 arm64_sequoia: "3bd15fc041272bcc6acba9fc872d3a14b4fe3dc500f1e3db04e0e3077ac49c81"
-    sha256 cellar: :any,                 arm64_sonoma:  "144cc74e8f72513a0791956190136c19373f2b456876f5172bb455f64e7c46b9"
-    sha256 cellar: :any,                 sonoma:        "1d87006977c3e8d4d4f64ee888e52c14dab67d14011d5f4d9f333739f10cf8e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e5d0a2d98d44a5f042aa42c95129f90ea90fe6a8355cf047f9545924c00d1867"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61f34699423a6e6e60e12776b21141712b2220b27b515365a469f4bfa41214ec"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "280ff0ef96b10fc2fa90a85a620ab251ad9bce32c749ec0edb0680ef6bdd5c97"
+    sha256 cellar: :any, arm64_sequoia: "aa1206229e3f7a1560e0438ba6e8824022731a508871bcebefdc430dd295c4be"
+    sha256 cellar: :any, arm64_sonoma:  "f8dfe4078c128bbb0473ab030d75575f9ca57dd5c965785628e5b926c9c2a864"
+    sha256 cellar: :any, sonoma:        "bb58da7104fbb851cc94c347012b83721d2fff4237d58a1c7573cf747fe87e0f"
+    sha256 cellar: :any, arm64_linux:   "7ff99bcd4001da18b6cec1e681367772a8aed55bd5177e4025a87c4ca8ec0de0"
+    sha256 cellar: :any, x86_64_linux:  "847d6e27ad786f6f9ecf6ba750871052298484d5d3106226ece84e79c1263846"
   end
 
   depends_on "cabal-install" => :build
@@ -23,6 +24,13 @@ class Mighttpd2 < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  # Fix build with relaxed upper bounds of dependencies
+  patch do
+    url "https://github.com/kazu-yamamoto/mighttpd2/commit/68cdb3a2a98f66deff1ce85e8f8bc691d83c029e.patch?full_index=1"
+    sha256 "e1a330e9842fb977ed4a7a4a7fb265526febe7b0f5b2f03726bfb6d7257d6818"
+    type :backport
   end
 
   def install

@@ -80,7 +80,7 @@ class Qscintilla2 < Formula
         --qsci-library-dir #{lib}
         --api-dir #{share}/qt/qsci/api/python
       ]
-      system Formula["pyqt-builder"].opt_libexec/"bin/sip-install", *args
+      system formula_opt_libexec("pyqt-builder")/"bin/sip-install", *args
     end
   end
 

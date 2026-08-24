@@ -54,7 +54,11 @@ class PodmanCompose < Formula
       shell_output("#{bin}/podman-compose up -d 2>&1", 1)
     # If it's trying to connect to Podman, we know it at least found the
     # compose.yml file and parsed/validated the contents
-    expected = OS.linux? ? "Error: cannot re-exec process" : "Cannot connect to Podman"
+    expected = if OS.linux?
+      /Error: cannot re-exec process|Error: command required for rootless mode/
+    else
+      "Cannot connect to Podman"
+    end
     assert_match expected, shell_output("#{bin}/podman-compose down 2>&1", 1)
   end
 end

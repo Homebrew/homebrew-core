@@ -16,6 +16,7 @@ class Execstack < Formula
   end
 
   depends_on "elfutils"
+  depends_on :linux
 
   def install
     args = ["--disable-silent-rules"]

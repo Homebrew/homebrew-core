@@ -1,28 +1,28 @@
 class Mp4ff < Formula
   desc "Tools for parsing and manipulating MP4/ISOBMFF files"
   homepage "https://github.com/Eyevinn/mp4ff"
-  url "https://github.com/Eyevinn/mp4ff/archive/refs/tags/v0.52.0.tar.gz"
-  sha256 "9cd54f4ff69039c211326a08a79a865669276a4b0761a7f6ef57e5a4831151be"
+  url "https://github.com/Eyevinn/mp4ff/archive/refs/tags/v0.56.0.tar.gz"
+  sha256 "431a057ca003c2fcca81a9495792a833457e06c79fbc73c2aa6400b94d9f5008"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8b5522746f12c980b5c60e6cf0cbf29a726d544d7351e8f761a3a65ef39c027f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8b5522746f12c980b5c60e6cf0cbf29a726d544d7351e8f761a3a65ef39c027f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b5522746f12c980b5c60e6cf0cbf29a726d544d7351e8f761a3a65ef39c027f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f45a19de26e678702862028967b8e56a29f52740450e663450ffe68ef4c13389"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee94d042a9e00ae3029a4124fa40023260033a1af2bb30a85e517aa542efca85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f4ec6056d2334a54784824d4d196f49c2946463ef5c581a2112b94ffd9261d1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "feb115595cf70322621fa1d274ae10f365d84396b540a08ba7b4d6f426201cfc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "feb115595cf70322621fa1d274ae10f365d84396b540a08ba7b4d6f426201cfc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "feb115595cf70322621fa1d274ae10f365d84396b540a08ba7b4d6f426201cfc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c11f6aef23142d4dbb02cb7ac2e0e9d9ef9a0c6cb05e8316b8bfd38d70159df3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "02b089488f077d99623ed2411cb5b77b9d2a399aab4a665c760f23951dd84f60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "46a4e1327f21e1f83c36fe795d60e1a4faf9b4a8f693362d85ed30971416cfad"
   end
 
   depends_on "go" => :build
 
   def tools
-    %w[mp4ff-crop mp4ff-decrypt mp4ff-encrypt mp4ff-info mp4ff-nallister mp4ff-pslister mp4ff-subslister]
+    %w[mp4ff-crop mp4ff-decrypt mp4ff-encrypt mp4ff-info mp4ff-mvhevc mp4ff-nallister mp4ff-pslister mp4ff-subslister]
   end
 
   def install
     tools.each do |tool|
-      system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/tool), "./cmd/#{tool}"
+      system "go", "build", *std_go_args(output: bin/tool), "./cmd/#{tool}"
     end
   end
 
@@ -45,6 +45,11 @@ class Mp4ff < Formula
     resource "homebrew-subs" do
       url "https://raw.githubusercontent.com/Eyevinn/mp4ff/v0.52.0/cmd/mp4ff-subslister/testdata/multi_vttc.mp4"
       sha256 "1518ba79c86f28414f9285910f8118e00d3b70aa07c6a48ebb1f80b476b1192a"
+    end
+
+    resource "homebrew-mvhevc" do
+      url "https://raw.githubusercontent.com/Eyevinn/mp4ff/v0.53.0/cmd/mp4ff-mvhevc/testdata/stereo_spatial.mp4"
+      sha256 "caa53ab7cf493d5a59d98b0eb8788a6add5faac6b5adcba58e89fd533174f90e"
     end
 
     # Build a combined fragmented MP4 from init segment + media segment
@@ -77,6 +82,9 @@ class Mp4ff < Formula
     assert_match "[sinf]", output
 
     system bin/"mp4ff-decrypt", "-key", key, testpath/"enc.mp4", testpath/"dec.mp4"
+    dec_info = shell_output("#{bin}/mp4ff-info #{testpath}/dec.mp4")
+    assert_match "[avc1]", dec_info
+    refute_match "[encv]", dec_info
 
     # mp4ff-crop: progressive H.264
     testpath.install resource("homebrew-prog")
@@ -91,6 +99,13 @@ class Mp4ff < Formula
     testpath.install resource("homebrew-subs")
     output = shell_output("#{bin}/mp4ff-subslister #{testpath}/multi_vttc.mp4")
     assert_match '- cueText: "<c.white.bg_black>Ouais ! Belle gosse ! Voici 2 M !</c>"', output
+
+    # mp4ff-mvhevc: inspect a stereo MV-HEVC (multi-view) track
+    testpath.install resource("homebrew-mvhevc")
+    output = shell_output("#{bin}/mp4ff-mvhevc info #{testpath}/stereo_spatial.mp4")
+    assert_match "hvc1", output
+    assert_match "lhvC", output
+    assert_match "views=2", output
 
     # Version check for all tools
     tools.each do |tool|

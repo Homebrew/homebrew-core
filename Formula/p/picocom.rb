@@ -25,10 +25,11 @@ class Picocom < Formula
   # Upstream picocom supports arbitrary baud-rate settings on macOS out of the
   # box, but only applies that to i386 and x86_64 systems. With the advent of
   # arm64 macs, it is now necessary to expand that support.
-  # https://github.com/npat-efault/picocom/pull/129
   patch do
     url "https://github.com/npat-efault/picocom/commit/f806bf28266cccdb75ba89d754de8d8fa64c6127.patch?full_index=1"
     sha256 "b1a29265d5b5e0e7e7f8f3194b818802de8c7d18e80525bc43cbb896a6def590"
+    type :unofficial
+    resolves "https://github.com/npat-efault/picocom/pull/129"
   end
 
   def install

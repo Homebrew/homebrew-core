@@ -1,8 +1,8 @@
 class BoostMpi < Formula
   desc "C++ library for C++/MPI interoperability"
   homepage "https://www.boost.org/"
-  url "https://github.com/boostorg/boost/releases/download/boost-1.90.0/boost-1.90.0-b2-nodocs.tar.xz"
-  sha256 "9e6bee9ab529fb2b0733049692d57d10a72202af085e553539a05b4204211a6f"
+  url "https://github.com/boostorg/boost/releases/download/boost-1.92.0/boost-1.92.0-b2-nodocs.tar.xz"
+  sha256 "ea7b982002cc9dfbe59b0b217b206f470dc75f3de0bb2973d844118934d82411"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git", branch: "master"
 
@@ -11,12 +11,12 @@ class BoostMpi < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "670dd9f317690572c55e29b35f850fdb2a9bf6173b24659b7386195129c6fee2"
-    sha256                               arm64_sequoia: "59b9a8df7461cff1219fe857551d02ec37dbd783e2d3b173987665846fed8719"
-    sha256                               arm64_sonoma:  "1ba24fd1729bf2d4fa74087d4d98db902d17bcd0d618dd6f4fff6ef49bec6abc"
-    sha256                               sonoma:        "1f4b7c4cc2fd1ee4a5553385d5885162e11779d969ad949e8ddb59f1f2e8930d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "68372159bf8d129e7212b757272a6b114637444382d9c246a170a2d7d5178c37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6b807df695489d80a4e89f0299941e10e733a4c1adc260bf31f425a3994db4f"
+    sha256               arm64_tahoe:   "208ac9d44a3220926166fed43f27d407cb0023a6b4f1159e5d895cb6adf825f8"
+    sha256               arm64_sequoia: "f1008f6aaf5637dfc69aff90d7844832b0bb9002eee6dfddfeb3eff0452985f9"
+    sha256               arm64_sonoma:  "8a416b4c548e567b59c5cb4edcb3abf59fda39b87918493ea6fb4ef57de726f1"
+    sha256               sonoma:        "f94cae364c7af23d40b95a5ee9caf252fe2e6c2d9c2fb8278115d7686f6abe5b"
+    sha256 cellar: :any, arm64_linux:   "49afd023cb9d1d579cda5bfc3584b3902e94e13c6bfe081d47f31dc231b236f3"
+    sha256 cellar: :any, x86_64_linux:  "b9f501a5513bbc63411482fedaaa57a0814967545ec588391e4e27dd3b987c13"
   end
 
   # Test with cmake to avoid issues like:
@@ -37,23 +37,18 @@ class BoostMpi < Formula
       link=shared,static
     ]
 
-    # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
-    # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    args << "cxxflags=-std=c++11"
+    # Keep cxxflags aligned with `boost`
+    args << "cxxflags=-std=c++17"
     args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
 
     # Avoid linkage to boost container and graph modules
     # Issue ref: https://github.com/boostorg/boost/issues/985
     args << "linkflags=-Wl,-dead_strip_dylibs" if OS.mac?
 
-    open("user-config.jam", "a") do |file|
-      if OS.mac?
-        file.write "using darwin : : #{ENV.cxx} ;\n"
-      else
-        file.write "using gcc : : #{ENV.cxx} ;\n"
-      end
-      file.write "using mpi ;\n"
-    end
+    (buildpath/"user-config.jam").write <<~JAM
+      using #{OS.mac? ? "darwin" : "gcc"} : : #{ENV.cxx} ;
+      using mpi ;
+    JAM
 
     system "./bootstrap.sh", "--prefix=#{prefix}", "--libdir=#{lib}", "--with-libraries=mpi"
 
@@ -67,10 +62,9 @@ class BoostMpi < Formula
 
     if OS.mac?
       # libboost_mpi links to libboost_serialization, which comes from the main boost formula
-      boost = Formula["boost"]
       MachO::Tools.change_install_name("#{lib}/libboost_mpi.dylib",
                                        "libboost_serialization.dylib",
-                                       "#{boost.lib}/libboost_serialization.dylib")
+                                       "#{formula_opt_lib("boost")}/libboost_serialization.dylib")
     end
   end
 
@@ -108,7 +102,7 @@ class BoostMpi < Formula
             "-L#{boost.lib}",
             "-lboost_mpi",
             "-lboost_serialization",
-            "-std=c++14"]
+            "-std=c++17"]
 
     if OS.linux?
       args << "-Wl,-rpath,#{lib}"

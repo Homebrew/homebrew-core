@@ -32,11 +32,15 @@ class Httpyac < Formula
       linux_dir = clipboardy_fallbacks_dir/"linux"
       linux_dir.mkpath
       # Replace the vendored pre-built xsel with one we build ourselves
-      ln_sf (Formula["xsel"].opt_bin/"xsel").relative_path_from(linux_dir), linux_dir
+      ln_sf (formula_opt_bin("xsel")/"xsel").relative_path_from(linux_dir), linux_dir
     end
   end
 
   test do
+    # Without both of these, httpyac searches for them up to "/", which is unreadable in the sandbox.
+    (testpath/".httpyac.json").write "{}"
+    (testpath/"package.json").write "{}"
+
     (testpath/"test_cases").write <<~EOS
       GET https://httpbin.org/anything HTTP/1.1
       Content-Type: text/html

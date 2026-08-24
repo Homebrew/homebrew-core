@@ -21,7 +21,6 @@ class Yder < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "doxygen" => :build
   depends_on "pkgconf" => :build
   depends_on "orcania"
 
@@ -30,12 +29,7 @@ class Yder < Formula
   end
 
   def install
-    args = %w[
-      -DDINSTALL_HEADER=ON
-      -DDBUILD_YDER_DOCUMENTATION=ON
-    ]
-
-    args << "-DWITH_JOURNALD=OFF" if OS.mac?
+    args = ["-DWITH_JOURNALD=OFF"] if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

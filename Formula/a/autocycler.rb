@@ -1,18 +1,18 @@
 class Autocycler < Formula
   desc "Tool for generating consensus long-read assemblies for bacterial genomes"
   homepage "https://github.com/rrwick/Autocycler"
-  url "https://github.com/rrwick/Autocycler/archive/refs/tags/v0.6.2.tar.gz"
-  sha256 "5bb281c3216ac266fc17fcda74b99fea11fdf7b01b5e32656d515fe470109efa"
+  url "https://github.com/rrwick/Autocycler/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "5af439e1855be4c32564a1f33b25f9c7450289fa1a344442cc6de6e87b989553"
   license "GPL-3.0-or-later"
   head "https://github.com/rrwick/Autocycler.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "992c57a6d5450bd056c6d2b2c24abfe48dd85345e3b004880a76289905a93f25"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "604db7c2318fc65c3813d71d61e0aab5ead0316eca804ae13f8113d167404859"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e262907995fb18d6fe68ff1a642b4c1513bc11d44a7790cb0f5fbb20ed08dd2b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "33e621bb15a01a2b15f6c1fe7f29893a6f01b99de987a39306b17a2733c8969a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6d3294922ef49653594a3054e7ec3d0b2767116cd2c2b8ffa00ac3df46d8e224"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "395606458ed7d83794cd484a80869682968eeb4f097dd5ce7c3ba0da8d500b4c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ede7e242dfbba625b3bde0450dc87aacc2f459475293dfe12ece8bca7169613b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b2edcb09b305ea8e80759eb98d353ceacc37ff9d2f2d3b5cb24916319dcac87"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b2de6a1cf2213fd09d4850e2dff852199e97b85f50520e36dc8674facc2daf01"
+    sha256 cellar: :any_skip_relocation, sonoma:        "42b508cb94d40267b3a2be22846f79f132c2aaa34e9a217f6ef78a5f73155fd2"
+    sha256 cellar: :any,                 arm64_linux:   "abd8e3fe9c38a98ebee037bee2208448121b2aa770003466715a75803e5cd58d"
+    sha256 cellar: :any,                 x86_64_linux:  "27fb2901b4a9b9378a3e741974ef89a823a201d37af4c3f850584d706b9604d8"
   end
 
   depends_on "rust" => :build

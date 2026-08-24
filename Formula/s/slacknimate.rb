@@ -25,8 +25,7 @@ class Slacknimate < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/slacknimate"
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/slacknimate"
   end
 
   test do

@@ -41,8 +41,9 @@ class Wmctrl < Formula
   # Fix for 64-bit arch. See:
   # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=362068
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/wmctrl/1.07.patch"
-    sha256 "8599f75e07cc45ed45384481117b0e0fa6932d1fce1cf2932bf7a7cf884979ee"
+    file "Patches/wmctrl/1.07.patch"
+    type :unofficial
+    resolves "https://bugs.debian.org/362068"
   end
 
   def install

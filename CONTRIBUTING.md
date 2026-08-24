@@ -4,6 +4,17 @@ First time contributing to Homebrew? Read our [Code of Conduct](https://github.c
 
 Ensure your commits follow the [commit style guide](https://docs.brew.sh/Formula-Cookbook#commit).
 
+### "Artificial intelligence"/large language model (AI/LLM) usage
+
+We allow you to create issues and pull requests with AI/LLM with the following requirements (see [Responsible AI Usage](https://docs.brew.sh/Responsible-AI-Usage) for the principles behind them):
+
+* You must disclose in the initial issue or pull request that you used AI/LLM and what tool/model/etc. you used.
+* You must review all AI/LLM generated code, prose, etc. content before you ask anyone in Homebrew to review it for you.
+* You must not attribute a commit to AI/LLM as an author, co-author, committer or signatory, including through an `Assisted-by`, `Co-developed-by` or similar commit trailer.
+* You must answer all maintainer questions and pull request review comments yourself, without using AI/LLM.
+* Unless you are a maintainer, you may only have one AI-assisted/generated pull request open at a time.
+* If you reach the point where you feel unwilling or unable to do the above, please close your issue or pull request.
+
 Thanks for contributing!
 
 ### To report a bug

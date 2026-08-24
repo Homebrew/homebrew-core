@@ -1,18 +1,18 @@
 class Xplr < Formula
   desc "Hackable, minimal, fast TUI file explorer"
   homepage "https://xplr.dev"
-  url "https://github.com/sayanarijit/xplr/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "7948683c546fdf374f6bec7855726cf4e3f1bc4abf1c2a292cbdfa6ff16f6143"
+  url "https://github.com/sayanarijit/xplr/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "6f63a3394ad330cc80648448924d8c6dd848514707228d869ff27e35562804ff"
   license "MIT"
   head "https://github.com/sayanarijit/xplr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "81fd46b952f4e77c21f80a2ed0846d6eab2f427448b6c419968e035134cebc45"
-    sha256 cellar: :any,                 arm64_sequoia: "d45b3241a18aa1600ac9f7a28e91aeddd802c0276c5e60c684a83e5df7d84248"
-    sha256 cellar: :any,                 arm64_sonoma:  "3ebef346bbdf33d58fee01f749fbc82cf3da11815573df193baaef401d8071ce"
-    sha256 cellar: :any,                 sonoma:        "3d3e87f43f39d456b01d425f102d4cdc6e775c131b515a7d8e2571a00be46d75"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb602d89f46080d0da072cdc9496fb9e150c86aa15bc8defe3aff9cab9ef887f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "580c25a69c5e025bc2ca4c26a6c9ceb0344ddbef285d87589d3df58d7a221b4c"
+    sha256 cellar: :any, arm64_tahoe:   "3d1e313aef234ea5747bb149eccb2aaff676f27ef4c945455c334185103240e7"
+    sha256 cellar: :any, arm64_sequoia: "d2bdeb506ec05cd636e6ab2c9f1f01cb0b1f7bc7cd101179c0ca159766a139c3"
+    sha256 cellar: :any, arm64_sonoma:  "f1999d17311b9254f14b7bfa6baa48fffda5dc5dfc09d36a6edfc1fb2f75e5ed"
+    sha256 cellar: :any, sonoma:        "7a2306b2f0ff06a99b014da3888dbea01dda241dc3b9d3bcc7473260b8d5476f"
+    sha256 cellar: :any, arm64_linux:   "107a95f684327d775436f363e5620fb47821a439d5c448132ce56f5443db4abc"
+    sha256 cellar: :any, x86_64_linux:  "1b91f970fd1acb2e70e4f2f9cf386a2b775a820a77fa7845815ab925a9460dc1"
   end
 
   depends_on "pkgconf" => :build
@@ -39,7 +39,7 @@ class Xplr < Formula
     end
 
     assert Utils.binary_linked_to_library?(bin/"xplr",
-                                Formula["luajit"].opt_lib/shared_library("libluajit")),
+                                formula_opt_lib("luajit")/shared_library("libluajit")),
            "No linkage with libluajit! Cargo is likely using a vendored version."
   end
 end

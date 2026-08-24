@@ -23,8 +23,7 @@ class Aliddns < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{Utils.git_head} -X main.builtBy=#{tap.user}"
-    system "go", "build", "-mod=vendor", *std_go_args(ldflags:)
+    system "go", "build", "-mod=vendor", *std_go_args(ldflags: :goreleaser)
     pkgetc.install "aliddns.yaml"
   end
 

@@ -18,7 +18,7 @@ class GLs < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(output: bin/"g", ldflags: "-s -w")
+    system "go", "build", *std_go_args(output: bin/"g")
 
     bash_completion.install "completions/bash/g-completion.bash" => "g"
     fish_completion.install "completions/fish/g.fish"

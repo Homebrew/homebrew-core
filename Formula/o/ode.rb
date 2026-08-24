@@ -6,6 +6,10 @@ class Ode < Formula
   license any_of: ["LGPL-2.1-or-later", "BSD-3-Clause"]
   head "https://bitbucket.org/odedevs/ode.git", branch: "master"
 
+  livecheck do
+    url :head
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "f85029563540277a80dfb3ed714d68d2dcb7e06d32b6bd190a07d6fa5f91847f"
     sha256 cellar: :any,                 arm64_sequoia: "3aa96ecd0a92215d8005fb5f663c51b40df82454815f7bf5ab18f29ecef9d401"
@@ -51,7 +55,7 @@ class Ode < Formula
       }
     CPP
     system ENV.cc, "test.cpp", "-I#{include}/ode", "-L#{lib}", "-lode",
-                   "-L#{Formula["libccd"].opt_lib}", "-lccd", "-lm", "-lpthread",
+                   "-L#{formula_opt_lib("libccd")}", "-lccd", "-lm", "-lpthread",
                    "-o", "test"
     system "./test"
   end

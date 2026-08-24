@@ -57,7 +57,7 @@ class MidnightCommander < Formula
 
     if OS.mac?
       inreplace share/"mc/syntax/Syntax", Superenv.shims_path, "/usr/bin"
-      bin.env_script_all_files(libexec/"bin", PATH: "#{Formula["diffutils"].opt_bin}:$PATH")
+      bin.env_script_all_files(libexec/"bin", PATH: "#{formula_opt_bin("diffutils")}:$PATH")
     end
   end
 

@@ -22,6 +22,9 @@ class GitHooksGo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2e2a568a671db87621def2f35483cb89b4e7b58605ef724db8912868c76a327"
   end
 
+  deprecate! date: "2026-07-09", because: :checksum_mismatch
+  disable! date: "2027-07-09", because: :checksum_mismatch
+
   depends_on "go" => :build
 
   def install

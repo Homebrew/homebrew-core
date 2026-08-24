@@ -1,9 +1,10 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/libvips/libvips"
-  url "https://github.com/libvips/libvips/releases/download/v8.18.3/vips-8.18.3.tar.xz"
-  sha256 "f41285b61bfb495605494f074ca341f7791a1d406e2f157dcea606ef1ae1b146"
+  url "https://github.com/libvips/libvips/releases/download/v8.18.5/vips-8.18.5.tar.xz"
+  sha256 "8c4e6332d818249ed05ce98e36e6ed8a08e3249ac70f69680842ab2e5fee8510"
   license "LGPL-2.1-or-later"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -12,12 +13,12 @@ class Vips < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "10f5c4fca431d5d845985d7abfa1ee49aa7d9e0e13cf8602007acb061b3ba05e"
-    sha256 arm64_sequoia: "90258004544be72b61ff8df8cf0302fd9d0033387b4b73f40b83bf88ba5e0215"
-    sha256 arm64_sonoma:  "ac1c84d52f1b30f5a027e4f0873bc3604462a7e6f24b900f1192b5badaa92bf3"
-    sha256 sonoma:        "2834cf1382314e8bf4b3d0bdd5ae4f83341cdf808031cbf36e6a84ccdc59c9d2"
-    sha256 arm64_linux:   "e37bae4c4380b972ac16082883f9f7159e4e383df4390a31e17f94ac3e42cb0c"
-    sha256 x86_64_linux:  "3654f457d5070c4684464a6ab29b70ee8f479f7b4a26245a5bd70b99598e5b44"
+    sha256 arm64_tahoe:   "7584f3679b1ee2d1df727d8482be97baa3d9d992052acde32188dbb6f2a2dea3"
+    sha256 arm64_sequoia: "e53fbb0888e655f957774603df19b34919cce33ac56a2e0e44e47f6dfd7698d1"
+    sha256 arm64_sonoma:  "c1210c30fc3cdd3ab1571183b2ff43298fefa0dd3ba748de1c6c4c4919a56039"
+    sha256 sonoma:        "3a74323d407c2770bcbbf57ac6c813c1bc1705e743fa80bbd4d1d40fb20dd48e"
+    sha256 arm64_linux:   "671a7364057c94c082bb1fba8f8ea143f0cca2ff148f2bd301cbc0b558a47318"
+    sha256 x86_64_linux:  "ae275858853ea454dd7a04a0e46cfb1fa661610de852e75beabdd9fc742ef095"
   end
 
   depends_on "gettext" => :build
@@ -66,7 +67,7 @@ class Vips < Formula
 
   def install
     # mozjpeg needs to appear before libjpeg, otherwise it's not used
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["mozjpeg"].opt_lib/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("mozjpeg")/"pkgconfig"
 
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
@@ -76,7 +77,7 @@ class Vips < Formula
       # `pkg-config --libs vips` includes libarchive, but that package is
       # keg-only so it needs to look for the pkgconfig file in libarchive's opt
       # path.
-      libarchive = Formula["libarchive"].opt_prefix
+      libarchive = formula_opt_prefix("libarchive")
       inreplace [lib/"pkgconfig/vips.pc", lib/"pkgconfig/vips-cpp.pc"] do |s|
         s.gsub!(/^Requires\.private:(.*)\blibarchive\b(.*?)(,.*)?$/,
                 "Requires.private:\\1#{libarchive}/lib/pkgconfig/libarchive.pc\\3")

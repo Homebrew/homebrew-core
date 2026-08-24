@@ -27,6 +27,8 @@ class Vmtouch < Formula
   patch do
     url "https://github.com/hoytech/vmtouch/commit/75f04153601e552ef52f5e3d349eccd7e6670303.patch?full_index=1"
     sha256 "9cb455d86018ee8d30cb196e185ccc6fa34be0cdcfa287900931bcb87c858587"
+    type :backport
+    resolves "https://github.com/hoytech/vmtouch/pull/71"
   end
 
   def install

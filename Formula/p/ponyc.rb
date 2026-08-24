@@ -2,17 +2,17 @@ class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "https://www.ponylang.io/"
   url "https://github.com/ponylang/ponyc.git",
-      tag:      "0.64.0",
-      revision: "f5fddde63d8af22d0b39c4b3d417f34d3f7594ef"
+      tag:      "0.69.1",
+      revision: "38f9f11dac16623aa322c5fb56545c69f97b3517"
   license "BSD-2-Clause"
 
   bottle do
-    sha256                               arm64_tahoe:   "a07bd9848e5eda6ac8f5a44b57540d1914abacc50346aff77e3884c4cfc6332e"
-    sha256                               arm64_sequoia: "87bc469dc9d5e6cc834dbbba64de11122a03f03a8d2c949dcdb4f6c5f1c121c6"
-    sha256                               arm64_sonoma:  "e42cd8973f41fd3d450a3e4c656a2f0b86285cfc5304a9cb61a347ace2bedf93"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e7da7ae711d31f36da329e5a561f60cd28f060bb55ceb09f19c04c7499ba83b0"
-    sha256 cellar: :any,                 arm64_linux:   "2a2e95c431742a0d6bcb715872c0abcad10cf32ff7204ed723ef41f2efc24582"
-    sha256 cellar: :any,                 x86_64_linux:  "4ba80ae5564f87a10712ea1216de2dffe575fcb74c36d900171fa0ba19eddc7a"
+    sha256                               arm64_tahoe:   "76afbb26b05e1b73a9f579e35a217791ebc283af8c930217bac57f7520debd73"
+    sha256                               arm64_sequoia: "df0252865b4ce4a609e79d1835f4753ea6436e2e00c4ceae72978c82948fd6b6"
+    sha256                               arm64_sonoma:  "6f336f8364e65878d63c9ddb10c995333ca5276abf083cda88e6594c194cc324"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4bb8b3351734e82657126ffcc72f759a669906ee67a5e674ec15bdcb02859027"
+    sha256 cellar: :any,                 arm64_linux:   "a21a2854aae8d0413cc1b3cf48221a83f6f24b5a761adbe43d54a613178b8113"
+    sha256 cellar: :any,                 x86_64_linux:  "56ade3d4a0a4d466f849b9a8f9e71f25617daf5fbe92d2487b7df2a7218a6ca7"
   end
 
   depends_on "cmake" => :build
@@ -24,24 +24,26 @@ class Ponyc < Formula
   end
 
   def install
+    pic_args = []
     if OS.linux?
       inreplace "CMakeLists.txt", "PONY_COMPILER=\"${CMAKE_C_COMPILER}\"", "PONY_COMPILER=\"#{ENV.cc}\""
       inreplace "lib/CMakeLists.txt", "-DBENCHMARK_ENABLE_WERROR=OFF ", "\\0-DHAVE_CXX_FLAG_WTHREAD_SAFETY=OFF "
-      ENV["pic_flag"] = "-fPIC"
+      # aarch64's small-model GOT overflows with the default -fpic
+      pic_args << "-DPONY_PIC_FLAG=-fPIC"
     end
 
-    ENV["CMAKE_FLAGS"] = "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}" if OS.mac?
-    ENV["MAKEFLAGS"] = "build_flags=-j#{ENV.make_jobs}"
+    # Build the vendored LLVM that the main configure step links against
+    system "cmake", "-DJOBS=#{ENV.make_jobs}", *pic_args, "-P", "lib/build-libs.cmake"
 
-    system "make", "libs"
-    system "make", "configure"
-    system "make", "build"
-    system "make", "install", "DESTDIR=#{prefix}"
+    # ponyc requires a lowercase build type (it doubles as the output dir name)
+    cmake_args = std_cmake_args.map { |arg| arg.sub("-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_BUILD_TYPE=release") }
+    system "cmake", "-S", ".", "-B", "build/build_release", *pic_args, *cmake_args
+    system "cmake", "--build", "build/build_release"
+    system "cmake", "--install", "build/build_release"
   end
 
   test do
-    # test ponyc
-    system bin/"ponyc", "-rexpr", prefix/"packages/stdlib"
+    system bin/"ponyc", "-rexpr", "stdlib"
     (testpath/"test/main.pony").write <<~PONY
       actor Main
         new create(env: Env) =>

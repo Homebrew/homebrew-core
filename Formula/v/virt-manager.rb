@@ -17,27 +17,36 @@ class VirtManager < Formula
     patch do
       url "https://github.com/virt-manager/virt-manager/commit/d4988b02efb8bba91fd55614fbbff11b3a915d44.patch?full_index=1"
       sha256 "fc1daaf8440b01600b0297384f5bdd1cda654aaee958ce3fcd27d79c6b2d9ffb"
+      type :backport
+      resolves "https://github.com/virt-manager/virt-manager/issues/897"
     end
     patch do
       url "https://github.com/virt-manager/virt-manager/commit/ff9fa95e52f890ccd8dce18567aa7cc30582ca4f.patch?full_index=1"
       sha256 "5ae4ce21b65cf77fa9511bae70799bd3c1890ab15a31372491662a7dc186df4f"
+      type :backport
+      resolves "https://github.com/virt-manager/virt-manager/issues/897"
     end
     patch do
       url "https://github.com/virt-manager/virt-manager/commit/d0372e82c8b6fe6b5517d850a81847422c861446.patch?full_index=1"
       sha256 "5084650b38527f8bac3f2ea803b81f1a49ecf51cb461c3ad7088ec9f90845dae"
+      type :backport
+      resolves "https://github.com/virt-manager/virt-manager/issues/897"
     end
     patch do
       url "https://github.com/virt-manager/virt-manager/commit/766bf2ecdc5ac6853b41a36412d09c1950c700bf.patch?full_index=1"
       sha256 "24deb9287b86caaac7eaea7d5dff145c0686bbc32ccb6952a8a0d4b0c6d3adeb"
+      type :backport
+      resolves "https://github.com/virt-manager/virt-manager/issues/897"
     end
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "06b07aaa4ed76e03e0d2db30af59ad04c436b2fd005eb519be03141c427b49ce"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "f5439f62537fb88802e3f818875c83e78ba51d24049b038b35c02a8a68eef9da"
   end
 
   depends_on "docutils" => :build
-  depends_on "intltool" => :build
+  depends_on "gettext" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
@@ -49,13 +58,16 @@ class VirtManager < Formula
   depends_on "libosinfo"
   depends_on "libvirt-glib"
   depends_on "libvirt-python" => :no_linkage
-  depends_on :macos
   depends_on "osinfo-db"
   depends_on "py3cairo" => :no_linkage
   depends_on "pygobject3" => :no_linkage
   depends_on "python@3.14"
   depends_on "spice-gtk"
   depends_on "vte3"
+
+  on_linux do
+    depends_on "xorg-server" => :test
+  end
 
   pypi_packages package_name:     "",
                 exclude_packages: "certifi",
@@ -97,30 +109,30 @@ class VirtManager < Formula
     rewrite_shebang python_shebang_rewrite_info(venv.root/"bin/python"), *bin.children
   end
 
-  def post_install
-    # manual schema compile step
-    system Formula["glib"].opt_bin/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas"
-    # manual icon cache update step
-    system Formula["gtk+3"].opt_bin/"gtk3-update-icon-cache", HOMEBREW_PREFIX/"share/icons/hicolor"
+  post_install_steps do
+    compile_gsettings_schemas
+    update_gtk_icon_cache
   end
 
   test do
-    libvirt_pid = spawn Formula["libvirt"].opt_sbin/"libvirtd", "-f", Formula["libvirt"].etc/"libvirt/libvirtd.conf"
+    pids = [spawn(Formula["libvirt"].opt_sbin/"libvirtd", "-f", Formula["libvirt"].etc/"libvirt/libvirtd.conf")]
+
+    if OS.linux? && ENV.exclude?("DISPLAY")
+      pids << spawn(Formula["xorg-server"].bin/"Xvfb", ":1")
+      ENV["DISPLAY"] = ":1"
+      sleep 10
+    end
 
     output = testpath/"virt-manager.log"
-    virt_manager_pid = fork do
-      $stdout.reopen(output)
-      $stderr.reopen(output)
-      exec bin/"virt-manager", "-c", "test:///default", "--debug"
-    end
+    pids << spawn(bin/"virt-manager", "-c", "test:///default", "--debug", [:out, :err] => output.to_s)
     sleep 20
     sleep 10 if OS.mac? && Hardware::CPU.intel?
 
     assert_match "conn=test:///default changed to state=Active", output.read
   ensure
-    Process.kill("TERM", libvirt_pid)
-    Process.kill("TERM", virt_manager_pid)
-    Process.wait(libvirt_pid)
-    Process.wait(virt_manager_pid)
+    pids.reverse_each do |pid|
+      Process.kill("TERM", pid)
+      Process.wait(pid)
+    end
   end
 end

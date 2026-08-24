@@ -24,9 +24,8 @@ class Terraformer < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %w[-s -w]
     # Work around failure: ld: B/BL out of range -162045188 (max +/-128MB)
-    ldflags << "-extldflags=-ld_classic" if DevelopmentTools.ld64_version.between?("1015.7", "1022.1")
+    ldflags = "-extldflags=-ld_classic" if DevelopmentTools.ld64_version.between?("1015.7", "1022.1")
 
     system "go", "build", *std_go_args(ldflags:)
   end

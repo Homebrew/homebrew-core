@@ -26,6 +26,8 @@ body:
           required: true
         - label: My issue is not about a failure to build a formula from source.
           required: true
+        - label: I did not use AI/LLM to create this issue, or I disclosed the tool and model used; I will answer maintainer questions myself without AI/LLM.
+          required: true
   - type: textarea
     attributes:
       label: What were you trying to do (and why)?

@@ -1,18 +1,18 @@
 class Ghcid < Formula
   desc "Very low feature GHCi based IDE"
   homepage "https://github.com/ndmitchell/ghcid"
-  url "https://github.com/ndmitchell/ghcid/archive/refs/tags/v0.8.9.tar.gz"
-  sha256 "8e6ba85ef6184020a6e11fac5226c6a13e905c44b2e56d288f1fd0b3f0b34038"
+  url "https://github.com/ndmitchell/ghcid/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "6317ed3a0c83c1d1d5b03ca40d7b6906d208850b46dd6a372ea90345946f3b4f"
   license "BSD-3-Clause"
   head "https://github.com/ndmitchell/ghcid.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "e3a2377db77d7a3b2c0a6d29395e0098610cac7775923e0492ef97da8f9db540"
-    sha256 cellar: :any, arm64_sequoia: "4375fa572a0578598a1042dcbad666e276fd977c9d62bddd2bfb341d07e7d05f"
-    sha256 cellar: :any, arm64_sonoma:  "7f26067c76ba687f968a0a6e490a92297233617d35fdccd618dcecc4960e6ef2"
-    sha256 cellar: :any, sonoma:        "2fcc824964d3eb194c18f54e2bace7c2014775f5a052e9bf87261b8269e2ebdc"
-    sha256 cellar: :any, arm64_linux:   "3453316aa7aa20b0a322463f195bc26a8cfede1f2d54080b59ecce962b1dc855"
-    sha256 cellar: :any, x86_64_linux:  "5a2009be9b09580db4d803195805136fc30aac1615fec93e778e1d4a387f7c49"
+    sha256 cellar: :any, arm64_tahoe:   "310f31bcaae877f6c38661e74398f90dbe1da2df04fe518cef0a62f594cf8533"
+    sha256 cellar: :any, arm64_sequoia: "ccb28c12d791eaf4860378a29b2cb9d33e31a7ffcf70b324180794afc91fdcac"
+    sha256 cellar: :any, arm64_sonoma:  "16d72791440fc4fc99bb7d089478820b24ac41be4aeaa98dc258cf9f5103a847"
+    sha256 cellar: :any, sonoma:        "705a1e0f488714956665e7f3b3b09222261cdc2e0cc3d4b555901acccfceb733"
+    sha256 cellar: :any, arm64_linux:   "0353b2413757ae36ddfb6006717e4988787bad0aa5c62299668e63af41f76ac4"
+    sha256 cellar: :any, x86_64_linux:  "363d56b747f64ef8d3981f9598f2e12065471748b1368107a82ab15f13dc0884"
   end
 
   depends_on "cabal-install" => :build
@@ -38,7 +38,7 @@ class Ghcid < Formula
 
     PTY.spawn(bin/"ghcid", "--command=ghci Main.hs", "--clear") do |r, _w, pid|
       output = r.gets
-      assert_match "Loading ghci Main.hs", output
+      assert_match "Starting ghci command: ghci Main.hs", output
     ensure
       Process.kill "TERM", pid
       Process.wait pid

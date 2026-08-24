@@ -24,7 +24,7 @@ class Tenyr < Formula
 
   depends_on "bison" => :build # tenyr requires bison >= 2.5
 
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "sdl2_image"
 
   uses_from_macos "flex" => :build
@@ -37,7 +37,7 @@ class Tenyr < Formula
     # multiple definition of `...'; ....o:(.bss+0x0): first defined here
     ENV.append_to_cflags "-fcommon" if OS.linux?
 
-    system "make", "BISON=#{Formula["bison"].opt_bin}/bison",
+    system "make", "BISON=#{formula_opt_bin("bison")}/bison",
                    "JIT=0", "BUILDDIR=build/homebrew"
 
     pkgshare.install "rsrc", "plugins"

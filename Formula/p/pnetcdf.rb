@@ -1,8 +1,8 @@
 class Pnetcdf < Formula
   desc "Parallel netCDF library for scientific data using the OpenMPI library"
   homepage "https://parallel-netcdf.github.io/index.html"
-  url "https://parallel-netcdf.github.io/Release/pnetcdf-1.14.1.tar.gz"
-  sha256 "6f0f7221006c211fce9ddd2c008796b8c69dd717b2ad1be0b4027fc328fd3220"
+  url "https://parallel-netcdf.github.io/Release/pnetcdf-1.15.0.tar.gz"
+  sha256 "39813fe91ec901c7cfca3212731edbb5201029ebf55caeaaaa08d9e33c6bad65"
   license "NetCDF"
 
   livecheck do
@@ -11,13 +11,12 @@ class Pnetcdf < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "bf7af9e280e7cd4ed65b1224c5162e438019e694acaddf3879fb762df70b9613"
-    sha256 arm64_sequoia: "ec1741e4908ba779f792995be4683b91815886f71a064e528e386ad4a0f6da25"
-    sha256 arm64_sonoma:  "574fb8c333ad1b5c41f411214c8aafc8c16bba0fdae87adab77e0f156c14bc3b"
-    sha256 sonoma:        "b81de914fd1a1240034c507f426aa28b0cf959abd106824cf39fd7e030a1481a"
-    sha256 arm64_linux:   "f14a3eb2fdc8bdf79d7958132945e8756f9b5af261961efc7d943266b20a87cf"
-    sha256 x86_64_linux:  "8a3e4533fbc8a1a5d1267dfe81cb3a1ab389ac4b0971de4eb6ade996bc2cc7a6"
+    sha256 arm64_tahoe:   "3e099c299cd39a2e9ec03b607f1e4e790ea3d57efff82a62447eeb707a1b25fc"
+    sha256 arm64_sequoia: "6930f5b42b302421a98a35eade739c28180ff1d6ec327643924a0565ea55de1b"
+    sha256 arm64_sonoma:  "4c0380dff4533ae2bd1ab9f83bcd74e9df84f5e7cf4591fd893b19862401dd2d"
+    sha256 sonoma:        "41df2dee0ffa0db39829510ce306110b1892e3caa9219f298c8161e7d714ea47"
+    sha256 arm64_linux:   "793ed327d2a4b2f1eaf269652cc7daf9e9ee71c15ed6d3790761085c1f533599"
+    sha256 x86_64_linux:  "439b71f099c530df58080a4fa6a3c0bf9fa6e0e5a286025b6ad105455b2114f4"
   end
 
   depends_on "gcc"
@@ -29,6 +28,10 @@ class Pnetcdf < Formula
     system "./configure", "--disable-silent-rules",
                           "--enable-shared",
                           *std_configure_args
+
+    # Avoid references to Homebrew shims in the pnetcdf_version binary.
+    inreplace "src/utils/pnetcdf_version/Makefile", "#{Superenv.shims_path}/", ""
+
     system "make", "install"
   end
 

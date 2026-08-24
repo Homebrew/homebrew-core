@@ -28,10 +28,10 @@ class KitchenSync < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build",
-                    "-DMySQL_INCLUDE_DIR=#{Formula["mariadb-connector-c"].opt_include}/mariadb",
-                    "-DMySQL_LIBRARY_DIR=#{Formula["mariadb-connector-c"].opt_lib}",
-                    "-DPostgreSQL_INCLUDE_DIR=#{Formula["libpq"].opt_include}",
-                    "-DPostgreSQL_LIBRARY_DIR=#{Formula["libpq"].opt_lib}",
+                    "-DMySQL_INCLUDE_DIR=#{formula_opt_include("mariadb-connector-c")}/mariadb",
+                    "-DMySQL_LIBRARY_DIR=#{formula_opt_lib("mariadb-connector-c")}",
+                    "-DPostgreSQL_INCLUDE_DIR=#{formula_opt_include("libpq")}",
+                    "-DPostgreSQL_LIBRARY_DIR=#{formula_opt_lib("libpq")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

@@ -24,6 +24,14 @@ class DockerMachineDriverVmware < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2699119a539f3b9b7c86f900d5510d5b4cdb952ebdc60b7f5c12bf80f5d4932"
   end
 
+  # After Docker ended support for original docker-machine[^1], we have used
+  # GitLab-maintained fork. However, the fork is now officially deprecated[^2]
+  # and scheduled for removal in GitLab 20.0 (May 2027)
+  #
+  # [^1]: https://docs.docker.com/retired/#docker-machine
+  # [^2]: https://docs.gitlab.com/runner/executors/docker_machine/
+  disable! date: "2027-06-30", because: :deprecated_upstream
+
   depends_on "go" => :build
   depends_on "docker-machine"
 
@@ -32,7 +40,7 @@ class DockerMachineDriverVmware < Formula
   end
 
   test do
-    docker_machine = Formula["docker-machine"].opt_bin/"docker-machine"
+    docker_machine = formula_opt_bin("docker-machine")/"docker-machine"
     output = shell_output("#{docker_machine} create --driver vmware -h")
     assert_match "engine-env", output
   end

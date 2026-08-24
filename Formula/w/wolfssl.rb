@@ -4,9 +4,10 @@ class Wolfssl < Formula
   # Git checkout automatically enables extra hardening flags
   # Ref: https://github.com/wolfSSL/wolfssl/blob/master/m4/ax_harden_compiler_flags.m4#L71
   url "https://github.com/wolfSSL/wolfssl.git",
-      tag:      "v5.9.1-stable",
-      revision: "1d363f3adceba9d1478230ede476a37b0dcdef24"
+      tag:      "v5.9.2-stable",
+      revision: "ac01707f552c611fbd135cc723b2682b3e7f80f2"
   license "GPL-3.0-or-later"
+  compatibility_version 1
   head "https://github.com/wolfSSL/wolfssl.git", branch: "master"
 
   livecheck do
@@ -16,12 +17,12 @@ class Wolfssl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "591870f66e1d140d21a7c001ac99ce06e98b472cdb253535db0e9c5b1ec4b166"
-    sha256 cellar: :any,                 arm64_sequoia: "3aa87e6f1c42efd344f238a0b5f1ae2f6e7181e0d596681d1df83cc6814bcad8"
-    sha256 cellar: :any,                 arm64_sonoma:  "45b2065475667e1e44a677006508f140ef80b7872c122090d28fa29de08ad1cd"
-    sha256 cellar: :any,                 sonoma:        "bed4309d315045e39e46893b34650ba498dc02c1a3693ac94e0fa33aac634325"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b297f8c2637957114569dd8e8aff76a2b12732beca5ed1c410ec1aeecf916a2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cf1a91326f6ffe43f48d472974c022cb2e5ea5cd7222688725f1ce5bfcde1434"
+    sha256 cellar: :any, arm64_tahoe:   "92851dd6eb8e88140f5749104c1e5264f5af8bf597c8d35d44dd27bb5c327f29"
+    sha256 cellar: :any, arm64_sequoia: "862ebf92fdf078505b5d88eedc329cc95ddd72072b93dd6ca9944ddc2e26c15b"
+    sha256 cellar: :any, arm64_sonoma:  "4ca7786140c7c3147b7fdd403a8862ea85cd9c40ca5b515c266e104085eb7044"
+    sha256 cellar: :any, sonoma:        "b8f6e4be279f6d7eca0bd5d21a7a4d9ffd5e0d069fc3cd11d75861676b4f719e"
+    sha256 cellar: :any, arm64_linux:   "d2530699eb54a17fb16538600911c76009cae5a0197e99cebcb3961a2ecae995"
+    sha256 cellar: :any, x86_64_linux:  "80946a9f3733d3cbdea19d95b6e64f5b91c8322e0a72b22a24d8dc9282470b4f"
   end
 
   depends_on "autoconf" => :build

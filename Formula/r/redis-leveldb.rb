@@ -26,7 +26,7 @@ class RedisLeveldb < Formula
   depends_on "snappy"
 
   def install
-    inreplace "src/Makefile", "../vendor/libleveldb.a", Formula["leveldb"].opt_lib/"libleveldb.a"
+    inreplace "src/Makefile", "../vendor/libleveldb.a", formula_opt_lib("leveldb")/"libleveldb.a"
     ENV.prepend "LDFLAGS", "-lsnappy"
     system "make"
     bin.install "redis-leveldb"

@@ -3,19 +3,19 @@ class Mpremote < Formula
 
   desc "Tool for interacting remotely with MicroPython devices"
   homepage "https://docs.micropython.org/en/latest/reference/mpremote.html"
-  url "https://files.pythonhosted.org/packages/20/1b/d008342d1b018fb60e1196bf72a164ea71a567f924db11934f0e3a0a10bc/mpremote-1.28.0.tar.gz"
-  sha256 "fdb5626be83dff4e53c0184f8950814cb519b524dba7f1f8b1668aa477257a31"
+  url "https://files.pythonhosted.org/packages/ac/b7/8c44eb606b0e53517fd6ddda3f598b3bdb180c181f4e0bcbb9b7743f4cb5/mpremote-1.29.0.tar.gz"
+  sha256 "ab0b6f21059698e573ca076fe9a0299e5fe7bbc3ca3f5b2f00007e22e51c7b80"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1fc24b6df0a98810248f3548c95efabc5db92a2223c49374719f680642e8d0e8"
+    sha256 cellar: :any_skip_relocation, all: "49b6be298f88e70fd9a774d8183d8fff665e0662bbd26a770484fab17811b373"
   end
 
   depends_on "python@3.14"
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/47/e4501f49c178ae1d9f4a75073fda4204f52647993f075a9db4d14930e0c5/platformdirs-4.10.0.tar.gz"
-    sha256 "31e761a6a0ca04faf7353ea759bdba55652be214725111e5aac52dfa29d4bef7"
+    url "https://files.pythonhosted.org/packages/50/bb/ebc6636e1ae41314f796ebb7215fd28febb45f9aac72f2b04cb74b5071dc/platformdirs-4.11.4.tar.gz"
+    sha256 "f3373be828247211d0febabea97e238c3dfde8a60b3c90c32756fb52cb21556d"
   end
 
   resource "pyserial" do

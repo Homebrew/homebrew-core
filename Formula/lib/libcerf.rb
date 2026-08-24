@@ -1,12 +1,12 @@
 class Libcerf < Formula
   desc "Numeric library for complex error functions"
-  homepage "https://jugit.fz-juelich.de/mlz/libcerf"
-  url "https://jugit.fz-juelich.de/mlz/libcerf/-/archive/v3.3/libcerf-v3.3.tar.gz"
-  sha256 "ea2910085448e269b5f0f0fabe51ffd846ac68881904be99669d94dc0cc09765"
+  homepage "https://jugit.fz-juelich.de/mlz/lib/cerf"
+  url "https://jugit.fz-juelich.de/mlz/lib/cerf/-/archive/v3.3/cerf-v3.3.tar.bz2"
+  sha256 "ea9ec1e114227d7d90dbf7985c8801d8ac00e2b696a45dd1058b40e80f283882"
   license "MIT"
   version_scheme 1
   compatibility_version 1
-  head "https://jugit.fz-juelich.de/mlz/libcerf.git", branch: "main"
+  head "https://jugit.fz-juelich.de/mlz/lib/cerf.git", branch: "main"
 
   livecheck do
     url "https://jugit.fz-juelich.de/api/v4/projects/269/releases"
@@ -14,12 +14,13 @@ class Libcerf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "c3a49c2f598757609120ae99569565f67e2a1b817cd7a2a8648cbfcf79fb022c"
-    sha256 cellar: :any,                 arm64_sequoia: "a533115d2cc04cf3b55b2cfcea18d40bfb9e60c48bd84b4c7d15f520fbaf55df"
-    sha256 cellar: :any,                 arm64_sonoma:  "b0a676b18a17826dfc57958aa8b700c307d21fe3f8f510276b75b4d8b5f8d41d"
-    sha256 cellar: :any,                 sonoma:        "0954bcc977146151fed6268836c9ebb1ca199aa09d500d769546da54131c2c2f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f32ea4a843889204e68320fac5815758680c994ad607abeb735f7e2f44c944bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08a45c344ce19f291d6cb74c5c89eb461caa4f56c71f5d00637a8dde5945e0f4"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "9a900691ec484b5b208be703da7a5f9035c89c7a075b3a4bad56fbe5ab4e96f1"
+    sha256 cellar: :any, arm64_sequoia: "b7ff62cbac27ee100bb1fc7f0eaac9d4c3d0f9ec42b61db74e6ac365888b6539"
+    sha256 cellar: :any, arm64_sonoma:  "fa67893d311bf0ab0bb33b6c9e9db123665469451745e94a7b2ac8528c30b23f"
+    sha256 cellar: :any, sonoma:        "a7f380e212f00145f031f37500d46679bd5d153d39b6d09c50a11db8af1c47dd"
+    sha256 cellar: :any, arm64_linux:   "3ac71eb77e20d7bc5884e93179ef635e9391775fcef01cf80264850c6b4338db"
+    sha256 cellar: :any, x86_64_linux:  "9456b1c6425be1138bc4546603cd569415bb4d2b09d02467920e0a4deb1646c6"
   end
 
   depends_on "cmake" => :build

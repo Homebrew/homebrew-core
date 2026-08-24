@@ -1,8 +1,8 @@
 class Kdoctools < Formula
   desc "Create documentation from DocBook"
   homepage "https://l10n.kde.org/docs/doc-primer/"
-  url "https://download.kde.org/stable/frameworks/6.27/kdoctools-6.27.0.tar.xz"
-  sha256 "69026ef8607cb6257e4d1f0e46e451130ef7ba67994a83e4f9a6c46eefd5a3f3"
+  url "https://download.kde.org/stable/frameworks/6.29/kdoctools-6.29.0.tar.xz"
+  sha256 "1e1cb8bbf53e4f0482a916e1db9e202c8a8e8f4f2264dbcf98e837876ef83fae"
   license all_of: [
     "BSD-3-Clause",
     "GPL-2.0-or-later",
@@ -17,12 +17,12 @@ class Kdoctools < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "1661999ff0bc81cdd65cd4d780b066c1176733ba835034dbd5c17d1ed00def4a"
-    sha256 cellar: :any, arm64_sequoia: "d49cc1ccb498749e0a020f43d57f24e105bf60b8e376acac23939a634300741c"
-    sha256 cellar: :any, arm64_sonoma:  "0dcf02f6b098fd607d091f43e9ddd026d08c585ebb78a421d3eef17c45cbca8d"
-    sha256 cellar: :any, sonoma:        "d1a74d91a4be763e3382044a72fa45bd8931d94fd6cbe81385a410d94d96771d"
-    sha256 cellar: :any, arm64_linux:   "1817b4173d6f05bfe3a7fa79d20ecbcf32e4ccd6ff4f6f7af620b5b83bf061bf"
-    sha256 cellar: :any, x86_64_linux:  "f3d06a2c967dc6b006e622dd86f1ca6580cee09cbcbb52cf98bd10e43a1eb1b0"
+    sha256 cellar: :any, arm64_tahoe:   "85827ca6eac3bfdc5e153f9b546225d198d38efb3223e6c48319ee898848bef2"
+    sha256 cellar: :any, arm64_sequoia: "fa595d4fea8174f42255eca1c17c7b513e1a9ddc2028155326e8bee5a364bb36"
+    sha256 cellar: :any, arm64_sonoma:  "d02018941ca9e1161df282ac6cf350e976eda68798cb3127ac1476b56a364319"
+    sha256 cellar: :any, sonoma:        "8495b7372cdde8a7069101a207d29d10bd8f28a7273279b4c3c36524bb773fd0"
+    sha256 cellar: :any, arm64_linux:   "f77b1e648882dfaf5f3a874e07c5daa90d6b8c4fbf133b431f43d5c3903e2205"
+    sha256 cellar: :any, x86_64_linux:  "63c0648207d0ef4650b2c0edaea1134432049699a4ed0ea043c3e3253de2dadc"
   end
 
   depends_on "cmake" => [:build, :test]

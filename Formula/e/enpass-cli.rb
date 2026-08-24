@@ -1,25 +1,25 @@
 class EnpassCli < Formula
   desc "Enpass command-line client"
   homepage "https://github.com/hazcod/enpass-cli"
-  url "https://github.com/hazcod/enpass-cli/archive/refs/tags/v1.11.0.tar.gz"
-  sha256 "a211566965a4737d41ca5473d096df996a63ce53e45c22957db816f6d4b57ec4"
+  url "https://github.com/hazcod/enpass-cli/archive/refs/tags/v1.12.0.tar.gz"
+  sha256 "c53922b4a4d6df280a13605b720a52ee6a465aa831f5c666564e1912b1690c7d"
   license "MIT"
   head "https://github.com/hazcod/enpass-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d4e2704fcbfa4cc85861b1a5ac098718b53965ab52a88f6cee6416da86c19d7a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "544cfbc95aaa30fd64c03e51b22f026c1038e0111b8de58c2bd613348a895b87"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b778119d188192b1b22d2b484aa0a23cfe24ac1f36910cffc3433575b1eff9f8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e5c0be98b3035769c5da7455c479f97fe1fcb881232f3500fec6f8a58fe08ece"
-    sha256 cellar: :any,                 arm64_linux:   "c5a65335a9f9b2766e2590369ef7298e315bfb12e8bc18f78552bd816fd368c7"
-    sha256 cellar: :any,                 x86_64_linux:  "cc76815817915195cdb40938d45d2e86cd3f3ea28316d33326e6c6ccad00cbcd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ef015dbaf66347da6767f11bfdb24128482cc87b2313c5267653ad73ffd6da9e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8800fa45a4b6989337e52b0b57f3c6f75664aaa01840f2f379d5b2a314d8d605"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4768816d11644ab5c6a6cd64e8d97bbcfd0409a7caf06ebc213cd08c408b7835"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3943f4dc781997b07c503ee3833dce713003c1a6c12a3659e23f9bf11fed499b"
+    sha256 cellar: :any,                 arm64_linux:   "f0aff1f75c1f1a2f573265f1df322359ee7882f5ee8748ba65074f3b73b571ea"
+    sha256 cellar: :any,                 x86_64_linux:  "a4e8bba6aca520bdee33d65f17d40a09715ceaff1c28998f21df4e263d613c81"
   end
 
   depends_on "go" => :build
 
   def install
     ENV["CGO_ENABLED"] = "1"
-    system "go", "build", *std_go_args(ldflags: "-s -w -X 'main.version=#{version}'"), "./cmd/enpasscli"
+    system "go", "build", *std_go_args(ldflags: "-X 'main.version=#{version}'"), "./cmd/enpasscli"
     pkgshare.install "test/vault.json", "test/vault.enpassdb"
   end
 

@@ -6,12 +6,13 @@ class Zenity < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_tahoe:   "2321c1402561eb6d0ec1f3af4fd3f67a185d6c46b77c592b33c3bd5c1ebbdcba"
-    sha256 arm64_sequoia: "f0d8890a0793c6d4b601a9f15b4b5d4a1f013259d9871c0ee161f08a537be304"
-    sha256 arm64_sonoma:  "922cb43d744d529e2c72efa70b676890eb1acef6f4a1889372b3820ccb1a9246"
-    sha256 sonoma:        "f347e55e1618ec44572b8646cc875180cce1ef003b77166c1d643ab0d32444c8"
-    sha256 arm64_linux:   "90306b1c235fa9621527f6c9cd86c245780aab336faf75b3ed132f00f5b16955"
-    sha256 x86_64_linux:  "be6ad7ce4ea3b7e74785d386c196c7cc2808efe951d2b9d13466162d8679545e"
+    rebuild 1
+    sha256 arm64_tahoe:   "b422f8fbb0db0178eaaa88fb933b6aa56596fb2b5e4d97fdc44b3902b7b3238f"
+    sha256 arm64_sequoia: "f675d793af98c544a41763e2529a3295acf5f6bd8a8927af64d500c1446f232d"
+    sha256 arm64_sonoma:  "27fcad4be82fc8df064bb7c8fce661f5b67a076abd0ae5982e9674d58f862bfc"
+    sha256 sonoma:        "1c136a28e692837d869415cdee79486aa311e9e41e0f31b50791b3c00b27f0e8"
+    sha256 arm64_linux:   "4eb09a52b20d1bd2628c94d98bf14875e6289a8c36c478a9f94ef0bf8693d84c"
+    sha256 x86_64_linux:  "af058999ac5669aa10f134317a390c83a017a0a515efe2892279cc7144b0ee9e"
   end
 
   depends_on "gettext" => :build
@@ -38,8 +39,8 @@ class Zenity < Formula
     system "meson", "install", "-C", "build"
   end
 
-  def post_install
-    system Formula["gtk4"].opt_bin/"gtk4-update-icon-cache", "-f", "-t", HOMEBREW_PREFIX/"share/icons/hicolor"
+  post_install_steps do
+    update_gtk_icon_cache
   end
 
   test do

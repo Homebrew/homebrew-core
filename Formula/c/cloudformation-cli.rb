@@ -3,10 +3,14 @@ class CloudformationCli < Formula
 
   desc "CloudFormation Provider Development Toolkit"
   homepage "https://github.com/aws-cloudformation/cloudformation-cli/"
+  # TODO: migrate to `python@3.14` and remove `setuptools<82`  on next release
+  # https://github.com/aws-cloudformation/cloudformation-cli/commit/043c02f30acdd70fca9f91909b2f14d9f4b1b742
+  # https://github.com/aws-cloudformation/cloudformation-cli/commit/698c3853ba80cd8f719ad8b583777e325c9e309b
   url "https://files.pythonhosted.org/packages/12/ed/36f14b63957e99d9f2cbb5ac5671eed9fb93569e57add60534d47fc630e4/cloudformation-cli-0.2.39.tar.gz"
   sha256 "63bd83ad0b40b6ad21983dfe05f0717aeaa36cb3f935ef6825f8ca73d7a8e5a7"
   license "Apache-2.0"
   revision 13
+  head "https://github.com/aws-cloudformation/cloudformation-cli.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "f579d39713724e2668c6b4e1f4e5ae9d96619aa832c5d53d130998611b1ef1a4"
@@ -21,7 +25,7 @@ class CloudformationCli < Formula
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.13" # Pydantic v1 is incompatible with Python 3.14, issue ref: https://github.com/aws/serverless-application-model/issues/3831
+  depends_on "python@3.13" # Needs aws-sam-translator>=1.110.0 but blocked on allowing jsonschema>=4.23
 
   pypi_packages exclude_packages: %w[certifi pydantic],
                 extra_packages:   %w[cloudformation-cli-go-plugin cloudformation-cli-java-plugin

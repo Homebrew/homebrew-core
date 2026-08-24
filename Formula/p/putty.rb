@@ -1,18 +1,18 @@
 class Putty < Formula
   desc "Implementation of Telnet and SSH"
   homepage "https://putty.software/"
-  url "https://the.earth.li/~sgtatham/putty/0.84/putty-0.84.tar.gz"
-  sha256 "06057862ae198f1dbd219d0c7493080d59f606194bb5056c549e342aa01b69fe"
+  url "https://the.earth.li/~sgtatham/putty/0.85/putty-0.85.tar.gz"
+  sha256 "13fd4db2936d03b73812a7bcc2a658e4dd29cc776a56c3670a7fc6f1a0ee8af8"
   license "MIT"
   head "https://git.tartarus.org/simon/putty.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "892f91f39035e15f001113fdaaba92845b6e554d1c5e3945f7d06c814c2e3673"
-    sha256 cellar: :any,                 arm64_sequoia: "294e693b1708ff661d9a68afd4a4340500465142ba7b6ad33fd27577c0e912d8"
-    sha256 cellar: :any,                 arm64_sonoma:  "da9014973e707444aaba812f9270657f0b9839375e2e5fe594ca600640cc36e2"
-    sha256 cellar: :any,                 sonoma:        "67eb5e27869b0781f9fc833960ddd8c307d6030072c609c30504af4532bd5bd7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d2dbe37239a805fca18b7844a70fa5ed6b917e651b69288ee623c6cf1b048c6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c76fdc30ed072fe433722b84f2084cd7fe93b687d11da9f7e73622857a40391b"
+    sha256 cellar: :any, arm64_tahoe:   "a4e421f1fa6345d1ac144df17dde9b51ed850ccf2f455f78c425745e18893e24"
+    sha256 cellar: :any, arm64_sequoia: "9827f9974dab6b05e1cd8afc5b54332a91f2b070b5011452c6358631e21fa3bd"
+    sha256 cellar: :any, arm64_sonoma:  "7926b63799e359c16920b4adc709349d7643f0e3c3d8a5b5593272df227646e7"
+    sha256 cellar: :any, sonoma:        "be46bf5d09cb2255f9c31c8bb223cef56c368007c89ada9697d96bb1bac5b767"
+    sha256 cellar: :any, arm64_linux:   "6efe8b3b257063721dfd653918a6f449bf711d859dbc68abc8151847a4a8e5cc"
+    sha256 cellar: :any, x86_64_linux:  "6f2d73f3c6e67b86e2cab8dbc634c6389267f0ea693802af27f5615e701a4e46"
   end
 
   depends_on "cmake" => :build

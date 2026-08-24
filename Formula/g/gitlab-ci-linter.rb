@@ -19,7 +19,6 @@ class GitlabCiLinter < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X gitlab.com/orobardet/gitlab-ci-linter/config.VERSION=#{version}
       -X gitlab.com/orobardet/gitlab-ci-linter/config.REVISION=#{tap.user}
       -X gitlab.com/orobardet/gitlab-ci-linter/config.BUILDTIME=#{time.iso8601}

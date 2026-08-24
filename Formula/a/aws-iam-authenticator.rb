@@ -1,8 +1,8 @@
 class AwsIamAuthenticator < Formula
   desc "Use AWS IAM credentials to authenticate to Kubernetes"
   homepage "https://github.com/kubernetes-sigs/aws-iam-authenticator"
-  url "https://github.com/kubernetes-sigs/aws-iam-authenticator/archive/refs/tags/v0.7.18.tar.gz"
-  sha256 "06678ff8de3b166275e53e75958e739902dace506342abb3b62f01c00b4aa9d0"
+  url "https://github.com/kubernetes-sigs/aws-iam-authenticator/archive/refs/tags/v0.7.19.tar.gz"
+  sha256 "82d69cd6ae7910d376e345f7c7dfdce2289a2534a495334623c7de0a86578177"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/aws-iam-authenticator.git", branch: "master"
 
@@ -16,19 +16,18 @@ class AwsIamAuthenticator < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a2b289775ef93b9d8bceb51fe758543845fdc4906bfc78b0dda1a40da9819465"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c6eba3592e85a6d2b0aab902788e8552f58ea2f414b24fd14dad20d593653c36"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2488003178e683ca7836affacdf036863534f5219d871177efb2ade5536e6597"
-    sha256 cellar: :any_skip_relocation, sonoma:        "68b044ad214ea804c45e891ae7dce8db44380f835ed4b87f81756735893b26e2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e8b9f84360e44f4e5f179a98875c022baba3f61ac8e666ee00320dd6be8ad5a"
-    sha256 cellar: :any,                 x86_64_linux:  "d0c275cffb0fe03b7db92a5fc3ecc6f04b2a3f15507ce2de4a6fe36129aa0706"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "34f6e9cc8db1e84911cf345c34e02d521b1d50ccb9f82a1261434a3da8fa12a4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4fb5c43050b3fbcdbe5c25d2248b0668fa0bbc521a51d7147c5fd4eeecaaca97"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b119226cc8a1fd038c90e23cacaee0ecbbf03f811da31a3b3a2b1fa5b9bf8d6a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "87745662cd840addf30f0b00548e60b53551936c0743decbba7d6f5b96c9a027"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1237c61173566c1b70e7c76c26e6e9fb2e37bfef6098c3eb5bc13981c94691cc"
+    sha256 cellar: :any,                 x86_64_linux:  "4a93b6a0e5f8b1df4eba4a8e7e39b29eeee85c691abd4b421fb535eba7e7fe2c"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = %W[
-      -s -w
       -X sigs.k8s.io/aws-iam-authenticator/pkg.Version=#{version}
       -X sigs.k8s.io/aws-iam-authenticator/pkg.CommitID=#{tap.user}
       -buildid=

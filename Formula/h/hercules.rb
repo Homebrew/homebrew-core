@@ -34,6 +34,7 @@ class Hercules < Formula
     patch do
       url "https://github.com/SDL-Hercules-390/crypto/commit/9ac58405c2b91fb7cd230aed474dc7059f0fcad9.patch?full_index=1"
       sha256 "e650ed22fb63ec7d87c0dd79ec6f98ea4988e7635a8add13c8149d0731826710"
+      type :backport
     end
   end
 
@@ -45,6 +46,7 @@ class Hercules < Formula
     patch do
       url "https://github.com/SDL-Hercules-390/decNumber/commit/995184583107625015bb450228a5f3fb781d9502.patch?full_index=1"
       sha256 "4a803caf1841cbb6597c195df3e5287345c35e154d46ac58f33c21b737b1e4b7"
+      type :backport
     end
   end
 
@@ -56,6 +58,7 @@ class Hercules < Formula
     patch do
       url "https://github.com/SDL-Hercules-390/SoftFloat/commit/e053494d988ec0648c92f683abce52597bfae745.patch?full_index=1"
       sha256 "ac13515baeb9de206d943e6d85fba30ad5f06c058e017161d18edada34aaf203"
+      type :backport
     end
   end
 
@@ -67,6 +70,7 @@ class Hercules < Formula
     patch do
       url "https://github.com/SDL-Hercules-390/telnet/commit/384b2542dfc9af67ca078e2bc13487a8fc234a3f.patch?full_index=1"
       sha256 "c56109ba2cd9365da690bb13cc5d9d3caaaa8413d800c0bc482482cf02739a01"
+      type :backport
     end
   end
 

@@ -1,8 +1,8 @@
 class Ryelang < Formula
   desc "Rye is a homoiconic programming language focused on fluid expressions"
   homepage "https://ryelang.org/"
-  url "https://github.com/refaktor/rye/archive/refs/tags/v0.2.11.tar.gz"
-  sha256 "67f9e7727598ef81c6bb7ccb25a1f274d6cc773b1a0897dd6117b4e6db9fc92a"
+  url "https://github.com/refaktor/rye/archive/refs/tags/v0.2.60.tar.gz"
+  sha256 "c098887fbb5b7208c9b829f5f230832a57cd34f333f95dc1984dde985a61fbaf"
   license "BSD-3-Clause"
   head "https://github.com/refaktor/rye.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Ryelang < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cdb0a33fde032c05d91673941c5483d5b2eca39b79b5d45919438757669103ce"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dafea8bad7c6d3cea20c5ff1a4be427d065809bb804585526e6235b2c0bc0319"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f4fd6beff5d5c9cd4cd069ca072a69dd7c3cc8024e80206afdeeceb5252f7128"
-    sha256 cellar: :any_skip_relocation, sonoma:        "61af22b2c1585f5ab5b95b41af4e20b2d5eed97f5a3eef884032a997d869948b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c68932b793de27e80e645b24290be26ba70cb5829b4719d4c57932d32529b71e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f954b0d63df31e7aa1df802dccbe66d6047b5f9d45080130bbc6a238adcc140"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "137e428da22c9715f3ac1c429e9f8b3d568bd3600f460d53a5389dea8e7a1785"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0306c5f59086d2d23aa3c0a4f767477e109c693c88ae7d2f1d797cb391127a04"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a3d34c9164a5b4ce7c7a59a427597fd3c46722928a5d9e5e0c06d90ed23f280"
+    sha256 cellar: :any_skip_relocation, sonoma:        "37a74a5b9b7ac7c35f6e2aa68a09fc6db3bc906af01bda984f6dcfb0edea8734"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "61ec96abefc06d865c001f938d64bc6abad63e62ad1727c0e64c8fca1e11304a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e082248a1710d7e8701dd706fb9745ea0fd49a894eea890a4eba214241997261"
   end
 
   depends_on "go" => :build
@@ -27,10 +27,7 @@ class Ryelang < Formula
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
 
-    ldflags = %W[
-      -s -w
-      -X github.com/refaktor/rye/runner.Version=#{version}
-    ]
+    ldflags = %W[-X github.com/refaktor/rye/runner.Version=#{version}]
 
     system "go", "build", *std_go_args(ldflags:, output: bin/"rye")
     bin.install_symlink "rye" => "ryelang" # for backward compatibility

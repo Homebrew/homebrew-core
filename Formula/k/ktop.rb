@@ -19,7 +19,6 @@ class Ktop < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/vladimirvivien/ktop/buildinfo.Version=#{version}
       -X github.com/vladimirvivien/ktop/buildinfo.GitSHA=#{tap.user}
     ]

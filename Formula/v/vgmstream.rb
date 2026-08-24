@@ -6,6 +6,7 @@ class Vgmstream < Formula
       revision: "71e2361042531fe767fb98300cf8c1ee95e539a0"
   version "r2117"
   license "ISC"
+  revision 1
   version_scheme 1
   head "https://github.com/vgmstream/vgmstream.git", branch: "master"
 
@@ -16,12 +17,12 @@ class Vgmstream < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "42efc7d31923a8223997687b4e3b75c51c1bb0060b880b6758197107bacfa8f3"
-    sha256 cellar: :any,                 arm64_sequoia: "7666a7296ad12b3457713813428c6922c0217b7cc6871447a4544254cb710592"
-    sha256 cellar: :any,                 arm64_sonoma:  "630809d4b97aec569421bb4e9205ecd0b5421ea3f3e277d6c2fa14ef27ad4469"
-    sha256 cellar: :any,                 sonoma:        "fe45b64cf96542feae9fef19d43ee18119fce8a1ee03c97c12e72d7313094ed2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9eda3ceb22f2d299fef87dc9cb28187acf8c9714b12797d7f8f0f9a2bf4dd6d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "86752c52fe100b1aabac73b698f4e277c318a7898e6c7bb14c3f747762fdc392"
+    sha256 cellar: :any, arm64_tahoe:   "cc16494090e481166eebd827eba42172321e9d85987897aa2a2e14272215105e"
+    sha256 cellar: :any, arm64_sequoia: "280620bd9a157326fe31cce0bf7575887147a7399a78dcc9950039181b40fa4b"
+    sha256 cellar: :any, arm64_sonoma:  "276590e9e0fb52abccb2ba01d0224308a1b7eaaf06931026024d0fea6a75cec0"
+    sha256 cellar: :any, sonoma:        "48bac949ab508a2070b580a1d273579a1e8ac0f679e40c672b1ee946a12aea8b"
+    sha256 cellar: :any, arm64_linux:   "befa92702eb318b44fbcf4ed8052cbb6541676b45db9f60e47d3fc8a2152b400"
+    sha256 cellar: :any, x86_64_linux:  "cc96639cbdb0e56a3eadf2ff9c6969d52537e961de9cfc9e620c3577ad33b101"
   end
 
   depends_on "cmake" => :build

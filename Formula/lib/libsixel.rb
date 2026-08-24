@@ -1,31 +1,33 @@
 class Libsixel < Formula
   desc "SIXEL encoder/decoder implementation"
-  homepage "https://github.com/saitoha/sixel"
-  url "https://github.com/libsixel/libsixel/archive/refs/tags/v1.10.5.tar.gz"
-  sha256 "b6654928bd423f92e6da39eb1f40f10000ae2cc6247247fc1882dcff6acbdfc8"
+  homepage "https://github.com/saitoha/libsixel"
+  url "https://github.com/saitoha/libsixel/releases/download/v1.8.7-r2/sixel-1.8.7-r2.tar.gz"
+  version "1.8.7-r2"
+  sha256 "9088475e5a1332f84b92ad46fd3c199ac56500c67f8a4054efccbc0db644bdba"
   license "MIT"
-  head "https://github.com/libsixel/libsixel.git", branch: "master"
+  version_scheme 1
+  head "https://github.com/saitoha/libsixel.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6de5ac481b343617fb5a42b78ca935b32758394e101ac8bfe6bf5f2828a991a3"
-    sha256 cellar: :any,                 arm64_sequoia: "88cbe981c41523b73f930f4016f998766c0cea0c208f7689c784dcfd81fc76fa"
-    sha256 cellar: :any,                 arm64_sonoma:  "dc6b0e6415de00ff5a57eb6feb5010418cd3d6550b6203daa32a812404d0124c"
-    sha256 cellar: :any,                 arm64_ventura: "08aa4abca3775c48d84eba8ce64e94ce4f82dfc115f54b7db1125cb38f0d7bfa"
-    sha256 cellar: :any,                 sonoma:        "85f135277174340376fb0e6ba6de5804bc017380224411f4ffca4956c6b4512c"
-    sha256 cellar: :any,                 ventura:       "65e7a29a633dafc3306065c4fea861cedf9a51122f9aa22c3abfd8e3e664547b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "93f446a2e99e9751229ad41532799e0f4c40983088c6dd47d026c80270f74541"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afac541b74c1f46fea3c1e2b2c2443e93d769d221d3e512ef9af2a5ce2b292e4"
+    sha256 cellar: :any, arm64_tahoe:   "48d25cd9b90ad067a4a8dbc77811e21827c40185b86e6f978c631878e4e9c168"
+    sha256 cellar: :any, arm64_sequoia: "7916ae0f4e67563b37584a7936d42fda2ce852a9c3e85ca979682ea5c525ffbf"
+    sha256 cellar: :any, arm64_sonoma:  "44f1dfd4f375c01da233d76d3e6183fd1b611c6efa7be0afdde40f89956a0814"
+    sha256 cellar: :any, sonoma:        "bc41609ca46bb7c7e3f0fa18c1710a6040cdd949b47bec2f23ba7a20fa9df9dd"
+    sha256 cellar: :any, arm64_linux:   "c085fad95eb13f71971bd8e16bb1a041328b7f3f88f46a1001c8e488bf33f584"
+    sha256 cellar: :any, x86_64_linux:  "2d9f918ca63ce72f515d7067e0d3c364b9dbcf4ada3f20afff71b62bf13e2303"
   end
 
-  depends_on "meson" => :build
-  depends_on "ninja" => :build
+  depends_on "pkgconf" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
 
   def install
-    system "meson", "setup", "build", "-Dgdk-pixbuf2=disabled", "-Dtests=disabled", *std_meson_args
-    system "meson", "compile", "-C", "build", "--verbose"
-    system "meson", "install", "-C", "build"
+    system "./configure", "--disable-python",
+                          "--without-libcurl",
+                          "--with-jpeg",
+                          "--with-png",
+                          *std_configure_args
+    system "make", "install"
   end
 
   test do

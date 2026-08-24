@@ -32,7 +32,7 @@ class Slicot < Formula
 
   test do
     system "gfortran", "-o", "test", pkgshare/"TAB05RD.f",
-                       "-L#{lib}", "-lslicot", "-L#{Formula["openblas"].opt_lib}", "-lopenblas"
+                       "-L#{lib}", "-lslicot", "-L#{formula_opt_lib("openblas")}", "-lopenblas"
     assert_equal (pkgshare/"AB05RD.res").read, pipe_output("./test", (pkgshare/"AB05RD.dat").read, 0)
   end
 end

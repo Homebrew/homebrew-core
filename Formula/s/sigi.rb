@@ -1,22 +1,18 @@
 class Sigi < Formula
   desc "Organizing tool for terminal lovers that hate organizing"
   homepage "https://sigi-cli.org"
-  url "https://github.com/sigi-cli/sigi/archive/refs/tags/v3.7.1.tar.gz"
-  sha256 "fff199ed3b717377af733324fd77568c5e3df8320c53bd26e8bf495d60818e38"
+  url "https://github.com/so-dang-cool/sigi/archive/refs/tags/v3.8.0.tar.gz"
+  sha256 "a40abce8da7fadd4ce4b51f9124210cc9337c474b40046e4eb6301c42da9af22"
   license "GPL-2.0-only"
-  head "https://github.com/sigi-cli/sigi.git", branch: "core"
+  head "https://github.com/so-dang-cool/sigi.git", branch: "core"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "6919573610314e15c997ee39d2bad28f9af840473162d61c58efd5839f7c297d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "86da61c2b5d794b74bff13924cecb7f610034d1f4f9a25e7eace70b90cc57539"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e26706b19c0c5233a103c692b66c1b45dac5ebd6a735ed4e6d852861e4c3609a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e15523164561b9823dae8d7581719b486833df10ad957deea4b90420ae3baac2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "74e53c2d8ebc12f0e907082ebf6de4fabd1621f73ab8a4d47b7f7b2d4ed7155b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b2d5f45cc3906d4191ce72b5e374846e0c5c57da3b8b61388d1b2b161691d7eb"
-    sha256 cellar: :any_skip_relocation, ventura:        "3e61dd1fae21e604c077e1d83b6dab9add32ab5b77929bd80f7b10ba47232ce2"
-    sha256 cellar: :any_skip_relocation, monterey:       "3473b320d33aea1cade3ba6927d4cf8cfe835a9086caba42898ff34177305397"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "72e91818ac3c30e6f28617217c3b5eb3752fc013a7c94d42fa36686d07366846"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9956ee5542d2289d376febb6d44e752e588ddcae44a71d4d89cd2da14983f259"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "757ca1039232442b3540534d73ce4b5d9d94b8763761186535e7f193009a1d15"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "028bd7ae19a22f744a0b7b48e9865e85f207dbcac03facf8c3bb68f8a032caf0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "50658caf088b4d06f79520e6d06cb4832a0383ffcf6fc1301c0b208007422f82"
+    sha256 cellar: :any_skip_relocation, sonoma:        "67161508b2b6547cc0c0554ce385ce6fe36098b25d64b02e4cb092c09660eea8"
+    sha256 cellar: :any,                 arm64_linux:   "7aa08f41a9610d2d49585f7b6b09343a89af37f1dcda69fa7fc7e43f9b0d7f8b"
+    sha256 cellar: :any,                 x86_64_linux:  "7f33abcfa44f8164cc54e0a4c222e2019ea573a644469daffc20e40b4f1d6967"
   end
 
   depends_on "rust" => :build

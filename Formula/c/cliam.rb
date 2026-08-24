@@ -20,7 +20,6 @@ class Cliam < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/securisec/cliam/cli/version.BuildDate=#{time.iso8601}
       -X github.com/securisec/cliam/cli/version.GitCommit=
       -X github.com/securisec/cliam/cli/version.GitBranch=

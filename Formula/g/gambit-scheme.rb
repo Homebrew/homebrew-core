@@ -1,8 +1,8 @@
 class GambitScheme < Formula
   desc "Implementation of the Scheme Language"
   homepage "https://gambitscheme.org/"
-  url "https://github.com/gambit/gambit/archive/refs/tags/v4.9.7.tar.gz"
-  sha256 "0da7c9772a2186dab1fba6bf6c777afe7424f40beacadf1b117d5cc825fe2db3"
+  url "https://github.com/gambit/gambit/archive/refs/tags/v4.9.8.tar.gz"
+  sha256 "0ec19b755dbda6c540e9e60b7235d801f26f40c2f211ddfb729b756218bcc873"
   license "Apache-2.0"
 
   livecheck do
@@ -11,14 +11,12 @@ class GambitScheme < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "67a5f5bde73e525d2c488db0630747dd973391c70dca31856706a9406f63e9d2"
-    sha256 arm64_sequoia: "d865948c300dca31a94bb7f6044abdf0c7b6b054c32fce1bbe20490d0956841c"
-    sha256 arm64_sonoma:  "a50e4b0a899069f7e67a8cf47346bfcb80636b82d8af8d7a8cac989a6f1906f9"
-    sha256 arm64_ventura: "2b0fabb679485de2ab986531dd750561969f8bad53397a60bf37804f389f7a09"
-    sha256 sonoma:        "8a424288530b11d1e79006f4958683db02cb9070646697394ed3f12cc025a94f"
-    sha256 ventura:       "731b5181b8d80d3a19ee3cb7a1d2f4a0eef9481940712a3926492462d8781262"
-    sha256 arm64_linux:   "ecc701336f5dcd9619ce82abfc1ebac667a79c80ba9e9af5de2361f97befc613"
-    sha256 x86_64_linux:  "32b5fa130a244ff8cc9dc13a27bfb30bd844ab21a3ec0f8f663f01a063d8351e"
+    sha256 arm64_tahoe:   "d2b89e48bcc3696606b22560e530afd8c7cc41745ffdbccdaf03eb414f83ce5b"
+    sha256 arm64_sequoia: "dee55256d8b72036f5512f5c6c5ff526e90ef741a321cc3abb1703efd2018625"
+    sha256 arm64_sonoma:  "792b27e088e7eed175fdf4297ff387cd6301e4a831c2d5e19767cf2cb16f4d0d"
+    sha256 sonoma:        "fc2714c39fba97197e264255efe3e6359f2aa2020a11c877270ddc644718f50c"
+    sha256 arm64_linux:   "abb910c7c95fa1ed5f135d9c8b877152333b4233dc71a93d4c7ccd2e480b861c"
+    sha256 x86_64_linux:  "562e24e2eb6eb60a92ed469b94dda9974f3f4d0e56f8a47e877344c4013fdee1"
   end
 
   depends_on "openssl@3"
@@ -48,7 +46,7 @@ class GambitScheme < Formula
 
     # Fixed in gambit HEAD, but they haven't cut a release
     inreplace "config.status" do |s|
-      s.gsub! %r{/usr/local/opt/openssl(@\d(\.\d)?)?}, Formula["openssl@3"].opt_prefix
+      s.gsub! %r{/usr/local/opt/openssl(@\d(\.\d)?)?}, formula_opt_prefix("openssl@3")
     end
     system "./config.status"
 

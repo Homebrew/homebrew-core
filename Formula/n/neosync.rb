@@ -23,7 +23,6 @@ class Neosync < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/nucleuscloud/neosync/cli/internal/version.gitVersion=#{version}
       -X github.com/nucleuscloud/neosync/cli/internal/version.gitCommit=#{tap.user}
       -X github.com/nucleuscloud/neosync/cli/internal/version.buildDate=#{time.iso8601}

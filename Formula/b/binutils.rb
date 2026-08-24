@@ -1,22 +1,22 @@
 class Binutils < Formula
   desc "GNU binary tools for native development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.46.1.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.46.1.tar.bz2"
-  sha256 "324ed40ada2633a28eaa5d104ca5db165fd3cc3162cc1d48a7b7fa9c932da439"
+  url "https://ftpmirror.gnu.org/gnu/binutils/binutils-2.47.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/binutils/binutils-2.47.tar.bz2"
+  sha256 "3068128c75cda9f898ccb4211d360246e8e195ffcc9dfb655b23ae23a54800e8"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.0-or-later", "LGPL-3.0-only"]
   compatibility_version 1
 
   bottle do
-    sha256               arm64_tahoe:   "0fa7427cfdd1f13ed418e1c0b68a6ccd0bec6a42a332fdcbca082f86c2f41df0"
-    sha256               arm64_sequoia: "0718674cdd51382532b1380b172b52c0083faad78aad689192a85c3d63f66cd0"
-    sha256               arm64_sonoma:  "d59df6b8728e9b2b74f92e4613a3351e0bbb728cc76037c1a7ba1bea2c323a6e"
-    sha256               sonoma:        "fb1e98cfd6d046d05f13648231a8bc59576927120def25ba1315a49d6b9b972c"
-    sha256 cellar: :any, arm64_linux:   "668e2da50d0cabc4c3a5d09c31e19a2ae7e3aec3b33980254a6a54a943e32e58"
-    sha256 cellar: :any, x86_64_linux:  "3fa1925f8132d50e5602c543637c04b7dd7e50370b1ad7715da8458f2f99e71a"
+    sha256               arm64_tahoe:   "3453a1b0d79fcf2f8cdb994352a7a0c42f075027df3c5af9cd3b59e48d925217"
+    sha256               arm64_sequoia: "d5a0fc7a1ecde47af381298523ee64c9072041531634e405e2adac034d73095d"
+    sha256               arm64_sonoma:  "8ffc2a8bcba52c6a839432faeeab5fff00beb60bd7d9c4bf26cfa057e595ebaf"
+    sha256               sonoma:        "eb444e609e4d81b3f61af7fb251fda61c3a1980cc7c0461c6e9cee1c240af2c9"
+    sha256 cellar: :any, arm64_linux:   "09c7c1414fee9ff82848c4e7711fce85d2506555dd4a62a3d69e199736cb5113"
+    sha256 cellar: :any, x86_64_linux:  "69509d3a474bc6c043fdc1e50a447b973813d8646405bcbbb764a4935696b1b7"
   end
 
-  keg_only "it shadows the host toolchain"
+  keg_only :shadowed_by_macos, "Apple's CLT provides the same tools"
 
   depends_on "pkgconf" => :build
   depends_on "zstd"
@@ -32,40 +32,46 @@ class Binutils < Formula
   link_overwrite "bin/dwp"
 
   def install
-    # Workaround https://sourceware.org/bugzilla/show_bug.cgi?id=28909
-    touch "gas/doc/.dirstamp", mtime: Time.utc(2022, 1, 1)
-    make_args = OS.mac? ? [] : ["MAKEINFO=true"] # for gprofng
-
     args = %W[
+      --disable-default-execstack
+      --disable-nls
+      --disable-werror
+      --enable-64-bit-bfd
+      --enable-default-hash-style=gnu
       --enable-deterministic-archives
+      --enable-multilib
+      --enable-new-dtags
+      --enable-plugins
+      --enable-relro
+      --enable-shared
+      --enable-targets=all
       --infodir=#{info}
       --mandir=#{man}
-      --disable-werror
-      --enable-interwork
-      --enable-multilib
-      --enable-64-bit-bfd
-      --enable-plugins
-      --enable-targets=all
+      --with-bugurl=#{tap.issues_url}
       --with-system-zlib
       --with-zstd
-      --disable-nls
     ]
+
     system "./configure", *args, *std_configure_args
-    system "make", *make_args
-    system "make", "install", *make_args
+    system "make", "tooldir=#{prefix}"
+    system "make", "tooldir=#{prefix}", "install"
+
+    # libbfd and libopcodes shouldn't be dynamically linked by external binaries.
+    # This modification is similar to the decision made by Arch Linux and Fedora.
+    rm([lib/shared_library("libbfd"), lib/shared_library("libopcodes")])
 
     if OS.mac?
-      Dir["#{bin}/*"].each do |f|
-        bin.install_symlink f => "g" + File.basename(f)
+      bin.each_child do |f|
+        bin.install_symlink f => "g#{f.basename}"
       end
     else
       # Reduce the size of the bottle.
       bin_files = bin.children.select(&:elf?)
       system "strip", *bin_files, *lib.glob("*.a")
-    end
 
-    # Allow ld to find brew glibc. A broken symlink falls back to /etc/ld.so.conf
-    (prefix/"etc").install_symlink etc/"ld.so.conf" if OS.linux?
+      # Allow ld to find brew glibc. A broken symlink falls back to /etc/ld.so.conf
+      (prefix/"etc").install_symlink etc/"ld.so.conf"
+    end
   end
 
   test do

@@ -1,10 +1,9 @@
 class Libevent < Formula
   desc "Asynchronous event library"
   homepage "https://libevent.org/"
-  url "https://github.com/libevent/libevent/archive/refs/tags/release-2.1.12-stable.tar.gz"
-  sha256 "7180a979aaa7000e1264da484f712d403fcf7679b1e9212c4e3d09f5c93efc24"
+  url "https://github.com/libevent/libevent/releases/download/release-2.1.13-stable/libevent-2.1.13-stable.tar.gz"
+  sha256 "f7e9383b8c0baa81b687e5b5eecc01beefaf1b19b64151d95ed61647fe7a315c"
   license "BSD-3-Clause"
-  revision 1
   compatibility_version 1
 
   livecheck do
@@ -13,28 +12,18 @@ class Libevent < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "c442ba9d640780f91257a853002b25840439b9c6b1c568864111901b760d328e"
-    sha256 cellar: :any,                 arm64_sequoia:  "65fc7c61fec0f5ae0c5dfc8fc7e3b6b0507d3f1c7c308a332802541f00334963"
-    sha256 cellar: :any,                 arm64_sonoma:   "38a3eb3510a7e0cd4096e4592d0095c562eb1bbad572d951f1923009a14ad702"
-    sha256 cellar: :any,                 arm64_ventura:  "a75d453a7fe2aba1eaba334621b7bd9f0ff6f9e1f04aa400565f68711a9f6db4"
-    sha256 cellar: :any,                 arm64_monterey: "a24d682548fb7cb11c127932240cced5d6fdb16feaaa6dc2ab3a7f0833e5df2e"
-    sha256 cellar: :any,                 arm64_big_sur:  "0c3deccd564c0ed001cb3613ddc10d7e46e78deb5f8882fde74f8935557d5cba"
-    sha256 cellar: :any,                 sonoma:         "5d54f13cd93d87185bd7bb592cb945d1f64cac3e88d1e46c2fb5d9ea538d9623"
-    sha256 cellar: :any,                 ventura:        "79a1036d3428c6ad8325803912e9ff0f74b8a8202908ae8594959c27e998c90b"
-    sha256 cellar: :any,                 monterey:       "d0557018f19021fb4675a20d9cefda5e13646558c276ab7b4f01f96144b432f8"
-    sha256 cellar: :any,                 big_sur:        "042923957c025a4298465d320a63db6127414644fde58fcdc0d29e8c28fd2993"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "2ebd43e299f937313fc4dc17c21a7446b53d5a46d7dad29922a763df1761acac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83ef4ce689a91f6fca013d6b4b0b2fcda3706080f8e0cccd056a3d94d6bc0f17"
+    sha256 cellar: :any, arm64_tahoe:   "a89bc8b73301ea34ef28dfe355d8ef6a068250184e216a66b98f60435ecfb372"
+    sha256 cellar: :any, arm64_sequoia: "fd79042d1b524a34e00ef2c04ab71069f4105c1cf3aaa2407c0d608736c4ad1a"
+    sha256 cellar: :any, arm64_sonoma:  "d9bd12ae21a16634bba8ca8c9dca13e36c9fa783f5907e789a93a95e75a91b3e"
+    sha256 cellar: :any, sonoma:        "9a84f598bdd5283e794ee467ce1e8505df47930d0c101309f7329944db743d96"
+    sha256 cellar: :any, arm64_linux:   "da39ded40a1d60992d16fa256185ce6bc84039a5cdd2ab31139262755326e94c"
+    sha256 cellar: :any, x86_64_linux:  "2d1db7d19f8ffe0791977488d3442d98cd334c9f38b91b11b0e19ab8d4170e01"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "openssl@3"
 
   def install
-    system "./autogen.sh"
     system "./configure", "--disable-debug-mode", *std_configure_args
     system "make"
     system "make", "install"

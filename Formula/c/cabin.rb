@@ -1,8 +1,8 @@
 class Cabin < Formula
   desc "Package manager and build system for C/C++"
   homepage "https://cabinpkg.com"
-  url "https://github.com/cabinpkg/cabin/archive/refs/tags/0.15.0.tar.gz"
-  sha256 "9f8b4904c1d4072cddb3f8316cde694cb55791bfb817b1f5818f49f1d156ded6"
+  url "https://github.com/cabinpkg/cabin/archive/refs/tags/0.17.0.tar.gz"
+  sha256 "226a228cadc3f5451492751db766d8e999de5f73c9e2a90226037741056b594c"
   license "Apache-2.0"
   head "https://github.com/cabinpkg/cabin.git", branch: "main"
 
@@ -12,13 +12,12 @@ class Cabin < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe46469b972ffe72dd3f142f2fdc5424524fb6fa2d0178dc0cbecd4ed95d54b5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "444683c0e1925aa6536bb4cf7f0dcb7010f1a0748e5e4039db58a15c08b8cdb3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "04bc02e370c19a3aacb92be0d3851fe99ab4e62e358e66511bf6317d4a43abd2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "73aa93c00fbfea35a60584db78227bc3edb6891a76c2dc87c6197080fc09145f"
-    sha256 cellar: :any,                 arm64_linux:   "d7c38baafec3462f8b01e8e545a8a52232f80ab4ae99fc8c8113022e56b86225"
-    sha256 cellar: :any,                 x86_64_linux:  "cf2c61da5789eacd695739ae5364db79831af572f1dc74cf6decc01b8f9bc944"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f369754eb1361b9acdc63fe4da8573c6d833715a6ec22651641e85fbe59bc7c9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4624352ed3494fe3868cf2c1d2925917076935246f12c808d159f14bd04542fe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "efaf178a08487d67ed0c3704c60ea76cc5c30f01cd8a1399e8fde0d8f501b773"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e26a8bf88ed3fa88d0a72393e4e163a96dda7216e461a6aecfacac567d401027"
+    sha256 cellar: :any,                 arm64_linux:   "6cf9cb6ace64814766b7cccc78220cfd23a179212450695b9b87a948bc0ba49d"
+    sha256 cellar: :any,                 x86_64_linux:  "45aac837e76eff62864ce15f44478065275ed080130298a8d200c8342b59138d"
   end
 
   depends_on "rust" => :build

@@ -1,27 +1,26 @@
 class Lrzip < Formula
   desc "Compression program with a very high compression ratio"
-  homepage "http://lrzip.kolivas.org"
-  url "http://ck.kolivas.org/apps/lrzip/lrzip-0.641.tar.xz"
-  sha256 "2c6389a513a05cba3bcc18ca10ca820d617518f5ac6171e960cda476b5553e7e"
+  homepage "https://github.com/ckolivas/lrzip"
+  url "https://github.com/ckolivas/lrzip/releases/download/v0.7.2/lrzip-0.7.2.tar.xz"
+  sha256 "2954d650633cbb3134ca023f50990cd460c891e1d0518824850213a84c9ce1a3"
   license "GPL-2.0-or-later"
+  version_scheme 1
+  head "https://github.com/ckolivas/lrzip.git", branch: "master"
 
-  bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "eb408946ef673448b1c1d6d14d2f86b5319aa28bb3f0fc22f068a491ccdf26f6"
-    sha256 cellar: :any,                 arm64_sequoia: "12594f990be465df28cd2eda0b23e0daccbf9f1169cf72b0e4427b1e1015de1a"
-    sha256 cellar: :any,                 arm64_sonoma:  "1c6abd74fb352de7f2fbb41a9335d5b8104124649e1116457a68db5eeecc9dc8"
-    sha256 cellar: :any,                 sonoma:        "d5ff4085aae34410488f4a1de66a8725bfe4a402a29d567aa31fae7844f19e91"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b5b9e0d8a3a15533dfb3cd1486db03ae5288ba4d910651d79d3b9b0929c1d3ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a051eea9d0b7d80d0f6f42d8be47e98c88aa51edf17a3fad1d87e875ae4f3b6"
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  # Newer versions also don't build
-  deprecate! date: "2026-01-05", because: "is not available via HTTPS"
+  bottle do
+    sha256 cellar: :any, arm64_tahoe:   "1336ea32214e5a828317a17e16f4b98ffe1d23f972f423a69211f10c8ea4fada"
+    sha256 cellar: :any, arm64_sequoia: "66d0f33698a2cd55962dea6d0ae07f99b8de094022bad88a8d19696e05bd54ed"
+    sha256 cellar: :any, arm64_sonoma:  "49e4756d544aaa1a35d61de30b92980a021328d32c1bc730ff2040f4faf340b2"
+    sha256 cellar: :any, sonoma:        "24c58b9098ba037f001207d583e6c46111c2af83eff7910d3b1d88d37ebca5f2"
+    sha256 cellar: :any, arm64_linux:   "8594e4c49f76c7c77fd45fbdcc317d097eb5a15a1e4a0f92cc1207c82162ffc5"
+    sha256 cellar: :any, x86_64_linux:  "b2bb00a3676f64e2807dbe90210e58ed47d2c32f7592d2e3349f64e993d531b9"
+  end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "pkgconf" => :build
   depends_on "lz4"
   depends_on "lzo"
 
@@ -31,27 +30,10 @@ class Lrzip < Formula
     depends_on "zlib-ng-compat"
   end
 
-  on_intel do
-    depends_on "nasm" => :build
-  end
-
   conflicts_with "lrzsz", because: "both install `lrz` binaries"
 
   def install
-    # Attempting to build the ASM/x86 folder as a compilation unit fails (even on Intel). Removing this compilation
-    # unit doesn't disable ASM usage though, since ASM is still included in the C build process.
-    # See https://github.com/ckolivas/lrzip/issues/193
-    inreplace "lzma/Makefile.am", "SUBDIRS = C ASM/x86", "SUBDIRS = C"
-
-    # Set nasm format correctly on macOS. See https://github.com/ckolivas/lrzip/pull/211
-    inreplace "configure.ac", "-f elf64", "-f macho64" if OS.mac?
-
-    system "autoreconf", "--force", "--install", "--verbose"
-
-    args = []
-    args << "--disable-asm" unless Hardware::CPU.intel?
-
-    system "./configure", *args, *std_configure_args
+    system "./configure", *std_configure_args
     system "make", "SHELL=bash"
     system "make", "install"
   end

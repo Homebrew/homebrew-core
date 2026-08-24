@@ -34,6 +34,8 @@ class ProtobufAT21 < Formula
   patch do
     url "https://github.com/protocolbuffers/protobuf/commit/da973aff2adab60a9e516d3202c111dbdde1a50f.patch?full_index=1"
     sha256 "911925e427a396fa5e54354db8324c0178f5c602b3f819f7d471bb569cc34f53"
+    type :backport
+    resolves "https://github.com/protocolbuffers/protobuf/pull/10403"
   end
 
   def pythons

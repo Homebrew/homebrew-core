@@ -2,6 +2,7 @@ class CyrusSasl < Formula
   desc "Simple Authentication and Security Layer"
   homepage "https://www.cyrusimap.org/sasl/"
   url "https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.28/cyrus-sasl-2.1.28.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/cyrus-sasl-2.1.28.tar.gz"
   sha256 "7ccfc6abd01ed67c1a0924b353e526f1b766b21f42d4562ee635a8ebfc5bb38c"
   license "BSD-3-Clause-Attribution"
   revision 2
@@ -21,6 +22,14 @@ class CyrusSasl < Formula
     sha256 x86_64_linux:   "f1bc6d528c1c0e53c2eecb599e5127070654a7bdfb9acb0232cfd08bfaf38efd"
   end
 
+  head do
+    url "https://github.com/cyrusimap/cyrus-sasl.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   keg_only :provided_by_macos
 
   depends_on "krb5"
@@ -29,11 +38,25 @@ class CyrusSasl < Formula
   uses_from_macos "libxcrypt"
 
   def install
-    system "./configure",
-      "--disable-macos-framework",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}"
+    # Workaround for missing time.h. Fixed upstream but backport would require autotools deps
+    # https://github.com/cyrusimap/cyrus-sasl/commit/266f0acf7f5e029afbb3e263437039e50cd6c262
+    # Also force C standard on newer GCC to avoid build failures
+    if build.stable?
+      odie "Remove workarounds!" if version > "2.1.28"
+      ENV.append_to_cflags "-include time.h"
+      if ENV.compiler.to_s.start_with?("gcc") && DevelopmentTools.gcc_version(ENV.compiler) >= 15
+        ENV.append "CFLAGS", "-std=gnu17"
+      end
+    end
+
+    args = %w[
+      --disable-macos-framework
+      --disable-sample
+      --disable-silent-rules
+    ]
+
+    configure = build.head? ? "./autogen.sh" : "./configure"
+    system configure, *args, *std_configure_args
     system "make", "install"
   end
 

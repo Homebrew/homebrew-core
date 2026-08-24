@@ -30,6 +30,7 @@ class TheSilverSearcher < Formula
   patch do
     url "https://sources.debian.org/data/main/s/silversearcher-ag/2.2.0%2Bgit20200805-1.2/debian/patches/enable_pcre2_support.patch"
     sha256 "86b4758595d96e6d049dca70b160ae4f60ea1198daa713a058628a749ab1be75"
+    type :unofficial
   end
 
   def install

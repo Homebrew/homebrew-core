@@ -6,12 +6,13 @@ class Skylighting < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b066831cc90c359d24098a93b5aec85b8a267c239dc875c0a8b86ab00f2946c4"
-    sha256 cellar: :any,                 arm64_sequoia: "d9ca80d6ddb43d1fcbe8a0372f9f71f03da811c7b5f21c713ec3057fc8414d5b"
-    sha256 cellar: :any,                 arm64_sonoma:  "84ff771c5a005c402cdf4149720a61e3ef1b8717a0beb1f2bf28fcfacb378f37"
-    sha256 cellar: :any,                 sonoma:        "8856a01dc2e3b17fd9bf22b1f47f68186a3319d581359b9c55704ca79951ac1b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4b189d8e4e132045077b391ff6fbf4095d2147764ebb47f047a609d72ae9793"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0abc7e9b039fd54255d4a640609ac7d9568d98fff976ade5f8563d631d52cb82"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "1bbb4046dcfe86e9cbcc19b6a207971ce2761c76733ee1263f3c3dd01c21436f"
+    sha256 cellar: :any, arm64_sequoia: "730ee7c866b559c734d4689c93259fdd9bdfe67fe5751c6389433456de3ec8ec"
+    sha256 cellar: :any, arm64_sonoma:  "5821b83e41fb31bc686e464b4497e6e14d90fad0c89998454c476545adc9803c"
+    sha256 cellar: :any, sonoma:        "07b1958368cac8aa092bb0bbd9c90de1c45b68df4cb4e602e90776e9b21859e6"
+    sha256 cellar: :any, arm64_linux:   "0e25564beb472c975d8e95f936019aff80708b9e261b9eb53b7197623af0ac82"
+    sha256 cellar: :any, x86_64_linux:  "84ba245e9a1f3df0cf208202f68e84710112620125255fc2ba37a6381c8c784d"
   end
 
   depends_on "cabal-install" => :build

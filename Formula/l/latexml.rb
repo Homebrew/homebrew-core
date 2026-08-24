@@ -1,24 +1,26 @@
 class Latexml < Formula
   desc "LaTeX to XML/HTML/MathML Converter"
-  homepage "https://dlmf.nist.gov/LaTeXML/"
-  url "https://dlmf.nist.gov/LaTeXML/releases/LaTeXML-0.8.8.tar.gz"
+  homepage "https://math.nist.gov/~BMiller/LaTeXML/"
+  url "https://math.nist.gov/~BMiller/LaTeXML/releases/LaTeXML-0.8.8.tar.gz"
   sha256 "7d2bbe2ce252baf86ba3f388cd0dec3aa4838f49d612b9ec7cc4ff88105badcc"
   license :public_domain
-  revision 4
+  revision 5
   head "https://github.com/brucemiller/LaTeXML.git", branch: "master"
 
   livecheck do
-    url "https://dlmf.nist.gov/LaTeXML/get.html"
+    url "https://math.nist.gov/~BMiller/LaTeXML/get.html"
     regex(/href=.*?LaTeXML[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0ee7b24cab9e984fcf31e129625112066fba70eec41af975edf335d6c4ada770"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0ee7b24cab9e984fcf31e129625112066fba70eec41af975edf335d6c4ada770"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0ee7b24cab9e984fcf31e129625112066fba70eec41af975edf335d6c4ada770"
-    sha256 cellar: :any_skip_relocation, sonoma:        "61d644697b4abd324431a973b3bcbd72d92fe4789322e34409871ea5780d0751"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c1ef021340ab4c5b7a72caf1c78405ba076c9aaa16d6832927fa077d542bec17"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0548ea531d505fa3fff0489d9f0e05a281cfa52492127fba9cfa280bd18dcd80"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9222ed944436856fad1cc09132750dab310869c12cf33261eb252549736d3ed6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9222ed944436856fad1cc09132750dab310869c12cf33261eb252549736d3ed6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9222ed944436856fad1cc09132750dab310869c12cf33261eb252549736d3ed6"
+    sha256 cellar: :any_skip_relocation, tahoe:         "2c024c449ab5817e646e0bc2636c312c6b20abc485bf3d5c26306be1d6ffb092"
+    sha256 cellar: :any_skip_relocation, sequoia:       "2c024c449ab5817e646e0bc2636c312c6b20abc485bf3d5c26306be1d6ffb092"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2c024c449ab5817e646e0bc2636c312c6b20abc485bf3d5c26306be1d6ffb092"
+    sha256 cellar: :any,                 arm64_linux:   "f4bd09b5e12fdeb58f92fbd55e75c4578ef66a0404b31af3732af4d3647a9162"
+    sha256 cellar: :any,                 x86_64_linux:  "9f5c79d66291deb2f7892dabad96d6d7b58c4a9d55b4e9ce640f91669b5007bb"
   end
 
   depends_on "pkgconf" => :build

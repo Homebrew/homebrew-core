@@ -92,6 +92,7 @@ class Texlive < Formula
   conflicts_with "lcdf-typetools", because: "both install a `cfftot1` executable"
   conflicts_with "ht", because: "both install `ht` binaries"
   conflicts_with "opendetex", because: "both install `detex` binaries"
+  conflicts_with "weave", because: "both install a `weave` binary"
 
   resource "texlive-extra" do
     url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2026/texlive-20260301-extra.tar.xz"
@@ -349,7 +350,7 @@ class Texlive < Formula
     # Install Perl resources
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV["PERL_MM_USE_DEFAULT"] = "1"
-    ENV["OPENSSL_PREFIX"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_PREFIX"] = formula_opt_prefix("openssl@3")
 
     tex_resources = %w[texlive-extra install-tl texlive-texmf]
 
@@ -401,12 +402,7 @@ class Texlive < Formula
               "selfautoparent:texmf", "selfautodir:share/texmf"
 
     # icu4c 75+ needs C++17
-    # TODO: Remove in 2025 release
     ENV.append "CXXFLAGS", "-std=gnu++17"
-
-    # Work around build failure on Intel Sonoma after updating to Xcode 16
-    # sh: line 1: 27478 Segmentation fault: 11  luajittex -ini -jobname=luajittex -progname=luajittex luatex.ini ...
-    ENV.O1 if DevelopmentTools.clang_build_version == 1600 && Hardware::CPU.intel?
 
     args = [
       "--disable-dvisvgm", # needs its own formula

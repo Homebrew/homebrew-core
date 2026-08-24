@@ -21,12 +21,7 @@ class Progressline < Formula
   uses_from_macos "swift" => :build, since: :sonoma # swift 5.10+
 
   def install
-    args = if OS.mac?
-      ["--disable-sandbox"]
-    else
-      ["--static-swift-stdlib"]
-    end
-    system "swift", "build", *args, "--configuration", "release"
+    system "swift", "build", *std_swift_args
     bin.install ".build/release/progressline"
     generate_completions_from_executable(bin/"progressline", "--generate-completion-script")
   end

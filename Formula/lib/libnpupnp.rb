@@ -6,6 +6,11 @@ class Libnpupnp < Formula
   license "BSD-3-Clause"
   head "https://framagit.org/medoc92/npupnp.git", branch: "master"
 
+  livecheck do
+    url "https://www.lesbonscomptes.com/upmpdcli/downloads/"
+    regex(/href=.*?libnpupnp[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "141b316ada0746285ff9a60a7dc2c50437b1ea741060ec3a5e59200c92b1e6c2"
     sha256 cellar: :any, arm64_sequoia: "3f4a7e43041ff717d6e88c893aa0dd62085aebd53a0e2e406bcab3a510f15cb4"

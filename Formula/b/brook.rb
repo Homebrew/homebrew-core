@@ -18,7 +18,7 @@ class Brook < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cli/brook"
+    system "go", "build", *std_go_args, "./cli/brook"
   end
 
   test do

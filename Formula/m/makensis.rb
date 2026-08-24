@@ -6,12 +6,13 @@ class Makensis < Formula
   license "Zlib"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e30fc5559f2153e11198181be077df17ea503b3f8366c750e935c09aa8f983fd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fd3e48a17b246308fd5e7e9b7c0dc2c3767f7c6f993f9ad58c649aab73b5387d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3829f573ed0d00e8313b859b3d9ee09ad705867921c24e44448deb192ebe206b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "aa6e3c1f949304b272071b24390acc89f5a1d6cdaaaa45cc5dd7922f9a79eee6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d35d398b17e39668b091b993d9ec1f787e636ade0be83870dd489ad42bcee3ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7366e169187d7d5b925e223e9d6d705980f7085910ea2efe876ca7184685bef6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "864af32755ca54ded9664cf2dc5340248f5ea16f1fe01796cf9e3c63de09638b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "159c8964f2d0312ed91441a05b111e945c65e7db6656e6399f787ca0da616e89"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5f7d8424fa7801a3f9bfa4e8bae1ffb5c8b4df6e48abf79d01a9533524fd8c91"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9b482291c76d7965a7c535ee2fddbca5f76a0e018100f6f4950ab92c25967e1d"
+    sha256 cellar: :any,                 arm64_linux:   "f36b465469553f0cd0503aa4093386237a9c95f318b8f00008ab568faec627ef"
+    sha256 cellar: :any,                 x86_64_linux:  "6c1c684f418c02c44af554592161ee8ce1defa11ccab493e5a6e06df70b78fac"
   end
 
   depends_on "mingw-w64" => :build
@@ -32,7 +33,7 @@ class Makensis < Formula
 
   def install
     if OS.linux?
-      ENV.append_to_cflags "-I#{Formula["zlib-ng-compat"].opt_include}"
+      ENV.append_to_cflags "-I#{formula_opt_include("zlib-ng-compat")}"
       ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath}"
     end
 
@@ -41,7 +42,11 @@ class Makensis < Formula
       "CXX=#{ENV.cxx}",
       "PREFIX=#{prefix}",
       "PREFIX_DOC=#{share}/nsis/Docs",
-      "SKIPUTILS=Makensisw,NSIS Menu,zip2exe",
+      # Don't build precompiled binaries
+      "SKIPMISC=all",
+      "SKIPPLUGINS=all",
+      "SKIPSTUBS=all",
+      "SKIPUTILS=all",
       # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
       "STRIP=0",
       "VERSION=#{version}",

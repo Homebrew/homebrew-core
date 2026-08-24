@@ -36,14 +36,14 @@ class Vip < Formula
   end
 
   resource "man" do
-    url "https://www.cs.duke.edu/~des/scripts/vip.man"
+    url "https://cs.duke.edu/~des/scripts/vip.man"
     sha256 "37b2753f7c7b39c81f97b10ea3f8e2dd5ea92ea8d130144fa99ed54306565f6f"
   end
 
   # use awk and /var/tmp as temporary directory
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/vip/19971113.patch"
-    sha256 "96879c8d778f21b21aa27eb138424a82ffa8e8192b8cf15b2c4a5794908ef790"
+    file "Patches/vip/19971113.patch"
+    type :unofficial
   end
 
   def install

@@ -3,17 +3,17 @@ class Specify < Formula
 
   desc "Toolkit to help you get started with Spec-Driven Development"
   homepage "https://github.github.com/spec-kit/"
-  url "https://github.com/github/spec-kit/archive/refs/tags/v0.11.1.tar.gz"
-  sha256 "dfe0f7380109015ca3c3ba77ed9d5d45df5b9fe97d2e1effecbf416a9f0dd792"
+  url "https://github.com/github/spec-kit/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "3987fb3d5654a79b9dffbb2a8704031072cfd32ecdd6b7bfaa86837c9481563e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "d122fc01f8633c86f844fffa4addc23fd79b35bc9f4da639bca32b931887382c"
-    sha256 cellar: :any, arm64_sequoia: "895bf9644ac8e4140d1c74d786ffb401445da0429cdaf17a6ca3331652fa24f4"
-    sha256 cellar: :any, arm64_sonoma:  "b5511f978148372b1b332c5ffb33e6bc1b64be6836fdc2346b9b585ae6aacbaa"
-    sha256 cellar: :any, sonoma:        "bb98b991b87569d8dbb78793cc88f00382218b7eec6ff33c10729e66842edbb3"
-    sha256 cellar: :any, arm64_linux:   "df3a8f194cc7eb5d97da559790a78c239b9cbabf5dea2dce8f9c803c6b6e1f22"
-    sha256 cellar: :any, x86_64_linux:  "2b9ec8103ec07c9e53a8f44754a403c182cc4f7179ad226a5fcd9f7a15d8b18c"
+    sha256 cellar: :any, arm64_tahoe:   "d7bf829e03b3055467faf8902b2317d3bbd98bccc8d4526d05f6d5e426459359"
+    sha256 cellar: :any, arm64_sequoia: "a31f2fd61961748c710ffaa9fbea2373c66a5a045879919645ca577de8d265c0"
+    sha256 cellar: :any, arm64_sonoma:  "60e6071e3a45cc16baba4f28a70c31b360f67998f2961cdc55fa25117406964d"
+    sha256 cellar: :any, sonoma:        "7b15298aabbf40ba9021347bcb6d7f2235abef4c27cee7a871a34bc8d9ab789e"
+    sha256 cellar: :any, arm64_linux:   "0108d6d710afb7d3973997ee5060ec97ff24e57530d41b7defffe4a1d1ca72e4"
+    sha256 cellar: :any, x86_64_linux:  "629bf5f907e5b6ae3db61bb911082210fbdbced9ece98767a77a6a9fc4c95228"
   end
 
   depends_on "certifi" => :no_linkage
@@ -23,18 +23,18 @@ class Specify < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "annotated-doc" do
-    url "https://files.pythonhosted.org/packages/57/ba/046ceea27344560984e26a590f90bc7f4a75b06701f653222458922b558c/annotated_doc-0.0.4.tar.gz"
-    sha256 "fbcda96e87e9c92ad167c2e53839e57503ecfda18804ea28102353485033faa4"
+    url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
+    sha256 "c7e58ce09192557605d8bbd92836d7e1d520ac9580096042c0bfd197efacf1bb"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "json5" do
-    url "https://files.pythonhosted.org/packages/9c/4b/6f8906aaf67d501e259b0adab4d312945bb7211e8b8d4dcc77c92320edaa/json5-0.14.0.tar.gz"
-    sha256 "b3f492fad9f6cdbced8b7d40b28b9b1c9701c5f561bef0d33b81c2ff433fefcb"
+    url "https://files.pythonhosted.org/packages/e4/7d/05c46a96a78147ae3bf99c2f4169ce144a70220b8d6fcd56f6ec368b8ce9/json5-0.15.0.tar.gz"
+    sha256 "7424d1f1eb1d56da6e3d70643f53619862b4ce81440bdb8ecfd6f875e5ba4a71"
   end
 
   resource "markdown-it-py" do
@@ -48,8 +48,8 @@ class Specify < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
-    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "pathspec" do
@@ -58,13 +58,13 @@ class Specify < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/47/e4501f49c178ae1d9f4a75073fda4204f52647993f075a9db4d14930e0c5/platformdirs-4.10.0.tar.gz"
-    sha256 "31e761a6a0ca04faf7353ea759bdba55652be214725111e5aac52dfa29d4bef7"
+    url "https://files.pythonhosted.org/packages/b8/d7/e7bfbc86e9f99ff7807e24de7703f032e9c9ba80bb355cf26e0e9bc5a75e/platformdirs-4.11.3.tar.gz"
+    sha256 "66a73d38a849810252df809a3d8bcbda8e26f6c189920e7535ad608a48dbb5ab"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "pyyaml" do
@@ -88,8 +88,8 @@ class Specify < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/5e/ed/ef06584ccdd5c410df0837951ecd7e15d9a6144ea1bd4c73cecab1a89891/typer-0.26.7.tar.gz"
-    sha256 "e314a34c617e419c091b2830dda3ea1f257134ff593061a8f5b9717ab8dddb3a"
+    url "https://files.pythonhosted.org/packages/ae/40/4a3db7990d1f62a53182aa96eaef57aeb2886a27f90a195bc66713565d31/typer-0.27.1.tar.gz"
+    sha256 "a79bef8469a79c45498e7b814ecf8d603cc7644e9acbd9e19cac0334240b18df"
   end
 
   def install

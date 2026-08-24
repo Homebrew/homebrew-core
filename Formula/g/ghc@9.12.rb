@@ -14,13 +14,13 @@ class GhcAT912 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "974efd21c2d102bef032deda1fd84797de3d1a4fc31c830909a3b14f0a818efc"
-    sha256 cellar: :any, arm64_sequoia: "3098b4b787e74efa3fab6eac809a9cff6e60a3f636cfd4f4774ee62a510b53e4"
-    sha256 cellar: :any, arm64_sonoma:  "1668903020a562e2c379bf45b9dfa24c903ec14b1250f08a099e0d37e4f673bb"
-    sha256 cellar: :any, sonoma:        "fb9b19af6f902adc6f232dbbade63cac05e4e22f7c0295b5dc530e3b66b137df"
-    sha256               arm64_linux:   "faceab6474296726233b4365eeef8c9b035fae6516b16a681eb6973cc07a9275"
-    sha256               x86_64_linux:  "e56eddd2078e065ec3580bdbacbdc49cae97a1813c3a69b25792a7ef8b54db30"
+    rebuild 2
+    sha256 cellar: :any, arm64_tahoe:   "8d8a95316492696e58f27ca9e2affae271d54de91058fdde37f611a42184d54d"
+    sha256 cellar: :any, arm64_sequoia: "d06904127ecc8cea52fc8b7eeda31254506a3e099e09499b22da15f273282290"
+    sha256 cellar: :any, arm64_sonoma:  "f667a3f8c01444b7421333944e58a1f266644c31360c8128606e9a1befe063b9"
+    sha256 cellar: :any, sonoma:        "135c114ec29d2fff907e232ecbbc22f2720f849840f8408be2efcc62f3318fe1"
+    sha256               arm64_linux:   "62dd76d9d934706ac486389acfaf25064d8e523e97d1c6e4979c5a67633adf9a"
+    sha256               x86_64_linux:  "e3948c716999910cad48dc7a1cd64d974fc834c11df9e64384fb72b975e9fec5"
   end
 
   keg_only :versioned_formula
@@ -98,12 +98,13 @@ class GhcAT912 < Formula
     end
   end
 
-  # Apply open MR fix for regression similar to Fedora
+  # Backport fix for a code generation regression
   # https://discourse.haskell.org/t/critical-code-generation-bug-with-ghc-9-12-3/13505
-  # https://gitlab.haskell.org/ghc/ghc/-/merge_requests/15264
   patch do
     url "https://gitlab.haskell.org/ghc/ghc/-/commit/65370007e2d9f1976fbcfbb514917fb111117148.diff"
     sha256 "09e9e9313134959b90c8222213e5ab8af7d6dbd10a5c25454d7b85eced281eb8"
+    type :backport
+    resolves "https://gitlab.haskell.org/ghc/ghc/-/merge_requests/15264"
   end
 
   def install
@@ -121,8 +122,8 @@ class GhcAT912 < Formula
 
     binary = buildpath/"binary"
     args = %W[
-      --with-gmp-includes=#{Formula["gmp"].opt_include}
-      --with-gmp-libraries=#{Formula["gmp"].opt_lib}
+      --with-gmp-includes=#{formula_opt_include("gmp")}
+      --with-gmp-libraries=#{formula_opt_lib("gmp")}
     ]
     resource("binary").stage do
       system "./configure", "--prefix=#{binary}", *args
@@ -151,6 +152,10 @@ class GhcAT912 < Formula
       --docs=no-sphinx-html
       --docs=no-sphinx-pdfs
     ]
+    # Build PIC so static libraries can be used to build PIE in dependents. This is the default on ARM:
+    # https://gitlab.haskell.org/ghc/ghc/-/blob/ghc-9.12.4-release/compiler/GHC/Driver/DynFlags.hs#L1298-1322
+    hadrian_args << "*.*.ghc.*.opts += -fPIC -fexternal-dynamic-refs" if OS.linux? && !Hardware::CPU.arm?
+
     # Let hadrian handle its own parallelization
     ENV.deparallelize { system "hadrian/build", "install", *hadrian_args }
 
@@ -159,8 +164,8 @@ class GhcAT912 < Formula
     (lib/"ghc-#{version}/lib/package.conf.d/package.cache.lock").unlink
   end
 
-  def post_install
-    system bin/"ghc-pkg", "recache"
+  post_install_steps do
+    run "ghc-pkg", args: ["recache"], base: :bin
   end
 
   test do

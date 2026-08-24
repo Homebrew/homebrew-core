@@ -17,15 +17,30 @@ class Plow < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
 
     generate_completions_from_executable(bin/"plow", shell_parameter_format: "--completion-script-",
                                                      shells:                 [:bash, :zsh])
   end
 
   test do
-    output = "2xx"
-    assert_match output.to_s, shell_output("#{bin}/plow -n 1 https://httpbin.org/get")
+    require "socket"
+
+    server = TCPServer.new("127.0.0.1", 0)
+    port = server.addr[1]
+    begin
+      responder = Thread.new do
+        socket = server.accept
+        socket.gets("\r\n\r\n")
+        socket.print "HTTP/1.1 200 OK\r\nContent-Length: 2\r\nConnection: close\r\n\r\nok"
+        socket.close
+      end
+
+      assert_match "2xx", shell_output("#{bin}/plow -n 1 --summary --listen= http://127.0.0.1:#{port}/")
+    ensure
+      responder.kill
+      server.close
+    end
 
     assert_match version.to_s, shell_output("#{bin}/plow --version")
   end

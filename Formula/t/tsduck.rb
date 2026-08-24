@@ -57,7 +57,7 @@ class Tsduck < Formula
   def install
     if OS.linux?
       ENV["LINUXBREW"] = "true"
-      ENV["VATEK_CFLAGS"] = "-I#{Formula["libvatek"].opt_include}/vatek"
+      ENV["VATEK_CFLAGS"] = "-I#{formula_opt_include("libvatek")}/vatek"
     else
       ENV["LDFLAGS_EXTRA"] = "-Wl,-rpath,#{rpath(source: lib/"tsduck")}"
     end

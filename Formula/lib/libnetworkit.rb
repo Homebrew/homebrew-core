@@ -28,7 +28,7 @@ class Libnetworkit < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build",
-                    "-DNETWORKIT_EXT_TLX=#{Formula["tlx"].opt_prefix}",
+                    "-DNETWORKIT_EXT_TLX=#{formula_opt_prefix("tlx")}",
                     "-DNETWORKIT_CXX_STANDARD=20",
                     *std_cmake_args
     system "cmake", "--build", "build"
@@ -45,7 +45,7 @@ class Libnetworkit < Formula
         return 0;
       }
     CPP
-    omp_flags = OS.mac? ? ["-I#{Formula["libomp"].opt_include}"] : []
+    omp_flags = OS.mac? ? ["-I#{formula_opt_include("libomp")}"] : []
     system ENV.cxx, "-std=c++20", "test.cpp", "-L#{lib}", "-lnetworkit", "-o", "test", *omp_flags
     system "./test"
   end

@@ -4,15 +4,15 @@ class EtcdCppApiv3 < Formula
   url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.15.4.tar.gz"
   sha256 "4516ecfa420826088c187efd42dad249367ca94ea6cdfc24e3030c3cf47af7b4"
   license "BSD-3-Clause"
-  revision 47
+  revision 52
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "07b6be6f9ab9a1596334b610253f1911d43b6dc76ed6a2127c2ad55ad926682c"
-    sha256 cellar: :any, arm64_sequoia: "03fcbb07a5d9a67c97e4c123317c531ca473908be5bb172b035a7b641d15016f"
-    sha256 cellar: :any, arm64_sonoma:  "e895d8e73c3bf01ee0f2625f64eb5eeb9efe8af475da846668489caa3150835a"
-    sha256 cellar: :any, sonoma:        "0d6ab3d084d3de9a796c1fe168839bea4ded148af0b6329928985729db5de49d"
-    sha256               arm64_linux:   "f9dd5e284ed7cd928676d4c18a9aaea0c57c18a6bfb96e5dd6ee1bb80867f48d"
-    sha256               x86_64_linux:  "152716d9f292dbd62459145c6fb24a7c4b3b4b61a435819c9e813437e7121974"
+    sha256 cellar: :any, arm64_tahoe:   "6a669495ddf923d98ece017e30af22705f5917f7669d7e5a856c2442fc4cf90e"
+    sha256 cellar: :any, arm64_sequoia: "d2ae183d7b0b7f4bf5cfc2de059310b1b92a5fa0f0ab0e0201b59ad3f8a61934"
+    sha256 cellar: :any, arm64_sonoma:  "247175f64a084933a9dcd5a58feee17fb228f90ad5583a0e4b77f9791dcf0e7f"
+    sha256 cellar: :any, sonoma:        "77772e5837a9831ec64bc57640043c15793c4d3aa3bbdbfbda8ec79cfc9b3389"
+    sha256               arm64_linux:   "8f600cbe4e9063ba95483238cf5dda61c82a972311cf839c2672056d28ca7bbe"
+    sha256               x86_64_linux:  "e0f9e1af852e7233976555c385933c2348961dc632a2b887d7d54968e8056b40"
   end
 
   deprecate! date: "2026-06-12", because: "needs deprecated cpprestsdk"
@@ -34,26 +34,36 @@ class EtcdCppApiv3 < Formula
   patch do
     url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/commit/ece56adf4d01658a5f0668a3618c97153665581c.patch?full_index=1"
     sha256 "f3686647436045a9a53b05f81fae02d5a5a2025d5ce78a66aca0ade85c1a99c6"
+    type :backport
+    resolves "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/pull/281"
   end
 
   # Backport cluster manager api needed for newer `vineyard`
   patch do
     url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/commit/17d7b60194e5b6d9005bb10947905a393f432624.patch?full_index=1"
     sha256 "b0d1bce10cf2f03124af744f2a184162b6b555b09d162b8633ed8ab9b613f8f8"
+    type :backport
+    resolves "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/pull/270"
   end
   patch do
     url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/commit/3ad17314d6e8c26beb88501f8e74e506ccaf26b8.patch?full_index=1"
     sha256 "52dd6132b03c4c1210bb1c0b8a32ff952f84b198d612903c10a53b7a4f5ce2b9"
+    type :backport
+    resolves "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/pull/276"
   end
   patch do
     url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/commit/ea56cee80f441973a0149b57604e7a7874c61b65.patch?full_index=1"
     sha256 "bce8ef02bc56f2ac430d580191217ff78210cc6e261d29c7031a22e65cd05693"
+    type :backport
+    resolves "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/pull/277"
   end
 
   # Backport GCC 13 build fix
   patch do
     url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/commit/7c6e714f188f9576e25e0350cac4181139eec23e.patch?full_index=1"
     sha256 "96c9e4cbadb46c9ebfc6f4f386125161b68df4c12f7c85feffda39dff41a7277"
+    type :backport
+    resolves "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/pull/299"
   end
 
   def install
@@ -62,7 +72,7 @@ class EtcdCppApiv3 < Formula
                     "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
                     "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
                     "-DBUILD_ETCD_TESTS=OFF",
-                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}",
+                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -105,7 +115,7 @@ class EtcdCppApiv3 < Formula
 
     # prepare etcd
     etcd_pid = spawn(
-      Formula["etcd"].opt_bin/"etcd",
+      formula_opt_bin("etcd")/"etcd",
       "--force-new-cluster",
       "--data-dir=#{testpath}",
       "--listen-client-urls=http://127.0.0.1:#{port}",

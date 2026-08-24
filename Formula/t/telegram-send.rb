@@ -6,6 +6,7 @@ class TelegramSend < Formula
   url "https://files.pythonhosted.org/packages/1c/9d/6c59f78b5761d6fe5a3694d83fb8eff7e6cd190d57d4a61d66ef9e8f4c7f/telegram_send-0.39.2.tar.gz"
   sha256 "bb1570fda809a030dfa188ffb30fd92b97de6cde9f1268d57fed6b28c2f4aff5"
   license "GPL-3.0-or-later"
+  head "https://github.com/rahiel/telegram-send.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "dfa065f3430f0290cbd1699488b25e97d67e592f7ce6d1d844771a8c00f6d5bf"
@@ -52,9 +53,8 @@ class TelegramSend < Formula
   end
 
   def install
-    virtualenv_install_with_resources
-    site_packages = libexec/Language::Python.site_packages("python3@3.14")
-    inreplace site_packages/"telegram_send/telegram_send.py", "/etc/telegram-send.conf", etc/"telegram-send.conf"
+    venv = virtualenv_install_with_resources
+    inreplace venv.site_packages/"telegram_send/telegram_send.py", "/etc/telegram-send.conf", etc/"telegram-send.conf"
   end
 
   test do

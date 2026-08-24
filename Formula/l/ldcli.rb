@@ -1,18 +1,18 @@
 class Ldcli < Formula
   desc "CLI for managing LaunchDarkly feature flags"
   homepage "https://launchdarkly.com/docs/home/getting-started/ldcli"
-  url "https://github.com/launchdarkly/ldcli/archive/refs/tags/v3.0.4.tar.gz"
-  sha256 "8b450fb2a65f90ec6302b29ee38057943eb88b30c0d5c42167d52da84f66ad67"
+  url "https://github.com/launchdarkly/ldcli/archive/refs/tags/v3.10.0.tar.gz"
+  sha256 "7f5abf6c6a9a6b8d2cb3004da030eab2dc1c97308f2fea9f40306b25ea415ab0"
   license "Apache-2.0"
   head "https://github.com/launchdarkly/ldcli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f8c360ff53602d02e7f5649ff6f813b45ef0d820c37cb4e1037525e57a0e54cf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "da856eef3b51f18541712dfed76fe731cfc115ab2f7867fbae05e457df4098aa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5de1690f4625d2d842a7c8d67de8ae8d9c1b40f50ae4e7a9d16243b18cc2b8bd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "951e01fa630b3de43dd245a7ac5e03d64070db4e431220e2e862a60e4cde5140"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d06fe9a43c6461b592efeef3c36e4904b99a81e85b15a71b74933df9a9ca9030"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df74f3d537d35e56bba8dcf7309a2925c3cd7b461951103ff3c0c86b9c2f80f0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "74928be5a3635465d682b60983e281f650092d59552f7c2dd987bee43b6dac4c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "217422d83d46933b7d8260492cdac8e60499fcfee92754ee01854f5be1133863"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c86a86ada37442bb1c0ed3b6113c5b9eb75428e9389c21651013834f0c29c489"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f14780d88d02addcac91f61d322c8ce348533441f9e1207f6c90395a51ec21a1"
+    sha256 cellar: :any,                 arm64_linux:   "c4bbaba4ea534e7ae6f7481dedd22fa57d5631a1117dae884cecc7e572056d63"
+    sha256 cellar: :any,                 x86_64_linux:  "56eeea0c4d578081564e62e458db6b01f306e8e53fbcc4b2b167a3ce54c584f3"
   end
 
   depends_on "go" => :build
@@ -20,11 +20,7 @@ class Ldcli < Formula
   def install
     ENV["CGO_ENABLED"] = "1"
 
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
-    ]
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
 
     generate_completions_from_executable(bin/"ldcli", shell_parameter_format: :cobra)
   end

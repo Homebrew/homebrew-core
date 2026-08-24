@@ -18,7 +18,7 @@ class Tml < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./tml"
+    system "go", "build", *std_go_args, "./tml"
   end
 
   test do

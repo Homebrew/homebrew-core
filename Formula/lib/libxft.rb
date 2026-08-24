@@ -1,7 +1,7 @@
 class Libxft < Formula
   desc "X.Org: X FreeType library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXft-2.3.9.tar.xz"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libXft-2.3.9.tar.xz"
   sha256 "60a25b78945ed6932635b3bb1899a517d31df7456e69867ffba27f89ff3976f5"
   license "MIT"
   compatibility_version 1
@@ -44,6 +44,6 @@ class Libxft < Formula
         return 0;
       }
     C
-    system ENV.cc, "-I#{Formula["freetype"].opt_include}/freetype2", "test.c"
+    system ENV.cc, "-I#{formula_opt_include("freetype")}/freetype2", "test.c"
   end
 end

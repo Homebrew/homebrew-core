@@ -1,46 +1,37 @@
 class Nagios < Formula
   desc "Network monitoring and management system"
   homepage "https://www.nagios.org/"
-  url "https://github.com/NagiosEnterprises/nagioscore/releases/download/nagios-4.5.13/nagios-4.5.13.tar.gz"
-  sha256 "43d533d2bb58a81221741ab2f0c27b478fc0a80fb98f83b748ecc56327c68718"
+  url "https://github.com/NagiosEnterprises/nagioscore/releases/download/nagios-4.5.14/nagios-4.5.14.tar.gz"
+  sha256 "dce59f306577789c56d2748471d4c3856ecba8572d6b0811cf79f9de2f9afabb"
   license "GPL-2.0-only"
   head "https://github.com/NagiosEnterprises/nagioscore.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "c0d07c87b4f62d659234ec635d4e0d79ee72ad6672fdaf4039b07091d3a7dcc5"
-    sha256 arm64_sequoia: "f4d256346a7c47542eb266c8ec37b435437fd75fbb6c671e56c20bee0eaf4158"
-    sha256 arm64_sonoma:  "decae65011b78d9c79b7e2cd6d493d98a3b3ef911a765f8577e5f2c8384c1b9d"
-    sha256 sonoma:        "b7bc3bfbcd8be5e1fec6189fa818562b3fefa2dc312becef93148443a1f9ac25"
-    sha256 arm64_linux:   "10e48717e0f9b2e6bf108afe61d9164784d090de56527d4dcf693766bdc039ee"
-    sha256 x86_64_linux:  "4744176b2007837b89090e670c571d5780ad19afd0fb2f58cafcc1dd1fa58b5c"
+    sha256 arm64_tahoe:   "ba4c8b095224835ee6c835b58b2f609110e7a5df460d42ebcb686141d5063f47"
+    sha256 arm64_sequoia: "50a64fd089e465294abcf6f70516d7fde65aa6260ea32f25eb387bc6c85bf75a"
+    sha256 arm64_sonoma:  "a196eb64fd6d0fd3f2bcaefa579538bd8664f1de9e4cbf6c76f30c01d776582f"
+    sha256 sonoma:        "b92f4b00522b8cdb201935e841aae21c81d97d0f06a2b1fbd63e68564a771a07"
+    sha256 arm64_linux:   "cacba4d0bdf32593ad267845828586f06cae71f45f49e960db5e78bef9dab1cd"
+    sha256 x86_64_linux:  "024222f9b5f370620b8064b39b6a936865e2f27071d1f1f728b245918993cdc0"
   end
 
-  depends_on xcode: :build
   depends_on "gd"
   depends_on "libpng"
   depends_on "openssl@4"
 
-  uses_from_macos "unzip"
+  uses_from_macos "unzip" => :build
 
   on_macos do
     depends_on "jpeg-turbo"
   end
 
-  def nagios_sbin
-    prefix/"cgi-bin"
-  end
+  def nagios_sbin = prefix/"cgi-bin"
 
-  def nagios_etc
-    etc/"nagios"
-  end
+  def nagios_etc = etc/"nagios"
 
-  def nagios_var
-    var/"lib/nagios"
-  end
+  def nagios_var = var/"lib/nagios"
 
-  def htdocs
-    pkgshare/"htdocs"
-  end
+  def htdocs = pkgshare/"htdocs"
 
   def user
     Utils.safe_popen_read("id", "-un").chomp
@@ -63,7 +54,7 @@ class Nagios < Formula
       "--with-nagios-group='#{group}'",
       "--with-command-user=#{user}",
       "--with-httpd-conf=#{share}",
-      "--with-ssl=#{Formula["openssl@4"].opt_prefix}",
+      "--with-ssl=#{formula_opt_prefix("openssl@4")}",
       "--disable-libtool",
     ]
     args << "--with-command-group=_www" if OS.mac?
@@ -77,14 +68,11 @@ class Nagios < Formula
     system "make", "install-webconf"
   end
 
-  def post_install
-    (var/"lib/nagios/rw").mkpath
-
-    config = etc/"nagios/nagios.cfg"
-    return unless config.exist?
-    return if config.read.include?("nagios_user=#{ENV["USER"]}")
-
-    inreplace config, /^nagios_user=.*/, "nagios_user=#{ENV["USER"]}"
+  post_install_steps do
+    mkdir_p "lib/nagios/rw", base: :var
+    if_path_exists "{{etc}}/nagios/nagios.cfg" do
+      inreplace "nagios/nagios.cfg", /^nagios_user=.*/, "nagios_user={{user}}", base: :etc, audit_result: false
+    end
   end
 
   service do

@@ -2,9 +2,9 @@ class PhpAT83 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.3.31.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.3.31.tar.xz"
-  sha256 "66410cee07f4b2baeb0843140bb2a2b52ef930b5cf9b3d6e6d158b33aae8fa37"
+  url "https://www.php.net/distributions/php-8.3.33.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.3.33.tar.xz"
+  sha256 "e293ed620cec74651bb4a071317892a478aa6840fab22db45c72d77cd42f9676"
   license all_of: [
     "PHP-3.01",
 
@@ -35,12 +35,12 @@ class PhpAT83 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "f036149256ba69f1e55ae445a25b5348d746e48ad3ee4c3b2d45baf51ebcdbcb"
-    sha256 arm64_sequoia: "d06d958f642858e6e4cd09e2eef1a75847037aa4f5ece8ea18e1b015ac9cbf07"
-    sha256 arm64_sonoma:  "0dcdcf117a4f2d9a540ff1586618e58d938c187521cf6eb5adf822c042ae0307"
-    sha256 sonoma:        "a8e4fd3b47c58156346a1562c0419af162d8c741573ad500e2bb535892ef1486"
-    sha256 arm64_linux:   "61be98f9ab1efaa9435fca601caf0f0038a31094f028925dedbd4f464cb369ee"
-    sha256 x86_64_linux:  "1ae8535dd77bb066c81bd381481002a8531a917099b611f3236b120f3bb936f9"
+    sha256 arm64_tahoe:   "e2808123926bd2133ed9170bc984d31e78b6427ee6af850486d2b89ddb6c9877"
+    sha256 arm64_sequoia: "7f2ec11cd59bb8e825e517df73d4fd880983b7b9a62911dad2ec2be49de04ce9"
+    sha256 arm64_sonoma:  "1543b8d7c32ad17524c1e7dcaf8f058ab91ffc980baeea2e4673d1720cec0363"
+    sha256 sonoma:        "5c63c0f8e31c97b9224fa497884361f27611c0bdc0c23da6e205c40b289c22fc"
+    sha256 arm64_linux:   "9e70b2a2c7245e04d58dee8f4d1a8e4471f6c78d982fc6fa8a3402eae026441c"
+    sha256 x86_64_linux:  "6a7c2fe30286539becbe45363d347833b3101b4de339813f8e2a286ea07ba8f8"
   end
 
   keg_only :versioned_formula
@@ -142,9 +142,9 @@ class PhpAT83 < Formula
       # Each extension needs a direct reference to the sdk path or it won't find the headers
       headers_path = "=#{sdk_path}/usr"
     else
-      ENV["SQLITE_CFLAGS"] = "-I#{Formula["sqlite"].opt_include}"
+      ENV["SQLITE_CFLAGS"] = "-I#{formula_opt_include("sqlite")}"
       ENV["SQLITE_LIBS"] = "-lsqlite3"
-      ENV["BZIP_DIR"] = Formula["bzip2"].opt_prefix
+      ENV["BZIP_DIR"] = formula_opt_prefix("bzip2")
     end
 
     # `_www` only exists on macOS.
@@ -178,7 +178,7 @@ class PhpAT83 < Formula
       --enable-sysvmsg
       --enable-sysvsem
       --enable-sysvshm
-      --with-apxs2=#{Formula["httpd"].opt_bin}/apxs
+      --with-apxs2=#{formula_opt_bin("httpd")}/apxs
       --with-bz2#{headers_path}
       --with-curl
       --with-external-gd
@@ -186,12 +186,12 @@ class PhpAT83 < Formula
       --with-ffi
       --with-fpm-user=#{fpm_user}
       --with-fpm-group=#{fpm_group}
-      --with-gettext=#{Formula["gettext"].opt_prefix}
-      --with-gmp=#{Formula["gmp"].opt_prefix}
+      --with-gettext=#{formula_opt_prefix("gettext")}
+      --with-gmp=#{formula_opt_prefix("gmp")}
       --with-iconv#{headers_path}
       --with-kerberos
       --with-layout=GNU
-      --with-ldap=#{Formula["openldap"].opt_prefix}
+      --with-ldap=#{formula_opt_prefix("openldap")}
       --with-libxml
       --with-libedit
       --with-mhash#{headers_path}
@@ -199,18 +199,18 @@ class PhpAT83 < Formula
       --with-mysqli=mysqlnd
       --with-ndbm#{headers_path}
       --with-openssl
-      --with-password-argon2=#{Formula["argon2"].opt_prefix}
-      --with-pdo-dblib=#{Formula["freetds"].opt_prefix}
+      --with-password-argon2=#{formula_opt_prefix("argon2")}
+      --with-pdo-dblib=#{formula_opt_prefix("freetds")}
       --with-pdo-mysql=mysqlnd
-      --with-pdo-odbc=unixODBC,#{Formula["unixodbc"].opt_prefix}
-      --with-pdo-pgsql=#{Formula["libpq"].opt_prefix}
+      --with-pdo-odbc=unixODBC,#{formula_opt_prefix("unixodbc")}
+      --with-pdo-pgsql=#{formula_opt_prefix("libpq")}
       --with-pdo-sqlite
-      --with-pgsql=#{Formula["libpq"].opt_prefix}
+      --with-pgsql=#{formula_opt_prefix("libpq")}
       --with-pic
-      --with-pspell=#{Formula["aspell"].opt_prefix}
+      --with-pspell=#{formula_opt_prefix("aspell")}
       --with-sodium
       --with-sqlite3
-      --with-tidy=#{Formula["tidy-html5"].opt_prefix}
+      --with-tidy=#{formula_opt_prefix("tidy-html5")}
       --with-unixODBC
       --with-xsl
       --with-zip
@@ -267,70 +267,8 @@ class PhpAT83 < Formula
     end
   end
 
-  def post_install
-    pear_prefix = pkgshare/"pear"
-    pear_files = %W[
-      #{pear_prefix}/.depdblock
-      #{pear_prefix}/.filemap
-      #{pear_prefix}/.depdb
-      #{pear_prefix}/.lock
-    ]
-
-    %W[
-      #{pear_prefix}/.channels
-      #{pear_prefix}/.channels/.alias
-    ].each do |f|
-      chmod 0755, f
-      pear_files.concat(Dir["#{f}/*"])
-    end
-
-    chmod 0644, pear_files
-
-    # Custom location for extensions installed via pecl
-    pecl_path = HOMEBREW_PREFIX/"lib/php/pecl"
-    pecl_path.mkpath
-    ln_s pecl_path, prefix/"pecl" unless (prefix/"pecl").exist?
-    extension_dir = Utils.safe_popen_read(bin/"php-config", "--extension-dir").chomp
-    php_basename = File.basename(extension_dir)
-    php_ext_dir = opt_prefix/"lib/php"/php_basename
-
-    # fix pear config to install outside cellar
-    pear_path = HOMEBREW_PREFIX/"share/pear@#{version.major_minor}"
-    cp_r pkgshare/"pear/.", pear_path
-    {
-      "php_ini"  => etc/"php/#{version.major_minor}/php.ini",
-      "php_dir"  => pear_path,
-      "doc_dir"  => pear_path/"doc",
-      "ext_dir"  => pecl_path/php_basename,
-      "bin_dir"  => opt_bin,
-      "data_dir" => pear_path/"data",
-      "cfg_dir"  => pear_path/"cfg",
-      "www_dir"  => pear_path/"htdocs",
-      "man_dir"  => HOMEBREW_PREFIX/"share/man",
-      "test_dir" => pear_path/"test",
-      "php_bin"  => opt_bin/"php",
-    }.each do |key, value|
-      value.mkpath if /(?<!bin|man)_dir$/.match?(key)
-      system bin/"pear", "config-set", key, value, "system"
-    end
-
-    system bin/"pear", "update-channels"
-
-    %w[
-      opcache
-    ].each do |e|
-      ext_config_path = etc/"php/#{version.major_minor}/conf.d/ext-#{e}.ini"
-      extension_type = (e == "opcache") ? "zend_extension" : "extension"
-      if ext_config_path.exist?
-        inreplace ext_config_path,
-          /#{extension_type}=.*$/, "#{extension_type}=#{php_ext_dir}/#{e}.so"
-      else
-        ext_config_path.write <<~INI
-          [#{e}]
-          #{extension_type}="#{php_ext_dir}/#{e}.so"
-        INI
-      end
-    end
+  post_install_steps do
+    configure_php
   end
 
   def caveats
@@ -363,7 +301,7 @@ class PhpAT83 < Formula
 
     # Test related to libxml2 and https://github.com/Homebrew/homebrew-core/issues/28398
     require "utils/linkage"
-    libpq = Formula["libpq"].opt_lib/shared_library("libpq")
+    libpq = formula_opt_lib("libpq")/shared_library("libpq")
     assert Utils.binary_linked_to_library?(bin/"php", libpq), "No linkage with Homebrew #{libpq.basename}!"
 
     system sbin/"php-fpm", "-t"
@@ -388,8 +326,9 @@ class PhpAT83 < Formula
       ServerName localhost:#{port}
       DocumentRoot "#{testpath}"
       ErrorLog "#{testpath}/httpd-error.log"
-      ServerRoot "#{Formula["httpd"].opt_prefix}"
+      ServerRoot "#{formula_opt_prefix("httpd")}"
       PidFile "#{testpath}/httpd.pid"
+      Mutex file:#{testpath} default
       LoadModule authz_core_module lib/httpd/modules/mod_authz_core.so
       LoadModule unixd_module lib/httpd/modules/mod_unixd.so
       LoadModule dir_module lib/httpd/modules/mod_dir.so
@@ -428,7 +367,7 @@ class PhpAT83 < Formula
     CONF
 
     begin
-      pid = spawn Formula["httpd"].opt_bin/"httpd", "-X", "-f", testpath/"httpd.conf"
+      pid = spawn formula_opt_bin("httpd")/"httpd", "-X", "-f", testpath/"httpd.conf"
       sleep 10
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
 
@@ -436,7 +375,7 @@ class PhpAT83 < Formula
       Process.wait(pid)
 
       fpm_pid = spawn sbin/"php-fpm", "-y", "fpm.conf"
-      pid = spawn Formula["httpd"].opt_bin/"httpd", "-X", "-f", testpath/"httpd-fpm.conf"
+      pid = spawn formula_opt_bin("httpd")/"httpd", "-X", "-f", testpath/"httpd-fpm.conf"
       sleep 10
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
     ensure

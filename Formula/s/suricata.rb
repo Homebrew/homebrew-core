@@ -3,8 +3,8 @@ class Suricata < Formula
 
   desc "Network IDS, IPS, and security monitoring engine"
   homepage "https://suricata.io"
-  url "https://www.openinfosecfoundation.org/download/suricata-8.0.5.tar.gz"
-  sha256 "04cad79a2a91499a729e41bfb570060c3cedb94cd5a5584d79582ebd18574ee0"
+  url "https://www.openinfosecfoundation.org/download/suricata-8.0.6.tar.gz"
+  sha256 "b264584edda4a3b2b462050099c7c54f4f35ac0c7164e41084be9b216c090f8c"
   license "GPL-2.0-only"
 
   livecheck do
@@ -13,12 +13,12 @@ class Suricata < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "81a832c24d1c976f75b4404b2037cab8bd332dd25a134a999cb8178a903332f1"
-    sha256 arm64_sequoia: "d803b5611b784777d38332cfd40bfb5e63ce707c66de99a47f7de0e7b95e1436"
-    sha256 arm64_sonoma:  "1ff6b1268c8e528aa8a12b1c67695549c8cfaf24870ec01b2b61863283ad745c"
-    sha256 sonoma:        "0c2ac833b0f759bc5397cc29d5259807a7a2dc02733d8e634671f65d9ff13a00"
-    sha256 arm64_linux:   "970a109584a963096240040fe3932a9f7866632548fe09b36e77c8a088311b32"
-    sha256 x86_64_linux:  "5c6976fcd725b123e0d922e4afb66e6855462f6e6b48af67b807555f3d97a3c6"
+    sha256 arm64_tahoe:   "5467429d1980c9738ad39f3e8a550533169ec7fe6b51ae3a7900c8488ab839c9"
+    sha256 arm64_sequoia: "b4b78ac56ea5f6ca45267ce85d14f3e7ac8ea3ba6c4c8f31ee8a910e31f7028f"
+    sha256 arm64_sonoma:  "418ab60b075ed7b451e5193aaf24319bf67dbecba4a18b27ce92aeb8f41262e4"
+    sha256 sonoma:        "16bf5d573f146d0d588ab9905fd492200a09d4ddd24fd368ee97fb79bb1447a0"
+    sha256 arm64_linux:   "1e898b52704f3fa8bd6b3f73b4dde961254dfacfaf7e3089b339754c6966338b"
+    sha256 x86_64_linux:  "4038ec5b1a100f989dbda2f26d8cce70a92129a91b7de56ad7a17496b178a8c0"
   end
 
   depends_on "pkgconf" => :build
@@ -75,8 +75,8 @@ class Suricata < Formula
       # Workaround for dyld[98347]: symbol not found in flat namespace '_iconv'
       ENV.append "LIBS", "-liconv" if MacOS.version >= :monterey
     else
-      args << "--with-libpcap-includes=#{Formula["libpcap"].opt_include}"
-      args << "--with-libpcap-libraries=#{Formula["libpcap"].opt_lib}"
+      args << "--with-libpcap-includes=#{formula_opt_include("libpcap")}"
+      args << "--with-libpcap-libraries=#{formula_opt_lib("libpcap")}"
     end
 
     system "./configure", *args, *std_configure_args

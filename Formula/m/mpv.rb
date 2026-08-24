@@ -2,7 +2,7 @@ class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 6
+  revision 8
   compatibility_version 1
   head "https://github.com/mpv-player/mpv.git", branch: "master"
 
@@ -14,23 +14,24 @@ class Mpv < Formula
     patch do
       url "https://github.com/mpv-player/mpv/commit/75b2ccfeb1ce4ed5a40ac9860fa74f3d1265e13f.patch?full_index=1"
       sha256 "3906b98b02071a0d5747a400406494ca69cef7afd8d3eee4a99fdbe40dc90c1f"
+      type :backport
+      resolves "https://github.com/mpv-player/mpv/pull/17731"
     end
   end
 
   bottle do
-    sha256               arm64_tahoe:   "649109b87d486e369e3ee9c8b6703c3cb17229476881b4b509ca91f0441a17f2"
-    sha256               arm64_sequoia: "484dec512afcfcc30f51aad01022b1bd97aac0fe7c85aafc3b341a25996dd49c"
-    sha256               arm64_sonoma:  "5dd9a950ca0a81ad4319a3f2a203b6e0bd7142b6dc597859ea4acf6dabfadbab"
-    sha256 cellar: :any, sonoma:        "6992a25c76e33dda932ddff26da1e75602e9b402bfe9717792ede3989c2c4ac5"
-    sha256               arm64_linux:   "4df7a2cc6a6a73ab89d69635eedddd00e89176423ace64351c7767813f45a579"
-    sha256               x86_64_linux:  "d795ebc793a8cb4c8548a3dc018fac38a33de14465390ec9d66e586e0fe6c7be"
+    sha256               arm64_tahoe:   "8ce4281ca93e5b340048f18d0bb6abbf5714464bbecc4147b6c4ff898f6ce73c"
+    sha256               arm64_sequoia: "aea205a447f405deec0c80ffea30b0ab519b146b4c7e115b9cf558e89e5df631"
+    sha256               arm64_sonoma:  "bdb032b860758ba640f50f58d40f1e301bed1b660e5ec61df46d28c66db3d2d7"
+    sha256 cellar: :any, sonoma:        "438b29c928814da4b1baa3b2bfa2266d5a64ec5cf3631ad42855d481ad6720e9"
+    sha256               arm64_linux:   "84f8ff67fcb167941721bc26a774f520222fa41e07a6117d8925d7c2beecd3ff"
+    sha256               x86_64_linux:  "d6b78574c20481f7ff6be5c550f0720aa0bb75ffd434b299ea282f09c578da26"
   end
 
   depends_on "docutils" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on xcode: :build
   depends_on "ffmpeg"
   depends_on "jpeg-turbo"
   depends_on "libarchive"
@@ -64,6 +65,7 @@ class Mpv < Formula
     depends_on "libxscrnsaver"
     depends_on "libxv"
     depends_on "mesa"
+    depends_on "pipewire"
     depends_on "pulseaudio"
     depends_on "wayland"
     depends_on "wayland-protocols" => :no_linkage # needed by mpv.pc
@@ -102,7 +104,7 @@ class Mpv < Formula
     # `pkg-config --libs mpv` includes libarchive, but that package is
     # keg-only so it needs to look for the pkgconfig file in libarchive's opt
     # path.
-    libarchive = Formula["libarchive"].opt_prefix
+    libarchive = formula_opt_prefix("libarchive")
     inreplace lib/"pkgconfig/mpv.pc",
               /^Requires\.private:(.*)\blibarchive\b(.*?)(,.*)?$/,
               "Requires.private:\\1#{libarchive}/lib/pkgconfig/libarchive.pc\\3"

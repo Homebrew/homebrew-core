@@ -2,16 +2,17 @@ class Sha3sum < Formula
   desc "Keccak, SHA-3, SHAKE, and RawSHAKE checksum utilities"
   homepage "https://codeberg.org/maandree/sha3sum"
   url "https://codeberg.org/maandree/sha3sum/archive/1.2.5.tar.gz"
-  sha256 "ffc3af5fef56dd4fd920bc3768bb8c7b3303ae1403ff7534f5daf13fe83dca4c"
+  sha256 "58778e4ec52dadf6d9b21a9665050458db56c67dd7167978bea2464eef354f13"
   license "ISC"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "62306213af7064874641afb494df217e574fb6db5ee52d62aef20a929346c56e"
-    sha256 cellar: :any,                 arm64_sequoia: "f6ce0dc6aef6728c0b8fb9115a7b18431e3c432bb3f18f6c452ae5614095e2e5"
-    sha256 cellar: :any,                 arm64_sonoma:  "c19a684442e57392c3fd706d7436be87897a20a63a63130388ace81459fb3f7a"
-    sha256 cellar: :any,                 sonoma:        "04cb06d81eef84daed5b14c6c787809d09cf79f76a7d10f9319123dc06ae0990"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "577ee25a616ed7f4c7e485b6f338584f3c21a0aa3aae69d95975207d171e98e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af3db7fb0923e4b66a52ac01e4a7d3935a99cc7b4c4ecabbeabdc401aa75f9b4"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "6302ca9f0b19f528c9d2b8ab0b3c62698ec98a8e0d23a1fef4a516a3de28e24e"
+    sha256 cellar: :any, arm64_sequoia: "e51c856c6039cf07f68188725a788e1e1f9881969497ce2a3145dedac7a4103a"
+    sha256 cellar: :any, arm64_sonoma:  "0a46a21a973314ad36f0ee667389a20b224063c1dd11ebcc95c38348f4163901"
+    sha256 cellar: :any, sonoma:        "537370a915f214d90e5f8c4968e97ebd57c9eb1b7c95be40973602116bebd589"
+    sha256 cellar: :any, arm64_linux:   "64bfa0f6152be1fe7659d0b41e68e82b89f171e4b08aacf9e089f9098628305d"
+    sha256 cellar: :any, x86_64_linux:  "ebe8afef7963d226e9b64463b3db4481ba6d4c8ba96a0794fbe12367561fb7cd"
   end
 
   depends_on "libkeccak"

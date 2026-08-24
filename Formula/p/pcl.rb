@@ -2,7 +2,7 @@ class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "https://pointclouds.org/"
   license "BSD-3-Clause"
-  revision 6
+  revision 8
   head "https://github.com/PointCloudLibrary/pcl.git", branch: "master"
 
   stable do
@@ -13,23 +13,34 @@ class Pcl < Formula
     patch do
       url "https://github.com/PointCloudLibrary/pcl/commit/2d6929bdcd98beaa28fa8ee3a105beb566f16347.patch?full_index=1"
       sha256 "66e6b47a2373224f6a64a87124c94fbe79d3624b4cb0d71603c4805323343b62"
+      type :backport
+      resolves "https://github.com/PointCloudLibrary/pcl/pull/6354"
     end
 
     # Apply merged, unreleased PR to fix build with Boost 1.89
-    # PR ref: https://github.com/PointCloudLibrary/pcl/pull/6330
     patch do
       url "https://github.com/PointCloudLibrary/pcl/commit/8dfb0e10ebdf4a5086328b38f854294d2d6b1627.patch?full_index=1"
       sha256 "f31c11abb6bec8864b7a109472768ba80e87ddf90533890c303294d264f389e1"
+      type :backport
+      resolves "https://github.com/PointCloudLibrary/pcl/pull/6330"
+    end
+
+    # Backport replacement of `vtkRenderer::RemoveActor2D`, removed in VTK 9.7
+    patch do
+      url "https://github.com/PointCloudLibrary/pcl/commit/4db3dc4f6588b1ba8a807087d8ed6c48d56b1a6d.patch?full_index=1"
+      sha256 "7a148236c69bfbcd1c6fca97d3285f743d800e993ae0f14a956b3bd2bfd469fe"
+      type :backport
+      resolves "https://github.com/PointCloudLibrary/pcl/pull/6394"
     end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fd8d280fb7c3bcd0f1ec2bc32fe01db3e992ece728b7eff99e9fde33d85228e8"
-    sha256 cellar: :any,                 arm64_sequoia: "524154d4e65eb46d7363e2b9ab350799b91f3ec51996e32f1e371073daec5bff"
-    sha256 cellar: :any,                 arm64_sonoma:  "1f66fa86d4bd166c10413a92934b149f580b62a1a20cb08591db8014e094008d"
-    sha256 cellar: :any,                 sonoma:        "2dd4f11ae72470e3e47b91df9a8362e2603fb499074cbd929b8badf3ff97ea7c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e043fd58d9dda826166bded9548d076ab2cb54c3a04c0effd36d793acde54587"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bed5f266d8bf1a7b6c41f4e01f70e3dca40842a71abb88be6179c4517cba002"
+    sha256 cellar: :any, arm64_tahoe:   "96e7ff3c0b608fb8f47fcb84fcf91cc735f4abca956829f9394ce88dc194a78c"
+    sha256 cellar: :any, arm64_sequoia: "bafd5a622108d37dd359b1c50c39d9a63c1416e797bbfbe5f7d9a8b2a58bf9f1"
+    sha256 cellar: :any, arm64_sonoma:  "292397594a7af0748192d22fbacaa58700ec145c871c7b369f851a58f935549e"
+    sha256 cellar: :any, sonoma:        "3a8e65473a20d68437902ce34ddd27de79219c08ae4ed03de674141450fea7f6"
+    sha256 cellar: :any, arm64_linux:   "ee362f427810c10491cd09d7bb6a7c082e2fd1185b2d1d78a1492e26b43b151a"
+    sha256 cellar: :any, x86_64_linux:  "2de32c8abdc01f93a0574e6f7e923ee166a96b789dc0b3397663638786d91b9b"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -60,10 +71,11 @@ class Pcl < Formula
   end
 
   # vtk 9.6+ is optional to x11, it doesn't link transitively and so here we need to add it as a dependency
-  # PR ref: https://github.com/PointCloudLibrary/pcl/pull/6435
   patch do
     url "https://github.com/PointCloudLibrary/pcl/commit/490996e66d36829394e01c19089385f23fdf3c9c.patch?full_index=1"
     sha256 "f71b64ce5e8e606a5f57b3c011d961b625ace6c0c8956a7a25db1d4db8446664"
+    type :backport
+    resolves "https://github.com/PointCloudLibrary/pcl/pull/6435"
   end
 
   def install

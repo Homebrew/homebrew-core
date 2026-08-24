@@ -52,13 +52,12 @@ class Fox < Formula
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    file "Patches/libtool/configure-big_sur.diff"
   end
 
   def install
     # Needed for libxft to find ftbuild2.h provided by freetype
-    ENV.append "CPPFLAGS", "-I#{Formula["freetype"].opt_include}/freetype2"
+    ENV.append "CPPFLAGS", "-I#{formula_opt_include("freetype")}/freetype2"
 
     system "./configure", "--enable-release",
                           "--with-x",

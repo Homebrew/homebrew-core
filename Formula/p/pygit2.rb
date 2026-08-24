@@ -1,19 +1,19 @@
 class Pygit2 < Formula
   desc "Bindings to the libgit2 shared library"
   homepage "https://www.pygit2.org/"
-  url "https://files.pythonhosted.org/packages/a6/44/415aa93422b4bfc21a6448acb7e16280d5f33a9a3fae38a384e37b046ae4/pygit2-1.19.3.tar.gz"
-  sha256 "a543e6d4ebb43825564935758dc234e770016fed673b84370d46ae9580558831"
+  url "https://files.pythonhosted.org/packages/f1/54/9273c78efd3d570091af585bdeb68a46089e80602dafe11989cca40c6d0f/pygit2-1.20.0.tar.gz"
+  sha256 "7253735629c22fff412a72c48c204b19c206fda9fcb01e51113d9689194cb1cf"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
   compatibility_version 1
   head "https://github.com/libgit2/pygit2.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "943128ffecf388b567b33a6af0bb156cf8e7331c864baff75e7293c4f989aaa3"
-    sha256 cellar: :any, arm64_sequoia: "1acaec4c8d2db3a3315059d8c52149151ea7b621116e6f75474eedf35e6d387f"
-    sha256 cellar: :any, arm64_sonoma:  "ebfb9fbc818fc003bdd0e1ae07ade23add6d89e2c3dc608b3c9e851d836f9935"
-    sha256 cellar: :any, sonoma:        "095cb288d14b0c91c8112df910614cb1e2a3e2ab805daf89210af355ffba785d"
-    sha256 cellar: :any, arm64_linux:   "d8d4bafa9c7119b8b35a8ccabc4b4f410e130be4c7355717c33c7f713db02f5e"
-    sha256 cellar: :any, x86_64_linux:  "708e65e2735fcb44c3d62e299cf528620a74844eb96dd4b8ecb5721562e19cbe"
+    sha256 cellar: :any, arm64_tahoe:   "014b443ecfadb43fea1f8be1e2d192d90ff6ac22f254c4fe70f116d48ba11370"
+    sha256 cellar: :any, arm64_sequoia: "5aae17d0cb36ba04cd2fe7ca4284c8ef9555fcc529c0de091fb2c9b9d39101d7"
+    sha256 cellar: :any, arm64_sonoma:  "cbc2582c691dc88e8f25fb42325f0d9eb86ee3166f0dcdfc96eba83941793d41"
+    sha256 cellar: :any, sonoma:        "933d7b2dc5bb69dfb6570bdb5d5eafe18a668eeb646bd27c0eb380ebde0df69a"
+    sha256 cellar: :any, arm64_linux:   "285e4f9e42ad8a76b6d2c88901c4d8b6aaa6b6256ef0f0bfbd69d9c7537f3daf"
+    sha256 cellar: :any, x86_64_linux:  "f01f8e53269c2e436a399e7b9e13d60272ebc5bdd0b86b8a74750992a533a9e5"
   end
 
   depends_on "python@3.13" => [:build, :test]

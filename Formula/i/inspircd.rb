@@ -27,11 +27,14 @@ class Inspircd < Formula
 
   uses_from_macos "openldap"
 
+  on_linux do
+    depends_on "libpsl"
+  end
+
   skip_clean "data"
   skip_clean "logs"
 
   def install
-    ENV.cxx11
     system "./configure", "--enable-extras",
                           "argon2 ldap mysql pgsql regex_posix ssl_gnutls sslrehashsignal"
     system "./configure", "--disable-auto-extras",

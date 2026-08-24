@@ -15,7 +15,7 @@ class Tailor < Formula
 
   def install
     libexec.install Dir["*"]
-    (bin/"tailor").write_env_script libexec/"bin/tailor", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"tailor").write_env_script libexec/"bin/tailor", JAVA_HOME: formula_opt_prefix("openjdk")
     man1.install libexec/"tailor.1"
   end
 

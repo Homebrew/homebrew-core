@@ -28,7 +28,7 @@ class Mednafen < Formula
   depends_on "libsndfile"
   depends_on "lzo"
   depends_on "musepack"
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
   depends_on "zstd"
 
   on_macos do

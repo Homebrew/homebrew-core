@@ -1,13 +1,13 @@
 class Ivy < Formula
   desc "Agile dependency manager"
   homepage "https://ant.apache.org/ivy/"
-  url "https://www.apache.org/dyn/closer.lua?path=ant/ivy/2.5.3/apache-ivy-2.5.3-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/ant/ivy/2.5.3/apache-ivy-2.5.3-bin.tar.gz"
-  sha256 "3d41e45021b84089e37329ede433e3ca20943cb1be0235390b6ddf4a919a85af"
+  url "https://www.apache.org/dyn/closer.lua?path=ant/ivy/2.6.0/apache-ivy-2.6.0-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/ant/ivy/2.6.0/apache-ivy-2.6.0-bin.tar.gz"
+  sha256 "3ada1eaadfaddf5347f1de8303d283dc535f4d8bddd7bee7b32e397c8327cb1f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c3132187b5761ef4cf40ef487beb49fa5e3d7c963628854a4d44d10dd1741065"
+    sha256 cellar: :any_skip_relocation, all: "bf45fa90dd574a280c73748a8add44d6c3d1bcf11281d5459bda8d75df60531f"
   end
 
   depends_on "openjdk"

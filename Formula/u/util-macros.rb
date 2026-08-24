@@ -1,7 +1,7 @@
 class UtilMacros < Formula
   desc "X.Org: Set of autoconf macros used to build other xorg packages"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/util/util-macros-1.20.2.tar.xz"
+  url "https://xorg.freedesktop.org/archive/individual/util/util-macros-1.20.2.tar.xz"
   sha256 "9ac269eba24f672d7d7b3574e4be5f333d13f04a7712303b1821b2a51ac82e8e"
   license "MIT"
 

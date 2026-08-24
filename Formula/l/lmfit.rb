@@ -1,17 +1,18 @@
 class Lmfit < Formula
   desc "C library for Levenberg-Marquardt minimization and least-squares fitting"
-  homepage "https://jugit.fz-juelich.de/mlz/lmfit"
-  url "https://jugit.fz-juelich.de/mlz/lmfit/-/archive/v10.0/lmfit-v10.0.tar.bz2"
-  sha256 "232658736984365ad71ac76adf94d125ee0df1f570a6c69ce3a34f892be14150"
+  homepage "https://jugit.fz-juelich.de/mlz/lib/lmfit"
+  url "https://jugit.fz-juelich.de/mlz/lib/lmfit/-/archive/v11.0/lmfit-v11.0.tar.bz2"
+  sha256 "5289b1264f82cd9a62d445848dc17d2fce1cdc0079b24594f52d87c12e1ac716"
   license "BSD-2-Clause"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e30e6afe8c7246d88c2ecc8cfd62cc3c326e035a8ea67fd2546960d23d476f55"
-    sha256 cellar: :any,                 arm64_sequoia: "6d995c18ee8647862cc3ef8f49a89b3260b74f8b0162b27ea63eb965adcee02e"
-    sha256 cellar: :any,                 arm64_sonoma:  "b540071bc480f6f445d956611bed6d3818f41de82a2e02e0337cc0322780adcc"
-    sha256 cellar: :any,                 sonoma:        "9ba0e39ce1f606cf8ef93827b70ace200f5847094d02c2001b930c4baacc6582"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "39da5cc940190e897a5b4cd90787d8cf75c68ddba48a02936b3f2e214f049883"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97ced0fb2d37329984bd28388f20b26c0633bbd79c7f53dfa38201678f730233"
+    sha256 cellar: :any, arm64_tahoe:   "8325326f02febd3bed4b3f82e1786a549eebb09d7ee63e37c0cb166912499852"
+    sha256 cellar: :any, arm64_sequoia: "84efab725eb2905d1b8f0f3393ef8d3394dcf79d5ce6c254cd1e3d1723a6eb9a"
+    sha256 cellar: :any, arm64_sonoma:  "28d0692c53ce1acb0df97a330bbe34a42c234967c86c190e6b4eb372626616b5"
+    sha256 cellar: :any, sonoma:        "505f26d0080e19f557fa83eaffd86f42ed4f41244d84a4ebc6ec745cc58448ec"
+    sha256 cellar: :any, arm64_linux:   "4e9ac03c3876b0afeb3fb5fd0473bd6a7257cf10eea5874216a118fc040122a1"
+    sha256 cellar: :any, x86_64_linux:  "ec55319502ac26e95fc77ebc244bbc80d2b99e5cd5b1533ff66202d7bdcc0b0b"
   end
 
   depends_on "cmake" => :build

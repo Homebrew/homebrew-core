@@ -50,7 +50,7 @@ class Smpeg < Formula
     ENV.append_to_cflags "-Wno-c++11-narrowing" if DevelopmentTools.clang_build_version >= 1400
 
     args = %W[
-      --with-sdl-prefix=#{Formula["sdl12-compat"].opt_prefix}
+      --with-sdl-prefix=#{formula_opt_prefix("sdl12-compat")}
       --disable-gtk-player
       --disable-gtktest
       --disable-opengl-player

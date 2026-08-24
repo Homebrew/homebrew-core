@@ -3,9 +3,8 @@ class Polynote < Formula
 
   desc "Polyglot notebook with first-class Scala support"
   homepage "https://polynote.org/"
-  # TODO: consider switching back to dist when available: https://github.com/polynote/polynote/issues/1486
-  url "https://github.com/polynote/polynote/archive/refs/tags/0.7.2.tar.gz"
-  sha256 "6802606b38c34b7e0e3717675f6d92cae5419d5927314c51b238bbd15f1d73e4"
+  url "https://github.com/polynote/polynote/releases/download/0.7.2/polynote-dist.tar.gz"
+  sha256 "a43afd3a19343b93ec2d323731f18c296ed0af33b7a56420af2ade40dd14c17b"
   license "Apache-2.0"
 
   # Upstream marks all releases as "pre-release", so we have to use
@@ -27,17 +26,16 @@ class Polynote < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "9e426d1ec0e516570fd0c40d836821823e100f7a5a9d80652ec27c4627d335b9"
-    sha256 cellar: :any, arm64_sequoia: "01156fa43ee0aa7ded51b47a59e25b6b2aaebdec065a2e6ae63b29aa13247766"
-    sha256 cellar: :any, arm64_sonoma:  "0f588261fb28e7388c9d59fe16378620daf5cfe958b7f02bafee2aff444a16b9"
-    sha256 cellar: :any, sonoma:        "ef680a88951b4c4c06d5bc61dbbbf4d755840bc82598758010b034389d9e0da8"
-    sha256               arm64_linux:   "1dbf3c452f49fa6153801b8800f2d2a5df304785a8a5d7bf7904ccdb42ac703c"
-    sha256               x86_64_linux:  "27764487ba7979d2f67f53d6828aef8d2d5a56a9aea1972c0e9c4a5e6b1fe542"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "97bcad9e3bec9679599e61a6132a9e2894f545a63467ed6d60654c42ec6dff70"
+    sha256 cellar: :any, arm64_sequoia: "f7842ab01a975c0d4f66512aa6fedccaf00f92778bcaeaa4a575a7d1a97193d1"
+    sha256 cellar: :any, arm64_sonoma:  "f2fccd1682fed553f175e6edd248b347195ff4630649eb8c802bad07ab6b0194"
+    sha256 cellar: :any, sonoma:        "bb24853b7bb693c98096fc7d1b37507b40c72f02c288f432ce0aca99c7016b54"
+    sha256               arm64_linux:   "42c1f47c931413bc7f8281ce103b83df555c0b11cd1510f78a765ec62b11f6a6"
+    sha256               x86_64_linux:  "f43b22ef1081a4e8be7f6d6e101b20713d85282f53a190c98073a569662543df"
   end
 
-  depends_on "node" => :build
   depends_on "python-setuptools" => :build # to detect numpy (and avoid building numpy when we use jep >= 4.3)
-  depends_on "sbt" => :build
   depends_on "numpy" # used by `jep` for Java primitive arrays
   depends_on "openjdk"
   depends_on "python@3.14"
@@ -60,15 +58,7 @@ class Polynote < Formula
     java_version = Formula["openjdk"].version.major.to_s
     ENV["JAVA_HOME"] = java_home = Language::Java.java_home(java_version)
 
-    # https://github.com/polynote/polynote/blob/master/DEVELOPING.md#building-the-distribution
-    cd "polynote-frontend" do
-      system "npm", "install", *std_npm_args(prefix: false)
-      system "npm", "run", "dist"
-    end
-    system "sbt", "dist"
-
-    libexec.mkpath
-    system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xf", "target/polynote-dist.tar.gz"
+    libexec.install Dir["*"]
     rewrite_shebang detected_python_shebang, libexec/"polynote.py"
 
     resource("jep").stage do

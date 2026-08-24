@@ -24,10 +24,11 @@ class Prs < Formula
   end
 
   # Fix compilation error on macOS
-  # PR ref: https://github.com/timvisee/prs/pull/46
   patch do
     url "https://github.com/timvisee/prs/commit/dd29c60992714a160e88c32f6ec8848e7ccbee12.patch?full_index=1"
     sha256 "51ce3804136dc7712e7c2d6c434d68d7ab10885f16b0d79f7549f2c99d9d45a4"
+    type :backport
+    resolves "https://github.com/timvisee/prs/pull/46"
   end
 
   def install

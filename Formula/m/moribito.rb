@@ -21,7 +21,6 @@ class Moribito < Formula
 
   def install
     ldflags = %W[
-      -s -w
       -X github.com/ericschmar/moribito/internal/version.Version=#{version}
       -X github.com/ericschmar/moribito/internal/version.Commit=#{tap.user}
       -X github.com/ericschmar/moribito/internal/version.Date=#{time.iso8601}

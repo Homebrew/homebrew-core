@@ -26,10 +26,11 @@ class Wb32DfuUpdaterCli < Formula
   depends_on "libusb"
 
   # Fix compatibility with cmake 4+
-  # PR ref: https://github.com/WestberryTech/wb32-dfu-updater/pull/17
   patch do
     url "https://github.com/WestberryTech/wb32-dfu-updater/commit/34725776e4b21be89e5d4eb0ea83346f26fc5d1f.patch?full_index=1"
     sha256 "bfcc362f17c3063b90531e2795e7d33743dc754cce5dac2a93582994f9a88479"
+    type :backport
+    resolves "https://github.com/WestberryTech/wb32-dfu-updater/pull/17"
   end
 
   def install

@@ -1,19 +1,19 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "https://www.numpy.org/"
-  url "https://files.pythonhosted.org/packages/d0/ad/fed0499ce6a338d2a03ebae59cd15093910c8875328855781952abf6c2fe/numpy-2.4.6.tar.gz"
-  sha256 "f3a3570c4a2a16746ac2c31a7c7c7b0c186b95ce902e33db6f28094ed7387dda"
+  url "https://files.pythonhosted.org/packages/9a/80/db0b4559e57ec36362bedbb05530a87fafbcb6067708c946967a41d449e7/numpy-2.5.2.tar.gz"
+  sha256 "d482d171c406ae88c5b19cad3b6a1c4c5209f886ab74bc44c2c865c23f52d860"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/numpy/numpy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5ef92c50bed046b19595854c16e7e0c4ed1da377f511516765b83041c44317b1"
-    sha256 cellar: :any,                 arm64_sequoia: "5d794662e2b985a9d9ff44a89df735ddd79a1004c455481de4dac9f5df81af3e"
-    sha256 cellar: :any,                 arm64_sonoma:  "8153b42f341376b86264c2a9ab547926b8b1d6a6575511eef4eecd50248596be"
-    sha256 cellar: :any,                 sonoma:        "c3d871e7a22445d0c3289cfadaca65467f9a33045f4d9da97f52d552f279da7c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4fcdd86fb98663ea0af0e9de6f3d568ead0b62260be482057e68a50bf8c7ca04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87a75aa5d64222a2b6ad81464f823ae24df60b38df809692b865508cb9bcbacd"
+    sha256 cellar: :any, arm64_tahoe:   "79599e535b1734f014ad1ec68aeda7c619ac1ced19f6e293694e03be31cea0db"
+    sha256 cellar: :any, arm64_sequoia: "13ffde10d22503d6d175259dd976bdd9ece48bd5394c265019fdfef511d39bf3"
+    sha256 cellar: :any, arm64_sonoma:  "963455dd34681c6856ab5439455090ddf29d5ba2a91f6c7e9abe1710ae94fd49"
+    sha256 cellar: :any, sonoma:        "29cb5dcd989660db43568ad9625ad4c887e03b4a826dc9cd2c083dde2efaf7d4"
+    sha256 cellar: :any, arm64_linux:   "a498040292ba447fe2e8d57f8906412af7090213ca1aea91c97faf5498f342a4"
+    sha256 cellar: :any, x86_64_linux:  "af579a2d9ccbe6c3090025f4e39c6591827ede89d6f71fd16785acf413b08880"
   end
 
   depends_on "gcc" => :build # for gfortran

@@ -72,6 +72,7 @@ class AnsibleAT10 < Formula
     patch do
       url "https://github.com/apache/libcloud/commit/a2114923adcaee6b022b43410db59df5d7e53c26.patch?full_index=1"
       sha256 "b2b07919f7edbc346a16cfe8571ddbfb232e2b33ed32be18bf85e9ac4ec24d30"
+      type :backport
     end
   end
 

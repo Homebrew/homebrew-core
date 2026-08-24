@@ -1,17 +1,17 @@
 class Rabbitmqadmin < Formula
   desc "Command-line tool for RabbitMQ that uses the HTTP API"
   homepage "https://www.rabbitmq.com/docs/management-cli"
-  url "https://github.com/rabbitmq/rabbitmqadmin-ng/archive/refs/tags/v2.32.0.tar.gz"
-  sha256 "6236cf711256cc20b26a0ec2f3f48d33b4d0ee920e456d93fe801f3447db2f93"
+  url "https://github.com/rabbitmq/rabbitmqadmin-ng/archive/refs/tags/v2.34.0.tar.gz"
+  sha256 "f364a4306be8dc9bddaa01274fc05c44b8d0dec3f03daf2c1f30d56a20752913"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c0d81e39830e95b4f0f43693d00563a1127e109a824d6060c7d0e1e3863fe3d6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fbd471eaf51453642f4639639b69ef98bb6a566cc2fcb893ecb7f5068277b2b1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "91671657a72c8e7210f8e4c8d7ad2d56938f65f6a45674104239ba7305b90f9a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2d105925e3b22cd5c5f607036e63df65114d979628ee8a80b72492ad6c2db261"
-    sha256 cellar: :any,                 arm64_linux:   "2ad403cd1d9e72bc3e6ab40e8a153d5bd54905ef6433adc2da95766b2948624f"
-    sha256 cellar: :any,                 x86_64_linux:  "f1445bae6751912c2a8b1945df94992425e7cc0e3c7025de59fc5d9d87cb1a6d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9ad4ee2a8f9a9b023f9044bb44b3f7fffad87b5ddb44aa89bbebb216238b7af6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20862bc43a3ec6ca2dba3e32fb5fcc7571d684a1648b200e67d7ca7cba87d68a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d503ac0d6f8cc8328f611d830856529fc766509c064f84bfc218c04bfc71fe58"
+    sha256 cellar: :any_skip_relocation, sonoma:        "53e312005864832d995b14bae3c2a4a273a7365e3d359c532bd0892330273021"
+    sha256 cellar: :any,                 arm64_linux:   "beb0cb2b01f38b2ac05e8a02ee3428e8aa5fae22b93cbb22168e72f255b31cf1"
+    sha256 cellar: :any,                 x86_64_linux:  "04081a7adbee0eadbaa1ac1164e79a1f1211089e3e1ba5725160166746a67ef7"
   end
 
   depends_on "rust" => :build

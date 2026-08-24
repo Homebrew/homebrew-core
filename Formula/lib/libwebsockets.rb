@@ -1,10 +1,10 @@
 class Libwebsockets < Formula
   desc "C websockets server library"
   homepage "https://github.com/warmcat/libwebsockets"
-  url "https://github.com/warmcat/libwebsockets/archive/refs/tags/v4.5.8.tar.gz"
-  sha256 "b6ade658f4af3a823d0dc806ae5ef0623f0f4f5e2aeb895a0f77c4783840c30e"
+  url "https://github.com/warmcat/libwebsockets/archive/refs/tags/v5.0.0.tar.gz"
+  sha256 "f853c6582101cfcee3a5a9e28ae92ab19d9735c5f31f0bb2e9794b5106123962"
   license "MIT"
-  compatibility_version 5
+  compatibility_version 6
   head "https://github.com/warmcat/libwebsockets.git", branch: "main"
 
   livecheck do
@@ -13,12 +13,12 @@ class Libwebsockets < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "4746b71efdac824a21e1e872ba70250419d744536a74883481b1544b0506fd10"
-    sha256 arm64_sequoia: "acd80d40a6ab1175e1f6ab0b926c173d384cc069fbfa7e9e7ff7db1e41b41903"
-    sha256 arm64_sonoma:  "fed6b0f38cbdd21756c7e2be4fe4762f7896bc83e8254ef64aba9677a2d20b3b"
-    sha256 sonoma:        "122bd2962f1ac24e297e1bbd6309c6097366299c22413cd0f59be36f8c778705"
-    sha256 arm64_linux:   "722d9af7020d79568d3c2d45bf64d1d486868b8481e001698c0d372af85d3d8c"
-    sha256 x86_64_linux:  "9a6c6ca0b44531638b3b2c44c6002cbcf018a3a7a2d878891e9b83b3ab0ac03a"
+    sha256 arm64_tahoe:   "40b60bda9bcf364bf97f2be5cc4aebb33ef6875b8d066901c1922edab2b2f9ad"
+    sha256 arm64_sequoia: "0dfd541e9c92c8fc34d553e716d9323172b38d7ef84013aec7e080d6d5f2c07e"
+    sha256 arm64_sonoma:  "0eb5268dabac072732b82fa7337c2a3cd16ee040e1bc6bc1bdaa896441518a00"
+    sha256 sonoma:        "fa294c0cfaee7c634c72f2b9102cd15b54ee2b6de19e7982fc8e617555c31e14"
+    sha256 arm64_linux:   "924c9a44f52a6ad16b40f376922687308c90cad4302d26e1a3ba2080736b9707"
+    sha256 x86_64_linux:  "bb3c0a4b41d41a3b89c7ca9f6b77377a810d6910e48df5a13f4d3b079353443e"
   end
 
   depends_on "cmake" => :build
@@ -27,12 +27,13 @@ class Libwebsockets < Formula
   depends_on "openssl@3"
 
   def install
+    # HTTP/3 forces the GnuTLS backend from 5.0.0 onwards, which ttyd cannot build against.
     system "cmake", "-S", ".", "-B", "build",
                     "-DLWS_IPV6=ON",
                     "-DLWS_WITH_HTTP2=ON",
+                    "-DLWS_WITH_HTTP3=OFF",
                     "-DLWS_WITH_LIBEVENT=ON",
                     "-DLWS_WITH_LIBUV=ON",
-                    "-DLWS_WITH_PLUGINS=ON",
                     "-DLWS_WITHOUT_TESTAPPS=ON",
                     "-DLWS_UNIX_SOCK=ON",
                     *std_cmake_args
@@ -55,7 +56,7 @@ class Libwebsockets < Formula
         return 0;
       }
     C
-    system ENV.cc, "test.c", "-I#{Formula["openssl@3"].opt_prefix}/include",
+    system ENV.cc, "test.c", "-I#{formula_opt_prefix("openssl@3")}/include",
                    "-L#{lib}", "-lwebsockets", "-o", "test"
     system "./test"
   end

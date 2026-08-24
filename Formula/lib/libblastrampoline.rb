@@ -53,9 +53,9 @@ class Libblastrampoline < Formula
     test_libs = [shared_library("libopenblas64_")]
     if OS.mac?
       test_libs << "/System/Library/Frameworks/Accelerate.framework/Accelerate"
-      ENV["DYLD_LIBRARY_PATH"] = Formula["openblas64"].opt_lib.to_s
+      ENV["DYLD_LIBRARY_PATH"] = formula_opt_lib("openblas64").to_s
     else
-      ENV["LD_LIBRARY_PATH"] = Formula["openblas64"].opt_lib.to_s
+      ENV["LD_LIBRARY_PATH"] = formula_opt_lib("openblas64").to_s
     end
 
     test_libs.each do |test_lib|

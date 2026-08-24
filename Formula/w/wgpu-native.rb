@@ -2,18 +2,18 @@ class WgpuNative < Formula
   desc "Native WebGPU implementation based on wgpu-core"
   homepage "https://github.com/gfx-rs/wgpu-native"
   url "https://github.com/gfx-rs/wgpu-native.git",
-      tag:      "v29.0.0.0",
-      revision: "d2e3330ade4ae1bb238d76b485926f067e7ee64c"
+      tag:      "v29.0.1.1",
+      revision: "6aed50955d934ac36049ba8d002034841633ae02"
   license "Apache-2.0"
   head "https://github.com/gfx-rs/wgpu-native.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7cc3b38e9e319ae09bd3aebfb8f9b25143fd0b1115133f8d8e746e7fcff559a2"
-    sha256 cellar: :any,                 arm64_sequoia: "ec305f91cca1a09a7b560563d35eab486f3ed1985f1bfca11328e69cee5a82cd"
-    sha256 cellar: :any,                 arm64_sonoma:  "09c1a3c1a9c108a97a8f48c56f82009ce15cac0ae48d50b13a8dbd0ce2d9fb98"
-    sha256 cellar: :any,                 sonoma:        "3325394962e971ba056dc7c533613d789e3f0d28c5013056c3c3414bf8bc2ce0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5e204deee10c0452c9fe23492faa5b497b37ec37dbdb9c995d36f5599d025010"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07f40872287f69103207325022fc2176e180ce060b2dab932e203443690013a7"
+    sha256 cellar: :any, arm64_tahoe:   "b204aa50abf15cbacfaed382c0d2c6f9d0d0d49b71e06a8d26c2b66ce98dc082"
+    sha256 cellar: :any, arm64_sequoia: "b24aac8b8d17043e288ad92be12feade652e9de73d49c72800ef9ae7e7f95552"
+    sha256 cellar: :any, arm64_sonoma:  "84c5693fb760cb9ab8d8c4feaed584c24152b172216f0777dfc4b8ccb2191ef8"
+    sha256 cellar: :any, sonoma:        "8ba08dab0972a14828b88e853559af3d9a479f6b69ba54085bfe41946dddd655"
+    sha256 cellar: :any, arm64_linux:   "a34b2309bb9a4f42720d932ff1c394d68e0dc0ec517e8d1eeec314c983dae062"
+    sha256 cellar: :any, x86_64_linux:  "e5d2ad6914baf11090337d3e302f6304f849887de8c8b8177b9c81aec55541ce"
   end
 
   depends_on "rust" => :build
@@ -25,7 +25,7 @@ class WgpuNative < Formula
   end
 
   def install
-    ENV["LIBCLANG_PATH"] = Formula["llvm"].opt_lib.to_s if OS.linux?
+    ENV["LIBCLANG_PATH"] = formula_opt_lib("llvm").to_s if OS.linux?
     # Not using `cargo install` because wgpu-native doesn't ship binaries
     system "cargo", "build", "--jobs", ENV.make_jobs, "--lib", "--release", "--locked"
 

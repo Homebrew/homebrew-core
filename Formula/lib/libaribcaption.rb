@@ -1,22 +1,18 @@
 class Libaribcaption < Formula
   desc "Portable ARIB STD-B24 Caption Decoder/Renderer"
   homepage "https://github.com/xqq/libaribcaption"
-  url "https://github.com/xqq/libaribcaption/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "278d03a0a662d00a46178afc64f32535ede2d78c603842b6fd1c55fa9cd44683"
+  url "https://github.com/xqq/libaribcaption/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "649b50bde99272b97c66af2a8400163e2f84eae072d252daa26baaaf0866a1c2"
   license "MIT"
   head "https://github.com/xqq/libaribcaption.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "9eb1e545807e31a3efb83df1e8af4c443a2443ad726ee59b3132e6a05b7d6159"
-    sha256 cellar: :any,                 arm64_sequoia:  "ee6159957adc5a0d51c97ea3ff269abb39c5eafb0a8bddf7c14033827f22a6d0"
-    sha256 cellar: :any,                 arm64_sonoma:   "350944da4a91c77f3a44925b3f563b97b763f71c9a3ca42d0a6a47d064f27a8c"
-    sha256 cellar: :any,                 arm64_ventura:  "b4ed009d3d15f9b1ea86896330e05298282388ebaf4865d9629416d0ee61c27c"
-    sha256 cellar: :any,                 arm64_monterey: "b36c2311bd81f867b0a7d901b583b037598319d96057f55ad20fd6140fbfc063"
-    sha256 cellar: :any,                 sonoma:         "9789d6fea6f6dfd1443d067eec9591d3e67b0f68b724e2db60b0aae6ff77f605"
-    sha256 cellar: :any,                 ventura:        "9c3435a993b489b7b25d02c1c586cc6df386fc1ad9d7563d5b46c84e26560430"
-    sha256 cellar: :any,                 monterey:       "00512bb7e8fcb54f7b407a0eb1a32620dc364a0a87a6d78374bd9942a4ac4fe1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "84244a732beff5af9dd11ecc22abe0c05a665a091bbc98727f2b07a608439945"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6f81f903e8e95519c2f783bc8749cf9513e684545230d518f445b8e407b8764"
+    sha256 cellar: :any, arm64_tahoe:   "dfbd01f66719cce8fe72f86c9c8ef7930157749a8da659b6bcfd27f906aa2ba9"
+    sha256 cellar: :any, arm64_sequoia: "e7d83828ac59fcff10aff4435be198fd6c6d9b812c982ba28359bb708f40bade"
+    sha256 cellar: :any, arm64_sonoma:  "66eb6eff4f7469d951dad362a68375178a48794c0a230e10525e2552bc4726b3"
+    sha256 cellar: :any, sonoma:        "3eacfcff63e0080dc1430c1f3b69c62ec571a7ce4ccf72b5ab8f66ed403d4f63"
+    sha256 cellar: :any, arm64_linux:   "b395f8fb41ffac3fd8fb40c19555a23eeafbbc85ce645e5d0f7118a7de8d4a82"
+    sha256 cellar: :any, x86_64_linux:  "14d9ef888a91d5c3c63d6fbe2be4fcaebf9f5e553674ac0a5c07250aaa35e9b5"
   end
 
   depends_on "cmake" => :build

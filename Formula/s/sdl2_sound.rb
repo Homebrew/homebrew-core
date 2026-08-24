@@ -23,7 +23,7 @@ class Sdl2Sound < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "sdl2"
+  depends_on "sdl2-compat"
 
   def install
     args = [
@@ -152,9 +152,9 @@ class Sdl2Sound < Formula
 
     flags = %W[
       -I#{include}/SDL2
-      -I#{Formula["sdl2"].include}/SDL2
+      -I#{Formula["sdl2-compat"].include}/SDL2
       -L#{lib}
-      -L#{Formula["sdl2"].lib}
+      -L#{Formula["sdl2-compat"].lib}
       -lSDL2_sound
       -lSDL2
     ]

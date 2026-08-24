@@ -21,6 +21,7 @@ class Qtwebview < Formula
     sha256 cellar: :any,                 arm64_sequoia: "c5d8bc46a0491596a01dbe410b19b02588678c34a39bcc80607d5e9f96515506"
     sha256 cellar: :any,                 arm64_sonoma:  "2a65c8eff7f3119a261e6121f9802c5f4c68bf0835157d50d3a3aabd5c0fc145"
     sha256 cellar: :any,                 sonoma:        "e9309c1802f4691da7544ab26393df4be1c2de55f0cfbc45d871ddd1f3804c2d"
+    sha256 cellar: :any,                 arm64_linux:   "58764e43490403af35006395b9208cb1c7f4980cfa048464e21074f4a280c62f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d40eb9e5f38687a24dd829072940b8d45582937b6b0e997d25d1c7458a370dd"
   end
 

@@ -1,8 +1,8 @@
 class Tevent < Formula
   desc "Event system based on the talloc memory management library"
   homepage "https://tevent.samba.org"
-  url "https://www.samba.org/ftp/tevent/tevent-0.17.1.tar.gz"
-  sha256 "1be2dea737cde25fe06621f84945e63eb71259e0c43e9f8f5da482dab1a7be92"
+  url "https://www.samba.org/ftp/tevent/tevent-0.17.2.tar.gz"
+  sha256 "e53b1ac288d017d66dde0471cd429a806168ecf07179d7f019572d7a7e05f0d6"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -11,14 +11,12 @@ class Tevent < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e7447eb820e3be9a34b7dece613895a67f10de300bb30d0e59322467591f3edf"
-    sha256 cellar: :any,                 arm64_sequoia: "cf0a28518720b3c7c49c61ab6c9022cae01592fd4080679182cb7b8540f85155"
-    sha256 cellar: :any,                 arm64_sonoma:  "d6842bb23c4ce73840132be51a67414f3351c6a6f1aeb8a4f0c4a2c39b2a4853"
-    sha256 cellar: :any,                 arm64_ventura: "35724246e278253aa0f95ca74069a1349748379fc0559d00a1ffba72a5178399"
-    sha256 cellar: :any,                 sonoma:        "e6a681b4cf04d84f7b6a8ef3f446f9d798238fa38034594194cd777e5f4ff623"
-    sha256 cellar: :any,                 ventura:       "a33ba3c6e7c392e14b4f3793449a38b74294b1556b74564eaba98fbcbde7a931"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ff33cd50247ce9a038e70ad4b99e91e4fe5b71d2127297f0f313188b51733ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2030d92ac3d56d9387cbf24abb485f6699c557f39fce15d6f46b1ea7e03ad6c2"
+    sha256 cellar: :any, arm64_tahoe:   "61d735b0f3f2b5b6d4fdda58810b10dd286bd3a584f1fb3abde8285aed6b7a40"
+    sha256 cellar: :any, arm64_sequoia: "cc86cdef215a345a3d4700060d47f3568f05794797fa20829cd94fc86098d9f2"
+    sha256 cellar: :any, arm64_sonoma:  "4a345f1514eec67d12eba97e6218ff0145dc2807212ea981e9fb955f6e84ea9d"
+    sha256 cellar: :any, sonoma:        "5e165686744d782c04bd3dc6737c02da676bdf70de10b3b6456bf74fcdd0459a"
+    sha256 cellar: :any, arm64_linux:   "487933783e91c33a535b8a46f0b6c0612068a062ccd62f1c103150d23f2356f5"
+    sha256 cellar: :any, x86_64_linux:  "7d46173c3b86ada8d64d36e36616de9e246204978cd726e93515db10b22ac2be"
   end
 
   depends_on "cmocka" => :build
@@ -71,7 +69,7 @@ class Tevent < Formula
       }
     C
 
-    system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-ltevent", "-L#{Formula["talloc"].opt_lib}", "-ltalloc"
+    system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-ltevent", "-L#{formula_opt_lib("talloc")}", "-ltalloc"
     system "./test"
   end
 end

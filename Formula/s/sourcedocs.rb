@@ -6,19 +6,21 @@ class Sourcedocs < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c4ece7ed5a98c8df2e5e4589c10559f8ed042a413da225b2ca7eb051fe0da7ef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "469c4069a84bcc4e8ed58db567eeca9bb8d13311b0c3b5d289bd61a9d1a09aba"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b7cb1a6469f057e769fd3ea2e22e2a288b16d42a7b44a3688e1f0787288e6fa2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "54139f452dcce5a6bb3d42f6483a1ddab9a97705b1b07d89f70333e9a0a770dc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "55d0026d803e708bd167e4817a0f278f0bc0b393103711c0fdc1db59f2ce5063"
-    sha256 cellar: :any_skip_relocation, ventura:       "4b08ada0cacbbfde31cdf88bfc10aba963442a03363844c888c39d9cd6d8862c"
-    sha256                               arm64_linux:   "7698fc8b57805896688c2e9058fb25e4aa7f6189f4252e8d253a02662e98321b"
-    sha256                               x86_64_linux:  "2c97cd8daa81d7c7e546e71cdfdf17db555dee5260d434287266f20edb3a25a6"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7f04c4c5a56ddc3c0278cc681ae25fd79394ca2c7a24707aa0b7fd347d1bfd8c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9ee4c05d8785176a69b0eae29935840fe1b185c34195fbf46ec4b45131d61a0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ed67f2afe732b64d633422650be4fd880c01663a74f2ff9d8f84011c0aabbede"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5b11c5ec1e62eeb2e0ad0e0db50370f6c4ea66fe94f2b24295db9d550ec7fe6a"
+    sha256                               arm64_linux:   "ca3863ed4807fd7b074cc32216319a12ba71bec53d2f21457f5926a4d9000b50"
+    sha256                               x86_64_linux:  "b4c07785f740c3bf7741fcdc1bd6a653cbe43d3e0b23405c379db038ad0dac5f"
   end
 
-  depends_on xcode: ["12.0", :build, :test]
-  uses_from_macos "swift"
+  uses_from_macos "libxml2"
+  uses_from_macos "swift" # runtime as SourceKitten loads sourcekitdInProc
+
+  on_macos do
+    depends_on xcode: ["12.0", :build, :test]
+  end
 
   # Workaround until SourceKitten dependency is updated
   # Ref: https://github.com/SourceDocs/SourceDocs/pull/83
@@ -35,7 +37,6 @@ class Sourcedocs < Formula
   end
 
   def install
-    args = ["--disable-sandbox", "--configuration", "release"]
     if DevelopmentTools.clang_build_version >= 1600
       res = resource("SourceKitten")
       (buildpath/"SourceKitten").install res
@@ -46,10 +47,10 @@ class Sourcedocs < Formula
                         .dig("state", "version")
       odie "Check if SourceKitten patch is still needed!" if pin_version != res.version
 
-      system "swift", "package", *args, "edit", "SourceKitten", "--path", buildpath/"SourceKitten"
+      system "swift", "package", "--disable-sandbox", "edit", "SourceKitten", "--path", buildpath/"SourceKitten"
     end
 
-    system "swift", "build", *args
+    system "swift", "build", *std_swift_args
     bin.install ".build/release/sourcedocs"
     generate_completions_from_executable(bin/"sourcedocs", "--generate-completion-script")
   end

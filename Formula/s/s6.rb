@@ -1,18 +1,18 @@
 class S6 < Formula
   desc "Small & secure supervision software suite"
   homepage "https://skarnet.org/software/s6/"
-  url "https://skarnet.org/software/s6/s6-2.14.0.1.tar.gz"
-  sha256 "c25afe817cbc3f594efc5050351f8b9101ba78616d0ce915658f370e7ee2e258"
+  url "https://skarnet.org/software/s6/s6-2.15.1.0.tar.gz"
+  sha256 "eab9c46e22b66b16135f9a05ec68a0ea287d9060b84d10defaaa2caad158ab52"
   license "ISC"
   head "git://git.skarnet.org/s6.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e95cfad8adbf092855ba5944124b102614af34d54a2e230705079e5ff40fc24c"
-    sha256 cellar: :any,                 arm64_sequoia: "7e72f87cb7e627ea5daffcb99e58033ed7f3d5f7f497c846c771a08534686fa5"
-    sha256 cellar: :any,                 arm64_sonoma:  "d5c73ceed74c1069faa28fb477e82156187fbb0eefacf90bb0cac9dfdc15c5f5"
-    sha256 cellar: :any,                 sonoma:        "864fbc30f870d4a8558093e66f1dc61cb80bfd824bcc532a288cb0b64c7a085b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0982099a11389c9d3f4d38985de2c070f8c88b1ddc6b7b38e218a0791b7e55e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1fd2a0f981c7fac694786821beedb20d65b697c486fe6b3d2f575a53ef1334d"
+    sha256 arm64_tahoe:   "97d2b9ae8f7d72200101a733e5fcc6ae540e041a99e6f1c53633f06c49c1428b"
+    sha256 arm64_sequoia: "ee0027a9b6666d5615a632a1a7a4be55e169285c96685455ae1ccafb295a27e8"
+    sha256 arm64_sonoma:  "d85f1551fa98060027da074465b4ca03c34d1982d5abdaa2a1c2b22e332ecfe9"
+    sha256 sonoma:        "8f67b42f8db8c7006675f5b43770e6c65a9dc5dadcf97439a93463820e5bf8e1"
+    sha256 arm64_linux:   "99944f685caaf9d66de610868d3e89f482d1d1e0933c3159c226f3955ae471b6"
+    sha256 x86_64_linux:  "4cc6bc1a649dbb242f1fdb65462a1051b6dc7dede4d56eb7119f9b2d3bbb9910"
   end
 
   depends_on "pkgconf" => :build
@@ -24,8 +24,8 @@ class S6 < Formula
       --disable-silent-rules
       --enable-shared
       --enable-pkgconfig
-      --with-pkgconfig=#{Formula["pkgconf"].opt_bin}/pkg-config
-      --with-sysdeps=#{Formula["skalibs"].opt_lib}/skalibs/sysdeps
+      --with-pkgconfig=#{formula_opt_bin("pkgconf")}/pkg-config
+      --with-sysdeps=#{formula_opt_lib("skalibs")}/skalibs/sysdeps
     ]
     system "./configure", *args, *std_configure_args
     system "make", "install"

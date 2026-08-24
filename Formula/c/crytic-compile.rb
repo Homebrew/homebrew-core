@@ -3,18 +3,18 @@ class CryticCompile < Formula
 
   desc "Abstraction layer for smart contract build systems"
   homepage "https://github.com/crytic/crytic-compile"
-  url "https://files.pythonhosted.org/packages/00/61/2d8ceccc95ec62fbcb4f65b0c2e3e8536f68eae4f73f6a7a0bb0f926de03/crytic_compile-0.4.1.tar.gz"
-  sha256 "4b777728af8d84fbbdf3188dd054443bd97791561043014f906700a8fcc6c945"
+  url "https://files.pythonhosted.org/packages/d3/c1/ba7f089fbf73cef1f1684d8fb5ec7c47d6f81870ca3e21b32aed88196774/crytic_compile-0.4.2.tar.gz"
+  sha256 "161325e40785d8e42cdd8846b98d4f82c291ca5bcd07b5feae1a84d5a18c59fb"
   license "AGPL-3.0-only"
   head "https://github.com/crytic/crytic-compile.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "58c9d0e677660fc95222e15fb5082841f4535607ef8a6cdda4ad2f97d8a67126"
-    sha256 cellar: :any,                 arm64_sequoia: "c28439d9a2e49a8dac26d60880685dca48914e3a3258adfa5c645c288d8c45ee"
-    sha256 cellar: :any,                 arm64_sonoma:  "bf65c50a7a241973df13fdb1621ea48f3fbbf1b0ca7780dee202f92c300666e8"
-    sha256 cellar: :any,                 sonoma:        "34b8d9f599bf86659e1bcf75ff6f2ccb085328a9b3c95322f2f909539f449d02"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0f389ac6d7347ab3724c329c01702452ab0ec926de9e36b8a9b09474686a7d6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a6c05a39e47a6b02c3fa9b53a3de73bda0b8615350411b955b4113681c33d9e"
+    sha256 cellar: :any, arm64_tahoe:   "a7859bee32195b143413e349a006182976b2e8036566ce0b61bbc59bd6f13d41"
+    sha256 cellar: :any, arm64_sequoia: "b968200aefdcfead937e15b050edbdcc994a69f8bafa31be7e448da80a1fce98"
+    sha256 cellar: :any, arm64_sonoma:  "f937e57d8493b2f07db32eb3c231e571333dfc139b2a32c68be47aa3375153a5"
+    sha256 cellar: :any, sonoma:        "7be5628fb00002fa12f63198cc787826e3a0ff3e5ce76d82c44f5670f6de5144"
+    sha256 cellar: :any, arm64_linux:   "d2c040cd938e01ad7317df3749c13fb7eb938c0d127c8daeb7ede6c080f75735"
+    sha256 cellar: :any, x86_64_linux:  "33cbac6b9602486840c3a770b5837baa8dcbf0eb2877cae746f3c9b5c2577f11"
   end
 
   depends_on "rust" => :build # for `cbor2`
@@ -24,18 +24,18 @@ class CryticCompile < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "cbor2" do
-    url "https://files.pythonhosted.org/packages/be/db/810437bcfe13cf5e09b68bad1ce57c8fa04ca9272c68946bbf2f4fa522c8/cbor2-6.1.1.tar.gz"
-    sha256 "6f0644869e0fdcd6f3874330b8f1cebd009f33191de43acf609dc2409cd362c4"
+    url "https://files.pythonhosted.org/packages/3a/6f/07b4af8da8bd27f640362b1ac8271d80895407f2ede0c2bcc9433c06e1ca/cbor2-6.1.3.tar.gz"
+    sha256 "8d70680acb55c04ea5b5ad86da094f9612b53d5a8a65d0f5b3aafc3ce917ecbb"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
-    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
+    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
+    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
   end
 
   resource "packaging" do

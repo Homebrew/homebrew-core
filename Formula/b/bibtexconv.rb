@@ -1,18 +1,18 @@
 class Bibtexconv < Formula
   desc "BibTeX file converter"
   homepage "https://www.nntb.no/~dreibh/bibtexconv/"
-  url "https://github.com/dreibh/bibtexconv/archive/refs/tags/bibtexconv-2.2.3.tar.gz"
-  sha256 "fa2e280d5653bef78a003f09cbb6efb2a64c25261964ccfcc8be6d4029548565"
+  url "https://github.com/dreibh/bibtexconv/archive/refs/tags/bibtexconv-2.2.4.tar.gz"
+  sha256 "c2a04a622c9ce612a73451cb6b7c206eec80e57b7e4940cc58e3a18d5e588270"
   license "GPL-3.0-or-later"
   head "https://github.com/dreibh/bibtexconv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "b88bef8dd55698cb12cec26c62fda795c5e6c0b2508e03b8c7bd2a4fd4bff457"
-    sha256 cellar: :any, arm64_sequoia: "4afe3fe4173943858e92448cbb403d0d0c8631e5a50a0877df5d422fd9718dae"
-    sha256 cellar: :any, arm64_sonoma:  "ae8b949431cc8108acbd9b9135ef4a670031c913c662d356e2f9691e0c68b9bb"
-    sha256 cellar: :any, sonoma:        "cb55e6e6f209ce757930f062c12371d90375cac3d0cb82931165a76303f47a29"
-    sha256 cellar: :any, arm64_linux:   "1e2513dd4dfd6d36fa8179bc29d8604357ff0059763bb70dab5d343fa6bcbc42"
-    sha256 cellar: :any, x86_64_linux:  "a345a5aec2e2e87545ac9d488cd8b9988fd782a4429a2b2609974caef0732c1d"
+    sha256 cellar: :any, arm64_tahoe:   "d560c331fff19bb700bd2dc7ef3259e72d94392b907dddc255235fa885ee95ea"
+    sha256 cellar: :any, arm64_sequoia: "0a05f381a0251dd693a62483b3b6c236f340de879c3e10e12990de1442d5b45e"
+    sha256 cellar: :any, arm64_sonoma:  "f72a8f0c9790d6a6e53a5203315a158e54d578192be145ec6b012497a82b2c9c"
+    sha256 cellar: :any, sonoma:        "68a2cf8fe0a09cb49295d84c7061b9edf046668711d943210b0916491ff139ad"
+    sha256 cellar: :any, arm64_linux:   "9bdc08148a87a83e43b2e38048faf2755f12101c4a7b6dac8a5628d7d6101f6c"
+    sha256 cellar: :any, x86_64_linux:  "63216c6c8da53bfdb7409b186014798bf273671dad47c18775776aeb1e0095fc"
   end
 
   depends_on "bison" => :build
@@ -32,7 +32,7 @@ class Bibtexconv < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
-                    "-DCRYPTO_LIBRARY=#{Formula["openssl@3"].opt_lib}/#{shared_library("libcrypto")}"
+                    "-DCRYPTO_LIBRARY=#{formula_opt_lib("openssl@3")}/#{shared_library("libcrypto")}"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

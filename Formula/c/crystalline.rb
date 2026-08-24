@@ -1,24 +1,25 @@
 class Crystalline < Formula
   desc "Language Server Protocol implementation for Crystal"
   homepage "https://github.com/elbywan/crystalline"
-  url "https://github.com/elbywan/crystalline/archive/refs/tags/v0.18.0.tar.gz"
-  sha256 "c3c8842163a42b4d1b3d31c58ffd0711215add201d9a9a88aa1cabce9179094d"
+  url "https://github.com/elbywan/crystalline/archive/refs/tags/v0.19.0.tar.gz"
+  sha256 "7cab91e23bf2e7d87ab3e63c60a555507a00da709af1fad5fe55de44dadea71a"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 arm64_tahoe:   "06d8e49794df8199380884f959056e79574902b2a7f2de214b3674647240b23b"
-    sha256 arm64_sequoia: "eae5b7792816da6f70dfddd19af25ecdb6adf90ce98252375bfdcc27a6575c73"
-    sha256 arm64_sonoma:  "0b9ae40b72c5090246f95b148bc0e3653332cca462e2ddec212b18f96e7b7ba6"
-    sha256 sonoma:        "a783323aa4d4f9e22f6c9e0a21acf98938e9a65a2ea94ff0cfe4984494170614"
-    sha256 arm64_linux:   "adca17ee06b1c7d2354cf7495c179c014c8540a145f6a121a08a5da47474cdce"
-    sha256 x86_64_linux:  "a3772942bebff7792808080b427b76dd2a4885b982b90c19a0c5e8a77b6fe98a"
+    sha256 arm64_tahoe:   "f07c7d13ef5fdf413d9258e4a4c421163c8a821c7853d7c03ad15f34c4b28af5"
+    sha256 arm64_sequoia: "77134e5b99a0c697210112504b1e499313858cc3c4ce6ad34ccd186577b16652"
+    sha256 arm64_sonoma:  "1dd71e2bfe371c7af0f60db6932fa708bbfec066de4220695f44529e207e5d69"
+    sha256 sonoma:        "005a9d70afbd4d50f30a92594270775dd0e44648b6b4c514ef3222ea7807dd4b"
+    sha256 arm64_linux:   "1a8246f537582e818bd14d55345edbd691605d83fd6dc79fb1b3cd165455484c"
+    sha256 x86_64_linux:  "c469a271f9fb95142f7bd22971e3f0785f088af26b6d9134e7516c6262ecc418"
   end
 
   depends_on "bdw-gc"
   depends_on "crystal"
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "llvm"
+  depends_on "llvm@22"
   depends_on "pcre2"
 
   def install

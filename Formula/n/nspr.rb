@@ -1,8 +1,8 @@
 class Nspr < Formula
   desc "Platform-neutral API for system-level and libc-like functions"
   homepage "https://hg.mozilla.org/projects/nspr"
-  url "https://archive.mozilla.org/pub/nspr/releases/v4.39/src/nspr-4.39.tar.gz"
-  sha256 "bbd02ee87a55676063a63e5bc819e0227de2666b47307b2a0134414cdf42368e"
+  url "https://archive.mozilla.org/pub/nspr/releases/v4.40/src/nspr-4.40.tar.gz"
+  sha256 "c0c1884c627f3db7a783f7c7314c695226b2043696791d15519e7e0578c19bdc"
   license "MPL-2.0"
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class Nspr < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5c0433814ea6788f13f87269ed5e377bf18997d9341ff7f432afb95105b4338e"
-    sha256 cellar: :any,                 arm64_sequoia: "86063b7037bebac70bc726578f1602ed20300fa88b89afce526d04b0401faedd"
-    sha256 cellar: :any,                 arm64_sonoma:  "4852be684884f1a082fcc64e461432a298d841369abec07c134115263799e948"
-    sha256 cellar: :any,                 sonoma:        "849901abc7d5e0f3188f99b125f5cbde59bba337e4bdb543ef0d06c7d52e917e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ddb3c9945d8c15e9da26d8ff4d3e910a77076a2cdbe773890bb7e4f217c26612"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b401fd2842255dad7595c67c6658098fef934dce638b667ce392340bdde5de2"
+    sha256 cellar: :any, arm64_tahoe:   "5dcb6d1b73ec8c839dacd46dfad6d34ab2cde7339593e106aaccc20cf72ddb62"
+    sha256 cellar: :any, arm64_sequoia: "afa910ba680a2a951e5e624ff83f756ba7a53a2647cb1aabdf602cb94468eee2"
+    sha256 cellar: :any, arm64_sonoma:  "3025c0bd9a1ed60c1aedffb36475e0eef6a4666500959cf2386ca7180a9d7db3"
+    sha256 cellar: :any, sonoma:        "33eb0744b19504a815418fea946241fa63823ca513ac5be37a033429a0422ccf"
+    sha256 cellar: :any, arm64_linux:   "cd749cf5e8f3c20589baeab68214f55b5a9e39207bc4d39ba127a4e4b686a984"
+    sha256 cellar: :any, x86_64_linux:  "0922c5d8889e433afa933295c1627185d6d92f2c87d422d6d6a84e074bf6340b"
   end
 
   def install

@@ -1,24 +1,24 @@
 class Conftest < Formula
   desc "Test your configuration files using Open Policy Agent"
   homepage "https://www.conftest.dev/"
-  url "https://github.com/open-policy-agent/conftest/archive/refs/tags/v0.68.2.tar.gz"
-  sha256 "952ebb9e9eccc75521d0f618ab1a934c379f13ffdb000f0fa8b698f00eaf4601"
+  url "https://github.com/open-policy-agent/conftest/archive/refs/tags/v0.69.0.tar.gz"
+  sha256 "91bba4a58039c8da1e318f927b42a6c227554623268e49b5c955078a3eb64d82"
   license "Apache-2.0"
   head "https://github.com/open-policy-agent/conftest.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1a509a800966752646d9cdfd8928d30bb6a1d1c66473ce3cd9c68e72b32b7918"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1a509a800966752646d9cdfd8928d30bb6a1d1c66473ce3cd9c68e72b32b7918"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1a509a800966752646d9cdfd8928d30bb6a1d1c66473ce3cd9c68e72b32b7918"
-    sha256 cellar: :any_skip_relocation, sonoma:        "59300fe25b9f5c8072fe02e7774bfa9bbc9c7747cfaa2d1b422e8b72fd62ed8c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "af118a9076b99ccbde937a74e3592c22f6c2e5798b4d0497b93d5d73fd0b8bb3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "410e041060923ab2ec2e4f7dda61d7c931a52a040774c207041c0eca5dc963c4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f41dbda68a6932878f6b26a976256eb415b179f552fd81e10966b0ee39c1bb9f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f41dbda68a6932878f6b26a976256eb415b179f552fd81e10966b0ee39c1bb9f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f41dbda68a6932878f6b26a976256eb415b179f552fd81e10966b0ee39c1bb9f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "20074a465ce01f069909f6953447dd05a1d1ca335dd8fc03eec005fdf669a52e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "91d89282e5bc2ee6cb118e355bd420c3b7e381cd26badb2c42ddcd4e51cbacfd"
+    sha256 cellar: :any,                 x86_64_linux:  "e7846f4cf2ece44da7ac537953b27ed639932836191b1bb522211fae3bb4dd77"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/open-policy-agent/conftest/internal/commands.version=#{version}"
+    ldflags = "-X github.com/open-policy-agent/conftest/internal/commands.version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"conftest", shell_parameter_format: :cobra)

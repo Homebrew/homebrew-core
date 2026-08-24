@@ -1,17 +1,17 @@
 class Fselect < Formula
   desc "Find files with SQL-like queries"
   homepage "https://fselect.rocks"
-  url "https://github.com/jhspetersson/fselect/archive/refs/tags/0.10.1.tar.gz"
-  sha256 "20425a3ab36fd46b24bb280a3c13187e0b33ab2e68734d8f51b07710af25581f"
+  url "https://github.com/jhspetersson/fselect/archive/refs/tags/0.10.2.tar.gz"
+  sha256 "3a51225c41ff0fa460abdbf30cb7434769454cbcba8d717ad24a5c8fa005485f"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "d4c3e017c07dc262bae5d8118fd93ea8573eeb0eb2cb01e613c131d750681d27"
-    sha256 cellar: :any, arm64_sequoia: "36fab41921ba4005ca8c064354a22f7dbf899155b6441c3251ef76a034a09fec"
-    sha256 cellar: :any, arm64_sonoma:  "f75cfbd80e8acbd46b710267cbabde59792f3e729ad8d01e9aebd8a1eef78159"
-    sha256 cellar: :any, sonoma:        "3b134d16f9b42c3399ddcfa0b5efd2dc468176608ebcb0fd07bed2a9ecfd6f35"
-    sha256 cellar: :any, arm64_linux:   "82e48da21d44dbe91001e1ed5c4673a3076214a1ac1d88d691e73d07426980a8"
-    sha256 cellar: :any, x86_64_linux:  "fa8ecc43eeea3bcce514a66cbc953ad69f559ecf7d990b44ce45e80a6108265a"
+    sha256 cellar: :any, arm64_tahoe:   "57d3f87a0ee032c66d56dabf0bdbdf7e9cda6832c465fadce407d9f5763f79bc"
+    sha256 cellar: :any, arm64_sequoia: "0561f52ae184df59f48422ff1b4cb2e4f88eb7c624d6f0d26563a77ccac352a5"
+    sha256 cellar: :any, arm64_sonoma:  "080e0c9eb47d1a2b6b2d82534a2ed1f2ca5eca2c7d0f2f77213e9e7f6ad14acb"
+    sha256 cellar: :any, sonoma:        "86dd9fd4fcb221b18061b6103c5acb730ca5e817edb10974e49544b2ccbc1003"
+    sha256 cellar: :any, arm64_linux:   "955cdab05fc9e960020abbc7c376dbd34d5c4f29ffaf5bc7cf376617a3eb216d"
+    sha256 cellar: :any, x86_64_linux:  "f7c021a874ba0ec1cdf5cf9dc5daa1cfff815d70ddbaf3bdf0ee12e1383853dc"
   end
 
   depends_on "cmake" => :build # for libz-ng-sys
@@ -36,7 +36,7 @@ class Fselect < Formula
     assert_match "test.txt", shell_output(cmd).chomp
 
     linked_libraries = [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      formula_opt_lib("libgit2")/shared_library("libgit2"),
     ]
     linked_libraries.each do |library|
       assert Utils.binary_linked_to_library?(bin/"fselect", library),

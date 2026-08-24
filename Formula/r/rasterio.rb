@@ -3,18 +3,17 @@ class Rasterio < Formula
 
   desc "Reads and writes geospatial raster datasets"
   homepage "https://rasterio.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/f6/88/edb4b66b6cb2c13f123af5a3896bf70c0cbe73ab3cd4243cb4eb0212a0f6/rasterio-1.5.0.tar.gz"
-  sha256 "1e0ea56b02eea4989b36edf8e58a5a3ef40e1b7edcb04def2603accd5ab3ee7b"
+  url "https://files.pythonhosted.org/packages/1d/1a/ee73b447f1623a6bb6490af08d4bbed3fb6e38b0adc54553a0d244d4103a/rasterio-1.5.1.tar.gz"
+  sha256 "c1b6ae15f4ccad704f1fe8417da5c2250145c7bcdb91acb53833bf5aefdd9e48"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "d424a331368a65194ddf4fa72e6f7484d288573d59718f33aa6a2d0f03c6ad40"
-    sha256 cellar: :any, arm64_sequoia: "e147443566277f730a8b88716205183965d5a5f8ca48b8f27429f3548c0b21bd"
-    sha256 cellar: :any, arm64_sonoma:  "25b3381b428466d0022ca3f6b6f25c5bec26b810d3ce1ae8be684e2aa5368bd8"
-    sha256 cellar: :any, sonoma:        "f0452a5b46826dd7606272d1f2a8ebc6229b4c95dced5d49ea906c4e4e496379"
-    sha256               arm64_linux:   "3a9016230592994c65a5622d4c5b6c0d5ec83a1cd2f399fabf226508c75c70c7"
-    sha256               x86_64_linux:  "ed8332d9541a921c8bbc3301a9c26680ddc083eab6e704e9036a4e7e1e10903b"
+    sha256 cellar: :any, arm64_tahoe:   "7d2c360110f48c18138f42d686471f7e0dddbebed424d4bb7bd82a7826ba7fbe"
+    sha256 cellar: :any, arm64_sequoia: "ee9e03924950759ed47ad4907c73a5baf9172df087cce2a312efbeb134281571"
+    sha256 cellar: :any, arm64_sonoma:  "f9c5ddb3b4cc768bdef2626ea64a98c4121558244fe6a472ce8c75ed213d68f9"
+    sha256 cellar: :any, sonoma:        "b095affc6058ade8559aa842a106a00885f3b20ebe762b6d1c9e8e5e9bb4a1a1"
+    sha256               arm64_linux:   "27126bb3eff5b0acf5b62d901d26b405fb99ad86ae8f8ba5589b8d98b1aeb87f"
+    sha256               x86_64_linux:  "420b8722ac51c8a79a9dad9604533bace3903e3215aa6620719be3b340e70402"
   end
 
   depends_on "cmake" => :build
@@ -40,23 +39,18 @@ class Rasterio < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz"
-    sha256 "16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"
+    url "https://files.pythonhosted.org/packages/9a/8e/82a0fe20a541c03148528be8cac2408564a6c9a0cc7e9171802bc1d26985/attrs-26.1.0.tar.gz"
+    sha256 "d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
-    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
-  end
-
-  resource "cligj" do
-    url "https://files.pythonhosted.org/packages/ea/0d/837dbd5d8430fd0f01ed72c4cfb2f548180f4c68c635df84ce87956cff32/cligj-0.7.2.tar.gz"
-    sha256 "a4bc13d623356b373c2c27c53dbd9c68cae5d526270bfa71f6c6fa69669c6b27"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/33/c1/1d9de9aeaa1b89b0186e5fe23294ff6517fce1bc69149185577cd31016b2/pyparsing-3.3.1.tar.gz"
-    sha256 "47fad0f17ac1e2cad3de3b458570fbc9b03560aa029ed5e16ee5554da9a2251c"
+    url "https://files.pythonhosted.org/packages/f3/91/9c6ee907786a473bf81c5f53cf703ba0957b23ab84c264080fb5a450416f/pyparsing-3.3.2.tar.gz"
+    sha256 "c777f4d763f140633dcb6d8a3eda953bf7a214dc4eff598413c070bcdc117cbc"
   end
 
   def install

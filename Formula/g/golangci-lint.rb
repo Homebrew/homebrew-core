@@ -2,25 +2,24 @@ class GolangciLint < Formula
   desc "Fast linters runner for Go"
   homepage "https://golangci-lint.run/"
   url "https://github.com/golangci/golangci-lint.git",
-      tag:      "v2.12.2",
-      revision: "c0d3ddc9cf3faa61a4e378e879ece580256d76e5"
+      tag:      "v2.13.1",
+      revision: "6d2288e072e6f9c9bca28180cae9ce58a049c912"
   license "GPL-3.0-only"
   head "https://github.com/golangci/golangci-lint.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "622cdd2a0000b713349506bfff7e8e5037d37eb767937774937a1f752dfdd672"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ecadb7c7fcda597680ecd2ff273cbedc45151a278d6584f213b9525782d31e9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3dba3d0357102b5355b22a3a91cac4955ce29b87839b8c969fc0a7272c2b84a7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "68cd92af7449aa9371cf65ef15619be50e82f64a0b3632f7675520553443b2bf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a4f3c86b565abb5ee30a8dc3c82c0f989f5d5734be9e957f572a77c3f6a5a6c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc57f85ccd74cde393a3edfd0a246eb208242b02a28d491a3da1a6f793d2d465"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "218856f80d4fcfbe71f0cab3539fdbbecfb440429e1acc61fe1d6e5b42e9da97"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4b7e1a501cfc026c2074ffc06359e7fdff569b9d0c328d590f44d41174df4eaa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "250ed65473cb4ca34a8dc9e3efef6f5b8dbc665aefdc69c3fe4b83f0fc246ca7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "58baf41b6f30f6ab8b1a536ccd4c2c586fe552d20e27e9d601443baa8bfc7790"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8127d666d92d8fbbfa5865a28d1b06fb30a6dd51745a531db6b9580f8348b600"
+    sha256 cellar: :any,                 x86_64_linux:  "0c25f5d5f47d4f1118e9c4a5d2a6d95281ed717070ada8337cdc85a17486e8fd"
   end
 
   depends_on "go"
 
   def install
     ldflags = %W[
-      -s -w
       -X main.version=#{version}
       -X main.commit=#{Utils.git_short_head(length: 7)}
       -X main.date=#{time.iso8601}

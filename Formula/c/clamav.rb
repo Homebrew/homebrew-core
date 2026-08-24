@@ -1,9 +1,9 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://github.com/Cisco-Talos/clamav/releases/download/clamav-1.5.2/clamav-1.5.2.tar.gz"
-  mirror "https://www.clamav.net/downloads/production/clamav-1.5.2.tar.gz"
-  sha256 "f34018cf22f05bdd9d1a1574ca07193e3e030ca52050c3e5c220e23a32314965"
+  url "https://github.com/Cisco-Talos/clamav/releases/download/clamav-1.5.4/clamav-1.5.4.tar.gz"
+  mirror "https://www.clamav.net/downloads/production/clamav-1.5.4.tar.gz"
+  sha256 "1af1117a228f1b5bc7fa91a0dabc37848a99e7d25188e9be8043332ce721dfd3"
   license "GPL-2.0-or-later"
   head "https://github.com/Cisco-Talos/clamav.git", branch: "main"
 
@@ -13,12 +13,12 @@ class Clamav < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "da2ff01e94f58f60ccc44ef66cc0c20c4b05150352789c041617daedc2180d7b"
-    sha256 arm64_sequoia: "8dc570e59cc547273a807e746cecc6cbe3551c77080cf727afcb49180cec42c9"
-    sha256 arm64_sonoma:  "6de5dc85434b920bf96a2ecb0738025499bf6e9b0dd4f237de6926786d302195"
-    sha256 sonoma:        "e93c879894036a2e2ce2992e59dd3a03bac19bd37a6ff10120e1d273f36385c7"
-    sha256 arm64_linux:   "95a1bedac2b683a30b354406b4ddbe6c465965446fc134d8699ceeab98374f71"
-    sha256 x86_64_linux:  "f57a456f57e5d758a01c7ffc075a661e70cbb35e46eed22f4d17f44982c555fe"
+    sha256 arm64_tahoe:   "f3d487c09435064df158bc3cac331c43543a9de9a71fb65add0cb7d65d71a0e4"
+    sha256 arm64_sequoia: "526101fb67470ea38594bc7ac384ebda619e2a6a6b31de9d45068f8583f20bc3"
+    sha256 arm64_sonoma:  "a95e3bd5dfe9a620c661e1a7bb14a7d0f2fd38ce7cb5050f3c6a37011c0083de"
+    sha256 sonoma:        "89d4e47cf33d494249dbac96cf2ebd04af4ed186e9075d37eb336c22a62fb264"
+    sha256 arm64_linux:   "7c5d9387f73105976d5dad78d6daa0b425da1b22d4b69c5ef2971af8e89a6edf"
+    sha256 x86_64_linux:  "400ed20330f6cc5eb512e92475a7d204774ef48de9b7fef45af3187fd4d021a7"
   end
 
   depends_on "cmake" => :build

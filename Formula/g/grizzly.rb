@@ -1,10 +1,10 @@
 class Grizzly < Formula
   desc "Command-line tool for managing and automating Grafana dashboards"
   homepage "https://grafana.github.io/grizzly/"
-  url "https://github.com/grafana/grizzly/archive/refs/tags/v0.7.1.tar.gz"
+  url "https://github.com/grafana-cold-storage/grizzly/archive/refs/tags/v0.7.1.tar.gz"
   sha256 "81811b684ef1bddd3b7147c5095224552a0b35dc3ff210d10e6cbc5e12331160"
   license "Apache-2.0"
-  head "https://github.com/grafana/grizzly.git", branch: "main"
+  head "https://github.com/grafana-cold-storage/grizzly.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d7d0f848c871281f79da1be4fba2bb1c7c0eabb1a15c19b854d661aecd4a948d"
@@ -17,14 +17,14 @@ class Grizzly < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1cd0d526f55b71f84e88c4bda49551c661b56f7dcace86fbbbb637a27fd4274"
   end
 
-  # https://github.com/grafana/grizzly/pull/613
+  # https://github.com/grafana-cold-storage/grizzly/pull/613
   deprecate! date: "2026-02-17", because: :repo_archived, replacement_formula: "grafanactl"
   disable! date: "2027-02-17", because: :repo_archived, replacement_formula: "grafanactl"
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/grafana/grizzly/pkg/config.Version=#{version}"
+    ldflags = "-X github.com/grafana/grizzly/pkg/config.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:, output: bin/"grr"), "./cmd/grr"
   end
 

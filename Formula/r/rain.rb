@@ -14,10 +14,13 @@ class Rain < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "11f6e2e191cbb1142d26a1aca6366c85860b29026edf8dc077013d48604e0f6b"
   end
 
+  deprecate! date: "2026-08-08", because: :repo_archived
+  disable! date: "2027-02-08", because: :repo_archived
+
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/rain"
+    system "go", "build", *std_go_args, "./cmd/rain"
 
     bash_completion.install "docs/bash_completion.sh" => "rain"
     zsh_completion.install "docs/zsh_completion.sh" => "_rain"

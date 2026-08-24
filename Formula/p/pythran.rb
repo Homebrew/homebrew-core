@@ -3,19 +3,18 @@ class Pythran < Formula
 
   desc "Ahead of Time compiler for numeric kernels"
   homepage "https://pythran.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/d4/84/17c4c44a24f5ec709991e603e601bf316d09c4fe915fbe348c689dede998/pythran-0.18.1.tar.gz"
-  sha256 "8803ed948bf841a11bbbb10472a8ff6ea24ebd70e67c3f77b77be3db900eccfe"
+  url "https://files.pythonhosted.org/packages/bb/a3/03098a8a5d2c9f801c227cf941d85976934f5f47307ef3d819734370acdc/pythran-0.19.0.tar.gz"
+  sha256 "18a096daa8b4bbe3ace06ce5d7325be5ff57aec4cf67b91834cf1b757b3e5392"
   license "BSD-3-Clause"
   head "https://github.com/serge-sans-paille/pythran.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aff9d2c2a5d918f91c0a5b127b29d0bebd75fb0462792029c38328001aa2ff65"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aff9d2c2a5d918f91c0a5b127b29d0bebd75fb0462792029c38328001aa2ff65"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aff9d2c2a5d918f91c0a5b127b29d0bebd75fb0462792029c38328001aa2ff65"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c286044b3234f30a258ad58e431437afb2d91f72c6279dc8bb73f83a1871f03e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "149c237198e2b7a95bf33157b5ba16d5a02c6b571480401a988d3fec0b86ed2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "149c237198e2b7a95bf33157b5ba16d5a02c6b571480401a988d3fec0b86ed2d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "67ac72ad94168e18d5817877538317fbd52468bdf24a69112cd9118c25865d57"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "67ac72ad94168e18d5817877538317fbd52468bdf24a69112cd9118c25865d57"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67ac72ad94168e18d5817877538317fbd52468bdf24a69112cd9118c25865d57"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d5a6ed5fc7e32827a8c770d06a3492fc4d1714e88b4ade02a47d306ab04c2288"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "67ac72ad94168e18d5817877538317fbd52468bdf24a69112cd9118c25865d57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67ac72ad94168e18d5817877538317fbd52468bdf24a69112cd9118c25865d57"
   end
 
   depends_on "gcc" => :test
@@ -28,13 +27,13 @@ class Pythran < Formula
   pypi_packages exclude_packages: "numpy"
 
   resource "beniget" do
-    url "https://files.pythonhosted.org/packages/2e/27/5bb01af8f2860d431b98d0721b96ff2cea979106cae3f2d093ec74f6400c/beniget-0.4.2.post1.tar.gz"
-    sha256 "a0258537e65e7e14ec33a86802f865a667f949bb6c73646d55e42f7c45a052ae"
+    url "https://files.pythonhosted.org/packages/31/a9/cf7c2317da1f5034fdebe84555e14a474b3297ef2d03ad148ff02fef2e3a/beniget-0.5.0.tar.gz"
+    sha256 "e7af11fa8ec7de3d3eb3d98b1e722d15d44017d8b35d8aa11d54f6719b312f22"
   end
 
   resource "gast" do
-    url "https://files.pythonhosted.org/packages/3c/14/c566f5ca00c115db7725263408ff952b8ae6d6a4e792ef9c84e77d9af7a1/gast-0.6.0.tar.gz"
-    sha256 "88fc5300d32c7ac6ca7b515310862f71e6fdf2c029bbec7c66c0f5dd47b6b1fb"
+    url "https://files.pythonhosted.org/packages/91/f6/e73969782a2ecec280f8a176f2476149dd9dba69d5f8779ec6108a7721e6/gast-0.7.0.tar.gz"
+    sha256 "0bb14cd1b806722e91ddbab6fb86bba148c22b40e7ff11e248974e04c8adfdae"
   end
 
   resource "ply" do
@@ -43,8 +42,8 @@ class Pythran < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+    url "https://files.pythonhosted.org/packages/6d/44/f5da03a8ef95d369145c5bb53050e7877c9f3d312e128605fd9504829143/setuptools-84.0.0.tar.gz"
+    sha256 "f4695c21257f0d9b537ec2692c941d02ee143b7cc1276941349a546573b2ef73"
   end
 
   def install

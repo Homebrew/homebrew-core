@@ -7,17 +7,18 @@ class Janet < Formula
   head "https://github.com/janet-lang/janet.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "95713b9d30546fdaab9f6f1f5f519f1cbc80089fe98afca9862639e7736ba51d"
-    sha256 cellar: :any,                 arm64_sequoia: "1e161621c9e8774fdaba026fcf56a1cd8ef71ab988182784aa06a486f11a2f2f"
-    sha256 cellar: :any,                 arm64_sonoma:  "7b9915ba7cdab2c07954cd308505e608c96cf88560e32998a138d54b78d6b1d4"
-    sha256 cellar: :any,                 sonoma:        "dbd1061f7b9eb25f476d1f8f1c1e0a3dee4b38bfe779c78a61af65d47c0beec1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b93f65debdf478e42ade08470c501b78f89c9c4bfa759d228eb91bf9a412426c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "355439f1ee0ff6b1c47e00fb2ab241bc3d584cc9409c28b8978981095d08dd36"
+    rebuild 2
+    sha256 cellar: :any, arm64_tahoe:   "a93d5b5ff09c0edcef0ca663382ccf0381211c65c3967c4470bc77dcfbf32934"
+    sha256 cellar: :any, arm64_sequoia: "23120fcd8728d8991a81874c8e06eec53fcc2e3040d52b0aa581b368fbc00199"
+    sha256 cellar: :any, arm64_sonoma:  "d5a8f324cd412dccbaed4804dbfa7e649af71220074d930d0241d580b917900b"
+    sha256 cellar: :any, sonoma:        "8f375d8552786209a679fddedbbb90fa6a71694d15360a3b2ab37823ee9af64b"
+    sha256 cellar: :any, arm64_linux:   "2876701042e054dfedfdeca3b0e6cead6435ef7ef9ab9567634015a02c75bd18"
+    sha256 cellar: :any, x86_64_linux:  "d6b990d082441847ad534e88f09c0b5e85a456e809b6370a44977f181ce4f681"
   end
 
   resource "jpm" do
-    url "https://github.com/janet-lang/jpm/archive/refs/tags/v1.1.0.tar.gz"
-    sha256 "337c40d9b8c087b920202287b375c2962447218e8e127ce3a5a12e6e47ac6f16"
+    url "https://github.com/janet-lang/jpm/archive/refs/tags/v1.2.0.tar.gz"
+    sha256 "4282b36b44a9b35367d128982f2cfaa67370e4e5a305b3999d86a64fadd308d2"
   end
 
   def syspath
@@ -35,20 +36,23 @@ class Janet < Formula
 
     system "make"
     system "make", "install"
-  end
-
-  def post_install
-    mkdir_p syspath unless syspath.exist?
 
     resource("jpm").stage do
-      ENV["PREFIX"] = prefix
-      ENV["JANET_BINPATH"] = HOMEBREW_PREFIX/"bin"
-      ENV["JANET_HEADERPATH"] = HOMEBREW_PREFIX/"include/janet"
-      ENV["JANET_LIBPATH"] = HOMEBREW_PREFIX/"lib"
-      ENV["JANET_MANPATH"] = HOMEBREW_PREFIX/"share/man/man1"
-      ENV["JANET_MODPATH"] = syspath
-      system bin/"janet", "bootstrap.janet"
+      (libexec/"jpm").install Dir["*"]
     end
+  end
+
+  post_install_steps do
+    mkdir_p "{{HOMEBREW_PREFIX}}/lib/janet"
+    run "janet", args: ["bootstrap.janet"], base: :bin, chdir: "{{libexec}}/jpm",
+         env: {
+           "PREFIX"           => "{{prefix}}",
+           "JANET_BINPATH"    => "{{HOMEBREW_PREFIX}}/bin",
+           "JANET_HEADERPATH" => "{{HOMEBREW_PREFIX}}/include/janet",
+           "JANET_LIBPATH"    => "{{HOMEBREW_PREFIX}}/lib",
+           "JANET_MANPATH"    => "{{HOMEBREW_PREFIX}}/share/man/man1",
+           "JANET_MODPATH"    => "{{HOMEBREW_PREFIX}}/lib/janet",
+         }
   end
 
   def caveats

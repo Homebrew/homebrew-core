@@ -1,20 +1,20 @@
 class Libngtcp2 < Formula
   desc "IETF QUIC protocol implementation"
   homepage "https://nghttp2.org/ngtcp2/"
-  url "https://github.com/ngtcp2/ngtcp2/releases/download/v1.23.0/ngtcp2-1.23.0.tar.xz"
-  mirror "http://fresh-center.net/linux/www/ngtcp2-1.23.0.tar.xz"
-  sha256 "59d5b4211e96970f2d3d5e6876f73dce03414800ba04aa56835b132fce8de730"
+  url "https://github.com/ngtcp2/ngtcp2/releases/download/v1.25.0/ngtcp2-1.25.0.tar.xz"
+  mirror "http://fresh-center.net/linux/www/ngtcp2-1.25.0.tar.xz"
+  sha256 "2a34d2484ba17847a5d11965704e9dd0fac4c6d8efc75ffe1ec7de66d8c6b6fb"
   license "MIT"
   compatibility_version 1
   head "https://github.com/ngtcp2/ngtcp2.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "798cd3f4b88f1fb53ff9067e51e4d6f7b0a57cc7b47be96abcfc545e0e5d283b"
-    sha256 cellar: :any, arm64_sequoia: "79b0e50ce0fa528d0d6c7bcd744b9260257c1d768391f287ff4576fb653ab7b3"
-    sha256 cellar: :any, arm64_sonoma:  "7c101f5aa117fb0e98df0186bbf045f67e61be7739a9504c24cb9fcc9d6844a9"
-    sha256 cellar: :any, sonoma:        "842f478870d73ee5b494a14b11779f1fde95931b2f091f1b8de4ff24f77e773d"
-    sha256 cellar: :any, arm64_linux:   "f0f06b92ae156c94ea648f533e9210f7fb87baef8aa8d0ac08725b2c9018975b"
-    sha256 cellar: :any, x86_64_linux:  "c13a3e1f73a38654d9f9d6b1dcb39f36c6cac0af08f7117198728c62f8459077"
+    sha256 cellar: :any, arm64_tahoe:   "301e7664d107756e42c21a981628ef09fa9a9b86731286deba8e0ccbce89fb54"
+    sha256 cellar: :any, arm64_sequoia: "863fe84438291c89a972d647eee6d6099620b7c77039e6d84d704076e25de21c"
+    sha256 cellar: :any, arm64_sonoma:  "a5f12e89e3c5727186d96a097a8fd49669fe1e4536138ab42be25a6a0ecf2c30"
+    sha256 cellar: :any, sonoma:        "2b09d593d53fdd5cc33c964196a25cf335d0ad6dfe97d7786a2094f3606a3d31"
+    sha256 cellar: :any, arm64_linux:   "a9335ca272b9a50e7fc9ba789e120cd522885d9b3b9267446488a41623c30414"
+    sha256 cellar: :any, x86_64_linux:  "6c5b43b89a08020041b734e63d6c7048e151726a8f9072e58ae677fb21e615e3"
   end
 
   depends_on "pkgconf" => :build

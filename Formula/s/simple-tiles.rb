@@ -40,6 +40,8 @@ class SimpleTiles < Formula
   patch do
     url "https://github.com/propublica/simple-tiles/commit/a6e8b5738bb7b935d0579a5b514c49720e9eeeff.patch?full_index=1"
     sha256 "b0d9226069b8c5cedd95d3150b46d123a14259a60f79d2827a5a99b9ce6e8944"
+    type :unofficial
+    resolves "https://github.com/propublica/simple-tiles/pull/24"
   end
 
   def install

@@ -1,8 +1,8 @@
 class Astro < Formula
   desc "To build and run Airflow DAGs locally and interact with the Astronomer API"
   homepage "https://www.astronomer.io/"
-  url "https://github.com/astronomer/astro-cli/archive/refs/tags/v1.42.1.tar.gz"
-  sha256 "e687666fb6a1f914228867b061c89820474e163057fde0ad4b4eb47f9650be76"
+  url "https://github.com/astronomer/astro-cli/archive/refs/tags/v1.45.0.tar.gz"
+  sha256 "d390f5a9aec106bba44a9dce1c0a27068682a6a7240c5573ceed5193e4625aaf"
   license "Apache-2.0"
   head "https://github.com/astronomer/astro-cli.git", branch: "main"
 
@@ -12,12 +12,11 @@ class Astro < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5e27ff1dacf3f61822354d2eeb08d7b96a05ee7bb8349ad340f3630cd21e0dd0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb957ab8f8bbcd183ad2fd6d12d49c5bbf2efdf949afab36da2a7d07b9837a2d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c0fc09b32dc30262983b265e89a8d48a1076d25142b2836dfb082b2ee9db702b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c9ac5a78040fb2b942205bc419002b8b8e7d1d02392e70309e68042e09b0c022"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "96afb409dd647d0b5d656b2ab3281908d586504bdde02ad62f1fc02db4eda893"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0eae6bed950be0f5a3fa99aa75908348b3057a15db6faf6529c3296a0f4429f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "62e96d794bec8a890993b6d777fc3d559c991f4a87b43219bc9d0c6960d3be69"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d4d242faf0ba3887625815339c4465e1eaca61330e876fe155f8534d9aca1618"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1eaeb9caba33cc650223238eaab2ea24b735aea9d825114402e7665eaa1205ae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "854eea480a48f56e271682f95a12c0a847904fdcdfa3b0ad9b53528b258cb26f"
+    sha256 cellar: :any,                 x86_64_linux:  "171fc9c06c224f635e1bcc764e93b1b6e4ce988ef2ec9b4134ceb028640921e2"
   end
 
   depends_on "go" => :build
@@ -27,7 +26,7 @@ class Astro < Formula
   end
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/astronomer/astro-cli/version.CurrVersion=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X github.com/astronomer/astro-cli/version.CurrVersion=#{version}")
 
     generate_completions_from_executable(bin/"astro", shell_parameter_format: :cobra)
   end

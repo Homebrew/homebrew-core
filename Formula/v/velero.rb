@@ -1,8 +1,8 @@
 class Velero < Formula
   desc "Disaster recovery for Kubernetes resources and persistent volumes"
   homepage "https://velero.io/"
-  url "https://github.com/vmware-tanzu/velero/archive/refs/tags/v1.18.1.tar.gz"
-  sha256 "ed9d9191f01f214e5e66b700b71c4ee7db728a6adeddbd8e097706444ee0308b"
+  url "https://github.com/velero-io/velero/archive/refs/tags/v1.18.2.tar.gz"
+  sha256 "68d8c95817d882b2832c4c08689eb5f7b14dd581f71292a6c794acd15633b6d9"
   license "Apache-2.0"
 
   livecheck do
@@ -11,21 +11,18 @@ class Velero < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1070f2d7934692ec9b1c662843ff21a0ab5c7ae534e1e575bc81636c3a98b9ad"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c3141dac8da7505d5b2d3be51981aae212b22c0b11171fa36fa99f5d861c4890"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3d730d2b353f20ff020d87b243bb4252d92dc1f261e2bfec272a57ea5a6485c6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b55bfebe115dd048924a2cbfbbfc037e50274f3b85544b816b868b2b18c06335"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2314cc4013a8930b2a1a0ad788a2e2613ba34786f1a1d36f7854c2d6c4d850e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b74f133bb7976ed946f97e6ef2f43665b58af74afa79bc3991895070caa897e5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5807c3e8ff2c6f38845127a1a11eea30962cdaaffeeac42d715e73d0c59354ab"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9355be9150f7cf4441826ab163e151013aad947416340b6b60b4e0aa22d3709c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e50a8f9b9a18fdb3fc18915b8b4896e3fdfef35110464e5989a0d7de22dd1072"
+    sha256 cellar: :any_skip_relocation, sonoma:        "02f165b2c27f281bbd41cf7060e1482a02e2dde2d1d5e22b5c82993b64536fc3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c73dce7dc888ec67a8990e2054745c1f45f050470dec645958462fbef8b0a7e4"
+    sha256 cellar: :any,                 x86_64_linux:  "c069033f761a035e739e91f96fb920cd7419342afd2c9728f2f35b809ff82a9c"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/vmware-tanzu/velero/pkg/buildinfo.Version=v#{version}
-    ]
+    ldflags = %W[-X github.com/vmware-tanzu/velero/pkg/buildinfo.Version=v#{version}]
     system "go", "build", *std_go_args(ldflags:), "-installsuffix", "static", "./cmd/velero"
 
     generate_completions_from_executable(bin/"velero", "completion")

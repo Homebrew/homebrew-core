@@ -1,25 +1,24 @@
 class QbittorrentCli < Formula
   desc "Command-line interface for qBittorrent written in Go"
   homepage "https://github.com/ludviglundgren/qbittorrent-cli"
-  url "https://github.com/ludviglundgren/qbittorrent-cli/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "66b082b4b1653aae785b0f12bc00d7ac4dd8f17028d99e3feafac8aded931957"
+  url "https://github.com/ludviglundgren/qbittorrent-cli/archive/refs/tags/v2.3.0.tar.gz"
+  sha256 "89342037e76c0877f7ac43530303227b6e15e727153f0415c027ae92af6e4f9e"
   license "MIT"
   head "https://github.com/ludviglundgren/qbittorrent-cli.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "716525b58fbeb4067f489a3eb10428012b3fa9bcf3210a8054cae07778378e1e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "716525b58fbeb4067f489a3eb10428012b3fa9bcf3210a8054cae07778378e1e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "716525b58fbeb4067f489a3eb10428012b3fa9bcf3210a8054cae07778378e1e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3e5efce627c5e7478eea9103fb6d7804785d5596b666f00603d7d5ea89ee28dd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "800339a3ae35a1ce3a8e523a5da78433475910b71186386a212ae4705928d3d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "beba3400eaf3260e34176efee850cd40f05ccb387156640327aa0495db3b9b7c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aab3e728969af409b2cb3b3a0659302deebbfc4cc88d9038f80fcc64f933cfdf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aab3e728969af409b2cb3b3a0659302deebbfc4cc88d9038f80fcc64f933cfdf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aab3e728969af409b2cb3b3a0659302deebbfc4cc88d9038f80fcc64f933cfdf"
+    sha256 cellar: :any_skip_relocation, sonoma:        "241c5c4aedbb49b5f9e56ff34e92d527cce19ecadb4df9dd232d03d6f928484b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "60155a85b2bfdcbdfe2030703ee2da280fdd45d9fc35613145d5a6ba28544891"
+    sha256 cellar: :any,                 x86_64_linux:  "233efa4ca5c2e5ff3b7c9067ed2fe515e1f76848337eb366e46b346d639782e2"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user} -X main.date=#{time.iso8601}"
+    ldflags = "-X main.version=#{version} -X main.commit=#{tap.user} -X main.date=#{time.iso8601}"
     system "go", "build", *std_go_args(ldflags:, output: bin/"qbt"), "./cmd/qbt"
 
     generate_completions_from_executable(bin/"qbt", shell_parameter_format: :cobra)

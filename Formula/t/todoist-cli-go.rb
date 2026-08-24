@@ -18,7 +18,7 @@ class TodoistCliGo < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version}"
+    ldflags = "-X main.version=#{version}"
     system "go", "build", *std_go_args(output: bin/"todoist", ldflags:)
   end
 

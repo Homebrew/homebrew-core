@@ -41,7 +41,7 @@ class LibpeasAT1 < Formula
     inreplace "meson.build", "'python3-embed'", "'python-#{pyver}-embed'"
 
     # ensure Meson uses homebrew python@3.14
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["python@3.14"].opt_lib/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("python@3.14")/"pkgconfig"
 
     args = %w[
       -Dpython3=true

@@ -1,14 +1,13 @@
 class Gist < Formula
   desc "Command-line utility for uploading Gists"
   homepage "https://defunkt.io/gist/"
-  url "https://github.com/defunkt/gist/archive/refs/tags/v6.0.0.tar.gz"
-  sha256 "ddfb33c039f8825506830448a658aa22685fc0c25dbe6d0240490982c4721812"
+  url "https://github.com/defunkt/gist/archive/refs/tags/v6.1.0.tar.gz"
+  sha256 "53c72eb07bcdd71b1a8fdd3f81a3cc44a332b92c34a30632e45d6941c10f3096"
   license "MIT"
   head "https://github.com/defunkt/gist.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "8efc350b478d929ecf6de1f41afa0763fccf1efdeed3c16384deb5b4fb8bf66a"
+    sha256 cellar: :any_skip_relocation, all: "d3596bb6c1e1c112cd0276a220a4ff7a6a40d45be3a5c0c6cff8faf9ed69ae6b"
   end
 
   uses_from_macos "ruby"

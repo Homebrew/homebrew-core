@@ -24,7 +24,7 @@ class Cppinsights < Formula
 
   def install
     args = %W[
-      -DINSIGHTS_LLVM_CONFIG=#{Formula["llvm@21"].opt_bin}/llvm-config
+      -DINSIGHTS_LLVM_CONFIG=#{formula_opt_bin("llvm@21")}/llvm-config
       -DINSIGHTS_USE_SYSTEM_INCLUDES=OFF
     ]
 

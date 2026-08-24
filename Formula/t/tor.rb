@@ -1,10 +1,9 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://www.torproject.org/dist/tor-0.4.9.9.tar.gz"
-  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.9.9.tar.gz"
-  mirror "https://fossies.org/linux/misc/tor-0.4.9.9.tar.gz"
-  sha256 "bd75ba7fd68f607c7806fcf70156a300aa926e9ad69a5e56a8e6414f5227e833"
+  url "https://dist.torproject.org/tor-0.4.9.11.tar.gz"
+  mirror "https://fossies.org/linux/misc/tor-0.4.9.11.tar.gz"
+  sha256 "2e6c1720118c812acf0079fd47cf91b6bfaba5d766c321c4d3d2a28d6a11a8ed"
   # Complete list of licenses:
   # https://gitweb.torproject.org/tor.git/plain/LICENSE
   license all_of: [
@@ -21,12 +20,13 @@ class Tor < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "19a0c6dd01e54b9a94d93a968c596c7eed96201216f8e348c20e99f541ad8621"
-    sha256 arm64_sequoia: "2107066fa6baaa6fd1b0fd726d84b5401267ce7d2c412b838def7be86605416a"
-    sha256 arm64_sonoma:  "7f56f5034476b0df55c46b190b05f4d86805a43d583b0c975d90be599dd32ec7"
-    sha256 sonoma:        "be07c8cee4052e4c967dd866a00b1347fcfc86bebe5091f876689fbe71135ba6"
-    sha256 arm64_linux:   "0737bfe823b70a4619e902f8cb3d983d9610f63e0471d258667f3d7aef387f91"
-    sha256 x86_64_linux:  "e1b8756982d94e5a77dcc36ed27a28db3ed73af1ba28acf2290fe5d46b44ea1c"
+    rebuild 1
+    sha256 arm64_tahoe:   "f40abed00c0583d77db71d59306931c62b237afbc09cfe2a9a70569631d636a3"
+    sha256 arm64_sequoia: "dcc6c8a124af75fa28ca2d4e24ee3f4df60f9a9a6c51e6653c74acb55f7c31d7"
+    sha256 arm64_sonoma:  "30f1a580580d7b80b8c143fe0829d5e0db021980a9d95979f01d3b7870403a55"
+    sha256 sonoma:        "84fea8e84da6f4a967d920ed9fe7b23926004d278b36dd3b6da20376bd8fe46e"
+    sha256 arm64_linux:   "e2f147b43fa4bbaaa9758e8e4d16435727eb9ca5e43d60c7405781a240116faf"
+    sha256 x86_64_linux:  "378c975a7d21d93718dad2e1e1eb6f3d9b2f0789a248188e01fd3573959e232d"
   end
 
   depends_on "pkgconf" => :build
@@ -43,7 +43,7 @@ class Tor < Formula
       --disable-silent-rules
       --sysconfdir=#{etc}
       --localstatedir=#{var}
-      --with-openssl-dir=#{Formula["openssl@3"].opt_prefix}
+      --with-openssl-dir=#{formula_opt_prefix("openssl@3")}
     ]
 
     system "./configure", *args, *std_configure_args

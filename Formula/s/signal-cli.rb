@@ -1,8 +1,8 @@
 class SignalCli < Formula
   desc "CLI and dbus interface for WhisperSystems/libsignal-service-java"
   homepage "https://github.com/AsamK/signal-cli"
-  url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.14.5.tar.gz"
-  sha256 "eddf9dc10958b920fcd145ad0767db6e6c56997d984b914ec37052415ab9d837"
+  url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.14.7.tar.gz"
+  sha256 "08b56db45109e351c8f41bd73e05bcb1e29bae9c51783d51b8c3c4996ac83a7b"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,11 +11,11 @@ class SignalCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "08b04c930f521d55880e224b1490cf0e8514c1bdacd554fc10f08c6345af7fa7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9c3bc15fcdc6ff8009db67ed475ef50e3fc67e184db5a9bc063a60a07c577d62"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6b711b449ae0caee34693df678b80ce3b49af830e15aaa296eac93400feb34fd"
-    sha256                               arm64_linux:   "96a09bdc04e577ed68f2d46dc3dd0674422359434f9379db7a0be8b1541c9c14"
-    sha256                               x86_64_linux:  "8af7d86205dde6f8b1332c4186a15e09ca2a87668f2e196f80b937a6f186bec2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e3ce340f5a05132a27e42f7dd152d1a7613739ff93eaacb278845af46934495a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4de95d88bdcfa1f475d19db09804e777a244111fb2597000c55fc214ad9c73a6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a85b23ce3a18673a206dd47c1bdeafb986a686385258b01d2992117e6ca648c"
+    sha256                               arm64_linux:   "1e08d35808c020a77bf25be7689efac65640fc2acbdb0c5e639402b8238e9b23"
+    sha256                               x86_64_linux:  "952a0de34ddadf04208d389b6fd25bfff70a91a1a9fd6414fda2508ae8a321e5"
   end
 
   depends_on "asciidoc" => :build
@@ -36,8 +36,8 @@ class SignalCli < Formula
   end
 
   resource "libsignal-client" do
-    url "https://github.com/signalapp/libsignal/archive/refs/tags/v0.94.4.tar.gz"
-    sha256 "ca8fb5fb3437c083263138079f512988581a94c65e407c8fe1c7c9c6310e60fa"
+    url "https://github.com/signalapp/libsignal/archive/refs/tags/v0.99.1.tar.gz"
+    sha256 "c6d92f2bc37902b7269fb9aac451e1047a87a812a9b7c37ba8a489ab6c6cd206"
 
     livecheck do
       url "https://raw.githubusercontent.com/AsamK/signal-cli/refs/tags/v#{LATEST_VERSION}/libsignal-version"
@@ -47,9 +47,9 @@ class SignalCli < Formula
 
   def install
     ENV["JAVA_HOME"] = if OS.mac?
-      Formula["graalvm"].opt_libexec/"graalvm.jdk/Contents/Home"
+      formula_opt_libexec("graalvm")/"graalvm.jdk/Contents/Home"
     else
-      Formula["graalvm"].opt_libexec
+      formula_opt_libexec("graalvm")
     end
 
     native_image_env = ENV.keys.grep(/^HOMEBREW_/).map { |key| "-E#{key}" }

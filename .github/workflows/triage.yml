@@ -93,7 +93,7 @@ jobs:
     steps:
       - name: Set up Homebrew
         id: setup-homebrew
-        uses: Homebrew/actions/setup-homebrew@main
+        uses: Homebrew/actions/setup-homebrew@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
           core: true
           cask: false
@@ -105,7 +105,7 @@ jobs:
         run: brew check-bottle-modification "${PR}"
 
       - name: Post comment
-        if: failure() && steps.bottle-block.conclusion == 'failure'
+        if: failure() && steps.bottle-block.outputs.bottle_modified == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BODY: |-
@@ -126,12 +126,17 @@ jobs:
         if: >
           github.actor != 'BrewTestBot' &&
           !contains(github.event.pull_request.labels.*.name, 'CI-published-bottle-commits')
-        uses: Homebrew/actions/check-commit-format@main
+        uses: Homebrew/actions/check-commit-format@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         with:
-          token: ${{secrets.GITHUB_TOKEN}}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          check_package_commit_format: >-
+            ${{
+              github.actor != 'BrewTestBot' &&
+              !contains(github.event.pull_request.labels.*.name, 'CI-published-bottle-commits')
+            }}
 
       - name: Label pull request
-        uses: Homebrew/actions/label-pull-requests@main
+        uses: Homebrew/actions/label-pull-requests@8f3d1ec8a696b3b9d9a6c3696b6c73033cab69e4 # 2026.08.14.1
         if: always()
         with:
           token: ${{secrets.GITHUB_TOKEN}}
@@ -156,6 +161,7 @@ jobs:
               missing_content:
                 - '\n    sha256.* (x86_64|arm64)_linux: +"[a-fA-F0-9]+"\n'
                 - '\n    sha256.* all: +"[a-fA-F0-9]+"\n'
+                - '\n  depends_on macos:'
                 - depends_on :macos
 
             - label: formula deprecated
@@ -165,6 +171,11 @@ jobs:
             - label: formula disabled
               path: Formula/.+
               content: \n  disable!.*\n
+
+            - label: homepage
+              path: Formula/.+
+              patch_content: \n  homepage .+\n
+              allow_any_match: true
 
             - label: legacy
               path: Formula/.+@.+
@@ -218,13 +229,19 @@ jobs:
               path: Formula/.+
               content: depends_on "openjdk(@[0-9.]+)?"
 
+            - label: openssl-4-migration
+              path: Formula/.+
+              content: '(depends_on|uses_from_macos) "openssl@4"'
+              patch_content: '(^|\n)-.*(depends_on|uses_from_macos) "openssl@3"'
+              allow_any_match: true
+
             - label: linux-only
               path: Formula/.+
               content: depends_on :linux
 
             - label: macos-only
               path: Formula/.+
-              content: depends_on :macos
+              content: 'depends_on :macos|\n  depends_on macos:'
 
             - label: meson
               path: Formula/.+
@@ -278,10 +295,6 @@ jobs:
             - label: long build
               path: "Formula/.+/(\
                 agda|\
-                apache-pulsar|\
-                aws-sdk-cpp|\
-                cbmc|\
-                cp2k|\
                 deno|\
                 dotnet|\
                 emscripten|\
@@ -290,23 +303,18 @@ jobs:
                 gdb|\
                 ghc|\
                 graph-tool|\
-                gstreamer|\
                 haskell-language-server|\
                 influxdb|\
                 libtensorflow|\
                 llvm|\
                 mame|\
                 metashell|\
-                mlkit|\
-                mpich|\
+                mycli|\
                 node|\
-                octave|\
-                opencascade|\
-                openfast|\
+                opencrabs|\
                 openvino|\
                 pcl|\
                 ponyc|\
-                prowler|\
                 pytorch|\
                 qtwebengine|\
                 root|\
@@ -323,60 +331,30 @@ jobs:
 
             - label: long dependent tests
               path: "Formula/.+/(\
-                aom|\
-                at-spi2-core|\
                 boost|\
-                brotli|\
-                c-ares|\
                 cabal-install|\
                 cmake|\
-                cryptography|\
-                dav1d|\
                 freetype|\
-                frei0r|\
                 gcc|\
                 gettext|\
                 ghc|\
                 glib|\
-                gsettings-desktop-schemas|\
                 gtk\\+3|\
                 harfbuzz|\
-                highway|\
-                hwloc|\
-                icu4c|\
-                imath|\
-                jasper|\
                 jpeg-turbo|\
-                jpeg-xl|\
-                libgcrypt|\
-                libgpg-error|\
-                libidn2|\
-                libmicrohttpd|\
-                libnghttp2|\
                 libomp|\
                 libpng|\
-                libtool|\
-                libunistring|\
-                mpfr|\
-                mpg123|\
                 node|\
                 numpy|\
                 openblas|\
                 openjdk|\
-                openjpeg|\
                 openssl@3|\
-                p11-kit|\
                 pango|\
                 pcre2|\
                 python@3.14|\
                 qtbase|\
-                rav1e|\
                 readline|\
                 rust|\
-                sdl2|\
-                shared-mime-info|\
-                sqlite|\
-                suite-sparse|\
                 xz|\
                 zstd\
                 ).rb"
@@ -405,44 +383,18 @@ jobs:
               keep_if_no_match: true
               allow_any_match: true
 
-            - label: CI-skip-recursive-dependents
-              path: "Formula/.+/(\
-                alsa-lib|\
-                ca-certificates|\
-                certifi|\
-                cmake|\
-                curl|\
-                gettext|\
-                glib|\
-                harfbuzz|\
-                libcap|\
-                openssl@3|\
-                rust|\
-                sqlite|\
-                systemd|\
-                wayland-protocols\
-                ).rb"
-              keep_if_no_match: true
-              allow_any_match: true
-
             - label: CI-linux-self-hosted
               path: "Formula/.+/(\
-                dart-sdk|\
-                dotnet|\
-                envoy|\
                 qt@5|\
                 qtwebengine|\
-                sui|\
-                teleport|\
                 texlive\
                 ).rb"
               keep_if_no_match: true
               allow_any_match: true
 
-            - label: CI-linux-self-hosted-deps
+            - label: CI-no-fail-fast-deps
               path: "Formula/.+/(\
                 glib|\
-                libva|\
                 libxml2|\
                 mesa|\
                 openssl@3|\

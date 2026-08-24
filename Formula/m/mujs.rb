@@ -27,10 +27,12 @@ class Mujs < Formula
     depends_on "readline"
   end
 
-  # update build for `utfdata.h`, upstream pr ref, https://github.com/ccxvii/mujs/pull/203
+  # update build for `utfdata.h`
   patch do
     url "https://github.com/ccxvii/mujs/commit/e21c6bfdce374e19800f2455f45828a90fce39da.patch?full_index=1"
     sha256 "e10de8b9c3a62ffe121b61fe60b67ba8faa68eaace9a3b17a13f46a2cc795a11"
+    type :unofficial
+    resolves "https://github.com/ccxvii/mujs/pull/203"
   end
 
   def install

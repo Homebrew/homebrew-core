@@ -1,11 +1,11 @@
 class Librealsense < Formula
   desc "Intel RealSense D400 series and SR300 capture"
-  homepage "https://github.com/IntelRealSense/librealsense"
-  url "https://github.com/IntelRealSense/librealsense/archive/refs/tags/v2.58.2.tar.gz"
-  sha256 "1e164e424b4eeb207ec05caecc6fadc1f3ecdce0d6d36f0f2e4fe6a2a9b423ab"
+  homepage "https://github.com/realsenseai/librealsense"
+  url "https://github.com/realsenseai/librealsense/archive/refs/tags/v2.58.3.tar.gz"
+  sha256 "6a4c59180950bd9ced58a3dfc4ded586ed22dfc9c418684e7fc8c241b9aaac98"
   license "Apache-2.0"
   compatibility_version 1
-  head "https://github.com/IntelRealSense/librealsense.git", branch: "master"
+  head "https://github.com/realsenseai/librealsense.git", branch: "master"
 
   livecheck do
     url :stable
@@ -13,12 +13,12 @@ class Librealsense < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "709cdc56e5de484c73854bd44f6af61abf2efc43a9992dd595bd371441c9bbad"
-    sha256 cellar: :any, arm64_sequoia: "481bb874039210fcc14c649423596677ae51d2b18a3ee46b841b7236cda625ba"
-    sha256 cellar: :any, arm64_sonoma:  "d8b8fd7790f0bbdd7c64fe59275d4f6c31511235769a87079ea3cf68db615a7d"
-    sha256 cellar: :any, sonoma:        "b5810d547153cbd46eae5750207ab3cb70425928edb2e90eaa6021a67c7785e7"
-    sha256 cellar: :any, arm64_linux:   "1dd23b89c3818c7d11f744a38fdddf44b61fa439f4a0087e1c13d1ba67fabec8"
-    sha256 cellar: :any, x86_64_linux:  "1424ca38a899811163f2248523d33c3c6c6464a747f89772d151e8d589d91182"
+    sha256 cellar: :any, arm64_tahoe:   "250ac1ad17d86f20936fa2aee03035548c8829a319c0df2d87f45306ca8af021"
+    sha256 cellar: :any, arm64_sequoia: "376f074eb8939e4411c5a417957fca18af19e3a0269bfeb525725134b2e2a2e2"
+    sha256 cellar: :any, arm64_sonoma:  "9c9e383b31f46f34bcf61dd8e1554883ecf549a258618c084aa9e9c8a613eb7b"
+    sha256 cellar: :any, sonoma:        "49572be2ea0f9f267c3a80f68b4eba3b41e415c3b053ba3488ea86ca499f14a4"
+    sha256 cellar: :any, arm64_linux:   "437a29ad820c61db8f01661d4612343c8e480815a23f4fbe2f41ce75fed82615"
+    sha256 cellar: :any, x86_64_linux:  "0e7e4ee20a15c40669fcabe70fb5eacc1aac703f4725f96b659251cfff12f290"
   end
 
   depends_on "cmake" => :build

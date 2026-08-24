@@ -1,28 +1,24 @@
 class Noti < Formula
   desc "Trigger notifications when a process completes"
   homepage "https://codeberg.org/roble/noti"
-  url "https://codeberg.org/roble/noti/archive/3.8.0.tar.gz"
-  sha256 "40939b83ee80f84ea2516ff205a961ddc0c4ec66af4f29319cdc41fce87eb332"
+  url "https://codeberg.org/roble/noti/releases/download/3.9.0/noti3.9.0.tar.gz"
+  sha256 "02b18016f6a78a1adf3cdcc5b20d884437edd0cf21588415e022d637372619b8"
   license "MIT"
   head "https://codeberg.org/roble/noti.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9df5cb0595eeccab3df88d19535d8c4959ddb31edebd05ebdaab5f256698a528"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a9ce62a753d38d76f7a0da4cd1ab463085f72ccd18a5322f285ed0fda14f31b3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6c6d37577bbc6a96195d28e194a129490f2d87b9afc15639bc80418f60ff598e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9f755675d0005c92a27b5505e203225dfe64b9bf6715b49bb7840850454c5546"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d00980419a447dfbf768ee6cbe98155fe6359b77a860cbfd05977b9d07fb515e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57b3aa7759166c18af61e9a49704e7673f7b9f439eb562447d4bf12c3d6baaec"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "593d9bd0ba1d76a703c4e3df96c307ce77298933e5cd599495cdb2217a962ba0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "593d9bd0ba1d76a703c4e3df96c307ce77298933e5cd599495cdb2217a962ba0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "593d9bd0ba1d76a703c4e3df96c307ce77298933e5cd599495cdb2217a962ba0"
+    sha256 cellar: :any_skip_relocation, sonoma:        "924502ce53d355628d16ab324f3f11fe3cadd7c7ef965d852e7f42fee718766f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9921b9b6c7ffb236673b81ae83aa8401069e9676341312a287376331d0dda5da"
+    sha256 cellar: :any,                 x86_64_linux:  "590924c22fc852140b1d7806371dad64686469f0df0179cc34e0da81d32ab588"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/variadico/noti/internal/command.Version=#{version}
-    ]
+    ldflags = %W[-X codeberg.org/roble/noti/internal/command.Version=#{version}]
     system "go", "build", *std_go_args(ldflags:), "cmd/noti/main.go"
     man1.install "docs/man/dist/noti.1"
     man5.install "docs/man/dist/noti.yaml.5"

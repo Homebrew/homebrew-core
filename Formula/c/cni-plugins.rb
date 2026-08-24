@@ -21,7 +21,7 @@ class CniPlugins < Formula
       basename = plugin_path.basename
       next if basename.to_s == "windows"
 
-      system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/basename), plugin_path
+      system "go", "build", *std_go_args(output: bin/basename), plugin_path
     end
   end
 

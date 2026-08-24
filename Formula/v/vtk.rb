@@ -1,19 +1,24 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/9.6/VTK-9.6.2.tar.gz"
-  sha256 "aed12cec12a9609179bf66329070266627ca64244a10856a452b2a17ffb04a1d"
+  url "https://www.vtk.org/files/release/9.7/VTK-9.7.0.tar.gz"
+  sha256 "affdb7a15ec34ee0174407f911ab70b646c7af01161818bbab4e1160b7eff720"
   license "BSD-3-Clause"
-  compatibility_version 3
+  compatibility_version 4
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
+  livecheck do
+    url "https://vtk.org/download/"
+    regex(/href=.*?vtk[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "52677c4763d3fd5a7b0b0190f79eeafc08403d80f914cb2a1278967dff188006"
-    sha256 cellar: :any,                 arm64_sequoia: "491006416b0c37e0d2a4ed856b2a540c7697fe62712cae551476a9dd95291f98"
-    sha256 cellar: :any,                 arm64_sonoma:  "eec9485cf855717a3c3c524025b9c0db89da1d45334f6efda270b173c2851132"
-    sha256 cellar: :any,                 sonoma:        "56ba4896d789187a60f3f3be040e58684a352df0e6cf5be39b46e919918dc993"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3fab6cc234d5a3e736f5b4575cbd1580ab011d377189646e099b841ed312fd86"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c8418d4936b57521f274c00486e892aace01b328c02a24bf60bb1a9c077ce6e"
+    sha256 cellar: :any, arm64_tahoe:   "59ea87c37556611f0aa4cf418a171953a651adef37c270dd385a64d9db00de54"
+    sha256 cellar: :any, arm64_sequoia: "9d3bd7e5467bdd6d4916e3719f0fee2bca78e25d31d5b31fcde91cc4c4f1aaf9"
+    sha256 cellar: :any, arm64_sonoma:  "d779ed67a50db352ee35dddac47a25042f5af253842b4d70f750e088e4029de5"
+    sha256 cellar: :any, sonoma:        "7707cbaf71ebdcd9d76a59a70b037a3ec55a1584afe47919b222da1101b420e6"
+    sha256 cellar: :any, arm64_linux:   "9991996ca196a8606ab61d4ea3d4c737eff17a8ad97d55daa36825b5a2da2f9e"
+    sha256 cellar: :any, x86_64_linux:  "24ac1d9e36d8bd32eafffdf0e403d2cfab39b7e0e3d82b86a1ef378a8c2d594c"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -55,11 +60,13 @@ class Vtk < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # Backport fix for HDF5 2.0.0
+  # Backport fix for HDF5 2.0.0 from CMake repo
   patch :p2 do
     url "https://github.com/Kitware/CMake/commit/27e558dfa5a5441954d8930f2b6d9ae700c95050.patch?full_index=1"
     sha256 "ba4ecd3f9abfaae2c60c9be6978c250622bdb9979b42ddec52116d51d034f911"
     directory "CMake/patches/99"
+    type :cherry_pick
+    resolves "https://gitlab.kitware.com/vtk/vtk/-/work_items/20014"
   end
 
   def install
@@ -68,7 +75,7 @@ class Vtk < Formula
     # TODO: Consider adding a DSL for this or change how we handle Python's `expat` dependency
     if OS.mac? && MacOS.version < :sequoia
       env_vars = %w[CMAKE_PREFIX_PATH HOMEBREW_INCLUDE_PATHS HOMEBREW_LIBRARY_PATHS PATH PKG_CONFIG_PATH]
-      ENV.remove env_vars, /(^|:)#{Regexp.escape(Formula["expat"].opt_prefix)}[^:]*/
+      ENV.remove env_vars, /(^|:)#{Regexp.escape(formula_opt_prefix("expat"))}[^:]*/
       ENV.remove "HOMEBREW_DEPENDENCIES", "expat"
     end
 

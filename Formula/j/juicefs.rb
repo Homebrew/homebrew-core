@@ -1,8 +1,8 @@
 class Juicefs < Formula
   desc "Cloud-based, distributed POSIX file system built on top of Redis and S3"
   homepage "https://juicefs.com"
-  url "https://github.com/juicedata/juicefs/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "37404fb9693a39d1e2ba8ec6323c1e3e1502852fd7eb04e10657f6cffe9ef110"
+  url "https://github.com/juicedata/juicefs/archive/refs/tags/v1.4.1.tar.gz"
+  sha256 "c64ebb28212840d12e37baaa1046d8226a3074427946c697a5ed22f158055758"
   license "Apache-2.0"
   head "https://github.com/juicedata/juicefs.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Juicefs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f5cd25c0034180ab9338373a5e278dfc5400fac7257cabf06b288899c602d960"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1f83d44fd56ff4fd1b0cb4cc1696260ecc0906dab55b0f83f824fc6bb78da7cb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a2c137424d00035f136acbbdf7c391cd7cc6c498ac016190e5a3b403296aab8e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3196e0bf833ae3ddfebc56def67968b4a0fa0f8b0f84b09d84d703ba168961df"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ae9b27e1c37cbb2d71cb49d30735728f6ef2a2d4cd3effc6a348d5eeb7ee7fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7b195c808d249265774b78dac00fa69cbd6fcac11e6ce4d40ab9d0c9e26d4e0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bd9c876eb2d8f942b9bb4dac5cb73709eb7b193a26614e9fa26a87128bb33ea7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "89a18b5d80d805cc75ebb808f6c28e7d27b85fef72b2ef05e5a5eb636fcc2b9c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e0f93d8257da27e7aae0b4d1a43f801684fc20c0144ac4a89bc2a14a8e54817"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7d4a0daa16c664aa14086340897e944c6b2fc317706875e03e8a4a25b56d7637"
+    sha256 cellar: :any,                 arm64_linux:   "387423223ed27fd7ef07001eeb31604bfb54976a8d4c648ae3a1fb567baea068"
+    sha256 cellar: :any,                 x86_64_linux:  "a4f5ccc3afcda7ebe4f48f887f589792a81825ec80553855a2aa2c6c16e90195"
   end
 
   depends_on "go" => :build

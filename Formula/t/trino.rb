@@ -86,7 +86,7 @@ class Trino < Formula
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
     platform_dir = buildpath/"bin/#{OS.kernel_name.downcase}-#{arch}"
     resource("launcher").stage do |r|
-      ldflags = "-s -w -X launcher/args.Version=#{r.version}"
+      ldflags = "-X launcher/args.Version=#{r.version}"
       system "go", "build", "-C", "src/main/go", *std_go_args(ldflags:, output: platform_dir/"launcher")
     end
     if OS.linux?

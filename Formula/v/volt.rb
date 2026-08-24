@@ -30,10 +30,12 @@ class Volt < Formula
   patch do
     url "https://github.com/vim-volt/volt/commit/aa9586901d249aa40e67bc0b3e0e7d4f13d5a88b.patch?full_index=1"
     sha256 "62bed17b5c58198f44a669e41112335928e2fa93d71554aa6bddc782cf124872"
+    type :backport
+    resolves "https://github.com/vim-volt/volt/pull/322"
   end
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args
 
     bash_completion.install "_contrib/completion/bash" => "volt"
     zsh_completion.install "_contrib/completion/zsh" => "_volt"

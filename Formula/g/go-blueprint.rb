@@ -19,7 +19,7 @@ class GoBlueprint < Formula
   depends_on "go"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/melkeydev/go-blueprint/cmd.GoBlueprintVersion=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X github.com/melkeydev/go-blueprint/cmd.GoBlueprintVersion=#{version}")
 
     generate_completions_from_executable(bin/"go-blueprint", shell_parameter_format: :cobra)
   end

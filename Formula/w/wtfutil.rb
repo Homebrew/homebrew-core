@@ -1,24 +1,24 @@
 class Wtfutil < Formula
   desc "Personal information dashboard for your terminal"
   homepage "https://wtfutil.com"
-  url "https://github.com/wtfutil/wtf/archive/refs/tags/v0.49.1.tar.gz"
-  sha256 "77860a2bc3a14ebea15a8f31b388fd14a09dd2ecaade4e82079331c094896bb6"
+  url "https://github.com/wtfutil/wtf/archive/refs/tags/v0.50.0.tar.gz"
+  sha256 "cec9b0a4d01dd6d2a81a8cd429e992786a2a3a212d4e2c090ab4d10172ca9794"
   license "MPL-2.0"
   head "https://github.com/wtfutil/wtf.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8e8559579aac3cfab8ecd70b551c4e8f2994919997d4b9e2793e03c672f87141"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc384ce16fdf1885123d4ead2819429eb0cf7d541e8bc1c9105824bbdbdf0c10"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "82fbcae4fd78cfa7e7f6dc7abd4ec0a82775544a8fd94be4333352ece176b075"
-    sha256 cellar: :any_skip_relocation, sonoma:        "72981c1702604ab001045a1b6301057bd0996a220a81836d163e1c4ca91c7487"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a1c8eaf2e18ab87922b7c01559a7866243b0a7969c8eb6bb379163011adf55b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "558c45eb44c85afb0856a4a7090c6f6c2800e5b71da7707c950604b5dd2b1f98"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4ea6938225069f6512debc79090300e93255eccb23c808e6b735399bdf770156"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dcb07cc6d7a924e00969fc1bf6b6b77c478588ae7e0bfd613e4c7fb287c86fb0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5435bdf1477ed48580cb7f3c35f6b6341364160cb70d645dc3bc415c6ce9652d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "22ccab71cb51acea3500ad7ab7936cb85a494e4b391c836f9510780cf553e065"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb863500bb7249c9baa2607b7c0cf3a47035ed62904bbebc3f446a17ca33bfb0"
+    sha256 cellar: :any,                 x86_64_linux:  "6fd1868752f7e160cff65cb962484c0f7a577f1226f5d2c81b81f239999e29f4"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.version=#{version} -X main.date=#{time.iso8601}"
+    ldflags = "-X main.version=#{version} -X main.date=#{time.iso8601}"
     system "go", "build", *std_go_args(ldflags:)
   end
 

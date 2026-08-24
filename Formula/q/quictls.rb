@@ -65,7 +65,7 @@ class Quictls < Formula
     # This ensures where Homebrew's Perl is needed the Cellar path isn't
     # hardcoded into OpenSSL's scripts, causing them to break every Perl update.
     # Whilst our env points to opt_bin, by default OpenSSL resolves the symlink.
-    ENV["PERL"] = Formula["perl"].opt_bin/"perl" if which("perl") == Formula["perl"].opt_bin/"perl"
+    ENV["PERL"] = formula_opt_bin("perl")/"perl" if which("perl") == formula_opt_bin("perl")/"perl"
 
     # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
     # SSLv3 & zlib are off by default with 1.1.0 but this may not
@@ -105,9 +105,8 @@ class Quictls < Formula
     etc/"quictls"
   end
 
-  def post_install
-    rm(quictlsdir/"cert.pem") if (quictlsdir/"cert.pem").exist?
-    quictlsdir.install_symlink Formula["ca-certificates"].pkgetc/"cert.pem"
+  post_install_steps do
+    symlink "{{etc}}/ca-certificates/cert.pem", "{{pkgetc}}/cert.pem", overwrite: true
   end
 
   def caveats

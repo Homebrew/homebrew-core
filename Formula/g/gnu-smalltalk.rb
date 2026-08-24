@@ -64,7 +64,7 @@ class GnuSmalltalk < Formula
     args = %W[
       --disable-gtk
       --with-lispdir=#{elisp}
-      --with-readline=#{Formula["readline"].opt_lib}
+      --with-readline=#{formula_opt_lib("readline")}
       --without-tcl
       --without-tk
       --without-x

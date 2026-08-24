@@ -34,7 +34,7 @@ class PariSeadataBig < Formula
 
   test do
     term = "-812742150726123010437180630597083*y^19"
-    output = pipe_output("#{Formula["pari"].opt_bin}/gp -q", "ellmodulareqn(503)").chomp
+    output = pipe_output("#{formula_opt_bin("pari")}/gp -q", "ellmodulareqn(503)").chomp
     assert_match term, output
   end
 end

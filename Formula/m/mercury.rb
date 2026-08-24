@@ -12,13 +12,13 @@ class Mercury < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "b4d0ab2e114dd28fb1b95c62bcd8401d6ef95195c2f5a74e89da28a1c55f275c"
-    sha256 cellar: :any,                 arm64_sequoia: "db876431b91d903991be29e49819963b3820ddf1312f72569b6e9c18f3f99cab"
-    sha256 cellar: :any,                 arm64_sonoma:  "41623c085798cc8cf269f9755d6c5b2848f5f3d141e9c826a657f97a4e4b2b5d"
-    sha256 cellar: :any,                 sonoma:        "499aa73ce989569c399b672e485f15d48362c395b71808f0bf1f490ff5b54a22"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e90c695b191f860473f6042587dc25c8f85c0cfa3d79f00f43992a7a9e0b52a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5627e4fcb8f3fa0b0926ba97b0e3f5a868a06d856870b8ba6ad4e383254e8c68"
+    rebuild 2
+    sha256 cellar: :any, arm64_tahoe:   "8c3f6e6288f050e8777b0d29a263ca794a116ebbfcbf6e807ea06b73bea12762"
+    sha256 cellar: :any, arm64_sequoia: "71035c5c5b2af65cb83f15fd9564ef08f6a0c0f5b36fd7ef57ec46a63576e0eb"
+    sha256 cellar: :any, arm64_sonoma:  "821662765b1e006d3d7419df9561bfdbe4c45dd9113a32fac890a7e9d5242dc9"
+    sha256 cellar: :any, sonoma:        "bb0a5dfecf2845b8fa357e7385a640d397eb56468b8640873f9c5124d1e1a6de"
+    sha256 cellar: :any, arm64_linux:   "24e58d3aa2d474517e4ac55ef639813e28f164e9c9ae392dd760a4ee065c103e"
+    sha256 cellar: :any, x86_64_linux:  "2f928bdd6edb6e25578e950fe92df676abc86ab81b6028dfa10bb9b6008dc748"
   end
 
   depends_on "openjdk"

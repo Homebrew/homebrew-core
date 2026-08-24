@@ -33,6 +33,8 @@ class Glyr < Formula
   patch do
     url "https://salsa.debian.org/multimedia-team/glyr/-/raw/5425c57b7d5716b91553fdf65ec117eda45ae025/debian/patches/0003-Import-curl.h-instead-of-a-header-subset.patch"
     sha256 "c97a4a96c30219f5c31b21501a8e37cff18817d02451634654a949a0ec8303a3"
+    type :unofficial
+    resolves "https://bugs.debian.org/1114127"
   end
 
   def install

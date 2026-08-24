@@ -30,10 +30,14 @@ class G2o < Formula
   patch do
     url "https://github.com/RainerKuemmerle/g2o/commit/5ad2b3d8b550bad67242d90115f28c5b725da2a1.patch?full_index=1"
     sha256 "f2c0139a045b0ef7380d56d368d1ee0cbd11feeff2dede9858d6a8532a7103bb"
+    type :backport
+    resolves "https://github.com/RainerKuemmerle/g2o/pull/903"
   end
   patch do
     url "https://github.com/RainerKuemmerle/g2o/commit/ef80e643adeb700536dd282dd4316c90cfc05fe8.patch?full_index=1"
     sha256 "ac9abf38a4425fd95ceb4a295160bec5a2f2bbd2bb2f8695951ba9e0c101edc4"
+    type :backport
+    resolves "https://github.com/RainerKuemmerle/g2o/pull/922"
   end
 
   def install
@@ -73,7 +77,7 @@ class G2o < Formula
     libs = %w[-lg2o_core -lg2o_solver_eigen -lg2o_stuff -lg2o_types_slam2d -lg2o_types_slam3d]
     cd "src" do
       system ENV.cxx, "simple_optimize.cpp",
-             "-I#{opt_include}", "-I#{Formula["eigen"].opt_include}/eigen3",
+             "-I#{opt_include}", "-I#{formula_opt_include("eigen")}/eigen3",
              "-L#{opt_lib}", *libs, "-std=c++17", "-o", testpath/"simple_optimize"
     end
 

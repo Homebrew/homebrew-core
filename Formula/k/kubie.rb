@@ -2,10 +2,10 @@ class Kubie < Formula
   desc "Much more powerful alternative to kubectx and kubens"
   # Original homepage `https://blog.sbstp.ca/introducing-kubie` is down.
   homepage "https://sbstp.ca"
-  url "https://github.com/sbstp/kubie/archive/refs/tags/v0.28.0.tar.gz"
+  url "https://github.com/kubie-org/kubie/archive/refs/tags/v0.28.0.tar.gz"
   sha256 "47a373e94a2b0a1d1ab6c2a36dec49774f605ffb19baad3b3b0f613cf1d9c1ab"
   license "Zlib"
-  head "https://github.com/sbstp/kubie.git", branch: "master"
+  head "https://github.com/kubie-org/kubie.git", branch: "master"
 
   livecheck do
     url :stable

@@ -3,19 +3,32 @@ class Volk < Formula
 
   desc "Vector Optimized Library of Kernels"
   homepage "https://www.libvolk.org/"
-  url "https://github.com/gnuradio/volk/releases/download/v3.3.0/volk-3.3.0.tar.gz"
-  sha256 "89d11c8c8d4213b1b780354cfdbda1fed0c0b65c82847e710638eb3e21418628"
   license "LGPL-3.0-or-later"
   revision 2
   compatibility_version 1
+  head "https://github.com/gnuradio/volk.git", branch: "main"
+
+  stable do
+    url "https://github.com/gnuradio/volk/releases/download/v3.3.0/volk-3.3.0.tar.gz"
+    sha256 "89d11c8c8d4213b1b780354cfdbda1fed0c0b65c82847e710638eb3e21418628"
+
+    # Fix compatibility with fmt 12.2+
+    patch do
+      url "https://github.com/gnuradio/volk/commit/5620097efb4a70620259000d27918dee1d03ee1e.patch?full_index=1"
+      sha256 "18e6515ce4932f93bb3e8855c16a411a4de61a6006c7a12d1ac342d5174d08ba"
+      type :backport
+      resolves "https://github.com/gnuradio/volk/pull/869"
+    end
+  end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d1dc8f56e9a0be8b1015b455632f1a769d8e846648cfe48ed8ed137d393792a1"
-    sha256 cellar: :any,                 arm64_sequoia: "3837e14ee29c45da87e3ecf1723bf711d7ca623b1a5dadad4bcf770fbda3f2e0"
-    sha256 cellar: :any,                 arm64_sonoma:  "ab0a316c081d3d9c55e4a4945b14d785a08a0fcd3eec169ec1f372f69d90d9cf"
-    sha256 cellar: :any,                 sonoma:        "b532a76c0551cd453561d50b7d84e0d7bb69c3108e87db8682da04b1b98948e2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "27583f1b7bf10ed3f88fac9e12df7952418586c89eb127ead86612785da529c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b50c782d3b4b28e70aeebf0f8c1aa6b61e20c7362cd95008f00b9186d7bc369f"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "191cd1de815b6a227597a8d734e323a9d8f41587da9e2ef0f6f8be98c716bf6c"
+    sha256 cellar: :any, arm64_sequoia: "f62aa1a95e3f8ed22968fe8e92b036754db1c02f9d80f6ed0cccbbfd7dfc5f2f"
+    sha256 cellar: :any, arm64_sonoma:  "3454fbda5eae8449ce41463f6f88c929cdb054aa2feb024d8a2be58770aeacbc"
+    sha256 cellar: :any, sonoma:        "2d359de9c959e7ef49d200f8f702158845d2730213a4f5b73de126b4a93f7897"
+    sha256 cellar: :any, arm64_linux:   "6fb7686968e2c94fee1d4a4829a8a89430ebb96eb7f522c935cafae913cf13a0"
+    sha256 cellar: :any, x86_64_linux:  "303e1b62238f08c8929062431295a62c915fd5191e4f3c543390d73e14ff4ce8"
   end
 
   depends_on "cmake" => :build
@@ -40,14 +53,11 @@ class Volk < Formula
     sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
-  def python3
-    "python3.14"
-  end
-
   def install
+    python3 = "python3.14"
     venv = virtualenv_create(buildpath/"venv", python3)
     venv.pip_install resources
-    ENV.prepend_path "PYTHONPATH", buildpath/"venv"/Language::Python.site_packages(python3)
+    ENV.prepend_path "PYTHONPATH", venv.site_packages
 
     # Avoid falling back to bundled cpu_features
     rm_r(buildpath/"cpu_features")

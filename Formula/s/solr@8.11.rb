@@ -41,8 +41,8 @@ class SolrAT811 < Formula
   end
 
   post_install_steps do
-    mkdir_p "run/solr"
-    mkdir_p "log/solr"
+    mkdir_p "run/solr", base: :var
+    mkdir_p "log/solr", base: :var
   end
 
   service do

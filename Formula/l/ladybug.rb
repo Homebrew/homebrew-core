@@ -1,22 +1,32 @@
 class Ladybug < Formula
   desc "Embedded graph database built for query speed and scalability"
   homepage "https://ladybugdb.com/"
-  url "https://github.com/LadybugDB/ladybug/archive/refs/tags/v0.17.1.tar.gz"
-  sha256 "fcd790936fe83650f6579c741fe79ce295604bbcab905fa389fdc778da83377f"
+  url "https://github.com/LadybugDB/ladybug/archive/refs/tags/v0.19.1.tar.gz"
+  sha256 "39d58c2250f1d3936342b811fa88ddaaf57dda17477fc576257da0fcf0fc2dd6"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "b198fe97227451de96bf723be14f1c8813b3066363ca6be42f9f562faa9bee4f"
-    sha256 cellar: :any, arm64_sequoia: "a6e3492d5ee00867ff5b2abb926b43da76536109538b6541c461d6a7e98b1f75"
-    sha256 cellar: :any, arm64_sonoma:  "663f6250fad9521ed14c67f860e0a047be118fbb94b91eeb7bb4ec58f6cf21c4"
-    sha256 cellar: :any, sonoma:        "69b7769b68c458985dd59e3f6dfe5b60aa9c3ae02e41af79264b686747741eb4"
-    sha256 cellar: :any, arm64_linux:   "7d4b4668820173cf482125121d8cb4f4ebd0d1e1d1886391d3fa995dfd0a07a3"
-    sha256 cellar: :any, x86_64_linux:  "d839b21b9f05e8ec5b85ca6d739cd7d26cad332417b171a88bcd60a20d4aa4c8"
+    sha256 cellar: :any, arm64_tahoe:   "8403bbb3f7f37c218119f818c59d0c39cba586f7ffa604d2c7381a95dc4da49a"
+    sha256 cellar: :any, arm64_sequoia: "be79a28833c3fde89ee6d7a0bc90b58333d84f6855621bf0090ab547886468af"
+    sha256 cellar: :any, arm64_sonoma:  "e2b567ec441f682e88dbd01f4b0f29ca9a14993b070bebedcf84eaffc4bdc8cb"
+    sha256 cellar: :any, sonoma:        "47097c5ea1b7ddc7b241da05136c7d860aaddfe2f15be53c5a8525c8fb7ee0c6"
+    sha256 cellar: :any, arm64_linux:   "bf72e6db929e140e4aa98bec21f952d1965342ef61a1f91928d85d686100ded3"
+    sha256 cellar: :any, x86_64_linux:  "92e47d7bfb6de9e02936bb0f6b1d841ff657039d3bf69f7151162759aeaf0f68"
   end
 
   depends_on "cmake" => :build
+  depends_on "openssl@4"
+
   uses_from_macos "python" => :build
+
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1600
+  end
+
+  fails_with :clang do
+    build 1600
+    cause "Requires C+++20 support for `std::atomic_ref`"
+  end
 
   fails_with :gcc do
     version "12"

@@ -1,8 +1,8 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/9.2/racket-minimal-9.2-src.tgz"
-  sha256 "6292636ee48f8473adc99113fca23419164aa02b30fb482001ab99224cf73074"
+  url "https://mirror.racket-lang.org/installers/9.3/racket-minimal-9.3-src.tgz"
+  sha256 "19bdc4f9507737e7f4a11b6411d184683c336b5942d0700ddaf2f4c54d639146"
   license any_of: ["MIT", "Apache-2.0"]
 
   # File links on the download page are created using JavaScript, so we parse
@@ -15,12 +15,12 @@ class MinimalRacket < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0f5f540f2b064e56d114e59cad13e5a1659403eb5702df5f4f4d969954ac0251"
-    sha256 arm64_sequoia: "3b115362f43879a41c6d0ac9bfaec3fbe6125e85e9816c1198bf2d7e2bdfe006"
-    sha256 arm64_sonoma:  "ce085a3f73fdfd87a0f775eb488b7088d7f3c442aeb1a97bc469b805429bdf34"
-    sha256 sonoma:        "c42efc0dcd8ac195b59c1e1388906330a5e86b7f122af4ca55160298ee01e866"
-    sha256 arm64_linux:   "920f80921f68d281598ed751e803fbbae9f367fa4859d9c4ced45db456e5b649"
-    sha256 x86_64_linux:  "40ae937f5b736bb4d68ceb27dc01eaa1b760f6ba8a196d4b645c8efe94cb8538"
+    sha256 arm64_tahoe:   "4244cc788426d12ef29d9d0a68d5182df539d6a26723219176786c69da7a1e27"
+    sha256 arm64_sequoia: "9646f072359dbec97b1cb86264642eda2cfbca28dc732380f58abb04561ca0e0"
+    sha256 arm64_sonoma:  "a571f7a11dab2f9e844c2b277a94e16a69cb0984cc4fa9c952256c5f640a4606"
+    sha256 sonoma:        "56912e55c16ea6c13257cc3de9cf9ba05e6e7b14fd06628a4247a8d1ed6818c9"
+    sha256 arm64_linux:   "2ecae6e83ad95f50fdea665875c701be8aeeb8def5129b0cd6bcc80a31641afa"
+    sha256 x86_64_linux:  "87c4409b73198f6915d370f09ac2b43fc984468c6bef28b0f59acfdd4b333627"
   end
 
   depends_on "openssl@3"
@@ -59,8 +59,8 @@ class MinimalRacket < Formula
         --enable-useprefix
       ]
 
-      ENV["LDFLAGS"] = "-rpath #{Formula["openssl@3"].opt_lib}"
-      ENV["LDFLAGS"] = "-Wl,-rpath=#{Formula["openssl@3"].opt_lib}" if OS.linux?
+      ENV["LDFLAGS"] = "-rpath #{formula_opt_lib("openssl@3")}"
+      ENV["LDFLAGS"] = "-Wl,-rpath=#{formula_opt_lib("openssl@3")}" if OS.linux?
 
       system "./configure", *args
       system "make"
@@ -84,16 +84,10 @@ class MinimalRacket < Formula
     inreplace racket_config, prefix, opt_prefix
   end
 
-  def post_install
-    # Run raco setup to make sure core libraries are properly compiled.
-    # Sometimes the mtimes of .rkt and .zo files are messed up after a fresh
-    # install, making Racket take 15s to start up because interpreting is slow.
-    system bin/"raco", "setup"
-
-    return unless racket_config.read.include?(HOMEBREW_CELLAR)
-
-    ohai "Fixing up Cellar references in #{racket_config}..."
-    inreplace racket_config, %r{#{Regexp.escape(HOMEBREW_CELLAR)}/minimal-racket/[^/]}o, opt_prefix
+  post_install_steps do
+    run "raco", args: ["setup"], base: :bin
+    inreplace "racket/config.rktd", %r{{{HOMEBREW_CELLAR}}/minimal-racket/[^/]}, "{{opt_prefix}}",
+              base: :etc, audit_result: false
   end
 
   def caveats
@@ -132,7 +126,7 @@ class MinimalRacket < Formula
       assert_match(%r{.*openssl@3/.*/libssl.*\.dylib}, output)
     else
       output = shell_output("LD_DEBUG=libs #{bin}/racket -e '(require openssl)' 2>&1")
-      assert_match "init: #{Formula["openssl@3"].opt_lib/shared_library("libssl")}", output
+      assert_match "init: #{formula_opt_lib("openssl@3")/shared_library("libssl")}", output
     end
   end
 end

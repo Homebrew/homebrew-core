@@ -1,8 +1,8 @@
 class Soplex < Formula
   desc "Optimization package for solving linear programming problems (LPs)"
   homepage "https://soplex.zib.de/"
-  url "https://soplex.zib.de/download/release/soplex-8.0.2.tgz"
-  sha256 "d1634c0494d3b5355b611c3ce0f710dd19b9626f1ea65c822b668dc8abf1bf8c"
+  url "https://soplex.zib.de/download/release/soplex-8.0.3.tgz"
+  sha256 "14ae9ad62701d2d5f0ac8a93ed4805b44c94440123d051c7c88bb862013f2cd8"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Soplex < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2f59a426fa23a792285e7f5613ed122744a2937b6efad6cf06757313fe333941"
-    sha256 cellar: :any,                 arm64_sequoia: "610928b8364ddeab8296216dafaa7b4df539351ffff17e382c1c0eb9f22b4261"
-    sha256 cellar: :any,                 arm64_sonoma:  "71dcb224076a11019269a71b4b1b193259442b8e8b4405c817f8d6db2a9987de"
-    sha256 cellar: :any,                 sonoma:        "4772f36ab163178669030ffc9011dae8d0716a1a51c180e48b216dc4500b5202"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "72da6eb5d410c88e0bac8cb9b87f63d95fbd4d0cf3834baaff93a6bedab49f6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20906c8b190a3affcf702d3aaec37e3022328febab379273dbb1f60956e5855f"
+    sha256 cellar: :any, arm64_tahoe:   "683aace3a66e35fd99172eaf1608253eff103abb7fb83e2d47a630f88f8ce620"
+    sha256 cellar: :any, arm64_sequoia: "87d025017dd3ab6c7f793a27b7fa7f80e8e06c654eeb40322339add7850d9e9c"
+    sha256 cellar: :any, arm64_sonoma:  "c0fae1c0717700b652668c2aedd692ab1df6af0dc3ddfe4bd195004c16ea5c7d"
+    sha256 cellar: :any, sonoma:        "d1f5576aa2d11cc6cef6652762ba52665e682ba8e2bd4291ce9b95629ddefc18"
+    sha256 cellar: :any, arm64_linux:   "46ba78bed91f5158572392c78123c3435fe06c1036aa753e2c55f80f70577a15"
+    sha256 cellar: :any, x86_64_linux:  "f8ab7d8bb3208db083556ffa18526e110ff6a72f86a30581d077bf541669b0e5"
   end
 
   depends_on "cmake" => :build
@@ -56,7 +56,7 @@ class Soplex < Formula
       shell_output("#{bin}/soplex test.lp -f0 -o0 --readmode=1 --solvemode=2")
 
     system ENV.cxx, pkgshare/"example.cpp", "-std=c++14", "-L#{lib}", "-I#{include}",
-      "-L#{Formula["gmp"].opt_lib}", "-L#{Formula["mpfr"].opt_lib}",
+      "-L#{formula_opt_lib("gmp")}", "-L#{formula_opt_lib("mpfr")}",
       "-lsoplex", "-lz", "-lgmp", "-lmpfr", "-o", "test"
     system "./test"
   end

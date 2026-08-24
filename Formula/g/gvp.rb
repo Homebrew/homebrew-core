@@ -14,6 +14,8 @@ class Gvp < Formula
   patch do
     url "https://github.com/pote/gvp/commit/11c4cefd.patch?full_index=1"
     sha256 "19c59c5185d351e05d0b3fbe6a4dba3960c34a804d67fe320e3189271374c494"
+    type :backport
+    resolves "https://github.com/pote/gvp/pull/46"
   end
 
   def install

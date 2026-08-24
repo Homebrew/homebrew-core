@@ -52,7 +52,7 @@ class HttpLoad < Formula
       LIBDIR=#{lib}
       MANDIR=#{man1}
       CC=#{ENV.cc}
-      SSL_TREE=#{Formula["openssl@3"].opt_prefix}
+      SSL_TREE=#{formula_opt_prefix("openssl@3")}
     ]
 
     inreplace "Makefile", "#SSL_", "SSL_"

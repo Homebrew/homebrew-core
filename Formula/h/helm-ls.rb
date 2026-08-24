@@ -22,7 +22,6 @@ class HelmLs < Formula
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
 
     ldflags = %W[
-      -s -w
       -X main.Version=#{version}
       -X main.CompiledBy=#{tap.user}
       -X main.GitCommit=#{tap.user}

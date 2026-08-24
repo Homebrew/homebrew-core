@@ -13,6 +13,8 @@ class Pulseaudio < Formula
     patch do
       url "https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/commit/c1990dd02647405b0c13aab59f75d05cbb202336.diff"
       sha256 "46505b7f915a96a4e5f4c46cd8a2cfb5a74586bfd585d69f31b7b2e27e17a4c8"
+      type :backport
+      resolves "https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/issues/3808"
     end
   end
 

@@ -18,8 +18,7 @@ class Neo4jMcp < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X main.Version=v#{version}"
-    system "go", "build", *std_go_args(ldflags:), "./cmd/neo4j-mcp"
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=v#{version}"), "./cmd/neo4j-mcp"
   end
 
   test do

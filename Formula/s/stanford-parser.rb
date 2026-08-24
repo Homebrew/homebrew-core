@@ -20,7 +20,7 @@ class StanfordParser < Formula
   def install
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/*.sh"]
-    bin.env_script_all_files libexec, JAVA_HOME: Formula["openjdk"].opt_prefix
+    bin.env_script_all_files libexec, JAVA_HOME: formula_opt_prefix("openjdk")
   end
 
   test do

@@ -35,10 +35,10 @@ class Dps8m < Formula
       # Upstream issue: https://gitlab.com/dps8m/dps8m/-/issues/293
       inreplace "src/pgo/Build.PGO.Homebrew.Clang.sh", "exit 1", ""
       inreplace "src/pgo/Build.PGO.Homebrew.Clang.sh", "$(brew --prefix llvm)", "$BREW_LLVM_PATH"
-      ENV["BREW_LLVM_PATH"] = Formula["llvm"].opt_prefix
+      ENV["BREW_LLVM_PATH"] = formula_opt_prefix("llvm")
       ENV["NO_PGO_LIBUV"] = "1"
-      ENV.append "LDFLAGS", "-Wl,-rpath,\"#{Formula["libuv"].opt_lib}\" -L\"#{Formula["libuv"].opt_lib}\" -luv"
-      ENV.append "CFLAGS", "-I\"#{Formula["libuv"].opt_include}\""
+      ENV.append "LDFLAGS", "-Wl,-rpath,\"#{formula_opt_lib("libuv")}\" -L\"#{formula_opt_lib("libuv")}\" -luv"
+      ENV.append "CFLAGS", "-I\"#{formula_opt_include("libuv")}\""
       system "./src/pgo/Build.PGO.Homebrew.Clang.sh", "LIBUV="
     end
     system "make", "install", "PREFIX=#{prefix}"

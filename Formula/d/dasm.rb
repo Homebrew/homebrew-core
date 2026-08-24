@@ -1,25 +1,18 @@
 class Dasm < Formula
   desc "Macro assembler with support for several 8-bit microprocessors"
   homepage "https://dasm-assembler.github.io/"
-  url "https://github.com/dasm-assembler/dasm/archive/refs/tags/2.20.14.1.tar.gz"
-  sha256 "ec71ffd10eeaa70bf7587ee0d79a92cd3f0a017c0d6d793e37d10359ceea663a"
+  url "https://github.com/dasm-assembler/dasm/archive/refs/tags/v2.20.17.tar.gz"
+  sha256 "4755532fe8c990c8616b4cfbe22c3fe5820e40476343da01e088b617bd2d1144"
   license "GPL-2.0-or-later"
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "1f614d82306309db519d1ec6ab82849fa699b8a688a1d22ca8ae02342178697b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "018a5c5e7494685ffa0c9f40846072fff6ba4508efc1b07bd1d45235e02a4eff"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4d556e6302cb3fa636be29a938b48905d5685697dc0875a7f9e469ab4e1307f5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "58360e2858c11aa4bcfefad632932d52bdf5fa38bbe3914f555a9ec515ac7278"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "60b9a619d4394ab4079ce4f909549c604aabfd32f1a3ecd96b8e7c30c1cfb823"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "edc22129ec5a851546aa675a89dc4e6895eac68428914d806cfc03a4bb119eeb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5f0b00c2325e27d6b47e040d6ccacacef637757f4d0d92dfce6303f133264f8e"
-    sha256 cellar: :any_skip_relocation, ventura:        "4a267314f9ad2a37150c159fabbaea9620311f61c5b9ac60007e369d8709db9e"
-    sha256 cellar: :any_skip_relocation, monterey:       "39de6472c8ffb52fbeaff1d112b4961b3d0912bbd1777f35db5f7fab46955fe7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0de7ec1bbb50537c46364d86188b6ef07c2e6d6efeee6b013be29eab793290d3"
-    sha256 cellar: :any_skip_relocation, catalina:       "354cf4953e70e7518fc7ee0b0861a0be21fa80770a60d18a2c0ea0d31deb979d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "8448f39661a2328dc9579d23cdf837c9dd28ee9d449c446e58f0d8a19b4592b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "255217da42c9f1a4b35791323593c0107306e2090fcc69b471d5afb193de7355"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3edd10ff681a6fea351120250dc02b0640ac24a85e5ea7e56d16ac8162801625"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ac5f1a65d96fcb5e45521a5b4ebde8d71a407a2e3223084fc568b4a7dbacf2b4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "891739375850c3e581f3c57cf22cc82d186a77f15a1d17b35a78054bd0065ade"
+    sha256 cellar: :any_skip_relocation, sonoma:        "246f772e93f80298df34cba524f046a29a8915ffc9ffb25576534f195e815697"
+    sha256 cellar: :any,                 arm64_linux:   "e80748c2143de6f164947545aecddd2444af087532e41bf41a75abd4bfe7ec3c"
+    sha256 cellar: :any,                 x86_64_linux:  "e095df956364650b7a98371f56b299d6695b2f30d0ada607fa899ad4032e098b"
   end
 
   def install

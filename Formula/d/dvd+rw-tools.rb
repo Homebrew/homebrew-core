@@ -34,6 +34,7 @@ class DvdxrwTools < Formula
     on_linux do
       url "https://src.fedoraproject.org/rpms/dvd+rw-tools/raw/938529cda09efcc2f79478be1632648adc3537af/f/dvd+rw-tools-7.1-sysmacro-inc.patch"
       sha256 "28a69bb73c5d819cb445add766e1d68134dc0ec26fe83cc87164ec4853c9541d"
+      type :unofficial
     end
   end
 

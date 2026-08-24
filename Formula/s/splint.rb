@@ -56,7 +56,7 @@ class Splint < Formula
       system "./bootstrap"
     else
       args = ["--mandir=#{man}"]
-      args << "LEXLIB=#{Formula["flex"].opt_lib}/libfl.so" if OS.linux?
+      args << "LEXLIB=#{formula_opt_lib("flex")}/libfl.so" if OS.linux?
       # Help old config scripts identify arm64 linux
       args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm64?
     end

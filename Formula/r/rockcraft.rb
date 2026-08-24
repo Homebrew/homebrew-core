@@ -5,8 +5,8 @@ class Rockcraft < Formula
   homepage "https://documentation.ubuntu.com/rockcraft/"
   # git checkout needed for setuptools-scm
   url "https://github.com/canonical/rockcraft.git",
-      tag:      "1.19.0",
-      revision: "77be1bab830d1683791c004b3c0df856f294d805"
+      tag:      "1.20.0",
+      revision: "289c48bc6bbf5c9132897d22785e7d5a2b2666b1"
   license "GPL-3.0-only"
   head "https://github.com/canonical/rockcraft.git", branch: "main"
 
@@ -16,12 +16,12 @@ class Rockcraft < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0992e3004a0840a83927bbded20bec9573373353b4be69d87eef0533557dea3d"
-    sha256 cellar: :any,                 arm64_sequoia: "3010ad0efbc8d85f09d7bd3ae85a8c841c236f570769544f3f086ec5baec737b"
-    sha256 cellar: :any,                 arm64_sonoma:  "6b50a4448346e810a45267c53b36ab72c5a6ee712728f6e288c12529e2851dff"
-    sha256 cellar: :any,                 sonoma:        "395ae769488a0d57566479e82d8e27ee57b112c90d366819ee8495048f6aa0d6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2edf8bd5563ed1920ce78ab1e896ffc5d22832c95eb1c4b7b4f6085e91264ae1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6efcd86aacae528026bff4dd84c97850340e45eff6cc0cab0bffbb446a764117"
+    sha256 cellar: :any, arm64_tahoe:   "991c9c5cc874b19a85ad52fbabb7178e8f0c40bb273a28e4570fe9804053b142"
+    sha256 cellar: :any, arm64_sequoia: "142a219e3119d0caf77552d394aeb6d92f744c5458a94440b4594e57804357fb"
+    sha256 cellar: :any, arm64_sonoma:  "ca4b8cb72d5230660e400821e8cced379b9b6ef21c127cd703577f429e7f716c"
+    sha256 cellar: :any, sonoma:        "ccc4e42346f9535828993f3b5624f5c961bc940671e7d15b5ba56d5deb80da5d"
+    sha256 cellar: :any, arm64_linux:   "84be5265de4c763b6660504be74d8830cd6bad564c8ff462a6b996d529bbf173"
+    sha256 cellar: :any, x86_64_linux:  "dd0e5334a8c9d6bb51461db7c5007b9f71c122f1e59c4bb026ba367c21f88815"
   end
 
   depends_on "certifi" => :no_linkage
@@ -46,23 +46,23 @@ class Rockcraft < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
+    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
   end
 
   resource "craft-application" do
-    url "https://files.pythonhosted.org/packages/31/88/1a31a8085bf01ca5f00aeda88a5f5e4cff314fd4e56ee2a629f2c1d95ca3/craft_application-6.4.0.tar.gz"
-    sha256 "02b6afaaad0462f752c1c4715b6da4d7b7ee57bcd71b4ca38234cb18220a4354"
+    url "https://files.pythonhosted.org/packages/6b/c3/be96c01c1b92a7a7eb6cafa881ccd09a6b9e1db1355835fc98f001680cc3/craft_application-7.1.0.tar.gz"
+    sha256 "e0a3fb2080bf1dd6daf8b570262716f79a5f307a87d3ed2b986eaca50e07efed"
   end
 
   resource "craft-archives" do
-    url "https://files.pythonhosted.org/packages/41/4c/63ce5d6c91b4b269f862460392bd70fd0594f7902641b5d0bc82aa3f1c41/craft_archives-2.2.0.tar.gz"
-    sha256 "0bfd6dc3c2710605b97292df952032af24bf94ebf2f284f355d70f1bb2e3fe20"
+    url "https://files.pythonhosted.org/packages/11/3e/3ee557ac30aa1b9b6fa08de49fe2dd08727e329985073363f58098a45674/craft_archives-2.2.1.tar.gz"
+    sha256 "4f1858de9ed60e47284006cdcead233df92322b3b5eff15d7a67aebfe782874e"
   end
 
   resource "craft-cli" do
-    url "https://files.pythonhosted.org/packages/21/f8/6e4414523405f439f99ad1fa8b8839bf2a6030e569c1dee89e3e97a8ac15/craft_cli-3.4.0.tar.gz"
-    sha256 "72e7494c66cb78ba08a80b20685dbaa739c7ef18b2fafbde3105958ab55ae7aa"
+    url "https://files.pythonhosted.org/packages/b2/97/55e3a42aed3c8ee408dca292c7736080161d6bcfd6d21a8374b74be90f63/craft_cli-3.4.1.tar.gz"
+    sha256 "e4396695e89f15fbd06255a78b38a362006cd711266d926c2b6cd2a546af61a5"
   end
 
   resource "craft-grammar" do
@@ -71,18 +71,18 @@ class Rockcraft < Formula
   end
 
   resource "craft-parts" do
-    url "https://files.pythonhosted.org/packages/67/12/4fc505185393f016d26f3ab76094ee574dd84e9fb3213414c62c26eb1431/craft_parts-2.33.0.tar.gz"
-    sha256 "9c6adb4eb794faf27f439c3bfe2794692487fc66cf59eccc4e4800ee2479600e"
+    url "https://files.pythonhosted.org/packages/25/17/dad4f52f6619abca9a9ecd66a79d816f0cee99cebcd300abaf8bc736d5b0/craft_parts-2.33.1.tar.gz"
+    sha256 "50c4dc1ef4a062f1a500c2718ac79be37279dfd4872d14c795eb47ab5485b157"
   end
 
   resource "craft-platforms" do
-    url "https://files.pythonhosted.org/packages/93/b9/b7bef735949e73756910d85c1d4178e5c6523b70e5dbe5477ab0c2fd8d81/craft_platforms-0.11.1.tar.gz"
-    sha256 "5807e2b727c0cb9c7c85e5ecaf4181ed1b3f89e6232464736369dcb871ae9339"
+    url "https://files.pythonhosted.org/packages/a0/f2/507e3b1bd017f51bea6c70205744239b62eac20c552fa0ee1f1c30019752/craft_platforms-0.12.0.tar.gz"
+    sha256 "497b6421fc5f464ee1f31da60ae1211bd3101722770afae72e0b330e54883e9d"
   end
 
   resource "craft-providers" do
-    url "https://files.pythonhosted.org/packages/47/bc/db06baf74ff9538282eb265f99b0147f3b8b775da583a9c6aa88a9d59227/craft_providers-3.6.0.tar.gz"
-    sha256 "dfffebb4a9f09f763b293fe396f9f4f17d917e18167d98b61f76cffd55556250"
+    url "https://files.pythonhosted.org/packages/86/f5/81525f63af39d73be1fae45fc169eb036781d745a0220f95d9b7f6165549/craft_providers-3.7.1.tar.gz"
+    sha256 "473e6228720dda9f042eae8b9584a1f1c41d6fd987c0fd9db0d69609d3c5f283"
   end
 
   resource "distro" do
@@ -96,13 +96,13 @@ class Rockcraft < Formula
   end
 
   resource "httplib2" do
-    url "https://files.pythonhosted.org/packages/c1/1f/e86365613582c027dda5ddb64e1010e57a3d53e99ab8a72093fa13d565ec/httplib2-0.31.2.tar.gz"
-    sha256 "385e0869d7397484f4eab426197a4c020b606edd43372492337c0b4010ae5d24"
+    url "https://files.pythonhosted.org/packages/84/f5/ccf58de92d61e3ad921119668f54ed36ca1d0cf5dcc5c1657dfb164fd78b/httplib2-0.32.0.tar.gz"
+    sha256 "48a0ef30a42db65d8f3399045e1d09ab0ba66e3b9efc360d07f80ea55d286025"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/1a/88/bcf9709822fe69d02c2a6a77956c98ce6ea8ca8767a9aadcedc7eb6a2390/idna-3.16.tar.gz"
-    sha256 "d7a6da03db833450fca25d2358ac9ff06cd624577a4aea3a596d5c0f77b8e03d"
+    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
+    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
   end
 
   resource "jeepney" do
@@ -161,8 +161,8 @@ class Rockcraft < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/9f/4a/0883b8e3802965322523f0b200ecf33d31f10991d0401162f4b23c698b42/platformdirs-4.9.6.tar.gz"
-    sha256 "3bfa75b0ad0db84096ae777218481852c0ebc6c727b3168c1b9e0118e458cf0a"
+    url "https://files.pythonhosted.org/packages/78/9b/560e4be8e26f6fd133a03630a8df0c663b9e8d61b4ade152b72005aec83b/platformdirs-4.11.0.tar.gz"
+    sha256 "0555d18370482847566ffabcaa53ad7c6c1c29f195989ae1ed634a05f76ea1e0"
   end
 
   resource "pylxd" do
@@ -221,8 +221,8 @@ class Rockcraft < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+    url "https://files.pythonhosted.org/packages/34/26/f5d29e25ffdb535afef2d35cdb55b325298f96debd670da4c325e08d70f4/setuptools-83.0.0.tar.gz"
+    sha256 "025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef"
   end
 
   resource "six" do
@@ -261,8 +261,8 @@ class Rockcraft < Formula
   end
 
   resource "wadllib" do
-    url "https://files.pythonhosted.org/packages/da/54/82866d8c2bf602ed9df52c8f8b7a45e94f8c2441b3d1e9e46d34f0e3270f/wadllib-2.0.0.tar.gz"
-    sha256 "1edbaf23e4fa34fea70c9b380baa2a139b1086ae489ebcccc4b3b65fc9737427"
+    url "https://files.pythonhosted.org/packages/ab/f8/c7681d8d8dca6aa1f90e054bde451c25741fde702b21c347fe65fb813543/wadllib-2.1.0.tar.gz"
+    sha256 "69c60a188c9c629a0e947dfafd89acdc8b7d8d404a6b5eb0ad258fef29362501"
   end
 
   resource "ws4py" do

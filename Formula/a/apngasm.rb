@@ -4,17 +4,16 @@ class Apngasm < Formula
   url "https://github.com/apngasm/apngasm/archive/refs/tags/3.1.10.tar.gz"
   sha256 "8171e2c1d37ab231a2061320cb1e5d15cee37642e3ce78e8ab0b8dfc45b80f6c"
   license "Zlib"
-  revision 20
+  revision 21
   head "https://github.com/apngasm/apngasm.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256                               arm64_tahoe:   "f648a9450c38c86f0a2790b194a3f44534dbf8eb4cdca060ed4ba011aaf106dd"
-    sha256                               arm64_sequoia: "48cff36bc137fc8a4369555a5fe2741830c12cf7d7ab4cb6719e5235806d352d"
-    sha256                               arm64_sonoma:  "0e34041c1528674faf22b6dbf0270cae0ec788391b2ca39d5e68eeaac80a8130"
-    sha256                               sonoma:        "d0cab8f5fe072f029bde277f83e27f77ff135e261eb37f7af74d9cd3dc531b9c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7020b0940d9cf23dbd77afd912001b9d759d4b26722fecc4e1d482d54a8df890"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fd1796b7defa25851257aa4245f02d0b3e31f23c9bf88440c1a3ee910e1ef66"
+    sha256               arm64_tahoe:   "966855f1ea8c56efffe2742f7996faa2c1b0165cb67e8f5ada333858f0826cd0"
+    sha256               arm64_sequoia: "eb6d9b9fa2220ccd5124c488aff53476c7e407403ca2d9ab24cb0685ee6fa5ce"
+    sha256               arm64_sonoma:  "2e951e2aa77f5a23621a3f12b66a9394fdd1fde91f95085242258f3ede4f404e"
+    sha256               sonoma:        "94c80c1c85c7592e702d956dce574d59b0f7b77753ae6686d7df4656b1ba59cd"
+    sha256 cellar: :any, arm64_linux:   "c9bc56b58aaf0e09148c4461c6ee33d1d13fb764ac8faf79174793ae5c5d5cca"
+    sha256 cellar: :any, x86_64_linux:  "2b906b77e7a3188025b4a789768943305f6c17d30e79f16bd56d5a5804b78a12"
   end
 
   depends_on "cmake" => :build
@@ -36,12 +35,13 @@ class Apngasm < Formula
   patch do
     url "https://github.com/apngasm/apngasm/commit/7bf77bdefd348c629f650e2a5102a26ab6bee7b8.patch?full_index=1"
     sha256 "cbb9d679c5d46424bb00962481903f12b8b0e943dfdc98910ad05af7c7dacf5b"
+    type :unofficial
+    resolves "https://github.com/apngasm/apngasm/pull/111"
   end
 
   def install
     inreplace "cli/CMakeLists.txt", "${CMAKE_INSTALL_PREFIX}/man/man1",
                                     "${CMAKE_INSTALL_PREFIX}/share/man/man1"
-    ENV.cxx11
     ENV.deparallelize # Build error: ld: library not found for -lapngasm
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"

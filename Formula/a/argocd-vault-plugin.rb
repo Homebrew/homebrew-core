@@ -22,7 +22,6 @@ class ArgocdVaultPlugin < Formula
     ENV["CGO_ENABLED"] = "0"
 
     ldflags = %W[
-      -s -w
       -X github.com/argoproj-labs/argocd-vault-plugin/version.Version=#{version}
       -X github.com/argoproj-labs/argocd-vault-plugin/version.BuildDate=#{time.iso8601}
       -X github.com/argoproj-labs/argocd-vault-plugin/version.CommitSHA=#{Utils.git_head}

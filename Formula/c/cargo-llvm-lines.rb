@@ -1,18 +1,18 @@
 class CargoLlvmLines < Formula
   desc "Count lines of LLVM IR per generic function"
   homepage "https://github.com/dtolnay/cargo-llvm-lines"
-  url "https://github.com/dtolnay/cargo-llvm-lines/archive/refs/tags/0.4.46.tar.gz"
-  sha256 "048cc942bae27bc6ad9f7a9ad5931259661d6988041af94465ab13aa2d94d87d"
+  url "https://github.com/dtolnay/cargo-llvm-lines/archive/refs/tags/0.4.48.tar.gz"
+  sha256 "7eb44a0296047711a9c2c301296ba2c4968203c8fde65f8405de577dfd7c5107"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/dtolnay/cargo-llvm-lines.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "03910aad4dd26f3c2294a5d42f0bc1f5b719913cb263feb79451d1c9aea5ebd8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "23990ea9a7182ae3b0e2efe36f522446518e413930474e5c9d39bba2f91ac568"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "337f1f3dff03f81e9650468ce4b6da3b8652ccf9b82b847f015b08bcd1b7d992"
-    sha256 cellar: :any_skip_relocation, sonoma:        "52e8aacbb04fb81b719788a365d4565e8fdfa5fbb472b1663e3471b5565155ab"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea932e381510ad1f1035f299c5f75e325c743a72d628360cfc91a45e9b9a6bbb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b3a1f0e63565b4740e78904abf0e99024d415fd1c2162038ac3d8b1a282613d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "906520a5b5f770cbd8ea9263473f04c0492a7bd5a724dfe2fbe1e645d6063981"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2bc97862430d9ed5dac448be41a0660acc9f3ad28277fa05af1cf53932a0fb8c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1fc80fbd3a2d76dc9a38a4a469865bd5d3c9b4d75bc0af28d87d9868ca45eea1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f57774a8e70ddccfedb77b50d1f96f8a60e3e1bd0d355132ed2688d6a55134d0"
+    sha256 cellar: :any,                 arm64_linux:   "f0a3d784a4cd78a01c0953da13b1b93795466a600581a015046831d7888d5d11"
+    sha256 cellar: :any,                 x86_64_linux:  "0b7838f8ce4fd9df54ccc5d2ff574fd3609218c85408478d1b4e9cf9223de044"
   end
 
   depends_on "rust" => :build

@@ -55,8 +55,7 @@ class Exiftran < Formula
 
   # Fix build on Darwin
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/homebrew-core/1cf441a0/Patches/exiftran/fix-build.diff"
-    sha256 "017268a3195fb52df08ed75827fa40e8179aff0d9e54c926b0ace5f8e60702bf"
+    file "Patches/exiftran/fix-build.diff"
   end
 
   def install

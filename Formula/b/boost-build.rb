@@ -1,8 +1,8 @@
 class BoostBuild < Formula
   desc "C++ build system"
   homepage "https://www.boost.org/build/"
-  url "https://github.com/boostorg/build/archive/refs/tags/boost-1.90.0.tar.gz"
-  sha256 "e7b6a6daf91ecb1ac036d659280b8d7f1b3c50728cb4b205ae33baf6cd9b016a"
+  url "https://github.com/boostorg/build/archive/refs/tags/boost-1.92.0.tar.gz"
+  sha256 "bf2d9efb60cded0eca0c0be37e5c8a9fda7a3977a5c675b353aefced66ff3444"
   license "BSL-1.0"
   version_scheme 1
   head "https://github.com/boostorg/build.git", branch: "develop"
@@ -13,12 +13,12 @@ class BoostBuild < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d99b2722089128220de57924c1cc3b92aa9d2aaad47ad94e4653ea4a0e76db3e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3d3d8735ec4bc96fee878b78bea34d8f4c1f873d661d0128eaf15396eafc36ae"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6887afc5456043b371c0cb301ba7a9cf284483705e6057bc70b1870e606d539a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0d2954beea42cc8679ac98500ec9d9aee4e2b51797598ee7c68581cea310a82a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7c70e6871a6d978fa90d943e0502639ac738a5dd1ab2428ff84449aacd9cbe6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b899989a117bc0a5c9779703517038c4e5af07656ffdbf0b8a8c176943ad49f2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2aed344e5ed6b849e9d0bdecbe42feda27c6c90752ebdf8f14893932f15a2067"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e353ad980db044f229a0c6e41e4e06a83fb7fb6e0a42e29a34a3ca0237b4a8b7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b6aa8232f8cf7b0dca31aa11ec14a395d5a8562a3bc45b44f732b1bde8b0e83b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "973e1b848621fff7c5485172620fd275d8db0097ffee67f96d019f90c380fcd0"
+    sha256 cellar: :any,                 arm64_linux:   "9d0c6352265769f19c508fa9eea9cf8cbe02f62c752cd1bc020ee89e3259f152"
+    sha256 cellar: :any,                 x86_64_linux:  "c439aa502e36515675f58085efca7998249801195bd74819fdfdebe121631277"
   end
 
   conflicts_with "b2-tools", because: "both install `b2` binaries"

@@ -26,7 +26,7 @@ class Libgcrypt < Formula
     system "./configure", "--disable-asm",
                           "--disable-silent-rules",
                           "--enable-static",
-                          "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}",
+                          "--with-libgpg-error-prefix=#{formula_opt_prefix("libgpg-error")}",
                           *std_configure_args
 
     # The jitter entropy collector must be built without optimisations

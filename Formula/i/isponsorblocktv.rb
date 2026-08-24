@@ -3,17 +3,17 @@ class Isponsorblocktv < Formula
 
   desc "SponsorBlock client for all YouTube TV clients"
   homepage "https://github.com/dmunozv04/iSponsorBlockTV"
-  url "https://files.pythonhosted.org/packages/b5/3b/28358838c29b863de7fa9b3bd7a8000c4aa2863dd4bd6b9d99ac0ecf3c1d/isponsorblocktv-2.9.0.tar.gz"
-  sha256 "ad62c6e533e5c8ae33fca731334fb6a39613a28bab4d4fa5093c6764760c4296"
+  url "https://files.pythonhosted.org/packages/0d/2a/5355d641aaf481b00da635aa128ce5fc5f6937af96e49ad4996d9849880f/isponsorblocktv-2.11.0.tar.gz"
+  sha256 "48b7004b91682fc24f4c77e619a0102bd64518006e45f7766157e409c3bb4df9"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "892a6c836a26ae8b426838af77edc858ae3fd068dcfbfc586b51e109d820a475"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "13262f35df0c08c00a18d3ce814cb1d3678f48115b77c0dea0b5cf79d664ca41"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7d2341bd4ce674ed740a64b6abb48e95c505cdbe7a4505c3c1fa72413ecf6666"
-    sha256 cellar: :any_skip_relocation, sonoma:        "524a2b2dc98c024a4a5038831faa739ff356655d6504a8cb0374ad8350f09026"
-    sha256 cellar: :any,                 arm64_linux:   "50d6ee343e11d6965bebe8d23bcf19aa2b1eae232c19c7ecf9d9f40db69138d3"
-    sha256 cellar: :any,                 x86_64_linux:  "37e23c3caf43785087d9c5c55dc85986feb9d513215e95b9256ffc53c3e8b71b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "03cb0b456457eab3df82a7c85106c728137f27d303ce1c5364adc754dc42a2bd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7e0b14a6d695ee1e55452d378c71c68f9aef0b81f221f2bff1b324244c6267de"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f94a129d317c35aa17e7114cf5823130a5d2f4016de190bf9412a47356c34034"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4f5a5b047381889ecbcb507ff4b2c701a33bc10de92cad6a482502df75dcfc2b"
+    sha256 cellar: :any,                 arm64_linux:   "c6ae4265c937f179888498b233bab08925f2eb136a376e3c3e9cb83e55f3c521"
+    sha256 cellar: :any,                 x86_64_linux:  "b9856d6a2d05672295f6519a586ada624737267b57b79809c52d3ceac092b843"
   end
 
   depends_on "certifi"
@@ -22,13 +22,13 @@ class Isponsorblocktv < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "aiohappyeyeballs" do
-    url "https://files.pythonhosted.org/packages/33/c6/61a2d7b7572279226bb2e7f61d7a19ca7c90da0329c93fa0d560cbf288d8/aiohappyeyeballs-2.6.2.tar.gz"
-    sha256 "e202810ee718bd01fc6ef49e8ea53d023d5cb6b581076d7925aa499fa55dbe64"
+    url "https://files.pythonhosted.org/packages/ce/f4/eec0465c2f67b2664688d0240b3212d5196fd89e741df67ddb81f8d35658/aiohappyeyeballs-2.7.1.tar.gz"
+    sha256 "065665c041c42a5938ed220bdcd7230f22527fbec085e1853d2402c8a3615d9d"
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/77/9a/152096d4808df8e4268befa55fba462f440f14beab85e8ad9bf990516918/aiohttp-3.13.5.tar.gz"
-    sha256 "9d98cc980ecc96be6eb4c1994ce35d28d8b1f5e5208a23b421187d1209dbb7d1"
+    url "https://files.pythonhosted.org/packages/58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz"
+    sha256 "9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc"
   end
 
   resource "aiosignal" do
@@ -57,13 +57,13 @@ class Isponsorblocktv < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
-    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
+    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
+    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
-    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "frozenlist" do
@@ -72,8 +72,8 @@ class Isponsorblocktv < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
-    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
+    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
+    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
   end
 
   resource "ifaddr" do
@@ -107,8 +107,8 @@ class Isponsorblocktv < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/47/e4501f49c178ae1d9f4a75073fda4204f52647993f075a9db4d14930e0c5/platformdirs-4.10.0.tar.gz"
-    sha256 "31e761a6a0ca04faf7353ea759bdba55652be214725111e5aac52dfa29d4bef7"
+    url "https://files.pythonhosted.org/packages/b8/d7/e7bfbc86e9f99ff7807e24de7703f032e9c9ba80bb355cf26e0e9bc5a75e/platformdirs-4.11.3.tar.gz"
+    sha256 "66a73d38a849810252df809a3d8bcbda8e26f6c189920e7535ad608a48dbb5ab"
   end
 
   resource "propcache" do
@@ -117,23 +117,23 @@ class Isponsorblocktv < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/da/01/9ef0afd7999eb9badb3a768b4aedd78c86d4c65cfaf1958ab276199e76b4/protobuf-7.35.1.tar.gz"
-    sha256 "ce115a26fe0c39a2c29973d914d327e516a6455464489fe3cd1e51a1b354f81a"
+    url "https://files.pythonhosted.org/packages/a7/e7/0553e21d25ca4d9f573135775348a372c3ec34a93a71d5f297c3bac38341/protobuf-7.36.0.tar.gz"
+    sha256 "e8e09cb0d794c6687926fa558a8a6e72aa10edb997d5ca61da0765f12a3e00ea"
   end
 
   resource "pychromecast" do
-    url "https://files.pythonhosted.org/packages/c6/aa/0298ad9a60b888ccf15685c9654562000e55a1c7abaf72d9300c7b887824/pychromecast-14.0.7.tar.gz"
-    sha256 "7abbae80a2c9e05b93b1a7b8b4d771bbc764d88fd5e56a566f46ac1bd3f93848"
+    url "https://files.pythonhosted.org/packages/3a/1f/d78497441334d24740cce0a92394c33972a9d6a17b607d0ec976f0f48a35/pychromecast-14.0.10.tar.gz"
+    sha256 "f05a1c8d727d4f104c8c731688053033e05157f2ab81bc8eef50ec0c62f9373c"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "pyytlounge" do
-    url "https://files.pythonhosted.org/packages/a7/40/b7585ffb0d5cabc6414ba018b456a6c146a97f5341a471d4937783cdeeaf/pyytlounge-2.3.0.tar.gz"
-    sha256 "ebdeafee9b50a34bbf8a9208bd3e3a2c29699ea98184d9f762fcffb4ba8eb624"
+    url "https://files.pythonhosted.org/packages/c1/93/dd31760461aa81671fab1e82d5f9f06d4000cf31dcd4b9e745226bc1d627/pyytlounge-3.3.0.tar.gz"
+    sha256 "d19aa1520214b87f67f930df9b977bcfd79ec7cf5e1d30f0805c33add844190a"
   end
 
   resource "requests" do
@@ -147,8 +147,8 @@ class Isponsorblocktv < Formula
   end
 
   resource "rich-click" do
-    url "https://files.pythonhosted.org/packages/04/27/091e140ea834272188e63f8dd6faac1f5c687582b687197b3e0ec3c78ebf/rich_click-1.9.7.tar.gz"
-    sha256 "022997c1e30731995bdbc8ec2f82819340d42543237f033a003c7b1f843fc5dc"
+    url "https://files.pythonhosted.org/packages/f7/ea/21e4867ea0ef881ffd4c0550fc21a061435e50d6324bcd034396633cbc18/rich_click-1.9.8.tar.gz"
+    sha256 "4008f921da88b5d91646c134ec881c1500e5a6b3f093e90e8f29400e09608371"
   end
 
   resource "ssdp" do
@@ -157,8 +157,8 @@ class Isponsorblocktv < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/62/1e/1eedc5bac184d00aaa5f9a99095f7e266af3ec46fa926c1051be5d358da1/textual-8.2.5.tar.gz"
-    sha256 "6c894e65a879dadb4f6cf46ddcfedb0173ff7e0cb1fe605ff7b357a597bdbc90"
+    url "https://files.pythonhosted.org/packages/00/21/39a76b01bd5eea82a04baaca7580e105d8c59450df03998345bb2cfb307b/textual-8.2.8.tar.gz"
+    sha256 "3f106a9fbc73e39dd266c9712432087de78a6d644084c7c241d6a25c3169115b"
   end
 
   resource "textual-slider" do
@@ -167,8 +167,8 @@ class Isponsorblocktv < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
-    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
   end
 
   resource "uc-micro-py" do
@@ -187,13 +187,13 @@ class Isponsorblocktv < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/23/6e/beb1beec874a72f23815c1434518bfc4ed2175065173fb138c3705f658d4/yarl-1.23.0.tar.gz"
-    sha256 "53b1ea6ca88ebd4420379c330aea57e258408dd0df9af0992e5de2078dc9f5d5"
+    url "https://files.pythonhosted.org/packages/31/33/ebe9e3d1f86c7a0b51094c0a146392045ca1631d2664889539dec8088a33/yarl-1.24.5.tar.gz"
+    sha256 "e81b83143bee16329c23db3c1b2d82b29892fcbcb849186d2f6e98a5abe9a57f"
   end
 
   resource "zeroconf" do
-    url "https://files.pythonhosted.org/packages/67/46/10db987799629d01930176ae523f70879b63577060d63e05ebf9214aba4b/zeroconf-0.148.0.tar.gz"
-    sha256 "03fcca123df3652e23d945112d683d2f605f313637611b7d4adf31056f681702"
+    url "https://files.pythonhosted.org/packages/09/ea/34bb185645ecaa18d34e5883bffea71aa9bffbbb994634884e8b2f3ad0c4/zeroconf-0.150.0.tar.gz"
+    sha256 "a5fe7feab1de6ef5e541e0a3d07e534fd91629b813fc27281593584100f63164"
   end
 
   def install

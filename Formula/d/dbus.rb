@@ -70,9 +70,8 @@ class Dbus < Formula
     mkdir etc/"dbus-1/session.d"
   end
 
-  def post_install
-    # Generate D-Bus's UUID for this machine
-    system bin/"dbus-uuidgen", "--ensure=#{var}/lib/dbus/machine-id"
+  post_install_steps do
+    run "dbus-uuidgen", args: ["--ensure={{var}}/lib/dbus/machine-id"], base: :bin
   end
 
   def caveats
