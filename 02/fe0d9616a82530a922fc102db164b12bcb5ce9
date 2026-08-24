@@ -1,0 +1,19 @@
+Formula/w/wasm3.rb
+  s_19dcf1ef761bdc::t_72303828c46564 22-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "02fe0d9616a82530a922fc102db164b12bcb5ce9",
+  "prompts": {},
+  "sessions": {
+    "s_19dcf1ef761bdc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dfb8d7fb-11a4-4911-839d-ce947b2c8aab",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
