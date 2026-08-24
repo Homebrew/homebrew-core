@@ -1,8 +1,8 @@
 class VitePlus < Formula
   desc "Unified toolchain and entry point for web development"
   homepage "https://viteplus.dev"
-  url "https://github.com/voidzero-dev/vite-plus/archive/refs/tags/v0.2.8.tar.gz"
-  sha256 "c07ae8f828039fae32b791abcfc8f1d1b769024a2ae5c04bdc2946e8318615f4"
+  url "https://github.com/voidzero-dev/vite-plus/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "dcea26d6d23e53a4884e6db65e4d53d9a0f25a23b9b28a7e7c8a2e3f3d2f5e61"
   license "MIT"
   head "https://github.com/voidzero-dev/vite-plus.git", branch: "main"
 
@@ -23,8 +23,8 @@ class VitePlus < Formula
 
   resource "rolldown" do
     url "https://github.com/rolldown/rolldown.git",
-        revision: "872b98ac7476eb7d5892a2913e4ba010d124c6ac"
-    version "872b98ac7476eb7d5892a2913e4ba010d124c6ac"
+        revision: "84c904bc2e3fd126c8c32905a2597a6716a69249"
+    version "84c904bc2e3fd126c8c32905a2597a6716a69249"
 
     livecheck do
       url "https://raw.githubusercontent.com/voidzero-dev/vite-plus/refs/tags/v#{LATEST_VERSION}/packages/tools/.upstream-versions.json"
@@ -36,8 +36,8 @@ class VitePlus < Formula
 
   resource "vite" do
     url "https://github.com/vitejs/vite.git",
-        revision: "fa79f9ab699f9a22a6f9b50f3d247be6b51f684d"
-    version "fa79f9ab699f9a22a6f9b50f3d247be6b51f684d"
+        revision: "de1111ab0be00879b404e7ed3b2a80e264edddc1"
+    version "de1111ab0be00879b404e7ed3b2a80e264edddc1"
 
     livecheck do
       url "https://raw.githubusercontent.com/voidzero-dev/vite-plus/refs/tags/v#{LATEST_VERSION}/packages/tools/.upstream-versions.json"
@@ -51,10 +51,14 @@ class VitePlus < Formula
     resource("rolldown").stage buildpath/"rolldown"
     resource("vite").stage buildpath/"vite"
 
-    ENV["NPM_CONFIG_MANAGE_PACKAGE_MANAGER_VERSIONS"] = "false"
+    # Build with Homebrew pnpm. The staged resources pin their own versions too
+    %w[package.json rolldown/package.json vite/package.json].each do |file|
+      package_json = buildpath/file
+      package_json.atomic_write(JSON.pretty_generate(JSON.parse(package_json.read).except("packageManager")))
+    end
 
     system "just", "build"
-    system "cargo", "install", *std_cargo_args(path: "crates/vite_global_cli")
+    system "cargo", "install", *std_cargo_args(path: "crates/vp_global_cli")
 
     system "pnpm", "--filter=vite-plus", "deploy", "--prod", "--legacy", "--no-optional",
            prefix/"node_modules/vite-plus"
