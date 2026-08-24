@@ -1,0 +1,20 @@
+Formula/d/davix.rb
+  s_19dcf1ef761bdc::t_d634427c649106 27
+  s_19dcf1ef761bdc::t_34eff327a4cd90 4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "22a4d33951b5a0478d2ac6e9f8b14e44c2e4794c",
+  "prompts": {},
+  "sessions": {
+    "s_19dcf1ef761bdc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dfb8d7fb-11a4-4911-839d-ce947b2c8aab",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
