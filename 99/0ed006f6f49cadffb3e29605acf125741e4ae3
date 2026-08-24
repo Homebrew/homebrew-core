@@ -1,0 +1,19 @@
+Formula/h/hypre.rb
+  s_19dcf1ef761bdc::t_81160bb28de784 31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "990ed006f6f49cadffb3e29605acf125741e4ae3",
+  "prompts": {},
+  "sessions": {
+    "s_19dcf1ef761bdc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dfb8d7fb-11a4-4911-839d-ce947b2c8aab",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
