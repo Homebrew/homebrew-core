@@ -4,6 +4,7 @@ class Mupdf < Formula
   url "https://mupdf.com/downloads/archive/mupdf-1.28.2-source.tar.gz"
   sha256 "44075a84e329db55b9bef5f342a70fd26d69e48ad1d33cb89d9664581c641156"
   license "AGPL-3.0-or-later"
+  revision 1
   compatibility_version 5
   head "git://git.ghostscript.com/mupdf.git", branch: "master"
 
