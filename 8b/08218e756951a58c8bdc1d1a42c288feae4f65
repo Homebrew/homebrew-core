@@ -1,0 +1,14 @@
+Formula/o/openssl@3.rb
+  h_9df9c32c3f321d 17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "8b08218e756951a58c8bdc1d1a42c288feae4f65",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
