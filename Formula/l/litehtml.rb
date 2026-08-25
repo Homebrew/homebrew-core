@@ -4,6 +4,7 @@ class Litehtml < Formula
   url "https://github.com/litehtml/litehtml/archive/refs/tags/v0.10.tar.gz"
   sha256 "7700eced92847d34ad9846b138cf195a9c974b519be70de58797880ae9da649e"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
 
   bottle do
