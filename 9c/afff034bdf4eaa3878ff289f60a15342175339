@@ -1,0 +1,29 @@
+Formula/p/proton-pass-cli.rb
+  s_36475ad91b4a5a::t_5d58bfc54e6cbd 22-23,47-57
+  s_36475ad91b4a5a::t_f5173e50fe1b0d 21
+  s_26f3cf584a563d::t_5a0e4b0d81ae01 24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "9cafff034bdf4eaa3878ff289f60a15342175339",
+  "prompts": {},
+  "sessions": {
+    "s_26f3cf584a563d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "55bc85bf-ce95-42d8-aee3-a46ca382fd33",
+        "model": "unknown"
+      },
+      "human_author": "Rui Chen <rui@chenrui.dev>"
+    },
+    "s_36475ad91b4a5a": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03b0c-b2f3-77c0-8973-83e4afa84731",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": null
+    }
+  }
+}
