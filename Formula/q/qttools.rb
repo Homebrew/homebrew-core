@@ -11,6 +11,7 @@ class Qttools < Formula
     "BSD-3-Clause", # *.cmake
     "BSL-1.0", # bundled catch2
   ]
+  revision 1
   head "https://code.qt.io/qt/qttools.git", branch: "dev"
 
   livecheck do
