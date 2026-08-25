@@ -4,6 +4,7 @@ class Newsraft < Formula
   url "https://codeberg.org/newsraft/newsraft/archive/newsraft-0.37.tar.gz"
   sha256 "725fdbf4c14d87eb7e926aebd9b116f540dca812bea02e73078070156d986ad4"
   license "ISC"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "3c085a1531896f6539db6f83e6bd691187933d105f2706866b4873eecc693e90"
