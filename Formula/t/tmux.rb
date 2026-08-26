@@ -42,6 +42,8 @@ class Tmux < Formula
     depends_on "jemalloc"
   end
 
+  deny_network_access!
+
   def install
     system "sh", "autogen.sh" if build.head?
 
