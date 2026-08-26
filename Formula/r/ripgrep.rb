@@ -27,11 +27,14 @@ class Ripgrep < Formula
   depends_on "rust" => :build
   depends_on "pcre2"
 
-  # downloads crates during install
-  allow_network_access! :build
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", "--locked", "--target", "host-tuple"
+  end
 
   def install
-    system "cargo", "install", *std_cargo_args(features: "pcre2")
+    system "cargo", "install", "--offline", *std_cargo_args(features: "pcre2")
 
     generate_completions_from_executable(bin/"rg", "--generate", shell_parameter_format: "complete-")
     (man1/"rg.1").write Utils.safe_popen_read(bin/"rg", "--generate", "man")
