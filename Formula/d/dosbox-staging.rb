@@ -1,8 +1,8 @@
 class DosboxStaging < Formula
   desc "Modernized DOSBox soft-fork"
   homepage "https://dosbox-staging.github.io/"
-  url "https://github.com/dosbox-staging/dosbox-staging/archive/refs/tags/v0.82.2.tar.gz"
-  sha256 "387c97b373c3164ab5abbbc2b210bf94b5567057abe44ee1e8b4d4e725bd422c"
+  url "https://github.com/dosbox-staging/dosbox-staging/archive/refs/tags/v0.83.0.tar.gz"
+  sha256 "9b36be5a666784adaeffa560bd0950691f851a76bdb97e7ae3c989561e91caf3"
   license "GPL-2.0-or-later"
   head "https://github.com/dosbox-staging/dosbox-staging.git", branch: "main"
 
@@ -47,7 +47,11 @@ class DosboxStaging < Formula
 
   def install
     rm_r(buildpath/"subprojects") # Ensure we don't use vendored dependencies
-    args = %w[-Ddefault_library=shared -Db_lto=true -Dtracy=false]
+
+    # `get-version.sh` locates the tree with `git`, which is unavailable in tarball builds
+    inreplace "scripts/ci/get-version.sh", "$(git rev-parse --show-toplevel)", buildpath.to_s
+
+    args = %w[-Ddefault_library=shared -Db_lto=true]
 
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
