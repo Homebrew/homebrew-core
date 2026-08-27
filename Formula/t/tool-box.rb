@@ -18,3 +18,4 @@ class ToolBox < Formula
     assert_match(%r{http://\d+\.\d+\.\d+\.\d+:\d+}, output)
   end
 end
+
