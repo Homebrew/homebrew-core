@@ -2,8 +2,8 @@ class Ollama < Formula
   desc "Create, run, and share large language models (LLMs)"
   homepage "https://ollama.com/"
   url "https://github.com/ollama/ollama.git",
-      tag:      "v0.33.0",
-      revision: "ebf200f9521da9739a576a8bbf8cbf94e0cec6e3"
+      tag:      "v0.33.1",
+      revision: "13f2fb8c99278469b954429d5541019f4d83a4d0"
   license "MIT"
   head "https://github.com/ollama/ollama.git", branch: "main"
 
@@ -43,8 +43,8 @@ class Ollama < Formula
   # Pinned dependency required by llama-server
   resource "llama.cpp" do
     url "https://github.com/ggml-org/llama.cpp.git",
-        tag:      "b10488",
-        revision: "9d77fa17254e1dee4b9e92504c91611a60b1359f"
+        tag:      "b10630",
+        revision: "d222767c7a6516559a3f49e7721b6c6b1acc87b4"
 
     livecheck do
       url "https://raw.githubusercontent.com/ollama/ollama/refs/tags/v#{LATEST_VERSION}/LLAMA_CPP_VERSION"
@@ -77,7 +77,7 @@ class Ollama < Formula
     ]
 
     system "cmake", "-S", "llama/server", "-B", "llama-server", *args, *std_cmake_args(install_prefix: libexec)
-    system "cmake", "--build", "llama-server"
+    system "cmake", "--build", "llama-server", "--target", "llama-server", "llama-quantize"
     system "cmake", "--install", "llama-server", "--component", "llama-server"
 
     # Remove ui app directory
