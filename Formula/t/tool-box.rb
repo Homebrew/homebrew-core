@@ -4,28 +4,17 @@ class ToolBox < Formula
   desc "Offline web-based toolkit with 27 utilities"
   homepage "https://github.com/abczzy2011-lab/toolbox"
   url "https://github.com/abczzy2011-lab/toolbox/releases/download/v1.0.4/toolbox.zip"
-  version "1.0.4"
   sha256 "d697c2f5a6fcc04f68cc75aeef3692cf7c20bf357da7df0f07d1d69317e178f4"
   license "MIT"
 
   def install
-    prefix.install Dir["*"]
-    libexec.install prefix/"tool-box"
+    prefix.install buildpath.children
+    libexec.install "tool-box"
     bin.write_exec_script libexec/"tool-box"
-  end
-
-  def caveats
-    <<~CAVEATS
-      ToolBox installed!
-      Start:  tool-box serve
-      Visit:  http://localhost:8899
-      Mobile: tool-box ip
-      Stop:   tool-box stop
-    CAVEATS
   end
 
   test do
     output = shell_output("#{bin}/tool-box ip")
-    assert_match(%r{http://[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:\d+}, output)
+    assert_match(%r{http://\d+\.\d+\.\d+\.\d+:\d+}, output)
   end
 end
