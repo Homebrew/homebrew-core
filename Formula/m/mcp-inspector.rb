@@ -1,8 +1,8 @@
 class McpInspector < Formula
   desc "Visual testing tool for MCP servers"
   homepage "https://modelcontextprotocol.io/docs/tools/inspector"
-  url "https://registry.npmjs.org/@modelcontextprotocol/inspector/-/inspector-2.3.0.tgz"
-  sha256 "e1f8609e6773d7e06e9293d900eaefac5e9f331e6c8709f6a86e1f727be9255c"
+  url "https://registry.npmjs.org/@modelcontextprotocol/inspector/-/inspector-2.4.0.tgz"
+  sha256 "8feb19f9bb47e76499738031285d3bbd6d64404c368320e7e26953facb7f1490"
   license "MIT"
 
   bottle do
@@ -70,15 +70,18 @@ class McpInspector < Formula
   end
 
   test do
-    port = free_port
-    ENV["CLIENT_PORT"] = port.to_s
+    ENV["CLIENT_PORT"] = free_port.to_s
 
     read, write = IO.pipe
-    fork do
-      exec bin/"mcp-inspector", out: write
+    pid = fork do
+      read.close
+      exec bin/"mcp-inspector", out: write, err: write
     end
-    sleep 3
+    write.close
 
     assert_match "Starting MCP inspector...", read.gets
+  ensure
+    Process.kill "TERM", pid
+    Process.wait pid
   end
 end
