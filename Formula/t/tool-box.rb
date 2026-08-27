@@ -8,8 +8,6 @@ class ToolBox < Formula
   sha256 "d697c2f5a6fcc04f68cc75aeef3692cf7c20bf357da7df0f07d1d69317e178f4"
   license "MIT"
 
-  depends_on "python@3"
-
   def install
     prefix.install Dir["*"]
     libexec.mkdir
@@ -17,20 +15,13 @@ class ToolBox < Formula
     bin.write_exec_script libexec/"tool-box"
   end
 
-  service do
-    run [HOMEBREW_PREFIX/"opt/tool-box/bin/tool-box", "serve", "--no-browser"]
-    keep_alive true
-    working_dir HOMEBREW_PREFIX/"opt/tool-box"
-    run_type "Interactive"
-  end
-
   def caveats
     <<~CAVEATS
       ToolBox installed!
-      Start:  brew services start tool-box
+      Start:  tool-box serve
       Visit:  http://localhost:8899
       Mobile: tool-box ip
-      Stop:   brew services stop tool-box
+      Stop:   tool-box stop
     CAVEATS
   end
 
