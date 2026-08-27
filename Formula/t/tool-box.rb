@@ -10,7 +10,6 @@ class ToolBox < Formula
 
   def install
     prefix.install Dir["*"]
-    libexec.mkdir
     libexec.install prefix/"tool-box"
     bin.write_exec_script libexec/"tool-box"
   end
