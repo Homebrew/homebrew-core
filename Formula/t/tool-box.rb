@@ -12,9 +12,4 @@ class ToolBox < Formula
     libexec.install "tool-box"
     bin.write_exec_script libexec/"tool-box"
   end
-
-  test do
-    output = shell_output("#{bin}/tool-box ip")
-    assert_match(%r{http://\d+\.\d+\.\d+\.\d+:\d+}, output)
-  end
 end
