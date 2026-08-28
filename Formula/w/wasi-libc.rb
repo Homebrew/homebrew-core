@@ -9,8 +9,8 @@ class WasiLibc < Formula
   head "https://github.com/WebAssembly/wasi-libc.git", branch: "main"
 
   stable do
-    url "https://github.com/WebAssembly/wasi-libc/archive/refs/tags/wasi-sdk-33.tar.gz"
-    sha256 "d6ad9eb089fc00b4fe980556125c133406668d23562e32fa273b5c4955eeefc3"
+    url "https://github.com/WebAssembly/wasi-libc/archive/refs/tags/wasi-sdk-34.tar.gz"
+    sha256 "21bc47f96cf0eb535e532697dce4cdfdbc91f59223bdc00d8495d191888c5fe8"
 
     resource "WASI" do
       # Check the commit hash of `tools/wasi-headers/WASI` from the commit of the tag above.
@@ -36,6 +36,13 @@ class WasiLibc < Formula
 
   fails_with :gcc do
     cause "requires Clang, see https://github.com/WebAssembly/wasi-libc/blob/main/README.md#building-from-source"
+  end
+
+  # Fix legacy WASI thread target sources, upstream PR ref, https://github.com/WebAssembly/wasi-libc/pull/879
+  patch do
+    url "https://github.com/WebAssembly/wasi-libc/commit/c17daf848d3782af7538deb7fac0af0a75a4c376.patch?full_index=1"
+    sha256 "a8a6fb0f964bb995c53b0b10a3af1bb2406e3795c1b3e6b2194c69b6aa2089c6"
+    type :unofficial
   end
 
   def install
