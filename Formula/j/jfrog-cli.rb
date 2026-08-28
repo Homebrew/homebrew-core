@@ -1,18 +1,9 @@
 class JfrogCli < Formula
   desc "Command-line interface for JFrog products"
   homepage "https://docs.jfrog.com/integrations/docs/jfrog-cli"
-  url "https://github.com/jfrog/jfrog-cli/archive/refs/tags/v2.122.0.tar.gz"
-  sha256 "a44607e65f344023e18ab3197a4c116c601b5f252a0876dcba8da09b3fb93795"
   license "Apache-2.0"
-  head "https://github.com/jfrog/jfrog-cli.git", branch: "master"
 
-  # There can be a notable gap between when a version is tagged and a
-  # corresponding release is created, so we check the "latest" release instead
-  # of the Git tags.
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
+  no_autobump! because: :bumped_by_upstream
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bf14ba68f27a255cedb32349a107c0391674f46f75d0216abe3fe38e9be5ab9b"
@@ -23,10 +14,31 @@ class JfrogCli < Formula
     sha256 cellar: :any,                 x86_64_linux:  "36eb9273ff95464f6b7c257f11a3a88150046096519275479a8d5cd0faa61a4f"
   end
 
-  depends_on "go" => :build
+  on_macos do
+    on_arm do
+      url "https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/2.122.0/jfrog-cli-mac-arm64/jf"
+      sha256 "3a07043368803e96e909d24b101196a16eb1bfaede809f22e61093074894a565"
+    end
+    on_intel do
+      url "https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/2.122.0/jfrog-cli-mac-386/jf"
+      sha256 "6f48a4c17109ab549543c03703690c49e26f1fa577c265977b3e050e2707e89c"
+    end
+  end
+
+  on_linux do
+    on_arm do
+      url "https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/2.122.0/jfrog-cli-linux-arm64/jf"
+      sha256 "e394813283fd43d1da1a3da8d0824518807123cb47f38701e347e55279145dd1"
+    end
+    on_intel do
+      url "https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/2.122.0/jfrog-cli-linux-amd64/jf"
+      sha256 "2563d19de8a42ac97c80fe9cac6928364c4a5441074bd09bb38b3891532d5738"
+    end
+  end
 
   def install
-    system "go", "build", *std_go_args(output: bin/"jf")
+    chmod 0755, "jf"
+    bin.install "jf"
     bin.install_symlink "jf" => "jfrog"
 
     generate_completions_from_executable(bin/"jf", "completion")
