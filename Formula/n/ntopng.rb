@@ -4,7 +4,7 @@ class Ntopng < Formula
   url "https://github.com/ntop/ntopng/archive/refs/tags/6.6.tar.gz"
   sha256 "2e97fbd26c2f9ac526214e2a2e22ecb218e38f5e99a688c25ae6cedbbc3a892c"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/ntop/ntopng.git", branch: "dev"
 
   bottle do
