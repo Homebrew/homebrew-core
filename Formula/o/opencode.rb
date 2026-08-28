@@ -1,8 +1,8 @@
 class Opencode < Formula
   desc "AI coding agent, built for the terminal"
   homepage "https://opencode.ai"
-  url "https://registry.npmjs.org/opencode-ai/-/opencode-ai-1.18.20.tgz"
-  sha256 "d7af626824cab417d9c5c12e5c0187e506f1c903ea93bd8e4b1615be16305d2a"
+  url "https://github.com/anomalyco/opencode/archive/refs/tags/v1.18.25.tar.gz"
+  sha256 "44e9530d7be172005c7d60aef317440eecb85d557d94cce7fa35c5a7b9d9da0b"
   license "MIT"
 
   livecheck do
@@ -18,20 +18,19 @@ class Opencode < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "df13fb71d73abeba66fb514e9f806bda22bbd831c8e66920f16a24d2271c1763"
   end
 
-  depends_on "node"
+  depends_on "bun" => :build
+  depends_on "python@3.14" => :build
   depends_on "ripgrep"
 
   def install
-    system "npm", "install", *std_npm_args(ignore_scripts: false)
-    bin.install_symlink libexec.glob("bin/*")
+    ENV["OPENCODE_VERSION"] = version.to_s
+    ENV["OPENCODE_CHANNEL"] = "prod"
 
-    # Remove binaries for other architectures, `-musl`, `-baseline`, and `-baseline-musl`
-    arch = Hardware::CPU.arm? ? "arm64" : "x64"
-    os = OS.linux? ? "linux" : "darwin"
-    (libexec/"lib/node_modules/opencode-ai/node_modules").children.each do |d|
-      next unless d.directory?
+    system "bun", "install", "--frozen-lockfile"
 
-      rm_r d if d.basename.to_s != "opencode-#{os}-#{arch}"
+    cd "packages/opencode" do
+      system "bun", "--bun", "./script/build.ts", "--single", "--skip-install"
+      bin.install Pathname.pwd.glob("dist/opencode-*/bin/opencode").first
     end
 
     generate_completions_from_executable(bin/"opencode", "completion", shell_parameter_format: :none, shells: [:zsh])
