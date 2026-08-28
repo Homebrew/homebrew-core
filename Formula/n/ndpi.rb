@@ -1,9 +1,10 @@
 class Ndpi < Formula
   desc "Deep Packet Inspection (DPI) library"
   homepage "https://www.ntop.org/products/deep-packet-inspection/ndpi/"
-  url "https://github.com/ntop/nDPI/archive/refs/tags/5.0.tar.gz"
-  sha256 "8b0d3dc0c8a6a68578e09a18c922021ef6458d4aca1c7a20ce04efc267aa9ea5"
+  url "https://github.com/ntop/nDPI/archive/refs/tags/6.0.tar.gz"
+  sha256 "21fc40cab5505942c0b21d9bbaf73e9adf8162ddfe782e4cd072cab855a2eda9"
   license "LGPL-3.0-or-later"
+  compatibility_version 1
   head "https://github.com/ntop/nDPI.git", branch: "dev"
 
   bottle do
