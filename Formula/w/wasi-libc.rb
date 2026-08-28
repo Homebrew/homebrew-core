@@ -9,8 +9,8 @@ class WasiLibc < Formula
   head "https://github.com/WebAssembly/wasi-libc.git", branch: "main"
 
   stable do
-    url "https://github.com/WebAssembly/wasi-libc/archive/refs/tags/wasi-sdk-33.tar.gz"
-    sha256 "d6ad9eb089fc00b4fe980556125c133406668d23562e32fa273b5c4955eeefc3"
+    url "https://github.com/WebAssembly/wasi-libc/archive/refs/tags/wasi-sdk-34.tar.gz"
+    sha256 "21bc47f96cf0eb535e532697dce4cdfdbc91f59223bdc00d8495d191888c5fe8"
 
     resource "WASI" do
       # Check the commit hash of `tools/wasi-headers/WASI` from the commit of the tag above.
