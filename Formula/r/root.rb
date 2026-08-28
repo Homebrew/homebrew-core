@@ -8,14 +8,6 @@ class Root < Formula
     url "https://root.cern/download/root_v6.40.04.source.tar.gz"
     sha256 "44ada253b1935d34b6801222232d50731fe7c5e3cbcfab47734c85031cfbe4d3"
 
-    # Fix variable quoting for CMake>v4.4
-    # Will be unnecessary as of root v6.40.04
-    patch do
-      url "https://github.com/root-project/root/commit/1cc376e3bf06ea54880fc4c14f0d3de6af82fdd3.patch?full_index=1"
-      sha256 "a3651e7de6c6de2f75e7f2f26c8120763fca74b194c7e5ec43255f7242b507c2"
-      type :backport
-    end
-
     # Backport fix for PyROOT to use macOS libffi
     patch do
       url "https://github.com/root-project/root/commit/b2212ae8abdeb01eaed633b7ed243a72763f939d.patch?full_index=1"
