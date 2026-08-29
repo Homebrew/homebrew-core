@@ -5,7 +5,7 @@ class Blast < Formula
   version "2.17.0"
   sha256 "502057a88e9990e34e62758be21ea474cc0ad68d6a63a2e37b2372af1e5ea147"
   license :public_domain
-  revision 1
+  revision 2
 
   livecheck do
     url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/VERSION"
@@ -39,6 +39,15 @@ class Blast < Formula
   end
 
   conflicts_with "proj", because: "both install a `libproj.a` library"
+
+  # Apply Debian patch to remove version check on the compile-time TLS library
+  # patch version. This avoids unnecessary rebuilds across ABI-compatible updates.
+  # The alternative is to use the bundled copy which isn't ideal for a TLS library.
+  patch do
+    url "https://salsa.debian.org/med-team/ncbi-blastplus/-/raw/81bb56c0d709fd571c9b99958b6651fed5a13dcd/debian/patches/suppress_tls_version_checks"
+    sha256 "35f3e916762129a2b48d78e1c5f15e6108fe7e5525e3e0c605c5ca7882000f6e"
+    type :unofficial
+  end
 
   def install
     cd "c++" do
