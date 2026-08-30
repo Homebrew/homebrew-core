@@ -55,13 +55,9 @@ class Llvm < Formula
     depends_on "zlib-ng-compat"
   end
 
-  def python3
-    "python3.14"
-  end
+  def python3 = "python3.14"
 
-  def clang_config_file_dir
-    etc/"clang"
-  end
+  def clang_config_file_dir = etc/"clang"
 
   def install
     # The clang bindings need a little help finding keg-only libclang.
@@ -201,65 +197,46 @@ class Llvm < Formula
     end
 
     # Skip the PGO build on HEAD installs, non-bottle source builds, or versioned formulae.
-    # Also skip Intel macOS which is slow and will be reduced to Tier 3 in Sept 2026.
-    # TODO: Fix Linux PGO build which is currently dead code
-    pgo_build = build.stable? && build.bottle? && OS.mac? && Hardware::CPU.arm? && !versioned_formula?
+    pgo_build = build.stable? && build.bottle? && !versioned_formula?
     lto_build = pgo_build && OS.mac?
-
-    if ENV.cflags.present?
-      args << "-DCMAKE_C_FLAGS=#{ENV.cflags}" unless pgo_build
-      runtimes_cmake_args << "-DCMAKE_C_FLAGS=#{ENV.cflags}"
-      builtins_cmake_args << "-DCMAKE_C_FLAGS=#{ENV.cflags}"
-    end
-
-    if ENV.cxxflags.present?
-      args << "-DCMAKE_CXX_FLAGS=#{ENV.cxxflags}" unless pgo_build
-      runtimes_cmake_args << "-DCMAKE_CXX_FLAGS=#{ENV.cxxflags}"
-      builtins_cmake_args << "-DCMAKE_CXX_FLAGS=#{ENV.cxxflags}"
-    end
-
-    args << "-DRUNTIMES_CMAKE_ARGS=#{runtimes_cmake_args.join(";")}" if runtimes_cmake_args.present?
-    args << "-DBUILTINS_CMAKE_ARGS=#{builtins_cmake_args.join(";")}" if builtins_cmake_args.present?
 
     llvmpath = buildpath/"llvm"
     if pgo_build
       # We build LLVM a few times first for optimisations. See
       # https://github.com/Homebrew/homebrew-core/issues/77975
-
       # PGO build adapted from:
       # https://llvm.org/docs/HowToBuildWithPGO.html#building-clang-with-pgo
       # https://github.com/llvm/llvm-project/blob/33ba8bd2/llvm/utils/collect_and_build_with_pgo.py
       # https://github.com/facebookincubator/BOLT/blob/01f471e7/docs/OptimizingClang.md
+      stage1 = buildpath/"stage1"
+      stage2 = buildpath/"stage2"
+      stage2_profdata = buildpath/"stage2-profdata"
 
       # We build the basic parts of a toolchain to profile.
       # The extra targets on macOS are part of a default Compiler-RT build.
-      extra_args = [
-        "-DLLVM_TARGETS_TO_BUILD=Native#{";AArch64;ARM;X86" if OS.mac?}",
-        "-DLLVM_ENABLE_PROJECTS=clang;lld",
-        "-DLLVM_ENABLE_RUNTIMES=compiler-rt",
+      extra_args = %W[
+        -DLLVM_TARGETS_TO_BUILD=Native#{";AArch64;ARM;X86" if OS.mac?}
+        -DLLVM_ENABLE_PROJECTS=clang;lld
+        -DLLVM_ENABLE_RUNTIMES=compiler-rt
       ]
-
-      # Our stage1 compiler includes the minimum necessary to bootstrap.
-      # `llvm-profdata` is needed for profile data pre-processing, and
-      # `compiler-rt` to consume profile data.
-      stage1_targets = ["clang", "llvm-profdata", "compiler-rt"]
-      stage1_targets += if OS.mac?
+      if OS.mac?
         extra_args << "-DLLVM_ENABLE_LIBCXX=ON"
         extra_args += clt_sdk_support_flags
-
-        args << "-DLLVM_ENABLE_LTO=Thin" if lto_build
-        # LTO creates object files not recognised by Apple libtool.
-        args << "-DCMAKE_LIBTOOL=#{llvmpath}/stage1/bin/llvm-libtool-darwin"
-
-        # These are needed to enable LTO.
-        ["llvm-libtool-darwin", "LTO"]
       else
-        # Make sure CMake doesn't try to pass C++-only flags to C compiler.
-        extra_args << "-DCMAKE_C_COMPILER=#{ENV.cc}"
-        extra_args << "-DCMAKE_CXX_COMPILER=#{ENV.cxx}"
+        # Stage 2 and 3 happen outside the superenv so set up flags to match our cc shim
+        ENV.append_to_cflags "-mbranch-protection=standard" if Hardware::CPU.arm64?
+        ENV["HOMEBREW_INCLUDE_PATHS"].to_s.split(":").each { ENV.append_to_cflags "-I#{it}" }
+        ENV["HOMEBREW_ISYSTEM_PATHS"].to_s.split(":").each { ENV.append_to_cflags "-isystem#{it}" }
 
-        # We use this as the linker on Linux to control RPATH.
-        ["lld"]
+        rpaths = ENV["HOMEBREW_RPATH_PATHS"].to_s.split(":")
+        ldflags = ENV["HOMEBREW_LIBRARY_PATHS"].to_s.split(":").map { "-L#{it}" }
+        ldflags << "-Wl,--dynamic-linker=#{ENV["HOMEBREW_DYNAMIC_LINKER"]}" if ENV["HOMEBREW_DYNAMIC_LINKER"].present?
+        ldflags << "-B#{formula_opt_lib("glibc")}" if formula_opt_lib("glibc").directory?
+        cmake_ldflags_args = %w[EXE MODULE SHARED].map { "-DCMAKE_#{it}_LINKER_FLAGS=#{ldflags.join(" ")}" }
+
+        [args, extra_args, runtimes_cmake_args].each { it.concat(cmake_ldflags_args) }
+        [args, extra_args].each { it << "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}" }
+        runtimes_cmake_args << "-DCMAKE_INSTALL_RPATH=#{rpaths.join("|")}"
       end
 
       cflags = ENV.cflags&.split || []
@@ -267,126 +244,114 @@ class Llvm < Formula
       extra_args << "-DCMAKE_C_FLAGS=#{cflags.join(" ")}" unless cflags.empty?
       extra_args << "-DCMAKE_CXX_FLAGS=#{cxxflags.join(" ")}" unless cxxflags.empty?
 
+      # Our stage1 compiler includes the minimum necessary to bootstrap.
+      # `llvm-profdata` is needed for profile data pre-processing, and
+      # `compiler-rt` to consume profile data.
+      stage1_targets = ["clang", "llvm-profdata", "compiler-rt"]
+      stage1_targets << "lld" if OS.linux? # We use lld on Linux to control RPATH
+      if lto_build
+        args << "-DLLVM_ENABLE_LTO=Thin"
+        if OS.mac?
+          # LTO creates object files not recognised by Apple libtool.
+          args << "-DCMAKE_LIBTOOL=#{stage1}/bin/llvm-libtool-darwin"
+          stage1_targets += ["llvm-libtool-darwin", "LTO"]
+        else
+          args << "-DLLVM_ENABLE_FATLTO=ON"
+        end
+      end
+
       # First, build a stage1 compiler. It might be possible to skip this step on macOS
       # and use system Clang instead, but this stage does not take too long, and we want
       # to avoid incompatibilities from generating profile data with a newer Clang than
       # the one we consume the data with.
-      mkdir llvmpath/"stage1" do
-        system "cmake", "-G", "Ninja", "..", *extra_args, *std_cmake_args
-        system "cmake", "--build", ".", "--target", *stage1_targets
-      end
+      system "cmake", "-S", llvmpath, "-B", stage1, "-G", "Ninja", *extra_args, *std_cmake_args
+      system "cmake", "--build", stage1, "--target", *stage1_targets
 
       # Barring the stage where we generate the profile data, there is no benefit to
       # rebuilding these.
-      extra_args << "-DCLANG_TABLEGEN=#{llvmpath}/stage1/bin/clang-tblgen"
-      extra_args << "-DLLVM_TABLEGEN=#{llvmpath}/stage1/bin/llvm-tblgen"
+      extra_args << "-DCLANG_TABLEGEN=#{stage1}/bin/clang-tblgen"
+      extra_args << "-DLLVM_TABLEGEN=#{stage1}/bin/llvm-tblgen"
+      # Use stage1 lld instead of ld shim so that we can control RPATH.
+      [args, extra_args].each { it << "-DLLVM_USE_LINKER=lld" } if OS.linux?
 
-      if OS.linux?
-        # Make sure brewed glibc will be used if it is installed.
-        linux_library_paths = [
-          formula_opt_lib("glibc"),
-          HOMEBREW_PREFIX/"lib",
-        ]
-        linux_linker_flags = linux_library_paths.map { |path| "-L#{path} -Wl,-rpath,#{path}" }
-        # Add opt_libs for dependencies to RPATH.
-        linux_linker_flags += deps.map(&:to_formula).map { |dep| "-Wl,-rpath,#{dep.opt_lib}" }
-
-        [args, extra_args].each do |arg_array|
-          # Add the linker paths to the arguments passed to the temporary compilers and installed toolchain.
-          arg_array << "-DCMAKE_EXE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
-          arg_array << "-DCMAKE_MODULE_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
-          arg_array << "-DCMAKE_SHARED_LINKER_FLAGS=#{linux_linker_flags.join(" ")}"
-
-          # Use stage1 lld instead of ld shim so that we can control RPATH.
-          arg_array << "-DLLVM_USE_LINKER=lld"
-        end
-
-        # We also need to make sure we can find headers for other formulae on Linux.
-        linux_include_paths = [
-          HOMEBREW_PREFIX/"include",
-        ]
-        linux_include_paths.each { |path| cxxflags << "-isystem#{path}" }
-
-        # Unset CMAKE_C_COMPILER and CMAKE_CXX_COMPILER so we can set them below.
-        extra_args.reject! { |s| s[/CMAKE_C(XX)?_COMPILER/] }
-        extra_args.reject! { |s| s["CMAKE_CXX_FLAGS"] }
-        extra_args << "-DCMAKE_CXX_FLAGS=#{cxxflags.join(" ")}"
-      end
+      # LLVM Profile runs out of static counters
+      # https://reviews.llvm.org/D92669, https://reviews.llvm.org/D93281
+      # Without this, the build produces many warnings of the form
+      # LLVM Profile Warning: Unable to track new values: Running out of static counters.
+      instrumented_cflags = cflags + %w[-Xclang -mllvm -Xclang -vp-counters-per-site=6]
+      instrumented_cxxflags = cxxflags + %w[-Xclang -mllvm -Xclang -vp-counters-per-site=6]
+      instrumented_extra_args = extra_args.reject { |s| s[/CMAKE_C(XX)?_FLAGS/] }
 
       # Next, build an instrumented stage2 compiler
-      mkdir llvmpath/"stage2" do
-        # LLVM Profile runs out of static counters
-        # https://reviews.llvm.org/D92669, https://reviews.llvm.org/D93281
-        # Without this, the build produces many warnings of the form
-        # LLVM Profile Warning: Unable to track new values: Running out of static counters.
-        instrumented_cflags = cflags + %w[-Xclang -mllvm -Xclang -vp-counters-per-site=6]
-        instrumented_cxxflags = cxxflags + %w[-Xclang -mllvm -Xclang -vp-counters-per-site=6]
-        instrumented_extra_args = extra_args.reject { |s| s[/CMAKE_C(XX)?_FLAGS/] }
-
-        system "cmake", "-G", "Ninja", "..",
-                        "-DCMAKE_C_COMPILER=#{llvmpath}/stage1/bin/clang",
-                        "-DCMAKE_CXX_COMPILER=#{llvmpath}/stage1/bin/clang++",
-                        "-DLLVM_BUILD_INSTRUMENTED=IR",
-                        "-DLLVM_BUILD_RUNTIME=NO",
-                        "-DCMAKE_C_FLAGS=#{instrumented_cflags.join(" ")}",
-                        "-DCMAKE_CXX_FLAGS=#{instrumented_cxxflags.join(" ")}",
-                        *instrumented_extra_args, *std_cmake_args
-        system "cmake", "--build", ".", "--target", "clang", "lld", "runtimes"
-
-        # We run some `check-*` targets to increase profiling
-        # coverage. These do not need to succeed.
-        # NOTE: If using `Unix Makefiles` generator, `-k 0` needs to replaced with `--keep-going`.
-        begin
-          system "cmake", "--build", ".", "--target", "check-clang", "check-llvm", "--", "-k", "0"
-        rescue BuildError
-          nil
-        end
+      system "cmake", "-S", llvmpath, "-B", stage2, "-G", "Ninja",
+                      "-DCMAKE_C_COMPILER=#{stage1}/bin/clang",
+                      "-DCMAKE_CXX_COMPILER=#{stage1}/bin/clang++",
+                      "-DLLVM_BUILD_INSTRUMENTED=IR",
+                      "-DLLVM_BUILD_RUNTIME=NO",
+                      "-DCMAKE_C_FLAGS=#{instrumented_cflags.join(" ")}",
+                      "-DCMAKE_CXX_FLAGS=#{instrumented_cxxflags.join(" ")}",
+                      *instrumented_extra_args, *std_cmake_args
+      system "cmake", "--build", stage2, "--target", "clang", "lld", "runtimes"
+      # We run some `check-*` targets to increase profiling
+      # coverage. These do not need to succeed.
+      # NOTE: If using `Unix Makefiles` generator, `-k 0` needs to replaced with `--keep-going`.
+      begin
+        system "cmake", "--build", stage2, "--target", "check-clang", "check-llvm", "--", "-k", "0"
+      rescue BuildError
+        nil
       end
 
       # Then, generate the profile data
-      mkdir llvmpath/"stage2-profdata" do
-        system "cmake", "-G", "Ninja", "..",
-                        "-DCMAKE_C_COMPILER=#{llvmpath}/stage2/bin/clang",
-                        "-DCMAKE_CXX_COMPILER=#{llvmpath}/stage2/bin/clang++",
-                        "-DLLVM_BUILD_RUNTIMES=OFF",
-                        *extra_args.reject { |s| s["TABLEGEN"] },
-                        *std_cmake_args
-
-        # This build is for profiling, so it is safe to ignore errors.
-        # NOTE: If using `Unix Makefiles` generator, `-k 0` needs to replaced with `--keep-going`.
-        begin
-          system "cmake", "--build", ".", "--", "-k", "0"
-        rescue BuildError
-          nil
-        end
+      system "cmake", "-S", llvmpath, "-B", stage2_profdata, "-G", "Ninja",
+                      "-DCMAKE_C_COMPILER=#{stage2}/bin/clang",
+                      "-DCMAKE_CXX_COMPILER=#{stage2}/bin/clang++",
+                      "-DLLVM_BUILD_RUNTIMES=OFF",
+                      *extra_args.reject { |s| s["TABLEGEN"] },
+                      *std_cmake_args
+      # This build is for profiling, so it is safe to ignore errors.
+      # NOTE: If using `Unix Makefiles` generator, `-k 0` needs to replaced with `--keep-going`.
+      begin
+        system "cmake", "--build", stage2_profdata, "--", "-k", "0"
+      rescue BuildError
+        nil
       end
 
       # Merge the generated profile data
-      profpath = llvmpath/"stage2/profiles"
+      profpath = stage2/"profiles"
       pgo_profile = profpath/"pgo_profile.prof"
-      system llvmpath/"stage1/bin/llvm-profdata", "merge", "-output=#{pgo_profile}", *profpath.glob("*.profraw")
+      system stage1/"bin/llvm-profdata", "merge", "-output=#{pgo_profile}", *profpath.glob("*.profraw")
 
       # Make sure to build with our profiled compiler and use the profile data
-      args << "-DCMAKE_C_COMPILER=#{llvmpath}/stage1/bin/clang"
-      args << "-DCMAKE_CXX_COMPILER=#{llvmpath}/stage1/bin/clang++"
+      args << "-DCMAKE_C_COMPILER=#{stage1}/bin/clang"
+      args << "-DCMAKE_CXX_COMPILER=#{stage1}/bin/clang++"
       args << "-DLLVM_PROFDATA_FILE=#{pgo_profile}"
       # `llvm-tblgen` is an install target, so let's build that.
-      args << "-DCLANG_TABLEGEN=#{llvmpath}/stage1/bin/clang-tblgen"
+      args << "-DCLANG_TABLEGEN=#{stage1}/bin/clang-tblgen"
 
       # Silence some warnings
-      cflags << "-Wno-backend-plugin"
-      cxxflags << "-Wno-backend-plugin"
+      ENV.append_to_cflags "-Wno-backend-plugin"
 
-      args << "-DCMAKE_C_FLAGS=#{cflags.join(" ")}"
-      args << "-DCMAKE_CXX_FLAGS=#{cxxflags.join(" ")}"
+      # Since we don't build lld in final stage, `-fuse-ld=lld` needs to find stage1 lld in PATH
+      ENV.append_path "PATH", stage1/"bin" if OS.linux?
     end
+
+    if ENV.cflags.present?
+      args << "-DCMAKE_C_FLAGS=#{ENV.cflags}"
+      runtimes_cmake_args << "-DCMAKE_C_FLAGS=#{ENV.cflags}"
+      builtins_cmake_args << "-DCMAKE_C_FLAGS=#{ENV.cflags}"
+    end
+    if ENV.cxxflags.present?
+      args << "-DCMAKE_CXX_FLAGS=#{ENV.cxxflags}"
+      runtimes_cmake_args << "-DCMAKE_CXX_FLAGS=#{ENV.cxxflags}"
+      builtins_cmake_args << "-DCMAKE_CXX_FLAGS=#{ENV.cxxflags}"
+    end
+    args << "-DRUNTIMES_CMAKE_ARGS=#{runtimes_cmake_args.join(";")}" if runtimes_cmake_args.present?
+    args << "-DBUILTINS_CMAKE_ARGS=#{builtins_cmake_args.join(";")}" if builtins_cmake_args.present?
 
     # Now, we can build.
-    mkdir llvmpath/"build" do
-      system "cmake", "-G", "Ninja", "..", *(std_cmake_args + args)
-      system "cmake", "--build", "."
-      system "cmake", "--build", ".", "--target", "install"
-    end
+    system "cmake", "-S", llvmpath, "-B", "build", "-G", "Ninja", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--build", "build", "--target", "install"
 
     clang_config_file_dir.mkpath
     touch clang_config_file_dir/".keepme"
