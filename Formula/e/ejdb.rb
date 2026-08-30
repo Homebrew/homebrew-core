@@ -2,8 +2,8 @@ class Ejdb < Formula
   desc "Embeddable JSON Database engine C11 library"
   homepage "https://ejdb.org"
   url "https://github.com/Softmotions/ejdb.git",
-      tag:      "v2.73",
-      revision: "bc370d1aab86d5e2b8b15cbd7f804d3bbc6db185"
+      tag:      "v2.90",
+      revision: "dfdf4315244364aa54289bcdbc5841e92fec19e9"
   license "MIT"
   head "https://github.com/Softmotions/ejdb.git", branch: "master"
 
