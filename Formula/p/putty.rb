@@ -32,6 +32,7 @@ class Putty < Formula
     depends_on "libxrender"
   end
 
+  conflicts_with "plink1", because: "both install a `plink` binary"
   conflicts_with "pssh", because: "both install `pscp` binaries"
 
   def install
