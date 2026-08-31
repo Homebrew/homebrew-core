@@ -3,10 +3,9 @@ class Watchman < Formula
 
   desc "Watch files and take action when they change"
   homepage "https://facebook.github.io/watchman/"
-  url "https://github.com/facebook/watchman/archive/refs/tags/v2026.07.27.00.tar.gz"
-  sha256 "4bab0e96e251a477148d5267aa293065f9cc8585b46485da569a729ced654de4"
+  url "https://github.com/facebook/watchman/archive/refs/tags/v2026.08.31.00.tar.gz"
+  sha256 "53eec0444a3458bf8051255c3ccb3fcf4f8cb19604a3e7a5be4ef9f6ca31b8b0"
   license "MIT"
-  revision 1
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
@@ -45,8 +44,8 @@ class Watchman < Formula
 
   # fmt 12.2 dropped fmt::format from <fmt/core.h>; include <fmt/format.h> where used.
   patch do
-    url "https://github.com/facebook/watchman/commit/7dbd77e849641ec756fee53a587da56d4502b4d1.patch?full_index=1"
-    sha256 "5855728d86bca5c11d08195db93659da91a813ce7a5c0293366aafe08970364a"
+    url "https://github.com/facebook/watchman/commit/21e10ae9596a81ac95795ee0915f4308a9c34603.patch?full_index=1"
+    sha256 "be595623d5a520de9e1820f1388ebbdf3ef9ff5d665a33c0231fdba36b5d0dbb"
     type :unofficial
     resolves "https://github.com/facebook/watchman/pull/1348"
   end
