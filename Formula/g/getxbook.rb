@@ -44,7 +44,7 @@ end
 
 __END__
 diff --git a/util.c b/util.c
-index 0000000..0000000 100644
+index d672c9e..5fa4196 100644
 --- a/util.c
 +++ b/util.c
 @@ -58,7 +58,7 @@ conn *dial(char *host, char *port, int ssl)
