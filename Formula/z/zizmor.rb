@@ -17,8 +17,14 @@ class Zizmor < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", "--locked", "--target", "host-tuple"
+  end
+
   def install
-    system "cargo", "install", *std_cargo_args(path: "crates/zizmor")
+    system "cargo", "install", "--offline", *std_cargo_args(path: "crates/zizmor")
 
     generate_completions_from_executable(bin/"zizmor", shell_parameter_format: "--completions=")
   end
