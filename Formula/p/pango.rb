@@ -36,6 +36,8 @@ class Pango < Formula
   depends_on "harfbuzz"
   depends_on "libthai"
 
+  deny_network_access!
+
   def install
     args = %w[
       -Ddefault_library=both
