@@ -1,10 +1,9 @@
 class Mailcatcher < Formula
   desc "Catches mail and serves it through a dream"
   homepage "https://mailcatcher.me"
-  url "https://github.com/sj26/mailcatcher/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "4cd027e22878342d6a002402306d42ada1f34045cc1d7f35b5a7fa37b944326e"
+  url "https://github.com/sj26/mailcatcher/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "d8b704a7699bca68ac89f99ca40234120099683d58eb0646d1ab16bf06c7c593"
   license "MIT"
-  revision 2
 
   bottle do
     rebuild 1
@@ -32,8 +31,13 @@ class Mailcatcher < Formula
   end
 
   resource "rack" do
-    url "https://rubygems.org/downloads/rack-2.2.9.gem"
-    sha256 "fd6301a97a1c1e955e68f85c861fcb1cde6145a32c532e1ea321a72ff8cc4042"
+    url "https://rubygems.org/downloads/rack-3.2.7.gem"
+    sha256 "93e13e1c24f93556671d85d2d79fa228c3485815c50d7e2f265b5330c6528fb7"
+  end
+
+  resource "rack-session" do
+    url "https://rubygems.org/downloads/rack-session-2.1.2.gem"
+    sha256 "595434f8c0c3473ae7d7ac56ecda6cc6dfd9d37c0b2b5255330aa1576967ffe8"
   end
 
   resource "eventmachine" do
@@ -46,9 +50,14 @@ class Mailcatcher < Formula
     sha256 "8fc76d76faec669feb5e455d72f35bd4c46dc6735e28c420afb822fac1fa9a1d"
   end
 
+  resource "logger" do
+    url "https://rubygems.org/downloads/logger-1.7.0.gem"
+    sha256 "196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203"
+  end
+
   resource "thin" do
-    url "https://rubygems.org/downloads/thin-1.8.2.gem"
-    sha256 "1c55251aba5bee7cf6936ea18b048f4d3c74ef810aa5e6906cf6edff0df6e121"
+    url "https://rubygems.org/downloads/thin-2.0.1.gem"
+    sha256 "5bbde5648377f5c3864b5da7cd89a23b5c2d8d8bb9435719f6db49644bcdade9"
   end
 
   # needed for sqlite
@@ -58,8 +67,8 @@ class Mailcatcher < Formula
   end
 
   resource "sqlite" do
-    url "https://rubygems.org/downloads/sqlite3-1.7.3.gem"
-    sha256 "fa77f63c709548f46d4e9b6bb45cda52aa3881aa12cc85991132758e8968701c"
+    url "https://rubygems.org/downloads/sqlite3-2.9.6.gem"
+    sha256 "956fe606956420d04ac7157d3ace620c8caba2135b2e05c76e483493da24d08e"
   end
 
   resource "tilt" do
@@ -73,8 +82,8 @@ class Mailcatcher < Formula
   end
 
   resource "rack-protection" do
-    url "https://rubygems.org/downloads/rack-protection-3.2.0.gem"
-    sha256 "3c74ba7fc59066453d61af9bcba5b6fe7a9b3dab6f445418d3b391d5ea8efbff"
+    url "https://rubygems.org/downloads/rack-protection-4.2.1.gem"
+    sha256 "cf6e2842df8c55f5e4d1a4be015e603e19e9bc3a7178bae58949ccbb58558bac"
   end
 
   resource "ruby2_keywords" do
@@ -88,8 +97,8 @@ class Mailcatcher < Formula
   end
 
   resource "sinatra" do
-    url "https://rubygems.org/downloads/sinatra-3.2.0.gem"
-    sha256 "6e727f4d034e87067d9aab37f328021d7c16722ffd293ef07b6e968915109807"
+    url "https://rubygems.org/downloads/sinatra-4.2.1.gem"
+    sha256 "b7aeb9b11d046b552972ade834f1f9be98b185fa8444480688e3627625377080"
   end
 
   resource "timeout" do
@@ -138,13 +147,13 @@ class Mailcatcher < Formula
   end
 
   resource "websocket-driver" do
-    url "https://rubygems.org/downloads/websocket-driver-0.7.6.gem"
-    sha256 "f69400be7bc197879726ad8e6f5869a61823147372fd8928836a53c2c741d0db"
+    url "https://rubygems.org/downloads/websocket-driver-0.8.2.gem"
+    sha256 "97c556b019bf3410b4961002ac501621e9322d3f8a7bc02161a09301cc4c4146"
   end
 
   resource "faye-websocket" do
-    url "https://rubygems.org/downloads/faye-websocket-0.11.3.gem"
-    sha256 "109187161939c57032d2bba9e5c45621251d73f806bb608d2d4c3ab2cabeb307"
+    url "https://rubygems.org/downloads/faye-websocket-0.12.0.gem"
+    sha256 "ad9f7dfcd0306d0a13baeee450729657661129af15bb5f38716c242484ab42e1"
   end
 
   def install
