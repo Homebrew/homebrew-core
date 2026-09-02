@@ -39,6 +39,8 @@ class Protobuf < Formula
     cause "fails handling ABSL_ATTRIBUTE_WARN_UNUSED"
   end
 
+  deny_network_access!
+
   def install
     # Keep `CMAKE_CXX_STANDARD` in sync with the same variable in `abseil.rb`.
     abseil_cxx_standard = 17
