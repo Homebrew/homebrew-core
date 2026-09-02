@@ -17,6 +17,8 @@ class Libunistring < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2491acf49407cf75d5f95a6296f2a1c0294646834022fdcad7e22471c0c9a6d4"
   end
 
+  deny_network_access!
+
   def install
     # macOS iconv implementation is slightly broken since Sonoma.
     # This is also why we skip `make check`.
