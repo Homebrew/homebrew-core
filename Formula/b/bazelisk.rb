@@ -17,8 +17,6 @@ class Bazelisk < Formula
 
   depends_on "go" => :build
 
-  conflicts_with "bazel", because: "Bazelisk replaces the bazel binary"
-
   resource "bazel_zsh_completion" do
     url "https://raw.githubusercontent.com/bazelbuild/bazel/036e5337f63d967bb4f5fea78dc928d16d0b213c/scripts/zsh_completion/_bazel"
     sha256 "4094dc84add2f23823bc341186adf6b8487fbd5d4164bd52d98891c41511eba4"
@@ -36,7 +34,7 @@ class Bazelisk < Formula
   end
 
   test do
-    ENV["USE_BAZEL_VERSION"] = system_version = Formula["bazel"].version
+    ENV["USE_BAZEL_VERSION"] = system_version = Formula["bazel@9"].version
     output = shell_output("#{bin}/bazelisk version")
     assert_match "Bazelisk version: #{version}", output
     assert_match "Build label: #{system_version}", output

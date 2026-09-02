@@ -1,4 +1,4 @@
-class Bazel < Formula
+class BazelAT9 < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
   url "https://github.com/bazelbuild/bazel/releases/download/9.2.0/bazel-9.2.0-dist.zip"
@@ -7,17 +7,10 @@ class Bazel < Formula
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/^v?(9(?:\.\d+)+)$/i)
   end
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1be141bc2abcf1989c825c947acb1d698a744f499f0d0c5bd2e74cd7cca2872c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3c9696a38207a3244871b73bfd7c2970b03db736274e88ebef943a3518e8097c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "79a596df28659fd1a84ba5ed614398cfd01e24b22fcd71628f7c7307e449e7c3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "726ef537561c5a89299326dddb8837df010a8f04cb9f75fa5220bfb20d64075e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "95404562cc7fef7f0d4cd4e6e2f70ef17378f41e8bb33306afb1495d06eb4c26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aab7bcd2bbecb6cf420a75c8661b0d9952c6ae793663a8fe61784174e1a8e064"
-  end
+  keg_only :versioned_formula
 
   depends_on "openjdk@21"
 
@@ -36,8 +29,6 @@ class Bazel < Formula
       depends_on "lld" => :build
     end
   end
-
-  conflicts_with "bazelisk", because: "Bazelisk replaces the bazel binary"
 
   def bazel_real
     libexec/"bin/bazel-real"

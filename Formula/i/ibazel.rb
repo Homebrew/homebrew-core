@@ -16,7 +16,7 @@ class Ibazel < Formula
   end
 
   depends_on "go" => [:build, :test]
-  depends_on "bazel" => :test
+  depends_on "bazel@9" => :test
 
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
