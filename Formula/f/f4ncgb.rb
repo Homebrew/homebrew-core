@@ -14,6 +14,7 @@ class F4ncgb < Formula
   def install
     args = %w[
       -DCMAKE_BUILD_TYPE=Release
+      -DCMAKE_CXX_STANDARD=20
       -DCMAKE_CXX_STANDARD_REQUIRED=ON
     ]
 
