@@ -2,8 +2,9 @@ class Autoenv < Formula
   desc "Per-project, per-directory shell environments"
   homepage "https://github.com/hyperupcall/autoenv"
   url "https://github.com/hyperupcall/autoenv/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "baf91afe2e93b071dbf3da0c9ad294c1858efd9c8de4b0845f7fb2f31520b252"
+  sha256 "1530fdb0ef41c5f641dfb680d71ba414a87119172ca0125313859e8c67d9c8ad"
   license "MIT"
+  revision 1
   head "https://github.com/hyperupcall/autoenv.git", branch: "main"
 
   bottle do
