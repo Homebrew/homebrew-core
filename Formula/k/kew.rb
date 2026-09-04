@@ -1,8 +1,8 @@
 class Kew < Formula
   desc "Command-line music player"
   homepage "https://github.com/ravachol/kew"
-  url "https://github.com/ravachol/kew/archive/refs/tags/v4.3.0.tar.gz"
-  sha256 "637592254278500ddcd69bf20143818277681c7de63c06781c258f54be37dfbc"
+  url "https://github.com/ravachol/kew/archive/refs/tags/v4.3.1.tar.gz"
+  sha256 "4d875e0b2e9cf637193514e2fdb7600fc8722d6634e60eacaba2f7ad186bd82d"
   license "GPL-2.0-or-later"
   head "https://github.com/ravachol/kew.git", branch: "main"
 
@@ -34,6 +34,13 @@ class Kew < Formula
 
   on_linux do
     depends_on "libnotify"
+  end
+
+  # Fix version output, upstream PR ref, https://github.com/ravachol/kew/pull/585
+  patch do
+    url "https://github.com/ravachol/kew/commit/998a9eb4b84f75e65e1c5ced7325e561e459fe44.patch?full_index=1"
+    sha256 "a07d3f9c4de44329ed1c76929e67b0553275eb0c369125598d0039f8eb0aa6e6"
+    type :unofficial
   end
 
   def install
