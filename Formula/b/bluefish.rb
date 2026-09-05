@@ -37,11 +37,7 @@ class Bluefish < Formula
     args = %w[
       --disable-update-databases
       --disable-debugging-output
-      --disable-debugging-output
     ]
-
-    # configure probes PATH for a python3 to link the zencoding plugin against.
-    ENV.prepend_path "PATH", formula_opt_bin("python@3.14")
 
     system "./configure", *std_configure_args, *args
     system "make"
