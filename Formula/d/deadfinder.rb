@@ -17,6 +17,7 @@ class Deadfinder < Formula
 
   depends_on "cmake" => :build
   depends_on "crystal" => :build
+  depends_on "lexbor" => :build
   depends_on "pkgconf" => :build
   depends_on "bdw-gc"
   depends_on "libevent"
@@ -30,8 +31,17 @@ class Deadfinder < Formula
     depends_on "zlib-ng-compat"
   end
 
+  allow_network_access! :test
+
+  def fetch
+    system "shards", "install", "--production", "--skip-postinstall"
+  end
+
   def install
-    system "shards", "build", "--production", "--release", "--no-debug"
+    # Use our lexbor as long as compatible with https://github.com/kostya/lexbor
+    (buildpath/"lib/lexbor/src/ext/lexbor-c/build").install_symlink formula_opt_lib("lexbor")/"liblexbor_static.a"
+
+    system "shards", "build", *std_shards_args
     bin.install "bin/deadfinder"
 
     generate_completions_from_executable(bin/"deadfinder", "completion")

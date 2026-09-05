@@ -24,10 +24,11 @@ class Oq < Formula
   uses_from_macos "jq", since: :sequoia
   uses_from_macos "libxml2"
 
+  deny_network_access!
+
   def install
-    system "shards", "build", "--production", "--release", "--no-debug"
-    system "strip", "./bin/oq"
-    bin.install "./bin/oq"
+    system "shards", "build", *std_shards_args
+    bin.install "bin/oq"
   end
 
   test do

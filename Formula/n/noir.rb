@@ -30,8 +30,14 @@ class Noir < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
+  def fetch
+    system "shards", "install", "--production", "--skip-postinstall"
+  end
+
   def install
-    system "shards", "build", "--production", "--release", "--no-debug"
+    system "shards", "build", *std_shards_args
     bin.install "bin/noir"
 
     generate_completions_from_executable(bin/"noir", "--generate-completion")
