@@ -19,6 +19,8 @@ class Libnghttp3 < Formula
 
   depends_on "cmake" => :build
 
+  deny_network_access!
+
   def install
     system "cmake", "-S", ".", "-B", "build", "-DENABLE_LIB_ONLY=1", *std_cmake_args
     system "cmake", "--build", "build"
