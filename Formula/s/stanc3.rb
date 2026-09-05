@@ -21,7 +21,9 @@ class Stanc3 < Formula
 
   uses_from_macos "unzip" => :build
 
-  def install
+  deny_network_access!
+
+  def fetch
     # Workaround to build with OCaml 5.5.0
     inreplace "stanc.opam" do |s|
       s.gsub! '"ocaml" {= "4.14.1"}', '"ocaml" {>= "4.14.1"}'
@@ -29,14 +31,14 @@ class Stanc3 < Formula
       s.gsub! '"ppx_deriving" {= "5.2.1"}', '"ppx_deriving" {= "6.1.1"}'
     end
 
-    ENV["OPAMROOT"] = buildpath/".opam"
-    ENV["OPAMYES"] = "1"
-    ENV["OPAMVERBOSE"] = "1"
-
     system "opam", "init", "--compiler=ocaml-system", "--disable-sandboxing", "--no-setup"
-    system "opam", "install", ".", "--deps-only", "--yes", "--no-depexts"
-    system "opam", "exec", "dune", "subst"
-    system "opam", "exec", "dune", "build", "@install"
+    system "opam", "install", ".", "--deps-only", "--download-only"
+  end
+
+  def install
+    system "opam", "install", ".", "--deps-only"
+    system "opam", "exec", "--", "dune", "subst"
+    system "opam", "exec", "--", "dune", "build", "@install"
 
     bin.install "_build/default/src/stanc/stanc.exe" => "stanc"
   end
