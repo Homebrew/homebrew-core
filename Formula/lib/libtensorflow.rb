@@ -77,6 +77,10 @@ class Libtensorflow < Formula
       --repo_env=USE_PYWRAP_RULES=
       --repo_env=ML_WHEEL_TYPE=release
     ]
+    # Bazel's Apple toolchain passes an explicit `-target` whose macOS version defaults
+    # to the SDK version, so bottles would carry the builder's SDK as their minimum OS.
+    # Pin it so LC_BUILD_VERSION matches the macOS the bottle is built for.
+    bazel_args << "--macos_minimum_os=#{MacOS.version}" if OS.mac?
     # //tensorflow/tools/lib_package:libtensorflow target was removed in 2.20.0.
     # For now, the deps used by original target still exist so use those to build.
     # https://github.com/tensorflow/tensorflow/commit/724f36e00941ad3abf3c32209adc2ee186602b70
