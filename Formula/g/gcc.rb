@@ -2,6 +2,7 @@ class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 1
   compatibility_version 2
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
@@ -76,7 +77,7 @@ class Gcc < Formula
     #  - Go, currently not supported on macOS
     #  - BRIG
     #  - Modula-2 on macOS, https://github.com/Homebrew/homebrew-core/pull/221029
-    languages = %w[c c++ objc obj-c++ fortran]
+    languages = %w[c c++ objc obj-c++ fortran algol68]
     languages << "m2" unless OS.mac?
 
     pkgversion = "Homebrew GCC #{pkg_version}"
@@ -210,6 +211,14 @@ class Gcc < Formula
     FORTRAN
     system bin/"gfortran", "-o", "test", "test.f90"
     assert_equal "Done\n", shell_output("./test")
+
+    (testpath/"hello.a68").write <<~ALGOL68
+      begin
+           puts("Hello, world!'n");
+      end
+    ALGOL68
+    system bin/"ga68-#{version_suffix}", "-o", "hello-a68", "hello.a68"
+    assert_equal "Hello, world!\n", shell_output("./hello-a68")
 
     # Modula-2 is temporarily disabled on macOS
     return if OS.mac?
