@@ -6,9 +6,8 @@ class Agda < Formula
   license all_of: ["MIT", "BSD-3-Clause"]
 
   stable do
-    url "https://github.com/agda/agda/archive/refs/tags/v2.8.0-r3.tar.gz"
-    sha256 "6ccdfbb52046f3372de4a6fc41ee7dfe905f50a8180c6dbeb777cfd71d91ed9e"
-    version "2.8.0-r3"
+    url "https://github.com/agda/agda/archive/refs/tags/v2.8.0.1.tar.gz"
+    sha256 "b1530b9bdf6c7ec6870d90b263d88b5db8d0531de8ea7776cfc9f39fcac8c7b5"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.4.tar.gz"
@@ -108,9 +107,7 @@ class Agda < Formula
   depends_on "cabal-install" => :build
   depends_on "emacs" => :build
   depends_on "pkgconf" => :build
-  # TODO: switch to the latest GHC in the next release
-  # https://github.com/agda/agda/pull/8303
-  depends_on "ghc@9.12"
+  depends_on "ghc"
   depends_on "gmp"
   depends_on "icu4c@78"
 
@@ -145,7 +142,20 @@ class Agda < Formula
     mkdir_p agdaprim
     ENV["Agda_datadir"] = agdaprim.to_s
 
-    (buildpath/"cabal.project.local").write <<~HASKELL
+    # Make the language server build tolerate point releases
+    inreplace als/"package.yaml", "Agda == 2.8.0", "Agda >= 2.8.0 && < 2.9.0"
+    inreplace als/"agda-language-server.cabal", "Agda ==2.8.0", "Agda >= 2.8.0 && < 2.9.0"
+
+    # Make agda2hs build compatible with GHC 9.14
+    inreplace agda2hs_build/"agda2hs.cabal",
+      "base                 >= 4.13    && < 4.22",
+      "base                 >= 4.13    && < 4.23"
+
+    # Make the Agda Emacs mode compatible with Emacs >= 31.1
+    inreplace buildpath/"src/data/emacs-mode/agda2-highlight.el", " font-lock-", " 'font-lock-"
+
+    # Without a `cabal.project` cabal searches ancestors up to `/`, which the Linux sandbox denies
+    (buildpath/"cabal.project").write <<~HASKELL
       packages: . #{agda2hs_build} #{als}
       package Agda
         flags: +optimise-heavily +enable-cluster-counting
@@ -266,7 +276,7 @@ class Agda < Formula
   end
 
   test do
-    ENV.prepend_path "PATH", formula_opt_bin("ghc@9.12")
+    ENV.prepend_path "PATH", formula_opt_bin("ghc")
 
     Pathname("#{Dir.home}/.config/agda").install_symlink opt_pkgshare/"example-libraries" => "libraries"
     Pathname("#{Dir.home}/.config/agda").install_symlink opt_pkgshare/"example-defaults" => "defaults"
