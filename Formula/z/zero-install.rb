@@ -35,14 +35,17 @@ class ZeroInstall < Formula
   uses_from_macos "unzip" => :build
   uses_from_macos "curl"
 
-  def install
-    ENV["OPAMROOT"] = buildpath/".opam"
-    ENV["OPAMYES"] = "1"
-    ENV["OPAMVERBOSE"] = "1"
-    packages = ["./0install.opam", "./0install-solver.opam"]
+  deny_network_access!
 
+  def packages = ["./0install.opam", "./0install-solver.opam"]
+
+  def fetch
     system "opam", "init", "--compiler=ocaml-system", "--disable-sandboxing", "--no-setup"
-    system "opam", "install", *packages, "--deps-only", "--yes", "--no-depexts"
+    system "opam", "install", *packages, "--deps-only", "--download-only"
+  end
+
+  def install
+    system "opam", "install", *packages, "--deps-only"
     system "opam", "exec", "--", "make", "all"
     system "opam", "exec", "--", "dist/install.sh", prefix
   end
