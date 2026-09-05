@@ -8,7 +8,7 @@ class ForgejoRunner < Formula
   livecheck do
     url "https://code.forgejo.org/api/v1/repos/forgejo/runner/releases/latest"
     strategy :json do |json|
-      json["tag_name"]&.tr("v")
+      json["tag_name"]&.gsub(/v/, "")
     end
   end
 
