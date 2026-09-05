@@ -26,13 +26,16 @@ class Ott < Formula
   depends_on "opam" => :build
   depends_on "pkgconf" => :build
 
-  def install
-    ENV["OPAMROOT"] = buildpath/".opam"
-    ENV["OPAMYES"] = "1"
+  deny_network_access!
 
+  def fetch
     system "opam", "init", "--compiler=ocaml-system", "--disable-sandboxing", "--no-setup"
+    system "opam", "install", "./ott.opam", "--deps-only", "--download-only"
+  end
+
+  def install
     # Only build the `ott` binary; skip `coq-ott.opam` which pulls in coq/rocq
-    system "opam", "install", "./ott.opam", "--deps-only", "--yes", "--no-depexts"
+    system "opam", "install", "./ott.opam", "--deps-only"
     system "opam", "exec", "--", "make", "world"
 
     bin.install "bin/ott"
