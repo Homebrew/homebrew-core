@@ -14,7 +14,6 @@ class Sabiql < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "graphviz"
 
   uses_from_macos "sqlite"
 
@@ -25,6 +24,7 @@ class Sabiql < Formula
   def caveats
     <<~EOS
       PostgreSQL and MySQL support require psql or mysql in PATH.
+      ER diagram export requires Graphviz in PATH.
     EOS
   end
 
