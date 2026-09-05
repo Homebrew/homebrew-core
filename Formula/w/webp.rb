@@ -28,6 +28,8 @@ class Webp < Formula
   depends_on "jpeg-turbo"
   depends_on "libpng"
 
+  deny_network_access!
+
   def install
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
