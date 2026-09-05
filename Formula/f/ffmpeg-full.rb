@@ -63,7 +63,7 @@ class FfmpegFull < Formula
   depends_on "tesseract"
   depends_on "theora"
   depends_on "webp"
-  depends_on "whisper-cpp"
+  depends_on "whisper.cpp"
   depends_on "x264"
   depends_on "x265"
   depends_on "xvid"

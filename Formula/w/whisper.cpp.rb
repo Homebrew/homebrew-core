@@ -1,10 +1,9 @@
 class WhisperCpp < Formula
   desc "Port of OpenAI's Whisper model in C/C++"
   homepage "https://github.com/ggml-org/whisper.cpp"
-  url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.9.2.tar.gz"
-  sha256 "a6abd064fcca8b85e794d205abf328c522e9451db43a3eadc178b883b7d0e9cd"
+  url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.9.3.tar.gz"
+  sha256 "1650f884effba487025143bd8facd2f9fb40a83b3737a732803c67a8d659d9c0"
   license "MIT"
-  compatibility_version 1
   head "https://github.com/ggml-org/whisper.cpp.git", branch: "master"
 
   livecheck do
@@ -12,18 +11,10 @@ class WhisperCpp < Formula
     strategy :github_latest
   end
 
-  bottle do
-    sha256 cellar: :any, arm64_tahoe:   "c96d59cc9322a25f3b488b5f01d2a91aa6e2298ba2f39239108e1c85cb549460"
-    sha256 cellar: :any, arm64_sequoia: "02156714e65c742f708af0843f6b3bcfc40495ef22b2475819dd6bccdd52eefb"
-    sha256 cellar: :any, arm64_sonoma:  "e5954e14cd822aeb32d2e6752310bf2f349f9c0ea26d6f8e2f8ab72094b083ab"
-    sha256 cellar: :any, sonoma:        "0898a0a1a1c8fefdde20b675538b28a73ca3aa762859af63a4ee172e9386821b"
-    sha256 cellar: :any, arm64_linux:   "b74a47aa041d7c4226e90bf969222ac44af48bf4d93211a7dc7e7b02e145425b"
-    sha256 cellar: :any, x86_64_linux:  "6b353d39c1dbdd25671ddb54228446c4c0d16342c8b4c18dabaf7d3f913ae7ad"
-  end
-
   depends_on "cmake" => :build
   depends_on "pkgconf" => :test
   depends_on "ggml" # NOTE: reject all PRs that try to bundle ggml
+  depends_on "llama.cpp"
   depends_on "sdl2-compat"
 
   def install
@@ -35,7 +26,9 @@ class WhisperCpp < Formula
       -DWHISPER_BUILD_TESTS=OFF
       -DWHISPER_BUILD_SERVER=OFF
       -DWHISPER_USE_SYSTEM_GGML=ON
+      -DWHISPER_USE_SYSTEM_LLAMA=ON
     ]
+    args << "-DWHISPER_BUILD_IS_DEV=OFF" if build.stable?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -45,7 +38,7 @@ class WhisperCpp < Formula
 
   def caveats
     <<~EOS
-      whisper-cpp requires GGML model files to work. These are not downloaded by default.
+      #{name} requires GGML model files to work. These are not downloaded by default.
       To obtain model files (.bin), visit one of these locations:
 
         https://huggingface.co/ggerganov/whisper.cpp/tree/main
