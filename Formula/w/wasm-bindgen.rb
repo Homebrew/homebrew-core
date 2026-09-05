@@ -1,8 +1,8 @@
 class WasmBindgen < Formula
   desc "Facilitating high-level interactions between Wasm modules and JavaScript"
   homepage "https://wasm-bindgen.github.io/wasm-bindgen/"
-  url "https://github.com/wasm-bindgen/wasm-bindgen/archive/refs/tags/0.2.127.tar.gz"
-  sha256 "b4751fe541a8458ce5858b8e80dee0f39ae43b266192a2062b6038a99cbd1ee3"
+  url "https://github.com/wasm-bindgen/wasm-bindgen/archive/refs/tags/0.2.128.tar.gz"
+  sha256 "307bc35a4e2760dd083624e44f4ec4b133bf9808e89927bc46e481e1f927ffbb"
   license any_of: ["Apache-2.0", "MIT"]
 
   livecheck do
@@ -11,12 +11,11 @@ class WasmBindgen < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e4db6e9e9fbbbef0908850a8f3372f8fd24b9d7912d7ff73e55e708e11af9ecf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "30ad9b3fe7a5876515ebd56859fc30a215cd8f5610a1e31c1f828b5eda08cc49"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8860ec738a1e298160f196362ee6f0bae62312651550ec08430bf39c7175424"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1a48b98207bb00d05b1d9eacee56069f087c91c70849de5666b6992e4c8492a3"
-    sha256 cellar: :any,                 arm64_linux:   "e9590bee9cf73cebb130fd2d81e7968b36171050605cc19ee41667facdc284d7"
-    sha256 cellar: :any,                 x86_64_linux:  "254220e8de2fde7dc286701044666d89ba4fd66a9df1ddb777bcbf5a904431aa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "18be261e8bbea3b5db0885a83c0d3317a3368bcb690ff8cdc1a4bb91e093b20c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b0beaad3eddc0b1e3157b348382ceca14b3db9161e4763e5eb29a0d5e9f708f6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "342b4d9650ffeb9511b0476b80c1f309eb0581855c95ee9a698a463e211c354b"
+    sha256 cellar: :any,                 arm64_linux:   "3bbc0387e954ac64dde549af7843323b462f19380cf63b01473837a87c7f1566"
+    sha256 cellar: :any,                 x86_64_linux:  "3475e4bf05681d53ae21dd479418bac7d40277b98f4b5bebcc0e508004535f8f"
   end
 
   depends_on "rust" => :build

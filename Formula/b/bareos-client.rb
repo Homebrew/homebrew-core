@@ -1,8 +1,8 @@
 class BareosClient < Formula
   desc "Client for Bareos (Backup Archiving REcovery Open Sourced)"
   homepage "https://www.bareos.com/"
-  url "https://github.com/bareos/bareos/archive/refs/tags/Release/25.1.0.tar.gz"
-  sha256 "3e39bcdb17e1f4b51c7702b1bf6e55a9fae350cee52ede604d4c63f2ba0f4621"
+  url "https://github.com/bareos/bareos/archive/refs/tags/Release/25.1.1.tar.gz"
+  sha256 "158aba5941fcd1921292d2fe283bce1fe9122b5c81106267cb352678f76af83b"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -11,12 +11,11 @@ class BareosClient < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "a503f0385b4a78789f11cee650abeb9cf29078340570bb01c8e4be0a546d0cf0"
-    sha256 arm64_sequoia: "d97c09b75db36e6517b0b8cb9761b9b5687096a0eac2dd37c21285f902a46fe0"
-    sha256 arm64_sonoma:  "79aa39d5e839e56d34dc7a12a01587da683157a1196b7d12bff164553f27e265"
-    sha256 sonoma:        "91a3242d1c3952645bce8f5340e3327a8255230ea44bb6d6e6baa8cd6b6394f6"
-    sha256 arm64_linux:   "634a7d06028f6cbb43339491c108189f053b412a4a8897eb28f59c0f991a55d5"
-    sha256 x86_64_linux:  "60767ca6d60dce4580518cff04737f297aecdb8fce146a8271f554d2b74490d6"
+    sha256 arm64_tahoe:   "0ba3b439d35d6f31e17bd023a05037add87ecd314a455f4285dde9c16c0b37b1"
+    sha256 arm64_sequoia: "0fd15bd4147f8bb27618ce68277ef184e9e5b123158114bd2a5104eb4340b404"
+    sha256 arm64_sonoma:  "54018b0d88edbf6057b1920a8a854c1932edfe72c234473f598468ccac20a654"
+    sha256 arm64_linux:   "6e42ac0b846ed8cc4d7232ed9c73ff25d4fa2229c9892663a3bdb5f6c8c89fe0"
+    sha256 x86_64_linux:  "a82a3525625a5f90822d40fb8a7ed7cd3cb4503034ef47694252dbdc26dc3e73"
   end
 
   depends_on "cli11" => :build
@@ -57,6 +56,11 @@ class BareosClient < Formula
     inreplace "core/src/filed/CMakeLists.txt",
               "bareos-fd PROPERTIES INSTALL_RPATH \"@loader_path/../${libdir}\"",
               "bareos-fd PROPERTIES INSTALL_RPATH \"${libdir}\""
+
+    # `cpp-gsl` is 5.x and GSL's config is SameMajorVersion, so CPM's 4.0.0 request would fetch instead
+    inreplace "cmake/BareosCpmPackages.cmake",
+              "  NAME Microsoft.GSL\n  VERSION \"4.0.0\"",
+              "  NAME Microsoft.GSL\n  VERSION \"5.0.0\""
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
                     "-DENABLE_PYTHON=OFF",

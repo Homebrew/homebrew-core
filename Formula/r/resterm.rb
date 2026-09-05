@@ -1,20 +1,26 @@
 class Resterm < Formula
   desc "Terminal client for .http/.rest files with HTTP, GraphQL, and gRPC support"
   homepage "https://github.com/unkn0wn-root/resterm"
-  url "https://github.com/unkn0wn-root/resterm/archive/refs/tags/v1.5.4.tar.gz"
-  sha256 "c474665e55ec9d7fa3e0c6a0282fbd47d780b1f376d85e31160d9d1dd71e0f51"
+  url "https://github.com/unkn0wn-root/resterm/archive/refs/tags/v1.5.6.tar.gz"
+  sha256 "4ca0155985af4d567615593f0176a5732b79950c281cb30cd9f82d2d573c519a"
   license "Apache-2.0"
   head "https://github.com/unkn0wn-root/resterm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cd6d9e412cdc16ae6899961f2c7dae1c8d5c08a95e3df973d2aad29e16e9020f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cd6d9e412cdc16ae6899961f2c7dae1c8d5c08a95e3df973d2aad29e16e9020f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cd6d9e412cdc16ae6899961f2c7dae1c8d5c08a95e3df973d2aad29e16e9020f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "86406556657a6997b35f7a34464930ae18116dc295cb9f2d1a0dfdddae2a3e00"
-    sha256 cellar: :any,                 x86_64_linux:  "77f4e02c4ce66c9fe778b648a999c5e45d1cf160c3c98efbc9a2be75d7a3adb7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "be08a28685c9d8d63c0a17d4254ca2ccd0ea758421fb8a955719560582fc1750"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "be08a28685c9d8d63c0a17d4254ca2ccd0ea758421fb8a955719560582fc1750"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "be08a28685c9d8d63c0a17d4254ca2ccd0ea758421fb8a955719560582fc1750"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ee4b37345e7af7214b8528a6758ab65fd339b97af56e64be331ebeaf1a22799b"
+    sha256 cellar: :any,                 x86_64_linux:  "5e40db2416289f7f8b2de45b410e4eccd086113b940fe75b2905126f75b6126a"
   end
 
   depends_on "go" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     system "go", "build", *std_go_args(ldflags: :goreleaser), "./cmd/resterm"

@@ -26,6 +26,8 @@ class Ncdu < Formula
   depends_on "ncurses"
   depends_on "zstd"
 
+  deny_network_access!
+
   def install
     args = []
     args << "-Dpie=true" if OS.mac?

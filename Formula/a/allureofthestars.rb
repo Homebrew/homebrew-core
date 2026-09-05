@@ -30,8 +30,14 @@ class Allureofthestars < Formula
     depends_on "zlib-ng-compat"
   end
 
-  def install
+  deny_network_access!
+
+  def fetch
     system "cabal", "v2-update"
+    system "cabal", "v2-install", "--only-download", *std_cabal_v2_args
+  end
+
+  def install
     system "cabal", "v2-install", *std_cabal_v2_args
   end
 

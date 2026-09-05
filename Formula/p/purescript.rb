@@ -35,11 +35,17 @@ class Purescript < Formula
     depends_on "zlib-ng-compat"
   end
 
-  def install
-    # Minimal set of dependencies that need to be unbound to build with newer GHC
-    args = ["--allow-newer=base,template-haskell"]
+  deny_network_access!
 
+  # Minimal set of dependencies that need to be unbound to build with newer GHC
+  def args = ["--allow-newer=base,template-haskell"]
+
+  def fetch
     system "cabal", "v2-update"
+    system "cabal", "v2-install", "--only-download", *args, *std_cabal_v2_args
+  end
+
+  def install
     system "cabal", "v2-install", *args, *std_cabal_v2_args
   end
 

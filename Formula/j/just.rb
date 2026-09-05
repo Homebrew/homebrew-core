@@ -12,18 +12,24 @@ class Just < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "94c7ff64ead65f2ea22f4e079245eb70410ce3590f64171007054bda67fe4859"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a886c886c197aa176592772dcedc04d06a3fdf16f5c86548500c81a40b6237d6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d408b67f8fa9322f6c77146a42f240f1e900026a4b94f70e6ec1e02fa348ac8a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "244656367fd16d19e250b024dd8a8a81cac3e8a94282920a5d03c3b929bef427"
-    sha256 cellar: :any,                 arm64_linux:   "e49407171fd003c94ede235912ace0c9fd21588e0ba6dc59f30ce3cc2a549155"
-    sha256 cellar: :any,                 x86_64_linux:  "2eb3b0b7b2926ba5e384d15917eb1828eb16b2f705ade2edd04a95ceeb351e05"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fbfe7f2ddced1061dc574de5c7d0df46b80149f0e3758e82fa076a8417688e23"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "57b6e2a432e18920c364fc300e3c3f53d006f90855e3abfea3e3f22359b0c421"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "131bb36dfd81d9a6387a4419924a917681649f274f1a3242067ad4e6843a3623"
+    sha256 cellar: :any,                 arm64_linux:   "5001a24b3bde899db40bdf1483e90b7ea06237fa0f4a83b68dadac784389ecc4"
+    sha256 cellar: :any,                 x86_64_linux:  "449c8e67068a58b95060625e36ba162c0680db8c682b0c1e8596343296004521"
   end
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", "--locked", "--target", "host-tuple"
+  end
+
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", "--offline", *std_cargo_args
 
     generate_completions_from_executable(bin/"just", "--completions")
     (man1/"just.1").write Utils.safe_popen_read(bin/"just", "--man")

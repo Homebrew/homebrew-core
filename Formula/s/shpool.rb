@@ -21,7 +21,7 @@ class Shpool < Formula
   end
 
   def install
-    system "cargo", "install", "--offline", *std_cargo_args(path: "shpool")
+    system "cargo", "install", *std_cargo_args(path: "shpool")
   end
 
   service do

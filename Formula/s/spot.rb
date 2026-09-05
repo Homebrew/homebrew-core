@@ -1,8 +1,8 @@
 class Spot < Formula
   desc "Platform for LTL and ω-automata manipulation"
   homepage "https://spot.lre.epita.fr"
-  url "https://www.lrde.epita.fr/dload/spot/spot-2.15.1.tar.gz"
-  sha256 "65013a2edf3f314854d7619888145f52c8dd36bfd27894d9db9b272d9a16ce4b"
+  url "https://www.lrde.epita.fr/dload/spot/spot-2.16.tar.gz"
+  sha256 "688463cb2fa393c51d9cf938fb01a716b91e4c8122aeb52fd116a3bbfddab869"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,11 @@ class Spot < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e010d364f9d17297ee1e337e93b93668170a84afcfdb160f9e87aabbeef528fb"
-    sha256 cellar: :any,                 arm64_sequoia: "1427e29e5eb6a4a0cfb3cec84d6ebcd15c5569bc905b4641950317cf0e08bd66"
-    sha256 cellar: :any,                 arm64_sonoma:  "0b1ca9fa345ef9f3e5aa2e8ccf0d71d4ff248c4ab35e8f7beaa8ecf7b0d166e1"
-    sha256 cellar: :any,                 sonoma:        "ab85af1ccfea03b126c66a0f0ae1f42c03b095ebf32f2d10898867ba0e4d6cb0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "aae9243c82ee4ca4cbdd565e8c458e1b265d1892282b511792c007f76ed17996"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4754a6b50687310303b786546b8d5937ba2274f96ebe4638b8fd992e6c90796d"
+    sha256 cellar: :any, arm64_tahoe:   "e1ec26a525add4518db370bba777082d78fcfe3c1dff62cefd652b5e6303cfc8"
+    sha256 cellar: :any, arm64_sequoia: "0cb35760e6504fb34e0dbafbb61ba7cf0b725a767dd98fd0faefbe19a98368d6"
+    sha256 cellar: :any, arm64_sonoma:  "1ea411402fe46689720ab8705b27916dc1bb5ca46d2e74ef89686c5f905b9811"
+    sha256 cellar: :any, arm64_linux:   "aebb085071607f69116e6dd7fa8b4844fdd28b53312b171187e75f3b32252936"
+    sha256 cellar: :any, x86_64_linux:  "d0e8428cda3ae1e2683b14afacc618ea321c522b45011000a6721b0c5d5ad65a"
   end
 
   depends_on "python@3.14" => :build

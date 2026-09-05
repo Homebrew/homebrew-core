@@ -1,19 +1,17 @@
 class Atac < Formula
   desc "Simple API client (Postman-like) in your terminal"
-  homepage "https://atac.julien-cpsn.com/"
-  url "https://github.com/Julien-cpsn/ATAC/archive/refs/tags/v0.23.0.tar.gz"
-  sha256 "79a5171a0af3ac99086d6e02d542b0c6330600517f1460cd291d2edbe331b461"
+  homepage "https://github.com/Julien-cpsn/ATAC"
+  url "https://github.com/Julien-cpsn/ATAC/archive/refs/tags/v0.23.1.tar.gz"
+  sha256 "af34280a23cf3d8cf1b6d79b35a61bfcaaac661e79358166b05548b5153df53a"
   license "MIT"
   head "https://github.com/Julien-cpsn/ATAC.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "42781046c144e343aafd6b19753793003ea4d267931cbc4fa79d4aa1483b7d2e"
-    sha256 cellar: :any,                 arm64_sequoia: "c5dedba31d079bdcc86d0d4819d53a0bc7f3c0190b00f4ecca80943894d16bf9"
-    sha256 cellar: :any,                 arm64_sonoma:  "4719c8cad3a935cd7dbaef659d1fb50c576884fc446031770f8e0722d083433e"
-    sha256 cellar: :any,                 sonoma:        "520a5f26b41870ba4c755ec5ee88502e72897f3033fca9e47a0ccbc1cf7ff62e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "afed6fbbdcd5e7f2bc28f0fe228dfecca4fb3516fd7d9570154e485558a49513"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1e89c4945b747f27ee12ed861d7e3c31a0e6c91d7840e25a169905d6372e3b4"
+    sha256 cellar: :any, arm64_tahoe:   "54cd6d2a327960ffc2a522b881a40f77470d66a2bd36b673083692c2ef2ebdff"
+    sha256 cellar: :any, arm64_sequoia: "da57838ae9fd6b63987a5890235df6e98edcf399f0703fc959089b09cded5d61"
+    sha256 cellar: :any, arm64_sonoma:  "6e5c38d01a67f50fa345dbd9bc0de70eb5a72094d303bac2d06976889c5920a5"
+    sha256 cellar: :any, arm64_linux:   "542025beacdb2fa6e91d2d61627fca95a7d413f806b556e773661c649aa5a7de"
+    sha256 cellar: :any, x86_64_linux:  "c33c50907289ffbcca9d58c7eea967dfdadb187bf00c087824047d8d56d096de"
   end
 
   depends_on "pkgconf" => :build

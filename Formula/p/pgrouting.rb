@@ -1,8 +1,8 @@
 class Pgrouting < Formula
   desc "Provides geospatial routing for PostGIS/PostgreSQL database"
   homepage "https://pgrouting.org/"
-  url "https://github.com/pgRouting/pgrouting/releases/download/v4.0.1/pgrouting-4.0.1.tar.gz"
-  sha256 "21c071983a682e048da28f0f211205a20f27ef3708c0b637b4e6e29994d7d699"
+  url "https://github.com/pgRouting/pgrouting/releases/download/v4.0.2/pgrouting-4.0.2.tar.gz"
+  sha256 "2faf31b178db969637c1f392ba3ba18fba8d5aed15bdc73fbb4a53a72c5d0f71"
   license "GPL-2.0-or-later"
   head "https://github.com/pgRouting/pgrouting.git", branch: "develop"
 
@@ -12,12 +12,11 @@ class Pgrouting < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2cd0feb635504f27684e307855317ac3be2c53badac8eaec7dbd2bf8cb1ff294"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7adb1f542f6264de8c91fbf3913b8b30949c8023327bbe692d5ff5d80428a1f6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4f0084fb3873cbec60d8fe308ca2b23f6445918f99bdf827e6d0e85abe93482c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5e097af595e04bfe9980cc34697d9fd4a2dd8a3c32e2f5859aeeae4718891200"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "88c76b021a919cc69df0bf7a4e5f94d81a97a04c630fc1053e653a623f6dbde4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7fb9d05ddb3b5d08373be7b1fcff16b1c7c00cb36b699b6b25a813a85564c6e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7d12704c19442d61afd50187f824851a993de4bbea906d1919d9bb0a08550814"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2fffe88543ddb114f2e6badd7e7c3b524d724352f5fa167e4e8280321880c291"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8dd496e843059d14a5def241ee3d36775f2aeb4c2f669864c09e4e87d7ddd259"
+    sha256 cellar: :any,                 arm64_linux:   "3019079276e1168da19080bae2a4d9fffff9a9ef9f052277ae41dd4eb01ebdc5"
+    sha256 cellar: :any,                 x86_64_linux:  "2545dd36e3b9d2e2aab25e0233986568f2075ec2be2e4b410e709d91f01381c2"
   end
 
   depends_on "boost" => :build

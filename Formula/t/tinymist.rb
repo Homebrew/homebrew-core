@@ -1,8 +1,8 @@
 class Tinymist < Formula
   desc "Services for Typst"
   homepage "https://myriad-dreamin.github.io/tinymist/"
-  url "https://github.com/Myriad-Dreamin/tinymist/archive/refs/tags/v0.15.2.tar.gz"
-  sha256 "f7a3bbcf4f6020aea6071b86bc9d20bdde2208f6dcbef019593e257baad4cca6"
+  url "https://github.com/Myriad-Dreamin/tinymist/archive/refs/tags/v0.15.4.tar.gz"
+  sha256 "5dfdc9b055e39d4e645d778747b0e24a3395afaeb835603bfba8db9286a552cb"
   license "Apache-2.0"
   head "https://github.com/Myriad-Dreamin/tinymist.git", branch: "main"
 
@@ -15,12 +15,11 @@ class Tinymist < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "050fa339085a5886869edba0642e8e313303249f855874372a2d7692affb7f4e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "219a7fa2b25b8469f06825eae4854f3fb38249cf2aa565dbc2e57fb5647c543f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4628047565f6a00829f951314f40fe5db53d0df463973e47d2abd1fe1806cb51"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cced7d9f4b45ca46eccd8a5e418907083a0a8c7087bc197fa2ce93a8ca9d3b71"
-    sha256 cellar: :any,                 arm64_linux:   "b500d814577acb4766cb49a4e255f908573ecba6a82bc3ac357fb722ceff777a"
-    sha256 cellar: :any,                 x86_64_linux:  "41086ca7d6f446326d74f4e2be1419d25529a5e9214909037926e8df70dd28a2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "26737b65e5af51501b1c24be2a52b39471209d1e177ce808c2808e17278de13a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7741900260c8bd58632fa9735cc014f98bf4fe618b8ba106100d2878c9daaf87"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c00756f4961983e62e594681e34728d0ce1f560bab73a5e0830619486efcd147"
+    sha256 cellar: :any,                 arm64_linux:   "ff313a3fd58d1e3855512928739682fbaa2c940757f4275b3ecc274cc5d0d1cd"
+    sha256 cellar: :any,                 x86_64_linux:  "aface4b71d60ff4af62bb3d59496ccce6f18ed197d2e57125379c78edd6fc163"
   end
 
   depends_on "rust" => :build

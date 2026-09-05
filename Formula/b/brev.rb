@@ -1,8 +1,8 @@
 class Brev < Formula
   desc "CLI tool for managing workspaces provided by brev.dev"
   homepage "https://developer.nvidia.com/brev"
-  url "https://github.com/brevdev/brev-cli/archive/refs/tags/v0.6.334.tar.gz"
-  sha256 "3b329b1e4689b1d17f4ccde79859a10cccf4bfe0d59464c15d58c445169a0465"
+  url "https://github.com/brevdev/brev-cli/archive/refs/tags/v0.6.335.tar.gz"
+  sha256 "e83ad16639f66d53814322861b1db9a2092cc717c7f41efccda057e1c52b2319"
   license "MIT"
   head "https://github.com/brevdev/brev-cli.git", branch: "main"
 
@@ -15,12 +15,11 @@ class Brev < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b2e45cb7c9ab5213168d78f1d2ebd1d6dd7e7b7fadbdbebf7f2462e5f21c95e0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b2e45cb7c9ab5213168d78f1d2ebd1d6dd7e7b7fadbdbebf7f2462e5f21c95e0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b2e45cb7c9ab5213168d78f1d2ebd1d6dd7e7b7fadbdbebf7f2462e5f21c95e0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6330cd5a7c6ed1d1548329d3a46ca9e0b1b0ee8266b492a800fcb6ca74b6bb85"
-    sha256 cellar: :any,                 arm64_linux:   "725885b3b4e68fa5fa5ccb383d5a39161245bf9c266dce42a2ea57658073f7bf"
-    sha256 cellar: :any,                 x86_64_linux:  "83d1262f01e59a6d1327212274f4cc9e358947b5e6abb19cdf8ae8ad6d5142d8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "57f162e666b0f6c2ddc7b8eea3b048f880611f30f01db09cfdae1e5b1eb9ac0c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "57f162e666b0f6c2ddc7b8eea3b048f880611f30f01db09cfdae1e5b1eb9ac0c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "57f162e666b0f6c2ddc7b8eea3b048f880611f30f01db09cfdae1e5b1eb9ac0c"
+    sha256 cellar: :any,                 arm64_linux:   "19ee76d2bc0d7281432d251c2a4ee9df194c3325cf876625e7a687cb2e48483b"
+    sha256 cellar: :any,                 x86_64_linux:  "0fcb87b62e2bc10621206818494c29454946cdff1d54323e0a2ff9a84b77d77d"
   end
 
   depends_on "go" => :build

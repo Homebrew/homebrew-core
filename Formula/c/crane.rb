@@ -1,18 +1,17 @@
 class Crane < Formula
   desc "Tool for interacting with remote images and registries"
   homepage "https://github.com/google/go-containerregistry"
-  url "https://github.com/google/go-containerregistry/archive/refs/tags/v0.22.0.tar.gz"
-  sha256 "52f10d0154053b7bdc18bc451a6d3076f4442a664236cb91e8a1258bd210af09"
+  url "https://github.com/google/go-containerregistry/archive/refs/tags/v0.22.1.tar.gz"
+  sha256 "a52cc7d61f8b2f043b7f0be1febecead5fceb791543c4790d699440f12d6b370"
   license "Apache-2.0"
   head "https://github.com/google/go-containerregistry.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "90c49174b0fe307e2ca2f1ea8ef8972c0f582dba54c5ec28368bde8c75fc5100"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "90c49174b0fe307e2ca2f1ea8ef8972c0f582dba54c5ec28368bde8c75fc5100"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "90c49174b0fe307e2ca2f1ea8ef8972c0f582dba54c5ec28368bde8c75fc5100"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ba3b3fdc825357a8c5207585b54b71bbd66536e01811a96f368a157d1237472e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f079e16d967e99f720cea4ca4ffb7f7331ae5a754008dec94cdf63cca079ddb9"
-    sha256 cellar: :any,                 x86_64_linux:  "a61c644c8d99b43f2acf5e6f0ff78ce8719ace8254109f9f9f327eda3eac9de9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "52b52a75d91903ce0526e221a68b366f26ade0bf6cd6cedcc5907bcb2ad0c31e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "52b52a75d91903ce0526e221a68b366f26ade0bf6cd6cedcc5907bcb2ad0c31e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52b52a75d91903ce0526e221a68b366f26ade0bf6cd6cedcc5907bcb2ad0c31e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3e07ecca62971afe18487ee4baf56f355c4ce260ad5b7af7bdccdb789c534987"
+    sha256 cellar: :any,                 x86_64_linux:  "d7a4c5af9ce9a22c91eb826e7de63caf79e3fd646119f396dea1cdac4599718d"
   end
 
   depends_on "go" => :build

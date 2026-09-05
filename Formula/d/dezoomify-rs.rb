@@ -1,8 +1,8 @@
 class DezoomifyRs < Formula
   desc "Tiled image downloader"
   homepage "https://dezoomify-rs.ophir.dev"
-  url "https://github.com/lovasoa/dezoomify-rs/archive/refs/tags/v2.19.0.tar.gz"
-  sha256 "f19cf1560adcf398abbe6a5b9cbfc4734caf9a1b9b220c871848097e8d7104b0"
+  url "https://github.com/lovasoa/dezoomify-rs/archive/refs/tags/v2.20.0.tar.gz"
+  sha256 "c88920aa1d90eb546b53af8f1c0a497491fa4664d87dd1ee496b217af8923675"
   license "GPL-3.0-only"
   head "https://github.com/lovasoa/dezoomify-rs.git", branch: "master"
 
@@ -15,12 +15,11 @@ class DezoomifyRs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e7a1f8e01226c39e70c0167470fb827943c89eca2e6fcd517b79bf5b77e64d66"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9d903806f2b75a343b369ee0b575db9ec04a0ba0a6532c094599246ba51a6c7e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "74d1d815d065749be5d4dc1186fecc9f53074ab9aa0724f6edab2d36b95b99fe"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cc0bb9bda80b0bd63c9103f6d7ee3b2dd0dd1957779ad4afe8b6008610c53a25"
-    sha256 cellar: :any,                 arm64_linux:   "c5517b2b1dbaefec0ba54ccd3274ca2be310f36cba8a27d58ba1f7a86d967a5e"
-    sha256 cellar: :any,                 x86_64_linux:  "8f949fc467d4f23d1c01646d9c4b4831bec3a77e6cc40b36b42ef072300ea2fc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4278295b02ab9bb9238647062c80d212d5ac7dca1ef11c6b58a202e2d13f272e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d56ffe89a721d957109b8584323b5776a3cc09d69bc66ee6ff3cca84e43f64a8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1c98b45e9728f62fa83f361e2d45ab574585ef4143c2da5a47698b573e9f1228"
+    sha256 cellar: :any,                 arm64_linux:   "72782237b0bdfa2759b02f8e7367d54b2f9c0f5f22b3bfb5e03e9f8f412859f1"
+    sha256 cellar: :any,                 x86_64_linux:  "7c5e8aab13824ebf5de540e3e09b11355eee779f28c9454171cf6e828766ccdd"
   end
 
   depends_on "pkgconf" => :build

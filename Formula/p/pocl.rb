@@ -1,15 +1,10 @@
 class Pocl < Formula
   desc "Portable Computing Language"
   homepage "https://portablecl.org/"
+  url "https://github.com/pocl/pocl/archive/refs/tags/v7.2.tar.gz"
+  sha256 "7ddc01a7afcd49d4ec7fa9bf94df20852db44fcda629a9763086a8c541e5da1e"
   license "MIT"
-  revision 1
-
-  stable do
-    # TODO: Use LLVM 23 on next release
-    url "https://github.com/pocl/pocl/archive/refs/tags/v7.1.tar.gz"
-    sha256 "1110057cb0736c74819ad65238655a03f7b93403a0ca60cdd8849082f515ca25"
-    depends_on "llvm@21"
-  end
+  head "https://github.com/pocl/pocl.git", branch: "main"
 
   livecheck do
     url :stable
@@ -17,23 +12,18 @@ class Pocl < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "bb711ac8b9f001246637a341af5aa351a3a05cb54e189537e851946c723acb9a"
-    sha256 arm64_sequoia: "4986925f9eb442e6cbab412da2d48f6362baa9c194df0d46ab51a49c702e75f3"
-    sha256 arm64_sonoma:  "f97dd2a38b4527337ccdcf7c7f6935775ff05d777bab6af37e0417680ac1f53f"
-    sha256 sonoma:        "700d6876251438d70c9f3202ab104cb02dca09e510ca66f92ae8f704f4dcc448"
-    sha256 arm64_linux:   "edc29649f782e47466b12f5195be6eb6baace8b041c87676b256c88d442f7ce7"
-    sha256 x86_64_linux:  "5f0004f051b01482186efaeb3d7cc9323aa6bb67c29c113be3c3d4b5da2cf0ea"
-  end
-
-  head do
-    url "https://github.com/pocl/pocl.git", branch: "main"
-    depends_on "llvm"
+    sha256 arm64_tahoe:   "db8ffc6a44bff02e7f328a66ae573c5b98476ea6a1fbf3706c99d5f3f52bb7cc"
+    sha256 arm64_sequoia: "a58f0c781bcc66c136993c02254b0f9119dd98e28ebb2d53cc461eb684af7880"
+    sha256 arm64_sonoma:  "21e0d7b8e30c85b33f88e6d3a89f06207d35f6157417703579f2a0f22d82452d"
+    sha256 arm64_linux:   "517b477637c51b2580ed137acda85b1cc2f2d1cd8a1778f4b9fb15959cafd3ad"
+    sha256 x86_64_linux:  "f08cd82d6e967e73078d304701bf2d0ae0440715aaa7c0e83d203740a97984ba"
   end
 
   depends_on "cmake" => :build
   depends_on "opencl-headers" => :build
   depends_on "pkgconf" => :build
   depends_on "hwloc"
+  depends_on "llvm"
   depends_on "opencl-icd-loader"
   uses_from_macos "python" => :build
 

@@ -15,13 +15,20 @@ class Mole < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "41c78feb32e5cb4ae4d17bfa5836c1473defc1b90df29972f0825ec3c3e7efa6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c09f4a217e0c6680eb87e3e62de445f6a96c449a88d2633d0fdef4a4bf70bd3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f1b8ebfbfb2a9f8109117513f7c22f5e407e57e64a67ec961ed2ee087270aea2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "42767ebd1781b9af3126bd6bba242ffee19e36c8b7fcc1653869f49b0ca276f1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bd29730c66609303ed45cbcf3a492f6562439f3af0d68ac0235fe402725726f9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f98a4a31efc3583a92cb3754418515c4ae12fb949340994e38aa8718ce6b987f"
   end
 
   depends_on "go" => :build
   depends_on :macos
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     # Remove prebuilt binaries

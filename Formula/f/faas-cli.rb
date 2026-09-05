@@ -1,8 +1,8 @@
 class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://www.openfaas.com/"
-  url "https://github.com/openfaas/faas-cli/archive/refs/tags/0.18.12.tar.gz"
-  sha256 "8f2a3b8e4ab084f417e46c3b92a3a44affc086e948a52cf7ba3d84957c3ffda0"
+  url "https://github.com/openfaas/faas-cli/archive/refs/tags/0.18.13.tar.gz"
+  sha256 "ebb4958f5232ea3db870efcf953048bcd7be7e0231e3d1cdef38330e00e27d4c"
   license "MIT"
   head "https://github.com/openfaas/faas-cli.git", branch: "master"
 
@@ -12,12 +12,11 @@ class FaasCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9897e92f7d0571a2d726655db4544a6680202369a12e91e85d8550f1c11ea378"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9897e92f7d0571a2d726655db4544a6680202369a12e91e85d8550f1c11ea378"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9897e92f7d0571a2d726655db4544a6680202369a12e91e85d8550f1c11ea378"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a75d99b6ebaaab1cba37591b91f5a683b2f7e65e03709ec129da59563e5fee04"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5297d921c390253e28529bc75545b8aed1677ac22ca613184e8aba056e97e9c3"
-    sha256 cellar: :any,                 x86_64_linux:  "45545314e1465e55e6847d03432112e0d2e0275cffe494996174987b3b5c514a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c84ed4cd5b617c90f85d493b7caebf23b95488d07659fc14b85284fe2a22b1f2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c84ed4cd5b617c90f85d493b7caebf23b95488d07659fc14b85284fe2a22b1f2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c84ed4cd5b617c90f85d493b7caebf23b95488d07659fc14b85284fe2a22b1f2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9731257f63bfd7436d0b59dfabf8ad8a7c5d08a835905ba1449e76b7bb841615"
+    sha256 cellar: :any,                 x86_64_linux:  "bcb56511f7b434444477eb4dd4ca2e9e2c4ce9d065acd882542a91b4e7f2932e"
   end
 
   depends_on "go" => :build

@@ -1,18 +1,17 @@
 class Bear < Formula
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/refs/tags/4.2.1.tar.gz"
-  sha256 "508c67dc98f96253f6a6ae39f5871ac8da77f06637fb3967a4d0d4f262bf1f66"
+  url "https://github.com/rizsotto/Bear/archive/refs/tags/4.2.2.tar.gz"
+  sha256 "9f9d0236bf0751cb4f5d747c077697f396546ba1ad8653c2e9b7192ea47df14a"
   license "GPL-3.0-or-later"
   head "https://github.com/rizsotto/Bear.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "ace3abeadfde063c9f0acfcd32225cfc20de8c260504cb0e05145a18588b6de8"
-    sha256 cellar: :any, arm64_sequoia: "08c1f66fac87e8966917a5d1bcd8568f0c4f5f80c634f7219f51496eda195886"
-    sha256 cellar: :any, arm64_sonoma:  "07aed1270804ab1a4f7374abc9ee4ff2ebc8ac6501d6759e378775a5339a8c17"
-    sha256 cellar: :any, sonoma:        "a733c69332d05ad1d3436dde0651864e5b5dd9c5d994a1505709a7b84f22a176"
-    sha256 cellar: :any, arm64_linux:   "8391d9c306b191c69a13a63c5a4765b34c2d01c0bc5a7425780519d16d26e0d8"
-    sha256 cellar: :any, x86_64_linux:  "68c2739cfa3bd94cc94347f0fd3e2e954ede531a1979644534df013453a79ba8"
+    sha256 cellar: :any, arm64_tahoe:   "d9dc45bb5c7eff6eee31605eefee286ba5d9a1240fc758a72da81ea0e0e7170c"
+    sha256 cellar: :any, arm64_sequoia: "9d13c377975426b6b530f3b8f09afc0e4b4bf628e1443489f69257ea9b1d93ca"
+    sha256 cellar: :any, arm64_sonoma:  "0e218fccdf4bc62ef814fd8eaa0021ae52a27927798e831e5489c23b0bfd8229"
+    sha256 cellar: :any, arm64_linux:   "f144db41fa0559506091621e1ceb429aad9ee7dc93f945b84e9029da11aa90b3"
+    sha256 cellar: :any, x86_64_linux:  "1078d725e00e6dd2530ddae37ed4e8af0bd221ab3944170f26d8d3cd3ce9e48c"
   end
 
   depends_on "pkgconf" => :build

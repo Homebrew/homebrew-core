@@ -25,14 +25,12 @@ class Gcc < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "5dd619486ae1058d5f9e03b095fd3bd609d89bcdef20bbf8bdeefadb99ce93fb"
-    sha256               arm64_sequoia: "5208c1f9de436c2705e9beeecc34221fc9c4ac93720970099699fe4774acd08b"
-    sha256               arm64_sonoma:  "10cffc904d65f73911df97b08bc23a1f0fd284b623ef839d2f9c14db80cce52b"
-    sha256               tahoe:         "41f93e52b5b4c817e6713905f295272d70630166337da22cfceade121cef8937"
-    sha256               sequoia:       "d9c228e06901cfdc5c91b01f0119a56ea634ae3ed6504d15a3af03a65ae687f0"
-    sha256               sonoma:        "3f9610408a8560db7e1f51d04be26e9ef87b8935bf66d1ba24d84a02d478477e"
-    sha256 cellar: :any, arm64_linux:   "4518a9029b3b05bfecb18eb268698327f2379577a74bb66c6179baf6ae481e5c"
-    sha256 cellar: :any, x86_64_linux:  "3d6138ca259a3f3cbe2fc4e5f5103522119668b97e0f4060b1d1ecafd5d56c12"
+    rebuild 1
+    sha256               arm64_tahoe:   "add0ca0614da1d0047af8a71be683be40957096851f4c98ccd89e95b0c4f4fde"
+    sha256               arm64_sequoia: "8c57a4e5c65c93b90b280e3e761833f946b5a7d186f2067d239af44b71c5a577"
+    sha256               arm64_sonoma:  "2a23accb457b670c90e18d36bfbcfb212c7d0292a300881436a45630d64ed608"
+    sha256 cellar: :any, arm64_linux:   "a816cc94416b72b6b90b87db9479b12addbb1b877603ecfc7157345621a1e2e9"
+    sha256 cellar: :any, x86_64_linux:  "6504ecae947061ffe79c9dea2f635791bf54b148d1063ec857873eac2a67d922"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -65,6 +63,8 @@ class Gcc < Formula
       version.major.to_s
     end
   end
+
+  deny_network_access!
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.

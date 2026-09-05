@@ -24,8 +24,8 @@ class DatetimeFortran < Formula
   head do
     url "https://github.com/wavebitscientific/datetime-fortran.git", branch: "main"
 
-    depends_on "autoconf"   => :build
-    depends_on "automake"   => :build
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "pkgconf" => :build
   end
 

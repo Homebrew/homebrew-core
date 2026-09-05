@@ -1,8 +1,8 @@
 class RosaCli < Formula
   desc "RedHat OpenShift Service on AWS (ROSA) command-line interface"
   homepage "https://www.openshift.com/products/amazon-openshift"
-  url "https://github.com/openshift/rosa/archive/refs/tags/v1.2.64.tar.gz"
-  sha256 "f9e4df458e9df52158a19894f0818b457c18d61ba18b66e960762e679574a91a"
+  url "https://github.com/openshift/rosa/archive/refs/tags/v1.2.65.tar.gz"
+  sha256 "98a8c41c2bf28089afacf374deb0c9aef20c8e2651196c656d2bdb66572e14c9"
   license "Apache-2.0"
   head "https://github.com/openshift/rosa.git", branch: "master"
 
@@ -12,12 +12,11 @@ class RosaCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a0320732b42e9fb1fa458c8eb47eac71ef6d25f337518e11f9225d67cf47997a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8e380a7fefffd2a72b739915a2bc161ad56e6fd918730a746372fbd0459c583"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "caeca34d34a0392cd927bd3e27f9bc2a04984f08ed35f0092c21019fa0f05a69"
-    sha256 cellar: :any_skip_relocation, sonoma:        "524ad574f94ee1cbd5c2a42d2cab358fc008d8faa0343942573107ce765de7f6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b448ea9c7c525ea97cb32d83a4918962061a6728584324a0bb5af1f4485a0eb"
-    sha256 cellar: :any,                 x86_64_linux:  "d488dbcea38c1c017c29fd7570b2e17b043bccc6063469282ced08976de3ad06"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c2f518eb0a062dfd4c7972060e466c0383a1bba97d58d0904759310e51e9963b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ef9fda09ffaa58099e389b79d29984586639dd806663d209c7d2d07c3199fbc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "751eac3a27d4e44f4fb1a2c940914df698bcdb7636225a1ca5d6113ce918eaae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e8c28f08327c384acb78885da265c879addd34756f9cc1ecf40c443dfaf27c7"
+    sha256 cellar: :any,                 x86_64_linux:  "c5025e84940f1331c304724eb41223063066ae327185d59d0b0f46fb5b18b3f7"
   end
 
   depends_on "go" => :build
@@ -33,6 +32,9 @@ class RosaCli < Formula
     output = shell_output("#{bin}/rosa create cluster 2<&1", 1)
     assert_match "Failed to create OCM connection: Not logged in", output
 
-    assert_match version.to_s, shell_output("#{bin}/rosa version")
+    # FIXME: 1.2.65 was tagged without bumping `DefaultVersion`, so `rosa version` reports 1.2.64.
+    # Re-enable the assertion below on the next bump.
+    odie "Re-enable the `rosa version` assertion!" if version != "1.2.65"
+    # assert_match version.to_s, shell_output("#{bin}/rosa version")
   end
 end

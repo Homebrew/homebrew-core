@@ -1,8 +1,8 @@
 class Arcadedb < Formula
   desc "Multi-Model DBMS: Graph, Document, Key/Value, Search, Time Series, Vector"
   homepage "https://arcadedb.com"
-  url "https://github.com/ArcadeData/arcadedb/releases/download/26.8.1/arcadedb-26.8.1.tar.gz"
-  sha256 "e9ef74e7bc2a2ca4bf924c20d1bac9076a636aeba9e97c25e8d85e948dcd3ccb"
+  url "https://github.com/ArcadeData/arcadedb/releases/download/26.9.1/arcadedb-26.9.1.tar.gz"
+  sha256 "c032586a986ab207213b63fdc53625bb863a971bb86ece274e849a9df3a2129e"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,7 @@ class Arcadedb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1093aec2e1afeedaf5376397d4857cc7c421126b7a80dbb24c446a871fa40330"
+    sha256 cellar: :any_skip_relocation, all: "5a2673f94c9620a72233fd70664d2c74a7f10ff37b553e541d1840eeb4f7a281"
   end
 
   depends_on "openjdk"

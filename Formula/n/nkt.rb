@@ -17,6 +17,12 @@ class Nkt < Formula
 
   depends_on "zig@0.15" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "zig", "build", "--fetch"
+  end
+
   def install
     system "zig", "build", *std_zig_args
   end

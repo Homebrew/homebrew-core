@@ -1,17 +1,17 @@
 class Opa < Formula
   desc "Open source, general-purpose policy engine"
   homepage "https://www.openpolicyagent.org"
-  url "https://github.com/open-policy-agent/opa/archive/refs/tags/v1.20.1.tar.gz"
-  sha256 "c2219dda59cdfb74834bbd926c278d2f13c0fd42080888b0eff25ff04f97e8ce"
+  url "https://github.com/open-policy-agent/opa/archive/refs/tags/v1.20.2.tar.gz"
+  sha256 "3689adff37794f117989a0e57f55f49eb4bcf6872560368cad14624d4fd4ca88"
   license "Apache-2.0"
   head "https://github.com/open-policy-agent/opa.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6bf7572ca0b7fedcc62576480abf6b5f7e7f3e93700ff5fd099f44c68963354f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "96e44824590f9dbd38e3b382a667565f03da3c70a8a0d076642431ac76c0db6a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "90b9c06264d2d3fbf8e9ee49c2767d3536134a085761088769204721483bb78c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d01c64b8e627e4982365c485d706c513474bc8f6f32d8819ed3fcf1d7e7cda5e"
-    sha256 cellar: :any,                 x86_64_linux:  "2dd487454912840adcf7abc0f4e5096371b28354d6a079b004bc2a7f3c31b1a8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b55b3d9549ee2b96808ccda3d514f639034493015d9af2da45f3c7f1329de90a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ca3194c75bef725ff3d49e5dfc09c58ff9bb63d00e1eaf96a62531c598513bf3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c87d497e9f924d5821909640629211bd12dbbfb4c770aa75a5c5498207ba82b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fbf3afa62105c7fa71507a699588d440ddce67d0f203d76d1a932d0e2ca1b0bb"
+    sha256 cellar: :any,                 x86_64_linux:  "5d0f778b7a36275c55c90b4a977db28db6b71499e0489bc7d4dd6aed42f5e61d"
   end
 
   depends_on "go" => :build

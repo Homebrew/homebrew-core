@@ -1,8 +1,8 @@
 class Hunk < Formula
   desc "Review-first terminal diff viewer for agent-authored changesets"
   homepage "https://hunk.dev/"
-  url "https://github.com/modem-dev/hunk/archive/refs/tags/v0.21.0.tar.gz"
-  sha256 "fb8a602d3f447a846ff76ab654d957efc3a5213af8b10af773b549e3b44a2d21"
+  url "https://github.com/modem-dev/hunk/archive/refs/tags/v0.21.1.tar.gz"
+  sha256 "47a7fc82112e334fcc592d7b3bf43a9a5822f933655db6547bc98446392fb2be"
   license "MIT"
   head "https://github.com/modem-dev/hunk.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Hunk < Formula
   end
 
   bottle do
-    sha256                               arm64_tahoe:   "2b9aba67b17bb14d2b7d569634a4a06ca2a254ce2d88cbdd85694e73ab5aa0e0"
-    sha256                               arm64_sequoia: "2b9aba67b17bb14d2b7d569634a4a06ca2a254ce2d88cbdd85694e73ab5aa0e0"
-    sha256                               arm64_sonoma:  "2b9aba67b17bb14d2b7d569634a4a06ca2a254ce2d88cbdd85694e73ab5aa0e0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6f105a8debbc66cf030cb7d998cc6f7d352ee0141adba76770752523c97e1c5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de7cdc0cc6d8acf793827e119b7a00861daea2ed89dee73b0a9e8a728d9b427a"
+    sha256                               arm64_tahoe:   "6d985f3bd2909b2b949514c552396864147ab3ef9ea5a5b4b63fe2179bbc351e"
+    sha256                               arm64_sequoia: "6d985f3bd2909b2b949514c552396864147ab3ef9ea5a5b4b63fe2179bbc351e"
+    sha256                               arm64_sonoma:  "6d985f3bd2909b2b949514c552396864147ab3ef9ea5a5b4b63fe2179bbc351e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c33eb23e749ccf4c95b49ec8b7a7da8b677c5878dbab6c6be3a766033532ebb9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9726f0c1e3f63fccfbc0a5ce3445642afa273aa6095aa0babf4aff329fb9fae"
   end
 
   depends_on "bun" => :build

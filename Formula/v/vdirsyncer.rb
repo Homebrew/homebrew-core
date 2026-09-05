@@ -3,21 +3,17 @@ class Vdirsyncer < Formula
 
   desc "Synchronize calendars and contacts"
   homepage "https://github.com/pimutils/vdirsyncer"
-  url "https://files.pythonhosted.org/packages/2e/f6/94ed82de371cc80784ffe90e0dac8ce9f5d272c01d614415a5e800ffb303/vdirsyncer-0.20.0.tar.gz"
-  sha256 "feb1a533500a95c14fd155733a1056fe359192553d82c07c6ba04fcbfc40b12d"
+  url "https://files.pythonhosted.org/packages/79/05/b99b25ab9280fdd56b591ee58bd53b00da3e536c8e07fa714c95276b15a3/vdirsyncer-0.21.0.tar.gz"
+  sha256 "b6ac040b880da6758f65c17a369572f62e7323be8d21cd330c26fa134d1b1373"
   license "BSD-3-Clause"
-  revision 8
   head "https://github.com/pimutils/vdirsyncer.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5f98be7779f9aa806741ebf8fd55cccc8da57d250816b5bcd638ab13daeafb96"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b28349a7f47d6d38c10d6790dc53a3b38ae55850eac105db54ce80d332655f63"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e32e73a3a00d918d49cec2cb8741ee33a4f7c49ecec15b4cb5cc27ffbbe115fb"
-    sha256 cellar: :any_skip_relocation, tahoe:         "0619ebdc3086487f61efdb8476c1f727cf540a1d00b17a6169aa84576636d3bc"
-    sha256 cellar: :any_skip_relocation, sequoia:       "fe57a605d6f98655598456829bba254aeb7a0230c14c6dd67ff20298d9afe9fe"
-    sha256 cellar: :any_skip_relocation, sonoma:        "31b8313dcbe82b93e8c2c2997684506d0600abc798daa47c0e70a69792c4c79e"
-    sha256 cellar: :any,                 arm64_linux:   "2ebe65fb583e94f19055433e3210b90c934d41d70801cb8ce1e9a84a334ad329"
-    sha256 cellar: :any,                 x86_64_linux:  "32ce94dd9f32b51a3bf760dd04c5fe3d3078595153c934f84a5c89e689c295e9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c19003335a8ce00dcbb7fa4caf0fd44f6644f7db26079fd284e25c6496137763"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bcb1e703a696b3a9b50b13cf524bea60cbd5289f9b2e20a72608732dda6c6266"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "26ddef401c7e86ce1cc31e99b8828f8d48c39d24695815a789e71737846eafbd"
+    sha256 cellar: :any,                 arm64_linux:   "8c5b2c1e7b42801537bf2efbc74819c5caa39ba9caff12d160d3390b04031112"
+    sha256 cellar: :any,                 x86_64_linux:  "fa8fc424e9d37d950a78ed8df99914fe7527be8907b5bb0fdd1cde87b49bbec8"
   end
 
   depends_on "certifi"
@@ -57,13 +53,13 @@ class Vdirsyncer < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
-    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
+    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
+    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "click-log" do
@@ -77,8 +73,8 @@ class Vdirsyncer < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
-    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
+    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
+    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
   end
 
   resource "multidict" do
@@ -99,6 +95,11 @@ class Vdirsyncer < Formula
   resource "requests" do
     url "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz"
     sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
+  end
+
+  resource "tenacity" do
+    url "https://files.pythonhosted.org/packages/47/c6/ee486fd809e357697ee8a44d3d69222b344920433d3b6666ccd9b374630c/tenacity-9.1.4.tar.gz"
+    sha256 "adb31d4c263f2bd041081ab33b498309a57c77f9acf2db65aadf0898179cf93a"
   end
 
   resource "typing-extensions" do

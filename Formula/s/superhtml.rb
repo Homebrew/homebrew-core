@@ -16,6 +16,12 @@ class Superhtml < Formula
 
   depends_on "zig@0.15" => :build # Blocked until Zig 0.17 is available which 0.7.0+ uses
 
+  deny_network_access!
+
+  def fetch
+    system "zig", "build", "--fetch"
+  end
+
   def install
     # upstream issue: https://github.com/kristoff-it/superhtml/issues/108
     inreplace "build.zig", '"unknown"', "\"#{version}\"" # patch fallback version

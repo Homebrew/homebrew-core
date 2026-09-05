@@ -1,8 +1,8 @@
 class Talosctl < Formula
   desc "CLI for out-of-band management of Kubernetes nodes created by Talos"
   homepage "https://www.talos.dev/"
-  url "https://github.com/siderolabs/talos/archive/refs/tags/v1.13.9.tar.gz"
-  sha256 "d8f328eb5963a7ee65eab01d1095ab14a127d03a2522c6050dcd0ca2b6447ed5"
+  url "https://github.com/siderolabs/talos/archive/refs/tags/v1.14.0.tar.gz"
+  sha256 "41d89d3bba1c0a5b1713cc72e09167b99048da79d0fc6146561a458591b6e45f"
   license "MPL-2.0"
   head "https://github.com/siderolabs/talos.git", branch: "main"
 
@@ -12,12 +12,11 @@ class Talosctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "561ccce98ffb9e0a84f6f0599434875081127e8e1d9f818f162d0df5089532e4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d2e71d2b5ec7cfa2aff8a081c101bb5382176be18d9fb8bdb188d335aa3125ad"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eba555fe36895acfd71276500febdea54f4207bc749d8cdf2685f499c568c9c2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "512fefb31c9fd61fe50f25ec4b18ade4d5faf8d2ba2d312301a944602ca3cc2a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ea011916b70089a6ebb3a8d2863de89c97de916d97f18246b31faabe26e07d1e"
-    sha256 cellar: :any,                 x86_64_linux:  "5b40d335eb850d314965ba8c9a8942d32695534f97afb5013daa228af99c9c87"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "670fa71becd64f64c604f8ce59eba8645407eb16afc1ae5f6b212a8fbdd4d821"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "954c439b26189eaf02f287605d1ba4e0fe8ed465c19c5b3f706c95652c92c9cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "475a4bd4073ea19658469b85c04a799335c5fd08f68f4a1ba5cd2ef1ae57d03a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "aa7a2f05a141fc1ae8f436088ee63f80644ab73db41e6bedbe01fdccd9b38936"
+    sha256 cellar: :any,                 x86_64_linux:  "a8e6a14fe611ce8b0ceb3cfdbdf8047ba05f1e12f98f84def730eb25fe4afe2e"
   end
 
   depends_on "go" => :build
@@ -38,6 +37,6 @@ class Talosctl < Formula
     assert_match version.to_s, shell_output("#{bin}/talosctl version 2>&1", 1)
 
     output = shell_output("#{bin}/talosctl list 2>&1", 1)
-    assert_match "error constructing client: failed to determine endpoints", output
+    assert_match "failed to determine endpoints", output
   end
 end

@@ -1,8 +1,8 @@
 class Rustledger < Formula
   desc "Fast, pure Rust implementation of Beancount double-entry accounting"
   homepage "https://rustledger.github.io"
-  url "https://github.com/rustledger/rustledger/archive/refs/tags/v0.22.0.tar.gz"
-  sha256 "8cbac0fa8a6da0abfbf172469907068c5cc615af7cd0463b2cadb0081a0da733"
+  url "https://github.com/rustledger/rustledger/archive/refs/tags/v0.23.0.tar.gz"
+  sha256 "901f8091683c56f41e38728a3aa1df10dd1b5608f890650efa7e66364f7a5bc3"
   license "GPL-3.0-only"
   head "https://github.com/rustledger/rustledger.git", branch: "main"
 
@@ -12,12 +12,11 @@ class Rustledger < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d9b9c814636b823420583c67d51aa6c2f1714957e6034f01921380587c3f92dc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e0dfd7fc1e91994b1ca0fdc43794c3aee33ff68325609bb563708adf560c2c92"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2ef155f771acdba453256e00be4b14921bd2b13eb94bab4d5d25290849c0d5bb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ea98aaba0df9f1fa97f09074343a17dfe6377f6a71d4b8932a67cc765f0e51d4"
-    sha256 cellar: :any,                 arm64_linux:   "c707e5836a039c736e0a25617dec8a22a9f119d3728a4197ba967e4be010d3c9"
-    sha256 cellar: :any,                 x86_64_linux:  "8c47be9cd8964f0d5dbabb126930a84bca588f9d8f9d75690fe0d28e32c6733e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "884630e4ea5b419cdf14f5f26f1acea66683eee5338ac8ea1b1ba1617cf22901"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b52056bce3c6932cff7ba103269a48cae7f2f25e5ea641a4f42046bc28234aa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a1fc9b67c39ff0fe9a7873801e8e2826e1f4508c7b7e33762a27892cf1336d4"
+    sha256 cellar: :any,                 arm64_linux:   "46bc0906b1576682559ec63ad34ac97a80daded53ddfaf44372216fab6769546"
+    sha256 cellar: :any,                 x86_64_linux:  "b8d3b52148155e1060af884609e0dfcc80916b4418b8b974f8339fb638a2d6e7"
   end
 
   depends_on "rust" => :build

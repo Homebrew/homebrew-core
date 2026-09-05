@@ -1,8 +1,8 @@
 class Cozypkg < Formula
   desc "CLI for managing Cozystack packages"
   homepage "https://cozystack.io"
-  url "https://github.com/cozystack/cozystack/archive/refs/tags/v1.6.2.tar.gz"
-  sha256 "5540f6add0da078512bf8791449b12fb0d5120d7a9b7a9b6ab0dfbb1c57a70ba"
+  url "https://github.com/cozystack/cozystack/archive/refs/tags/v1.6.3.tar.gz"
+  sha256 "0325fad3a856a52937a397befc7f5fbe32076db991f19cdc8cd656367728cc1c"
   license "Apache-2.0"
   head "https://github.com/cozystack/cozystack.git", branch: "main"
 
@@ -12,12 +12,11 @@ class Cozypkg < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8f6ca117ecd25ccdc242cafd91d7b5b28ddd200d6be0deec27497e3ef059fa53"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f8e05e2e1d8aa3d9a7919d9a84242eea3fe581218a6bfcd66e14f403f36e7f3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b528f635090e8db37763012a375f185f5462145a4ae3e1a2120c90d06fec7b0e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a209614214245194b7a5a062e1d058bc7d7efd1ee1675e53820ea08a585b75f8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2875343ae04323411342cc838624ca53c352d7003df9412c742276c4fc7838c8"
-    sha256 cellar: :any,                 x86_64_linux:  "efcebd72df447a4cad1d31074284af0b476c4bc04a0942d969b668a2b7bc4fca"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9f61129d70cd9b7d12437ec9d54d0a896eb399f219992ac1974e16f7a2dccb6c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "743590b7871d991c487734a9259e1eae794683e29c4b26adf50c5359735f7385"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3c41d7e630d3d34720f8a114b36c84abf2dce833050a60afa65de88398dddc3c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7c61f1da1a9b9978c9ff351cf0ae89e60fd4739949371a737b6b4c5d8b3367a8"
+    sha256 cellar: :any,                 x86_64_linux:  "e5a1d41f9950c6be51f3be3b4cdef0b9f252874e18199f7ee658957ccf426f4e"
   end
 
   depends_on "go" => :build

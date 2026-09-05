@@ -17,12 +17,12 @@ class JpegTurbo < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "516f4fcf68020aea477a82ac745d5a89bff9fb4908e01c7529c191a563fd1a7b"
-    sha256 cellar: :any, arm64_sequoia: "511445b91fe45351e3f7ae238ee7be0159fe92bb1e240a57489f62ded7fd1632"
-    sha256 cellar: :any, arm64_sonoma:  "0d248d272a2e9d4f3442ce8d82c2df322079e77a76011cf75cb18d7114e78655"
-    sha256 cellar: :any, sonoma:        "c1a02c5e74d687402700645d60f7045485d88ed9f2f615d301d1b081ad1e1f66"
-    sha256 cellar: :any, arm64_linux:   "97876597e14b19c42bb55a441904f19d6ddd9200119b5d20092848c3a82a975f"
-    sha256 cellar: :any, x86_64_linux:  "586635840c2b99e9e68e823ebd0b88dbd69bb2dbdeeef63f28d7202af68be9b1"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "02539b0736cfacdc6c4bb6a7d274d0c5c8b6e1faf9b5bab1e155168961d288aa"
+    sha256 cellar: :any, arm64_sequoia: "6dc55edcd33c693e474299ed2bba3c472ac1331cbe300066ec8ef99b88fab17c"
+    sha256 cellar: :any, arm64_sonoma:  "3ff48858f9042df4ce6ca4bf4006bae5e46f919037cba077f0c81a1f6e0a288a"
+    sha256 cellar: :any, arm64_linux:   "17e9fc799ed71fa8453d35fae0bdec249b015d2ba61d3258c8a4ba2bd47faf86"
+    sha256 cellar: :any, x86_64_linux:  "85713cddd87d363f7e772f9ab0db5d4192d6f4ef8793393458601ffdba8a1e07"
   end
 
   depends_on "cmake" => :build
@@ -38,6 +38,8 @@ class JpegTurbo < Formula
   link_overwrite "lib/libjpeg.dylib", "lib/libjpeg.so", "lib/libjpeg.a", "lib/pkgconfig/libjpeg.pc"
   link_overwrite "share/man/man1/cjpeg.1", "share/man/man1/djpeg.1", "share/man/man1/jpegtran.1",
                  "share/man/man1/rdjpgcom.1", "share/man/man1/wrjpgcom.1"
+
+  deny_network_access!
 
   def install
     args = ["-DWITH_JPEG8=1", "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}"]

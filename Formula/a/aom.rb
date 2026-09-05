@@ -2,18 +2,17 @@ class Aom < Formula
   desc "Codec library for encoding and decoding AV1 video streams"
   homepage "https://aomedia.googlesource.com/aom"
   url "https://aomedia.googlesource.com/aom.git",
-      tag:      "v3.14.1",
-      revision: "03087864cf4bea6abb0d28f95cf7843511413d8f"
+      tag:      "v3.15.0",
+      revision: "de4c1d1edc49723a78954d30a83690aa1937422f"
   license "BSD-2-Clause"
   head "https://aomedia.googlesource.com/aom.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "beaab63a4f1daa53422eff4e1d005b95d2240ddcd3b8bffef91a72a7ed87ade3"
-    sha256 cellar: :any,                 arm64_sequoia: "9f6b4e0c537a11f17c28133df343f1057bc9d403c697400f199955ec6ff96661"
-    sha256 cellar: :any,                 arm64_sonoma:  "bf2c489bfaaa9f3f844f2e2fd6a04de2befb0b98244161eb5a71e21fdac9409d"
-    sha256 cellar: :any,                 sonoma:        "e35fcb414d02b4d117b2937312f42a26994103aa59fc2ab4d4e994fe366c672b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "97917c790d2b14f0819ed7a16ad6a724bf62d05f8f119ced1f67f95a03796cae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0161fc263c240948a6075475224a8748a3c359ab7f88d88c4a24cf913c8186fd"
+    sha256 cellar: :any, arm64_tahoe:   "fa21f5d8f33607865ebb97f3d0d00c1b66478974655429fbb380453860b49bc8"
+    sha256 cellar: :any, arm64_sequoia: "11f0ac517540167458ed0cf802122c1c2acb0e68324e4e15f68b42fbcbcb4085"
+    sha256 cellar: :any, arm64_sonoma:  "55e1d1912482f0eb4b3a1d361aa539d60a133fc7970b54fbf03a9de6b9a06979"
+    sha256 cellar: :any, arm64_linux:   "a3050f86d92eaff18666350a942860196c36beaf918dbbea42f461f7a05246bb"
+    sha256 cellar: :any, x86_64_linux:  "cab4a72d9c97b16f8e418afcb05d4660f64fe68d20668b821cb57d47296b59b8"
   end
 
   depends_on "cmake" => :build
@@ -26,6 +25,12 @@ class Aom < Formula
 
   def install
     ENV.runtime_cpu_detection
+
+    # TODO: report upstream
+    # `snprintf` gets the whole buffer size as `cur` advances, aborting under `_FORTIFY_SOURCE`
+    inreplace "common/webmenc.cc",
+              "snprintf(cur, total_size,",
+              "snprintf(cur, total_size - (cur - result),"
 
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}

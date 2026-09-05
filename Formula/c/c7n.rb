@@ -3,8 +3,8 @@ class C7n < Formula
 
   desc "Rules engine for cloud security, cost optimization, and governance"
   homepage "https://cloudcustodian.io"
-  url "https://github.com/cloud-custodian/cloud-custodian/archive/refs/tags/0.9.51.0.tar.gz"
-  sha256 "b13e6463b59a84950cdfe28a65b26e3fdee7dae16835adb46313ccad25adbf42"
+  url "https://github.com/cloud-custodian/cloud-custodian/archive/refs/tags/0.9.52.0.tar.gz"
+  sha256 "0994149695058bf9ebfcd345ee8e9d9261de9366856696c582611690e89912be"
   license "Apache-2.0"
 
   livecheck do
@@ -13,12 +13,11 @@ class C7n < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d5e5b0e66f6a3be249104d8771e8c2ba51b27b3dfb5e76abd35836ba2bd269a3"
-    sha256 cellar: :any,                 arm64_sequoia: "e25050313f643e5e22d5df047f7302a1875c6b1c7a8354a25404c954a02da897"
-    sha256 cellar: :any,                 arm64_sonoma:  "bf10f0d9f14200fdf535aafbcc8c0b5ac451d3681865340230ccd3498f8b5cc8"
-    sha256 cellar: :any,                 sonoma:        "176a87335ec9323d55c0fb53a0c20114473f1b021bb2346f6c9a2db284ad2a2a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "882f398737b89507da0c9c9f9fe1c1a4d77f7ea4144dfb9ebd400fb50acac07f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "269c5a9538ec529d06f9995a499b99bf1fd12b74b61bc582306696a02cb0b425"
+    sha256 cellar: :any, arm64_tahoe:   "423cbe275c19c6d19ae77383482170019ee9db912db3965343d427a121089ec2"
+    sha256 cellar: :any, arm64_sequoia: "9c487cbd876770b6901a0d695c5be50f570019b47c88c19061bf897738a1bd46"
+    sha256 cellar: :any, arm64_sonoma:  "89b1d39a891709533916771240af5f46055bf27430a3a0be6f6e30fbd42fc993"
+    sha256 cellar: :any, arm64_linux:   "e81786c2d6ddbc1a4f9d3c489731595e34c17e610e344a0188eaed0280e43908"
+    sha256 cellar: :any, x86_64_linux:  "e3da7282ae35ca6928e4c78386c8dd78b7e09d2412e0d0918aab2fb2638869ff"
   end
 
   depends_on "cryptography" => :no_linkage
@@ -29,8 +28,8 @@ class C7n < Formula
   pypi_packages exclude_packages: ["cryptography", "rpds-py"]
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/38/61/0b9ae6399dd4a58d8c1b1dc5a27d6f2808023d0b5dd3104bb99f45a33ff6/argcomplete-3.6.3.tar.gz"
-    sha256 "62e8ed4fd6a45864acc8235409461b72c9a28ee785a2011cc5eb78318786c89c"
+    url "https://files.pythonhosted.org/packages/87/6f/5a73f04007ca950701765949209f068da628bd11f9c2da287278ce91e0ee/argcomplete-3.7.2.tar.gz"
+    sha256 "aad8b69a0b9969edb62db0d1752354c0d50717b10e0cbb00e2a958381b9fc6b9"
   end
 
   resource "attrs" do
@@ -39,13 +38,13 @@ class C7n < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/48/4f/f13d80d377b54dd2973e243e4eb7ce748706cd53876361cc72506006fd8b/boto3-1.43.16.tar.gz"
-    sha256 "6c337bbe608aacc7d335c79e671f0c893870293b74d652f7a7af22ccd0dfef16"
+    url "https://files.pythonhosted.org/packages/5c/0c/b14374e9458030076cd22ff9381cf86d170f31b648fd901db1d88011094b/boto3-1.43.87.tar.gz"
+    sha256 "8d9521c7c292194b8ce9fb61043d52e45cdba29b5f690981f3eb5e75103ba57d"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/a1/74/140451a1fe027cb5e387cc7b1ec56224616ca742c330f1492f71c5cba3fb/botocore-1.43.16.tar.gz"
-    sha256 "813dae233d8b365c19aaf7865b32070e34d7e793654881bf86ecbbef3f4ad5c6"
+    url "https://files.pythonhosted.org/packages/97/c4/64ebb159810a9840c57659f3ed98439bbc5680dc9708e3b08212deea301a/botocore-1.43.87.tar.gz"
+    sha256 "928598e7275fa70385d7f694d60d59afe115a0b914cc699dbf3eb60954c23bf1"
   end
 
   resource "jmespath" do
@@ -79,8 +78,8 @@ class C7n < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/11/b3/bcdc2f58fa92592db511beda154c2c08d28f21f6c4637f06a42a24b10c21/s3transfer-0.17.1.tar.gz"
-    sha256 "042dd5e3b1b512355e35a23f0223e426b7042e80b97830ea2680ddce327fc45e"
+    url "https://files.pythonhosted.org/packages/76/43/35e4d8aa320bffe8287fe8f65f578fa2d2db0a64212f0e710dce58267854/s3transfer-0.19.2.tar.gz"
+    sha256 "ba0309fd86be3c27dbf78cdd813c13c5e1df16e5874b99d2535ebbdfb9892993"
   end
 
   resource "six" do

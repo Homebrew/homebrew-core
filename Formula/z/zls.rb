@@ -17,6 +17,12 @@ class Zls < Formula
 
   depends_on "zig"
 
+  deny_network_access!
+
+  def fetch
+    system "zig", "build", "--fetch"
+  end
+
   def install
     system "zig", "build", *std_zig_args
   end

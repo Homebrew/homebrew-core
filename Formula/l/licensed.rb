@@ -28,20 +28,25 @@ class Licensed < Formula
     depends_on "zlib-ng-compat"
   end
 
-  def install
-    ENV["BUNDLE_FORCE_RUBY_PLATFORM"] = "1"
-    ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
-    ENV["BUNDLE_WITHOUT"] = "development test"
-    ENV["GEM_HOME"] = libexec
+  deny_network_access!
+
+  def fetch
+    ENV["BUNDLE_PATH"] = ".bundle"
 
     # Locked rugged 1.9.0 cannot detect libgit2 1.9; remove once upstream updates Gemfile.lock
     inreplace "Gemfile.lock", "rugged (1.9.0)", "rugged (1.9.6)"
 
+    system "bundle", "cache", "--no-install"
+  end
+
+  def install
+    ENV["GEM_HOME"] = libexec
+
     system "bundle", "config", "set", "build.nokogiri", "--use-system-libraries"
     system "bundle", "config", "set", "build.rugged", "--use-system-libraries"
-    system "bundle", "install"
+    system "bundle", "install", "--local"
     system "gem", "build", "#{name}.gemspec"
-    system "gem", "install", "#{name}-#{version}.gem"
+    system "gem", "install", "--ignore-dependencies", "#{name}-#{version}.gem"
 
     bin.install libexec/"bin/#{name}"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])

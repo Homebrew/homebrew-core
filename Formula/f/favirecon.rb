@@ -1,18 +1,17 @@
 class Favirecon < Formula
   desc "Uses favicon.ico to improve the target recon phase"
   homepage "https://edoardottt.com/"
-  url "https://github.com/edoardottt/favirecon/archive/refs/tags/v1.0.3.tar.gz"
-  sha256 "5cbf98b2874f1335ecac948be3fdef328cd3ab1b04706c761b79bbf8207bf19a"
+  url "https://github.com/edoardottt/favirecon/archive/refs/tags/v1.0.4.tar.gz"
+  sha256 "61ce4ceea1a11e1e39ec67dadafb4cf9b9749d18385a76774298e5441eca4391"
   license "MIT"
   head "https://github.com/edoardottt/favirecon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "97f00e3f6d3b3c9f06c626d58807def207b9926b209e3a5f94369595dea2eb4c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "97f00e3f6d3b3c9f06c626d58807def207b9926b209e3a5f94369595dea2eb4c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "97f00e3f6d3b3c9f06c626d58807def207b9926b209e3a5f94369595dea2eb4c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7557971886c2b8a8da6acb77e6a37bf1377e171ef29dce82ce0d4d5d2b876fde"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "abb76be2261c77be7059bdda23ae2c8931eeec41bf4fe0ab804eb3636e2b22a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e382dce2daa6de20426e44010adc1205f1de8bffbaa08a8874d1d00b9e5e08a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5f952cf541a0dcedbdbb75991f37df53d8f9dff1ab81ac5fb74c399dd0282045"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b2086bc3f6f381a8c80bad321056bfeadd870b6e8dc71a47656911e2b6e2fbd0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "63844e460c7f7701c1430a9c3b549843f07675b9b8ca51f0ea19f30bb603af66"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4152c2b6fbc965f34d857b2cc1acbae91566d4e3fb0384c19c602d49a0220455"
+    sha256 cellar: :any,                 x86_64_linux:  "62c824e47d411a3f15503f88b0a76bed38ccffc7c934006d1e0bb7f442b96f49"
   end
 
   depends_on "go" => :build

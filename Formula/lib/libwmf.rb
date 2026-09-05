@@ -1,21 +1,19 @@
 class Libwmf < Formula
   desc "Library for converting WMF (Window Metafile Format) files"
   homepage "https://github.com/caolanm/libwmf"
-  url "https://github.com/caolanm/libwmf/releases/download/v0.2.15/libwmf-0.2.15.tar.gz"
-  sha256 "bbc90f22b9e86d5f1890d7da11cf7a8e61f429d4c220d900c285021deabe7a52"
+  url "https://github.com/caolanm/libwmf/releases/download/v0.2.16/libwmf-0.2.16.tar.gz"
+  sha256 "e20a0bfc2550e779f5f2f13e1afd34cb3b3692954b7e2b73a25ac94c86cb484a"
   license all_of: [
-    "LGPL-2.0-or-later",
-    "GPL-2.0-or-later", # COPYING
+    "LGPL-2.1-or-later",
     "GD", # src/extra/gd
   ]
 
   bottle do
-    sha256 arm64_tahoe:   "2c6e1d26d2213cbe408a6289a20cab2d9a385babb56997ad30afc0c733f89569"
-    sha256 arm64_sequoia: "648aebf55487d4a5dffd40319f0fc2309e1cfb075e88a27dc03e777f9c8d6f5a"
-    sha256 arm64_sonoma:  "b69efed6e318df46ace734007e3099d1d08dc5753b56b0b9eb8e6fc111083209"
-    sha256 sonoma:        "96d66c997be9b333c085daeda09d2ec1bca0613cfbb6ea66b5ec6bfac260129e"
-    sha256 arm64_linux:   "71f7063942f28d921e37b56cba7b7a323ac3d27fde289ab4adc4f1dabf4f207c"
-    sha256 x86_64_linux:  "bdf120383ed21317c5931926dcc30b3c8d662b0e0873213b321a72ec07b5411f"
+    sha256 arm64_tahoe:   "653a2db07bd48c16621139eeab6243c50c382d3d858d45e16141943e23f5766f"
+    sha256 arm64_sequoia: "184187265802efbc05979f3b2c7b0161974dce12e25cdc0516db433f1b654bdc"
+    sha256 arm64_sonoma:  "aafdb93d504d371b9a8139487786e4a8c928fa89577d387e8dc8df3fcf7bc2c7"
+    sha256 arm64_linux:   "f64784896bc2a53e3edef15effd1bc423fbb97fe586dbc6fe0706fd1ac0566bb"
+    sha256 x86_64_linux:  "11217bf2e06eab471d41b9fb825c5274312da91131d7d0fb3a11585d6aa391a7"
   end
 
   depends_on "pkgconf" => :build

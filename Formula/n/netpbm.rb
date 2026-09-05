@@ -3,8 +3,8 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.net/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "5303"
-  version "11.02.28"
+  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "5319"
+  version "11.02.29"
   license "GPL-3.0-or-later"
   version_scheme 1
   compatibility_version 1
@@ -19,12 +19,11 @@ class Netpbm < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_tahoe:   "685f8abc6a29e098df1d740dd52be56597c8916c4c876808bac33a4feb7a65b5"
-    sha256 arm64_sequoia: "a828a223c356a0c6a941861db422a549fb53e16884b93eb91c10f2b7904f3c11"
-    sha256 arm64_sonoma:  "88755a2e5344480e895198785e58875b2766ca46bfbac3eafe017cbc58a8aa29"
-    sha256 sonoma:        "5c8149a8731b4bc904ae283f268d05d53201fd6508afdad187c0bff2730cfccc"
-    sha256 arm64_linux:   "5a7b3b9d43b9e8f34517bb3308928a64eb3bbaa601d1ec971b6f1186cca6efba"
-    sha256 x86_64_linux:  "69072aa5a6dfa3054066e717a4bd877df200586e530479bedc7a423052385034"
+    sha256 arm64_tahoe:   "559514ccb42088b161a8e5b31bf8fce39f3f2f619fd58cadcb98f368a7e88fbc"
+    sha256 arm64_sequoia: "574b837bd16cfb8ff8d09b569e0355fb6560d897517cbf4c3c8f77741326da66"
+    sha256 arm64_sonoma:  "85a82ebce6e60089679b0af9f646c6d415134afcf8c5890d044669b0fa73da57"
+    sha256 arm64_linux:   "2c9e56afec45bc11f7151ea20f1a22c30a0b09db7ddca9038c0a4e288912b12d"
+    sha256 x86_64_linux:  "d2f9be3fe880babe3bd0e74559fd888c4d0f5d40d982d570f7c603005111ce33"
   end
 
   depends_on "pkgconf" => :build
@@ -46,8 +45,8 @@ class Netpbm < Formula
   resource "html" do
     # Rolling release, latest revision also documents previous software versions
     # NOTE: Keep "revision" and "version" in sync
-    url "https://svn.code.sf.net/p/netpbm/code/userguide", revision: "5287"
-    version "5287"
+    url "https://svn.code.sf.net/p/netpbm/code/userguide", revision: "5316"
+    version "5316"
 
     livecheck do
       url "https://sourceforge.net/p/netpbm/code/HEAD/log/?path=/userguide"

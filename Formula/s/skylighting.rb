@@ -25,8 +25,14 @@ class Skylighting < Formula
     depends_on "zlib-ng-compat"
   end
 
-  def install
+  deny_network_access!
+
+  def fetch
     system "cabal", "v2-update"
+    system "cabal", "v2-install", "--only-download", "--flags=executable", *std_cabal_v2_args
+  end
+
+  def install
     system "cabal", "v2-install", "--flags=executable", *std_cabal_v2_args
   end
 

@@ -2,8 +2,8 @@ class K3sup < Formula
   desc "Utility to create k3s clusters on any local or remote VM"
   homepage "https://k3sup.dev"
   url "https://github.com/alexellis/k3sup.git",
-      tag:      "0.13.12",
-      revision: "ce927dd148cbc42f75fb3dd44f8836b4d3f9a0e0"
+      tag:      "0.13.13",
+      revision: "2fa773c9db8995a193d9ec7a79db00944931525e"
   license "MIT"
   head "https://github.com/alexellis/k3sup.git", branch: "master"
 
@@ -13,12 +13,11 @@ class K3sup < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "28a9ee3f378c4c3d7779394f1874f928c4cf5998e5872b6cedc81b368e632a6c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "28a9ee3f378c4c3d7779394f1874f928c4cf5998e5872b6cedc81b368e632a6c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "28a9ee3f378c4c3d7779394f1874f928c4cf5998e5872b6cedc81b368e632a6c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ccfabb4d5060daf24b3be3459208a056ea73a7e2dd05d6bfb4dbcf7c050e180d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca5bcf145ad386bf836f92cfdd57aeae600d146bf6b9de7b57d7be4a4d5b900a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f0a1700b591de02276fcb18db949915000da6612f72a954c127fc49a1344e5a7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8e7d9ce78ed5d93e59185b0c00949d329ee5104f942de2faafb27804f6a8d8f7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e7d9ce78ed5d93e59185b0c00949d329ee5104f942de2faafb27804f6a8d8f7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e7d9ce78ed5d93e59185b0c00949d329ee5104f942de2faafb27804f6a8d8f7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "713f366228e5eb09801d6f6336bba0beb2b703a52ffc87b6df4ad8063106a31c"
+    sha256 cellar: :any,                 x86_64_linux:  "a6e20f89629c4818fbc4a4b9f6045fefa20721bdb4f646b616303b509110d7eb"
   end
 
   depends_on "go" => :build

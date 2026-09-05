@@ -48,6 +48,12 @@ class Hevi < Formula
     type :backport
   end
 
+  deny_network_access!
+
+  def fetch
+    system "zig", "build", "--fetch"
+  end
+
   def install
     # Revert the version update patch
     inreplace "build.zig.zon", '"2.0.0"', "\"#{version}\""

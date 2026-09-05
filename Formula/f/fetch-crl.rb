@@ -1,8 +1,8 @@
 class FetchCrl < Formula
   desc "Retrieve certificate revocation lists (CRLs)"
   homepage "https://wiki.nikhef.nl/grid/FetchCRL3"
-  url "https://dist.eugridpma.info/distribution/util/fetch-crl3/fetch-crl-3.0.23.tar.gz"
-  sha256 "077097aee513ac8e892bde196744c49502ee8c88c8d94740db1a3153d20d3ceb"
+  url "https://dist.eugridpma.info/distribution/util/fetch-crl3/fetch-crl-3.0.24.tar.gz"
+  sha256 "6a109c3cd93531e5fbd9e3fc4cef5cdda4a553c31e983507cead72a145627fa7"
   license "Apache-2.0"
 
   livecheck do
@@ -11,18 +11,11 @@ class FetchCrl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "9d7e1263bc12cd3fe2919e2179c5e53e0f11ed1d38d45e08d612ec870fca65c8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "52ab61a76d3a769a87f1f61f0d4c22ff747180d99afb62ad4e91a0a1d8b957af"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7677617f4cba5505e09c4ba9200801b8633cf95a56f6c242ce137ae217a5c967"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cefc451865fffbb827a6c2cb4603960bd672a69dca19b512811912bbb6cdc83a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cefc451865fffbb827a6c2cb4603960bd672a69dca19b512811912bbb6cdc83a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cefc451865fffbb827a6c2cb4603960bd672a69dca19b512811912bbb6cdc83a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7677617f4cba5505e09c4ba9200801b8633cf95a56f6c242ce137ae217a5c967"
-    sha256 cellar: :any_skip_relocation, ventura:        "cefc451865fffbb827a6c2cb4603960bd672a69dca19b512811912bbb6cdc83a"
-    sha256 cellar: :any_skip_relocation, monterey:       "cefc451865fffbb827a6c2cb4603960bd672a69dca19b512811912bbb6cdc83a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cefc451865fffbb827a6c2cb4603960bd672a69dca19b512811912bbb6cdc83a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "7a73a914498af4f926cba98dd81c1fce335d36ca25ed0561650ff5a28ab4ab14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad140d4dcb26765b4ab846846e7a2a0a2cd422405a123d1ad0b11c02f38193da"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8dd6f07a8c4f8a431947dc62fb4227d2533b8b8109e5846a40ff0921cd7ab279"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8dd6f07a8c4f8a431947dc62fb4227d2533b8b8109e5846a40ff0921cd7ab279"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8dd6f07a8c4f8a431947dc62fb4227d2533b8b8109e5846a40ff0921cd7ab279"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b1e966c1cc59d653cc3873e176c93e166d6c1024b039975617bf67b5f23452ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe090b6633c495b997db7697b0576524d9b283b2d036dc62cb4ff494afd20dd5"
   end
 
   uses_from_macos "perl"
@@ -70,11 +63,10 @@ class FetchCrl < Formula
 
     if OS.linux?
       bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"]
-      sbin.env_script_all_files libexec/"sbin", PERL5LIB: ENV["PERL5LIB"]
     end
   end
 
   test do
-    system sbin/"fetch-crl", "-l", testpath
+    system bin/"fetch-crl", "-l", testpath
   end
 end

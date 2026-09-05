@@ -1,18 +1,16 @@
 class Argus < Formula
   desc "Audit Record Generation and Utilization System server"
   homepage "https://openargus.org"
-  url "https://github.com/openargus/argus/archive/refs/tags/v5.0.2.tar.gz"
-  sha256 "1718454ac717fe5f500d00ff608097e3c5483f4e138aa789e67e306feb52bafb"
+  url "https://github.com/openargus/argus/archive/refs/tags/v5.0.4.tar.gz"
+  sha256 "9c3863fd44fd2912dd763002fbe733259564b00b9b7c66b2e9b970bf2a41232d"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7c1a76bb7c5737f627ebfc27f321fc34cedc903ae21a33c0a9280529dce6917f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f0dea329a17b51f48861d6dbfd53900af81bb75bcd9dd173b8bef89e41a978e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "823afbc6210ecbc3bb273fefd593ee7d3698c8115a3469e1829c902f4c64435e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9216f8cbb95b5f44214aca06da967e5eb97ebd42667c340504bfc04da72bd5cb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d84ccbdbdb94cb8281f0e2b529b7389a961f31c86f3fc0fd678a9502460d096a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9988cefee9faa56b8626339270477793a75757df731e86169db368542a1360ad"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a03777617d9463528bbcbcde53fb41c7e71714d3cbea88a8e879867d414457a7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "33c4cd6f9ccac086d5188f7129c2f18f34067a04fbd180dcf75965fc987fe0f2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fb10a12ad665abbac41da441f9befcc2c2ad07decba71626d98dcb7e37a5b3f6"
+    sha256 cellar: :any,                 arm64_linux:   "1057d398b7a18fade04635a46dfbe15d9d102bee9ffe0aef67c727fa209bdc38"
+    sha256 cellar: :any,                 x86_64_linux:  "9760a0bff8b21d1a0e537cf3fa3c3f8cb08ceab7ae2386da088715ef4b61baee"
   end
 
   uses_from_macos "bison" => :build

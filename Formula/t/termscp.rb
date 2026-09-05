@@ -2,19 +2,17 @@ class Termscp < Formula
   desc "Feature rich terminal file transfer and explorer"
   # https://termscp.veeso.dev is not accessible, upstream bug report, https://github.com/veeso/termscp/issues/420
   homepage "https://termscp.rs"
-  url "https://github.com/veeso/termscp/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "cf3570c396ba36987059729f2704a88b87e4f154914062cf390b038694496be9"
+  url "https://github.com/veeso/termscp/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "fe35ae14d72a3e40f43532c44ffbced9667ca515c82b93ce2b4398b768fd1113"
   license "MIT"
-  revision 1
   head "https://github.com/veeso/termscp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "a1aa00689511a407bb92aededa05ccc8342a2b668b73c1bc2fb1405c4ae78719"
-    sha256 cellar: :any, arm64_sequoia: "371b69fcb547e4e5840ce74d631b9fcb530f9886db59a5ef310ced4ba9356a7d"
-    sha256 cellar: :any, arm64_sonoma:  "f54a5b9bae4d01919976d807edd02105ee39a48e49ece8a249e84ae85ef1e647"
-    sha256 cellar: :any, sonoma:        "3e1e60e1f3569e7ddfa67984c2a6a880769a330ed40eb1c7b6fcd65e35533155"
-    sha256 cellar: :any, arm64_linux:   "978de2068124bac2aacf04c4cb34707e9f3508771b1b3da34ec63254804d683a"
-    sha256 cellar: :any, x86_64_linux:  "7bb91b296943f71c73036f4184583688b4b9237f89d7781cef8c302b0fc5256f"
+    sha256 cellar: :any, arm64_tahoe:   "66ffc3b3b471ef4ce25c5e3d2671288408463b343933406fa7b29cdbde4ab83c"
+    sha256 cellar: :any, arm64_sequoia: "7efb6875872adf0d7581f5d4a1768205bc12eefb2b573e4bb1eedde435605888"
+    sha256 cellar: :any, arm64_sonoma:  "297b0c32b09e07d5a03a7ba59d0c508c09ab9ce24feebaa240401e0c23e56e27"
+    sha256 cellar: :any, arm64_linux:   "62a49ec5f6d76aae853fd84563201e50c8e7e3104cd556b018280c34da05208e"
+    sha256 cellar: :any, x86_64_linux:  "bd7c8fc286d3a4e9672c91ba3255f5f0c34ecfc088ff41d1248f5fb537e78035"
   end
 
   depends_on "pkgconf" => :build

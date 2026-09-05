@@ -1,18 +1,17 @@
 class Geesefs < Formula
   desc "FUSE FS implementation over S3"
   homepage "https://github.com/yandex-cloud/geesefs"
-  url "https://github.com/yandex-cloud/geesefs/archive/refs/tags/v0.43.8.tar.gz"
-  sha256 "66383e8a6162e389037135482e93ebe6d04fb0451f98e081d87b089c94fb7ec0"
+  url "https://github.com/yandex-cloud/geesefs/archive/refs/tags/v0.43.9.tar.gz"
+  sha256 "beee3771a2bbe652c49f9e8048b4f3e1ef2f606432d496e8de574c9355cb2dee"
   license "Apache-2.0"
   head "https://github.com/yandex-cloud/geesefs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dab68949dbc5d1e1873b97d1213bfba8dd988e9a4d344db455b102392eb08385"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2ba5f42e51f5d2d7640eb195909313c1b45261952c252142de1789ad971a7d42"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5671be389e2dba3a15d1fba6632fe0bd0c35f8b56c5771ce3dbc08ba144efc6b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d8297b5bab027bbf2aa10b5cf1b015f7adde5057e1f994767118e0270e77bccf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "22d8bf3ee942cfd12cccfccac0f21d2b4c734151a24ea572095aaf588bc734c0"
-    sha256 cellar: :any,                 x86_64_linux:  "e59de261cd99aac92f91dddaf07f62bf4e6847d8ba2f34463722c405261259f6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "09f67dd31ffa1ea952cd08bafd3bd0c7986d207b32308b4accf8d2910c3bcc23"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "445329938ca4cb40e01cf61cc8ba9f0f1d3d6e15a548575d6e8edb358b8f0554"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9e5f7ba6258e767062ec7b758ae8e27c7b20b86e59b42ab77e99ede15fb1cec5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "34806013234398e8e8f7d71bab559e60972f57e68f15d8d63aca071a204b423a"
+    sha256 cellar: :any,                 x86_64_linux:  "b66ab0518c8bcc6ecc1e1c9b43e83824d8fb9ac8eaccdb886cf0cffc622124fd"
   end
 
   depends_on "go" => :build

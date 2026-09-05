@@ -7,11 +7,11 @@ class Tartufo < Formula
   url "https://github.com/godaddy/tartufo/archive/refs/tags/v6.0.0.tar.gz"
   sha256 "ba84bb6192a3647a0dd2f8b4c08c7aff46e8d5bc742e13ee1714477ae8ad7787"
   license "GPL-2.0-only"
-  revision 6
+  revision 7
   head "https://github.com/godaddy/tartufo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0df723607f2d50145cdb4bc3edba25a4c8b20ecd0e148a168dcf11a2a58fe3e8"
+    sha256 cellar: :any_skip_relocation, all: "90e5b001924b051af1ffba6f5e2906bf8aa0616ae662439dd8d46c94cf3eefc9"
   end
 
   depends_on "pygit2" => :no_linkage
@@ -27,8 +27,8 @@ class Tartufo < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "gitdb" do
@@ -37,8 +37,8 @@ class Tartufo < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/26/d6/5f358ff283325580c2003a6d953aea18cfe10ae87b46f5ebc80fa3a386dc/gitpython-3.1.58.tar.gz"
-    sha256 "621416df10ef3fd0e19fabf9172ddeed0fa704d353d04f194eec56a625a95b22"
+    url "https://files.pythonhosted.org/packages/6f/61/3285044215fb596bf093e39ccb96ece0a1076a8ca57a61e069a6a33cdb1b/gitpython-3.1.61.tar.gz"
+    sha256 "f51c24d8c0f733a195447385f5774a5dfe8767f5acfd7994a33755644c6ecc95"
   end
 
   resource "smmap" do

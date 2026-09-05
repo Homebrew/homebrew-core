@@ -30,7 +30,7 @@ class Mas < Formula
 
   def install
     ENV["MAS_DIRTY_INDICATOR"] = ""
-    system "Scripts/build", "homebrew/core/mas", "--disable-sandbox", "-c", "release"
+    system "Scripts/build", "#{tap&.name}/#{name}", "--disable-sandbox", "-c", "release"
     (libexec/"bin").install ".build/release/mas"
     bin.install "Scripts/mas"
     system "swift", "package", "--disable-sandbox", "generate-manual"

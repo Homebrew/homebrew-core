@@ -1,17 +1,16 @@
 class Sundials < Formula
   desc "Nonlinear and differential/algebraic equations solver"
   homepage "https://computing.llnl.gov/projects/sundials"
-  url "https://github.com/llnl/sundials/releases/download/v7.8.0/sundials-7.8.0.tar.gz"
-  sha256 "69ec92653e998e4841b59d363b3abf21299251991390f52917402737164ca574"
+  url "https://github.com/llnl/sundials/releases/download/v7.9.0/sundials-7.9.0.tar.gz"
+  sha256 "13f898a27b48fe3449483f9e438a800ed545abf93bc2e2ceec2d1e00ae8db5ef"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "e402f0af1b35c067a78c4cc3c5ce786ef1de199ff95c279520ff4320d55d477e"
-    sha256 cellar: :any, arm64_sequoia: "f276618c25e165819a634d92ddd457ffed2df3fdee6d9a79b24ac21864d95697"
-    sha256 cellar: :any, arm64_sonoma:  "766ff5217faa01994079383f061cc029c7a4ea1d2e3bf0f72c00b52f0d15046c"
-    sha256 cellar: :any, sonoma:        "21cbec7b940c651ec5dac8afc440b9a354439016f2da761f6948fb306d8cdc8d"
-    sha256 cellar: :any, arm64_linux:   "8e0502e923b081b68263e25447d0a60e1d57c47c3033267a71e01de2ba07e1bf"
-    sha256 cellar: :any, x86_64_linux:  "d8e2323ab2d8339c1cfbdb60123fbeea16774c5ab19d160246a3ac0b62d1f5d4"
+    sha256 cellar: :any, arm64_tahoe:   "7e73351e64d9d93d9df664b0b57233ac5fcdc3c180ff2aca85ba158af478ba08"
+    sha256 cellar: :any, arm64_sequoia: "1851856136d77acc4d206f38a7340429d975046bcc57c92e49c934b3eb2a2955"
+    sha256 cellar: :any, arm64_sonoma:  "4ba3ce27952cedc18da261da008b6750345887675cb48d3a0bef975b8a5bdd47"
+    sha256 cellar: :any, arm64_linux:   "99c4eff4d5690e328568ff6faf650e0b72a71bc024c80e4a69f75601ee045375"
+    sha256 cellar: :any, x86_64_linux:  "41ed04d600eee6b797e58d58bbe8435248c249e313f90d02bc09cac2aea1c0a8"
   end
 
   depends_on "cmake" => :build

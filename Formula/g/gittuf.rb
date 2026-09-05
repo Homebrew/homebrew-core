@@ -1,18 +1,17 @@
 class Gittuf < Formula
   desc "Security layer for Git repositories"
   homepage "https://gittuf.dev/"
-  url "https://github.com/gittuf/gittuf/releases/download/v0.15.0/gittuf.src.tar.gz"
-  sha256 "b9fce302e215a2f5c374658e4f24730a800f52cba71aff0185bff208c44404de"
+  url "https://github.com/gittuf/gittuf/releases/download/v0.16.0/gittuf.src.tar.gz"
+  sha256 "9044c6a11fc810ab91157e8811610297518486d5dc0e7725f1695e98b60cd5b4"
   license "Apache-2.0"
   head "https://github.com/gittuf/gittuf.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "addf01163361488d372ae51d5d725a46eab073131dcb506fc1093bda003f3c30"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "addf01163361488d372ae51d5d725a46eab073131dcb506fc1093bda003f3c30"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "addf01163361488d372ae51d5d725a46eab073131dcb506fc1093bda003f3c30"
-    sha256 cellar: :any_skip_relocation, sonoma:        "04f9d5fa97cb4c403f8283d7c46ab7dc2189d6ea0e08524e73ce84a499e806fa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0def05cb93bf136f1b8f1a03f17b03c1ba26336dc690627fa0f1277be7e84731"
-    sha256 cellar: :any,                 x86_64_linux:  "fe06b5d7f4910677de83a9ced9c6303c7a6d399673edbe6f7f9e1b2ec028435e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c8701fa8fc6b256f652f6e6db9c1283386e6a39a6b874e43aec9051b5786a63a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8701fa8fc6b256f652f6e6db9c1283386e6a39a6b874e43aec9051b5786a63a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8701fa8fc6b256f652f6e6db9c1283386e6a39a6b874e43aec9051b5786a63a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c6d0677fa83c63a1a849bd90098a320b7ec1e55b6fc85f3ff2c329faaf16a91c"
+    sha256 cellar: :any,                 x86_64_linux:  "5ff544a07b8d8f4c780d18b785f56e75fe8eada71cd5c022bc67995ba4b5e06a"
   end
 
   depends_on "go" => :build

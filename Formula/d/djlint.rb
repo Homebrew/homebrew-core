@@ -3,26 +3,25 @@ class Djlint < Formula
 
   desc "Lint & Format HTML Templates"
   homepage "https://djlint.com"
-  url "https://files.pythonhosted.org/packages/5e/61/b8ad7ed080dd3e6a119e37a3ae2bf26e8a4dc4a06b4d97a22243fa50225a/djlint-1.44.2.tar.gz"
-  sha256 "29944d512818b59d9a1c4ab31851143b456edd327f892329bd3ee3cf7d5da4e9"
+  url "https://files.pythonhosted.org/packages/18/8d/a93d4a0211c475276870333ac8353549e46f16ad1635794d6125be83b1c1/djlint-1.45.0.tar.gz"
+  sha256 "f1e931ffeafc6b807837aa0ea1db0d090ac10df9a8f9eb3f7b6558f802fde4f8"
   license "GPL-3.0-or-later"
   head "https://github.com/djlint/djLint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "bfdf47854533e9eb4a735772feeb609b53b523783e6848875f77439062d10535"
-    sha256 cellar: :any, arm64_sequoia: "4fa0800f7f5419566d78a23ffdce6f7343c67873b55a531e59289879ec0262a3"
-    sha256 cellar: :any, arm64_sonoma:  "3024a9760c9ac176a4be6296cf53fb19d0f249d0e21a1656c947a93c7baee850"
-    sha256 cellar: :any, sonoma:        "55b727bda10c302fc9966f8e12ca074573da2e4eaa3ef1a8952910b44c08f154"
-    sha256 cellar: :any, arm64_linux:   "432b280437ebfcada0e83682c00fbe774e627712e76c4833ec4825ff5da029f3"
-    sha256 cellar: :any, x86_64_linux:  "62319f044acc3d6fd0656d612e16aa322aed904308235b5dc9bf569d33b94f23"
+    sha256 cellar: :any, arm64_tahoe:   "2ac80e17bd017924523f9e1580f578ed15faf278e59a67be48565ba7aab62460"
+    sha256 cellar: :any, arm64_sequoia: "48ad82c3b78d4d59f513d49924a8a2e0d78d2bfb3f3f25879f88fc1ba87c2b24"
+    sha256 cellar: :any, arm64_sonoma:  "d0c23fe486e7be2060164cf07a0df3be46b245fe638fde8dcf1832834acd9faf"
+    sha256 cellar: :any, arm64_linux:   "6a16909235916156a19093643646c0d77937cb19215adcb72916756248ede352"
+    sha256 cellar: :any, x86_64_linux:  "3afa73bedc84ab4a87223824d5b0a01ae3c72cab76d72f4d2ee79c4479acbcbf"
   end
 
   depends_on "libyaml"
   depends_on "python@3.14"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "cssbeautifier" do
@@ -56,8 +55,8 @@ class Djlint < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/20/98/04b13f1ddfb63158025291c02e03eb42fbb7acb51d091d541050eb4e35e8/regex-2026.7.19.tar.gz"
-    sha256 "7e77b324909c1617cbb4c668677e2c6ae13f44d7c1de0d4f15f2e3c10f3315b5"
+    url "https://files.pythonhosted.org/packages/19/c1/6b30b775c7bcc6cf6506a4d4741c2123e8d99cd50f3fe8cbd731f5fef526/regex-2026.9.3.tar.gz"
+    sha256 "aabd43208e335f4c3f0b56de3464b066dd425983a58f6eeb5738bcd7465403db"
   end
 
   def install

@@ -1,17 +1,16 @@
 class Fselect < Formula
   desc "Find files with SQL-like queries"
   homepage "https://fselect.rocks"
-  url "https://github.com/jhspetersson/fselect/archive/refs/tags/0.10.2.tar.gz"
-  sha256 "3a51225c41ff0fa460abdbf30cb7434769454cbcba8d717ad24a5c8fa005485f"
+  url "https://github.com/jhspetersson/fselect/archive/refs/tags/0.10.3.tar.gz"
+  sha256 "e2dc2d40c58c273a6e9efece80ad14dc05f07ad01bbafd0fba5da3ebd73464e1"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "57d3f87a0ee032c66d56dabf0bdbdf7e9cda6832c465fadce407d9f5763f79bc"
-    sha256 cellar: :any, arm64_sequoia: "0561f52ae184df59f48422ff1b4cb2e4f88eb7c624d6f0d26563a77ccac352a5"
-    sha256 cellar: :any, arm64_sonoma:  "080e0c9eb47d1a2b6b2d82534a2ed1f2ca5eca2c7d0f2f77213e9e7f6ad14acb"
-    sha256 cellar: :any, sonoma:        "86dd9fd4fcb221b18061b6103c5acb730ca5e817edb10974e49544b2ccbc1003"
-    sha256 cellar: :any, arm64_linux:   "955cdab05fc9e960020abbc7c376dbd34d5c4f29ffaf5bc7cf376617a3eb216d"
-    sha256 cellar: :any, x86_64_linux:  "f7c021a874ba0ec1cdf5cf9dc5daa1cfff815d70ddbaf3bdf0ee12e1383853dc"
+    sha256 cellar: :any, arm64_tahoe:   "99cec9b7bba4d90fca104cf8949826a97849d041f2f052007f5fcedf32a1d6c5"
+    sha256 cellar: :any, arm64_sequoia: "42f58f785525bb87984c994713ffa21a44a4ceabfeb812c6548a8d1570bad3fe"
+    sha256 cellar: :any, arm64_sonoma:  "5c79c29b248651ff890eb213928065f46d0b36359bdbfe1d8fa41bbf79bdb75b"
+    sha256 cellar: :any, arm64_linux:   "614ab046a0b92ee63de2494eb6ab0cbbe8d8ffabedb77e8666325938dcd90b75"
+    sha256 cellar: :any, x86_64_linux:  "1b63add6068e7da53581b051d2c290c7a187ae91a7d6c7ea1c675964587a5f90"
   end
 
   depends_on "cmake" => :build # for libz-ng-sys

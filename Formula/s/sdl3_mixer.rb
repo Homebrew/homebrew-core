@@ -4,6 +4,7 @@ class Sdl3Mixer < Formula
   url "https://github.com/libsdl-org/SDL_mixer/releases/download/release-3.2.4/SDL3_mixer-3.2.4.tar.gz"
   sha256 "182a07c745375e113dc740d43964ff21b0be29f29f59876c4dbc4db3d32f6901"
   license "Zlib"
+  revision 1
   head "https://github.com/libsdl-org/SDL_mixer.git", branch: "main"
 
   livecheck do
@@ -12,12 +13,11 @@ class Sdl3Mixer < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "1ef6a957df04b6548af733489c732b70e084004b01d2d4694a3a64107c83a05e"
-    sha256 cellar: :any, arm64_sequoia: "1e5166b7f478f5ecd11440db850c654cfd530d92297b95bdf62d3ea5f629bf8e"
-    sha256 cellar: :any, arm64_sonoma:  "07ee48701fe1dbe1b97a184707f1f934687db8491f115bf50f09fdee445f7c5b"
-    sha256 cellar: :any, sonoma:        "afa9f5f9b0d1fffc3f2646cb96b0dd775e8aec5bc2ad5f0fdd11d83a8178a29b"
-    sha256 cellar: :any, arm64_linux:   "b03314551f619a0c94fa635d2e24581a009b16d6f239703c6015bb5d72a0a679"
-    sha256 cellar: :any, x86_64_linux:  "8f757d6e85692cad2e9eea61fabea45d12f487cdf6a62688b47c7a1bf19b7e6d"
+    sha256 cellar: :any, arm64_tahoe:   "d8bbaa3d8355b9e72f369795d4b7a6b3f695db320f7c94711be608b08ea5e38d"
+    sha256 cellar: :any, arm64_sequoia: "56f0a34fbcc4589982050b06868a9687a40941e40ceb14d6cc80464f1c20d496"
+    sha256 cellar: :any, arm64_sonoma:  "0b009e0ddca72e010d8eafdc7d34e3e8dc4a655c1b789771883b5242a7f0f65d"
+    sha256 cellar: :any, arm64_linux:   "3d97780e90f45f53b9060a5d7368d19d87c129ba4c671be4a139348e243d2b4f"
+    sha256 cellar: :any, x86_64_linux:  "1ae54a07d87e9e8ec4c1dccb5333c86b5b8d6cf17dd0f823a9d9c830c4661b67"
   end
 
   depends_on "cmake" => :build
@@ -35,7 +35,8 @@ class Sdl3Mixer < Formula
   def install
     args = %w[
       -DBUILD_SHARED_LIBS=ON
-      -DSDLMIXER_DEPS_SHARED=ON
+      -DSDLMIXER_STRICT=ON
+      -DSDLMIXER_DEPS_SHARED=OFF
       -DSDLMIXER_VENDORED=OFF
       -DSDLMIXER_EXAMPLES=OFF
       -DSDLMIXER_TESTS=OFF

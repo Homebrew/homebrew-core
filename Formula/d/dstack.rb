@@ -3,17 +3,17 @@ class Dstack < Formula
 
   desc "ML workflow orchestration system designed for reproducibility and collaboration"
   homepage "https://dstack.ai/"
-  url "https://files.pythonhosted.org/packages/a6/c0/d307a3d8637c3311b7d651507cd33ff987e079d6b3479fe584258b953cf6/dstack-0.21.3.tar.gz"
-  sha256 "60858b3ae4222b40187f62a7cbb127187aed7318bd7dd565f65baeafa542e370"
+  url "https://files.pythonhosted.org/packages/e9/92/1de831f4c4ed159c64a47db619795af55e5bb4f8c6a0660edd580a6eee2e/dstack-0.21.5.tar.gz"
+  sha256 "2fa62fc208bed20098089e2b10fd18ef87b53bc7f32b89bd39d39823f8f877e6"
   license "MPL-2.0"
   head "https://github.com/dstackai/dstack.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "13619d7c59e08158a8c0658031fad09efc79c7f53b3a0cc87e972b91e2cca422"
-    sha256 cellar: :any, arm64_sequoia: "8f2916c2a64ca7d1dfad9d9e9091256249b0a3cff648966077be768bc2083c67"
-    sha256 cellar: :any, arm64_sonoma:  "81e4f0fc3c51def6ac7ced7712f963503c8dc96bf2d9234338c9d74623f5284a"
-    sha256 cellar: :any, arm64_linux:   "18f0dd6f1f4f8404b49803712359fd9a87ed5bfe22faec9e57a2341ebdfd009c"
-    sha256 cellar: :any, x86_64_linux:  "e4924414fb4bbc8b513db944a265c7c399d4e4681f1bc685cc65346faccc4adb"
+    sha256 cellar: :any, arm64_tahoe:   "99502d9778d2e363f3eba3437f7383e5024a7a71630421fcab026fc4eaa6684a"
+    sha256 cellar: :any, arm64_sequoia: "d8ff833f0aa79924ed6ca25729d259d31a635006e43da730d782c323d0bf26c6"
+    sha256 cellar: :any, arm64_sonoma:  "fef78556055c9f0e61d3a37f17cab824ffc3955e915b994a7d8c1dd9015ee4af"
+    sha256 cellar: :any, arm64_linux:   "95b116adccb22ff609b20841713d2ff804bd1c62df56c081af9bd3d9c255dacc"
+    sha256 cellar: :any, x86_64_linux:  "8d6ac60fb902ef07532bf4b8d72ee1a74ecf89ebecc712e1e176d9b4d56e7996"
   end
 
   # `pkgconf` and `rust` are for bcrypt
@@ -61,8 +61,8 @@ class Dstack < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/61/cc/a381afa6efea9f496eff839d4a6a1aed3bfafc7b3ab4b0d1b243a12573dd/anyio-4.14.2.tar.gz"
-    sha256 "cfa139f3ed1a23ee8f88a145ddb5ac7605b8bbfd8592baacd7ce3d8bb4313c7f"
+    url "https://files.pythonhosted.org/packages/ea/9a/c15a60547004a3f3cea20296c934f827ddd7bdba225a2e7e9fcb5ec48c80/anyio-4.15.0.tar.gz"
+    sha256 "b5c620ed540725e2579c31b17bb995b3bf02c9281c9cace04c7d186380bab85e"
   end
 
   resource "apscheduler" do
@@ -141,18 +141,18 @@ class Dstack < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/60/41/7ac74a53ca5f59875324394e219f4494309c513df6d05bed9ac4c6c82a1f/boto3-1.43.81.tar.gz"
-    sha256 "62ecf695088e06f37500d6cc49a240dc1331379bd5ae992d185fef212038ca29"
+    url "https://files.pythonhosted.org/packages/5c/0c/b14374e9458030076cd22ff9381cf86d170f31b648fd901db1d88011094b/boto3-1.43.87.tar.gz"
+    sha256 "8d9521c7c292194b8ce9fb61043d52e45cdba29b5f690981f3eb5e75103ba57d"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/e2/27/11f888f4dd7d725b3744b73dcaeb0797a7598126788c2bcabca4a96b9ba5/botocore-1.43.81.tar.gz"
-    sha256 "49eb02dac7eb4418ae589dc0da816d47bf40be1a7ccfdbed5f772c7a2efcf64d"
+    url "https://files.pythonhosted.org/packages/97/c4/64ebb159810a9840c57659f3ed98439bbc5680dc9708e3b08212deea301a/botocore-1.43.87.tar.gz"
+    sha256 "928598e7275fa70385d7f694d60d59afe115a0b914cc699dbf3eb60954c23bf1"
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/70/d2/47e8bc06fe2a06d3f5bdf20f1126ab66c4e99dc48d940e7ba873f7ac7131/cachetools-7.1.7.tar.gz"
-    sha256 "a3e2a00b14d8f8a6b70c1dae7b4685e7ad3bc965c5b42124a2d6ce895da6cf50"
+    url "https://files.pythonhosted.org/packages/4b/39/9a4689914dd907915cee74733b95888fc1d8a21aad47a24a0a2deec73ac4/cachetools-7.1.8.tar.gz"
+    sha256 "1221d547a0b24b7f26fa891d40d488b5258beab9aebd8ed68c729be3af849c43"
   end
 
   resource "charset-normalizer" do
@@ -181,8 +181,8 @@ class Dstack < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/6d/30/03b03951873a1a0ffc7e8ca0e10c15597b59e8d0e39260704cd2ea087bc4/filelock-3.32.4.tar.gz"
-    sha256 "2bde2e4cf732e0153406d8a7bc80620ecf5e621fe0d25e41143c4e3b4733ff30"
+    url "https://files.pythonhosted.org/packages/0a/a0/50c2c0ce5e74d7721bbb1b19a26ebd339aac5878553a6e35308c2f31f935/filelock-3.32.5.tar.gz"
+    sha256 "f6a6a28f743f9b95ce19db5abe0f376f75eb56517dff21e1a4751e2657d3e83d"
   end
 
   resource "gitdb" do
@@ -191,8 +191,8 @@ class Dstack < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/84/14/e6b1a48d831755a53c2029351fcef82e70db4a08f338daefe29d8d0cf31c/gitpython-3.1.60.tar.gz"
-    sha256 "e936431879fa85581b4311fa63492ea52251909e2d655b6529c704c904ddcc24"
+    url "https://files.pythonhosted.org/packages/6f/61/3285044215fb596bf093e39ccb96ece0a1076a8ca57a61e069a6a33cdb1b/gitpython-3.1.61.tar.gz"
+    sha256 "f51c24d8c0f733a195447385f5774a5dfe8767f5acfd7994a33755644c6ecc95"
   end
 
   resource "google-api-core" do
@@ -201,8 +201,8 @@ class Dstack < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/13/ff/c58d475046b552754a5ee24d98912506b07ea7ac7f0a434b327ad194ca32/google_api_python_client-2.199.0.tar.gz"
-    sha256 "8150816e22e01b36aa4b7523cdc1a2d2164e81c4de8a9b338785d7ecb4390ec2"
+    url "https://files.pythonhosted.org/packages/fd/e5/12024a0ae2fd39a54ff47a3868c47344ffff4ff1cd5edf4dff523c1a9fc1/google_api_python_client-2.200.0.tar.gz"
+    sha256 "82aa18b851328ea04867fd51c5a0c8da2e1b86ec45ce08487e902e7726d4ee50"
   end
 
   resource "google-auth" do
@@ -286,13 +286,13 @@ class Dstack < Formula
   end
 
   resource "grpcio" do
-    url "https://files.pythonhosted.org/packages/0c/98/304898ac4e04e2d5e4e4c2eadc178b1f2a16d5f4bc2f91306c87d64680b9/grpcio-1.83.0.tar.gz"
-    sha256 "7674587248fbbb2ac6e4eecf83a8a0f3d91a928f941de571acfd3a2f007fbc24"
+    url "https://files.pythonhosted.org/packages/e2/b1/46539f5050d7c316a13396d185451f95084a74ddc68b12d818595bef0377/grpcio-1.83.1.tar.gz"
+    sha256 "9cee6fcbf2eb57c4b49451787bfa87be8efc1ca02a0b327dd4b54d44502e362b"
   end
 
   resource "grpcio-status" do
-    url "https://files.pythonhosted.org/packages/52/fd/848dd7e009de85f8ca59999d1cc618ff8ebf7ea5636d083a47455d212d24/grpcio_status-1.83.0.tar.gz"
-    sha256 "837219c6de9afdccb6f6f72b34bc71e151a2011ef04040e3faaca746a57e54ae"
+    url "https://files.pythonhosted.org/packages/db/03/dee41fe15a9657c60397c1f215622a1f146e174367bbbb67911b62ee0629/grpcio_status-1.83.1.tar.gz"
+    sha256 "c08c8d553d6ab96effae1d923839de22926f5a316a942f48a48040e047c517af"
   end
 
   resource "h11" do
@@ -431,8 +431,8 @@ class Dstack < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/a7/e7/0553e21d25ca4d9f573135775348a372c3ec34a93a71d5f297c3bac38341/protobuf-7.36.0.tar.gz"
-    sha256 "e8e09cb0d794c6687926fa558a8a6e72aa10edb997d5ca61da0765f12a3e00ea"
+    url "https://files.pythonhosted.org/packages/86/73/f66c748df06e7fe24e658eddd600d19c4b40bad836c97ce2d0ad9851fb6b/protobuf-7.36.1.tar.gz"
+    sha256 "d0f6470f0ce2b84e3feaea2d4b816378b37ba4d4aa08a274305373de93e2d524"
   end
 
   resource "psutil" do
@@ -611,13 +611,13 @@ class Dstack < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/34/74/c6428f875774288bec1396f5bfcbc2d925700a4dad61727fd5f2b12f249d/wcwidth-0.8.2.tar.gz"
-    sha256 "91fbef97204b96a3d4d421609b80340b760cf33e26da123ff243d76b1fda8dda"
+    url "https://files.pythonhosted.org/packages/36/57/ed58088fafdf4c55a0ad6bde846502567645424d7ebf325230b9237f4085/wcwidth-0.8.3.tar.gz"
+    sha256 "d128512515fbf4612e0ff21fd6380399210318b7b54a9af59dff8454cf9730eb"
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/2c/41/aa4bf9664e4cda14c3b39865b12251e8e7d239f4cd0e3cc1b6c2ccde25c1/websocket_client-1.9.0.tar.gz"
-    sha256 "9e813624b6eb619999a97dc7958469217c3176312b3a16a4bd1bc7e08a46ec98"
+    url "https://files.pythonhosted.org/packages/d8/cb/a5abcc2891249f393827c650c6296660ce40374ac22d99ab9aea41f9d2a2/websocket_client-1.9.2.tar.gz"
+    sha256 "0fcb57545848be86992e128218fd96dd87a6769ffdb1a968dff79632b85604d0"
   end
 
   resource "websockets" do

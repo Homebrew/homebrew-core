@@ -1,9 +1,9 @@
 class Zigmod < Formula
   desc "Package manager for the Zig programming language"
   homepage "https://nektro.github.io/zigmod/"
-  url "https://github.com/nektro/zigmod/archive/refs/tags/r104.tar.gz"
-  version "r104"
-  sha256 "ae9d845a67750d5f7fae685768cc3bc9bf6de059b767502ffdd8064c5d8e4c96"
+  url "https://github.com/nektro/zigmod/archive/refs/tags/r105.tar.gz"
+  version "r105"
+  sha256 "b88a477602b63ce4f013701369ab4356ff91830915021443aa74380df474c1b3"
   license "MIT"
   version_scheme 1
 
@@ -13,11 +13,11 @@ class Zigmod < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "24411cf42bf88695a946e7316cbf83ea642e6ad3d9cd448bca43e85ff7516235"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f26bd51f9efcb3fc47df72a9d6c2ee576b0ee270d17dc03148404a8ce07b140"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9a233864aea51cfece4e00886b86c88364a008ad4e7703db66c296c7491c9c72"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e08b05a5912a0a0435d6414172f53d410caa4bf1b84152802ae39ed153057fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7dcdcc22cb83227c174cf3d36d413869e61a4b23a644bdce315d1005e6367150"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f37c874532fafe5bebe759e1d780063e8a8e1203ab0eab92397c4e51e7911bc0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc17ae0d9a279c31fc35588761117b8533f3e03c05190e7f05d8823d29f074bc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f3a25a78f5a61d2d5e1e7b828bd5532adf9e13c51b35dc78512d907cecb3ae32"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b614aa01d3a6253b86ad4c066fc24902db2e6db296d6277e899de656d5ea9d67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "456c7505eecfd41737459a8cf5d4f3f2f4a745a9e71421b6bda86fa515320e55"
   end
 
   depends_on "zig"

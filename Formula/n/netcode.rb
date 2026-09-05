@@ -1,17 +1,16 @@
 class Netcode < Formula
   desc "Secure client/server protocol for multiplayer games built on top of UDP"
   homepage "https://github.com/mas-bandwidth/netcode"
-  url "https://github.com/mas-bandwidth/netcode/archive/refs/tags/v1.4.4.tar.gz"
-  sha256 "71f9acdf5d40816f94218df624fc1746b122f38ee070d27aa7a3abf1c4321eeb"
+  url "https://github.com/mas-bandwidth/netcode/archive/refs/tags/v1.4.5.tar.gz"
+  sha256 "ac967ae1dcf97ca7e38a873a0c1ee28412d476e3040900ff1244749f7385c2b5"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "218f48a5ff16fe97ff3b86721cf9684d082395a2125149ab93a518fbc5076674"
-    sha256 cellar: :any, arm64_sequoia: "491135b7a8a11c91fb961a50555aecd15b47be36e5f68683fb9041a5abf95778"
-    sha256 cellar: :any, arm64_sonoma:  "ccfddf6634a7552ec275357e42d32ea7d6f872596a557c5dcc762d238c146f1c"
-    sha256 cellar: :any, sonoma:        "96fedc9765c4af84ceb1f684ee2d57ca26a98a24fbeb568c8f854ee0e933a6d0"
-    sha256 cellar: :any, arm64_linux:   "dd121e5e3d4e1c19f6bb21cedd532b29894a31ffe592c72cac96aa789fcb3a20"
-    sha256 cellar: :any, x86_64_linux:  "2f5c8354b173ccceda0cba8219cb7c82f810d7f6ebf3bb91bd3c488fdcb7ebff"
+    sha256 cellar: :any, arm64_tahoe:   "a4e3a853c4be4223a8acfca62720003635a5a29cdc81097de6f4c9202cdc882d"
+    sha256 cellar: :any, arm64_sequoia: "b7949db15ccdd82d6bafed71f9af53aa64ed30bd67681ac0036b5a569e15daa0"
+    sha256 cellar: :any, arm64_sonoma:  "da603a352f7c11efea96a98567402936bdf2b43bb25e2684a63c87b110d7e799"
+    sha256 cellar: :any, arm64_linux:   "c72940c57ed7ca7fa02d8a2df2235aa09297585c0fc0afa67bdbb43dbfb3d6e8"
+    sha256 cellar: :any, x86_64_linux:  "e3243bfd5c38aea83eb6d9c0073f8da8bf8e3bda99ee8a1264730510573e27b6"
   end
 
   depends_on "cmake" => :build

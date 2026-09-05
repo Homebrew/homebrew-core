@@ -15,12 +15,12 @@ class ZlibNgCompat < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b54f4ab67f4956e7d0ede376704746985e5e8cfaa97ec299b311c74eb49708a6"
-    sha256 cellar: :any,                 arm64_sequoia: "cf654aacfa54b53a5d1d3fbb73e3053fe43349253de8515f05b7070b430ba4ae"
-    sha256 cellar: :any,                 arm64_sonoma:  "b61f5de1a8bff94d6161b1289e6d4b093842cdce1b6cfdeb768f48ddd4c4dc78"
-    sha256 cellar: :any,                 sonoma:        "e449db4f2bd6dfa5bf1931f053ed2be4406a04408754e300323a8de68156a2a9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eb6df814b35273cecd7caf4291ee1a972ab1ac20d11a126b0e2db556dfc50d84"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb72c27ca6918fb29af89b1287471e381e15156212ccd0e99661ee393bde872d"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "00816346b3d80b3c1eb4cfe4244b1f386c8f6673e353d1371cb96f63bf10d950"
+    sha256 cellar: :any, arm64_sequoia: "73a98dbbff35ba8f880438081be740da8131b0e3bbfa41f01e0072d140f4a9e7"
+    sha256 cellar: :any, arm64_sonoma:  "0e134ebdd852a4a7001e4f6e3b64dc236bef23784b7cc358a876d291fb3f4672"
+    sha256 cellar: :any, arm64_linux:   "e5fb75f8592d741139b0490622f5d2b232cfefeb79397b3158aba630258da6a4"
+    sha256 cellar: :any, x86_64_linux:  "b8d7e8802092be9ecc516a0a43f35da61f3a83c73ba2e65b55419195a7ce7718"
   end
 
   keg_only :shadowed_by_macos, "macOS provides zlib"
@@ -28,6 +28,9 @@ class ZlibNgCompat < Formula
   depends_on "cmake" => :build
 
   link_overwrite "include/zconf.h", "include/zlib.h", "lib/libz.*", "lib/pkgconfig/zlib.pc"
+
+  # Uses a test resource
+  allow_network_access! :test
 
   def install
     ENV.runtime_cpu_detection

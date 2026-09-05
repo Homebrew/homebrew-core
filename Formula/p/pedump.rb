@@ -13,13 +13,18 @@ class Pedump < Formula
 
   conflicts_with "mono", because: "both install `pedump` binaries"
 
+  allow_network_access! :test
+
+  def fetch
+    ENV["BUNDLE_PATH"] = ".bundle"
+
+    system "bundle", "cache", "--no-install"
+  end
+
   def install
-    ENV["BUNDLE_FORCE_RUBY_PLATFORM"] = "1"
-    ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
-    ENV["BUNDLE_WITHOUT"] = "development test"
     ENV["GEM_HOME"] = libexec
 
-    system "bundle", "install"
+    system "bundle", "install", "--local"
     system "gem", "build", "#{name}.gemspec"
     system "gem", "install", "--ignore-dependencies", "#{name}-#{version}.gem"
 

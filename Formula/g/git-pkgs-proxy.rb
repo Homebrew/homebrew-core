@@ -1,18 +1,17 @@
 class GitPkgsProxy < Formula
   desc "Lightweight caching proxy for package registries"
   homepage "https://github.com/git-pkgs/proxy"
-  url "https://github.com/git-pkgs/proxy/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "f61c0674707563c9e6f2865c0ac17a0bc423c7998dc6e42fafd37db0cd39be72"
+  url "https://github.com/git-pkgs/proxy/archive/refs/tags/v0.8.1.tar.gz"
+  sha256 "6c11a75241d3cfe4c761d9b25dc691862206284173d23d7aa6d29c988f80ff0d"
   license "GPL-3.0-or-later"
   head "https://github.com/git-pkgs/proxy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2e2c79b3cf0f4eabf0965232d474021b33f2a397f65a34e3ad9d6cd3eb94a591"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1bb6ad74677dec0c8babcb57cef700ff75b3ae3371819dfe5301ae68da0d6aad"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8fcab8723d5615baba761a9e1f818f21ed219713ca9489d79e1219244fce5d57"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c87019672e49d709b802975782828c8243659fb12ed6d8000566e0973a592e48"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3838f5dc0d26e53f1caf1d8c2eb02d47ad5c01fb2eeaa844e247cb8b8c7d766"
-    sha256 cellar: :any,                 x86_64_linux:  "4aef56ba880d0f841050592ca9a5a3a0e95832e33d9b9e7c781878f7ccb7c82f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aa4aaa889f6efe5d370a352ecf133c9e792967a68297814fd6c1de84a4406c4a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6b486d5235c786c4da3a0dd71a561d24e9010c0669bcb7458929b3f8b5a307fe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "57810e998e2d11cc505643fd25e98fb7b76c8a49cda2fc21188e7b7f32d44fbf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc15257fbe8485700261012c843b297e677659e42943c2e24a9cccf7d7e90a3b"
+    sha256 cellar: :any,                 x86_64_linux:  "b2ea13b6f85c9ec8819ed78f9e8af06a5fff6bc2487d7f8d06d6e8fb5ae54779"
   end
 
   depends_on "go" => :build

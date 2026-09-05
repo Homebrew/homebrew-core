@@ -47,8 +47,8 @@ class Httpd < Formula
     inreplace "config.layout" do |s|
       s.gsub! "${datadir}/htdocs", "${datadir}"
       s.gsub! "${htdocsdir}/manual", "#{pkgshare}/manual"
-      s.gsub! "${datadir}/error",   "#{pkgshare}/error"
-      s.gsub! "${datadir}/icons",   "#{pkgshare}/icons"
+      s.gsub! "${datadir}/error", "#{pkgshare}/error"
+      s.gsub! "${datadir}/icons", "#{pkgshare}/icons"
     end
 
     if OS.mac?

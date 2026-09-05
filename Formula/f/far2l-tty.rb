@@ -4,7 +4,7 @@ class Far2lTty < Formula
   url "https://github.com/elfmz/far2l/archive/refs/tags/v_2.9.0.tar.gz"
   sha256 "69a5218fcfd072a2d4b99ecac8363a67d85f2fd67b65243f8ea7b239bb134ed0"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -12,11 +12,11 @@ class Far2lTty < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "0c1a7bb67310b6e1eef7b778e8643b318dd6f47c0578ec7fad44ad8573fb2d87"
-    sha256 cellar: :any, arm64_sequoia: "9e230ec7c62ccc8901b0e11efa79ff595dc60eb3db9d30ecb784625cd5432f30"
-    sha256 cellar: :any, arm64_sonoma:  "73cd40c3dcaa1c0dcf869889fed336f4e0e71863a4c312157fff07d8c4cac47b"
-    sha256 cellar: :any, arm64_linux:   "39b8fb5939286174bf2b0c7660a780f2f78a8ee876c06fa7f98feeae55849467"
-    sha256 cellar: :any, x86_64_linux:  "74bccd5d5ffd9516d4eaf30839014264931a0ef3cd07a8b37c634f428c2ca4a0"
+    sha256 cellar: :any, arm64_tahoe:   "f6db67f588a7ceb26b3ae46e301dfb09a95ae4756693015eebdc249186089c61"
+    sha256 cellar: :any, arm64_sequoia: "ada96336c256b5b41f213e06ab6b09c013a40b2adeaba7b955e21f7c40abe195"
+    sha256 cellar: :any, arm64_sonoma:  "e57778092b32763bc69386d79b59a285b4e472b75026ff78cf2796dab0009f42"
+    sha256 cellar: :any, arm64_linux:   "ae70fa9b270a901576e83cea0d384ddc160e336ab593b6d1382add6851cb2164"
+    sha256 cellar: :any, x86_64_linux:  "f7228ed886dcd1aeb18ca44a2e970577656431e9ce1e1ba84f59a76dc71a6e9a"
   end
 
   depends_on "cmake" => :build

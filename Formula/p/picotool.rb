@@ -4,14 +4,14 @@ class Picotool < Formula
   license "BSD-3-Clause"
 
   stable do
-    url "https://github.com/raspberrypi/picotool/archive/refs/tags/2.3.0.tar.gz"
-    sha256 "97aaf36800d2317683528cba5762e3d4e7a5de0cba729d28011a6ee94b3b7538"
+    url "https://github.com/raspberrypi/picotool/archive/refs/tags/2.3.1.tar.gz"
+    sha256 "07946d294ab5c474b610660c53c5d94216e4ab13555de075ed521f98afc4f44c"
 
     resource "pico-sdk" do
       # Use git checkout to allow fetching mbedtls submodule
       url "https://github.com/raspberrypi/pico-sdk.git",
-          tag:      "2.3.0",
-          revision: "98a542c1a62fb549ffb5d66a3e5892b06276b670"
+          tag:      "2.3.1",
+          revision: "079c6f39023649b154152db30f1d781e884879bc"
 
       livecheck do
         formula :parent
@@ -20,12 +20,11 @@ class Picotool < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "4bd285ece87f46f5cb4246897c5841f23b7e9496497cad36628125e704a7084f"
-    sha256 arm64_sequoia: "fec365c2892ad427846efc7fc0e4c4308bba4707e36fc0bd6cdf5a28bcf4a67d"
-    sha256 arm64_sonoma:  "019117ac178f54c58722ff1a401d6d8de12d6ff615accb48c8ce110db0f08796"
-    sha256 sonoma:        "ca3973e3d44fe2826c86f5b55abbb3bfe0f769dcc78eb9105bcc6286eb21859b"
-    sha256 arm64_linux:   "6cd1d212f061779ae3a341aab7811c3daf17c1f4f3397546d2ead512dea5691e"
-    sha256 x86_64_linux:  "a437179a646290aa7fedaee69c0d0f486882ed043d8633d85a4635fb1b96b4c0"
+    sha256 arm64_tahoe:   "7369725188e5db055acd76b7bee8cff97ab1cde39760e3f19d7c9b3122341df0"
+    sha256 arm64_sequoia: "74d05844dc6491b153f4f05564d8f0599cfec11de293b134c34f3a3ab9a1569f"
+    sha256 arm64_sonoma:  "2e7ba3ee5af3ab9f28f7757c524a0d777661064697f3760f23c7a66a19969959"
+    sha256 arm64_linux:   "c0dc4abada1def5355cbb1d2c3d9a5e2e22871a001a1c62af7528ccfc6ccec93"
+    sha256 x86_64_linux:  "5a9c06d853733783dbb809f2efcf270a4adc69ff96a390798fa15e9f4791a36b"
   end
 
   head do
@@ -56,7 +55,7 @@ class Picotool < Formula
     # from https://github.com/raspberrypi/pico-examples?tab=readme-ov-file#first-examples
     resource "homebrew-blink_universal" do
       url "https://datasheets.raspberrypi.com/soft/blink_picow.uf2"
-      sha256 "e8f8e578129ebded860ae019288b282b0a620f5ac2dfc49adedc565c73e6ad22"
+      sha256 "c2171f11f2d6a8a0b139e551c4e729f5ae3dd33625d58f94252ad5f5bef636d1"
     end
 
     resource("homebrew-blink_universal").stage do
@@ -67,7 +66,7 @@ class Picotool < Formula
          name:          blink_universal
          web site:      https://github.com/raspberrypi/pico-examples/tree/HEAD/universal/blink_universal
          binary start:  0x10000000
-         binary end:    0x100407bc
+         binary end:    0x10040494
       EOS
       assert_equal result, shell_output("#{bin}/picotool info blink_universal.uf2")
     end

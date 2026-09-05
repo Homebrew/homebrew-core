@@ -1,18 +1,17 @@
 class Adrs < Formula
   desc "Architectural Decision Record tool in Rust"
   homepage "https://joshrotenberg.com/adrs/"
-  url "https://github.com/joshrotenberg/adrs/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "b609798f653c9360782d522bd2103dde1a4268b5248637c26f7406e0c9c85526"
+  url "https://github.com/joshrotenberg/adrs/archive/refs/tags/v0.12.1.tar.gz"
+  sha256 "f8c66465ba16f8f28f5123c59a365b5b08ebb02ef6918e1e9c003bd822989bd9"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/joshrotenberg/adrs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "110097fe1ffe798286c6afaf77b7e82735f651dc2cf876c1789d66ada2553b5d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d3c01d6b208c1c6670d748738d7e040bc60873928a437a002627f04b48162d3e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2a27d02f232e8f125b4df8b36f1ea05371ea0f1ae04fa697a3b95b56f37ff09f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9db659e9cc91449b7742d14964b92a7410d4f111ab8255c0fe254a3010f36015"
-    sha256 cellar: :any,                 arm64_linux:   "af178dfa47d4b531b0808e830dd834da55b53f789d65f11fa63dc49530c362a4"
-    sha256 cellar: :any,                 x86_64_linux:  "ff9db01d8a768304e48bf8b4591b52d1e2d62d699282ab2fcb4cc2d19d9fc4ca"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ea2c0f491539b3b2af9d2dd7f13c5966566ac916f61518a4ae424eb73fcb79f0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "20aa317e45b40c32168842ef9125a3720e5432066f157a51992403c8dff8cd6a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a08a1893db70f4958c138f1d119d82daafc7d5c391b5ff7f99785f3591b07edc"
+    sha256 cellar: :any,                 arm64_linux:   "560007d9abbbe8a85c5980122d58eaa69d45be0982f0dad2a1a6796c886dd453"
+    sha256 cellar: :any,                 x86_64_linux:  "8039eb4148b671acda2e31f37302166ceba9521f725ea046476efbd31acdc94a"
   end
 
   depends_on "rust" => :build

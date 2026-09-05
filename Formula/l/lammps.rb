@@ -1,12 +1,12 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "https://docs.lammps.org/"
-  url "https://github.com/lammps/lammps/archive/refs/tags/stable_22Jul2025_update5.tar.gz"
+  url "https://github.com/lammps/lammps/releases/download/stable_22Jul2025_update6/lammps-src-22Jul2025_update6.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY-MM-DD (year-month-day) so that we get a sane version numbering.
   # We only track stable releases as announced on the LAMMPS homepage.
-  version "20250722-update5"
-  sha256 "9d1eb62c47b8bb1c2003dfe5b5e82b3ebef4223b51593f9aec2410c5ec983977"
+  version "20250722-update6"
+  sha256 "34a2526440d52f220f86d9c6537c471184edd25e1fbaa655ffa0c9d41c0ab78a"
   license "GPL-2.0-only"
 
   # The `strategy` block below is used to massage upstream tags into the
@@ -29,12 +29,11 @@ class Lammps < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "79af9bd33f8d24538cc4f1273889925a53b562bd508d59aa7a5d03e2d6f1eeff"
-    sha256 cellar: :any, arm64_sequoia: "7afb2edc693f274b479926400292e67df7a2667b76a88c7ddca59b7641a0ede7"
-    sha256 cellar: :any, arm64_sonoma:  "2028ac0a30e94617460b13b1514ec0aadba18283173787d774e175acf825388e"
-    sha256 cellar: :any, sonoma:        "cef9516136285bc9b2445bff8d9d403d8f3ce8a7abf12919080387062367738a"
-    sha256 cellar: :any, arm64_linux:   "44771f35819407189f59daec52127a5e7c9ff925fb0cb0958df1bd42dd789751"
-    sha256 cellar: :any, x86_64_linux:  "5edc3596300d3058b2af590396b8914bd9b9f764a46f6a1c0850f34a78bb2585"
+    sha256 cellar: :any, arm64_tahoe:   "b745844bc9c4955038758b18cbda5e903b422ec3fd1c08ae75c0773d23021ea6"
+    sha256 cellar: :any, arm64_sequoia: "dbc6aed23b49cdcc12db563ac674c61b7072ed25c740a140ce4e525b4c6718b7"
+    sha256 cellar: :any, arm64_sonoma:  "cfc9f2476cf72979383895645e7683a52b13d519ca0d61273488b909feed2058"
+    sha256 cellar: :any, arm64_linux:   "f92fcfd8fb346a07bf5840f7dd572aeac6304058358278c3f38ec3917fe0fde8"
+    sha256 cellar: :any, x86_64_linux:  "d666f2c16d755705448c7bfd938d0973b553fd972a478da5469c8c24bf2f5c2e"
   end
 
   depends_on "cmake" => :build

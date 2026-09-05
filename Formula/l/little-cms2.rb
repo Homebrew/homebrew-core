@@ -19,16 +19,18 @@ class LittleCms2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "bdd144e98ee16fa60a99ec45048aa06e24cc95bd16e059952f693c4c4f8f7725"
-    sha256 cellar: :any, arm64_sequoia: "d70483a699a4b0aca8000d6affd41b2fda320c0c9388bf5bf46e7b3e3472229f"
-    sha256 cellar: :any, arm64_sonoma:  "6657dccb4ec6c9a6d99255fdc226299c883b75d1a9cfe9b1650720721c1af626"
-    sha256 cellar: :any, sonoma:        "b6a008c02dff9c51ddee68a8a4cbf2b031f9ab2e6c8554d92ffbbf982a31f1ed"
-    sha256 cellar: :any, arm64_linux:   "802e142d3004bc1451352d750bfa4c932738996f89d8c0dfae67b4bd2098f985"
-    sha256 cellar: :any, x86_64_linux:  "b0b1fb427dab5505c1eb4867f2685a523c36e907b9f26ccd16e810c8fa1f427c"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "11f9fcdcbbe77b186777196971d8ba2c41526d2d96fbd02d411461df73313dce"
+    sha256 cellar: :any, arm64_sequoia: "f68c3c93b9ee63891388f6485b27c5bc2605638df36b4806bdc52f0636e8254b"
+    sha256 cellar: :any, arm64_sonoma:  "823125475a9f5bfd1f2ddda2910143aa47c018c4cd6c55867b7461553d1719e1"
+    sha256 cellar: :any, arm64_linux:   "552eb0eadd3bf6059bdf16961bc30027ea11cf1d42a75f56f06403f10d14914b"
+    sha256 cellar: :any, x86_64_linux:  "16489b671db41055ab7066193482ef9812f5eb970110eec86bd0a40620a48c49"
   end
 
   depends_on "jpeg-turbo"
   depends_on "libtiff"
+
+  deny_network_access!
 
   def install
     system "./configure", *std_configure_args

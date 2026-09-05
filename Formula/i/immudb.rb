@@ -1,8 +1,8 @@
 class Immudb < Formula
   desc "Lightweight, high-speed immutable database"
   homepage "https://immudb.io/"
-  url "https://github.com/codenotary/immudb/archive/refs/tags/v1.11.1.tar.gz"
-  sha256 "6023c79aa3216a965fbfd87b49b94e6bb8545f1eba2f88d22d42d5d4d5db2602"
+  url "https://github.com/codenotary/immudb/archive/refs/tags/v1.11.2.tar.gz"
+  sha256 "5860663e92b663d0e72c2b4cd4a995090029e7d6e3b6a678115896f757300c21"
   license "Apache-2.0"
   head "https://github.com/codenotary/immudb.git", branch: "master"
 
@@ -12,12 +12,11 @@ class Immudb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1f20b4db2f48b4bd1233a449642ec793dc27027a8c0cf7e03f67f3dd1dd48a8f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c49fe71fbc828430dfe1728b19f68f2647c5bfc2298392e88c88edd5e177124b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f403e41f8764d4d8ae551b9ed5659f7c9df1a071bc5ebb0cb3b5c9136172b4e2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "61bb499872ea9f4eb9fcffb3e3c50203b5ee0cea50596a0d952cda50d530905d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c1fb990d11cdd9950cdcbb788b8c1719c4ad0b1b12e438c54bd8e1817864b50c"
-    sha256 cellar: :any,                 x86_64_linux:  "ab77a638b28c537f56e72ab94771e4fdd924fbbf190d9eafd11927b0487a9e54"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "05a0677a94130862db77cba29cc366dbf6839802de57314a8b27d15a6daa1a84"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "17fdfefe8d6ef09fb53acfbbadce791fd0ab40d585c8ab90542d7ee0cbd3f757"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ea001725decd6a3e5a9c8634db35ae3bb2b7b6bc0e724b91c6eabef1f0472c98"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4e18996fc161ad906666306907c227009fb7420d190b1a02bbc92c4d34836b2d"
+    sha256 cellar: :any,                 x86_64_linux:  "79e2201dd7f57e476e7a3fd69104a795d6cd285d8c8b96c416badaac6d2cd697"
   end
 
   depends_on "go" => :build

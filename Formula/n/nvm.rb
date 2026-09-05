@@ -7,8 +7,11 @@ class Nvm < Formula
   head "https://github.com/nvm-sh/nvm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "74e2745fc054dbbd8df6d2bd24fe4c276f3fff4d290c35853207fd24a1ecf388"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "55321dce77899c74d7865eeb3dd0b4a67bfd5752d4190ec62cf73fea2d119570"
   end
+
+  deny_network_access!
 
   def install
     (prefix/"nvm.sh").write <<~SH

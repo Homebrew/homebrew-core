@@ -3,17 +3,16 @@ class Llm < Formula
 
   desc "Access large language models from the command-line"
   homepage "https://llm.datasette.io/"
-  url "https://files.pythonhosted.org/packages/4d/f3/6eea036e9bf54f034d2d463b1552b41d0e5cf006152717fd682673a84427/llm-0.33.tar.gz"
-  sha256 "e491db0615679a6b40b842a6e4da18de14ced6b691788bcb080d2565b6198a65"
+  url "https://files.pythonhosted.org/packages/f9/8e/5ffec2a091d4cd2691cfd0e8ba3e1904aeb1931313287cfd68f9c1db8b40/llm-0.34.tar.gz"
+  sha256 "09d0b076c4c720c4daeece6ee3a0aae76620059aced552f09589e0e0d7c5f09d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "842428bec02a1e4bbed12551b6c1e9570a90f670c4cbc5a3e22c53e436454522"
-    sha256 cellar: :any, arm64_sequoia: "3862b98ccd7e75dfa9c712bdbba20dc8330ed64a247d92dc4262a056c17207eb"
-    sha256 cellar: :any, arm64_sonoma:  "e5c7b1d321e4d1cfd5c26740fbad680a00b4b3ddad5cc3922ce79ae6e01f0b09"
-    sha256 cellar: :any, sonoma:        "18f60526a8b73e7a077b841bf4c0c4ebac9054da6b4444b6974f97b4075cebb6"
-    sha256 cellar: :any, arm64_linux:   "f32fa89a891fc0374b1d57be7fbdd0b4a6de55ad67c110349b4d9efe874d2bda"
-    sha256 cellar: :any, x86_64_linux:  "bd901566ca4dd09120cf51c3487b6ece1d38c6886e12a8a4a008eb40bc2d2e48"
+    sha256 cellar: :any, arm64_tahoe:   "3d5d81c8da923a9362ecca32cd7b7df5b2227bae2c8ea46a588c42e8fbcf9427"
+    sha256 cellar: :any, arm64_sequoia: "b414523f2ba30a023de0bceceab77e82c9b2c232ccc44c8fdc8956ca5bb4d49d"
+    sha256 cellar: :any, arm64_sonoma:  "714b33d83e176e1c5bb2e0484419f0886cd3f6e6e093cd789bb385c6fd8bfd7f"
+    sha256 cellar: :any, arm64_linux:   "4a21afe719610ab5fbaf5c300e7b01fd254dac1f48a0d931ac41f004e9fe10c5"
+    sha256 cellar: :any, x86_64_linux:  "91576105602b8174bdae40f49743d595b6a3697a6b41d9c071b2d47cb0877929"
   end
 
   depends_on "rust" => :build # for jiter
@@ -30,8 +29,8 @@ class Llm < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "click-default-group" do
@@ -70,8 +69,8 @@ class Llm < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/7d/9c/ba0c292b4032ede74c249ca314ad64eb1bb5a03a843f6e01facb02f80cd8/openai-3.3.1.tar.gz"
-    sha256 "6f22807de1a976c932cecda620e8172a8c3fdbaeed29c7f21564e0c2410edf56"
+    url "https://files.pythonhosted.org/packages/ad/ba/6d46da4232f80cb5842280e024242e6fed163418ab81bebc1c83f693bb0b/openai-3.7.0.tar.gz"
+    sha256 "e836eb7effee89df802cd0c7d1bad8de8c993976cf238c44d5b5b844f5aefd38"
   end
 
   resource "pluggy" do

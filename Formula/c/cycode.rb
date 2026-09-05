@@ -3,17 +3,17 @@ class Cycode < Formula
 
   desc "Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning"
   homepage "https://github.com/cycodehq/cycode-cli"
-  url "https://files.pythonhosted.org/packages/ce/c8/92e819590d3c38a2ea40b893b787d05d953ffdaf84ad4e19db993f9e18b0/cycode-3.22.0.tar.gz"
-  sha256 "b61f7dc1c5cd1408598d070f854c632de1849d211d46a8c7b25c746e56808bd1"
+  url "https://files.pythonhosted.org/packages/29/8c/05c4fcf8d8a7330c52c53a9f4a1b7b0bf094bc77bd25b282d8e96fea2e21/cycode-3.22.1.tar.gz"
+  sha256 "b3761f104a34df216d5f3dc17db82bc1ac4525bcb70a2b1aec1b7e063e1f3b30"
   license "MIT"
   head "https://github.com/cycodehq/cycode-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "779cf7f3a42735a05be8009b6191902942758eddf1574f05faa82eaab5bfcc97"
-    sha256 cellar: :any, arm64_sequoia: "535e9fe3d6d8d488c7f6d7767a791e355ea8c117e4e9dbb184fc9fdb334367ce"
-    sha256 cellar: :any, arm64_sonoma:  "71f9ab600819333e4a3f921f87461c92ba63d1a71e814b96e1bcf9bf624a82cf"
-    sha256 cellar: :any, arm64_linux:   "4c4690a3c0499c2b40e49f461781d7050ee9a088b63726a7104de9158801c3e4"
-    sha256 cellar: :any, x86_64_linux:  "82fd52fd7ba5e583834114c50eab0221e6e59e57bf010da87985d066cde33ee3"
+    sha256 cellar: :any, arm64_tahoe:   "6fadc3a53647d59647c785c09b9b18770ec98a90a0fb9221560fc62c01c03361"
+    sha256 cellar: :any, arm64_sequoia: "5ac08bf91006b1359cda35a805bdf006b649670c37ab0ae87f3b5897d583317e"
+    sha256 cellar: :any, arm64_sonoma:  "e7843a7f79c638a06f1d6e56545eb50b85de6931ec45b554ab28e6226665f05c"
+    sha256 cellar: :any, arm64_linux:   "71c512120a864f7f60cb40e93f02632d291697f4d897d016e1c763b88f8fa1d3"
+    sha256 cellar: :any, x86_64_linux:  "f276931b8152117f043201704c26fc5ba971105e11c660f193f635c3a27f7c65"
   end
 
   depends_on "certifi" => :no_linkage
@@ -196,8 +196,8 @@ class Cycode < Formula
   end
 
   resource "sse-starlette" do
-    url "https://files.pythonhosted.org/packages/f8/00/b42a44342a054d58cb1115d7c8aa9cb4290dd9442f9c1b91a4b8173dba22/sse_starlette-3.4.8.tar.gz"
-    sha256 "ed89ffbb75cbf78a5fe2f2109cd584792ee7f9dfac96f791db546df8f15f3f9c"
+    url "https://files.pythonhosted.org/packages/1e/e1/8a41e88e825ea26c44333897c7ffe35fe60153a2cfc097a5bd1d209ad281/sse_starlette-3.4.10.tar.gz"
+    sha256 "c6c87280d8feb4e55a8d79633782766b9cac6a26da5c79a145d00aa404117a86"
   end
 
   resource "starlette" do

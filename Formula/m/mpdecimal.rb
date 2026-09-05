@@ -12,17 +12,15 @@ class Mpdecimal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "518dd69097ceef4b2f5b51603d930d7f5a334237c52b83f8d9822e58c83de172"
-    sha256 cellar: :any,                 arm64_sequoia: "e21da583e42e86d5a2f0aedfaf7820e51b8af3065da599cff179d1a39903f3ab"
-    sha256 cellar: :any,                 arm64_sonoma:  "51a9fd907163c4f99be93607db99668cbb3e115ff577f9413e5dd6e5d4070e2c"
-    sha256 cellar: :any,                 arm64_ventura: "e764118699fff81e4861a081d5e50546be2631a2fa2f58f4681dee6727648a87"
-    sha256 cellar: :any,                 tahoe:         "1f2c31483c9abd01e1ec3af7be8ca14f02a0cdc920313a8b3ab7d3b0b20a6386"
-    sha256 cellar: :any,                 sequoia:       "2d5d6956ca6cafdcd541611c99eed16c0f7a3c7c217efb0141ecfed265716564"
-    sha256 cellar: :any,                 sonoma:        "bc8fdd21107bda1c93c82f90f4adad05b85d6b7d175df10d0d566a23a7fd5ab5"
-    sha256 cellar: :any,                 ventura:       "40b0bb7a71de19ec68449a7f4f6c3816b625a6499e5119f476b3cec3df2d21ac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5f5f08846de66026cc3d4029e3202498ffb3996d4eca62623da85ade7b6f106"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f540928b0baae439b6b7bbbb54aa0b0d8fda3631a2fb46c1d1ccd6bf9c2b5389"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "9fa6ced040c13747f9b010f406453c14041659dfb496a791b949c163b8a413f5"
+    sha256 cellar: :any, arm64_sequoia: "9e2dc44e47e91465c3cefa8969baa6af53a1ec339eda8443b18a30786147203e"
+    sha256 cellar: :any, arm64_sonoma:  "594c572777fc4e03ca32d1d2772a4ee69791373fb1eab6b9e673564f131d13e4"
+    sha256 cellar: :any, arm64_linux:   "49590f6b1d059b895496e768d9e13004b6fad8e66f1c446dc79a41802c16e482"
+    sha256 cellar: :any, x86_64_linux:  "d92d8706831c7dfa2fdd0f1a0d8548137a7ef325ae5c5a7f98fb5090182d6974"
   end
+
+  deny_network_access!
 
   def install
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath}"

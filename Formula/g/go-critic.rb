@@ -1,8 +1,8 @@
 class GoCritic < Formula
   desc "Opinionated Go source code linter"
   homepage "https://go-critic.com"
-  url "https://github.com/go-critic/go-critic/archive/refs/tags/v0.14.4.tar.gz"
-  sha256 "03c19c7a0d1ed931ae1f2c227bd881725d520f4767ccbbac0085644f69069094"
+  url "https://github.com/go-critic/go-critic/archive/refs/tags/v0.15.0.tar.gz"
+  sha256 "6cee82b801a849aef3adb714b7900d6df7b27213af984368be4c65db8400632e"
   license "MIT"
   head "https://github.com/go-critic/go-critic.git", branch: "master"
 
@@ -12,17 +12,14 @@ class GoCritic < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1123df5d5711bf6f005df489e7f66c9c192794c7b00b63bfce7a0c5fbcd1d4a1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1123df5d5711bf6f005df489e7f66c9c192794c7b00b63bfce7a0c5fbcd1d4a1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1123df5d5711bf6f005df489e7f66c9c192794c7b00b63bfce7a0c5fbcd1d4a1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f1267fe903802263093baf96fedfbcad261162edda114ec8e997dafeaa78e63e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5aa6fdc0733df99213934dae11c0dc7481bc23f28002401d194bde79f9b9fc72"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c934c58d55908dada47c2d79605383bf780878d0473c1aad6c021fc9338710f8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fbb58266fda2c66ceaaf16a51f7a010d15a6a7f927f5452ed4b3fad9a7683720"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fbb58266fda2c66ceaaf16a51f7a010d15a6a7f927f5452ed4b3fad9a7683720"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fbb58266fda2c66ceaaf16a51f7a010d15a6a7f927f5452ed4b3fad9a7683720"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b452b6d835604fbf8ff06d9d812b73038940b9c8dd82212abc4957ca2de58d42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f8766044da085c70ace03cf8f7a39ec1f40c1e158f296d6f0f72e476aae1b20"
   end
 
-  # TODO: unpin go@1.26 when go-critic supports a newer Go version
-  # ref: https://github.com/go-critic/go-critic/pull/1523
-  depends_on "go@1.26" => [:build, :test]
+  depends_on "go"
 
   def install
     system "go", "build", *std_go_args(ldflags: "-X main.Version=v#{version}"), "./cmd/go-critic"
@@ -30,9 +27,6 @@ class GoCritic < Formula
   end
 
   test do
-    # TODO: remove when unpinning go@1.26
-    ENV.prepend_path "PATH", formula_opt_libexec("go@1.26")/"bin" # for keg_only go 1.26 binary
-
     assert_predicate bin/"gocritic", :symlink?
     assert_equal "go-critic", (bin/"gocritic").readlink.to_s
 

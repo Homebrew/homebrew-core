@@ -1,18 +1,17 @@
 class Convco < Formula
   desc "Conventional commits, changelog, versioning, validation"
   homepage "https://convco.github.io"
-  url "https://github.com/convco/convco/archive/refs/tags/v0.7.1.tar.gz"
-  sha256 "62cdc7f5797d33ed42c0919789ed49d00816985fff414d1490dcc705d8a7fead"
+  url "https://github.com/convco/convco/archive/refs/tags/v0.7.2.tar.gz"
+  sha256 "b73c702e93e9e29f9b57faf497e812a94edb773e2f7d67d7b0481b03464f1b24"
   license "MIT"
   head "https://github.com/convco/convco.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5b6be5139acd00e53d48f6726a1a2833cb20245c8c01ba69d7c43dd200e74189"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "14102f29a1cd4947fdca93c7aee0d7b1f94b9d68de3330df781ad3831e2e4b08"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "caa5bae4a721642dde0a18873c1ac48ded962b98dc2ce671d13bf7cc32371caa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e40edd2c02487839f1536677b79cf7eff90479c91c4a1e77d49a2328c56beef7"
-    sha256 cellar: :any,                 arm64_linux:   "4f7ec508e0ad4428fb15107b242243d25c8ed0b0bfe35e97e750f2c605a5ba9c"
-    sha256 cellar: :any,                 x86_64_linux:  "5df5f3c83e853fd91f283d203aeaf5eaf1606ddf6849b5415882b8334163a05b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c26b3c89fd7ab7c9c495176fbe53c0b3fa92c6f8d5d739dcc9a630be0864007e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "03bb0a433e09cbe63071b66a53b2b640c4896a389becb90bc5c27c7feba1519c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d43c7d84ef671adfab02117702b56613d9ee7b41f8dab7f199e4b5addc0c56f0"
+    sha256 cellar: :any,                 arm64_linux:   "64d6be756227a554d791bf52d8dd5899eace60472841dab6377257781894c529"
+    sha256 cellar: :any,                 x86_64_linux:  "beea1ce49b7c7c843c5893e276dbd1eda58bc12f4a37ec3a79498bffd333edd4"
   end
 
   depends_on "rust" => :build

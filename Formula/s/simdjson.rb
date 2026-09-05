@@ -1,18 +1,18 @@
 class Simdjson < Formula
   desc "SIMD-accelerated C++ JSON parser"
   homepage "https://simdjson.org"
-  url "https://github.com/simdjson/simdjson/archive/refs/tags/v4.6.9.tar.gz"
-  sha256 "b3954b7d6024eb5063c64e47be5ca09be04a3783563340400ce0aef416b20216"
+  url "https://github.com/simdjson/simdjson/archive/refs/tags/v4.6.10.tar.gz"
+  sha256 "1d560f233ff4a29eae0eaa8b4138bfaa72ca86714a12da6a85654812581e8926"
   license "Apache-2.0"
   compatibility_version 3
   head "https://github.com/simdjson/simdjson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "bbfac78d158ec3a8ed68c212dd93f29d73b6e6b72db448d9edfc4b241a76e766"
-    sha256 cellar: :any, arm64_sequoia: "e09e5abf3bf8e30aa9a0a2ba36f403d5eb4e9071dbbc7caecb9d07498d8e0e57"
-    sha256 cellar: :any, arm64_sonoma:  "b48ba21e0acaa0d7018f07fab4b421f542b6303ee957b7a6bea368c586cbf1cf"
-    sha256 cellar: :any, arm64_linux:   "47103d061de82a09e716bdaaf6606fb8ab28cd6039b694d543c911c22475d889"
-    sha256 cellar: :any, x86_64_linux:  "0ae85ef5874b741c39f3e8df5ae7aa324d6b53710179ba5bf7fcb13fef3146bc"
+    sha256 cellar: :any, arm64_tahoe:   "6577776b4300e458f13a1ab88217e2330584a7ba993fa3232c659981cde3991a"
+    sha256 cellar: :any, arm64_sequoia: "e80d59a834e892ca00ff79a770847c2a65ec3b8ab3c84373585008d22146b7ba"
+    sha256 cellar: :any, arm64_sonoma:  "43fc9beaaa0ee77aaa3ef3aad472189aa393fd93f0aac79359ebe6e1f932cb99"
+    sha256 cellar: :any, arm64_linux:   "0b3b6736314e31c74cc9c9563f68d4ef4c78f8278e7b4a96be45e798b5345322"
+    sha256 cellar: :any, x86_64_linux:  "395a67c7ce6b744445eb2d7818083c5c4552016ea7556bb1411cf651a2eb73ca"
   end
 
   depends_on "cmake" => :build

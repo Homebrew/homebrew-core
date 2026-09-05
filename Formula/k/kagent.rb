@@ -1,18 +1,17 @@
 class Kagent < Formula
   desc "Kubernetes native framework for building AI agents"
   homepage "https://kagent.dev"
-  url "https://github.com/kagent-dev/kagent/archive/refs/tags/v0.9.12.tar.gz"
-  sha256 "4cf093d49d99e10804d3659cb178720671b406ca3cf8ad6da011f62b08eed969"
+  url "https://github.com/kagent-dev/kagent/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "a8c941e7992158650c69d59ae7c4f28c9dbb6605178321e4b6503e457284fbf1"
   license "Apache-2.0"
   head "https://github.com/kagent-dev/kagent.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0782e41ff3056b60338f8bcd6cb1594e7e7263661667e73b56590ec6bfed6509"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0782e41ff3056b60338f8bcd6cb1594e7e7263661667e73b56590ec6bfed6509"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0782e41ff3056b60338f8bcd6cb1594e7e7263661667e73b56590ec6bfed6509"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4cb5b65006f3812ff1fb588992ce46e5d596da2a49616f43d449bcdf8e5ee7c0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "63b6ea28cf7d5e8cf0e7036c92e29b637ef6ec19964668d4a71462f090651951"
-    sha256 cellar: :any,                 x86_64_linux:  "5846626cef91786d11b3eab117401be1caad0e1c53bb193aba7d0d372b70682d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b90fd4ef84cf91eb8b6735e155492c6b092be95004b27105be3a75ecb5841bad"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e3a27d558e88269f8040eeccd695f2f7e405de72b2b2dfcff00a32a535aa662f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5c2324eb81233df73afcc7abcc9a8b0fa1b245dfd2c274161f0832a4d64cbdde"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "00230a35663c5c5c333f37d8e755b7560b902f0ab9ec1a89c4420aa5abf70499"
+    sha256 cellar: :any,                 x86_64_linux:  "bb8fc9e24a26d06ede099f866661784a2cf3b16e0644107d9bd0a710b034702d"
   end
 
   depends_on "go" => :build

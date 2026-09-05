@@ -6,16 +6,15 @@ class Cruft < Formula
   url "https://files.pythonhosted.org/packages/d1/7e/0e20012f2aa156e5d6a70483a8d90accb7ed4966dddb0c58987d9f6eba12/cruft-2.16.0.tar.gz"
   sha256 "184662853fbc1c16c0137fe0e9444e0cbe95e40362f5ebb2d9fae33d9223e73f"
   license "MIT"
-  revision 14
+  revision 15
   head "https://github.com/cruft/cruft.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "4e48b7dc77054d71b1df593586d1fec9070ddb5096f62a5b58c21a179fdea5c7"
-    sha256 cellar: :any, arm64_sequoia: "0684f443309a5b35965ff59377369cd978564513afa76765b4c441a586356710"
-    sha256 cellar: :any, arm64_sonoma:  "e6ac319a9ed929c61c6f01c99d7e63edbceee52ce2978128220dec35f41c2fa2"
-    sha256 cellar: :any, sonoma:        "a8e43f4ab264e8e6fa50ea3dd0cd0f82b3a6a759c7aa7785d0a4b7e70cd80e8b"
-    sha256 cellar: :any, arm64_linux:   "c3bfef950f153a98969a9d8521ee023cdd9714917d8b4af18b27be970b684fe0"
-    sha256 cellar: :any, x86_64_linux:  "cb7f5062b8d8c94f991e9f6d40e18e55107f58f62149a1b91301f710666ba83c"
+    sha256 cellar: :any, arm64_tahoe:   "56763ddbfd61e0329a7069f906f16b144992d2b6051b41ce8081ed4c89baba7f"
+    sha256 cellar: :any, arm64_sequoia: "e3df0acd6691ba12bb6726589518dec52eff5f2fdc5bb236189313b56f8b3bd4"
+    sha256 cellar: :any, arm64_sonoma:  "b8822ddb94162f5d5ec322c853b8cf6a526b759e44da3c37ecf0ad9bdab29c65"
+    sha256 cellar: :any, arm64_linux:   "48510584c3f2a904b43228206b796bb6c7d6ab940ba4b67f68a38240b86fc25e"
+    sha256 cellar: :any, x86_64_linux:  "67ddc6ffe399840364e32d59c31eb593a08ec6633d4f6cd5de8cbbeaa543af48"
   end
 
   depends_on "certifi" => :no_linkage
@@ -40,13 +39,13 @@ class Cruft < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
-    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
+    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
+    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "cookiecutter" do
@@ -60,13 +59,13 @@ class Cruft < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/26/d6/5f358ff283325580c2003a6d953aea18cfe10ae87b46f5ebc80fa3a386dc/gitpython-3.1.58.tar.gz"
-    sha256 "621416df10ef3fd0e19fabf9172ddeed0fa704d353d04f194eec56a625a95b22"
+    url "https://files.pythonhosted.org/packages/6f/61/3285044215fb596bf093e39ccb96ece0a1076a8ca57a61e069a6a33cdb1b/gitpython-3.1.61.tar.gz"
+    sha256 "f51c24d8c0f733a195447385f5774a5dfe8767f5acfd7994a33755644c6ecc95"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
-    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
+    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
+    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
   end
 
   resource "jinja2" do
@@ -90,8 +89,8 @@ class Cruft < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "python-dateutil" do
@@ -140,8 +139,8 @@ class Cruft < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/ae/40/4a3db7990d1f62a53182aa96eaef57aeb2886a27f90a195bc66713565d31/typer-0.27.1.tar.gz"
-    sha256 "a79bef8469a79c45498e7b814ecf8d603cc7644e9acbd9e19cac0334240b18df"
+    url "https://files.pythonhosted.org/packages/16/f7/57713ba479fd405eb76de31404b2c744c289e336b2d999511ebf51e496f7/typer-0.27.2.tar.gz"
+    sha256 "269b7eb9d3c202ca84b4bc9618cb04ebb43d3d4d1e567e4c768607232c05f945"
   end
 
   resource "tzdata" do

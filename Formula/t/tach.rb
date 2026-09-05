@@ -6,16 +6,15 @@ class Tach < Formula
   url "https://files.pythonhosted.org/packages/81/54/8bae607899ba9fd7abd9895215f2e5dc789a73529f8afeb0a10d2ee71500/tach-0.35.0.tar.gz"
   sha256 "db8594820685f8ce316ef45d4dfa1a8ed39ce97dd873aa5006800d2668c3b3bb"
   license "MIT"
-  revision 4
+  revision 5
   head "https://github.com/tach-org/tach.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "6937faee8f944ca9a711fd52848e697c3b160035868d061946f55d0377301612"
-    sha256 cellar: :any, arm64_sequoia: "a0b10b28ca0ccccf8187932b2937d8f852823dbbfe3940196bd5fc3b28bffa0c"
-    sha256 cellar: :any, arm64_sonoma:  "cd3bcbb4b7c129ee000526b417c857bc47611cf8ef7c641c48839e9efae238db"
-    sha256 cellar: :any, sonoma:        "a741d1035dc14d426b944e2fd903974a8ca4e974ea55c291b81fa9f3e314cbf5"
-    sha256 cellar: :any, arm64_linux:   "07177b1b4d842fcd684a1a57934226fe225ac368bdc17cefa9c998dcbc997d0a"
-    sha256 cellar: :any, x86_64_linux:  "3ee05f0139c414228f91ea9920e025c5d3bbd6b335d447c18a5906f6559d3e88"
+    sha256 cellar: :any, arm64_tahoe:   "d840c56d84b9ef5ada3637921d614c7d880831854faf3e1998e5f779eff6de37"
+    sha256 cellar: :any, arm64_sequoia: "b23cfd2bc21dea430ea2aa888aae260983c605ccc1cef44c0326f992d2f255fd"
+    sha256 cellar: :any, arm64_sonoma:  "727f5f046051c263892e46dfedbda1aea129b0d3be8e567e15651d80d7cafdf6"
+    sha256 cellar: :any, arm64_linux:   "0a93a0d652da484185ff7d61a8e96d1f957629b245925fbb6a1cf31901444dac"
+    sha256 cellar: :any, x86_64_linux:  "18aeecfcea0f54db0957bf2f2feea6000bb72e25022c44eedd0d7473ac35aae1"
   end
 
   depends_on "rust" => :build
@@ -28,8 +27,8 @@ class Tach < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/26/d6/5f358ff283325580c2003a6d953aea18cfe10ae87b46f5ebc80fa3a386dc/gitpython-3.1.58.tar.gz"
-    sha256 "621416df10ef3fd0e19fabf9172ddeed0fa704d353d04f194eec56a625a95b22"
+    url "https://files.pythonhosted.org/packages/6f/61/3285044215fb596bf093e39ccb96ece0a1076a8ca57a61e069a6a33cdb1b/gitpython-3.1.61.tar.gz"
+    sha256 "f51c24d8c0f733a195447385f5774a5dfe8767f5acfd7994a33755644c6ecc95"
   end
 
   resource "markdown-it-py" do
@@ -58,8 +57,8 @@ class Tach < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "pyparsing" do
@@ -93,8 +92,8 @@ class Tach < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/34/74/c6428f875774288bec1396f5bfcbc2d925700a4dad61727fd5f2b12f249d/wcwidth-0.8.2.tar.gz"
-    sha256 "91fbef97204b96a3d4d421609b80340b760cf33e26da123ff243d76b1fda8dda"
+    url "https://files.pythonhosted.org/packages/36/57/ed58088fafdf4c55a0ad6bde846502567645424d7ebf325230b9237f4085/wcwidth-0.8.3.tar.gz"
+    sha256 "d128512515fbf4612e0ff21fd6380399210318b7b54a9af59dff8454cf9730eb"
   end
 
   def install

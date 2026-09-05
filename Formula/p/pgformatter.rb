@@ -1,12 +1,16 @@
 class Pgformatter < Formula
   desc "PostgreSQL syntax beautifier"
   homepage "https://sqlformat.darold.net/"
-  url "https://github.com/darold/pgFormatter/archive/refs/tags/v5.10.tar.gz"
-  sha256 "cdc372b75ff5a048dca9724a990140cd8e4e4da30d908b503932d44c09d068b9"
+  url "https://github.com/darold/pgFormatter/archive/refs/tags/v5.11.tar.gz"
+  sha256 "563619e13294b3db55d7a98a761786024ea3609d007fa94654a69a7346b8fd67"
   license "PostgreSQL"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6636f9f819740a06287cf7fc104fb635a338282171be2750f38a7b9d7bab21cc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ba1843b9849b308a16ac7aa0b6ab7f3ffe983614ce231fd02910a420a5b861e1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ba1843b9849b308a16ac7aa0b6ab7f3ffe983614ce231fd02910a420a5b861e1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba1843b9849b308a16ac7aa0b6ab7f3ffe983614ce231fd02910a420a5b861e1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "50dd65fd169020261191e953a65ffdf4df70565c65808b65a8ea7e78ab8d8bc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50dd65fd169020261191e953a65ffdf4df70565c65808b65a8ea7e78ab8d8bc0"
   end
 
   def install

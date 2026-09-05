@@ -1,18 +1,17 @@
 class Rdap < Formula
   desc "Command-line client for the Registration Data Access Protocol"
   homepage "https://www.openrdap.org"
-  url "https://github.com/openrdap/rdap/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "e2a41901fb1497412e0391338af5b7673fac24127fe5080c0e60c8bb5cae961e"
+  url "https://github.com/openrdap/rdap/archive/refs/tags/v0.10.2.tar.gz"
+  sha256 "90c8ad29468cfb774c166a371b164c1e2a37de088e52328f4b9d5c80c0e23d98"
   license "MIT"
   head "https://github.com/openrdap/rdap.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "838b7368aa323d4403817a7a0ce1b2004cf9b570f6f49ba7cdf11bae5b676d65"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "838b7368aa323d4403817a7a0ce1b2004cf9b570f6f49ba7cdf11bae5b676d65"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "838b7368aa323d4403817a7a0ce1b2004cf9b570f6f49ba7cdf11bae5b676d65"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8c3ebbdfa3cd18f97b1f22fec61750713bf960c1cd6000b1ca14703b6e2ef6c2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f6cd3491a383d171f2bbc3652f6b78d2fb2667d014c4a6762e336d36ebf2aa49"
-    sha256 cellar: :any,                 x86_64_linux:  "76ac14d767a573a2b6afe0315a20b21eb22f1486982c5243bc454277d52f8efc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7b05cd27d41d07fad35309ea77f9968beff9872ab9e9ce51b062576a86b6dbef"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b05cd27d41d07fad35309ea77f9968beff9872ab9e9ce51b062576a86b6dbef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b05cd27d41d07fad35309ea77f9968beff9872ab9e9ce51b062576a86b6dbef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f7976c13f79ddec0bca17b6ebb9e9d81cb6fb97f56c34df8b46856cb78a4131a"
+    sha256 cellar: :any,                 x86_64_linux:  "1bb9c61f13ddc3b56a677241c7307edc3b1aa317f6f8e74a9d6e58afd21f5dcf"
   end
 
   depends_on "go" => :build

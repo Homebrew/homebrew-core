@@ -1,17 +1,17 @@
 class Kargo < Formula
   desc "Multi-Stage GitOps Continuous Promotion"
   homepage "https://kargo.io/"
-  url "https://github.com/akuity/kargo/archive/refs/tags/v1.11.3.tar.gz"
-  sha256 "507cfdf65f55f17f3347eb8d02265eef9cfe843b3e36214bbcb5d4dde7010f49"
+  url "https://github.com/akuity/kargo/archive/refs/tags/v1.11.4.tar.gz"
+  sha256 "06af0413397fbf482b311e11e016dde82626fcc7f35f39b933c20a45b214825c"
   license "Apache-2.0"
   head "https://github.com/akuity/kargo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aee90f470eca6a2def8c1acc1ac1aedc3c333c58108ad3b0f37623b1a2593cf4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d271067371ec70502efe88360e46e6ffa7af2875d80c3557bd0bcd1d8104488e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1bb5f797149f6bb4e9650279c5dcddfd7a60d8765e9e0549a31caae7da67e04a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae960cbcf453728147cb5c53fd49c7693fae091ce387718f64ab47fa41796cc8"
-    sha256 cellar: :any,                 x86_64_linux:  "e6fa798e5986076ce345bd1677c3dd5d133cacd67664a2d2ca4f4a284b0f28d7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "30f8f3fbcc253ff74a595c76a4a6619d81f120e3b2d7acb1573f15fc85741034"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7f3820e8540106defa5596054ba43c73bf0337174f13a0ba5650cc3023a51648"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e3d0e7da62be01ba44cb3c341338c6127c078c1ac345db8107722c155c58587"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0e602f1fb01f97f13db61e08b03c1a115b4c27007294909d6a291d1e986b232f"
+    sha256 cellar: :any,                 x86_64_linux:  "2ee9d525e22706edaeea6f0eba00a03e66ca408e8f32aaa4feef49749353e223"
   end
 
   depends_on "go" => :build

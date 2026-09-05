@@ -19,15 +19,20 @@ class Pandocomatic < Formula
   depends_on "pandoc"
   depends_on "ruby@3.4"
 
+  deny_network_access!
+
+  def fetch
+    ENV["BUNDLE_PATH"] = ".bundle"
+
+    system "bundle", "cache", "--no-install"
+  end
+
   def install
-    ENV["BUNDLE_FORCE_RUBY_PLATFORM"] = "1"
-    ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
-    ENV["BUNDLE_WITHOUT"] = "development test"
     ENV["GEM_HOME"] = libexec
 
-    system "bundle", "install"
+    system "bundle", "install", "--local"
     system "gem", "build", "#{name}.gemspec"
-    system "gem", "install", "#{name}-#{version}.gem"
+    system "gem", "install", "--ignore-dependencies", "#{name}-#{version}.gem"
 
     bin.install libexec/"bin/#{name}"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])

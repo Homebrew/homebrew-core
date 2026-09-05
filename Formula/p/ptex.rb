@@ -1,8 +1,8 @@
 class Ptex < Formula
   desc "Texture mapping system"
   homepage "https://ptex.us/"
-  url "https://github.com/wdas/ptex/archive/refs/tags/v2.5.2.tar.gz"
-  sha256 "dd95fbea4b50e9e68fd042f540fb83157a0ff25053066c3439d4527de3621d34"
+  url "https://github.com/wdas/ptex/archive/refs/tags/v2.5.4.tar.gz"
+  sha256 "435c116ea5bbe6f0054f8227e204d255b2d91bf35786b007c77a894c729c1fbc"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,11 @@ class Ptex < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e4f099c6edc4ecbad03908454937754e8c8f6c305e26c81c2f7076691cca8988"
-    sha256 cellar: :any,                 arm64_sequoia: "d2b785dd36c29c9134a6df5a3f63b259af2512472db0386732fef6a697211fda"
-    sha256 cellar: :any,                 arm64_sonoma:  "9eea79e8534259ecaa6ba343b5420ebd09a10121cbae8788239ea88c0f41b4c1"
-    sha256 cellar: :any,                 sonoma:        "bd517a22c4b204d6f8017c572bdac202afd99d6138338de08b99090d4cd49e2a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "997872daabf6c5f28913f179499df3a0a9ff6368863ec5da47302a6cc9bad964"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "382a10a67ae55b7fb623010561ada1e635976223370d361a33e7ded6123078ed"
+    sha256 cellar: :any, arm64_tahoe:   "7f6b18525e8aa4d1ab9e6298af2f8936b1e5218d52042767cbe6020d128e7a8f"
+    sha256 cellar: :any, arm64_sequoia: "5e969c5567da054b3733a34e49c319350b444dd39c2d4e4b6ad32509b3be6e77"
+    sha256 cellar: :any, arm64_sonoma:  "3a3a385bdc675b1813564046f2e76d9d8e866997eec6540e2722119952a4efa9"
+    sha256 cellar: :any, arm64_linux:   "2bf692748c47808b22456a48df78bfe84678b645d1d7975561fc074ea133dd33"
+    sha256 cellar: :any, x86_64_linux:  "539d9d46089ceb88ce4c0a4db1e9704063e479bc8785667dc7167f8e4d9bcd6d"
   end
 
   depends_on "cmake" => :build

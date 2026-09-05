@@ -19,6 +19,12 @@ class FancyCat < Formula
   depends_on "mujs"
   depends_on "mupdf"
 
+  deny_network_access!
+
+  def fetch
+    system "zig", "build", "--fetch"
+  end
+
   def install
     system "zig", "build", *std_zig_args
   end

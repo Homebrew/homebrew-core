@@ -2,8 +2,9 @@ class Puzzles < Formula
   desc "Collection of one-player puzzle games"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/"
   # Extract https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles.tar.gz to get the version number
-  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20260902.b30838a.tar.gz"
-  sha256 "9a13d7213e90238fdd7938a92c5527027e145d9a8fbd120404614501bb231638"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20260905.a683d27.tar.gz"
+  version "20260905.a683d27"
+  sha256 "35fc636858e6aaeb9a9a883420ce9a7e5516c1a04e168e5666c28ec72c5b6e4b"
   license "MIT"
   head "https://git.tartarus.org/simon/puzzles.git", branch: "main"
 
@@ -17,11 +18,11 @@ class Puzzles < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "272624d7a436cc37839d3380a27ab3f81dcc4b9f705811b72f56954a48f82fbd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c6ffefba22240fa6a5c7d2306c6492eb3ce96983a5da20fcf816fd2ca8023e1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "69bc866ad35dd57fef7d171ead7afbee858d74344136a97cb160a9bea66610ff"
-    sha256                               arm64_linux:   "eb8ece6359b4aab8a97b5a2cf2774fb048cf50629f9e465286764257c1a5ad28"
-    sha256                               x86_64_linux:  "1851e04fb6fb7f9867918d8177e149d288fd22967446ba8bf046fd5f2d86b128"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a9db305bfd68df9c2c6c447496749e3d82e77c4bdfe6b6cb167ec8d881c42e5f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b6070328c2a9db2098d216285d51489c3f32cb7844b5233b8baf7a028241c933"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aeb20aa42b6b52078927ffeddc0f5dfcee621d599b7f4246dbf02522d5877f98"
+    sha256                               arm64_linux:   "be9efd2f45ba2b48d3d74469e5fb2f4f1b5bc53f8ff7279a2d38c6e0e9e2b081"
+    sha256                               x86_64_linux:  "48cb0a0cec4cc20a1f3d45b7f591315596c53c1d416cd66eae0e7d93aa3150a1"
   end
 
   depends_on "cmake" => :build

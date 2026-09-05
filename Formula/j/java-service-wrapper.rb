@@ -1,8 +1,8 @@
 class JavaServiceWrapper < Formula
   desc "Simplify the deployment, launch and monitoring of Java applications"
   homepage "https://wrapper.tanukisoftware.com/"
-  url "https://download.tanukisoftware.com/wrapper/3.7.2/wrapper_3.7.2_src.tar.gz"
-  sha256 "77e45f55ac9bd3938d703da2e702e81455283a05483a22dc705d8f138a0a06fd"
+  url "https://download.tanukisoftware.com/wrapper/3.7.3/wrapper_3.7.3_src.tar.gz"
+  sha256 "6e99f0ba7fcaea582ad5922a773c1b243a1dd4fe143c0fc4639e4cb18535d851"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
   livecheck do
@@ -11,12 +11,11 @@ class JavaServiceWrapper < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "5a9affec3ff58852685419cb4252482094558019758bd07a8ff8a61ecb3fc0a7"
-    sha256 cellar: :any, arm64_sequoia: "de0b4a84911864b1025813c7a322d8685dc30f03b625cb4d888649e0be503770"
-    sha256 cellar: :any, arm64_sonoma:  "916dfa5d1254eb8c5cd8aeb66e5bde2ef8ad62c11eeb718db39356b3fa47df1b"
-    sha256 cellar: :any, sonoma:        "aa1b4322ff8c79656ac335c57b1123f3d6b0860b6b0645ac3e59ae9eebe8cfaa"
-    sha256 cellar: :any, arm64_linux:   "962f1b9f48ea2492d463a295c1564eb702871785f9a60f9cd7eb6e0b0444729f"
-    sha256 cellar: :any, x86_64_linux:  "0fdb5b52bb187767722a96fb3d282de692d47d5efd5121f9784514e6c057b301"
+    sha256 cellar: :any, arm64_tahoe:   "df75eb05ed823887a661f3a2609339a20024b9389d362bf5163dbe3fff8bb1ac"
+    sha256 cellar: :any, arm64_sequoia: "07ac280c30fc8c0fad446b0d09a446cfac7afb9d864393f5c9adc2e36b328730"
+    sha256 cellar: :any, arm64_sonoma:  "962c928c16efd2af779ce09af168b5536c37c7af8fd629beb8c34be199dbf227"
+    sha256 cellar: :any, arm64_linux:   "776e7bc61a4311cb52da862351756852b958e75b3b753a05b20b0e7717276912"
+    sha256 cellar: :any, x86_64_linux:  "561e4e053959f56fbd41755155f32e690e0799bd23385a77919d79d78c9818c5"
   end
 
   depends_on "ant" => :build

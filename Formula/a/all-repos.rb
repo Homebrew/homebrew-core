@@ -3,12 +3,12 @@ class AllRepos < Formula
 
   desc "Clone all your repositories and apply sweeping changes"
   homepage "https://github.com/asottile/all-repos"
-  url "https://files.pythonhosted.org/packages/a2/64/c2dcf990cd2644d0f871cee3434779569d210897b0860e749b9b4a0c6def/all_repos-1.32.0.tar.gz"
-  sha256 "b57b70f20a2f9f92a9462089d432d41625b10936d311b3c300260d781607886d"
+  url "https://files.pythonhosted.org/packages/e2/ce/2b87583b0b56193c868eb246c6765660467f241d1c4d16e5e1229bac7dfd/all_repos-1.33.0.tar.gz"
+  sha256 "420ee23a9ad825914700e511ba51b88780b1c69d24aa88506a2b2e6e8bc0eb20"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9cccdeefabe4b8761ca38ab654c85030fac831d5335984d16cbd9ee93c98c088"
+    sha256 cellar: :any_skip_relocation, all: "b040ed36823087349983193c7130015d6e552e2c908be0717ee6b33d78c6148c"
   end
 
   depends_on "python@3.14"
@@ -19,8 +19,8 @@ class AllRepos < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
-    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   def install

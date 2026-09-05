@@ -20,7 +20,11 @@ class VapoursynthVszip < Formula
 
   preserve_rpath # skip unnecessary relocation for plugin which avoids headerpad errors
 
-  deny_network_access! [:postinstall, :test]
+  deny_network_access!
+
+  def fetch
+    system "zig", "build", "--fetch"
+  end
 
   def python3 = "python3.14"
 

@@ -17,14 +17,13 @@ class Try < Formula
 
   depends_on "ruby"
 
+  deny_network_access!
+
   def install
-    ENV["BUNDLE_FORCE_RUBY_PLATFORM"] = "1"
-    ENV["BUNDLE_VERSION"] = "system" # Avoid installing Bundler into the keg
-    ENV["BUNDLE_WITHOUT"] = "development test"
     ENV["GEM_HOME"] = libexec
 
     gem_name = "try-cli"
-    system "bundle", "install"
+    system "bundle", "install", "--local"
     system "gem", "build", "#{gem_name}.gemspec"
     system "gem", "install", "--ignore-dependencies", "#{gem_name}-#{version}.gem"
 

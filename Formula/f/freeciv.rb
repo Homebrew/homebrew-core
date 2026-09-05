@@ -5,8 +5,8 @@ class Freeciv < Formula
   head "https://github.com/freeciv/freeciv.git", branch: "main"
 
   stable do
-    url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.2/3.2.5/freeciv-3.2.5.tar.xz"
-    sha256 "d32808f02a9b9f49ef159bcbf266b16ce2a3ce6ea8f71115d80f952c3cc609e8"
+    url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.2/3.2.6/freeciv-3.2.6.tar.xz"
+    sha256 "b3ce15f54083b1fca146f62837a5f7d41d298537fa34940cca70eeb09c7a9c6e"
 
     # Backport support for Lua 5.5
     patch do
@@ -27,12 +27,11 @@ class Freeciv < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "7a17bcfe46ffcc395f97535ad6fe3581d99db0b0b75fed9c3f159d829c786e31"
-    sha256 arm64_sequoia: "ac0471224fd92b3de08c75013cc3c0e94d24cadbd8df44dba922ff4212d327e0"
-    sha256 arm64_sonoma:  "d4ad3a062ac09caf16f370eff68e6242ed69dc95a415b6a5afaa7b5bfe92ed8c"
-    sha256 sonoma:        "1175e793db4c19a87d468c8cddefe9edb6b150fa00c68404cc9fdee373936c44"
-    sha256 arm64_linux:   "2b4fade431692d440364f7c3875e20f42000c1c7f5a2b9d919824b703937d379"
-    sha256 x86_64_linux:  "1bde8a4627a7473cd18dad1df0cef9ecb30179c4ad365eb46bbe2d7c3c21d37f"
+    sha256 arm64_tahoe:   "7be9340d5ebbffcb1f17c4c36e68ccefc04938878d7d817d39af0a3515f0fff7"
+    sha256 arm64_sequoia: "709df87f487030ce374381e87fbfce8190fb59729d0cb18ec16132bd8fdd9d1f"
+    sha256 arm64_sonoma:  "49151c65b32eae9e15a7731d32c9ef7e1a4c957d03d2097bc3e3885caeb3f859"
+    sha256 arm64_linux:   "e7c84f78d381f18e0f50b2c9406707405ea887612d6f795b8c6d5481caf659ad"
+    sha256 x86_64_linux:  "67b2f95aa037eacf5618daba18916104f41f407f424f9fbee6ff169cb0dbd65b"
   end
 
   depends_on "meson" => :build

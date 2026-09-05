@@ -24,7 +24,7 @@ class TodoTxt < Formula
   def caveats
     <<~EOS
       To configure, copy the default config to your HOME and edit it:
-        cp #{prefix}/todo.cfg ~/.todo.cfg
+        cp -n "#{opt_prefix}/todo.cfg" ~/.todo.cfg
     EOS
   end
 

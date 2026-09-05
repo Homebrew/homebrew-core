@@ -7,7 +7,8 @@ class Container < Formula
   head "https://github.com/apple/container.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "8f7c374a480a26f6d6113f1c98ccff1c9feee2e4b8d684e602fb87a01a3587e9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "ee3e3520cc489f05e1a1f413283f65a67a324517c5d4efd4a91edbf2aa172892"
   end
 
   depends_on xcode: ["26.0", :build]
@@ -80,9 +81,16 @@ class Container < Formula
     run "ensure-container-stopped.sh", args: ["-a"], base: :libexec
   end
 
+  def caveats
+    <<~EOS
+      When starting container with `brew services`, no kernel is installed
+      automatically. Install the recommended kernel before running containers:
+        container system kernel set --recommended
+    EOS
+  end
+
   service do
-    run [opt_bin/"container", "system", "start"]
-    keep_alive true
+    run [opt_bin/"container", "system", "start", "--disable-kernel-install"]
     working_dir var
     log_path var/"log/container.log"
     error_log_path var/"log/container.log"
@@ -92,7 +100,7 @@ class Container < Formula
     # Cannot fully test, as it needs to write outside testpath
     assert_match version.to_s, shell_output("#{bin}/container --version")
 
-    assert_match(/Error: (?:interrupted: ")?internalError: "failed to list containers"/,
+    assert_match(/Error: (?:(?:interrupted: ")?internalError: ")?failed to list containers/,
                  shell_output("#{bin}/container list 2>&1", 1))
   end
 end

@@ -6,16 +6,15 @@ class Otterdog < Formula
   url "https://files.pythonhosted.org/packages/19/88/fffe8ad66be0149d1f34ec12bdd8abb3dde467b4780746cede544d83b26c/otterdog-1.4.0.tar.gz"
   sha256 "ea3f07622c212526869e1755b124531585343bd0646ee3e72f0ba1c57c3fc87c"
   license "EPL-2.0"
-  revision 2
+  revision 3
   head "https://github.com/eclipse-csi/otterdog.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "097e5609e3890cffdd9a04f9fdb08ffc36514d0befe34ea268672e56ecbfcf57"
-    sha256 cellar: :any, arm64_sequoia: "832b24186d0ae4415c7d644fce5998adfc84c31cbe90393201eeb3a44e6936c4"
-    sha256 cellar: :any, arm64_sonoma:  "b56ddcb740ef11e3ff11ada2fe127202456e4c1184971d4024be4d5aef369410"
-    sha256 cellar: :any, sonoma:        "0b97120357b335aca7b79280d6e3bbf8f8ab140de819b1769fe0cf888f6e68b1"
-    sha256 cellar: :any, arm64_linux:   "1817e3bcc50eeda2569d66b2ec4797ad2764a4b9e2f636195622a6fa7c037c75"
-    sha256 cellar: :any, x86_64_linux:  "757f66c1fe565486638caf1f2e48a6c76587cb7b20ac9fecd7b28fad2270d4a6"
+    sha256 cellar: :any, arm64_tahoe:   "c5b4936193be9af87c148b0203c5e1cf084d1e15b54a7026a5901552ef94780b"
+    sha256 cellar: :any, arm64_sequoia: "b8afb16202f0bc8fa6b66b0a5e50fcc629cbe3ff85e77307985c98444530c223"
+    sha256 cellar: :any, arm64_sonoma:  "72be7977fca19b69184f3bed7597808f8cb35842902205bcff3056661cec7415"
+    sha256 cellar: :any, arm64_linux:   "646ad7d17362c8736eef1888f33be84065a3556cf2acfe0a70c4c03f84430aff"
+    sha256 cellar: :any, x86_64_linux:  "b55fa4cb2dd2ee0090e2de917a74f7dce4d5a6943e47bd95ef7aabc318adc18f"
   end
 
   depends_on "rust" => :build # for rjsonnet
@@ -84,8 +83,8 @@ class Otterdog < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/61/cc/a381afa6efea9f496eff839d4a6a1aed3bfafc7b3ab4b0d1b243a12573dd/anyio-4.14.2.tar.gz"
-    sha256 "cfa139f3ed1a23ee8f88a145ddb5ac7605b8bbfd8592baacd7ce3d8bb4313c7f"
+    url "https://files.pythonhosted.org/packages/ea/9a/c15a60547004a3f3cea20296c934f827ddd7bdba225a2e7e9fcb5ec48c80/anyio-4.15.0.tar.gz"
+    sha256 "b5c620ed540725e2579c31b17bb995b3bf02c9281c9cace04c7d186380bab85e"
   end
 
   resource "asyncer" do
@@ -99,8 +98,8 @@ class Otterdog < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
-    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
+    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
+    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
   end
 
   resource "chevron" do
@@ -109,8 +108,8 @@ class Otterdog < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "frozenlist" do
@@ -124,13 +123,13 @@ class Otterdog < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/26/d6/5f358ff283325580c2003a6d953aea18cfe10ae87b46f5ebc80fa3a386dc/gitpython-3.1.58.tar.gz"
-    sha256 "621416df10ef3fd0e19fabf9172ddeed0fa704d353d04f194eec56a625a95b22"
+    url "https://files.pythonhosted.org/packages/6f/61/3285044215fb596bf093e39ccb96ece0a1076a8ca57a61e069a6a33cdb1b/gitpython-3.1.61.tar.gz"
+    sha256 "f51c24d8c0f733a195447385f5774a5dfe8767f5acfd7994a33755644c6ecc95"
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/a3/74/b13368064b09053253555d3f2839cc2684d22d5aed0d2ccffbf7a6736558/greenlet-3.5.4.tar.gz"
-    sha256 "0232ae1de90a8e07867bb127d7a6ba2301e859145489f25cda8a6096dabe1d20"
+    url "https://files.pythonhosted.org/packages/0b/d8/7cc97c142388aef03f622e001c572c4f84e9252a439549d483f555771970/greenlet-3.5.5.tar.gz"
+    sha256 "adb4bae02e91a8e863e48b177e4014bdcac8a6b5e047ea1df687a61534b85e6c"
   end
 
   resource "hvac" do
@@ -139,8 +138,8 @@ class Otterdog < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
-    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
+    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
+    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
   end
 
   resource "importlib-resources" do
@@ -209,8 +208,8 @@ class Otterdog < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "pynacl" do
@@ -219,8 +218,8 @@ class Otterdog < Formula
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/82/ed/0301aeeac3e5353ef3d94b6ec08bbcabd04a72018415dcb29e588514bba8/python_dotenv-1.2.2.tar.gz"
-    sha256 "2c371a91fbd7ba082c2c1dc1f8bf89ca22564a087c2c287cd9b662adde799cf3"
+    url "https://files.pythonhosted.org/packages/6a/53/ed9d74092561d4b01a2ef1349d52cdbc135e526c245f366b089cfca6de49/python_dotenv-1.2.3.tar.gz"
+    sha256 "a20a594dabeaa385725aa239d5244871c143ecb356add8a20fcf23773a6c3a35"
   end
 
   resource "referencing" do

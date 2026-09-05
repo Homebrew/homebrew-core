@@ -1,8 +1,8 @@
 class Cgal < Formula
   desc "Computational Geometry Algorithms Library"
   homepage "https://www.cgal.org/"
-  url "https://github.com/CGAL/cgal/releases/download/v6.2/CGAL-6.2.tar.xz"
-  sha256 "fbc32816745e871a5cbdeb6245317e9dbf10ae1a957b0ab1edb00b4fde00ba8d"
+  url "https://github.com/CGAL/cgal/releases/download/v6.2.1/CGAL-6.2.1.tar.xz"
+  sha256 "b6be77c60765a8456335de991eeaf6ffec55256984e4a9ecc6a97c37bbfe85bf"
   license "GPL-3.0-or-later"
   compatibility_version 1
 
@@ -12,8 +12,7 @@ class Cgal < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "dbe2a9a20e71d785f684a9bdaa194887116b960454150d26c33e20071ac191cd"
+    sha256 cellar: :any_skip_relocation, all: "a630bdf209970775ad7b3b96efbff3f67d901d923c8a1c43e964353123ecd604"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -22,13 +21,6 @@ class Cgal < Formula
   depends_on "eigen" => :no_linkage
   depends_on "gmp" => :no_linkage
   depends_on "mpfr" => :no_linkage
-
-  # Backport fix for .debug_gdb_scripts section to avoid errors on some linkers
-  patch :p2 do
-    url "https://github.com/CGAL/cgal/commit/eb2257df4da4c52c75fe384e803d9a6376057b8a.patch?full_index=1"
-    sha256 "2686aea78dc3a58180eb1744dea44f27bd4d692ae8cfc9a4fab2a616fd6b7535"
-    type :backport
-  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

@@ -1,19 +1,18 @@
 class Taglib < Formula
   desc "Audio metadata library"
   homepage "https://taglib.org/"
-  url "https://taglib.org/releases/taglib-2.3.1.tar.gz"
-  sha256 "a19d90e6fd41d09a0281ec0fe762d51491d7a6ccffc923c4f7868c5e647ca230"
+  url "https://taglib.org/releases/taglib-2.3.2.tar.gz"
+  sha256 "3ca2d8afaa7f1cf7f6ed10e511ebc368bfacd6dcaa3dbfa690b89e502e8963dc"
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
   compatibility_version 1
   head "https://github.com/taglib/taglib.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "2c2cf7d5ecc8b6f8c2889ec1618b8ec2f3ff697dd9dd0d8ed832499d51dc7a57"
-    sha256 cellar: :any, arm64_sequoia: "d9d83ee01ebc5adc20aea5c61ac7b9d3586887321796c5943d05b04c3fd9690d"
-    sha256 cellar: :any, arm64_sonoma:  "31a8ead75925ad72b27f24df59be8d3f5a4de0bc438256c3a281c43bcd2732c8"
-    sha256 cellar: :any, sonoma:        "83626f71dd49f422010119a1f7c981d0830cad916a6dbe560001fe3e1f583a80"
-    sha256 cellar: :any, arm64_linux:   "fc49462273488bc9c4b3f2215c18f8ee1f309104645ce644fb09a44c055d7fa2"
-    sha256 cellar: :any, x86_64_linux:  "a4388c6beafdee32ca93b78387173c58c0d78025ce0bd8a5bab510f5021b0634"
+    sha256 cellar: :any, arm64_tahoe:   "d8c52b4c84c767b812813e014c4a4bf07d5906e281cc9d12c3e2a41d6de5b4a5"
+    sha256 cellar: :any, arm64_sequoia: "d0c4b888ad066f830a5725ae3cee6c96b871193214303629fb9f484e15e519f0"
+    sha256 cellar: :any, arm64_sonoma:  "ce74ab9da6700f72cd203c363e942697dfe90b53973d9b0e83b9b908108c0102"
+    sha256 cellar: :any, arm64_linux:   "63a94c6608f23e771db76356722dd56e6af83504ebc6b39542577520b39c9a63"
+    sha256 cellar: :any, x86_64_linux:  "a7d97e83d422731fb5754c56db9cc0e861df08e319c92d51f6b4875a04322062"
   end
 
   depends_on "cmake" => :build

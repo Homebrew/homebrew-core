@@ -6,6 +6,7 @@ class HermesAgent < Formula
   url "https://github.com/NousResearch/hermes-agent/archive/refs/tags/v2026.8.31.tar.gz"
   sha256 "78fb3ff707ec1d17044b875ecac8bef28aa39d44242824f6871ca40afe7bf217"
   license "MIT"
+  revision 1
   head "https://github.com/NousResearch/hermes-agent.git", branch: "main"
 
   livecheck do
@@ -14,11 +15,12 @@ class HermesAgent < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "6905454e188566ce2770d6e372774d87ecf5064f4e08c2880de2f813f4c31892"
-    sha256 cellar: :any, arm64_sequoia: "d41c17360154f2a9d6db0d83548a67268bd2ff50b22405ec999b3b9fcf105f27"
-    sha256 cellar: :any, arm64_sonoma:  "ffe5e1e9bc044f73888aac531ee9bd3e519aa306a1c740338ff5742732f970f0"
-    sha256 cellar: :any, arm64_linux:   "ba86a13b5fb09b439e15780aad47b16ee34dbe5ac50436323950496d969f6696"
-    sha256 cellar: :any, x86_64_linux:  "0c250a3812f94b2667cc3c85bc3692c6564bcb72f49477b0956a6c727459a661"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "f8be34c1fe3ebf776266fbdfc78095e4325196648a1bc6e7bdd4859b88d3c483"
+    sha256 cellar: :any, arm64_sequoia: "ae734cccfbc4adb6cbb06c572420890351e187384cac692a0d7ce1482d01b791"
+    sha256 cellar: :any, arm64_sonoma:  "695393e4c9468178526cbd46c0d42264247f9394427e7b8232cf01042e6ab02b"
+    sha256 cellar: :any, arm64_linux:   "cbb0e246335ba4fa1aedfb5dda57e8b68d6c793689ff42198876f0b3ab340e2e"
+    sha256 cellar: :any, x86_64_linux:  "4c253b29ba42cf9cf69122f2fcb53ab6d955ba025b3e8e764ed5b5466a2a6d65"
   end
 
   depends_on "pkgconf" => :build
@@ -34,7 +36,14 @@ class HermesAgent < Formula
   depends_on "ripgrep"
   depends_on "tirith"
 
-  pypi_packages exclude_packages: %w[certifi cryptography pillow pydantic]
+  pypi_packages exclude_packages: %w[certifi cryptography pillow pydantic],
+                extra_packages:   %w[agent-client-protocol==0.9.0 httpx2==2.7.0 mcp==2.0.0]
+
+  # `hermes-acp` imports this at startup with no lazy-install fallback; upstream pins ==0.9.0
+  resource "agent-client-protocol" do
+    url "https://files.pythonhosted.org/packages/eb/13/3b893421369767e7043cc115d6ef0df417c298b84563be3a12df0416158d/agent_client_protocol-0.9.0.tar.gz"
+    sha256 "f744c48ab9af0f0b4452e5ab5498d61bcab97c26dbe7d6feec5fd36de49be30b"
+  end
 
   resource "annotated-doc" do
     url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
@@ -44,6 +53,11 @@ class HermesAgent < Formula
   resource "anyio" do
     url "https://files.pythonhosted.org/packages/61/cc/a381afa6efea9f496eff839d4a6a1aed3bfafc7b3ab4b0d1b243a12573dd/anyio-4.14.2.tar.gz"
     sha256 "cfa139f3ed1a23ee8f88a145ddb5ac7605b8bbfd8592baacd7ce3d8bb4313c7f"
+  end
+
+  resource "attrs" do
+    url "https://files.pythonhosted.org/packages/9a/8e/82a0fe20a541c03148528be8cac2408564a6c9a0cc7e9171802bc1d26985/attrs-26.1.0.tar.gz"
+    sha256 "d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32"
   end
 
   resource "charset-normalizer" do
@@ -91,6 +105,11 @@ class HermesAgent < Formula
     sha256 "6e34463af53fd2ab5d807f399a9b45ea31c3dfa2276f15a2c3f00afff6e176e8"
   end
 
+  resource "httpcore2" do
+    url "https://files.pythonhosted.org/packages/d5/fe/6a3f9f1a8bb8733326140737446aaf72fddb8b54b8f202302f5c84960613/httpcore2-2.7.0.tar.gz"
+    sha256 "6dc0fedf329a52a990930a5579edfebaea81118ea700ea0dd7de2b5e5be49efc"
+  end
+
   resource "httptools" do
     url "https://files.pythonhosted.org/packages/43/e5/d471fcb0e14523fe1c3f4ba58ca52480e7bd70ad7109a3846bc75892f7fb/httptools-0.8.0.tar.gz"
     sha256 "6b2a32f18d97e16e90827d7a819ffa8dbd8cc245fc4e1fa9d1095b54ef4bd999"
@@ -99,6 +118,11 @@ class HermesAgent < Formula
   resource "httpx" do
     url "https://files.pythonhosted.org/packages/b1/df/48c586a5fe32a0f01324ee087459e112ebb7224f646c0b5023f5e79e9956/httpx-0.28.1.tar.gz"
     sha256 "75e98c5f16b0f35b567856f597f06ff2270a374470a5c2392242528e3e3e42fc"
+  end
+
+  resource "httpx2" do
+    url "https://files.pythonhosted.org/packages/a3/4a/129b2e21b90ac2985d3928d96792bccc39bc6dfe796c5eee2d8ec06d4105/httpx2-2.7.0.tar.gz"
+    sha256 "8b30709aed5c8465b0dd3b95c09ce301c8f79e7e7a2d00ab0af551e0d0375b07"
   end
 
   resource "idna" do
@@ -116,6 +140,16 @@ class HermesAgent < Formula
     sha256 "7b24c3492c5f4f84a37946ad9cf504910cf6a782d6a4e0689b6673c5894b4a1c"
   end
 
+  resource "jsonschema" do
+    url "https://files.pythonhosted.org/packages/b3/fc/e067678238fa451312d4c62bf6e6cf5ec56375422aee02f9cb5f909b3047/jsonschema-4.26.0.tar.gz"
+    sha256 "0c26707e2efad8aa1bfc5b7ce170f3fccc2e4918ff85989ba9ffa9facb2be326"
+  end
+
+  resource "jsonschema-specifications" do
+    url "https://files.pythonhosted.org/packages/19/74/a633ee74eb36c44aa6d1095e7cc5569bebf04342ee146178e2d36600708b/jsonschema_specifications-2025.9.1.tar.gz"
+    sha256 "b540987f239e745613c7a9176f3edb72b832a4ac465cf02712288397832b5e8d"
+  end
+
   resource "markdown" do
     url "https://files.pythonhosted.org/packages/2b/f4/69fa6ed85ae003c2378ffa8f6d2e3234662abd02c10d216c0ba96081a238/markdown-3.10.2.tar.gz"
     sha256 "994d51325d25ad8aa7ce4ebaec003febcce822c3f8c911e3b17c52f7f589f950"
@@ -131,6 +165,16 @@ class HermesAgent < Formula
     sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
+  resource "mcp" do
+    url "https://files.pythonhosted.org/packages/74/33/32d4dff2c95bb5d897c3ef4c83649a08996b17b58f0a326d2495d4c81179/mcp-2.0.0.tar.gz"
+    sha256 "0f440e735c13ece8bb19bc62cf0b86f4313448432fbb77d35e14034f4e050728"
+  end
+
+  resource "mcp-types" do
+    url "https://files.pythonhosted.org/packages/bb/56/9b8e1c152f61f6c6b07c4b5896c88c7d0ae90bac6ee6306f852fcc5c1eb0/mcp_types-2.0.0.tar.gz"
+    sha256 "d7d939b9285c9961ae8866ba75ef85da34d12bafe276efbf4eb6a131786d8379"
+  end
+
   resource "mdurl" do
     url "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz"
     sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
@@ -144,6 +188,11 @@ class HermesAgent < Formula
   resource "openai" do
     url "https://files.pythonhosted.org/packages/55/13/17e87641b89b74552ed408a92b231283786523edddc95f3545809fab673c/openai-2.24.0.tar.gz"
     sha256 "1e5769f540dbd01cb33bc4716a23e67b9d695161a734aff9c5f925e2bf99a673"
+  end
+
+  resource "opentelemetry-api" do
+    url "https://files.pythonhosted.org/packages/ee/8b/aa9e2d8b8dfa7c946f7dec5d1f8f6ba8eca062f43509a06bdb5ce93d26c0/opentelemetry_api-1.44.0.tar.gz"
+    sha256 "67647e5e9566edcf421166fdf022b3537f818635daa852b289e34604dc6fb33a"
   end
 
   resource "packaging" do
@@ -206,6 +255,11 @@ class HermesAgent < Formula
     sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
+  resource "referencing" do
+    url "https://files.pythonhosted.org/packages/22/f5/df4e9027acead3ecc63e50fe1e36aca1523e1719559c499951bb4b53188f/referencing-0.37.0.tar.gz"
+    sha256 "44aefc3142c5b842538163acb373e24cce6632bd54bdb01b21ad5863489f50d8"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
     sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
@@ -214,6 +268,11 @@ class HermesAgent < Formula
   resource "rich" do
     url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
     sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
+  end
+
+  resource "rpds-py" do
+    url "https://files.pythonhosted.org/packages/aa/2a/9618a122aeb2a169a28b03889a2995fe297588964333d4a7d67bdf46e147/rpds_py-2026.6.3.tar.gz"
+    sha256 "1cebd1337c242e4ec2293e541f712b2da849b29f48f0c293684b71c0632625d4"
   end
 
   resource "ruamel-yaml" do
@@ -254,6 +313,11 @@ class HermesAgent < Formula
     end
   end
 
+  resource "sse-starlette" do
+    url "https://files.pythonhosted.org/packages/1e/e1/8a41e88e825ea26c44333897c7ffe35fe60153a2cfc097a5bd1d209ad281/sse_starlette-3.4.10.tar.gz"
+    sha256 "c6c87280d8feb4e55a8d79633782766b9cac6a26da5c79a145d00aa404117a86"
+  end
+
   resource "starlette" do
     url "https://files.pythonhosted.org/packages/b5/b4/205b0d5241d934e8add0c38aa924c4f9fb7330834ff11e5444db964ec3f9/starlette-1.6.0.tar.gz"
     sha256 "d4e3ac5e546444960c710297a3c9fc3f7ebae1b7e963f3d36173b49da535be9b"
@@ -272,6 +336,11 @@ class HermesAgent < Formula
   resource "tqdm" do
     url "https://files.pythonhosted.org/packages/21/3b/6c24bec5be5e743ffd99576daa5cc077722fc7d5bbc00bd133fa0c698dc6/tqdm-4.70.0.tar.gz"
     sha256 "55b0b0dbd97462d06ebee91e4dac24ed4d4702be82b24f07e6c1d27e08cea220"
+  end
+
+  resource "truststore" do
+    url "https://files.pythonhosted.org/packages/53/a3/1585216310e344e8102c22482f6060c7a6ea0322b63e026372e6dcefcfd6/truststore-0.10.4.tar.gz"
+    sha256 "9d91bd436463ad5e4ee4aba766628dd6cd7010cf3e2461756b3303710eebc301"
   end
 
   resource "urllib3" do
@@ -338,17 +407,19 @@ class HermesAgent < Formula
     %w[hermes hermes-agent hermes-acp].each do |cmd|
       rm bin/cmd
       (bin/cmd).write_env_script libexec/"bin/#{cmd}", {
-        HERMES_BUNDLED_SKILLS:  pkgshare/"skills",
-        HERMES_OPTIONAL_SKILLS: pkgshare/"optional-skills",
-        HERMES_BUNDLED_PLUGINS: pkgshare/"plugins",
-        HERMES_BUNDLED_LOCALES: pkgshare/"locales",
-        HERMES_OPTIONAL_MCPS:   pkgshare/"optional-mcps",
-        HERMES_BIN:             "${HERMES_BIN:-#{bin}/hermes}",
-        HERMES_WEB_DIST:        pkgshare/"web_dist",
-        HERMES_TUI_DIR:         pkgshare/"ui-tui",
-        HERMES_PYTHON:          libexec/"bin/python3",
-        HERMES_NODE:            formula_opt_bin("node")/"node",
-        HERMES_REVISION:        "v#{version}",
+        HERMES_BUNDLED_SKILLS:      pkgshare/"skills",
+        HERMES_OPTIONAL_SKILLS:     pkgshare/"optional-skills",
+        HERMES_BUNDLED_PLUGINS:     pkgshare/"plugins",
+        HERMES_BUNDLED_LOCALES:     pkgshare/"locales",
+        HERMES_OPTIONAL_MCPS:       pkgshare/"optional-mcps",
+        HERMES_BIN:                 "${HERMES_BIN:-#{bin}/hermes}",
+        HERMES_WEB_DIST:            pkgshare/"web_dist",
+        HERMES_TUI_DIR:             pkgshare/"ui-tui",
+        HERMES_PYTHON:              libexec/"bin/python3",
+        HERMES_NODE:                formula_opt_bin("node")/"node",
+        HERMES_REVISION:            "v#{version}",
+        # Not in the Nix wrapper: keep lazily installed extras out of the keg so `brew upgrade` doesn't drop them
+        HERMES_LAZY_INSTALL_TARGET: "${HERMES_LAZY_INSTALL_TARGET:-${HERMES_HOME:-$HOME/.hermes}/lazy-packages}",
       }
     end
   end
@@ -362,6 +433,7 @@ class HermesAgent < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/hermes --version")
+    assert_match "Hermes ACP check OK", shell_output("#{bin}/hermes-acp --check")
 
     assert_match "No sessions found", shell_output("#{bin}/hermes sessions list")
     system bin/"hermes", "status"
@@ -373,5 +445,22 @@ class HermesAgent < Formula
     assert_path_exists pkgshare/"plugins/platforms/telegram/plugin.yaml"
     assert_path_exists pkgshare/"web_dist/index.html"
     assert_path_exists pkgshare/"ui-tui/dist/entry.js"
+
+    # Connect to hermes' own MCP server over stdio. The server gets a separate
+    # HERMES_HOME so it does not recursively connect back to itself.
+    (testpath/".hermes").mkpath
+    (testpath/"serve").mkpath
+    (testpath/".hermes/config.yaml").write <<~YAML
+      mcp_servers:
+        hermes:
+          command: #{bin}/hermes
+          args: ["mcp", "serve"]
+          connect_timeout: 120
+          env:
+            HERMES_HOME: #{testpath}/serve
+    YAML
+    mcp_test = shell_output("#{bin}/hermes mcp test hermes")
+    assert_match "Connected", mcp_test
+    assert_match "Tools discovered:", mcp_test
   end
 end
