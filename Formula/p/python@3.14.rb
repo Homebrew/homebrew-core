@@ -409,10 +409,51 @@ class PythonAT314 < Formula
       # This file is created by Homebrew and is executed on each python startup.
       # Don't print from here, or else python command line scripts may fail!
       # <https://docs.brew.sh/Homebrew-and-Python>
-      import re
       import os
       import site
       import sys
+
+      _brew_version_chars = '0123456789._abrc'
+
+      def _brew_sub_cellar(path, rack, repl, suffixes=None):
+          """Replace `rack`/<version> in `path`, matching what a regex of
+          `rack`/[0-9._abrc]+ would. When `suffixes` is given, the version must
+          be followed by one of them and the suffix is consumed too; otherwise
+          the version must be followed by '/' or end of string.
+
+          Written without `re` deliberately: sitecustomize runs on every
+          interpreter start, and importing `re` for this cost ~4ms (~20% of
+          startup) on an M3 Mac.
+          """
+          needle = rack + '/'
+          out = []
+          pos = 0
+          while True:
+              start = path.find(needle, pos)
+              if start == -1:
+                  out.append(path[pos:])
+                  return ''.join(out)
+              vend = start + len(needle)
+              while vend < len(path) and path[vend] in _brew_version_chars:
+                  vend += 1
+              end = None
+              if vend > start + len(needle):
+                  if suffixes is None:
+                      if vend == len(path) or path[vend] == '/':
+                          end = vend
+                  else:
+                      for suffix in suffixes:
+                          if path.startswith(suffix, vend):
+                              end = vend + len(suffix)
+                              break
+              if end is None:
+                  out.append(path[pos:vend])
+                  pos = vend
+              else:
+                  out.append(path[pos:start])
+                  out.append(repl)
+                  pos = end
+
       if sys.version_info[:2] != (#{version.major}, #{version.minor}):
           # This can only happen if the user has set the PYTHONPATH to a mismatching site-packages directory.
           # Every Python looks at the PYTHONPATH variable and we can't fix it here in sitecustomize.py,
@@ -433,22 +474,24 @@ class PythonAT314 < Formula
           sys.path.extend(library_packages)
           # the Cellar site-packages is a symlink to the HOMEBREW_PREFIX
           # site_packages; prefer the shorter paths
-          long_prefix = re.compile(r'#{rack}/[0-9\\._abrc]+/(?:Frameworks/Python\\.framework/Versions/#{version.major_minor}/)?lib/python#{version.major_minor}/site-packages')
-          sys.path = [long_prefix.sub('#{site_packages}', p) for p in sys.path]
+          _brew_site_suffixes = ('/Frameworks/Python.framework/Versions/#{version.major_minor}'
+                                 '/lib/python#{version.major_minor}/site-packages',
+                                 '/lib/python#{version.major_minor}/site-packages')
+          sys.path = [_brew_sub_cellar(p, '#{rack}', '#{site_packages}', _brew_site_suffixes)
+                      for p in sys.path]
           # Set the sys.executable to use the opt_prefix. Only do this if PYTHONEXECUTABLE is not
           # explicitly set and we are not in a virtualenv:
           if 'PYTHONEXECUTABLE' not in os.environ and sys.prefix == sys.base_prefix:
               sys.executable = sys._base_executable = '#{opt_bin}/python#{version.major_minor}'
       if 'PYTHONHOME' not in os.environ:
-          cellar_prefix = re.compile(r'#{rack}/[0-9\\._abrc]+(?=/|$)')
           if os.path.realpath(sys.base_prefix).startswith('#{rack}'):
-              new_prefix = cellar_prefix.sub('#{opt_prefix}', sys.base_prefix)
+              new_prefix = _brew_sub_cellar(sys.base_prefix, '#{rack}', '#{opt_prefix}')
               site.PREFIXES[:] = [new_prefix if x == sys.base_prefix else x for x in site.PREFIXES]
               if sys.prefix == sys.base_prefix:
                   sys.prefix = new_prefix
               sys.base_prefix = new_prefix
           if os.path.realpath(sys.base_exec_prefix).startswith('#{rack}'):
-              new_exec_prefix = cellar_prefix.sub('#{opt_prefix}', sys.base_exec_prefix)
+              new_exec_prefix = _brew_sub_cellar(sys.base_exec_prefix, '#{rack}', '#{opt_prefix}')
               site.PREFIXES[:] = [new_exec_prefix if x == sys.base_exec_prefix else x for x in site.PREFIXES]
               if sys.exec_prefix == sys.base_exec_prefix:
                   sys.exec_prefix = new_exec_prefix
