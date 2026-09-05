@@ -2,7 +2,7 @@ class Harlequin < Formula
   include Language::Python::Virtualenv
 
   desc "Easy, fast, and beautiful database client for the terminal"
-  homepage "https://harlequin.sh"
+  homepage "https://harlequin.sh", browsed: "2026-09-05"
   url "https://files.pythonhosted.org/packages/ef/9a/cff4402e0cf9d6cff4d8d7676806e54a63fd2481cffdf965f845281ffb94/harlequin-2.13.0.tar.gz"
   sha256 "b613ec50c170d2284200eb3e8a86a24b287d1fd99e4f1707077e0110732fc7f0"
   license "MIT"
