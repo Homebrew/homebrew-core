@@ -38,6 +38,8 @@ class Libpng < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     resource("pngtest.png").stage(buildpath) if OS.linux?
 

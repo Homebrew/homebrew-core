@@ -42,6 +42,8 @@ class Libnghttp2 < Formula
   link_overwrite "lib/libnghttp2.so.14"
   link_overwrite "lib/pkgconfig/libnghttp2.pc"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--enable-lib-only", *std_configure_args
