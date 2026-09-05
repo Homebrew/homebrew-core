@@ -7,15 +7,15 @@ class Afflib < Formula
     "BSD-4-Clause", # AFFLIB 2.0a14 and before
     :public_domain, # contributions after 2.0a14
   ]
+  revision 1
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_tahoe:   "16a9e68d5a412285777fd4892d401d98e5cde7d82544ebc532289361ceab286b"
-    sha256 cellar: :any,                 arm64_sequoia: "6874090595c0aa86a9d1534f5842aa4e54dbf7f2ee950e9dd20d37bd2a7dd8e1"
-    sha256 cellar: :any,                 arm64_sonoma:  "d51a9f8798333e8e76aa4b16646f86fc5a56febd4d18a874dac55c32302efdba"
-    sha256 cellar: :any,                 sonoma:        "393511fd03c96d20bcd82e9cbb9280d03b741f5ffaa757cbcde4acfd51231566"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "db1e2931a3dfa168f074d44393da3a90c98c700b422af6446bdf7b9b6ced50bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fcf3bc9195cbafae0f9e28d2c4c80dc6700238b25f03e766e89d6867a14afe3"
+    sha256 cellar: :any,                 arm64_tahoe:   "ef376f647e9bc1cdb381aea75bdacece1e8117105c5b4cca672a24082ac03573"
+    sha256 cellar: :any,                 arm64_sequoia: "aae601db1d447ec1744691ecb02bda11390f42e54b513aea01b4c9189d7127cb"
+    sha256 cellar: :any,                 arm64_sonoma:  "e59baa723938365a243b4941b42d76f9d1517aa63abbdd7c920632f784a60b1a"
+    sha256 cellar: :any,                 sonoma:        "8376b47c12eb57814bfe437f4ec05e4be642fb01b91b64c2a57de8ac526d0f13"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "625ddf17091f004214ce3368005b56be681349d836924559e5efffe71fef86b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7521b070c5c4a2e33b5060f015c7f1eb9f74616b97daf3428d7d383e3cba0a42"
   end
 
   depends_on "autoconf" => :build
@@ -23,7 +23,7 @@ class Afflib < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "python@3.14" => [:build, :test] # for bindings, avoid runtime dependency due to `expat`
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "curl"
   uses_from_macos "expat"
