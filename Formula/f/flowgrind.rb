@@ -29,6 +29,7 @@ class Flowgrind < Formula
   end
 
   depends_on "gsl"
+  depends_on "util-linux"
   depends_on "xmlrpc-c"
 
   uses_from_macos "libpcap"
