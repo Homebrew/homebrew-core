@@ -104,7 +104,7 @@ class GhcAT94 < Formula
   def install
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
-    ENV["PYTHON"] = which("python3.12")
+    ENV["PYTHON"] = python3
     # Work around `ENV["CC"]` no longer being used unless set to absolute path.
     # Caused by https://gitlab.haskell.org/ghc/ghc/-/commit/6be2c5a7e9187fc14d51e1ec32ca235143bb0d8b
     # Issue ref: https://gitlab.haskell.org/ghc/ghc/-/issues/22175

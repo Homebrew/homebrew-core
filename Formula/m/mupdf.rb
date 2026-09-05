@@ -81,7 +81,7 @@ class Mupdf < Formula
     (buildpath/"thirdparty/mujs").install resource("mujs")
 
     # For python bindings needed by `pymupdf`: https://pymupdf.readthedocs.io/en/latest/packaging.html
-    site_packages = Language::Python.site_packages("python3.14")
+    site_packages = Language::Python.site_packages(python3)
     ENV.prepend_path "PYTHONPATH", formula_opt_prefix("llvm@21")/site_packages
 
     (buildpath/"pipcl").install resource("pipcl")

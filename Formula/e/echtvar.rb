@@ -33,7 +33,7 @@ class Echtvar < Formula
 
   test do
     cp_r pkgshare/"tests/.", testpath
-    system "python3.14", "make-vcf.py", "2"
+    system python3, "make-vcf.py", "2"
     system bin/"echtvar", "encode", "test.zip", "test0.hjson", "generated-subset0.vcf"
     assert_path_exists "test.zip"
   end

@@ -16,7 +16,7 @@ class Cxxtest < Formula
   depends_on "python@3.14"
 
   def install
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install_and_link buildpath/"python"
 
     include.install "cxxtest"

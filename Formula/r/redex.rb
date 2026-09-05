@@ -63,7 +63,7 @@ class Redex < Formula
       MacOS.sdk_for_formula(self).path/"usr"
     end
 
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
 
     python_scripts = %w[

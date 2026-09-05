@@ -25,7 +25,7 @@ class LtexLsPlus < Formula
     ENV["JAVA_HOME"] = Language::Java.java_home
     ENV["TMPDIR"] = buildpath
 
-    system "python3.14", "-u", "tools/createCompletionLists.py"
+    system python3, "-u", "tools/createCompletionLists.py"
 
     system "mvn", "-B", "-e", "-DskipTests", "package"
 

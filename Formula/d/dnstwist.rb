@@ -126,7 +126,7 @@ class Dnstwist < Formula
     ENV["MAXMINDDB_USE_SYSTEM_LIBMAXMINDDB"] = "1"
     ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi" if OS.mac?
 
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
 
     (libexec/"bin").install "dnstwist.py" => "dnstwist"

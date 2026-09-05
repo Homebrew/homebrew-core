@@ -39,7 +39,7 @@ class Bpytop < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
     system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install "themes"

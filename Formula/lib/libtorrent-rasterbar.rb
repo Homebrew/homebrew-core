@@ -34,7 +34,7 @@ class LibtorrentRasterbar < Formula
   def install
     # Work around Homebrew's prefix scheme, which makes Python's reported
     # site-packages path absolute and outside the keg.
-    site_packages = prefix/Language::Python.site_packages("python3.14")
+    site_packages = prefix/Language::Python.site_packages(python3)
     inreplace "bindings/python/CMakeLists.txt", "${_PYTHON3_SITE_ARCH}", site_packages
 
     args = %W[
@@ -78,6 +78,6 @@ class LibtorrentRasterbar < Formula
     system "./test", test_fixtures("test.mp3"), "-o", "test.torrent"
     assert_path_exists testpath/"test.torrent"
 
-    system "python3.14", "-c", "import libtorrent"
+    system python3, "-c", "import libtorrent"
   end
 end

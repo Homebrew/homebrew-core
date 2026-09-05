@@ -37,7 +37,7 @@ class Surelog < Formula
                     "-DANTLR_JAR_LOCATION=#{antlr.opt_prefix}/antlr-#{antlr.version}-complete.jar",
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DPython3_EXECUTABLE=#{which("python3.14")}",
+                    "-DPython3_EXECUTABLE=#{python3}",
                     "-DSURELOG_BUILD_TESTS=OFF",
                     "-DSURELOG_USE_HOST_ALL=ON",
                     "-DSURELOG_WITH_ZLIB=ON",

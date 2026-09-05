@@ -108,7 +108,7 @@ class GhcAT98 < Formula
     ENV["CC"] = ENV["ac_cv_path_CC"] = OS.linux? ? "cc" : ENV.cc
     ENV["CXX"] = ENV["ac_cv_path_CXX"] = OS.linux? ? "c++" : ENV.cxx
     ENV["LD"] = "ld"
-    ENV["PYTHON"] = which("python3.14")
+    ENV["PYTHON"] = python3
 
     # Workaround for https://gitlab.haskell.org/ghc/ghc/-/issues/26166
     if DevelopmentTools.ld64_version >= "1221.4"

@@ -59,7 +59,7 @@ class Watchman < Formula
     #       formulae, so let's link them statically instead. This is done by default.
     args = %W[
       -DENABLE_EDEN_SUPPORT=ON
-      -DPython3_EXECUTABLE=#{which("python3.14")}
+      -DPython3_EXECUTABLE=#{python3}
       -DWATCHMAN_VERSION_OVERRIDE=#{version}
       -DWATCHMAN_BUILDINFO_OVERRIDE=#{tap&.user || "Homebrew"}
       -DWATCHMAN_USE_XDG_STATE_HOME=ON

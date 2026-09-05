@@ -60,7 +60,7 @@ class GobjectIntrospection < Formula
   patch :DATA
 
   def install
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
     ENV.prepend_path "PATH", venv.root/"bin"
 

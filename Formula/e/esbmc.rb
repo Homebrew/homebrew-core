@@ -39,8 +39,6 @@ class Esbmc < Formula
   patch :DATA
 
   def install
-    python3 = which("python3.14")
-
     args = %W[
       -DLLVM_DIR=#{formula_opt_lib("llvm@22")}/cmake/llvm
       -DClang_DIR=#{formula_opt_lib("llvm@22")}/cmake/clang

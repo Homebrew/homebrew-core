@@ -67,7 +67,7 @@ class NodeAT24 < Formula
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = which("python3.13")
+    ENV["PYTHON"] = python3
 
     # Ensure Homebrew deps are used
     %w[brotli icu-small nghttp2 ngtcp2 simdjson sqlite uvwasi zstd].each do |dep|

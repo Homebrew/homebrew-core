@@ -109,7 +109,7 @@ class GhcAT96 < Formula
     ENV["CC"] = ENV["ac_cv_path_CC"] = OS.linux? ? "cc" : ENV.cc
     ENV["CXX"] = ENV["ac_cv_path_CXX"] = OS.linux? ? "c++" : ENV.cxx
     ENV["LD"] = "ld"
-    ENV["PYTHON"] = which("python3.14")
+    ENV["PYTHON"] = python3
 
     binary = buildpath/"binary"
     resource("binary").stage do

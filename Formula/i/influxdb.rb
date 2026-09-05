@@ -30,7 +30,6 @@ class Influxdb < Formula
   uses_from_macos "bzip2"
 
   def install
-    python3 = which("python3.14")
     ENV["PYO3_PYTHON"] = python3
     ENV["PYTHON_SYS_EXECUTABLE"] = python3
 

@@ -485,7 +485,7 @@ class Swift < Formula
         --swift-include-tests=0
         --llvm-include-tests=0
         --lldb-configure-tests=0
-        --lldb-extra-cmake-args=-DPython3_EXECUTABLE=#{which("python3.14")}
+        --lldb-extra-cmake-args=-DPython3_EXECUTABLE=#{python3}
         --skip-build-benchmarks
         --build-swift-private-stdlib=0
         --install-swift

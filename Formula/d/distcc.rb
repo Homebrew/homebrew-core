@@ -53,7 +53,7 @@ class Distcc < Formula
   depends_on "python@3.14"
 
   def install
-    ENV["PYTHON"] = python3 = which("python3.14")
+    ENV["PYTHON"] = python3
     site_packages = prefix/Language::Python.site_packages(python3)
 
     if build.stable?

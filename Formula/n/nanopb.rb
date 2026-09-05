@@ -36,7 +36,7 @@ class Nanopb < Formula
 
   def install
     ENV.append_to_cflags "-DPB_ENABLE_MALLOC=1"
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
 
     system "cmake", "-S", ".", "-B", "build",

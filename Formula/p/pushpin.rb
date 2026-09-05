@@ -109,7 +109,7 @@ class Pushpin < Formula
     sleep 5
 
     begin
-      system formula_opt_bin("python@3.14")/"python3.14", runfile
+      system python3, runfile
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)

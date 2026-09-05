@@ -67,7 +67,7 @@ class Carla < Formula
     system "make", "install", "PREFIX=#{prefix}"
 
     inreplace bin/"carla", "PYTHON=$(which python3 2>/dev/null)",
-                           "PYTHON=#{which("python3.14")}"
+                           "PYTHON=#{python3}"
   end
 
   test do

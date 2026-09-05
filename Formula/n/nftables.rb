@@ -29,7 +29,7 @@ class Nftables < Formula
   depends_on "readline"
 
   def install
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, python3)
     system "./configure", "--disable-silent-rules",
                           "--with-python-bin=#{venv.root}/bin/python3",
                           *std_configure_args

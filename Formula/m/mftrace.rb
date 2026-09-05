@@ -38,7 +38,7 @@ class Mftrace < Formula
   end
 
   def install
-    ENV["PYTHON"] = which("python3.14")
+    ENV["PYTHON"] = python3
     buildpath.install resource("manpage") if build.stable?
     system "./autogen.sh" if build.head?
     system "./configure", *std_configure_args

@@ -146,7 +146,7 @@ class Certbot < Formula
   def install
     if build.head?
       head_packages = %w[acme certbot certbot-apache certbot-nginx certbot-dns-cloudflare]
-      venv = virtualenv_create(libexec, "python3.14")
+      venv = virtualenv_create(libexec, python3)
       venv.pip_install resources.reject { |r| head_packages.include? r.name }
       venv.pip_install_and_link head_packages.map { |pkg| buildpath/pkg }
       pkgshare.install buildpath/"certbot/examples"

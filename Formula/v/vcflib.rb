@@ -47,6 +47,6 @@ class Vcflib < Formula
     assert_match "fileformat=VCF", shell_output("#{bin}/vcfrandom")
 
     ENV["PYTHONPATH"] = lib
-    system "python3.14", "-c", "import pyvcflib"
+    system python3, "-c", "import pyvcflib"
   end
 end

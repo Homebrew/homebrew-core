@@ -40,7 +40,7 @@ class LinkGrammar < Formula
 
     # Work around error due to install using detected path inside Python formula.
     # install: .../site-packages/linkgrammar.pth: Operation not permitted
-    site_packages = prefix/Language::Python.site_packages("python3.14")
+    site_packages = prefix/Language::Python.site_packages(python3)
     system "make", "install", "pythondir=#{site_packages}",
                               "pyexecdir=#{site_packages}"
   end

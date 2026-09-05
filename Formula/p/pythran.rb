@@ -64,8 +64,6 @@ class Pythran < Formula
   end
 
   test do
-    python3 = which("python3.14")
-
     (testpath/"test.py").write <<~PYTHON
       #pythran export b(int)
       import numpy

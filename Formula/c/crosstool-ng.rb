@@ -56,7 +56,7 @@ class CrosstoolNg < Formula
 
     ENV["BISON"] = formula_opt_bin("bison")/"bison"
     ENV["M4"] = formula_opt_bin("m4")/"m4"
-    ENV["PYTHON"] = formula_opt_bin("python@3.14")/"python3.14"
+    ENV["PYTHON"] = python3
 
     if OS.mac?
       ENV["MAKE"] = formula_opt_bin("make")/"gmake"

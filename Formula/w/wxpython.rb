@@ -34,10 +34,6 @@ class Wxpython < Formula
   # and reports it as an attribute, so `constexpr` members get a setter and fail to build.
   patch :DATA
 
-  def python
-    "python3.14"
-  end
-
   def install
     wxwidgets = deps.find { |dep| dep.name.match?(/^wxwidgets(@\d+(\.\d+)*)?$/) }.to_formula
     wx_config = wxwidgets.opt_bin/"wx-config-#{wxwidgets.version.major_minor}"
@@ -46,18 +42,18 @@ class Wxpython < Formula
     ENV.append_path "PYTHONPATH", formula_opt_libexec("cython")/Language::Python.site_packages(python)
     ENV.cxx11
     ENV["DOXYGEN"] = formula_opt_bin("doxygen")/"doxygen"
-    system python, "-u", "build.py", "dox", "touch", "etg", "sip", "build_py",
+    system python3, "-u", "build.py", "dox", "touch", "etg", "sip", "build_py",
                    "--release",
                    "--use_syswx",
                    "--prefix=#{prefix}",
                    "--jobs=#{ENV.make_jobs}",
                    "--verbose",
                    "--nodoc"
-    system python, "-m", "pip", "install", "--config-settings=--build-option=--skip-build", *std_pip_args, "."
+    system python3, "-m", "pip", "install", "--config-settings=--build-option=--skip-build", *std_pip_args, "."
   end
 
   test do
-    output = shell_output("#{python} -c 'import wx ; print(wx.__version__)'")
+    output = shell_output("#{python3} -c 'import wx ; print(wx.__version__)'")
     assert_match version.to_s, output
   end
 end

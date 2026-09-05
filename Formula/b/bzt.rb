@@ -281,7 +281,7 @@ class Bzt < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
     # disabling build isolation to use installed older setuptools for pkg_resources
     venv.pip_install_and_link(buildpath, build_isolation: false)

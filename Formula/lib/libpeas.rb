@@ -31,7 +31,7 @@ class Libpeas < Formula
   end
 
   def install
-    pyver = Language::Python.major_minor_version "python3.14"
+    pyver = Language::Python.major_minor_version python3
     # Help pkg-config find python as we only provide `python3-embed` for aliased python formula
     inreplace "meson.build", "'python3-embed'", "'python-#{pyver}-embed'"
 

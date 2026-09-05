@@ -65,6 +65,6 @@ class Nest < Formula
     system bin/"nest-config", "--version"
 
     # check whether NEST is importable form python
-    system Formula["python@3.14"].bin/"python3.14", "-c", "'import nest'"
+    system python3, "-c", "'import nest'"
   end
 end

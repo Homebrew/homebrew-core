@@ -113,7 +113,7 @@ class GhcAT912 < Formula
     ENV["CC"] = ENV["ac_cv_path_CC"] = OS.linux? ? "cc" : ENV.cc
     ENV["CXX"] = ENV["ac_cv_path_CXX"] = OS.linux? ? "c++" : ENV.cxx
     ENV["LD"] = ENV["MergeObjsCmd"] = "ld"
-    ENV["PYTHON"] = which("python3.14")
+    ENV["PYTHON"] = python3
 
     binary = buildpath/"binary"
     args = %W[

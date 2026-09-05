@@ -87,7 +87,7 @@ class Node < Formula
     inreplace "deps/ncrypto/ncrypto.cc",
               "#include <string_view>", "#include <string_view>\n#include <vector>"
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = which("python3.14")
+    ENV["PYTHON"] = python3
 
     # Ensure Homebrew deps are used
     rm_r(["deps/icu-small", "deps/npm"])

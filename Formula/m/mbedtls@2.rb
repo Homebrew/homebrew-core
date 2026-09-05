@@ -36,7 +36,7 @@ class MbedtlsAT2 < Formula
 
     args = %W[
       -DUSE_SHARED_MBEDTLS_LIBRARY=On
-      -DPython3_EXECUTABLE=#{which("python3.12")}
+      -DPython3_EXECUTABLE=#{python3}
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
     # Workaround for CMake 4 compatibility

@@ -42,7 +42,7 @@ class FbClient < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
 
     rw_info = python_shebang_rewrite_info(libexec/"bin/python")

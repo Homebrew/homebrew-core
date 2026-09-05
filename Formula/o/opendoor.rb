@@ -49,10 +49,9 @@ class Opendoor < Formula
     wordlist.write ["opendoor-health.txt", "missing-opendoor.txt", ""].join(10.chr)
     (testpath/"opendoor-health.txt").write "ok"
 
-    server_pid = spawn formula_opt_bin("python@3.14")/"python3.14",
-                       "-m", "http.server", port.to_s,
-                       "--bind", "127.0.0.1",
-                       "--directory", testpath.to_s
+    server_pid = spawn python3, "-m", "http.server", port.to_s,
+                                "--bind", "127.0.0.1",
+                                "--directory", testpath.to_s
 
     sleep 4
 

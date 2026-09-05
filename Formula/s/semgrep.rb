@@ -416,7 +416,7 @@ class Semgrep < Formula
     bin.install "_build/install/default/bin/semgrep-core" => "semgrep-core"
 
     ENV["SEMGREP_SKIP_BIN"] = "1"
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources.reject { |r| r.name == "pcre" }
     venv.pip_install_and_link buildpath/"cli"
   end

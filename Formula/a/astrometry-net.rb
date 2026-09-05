@@ -52,7 +52,7 @@ class AstrometryNet < Formula
     ENV["NETPBM_INC"] = "-I#{formula_opt_include("netpbm")}/netpbm"
     ENV["NETPBM_LIB"] = "-L#{formula_opt_lib("netpbm")} -lnetpbm"
     ENV["SYSTEM_GSL"] = "yes"
-    ENV["PYTHON"] = python3 = which("python3.14")
+    ENV["PYTHON"] = python3
 
     venv = virtualenv_create(libexec, python3)
     venv.pip_install(resources, build_isolation: false)

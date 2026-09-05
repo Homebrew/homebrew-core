@@ -61,7 +61,7 @@ class Zeek < Formula
                     "-DCARES_LIBRARIES=#{formula_opt_lib("c-ares")/shared_library("libcares")}",
                     "-DLibMMDB_LIBRARY=#{formula_opt_lib("libmaxminddb")/shared_library("libmaxminddb")}",
                     "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}",
-                    "-DPYTHON_EXECUTABLE=#{which("python3.14")}",
+                    "-DPYTHON_EXECUTABLE=#{python3}",
                     "-DZEEK_ETC_INSTALL_DIR=#{etc}",
                     "-DZEEK_LOCAL_STATE_DIR=#{var}",
                     "-DDISABLE_JAVASCRIPT=off",

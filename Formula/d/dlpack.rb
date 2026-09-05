@@ -39,6 +39,6 @@ class Dlpack < Formula
     cp pkgshare/"test_pure_numpy.py", testpath
 
     ENV["PYTHONPATH"] = libexec/"python"
-    system "python3.14", "test_pure_numpy.py"
+    system python3, "test_pure_numpy.py"
   end
 end

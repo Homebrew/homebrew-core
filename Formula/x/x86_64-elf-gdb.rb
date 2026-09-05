@@ -61,7 +61,7 @@ class X8664ElfGdb < Formula
       --with-curses
       --with-expat
       --with-lzma
-      --with-python=#{which("python3.14")}
+      --with-python=#{python3}
       --with-system-readline
       --with-system-zlib
       --with-zstd

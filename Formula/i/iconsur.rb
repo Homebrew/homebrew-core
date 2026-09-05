@@ -57,7 +57,7 @@ class Iconsur < Formula
       # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
       ENV.append_to_cflags "-isysroot #{MacOS.sdk_path}"
 
-      venv = virtualenv_create(libexec/"venv", "python3.14")
+      venv = virtualenv_create(libexec/"venv", python3)
       venv.pip_install resources
       bin.install libexec.glob("bin/*")
       bin.env_script_all_files libexec/"bin", PATH: "#{venv.root}/bin:${PATH}"

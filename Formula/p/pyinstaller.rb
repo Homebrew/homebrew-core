@@ -54,7 +54,7 @@ class Pyinstaller < Formula
 
   def install
     cd "bootloader" do
-      system "python3.14", "./waf", "all", "--no-universal2", "STRIP=/usr/bin/strip"
+      system python3, "./waf", "all", "--no-universal2", "STRIP=/usr/bin/strip"
     end
     without = ["macholib"] unless OS.mac?
     virtualenv_install_with_resources(without:)

@@ -99,7 +99,7 @@ class Pipdeptree < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources.reject { |r| r.name == "meson-python" }
     # meson-python self-hosts via backend-path; without isolation it uses brew meson and ninja
     venv.pip_install resource("meson-python"), build_isolation: false

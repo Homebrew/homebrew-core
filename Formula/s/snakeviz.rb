@@ -30,7 +30,7 @@ class Snakeviz < Formula
   test do
     require "cgi"
     system bin/"snakeviz", "--version"
-    system "python3.14", "-m", "cProfile", "-o", "output.prof", "-m", "cProfile"
+    system python3, "-m", "cProfile", "-o", "output.prof", "-m", "cProfile"
 
     port = free_port
 

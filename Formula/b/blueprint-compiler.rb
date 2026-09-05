@@ -20,7 +20,7 @@ class BlueprintCompiler < Formula
   depends_on "python@3.14"
 
   def install
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, python3)
     # Make meson use the venv's python so the launcher shebang and module dir target it
     ENV.prepend_path "PATH", venv.root/"bin"
 

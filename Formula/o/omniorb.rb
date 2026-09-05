@@ -45,7 +45,7 @@ class Omniorb < Formula
     build_arg = []
     build_arg << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm64?
 
-    ENV["PYTHON"] = python3 = which("python3.14")
+    ENV["PYTHON"] = python3
     xy = Language::Python.major_minor_version python3
     inreplace "configure",
               /am_cv_python_version=`.*`/,

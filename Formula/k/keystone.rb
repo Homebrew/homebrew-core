@@ -20,13 +20,9 @@ class Keystone < Formula
   depends_on "cmake" => :build
   depends_on "python@3.14" => :build
 
-  def python
-    which("python3.14")
-  end
-
   def install
     args = %W[
-      -DPYTHON_EXECUTABLE=#{python}
+      -DPYTHON_EXECUTABLE=#{python3}
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
 

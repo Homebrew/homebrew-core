@@ -98,7 +98,6 @@ class Onnxruntime < Formula
   patch :DATA
 
   def install
-    python3 = which("python3.14")
     ENV.runtime_cpu_detection
 
     resources.each do |r|
@@ -237,4 +236,4 @@ index b60d97e38f..6951642edb 100644
 +  static RunONNXRuntimeFix runONNXRuntimeFix;
    return &ort_api_base;
  }
- 
+

@@ -44,7 +44,7 @@ class Dnsdist < Formula
   end
 
   def install
-    venv = virtualenv_create(buildpath/"bootstrap", "python3.14")
+    venv = virtualenv_create(buildpath/"bootstrap", python3)
     venv.pip_install resources
     ENV.prepend_path "PATH", venv.root/"bin"
 

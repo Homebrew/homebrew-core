@@ -16,7 +16,6 @@ class HgFastExport < Formula
   depends_on "python@3.14"
 
   def install
-    python3 = which("python3.14")
     libexec.install "plugins", "pluginloader"
     bin.install buildpath.glob("hg*.{sh,py}")
 

@@ -24,7 +24,7 @@ class Jailkit < Formula
   depends_on "python@3.14"
 
   def install
-    ENV["PYTHONINTERPRETER"] = which("python3.14")
+    ENV["PYTHONINTERPRETER"] = python3
 
     system "./configure", *std_configure_args
     system "make", "install"

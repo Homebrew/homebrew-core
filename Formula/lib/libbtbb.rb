@@ -31,7 +31,7 @@ class Libbtbb < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    system "python3.14", "-m", "pip", "install", *std_pip_args(build_isolation: true), "./python/pcaptools"
+    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "./python/pcaptools"
     bin.install "python/pcaptools/btaptap"
     rewrite_shebang detected_python_shebang, bin/"btaptap"
   end

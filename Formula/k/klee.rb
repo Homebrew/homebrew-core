@@ -136,7 +136,7 @@ class Klee < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    venv = virtualenv_create(libexec/"venv", "python3.14")
+    venv = virtualenv_create(libexec/"venv", python3)
     venv.pip_install resource("tabulate")
     rewrite_shebang python_shebang_rewrite_info(venv.root/"bin/python"), *bin.children
   end

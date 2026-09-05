@@ -47,7 +47,7 @@ class Litani < Formula
 
   def install
     ENV.prepend_path "PATH", libexec/"vendor/bin"
-    venv = virtualenv_create(libexec/"vendor", "python3.14")
+    venv = virtualenv_create(libexec/"vendor", python3)
     venv.pip_install resources
 
     libexec.install Dir["*"] - ["test", "examples"]

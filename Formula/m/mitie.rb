@@ -38,7 +38,7 @@ class Mitie < Formula
     include.install Dir["mitielib/include/*"]
     lib.install "mitielib/#{shared_library("libmitie")}", "mitielib/libmitie.a"
 
-    (prefix/Language::Python.site_packages("python3.14")).install "mitielib/mitie.py"
+    (prefix/Language::Python.site_packages(python3)).install "mitielib/mitie.py"
     pkgshare.install "examples", "sample_text.txt",
                      "sample_text.reference-output",
                      "sample_text.reference-output-relations"

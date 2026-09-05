@@ -99,7 +99,7 @@ class SpiceGtk < Formula
   patch :DATA
 
   def install
-    venv = virtualenv_create(buildpath/"venv", "python3.14")
+    venv = virtualenv_create(buildpath/"venv", python3)
     venv.pip_install resources
     ENV.prepend_path "PATH", venv.root/"bin"
 

@@ -80,7 +80,7 @@ class Webkitgtk < Formula
       -DUSE_JPEGXL=ON
       -DUSE_LIBBACKTRACE=OFF
       -DUSE_LIBHYPHEN=OFF
-      -DPython_EXECUTABLE=#{which("python3.14")}
+      -DPython_EXECUTABLE=#{python3}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

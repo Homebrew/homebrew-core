@@ -18,7 +18,7 @@ class Sby < Formula
   depends_on "yosys"
 
   def install
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install "click"
 
     system "make", "install", "PREFIX=#{prefix}"

@@ -53,7 +53,7 @@ class YelpTools < Formula
       system "make", "install"
     end
 
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources.reject { |r| r.name == "mallard-rng" }
     ENV.prepend_path "PATH", venv.root/"bin"
 

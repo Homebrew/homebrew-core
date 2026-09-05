@@ -46,7 +46,7 @@ class Urh < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
     # Need to disable build isolation and install Setuptools since `urh` only
     # has a setup.py which assumes Cython and Setuptools are already installed

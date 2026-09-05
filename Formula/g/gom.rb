@@ -43,7 +43,7 @@ class Gom < Formula
   end
 
   def install
-    site_packages = prefix/Language::Python.site_packages("python3.14")
+    site_packages = prefix/Language::Python.site_packages(python3)
     gdk_pixbuf_add_pkgconfig_paths!
 
     system "meson", "setup", "build", "-Dpygobject-override-dir=#{site_packages}", *std_meson_args

@@ -40,7 +40,7 @@ class OpenAdventure < Formula
   end
 
   def install
-    venv = virtualenv_create(buildpath, "python3.14")
+    venv = virtualenv_create(buildpath, python3)
     venv.pip_install resources
     system venv.root/"bin/python", "./make_dungeon.py"
     system "make", "advent", "advent.6"

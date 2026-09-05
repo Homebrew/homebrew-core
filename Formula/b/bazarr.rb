@@ -51,7 +51,7 @@ class Bazarr < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
 
     if build.head?

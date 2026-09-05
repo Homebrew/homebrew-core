@@ -65,6 +65,6 @@ class Harfbuzz < Formula
       shape = pipe_output("#{bin}/hb-shape 270b89df543a7e48e206a2d830c0e10e5265c630.ttf", "സ്റ്റ്").chomp
       assert_equal "[glyph201=0+1183|U0D4D=0+0]", shape
     end
-    system "python3.14", "-c", "from gi.repository import HarfBuzz"
+    system python3, "-c", "from gi.repository import HarfBuzz"
   end
 end
