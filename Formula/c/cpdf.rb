@@ -22,28 +22,10 @@ class Cpdf < Formula
     # For OCamlmakefile
     ENV.deparallelize
 
-    # Work around for https://github.com/Homebrew/homebrew-test-bot/issues/805
-    if ENV["HOMEBREW_GITHUB_ACTIONS"] && !(Formula["ocaml-findlib"].etc/"findlib.conf").exist?
-      ENV["OCAMLFIND_CONF"] = formula_opt_libexec("ocaml-findlib")/"findlib.conf"
-    end
-
-    ENV["OCAMLFIND_DESTDIR"] = lib/"ocaml"
-
-    (lib/"ocaml").mkpath
-    cp formula_opt_lib("ocaml")/"ocaml/Makefile.config", lib/"ocaml"
-
-    # install in #{lib}/ocaml not #{HOMEBREW_PREFIX}/lib/ocaml
-    inreplace lib/"ocaml/Makefile.config" do |s|
-      s.change_make_var! "prefix", prefix
-    end
-
-    system "make"
-    (lib/"ocaml/stublibs").mkpath # `make install` assumes this directory exists
-    system "make", "install", "STDLIBDIR=#{lib}/ocaml"
-
-    rm lib/"ocaml/Makefile.config" # avoid conflict with ocaml
+    system "make", "native-code"
 
     bin.install "cpdf"
+    man1.install "cpdf.1"
   end
 
   test do
