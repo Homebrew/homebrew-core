@@ -2,6 +2,7 @@ class Root < Formula
   desc "Analyzing petabytes of data, scientifically"
   homepage "https://root.cern"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/root-project/root.git", branch: "master"
 
   stable do
@@ -55,6 +56,7 @@ class Root < Formula
   depends_on "openblas"
   depends_on "openssl@3"
   depends_on "pcre2"
+  depends_on "pythia"
   depends_on "python@3.14"
   depends_on "sqlite"
   depends_on "tbb"
@@ -99,6 +101,7 @@ class Root < Formula
       -DCMAKE_CXX_STANDARD=20
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -DPYTHON_EXECUTABLE=#{python3}
+      -DPYTHIA8_DIR=#{formula_opt_prefix("pythia")}
       -DXROOTD_ROOT_DIR=#{formula_opt_prefix("xrootd")}
       -Dbuiltin_cfitsio=OFF
       -Dbuiltin_civetweb=OFF
@@ -139,7 +142,7 @@ class Root < Formula
       -Dimt=ON
       -Dmathmore=ON
       -Dpyroot=ON
-      -Dpythia8=OFF
+      -Dpythia8=ON
       -Droofit=ON
       -Dssl=ON
       -Dtmva=ON
@@ -216,6 +219,12 @@ class Root < Formula
     flags << "-Wl,-rpath,#{lib}/root"
     shell_output("$(#{bin}/root-config --cxx) test.cpp #{flags.join(" ")}")
     assert_equal "Hello, world!\n", shell_output("./a.out")
+
+    # Test Pythia integration
+    assert_equal "yes", shell_output("#{bin}/root-config --has-pythia8").strip
+    assert_path_exists lib/"root/libEGPythia8.so"
+    system python3, "-c",
+           "import ROOT; assert ROOT.gSystem.Load('libEGPythia8') >= 0; assert ROOT.TClass.GetClass('TPythia8')"
 
     # Test Python module
     system python3, "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
