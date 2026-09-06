@@ -70,7 +70,10 @@ class Ggml < Formula
       -DGGML_LTO=ON
       -DGGML_NATIVE=OFF
     ]
-    args << "-DGGML_CPU_ALL_VARIANTS=ON" if build.bottle?
+    # Intel macOS no longer has bottles, so source builds need the same runtime CPU variants.
+    if build.bottle? || (OS.mac? && Hardware::CPU.intel?)
+      args << "-DGGML_CPU_ALL_VARIANTS=ON"
+    end
 
     # Enabling OpenBLAS for BLAS support and Vulkan for GPU support on Linux
     args += %w[-DGGML_BLAS_VENDOR=OpenBLAS -DGGML_VULKAN=ON] if OS.linux?
