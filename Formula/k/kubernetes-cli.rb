@@ -28,6 +28,12 @@ class KubernetesCli < Formula
     depends_on "coreutils" => :build
   end
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin" if OS.mac? # needs GNU date
     ENV["FORCE_HOST_GO"] = "1"
