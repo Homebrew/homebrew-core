@@ -21,6 +21,8 @@ class Mpg123 < Formula
     sha256 x86_64_linux:  "abaf6777eb51cb88f6d56dd33e9172bc7a208ac94b892652a3b422e5efa97ce0"
   end
 
+  deny_network_access!
+
   def install
     args = %w[
       --with-module-suffix=.so

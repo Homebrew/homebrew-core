@@ -25,6 +25,9 @@ class Ninja < Formula
 
   uses_from_macos "python" => [:build, :test]
 
+  # runs a server in the test
+  allow_network_access! :test
+
   def install
     system "python3", "configure.py", "--bootstrap", "--verbose", "--with-python=python3"
 
