@@ -59,7 +59,7 @@ class Minidlna < Formula
   end
 
   service do
-    run [opt_sbin/"minidlnad", "-d", "-f", "#{Dir.home}/.config/minidlna/minidlna.conf",
+    run [opt_sbin/"minidlnad", "-S", "-f", "#{Dir.home}/.config/minidlna/minidlna.conf",
          "-P", "#{Dir.home}/.config/minidlna/minidlna.pid"]
     keep_alive true
     log_path var/"log/minidlnad.log"
