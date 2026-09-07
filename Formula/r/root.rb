@@ -104,6 +104,10 @@ class Root < Formula
   end
 
   def install
+    # ROOT needs its patched Clang headers before those shipped with external LLVM.
+    ENV.remove "HOMEBREW_INCLUDE_PATHS", /(^|:)#{Regexp.escape(formula_opt_include("llvm@20"))}(?=:|$)/
+    ENV.append_path "HOMEBREW_ISYSTEM_PATHS", formula_opt_include("llvm@20")
+
     # Skip modification of CLING_OSX_SYSROOT to the unversioned SDK path
     # Related: https://github.com/Homebrew/homebrew-core/issues/135714
     # Related: https://github.com/root-project/cling/issues/457
