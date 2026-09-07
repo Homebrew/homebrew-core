@@ -12,6 +12,7 @@ class Icm < Formula
   depends_on "rust" => :build
 
   on_linux do
+    depends_on "pkgconf" => :build
     depends_on "openssl@3"
   end
 
