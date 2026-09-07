@@ -76,6 +76,8 @@ class Openjdk < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     boot_jdk = buildpath/"boot-jdk"
     resource("boot-jdk").stage boot_jdk

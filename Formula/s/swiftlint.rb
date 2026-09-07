@@ -28,6 +28,9 @@ class Swiftlint < Formula
     depends_on macos: :ventura
   end
 
+  # downloads dependencies
+  allow_network_access! :build
+
   def install
     system "swift", "build", "--product", "swiftlint", *std_swift_args
     bin.install ".build/release/swiftlint"

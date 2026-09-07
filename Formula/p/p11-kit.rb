@@ -24,6 +24,8 @@ class P11Kit < Formula
 
   uses_from_macos "libffi"
 
+  deny_network_access!
+
   def install
     # https://bugs.freedesktop.org/show_bug.cgi?id=91602#c1
     ENV["FAKED_MODE"] = "1"
