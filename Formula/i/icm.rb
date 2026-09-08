@@ -4,17 +4,12 @@
 class Icm < Formula
   desc "Permanent memory for AI agents — MCP server with hybrid search"
   homepage "https://github.com/rtk-ai/icm"
-  url "https://github.com/rtk-ai/icm/archive/refs/tags/icm-v0.10.63.tar.gz"
-  sha256 "199abc657523ee423688a393c2444ec57120662b813eea0a60aee607dfd0a9d7"
+  url "https://github.com/rtk-ai/icm/archive/refs/tags/icm-v0.10.64.tar.gz"
+  sha256 "4d17b2825d39775e8cfb84e1175edb7a7df1234dcbe3cc1ef1b3cfdbed606df7"
   license "Apache-2.0"
   head "https://github.com/rtk-ai/icm.git", branch: "main"
 
   depends_on "rust" => :build
-
-  on_linux do
-    depends_on "pkgconf" => :build
-    depends_on "openssl@3"
-  end
 
   # cargo install fetches crate dependencies from crates.io during the
   # build step (icm-cli is not itself published to crates.io, so there is
