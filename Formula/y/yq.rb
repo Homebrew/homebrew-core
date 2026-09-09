@@ -26,8 +26,11 @@ class Yq < Formula
 
   conflicts_with "python-yq", because: "both install `yq` executables"
 
-  # downloads go modules during build
-  allow_network_access! :build
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
