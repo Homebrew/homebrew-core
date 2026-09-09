@@ -21,8 +21,11 @@ class Fzf < Formula
 
   uses_from_macos "ncurses"
 
-  # install downloads go modules
-  allow_network_access! :build
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
