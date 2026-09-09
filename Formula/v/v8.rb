@@ -3,8 +3,8 @@ class V8 < Formula
   homepage "https://v8.dev/docs"
   # Track V8 version from Chrome stable: https://chromiumdash.appspot.com/releases?platform=Mac
   # Check `brew livecheck --resources v8` for any resource updates
-  url "https://github.com/v8/v8/archive/refs/tags/15.3.76.10.tar.gz"
-  sha256 "ad3c68074d8ce83ccf7793d0e7042f7d093581491436c543aa0a169581ec20e5"
+  url "https://github.com/v8/v8/archive/refs/tags/15.4.80.5.tar.gz"
+  sha256 "d15a65e1c02e4d54802cef85ac4dd7b49f7a2327523402fe6dab0841270f5e1b"
   license "BSD-3-Clause"
 
   livecheck do
@@ -58,8 +58,8 @@ class V8 < Formula
   # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/<version>/DEPS#99
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "7324363900ccab92518649e9693d71a4ae71a747"
-    version "7324363900ccab92518649e9693d71a4ae71a747"
+        revision: "d71c4a70bd2ece461a09cbd6321970b9247fdab2"
+    version "d71c4a70bd2ece461a09cbd6321970b9247fdab2"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -69,8 +69,8 @@ class V8 < Formula
 
   resource "build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "271143e8fbae4df2ae2c1a187d80b5738635e7c1"
-    version "271143e8fbae4df2ae2c1a187d80b5738635e7c1"
+        revision: "fdd530b37c6cd6c8645cdfa296d209643ab2dc26"
+    version "fdd530b37c6cd6c8645cdfa296d209643ab2dc26"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -80,8 +80,8 @@ class V8 < Formula
 
   resource "buildtools" do
     url "https://chromium.googlesource.com/chromium/src/buildtools.git",
-        revision: "9e7655f4ee433ef4c6efcffd57e379db8f8c0432"
-    version "9e7655f4ee433ef4c6efcffd57e379db8f8c0432"
+        revision: "6f6a5dbf04b734214f3b1f386567d101ec9d607e"
+    version "6f6a5dbf04b734214f3b1f386567d101ec9d607e"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -91,8 +91,8 @@ class V8 < Formula
 
   resource "third_party/abseil-cpp" do
     url "https://chromium.googlesource.com/chromium/src/third_party/abseil-cpp.git",
-        revision: "df548c50b2cda67158364d3d23c63043881b391d"
-    version "df548c50b2cda67158364d3d23c63043881b391d"
+        revision: "435e7d977fb36fb47854a4c552c0706dad0bd7cf"
+    version "435e7d977fb36fb47854a4c552c0706dad0bd7cf"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -179,8 +179,8 @@ class V8 < Formula
 
   resource "third_party/llvm-libc/src" do
     url "https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libc.git",
-        revision: "6fd5620cc4fd3c55ee749e9bf71f52038431f76d"
-    version "6fd5620cc4fd3c55ee749e9bf71f52038431f76d"
+        revision: "320824188c37e5c28738b9652a0ca8087c934bc9"
+    version "320824188c37e5c28738b9652a0ca8087c934bc9"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -201,8 +201,8 @@ class V8 < Formula
 
   resource "third_party/partition_alloc" do
     url "https://chromium.googlesource.com/chromium/src/base/allocator/partition_allocator.git",
-        revision: "7d6a15841642fa6b02874e3c461e332f17c7c33d"
-    version "7d6a15841642fa6b02874e3c461e332f17c7c33d"
+        revision: "f0d1e646eb41d8736261d5d8d8f094404bac62ac"
+    version "f0d1e646eb41d8736261d5d8d8f094404bac62ac"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -223,8 +223,8 @@ class V8 < Formula
 
   resource "third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "c5cc9edf8992ff36dfca3c2c4f6c8327a66b6782"
-    version "c5cc9edf8992ff36dfca3c2c4f6c8327a66b6782"
+        revision: "5eb4d7ed380f214e7a0a23c18f629048d3ba9e00"
+    version "5eb4d7ed380f214e7a0a23c18f629048d3ba9e00"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
