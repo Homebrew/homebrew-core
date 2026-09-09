@@ -46,7 +46,7 @@ class Qtimageformats < Formula
     args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", "-G", "Ninja",
-                    *args, *std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST")
+                    *args, *std_cmake_args(install_prefix: HOMEBREW_PREFIX)
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
