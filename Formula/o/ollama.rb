@@ -5,6 +5,7 @@ class Ollama < Formula
       tag:      "v0.33.3",
       revision: "b79067b0db7417f20108363bc22adb97f35c966a"
   license "MIT"
+  revision 1
   head "https://github.com/ollama/ollama.git", branch: "main"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -29,13 +30,8 @@ class Ollama < Formula
 
   on_macos do
     on_arm do
-      depends_on "mlx-c" => :no_linkage
-
-      # Build with the mlx-c bindings for tagged MLX 0.32.1. Upstream targets a later MLX commit:
-      # https://github.com/ollama/ollama/commit/0bb09259203ff8f6d361faae1d40c4f83d2a99f7
-      # `mlx_cumsum_axis` only exists after mlx-c commit for MLX 0.32.2:
-      # https://github.com/ml-explore/mlx-c/commit/d4afaec5cc5c9ffbe58f37fdc038b2faaedc6e70
-      patch :DATA
+      # MLX links fmt header-only (mirrors the `mlx` formula).
+      depends_on "fmt" => :build
     end
   end
 
@@ -58,6 +54,60 @@ class Ollama < Formula
       sha256 "1e51afe4b8cfed5653289270064370d926258b5bbd662a93eac240d7a37f2735"
       type :unofficial
     end
+  end
+
+  # MLX, MLX-C and XGrammar are pinned by Ollama upstream (MLX_VERSION,
+  # MLX_C_VERSION and cmake/mlx/CMakeLists.txt at the tag above). Building the
+  # MLX runner from these pinned sources keeps the built libmlxc, the vendored
+  # Go wrapper headers and the runner consistent. The `mlx`/`mlx-c` formulae
+  # track tagged MLX releases which have repeatedly drifted from these pins
+  # (homebrew-core#266704, homebrew-core#302645, ollama/ollama#15433, #15882).
+  #
+  # Bump these in lockstep with `version` at each release; the livechecks below
+  # read Ollama's own pin files from the latest tag so `brew bump` reports drift
+  # (same scheme as the `llama.cpp` resource above).
+  resource "mlx" do
+    url "https://github.com/ml-explore/mlx.git",
+        revision: "37c26e5755da637255d57ea34b4879196a485301"
+    version "37c26e5755da637255d57ea34b4879196a485301"
+    livecheck do
+      url "https://raw.githubusercontent.com/ollama/ollama/refs/tags/v#{LATEST_VERSION}/MLX_VERSION"
+      regex(/^([0-9a-f]{40})$/im)
+    end
+  end
+
+  resource "mlx-c" do
+    url "https://github.com/ml-explore/mlx-c.git",
+        revision: "c74db5307cc8ce122f48d97ef951b30578674e7f"
+    version "c74db5307cc8ce122f48d97ef951b30578674e7f"
+    livecheck do
+      url "https://raw.githubusercontent.com/ollama/ollama/refs/tags/v#{LATEST_VERSION}/MLX_C_VERSION"
+      regex(/^([0-9a-f]{40})$/im)
+    end
+  end
+
+  resource "xgrammar" do
+    url "https://github.com/mlc-ai/xgrammar.git",
+        tag:      "v0.2.5",
+        revision: "2ea71da4ccb997a06928c9fb69b99f330da56697"
+    livecheck do
+      url "https://raw.githubusercontent.com/ollama/ollama/refs/tags/v#{LATEST_VERSION}/cmake/mlx/CMakeLists.txt"
+      regex(/XGRAMMAR_VERSION (v\S+)/)
+    end
+  end
+
+  # nlohmann/json bundle required by the MLX and JACCL CMake builds at the pinned
+  # revision above (same URL as MLX's own FetchContent declaration).
+  resource "json" do
+    url "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz"
+    sha256 "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d"
+  end
+
+  # Apple's metal-cpp headers required by the MLX Metal backend
+  # (URL from the MLX CMakeLists at the pinned revision above).
+  resource "metal-cpp" do
+    url "https://developer.apple.com/metal/cpp/files/metal-cpp_26.zip"
+    sha256 "4df3c078b9aadcb516212e9cb03004cbc5ce9a3e9c068fa3144d021db585a3a4"
   end
 
   # downloads go modules in install and runs a server in test
@@ -92,6 +142,45 @@ class Ollama < Formula
     # Remove ui app directory
     rm_r("app")
 
+    # Build the MLX Metal variants from Ollama's pinned sources (Apple silicon only).
+    #
+    # `mlx_metal_v3` (deployment target 14.0) supports macOS 14+, while
+    # `mlx_metal_v4` (deployment target 26.2) enables Metal 4 and the M5
+    # Neural Accelerator (NAX) kernels on macOS 26.2+. The Ollama runner picks
+    # the highest compatible variant at runtime, mirroring the layout of the
+    # official upstream distribution.
+    if OS.mac? && Hardware::CPU.arm?
+      mlx_source_dir = buildpath/"mlx"
+      mlx_source_dir.install resource("mlx")
+      mlx_c_source_dir = buildpath/"mlx-c"
+      mlx_c_source_dir.install resource("mlx-c")
+      xgrammar_source_dir = buildpath/"xgrammar"
+      xgrammar_source_dir.install resource("xgrammar")
+      metal_cpp_source_dir = buildpath/"metal-cpp"
+      metal_cpp_source_dir.install resource("metal-cpp")
+      json_source_dir = buildpath/"json"
+      json_source_dir.install resource("json")
+
+      variants = ["mlx_metal_v3"]
+      variants << "mlx_metal_v4" if build_metal_v4?
+
+      variants.each do |variant|
+        args = %W[
+          --preset #{variant}
+          -DFETCHCONTENT_SOURCE_DIR_MLX=#{mlx_source_dir}
+          -DFETCHCONTENT_SOURCE_DIR_MLX-C=#{mlx_c_source_dir}
+          -DFETCHCONTENT_SOURCE_DIR_XGRAMMAR=#{xgrammar_source_dir}
+          -DFETCHCONTENT_SOURCE_DIR_METAL_CPP=#{metal_cpp_source_dir}
+          -DFETCHCONTENT_SOURCE_DIR_JSON=#{json_source_dir}
+          -DUSE_SYSTEM_FMT=ON
+          -DFETCHCONTENT_FULLY_DISCONNECTED=ON
+        ]
+        system "cmake", "-S", "cmake/mlx", "-B", "build/#{variant}", *args, *std_cmake_args(install_prefix: libexec)
+        system "cmake", "--build", "build/#{variant}"
+        system "cmake", "--install", "build/#{variant}", "--component", "MLX"
+      end
+    end
+
     ENV["CGO_ENABLED"] = "1"
 
     # Silence tens of thousands of SDK warnings
@@ -106,14 +195,10 @@ class Ollama < Formula
 
     # Flags for MLX (Apple silicon only)
     if OS.mac? && Hardware::CPU.arm?
-      mlx_rpath = rpath(target: formula_opt_lib("mlx-c"))
-      ldflags << "-extldflags '-Wl,-rpath,#{mlx_rpath}'"
       mlx_args << "-tags=mlx"
 
-      # Generate wrappers from our mlx-c; the vendored headers are newer and declare symbols it lacks
-      mlx_headers = buildpath/"x/mlxrunner/mlx/include/mlx"
-      rm_r(mlx_headers/"c")
-      mlx_headers.install_symlink formula_opt_include("mlx-c")/"mlx/c"
+      # Generate the Go MLX wrappers from the vendored MLX-C headers, which
+      # match the pinned mlx-c resource the variants above were built from.
       system "go", "generate", *mlx_args, "./x/mlxrunner/mlx"
     end
 
@@ -121,13 +206,16 @@ class Ollama < Formula
     # sibling can be populated without tripping the non-executables-in-bin audit.
     system "go", "build", *mlx_args, *std_go_args(ldflags:, output: libexec/"ollama")
     bin.install_symlink libexec/"ollama"
+  end
 
-    # The mlx runner dlopens MLX libraries from `<exe_dir>/lib/ollama/mlx_*/`.
-    # Using `opt` keeps the link stable across mlx-c version bumps.
-    if OS.mac? && Hardware::CPU.arm?
-      (libexec/"lib/ollama/mlx_metal_v3").mkpath
-      ln_sf formula_opt_lib("mlx-c")/"libmlxc.dylib", libexec/"lib/ollama/mlx_metal_v3/libmlxc.dylib"
-    end
+  # `mlx_metal_v4` requires the macOS 26.2 SDK at build time (MLX drops the
+  # NAX kernels and errors out otherwise).
+  def build_metal_v4?
+    macos_version = Version.new(MacOS.full_version.to_s)
+    return false if macos_version < "26"
+
+    sdk_version = Version.new(Utils.safe_popen_read("xcrun", "--show-sdk-version").strip)
+    sdk_version >= "26.2"
   end
 
   service do
@@ -155,9 +243,24 @@ class Ollama < Formula
 
     # Test MLX (Apple silicon only)
     if OS.mac? && Hardware::CPU.arm?
-      output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/ollama --help 2>&1")
+      # The captured output can contain non-UTF-8 bytes (dyld/sandbox noise on
+      # some hosts), so scrub before matching.
+      output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/ollama --help 2>&1").scrub
       assert_match "libmlxc.dylib", output
       assert_match "libmlx.dylib", output
+
+      mlx_v3_dir = libexec/"lib/ollama/mlx_metal_v3"
+      assert_path_exists mlx_v3_dir/"libmlxc.dylib"
+      assert_path_exists mlx_v3_dir/"libollama_xgrammar.dylib"
+
+      if build_metal_v4?
+        mlx_v4_dir = libexec/"lib/ollama/mlx_metal_v4"
+        assert_path_exists mlx_v4_dir/"libmlxc.dylib"
+        # The v4 metallib must carry the M5 Neural Accelerator (NAX) kernels;
+        # without them M5 MLX prefill regresses ~3x (ollama/ollama#17884).
+        # Read as binary: the metallib is a Mach-O file with invalid UTF-8 bytes.
+        assert_match "steel_gemm_fused_nax", (mlx_v4_dir/"mlx.metallib").binread
+      end
     end
 
     # Check llama-server binary; it needs a model as upstream builds it without router mode support
@@ -193,24 +296,3 @@ class Ollama < Formula
     end
   end
 end
-
-__END__
-diff --git a/x/mlxrunner/mlx/fast.go b/x/mlxrunner/mlx/fast.go
-index 27d5724..f38a670 100644
---- a/x/mlxrunner/mlx/fast.go
-+++ b/x/mlxrunner/mlx/fast.go
-@@ -24 +24 @@ func FastScaledDotProductAttention(q, k, v *Array, scale float32, mode string, m
--	mlxCheck(C.mlx_fast_scaled_dot_product_attention(&out.ctx, q.ctx, k.ctx, v.ctx, C.float(scale), cMode, maskCtx, sinks.ctx, C.bool(false), DefaultStream().ctx))
-+	mlxCheck(C.mlx_fast_scaled_dot_product_attention(&out.ctx, q.ctx, k.ctx, v.ctx, C.float(scale), cMode, maskCtx, sinks.ctx, DefaultStream().ctx))
-diff --git a/x/mlxrunner/mlx/ops.go b/x/mlxrunner/mlx/ops.go
---- a/x/mlxrunner/mlx/ops.go
-+++ b/x/mlxrunner/mlx/ops.go
-@@ -103,8 +103,7 @@
- 
- func (t *Array) Cumsum(axis int, reverse, inclusive bool) *Array {
- 	out := New("CUMSUM")
--	optDtype := C.mlx_optional_dtype{has_value: false}
--	mlxCheck(C.mlx_cumsum_axis(&out.ctx, t.ctx, C.int(axis), C.bool(reverse), C.bool(inclusive), optDtype, DefaultStream().ctx))
-+	mlxCheck(C.mlx_cumsum(&out.ctx, t.ctx, C.int(axis), C.bool(reverse), C.bool(inclusive), DefaultStream().ctx))
- 	return out
- }
