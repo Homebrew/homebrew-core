@@ -3,10 +3,9 @@ class Uhd < Formula
 
   desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/refs/tags/v4.10.0.0.tar.gz"
-  sha256 "a9c66b52abcd586b513999f3a52345807b7551d01efac8c98eed813838be0297"
+  url "https://github.com/EttusResearch/uhd/archive/refs/tags/v4.11.0.0.tar.gz"
+  sha256 "1e53faec13ea2be9dd8f765956157d1434f41fa0a124fac8f7b2340f8445b026"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
-  revision 2
   compatibility_version 1
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
 
@@ -38,8 +37,8 @@ class Uhd < Formula
                 extra_packages: "mako"
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/00/62/791b31e69ae182791ec67f04850f2f062716bbd205483d63a215f3e062d3/mako-1.3.12.tar.gz"
-    sha256 "9f778e93289bd410bb35daadeb4fc66d95a746f0b75777b942088b7fd7af550a"
+    url "https://files.pythonhosted.org/packages/2a/12/b5fa2353e2754cd67fb9f83793fa48ff42c213a5da7e719869d2301f6ab8/mako-1.4.1.tar.gz"
+    sha256 "d7904710b662996425a21627710c4777c45053146942cf8a7aebf757c92b8c27"
   end
 
   resource "markupsafe" do
@@ -48,9 +47,6 @@ class Uhd < Formula
   end
 
   def install
-    # Boost 1.89+ compatibility
-    inreplace "host/cmake/Modules/UHDConfig.cmake.in", /\s+system\n/, ""
-
     venv = virtualenv_create(buildpath/"venv", python3)
     venv.pip_install resources
     ENV.prepend_path "PYTHONPATH", venv.site_packages
