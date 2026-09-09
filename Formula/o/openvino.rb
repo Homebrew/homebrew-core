@@ -98,6 +98,12 @@ class Openvino < Formula
     resolves "https://github.com/openvinotoolkit/openvino/pull/37096"
   end
 
+  patch do
+    url "https://github.com/openvinotoolkit/openvino/compare/master...iMichka:openvino:linkage.patch"
+    sha256 "a6252075b3302b077fd389b686d754e6ddddfbde19548123ee93726fb0ce62cc"
+    type :backport
+  end
+
   def install
     # Work around for Protobuf C++ 6.x until OpenVINO adds support
     inreplace "thirdparty/dependencies.cmake", "find_package(Protobuf 5.26.0 ",
@@ -153,29 +159,6 @@ class Openvino < Formula
     if OS.mac?
       cmake_args << "-DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}.0"
       ENV["MACOSX_DEPLOYMENT_TARGET"] = "#{MacOS.version}.0"
-    end
-    if OS.linux? && Hardware::CPU.arm?
-      # Issue 1: Fix linking failure of certain binaries as Scons disables superenv
-
-      # Issue 2:
-      # On Linux ARM64, OpenVINO's shared frontends can acquire direct NEEDED entries
-      # for Abseil libraries through Homebrew's shared Protobuf/ONNX CMake targets
-      # (e.g. protobuf::libprotobuf-lite -> absl::hash). OpenVINO's BREW packaging
-      # RPATH only points at its own libdir, so add Homebrew's libdir explicitly to
-      # let the dynamic loader resolve libabsl_*.so at runtime.
-      rpaths = [
-        lib,
-        HOMEBREW_PREFIX/"lib",
-        formula_opt_lib("abseil"),
-        formula_opt_lib("protobuf"),
-        formula_opt_lib("onnx"),
-      ].uniq.join(";")
-
-      inreplace "cmake/developer_package/packaging/common-libraries.cmake",
-                'set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/${OV_CPACK_LIBRARYDIR}")',
-                "set(CMAKE_INSTALL_RPATH \"#{rpaths}\")"
-
-      cmake_args << "-DCMAKE_BUILD_RPATH=#{rpaths}"
     end
 
     system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
