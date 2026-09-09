@@ -2,8 +2,8 @@ class ScalaCli < Formula
   desc "Scala language runner and build tool"
   homepage "https://scala-cli.virtuslab.org/"
   url "https://github.com/VirtusLab/scala-cli.git",
-      tag:      "v1.16.0",
-      revision: "d8e650b35edb309324a8f9552fa6db60f1053f93"
+      tag:      "v1.17.0",
+      revision: "3c948617f4c1e324fc2aa2773ea9292f2b99799c"
   license "Apache-2.0"
 
   livecheck do
