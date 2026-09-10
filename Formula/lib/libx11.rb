@@ -21,6 +21,8 @@ class Libx11 < Formula
   depends_on "libxcb"
   depends_on "xorgproto"
 
+  deny_network_access!
+
   def install
     ENV.delete "LC_ALL"
     ENV["LC_CTYPE"] = "C"

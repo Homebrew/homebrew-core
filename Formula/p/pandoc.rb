@@ -26,6 +26,8 @@ class Pandoc < Formula
     depends_on "zlib-ng-compat"
   end
 
+  allow_network_access! :build
+
   def install
     # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
     args = ["--allow-newer=base,containers,template-haskell"]
