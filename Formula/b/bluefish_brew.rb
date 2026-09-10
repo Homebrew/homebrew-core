@@ -1,4 +1,4 @@
-class Bluefish_brew < Formula
+class BluefishBrew < Formula
   desc "GTK text editor for web and software development - installed in the brew prefix"
   homepage "https://bluefish.openoffice.nl/index.html"
   url "https://www.bennewitz.com/bluefish/stable/source/bluefish-2.4.2.tar.bz2"
