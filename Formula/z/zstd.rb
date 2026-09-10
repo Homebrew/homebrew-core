@@ -10,7 +10,7 @@ class Zstd < Formula
     "BSD-2-Clause", # programs/zstdgrep, lib/libzstd.pc.in
     "MIT", # lib/dictBuilder/divsufsort.c
   ]
-  revision 1
+  revision 2
   compatibility_version 1
   head "https://github.com/facebook/zstd.git", branch: "dev"
 
