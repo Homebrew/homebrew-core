@@ -27,7 +27,10 @@ class Getxbook < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c87c43136c6d85bd87766fff817a618abedc7392a1a4be393acd0546a02cdc6"
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
+
+  # `TLSv1_2_client_method` was removed in openssl@4; use the version-agnostic method instead.
+  patch :DATA
 
   def install
     system "make", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
@@ -38,3 +41,18 @@ class Getxbook < Formula
     assert_match "getgbook #{version}", shell_output("#{bin}/getgbook", 1)
   end
 end
+
+__END__
+diff --git a/util.c b/util.c
+index d672c9e..5fa4196 100644
+--- a/util.c
++++ b/util.c
+@@ -58,7 +58,7 @@ conn *dial(char *host, char *port, int ssl)
+ 	if(ssl) {
+ 		SSL_load_error_strings();
+ 		SSL_library_init();
+-		if((sslcontext = SSL_CTX_new(TLSv1_2_client_method())) == NULL) {
++		if((sslcontext = SSL_CTX_new(TLS_client_method())) == NULL) {
+ 			ERR_print_errors_fp(stderr);
+ 		}
+ 		if((c->sslhandle = SSL_new(sslcontext)) == NULL) {
