@@ -46,6 +46,8 @@ class Sdl12Compat < Formula
     assert_path_exists lib/"libSDLmain.a"
     assert_equal version.to_s, shell_output("#{bin}/sdl-config --version").strip
 
+    ENV["SDL_VIDEODRIVER"] = "dummy"
+
     (testpath/"test.c").write <<~C
       #include <SDL.h>
 
