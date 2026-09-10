@@ -2,8 +2,8 @@ class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
   # Use the `-full` tarball to avoid having to download during the build.
-  url "https://github.com/JuliaLang/julia/releases/download/v1.12.7/julia-1.12.7-full.tar.gz"
-  sha256 "5c7d85b771de3185eeca9fbc2e6173d8bcf6d74f68418622a9e9c43ad752af51"
+  url "https://github.com/JuliaLang/julia/releases/download/v1.13.0/julia-1.13.0-full.tar.gz"
+  sha256 "6b7f8eecb208b2fffc95cec6713a06c94f51bcbc5616630c30b42bd9221cb26e"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
@@ -159,6 +159,15 @@ class Julia < Formula
 
     # Make Julia use a CA cert from `ca-certificates`
     (buildpath/"usr/share/julia").install_symlink Formula["ca-certificates"].pkgetc/"cert.pem"
+
+    if OS.linux?
+      # The bundled LLVM tarball is only unpacked by `make`, so extract it first to drop the
+      # `GUARDED_BY` annotation in google-benchmark that GCC rejects
+      # TODO: Remove when google-benchmark stops enabling thread safety annotations for GCC
+      system "make", "-C", "deps", "extract-llvm", *args
+      inreplace buildpath.glob("deps/srccache/llvm-julia-*/third-party/benchmark/src/thread_manager.h"),
+                "GUARDED_BY(GetBenchmarkMutex()) Result results;", "Result results;"
+    end
 
     system "make", *args, "install"
     if OS.linux?
