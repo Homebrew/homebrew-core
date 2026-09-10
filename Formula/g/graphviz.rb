@@ -55,6 +55,8 @@ class Graphviz < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     args = %w[
       --disable-silent-rules
