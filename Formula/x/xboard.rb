@@ -1,11 +1,20 @@
 class Xboard < Formula
   desc "Graphical user interface for chess"
   homepage "https://www.gnu.org/software/xboard/"
-  url "https://ftpmirror.gnu.org/gnu/xboard/xboard-4.9.1.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/xboard/xboard-4.9.1.tar.gz"
-  sha256 "2b2e53e8428ad9b6e8dc8a55b3a5183381911a4dae2c0072fa96296bbb1970d6"
   license "GPL-3.0-or-later"
   revision 4
+
+  stable do
+    # TODO: Switch to GTK+3 build on next release (see HEAD build)
+    url "https://ftpmirror.gnu.org/gnu/xboard/xboard-4.9.1.tar.gz"
+    mirror "https://ftp.gnu.org/gnu/xboard/xboard-4.9.1.tar.gz"
+    sha256 "2b2e53e8428ad9b6e8dc8a55b3a5183381911a4dae2c0072fa96296bbb1970d6"
+
+    depends_on "libx11"
+    depends_on "libxaw"
+    depends_on "libxmu"
+    depends_on "libxt"
+  end
 
   bottle do
     sha256 arm64_tahoe:    "49fb2045c979c8788ec25bbba4416f8f5a38729d9018d610ea1dd41f2595263b"
@@ -26,25 +35,20 @@ class Xboard < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gettext" => :build
-  end
+    depends_on "gtk+3"
 
-  deprecate! date: "2026-01-05", because: "uses deprecated polyglot"
+    on_macos do
+      depends_on "gettext"
+    end
+  end
 
   depends_on "pkgconf" => :build
   depends_on "cairo"
-  depends_on "fairymax"
+  depends_on "fairymax" => :no_linkage
   depends_on "gdk-pixbuf"
   depends_on "glib"
-  depends_on "gtk+"
   depends_on "librsvg"
   depends_on "pango"
-  depends_on "polyglot"
-
-  on_macos do
-    depends_on "at-spi2-core"
-    depends_on "gettext"
-    depends_on "harfbuzz"
-  end
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
@@ -52,13 +56,22 @@ class Xboard < Formula
 
   def install
     ENV.append_to_cflags "-fcommon" if OS.linux?
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac?
 
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-silent-rules",
-                          "--disable-zippy",
-                          "--with-gtk",
-                          "--without-Xaw",
-                          *std_configure_args
+    args = %w[
+      --disable-silent-rules
+      --disable-zippy
+    ]
+    if build.stable?
+      args += %w[
+        --disable-nls
+        --with-Xaw
+        --without-gtk
+      ]
+    else
+      system "autoreconf", "--force", "--install", "--verbose"
+    end
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
