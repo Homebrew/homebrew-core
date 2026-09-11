@@ -4,6 +4,7 @@ class Herdr < Formula
   url "https://github.com/herdrdev/herdr/archive/refs/tags/v0.9.0.tar.gz"
   sha256 "1e83bff4b05834ed8281e16f1680e8f3e58375a94b2e3f2b3d021e28e293ef9a"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/herdrdev/herdr.git", branch: "master"
 
   livecheck do
@@ -33,8 +34,17 @@ class Herdr < Formula
   service do
     run [opt_bin/"herdr", "server"]
     keep_alive true
+    environment_variables PATH: std_service_path_env
     log_path var/"log/herdr.log"
     error_log_path var/"log/herdr.log"
+  end
+
+  def caveats
+    <<~EOS
+      The service PATH only includes Homebrew and system directories. If a
+      Herdr plugin needs a tool installed elsewhere, add a PATH override in
+      ~/.homebrew/services/herdr.env and run `brew services restart herdr`.
+    EOS
   end
 
   test do
