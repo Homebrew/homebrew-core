@@ -53,6 +53,8 @@ class Gnupg < Formula
   conflicts_with cask: "gpg-suite-pinentry"
   conflicts_with cask: "gpg-suite@nightly"
 
+  allow_network_access! :build
+
   def install
     libusb = Formula["libusb"]
     ENV.append "CPPFLAGS", "-I#{libusb.opt_include}/libusb-#{libusb.version.major_minor}"
