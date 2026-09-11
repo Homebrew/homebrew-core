@@ -36,6 +36,11 @@ class DartSdk < Formula
   def install
     resource("depot-tools").stage(buildpath/"depot-tools")
 
+    # Fix https://github.com/dart-lang/sdk/issues/64264
+    # by pulling more recent clang
+    inreplace "DEPS", "git_revision:deb6854eec93529b2bd30178d400ad2ee7665cd4",
+                      "git_revision:07d67299a15ce03b053736e2d31a668ee0576987"
+
     ENV["DEPOT_TOOLS_UPDATE"] = "0"
     ENV.append_path "PATH", "#{buildpath}/depot-tools"
 
