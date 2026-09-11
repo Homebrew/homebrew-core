@@ -1,10 +1,10 @@
 class WhisperCpp < Formula
   desc "Port of OpenAI's Whisper model in C/C++"
   homepage "https://github.com/ggml-org/whisper.cpp"
-  url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.9.2.tar.gz"
-  sha256 "a6abd064fcca8b85e794d205abf328c522e9451db43a3eadc178b883b7d0e9cd"
+  url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.9.4.tar.gz"
+  sha256 "57e280cee375ab02425b806ad5146b99f6eb9357e3c2b31357c8a6af2e2e44ae"
   license "MIT"
-  compatibility_version 1
+  compatibility_version 2
   head "https://github.com/ggml-org/whisper.cpp.git", branch: "master"
 
   livecheck do
@@ -24,6 +24,7 @@ class WhisperCpp < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :test
   depends_on "ggml" # NOTE: reject all PRs that try to bundle ggml
+  depends_on "llama.cpp"
   depends_on "sdl2-compat"
 
   def install
@@ -35,6 +36,7 @@ class WhisperCpp < Formula
       -DWHISPER_BUILD_TESTS=OFF
       -DWHISPER_BUILD_SERVER=OFF
       -DWHISPER_USE_SYSTEM_GGML=ON
+      -DWHISPER_USE_SYSTEM_LLAMA=ON
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
