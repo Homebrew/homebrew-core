@@ -43,6 +43,7 @@ class Opencode < Formula
     # matches the file and macOS kills the binary with SIGKILL (CODESIGNING
     # "Invalid Page"). Re-sign ad-hoc to make the signature valid again.
     # Upstream report: https://github.com/anomalyco/opencode/issues/46313
+    # TODO: Remove when `bun` is >= 1.4.1
     system "/usr/bin/codesign", "-f", "-s", "-", bin/"opencode" if OS.mac?
 
     generate_completions_from_executable(bin/"opencode", "completion", shell_parameter_format: :none, shells: [:zsh])
