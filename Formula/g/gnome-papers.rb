@@ -1,8 +1,8 @@
 class GnomePapers < Formula
   desc "Document viewer for PDF and other document formats aimed at the GNOME desktop"
   homepage "https://apps.gnome.org/Papers/"
-  url "https://download.gnome.org/sources/papers/50/papers-50.2.tar.xz"
-  sha256 "ae1bdcf1cd47cb50c9d84765784607f81c72df17dd6e6ad933fea14173d2b9f4"
+  url "https://download.gnome.org/sources/papers/50/papers-50.3.tar.xz"
+  sha256 "3ed2b22d4894351f02441e8688a0603b651226bfd510129f952780035e3ad24a"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -96,35 +96,35 @@ class GnomePapers < Formula
 
     resource("test-pdf").stage testpath
     (testpath/"test.c").write <<~C
+      #include <fcntl.h>
       #include <glib.h>
       #define I_KNOW_THE_PAPERS_LIBS_ARE_UNSTABLE_AND_HAVE_TALKED_WITH_THE_AUTHORS
       #include <papers-document.h>
       #include <papers-view.h>
 
       int main(void) {
-        g_autoptr(GFile) file = NULL;
+        g_autoptr(GError) error = NULL;
         g_autoptr(PpsJob) job = NULL;
         g_autoptr(PpsDocument) document = NULL;
         g_autoptr(PpsPage) page = NULL;
-        g_autofree gchar *uri = NULL;
-        const gchar *file_path = "text.pdf";
+        int fd;
         gint n_pages;
         gboolean has_backend;
 
         has_backend = pps_init();
         g_assert_true(has_backend);
 
-        file = g_file_new_for_path(file_path);
-        g_assert_nonnull(file);
-
-        uri = g_file_get_uri(file);
-        g_assert_nonnull(uri);
+        fd = open("text.pdf", O_RDONLY);
+        g_assert_cmpint(fd, !=, -1);
 
         job = pps_job_load_new();
         g_assert_nonnull(job);
 
-        pps_job_load_set_uri(PPS_JOB_LOAD(job), uri);
+        /* Pass the MIME type explicitly; sniffing it needs a MIME database or LaunchServices */
+        pps_job_load_take_fd(PPS_JOB_LOAD(job), fd, "application/pdf");
         pps_job_run(job);
+        pps_job_is_succeeded(job, &error);
+        g_assert_no_error(error);
 
         document = pps_job_load_get_loaded_document(PPS_JOB_LOAD(job));
         g_assert_nonnull(document);
