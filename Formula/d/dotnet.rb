@@ -134,6 +134,8 @@ class Dotnet < Formula
     args += ["--with-shared-components", with_shared_components] if with_shared_components
     on_linux do
       args << "-p:PortableBuild=true"
+      # Source-build keeps native debug symbols by default, adding hundreds of MB of DWARF to the bottle.
+      args << "-p:KeepNativeSymbols=false"
     end
 
     system "./prep-source-build.sh"
