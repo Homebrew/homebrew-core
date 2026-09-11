@@ -38,11 +38,20 @@ class Opencode < Formula
       bin.install Pathname.pwd.glob("dist/opencode-*/bin/opencode").first
     end
 
+    # `bun build --compile` appends the JS payload to an already linker-signed
+    # executable without re-signing it, so the embedded signature no longer
+    # matches the file and macOS kills the binary with SIGKILL (CODESIGNING
+    # "Invalid Page"). Re-sign ad-hoc to make the signature valid again.
+    # Upstream report: https://github.com/anomalyco/opencode/issues/46313
+    system "/usr/bin/codesign", "-f", "-s", "-", bin/"opencode" if OS.mac?
+
     generate_completions_from_executable(bin/"opencode", "completion", shell_parameter_format: :none, shells: [:zsh])
   end
 
   test do
     ENV["OPENCODE_DISABLE_MODELS_FETCH"] = "1"
+
+    system "/usr/bin/codesign", "--verify", "--strict", bin/"opencode" if OS.mac?
 
     assert_match version.to_s, shell_output("#{bin}/opencode --version")
     assert_match "opencode", shell_output("#{bin}/opencode models")
