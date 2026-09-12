@@ -4,7 +4,7 @@ class AptDater < Formula
   url "https://github.com/DE-IBH/apt-dater/archive/refs/tags/v1.0.4.tar.gz"
   sha256 "a4bd5f70a199b844a34a3b4c4677ea56780c055db7c557ff5bd8f2772378a4d6"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   version_scheme 1
 
   bottle do
@@ -39,8 +39,22 @@ class AptDater < Formula
     type :backport
   end
 
+  # Fix: AM_GNU_GETTEXT without 'external' argument is no longer supported in version 0.23.1
+  # Merged upstream in https://github.com/DE-IBH/apt-dater/pull/180
+  patch do
+    url "https://github.com/DE-IBH/apt-dater/commit/2e4668f3c1990db30c10fcf30a1501425abce3eb.patch?full_index=1"
+    sha256 "05e966c4277970545d226ad2aeae89fd6264e32ff06598a7c02c928227ff714b"
+    type :backport
+  end
+
   def install
     ENV.prepend_path "PATH", formula_opt_libexec("coreutils")/"gnubin" if OS.mac?
+
+    # Fix build with C23 compilers. Backport of upstream fix, adjusted to apply cleanly on current release
+    # https://github.com/DE-IBH/apt-dater/commit/5392d749a4d09dc0da35d963e6005986492cb5f4
+    inreplace "src/sighandler.c", "static RETSIGTYPE sigtermSigHandler()",
+                                  "static RETSIGTYPE sigtermSigHandler(int signo)"
+
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
