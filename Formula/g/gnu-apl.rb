@@ -2,6 +2,7 @@ class GnuApl < Formula
   desc "GNU implementation of the programming language APL"
   homepage "https://www.gnu.org/software/apl/"
   url "https://ftpmirror.gnu.org/apl/apl-1.9.tar.gz"
+  mirror "https://ftpmirror.gnu.org/apl/apl-1.9/apl-1.9.tar.gz"
   mirror "https://ftp.gnu.org/gnu/apl/apl-1.9.tar.gz"
   sha256 "291867f1b1937693abb57be7d9a37618b0376e3e2709574854a7bbe52bb28eb8"
   license "GPL-3.0-or-later"
@@ -53,18 +54,6 @@ class GnuApl < Formula
   end
 
   test do
-    (testpath/"hello.apl").write <<~APL
-      'Hello world'
-      )OFF
-    APL
-
-    pid = spawn bin/"APserver"
-    begin
-      sleep 4
-      assert_match "Hello world", shell_output("#{bin}/apl -s -f hello.apl")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
+    assert_match "6 15 24", shell_output("#{bin}/apl --noSV --eval '+/ (3 3⍴1 2 3 4 5 6 7 8 9)'").strip
   end
 end
