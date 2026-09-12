@@ -6,12 +6,12 @@ class Cpdf < Formula
   license "AGPL-3.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "194f6872ce70b4d62aeacbbc44098ebfc4c72448d99155bfcaa8a47215740c0f"
-    sha256 cellar: :any, arm64_sequoia: "364ba3d8151e7e037f807d57e2e6860e1e771e677c06075d1316c1c8a3eeb161"
-    sha256 cellar: :any, arm64_sonoma:  "69c46304b2c42e041b00fb57965b17542bb1623745ccc282be3895f94d64b2e4"
-    sha256 cellar: :any, arm64_linux:   "b2510561cae38db489bd9b38b12d4b14ec889f4c9021178f2458af27c54661da"
-    sha256 cellar: :any, x86_64_linux:  "c73545e299397b1f2c127fb969112be4762e02e6156783ad3fdebde3e752e5e0"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9fdf5933da4359564e4dbd99c374d44f083fa0c932bbbe459a21a2d7d9152ec6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "67b84aa2e09ebc3d6b174491c855f6f114230a69f666f68dcbbb8a17ab425f7c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "83fa8d4bc1599719e3eda94ff93644257fe294a64881e2d4473ebbed4c463907"
+    sha256 cellar: :any,                 arm64_linux:   "4cd45845c154e6b5af55038f328c4358c47571148dc6d8b87b89b98390a38cb0"
+    sha256 cellar: :any,                 x86_64_linux:  "4fae20a5f2c10ab4f6ad7267c6a4b885272e8536c0e4cef7604c3d34d7427c2b"
   end
 
   depends_on "camlpdf" => :build
