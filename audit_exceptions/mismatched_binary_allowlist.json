@@ -7,6 +7,7 @@
   "faust": "share/faust/android/app/lib/libsndfile/lib/*/libsndfile.so",
   "ghidra": "libexec/docs/GhidraClass/ExerciseFiles/Advanced/*",
   "i686-elf-grub": "lib/i686-elf/grub/i386-pc/*",
+  "kandev": "libexec/bin/agentctl-{darwin,linux}-{amd64,arm64}",
   "lima": "share/lima/lima-guestagent.Linux-*",
   "picotool": "share/picotool/*.elf",
   "preevy": "libexec/lib/node_modules/preevy/node_modules/@preevy/compose-tunnel-agent/out/*.node",
