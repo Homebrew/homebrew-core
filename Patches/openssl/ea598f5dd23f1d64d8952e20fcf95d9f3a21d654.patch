@@ -1,0 +1,230 @@
+From ea598f5dd23f1d64d8952e20fcf95d9f3a21d654 Mon Sep 17 00:00:00 2001
+From: Tomas Mraz <tomas@openssl.foundation>
+Date: Thu, 11 Jun 2026 17:37:31 +0200
+Subject: [PATCH] test: Invert bad TEST() condition calls
+
+False result of a TEST_xxx() call should always indicate
+erroneous condition.
+
+Fix such calls. Also fix some calls which
+treated TEST_xxx() result as non-boolean.
+
+Reviewed-by: Paul Dale <paul.dale@oracle.com>
+Reviewed-by: Richard Levitte <levitte@openssl.org>
+Reviewed-by: Norbert Pocs <norbertp@openssl.org>
+MergeDate: Mon Jun 15 07:38:52 2026
+(Merged from https://github.com/openssl/openssl/pull/31457)
+
+(cherry picked from commit 7c765bb6020b7c391dea8112f403e3b2109ff6dd)
+---
+ test/ca_internals_test.c |  4 ++--
+ test/evp_extra_test2.c   |  2 +-
+ test/hpke_test.c         | 22 +++++++++-------------
+ test/http_test.c         |  4 ++--
+ test/pkcs12_api_test.c   |  4 ++--
+ test/punycode_test.c     |  2 +-
+ test/radix/quic_tests.c  |  4 ++--
+ test/secmemtest.c        |  2 +-
+ test/sslapitest.c        |  4 ++--
+ 9 files changed, 22 insertions(+), 26 deletions(-)
+
+diff --git a/test/ca_internals_test.c b/test/ca_internals_test.c
+index 0b0b2f3b70976b0e4e3898f9b649684a9d09b4a3..ed922a36dd28ac8b8a4a1ad2b3b2afa614c8d548 100644
+--- a/test/ca_internals_test.c
++++ b/test/ca_internals_test.c
+@@ -48,13 +48,13 @@ static int test_do_updatedb(void)
+ 
+     testdate = test_get_argument(2);
+     testdateutc = test_asn1_string_to_time_t(testdate);
+-    if (TEST_time_t_lt(testdateutc, 0)) {
++    if (!TEST_time_t_ge(testdateutc, 0)) {
+         return 0;
+     }
+ 
+     indexfile = test_get_argument(1);
+     db = load_index(indexfile, NULL);
+-    if (TEST_ptr_null(db)) {
++    if (!TEST_ptr(db)) {
+         return 0;
+     }
+ 
+diff --git a/test/evp_extra_test2.c b/test/evp_extra_test2.c
+index ac1c7d84665db4ce1045f793bb57a7184a0928f2..c53057fba02abd180d36e0b9ef4ee844f70a0b35 100644
+--- a/test/evp_extra_test2.c
++++ b/test/evp_extra_test2.c
+@@ -494,7 +494,7 @@ static int test_new_keytype(void)
+     unsigned char *out = NULL, *secret = NULL, *secret2 = NULL;
+ 
+     /* without tls-provider key should not be create-able */
+-    if (TEST_ptr(key = EVP_PKEY_Q_keygen(mainctx, NULL, "XOR")))
++    if (!TEST_ptr_null(key = EVP_PKEY_Q_keygen(mainctx, NULL, "XOR")))
+         goto err;
+     /* prepare & load tls-provider */
+     if (!TEST_true(OSSL_PROVIDER_add_builtin(mainctx, "tls-provider",
+diff --git a/test/hpke_test.c b/test/hpke_test.c
+index c7b30012ad2b4bed385554a8083cb5fc0c8762ba..df3f4574a0f0654fd105d7d9a611dd2d8d244cd7 100644
+--- a/test/hpke_test.c
++++ b/test/hpke_test.c
+@@ -949,10 +949,9 @@ static int test_hpke_modes_suites(void)
+             hpke_suite.kem_id = kem_id;
+             if (hpke_mode == OSSL_HPKE_MODE_AUTH
+                 || hpke_mode == OSSL_HPKE_MODE_PSKAUTH) {
+-                if (TEST_true(OSSL_HPKE_keygen(hpke_suite, authpub, &authpublen,
++                if (!TEST_true(OSSL_HPKE_keygen(hpke_suite, authpub, &authpublen,
+                         &authpriv, NULL, 0,
+-                        testctx, NULL))
+-                    != 1) {
++                        testctx, NULL))) {
+                     overallresult = 0;
+                 }
+                 authpubp = authpub;
+@@ -1195,7 +1194,7 @@ static int test_hpke_suite_strs(void)
+             for (aeadind = 0; aeadind != OSSL_NELEM(aead_str_list); aeadind++) {
+                 BIO_snprintf(sstr, 128, "%s,%s,%s", kem_str_list[kemind],
+                     kdf_str_list[kdfind], aead_str_list[aeadind]);
+-                if (TEST_true(OSSL_HPKE_str2suite(sstr, &stirred)) != 1) {
++                if (!TEST_true(OSSL_HPKE_str2suite(sstr, &stirred))) {
+                     if (verbose)
+                         TEST_note("Unexpected str2suite fail for :%s",
+                             bogus_suite_strs[sind]);
+@@ -1205,9 +1204,8 @@ static int test_hpke_suite_strs(void)
+         }
+     }
+     for (sind = 0; sind != OSSL_NELEM(bogus_suite_strs); sind++) {
+-        if (TEST_false(OSSL_HPKE_str2suite(bogus_suite_strs[sind],
+-                &stirred))
+-            != 1) {
++        if (!TEST_false(OSSL_HPKE_str2suite(bogus_suite_strs[sind],
++                &stirred))) {
+             if (verbose)
+                 TEST_note("OSSL_HPKE_str2suite didn't fail for bogus[%d]:%s",
+                     sind, bogus_suite_strs[sind]);
+@@ -1250,20 +1248,18 @@ static int test_hpke_grease(void)
+     /* GREASEing */
+     /* check too short for public value */
+     g_pub_len = 10;
+-    if (TEST_false(OSSL_HPKE_get_grease_value(NULL, &g_suite,
++    if (!TEST_false(OSSL_HPKE_get_grease_value(NULL, &g_suite,
+             g_pub, &g_pub_len,
+             g_cipher, g_cipher_len,
+-            testctx, NULL))
+-        != 1) {
++            testctx, NULL))) {
+         overallresult = 0;
+     }
+     /* reset to work */
+     g_pub_len = OSSL_HPKE_TSTSIZE;
+-    if (TEST_true(OSSL_HPKE_get_grease_value(NULL, &g_suite,
++    if (!TEST_true(OSSL_HPKE_get_grease_value(NULL, &g_suite,
+             g_pub, &g_pub_len,
+             g_cipher, g_cipher_len,
+-            testctx, NULL))
+-        != 1) {
++            testctx, NULL))) {
+         overallresult = 0;
+     }
+     /* expansion */
+diff --git a/test/http_test.c b/test/http_test.c
+index f3d60d4feea9b9a150d65273d00a56063316ce44..04a12fd10ce386597573d6441034ad802674ab40 100644
+--- a/test/http_test.c
++++ b/test/http_test.c
+@@ -586,7 +586,7 @@ static int test_http_resp_hdr_limit(size_t limit)
+     int res = 0;
+     OSSL_HTTP_REQ_CTX *rctx = NULL;
+ 
+-    if (TEST_ptr(wbio) == 0 || TEST_ptr(rbio) == 0)
++    if (!TEST_ptr(wbio) || !TEST_ptr(rbio))
+         goto err;
+ 
+     mock_args.txt = text1;
+@@ -598,7 +598,7 @@ static int test_http_resp_hdr_limit(size_t limit)
+     BIO_set_callback_arg(wbio, (char *)&mock_args);
+ 
+     rctx = OSSL_HTTP_REQ_CTX_new(wbio, rbio, 8192);
+-    if (TEST_ptr(rctx) == 0)
++    if (!TEST_ptr(rctx))
+         goto err;
+ 
+     if (!TEST_true(OSSL_HTTP_REQ_CTX_set_request_line(rctx, 0 /* GET */,
+diff --git a/test/pkcs12_api_test.c b/test/pkcs12_api_test.c
+index 147d65bd665abc01ba9bee916b166a6d59a8befd..b98343da86af339c4fa87dd786114e7c6753c396 100644
+--- a/test/pkcs12_api_test.c
++++ b/test/pkcs12_api_test.c
+@@ -175,7 +175,7 @@ static int pkcs12_create_ex2_test(int test)
+             0, 0, 0,
+             testctx, NULL,
+             NULL, NULL);
+-        if (TEST_ptr(ptr))
++        if (!TEST_ptr_null(ptr))
+             goto err;
+ 
+         /* Can't proceed without a valid cert at least */
+@@ -201,7 +201,7 @@ static int pkcs12_create_ex2_test(int test)
+             testctx, NULL,
+             pkcs12_create_cb, (void *)&cb_ret);
+         /* PKCS12 not created */
+-        if (TEST_ptr(ptr))
++        if (!TEST_ptr_null(ptr))
+             goto err;
+     } else if (test == 2) {
+         /* Specified call back called - return failure */
+diff --git a/test/punycode_test.c b/test/punycode_test.c
+index 37f6056903c677686b3d2403efc82b43c0b2c06a..3591f0dc19a0973d990ed7369db3426da2386757 100644
+--- a/test/punycode_test.c
++++ b/test/punycode_test.c
+@@ -188,7 +188,7 @@ static int test_puny_overrun(void)
+     unsigned int bsize = OSSL_NELEM(buf) - 1;
+ 
+     if (!TEST_false(ossl_punycode_decode(in, strlen(in), buf, &bsize))) {
+-        if (TEST_mem_eq(buf, bsize * sizeof(*buf), out, sizeof(out)))
++        if (!TEST_mem_ne(buf, bsize * sizeof(*buf), out, sizeof(out)))
+             TEST_error("CRITICAL: buffer overrun detected!");
+         return 0;
+     }
+diff --git a/test/radix/quic_tests.c b/test/radix/quic_tests.c
+index 29a8cf3efaa54afd402198fb54ce7ef14d64594f..abdb277a428d80e1c0999a112d3a761740d67cb4 100644
+--- a/test/radix/quic_tests.c
++++ b/test/radix/quic_tests.c
+@@ -455,9 +455,9 @@ DEF_FUNC(check_flood_stats)
+     path_challenge_count = ossl_quic_channel_get_path_challenge_count(ch);
+     path_response_count = ossl_quic_channel_get_path_response_count(ch);
+ 
+-    if (TEST_uint64_t_ne(path_challenge_count, 16))
++    if (!TEST_uint64_t_eq(path_challenge_count, 16))
+         goto err;
+-    if (TEST_uint64_t_ne(path_response_count, 1))
++    if (!TEST_uint64_t_eq(path_response_count, 1))
+         goto err;
+ 
+     ok = 1;
+diff --git a/test/secmemtest.c b/test/secmemtest.c
+index 05b0bbc85796d37fe76f4a63b71a765aded1bc8b..b0ac91a38f6a18ad7e03044d80477f5fbba357ff 100644
+--- a/test/secmemtest.c
++++ b/test/secmemtest.c
+@@ -81,7 +81,7 @@ static int test_sec_mem(void)
+      * If init fails, then initialized should be false, if not, this
+      * could cause an infinite loop secure_malloc, but we don't test it
+      */
+-    if (TEST_false(CRYPTO_secure_malloc_init(16, 16)) && !TEST_false(CRYPTO_secure_malloc_initialized())) {
++    if (!TEST_true(CRYPTO_secure_malloc_init(16, 16)) && !TEST_false(CRYPTO_secure_malloc_initialized())) {
+         TEST_true(CRYPTO_secure_malloc_done());
+         goto end;
+     }
+diff --git a/test/sslapitest.c b/test/sslapitest.c
+index da93d49338048c6172fd5658d56e38d96ae1f3fa..68a52837b566e1746e9fa154a7e7b37d085b7c40 100644
+--- a/test/sslapitest.c
++++ b/test/sslapitest.c
+@@ -2524,11 +2524,11 @@ static int test_tlsext_status_type_multi(void)
+     if (!TEST_true(create_ssl_ctx_pair(libctx, TLS_server_method(), TLS_client_method(),
+             TLS1_VERSION, 0, &sctx, &cctx, leaf, skey)))
+         goto end;
+-    if (TEST_int_lt(SSL_CTX_use_certificate_chain_file(sctx, leaf_chain), 0))
++    if (!TEST_int_ge(SSL_CTX_use_certificate_chain_file(sctx, leaf_chain), 0))
+         goto end;
+     if (!TEST_true(SSL_CTX_load_verify_locations(cctx, root, NULL)))
+         goto end;
+-    if (TEST_int_ne(SSL_CTX_get_tlsext_status_type(cctx), -1))
++    if (!TEST_int_eq(SSL_CTX_get_tlsext_status_type(cctx), -1))
+         goto end;
+ 
+     /* set verify callback function */
