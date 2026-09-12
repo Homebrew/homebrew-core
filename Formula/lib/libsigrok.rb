@@ -94,7 +94,9 @@ class Libsigrok < Formula
     depends_on "libsigc++@2"
   end
 
-  # Fix for swig 4.4 changing the return type of %init
+  # Fix for swig 4.4 changing the return type of %init and a backport of
+  # https://github.com/sigrokproject/libsigrok/pull/303 for swig 4.5 dropping
+  # the Python 2 integer API macros
   patch :DATA
 
   def install
@@ -164,9 +166,54 @@ class Libsigrok < Formula
 end
 
 __END__
-diff --git a/bindings/python/sigrok/core/classes.i b/bindings/python/sigrok/core/classes.i
 --- a/bindings/python/sigrok/core/classes.i
 +++ b/bindings/python/sigrok/core/classes.i
-@@ -85,1 +85,1 @@ typedef guint pyg_flags_type;
+@@ -85,7 +85,7 @@
+     if (!GLib) {
+         fprintf(stderr, "Import of gi.repository.GLib failed.\n");
+ #if PY_VERSION_HEX >= 0x03000000
 -        return nullptr;
 +        return 0;
+ #else
+         return;
+ #endif
+@@ -325,8 +325,6 @@
+ {
+     enum sr_datatype type = (enum sr_datatype) key->data_type()->id();
+ 
+-    if (type == SR_T_UINT64 && PyInt_Check(input))
+-        return Glib::Variant<guint64>::create(PyInt_AsLong(input));
+     if (type == SR_T_UINT64 && PyLong_Check(input))
+         return Glib::Variant<guint64>::create(PyLong_AsLong(input));
+     else if (type == SR_T_STRING && string_check(input))
+@@ -335,8 +333,8 @@
+         return Glib::Variant<bool>::create(input == Py_True);
+     else if (type == SR_T_FLOAT && PyFloat_Check(input))
+         return Glib::Variant<double>::create(PyFloat_AsDouble(input));
+-    else if (type == SR_T_INT32 && PyInt_Check(input))
+-        return Glib::Variant<gint32>::create(PyInt_AsLong(input));
++    else if (type == SR_T_INT32 && PyLong_Check(input))
++        return Glib::Variant<gint32>::create(PyLong_AsLong(input));
+     else
+         throw sigrok::Error(SR_ERR_ARG);
+ }
+@@ -347,8 +345,6 @@
+ {
+     GVariantType *type = option->default_value().get_type().gobj();
+ 
+-    if (type == G_VARIANT_TYPE_UINT64 && PyInt_Check(input))
+-        return Glib::Variant<guint64>::create(PyInt_AsLong(input));
+     if (type == G_VARIANT_TYPE_UINT64 && PyLong_Check(input))
+         return Glib::Variant<guint64>::create(PyLong_AsLong(input));
+     else if (type == G_VARIANT_TYPE_STRING && string_check(input))
+@@ -357,8 +353,8 @@
+         return Glib::Variant<bool>::create(input == Py_True);
+     else if (type == G_VARIANT_TYPE_DOUBLE && PyFloat_Check(input))
+         return Glib::Variant<double>::create(PyFloat_AsDouble(input));
+-    else if (type == G_VARIANT_TYPE_INT32 && PyInt_Check(input))
+-        return Glib::Variant<gint32>::create(PyInt_AsLong(input));
++    else if (type == G_VARIANT_TYPE_INT32 && PyLong_Check(input))
++        return Glib::Variant<gint32>::create(PyLong_AsLong(input));
+     else
+         throw sigrok::Error(SR_ERR_ARG);
+ }
