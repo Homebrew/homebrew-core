@@ -6,7 +6,7 @@ class PortableRuby < PortableFormula
   url "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.6.tar.gz"
   sha256 "837d299e8f7ddf2be31a229a7a7e019d354979825117989acb3b32b1a9be262a"
   license "Ruby"
-  revision 2
+  revision 3
 
   # This regex restricts matching to versions other than X.Y.0.
   livecheck do
@@ -96,6 +96,14 @@ class PortableRuby < PortableFormula
       --disable-install-rdoc
       --disable-dependency-tracking
     ]
+
+    # `configure` bakes whether the build machine's SDK has <stdckdint.h>
+    # into the shipped config.h. Since this Ruby gets relocated to build
+    # native gem extensions on other machines, an older SDK there without
+    # that header would otherwise be told it exists, breaking every native
+    # extension's build with a "file not found" error from deep inside
+    # ruby.h.
+    args << "ac_cv_header_stdckdint_h=no"
 
     # We don't specify OpenSSL as we want it to use the pkg-config, which `--with-openssl-dir` will disable
     args += %W[
