@@ -61,8 +61,7 @@ class Gnupg < Formula
                              "--with-readline=#{formula_opt_prefix("readline")}",
                              *std_configure_args
       system "make"
-      # Disable (temporarily?) because it fails with sandbox
-      # system "make", "check"
+      system "make", "check"
       system "make", "install"
     end
 
