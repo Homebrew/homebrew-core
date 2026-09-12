@@ -24,6 +24,13 @@ class Gpgme < Formula
   depends_on "libgpg-error"
 
   def install
+    # Keep the gpg-agent sockets of the `make` test fixtures inside the sandbox but under the 104 byte path limit
+    short_home = Pathname(Dir.mktmpdir("g", HOMEBREW_TEMP))
+    %w[gpg gpgsm json].each do |dir|
+      (short_home/dir).make_symlink buildpath/"tests"/dir
+      inreplace "tests/#{dir}/Makefile.in", "GNUPGHOME = $(abs_builddir)", "GNUPGHOME = #{short_home}/#{dir}"
+    end
+
     system "./configure", "--disable-silent-rules",
                           "--enable-static",
                           *std_configure_args
@@ -36,6 +43,8 @@ class Gpgme < Formula
       # replace libassuan Cellar paths to avoid breakage on libassuan version/revision bumps
       s.gsub! Formula["libassuan"].prefix.realpath, formula_opt_prefix("libassuan")
     end
+
+    rm_r(short_home)
   end
 
   test do
