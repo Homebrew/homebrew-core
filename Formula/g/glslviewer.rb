@@ -15,12 +15,13 @@ class Glslviewer < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "ef4a5d219028d7ea4a08bf1a050e3c67f20c78a24eebe767b740528868659cfb"
-    sha256 cellar: :any, arm64_sequoia: "95ed442adc21687a48ea4013dc18894dd52969bc67278275f406bc153cb2fe18"
-    sha256 cellar: :any, arm64_sonoma:  "b25427a43b2278f8c59d649c692d6e95d9fd9955b8ff2cce72e7f11bb6a6e1b1"
-    sha256 cellar: :any, sonoma:        "2e59c5551318183fbecf74205826837c759bbd7a6f1bfa366fa7ed2b89b852f0"
-    sha256 cellar: :any, arm64_linux:   "42508b4a7db0c548b63214c56007ef10b14da631632f6c8873486004be6e3905"
-    sha256 cellar: :any, x86_64_linux:  "044cdd2f70fed82506cb21b420e1898f582519049aa03cb6e198a41bca222b71"
+    sha256 cellar: :any, arm64_golden_gate: "3f6ccfb264d1882bbadd81b5123a756b700d6cc8a6e32c871eb308a2576cb08a"
+    sha256 cellar: :any, arm64_tahoe:       "ef4a5d219028d7ea4a08bf1a050e3c67f20c78a24eebe767b740528868659cfb"
+    sha256 cellar: :any, arm64_sequoia:     "95ed442adc21687a48ea4013dc18894dd52969bc67278275f406bc153cb2fe18"
+    sha256 cellar: :any, arm64_sonoma:      "b25427a43b2278f8c59d649c692d6e95d9fd9955b8ff2cce72e7f11bb6a6e1b1"
+    sha256 cellar: :any, sonoma:            "2e59c5551318183fbecf74205826837c759bbd7a6f1bfa366fa7ed2b89b852f0"
+    sha256 cellar: :any, arm64_linux:       "42508b4a7db0c548b63214c56007ef10b14da631632f6c8873486004be6e3905"
+    sha256 cellar: :any, x86_64_linux:      "044cdd2f70fed82506cb21b420e1898f582519049aa03cb6e198a41bca222b71"
   end
 
   depends_on "cmake" => :build
