@@ -12,12 +12,13 @@ class Regal < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0c3b3a774eee8cb9148a39a41693d86e8bc385323705d24178e151efa5bf754c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0c3b3a774eee8cb9148a39a41693d86e8bc385323705d24178e151efa5bf754c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0c3b3a774eee8cb9148a39a41693d86e8bc385323705d24178e151efa5bf754c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c4d780d582a04ed92c1a69f3dd0d1d725b8f39df68d0ce6ff62534f2b4c8d956"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d3709d0a40e2515380896683e2b5ae183449577186f396c38f9c2e5c4e0916e6"
-    sha256 cellar: :any,                 x86_64_linux:  "2d9f43a5147777b4ada27b821f34a035fd74732c3ebe5dd41301f07d81026efa"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d33d3edecd985677ceec4c7ed3f80c9351e4b706cb90b2c277fe8f346e53e0e0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0c3b3a774eee8cb9148a39a41693d86e8bc385323705d24178e151efa5bf754c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0c3b3a774eee8cb9148a39a41693d86e8bc385323705d24178e151efa5bf754c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "0c3b3a774eee8cb9148a39a41693d86e8bc385323705d24178e151efa5bf754c"
+    sha256 cellar: :any_skip_relocation, sonoma:            "c4d780d582a04ed92c1a69f3dd0d1d725b8f39df68d0ce6ff62534f2b4c8d956"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d3709d0a40e2515380896683e2b5ae183449577186f396c38f9c2e5c4e0916e6"
+    sha256 cellar: :any,                 x86_64_linux:      "2d9f43a5147777b4ada27b821f34a035fd74732c3ebe5dd41301f07d81026efa"
   end
 
   depends_on "go" => :build
