@@ -9,12 +9,13 @@ class Sdcv < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_tahoe:   "d9e4a0a1b41d6d46b30202780982c90aff2d19cee7333b5f1e9d0da18cf68f52"
-    sha256 arm64_sequoia: "507d6ed1c271d67f1803267eacffaec3b80dc1bb028683e6461874f0656a7937"
-    sha256 arm64_sonoma:  "325be709ff03b8fc16ab595119d730066cc2299b3b8b214b4d20a8cf467e0d5b"
-    sha256 sonoma:        "a6a1dde20c0f583b113044908921e95fc76a3ad14195e68e242e0aa2bb6ce255"
-    sha256 arm64_linux:   "c48568253dc9cfbcdfe4f4aa520303a3d6cd51cffc2e4b88b8c2a39e2c94271f"
-    sha256 x86_64_linux:  "d01d6330eecd4858e0c73ea360a0f6870ce3004f7c97bce3284c64a9ae850d6f"
+    sha256 arm64_golden_gate: "5ef2a8168b81c9c074e661a27a4827f1a1affcab4d1c923caef9db608ad54d73"
+    sha256 arm64_tahoe:       "d9e4a0a1b41d6d46b30202780982c90aff2d19cee7333b5f1e9d0da18cf68f52"
+    sha256 arm64_sequoia:     "507d6ed1c271d67f1803267eacffaec3b80dc1bb028683e6461874f0656a7937"
+    sha256 arm64_sonoma:      "325be709ff03b8fc16ab595119d730066cc2299b3b8b214b4d20a8cf467e0d5b"
+    sha256 sonoma:            "a6a1dde20c0f583b113044908921e95fc76a3ad14195e68e242e0aa2bb6ce255"
+    sha256 arm64_linux:       "c48568253dc9cfbcdfe4f4aa520303a3d6cd51cffc2e4b88b8c2a39e2c94271f"
+    sha256 x86_64_linux:      "d01d6330eecd4858e0c73ea360a0f6870ce3004f7c97bce3284c64a9ae850d6f"
   end
 
   depends_on "cmake" => :build
