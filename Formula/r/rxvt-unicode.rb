@@ -12,12 +12,13 @@ class RxvtUnicode < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "e4f9b55040a461f3017d12e2582fc0b6860c34ef8f0009685047b6994cfd8ff3"
-    sha256 arm64_sequoia: "e6faed2630b784a751f9d66fbcc2da0bc787c6bae2e302bb37824e78ad51ef11"
-    sha256 arm64_sonoma:  "3f8197d22312bb97d38faba3b20c2f5130c7d174684fe7306a9053755019a1ce"
-    sha256 sonoma:        "dfd46b5f344974ca6f788c07f9c227b155f4812a3e46a7b8c0505e2b9cfc1278"
-    sha256 arm64_linux:   "d08cc5bcacab747de54e7c232cdb1e0d85cf4591d0b79fd5442f3aef83ef184b"
-    sha256 x86_64_linux:  "b07157e0dc01f637521fce47ee9cdcdbad295f4af457ac8347cfb6366133413b"
+    sha256 arm64_golden_gate: "96a7650756f1a4a76124ed7d47392bccb7d7a218687e12cde782641a6d011af8"
+    sha256 arm64_tahoe:       "e4f9b55040a461f3017d12e2582fc0b6860c34ef8f0009685047b6994cfd8ff3"
+    sha256 arm64_sequoia:     "e6faed2630b784a751f9d66fbcc2da0bc787c6bae2e302bb37824e78ad51ef11"
+    sha256 arm64_sonoma:      "3f8197d22312bb97d38faba3b20c2f5130c7d174684fe7306a9053755019a1ce"
+    sha256 sonoma:            "dfd46b5f344974ca6f788c07f9c227b155f4812a3e46a7b8c0505e2b9cfc1278"
+    sha256 arm64_linux:       "d08cc5bcacab747de54e7c232cdb1e0d85cf4591d0b79fd5442f3aef83ef184b"
+    sha256 x86_64_linux:      "b07157e0dc01f637521fce47ee9cdcdbad295f4af457ac8347cfb6366133413b"
   end
 
   depends_on "cmake" => :build
