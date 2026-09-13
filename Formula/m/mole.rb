@@ -1,8 +1,8 @@
 class Mole < Formula
   desc "Deep clean and optimize your Mac"
   homepage "https://mole.fit"
-  url "https://github.com/tw93/Mole/archive/refs/tags/V1.53.0.tar.gz"
-  sha256 "35c812d5298a08c672062ac4e1d5a523876144ff0708f9c5c77385d52faccc77"
+  url "https://github.com/tw93/Mole/archive/refs/tags/V1.54.0.tar.gz"
+  sha256 "d1353803f4b32ca4296de6aaa21d1c17a1e9926f787f541765c357b79fbcdd6c"
   license "GPL-3.0-or-later"
   head "https://github.com/tw93/Mole.git", branch: "main"
 
@@ -49,6 +49,8 @@ class Mole < Formula
   end
 
   test do
+    # Point simctl at the CLT so the sandboxed Xcode simulator probes are skipped
+    ENV["DEVELOPER_DIR"] = "/Library/Developer/CommandLineTools"
     assert_match version.to_s, shell_output("#{bin}/mole --version")
     output = shell_output("#{bin}/mole clean --dry-run 2>&1")
     assert_match "Dry run complete - no changes made", output
