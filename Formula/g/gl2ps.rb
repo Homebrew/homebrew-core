@@ -76,9 +76,8 @@ class Gl2ps < Formula
       system ENV.cc, "-L#{lib}", "-lgl2ps", "-framework", "OpenGL", "-framework", "GLUT",
                      "-framework", "Cocoa", "test.c", "-o", "test"
 
-      # Tahoe running is headless for now, maybe remove this later
-      # ("GLUT Fatal Error: redisplay needed for window 1, but no display callback")
-      return if MacOS.version == :tahoe && ENV["HOMEBREW_GITHUB_ACTIONS"]
+      # GLUT needs a WindowServer connection, which the test sandbox denies
+      return
     else
       system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-lgl2ps", "-lglut", "-lGL"
     end
