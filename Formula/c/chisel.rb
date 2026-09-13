@@ -34,11 +34,13 @@ class Chisel < Formula
     # in which case brew doesn't perform its modifications.
     ld_dylib_install_name = opt_prefix/"lib/Chisel.framework/Chisel"
 
+    # Xcode 27 rejects the project's iOS 10.1 deployment target, older Xcode clamps it silently
     xcodebuild "-arch", Hardware::CPU.arch,
                "-project", "Chisel/Chisel.xcodeproj",
                "-scheme", "Chisel",
                "-configuration", "Release",
                "-sdk", "iphonesimulator",
+               *("IPHONEOS_DEPLOYMENT_TARGET=15.0" if MacOS::Xcode.version >= 27),
                "LD_DYLIB_INSTALL_NAME=#{ld_dylib_install_name}",
                "DSTROOT=#{prefix}",
                "INSTALL_PATH=/lib",
