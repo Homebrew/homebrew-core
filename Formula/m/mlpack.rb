@@ -12,12 +12,13 @@ class Mlpack < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "2e6b526883e1455de59704ca34e42e2775df5f78bd4d2e04497eb0b5cc9f420f"
-    sha256 cellar: :any, arm64_sequoia: "75c24e1ad876fe3a34c4c07a86cec2988c7d3d40e41b81c57f883f345cca2840"
-    sha256 cellar: :any, arm64_sonoma:  "d9cccf1f37ecd870e0441b8602339e0fad4fa45638f7e21c62a87618ca80ce2c"
-    sha256 cellar: :any, sonoma:        "e7c72b5ecc5ddb54eff470da1c312508a98d78a269d1b0e7c28682157c9cb00d"
-    sha256 cellar: :any, arm64_linux:   "ebae5bee89f2b4dab5fd04eb9d142922260d99967b1c64a952567b752e01056e"
-    sha256 cellar: :any, x86_64_linux:  "2750a2505f386a5dd7fd4d31247b0f3b52a4b21b57d121937dba27569e240cb2"
+    sha256 cellar: :any, arm64_golden_gate: "6c3692744f5ede2870da3e3ee424d3e7f892c924bfeddf516072067e60d85d73"
+    sha256 cellar: :any, arm64_tahoe:       "2e6b526883e1455de59704ca34e42e2775df5f78bd4d2e04497eb0b5cc9f420f"
+    sha256 cellar: :any, arm64_sequoia:     "75c24e1ad876fe3a34c4c07a86cec2988c7d3d40e41b81c57f883f345cca2840"
+    sha256 cellar: :any, arm64_sonoma:      "d9cccf1f37ecd870e0441b8602339e0fad4fa45638f7e21c62a87618ca80ce2c"
+    sha256 cellar: :any, sonoma:            "e7c72b5ecc5ddb54eff470da1c312508a98d78a269d1b0e7c28682157c9cb00d"
+    sha256 cellar: :any, arm64_linux:       "ebae5bee89f2b4dab5fd04eb9d142922260d99967b1c64a952567b752e01056e"
+    sha256 cellar: :any, x86_64_linux:      "2750a2505f386a5dd7fd4d31247b0f3b52a4b21b57d121937dba27569e240cb2"
   end
 
   depends_on "cmake" => :build
