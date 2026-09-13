@@ -11,12 +11,13 @@ class Ser2net < Formula
   end
 
   bottle do
-    sha256               arm64_tahoe:   "3c214f961d732a82ac62fe977dde82c7912de54d826b1e23990fc035572f4e02"
-    sha256               arm64_sequoia: "fd7227618e0430537da799a8e4dae00cd08c880aba27dfaf727f5df16d6faf39"
-    sha256               arm64_sonoma:  "9850a09ea9910b84cb9879ab4b7df9d77ca1e76b4315a7d863ea6ea8c303cf02"
-    sha256 cellar: :any, sonoma:        "ba8e0b026ac4be7f8e6db552172841afda4d5f4d14e75bc513b42d5ac97dd883"
-    sha256               arm64_linux:   "bbe0fa0064edb0b44ecec3d77ef667880961eadd37b10183f0f7b3d309b3622b"
-    sha256               x86_64_linux:  "29357f49e5e690898ace616231506a8dbfa9972d2f60385d67767f2170a371cc"
+    sha256               arm64_golden_gate: "f45e38099aa5e6fae3a521292aa11a45ade31c1b1d17131b8265f732b6b25ffd"
+    sha256               arm64_tahoe:       "3c214f961d732a82ac62fe977dde82c7912de54d826b1e23990fc035572f4e02"
+    sha256               arm64_sequoia:     "fd7227618e0430537da799a8e4dae00cd08c880aba27dfaf727f5df16d6faf39"
+    sha256               arm64_sonoma:      "9850a09ea9910b84cb9879ab4b7df9d77ca1e76b4315a7d863ea6ea8c303cf02"
+    sha256 cellar: :any, sonoma:            "ba8e0b026ac4be7f8e6db552172841afda4d5f4d14e75bc513b42d5ac97dd883"
+    sha256               arm64_linux:       "bbe0fa0064edb0b44ecec3d77ef667880961eadd37b10183f0f7b3d309b3622b"
+    sha256               x86_64_linux:      "29357f49e5e690898ace616231506a8dbfa9972d2f60385d67767f2170a371cc"
   end
 
   depends_on "gensio"
