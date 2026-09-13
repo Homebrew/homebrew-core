@@ -17,6 +17,12 @@ class AzureDev < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download", "-C", "cli/azd"
+  end
+
   def install
     # install file to be used to determine if azd was installed by brew
     (libexec/".installed-by.txt").write "brew"
