@@ -19,7 +19,9 @@ class Arturo < Formula
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "openssl@3"
-  depends_on "pcre2" => :no_linkage # accessed via dlsym
+
+  # accessed via dlsym
+  depends_on "pcre2" => :no_linkage
 
   on_linux do
     depends_on "pkgconf" => :build
@@ -27,6 +29,13 @@ class Arturo < Formula
     depends_on "gtk+3"
     depends_on "libxcb"
     depends_on "webkitgtk"
+  end
+
+  # Fix build with Nim 2.2.12
+  patch do
+    url "https://github.com/arturo-lang/arturo/commit/3e11ad40074b15103785b4a40532107b049315bc.patch?full_index=1"
+    sha256 "a0720b777c37950587f71e5aa13bdb65ca8d228166d616a391d3d860580c156b"
+    type :backport
   end
 
   def install
