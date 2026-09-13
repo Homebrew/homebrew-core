@@ -7,12 +7,13 @@ class Mdbtools < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "80daadbae2b628dbc1e33e475a690da0c637cee4c0619e8f6fb462ec08833820"
-    sha256 cellar: :any,                 arm64_sequoia: "5f908724216744cf5088aa9ca1418608ca0837be3b34c50d279d1465c7f030b9"
-    sha256 cellar: :any,                 arm64_sonoma:  "0a2ee9cb19efc344da22dd3579c83100d225870c5dc2fd956c7ebf3ffdc1d07f"
-    sha256 cellar: :any,                 sonoma:        "3432d36eac18a64fa6031f2e0d6ed953abd4fb5d366e61654b1aea738cb6460b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ecb0e0f717a7c20e7ea65cc3027034bcb3bb1c3673e118cba2609aca30f681cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4d76da42e34993527918db173bda6ba69364963dcd3fc4553d7b8def90a8ab0"
+    sha256 cellar: :any,                 arm64_golden_gate: "c766a908845f225a5c2cd25d85f3f6ac5f0fa6a071f2cec08687b70d19343ab2"
+    sha256 cellar: :any,                 arm64_tahoe:       "80daadbae2b628dbc1e33e475a690da0c637cee4c0619e8f6fb462ec08833820"
+    sha256 cellar: :any,                 arm64_sequoia:     "5f908724216744cf5088aa9ca1418608ca0837be3b34c50d279d1465c7f030b9"
+    sha256 cellar: :any,                 arm64_sonoma:      "0a2ee9cb19efc344da22dd3579c83100d225870c5dc2fd956c7ebf3ffdc1d07f"
+    sha256 cellar: :any,                 sonoma:            "3432d36eac18a64fa6031f2e0d6ed953abd4fb5d366e61654b1aea738cb6460b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ecb0e0f717a7c20e7ea65cc3027034bcb3bb1c3673e118cba2609aca30f681cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f4d76da42e34993527918db173bda6ba69364963dcd3fc4553d7b8def90a8ab0"
   end
 
   depends_on "bison" => :build
