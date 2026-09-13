@@ -29,6 +29,10 @@ class Nfdump < Formula
   end
 
   def install
+    # FIXME: the macOS 27 SDK `fts.h` includes `<fts_compat.h>`, which resolves to the bundled
+    # `src/libnffile/fts_compat.h` instead, so build the bundled fts implementation there
+    ENV["ac_cv_header_fts_h"] = "no" if OS.mac? && MacOS.version >= :golden_gate
+
     system "./autogen.sh"
     system "./configure", "--enable-readpcap", "LEXLIB=", *std_configure_args
     system "make", "install"
