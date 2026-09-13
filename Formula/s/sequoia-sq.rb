@@ -12,12 +12,13 @@ class SequoiaSq < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "e9e61d139b48df4a934d57d48e4cdb18d6e524204121ce04018a9aa7a2cb6fc5"
-    sha256 cellar: :any, arm64_sequoia: "04acde3c23daadeeea490a1a1165597720c25afab32ad5d167b04455800b8ac4"
-    sha256 cellar: :any, arm64_sonoma:  "13cbe320497f9f9540034e69d0afc7398a315f488b547f32aef83caf8e343f32"
-    sha256 cellar: :any, sonoma:        "190655e0e1e9f7367ebb1d9c066b559096355a84718d7676e3a61c1d4f8f1f0e"
-    sha256 cellar: :any, arm64_linux:   "94ba7de7db749cb3be45e591deff4ca4646a77099fd0f499770c35ea7e31b2cd"
-    sha256 cellar: :any, x86_64_linux:  "cecce68199801ece553c7ff977e6d676565b8509baed406af51922aa5de70260"
+    sha256 cellar: :any, arm64_golden_gate: "e090f2bf18bd12c07e294d8d8f628e32ab2d13758c9d5f1ac05b9ddb499c4f0b"
+    sha256 cellar: :any, arm64_tahoe:       "e9e61d139b48df4a934d57d48e4cdb18d6e524204121ce04018a9aa7a2cb6fc5"
+    sha256 cellar: :any, arm64_sequoia:     "04acde3c23daadeeea490a1a1165597720c25afab32ad5d167b04455800b8ac4"
+    sha256 cellar: :any, arm64_sonoma:      "13cbe320497f9f9540034e69d0afc7398a315f488b547f32aef83caf8e343f32"
+    sha256 cellar: :any, sonoma:            "190655e0e1e9f7367ebb1d9c066b559096355a84718d7676e3a61c1d4f8f1f0e"
+    sha256 cellar: :any, arm64_linux:       "94ba7de7db749cb3be45e591deff4ca4646a77099fd0f499770c35ea7e31b2cd"
+    sha256 cellar: :any, x86_64_linux:      "cecce68199801ece553c7ff977e6d676565b8509baed406af51922aa5de70260"
   end
 
   depends_on "capnp" => :build
