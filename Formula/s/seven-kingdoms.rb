@@ -12,12 +12,13 @@ class SevenKingdoms < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_tahoe:   "ff7bdbd3a2e4e637a6f90dd9d95051baece154f4abb30ddbb88e4a4a8b84cb24"
-    sha256 arm64_sequoia: "8e23d82f2fa267b2489c5be9f53f9423de28209db8c691a8e55ec97bba8e4879"
-    sha256 arm64_sonoma:  "5f12722cd8c266303787d1d39e58de4703b009c17b082589aaf15414e5a163a4"
-    sha256 sonoma:        "cd1588f31d2e72b42fb11b76f1ed6b10dc0340fe0021c3e26359fbd22c66e3d2"
-    sha256 arm64_linux:   "5ec481c6ff98179854ef137c1593f24225766e8670b50af3a2922cb9af683be5"
-    sha256 x86_64_linux:  "0219b6986caccfd218784b94b28717301b9c3a1bb278093b12d8934f843c881a"
+    sha256 arm64_golden_gate: "f2185ae5bf536373bb7c03a888cf4aa6628b50fa94f3e2170d233e487d98f702"
+    sha256 arm64_tahoe:       "ff7bdbd3a2e4e637a6f90dd9d95051baece154f4abb30ddbb88e4a4a8b84cb24"
+    sha256 arm64_sequoia:     "8e23d82f2fa267b2489c5be9f53f9423de28209db8c691a8e55ec97bba8e4879"
+    sha256 arm64_sonoma:      "5f12722cd8c266303787d1d39e58de4703b009c17b082589aaf15414e5a163a4"
+    sha256 sonoma:            "cd1588f31d2e72b42fb11b76f1ed6b10dc0340fe0021c3e26359fbd22c66e3d2"
+    sha256 arm64_linux:       "5ec481c6ff98179854ef137c1593f24225766e8670b50af3a2922cb9af683be5"
+    sha256 x86_64_linux:      "0219b6986caccfd218784b94b28717301b9c3a1bb278093b12d8934f843c881a"
   end
 
   depends_on "pkgconf" => :build
