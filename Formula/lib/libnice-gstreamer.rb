@@ -43,7 +43,23 @@ class LibniceGstreamer < Formula
   end
 
   test do
-    system "gst-inspect-1.0", "--exists", "nicesrc"
+    (testpath/"test.c").write <<~C
+      #include <gst/gst.h>
+
+      int main(int argc, char **argv) {
+        gst_init(&argc, &argv);
+        GstElementFactory *factory = gst_element_factory_find("nicesrc");
+        g_assert_nonnull(factory);
+        gst_object_unref(factory);
+        gst_deinit();
+        return 0;
+      }
+    C
+    # Use the library API as `gst-inspect-1.0` starts NSApplication, which hangs without a window server
+    ENV["GST_PLUGIN_SYSTEM_PATH"] = opt_libexec/"gstreamer-1.0"
+    flags = shell_output("pkg-config --cflags --libs gstreamer-1.0").chomp.split
+    system ENV.cc, "test.c", *flags, "-o", "test"
+    system "./test"
   end
 end
 
