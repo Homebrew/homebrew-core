@@ -35,12 +35,13 @@ class Pcl < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "96e7ff3c0b608fb8f47fcb84fcf91cc735f4abca956829f9394ce88dc194a78c"
-    sha256 cellar: :any, arm64_sequoia: "bafd5a622108d37dd359b1c50c39d9a63c1416e797bbfbe5f7d9a8b2a58bf9f1"
-    sha256 cellar: :any, arm64_sonoma:  "292397594a7af0748192d22fbacaa58700ec145c871c7b369f851a58f935549e"
-    sha256 cellar: :any, sonoma:        "3a8e65473a20d68437902ce34ddd27de79219c08ae4ed03de674141450fea7f6"
-    sha256 cellar: :any, arm64_linux:   "ee362f427810c10491cd09d7bb6a7c082e2fd1185b2d1d78a1492e26b43b151a"
-    sha256 cellar: :any, x86_64_linux:  "2de32c8abdc01f93a0574e6f7e923ee166a96b789dc0b3397663638786d91b9b"
+    sha256 cellar: :any, arm64_golden_gate: "fb80ee80a2696ee30cf78f3a895db772db8e4e98cf3f595f3d031c8fb561398f"
+    sha256 cellar: :any, arm64_tahoe:       "96e7ff3c0b608fb8f47fcb84fcf91cc735f4abca956829f9394ce88dc194a78c"
+    sha256 cellar: :any, arm64_sequoia:     "bafd5a622108d37dd359b1c50c39d9a63c1416e797bbfbe5f7d9a8b2a58bf9f1"
+    sha256 cellar: :any, arm64_sonoma:      "292397594a7af0748192d22fbacaa58700ec145c871c7b369f851a58f935549e"
+    sha256 cellar: :any, sonoma:            "3a8e65473a20d68437902ce34ddd27de79219c08ae4ed03de674141450fea7f6"
+    sha256 cellar: :any, arm64_linux:       "ee362f427810c10491cd09d7bb6a7c082e2fd1185b2d1d78a1492e26b43b151a"
+    sha256 cellar: :any, x86_64_linux:      "2de32c8abdc01f93a0574e6f7e923ee166a96b789dc0b3397663638786d91b9b"
   end
 
   depends_on "cmake" => [:build, :test]
