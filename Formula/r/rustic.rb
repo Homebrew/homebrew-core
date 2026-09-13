@@ -7,12 +7,13 @@ class Rustic < Formula
   head "https://github.com/rustic-rs/rustic.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d2c6e49451dd1599b68b81ada544cd484ea2519306f54d5e8e28ea05c26bb170"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "507b2a4b5cd0388985a89da2cf6d26badb02255f238de4dceb28cefb7196dfa7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bcb28b49852a147bc8db3b56d49d278eac5852bddf34f808c3939bcbb39c7b86"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3f4921e5fca4381e1e636757ccfd268fa3e6dd39ef22a24273f2f04aca287381"
-    sha256 cellar: :any,                 arm64_linux:   "77e484d7869bc792c7be902ba5005a676eddfc96a5b09bc430765d272f5af91f"
-    sha256 cellar: :any,                 x86_64_linux:  "f0a49f595397102d4ac063dbfa71938e59428ebb95360cbca8e4bd88a80d757e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f3c4ba730045cba5be99a7831e4710d65c39f40ba656af4f4e2002f202a67e92"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d2c6e49451dd1599b68b81ada544cd484ea2519306f54d5e8e28ea05c26bb170"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "507b2a4b5cd0388985a89da2cf6d26badb02255f238de4dceb28cefb7196dfa7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "bcb28b49852a147bc8db3b56d49d278eac5852bddf34f808c3939bcbb39c7b86"
+    sha256 cellar: :any_skip_relocation, sonoma:            "3f4921e5fca4381e1e636757ccfd268fa3e6dd39ef22a24273f2f04aca287381"
+    sha256 cellar: :any,                 arm64_linux:       "77e484d7869bc792c7be902ba5005a676eddfc96a5b09bc430765d272f5af91f"
+    sha256 cellar: :any,                 x86_64_linux:      "f0a49f595397102d4ac063dbfa71938e59428ebb95360cbca8e4bd88a80d757e"
   end
 
   depends_on "rust" => :build
