@@ -9,6 +9,7 @@ class Sdcc < Formula
     :public_domain,     # packihx
     "Zlib",             # makebin
   ]
+  revision 1
   head "https://svn.code.sf.net/p/sdcc/code/trunk/sdcc"
 
   livecheck do
@@ -17,13 +18,11 @@ class Sdcc < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "2845dd9faca0be76d2aa3d8476ef97b0f731931f68369a67ac8deb6fda299630"
-    sha256 arm64_tahoe:       "300fb3c8599a5f4c00cfdec9e12750f09ccca484b7cbbcaa6bc378512a8a0cf7"
-    sha256 arm64_sequoia:     "8fd0fe168465571181215aaca52df741fa770071881dac56e4409d9a668463c7"
-    sha256 arm64_sonoma:      "2635b27f7410f33954cea1a595576b658ed11e2b888a1cf828938222399cdcc8"
-    sha256 sonoma:            "9424f0ad933b46ecae302cc0062c256c9d7cb832d5c67cb7f22d710f90760d30"
-    sha256 arm64_linux:       "a04ebca614af7c5a528d9c429a74cdfbbd4706034fb446bb21a6be8810eb4187"
-    sha256 x86_64_linux:      "23029b2b9a02accdb1dd405874997d5a35b109ade0be43c3d89c0a9707bae85a"
+    sha256 arm64_golden_gate: "6d47098872badfc3dc3cef80a3919b0dfdfcae1bc3836c5aa390ce86591ef501"
+    sha256 arm64_tahoe:       "12879efac9fd9db3e0ffc661cb7f474071306e0a3b3b04fd6d0454b44127897f"
+    sha256 arm64_sequoia:     "fdf93768b166020bebfab447bff7abdc86598d22ead0716c7e72e9e9e2694d34"
+    sha256 arm64_linux:       "101cc977ff15708ead6b93c085db2d1cd5437f9dc5cacdf1d047952f8c9498fd"
+    sha256 x86_64_linux:      "db5e0835f4396e95209c015955d3e9424b24512f68533dd89afe995e3df0e51e"
   end
 
   depends_on "boost" => :build
@@ -49,6 +48,8 @@ class Sdcc < Formula
     system "./configure", "--disable-non-free", "--without-ccache", *std_configure_args
     system "make", "install"
     elisp.install bin.glob("*.el")
+    # FIXME: sdbinutils prefixes every tool except the demangler, which clashes with `binutils`
+    mv bin/"c++filt", bin/"sdc++filt"
   end
 
   test do
@@ -58,6 +59,7 @@ class Sdcc < Formula
       }
     C
     system bin/"sdcc", "-mz80", testpath/"test.c"
+    assert_match "main()", shell_output("#{bin}/sdc++filt _Z4mainv")
     assert_path_exists testpath/"test.ihx"
   end
 end
