@@ -25,6 +25,8 @@ class Libtar < Formula
   end
 
   def install
+    # K&R function definitions in `compat/` are invalid in the C23 default that autoconf 2.73 picks
+    ENV["ac_cv_prog_cc_c23"] = "no"
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
@@ -32,7 +34,8 @@ class Libtar < Formula
 
   test do
     (testpath/"homebrew.txt").write "This is a simple example"
-    system "tar", "-cvf", "test.tar", "homebrew.txt"
+    # bsdtar's default pax format adds extended headers for macOS xattrs, which libtar cannot read
+    system "tar", "--format=ustar", "-cvf", "test.tar", "homebrew.txt"
     rm "homebrew.txt"
     refute_path_exists testpath/"homebrew.txt"
     assert_path_exists testpath/"test.tar"
