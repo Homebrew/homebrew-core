@@ -42,6 +42,9 @@ class Libnids < Formula
   end
 
   def install
+    # C23 makes `()` mean `(void)`, breaking the K&R-style callback pointers in nids.h and ip_fragment.c
+    ENV.append_to_cflags "-std=gnu17"
+
     # autoreconf the old 2005 era code for sanity.
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}",
