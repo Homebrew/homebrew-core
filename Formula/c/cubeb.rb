@@ -62,58 +62,25 @@ class Cubeb < Formula
   end
 
   test do
+    # Opening a stream needs the CoreAudio component registrar, which the
+    # sandbox blocks, so only exercise context creation and backend lookup
     (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <cubeb/cubeb.h>
 
-      #define TEST(test, msg) \
-        if ((test)) { \
-          printf("PASS: %s\\n", msg); \
-        } else { \
-          printf("FAIL: %s\\n", msg); \
-          goto end; \
-        }
-
-      /* Dummy callbacks to use for audio stream test */
-      static long data_callback(cubeb_stream *stream, void *user, void *buffer,
-          long nframes) {
-        return nframes;
-      }
-      static void state_callback(cubeb_stream *stream, void *user_ptr,
-          cubeb_state state) {}
-
-      int main() {
-        int ret;
+      int main(void) {
         cubeb *ctx;
-        char const *backend_id;
-        cubeb_stream *stream;
-        cubeb_stream_params params;
-
-        /* Verify that the library initialises itself successfully */
-        ret = cubeb_init(&ctx, "test_context");
-        TEST(ret == CUBEB_OK, "initialise cubeb context");
-
-        /* Verify backend id can be retrieved */
-        backend_id = cubeb_get_backend_id(ctx);
-        TEST(backend_id != NULL, "retrieve backend id");
-
-        /* Verify that an audio stream gets opened successfully */
-        params.format = CUBEB_SAMPLE_S16LE; /* use commonly supported       */
-        params.rate = 48000;                /* parameters, so that the test */
-        params.channels = 1;                /* doesn't give a false fail    */
-        ret = cubeb_stream_init(ctx, &stream, "test_stream", params, 100,
-          data_callback, state_callback, NULL);
-        TEST(ret == CUBEB_OK, "initialise stream");
-
-      end:
-        /* Cleanup and return */
-        cubeb_stream_destroy(stream);
+        if (cubeb_init(&ctx, "test_context") != CUBEB_OK) {
+          fprintf(stderr, "cubeb_init failed\\n");
+          return 1;
+        }
+        printf("%s\\n", cubeb_get_backend_id(ctx));
         cubeb_destroy(ctx);
         return 0;
       }
     C
-    system ENV.cc, "-o", "test", testpath/"test.c", "-L#{lib}", "-lcubeb"
-    refute_match(/FAIL:.*/, shell_output("#{testpath}/test"),
-                    "Basic sanity test failed.")
+    system ENV.cc, "-o", "test", testpath/"test.c", "-I#{include}", "-L#{lib}", "-lcubeb"
+    backend = OS.mac? ? "audiounit" : "pulse"
+    assert_equal backend, shell_output("#{testpath}/test").strip
   end
 end
