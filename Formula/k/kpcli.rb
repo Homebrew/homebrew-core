@@ -4,7 +4,7 @@ class Kpcli < Formula
   url "https://downloads.sourceforge.net/project/kpcli/kpcli-4.1.3.pl"
   sha256 "c91363e4e07f3521a867f68db602c95b53dc167e4366ee7ff254252b4176c62f"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -93,6 +93,10 @@ class Kpcli < Formula
     sha256 "ca6e8d7ce7471c2be54e1009f64c367d7ee233a2894cacf52ebe6f53b04e81e5"
   end
 
+  # Catch the macOS clipboard driver dying at import (no pasteboard server) in the optional-module loader
+  # TODO: report upstream at https://sourceforge.net/p/kpcli/patches/ and add `resolves`
+  patch :DATA
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"lib"
@@ -130,3 +134,17 @@ class Kpcli < Formula
     system bin/"kpcli", "--help"
   end
 end
+
+__END__
+--- a/kpcli-4.1.3.pl
++++ b/kpcli-4.1.3.pl
+@@ -8853,7 +8853,8 @@
+   my $eval_result = eval("require $module; 1;");
+   if (! defined($eval_result)) { $eval_result = 0; }
+   if ($eval_result == 1 && is_loaded($module)) {
+-    my $import_result = $module->import(@{$rImportList});
++    my $import_result = eval { $module->import(@{$rImportList}); 1 }
++      or do { warn $@; $rOPTIONAL_PM->{$module}->{loaded} = 0; return 0 };
+     $rOPTIONAL_PM->{$module}->{loaded} = 1;
+     return 1;
+   } else {
