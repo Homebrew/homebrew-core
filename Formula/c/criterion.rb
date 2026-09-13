@@ -42,6 +42,8 @@ class Criterion < Formula
     C
 
     system ENV.cc, "test-criterion.c", "-I#{include}", "-L#{lib}", "-lcriterion", "-o", "test-criterion"
-    system "./test-criterion"
+    # Running tests needs the runner's `/tmp` Unix socket, which the test sandbox denies, so only list them
+    assert_match "suite_name: 1 test", shell_output("./test-criterion --list")
+    assert_match version.to_s, shell_output("./test-criterion --version 2>&1")
   end
 end
