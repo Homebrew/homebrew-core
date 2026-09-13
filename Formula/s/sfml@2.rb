@@ -7,14 +7,15 @@ class SfmlAT2 < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3b56c69d70b30eca4493fcd6ab9063a5f281cc3c82def8c43d55a63312372971"
-    sha256 cellar: :any,                 arm64_sequoia: "7cb3afc70bc71a9a3c45edd4bf9ca54dc9514bc576a894f5f01d58c3b04e0b44"
-    sha256 cellar: :any,                 arm64_sonoma:  "529996e0afcd2b27ad6c7f5e124067fb940d2c6c4b3dface4d21db5694c16b2e"
-    sha256 cellar: :any,                 arm64_ventura: "8d76a3051365d997d2fcbe5b24c3042bb217df18f3f64d25bb0708875cdcbc91"
-    sha256 cellar: :any,                 sonoma:        "96b5e8246f95125ed017da1a3b0ebf37ec9006c644efb2587d8e7e6d3fb4a5ec"
-    sha256 cellar: :any,                 ventura:       "d7f41e0d4c78d3c6ecd487c9d8ba1f094ec42bf7dbddc3678bccc13e13091ed0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "de95401fa9357605881a1ff217dffa3c0fc7703968ce9f99ee25db3fb16fd2f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83c161b5438b103ca014927de4b1ccba2782c9e6a654cce77e6041e02c91d1f3"
+    sha256 cellar: :any,                 arm64_golden_gate: "f6b257eca5ac15218960bbdaf984efe119f534b96a6564e15e6779025bcef989"
+    sha256 cellar: :any,                 arm64_tahoe:       "3b56c69d70b30eca4493fcd6ab9063a5f281cc3c82def8c43d55a63312372971"
+    sha256 cellar: :any,                 arm64_sequoia:     "7cb3afc70bc71a9a3c45edd4bf9ca54dc9514bc576a894f5f01d58c3b04e0b44"
+    sha256 cellar: :any,                 arm64_sonoma:      "529996e0afcd2b27ad6c7f5e124067fb940d2c6c4b3dface4d21db5694c16b2e"
+    sha256 cellar: :any,                 arm64_ventura:     "8d76a3051365d997d2fcbe5b24c3042bb217df18f3f64d25bb0708875cdcbc91"
+    sha256 cellar: :any,                 sonoma:            "96b5e8246f95125ed017da1a3b0ebf37ec9006c644efb2587d8e7e6d3fb4a5ec"
+    sha256 cellar: :any,                 ventura:           "d7f41e0d4c78d3c6ecd487c9d8ba1f094ec42bf7dbddc3678bccc13e13091ed0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "de95401fa9357605881a1ff217dffa3c0fc7703968ce9f99ee25db3fb16fd2f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "83c161b5438b103ca014927de4b1ccba2782c9e6a654cce77e6041e02c91d1f3"
   end
 
   keg_only :versioned_formula
