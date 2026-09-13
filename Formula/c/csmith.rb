@@ -34,13 +34,16 @@ class Csmith < Formula
     type :unofficial
   end
 
-  def install
-    # Workaround for newer Clang until upstream fix
-    # https://github.com/csmith-project/csmith/issues/163
-    # https://github.com/csmith-project/csmith/issues/177
-    # https://github.com/csmith-project/csmith/pull/165
-    ENV.append_to_cflags "-Wno-enum-constexpr-conversion" if DevelopmentTools.clang_build_version >= 1700
+  # Fix build with Clang 21, which no longer downgrades the out-of-range enum cast to a warning
+  patch do
+    url "https://github.com/csmith-project/csmith/commit/88f99e87cf82be4e9011baf5f4c320e620a60142.patch?full_index=1"
+    sha256 "2e10bd42351d4fb097e2fb9d1eb8baecd6118a47dfde686329bb41e0c9624c9d"
+    type :backport
+    resolves "https://github.com/csmith-project/csmith/pull/165",
+             "https://github.com/csmith-project/csmith/issues/177"
+  end
 
+  def install
     system "./configure", *std_configure_args
     system "make"
     system "make", "install"
