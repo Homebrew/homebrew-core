@@ -24,6 +24,12 @@ class LivekitCli < Formula
   depends_on "pkgconf" => :build
   depends_on "portaudio"
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ENV["CGO_ENABLED"] = "1"
     system "go", "build", *std_go_args(tags: "portaudio_system", output: bin/"lk"), "./cmd/lk"
