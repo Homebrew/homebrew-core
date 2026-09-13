@@ -7,12 +7,12 @@ class Asyncapi < Formula
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "cba3743eb9834bf40e238097d40f5b78972e7e0bc057f097a9227a9c09128b9a"
-    sha256 cellar: :any, arm64_sequoia: "14a8493220875fdbfe09991fc0439df95a0df61ea0829759f8b26772018af3b8"
-    sha256 cellar: :any, arm64_sonoma:  "14a8493220875fdbfe09991fc0439df95a0df61ea0829759f8b26772018af3b8"
-    sha256 cellar: :any, sonoma:        "f7bbe2a92d7b4991feb047276694c1bec6b863380d46beb8868f3b64d631d871"
-    sha256 cellar: :any, arm64_linux:   "77ee2374e17b18baaf325dfc841d7e6e9a02e6977e9d33ad07b849a0fc2cc1dd"
-    sha256 cellar: :any, x86_64_linux:  "9149c8c6629dc5f6019056a8ca416c3a95de0fa3e772d73703f3d4f5824ad582"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "5c5cbcd602da14f55333f0924f1eeafd1d5754527a1d7573ac2dbe2a89c9af67"
+    sha256 cellar: :any, arm64_tahoe:       "5c5cbcd602da14f55333f0924f1eeafd1d5754527a1d7573ac2dbe2a89c9af67"
+    sha256 cellar: :any, arm64_sequoia:     "5c5cbcd602da14f55333f0924f1eeafd1d5754527a1d7573ac2dbe2a89c9af67"
+    sha256 cellar: :any, arm64_linux:       "f7c49ee63542a8b1104969f711196b78d5bed180e19b564d9f2f9356b05104e6"
+    sha256 cellar: :any, x86_64_linux:      "0688d60c63aa25d37ad9839a856f3a978d01cc82d8ad9701f3ef3e6cd09524ee"
   end
 
   depends_on "node"
@@ -31,10 +31,10 @@ class Asyncapi < Formula
     # Replace universal binaries with their native slices
     deuniversalize_machos node_modules/"fsevents/fsevents.node"
 
-    # Remove incompatible pre-built `bare-fs`/`bare-os`/`bare-url` binaries
+    # Remove incompatible pre-built `bare-fs`/`bare-os`/`bare-path`/`bare-url` binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    node_modules.glob("{bare-fs,bare-os,bare-url}/prebuilds/*")
+    node_modules.glob("{bare-fs,bare-os,bare-path,bare-url}/prebuilds/*")
                 .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
 
     (var/"log/asyncapi").mkpath
