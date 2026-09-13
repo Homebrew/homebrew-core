@@ -6,12 +6,13 @@ class Patchpal < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "c3a7bc18acdeb0e644b3580ed109fe9a0c57a43afa7e1a7026c0d8bed737372d"
-    sha256 cellar: :any, arm64_sequoia: "e04418ee7052ba37dfde718c5cc1b0f0b7fcba29fd2d67a6058f2ffd7f03e204"
-    sha256 cellar: :any, arm64_sonoma:  "9734accbb9c6897a3eb41e1c2c6e1258b8bf5361e88288d8f8c0a451eb4a5dcb"
-    sha256 cellar: :any, sonoma:        "4998c08724fa8ae7ae2f798d22006bf2bd5092d00f826fad448f142eaf9a89aa"
-    sha256 cellar: :any, arm64_linux:   "ab9aa474a70cb6b4561b60f3c413f620228666600ef23ef34df5d5b8ae20941a"
-    sha256 cellar: :any, x86_64_linux:  "50f52d4441b81965edf8ca1b1dde7c69aab1324a305c9263e0a7e95d6356603d"
+    sha256 cellar: :any, arm64_golden_gate: "82e66e49b716dde47a8ee2cefaae6328b26b0ce54e157f05fe0c9e6b71f64eb9"
+    sha256 cellar: :any, arm64_tahoe:       "c3a7bc18acdeb0e644b3580ed109fe9a0c57a43afa7e1a7026c0d8bed737372d"
+    sha256 cellar: :any, arm64_sequoia:     "e04418ee7052ba37dfde718c5cc1b0f0b7fcba29fd2d67a6058f2ffd7f03e204"
+    sha256 cellar: :any, arm64_sonoma:      "9734accbb9c6897a3eb41e1c2c6e1258b8bf5361e88288d8f8c0a451eb4a5dcb"
+    sha256 cellar: :any, sonoma:            "4998c08724fa8ae7ae2f798d22006bf2bd5092d00f826fad448f142eaf9a89aa"
+    sha256 cellar: :any, arm64_linux:       "ab9aa474a70cb6b4561b60f3c413f620228666600ef23ef34df5d5b8ae20941a"
+    sha256 cellar: :any, x86_64_linux:      "50f52d4441b81965edf8ca1b1dde7c69aab1324a305c9263e0a7e95d6356603d"
   end
 
   depends_on "pkgconf" => :build
