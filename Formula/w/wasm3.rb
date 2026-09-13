@@ -1,17 +1,22 @@
 class Wasm3 < Formula
   desc "High performance WebAssembly interpreter"
   homepage "https://twitter.com/wasm3_engine"
-  url "https://github.com/wasm3/wasm3/archive/refs/tags/v0.9.1.tar.gz"
-  sha256 "50a6b26b46648f037d58ba5ed7f1d1c48b67506cbb12e1fbe222e6c1b64a6a6e"
+  url "https://github.com/wasm3/wasm3/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "cab79ce74bcac25bbf80b5ebe14af9795b9bac30b05ee8f620a3bc8002f3b8e6"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "83cc89988f71fa8c121cafda8b054cad13d895143853fcaefb2d578c98dbd8db"
-    sha256 cellar: :any, arm64_tahoe:       "31565b2e90076356acade5526f519432b39f4b0d0e31ace4e80a233220130dad"
-    sha256 cellar: :any, arm64_sequoia:     "5d3741f7e7d4b6320371e30df0fe3fba9c216d0d8f6ec575b702bffe07b4c6ce"
-    sha256 cellar: :any, arm64_sonoma:      "4950261405d38dc03439d603b806d1560503c2794c7c424004e75417fb7a3952"
-    sha256 cellar: :any, arm64_linux:       "6dfa9d9ed596a0d79a5d80fa733b31f50668f93c5e6c45878c1beafba9edbea3"
-    sha256 cellar: :any, x86_64_linux:      "153e1796dcf2d879a659bfe41d49ad07b3686f4b4f020c82981cdcfe3cb1f3f5"
+    sha256 cellar: :any, arm64_tahoe:   "535442b0baca3955b8b1a2a863a3c1435ea6f95905c4d65bd986190a5c47d0fd"
+    sha256 cellar: :any, arm64_sequoia: "d7852e9d45aa2640f29069800eda68c8100238a6d09d89562e9a30b162d14a55"
+    sha256 cellar: :any, arm64_sonoma:  "333a6c7876562076b43d00bd81ac1f33589d87ba4fab58b35091e3411052c94d"
+    sha256 cellar: :any, sonoma:        "8de67257d87de88ccd2f8fb154e7115730bc9944b392e9639d7be967f4b80432"
+    sha256 cellar: :any, arm64_linux:   "6e341d6fed466a7ad6f4f0f2aff871ee29a5caa972336152b65f9da6cdb799ce"
+    sha256 cellar: :any, x86_64_linux:  "0fd6fcd632856e0c0c728afe74cbd7c4d87f1a243b0a1bedec5fb78ffc433b67"
   end
 
   depends_on "cmake" => :build
