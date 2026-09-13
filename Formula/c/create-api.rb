@@ -29,6 +29,10 @@ class CreateApi < Formula
   end
 
   test do
+    # The test environment points CPATH/SDKROOT at the CLT SDK while SwiftPM uses
+    # the Xcode SDK, and Swift 6.4 rejects the resulting duplicate module maps
+    ENV.remove_macosxsdk if OS.mac?
+
     system bin/"create-api", "generate", pkgshare/"test-spec.json", "--config-option", "module=TestPackage"
     cd "CreateAPI" do
       system "swift", "build", "--disable-sandbox"
