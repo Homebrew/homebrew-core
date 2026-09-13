@@ -32,12 +32,14 @@ class Igraph < Formula
     # * BLAS and LAPACK should come from OpenBLAS
     # * prevent the usage of ccache even if it is installed to ensure that we
     #    have a clean build
+    # * OpenMP is not auto-detected from the `libomp` that `openblas` pulls in
     args = %w[
       -DBUILD_SHARED_LIBS=ON
       -DIGRAPH_ENABLE_LTO=AUTO
       -DIGRAPH_ENABLE_TLS=ON
       -DIGRAPH_GLPK_SUPPORT=ON
       -DIGRAPH_GRAPHML_SUPPORT=ON
+      -DIGRAPH_OPENMP_SUPPORT=OFF
       -DIGRAPH_USE_INTERNAL_ARPACK=OFF
       -DIGRAPH_USE_INTERNAL_BLAS=OFF
       -DIGRAPH_USE_INTERNAL_GLPK=OFF
