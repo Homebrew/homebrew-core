@@ -58,6 +58,14 @@ class GccAT12 < Formula
       type :unofficial
     end
   end
+  # Backport the Darwin version mapping from the GCC 16 branch.
+  # https://github.com/iains/gcc-16-branch/commit/45cfd989e0f3915b631bbb76372097cbcc9a055f
+  patch do
+    on_macos do
+      file "Patches/gcc/gcc-12-13-darwin-version-mapping.diff"
+      type :unofficial
+    end
+  end
   # Backport the Darwin fix for C11 keywords in C++ system headers.
   # https://github.com/iains/gcc-13-branch/commit/dea972ef87154580730f76d92e813e93b18db846
   patch do

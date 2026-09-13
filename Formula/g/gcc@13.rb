@@ -43,6 +43,14 @@ class GccAT13 < Formula
   patch do
     file "Patches/gcc/gcc-13.4.0.diff"
   end
+  # Backport the Darwin version mapping from the GCC 16 branch.
+  # https://github.com/iains/gcc-16-branch/commit/45cfd989e0f3915b631bbb76372097cbcc9a055f
+  patch do
+    on_macos do
+      file "Patches/gcc/gcc-12-13-darwin-version-mapping.diff"
+      type :unofficial
+    end
+  end
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.
