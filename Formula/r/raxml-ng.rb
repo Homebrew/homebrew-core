@@ -7,11 +7,12 @@ class RaxmlNg < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0e3daac436d4260054c5156e06a738d455d5f5a44aa02f0797836576248e3adc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aea14622d563b842321e5ec82872068ece318b362fd1b0e95cb095ce68c4af6d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e0cf799c98ad64e2e0bde18b42eec8ac745bb49669770e2e35ae9ec0eac8067"
-    sha256 cellar: :any,                 arm64_linux:   "4407b9c62cad4c48cec8be7c16fcf45315fe80b3bc97f162ca20b4689946ec3f"
-    sha256 cellar: :any,                 x86_64_linux:  "562298904931702903798d2f2a093e7db60eabe4b09a735e221169f020fd6952"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4a5f4273c9337bb930355da4ec86290048ed2854a6eb1c24fc8259d84a0bc71b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0e3daac436d4260054c5156e06a738d455d5f5a44aa02f0797836576248e3adc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aea14622d563b842321e5ec82872068ece318b362fd1b0e95cb095ce68c4af6d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "0e0cf799c98ad64e2e0bde18b42eec8ac745bb49669770e2e35ae9ec0eac8067"
+    sha256 cellar: :any,                 arm64_linux:       "4407b9c62cad4c48cec8be7c16fcf45315fe80b3bc97f162ca20b4689946ec3f"
+    sha256 cellar: :any,                 x86_64_linux:      "562298904931702903798d2f2a093e7db60eabe4b09a735e221169f020fd6952"
   end
 
   depends_on "bison" => :build # fix syntax error with `parse_utree.y`
