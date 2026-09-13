@@ -12,11 +12,11 @@ class Crowdin < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "b6979092c7e147cd4e20b70f040e54818bcd5605201e6337b4f42d034273657d"
-    sha256 arm64_sequoia: "3dd066de39c0f3d0a9bc0d2200e56d7c4d629654cd3885663a393fabcc16c5f0"
-    sha256 arm64_sonoma:  "fdf4eab59ba51f1926996891c32dc6f28d7096d3d014f593eb7ae20daaef5ae1"
-    sha256 arm64_linux:   "22527f675bef45971b005279de99e9fc2fe9baa09a2e0ac1160c7b235a722381"
-    sha256 x86_64_linux:  "c63c9f96fafe17ecdf99b940c3f17045408c6deb1b15728607806c572fc7fd9e"
+    sha256 arm64_golden_gate: "b1921f296610064faab165188d31f345d56b86a9b55e04b3e92ea780feba1b06"
+    sha256 arm64_tahoe:       "f4785ae0793ebe7167f5d4cb3cedfd57836cef8a621aebcf40e9c6ea16354446"
+    sha256 arm64_sequoia:     "b37a0d39fbb9e7cc91a527f0475968c05fc6d962d28a180720379b1dcefbfd07"
+    sha256 arm64_linux:       "a080e4df4ac71cc168769f1c63bb90239dea628b9083571493f2e2b2805bf63f"
+    sha256 x86_64_linux:      "ccf472654e93874bfcceb0f6e2f1644342522ec22b089b97f04c2a4e46712fa0"
   end
 
   depends_on "bun" => :build
