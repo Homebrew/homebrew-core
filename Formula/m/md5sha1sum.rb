@@ -14,12 +14,13 @@ class Md5sha1sum < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "8013a477822f150842d3b14ddd72f026a04969505adb651184f0ca20369c10a7"
-    sha256 cellar: :any,                 arm64_sequoia: "e27f2dfdd69bc670d68f72168e4899347d78654e7c3d652746a2d21bda379c48"
-    sha256 cellar: :any,                 arm64_sonoma:  "8b3c65b4593b58963f1c852ffc776ae156e49c1b8b72c99a90dc1fe58a945c6a"
-    sha256 cellar: :any,                 sonoma:        "326c75ca7ea7467bf5fda8010c7dc7ab8c3a41cd641f991cc624fa2039e8a436"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "fd800177cea84ac0c5be84abfb04dcfa82bed1ec93d09502136e7438efe4c136"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a3aae935711d36e78aad4dee6d00194087b761e9b0fe43c6a65738445119090"
+    sha256 cellar: :any,                 arm64_golden_gate: "efee68db3cd4fc63fbfa25770a2ae939a41e7368df98c57c40852c5453712e9d"
+    sha256 cellar: :any,                 arm64_tahoe:       "8013a477822f150842d3b14ddd72f026a04969505adb651184f0ca20369c10a7"
+    sha256 cellar: :any,                 arm64_sequoia:     "e27f2dfdd69bc670d68f72168e4899347d78654e7c3d652746a2d21bda379c48"
+    sha256 cellar: :any,                 arm64_sonoma:      "8b3c65b4593b58963f1c852ffc776ae156e49c1b8b72c99a90dc1fe58a945c6a"
+    sha256 cellar: :any,                 sonoma:            "326c75ca7ea7467bf5fda8010c7dc7ab8c3a41cd641f991cc624fa2039e8a436"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "fd800177cea84ac0c5be84abfb04dcfa82bed1ec93d09502136e7438efe4c136"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "1a3aae935711d36e78aad4dee6d00194087b761e9b0fe43c6a65738445119090"
   end
 
   depends_on "openssl@4"
