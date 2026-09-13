@@ -12,12 +12,13 @@ class Duc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9bb01ec4d71dab368193198a600df30283f0e4ebb59bb92b5fee3640d2de14c7"
-    sha256 cellar: :any,                 arm64_sequoia: "41cc6c35c2c0291137556ddd2c07e7d690cdac67b5cd220c0935ee3a19a20aef"
-    sha256 cellar: :any,                 arm64_sonoma:  "b1e742ed404fbda890970be4142e17b7018f6007e63cd572c9dfe9afab2f4d8b"
-    sha256 cellar: :any,                 sonoma:        "f6ce54596642aa6f8dc27eb66d54f6dd2d6238dae6ecac8c225ee91b5b66bb2f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "88cc0ddde0081d9ca14f4d036f5f48b10ca1616543d7c1eed8b2ec5b47a4ad88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fc33d230b1c8a087e12c7a81c85e9723f58e2e90bba7cdc33f0876f845a9ca1"
+    sha256 cellar: :any,                 arm64_golden_gate: "08332dbb64b5ba601c95403375f3273c216e0f789d851cd24b6e120d644e5ae7"
+    sha256 cellar: :any,                 arm64_tahoe:       "9bb01ec4d71dab368193198a600df30283f0e4ebb59bb92b5fee3640d2de14c7"
+    sha256 cellar: :any,                 arm64_sequoia:     "41cc6c35c2c0291137556ddd2c07e7d690cdac67b5cd220c0935ee3a19a20aef"
+    sha256 cellar: :any,                 arm64_sonoma:      "b1e742ed404fbda890970be4142e17b7018f6007e63cd572c9dfe9afab2f4d8b"
+    sha256 cellar: :any,                 sonoma:            "f6ce54596642aa6f8dc27eb66d54f6dd2d6238dae6ecac8c225ee91b5b66bb2f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "88cc0ddde0081d9ca14f4d036f5f48b10ca1616543d7c1eed8b2ec5b47a4ad88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "2fc33d230b1c8a087e12c7a81c85e9723f58e2e90bba7cdc33f0876f845a9ca1"
   end
 
   head do
