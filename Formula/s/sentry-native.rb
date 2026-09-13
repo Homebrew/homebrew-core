@@ -7,11 +7,12 @@ class SentryNative < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_tahoe:   "b0eac9f6121c860f33900ca68fc7adb22666a92619a1c347263f4c3e3a4d4732"
-    sha256 cellar: :any, arm64_sequoia: "57785f6c3cb1b53dc09a1162a97dec578c66411368476fdea3f54f039d0a1c8e"
-    sha256 cellar: :any, arm64_sonoma:  "9b48fdba80db1bc8ee59fd6570cc808238e2324407234f8a23c34eee9e43b96d"
-    sha256 cellar: :any, arm64_linux:   "9cd394e56f4752a3055e935198bfdd150f1d18ed0c01ab366060b88147b01364"
-    sha256 cellar: :any, x86_64_linux:  "e9891cc27f8255dbca46121bb178af0114d72534a011e12791941d2de4157abf"
+    sha256 cellar: :any, arm64_golden_gate: "0560ea1c6d5f459b856aea7ca16f9b5635a4e1d57fa6735d63d31f086b9fd52f"
+    sha256 cellar: :any, arm64_tahoe:       "b0eac9f6121c860f33900ca68fc7adb22666a92619a1c347263f4c3e3a4d4732"
+    sha256 cellar: :any, arm64_sequoia:     "57785f6c3cb1b53dc09a1162a97dec578c66411368476fdea3f54f039d0a1c8e"
+    sha256 cellar: :any, arm64_sonoma:      "9b48fdba80db1bc8ee59fd6570cc808238e2324407234f8a23c34eee9e43b96d"
+    sha256 cellar: :any, arm64_linux:       "9cd394e56f4752a3055e935198bfdd150f1d18ed0c01ab366060b88147b01364"
+    sha256 cellar: :any, x86_64_linux:      "e9891cc27f8255dbca46121bb178af0114d72534a011e12791941d2de4157abf"
   end
 
   depends_on "cmake" => :build
