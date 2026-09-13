@@ -7,12 +7,13 @@ class Serf < Formula
   head "https://github.com/hashicorp/serf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "405fa10a1160c4be7af2b49daf1e8695ec698e8083c989fbe1681b75ddc70278"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "405fa10a1160c4be7af2b49daf1e8695ec698e8083c989fbe1681b75ddc70278"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "405fa10a1160c4be7af2b49daf1e8695ec698e8083c989fbe1681b75ddc70278"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fbcde3482f611e66d3a4c341b3831881a9003f071f2a2bf6e1646598188b2595"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cbdfdf4b95ef7c5cc9ce92e8bd465b7c950d74656e3ab0c1e93e409886db705d"
-    sha256 cellar: :any,                 x86_64_linux:  "4259471cae03202c99b8a6368dea5bc3772c513753c990380013a2a7cdcb6764"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3408bbb71bf17529caec3cf9172ca136a2cb306a2cbc357701311d96226db410"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "405fa10a1160c4be7af2b49daf1e8695ec698e8083c989fbe1681b75ddc70278"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "405fa10a1160c4be7af2b49daf1e8695ec698e8083c989fbe1681b75ddc70278"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "405fa10a1160c4be7af2b49daf1e8695ec698e8083c989fbe1681b75ddc70278"
+    sha256 cellar: :any_skip_relocation, sonoma:            "fbcde3482f611e66d3a4c341b3831881a9003f071f2a2bf6e1646598188b2595"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "cbdfdf4b95ef7c5cc9ce92e8bd465b7c950d74656e3ab0c1e93e409886db705d"
+    sha256 cellar: :any,                 x86_64_linux:      "4259471cae03202c99b8a6368dea5bc3772c513753c990380013a2a7cdcb6764"
   end
 
   depends_on "go" => :build
