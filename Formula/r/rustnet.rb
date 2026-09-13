@@ -7,12 +7,13 @@ class Rustnet < Formula
   head "https://github.com/domcyrus/rustnet.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "124e36870eb6df29a1f8c3f8627068768928564a9f641ca1e46c69193aa1be91"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9063bc074d000465e125880133bd14604ea1451f95d951bab92f11cf79ef40cf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8c35db42d28e7367dd5ee37faf79c8b780ab9c353e5ab4ef22357b02d754cd4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "49576d784e88386da8d5aa00584d368c41950bd9150aa0a7e4a5e65380751383"
-    sha256 cellar: :any,                 arm64_linux:   "7d12229ed65abffae4bd0a9291a6cb1134c8bdcade0c609e7aa86cee36205316"
-    sha256 cellar: :any,                 x86_64_linux:  "27a018656a865858d48e177fb2893f6e96e5db746ff35ed0163e71a14b1feca0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7aa3065e197b3158c4f36b8dd49222c066f233237d750bac8b97fa193ea5f068"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "124e36870eb6df29a1f8c3f8627068768928564a9f641ca1e46c69193aa1be91"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9063bc074d000465e125880133bd14604ea1451f95d951bab92f11cf79ef40cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "c8c35db42d28e7367dd5ee37faf79c8b780ab9c353e5ab4ef22357b02d754cd4"
+    sha256 cellar: :any_skip_relocation, sonoma:            "49576d784e88386da8d5aa00584d368c41950bd9150aa0a7e4a5e65380751383"
+    sha256 cellar: :any,                 arm64_linux:       "7d12229ed65abffae4bd0a9291a6cb1134c8bdcade0c609e7aa86cee36205316"
+    sha256 cellar: :any,                 x86_64_linux:      "27a018656a865858d48e177fb2893f6e96e5db746ff35ed0163e71a14b1feca0"
   end
 
   depends_on "rust" => :build
