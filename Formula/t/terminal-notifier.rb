@@ -27,10 +27,12 @@ class TerminalNotifier < Formula
   end
 
   test do
-    assert_match version.to_s, pipe_output("#{bin}/terminal-notifier -help")
-
-    # check the signature and not just the help output.
+    # Running the binary initialises NSApplication, which aborts without a window server
     app = prefix/"terminal-notifier.app"
+    plist = app/"Contents/Info.plist"
+    assert_match version.to_s, shell_output("/usr/bin/plutil -extract CFBundleShortVersionString raw #{plist}")
+
+    # check the signature and not just the version.
     system "/usr/bin/codesign", "--verify", "--strict", app
     assert_match "fr.julienxx.oss.terminal-notifier",
                  shell_output("/usr/bin/codesign -dv #{app} 2>&1")
