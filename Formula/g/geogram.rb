@@ -12,11 +12,12 @@ class Geogram < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fb12c44bebf7f24e0e2bda6a66e5b27f3549f172ca528151d7345d32ca4c9c2f"
-    sha256 cellar: :any,                 arm64_sequoia: "299b18cc76b361d8431319b937e5b0b3d9b69f701f04d8efb88687daa77d4efa"
-    sha256 cellar: :any,                 arm64_sonoma:  "54c42b51793db63797bf35d106ec4d771a7a16b3b568bd9fa1399048376f185a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8ab68f7499ea114239716a856b06495d8662615f68cef746efdf5befa927208e"
-    sha256 cellar: :any,                 x86_64_linux:  "4d85c1f8c05b8a9a5c4446d404e90f3fb4a5fc2794509dc129d1b31701c8ece1"
+    sha256 cellar: :any,                 arm64_golden_gate: "bd1359d685c22eb4a4f2165587e26df33f84b634ae196c54ed789668a34273be"
+    sha256 cellar: :any,                 arm64_tahoe:       "fb12c44bebf7f24e0e2bda6a66e5b27f3549f172ca528151d7345d32ca4c9c2f"
+    sha256 cellar: :any,                 arm64_sequoia:     "299b18cc76b361d8431319b937e5b0b3d9b69f701f04d8efb88687daa77d4efa"
+    sha256 cellar: :any,                 arm64_sonoma:      "54c42b51793db63797bf35d106ec4d771a7a16b3b568bd9fa1399048376f185a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "8ab68f7499ea114239716a856b06495d8662615f68cef746efdf5befa927208e"
+    sha256 cellar: :any,                 x86_64_linux:      "4d85c1f8c05b8a9a5c4446d404e90f3fb4a5fc2794509dc129d1b31701c8ece1"
   end
 
   depends_on "cmake" => :build
