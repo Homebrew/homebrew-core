@@ -35,6 +35,11 @@ class Archey4 < Formula
 
   test do
     assert_match(version.to_s, shell_output("#{bin}/archey -v"))
-    assert_match(/BSD|Linux|macOS/i, shell_output("#{bin}/archey -j"))
+
+    # Skip the Disk entry, whose `diskutil` call needs DiskArbitration access the sandbox denies
+    (testpath/"config.json").write <<~JSON
+      {"entries": [{"type": "User"}, {"type": "Distro"}, {"type": "Kernel"}, {"type": "Shell"}, {"type": "CPU"}]}
+    JSON
+    assert_match(/BSD|Linux|macOS/i, shell_output("#{bin}/archey -j -c config.json"))
   end
 end
