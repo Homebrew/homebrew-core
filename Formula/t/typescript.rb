@@ -1,10 +1,16 @@
 class Typescript < Formula
   desc "Language for application scale JavaScript development"
   homepage "https://www.typescriptlang.org/"
-  url "https://registry.npmjs.org/typescript/-/typescript-7.0.2.tgz"
-  sha256 "da2513f4b95176d6dde8b51aab7afe8a927656c9d277369793f77f7e59371c08"
+  url "https://github.com/microsoft/TypeScript/archive/refs/tags/v7.0.2.tar.gz"
+  sha256 "8472f284b1465f5c4826a64c88853eccba667446f31a435ed1d0b28d373dbc0b"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "98ddb029b1c72f5cf7fa9463610894919c1ed482bc0550dd6351a85be096d764"
@@ -16,11 +22,33 @@ class Typescript < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "05916d95ccabec2eb6703a00e33fb2da3cca33e7cbdac8c665523879a01f117f"
   end
 
-  depends_on "node"
+  depends_on "go" => :build
+  depends_on "node" => :build
 
   def install
-    system "npm", "install", *std_npm_args
-    bin.install_symlink libexec.glob("bin/*")
+    cd "tsc" do
+      # Upstream stamps the built package.json with the current commit, which
+      # is unavailable when building from a release tarball.
+      inreplace "Herebyfile.mjs" do |s|
+        s.gsub!(/^[ \t]*const \{ stdout: gitHead \} = await \$pipe`git rev-parse HEAD`;\R/, "")
+        s.gsub!(/^[ \t]*inputPackageJson\.gitHead = gitHead;\R/, "")
+      end
+
+      system "npm", "ci", "--ignore-scripts"
+      system "./node_modules/.bin/hereby", "native-preview:build-packages"
+
+      # Without `--forRelease` upstream builds the host platform package only.
+      platform_package = Pathname.glob("built/npm/typescript-*").fetch(0)
+      node_modules = libexec/"lib/node_modules"
+
+      (node_modules/"@typescript").install platform_package
+
+      published = %w[bin dist lib vendor LICENSE NOTICE.txt package.json]
+      (node_modules/"typescript").install published.map { |f| "built/npm/typescript/#{f}" }
+
+      # Prefer the native executable over the Node launcher that wraps it.
+      bin.install_symlink node_modules/"@typescript"/platform_package.basename/"lib/tsc"
+    end
   end
 
   test do
@@ -36,5 +64,8 @@ class Typescript < Formula
 
     system bin/"tsc", "test.ts"
     assert_path_exists testpath/"test.js", "test.js was not generated"
+    assert_match "document.body.innerHTML = test.greet();", (testpath/"test.js").read
+
+    assert_match version.to_s, shell_output("#{bin}/tsc --version")
   end
 end
