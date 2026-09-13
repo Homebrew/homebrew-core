@@ -11,12 +11,13 @@ class Rawtoaces < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "8f9ac522c5c84086babad728ede43e5b18065b5ff47ecf2a0f434573b6860f59"
-    sha256 arm64_sequoia: "62cbbb6ff9579a9680af8ffdca0da1ff624f965efd3191ee74cfba83d1af2274"
-    sha256 arm64_sonoma:  "6e37fa5bbd21c466b378154dcf6c7d62718dda2876c995315d04ff47be6f5d19"
-    sha256 sonoma:        "898ff90587abaf64cd9f805c4cabb79571256cd39b291a35652e7a7fa0f15b39"
-    sha256 arm64_linux:   "8f6e43d01779e2860e142a299efb31450ceef7761318ec0256ccb3de68b53e71"
-    sha256 x86_64_linux:  "803dd222c4f433cd5aaa14851cd2da8f97ee9fc24e8ef8c8f850f130186545a8"
+    sha256 arm64_golden_gate: "b42bb9a92d25f5eefe69d2cb465e8facb828f80b51a9bb3adb404d1ea4f05edb"
+    sha256 arm64_tahoe:       "8f9ac522c5c84086babad728ede43e5b18065b5ff47ecf2a0f434573b6860f59"
+    sha256 arm64_sequoia:     "62cbbb6ff9579a9680af8ffdca0da1ff624f965efd3191ee74cfba83d1af2274"
+    sha256 arm64_sonoma:      "6e37fa5bbd21c466b378154dcf6c7d62718dda2876c995315d04ff47be6f5d19"
+    sha256 sonoma:            "898ff90587abaf64cd9f805c4cabb79571256cd39b291a35652e7a7fa0f15b39"
+    sha256 arm64_linux:       "8f6e43d01779e2860e142a299efb31450ceef7761318ec0256ccb3de68b53e71"
+    sha256 x86_64_linux:      "803dd222c4f433cd5aaa14851cd2da8f97ee9fc24e8ef8c8f850f130186545a8"
   end
 
   depends_on "cmake" => :build
