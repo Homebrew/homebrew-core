@@ -8,12 +8,13 @@ class Redict < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any, arm64_tahoe:   "65391c26762bfb75511135a365b49c9213b5161e86aa8458e57de115e2fad077"
-    sha256 cellar: :any, arm64_sequoia: "e4e4c16c3f1c7b01213b47b6d0affbf52b45a7f0145311879bc756a3b4e2c8fe"
-    sha256 cellar: :any, arm64_sonoma:  "b2ceb5d7367908e02cbbf486da477c4a75acc7209a898274d54427099420c7c9"
-    sha256 cellar: :any, sonoma:        "8911f668e8a53a6da9744aa1da3b29bedba39857f642424cdac6d6e1a3adff62"
-    sha256 cellar: :any, arm64_linux:   "9a2dd76258ccec6927622015e2d3725a49d597f3691559f0b01618c76117623a"
-    sha256 cellar: :any, x86_64_linux:  "f3d5dc51db439c55fe2cbc08aa868b3ce49a2c40f37104f8d5b8cf21d8b72a34"
+    sha256 cellar: :any, arm64_golden_gate: "7d3a3055c6b81114b73681304ea4967de5ce15eee1b35715daeb03e8b242b894"
+    sha256 cellar: :any, arm64_tahoe:       "65391c26762bfb75511135a365b49c9213b5161e86aa8458e57de115e2fad077"
+    sha256 cellar: :any, arm64_sequoia:     "e4e4c16c3f1c7b01213b47b6d0affbf52b45a7f0145311879bc756a3b4e2c8fe"
+    sha256 cellar: :any, arm64_sonoma:      "b2ceb5d7367908e02cbbf486da477c4a75acc7209a898274d54427099420c7c9"
+    sha256 cellar: :any, sonoma:            "8911f668e8a53a6da9744aa1da3b29bedba39857f642424cdac6d6e1a3adff62"
+    sha256 cellar: :any, arm64_linux:       "9a2dd76258ccec6927622015e2d3725a49d597f3691559f0b01618c76117623a"
+    sha256 cellar: :any, x86_64_linux:      "f3d5dc51db439c55fe2cbc08aa868b3ce49a2c40f37104f8d5b8cf21d8b72a34"
   end
 
   depends_on "openssl@4"
