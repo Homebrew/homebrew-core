@@ -49,9 +49,10 @@ class Crfsuite < Formula
   end
 
   test do
+    # The original CoNLL-2000 host (cnts.ua.ac.be) is gone; NLTK redistributes the same corpus
     resource "homebrew-conll2000-training-data" do
-      url "https://www.cnts.ua.ac.be/conll2000/chunking/train.txt.gz"
-      sha256 "bcbbe17c487d0939d48c2d694622303edb3637ca9c4944776628cd1815c5cb34"
+      url "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/conll2000.zip"
+      sha256 "01e65164f268366e7caa0db92332a1955d081908c87016e2c7640c3c5279b7cd"
     end
 
     resource("homebrew-conll2000-training-data").stage testpath
