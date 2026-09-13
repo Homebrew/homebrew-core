@@ -44,6 +44,11 @@ class Lftp < Formula
   end
 
   test do
-    system bin/"lftp", "-c", "open https://ftpmirror.gnu.org/; ls"
+    (testpath/"src/hello.txt").write "hello from lftp"
+
+    assert_match "hello.txt", shell_output("#{bin}/lftp -c 'open file:#{testpath}/src; ls'")
+
+    system bin/"lftp", "-c", "open file:#{testpath}/src; mirror . #{testpath}/dst"
+    assert_equal "hello from lftp", (testpath/"dst/hello.txt").read
   end
 end
