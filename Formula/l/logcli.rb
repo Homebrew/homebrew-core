@@ -22,6 +22,13 @@ class Logcli < Formula
   depends_on "go" => :build
   depends_on "loki" => :test
 
+  # `test do` block runs a local loki server
+  deny_network_access! [:build, :postinstall]
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ldflags = %W[
       -X github.com/grafana/loki/pkg/util/build.Branch=main
