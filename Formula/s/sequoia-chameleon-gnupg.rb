@@ -7,12 +7,13 @@ class SequoiaChameleonGnupg < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "61d7aec3f79054bece9da5f074cd523f76a5eae6a833d571d297c9a8cec830a0"
-    sha256 cellar: :any,                 arm64_sequoia: "2311543687172f7d8344999c541536ac205311176819910b598ee9cd8d84431b"
-    sha256 cellar: :any,                 arm64_sonoma:  "de741debb4bea7b839d94e20a92332db0320c2b8bfe8a6492a0908313a7db371"
-    sha256 cellar: :any,                 sonoma:        "01d2c0ab94f7fc524efe45f550dc9a8dfdc639885a215ac7b5a22b46397469ee"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c52d89c0162ecd6f5d998088684dc5279db8aaacf023dc2f2f92747a90abb832"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ebf8923298bf97bc5e41aae618e275eb9b5b34fc3669411659d26f7f7513567e"
+    sha256 cellar: :any,                 arm64_golden_gate: "9b9bbe3336d6885d747b193ae71ee2d177de99e41e3e89439b893bf4c20ca593"
+    sha256 cellar: :any,                 arm64_tahoe:       "61d7aec3f79054bece9da5f074cd523f76a5eae6a833d571d297c9a8cec830a0"
+    sha256 cellar: :any,                 arm64_sequoia:     "2311543687172f7d8344999c541536ac205311176819910b598ee9cd8d84431b"
+    sha256 cellar: :any,                 arm64_sonoma:      "de741debb4bea7b839d94e20a92332db0320c2b8bfe8a6492a0908313a7db371"
+    sha256 cellar: :any,                 sonoma:            "01d2c0ab94f7fc524efe45f550dc9a8dfdc639885a215ac7b5a22b46397469ee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "c52d89c0162ecd6f5d998088684dc5279db8aaacf023dc2f2f92747a90abb832"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ebf8923298bf97bc5e41aae618e275eb9b5b34fc3669411659d26f7f7513567e"
   end
 
   depends_on "pkgconf" => :build
