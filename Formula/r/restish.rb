@@ -12,12 +12,13 @@ class Restish < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6f4c7976ab83ce80da6e823f11c8f4a714b9aaee7589fa95fe0b50580e96e4e4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6f4c7976ab83ce80da6e823f11c8f4a714b9aaee7589fa95fe0b50580e96e4e4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6f4c7976ab83ce80da6e823f11c8f4a714b9aaee7589fa95fe0b50580e96e4e4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6501fb56129d377844177e6933545b9469185022f0653cfdc1ca456f4c87fe68"
-    sha256 cellar: :any,                 arm64_linux:   "068d081a8e65df9649d5ab21227f223553083bfad644d70120861c4b8706d41c"
-    sha256 cellar: :any,                 x86_64_linux:  "929190e02479fb8c436c252af4ec4f58e47f4dc4d8814efd2762af5bf4432eaa"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7bb72869e66e6aa1ea89c2428f3eab05f2193a19560aa4f3ce2e69db3b2b9c26"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6f4c7976ab83ce80da6e823f11c8f4a714b9aaee7589fa95fe0b50580e96e4e4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6f4c7976ab83ce80da6e823f11c8f4a714b9aaee7589fa95fe0b50580e96e4e4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "6f4c7976ab83ce80da6e823f11c8f4a714b9aaee7589fa95fe0b50580e96e4e4"
+    sha256 cellar: :any_skip_relocation, sonoma:            "6501fb56129d377844177e6933545b9469185022f0653cfdc1ca456f4c87fe68"
+    sha256 cellar: :any,                 arm64_linux:       "068d081a8e65df9649d5ab21227f223553083bfad644d70120861c4b8706d41c"
+    sha256 cellar: :any,                 x86_64_linux:      "929190e02479fb8c436c252af4ec4f58e47f4dc4d8814efd2762af5bf4432eaa"
   end
 
   depends_on "go" => :build
