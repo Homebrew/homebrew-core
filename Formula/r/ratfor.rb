@@ -13,14 +13,15 @@ class Ratfor < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "033c1daa599d6e77dd8072fd53541f5772114d152a028599bd64cc8212217bf7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aed7f3e144962eab6d49fdae060b421362c76899d45716d8e6099488e853f6ac"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b680bdc4a42beaa254be409281e3ac948edde6feef824945895b44fc5d0ec827"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f96ec748ab19e92ad157a25a6b8a45683d236a090ba19932ca7d653a80c39747"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5b700039e4301b9b7e6ae3c9d4e377f0486673c450e63badb8d7c8fd953e5257"
-    sha256 cellar: :any_skip_relocation, ventura:       "1bb410b5c28cb156882880dd1fd0c561c303017220a47d5e22183d608419ba19"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1015c4ffcb3dc28fb45c5fc2700334b15fa67e1c6dbe133d172401b5d806ea42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8f68d0f668b609b9f5aaca3b14983db4f4c3b149eb6d3506a09cabf038b0446"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8746d3d6284a77521972fc122600b407724c4cf4f6c33eee9944b17a2109860e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "033c1daa599d6e77dd8072fd53541f5772114d152a028599bd64cc8212217bf7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aed7f3e144962eab6d49fdae060b421362c76899d45716d8e6099488e853f6ac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "b680bdc4a42beaa254be409281e3ac948edde6feef824945895b44fc5d0ec827"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:     "f96ec748ab19e92ad157a25a6b8a45683d236a090ba19932ca7d653a80c39747"
+    sha256 cellar: :any_skip_relocation, sonoma:            "5b700039e4301b9b7e6ae3c9d4e377f0486673c450e63badb8d7c8fd953e5257"
+    sha256 cellar: :any_skip_relocation, ventura:           "1bb410b5c28cb156882880dd1fd0c561c303017220a47d5e22183d608419ba19"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "1015c4ffcb3dc28fb45c5fc2700334b15fa67e1c6dbe133d172401b5d806ea42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a8f68d0f668b609b9f5aaca3b14983db4f4c3b149eb6d3506a09cabf038b0446"
   end
 
   depends_on "gcc" # for gfortran
