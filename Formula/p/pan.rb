@@ -7,12 +7,13 @@ class Pan < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_tahoe:   "fc39105d5b48f22b138d5e626c42098275959204729ef193ef91ae6837d504d7"
-    sha256 arm64_sequoia: "2e171ead5e91ddde91ec9adfbc04f0a87587e23b98ad31bac4499669f941b823"
-    sha256 arm64_sonoma:  "df046b01f313cdf657b78d17b4166c882844e72181c685c12072dbc6bc18a4bb"
-    sha256 sonoma:        "cdce7a683c5aaf45652ac0bbe8e440fdea8ca44169bb24e1379865023160d5b6"
-    sha256 arm64_linux:   "69cb546174ad3bd1c3d534cb3a1ee5aa40f42b747fef0e23d5121be2efc450db"
-    sha256 x86_64_linux:  "9f4fa7cdfb0692cc38119803c6c2d97de0b1e64dfef6f4244a0cc25e7322bf01"
+    sha256 arm64_golden_gate: "343b6abd3514df293778d2407184794395aca66509499996b66bb2806dd2a520"
+    sha256 arm64_tahoe:       "fc39105d5b48f22b138d5e626c42098275959204729ef193ef91ae6837d504d7"
+    sha256 arm64_sequoia:     "2e171ead5e91ddde91ec9adfbc04f0a87587e23b98ad31bac4499669f941b823"
+    sha256 arm64_sonoma:      "df046b01f313cdf657b78d17b4166c882844e72181c685c12072dbc6bc18a4bb"
+    sha256 sonoma:            "cdce7a683c5aaf45652ac0bbe8e440fdea8ca44169bb24e1379865023160d5b6"
+    sha256 arm64_linux:       "69cb546174ad3bd1c3d534cb3a1ee5aa40f42b747fef0e23d5121be2efc450db"
+    sha256 x86_64_linux:      "9f4fa7cdfb0692cc38119803c6c2d97de0b1e64dfef6f4244a0cc25e7322bf01"
   end
 
   depends_on "cmake" => :build
