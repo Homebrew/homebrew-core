@@ -7,12 +7,13 @@ class Pear < Formula
   head "https://github.com/holepunchto/pear.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "af1a420052c729dd439faff0d1a2c460b17df13cbb023e2f454fa1eb5ef8ddcb"
-    sha256 cellar: :any, arm64_sequoia: "af1a420052c729dd439faff0d1a2c460b17df13cbb023e2f454fa1eb5ef8ddcb"
-    sha256 cellar: :any, arm64_sonoma:  "af1a420052c729dd439faff0d1a2c460b17df13cbb023e2f454fa1eb5ef8ddcb"
-    sha256 cellar: :any, sonoma:        "3f66055a907e2ff009f4cf0c5b5ea8c719fb387f2e7dc18588e3f92af29a2d56"
-    sha256 cellar: :any, arm64_linux:   "f41481ca3448333fcccbb99b7e1beb0dec0dac866b8ad66141304c857e6fda04"
-    sha256 cellar: :any, x86_64_linux:  "417448a57c7a0155fb705978cb83c0d1152afd4670b72507d21c90741e8bc1f5"
+    sha256 cellar: :any, arm64_golden_gate: "cf965cb9591c01bef39d9b3f0f1f9fecc0720b748e655bbdf6fdbff74d6711e4"
+    sha256 cellar: :any, arm64_tahoe:       "af1a420052c729dd439faff0d1a2c460b17df13cbb023e2f454fa1eb5ef8ddcb"
+    sha256 cellar: :any, arm64_sequoia:     "af1a420052c729dd439faff0d1a2c460b17df13cbb023e2f454fa1eb5ef8ddcb"
+    sha256 cellar: :any, arm64_sonoma:      "af1a420052c729dd439faff0d1a2c460b17df13cbb023e2f454fa1eb5ef8ddcb"
+    sha256 cellar: :any, sonoma:            "3f66055a907e2ff009f4cf0c5b5ea8c719fb387f2e7dc18588e3f92af29a2d56"
+    sha256 cellar: :any, arm64_linux:       "f41481ca3448333fcccbb99b7e1beb0dec0dac866b8ad66141304c857e6fda04"
+    sha256 cellar: :any, x86_64_linux:      "417448a57c7a0155fb705978cb83c0d1152afd4670b72507d21c90741e8bc1f5"
   end
 
   depends_on "node"
