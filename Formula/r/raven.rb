@@ -9,12 +9,13 @@ class Raven < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "d3e905633eb1f0d3d7e5fc048e8fe2fa6a5790243c0181db8e2c190705fe8a80"
-    sha256 cellar: :any,                 arm64_sequoia: "01217a819e571872f899fa5d9c6ceb79618c31e6a837936457c241a1ea555b2b"
-    sha256 cellar: :any,                 arm64_sonoma:  "7aa0a40d4446df2aad0c7d8db6e29701607ab32335e4a70101b77d9c1ea99ce2"
-    sha256 cellar: :any,                 sonoma:        "ce38a5aedcd289f909feea97abe3d5b0c7e1226832d7035561aafac30ba8b688"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b2a4dc459ba3a8920aabae6e35d660a72c5db180028a16234e9f9cada84be28"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9bfe3e68919eef6de9f572601c59174431425ba393bc5a9b7b8a84a59a757123"
+    sha256 cellar: :any,                 arm64_golden_gate: "4f6985ca01ac13b6b31aeaeac70670d41fbede6858121b51d5cc654cda7e1a36"
+    sha256 cellar: :any,                 arm64_tahoe:       "d3e905633eb1f0d3d7e5fc048e8fe2fa6a5790243c0181db8e2c190705fe8a80"
+    sha256 cellar: :any,                 arm64_sequoia:     "01217a819e571872f899fa5d9c6ceb79618c31e6a837936457c241a1ea555b2b"
+    sha256 cellar: :any,                 arm64_sonoma:      "7aa0a40d4446df2aad0c7d8db6e29701607ab32335e4a70101b77d9c1ea99ce2"
+    sha256 cellar: :any,                 sonoma:            "ce38a5aedcd289f909feea97abe3d5b0c7e1226832d7035561aafac30ba8b688"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "2b2a4dc459ba3a8920aabae6e35d660a72c5db180028a16234e9f9cada84be28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9bfe3e68919eef6de9f572601c59174431425ba393bc5a9b7b8a84a59a757123"
   end
 
   depends_on "certifi" => :no_linkage
