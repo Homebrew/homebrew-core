@@ -6,8 +6,8 @@ class Agda < Formula
   license all_of: ["MIT", "BSD-3-Clause"]
 
   stable do
-    url "https://github.com/agda/agda/archive/refs/tags/v2.8.0.1.tar.gz"
-    sha256 "b1530b9bdf6c7ec6870d90b263d88b5db8d0531de8ea7776cfc9f39fcac8c7b5"
+    url "https://github.com/agda/agda/archive/refs/tags/v2.8.0.2.tar.gz"
+    sha256 "c29ee2c06a7feb812fcb7f0543a2ddf800a9f806d09cc7813cee9c733a169b6d"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.4.tar.gz"
