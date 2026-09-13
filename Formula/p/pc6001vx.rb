@@ -8,11 +8,12 @@ class Pc6001vx < Formula
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "7484b1c6da6702570861a93057d07c9f54c3e1f42f1e2ea9606a07d30efca5ca"
-    sha256 cellar: :any, arm64_sequoia: "b7fe9332e751381c3f13921bd0a9519c068a3770af219bb66f4f71ba6694b6a2"
-    sha256 cellar: :any, arm64_sonoma:  "f88e1cd99e8f43b781778f784fbf76fdf5657269e844302e5b36242a17f96881"
-    sha256 cellar: :any, arm64_linux:   "c8d3fe21b698208f5ebd1a0599cb65dcfde99efb2e054af706aefd311552cd8f"
-    sha256 cellar: :any, x86_64_linux:  "86804ae656cffca115b4ae13ffdf976d2a1bdc4dfea3a7c4d798b7579b3dcf2c"
+    sha256 cellar: :any, arm64_golden_gate: "fc9502a41d16f991df3c9620047661add39a2440ca55811efef9fa078b776c20"
+    sha256 cellar: :any, arm64_tahoe:       "7484b1c6da6702570861a93057d07c9f54c3e1f42f1e2ea9606a07d30efca5ca"
+    sha256 cellar: :any, arm64_sequoia:     "b7fe9332e751381c3f13921bd0a9519c068a3770af219bb66f4f71ba6694b6a2"
+    sha256 cellar: :any, arm64_sonoma:      "f88e1cd99e8f43b781778f784fbf76fdf5657269e844302e5b36242a17f96881"
+    sha256 cellar: :any, arm64_linux:       "c8d3fe21b698208f5ebd1a0599cb65dcfde99efb2e054af706aefd311552cd8f"
+    sha256 cellar: :any, x86_64_linux:      "86804ae656cffca115b4ae13ffdf976d2a1bdc4dfea3a7c4d798b7579b3dcf2c"
   end
 
   depends_on "cmake" => :build
