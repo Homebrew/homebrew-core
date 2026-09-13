@@ -6,13 +6,11 @@ class GnomePapers < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "3f7bb27f681c69012d108287647ae77c02ad7b56be6d60477aa70f39bc4d0486"
-    sha256 arm64_sequoia: "0a7eb9f5d98d177e80765e227713aea126a80f02864e27e72776dbba9c3fc046"
-    sha256 arm64_sonoma:  "feb32fc65382b39775ee259b439866b6d04715d216a334c4de2a9206b5a87b11"
-    sha256 sonoma:        "b02a90873c3167c99796f386f3db964fc49a214271dc599ed2fe44d2cdde2cff"
-    sha256 arm64_linux:   "24661722391d382acff3ae510a5f18cddff50e849fa97bdd5ee142cf483fae90"
-    sha256 x86_64_linux:  "290f60f324b8222008683b05d02dc55495f0f76f04c3394ffe58b635e4a0a3b8"
+    sha256 arm64_golden_gate: "94a02b294be6eae6f508d6586ebe2d0afeedd9d5be27b52804cf422907e429df"
+    sha256 arm64_tahoe:       "c8ea0c842a963fb9f34ebe1fa38da1da6708a84bbc634d5da389a766aa3035af"
+    sha256 arm64_sequoia:     "669321cb3e7fa36810bcc4062a8e4412c5919ab6a9d3b8734ce249c164056735"
+    sha256 arm64_linux:       "761e6b5a9ecacefe02d8eb2fea00b5aeb728fe2cc4d1456fb5e133e275d28627"
+    sha256 x86_64_linux:      "ad8fcd56121001a2e0ed52ea036b9422bf4208c94e34f8c14ec593a843975997"
   end
 
   depends_on "blueprint-compiler" => :build
