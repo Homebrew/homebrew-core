@@ -6,18 +6,19 @@ class Rmcast < Formula
   license "QPL-1.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "de8e1fc85f602d20604c3e0a44e08c3dfc3e424f6faee2e65a0fed714646da3e"
-    sha256 cellar: :any,                 arm64_sequoia:  "2550872c1731058ae467f82b6258659ace4cc86e091fa54f827daa61cd5677fc"
-    sha256 cellar: :any,                 arm64_sonoma:   "d82904f97cda3eb5874bfca8ac452568a04efeadd88524fc2b1e03cb594ecca9"
-    sha256 cellar: :any,                 arm64_ventura:  "07939c86d1018aeb45c483ea2e96514f24cc92fcca30f5ffe3ebdaa8f1a53b9d"
-    sha256 cellar: :any,                 arm64_monterey: "bb3d3a129e3ac532f960335c23adb657e333751efee7243577c772f92abf31a6"
-    sha256 cellar: :any,                 arm64_big_sur:  "7edab23a8770a245b0f06197b2d46c4777b8fdac0f39842ce619c56d74f1eef4"
-    sha256 cellar: :any,                 sonoma:         "ba0051628bcd72a98bd0c0a4f9b055d106f5b8eba226b9b0c279013cfae729c6"
-    sha256 cellar: :any,                 ventura:        "cecc9ec050585780015df098cbea1522dacdca625a2e9ae621b47bb975e5f559"
-    sha256 cellar: :any,                 monterey:       "5f88f10530ed8ad07b13c512fba7310bee880f8bd138eac08d7fd37bb3be35e4"
-    sha256 cellar: :any,                 big_sur:        "b2cc007eec98b5e422a7948e9e680f3a0d7c622eb4703f9b2bae6c867635107f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "d9f0ff68c1fcb1dabf6fad88d8987d71bea9d26634fdb94b2611149af01fa967"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ecbaa8a68d7cb766021fb1f1bff97c911a5e16720508cf71648c6e96a2b93c4f"
+    sha256 cellar: :any,                 arm64_golden_gate: "57254e33d2646b10f735aabdcf68796fceed1f25f6c89e05f856b95a3fe479dc"
+    sha256 cellar: :any,                 arm64_tahoe:       "de8e1fc85f602d20604c3e0a44e08c3dfc3e424f6faee2e65a0fed714646da3e"
+    sha256 cellar: :any,                 arm64_sequoia:     "2550872c1731058ae467f82b6258659ace4cc86e091fa54f827daa61cd5677fc"
+    sha256 cellar: :any,                 arm64_sonoma:      "d82904f97cda3eb5874bfca8ac452568a04efeadd88524fc2b1e03cb594ecca9"
+    sha256 cellar: :any,                 arm64_ventura:     "07939c86d1018aeb45c483ea2e96514f24cc92fcca30f5ffe3ebdaa8f1a53b9d"
+    sha256 cellar: :any,                 arm64_monterey:    "bb3d3a129e3ac532f960335c23adb657e333751efee7243577c772f92abf31a6"
+    sha256 cellar: :any,                 arm64_big_sur:     "7edab23a8770a245b0f06197b2d46c4777b8fdac0f39842ce619c56d74f1eef4"
+    sha256 cellar: :any,                 sonoma:            "ba0051628bcd72a98bd0c0a4f9b055d106f5b8eba226b9b0c279013cfae729c6"
+    sha256 cellar: :any,                 ventura:           "cecc9ec050585780015df098cbea1522dacdca625a2e9ae621b47bb975e5f559"
+    sha256 cellar: :any,                 monterey:          "5f88f10530ed8ad07b13c512fba7310bee880f8bd138eac08d7fd37bb3be35e4"
+    sha256 cellar: :any,                 big_sur:           "b2cc007eec98b5e422a7948e9e680f3a0d7c622eb4703f9b2bae6c867635107f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d9f0ff68c1fcb1dabf6fad88d8987d71bea9d26634fdb94b2611149af01fa967"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ecbaa8a68d7cb766021fb1f1bff97c911a5e16720508cf71648c6e96a2b93c4f"
   end
 
   # 503 error for https://www.land.ufrj.br
