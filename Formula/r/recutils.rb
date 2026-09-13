@@ -7,18 +7,19 @@ class Recutils < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:    "1195eef57e411f91d204f23655150667170fdc64242f0503b7e376deb112768a"
-    sha256 cellar: :any, arm64_sequoia:  "f1c4d50014f990bf82b005678e5e50d0437c4832db83e80094e0fcfbad824078"
-    sha256 cellar: :any, arm64_sonoma:   "229e25a458f74f9b9e1229b08dd839a18f7e06cede1aaecc890b645f645c80e1"
-    sha256 cellar: :any, arm64_ventura:  "6556b10f353cbae8cc5d69cc48cb0662eaf85060794e0d29ae25950dbe02749e"
-    sha256 cellar: :any, arm64_monterey: "09a875626acf4c73036fc8048bf3e0e5bb7beff7fd60e1e96faa1b1d92888638"
-    sha256 cellar: :any, arm64_big_sur:  "c2da94eb14db7fdd4f6376cd3d6546ff8cebddd64f4290fe265161f21d3fdff8"
-    sha256 cellar: :any, sonoma:         "06f73515dcef0f167c03853cfaf8e08966cb677ce575b03484f63c69adb182e0"
-    sha256 cellar: :any, ventura:        "50252c2587e2e32f0513c9cc71fd49c5786400f6c0d6e95891da4b43a0f873fa"
-    sha256 cellar: :any, monterey:       "feac0920394addceefb8a23fc38a7406fed04b71bde433d14dfa703b852c5089"
-    sha256 cellar: :any, big_sur:        "8bd10813a8870b76fdac43c99062d3449bd4275ae54af0410c85c69ba3f9ab08"
-    sha256               arm64_linux:    "57f094907d4b5a4075731cb05a68fb1dd726dc245c914cc695bab138c1362596"
-    sha256               x86_64_linux:   "09224d89dd80efca59a618cb2b966ad1a2a1847d992bc27c014fe997db0148af"
+    sha256 cellar: :any, arm64_golden_gate: "c8cb8ff909e5ab868a75612db3565b95c2a8853e779b33d1bfedd18a863b7e9f"
+    sha256 cellar: :any, arm64_tahoe:       "1195eef57e411f91d204f23655150667170fdc64242f0503b7e376deb112768a"
+    sha256 cellar: :any, arm64_sequoia:     "f1c4d50014f990bf82b005678e5e50d0437c4832db83e80094e0fcfbad824078"
+    sha256 cellar: :any, arm64_sonoma:      "229e25a458f74f9b9e1229b08dd839a18f7e06cede1aaecc890b645f645c80e1"
+    sha256 cellar: :any, arm64_ventura:     "6556b10f353cbae8cc5d69cc48cb0662eaf85060794e0d29ae25950dbe02749e"
+    sha256 cellar: :any, arm64_monterey:    "09a875626acf4c73036fc8048bf3e0e5bb7beff7fd60e1e96faa1b1d92888638"
+    sha256 cellar: :any, arm64_big_sur:     "c2da94eb14db7fdd4f6376cd3d6546ff8cebddd64f4290fe265161f21d3fdff8"
+    sha256 cellar: :any, sonoma:            "06f73515dcef0f167c03853cfaf8e08966cb677ce575b03484f63c69adb182e0"
+    sha256 cellar: :any, ventura:           "50252c2587e2e32f0513c9cc71fd49c5786400f6c0d6e95891da4b43a0f873fa"
+    sha256 cellar: :any, monterey:          "feac0920394addceefb8a23fc38a7406fed04b71bde433d14dfa703b852c5089"
+    sha256 cellar: :any, big_sur:           "8bd10813a8870b76fdac43c99062d3449bd4275ae54af0410c85c69ba3f9ab08"
+    sha256               arm64_linux:       "57f094907d4b5a4075731cb05a68fb1dd726dc245c914cc695bab138c1362596"
+    sha256               x86_64_linux:      "09224d89dd80efca59a618cb2b966ad1a2a1847d992bc27c014fe997db0148af"
   end
 
   on_linux do
