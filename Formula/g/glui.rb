@@ -74,11 +74,8 @@ class Glui < Formula
       system ENV.cxx, "-framework", "GLUT", "-framework", "OpenGL", "-I#{include}",
         "-L#{lib}", "-lglui", "-std=c++11", "test.cpp"
 
-      # Tahoe running is headless for now, maybe remove this later
-      # ("GLUT Fatal Error: redisplay needed for window 1, but no display callback")
-      return if MacOS.version == :tahoe && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
-      system "./a.out"
+      # GLUT needs a WindowServer connection, which the test sandbox denies
+      return
     else
       (testpath/"test.cpp").write <<~CPP
         #include <cassert>
