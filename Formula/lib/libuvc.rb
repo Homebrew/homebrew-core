@@ -1,25 +1,17 @@
 class Libuvc < Formula
   desc "Cross-platform library for USB video devices"
   homepage "https://libuvc.github.io/"
-  url "https://github.com/libuvc/libuvc/archive/refs/tags/v0.0.7.tar.gz"
-  sha256 "7c6ba79723ad5d0ccdfbe6cadcfbd03f9f75b701d7ba96631eb1fd929a86ee72"
+  url "https://github.com/libuvc/libuvc/archive/refs/tags/v0.0.8.tar.gz"
+  sha256 "abe134716f4c53fe60db2004b42adf6af60e64e45808135acfa4311454371ece"
   license "BSD-3-Clause"
   head "https://github.com/libuvc/libuvc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "d1b5cc7a888062115efc0f9ad03216999001a6007ffe25b7a96fc5892e058fdb"
-    sha256 cellar: :any,                 arm64_tahoe:       "f150b5d95ecef260fb7c6c2741fa52d102f8e9bd1712af32ebaf1785ec87dd39"
-    sha256 cellar: :any,                 arm64_sequoia:     "94deef8d9e60b29d70cc1348b58cade333270747562c2ea151dcad2893757a84"
-    sha256 cellar: :any,                 arm64_sonoma:      "fdde8f75b100e1b5c4880eade6ae2e1df144236a26a6757b59f935feadf45283"
-    sha256 cellar: :any,                 arm64_ventura:     "6708c80f52e02d433eb7bc74ff598b8c6cc4a7963fb70f3757252abe94b021be"
-    sha256 cellar: :any,                 arm64_monterey:    "ad6af8f029ad6050565a30a2215b2e0a831d1acc0927cc032ba7b25754aa788b"
-    sha256 cellar: :any,                 arm64_big_sur:     "110f3c38356127a1109273f022bedb51c4ee5a7df8845c4940db9a203a131627"
-    sha256 cellar: :any,                 sonoma:            "71d65586d7c9129e23704c7ac10b5641c5705f357dd658f9e975865fac47d7a1"
-    sha256 cellar: :any,                 ventura:           "3463a43797458c0e8d63446c9b54c2e8df213ca290f5a8bc08e3a071e7dad884"
-    sha256 cellar: :any,                 monterey:          "e4dd5f0473e5f0f3a4d2b78f6b2b6fa556436055ef8a3d68d176a5b3afd3ca11"
-    sha256 cellar: :any,                 big_sur:           "d974f8a7c94e5c106fa9c8bff6f85c0237ee1396d3dc672969d2279840cc0fac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "def3a9096bee642658354acfd0d061a84a5d7f5560334c4564a7f0fb608cb35c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e5adfe4cf8c0151495c6d82c4a1efba89a92a8d43e3d32803d6c88d015e894cf"
+    sha256 cellar: :any, arm64_golden_gate: "d5e0b20b74f6584879ef4583c3883afea55ecda85a0280eb60a1a1aad6debf38"
+    sha256 cellar: :any, arm64_tahoe:       "13896ab4b41c9436cd8b9e67a13b7286ce692b0e640a80b9651b00f44e820543"
+    sha256 cellar: :any, arm64_sequoia:     "10e55f1f7eba992ea9b59a9917a091684adfb8b2218b3f549c79d7c86d2aca2d"
+    sha256 cellar: :any, arm64_linux:       "40dd445816f4aebd65feb79922cd0adcf1b75b3142ed1a11b2fb73bacb391489"
+    sha256 cellar: :any, x86_64_linux:      "3de0257f7e76ae8643796a9098c49677818a9f4b31d6da83caad79c726e2d458"
   end
 
   depends_on "cmake" => :build
