@@ -28,6 +28,14 @@ class CrystalIcr < Formula
     depends_on "zlib-ng-compat"
   end
 
+  # Fix build with Crystal 1.21
+  patch do
+    url "https://github.com/crystal-community/icr/commit/bebf21ccea7c372b86d233552b05b824b21e97f7.patch?full_index=1"
+    sha256 "50b632eb3115eaa10b92b99df1cac9cdfbf4c2523204bd22b6a8c590f8204427"
+    type :unofficial
+    resolves "https://github.com/crystal-community/icr/pull/136"
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
