@@ -14,12 +14,13 @@ class Sdl12Compat < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "56dc659b94776ea6230f7b978c84fcb4df46a5970a565960a12805ae922eb9a6"
-    sha256 cellar: :any,                 arm64_sequoia: "fe94f9cd0d788a8b77c8704b7681f59edc67e20c801b22b4aba248d27a58e2dd"
-    sha256 cellar: :any,                 arm64_sonoma:  "ec62b168684492e1686bbc7d308f8fc2f4f03858b0d5f4eb27299acb2c39bac6"
-    sha256 cellar: :any,                 sonoma:        "84eefd7e2780806b46ad5b0fc88c9d6d8a2025a74f41237226eb964bc3ece057"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2c85d1ec8070299e38628a852d5dc491f11d8e13f9010908bc8716b8ced7f2a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5325fbcdb88813f34b205c7bdb1a52a9f4d282c31d4da5518941cbfbd119c230"
+    sha256 cellar: :any,                 arm64_golden_gate: "7ca3dcab1bd97aec47fb1f6e3a0023c409e8cf395c9a2454865b8d223e6bb215"
+    sha256 cellar: :any,                 arm64_tahoe:       "56dc659b94776ea6230f7b978c84fcb4df46a5970a565960a12805ae922eb9a6"
+    sha256 cellar: :any,                 arm64_sequoia:     "fe94f9cd0d788a8b77c8704b7681f59edc67e20c801b22b4aba248d27a58e2dd"
+    sha256 cellar: :any,                 arm64_sonoma:      "ec62b168684492e1686bbc7d308f8fc2f4f03858b0d5f4eb27299acb2c39bac6"
+    sha256 cellar: :any,                 sonoma:            "84eefd7e2780806b46ad5b0fc88c9d6d8a2025a74f41237226eb964bc3ece057"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "2c85d1ec8070299e38628a852d5dc491f11d8e13f9010908bc8716b8ced7f2a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5325fbcdb88813f34b205c7bdb1a52a9f4d282c31d4da5518941cbfbd119c230"
   end
 
   depends_on "cmake" => :build
