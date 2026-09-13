@@ -7,13 +7,12 @@ class Libtar < Formula
   license "NCSA"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_tahoe:   "23ceb454b2f6611082364f55c92c573111df507f73b3d19ca69555bc4ebac48a"
-    sha256 cellar: :any,                 arm64_sequoia: "d4e8e07ef8f56b82f2770a4b7dbbe05b1e82fd2c79bd96e7fd951a9122ed960a"
-    sha256 cellar: :any,                 arm64_sonoma:  "98e649e4ddedb2869148b221f35a5a2cebe6f03482ae073518454d34e2779421"
-    sha256 cellar: :any,                 sonoma:        "6f63b617e34b6a198feafb7330800d8a47960cf2bdcd412cc1bcdad98fb07108"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3cfe7b8ddcc43ac4ff3271b9bcc59589799c70700ad2a231f8ee645213aa8e0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d636db798faefdeba582d4b33c6ee41f659a46c7e99cd9b5aab9eb4af1b10b37"
+    rebuild 4
+    sha256 cellar: :any, arm64_golden_gate: "0bee5a7daf113533848ee50ebd90c8c966850ae12540f09f7b441b6a8d1fd9ab"
+    sha256 cellar: :any, arm64_tahoe:       "1ee318fdf6d06e8d670cedcd4e9d5a8df008104c3fdc2aaace8caa3ec04ea0f8"
+    sha256 cellar: :any, arm64_sequoia:     "48ccf141f62ae2175f39795d088a23af7d984d5fa226c5ff0accd8fe051a9136"
+    sha256 cellar: :any, arm64_linux:       "d800d4b33d612c482798f24145fc941409e8c86878f0a1cb71346fb42c430cd5"
+    sha256 cellar: :any, x86_64_linux:      "8fc74cf7b1dd61a1e8ea1b18e090e678ddef84672dce29ee39295d1fc536e60d"
   end
 
   depends_on "autoconf" => :build
