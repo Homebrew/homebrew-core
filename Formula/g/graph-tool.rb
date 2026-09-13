@@ -26,7 +26,6 @@ class GraphTool < Formula
   depends_on "python-setuptools" => :build # for zstandard
 
   # only test optional graph drawing feature to reduce required runtime dependencies
-  depends_on "gtk+3" => :test
   depends_on "pygobject3" => :test
   depends_on "python-matplotlib" => :test
 
@@ -120,6 +119,9 @@ class GraphTool < Formula
 
   test do
     (testpath/"test.py").write <<~PYTHON
+      import sys
+      # Importing Gtk initialises GDK, which aborts without a window server, so skip GTK+ drawing
+      sys.modules["gi.repository.Gtk"] = None
       import graph_tool.all as gt
       g = gt.Graph()
       v1 = g.add_vertex()
@@ -128,6 +130,6 @@ class GraphTool < Formula
       assert g.num_edges() == 1
       assert g.num_vertices() == 2
     PYTHON
-    refute_match "drawing will not work", shell_output("#{python3} test.py 2>&1")
+    refute_match(/Error importing (cairo|matplotlib)/, shell_output("#{python3} test.py 2>&1"))
   end
 end
