@@ -7,16 +7,10 @@ class Chisel < Formula
   head "https://github.com/facebook/chisel.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:    "ed2b84f0afab7caab553110d8413051300b932dc2fe782bce00381188704a5a1"
-    sha256 cellar: :any, arm64_sequoia:  "92fa2160807b42dd0d79091402d8b8023722679230ed86dd5c2243704e7040cc"
-    sha256 cellar: :any, arm64_sonoma:   "89a8bed56025f46a5c032e263df373455be3117b3f0dee5c3fd1acdbc01def32"
-    sha256 cellar: :any, arm64_ventura:  "7ee4917934831d56a5925fb22554c0dd136f8553df9c92067e4564e527371e82"
-    sha256 cellar: :any, arm64_monterey: "1aa32fddf646ce4a2772d5e10b39fddbe54a6383299346321d5d0dd067388471"
-    sha256 cellar: :any, arm64_big_sur:  "bd381685bf1bf3682e51c355acbca980b35659b8161f226329b3a0196aab55df"
-    sha256 cellar: :any, sonoma:         "ebce92f9d0f82970678bc0f6c289093edda33030e98a3c14a79e40ff22cf1441"
-    sha256 cellar: :any, ventura:        "a07aface409179d4adea4e96654390ac19f6cc2422d0fa1e87d6331f68aa7782"
-    sha256 cellar: :any, monterey:       "712007f0f4abd29073239839bd606dba927353444cf6baf4b058aedc92c17f0c"
-    sha256 cellar: :any, big_sur:        "bec2fe6d1e6afec5b3b1c79f5f11b9f2219ff8e22d81e1b343cf525b91ea220e"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "e08544b4aeb29c969ff159278ada6409af23b3ae9539d507e2926e08cbe1cf5e"
+    sha256 cellar: :any, arm64_tahoe:       "077677ceec6cb1ffb4894e5db11e46e3668ea3ac438c63662e0de6aa5aeea590"
+    sha256 cellar: :any, arm64_sequoia:     "d4afda45323f2c83fd95744680fd3c925b3a1fa4a6dd003e70daf27610b17e1d"
   end
 
   depends_on xcode: :build
@@ -34,11 +28,13 @@ class Chisel < Formula
     # in which case brew doesn't perform its modifications.
     ld_dylib_install_name = opt_prefix/"lib/Chisel.framework/Chisel"
 
+    # Xcode 27 rejects the project's iOS 10.1 deployment target, older Xcode clamps it silently
     xcodebuild "-arch", Hardware::CPU.arch,
                "-project", "Chisel/Chisel.xcodeproj",
                "-scheme", "Chisel",
                "-configuration", "Release",
                "-sdk", "iphonesimulator",
+               *("IPHONEOS_DEPLOYMENT_TARGET=15.0" if MacOS::Xcode.version >= 27),
                "LD_DYLIB_INSTALL_NAME=#{ld_dylib_install_name}",
                "DSTROOT=#{prefix}",
                "INSTALL_PATH=/lib",
