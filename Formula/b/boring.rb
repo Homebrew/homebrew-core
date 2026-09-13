@@ -41,6 +41,8 @@ class Boring < Formula
       host = "dev-server"
     TOML
 
+    # Keep the daemon socket inside testpath, the only place the test sandbox allows unix sockets
+    ENV["BORING_SOCK"] = testpath/"boringd.sock"
     assert_match "dev   9000   ->  localhost:9000  dev-server", shell_output("#{bin}/boring list")
   end
 end
