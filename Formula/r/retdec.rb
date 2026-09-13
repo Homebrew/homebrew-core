@@ -10,12 +10,13 @@ class Retdec < Formula
 
   bottle do
     rebuild 4
-    sha256 cellar: :any,                 arm64_tahoe:   "636b6b44b73121f25224e327ca950576cb95a2a5fd29890c882b7336993af7cc"
-    sha256 cellar: :any,                 arm64_sequoia: "2b66bd7a2b82e7c2984bf1cf7d527b8e689fa0915c5dae716500014a689d1c8b"
-    sha256 cellar: :any,                 arm64_sonoma:  "f51d9599b4ba56340e4db15fad2a5deedf84e9cb73efdc66ef8ccb35bd3fc7fd"
-    sha256 cellar: :any,                 sonoma:        "600a0786558e55c549ee2f437a05adb2370866ddf23212af0d018b57d22f923d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf3181456a91b4f47359036729f37ef32762af922cafd4f26451cf4f8e5eabd8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6400aaaa25aba6846a2d8efd43e7c20b608a181c0cb4a2bfddb5c99618b1ac93"
+    sha256 cellar: :any,                 arm64_golden_gate: "a8ee92e35cb0974d1a193285476c26c5258a8529f1987076831ae414e3485528"
+    sha256 cellar: :any,                 arm64_tahoe:       "636b6b44b73121f25224e327ca950576cb95a2a5fd29890c882b7336993af7cc"
+    sha256 cellar: :any,                 arm64_sequoia:     "2b66bd7a2b82e7c2984bf1cf7d527b8e689fa0915c5dae716500014a689d1c8b"
+    sha256 cellar: :any,                 arm64_sonoma:      "f51d9599b4ba56340e4db15fad2a5deedf84e9cb73efdc66ef8ccb35bd3fc7fd"
+    sha256 cellar: :any,                 sonoma:            "600a0786558e55c549ee2f437a05adb2370866ddf23212af0d018b57d22f923d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "cf3181456a91b4f47359036729f37ef32762af922cafd4f26451cf4f8e5eabd8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6400aaaa25aba6846a2d8efd43e7c20b608a181c0cb4a2bfddb5c99618b1ac93"
   end
 
   depends_on "autoconf" => :build
