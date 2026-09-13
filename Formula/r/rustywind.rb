@@ -7,12 +7,13 @@ class Rustywind < Formula
   head "https://github.com/avencera/rustywind.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f7532e2eda66a07c25f94ab85f6a05cb660ce0e435ba95d5be71ad7ea6cb0754"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8eba343acfc22c3a8f49c35e6c79d75ea313e849554eeee746af00a2f7450424"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1adbfb906e7501b99973715bf5b757f5622e1ae7c18d31a5010e6081e4a1659c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "349367a71e234910f792f87cde84c6603fa95a032ffacb0596ffd5b02f7ebf79"
-    sha256 cellar: :any,                 arm64_linux:   "1f7c51e3e3b8b64ba6a11c8b707c42ce4610d9f3e9cb178e0a9804488124aa8d"
-    sha256 cellar: :any,                 x86_64_linux:  "3d3303753a660fcf2a1fcd18678a039f4de4a8cebd6650ec9db8b5db136b2ed1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b1316c79f6e9c630d89ea059370d741398031cb5e49da4d701efaea709e4b795"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f7532e2eda66a07c25f94ab85f6a05cb660ce0e435ba95d5be71ad7ea6cb0754"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8eba343acfc22c3a8f49c35e6c79d75ea313e849554eeee746af00a2f7450424"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "1adbfb906e7501b99973715bf5b757f5622e1ae7c18d31a5010e6081e4a1659c"
+    sha256 cellar: :any_skip_relocation, sonoma:            "349367a71e234910f792f87cde84c6603fa95a032ffacb0596ffd5b02f7ebf79"
+    sha256 cellar: :any,                 arm64_linux:       "1f7c51e3e3b8b64ba6a11c8b707c42ce4610d9f3e9cb178e0a9804488124aa8d"
+    sha256 cellar: :any,                 x86_64_linux:      "3d3303753a660fcf2a1fcd18678a039f4de4a8cebd6650ec9db8b5db136b2ed1"
   end
 
   depends_on "rust" => :build
