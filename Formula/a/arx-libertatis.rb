@@ -52,6 +52,8 @@ class ArxLibertatis < Formula
       -DWITH_OPENGL=glew
       -DWITH_SDL=2
     ]
+    # Install PNG icons: generating the `.icns` needs `iconutil`, which the build sandbox's mach-lookup policy breaks
+    args << "-DICON_TYPE=png"
 
     # Install prebuilt icons to avoid inkscape and imagemagick deps
     if build.head?
