@@ -6,12 +6,13 @@ class Sexpect < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "69d2d2d4905013f26bc6e74a74963c07dffb0f816e508b70a4f147158980645a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3fd7a08ec1d5133e29c9a6743c9a7164b877a1b92e3f3e4c0a67f07ac7225a12"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b90c0771c703618e4c4ff10dd443bd8438e245e99d3eb0480e0f7ace0a8ec57f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0361e92cae81fbd78763f1b1d6046610fa69dbee811bc3e432b3f9b1d4510578"
-    sha256 cellar: :any,                 arm64_linux:   "3203c810fc26b46c089f0ce70b10db8a41a2b518126e0e2993ba0e3580a926c4"
-    sha256 cellar: :any,                 x86_64_linux:  "9545c84738e53aa093caa9a3823b57d7a75a11b19674f2b396e05df81a53a41a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5545ec694fe01c5ed816e23e344551de5f873d8475e52f92d4a43b4695401468"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "69d2d2d4905013f26bc6e74a74963c07dffb0f816e508b70a4f147158980645a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3fd7a08ec1d5133e29c9a6743c9a7164b877a1b92e3f3e4c0a67f07ac7225a12"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "b90c0771c703618e4c4ff10dd443bd8438e245e99d3eb0480e0f7ace0a8ec57f"
+    sha256 cellar: :any_skip_relocation, sonoma:            "0361e92cae81fbd78763f1b1d6046610fa69dbee811bc3e432b3f9b1d4510578"
+    sha256 cellar: :any,                 arm64_linux:       "3203c810fc26b46c089f0ce70b10db8a41a2b518126e0e2993ba0e3580a926c4"
+    sha256 cellar: :any,                 x86_64_linux:      "9545c84738e53aa093caa9a3823b57d7a75a11b19674f2b396e05df81a53a41a"
   end
 
   depends_on "cmake" => :build
