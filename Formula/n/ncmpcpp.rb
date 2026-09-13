@@ -40,6 +40,15 @@ class Ncmpcpp < Formula
              "https://github.com/ncmpcpp/ncmpcpp/issues/633"
   end
 
+  # Fix build with libc++ 22
+  patch do
+    url "https://github.com/ncmpcpp/ncmpcpp/commit/7523f11583279a80c1578d29d6c189fa74f4aa64.patch?full_index=1"
+    sha256 "684cd051e7a8a5954d2763c699482fa25b8d5b0b90e2329b02bb9dd48a1e31de"
+    type :unofficial
+    resolves "https://github.com/ncmpcpp/ncmpcpp/pull/665",
+             "https://github.com/ncmpcpp/ncmpcpp/issues/663"
+  end
+
   def install
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
     ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("readline")}"
