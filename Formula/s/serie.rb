@@ -7,11 +7,12 @@ class Serie < Formula
   head "https://github.com/lusingander/serie.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7a8806ff2f256162896e9ebe637c4f27c8caec7dcf26aa560808457ab4eefcc8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "035719d277d038dbf1f8f2c2911cd85993031febc51c146f4a577453319e15b8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "87adf28d2cd7445ef08067ac8b099c1d9ecc4a352a30adc7acc1586d740b3997"
-    sha256 cellar: :any,                 arm64_linux:   "dacb89175b1648ccb90ba7a116cd16847504f2dde910df0109cb84168a56b56d"
-    sha256 cellar: :any,                 x86_64_linux:  "9b8e3af765d3f2aeea8e2fa207475a30c8be9bcc35be97512c2c492ac178d705"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "222544d21e2157ede100003dc4af38909b25c502e13e130b5c5ed9a21559de04"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7a8806ff2f256162896e9ebe637c4f27c8caec7dcf26aa560808457ab4eefcc8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "035719d277d038dbf1f8f2c2911cd85993031febc51c146f4a577453319e15b8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "87adf28d2cd7445ef08067ac8b099c1d9ecc4a352a30adc7acc1586d740b3997"
+    sha256 cellar: :any,                 arm64_linux:       "dacb89175b1648ccb90ba7a116cd16847504f2dde910df0109cb84168a56b56d"
+    sha256 cellar: :any,                 x86_64_linux:      "9b8e3af765d3f2aeea8e2fa207475a30c8be9bcc35be97512c2c492ac178d705"
   end
 
   depends_on "rust" => :build
