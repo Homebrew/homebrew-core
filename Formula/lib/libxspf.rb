@@ -6,18 +6,19 @@ class Libxspf < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:    "211b569e374951a2f546836312639bf1aa937ecbf4426147663d57e4fded5f2b"
-    sha256 cellar: :any,                 arm64_sequoia:  "f89d8d32a4bfb4ceb5254b1bd40d8bbb6ad1363143c1897a4ad945664b39b70d"
-    sha256 cellar: :any,                 arm64_sonoma:   "ebe5a694ae5d6433a1d632e780572da1e4addcbcf871370c85ed928e2e6feed1"
-    sha256 cellar: :any,                 arm64_ventura:  "03f9d06101c08ff9f642fcdd03f4983b97c85191fb8b9476e0dbda13c9488914"
-    sha256 cellar: :any,                 arm64_monterey: "c3200ce73e78aff6e49838294213ed76c255d451fdc2a16b7afdf726a4113cc8"
-    sha256 cellar: :any,                 arm64_big_sur:  "46c96c913b55106e3d616a0cae41b628bedea1b1226f757ab69505d85a773f38"
-    sha256 cellar: :any,                 sonoma:         "fe379ee49349f8cbcb67c944ab9605e30a25a3007385eaae802626a252f5b522"
-    sha256 cellar: :any,                 ventura:        "e904f629cf88a4df489149100af8a60ffb9ef12e1fef74651095e0d57f54d48e"
-    sha256 cellar: :any,                 monterey:       "fbeb2b06f536534acd8e85c7cd86b0603f85e059dfb0277cf093c4aeb5875dca"
-    sha256 cellar: :any,                 big_sur:        "3bdd88ce60539e5c451fbfbb39d85719b9551965550b5b2937f409f152b08330"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "2e7ee0f7026c5cfe6bbf84efc5474a94274645bdd0e7a498c20e5b6a37e21a2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e901fd286da4e617543de36efef5f7e0a115d936eeb3ec01326ae92a02df29d8"
+    sha256 cellar: :any,                 arm64_golden_gate: "ee76be5876b868345b951d90f8a0583ca0d469be29c34193aa8a5eeb7438b6d9"
+    sha256 cellar: :any,                 arm64_tahoe:       "211b569e374951a2f546836312639bf1aa937ecbf4426147663d57e4fded5f2b"
+    sha256 cellar: :any,                 arm64_sequoia:     "f89d8d32a4bfb4ceb5254b1bd40d8bbb6ad1363143c1897a4ad945664b39b70d"
+    sha256 cellar: :any,                 arm64_sonoma:      "ebe5a694ae5d6433a1d632e780572da1e4addcbcf871370c85ed928e2e6feed1"
+    sha256 cellar: :any,                 arm64_ventura:     "03f9d06101c08ff9f642fcdd03f4983b97c85191fb8b9476e0dbda13c9488914"
+    sha256 cellar: :any,                 arm64_monterey:    "c3200ce73e78aff6e49838294213ed76c255d451fdc2a16b7afdf726a4113cc8"
+    sha256 cellar: :any,                 arm64_big_sur:     "46c96c913b55106e3d616a0cae41b628bedea1b1226f757ab69505d85a773f38"
+    sha256 cellar: :any,                 sonoma:            "fe379ee49349f8cbcb67c944ab9605e30a25a3007385eaae802626a252f5b522"
+    sha256 cellar: :any,                 ventura:           "e904f629cf88a4df489149100af8a60ffb9ef12e1fef74651095e0d57f54d48e"
+    sha256 cellar: :any,                 monterey:          "fbeb2b06f536534acd8e85c7cd86b0603f85e059dfb0277cf093c4aeb5875dca"
+    sha256 cellar: :any,                 big_sur:           "3bdd88ce60539e5c451fbfbb39d85719b9551965550b5b2937f409f152b08330"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "2e7ee0f7026c5cfe6bbf84efc5474a94274645bdd0e7a498c20e5b6a37e21a2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e901fd286da4e617543de36efef5f7e0a115d936eeb3ec01326ae92a02df29d8"
   end
 
   depends_on "cpptest" => :build
