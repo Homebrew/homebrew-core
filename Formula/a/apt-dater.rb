@@ -8,12 +8,11 @@ class AptDater < Formula
   version_scheme 1
 
   bottle do
-    sha256 arm64_tahoe:   "ca8d65020e488e692c5785619fda1d960a49f88b2f80e2213f1d56f39b6f40de"
-    sha256 arm64_sequoia: "e9a104010e991369030ef2f6b060658977e33252724fb5a1891a69242a8c3fc8"
-    sha256 arm64_sonoma:  "cd11a9f62b4e94d1909c0f60bb5a30703d5558e5572b583ccf92ff235e055503"
-    sha256 sonoma:        "ad40cadf8e75368960e13f510c8e91977ff13908150431a50066bbab0dfd521b"
-    sha256 arm64_linux:   "8aaa2fb5be47e7037a24f2b6bfc14fac79eabf28187a11d5c949db515b34b4a9"
-    sha256 x86_64_linux:  "b68bb3ff46e775c78d4201392f44d95e8e28aacdce0dd624469f5bfe6a839557"
+    sha256 arm64_golden_gate: "891972799330621928a01277fcfbfb5dbbfde4b2825284f7bb4d389a1e3f3386"
+    sha256 arm64_tahoe:       "54ac1e581d1005ad7972864ffd240a906e3e4cc3fc3cb1a6167979cf86e02c9a"
+    sha256 arm64_sequoia:     "eb9414457f5422b5be9d3faa106b312c63ce4ab50214557eb51ac2778274da54"
+    sha256 arm64_linux:       "4d0be167796c7fabc5022c52d30ab755f5fe551b59a66d42fdd7c223bfc6cbe3"
+    sha256 x86_64_linux:      "4f00af46531a1318929f7a344207ce4aba4233e8d0a3b52f4c41e66d95784693"
   end
 
   depends_on "autoconf" => :build
