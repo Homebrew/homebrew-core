@@ -17,12 +17,13 @@ class RedisAT82 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "210951f59275d7beb5f1697b35d1677cb29519effe51813bcb8f111431537105"
-    sha256 cellar: :any, arm64_sequoia: "00506c8b1caa7168e12e5e87d9b3dc7cdbd4d169ea08bcb88f8e1713f70eb71e"
-    sha256 cellar: :any, arm64_sonoma:  "9527220a9af9da8c7a88e18e4da613fd6cad73e4ce794d7f422b34e258337e1f"
-    sha256 cellar: :any, sonoma:        "401347ec5d5ab33aa6294c6e17c719e28463e76d0c85c483c283bf8bd0131eb3"
-    sha256 cellar: :any, arm64_linux:   "32bc791db8dfb13b87a2c733d0a53119a454810b54210dfde09e17a4116331a6"
-    sha256 cellar: :any, x86_64_linux:  "40bbc0d54994b1375113efb6620431b2abd65df850e5bafd0596df396e638cd7"
+    sha256 cellar: :any, arm64_golden_gate: "bb321d6d4e154b7ec934afd3e74d9ba1d1bcff48c427003256e596598391fd3a"
+    sha256 cellar: :any, arm64_tahoe:       "210951f59275d7beb5f1697b35d1677cb29519effe51813bcb8f111431537105"
+    sha256 cellar: :any, arm64_sequoia:     "00506c8b1caa7168e12e5e87d9b3dc7cdbd4d169ea08bcb88f8e1713f70eb71e"
+    sha256 cellar: :any, arm64_sonoma:      "9527220a9af9da8c7a88e18e4da613fd6cad73e4ce794d7f422b34e258337e1f"
+    sha256 cellar: :any, sonoma:            "401347ec5d5ab33aa6294c6e17c719e28463e76d0c85c483c283bf8bd0131eb3"
+    sha256 cellar: :any, arm64_linux:       "32bc791db8dfb13b87a2c733d0a53119a454810b54210dfde09e17a4116331a6"
+    sha256 cellar: :any, x86_64_linux:      "40bbc0d54994b1375113efb6620431b2abd65df850e5bafd0596df396e638cd7"
   end
 
   keg_only :versioned_formula
