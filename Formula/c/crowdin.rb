@@ -4,6 +4,7 @@ class Crowdin < Formula
   url "https://github.com/crowdin/crowdin-cli/archive/refs/tags/5.0.2.tar.gz"
   sha256 "c03f79e81f5dfcb434f1447ea10d3e7baa574afc892da4519a88581455e9f14c"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,6 +25,8 @@ class Crowdin < Formula
     depends_on "icu4c@78"
   end
 
+  deny_network_access! :test
+
   def install
     if OS.linux?
       bun_icu = Formula["bun"].deps.find { |dep| dep.name.match?(/^icu4c/) }.to_formula
@@ -39,6 +42,10 @@ class Crowdin < Formula
   end
 
   test do
+    (testpath/"locale/en.json").write <<~JSON
+      {"greeting": "Hello"}
+    JSON
+
     (testpath/"crowdin.yml").write <<~YAML
       "project_id": "12"
       "api_token": "54e01--your-personal-token--2724a"
@@ -49,13 +56,18 @@ class Crowdin < Formula
 
       "files": [
         {
-          "source" : "/t1/**/*",
+          "source" : "/locale/*.json",
           "translation" : "/%two_letters_code%/%original_file_name%"
         }
       ]
     YAML
 
-    assert "Failed to collect project info",
-      shell_output("#{bin}/crowdin upload sources --config #{testpath}/crowdin.yml 2>&1", 102)
+    assert_match "Your configuration file looks good",
+      shell_output("#{bin}/crowdin config lint --config #{testpath}/crowdin.yml")
+
+    rm testpath/"locale/en.json"
+
+    assert_match "No source files found for '/locale/*.json' pattern",
+      shell_output("#{bin}/crowdin config lint --config #{testpath}/crowdin.yml 2>&1", 2)
   end
 end
