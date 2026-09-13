@@ -12,13 +12,12 @@ class ArxLibertatis < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "d56d81aaee01fa139752c15b0fbc8332ed44443c94a9826771be22cc2544a77f"
-    sha256 arm64_sequoia: "14a65b2ec634da2454970e12de3b588f0826e121c04da2569857dd753cb0a797"
-    sha256 arm64_sonoma:  "96be79e0ee8f79cfa402f327be3ee1faa6f509e609d6d8c48c368b5b83112e9b"
-    sha256 sonoma:        "38f33f4125e39dc04470caab71dac5869f57044d4ed829433cb038ef1b4d531f"
-    sha256 arm64_linux:   "9c882ed838c94379ea0f0425dde3f5c144ab4024582524e44442924daa06d5e9"
-    sha256 x86_64_linux:  "819d7a57ea0a2f2bf4a0d1b8af9c62c07db85f75ad23166be635140235f0f70f"
+    rebuild 2
+    sha256 arm64_golden_gate: "e9e3ba7512696c5734388ec8401086029cff865f417e251b89f3ac63f73b02c1"
+    sha256 arm64_tahoe:       "75fff5f90379f2579818f529144c817b0a07de9f4e3937fc4046287271042b14"
+    sha256 arm64_sequoia:     "0b1d9d0b4667e89fbefa27c6028933704c1b1c1d16cc806310b0ddfb6d508a0a"
+    sha256 arm64_linux:       "6e499f620fbe0a637308dbd24489a16ee74ccb30173807deec8c1d8cfaecfdaa"
+    sha256 x86_64_linux:      "635e03240035ca0966038f70efeee5aeeb0549db9db04cf656c8e3d7613447b5"
   end
 
   head do
@@ -52,6 +51,8 @@ class ArxLibertatis < Formula
       -DWITH_OPENGL=glew
       -DWITH_SDL=2
     ]
+    # Install PNG icons: generating the `.icns` needs `iconutil`, which the build sandbox's mach-lookup policy breaks
+    args << "-DICON_TYPE=png"
 
     # Install prebuilt icons to avoid inkscape and imagemagick deps
     if build.head?
