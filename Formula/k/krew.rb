@@ -20,6 +20,13 @@ class Krew < Formula
   depends_on "go" => :build
   depends_on "kubernetes-cli"
 
+  # `test do` block updates the krew plugin index from GitHub
+  deny_network_access! [:build, :postinstall]
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ENV["CGO_ENABLED"] = "0"
 
