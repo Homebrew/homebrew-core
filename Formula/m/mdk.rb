@@ -12,12 +12,13 @@ class Mdk < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "7826d050643554b4fd5b996d6d435b817f5afc3d377838c17603134ee397387f"
-    sha256 arm64_sequoia: "ad86e88bcdb7d4a02549a80945c2bf96d74c7d95ae55d3d25a654c8ce74d09bc"
-    sha256 arm64_sonoma:  "00a6b39d4f40ce43f02096c41759d5fc9603f8410e310c4151ed4ac9eb27de28"
-    sha256 sonoma:        "be057e6d7aa944047f2e2f1708dddd6bffba1fa6c937264c0a5065e11b1c1bf0"
-    sha256 arm64_linux:   "e6ec02348519a896a3cd23987ec812358ede91138da903dcfd6cad75a2cdb1ce"
-    sha256 x86_64_linux:  "11178d7f888d4b955959d12ede795d08d2af47aca254caaa3a9769b39056cdab"
+    sha256 arm64_golden_gate: "2da64b7147ceebdaddea01eb498172d916401e13c6e250fc6a4b135b92934347"
+    sha256 arm64_tahoe:       "7826d050643554b4fd5b996d6d435b817f5afc3d377838c17603134ee397387f"
+    sha256 arm64_sequoia:     "ad86e88bcdb7d4a02549a80945c2bf96d74c7d95ae55d3d25a654c8ce74d09bc"
+    sha256 arm64_sonoma:      "00a6b39d4f40ce43f02096c41759d5fc9603f8410e310c4151ed4ac9eb27de28"
+    sha256 sonoma:            "be057e6d7aa944047f2e2f1708dddd6bffba1fa6c937264c0a5065e11b1c1bf0"
+    sha256 arm64_linux:       "e6ec02348519a896a3cd23987ec812358ede91138da903dcfd6cad75a2cdb1ce"
+    sha256 x86_64_linux:      "11178d7f888d4b955959d12ede795d08d2af47aca254caaa3a9769b39056cdab"
   end
 
   depends_on "gettext" => :build
