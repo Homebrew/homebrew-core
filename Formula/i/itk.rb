@@ -14,11 +14,12 @@ class Itk < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_tahoe:   "44a809e493cb4aedd21711c7c9adf70016a2d3fd29e8f7be3435fa6a6155a729"
-    sha256 arm64_sequoia: "b7a74d583fc5ae57cd25120dd8ca2c8a8d0e613ac6004855cfd77b580f93952c"
-    sha256 arm64_sonoma:  "7ce1f34e9e19b9f8efe1652c7ec0581a0ad04703d6f1faa1996853af92a9f9bc"
-    sha256 arm64_linux:   "990b689e0df7bf101ae3d723322f517f9ff7ab9aadf6ae33418e8e5947fc0bb7"
-    sha256 x86_64_linux:  "1f32a7e76e02701e82cc14d72bc9c183c8c49a250a348150a97c8e2caf5963aa"
+    sha256 arm64_golden_gate: "6b7530683d6c45f4f0a88135a67d834f09f2a17c16a6f586fcb7acb4a2da70a1"
+    sha256 arm64_tahoe:       "44a809e493cb4aedd21711c7c9adf70016a2d3fd29e8f7be3435fa6a6155a729"
+    sha256 arm64_sequoia:     "b7a74d583fc5ae57cd25120dd8ca2c8a8d0e613ac6004855cfd77b580f93952c"
+    sha256 arm64_sonoma:      "7ce1f34e9e19b9f8efe1652c7ec0581a0ad04703d6f1faa1996853af92a9f9bc"
+    sha256 arm64_linux:       "990b689e0df7bf101ae3d723322f517f9ff7ab9aadf6ae33418e8e5947fc0bb7"
+    sha256 x86_64_linux:      "1f32a7e76e02701e82cc14d72bc9c183c8c49a250a348150a97c8e2caf5963aa"
   end
 
   depends_on "cmake" => :build
