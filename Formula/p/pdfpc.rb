@@ -7,14 +7,15 @@ class Pdfpc < Formula
   head "https://github.com/pdfpc/pdfpc.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "b76907d094e032d1c6d6f67be0b1774b0ceaaad44ec21102fcb82084ae8c94c2"
-    sha256 arm64_sequoia: "76900b6a726ed5f8c747a89957da0b81dd8b18c8b5bda6765f7b1ac4de0c26de"
-    sha256 arm64_sonoma:  "bfbfbdcfb242b5ca2c26764e5175596609bed8b681692a07cc3cf80e1a351de9"
-    sha256 arm64_ventura: "102466bc213e5b6a13b8285441a3c3a22b80f73f47f197481cf20ea4331b6e71"
-    sha256 sonoma:        "c4b524c67133b5517f563706ba4ef91438ec35d0248ff362ef83147a612c9ae1"
-    sha256 ventura:       "b3074deef95572bbd9128bc964db5f8099b627a93a5d1c63b1f10db35c9f1939"
-    sha256 arm64_linux:   "b1d11c2674eedab4f24630c2f9dc2888815feaa14a321d29e237045890e2b01d"
-    sha256 x86_64_linux:  "243cdb84ac1abdc284cc3ff854d68344f549cc4cb94755eccd7b5c20e1c892b7"
+    sha256 arm64_golden_gate: "86aebc11e37516867657a43365a376034d92ce7fe2c5605d3e8cd89a079d84a2"
+    sha256 arm64_tahoe:       "b76907d094e032d1c6d6f67be0b1774b0ceaaad44ec21102fcb82084ae8c94c2"
+    sha256 arm64_sequoia:     "76900b6a726ed5f8c747a89957da0b81dd8b18c8b5bda6765f7b1ac4de0c26de"
+    sha256 arm64_sonoma:      "bfbfbdcfb242b5ca2c26764e5175596609bed8b681692a07cc3cf80e1a351de9"
+    sha256 arm64_ventura:     "102466bc213e5b6a13b8285441a3c3a22b80f73f47f197481cf20ea4331b6e71"
+    sha256 sonoma:            "c4b524c67133b5517f563706ba4ef91438ec35d0248ff362ef83147a612c9ae1"
+    sha256 ventura:           "b3074deef95572bbd9128bc964db5f8099b627a93a5d1c63b1f10db35c9f1939"
+    sha256 arm64_linux:       "b1d11c2674eedab4f24630c2f9dc2888815feaa14a321d29e237045890e2b01d"
+    sha256 x86_64_linux:      "243cdb84ac1abdc284cc3ff854d68344f549cc4cb94755eccd7b5c20e1c892b7"
   end
 
   depends_on "cmake" => :build
