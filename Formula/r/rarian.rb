@@ -12,14 +12,15 @@ class Rarian < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "9902862041d1a77fada33e8ebaabedf67f77b3bc8050ea988f78f8650c2c4ce3"
-    sha256 arm64_sequoia: "0c5d1dc2a38bdba34aee85a1704dd7fe8c4a5d8165888fd96d6844bbd9b6dfc9"
-    sha256 arm64_sonoma:  "8050a6ad473152290f964a8a51eb661d41595c75f0e0286d01a38764c77283e5"
-    sha256 arm64_ventura: "385dbc09752299c2b0cfcb4da0bf18e6a799d891c3cc4939748bbd57e8cce98f"
-    sha256 sonoma:        "ed569b70aaf6ecb11c8e6c77306b9514c27ca2013c3ec6583e735935ad593962"
-    sha256 ventura:       "a6707c1941c3e76d099eb2d1a780bfd01ce45980f2446b81f16204d781e37bfa"
-    sha256 arm64_linux:   "71527d1afc769fb36f87f00e635acdf53f7b74f74cbe3448c00108ca368ad18e"
-    sha256 x86_64_linux:  "289b7f0d276337b070e632d435f8f85f96462c8982d2597cd90f552aac4d14cf"
+    sha256 arm64_golden_gate: "35aad39ae50e831b5d0be40ebd6326bea17ed79988d60310cb1fc10077d85a85"
+    sha256 arm64_tahoe:       "9902862041d1a77fada33e8ebaabedf67f77b3bc8050ea988f78f8650c2c4ce3"
+    sha256 arm64_sequoia:     "0c5d1dc2a38bdba34aee85a1704dd7fe8c4a5d8165888fd96d6844bbd9b6dfc9"
+    sha256 arm64_sonoma:      "8050a6ad473152290f964a8a51eb661d41595c75f0e0286d01a38764c77283e5"
+    sha256 arm64_ventura:     "385dbc09752299c2b0cfcb4da0bf18e6a799d891c3cc4939748bbd57e8cce98f"
+    sha256 sonoma:            "ed569b70aaf6ecb11c8e6c77306b9514c27ca2013c3ec6583e735935ad593962"
+    sha256 ventura:           "a6707c1941c3e76d099eb2d1a780bfd01ce45980f2446b81f16204d781e37bfa"
+    sha256 arm64_linux:       "71527d1afc769fb36f87f00e635acdf53f7b74f74cbe3448c00108ca368ad18e"
+    sha256 x86_64_linux:      "289b7f0d276337b070e632d435f8f85f96462c8982d2597cd90f552aac4d14cf"
   end
 
   depends_on "autoconf" => :build
