@@ -7,12 +7,13 @@ class ReginaRexx < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_tahoe:   "d76bfed5b0028c56cafecba2170f782ed8931dd6407df7d000bd96d0efdf8e40"
-    sha256 arm64_sequoia: "d46186cbae2e186143060856047562350893ed578530dc613bf6937d6256fd03"
-    sha256 arm64_sonoma:  "bab4ff512b66e827e7da2dcf394cdf82aba419cc239080d869f57d99a2cfa2d5"
-    sha256 sonoma:        "8145e5d4412439e1e009aa1f4ed9c38f3a09f98a52d95c2ec1a12f3d44615a06"
-    sha256 arm64_linux:   "7af7c2860e82d3491fd3c16780357d93cf5e079faa31818422788639409ef536"
-    sha256 x86_64_linux:  "bfd12c2f8bcc5e7a606df315404dd46fe556613c395bb87f0971c7bf7f85e868"
+    sha256 arm64_golden_gate: "5e6ce8921e567b2f7ecf98c4e8a781c5489f2b969b797860ea1fe9b208b94af6"
+    sha256 arm64_tahoe:       "d76bfed5b0028c56cafecba2170f782ed8931dd6407df7d000bd96d0efdf8e40"
+    sha256 arm64_sequoia:     "d46186cbae2e186143060856047562350893ed578530dc613bf6937d6256fd03"
+    sha256 arm64_sonoma:      "bab4ff512b66e827e7da2dcf394cdf82aba419cc239080d869f57d99a2cfa2d5"
+    sha256 sonoma:            "8145e5d4412439e1e009aa1f4ed9c38f3a09f98a52d95c2ec1a12f3d44615a06"
+    sha256 arm64_linux:       "7af7c2860e82d3491fd3c16780357d93cf5e079faa31818422788639409ef536"
+    sha256 x86_64_linux:      "bfd12c2f8bcc5e7a606df315404dd46fe556613c395bb87f0971c7bf7f85e868"
   end
 
   uses_from_macos "libxcrypt"
