@@ -9,13 +9,12 @@ class Pympress < Formula
   head "https://github.com/Cimbali/pympress.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1a9ef0a8dddce6dc59d94b8306551292a7d729bac7cd65ee155525c1172f4522"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d45f3cf0538dbea0b86d894b29cad51a898474aa279aab3fbf5fd56a19951cf5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "502282c5a2e40f39bd9b13325cc4b51b7650416985ada770d3fe05fdc756f06b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "91a85242406ec115336bf6968550b383d7ccc175ce040690b90f1502b55a34d1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2688fa0cd6b49f869cc7d6eab21815441c7d1c44e55e20fbef26f22fb75dd19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2688fa0cd6b49f869cc7d6eab21815441c7d1c44e55e20fbef26f22fb75dd19"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "339feb3b225370afd424687da9db3203f4a305bea3cdaa0ab5ff90a7f0a84cfd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ed91496f2ac340987c1084be36b180a86533c6387bfc262214144805dd625107"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "88ed25f909c6c396a882e6c040c602f93201f6679c1d34ef3a87c1ee004bdf91"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f8ba43665083628ea2b064b4faf763d1f3e3c13081077f795aa3349ce909a40b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f8ba43665083628ea2b064b4faf763d1f3e3c13081077f795aa3349ce909a40b"
   end
 
   depends_on "gobject-introspection"
@@ -32,24 +31,29 @@ class Pympress < Formula
   end
 
   def install
+    # TODO: Babel 2.18 reworded the "no message catalogs found" error the sdist build relies on catching
+    inreplace "setup.py", "if err.args == ('no message catalogs found',):",
+                          "if str(err).startswith('no message catalogs found'):"
+
     virtualenv_install_with_resources
   end
 
   test do
+    # Importing GTK aborts in the sandbox: GDK Quartz registers with LaunchServices, which mach-lookup denies
+    if OS.mac?
+      output = shell_output("#{libexec}/bin/python -c 'import pympress; print(pympress.__version__)'")
+      assert_match(/^\d+(\.\d+)+$/, output.strip)
+      return
+    end
+
     # (pympress:48790): Gtk-WARNING **: 13:03:37.080: cannot open display
     ENV["PYMPRESS_HEADLESS_TEST"] = "1" if ENV["HOMEBREW_GITHUB_ACTIONS"]
-
-    (testpath/"Library/Preferences").mkpath
 
     system bin/"pympress", "--quit"
 
     # Check everything ran fine at least until reporting the version string in the log file
     # which means all dependencies got loaded OK. Do not check actual version numbers as it breaks --HEAD tests.
-    log = if OS.linux?
-      Pathname.new(ENV["XDG_CACHE_HOME"] || (testpath/".cache"))/"pympress.log"
-    else
-      testpath/"Library/Logs/pympress.log"
-    end
+    log = Pathname.new(ENV["XDG_CACHE_HOME"] || (testpath/".cache"))/"pympress.log"
     assert_path_exists log
     assert_match "INFO:pympress.app:Pympress:", log.read
   end
