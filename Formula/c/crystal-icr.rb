@@ -7,13 +7,12 @@ class CrystalIcr < Formula
   revision 3
 
   bottle do
-    rebuild 2
-    sha256 arm64_tahoe:   "47b87d51941304b32356638c1fc18d7f790abc8f11d78c31cc36e3330cafaf3a"
-    sha256 arm64_sequoia: "8e4b4b0b69f4f672124104df16a9cf4792d8db5209517e9e87a09cf0d2072ad6"
-    sha256 arm64_sonoma:  "7c2fe232277ff3b4b6ba7891b48be012ec6b587eccb836808e5020ffff1aa0ea"
-    sha256 sonoma:        "0059fb894cac54596771eea17d0841284093f8b4875f6a2ae26b8f83a646e0fa"
-    sha256 arm64_linux:   "26f4637129c847fbf3a153ff0975bf4f1c38b2ca19504d53cf093349ed480b37"
-    sha256 x86_64_linux:  "915770d019bb1f2d74bfd0481e6d1233bb51ab8eae2115aa070a47558edaf5e3"
+    rebuild 3
+    sha256 arm64_golden_gate: "16494c7f2dc00b76f48cfe4eecedf6654b105125cc15aa79ae74215958bf2d5b"
+    sha256 arm64_tahoe:       "f2dcd176ebd262e64584de8180f9c58f3f2e9442014645582ce9bea729eff649"
+    sha256 arm64_sequoia:     "b1b54bf47bdd2cff1696b3a96b48ba922df129e3d2541a11107a1fd040ca4536"
+    sha256 arm64_linux:       "e83bfa5cd9f2669132caa35ce32f4b2da3dc31ffb04f480e66f816ae0295c1af"
+    sha256 x86_64_linux:      "5ab53d6f72128b8c9cfb0e85e7e0859e0f4e1b16c9cd06d2ddf246ffe0088288"
   end
 
   depends_on "bdw-gc"
@@ -26,6 +25,14 @@ class CrystalIcr < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  # Fix build with Crystal 1.21
+  patch do
+    url "https://github.com/crystal-community/icr/commit/bebf21ccea7c372b86d233552b05b824b21e97f7.patch?full_index=1"
+    sha256 "50b632eb3115eaa10b92b99df1cac9cdfbf4c2523204bd22b6a8c590f8204427"
+    type :unofficial
+    resolves "https://github.com/crystal-community/icr/pull/136"
   end
 
   def install
