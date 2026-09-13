@@ -23,6 +23,13 @@ class TerraformLs < Formula
 
   depends_on "go" => :build
 
+  # `test do` block binds a local port
+  deny_network_access! [:build, :postinstall]
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ldflags = %W[-X main.rawVersion=#{version}+#{tap.user}]
     system "go", "build", *std_go_args(ldflags:)

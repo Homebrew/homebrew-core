@@ -18,6 +18,12 @@ class LicenseEye < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ldflags = "-X github.com/apache/skywalking-eyes/commands.version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/license-eye"

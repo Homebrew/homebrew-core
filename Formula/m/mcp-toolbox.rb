@@ -17,6 +17,13 @@ class McpToolbox < Formula
 
   conflicts_with "kahip", because: "both install `toolbox` binaries"
 
+  # `test do` block binds a local port
+  deny_network_access! [:build, :postinstall]
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
 

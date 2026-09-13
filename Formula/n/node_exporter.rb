@@ -23,6 +23,13 @@ class NodeExporter < Formula
 
   depends_on "go" => :build
 
+  # `test do` block runs a local exporter server
+  deny_network_access! [:build, :postinstall]
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ldflags = %W[
       -X github.com/prometheus/common/version.Version=#{version}

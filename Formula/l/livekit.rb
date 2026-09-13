@@ -26,6 +26,13 @@ class Livekit < Formula
 
   depends_on "go" => :build
 
+  # `test do` block runs a local server
+  deny_network_access! [:build, :postinstall]
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "go", "build", *std_go_args(output: bin/"livekit-server"), "./cmd/server"
   end
