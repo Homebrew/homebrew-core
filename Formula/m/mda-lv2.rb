@@ -11,12 +11,13 @@ class MdaLv2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "447ee93aeb3642b63ef2b53240819f591a759b3ba9f41fec46064ad2d65a0c81"
-    sha256 cellar: :any, arm64_sequoia: "5df0bbe04df736019264d64fc02e3804c3b60127e998195f52c1f540a70d3ee2"
-    sha256 cellar: :any, arm64_sonoma:  "f3d7a14ce565ffae347fa5f3bc7d2a925c50826fbcb592dbcf9e36c7de1a2afb"
-    sha256 cellar: :any, sonoma:        "b2b1b04ec9041f9bfcc79b9f4b4050431b1c32ea7621bc4593d3da2f21bd95d8"
-    sha256 cellar: :any, arm64_linux:   "cca05417c9ec37edfdcb755f73c90fca74243c3819ca581318178939d0a76a8a"
-    sha256 cellar: :any, x86_64_linux:  "258c42d6df9fa538203ade9c9c642cf881dabc02a0b973f51043145f2b5cf2e3"
+    sha256 cellar: :any, arm64_golden_gate: "bae09bbd63b2a67088403d3974c36cee86e4be971ee5ba04071aef8f4ca0a4ed"
+    sha256 cellar: :any, arm64_tahoe:       "447ee93aeb3642b63ef2b53240819f591a759b3ba9f41fec46064ad2d65a0c81"
+    sha256 cellar: :any, arm64_sequoia:     "5df0bbe04df736019264d64fc02e3804c3b60127e998195f52c1f540a70d3ee2"
+    sha256 cellar: :any, arm64_sonoma:      "f3d7a14ce565ffae347fa5f3bc7d2a925c50826fbcb592dbcf9e36c7de1a2afb"
+    sha256 cellar: :any, sonoma:            "b2b1b04ec9041f9bfcc79b9f4b4050431b1c32ea7621bc4593d3da2f21bd95d8"
+    sha256 cellar: :any, arm64_linux:       "cca05417c9ec37edfdcb755f73c90fca74243c3819ca581318178939d0a76a8a"
+    sha256 cellar: :any, x86_64_linux:      "258c42d6df9fa538203ade9c9c642cf881dabc02a0b973f51043145f2b5cf2e3"
   end
 
   depends_on "meson" => :build
