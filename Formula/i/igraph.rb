@@ -6,12 +6,12 @@ class Igraph < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b3805393001183d91ec1b827c3e8b0f7f1d891f3d212e06f96c04acba8f77e6f"
-    sha256 cellar: :any,                 arm64_sequoia: "3290ea536022e5aafdbe0a1e857bfa90cf47e74d10020b30d49200802714d148"
-    sha256 cellar: :any,                 arm64_sonoma:  "6346c4806faaeae0893e2ccdaac839e8afefc174c980317f2cd1b5b6c87dfea2"
-    sha256 cellar: :any,                 sonoma:        "d8edfe86b7564c1c2967631625918a878d905ddd69957ff7c4887ab6b2f9d0d8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0ceb3ff22b939cc3a1c9e56fd1ce861bb29ae0cf250f12a155078e44b34dfc23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd9b468b1f12e84c1b9c6a3b424ec783ebf87b363c46b30ddb076e967e8d6ffa"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "67bc9770a055f5c6b91b164a0649505d081fc278b697854bfd80976eb0cbc55c"
+    sha256 cellar: :any, arm64_tahoe:       "d6a735b6308ff9431cf84f33b3cbe912c364a36346886a8b6b52deecdccde40c"
+    sha256 cellar: :any, arm64_sequoia:     "5584369d3be6d0d15600268c0bdcf4faac06b156692347c0b103e97949c606b7"
+    sha256 cellar: :any, arm64_linux:       "b7631b0072b24e7ec4ebbde57336c6263e74a0b38592e16049c0e10e3b246c00"
+    sha256 cellar: :any, x86_64_linux:      "169b2bc3038142a370a2c77b280818d0bfa13363490547d4c4010d51af80625b"
   end
 
   depends_on "cmake" => :build
@@ -32,12 +32,14 @@ class Igraph < Formula
     # * BLAS and LAPACK should come from OpenBLAS
     # * prevent the usage of ccache even if it is installed to ensure that we
     #    have a clean build
+    # * OpenMP is not auto-detected from the `libomp` that `openblas` pulls in
     args = %w[
       -DBUILD_SHARED_LIBS=ON
       -DIGRAPH_ENABLE_LTO=AUTO
       -DIGRAPH_ENABLE_TLS=ON
       -DIGRAPH_GLPK_SUPPORT=ON
       -DIGRAPH_GRAPHML_SUPPORT=ON
+      -DIGRAPH_OPENMP_SUPPORT=OFF
       -DIGRAPH_USE_INTERNAL_ARPACK=OFF
       -DIGRAPH_USE_INTERNAL_BLAS=OFF
       -DIGRAPH_USE_INTERNAL_GLPK=OFF
