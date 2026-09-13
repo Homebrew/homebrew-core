@@ -25,27 +25,20 @@ class Csfml < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<~CPP
-      #include <CSFML/Window/Window.h>
+    (testpath/"test.c").write <<~C
+      #include <CSFML/System/Clock.h>
+      #include <CSFML/System/Sleep.h>
 
-      int main()
+      int main(void)
       {
-          sfVideoMode m = {800, 600, 32};
-          sfWindow* w = sfWindow_create(m, "csfml", sfClose, sfWindowed, NULL);
-
-          while (sfWindow_isOpen(w))
-          {
-              sfEvent e;
-              sfWindow_pollEvent(w, &e);
-              sfWindow_close(w);
-          }
-
-          sfWindow_destroy(w);
-          return 0;
+          sfClock* clock = sfClock_create();
+          sfSleep(sfMilliseconds(10));
+          sfTime elapsed = sfClock_getElapsedTime(clock);
+          sfClock_destroy(clock);
+          return elapsed.microseconds >= 10000 ? 0 : 1;
       }
-    CPP
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lcsfml-window", "-o", "test"
-    # Disable this part of the test on Linux because display is not available.
-    system "./test" if OS.mac?
+    C
+    system ENV.cc, "test.c", "-L#{lib}", "-lcsfml-system", "-o", "test"
+    system "./test"
   end
 end
