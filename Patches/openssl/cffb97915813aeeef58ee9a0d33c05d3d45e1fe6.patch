@@ -1,0 +1,46 @@
+From cffb97915813aeeef58ee9a0d33c05d3d45e1fe6 Mon Sep 17 00:00:00 2001
+From: Matt Caswell <matt@openssl.foundation>
+Date: Wed, 17 Jun 2026 11:18:12 +0100
+Subject: [PATCH] Fix intermittent failure in check_pc_flood radix test
+
+check_flood_stats read the path challenge/response counters immediately
+after the client's write returned, but the flood is delivered over a
+real socket and processed by the connection's assist thread
+asynchronously. Spin until the counters reach their expected values,
+the same way check_rejected already does, instead of failing on the
+first observation.
+
+Observed failure:
+https://github.com/openssl/openssl/actions/runs/27669771673/job/81831310551?pr=31538
+
+Assisted-by: Claude:claude-sonnet-4-6
+
+Reviewed-by: Nikola Pajkovsky <nikolap@openssl.org>
+Reviewed-by: Milan Broz <mbroz@openssl.org>
+MergeDate: Thu Jun 18 13:07:27 2026
+(Merged from https://github.com/openssl/openssl/pull/31561)
+
+(cherry picked from commit 75f59968b838dabc3ff441ae2841c10e0df64b2b)
+---
+ test/radix/quic_tests.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/test/radix/quic_tests.c b/test/radix/quic_tests.c
+index abdb277a428d80e1c0999a112d3a761740d67cb4..ab862fa1febf2174d461afe817cc8e6d5ec404f8 100644
+--- a/test/radix/quic_tests.c
++++ b/test/radix/quic_tests.c
+@@ -455,6 +455,14 @@ DEF_FUNC(check_flood_stats)
+     path_challenge_count = ossl_quic_channel_get_path_challenge_count(ch);
+     path_response_count = ossl_quic_channel_get_path_response_count(ch);
+ 
++    /*
++     * The flood is delivered over a real socket and processed by the
++     * connection's assist thread asynchronously, so give it a chance to
++     * catch up rather than failing on the first observation.
++     */
++    if (path_challenge_count < 16 || path_response_count < 1)
++        F_SPIN_AGAIN();
++
+     if (!TEST_uint64_t_eq(path_challenge_count, 16))
+         goto err;
+     if (!TEST_uint64_t_eq(path_response_count, 1))
