@@ -135,11 +135,32 @@ class Cronboard < Formula
   end
 
   test do
-    output = if OS.mac?
-      "Operation not permitted: '/usr/bin/crontab'"
-    else
-      "Error: Can't read crontab"
+    # Stub `crontab` so the TUI starts regardless of whether the host has cron
+    (testpath/"bin/crontab").write <<~SH
+      #!/bin/sh
+      exit 0
+    SH
+    (testpath/"bin/crontab").chmod 0755
+    ENV.prepend_path "PATH", testpath/"bin"
+
+    require "expect"
+    require "io/console"
+    require "pty"
+
+    PTY.spawn(bin/"cronboard") do |r, w, pid|
+      r.winsize = [24, 80]
+      r.set_encoding("UTF-8")
+      refute_nil r.expect("v#{version}", 30), "expected the cronboard banner"
+      w.write "\x03"
+    ensure
+      Process.kill "KILL", pid
+      # Drain the pty so the killed TUI can finish exiting and be reaped
+      begin
+        r.read(nil, +"")
+      rescue Errno::EIO
+        nil
+      end
+      Process.wait pid
     end
-    assert_match output, shell_output("#{bin}/cronboard 2>&1")
   end
 end
