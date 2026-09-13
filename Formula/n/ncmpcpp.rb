@@ -9,12 +9,12 @@ class Ncmpcpp < Formula
   head "https://github.com/ncmpcpp/ncmpcpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "2e70df09ef0392be678b106644b84817842e5f7662929a69d091f1e23f002f5b"
-    sha256 cellar: :any, arm64_sequoia: "d441950bc1e0da43d6a59a080d4ec899c3ee3241420b20627d7f469c0d357ae8"
-    sha256 cellar: :any, arm64_sonoma:  "1aa131d853f48e829a66dbc8008fc2013af1f763da4712791ad611fd4cf4ac24"
-    sha256 cellar: :any, sonoma:        "860160a2247e6c23fd944d93088ab8aa6101de5bbd864419cd66311e588c3246"
-    sha256 cellar: :any, arm64_linux:   "295b3a2023ab805b8d62662c4c7deafa80f8e57861c089ab72e414e7e5295f00"
-    sha256 cellar: :any, x86_64_linux:  "1cc1a9db3ce0094c788f17be56d9dcc769d871e5292f62b63fd24ca6ed29ab92"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "520feb21eca06ec08d9625f5a3599bd66bbeb79065095350bd2447c368e128ea"
+    sha256 cellar: :any, arm64_tahoe:       "cdab6288c93e2911cd53cc2a07dc7dc67427bb5f28b17e3071f521d32881ef4d"
+    sha256 cellar: :any, arm64_sequoia:     "5102d992e8855549ed40573a77910cde08e8e4893f335dfc3514d414c5c3a7e7"
+    sha256 cellar: :any, arm64_linux:       "fc778494c709bbcb075c3a87e7068f530626f5eb611037e2aa235f87d6d094c9"
+    sha256 cellar: :any, x86_64_linux:      "080126dba407b5868aa6b21c81dae21d1c1c11db138746fada2347456e745d5f"
   end
 
   depends_on "autoconf" => :build
@@ -38,6 +38,15 @@ class Ncmpcpp < Formula
     type :backport
     resolves "https://github.com/ncmpcpp/ncmpcpp/pull/636",
              "https://github.com/ncmpcpp/ncmpcpp/issues/633"
+  end
+
+  # Fix build with libc++ 22
+  patch do
+    url "https://github.com/ncmpcpp/ncmpcpp/commit/7523f11583279a80c1578d29d6c189fa74f4aa64.patch?full_index=1"
+    sha256 "684cd051e7a8a5954d2763c699482fa25b8d5b0b90e2329b02bb9dd48a1e31de"
+    type :unofficial
+    resolves "https://github.com/ncmpcpp/ncmpcpp/pull/665",
+             "https://github.com/ncmpcpp/ncmpcpp/issues/663"
   end
 
   def install
