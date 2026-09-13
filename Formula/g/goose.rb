@@ -19,6 +19,12 @@ class Goose < Formula
 
   conflicts_with "block-goose-cli", because: "both install `goose` binaries"
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ldflags = %W[-X main.version=v#{version}]
     system "go", "build", *std_go_args(ldflags:), "./cmd/goose"
