@@ -7,12 +7,13 @@ class Redli < Formula
   head "https://github.com/IBM-Cloud/redli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "551d5aeaffbb3b043b44b4e18fc830747719372caf61cb6955bc1ad08887b775"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "551d5aeaffbb3b043b44b4e18fc830747719372caf61cb6955bc1ad08887b775"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "551d5aeaffbb3b043b44b4e18fc830747719372caf61cb6955bc1ad08887b775"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c6c3cc589ffcc8269d1bb58c22cfb978fba14a49a4fb5953af1715cbdb0ec673"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9d20057530e78c3f6809cf3398a12818ca83c6d3cfb7ffa530c85197da60744"
-    sha256 cellar: :any,                 x86_64_linux:  "767190199a53710edb1add14ce5a407176b364a62246c4e536ded304400956e1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0d60a8c48f79b093cb76e5543ece8d7046b2fdf451b13fd99a47eb790579a30b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "551d5aeaffbb3b043b44b4e18fc830747719372caf61cb6955bc1ad08887b775"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "551d5aeaffbb3b043b44b4e18fc830747719372caf61cb6955bc1ad08887b775"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "551d5aeaffbb3b043b44b4e18fc830747719372caf61cb6955bc1ad08887b775"
+    sha256 cellar: :any_skip_relocation, sonoma:            "c6c3cc589ffcc8269d1bb58c22cfb978fba14a49a4fb5953af1715cbdb0ec673"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f9d20057530e78c3f6809cf3398a12818ca83c6d3cfb7ffa530c85197da60744"
+    sha256 cellar: :any,                 x86_64_linux:      "767190199a53710edb1add14ce5a407176b364a62246c4e536ded304400956e1"
   end
 
   depends_on "go" => :build
