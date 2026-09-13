@@ -14,12 +14,13 @@ class Sdl2Sound < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "043e49d5dd24b993e88ba11b15d339f43ce0a86109912eb1476a9464605a0848"
-    sha256 cellar: :any, arm64_sequoia: "b322993196e931dd4fcce8e36f12c957246b039fef91322fffeadbd9654a7c62"
-    sha256 cellar: :any, arm64_sonoma:  "97d62e44d53adfb1c1abc7e25bdfbe57ac0becb6a9971991b446fe6d59d94cfb"
-    sha256 cellar: :any, sonoma:        "37d9acd0a11a6d9a13826a2557633b634dbd8398496c6a693ad13bc518dfcd88"
-    sha256 cellar: :any, arm64_linux:   "6eafbbb7cebbb0f50739623661c4df2260d991c94307371cca150fa89bc86ebd"
-    sha256 cellar: :any, x86_64_linux:  "a6b722aa0138e078f6c44781a4d963b6bcf731cced90108ea414a92bf7d488b4"
+    sha256 cellar: :any, arm64_golden_gate: "d85f843f245d2b4d9f63ac4fa19686b2bdc534a935063ef10a4e13ad1a51e2f0"
+    sha256 cellar: :any, arm64_tahoe:       "043e49d5dd24b993e88ba11b15d339f43ce0a86109912eb1476a9464605a0848"
+    sha256 cellar: :any, arm64_sequoia:     "b322993196e931dd4fcce8e36f12c957246b039fef91322fffeadbd9654a7c62"
+    sha256 cellar: :any, arm64_sonoma:      "97d62e44d53adfb1c1abc7e25bdfbe57ac0becb6a9971991b446fe6d59d94cfb"
+    sha256 cellar: :any, sonoma:            "37d9acd0a11a6d9a13826a2557633b634dbd8398496c6a693ad13bc518dfcd88"
+    sha256 cellar: :any, arm64_linux:       "6eafbbb7cebbb0f50739623661c4df2260d991c94307371cca150fa89bc86ebd"
+    sha256 cellar: :any, x86_64_linux:      "a6b722aa0138e078f6c44781a4d963b6bcf731cced90108ea414a92bf7d488b4"
   end
 
   depends_on "cmake" => :build
