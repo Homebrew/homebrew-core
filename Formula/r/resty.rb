@@ -11,14 +11,15 @@ class Resty < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "142618e3523dfa8518328f4ba6d4bb685acfd7be85116996b7cb7ba4aa8f96a9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "142618e3523dfa8518328f4ba6d4bb685acfd7be85116996b7cb7ba4aa8f96a9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "142618e3523dfa8518328f4ba6d4bb685acfd7be85116996b7cb7ba4aa8f96a9"
-    sha256 cellar: :any_skip_relocation, tahoe:         "a401e4be92df4f5e3ecbd104761ccbcdc35f77376ce428db247dbf8467493914"
-    sha256 cellar: :any_skip_relocation, sequoia:       "a401e4be92df4f5e3ecbd104761ccbcdc35f77376ce428db247dbf8467493914"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a401e4be92df4f5e3ecbd104761ccbcdc35f77376ce428db247dbf8467493914"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c866b5ec9a984338dad43d3d225b39e11847f38723f90b5f1b3032d74f428bf3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d0b9d21b797d3a871dac057b6c67ad9d0c52c3d711741fb497f54989eb3f29cd"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7a1a566e1c44e57cb2f2f33364b67dcf824667038ee9420d6de7359d053ae02c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "142618e3523dfa8518328f4ba6d4bb685acfd7be85116996b7cb7ba4aa8f96a9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "142618e3523dfa8518328f4ba6d4bb685acfd7be85116996b7cb7ba4aa8f96a9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "142618e3523dfa8518328f4ba6d4bb685acfd7be85116996b7cb7ba4aa8f96a9"
+    sha256 cellar: :any_skip_relocation, tahoe:             "a401e4be92df4f5e3ecbd104761ccbcdc35f77376ce428db247dbf8467493914"
+    sha256 cellar: :any_skip_relocation, sequoia:           "a401e4be92df4f5e3ecbd104761ccbcdc35f77376ce428db247dbf8467493914"
+    sha256 cellar: :any_skip_relocation, sonoma:            "a401e4be92df4f5e3ecbd104761ccbcdc35f77376ce428db247dbf8467493914"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "c866b5ec9a984338dad43d3d225b39e11847f38723f90b5f1b3032d74f428bf3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d0b9d21b797d3a871dac057b6c67ad9d0c52c3d711741fb497f54989eb3f29cd"
   end
 
   uses_from_macos "perl"
