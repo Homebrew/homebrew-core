@@ -9,6 +9,7 @@ class Sdcc < Formula
     :public_domain,     # packihx
     "Zlib",             # makebin
   ]
+  revision 1
   head "https://svn.code.sf.net/p/sdcc/code/trunk/sdcc"
 
   livecheck do
@@ -49,6 +50,8 @@ class Sdcc < Formula
     system "./configure", "--disable-non-free", "--without-ccache", *std_configure_args
     system "make", "install"
     elisp.install bin.glob("*.el")
+    # FIXME: sdbinutils prefixes every tool except the demangler, which clashes with `binutils`
+    mv bin/"c++filt", bin/"sdc++filt"
   end
 
   test do
@@ -58,6 +61,7 @@ class Sdcc < Formula
       }
     C
     system bin/"sdcc", "-mz80", testpath/"test.c"
+    assert_match "main()", shell_output("#{bin}/sdc++filt _Z4mainv")
     assert_path_exists testpath/"test.ihx"
   end
 end
