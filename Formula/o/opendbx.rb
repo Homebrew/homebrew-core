@@ -1,17 +1,11 @@
 class Opendbx < Formula
   desc "Lightweight but extensible database access library in C"
-  homepage "https://linuxnetworks.de/doc/index.php/OpenDBX"
-  url "https://linuxnetworks.de/opendbx/download/opendbx-1.4.6.tar.gz"
+  # Upstream site went down in 2026, so use the Wayback Machine (`id_` serves the original bytes)
+  homepage "https://web.archive.org/web/20260620194551/https://www.linuxnetworks.de/doc/index.php/OpenDBX"
+  url "https://web.archive.org/web/20260205175644id_/https://linuxnetworks.de/opendbx/download/opendbx-1.4.6.tar.gz"
   sha256 "2246a03812c7d90f10194ad01c2213a7646e383000a800277c6fb8d2bf81497c"
   license "LGPL-2.0-or-later"
   revision 2
-
-  # The download page includes a `libopendbx` development release, so we use a
-  # leading forward slash to only match `opendbx` versions.
-  livecheck do
-    url "https://linuxnetworks.de/doc/index.php?title=OpenDBX/Download"
-    regex(%r{href=.*?/opendbx[._-]v?(\d+(?:\.\d+)+)\.t}i)
-  end
 
   bottle do
     sha256 arm64_tahoe:    "8cc990504a450685d677e758cf6741b058dd5b82e1ddf2f10c1e70bac003d58a"
@@ -27,6 +21,10 @@ class Opendbx < Formula
     sha256 arm64_linux:    "16be2c0b756f68f456251052c96ac4436e92a96be74ff9c0e2d935be95bd2e62"
     sha256 x86_64_linux:   "9ef3f4d6acb641cbe910f05f8ec191ffdc886b80c1bed89a962a27031071a940"
   end
+
+  # Upstream homepage is gone
+  deprecate! date: "2026-09-15", because: :repo_removed
+  disable! date: "2026-12-15", because: :repo_removed
 
   depends_on "readline"
   depends_on "sqlite"
