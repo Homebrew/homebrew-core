@@ -1,8 +1,8 @@
 class Flvmeta < Formula
   desc "Manipulate Adobe flash video files (FLV)"
   homepage "https://flvmeta.com/"
-  url "https://github.com/noirotm/flvmeta/archive/refs/tags/v1.2.2.tar.gz"
-  sha256 "59371e286168d6e5c4647d3575c01bcbb30147c4916eb69e10f38cdbc1c5546d"
+  url "https://github.com/noirotm/flvmeta/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "dc0297e0e7b2cb2a044dac9cd13fa58ee3dbb3a9a6ba473b3f4d1c1787d3da78"
   license "GPL-2.0-or-later"
   head "https://github.com/noirotm/flvmeta.git", branch: "master"
 
@@ -20,10 +20,6 @@ class Flvmeta < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:    "d45e880bb95c11493d7dff0a9bc84a06bf189f26e447fcbdb3794317c136cc7b"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ee08a06c1340135e808d5f305f22d343264c7cd059c250bb0371dab7403a3d9"
   end
-
-  # adobe flash player EOL 12/31/2020, https://www.adobe.com/products/flashplayer/end-of-life-alternative.html
-  deprecate! date: "2025-03-21", because: :unmaintained
-  disable! date: "2026-03-21", because: :unmaintained
 
   depends_on "cmake" => :build
 
