@@ -1,10 +1,10 @@
 class Buildifier < Formula
   desc "Format bazel BUILD files with a standard convention"
-  homepage "https://github.com/bazelbuild/buildtools"
-  url "https://github.com/bazelbuild/buildtools/archive/refs/tags/v8.5.1.tar.gz"
-  sha256 "f3b800e9f6ca60bdef3709440f393348f7c18a29f30814288a7326285c80aab9"
+  homepage "https://github.com/bazel-contrib/buildtools"
+  url "https://github.com/bazel-contrib/buildtools/archive/refs/tags/v10.0.0.tar.gz"
+  sha256 "f495fe290cf2a009e80b20d5623c7756890a8a45d83fc93d44a31ab92060c752"
   license "Apache-2.0"
-  head "https://github.com/bazelbuild/buildtools.git", branch: "main"
+  head "https://github.com/bazel-contrib/buildtools.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "40e74095c993f35604dfc623f99570c7c1468983eda31ee4a7d80bff8513bb8b"
@@ -17,12 +17,6 @@ class Buildifier < Formula
   end
 
   depends_on "go" => :build
-
-  deny_network_access!
-
-  def fetch
-    system "go", "mod", "download"
-  end
 
   def install
     system "go", "build", *std_go_args, "./buildifier"
