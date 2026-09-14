@@ -22,13 +22,11 @@ class Mcphost < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
-
-    generate_completions_from_executable(bin/"mcphost", shell_parameter_format: :cobra)
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/mcphost --version")
-    assert_match "Authentication Status", shell_output("#{bin}/mcphost auth status")
-    assert_match "EVENT  MATCHER  COMMAND  TIMEOUT", shell_output("#{bin}/mcphost hooks list")
+    assert_match version.to_s, shell_output("#{bin}/mcphost --version < /dev/null")
+    assert_match "Authentication Status", shell_output("#{bin}/mcphost auth status < /dev/null")
+    assert_match "EVENT  MATCHER  COMMAND  TIMEOUT", shell_output("#{bin}/mcphost hooks list < /dev/null")
   end
 end
