@@ -129,6 +129,28 @@ class Podman < Formula
     type :unofficial
   end
 
+  # `test do` block needs local sockets for machine setup
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+    if OS.mac?
+      resource("gvproxy").stage do
+        system "go", "mod", "download"
+      end
+      resource("vfkit").stage do
+        system "go", "mod", "download"
+      end
+    else
+      resource("netavark").stage do
+        system "cargo", "fetch", "--locked"
+      end
+      resource("aardvark-dns").stage do
+        system "cargo", "fetch", "--locked"
+      end
+    end
+  end
+
   def install
     if OS.mac?
       ENV["CGO_ENABLED"] = "1"
