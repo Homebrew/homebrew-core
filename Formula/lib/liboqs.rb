@@ -41,8 +41,8 @@ class Liboqs < Formula
   test do
     cp pkgshare/"tests/example_kem.c", "test.c"
     system ENV.cc, "test.c",
-                  "-I#{Formula["openssl@3"].include}", "-I#{include}",
-                  "-L#{Formula["openssl@3"].lib}", "-L#{lib}",
+                  "-I#{formula_opt_include("openssl@3")}", "-I#{include}",
+                  "-L#{formula_opt_lib("openssl@3")}", "-L#{lib}",
                   "-loqs", "-lssl", "-lcrypto", "-o", "test"
     assert_match "operations completed", shell_output("./test")
   end

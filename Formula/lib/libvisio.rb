@@ -52,8 +52,8 @@ class Libvisio < Formula
     CPP
     system ENV.cxx, "test.cpp", "-o", "test",
                     "-lrevenge-stream-0.0",
-                    "-I#{Formula["librevenge"].include}/librevenge-0.0",
-                    "-L#{Formula["librevenge"].lib}",
+                    "-I#{formula_opt_include("librevenge")}/librevenge-0.0",
+                    "-L#{formula_opt_lib("librevenge")}",
                     "-lvisio-0.1", "-I#{include}/libvisio-0.1", "-L#{lib}"
     system "./test"
   end

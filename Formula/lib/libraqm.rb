@@ -40,7 +40,7 @@ class Libraqm < Formula
 
     system ENV.cc, "test.c",
                    "-I#{include}",
-                   "-I#{Formula["freetype"].include/"freetype2"}",
+                   "-I#{formula_opt_include("freetype")/"freetype2"}",
                    "-o", "test"
     system "./test"
   end

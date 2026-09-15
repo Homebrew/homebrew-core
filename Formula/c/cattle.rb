@@ -74,10 +74,10 @@ class Cattle < Formula
     cp_r (pkgshare/"tests").children, testpath
     system ENV.cc, "common.c", "run.c", "-o", "test",
            "-I#{include}/cattle-1.0",
-           "-I#{Formula["glib"].include}/glib-2.0",
-           "-I#{Formula["glib"].lib}/glib-2.0/include",
+           "-I#{formula_opt_include("glib")}/glib-2.0",
+           "-I#{formula_opt_lib("glib")}/glib-2.0/include",
            "-L#{lib}",
-           "-L#{Formula["glib"].lib}",
+           "-L#{formula_opt_lib("glib")}",
            "-lcattle-1.0", "-lglib-2.0", "-lgio-2.0", "-lgobject-2.0"
     assert_match "Unbalanced brackets", shell_output("./test program.c 2>&1", 1)
   end

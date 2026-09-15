@@ -46,7 +46,7 @@ class Prefixsuffix < Formula
   end
 
   def install
-    ENV.prepend_path "PERL5LIB", Formula["perl-xml-parser"].libexec/"lib/perl5" unless OS.mac?
+    ENV.prepend_path "PERL5LIB", formula_opt_libexec("perl-xml-parser")/"lib/perl5" unless OS.mac?
 
     ENV.cxx11
     system "./configure", "--disable-silent-rules",

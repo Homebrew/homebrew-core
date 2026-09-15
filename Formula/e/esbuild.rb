@@ -34,7 +34,7 @@ class Esbuild < Formula
       process.exit()
     JS
 
-    system Formula["node"].libexec/"bin/npm", "install", "react", "react-dom"
+    system formula_opt_libexec("node")/"bin/npm", "install", "react", "react-dom"
     system bin/"esbuild", "app.jsx", "--bundle", "--outfile=out.js"
 
     assert_equal "<h1>Hello, world!</h1>\n", shell_output("node out.js")

@@ -70,7 +70,7 @@ class Gupnp < Formula
     libxml2 = if OS.mac?
       "-I#{MacOS.sdk_path}/usr/include/libxml2"
     else
-      "-I#{Formula["libxml2"].include}/libxml2"
+      "-I#{formula_opt_include("libxml2")}/libxml2"
     end
 
     system ENV.cc, testpath/"test.c",

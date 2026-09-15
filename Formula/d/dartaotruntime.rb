@@ -65,7 +65,7 @@ class Dartaotruntime < Formula
   end
 
   test do
-    dart = Formula["dart-sdk"].bin/"dart"
+    dart = formula_opt_bin("dart-sdk")/"dart"
     system dart, "create", "dart-test"
     cd "dart-test" do
       system dart, "compile", "aot-snapshot", "bin/dart_test.dart"

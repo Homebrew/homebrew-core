@@ -139,8 +139,8 @@ class XorgServer < Formula
         return 0;
       }
     C
-    xcb = Formula["libxcb"]
-    system ENV.cc, "./test.c", "-o", "test", "-I#{xcb.include}", "-L#{xcb.lib}", "-lxcb"
+    system ENV.cc, "./test.c", "-o", "test", "-I#{formula_opt_include("libxcb")}",
+                                             "-L#{formula_opt_lib("libxcb")}", "-lxcb"
 
     display = free_port - 6000
     xvfb_pid = spawn bin/"Xvfb", ":#{display}", "-nolisten", "unix", "-listen", "tcp"

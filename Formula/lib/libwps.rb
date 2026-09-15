@@ -44,9 +44,9 @@ class Libwps < Formula
     CPP
     system ENV.cc, "test.cpp", "-o", "test",
                   "-I#{include}/libwps-0.4",
-                  "-I#{Formula["librevenge"].include}/librevenge-0.0",
+                  "-I#{formula_opt_include("librevenge")}/librevenge-0.0",
                   "-L#{lib}", "-lwps-0.4",
-                  "-L#{Formula["librevenge"].lib}", "-lrevenge-0.0"
+                  "-L#{formula_opt_lib("librevenge")}", "-lrevenge-0.0"
     system "./test"
   end
 end

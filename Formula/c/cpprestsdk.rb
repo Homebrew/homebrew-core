@@ -93,10 +93,9 @@ class Cpprestsdk < Formula
         std::cout << client.request(web::http::methods::GET).get().extract_string().get() << std::endl;
       }
     CPP
-    boost = Formula["boost"]
     system ENV.cxx, "test.cc", "-std=c++11",
-                    "-I#{boost.include}", "-I#{Formula["openssl@3"].include}", "-I#{include}",
-                    "-L#{boost.lib}", "-L#{Formula["openssl@3"].lib}", "-L#{lib}",
+                    "-I#{formula_opt_include("boost")}", "-I#{formula_opt_include("openssl@3")}", "-I#{include}",
+                    "-L#{formula_opt_lib("boost")}", "-L#{formula_opt_lib("openssl@3")}", "-L#{lib}",
                     "-lssl", "-lcrypto", "-lboost_random", "-lboost_chrono", "-lboost_thread",
                     "-lboost_filesystem", "-lcpprest",
                     "-o", "test_cpprest"

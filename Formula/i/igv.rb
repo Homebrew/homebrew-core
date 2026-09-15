@@ -26,7 +26,8 @@ class Igv < Formula
 
   test do
     assert_match "Usage:", shell_output("#{bin}/igvtools")
-    assert_match "org/broad/igv/ui/IGV.class", shell_output("#{Formula["openjdk"].bin}/jar tf #{libexec}/lib/igv.jar")
+    assert_match "org/broad/igv/ui/IGV.class",
+      shell_output("#{formula_opt_bin("openjdk")}/jar tf #{libexec}/lib/igv.jar")
 
     ENV.append "_JAVA_OPTIONS", "-Duser.home=#{testpath}"
     (testpath/"script").write "exit"

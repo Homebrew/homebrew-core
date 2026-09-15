@@ -87,7 +87,7 @@ class Ntfs3g < Formula
   test do
     # create a small raw image, format and check it
     ntfs_raw = testpath/"ntfs.raw"
-    system Formula["coreutils"].libexec/"gnubin/truncate", "--size=10M", ntfs_raw
+    system formula_opt_lbexec("coreutils")/"gnubin/truncate", "--size=10M", ntfs_raw
     ntfs_label_input = "Homebrew"
     system sbin/"mkntfs", "--force", "--fast", "--label", ntfs_label_input, ntfs_raw
     system bin/"ntfsfix", "--no-action", ntfs_raw

@@ -60,8 +60,8 @@ class LibvirtGlib < Formula
     end
     system ENV.cxx, "-std=c++11", "test.cpp",
                     "-I#{libxml2}",
-                    "-I#{Formula["glib"].include}/glib-2.0",
-                    "-I#{Formula["glib"].lib}/glib-2.0/include",
+                    "-I#{formula_opt_include("glib")}/glib-2.0",
+                    "-I#{formula_opt_lib("glib")}/glib-2.0/include",
                     "-I#{include}/libvirt-gconfig-1.0",
                     "-I#{include}/libvirt-glib-1.0",
                     "-I#{include}/libvirt-gobject-1.0",

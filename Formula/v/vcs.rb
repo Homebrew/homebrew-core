@@ -38,7 +38,7 @@ class Vcs < Formula
   end
 
   test do
-    system Formula["ffmpeg"].bin/"ffmpeg", "-f", "rawvideo", "-s", "hd720",
+    system formula_opt_bin("ffmpeg")/"ffmpeg", "-f", "rawvideo", "-s", "hd720",
            "-pix_fmt", "yuv420p", "-r", "30", "-t", "5", "-i", "/dev/zero",
            testpath/"video.mp4"
     assert_path_exists testpath/"video.mp4"

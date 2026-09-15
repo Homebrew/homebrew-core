@@ -46,7 +46,7 @@ class SpirvCross < Formula
 
     inreplace "Makefile", "-I../../include", "-I#{include}"
     inreplace "Makefile", "../../spirv-cross", bin/"spirv-cross"
-    inreplace "Makefile", "glslangValidator", Formula["glslang"].bin/"glslangValidator"
+    inreplace "Makefile", "glslangValidator", formula_opt_bin("glslang")/"glslangValidator"
 
     # fix technically invalid shader code (#version should be first)
     # allows test to pass with newer glslangValidator

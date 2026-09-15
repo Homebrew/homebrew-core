@@ -21,7 +21,7 @@ class Purr < Formula
 
   def install
     # For `sed -i` usage used to remove comments
-    ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
+    ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin" if OS.mac?
 
     system "make"
     bin.install "out/purr"

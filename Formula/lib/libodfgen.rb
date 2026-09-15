@@ -46,9 +46,9 @@ class Libodfgen < Formula
     CPP
     system ENV.cxx, "test.cpp", "-o", "test",
                     "-I#{include}/libodfgen-0.1",
-                    "-I#{Formula["librevenge"].include}/librevenge-0.0",
+                    "-I#{formula_opt_include("librevenge")}/librevenge-0.0",
                     "-L#{lib}", "-lodfgen-0.1",
-                    "-L#{Formula["librevenge"].lib}", "-lrevenge-0.0"
+                    "-L#{formula_opt_lib("librevenge")}", "-lrevenge-0.0"
     system "./test"
   end
 end

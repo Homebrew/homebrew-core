@@ -1,17 +1,16 @@
 class Diamond < Formula
   desc "Accelerated BLAST compatible local sequence aligner"
   homepage "https://github.com/bbuchfink/diamond"
-  url "https://github.com/bbuchfink/diamond/archive/refs/tags/v2.2.6.tar.gz"
-  sha256 "4be3298f3331bece6a5a436987f2c9965b3807ade89fb808b89d905b6f6291e4"
+  url "https://github.com/bbuchfink/diamond/archive/refs/tags/v2.2.7.tar.gz"
+  sha256 "e950fde217b4047e6a631e20b9c2bed602ee3dae435714cc00e6771876754422"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6f8ac6402e6567201dcec88163ea2812210323d228bf62322ead84d6142aeb0a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9a89de766ef1c2a2fd7415b5a8aae00648b6fd3d18968f10591ccac0199980a3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "092c6e283318d945f7d013f4a6ecb3e06b0adaa112e5c3623fc5625f9af9e751"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "3fa3fcd741b2b7c60456e80445648aea04f1df88d12cd83830f1d7c71d900d8b"
-    sha256 cellar: :any,                 arm64_linux:       "5b9bbc9a0f1fa2da55e2029ca414567b502b9b02042536541ea5debc9d7543c9"
-    sha256 cellar: :any,                 x86_64_linux:      "8182397ce6b7f598d6a889b50b8774a897efa1b37c442193555593c277e020e5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d5efd25d3804410df9caa7ba9a27a6304a77ef4815250e057441ff5cefc6721c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "297e1aea6f216440a9851101195977c1ccdd6409129ce884cbf8d7723b2418b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "89071dbaa173dcab7013f9d6f5709ee8d0b5ecce580a3ebc30f39054f55ba762"
+    sha256 cellar: :any,                 arm64_linux:       "5e509850bf50379d790416763b32c143e6e1624ec74e3be573be0eb2f1ab6678"
+    sha256 cellar: :any,                 x86_64_linux:      "347e181a3fde4fa3173c40f551986c9993d51b1f79e3df1e77cd1df9affcb0b8"
   end
 
   depends_on "cmake" => :build

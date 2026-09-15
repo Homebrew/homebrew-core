@@ -3,19 +3,17 @@ class Papis < Formula
 
   desc "Powerful command-line document and bibliography manager"
   homepage "https://papis.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/9e/7f/14f6f1a028be4927883edd7ecab4e27dc7f27f9ae2cb370dca08864264f8/papis-0.16.0.tar.gz"
-  sha256 "a7ce419077bf50bd1db14618c0be971f325a0f331632d4729d5acf8239053c74"
+  url "https://files.pythonhosted.org/packages/34/39/91becff2d0b417d2a2b2777a939834df042944ff964c9a9828af3dc58a59/papis-0.16.1.tar.gz"
+  sha256 "6cc509e8164ac1a9444c77bae4f8ce5cb04056d79dc4a92214474aec09556569"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/papis/papis.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "fa6982ace406a95a4d75a88950f795e7cece016655eb121fb26a4923fb4bef17"
-    sha256 cellar: :any, arm64_tahoe:       "1abb5fed47d5647925fce879e4d47a6d235e6a57b511e0cb0aed6b455fe424ec"
-    sha256 cellar: :any, arm64_sequoia:     "8c48924004b1378390056fdb653d6dce2d6c5eff76b1edd0b48bb478309c1b84"
-    sha256 cellar: :any, arm64_sonoma:      "084f4db6b8ae05903ba9cc13aa91548c4740ac81b4798665055cb48eb77d511f"
-    sha256 cellar: :any, arm64_linux:       "ba8ffe5f2c358be4f38171fe6e2a9077ac505f803e394efbcd932030be7197fa"
-    sha256 cellar: :any, x86_64_linux:      "d35f371449e48eb36ff247a34025893d9f614d40e2df18646351eeb3ad3e8daa"
+    sha256 cellar: :any, arm64_golden_gate: "3b6600209fdea851bbae45944d880a5dace00e09e440d68268cf30dbf14329d0"
+    sha256 cellar: :any, arm64_tahoe:       "7cdc5e1070facdddcf1c2ab96e1d7ec98887e36ac94ddd4456e6af723fdeafae"
+    sha256 cellar: :any, arm64_sequoia:     "3bff356c2cf8bff7f5b5e31b176855aa564f78d6911b5044650e4c9a8090a5b7"
+    sha256 cellar: :any, arm64_linux:       "bd94a85be0bb5e8b24c93375c4d3fd86cdfaf280a6448a775f8f20c63f507c0f"
+    sha256 cellar: :any, x86_64_linux:      "7d6db4bf4d7cc3094172c61383879c73882b3b91d4f1a1be433081add6acfe5f"
   end
 
   depends_on "certifi" => :no_linkage
@@ -43,8 +41,8 @@ class Papis < Formula
   end
 
   resource "bibtexparser" do
-    url "https://files.pythonhosted.org/packages/44/1c/577d3ce406e88f370e80a6ebf76ae52a2866521e0b585e8ec612759894f1/bibtexparser-1.4.4.tar.gz"
-    sha256 "093b6c824f7a71d3a748867c4057b71f77c55b8dbc07efc993b781771520d8fb"
+    url "https://files.pythonhosted.org/packages/8b/78/0096d455f90f4c1f38f0115b74f2ce3fa32814e58a1549f4af1a46bc6d8f/bibtexparser-2.0.1.tar.gz"
+    sha256 "672a59f4ba431c4e9a6647cc7c42a267b22e257bcd2cfdb661863f3756c9ab14"
   end
 
   resource "charset-normalizer" do
@@ -113,8 +111,8 @@ class Papis < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/69/b7/802a56eca9f2fac455b8bab5375a2647b0f0e14a2cd63ef077de3c4a7658/platformdirs-4.11.7.tar.gz"
-    sha256 "4f41487eeeeeb07f3a6625e61d9bc0ae6809f92d3386dbd74392fbb76108104d"
+    url "https://files.pythonhosted.org/packages/53/18/f3bb8ef0d3b930692343da8aa4d3cbcd6749477c053959395ac81965a6e9/platformdirs-4.11.8.tar.gz"
+    sha256 "f23abafea7dd4276d1f29104b83598d7dcc567cafd07c9c951e66665645437fc"
   end
 
   resource "prompt-toolkit" do
@@ -127,9 +125,9 @@ class Papis < Formula
     sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/f3/91/9c6ee907786a473bf81c5f53cf703ba0957b23ab84c264080fb5a450416f/pyparsing-3.3.2.tar.gz"
-    sha256 "c777f4d763f140633dcb6d8a3eda953bf7a214dc4eff598413c070bcdc117cbc"
+  resource "pylatexenc" do
+    url "https://files.pythonhosted.org/packages/52/45/ddb0fb04acf95fe9cf9c369814dbdd08651bd2c9ee455f142651e06f4488/pylatexenc-2.11.tar.gz"
+    sha256 "305a072a99ce736246049c9da05841b9d718c0f7ea8888f5f596cf15cb621053"
   end
 
   resource "python-doi" do
@@ -138,8 +136,8 @@ class Papis < Formula
   end
 
   resource "python-slugify" do
-    url "https://files.pythonhosted.org/packages/87/c7/5e1547c44e31da50a460df93af11a535ace568ef89d7a811069ead340c4a/python-slugify-8.0.4.tar.gz"
-    sha256 "59202371d1d05b54a9e7720c5e038f928f45daaffe41dd10822f3907b937c856"
+    url "https://files.pythonhosted.org/packages/1c/e7/dc2331a18e4b18721d6382468d2ca163fabacba45d2185945557f364ab39/python_slugify-9.0.0.tar.gz"
+    sha256 "1cd20fe7ebf941b11964a92aba9e5319edfe18606276c6e2481b92e737cde44a"
   end
 
   resource "pyyaml" do
@@ -163,8 +161,8 @@ class Papis < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/21/3b/6c24bec5be5e743ffd99576daa5cc077722fc7d5bbc00bd133fa0c698dc6/tqdm-4.70.0.tar.gz"
-    sha256 "55b0b0dbd97462d06ebee91e4dac24ed4d4702be82b24f07e6c1d27e08cea220"
+    url "https://files.pythonhosted.org/packages/0d/ea/b2a5bd54b28a324dae8211928b2d730b6547500342c7e6c6dea08bd0a485/tqdm-4.70.1.tar.gz"
+    sha256 "cefd0eca11b2a37a3aee776544d4f4ae913f02688135b5556b8788dfa474afc4"
   end
 
   resource "truststore" do

@@ -66,7 +66,7 @@ class OsmGpsMap < Formula
     flags = shell_output("pkgconf --cflags --libs osmgpsmap-1.0").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     if OS.linux? && ENV.exclude?("DISPLAY")
-      system Formula["xorg-server"].bin/"xvfb-run", "./test"
+      system formula_opt_bin("xorg-server")/"xvfb-run", "./test"
     else
       system "./test"
     end

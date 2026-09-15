@@ -43,10 +43,10 @@ class Echidna < Formula
     ENV.cxx11
 
     args = %W[
-      --extra-include-dirs=#{Formula["libff"].include}
-      --extra-include-dirs=#{Formula["secp256k1"].include}
-      --extra-lib-dirs=#{Formula["libff"].lib}
-      --extra-lib-dirs=#{Formula["secp256k1"].lib}
+      --extra-include-dirs=#{formula_opt_include("libff")}
+      --extra-include-dirs=#{formula_opt_include("secp256k1")}
+      --extra-lib-dirs=#{formula_opt_lib("libff")}
+      --extra-lib-dirs=#{formula_opt_lib("secp256k1")}
       --flag=echidna:-static
       --flag=libyaml:system-libyaml
       --jobs=#{ENV.make_jobs}

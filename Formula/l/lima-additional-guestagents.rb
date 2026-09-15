@@ -20,6 +20,12 @@ class LimaAdditionalGuestagents < Formula
   depends_on "lima"
   depends_on "qemu"
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     if build.head?
       system "make", "additional-guestagents"

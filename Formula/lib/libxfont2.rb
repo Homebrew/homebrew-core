@@ -57,7 +57,7 @@ class Libxfont2 < Formula
     C
 
     system ENV.cc, "test.c", "-o", "test",
-      "-I#{include}", "-I#{Formula["xorgproto"].include}",
+      "-I#{include}", "-I#{formula_opt_include("xorgproto")}",
       "-L#{lib}", "-lXfont2"
     system "./test"
   end

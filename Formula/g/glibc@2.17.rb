@@ -137,7 +137,7 @@ class GlibcAT217 < Formula
         "--sysconfdir=#{etc}",
         "--without-gd",
         "--without-selinux",
-        "--with-headers=#{Formula["linux-headers@4.4"].include}",
+        "--with-headers=#{formula_opt_include("linux-headers@4.4")}",
       ]
       system "../configure", *args
       system "make", "all"

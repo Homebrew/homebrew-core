@@ -23,6 +23,12 @@ class DockerCredentialHelperEcr < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download", "-C", "ecr-login"
+  end
+
   def install
     (buildpath/"GITCOMMIT_SHA").write tap.user
     system "make", "build"

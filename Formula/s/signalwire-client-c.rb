@@ -6,12 +6,12 @@ class SignalwireClientC < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7fa3e639978d147b3bdde2bd26a5d6cc166ba1079d3bb01abf9cd00040d63dd9"
-    sha256 cellar: :any,                 arm64_sequoia: "b51d2b663c7d248f5a65c6eff63d43f49b20c2401946e426a29a6114ed12ee67"
-    sha256 cellar: :any,                 arm64_sonoma:  "1c1654fd69c722d7a6e23f47ee6e8bf1884447f66d9f1731afe28f94fdebd2da"
-    sha256 cellar: :any,                 sonoma:        "858aaffb29a67fcf11f2e0f11635c309ef0d3ccb834d4c876caca5f1445fce3e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6f627c192ac1ca0d74004678e131290de2e1d6725f39656d96f0c38572b082a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e3d5525d1058fc641f1f5a254ecb949798e098a5bbf7e470e70db5f7c17c80a"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "1cd355ddde0c2bd04c7eee3d89eb8d7e02a37463810733ddb7b9866b8059d00a"
+    sha256 cellar: :any, arm64_tahoe:       "348229694a18316b1d9ddbe739b3352eb412f39f348d434bb9fcd0af732abac2"
+    sha256 cellar: :any, arm64_sequoia:     "f24eb3f4de098559a6c178bf20a7ff78be0a3efbe0e717907b6dd3976d3eebba"
+    sha256 cellar: :any, arm64_linux:       "c28d772e0ee183cfa9b3ae4d3392152fc16858864b40939c605d1d527144b48c"
+    sha256 cellar: :any, x86_64_linux:      "d5155d2c4d6ac3d6295284084bed1a684f039157154e7bf8527636b4051e1037"
   end
 
   depends_on "cmake" => :build
@@ -20,7 +20,9 @@ class SignalwireClientC < Formula
   depends_on "openssl@3"
 
   def install
-    system "cmake", "-S", ".", "-B", ".", *std_cmake_args
+    # cotire builds a prefix header from the `clang -H` include list, which on macOS 27 also has `SDKSettings.json`
+    system "cmake", "-S", ".", "-B", ".", "-DCOTIRE_ADDITIONAL_PREFIX_HEADER_IGNORE_EXTENSIONS=inc;inl;ipp;json",
+                    *std_cmake_args
     system "cmake", "--build", "."
     system "cmake", "--install", "."
   end

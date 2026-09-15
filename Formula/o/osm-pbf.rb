@@ -1,18 +1,16 @@
 class OsmPbf < Formula
   desc "Tools related to PBF (an alternative to XML format)"
   homepage "https://wiki.openstreetmap.org/wiki/PBF_Format"
-  url "https://github.com/openstreetmap/OSM-binary/archive/refs/tags/v1.7.0.tar.gz"
-  sha256 "ac7aadc57d218a5186076f55255202ec7d0949c7f334b8b0cec8bdd196cd75d7"
+  url "https://github.com/openstreetmap/OSM-binary/archive/refs/tags/v1.8.0.tar.gz"
+  sha256 "18ec63e28a42073db62e8fb59134b8bd410c29e8eb1d8ec1759efc9501fbf41a"
   license "LGPL-3.0-or-later"
-  revision 4
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "01ff32a1de3c6132b7447d15008f543337a7ced4126fac735ada4d6060907dc1"
-    sha256 cellar: :any, arm64_tahoe:       "a71dcf427e13a3220552238ec611c99d34e3b67166d621c26cdce33ad5c2cbfb"
-    sha256 cellar: :any, arm64_sequoia:     "567b6845dafd661a4f0d3e14d014d74f574445b72801a917244c239074802524"
-    sha256 cellar: :any, arm64_sonoma:      "b6faf6090db9662b681ae5ab9da17c7faab3f097847b39e393f59c87aad99d24"
-    sha256               arm64_linux:       "f5220183b683fe9a38774f5ba57a2cf56373a4c5d020466e3b9475599b187465"
-    sha256               x86_64_linux:      "7d1028b768d9c222430c86cc9709e9c008d13d795a253ec99600a4ec57aeaf08"
+    sha256 cellar: :any, arm64_golden_gate: "23b5ac3a921c0948150d216311e33bdafb56fe8b3da5574917ff6b64eb42abd7"
+    sha256 cellar: :any, arm64_tahoe:       "62cde7596eeac37a139a871714c0fb91737dc8ab7683abf540598195e6686b00"
+    sha256 cellar: :any, arm64_sequoia:     "70648542a758c55f3aa6bcd75b49befe0336ec27a3168dac311f50499d562651"
+    sha256               arm64_linux:       "36e081e07f77d9a73384c63156174f516b4be97962eaf99491a5024fa1d1f973"
+    sha256               x86_64_linux:      "dd463a2108cf7bb1141732e85a29751581b8badd2d782c538d9f1bec1f20dd30"
   end
 
   depends_on "cmake" => :build

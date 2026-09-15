@@ -64,16 +64,16 @@ class NodeAT18 < Formula
       --shared-zlib
       --shared-brotli
       --shared-cares
-      --shared-libuv-includes=#{Formula["libuv"].include}
-      --shared-libuv-libpath=#{Formula["libuv"].lib}
-      --shared-nghttp2-includes=#{Formula["libnghttp2"].include}
-      --shared-nghttp2-libpath=#{Formula["libnghttp2"].lib}
-      --shared-openssl-includes=#{Formula["openssl@3"].include}
-      --shared-openssl-libpath=#{Formula["openssl@3"].lib}
-      --shared-brotli-includes=#{Formula["brotli"].include}
-      --shared-brotli-libpath=#{Formula["brotli"].lib}
-      --shared-cares-includes=#{Formula["c-ares"].include}
-      --shared-cares-libpath=#{Formula["c-ares"].lib}
+      --shared-libuv-includes=#{formula_opt_include("libuv")}
+      --shared-libuv-libpath=#{formula_opt_lib("libuv")}
+      --shared-nghttp2-includes=#{formula_opt_include("libnghttp2")}
+      --shared-nghttp2-libpath=#{formula_opt_lib("libnghttp2")}
+      --shared-openssl-includes=#{formula_opt_include("openssl@3")}
+      --shared-openssl-libpath=#{formula_opt_lib("openssl@3")}
+      --shared-brotli-includes=#{formula_opt_include("brotli")}
+      --shared-brotli-libpath=#{formula_opt_lib("brotli")}
+      --shared-cares-includes=#{formula_opt_include("c-ares")}
+      --shared-cares-libpath=#{formula_opt_lib("c-ares")}
       --openssl-use-def-ca-store
     ]
 

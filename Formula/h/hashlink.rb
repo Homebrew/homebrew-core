@@ -58,7 +58,7 @@ class Hashlink < Formula
   end
 
   test do
-    haxebin = Formula["haxe"].bin
+    haxebin = formula_opt_bin("haxe")
 
     (testpath/"HelloWorld.hx").write <<~HAXE
       class HelloWorld {

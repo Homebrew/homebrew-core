@@ -39,7 +39,7 @@ class Vineflower < Formula
       }
     JAVA
 
-    system Formula["openjdk"].bin/"javac", "FooBar.java"
+    system formula_opt_bin("openjdk")/"javac", "FooBar.java"
     refute_includes shell_output("#{bin}/vineflower FooBar.class"), "error"
   end
 end

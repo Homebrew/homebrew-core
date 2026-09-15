@@ -81,7 +81,7 @@ class DotnetAT9 < Formula
 
     if OS.mac?
       # Need GNU grep (Perl regexp support) to use release manifest rather than git repo
-      ENV.prepend_path "PATH", Formula["grep"].libexec/"gnubin"
+      ENV.prepend_path "PATH", formula_opt_libexec("grep")/"gnubin"
 
       # Avoid mixing CLT and Xcode.app when building CoreCLR component which can
       # cause undefined symbols, e.g. __swift_FORCE_LOAD_$_swift_Builtin_float

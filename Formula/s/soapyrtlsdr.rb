@@ -34,7 +34,7 @@ class Soapyrtlsdr < Formula
   end
 
   test do
-    output = shell_output("#{Formula["soapysdr"].bin}/SoapySDRUtil --check=rtlsdr")
+    output = shell_output("#{formula_opt_bin("soapysdr")}/SoapySDRUtil --check=rtlsdr")
     assert_match "Checking driver 'rtlsdr'... PRESENT", output
   end
 end

@@ -41,7 +41,7 @@ class Anyquery < Formula
     pid = spawn bin/"anyquery", "server", "--port", port
     begin
       sleep 5
-      output = shell_output("#{Formula["mysql-client"].bin}/mysql -h 127.0.0.1 -P #{port} -e 'show tables;' main")
+      output = shell_output("#{formula_opt_bin("mysql-client")}/mysql -h 127.0.0.1 -P #{port} -e 'show tables;' main")
       assert_match "information_schema.COLLATIONS", output
     ensure
       Process.kill("TERM", pid)

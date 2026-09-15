@@ -80,7 +80,7 @@ class ArmNoneEabiGdb < Formula
 
   test do
     (testpath/"test.c").write "void _start(void) {}"
-    system "#{Formula["arm-none-eabi-gcc"].bin}/arm-none-eabi-gcc", "-g", "-nostdlib", "test.c"
+    system "#{formula_opt_bin("arm-none-eabi-gcc")}/arm-none-eabi-gcc", "-g", "-nostdlib", "test.c"
     assert_match "Symbol \"_start\" is a function at address 0x",
           shell_output("#{bin}/arm-none-eabi-gdb -batch -ex 'info address _start' a.out")
   end

@@ -74,7 +74,7 @@ class Geeqie < Formula
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     cmd = "#{bin}/geeqie --version"
-    cmd = "#{Formula["xorg-server"].bin}/xvfb-run #{cmd}" if OS.linux? && ENV.exclude?("DISPLAY")
+    cmd = "#{formula_opt_bin("xorg-server")}/xvfb-run #{cmd}" if OS.linux? && ENV.exclude?("DISPLAY")
     assert_match version.to_s, shell_output(cmd)
   end
 end

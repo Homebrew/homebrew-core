@@ -30,7 +30,7 @@ class Aspectj < Formula
 
   def install
     mkdir_p "#{libexec}/#{name}"
-    system "#{Formula["openjdk"].bin}/java", "-jar", "#{name}-#{version}.jar", "-to", "#{libexec}/#{name}"
+    system formula_opt_bin("openjdk")/"java", "-jar", "#{name}-#{version}.jar", "-to", "#{libexec}/#{name}"
     bin.install Dir["#{libexec}/#{name}/bin/*"]
     bin.env_script_all_files libexec/"#{name}/bin", Language::Java.overridable_java_home_env
     chmod 0555, Dir["#{libexec}/#{name}/bin/*"] # avoid 0777

@@ -70,7 +70,7 @@ class Opusfile < Formula
         return EXIT_SUCCESS;
       }
     C
-    system ENV.cc, "test.c", "-I#{Formula["opus"].include}/opus",
+    system ENV.cc, "test.c", "-I#{formula_opt_include("opus")}/opus",
                              "-L#{lib}",
                              "-lopusfile",
                              "-o", "test"

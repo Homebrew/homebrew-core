@@ -1,8 +1,8 @@
 class Victoriametrics < Formula
   desc "Cost-effective and scalable monitoring solution and time series database"
   homepage "https://victoriametrics.com/"
-  url "https://github.com/VictoriaMetrics/VictoriaMetrics/archive/refs/tags/v1.151.0.tar.gz"
-  sha256 "196c757a382f473fd0c1d1388253197e79548c7f1ee656c4e2215aafd5c16080"
+  url "https://github.com/VictoriaMetrics/VictoriaMetrics/archive/refs/tags/v1.152.0.tar.gz"
+  sha256 "7197529fb8b433f766a51a8f97cf4a45cff02c70262b6e1ba865225f6b9e01ca"
   license "Apache-2.0"
 
   # There are tags like `pmm-6401-v1.89.1` in the upstream repo. They don't
@@ -14,12 +14,11 @@ class Victoriametrics < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "380e5491a1653ed781a1e7000618cdcb603de6c20bc06f56e18cd2c87a80e3a3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ff0cfed0ef6b39048f1d5ca66d1894ae04f6255a6c38087175e561b5ca524b80"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "430fc33de2b8e24f87598cebecba02a64d4059aab32c5e2405051c4990d4aa9c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "f58a4d69db801c230068973d113d00a270267e31c5b70b32b62b4f625c86848a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0a6841b92474787dc5959a374f32d15869c0cb4d285fbcee2f1c1c78b5c3d793"
-    sha256 cellar: :any,                 x86_64_linux:      "d1adc572534102ce4c9858fae627720ad296cd3d6a3ad0f4fc868302a216f5ff"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "27d44cd990efa4e871ecc90cd3fa99e715d1c80042478e3027be3c6db7832cdc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "41ced46cdef5a918b4f03ccb5980a222d4a1f71534001a7116ab0533ccde6774"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3d82b88bdf4694cccde899d8a8624d78fba43ce6ccdb7e47da21a287c0a4b37a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b1efb94faf5dc727f14bb0e2ecf7290089a19e553235b41cbbad3934800b6a29"
+    sha256 cellar: :any,                 x86_64_linux:      "3695cc4f5a7191e6291a09a44f155b33eb9563d3988759a9f52c06d4e4159434"
   end
 
   depends_on "go" => :build

@@ -32,7 +32,7 @@ class Soapyhackrf < Formula
   end
 
   test do
-    output = shell_output("#{Formula["soapysdr"].bin}/SoapySDRUtil --check=hackrf")
+    output = shell_output("#{formula_opt_bin("soapysdr")}/SoapySDRUtil --check=hackrf")
     assert_match "Checking driver 'hackrf'... PRESENT", output
   end
 end

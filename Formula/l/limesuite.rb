@@ -66,6 +66,6 @@ class Limesuite < Formula
 
   test do
     assert_match "Checking driver 'lime'... PRESENT",
-                 shell_output("#{Formula["soapysdr"].bin}/SoapySDRUtil --check=lime")
+                 shell_output("#{formula_opt_bin("soapysdr")}/SoapySDRUtil --check=lime")
   end
 end

@@ -83,7 +83,7 @@ class Gl2ps < Formula
       system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-lgl2ps", "-lglut", "-lGL"
     end
     if OS.linux? && ENV.exclude?("DISPLAY")
-      system Formula["xorg-server"].bin/"xvfb-run", "./test"
+      system formula_opt_bin("xorg-server")/"xvfb-run", "./test"
     else
       system "./test"
     end

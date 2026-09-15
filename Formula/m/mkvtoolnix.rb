@@ -1,9 +1,9 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://mkvtoolnix.download/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-101.0.tar.xz"
-  mirror "https://fossies.org/linux/misc/mkvtoolnix-101.0.tar.xz"
-  sha256 "f638b299e49cdd4efc4ab3c68dbb593ed6a61bd01bf8862da74ef7fb4d181ce8"
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-102.0.tar.xz"
+  mirror "https://fossies.org/linux/misc/mkvtoolnix-102.0.tar.xz"
+  sha256 "9f0a810f17c7df8adb9064a3a41d5784399be412d19704cf080745ad7d45da30"
   license "GPL-2.0-or-later"
   compatibility_version 1
 
@@ -13,13 +13,11 @@ class Mkvtoolnix < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "fe898a1ae9d850522fd09d51537a1a602038f595fb0ebbd67e7f8fd697c51221"
-    sha256 cellar: :any, arm64_tahoe:       "3ff5c3aad9f1ab57279360a434eddf3b7216ab2b06c57ee4cf3f7a6a67ad2b93"
-    sha256 cellar: :any, arm64_sequoia:     "5e0a5f979ea23ce8a48a9b4b0698136989ee2a3fbc60ce71f36720b8af4609bd"
-    sha256 cellar: :any, arm64_sonoma:      "66af302b764a41ff4212bfbecc26b3aac8993ad6bb04e8504b1874543278287a"
-    sha256 cellar: :any, sonoma:            "efdb3ead6bc75d6ff701c04940b0875d1a522a20979b7c20d62353a62ba999dd"
-    sha256               arm64_linux:       "65fb959753a895dc35eb9ff584353577ed03cfdd18bcf54260bf1af3e18300e4"
-    sha256               x86_64_linux:      "0cbad7fd51fbaf008f50d6270454bda97854b7bfe96eee5dfc0c12e12742e370"
+    sha256 cellar: :any, arm64_golden_gate: "2c482f4b37e3685020a3a4fffd7a9fc96988e2ca191b17a8feec38e34169a8af"
+    sha256 cellar: :any, arm64_tahoe:       "42c3c56d96d203ce13747f766f64f53c8d6ede17ae41ff1a398c1288c1dd38ad"
+    sha256 cellar: :any, arm64_sequoia:     "e9b3265aaca84eb862c76a1fba130b2563d917acf720f6eb0daf5933e9680d9f"
+    sha256               arm64_linux:       "1690e3610d1dd777b77479e43f3b044b82ccbc1d4e61ae915a2eafa9affeea6a"
+    sha256               x86_64_linux:      "b3acaa1a85ba243e0c97906b3ca848db4d63d982e6b08b00d5332686cc4b92bb"
   end
 
   head do

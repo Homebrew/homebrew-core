@@ -35,7 +35,7 @@ class Rpm2cpio < Formula
 
   def install
     tar = OS.mac? ? "tar" : "bsdtar"
-    inreplace "rpm2cpio", "tar", Formula["libarchive"].bin/tar
+    inreplace "rpm2cpio", "tar", formula_opt_bin("libarchive")/tar
     bin.install "rpm2cpio"
   end
 

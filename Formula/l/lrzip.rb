@@ -1,8 +1,8 @@
 class Lrzip < Formula
   desc "Compression program with a very high compression ratio"
   homepage "https://github.com/ckolivas/lrzip"
-  url "https://github.com/ckolivas/lrzip/releases/download/v0.7.2/lrzip-0.7.2.tar.xz"
-  sha256 "2954d650633cbb3134ca023f50990cd460c891e1d0518824850213a84c9ce1a3"
+  url "https://github.com/ckolivas/lrzip/releases/download/v0.7.3/lrzip-0.7.3.tar.xz"
+  sha256 "6928862de7c4bbb3cfbcd12fae9fd0a7d230d5bbf27486e52c4de60717ebfdbb"
   license "GPL-2.0-or-later"
   version_scheme 1
   head "https://github.com/ckolivas/lrzip.git", branch: "master"
@@ -13,13 +13,11 @@ class Lrzip < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1bdbe6d7fb411a81954c535ce6d4736c62ac90d44960ed3371b75c18e7eca2af"
-    sha256 cellar: :any, arm64_tahoe:       "1336ea32214e5a828317a17e16f4b98ffe1d23f972f423a69211f10c8ea4fada"
-    sha256 cellar: :any, arm64_sequoia:     "66d0f33698a2cd55962dea6d0ae07f99b8de094022bad88a8d19696e05bd54ed"
-    sha256 cellar: :any, arm64_sonoma:      "49e4756d544aaa1a35d61de30b92980a021328d32c1bc730ff2040f4faf340b2"
-    sha256 cellar: :any, sonoma:            "24c58b9098ba037f001207d583e6c46111c2af83eff7910d3b1d88d37ebca5f2"
-    sha256 cellar: :any, arm64_linux:       "8594e4c49f76c7c77fd45fbdcc317d097eb5a15a1e4a0f92cc1207c82162ffc5"
-    sha256 cellar: :any, x86_64_linux:      "b2bb00a3676f64e2807dbe90210e58ed47d2c32f7592d2e3349f64e993d531b9"
+    sha256 cellar: :any, arm64_golden_gate: "362516d2494e681dc09b48a98e65c0179e8d46e3f916fab36b99b9a9f253096c"
+    sha256 cellar: :any, arm64_tahoe:       "c60886621285783f3fbaf0b0ecff0b51b16713d5df53c38f816b30f785d79527"
+    sha256 cellar: :any, arm64_sequoia:     "7855750161fc71e8b46e14d1b853a989819b8b58819a3061ce75f1c8e1aa9171"
+    sha256 cellar: :any, arm64_linux:       "d1771a884151c6c9ad11bc37134f9ab481dc2a4d4090e5907f690b6159b4ac81"
+    sha256 cellar: :any, x86_64_linux:      "cf6eed8d9ef3d17c9204d4df6f4548c23041f529d0d443a5326b8e3b171352fa"
   end
 
   depends_on "lz4"

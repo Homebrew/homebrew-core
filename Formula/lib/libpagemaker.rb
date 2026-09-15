@@ -45,9 +45,9 @@ class Libpagemaker < Formula
       }
     CPP
     system ENV.cxx, "test.cpp", "-o", "test",
-                    "-I#{Formula["librevenge"].include}/librevenge-0.0",
+                    "-I#{formula_opt_include("librevenge")}/librevenge-0.0",
                     "-I#{include}/libpagemaker-0.0",
-                    "-L#{Formula["librevenge"].lib}",
+                    "-L#{formula_opt_lib("librevenge")}",
                     "-L#{lib}",
                     "-lrevenge-0.0",
                     "-lpagemaker-0.0"

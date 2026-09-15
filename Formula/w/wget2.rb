@@ -53,16 +53,15 @@ class Wget2 < Formula
     # The pattern used in 'docs/wget2_md2man.sh.in' doesn't work with system sed
     ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin" if OS.mac?
 
-    lzlib = Formula["lzlib"]
-    ENV.append "LZIP_CFLAGS", "-I#{lzlib.include}"
-    ENV.append "LZIP_LIBS", "-L#{lzlib.lib} -llz"
+    ENV.append "LZIP_CFLAGS", "-I#{formula_opt_include("lzlib")}"
+    ENV.append "LZIP_LIBS", "-L#{formula_opt_lib("lzlib")} -llz"
 
     args = %w[
       --disable-silent-rules
       --with-bzip2
       --with-lzma
     ]
-    args << "--with-libintl-prefix=#{Formula["gettext"].prefix}" if OS.mac?
+    args << "--with-libintl-prefix=#{formula_opt_prefix("gettext")}" if OS.mac?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"

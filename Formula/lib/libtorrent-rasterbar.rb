@@ -56,8 +56,8 @@ class LibtorrentRasterbar < Formula
 
   test do
     args = [
-      "-I#{Formula["boost"].include}",
-      "-L#{Formula["boost"].lib}",
+      "-I#{formula_opt_include("boost")}",
+      "-L#{formula_opt_lib("boost")}",
       "-I#{include}",
       "-L#{lib}",
       "-DTORRENT_USE_OPENSSL",

@@ -48,6 +48,7 @@ class PipewireGstreamer < Formula
 
   test do
     ENV["GST_PLUGIN_PATH"] = opt_lib/"gstreamer-1.0"
-    assert_match "pipewiresink: PipeWire sink", shell_output("#{Formula["gstreamer"].bin}/gst-inspect-1.0 pipewire")
+    assert_match "pipewiresink: PipeWire sink",
+      shell_output("#{formula_opt_bin("gstreamer")}/gst-inspect-1.0 pipewire")
   end
 end

@@ -1,8 +1,8 @@
 class Tanka < Formula
   desc "Flexible, reusable and concise configuration for Kubernetes using Jsonnet"
   homepage "https://tanka.dev"
-  url "https://github.com/grafana/tanka/archive/refs/tags/v0.39.0.tar.gz"
-  sha256 "9cf01cae4bdf45a8bf6474418dbc6556adc8eff9a4608c593068190993649c90"
+  url "https://github.com/grafana/tanka/archive/refs/tags/v0.39.1.tar.gz"
+  sha256 "0492de3c3e5e55cfbcfc40f181293c63e6d04928f757b5d96e0eade0b849d2ab"
   license "Apache-2.0"
   head "https://github.com/grafana/tanka.git", branch: "main"
 
@@ -12,13 +12,11 @@ class Tanka < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0298e625fc254eebcc6658c908b354cbdab803cf6fbea791fb1bf24b7c963c7a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "499f2cd3facfe8e4375d80c89686b163cb17841a6853349792b1c50cb5f5a21d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "499f2cd3facfe8e4375d80c89686b163cb17841a6853349792b1c50cb5f5a21d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "499f2cd3facfe8e4375d80c89686b163cb17841a6853349792b1c50cb5f5a21d"
-    sha256 cellar: :any_skip_relocation, sonoma:            "e2e52abf7d02b92ccfd68383f72ea2256397231cd95335d3ea97cf0b3ab7edc2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5daaa0d089b8c1d77f1fecbfe4e89b8854590f267418ceb68131b46422d1becd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "2c9c5b6ee866fd9e6ec87266a405815f2a1d62741346fcb54b2bde01709bb580"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9e3541d85940e17dfb89927be471974ad9aad4801eaa7c941687254b978475f4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9e3541d85940e17dfb89927be471974ad9aad4801eaa7c941687254b978475f4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9e3541d85940e17dfb89927be471974ad9aad4801eaa7c941687254b978475f4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a29b75a354e0778d73b96a00a0b8601aff4efe1bca49d63d0486127e70bd5a9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "2efcb069cd7b8b462ae29efc1c8a31477fc27837442ab9407e803266f6f47380"
   end
 
   depends_on "go" => :build

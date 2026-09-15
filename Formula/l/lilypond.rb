@@ -74,10 +74,13 @@ class Lilypond < Formula
   def install
     system "./autogen.sh", "--noconfigure" if build.head?
 
-    system "./configure", "--datadir=#{share}",
-                          "--disable-documentation",
-                          *("--with-flexlexer-dir=#{Formula["flex"].include}" if OS.linux?),
-                          *std_configure_args
+    args = [
+      "--datadir=#{share}",
+      "--disable-documentation",
+    ]
+    args << "--with-flexlexer-dir=#{formula_opt_include("flex")}" if OS.linux?
+
+    system "./configure", *args, *std_configure_args
 
     system "make"
     system "make", "install"

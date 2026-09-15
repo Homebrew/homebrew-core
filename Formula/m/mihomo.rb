@@ -1,19 +1,17 @@
 class Mihomo < Formula
   desc "Another rule-based tunnel in Go, formerly known as ClashMeta"
   homepage "https://wiki.metacubex.one"
-  url "https://github.com/MetaCubeX/mihomo/archive/refs/tags/v1.19.30.tar.gz"
-  sha256 "ee8a7107707e4bd485460139b1944e7be30016393783f2b4e928c14880c8ca8b"
+  url "https://github.com/MetaCubeX/mihomo/archive/refs/tags/v1.19.31.tar.gz"
+  sha256 "5a04aa9cf4520e06fa1c13d37b6aca49209479690722d485c40034ab17f8581f"
   license "GPL-3.0-or-later"
   head "https://github.com/MetaCubeX/mihomo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "96c209be677ee7648ae146bd1e44e3230d34d1c3d857d515a33bcf7df2a5ec94"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd0ba3de15b3aa9732a3238add2836d8ac8b80aca7f87ec0ff975478db83274c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5749a3a555e8b201bba11d7964f3a9382cd608c0f58a00431bf6f15f67c61edc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "885562801fab408e7eb5f11ff71959bce60cb43522d7cd1a545b11ffa3c33afb"
-    sha256 cellar: :any_skip_relocation, sonoma:            "cc22c33a08be679c36344ae1a7169da88e9bc90b902e9df9dc7ee1b8299d406a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3b3e4320c95fce0ae4f64491d586e136fb82b3747c2e8f0b1610a4c91c92172c"
-    sha256 cellar: :any,                 x86_64_linux:      "48e926948b13bc5f49a5417556a0a479007bf89186277a63a25307245ddfbbe9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "79e61a0fc7c405b5671061515115feb7a85b913f95e1e87487e08776e15d8327"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c80e1ca3d8ef3d31a2008dc2ca33d7a459576983e053615fa019eb2f7d689008"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "88978e01874c5b47ba8d61b56ab749d698e3ad6d0baa068da15d80440380260d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "c073b56906bc188261bd824a69a76ce171f88e6dcf69af432e4b4632df6e2f74"
+    sha256 cellar: :any,                 x86_64_linux:      "ab97993a77da8b388979118e588f0921c2fcdd57becb1149fdbf6ddc796c2ed7"
   end
 
   depends_on "go" => :build

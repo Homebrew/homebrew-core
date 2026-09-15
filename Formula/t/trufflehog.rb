@@ -18,6 +18,13 @@ class Trufflehog < Formula
 
   depends_on "go" => :build
 
+  # `test do` block scans a GitHub repository
+  deny_network_access! [:build, :postinstall]
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ldflags = "-X github.com/trufflesecurity/trufflehog/v3/pkg/version.BuildVersion=#{version}"
     system "go", "build", *std_go_args(ldflags:)

@@ -43,7 +43,7 @@ class AutoconfArchive < Formula
       AC_OUTPUT
     M4
 
-    system Formula["autoconf"].bin/"autoconf", "configure.ac"
+    system formula_opt_bin("autoconf")/"autoconf", "configure.ac"
     assert_path_exists testpath/"autom4te.cache"
   end
 end

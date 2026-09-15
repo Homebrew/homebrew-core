@@ -20,7 +20,7 @@ class Logcheck < Formula
 
   def install
     # use gnu-sed on macOS
-    ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
+    ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin" if OS.mac?
 
     # Fix dependency on `dpkg-parsechangelog`
     inreplace "Makefile", "$$(dpkg-parsechangelog -S version)", version.to_s

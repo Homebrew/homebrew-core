@@ -48,8 +48,8 @@ class Slepc < Formula
 
   test do
     pform = "petsc"
-    flags = %W[-I#{include} -L#{lib} -lslepc -I#{Formula[pform].include} -L#{Formula[pform].lib} -lpetsc]
-    flags << "-Wl,-rpath,#{lib},-rpath,#{Formula[pform].lib}" if OS.linux?
+    flags = %W[-I#{include} -L#{lib} -lslepc -I#{formula_opt_include(pform)} -L#{formula_opt_lib(pform)} -lpetsc]
+    flags << "-Wl,-rpath,#{lib},-rpath,#{formula_opt_lib(pform)}" if OS.linux?
     system "mpicc", pkgshare/"examples/src/eps/tutorials/ex2.c", "-o", "test", *flags
     output = shell_output("./test -terse")
     # This SLEPc example prints several lines of output. The 7th line contains

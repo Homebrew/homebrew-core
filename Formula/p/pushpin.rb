@@ -37,7 +37,7 @@ class Pushpin < Formula
       CONFIGDIR=#{etc}
       RUNDIR=#{var}/run
       LOGDIR=#{var}/log
-      BOOST_INCLUDE_DIR=#{Formula["boost"].include}
+      BOOST_INCLUDE_DIR=#{formula_opt_include("boost")}
     ]
 
     system "make", *args

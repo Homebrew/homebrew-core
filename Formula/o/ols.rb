@@ -6,14 +6,23 @@ class Ols < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "927060759f77faaed013fe389987cf34e42b8a0170141bf79f9f26ef8539c6bd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c2e2fb49c2d439e08b97777b3607102c2d3709b2d50ebe2753cde84fecebc25a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6317730fcfb6cd14d441a727bcdb8eb36b581f1ff55a079a81273c3415e2585a"
-    sha256 cellar: :any,                 arm64_linux:   "1bbe3fce9f36473bf3a9282897cae48115cdb744d622b1b9dab0bd17b87b5824"
-    sha256 cellar: :any,                 x86_64_linux:  "cbbf92a283039ad633160259776b4c864f0941fe1f0b1e6050be4f0744746b2f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a8c2c77dfc19c898fcacf0ce6e4281e17feb25ee43399e126b2922434eabcde1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1bd6653534dc50b6e15eabdf6fe16242ad4cce655c7c7a2fa363d1cf146267ed"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6a5df06f67d0d20f5f0a472f50abe8a6e8384ddd67fae6cea47a9df78afc1c15"
+    sha256 cellar: :any,                 arm64_linux:       "3b2ea7d4c75442ad560218248b1bf718e69366208e187831f83e0e3c4b2ef048"
+    sha256 cellar: :any,                 x86_64_linux:      "12348430da10574489ec6e59cd3a9a44eced5aa67b1297f61434581d802022ad"
   end
 
   depends_on "odin" => :build
+
+  # Backport build fix for odin 2026-09, which replaced `ast.Inline_Asm_Expr` with `ast.Asm_Template`
+  patch do
+    url "https://github.com/DanielGavin/ols/commit/5f1b4d773b05d98dc9533521490096cf1a06a6d3.patch?full_index=1"
+    sha256 "e76914e29a26bca835d115111c1017ec0e6f7d51edc93a8c0e1f9a1fbd7c6368"
+    type :backport
+    resolves "https://github.com/DanielGavin/ols/pull/1653"
+  end
 
   def install
     args = %W[

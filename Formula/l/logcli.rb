@@ -59,7 +59,7 @@ class Logcli < Formula
       s.gsub! "/tmp", testpath
     end
 
-    spawn Formula["loki"].bin/"loki", "-config.file=loki-local-config.yaml"
+    spawn formula_opt_bin("loki")/"loki", "-config.file=loki-local-config.yaml"
     sleep 3
 
     assert_empty shell_output("#{bin}/logcli --addr=http://localhost:#{port} labels")

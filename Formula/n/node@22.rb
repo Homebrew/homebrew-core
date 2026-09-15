@@ -71,30 +71,30 @@ class NodeAT22 < Formula
       --shared-uvwasi
       --shared-zlib
       --shared-zstd
-      --shared-brotli-includes=#{Formula["brotli"].include}
-      --shared-brotli-libpath=#{Formula["brotli"].lib}
-      --shared-cares-includes=#{Formula["c-ares"].include}
-      --shared-cares-libpath=#{Formula["c-ares"].lib}
-      --shared-libuv-includes=#{Formula["libuv"].include}
-      --shared-libuv-libpath=#{Formula["libuv"].lib}
-      --shared-nghttp2-includes=#{Formula["libnghttp2"].include}
-      --shared-nghttp2-libpath=#{Formula["libnghttp2"].lib}
-      --shared-nghttp3-includes=#{Formula["libnghttp3"].include}
-      --shared-nghttp3-libpath=#{Formula["libnghttp3"].lib}
-      --shared-ngtcp2-includes=#{Formula["libngtcp2"].include}
-      --shared-ngtcp2-libpath=#{Formula["libngtcp2"].lib}
-      --shared-openssl-includes=#{Formula["openssl@3"].include}
-      --shared-openssl-libpath=#{Formula["openssl@3"].lib}
-      --shared-simdjson-includes=#{Formula["simdjson"].include}
-      --shared-simdjson-libpath=#{Formula["simdjson"].lib}
-      --shared-simdutf-includes=#{Formula["simdutf"].include}
-      --shared-simdutf-libpath=#{Formula["simdutf"].lib}
-      --shared-sqlite-includes=#{Formula["sqlite"].include}
-      --shared-sqlite-libpath=#{Formula["sqlite"].lib}
-      --shared-uvwasi-includes=#{Formula["uvwasi"].include}/uvwasi
-      --shared-uvwasi-libpath=#{Formula["uvwasi"].lib}
-      --shared-zstd-includes=#{Formula["zstd"].include}
-      --shared-zstd-libpath=#{Formula["zstd"].lib}
+      --shared-brotli-includes=#{formula_opt_include("brotli")}
+      --shared-brotli-libpath=#{formula_opt_lib("brotli")}
+      --shared-cares-includes=#{formula_opt_include("c-ares")}
+      --shared-cares-libpath=#{formula_opt_lib("c-ares")}
+      --shared-libuv-includes=#{formula_opt_include("libuv")}
+      --shared-libuv-libpath=#{formula_opt_lib("libuv")}
+      --shared-nghttp2-includes=#{formula_opt_include("libnghttp2")}
+      --shared-nghttp2-libpath=#{formula_opt_lib("libnghttp2")}
+      --shared-nghttp3-includes=#{formula_opt_include("libnghttp3")}
+      --shared-nghttp3-libpath=#{formula_opt_lib("libnghttp3")}
+      --shared-ngtcp2-includes=#{formula_opt_include("libngtcp2")}
+      --shared-ngtcp2-libpath=#{formula_opt_lib("libngtcp2")}
+      --shared-openssl-includes=#{formula_opt_include("openssl@3")}
+      --shared-openssl-libpath=#{formula_opt_lib("openssl@3")}
+      --shared-simdjson-includes=#{formula_opt_include("simdjson")}
+      --shared-simdjson-libpath=#{formula_opt_lib("simdjson")}
+      --shared-simdutf-includes=#{formula_opt_include("simdutf")}
+      --shared-simdutf-libpath=#{formula_opt_lib("simdutf")}
+      --shared-sqlite-includes=#{formula_opt_include("sqlite")}
+      --shared-sqlite-libpath=#{formula_opt_lib("sqlite")}
+      --shared-uvwasi-includes=#{formula_opt_include("uvwasi")}/uvwasi
+      --shared-uvwasi-libpath=#{formula_opt_lib("uvwasi")}
+      --shared-zstd-includes=#{formula_opt_include("zstd")}
+      --shared-zstd-libpath=#{formula_opt_lib("zstd")}
       --openssl-use-def-ca-store
     ]
 

@@ -50,7 +50,7 @@ class KafkactlAzurePlugin < Formula
 
     ENV["KAFKA_CTL_PLUGIN_PATHS"] = bin
 
-    kafkactl = Formula["kafkactl"].bin/"kafkactl"
+    kafkactl = formula_opt_bin("kafkactl")
     output = shell_output("#{kafkactl} -C #{config_file} get topics -V 2>&1", 1)
     assert_match "kafkactl-azure-plugin: plugin initialized", output
   end

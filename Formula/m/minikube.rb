@@ -20,6 +20,12 @@ class Minikube < Formula
   depends_on "go-bindata" => :build
   depends_on "kubernetes-cli"
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
 
@@ -30,7 +36,8 @@ class Minikube < Formula
       ENV.append "GOFLAGS", "-buildmode=pie"
     end
 
-    system "make"
+    # override the Makefile's pinned toolchain to build with brew's `go`
+    system "make", "GOTOOLCHAIN=local"
     bin.install "out/minikube"
 
     generate_completions_from_executable(bin/"minikube", shell_parameter_format: :cobra)

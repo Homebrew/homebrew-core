@@ -79,9 +79,9 @@ class OpensearchDashboards < Formula
     os_port = free_port
     (testpath/"data").mkdir
     (testpath/"logs").mkdir
-    os_pid = spawn Formula["opensearch"].bin/"opensearch", "-Ehttp.port=#{os_port}",
-                                                           "-Epath.data=#{testpath}/data",
-                                                           "-Epath.logs=#{testpath}/logs"
+    os_pid = spawn formula_opt_bin("opensearch")/"opensearch", "-Ehttp.port=#{os_port}",
+                                                               "-Epath.data=#{testpath}/data",
+                                                               "-Epath.logs=#{testpath}/logs"
 
     (testpath/"config.yml").write <<~YAML
       server.host: "127.0.0.1"

@@ -49,10 +49,10 @@ class Abyss < Formula
     args = %W[
       --disable-silent-rules
       --enable-maxk=128
-      --with-boost=#{Formula["boost"].include}
-      --with-btllib=#{Formula["btllib"].prefix}
-      --with-mpi=#{Formula["open-mpi"].prefix}
-      --with-sparsehash=#{Formula["google-sparsehash"].prefix}
+      --with-boost=#{formula_opt_include("boost")}
+      --with-btllib=#{formula_opt_prefix("btllib")}
+      --with-mpi=#{formula_opt_prefix("open-mpi")}
+      --with-sparsehash=#{formula_opt_prefix("google-sparsehash")}
     ]
     system "./autogen.sh" if build.head?
     system "./configure", *args, *std_configure_args

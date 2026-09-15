@@ -83,9 +83,9 @@ class Libetonyek < Formula
       }
     CPP
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
-                    "-I#{Formula["librevenge"].include}/librevenge-0.0",
+                    "-I#{formula_opt_include("librevenge")}/librevenge-0.0",
                     "-I#{include}/libetonyek-0.1",
-                    "-L#{Formula["librevenge"].lib}",
+                    "-L#{formula_opt_lib("librevenge")}",
                     "-L#{lib}",
                     "-lrevenge-0.0",
                     "-letonyek-0.1"

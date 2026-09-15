@@ -7,12 +7,13 @@ class Skm < Formula
   head "https://github.com/TimothyYe/skm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6ed415bd3d35429d897fa14d0a1aec89c66c03e7705c87550160403acc33c7c6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ed415bd3d35429d897fa14d0a1aec89c66c03e7705c87550160403acc33c7c6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6ed415bd3d35429d897fa14d0a1aec89c66c03e7705c87550160403acc33c7c6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "476ebbe10e2315191ecee0084d39217ece4018f043a13707c5efd511f8381da5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "67f9dfebeb08cb10427d1729bf8b16941eafcf8ddeeff4ce4d884e82766a4cac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf4f321b5568eecb58d94f5b2daa5b5867234778fab0724c71f75e5c806a2e06"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "11df57a020890d7ccf24417cc4c17d8bddacbd6b53ca498681486ee8062580ef"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6ed415bd3d35429d897fa14d0a1aec89c66c03e7705c87550160403acc33c7c6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6ed415bd3d35429d897fa14d0a1aec89c66c03e7705c87550160403acc33c7c6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "6ed415bd3d35429d897fa14d0a1aec89c66c03e7705c87550160403acc33c7c6"
+    sha256 cellar: :any_skip_relocation, sonoma:            "476ebbe10e2315191ecee0084d39217ece4018f043a13707c5efd511f8381da5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "67f9dfebeb08cb10427d1729bf8b16941eafcf8ddeeff4ce4d884e82766a4cac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "bf4f321b5568eecb58d94f5b2daa5b5867234778fab0724c71f75e5c806a2e06"
   end
 
   depends_on "go" => :build

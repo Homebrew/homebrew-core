@@ -143,7 +143,7 @@ class ApacheFlinkCdc < Formula
     YAML
     (testpath/"log").mkpath
     ENV["FLINK_LOG_DIR"] = testpath/"log"
-    flink_home = Formula["apache-flink"].libexec
+    flink_home = formula_opt_libexec("apache-flink")
     system flink_home/"bin/start-cluster.sh"
     output = shell_output "#{bin}/flink-cdc --flink-home #{flink_home} #{testpath}/test-pipeline.yaml"
     assert_match "Pipeline has been submitted to cluster.", output

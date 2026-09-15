@@ -25,7 +25,7 @@ class Tfschema < Formula
 
   test do
     (testpath/"provider.tf").write "provider \"aws\" {}"
-    system Formula["opentofu"].bin/"tofu", "init"
+    system formula_opt_bin("opentofu")/"tofu", "init"
     assert_match "permissions_boundary", shell_output("#{bin}/tfschema resource show aws_iam_user")
 
     assert_match version.to_s, shell_output("#{bin}/tfschema --version")

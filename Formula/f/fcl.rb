@@ -73,7 +73,7 @@ class Fcl < Formula
     CPP
 
     system ENV.cxx, "test.cpp", "-std=c++14", "-I#{include}",
-                    "-I#{Formula["eigen"].include}/eigen3",
+                    "-I#{formula_opt_include("eigen")}/eigen3",
                     "-L#{lib}", "-lfcl", "-o", "test"
     system "./test"
   end

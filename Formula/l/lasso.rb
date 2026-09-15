@@ -61,10 +61,10 @@ class Lasso < Formula
       }
     C
     system ENV.cc, "test.c",
-                   "-I#{Formula["glib"].include}/glib-2.0",
-                   "-I#{Formula["glib"].lib}/glib-2.0/include",
-                   "-I#{Formula["libxml2"].include}/libxml2",
-                   "-I#{Formula["libxmlsec1"].include}/xmlsec1",
+                   "-I#{formula_opt_include("glib")}/glib-2.0",
+                   "-I#{formula_opt_lib("glib")}/glib-2.0/include",
+                   "-I#{formula_opt_include("libxml2")}/libxml2",
+                   "-I#{formula_opt_include("libxmlsec1")}/xmlsec1",
                    "-L#{lib}", "-llasso", "-o", "test"
     system "./test"
   end

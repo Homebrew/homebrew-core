@@ -24,6 +24,12 @@ class OhMyPosh < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download", "-C", "src"
+  end
+
   def install
     ldflags = %W[
       -X github.com/jandedobbeleer/oh-my-posh/src/build.Version=#{version}

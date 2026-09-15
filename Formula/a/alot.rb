@@ -146,7 +146,7 @@ class Alot < Formula
       path=#{testpath}/Mail
     EOS
     (testpath/"Mail").mkpath
-    system Formula["notmuch"].bin/"notmuch", "new"
+    system formula_opt_bin("notmuch")/"notmuch", "new"
 
     require "pty"
     PTY.spawn(bin/"alot", "--logfile", testpath/"out.log") do |_r, _w, pid|

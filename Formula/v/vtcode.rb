@@ -26,6 +26,12 @@ class Vtcode < Formula
     depends_on "openssl@4" => :build
   end
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", "--locked", "--target", "host-tuple"
+  end
+
   def install
     ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4") if OS.linux?
     system "cargo", "install", *std_cargo_args

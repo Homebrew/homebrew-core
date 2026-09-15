@@ -35,7 +35,7 @@ class Nqp < Formula
     system "perl", "Configure.pl",
                    "--backends=moar",
                    "--prefix=#{prefix}",
-                   "--with-moar=#{Formula["moarvm"].bin}/moar"
+                   "--with-moar=#{formula_opt_bin("moarvm")}/moar"
     system "make"
     system "make", "install"
   end

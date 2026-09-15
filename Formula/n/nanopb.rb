@@ -58,7 +58,7 @@ class Nanopb < Formula
       }
     PROTO
 
-    system Formula["protobuf"].bin/"protoc", "--nanopb_out=.", "test.proto"
+    system formula_opt_bin("protobuf")/"protoc", "--nanopb_out=.", "test.proto"
     assert_match "Test", (testpath/"test.pb.c").read
     assert_match "Test", (testpath/"test.pb.h").read
   end

@@ -41,7 +41,7 @@ class Le < Formula
     # Configure script makes bad assumptions about curses locations.
     # Future versions allow this to be manually specified:
     # https://github.com/lavv17/le/commit/d921a3cdb3e1a0b50624d17e5efeb5a76d64f29d
-    ncurses = OS.mac? ? MacOS.sdk_path/"usr/include" : Formula["ncurses"].include
+    ncurses = OS.mac? ? MacOS.sdk_path/"usr/include" : formula_opt_include("ncurses")
     inreplace "configure", "/usr/local/include/ncurses", ncurses
 
     ENV.deparallelize

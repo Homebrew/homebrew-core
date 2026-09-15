@@ -47,7 +47,7 @@ class Libcdr < Formula
       }
     CPP
     system ENV.cxx, "test.cpp", "-o", "test",
-                                "-I#{Formula["librevenge"].include}/librevenge-0.0",
+                                "-I#{formula_opt_include("librevenge")}/librevenge-0.0",
                                 "-I#{include}/libcdr-0.1",
                                 "-L#{lib}", "-lcdr-0.1"
     system "./test"

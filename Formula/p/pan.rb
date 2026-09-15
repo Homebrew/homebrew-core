@@ -68,7 +68,7 @@ class Pan < Formula
 
     # this test works only if pan has not yet been configured with news servers
     cmd = "#{bin}/pan --nzb #{testpath}/minimal.nzb 2>&1"
-    cmd = "#{Formula["xorg-server"].bin}/xvfb-run #{cmd}" if OS.linux? && ENV.exclude?("DISPLAY")
+    cmd = "#{formula_opt_bin("xorg-server")}/xvfb-run #{cmd}" if OS.linux? && ENV.exclude?("DISPLAY")
     assert_match "Please configure Pan's news servers before using it as an nzb client.", shell_output(cmd, 1)
   end
 end

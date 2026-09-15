@@ -62,7 +62,7 @@ class Mapnik < Formula
   end
 
   test do
-    output = shell_output("#{Formula["pkgconf"].bin}/pkgconf libmapnik --variable prefix").chomp
+    output = shell_output("#{formula_opt_bin("pkgconf")}/pkgconf libmapnik --variable prefix").chomp
     assert_equal prefix.to_s, output
 
     output = shell_output("#{bin}/mapnik-index --version 2>&1", 1).chomp

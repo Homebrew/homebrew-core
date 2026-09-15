@@ -47,7 +47,7 @@ class Osi < Formula
     CPP
     system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lOsi",
                     "-I#{include}/osi/coin",
-                    "-I#{Formula["coinutils"].include}/coinutils/coin",
+                    "-I#{formula_opt_include("coinutils")}/coinutils/coin",
                     "-o", "test"
     system "./test"
   end

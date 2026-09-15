@@ -81,7 +81,7 @@ class Dartsim < Formula
       add_executable(test_cmake test.cpp)
       target_link_libraries(test_cmake dart)
     CMAKE
-    system ENV.cxx, "test.cpp", "-I#{Formula["eigen"].include}/eigen3",
+    system ENV.cxx, "test.cpp", "-I#{formula_opt_include("eigen")}/eigen3",
                     "-I#{include}", "-L#{lib}", "-ldart",
                     "-L#{formula_opt_lib("assimp")}", "-lassimp",
                     "-L#{formula_opt_lib("libccd")}", "-lccd",

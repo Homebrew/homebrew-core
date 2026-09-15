@@ -78,8 +78,8 @@ class Ki18n < Formula
 
     args = if OS.mac?
       %W[
-        -DLibIntl_INCLUDE_DIRS=#{Formula["gettext"].include}
-        -DLibIntl_LIBRARIES=#{Formula["gettext"].lib}/libintl.dylib
+        -DLibIntl_INCLUDE_DIRS=#{formula_opt_include("gettext")}
+        -DLibIntl_LIBRARIES=#{formula_opt_lib("gettext")}/libintl.dylib
       ]
     else
       []

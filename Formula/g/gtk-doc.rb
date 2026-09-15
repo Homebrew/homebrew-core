@@ -50,7 +50,7 @@ class GtkDoc < Formula
 
   def install
     # To avoid recording pkg-config shims path
-    ENV.prepend_path "PATH", Formula["pkgconf"].bin
+    ENV.prepend_path "PATH", formula_opt_bin("pkgconf")
 
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources

@@ -58,7 +58,7 @@ class Byteman < Formula
       ENDRULE
     BTM
 
-    system "#{Formula["openjdk"].bin}/javac", "src/main/java/BytemanHello.java"
+    system formula_opt_bin("openjdk")/"javac", "src/main/java/BytemanHello.java"
 
     actual = shell_output("#{bin}/bmjava -l brew.btm -cp src/main/java BytemanHello")
     assert_match("Hello, Brew!", actual)

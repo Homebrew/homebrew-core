@@ -28,6 +28,6 @@ class OpenclClhppHeaders < Formula
     (testpath/"test.cpp").write <<~CPP
       #include <CL/opencl.hpp>
     CPP
-    system ENV.cxx, "-std=c++11", "test.cpp", "-c", "-I#{include}", "-I#{Formula["opencl-headers"].include}"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-c", "-I#{include}", "-I#{formula_opt_include("opencl-headers")}"
   end
 end

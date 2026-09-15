@@ -7,11 +7,12 @@ class Secretspec < Formula
   head "https://github.com/cachix/secretspec.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "af51e366858b7558268657047ad16f4efb3e61d1fdac6f2014eba3ef3427c540"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5f576b04ae1d40baef2b13a3a3b51ae3da9b9688420e38d9917dba6b5b8d2bdc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e08247f111b4410728fdb5135be34d425efbaa85aeb477ad3590dbeb3b3a3dd9"
-    sha256 cellar: :any,                 arm64_linux:   "84e12d303cd944b923d79327046d1114c299fd238bf502ed75a02cc79f457da9"
-    sha256 cellar: :any,                 x86_64_linux:  "eddd528df6af573ebc84ae6286dd6e1e8131734f3b53ae4db98ac14b3d9ed5f9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3e7b48171f0c7eb663eabb92e313bfd3d2755fbaf0621a906a68f28eb56f7a63"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "af51e366858b7558268657047ad16f4efb3e61d1fdac6f2014eba3ef3427c540"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5f576b04ae1d40baef2b13a3a3b51ae3da9b9688420e38d9917dba6b5b8d2bdc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "e08247f111b4410728fdb5135be34d425efbaa85aeb477ad3590dbeb3b3a3dd9"
+    sha256 cellar: :any,                 arm64_linux:       "84e12d303cd944b923d79327046d1114c299fd238bf502ed75a02cc79f457da9"
+    sha256 cellar: :any,                 x86_64_linux:      "eddd528df6af573ebc84ae6286dd6e1e8131734f3b53ae4db98ac14b3d9ed5f9"
   end
 
   depends_on "pkgconf" => :build

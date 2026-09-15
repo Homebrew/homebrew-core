@@ -49,7 +49,7 @@ class Wv2 < Formula
     ENV.append "LDFLAGS", "-lgobject-2.0" # work around broken detection
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
     # Help libgsf find its libxml2 dependency. It is not directly used by wv2
-    ENV.append "CXXFLAGS", "-I#{Formula["libxml2"].include}/libxml2" unless OS.mac?
+    ENV.append "CXXFLAGS", "-I#{formula_opt_include("libxml2")}/libxml2" unless OS.mac?
 
     # Workaround to build with CMake 4
     args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]

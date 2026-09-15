@@ -1,8 +1,8 @@
 class LuajitOpenresty < Formula
   desc "OpenResty's Branch of LuaJIT 2"
   homepage "https://github.com/openresty/luajit2"
-  url "https://github.com/openresty/luajit2/archive/refs/tags/v2.1-20260824.tar.gz"
-  sha256 "d73577495b63373079fe65e89613aee383db4369c22cf5b88a20a57be3d9f33a"
+  url "https://github.com/openresty/luajit2/archive/refs/tags/v2.1-20260914.tar.gz"
+  sha256 "a658a5596230c1564295b34303d64dee708956744de622f762e6a503b1a89236"
   license "MIT"
   version_scheme 1
   head "https://github.com/openresty/luajit2.git", branch: "v2.1-agentzh"
@@ -19,13 +19,11 @@ class LuajitOpenresty < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b51903380a2895f04c19944b4bd6d1bfaf7804aab4d55de7a4d36b8f6b6877d7"
-    sha256 cellar: :any, arm64_tahoe:       "b43ce37423138d450e7aa1aedbffe4720a87b7f735fef2948bc99454f214fdb0"
-    sha256 cellar: :any, arm64_sequoia:     "11412e66f63b5d8cad4b0855dbbcaeb3bc90c32933e0be6d0133ec08540b906d"
-    sha256 cellar: :any, arm64_sonoma:      "63e782ae99725859e0bfdb9a9d9e4ec389f870c5b6ff76004764a4aac033ae4c"
-    sha256 cellar: :any, sonoma:            "4b5e441f5952d085171e036ccaad11c92b25bf04066d583a8e03e79514e19d53"
-    sha256 cellar: :any, arm64_linux:       "51a8cafca2ce9d637daef2483d48c69cff006d58a4728a0a320d545e8138ec2c"
-    sha256 cellar: :any, x86_64_linux:      "66cf08c99451459bad83800276a5239a77d0f76dd167dac1befe20b4598f5c31"
+    sha256 cellar: :any, arm64_golden_gate: "391d699c0c13294080deadecf84d72b0941b92e786be99442327563afba3bc93"
+    sha256 cellar: :any, arm64_tahoe:       "6b0a08a491ee58cd5512bea18423005d66d0a37a8aeb533afa5bb9c51f481d8d"
+    sha256 cellar: :any, arm64_sequoia:     "532c18ae1b5013876aa03d85051a8c390d712dbff0946fc8d311bba5514e24e1"
+    sha256 cellar: :any, arm64_linux:       "cd298e31aa285572866953a9484088d6311cc12d20b560b3698e30ebe534b946"
+    sha256 cellar: :any, x86_64_linux:      "c05294abe31c06c03488ef6f4e07b05f9e63d7bb216caecdc882ef3ab444afee"
   end
 
   keg_only "it conflicts with the LuaJIT formula"

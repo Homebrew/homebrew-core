@@ -17,7 +17,7 @@ class Fisher < Formula
   end
 
   test do
-    system "#{Formula["fish"].bin}/fish", "-c", "fisher install jethrokuan/z"
+    system formula_opt_bin("fish")/"fish", "-c", "fisher install jethrokuan/z"
     assert_equal File.read(testpath/".config/fish/fish_plugins"), "jethrokuan/z\n"
   end
 end

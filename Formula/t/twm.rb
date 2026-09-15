@@ -37,7 +37,7 @@ class Twm < Formula
   end
 
   test do
-    spawn Formula["xorg-server"].bin/"Xvfb", ":1"
+    spawn formula_opt_bin("xorg-server")/"Xvfb", ":1"
     ENV["DISPLAY"] = ":1"
     sleep 10
     twn_pid = spawn bin/"twm"

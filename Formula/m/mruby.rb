@@ -7,13 +7,12 @@ class Mruby < Formula
   head "https://github.com/mruby/mruby.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "703500c78069564edb916d0d0bf3e3cec8c3cb1b8fcc6db2231d099d3c447930"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d0a3d3a3f842a842d9cec36a08cdaff6161887ed1c2c222098f0e063c55863ec"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "99b8781738cb0864ef63b328b02f4fad6588b80d3c58728a2d5274129dc40f68"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "71deb7d31b3334da2c773093bba951513cce8c42a044dcd88b672a031b21ac6a"
-    sha256 cellar: :any_skip_relocation, sonoma:            "d2d49d516e0ab05213fc902be1b1fe6f8c47d2aa7c8f42304643fb8416e8a96e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "72df680f25d3bf7b427eaf8cbad7688896f22736c5a33f680d697a906b3aeccb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c9d7f08b13bbe8f0db66ec128ba959cf3555e5929c9643fd46c8aabe385efca7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "94de3bc09ba9d07d0a92e20061f7bc1ea53fa96d31bfc1e4675240e3a60a8240"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2a778a666feb1f5d51fd3eb467e60a57a7fef4186493dce030dbc05116982a14"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "13f8a942e4ddc94e887fb1f5189eef6911f91367568a3a9a30052e37d57d90ff"
+    sha256 cellar: :any,                 arm64_linux:       "6adf39ec1fcbb5e86597f80c55c15f07627545c8aa3741ac055bf9889928a9a2"
+    sha256 cellar: :any,                 x86_64_linux:      "f7a8a6b51af82536ec54e8a94c115267f3522cae02005141f9936c6735ba7dda"
   end
 
   depends_on "bison" => :build
@@ -34,10 +33,8 @@ class Mruby < Formula
 
     cd "build/host/" do
       lib.install Dir["lib/*.a"]
-      prefix.install %w[bin mrbgems mrblib]
+      prefix.install %w[bin include mrbgems mrblib]
     end
-
-    prefix.install "include"
   end
 
   test do

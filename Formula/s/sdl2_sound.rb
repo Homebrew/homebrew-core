@@ -153,9 +153,9 @@ class Sdl2Sound < Formula
 
     flags = %W[
       -I#{include}/SDL2
-      -I#{Formula["sdl2-compat"].include}/SDL2
+      -I#{formula_opt_include("sdl2-compat")}/SDL2
       -L#{lib}
-      -L#{Formula["sdl2-compat"].lib}
+      -L#{formula_opt_lib("sdl2-compat")}
       -lSDL2_sound
       -lSDL2
     ]

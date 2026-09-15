@@ -66,9 +66,9 @@ class Pcb < Formula
 
   def install
     if OS.mac?
-      ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin"
+      ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin"
     else
-      ENV.prepend_path "PERL5LIB", Formula["perl-xml-parser"].libexec/"lib/perl5"
+      ENV.prepend_path "PERL5LIB", formula_opt_libexec("perl-xml-parser")/"lib/perl5"
     end
 
     system "./autogen.sh" if build.head?

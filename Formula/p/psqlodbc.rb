@@ -1,8 +1,8 @@
 class Psqlodbc < Formula
   desc "Official PostgreSQL ODBC driver"
   homepage "https://odbc.postgresql.org"
-  url "https://github.com/postgresql-interfaces/psqlodbc/archive/refs/tags/REL-18_00_0003.tar.gz"
-  sha256 "c99b58d3ee18343bb0394c3a0d2e49d80c1a466e6e1ef999e4201a8acdb3f14d"
+  url "https://github.com/postgresql-interfaces/psqlodbc/archive/refs/tags/REL-18_00_0004.tar.gz"
+  sha256 "af12354a5960846f5578e168b456cde3c21a11c4788277663bf9266b1de3adda"
   license "LGPL-2.0-or-later"
   head "https://github.com/postgresql-interfaces/psqlodbc.git", branch: "main"
 
@@ -15,12 +15,11 @@ class Psqlodbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a566314eace5bdd95270f5f298b01c6a04ba7e831461471caf3020394ff9a18c"
-    sha256 cellar: :any, arm64_tahoe:       "3bc8fdeb796c89790022b29289ecbce07c02b5d043d3a5b1e5dd1bdf20da069d"
-    sha256 cellar: :any, arm64_sequoia:     "7c92ca022fd047403add1bdf3b283cab6b86743664b5ee750e84ec4bff4c56e9"
-    sha256 cellar: :any, arm64_sonoma:      "c64a24e63cb798ffb8f1bd4900cf8f8d1bbede7c7b596214d9d3311b5c3bbdf4"
-    sha256 cellar: :any, arm64_linux:       "a19ab18b33667c9c19ae01695fffb3a7f29c459612c795e38742c68efb2d4cfe"
-    sha256 cellar: :any, x86_64_linux:      "c3ab8790e4dcdc00a4f3a517cd3684c46772fe88c62eb4c9f3699936fa1a0000"
+    sha256 cellar: :any, arm64_golden_gate: "e4896a138635ba0c2980ef17bf3d4e87cc202938654a1e00935473cd36e70b4a"
+    sha256 cellar: :any, arm64_tahoe:       "dd15910207f80da0e955216e0d42bef7330e261aae74333748cad61f4cf25003"
+    sha256 cellar: :any, arm64_sequoia:     "4dfe7f2f1f9af99b6763cec4aa587546f6d1ebd1aed35a9f35f5191512c783d5"
+    sha256 cellar: :any, arm64_linux:       "9a77cefdca59e44fe64c5d85a6f52ac8025ccfc815d70c6f36810cd8b20a900e"
+    sha256 cellar: :any, x86_64_linux:      "5d6796b1ab7e264558806441f2628a40fd72701264c25676cbda7d7d1fe0ffa1"
   end
 
   depends_on "autoconf" => :build
@@ -38,7 +37,7 @@ class Psqlodbc < Formula
   end
 
   test do
-    output = shell_output("#{Formula["unixodbc"].bin}/dltest #{lib}/psqlodbcw.so")
+    output = shell_output("#{formula_opt_bin("unixodbc")}/dltest #{lib}/psqlodbcw.so")
     assert_equal "SUCCESS: Loaded #{lib}/psqlodbcw.so\n", output
   end
 end

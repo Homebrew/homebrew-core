@@ -41,7 +41,7 @@ class ProtocGenJs < Formula
         string name = 2;
       }
     PROTO
-    system Formula["protobuf"].bin/"protoc", "--js_out=import_style=commonjs:.", "person.proto"
+    system formula_opt_bin("protobuf")/"protoc", "--js_out=import_style=commonjs:.", "person.proto"
     assert_path_exists testpath/"person_pb.js"
     refute_predicate (testpath/"person_pb.js").size, :zero?
   end

@@ -1,17 +1,17 @@
 class Treemd < Formula
   desc "TUI and CLI dual pane markdown viewer"
   homepage "https://github.com/epistates/treemd"
-  url "https://github.com/Epistates/treemd/archive/refs/tags/v0.8.2.tar.gz"
-  sha256 "28a857b266ef9ae5591b914260b058328fd0dbaf1c04e7617891e6ccbac64000"
+  url "https://github.com/Epistates/treemd/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "5f110d3ea88884200161d286cab56bc808a59f614f24088c5e8dec619f3a20a7"
   license "MIT"
   head "https://github.com/epistates/treemd.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "35933b807ee46956f92d8967e123c61283d430aa308bea01c4448a6dea279216"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e20df3fa0646a492ecf7596b3152dba20a713deedb355793324efce5ea906784"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "81907e5c8d7a2f244121bb72ad4ccaa21d6384c99e643a2f6f2e43e5ab5677cd"
-    sha256 cellar: :any,                 arm64_linux:       "c1024e19dd2c74b6d9aa877dab849b7f1d1df226298e0569b26abea31051a782"
-    sha256 cellar: :any,                 x86_64_linux:      "7eddd92db534fec7f60e16041515c77d1ed31357ecaff13a08957a2feb346d6e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2dc5aca2bd1f3bd8dd8eb2e76dd4d2fe32345b57c2061ce7e75141452f94d7a7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "18ce4b347ebd996ccc53993500baeefbaadb4f23810720aa4cb8557833202e77"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b638337dcc82e9433db4229fd4b2d111df4207383d84c07a58118a09afa6490d"
+    sha256 cellar: :any,                 arm64_linux:       "a53f402bec05a410f6b264b9b945b8926d8cb5fc598d4808088a5de3f0421389"
+    sha256 cellar: :any,                 x86_64_linux:      "5ee2a2e6ec96709d396d009bbf2c586750b18859503aff8c3380485bb41d6760"
   end
 
   depends_on "rust" => :build

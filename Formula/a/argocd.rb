@@ -2,8 +2,8 @@ class Argocd < Formula
   desc "GitOps Continuous Delivery for Kubernetes"
   homepage "https://argoproj.github.io/cd/"
   url "https://github.com/argoproj/argo-cd.git",
-      tag:      "v3.5.2",
-      revision: "e258ee23c3e52266d407572f4bcdfe7d9ed36cb5"
+      tag:      "v3.5.3",
+      revision: "c9c369efcc5b2a0bd720803f8d14a1c3eaddf579"
   license "Apache-2.0"
 
   # There can be a notable gap between when a version is tagged and a
@@ -18,13 +18,11 @@ class Argocd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c463fcca6ea3b5ed4b8d698ca6a523e20d8de524f4cc810abc1961afbe22eb1d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "abadcabbc73e8ea325c315a0dceaf1d2d4b852b51b621e5a7b05857f4f8f98e0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7a7c1a62432c644b864f2a1f8889ed910ec1832c86eb302fdaa0789accce9cbb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "92e20e94a623a4be88351fdf0c1d036b1faf2e8e6ea09b73ea55a4b010111831"
-    sha256 cellar: :any_skip_relocation, sonoma:            "293f3fb2db435cdd0bca86cb62219f18401bd6123afbcaf07f727028155fcfe6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "98ac8084728f63831eb16abd15f1a2e70c78994cb1d46b3d05cca4b75dcd929f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "58ef74768ab40c503ab9a702798732772fcd3e4e86b58894e41e8260d359266e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4ca79eeb301ea84df303fde66521718caf414e81218e43f4daf06c65337a76b6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "de9e6f28938542d270047c50b6fcdb27133fb5f439992dbbd7d7b13406bfd951"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a402fb10b53860a41c379fd4585e270522864b0590cb0eab642a200a179e6f52"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "919f44ae7d9cd64f0c0f9560001c637ab448942d1f42ab343d5e45d0077d0afa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "86f261e280e9aba03ab700f7427e92dacf4b69151ff58eded4273eb6853611e9"
   end
 
   depends_on "corepack" => :build # requires newer `yarn`

@@ -41,7 +41,7 @@ class Patchpal < Formula
 
   test do
     if OS.linux?
-      xvfb_pid = spawn Formula["xorg-server"].bin/"Xvfb", ":1"
+      xvfb_pid = spawn formula_opt_bin("xorg-server")/"Xvfb", ":1"
       ENV["DISPLAY"] = ":1"
       sleep 10
     end

@@ -18,6 +18,6 @@ class SpringLoaded < Formula
   end
 
   test do
-    system "#{Formula["openjdk"].bin}/java", "-javaagent:#{share}/java/springloaded.jar", "-version"
+    system formula_opt_bin("openjdk")/"java", "-javaagent:#{share}/java/springloaded.jar", "-version"
   end
 end

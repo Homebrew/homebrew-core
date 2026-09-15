@@ -90,7 +90,7 @@ class Neovide < Formula
     sleep 1 until socket.exist? && socket.socket?
 
     neovide_cmd = [bin/"neovide", "--no-fork", "--server=#{socket}"]
-    neovide_cmd.unshift(Formula["xorg-server"].bin/"xvfb-run") if OS.linux? && ENV.exclude?("DISPLAY")
+    neovide_cmd.unshift(formula_opt_bin("xorg-server")/"xvfb-run") if OS.linux? && ENV.exclude?("DISPLAY")
     ohai neovide_cmd.join(" ")
     neovide_pid = spawn(*neovide_cmd)
 

@@ -76,7 +76,7 @@ class Libmemcached < Formula
     C
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lmemcached", "-o", "test"
 
-    memcached = Formula["memcached"].bin/"memcached"
+    memcached = formula_opt_bin("memcached")/"memcached"
     port = free_port
     io = IO.popen("#{memcached} -l 127.0.0.1 -p #{port}")
     sleep 1

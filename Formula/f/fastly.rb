@@ -1,26 +1,28 @@
 class Fastly < Formula
   desc "Build, deploy and configure Fastly services"
   homepage "https://www.fastly.com/documentation/reference/cli/"
-  url "https://github.com/fastly/cli/archive/refs/tags/v16.0.0.tar.gz"
-  sha256 "537e2948843eeebfba80cec6f2018ca2bee96c61783ac4f2408fa9602f732f08"
+  url "https://github.com/fastly/cli/archive/refs/tags/v16.1.0.tar.gz"
+  sha256 "24a42847712dab326c77d4ac1942478658392be2059f37bc7af642157092912d"
   license "Apache-2.0"
   head "https://github.com/fastly/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "882dcb48265c36a453f303c63c1f3f30dc0ca45fb1cc9697f5e6fb9e535caa1f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "210c3d7e4e404b25effba54100cfde4606d2f841383d310331da04bd20bba571"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "210c3d7e4e404b25effba54100cfde4606d2f841383d310331da04bd20bba571"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "210c3d7e4e404b25effba54100cfde4606d2f841383d310331da04bd20bba571"
-    sha256 cellar: :any_skip_relocation, sonoma:            "68426e35f81b7a4d89cdf293169d04e258a2f412691092830ed07e803c8ce4f2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "cdda9823eadcb7216f399261d5c2c9e1a719f6439a9a783a041d4c65d5bb2a93"
-    sha256 cellar: :any,                 x86_64_linux:      "308bcb904c6b76beec03ee846f9f5972250731a1f91203aeee4dc14193731adf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "468818fe39bb9028d98b10ed604040c8a798a6bb8f4009bf4699d08d6a1db539"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "468818fe39bb9028d98b10ed604040c8a798a6bb8f4009bf4699d08d6a1db539"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "468818fe39bb9028d98b10ed604040c8a798a6bb8f4009bf4699d08d6a1db539"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d993f9dba1c42ee555bb27aace24cb25b9977091a7b52bf84114591dea58a374"
+    sha256 cellar: :any,                 x86_64_linux:      "04bd6a610449e90b0ff298ccc721cfab792792000418daec27ee11d3d48b0099"
   end
 
   depends_on "go" => :build
 
-  def install
-    mv ".fastly/config.toml", "pkg/config/config.toml"
+  allow_network_access! :test
 
+  def fetch
+    system "go", "mod", "download"
+  end
+
+  def install
     os = Utils.safe_popen_read("go", "env", "GOOS").strip
     arch = Utils.safe_popen_read("go", "env", "GOARCH").strip
 

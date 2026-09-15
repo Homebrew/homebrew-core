@@ -31,7 +31,7 @@ class Rakudo < Formula
     system "perl", "Configure.pl",
                    "--backends=moar",
                    "--prefix=#{prefix}",
-                   "--with-nqp=#{Formula["nqp"].bin}/nqp"
+                   "--with-nqp=#{formula_opt_bin("nqp")}/nqp"
 
     # Reduce overlinking on macOS
     if OS.mac?

@@ -63,7 +63,7 @@ class CrosstoolNg < Formula
       ENV["MAKE"] = formula_opt_bin("make")/"gmake"
       ENV.append "LDFLAGS", "-lintl"
     else
-      ENV.append "CFLAGS", "-I#{Formula["ncurses"].include}/ncursesw"
+      ENV.append "CFLAGS", "-I#{formula_opt_include("ncurses")}/ncursesw"
     end
 
     system "./configure", "--prefix=#{prefix}"

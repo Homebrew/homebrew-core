@@ -37,8 +37,8 @@ class VulkanLoader < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build",
-                    "-DVULKAN_HEADERS_INSTALL_DIR=#{Formula["vulkan-headers"].prefix}",
-                    "-DCMAKE_INSTALL_INCLUDEDIR=#{Formula["vulkan-headers"].include}",
+                    "-DVULKAN_HEADERS_INSTALL_DIR=#{formula_opt_prefix("vulkan-headers")}",
+                    "-DCMAKE_INSTALL_INCLUDEDIR=#{formula_opt_include("vulkan-headers")}",
                     "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}",
                     "-DFALLBACK_CONFIG_DIRS=#{etc}/xdg:/etc/xdg",
                     "-DFALLBACK_DATA_DIRS=#{HOMEBREW_PREFIX}/share:/usr/local/share:/usr/share",

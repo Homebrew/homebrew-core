@@ -229,7 +229,7 @@ class Glibc < Formula
         "--without-gd",
         "--without-selinux",
         "--with-binutils=#{bootstrap_dir}/bin",
-        "--with-headers=#{Formula["linux-headers@6.8"].include}",
+        "--with-headers=#{formula_opt_include("linux-headers@6.8")}",
         "--with-bugurl=#{tap.issues_url}",
         "--with-pkgversion=Homebrew glibc (#{pkg_version})",
 

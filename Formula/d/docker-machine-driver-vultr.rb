@@ -26,6 +26,6 @@ class DockerMachineDriverVultr < Formula
 
   test do
     assert_match "--vultr-api-key",
-      shell_output("#{Formula["rancher-machine"].bin}/rancher-machine create --driver vultr -h")
+      shell_output("#{formula_opt_bin("rancher-machine")}/rancher-machine create --driver vultr -h")
   end
 end

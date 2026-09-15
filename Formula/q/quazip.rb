@@ -44,7 +44,7 @@ class Quazip < Formula
       CONFIG         -= app_bundle
       TARGET          = test
       SOURCES        += test.cpp
-      INCLUDEPATH    += #{include} #{Formula["zlib-ng-compat"].include}
+      INCLUDEPATH    += #{include} #{formula_opt_include("zlib-ng-compat")}
       LIBPATH        += #{lib}
       LIBS           += -lquazip#{version.major}-qt#{Formula["qt"].version.major}
       QMAKE_RPATHDIR += #{lib}

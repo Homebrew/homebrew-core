@@ -35,6 +35,6 @@ class DirectxHeaders < Formula
 
     ENV.remove_macosxsdk if OS.mac?
 
-    system Formula["mingw-w64"].bin/"x86_64-w64-mingw32-g++", "-I#{include}", "-c", "test.cpp"
+    system formula_opt_bin("mingw-w64")/"x86_64-w64-mingw32-g++", "-I#{include}", "-c", "test.cpp"
   end
 end

@@ -47,7 +47,7 @@ class ProtocGenGrpcJava < Formula
   end
 
   test do
-    system Formula["protobuf"].bin/"protoc", "--grpc-java_out=.", "--proto_path=#{pkgshare}", "helloworld.proto"
+    system formula_opt_bin("protobuf")/"protoc", "--grpc-java_out=.", "--proto_path=#{pkgshare}", "helloworld.proto"
     output_file = testpath/"io/grpc/examples/helloworld/GreeterGrpc.java"
     assert_path_exists output_file
     assert_match "public io.grpc.examples.helloworld.HelloReply sayHello(", output_file.read

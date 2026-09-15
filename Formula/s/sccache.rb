@@ -1,8 +1,8 @@
 class Sccache < Formula
   desc "Used as a compiler wrapper and avoids compilation when possible"
   homepage "https://github.com/mozilla/sccache"
-  url "https://github.com/mozilla/sccache/archive/refs/tags/v0.17.0.tar.gz"
-  sha256 "49949ad1cf175c49da126dbb0c2e6a56bd9d1f626e8cc0be17b9668b914145c6"
+  url "https://github.com/mozilla/sccache/archive/refs/tags/v0.18.0.tar.gz"
+  sha256 "14e37fc2cb4f21c188789d518e170181b7cd1ba523152880cdf8009269d79732"
   license "Apache-2.0"
   head "https://github.com/mozilla/sccache.git", branch: "main"
 
@@ -12,13 +12,11 @@ class Sccache < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6f5a4f8e7ba79b15a4e1c8a7a36d79aa77b0c9dbbbaaa67d57e072ed505f3070"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7748b72b00ded7c5a67ec90f096e267efd3405f92d78c529366aaf08304d07a3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "19686ad7ae3ff94088c8c2cec75a1a4bbcf817b5748d667e47162feef330024b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "82bf259c4494b02de912b29598bb9c33679c8b229d383922e9e9723aff891e35"
-    sha256 cellar: :any_skip_relocation, sonoma:            "54578793f6d2da4ab0c4ad9609933ae8ecda45650cb688084a47f30eb291867c"
-    sha256 cellar: :any,                 arm64_linux:       "53b23e0182080c692ea2cd495a555fde4e5edff0dc9a49a9bdba02414e447f65"
-    sha256 cellar: :any,                 x86_64_linux:      "ed0e69f0d6427c6b5610e7a0e0c5dcb3f08b16cc379bfb5aa73a82a42bb0c12f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7514e04791a2ecb52bde6e36dc0887114b832823c74a2467b7be76f7f5fa57e4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0ec8671683abb532a52c1d785a6c8bdcb96d8686bbb3de4406c5bd20450830a7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d243d7a06840bceddbb132ccd112543602247b7983004043db760a4ad43a4f8f"
+    sha256 cellar: :any,                 arm64_linux:       "720b3cccdc0f75aa4bbc210c59c43bc2b112cf0d98f69ba84fecbd7dfc62f38c"
+    sha256 cellar: :any,                 x86_64_linux:      "f5ff4ed8fb405a2cd01f6aca6c98f6042c94c9b1e9eb418cd74e896dd948799a"
   end
 
   depends_on "pkgconf" => :build

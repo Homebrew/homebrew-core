@@ -82,7 +82,7 @@ class Ntopng < Formula
 
   test do
     valkey_port = free_port
-    valkey_bin = Formula["valkey"].bin
+    valkey_bin = formula_opt_bin("valkey")
     spawn valkey_bin/"valkey-server", "--port", valkey_port.to_s
     sleep 10
 

@@ -35,8 +35,8 @@ class Ntp < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --with-openssl-libdir=#{Formula["openssl@3"].lib}
-      --with-openssl-incdir=#{Formula["openssl@3"].include}
+      --with-openssl-libdir=#{formula_opt_lib("openssl@3")}
+      --with-openssl-incdir=#{formula_opt_include("openssl@3")}
       --with-net-snmp-config=no
     ]
 

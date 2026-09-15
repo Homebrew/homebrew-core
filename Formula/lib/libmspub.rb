@@ -63,9 +63,9 @@ class Libmspub < Formula
       }
     CPP
     system ENV.cxx, "test.cpp", "-o", "test", "-lrevenge-stream-0.0",
-                    "-I#{Formula["librevenge"].include}/librevenge-0.0",
+                    "-I#{formula_opt_include("librevenge")}/librevenge-0.0",
                     "-lmspub-0.1", "-I#{include}/libmspub-0.1",
-                    "-L#{lib}", "-L#{Formula["librevenge"].lib}"
+                    "-L#{lib}", "-L#{formula_opt_lib("librevenge")}"
     system "./test"
   end
 end

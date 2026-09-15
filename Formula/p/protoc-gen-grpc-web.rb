@@ -64,7 +64,7 @@ class ProtocGenGrpcWeb < Formula
         rpc RunTest(Test) returns (TestResult);
       }
     PROTO
-    protoc = Formula["protobuf"].bin/"protoc"
+    protoc = formula_opt_bin("protobuf")/"protoc"
     system protoc, "test.proto", "--plugin=#{bin}/protoc-gen-grpc-web",
                    "--js_out=import_style=commonjs:.",
                    "--grpc-web_out=import_style=typescript,mode=grpcwebtext:."

@@ -62,7 +62,7 @@ class Pulseaudio < Formula
 
   def install
     enabled_on_linux = if OS.linux?
-      ENV.prepend_path "PERL5LIB", Formula["perl-xml-parser"].libexec/"lib/perl5"
+      ENV.prepend_path "PERL5LIB", formula_opt_libexec("perl-xml-parser")/"lib/perl5"
       "enabled"
     else
       "disabled"

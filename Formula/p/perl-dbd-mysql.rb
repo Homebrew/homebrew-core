@@ -73,7 +73,7 @@ class PerlDbdMysql < Formula
   end
 
   test do
-    perl = OS.mac? ? "/usr/bin/perl" : Formula["perl"].bin/"perl"
+    perl = OS.mac? ? "/usr/bin/perl" : formula_opt_bin("perl")/"perl"
     port = free_port
     socket = testpath/"mysql.sock"
     mysql = Formula["mysql"]

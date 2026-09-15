@@ -1,27 +1,35 @@
 class Proxelar < Formula
   desc "Man-in-the-Middle proxy for HTTP/HTTPS traffic"
   homepage "https://proxelar.micheletti.io"
-  url "https://github.com/emanuele-em/proxelar/archive/refs/tags/v0.5.1.tar.gz"
-  sha256 "e4f67a2248a87101c4e4d28180b7d707f12cad90070d9687ad2411e7f25e32d9"
+  url "https://github.com/emanuele-em/proxelar/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "ab78c80db38defe15ada81050f9f55c7ca42a824d327a6c75c7a10029216c9a8"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "42faa054a4eb5d929176f346dba6ff74ff96b8db23500b1186e0eb9b73af4829"
-    sha256 cellar: :any, arm64_tahoe:       "1fad1026bd4816fbe670c06d0c0445a5783ff6b930ff8b6afbf85eddafcfdb9c"
-    sha256 cellar: :any, arm64_sequoia:     "d143a2b171780859059ca9e04facc4ace2fcc3d2b1897137f10c8a5702b0e9b9"
-    sha256 cellar: :any, arm64_sonoma:      "048a3bc89f12d285d5bc51d09d29290792e0a94643345d1ce0360a6754f5c0cd"
-    sha256 cellar: :any, sonoma:            "7fa9ffd2064347deb33779a5fc904732fea36054aa6ed3e3bf1973a01baec456"
-    sha256 cellar: :any, arm64_linux:       "dde6a18c5092e9993a374c968098935a8236fc7d40a66b6599284c56e2ec0844"
-    sha256 cellar: :any, x86_64_linux:      "b9b6ceba6d4e4cb1267db375c17d43efef594db4e5ff9c33587a32a883088feb"
+    sha256 cellar: :any, arm64_golden_gate: "26ae8dfdc568dd2fbeb66f5871c32f3880cf6675ffb5f46c286274443744c6d0"
+    sha256 cellar: :any, arm64_tahoe:       "b9e44ffd525468cdf5a55260e2f6694e3d10f683d2540a93eddd11a04a0a328e"
+    sha256 cellar: :any, arm64_sequoia:     "d0ba2143e6cbe0ccde7734bd8f87abfbfcfa46947d6e3280db20ad25e5819bc0"
+    sha256 cellar: :any, arm64_linux:       "8c81b9aa5b50b280d02c57f682aea4213cda3472d2871d07b6f09a16a94f7517"
+    sha256 cellar: :any, x86_64_linux:      "1a82147b17db142994249dd5a21aeb40259c87319ac349ca3fe9e1d30f5eef88"
   end
 
+  depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  depends_on "lua"
   depends_on "openssl@4"
+
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", "--locked", "--target", "host-tuple"
+  end
 
   def install
     ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
-    system "cargo", "install", *std_cargo_args(path: "proxelar-cli")
+    features = ["scripting"]
+    inreplace "proxyapi/Cargo.toml", "lua54", "lua55" # Allow bindings for the latest Lua version
+    system "cargo", "install", "--no-default-features", *std_cargo_args(path: "proxelar-cli", features:)
   end
 
   test do

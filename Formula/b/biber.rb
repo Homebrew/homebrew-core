@@ -700,7 +700,7 @@ class Biber < Formula
       \printbibliography
       \end{document}
     LATEX
-    system Formula["texlive"].bin/"pdflatex", "-interaction=errorstopmode", testpath/"test.latex"
+    system formula_opt_bin("texlive")/"pdflatex", "-interaction=errorstopmode", testpath/"test.latex"
     system bin/"biber", "test"
     assert_path_exists testpath/"test.bbl"
   end

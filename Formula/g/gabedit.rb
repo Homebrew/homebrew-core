@@ -70,7 +70,7 @@ class Gabedit < Formula
         s.gsub! "-lpangox-1.0", ""
       else
         # Add PKG_CONFIG_PATH to pangox-compat in gtkglext.
-        ENV.append_path "PKG_CONFIG_PATH", Formula["gtkglext"].libexec/"lib/pkgconfig"
+        ENV.append_path "PKG_CONFIG_PATH", formula_opt_libexec("gtkglext")/"lib/pkgconfig"
         s.gsub! "OGLLIB=-L/usr/lib -lGL -L/usr/lib -lGLU",
                 "OGLLIB=-L#{formula_opt_lib("mesa")} -lGL -L#{formula_opt_lib("mesa-glu")} -lGLU"
       end
