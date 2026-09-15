@@ -294,6 +294,7 @@ jobs:
                 dotnet|\
                 emscripten|\
                 envoy|\
+                foundry|\
                 flang|\
                 gcc|\
                 gdb|\
