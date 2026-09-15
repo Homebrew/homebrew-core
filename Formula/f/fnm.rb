@@ -27,6 +27,13 @@ class Fnm < Formula
     depends_on "zlib-ng-compat"
   end
 
+  # `test do` block downloads a Node.js release
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", "--locked", "--target", "host-tuple"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
 

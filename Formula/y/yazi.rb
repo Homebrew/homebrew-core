@@ -25,6 +25,12 @@ class Yazi < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", "--locked", "--target", "host-tuple"
+  end
+
   def install
     ENV["VERGEN_GIT_SHA"] = tap.user
     ENV["YAZI_GEN_COMPLETIONS"] = "1"

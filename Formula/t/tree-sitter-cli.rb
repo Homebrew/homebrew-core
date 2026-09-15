@@ -28,6 +28,12 @@ class TreeSitterCli < Formula
   link_overwrite "etc/bash_completion.d/tree-sitter"
   link_overwrite "share/fish/vendor_completions.d/tree-sitter.fish", "share/zsh/site-functions/_tree-sitter"
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", "--locked", "--target", "host-tuple"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/cli")
     generate_completions_from_executable(bin/"tree-sitter", "complete", shell_parameter_format: :arg)

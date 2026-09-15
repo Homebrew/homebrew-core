@@ -28,6 +28,13 @@ class Rustup < Formula
     depends_on "openssl@3"
   end
 
+  # Test downloads a Rust toolchain
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", "--locked", "--target", "host-tuple"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(features: "no-self-update")
 

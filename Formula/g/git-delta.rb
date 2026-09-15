@@ -25,6 +25,12 @@ class GitDelta < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", "--locked", "--target", "host-tuple"
+  end
+
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"

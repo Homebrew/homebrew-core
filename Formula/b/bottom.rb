@@ -26,6 +26,12 @@ class Bottom < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", "--locked", "--target", "host-tuple"
+  end
+
   def install
     # enable build-time generation of completion scripts and manpage
     ENV["BTM_GENERATE"] = "true"
