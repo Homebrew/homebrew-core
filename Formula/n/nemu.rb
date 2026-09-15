@@ -2,7 +2,7 @@ class Nemu < Formula
   desc "Ncurses UI for QEMU"
   homepage "https://github.com/nemuTUI/nemu"
   url "https://github.com/nemuTUI/nemu/archive/refs/tags/v3.5.0.tar.gz"
-  sha256 "a956b23a492c1d6362a04ef7a88fb62763c2ba5e019d13841e42dec4f3d0d707"
+  sha256 "dc251c6c478d60734a964324c028904e9da97dfeded7e5c6855f65e594e9a065"
   license "BSD-2-Clause"
 
   bottle do
