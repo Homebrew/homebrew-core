@@ -1,8 +1,8 @@
-class PerconaServer < Formula
+class PerconaServerAT84 < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://downloads.percona.com/downloads/Percona-Server-9.7/Percona-Server-9.7.1-1/source/tarball/percona-server-9.7.1-1.tar.gz"
-  sha256 "cfa835f66b415a46e64420d515096281f42a7bcf189bda0f6c434ea5a55d63ee"
+  url "https://downloads.percona.com/downloads/Percona-Server-8.4/Percona-Server-8.4.11-11/source/tarball/percona-server-8.4.11-11.tar.gz"
+  sha256 "2fb90e235c25183d73c972cba481a32ea2d90cefca0669fe0786defc2acdfa18"
   license "BSD-3-Clause"
 
   livecheck do
@@ -20,13 +20,10 @@ class PerconaServer < Formula
     end
   end
 
-  bottle do
-    sha256 arm64_tahoe:   "66e5ca2e518aa106e0dedeca34a2b25c5b01997590da13fcf0bf00836e2b3b90"
-    sha256 arm64_sequoia: "a653b5fd4b96e7247d18ecf25eb778e586033fdabfcc02a1fec9edd3b8556286"
-    sha256 arm64_sonoma:  "457871a19be2223bf66a5ee9a845e8b78f5b61463bab4c3564b49315c864f670"
-    sha256 arm64_linux:   "d9af7515e80e984ae044470d6ceb7ed56d076530a946c04e5e900e6ff007cd77"
-    sha256 x86_64_linux:  "d5665f3810565e3ba610953a261a9138953d667991bb4e394f984e26194d2a91"
-  end
+  keg_only :versioned_formula
+
+  # https://www.percona.com/services/policies/percona-software-support-lifecycle
+  deprecate! date: "2032-04-30", because: :unsupported
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
@@ -51,19 +48,10 @@ class PerconaServer < Formula
     depends_on "libtirpc"
   end
 
-  conflicts_with "mariadb", "mysql", because: "percona, mariadb, and mysql install the same binaries"
-
   # https://github.com/percona/percona-server/blob/8.4/cmake/os/Linux.cmake
   fails_with :gcc do
     version "9"
     cause "Requires GCC 10 or newer"
-  end
-
-  # Backport commit from MySQL to fix build on newer Clang
-  patch do
-    url "https://github.com/mysql/mysql-server/commit/b006e3af4b6b1b6f7fdf7b91a00c6293c4f292b1.patch?full_index=1"
-    sha256 "e99e7e63d8581cbfb513a2dd43f36f8da0e3c1bf26e512156847c1036280adf3"
-    type :backport
   end
 
   # Patch out check for Homebrew `boost`.
@@ -87,9 +75,6 @@ class PerconaServer < Formula
 
     # Find Homebrew OpenLDAP instead of the macOS framework
     inreplace "cmake/ldap.cmake", "NAMES ldap_r ldap", "NAMES ldap"
-
-    # `pthread_self` is only pulled in by a `HAVE_SCHED_GETCPU`-guarded include
-    inreplace "storage/rocksdb/ib_ut0counter.h", "#include <cstdint>", "#include <cstdint>\n#include <pthread.h>"
 
     # Disable ABI checking
     inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0" if OS.linux?
@@ -120,8 +105,6 @@ class PerconaServer < Formula
       -DWITH_SSL=system
       -DWITH_ZLIB=system
       -DWITH_ZSTD=system
-      -DWITH_MYSQL_SERVER_TELEMETRY=OFF
-      -DWITH_MYSQL_CLIENT_TELEMETRY=OFF
       -DWITH_UNIT_TESTS=OFF
       -DROCKSDB_BUILD_ARCH=#{ENV.effective_arch}
       -DALLOW_NO_ARMV81A_CRYPTO=ON
