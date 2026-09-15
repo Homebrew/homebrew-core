@@ -2,8 +2,8 @@ class ScalaCli < Formula
   desc "Scala language runner and build tool"
   homepage "https://scala-cli.virtuslab.org/"
   url "https://github.com/VirtusLab/scala-cli.git",
-      tag:      "v1.16.0",
-      revision: "d8e650b35edb309324a8f9552fa6db60f1053f93"
+      tag:      "v1.17.0",
+      revision: "3c948617f4c1e324fc2aa2773ea9292f2b99799c"
   license "Apache-2.0"
 
   livecheck do
@@ -44,14 +44,20 @@ class ScalaCli < Formula
     # The native-image binary does not propagate HOMEBREW_RUBY_PATH to child
     # processes, so the superenv cc shim aborts. Remove shims so it uses the real C compiler.
     ENV.remove "PATH", Superenv.shims_path
+    # native-image analysis of scala-cli can stay silent for >10 min on
+    # CI (GC / resource scan). GraalVM's deadlock watchdog then kills
+    # the builder with exit 30 even though the main thread is still running.
+    extra = ["-H:DeadlockWatchdogInterval=60", "-H:-DeadlockWatchdogExitOnTimeout"]
     if OS.linux?
       # native-image doesn't propagate env vars to the gcc subprocess it spawns,
       # so LIBRARY_PATH won't reach the linker. Inject the path directly via
       # -H:CLibraryPath so native-image passes -L to the linker command.
       zlib_lib = formula_opt_lib("zlib-ng-compat")
-      extra = "'-H:CLibraryPath=#{zlib_lib}' '-H:NativeLinkerOption=-Wl,-rpath,#{zlib_lib}'"
-      inreplace "generate-native-image.sh", "'--no-fallback'", "'--no-fallback' #{extra}"
+      extra << "-H:CLibraryPath=#{zlib_lib}"
+      extra << "-H:NativeLinkerOption=-Wl,-rpath,#{zlib_lib}"
     end
+    inreplace "generate-native-image.sh", "'--no-fallback'",
+              "'--no-fallback' #{extra.map { |f| "'#{f}'" }.join(" ")}"
     system "bash", "./generate-native-image.sh"
 
     bin.install Dir["out/cli/*/base-image/nativeImage.dest/scala-cli"].first
