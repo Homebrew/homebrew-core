@@ -115,6 +115,41 @@ class PostgresqlAT18 < Formula
     # Modify the Makefile back so dependents pick up common path
     makefile = lib/"postgresql/pgxs/src/Makefile.shlib"
     inreplace makefile, "-install_name '#{lib}/postgresql/", "-install_name '$(libdir)/"
+
+    (libexec/"postgresql-service-start").write <<~SHELL
+      #!/bin/bash
+      # Removes a postmaster.pid whose PID is proven not to be a postgres, then starts PostgreSQL.
+      set -u
+      postgres="$1"
+      datadir="$2"
+      pidfile="$datadir/postmaster.pid"
+
+      if [ -f "$pidfile" ]; then
+        before=$(cat "$pidfile")
+        pid=$(printf '%s\\n' "$before" | sed -n '1p')
+        case "$pid" in
+          '' | *[!0-9]*) ;;
+          *)
+            # A live PID may be any process at all, which is what PostgreSQL cannot tell and refuses over.
+            if command=$(ps -p "$pid" -o comm= 2>/dev/null); then
+              case "$command" in
+                *postgres* | *postmaster*) command="" ;;
+              esac
+            else
+              command="(no such process)"
+            fi
+            # Re-read, so a postmaster that started meanwhile keeps the file it just wrote.
+            if [ -n "$command" ] && [ "$(cat "$pidfile" 2>/dev/null)" = "$before" ]; then
+              echo "removing a stale $pidfile: PID $pid is $command, not a postgres" >&2
+              rm -f "$pidfile"
+            fi
+            ;;
+        esac
+      fi
+
+      exec "$postgres" -D "$datadir"
+    SHELL
+    chmod 0755, libexec/"postgresql-service-start"
   end
 
   post_install_steps do
@@ -149,7 +184,8 @@ class PostgresqlAT18 < Formula
   end
 
   service do
-    run [opt_bin/"postgres", "-D", f.postgresql_datadir]
+    # Via a launcher, because a killed postmaster's lock file can otherwise wedge the service forever.
+    run [opt_libexec/"postgresql-service-start", opt_bin/"postgres", f.postgresql_datadir]
     environment_variables LC_ALL: "en_US.UTF-8"
     keep_alive true
     log_path f.postgresql_log_path
