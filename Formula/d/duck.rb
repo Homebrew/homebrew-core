@@ -1,15 +1,18 @@
 class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
-  url "https://dist.duck.sh/duck-src-9.5.3.45464.tar.gz"
-  sha256 "22ca9fea06ae284d25f785be68dbe69201c196cf743329c4d5e3139e53865a37"
+  url "https://github.com/iterate-ch/cyberduck/archive/refs/tags/release-9-5-4.tar.gz"
+  version "9.5.4.45528"
+  sha256 "dce8e54c5f7b813b3cc42595f939b1f0135679cb4c802a5c0a1c4464a7086c75"
   license "GPL-3.0-only"
   head "https://github.com/iterate-ch/cyberduck.git", branch: "master"
 
   livecheck do
     url "https://dist.duck.sh/"
-    regex(/href=.*?duck(?:-src)?[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?duck[._-]v?(\d+(?:\.\d+)+)[._-][^"]*?\.deb/i)
   end
+
+  no_autobump! because: :incompatible_version_format
 
   bottle do
     sha256 cellar: :any, arm64_tahoe:   "aaa64c7995f44b96596e7ec8fdd39eae7e9f6aea77001ddf1288d909eddf47ec"
@@ -120,6 +123,8 @@ class Duck < Formula
 
       cd "apple/JavaNativeFoundation" do
         xcodebuild "VALID_ARCHS=#{Hardware::CPU.arch}",
+                   "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}", # Xcode 27 rejects the project's 10.14 target
+                   "OTHER_LDFLAGS=-headerpad_max_install_names",
                    "OTHER_CFLAGS=-Wno-strict-prototypes", # Workaround for Xcode 14.3
                    "-project", "JavaNativeFoundation.xcodeproj"
         buildpath.install "build/Release/JavaNativeFoundation.framework"
