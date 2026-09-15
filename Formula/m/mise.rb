@@ -33,24 +33,27 @@ class Mise < Formula
   # downloads crates during install and binaries in the test
   deny_network_access! :postinstall
 
+  def fetch
+    system "cargo", "fetch", "--locked", "--target", "host-tuple"
+  end
+
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
-    system "cargo", "install", *std_cargo_args
+    features = %w[rustls-native-roots vfox/vendored-lua]
+    system "cargo", "install", "--profile=serious",
+                               "--no-default-features",
+                               *std_cargo_args(features:)
     man1.install "man/man1/mise.1"
-    lib.mkpath
-    touch lib/".disable-self-update"
-    (share/"fish/vendor_conf.d/mise-activate.fish").write <<~FISH
-      if [ "$MISE_FISH_AUTO_ACTIVATE" != "0" ]
-        #{opt_bin}/mise activate fish | source
-      end
-    FISH
+    inreplace "share/fish/vendor_conf.d/mise-activate.fish", "mise", opt_bin/"mise"
+    (share/"fish/vendor_conf.d").install "share/fish/vendor_conf.d/mise-activate.fish"
 
     # Untrusted config path problem, `generate_completions_from_executable` is not usable
     bash_completion.install "completions/mise.bash" => "mise"
     fish_completion.install "completions/mise.fish"
     zsh_completion.install "completions/_mise"
+    pwsh_completion.install "completions/mise.ps1" => "_mise.ps1"
   end
 
   def caveats
