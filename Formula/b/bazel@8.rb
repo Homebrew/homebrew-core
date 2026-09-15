@@ -54,6 +54,7 @@ class BazelAT8 < Formula
     ENV["BAZEL_WRKDIR"] = buildpath/"work"
     # Force Bazel to use brew OpenJDK
     extra_bazel_args = ["--tool_java_runtime_version=local_jdk"]
+    extra_bazel_args << "--macos_minimum_os=#{MacOS.version}.0" if OS.mac?
     ENV.merge! java_home_env.transform_keys(&:to_s)
     # Bazel clears environment variables which breaks superenv shims
     ENV.remove "PATH", Superenv.shims_path
@@ -70,7 +71,7 @@ class BazelAT8 < Formula
       extra_bazel_args << "--linkopt=-Wl,--dynamic-linker=#{ENV["HOMEBREW_DYNAMIC_LINKER"]}"
     end
 
-    if OS.linux? && Hardware::CPU.arch == :arm64
+    if OS.linux? && Hardware::CPU.arm64?
       extra_bazel_args << "--linkopt=-fuse-ld=lld"
       extra_bazel_args << "--host_linkopt=-fuse-ld=lld"
     end
