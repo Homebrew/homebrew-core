@@ -8,6 +8,7 @@ class Emscripten < Formula
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
     any_of: ["MIT", "NCSA"], # emscripten
   ]
+  revision 1
   head "https://github.com/emscripten-core/emscripten.git", branch: "main"
 
   livecheck do
@@ -160,7 +161,7 @@ class Emscripten < Formula
 
       # Remove unneeded tools. Taken from upstream `src/build.py`.
       unneeded = %w[
-        check cl cpp extef-mapping format func-mapping import-test offload-bundler refactor rename scan-deps
+        check cl cpp extef-mapping format func-mapping import-test offload-bundler refactor rename
       ].map { |suffix| "clang-#{suffix}" }
       unneeded += %w[lld-link ld.lld ld64.lld llvm-lib ld64.lld.darwinnew ld64.lld.darwinold]
       (libexec/"llvm/bin").glob("{#{unneeded.join(",")}}").map(&:unlink)
