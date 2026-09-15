@@ -27,9 +27,17 @@ class Xmodmap < Formula
   end
 
   test do
-    spawn formula_opt_bin("xorg-server")/"Xvfb", ":1"
-    ENV["DISPLAY"] = ":1"
-    sleep 10
-    assert_match "pointer buttons defined", shell_output("#{bin}/xmodmap -pp")
+    IO.pipe do |read_io, write_io|
+      xvfb = formula_opt_bin("xorg-server")/"Xvfb"
+      pid = spawn(xvfb, "-displayfd", write_io.fileno.to_s, "-listen", "tcp", write_io => write_io)
+      write_io.close
+      ENV["DISPLAY"] = ":#{read_io.read.strip}"
+      assert_match "pointer buttons defined", shell_output("#{bin}/xmodmap -pp")
+    ensure
+      if pid
+        Process.kill "TERM", pid
+        Process.wait pid
+      end
+    end
   end
 end
