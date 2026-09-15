@@ -28,6 +28,7 @@ class SpirvLlvmTranslator < Formula
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: llvm.opt_lib)}" if OS.linux?
     system "cmake", "-S", ".", "-B", "build",
                     "-DBUILD_SHARED_LIBS=ON",
+                    "-DCCACHE_ALLOWED=OFF",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-DLLVM_BUILD_TOOLS=ON",
                     "-DLLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR=#{formula_opt_prefix("spirv-headers")}",
