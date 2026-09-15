@@ -125,6 +125,14 @@ class Swift < Formula
     livecheck do
       formula :parent
     end
+
+    # Backport explicit comparator for `ClusteredBitVector` map keys, needed by the macOS 27 SDK libc++
+    patch do
+      url "https://github.com/swiftlang/llvm-project/commit/589788061967fa2a66ab586a9eb3c212e851b0d7.patch?full_index=1"
+      sha256 "16966614df3b799a04b2e33e28e59b724b35e6677f91c3d52fd1a4618b4f4f56"
+      type :backport
+      resolves "https://github.com/swiftlang/llvm-project/pull/12566"
+    end
   end
 
   resource "cmark" do
@@ -377,6 +385,14 @@ class Swift < Formula
   # Fix linkage test failure on Linux for missing libswiftCore.so as RPATH was not updated for
   # https://github.com/swiftlang/swift/commit/7f67eb3fc57b95c023f4c7d767a0f241e0ee541a
   patch :DATA
+
+  # Backport acceptance of `-target-arch-variant`, which the Xcode 27 driver passes for the macOS 27 SDK
+  patch do
+    url "https://github.com/swiftlang/swift/commit/421ec521c887664d96129d7c0da2b979d7930791.patch?full_index=1"
+    sha256 "3c0aca2b8d06d0d88a05d5aa3f785ec97a15b8c03a904cbe0059f4336cfc8020"
+    type :backport
+    resolves "https://github.com/swiftlang/swift/pull/87040"
+  end
 
   deny_network_access!
 
