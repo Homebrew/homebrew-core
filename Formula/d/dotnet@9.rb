@@ -79,6 +79,9 @@ class DotnetAT9 < Formula
     ENV["CLR_CC"] = which(ENV.cc)
     ENV["CLR_CXX"] = which(ENV.cxx)
 
+    # Avoid a possible race in telemetry data writing/reading/removing during build
+    ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
+
     if OS.mac?
       # Need GNU grep (Perl regexp support) to use release manifest rather than git repo
       ENV.prepend_path "PATH", formula_opt_libexec("grep")/"gnubin"
@@ -86,17 +89,20 @@ class DotnetAT9 < Formula
       # Avoid mixing CLT and Xcode.app when building CoreCLR component which can
       # cause undefined symbols, e.g. __swift_FORCE_LOAD_$_swift_Builtin_float
       ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path
+
+      # Deparallelize to avoid bootstrap Roslyn crashes.
+      ENV.deparallelize
     else
       icu4c_dep = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
       ENV.append_path "LD_LIBRARY_PATH", icu4c_dep.to_formula.opt_lib
-
-      # Work around build script getting stuck when running shutdown command on Linux
-      # Ref: https://github.com/dotnet/source-build/discussions/3105#discussioncomment-4373142
-      inreplace "build.sh", '"$CLI_ROOT/dotnet" build-server shutdown', ""
-      inreplace "repo-projects/Directory.Build.targets",
-                '"$(DotnetTool) build-server shutdown --vbcscompiler"',
-                '"true"'
     end
+
+    # Work around the bootstrap SDK failing when it shuts down build servers
+    # Ref: https://github.com/dotnet/source-build/discussions/3105#discussioncomment-4373142
+    inreplace "build.sh", '"$CLI_ROOT/dotnet" build-server shutdown', ""
+    inreplace "repo-projects/Directory.Build.targets",
+              '"$(DotnetTool) build-server shutdown --vbcscompiler"',
+              '"true"'
 
     args = %w[
       --clean-while-building
