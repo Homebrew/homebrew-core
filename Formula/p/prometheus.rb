@@ -28,6 +28,20 @@ class Prometheus < Formula
   depends_on "node" => :build
   depends_on "pnpm" => :build
 
+  deny_network_access!
+
+  def fetch
+    ENV.prepend_path "PATH", formula_opt_libexec("node")/"bin"
+
+    system "go", "mod", "download"
+    # the npm-download half of `make assets`
+    system "make", "ui-install"
+    # `make build` bootstraps promu at build time via a network download;
+    # install the pinned version into GOPATH/bin here instead
+    promu_version = File.read("Makefile.common")[/^PROMU_VERSION \?= (\S+)/, 1]
+    system "go", "install", "github.com/prometheus/promu@v#{promu_version}"
+  end
+
   def install
     ENV.deparallelize
     ENV.prepend_path "PATH", formula_opt_libexec("gnu-tar")/"gnubin"
@@ -35,7 +49,7 @@ class Prometheus < Formula
     mkdir_p buildpath/"src/github.com/prometheus"
     ln_sf buildpath, buildpath/"src/github.com/prometheus/prometheus"
 
-    system "make", "assets"
+    system "make", "ui-build"
     system "make", "build"
     bin.install %w[promtool prometheus]
 
