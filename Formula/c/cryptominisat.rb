@@ -1,8 +1,8 @@
 class Cryptominisat < Formula
   desc "Advanced SAT solver"
   homepage "https://www.msoos.org/cryptominisat5/"
-  url "https://github.com/msoos/cryptominisat/archive/refs/tags/release/v5.14.7.tar.gz"
-  sha256 "4d59b5af77ea632901b95e884adaaacc976a6822c440d9757eaa374290fd953f"
+  url "https://github.com/msoos/cryptominisat/archive/refs/tags/release/v5.15.0.tar.gz"
+  sha256 "274016b8440716897e84c12e6f94ff607017cfa427a3319cac253177594d6b28"
   # Everything that's needed to run/build/install/link the system is MIT licensed. This allows
   # easy distribution and running of the system everywhere.
   license "MIT"
@@ -34,9 +34,9 @@ class Cryptominisat < Formula
 
   # Currently using revision in flake.lock
   resource "cadical" do
-    url "https://github.com/meelgroup/cadical/archive/394c3f72858c2fe8cd35321f74f11f0f61c91123.tar.gz"
-    version "394c3f72858c2fe8cd35321f74f11f0f61c91123"
-    sha256 "68756da68674bdd689e9ac7735ab98363c9dca8ee0c7369b2083be0daabf7039"
+    url "https://github.com/meelgroup/cadical/archive/818c9562f114b315a9246ced943b66b60b38e8fb.tar.gz"
+    version "818c9562f114b315a9246ced943b66b60b38e8fb"
+    sha256 "beaeb17a751db88d5384b35d65be82501d94cf60f758b768b59bfb2b437cb34b"
 
     livecheck do
       url "https://raw.githubusercontent.com/msoos/cryptominisat/refs/tags/release/v#{LATEST_VERSION}/flake.lock"
@@ -48,9 +48,9 @@ class Cryptominisat < Formula
 
   # Currently using revision in flake.lock
   resource "cadiback" do
-    url "https://github.com/meelgroup/cadiback/archive/3b6a84062b1304433eb8960a4bff6b9a80de9c54.tar.gz"
-    version "3b6a84062b1304433eb8960a4bff6b9a80de9c54"
-    sha256 "336fcaa8a205fd70230ceabb28795e24e7c91b907cd7d811056368783f0770b5"
+    url "https://github.com/meelgroup/cadiback/archive/47a6d821085ef8cb033241659824beafeb798cff.tar.gz"
+    version "47a6d821085ef8cb033241659824beafeb798cff"
+    sha256 "ccc2faf23c78ba22e2c73bb8c8ebe33995083dce77ee0ca8eb7ee3009955d9c4"
 
     livecheck do
       url "https://raw.githubusercontent.com/msoos/cryptominisat/refs/tags/release/v#{LATEST_VERSION}/flake.lock"
@@ -64,8 +64,12 @@ class Cryptominisat < Formula
     # fix audit failure with `lib/libcryptominisat5.5.7.dylib`
     inreplace "src/GitSHA1.cpp.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
 
+    # Build static libraries as these are only installed into `buildpath` to link into cryptominisat
     resource("cadical").stage do
-      system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: buildpath/"cadical")
+      inreplace "src/cadical_gitsha1.cpp.in", "@CMAKE_CXX_COMPILER@", ENV.cxx
+
+      args = ["-DBUILD_SHARED_LIBS=OFF"]
+      system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args(install_prefix: buildpath/"cadical")
       system "cmake", "--build", "build"
       system "cmake", "--install", "build"
     end
@@ -73,7 +77,7 @@ class Cryptominisat < Formula
     resource("cadiback").stage do
       inreplace "CMakeLists.txt", 'set(CADIBACK_BUILD "${CMAKE_CXX_COMPILER}")', "set(CADIBACK_BUILD \"#{ENV.cxx}\")"
 
-      args = ["-Dcadical_DIR=#{buildpath}/cadical"]
+      args = ["-DBUILD_SHARED_LIBS=OFF", "-Dcadical_DIR=#{buildpath}/cadical"]
       system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args(install_prefix: buildpath/"cadiback")
       system "cmake", "--build", "build"
       system "cmake", "--install", "build"
