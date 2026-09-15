@@ -5,6 +5,7 @@ class SpirvLlvmTranslator < Formula
   sha256 "9e0bf1beb0ab7edca6cd8c17fd9bbb7ce3dcd520f3e969e0485ff5b00931f929"
   license "Apache-2.0" => { with: "LLVM-exception" }
   compatibility_version 2
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "62b81746af2c3e2bb32c72106af08ee8b0c9651285496ffbbd79ff9b4da9d792"
@@ -28,6 +29,7 @@ class SpirvLlvmTranslator < Formula
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: llvm.opt_lib)}" if OS.linux?
     system "cmake", "-S", ".", "-B", "build",
                     "-DBUILD_SHARED_LIBS=ON",
+                    "-DCCACHE_ALLOWED=OFF",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-DLLVM_BUILD_TOOLS=ON",
                     "-DLLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR=#{formula_opt_prefix("spirv-headers")}",
