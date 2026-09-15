@@ -228,9 +228,10 @@ class Vsview < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/vsview version")
+    return if OS.mac? # unable to run vsview in macOS sandbox
 
     ENV["COLUMNS"] = "120"
-    ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+    ENV["QT_QPA_PLATFORM"] = "minimal"
     output_log = testpath/"output.log"
     pid = spawn bin/"vsview", "--no-settings", "--verbose", [:out, :err] => output_log.to_s
     begin
