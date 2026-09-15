@@ -1,8 +1,8 @@
 class Buildozer < Formula
   desc "Rewrite bazel BUILD files using standard commands"
   homepage "https://github.com/bazelbuild/buildtools"
-  url "https://github.com/bazelbuild/buildtools/archive/refs/tags/v8.5.1.tar.gz"
-  sha256 "f3b800e9f6ca60bdef3709440f393348f7c18a29f30814288a7326285c80aab9"
+  url "https://github.com/bazelbuild/buildtools/archive/refs/tags/v10.0.0.tar.gz"
+  sha256 "f495fe290cf2a009e80b20d5623c7756890a8a45d83fc93d44a31ab92060c752"
   license "Apache-2.0"
   head "https://github.com/bazelbuild/buildtools.git", branch: "main"
 
@@ -17,6 +17,14 @@ class Buildozer < Formula
   end
 
   depends_on "go" => :build
+
+  deny_network_access!
+
+  def fetch
+    # go.mod omits the golang.org/x/sys indirect requirement, fixed in bazel-contrib/buildtools#1514
+    # TODO: Replace with `go mod download` on next release.
+    system "go", "get", "./buildozer"
+  end
 
   def install
     system "go", "build", *std_go_args, "./buildozer"
