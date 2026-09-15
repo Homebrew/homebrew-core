@@ -6,7 +6,7 @@ class Libssh2 < Formula
   mirror "http://download.openpkg.org/components/cache/libssh2/libssh2-1.11.1.tar.gz"
   sha256 "d9ec76cbe34db98eec3539fe2c899d26b0c837cb3eb466a56b0f109cabf658f7"
   license "BSD-3-Clause"
-  revision 5
+  revision 6
   compatibility_version 1
 
   livecheck do
@@ -132,6 +132,14 @@ class Libssh2 < Formula
     resolves "OSV-2025-90", "OSV-2025-92"
   end
 
+  # Disable deprecated algorithms; remove with the next release containing this fix.
+  patch do
+    url "https://github.com/libssh2/libssh2/commit/b89858b83d68d7e29e0c5b0bb803f8a68271710c.patch?full_index=1"
+    sha256 "76bdf62172e16e2f74fdde35cd3daa3db27b753c48c4a7bdfd295463444eb936"
+    type :backport
+    resolves "OSV-2022-24", "OSV-2024-847"
+  end
+
   def install
     args = %W[
       --disable-silent-rules
@@ -148,16 +156,39 @@ class Libssh2 < Formula
 
   test do
     (testpath/"test.c").write <<~C
+      #include <assert.h>
+      #include <stdio.h>
       #include <libssh2.h>
 
       int main(void)
       {
-      libssh2_exit();
-      return 0;
+          assert(libssh2_init(0) == 0);
+          LIBSSH2_SESSION *session = libssh2_session_init();
+          assert(session != NULL);
+          int methods[] = {LIBSSH2_METHOD_CRYPT_CS, LIBSSH2_METHOD_MAC_CS};
+          for(unsigned int m = 0; m < sizeof(methods) / sizeof(methods[0]); m++) {
+              const char **algorithms;
+              int count = libssh2_session_supported_algs(session, methods[m], &algorithms);
+              assert(count > 0);
+              for(int i = 0; i < count; i++)
+                  puts(algorithms[i]);
+              libssh2_free(session, (void *)algorithms);
+          }
+          assert(libssh2_session_free(session) == 0);
+          libssh2_exit();
+          return 0;
       }
     C
 
     system ENV.cc, "test.c", "-L#{lib}", "-lssh2", "-o", "test"
-    system "./test"
+    algorithms = shell_output("./test").lines.map(&:chomp)
+    assert_includes algorithms, "aes256-ctr"
+    assert_includes algorithms, "hmac-sha2-256"
+    %w[
+      arcfour arcfour128 arcfour256 3des-cbc blowfish-cbc cast128-cbc
+      hmac-md5 hmac-md5-96 hmac-ripemd160 hmac-ripemd160@openssh.com
+    ].each do |algorithm|
+      refute_includes algorithms, algorithm
+    end
   end
 end
