@@ -31,6 +31,8 @@ class Umlet < Formula
   end
 
   test do
+    return if OS.mac? # `umlet` is a GUI application, which fails to open in sandbox
+
     system bin/"umlet", "-action=convert", "-format=png",
       "-output=#{testpath}/test-output.png",
       "-filename=#{libexec}/palettes/Plots.uxf"
