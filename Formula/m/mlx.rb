@@ -7,6 +7,7 @@ class Mlx < Formula
     "MIT", # main license
     "Apache-2.0", # metal-cpp resource
   ]
+  revision 1
   compatibility_version 5
   head "https://github.com/ml-explore/mlx.git", branch: "main"
 
@@ -86,9 +87,73 @@ class Mlx < Formula
     ENV["MACOSX_DEPLOYMENT_TARGET"] = "#{MacOS.version.major}.#{MacOS.version.minor.to_i}"
 
     system python3, "-m", "pip", "install", *std_pip_args, "."
+
+    # Dual payload is a macOS 26 artifact: the tier minimum (26.0) is below
+    # MLX's 26.2 NAX gate. macOS 27+ tiers build NAX into the standard build.
+    if Version.new(MacOS.version.to_s) < "26.2" &&
+       Version.new(Utils.safe_popen_read("xcrun", "--show-sdk-version").strip) >= "26.2"
+      metal4_stage = buildpath/"metal4-stage"
+      ENV["MACOSX_DEPLOYMENT_TARGET"] = "26.2"
+      metal4_args = args + %w[
+        -DBUILD_SHARED_LIBS=ON
+        -DMLX_BUILD_TESTS=OFF
+        -DMLX_BUILD_BENCHMARKS=OFF
+        -DMLX_BUILD_EXAMPLES=OFF
+      ]
+      system "cmake", "-S", ".", "-B", "metal4-build", *metal4_args, *std_cmake_args
+      system "cmake", "--build", "metal4-build"
+      system "cmake", "--install", "metal4-build", "--prefix", metal4_stage
+      (lib/"metal4").install metal4_stage/"lib"/"libmlx.dylib", metal4_stage/"lib"/"mlx.metallib"
+    end
+
+    libexec.mkpath
+    (libexec/"mlx-payload-select").write <<~SH
+      #!/bin/bash
+      # Activate the Metal 4 payload (M5 NAX kernels) on macOS 26.2+,
+      # discard it elsewhere, so exactly one MLX is active.
+      # Does not re-run on macOS upgrades; `brew upgrade mlx` re-selects.
+      set -eu
+
+      libdir="$(cd "$(dirname "$0")/../lib" && pwd)"
+
+      [ -d "$libdir/metal4" ] || exit 0
+
+      macos_version="$(sw_vers -productVersion)"
+      major="${macos_version%%.*}"
+      minor="$(echo "${macos_version#*.}" | cut -d. -f1)"
+      activate=0
+      if [ "$major" -gt 26 ]; then
+        activate=1
+      elif [ "$major" -eq 26 ] && [ "${minor:-0}" -ge 2 ]; then
+        activate=1
+      fi
+
+      if [ "$activate" -eq 1 ]; then
+        mv "$libdir/metal4/libmlx.dylib" "$libdir/libmlx.dylib"
+        mv "$libdir/metal4/mlx.metallib" "$libdir/mlx.metallib"
+        # Fix the stale install ID from staging and re-sign; arm64 kills
+        # processes loading binaries with invalid signatures.
+        install_name_tool -id "$libdir/libmlx.dylib" "$libdir/libmlx.dylib"
+        codesign --force --sign - "$libdir/libmlx.dylib"
+      fi
+      rm -rf "$libdir/metal4"
+    SH
+    chmod 0755, libexec/"mlx-payload-select"
+  end
+
+  post_install_steps do
+    on_macos do
+      run "mlx-payload-select", base: :libexec,
+          writable_paths: %w[metal4 libmlx.dylib mlx.metallib], writable_base: :lib
+    end
   end
 
   test do
+    # macOS 26.2+ must have the NAX-carrying Metal 4 build active.
+    if Version.new(MacOS.full_version.to_s) >= "26.2"
+      assert_match "steel_gemm_fused_nax", (lib/"mlx.metallib").binread
+    end
+
     (testpath/"test.cpp").write <<~CPP
       #include <cassert>
 
