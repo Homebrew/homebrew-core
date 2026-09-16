@@ -27,10 +27,6 @@ class Hatari < Formula
   depends_on "cmake" => :build
   depends_on "libpng"
 
-  on_macos do
-    depends_on xcode: :build # for ibtool
-  end
-
   on_linux do
     depends_on "libx11"
     depends_on "readline"
@@ -49,22 +45,20 @@ class Hatari < Formula
   end
 
   def install
-    # Allow finding ibtool even if CLT is active in user environment
-    ENV["DEVELOPER_DIR"] = ENV["HOMEBREW_DEVELOPER_DIR"] if OS.mac?
-
-    # Set .app bundle destination
-    inreplace "src/CMakeLists.txt", "/Applications", prefix
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.arch}", *std_cmake_args
-    system "cmake", "--build", "build"
     if OS.mac?
-      prefix.install "build/src/Hatari.app"
-      bin.write_exec_script prefix/"Hatari.app/Contents/MacOS/hatari"
-    else
-      system "cmake", "--install", "build"
+      args = %W[
+        -DCMAKE_DISABLE_FIND_PACKAGE_X11=ON
+        -DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.arch}
+        -DENABLE_OSX_BUNDLE=OFF
+      ]
     end
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
     resource("emutos").stage do
-      datadir = OS.mac? ? prefix/"Hatari.app/Contents/Resources" : pkgshare
-      datadir.install "etos1024k.img" => "tos.img"
+      pkgshare.install "etos1024k.img" => "tos.img"
     end
   end
 
