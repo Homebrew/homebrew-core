@@ -81,8 +81,8 @@ class Nu < Formula
       # Help linker find libdispatch from swift on Linux.
       # This is only used for the mininush temporary compiler and is not needed for nush.
       ldflags = %W[
-        "-L#{Formula["swift"].libexec}/lib/swift/linux"
-        "-Wl,-rpath,#{Formula["swift"].libexec}/lib/swift/linux"
+        "-L#{Formula["swift"].libexec}/usr/lib/swift/linux"
+        "-Wl,-rpath,#{Formula["swift"].libexec}/usr/lib/swift/linux"
       ]
       ENV["LIBDIRS"] = ldflags.join(" ")
 
