@@ -26,6 +26,28 @@ class Fswatch < Formula
   end
 
   test do
-    system bin/"fswatch", "-h"
+    assert_match "fswatch #{version}", shell_output("#{bin}/fswatch --version")
+
+    # Watch a directory with the default monitor (FSEvents on macOS), create a
+    # file and expect its path to be reported.
+    (testpath/"watched").mkpath
+    log = testpath/"events.log"
+    pid = spawn bin/"fswatch", "-1", testpath/"watched", out: log.to_s
+    begin
+      sleep 3
+      touch testpath/"watched/file"
+      30.times do
+        break if log.exist? && !log.read.empty?
+
+        sleep 1
+      end
+      assert_match "watched/file", log.read
+    ensure
+      begin
+        Process.kill("TERM", pid)
+      rescue Errno::ESRCH
+        # fswatch -1 already exited after reporting the event
+      end
+    end
   end
 end
