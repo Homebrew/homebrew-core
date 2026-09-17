@@ -47,6 +47,12 @@ class VitePlus < Formula
   end
 
   def install
+    # Homebrew filters npm/pnpm registry variables from the caller's environment.
+    if (registry = ENV["HOMEBREW_VITE_PLUS_NPM_REGISTRY"])
+      ENV["PNPM_CONFIG_REGISTRY"] = registry
+      ENV["NPM_CONFIG_REGISTRY"] = registry
+    end
+
     resource("rolldown").stage buildpath/"rolldown"
     resource("vite").stage buildpath/"vite"
 
