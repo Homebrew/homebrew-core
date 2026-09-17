@@ -7,6 +7,7 @@ class Mlx < Formula
     "MIT", # main license
     "Apache-2.0", # metal-cpp resource
   ]
+  revision 1
   compatibility_version 5
   head "https://github.com/ml-explore/mlx.git", branch: "main"
 
@@ -83,12 +84,21 @@ class Mlx < Formula
 
     ENV["CMAKE_ARGS"] = (args + std_cmake_args).join(" ")
     ENV[build.head? ? "DEV_RELEASE" : "PYPI_RELEASE"] = "1"
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = "#{MacOS.version.major}.#{MacOS.version.minor.to_i}"
+    # MLX compiles the M5 NAX kernels only with a macOS 26.2 deployment target.
+    # Homebrew supports only the latest patch release of each macOS version,
+    # so target 26.2 on macOS 26 instead of the tier minimum.
+    deployment_target = "#{MacOS.version.major}.#{MacOS.version.minor.to_i}"
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = (deployment_target == "26.0") ? "26.2" : deployment_target
 
     system python3, "-m", "pip", "install", *std_pip_args, "."
   end
 
   test do
+    # NAX kernels are only compiled in for macOS 26.2+.
+    if Version.new(MacOS.full_version.to_s) >= "26.2"
+      assert_match "steel_gemm_fused_nax", (lib/"mlx.metallib").binread
+    end
+
     (testpath/"test.cpp").write <<~CPP
       #include <cassert>
 
