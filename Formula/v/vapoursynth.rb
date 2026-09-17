@@ -3,8 +3,8 @@ class Vapoursynth < Formula
 
   desc "Video processing framework with simplicity in mind"
   homepage "https://www.vapoursynth.com"
-  url "https://files.pythonhosted.org/packages/2d/4d/bb7fcc7f304e7248cf6c83ec0c3c97ee4b4fa2e05bfbbe2a578a9b41fab9/vapoursynth-79.tar.gz"
-  sha256 "01311b79ef22334115f79a78a6d7548bd29f35cc903ee0cea12443d49e142eb1"
+  url "https://files.pythonhosted.org/packages/66/22/4e7bb7682495b03470b2f594cbe30b13fb81d7b3378edf359042c9f1f6bf/vapoursynth-80.tar.gz"
+  sha256 "4d03e3ef64df65a855490e6fd77ccc74d5debf89799aea93a6bd08f6a90afeb0"
   license "LGPL-2.1-or-later"
   compatibility_version 2
   head "https://github.com/vapoursynth/vapoursynth.git", branch: "master"
@@ -22,6 +22,7 @@ class Vapoursynth < Formula
 
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
+  depends_on "vulkan-headers" => :build
   depends_on "python@3.14"
   depends_on "zimg"
 
@@ -37,13 +38,22 @@ class Vapoursynth < Formula
     depends_on "patchelf" => :build
   end
 
+  # Upstream pins the shader compiler to keep the accepted GLSL dialect stable.
+  resource "glslang" do
+    url "https://github.com/KhronosGroup/glslang/archive/refs/tags/vulkan-sdk-1.4.357.0.tar.gz"
+    sha256 "81038794e20494556edbcc0fc70fa984d71d1b440f9c49adf2cbaaa60a519757"
+  end
+
   def install
     ENV.runtime_cpu_detection
     ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("llvm")}/c++" if OS.mac? && MacOS.version <= :ventura
 
+    resource("glslang").stage("subprojects/glslang")
+    cp_r Dir["subprojects/packagefiles/glslang/*"], "subprojects/glslang"
+
     # NOTE: Cannot `pip install` into prefix as VapourSynth expects a standard
     # installation and won't work with Homebrew's symlink directory structure.
-    venv = virtualenv_install_with_resources
+    venv = virtualenv_install_with_resources(without: "glslang")
     (prefix/Language::Python.site_packages(python3)/"homebrew-vapoursynth.pth").write venv.site_packages
 
     # Automatically load plugins installed in separate formulae
