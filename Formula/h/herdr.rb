@@ -28,13 +28,6 @@ class Herdr < Formula
     generate_completions_from_executable(bin/"herdr", "completion")
   end
 
-  service do
-    run [opt_bin/"herdr", "server"]
-    keep_alive true
-    log_path var/"log/herdr.log"
-    error_log_path var/"log/herdr.log"
-  end
-
   test do
     assert_match version.to_s, shell_output("#{bin}/herdr --version")
 
