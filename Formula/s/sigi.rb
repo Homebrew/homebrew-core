@@ -3,7 +3,7 @@ class Sigi < Formula
   homepage "https://sigi.quest/"
   # TODO: url "https://static.crates.io/crates/sigi/sigi-3.8.0.crate"
   url "https://github.com/so-dang-cool/sigi/archive/refs/tags/v3.8.0.tar.gz"
-  sha256 "a40abce8da7fadd4ce4b51f9124210cc9337c474b40046e4eb6301c42da9af22"
+  sha256 "21de0662a46a6f057c900dea7c70220de81bd675d2d5d7bf28ba132205e2febb"
   license "GPL-2.0-only"
   head "https://github.com/so-dang-cool/sigi.git", branch: "core"
 
