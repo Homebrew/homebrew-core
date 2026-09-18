@@ -106,6 +106,24 @@ class DotnetAT9 < Formula
     ]
 
     system "./prep-source-build.sh"
+    if OS.mac?
+      # MSBuild hardcodes `/tmp` for its sockets, which the build sandbox denies, so prefer a short `TMPDIR`.
+      # Below 38 characters, even its longest socket name (66) fits macOS's 103-byte socket path limit.
+      # https://github.com/Homebrew/brew/issues/23934
+      inreplace "src/msbuild/src/Shared/NamedPipeUtil.cs",
+                'Path.Combine("/tmp", pipeName)',
+                'Path.Combine(Path.GetTempPath().Length < 38 ? Path.GetTempPath() : "/tmp", pipeName)'
+      # Avoid worker nodes, which the unpatched bootstrap MSBuild cannot reach
+      system ".dotnet/dotnet", "build", "src/msbuild/src/MSBuild/MSBuild.csproj", "--configuration", "Release",
+             "-maxcpucount:1"
+      # Replace the bootstrap SDK's MSBuild with the patched one
+      cp Dir["src/msbuild/artifacts/bin/MSBuild/Release/net*/{MSBuild,Microsoft.Build*}.dll"],
+         Dir[".dotnet/sdk/*"].first
+      # `build.sh` builds MSBuild again into the same directory
+      rm_r "src/msbuild/artifacts"
+    end
+    # The sandbox also denies the Roslyn compiler server's `/tmp` socket, so compile without it
+    ENV["UseSharedCompilation"] = "false" if OS.mac?
     # We unset "CI" environment variable to work around aspire build failure
     # error MSB4057: The target "GitInfo" does not exist in the project.
     # Ref: https://github.com/Homebrew/homebrew-core/pull/154584#issuecomment-1815575483
