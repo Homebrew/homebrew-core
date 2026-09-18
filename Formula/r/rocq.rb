@@ -11,12 +11,16 @@ class Rocq < Formula
     resource "stdlib" do
       url "https://github.com/rocq-prover/stdlib/releases/download/V9.1.0/stdlib-9.1.0.tar.gz"
       sha256 "2d66421c52ed32719a15cb039c368e063c4d85f670e3d142f5eb7415fb427985"
+
+      livecheck do
+        formula :parent
+      end
     end
   end
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
