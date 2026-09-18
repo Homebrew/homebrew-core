@@ -3,8 +3,8 @@ class Chapel < Formula
 
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/2.9.0/chapel-2.9.0.tar.gz"
-  sha256 "d91ececfc070f0e94c979dd08cdd3f6da84db4ee48fe06f3187ad259ea9553e7"
+  url "https://chapel-lang.org/tmp/chapel-2.10.0.tar.gz"
+  sha256 "55234b391e32757fbdcf78a4c9517a1f0f8075e4d73a68005fc4ac251ef6b5d4"
   license "Apache-2.0"
   revision 1
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
