@@ -37,6 +37,6 @@ class Termaid < Formula
     output = pipe_output(bin/"termaid", "graph LR\n  A[Start] --> B[End]\n")
     assert_match "Start", output
     assert_match "End", output
-    assert_match version.to_s, shell_output("#{bin/"termaid"} --version")
+    assert_match version.to_s, shell_output("#{bin}/termaid --version")
   end
 end
