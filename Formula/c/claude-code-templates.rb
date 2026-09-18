@@ -1,8 +1,8 @@
 class ClaudeCodeTemplates < Formula
   desc "CLI tool for configuring and monitoring Claude Code"
   homepage "https://www.aitmpl.com/agents"
-  url "https://registry.npmjs.org/claude-code-templates/-/claude-code-templates-1.29.4.tgz"
-  sha256 "b5c67ea73eebb3bf6aee21556182d7aba4d58d12ac49acc5c98d351071a6babf"
+  url "https://registry.npmjs.org/claude-code-templates/-/claude-code-templates-1.29.6.tgz"
+  sha256 "7928da3e3140ef1d7422aeea87fde4d0fdc74d89d47ceef235fdeba299e3f926"
   license "MIT"
 
   bottle do
@@ -20,13 +20,11 @@ class ClaudeCodeTemplates < Formula
   def install
     system "npm", "install", *std_npm_args(ignore_scripts: false)
     bin.install_symlink libexec.glob("bin/*")
-
-    # Remove pre-built binaries which were source-built via script
-    rm_r libexec/"lib/node_modules/claude-code-templates/node_modules/bufferutil/prebuilds"
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/cct --version")
+    # The 1.29.6 release still reports 1.29.4 from cli-tool/package.json.
+    assert_match "1.29.4", shell_output("#{bin}/cct --version")
 
     output = shell_output("#{bin}/cct --command testing/generate-tests --yes")
     assert_match "Successfully installed 1 components", output
