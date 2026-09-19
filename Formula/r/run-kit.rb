@@ -19,6 +19,7 @@ class RunKit < Formula
   depends_on "rust" => :build
 
   conflicts_with "run", because: "both install a `run` binary"
+  conflicts_with "runtool", because: "both install a `run` binary"
 
   def install
     system "cargo", "install", *std_cargo_args
