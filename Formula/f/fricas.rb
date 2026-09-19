@@ -27,6 +27,13 @@ class Fricas < Formula
   depends_on "zstd"
 
   def install
+    # FIXME: Create local sockets under `TMPDIR` instead of `/tmp`, which the macOS sandbox denies
+    inreplace "src/include/com.h", '"/tmp/.', '".'
+    inreplace "src/interp/util.lisp", '"/tmp/.d"', '".d"'
+    inreplace "src/lib/sockio-c.c", /"%s(%[ds])", base/,
+              '"%s/%s\1", getenv("TMPDIR") ? getenv("TMPDIR") : "/tmp", base'
+    inreplace "src/sman/sman.c", /sprintf\(name, "%s%d", (\w+), server_num\)/, 'make_server_name(name, \1)'
+
     args = %w[
       --with-lisp=sbcl
       --enable-lisp-core
