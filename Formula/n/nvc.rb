@@ -1,10 +1,9 @@
 class Nvc < Formula
   desc "VHDL compiler and simulator"
   homepage "https://www.nickg.me.uk/nvc/"
-  url "https://github.com/nickg/nvc/releases/download/r1.22.1/nvc-1.22.1.tar.gz"
-  sha256 "8cde9a11603dc512e40f12a349a1d3b1bef4a6fdcec9bf0ab0f790899390c56f"
+  url "https://github.com/nickg/nvc/releases/download/r1.23.0/nvc-1.23.0.tar.gz"
+  sha256 "10dab7ea016d8a2f7c4ea74a438b6c999423007aa69c0568fedb59564440b3e2"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_golden_gate: "ecb7d20decd2c9f716142d8e97136ccac38eac0018a5fc3708844fe3425b12c3"
