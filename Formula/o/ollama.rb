@@ -5,6 +5,7 @@ class Ollama < Formula
       tag:      "v0.34.2",
       revision: "dfabde4539e42ba1e1eab50a3a50b88aea7958a0"
   license "MIT"
+  revision 1
   head "https://github.com/ollama/ollama.git", branch: "main"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -30,6 +31,7 @@ class Ollama < Formula
   on_macos do
     on_arm do
       depends_on "mlx-c" => :no_linkage
+      depends_on "xgrammar" => :build
 
       # Build with the mlx-c bindings for tagged MLX 0.32.1. Upstream targets a later MLX commit:
       # https://github.com/ollama/ollama/commit/0bb09259203ff8f6d361faae1d40c4f83d2a99f7
@@ -117,16 +119,50 @@ class Ollama < Formula
       system "go", "generate", *mlx_args, "./mlx"
     end
 
+    if OS.mac? && Hardware::CPU.arm?
+      # Structured-output wrapper; the runner dlopens it from
+      # `<exe_dir>/lib/ollama/` alongside libmlxc.
+      xgrammar_build_dir = buildpath/"xgrammar-build"
+      xgrammar_build_dir.mkpath
+      (xgrammar_build_dir/"CMakeLists.txt").write <<~CMAKE
+        cmake_minimum_required(VERSION 3.20)
+        project(ollama_xgrammar CXX)
+        set(CMAKE_CXX_STANDARD 17)
+        set(CMAKE_CXX_STANDARD_REQUIRED ON)
+        set(OLLAMA_NATIVE_DIR "" CACHE PATH "")
+        set(XGRAMMAR_INCLUDE_DIR "" CACHE PATH "")
+        set(XGRAMMAR_LIB "" CACHE PATH "")
+        set(OLLAMA_XGRAMMAR_VERSION "" CACHE STRING "")
+        add_library(ollama_xgrammar SHARED "${OLLAMA_NATIVE_DIR}/xgrammar.cpp")
+        target_include_directories(ollama_xgrammar PRIVATE
+          "${OLLAMA_NATIVE_DIR}" "${XGRAMMAR_INCLUDE_DIR}")
+        target_compile_definitions(ollama_xgrammar PRIVATE
+          OLLAMA_XGRAMMAR_BUILD=1
+          OLLAMA_XGRAMMAR_VERSION="${OLLAMA_XGRAMMAR_VERSION}")
+        set_target_properties(ollama_xgrammar PROPERTIES
+          CXX_VISIBILITY_PRESET hidden
+          VISIBILITY_INLINES_HIDDEN ON)
+        target_link_libraries(ollama_xgrammar PRIVATE "${XGRAMMAR_LIB}/libxgrammar.a")
+      CMAKE
+      system "cmake", "-S", "xgrammar-build", "-B", "xgrammar-build-out",
+             "-DOLLAMA_NATIVE_DIR=#{buildpath/"mlxrunner/xgrammar/native"}",
+             "-DXGRAMMAR_INCLUDE_DIR=#{formula_opt_include("xgrammar")}",
+             "-DXGRAMMAR_LIB=#{formula_opt_lib("xgrammar")}",
+             "-DOLLAMA_XGRAMMAR_VERSION=v#{Formula["xgrammar"].version}",
+             *std_cmake_args
+      system "cmake", "--build", "xgrammar-build-out"
+    end
+
     # Build into libexec so the mlx runner's required `<exe_dir>/lib/ollama/`
     # sibling can be populated without tripping the non-executables-in-bin audit.
     system "go", "build", *mlx_args, *std_go_args(ldflags:, output: libexec/"ollama")
     bin.install_symlink libexec/"ollama"
 
-    # The mlx runner dlopens MLX libraries from `<exe_dir>/lib/ollama/mlx_*/`.
-    # Using `opt` keeps the link stable across mlx-c version bumps.
+    # The mlx runner dlopens MLX from `<exe_dir>/lib/ollama/`.
     if OS.mac? && Hardware::CPU.arm?
-      (libexec/"lib/ollama/mlx_metal_v3").mkpath
-      ln_sf formula_opt_lib("mlx-c")/"libmlxc.dylib", libexec/"lib/ollama/mlx_metal_v3/libmlxc.dylib"
+      (libexec/"lib/ollama").mkpath
+      ln_sf formula_opt_lib("mlx-c")/"libmlxc.dylib", libexec/"lib/ollama/libmlxc.dylib"
+      cp "xgrammar-build-out/libollama_xgrammar.dylib", libexec/"lib/ollama/libollama_xgrammar.dylib"
     end
   end
 
@@ -168,9 +204,11 @@ class Ollama < Formula
 
     # Test MLX (Apple silicon only)
     if OS.mac? && Hardware::CPU.arm?
-      output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/ollama --help 2>&1")
+      # Output can contain non-UTF-8 bytes; scrub before matching.
+      output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/ollama --help 2>&1").scrub
       assert_match "libmlxc.dylib", output
       assert_match "libmlx.dylib", output
+      assert_path_exists libexec/"lib/ollama/libollama_xgrammar.dylib"
     end
 
     # Check llama-server binary; it needs a model as upstream builds it without router mode support
