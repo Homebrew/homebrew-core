@@ -22,12 +22,14 @@ class Kiota < Formula
 
     dotnet = Formula["dotnet"]
 
+    # Worker-node sockets are denied by the macOS sandbox (Homebrew/brew#23920).
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
       --output #{libexec}
       --no-self-contained
       --use-current-runtime
+      --maxcpucount:1
       -p:TargetFramework=net#{dotnet.version.major_minor}
       -p:PublishSingleFile=true
     ]
@@ -38,6 +40,9 @@ class Kiota < Formula
   end
 
   test do
+    # The macOS sandbox blocks FSEvents used to watch configuration files.
+    ENV["DOTNET_USE_POLLING_FILE_WATCHER"] = "1"
+
     assert_match version.to_s, shell_output("#{bin}/kiota --version")
 
     info_output = shell_output("#{bin}/kiota info")
