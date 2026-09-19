@@ -44,7 +44,7 @@
   ["libnice", "libnice-gstreamer"],
   ["libtorrent-rakshasa", "rtorrent"],
   ["lima", "lima-additional-guestagents"],
-  ["llvm", "lld", "lldb", "flang", "wasi-runtimes"],
+  ["llvm", "lld", "lldb", "flang", "llvm-mingw-w64", "wasi-runtimes"],
   ["logcli", "loki"],
   ["qalculate-gtk", "qalculate-qt"],
   ["mame", "rom-tools"],
