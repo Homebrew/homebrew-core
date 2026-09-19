@@ -124,7 +124,10 @@ class Chapel < Formula
         system "make", "chplcheck"
         system "make", "chpl-language-server"
       end
-      system "make", "mason"
+      # DEBUG: print driver sub-invocations and the signal that kills them on macOS 27
+      with_env(CHPL_PRINT_COMMANDS: "true") do
+        system "make", "mason"
+      end
       system "make", "cleanall"
 
       rm_r("third-party/llvm/llvm-src/")
