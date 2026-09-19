@@ -4,8 +4,8 @@ class Swift < Formula
   desc "High-performance system programming language"
   homepage "https://www.swift.org"
   # NOTE: Keep version in sync with resources below
-  url "https://github.com/swiftlang/swift/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-  sha256 "a96425b6626ede8518423810450763da541fb28501e27009badb6a6f6534c411"
+  url "https://github.com/swiftlang/swift/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+  sha256 "8ac51c183d353a5b0f42cf0718f09977bf8723595a99f2218fe7458023cdead7"
   license "Apache-2.0"
   compatibility_version 1
 
@@ -69,8 +69,8 @@ class Swift < Formula
     end
 
     resource "swift-corelibs-foundation" do
-      url "https://github.com/swiftlang/swift-corelibs-foundation/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-      sha256 "cfba08125b15c3138f6d1e2b6cf5058ef2f294f3a08c54ef322d903a5002c20d"
+      url "https://github.com/swiftlang/swift-corelibs-foundation/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+      sha256 "4d54f115ca4f24f77117c97e64760f6379bb45745a5c79d52a2877fe84c6ad5c"
 
       livecheck do
         formula :parent
@@ -78,8 +78,8 @@ class Swift < Formula
     end
 
     resource "swift-foundation" do
-      url "https://github.com/swiftlang/swift-foundation/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-      sha256 "23972ee7ef5e103fa2a9df2704abce787b0f64073fec3df1846c2f2039bf0f3d"
+      url "https://github.com/swiftlang/swift-foundation/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+      sha256 "cd7b137cb279425ee494e61a3552b361fd4e764031fc9ae75cc8c5876b8eec3e"
 
       livecheck do
         formula :parent
@@ -87,8 +87,8 @@ class Swift < Formula
     end
 
     resource "swift-foundation-icu" do
-      url "https://github.com/swiftlang/swift-foundation-icu/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-      sha256 "3568e41730bce792bb90fbc592ad37df319a62352587ff134a8e554751063cf8"
+      url "https://github.com/swiftlang/swift-foundation-icu/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+      sha256 "1bc3f6f49783da52b7d6d65e08f9b3a0ba3063c341176a9139c2cea9c9c348f0"
 
       livecheck do
         formula :parent
@@ -96,8 +96,8 @@ class Swift < Formula
     end
 
     resource "swift-corelibs-libdispatch" do
-      url "https://github.com/swiftlang/swift-corelibs-libdispatch/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-      sha256 "c3a61c08387937622a291e08e64eb4ec0be07f1df252574552641129057951bb"
+      url "https://github.com/swiftlang/swift-corelibs-libdispatch/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+      sha256 "af15fcc3da4514def6454ed672b82daa9ac1d40cb1d08fb69a6611cb8fc104c6"
 
       livecheck do
         formula :parent
@@ -105,8 +105,8 @@ class Swift < Formula
     end
 
     resource "swift-corelibs-xctest" do
-      url "https://github.com/swiftlang/swift-corelibs-xctest/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-      sha256 "0255806248b1bb21c09dd7f798b6db8068eb56d88a7e28bb3b667f70277efa66"
+      url "https://github.com/swiftlang/swift-corelibs-xctest/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+      sha256 "c7fc1058e766270155652311794a660f4b62ca9f8db125d2222e2a8695d9975a"
 
       livecheck do
         formula :parent
@@ -119,8 +119,8 @@ class Swift < Formula
   end
 
   resource "llvm-project" do
-    url "https://github.com/swiftlang/llvm-project/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "4e0bfc8045a1036d3a49c65d411ffca1e4b6af117ac2bf5070871f375c097610"
+    url "https://github.com/swiftlang/llvm-project/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "3d2f5b300f3f07dfaea33ad15fbbfc54552325a62551fb15ab1667fc33326e01"
 
     livecheck do
       formula :parent
@@ -128,8 +128,8 @@ class Swift < Formula
   end
 
   resource "cmark" do
-    url "https://github.com/swiftlang/swift-cmark/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "c9f981c268b4d2beca1d43878f5dd1d69dc629e62157bc400064d6c6111e2020"
+    url "https://github.com/swiftlang/swift-cmark/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "9af8e991bf20e756edf43d294ed2de7a1595c47d42d2335e3917c629682c8002"
 
     livecheck do
       formula :parent
@@ -137,8 +137,8 @@ class Swift < Formula
   end
 
   resource "llbuild" do
-    url "https://github.com/swiftlang/swift-llbuild/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "89d9267a1ae741c4d12a58fa3f81a3d07985b5947795eb2edbb41ead373f6a46"
+    url "https://github.com/swiftlang/swift-llbuild/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "4ea396e158eea664deffdf414c93872cc8e512b42bdd4bb29ad4cbdb108097aa"
 
     livecheck do
       formula :parent
@@ -160,8 +160,8 @@ class Swift < Formula
   end
 
   resource "swift-build" do
-    url "https://github.com/swiftlang/swift-build/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "8bb78bb89d03489f0e5a529b2a1dbb29e98de947b187b2bc282a6ae4f939d663"
+    url "https://github.com/swiftlang/swift-build/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "5a7f1f35ae8783ca7d5791f68110dfba663f647307a4fc2e076e325efc603855"
 
     livecheck do
       formula :parent
@@ -169,8 +169,8 @@ class Swift < Formula
   end
 
   resource "swiftpm" do
-    url "https://github.com/swiftlang/swift-package-manager/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "191a953608b99241cd53e9f02d0ddbdbccd32bb4cb5c6aaff3e47b78003dfa94"
+    url "https://github.com/swiftlang/swift-package-manager/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "f706803df332f855e3db9bd405dc242351c4491997e172225b8677c109e6cc70"
 
     livecheck do
       formula :parent
@@ -184,8 +184,8 @@ class Swift < Formula
   end
 
   resource "indexstore-db" do
-    url "https://github.com/swiftlang/indexstore-db/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "c49a8c3481dfbdd37abd58800a6f6654b52cf051200ea9bcfc2fe2535d3f8841"
+    url "https://github.com/swiftlang/indexstore-db/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "f31f54cd3f0971b122a782e3ce267574f039f1a46005f02fea3ae6012be8ca49"
 
     livecheck do
       formula :parent
@@ -193,8 +193,8 @@ class Swift < Formula
   end
 
   resource "sourcekit-lsp" do
-    url "https://github.com/swiftlang/sourcekit-lsp/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "6f79fb228df8b5c50e8b47ec7ee588de0a8240aaf45a1d5ce7bbf2a733dcaf42"
+    url "https://github.com/swiftlang/sourcekit-lsp/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "deae16ff60092ccf24d4ee453ef261e7f2cc1b4df730b443c72b7b5ded66286c"
 
     livecheck do
       formula :parent
@@ -202,8 +202,8 @@ class Swift < Formula
   end
 
   resource "swift-driver" do
-    url "https://github.com/swiftlang/swift-driver/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "d4fcada9b5ad99ed9194b3fae35de234a56d80e833dc19016ac8e904dcc7cd76"
+    url "https://github.com/swiftlang/swift-driver/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "aecca17753f5f9b03867a92e568ab9a0023159928afb02e9ff496e1430c6d0b6"
 
     livecheck do
       formula :parent
@@ -211,8 +211,8 @@ class Swift < Formula
   end
 
   resource "swift-tools-support-core" do
-    url "https://github.com/swiftlang/swift-tools-support-core/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "df4dc7e94360d3af711b78d28691df1082faf389d0db78c0ea702e2217a4036f"
+    url "https://github.com/swiftlang/swift-tools-support-core/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "4daaf31f3b020b28813e2a67d651b3efdf7be9b38b25902e8180bd46ba57fe07"
 
     livecheck do
       formula :parent
@@ -228,8 +228,8 @@ class Swift < Formula
   end
 
   resource "swift-docc" do
-    url "https://github.com/swiftlang/swift-docc/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "c785529e3ddcf4ee982a26c9ee4e2ec30175fc9ec0727bf9b0cd26c638b14393"
+    url "https://github.com/swiftlang/swift-docc/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "a31f00fa298bca55435e3c44174bcdf256bfdd85e63f40aa46b72cf4f6f91cff"
 
     livecheck do
       formula :parent
@@ -237,8 +237,8 @@ class Swift < Formula
   end
 
   resource "swift-lmdb" do
-    url "https://github.com/swiftlang/swift-lmdb/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "b8b14a954f737e2cc45458c52e17def09a474448346febf4d4f73deaba9905a5"
+    url "https://github.com/swiftlang/swift-lmdb/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "2fd1d06c7baea81cf3850bb01fe4d15a98dd6da8f1ca2859550bd1d3fce3f7fd"
 
     livecheck do
       formula :parent
@@ -246,8 +246,8 @@ class Swift < Formula
   end
 
   resource "swift-docc-render-artifact" do
-    url "https://github.com/swiftlang/swift-docc-render-artifact/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "a1deb9b3a1a17e10c1b9d88e6f321e099457d5c45bb2ed03374b2263e48dcf55"
+    url "https://github.com/swiftlang/swift-docc-render-artifact/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "fd12891d20b238bdef843b1b731814c6c861aa71c9d7997370182157baa16658"
 
     livecheck do
       formula :parent
@@ -255,8 +255,8 @@ class Swift < Formula
   end
 
   resource "swift-docc-symbolkit" do
-    url "https://github.com/swiftlang/swift-docc-symbolkit/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "02457ea2dc733f66d39a1db7b9a1bc75b39acaee228da09caaa1a15c5207543c"
+    url "https://github.com/swiftlang/swift-docc-symbolkit/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "6c5a5544fd71d5ea56206df9b0cdd29e3f5ba9e5d57f72ed12ca30a3637c4f61"
 
     livecheck do
       formula :parent
@@ -264,8 +264,8 @@ class Swift < Formula
   end
 
   resource "swift-markdown" do
-    url "https://github.com/swiftlang/swift-markdown/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "93684a45e81577a8640292e406c7e645adf9c9e143c59527e833cd49609c98cf"
+    url "https://github.com/swiftlang/swift-markdown/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "01086ecb144b75bb24bce24853a9646130d63998f4fa10d202890f51d3098375"
 
     livecheck do
       formula :parent
@@ -273,8 +273,8 @@ class Swift < Formula
   end
 
   resource "swift-experimental-string-processing" do
-    url "https://github.com/swiftlang/swift-experimental-string-processing/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "1ca338ea222031f5d67fa34922a55111ffb67524197f33a6be0540abaafe0b52"
+    url "https://github.com/swiftlang/swift-experimental-string-processing/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "4070e40df8ae59f008539f89edcba01197b9bfaaee8f364a2edf2b9825469479"
 
     livecheck do
       formula :parent
@@ -282,8 +282,8 @@ class Swift < Formula
   end
 
   resource "swift-syntax" do
-    url "https://github.com/swiftlang/swift-syntax/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "94d58f82c8d3c1831283f85c64f3485a9caf1e9c0834d7142feac5bfcf6fc3d9"
+    url "https://github.com/swiftlang/swift-syntax/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "4b56cd709c66d0f581e7649c8533c2f93599ee88f41d68ffed7004be75bb629e"
 
     livecheck do
       formula :parent
@@ -291,8 +291,8 @@ class Swift < Formula
   end
 
   resource "swift-testing" do
-    url "https://github.com/swiftlang/swift-testing/archive/refs/tags/swift-6.3.3-RELEASE.tar.gz"
-    sha256 "926c9bf7c1ad4eaedb7913f0bb79221734adc87c46bc664f40de6f8d78ce9d91"
+    url "https://github.com/swiftlang/swift-testing/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "d1f1c91a308f2642ce0f35afd0da057ee8bd31814332f5b257ae5bd69c48de22"
 
     livecheck do
       formula :parent
@@ -304,66 +304,220 @@ class Swift < Formula
   resource "swift-argument-parser" do
     url "https://github.com/apple/swift-argument-parser/archive/refs/tags/1.6.1.tar.gz"
     sha256 "d2fbb15886115bb2d9bfb63d4c1ddd4080cbb4bfef2651335c5d3b9dd5f3c8ba"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/swiftlang/swift/refs/tags/swift-#{LATEST_VERSION}-RELEASE/utils/update_checkout/update-checkout-config.json"
+      regex(%r{^(:?release/)?(\d+(?:\.\d+)+)$}i)
+      strategy :json do |json, regex|
+        # `LATEST_VERSION` constant does not work here as the substitution happens only in `url`
+        # Selecting the latest version in `update-checkout-config.json` and assume it's the same as `LATEST_VERSION`
+        latest_version = json["branch-schemes"].keys.max_by do |key|
+          # Use `|| Version.new("0")` to prevent `nil` comparison exception
+          key.match(%r{^release/(\d+(?:\.\d+)+)$}i) { |m| Version.new(m[1]) } || Version.new("0")
+        end
+        json.dig("branch-schemes", latest_version, "repos", "swift-argument-parser")&.scan(regex)&.[](0)
+      end
+    end
   end
 
   # As above: refer to update-checkout-config.json
   resource "swift-atomics" do
     url "https://github.com/apple/swift-atomics/archive/refs/tags/1.2.0.tar.gz"
     sha256 "33d9f4fbaeddee4bda3af2be126791ee8acf3d3c24a2244457641a20d39aec12"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/swiftlang/swift/refs/tags/swift-#{LATEST_VERSION}-RELEASE/utils/update_checkout/update-checkout-config.json"
+      regex(%r{^(:?release/)?(\d+(?:\.\d+)+)$}i)
+      strategy :json do |json, regex|
+        # `LATEST_VERSION` constant does not work here as the substitution happens only in `url`
+        # Selecting the latest version in `update-checkout-config.json` and assume it's the same as `LATEST_VERSION`
+        latest_version = json["branch-schemes"].keys.max_by do |key|
+          # Use `|| Version.new("0")` to prevent `nil` comparison exception
+          key.match(%r{^release/(\d+(?:\.\d+)+)$}i) { |m| Version.new(m[1]) } || Version.new("0")
+        end
+        json.dig("branch-schemes", latest_version, "repos", "swift-atomics")&.scan(regex)&.[](0)
+      end
+    end
   end
 
   # As above: refer to update-checkout-config.json
   resource "swift-collections" do
     url "https://github.com/apple/swift-collections/archive/refs/tags/1.1.6.tar.gz"
     sha256 "2f558b33b6eba5b0c263110d7cb1a11b59d63059e845dc1984c65359e36f29da"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/swiftlang/swift/refs/tags/swift-#{LATEST_VERSION}-RELEASE/utils/update_checkout/update-checkout-config.json"
+      regex(%r{^(:?release/)?(\d+(?:\.\d+)+)$}i)
+      strategy :json do |json, regex|
+        # `LATEST_VERSION` constant does not work here as the substitution happens only in `url`
+        # Selecting the latest version in `update-checkout-config.json` and assume it's the same as `LATEST_VERSION`
+        latest_version = json["branch-schemes"].keys.max_by do |key|
+          # Use `|| Version.new("0")` to prevent `nil` comparison exception
+          key.match(%r{^release/(\d+(?:\.\d+)+)$}i) { |m| Version.new(m[1]) } || Version.new("0")
+        end
+        json.dig("branch-schemes", latest_version, "repos", "swift-collections")&.scan(regex)&.[](0)
+      end
+    end
   end
 
   # As above: refer to update-checkout-config.json
   resource "swift-crypto" do
     url "https://github.com/apple/swift-crypto/archive/refs/tags/3.12.5.tar.gz"
     sha256 "cad9b04e5e23706bc3bf00ba6a976c397fea8111d964656a1a459fa4b1dc36a3"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/swiftlang/swift/refs/tags/swift-#{LATEST_VERSION}-RELEASE/utils/update_checkout/update-checkout-config.json"
+      regex(%r{^(:?release/)?(\d+(?:\.\d+)+)$}i)
+      strategy :json do |json, regex|
+        # `LATEST_VERSION` constant does not work here as the substitution happens only in `url`
+        # Selecting the latest version in `update-checkout-config.json` and assume it's the same as `LATEST_VERSION`
+        latest_version = json["branch-schemes"].keys.max_by do |key|
+          # Use `|| Version.new("0")` to prevent `nil` comparison exception
+          key.match(%r{^release/(\d+(?:\.\d+)+)$}i) { |m| Version.new(m[1]) } || Version.new("0")
+        end
+        json.dig("branch-schemes", latest_version, "repos", "swift-crypto")&.scan(regex)&.[](0)
+      end
+    end
   end
 
   # As above: refer to update-checkout-config.json
   resource "swift-certificates" do
     url "https://github.com/apple/swift-certificates/archive/refs/tags/1.10.1.tar.gz"
     sha256 "1002a2aa66ced92dd216b9ed236d9ce8c73f98f02810f39f2437d43ba35d60a0"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/swiftlang/swift/refs/tags/swift-#{LATEST_VERSION}-RELEASE/utils/update_checkout/update-checkout-config.json"
+      regex(%r{^(:?release/)?(\d+(?:\.\d+)+)$}i)
+      strategy :json do |json, regex|
+        # `LATEST_VERSION` constant does not work here as the substitution happens only in `url`
+        # Selecting the latest version in `update-checkout-config.json` and assume it's the same as `LATEST_VERSION`
+        latest_version = json["branch-schemes"].keys.max_by do |key|
+          # Use `|| Version.new("0")` to prevent `nil` comparison exception
+          key.match(%r{^release/(\d+(?:\.\d+)+)$}i) { |m| Version.new(m[1]) } || Version.new("0")
+        end
+        json.dig("branch-schemes", latest_version, "repos", "swift-certificates")&.scan(regex)&.[](0)
+      end
+    end
   end
 
   # As above: refer to update-checkout-config.json
   resource "swift-asn1" do
     url "https://github.com/apple/swift-asn1/archive/refs/tags/1.3.2.tar.gz"
     sha256 "45061bdf808ed138a71b55abc90c8cbff8980b82e5ffd39d86e65a5cbee31241"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/swiftlang/swift/refs/tags/swift-#{LATEST_VERSION}-RELEASE/utils/update_checkout/update-checkout-config.json"
+      regex(%r{^(:?release/)?(\d+(?:\.\d+)+)$}i)
+      strategy :json do |json, regex|
+        # `LATEST_VERSION` constant does not work here as the substitution happens only in `url`
+        # Selecting the latest version in `update-checkout-config.json` and assume it's the same as `LATEST_VERSION`
+        latest_version = json["branch-schemes"].keys.max_by do |key|
+          # Use `|| Version.new("0")` to prevent `nil` comparison exception
+          key.match(%r{^release/(\d+(?:\.\d+)+)$}i) { |m| Version.new(m[1]) } || Version.new("0")
+        end
+        json.dig("branch-schemes", latest_version, "repos", "swift-asn1")&.scan(regex)&.[](0)
+      end
+    end
   end
 
   # As above: refer to update-checkout-config.json
   resource "swift-numerics" do
     url "https://github.com/apple/swift-numerics/archive/refs/tags/1.0.2.tar.gz"
     sha256 "786291c6ff2a83567928d3d8f964c43ff59bdde215f9dedd0e9ed49eb5184e59"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/swiftlang/swift/refs/tags/swift-#{LATEST_VERSION}-RELEASE/utils/update_checkout/update-checkout-config.json"
+      regex(%r{^(:?release/)?(\d+(?:\.\d+)+)$}i)
+      strategy :json do |json, regex|
+        # `LATEST_VERSION` constant does not work here as the substitution happens only in `url`
+        # Selecting the latest version in `update-checkout-config.json` and assume it's the same as `LATEST_VERSION`
+        latest_version = json["branch-schemes"].keys.max_by do |key|
+          # Use `|| Version.new("0")` to prevent `nil` comparison exception
+          key.match(%r{^release/(\d+(?:\.\d+)+)$}i) { |m| Version.new(m[1]) } || Version.new("0")
+        end
+        json.dig("branch-schemes", latest_version, "repos", "swift-numerics")&.scan(regex)&.[](0)
+      end
+    end
   end
 
   # As above: refer to update-checkout-config.json
   resource "swift-system" do
     url "https://github.com/apple/swift-system/archive/refs/tags/1.5.0.tar.gz"
     sha256 "4bf5d5db04d48f484289371b63dd7bdced0db1ab1307c49127b9f894341a521d"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/swiftlang/swift/refs/tags/swift-#{LATEST_VERSION}-RELEASE/utils/update_checkout/update-checkout-config.json"
+      regex(%r{^(:?release/)?(\d+(?:\.\d+)+)$}i)
+      strategy :json do |json, regex|
+        # `LATEST_VERSION` constant does not work here as the substitution happens only in `url`
+        # Selecting the latest version in `update-checkout-config.json` and assume it's the same as `LATEST_VERSION`
+        latest_version = json["branch-schemes"].keys.max_by do |key|
+          # Use `|| Version.new("0")` to prevent `nil` comparison exception
+          key.match(%r{^release/(\d+(?:\.\d+)+)$}i) { |m| Version.new(m[1]) } || Version.new("0")
+        end
+        json.dig("branch-schemes", latest_version, "repos", "swift-system")&.scan(regex)&.[](0)
+      end
+    end
   end
 
   # As above: refer to update-checkout-config.json
   resource "swift-nio" do
-    url "https://github.com/apple/swift-nio/archive/refs/tags/2.65.0.tar.gz"
-    sha256 "feb16b6d0e6d010be14c6732d7b02ddbbdc15a22e3912903f08ef5d73928f90d"
+    url "https://github.com/apple/swift-nio/archive/refs/tags/2.92.2.tar.gz"
+    sha256 "d4b7d348e160044ddd395b4f0614eb92f25bf14ddc56d7e3a87816b283edab91"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/swiftlang/swift/refs/tags/swift-#{LATEST_VERSION}-RELEASE/utils/update_checkout/update-checkout-config.json"
+      regex(%r{^(:?release/)?(\d+(?:\.\d+)+)$}i)
+      strategy :json do |json, regex|
+        # `LATEST_VERSION` constant does not work here as the substitution happens only in `url`
+        # Selecting the latest version in `update-checkout-config.json` and assume it's the same as `LATEST_VERSION`
+        latest_version = json["branch-schemes"].keys.max_by do |key|
+          # Use `|| Version.new("0")` to prevent `nil` comparison exception
+          key.match(%r{^release/(\d+(?:\.\d+)+)$}i) { |m| Version.new(m[1]) } || Version.new("0")
+        end
+        json.dig("branch-schemes", latest_version, "repos", "swift-nio")&.scan(regex)&.[](0)
+      end
+    end
   end
 
   # As above: refer to update-checkout-config.json
   resource "swift-toolchain-sqlite" do
-    url "https://github.com/swiftlang/swift-toolchain-sqlite/archive/refs/tags/1.0.7.tar.gz"
-    sha256 "5a267a6eff88bd8e7d23ed0713cb8f3955f57ef71539da2d1c64b54c4865b3ea"
+    url "https://github.com/swiftlang/swift-toolchain-sqlite/archive/refs/tags/1.0.9.tar.gz"
+    sha256 "dd2879b21ca9f2ceeadcd25881d3e1845f3db865026e2e7e7a2b1dfd62c637ec"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/swiftlang/swift/refs/tags/swift-#{LATEST_VERSION}-RELEASE/utils/update_checkout/update-checkout-config.json"
+      regex(%r{^(:?release/)?(\d+(?:\.\d+)+)$}i)
+      strategy :json do |json, regex|
+        # `LATEST_VERSION` constant does not work here as the substitution happens only in `url`
+        # Selecting the latest version in `update-checkout-config.json` and assume it's the same as `LATEST_VERSION`
+        latest_version = json["branch-schemes"].keys.max_by do |key|
+          # Use `|| Version.new("0")` to prevent `nil` comparison exception
+          key.match(%r{^release/(\d+(?:\.\d+)+)$}i) { |m| Version.new(m[1]) } || Version.new("0")
+        end
+        json.dig("branch-schemes", latest_version, "repos", "swift-toolchain-sqlite")&.scan(regex)&.[](0)
+      end
+    end
   end
 
   # As above: refer to update-checkout-config.json
   resource "swift-tools-protocols" do
-    url "https://github.com/swiftlang/swift-tools-protocols/archive/refs/tags/0.0.9.tar.gz"
-    sha256 "cc23820a634523d6dac4bb3abd6d659f7ede50a4f38bb4b10188775095d8e000"
+    url "https://github.com/swiftlang/swift-tools-protocols/archive/refs/tags/swift-6.4.0-RELEASE.tar.gz"
+    sha256 "5c73f3fb051e00a1faf9e4c1a9dc2b99f3d43ccf72a757224e8c1984bf214cc9"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/swiftlang/swift/refs/tags/swift-#{LATEST_VERSION}-RELEASE/utils/update_checkout/update-checkout-config.json"
+      regex(%r{^(:?release/)?(\d+(?:\.\d+)+)$}i)
+      strategy :json do |json, regex|
+        # `LATEST_VERSION` constant does not work here as the substitution happens only in `url`
+        # Selecting the latest version in `update-checkout-config.json` and assume it's the same as `LATEST_VERSION`
+        latest_version = json["branch-schemes"].keys.max_by do |key|
+          # Use `|| Version.new("0")` to prevent `nil` comparison exception
+          key.match(%r{^release/(\d+(?:\.\d+)+)$}i) { |m| Version.new(m[1]) } || Version.new("0")
+        end
+        json.dig("branch-schemes", latest_version, "repos", "swift-tools-protocols")&.scan(regex)&.[](0)
+      end
+    end
   end
 
   # Homebrew-specific patch to make the default resource directory use opt rather than Cellar.
@@ -376,6 +530,7 @@ class Swift < Formula
 
   # Fix linkage test failure on Linux for missing libswiftCore.so as RPATH was not updated for
   # https://github.com/swiftlang/swift/commit/7f67eb3fc57b95c023f4c7d767a0f241e0ee541a
+  # Skip module-only architectures (custom targets) when adding backtracing assembly sources
   patch :DATA
 
   deny_network_access!
@@ -388,7 +543,8 @@ class Swift < Formula
       toolchain_prefix = "/Swift-#{version.major_minor}.xctoolchain"
       "#{toolchain_prefix}/usr"
     else
-      "/libexec"
+      # Swift Build expects a `<toolchain>/usr/bin/swiftc` layout
+      "/libexec/usr"
     end
 
     ln_sf buildpath, workspace/"swift"
@@ -405,6 +561,9 @@ class Swift < Formula
     inreplace workspace/"swift-docc/build-script-helper.py",
               "[swift_exec, 'package',",
               "\\0 '--disable-sandbox',"
+    # `swift-bootstrap` builds SwiftPM with Swift Build, which sandboxes macro plugins unconditionally
+    inreplace workspace/"swiftpm/Sources/swift-bootstrap/main.swift",
+              "shouldDisableSandbox: false,", "shouldDisableSandbox: true,"
 
     # Fix swift-driver somehow bypassing the shims.
     inreplace workspace/"swift-driver/Utilities/build-script-helper.py",
@@ -667,7 +826,7 @@ class Swift < Formula
     expected_resource_dir = if OS.mac?
       opt_prefix/"Swift-#{version.major_minor}.xctoolchain/usr/lib/swift"
     else
-      opt_libexec/"lib/swift"
+      opt_libexec/"usr/lib/swift"
     end.to_s
     assert_equal expected_resource_dir, default_resource_dir
   end
@@ -689,3 +848,15 @@ index cd68ea874a6..fff338411f4 100644
  endif()
 
  if(SWIFT_BUILD_SWIFT_SYNTAX)
+diff --git a/stdlib/public/RuntimeModule/CMakeLists.txt b/stdlib/public/RuntimeModule/CMakeLists.txt
+--- a/stdlib/public/RuntimeModule/CMakeLists.txt
++++ b/stdlib/public/RuntimeModule/CMakeLists.txt
+@@ -187,7 +187,7 @@
+     foreach(arch ${sdk_supported_archs})
+       set(base_target "swiftRuntime-${SWIFT_SDK_${sdk}_LIB_SUBDIR}-${arch}")
+       foreach(target ${base_target} ${base_target}-static)
+-        if(TARGET ${target})
++        if(TARGET ${target} AND arch IN_LIST SWIFT_SDK_${sdk}_ARCHITECTURES)
+           if(sdk STREQUAL "WINDOWS")
+             message(STATUS "Using get-cpu-context-${arch}.asm for target ${target}")
+             target_sources(${target}
