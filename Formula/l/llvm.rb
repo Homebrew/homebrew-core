@@ -2,6 +2,7 @@ class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
   compatibility_version 2
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
@@ -447,23 +448,53 @@ class Llvm < Formula
 
     return unless lto_build
 
-    # Convert LTO-generated bitcode in our static archives to MachO. Adapted from Fedora:
-    # https://src.fedoraproject.org/rpms/redhat-rpm-config/blob/rawhide/f/brp-llvm-compile-lto-elf
-    lib.glob("*.a").each do |static_archive|
-      mktemp do
-        system bin/"llvm-ar", "x", static_archive
-        rebuilt_files = []
+    lib.glob("*.a").each { |static_archive| convert_lto_archive(static_archive) }
+  end
 
-        Pathname.glob("*.o").each do |bc_file|
-          file_type = Utils.safe_popen_read("file", "--brief", bc_file)
-          next unless file_type.match?(/^LLVM (IR )?bitcode/)
+  # Convert LTO-generated bitcode in our static archives to Mach-O.
+  # Archives with unique member names keep flat extraction and replacement.
+  # Only archives containing duplicate names require per-occurrence extraction
+  # and rebuilding: flat extraction overwrites same-named members, while
+  # `llvm-ar r` replaces only the first matching member.
+  #
+  # Adapted from Fedora:
+  # https://src.fedoraproject.org/rpms/redhat-rpm-config/blob/1c5e204554732b224956618610a990e7acd74f62/f/brp-llvm-compile-lto-elf
+  def convert_lto_archive(static_archive)
+    mktemp do
+      members = Utils.safe_popen_read(bin/"llvm-ar", "t", static_archive).split("\n")
+      has_duplicates = members.uniq.length != members.length
 
-          rebuilt_files << bc_file
-          system bin/"clang", "-fno-lto", "-Wno-unused-command-line-argument",
-                              "-x", "ir", bc_file, "-c", "-o", bc_file
+      member_files = if has_duplicates
+        occurrences = Hash.new(0)
+        members.each_with_index.map do |member, index|
+          member_dir = Pathname.pwd/index.to_s
+          member_dir.mkpath
+          occurrences[member] += 1
+          system bin/"llvm-ar", "xN", occurrences[member].to_s, static_archive, member,
+                 "--output=#{member_dir}"
+          member_dir/member
         end
+      else
+        system bin/"llvm-ar", "x", static_archive
+        Pathname.glob("*.o")
+      end
 
-        system bin/"llvm-ar", "r", static_archive, *rebuilt_files if rebuilt_files.present?
+      converted_files = member_files.select do |bc_file|
+        file_type = Utils.safe_popen_read("file", "--brief", bc_file)
+        next false unless file_type.match?(/^LLVM (IR )?bitcode/)
+
+        system bin/"clang", "-fno-lto", "-Wno-unused-command-line-argument",
+                            "-x", "ir", bc_file, "-c", "-o", bc_file
+        true
+      end
+      next if converted_files.empty?
+
+      if has_duplicates
+        rebuilt_archive = Pathname.pwd/static_archive.basename
+        system bin/"llvm-ar", "qcs", rebuilt_archive, *member_files
+        mv rebuilt_archive, static_archive
+      else
+        system bin/"llvm-ar", "r", static_archive, *converted_files
       end
     end
   end
@@ -545,6 +576,24 @@ class Llvm < Formula
     assert_equal "-lLLVM-#{soversion}", shell_output("#{bin}/llvm-config --libs").chomp
     assert_equal (lib/shared_library("libLLVM-#{soversion}")).to_s,
                  shell_output("#{bin}/llvm-config --libfiles").chomp
+
+    if OS.mac?
+      # Regression: duplicate archive members must all be converted from bitcode to Mach-O.
+      # Assumes clang/lib/Driver/ToolChains/{AMDGPU.cpp, Arch/AMDGPU.cpp} produce exactly
+      # two AMDGPU.cpp.o members in libclangDriver.a. Upstream source/target restructuring
+      # or object-naming changes may invalidate the archive name, member name, or count.
+      archive = lib/"libclangDriver.a"
+      member = "AMDGPU.cpp.o"
+      members = Utils.safe_popen_read(bin/"llvm-ar", "t", archive).split("\n")
+      assert_equal 2, members.count(member)
+
+      (1..2).each do |instance|
+        mkdir testpath/"archive-member-#{instance}" do
+          system bin/"llvm-ar", "xN", instance.to_s, archive, member
+          assert_match(/^Mach-O/, Utils.safe_popen_read("file", "--brief", member))
+        end
+      end
+    end
 
     (testpath/"test.c").write <<~'C'
       #include <stdio.h>
