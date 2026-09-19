@@ -51,7 +51,19 @@ class Clisp < Formula
     ENV.deparallelize
 
     cd "src" do
-      system "make"
+      begin
+        system "make"
+      rescue BuildError
+        # DEBUG: show why `clisp -K boot -x` prints nothing in the module configures
+        system "sh", "-c", <<~SH
+          ls -la boot
+          ./clisp -K boot --version; echo "version rc=$?"
+          ./clisp -K boot -q -norc -x '(lisp-implementation-version)' </dev/null 2>&1; echo "x rc=$?"
+          ./clisp -K boot -q -norc -x '(namestring *lib-directory*)' </dev/null 2>&1; echo "libdir rc=$?"
+          boot/lisp.run -B . -M boot/lispinit.mem -q -norc -x '(lisp-implementation-version)' </dev/null 2>&1; echo "lisp.run rc=$?"
+        SH
+        raise
+      end
       system "make", "install"
     end
   end
