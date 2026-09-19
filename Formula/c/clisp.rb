@@ -40,12 +40,30 @@ class Clisp < Formula
   uses_from_macos "ncurses"
 
   def install
+    # FIXME: Apple clang 21 miscompiles clisp, making `compile-file` trip an assertion in `c-TEST/TEST-NOT`
+    ENV.append_to_cflags "-fwrapv-pointer" if DevelopmentTools.clang_build_version >= 2100
+
     system "./configure", "--with-readline=yes",
                           "--elispdir=#{elisp}",
                           *std_configure_args
 
+    # Module configures share `config.cache` and race under parallel make
+    ENV.deparallelize
+
     cd "src" do
-      system "make"
+      begin
+        system "make"
+      rescue BuildError
+        # DEBUG: show why `clisp -K boot -x` prints nothing in the module configures
+        system "sh", "-c", <<~SH
+          ls -la boot
+          ./clisp -K boot --version; echo "version rc=$?"
+          ./clisp -K boot -q -norc -x '(lisp-implementation-version)' </dev/null 2>&1; echo "x rc=$?"
+          ./clisp -K boot -q -norc -x '(namestring *lib-directory*)' </dev/null 2>&1; echo "libdir rc=$?"
+          boot/lisp.run -B . -M boot/lispinit.mem -q -norc -x '(lisp-implementation-version)' </dev/null 2>&1; echo "lisp.run rc=$?"
+        SH
+        raise
+      end
       system "make", "install"
     end
   end
