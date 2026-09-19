@@ -17,6 +17,14 @@ class Xcresultparser < Formula
   depends_on xcode: ["15.0", :build]
   depends_on :macos
 
+  deny_network_access!
+
+  def fetch
+    # SwiftPM tries to apply its own sandbox, which cannot nest inside the
+    # build sandbox; Homebrew's sandbox still confines the whole process.
+    system "swift", "package", "resolve", "--disable-sandbox"
+  end
+
   def install
     system "swift", "build", *std_swift_args
     bin.install ".build/release/xcresultparser"
