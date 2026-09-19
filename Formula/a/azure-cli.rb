@@ -770,12 +770,36 @@ class AzureCli < Formula
     sha256 "50d8c638ed7ecb88d90561beedbf720c9b4e851a9fa6c47ebd64e99d166d8a21"
   end
 
+  deny_network_access!
+
+  # Download the PEP 517 build backends declared by the resources and the Rust
+  # dependencies of `cryptography`, so that the build can run offline.
+  def fetch
+    system python3.to_s, "-m", "pip", "download", "--dest", "#{buildpath}/wheelhouse",
+           "cffi", "cython", "flit-core", "hatch-vcs", "hatchling", "maturin",
+           "setuptools", "setuptools-scm", "wheel"
+    resource("cryptography").stage do
+      system "cargo", "fetch", "--locked"
+    end
+  end
+
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
 
     venv = virtualenv_create(libexec, python3, system_site_packages: false)
-    venv.pip_install resources
+    # `maturin` (cryptography's build backend) shells out to the `maturin`
+    # binary seeded into the virtualenv, and cargo must not probe the network
+    ENV.prepend_path "PATH", libexec/"bin"
+    ENV["CARGO_NET_OFFLINE"] = "true"
+
+    # Seed the build backends from the wheelhouse populated in `fetch` so the
+    # resources can be built with `--no-build-isolation` (no network access)
+    system python3.to_s, "-m", "pip", "--python=#{libexec}/bin/python", "install",
+           "--no-index", "--find-links", "#{buildpath}/wheelhouse",
+           "cffi", "cython", "flit-core", "hatch-vcs", "hatchling", "maturin",
+           "setuptools", "setuptools-scm", "wheel"
+    venv.pip_install resources, build_isolation: false
 
     # Get the CLI components we'll install
     components = [
@@ -787,9 +811,13 @@ class AzureCli < Formula
     # Install CLI
     components.each do |item|
       cd item do
-        venv.pip_install item
+        venv.pip_install item, build_isolation: false
       end
     end
+
+    # Remove the seeded build backends that are not runtime resources
+    system python3.to_s, "-m", "pip", "--python=#{libexec}/bin/python", "uninstall", "-y",
+           "cython", "flit-core", "hatch-vcs", "hatchling", "maturin", "setuptools-scm", "wheel"
 
     (bin/"az").write <<~SHELL
       #!/usr/bin/env bash
