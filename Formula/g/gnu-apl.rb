@@ -57,12 +57,22 @@ class GnuApl < Formula
     depends_on "pango"
   end
 
+  on_golden_gate :or_newer do
+    depends_on "llvm@21" => :build
+  end
+
   on_sequoia do
     # https://developer.apple.com/documentation/xcode-release-notes/xcode-16_4-release-notes (149025504)
     depends_on xcode: ["16.4", :build]
   end
 
   def install
+    # FIXME: Work around newer clang producing a broken binary
+    if OS.mac? && MacOS.version >= :golden_gate
+      ENV["CC"] = formula_opt_bin("llvm@21")/"clang"
+      ENV["CXX"] = formula_opt_bin("llvm@21")/"clang++"
+    end
+
     system "autoreconf", "--force", "--install", "--verbose" # TODO: if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
