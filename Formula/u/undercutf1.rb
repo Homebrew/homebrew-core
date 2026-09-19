@@ -24,12 +24,14 @@ class Undercutf1 < Formula
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
 
     dotnet = Formula["dotnet"]
+    # Worker-node sockets are denied by the macOS sandbox (Homebrew/brew#23920).
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
       --output #{libexec}
       --no-self-contained
       --use-current-runtime
+      --maxcpucount:1
       -p:PublishSingleFile=true
       -p:IncludeAllContentForSelfExtract=true
       -p:IncludeNativeLibrariesForSelfExtract=true
@@ -49,9 +51,16 @@ class Undercutf1 < Formula
   end
 
   test do
+    # The macOS sandbox blocks FSEvents used to watch the configuration file.
+    ENV["DOTNET_USE_POLLING_FILE_WATCHER"] = "1"
+
     assert_match version.to_s, shell_output("#{bin}/undercutf1 --version")
 
-    output = shell_output("#{bin}/undercutf1 import 2026")
-    assert_match "Received HTTP response headers after", output
+    ENV["XDG_CONFIG_HOME"] = testpath/"config"
+    config = testpath/"config/undercut-f1/config.json"
+    config.write({ Formula1AccessToken: "homebrew-test-token", Notify: false }.to_json)
+
+    assert_match "Logout successful", shell_output("#{bin}/undercutf1 logout")
+    assert_equal({ "Notify" => false }, JSON.parse(config.read))
   end
 end
