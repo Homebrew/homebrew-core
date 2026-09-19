@@ -3,10 +3,9 @@ class LinodeCli < Formula
 
   desc "CLI for the Linode API"
   homepage "https://github.com/linode/linode-cli"
-  url "https://files.pythonhosted.org/packages/f4/53/a924ab651cffe044575bfd114a9c39f58b27974356ffcf2e52c2d54bfd98/linode_cli-5.68.0.tar.gz"
-  sha256 "c3af1dc617f8bc164baa9e98020e979b20c5ee6b6d35414276f3c2681d983507"
+  url "https://files.pythonhosted.org/packages/50/0b/e7d29399cade814e1df366ae7d38e22e3ef2a2b9fe3fe4b9093504ac3e99/linode_cli-5.69.0.tar.gz"
+  sha256 "d08dbf8014fca1327537d3272f690bbf8f1f9f5d511ffd1ef812ba1f756cbaf9"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/linode/linode-cli.git", branch: "dev"
 
   bottle do
