@@ -1,8 +1,8 @@
 class Rbspy < Formula
   desc "Sampling profiler for Ruby"
   homepage "https://rbspy.github.io/"
-  url "https://github.com/rbspy/rbspy/archive/refs/tags/v0.52.0.tar.gz"
-  sha256 "6bc7382de78687e2785fb739913c49041cbb97b7dfbde6e3e57ac97c7ebaedec"
+  url "https://github.com/rbspy/rbspy/archive/refs/tags/v0.52.1.tar.gz"
+  sha256 "e5bd0126e6585d57fcb8deee7db3b04ffbdfad36074eb1b799b48791f6219449"
   license "MIT"
 
   bottle do
@@ -14,6 +14,12 @@ class Rbspy < Formula
   end
 
   depends_on "rust" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", "--locked", "--target", "host-tuple"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
