@@ -1,18 +1,16 @@
 class Structurizr < Formula
   desc "Software architecture models as code"
   homepage "https://structurizr.com/"
-  url "https://github.com/structurizr/structurizr/archive/refs/tags/v2026.06.28.tar.gz"
-  sha256 "491a857f41b0378ee3c757e39a2fc45eb0fc4c22d48395b5e154380e478c828c"
+  url "https://github.com/structurizr/structurizr/archive/refs/tags/v2026.09.19.tar.gz"
+  sha256 "bcf0f09ecd3209c931cce0211f87b914991870364f4321a83c59cf4ecbe40d94"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fd98713fa4039f03bbdd4302fc4487f23b3018f0e264ca7d2263c1b7ef1d3ec0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "115fbeb102140491a77942378350cc8fdbd691f2c631137a2a1c920926d6d55f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4c27a2bf1b00e6bcc259fe8d088ca39fc6e66c06c2076197dd8e89edc90869ca"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "324087b95ec08e3a3fe16c3c54602b46bb961b01afc720f3e57be226ab1cee53"
-    sha256 cellar: :any_skip_relocation, sonoma:            "b87ffceb737ca9265f228cea32d4da72c4fbdf6edf36ad6e6c08e12db3847304"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6789eb4d38b3a1554b7c076288626b7b9b5fdfab3b91a7baabb774f130192033"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "832b621fd1fc2b3b8037b02894dace108f26345430ac97ca2369c6ce9ce6dbbe"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f9e26d16c758e796922c3ab737acf4e37f678c3005df9b1eb698b4965a6b9d9b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "af3ecdd8b21f22eaf62294bfd17a23d1feccb983e0db3cbccac7c4736137d873"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d478a5e40da067427ae043a479b59a0dac7be4ff86ba8216bac6e037ba972162"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "31517d44a930333a1f0990855fbb404c7471814a7b504084607c3d4d5bb6610e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9f280a928fd68d8a03a5662b6ea5212654f12b011e3377cafdca07ccb34bc30a"
   end
 
   depends_on "maven" => :build
