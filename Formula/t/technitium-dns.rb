@@ -26,12 +26,14 @@ class TechnitiumDns < Formula
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
 
     dotnet = Formula["dotnet"]
+    # Worker-node sockets are denied by the macOS sandbox (Homebrew/brew#23920).
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
       --no-self-contained
       --output #{libexec}
       --use-current-runtime
+      --maxcpucount:1
     ]
 
     inreplace Dir.glob("**/*.csproj"),
@@ -58,6 +60,9 @@ class TechnitiumDns < Formula
   end
 
   test do
+    # The macOS sandbox blocks FSEvents used to watch configuration files.
+    ENV["DOTNET_USE_POLLING_FILE_WATCHER"] = "1"
+
     dotnet = Formula["dotnet"]
     # Start the DNS server
     require "pty"
