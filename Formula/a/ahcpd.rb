@@ -28,6 +28,8 @@ class Ahcpd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "2007cca57256875a13c8dc554e48d2bbfc9b061101bbd2f24f07910b75f0aa00"
   end
 
+  allow_network_access! :test
+
   def install
     args = ["PREFIX=", "TARGET=#{prefix}"]
     # LDLIBS='' fixes: ld: library not found for -lrt

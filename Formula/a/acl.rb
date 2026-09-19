@@ -18,6 +18,8 @@ class Acl < Formula
   depends_on "attr" => :build
   depends_on :linux
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"

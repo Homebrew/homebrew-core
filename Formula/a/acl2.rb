@@ -26,6 +26,8 @@ class Acl2 < Formula
     depends_on arch: :x86_64
   end
 
+  deny_network_access!
+
   def install
     # Remove prebuilt binaries
     rm_r buildpath.glob("books/kestrel/axe/*/{examples,tests}")

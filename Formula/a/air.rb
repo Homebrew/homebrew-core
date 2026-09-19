@@ -19,6 +19,12 @@ class Air < Formula
 
   conflicts_with "go-air", because: "both install binaries with the same name"
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", "--locked", "--target", "host-tuple"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/air")
 
@@ -33,7 +39,7 @@ class Air < Formula
       print(x+y)
     R
 
-    assert_match "air #{version}", shell_output("#{bin}/air --version")
+    assert_match version.to_s, shell_output("#{bin}/air --version")
 
     system bin/"air", "format", testpath/"test.R"
 

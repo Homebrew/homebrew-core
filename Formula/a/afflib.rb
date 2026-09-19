@@ -33,6 +33,9 @@ class Afflib < Formula
     depends_on "zlib-ng-compat"
   end
 
+  # For `pip`
+  allow_network_access! :build
+
   def install
     # BSD-4-Clause is GPL-incompatible so cannot be linked to GPL readline
     # https://www.gnu.org/licenses/gpl-faq.html#OrigBSD

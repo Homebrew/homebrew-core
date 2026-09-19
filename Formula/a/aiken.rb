@@ -23,6 +23,12 @@ class Aiken < Formula
     depends_on "openssl@4"
   end
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", "--locked", "--target", "host-tuple"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/aiken")
 
