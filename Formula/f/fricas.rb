@@ -27,10 +27,10 @@ class Fricas < Formula
   depends_on "zstd"
 
   def install
-    args = [
-      "--with-lisp=sbcl",
-      "--enable-lisp-core",
-      "--enable-gmp",
+    args = %w[
+      --with-lisp=sbcl
+      --enable-lisp-core
+      --enable-gmp
     ]
 
     mkdir "build" do
