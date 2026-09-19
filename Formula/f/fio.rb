@@ -27,8 +27,19 @@ class Fio < Formula
   conflicts_with "fiona", because: "both install `fio` binaries"
 
   def install
+    # fio's configure script passes `-march` flags as part of detecting CRC
+    # support on ARM. By default brew's logic removes such flags, resulting
+    # in the prope falsely succeeding (probes compile when they shouldn't)
+    # and `ARCH_HAVE_CRC_CRYPTO` being enabled when it shouldn't, giving a
+    # compile time failure later in the build.
+    # Solve by enabling `runtime_cpu_detection` which configures brew not
+    # to strip those flags, so the configure probe fails correctly when it
+    # should.
     ENV.runtime_cpu_detection
-    system "./configure"
+    # fio's' configure script enables `-march=native` by default. Disable
+    # this to ensure binaries are portable. Ordinarily brew's logic would
+    # remove `-march` flags by default - but we disabled that above.
+    system "./configure", "--disable-native"
     # fio's CFLAGS passes vital stuff around, and crushing it will break the build
     system "make", "prefix=#{prefix}",
                    "mandir=#{man}",
