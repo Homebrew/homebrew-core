@@ -1,8 +1,8 @@
 class Devcockpit < Formula
   desc "TUI system monitor for Apple Silicon"
   homepage "https://devcockpit.app/"
-  url "https://github.com/caioricciuti/dev-cockpit/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "feb16115caf94b63b71a5c86ab47b10bee5009207790c99df52443fe4cdd4873"
+  url "https://github.com/caioricciuti/dev-cockpit/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "5f0c72cd82ce06b166ad92810d096507c9575350af058734c3c010408cf0e87c"
   license "GPL-3.0-only"
   head "https://github.com/caioricciuti/dev-cockpit.git", branch: "main"
 
@@ -16,8 +16,15 @@ class Devcockpit < Formula
   end
 
   depends_on "go" => :build
+
   on_macos do
     depends_on arch: :arm64
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download", "-C", "app"
   end
 
   def install
@@ -29,9 +36,7 @@ class Devcockpit < Formula
       ENV.append "GOFLAGS", "-buildmode=pie"
     end
 
-    cd "app" do
-      system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/devcockpit"
-    end
+    system "go", "build", "-C", "app", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/devcockpit"
   end
 
   test do
