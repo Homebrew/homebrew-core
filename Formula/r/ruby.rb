@@ -57,6 +57,9 @@ class Ruby < Formula
   # TODO: remove when enabling default_user_install
   link_overwrite "bin/bundle", "bin/bundler"
 
+  # Test installs gems from rubygems.org
+  allow_network_access! :test
+
   def determine_api_version
     Utils.safe_popen_read(bin/"ruby", "-e", "print Gem.ruby_api_version")
   end
