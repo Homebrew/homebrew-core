@@ -25,12 +25,14 @@ class Gitversion < Formula
 
     dotnet = Formula["dotnet"]
 
+    # Worker-node sockets are denied by the macOS sandbox (Homebrew/brew#23920).
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
       --output #{libexec}
       --no-self-contained
       --use-current-runtime
+      --maxcpucount:1
       -p:PublishSingleFile=true
       -p:Version=#{version}
     ]
@@ -45,6 +47,9 @@ class Gitversion < Formula
   end
 
   test do
+    # The macOS sandbox blocks FSEvents used to watch configuration files.
+    ENV["DOTNET_USE_POLLING_FILE_WATCHER"] = "1"
+
     # Circumvent GitVersion's build server detection scheme:
     ENV["GITHUB_ACTIONS"] = nil
 
