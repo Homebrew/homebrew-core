@@ -5,16 +5,12 @@ class Gitbucket < Formula
   sha256 "bbd08775a5a19d51a4358f481fb16eceecb992b2b0c83bfac414e54717310359"
   license "Apache-2.0"
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, all: "ba514792f807df50229673e8aab37945e89b4a5e071c2a9626ff627943a812b5"
-  end
-
   head do
     url "https://github.com/gitbucket/gitbucket.git", branch: "master"
     depends_on "sbt" => :build
   end
 
-  depends_on "openjdk"
+  depends_on "openjdk@25"
 
   def install
     if build.head?
@@ -33,7 +29,7 @@ class Gitbucket < Formula
 
   service do
     run [
-      formula_opt_bin("openjdk")/"java",
+      formula_opt_bin("openjdk@25")/"java",
       "-Dmail.smtp.starttls.enable=true",
       "-jar",
       opt_libexec/"gitbucket.war",
@@ -43,7 +39,7 @@ class Gitbucket < Formula
   end
 
   test do
-    java = formula_opt_bin("openjdk")/"java"
+    java = formula_opt_bin("openjdk@25")/"java"
     fork do
       $stdout.reopen(testpath/"output")
       exec "#{java} -jar #{libexec}/gitbucket.war --port=#{free_port}"
