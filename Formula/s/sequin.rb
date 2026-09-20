@@ -7,15 +7,12 @@ class Sequin < Formula
   head "https://github.com/charmbracelet/sequin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0c6292e01ffa23efd85d94a7734a9f3e39e6a7cc4e0bdadbb3bb6b23568e14b6"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0336aba7862907b4a7e88aaa601bd17d0231cf1eeb7eeec7e089668602a9eef0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "32652611883fd7d3c9a2cab5202df945420db404bb0058c07faab677c9276086"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "32652611883fd7d3c9a2cab5202df945420db404bb0058c07faab677c9276086"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "32652611883fd7d3c9a2cab5202df945420db404bb0058c07faab677c9276086"
-    sha256 cellar: :any_skip_relocation, sonoma:            "a91c3cf6c460ef367bbb99f11fcda31a8087d385a0e1ff44a4ad535e1d37e53e"
-    sha256 cellar: :any_skip_relocation, ventura:           "a91c3cf6c460ef367bbb99f11fcda31a8087d385a0e1ff44a4ad535e1d37e53e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5c063422095a5fc609fd1d3ea2ac9ee60b5ba2a3503c6ec57cbfd92f0e946d21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f60d1afbcead268f9a378e723c2472fadd0e1f481c06c8630914796f42d1ef89"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b759d3c6c079ea1186e5d4132f4c7b7c755e42ea8173f12df1004a5dde4fc01a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b759d3c6c079ea1186e5d4132f4c7b7c755e42ea8173f12df1004a5dde4fc01a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b759d3c6c079ea1186e5d4132f4c7b7c755e42ea8173f12df1004a5dde4fc01a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "2bb4e5a2e13d2a52aa71b0227c5d7b330b4a24f4ed2884c9d6ca90cf61bed92c"
+    sha256 cellar: :any,                 x86_64_linux:      "f4ec0d0ec058f09811d80345517b7a7eee0ac7bf6696c6c3d761c51ca63afbda"
   end
 
   depends_on "go" => :build
