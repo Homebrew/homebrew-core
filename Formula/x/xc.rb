@@ -7,13 +7,12 @@ class Xc < Formula
   head "https://github.com/joerdav/xc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "686b691ef3faa45ec3df5decb4872f055e05f0cd8180ed799135ff8ea2164a63"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6f689507921d13ac9c5c3b31858a07034fdde3c9b2745cff3965bba02b8de3b7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6f689507921d13ac9c5c3b31858a07034fdde3c9b2745cff3965bba02b8de3b7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "6f689507921d13ac9c5c3b31858a07034fdde3c9b2745cff3965bba02b8de3b7"
-    sha256 cellar: :any_skip_relocation, sonoma:            "e56d4eef3826dcd65197d0b5f38eb49632d374163b59af75695050645018d1f4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "61c8010926e5f1fa66da4eb63c21dafe8e5f92febd5de72d3d542f309a25c3c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "965b9b02792fdfae0f1072431a50dea31e8df09bde42521c3b2eadb9432b5c09"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "218f640198edf48b9a9df52fbb9a0bb29c208e03496a2d3006f7ba019f4595af"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "218f640198edf48b9a9df52fbb9a0bb29c208e03496a2d3006f7ba019f4595af"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "218f640198edf48b9a9df52fbb9a0bb29c208e03496a2d3006f7ba019f4595af"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "1aa3609e31321026ef590aebb04b5d0aaf1e4485eba76d93bc268e4c254d3f3f"
+    sha256 cellar: :any,                 x86_64_linux:      "cb3550770d7618a22bc32ba3ce2f5320f878bd3bbefd8b4d4b9a3e5ce28dd233"
   end
 
   depends_on "go" => :build
