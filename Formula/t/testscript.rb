@@ -6,13 +6,12 @@ class Testscript < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3de645f776592b29cfdf52470bdebead5cd54e71364e979c48270d5ad57780fb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0dec97abfa956468bac1ba840642533eb47617e9b1a7f2f9b100ce4d26c56f34"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0dec97abfa956468bac1ba840642533eb47617e9b1a7f2f9b100ce4d26c56f34"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "0dec97abfa956468bac1ba840642533eb47617e9b1a7f2f9b100ce4d26c56f34"
-    sha256 cellar: :any_skip_relocation, sonoma:            "9bd77c074d5fec8bfb6b8cb0d652184fcc259d17e7ff027907b2d1eaddb434dd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4c441e0c534ba98c916f6472f135d4aed2f8cbb376d0d384955cacc0f76d3c77"
-    sha256 cellar: :any,                 x86_64_linux:      "16d4e73d40915f403dff6b16fe6772ff5de580e70c1baea6811cdd54e1fb7f4e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4faebcc25d106ec84af5b62394f28b03c6ef7b5fa0942ea082473f2ea7c441b4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4faebcc25d106ec84af5b62394f28b03c6ef7b5fa0942ea082473f2ea7c441b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4faebcc25d106ec84af5b62394f28b03c6ef7b5fa0942ea082473f2ea7c441b4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "e3be776edb189abaf720971f0a44db340c42cf5a8dc42281b75580f0119d6153"
+    sha256 cellar: :any,                 x86_64_linux:      "10f7201419e8aee4ea028b91fa694bd48702427cd1352a9395cde7036805f6dc"
   end
 
   depends_on "go" => :build
