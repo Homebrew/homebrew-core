@@ -8,7 +8,7 @@ class Gitbucket < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, all: "ba514792f807df50229673e8aab37945e89b4a5e071c2a9626ff627943a812b5"
   end
-  
+
   head do
     url "https://github.com/gitbucket/gitbucket.git", branch: "master"
     depends_on "sbt" => :build
