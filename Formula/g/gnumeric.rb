@@ -1,10 +1,9 @@
 class Gnumeric < Formula
   desc "GNOME Spreadsheet Application"
   homepage "https://projects.gnome.org/gnumeric/"
-  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.61.tar.xz"
-  sha256 "2ac135d856572713c1a408b76b50a59f2a9769ed21f1213446b5af255df20a12"
+  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.62.tar.xz"
+  sha256 "89331121321b9bad72d37af5a6d13a0a636f0fbb0880f0ea1f2cf8b7ab9ae631"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
-  revision 1
 
   bottle do
     sha256               arm64_golden_gate: "7d296e414b70f998377e9d4418e2553b53277062ba304e2fb203a1358136ab75"
@@ -24,6 +23,7 @@ class Gnumeric < Formula
   depends_on "adwaita-icon-theme"
   depends_on "at-spi2-core"
   depends_on "cairo"
+  depends_on "fribidi"
   depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "goffice"
@@ -45,6 +45,8 @@ class Gnumeric < Formula
     depends_on "perl-xml-parser" => :build
     depends_on "zlib-ng-compat"
   end
+
+  deny_network_access!
 
   def install
     # ensures that the files remain within the keg
