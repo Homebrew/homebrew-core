@@ -2,7 +2,7 @@ class RosaCli < Formula
   desc "RedHat OpenShift Service on AWS (ROSA) command-line interface"
   homepage "https://www.openshift.com/products/amazon-openshift"
   url "https://github.com/openshift/rosa/archive/refs/tags/v1.2.65.tar.gz"
-  sha256 "98a8c41c2bf28089afacf374deb0c9aef20c8e2651196c656d2bdb66572e14c9"
+  sha256 "b28500c2fac3d279e759aaf53e82346d4485a6e2e2cbdadc3ec20e120d7a5495"
   license "Apache-2.0"
   head "https://github.com/openshift/rosa.git", branch: "master"
 
@@ -19,10 +19,6 @@ class RosaCli < Formula
     sha256 cellar: :any,                 x86_64_linux:  "c5025e84940f1331c304724eb41223063066ae327185d59d0b0f46fb5b18b3f7"
   end
 
-  # TODO: Can be undeprecated on official new release or if upstream confirms change
-  deprecate! date: "2026-09-19", because: :checksum_mismatch
-  disable! date: "2027-09-19", because: :checksum_mismatch
-
   depends_on "go" => :build
   depends_on "awscli"
 
@@ -36,9 +32,6 @@ class RosaCli < Formula
     output = shell_output("#{bin}/rosa create cluster 2<&1", 1)
     assert_match "Failed to create OCM connection: Not logged in", output
 
-    # FIXME: 1.2.65 was tagged without bumping `DefaultVersion`, so `rosa version` reports 1.2.64.
-    # Re-enable the assertion below on the next bump.
-    odie "Re-enable the `rosa version` assertion!" if version != "1.2.65"
-    # assert_match version.to_s, shell_output("#{bin}/rosa version")
+    assert_match version.to_s, shell_output("#{bin}/rosa version")
   end
 end
