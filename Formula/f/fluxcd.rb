@@ -20,6 +20,12 @@ class Fluxcd < Formula
   conflicts_with "fantom", because: "both install `flux` binaries"
   conflicts_with "flux", because: "both install `flux` binaries"
 
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "make", "build", "VERSION=#{version}"
     bin.install "bin/flux"
