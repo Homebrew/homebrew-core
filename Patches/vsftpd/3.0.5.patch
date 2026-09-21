@@ -1,0 +1,49 @@
+diff --git a/sysutil.c b/sysutil.c
+index ff8885b..c465b99 100644
+--- a/sysutil.c
++++ b/sysutil.c
+@@ -2792,6 +2792,7 @@ vsf_sysutil_getuid(void)
+ void
+ vsf_sysutil_set_address_space_limit(unsigned long bytes)
+ {
++#if! defined(__APPLE__)
+   /* Unfortunately, OpenBSD is missing RLIMIT_AS. */
+ #ifdef RLIMIT_AS
+   int ret;
+@@ -2807,12 +2808,14 @@ vsf_sysutil_set_address_space_limit(unsigned long bytes)
+     die("setrlimit");
+   }
+ #endif /* RLIMIT_AS */
++#endif
+   (void) bytes;
+ }
+
+ void
+ vsf_sysutil_set_no_fds()
+ {
++#if! defined(__APPLE__)
+   int ret;
+   struct rlimit rlim;
+   rlim.rlim_cur = 0;
+@@ -2822,11 +2825,13 @@ vsf_sysutil_set_no_fds()
+   {
+     die("setrlimit NOFILE");
+   }
++#endif
+ }
+
+ void
+ vsf_sysutil_set_no_procs()
+ {
++#if! defined(__APPLE__)
+ #ifdef RLIMIT_NPROC
+   int ret;
+   struct rlimit rlim;
+@@ -2838,6 +2843,7 @@ vsf_sysutil_set_no_procs()
+     die("setrlimit NPROC");
+   }
+ #endif
++#endif
+ }
+
+ void

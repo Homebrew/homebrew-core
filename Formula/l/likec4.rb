@@ -1,0 +1,63 @@
+class Likec4 < Formula
+  desc "Architecture modeling tool with live diagrams from code"
+  homepage "https://likec4.dev"
+  url "https://registry.npmjs.org/likec4/-/likec4-1.59.3.tgz"
+  sha256 "ff913ce287267a3435758ebc32e5aea10578746240fcc1d34fa367869c175a2e"
+  license "MIT"
+
+  bottle do
+    sha256 cellar: :any,                 arm64_golden_gate: "369df66c7497e6529dd34e670f3078f50855a9aacf2004034613cb1a2073292f"
+    sha256 cellar: :any,                 arm64_tahoe:       "6598b2c46264e941477e604499080ff1f38a594ab25709b4837025a6fccc4fd0"
+    sha256 cellar: :any,                 arm64_sequoia:     "6598b2c46264e941477e604499080ff1f38a594ab25709b4837025a6fccc4fd0"
+    sha256 cellar: :any,                 arm64_sonoma:      "6598b2c46264e941477e604499080ff1f38a594ab25709b4837025a6fccc4fd0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f523f22b41632f3679f5b0c5bea970ab09b569db5215559ad3bfe1a0846d607c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "654873dcc4a30ef897973823328a03c8c313d543b486a25a8ba9fc8a42225032"
+  end
+
+  depends_on "graphviz"
+  depends_on "node"
+
+  def install
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
+
+    generate_completions_from_executable(bin/"likec4", "completion", shells: [:bash, :zsh])
+
+    deuniversalize_machos if OS.mac?
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/likec4 --version")
+
+    (testpath/"test.c4").write <<~C4
+      specification {
+        element system
+        element component
+      }
+      model {
+        sys = system 'Test System' {
+          api = component 'API'
+          db = component 'Database'
+        }
+        api -> db 'queries'
+      }
+      views {
+        view index {
+          include *
+        }
+      }
+    C4
+
+    system bin/"likec4", "validate", testpath
+
+    system bin/"likec4", "export", "json", "-o", testpath/"output.json", testpath
+    json_output = JSON.parse((testpath/"output.json").read)
+    assert json_output.key?("views"), "Expected JSON export to contain views"
+    assert json_output.key?("elements"), "Expected JSON export to contain elements"
+
+    system bin/"likec4", "gen", "mermaid", "-o", testpath/"output", testpath
+    assert_path_exists testpath/"output"
+    mermaid_files = Dir[testpath/"output/**/*.mmd"]
+    assert mermaid_files.any?, "Expected at least one .mmd file to be generated"
+  end
+end

@@ -1,0 +1,92 @@
+From 39484721c44629fb1f54d92f09c92ef4c3201302 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Rapha=C3=ABl=20Droz?= <raphael.droz@gmail.com>
+Date: Tue, 21 Jan 2025 01:20:35 -0300
+Subject: [PATCH] silenced a couple of GCC stringop-overflow warnings
+
+---
+ database.c | 1 +
+ filter.c   | 8 ++++----
+ filter.h   | 6 +++---
+ 3 files changed, 8 insertions(+), 7 deletions(-)
+
+diff --git a/database.c b/database.c
+index 384223e..eb9b4b0 100644
+--- a/database.c
++++ b/database.c
+@@ -12,6 +12,7 @@
+ #include <string.h>
+ #include <unistd.h>
+ #include <assert.h>
++#include <ctype.h>
+ #ifdef HAVE_CONFIG_H
+ #	include "config.h"
+ #endif
+diff --git a/filter.c b/filter.c
+index 096df3a..e4ae121 100644
+--- a/filter.c
++++ b/filter.c
+@@ -414,7 +414,7 @@ export_database()
+ 	return 0;
+ }
+ 
+-struct abook_output_item_filter select_output_item_filter(char filtname[FILTNAME_LEN]) {
++struct abook_output_item_filter select_output_item_filter(char *filtname) {
+ 	int i;
+ 	for(i=0;; i++) {
+ 		if(!strncasecmp(u_filters[i].filtname, filtname, FILTNAME_LEN))
+@@ -457,7 +457,7 @@ e_write_file(char *filename, int (*func) (FILE *in, struct db_enumerator e),
+ }
+ 
+ int
+-fexport(char filtname[FILTNAME_LEN], FILE *handle, int enum_mode)
++fexport(char *filtname, FILE *handle, int enum_mode)
+ {
+ 	int i;
+ 	struct db_enumerator e = init_db_enumerator(enum_mode);
+@@ -478,7 +478,7 @@ fexport(char filtname[FILTNAME_LEN], FILE *handle, int enum_mode)
+ 
+ 
+ int
+-export_file(char filtname[FILTNAME_LEN], char *filename)
++export_file(char *filtname, char *filename)
+ {
+ 	const int mode = ENUM_ALL;
+ 	int i;
+@@ -1958,7 +1958,7 @@ allcsv_export_database(FILE *out, struct db_enumerator e)
+ 	// name of the defined field <field_no> as chosen by the user
+ 	char *custom_field_name = NULL;
+ 
+-	abook_field_list *cur, *custom_fieldsl;
++	abook_field_list *cur;
+ 	for(cur = list_custom_fields(); cur; cur = cur->next) {
+ 		if(find_declared_field(cur->field->key)) {
+ 			find_field_number(cur->field->key, &field_no);
+diff --git a/filter.h b/filter.h
+index 3f95e3c..35b12a0 100644
+--- a/filter.h
++++ b/filter.h
+@@ -31,10 +31,10 @@ int		import_database();
+ int             import_file(char filtname[FILTNAME_LEN], char *filename);
+ 
+ int		export_database();
+-int             export_file(char filtname[FILTNAME_LEN], char *filename);
++int             export_file(char *filtname, char *filename);
+ 
+ struct abook_output_item_filter
+-		select_output_item_filter(char filtname[FILTNAME_LEN]);
++		select_output_item_filter(char *filtname);
+ 
+ void		e_write_item(FILE *out, int item, void (*func) (FILE *in, int item));
+ void		muttq_print_item(FILE *file, int item);
+@@ -42,7 +42,7 @@ void		muttq_print_item(FILE *file, int item);
+ void		parse_custom_format(char *s, char *fmt_string, int *ft);
+ void		custom_print_item(FILE *out, int item);
+ 
+-int		fexport(char filtname[FILTNAME_LEN], FILE *handle,
++int		fexport(char *filtname, FILE *handle,
+ 		int enum_mode);
+ 
+ void		print_filters();
+-- 
+2.55.0
+

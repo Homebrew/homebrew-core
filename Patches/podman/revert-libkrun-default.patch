@@ -1,0 +1,157 @@
+commit c0102ee00dc3a6dad5a7baf0cb25e656a6c24197
+Author: Caleb Xu <calebcenter@live.com>
+Date:   Thu Jul 9 14:27:09 2026 -0400
+
+    Revert "Merge pull request #27546 from jakecorrenti/libkrun-as-default"
+    
+    This reverts commit 18aa7849884ff61c423b5c7eb6aa850c98f6ea11, reversing
+    changes made to 7cd9b81b43947828f5bbeb0728a11d0a1a01fffc. It also
+    restores imports/guards as needed for the codebase to build cleanly
+    after the revert.
+
+diff --git a/pkg/machine/e2e/README.md b/pkg/machine/e2e/README.md
+index 07deb700e1..72a1c8bd95 100644
+--- a/pkg/machine/e2e/README.md
++++ b/pkg/machine/e2e/README.md
+@@ -67,7 +67,7 @@ above.
+ ## MacOS
+ 
+ Macs now support two different machine providers: `applehv` and `libkrun`. The
+-`libkrun` provider is the default.
++`applehv` provider is the default.
+ 
+ Note: On macOS, an error will occur if the path length of `$TMPDIR` is longer
+ than 22 characters. Please set the appropriate path to `$TMPDIR`. Also, if
+@@ -77,11 +77,11 @@ than 22 characters. Please set the appropriate path to `$TMPDIR`. Also, if
+ 
+ 1. `brew install vfkit`
+ 1. `make podman-remote`
+-1. `export CONTAINERS_MACHINE_PROVIDER="applehv"`
+ 1. `make localmachine`
+ 
+ ### [Libkrun](https://github.com/containers/libkrun)
+ 
+ 1. `brew install krunkit`
+ 1. `make podman-remote`
++1. `export CONTAINERS_MACHINE_PROVIDER="libkrun"`
+ 1. `make localmachine`
+diff --git a/pkg/machine/provider/platform_darwin.go b/pkg/machine/provider/platform_darwin.go
+index 88ee2d057a..a843896ccd 100644
+--- a/pkg/machine/provider/platform_darwin.go
++++ b/pkg/machine/provider/platform_darwin.go
+@@ -2,9 +2,11 @@ package provider
+ 
+ import (
+ 	"bytes"
++	"errors"
+ 	"fmt"
+ 	"os"
+ 	"os/exec"
++	"runtime"
+ 	"strings"
+ 
+ 	"github.com/blang/semver/v4"
+@@ -25,7 +27,7 @@ func Get() (vmconfigs.VMProvider, error) {
+ 	if providerOverride, found := os.LookupEnv("CONTAINERS_MACHINE_PROVIDER"); found {
+ 		provider = providerOverride
+ 	}
+-	resolvedVMType, err := define.ParseVMType(provider, define.LibKrun)
++	resolvedVMType, err := define.ParseVMType(provider, define.AppleHvVirt)
+ 	if err != nil {
+ 		return nil, err
+ 	}
+@@ -41,6 +43,9 @@ func GetByVMType(resolvedVMType define.VMType) (vmconfigs.VMProvider, error) {
+ 	case define.AppleHvVirt:
+ 		return new(applehv.AppleHVStubber), nil
+ 	case define.LibKrun:
++		if runtime.GOARCH == "amd64" {
++			return nil, errors.New("libkrun is not supported on Intel based machines. Please revert to the applehv provider")
++		}
+ 		return new(libkrun.LibKrunStubber), nil
+ 	default:
+ 	}
+@@ -48,12 +53,20 @@ func GetByVMType(resolvedVMType define.VMType) (vmconfigs.VMProvider, error) {
+ }
+ 
+ func GetAll() []vmconfigs.VMProvider {
+-	return []vmconfigs.VMProvider{new(libkrun.LibKrunStubber), new(applehv.AppleHVStubber)}
++	configs := []vmconfigs.VMProvider{new(applehv.AppleHVStubber)}
++	if runtime.GOARCH == "arm64" {
++		configs = append(configs, new(libkrun.LibKrunStubber))
++	}
++	return configs
+ }
+ 
+ // SupportedProviders returns the providers that are supported on the host operating system
+ func SupportedProviders() []define.VMType {
+-	return []define.VMType{define.AppleHvVirt, define.LibKrun}
++	supported := []define.VMType{define.AppleHvVirt}
++	if runtime.GOARCH == "arm64" {
++		return append(supported, define.LibKrun)
++	}
++	return supported
+ }
+ 
+ func IsInstalled(provider define.VMType) (bool, error) {
+@@ -101,6 +114,10 @@ func appleHvInstalled() (bool, error) {
+ }
+ 
+ func libKrunInstalled() (bool, error) {
++	if runtime.GOARCH != "arm64" {
++		return false, nil
++	}
++
+ 	// need to verify that krunkit, virglrenderer, and libkrun-efi are installed
+ 	cfg, err := config.Default()
+ 	if err != nil {
+diff --git a/pkg/machine/provider/platform_test.go b/pkg/machine/provider/platform_test.go
+index 135527f912..f5bc89df52 100644
+--- a/pkg/machine/provider/platform_test.go
++++ b/pkg/machine/provider/platform_test.go
+@@ -11,7 +11,11 @@ import (
+ func TestSupportedProviders(t *testing.T) {
+ 	switch runtime.GOOS {
+ 	case "darwin":
+-		assert.Equal(t, []define.VMType{define.AppleHvVirt, define.LibKrun}, SupportedProviders())
++		if runtime.GOARCH == "arm64" {
++			assert.Equal(t, []define.VMType{define.AppleHvVirt, define.LibKrun}, SupportedProviders())
++		} else {
++			assert.Equal(t, []define.VMType{define.AppleHvVirt}, SupportedProviders())
++		}
+ 	case "windows":
+ 		assert.ElementsMatch(t, []define.VMType{define.WSLVirt, define.HyperVVirt}, SupportedProviders())
+ 	case "linux":
+@@ -24,7 +28,8 @@ func TestInstalledProviders(t *testing.T) {
+ 	assert.NoError(t, err)
+ 	switch runtime.GOOS {
+ 	case "darwin":
+-		assert.Equal(t, []define.VMType{define.LibKrun, define.AppleHvVirt}, installed)
++		// TODO: need to verify if an arm64 machine reports {applehv, libkrun}
++		assert.Equal(t, []define.VMType{define.AppleHvVirt}, installed)
+ 	case "windows":
+ 		provider, err := Get()
+ 		assert.NoError(t, err)
+@@ -55,8 +60,9 @@ func TestBadSupportedProviders(t *testing.T) {
+ 	switch runtime.GOOS {
+ 	case "darwin":
+ 		assert.NotEqual(t, []define.VMType{define.QemuVirt}, SupportedProviders())
+-		assert.NotEqual(t, []define.VMType{define.WSLVirt, define.HyperVVirt}, SupportedProviders())
+-		assert.NotEqual(t, []define.VMType{define.AppleHvVirt}, SupportedProviders())
++		if runtime.GOARCH != "arm64" {
++			assert.NotEqual(t, []define.VMType{define.AppleHvVirt, define.LibKrun}, SupportedProviders())
++		}
+ 	case "windows":
+ 		assert.NotEqual(t, []define.VMType{define.QemuVirt}, SupportedProviders())
+ 	case "linux":
+@@ -70,8 +76,9 @@ func TestBadInstalledProviders(t *testing.T) {
+ 	switch runtime.GOOS {
+ 	case "darwin":
+ 		assert.NotEqual(t, []define.VMType{define.QemuVirt}, installed)
+-		assert.NotEqual(t, []define.VMType{define.AppleHvVirt}, installed)
+-		assert.NotEqual(t, []define.VMType{define.WSLVirt, define.HyperVVirt}, installed)
++		if runtime.GOARCH != "arm64" {
++			assert.NotEqual(t, []define.VMType{define.AppleHvVirt, define.LibKrun}, installed)
++		}
+ 	case "windows":
+ 		assert.NotContains(t, installed, define.QemuVirt)
+ 	case "linux":

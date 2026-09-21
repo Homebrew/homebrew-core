@@ -1,0 +1,275 @@
+brdiff --git a/src/drivers/Qt/AviRecord.cpp b/src/drivers/Qt/AviRecord.cpp
+index e6a695d..409aa86 100644
+--- a/src/drivers/Qt/AviRecord.cpp
++++ b/src/drivers/Qt/AviRecord.cpp
+@@ -64,6 +64,51 @@ extern "C"
+ #include "libswresample/swresample.h"
+ }
+ #endif
++
++// FFmpeg 7.1 deprecated the AVCodec capability arrays in favour of
++// avcodec_get_supported_config(); FFmpeg 9 removed them outright.
++#if LIBAVCODEC_VERSION_INT >= AV_VERSION_INT(61, 13, 100)
++static const enum AVPixelFormat *avCodecPixFmts(const AVCodec *codec)
++{
++	const enum AVPixelFormat *cfg = NULL;
++	avcodec_get_supported_config( NULL, codec, AV_CODEC_CONFIG_PIX_FORMAT, 0,
++			reinterpret_cast<const void**>(&cfg), NULL );
++	return cfg;
++}
++
++static const enum AVSampleFormat *avCodecSampleFmts(const AVCodec *codec)
++{
++	const enum AVSampleFormat *cfg = NULL;
++	avcodec_get_supported_config( NULL, codec, AV_CODEC_CONFIG_SAMPLE_FORMAT, 0,
++			reinterpret_cast<const void**>(&cfg), NULL );
++	return cfg;
++}
++
++static const int *avCodecSampleRates(const AVCodec *codec)
++{
++	const int *cfg = NULL;
++	avcodec_get_supported_config( NULL, codec, AV_CODEC_CONFIG_SAMPLE_RATE, 0,
++			reinterpret_cast<const void**>(&cfg), NULL );
++	return cfg;
++}
++
++#if LIBAVUTIL_VERSION_INT >= AV_VERSION_INT(57, 28, 100)
++static const AVChannelLayout *avCodecChLayouts(const AVCodec *codec)
++{
++	const AVChannelLayout *cfg = NULL;
++	avcodec_get_supported_config( NULL, codec, AV_CODEC_CONFIG_CHANNEL_LAYOUT, 0,
++			reinterpret_cast<const void**>(&cfg), NULL );
++	return cfg;
++}
++#endif
++#else
++static const enum AVPixelFormat *avCodecPixFmts(const AVCodec *codec){ return codec->pix_fmts; }
++static const enum AVSampleFormat *avCodecSampleFmts(const AVCodec *codec){ return codec->sample_fmts; }
++static const int *avCodecSampleRates(const AVCodec *codec){ return codec->supported_samplerates; }
++#if LIBAVUTIL_VERSION_INT >= AV_VERSION_INT(57, 28, 100)
++static const AVChannelLayout *avCodecChLayouts(const AVCodec *codec){ return codec->ch_layouts; }
++#endif
++#endif
+ #endif
+ 
+ #include "Qt/AviRecord.h"
+@@ -1173,19 +1218,21 @@ static int initVideoStream( const char *codec_name, OutputStream *ost )
+ 	//printf("compression_level:%i\n", c->compression_level);
+ 	//printf("TAG:0x%08X\n", c->codec_tag);
+ 
+-	if ( codec->pix_fmts )
++	const enum AVPixelFormat *pixFmts = avCodecPixFmts(codec);
++
++	if ( pixFmts )
+ 	{
+ 		if ( ost->pixelFormat == -1 )
+ 		{
+ 			// Auto select least lossy format to comvert to.
+-			c->pix_fmt = avcodec_find_best_pix_fmt_of_list( codec->pix_fmts, AV_PIX_FMT_BGRA, 0, NULL);
++			c->pix_fmt = avcodec_find_best_pix_fmt_of_list( pixFmts, AV_PIX_FMT_BGRA, 0, NULL);
+ 		}
+ 
+ 		int i=0, formatOk=0;
+-		while (codec->pix_fmts[i] != -1)
++		while (pixFmts[i] != -1)
+ 		{
+-			//printf("Codec PIX_FMT: %i\n", codec->pix_fmts[i]);
+-			if ( codec->pix_fmts[i] == c->pix_fmt )
++			//printf("Codec PIX_FMT: %i\n", pixFmts[i]);
++			if ( pixFmts[i] == c->pix_fmt )
+ 			{
+ 				printf("CODEC Supports PIX_FMT:%i\n", c->pix_fmt );
+ 				formatOk = 1;
+@@ -1196,7 +1243,7 @@ static int initVideoStream( const char *codec_name, OutputStream *ost )
+ 		{
+ 			printf("CODEC Does Not Support PIX_FMT:%i\n", c->pix_fmt);
+ 
+-			c->pix_fmt = avcodec_find_best_pix_fmt_of_list( codec->pix_fmts, AV_PIX_FMT_BGRA, 0, NULL);
++			c->pix_fmt = avcodec_find_best_pix_fmt_of_list( pixFmts, AV_PIX_FMT_BGRA, 0, NULL);
+ 
+ 			printf("Changing to:%i\n", c->pix_fmt);
+ 		}
+@@ -1332,12 +1379,14 @@ static int select_audio_channel_layout(const OutputStream *ost, const AVCodec *c
+ 	av_channel_layout_from_mask( &defaultLayout, AV_CH_LAYOUT_MONO );
+ 	#endif
+ 
+-	if (!codec->ch_layouts)
++	const AVChannelLayout *chLayouts = avCodecChLayouts(codec);
++
++	if (!chLayouts)
+ 	{
+ 		return av_channel_layout_copy(dst, &defaultLayout);
+ 	}
+ 
+-	best_ch_layout = p = codec->ch_layouts;
++	best_ch_layout = p = chLayouts;
+ 	while (p && p->nb_channels)
+ 	{
+ 		int nb_channels = p->nb_channels;
+@@ -1400,17 +1449,20 @@ static int initAudioStream( const char *codec_name, OutputStream *ost )
+ 
+ 	/* put sample parameters */
+ 
++	const enum AVSampleFormat *sampleFmts = avCodecSampleFmts(codec);
++	const int *sampleRates = avCodecSampleRates(codec);
++
+ 	// Sample Format Selection
+ 	if ( ost->sampleFormat > 0 )
+ 	{
+ 		c->sample_fmt  = (AVSampleFormat)ost->sampleFormat;
+ 
+-		if ( codec->sample_fmts )
++		if ( sampleFmts )
+ 		{
+ 			int i=0, formatOk=0;
+-			while ( codec->sample_fmts[i] != -1 )
++			while ( sampleFmts[i] != -1 )
+ 			{
+-				if ( c->sample_fmt == codec->sample_fmts[i] )
++				if ( c->sample_fmt == sampleFmts[i] )
+ 				{
+ 					formatOk = true; break;
+ 				}
+@@ -1418,13 +1470,13 @@ static int initAudioStream( const char *codec_name, OutputStream *ost )
+ 			}
+ 			if ( !formatOk )
+ 			{
+-				c->sample_fmt = codec->sample_fmts  ? codec->sample_fmts[0] : AV_SAMPLE_FMT_S16;
++				c->sample_fmt = sampleFmts  ? sampleFmts[0] : AV_SAMPLE_FMT_S16;
+ 			}
+ 		}
+ 	}
+ 	else
+ 	{
+-		c->sample_fmt = codec->sample_fmts ? codec->sample_fmts[0] : AV_SAMPLE_FMT_S16;
++		c->sample_fmt = sampleFmts ? sampleFmts[0] : AV_SAMPLE_FMT_S16;
+ 	}
+ 
+ 	// Sample Rate Selection
+@@ -1432,12 +1484,12 @@ static int initAudioStream( const char *codec_name, OutputStream *ost )
+ 	{
+ 		c->sample_rate = ost->sampleRate;
+ 
+-		if ( codec->supported_samplerates )
++		if ( sampleRates )
+ 		{
+ 			int i=0, formatOk=0;
+-			while ( codec->supported_samplerates[i] != 0 )
++			while ( sampleRates[i] != 0 )
+ 			{
+-				if ( c->sample_rate == codec->supported_samplerates[i] )
++				if ( c->sample_rate == sampleRates[i] )
+ 				{
+ 					formatOk = true; break;
+ 				}
+@@ -1445,13 +1497,13 @@ static int initAudioStream( const char *codec_name, OutputStream *ost )
+ 			}
+ 			if ( !formatOk )
+ 			{
+-				c->sample_rate    = codec->supported_samplerates ? codec->supported_samplerates[0] : audioSampleRate;
++				c->sample_rate    = sampleRates ? sampleRates[0] : audioSampleRate;
+ 			}
+ 		}
+ 	}
+ 	else
+ 	{
+-		c->sample_rate    = codec->supported_samplerates ? codec->supported_samplerates[0] : audioSampleRate;
++		c->sample_rate    = sampleRates ? sampleRates[0] : audioSampleRate;
+ 	}
+ 
+ 	// Channel Layout Selection
+@@ -2983,21 +3035,23 @@ void LibavOptionsPage::initPixelFormatSelect(const char *codec_name)
+ 	{
+ 		return;
+ 	}
+-	if ( c->pix_fmts )
++	const enum AVPixelFormat *pixFmts = avCodecPixFmts(c);
++
++	if ( pixFmts )
+ 	{
+ 		int i=0; //, formatOk=0;
+-		while (c->pix_fmts[i] != -1)
++		while (pixFmts[i] != -1)
+ 		{
+-			desc = av_pix_fmt_desc_get( c->pix_fmts[i] );
++			desc = av_pix_fmt_desc_get( pixFmts[i] );
+ 
+ 			if ( desc )
+ 			{
+-				//printf("Codec PIX_FMT: %i: %s 0x%04X\t-  %s\n", c->pix_fmts[i],
+-				//		desc->name, av_get_pix_fmt_loss(c->pix_fmts[i], AV_PIX_FMT_BGRA, 0), desc->alias);
++				//printf("Codec PIX_FMT: %i: %s 0x%04X\t-  %s\n", pixFmts[i],
++				//		desc->name, av_get_pix_fmt_loss(pixFmts[i], AV_PIX_FMT_BGRA, 0), desc->alias);
+ 
+-				videoPixfmt->addItem( tr(desc->name), c->pix_fmts[i]);
++				videoPixfmt->addItem( tr(desc->name), pixFmts[i]);
+ 
+-				if ( LIBAV::video_st.pixelFormat == c->pix_fmts[i] )
++				if ( LIBAV::video_st.pixelFormat == pixFmts[i] )
+ 				{
+ 					videoPixfmt->setCurrentIndex( videoPixfmt->count() - 1 );
+ 					formatOk = true;
+@@ -3086,20 +3140,22 @@ void LibavOptionsPage::initSampleFormatSelect( const char *codec_name )
+ 	{
+ 		return;
+ 	}
+-	if ( c->sample_fmts )
++	const enum AVSampleFormat *sampleFmts = avCodecSampleFmts(c);
++
++	if ( sampleFmts )
+ 	{
+ 		int i=0;
+ 		const char *fmtName;
+ 
+-		while ( c->sample_fmts[i] != -1 )
++		while ( sampleFmts[i] != -1 )
+ 		{
+-			fmtName = av_get_sample_fmt_name( c->sample_fmts[i] );
++			fmtName = av_get_sample_fmt_name( sampleFmts[i] );
+ 
+ 			if ( fmtName )
+ 			{
+-				audioSamplefmt->addItem( tr(fmtName), c->sample_fmts[i] );
++				audioSamplefmt->addItem( tr(fmtName), sampleFmts[i] );
+ 
+-				if ( LIBAV::audio_st.sampleFormat == c->sample_fmts[i] )
++				if ( LIBAV::audio_st.sampleFormat == sampleFmts[i] )
+ 				{
+ 					audioSamplefmt->setCurrentIndex( audioSamplefmt->count() - 1 );
+ 					formatOk = true;
+@@ -3129,18 +3185,20 @@ void LibavOptionsPage::initSampleRateSelect( const char *codec_name )
+ 	{
+ 		return;
+ 	}
+-	if ( c->supported_samplerates )
++	const int *sampleRates = avCodecSampleRates(c);
++
++	if ( sampleRates )
+ 	{
+ 		int i=0;
+ 		char rateName[64];
+ 
+-		while ( c->supported_samplerates[i] != 0 )
++		while ( sampleRates[i] != 0 )
+ 		{
+-			sprintf( rateName, "%i", c->supported_samplerates[i] );
++			sprintf( rateName, "%i", sampleRates[i] );
+ 
+-			audioSampleRate->addItem( tr(rateName), c->supported_samplerates[i] );
++			audioSampleRate->addItem( tr(rateName), sampleRates[i] );
+ 
+-			if ( LIBAV::audio_st.sampleRate == c->supported_samplerates[i] )
++			if ( LIBAV::audio_st.sampleRate == sampleRates[i] )
+ 			{
+ 				audioSampleRate->setCurrentIndex( audioSampleRate->count() - 1 );
+ 				formatOk = true;
+@@ -3191,7 +3249,7 @@ void LibavOptionsPage::initChannelLayoutSelect( const char *codec_name )
+ 
+ 	}
+ 	#else
+-	const AVChannelLayout *p = c->ch_layouts;
++	const AVChannelLayout *p = avCodecChLayouts(c);
+ 
+ 	while (p && p->nb_channels)
+ 	{

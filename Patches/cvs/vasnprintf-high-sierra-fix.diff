@@ -1,0 +1,17 @@
+--- a/lib/vasnprintf.c	2017-01-01 00:00:00.000000000 -0000
++++ b/lib/vasnprintf.c	2017-01-01 00:00:00.000000000 -0000
+@@ -558,11 +558,13 @@
+ 		  }
+ 		*p = dp->conversion;
+ #if USE_SNPRINTF
++# if ! (defined __APPLE__ && defined __MACH__)
+ 		p[1] = '%';
+ 		p[2] = 'n';
+ 		p[3] = '\0';
+-#else
++# else
+ 		p[1] = '\0';
++# endif
+ #endif
+
+ 		/* Construct the arguments for calling snprintf or sprintf.  */

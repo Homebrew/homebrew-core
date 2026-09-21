@@ -1,0 +1,38 @@
+Index: game/location.h
+===================================================================
+--- game/location.h	(revision 132)
++++ game/location.h	(revision 133)
+@@ -105,7 +105,6 @@
+ 	PAL_EXTINCT_VOLCANO
+ };
+ 
+-enum STDMAP;
+ struct PALETTE_MAP
+ {
+ 	char this_view;
+Index: game/cave.cpp
+===================================================================
+--- game/cave.cpp	(revision 132)
++++ game/cave.cpp	(revision 133)
+@@ -192,7 +192,8 @@
+ 		}
+ 	
+ 	}
+-	r.Setup(&XRect(x, y, x + l, y + h));
++	XRect tmp(x, y, x + l, y + h);
++	r.Setup(&tmp);
+ }
+ 
+ int XCave::Compare(XObject * o)
+Index: creature/creature.h
+===================================================================
+--- creature/creature.h	(revision 132)
++++ creature/creature.h	(revision 133)
+@@ -99,7 +99,6 @@
+ class XPotion;
+ class XBook;
+ class XScroll;
+-enum MAGIC_SCHOOL;
+ 
+ struct ACTION_DATA
+ {

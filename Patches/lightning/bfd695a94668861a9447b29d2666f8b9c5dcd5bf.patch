@@ -1,0 +1,30 @@
+From bfd695a94668861a9447b29d2666f8b9c5dcd5bf Mon Sep 17 00:00:00 2001
+From: pcpa <paulo.cesar.pereira.de.andrade@gmail.com>
+Date: Tue, 3 Sep 2024 11:18:58 -0300
+Subject: Correct wrong ifdef causing missing mprotect call if NDEBUG is not
+ defined
+
+  This should fix OSX failure.
+  It also has not been detected earlier due to having assertions enabled
+in all test builds, to detect encoding errors.
+---
+ lib/lightning.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/lightning.c b/lib/lightning.c
+index ce0e295..83917ae 100644
+--- a/lib/lightning.c
++++ b/lib/lightning.c
+@@ -2620,8 +2620,8 @@ _jit_emit(jit_state_t *_jit)
+ #  endif
+ #  ifndef NDEBUG
+ 	result =
+-	mprotect(_jit->code.ptr, _jit->code.protect, PROT_READ | PROT_EXEC);
+ #  endif
++	mprotect(_jit->code.ptr, _jit->code.protect, PROT_READ | PROT_EXEC);
+ 	assert(result == 0);
+     }
+ #endif /* HAVE_MMAP */
+-- 
+cgit v1.3
+

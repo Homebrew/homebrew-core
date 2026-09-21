@@ -1,0 +1,218 @@
+class Libsigrok < Formula
+  desc "Drivers for logic analyzers and other supported devices"
+  homepage "https://sigrok.org/"
+  # fw-fx2lafw is GPL-2.0-or-later and LGPL-2.1-or-later"
+  license all_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 5
+
+  stable do
+    url "https://sigrok.org/download/source/libsigrok/libsigrok-0.5.2.tar.gz"
+    sha256 "4d341f90b6220d3e8cb251dacf726c41165285612248f2c52d15df4590a1ce3c"
+
+    # build patch to replace `PyEval_CallObject` with `PyObject_CallObject`
+    patch do
+      url "https://github.com/sigrokproject/libsigrok/commit/5bc8174531df86991ba8aa6d12942923925d9e72.patch?full_index=1"
+      sha256 "247bfee9777a39d5dc454a999ce425a061cdc48f4956fdb0cc31ec67a8086ce0"
+      type :backport
+    end
+
+    resource "fw-fx2lafw" do
+      url "https://sigrok.org/download/source/sigrok-firmware-fx2lafw/sigrok-firmware-fx2lafw-0.1.7.tar.gz"
+      sha256 "a3f440d6a852a46e2c5d199fc1c8e4dacd006bc04e0d5576298ee55d056ace3b"
+
+      # Backport fixes to build with sdcc>=4.2.3. Remove in the next release of fw-fx2lafw.
+      patch do
+        url "https://github.com/sigrokproject/sigrok-firmware-fx2lafw/commit/5aab87d358a4585a10ad89277bb88ad139077abd.patch?full_index=1"
+        sha256 "15a9ab04d19231aef165d62c669832638c688d33ebd52021100e60e965a5b4e7"
+        type :backport
+      end
+      patch do
+        url "https://github.com/sigrokproject/sigrok-firmware-fx2lafw/commit/3e08500d22f87f69941b65cf8b8c1b85f9b41173.patch?full_index=1"
+        sha256 "75c4a7770fe8f7d615e3be6c35fa336f8771fbd88145e7ce41afb0d8ad559571"
+        type :backport
+      end
+      patch do
+        url "https://github.com/sigrokproject/sigrok-firmware-fx2lafw/commit/96b0b476522c3f93a47ff8f479ec08105ba6a2a5.patch?full_index=1"
+        sha256 "a2de37d89144746f6370942faad4c358c6426f8e4e6737f117f05f05d8d44f6a"
+        type :backport
+      end
+    end
+  end
+
+  # The upstream website has gone down due to a server failure and the previous
+  # download page is not available, so this checks the directory listing page
+  # where the `stable` archive is found until the download page returns.
+  livecheck do
+    url "https://sigrok.org/download/source/libsigrok/"
+    regex(/href=.*?libsigrok[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
+  bottle do
+    rebuild 5
+    sha256               arm64_golden_gate: "083bc299566beece6d7f582e9a091593e598bc6dfa542247019c31c570b299e4"
+    sha256               arm64_tahoe:       "28671d372513343cd4820779e13eb1bdf10a7ba1ce51be6f032664577c165039"
+    sha256               arm64_sequoia:     "452a314ee92dd001c8eeb742e731dfe343b925dd2d4bc33f71b38730838afc9a"
+    sha256               arm64_linux:       "8bb458272a5be45e1c1f5ce0cafc710e8f2af686cdd2bcd31a32fc990c1803c0"
+    sha256 cellar: :any, x86_64_linux:      "96bd5bd71fbd75c9a6a6058ff88dff3297a447fe3b4f234a0c96a77360055320"
+  end
+
+  head do
+    url "git://sigrok.org/libsigrok", branch: "master"
+
+    depends_on "nettle"
+
+    resource "fw-fx2lafw" do
+      url "git://sigrok.org/sigrok-firmware-fx2lafw", branch: "master"
+    end
+  end
+
+  depends_on "autoconf" => :build
+  depends_on "autoconf-archive" => :build
+  depends_on "automake" => :build
+  depends_on "doxygen" => :build
+  depends_on "graphviz" => :build
+  depends_on "libtool" => :build
+  depends_on "pkgconf" => [:build, :test]
+  depends_on "python-setuptools" => :build
+  depends_on "sdcc" => :build
+  depends_on "swig" => :build
+
+  depends_on "glib"
+  depends_on "glibmm@2.66"
+  depends_on "hidapi"
+  depends_on "libftdi"
+  depends_on "libserialport"
+  depends_on "libusb"
+  depends_on "libzip"
+  depends_on "numpy"
+  depends_on "pygobject3"
+  depends_on "python@3.14"
+
+  on_macos do
+    depends_on "gettext"
+    depends_on "libsigc++@2"
+  end
+
+  # Fix for swig 4.4 changing the return type of %init and a backport of
+  # https://github.com/sigrokproject/libsigrok/pull/303 for swig 4.5 dropping
+  # the Python 2 integer API macros
+  patch :DATA
+
+  def install
+    resource("fw-fx2lafw").stage do
+      system "./autogen.sh" if build.head?
+
+      mkdir "build" do
+        system "../configure", *std_configure_args
+        system "make", "install"
+      end
+    end
+
+    # We need to use the Makefile to generate all of the dependencies
+    # for setup.py, so the easiest way to make the Python libraries
+    # work is to adjust setup.py's arguments here.
+    prefix_site_packages = prefix/Language::Python.site_packages(python3)
+    inreplace "Makefile.am" do |s|
+      s.gsub!(/^(setup_py =.*setup\.py .*)/, "\\1 --no-user-cfg")
+      s.gsub!(
+        /(\$\(setup_py\) install)/,
+        "\\1 --single-version-externally-managed --record=installed.txt --install-lib=#{prefix_site_packages}",
+      )
+    end
+
+    if build.head?
+      system "./autogen.sh"
+    else
+      system "autoreconf", "--force", "--install", "--verbose"
+    end
+
+    mkdir "build" do
+      ENV["PYTHON"] = python3
+      args = %w[
+        --disable-java
+        --disable-ruby
+      ]
+      system "../configure", *std_configure_args, *args
+      system "make"
+      system "make", "install"
+    end
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <libsigrok/libsigrok.h>
+
+      int main() {
+        struct sr_context *ctx;
+        if (sr_init(&ctx) != SR_OK) {
+           exit(EXIT_FAILURE);
+        }
+        if (sr_exit(ctx) != SR_OK) {
+           exit(EXIT_FAILURE);
+        }
+        return 0;
+      }
+    C
+    flags = shell_output("#{formula_opt_bin("pkgconf")}/pkgconf --cflags --libs libsigrok").strip.split
+    system ENV.cc, "test.c", "-o", "test", *flags
+    system "./test"
+
+    system python3, "-c", <<~PYTHON
+      import sigrok.core as sr
+      sr.Context.create()
+    PYTHON
+  end
+end
+
+__END__
+--- a/bindings/python/sigrok/core/classes.i
++++ b/bindings/python/sigrok/core/classes.i
+@@ -85,7 +85,7 @@
+     if (!GLib) {
+         fprintf(stderr, "Import of gi.repository.GLib failed.\n");
+ #if PY_VERSION_HEX >= 0x03000000
+-        return nullptr;
++        return 0;
+ #else
+         return;
+ #endif
+@@ -325,8 +325,6 @@
+ {
+     enum sr_datatype type = (enum sr_datatype) key->data_type()->id();
+ 
+-    if (type == SR_T_UINT64 && PyInt_Check(input))
+-        return Glib::Variant<guint64>::create(PyInt_AsLong(input));
+     if (type == SR_T_UINT64 && PyLong_Check(input))
+         return Glib::Variant<guint64>::create(PyLong_AsLong(input));
+     else if (type == SR_T_STRING && string_check(input))
+@@ -335,8 +333,8 @@
+         return Glib::Variant<bool>::create(input == Py_True);
+     else if (type == SR_T_FLOAT && PyFloat_Check(input))
+         return Glib::Variant<double>::create(PyFloat_AsDouble(input));
+-    else if (type == SR_T_INT32 && PyInt_Check(input))
+-        return Glib::Variant<gint32>::create(PyInt_AsLong(input));
++    else if (type == SR_T_INT32 && PyLong_Check(input))
++        return Glib::Variant<gint32>::create(PyLong_AsLong(input));
+     else
+         throw sigrok::Error(SR_ERR_ARG);
+ }
+@@ -347,8 +345,6 @@
+ {
+     GVariantType *type = option->default_value().get_type().gobj();
+ 
+-    if (type == G_VARIANT_TYPE_UINT64 && PyInt_Check(input))
+-        return Glib::Variant<guint64>::create(PyInt_AsLong(input));
+     if (type == G_VARIANT_TYPE_UINT64 && PyLong_Check(input))
+         return Glib::Variant<guint64>::create(PyLong_AsLong(input));
+     else if (type == G_VARIANT_TYPE_STRING && string_check(input))
+@@ -357,8 +353,8 @@
+         return Glib::Variant<bool>::create(input == Py_True);
+     else if (type == G_VARIANT_TYPE_DOUBLE && PyFloat_Check(input))
+         return Glib::Variant<double>::create(PyFloat_AsDouble(input));
+-    else if (type == G_VARIANT_TYPE_INT32 && PyInt_Check(input))
+-        return Glib::Variant<gint32>::create(PyInt_AsLong(input));
++    else if (type == G_VARIANT_TYPE_INT32 && PyLong_Check(input))
++        return Glib::Variant<gint32>::create(PyLong_AsLong(input));
+     else
+         throw sigrok::Error(SR_ERR_ARG);
+ }

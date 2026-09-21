@@ -1,0 +1,1010 @@
+Squashed backport of litehtml 0.10 support for the qlitehtml copy bundled in
+qttools 6.11.x, which still pins qlitehtml 3fe5821dad98747d6e41c9ed54b86c3d0eee9daf.
+
+Source changes of these upstream commits from
+https://code.qt.io/cgit/playground/qlitehtml.git :
+
+    c76136a DocumentContainerPrivate: use tag instead of tagName for known elements
+    0dd32c2 Avoid creation of temporary std::string
+    b7e9ad1 Fix jumping to anchors with '.' in the name
+    5764675 Fix jumping to anchors with upper case letters in the id
+    2665704 namespace all symbols
+    1f56cfe Update to litehtml 0.10
+
+Paths are rewritten to the qttools tarball layout and the src/3rdparty/litehtml
+submodule bump of 1f56cfe is omitted, as GNU patch cannot patch a gitlink.
+
+diff --git a/src/assistant/qlitehtml/src/container_qpainter.cpp b/src/assistant/qlitehtml/src/container_qpainter.cpp
+index 00d77d7..38195d8 100644
+--- a/src/assistant/qlitehtml/src/container_qpainter.cpp
++++ b/src/assistant/qlitehtml/src/container_qpainter.cpp
+@@ -23,6 +23,9 @@
+ #include <QUrl>
+ 
+ #include <algorithm>
++#include <queue>
++
++QT_BEGIN_NAMESPACE
+ 
+ const int kDragDistance = 5;
+ 
+@@ -45,11 +48,16 @@ static QPainter *toQPainter(litehtml::uint_ptr hdc)
+     return reinterpret_cast<Context *>(hdc);
+ }
+ 
+-static QRect toQRect(litehtml::position position)
++static QRectF toQRectF(litehtml::position position)
+ {
+     return {position.x, position.y, position.width, position.height};
+ }
+ 
++static QRect toQRect(litehtml::position position)
++{
++    return {qRound(position.x), qRound(position.y), qRound(position.width), qRound(position.height)};
++}
++
+ static bool isVisible(const litehtml::element::ptr &element)
+ {
+     // TODO render_item::is_visible() would also take m_skip into account, so this might be wrong
+@@ -166,16 +174,16 @@ static litehtml::element::ptr nextLeaf(const litehtml::element::ptr &element,
+ 
+ static Selection::Element selectionDetails(const litehtml::element::ptr &element,
+                                            const QString &text,
+-                                           const QPoint &pos)
++                                           const QPointF &pos)
+ {
+     // shortcut, which _might_ not really be correct
+     if (!element->children().empty())
+         return {element, -1, -1}; // everything selected
+     const QFont &font = toQFont(element->css().get_font());
+-    const QFontMetrics fm(font);
+-    int previous = 0;
++    const QFontMetricsF fm(font);
++    qreal previous = 0;
+     for (int i = 0; i < text.size(); ++i) {
+-        const int width = fm.size(0, text.left(i + 1)).width();
++        const qreal width = fm.size(0, text.left(i + 1)).width();
+         if ((width + previous) / 2 >= pos.x())
+             return {element, i, previous};
+         previous = width;
+@@ -196,12 +204,12 @@ static bool deepest_child_at_point(const litehtml::element::ptr &element,
+     // E.g. fixed position elements?
+     if (!element)
+         return false /*continue iterating*/;
+-    const QRect placement = toQRect(element->get_placement());
++    const QRectF placement = toQRectF(element->get_placement());
+     // Do not continue down elements that do not cover the position. Exceptions:
+     // - elements with 0 size (includes anchors and other weird elements)
+     // - html and body, which for some reason have size == viewport size
+-    if (!placement.size().isEmpty() && element->tag() != litehtml::_html_
+-        && element->tag() != litehtml::_body_ && !placement.contains(pos)) {
++    if (!placement.size().isEmpty() && element->tag() != litehtml::string_id::_html_
++        && element->tag() != litehtml::string_id::_body_ && !placement.contains(pos)) {
+         return false /*continue iterating*/;
+     }
+     // qDebug() << qPrintable(QString(level * 2, ' ')) << element->dump_get_name() << placement << pos;
+@@ -216,6 +224,27 @@ static bool deepest_child_at_point(const litehtml::element::ptr &element,
+     return false /*continue iterating*/;
+ }
+ 
++static litehtml::element::ptr element_with_id_or_name(const litehtml::element::ptr &root,
++                                                      const std::string &id)
++{
++    std::queue<litehtml::element::ptr> pending;
++    pending.push(root);
++    while (!pending.empty()) {
++        const litehtml::element::ptr element = pending.front();
++        pending.pop();
++        if (_s(element->id()) == id)
++            return element;
++        const char *nameAttr = element->get_attr("name");
++        if (nameAttr && nameAttr == id)
++            return element;
++        const litehtml::elements_list &children = element->children();
++        for (const auto &child : children) {
++            pending.push(child);
++        }
++    }
++    return {};
++}
++
+ static Selection::Element selection_element_at_point(const litehtml::element::ptr &element,
+                                                      const QPoint &pos,
+                                                      const QPoint &viewportPos,
+@@ -226,14 +255,14 @@ static Selection::Element selection_element_at_point(const litehtml::element::pt
+                            pos,
+                            viewportPos,
+                            [mode, &result, &pos](const litehtml::element::ptr &element) {
+-                               const QRect placement = toQRect(element->get_placement());
++                               const QRectF placement = toQRectF(element->get_placement());
+                                std::string text;
+                                element->get_text(text);
+                                if (!text.empty()) {
+                                    result = mode == Selection::Mode::Free
+                                                 ? selectionDetails(element,
+                                                                    QString::fromStdString(text),
+-                                                                   pos - placement.topLeft())
++                                                                   QPointF(pos) - placement.topLeft())
+                                                 : Selection::Element({element, -1, -1});
+                                    return true;
+                                }
+@@ -385,14 +414,14 @@ void Selection::update()
+         element.element->get_text(elemText);
+         const QString textStr = QString::fromStdString(elemText);
+         if (!textStr.isEmpty()) {
+-            QRect rect = toQRect(element.element->get_placement()).adjusted(-1, -1, 1, 1);
++            QRectF rect = toQRectF(element.element->get_placement()).adjusted(-1, -1, 1, 1);
+             if (element.index < 0) { // fully selected
+                 text += textStr;
+             } else if (end.element) { // select from element "to end"
+                 if (element.element == end.element) {
+                     // end.index is guaranteed to be >= element.index by caller, same for x
+                     text += textStr.mid(element.index, end.index - element.index);
+-                    const int left = rect.left();
++                    const qreal left = rect.left();
+                     rect.setLeft(left + element.x);
+                     rect.setRight(left + end.x);
+                 } else {
+@@ -441,10 +470,10 @@ void Selection::update()
+ #endif
+ }
+ 
+-QRect Selection::boundingRect() const
++QRectF Selection::boundingRect() const
+ {
+-    QRect rect;
+-    for (const QRect &r : selection)
++    QRectF rect;
++    for (const QRectF &r : selection)
+         rect = rect.united(r);
+     return rect;
+ }
+@@ -455,14 +484,12 @@ DocumentContainer::DocumentContainer()
+ 
+ DocumentContainer::~DocumentContainer() = default;
+ 
+-litehtml::uint_ptr DocumentContainerPrivate::create_font(const char *faceName,
+-                                                         int size,
+-                                                         int weight,
+-                                                         litehtml::font_style italic,
+-                                                         unsigned int decoration,
++litehtml::uint_ptr DocumentContainerPrivate::create_font(const litehtml::font_description &descr,
++                                                         const litehtml::document *doc,
+                                                          litehtml::font_metrics *fm)
+ {
+-    const QStringList splitNames = QString::fromUtf8(faceName).split(',', Qt::SkipEmptyParts);
++    Q_UNUSED(doc)
++    const QStringList splitNames = QString::fromStdString(descr.family).split(',', Qt::SkipEmptyParts);
+     QStringList familyNames;
+     std::transform(splitNames.cbegin(),
+                    splitNames.cend(),
+@@ -485,18 +512,19 @@ litehtml::uint_ptr DocumentContainerPrivate::create_font(const char *faceName,
+                    });
+     auto font = new QFont();
+     font->setFamilies(familyNames);
+-    font->setPixelSize(size);
+-    font->setWeight(cssWeightToQtWeight(weight));
+-    font->setStyle(toQFontStyle(italic));
++    font->setPixelSize(descr.size);
++    font->setWeight(cssWeightToQtWeight(descr.weight));
++    font->setStyle(toQFontStyle(descr.style));
+     font->setStyleStrategy(m_antialias ? QFont::PreferAntialias : QFont::NoAntialias);
+-    if (decoration == litehtml::font_decoration_underline)
++    if (descr.decoration_line & litehtml::text_decoration_line_underline)
+         font->setUnderline(true);
+-    if (decoration == litehtml::font_decoration_overline)
++    if (descr.decoration_line & litehtml::text_decoration_line_overline)
+         font->setOverline(true);
+-    if (decoration == litehtml::font_decoration_linethrough)
++    if (descr.decoration_line & litehtml::text_decoration_line_line_through)
+         font->setStrikeOut(true);
+     if (fm) {
+         const QFontMetrics metrics(*font);
++        fm->font_size = descr.size;
+         fm->height = metrics.height();
+         fm->ascent = metrics.ascent();
+         fm->descent = metrics.descent();
+@@ -512,7 +540,7 @@ void DocumentContainerPrivate::delete_font(litehtml::uint_ptr hFont)
+     delete font;
+ }
+ 
+-int DocumentContainerPrivate::text_width(const char *text, litehtml::uint_ptr hFont)
++litehtml::pixel_t DocumentContainerPrivate::text_width(const char *text, litehtml::uint_ptr hFont)
+ {
+     const QFontMetrics fm(toQFont(hFont));
+     return fm.horizontalAdvance(QString::fromUtf8(text));
+@@ -527,16 +555,16 @@ void DocumentContainerPrivate::draw_text(litehtml::uint_ptr hdc,
+     auto painter = toQPainter(hdc);
+     painter->setFont(toQFont(hFont));
+     painter->setPen(toQColor(color));
+-    painter->drawText(toQRect(pos), 0, QString::fromUtf8(text));
++    painter->drawText(toQRectF(pos), 0, QString::fromUtf8(text));
+ }
+ 
+-int DocumentContainerPrivate::pt_to_px(int pt) const
++litehtml::pixel_t DocumentContainerPrivate::pt_to_px(float pt) const
+ {
+     // magic factor of 11/12 to account for differences to webengine/webkit
+-    return m_paintDevice->physicalDpiY() * pt * 11 / m_paintDevice->logicalDpiY() / 12;
++    return m_paintDevice->physicalDpiY() * pt * 11.f / m_paintDevice->logicalDpiY() / 12.f;
+ }
+ 
+-int DocumentContainerPrivate::get_default_font_size() const
++litehtml::pixel_t DocumentContainerPrivate::get_default_font_size() const
+ {
+     return m_defaultFont.pointSize();
+ }
+@@ -554,27 +582,27 @@ void DocumentContainerPrivate::draw_list_marker(litehtml::uint_ptr hdc,
+         if (marker.marker_type == litehtml::list_style_type_square) {
+             painter->setPen(Qt::NoPen);
+             painter->setBrush(toQColor(marker.color));
+-            painter->drawRect(toQRect(marker.pos));
++            painter->drawRect(toQRectF(marker.pos));
+         } else if (marker.marker_type == litehtml::list_style_type_disc) {
+             painter->setPen(Qt::NoPen);
+             painter->setBrush(toQColor(marker.color));
+-            painter->drawEllipse(toQRect(marker.pos));
++            painter->drawEllipse(toQRectF(marker.pos));
+         } else if (marker.marker_type == litehtml::list_style_type_circle) {
+             painter->setPen(toQColor(marker.color));
+             painter->setBrush(Qt::NoBrush);
+-            painter->drawEllipse(toQRect(marker.pos));
++            painter->drawEllipse(toQRectF(marker.pos));
+         } else {
+             // TODO we do not get information about index and font for e.g. decimal / roman
+             // at least draw a bullet
+             painter->setPen(Qt::NoPen);
+             painter->setBrush(toQColor(marker.color));
+-            painter->drawEllipse(toQRect(marker.pos));
++            painter->drawEllipse(toQRectF(marker.pos));
+             qWarning(log) << "list marker of type" << marker.marker_type << "not supported";
+         }
+     } else {
+         const QPixmap pixmap = getPixmap(QString::fromStdString(marker.image),
+-                                         QString::fromStdString(marker.baseurl));
+-        painter->drawPixmap(toQRect(marker.pos), pixmap);
++                                         QString::fromUtf8(marker.baseurl));
++        painter->drawPixmap(toQRectF(marker.pos), pixmap, QRectF(pixmap.rect()));
+     }
+ }
+ 
+@@ -613,8 +641,8 @@ void DocumentContainerPrivate::drawSelection(QPainter *painter, const QRect &cli
+ {
+     painter->save();
+     painter->setClipRect(clip, Qt::IntersectClip);
+-    for (const QRect &r : m_selection.selection) {
+-        const QRect clientRect = r.translated(-m_scrollPosition);
++    for (const QRectF &r : m_selection.selection) {
++        const QRectF clientRect = r.translated(-m_scrollPosition.x(), -m_scrollPosition.y());
+         const QPalette palette = m_paletteCallback();
+         painter->fillRect(clientRect, palette.brush(QPalette::Highlight));
+     }
+@@ -624,9 +652,9 @@ void DocumentContainerPrivate::drawSelection(QPainter *painter, const QRect &cli
+ static bool isInBody(const litehtml::element::ptr &e)
+ {
+     litehtml::element::ptr current = e;
+-    while (current && QString::fromUtf8(current->get_tagName()).toLower() != "body")
++    while (current && current->tag() != litehtml::string_id::_body_)
+         current = current->parent();
+-    return (bool)current;
++    return current.get() != nullptr;
+ }
+ 
+ void DocumentContainerPrivate::buildIndex()
+@@ -681,100 +709,136 @@ void DocumentContainerPrivate::clearSelection()
+         m_clipboardCallback(false);
+ }
+ 
+-void DocumentContainerPrivate::draw_background(litehtml::uint_ptr hdc,
+-                                               const std::vector<litehtml::background_paint> &bgs)
++static void applyBackgroundLayerClip(QPainter *painter, const litehtml::background_layer &layer)
+ {
+-    auto painter = toQPainter(hdc);
+     const QRegion initialClipRegion = painter->clipRegion();
+     const Qt::ClipOperation initialClipOperation
+         = initialClipRegion.isEmpty() ? Qt::ReplaceClip : Qt::IntersectClip;
+-    painter->save();
+-    for (const litehtml::background_paint &bg : bgs) {
+-        if (bg.is_root) {
+-            // TODO ?
+-            break;
+-        }
+-        if (!initialClipRegion.isEmpty())
+-            painter->setClipRegion(initialClipRegion);
+-        painter->setClipRect(toQRect(bg.clip_box), initialClipOperation);
+-        const QRegion horizontalMiddle(QRect(bg.border_box.x,
+-                                             bg.border_box.y + bg.border_radius.top_left_y,
+-                                             bg.border_box.width,
+-                                             bg.border_box.height - bg.border_radius.top_left_y
+-                                                 - bg.border_radius.bottom_left_y));
+-        const QRegion horizontalTop(
+-            QRect(bg.border_box.x + bg.border_radius.top_left_x,
+-                  bg.border_box.y,
+-                  bg.border_box.width - bg.border_radius.top_left_x - bg.border_radius.top_right_x,
+-                  bg.border_radius.top_left_y));
+-        const QRegion horizontalBottom(QRect(bg.border_box.x + bg.border_radius.bottom_left_x,
+-                                             bg.border_box.bottom() - bg.border_radius.bottom_left_y,
+-                                             bg.border_box.width - bg.border_radius.bottom_left_x
+-                                                 - bg.border_radius.bottom_right_x,
+-                                             bg.border_radius.bottom_left_y));
+-        const QRegion topLeft(QRect(bg.border_box.left(),
+-                                    bg.border_box.top(),
+-                                    2 * bg.border_radius.top_left_x,
+-                                    2 * bg.border_radius.top_left_y),
++    if (!initialClipRegion.isEmpty())
++        painter->setClipRegion(initialClipRegion);
++    painter->setClipRect(toQRectF(layer.clip_box), initialClipOperation);
++    const auto bb = toQRect(layer.border_box);
++    const auto &br = layer.border_radius;
++    const QRegion horizontalMiddle(QRect(bb.x(),
++                                         bb.y() + qRound(br.top_left_y),
++                                         bb.width(),
++                                         bb.height() - qRound(br.top_left_y) - qRound(br.bottom_left_y)));
++    const QRegion horizontalTop(QRect(bb.x() + qRound(br.top_left_x),
++                                      bb.y(),
++                                      bb.width() - qRound(br.top_left_x) - qRound(br.top_right_x),
++                                      qRound(br.top_left_y)));
++    const QRegion horizontalBottom(QRect(bb.x() + qRound(br.bottom_left_x),
++                                         bb.bottom() - qRound(br.bottom_left_y),
++                                         bb.width() - qRound(br.bottom_left_x) - qRound(br.bottom_right_x),
++                                         qRound(br.bottom_left_y)));
++    const QRegion topLeft(QRect(bb.left(),
++                                bb.top(),
++                                2 * qRound(br.top_left_x),
++                                2 * qRound(br.top_left_y)),
++                          QRegion::Ellipse);
++    const QRegion topRight(QRect(bb.right() - 2 * qRound(br.top_right_x),
++                                 bb.top(),
++                                 2 * qRound(br.top_right_x),
++                                 2 * qRound(br.top_right_y)),
++                           QRegion::Ellipse);
++    const QRegion bottomLeft(QRect(bb.left(),
++                                   bb.bottom() - 2 * qRound(br.bottom_left_y),
++                                   2 * qRound(br.bottom_left_x),
++                                   2 * qRound(br.bottom_left_y)),
++                             QRegion::Ellipse);
++    const QRegion bottomRight(QRect(bb.right() - 2 * qRound(br.bottom_right_x),
++                                    bb.bottom() - 2 * qRound(br.bottom_right_y),
++                                    2 * qRound(br.bottom_right_x),
++                                    2 * qRound(br.bottom_right_y)),
+                               QRegion::Ellipse);
+-        const QRegion topRight(QRect(bg.border_box.right() - 2 * bg.border_radius.top_right_x,
+-                                     bg.border_box.top(),
+-                                     2 * bg.border_radius.top_right_x,
+-                                     2 * bg.border_radius.top_right_y),
+-                               QRegion::Ellipse);
+-        const QRegion bottomLeft(QRect(bg.border_box.left(),
+-                                       bg.border_box.bottom() - 2 * bg.border_radius.bottom_left_y,
+-                                       2 * bg.border_radius.bottom_left_x,
+-                                       2 * bg.border_radius.bottom_left_y),
+-                                 QRegion::Ellipse);
+-        const QRegion bottomRight(QRect(bg.border_box.right() - 2 * bg.border_radius.bottom_right_x,
+-                                        bg.border_box.bottom() - 2 * bg.border_radius.bottom_right_y,
+-                                        2 * bg.border_radius.bottom_right_x,
+-                                        2 * bg.border_radius.bottom_right_y),
+-                                  QRegion::Ellipse);
+-        const QRegion clipRegion = horizontalMiddle.united(horizontalTop)
+-                                       .united(horizontalBottom)
+-                                       .united(topLeft)
+-                                       .united(topRight)
+-                                       .united(bottomLeft)
+-                                       .united(bottomRight);
+-        painter->setClipRegion(clipRegion, Qt::IntersectClip);
+-        painter->setPen(Qt::NoPen);
+-        painter->setBrush(toQColor(bg.color));
+-        painter->drawRect(bg.border_box.x,
+-                          bg.border_box.y,
+-                          bg.border_box.width,
+-                          bg.border_box.height);
+-        drawSelection(painter, toQRect(bg.border_box));
+-        if (!bg.image.empty()) {
+-            const QPixmap pixmap = getPixmap(QString::fromStdString(bg.image),
+-                                             QString::fromStdString(bg.baseurl));
+-            if (bg.repeat == litehtml::background_repeat_no_repeat) {
+-                painter->drawPixmap(QRect(bg.position_x,
+-                                          bg.position_y,
+-                                          bg.image_size.width,
+-                                          bg.image_size.height),
+-                                    pixmap);
+-            } else if (bg.repeat == litehtml::background_repeat_repeat_x) {
+-                if (bg.image_size.width > 0) {
+-                    int x = bg.border_box.left();
+-                    while (x <= bg.border_box.right()) {
+-                        painter->drawPixmap(QRect(x,
+-                                                  bg.border_box.top(),
+-                                                  bg.image_size.width,
+-                                                  bg.image_size.height),
+-                                            pixmap);
+-                        x += bg.image_size.width;
+-                    }
+-                }
+-            } else {
+-                qWarning(log) << "unsupported background repeat" << bg.repeat;
++    const QRegion clipRegion = horizontalMiddle.united(horizontalTop)
++                                   .united(horizontalBottom)
++                                   .united(topLeft)
++                                   .united(topRight)
++                                   .united(bottomLeft)
++                                   .united(bottomRight);
++    painter->setClipRegion(clipRegion, Qt::IntersectClip);
++}
++
++void DocumentContainerPrivate::draw_image(litehtml::uint_ptr hdc,
++                                          const litehtml::background_layer &layer,
++                                          const std::string &url,
++                                          const std::string &base_url)
++{
++    if (layer.is_root)
++        return;
++    auto painter = toQPainter(hdc);
++    painter->save();
++    applyBackgroundLayerClip(painter, layer);
++    const QPixmap pixmap = getPixmap(QString::fromStdString(url), QString::fromStdString(base_url));
++    const QRectF originRect = toQRectF(layer.origin_box);
++    const QRectF borderBox = toQRectF(layer.border_box);
++    if (layer.repeat == litehtml::background_repeat_no_repeat) {
++        painter->drawPixmap(originRect, pixmap, QRectF(pixmap.rect()));
++    } else if (layer.repeat == litehtml::background_repeat_repeat_x) {
++        if (originRect.width() > 0) {
++            qreal x = borderBox.left();
++            while (x <= borderBox.right()) {
++                painter->drawPixmap(QRectF(x, originRect.top(), originRect.width(), originRect.height()),
++                                    pixmap, QRectF(pixmap.rect()));
++                x += originRect.width();
+             }
+         }
++    } else {
++        qWarning(log) << "unsupported background repeat" << layer.repeat;
+     }
+     painter->restore();
+ }
+ 
++void DocumentContainerPrivate::draw_solid_fill(litehtml::uint_ptr hdc,
++                                               const litehtml::background_layer &layer,
++                                               const litehtml::web_color &color)
++{
++    if (layer.is_root)
++        return;
++    auto painter = toQPainter(hdc);
++    painter->save();
++    applyBackgroundLayerClip(painter, layer);
++    painter->setPen(Qt::NoPen);
++    painter->setBrush(toQColor(color));
++    painter->drawRect(toQRectF(layer.border_box));
++    drawSelection(painter, toQRect(layer.border_box));
++    painter->restore();
++}
++
++void DocumentContainerPrivate::draw_linear_gradient(
++    litehtml::uint_ptr hdc,
++    const litehtml::background_layer &layer,
++    const litehtml::background_layer::linear_gradient &gradient)
++{
++    Q_UNUSED(hdc)
++    Q_UNUSED(layer)
++    Q_UNUSED(gradient)
++    qWarning(log) << "draw_linear_gradient not implemented";
++}
++
++void DocumentContainerPrivate::draw_radial_gradient(
++    litehtml::uint_ptr hdc,
++    const litehtml::background_layer &layer,
++    const litehtml::background_layer::radial_gradient &gradient)
++{
++    Q_UNUSED(hdc)
++    Q_UNUSED(layer)
++    Q_UNUSED(gradient)
++    qWarning(log) << "draw_radial_gradient not implemented";
++}
++
++void DocumentContainerPrivate::draw_conic_gradient(
++    litehtml::uint_ptr hdc,
++    const litehtml::background_layer &layer,
++    const litehtml::background_layer::conic_gradient &gradient)
++{
++    Q_UNUSED(hdc)
++    Q_UNUSED(layer)
++    Q_UNUSED(gradient)
++    qWarning(log) << "draw_conic_gradient not implemented";
++}
++
+ void DocumentContainerPrivate::draw_borders(litehtml::uint_ptr hdc,
+                                             const litehtml::borders &borders,
+                                             const litehtml::position &draw_pos,
+@@ -783,61 +847,45 @@ void DocumentContainerPrivate::draw_borders(litehtml::uint_ptr hdc,
+     Q_UNUSED(root)
+     // TODO: special border styles
+     auto painter = toQPainter(hdc);
++    const auto &r = borders.radius;
++    const qreal left   = draw_pos.left();
++    const qreal top    = draw_pos.top();
++    const qreal right  = draw_pos.right();
++    const qreal bottom = draw_pos.bottom();
+     if (borders.top.style != litehtml::border_style_none
+         && borders.top.style != litehtml::border_style_hidden) {
+         painter->setPen(borderPen(borders.top));
+-        painter->drawLine(draw_pos.left() + borders.radius.top_left_x,
+-                          draw_pos.top(),
+-                          draw_pos.right() - borders.radius.top_right_x,
+-                          draw_pos.top());
+-        painter->drawArc(draw_pos.left(),
+-                         draw_pos.top(),
+-                         2 * borders.radius.top_left_x,
+-                         2 * borders.radius.top_left_y,
+-                         90 * 16,
+-                         90 * 16);
+-        painter->drawArc(draw_pos.right() - 2 * borders.radius.top_right_x,
+-                         draw_pos.top(),
+-                         2 * borders.radius.top_right_x,
+-                         2 * borders.radius.top_right_y,
+-                         0,
+-                         90 * 16);
++        painter->drawLine(QPointF(left + r.top_left_x, top),
++                          QPointF(right - r.top_right_x, top));
++        painter->drawArc(QRectF(left, top, 2 * r.top_left_x, 2 * r.top_left_y),
++                         90 * 16, 90 * 16);
++        painter->drawArc(QRectF(right - 2 * r.top_right_x, top,
++                                2 * r.top_right_x, 2 * r.top_right_y),
++                         0, 90 * 16);
+     }
+     if (borders.bottom.style != litehtml::border_style_none
+         && borders.bottom.style != litehtml::border_style_hidden) {
+         painter->setPen(borderPen(borders.bottom));
+-        painter->drawLine(draw_pos.left() + borders.radius.bottom_left_x,
+-                          draw_pos.bottom(),
+-                          draw_pos.right() - borders.radius.bottom_right_x,
+-                          draw_pos.bottom());
+-        painter->drawArc(draw_pos.left(),
+-                         draw_pos.bottom() - 2 * borders.radius.bottom_left_y,
+-                         2 * borders.radius.bottom_left_x,
+-                         2 * borders.radius.bottom_left_y,
+-                         180 * 16,
+-                         90 * 16);
+-        painter->drawArc(draw_pos.right() - 2 * borders.radius.bottom_right_x,
+-                         draw_pos.bottom() - 2 * borders.radius.bottom_right_y,
+-                         2 * borders.radius.bottom_right_x,
+-                         2 * borders.radius.bottom_right_y,
+-                         270 * 16,
+-                         90 * 16);
++        painter->drawLine(QPointF(left + r.bottom_left_x, bottom),
++                          QPointF(right - r.bottom_right_x, bottom));
++        painter->drawArc(QRectF(left, bottom - 2 * r.bottom_left_y,
++                                2 * r.bottom_left_x, 2 * r.bottom_left_y),
++                         180 * 16, 90 * 16);
++        painter->drawArc(QRectF(right - 2 * r.bottom_right_x, bottom - 2 * r.bottom_right_y,
++                                2 * r.bottom_right_x, 2 * r.bottom_right_y),
++                         270 * 16, 90 * 16);
+     }
+     if (borders.left.style != litehtml::border_style_none
+         && borders.left.style != litehtml::border_style_hidden) {
+         painter->setPen(borderPen(borders.left));
+-        painter->drawLine(draw_pos.left(),
+-                          draw_pos.top() + borders.radius.top_left_y,
+-                          draw_pos.left(),
+-                          draw_pos.bottom() - borders.radius.bottom_left_y);
++        painter->drawLine(QPointF(left, top + r.top_left_y),
++                          QPointF(left, bottom - r.bottom_left_y));
+     }
+     if (borders.right.style != litehtml::border_style_none
+         && borders.right.style != litehtml::border_style_hidden) {
+         painter->setPen(borderPen(borders.right));
+-        painter->drawLine(draw_pos.right(),
+-                          draw_pos.top() + borders.radius.top_right_y,
+-                          draw_pos.right(),
+-                          draw_pos.bottom() - borders.radius.bottom_right_y);
++        painter->drawLine(QPointF(right, top + r.top_right_y),
++                          QPointF(right, bottom - r.bottom_right_y));
+     }
+ }
+ 
+@@ -855,7 +903,7 @@ void DocumentContainerPrivate::link(const std::shared_ptr<litehtml::document> &d
+                                     const litehtml::element::ptr &el)
+ {
+     // TODO
+-    qDebug(log) << "link";
++    qWarning(log) << "link not implemented";
+     Q_UNUSED(doc)
+     Q_UNUSED(el)
+ }
+@@ -872,17 +920,17 @@ void DocumentContainerPrivate::set_cursor(const char *cursor)
+     m_cursorCallback(toQCursor(QString::fromUtf8(cursor)));
+ }
+ 
+-void DocumentContainerPrivate::transform_text(std::string &text, litehtml::text_transform tt)
++void DocumentContainerPrivate::transform_text(litehtml::string &text, litehtml::text_transform tt)
+ {
+     // TODO
+-    qDebug(log) << "transform_text";
++    qWarning(log) << "transform_text not implemented";
+     Q_UNUSED(text)
+     Q_UNUSED(tt)
+ }
+ 
+-void DocumentContainerPrivate::import_css(std::string &text,
+-                                          const std::string &url,
+-                                          std::string &baseurl)
++void DocumentContainerPrivate::import_css(litehtml::string &text,
++                                          const litehtml::string &url,
++                                          litehtml::string &baseurl)
+ {
+     const QUrl actualUrl = resolveUrl(QString::fromStdString(url), QString::fromStdString(baseurl));
+     const QString urlString = actualUrl.toString(QUrl::None);
+@@ -895,7 +943,7 @@ void DocumentContainerPrivate::set_clip(const litehtml::position &pos,
+                                         const litehtml::border_radiuses &bdr_radius)
+ {
+     // TODO
+-    qDebug(log) << "set_clip";
++    qWarning(log) << "set_clip not implemented";
+     Q_UNUSED(pos)
+     Q_UNUSED(bdr_radius)
+ }
+@@ -903,12 +951,12 @@ void DocumentContainerPrivate::set_clip(const litehtml::position &pos,
+ void DocumentContainerPrivate::del_clip()
+ {
+     // TODO
+-    qDebug(log) << "del_clip";
++    qWarning(log) << "del_clip not implemented";
+ }
+ 
+-void DocumentContainerPrivate::get_client_rect(litehtml::position &client) const
++void DocumentContainerPrivate::get_viewport(litehtml::position &viewport) const
+ {
+-    client = {m_clientRect.x(), m_clientRect.y(), m_clientRect.width(), m_clientRect.height()};
++    viewport = litehtml::position(m_clientRect.x(), m_clientRect.y(), m_clientRect.width(), m_clientRect.height());
+ }
+ 
+ std::shared_ptr<litehtml::element> DocumentContainerPrivate::create_element(
+@@ -929,10 +977,17 @@ void DocumentContainerPrivate::get_media_features(litehtml::media_features &medi
+     qDebug(log) << "get_media_features";
+ }
+ 
+-void DocumentContainerPrivate::get_language(std::string &language, std::string &culture) const
++void DocumentContainerPrivate::on_mouse_event(const litehtml::element::ptr &el,
++                                              litehtml::mouse_event event)
++{
++    Q_UNUSED(el)
++    Q_UNUSED(event)
++}
++
++void DocumentContainerPrivate::get_language(litehtml::string &language, litehtml::string &culture) const
+ {
+     // TODO
+-    qDebug(log) << "get_language";
++    qWarning(log) << "get_language not implemented";
+     Q_UNUSED(language)
+     Q_UNUSED(culture)
+ }
+@@ -985,7 +1040,7 @@ void DocumentContainer::draw(QPainter *painter, const QRect &clip)
+ {
+     d->drawSelection(painter, clip);
+     const QPoint pos = -d->m_scrollPosition;
+-    const litehtml::position clipRect = {clip.x(), clip.y(), clip.width(), clip.height()};
++    const litehtml::position clipRect(clip.x(), clip.y(), clip.width(), clip.height());
+     d->m_document->draw(reinterpret_cast<litehtml::uint_ptr>(painter), pos.x(), pos.y(), &clipRect);
+ }
+ 
+@@ -1001,16 +1056,23 @@ int DocumentContainer::documentHeight() const
+ 
+ int DocumentContainer::anchorY(const QString &anchorName) const
+ {
+-    litehtml::element::ptr element = d->m_document->root()->select_one(
+-        QString("#%1").arg(anchorName).toStdString());
++    // do manual recursive search instead of using litehtml's select_one css selector method,
++    // since we can have '.' in our IDs which has special meaning (class selector) for css selectors
++    // and litehtml doesn't support escaping them
++    litehtml::element::ptr element = element_with_id_or_name(d->m_document->root(),
++                                                             anchorName.toStdString());
+     if (!element) {
+-        element = d->m_document->root()->select_one(QString("[name=%1]").arg(anchorName).toStdString());
++        // Convert the anchor name to lowercase, as the current litehtml implementation
++        // converts all IDs to lowercase when parsing the HTML. This will change in future
++        // versions of litehtml, see https://github.com/litehtml/litehtml/pull/347)
++        const QString lowerAnchorName = anchorName.toLower();
++        element = element_with_id_or_name(d->m_document->root(), lowerAnchorName.toStdString());
++        if (!element)
++            return -1;
+     }
+-    if (!element)
+-        return -1;
+     while (element) {
+         if (element->get_placement().y > 0)
+-            return element->get_placement().y;
++            return qRound(element->get_placement().y);
+         element = element->parent();
+     }
+     return 0;
+@@ -1022,7 +1084,7 @@ static litehtml::media_type fromQt(const DocumentContainer::MediaType mt)
+     switch (mt)
+     {
+     case MT::None:
+-        return litehtml::media_type_none;
++        return litehtml::media_type_unknown;
+     case MT::All:
+         return litehtml::media_type_all;
+     case MT::Screen:
+@@ -1030,19 +1092,13 @@ static litehtml::media_type fromQt(const DocumentContainer::MediaType mt)
+     case MT::Print:
+         return litehtml::media_type_print;
+     case MT::Braille:
+-        return litehtml::media_type_braille;
+     case MT::Embossed:
+-        return litehtml::media_type_embossed;
+     case MT::Handheld:
+-        return litehtml::media_type_handheld;
+     case MT::Projection:
+-        return litehtml::media_type_projection;
+     case MT::Speech:
+-        return litehtml::media_type_speech;
+     case MT::TTY:
+-        return litehtml::media_type_tty;
+     case MT::TV:
+-        return litehtml::media_type_tv;
++        return litehtml::media_type_first_deprecated;
+     }
+     Q_UNREACHABLE();
+ }
+@@ -1061,7 +1117,7 @@ QVector<QRect> DocumentContainer::mousePressEvent(const QPoint &documentPos,
+     QVector<QRect> redrawRects;
+     // selection
+     if (d->m_selection.isValid())
+-        redrawRects.append(d->m_selection.boundingRect());
++        redrawRects.append(d->m_selection.boundingRect().toAlignedRect());
+     d->clearSelection();
+     d->m_selection.selectionStartDocumentPos = documentPos;
+     d->m_selection.startElem = selection_element_at_point(d->m_document->root(),
+@@ -1095,10 +1151,10 @@ QVector<QRect> DocumentContainer::mouseMoveEvent(const QPoint &documentPos,
+                                                                       d->m_selection.mode);
+         if (element.element) {
+             redrawRects.append(
+-                d->m_selection.boundingRect() /*.adjusted(-1, -1, +1, +1)*/); // redraw old selection area
++                d->m_selection.boundingRect().toAlignedRect() /*.adjusted(-1, -1, +1, +1)*/); // redraw old selection area
+             d->m_selection.endElem = element;
+             d->updateSelection();
+-            redrawRects.append(d->m_selection.boundingRect());
++            redrawRects.append(d->m_selection.boundingRect().toAlignedRect());
+         }
+         d->m_selection.isSelecting = true;
+     }
+@@ -1154,10 +1210,10 @@ QVector<QRect> DocumentContainer::mouseDoubleClickEvent(const QPoint &documentPo
+         d->m_selection.isSelecting = true;
+         d->updateSelection();
+         if (d->m_selection.isValid())
+-            redrawRects.append(d->m_selection.boundingRect());
++            redrawRects.append(d->m_selection.boundingRect().toAlignedRect());
+     } else {
+         if (d->m_selection.isValid())
+-            redrawRects.append(d->m_selection.boundingRect());
++            redrawRects.append(d->m_selection.boundingRect().toAlignedRect());
+         d->clearSelection();
+     }
+     return redrawRects;
+@@ -1263,7 +1319,7 @@ void DocumentContainer::findText(const QString &text,
+         if (!fontPtr)
+             return e;
+         const QFont &font = toQFont(fontPtr);
+-        const QFontMetrics fm(font);
++        const QFontMetricsF fm(font);
+         return Selection::Element{e.element, e.index, fm.size(0, text.left(e.index)).width()};
+     };
+ 
+@@ -1290,15 +1346,19 @@ void DocumentContainer::findText(const QString &text,
+             qWarning() << "internal error: search ended up with nullptr elements";
+             return;
+         }
+-        if (oldSelection)
+-            *oldSelection = d->m_selection.selection;
++        if (oldSelection) {
++            for (const QRectF &r : std::as_const(d->m_selection.selection))
++                oldSelection->append(r.toAlignedRect());
++        }
+         d->clearSelection();
+         d->m_selection.startElem = fillXPos({startEntry.second, foundIndex - startEntry.first, -1});
+         d->m_selection.endElem = fillXPos(
+             {endEntry.second, int(foundIndex + text.size() - endEntry.first), -1});
+         d->updateSelection();
+-        if (newSelection)
+-            *newSelection = d->m_selection.selection;
++        if (newSelection) {
++            for (const QRectF &r : std::as_const(d->m_selection.selection))
++                newSelection->append(r.toAlignedRect());
++        }
+         if (success)
+             *success = true;
+         return;
+@@ -1395,7 +1455,7 @@ int DocumentContainer::withFixedElementPosition(int y, const std::function<void(
+     const litehtml::element::ptr element = elementForY(y, d->m_document);
+     action();
+     if (element)
+-        return element->get_placement().y;
++        return qRound(element->get_placement().y);
+     return -1;
+ }
+ 
+@@ -1403,7 +1463,7 @@ QPixmap DocumentContainerPrivate::getPixmap(const QString &imageUrl, const QStri
+ {
+     const QUrl url = resolveUrl(imageUrl, baseUrl);
+     if (!m_pixmaps.contains(url)) {
+-        qWarning(log) << "draw_background: pixmap not loaded for" << url;
++        qWarning(log) << "getPixmap: pixmap not loaded for" << url;
+         return {};
+     }
+     return m_pixmaps.value(url);
+@@ -1477,3 +1537,5 @@ void DocumentContainerContext::setMasterStyleSheet(const QString &css)
+ {
+     d->masterCss = css;
+ }
++
++QT_END_NAMESPACE
+diff --git a/src/assistant/qlitehtml/src/container_qpainter.h b/src/assistant/qlitehtml/src/container_qpainter.h
+index 7e9c798..7c1c037 100644
+--- a/src/assistant/qlitehtml/src/container_qpainter.h
++++ b/src/assistant/qlitehtml/src/container_qpainter.h
+@@ -18,6 +18,8 @@
+ #include <functional>
+ #include <memory>
+ 
++QT_BEGIN_NAMESPACE
++
+ class DocumentContainerPrivate;
+ class DocumentContainerContextPrivate;
+ 
+@@ -125,3 +127,5 @@ public: // outside API
+ private:
+     std::unique_ptr<DocumentContainerPrivate> d;
+ };
++
++QT_END_NAMESPACE
+diff --git a/src/assistant/qlitehtml/src/container_qpainter_p.h b/src/assistant/qlitehtml/src/container_qpainter_p.h
+index 23c55b4..4edbadc 100644
+--- a/src/assistant/qlitehtml/src/container_qpainter_p.h
++++ b/src/assistant/qlitehtml/src/container_qpainter_p.h
+@@ -17,6 +17,8 @@
+ #include <litehtml/types.h>
+ #include <unordered_map>
+ 
++QT_BEGIN_NAMESPACE
++
+ class Selection
+ {
+ public:
+@@ -24,7 +26,7 @@ public:
+     {
+         litehtml::element::ptr element;
+         int index = -1;
+-        int x = -1;
++        qreal x = -1;
+     };
+ 
+     enum class Mode { Free, Word };
+@@ -32,11 +34,11 @@ public:
+     bool isValid() const;
+ 
+     void update();
+-    QRect boundingRect() const;
++    QRectF boundingRect() const;
+ 
+     Element startElem;
+     Element endElem;
+-    QVector<QRect> selection;
++    QVector<QRectF> selection;
+     QString text;
+ 
+     QPoint selectionStartDocumentPos;
+@@ -59,27 +61,38 @@ struct Index
+ class DocumentContainerPrivate final : public litehtml::document_container
+ {
+ public: // document_container API
+-    litehtml::uint_ptr create_font(const char *faceName,
+-                                   int size,
+-                                   int weight,
+-                                   litehtml::font_style italic,
+-                                   unsigned int decoration,
++    litehtml::uint_ptr create_font(const litehtml::font_description &descr,
++                                   const litehtml::document *doc,
+                                    litehtml::font_metrics *fm) override;
+     void delete_font(litehtml::uint_ptr hFont) override;
+-    int text_width(const char *text, litehtml::uint_ptr hFont) override;
++    litehtml::pixel_t text_width(const char *text, litehtml::uint_ptr hFont) override;
+     void draw_text(litehtml::uint_ptr hdc,
+                    const char *text,
+                    litehtml::uint_ptr hFont,
+                    litehtml::web_color color,
+                    const litehtml::position &pos) override;
+-    int pt_to_px(int pt) const override;
+-    int get_default_font_size() const override;
++    litehtml::pixel_t pt_to_px(float pt) const override;
++    litehtml::pixel_t get_default_font_size() const override;
+     const char *get_default_font_name() const override;
+     void draw_list_marker(litehtml::uint_ptr hdc, const litehtml::list_marker &marker) override;
+     void load_image(const char *src, const char *baseurl, bool redraw_on_ready) override;
+     void get_image_size(const char *src, const char *baseurl, litehtml::size &sz) override;
+-    void draw_background(litehtml::uint_ptr hdc,
+-                         const std::vector<litehtml::background_paint> &bgs) override;
++    void draw_image(litehtml::uint_ptr hdc,
++                    const litehtml::background_layer &layer,
++                    const std::string &url,
++                    const std::string &base_url) override;
++    void draw_solid_fill(litehtml::uint_ptr hdc,
++                         const litehtml::background_layer &layer,
++                         const litehtml::web_color &color) override;
++    void draw_linear_gradient(litehtml::uint_ptr hdc,
++                               const litehtml::background_layer &layer,
++                               const litehtml::background_layer::linear_gradient &gradient) override;
++    void draw_radial_gradient(litehtml::uint_ptr hdc,
++                               const litehtml::background_layer &layer,
++                               const litehtml::background_layer::radial_gradient &gradient) override;
++    void draw_conic_gradient(litehtml::uint_ptr hdc,
++                              const litehtml::background_layer &layer,
++                              const litehtml::background_layer::conic_gradient &gradient) override;
+     void draw_borders(litehtml::uint_ptr hdc,
+                       const litehtml::borders &borders,
+                       const litehtml::position &draw_pos,
+@@ -89,19 +102,20 @@ public: // document_container API
+     void link(const std::shared_ptr<litehtml::document> &doc,
+               const litehtml::element::ptr &el) override;
+     void on_anchor_click(const char *url, const litehtml::element::ptr &el) override;
++    void on_mouse_event(const litehtml::element::ptr &el, litehtml::mouse_event event) override;
+     void set_cursor(const char *cursor) override;
+-    void transform_text(std::string &text, litehtml::text_transform tt) override;
+-    void import_css(std::string &text, const std::string &url, std::string &baseurl) override;
++    void transform_text(litehtml::string &text, litehtml::text_transform tt) override;
++    void import_css(litehtml::string &text, const litehtml::string &url, litehtml::string &baseurl) override;
+     void set_clip(const litehtml::position &pos,
+                   const litehtml::border_radiuses &bdr_radius) override;
+     void del_clip() override;
+-    void get_client_rect(litehtml::position &client) const override;
++    void get_viewport(litehtml::position &viewport) const override;
+     std::shared_ptr<litehtml::element> create_element(
+         const char *tag_name,
+         const litehtml::string_map &attributes,
+         const std::shared_ptr<litehtml::document> &doc) override;
+     void get_media_features(litehtml::media_features &media) const override;
+-    void get_language(std::string &language, std::string &culture) const override;
++    void get_language(litehtml::string &language, litehtml::string &culture) const override;
+ 
+     QPixmap getPixmap(const QString &imageUrl, const QString &baseUrl);
+     QString serifFont() const;
+@@ -139,3 +153,5 @@ class DocumentContainerContextPrivate
+ public:
+     QString masterCss;
+ };
++
++QT_END_NAMESPACE
+diff --git a/src/assistant/qlitehtml/src/qlitehtmlwidget.cpp b/src/assistant/qlitehtml/src/qlitehtmlwidget.cpp
+index 6128ffa..256cce7 100644
+--- a/src/assistant/qlitehtml/src/qlitehtmlwidget.cpp
++++ b/src/assistant/qlitehtml/src/qlitehtmlwidget.cpp
+@@ -15,6 +15,8 @@
+ #include <QtPrintSupport/qprinter.h>
+ #endif
+ 
++QT_BEGIN_NAMESPACE
++
+ const int kScrollBarStep = 40;
+ 
+ // copied from include/litehtml/master_css.h
+@@ -787,3 +789,5 @@ QRect QLiteHtmlWidget::fromVirtual(const QRect &r) const
+                   int(r.height() * d->zoomFactor + 0.5) + 1};
+     return {tl, s};
+ }
++
++QT_END_NAMESPACE
+diff --git a/src/assistant/qlitehtml/src/qlitehtmlwidget.h b/src/assistant/qlitehtml/src/qlitehtmlwidget.h
+index 4e496a3..090e6f7 100644
+--- a/src/assistant/qlitehtml/src/qlitehtmlwidget.h
++++ b/src/assistant/qlitehtml/src/qlitehtmlwidget.h
+@@ -12,6 +12,8 @@ QT_FORWARD_DECLARE_CLASS(QPrinter)
+ 
+ #include <functional>
+ 
++QT_BEGIN_NAMESPACE
++
+ class QLiteHtmlWidgetPrivate;
+ 
+ class QLITEHTML_EXPORT QLiteHtmlWidget : public QAbstractScrollArea
+@@ -81,3 +83,5 @@ private:
+ 
+     QLiteHtmlWidgetPrivate *d;
+ };
++
++QT_END_NAMESPACE

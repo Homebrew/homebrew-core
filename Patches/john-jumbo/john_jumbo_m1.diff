@@ -1,0 +1,275 @@
+diff --git a/src/configure b/src/configure
+index 6b9a5088c4..796660f8d7 100755
+--- a/src/configure
++++ b/src/configure
+@@ -9321,6 +9321,42 @@ else
+      { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+ $as_echo "no" >&6; }
+ 
++fi
++rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
++  conftest.$ac_objext conftest.beam conftest.$ac_ext
++fi
++
++  CC="$CC_BACKUP -march=armv8-a+simd"
++  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for ASIMD" >&5
++$as_echo_n "checking for ASIMD... " >&6; }
++  if test "$cross_compiling" = yes; then :
++  { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
++$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
++as_fn_error $? "cannot run test program while cross compiling
++See \`config.log' for more details" "$LINENO" 5; }
++else
++  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
++/* end confdefs.h.  */
++
++    #include <arm_neon.h>
++  #include <stdio.h>
++  extern void exit(int);
++  int main(){uint32x4_t t;*((long*)&t)=1;t=veorq_u32(t,t);if((*(unsigned*)&t)==88)printf(".");exit(0);}
++
++
++_ACEOF
++if ac_fn_c_try_run "$LINENO"; then :
++  CPU_BEST_FLAGS="-march=armv8-a+simd"
++     SIMD_NAME="ASIMD"
++     { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
++$as_echo "yes" >&6; }
++     ARCH_LINK=arm64le.h
++
++else
++  CPU_NOTFOUND="1"
++     { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
++$as_echo "no" >&6; }
++
+ fi
+ rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
+   conftest.$ac_objext conftest.beam conftest.$ac_ext
+@@ -9329,6 +9365,7 @@ fi
+ else
+   { $as_echo "$as_me:${as_lineno-$LINENO}: checking for NEON" >&5
+ $as_echo_n "checking for NEON... " >&6; }
++  CC="$CC_BACKUP -mfpu=neon"
+   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ 
+@@ -9350,6 +9387,34 @@ else
+      { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+ $as_echo "no" >&6; }
+ 
++fi
++rm -f core conftest.err conftest.$ac_objext \
++    conftest$ac_exeext conftest.$ac_ext
++  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for ASIMD" >&5
++$as_echo_n "checking for ASIMD... " >&6; }
++  CC="$CC_BACKUP -march=armv8-a+simd"
++  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
++/* end confdefs.h.  */
++
++    #include <arm_neon.h>
++  #include <stdio.h>
++  extern void exit(int);
++  int main(){uint32x4_t t;*((long*)&t)=1;t=veorq_u32(t,t);if((*(unsigned*)&t)==88)printf(".");exit(0);}
++
++
++_ACEOF
++if ac_fn_c_try_link "$LINENO"; then :
++  CPU_BEST_FLAGS="-march=armv8-a+simd"
++     SIMD_NAME="ASIMD"
++     ARCH_LINK=arm64le.h
++     { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
++$as_echo "yes" >&6; }
++
++else
++  CPU_NOTFOUND="1"
++     { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
++$as_echo "no" >&6; }
++
+ fi
+ rm -f core conftest.err conftest.$ac_objext \
+     conftest$ac_exeext conftest.$ac_ext
+diff --git a/src/m4/jtr_arm_logic.m4 b/src/m4/jtr_arm_logic.m4
+index 3703e74b02..de47735cc2 100644
+--- a/src/m4/jtr_arm_logic.m4
++++ b/src/m4/jtr_arm_logic.m4
+@@ -44,11 +44,29 @@ if test "x$enable_native_tests" = xyes; then
+     ,[CPU_NOTFOUND="1"]
+      [AC_MSG_RESULT(no)]
+   )
++  CC="$CC_BACKUP -march=armv8-a+simd"
++  AC_MSG_CHECKING([for ASIMD])
++  AC_RUN_IFELSE(
++    [
++    AC_LANG_SOURCE(
++    [[#include <arm_neon.h>
++  #include <stdio.h>
++  extern void exit(int);
++  int main(){uint32x4_t t;*((long*)&t)=1;t=veorq_u32(t,t);if((*(unsigned*)&t)==88)printf(".");exit(0);}]]
++    )]
++    ,[CPU_BEST_FLAGS="-march=armv8-a+simd"]
++     [SIMD_NAME="ASIMD"]
++     [AC_MSG_RESULT([yes])]
++     [ARCH_LINK=arm64le.h]
++    ,[CPU_NOTFOUND="1"]
++     [AC_MSG_RESULT(no)]
++  )
+ else
+ dnl ======================================================================
+ dnl               cross-compile versions of the same tests
+ dnl ======================================================================
+   AC_MSG_CHECKING([for NEON])
++  CC="$CC_BACKUP -mfpu=neon"
+   AC_LINK_IFELSE(
+     [
+     AC_LANG_SOURCE(
+@@ -63,6 +81,23 @@ dnl ======================================================================
+     ,[CPU_NOTFOUND="1"]
+      [AC_MSG_RESULT(no)]
+   )
++  AC_MSG_CHECKING([for ASIMD])
++  CC="$CC_BACKUP -march=armv8-a+simd"
++  AC_LINK_IFELSE(
++    [
++    AC_LANG_SOURCE(
++    [[#include <arm_neon.h>
++  #include <stdio.h>
++  extern void exit(int);
++  int main(){uint32x4_t t;*((long*)&t)=1;t=veorq_u32(t,t);if((*(unsigned*)&t)==88)printf(".");exit(0);}]]
++    )]
++    ,[CPU_BEST_FLAGS="-march=armv8-a+simd"]
++     [SIMD_NAME="ASIMD"]
++     [ARCH_LINK=arm64le.h]
++     [AC_MSG_RESULT([yes])]
++    ,[CPU_NOTFOUND="1"]
++     [AC_MSG_RESULT(no)]
++  )
+ fi
+ fi
+ 
+ diff --git a/src/arm32le.h b/src/arm32le.h
+ index 9a8ff99956..a0c60c0d26 100644
+ --- a/src/arm32le.h
+ +++ b/src/arm32le.h
+ @@ -27,7 +27,7 @@
+  #define ARCH_INT_GT_32			0
+  #endif
+  
+ -#define ARCH_ALLOWS_UNALIGNED		0
+ +#define ARCH_ALLOWS_UNALIGNED		__ARM_FEATURE_UNALIGNED
+  #define ARCH_INDEX(x)			((unsigned int)(unsigned char)(x))
+  
+  #define CPU_DETECT			0
+ diff --git a/src/arm64le.h b/src/arm64le.h
+ index a916cc0538..63b1ed932e 100644
+ --- a/src/arm64le.h
+ +++ b/src/arm64le.h
+ @@ -28,7 +28,7 @@
+  #define ARCH_INT_GT_32			0
+  #endif
+  
+ -#define ARCH_ALLOWS_UNALIGNED		0
+ +#define ARCH_ALLOWS_UNALIGNED		__ARM_FEATURE_UNALIGNED
+  #define ARCH_INDEX(x)			((unsigned int)(unsigned char)(x))
+  
+  #define CPU_DETECT			0
+
+  diff --git a/src/pseudo_intrinsics.h b/src/pseudo_intrinsics.h
+  index 5fabbdbb81..450e2477b5 100644
+  --- a/src/pseudo_intrinsics.h
+  +++ b/src/pseudo_intrinsics.h
+  @@ -66,10 +66,10 @@ typedef union {
+   #define VLOADU_EMULATED         1
+   #define vor(x, y)               (vtype)vorrq_u32((x).v32, (y).v32)
+   #define vorn(x, y)              (vtype)vornq_u32((x).v32, (y).v32)
+  -#define vroti_epi32(x, i)       (i > 0 ? (vtype)vsliq_n_u32(vshrq_n_u32((x).v32, 32 - (i)), (x).v32, i) : \
+  -                                         (vtype)vsriq_n_u32(vshlq_n_u32((x).v32, 32 + (i)), (x).v32, -(i)))
+  -#define vroti_epi64(x, i)       (i > 0 ? (vtype)vsliq_n_u64(vshrq_n_u64((x).v64, 64 - (i)), (x).v64, i) : \
+  -                                         (vtype)vsriq_n_u64(vshlq_n_u64((x).v64, 64 + (i)), (x).v64, -(i)))
+  +#define vroti_epi32(x, i)       (i > 0 ? (vtype)vsliq_n_u32(vshrq_n_u32((x).v32, 32 - ((i) & 31)), (x).v32, (i) & 31) : \
+  +                                 (vtype)vsriq_n_u32(vshlq_n_u32((x).v32, (32 + (i)) & 31), (x).v32, (-(i)) & 31))
+  +#define vroti_epi64(x, i)       (i > 0 ? (vtype)vsliq_n_u64(vshrq_n_u64((x).v64, 64 - ((i) & 63)), (x).v64, (i) & 63) : \
+  +                                 (vtype)vsriq_n_u64(vshlq_n_u64((x).v64, (64 + (i)) & 63), (x).v64, (-(i)) & 63))
+   #define vroti16_epi32           vroti_epi32
+   #define vset1_epi32(i)          (vtype)vdupq_n_u32(i)
+   #define vset1_epi64(i)          (vtype)vdupq_n_u64(i)
+
+   diff --git a/src/arm32le.h b/src/arm32le.h
+   index a0c60c0d26..9a8ff99956 100644
+   --- a/src/arm32le.h
+   +++ b/src/arm32le.h
+   @@ -27,7 +27,7 @@
+    #define ARCH_INT_GT_32			0
+    #endif
+    
+   -#define ARCH_ALLOWS_UNALIGNED		__ARM_FEATURE_UNALIGNED
+   +#define ARCH_ALLOWS_UNALIGNED		0
+    #define ARCH_INDEX(x)			((unsigned int)(unsigned char)(x))
+    
+    #define CPU_DETECT			0
+   diff --git a/src/arm64le.h b/src/arm64le.h
+   index 63b1ed932e..a916cc0538 100644
+   --- a/src/arm64le.h
+   +++ b/src/arm64le.h
+   @@ -28,7 +28,7 @@
+    #define ARCH_INT_GT_32			0
+    #endif
+    
+   -#define ARCH_ALLOWS_UNALIGNED		__ARM_FEATURE_UNALIGNED
+   +#define ARCH_ALLOWS_UNALIGNED		0
+    #define ARCH_INDEX(x)			((unsigned int)(unsigned char)(x))
+    
+    #define CPU_DETECT			0
+   diff --git a/src/opencl_rar_fmt_plug.c b/src/opencl_rar_fmt_plug.c
+   index 0d78f55f00..daa7573d43 100644
+   --- a/src/opencl_rar_fmt_plug.c
+   +++ b/src/opencl_rar_fmt_plug.c
+   @@ -40,7 +40,14 @@
+     *
+     */
+    
+   -#ifdef HAVE_OPENCL
+   +#if HAVE_OPENCL
+   +
+   +#if AC_BUILT
+   +#include "autoconfig.h"
+   +#endif
+   +#include "arch.h"
+   +
+   +#if ARCH_ALLOWS_UNALIGNED || __ARM_FEATURE_UNALIGNED
+    
+    #if FMT_EXTERNS_H
+    extern struct fmt_main fmt_ocl_rar;
+   @@ -433,4 +435,14 @@ struct fmt_main fmt_ocl_rar = {
+    
+    #endif /* plugin stanza */
+    
+   +#else
+   +#if !defined(FMT_EXTERNS_H) && !defined(FMT_REGISTERS_H)
+   +#ifdef __GNUC__
+   +#warning ": target system requires aligned memory access, RAR OpenCL format disabled:"
+   +#elif _MSC_VER
+   +#pragma message(": target system requires aligned memory access, RAR OpenCL format disabled:")
+   +#endif
+   +#endif
+   +
+   +#endif /* ARCH_ALLOWS_UNALIGNED || __ARM_FEATURE_UNALIGNED */
+    #endif /* HAVE_OPENCL */
+   diff --git a/src/rar_fmt_plug.c b/src/rar_fmt_plug.c
+   index 5af8801949..b82c7b51ca 100644
+   --- a/src/rar_fmt_plug.c
+   +++ b/src/rar_fmt_plug.c
+   @@ -45,7 +45,7 @@
+    #endif
+    #include "arch.h"
+    
+   -#if ARCH_ALLOWS_UNALIGNED
+   +#if ARCH_ALLOWS_UNALIGNED || __ARM_FEATURE_UNALIGNED
+    
+    #if FMT_EXTERNS_H
+    extern struct fmt_main fmt_rar;
+   @@ -453,4 +453,4 @@ struct fmt_main fmt_rar = {
+    #endif
+    #endif
+    
+   -#endif	/* ARCH_ALLOWS_UNALIGNED */
+   +#endif	/* ARCH_ALLOWS_UNALIGNED || __ARM_FEATURE_UNALIGNED */

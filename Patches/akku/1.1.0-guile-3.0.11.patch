@@ -1,0 +1,82 @@
+Adapted from https://gitlab.com/akkuscm/akku/-/commit/73acf1ff4f3ee77028d954d051a2c852e6b8a620
+for the library copy that the release tarball ships pre-converted.
+
+--- a/spells/define-values.scm
++++ b/spells/define-values.scm
+@@ -1,55 +1,30 @@
++;; -*- mode: scheme; coding: utf-8 -*-
++;; SPDX-License-Identifier: CC0-1.0
+ #!r6rs
+-;;; define-values.sls --- define-values syntax.
+ 
+-;; Copyright (C) 2009, 2011 Andreas Rottmann <a.rottmann@gmx.at>
++;; Workaround for a (probable) psyntax bug in Guile 3.0.11. Ironically
++;; the original spells library also has a workaround for Guile. There
++;; is a define-values that ships with Guile, but that's broken too
++;; somehow.
+ 
+-;; This program is free software, you can redistribute it and/or
+-;; modify it under the terms of the new-style BSD license.
+-
+-;; You should have received a copy of the BSD license along with this
+-;; program. If not, see <http://www.debian.org/misc/bsd.license>.
+-
+-;;; Commentary:
+-
+-;;; Code:
+-
+-;;@ Define multiple identifiers using the results of a single
+-;; expression.
+ (library (spells define-values)
+   (export define-values)
+-  (import (for (rnrs base) run expand)
+-          (for (rnrs syntax-case) run expand))
++  (import (rnrs))
+ 
+-  ;;@defspec define-values (name ...) body ...
+-  ;;
+-  ;; Defines the identifiers given by @var{name} @dots{} by using the
+-  ;; values returned by @var{body}.
+-  ;;
+-  ;;@end defspec
+   (define-syntax define-values
+     (lambda (form)
+-      ;; The temporaries generated for `dummy' are just a workaround
+-      ;; for a psyntax bug in Guile.
+       (syntax-case form ()
+-        ((_ () exp ...)
+-         (with-syntax (((dummy) (generate-temporaries '(dummy))))
+-           (syntax
+-            (define dummy (begin exp ... 'dummy)))))
+-	((_ (id ...) exp0 exp ...)
+-	 ;; Mutable-ids are needed so that ids defined by
+-	 ;; define-values can be exported from a library (mutated
+-	 ;; variables cannot be exported).  This fix is due to Andre
+-	 ;; van Tonder.
+-	 (with-syntax (((mutable-id ...) (generate-temporaries (syntax (id ...))))
+-		       ((result ...)     (generate-temporaries (syntax (id ...))))
+-                       ((dummy)          (generate-temporaries '(dummy))))
+-	   (syntax
+-	    (begin
+-	      (define mutable-id) ...
+-	      (define dummy
+-		(call-with-values
+-                    (lambda () exp0 exp ...)
+-		  (lambda (result ...)
+-		    (set! mutable-id result) ...
+-                    'dummy)))
+-	      (define id mutable-id) ...))))))))
++        [(_ () exp exp* ...)
++         #'(define ignored (begin exp exp* ... (if #f #f)))]
++
++        [(_ (id ...) exp exp* ...)
++         (with-syntax (((index ...)
++                        (let loop [(ids #'(id ...))
++                                   (i 0)]
++                          (syntax-case ids ()
++                            [() '()]
++                            [(_ . rest) (cons i (loop #'rest (+ i 1)))]))))
++           #'(begin
++               (define aggregate
++                 (call-with-values (lambda () exp exp* ...) vector))
++               (define id (vector-ref aggregate index)) ...))]))))

@@ -1,0 +1,196 @@
+class Mlx < Formula
+  include Language::Python::Virtualenv
+
+  desc "Array framework for Apple silicon"
+  homepage "https://ml-explore.github.io/mlx/build/html/index.html"
+  license all_of: [
+    "MIT", # main license
+    "Apache-2.0", # metal-cpp resource
+  ]
+  compatibility_version 5
+  head "https://github.com/ml-explore/mlx.git", branch: "main"
+
+  stable do
+    url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.32.1.tar.gz"
+    sha256 "34fe1ec0e6baf886eee16c9a1d4c7bd26bbe74fe051225f0eb88a982fc9d2494"
+
+    # Backport nanobind 3 compatibility: https://github.com/ml-explore/mlx/pull/4417
+    patch :DATA
+  end
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
+  bottle do
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "423117eb0442545e8bc14763f830e8b2b8b8c6237d3ac2c84e5ec0003b8a0419"
+    sha256 cellar: :any, arm64_tahoe:       "375c11270495821481c60ae8ea9318741b795e5d77242ef41f97560791821358"
+    sha256 cellar: :any, arm64_sequoia:     "6b0663fc727f387d6478e0b250dc8e446a08a670e229536e7f1b37f18bbe43bf"
+  end
+
+  depends_on "cmake" => :build
+  depends_on "fmt" => :build
+  depends_on "nanobind" => :build
+  depends_on "nlohmann-json" => :build
+  depends_on "python-setuptools" => :build
+  depends_on "robin-map" => :build
+  depends_on xcode: ["15.0", :build] # for metal
+  depends_on arch: :arm64
+  depends_on macos: :sonoma
+  depends_on "python@3.14"
+
+  # https://github.com/ml-explore/mlx/blob/v#{version}/CMakeLists.txt
+  # Included in not_a_binary_url_prefix_allowlist.json
+  resource "metal-cpp" do
+    on_arm do
+      url "https://developer.apple.com/metal/cpp/files/metal-cpp_26.zip"
+      sha256 "4df3c078b9aadcb516212e9cb03004cbc5ce9a3e9c068fa3144d021db585a3a4"
+    end
+  end
+
+  # Update to GIT_TAG at https://github.com/ml-explore/mlx/blob/v#{version}/mlx/io/CMakeLists.txt
+  resource "gguflib" do
+    url "https://github.com/antirez/gguf-tools/archive/8fa6eb65236618e28fd7710a0fba565f7faa1848.tar.gz"
+    sha256 "9e30bc1eb82cc2231150d39ce37dcdd6f844d6994fba18da83fc537a487ba86f"
+  end
+
+  def install
+    ENV.append_to_cflags "-I#{formula_opt_include("nlohmann-json")}/nlohmann"
+    (buildpath/"gguflib").install resource("gguflib")
+
+    mlx_python_dir = prefix/Language::Python.site_packages(python3)/"mlx"
+
+    # We bypass brew's dependency provider to set `FETCHCONTENT_TRY_FIND_PACKAGE_MODE`
+    # which redirects FetchContent_Declare() to find_package() and helps find our `fmt`.
+    # To re-block fetches, we use the not-recommended `FETCHCONTENT_FULLY_DISCONNECTED`.
+    args = %W[
+      -DUSE_SYSTEM_FMT=ON
+      -DHOMEBREW_ALLOW_FETCHCONTENT=ON
+      -DFETCHCONTENT_FULLY_DISCONNECTED=ON
+      -DCMAKE_MODULE_LINKER_FLAGS=-Wl,-rpath,#{rpath(source: mlx_python_dir)},-rpath,#{lib}
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
+      -DFETCHCONTENT_SOURCE_DIR_GGUFLIB=#{buildpath}/gguflib
+    ]
+    args << if Hardware::CPU.arm?
+      (buildpath/"metal_cpp").install resource("metal-cpp")
+      "-DFETCHCONTENT_SOURCE_DIR_METAL_CPP=#{buildpath}/metal_cpp"
+    else
+      "-DMLX_ENABLE_X64_MAC=ON"
+    end
+
+    ENV["CMAKE_ARGS"] = (args + std_cmake_args).join(" ")
+    ENV[build.head? ? "DEV_RELEASE" : "PYPI_RELEASE"] = "1"
+    # Keep the minor version as the NAX kernels are only built with a 26.2+ deployment target
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.full_version.major_minor.to_s
+
+    system python3, "-m", "pip", "install", *std_pip_args, "."
+  end
+
+  test do
+    assert_match "steel_gemm_fused_nax", (lib/"mlx.metallib").binread if MacOS.version >= :tahoe
+
+    (testpath/"test.cpp").write <<~CPP
+      #include <cassert>
+
+      #include <mlx/mlx.h>
+
+      int main() {
+        mlx::core::array x({1.0f, 2.0f, 3.0f, 4.0f}, {2, 2});
+        mlx::core::array y = mlx::core::ones({2, 2});
+        mlx::core::array z = mlx::core::add(x, y);
+        mlx::core::eval(z);
+        assert(z.dtype() == mlx::core::float32);
+        assert(z.shape(0) == 2);
+        assert(z.shape(1) == 2);
+        assert(z.data<float>()[0] == 2.0f);
+        assert(z.data<float>()[1] == 3.0f);
+        assert(z.data<float>()[2] == 4.0f);
+        assert(z.data<float>()[3] == 5.0f);
+      }
+    CPP
+    system ENV.cxx, "test.cpp", "-std=c++17",
+                    "-I#{include}", "-L#{lib}", "-lmlx",
+                    "-o", "test"
+    system "./test"
+
+    (testpath/"test.py").write <<~PYTHON
+      import mlx.core as mx
+      x = mx.array(0.0)
+      assert mx.allclose(mx.cos(x), mx.array(1.0))
+    PYTHON
+    system python3, "test.py"
+  end
+end
+
+__END__
+diff --git a/python/src/convert.h b/python/src/convert.h
+index 133f443ed7..7c767a5944 100644
+--- a/python/src/convert.h
++++ b/python/src/convert.h
+@@ -14,24 +14,6 @@ namespace nb = nanobind;
+
+ namespace nanobind {
+
+-template <>
+-struct ndarray_traits<mx::float16_t> {
+-  static constexpr bool is_complex = false;
+-  static constexpr bool is_float = true;
+-  static constexpr bool is_bool = false;
+-  static constexpr bool is_int = false;
+-  static constexpr bool is_signed = true;
+-};
+-
+-template <>
+-struct ndarray_traits<mx::bfloat16_t> {
+-  static constexpr bool is_complex = false;
+-  static constexpr bool is_float = true;
+-  static constexpr bool is_bool = false;
+-  static constexpr bool is_int = false;
+-  static constexpr bool is_signed = true;
+-};
+-
+ namespace detail {
+
+ template <>
+diff --git a/python/src/small_vector.h b/python/src/small_vector.h
+index 0b2e6bb2ee..1a07abe1b2 100644
+--- a/python/src/small_vector.h
++++ b/python/src/small_vector.h
+@@ -31,7 +31,7 @@ struct type_caster<::mlx::core::SmallVector<Type, Size, Alloc>> {
+
+   // Not noexcept: on overflow of a narrow integer element we raise
+   // OverflowError so nanobind surfaces a clean error to the user.
+-  bool from_python(handle src, uint8_t flags, cleanup_list* cleanup) {
++  bool from_python(handle src, uint32_t flags, cleanup_list* cleanup) {
+     size_t size;
+     PyObject* temp;
+
+diff --git a/python/src/transforms.cpp b/python/src/transforms.cpp
+index e6a778eca0..e33cde9bce 100644
+--- a/python/src/transforms.cpp
++++ b/python/src/transforms.cpp
+@@ -814,8 +814,8 @@ class PyCustomFunction {
+       }
+       int array_index = 0;
+       int tangent_index = 0;
+-      auto new_tangents =
+-          nb::cast<nb::tuple>(tree_map(args, [&](nb::handle element) {
++      auto new_tangents = nb::cast<nb::tuple>(
++          tree_map(args, [&](nb::handle element) -> nb::object {
+             if (nb::isinstance<mx::array>(element) &&
+                 have_tangents[array_index++]) {
+               return nb::cast(tangents[tangent_index++]);
+@@ -861,8 +861,8 @@ class PyCustomFunction {
+       }
+
+       int arr_index = 0;
+-      auto new_axes =
+-          nb::cast<nb::tuple>(tree_map(args, [&](nb::handle element) {
++      auto new_axes = nb::cast<nb::tuple>(
++          tree_map(args, [&](nb::handle element) -> nb::object {
+             int axis = axes[arr_index++];
+             if (nb::isinstance<mx::array>(element) && axis >= 0) {
+               return nb::cast(axis);

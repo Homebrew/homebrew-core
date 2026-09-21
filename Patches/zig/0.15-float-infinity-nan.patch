@@ -1,0 +1,64 @@
+Adapted from https://github.com/llvm/llvm-project/commit/38473c5d351d6b2ae21b5eb1ce66c2bcc2f7c6f7
+for Zig's bundled Clang headers, so that macOS 27 SDK `math.h` can get
+`INFINITY` and `NAN` from `float.h` via `__need_infinity_nan`.
+
+--- /dev/null
++++ b/lib/include/__float_infinity_nan.h
+@@ -0,0 +1,20 @@
++/*===---- __float_infinity_nan.h -------------------------------------------===
++ *
++ * Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
++ * See https://llvm.org/LICENSE.txt for license information.
++ * SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
++ *
++ *===-----------------------------------------------------------------------===
++ */
++
++#ifndef __CLANG_FLOAT_INFINITY_NAN_H
++#define __CLANG_FLOAT_INFINITY_NAN_H
++
++/* C23 5.2.5.3.3p29-30 */
++#undef INFINITY
++#undef NAN
++
++#define INFINITY (__builtin_inff())
++#define NAN (__builtin_nanf(""))
++
++#endif /* __CLANG_FLOAT_INFINITY_NAN_H */
+--- a/lib/include/float.h
++++ b/lib/include/float.h
+@@ -7,6 +7,11 @@
+  *===-----------------------------------------------------------------------===
+  */
+ 
++#ifdef __need_infinity_nan
++#include <__float_infinity_nan.h>
++#undef __need_infinity_nan
++#else
++
+ #ifndef __CLANG_FLOAT_H
+ #define __CLANG_FLOAT_H
+ 
+@@ -194,3 +199,5 @@
+ 
+ #endif /* __MVS__ */
+ #endif /* __CLANG_FLOAT_H */
++
++#endif /* __need_infinity_nan */
+--- a/lib/include/module.modulemap
++++ b/lib/include/module.modulemap
+@@ -163,8 +163,12 @@
+ // that module. The system float.h (if present) will be treated
+ // as a textual header in the sytem module.
+ module _Builtin_float [system] {
+-  header "float.h"
+-  export *
++  textual header "float.h"
++
++  explicit module infinity_nan {
++    header "__float_infinity_nan.h"
++    export *
++  }
+ }
+ 
+ module _Builtin_inttypes [system] {

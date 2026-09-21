@@ -1,0 +1,24 @@
+diff --git a/src/Output.cxx b/src/Output.cxx
+index bb986d4bf3d99d08b9971ccfc675939520e82ced..9f722efd0d5fcc8918c5372dd0ae04e2fee068fb 100644
+--- a/src/Output.cxx
++++ b/src/Output.cxx
+@@ -119,6 +119,10 @@ clang::NestedNameSpecifier const& deref(NestedNameSpecifier const& nns)
+ #  define isPureVirtual isPure
+ #endif
+ 
++#if LLVM_VERSION_MAJOR < 23
++#  define getRawCommentNoCache getRawCommentForDeclNoCache
++#endif
++
+ class ASTVisitorBase
+ {
+ protected:
+@@ -1973,7 +1977,7 @@ void ASTVisitor::PrintCommentAttribute(clang::Decl const* d,
+   if (!this->Opts.CastXml) {
+     return;
+   }
+-  if (clang::RawComment const* rc = this->CTX.getRawCommentForDeclNoCache(d)) {
++  if (clang::RawComment const* rc = this->CTX.getRawCommentNoCache(d)) {
+     unsigned int index = ++this->CommentCount;
+     CommentEntry e = { index, rc, dn };
+     this->CommentQueue.push(e);

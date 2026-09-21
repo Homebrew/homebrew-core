@@ -1,0 +1,27 @@
+diff --git a/Make.inc/Makefile.inc.generic.SEQ b/Make.inc/Makefile.inc.generic.SEQ
+index bb27718..61ddf21 100644
+--- a/Make.inc/Makefile.inc.generic.SEQ
++++ b/Make.inc/Makefile.inc.generic.SEQ
+@@ -97 +97 @@ PLAT    =
+-LIBEXT  = .a
++LIBEXT  = .dylib
+@@ -103 +102,0 @@ RM      = /bin/rm -f
+-CC      = cc
+@@ -105 +104 @@ CC      = cc
+-FC      = f90
++FC      = gfortran
+@@ -107 +106 @@ FC      = f90
+-FL      = f90
++FL      = $(FC)
+@@ -110 +109 @@ FL      = f90
+-AR      = ar vr 
++AR      = $(FC) -dynamiclib -undefined dynamic_lookup -Wl,-install_name,@rpath/$(notdir $@) -o 
+@@ -113,2 +112 @@ AR      = ar vr 
+-RANLIB  = ranlib
+-#RANLIB  = echo
++RANLIB  = echo
+@@ -146,2 +144,2 @@ CDEFS = -DAdd_
+-OPTF    = -O
+-OPTC    = -O -I.
++OPTF    = -fPIC -O
++OPTC    = -fPIC -O -I.

@@ -1,0 +1,66 @@
+--- a/src/code/fd-stream.lisp
++++ b/src/code/fd-stream.lisp
+@@ -928,13 +928,10 @@
+ (defun sb-alien::c-string-to-string (sap external-format element-type)
+   (declare (type system-area-pointer sap)
+            (explicit-check :result))
+-  (if (eq external-format :utf-8)
+-      (read-from-c-string/utf-8/lf sap element-type)
+-      (locally
+-          (declare (optimize (speed 3) (safety 0))
+-                   (muffle-conditions compiler-note))
+-        (let ((external-format (get-external-format-or-lose external-format)))
+-          (funcall (ef-read-c-string-fun external-format) sap element-type)))))
++  (locally
++      (declare (optimize (speed 3) (safety 0)))
++    (let ((external-format (get-external-format-or-lose external-format)))
++      (funcall (ef-read-c-string-fun external-format) sap element-type))))
+ 
+ (defun sb-alien::c-string-to-string-boxed-sap (sap external-format element-type)
+   (sb-alien::c-string-to-string sap external-format element-type))
+--- a/src/compiler/aliencomp.lisp
++++ b/src/compiler/aliencomp.lisp
+@@ -83,7 +83,7 @@
+                                                              simple-base-string)
+     (movable flushable))
+ (defknown sb-alien::c-string-to-string (system-area-pointer t t) simple-string
+-    (movable fixed-args flushable))
++    (movable flushable))
+ (defknown sb-alien::c-string-external-format * *
+         (movable flushable))
+ 
+--- a/src/compiler/fndb.lisp
++++ b/src/compiler/fndb.lisp
+@@ -2609,21 +2609,3 @@
+ 
+ (defknown sb-kernel::single-float-invalid-operation (t single-float) nil (fixed-args))
+ (defknown sb-kernel::double-float-invalid-operation (t double-float) nil (fixed-args))
+-
+-
+-(defknown sb-impl::read-from-c-string/utf-8/lf (system-area-pointer t) simple-string
+-    (movable flushable fixed-args))
+-
+-(defknown sb-vm::utf8-strlen (system-area-pointer) (values (or null index) index t)
+-    (movable flushable fixed-args))
+-
+-(defknown (sb-vm::utf8-sap-to-character-string
+-           sb-vm::ascii-sap-to-character-string)
+-    (system-area-pointer (simple-array character (*)) index)
+-    t
+-    (movable fixed-args))
+-
+-(defknown sb-impl::find-bad-utf8
+-    (system-area-pointer)
+-    nil
+-    (movable fixed-args))
+--- a/src/compiler/generic/utils.lisp
++++ b/src/compiler/generic/utils.lisp
+@@ -189,7 +189,7 @@
+                               sc
+                               (elt *float-regs* n))
+                (descriptor))))
+-        ((system-area-pointer unsigned-byte-64 signed-byte-64)
++        ((unsigned-byte-64 signed-byte-64)
+          (let ((n (incf (#-c-stack-is-control-stack fixed-call-args-state-non-descriptors
+                          #+c-stack-is-control-stack fixed-call-args-state-descriptors
+                          state)))

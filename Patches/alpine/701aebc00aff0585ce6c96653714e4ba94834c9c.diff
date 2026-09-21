@@ -1,0 +1,164 @@
+From: Eduardo Chappa <chappa@washington.edu>
+Date: Sat, 27 Aug 2022 21:11:38 +0000 (-0600)
+Subject:    * Fixes to the configure script that prevented Alpine from completing
+X-Git-Tag: v2.29.9~35
+X-Git-Url: http://repo.or.cz/alpine.git/commitdiff_plain/701aebc00aff0585ce6c96653714e4ba94834c9c
+
+   * Fixes to the configure script that prevented Alpine from completing
+     compilation in Mac OSX due to Alpine defining a password file, when
+     Alpine uses the KeyChain instead.
+---
+
+diff --git a/configure b/configure
+index 5163229..e6d7a70 100755
+--- a/configure
++++ b/configure
+@@ -933,9 +933,9 @@ with_pthread
+ with_system_mail_directory
+ with_c_client_target
+ with_bundled_tools
+-with_passfile
+ with_local_password_cache
+ with_local_password_cache_method
++with_passfile
+ with_ipv6
+ with_dlopen
+ with_ntlm
+@@ -1784,14 +1784,14 @@ Optional Packages:
+                           IMAP build target (see imap/Makefile)
+   --with-bundled-tools    Build additional tools (mtest, imapd, etc.) Default:
+                           --with-bundled-tools=no
+-  --with-passfile=FILENAME
+-                          Password cache file (recommended when S/MIME is
+-                          enabled and configured)
+   --without-local-password-cache
+                           Disable OS-specific password cache, if supported
+   --with-local-password-cache-method
+                           OS-specific credential cache (OSX=APPLEKEYCHAIN,
+                           Windows=WINCRED)
++  --with-passfile=FILENAME
++                          Password cache file (recommended when S/MIME is
++                          enabled and configured)
+   --without-ipv6          Disable IPv6, primarily to work around resolver
+                           problems
+   --without-dlopen        Do not test for dlopen because this system does not
+@@ -18752,6 +18752,26 @@ if test "${with_bundled_tools+set}" = set; then :
+ fi
+ 
+ 
++
++# Check whether --with-local-password-cache was given.
++if test "${with_local_password_cache+set}" = set; then :
++  withval=$with_local_password_cache;
++     alpine_os_credential_cache=$withval
++
++fi
++
++
++
++# Check whether --with-local-password-cache-method was given.
++if test "${with_local_password_cache_method+set}" = set; then :
++  withval=$with_local_password_cache_method;
++     alpine_os_credential_cache_method=$withval
++
++fi
++
++
++alpine_cache_os_method="no"
++
+ alpine_PAM="none"
+ 
+ case "$host" in
+@@ -18874,6 +18894,7 @@ $as_echo "#define OSX_TARGET 1" >>confdefs.h
+ 
+ $as_echo "#define APPLEKEYCHAIN 1" >>confdefs.h
+ 
++	alpine_cache_os_method="yes"
+ 	;;
+     esac
+     if test -z "$alpine_c_client_bundled" ; then
+@@ -19096,25 +19117,7 @@ fi
+ 
+ 
+ 
+-
+-# Check whether --with-local-password-cache was given.
+-if test "${with_local_password_cache+set}" = set; then :
+-  withval=$with_local_password_cache;
+-     alpine_os_credential_cache=$withval
+-
+-fi
+-
+-
+-
+-# Check whether --with-local-password-cache-method was given.
+-if test "${with_local_password_cache_method+set}" = set; then :
+-  withval=$with_local_password_cache_method;
+-     alpine_os_credential_cache_method=$withval
+-
+-fi
+-
+-
+-if test -z "$alpine_PASSFILE" ; then
++if test -z "$alpine_PASSFILE" -a "alpine_cache_os_method" = "no" ; then
+   if test -z "$alpine_SYSTEM_PASSFILE" ; then
+      alpine_PASSFILE=".alpine.pwd"
+   else
+diff --git a/configure.ac b/configure.ac
+index 5a61bde..05b09b2 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -1118,6 +1118,22 @@ AC_ARG_WITH(bundled-tools,
+     fi
+   ])
+ 
++dnl os-specific credential cache?
++AC_ARG_WITH(local-password-cache,
++ AS_HELP_STRING([--without-local-password-cache],[Disable OS-specific password cache, if supported]),
++   [
++     alpine_os_credential_cache=$withval
++   ])
++
++dnl Particular os-specific credential cache?
++AC_ARG_WITH(local-password-cache-method,
++ AS_HELP_STRING([--with-local-password-cache-method],[OS-specific credential cache (OSX=APPLEKEYCHAIN, Windows=WINCRED)]),
++   [
++     alpine_os_credential_cache_method=$withval
++   ])
++
++alpine_cache_os_method="no"
++
+ dnl Assume PAM is *not* required and only set the systems that need it.
+ alpine_PAM="none"
+ 
+@@ -1203,6 +1219,7 @@ case "$host" in
+ 	;;
+       *)
+ 	AC_DEFINE([APPLEKEYCHAIN], [1], [Use Apple OS X key chain for credential caching])
++	alpine_cache_os_method="yes"
+ 	;;
+     esac
+     if test -z "$alpine_c_client_bundled" ; then
+@@ -1374,21 +1391,7 @@ AC_ARG_WITH(passfile,
+     ])
+ 
+ 
+-dnl os-specific credential cache?
+-AC_ARG_WITH(local-password-cache,
+- AS_HELP_STRING([--without-local-password-cache],[Disable OS-specific password cache, if supported]),
+-   [
+-     alpine_os_credential_cache=$withval
+-   ])
+-
+-dnl Particular os-specific credential cache?
+-AC_ARG_WITH(local-password-cache-method,
+- AS_HELP_STRING([--with-local-password-cache-method],[OS-specific credential cache (OSX=APPLEKEYCHAIN, Windows=WINCRED)]),
+-   [
+-     alpine_os_credential_cache_method=$withval
+-   ])
+-
+-if test -z "$alpine_PASSFILE" ; then
++if test -z "$alpine_PASSFILE" -a "alpine_cache_os_method" = "no" ; then
+   if test -z "$alpine_SYSTEM_PASSFILE" ; then
+      alpine_PASSFILE=".alpine.pwd"
+   else
