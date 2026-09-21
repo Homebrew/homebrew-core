@@ -6,13 +6,11 @@ class Gnumeric < Formula
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
 
   bottle do
-    sha256               arm64_golden_gate: "7d296e414b70f998377e9d4418e2553b53277062ba304e2fb203a1358136ab75"
-    sha256               arm64_tahoe:       "185a10ff6b71eddff3a7ef066fa3839888313baff6c52fb42c24a1fa3b3715a1"
-    sha256               arm64_sequoia:     "e1eba1be100c19271bd98cfd5db380b7505ede9e3342eac2fe0aba2474837cac"
-    sha256               arm64_sonoma:      "a3fec678565a90976b37a461ae3d23cef37440c779d1ef3f1483739e625b1ea8"
-    sha256               sonoma:            "dd54c441ba904ababfb55f439a5aee6847cd3e439441f2baa5649d83908cc725"
-    sha256               arm64_linux:       "9611234aeac06085b44c798ebe41887e3bb348981bc8b25ea68e680680b31ac2"
-    sha256 cellar: :any, x86_64_linux:      "2cd14049194a54b15501d4ef96c54e87fff5306df243f01074fc84068e3931cd"
+    sha256               arm64_golden_gate: "fa1cddbde5d32c56f9b5b40dfe610a5e6bb43aebba8b493823a2295a7d2a4983"
+    sha256               arm64_tahoe:       "d52dd5b83933ebf27018a2dbf28ef48692b1df0be7bb5f091725a64da534191b"
+    sha256               arm64_sequoia:     "2541e9e5802d4c9fbef1435cc100807773798b281a5d6c1a9fba688a90554bbe"
+    sha256               arm64_linux:       "acd2be380d54b5a0a9b5be434daa1a9c58c24c275e2cafa228777a542a5b9160"
+    sha256 cellar: :any, x86_64_linux:      "cd89ec8174d66d7eeaa79a9d3c4b693b12f571ada27f831d314ec42881678395"
   end
 
   depends_on "gettext" => :build
