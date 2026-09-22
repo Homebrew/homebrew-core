@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v26.9.0/node-v26.9.0.tar.xz"
-  sha256 "47b970d88511b429e587b740fa733176909d2a2005a29662f01b05205f58468b"
+  url "https://nodejs.org/dist/v26.10.0/node-v26.10.0.tar.xz"
+  sha256 "7b3a546d33cb7e15a43bdd7a57e0be5d5fd5ffc553e6e4c120033e66f0ba20c5"
   license "MIT"
   compatibility_version 1
   head "https://github.com/nodejs/node.git", branch: "main"
@@ -36,6 +36,7 @@ class Node < Formula
   depends_on "nbytes"
   depends_on "openssl@3"
   depends_on "simdjson"
+  depends_on "simdutf"
   depends_on "sqlite" # Fails with macOS sqlite.
   depends_on "uvwasi"
   depends_on "zstd"
@@ -107,25 +108,26 @@ class Node < Formula
     # used in configure (e.g. `--shared-<flag>`) to the bundled subdirectory
     # and corresponding formula name as these can all differ.
     {
-      # flag name         sub-directory      formula name
+      # flag name         sub-directory                formula name
       "abseil"        => ["v8/third_party/abseil-cpp", "abseil"],
-      "ada"           => ["ada",             "ada-url"],
-      "brotli"        => ["brotli",          "brotli"],
-      "cares"         => ["cares",           "c-ares"],
-      "ffi"           => ["libffi",          "libffi"],
-      "hdr-histogram" => ["histogram",       "hdrhistogram_c"],
-      "highway"       => ["v8/third_party/highway", "highway"],
-      "http-parser"   => ["llhttp",          "llhttp"],
-      "libuv"         => ["uv",              "libuv"],
-      "merve"         => ["merve",           "merve"],
-      "nbytes"        => ["nbytes",          "nbytes"],
-      "nghttp2"       => ["nghttp2",         "libnghttp2"],
-      "openssl"       => ["openssl/openssl", "openssl@3"],
-      "simdjson"      => ["simdjson",        "simdjson"],
-      "sqlite"        => ["sqlite",          "sqlite"],
-      "uvwasi"        => ["uvwasi",          "uvwasi"],
-      "zlib"          => ["zlib",            ("zlib-ng-compat" unless OS.mac?)],
-      "zstd"          => ["zstd",            "zstd"],
+      "ada"           => ["ada",                       "ada-url"],
+      "brotli"        => ["brotli",                    "brotli"],
+      "cares"         => ["cares",                     "c-ares"],
+      "ffi"           => ["libffi",                    "libffi"],
+      "hdr-histogram" => ["histogram",                 "hdrhistogram_c"],
+      "highway"       => ["v8/third_party/highway",    "highway"],
+      "http-parser"   => ["llhttp",                    "llhttp"],
+      "libuv"         => ["uv",                        "libuv"],
+      "merve"         => ["merve",                     "merve"],
+      "nbytes"        => ["nbytes",                    "nbytes"],
+      "nghttp2"       => ["nghttp2",                   "libnghttp2"],
+      "openssl"       => ["openssl/openssl",           "openssl@3"],
+      "simdjson"      => ["simdjson",                  "simdjson"],
+      "simdutf"       => ["v8/third_party/simdutf",    "simdutf"],
+      "sqlite"        => ["sqlite",                    "sqlite"],
+      "uvwasi"        => ["uvwasi",                    "uvwasi"],
+      "zlib"          => ["zlib",                      ("zlib-ng-compat" unless OS.mac?)],
+      "zstd"          => ["zstd",                      "zstd"],
     }.each do |flag, (subdir, formula)|
       rm_r(buildpath/"deps"/subdir)
       args << "--shared-#{flag}"
@@ -136,15 +138,15 @@ class Node < Formula
     end
 
     # TODO: Try to devendor these libraries.
-    # - `--shared-gtest` is only used for building the test suite, which we don't run here.
-    # - `--shared-simdutf` seems to result in build failures.
     # - `--shared-temporal_capi` is only used when building with `--v8-enable-temporal-support`
+    #
+    # Following libraries are unused:
+    # - `--shared-gtest` is only used for building the test suite, which we don't run here.
     # - `--shared-lief` is only used for disabled SEA feature
     # - `--shared-perfetto` is only used when building with `--with-perfetto`
     # - `--shared-nghttp3` and `--shared-ngtcp2` are only used when building with `--experimental-quic`
     ignored_shared_flags = %w[
       gtest
-      simdutf
       temporal_capi
       lief
       perfetto
