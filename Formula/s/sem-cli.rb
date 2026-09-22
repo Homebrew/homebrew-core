@@ -41,6 +41,8 @@ class SemCli < Formula
           print("hello")
     PYTHON
     system "git", "init"
+    system "git", "config", "user.name", "BrewTestBot"
+    system "git", "config", "user.email", "BrewTestBot@example.com"
     system "git", "add", "hello.py"
     system "git", "commit", "-m", "init"
 
