@@ -4,6 +4,7 @@ class Qsv < Formula
   url "https://github.com/dathere/qsv/archive/refs/tags/23.0.1.tar.gz"
   sha256 "90dcf4853a91184411c8f92cbe8e438769965cafa7b445f6b1de933a3e845b04"
   license any_of: ["MIT", "Unlicense"]
+  revision 1
   head "https://github.com/dathere/qsv.git", branch: "master"
 
   # There can be a notable gap between when a version is tagged and a
@@ -35,7 +36,7 @@ class Qsv < Formula
     # see discussion at https://github.com/briansmith/ring/discussions/2528#discussioncomment-13196576
     ENV.append_to_rustflags "-C target-cpu=apple-m1" if OS.mac? && Hardware::CPU.arm?
 
-    features = %w[apply fetch foreach geocode lens luau to feature_capable]
+    features = %w[distrib_features]
     system "cargo", "install", *std_cargo_args(features:)
 
     bash_completion.install "contrib/completions/examples/qsv.bash" => "qsv"
