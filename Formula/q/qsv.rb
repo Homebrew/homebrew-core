@@ -26,6 +26,7 @@ class Qsv < Formula
   depends_on "cmake" => :build # for libz-ng-sys
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "libmagic"
@@ -35,6 +36,7 @@ class Qsv < Formula
     # Use explicit CPU target instead of "native" to avoid brittle behavior
     # see discussion at https://github.com/briansmith/ring/discussions/2528#discussioncomment-13196576
     ENV.append_to_rustflags "-C target-cpu=apple-m1" if OS.mac? && Hardware::CPU.arm?
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     features = %w[distrib_features]
     system "cargo", "install", *std_cargo_args(features:)
