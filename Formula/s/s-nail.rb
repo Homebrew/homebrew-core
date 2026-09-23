@@ -32,14 +32,23 @@ class SNail < Formula
   end
 
   depends_on "libidn2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "ncurses"
 
+  # Backport for OpenSSL 4.0
+  patch do
+    url "https://github.com/sdaoden/s-mailx/commit/74761c6283f6fbd0f03e5e385323ee65c0ed0a9f.patch?full_index=1"
+    sha256 "542b0c525bce108126f2f0545564e0195483dd58101986dae7171f6f5c6da23f"
+    type :backport
+  end
+
+  deny_network_access!
+
   def install
     system "make", "CC=#{ENV.cc}",
-                   "C_INCLUDE_PATH=#{formula_opt_include("openssl@3")}",
-                   "LDFLAGS=-L#{formula_opt_lib("openssl@3")}",
+                   "C_INCLUDE_PATH=#{formula_opt_include("openssl@4")}",
+                   "LDFLAGS=-L#{formula_opt_lib("openssl@4")}",
                    "VAL_PREFIX=#{prefix}",
                    "OPT_DOTLOCK=no",
                    "config"
