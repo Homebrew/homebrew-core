@@ -4,6 +4,7 @@ class Simdutf < Formula
   url "https://github.com/simdutf/simdutf/archive/refs/tags/v9.2.1.tar.gz"
   sha256 "582f9d0dcf578f6d4766fa29ea12a7f2f02bd3c6ad9e0cf35a8e0ec8478eba4b"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   compatibility_version 5
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
@@ -29,6 +30,7 @@ class Simdutf < Formula
   deny_network_access!
 
   def install
+    # C++20 is needed by `node`
     args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
@@ -36,6 +38,7 @@ class Simdutf < Formula
       -DCPM_LOCAL_PACKAGES_ONLY=ON
       -DPython3_EXECUTABLE=#{which("python3")}
       -DSIMDUTF_BENCHMARKS=ON
+      -DSIMDUTF_CXX_STANDARD=20
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
