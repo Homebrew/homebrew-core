@@ -4,6 +4,7 @@ class Qsv < Formula
   url "https://github.com/dathere/qsv/archive/refs/tags/23.0.1.tar.gz"
   sha256 "90dcf4853a91184411c8f92cbe8e438769965cafa7b445f6b1de933a3e845b04"
   license any_of: ["MIT", "Unlicense"]
+  revision 1
   head "https://github.com/dathere/qsv.git", branch: "master"
 
   # There can be a notable gap between when a version is tagged and a
@@ -28,6 +29,7 @@ class Qsv < Formula
 
   on_linux do
     depends_on "libmagic"
+    depends_on "openssl@4" # native-tls for the `viz_static` webdriver client
   end
 
   def install
@@ -35,13 +37,33 @@ class Qsv < Formula
     # see discussion at https://github.com/briansmith/ring/discussions/2528#discussioncomment-13196576
     ENV.append_to_rustflags "-C target-cpu=apple-m1" if OS.mac? && Hardware::CPU.arm?
 
-    features = %w[apply fetch foreach geocode lens luau to feature_capable]
+    # Work around SIGKILL on arm64 linux runner from fat LTO
+    github_arm64_linux = OS.linux? && Hardware::CPU.arm? &&
+                         ENV["HOMEBREW_GITHUB_ACTIONS"].present? &&
+                         ENV["GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED"].blank?
+    ENV["CARGO_PROFILE_RELEASE_LTO"] = "thin" if github_arm64_linux
+
+    # Build `viz_static` without plotly's build-time webdriver download and default the
+    # runtime driver to the `chromedriver` cask (`WEBDRIVER_PATH` overrides it)
+    inreplace "Cargo.toml", '"plotly/static_export_default", "webdriver-downloader"',
+                            '"plotly/static_export_chromedriver"'
+    ENV["WEBDRIVER_DOWNLOAD_PATH"] = HOMEBREW_PREFIX/"bin/chromedriver"
+
+    features = %w[distrib_features lens]
     system "cargo", "install", *std_cargo_args(features:)
 
     bash_completion.install "contrib/completions/examples/qsv.bash" => "qsv"
     fish_completion.install "contrib/completions/examples/qsv.fish"
     zsh_completion.install "contrib/completions/examples/qsv.zsh" => "_qsv"
     pwsh_completion.install "contrib/completions/examples/qsv.ps1" => "qsv"
+  end
+
+  def caveats
+    <<~EOS
+      `qsv viz` image export (PNG/SVG/PDF) needs Google Chrome and ChromeDriver:
+        brew install --cask google-chrome chromedriver
+      or set WEBDRIVER_PATH to an existing chromedriver binary.
+    EOS
   end
 
   test do
