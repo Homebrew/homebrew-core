@@ -20,6 +20,7 @@ class AdaUrl < Formula
   depends_on "cmake" => :build
   depends_on "cxxopts" => :build
   depends_on "fmt"
+  depends_on "simdutf"
 
   uses_from_macos "python" => :build
 
@@ -47,11 +48,14 @@ class AdaUrl < Formula
     # Do not statically link to libstdc++
     inreplace "tools/cli/CMakeLists.txt", 'target_link_options(adaparse PRIVATE "-static-libstdc++")', "" if OS.linux?
 
+    # CPM/FetchContent args are to allow using our newer `simdutf`
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DBUILD_SHARED_LIBS=ON
       -DADA_TOOLS=ON
-      -DCPM_LOCAL_PACKAGES_ONLY=ON
+      -DADA_USE_SIMDUTF=ON
+      -DCPM_USE_LOCAL_PACKAGES=ON
+      -DHOMEBREW_ALLOW_FETCHCONTENT=ON
       -DFETCHCONTENT_FULLY_DISCONNECTED=ON
     ]
 
