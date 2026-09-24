@@ -16,3 +16,4 @@ class NobetciEczane < Formula
     assert_match "nobetci-eczane CLI v1.0.0", shell_output("#{bin}/nobetci-eczane version")
   end
 end
+
