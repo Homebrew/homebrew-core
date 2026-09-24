@@ -19,14 +19,20 @@ class Gerust < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     system "cargo", "install", *std_cargo_args
   end
@@ -41,8 +47,8 @@ class Gerust < Formula
     assert_match "Could not generate project!", output
 
     [
-      formula_opt_lib("openssl@3")/shared_library("libssl"),
-      formula_opt_lib("openssl@3")/shared_library("libcrypto"),
+      formula_opt_lib("openssl@4")/shared_library("libssl"),
+      formula_opt_lib("openssl@4")/shared_library("libcrypto"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"gerust", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
