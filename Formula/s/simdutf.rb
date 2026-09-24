@@ -14,11 +14,11 @@ class Simdutf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "6cea4a0e1a36a9cb2544c351faeead95e6d2dd8fd5ea6708395ecf6faa47d194"
-    sha256 cellar: :any, arm64_tahoe:       "3810122aee9ff7053e475c1f9d87798751fec068426abddc59b0f5f98f83cd5a"
-    sha256 cellar: :any, arm64_sequoia:     "0969ca3ea9bb8eefca86e143e56d848ec0bdbc1e0a752cd3f1734f3e13ba90ac"
-    sha256 cellar: :any, arm64_linux:       "edc9a5846a643b63d352f918cd684deee47f3b1f7bf699bf91b124bf02a69630"
-    sha256 cellar: :any, x86_64_linux:      "567605ef26e0b6e3e2dccb6ff3af810fcc1971a48225f0b042511566922f58b9"
+    sha256 cellar: :any, arm64_golden_gate: "8837197b5daab1485f6ce8d84378a4c19ff6c4b231d0f2acc4ec1f77d0f7bc6d"
+    sha256 cellar: :any, arm64_tahoe:       "22146fb0b58fa587e88bc67bb780e05ca96f343e601c0356c28d98b37b038367"
+    sha256 cellar: :any, arm64_sequoia:     "0ad7aade58c0fd5fa56327b8efda8f663334109f00d4e03629195f46d8c021f7"
+    sha256 cellar: :any, arm64_linux:       "7cb7fa0f90497b4587ae301e8e57da2ac76285305c8ac8d60c5beaf55cbd5709"
+    sha256 cellar: :any, x86_64_linux:      "610ab653454d0d358f4a6b5a69e2e1346379f7ac0f966abf26eb10c4cbbb7a08"
   end
 
   depends_on "aklomp-base64" => :build
