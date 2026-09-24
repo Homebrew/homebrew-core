@@ -15,9 +15,7 @@ class Skip < Formula
   end
 
   depends_on "gradle"
-  # TODO: Switch back to `openjdk` together with `gradle`, which runs on `openjdk@25`
-  # until Gradle supports JDK 27; mixing both in one dependency tree fails `brew audit`.
-  depends_on "openjdk@25"
+  depends_on "openjdk"
   depends_on "swiftly"
 
   uses_from_macos "swift" => [:build, :test]
