@@ -14,7 +14,7 @@ class Gitbucket < Formula
     depends_on "sbt" => :build
   end
 
-  depends_on "openjdk"
+  depends_on "openjdk@25"
 
   def install
     if build.head?
@@ -33,7 +33,7 @@ class Gitbucket < Formula
 
   service do
     run [
-      formula_opt_bin("openjdk")/"java",
+      formula_opt_bin("openjdk@25")/"java",
       "-Dmail.smtp.starttls.enable=true",
       "-jar",
       opt_libexec/"gitbucket.war",
@@ -43,7 +43,7 @@ class Gitbucket < Formula
   end
 
   test do
-    java = formula_opt_bin("openjdk")/"java"
+    java = formula_opt_bin("openjdk@25")/"java"
     fork do
       $stdout.reopen(testpath/"output")
       exec "#{java} -jar #{libexec}/gitbucket.war --port=#{free_port}"
