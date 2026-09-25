@@ -6,6 +6,7 @@ class OpensslAT3 < Formula
   mirror "http://deb.debian.org/debian/pool/main/o/openssl/openssl_3.6.4.orig.tar.gz"
   sha256 "9bffaa1ad1e07b354c21bd3324ec02fa15579f45a7d0494b3e74bc449b7333ef"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -21,6 +22,8 @@ class OpensslAT3 < Formula
     sha256 arm64_linux:       "e0f84cb8ab776813a17750423a6ce1b75b870df3ab2c21c54df9ce02646c1e1c"
     sha256 x86_64_linux:      "73c4159878b98d82e6f4e343ef34a79b74ca2224927d38c0956ce3ea781d6d20"
   end
+
+  keg_only :versioned_formula
 
   depends_on "ca-certificates" => :no_linkage
 
@@ -43,11 +46,6 @@ class OpensslAT3 < Formula
       sha256 "43b33c20f8d82dba7cc48f8cd702f8fc9811e9d07880886dfd31b7077bd4a3a6"
     end
   end
-
-  link_overwrite "bin/c_rehash", "bin/openssl", "include/openssl/*"
-  link_overwrite "lib/libcrypto*", "lib/libssl*"
-  link_overwrite "lib/pkgconfig/libcrypto.pc", "lib/pkgconfig/libssl.pc", "lib/pkgconfig/openssl.pc"
-  link_overwrite "share/doc/openssl/*", "share/man/man*/*ssl"
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
