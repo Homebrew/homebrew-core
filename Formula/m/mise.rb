@@ -27,30 +27,44 @@ class Mise < Formula
   uses_from_macos "bzip2"
 
   on_linux do
+    depends_on "lld" => :build
     depends_on "openssl@4"
   end
 
-  # downloads crates during install and binaries in the test
-  deny_network_access! :postinstall
+  # `test do` block downloads tool binaries
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
-    # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4") if OS.linux?
+    # Work around SIGKILL on arm64 linux runner from full LTO
+    github_arm64_linux = OS.linux? && Hardware::CPU.arm? &&
+                         ENV["HOMEBREW_GITHUB_ACTIONS"].present? &&
+                         ENV["GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED"].blank?
+    ENV["CARGO_PROFILE_RELEASE_LTO"] = "thin" if github_arm64_linux
+    if OS.linux?
+      ENV.append_to_rustflags "-C link-arg=-fuse-ld=lld"
+      # Ensure that the `openssl` crate picks up the intended library.
+      ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    end
 
-    system "cargo", "install", *std_cargo_args
+    # mise currently requires the vendored version of Lua 5.1 to be built
+    # https://github.com/jdx/mise/discussions/13290
+    features = %w[native-tls vfox/vendored-lua]
+    system "cargo", "install", "--profile=serious",
+                               "--no-default-features",
+                               *std_cargo_args(features:)
     man1.install "man/man1/mise.1"
-    lib.mkpath
-    touch lib/".disable-self-update"
-    (share/"fish/vendor_conf.d/mise-activate.fish").write <<~FISH
-      if [ "$MISE_FISH_AUTO_ACTIVATE" != "0" ]
-        #{opt_bin}/mise activate fish | source
-      end
-    FISH
+    inreplace "share/fish/vendor_conf.d/mise-activate.fish", "mise", opt_bin/"mise"
+    (share/"fish/vendor_conf.d").install "share/fish/vendor_conf.d/mise-activate.fish"
 
     # Untrusted config path problem, `generate_completions_from_executable` is not usable
     bash_completion.install "completions/mise.bash" => "mise"
-    fish_completion.install "completions/mise.fish"
     zsh_completion.install "completions/_mise"
+    fish_completion.install "completions/mise.fish"
+    pwsh_completion.install "completions/mise.ps1" => "_mise.ps1"
   end
 
   def caveats
