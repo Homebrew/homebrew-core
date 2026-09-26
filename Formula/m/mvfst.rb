@@ -4,6 +4,7 @@ class Mvfst < Formula
   url "https://github.com/facebook/mvfst/archive/refs/tags/v2026.09.21.00.tar.gz"
   sha256 "27a5e5b1244077af58ba92ead2c3a866fcfcbc46fdb9ca2114e44a68d5c4e2ae"
   license "MIT"
+  revision 1
   compatibility_version 1
   head "https://github.com/facebook/mvfst.git", branch: "main"
 
@@ -58,10 +59,11 @@ class Mvfst < Formula
         quic/common/test/TestTransportUtils.cpp
       )
       target_link_libraries(echo mvfst::mvfst fizz::fizz_test_support GTest::gmock)
-      target_include_directories(echo PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+      target_include_directories(echo PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${OPENSSL_INCLUDE_DIR})
       set_target_properties(echo PROPERTIES BUILD_RPATH "#{lib};#{HOMEBREW_PREFIX}/lib")
     CMAKE
 
+    ENV.append_path "CMAKE_PREFIX_PATH", formula_opt_prefix("openssl@3")
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
 
