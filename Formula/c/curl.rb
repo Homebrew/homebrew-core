@@ -8,6 +8,7 @@ class Curl < Formula
   mirror "http://fresh-center.net/linux/www/legacy/curl-8.22.0.tar.bz2"
   sha256 "5d956a6a22b3c279f50c421ee5d3c9e9d660cb6f115dcf881b579e952130549c"
   license "curl"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -41,7 +42,7 @@ class Curl < Formula
   depends_on "libngtcp2"
   depends_on "libpsl"
   depends_on "libssh2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   uses_from_macos "krb5"
@@ -72,7 +73,7 @@ class Curl < Formula
 
     args = %W[
       --disable-silent-rules
-      --with-ssl=#{formula_opt_prefix("openssl@3")}
+      --with-ssl=#{formula_opt_prefix("openssl@4")}
       --without-ca-bundle
       --without-ca-path
       --with-ca-fallback
@@ -137,7 +138,7 @@ class Curl < Formula
     assert_path_exists testpath/"certdata.txt"
 
     ENV["PKG_CONFIG_PATH"] = lib/"pkgconfig"
-    ENV.append_path "PKG_CONFIG_PATH", formula_opt_lib("openssl@3")/"pkgconfig"
+    ENV.append_path "PKG_CONFIG_PATH", formula_opt_lib("openssl@4")/"pkgconfig"
     system "pkgconf", "--cflags", "libcurl"
   end
 end
