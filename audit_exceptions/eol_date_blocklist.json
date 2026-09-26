@@ -1,5 +1,6 @@
 {
   "cake": true,
+  "julia": true,
   "mac": true,
   "spark": true
 }
