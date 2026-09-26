@@ -25,6 +25,7 @@ class Krb5 < Formula
     "OpenVision",
     any_of: ["BSD-2-Clause", "GPL-2.0-or-later"],
   ]
+  revision 2
   compatibility_version 1
 
   livecheck do
@@ -44,7 +45,7 @@ class Krb5 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "bison" => :build
 
