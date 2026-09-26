@@ -1,11 +1,37 @@
 class Thrift < Formula
   desc "Framework for scalable cross-language services development"
   homepage "https://thrift.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=thrift/0.24.0/thrift-0.24.0.tar.gz"
-  mirror "https://archive.apache.org/dist/thrift/0.24.0/thrift-0.24.0.tar.gz"
-  sha256 "e0fa5839a4c5c1d631b0931cf2c554ebbfa4e2fee3a9fb3ffd4f82ce4396c6e4"
   license "Apache-2.0"
+  revision 1
   compatibility_version 3
+
+  stable do
+    url "https://www.apache.org/dyn/closer.lua?path=thrift/0.24.0/thrift-0.24.0.tar.gz"
+    mirror "https://archive.apache.org/dist/thrift/0.24.0/thrift-0.24.0.tar.gz"
+    sha256 "e0fa5839a4c5c1d631b0931cf2c554ebbfa4e2fee3a9fb3ffd4f82ce4396c6e4"
+
+    # Backport support for OpenSSL 4
+    patch do
+      url "https://github.com/apache/thrift/commit/d586077a37e14446cf385893608ea9e60a59d083.patch?full_index=1"
+      sha256 "701ad5a1a24283338927282ad6fb7b85a3c82f36c4eaae7842f8a2d9887b5971"
+      type :backport
+    end
+    patch do
+      url "https://github.com/apache/thrift/commit/cd199715b7da0ae036f606fe55a3b3fe8cbc4866.patch?full_index=1"
+      sha256 "31c478e39294b2fff86f76fb8e428e0c8f5921d7c4f334d10619fc0233c11335"
+      type :backport
+    end
+    patch do
+      url "https://github.com/apache/thrift/commit/f51d97b68fb6c8a2c907d22b9e8189a90603ba0c.patch?full_index=1"
+      sha256 "7c8a53c3111ba4a806b34005b1f2cd16a1fde34662677c41327daa160abaa2d0"
+      type :backport
+    end
+    patch do
+      url "https://github.com/apache/thrift/commit/edf0020f08599b0c62436678c3f21645201d2560.patch?full_index=1"
+      sha256 "2e0b1df359a5e6418a342c9206ac3dc38064a7013460ff98739e0cb0bd4943ce"
+      type :backport
+    end
+  end
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "9cf20e9b0fc582ac22978fdf11b22c933293d633e06646638cb28fac6846be1c"
@@ -28,7 +54,7 @@ class Thrift < Formula
 
   depends_on "bison" => :build
   depends_on "boost" => [:build, :test]
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
@@ -42,7 +68,7 @@ class Thrift < Formula
       --disable-tests
       --prefix=#{prefix}
       --libdir=#{lib}
-      --with-openssl=#{formula_opt_prefix("openssl@3")}
+      --with-openssl=#{formula_opt_prefix("openssl@4")}
       --without-java
       --without-kotlin
       --without-python
