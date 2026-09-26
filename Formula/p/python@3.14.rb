@@ -4,6 +4,7 @@ class PythonAT314 < Formula
   url "https://www.python.org/ftp/python/3.14.7/Python-3.14.7.tgz"
   sha256 "62859805f6fdf25e2bcbf3fa3217801e1996887ca33e6a2af80674bdfa2dbe07"
   license "Python-2.0"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -44,22 +45,8 @@ class PythonAT314 < Formula
     depends_on "zlib-ng-compat"
   end
 
-  link_overwrite "bin/idle3"
-  link_overwrite "bin/pip3"
-  link_overwrite "bin/pydoc3"
-  link_overwrite "bin/python3"
-  link_overwrite "bin/python3-config"
-  link_overwrite "bin/wheel3"
-  link_overwrite "share/man/man1/python3.1"
-  link_overwrite "lib/libpython3.so"
-  link_overwrite "lib/pkgconfig/python3.pc"
-  link_overwrite "lib/pkgconfig/python3-embed.pc"
   link_overwrite "lib/python3.14/site-packages/pip*"
   link_overwrite "lib/python3.14/site-packages/wheel*"
-  link_overwrite "Frameworks/Python.framework/Headers"
-  link_overwrite "Frameworks/Python.framework/Python"
-  link_overwrite "Frameworks/Python.framework/Resources"
-  link_overwrite "Frameworks/Python.framework/Versions/Current"
 
   pypi_packages package_name:   "",
                 extra_packages: %w[flit-core pip wheel]
@@ -475,11 +462,14 @@ class PythonAT314 < Formula
 
     <<~EOS
       Python is installed as
-        #{HOMEBREW_PREFIX}/bin/python3
+        #{HOMEBREW_PREFIX}/bin/python#{version.major_minor}
 
-      Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
-      `python3`, `python3-config`, `pip3` etc., respectively, are installed into
+      Unversioned and major-versioned symlinks `python`, `python3`, `python-config`, `python3-config`, `pip`, `pip3`, etc. pointing to
+      `python#{version.major_minor}`, `python#{version.major_minor}-config`, `pip#{version.major_minor}` etc., respectively, are installed into
         #{opt_libexec}/bin
+
+      If you do not need a specific version of Python, and always want Homebrew's `python3` in your PATH:
+        brew install python3
 
       `idle#{version.major_minor}` requires tkinter, which is available separately:
         brew install python-tk@#{version.major_minor}
