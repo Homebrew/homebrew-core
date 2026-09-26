@@ -4,6 +4,7 @@ class PythonAT314 < Formula
   url "https://www.python.org/ftp/python/3.14.8/Python-3.14.8.tgz"
   sha256 "a65b20a728f169f4e66ae143f40b1bd3d33c38d770251663f627c9767b79b210"
   license "Python-2.0"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -27,7 +28,7 @@ class PythonAT314 < Formula
   depends_on "pkgconf" => :build
   depends_on "ca-certificates" => :no_linkage
   depends_on "mpdecimal"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "sqlite"
   depends_on "xz"
   depends_on "zstd"
