@@ -5,6 +5,7 @@ class TclTk < Formula
   mirror "https://fossies.org/linux/misc/tcl9.0.4-src.tar.gz"
   sha256 "d0aed49230bc02a65c1e0229e65f34590a4b037ec40d546f32573b467f7551ea"
   license "TCL"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -23,7 +24,7 @@ class TclTk < Formula
   end
 
   depends_on "libtommath"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "freetype" => :build
@@ -57,12 +58,12 @@ class TclTk < Formula
   end
 
   resource "tcltls" do
-    url "https://core.tcl-lang.org/tcltls/uv/tcltls-2.0-src.tar.gz"
-    sha256 "f1fa46067984c4096976f04f131fdea54c07ba45ce2b03a0697a0ea801e3a23a"
+    url "https://core.tcl-lang.org/tcltls/uv/tcltls2.0.1.tar.gz"
+    sha256 "afffeb5de1978f47745db4804c1dfdcd6605ceac32e324fe8bbe49843de0baae"
 
     livecheck do
       url "https://core.tcl-lang.org/tcltls/wiki/Download"
-      regex(/href=.*?tcltls[._-]v?(\d+(?:\.\d+)+)(?:[._-]src)?\.t/i)
+      regex(/href=.*?tcltls[._-]?v?(\d+(?:\.\d+)+)(?:[._-]src)?\.t/i)
     end
   end
 
@@ -150,7 +151,7 @@ class TclTk < Formula
     end
 
     resource("tcltls").stage do
-      system "./configure", "--with-openssl-dir=#{formula_opt_prefix("openssl@3")}",
+      system "./configure", "--with-openssl-dir=#{formula_opt_prefix("openssl@4")}",
                             "--prefix=#{prefix}",
                             "--with-tcl=#{lib}",
                             "--with-tclinclude=#{include}/tcl-tk",
