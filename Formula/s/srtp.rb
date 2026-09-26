@@ -4,6 +4,7 @@ class Srtp < Formula
   url "https://github.com/cisco/libsrtp/archive/refs/tags/v2.8.1.tar.gz"
   sha256 "ef5569220749529d778013aae1178391d972570a2b4f7288dda22effa875b07c"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
   head "https://github.com/cisco/libsrtp.git", branch: "main"
 
@@ -21,7 +22,7 @@ class Srtp < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   deny_network_access!
 
