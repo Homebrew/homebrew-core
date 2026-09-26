@@ -6,7 +6,7 @@ class Libssh2 < Formula
   mirror "http://download.openpkg.org/components/cache/libssh2/libssh2-1.11.1.tar.gz"
   sha256 "d9ec76cbe34db98eec3539fe2c899d26b0c837cb3eb466a56b0f109cabf658f7"
   license "BSD-3-Clause"
-  revision 5
+  revision 6
   compatibility_version 1
 
   livecheck do
@@ -30,7 +30,7 @@ class Libssh2 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
@@ -138,7 +138,7 @@ class Libssh2 < Formula
       --disable-examples-build
       --with-openssl
       --with-libz
-      --with-libssl-prefix=#{formula_opt_prefix("openssl@3")}
+      --with-libssl-prefix=#{formula_opt_prefix("openssl@4")}
     ]
 
     system "./buildconf" if build.head?
