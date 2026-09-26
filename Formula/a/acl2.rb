@@ -4,7 +4,7 @@ class Acl2 < Formula
   url "https://github.com/acl2/acl2/archive/refs/tags/8.7.tar.gz"
   sha256 "d6013c22e190cbd702870d296b5370a068c14625bf7f9d305d2d87292b594d52"
   license "BSD-3-Clause"
-  revision 6
+  revision 7
 
   livecheck do
     url :stable
