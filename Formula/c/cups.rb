@@ -6,6 +6,7 @@ class Cups < Formula
   url "https://github.com/OpenPrinting/cups/releases/download/v2.4.19/cups-2.4.19-source.tar.gz"
   sha256 "820984b12a67f98705785aae2dd1347fe0ac097828001d4583ff64574aed6389"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
   head "https://github.com/OpenPrinting/cups.git", branch: "master"
 
   livecheck do
@@ -26,7 +27,7 @@ class Cups < Formula
   keg_only :provided_by_macos
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
