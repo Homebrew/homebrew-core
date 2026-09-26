@@ -5,6 +5,7 @@ class Openldap < Formula
   mirror "http://mirror.koddos.net/OpenLDAP/openldap-release/openldap-2.7.1.tgz"
   sha256 "253db80f301258ea69cda1184766d57395b836aaabf41157eb0316eb0fac1341"
   license "OLDAP-2.8"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -23,7 +24,7 @@ class Openldap < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "mandoc" => :build
   uses_from_macos "cyrus-sasl"
