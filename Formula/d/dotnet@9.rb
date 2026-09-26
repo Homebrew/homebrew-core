@@ -141,6 +141,19 @@ class DotnetAT9 < Formula
     libexec.mkpath
     tarball = buildpath.glob("artifacts/*/Release/dotnet-sdk-*.tar.gz").first
     system "tar", "--extract", "--file", tarball, "--directory", libexec
+
+    if OS.linux?
+      # Source-only builds default `KeepNativeSymbols` to true, so the native
+      # binaries keep their DWARF. That leaves build paths in the binaries and
+      # adds hundreds of MB to the x86_64 bottle. Upstream asks packagers to
+      # strip downstream rather than flip that switch, see
+      # https://github.com/dotnet/source-build/blob/main/Documentation/debugging-support.md
+      # `--strip-debug` keeps `.symtab`, so native frames still symbolise, and
+      # unlike an `--only-keep-debug` split it leaves no `.dbg` files behind.
+      native_binaries = libexec.glob("**/*").select { |path| path.file? && path.elf? }
+      system "strip", "--strip-debug", "--preserve-dates", *native_binaries
+    end
+
     doc.install libexec.glob("*.txt")
     (bin/"dotnet").write_env_script libexec/"dotnet", DOTNET_ROOT: libexec
 
