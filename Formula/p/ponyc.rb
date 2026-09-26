@@ -5,6 +5,7 @@ class Ponyc < Formula
       tag:      "0.72.1",
       revision: "de5eddd973a48689ceedd12d24bf42358e5694d5"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     rebuild 1
