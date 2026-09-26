@@ -4,6 +4,7 @@ class PerconaXtrabackup < Formula
   url "https://downloads.percona.com/downloads/Percona-XtraBackup-8.4/Percona-XtraBackup-8.4.0-7/source/tarball/percona-xtrabackup-8.4.0-7.tar.gz"
   sha256 "177ee52757d6e702b082b033e4562d680ed8f6dfa24d8cdad13005e48db65e18"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://www.percona.com/wp-admin/admin-ajax.php", post_form: {
