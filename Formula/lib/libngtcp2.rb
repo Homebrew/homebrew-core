@@ -5,6 +5,7 @@ class Libngtcp2 < Formula
   mirror "http://fresh-center.net/linux/www/ngtcp2-1.25.0.tar.xz"
   sha256 "2a34d2484ba17847a5d11965704e9dd0fac4c6d8efc75ffe1ec7de66d8c6b6fb"
   license "MIT"
+  revision 1
   compatibility_version 1
   head "https://github.com/ngtcp2/ngtcp2.git", branch: "main"
 
@@ -18,7 +19,7 @@ class Libngtcp2 < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   deny_network_access!
 
