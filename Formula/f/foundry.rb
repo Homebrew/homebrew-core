@@ -30,6 +30,7 @@ class Foundry < Formula
   end
 
   conflicts_with "chisel-tunnel", because: "both install `chisel` binaries"
+  conflicts_with "chisel-ubuntu", because: "both install `chisel` binaries"
   conflicts_with "jboss-forge", because: "both install `forge` binaries"
 
   def install
