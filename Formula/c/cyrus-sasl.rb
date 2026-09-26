@@ -5,7 +5,7 @@ class CyrusSasl < Formula
   mirror "http://fresh-center.net/linux/misc/cyrus-sasl-2.1.28.tar.gz"
   sha256 "7ccfc6abd01ed67c1a0924b353e526f1b766b21f42d4562ee635a8ebfc5bb38c"
   license "BSD-3-Clause-Attribution"
-  revision 2
+  revision 4
 
   bottle do
     sha256 arm64_golden_gate: "ba3c79e3b147b2c7a1851aa8327e697a01817cce40b7a469f28d890cd8cf0de2"
@@ -34,7 +34,7 @@ class CyrusSasl < Formula
   keg_only :provided_by_macos
 
   depends_on "krb5"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "libxcrypt"
 
