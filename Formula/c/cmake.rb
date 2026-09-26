@@ -6,6 +6,7 @@ class Cmake < Formula
   mirror "http://fresh-center.net/linux/misc/legacy/cmake-4.4.3.tar.gz"
   sha256 "c46400618b4f1f2b43507f24fb22f3ae830c3416cf23b776e16e1d413aa892f0"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
   head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
 
@@ -32,7 +33,7 @@ class Cmake < Formula
   uses_from_macos "ncurses"
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   deny_network_access!
