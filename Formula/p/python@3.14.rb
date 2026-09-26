@@ -4,6 +4,7 @@ class PythonAT314 < Formula
   url "https://www.python.org/ftp/python/3.14.7/Python-3.14.7.tgz"
   sha256 "62859805f6fdf25e2bcbf3fa3217801e1996887ca33e6a2af80674bdfa2dbe07"
   license "Python-2.0"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -29,7 +30,7 @@ class PythonAT314 < Formula
 
   depends_on "pkgconf" => :build
   depends_on "mpdecimal"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "sqlite"
   depends_on "xz"
   depends_on "zstd"
@@ -82,6 +83,38 @@ class PythonAT314 < Formula
   resource "wheel" do
     url "https://files.pythonhosted.org/packages/39/62/75f18a0f03b4219c456652c7780e4d749b929eb605c098ce3a5b6b6bc081/wheel-0.47.0.tar.gz"
     sha256 "cc72bd1009ba0cf63922e28f94d9d83b920aa2bb28f798a31d0691b02fa3c9b3"
+  end
+
+  # Backports needed for OpenSSL 4 support
+  # https://github.com/python/cpython/issues/148600
+  patch do
+    url "https://github.com/python/cpython/commit/3364e7e62fa24d0e19133fb0f90b1c24ef1110c5.patch?full_index=1"
+    sha256 "3b52614eea77dfdb527ace4e734dfe396c99af9176f7ee9ae0ab03a70df2de3f"
+    type :backport
+    resolves "https://github.com/python/cpython/pull/146217"
+  end
+  patch do
+    url "https://github.com/python/cpython/commit/c5e4ae03004767104dcf2d2c7b19f663700cc129.patch?full_index=1"
+    sha256 "f2f6c479b6251cef684c71a5c89ca2fbae0180f813e5a84f1d88b735f3a6e171"
+    type :backport # using https://github.com/python/cpython/pull/149783
+    resolves "https://github.com/python/cpython/pull/148601"
+  end
+  patch do
+    url "https://github.com/python/cpython/commit/3c2a3014af7d73cc34f2498f60fdf863d9bc7c6c.patch?full_index=1"
+    sha256 "8a8cdbeb9fd127926599ff0fe8d25a28325cf31dba041de7c1dd9ed69efd327d"
+    type :backport # using https://github.com/python/cpython/pull/149783
+    resolves "https://github.com/python/cpython/pull/149102"
+  end
+  patch do
+    url "https://github.com/python/cpython/commit/1e21cf6fee3830012e458c0fe5dbc6fcd45ace92.patch?full_index=1"
+    sha256 "5526b5b6158e07d18c3c657dc4ad6753321c81f7b6c08c1d005e7625764d6f6d"
+    type :backport
+    resolves "https://github.com/python/cpython/pull/149366"
+  end
+  patch do
+    file "Patches/python/pr-149356.diff"
+    type :backport
+    resolves "https://github.com/python/cpython/pull/149356"
   end
 
   # Modify default sysconfig to match the brew install layout.
@@ -138,7 +171,7 @@ class PythonAT314 < Formula
       --datadir=#{share}
       --without-ensurepip
       --enable-loadable-sqlite-extensions
-      --with-openssl=#{formula_opt_prefix("openssl@3")}
+      --with-openssl=#{formula_opt_prefix("openssl@4")}
       --enable-optimizations
       --with-system-expat
       --with-system-libmpdec
@@ -177,7 +210,7 @@ class PythonAT314 < Formula
     # `brew install enchant && pip install pyenchant`
     inreplace "./Lib/ctypes/macholib/dyld.py" do |f|
       f.gsub! "DEFAULT_LIBRARY_FALLBACK = [",
-              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{formula_opt_lib("openssl@3")}',"
+              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{formula_opt_lib("openssl@4")}',"
       f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
     end
 

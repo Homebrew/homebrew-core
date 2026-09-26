@@ -1,0 +1,22 @@
+diff --git a/Lib/test/test_poplib.py b/Lib/test/test_poplib.py
+index 18ca7cb556836e673f5038587835c1eb995bf733..f08b945c8f57e5d07dfa4cfe41fd8c2d21b0c331 100644
+--- a/Lib/test/test_poplib.py
++++ b/Lib/test/test_poplib.py
+@@ -185,7 +185,8 @@ def _do_tls_handshake(self):
+                 elif err.args[0] == ssl.SSL_ERROR_EOF:
+                     return self.handle_close()
+                 # TODO: SSLError does not expose alert information
+-                elif ("SSLV3_ALERT_BAD_CERTIFICATE" in err.args[1] or
++                elif ("TLS_ALERT_BAD_CERTIFICATE" in err.args[1] or
++                      "SSLV3_ALERT_BAD_CERTIFICATE" in err.args[1] or
+                       "SSLV3_ALERT_CERTIFICATE_UNKNOWN" in err.args[1]):
+                     return self.handle_close()
+                 raise
+@@ -423,6 +424,7 @@ def test_stls_context(self):
+         self.assertEqual(ctx.check_hostname, True)
+         with self.assertRaises(ssl.CertificateError):
+             resp = self.client.stls(context=ctx)
++
+         self.client = poplib.POP3("localhost", self.server.port,
+                                   timeout=test_support.LOOPBACK_TIMEOUT)
+         resp = self.client.stls(context=ctx)
