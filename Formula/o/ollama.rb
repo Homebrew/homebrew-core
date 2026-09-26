@@ -5,6 +5,7 @@ class Ollama < Formula
       tag:      "v0.34.4",
       revision: "b2da9e468af2479058ae18c6d908ed29de410684"
   license "MIT"
+  revision 1
   head "https://github.com/ollama/ollama.git", branch: "main"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -29,7 +30,9 @@ class Ollama < Formula
 
   on_macos do
     on_arm do
+      depends_on "dlpack" => :build
       depends_on "mlx-c" => :no_linkage
+      depends_on "xgrammar" => :build
 
       # Build with the mlx-c bindings for tagged MLX 0.32.1. Upstream targets a later MLX commit:
       # https://github.com/ollama/ollama/commit/0bb09259203ff8f6d361faae1d40c4f83d2a99f7
@@ -119,8 +122,22 @@ class Ollama < Formula
     # The mlx runner dlopens MLX libraries from `<exe_dir>/lib/ollama/mlx_*/`.
     # Using `opt` keeps the link stable across mlx-c version bumps.
     if OS.mac? && Hardware::CPU.arm?
-      (libexec/"lib/ollama/mlx_metal_v3").mkpath
-      ln_sf formula_opt_lib("mlx-c")/"libmlxc.dylib", libexec/"lib/ollama/mlx_metal_v3/libmlxc.dylib"
+      # `mlx` bottles on macOS 26+ carry the NAX (Metal 4) kernels, and the
+      # runner skips `mlx_metal_v4` directories on older systems.
+      metal_dir = if MacOS.version >= :tahoe
+        "lib/ollama/mlx_metal_v4"
+      else
+        "lib/ollama/mlx_metal_v3"
+      end
+      (libexec/metal_dir).mkpath
+      ln_sf formula_opt_lib("mlx-c")/"libmlxc.dylib", libexec/metal_dir/"libmlxc.dylib"
+
+      # The runner loads the structured output library from next to libmlxc
+      system "cmake", "-S", "mlxrunner/xgrammar/native", "-B", "build-xgrammar",
+                      "-DXGRAMMAR_VERSION=v#{Formula["xgrammar"].version}",
+                      *std_cmake_args(install_prefix: libexec, install_libdir: metal_dir)
+      system "cmake", "--build", "build-xgrammar"
+      system "cmake", "--install", "build-xgrammar"
     end
   end
 
@@ -162,9 +179,43 @@ class Ollama < Formula
 
     # Test MLX (Apple silicon only)
     if OS.mac? && Hardware::CPU.arm?
-      output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/ollama --help 2>&1")
+      output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/ollama --help 2>&1").scrub
       assert_match "libmlxc.dylib", output
       assert_match "libmlx.dylib", output
+
+      metal_dir = if MacOS.version >= :tahoe
+        libexec/"lib/ollama/mlx_metal_v4"
+      else
+        libexec/"lib/ollama/mlx_metal_v3"
+      end
+
+      # Compile a JSON schema grammar with the structured output library
+      (testpath/"xgrammar.c").write <<~C
+        #include <stdint.h>
+        #include <stdio.h>
+        #include <string.h>
+
+        const char *ollama_xgrammar_last_error(void);
+        int ollama_xgrammar_compiler_new(const char *, size_t, const uint64_t *, size_t, int32_t,
+                                         const int32_t *, size_t, int32_t, int64_t, void **);
+        int ollama_xgrammar_matcher_new(void *, const char *, size_t, void **);
+
+        int main(void) {
+          const uint64_t offsets[] = {4, 9};
+          const int32_t stop = 1;
+          const char tag[] = "{\\"type\\":\\"structural_tag\\",\\"format\\":"
+                             "{\\"type\\":\\"json_schema\\",\\"json_schema\\":{\\"type\\":\\"boolean\\"}}}";
+          void *compiler, *matcher;
+          if (ollama_xgrammar_compiler_new("true<eos>", 9, offsets, 2, 2, &stop, 1, 1, 0, &compiler) ||
+              ollama_xgrammar_matcher_new(compiler, tag, strlen(tag), &matcher)) {
+            fprintf(stderr, "%s\\n", ollama_xgrammar_last_error());
+            return 1;
+          }
+          return 0;
+        }
+      C
+      system ENV.cc, "xgrammar.c", "-L#{metal_dir}", "-lollama_xgrammar", "-Wl,-rpath,#{metal_dir}", "-o", "xgrammar"
+      system "./xgrammar"
     end
 
     # Check llama-server binary; it needs a model as upstream builds it without router mode support
