@@ -4,6 +4,7 @@ class PerconaServer < Formula
   url "https://downloads.percona.com/downloads/Percona-Server-9.7/Percona-Server-9.7.1-1/source/tarball/percona-server-9.7.1-1.tar.gz"
   sha256 "cfa835f66b415a46e64420d515096281f42a7bcf189bda0f6c434ea5a55d63ee"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://www.percona.com/wp-admin/admin-ajax.php", post_form: {
