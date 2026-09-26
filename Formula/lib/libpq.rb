@@ -4,6 +4,7 @@ class Libpq < Formula
   url "https://ftp.postgresql.org/pub/source/v18.6/postgresql-18.6.tar.bz2"
   sha256 "555610c24d53e4316da5b7d3fc25c279d96856d5e0e23ee308c328c5fa881d9f"
   license "PostgreSQL"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -30,7 +31,7 @@ class Libpq < Formula
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "readline"
 
   uses_from_macos "bison" => :build
