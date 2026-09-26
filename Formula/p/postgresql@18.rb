@@ -145,13 +145,18 @@ class PostgresqlAT18 < Formula
 
       When uninstalling, some dead symlinks are left behind so you may want to run:
         brew cleanup --prune-prefix
+
+      If the service fails to start with a "postmaster.pid" lock file error after
+      an unclean shutdown, and no postgres is running, remove the stale file:
+        rm #{postgresql_datadir}/postmaster.pid
     EOS
   end
 
   service do
     run [opt_bin/"postgres", "-D", f.postgresql_datadir]
     environment_variables LC_ALL: "en_US.UTF-8"
-    keep_alive true
+    # Not `true`: a stale `postmaster.pid` makes `postgres` exit 1, which would restart forever
+    keep_alive crashed: true
     log_path f.postgresql_log_path
     error_log_path f.postgresql_log_path
     stop_timeout 120
