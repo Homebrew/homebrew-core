@@ -5,7 +5,7 @@ class Opusfile < Formula
   mirror "https://github.com/xiph/opusfile/releases/download/v0.12/opusfile-0.12.tar.gz"
   sha256 "118d8601c12dd6a44f52423e68ca9083cc9f2bfe72da7a8c1acb22a80ae3550b"
   license "BSD-3-Clause"
-  revision 1
+  revision 3
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/opus/"
@@ -29,7 +29,7 @@ class Opusfile < Formula
   end
 
   head do
-    url "https://gitlab.xiph.org/xiph/opusfile.git", branch: "master"
+    url "https://gitlab.xiph.org/xiph/opusfile.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -38,7 +38,7 @@ class Opusfile < Formula
 
   depends_on "pkgconf" => :build
   depends_on "libogg"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "opus"
 
   resource "sample" do
