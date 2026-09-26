@@ -4,7 +4,7 @@ class MysqlAT97 < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.2.tar.gz"
   sha256 "e5a676c7cb73738dc6ea33db2093806ebd512b629a139b897fcab68fcd81aaa4"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 2
+  revision 3
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/9.7.html?tpl=files&os=src",

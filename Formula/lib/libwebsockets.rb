@@ -4,6 +4,7 @@ class Libwebsockets < Formula
   url "https://github.com/warmcat/libwebsockets/archive/refs/tags/v5.0.0.tar.gz"
   sha256 "f853c6582101cfcee3a5a9e28ae92ab19d9735c5f31f0bb2e9794b5106123962"
   license "MIT"
+  revision 1
   compatibility_version 6
   head "https://github.com/warmcat/libwebsockets.git", branch: "main"
 

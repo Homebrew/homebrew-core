@@ -5,6 +5,7 @@ class OpensslAT4 < Formula
   mirror "http://fresh-center.net/linux/misc/openssl-4.0.2.tar.gz"
   sha256 "736b467530f916737b7031310ccb21d8218c6229e61e8e160cd1d3458cd543a8"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://openssl-library.org/source/"
@@ -21,11 +22,14 @@ class OpensslAT4 < Formula
     sha256 x86_64_linux:      "a6c90e1d28e9162beda1bd23fbeb60f2b36196d89217092867e929f45aa76277"
   end
 
-  keg_only :versioned_formula
-
   depends_on "ca-certificates" => :no_linkage
 
   uses_from_macos "perl" => :build
+
+  link_overwrite "bin/openssl", "include/openssl/*", "share/man/man*/*ssl.gz"
+  link_overwrite "lib/libcrypto*", "lib/libssl*", "lib/ossl-modules/legacy.*"
+  link_overwrite "lib/cmake/OpenSSL/OpenSSLConfig.cmake", "lib/cmake/OpenSSL/OpenSSLConfigVersion.cmake"
+  link_overwrite "lib/pkgconfig/libcrypto.pc", "lib/pkgconfig/libssl.pc", "lib/pkgconfig/openssl.pc"
 
   # Tests require an internet connection
   allow_network_access! :build
@@ -51,6 +55,18 @@ class OpensslAT4 < Formula
     system "make"
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
     system "make", "HARNESS_JOBS=#{ENV.make_jobs}", "test" if build.bottle?
+
+    # Remove HTML copies of manpages
+    rm_r(share/"doc/openssl/html")
+
+    # Compress manpages to reduce installation size
+    # TODO: brew should compress manpages by default similar to Arch, Debian and Fedora
+    symlinks, manpages = man.glob("man*/*ssl").select(&:file?).partition(&:symlink?)
+    Utils::Gzip.compress(*manpages)
+    symlinks.each do |symlink|
+      ln_s "#{symlink.readlink}.gz", "#{symlink}.gz"
+      rm(symlink)
+    end
 
     # Prevent `brew` from pruning the `certs` and `private` directories.
     touch %w[certs private].map { |subdir| pkgetc/subdir/".keepme" }

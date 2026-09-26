@@ -4,6 +4,7 @@ class Fbthrift < Formula
   url "https://github.com/facebook/fbthrift/archive/refs/tags/v2026.09.21.00.tar.gz"
   sha256 "d3d2539e444f06259273868a26e510a185a1ece836912a385684301ce26a9538"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 

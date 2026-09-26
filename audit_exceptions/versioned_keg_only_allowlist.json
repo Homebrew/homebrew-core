@@ -21,7 +21,6 @@
   "libxml++@4",
   "libxml++@5",
   "linux-headers@6.8",
-  "openssl@3",
   "openssl@4",
   "pangomm@2.46",
   "postgresql@14",
