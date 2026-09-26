@@ -3,8 +3,8 @@ class Circleci < Formula
   homepage "https://cli.circleci.com"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      tag:      "v1.0.51453",
-      revision: "1411e32379bb3a3d50c3a9be9e55c9ee6987dbe1"
+      tag:      "v1.0.51515",
+      revision: "a2e7dd1c5b90822bbc408655ae23b840d8d46ca1"
   license "MIT"
   head "https://github.com/CircleCI-Public/circleci-cli.git", branch: "main"
 
@@ -22,6 +22,12 @@ class Circleci < Formula
   end
 
   depends_on "go" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     ldflags = "-X main.version=#{version}"
