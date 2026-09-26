@@ -153,7 +153,23 @@ class NodeAT24 < Formula
     system "./configure", *args
     system "make", "install"
 
-    (lib/"node_modules/npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
+    npm_module = lib/"node_modules/npm"
+    (npm_module/"npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
+
+    # Autolinking of versioned node will fail after `brew uninstall node`
+    # since the npm module remains installed. We also had seen issues from
+    # symlinks in node_modules so can restrict to only providing commands.
+    new_npm_module = libexec/npm_module.relative_path_from(prefix)
+    new_npm_module.parent.install npm_module
+    bin.each_child do |path|
+      # Fix broken symlinks after moving npm module
+      next if !path.symlink? || path.exist?
+
+      resolved_path = Utils::Path.resolved_path(path).sub(npm_module.to_s, new_npm_module.to_s)
+      next unless resolved_path.exist?
+
+      ln_sf resolved_path.relative_path_from(bin), path
+    end
   end
 
   test do
