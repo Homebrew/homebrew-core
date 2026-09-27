@@ -1,8 +1,8 @@
 class Bashly < Formula
   desc "Bash command-line framework and CLI generator"
   homepage "https://bashly.dev"
-  url "https://github.com/bashly-framework/bashly/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "fc42ce07cb282aca07f000eb0af6b37b5d637a26b96157a105e9d3f7dd138f70"
+  url "https://github.com/bashly-framework/bashly/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "952d4c49e7c55c967a05701075b44d31edbafda23098aabc93d235f3aae92110"
   license "MIT"
 
   bottle do
