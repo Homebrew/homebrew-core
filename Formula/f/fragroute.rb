@@ -46,6 +46,8 @@ class Fragroute < Formula
     file "Patches/fragroute/pcaputil.c.patch"
   end
 
+  deny_network_access!
+
   def install
     # Workaround for newer Clang
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
@@ -59,8 +61,6 @@ class Fragroute < Formula
     inreplace "configure", "net/bpf.h", "pcap/bpf.h" unless OS.mac?
 
     args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
       --mandir=#{man}
       --sysconfdir=#{etc}
       --with-libevent=#{formula_opt_prefix("libevent")}
@@ -73,7 +73,11 @@ class Fragroute < Formula
       "--with-libpcap=#{formula_opt_prefix("libpcap")}"
     end
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    assert_match "couldn't find interface for 127.0.0.1", shell_output("#{sbin}/fragtest ping 127.0.0.1 2>&1", 1)
   end
 end
