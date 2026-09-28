@@ -33,10 +33,16 @@ class Wslay < Formula
   depends_on "pkgconf" => :build
   depends_on "sphinx-doc" => :build
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "check"
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end
