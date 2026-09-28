@@ -53,10 +53,16 @@ class Id3lib < Formula
 
   patch :DATA
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end
 
