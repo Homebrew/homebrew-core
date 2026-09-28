@@ -30,11 +30,17 @@ class Tta < Formula
     depends_on arch: :x86_64
   end
 
+  deny_network_access!
+
   def install
     args = ["--disable-silent-rules"]
     args << "--enable-sse2" if Hardware::CPU.intel?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end
