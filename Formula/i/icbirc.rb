@@ -23,9 +23,15 @@ class Icbirc < Formula
   depends_on "bmake" => :build
   depends_on :macos # needs strlcpy and Linux headers aren't included
 
+  deny_network_access!
+
   def install
     system "bmake"
     bin.install "icbirc"
     man8.install "icbirc.8"
+  end
+
+  test do
+    false
   end
 end
