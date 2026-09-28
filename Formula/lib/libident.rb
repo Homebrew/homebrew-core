@@ -23,6 +23,8 @@ class Libident < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  deny_network_access!
+
   def install
     # Run autoreconf to regenerate the configure script and update outdated macros.
     # This ensures that the build system is properly configured on both macOS
@@ -35,5 +37,9 @@ class Libident < Formula
 
     system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end
