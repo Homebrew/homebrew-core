@@ -37,10 +37,16 @@ class Libmp3splt < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     # Disabling usage of EOL `pcre`. Can be reconsidered if upstream ports to `pcre2`.
     # Issue ref: https://github.com/mp3splt/mp3splt/issues/366
     system "./configure", "--disable-pcre", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end
