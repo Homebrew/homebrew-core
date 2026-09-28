@@ -47,6 +47,8 @@ class SpatialiteGui < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     # Link flags for sqlite don't seem to get passed to make, which
     # causes builds to fatally error out on linking.
@@ -63,5 +65,9 @@ class SpatialiteGui < Formula
 
     system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end
