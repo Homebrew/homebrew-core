@@ -37,6 +37,8 @@ class Lasi < Formula
     depends_on "harfbuzz"
   end
 
+  deny_network_access!
+
   def install
     # If we build/install examples they result in shim/cellar paths in the
     # installed files.  Instead we don't build them at all.
@@ -47,5 +49,9 @@ class Lasi < Formula
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_CXX_STANDARD=11", *std_cmake_args(install_libdir: lib)
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+  end
+
+  test do
+    false
   end
 end
