@@ -10,6 +10,8 @@ class SiscScheme < Formula
     sha256 cellar: :any_skip_relocation, all: "cc07c73860b9acfbad278e89277cacd790f4b5ac3de3800352d8ac6d6e833ccb"
   end
 
+  deny_network_access!
+
   def install
     libexec.install Dir["*"]
     (bin/"sisc").write <<~SH
@@ -17,5 +19,9 @@ class SiscScheme < Formula
       SISC_HOME=#{libexec}
       exec #{libexec}/sisc "$@"
     SH
+  end
+
+  test do
+    false
   end
 end
