@@ -28,8 +28,14 @@ class Libgadu < Formula
     file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--without-pthread", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end
