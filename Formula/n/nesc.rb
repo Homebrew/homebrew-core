@@ -35,6 +35,8 @@ class Nesc < Formula
   uses_from_macos "gperf" => :build
   uses_from_macos "m4" => :build
 
+  deny_network_access!
+
   def install
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
@@ -47,8 +49,12 @@ class Nesc < Formula
     ENV.deparallelize
 
     system "./Bootstrap"
-    system "./configure", "--disable-debug", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make"
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end
