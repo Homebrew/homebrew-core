@@ -1,8 +1,8 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://downloads.percona.com/downloads/Percona-Server-9.7/Percona-Server-9.7.1-1/source/tarball/percona-server-9.7.1-1.tar.gz"
-  sha256 "cfa835f66b415a46e64420d515096281f42a7bcf189bda0f6c434ea5a55d63ee"
+  url "https://downloads.percona.com/downloads/Percona-Server-9.7/Percona-Server-9.7.2-2/source/tarball/percona-server-9.7.2-2.tar.gz"
+  sha256 "39bffcd0330c9c260ce97e5cd0f598696aa7943bf1f03f97da3fcc566954f427"
   license "BSD-3-Clause"
 
   livecheck do
@@ -57,13 +57,6 @@ class PerconaServer < Formula
   fails_with :gcc do
     version "9"
     cause "Requires GCC 10 or newer"
-  end
-
-  # Backport commit from MySQL to fix build on newer Clang
-  patch do
-    url "https://github.com/mysql/mysql-server/commit/b006e3af4b6b1b6f7fdf7b91a00c6293c4f292b1.patch?full_index=1"
-    sha256 "e99e7e63d8581cbfb513a2dd43f36f8da0e3c1bf26e512156847c1036280adf3"
-    type :backport
   end
 
   # Patch out check for Homebrew `boost`.
