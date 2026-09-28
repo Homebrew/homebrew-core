@@ -25,6 +25,8 @@ class Qcachegrind < Formula
   depends_on "graphviz"
   depends_on "qtbase"
 
+  deny_network_access!
+
   def install
     args = %w[-config release]
     if OS.mac?
@@ -42,5 +44,9 @@ class Qcachegrind < Formula
     else
       bin.install "qcachegrind/qcachegrind"
     end
+  end
+
+  test do
+    false
   end
 end
