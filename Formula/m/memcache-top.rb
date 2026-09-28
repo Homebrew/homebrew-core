@@ -10,7 +10,13 @@ class MemcacheTop < Formula
     sha256 cellar: :any_skip_relocation, all: "087a748b42b751770abe12ce9529e0e55d96b9f69f28ee7b6951e099271b8f3e"
   end
 
+  deny_network_access!
+
   def install
     bin.install "memcache-top-v#{version}" => "memcache-top"
+  end
+
+  test do
+    false
   end
 end
