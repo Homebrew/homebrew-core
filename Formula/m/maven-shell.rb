@@ -15,10 +15,16 @@ class MavenShell < Formula
     sha256 cellar: :any_skip_relocation, all: "8cf238b82fe150f113e5df470ec8f73d9d8cb58d940c716726a3442492a8fa16"
   end
 
+  deny_network_access!
+
   def install
     # Remove windows files.
     rm(Dir["bin/*.bat"])
     libexec.install Dir["*"]
     bin.install_symlink libexec/"bin/mvnsh"
+  end
+
+  test do
+    false
   end
 end
