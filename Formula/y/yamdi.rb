@@ -24,9 +24,15 @@ class Yamdi < Formula
   deprecate! date: "2025-03-21", because: :unmaintained
   disable! date: "2026-03-21", because: :unmaintained
 
+  deny_network_access!
+
   def install
     system ENV.cc, "yamdi.c", "-o", "yamdi", *ENV.cflags.to_s.split
     bin.install "yamdi"
     man1.install "man1/yamdi.1"
+  end
+
+  test do
+    false
   end
 end
