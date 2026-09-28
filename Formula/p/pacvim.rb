@@ -35,8 +35,14 @@ class Pacvim < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     ENV.cxx11
     system "make", "install", "PREFIX=#{prefix}"
+  end
+
+  test do
+    false
   end
 end
