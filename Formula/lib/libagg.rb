@@ -47,6 +47,8 @@ class Libagg < Formula
   # Fix build with clang; last release was in 2006
   patch :DATA
 
+  deny_network_access!
+
   def install
     # AM_C_PROTOTYPES was removed in automake 1.12, as it's only needed for
     # pre-ANSI compilers
@@ -60,6 +62,10 @@ class Libagg < Formula
                  "--disable-sdltest",
                  *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end
 
