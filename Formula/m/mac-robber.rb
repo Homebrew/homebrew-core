@@ -21,8 +21,14 @@ class MacRobber < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "ac53384d4cfcdf2b78d8abc6e8882ce7e6efd95304a9f09895a9e8a6108a4a9a"
   end
 
+  deny_network_access!
+
   def install
     system "make", "CC=#{ENV.cc}", "GCC_OPT=#{ENV.cflags}"
     bin.install "mac-robber"
+  end
+
+  test do
+    false
   end
 end
