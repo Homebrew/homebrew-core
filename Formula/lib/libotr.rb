@@ -47,10 +47,14 @@ class Libotr < Formula
     resolves "https://bugs.debian.org/1009420"
   end
 
+  deny_network_access!
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end
