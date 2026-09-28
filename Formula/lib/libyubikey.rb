@@ -26,8 +26,14 @@ class Libyubikey < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "47be6e603ede5ef7fee2f40cfd4ac4338ca094d25b2a897388df4b90ca5101b7"
   end
 
+  deny_network_access!
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end
