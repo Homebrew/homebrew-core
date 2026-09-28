@@ -25,6 +25,8 @@ class Somagic < Formula
   depends_on "libusb"
   depends_on "somagic-tools"
 
+  deny_network_access!
+
   def install
     system "make"
     system "make", "PREFIX=#{prefix}", "install"
@@ -35,5 +37,9 @@ class Somagic < Formula
       Before running somagic-capture you must extract the official firmware from the CD.
       See https://code.google.com/archive/p/easycap-somagic-linux/wikis/GettingStarted.wiki for details.
     EOS
+  end
+
+  test do
+    false
   end
 end
