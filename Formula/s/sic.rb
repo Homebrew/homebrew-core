@@ -27,7 +27,13 @@ class Sic < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "fa93fbe3a3e4ed400bfdad52b0ba893161505e7579e5c1731a9f28a7e993f59a"
   end
 
+  deny_network_access!
+
   def install
     system "make", "PREFIX=#{prefix}", "install"
+  end
+
+  test do
+    false
   end
 end
