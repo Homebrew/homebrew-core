@@ -31,6 +31,8 @@ class Ssss < Formula
   depends_on "gmp"
   depends_on "xmltoman"
 
+  deny_network_access!
+
   def install
     inreplace "Makefile" do |s|
       # Compile with -DNOMLOCK to avoid warning on every run on macOS.
@@ -44,5 +46,9 @@ class Ssss < Formula
     system "make"
     man1.install "ssss.1"
     bin.install %w[ssss-combine ssss-split]
+  end
+
+  test do
+    false
   end
 end
