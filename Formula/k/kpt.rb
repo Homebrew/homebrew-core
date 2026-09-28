@@ -1,9 +1,11 @@
 class Kpt < Formula
   desc "Toolchain for composing, customizing, and deploying Kubernetes packages"
   homepage "https://kpt.dev"
-  url "https://github.com/kptdev/kpt/archive/refs/tags/v1.0.1.tar.gz"
-  sha256 "3c4c075d805c99a4fac0196c31ab770d9446852a5f328b6ced23514af46818d0"
+  url "https://github.com/kptdev/kpt.git",
+      tag:      "v1.0.1",
+      revision: "6c8a2e16f1f51605d6db9404ddea4f05db0e2aa2"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/kptdev/kpt.git", branch: "main"
 
   livecheck do
@@ -41,13 +43,19 @@ class Kpt < Formula
   end
 
   def install
-    ldflags = "-X github.com/kptdev/kpt/run.version=#{version}"
+    ldflags = %W[
+      -X github.com/kptdev/kpt/run.version=#{version}
+      -X github.com/kptdev/kpt/run.gitCommit=#{stable.specs[:revision]}
+    ]
     system "go", "build", *std_go_args(ldflags:)
     generate_completions_from_executable(bin/"kpt", shell_parameter_format: :cobra)
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/kpt version")
+    version_output = shell_output("#{bin}/kpt version")
+    assert_match version.to_s, version_output
+    assert_match "Git commit: #{stable.specs[:revision]}",
+                 version_output
 
     (testpath/"pkg/Kptfile").write <<~YAML
       apiVersion: kpt.dev/v1
