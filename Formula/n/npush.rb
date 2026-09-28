@@ -24,6 +24,8 @@ class Npush < Formula
 
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
     # Remove after migration to 18.04.
@@ -34,5 +36,9 @@ class Npush < Formula
       #!/bin/sh
       cd "#{pkgshare}" && exec ./npush $@
     SH
+  end
+
+  test do
+    false
   end
 end
