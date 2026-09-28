@@ -11,7 +11,13 @@ class Matlab2tikz < Formula
     sha256 cellar: :any_skip_relocation, all: "f76f11ee806e2256f088b5dd34b534e94e8bfd48f495152bb623d7519dc2b893"
   end
 
+  deny_network_access!
+
   def install
     pkgshare.install Dir["src/*"]
+  end
+
+  test do
+    false
   end
 end
