@@ -16,6 +16,8 @@ class PaxRunner < Formula
     sha256 cellar: :any_skip_relocation, all: "f7195e6a142137e103125c0176376e562a2e0ba115d5e61ed15b0c2a00e92cf5"
   end
 
+  deny_network_access!
+
   def install
     (bin/"pax-runner").write <<~EOS
       #!/bin/sh
@@ -23,5 +25,9 @@ class PaxRunner < Formula
     EOS
 
     libexec.install Dir["*"]
+  end
+
+  test do
+    false
   end
 end
