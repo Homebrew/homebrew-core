@@ -1,8 +1,8 @@
 class Atmos < Formula
   desc "Universal Tool for DevOps and Cloud Automation"
   homepage "https://atmos.tools"
-  url "https://github.com/cloudposse/atmos/archive/refs/tags/v1.229.0.tar.gz"
-  sha256 "7359eef2ec9d5e04eb9b926e78ae1e14b82de00d2788bf20d224673bf0e332f6"
+  url "https://github.com/cloudposse/atmos/archive/refs/tags/v1.230.0.tar.gz"
+  sha256 "e1cbb9279cb2b261c8330e3f663b4828fbe992cbd1f3ac20b0f402c3f5c78775"
   license "Apache-2.0"
   head "https://github.com/cloudposse/atmos.git", branch: "main"
 
@@ -29,6 +29,12 @@ class Atmos < Formula
   end
 
   conflicts_with "tenv", because: "tenv symlinks atmos binaries"
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
