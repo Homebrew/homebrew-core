@@ -38,6 +38,8 @@ class Solid < Formula
   # Was reported to bugs@dtecta.com (since it also applies to solid-3.5.6)
   patch :DATA
 
+  deny_network_access!
+
   def install
     # Avoid `required file not found` errors
     touch ["AUTHORS", "ChangeLog", "NEWS"]
@@ -50,6 +52,10 @@ class Solid < Formula
     inreplace "Makefile", /^(SUBDIRS *=.*) examples( .+)?/, '\1\2'
 
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end
 
