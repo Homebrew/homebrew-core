@@ -1,8 +1,8 @@
 class Elm < Formula
   desc "Functional programming language for building browser-based GUIs"
   homepage "https://elm-lang.org"
-  url "https://github.com/elm/compiler/archive/refs/tags/0.19.2.tar.gz"
-  sha256 "745b1edfea2f8e3b36cf6f77ae3b59fd86e8e397d427971f6d903f9fce6163a5"
+  url "https://github.com/elm/compiler/archive/refs/tags/0.19.3.tar.gz"
+  sha256 "ef7799dcb633f89a86b4d5ad5af1ed247a2bf3a9ca7a1c71ed2620fbc069b5d8"
   license "BSD-3-Clause"
 
   bottle do
