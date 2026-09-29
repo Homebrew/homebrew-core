@@ -39,7 +39,7 @@ class Mprocs < Formula
     require "pty"
 
     begin
-      r, w, pid = PTY.spawn("#{bin}/mprocs 'echo hello mprocs'")
+      r, w, pid = PTY.spawn("#{bin}/dekit 'echo hello mprocs'")
       r.winsize = [80, 30]
       sleep 1
       w.write "q"
