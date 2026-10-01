@@ -31,7 +31,7 @@ class DockerAgent < Formula
       -X github.com/docker/docker-agent/pkg/version.Commit=#{tap.user}
     ]
 
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", "-x", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"docker-agent", shell_parameter_format: :cobra)
   end
