@@ -78,6 +78,11 @@ module.exports = async ({github, context, core}, formulae_detect, dependent_test
     const test_bot_formulae_args = ["--only-formulae", "--junit", "--only-json-tab", "--skip-dependents"]
     const test_bot_dependents_args = ["--only-formulae-dependents", "--junit"]
 
+    if (process.env.RUNNER_DEBUG) {
+      test_bot_formulae_args.push('--debug', '--verbose')
+      test_bot_dependents_args.push('--debug', '--verbose')
+    }
+
     if (label_names.includes('CI-build-dependents-from-source')) {
       console.log('CI-build-dependents-from-source label found. Passing --build-dependents-from-source to brew test-bot.')
       test_bot_dependents_args.push('--build-dependents-from-source')
