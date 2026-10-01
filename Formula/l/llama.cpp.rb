@@ -24,8 +24,13 @@ class LlamaCpp < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "ggml" # NOTE: reject all PRs that try to bundle ggml
+  depends_on "ggml"
   depends_on "openssl@3"
+
+  resource "ui" do
+    url "https://github.com/ggml-org/llama.cpp/releases/download/b11146/llama-b11146-ui.tar.gz"
+    sha256 "832be73b1d077980b047ddd2212f8a8a229f7c007a03ce032ea06448734ea6f2"
+  end
 
   # `test do` block downloads a model from Hugging Face
   allow_network_access! :test
@@ -40,6 +45,8 @@ class LlamaCpp < Formula
       -DLLAMA_USE_SYSTEM_GGML=ON
     ]
     args << "-DLLAMA_BUILD_IS_DEV=OFF" if build.stable?
+
+    (buildpath/"tools/ui/dist").install resource("ui")
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
