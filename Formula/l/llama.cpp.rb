@@ -36,6 +36,7 @@ class LlamaCpp < Formula
   allow_network_access! :test
 
   def install
+    odie("we do not want to bundle ggml") if deps.map(&:to_formula).none? { |f| f.name == "ggml" }
     args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
