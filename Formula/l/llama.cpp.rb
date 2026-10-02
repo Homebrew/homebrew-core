@@ -29,7 +29,14 @@ class LlamaCpp < Formula
 
   resource "ui" do
     url "https://github.com/ggml-org/llama.cpp/releases/download/b11146/llama-b11146-ui.tar.gz"
+    version "b11146"
     sha256 "832be73b1d077980b047ddd2212f8a8a229f7c007a03ce032ea06448734ea6f2"
+
+    livecheck do
+      url "https://github.com/ggml-org/llama.cpp/releases/download/v#{LATEST_VERSION}/nightly-tag.txt"
+      regex(/^(b\d+)$/i)
+      strategy :page_match
+    end
   end
 
   # `test do` block downloads a model from Hugging Face
