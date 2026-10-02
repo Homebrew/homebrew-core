@@ -24,11 +24,12 @@ class LlamaCpp < Formula
   end
 
   depends_on "cmake" => [:build, :test]
+  depends_on "node" => :build
   depends_on "ggml" # NOTE: reject all PRs that try to bundle ggml
   depends_on "openssl@3"
 
   # `test do` block downloads a model from Hugging Face
-  allow_network_access! :test
+  allow_network_access! [:test, :build]
 
   def install
     args = %W[
@@ -38,6 +39,8 @@ class LlamaCpp < Formula
       -DLLAMA_BUILD_TESTS=OFF
       -DLLAMA_OPENSSL=ON
       -DLLAMA_USE_SYSTEM_GGML=ON
+      -DLLAMA_BUILD_UI=ON
+      -DLLAMA_USE_PREBUILT_UI=OFF
     ]
     args << "-DLLAMA_BUILD_IS_DEV=OFF" if build.stable?
 
