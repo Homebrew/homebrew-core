@@ -395,22 +395,17 @@ class Semgrep < Formula
     ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.5.3.0" }
 
     # We can't use `make install-deps-for-semgrep-core` directly because it runs
-    # `./scripts/install-tree-sitter-lib` which would conflict with Homebrew's
-    # tree-sitter dependency. Instead, we manually replicate its steps:
-    # 1. Configure tree-sitter (using homebrew's tree-sitter)
-    cd "./libs/ocaml-tree-sitter-core" do
-      system "./configure"
-    end
-
-    # 2. Proceed with installing opam dependencies (taken from the --deps-only
-    # invocation in the Semgrep Makefile's `install-opam-deps` target)
+    # `./scripts/build-static-libcurl.sh` and pins a forked OCaml compiler.
+    # Instead, we manually replicate its steps:
+    # 1. Install opam dependencies (taken from the --deps-only invocation in the
+    # Semgrep Makefile's `install-opam-deps` target)
     system "opam", "update", "-y"
     ENV["LWT_DISCOVER_ARGUMENTS"] = "--use-libev true"
     system "opam", "install", "--locked", "--update-invariant",
            "--confirm-level=unsafe-yes", "-y", "--deps-only",
            "./semgrep.opam", "./dev/required.opam"
 
-    # 3. Finally build semgrep-core using the usual Makefile targets
+    # 2. Finally build semgrep-core using the usual Makefile targets
     system "opam", "exec", "--", "make", "core"
     system "opam", "exec", "--", "make", "copy-core-for-cli"
 
