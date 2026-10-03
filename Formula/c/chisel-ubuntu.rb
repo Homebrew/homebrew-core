@@ -16,6 +16,10 @@ class ChiselUbuntu < Formula
 
   depends_on "go" => :build
 
+  conflicts_with "chisel", because: "both install `chisel` binaries"
+  conflicts_with "chisel-tunnel", because: "both install `chisel` binaries"
+  conflicts_with "foundry", because: "both install `chisel` binaries"
+
   deny_network_access! :build
 
   def fetch
