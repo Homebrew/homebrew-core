@@ -29,7 +29,13 @@ class LlamaCpp < Formula
   depends_on "openssl@3"
 
   # `test do` block downloads a model from Hugging Face
-  allow_network_access! [:test, :build]
+  allow_network_access! :test
+
+  def fetch
+    cd "tools/ui" do
+      system "npm", "install", *std_npm_args(prefix: false)
+    end
+  end
 
   def install
     args = %W[
