@@ -1,0 +1,120 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -96,7 +96,7 @@
+ set(CMAKE_C_STANDARD 11)
+ set(CMAKE_C_STANDARD_REQUIRED ON)
+ set(CMAKE_C_EXTENSIONS OFF)
+-set(CMAKE_CXX_STANDARD 14)
++set(CMAKE_CXX_STANDARD 17)
+ set(CMAKE_CXX_STANDARD_REQUIRED ON)
+ set(CMAKE_CXX_EXTENSIONS OFF)
+ 
+
+--- a/cmake/CheckTrezor.cmake
++++ b/cmake/CheckTrezor.cmake
+@@ -33,12 +33,19 @@
+ # Use Trezor master switch
+ if (USE_DEVICE_TREZOR)
+     # Protobuf is required to build protobuf messages for Trezor
+-    include(FindProtobuf OPTIONAL)
+-    find_package(Protobuf)
+-    _trezor_protobuf_fix_vars()
++    # Prefer CONFIG mode: its imported target links Abseil transitively
++    # (required for protobuf >= 22, which needs C++17).
++    find_package(protobuf CONFIG QUIET)
++    if(NOT TARGET protobuf::libprotobuf)
++        include(FindProtobuf OPTIONAL)
++        find_package(Protobuf)
++        _trezor_protobuf_fix_vars()
++    endif()
+ 
+     # Protobuf handling the cache variables set in docker.
+-    if(NOT Protobuf_FOUND AND NOT Protobuf_LIBRARY AND NOT Protobuf_PROTOC_EXECUTABLE AND NOT Protobuf_INCLUDE_DIR)
++    if(TARGET protobuf::libprotobuf)
++        message(STATUS "Protobuf: using CONFIG target protobuf::libprotobuf")
++    elseif(NOT Protobuf_FOUND AND NOT Protobuf_LIBRARY AND NOT Protobuf_PROTOC_EXECUTABLE AND NOT Protobuf_INCLUDE_DIR)
+         message(STATUS "Could not find Protobuf")
+     elseif(NOT Protobuf_LIBRARY OR NOT EXISTS "${Protobuf_LIBRARY}")
+         message(STATUS "Protobuf library not found: ${Protobuf_LIBRARY}")
+@@ -54,7 +61,23 @@
+         set(Protobuf_INCLUDE_DIRS ${Protobuf_INCLUDE_DIR})
+         set(Protobuf_FOUND 1)  # override found if all rquired info was provided by variables
+     endif()
++    if(TARGET protobuf::libprotobuf)
++        set(Protobuf_FOUND 1)
++    endif()
+ 
++    if(TARGET protobuf::libprotobuf AND NOT Protobuf_VERSION)
++        # CONFIG mode: find_package(module) never ran, so Protobuf_VERSION is
++        # unset; get the version from the imported target instead.
++        find_package(protobuf CONFIG QUIET)  # no-op if done; sets protobuf_VERSION
++        if(NOT Protobuf_VERSION)
++            get_target_property(_pb_cfg protobuf::libprotobuf IMPORTED_CONFIGURATIONS)
++            # protobuf_VERSION (lowercase) is set by the CONFIG-mode package
++            if(protobuf_VERSION)
++                set(Protobuf_VERSION "${protobuf_VERSION}")
++            endif()
++        endif()
++    endif()
++    message(STATUS "Protobuf version: ${Protobuf_VERSION}")
+     if (Protobuf_VERSION VERSION_GREATER_EQUAL 22.0)
+         add_definitions(-DPROTOBUF_HAS_ABSEIL)
+     endif()
+@@ -95,20 +118,37 @@
+ 
+ # Protobuf compilation test
+ if(Protobuf_FOUND AND USE_DEVICE_TREZOR AND TREZOR_PYTHON)
+-    execute_process(COMMAND ${Protobuf_PROTOC_EXECUTABLE} -I "${CMAKE_CURRENT_LIST_DIR}" -I "${Protobuf_INCLUDE_DIR}" "${CMAKE_CURRENT_LIST_DIR}/test-protobuf.proto" --cpp_out ${CMAKE_BINARY_DIR} RESULT_VARIABLE RET OUTPUT_VARIABLE OUT ERROR_VARIABLE ERR)
++    set(Protobuf_PROTOC_INCLUDE_DIR "${Protobuf_INCLUDE_DIR}")
++    if(NOT Protobuf_PROTOC_EXECUTABLE)
++        find_program(Protobuf_PROTOC_EXECUTABLE NAMES protoc)
++    endif()
++    if(TARGET protobuf::libprotobuf AND NOT Protobuf_PROTOC_INCLUDE_DIR)
++        get_target_property(_pb_inc protobuf::libprotobuf INTERFACE_INCLUDE_DIRECTORIES)
++        if(_pb_inc)
++            list(GET _pb_inc 0 Protobuf_PROTOC_INCLUDE_DIR)
++        endif()
++    endif()
++    execute_process(COMMAND ${Protobuf_PROTOC_EXECUTABLE} -I "${CMAKE_CURRENT_LIST_DIR}" -I "${Protobuf_PROTOC_INCLUDE_DIR}" "${CMAKE_CURRENT_LIST_DIR}/test-protobuf.proto" --cpp_out ${CMAKE_BINARY_DIR} RESULT_VARIABLE RET OUTPUT_VARIABLE OUT ERROR_VARIABLE ERR)
+     if(RET)
+         message(STATUS "Protobuf test generation failed: ${OUT} ${ERR}")
+     endif()
+ 
++    if(TARGET protobuf::libprotobuf)
++        # CONFIG-mode target: INTERFACE_LINK_LIBRARIES (Abseil for protobuf >= 22)
++        # are linked transitively; a bare ${Protobuf_LIBRARY} misses them.
++        set(Protobuf_TEST_LINK_LIBRARIES protobuf::libprotobuf)
++    else()
++        set(Protobuf_TEST_LINK_LIBRARIES ${Protobuf_LIBRARY})
++    endif()
+     try_compile(Protobuf_COMPILE_TEST_PASSED
+         "${CMAKE_BINARY_DIR}"
+         SOURCES
+         "${CMAKE_BINARY_DIR}/test-protobuf.pb.cc"
+         "${CMAKE_CURRENT_LIST_DIR}/test-protobuf.cpp"
+         CMAKE_FLAGS
+-        "-DINCLUDE_DIRECTORIES=${Protobuf_INCLUDE_DIR};${CMAKE_BINARY_DIR}"
+-        "-DCMAKE_CXX_STANDARD=11"
+-        LINK_LIBRARIES ${Protobuf_LIBRARY}
++        "-DINCLUDE_DIRECTORIES=${Protobuf_INCLUDE_DIR};${Protobuf_PROTOC_INCLUDE_DIR};${CMAKE_BINARY_DIR}"
++        "-DCMAKE_CXX_STANDARD=17"
++        LINK_LIBRARIES ${Protobuf_TEST_LINK_LIBRARIES}
+         OUTPUT_VARIABLE OUTPUT
+     )
+     if(NOT Protobuf_COMPILE_TEST_PASSED)
+
+--- a/src/device_trezor/CMakeLists.txt
++++ b/src/device_trezor/CMakeLists.txt
+@@ -94,6 +94,12 @@
+             ${TREZOR_LIBUSB_LIBRARIES}
+             PRIVATE
+             ${EXTRA_LIBRARIES})
++    if(TARGET protobuf::libprotobuf)
++        # Link through the CONFIG-mode imported target so that its
++        # INTERFACE_LINK_LIBRARIES (Abseil for protobuf >= 22) come along;
++        # ${Protobuf_LIBRARY} alone misses them.
++        target_link_libraries(device_trezor PUBLIC protobuf::libprotobuf)
++    endif()
+ 
+ else()
+     message(STATUS "Trezor support disabled")

@@ -6,6 +6,8 @@ class Monero < Formula
   license "BSD-3-Clause"
   revision 1
 
+  head "https://github.com/monero-project/monero.git", branch: "master"
+
   livecheck do
     url "https://downloads.getmonero.org/cli/source"
     strategy :header_match
@@ -21,22 +23,30 @@ class Monero < Formula
     sha256 cellar: :any, x86_64_linux:      "7c6d6860a8ef262d4375011daab391709d560c7726778bb6a520eccaa8a2e4e7"
   end
 
-  head do
-    url "https://github.com/monero-project/monero.git", branch: "master"
-
-    depends_on "libusb" # TODO: use on stable in 0.19 (?)
-    depends_on "protobuf" # TODO: use on stable in 0.19 (?)
-  end
-
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
+  depends_on "python@3.13" => :build # regenerates Trezor protobuf messages
   depends_on "boost"
   depends_on "hidapi"
   depends_on "libsodium"
+  depends_on "libusb"   # Trezor hardware wallet support (WebUSB transport)
   depends_on "openssl@3"
+  depends_on "protobuf" # Trezor hardware wallet support
   depends_on "readline"
   depends_on "unbound"
   depends_on "zeromq"
+
+  # Fix Trezor support with protobuf >= 22 (brew ships 36.x):
+  # - Abseil headers bundled with protobuf >= 22 require C++17; the compile
+  #   check in cmake/CheckTrezor.cmake hardcodes C++11 and always fails.
+  # - The check links a bare ${Protobuf_LIBRARY}, missing Abseil symbols
+  #   that protobuf::libprotobuf's INTERFACE_LINK_LIBRARIES provide.
+  # - When only the CONFIG-mode target is available, Protobuf_PROTOC_EXECUTABLE
+  #   and Protobuf_INCLUDE_DIR are unset, breaking protoc invocation.
+  patch do
+    file "Patches/monero/0.18.5.1-trezor-protobuf.patch"
+    type :unofficial
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
