@@ -6,6 +6,7 @@ class Barman < Formula
   url "https://files.pythonhosted.org/packages/eb/8c/b225bca1623a6370885f005e2f575f5f13c5c790eb9bef6695299efca4dd/barman-3.20.1.tar.gz"
   sha256 "cac6542ac7a8f7cf2a7892807509d78dd24346a021afc24a7c3ec5b1626cc636"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/EnterpriseDB/barman.git", branch: "REL_3_X_master"
 
   bottle do
@@ -18,7 +19,7 @@ class Barman < Formula
 
   depends_on "rust" => :build # for uv_build > maturin
   depends_on "libpq"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "python@3.14"
 
   resource "psycopg2" do
