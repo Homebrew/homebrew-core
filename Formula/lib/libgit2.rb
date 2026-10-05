@@ -4,6 +4,7 @@ class Libgit2 < Formula
   url "https://github.com/libgit2/libgit2/archive/refs/tags/v1.9.7.tar.gz"
   sha256 "1a4fbe7589e814777ae76b64734ad80f4ecad22cd33a22682a2aaea4ae5375e7"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
+  revision 1
   compatibility_version 1
   head "https://github.com/libgit2/libgit2.git", branch: "main"
 
@@ -28,7 +29,7 @@ class Libgit2 < Formula
   depends_on "llhttp"
 
   on_linux do
-    depends_on "openssl@3" # Uses SecureTransport on macOS
+    depends_on "openssl@4" # Uses SecureTransport on macOS
     depends_on "pcre2" # Uses regcomp_l on macOS which needs xlocale.h
     depends_on "zlib-ng-compat"
   end
