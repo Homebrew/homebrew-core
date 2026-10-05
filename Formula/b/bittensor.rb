@@ -6,6 +6,7 @@ class Bittensor < Formula
   url "https://files.pythonhosted.org/packages/e5/78/6a67e5814663debefa20d180c6d4df7a581eace2ffc3c196409d46808025/bittensor-11.1.0.tar.gz"
   sha256 "97be7e9d523ca36d93eddc7b96318b42a7bbd9512b53c757c5807a7dafb4371d"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "db51cda8ebe2c74aee07afc09d8bb7359f72c17d6493cec55147e85ad4dcdb56"
@@ -19,7 +20,7 @@ class Bittensor < Formula
 
   depends_on "rust" => :build # for bittensor-core
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pydantic" => :no_linkage
   depends_on "python@3.14"
 
@@ -164,7 +165,7 @@ class Bittensor < Formula
   end
 
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
     virtualenv_install_with_resources
