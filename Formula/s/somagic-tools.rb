@@ -24,8 +24,14 @@ class SomagicTools < Formula
   depends_on "libgcrypt"
   depends_on "libusb"
 
+  deny_network_access!
+
   def install
     system "make"
     system "make", "PREFIX=#{prefix}", "install"
+  end
+
+  test do
+    false
   end
 end

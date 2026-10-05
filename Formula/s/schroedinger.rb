@@ -26,6 +26,8 @@ class Schroedinger < Formula
   depends_on "pkgconf" => :build
   depends_on "orc"
 
+  deny_network_access!
+
   def install
     args = []
     # Help old config scripts identify arm64 linux
@@ -42,5 +44,9 @@ class Schroedinger < Formula
     end
 
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

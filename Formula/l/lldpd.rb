@@ -24,6 +24,8 @@ class Lldpd < Formula
 
   uses_from_macos "libxml2"
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}
@@ -48,5 +50,9 @@ class Lldpd < Formula
     run opt_sbin/"lldpd"
     keep_alive true
     require_root true
+  end
+
+  test do
+    false
   end
 end

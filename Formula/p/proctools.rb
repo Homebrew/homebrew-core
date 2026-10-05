@@ -47,6 +47,8 @@ class Proctools < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     system "bsdmake", "PREFIX=#{prefix}"
 
@@ -54,5 +56,9 @@ class Proctools < Formula
       bin.install prog
       man1.install prog + ".1"
     end
+  end
+
+  test do
+    false
   end
 end

@@ -27,6 +27,8 @@ class Sleepwatcher < Formula
 
   depends_on :macos
 
+  deny_network_access!
+
   def install
     # Adjust Makefile to build native binary only
     inreplace "sources/Makefile" do |s|
@@ -61,5 +63,9 @@ class Sleepwatcher < Formula
         ~/.sleep
         ~/.wakeup
     EOS
+  end
+
+  test do
+    false
   end
 end

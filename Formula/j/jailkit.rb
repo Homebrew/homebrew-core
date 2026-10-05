@@ -24,10 +24,16 @@ class Jailkit < Formula
 
   depends_on "python@3.14"
 
+  deny_network_access!
+
   def install
     ENV["PYTHONINTERPRETER"] = python3
 
     system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

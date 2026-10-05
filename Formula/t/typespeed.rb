@@ -23,6 +23,8 @@ class Typespeed < Formula
 
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     # Work around failure from GCC 10+ using default of `-fno-common`
     # multiple definition of `rules'; typespeed-file.o:(.bss+0x2050): first defined here
@@ -40,5 +42,9 @@ class Typespeed < Formula
     inreplace "testsuite/Makefile.in", "gcc", ENV.cc
     system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

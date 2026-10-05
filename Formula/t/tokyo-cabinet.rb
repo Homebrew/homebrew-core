@@ -28,9 +28,15 @@ class TokyoCabinet < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make"
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

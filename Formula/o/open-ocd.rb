@@ -43,6 +43,8 @@ class OpenOcd < Formula
   depends_on "libftdi"
   depends_on "libusb"
 
+  deny_network_access!
+
   def install
     ENV["CCACHE"] = "none"
 
@@ -54,5 +56,9 @@ class OpenOcd < Formula
                           "--enable-remote-bitbang",
                           *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

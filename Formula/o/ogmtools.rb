@@ -35,6 +35,8 @@ class Ogmtools < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     ENV.cxx11
 
@@ -52,5 +54,9 @@ class Ogmtools < Formula
       architectures, which the author will not fix or accept patches for.
       Keep this in mind when deciding whether to use this software.
     EOS
+  end
+
+  test do
+    false
   end
 end

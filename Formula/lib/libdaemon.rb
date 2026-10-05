@@ -32,6 +32,8 @@ class Libdaemon < Formula
     file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
   end
 
+  deny_network_access!
+
   def install
     args = ["--disable-silent-rules"]
     # Help old config scripts identify arm64 linux
@@ -39,5 +41,9 @@ class Libdaemon < Formula
 
     system "./configure", *std_configure_args, *args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

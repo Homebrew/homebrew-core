@@ -46,10 +46,16 @@ class Vip < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     bin.install "vip"
     resource("man").stage do
       man1.install "vip.man" => "vip.1"
     end
+  end
+
+  test do
+    false
   end
 end

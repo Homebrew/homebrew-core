@@ -29,8 +29,14 @@ class Ondir < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "af6c1d77f136f3ccab4ef5f6114aab283514d7bf01a893d9948e5017d1d366ea"
   end
 
+  deny_network_access!
+
   def install
     system "make"
     system "make", "PREFIX=#{prefix}", "install"
+  end
+
+  test do
+    false
   end
 end

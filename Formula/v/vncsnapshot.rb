@@ -30,6 +30,8 @@ class Vncsnapshot < Formula
 
   patch :DATA # remove old PPC __APPLE__ ifdef from sockets.cxx
 
+  deny_network_access!
+
   def install
     # From Ubuntu
     inreplace "rfb.h", "typedef unsigned long CARD32;",
@@ -48,6 +50,10 @@ class Vncsnapshot < Formula
     system "make", *args
     bin.install "vncsnapshot", "vncpasswd"
     man1.install "vncsnapshot.man1" => "vncsnapshot.1"
+  end
+
+  test do
+    false
   end
 end
 

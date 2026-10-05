@@ -37,11 +37,17 @@ class Libshout < Formula
     file "Patches/libtool/configure-big_sur.diff"
   end
 
+  deny_network_access!
+
   def install
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

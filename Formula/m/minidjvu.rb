@@ -37,6 +37,8 @@ class Minidjvu < Formula
     depends_on "gzip"
   end
 
+  deny_network_access!
+
   def install
     inreplace "Makefile.in", "/usr/bin/gzip", formula_opt_bin("gzip")/"gzip" unless OS.mac?
 
@@ -48,5 +50,9 @@ class Minidjvu < Formula
     system "make"
     system "make", "install"
     lib.install Dir[prefix/shared_library("*")]
+  end
+
+  test do
+    false
   end
 end

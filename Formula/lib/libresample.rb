@@ -27,11 +27,16 @@ class Libresample < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "9c42f2a35518f75cc11ee79cdfd8985def6d079a7afd8b2b02f74ac82a165122"
   end
 
+  deny_network_access!
+
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make"
     lib.install "libresample.a"
     include.install "include/libresample.h"
+  end
+
+  test do
+    false
   end
 end

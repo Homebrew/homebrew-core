@@ -39,14 +39,18 @@ class Shivavg < Formula
     resolves "https://github.com/Ecognize/ShivaVG/issues/12"
   end
 
+  deny_network_access!
+
   def install
     system "/bin/sh", "autogen.sh"
     # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
     # Remove after migration to 18.04.
     inreplace "configure", "$LDFLAGS conftest.$ac_ext", "conftest.$ac_ext $LDFLAGS" unless OS.mac?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-example-all=no"
+    system "./configure", "--with-example-all=no", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

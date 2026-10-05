@@ -28,9 +28,15 @@ class Malbolge < Formula
 
   patch :DATA
 
+  deny_network_access!
+
   def install
     system ENV.cxx, "malbolge.c", "-o", "malbolge"
     bin.install "malbolge"
+  end
+
+  test do
+    false
   end
 end
 

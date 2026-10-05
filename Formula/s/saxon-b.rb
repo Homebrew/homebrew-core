@@ -23,8 +23,14 @@ class SaxonB < Formula
     sha256 cellar: :any_skip_relocation, all: "689001c5df91d0cf80e9ea2d72a5a8ae88abb45142dd47bf9797728d215d2139"
   end
 
+  deny_network_access!
+
   def install
     (buildpath/"saxon-b").install Dir["*.jar", "doc", "notices"]
     share.install Dir["*"]
+  end
+
+  test do
+    false
   end
 end

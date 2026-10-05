@@ -30,8 +30,14 @@ class Libmetalink < Formula
 
   uses_from_macos "expat"
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

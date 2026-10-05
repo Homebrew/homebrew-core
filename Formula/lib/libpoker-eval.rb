@@ -27,6 +27,8 @@ class LibpokerEval < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "723cc1e71146dbe997acaacd71fd71f46266de3977b0ee24f3cf54fae280d208"
   end
 
+  deny_network_access!
+
   def install
     args = []
     # Help old config scripts identify arm64 linux
@@ -34,5 +36,9 @@ class LibpokerEval < Formula
 
     system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

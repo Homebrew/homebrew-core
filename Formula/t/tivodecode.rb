@@ -29,9 +29,14 @@ class Tivodecode < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "28e4184504b5139d3532d972cad416bcd9188669c075681e36834f4e93d2b60d"
   end
 
+  deny_network_access!
+
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

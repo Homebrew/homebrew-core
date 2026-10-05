@@ -38,8 +38,14 @@ class Mjpegtools < Formula
     resolves "https://sourceforge.net/p/mjpeg/patches/63/"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--enable-simd-accel", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

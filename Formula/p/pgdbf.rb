@@ -21,6 +21,8 @@ class Pgdbf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "7f2e231fc1b78b7837dfe257a04e2495128237e5800609675573dd2734185ea5"
   end
 
+  deny_network_access!
+
   def install
     args = []
     # Help old config scripts identify arm64 linux
@@ -28,5 +30,9 @@ class Pgdbf < Formula
 
     system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

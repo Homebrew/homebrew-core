@@ -20,9 +20,14 @@ class Libdiscid < Formula
     sha256 cellar: :any, x86_64_linux:      "fef1a5a18839392e32cff0187636167296c283189748a6f170744bc4a236448d"
   end
 
+  deny_network_access!
+
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

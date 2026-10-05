@@ -9,7 +9,13 @@ class Topgit < Formula
     sha256 cellar: :any_skip_relocation, all: "00f58e04cdec33f5f8b5a141443aeba8fd6ceb94bc43b834954dbd40eda37e73"
   end
 
+  deny_network_access!
+
   def install
     system "make", "install", "prefix=#{prefix}"
+  end
+
+  test do
+    false
   end
 end

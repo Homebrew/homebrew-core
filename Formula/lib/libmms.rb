@@ -25,9 +25,15 @@ class Libmms < Formula
   depends_on "pkgconf" => :build
   depends_on "glib"
 
+  deny_network_access!
+
   def install
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
     system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

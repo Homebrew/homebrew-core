@@ -21,10 +21,16 @@ class Mailcheck < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "84fa4f1d288f0f8824334bb68621b8589b65e0d9e21a4ca0961a33aae5d0ef63"
   end
 
+  deny_network_access!
+
   def install
     system "make", "mailcheck"
     bin.install "mailcheck"
     man1.install "mailcheck.1"
     etc.install "mailcheckrc"
+  end
+
+  test do
+    false
   end
 end

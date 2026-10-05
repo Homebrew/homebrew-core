@@ -24,8 +24,14 @@ class VisionmediaWatch < Formula
 
   conflicts_with "watch"
 
+  deny_network_access!
+
   def install
     bin.mkdir
     system "make", "PREFIX=#{prefix}", "install"
+  end
+
+  test do
+    false
   end
 end

@@ -24,10 +24,16 @@ class Lxsplit < Formula
   deprecate! date: "2026-07-17", because: :unmaintained
   disable! date: "2027-01-17", because: :unmaintained
 
+  deny_network_access!
+
   def install
     bin.mkpath
     inreplace "Makefile", "/usr/local/bin", bin
     system "make"
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

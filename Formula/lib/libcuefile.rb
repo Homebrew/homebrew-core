@@ -34,6 +34,8 @@ class Libcuefile < Formula
   # Fix comparison operators for proper range checking.
   patch :DATA
 
+  deny_network_access!
+
   def install
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
@@ -46,6 +48,10 @@ class Libcuefile < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     include.install "include/cuetools/"
+  end
+
+  test do
+    false
   end
 end
 

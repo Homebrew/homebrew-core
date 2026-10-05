@@ -28,10 +28,16 @@ class Ttf2pt1 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "aa39b65205b22d6c02893d9b5c503d0309edeb8884e0e9336c9d725dc049a666"
   end
 
+  deny_network_access!
+
   def install
     # CFLAGS_SYS is used to fix compilation with newer Clang
     system "make", "all", "INSTDIR=#{prefix}", "CFLAGS_SYS=-Wno-implicit-function-declaration"
     bin.install "ttf2pt1"
     man1.install "ttf2pt1.1"
+  end
+
+  test do
+    false
   end
 end

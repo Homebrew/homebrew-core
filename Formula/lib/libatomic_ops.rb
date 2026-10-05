@@ -28,6 +28,8 @@ class LibatomicOps < Formula
 
   depends_on "cmake" => :build
 
+  deny_network_access!
+
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DAO_BUILD_SHARED_LIBS=ON",
@@ -41,5 +43,9 @@ class LibatomicOps < Formula
                     "--rerun-failed",
                     "--output-on-failure"
     system "cmake", "--install", "build"
+  end
+
+  test do
+    false
   end
 end

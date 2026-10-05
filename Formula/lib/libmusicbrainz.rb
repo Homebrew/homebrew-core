@@ -38,9 +38,15 @@ class Libmusicbrainz < Formula
     resolves "https://github.com/metabrainz/libmusicbrainz/pull/21"
   end
 
+  deny_network_access!
+
   def install
     system "cmake", "-S", ".", "-B", ".", *std_cmake_args
     system "cmake", "--build", "."
     system "cmake", "--install", "."
+  end
+
+  test do
+    false
   end
 end

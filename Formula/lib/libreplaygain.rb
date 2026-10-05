@@ -31,6 +31,8 @@ class Libreplaygain < Formula
 
   depends_on "cmake" => :build
 
+  deny_network_access!
+
   def install
     # Fix build with CMake 4.0+.
     inreplace "CMakeLists.txt",
@@ -42,5 +44,9 @@ class Libreplaygain < Formula
     system "cmake", "--install", "build"
 
     include.install "include/replaygain/"
+  end
+
+  test do
+    false
   end
 end
