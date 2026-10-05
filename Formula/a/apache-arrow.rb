@@ -2,7 +2,7 @@ class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
   license "Apache-2.0"
-  revision 8
+  revision 9
   compatibility_version 3
   head "https://github.com/apache/arrow.git", branch: "main"
 
@@ -42,7 +42,7 @@ class ApacheArrow < Formula
   depends_on "grpc"
   depends_on "llvm@22"
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf"
   depends_on "re2"
   depends_on "snappy"
