@@ -4,6 +4,7 @@ class Tiledb < Formula
   url "https://github.com/TileDB-Inc/TileDB/archive/refs/tags/2.30.1.tar.gz"
   sha256 "36381f9eaa2a6defc8990aa1a95d1f0e87971748a50bf6fb705bf032ac7384cf"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -26,7 +27,7 @@ class Tiledb < Formula
 
   depends_on "fmt"
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "spdlog"
   depends_on "webp"
   depends_on "zstd"
