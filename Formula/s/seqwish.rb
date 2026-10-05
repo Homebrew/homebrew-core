@@ -18,6 +18,13 @@ class Seqwish < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+    system "cargo", "metadata", "--locked", "--format-version=1"
+  end
+
   def install
     # Upstream builds for the host CPU, which is not portable.
     rm ".cargo/config.toml"

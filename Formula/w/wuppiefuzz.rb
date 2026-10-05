@@ -26,6 +26,13 @@ class Wuppiefuzz < Formula
     depends_on "openssl@4" => :build
   end
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+    system "cargo", "metadata", "--locked", "--format-version=1"
+  end
+
   def install
     rm ".cargo/config.toml" # macOS `-stack_size` flag breaks proc-macro linking
     ENV["Z3_LIBRARY_PATH_OVERRIDE"] = formula_opt_lib("z3")
