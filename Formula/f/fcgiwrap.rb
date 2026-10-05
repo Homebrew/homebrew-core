@@ -26,9 +26,15 @@ class Fcgiwrap < Formula
   depends_on "pkgconf" => :build
   depends_on "fcgi"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    assert_match "Invokes CGI scripts as FCGI.", shell_output("#{sbin}/fcgiwrap -h")
   end
 end
