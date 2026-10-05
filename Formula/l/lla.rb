@@ -4,6 +4,7 @@ class Lla < Formula
   url "https://github.com/chaqchase/lla/archive/refs/tags/v0.6.5.tar.gz"
   sha256 "f4d4be9b797dc6bd7ef49cbb65c573f3e72700614e77ebc90204980ee9328fb4"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "a811f9718eb2bf2fdc5e43e68c40cbcc38cf74d125eaf9a42183d3152411a9e7"
@@ -24,6 +25,13 @@ class Lla < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "lla")
+
+    %w[bash fish zsh].each do |shell|
+      system bin/"lla", "completion", shell, "--output", "lla.#{shell}"
+    end
+    bash_completion.install "lla.bash" => "lla"
+    fish_completion.install "lla.fish"
+    zsh_completion.install "lla.zsh" => "_lla"
 
     (buildpath/"plugins").each_child do |plugin|
       next unless plugin.directory?
@@ -46,6 +54,10 @@ class Lla < Formula
   end
 
   test do
+    assert_path_exists bash_completion/"lla"
+    assert_path_exists fish_completion/"lla.fish"
+    assert_path_exists zsh_completion/"_lla"
+
     test_config = testpath/".config/lla/config.toml"
 
     system bin/"lla", "init", "--default"
