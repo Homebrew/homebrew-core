@@ -4,6 +4,7 @@ class Btfs < Formula
   url "https://github.com/johang/btfs/archive/refs/tags/v3.3.tar.gz"
   sha256 "9658625244a88e836bfbed53928c104907fc46bdfffb91225284ea8b6947f5a6"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/johang/btfs.git", branch: "master"
 
   bottle do
@@ -18,7 +19,7 @@ class Btfs < Formula
   depends_on "libfuse"
   depends_on "libtorrent-rasterbar"
   depends_on :linux # on macOS, requires closed-source macFUSE
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"
