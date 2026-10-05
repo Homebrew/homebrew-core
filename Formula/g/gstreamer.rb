@@ -57,6 +57,7 @@ class Gstreamer < Formula
   depends_on "faad2"
   depends_on "ffmpeg"
   depends_on "flac"
+  depends_on "fluid-synth"
   depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "graphene"
