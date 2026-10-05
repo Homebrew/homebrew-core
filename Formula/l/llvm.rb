@@ -255,7 +255,8 @@ class Llvm < Formula
         [args, extra_args, runtimes_cmake_args].each { it.concat(ldflags_args) }
 
         # Use stage1 lld instead of ld shim so that we can control RPATH
-        [args, extra_args].each { it.push("-DLLVM_USE_LINKER=lld") }
+        args << "-DLLVM_USE_LINKER=lld"
+        extra_args << "-DLLVM_USE_LINKER=lld"
       end
 
       # LLVM Profile runs out of static counters
@@ -399,15 +400,11 @@ class Llvm < Formula
     end
 
     return unless lto_build
+    return if OS.linux?
 
     lib.glob("*.a").each do |static_archive|
-      if OS.mac?
-        # Fat LTO is not supported so need to manually convert
-        convert_lto_archive(static_archive)
-      else
-        # https://github.com/llvm/llvm-project/blob/main/clang/cmake/caches/release_cpack_pre_build_strip_lto.cmake
-        system bin/"llvm-strip", "--no-strip-all", "-R", ".llvm.lto", static_archive, "-o", static_archive
-      end
+      # Fat LTO is not supported so need to manually convert
+      convert_lto_archive(static_archive)
     end
   end
 
