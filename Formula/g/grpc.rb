@@ -2,7 +2,7 @@ class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
   license "Apache-2.0"
-  revision 1
+  revision 2
   compatibility_version 6
   head "https://github.com/grpc/grpc.git", branch: "master"
 
@@ -43,7 +43,7 @@ class Grpc < Formula
   depends_on "pkgconf" => :test
   depends_on "abseil"
   depends_on "c-ares"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf"
   depends_on "re2"
 
@@ -79,7 +79,7 @@ class Grpc < Formula
       }
     CPP
 
-    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("openssl@3")/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("openssl@4")/"pkgconfig"
     ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("zlib-ng-compat")/"pkgconfig" if OS.linux?
     flags = shell_output("pkgconf --cflags --libs libcares protobuf re2 grpc++").chomp.split
     system ENV.cc, "test.cpp", "-L#{formula_opt_lib("abseil")}", *flags, "-o", "test"
