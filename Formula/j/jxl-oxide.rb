@@ -18,17 +18,23 @@ class JxlOxide < Formula
   depends_on "rust" => :build
   depends_on "little-cms2"
 
+  resource "sunset-logo-jxl" do
+    url "https://github.com/libjxl/conformance/blob/5399ecf01e50ec5230912aa2df82286dc1c379c9/testcases/sunset_logo/input.jxl?raw=true"
+    sha256 "6617480923e1fdef555e165a1e7df9ca648068dd0bdbc41a22c0e4213392d834"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["LCMS2_LIB_DIR"] = formula_opt_lib("little-cms2").to_s
     system "cargo", "install", *std_cargo_args(path: "crates/jxl-oxide-cli")
   end
 
   test do
-    resource "sunset-logo-jxl" do
-      url "https://github.com/libjxl/conformance/blob/5399ecf01e50ec5230912aa2df82286dc1c379c9/testcases/sunset_logo/input.jxl?raw=true"
-      sha256 "6617480923e1fdef555e165a1e7df9ca648068dd0bdbc41a22c0e4213392d834"
-    end
-
     resource("sunset-logo-jxl").stage do
       system bin/"jxl-oxide", "input.jxl", "-o", testpath/"out.png"
     end

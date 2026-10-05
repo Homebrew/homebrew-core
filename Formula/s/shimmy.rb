@@ -25,6 +25,17 @@ class Shimmy < Formula
 
   uses_from_macos "llvm" => :build # for libclang
 
+  resource "test-gguf" do
+    url "https://huggingface.co/ChristianAzinn/gte-small-gguf/resolve/main/gte-small.Q2_K.gguf?download=true"
+    sha256 "71bc9beaecd0a3c5f075b8959f84c4cdf6c27dbc39930b0ab4d7c443b9373bc6"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
@@ -37,11 +48,6 @@ class Shimmy < Formula
   end
 
   test do
-    resource "test-gguf" do
-      url "https://huggingface.co/ChristianAzinn/gte-small-gguf/resolve/main/gte-small.Q2_K.gguf?download=true"
-      sha256 "71bc9beaecd0a3c5f075b8959f84c4cdf6c27dbc39930b0ab4d7c443b9373bc6"
-    end
-
     assert_match version.to_s, shell_output("#{bin}/shimmy --version")
 
     resource("test-gguf").stage testpath/"models"
