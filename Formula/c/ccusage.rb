@@ -15,7 +15,23 @@ class Ccusage < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args, "--manifest-path", "rust/crates/ccusage/Cargo.toml"
+
+    # The `ccusage-core` build script embeds the LiteLLM pricing table,
+    # downloading it at compile time unless CCUSAGE_PRICING_JSON_PATH points
+    # at a snapshot; download it here from the revision pinned in flake.lock.
+    locked = JSON.parse((buildpath/"flake.lock").read).dig("nodes", "litellm", "locked")
+    Utils::Curl.curl_download(
+      "https://raw.githubusercontent.com/#{locked["owner"]}/#{locked["repo"]}/#{locked["rev"]}/model_prices_and_context_window.json",
+      to: buildpath/"litellm_pricing.json",
+    )
+  end
+
   def install
+    ENV["CCUSAGE_PRICING_JSON_PATH"] = "#{buildpath}/litellm_pricing.json"
     system "cargo", "install", *std_cargo_args(path: "rust/crates/ccusage", features: "fetch-litellm-pricing")
   end
 
