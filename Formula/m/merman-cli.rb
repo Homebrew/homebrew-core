@@ -1,8 +1,8 @@
 class MermanCli < Formula
   desc "Mermaid.js, but headless, in Rust"
   homepage "https://frankorz.com/merman/"
-  url "https://github.com/Latias94/merman/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "e1d787154be74bca8262cc9c83ee3cb3f7e0c13dd4b8eb65c41cb2e42d3b5092"
+  url "https://github.com/Latias94/merman/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "900fcb1c947e886ba501f5b5663f89455724fe16c3623fa5bb30b116bec7e33a"
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
