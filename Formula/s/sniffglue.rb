@@ -24,6 +24,17 @@ class Sniffglue < Formula
     depends_on "libseccomp"
   end
 
+  resource "homebrew-testdata" do
+    url "https://github.com/kpcyrd/sniffglue/raw/163ca299bab711fb0082de216d07d7089c176de6/pcaps/SkypeIRC.pcap"
+    sha256 "bac79a9c3413637f871193589d848697af895b7f2700d949022224d59aa6830f"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
     system "make", "docs"
@@ -35,11 +46,6 @@ class Sniffglue < Formula
   end
 
   test do
-    resource "homebrew-testdata" do
-      url "https://github.com/kpcyrd/sniffglue/raw/163ca299bab711fb0082de216d07d7089c176de6/pcaps/SkypeIRC.pcap"
-      sha256 "bac79a9c3413637f871193589d848697af895b7f2700d949022224d59aa6830f"
-    end
-
     testpath.install resource("homebrew-testdata")
     system bin/"sniffglue", "-r", "SkypeIRC.pcap"
   end
