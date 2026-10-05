@@ -22,6 +22,12 @@ class RRig < Formula
 
   conflicts_with "rig", because: "both install `rig` binary"
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
