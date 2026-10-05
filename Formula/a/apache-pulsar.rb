@@ -4,9 +4,9 @@ class ApachePulsar < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-4.2.4/apache-pulsar-4.2.4-src.tar.gz"
-    mirror "https://archive.apache.org/dist/pulsar/pulsar-4.2.4/apache-pulsar-4.2.4-src.tar.gz"
-    sha256 "c3e2f12ac2160b11a23602583a900eefd959f01b8fb675f400f7642b895917c8"
+    url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-5.0.0/apache-pulsar-5.0.0-src.tar.gz"
+    mirror "https://archive.apache.org/dist/pulsar/pulsar-5.0.0/apache-pulsar-5.0.0-src.tar.gz"
+    sha256 "ba9cbbc8db22d756b4c0917ce2a1606962a7210e4cc3ba953bc8e8216308f67c"
 
     depends_on "maven" => :build
     depends_on "protoc-gen-grpc-java" => :build
