@@ -4,6 +4,7 @@ class LibpahoMqtt < Formula
   url "https://github.com/eclipse-paho/paho.mqtt.c/archive/refs/tags/v1.3.16.tar.gz"
   sha256 "8b960f51edc7e03507637d987882bc486d8f4be6e79431bf99e2763344fd14c5"
   license "EPL-2.0"
+  revision 1
 
   bottle do
     rebuild 1
@@ -17,7 +18,7 @@ class LibpahoMqtt < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   deny_network_access!
 
