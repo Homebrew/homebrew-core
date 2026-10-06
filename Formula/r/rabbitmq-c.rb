@@ -4,6 +4,7 @@ class RabbitmqC < Formula
   url "https://github.com/alanxz/rabbitmq-c/archive/refs/tags/v0.18.0.tar.gz"
   sha256 "d57782c950ec04c7da3692cad6f02059dad6df90e588e2f6a1def632fa59f7d7"
   license "MIT"
+  revision 1
   head "https://github.com/alanxz/rabbitmq-c.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class RabbitmqC < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "xmlto" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "popt"
 
   deny_network_access!
