@@ -1,10 +1,10 @@
 class Qtsensors < Formula
   desc "Provides access to sensors via QML and C++ interfaces"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtsensors-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtsensors-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtsensors-everywhere-src-6.11.2.tar.xz"
-  sha256 "68c8e44dfb32e8e2182f63f5544c2f462089b1bb049574f1d504ee2648903119"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtsensors-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtsensors-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtsensors-everywhere-src-6.12.0.tar.xz"
+  sha256 "861df58be8808cef777a1b531d7bec804d25733ec34e8ebbdafbe27040319090"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-3-Clause", # *.cmake
