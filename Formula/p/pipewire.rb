@@ -8,6 +8,7 @@ class Pipewire < Formula
     "GPL-2.0-only",      # libjackserver.so
     "LGPL-2.1-or-later", # libspa-alsa.so
   ]
+  revision 1
   head "https://gitlab.freedesktop.org/pipewire/pipewire.git", branch: "master"
 
   # We restrict matching to versions with an even-numbered minor version number,
@@ -33,7 +34,7 @@ class Pipewire < Formula
   depends_on "libsndfile"
   depends_on :linux
   depends_on "ncurses"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "opus"
   depends_on "pulseaudio"
   depends_on "readline"
