@@ -4,6 +4,7 @@ class Fizz < Formula
   url "https://github.com/facebookincubator/fizz/archive/refs/tags/v2026.10.05.00.tar.gz"
   sha256 "d6a70f2cfc9ff26acf49fcb19ef1e689f6e9b036754d83a19285bd2c0ca17c10"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
   head "https://github.com/facebookincubator/fizz.git", branch: "main"
 
@@ -22,7 +23,7 @@ class Fizz < Formula
   depends_on "folly"
   depends_on "glog"
   depends_on "libsodium"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   on_linux do
@@ -85,7 +86,7 @@ class Fizz < Formula
 
     ENV.delete "CPATH"
 
-    args = ["-DCMAKE_PREFIX_PATH=#{formula_opt_prefix("openssl@3")}"]
+    args = ["-DCMAKE_PREFIX_PATH=#{formula_opt_prefix("openssl@4")}"]
     args << "-DCMAKE_BUILD_RPATH=#{lib};#{HOMEBREW_PREFIX}/lib" if OS.linux?
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
