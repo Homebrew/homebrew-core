@@ -4,6 +4,7 @@ class Mvfst < Formula
   url "https://github.com/facebook/mvfst/archive/refs/tags/v2026.10.05.00.tar.gz"
   sha256 "5ecc3e3932ebd82776284ff0b48329a062d198829b4dab8018ba497f1258123c"
   license "MIT"
+  revision 1
   compatibility_version 1
   head "https://github.com/facebook/mvfst.git", branch: "main"
 
@@ -23,7 +24,7 @@ class Mvfst < Formula
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   allow_network_access! :test
 
@@ -62,7 +63,7 @@ class Mvfst < Formula
       set_target_properties(echo PROPERTIES BUILD_RPATH "#{lib};#{HOMEBREW_PREFIX}/lib")
     CMAKE
 
-    ENV.append_path "CMAKE_PREFIX_PATH", formula_opt_prefix("openssl@3")
+    ENV.append_path "CMAKE_PREFIX_PATH", formula_opt_prefix("openssl@4")
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
 
