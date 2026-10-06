@@ -4,6 +4,7 @@ class Wangle < Formula
   url "https://github.com/facebook/wangle/archive/refs/tags/v2026.10.05.00.tar.gz"
   sha256 "4ba21ca487d25c66c9b56ce786dd4e7ba0724ac8f52b511f5529142d43a9940f"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
   head "https://github.com/facebook/wangle.git", branch: "main"
 
@@ -23,7 +24,7 @@ class Wangle < Formula
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   allow_network_access! :test
 
@@ -64,7 +65,7 @@ class Wangle < Formula
     ENV.delete "CPATH"
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_MODULE_PATH=#{testpath}/cmake",
                     "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib",
-                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}", "-Wno-author"
+                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}", "-Wno-author"
     system "cmake", "--build", "build"
 
     port = free_port
