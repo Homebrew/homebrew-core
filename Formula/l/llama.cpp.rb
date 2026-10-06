@@ -6,6 +6,7 @@ class LlamaCpp < Formula
       tag:      "v0.6.0",
       revision: "d81235049384534c167caea52b85a694f6103d14"
   license "MIT"
+  revision 1
   version_scheme 1
   compatibility_version 1
   head "https://github.com/ggml-org/llama.cpp.git", branch: "master"
@@ -26,7 +27,7 @@ class LlamaCpp < Formula
   depends_on "cmake" => [:build, :test]
   depends_on "node" => :build
   depends_on "ggml"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   # `test do` block downloads a model from Hugging Face
   allow_network_access! :test
