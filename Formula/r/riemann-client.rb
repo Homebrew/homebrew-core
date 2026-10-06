@@ -6,6 +6,7 @@ class RiemannClient < Formula
       tag:      "riemann-c-client-2.2.2",
       revision: "36cf5cde0648c8ae953f7636bedbf6fab02d58ef"
   license "EUPL-1.2"
+  revision 1
   head "https://git.madhouse-project.org/algernon/riemann-c-client.git", branch: "main"
 
   bottle do
@@ -28,7 +29,7 @@ class RiemannClient < Formula
   depends_on "pkgconf" => :build
 
   depends_on "json-c"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf-c"
 
   def install
