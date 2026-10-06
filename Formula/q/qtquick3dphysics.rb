@@ -1,10 +1,10 @@
 class Qtquick3dphysics < Formula
   desc "High-level QML module adding physical simulation capabilities to Qt Quick 3D"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtquick3dphysics-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtquick3dphysics-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtquick3dphysics-everywhere-src-6.11.2.tar.xz"
-  sha256 "1c5a24cf4285fc48481d7c7ae65bd6e80ed98b10964ea6e8530c608c4cdeb86e"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtquick3dphysics-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtquick3dphysics-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtquick3dphysics-everywhere-src-6.12.0.tar.xz"
+  sha256 "8ddb23147e4677c759d36a65ae50f6b0d0d79fa8590ac89576b91f572918b481"
   license all_of: [
     "GPL-3.0-only",
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } }, # cooker
