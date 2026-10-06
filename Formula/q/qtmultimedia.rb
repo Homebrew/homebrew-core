@@ -1,10 +1,10 @@
 class Qtmultimedia < Formula
   desc "Provides APIs for playing back and recording audiovisual content"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtmultimedia-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtmultimedia-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtmultimedia-everywhere-src-6.11.2.tar.xz"
-  sha256 "967b5e02ec6b793cdb360622cd6e703132836af983208d678dae4b50f109cd9f"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtmultimedia-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtmultimedia-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtmultimedia-everywhere-src-6.12.0.tar.xz"
+  sha256 "3143f53b64257ba2a0685c940f5dce476c75871ff86b516de45cfd54ea93a62d"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     { all_of: ["MPL-2.0", "BSD-3-Clause"] }, # bundled eigen
@@ -56,6 +56,7 @@ class Qtmultimedia < Formula
     depends_on "libxext"
     depends_on "libxrandr"
     depends_on "mesa"
+    depends_on "pipewire"
     depends_on "pulseaudio"
   end
 
