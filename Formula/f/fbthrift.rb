@@ -4,6 +4,7 @@ class Fbthrift < Formula
   url "https://github.com/facebook/fbthrift/archive/refs/tags/v2026.10.05.00.tar.gz"
   sha256 "d2ef7081d42b5dbf94c01d1bf368b992916abb33f1ae43ea5bd0b4ab81bd60d7"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
@@ -25,7 +26,7 @@ class Fbthrift < Formula
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "wangle"
   depends_on "xxhash"
 
@@ -46,7 +47,7 @@ class Fbthrift < Formula
     # PR ref: https://github.com/facebook/fbthrift/pull/702
     ENV.append "CXXFLAGS", "-DFMT_DEPRECATED_HEAVY_CORE"
 
-    ENV["OPENSSL_ROOT_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_ROOT_DIR"] = formula_opt_prefix("openssl@4")
 
     # The static libraries are a bit annoying to build. If modifying this formula
     # to include them, make sure `bin/thrift1` links with the dynamic libraries
@@ -101,7 +102,7 @@ class Fbthrift < Formula
       target_link_libraries(test FBThrift::transport)
     CMAKE
 
-    ENV.append_path "CMAKE_PREFIX_PATH", formula_opt_prefix("openssl@3")
+    ENV.append_path "CMAKE_PREFIX_PATH", formula_opt_prefix("openssl@4")
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
   end
