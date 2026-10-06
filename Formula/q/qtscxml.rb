@@ -1,10 +1,10 @@
 class Qtscxml < Formula
   desc "Provides functionality to create state machines from SCXML files"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtscxml-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtscxml-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtscxml-everywhere-src-6.11.2.tar.xz"
-  sha256 "f594c4bba7f8bffb20857973c72895669d6e54df08c8d897f50d15251cec35ff"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtscxml-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtscxml-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtscxml-everywhere-src-6.12.0.tar.xz"
+  sha256 "adc04875b383256bcd5a412f6f249d363495ea037913ca8c96d723442be38383"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } }, # qscxmlc
