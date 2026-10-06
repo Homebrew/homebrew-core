@@ -4,6 +4,7 @@ class AwsCHttp < Formula
   url "https://github.com/awslabs/aws-c-http/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "ae992d9f24a88430cdd4b7538fab565e71faedb1f156f38d6a74f2a77269417f"
   license "Apache-2.0"
+  revision 1
   compatibility_version 2
 
   bottle do
@@ -21,13 +22,12 @@ class AwsCHttp < Formula
   depends_on "aws-c-compression"
   depends_on "aws-c-io"
 
-  on_macos do
-    depends_on "openssl@3"
-    depends_on "s2n"
-  end
-
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    args = ["-DBUILD_SHARED_LIBS=ON"]
+    # Avoid linkage to OpenSSL
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
