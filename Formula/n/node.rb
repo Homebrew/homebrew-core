@@ -4,6 +4,7 @@ class Node < Formula
   url "https://nodejs.org/dist/v26.11.0/node-v26.11.0.tar.xz"
   sha256 "aaad9242704524109e88d48be7bb7b7943486d931e740a352c02e97e107f18c9"
   license "MIT"
+  revision 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
   livecheck do
@@ -34,7 +35,7 @@ class Node < Formula
   depends_on "llhttp"
   depends_on "merve"
   depends_on "nbytes"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "simdjson"
   depends_on "simdutf"
   depends_on "sqlite" # Fails with macOS sqlite.
@@ -123,7 +124,7 @@ class Node < Formula
       "merve"         => ["merve",                     "merve"],
       "nbytes"        => ["nbytes",                    "nbytes"],
       "nghttp2"       => ["nghttp2",                   "libnghttp2"],
-      "openssl"       => ["openssl/openssl",           "openssl@3"],
+      "openssl"       => ["openssl/openssl",           "openssl@4"],
       "simdjson"      => ["simdjson",                  "simdjson"],
       "simdutf"       => ["v8/third_party/simdutf",    "simdutf"],
       "sqlite"        => ["sqlite",                    "sqlite"],
