@@ -28,6 +28,7 @@ class PhpAT82 < Formula
     "TCL",                   # 7
     "Zlib",                  # 8
   ]
+  revision 1
 
   livecheck do
     url "https://www.php.net/downloads?source=Y"
@@ -67,7 +68,7 @@ class PhpAT82 < Formula
   depends_on "libzip"
   depends_on "oniguruma"
   depends_on "openldap"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "sqlite"
   depends_on "tidy-html5"
@@ -238,7 +239,7 @@ class PhpAT82 < Formula
     orig_ext_dir = File.basename(extension_dir)
     inreplace bin/"php-config", lib/"php", prefix/"pecl"
 
-    openssl = Formula["openssl@3"]
+    openssl = Formula["openssl@4"]
     %w[development production].each do |mode|
       inreplace "php.ini-#{mode}" do |s|
         # Allow pecl to install outside of Cellar
