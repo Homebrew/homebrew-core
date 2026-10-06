@@ -1,17 +1,16 @@
 class Qttools < Formula
   desc "Facilitate the design, development, testing and deployment of applications"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qttools-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qttools-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qttools-everywhere-src-6.11.2.tar.xz"
-  sha256 "9ea75af35c512f7e09e61c8c3af3997f13b4d43bb099cf43fcec470126b4041e"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qttools-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qttools-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qttools-everywhere-src-6.12.0.tar.xz"
+  sha256 "8dab8f3611496486a470ad5f115ceea584f36bc22a2b8b6f6ebdbafbb8160693"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "BSD-3-Clause", # *.cmake
     "BSL-1.0", # bundled catch2
   ]
-  revision 1
   head "https://code.qt.io/qt/qttools.git", branch: "dev"
 
   livecheck do
@@ -41,13 +40,6 @@ class Qttools < Formula
   end
 
   conflicts_with "qt@5", because: "both link conflicting binaries"
-
-  # Backport qlitehtml's litehtml 0.10 support, which qttools has not pulled into its submodule yet.
-  patch do
-    file "Patches/qttools/litehtml-0.10.patch"
-    type :backport
-    resolves "https://code.qt.io/cgit/playground/qlitehtml.git/commit/?id=1f56cfe0a8e9a8a99072e0d325632bd8dc0e20d3"
-  end
 
   def install
     rm_r("src/assistant/qlitehtml/src/3rdparty/litehtml")
