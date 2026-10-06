@@ -4,6 +4,7 @@ class Cryptography < Formula
   url "https://files.pythonhosted.org/packages/9d/af/182eb91b0df3fe75c4d9f26fe70684569566745f6ba7e5c9c73a862c5252/cryptography-50.0.2.tar.gz"
   sha256 "7b46165bb56eb4704e2eaaf86f3c940d19154535d9b0ca7d6d590b04060e00d5"
   license any_of: ["Apache-2.0", "BSD-3-Clause"]
+  revision 1
   compatibility_version 2
   head "https://github.com/pyca/cryptography.git", branch: "main"
 
@@ -18,11 +19,11 @@ class Cryptography < Formula
   depends_on "maturin" => :build
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.13" => [:build, :test]
   depends_on "python@3.14" => [:build, :test]
+  # TODO: depends_on "python@3.15" => [:build, :test]
   depends_on "rust" => :build
   depends_on "cffi"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   pypi_packages exclude_packages: ["cffi", "pycparser"]
 
