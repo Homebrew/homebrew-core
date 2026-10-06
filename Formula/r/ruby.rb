@@ -2,6 +2,7 @@ class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
   license "Ruby"
+  revision 1
   compatibility_version 1
 
   stable do
@@ -45,7 +46,7 @@ class Ruby < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "libffi"
   uses_from_macos "libxcrypt"
@@ -86,7 +87,7 @@ class Ruby < Formula
   end
 
   def install
-    paths = %w[libyaml openssl@3].map { |f| formula_opt_prefix(f) }
+    paths = %w[libyaml openssl@4].map { |f| formula_opt_prefix(f) }
     # Add versioned Ruby RPATH so user-installed gems can work when user is switched to versioned Ruby
     paths << versioned_opt_prefix if OS.linux? && !versioned_formula?
 
