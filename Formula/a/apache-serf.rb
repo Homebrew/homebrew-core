@@ -2,6 +2,7 @@ class ApacheSerf < Formula
   desc "High-performance asynchronous HTTP client library"
   homepage "https://serf.apache.org/"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/serf.git", branch: "trunk"
 
   stable do
@@ -39,7 +40,7 @@ class ApacheSerf < Formula
   depends_on "pkgconf" => :test
   depends_on "apr"
   depends_on "apr-util"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "krb5"
 
@@ -47,7 +48,7 @@ class ApacheSerf < Formula
     depends_on "zlib-ng-compat"
   end
 
-  def openssl = "openssl@3"
+  def openssl = "openssl@4"
 
   def install
     # scons ignores our compiler and flags unless explicitly passed
