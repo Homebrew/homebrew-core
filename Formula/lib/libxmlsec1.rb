@@ -5,6 +5,7 @@ class Libxmlsec1 < Formula
   mirror "https://www.aleksey.com/xmlsec/download/xmlsec1-1.3.12.tar.gz"
   sha256 "24045199af12d93fe5fdbbbf7e386e823e4842071e9432e2b90ac108b889a923"
   license "MIT"
+  revision 1
   compatibility_version 4
 
   # Checking the first-party download page persistently fails in the autobump
@@ -27,7 +28,7 @@ class Libxmlsec1 < Formula
   depends_on "pkgconf" => :build
   depends_on "gnutls" # Yes, it wants both ssl/tls variations
   depends_on "libxml2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   uses_from_macos "libxslt"
 
   # Add HOMEBREW_PREFIX/lib to dl load path
@@ -41,7 +42,7 @@ class Libxmlsec1 < Formula
       --disable-mscng
       --without-nss
       --without-nspr
-      --with-openssl=#{formula_opt_prefix("openssl@3")}
+      --with-openssl=#{formula_opt_prefix("openssl@4")}
     ]
 
     system "./configure", *args, *std_configure_args
