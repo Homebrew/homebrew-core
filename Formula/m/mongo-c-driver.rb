@@ -4,6 +4,7 @@ class MongoCDriver < Formula
   url "https://github.com/mongodb/mongo-c-driver/archive/refs/tags/2.5.5.tar.gz"
   sha256 "0461e130ed73805fc1aff4fb7b7182e88dc1f86fef8812276e4f84e30c07aae5"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
   head "https://github.com/mongodb/mongo-c-driver.git", branch: "master"
 
@@ -23,7 +24,7 @@ class MongoCDriver < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   on_linux do
