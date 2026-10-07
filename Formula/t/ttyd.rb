@@ -4,7 +4,7 @@ class Ttyd < Formula
   url "https://github.com/tsl0922/ttyd/archive/refs/tags/1.7.7.tar.gz"
   sha256 "039dd995229377caee919898b7bd54484accec3bba49c118e2d5cd6ec51e3650"
   license "MIT"
-  revision 13
+  revision 14
   head "https://github.com/tsl0922/ttyd.git", branch: "main"
 
   bottle do
@@ -20,7 +20,7 @@ class Ttyd < Formula
   depends_on "libevent"
   depends_on "libuv"
   depends_on "libwebsockets"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "vim" # needed for xxd
 
@@ -32,7 +32,7 @@ class Ttyd < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build",
-                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}",
+                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}",
                     "-Dlibwebsockets_DIR=#{formula_opt_lib("libwebsockets")}/cmake/libwebsockets",
                     *std_cmake_args
     system "cmake", "--build", "build"
