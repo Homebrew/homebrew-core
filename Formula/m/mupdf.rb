@@ -4,6 +4,7 @@ class Mupdf < Formula
   url "https://mupdf.com/downloads/archive/mupdf-1.28.5-source.tar.gz"
   sha256 "98a5c10cda20c3992cdf76ff6b2a1149c32bd79cc796d3f703230b1185b7e934"
   license "AGPL-3.0-or-later"
+  revision 1
   compatibility_version 8
   head "git://git.ghostscript.com/mupdf.git", branch: "master"
 
@@ -31,7 +32,7 @@ class Mupdf < Formula
   depends_on "jpeg-turbo"
   depends_on "leptonica"
   depends_on "openjpeg"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "python@3.14"
   depends_on "tesseract"
 
