@@ -6,6 +6,7 @@ class Openssh < Formula
   version "10.6p1"
   sha256 "a9dc9565dffe8640f64d863cd29a32bc4a3dbdec0566a7fc44c5d6ee767d5f39"
   license "SSH-OpenSSH"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -27,7 +28,7 @@ class Openssh < Formula
   depends_on "pkgconf" => :build
   depends_on "ldns"
   depends_on "libfido2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "mandoc" => :build
   uses_from_macos "lsof" => :test
@@ -56,7 +57,7 @@ class Openssh < Formula
       --with-libedit
       --with-kerberos5
       --with-pam
-      --with-ssl-dir=#{formula_opt_prefix("openssl@3")}
+      --with-ssl-dir=#{formula_opt_prefix("openssl@4")}
       --with-security-key-builtin
     ]
 
