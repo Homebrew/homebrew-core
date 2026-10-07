@@ -4,6 +4,7 @@ class Civetweb < Formula
   url "https://github.com/civetweb/civetweb/archive/refs/tags/v1.16.tar.gz"
   sha256 "f0e471c1bf4e7804a6cfb41ea9d13e7d623b2bcc7bc1e2a4dd54951a24d60285"
   license "MIT"
+  revision 1
   head "https://github.com/civetweb/civetweb.git", branch: "master"
 
   bottle do
@@ -18,7 +19,7 @@ class Civetweb < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
