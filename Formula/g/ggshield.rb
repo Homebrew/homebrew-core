@@ -6,6 +6,7 @@ class Ggshield < Formula
   url "https://files.pythonhosted.org/packages/1c/93/bebb2317a2e1eda08870f39a8caf6ee769e0a50cfc899976ec163350ecd1/ggshield-1.55.0.tar.gz"
   sha256 "06b8bbef8885abaa18ab87c70708584e625a1ddbd0902ccf93ba97e15784f766"
   license "MIT"
+  revision 1
   head "https://github.com/GitGuardian/ggshield.git", branch: "main"
 
   bottle do
@@ -21,7 +22,7 @@ class Ggshield < Formula
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pydantic" => :no_linkage
   depends_on "python@3.14"
 
