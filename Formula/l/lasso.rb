@@ -4,7 +4,7 @@ class Lasso < Formula
   url "https://dev.entrouvert.org/releases/lasso/lasso-2.9.0.tar.gz"
   sha256 "63816c8219df48cdefeccb1acb35e04014ca6395b5263c70aacd5470ea95c351"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 5
 
   livecheck do
     url :homepage
@@ -25,7 +25,7 @@ class Lasso < Formula
   depends_on "glib"
   depends_on "libxml2"
   depends_on "libxmlsec1"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "python" => :build
   uses_from_macos "libxslt"
