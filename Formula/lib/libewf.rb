@@ -6,6 +6,7 @@ class Libewf < Formula
   url "https://github.com/libyal/libewf-legacy/releases/download/20140817/libewf-20140817.tar.gz"
   sha256 "6dbbefe68e913243dc000b9daaf59f293e33c2340024f7dfb144f1ad90b06544"
   license "LGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -30,7 +31,7 @@ class Libewf < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "bzip2"
 
