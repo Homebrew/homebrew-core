@@ -4,6 +4,7 @@ class Tarsnap < Formula
   url "https://www.tarsnap.com/download/tarsnap-autoconf-1.0.41.tgz"
   sha256 "bebdbe1e6e91233755beb42ef0b4adbefd9573455258f009fb331556c799b3d0"
   license "0BSD"
+  revision 1
 
   livecheck do
     url "https://www.tarsnap.com/download.html"
@@ -27,7 +28,7 @@ class Tarsnap < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "bzip2"
 
