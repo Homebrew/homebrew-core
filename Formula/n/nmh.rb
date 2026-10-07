@@ -5,7 +5,7 @@ class Nmh < Formula
   mirror "https://download-mirror.savannah.gnu.org/releases/nmh/nmh-1.8.tar.gz"
   sha256 "366ce0ce3f9447302f5567009269c8bb3882d808f33eefac85ba367e875c8615"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/nmh/"
@@ -35,7 +35,7 @@ class Nmh < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "w3m"
 
   uses_from_macos "cyrus-sasl"
