@@ -4,6 +4,7 @@ class Qxmpp < Formula
   url "https://invent.kde.org/libraries/qxmpp/-/archive/v1.17.0/qxmpp-v1.17.0.tar.bz2"
   sha256 "1c480d17489e0f83a976b670bb8a36b81e902152c9d5dcfe08b98e3d75f669e7"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "094ee6d3d1a5618851256efe14a0a562a33a6fbd26527999f2202779095da085"
@@ -15,7 +16,7 @@ class Qxmpp < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "qtbase"
 
   on_macos do
