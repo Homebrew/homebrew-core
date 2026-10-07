@@ -4,6 +4,7 @@ class Unbound < Formula
   url "https://nlnetlabs.nl/downloads/unbound/unbound-1.26.1.tar.gz"
   sha256 "35a6dc0e425a9282c3426d9a3043144011bf0534aed4b73ab62c52aee0af1503"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
   head "https://github.com/NLnetLabs/unbound.git", branch: "master"
 
@@ -25,7 +26,7 @@ class Unbound < Formula
 
   depends_on "libevent"
   depends_on "libnghttp2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "expat"
 
@@ -42,7 +43,7 @@ class Unbound < Formula
       --with-libevent=#{formula_opt_prefix("libevent")}
       --with-libexpat=#{expat_prefix}
       --with-libnghttp2=#{formula_opt_prefix("libnghttp2")}
-      --with-ssl=#{formula_opt_prefix("openssl@3")}
+      --with-ssl=#{formula_opt_prefix("openssl@4")}
     ]
 
     system "./configure", *args
