@@ -4,7 +4,7 @@ class Micromamba < Formula
   url "https://github.com/mamba-org/mamba/archive/refs/tags/2.9.0.tar.gz"
   sha256 "57befdcc985b07f95d1a495569ac249a270c71167d111374ff08443154821e1d"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/mamba-org/mamba.git", branch: "main"
 
   livecheck do
@@ -34,7 +34,7 @@ class Micromamba < Formula
   depends_on "libsolv"
   depends_on "lz4"
   depends_on "msgpack"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "reproc"
   depends_on "simdjson"
   depends_on "xz"
