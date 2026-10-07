@@ -1,15 +1,26 @@
 class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
-  url "https://files.freeswitch.org/releases/freeswitch/freeswitch-1.11.3.-release.tar.gz"
-  version "1.11.3"
-  sha256 "e7cfeed1cfbcaea31a30f4d21b778a2fb56c8bd534fdc2a864cec91c3fa3fd79"
   license all_of: [
     "MPL-1.1",
     "LGPL-2.1-only", # spandsp
   ]
-
+  revision 1
   head "https://github.com/signalwire/freeswitch.git", branch: "master"
+
+  stable do
+    url "https://files.freeswitch.org/releases/freeswitch/freeswitch-1.11.3.-release.tar.gz"
+    version "1.11.3"
+    sha256 "e7cfeed1cfbcaea31a30f4d21b778a2fb56c8bd534fdc2a864cec91c3fa3fd79"
+
+    # Backport fix for OpenSSL 4
+    patch do
+      url "https://github.com/signalwire/freeswitch/commit/fd1cab5117cd4c711293439354885a559ef783bb.patch?full_index=1"
+      sha256 "b214d7d737da93aa51e3e8c30d5d34dcf252e3f5149653bb064356c75906510b"
+      type :backport
+      resolves "https://github.com/signalwire/freeswitch/pull/3185"
+    end
+  end
 
   livecheck do
     url :head
@@ -40,7 +51,7 @@ class Freeswitch < Formula
   depends_on "libtiff"
   depends_on "lua"
   depends_on "opencore-amr"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "opus"
   depends_on "pcre2"
   depends_on "signalwire-client-c"
@@ -168,7 +179,12 @@ class Freeswitch < Formula
       ENV.append_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
     end
 
-    system "./bootstrap.sh", "-j" if build.head?
+    if build.head?
+      system "./bootstrap.sh", "-j"
+    else
+      odie "Check if autoreconf can be removed!" if version > "1.11.3"
+      system "autoreconf", "--force", "--install", "--verbose"
+    end
 
     # Reject FFmpeg dependency due to MPL-1.1 incompatibility with GPL
     # Ref: https://www.gnu.org/licenses/license-list.html#MPL
