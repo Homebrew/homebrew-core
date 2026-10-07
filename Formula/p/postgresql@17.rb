@@ -4,6 +4,7 @@ class PostgresqlAT17 < Formula
   url "https://ftp.postgresql.org/pub/source/v17.11/postgresql-17.11.tar.bz2"
   sha256 "dd27f2b3c59e73ed14aa3324901242bf69a032a6347805f274e6260322d42979"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -35,7 +36,7 @@ class PostgresqlAT17 < Formula
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "readline"
   depends_on "zstd"
 
@@ -65,8 +66,8 @@ class PostgresqlAT17 < Formula
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     ENV.runtime_cpu_detection
     ENV.delete "PKG_CONFIG_LIBDIR"
-    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@3")} -L#{formula_opt_lib("readline")}"
-    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("openssl@3")} -I#{formula_opt_include("readline")}"
+    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@4")} -L#{formula_opt_lib("readline")}"
+    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("openssl@4")} -I#{formula_opt_include("readline")}"
 
     # Fix 'libintl.h' file not found for extensions
     # Update config to fix `error: could not find function 'gss_store_cred_into' required for GSSAPI`
