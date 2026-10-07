@@ -5,6 +5,7 @@ class S3Backer < Formula
   url "https://s3.amazonaws.com/archie-public/s3backer/s3backer-2.1.6.tar.gz"
   sha256 "55ff3123ab08d45822e6b349d9e305ca2ca13339474314cfc31a074d5308acf6"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
@@ -17,7 +18,7 @@ class S3Backer < Formula
   depends_on "expat"
   depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zlib-ng-compat"
   depends_on "zstd"
 
