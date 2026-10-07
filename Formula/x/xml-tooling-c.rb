@@ -4,7 +4,7 @@ class XmlToolingC < Formula
   url "https://shibboleth.net/downloads/c++-opensaml/3.3.0/xmltooling-3.3.0.tar.bz2"
   sha256 "0a2c421be976f3a44b876d6b06ba1f6a2ffbc404f4622f8a65a66c3ba77cb047"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://shibboleth.net/downloads/c++-opensaml/latest/"
@@ -26,12 +26,20 @@ class XmlToolingC < Formula
   depends_on "boost"
   depends_on "curl"
   depends_on "log4shib"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "xerces-c"
   depends_on "xml-security-c"
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  # Apply Ubuntu patch to support OpenSSL 4
+  patch do
+    url "https://archive.ubuntu.com/ubuntu/pool/universe/x/xmltooling/xmltooling_3.3.0-3ubuntu2.debian.tar.xz"
+    sha256 "ec8c5c3729cb90d868ef67f8851d23948e008986cdb986bd118b7dd9a14411a9"
+    apply "patches/fix-for-openssl4-compat.patch"
+    type :unofficial
   end
 
   def install
