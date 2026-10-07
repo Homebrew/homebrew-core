@@ -2,6 +2,7 @@ class Monero < Formula
   desc "Official Monero wallet and CPU miner"
   homepage "https://www.getmonero.org/downloads/#cli"
   license "BSD-3-Clause"
+  revision 1
 
   stable do
     url "https://downloads.getmonero.org/cli/monero-source-v0.18.5.3.tar.bz2"
@@ -41,7 +42,7 @@ class Monero < Formula
   depends_on "boost"
   depends_on "hidapi"
   depends_on "libsodium"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "readline"
   depends_on "unbound"
   depends_on "zeromq"
