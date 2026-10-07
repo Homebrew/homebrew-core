@@ -12,6 +12,7 @@ class Tor < Formula
     "MIT",
     "NCSA",
   ]
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -30,7 +31,7 @@ class Tor < Formula
   depends_on "pkgconf" => :build
   depends_on "libevent"
   depends_on "libscrypt"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
@@ -41,7 +42,7 @@ class Tor < Formula
       --disable-silent-rules
       --sysconfdir=#{etc}
       --localstatedir=#{var}
-      --with-openssl-dir=#{formula_opt_prefix("openssl@3")}
+      --with-openssl-dir=#{formula_opt_prefix("openssl@4")}
     ]
 
     system "./configure", *args, *std_configure_args
