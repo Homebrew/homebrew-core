@@ -5,6 +5,7 @@ class Termscp < Formula
   url "https://github.com/veeso/termscp/archive/refs/tags/v1.2.0.tar.gz"
   sha256 "fe35ae14d72a3e40f43532c44ffbced9667ca515c82b93ce2b4398b768fd1113"
   license "MIT"
+  revision 1
   head "https://github.com/veeso/termscp.git", branch: "main"
 
   bottle do
@@ -18,7 +19,7 @@ class Termscp < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "samba"
 
   on_linux do
@@ -28,7 +29,7 @@ class Termscp < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     system "cargo", "install", *std_cargo_args
   end
