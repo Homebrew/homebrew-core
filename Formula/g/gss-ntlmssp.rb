@@ -4,6 +4,7 @@ class GssNtlmssp < Formula
   url "https://github.com/gssapi/gss-ntlmssp/releases/download/v1.3.2/gssntlmssp-1.3.2.tar.gz"
   sha256 "e5cc8d74e5f88cfe74622b14d1d28e85710dec898b754c2c78969f25147bbb55"
   license "ISC"
+  revision 1
   head "https://github.com/gssapi/gss-ntlmssp.git", branch: "main"
 
   bottle do
@@ -17,7 +18,7 @@ class GssNtlmssp < Formula
   depends_on "krb5"
   depends_on "libunistring"
   depends_on :linux
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zlib-ng-compat"
 
   def install
