@@ -4,6 +4,7 @@ class CargoUpdate < Formula
   url "https://github.com/nabijaczleweli/cargo-update/archive/refs/tags/v22.1.1.tar.gz"
   sha256 "570d009f6ddd83d54ea478b63f369e08617feddb7119a9cb1d5c6a050d213c28"
   license "MIT"
+  revision 1
   head "https://github.com/nabijaczleweli/cargo-update.git", branch: "master"
 
   bottle do
@@ -22,7 +23,7 @@ class CargoUpdate < Formula
 
   depends_on "libgit2"
   depends_on "libssh2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "curl"
 
@@ -34,7 +35,7 @@ class CargoUpdate < Formula
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
     # Ensure the correct `openssl` will be picked up.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     system "cargo", "install", *std_cargo_args
   end
