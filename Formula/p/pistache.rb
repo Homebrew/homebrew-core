@@ -4,6 +4,7 @@ class Pistache < Formula
   url "https://github.com/pistacheio/pistache/archive/refs/tags/v0.4.26.tar.gz"
   sha256 "29af6562547497acf6f49170661786fe8cf1ed3712ad80e69c53da4661c59544"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/pistacheio/pistache.git", branch: "master"
 
   bottle do
@@ -28,7 +29,7 @@ class Pistache < Formula
 
   depends_on "brotli"
   depends_on "libevent"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   uses_from_macos "curl" => :build
