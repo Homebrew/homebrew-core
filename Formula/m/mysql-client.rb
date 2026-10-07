@@ -5,6 +5,7 @@ class MysqlClient < Formula
   mirror "https://repo.mysql.com/apt/ubuntu/pool/mysql-innovation/m/mysql-community/mysql-community_26.7.0.orig.tar.gz"
   sha256 "95e949183b94bbe39e70c6355e6c90d2a640a62ede996ca5f7a6a3e0827a3260"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -27,7 +28,7 @@ class MysqlClient < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "libfido2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zlib-ng-compat" # Zlib 1.2.13+
   depends_on "zstd"
 
