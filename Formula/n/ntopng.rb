@@ -4,6 +4,7 @@ class Ntopng < Formula
   url "https://github.com/ntop/ntopng/archive/refs/tags/7.0.tar.gz"
   sha256 "fba4607596526d26c15bec3619a9b1ec7c0a482fdd4495cbbf29bb4cb2271521"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/ntop/ntopng.git", branch: "dev"
 
   bottle do
@@ -27,7 +28,7 @@ class Ntopng < Formula
   depends_on "libsodium"
   depends_on "mariadb-connector-c"
   depends_on "ndpi"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "rrdtool"
   depends_on "sqlite"
   depends_on "zeromq"
