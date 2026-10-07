@@ -2,7 +2,7 @@ class Sslsplit < Formula
   desc "Man-in-the-middle attacks against SSL encrypted network connections"
   homepage "https://www.roe.ch/SSLsplit"
   license "BSD-2-Clause"
-  revision 2
+  revision 3
   head "https://github.com/droe/sslsplit.git", branch: "develop"
 
   stable do
@@ -39,7 +39,7 @@ class Sslsplit < Formula
   depends_on "libevent"
   depends_on "libnet"
   depends_on "libpcap"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   # Apply Debian patch to support OpenSSL 4
   patch do
