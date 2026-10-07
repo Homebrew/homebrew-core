@@ -9,7 +9,7 @@ class Heimdal < Formula
     "HPND-export2-US", # kdc/announce.c
     :public_domain,    # lib/hcrypto/libtommath/
   ]
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -33,7 +33,7 @@ class Heimdal < Formula
   depends_on "pkgconf" => :build
   depends_on "lmdb"
   depends_on "openldap"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -72,7 +72,7 @@ class Heimdal < Formula
       --disable-silent-rules
       --disable-static
       --with-openldap=#{formula_opt_prefix("openldap")}
-      --with-openssl=#{formula_opt_prefix("openssl@3")}
+      --with-openssl=#{formula_opt_prefix("openssl@4")}
       --with-hcrypto-default-backend=ossl
       --without-berkeley-db
     ]
