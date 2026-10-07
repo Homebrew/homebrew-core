@@ -4,6 +4,7 @@ class Ldns < Formula
   url "https://nlnetlabs.nl/downloads/ldns/ldns-1.9.2.tar.gz"
   sha256 "b524fa21994b6e834200ceb8c27f1b84bda5982fe35706f058196c079db94d5d"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
 
   # https://nlnetlabs.nl/downloads/ldns/ since the first-party site has a
@@ -24,7 +25,7 @@ class Ldns < Formula
   end
 
   depends_on "swig" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "python@3.14"
 
   conflicts_with "drill", because: "both install a `drill` binary"
@@ -33,7 +34,7 @@ class Ldns < Formula
     args = %W[
       --with-drill
       --with-examples
-      --with-ssl=#{formula_opt_prefix("openssl@3")}
+      --with-ssl=#{formula_opt_prefix("openssl@4")}
       --with-pyldns
       PYTHON_PLATFORM_SITE_PKG=#{prefix/Language::Python.site_packages(python3)}
       top_builddir=#{buildpath}
