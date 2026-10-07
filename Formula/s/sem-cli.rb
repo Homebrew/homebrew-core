@@ -4,6 +4,7 @@ class SemCli < Formula
   url "https://github.com/Ataraxy-Labs/sem/archive/refs/tags/v0.27.0.tar.gz"
   sha256 "02a4a9e52951300843d4fd9dcd48589d571f08268e1fd14f3e9e848dacf7321f"
   license any_of: ["MIT", "Apache-2.0"]
+  revision 1
   head "https://github.com/Ataraxy-Labs/sem.git", branch: "main"
 
   bottle do
@@ -17,7 +18,7 @@ class SemCli < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
