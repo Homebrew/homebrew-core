@@ -4,6 +4,7 @@ class SstpClient < Formula
   url "https://gitlab.com/sstp-project/sstp-client/-/releases/1.0.20/downloads/dist-gzip/sstp-client-1.0.20.tar.gz"
   sha256 "6c84b6cdcc21ebea6daeb8c5356dcdfd8681f4981a734f8485ed0b31fc30aadd"
   license "GPL-2.0-or-later"
+  revision 1
   version_scheme 1
   head "https://gitlab.com/sstp-project/sstp-client.git", branch: "master"
 
@@ -23,7 +24,7 @@ class SstpClient < Formula
 
   depends_on "pkgconf" => :build
   depends_on "libevent"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     system "./configure", "--disable-silent-rules",
