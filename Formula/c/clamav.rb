@@ -2,6 +2,7 @@ class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/Cisco-Talos/clamav.git", branch: "main"
 
   stable do
@@ -37,7 +38,7 @@ class Clamav < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "json-c"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "yara"
 
