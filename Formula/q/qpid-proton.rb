@@ -2,6 +2,7 @@ class QpidProton < Formula
   desc "High-performance, lightweight AMQP 1.0 messaging library"
   homepage "https://qpid.apache.org/proton/"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/qpid-proton.git", branch: "main"
 
   stable do
@@ -32,7 +33,7 @@ class QpidProton < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "libuv"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "python" => :build
 
