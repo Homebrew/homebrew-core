@@ -4,6 +4,7 @@ class Pgbouncer < Formula
   url "https://www.pgbouncer.org/downloads/files/1.26.0/pgbouncer-1.26.0.tar.gz"
   sha256 "afd25dd61ee6775d37b40629b87ce08736b3e6955f3057bb212e410fbf21c71d"
   license "ISC"
+  revision 1
 
   livecheck do
     url "https://www.pgbouncer.org/downloads/"
@@ -29,7 +30,7 @@ class Pgbouncer < Formula
   depends_on "pandoc" => :build
   depends_on "pkgconf" => :build
   depends_on "libevent"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "python" => :build
 
