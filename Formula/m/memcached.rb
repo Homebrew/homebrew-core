@@ -4,6 +4,7 @@ class Memcached < Formula
   url "https://www.memcached.org/files/memcached-1.6.45.tar.gz"
   sha256 "d362c64e6d8d5287153501eabf7c85b4a761432fbf53f5d7b085d0bb1653c1dd"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :homepage
@@ -28,7 +29,7 @@ class Memcached < Formula
   end
 
   depends_on "libevent"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     # Workaround to disable sandbox feature due to https://github.com/memcached/memcached/issues/1313
