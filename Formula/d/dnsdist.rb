@@ -6,6 +6,7 @@ class Dnsdist < Formula
   url "https://downloads.powerdns.com/releases/dnsdist-2.1.2.tar.xz"
   sha256 "9fcb469d7a1b5116606f2563761343d1c595523c1fd67808835fa4edc03c24ce"
   license "GPL-2.0-only" # with OpenSSL Exception (non-SPDX)
+  revision 1
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -29,7 +30,7 @@ class Dnsdist < Formula
   depends_on "libnghttp2"
   depends_on "libsodium"
   depends_on "luajit"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "re2"
   depends_on "tinycdb"
 
