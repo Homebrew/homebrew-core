@@ -2,7 +2,7 @@ class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
   license "LGPL-2.1-or-later"
-  revision 15
+  revision 16
   head "https://github.com/csound/csound.git", branch: "develop"
 
   # Remove `stable` block when patches are no longer needed
@@ -67,7 +67,7 @@ class Csound < Formula
   depends_on "libwebsockets"
   depends_on "numpy"
   depends_on "openjdk"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "portaudio"
   depends_on "portmidi"
   depends_on "python@3.14"
