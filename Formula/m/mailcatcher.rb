@@ -4,6 +4,7 @@ class Mailcatcher < Formula
   url "https://github.com/sj26/mailcatcher/archive/refs/tags/v0.11.0.tar.gz"
   sha256 "d8b704a7699bca68ac89f99ca40234120099683d58eb0646d1ab16bf06c7c593"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "adeed040a2ae82cdc0214c35a008442a6add7da3d335f3466784ac9ebbee8866"
@@ -16,7 +17,7 @@ class Mailcatcher < Formula
 
   depends_on "pkgconf" => :build
   depends_on "libyaml"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "ruby"
 
   uses_from_macos "libedit"
@@ -151,7 +152,6 @@ class Mailcatcher < Formula
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
-      r.fetch
       args = [r.cached_download, "--ignore-dependencies", "--no-document", "--install-dir", libexec]
       args += ["--", "--enable-system-libraries"] if r.name == "sqlite"
       system "gem", "install", *args
