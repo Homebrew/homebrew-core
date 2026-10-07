@@ -4,7 +4,8 @@ class PamU2f < Formula
   url "https://developers.yubico.com/pam-u2f/Releases/pam_u2f-1.4.0.tar.gz"
   sha256 "a59927cea38ea8d91a6836a04e20fc629edde4204b16082f703f6db378e9c634"
   license "BSD-2-Clause"
-  head "https://github.com/Yubico/pam-u2f.git", branch: "master"
+  revision 1
+  head "https://github.com/Yubico/pam-u2f.git", branch: "main"
 
   livecheck do
     url "https://developers.yubico.com/pam-u2f/Releases/"
@@ -29,7 +30,7 @@ class PamU2f < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "libfido2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "linux-pam"
