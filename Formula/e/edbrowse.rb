@@ -4,6 +4,7 @@ class Edbrowse < Formula
   url "https://github.com/edbrowse/edbrowse/archive/refs/tags/v3.8.18.tar.gz"
   sha256 "fde2fceceeb08befa23289e76f6e8a22a7ba87b77dca79b165adfb4170a98629"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/edbrowse/edbrowse.git", branch: "master"
 
   bottle do
@@ -19,7 +20,7 @@ class Edbrowse < Formula
   depends_on "pkgconf" => :build
   depends_on "quickjs" => :build
   depends_on "curl"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "readline"
   depends_on "unixodbc"
