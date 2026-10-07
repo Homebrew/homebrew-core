@@ -4,6 +4,7 @@ class Chawan < Formula
   url "https://git.sr.ht/~bptato/chawan/archive/v0.4.4.tar.gz"
   sha256 "e0a06e1504e10a51c6009751d79b798c98d8274e559fe195d4b4b7ddadf91bb8"
   license "Unlicense"
+  revision 1
   head "https://git.sr.ht/~bptato/chawan", branch: "master"
 
   bottle do
@@ -21,7 +22,7 @@ class Chawan < Formula
 
   depends_on "brotli"
   depends_on "libssh2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "curl"
   uses_from_macos "ncurses"
