@@ -2,6 +2,7 @@ class Pgloader < Formula
   desc "Data loading tool for PostgreSQL"
   homepage "https://github.com/dimitri/pgloader"
   license "PostgreSQL"
+  revision 1
 
   stable do
     # Using git checkout as Makefile runs `git archive` to create bundle
@@ -11,7 +12,7 @@ class Pgloader < Formula
 
     depends_on "sbcl" => :build
     depends_on "freetds" => :no_linkage
-    depends_on "openssl@3" => :no_linkage
+    depends_on "openssl@4" => :no_linkage
     depends_on "zstd"
 
     # Resources to avoid `git clone`-ing them in Makefile
