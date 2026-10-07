@@ -4,6 +4,7 @@ class Coturn < Formula
   url "https://github.com/coturn/coturn/archive/refs/tags/4.18.0.tar.gz"
   sha256 "28d55294ac596fbd129b293a85e7bb1c5dc4bd15b7fb55c500f355149e5f4e28"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,13 +24,13 @@ class Coturn < Formula
   depends_on "hiredis"
   depends_on "libevent"
   depends_on "libpq"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "sqlite"
 
   def install
-    ENV["SSL_CFLAGS"] = "-I#{formula_opt_include("openssl@3")}"
-    ENV["SSL_LIBS"] = "-L#{formula_opt_lib("openssl@3")} -lssl -lcrypto"
+    ENV["SSL_CFLAGS"] = "-I#{formula_opt_include("openssl@4")}"
+    ENV["SSL_LIBS"] = "-L#{formula_opt_lib("openssl@4")} -lssl -lcrypto"
     system "./configure", "--disable-silent-rules",
                           "--mandir=#{man}",
                           "--localstatedir=#{var}",
