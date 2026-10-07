@@ -4,6 +4,7 @@ class EcflowUi < Formula
   url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.19.0-Source.tar.gz"
   sha256 "84c7efe001ff293498d8313440c91f57596cd404d3391c5ed8777888b32e55e7"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://confluence.ecmwf.int/display/ECFLOW/Releases"
@@ -21,7 +22,7 @@ class EcflowUi < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "qt5compat"
   depends_on "qtbase"
   depends_on "qtcharts"
