@@ -5,6 +5,7 @@ class Openvpn < Formula
   mirror "https://build.openvpn.net/downloads/releases/openvpn-2.7.8.tar.gz"
   sha256 "c070d1d2440b5a6fca6c2c68645c98cd492116ac36ef4f0946177115532c8e36"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
+  revision 1
 
   livecheck do
     url "https://openvpn.net/community-downloads/"
@@ -22,7 +23,7 @@ class Openvpn < Formula
   depends_on "pkgconf" => :build
   depends_on "lz4"
   depends_on "lzo"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pkcs11-helper"
 
   on_linux do
