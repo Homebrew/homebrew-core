@@ -4,6 +4,7 @@ class SignalwireClientC < Formula
   url "https://github.com/signalwire/signalwire-c/archive/refs/tags/v2.0.5.tar.gz"
   sha256 "336c88a28015cf666bdbb070e9e11ce53dfd05baec074171fe8866945b68e8f9"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 1
@@ -17,7 +18,7 @@ class SignalwireClientC < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on "libks"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     # cotire builds a prefix header from the `clang -H` include list, which on macOS 27 also has `SDKSettings.json`
