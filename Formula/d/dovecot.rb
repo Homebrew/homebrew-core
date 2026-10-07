@@ -4,6 +4,7 @@ class Dovecot < Formula
   url "https://dovecot.org/releases/2.4/dovecot-2.4.5.tar.gz"
   sha256 "868c2686a61b5f8e00a3e4721789b1ab46e6528fd773a5fbed07a6ecba7731e6"
   license all_of: ["BSD-3-Clause", "LGPL-2.1-or-later", "MIT", "Unicode-DFS-2016", :public_domain]
+  revision 1
 
   livecheck do
     url "https://dovecot.org/releases/"
@@ -35,7 +36,7 @@ class Dovecot < Formula
   depends_on "pkgconf" => :build
   depends_on "lua"
   depends_on "openldap"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "python" => :build
   uses_from_macos "netcat" => :test
