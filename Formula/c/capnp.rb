@@ -4,6 +4,7 @@ class Capnp < Formula
   url "https://github.com/capnproto/capnproto/archive/refs/tags/v1.5.0.tar.gz"
   sha256 "d5ebdf858e9885c33d4b3f765006d68bd66e9b002bf4d607ff4317ef9c1aac6a"
   license "MIT"
+  revision 1
   compatibility_version 3
   head "https://github.com/capnproto/capnproto.git", branch: "v2"
 
@@ -25,7 +26,7 @@ class Capnp < Formula
   depends_on "cmake" => :build
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
     depends_on "zlib-ng-compat"
   end
 
