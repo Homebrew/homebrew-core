@@ -4,6 +4,7 @@ class LibpqAT17 < Formula
   url "https://ftp.postgresql.org/pub/source/v17.11/postgresql-17.11.tar.bz2"
   sha256 "dd27f2b3c59e73ed14aa3324901242bf69a032a6347805f274e6260322d42979"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -29,7 +30,7 @@ class LibpqAT17 < Formula
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
