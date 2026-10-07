@@ -4,6 +4,7 @@ class Weave < Formula
   url "https://github.com/Ataraxy-Labs/weave/archive/refs/tags/v0.5.4.tar.gz"
   sha256 "e5a2da626bb329b7ad38cbd206dc9cf67e30be719e84900d45415d448da76af7"
   license any_of: ["MIT", "Apache-2.0"]
+  revision 1
   head "https://github.com/Ataraxy-Labs/weave.git", branch: "main"
 
   bottle do
@@ -18,7 +19,7 @@ class Weave < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
