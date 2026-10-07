@@ -4,6 +4,7 @@ class Lighttpd < Formula
   url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.85.tar.xz"
   sha256 "18de51b393bac4a6827879e1a7ff377c169e414bae92cd245091d80fc2601d13"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :homepage
@@ -25,7 +26,7 @@ class Lighttpd < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "openldap"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
 
   uses_from_macos "bzip2"
