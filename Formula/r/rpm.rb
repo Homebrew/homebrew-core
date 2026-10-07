@@ -8,6 +8,7 @@ class Rpm < Formula
     "GPL-2.0-or-later",
     "LGPL-2.0-or-later", # rpm-sequoia
   ]
+  revision 1
   version_scheme 1
   compatibility_version 1
   head "https://github.com/rpm-software-management/rpm.git", branch: "master"
@@ -36,7 +37,7 @@ class Rpm < Formula
   depends_on "libarchive"
   depends_on "libmagic"
   depends_on "lua"
-  depends_on "openssl@3" # for rpm-sequoia
+  depends_on "openssl@4" # for rpm-sequoia
   depends_on "pkgconf"
   depends_on "popt"
   depends_on "readline"
@@ -79,7 +80,7 @@ class Rpm < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     resource("rpm-sequoia").stage do |r|
       with_env(PREFIX: prefix) do
