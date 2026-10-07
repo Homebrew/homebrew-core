@@ -4,6 +4,7 @@ class Zeek < Formula
   url "https://github.com/zeek/zeek/releases/download/v9.0.0/zeek-9.0.0.tar.gz"
   sha256 "1345474b3ea04c700f5421c30c7b81cf570056a16842abba03dfa5e2b6e3ed4e"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/zeek/zeek.git", branch: "master"
 
   livecheck do
@@ -27,7 +28,7 @@ class Zeek < Formula
   depends_on "libmaxminddb"
   depends_on "libuv"
   depends_on "node@24"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "python@3.14"
   depends_on "zeromq"
 
@@ -59,7 +60,7 @@ class Zeek < Formula
                     "-DCARES_ROOT_DIR=#{formula_opt_prefix("c-ares")}",
                     "-DCARES_LIBRARIES=#{formula_opt_lib("c-ares")/shared_library("libcares")}",
                     "-DLibMMDB_LIBRARY=#{formula_opt_lib("libmaxminddb")/shared_library("libmaxminddb")}",
-                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}",
+                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}",
                     "-DPYTHON_EXECUTABLE=#{python3}",
                     "-DZEEK_ETC_INSTALL_DIR=#{etc}",
                     "-DZEEK_LOCAL_STATE_DIR=#{var}",
