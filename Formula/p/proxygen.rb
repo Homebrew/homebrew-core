@@ -4,6 +4,7 @@ class Proxygen < Formula
   url "https://github.com/facebook/proxygen/releases/download/v2026.10.05.00/proxygen-v2026.10.05.00.tar.gz"
   sha256 "53315c7dfbb805baaf1f8eafc7b9830f7c7dddad29f4f4f7dd748313aa54d635"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/facebook/proxygen.git", branch: "main"
 
   livecheck do
@@ -28,7 +29,7 @@ class Proxygen < Formula
   depends_on "gflags"
   depends_on "glog"
   depends_on "mvfst"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "wangle"
   depends_on "zstd"
 
