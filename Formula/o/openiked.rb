@@ -5,6 +5,7 @@ class Openiked < Formula
   mirror "https://mirror.edgecast.com/pub/OpenBSD/OpenIKED/openiked-7.4.tar.gz"
   sha256 "19b72b48080240c3eff585f5cbcf6aa7b5734192ad8bc6677ae64a455074358a"
   license "ISC"
+  revision 1
 
   livecheck do
     url "https://cdn.openbsd.org/pub/OpenBSD/OpenIKED/"
@@ -25,7 +26,7 @@ class Openiked < Formula
 
   depends_on "cmake" => :build
   depends_on "libevent"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "bison"
 
