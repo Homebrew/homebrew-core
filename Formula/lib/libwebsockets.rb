@@ -4,7 +4,7 @@ class Libwebsockets < Formula
   url "https://github.com/warmcat/libwebsockets/archive/refs/tags/v5.0.0.tar.gz"
   sha256 "f853c6582101cfcee3a5a9e28ae92ab19d9735c5f31f0bb2e9794b5106123962"
   license "MIT"
-  revision 1
+  revision 2
   compatibility_version 6
   head "https://github.com/warmcat/libwebsockets.git", branch: "main"
 
@@ -24,7 +24,7 @@ class Libwebsockets < Formula
   depends_on "cmake" => :build
   depends_on "libevent"
   depends_on "libuv"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   deny_network_access!
 
@@ -38,7 +38,7 @@ class Libwebsockets < Formula
                     "-DLWS_WITH_LIBUV=ON",
                     "-DLWS_WITHOUT_TESTAPPS=ON",
                     "-DLWS_UNIX_SOCK=ON",
-                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}",
+                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -59,7 +59,7 @@ class Libwebsockets < Formula
         return 0;
       }
     C
-    system ENV.cc, "test.c", "-I#{formula_opt_prefix("openssl@3")}/include",
+    system ENV.cc, "test.c", "-I#{formula_opt_prefix("openssl@4")}/include",
                    "-L#{lib}", "-lwebsockets", "-o", "test"
     system "./test"
   end
