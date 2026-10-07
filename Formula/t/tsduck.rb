@@ -4,6 +4,7 @@ class Tsduck < Formula
   url "https://github.com/tsduck/tsduck/archive/refs/tags/v3.45-4798.tar.gz"
   sha256 "a35845430fff1385cf1cda9645bbfd0ec887ed440137fc6c26863c624c24eb63"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/tsduck/tsduck.git", branch: "master"
 
   # There can be a notable gap between when a version is tagged and a
@@ -29,7 +30,7 @@ class Tsduck < Formula
   depends_on "qpdf" => :build
   depends_on "librist"
   depends_on "libvatek"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "srt"
 
   uses_from_macos "python" => :build
