@@ -4,6 +4,7 @@ class SofiaSip < Formula
   url "https://github.com/freeswitch/sofia-sip/archive/refs/tags/v1.13.18.tar.gz"
   sha256 "d2ad4e64753a7c9843b766b8de8081d9c1d7acfaeb53c12b3aed7fdb9235766c"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "eb7307ece15f12943703441024a271957c9d9bb600aa3bc05bd765b58be99560"
@@ -21,7 +22,7 @@ class SofiaSip < Formula
   depends_on "pkgconf" => :build
 
   depends_on "glib"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_macos do
     depends_on "gettext"
@@ -29,6 +30,14 @@ class SofiaSip < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  # Apply open PR to support OpenSSL 4
+  patch do
+    url "https://github.com/freeswitch/sofia-sip/commit/affb916edd78d041cfdfa16c72d7744eb734ceca.patch?full_index=1"
+    sha256 "1e38bbac3df2cd0a54b0f1239685bb4262872ae03eb1b55d96746d9decc9d3d0"
+    type :unofficial
+    resolves "https://github.com/freeswitch/sofia-sip/pull/337"
   end
 
   def install
