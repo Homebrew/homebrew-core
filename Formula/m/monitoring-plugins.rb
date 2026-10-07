@@ -4,6 +4,7 @@ class MonitoringPlugins < Formula
   url "https://www.monitoring-plugins.org/download/monitoring-plugins-3.0.3.tar.gz"
   sha256 "a1df32ef4791defd5418907b54be1549c81598fd02e339c4595d2d26107b3280"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://github.com/monitoring-plugins/monitoring-plugins"
@@ -21,7 +22,7 @@ class MonitoringPlugins < Formula
   end
 
   depends_on "net-snmp"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_macos do
     depends_on "gettext"
@@ -55,7 +56,7 @@ class MonitoringPlugins < Formula
 
     args = %W[
       --libexecdir=#{libexec}/sbin
-      --with-openssl=#{formula_opt_prefix("openssl@3")}
+      --with-openssl=#{formula_opt_prefix("openssl@4")}
       --with-netsnmpconfig-command=#{formula_opt_bin("net-snmp")}/net-snmp-config
     ]
 
