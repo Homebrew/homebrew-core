@@ -7,7 +7,7 @@ class Mosquitto < Formula
   # EDL-1.0 is pretty the same as BSD-3-Clause,
   # see discussions in https://github.com/spdx/license-list-XML/issues/1149
   license any_of: ["EPL-1.0", "BSD-3-Clause"]
-  revision 1
+  revision 2
 
   livecheck do
     url "https://mosquitto.org/download/"
@@ -28,7 +28,7 @@ class Mosquitto < Formula
   depends_on "pkgconf" => :build
   depends_on "cjson"
   depends_on "libwebsockets"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "libxslt" => :build
   uses_from_macos "libedit"
