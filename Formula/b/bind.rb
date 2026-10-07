@@ -7,6 +7,7 @@ class Bind < Formula
   # "version_scheme" because someone upgraded to 9.15.0, and required a
   # downgrade.
   license "MPL-2.0"
+  revision 1
   version_scheme 1
 
   stable do
@@ -48,7 +49,7 @@ class Bind < Formula
   depends_on "libidn2"
   depends_on "libnghttp2"
   depends_on "libuv"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "userspace-rcu"
 
   uses_from_macos "libxml2"
@@ -79,7 +80,7 @@ class Bind < Formula
         "--localstatedir=#{var}",
         "--with-json-c",
         "--with-libidn2=#{formula_opt_prefix("libidn2")}",
-        "--with-openssl=#{formula_opt_prefix("openssl@3")}",
+        "--with-openssl=#{formula_opt_prefix("openssl@4")}",
         "--without-lmdb",
       ]
 
