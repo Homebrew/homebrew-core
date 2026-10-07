@@ -9,6 +9,7 @@ class Libks < Formula
     "HPND",         # src/ks_pool.c
     :public_domain, # src/ks_utf8.c, src/ks_printf.c
   ]
+  revision 1
   head "https://github.com/signalwire/libks.git", branch: "master"
 
   bottle do
@@ -23,7 +24,7 @@ class Libks < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "util-linux"
@@ -59,8 +60,8 @@ class Libks < Formula
     C
 
     system ENV.cc, "test.c", "-o", "test",
-           "-I#{include}/libks2", "-I#{formula_opt_include("openssl@3")}",
-           "-L#{lib}", "-L#{formula_opt_lib("openssl@3")}", "-lks2"
+           "-I#{include}/libks2", "-I#{formula_opt_include("openssl@4")}",
+           "-L#{lib}", "-L#{formula_opt_lib("openssl@4")}", "-lks2"
     system "./test"
   end
 end
