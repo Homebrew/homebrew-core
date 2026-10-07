@@ -6,6 +6,7 @@ class Borgbackup < Formula
   url "https://files.pythonhosted.org/packages/62/5b/aec6c069840f64f744d661c5eea1c648d407bebb836b2e12d8a3b9939bb4/borgbackup-1.4.5.tar.gz"
   sha256 "4f9a5fe584c504b15485841236750dea16aa7cd2ddbc4a594e9d2ce5c49c4508"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/borgbackup/borg.git", branch: "master"
 
   bottle do
@@ -21,7 +22,7 @@ class Borgbackup < Formula
   depends_on "pkgconf" => :build
   depends_on "libb2"
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "python@3.14"
   depends_on "xxhash"
   depends_on "zstd"
@@ -45,7 +46,7 @@ class Borgbackup < Formula
     ENV["BORG_LIBLZ4_PREFIX"] = Formula["lz4"].prefix
     ENV["BORG_LIBXXHASH_PREFIX"] = Formula["xxhash"].prefix
     ENV["BORG_LIBZSTD_PREFIX"] = Formula["zstd"].prefix
-    ENV["BORG_OPENSSL_PREFIX"] = Formula["openssl@3"].prefix
+    ENV["BORG_OPENSSL_PREFIX"] = Formula["openssl@4"].prefix
 
     # Parallel cythonize needs POSIX semaphores, which the Linux build sandbox denies
     inreplace "setup.py", /^cpu_threads = .*/, "cpu_threads = None"
