@@ -4,7 +4,7 @@ class NodeAT24 < Formula
   url "https://nodejs.org/dist/v24.21.0/node-v24.21.0.tar.xz"
   sha256 "a6f54defb6fd7c84f41dba13d61e78e9b4e0961712cf61f29715c05f5ced94fc"
   license "MIT"
-  revision 1
+  revision 2
   compatibility_version 1
 
   livecheck do
@@ -36,7 +36,7 @@ class NodeAT24 < Formula
   depends_on "libnghttp3"
   depends_on "libngtcp2"
   depends_on "libuv"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "simdjson"
   depends_on "sqlite" # Fails with macOS sqlite.
   depends_on "uvwasi"
@@ -107,8 +107,8 @@ class NodeAT24 < Formula
       --shared-nghttp3-libpath=#{formula_opt_lib("libnghttp3")}
       --shared-ngtcp2-includes=#{formula_opt_include("libngtcp2")}
       --shared-ngtcp2-libpath=#{formula_opt_lib("libngtcp2")}
-      --shared-openssl-includes=#{formula_opt_include("openssl@3")}
-      --shared-openssl-libpath=#{formula_opt_lib("openssl@3")}
+      --shared-openssl-includes=#{formula_opt_include("openssl@4")}
+      --shared-openssl-libpath=#{formula_opt_lib("openssl@4")}
       --shared-simdjson-includes=#{formula_opt_include("simdjson")}
       --shared-simdjson-libpath=#{formula_opt_lib("simdjson")}
       --shared-sqlite-includes=#{formula_opt_include("sqlite")}
