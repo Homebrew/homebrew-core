@@ -6,7 +6,7 @@ class Nvchecker < Formula
   url "https://files.pythonhosted.org/packages/be/43/e2b9699bb92a8125a24f2052152dfbfa4286285e6ea7aa7a47e8728ed72e/nvchecker-2.22.tar.gz"
   sha256 "7c5d04d55e3faffa2f7e7a81165a2f6b68786f4b185d4e1e2ec7af03a524e784"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "08a320596dc44ce969e6c9ea34e904a8bf88a594b4e0c41ca32349c706dbc87d"
@@ -17,7 +17,7 @@ class Nvchecker < Formula
   end
 
   depends_on "curl"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "python@3.14"
 
   pypi_packages package_name: "nvchecker[pypi]"
