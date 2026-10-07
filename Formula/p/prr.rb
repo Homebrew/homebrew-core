@@ -4,6 +4,7 @@ class Prr < Formula
   url "https://github.com/danobi/prr/archive/refs/tags/v0.21.0.tar.gz"
   sha256 "891d8b2bc0397027e909750ac7891ca3d6e215acab59a48d5b2da35e60b45b8c"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/danobi/prr.git", branch: "master"
 
   bottle do
@@ -21,7 +22,7 @@ class Prr < Formula
   depends_on "rust" => :build
   depends_on "libgit2"
   depends_on "libssh2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
@@ -40,7 +41,7 @@ class Prr < Formula
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
     # Ensure the correct `openssl` will be picked up.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     # Specify GEN_DIR for shell completions and manpage generation
     ENV["GEN_DIR"] = buildpath
@@ -61,8 +62,8 @@ class Prr < Formula
     [
       formula_opt_lib("libgit2")/shared_library("libgit2"),
       formula_opt_lib("libssh2")/shared_library("libssh2"),
-      formula_opt_lib("openssl@3")/shared_library("libssl"),
-      formula_opt_lib("openssl@3")/shared_library("libcrypto"),
+      formula_opt_lib("openssl@4")/shared_library("libssl"),
+      formula_opt_lib("openssl@4")/shared_library("libcrypto"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"prr", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
