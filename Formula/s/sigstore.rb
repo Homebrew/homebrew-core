@@ -6,7 +6,7 @@ class Sigstore < Formula
   url "https://files.pythonhosted.org/packages/18/e0/279419065e2d7102413605b3456122adbbccbc42e010b499c7b882fc01f8/sigstore-4.5.0.tar.gz"
   sha256 "020d3e07f622b2916bf453e66ff6ff0711e1fdc5ab69e8bd8902f71d9fcb316f"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/sigstore/sigstore-python.git", branch: "main"
 
   bottle do
@@ -21,7 +21,7 @@ class Sigstore < Formula
   depends_on "rust" => :build # for rfc3161-client
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
-  depends_on "openssl@3" # for rfc3161-client
+  depends_on "openssl@4" # for rfc3161-client
   depends_on "pydantic" => :no_linkage
   depends_on "python@3.14"
 
