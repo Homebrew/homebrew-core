@@ -6,7 +6,7 @@ class Forbidden < Formula
   url "https://files.pythonhosted.org/packages/9b/aa/98fc3ee28aac41cae341a197858ff6af5d79e40dcd45c8a6e37b1fdbfd19/forbidden-13.4.tar.gz"
   sha256 "dc987150b71515810d7ae252895b3ca6e077a8d9b3cbb0d09dfc9797c933a14d"
   license "MIT"
-  revision 8
+  revision 9
   head "https://github.com/ivan-sincek/forbidden.git", branch: "main"
 
   bottle do
@@ -21,7 +21,7 @@ class Forbidden < Formula
   depends_on "cffi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "curl"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pycparser" => :no_linkage
   depends_on "python@3.14"
 
