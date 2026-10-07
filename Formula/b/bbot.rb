@@ -6,7 +6,7 @@ class Bbot < Formula
   url "https://files.pythonhosted.org/packages/78/3c/d75416669c46b2731f7207545efd0eb54037b1ca5e1e68dd1dd9118bef73/bbot-3.0.2.tar.gz"
   sha256 "92bd672b306d500d8b24787ee3750ff0317a347b66322b21dae4323afcf11c45"
   license "AGPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/blacklanternsecurity/bbot.git", branch: "stable"
 
   bottle do
@@ -26,7 +26,7 @@ class Bbot < Formula
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pydantic" => :no_linkage
   depends_on "python@3.14"
   depends_on "xxhash"
@@ -344,7 +344,7 @@ class Bbot < Formula
     # Work around superenv breaking aws-lc-sys `-O0` needed to build CPU Jitter RNG
     ENV["AWS_LC_SYS_NO_JITTER_ENTROPY"] = "1"
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
     ENV["XXHASH_LINK_SO"] = "1"
 
     venv = virtualenv_install_with_resources without: %w[yara-python zstandard]
