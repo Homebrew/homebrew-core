@@ -4,6 +4,7 @@ class LibpqAT16 < Formula
   url "https://ftp.postgresql.org/pub/source/v16.15/postgresql-16.15.tar.bz2"
   sha256 "c1575341fa7bd40f5274ea465b34390f4dc64cdd0770af327005caaeb9f6b7ed"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -31,7 +32,7 @@ class LibpqAT16 < Formula
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "readline"
