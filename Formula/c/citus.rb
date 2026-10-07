@@ -4,6 +4,7 @@ class Citus < Formula
   url "https://github.com/citusdata/citus/archive/refs/tags/v14.2.0.tar.gz"
   sha256 "df221da519cea3740b3a538b846ce0ce5bdc082c5f05321f0361b8f5edc57ff7"
   license "AGPL-3.0-only"
+  revision 1
   head "https://github.com/citusdata/citus.git", branch: "main"
 
   # There can be a notable gap between when a version is tagged and a
@@ -28,7 +29,7 @@ class Citus < Formula
   depends_on "postgresql@18" => [:build, :test]
   depends_on "libpq"
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   uses_from_macos "curl"
