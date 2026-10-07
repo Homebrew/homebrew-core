@@ -4,6 +4,7 @@ class Libcouchbase < Formula
   url "https://packages.couchbase.com/clients/c/libcouchbase-3.3.19.tar.gz"
   sha256 "2d8a3d1a67e012cc562aa7cf6105def8e23a01930bc92459c43c119a13b3ebc8"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/couchbase/libcouchbase.git", branch: "master"
 
   # github_releases is used here as there have been tags pushed for new
@@ -28,7 +29,7 @@ class Libcouchbase < Formula
   depends_on "libev"
   depends_on "libevent"
   depends_on "libuv"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   conflicts_with "cbc", because: "both install `cbc` binaries"
 
