@@ -4,6 +4,7 @@ class W3m < Formula
   url "https://git.sr.ht/~rkta/w3m/archive/v0.5.6.tar.gz"
   sha256 "8dd652cd3f31817d68c7263c34eeffb50118c80be19e1159bf8cbf763037095e"
   license "w3m"
+  revision 1
   compatibility_version 1
   head "https://git.sr.ht/~rkta/w3m", branch: "master"
 
@@ -21,7 +22,7 @@ class W3m < Formula
   depends_on "gettext" => :build
   depends_on "pkgconf" => :build
   depends_on "bdw-gc"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "ncurses"
 
@@ -35,7 +36,7 @@ class W3m < Formula
 
   def install
     system "./configure", "--disable-image",
-                          "--with-ssl=#{formula_opt_prefix("openssl@3")}",
+                          "--with-ssl=#{formula_opt_prefix("openssl@4")}",
                           *std_configure_args
     system "make", "install"
   end
