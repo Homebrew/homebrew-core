@@ -4,6 +4,7 @@ class Hydra < Formula
   url "https://github.com/vanhauser-thc/thc-hydra/archive/refs/tags/v9.7.tar.gz"
   sha256 "8dbe11e5858b8c1aab7bd670bc39a3483accd09e147d3dd981fe11a7fa0d10de"
   license "AGPL-3.0-only"
+  revision 1
   head "https://github.com/vanhauser-thc/thc-hydra.git", branch: "master"
 
   bottle do
@@ -19,7 +20,7 @@ class Hydra < Formula
   depends_on "pkgconf" => :build
   depends_on "libssh"
   depends_on "mariadb-connector-c"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
 
   uses_from_macos "ncurses"
@@ -41,15 +42,15 @@ class Hydra < Formula
       }
     else
       {
-        "CRYPTO_PATH"  => formula_opt_lib("openssl@3"),
+        "CRYPTO_PATH"  => formula_opt_lib("openssl@4"),
         "CURSES_PATH"  => formula_opt_lib("ncurses"),
         "CURSES_IPATH" => formula_opt_include("ncurses"),
         "MYSQL_PATH"   => formula_opt_lib("mariadb-connector-c"),
         "MYSQL_IPATH"  => "#{formula_opt_include("mariadb-connector-c")}/mariadb",
         "PCRE_PATH"    => formula_opt_lib("pcre2"),
         "PCRE_IPATH"   => formula_opt_include("pcre2"),
-        "SSL_PATH"     => formula_opt_lib("openssl@3"),
-        "SSL_IPATH"    => formula_opt_include("openssl@3"),
+        "SSL_PATH"     => formula_opt_lib("openssl@4"),
+        "SSL_IPATH"    => formula_opt_include("openssl@4"),
         "SSH_PATH"     => formula_opt_lib("libssh"),
         "SSH_IPATH"    => formula_opt_include("libssh"),
         "SSLNEW"       => "YES",
