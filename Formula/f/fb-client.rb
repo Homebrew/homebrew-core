@@ -7,6 +7,7 @@ class FbClient < Formula
   url "https://paste.xinu.at/data/client/fb-2.4.0.tar.gz"
   sha256 "a3dd5580c7ba459c18f2d2ac39614422fd9c0dccb4545dbd683c77104062af39"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :homepage
@@ -24,7 +25,7 @@ class FbClient < Formula
   end
 
   depends_on "curl"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "python@3.14"
 
   conflicts_with "spotbugs", because: "both install a `fb` binary"
