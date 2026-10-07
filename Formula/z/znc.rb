@@ -2,8 +2,10 @@ class Znc < Formula
   desc "Advanced IRC bouncer"
   homepage "https://wiki.znc.in/ZNC"
   url "https://znc.in/releases/znc-1.10.3.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/z/znc/znc_1.10.3.orig.tar.gz"
   sha256 "68f3f6641b480c041010c5596e1234043e05c9137eda06233845017603095f5b"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://znc.in/releases/"
@@ -24,12 +26,20 @@ class Znc < Formula
   depends_on "boost"
   depends_on "cctz"
   depends_on "icu4c@78"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "python@3.14"
 
   on_linux do
     depends_on "cyrus-sasl"
     depends_on "zlib-ng-compat"
+  end
+
+  # Backport support for OpenSSL 4
+  patch do
+    url "https://github.com/znc/znc/commit/94bcf919e1163564e637df8d437585bc7b55e7aa.patch?full_index=1"
+    sha256 "973548dd60d3cec8f079f4b62dc341e8965c3da08735dc20b6c73d77bedef98b"
+    type :backport
+    resolves "https://github.com/znc/znc/pull/2024"
   end
 
   deny_network_access!
