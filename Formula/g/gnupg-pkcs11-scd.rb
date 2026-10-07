@@ -4,6 +4,7 @@ class GnupgPkcs11Scd < Formula
   url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/download/gnupg-pkcs11-scd-0.11.0/gnupg-pkcs11-scd-0.11.0.tar.bz2"
   sha256 "954787e562f2b3d9294212c32dd0d81a2cd37aca250e6685002d2893bb959087"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -30,7 +31,7 @@ class GnupgPkcs11Scd < Formula
   depends_on "libassuan"
   depends_on "libgcrypt"
   depends_on "libgpg-error"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pkcs11-helper"
 
   def install
