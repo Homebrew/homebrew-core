@@ -4,6 +4,7 @@ class RailsMcpServer < Formula
   url "https://github.com/maquina-app/rails-mcp-server/archive/refs/tags/v2.0.0.tar.gz"
   sha256 "181ca5a798aa073048ab9bc171ba4107f35ec5a4ac9abacd29bdf54e935a9913"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "9a0b4a820da9e19ee1db95442e3dc43500afb653f6bc58236810702cd22513bc"
@@ -15,7 +16,7 @@ class RailsMcpServer < Formula
     sha256 cellar: :any, x86_64_linux:      "2f8bb868c239cdc9b30a632caf6798dc30b03f6385bf82c0f1d903bb099e0a10"
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "ruby"
 
   deny_network_access!
