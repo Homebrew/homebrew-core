@@ -4,7 +4,7 @@ class Uwsgi < Formula
   url "https://files.pythonhosted.org/packages/9f/49/2f57640e889ba509fd1fae10cccec1b58972a07c2724486efba94c5ea448/uwsgi-2.0.31.tar.gz"
   sha256 "e8f8b350ccc106ff93a65247b9136f529c14bf96b936ac5b264c6ff9d0c76257"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   bottle do
@@ -19,7 +19,7 @@ class Uwsgi < Formula
 
   depends_on "pkgconf" => :build
   depends_on "jansson"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "python@3.14"
   depends_on "sqlite"
@@ -35,7 +35,7 @@ class Uwsgi < Formula
   end
 
   def install
-    openssl = Formula["openssl@3"]
+    openssl = Formula["openssl@4"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
     ENV.prepend "LDFLAGS", "-L#{openssl.opt_lib}"
 
