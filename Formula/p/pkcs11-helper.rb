@@ -2,6 +2,7 @@ class Pkcs11Helper < Formula
   desc "Library to simplify the interaction with PKCS#11"
   homepage "https://github.com/OpenSC/OpenSC/wiki/pkcs11-helper"
   license any_of: ["BSD-3-Clause", "GPL-2.0-or-later"]
+  revision 1
   compatibility_version 1
   head "https://github.com/OpenSC/pkcs11-helper.git", branch: "master"
 
@@ -38,7 +39,7 @@ class Pkcs11Helper < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"
