@@ -4,6 +4,7 @@ class Pgbackrest < Formula
   url "https://github.com/pgbackrest/pgbackrest/releases/download/release/2.59.3/pgbackrest-2.59.3.tar.gz"
   sha256 "14037901db002e5536a948bf9f0fc0ff6cde31f4e675d3e9b46f129071bf2e5f"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "692cd091842596f79eec1fd8f5837b4e3cd0cc23b128a1b2e9e06f01dd17af03"
@@ -20,7 +21,7 @@ class Pgbackrest < Formula
   depends_on "libpq"
   depends_on "libssh2"
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   uses_from_macos "bzip2"
