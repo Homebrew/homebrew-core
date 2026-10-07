@@ -6,7 +6,7 @@ class SyslogNg < Formula
   url "https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-4.12.0/syslog-ng-4.12.0.tar.gz"
   sha256 "03a03d19ac203dca53c7ec79a7005c8a850665a95ff4cd0f1e7bb4c497c64d46"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 9
+  revision 10
   head "https://github.com/syslog-ng/syslog-ng.git", branch: "develop"
 
   livecheck do
@@ -23,6 +23,7 @@ class SyslogNg < Formula
   end
 
   depends_on "pkgconf" => :build
+  depends_on "rust" => :build # for kubernetes > pydantic > pydantic-core
 
   depends_on "abseil"
   depends_on "glib"
@@ -38,7 +39,7 @@ class SyslogNg < Formula
   depends_on "libyaml"
   depends_on "mongo-c-driver"
   depends_on "net-snmp"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "protobuf"
   depends_on "python@3.14"
