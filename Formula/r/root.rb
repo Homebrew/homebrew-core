@@ -2,6 +2,7 @@ class Root < Formula
   desc "Analyzing petabytes of data, scientifically"
   homepage "https://root.cern"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/root-project/root.git", branch: "master"
 
   stable do
@@ -54,7 +55,7 @@ class Root < Formula
   depends_on "nlohmann-json" => :no_linkage
   depends_on "numpy" # for tmva
   depends_on "openblas"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "python@3.14"
   depends_on "sqlite"
