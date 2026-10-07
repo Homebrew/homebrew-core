@@ -4,6 +4,7 @@ class XmlSecurityC < Formula
   url "https://shibboleth.net/downloads/xml-security-c/3.0.0/xml-security-c-3.0.0.tar.bz2"
   sha256 "a4c9e1ae3ed3e8dab5d82f4dbdb8414bcbd0199a562ad66cd7c0cd750804ff32"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://shibboleth.net/downloads/xml-security-c/"
@@ -23,7 +24,7 @@ class XmlSecurityC < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "xerces-c"
 
   # Apply Debian patch to avoid segfault in test
@@ -33,8 +34,16 @@ class XmlSecurityC < Formula
     type :unofficial
   end
 
+  # Apply Ubuntu patch to support OpenSSL 4
+  patch do
+    url "https://archive.ubuntu.com/ubuntu/pool/universe/x/xml-security-c/xml-security-c_3.0.0-2ubuntu2.debian.tar.xz"
+    sha256 "bfbf7ad525046e4b76a91ac034b103da0d63e14118c9778877af5c8f85e62a86"
+    apply "patches/fix-for-openssl4-compat.patch"
+    type :unofficial
+  end
+
   def install
-    system "./configure", "--with-openssl=#{formula_opt_prefix("openssl@3")}", *std_configure_args
+    system "./configure", "--with-openssl=#{formula_opt_prefix("openssl@4")}", *std_configure_args
     system "make", "install"
   end
 
