@@ -4,7 +4,7 @@ class Fastnetmon < Formula
   url "https://github.com/pavel-odintsov/fastnetmon/archive/refs/tags/v1.2.9.tar.gz"
   sha256 "5ecc10791af04fc1fd720a9a113060668426aa798d5b6c3921364213a31a5e9b"
   license "GPL-2.0-only"
-  revision 12
+  revision 13
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "a7f6a9f6f94e0bd14c4406bb489adc9954a10fd467247bf2b5e9b43ab3e95123"
@@ -22,7 +22,7 @@ class Fastnetmon < Formula
   depends_on "hiredis"
   depends_on "log4cpp"
   depends_on "mongo-c-driver"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf"
 
   uses_from_macos "libpcap"
