@@ -4,7 +4,7 @@ class Gensio < Formula
   url "https://github.com/cminyard/gensio/releases/download/v3.0.4/gensio-3.0.4.tar.gz"
   sha256 "e28c24fc5d9f3cb90005bc008fec8bb8eedce503753024ab650bed0ac250cbe3"
   license all_of: ["LGPL-2.1-only", "GPL-2.0-only", "Apache-2.0"]
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_golden_gate: "8c2ba861113f75f7b2ffa0d9dca95c069e94ba5b68dcc1f196a49544813cb57a"
@@ -19,7 +19,7 @@ class Gensio < Formula
   depends_on "swig" => :build
 
   depends_on "glib"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "python@3.14"
   depends_on "tcl-tk"
 
