@@ -4,6 +4,7 @@ class SynergyCore < Formula
   url "https://github.com/symless/synergy/archive/refs/tags/v1.21.4.tar.gz"
   sha256 "369d789ae5616e6e43b5eeb6feac644ab7d3384c138748a13ed9f7e1df7361a6"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
+  revision 1
   head "https://github.com/symless/synergy.git", branch: "master"
 
   # This repository contains old 2.0.0 tags, one of which uses a stable tag
@@ -26,7 +27,7 @@ class SynergyCore < Formula
 
   depends_on "cmake" => :build
   depends_on "qttools" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "qtbase"
 
   on_macos do
