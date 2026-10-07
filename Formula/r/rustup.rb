@@ -2,6 +2,7 @@ class Rustup < Formula
   desc "Rust toolchain installer"
   homepage "https://rust-lang.github.io/rustup/"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   compatibility_version 1
   head "https://github.com/rust-lang/rustup.git", branch: "main"
 
@@ -41,6 +42,15 @@ class Rustup < Formula
   end
 
   def install
+    # When rust-analyzer is missing from the active toolchain, rustup searches
+    # PATH for an external executable, skipping entries that are the same file
+    # as rustup itself. Shell wrappers are distinct files, so rustup can select
+    # its own wrapper and recurse instead of skipping it.
+    #
+    # Compile in Homebrew's fallback settings path to preserve the stable
+    # default without wrappers setting RUSTUP_OVERRIDE_UNIX_FALLBACK_SETTINGS.
+    # This lets us retain native proxy symlinks that rustup can recognize.
+    inreplace "src/config.rs", "/etc/rustup/settings.toml", "#{pkgetc}/settings.toml"
     system "cargo", "install", *std_cargo_args(features: "no-self-update")
 
     # Upstream installs this binary as `rustup-init`, but Homebrew packages
@@ -56,12 +66,11 @@ class Rustup < Formula
       default_toolchain = "stable"
     TOML
     pkgetc.install "settings.toml"
-    bin.env_script_all_files libexec/"bin", RUSTUP_OVERRIDE_UNIX_FALLBACK_SETTINGS: pkgetc/"settings.toml"
 
-    generate_completions_from_executable(libexec/"bin/rustup", "completions", shells: [:bash, :zsh, :fish, :pwsh])
+    generate_completions_from_executable(bin/"rustup", "completions", shells: [:bash, :zsh, :fish, :pwsh])
     [:bash, :zsh].each do |shell|
       generate_completions_from_executable(
-        libexec/"bin/rustup", "completions", shell.to_s, "cargo",
+        bin/"rustup", "completions", shell.to_s, "cargo",
         shells: [shell], base_name: "cargo", shell_parameter_format: :none
       )
     end
@@ -91,6 +100,7 @@ class Rustup < Formula
   test do
     ENV["CARGO_HOME"] = testpath/".cargo"
     ENV["RUSTUP_HOME"] = testpath/".rustup"
+    ENV.delete "RUSTUP_OVERRIDE_UNIX_FALLBACK_SETTINGS"
     ENV.prepend_path "PATH", bin
 
     assert_match "stable", shell_output("#{bin}/rustup default")
@@ -104,12 +114,27 @@ class Rustup < Formula
       assert_empty shell_output("#{bin}/cargo clippy")
     end
 
+    with_env(PATH: bin.to_s) do
+      assert_match "Unknown binary 'rust-analyzer'", shell_output("#{bin}/rust-analyzer --version 2>&1", 1)
+    end
+
+    fallback_bin = testpath/"fallback-bin"
+    (fallback_bin/"rust-analyzer").write <<~SH
+      #!/bin/sh
+      printf 'external rust-analyzer %s\\n' "$@"
+    SH
+    (fallback_bin/"rust-analyzer").chmod 0755
+    with_env(PATH: "#{bin}:#{fallback_bin}") do
+      assert_equal "external rust-analyzer --version\n", shell_output("#{bin}/rust-analyzer --version")
+    end
+
     # Check that Homebrew only exposes the packaged `rustup` entrypoint.
     refute_path_exists bin/"rustup-init"
 
-    # Check for stale symlinks
-    testpath.install_symlink libexec/"bin/rustup" => "rustup-init"
+    # Copy the installer so it can change permissions within the test sandbox.
+    cp bin/"rustup", testpath/"rustup-init"
     system testpath/"rustup-init", "-y"
+    # Check for stale symlinks
     bins = bin.glob("*").to_set(&:basename)
     expected = testpath.glob(".cargo/bin/*").to_set(&:basename)
     assert (extra = bins - expected).empty?, "Symlinks need to be removed: #{extra.join(",")}"
