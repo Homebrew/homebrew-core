@@ -4,6 +4,7 @@ class Gdcm < Formula
   url "https://github.com/malaterre/GDCM/archive/refs/tags/v3.2.7.tar.gz"
   sha256 "b7b17b70c009677cf244cc7837b88386441e097f8861fdeee83aa27d1bc1b090"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -27,7 +28,7 @@ class Gdcm < Formula
   depends_on "charls"
   depends_on "json-c"
   depends_on "openjpeg"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "expat"
   uses_from_macos "libxml2"
