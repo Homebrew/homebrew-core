@@ -4,7 +4,7 @@ class RedwaxTool < Formula
   url "https://redwax.eu/dist/rt/redwax-tool-1.0.0.tar.bz2"
   sha256 "dd2d7e6ce1ee9b78bc3a2d076f4c1b282b61e9a3a20456566d3e62d32dc12d5e"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://redwax.eu/dist/rt/"
@@ -21,6 +21,9 @@ class RedwaxTool < Formula
     sha256 x86_64_linux:      "a6c78ac3c5a4cce63bd380af7f08fb6bbaacf76e2780d118dfe27f92df9de66b"
   end
 
+  depends_on "autoconf" => :build # TODO: remove with patch
+  depends_on "automake" => :build # TODO: remove with patch
+  depends_on "libtool" => :build # TODO: remove with patch
   depends_on "pkgconf" => :build
   depends_on "apr"
   depends_on "apr-util"
@@ -28,11 +31,19 @@ class RedwaxTool < Formula
   depends_on "libical"
   depends_on "nspr"
   depends_on "nss"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "p11-kit"
   depends_on "unbound"
 
   uses_from_macos "expat", since: :sequoia
+
+  # Apply Fedora backport of upstream commit for OpenSSL 4 support:
+  # https://source.redwax.eu/projects/RT/repos/redwax-tool/commits/9fa62cc6b668ac5bca4dc529f074f70c8418ec7b
+  patch do
+    url "https://src.fedoraproject.org/rpms/redwax-tool/raw/b23bc4fbae2cb2f9679a933223781e913fa87ca4/f/0001-Support-OpenSSL4-by-using-opaque-function-accessors.patch"
+    sha256 "f217e9ee8916be3e4c0d35f790236ae4dc3ea6db8b8533688d40fc7b718d78ea"
+    type :backport
+  end
 
   def install
     args = %w[
@@ -45,6 +56,8 @@ class RedwaxTool < Formula
       --with-unbound
     ]
     args << "--with-keychain" if OS.mac?
+
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *args, *std_configure_args
     system "make", "install"
   end
@@ -60,7 +73,7 @@ class RedwaxTool < Formula
       "emailAddress" => "hello@example.com",
     }
 
-    openssl = formula_opt_bin("openssl@3")/"openssl"
+    openssl = formula_opt_bin("openssl@4")/"openssl"
     system openssl, "req", "-x509", "-newkey", "rsa:4096", "-days", "1", "-nodes",
            "-keyout", "key.pem", "-out", "cert.pem", "-sha256",
            "-subj", "/#{x509_args.map { |key, value| "#{key}=#{value}" }.join("/")}"
