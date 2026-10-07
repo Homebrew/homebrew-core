@@ -4,6 +4,7 @@ class Deadfinder < Formula
   url "https://github.com/hahwul/deadfinder/archive/refs/tags/2.1.0.tar.gz"
   sha256 "ae2364f33c1b94f9d2183162b6dd42ae33a68dbda970a1e67c9080ee1681c7d9"
   license "MIT"
+  revision 1
   head "https://github.com/hahwul/deadfinder.git", branch: "main"
 
   bottle do
@@ -20,7 +21,7 @@ class Deadfinder < Formula
   depends_on "bdw-gc"
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
 
   uses_from_macos "libxml2"
