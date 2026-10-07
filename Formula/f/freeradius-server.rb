@@ -2,7 +2,7 @@ class FreeradiusServer < Formula
   desc "High-performance and highly configurable RADIUS server"
   homepage "https://freeradius.org/"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
+  revision 2
   head "https://github.com/FreeRADIUS/freeradius-server.git", branch: "master"
 
   stable do
@@ -37,7 +37,7 @@ class FreeradiusServer < Formula
 
   depends_on "collectd"
   depends_on "json-c"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "python@3.14"
   depends_on "talloc"
 
@@ -62,8 +62,8 @@ class FreeradiusServer < Formula
     args = %W[
       --sbindir=#{bin}
       --localstatedir=#{var}
-      --with-openssl-includes=#{formula_opt_include("openssl@3")}
-      --with-openssl-libraries=#{formula_opt_lib("openssl@3")}
+      --with-openssl-includes=#{formula_opt_include("openssl@4")}
+      --with-openssl-libraries=#{formula_opt_lib("openssl@4")}
       --with-talloc-lib-dir=#{formula_opt_lib("talloc")}
       --with-talloc-include-dir=#{formula_opt_include("talloc")}
     ]
