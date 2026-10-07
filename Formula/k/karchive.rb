@@ -9,6 +9,7 @@ class Karchive < Formula
     "LGPL-2.0-or-later",
     any_of: ["LGPL-2.0-only", "LGPL-3.0-only"],
   ]
+  revision 1
   head "https://invent.kde.org/frameworks/karchive.git", branch: "master"
 
   livecheck do
@@ -30,7 +31,7 @@ class Karchive < Formula
   depends_on "extra-cmake-modules" => [:build, :test]
   depends_on "pkgconf" => :build
   depends_on "qttools" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "qtbase"
   depends_on "xz"
   depends_on "zstd"
