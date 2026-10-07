@@ -2,7 +2,7 @@ class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/getdnsapi/getdns.git", branch: "develop"
 
   stable do
@@ -46,8 +46,16 @@ class Getdns < Formula
   depends_on "libevent"
   depends_on "libidn2"
   depends_on "libuv"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "unbound"
+
+  # Fix build with OpenSSL 4
+  patch do
+    url "https://github.com/getdnsapi/getdns/commit/735764d84272cb46f8fd4c3ddfe0cacbda0d9323.patch?full_index=1"
+    sha256 "f94d55c5a026d95558cea54c4bed8fbbc1278637cccb5a293585661e81758ac7"
+    type :unofficial
+    resolves "https://github.com/getdnsapi/getdns/issues/550"
+  end
 
   deny_network_access!
 
