@@ -5,6 +5,7 @@ class MysqlClient < Formula
   mirror "https://repo.mysql.com/apt/ubuntu/pool/mysql-innovation/m/mysql-community/mysql-community_26.7.0.orig.tar.gz"
   sha256 "95e949183b94bbe39e70c6355e6c90d2a640a62ede996ca5f7a6a3e0827a3260"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -12,13 +13,11 @@ class MysqlClient < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "879cf3513eef1d90621cc6c1a69c0ffa7c1b2987b73c13b6010392d7259a3747"
-    sha256 arm64_tahoe:       "3f655342bbb90437bdd0fc133d828d10d9b180d538a872a87f8cf2c5b03f5e67"
-    sha256 arm64_sequoia:     "17894b365f010f08663cb42480338e10a71b7a0dc06af080a004e6d55964e080"
-    sha256 arm64_sonoma:      "ce8fe4eb5db85e2d7ff9a24ae44f9dfdd97eabc9f4d6842c367e302491faed71"
-    sha256 sonoma:            "8f98c6afa096b5f28cc5817fa102885646bb24c9a312670a117f5397ed495f88"
-    sha256 arm64_linux:       "dbd664e5e0d8104215a60d2876f27e6a79ddddf7cc168f57a7aebe0e5be9a130"
-    sha256 x86_64_linux:      "f285392a0803303256db9c87b1ac56ee208b16715fa764c55ac59e51abd05ab8"
+    sha256 arm64_golden_gate: "e5422fa29a31e272a1b5310ec3e632013456b1dd84fc956072b1d6209143c561"
+    sha256 arm64_tahoe:       "7b56cfbd954b5d32dbcc6a1a5b8fb4b9d4b04215e5e87b40048534c23651f81c"
+    sha256 arm64_sequoia:     "372dadbd91890643dd4cba1fbb3f93197d55ac2e403ca5d0a59fb2540bee1026"
+    sha256 arm64_linux:       "ada9fe6a9dac6ebe8045ad7839fb24549d40ce4d766e06463dc9c9f9c23b95c8"
+    sha256 x86_64_linux:      "bda96712fdd683b3ccf1439f0aec0be9d40a47a84daa205cab77e0007e725b9f"
   end
 
   keg_only "it conflicts with mysql (which contains client libraries)"
@@ -27,7 +26,7 @@ class MysqlClient < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "libfido2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zlib-ng-compat" # Zlib 1.2.13+
   depends_on "zstd"
 
