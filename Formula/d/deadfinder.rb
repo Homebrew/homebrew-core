@@ -8,11 +8,11 @@ class Deadfinder < Formula
   head "https://github.com/hahwul/deadfinder.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c91ccce9815476de101ed1bf76a34d24fbe65989f78309cb1b69deb9ab5a2298"
-    sha256 cellar: :any, arm64_tahoe:       "fd9328d00e1514b764cf949fc27f6706079dba78dcfa98fff25a85af673fd5a7"
-    sha256 cellar: :any, arm64_sequoia:     "6b79fc25e42087dbc7f565cd0ae452e74838fb4ebeecd5fd8e7f7ffadc87d683"
-    sha256 cellar: :any, arm64_linux:       "2610405c5b68214dd848316f6d800eb36c2cf8e07638aca0ba195f170bbad231"
-    sha256 cellar: :any, x86_64_linux:      "ee2fc74f8724a7c3fa9f5d5d40fd1242e2698cbff00b32676cd542cd55e7ae0c"
+    sha256 cellar: :any, arm64_golden_gate: "f14092874a87bac2119594d0648b5650bda38f4e867bb48258e4e6eb3bcaa593"
+    sha256 cellar: :any, arm64_tahoe:       "6bb11ef4b2d3756b6ad005cb547e3b9b890151f25696f1249d153ea4bcd5ff44"
+    sha256 cellar: :any, arm64_sequoia:     "34a1f7bcc759aa07b2486dcb6bc3412367180c8f57924f12bc4e4b1eb87b02ce"
+    sha256 cellar: :any, arm64_linux:       "5a1b427df0f88a764d114a8c288ade0fb42098254d3e309a5ff1eb39b5e799a0"
+    sha256 cellar: :any, x86_64_linux:      "a247599a12a2cf6b08d299b9e44bbba99893cb7343036b1a4a107d6b27bdffbb"
   end
 
   depends_on "crystal" => :build
