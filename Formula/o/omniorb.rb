@@ -12,14 +12,11 @@ class Omniorb < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_golden_gate: "c4d70e62d4cef5c4c05ecd57c6b41279ff42950f95c72f577c16914f1f44f97f"
-    sha256 cellar: :any,                 arm64_tahoe:       "69b171103aff52ec76b37157af9cafc619a8ab5f65daa0676ac03a39f94b3fcd"
-    sha256 cellar: :any,                 arm64_sequoia:     "be7ed7887d18f0c634f0a9a0fcf50e3baad81ac4dc19485a380ccef79b39c60f"
-    sha256 cellar: :any,                 arm64_sonoma:      "b7e79d9bd6cf2c3146ad1aae8fda733fab5fcb6977c10b8bf1e1f82779fc4f0d"
-    sha256 cellar: :any,                 sonoma:            "4dd41368f4fde967adde35d8839e3e20078e32b13e41baa1fd852c8e3afffe36"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6fb616f204dc7acf360397e4aeea7d145d6c5eb32c27f152de10c771a042ac2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7a82a3a9f22891f7155ca75558b834b0465338da0c4a03875648428527b64dcd"
+    sha256 cellar: :any, arm64_golden_gate: "82b7a30ae2b47146013a79691f713034c3f94b042689228d8487eda5fa3d8c7b"
+    sha256 cellar: :any, arm64_tahoe:       "536d279eea55b93c6c8fa314d4f954245f9b900ac021a1f25a8ec2784f746f6b"
+    sha256 cellar: :any, arm64_sequoia:     "4a0b96d64f16f919f9e18a56c7de205d3bbb4067802d70f2c0b35bf4ba8cbd71"
+    sha256 cellar: :any, arm64_linux:       "fd187ce56c0eedb5dba72b79f9372ad6705254d759d14a6e76aaf4da679f3a77"
+    sha256 cellar: :any, x86_64_linux:      "d17e0ae63583d347b1ec6be6536a436e920be2ee35818dfbbc52d8a2f720f9cb"
   end
 
   depends_on "pkgconf" => :build
