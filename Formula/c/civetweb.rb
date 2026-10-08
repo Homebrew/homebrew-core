@@ -8,14 +8,11 @@ class Civetweb < Formula
   head "https://github.com/civetweb/civetweb.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "2fd77a5d49e950835e3ae5138b3186824ca85f7f12e3fc037bcbae9880e3b234"
-    sha256 cellar: :any, arm64_tahoe:       "876584aeab2710cc49b81d1e5042d985c76bf633215a8e49bf452fb08ff0a83b"
-    sha256 cellar: :any, arm64_sequoia:     "616bb7606c68eedcd9bb644048334d73f49002a2a2a0080291a6ffd3f6eaada5"
-    sha256 cellar: :any, arm64_sonoma:      "82ee0e5ed3bb59f1c246a2150f2d161ef9aecabd9b7ce4631127d1a0fe010efd"
-    sha256 cellar: :any, sonoma:            "4a9835f3b88f3bf9b6a4eefacf318962f8953638bdd0d23ac75b270b0d23d931"
-    sha256 cellar: :any, arm64_linux:       "36949610c5738876894445945c1f1f8ec5063c96819b8fa45d2bc5643160eac3"
-    sha256 cellar: :any, x86_64_linux:      "78be4d06a6b2bd348f289b8cda144e29eca03f2fe9fe91b2d7634b16f700fc38"
+    sha256 cellar: :any, arm64_golden_gate: "024d02e19a39eef52b853e38e13edc39eafe8e0585abb6c8d8931ec75d28618b"
+    sha256 cellar: :any, arm64_tahoe:       "88c28b02f684f70e0d8470a38a66e61f25cbe08efbf0fe66dfc39cef93cf029b"
+    sha256 cellar: :any, arm64_sequoia:     "d04577184b0a9cfa245de4b96ae76734a97a4ab44ee04a21b8d04b17b3944dc1"
+    sha256 cellar: :any, arm64_linux:       "4126eb10798b8492e6ecbd52372c613e869308840634e8a1f0a6d359eecdb0be"
+    sha256 cellar: :any, x86_64_linux:      "dff4aa9a7567a9ca4c5dcb3c57b22678ca8fa7a790194cf81ba6d52df630807f"
   end
 
   depends_on "cmake" => :build
