@@ -14,13 +14,11 @@ class Capnp < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "9783efaa35e1d88fe4ffd18023bf496b98cb2f1befaee1849dd6076163612562"
-    sha256 arm64_tahoe:       "5665a71fb8c0b1fcb4a093a9184af9f7e0c272a50dfa1034c720f9aefbfa5853"
-    sha256 arm64_sequoia:     "631e9a4c90da11c4c4530ffab27ab993c309af1ab40f5db0ea4303210e01dab8"
-    sha256 arm64_sonoma:      "6528998926fad4016e93d0ba899fed20e460b410562bce475542ace24f25303e"
-    sha256 sonoma:            "5f137b8eabb0147b51e77bfc9ec99855ae0231a1aa54a2f9df3fcc97beaff527"
-    sha256 arm64_linux:       "40568ae1e83cafce1333b0880b29e841fefb81e886201046edffe5dca9eed83f"
-    sha256 x86_64_linux:      "53597d8b7773ca1762768b64538c5c5ecd85fe01b6b0fc9537f568c64a6de8ad"
+    sha256 arm64_golden_gate: "c93c4d469c9c1d622f27599c2d7db57a0fac4abfdd87a894f4876f625fca2d79"
+    sha256 arm64_tahoe:       "2cb6da9ca100911929078f9f17fd685f7d99d2f6177a6bef2ef49bc3a2acc641"
+    sha256 arm64_sequoia:     "c90ad45691676a76f0159fd4f2873036a4c27473bdfa850b00f5323d641f262b"
+    sha256 arm64_linux:       "38497a941782c5cc37c5c521985745cd9f25dfffd3e9ae68ea6244fc040271fe"
+    sha256 x86_64_linux:      "10155993c95adc1cc307148535255815e6a94e657325696033eb7d4291059f67"
   end
 
   depends_on "cmake" => :build
