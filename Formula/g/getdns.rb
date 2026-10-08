@@ -26,19 +26,11 @@ class Getdns < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "31b0c30c67363f7c8cff53dac5da018fa95e23b12d57b110bb1449aab8692b89"
-    sha256 cellar: :any,                 arm64_tahoe:       "a7c28530f90a7b7154bd2c84bcca93ab7615776eda9903282a5d2ac7889d8e72"
-    sha256 cellar: :any,                 arm64_sequoia:     "4de6139ffb48649141f2de34aa4525625427e92f6c663a228457e0d66c0bb4d2"
-    sha256 cellar: :any,                 arm64_sonoma:      "f8db532094127a5756d5ee9aa4ac55efe191eda4f5407a95aef2c59ec2e8f32e"
-    sha256 cellar: :any,                 arm64_ventura:     "c2f1f059c36f76d0e32acfee307bc6f02a8bb91f850f666704dfe503b79e6035"
-    sha256 cellar: :any,                 arm64_monterey:    "78497b3d08f57ad15ff67fc0834e7d087b2660fa81863f4f5dd4c7e208de5db8"
-    sha256 cellar: :any,                 arm64_big_sur:     "546421d61bf0ed25dddf21496983fd8e93031e4665eeff8fe6badff4fec8c7b4"
-    sha256 cellar: :any,                 sonoma:            "7ff99fef869239665dfe345afdccdde0198977b5f50c1705d35c4c40f4b3bfcc"
-    sha256 cellar: :any,                 ventura:           "118a3e9288aa2b65bb29d034d97c25813ec762d3edd9ccaed34d38df05e8356b"
-    sha256 cellar: :any,                 monterey:          "9a2d1783c4dfe96711732586d68105f9e4d4eca95baefe335bf63f17e04740f9"
-    sha256 cellar: :any,                 big_sur:           "1e8c18958a4bcf70bbcaa0a9014c28176fbb02b7ca477033f2315e8535c39b6d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8ce171170b02aee21a4b64f701eafaef27aede8cd2c9b73ded162231e826d29d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "bd16047c9d5d64db4bc99b8390c6fc80bffe45ca2a1f8c1b7d244d8262babbb0"
+    sha256 cellar: :any, arm64_golden_gate: "3e0a48476bd174567fd1111460fd8e831c0b6bc76418c06e8f0bbf6f29417fb6"
+    sha256 cellar: :any, arm64_tahoe:       "4056efe34b5b9f8135401bb5b211ab48ed8f3b10134c078c2055dbedea6f6892"
+    sha256 cellar: :any, arm64_sequoia:     "709f582f4151201bcf86deba881f906611238925a6ed4bf683fe9b2e4889af0a"
+    sha256 cellar: :any, arm64_linux:       "29bda4c9132cb81a8f22b6d4948453216b0b537e589bb15097a34c10ce85735d"
+    sha256 cellar: :any, x86_64_linux:      "9aa0bce58c1a2f24286e00a906a62ced657b5b875fe3f42cca2af58404972128"
   end
 
   depends_on "cmake" => :build
