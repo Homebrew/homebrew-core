@@ -8,6 +8,7 @@ class Rpm < Formula
     "GPL-2.0-or-later",
     "LGPL-2.0-or-later", # rpm-sequoia
   ]
+  revision 1
   version_scheme 1
   compatibility_version 1
   head "https://github.com/rpm-software-management/rpm.git", branch: "master"
@@ -18,13 +19,11 @@ class Rpm < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "a4edb40f386df54cafd4a51d55b51cb6d70a213427bfe56588ccb2e7c173b7ea"
-    sha256 arm64_tahoe:       "d05318fd8cd639a10d516353fa2b1f64cd5955e610b2ee13c035bb997b1357ed"
-    sha256 arm64_sequoia:     "363200736332adcfa7cac84e5ff32ac1048aa3d0f6b2610f0d29bf7e3c746bfd"
-    sha256 arm64_sonoma:      "490697dfae364ebee811d76c2fa3145be7f80c81198437637de72a88e2ad8736"
-    sha256 sonoma:            "e762a6d1e18fd2cc12334bdc05eb809e05c22fd6d111a5025a12415766391c93"
-    sha256 arm64_linux:       "4fa984eb8ebf0fe293012bf18c2bb42a279211bddcffa2bc15978603d27cc935"
-    sha256 x86_64_linux:      "d58417ed3db12fd1dd1638167d7556a3b14008bf1433c421a675676f80af8fb2"
+    sha256 arm64_golden_gate: "b9a09cd6636045ba84afea2d831165a32b919830371e5f416072eb39d54db07b"
+    sha256 arm64_tahoe:       "da9167d09a0febdf1c1b37417b5594ff2c44e31a9ed50fe5526a1e9525f7a3b6"
+    sha256 arm64_sequoia:     "e4fbc543bd34952c19310a53fc605c0070608caa307975930d9e886442cf6deb"
+    sha256 arm64_linux:       "819181f217e87378b793171b897191474e0e160cfa7708edc66adda360e5c612"
+    sha256 x86_64_linux:      "40b3c5f92eef86cafc86593949eac57928f88ded0210a770593447fed0c0173d"
   end
 
   depends_on "cmake" => :build
@@ -36,7 +35,7 @@ class Rpm < Formula
   depends_on "libarchive"
   depends_on "libmagic"
   depends_on "lua"
-  depends_on "openssl@3" # for rpm-sequoia
+  depends_on "openssl@4" # for rpm-sequoia
   depends_on "pkgconf"
   depends_on "popt"
   depends_on "readline"
@@ -79,7 +78,7 @@ class Rpm < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     resource("rpm-sequoia").stage do |r|
       with_env(PREFIX: prefix) do
