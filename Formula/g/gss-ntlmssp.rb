@@ -4,11 +4,12 @@ class GssNtlmssp < Formula
   url "https://github.com/gssapi/gss-ntlmssp/releases/download/v1.3.2/gssntlmssp-1.3.2.tar.gz"
   sha256 "e5cc8d74e5f88cfe74622b14d1d28e85710dec898b754c2c78969f25147bbb55"
   license "ISC"
+  revision 1
   head "https://github.com/gssapi/gss-ntlmssp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "cc7534e45f967a33fcd580f9dd667ec663d383a9a4f485576949c33fb26bdc44"
-    sha256 cellar: :any, x86_64_linux: "8484e1f1db394de0e244a2becb5f3cca13fe0df9b6cae80e6dcc5485bc298522"
+    sha256 cellar: :any, arm64_linux:  "452cf617ebb8d1d30afb7544ed432feda059349ebd2334ed3741313e0e6610a6"
+    sha256 cellar: :any, x86_64_linux: "010b908c8cc53f2d309ab73ca84b3422272b93efe4923cf446a24eaf01adb9b0"
   end
 
   depends_on "gettext" => :build
@@ -17,7 +18,7 @@ class GssNtlmssp < Formula
   depends_on "krb5"
   depends_on "libunistring"
   depends_on :linux
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zlib-ng-compat"
 
   def install
