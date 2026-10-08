@@ -4,23 +4,22 @@ class Libfido2 < Formula
   url "https://github.com/Yubico/libfido2/archive/refs/tags/1.17.0.tar.gz"
   sha256 "ace062d14a482ff9325410ff63d06c8b5fe87e79ebc18dda07add2bc0188c77f"
   license "BSD-2-Clause"
+  revision 1
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "fb3d0b92ac958c3466de149cae2945d64a8f04932c7d7e5603bb06090b88ff35"
-    sha256 cellar: :any,                 arm64_tahoe:       "3e0df39436ee2a482eca7566c22e04ad96a076af7e4ba3bf94e7f600d7da0203"
-    sha256 cellar: :any,                 arm64_sequoia:     "1ae5fb9238e2e24b5c980f5ee80a7e6360695ed9bfb634a9650a76ba1de78d06"
-    sha256 cellar: :any,                 arm64_sonoma:      "c401ede66a7b0accb44e6fa381bf137188c810fc6124b791cc6534dd24790cc7"
-    sha256 cellar: :any,                 sonoma:            "5a6ffc55ffc19bd62ebf9e4182e0b39376d290ed71ccfa20f2bea4ce58cce2c3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "31bf79664d64bfefdf1bbf7ca09172ea48711eb6417857fffbdec3b13397be90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "cdad5bf5869d7ce4151ca98c45e4f84ea55f555c1bf2e03dd5eb73210d49f6e9"
+    sha256 cellar: :any, arm64_golden_gate: "b679492d42f008427e7646538e1b12744a0793a8532ac1d946088781a8981edd"
+    sha256 cellar: :any, arm64_tahoe:       "e00d6b923b4c560c04b6bda73cecacfaada8f1c0597ad765e3535ab9e7d1fe94"
+    sha256 cellar: :any, arm64_sequoia:     "b404a7b93781536080839a6c16c23b757f540e1a0895ea8344bc39c34cea5edb"
+    sha256 cellar: :any, arm64_linux:       "a49777a64ffc7dfe1752ec844a474896b696faf9c7a3d5d81c95273144ecc321"
+    sha256 cellar: :any, x86_64_linux:      "cf69e18e0fad21c5b5f8c1b2bb76eddcd6636268b860d90457f28e886d997ff0"
   end
 
   depends_on "cmake" => :build
   depends_on "mandoc" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on "libcbor"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "systemd" # for libudev
@@ -60,7 +59,7 @@ class Libfido2 < Formula
       }
     C
 
-    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("openssl@3")/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("openssl@4")/"pkgconfig"
     flags = shell_output("pkgconf --cflags --libs libfido2").chomp.split
     system ENV.cc, "test.c", "-I#{include}", "-o", "test", *flags
     system "./test"
