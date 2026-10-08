@@ -6,6 +6,7 @@ class Openssh < Formula
   version "10.6p1"
   sha256 "a9dc9565dffe8640f64d863cd29a32bc4a3dbdec0566a7fc44c5d6ee767d5f39"
   license "SSH-OpenSSH"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -14,11 +15,11 @@ class Openssh < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "8baeec2bb77a8645ae5d22c46f412e103f72b57bc6740cac038874a9a4274e4a"
-    sha256 arm64_tahoe:       "dc2c280852ca0254806901b26d5d52ec107cb7ddf40d5d6f90f8085d26eba2df"
-    sha256 arm64_sequoia:     "042e7bf6e6a8d384811cab3ca61160daad4f69f47edcdd34a50f0a521ca08abb"
-    sha256 arm64_linux:       "44d462f90e23eaaeac594951c9023cc4409050d7d12a1863df57fad558f8c592"
-    sha256 x86_64_linux:      "e7976aae0d5fa3b9c1a5305d02a0562f91b9ee7f7479a88431e3922c29688c89"
+    sha256 arm64_golden_gate: "d79b5fb06078a1d262343a9b9bdb768acba0d08c9d5648b9ee2b1c3c405b29ef"
+    sha256 arm64_tahoe:       "d6c083908c3e6fecce2dd6a46fa02ab7f50778b56653c2b07c4e1a136035f909"
+    sha256 arm64_sequoia:     "08339f96e37c5d085b65df52a8a9cc33782a163fdf4537b09e55b17bf08b3697"
+    sha256 arm64_linux:       "5b7d2086cc8ea983a4ebeda63b0a0b3f1d6d8f52a02db73dd11b8577748ba47f"
+    sha256 x86_64_linux:      "6279716a104f8140da4548a440f1bd9f1eff5d81bf4e70d68b7f8ef3ca138d39"
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.
@@ -27,7 +28,7 @@ class Openssh < Formula
   depends_on "pkgconf" => :build
   depends_on "ldns"
   depends_on "libfido2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "mandoc" => :build
   uses_from_macos "lsof" => :test
@@ -56,7 +57,7 @@ class Openssh < Formula
       --with-libedit
       --with-kerberos5
       --with-pam
-      --with-ssl-dir=#{formula_opt_prefix("openssl@3")}
+      --with-ssl-dir=#{formula_opt_prefix("openssl@4")}
       --with-security-key-builtin
     ]
 
