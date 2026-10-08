@@ -2,6 +2,7 @@ class Sheldon < Formula
   desc "Fast, configurable, shell plugin manager"
   homepage "https://sheldon.cli.rs"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/rossmacarthur/sheldon.git", branch: "trunk"
 
   stable do
@@ -14,22 +15,18 @@ class Sheldon < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "fe720316a0d5c9dccd7f2fcf1febf176ced1af6c8f048ae08c710fd3cba2c1a9"
-    sha256 cellar: :any,                 arm64_tahoe:       "4c847c1f57dab67c08f0b2bc28b2682ec8e82944693c08c9456a61faee416790"
-    sha256 cellar: :any,                 arm64_sequoia:     "f414fb4134ef81cfa8b07da7a4071cd74cedfd6201f6c9ca39cefb77bba18c73"
-    sha256 cellar: :any,                 arm64_sonoma:      "7a2039f892bde698a45c4b4ddd4e4b01a68a800a78a25b6d264473114fb93953"
-    sha256 cellar: :any,                 arm64_ventura:     "db70e3bf9291543f442ef03f071c5e7f3a321022f74315a7ae2947f1d474239c"
-    sha256 cellar: :any,                 sonoma:            "28e543aab665bd00bb249abdcc40b062f96a8305046136720772ec2d22afc55d"
-    sha256 cellar: :any,                 ventura:           "e90fbe293693000084e563baf7af705d5fe82398340d90a7cf5079cc2d5a3f66"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2bb36c6d20e44524167470f658d6bf79dff452c6f2ca3470900d56c545f86724"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7f589b7843646d3253cfc607b0169a416a0017125e5b602b5daa82dab7fc8796"
+    sha256 cellar: :any, arm64_golden_gate: "6673cece9d7a8cf47b5a942825ba4f926f64eddfad1ffe760110c5fcb1576e05"
+    sha256 cellar: :any, arm64_tahoe:       "a20cb1247992a8d40185c0e7517cdc8d6d9e3f208efbfc952a3c62e92b1cfd80"
+    sha256 cellar: :any, arm64_sequoia:     "880a8185076345b4f60261561624eefd5977e15a987d4062c62bc389d707afd2"
+    sha256 cellar: :any, arm64_linux:       "8e54907e8e245517b726e355993b6557fcc2f1c57891b398541226cc89dea506"
+    sha256 cellar: :any, x86_64_linux:      "47adaaf91b6ba9fab3cb6f5737a9d821c062e005f550b151b72770cd5234932b"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libgit2"
   depends_on "libssh2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   # curl-config on ventura builds do not report http2 feature,
   # see discussions in https://github.com/Homebrew/homebrew-core/pull/197727
@@ -46,7 +43,7 @@ class Sheldon < Formula
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
     # Ensure the correct `openssl` will be picked up.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     system "cargo", "install", "--no-default-features", *std_cargo_args
 
@@ -64,8 +61,8 @@ class Sheldon < Formula
     libraries = [
       formula_opt_lib("libgit2")/shared_library("libgit2"),
       formula_opt_lib("libssh2")/shared_library("libssh2"),
-      formula_opt_lib("openssl@3")/shared_library("libssl"),
-      formula_opt_lib("openssl@3")/shared_library("libcrypto"),
+      formula_opt_lib("openssl@4")/shared_library("libssl"),
+      formula_opt_lib("openssl@4")/shared_library("libcrypto"),
     ]
     libraries << (formula_opt_lib("curl")/shared_library("libcurl")) if OS.linux?
 
