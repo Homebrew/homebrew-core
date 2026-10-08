@@ -4,7 +4,7 @@ class NodeAT24 < Formula
   url "https://nodejs.org/dist/v24.21.0/node-v24.21.0.tar.xz"
   sha256 "a6f54defb6fd7c84f41dba13d61e78e9b4e0961712cf61f29715c05f5ced94fc"
   license "MIT"
-  revision 1
+  revision 2
   compatibility_version 1
 
   livecheck do
@@ -13,11 +13,11 @@ class NodeAT24 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "8ff71c6facf9e41b85baf620991599f0b1275067f96caf78be95eb1c81264991"
-    sha256 arm64_tahoe:       "44007eb5bdbcfdcd0b14dd7e8a3714ef903466e97e11e98869fcabdcecc2caf4"
-    sha256 arm64_sequoia:     "3df1fbcafd936a2b787407bf503e29416b5ded3cf3d0a055e142092eea09396e"
-    sha256 arm64_linux:       "4b29bb6e50c8fc3d99a0b66a219a7545d81882471e55da66ee24b812ea683ff0"
-    sha256 x86_64_linux:      "3b89990c66838c5390afb85d021573be023cb4d3241447e800b5c09cd21b4f80"
+    sha256 arm64_golden_gate: "afdd54c994468d170e9b592274b9123bfcb87b9dcf1a9fb6b37efcd9f453fd4d"
+    sha256 arm64_tahoe:       "bb6bb6adc66b943c753961737939255624e84df4e155b2217164534dc41354e5"
+    sha256 arm64_sequoia:     "8b102e2670b04077654abcfac963583d69a48b6363ec5dab46839c160932c2d9"
+    sha256 arm64_linux:       "be0ac948bb9dcdcb628d720ddf70cbbab663cb974d5381cec8e7f4ea55846da1"
+    sha256 x86_64_linux:      "9f293884bca9341f4639d267f5ff02c0fadf4ed90e5def24ad7049067af78629"
   end
 
   keg_only :versioned_formula
@@ -36,7 +36,7 @@ class NodeAT24 < Formula
   depends_on "libnghttp3"
   depends_on "libngtcp2"
   depends_on "libuv"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "simdjson"
   depends_on "sqlite" # Fails with macOS sqlite.
   depends_on "uvwasi"
@@ -107,8 +107,8 @@ class NodeAT24 < Formula
       --shared-nghttp3-libpath=#{formula_opt_lib("libnghttp3")}
       --shared-ngtcp2-includes=#{formula_opt_include("libngtcp2")}
       --shared-ngtcp2-libpath=#{formula_opt_lib("libngtcp2")}
-      --shared-openssl-includes=#{formula_opt_include("openssl@3")}
-      --shared-openssl-libpath=#{formula_opt_lib("openssl@3")}
+      --shared-openssl-includes=#{formula_opt_include("openssl@4")}
+      --shared-openssl-libpath=#{formula_opt_lib("openssl@4")}
       --shared-simdjson-includes=#{formula_opt_include("simdjson")}
       --shared-simdjson-libpath=#{formula_opt_lib("simdjson")}
       --shared-sqlite-includes=#{formula_opt_include("sqlite")}
