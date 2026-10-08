@@ -7,14 +7,11 @@ class LibpahoMqtt < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_golden_gate: "57c95d5dc6f5a6c5d991fdf24289f66f05ca4d9fc2d36dc0ca2e212c4e78e62c"
-    sha256 cellar: :any,                 arm64_tahoe:       "eeeb71c665576f02cc774b84e777eddda3969b2e63ccae7f66f7c5dc1638f999"
-    sha256 cellar: :any,                 arm64_sequoia:     "c0a8cb599d043492514a8412746d4b281215aa5aeda8db1fd12954a40237b138"
-    sha256 cellar: :any,                 arm64_sonoma:      "4320aa4be856759a55293101979436f7a79382d8528b3e8b935068ab5edf0886"
-    sha256 cellar: :any,                 sonoma:            "8a3054d689f09b17faa7392f37ecd140fe2e0358b18b472db84f74f7c7556c50"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4f091e548e02bf60eee30c26f4451aeda7fa77a3f54452349cc98f5568404aed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "71be99abeb74ab2fada683b2b0fcae74c3ec65c062d3b273ac033697f08342e5"
+    sha256 cellar: :any, arm64_golden_gate: "07546812ea899bd199fa038cfbf8c25135b66e222f9abe11435e4f9c3d82c629"
+    sha256 cellar: :any, arm64_tahoe:       "a6696485cf5500d5304600d65498656d5c6a4850f1389585fe2f616a636bbee9"
+    sha256 cellar: :any, arm64_sequoia:     "5a298cd63176a48ce31d8db4f7d37e9e56e1501c09a41135a85fa98528388c32"
+    sha256 cellar: :any, arm64_linux:       "73b47ca633318eb9c1a2e2901c05a7e6182929fbfb5df97f8b500d3869287dc7"
+    sha256 cellar: :any, x86_64_linux:      "23659c2201dacad6ecd74c5b12a4c5fdc7f59f0db4ba78b4d92a9e18cc0c5479"
   end
 
   depends_on "cmake" => :build
