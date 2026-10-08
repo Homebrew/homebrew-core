@@ -4,6 +4,7 @@ class Pgbouncer < Formula
   url "https://www.pgbouncer.org/downloads/files/1.26.0/pgbouncer-1.26.0.tar.gz"
   sha256 "afd25dd61ee6775d37b40629b87ce08736b3e6955f3057bb212e410fbf21c71d"
   license "ISC"
+  revision 1
 
   livecheck do
     url "https://www.pgbouncer.org/downloads/"
@@ -11,11 +12,11 @@ class Pgbouncer < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "32e98d8a2e2b279c09cf25634901bf3fed2cd1dd5ab6ed2dbd1b89aabfbdf6a4"
-    sha256 cellar: :any, arm64_tahoe:       "6e246b133ceca897407df93be55de6b722f27b6a748543a1b878f76c3b7c0a46"
-    sha256 cellar: :any, arm64_sequoia:     "a6b0aa57499c8c6e9126112c0825e44ba61418d44e0d9d44118f81718a9eae15"
-    sha256 cellar: :any, arm64_linux:       "7dc4555712ce383a6a197648e765604efbbe7de0c65e2d00c0f8d42c201f23fc"
-    sha256 cellar: :any, x86_64_linux:      "5fa16c1cbd2d23b28f30bdc2d27cc49f3376cbe76d839600afe096e3ac82fdcd"
+    sha256 cellar: :any, arm64_golden_gate: "7f864d2b7c89876a6743ae610d59a0e632f01bb504bf25c2d122962b042b1096"
+    sha256 cellar: :any, arm64_tahoe:       "4c47024fd069e6f55937d59ce37541fefa506ea8cb514d857b730208505f1517"
+    sha256 cellar: :any, arm64_sequoia:     "bad6fd2122f8dd5506b27a02b6333053fd8298e429476b90299c5d7ce5942d96"
+    sha256 cellar: :any, arm64_linux:       "e20d79043f76221b5bf1e7d487f98a00f805a08660934cc1ef12347a32cfbf61"
+    sha256 cellar: :any, x86_64_linux:      "d5b2160609831572bb72e72a8a81fe41a345af1e2ee2bc607b128ab278d51f70"
   end
 
   head do
@@ -29,7 +30,7 @@ class Pgbouncer < Formula
   depends_on "pandoc" => :build
   depends_on "pkgconf" => :build
   depends_on "libevent"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "python" => :build
 
