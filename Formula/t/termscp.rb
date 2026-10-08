@@ -9,12 +9,11 @@ class Termscp < Formula
   head "https://github.com/veeso/termscp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8ba733bb89b96875cdfd810f9e13420528b7418d56e3716954450b8c609931c5"
-    sha256 cellar: :any, arm64_tahoe:       "66ffc3b3b471ef4ce25c5e3d2671288408463b343933406fa7b29cdbde4ab83c"
-    sha256 cellar: :any, arm64_sequoia:     "7efb6875872adf0d7581f5d4a1768205bc12eefb2b573e4bb1eedde435605888"
-    sha256 cellar: :any, arm64_sonoma:      "297b0c32b09e07d5a03a7ba59d0c508c09ab9ce24feebaa240401e0c23e56e27"
-    sha256 cellar: :any, arm64_linux:       "62a49ec5f6d76aae853fd84563201e50c8e7e3104cd556b018280c34da05208e"
-    sha256 cellar: :any, x86_64_linux:      "bd7c8fc286d3a4e9672c91ba3255f5f0c34ecfc088ff41d1248f5fb537e78035"
+    sha256 cellar: :any, arm64_golden_gate: "3fb5b68947658bbdd0f71fee51e6b32a2aaf4c4c6851c1263ef9832cbbd310e7"
+    sha256 cellar: :any, arm64_tahoe:       "0d0bc958f563ad79d39080919e9cd0ecfb09df0c93d947a14d7e140b6318b4a2"
+    sha256 cellar: :any, arm64_sequoia:     "0f7da68db6c8eb443e0cea7724433989b68450e1d086c4d5056ef3fe3aeebeac"
+    sha256 cellar: :any, arm64_linux:       "5e2a5870b91a6a163cf73b4d160203247fe94a1bf222f4223ab28c75d0010bd4"
+    sha256 cellar: :any, x86_64_linux:      "39969dd4ba6017b3372a2717cc26a737f3c4fc4e69fc01b4a9795640dfa0b619"
   end
 
   depends_on "pkgconf" => :build
