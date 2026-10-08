@@ -9,13 +9,11 @@ class Hiredis < Formula
   head "https://github.com/redis/hiredis.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8a64ebd76df208e621151be62b0c58c9ce785423c74711a2f8f42e7203335608"
-    sha256 cellar: :any, arm64_tahoe:       "42b0b6e7412063e9f18126ed8ffbca90a00dbe6f637e91bf18e0466a0662f318"
-    sha256 cellar: :any, arm64_sequoia:     "744ba0aede8239ae120916df4089f6d573e7e7d10266b6a80a61c5a261021e3c"
-    sha256 cellar: :any, arm64_sonoma:      "4628795741e6ccedc6bbfa17f200b5b789d6178eb21536c5aa64a40be920242a"
-    sha256 cellar: :any, sonoma:            "b14620a2482fbb380412ace6d8f86a6632e359beed6ed22b5305ce0be77268b9"
-    sha256 cellar: :any, arm64_linux:       "983b187e988c1b5ebdba237d73b2990c6cf025ba95ec0f8933fb470705dcb18d"
-    sha256 cellar: :any, x86_64_linux:      "d6cc6c670dcb707ea52e8dddcf4208de99c111e620329ad79f76ad2adb677f10"
+    sha256 cellar: :any, arm64_golden_gate: "929bcd0488fe39146487973d87438014b18ff1baa042a945e3599a9d236e0bb1"
+    sha256 cellar: :any, arm64_tahoe:       "ba44b2e63b0c97d024a1e7eed803020d2ccea6d579c4c35f187566e9e3b23008"
+    sha256 cellar: :any, arm64_sequoia:     "af42163803e4e5a1c21a8b423ba7d21d767378b24d095f843d62b92f37484ba6"
+    sha256 cellar: :any, arm64_linux:       "adcbf1765cf7c53525551c9e08f02727027ad34113ec35396da8c69405a172ac"
+    sha256 cellar: :any, x86_64_linux:      "07727191b4d8845310c2eba833e78b05c379c1c03cdf5504ff1c98b13897dedb"
   end
 
   depends_on "openssl@4"
