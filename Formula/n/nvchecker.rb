@@ -6,18 +6,18 @@ class Nvchecker < Formula
   url "https://files.pythonhosted.org/packages/be/43/e2b9699bb92a8125a24f2052152dfbfa4286285e6ea7aa7a47e8728ed72e/nvchecker-2.22.tar.gz"
   sha256 "7c5d04d55e3faffa2f7e7a81165a2f6b68786f4b185d4e1e2ec7af03a524e784"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "08a320596dc44ce969e6c9ea34e904a8bf88a594b4e0c41ca32349c706dbc87d"
-    sha256 cellar: :any, arm64_tahoe:       "24ab9beb7be8f98c6f6912b5483c2fc381384af1ce4bd233b8d2a0d498b1f512"
-    sha256 cellar: :any, arm64_sequoia:     "f4cfc04e9102fef78dcf5c04dd7e3e3c5d10c69f3ae9634afdf94dc26a579cd0"
-    sha256 cellar: :any, arm64_linux:       "9a57bc9833daf20043502e51142925691a2c7874830782210e31a4ac4f5bcdb7"
-    sha256 cellar: :any, x86_64_linux:      "f5f622a43f9a9125e324bc99fb8197f1cb0e77e835472a65d536fdbe8b8426d1"
+    sha256 cellar: :any, arm64_golden_gate: "72c03e782af3e09ebedc02d98fb53db5f4ec8b315577f3160bc780990abd4331"
+    sha256 cellar: :any, arm64_tahoe:       "001d5fa744d2af67339008a2be1ee96c169b263da6ef028dfbcc1d972982c14f"
+    sha256 cellar: :any, arm64_sequoia:     "df02e04d94a54f04842b436b2285e69733ecafcffb2d87d736c29f1de120aadd"
+    sha256 cellar: :any, arm64_linux:       "63c6a701b6296528c58f9f30cc2adaed9cff0610c61abcc29547c0259b62abbb"
+    sha256 cellar: :any, x86_64_linux:      "d990d30f08325b8f81621e70ec5d9d9b5b7dad1615351b733e852c95399917e9"
   end
 
   depends_on "curl"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "python@3.14"
 
   pypi_packages package_name: "nvchecker[pypi]"
