@@ -14,15 +14,11 @@ class Libshout < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "3f2b3986b0d8d1ffa26c495e99a8c74431ffeaf24348e293af1667c14b6551aa"
-    sha256 cellar: :any,                 arm64_tahoe:       "76663b1032171e339e3050387e161c4428a0831ee4c0142c76ba6fd0d4dfa767"
-    sha256 cellar: :any,                 arm64_sequoia:     "5ff13dd8f27961848f5a16d23ce60c171146c09424e7335eb2eaee7245a78ed3"
-    sha256 cellar: :any,                 arm64_sonoma:      "86c6bd103a2d979c4d21e4b419716498cbc4662addf0db2308d91bdcebaeac48"
-    sha256 cellar: :any,                 arm64_ventura:     "7a69fb9e5b3562368d2ab467fe6b9bfb7b0091505a0324e943873bdec9de4eef"
-    sha256 cellar: :any,                 sonoma:            "94d290dfdf67616fbf858902a09552c31ea53b9c130105735398208cb91df08f"
-    sha256 cellar: :any,                 ventura:           "56982df807301d4f69684c7988c6d9c74faeb71471b453899649ab3e211b40df"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ac4ae07ae448d7c8ba89fb704caf46dabde6b99994aaca7f4240f99e213b9787"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ec4015cc70b9e3b8c9d17596e744743589c3f8c0a1be06c1116054e6855a4619"
+    sha256 cellar: :any, arm64_golden_gate: "fcc1a1dc7239cdfcb515c1254c50c92281b29ba6dc5f3e447b0b18f69d746456"
+    sha256 cellar: :any, arm64_tahoe:       "df51827d3fb5320177e4565522a8599a66beba94f81249834c43f5501105905a"
+    sha256 cellar: :any, arm64_sequoia:     "b23ce4d41eab6778cb47172ddf05b60afb984c45d67730f5701336dd3637f553"
+    sha256 cellar: :any, arm64_linux:       "3ace7fb3a6b171392149b0bb11490c4c6b450084ff98e75d757979bfb4ee7803"
+    sha256 cellar: :any, x86_64_linux:      "af55f507eb92416a86626e64dd03dcefc0decbeebb4f68eaf3c9c2fb09bdf97b"
   end
 
   depends_on "pkgconf" => [:build, :test]
