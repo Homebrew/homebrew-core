@@ -8,11 +8,11 @@ class RabbitmqC < Formula
   head "https://github.com/alanxz/rabbitmq-c.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "214c926e4ae437b5ded0a99051d908ae0009017753418ffd756dc6265128af66"
-    sha256 cellar: :any, arm64_tahoe:       "a0684d61ad2c243af8069475dd16f1782917876b974703cbae9e20c1e72675bd"
-    sha256 cellar: :any, arm64_sequoia:     "67c861cb1762c7d55eb6063b03ff299159001603f41d21d5dbddb8e4be340902"
-    sha256 cellar: :any, arm64_linux:       "d7bfa7c837331e4ace2fb61a4f010da844c2919b5339ff7558757f260084d928"
-    sha256 cellar: :any, x86_64_linux:      "42e48ede827ab64800b0598e87035aa0147585f84b97db21edf065a6f24dd7cb"
+    sha256 cellar: :any, arm64_golden_gate: "9186266481f6b10609cdaefcc08cb6aaf4eafde487e8716a7d90b44ed2e70a5f"
+    sha256 cellar: :any, arm64_tahoe:       "7d415c7d30bd5f9a15eb68f2b66b7cec3d576811419993e9b76300d5bf8a28f6"
+    sha256 cellar: :any, arm64_sequoia:     "e93b67824e0b33f95cecce8990b1d07487c9bb230c41ab1500c0cd971bfa07e4"
+    sha256 cellar: :any, arm64_linux:       "866f2384f1f73def468253b3031610c39764462f37dabdaf6e8b58bf1cc6981d"
+    sha256 cellar: :any, x86_64_linux:      "3c7500a73280d34ca8c2e33aa8d55793e55f187fad867ff92418152b71ed6032"
   end
 
   depends_on "cmake" => :build
