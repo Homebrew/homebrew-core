@@ -4,13 +4,14 @@ class Pgbackrest < Formula
   url "https://github.com/pgbackrest/pgbackrest/releases/download/release/2.59.3/pgbackrest-2.59.3.tar.gz"
   sha256 "14037901db002e5536a948bf9f0fc0ff6cde31f4e675d3e9b46f129071bf2e5f"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "692cd091842596f79eec1fd8f5837b4e3cd0cc23b128a1b2e9e06f01dd17af03"
-    sha256 cellar: :any, arm64_tahoe:       "e8dd2488e26fe2b07fa61b1e803c1835a0906f26536e4032c0b5d406f885e40c"
-    sha256 cellar: :any, arm64_sequoia:     "44f0152ba5a76f080f5f5634fc2bf0af9d586a5d9bb7a9a3f266e2de7f9b91bb"
-    sha256 cellar: :any, arm64_linux:       "6c04a716d569ab1ed917542331bd75d05a2a9dfa75a673ba025914e8c4211ec3"
-    sha256 cellar: :any, x86_64_linux:      "fc4bb5581d13a4bf17bda5b3f9ab43449963f17b2017b46c77f98239b7bb9aaa"
+    sha256 cellar: :any, arm64_golden_gate: "c9294ab2876ec2f905bc623cc56038ccf8f33cd3dd56cad0bfecdbf98f29bfdc"
+    sha256 cellar: :any, arm64_tahoe:       "dd9da8be4dd10a9f9fe24186e620fc1c50be46174f4c076a7b6457a39e614ff2"
+    sha256 cellar: :any, arm64_sequoia:     "e253dd5b91c6820fc3bbf3e8cd46f1c206a15c67d4c8aadb542334c70ac2a6f3"
+    sha256 cellar: :any, arm64_linux:       "12dcfe6c173c1eb866def53e5178ced58a4f0463253eb0c2c183edce47da2d98"
+    sha256 cellar: :any, x86_64_linux:      "5e0487cd496dc53f1e6ed415fe48aadbdef5e5f5a7922a0286224c3c2e7d2b58"
   end
 
   depends_on "cmake" => :build
@@ -20,7 +21,7 @@ class Pgbackrest < Formula
   depends_on "libpq"
   depends_on "libssh2"
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   uses_from_macos "bzip2"
