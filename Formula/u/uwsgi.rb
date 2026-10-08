@@ -4,22 +4,20 @@ class Uwsgi < Formula
   url "https://files.pythonhosted.org/packages/9f/49/2f57640e889ba509fd1fae10cccec1b58972a07c2724486efba94c5ea448/uwsgi-2.0.31.tar.gz"
   sha256 "e8f8b350ccc106ff93a65247b9136f529c14bf96b936ac5b264c6ff9d0c76257"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "7a6d47b271207a472d66b1fb583ba934dc56e95cc591deac577470d26aa0ccd0"
-    sha256 arm64_tahoe:       "8dd8f54a7be80ec021184630117cbe46686d1cae882d9810a4a9ebef828e74d8"
-    sha256 arm64_sequoia:     "27e31b191d640607160d070ef0ebfa5f0bf5589c53c6c940726a4f48ab4b48ed"
-    sha256 arm64_sonoma:      "ab6bf0340b7c8ddfbd391781f45dd2d19ceca19ba2911f9321479ff15aaa37b6"
-    sha256 sonoma:            "3b99b7a279046bcb989caaf7eb2c5e97554dce20ac05c758bb079dcef4833cc3"
-    sha256 arm64_linux:       "714fd6fe7f6666bb298fdb4032e4ed683fb2e9a543316099265cd2dac8c91304"
-    sha256 x86_64_linux:      "3df9e1bafa096221e61f8c5fd50b39e71bdaf9d481164142423553bba0bdbcf3"
+    sha256 arm64_golden_gate: "a29b126a753820f4a6e3cf50aaa11873e82bfc1de65baf5925fd2d3d71abc42f"
+    sha256 arm64_tahoe:       "80d5489fdf10ae70b91c04ef719b2768b6a4d59bc4ae161b7983427ad80f1bab"
+    sha256 arm64_sequoia:     "63cef171e2ca558fd9af19a285589466a5302c6a6167003476518d42e5a08016"
+    sha256 arm64_linux:       "410033733e9b8fe6a1491513004ff318202f5921fecb3cb1b6938fc847711935"
+    sha256 x86_64_linux:      "68aec48b4b6c6cde543388e38acc9a58bab419a96a54f5b3c5584f9968c9ad40"
   end
 
   depends_on "pkgconf" => :build
   depends_on "jansson"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "python@3.14"
   depends_on "sqlite"
@@ -35,7 +33,7 @@ class Uwsgi < Formula
   end
 
   def install
-    openssl = Formula["openssl@3"]
+    openssl = Formula["openssl@4"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
     ENV.prepend "LDFLAGS", "-L#{openssl.opt_lib}"
 
