@@ -8,14 +8,11 @@ class Prr < Formula
   head "https://github.com/danobi/prr.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_golden_gate: "699a0206c27a2ff2cdb2ce20c618804edbbaa494b3cc68e5bec49fffb65d3c6d"
-    sha256 cellar: :any,                 arm64_tahoe:       "9c3bcf26ee3499cc61c3f13ab5f4c72d35bf9780eef19fab281886d2b9e183c5"
-    sha256 cellar: :any,                 arm64_sequoia:     "ebe1a8d1c0424beef41dfd5ffea04da5448a2485a5264cf1cbb6e0220b369b64"
-    sha256 cellar: :any,                 arm64_sonoma:      "89471d55c03628ae324dc40a042b8641e8212a2fd5b4480ca1f7a16c9259a2da"
-    sha256 cellar: :any,                 sonoma:            "8349897e19839be43735a7f95e7437d2892f655aa35b7aec58bf29d80127fc49"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "721d5359cc5e2b68b5951ad89e783c96bd300111c2eaa1a71d89b15147e98b42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0b427337f5afde43310564971d2e70f3f683f0f7347de5e9f3f59edf8dd0f2fd"
+    sha256 cellar: :any, arm64_golden_gate: "24efacbb035270ba41aefb9298868d351f09c11589f430527c5b21e5258e3a36"
+    sha256 cellar: :any, arm64_tahoe:       "f1d54ebcee2b12a89ebdcdcab4f3a9a1a0ae1f215e1b51185164572c7570886a"
+    sha256 cellar: :any, arm64_sequoia:     "53b7727e39b3fbec7ef98c7297990de92cd34f6ca2f25d63a4b8c475fdcc0fa4"
+    sha256 cellar: :any, arm64_linux:       "493458c91ad74ad40dd7a5644c72fa6e084ee24fd94a8d1fa64b0534522c4d54"
+    sha256 cellar: :any, x86_64_linux:      "48c6aa69c09011532fbd22b4030e94a2007f5ed3108ab6b1292a5759d1f7b264"
   end
 
   depends_on "pkgconf" => :build
