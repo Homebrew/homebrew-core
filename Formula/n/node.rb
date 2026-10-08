@@ -4,6 +4,7 @@ class Node < Formula
   url "https://nodejs.org/dist/v26.11.0/node-v26.11.0.tar.xz"
   sha256 "aaad9242704524109e88d48be7bb7b7943486d931e740a352c02e97e107f18c9"
   license "MIT"
+  revision 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
   livecheck do
@@ -12,11 +13,11 @@ class Node < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "2069278cbae27858ce63ea602b969b5efcc9f23a677ba7a1ea56ce42bbf3d1ae"
-    sha256 arm64_tahoe:       "f348432ab1ac6fa72a7ac5dad7999c74a2911ddf298fb25565816fb3280726c5"
-    sha256 arm64_sequoia:     "a98e1407899f07d4cde3b5b869d1df404b8045d8e594aed3ccf3e73c85872268"
-    sha256 arm64_linux:       "040d84cec0b8506e69613f5419185603da27d89ac8f6133edc7f769bc2c23fdc"
-    sha256 x86_64_linux:      "066e9342fcfbcc22f2b97fddbf868523310c399228dc9b1a69b48790cf4f6921"
+    sha256 arm64_golden_gate: "775ddcc23852a7c5d6040067ccbd1eb13f5dd8af5ea06fe000b3f999d693c387"
+    sha256 arm64_tahoe:       "47eaf1b352eb10d704bae5a6153727ac9a6f2042edf410feb6699deabc62ea66"
+    sha256 arm64_sequoia:     "18ad2cb6840b562bc9d265b36685175b4aa0e471084dd146115481e59e892843"
+    sha256 arm64_linux:       "1c2aa6197bf95b31b802417d0d4a6936b9b2e03bfec0d57ecf63b6912effb67f"
+    sha256 x86_64_linux:      "3a3e79b163a88115f7ef3b683e16a88ea56577495ace3635ef671ae868b233de"
   end
 
   depends_on "pkgconf" => :build
@@ -34,7 +35,7 @@ class Node < Formula
   depends_on "llhttp"
   depends_on "merve"
   depends_on "nbytes"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "simdjson"
   depends_on "simdutf"
   depends_on "sqlite" # Fails with macOS sqlite.
@@ -123,7 +124,7 @@ class Node < Formula
       "merve"         => ["merve",                     "merve"],
       "nbytes"        => ["nbytes",                    "nbytes"],
       "nghttp2"       => ["nghttp2",                   "libnghttp2"],
-      "openssl"       => ["openssl/openssl",           "openssl@3"],
+      "openssl"       => ["openssl/openssl",           "openssl@4"],
       "simdjson"      => ["simdjson",                  "simdjson"],
       "simdutf"       => ["v8/third_party/simdutf",    "simdutf"],
       "sqlite"        => ["sqlite",                    "sqlite"],
