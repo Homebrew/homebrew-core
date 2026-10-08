@@ -7,6 +7,7 @@ class FbClient < Formula
   url "https://paste.xinu.at/data/client/fb-2.4.0.tar.gz"
   sha256 "a3dd5580c7ba459c18f2d2ac39614422fd9c0dccb4545dbd683c77104062af39"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :homepage
@@ -14,17 +15,15 @@ class FbClient < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "2fc92f0cee021bea9ec742da7dfacd2f7d3bef369c53d858458bc4d71f2f51a2"
-    sha256 cellar: :any,                 arm64_tahoe:       "94836e631e1cebba28bc3327d3cb63a2725af425a34949ea5b3d643b3e88a18b"
-    sha256 cellar: :any,                 arm64_sequoia:     "87c40285614876d05e7b8f4274ac5bb5b171d1cdcea2931eefc6d32ccd4f490d"
-    sha256 cellar: :any,                 arm64_sonoma:      "059881236183d0a075ac3059e01eeb9be2546e82bcb8d6daa0e295ffb0d4971c"
-    sha256 cellar: :any,                 sonoma:            "6af4054c808c8f5c3ec176d38dfe8fcedab2516ff410f9bf7d747afbf0520521"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "fa64e34d0861774bb7570f22b37fc37ca517d484f9c4d38307bd76d474b0ed44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7dacaf9c2b823ba207783b95c773e5820ca391393b93cdf0c05f1cb7e993d86c"
+    sha256 cellar: :any, arm64_golden_gate: "f97350bd23722be44cbe6c8fe29a1976e01583973a830fbc3bacfac90e5199e3"
+    sha256 cellar: :any, arm64_tahoe:       "65189541b103ab2dd481dac9a03173f16d756edd6a190b7fc237d91a77f86472"
+    sha256 cellar: :any, arm64_sequoia:     "dc2caa5067c8658909dba06543fb547e45aa82b12848020b8222aa6ccaf55d9e"
+    sha256 cellar: :any, arm64_linux:       "60951d275c9d4dcdc7b30858dfbeae5b5ab6557bf137729af5ce69969f7265aa"
+    sha256 cellar: :any, x86_64_linux:      "d4b2cb598ff66fe44c0e4a0b629cf4f57cdf5a7333525d33fc976bb88859a607"
   end
 
   depends_on "curl"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "python@3.14"
 
   conflicts_with "spotbugs", because: "both install a `fb` binary"
