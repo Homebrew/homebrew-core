@@ -4,6 +4,7 @@ class Librdkafka < Formula
   url "https://github.com/confluentinc/librdkafka/archive/refs/tags/v2.16.0.tar.gz"
   sha256 "e6b61de61d3282879a88e4ee3d9f634a8b05bf78a9198dfc25c4820c0c9ed231"
   license "BSD-2-Clause"
+  revision 1
   compatibility_version 1
   head "https://github.com/confluentinc/librdkafka.git", branch: "master"
 
@@ -13,17 +14,17 @@ class Librdkafka < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3e64820fd1e75723825b4134102329faf8a93688fb16cb851a16e9c21109cdef"
-    sha256 cellar: :any, arm64_tahoe:       "f0a4fcf1f1088cc99403cbcbf5d400d3ddcd990e56489867637becc88efc29e0"
-    sha256 cellar: :any, arm64_sequoia:     "ebb4812dca0663471306b27ac01113c39a4a09bc3a2ef0d1f8ce81592c64c083"
-    sha256 cellar: :any, arm64_linux:       "a57e3cc3e14a0f3a0cb911127da3c31d8194da3ab6ed4ef93ddfab59ff5a91fc"
-    sha256 cellar: :any, x86_64_linux:      "552e31352ddc5bbc4e8770f58e40acb3108fa4446030eb659bee810e0d4be607"
+    sha256 cellar: :any, arm64_golden_gate: "65f514461395d96e732205fb23a549dd030c264f1f55de9eedbf1ed7b24d4259"
+    sha256 cellar: :any, arm64_tahoe:       "6158cd4b04a7034da5543eca3004eb64610f4094c7a9ffcc74ce561e40b7b739"
+    sha256 cellar: :any, arm64_sequoia:     "40adcbed915d53f85e575aceb2e43f2723835a5706de6bed51f068c930486cfc"
+    sha256 cellar: :any, arm64_linux:       "06943c2cd73806fac8c4b57df8edbcd6294d9debda5418f69e3e86b0e987455c"
+    sha256 cellar: :any, x86_64_linux:      "24514b2b9fe83f99a0f6ab052c0c0ecc3c47b65a6c9c0d5fc3268b695f7f3504"
   end
 
   depends_on "pkgconf" => :build
   depends_on "lz4"
   depends_on "lzlib"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   uses_from_macos "python" => :build
