@@ -4,6 +4,7 @@ class Yara < Formula
   url "https://github.com/VirusTotal/yara/archive/refs/tags/v4.5.8.tar.gz"
   sha256 "c322414975ff6f701149856613afdcd92a7e6939c284c798ae3c85618197efaa"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/VirusTotal/yara.git", branch: "master"
 
   # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
@@ -15,13 +16,11 @@ class Yara < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9903d8602f876592049399b0c966c5ef10555d85a3a948b0a665ba01798fbd79"
-    sha256 cellar: :any, arm64_tahoe:       "80ded2d2c86e1965afd2c4eba62f9b523bb1c43c52c0b457f32caf8aa3b2e219"
-    sha256 cellar: :any, arm64_sequoia:     "927bd2eb002d26487d2b0dbd9b8aeff3e70e6ba1c7f538d645f38b729b0f48d4"
-    sha256 cellar: :any, arm64_sonoma:      "3354f8c1e306db901a5221bfadd8f7866d08902d6ed3f29839d074f575276629"
-    sha256 cellar: :any, sonoma:            "c5ab41d7df224f7d8431826a1cac0a67885b9f7b0bae46e1923ac12591d98dd2"
-    sha256 cellar: :any, arm64_linux:       "6d3e0841ae01c788fd8e58226aa10aab09bcaaaec5a993600e2070c334644406"
-    sha256 cellar: :any, x86_64_linux:      "841e62a7d14767c5228c82a65c8873e5be5668b9525579c35571d16fe2214a3d"
+    sha256 cellar: :any, arm64_golden_gate: "51df3217fe9a17bb3a09e92b5171ec7a6998fa181e040b260ae114efb04aefb6"
+    sha256 cellar: :any, arm64_tahoe:       "425786155fe950576f98141fd741b9ea57ca99eb5660bb8d1c82fb7cb0be7a19"
+    sha256 cellar: :any, arm64_sequoia:     "8416d2d07809944a3eead36973a52fc68f61c0c0fb8fdc2ad50c88bef92ff161"
+    sha256 cellar: :any, arm64_linux:       "23208ac743de606132845fb6a16be5dacd19e9a2a6fe8c1e0d2f33c1858a90e6"
+    sha256 cellar: :any, x86_64_linux:      "2ecfe93de3109b8a8982dd671022a5dc8596fcad66473e28b9fbf6a170b94311"
   end
 
   depends_on "autoconf" => :build
@@ -30,7 +29,7 @@ class Yara < Formula
   depends_on "pkgconf" => :build
   depends_on "jansson"
   depends_on "libmagic"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf-c"
 
   def install
