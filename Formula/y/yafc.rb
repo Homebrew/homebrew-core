@@ -7,19 +7,11 @@ class Yafc < Formula
   revision 6
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "4e272f49a67b3cf90d6bb97c8a5b874c34847a0fd9cc2833db6fa32e12198fd6"
-    sha256 cellar: :any,                 arm64_tahoe:       "f97a84b632e61a767359e627ebefeb33eaa48dc3a3acc7fcb971fd18ae313228"
-    sha256 cellar: :any,                 arm64_sequoia:     "2f0f7381029703774be13824194784dc2e84478fbb5680abd7d856366de3db57"
-    sha256 cellar: :any,                 arm64_sonoma:      "f2c0733bdc6d9842bc5dd1400fa1e9a4a2d5af3f0ca8578caf32bca5b46ae2ec"
-    sha256 cellar: :any,                 arm64_ventura:     "79f180267773ebe99148b9e55e1fce873dfe7b1b8aa14050191a5cab8ad93145"
-    sha256 cellar: :any,                 arm64_monterey:    "0b779fe68332dfaf1182fd343aad750a2346f95c9d5019e0e9245ae60a2fc4e1"
-    sha256 cellar: :any,                 arm64_big_sur:     "bd86e141e4c5f328f59bffa84490e988d6996acfd631988103da5be103539689"
-    sha256 cellar: :any,                 sonoma:            "a16e93692fe9cf919c6ed4432be40f3e9aeebc81ff4498e4ec1179b055d457aa"
-    sha256 cellar: :any,                 ventura:           "6ad15e0287643c6e1157b51762e21443e2c15e8b88610903676316b6b1bd10d9"
-    sha256 cellar: :any,                 monterey:          "428ecc7f65e46aaf484032777245e9aee40b1c4290efb5f1c5ac0abd4511a698"
-    sha256 cellar: :any,                 big_sur:           "d7212a2284b1cdd5bbebf59e8e1dcefe6073d8e29eb1574d7ed6e80249723160"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "691a0d3182e75189070359564be4883374cb49366dee2b2baf3de8e1eab8bf6f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6dc9c9ee718893b94e236db36df97740b59378591bd881a95fec98c9da8bdf88"
+    sha256 cellar: :any, arm64_golden_gate: "33c77d2ce1a28f818e57461d73377c65cfea89bd623ec18f4ef6e493e672a6f6"
+    sha256 cellar: :any, arm64_tahoe:       "cb69480f1d270ee31f96e872c9a8d3dc1f3baab91b6af468a722c4aec71b0656"
+    sha256 cellar: :any, arm64_sequoia:     "aaf40390ab22856e57a9963a40257a5a09d467ca5a81bb1d9e63bfb5280211b6"
+    sha256 cellar: :any, arm64_linux:       "20646b0d7579f585477d859b268eebd447c1473dadfc835fc4b2083af42d8139"
+    sha256 cellar: :any, x86_64_linux:      "ea87bb8a0d46d9bbea879c6c0d5f3642629ca83be9342e465221ef4698f6e6ef"
   end
 
   depends_on "pkgconf" => :build
