@@ -8,13 +8,11 @@ class CargoUpdate < Formula
   head "https://github.com/nabijaczleweli/cargo-update.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c56c16702f04df3ccd5937503df1078c63f5a86db208849eede0b36926750f34"
-    sha256 cellar: :any, arm64_tahoe:       "fc37d26a3b49d4ed4cc8636df82ec00da355f4c0e76ec568fec573ea24318c78"
-    sha256 cellar: :any, arm64_sequoia:     "da3f8309f3176bf673fcad56a218a70b4a68d9919a3efdebf0851ef0fdf060ef"
-    sha256 cellar: :any, arm64_sonoma:      "0c181e563dfd1dfab97f8f4a14eb80b622d100e4a634144584e95f213232126a"
-    sha256 cellar: :any, sonoma:            "73dde76bde9afdc0708ee3bee3747abbf149dd19a7fb006e592a745b09fa11e2"
-    sha256 cellar: :any, arm64_linux:       "deaa48c43f8164dfc861ccf4f92e0f7f41026a2a700f26c75363cbfeaf57f156"
-    sha256 cellar: :any, x86_64_linux:      "58f512405ea1b3c54bc87be9bc256d043ba8fdf0d29a7932092841191c34f2b1"
+    sha256 cellar: :any, arm64_golden_gate: "032dc9f0c810e4be4158d8afe7b3b9c6274730b459170783b85a978e7377c6e7"
+    sha256 cellar: :any, arm64_tahoe:       "56f5bfc5c1b6063b0098e8ec20710ae4c39f602772e25d987add317755aa5fa1"
+    sha256 cellar: :any, arm64_sequoia:     "4c801fd3e601f078fcd3eef25f6078cd2237a045a9a8d234caa5994ea5272e81"
+    sha256 cellar: :any, arm64_linux:       "56603352a0a90fa491ae645c5349884f843fd20b168b0c8389e6c306e376982e"
+    sha256 cellar: :any, x86_64_linux:      "c554036b44b1844cabb94aa51a53588185cd75b215bc6424d239b91a0e2c7a64"
   end
 
   depends_on "pkgconf" => :build
