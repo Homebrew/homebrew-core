@@ -18,14 +18,11 @@ class Heimdal < Formula
   end
 
   bottle do
-    rebuild 4
-    sha256 arm64_golden_gate: "8894defa68e998341344de0c033c562a95c30986078376d7d04b9acecb3cc834"
-    sha256 arm64_tahoe:       "a67b0f0f1d02fff96fa17c46bbc75997198259f1ed3ff80c8e6a40a11cf48966"
-    sha256 arm64_sequoia:     "69306dd51e40e93e603ff444164f32ca5d486255b6be42c7b9503e5b1a84b9a7"
-    sha256 arm64_sonoma:      "ddb9f3ef8a11d7008249605c47bf53e01910ce76b1814f961e88edd25308f3ce"
-    sha256 sonoma:            "8a0d6d032dfac9d335c2840e59833c6e1620ff936b9b9451acb4ac304c5fe55e"
-    sha256 arm64_linux:       "029e7264724697de827f4bfcdf2ea3f1e0f340da3d1666185f2380e8bc4b682b"
-    sha256 x86_64_linux:      "9ec9421a895c48bbee087eb572cb4e6fe90e061306b5c0153ce41a06833cb6a3"
+    sha256 arm64_golden_gate: "eb16f1795d41dd0f207143ffaa38675283e1728c0aa26a61269c98673a099f45"
+    sha256 arm64_tahoe:       "d78e8a837942b63912eb6f104f013acc0167ca78476639da885c242616c8e05f"
+    sha256 arm64_sequoia:     "d2213331dbce12ec4d3ee75016e6e04a7fecbc20800ba7244e5ab5a64044f4ee"
+    sha256 arm64_linux:       "598151937a534334d2fd2052b3c90a8ff61e4b6e1a8eb26d17bda6ff302f8a9d"
+    sha256 x86_64_linux:      "e07927309c18c37b64c1ecc7ffe2dddb5e301e928b807795e3886ab393306463"
   end
 
   keg_only "it conflicts with Kerberos"
