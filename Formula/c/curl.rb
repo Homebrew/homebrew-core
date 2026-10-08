@@ -17,12 +17,11 @@ class Curl < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "72d74fe97473d6594cccc78e2209e37f3b0d4512b83ab393f2f1e9b1c351bb71"
-    sha256 cellar: :any, arm64_tahoe:       "fc634950bb53c1dac3b437c565bac4c9915c03be1bed6f24d3a777858125b715"
-    sha256 cellar: :any, arm64_sequoia:     "845b21e838a123b0fb5ba2d9b111bcec25049324c23552617afe4c219774a9db"
-    sha256 cellar: :any, arm64_sonoma:      "852d96e79aa880b1fefb1d4b3ea06320b3061aa39561361ebfc02694d73a5629"
-    sha256 cellar: :any, arm64_linux:       "b126ad9cb96d2970ff7078c5cb24e7be4c16acde7e3fe1717063af911598d2db"
-    sha256 cellar: :any, x86_64_linux:      "ba03f435d53893dd79d36529a4d373b3d6a8f0fddda88f35bc43d2e607178d69"
+    sha256 cellar: :any, arm64_golden_gate: "0a76e4dd00e6648d2cfeed4bce44633a9cda3deb8ce257f7aaa1408d4169fc8d"
+    sha256 cellar: :any, arm64_tahoe:       "1535802dbee99fd2141dad6f55b8395993306a2f394079fe32e68d401bc6e466"
+    sha256 cellar: :any, arm64_sequoia:     "d8aa7bafda1c7d74fdde3b6d52865aabfc347fab26f1c4a27df054c0d10cdc53"
+    sha256 cellar: :any, arm64_linux:       "9d83a4a64c13119edf771b6126140eb19c3deb4875208a94c19236f6420ec1e5"
+    sha256 cellar: :any, x86_64_linux:      "0adf8298a90a0c3a7b9fff6a606cdf0cbe813d614e88f493094c196197a55d88"
   end
 
   head do
