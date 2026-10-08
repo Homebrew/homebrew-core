@@ -26,13 +26,11 @@ class Pkcs11Helper < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "7804acd15582069bff15a659d8a8c9f77d0c7e04060dd5faef9125d6b89a63d3"
-    sha256 cellar: :any,                 arm64_tahoe:       "dacc089490af7c5a5083427ddb8d3bbe72750c0895e9740a3b0c083366bec05d"
-    sha256 cellar: :any,                 arm64_sequoia:     "14af0cd935c0098c251da028a785ec055fbf1390e49efa7599d64e389bc3317b"
-    sha256 cellar: :any,                 arm64_sonoma:      "c971afeedc5f788b1297d152f30a617c0ee94bd0dc07d667ece07f48938436ef"
-    sha256 cellar: :any,                 sonoma:            "db89780cd8b197eb8e562f190d5cad113acc337c7689b8103f32c25fd70a3551"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d4d683661a6a1c128adbdf1eabd49cbbedb2b3e7f3ed2c42883eed6889e9f326"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5567cc0f1a107804f649db18cf383f9fc0fac5927c4aa22d44c8d4b4d5a3edfa"
+    sha256 cellar: :any, arm64_golden_gate: "5831ccf7599dce283920c440b34cc86d5e2f121a77c089bba18e77c040b884ea"
+    sha256 cellar: :any, arm64_tahoe:       "c9f3dc59eee6baeba82754476d23350f8059e27c131f032c24351519017cf786"
+    sha256 cellar: :any, arm64_sequoia:     "2293800c554d9b1dfd43839455e0c89548077a366238813e3c8bca5cb1c3bc85"
+    sha256 cellar: :any, arm64_linux:       "40d1774537910c39ed2ee7af16ba07f7f107f908adcd4647dacd8b64c1699ae7"
+    sha256 cellar: :any, x86_64_linux:      "632438929bc42615e8b8c6d09205f156cb0fe28e523e12990a2e362068ba3fc3"
   end
 
   depends_on "autoconf" => :build
