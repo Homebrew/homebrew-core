@@ -6,15 +6,16 @@ class Rpmspectool < Formula
   url "https://files.pythonhosted.org/packages/d0/f3/0e45796d8dbacfaf9aa01b914196cf749eff05a7b8cb6ebc6cce57bd0d47/rpmspectool-1.100.0.tar.gz"
   sha256 "4a9eae6169a6ae8a56c6de0985935dad05d3cb087fc5b92f06d9739e215b0327"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "d721a0708e8a4d3fcb3a67d305aa59c25ff2ec6093b295a31cfa728d11bda85c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b3017685ab9100fff47e6ce63a457325320d4e1e34576ba33a35a390ebfebe32"
+    sha256 cellar: :any, arm64_linux:  "598694df3672595508f4257d52e07c5feb94ca12824c69c5e2e490fd371a9cd3"
+    sha256 cellar: :any, x86_64_linux: "e7db3e30f0db0bd39b2e6f9cddaa26d4b640647adfc9cbb6aa3841700123aede"
   end
 
   depends_on "curl"
   depends_on :linux
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "python@3.14"
   depends_on "rpm"
 
