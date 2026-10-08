@@ -7,14 +7,11 @@ class Libstrophe < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_golden_gate: "98ca1f7fe7faec509ada7a017110be68dfed1e084b76850dce60478ac51d141f"
-    sha256 cellar: :any,                 arm64_tahoe:       "452f93fb9065a6120f12edd141f2c587e1d825714ff33e15408aae7e5ced9474"
-    sha256 cellar: :any,                 arm64_sequoia:     "5aaeb0aaa4d7af57d2dcf868e79ab429267a48220806a0623db471ef726d3846"
-    sha256 cellar: :any,                 arm64_sonoma:      "1ef2a0bcec6bcb9f5fc25646e3a209afd36b26a4c41429b295915d5cf21837ff"
-    sha256 cellar: :any,                 sonoma:            "1979d7003784e3fb42e13fa456e19bd917f53326336c098f4ab9749ab4ead761"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e53cffafb102848cc089db78fbd6d9d2d7e7bd6fe178722565e7088de5efa679"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "23e1b9e04065508e411e4590f98e1c0a5b23c51fc183bb1f48a2bf138603c913"
+    sha256 cellar: :any, arm64_golden_gate: "9d7e8c18a0b80ac3779819038ed50480ed8f2659730cdaeef0adb2201a8fda70"
+    sha256 cellar: :any, arm64_tahoe:       "ef631131d639fb46c768687982c6f0a01469e9fd0f6e684352a25a39e1142ab4"
+    sha256 cellar: :any, arm64_sequoia:     "fa404216bb1400211b77a36f83b7da42aae0a55912265bea6acb8079bfb47355"
+    sha256 cellar: :any, arm64_linux:       "9d4d1c11a69109fa009f68deb99fcbd91147ca2522dcfd097ff25c0e15b34b06"
+    sha256 cellar: :any, x86_64_linux:      "ea0283e684daf2c5abdc3a4f7b760476036efce0ed17d1eb06f7f0b8e7a34e2e"
   end
 
   head do
