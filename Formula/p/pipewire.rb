@@ -8,6 +8,7 @@ class Pipewire < Formula
     "GPL-2.0-only",      # libjackserver.so
     "LGPL-2.1-or-later", # libspa-alsa.so
   ]
+  revision 1
   head "https://gitlab.freedesktop.org/pipewire/pipewire.git", branch: "master"
 
   # We restrict matching to versions with an even-numbered minor version number,
@@ -19,8 +20,8 @@ class Pipewire < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "461364f16bf8e72750092662aaa3e065b26a64e2fbdd30e7e7dd64fef57a95e3"
-    sha256 x86_64_linux: "3d94380799a6d180ce272068b6617e53665e19fe7aaa7b9b5cbd67123d29cc29"
+    sha256 arm64_linux:  "0a1166103207ba83e8ae7eb6737ba1d30782774c2547b1f5de69b175bf94ac2b"
+    sha256 x86_64_linux: "1b0c921bd4f708622f4d46ac09db05f6949567de085350d65ccc7291db080106"
   end
 
   depends_on "meson" => :build
@@ -33,7 +34,7 @@ class Pipewire < Formula
   depends_on "libsndfile"
   depends_on :linux
   depends_on "ncurses"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "opus"
   depends_on "pulseaudio"
   depends_on "readline"
