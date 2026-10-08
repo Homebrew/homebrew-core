@@ -14,11 +14,11 @@ class Srtp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3649654b411ae51017c7bec40da936c910bd5eea3498be0002775cd8654890bd"
-    sha256 cellar: :any, arm64_tahoe:       "6f392a60b22b5699938c7a3d1622cc69cbc70c3f9e1d241f4e4d76c86b6eefbc"
-    sha256 cellar: :any, arm64_sequoia:     "3c19e95950df9ef96eb6ca4d100ac7811bf6055b0a0ea41911138d016ff62de2"
-    sha256 cellar: :any, arm64_linux:       "aeea299389b07bab9158c453a11cb00bd1fefa82156285e8b9f6345976e2d74e"
-    sha256 cellar: :any, x86_64_linux:      "89882f2b0d9bc32098721fb2855719e9d217b8b33f1345215972c3da1412c141"
+    sha256 cellar: :any, arm64_golden_gate: "d5a490871797cd5365e57a7f4717a5045d4131566746acb89b70475494c961e0"
+    sha256 cellar: :any, arm64_tahoe:       "6fee7517c6f9311d72dc993c4f95994680159abdf469c4efaa8584bce449e951"
+    sha256 cellar: :any, arm64_sequoia:     "544b884e67367bbe4e81cbf182995f08522a4c4971f6071ce9c696d018abd5e5"
+    sha256 cellar: :any, arm64_linux:       "202bed5466d2ca7d0680cd56019088ef20f4c4a211fd18c98f5fc78886f73c1e"
+    sha256 cellar: :any, x86_64_linux:      "3e0d054d4f65dead5a69281e2d956210c5f83d452bcb22259ba392c1380bf6a8"
   end
 
   depends_on "pkgconf" => :build
