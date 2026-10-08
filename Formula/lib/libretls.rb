@@ -13,17 +13,11 @@ class Libretls < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "4cfea3f5d50ba85f562174bb3b1d2365c5937c2013ee2cac485526e95a64f84f"
-    sha256 cellar: :any,                 arm64_tahoe:       "38becb1d91ff6265dd0127e0396ed3e4a67802772e2a389761c2415a51a146b8"
-    sha256 cellar: :any,                 arm64_sequoia:     "19bba1bc2787f51fb0415c0af6cd57a2428318ce53c5abcf2076a5763a5e738b"
-    sha256 cellar: :any,                 arm64_sonoma:      "45109b58836fd475c43f0d0dc84c01651c4f6da03732dc7e8c75d6bef69f1a0a"
-    sha256 cellar: :any,                 arm64_ventura:     "c64160d3f1e8351158fe0e6d341e622f877df3e8f1dfc9e5033d5a46603641e3"
-    sha256 cellar: :any,                 arm64_monterey:    "27a4b439b4074f1563e89a1cba25f527697b31a80c9b8cd8bbbb4a835d143b90"
-    sha256 cellar: :any,                 sonoma:            "73bf7016f11e9ac566bab92a996855e0b324ca455aeffeb80c4625b40e06bd18"
-    sha256 cellar: :any,                 ventura:           "b6b3b3ecdd3815d542edf2501309a30568e1e03b35e1c793e0b724324c0925c5"
-    sha256 cellar: :any,                 monterey:          "9d52d3007f279b514bfda52afd77bd06f0a420d8daa8ab2ef697b618c5b4666f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5ca54d06ba267e8bc15a341c50abc0b2dcd6b64c1d07a734281d025f5a4485ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "44fe94119c4fd8be706393a1b2818af2e7851985fc3ec7dc4ebec2aa2045697e"
+    sha256 cellar: :any, arm64_golden_gate: "185d10f52d0136d15f78cf10c7b3fcfd97b6d8b3824a84618ae511457a0aaf65"
+    sha256 cellar: :any, arm64_tahoe:       "30eac04fd6815d88f826560f77a70c8ba5a79fc2717e36de76ffc8b1bc099645"
+    sha256 cellar: :any, arm64_sequoia:     "72007080763359f16c0fcdf103b7e920141ad5bcf7ac528029563ebda2f2f8f9"
+    sha256 cellar: :any, arm64_linux:       "2b796742e96dd23b1b2f783c147b1521afd803ff3c494e5b091257bbb2cafbef"
+    sha256 cellar: :any, x86_64_linux:      "227011699330636cac1883c53446a65f8eed757649f78739093657ef6969e124"
   end
 
   depends_on "openssl@4"
