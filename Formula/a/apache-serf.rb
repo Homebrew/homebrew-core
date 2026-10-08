@@ -2,6 +2,7 @@ class ApacheSerf < Formula
   desc "High-performance asynchronous HTTP client library"
   homepage "https://serf.apache.org/"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/serf.git", branch: "trunk"
 
   stable do
@@ -26,20 +27,18 @@ class ApacheSerf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7f61b655404015f088c9da9aa64349bd8764350398c6423d1f9c3bc50ee6ca6e"
-    sha256 cellar: :any, arm64_tahoe:       "cafe248c972f4b6f4ed05745e4e4a9950a7469e6216b27b6cb6f29c99ecdf0bd"
-    sha256 cellar: :any, arm64_sequoia:     "f5d4fc56a03390c1689d731f7e73eecd41215d4a884cebe73afbdd74723810c1"
-    sha256 cellar: :any, arm64_sonoma:      "9eae42200cb24ed6dad84b19a8394d9cb1aa5d1d65ccdffd919c432b47f07dbe"
-    sha256 cellar: :any, sonoma:            "eba08705a3beea2a24b1ef71f67269d0890a611fe066131b8c48b88759592489"
-    sha256               arm64_linux:       "4265ddae6471dda76a024ad50592a4871c52594e8f8e215b1f28201b22465b39"
-    sha256               x86_64_linux:      "0bf90799a933a7d5aa306b5263bdf96e842375bb2fb777363399ed351c24ee19"
+    sha256 cellar: :any, arm64_golden_gate: "aac88de1dcb7b335812f5b0a66a6b9434a39a4404d569aa769704db789afc49b"
+    sha256 cellar: :any, arm64_tahoe:       "9a3e8a999e79bd42442c8a39b756eef6021981a41b7a42256fd29b9f926344ba"
+    sha256 cellar: :any, arm64_sequoia:     "cf4ac030e7bd4999160a791d4625d88780e2175ef482ce66ec3d524b6b135cb0"
+    sha256               arm64_linux:       "64224d5140979c8b6f099a91354168e27b72a1551b6dcd95406207254840ebaa"
+    sha256               x86_64_linux:      "d67305eb9ee34479787e24159dd976e38958797975253ef7eb6133d0f6f0a6e2"
   end
 
   depends_on "scons" => :build
   depends_on "pkgconf" => :test
   depends_on "apr"
   depends_on "apr-util"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "krb5"
 
@@ -47,7 +46,7 @@ class ApacheSerf < Formula
     depends_on "zlib-ng-compat"
   end
 
-  def openssl = "openssl@3"
+  def openssl = "openssl@4"
 
   def install
     # scons ignores our compiler and flags unless explicitly passed
