@@ -4,14 +4,15 @@ class Ntopng < Formula
   url "https://github.com/ntop/ntopng/archive/refs/tags/7.0.tar.gz"
   sha256 "fba4607596526d26c15bec3619a9b1ec7c0a482fdd4495cbbf29bb4cb2271521"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/ntop/ntopng.git", branch: "dev"
 
   bottle do
-    sha256 arm64_golden_gate: "d758b7ee36aaac969bc288990ceb30502c6df86f7d575f6d1743182faac36e23"
-    sha256 arm64_tahoe:       "f89e33d74907438809b6a51d0fd1d370308d25cc6e5ff305c50607fda0e909ef"
-    sha256 arm64_sequoia:     "4eec16ee52b70da1ace7fb0b7997546b79ebf199f6295b755bea1c320e7217ca"
-    sha256 arm64_linux:       "efb374b909af2be849dd1e94db7e5a5380301b4f9294618a8f033716e690ae2d"
-    sha256 x86_64_linux:      "588ee8d0ff27dfac936477af1d6a0a488789f7127810787ef467c507afba827c"
+    sha256 arm64_golden_gate: "b0c5642a8a921bfadeff0cafeb5047d942306426c4479786f43e342600a3b2c4"
+    sha256 arm64_tahoe:       "4ff5636754c94a9c543f147c5c0432a7e50dab67c3f73384f50ab02f17e55160"
+    sha256 arm64_sequoia:     "9556e2f2650a8b210f86813d410169be3b5b39da888c293d8003f5831d32f138"
+    sha256 arm64_linux:       "f56f2c141176d03b7f7e92dd7249d9393a715e2703b230ea641bbb171e248f2b"
+    sha256 x86_64_linux:      "e363ad435cc9735d5f77e149f7498e5d06b3e6a80c016fc7e3f57cec0a9304d3"
   end
 
   depends_on "autoconf" => :build
@@ -27,7 +28,7 @@ class Ntopng < Formula
   depends_on "libsodium"
   depends_on "mariadb-connector-c"
   depends_on "ndpi"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "rrdtool"
   depends_on "sqlite"
   depends_on "zeromq"
