@@ -9,13 +9,11 @@ class Bittensor < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "db51cda8ebe2c74aee07afc09d8bb7359f72c17d6493cec55147e85ad4dcdb56"
-    sha256 cellar: :any, arm64_tahoe:       "512c4f0b716b2a096349f1f313b8d10457a92af4b693783a446665b3928839e4"
-    sha256 cellar: :any, arm64_sequoia:     "67b52c1eae69b59b3f836ff46fed0efab5ebd31011b0dbdd7baf3c50239d4ba8"
-    sha256 cellar: :any, arm64_sonoma:      "6ed7b7978e2d58715695a5f67467e217aa2d9e0d3f60a51fb4c47fac6d53b3ee"
-    sha256 cellar: :any, sonoma:            "651fecb9e6f2a993ea71187e3af973ece7dfcff212f588d0f31fbf87408e4a16"
-    sha256 cellar: :any, arm64_linux:       "1eb7d227bfa64d96d432d2e9a212172a0528a5ef307ff6b06a0a25335f7e7f0b"
-    sha256 cellar: :any, x86_64_linux:      "6d3b4d89788d0640c2125153b09cf3069dac7a12eb667519bf91f4b1728960f0"
+    sha256 cellar: :any, arm64_golden_gate: "00aa3e4438e9d37e225705689d30c6a508f87ac245d6b03fe764792cd97d0f21"
+    sha256 cellar: :any, arm64_tahoe:       "e5db97fec92daf397367db2acfe2e627e183ccdc76fa1844fd7e5157869c378d"
+    sha256 cellar: :any, arm64_sequoia:     "cc5656bc881e81c28e648b497473f87f5f76be7484f60de71b35329c7d25ad25"
+    sha256 cellar: :any, arm64_linux:       "8d71ad62d1696bc466ab6c4b5c4e7adbafdac0045212ac647c3a3864d2669448"
+    sha256 cellar: :any, x86_64_linux:      "30fe5e8fd59ea9e713cbef230d194a1df67d820403ced64bc1e4d4df603e8a5e"
   end
 
   depends_on "rust" => :build # for bittensor-core
