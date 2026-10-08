@@ -18,11 +18,11 @@ class SynergyCore < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "206543de543008dd31c3725f746a02a397b998154d153506a68f3046daff288c"
-    sha256 cellar: :any, arm64_tahoe:       "8aad19e0da49e4d7283d9443629a4a30d179955409268fcbe5b373238d53960d"
-    sha256 cellar: :any, arm64_sequoia:     "8a6d7afafb04f52e7992711d1ee7e8d060f2a3b940163e827f2ec87978dff417"
-    sha256 cellar: :any, arm64_linux:       "5f78a812090c0a41721a8bb32b644b6ea85f3df71beb6dfe44daf63e180fc81a"
-    sha256 cellar: :any, x86_64_linux:      "82438dcfe467ce26a5c17dcdbe3de64e7cab24780fd847c539c27b8d18598b32"
+    sha256 cellar: :any, arm64_golden_gate: "c1ab802ff146a1a572907710c609b058ae23d3d70f343ca907bc18406a8acd6b"
+    sha256 cellar: :any, arm64_tahoe:       "770c9b61bb90763e90eca4b4cdf65d803d97a5becf77fba77ccc949a636c3c2b"
+    sha256 cellar: :any, arm64_sequoia:     "fa5b3ee65abe63236ee4f0b0a1ee99e5e41f19d75b975f71f31b18f0f984c49e"
+    sha256 cellar: :any, arm64_linux:       "5498fa08d7cfcd8c96cacae311dda8cedb11e92ab1e02a387b85c9e90a42a400"
+    sha256 cellar: :any, x86_64_linux:      "9b1d6d2f72c1a5f5aca1537d0d496d86c65d3990767d2ac3666f08ef45164203"
   end
 
   depends_on "cmake" => :build
