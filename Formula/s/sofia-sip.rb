@@ -7,13 +7,11 @@ class SofiaSip < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "eb7307ece15f12943703441024a271957c9d9bb600aa3bc05bd765b58be99560"
-    sha256 cellar: :any, arm64_tahoe:       "b1d96d85915ed7a95744337041749a36b841584a499356bc069ce3299332d2da"
-    sha256 cellar: :any, arm64_sequoia:     "4840834de6b64498db02a4309f9884564cf9341f3ca5d19107c1e00efa096eeb"
-    sha256 cellar: :any, arm64_sonoma:      "698a25d99dca0ada63546c8b1fb3be3f9594853c7e9e5b837167a7446518d594"
-    sha256 cellar: :any, sonoma:            "a1a08d7d93926c9d060e75696da3bc205f8e827fb1c32682425cf86bde1557bf"
-    sha256 cellar: :any, arm64_linux:       "14eb12b0274aef8caa5c1645f8dbbe6585a434c61759389868f2efb6336dd79c"
-    sha256 cellar: :any, x86_64_linux:      "4e0073c4f4e0594fcb5c71fec4ae35e3b3e6e59e63e7cbe0176a3a8b1b67cc98"
+    sha256 cellar: :any, arm64_golden_gate: "fabc44d97a1539149b2e2c7fe20aa6cf6717d7e3f6c4a66d67a4eea506d1e7e4"
+    sha256 cellar: :any, arm64_tahoe:       "9bffbe56e6ee6ec3320421daa7a3c28c96da2fe15fed243d8394a19f14263fde"
+    sha256 cellar: :any, arm64_sequoia:     "898727a0ec931db7ed9aed51e0c462ac5881e9cf3fbd540f12fe57e75a32de55"
+    sha256 cellar: :any, arm64_linux:       "e91f41de3912dad148b345bbe1f6496d57df5383e0434db4b3de083bfe3f7247"
+    sha256 cellar: :any, x86_64_linux:      "e5550ff6e6cd1f260155f9b65b7dfa2e1ceed6afaa8154e23dfd23de73f328c1"
   end
 
   depends_on "autoconf" => :build
