@@ -8,13 +8,11 @@ class Legba < Formula
   head "https://github.com/evilsocket/legba.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "8fd0128668a738b9e2b4d63c77004d2a64871f9a9468f0c4671e214be3158e3a"
-    sha256 cellar: :any,                 arm64_tahoe:       "9b5ffcfb622129d9e1e4e15eb23c7f5d41fb299ec3abf804847258fa5bcf4603"
-    sha256 cellar: :any,                 arm64_sequoia:     "cc7a31566e35d829a6ff13fe615f6efaacd6221d0ada8968842f396ab82a45da"
-    sha256 cellar: :any,                 arm64_sonoma:      "32723c6d82955620f6962a68727031f0b3b33ced6e973b410900259d1fc91857"
-    sha256 cellar: :any,                 sonoma:            "dc4a48eb2642cc1c8dcee96f5b326f69074e658015e08b1b31b26feec732034c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c9970fd099b0d1b6963fce8861fa80e828c2ff4c076c1c964ac11c4e734b0570"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "72d0ffcc00f11eb2befb1c6a5a7a7b13fbf2b574ebe73db7a3821387a82bc12c"
+    sha256 cellar: :any, arm64_golden_gate: "7fb9ce31373429f6566c8ccc85e4568e4545cf8365e70a0bb6c84fdffcb37491"
+    sha256 cellar: :any, arm64_tahoe:       "18ce5957c6d07b386002de9d2f83dc318ce7788e2fc7ec7816e027aa9f2b6abc"
+    sha256 cellar: :any, arm64_sequoia:     "7619abab175637216660f5d31d97d4073cd58be4287d60288f6c52a0cde2d620"
+    sha256 cellar: :any, arm64_linux:       "16ca014358bb1b79a3a461d1c60802a875066309731ebd58789a062666d5ccb2"
+    sha256 cellar: :any, x86_64_linux:      "c439500fe6d78ea8be4a300421649c2aa73a74881b8790c3e70360ca80422564"
   end
 
   depends_on "cmake" => :build
