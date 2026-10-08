@@ -14,13 +14,11 @@ class Neon < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "5700e653ef08db1432619e103dcc77eff4dbe742480f44a293eca48e89566fe7"
-    sha256 cellar: :any,                 arm64_tahoe:       "656135b04dc530d4ac18b1def2648582f0ef31ca4514c9a451df1825bcc0578f"
-    sha256 cellar: :any,                 arm64_sequoia:     "08ecfda5a308299635e7053a865443c66ebbc143aebcba26c3ce887b664fec80"
-    sha256 cellar: :any,                 arm64_sonoma:      "95ec8950f5f94037051bb97151197f090b6450cba5d4bb939c05d949ae98e953"
-    sha256 cellar: :any,                 sonoma:            "7a853aea4377ef387f5865eac35a7ac76a0e19bccf8a5c25224555e0a8f56452"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e555fea5f08acec473709fdb443a3706356ae0147e4b9c8c5d08a438f8260f18"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "336b2b3b5081772f881787ba2396b76e371e61cba9035c5233f96fcb6dea6562"
+    sha256 cellar: :any, arm64_golden_gate: "873bb4028810772ed1b8210fd6aadec048f467cfe9bb8d8f105942cd344eccd9"
+    sha256 cellar: :any, arm64_tahoe:       "7183fc8bc520c33bc6035e9db16944041d3404bdde0c4502e7dc24c792c15647"
+    sha256 cellar: :any, arm64_sequoia:     "e8b86db494627b56ab14aedd7352968826dacfbdce7aa3245e7e04b9277e07ac"
+    sha256 cellar: :any, arm64_linux:       "ea160910186091672a20ba35055567c08c19f007d47f92023e64f5ad8c574074"
+    sha256 cellar: :any, x86_64_linux:      "665399ebe0bfac48688b3ca348b3deb5dfcad05f08c47a7c94a7fb2ceab4c6f0"
   end
 
   depends_on "pkgconf" => :build
