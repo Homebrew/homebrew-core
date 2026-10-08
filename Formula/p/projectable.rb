@@ -8,14 +8,11 @@ class Projectable < Formula
   head "https://github.com/dzfrias/projectable.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_golden_gate: "fe1c045bec3b443a01dd8347d82a6dd953cc60246e65417493a2dcfd08952593"
-    sha256 cellar: :any,                 arm64_tahoe:       "ccd276c023c85a06dde2ee0d327f924e546178c408f67e83a955660c9175758d"
-    sha256 cellar: :any,                 arm64_sequoia:     "807150e84939dc9e77f01e5d8e9c2b826456399a3c456b76292d99324c1ed7f7"
-    sha256 cellar: :any,                 arm64_sonoma:      "56b10743eed8508024a1dee415c63095e932e45d78724186bce24cddb492f8d9"
-    sha256 cellar: :any,                 sonoma:            "afd84a1fa7930a0e039333cc60402708cbb7a67156c2c90744c265e1e2583d99"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1120e3794cc5c73c58aaa6ce78f16ba76c7df6982f94de5eac0cbb616cfe2bd8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e5b7bbc33a02a2c7ba457562a08d857db94c73b60f7045e8306b487f7d9514d4"
+    sha256 cellar: :any, arm64_golden_gate: "aaf45d45edce5efdc573b17493aae3943ab8e8a959c081e27b21c847a42110de"
+    sha256 cellar: :any, arm64_tahoe:       "1fc0fd148e1805b5db5e69d6cf9757665e78b7578ee06683e3ab6386a4bfef03"
+    sha256 cellar: :any, arm64_sequoia:     "f211a3a7a50e3ffcb895616a213093f1855dcaa14fc7f42ce2ebc3fa055bd0cf"
+    sha256 cellar: :any, arm64_linux:       "68d9c1a9cc62a5e936d1c50ec461f8d8b00472d8617696d0461a77de4e81cff7"
+    sha256 cellar: :any, x86_64_linux:      "3cc373c1a6ac9ba3bcd3c4fdb61a3771817f9b16ec52b3f3e5265c25e2906834"
   end
 
   depends_on "pkgconf" => :build
