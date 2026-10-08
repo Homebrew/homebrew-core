@@ -4,17 +4,15 @@ class Pistache < Formula
   url "https://github.com/pistacheio/pistache/archive/refs/tags/v0.4.26.tar.gz"
   sha256 "29af6562547497acf6f49170661786fe8cf1ed3712ad80e69c53da4661c59544"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/pistacheio/pistache.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "358cfde0e4b4aebd2e0bfff568f1061b4349d8094d1579445e21dc3191e0650d"
-    sha256 cellar: :any, arm64_tahoe:       "8c6aceaa9caabb3aa5f359e4b774e682a1a04b8e6d8d2c3387ca2b568490761e"
-    sha256 cellar: :any, arm64_sequoia:     "0b698f3e972e1febd10c62315914dd7f52fbbe97dd4a3e7da0aa3e2e95a902dd"
-    sha256 cellar: :any, arm64_sonoma:      "5ea7eca9d7b84fe69c2e4f7d3b6792b0fa844f357b7ea18963a533d30af77f34"
-    sha256 cellar: :any, sonoma:            "0251e36381a86a7e82f7ea5f905ad9abc20d68ec387876935276e63e91dde120"
-    sha256               arm64_linux:       "ab8a26e48f468b791843eb18d69460c70e51e2a0a0cba9e91a649db54bf5e21f"
-    sha256               x86_64_linux:      "a18870e8bca2a60e1fe41d00a47dd157273ae689145163b6730982ad0b550f43"
+    sha256 cellar: :any, arm64_golden_gate: "3a3ffbda9d8c8f020d5ac68db2b96ba5c92b54ba204bdeb80de1e422411e13e3"
+    sha256 cellar: :any, arm64_tahoe:       "c1103fdae23fbdec4315038894f16140fd3981f1146e79493a03cec5184d7a12"
+    sha256 cellar: :any, arm64_sequoia:     "e12dcd6e67631e181c831ec40e1bffc68ce35e37983158ac84c3a3ff9b5e721c"
+    sha256 cellar: :any, arm64_linux:       "ea3a6c876793a08c58959c8db515579cc551e32364265fd94b709f2f459a5cd2"
+    sha256 cellar: :any, x86_64_linux:      "0bdf2abc6af137de1a0a340a4003665baa95825b1cd576266b7b777af37316d6"
   end
 
   depends_on "cmake" => :build # for howard-hinnant-date
@@ -28,7 +26,7 @@ class Pistache < Formula
 
   depends_on "brotli"
   depends_on "libevent"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   uses_from_macos "curl" => :build
