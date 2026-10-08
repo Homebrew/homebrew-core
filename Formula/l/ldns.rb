@@ -15,13 +15,11 @@ class Ldns < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f742f6a0076671fece777278b2250c73e7341dc5f3abbe5f7e1919bbe1bca576"
-    sha256 cellar: :any, arm64_tahoe:       "18ef267d76b2a85fc04987398e0012eded3bdc47fd409711a6b012c7655b6e3c"
-    sha256 cellar: :any, arm64_sequoia:     "ded4e6317d7f9f548fc24fcd44a93371768d610664effa4c1485dea5fa77633d"
-    sha256 cellar: :any, arm64_sonoma:      "2274979d269fdc864a4d34410d558fde8fd52910a228ffe5a021412536aeed94"
-    sha256 cellar: :any, sonoma:            "536900427dfdf4c4df1fa9606ebc6436e38747a2d55b69f215aa50239a61e8c7"
-    sha256 cellar: :any, arm64_linux:       "80b38e17dcc951e58f13c928ea207f55fbff3387f817f89bb84bdf12d6268162"
-    sha256 cellar: :any, x86_64_linux:      "f5e402ae93090399f76159c897d61d2b3ff258613d8a198b510b3bf0690b6959"
+    sha256 cellar: :any, arm64_golden_gate: "5be2dfec48a0ef2c5af221172a93e8309149a5c0dcaed215964436c52dc87f7d"
+    sha256 cellar: :any, arm64_tahoe:       "03966b363928b66a20db0a6bd5e48f1c5229648709f91f208b5ceaa84b8a43f4"
+    sha256 cellar: :any, arm64_sequoia:     "d752514ae2395b210185bcb1159dfbd57d60acf397b66aff1c484fb59aa16246"
+    sha256 cellar: :any, arm64_linux:       "d002925575623e03940e6e000bbd307330db894f1b76821ac7078a63a4a74dd7"
+    sha256 cellar: :any, x86_64_linux:      "0b389096fc4ddb6d4288b88c22e943365a7f0e82f2ca45c6488cd06403581fce"
   end
 
   depends_on "swig" => :build
