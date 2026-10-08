@@ -12,12 +12,11 @@ class Coturn < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "e00f609c7c4ad4e5d4cd928e766c5f9d09de2d80be6fa7dfd24323566f1be309"
-    sha256 arm64_tahoe:       "7eef9f97ff58259aadf443c8b8b2f2bd12064409926d1b344d71ffccef301c6f"
-    sha256 arm64_sequoia:     "a194b7650a640185c3dff9a8ae3b0a1fbec26bf8d39883c2fa36f038c5096f14"
-    sha256 arm64_sonoma:      "8d5a78350d9d69255bcedffd1b8f2059638c56b1c9a276f27b519a2e1912b2ef"
-    sha256 arm64_linux:       "6ca852a8e43f1e6f3a26ec32ca35d2a0740946eb0a16cb3104e12be990523501"
-    sha256 x86_64_linux:      "41bd9ebac6e188018d7528b405e3d1f137e2fcec4c1d4bd2aea829977b21cbf9"
+    sha256 arm64_golden_gate: "9df190b12d0f6fa96502cb4479c63642cbc503efce74cb4f2443da00efa2b913"
+    sha256 arm64_tahoe:       "3ea90ccd1c0543554533ebc49c2c31c57b529949c81614b9438707ba47a4b442"
+    sha256 arm64_sequoia:     "902078b63e96cde7ceb87f01c312691ffb7aa554ff1423825976e6e173ef0ef5"
+    sha256 arm64_linux:       "73c0a714385eb5f96b407191e3cf01d4c38541fbba63301e077583bf949076ca"
+    sha256 x86_64_linux:      "0242aca0eb1e6ce68e5350b1eeed62177d594bfc9dd217794d865516cbfdff6b"
   end
 
   depends_on "pkgconf" => :build
