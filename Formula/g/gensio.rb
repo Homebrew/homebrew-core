@@ -7,11 +7,11 @@ class Gensio < Formula
   revision 2
 
   bottle do
-    sha256 arm64_golden_gate: "8c2ba861113f75f7b2ffa0d9dca95c069e94ba5b68dcc1f196a49544813cb57a"
-    sha256 arm64_tahoe:       "ccd0bbeb4530bfd31ae10d83a82b7e8830bceb92669f2b5157bb0c937709bfa6"
-    sha256 arm64_sequoia:     "1d851c3835480381a9309d0dc01202707c0db65e6053435504597316e7552b1a"
-    sha256 arm64_linux:       "16893875cf024bc3d09404553189c95cce4a2a86558859c11bdce3ec00ee40a3"
-    sha256 x86_64_linux:      "0bdcd8c010da9475fca47a651ee98bd8ace93ca1e1b8c31982dacfd180d575c7"
+    sha256 arm64_golden_gate: "136af11ce4e9d4198a6b36e9c5a84b8b3b62d7b28e6fef7cde1e14ef39d9da00"
+    sha256 arm64_tahoe:       "0a28339c40b788c31a013584dc2ef1e2333d3b692b8ccd46a1b1dee307efebee"
+    sha256 arm64_sequoia:     "5767240b5c48ac251b0ced1e1cc6787c122e6306c235b197e73da61e4ad71568"
+    sha256 arm64_linux:       "6b1626cddaf9165981c5f17fb9832af93d7465f034dd38bebfe3425e91bb2c0a"
+    sha256 x86_64_linux:      "42a6784805b71b775280bd2d86dfd303d882101312e10db8b2fe392ce8133102"
   end
 
   depends_on "go" => :build
