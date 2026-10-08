@@ -7,12 +7,11 @@ class Mailcatcher < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "adeed040a2ae82cdc0214c35a008442a6add7da3d335f3466784ac9ebbee8866"
-    sha256 cellar: :any, arm64_tahoe:       "bc09e2f849b5ad9591fc1d7f40629130beef8471daae2f3f4989fbfc85d3901d"
-    sha256 cellar: :any, arm64_sequoia:     "83084196397ee32f86cb8357400871ef5aa6b4b2d6831a264449a3740e0eff0f"
-    sha256 cellar: :any, arm64_sonoma:      "20dfdecca185bc4e67828f44d974a69d7089e093d68507cede4a91951087b605"
-    sha256 cellar: :any, arm64_linux:       "5df7c7dce299f185ed29e8ff5213ac668ba5adb4fbb77b8198d491060d8d9a30"
-    sha256 cellar: :any, x86_64_linux:      "839ea0b9b2138b2d1d64e5c371ee797ee5ca5f0df7b3be97a034c4e50637e794"
+    sha256 cellar: :any, arm64_golden_gate: "ea74ae070fccad891c9fd20f08bf085e2ea95d8dea5a840f7db8eabb1379acf9"
+    sha256 cellar: :any, arm64_tahoe:       "374eb24bc9b4bb16f262b72bdc74ad38aa486ebdf44dc2876ef9c058d4e1aa1c"
+    sha256 cellar: :any, arm64_sequoia:     "f161cba4425310c55c772cfdd4e19275fb0053165003ac73bd9c0081c49105d8"
+    sha256 cellar: :any, arm64_linux:       "4a005a007476ac29563930739c6fc602ad4f4c5a65c85663a60b494e24ca8981"
+    sha256 cellar: :any, x86_64_linux:      "4514cfc9256532af98dca1fb3b3a885d854e65a97c76533f8e2b90af2e583e70"
   end
 
   depends_on "pkgconf" => :build
