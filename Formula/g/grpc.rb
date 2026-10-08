@@ -2,7 +2,7 @@ class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
   license "Apache-2.0"
-  revision 1
+  revision 2
   compatibility_version 6
   head "https://github.com/grpc/grpc.git", branch: "master"
 
@@ -32,18 +32,18 @@ class Grpc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "30f82587468f313e2c8944ff8d5ff86d284464b378bd2695bf69134d0e402870"
-    sha256 cellar: :any, arm64_tahoe:       "eadae3eb6850bba2842117d5452d7b5a7332094df718588385ca27cd7598045a"
-    sha256 cellar: :any, arm64_sequoia:     "f324023d7c9d5f2a8f73875ed910c30b1cee1dc516c66e92405553acc9ea77b4"
-    sha256               arm64_linux:       "98f958a18feec5c85dcaaf425aec3b3122a0e45018e60aea913f6b9a79e057c8"
-    sha256               x86_64_linux:      "d9b3423f86828666aaa3229928773befd90df49628d1b4f0a5ef924ce580731f"
+    sha256 cellar: :any, arm64_golden_gate: "e88aa2947bc6b57b425d8def81a279cf0410b2ded2ef460d067b7464a7e1d440"
+    sha256 cellar: :any, arm64_tahoe:       "37a199b3dc245c275400f32fb80ee8638b5b7b04e849d65c21411756098a0d58"
+    sha256 cellar: :any, arm64_sequoia:     "dc7bcc9876473c5dfe42ee56f9c3022f52bc99dc2ed21d62e69cdb19ba4ca53a"
+    sha256               arm64_linux:       "0d53e5688769b0c2f58c9ec10c01f72ffb825d54ff7a3d546fcd763eb40058af"
+    sha256               x86_64_linux:      "28aac1ab06797ccf316949d7768470adb536205b193ae337ae6ce7ad1aecf6e7"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :test
   depends_on "abseil"
   depends_on "c-ares"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf"
   depends_on "re2"
 
@@ -79,7 +79,7 @@ class Grpc < Formula
       }
     CPP
 
-    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("openssl@3")/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("openssl@4")/"pkgconfig"
     ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("zlib-ng-compat")/"pkgconfig" if OS.linux?
     flags = shell_output("pkgconf --cflags --libs libcares protobuf re2 grpc++").chomp.split
     system ENV.cc, "test.cpp", "-L#{formula_opt_lib("abseil")}", *flags, "-o", "test"
