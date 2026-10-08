@@ -4,6 +4,7 @@ class Davix < Formula
   url "https://github.com/cern-fts/davix/releases/download/R_0_9_0/davix-0.9.0.tar.gz"
   sha256 "cf68461550fcd8fd88320658a42c55c7e7f6653e2be1461dfa95013adc56cced"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/cern-fts/davix.git", branch: "devel"
 
   livecheck do
@@ -15,18 +16,16 @@ class Davix < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "00877d9f490a442b161b63dd2539dcf425d4829434c8fd680eab4218b4e2def1"
-    sha256 cellar: :any, arm64_tahoe:       "768bab554a4616b78d60f68b8b59c54ac33ae321a0446c3b2d281ea553c98a5e"
-    sha256 cellar: :any, arm64_sequoia:     "7b056970935b827997ff53f981bef6c09a7b565059713522eb70cb319d05ce4a"
-    sha256 cellar: :any, arm64_sonoma:      "7c82e7763b256d8a543569b8e87afb45b03061a2ec7f8e86f7222cb192864904"
-    sha256 cellar: :any, sonoma:            "b7f07ce68e60b17481a927d85c528d5b19d53d648fad7a6ead5583f2e1417a4d"
-    sha256 cellar: :any, arm64_linux:       "607a56eadd9d0b1c877ac42198065075ce30b46a2836e3af87a96f0bcbedb094"
-    sha256 cellar: :any, x86_64_linux:      "fde5fe3e3cd84a4e04df4150b9dcf46c8464138c2e50469e03dbed3abbd36b2c"
+    sha256 cellar: :any, arm64_golden_gate: "d4d7f8c10dbc10d91414afc02a67cc8d6e26accce634872cc51af610f58ca8d4"
+    sha256 cellar: :any, arm64_tahoe:       "7b741a287cb9064e54af4f07d8c6a6377733b1bb2222fc0a4e1160b4a76d73f7"
+    sha256 cellar: :any, arm64_sequoia:     "8e75f4bbfa7dc97c3f389dcc417000fa4f1bf55a282e4825ffc4817f9615dc9d"
+    sha256 cellar: :any, arm64_linux:       "f547ec51dcb73fe92bb17f5b3bd87a5fb8830059885f2313f9e554853a39d4d6"
+    sha256 cellar: :any, x86_64_linux:      "b138417ed53c63ac93f20c822309d482ad4d584da210cb45228f9277c5d02f41"
   end
 
   depends_on "cmake" => :build
   depends_on "nlohmann-json" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "python" => :build
   uses_from_macos "curl", since: :monterey # needs CURLE_AUTH_ERROR, available since curl 7.66.0
