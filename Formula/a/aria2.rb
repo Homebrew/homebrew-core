@@ -7,13 +7,11 @@ class Aria2 < Formula
   revision 3
 
   bottle do
-    sha256 arm64_golden_gate: "f858036f6728f8c68b33262c6b937efbfdf8994b972ff37706e4dc68f3c15080"
-    sha256 arm64_tahoe:       "e02198308a07cc13589297bd682c0f63fe2e4ce09ff61d373696f4157eab89e5"
-    sha256 arm64_sequoia:     "b8312eb29cb3a058600a38b560efcb7e2b4ae951de0010e64abfd9194f07392c"
-    sha256 arm64_sonoma:      "8815b6b79395235863349628dc0d753bbee9069e99d94257b7646ffd85615623"
-    sha256 sonoma:            "b88e53b1c54d82af91dea90551fc114b7c02149972d536b9d55a33b12f9a9fd5"
-    sha256 arm64_linux:       "151095fbbfe8819535eb1f3dc63642103f793b79ead0ab8282381baebaad0485"
-    sha256 x86_64_linux:      "f2a416d17d88fdbc5a4dabd1a6520eb736964c6d21cd7a9e2b2591330d74bdf5"
+    sha256 arm64_golden_gate: "c15413eb9ae794634ce8d49cf0d69c882ab2cd3e0723217ec603931e7a7df2d2"
+    sha256 arm64_tahoe:       "07a226c42d8f12e99705952f8d362668c69ab5b1e30f7c8bd065c587f763e43b"
+    sha256 arm64_sequoia:     "bdf5d9688169b75c35997105456ea91ffcc3393cf68bc71e05702be85022b2a5"
+    sha256 arm64_linux:       "f66bd3b0eb4dab8cf6d93189f17c43710a785beaab12d3ce2029539b493d08a1"
+    sha256 x86_64_linux:      "0febbbd4634221c956a8a382241e8a2d566198da732318472b151b8efe6528fd"
   end
 
   depends_on "pkgconf" => :build
