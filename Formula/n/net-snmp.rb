@@ -4,6 +4,7 @@ class NetSnmp < Formula
   url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.9.5.2/net-snmp-5.9.5.2.tar.gz"
   sha256 "16707719f833184a4b72835dac359ae188123b06b5e42817c00790d7dc1384bf"
   license all_of: ["MIT-CMU", "MIT", "BSD-3-Clause"]
+  revision 2
   compatibility_version 1
   head "https://github.com/net-snmp/net-snmp.git", branch: "master"
 
@@ -13,18 +14,16 @@ class NetSnmp < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "61b4010dfe3a7ebcb9de1df956673c6d7e1bfe943b6a032103a81e738b2b2d3d"
-    sha256 arm64_tahoe:       "aa3127d38dc1d35626fe7bd3e53e66bd88adea6ed7aca814ba55adbe47b7fabb"
-    sha256 arm64_sequoia:     "6a1db83d132177a261003a10ad4f9392ef532b0eade1b831af53d2cf388c5d20"
-    sha256 arm64_sonoma:      "43a5e2de2d18ee41c5517bd121f28881a2b5add0935277dd749704866d58fde5"
-    sha256 sonoma:            "0ef82db8c6d4236ce288931fcc5529632f3b9fdd6bc10eb7a77f1fe54d0e3cca"
-    sha256 arm64_linux:       "0ff9a48126694d8c8eac3e6a7d01bd013cb22db2e88b8cc91135fe3f0eec1c26"
-    sha256 x86_64_linux:      "1105287f2a864a6c66b750dae9ba98d7a6fae7a30a1a729a6c3d47cb88ac6d54"
+    sha256 arm64_golden_gate: "359759cc4d5243c1b00718b3a243f2628830dca23386cf01a1f88c14ec2d2f69"
+    sha256 arm64_tahoe:       "ea1257eafed4f0743dbd5ee1858711b162e5b9e222af987f67343eb638cb4551"
+    sha256 arm64_sequoia:     "d3fe01e57a8647bde0f85fb29e6584dd2bb5468e732583317e69532990844918"
+    sha256 arm64_linux:       "3092a0a9ddcd531672934f6c546c5b239d042132b7aee0ca290d9194e42b5245"
+    sha256 x86_64_linux:      "ca797f3ee39ab466a424eb17e3ae1a0a3a4a670392537c849f5b0c3cf061884c"
   end
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_arm do
     depends_on "autoconf" => :build
@@ -59,7 +58,7 @@ class NetSnmp < Formula
       "--without-kmem-usage",
       "--disable-embedded-perl",
       "--without-perl-modules",
-      "--with-openssl=#{formula_opt_prefix("openssl@3")}",
+      "--with-openssl=#{formula_opt_prefix("openssl@4")}",
     ]
 
     system "autoreconf", "--force", "--install", "--verbose" if Hardware::CPU.arm?

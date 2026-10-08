@@ -25,6 +25,7 @@ class Krb5 < Formula
     "OpenVision",
     any_of: ["BSD-2-Clause", "GPL-2.0-or-later"],
   ]
+  revision 2
   compatibility_version 1
 
   livecheck do
@@ -33,18 +34,16 @@ class Krb5 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "8a876568262b406f742c97e91e629ee1633308adab22510ed2b5c15636dc131c"
-    sha256 arm64_tahoe:       "2968bf9d040cd58eb2933ddf03cd004d1f9abe8b19bd7f028ea8666ad47714ab"
-    sha256 arm64_sequoia:     "a9db2ba99f3e99279c4aac0277cdba955510d27f09bde6051b100e660c1a1c28"
-    sha256 arm64_sonoma:      "b63debb64f3b2d7875f0868e5cefbe3375ff635df7f0d1e4fc76f3716cdbb3a5"
-    sha256 sonoma:            "a4ab63ede148b1230e05c3002024e37d402ad3a18c98976d71a83920a879c462"
-    sha256 arm64_linux:       "1e75b209585cd4b2155eb8eebadaf3c4df5948981fecfaa5633a60e5918a78d7"
-    sha256 x86_64_linux:      "5c06477705002279f07de13c147866235a99abe1495ae4deb1eed805ec542245"
+    sha256 arm64_golden_gate: "678c05de46229f5b35631196808a7f6e4a32f9a18bc9574ec447f6c8290dfff7"
+    sha256 arm64_tahoe:       "8fc14b442b666d56a994cfddb47cd86071b6408905be70f10f7fcf668fc9e1cf"
+    sha256 arm64_sequoia:     "8bc2adf379fd6e0d0dd3bbe663effe87f625f25b9aa5a1bac71aef4b450ccc23"
+    sha256 arm64_linux:       "ac8557d7c89e6ee7e4d736baf925469fefe3837b1aa804623b0638a227f5567d"
+    sha256 x86_64_linux:      "587ada42216850382fedbfa4707b7aed405fb6934d8ed0650567a7a488162d1c"
   end
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "bison" => :build
 

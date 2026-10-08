@@ -4,6 +4,7 @@ class PythonAT314 < Formula
   url "https://www.python.org/ftp/python/3.14.8/Python-3.14.8.tgz"
   sha256 "a65b20a728f169f4e66ae143f40b1bd3d33c38d770251663f627c9767b79b210"
   license "Python-2.0"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -12,12 +13,11 @@ class PythonAT314 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "5029e587666812139ecd7582829aa9db86ac861007febdd9523611f4672037fb"
-    sha256 arm64_tahoe:       "14a1da5f9ee3d2e344ac8be1686d5cab15a4f0148754eab3b6b31549bb7787c8"
-    sha256 arm64_sequoia:     "2fb302150080fca00042a774ad4c3041593852268c3ac8ab02c5d18ef4f82542"
-    sha256 arm64_linux:       "3552d65ea3152427e25b599a9d146a7e99b770708d2acc9a89464fdf325dd3fe"
-    sha256 x86_64_linux:      "87a955d0f6f076cf0403a1d25841378181285c131ce89ce108b01b60b5fac5f2"
+    sha256 arm64_golden_gate: "c131b233501a17587283db1fdbd52d9439c183f73044ae0c58614e14507477ed"
+    sha256 arm64_tahoe:       "3e3455b974c5ad42b6c80207337a9c25de03d36c71e09023f1f83a656b0340df"
+    sha256 arm64_sequoia:     "82df08e33f2d7cdf5e13b4cdfb356e1f847c834367d559b629acba8b3330fae7"
+    sha256 arm64_linux:       "0b471edcd8916f7a479a8b53d9c8c82da562e1b890e3653e6629cd949eb3ea58"
+    sha256 x86_64_linux:      "1a15bb2141655b806fefaae0dab9edf4686ad8134befe7686340af0e10693e37"
   end
 
   # https://devguide.python.org/versions/#versions
@@ -27,7 +27,7 @@ class PythonAT314 < Formula
   depends_on "pkgconf" => :build
   depends_on "ca-certificates" => :no_linkage
   depends_on "mpdecimal"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "sqlite"
   depends_on "xz"
   depends_on "zstd"
