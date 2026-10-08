@@ -2,7 +2,7 @@ class Sslsplit < Formula
   desc "Man-in-the-middle attacks against SSL encrypted network connections"
   homepage "https://www.roe.ch/SSLsplit"
   license "BSD-2-Clause"
-  revision 2
+  revision 3
   head "https://github.com/droe/sslsplit.git", branch: "develop"
 
   stable do
@@ -19,19 +19,11 @@ class Sslsplit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "7b086bf39b2eabeef0c13afa6a1821041556085b3176dfd60ba2779339b8a40b"
-    sha256 cellar: :any,                 arm64_tahoe:       "53f72ff40afcabe474f6e713fb6dac04bd7c87fcb1bf6ec91638645b7b62237e"
-    sha256 cellar: :any,                 arm64_sequoia:     "5696431080e31e8d974ee9b41e2380690b0ce415deefeee3d71350d1d614706d"
-    sha256 cellar: :any,                 arm64_sonoma:      "a78baab2eb804a8825d8e32e7b196ba855c020f95e82b2f3d97791f57ed6f6f8"
-    sha256 cellar: :any,                 arm64_ventura:     "ad6eef71652050dd7586ca130538d612f71d6e0486a5c1b2b9eb98e5d0675e0c"
-    sha256 cellar: :any,                 arm64_monterey:    "dba0a5403a541ff22b1e63577de39af59c2bdfa4ea43536664526efd4c10b479"
-    sha256 cellar: :any,                 arm64_big_sur:     "9a6bc8259feb162971310ab7cbb802a6d792c9a13684d756c74f2e4c12f91527"
-    sha256 cellar: :any,                 sonoma:            "5ecbf858d101619382213826f91a12b0585d6fcf8aa5be655cbc1e2952565436"
-    sha256 cellar: :any,                 ventura:           "6b5c5082caa1b33a2ec68d438965ef1c405404b8808ca1fd9cda7397ac366165"
-    sha256 cellar: :any,                 monterey:          "5f23f06acb83de8e1730a267b0e543e5a2b46af6ca0021922fa2e427c8eb3cdb"
-    sha256 cellar: :any,                 big_sur:           "5609fe01116b26aeae02e483354ab84a4b9cb223095618640c32af5bd7341cca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "69b100b3bc4a6279bbef5d49cbf4f44a2085ef1ec03a5872f85a7606f5e667d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5e62ef71e9d154f54fac451123377ad0c59d103b544386b4100ecb34da2ad2cc"
+    sha256 cellar: :any, arm64_golden_gate: "d95bba38fc686c73ba840e5fffe5912506b81cc08bbb4d67142d99923633d75b"
+    sha256 cellar: :any, arm64_tahoe:       "962ad767f8f7c593042fa37ee03c133b762b950c3f1722330e68e954d3d3bf4f"
+    sha256 cellar: :any, arm64_sequoia:     "fd9e48a9bfb16bd92be96d38f04300d41a6d7e20190becdc3a80b53771f62aea"
+    sha256 cellar: :any, arm64_linux:       "7b4cea6df80ca75f1110770626ea98f3e3ee14972e1476d8165748e7c6182807"
+    sha256 cellar: :any, x86_64_linux:      "6d83e798cd94b55a86c827460f58a186952a744d39a9533864f125652a997dab"
   end
 
   depends_on "check" => :build
@@ -39,7 +31,7 @@ class Sslsplit < Formula
   depends_on "libevent"
   depends_on "libnet"
   depends_on "libpcap"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   # Apply Debian patch to support OpenSSL 4
   patch do
