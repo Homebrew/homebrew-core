@@ -5,6 +5,7 @@ class Openvpn < Formula
   mirror "https://build.openvpn.net/downloads/releases/openvpn-2.7.8.tar.gz"
   sha256 "c070d1d2440b5a6fca6c2c68645c98cd492116ac36ef4f0946177115532c8e36"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
+  revision 1
 
   livecheck do
     url "https://openvpn.net/community-downloads/"
@@ -12,17 +13,17 @@ class Openvpn < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "bf80f32655cacacc02e0dd8ea1a2d86eefcbd8c0c704b38fe44b42715c57170d"
-    sha256 arm64_tahoe:       "ff8af38d97c1780a6c920ca25398d57faf241c0656e251785095d0587deab0fd"
-    sha256 arm64_sequoia:     "314c662194890eca6d48e8ce8771e152ceac2403fa119b7e5b10c6c1d231b19c"
-    sha256 arm64_linux:       "ae16c8aa3f0fcf557a4bb8478d95624b0b7cb68f5e3dd780050b72f1fef6f03f"
-    sha256 x86_64_linux:      "e869adc4eaf43209173c068bc886d5e6e287ec246984b899c896a1b051f8afe8"
+    sha256 arm64_golden_gate: "e64da55e9cb2b051ed1b7b57bf9069c66b7b112a52d5689adcac9010b25f4e65"
+    sha256 arm64_tahoe:       "617781d469ce8dc7ef67c6208822aef62b37276eda76e198ca171124f28a43a9"
+    sha256 arm64_sequoia:     "c073d831a6179b815366547c7ed690d7492d2a2fbace1e7ebbd45009cac4bba7"
+    sha256 arm64_linux:       "121204f16c89fb365c4f344c7108c1e3b0a7e10d0c4c9e702efbfbe41b529656"
+    sha256 x86_64_linux:      "4cb1ecd16c12363bb0918e1047961436a4ae6216203b855f9a99f58090516ef6"
   end
 
   depends_on "pkgconf" => :build
   depends_on "lz4"
   depends_on "lzo"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pkcs11-helper"
 
   on_linux do
