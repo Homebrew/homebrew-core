@@ -4,6 +4,7 @@ class Srt < Formula
   url "https://github.com/Haivision/srt/archive/refs/tags/v1.5.7.tar.gz"
   sha256 "017cd1e437ef2073a4dd10ddf7b55e86bc3d6ebac0393d13bd22f6a57055d32b"
   license "MPL-2.0"
+  revision 1
   compatibility_version 1
   head "https://github.com/Haivision/srt.git", branch: "master"
 
@@ -13,23 +14,21 @@ class Srt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1497982810a8dd675343c13cb3c2090fc8ed802d3d5d9223ff3019f737a162cf"
-    sha256 cellar: :any, arm64_tahoe:       "a09e2746cd2fe48a6674da75c163705b91cb695ce2a585f5e62129dbe4f562d8"
-    sha256 cellar: :any, arm64_sequoia:     "004246e6dd17bf156b3eae6f2b8cf6dd3575be4f310b7b532556bd6464d1f954"
-    sha256 cellar: :any, arm64_sonoma:      "d860b499a28f363ac7a91fc80046966df861596e94e65d9edc3931f0268ca3a4"
-    sha256 cellar: :any, sonoma:            "696700645531b6c3de17970c5f89e7c5f8925712bcff905dc8521c8bf0a95ab0"
-    sha256 cellar: :any, arm64_linux:       "bcda48e594414b3d10ccd84b3e03f78797d7c5583471738092fb0f3acc8d6004"
-    sha256 cellar: :any, x86_64_linux:      "c49b5154b38cc76ce246618290157675fa7ff263ae909417b6b770b981f0dc3a"
+    sha256 cellar: :any, arm64_golden_gate: "6d0783ae84caebbe1c8bd9204bf782b09c6a9cd1ecd579285b8ba2f39cf0d256"
+    sha256 cellar: :any, arm64_tahoe:       "def16cad7b4d1d7a2e498b9e46e59798612130e9170af096e60ee9e642737e24"
+    sha256 cellar: :any, arm64_sequoia:     "49961e6bb35fb555930142ccea104dacd22cc0d4de367741f6539ebe83a3624b"
+    sha256 cellar: :any, arm64_linux:       "2b49c5c88630415a538bc72d2a3c532970211cd6e194a838c523247b8b1705bd"
+    sha256 cellar: :any, x86_64_linux:      "5b4afd851b7cf690f24abcf4fe36237492351f35ae8a23d1660c73a91477e822"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   deny_network_access!
 
   def install
-    openssl = Formula["openssl@3"]
+    openssl = Formula["openssl@4"]
 
     args = %W[
       -DWITH_OPENSSL_INCLUDEDIR=#{openssl.opt_include}
