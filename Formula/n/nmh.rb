@@ -13,19 +13,11 @@ class Nmh < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "29616b5d60271b123d1863ada94d397d5efce3e397c2ed2576e5652bbfcd7488"
-    sha256 arm64_tahoe:       "a5e47512714ba643f7419b066b01383a222d550272e0cd7e01274302f1b1f492"
-    sha256 arm64_sequoia:     "60f74fdf361c84ce1aad906bb3e44be7d08c7553c8862646e2790eff719df9c3"
-    sha256 arm64_sonoma:      "4b087eeaa03d67b95eab1e96ec6f87f683012adbbbc2d8693d1a99c2003d12a8"
-    sha256 arm64_ventura:     "ca1326e5695a86d075a90e0b1e86916a748df6a376bd851f0d6d8432853660d5"
-    sha256 arm64_monterey:    "89888db63666acb8fc7e909a9e681194506cd51806d1b33c70ccb07802c93dcc"
-    sha256 arm64_big_sur:     "61a5e6e21ff29746bef4ae4d89e86d7bf8f1d625a311c6d0203b8d4aa9eb12c1"
-    sha256 sonoma:            "8c65bdbcf7a531a8a5e10793fe5ce6ae73941f2e589ce6bcda2a093835b8c3ed"
-    sha256 ventura:           "3d599eb842fd242bc921500512f6dd79273dac4de44fd1e9b5b3e2178c974f99"
-    sha256 monterey:          "1baa3243548fd2b34f59d1d5352602ee0a197ef0d91000de5d0aca382eb1cea8"
-    sha256 big_sur:           "f2203024b91015dcc3c00fc690fbf253361ea12f443c97f7290985ea4e0f62c5"
-    sha256 arm64_linux:       "4a390dfd9f429b5730138804bd89c2823531ae7f6aebb654637789f7917512d7"
-    sha256 x86_64_linux:      "b53a0fb7791c968e762ac99a4ed0bc708ba6f0e3c39a7963cb3b29edb3b77845"
+    sha256 arm64_golden_gate: "3b5d9260ade160babccb2bdfa1d35504e7fb90abee69f95155ff176e5a663988"
+    sha256 arm64_tahoe:       "1ea68fd3a7442d3a21e79a1dc9b22538a4da3160ddb9ea66daac1f366de1ebd4"
+    sha256 arm64_sequoia:     "06ec8b1da1291cbc28b99fb6973651c69b8753adcd13e7336300f63a22747f7e"
+    sha256 arm64_linux:       "db7defc901f7c041ebcdc75d133002a86bcc555ce0f813802a69e01d18d42a61"
+    sha256 x86_64_linux:      "c7b4797ba8d0062fee6104d0c0cbc7f2d9c683718d71a916a4f08bec08f17ebb"
   end
 
   head do
