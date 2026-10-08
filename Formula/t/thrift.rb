@@ -9,11 +9,11 @@ class Thrift < Formula
   compatibility_version 4
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "0d285f9dacce1246fa9faaa0c049144c5d0d31e5b80817bae14fa2d676fd4ea3"
-    sha256 cellar: :any, arm64_tahoe:       "e25867b29dcbee74e54fb5c705bbcad6899b0f8f1dcde539acdd2e60f4891a74"
-    sha256 cellar: :any, arm64_sequoia:     "9604c7ca5fb75e3feadcfc7082138a0ffcefefeaa86acd10504cfed594a99fc5"
-    sha256 cellar: :any, arm64_linux:       "f283682e5cae69164465f3ecc6d99413cf7eede15bfaefc5866c7a22f870334c"
-    sha256 cellar: :any, x86_64_linux:      "d9b178eb3bca5dc3a50b48a44836ea9517fa14fbe893cf2de348d83b3f3f3297"
+    sha256 cellar: :any, arm64_golden_gate: "e422a22ab3b0c6ab53ba603582a9d525680b2d108c97aab79105a8b60e69e364"
+    sha256 cellar: :any, arm64_tahoe:       "5fed3e2ce1c22f05597ac1f816553ab1c5a56aacf90a6b63b43ab88dfaf94176"
+    sha256 cellar: :any, arm64_sequoia:     "0b31de9285cc9bea55943b39d95f061bc1c691ad4d756ef371d3103a1c183558"
+    sha256 cellar: :any, arm64_linux:       "058cfa35038ce96bb3da141594199be5134c89ecdd9fd004ead76d17515fc529"
+    sha256 cellar: :any, x86_64_linux:      "47aba750ae2b682d73a52bb6c6d24c39e97db14e454f4d09a7f84db91532a54b"
   end
 
   head do
