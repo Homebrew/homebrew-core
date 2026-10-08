@@ -21,11 +21,11 @@ class Tor < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "c38cee07720d93e1c32430a2e7021596fb18b33500144371cc77c2faafde29e1"
-    sha256 arm64_tahoe:       "903cb957d85afbd096f32ceaabafb5b91f368c006e187a9394f889e1c54c68d3"
-    sha256 arm64_sequoia:     "1b6c48c821442eb4bd877c168cac79cafd1139ee30d1587e8d0a173139731e9b"
-    sha256 arm64_linux:       "c9051dbc2b0ebd45e4972d5e32b47911c4d9b028b0a95e306becf0ed1b559c94"
-    sha256 x86_64_linux:      "b4d720288cbf253eb5dca558f1edff3f31a1d9d4e9868a6b4e73d0f99f28d437"
+    sha256 arm64_golden_gate: "5de4b74220d7b580397d72b6073cdede10d309264ea1de6987508dace5ba484a"
+    sha256 arm64_tahoe:       "62e8888704102c7de35f1393214a4c3c5e773cd6c183110ac71b76fe3482bda5"
+    sha256 arm64_sequoia:     "53631721e4c090f076290c49c4b625b59fdf9db7726031b7926487051a432e90"
+    sha256 arm64_linux:       "2e100fac2e2eef88c3ae00284f10ec002061c37c25bfc83bfd0c237f8a2e04e7"
+    sha256 x86_64_linux:      "e5132992e18633cd5925438db8b1594d18e5331e0c1bd01eaa76a8fd5a09fc7a"
   end
 
   depends_on "pkgconf" => :build
