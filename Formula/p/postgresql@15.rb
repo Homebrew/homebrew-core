@@ -4,6 +4,7 @@ class PostgresqlAT15 < Formula
   url "https://ftp.postgresql.org/pub/source/v15.19/postgresql-15.19.tar.bz2"
   sha256 "e1a64a87a46b825b88c082e4518161a47aab53c45694964f8ba1df28f7859f89"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -11,13 +12,11 @@ class PostgresqlAT15 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "2b7d1584081641d7a1a98385c3e86d1d1fe8cfc4e42a483a66cfec936d7cbaf9"
-    sha256 arm64_tahoe:       "017e310db188186c2384ba7cbbe52edd3bee728c485866613022810b4e849495"
-    sha256 arm64_sequoia:     "4f454e0f48e7494a5012d6f3107de482d811e9475b3f7319fbbfc0d77f2a6a61"
-    sha256 arm64_sonoma:      "b26d0c354a7ea88c6889a2fe2a39806086ff25b175fb4f9e8f77eb9e19f1e7a1"
-    sha256 sonoma:            "b638bfe162853f492cda81e1c76684e0094cdaf0edd438f4bfb7344efe1a102b"
-    sha256 arm64_linux:       "1629771f554d4ad8a85c16cf859b3db57a0c7b2e4a0db21f3ac68a69b9430eb9"
-    sha256 x86_64_linux:      "92d1cb7f96bddf480aebd047919ca2ace548ff4e587e37c69f1b9bc842f0c375"
+    sha256 arm64_golden_gate: "17caeab6d8cc15cebdd6cf1782f0a26b539bc4e76459d5af36021d40d8a03c89"
+    sha256 arm64_tahoe:       "22d7343184e928929072cec8265bffe8e317d4255514fb1cadd473d8a90375f3"
+    sha256 arm64_sequoia:     "40aa6db9147566ef48d70c2ba167cb52595a4fffe94d2f4542548b3590f5c9c5"
+    sha256 arm64_linux:       "00bf95db9de88a84ecc338d0d8a63031e1d89f11a42dc328cc2decbd8f868212"
+    sha256 x86_64_linux:      "339665dcb8c53ff1319dbad490f7fd9bcaf1b1ed478b30240183d46dcfc4b343"
   end
 
   keg_only :versioned_formula
@@ -35,7 +34,7 @@ class PostgresqlAT15 < Formula
   depends_on "krb5"
 
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "readline"
   depends_on "zstd"
 
@@ -57,8 +56,8 @@ class PostgresqlAT15 < Formula
   def install
     ENV.runtime_cpu_detection
     ENV.delete "PKG_CONFIG_LIBDIR"
-    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@3")} -L#{formula_opt_lib("readline")}"
-    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("openssl@3")} -I#{formula_opt_include("readline")}"
+    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@4")} -L#{formula_opt_lib("readline")}"
+    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("openssl@4")} -I#{formula_opt_include("readline")}"
 
     # Fix 'libintl.h' file not found for extensions
     if OS.mac?
