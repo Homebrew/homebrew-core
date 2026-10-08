@@ -4,6 +4,7 @@ class Lighttpd < Formula
   url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.85.tar.xz"
   sha256 "18de51b393bac4a6827879e1a7ff377c169e414bae92cd245091d80fc2601d13"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :homepage
@@ -11,13 +12,11 @@ class Lighttpd < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "9905ab323c437c41f0a77f7aebf73dca14ab0edce4d3b5b458bb136483ac514a"
-    sha256 arm64_tahoe:       "498ed0d92233c2bd35d008b728c9f7cea4718abe5509aa17dfd88972dcf4a1eb"
-    sha256 arm64_sequoia:     "5964b5c7b5a593b52ede89f43f013d750859152180feadde866bfb54635dc80c"
-    sha256 arm64_sonoma:      "37db7f8b562b825185306f436d87a04e6e2deccac697461c54a23ab2d1f4aee0"
-    sha256 sonoma:            "0611e360eda9d436b95aa9be564f13a26d1925e322c952d14cce1120051d56ad"
-    sha256 arm64_linux:       "6ddd2dccf207e7c0695093cb12ac944596fcbc3c8774cafb6eb8c929b6b981ee"
-    sha256 x86_64_linux:      "a614e12dac82d73c284ce7467227a36d315fbb003911b20871b35c80a09999c6"
+    sha256 arm64_golden_gate: "bb69103596c6d5b04302ded5975f29a2a39ffb122e600e25c425497a6df935c5"
+    sha256 arm64_tahoe:       "caaeebba435c9d6237f049fa4a06044d33c399e5b1fe3f8be70cf7e8e4040b8d"
+    sha256 arm64_sequoia:     "0991c84254249a542ac502c1834be45c1ffa25de91fcd1b1f9ede7935a6e1120"
+    sha256 arm64_linux:       "5252e7f10083b1b309efcf30f7f47f3f312d855151b3a9b445c103b333cafc63"
+    sha256 x86_64_linux:      "39742874601902b04313dc9b4eb554d934b0dfc2fdee83a0fec7d89d2c1e0480"
   end
 
   depends_on "autoconf" => :build
@@ -25,7 +24,7 @@ class Lighttpd < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "openldap"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
 
   uses_from_macos "bzip2"
