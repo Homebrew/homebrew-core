@@ -8,13 +8,14 @@ class MemtierBenchmark < Formula
     "GPL-2.0-or-later" => { with: "cryptsetup-OpenSSL-exception" },
     any_of: ["CC0-1.0", "BSD-2-Clause"], # deps/hdr_histogram/LICENSE.txt
   ]
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "76936ff1606569a753f9650698ff8599f4e8e32824b1974cc49b313fd9c8b844"
-    sha256 cellar: :any, arm64_tahoe:       "8c48b907c70f7ed7586c5d5c8c9bbf8f88b791f9d28863680b222f9682ba1428"
-    sha256 cellar: :any, arm64_sequoia:     "3226ddd0d70c71f64158e54597a31aecfcce48ea9a29e8fe23f94330f39c6f6b"
-    sha256 cellar: :any, arm64_linux:       "f6f38cd1747a6e0afae84873382c28d2b026f1f4329ce4d2bec7ab149d40fa6a"
-    sha256 cellar: :any, x86_64_linux:      "cb3d17cafca45d66f01c1ee16a9b0b08ec97b82a24928c7f2851e0ce9f8fdf8d"
+    sha256 cellar: :any, arm64_golden_gate: "705b113657eba372349cc0bc4a8247ac1657af0c60fc26f7c77d7b5d2062e900"
+    sha256 cellar: :any, arm64_tahoe:       "4de4357f63724d5198bad0da24df2768550b2f8b7eac317dceb99894edbe854b"
+    sha256 cellar: :any, arm64_sequoia:     "fac3ae4ef2b4ba88c07f77ce9aecb94e62ab9b23092723bed7e4260a87b0c719"
+    sha256 cellar: :any, arm64_linux:       "90cd75974c98f86c48b0067f49021ecc20ca8a26601f8d0064fe2083fb643e7c"
+    sha256 cellar: :any, x86_64_linux:      "11ede46ebe29cda797a703c8ad27eeb6a694c44c8a9975d980adf26f38016d16"
   end
 
   depends_on "autoconf" => :build
@@ -22,7 +23,7 @@ class MemtierBenchmark < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "libevent"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
