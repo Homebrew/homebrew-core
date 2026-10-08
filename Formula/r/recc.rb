@@ -4,14 +4,15 @@ class Recc < Formula
   url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.4.27/buildbox-1.4.27.tar.gz"
   sha256 "b4d6ee086f78a32e53e7c3f8901dc1c54df81e0de78c821f6a0a5764f02f8c92"
   license "Apache-2.0"
+  revision 1
   head "https://gitlab.com/BuildGrid/buildbox/buildbox.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "6b9c065e9caac5e627ec23dec5a4b773513f59b2c1485121d0152d7fbb491dba"
-    sha256 arm64_tahoe:       "f9931a53718632fb7caebe59712db13cb79e4a4cbf9f77f8c1fbefb13ba85599"
-    sha256 arm64_sequoia:     "15fbd8fa8be05d80749138b90b556f7f20606f785200c38a7f63a20703918319"
-    sha256 arm64_linux:       "9c8f8be6a2c613d6d0b9048b5665ed1b0f728b233e23ffe834e6f00d3eb6048f"
-    sha256 x86_64_linux:      "1f1043f5f2626eb45a6bc509abd821298fe226f6176bfb8553cd206d7fd0d97c"
+    sha256 arm64_golden_gate: "6488876392f6245c77e3f162a2c0de7c908cf2ca9f317e5fdb29a049f27298fc"
+    sha256 arm64_tahoe:       "dba71769ec48b0d25aa46eb303425b5d6fff16052f2436d547e8728a8f2b43a1"
+    sha256 arm64_sequoia:     "6b04d7b0740a9014ade3d28dd5c77f4761fe2008ac908c7f39e4f9867e7bac53"
+    sha256 arm64_linux:       "57238356960abf6b8c5b0f8789e4d1adef61f2f21accc4b0b901510b0e943182"
+    sha256 x86_64_linux:      "247576ac2443b2248526a8689c5fbd667cdb69a67e97c3ec05b2c3c69f42aed4"
   end
 
   depends_on "cmake" => :build
@@ -22,7 +23,7 @@ class Recc < Formula
   depends_on "abseil"
   depends_on "c-ares"
   depends_on "grpc"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf"
   depends_on "re2"
 
