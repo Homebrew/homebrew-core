@@ -12,13 +12,11 @@ class Memcached < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d4b809816dfffcd1a4e2034184c835bd47fca206204cb8cb781341f3fe3c93db"
-    sha256 cellar: :any, arm64_tahoe:       "68e37be8e89af4d756d69cbcc46334f310bf4865d4d0f70bebf5db16a3a9c3db"
-    sha256 cellar: :any, arm64_sequoia:     "63862e6cd5e5f3d7f146a8d7d05e29be08943ff2efee6364d759604c63024904"
-    sha256 cellar: :any, arm64_sonoma:      "60b574b8eee009f0332f3f9baddbd00ee050f19126c5d69a356fda88f40b8d72"
-    sha256 cellar: :any, sonoma:            "0addce6ba648a7e617ceb0efe5e7fae7309e20a6c2383905c44faed13e42d48f"
-    sha256 cellar: :any, arm64_linux:       "55341142efcfc8946468e3cf6765d29fe0e3c58e661a7e53bf04a745ab3cdea5"
-    sha256 cellar: :any, x86_64_linux:      "3b54b11a1b8f0edc671ab50c1a38a6b6c224e2b806ffce1e097047a9e3ce802b"
+    sha256 cellar: :any, arm64_golden_gate: "adcec2656cc32726c9e67fb454b1d9beb7b1309ec5e2a9fe7dc95dc357e64047"
+    sha256 cellar: :any, arm64_tahoe:       "ed2644aa3dcaf9d01babe0119a2c36e61a7d31f6102ac0a76730a2d5b1720dd1"
+    sha256 cellar: :any, arm64_sequoia:     "3a2adb1dcb72fe37ea2088612107cbdc25e4c7c41e032c2ba6bfae891bcd21b2"
+    sha256 cellar: :any, arm64_linux:       "a3be4be81ed3a670a80df36db63c2768f8350af307f5f702e228cc02f59ccd88"
+    sha256 cellar: :any, x86_64_linux:      "8a3a653b86bafa6c73c79b5f4e36c9bea21dcced2c6d84cced8223aa587664e6"
   end
 
   head do
