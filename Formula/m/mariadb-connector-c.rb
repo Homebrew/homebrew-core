@@ -26,11 +26,11 @@ class MariadbConnectorC < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "6fcfebff6530c45deb26ebb70784698c02b01d277945f693a9e926575c74d3a1"
-    sha256 arm64_tahoe:       "420a7f7768d49a5c93f47d2a184ceb866fd9df9a33458978c4c78b6397f0b1c1"
-    sha256 arm64_sequoia:     "d67e937637051081cf1be657990a4fadb6f37fc97faf507312c77e30b673d069"
-    sha256 arm64_linux:       "f16858bc8708e73328f82ca24b1df8b9dd4b31d19b93345ad601ac9b11207979"
-    sha256 x86_64_linux:      "b28e7b5c7b9e7f34b6565f390460618432798ff4443eb537c52b8efacc13221c"
+    sha256 arm64_golden_gate: "ddf397ca3f6fc16c8a0e2e07327de560a767712afdd3e95e0b08cde122580347"
+    sha256 arm64_tahoe:       "87595e0874db22f73ce3851878ef6a1b1c245329483ab62bfea941192effefaf"
+    sha256 arm64_sequoia:     "17f850c2acfc88296813e47293805498c8138f9bc1bb2d8818602619445cf674"
+    sha256 arm64_linux:       "bd5e3301918492e473d4210569792505e8e22b47c7df86e7883a3edd209fe4ff"
+    sha256 x86_64_linux:      "8589a8b0b96508903ecb3f5b95cbc6a59353a9d1c80a1b9274ba5dc8b1adb450"
   end
 
   keg_only "it conflicts with mariadb"
