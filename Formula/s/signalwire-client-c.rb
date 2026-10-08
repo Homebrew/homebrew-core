@@ -4,20 +4,20 @@ class SignalwireClientC < Formula
   url "https://github.com/signalwire/signalwire-c/archive/refs/tags/v2.0.5.tar.gz"
   sha256 "336c88a28015cf666bdbb070e9e11ce53dfd05baec074171fe8866945b68e8f9"
   license "MIT"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "1cd355ddde0c2bd04c7eee3d89eb8d7e02a37463810733ddb7b9866b8059d00a"
-    sha256 cellar: :any, arm64_tahoe:       "348229694a18316b1d9ddbe739b3352eb412f39f348d434bb9fcd0af732abac2"
-    sha256 cellar: :any, arm64_sequoia:     "f24eb3f4de098559a6c178bf20a7ff78be0a3efbe0e717907b6dd3976d3eebba"
-    sha256 cellar: :any, arm64_linux:       "c28d772e0ee183cfa9b3ae4d3392152fc16858864b40939c605d1d527144b48c"
-    sha256 cellar: :any, x86_64_linux:      "d5155d2c4d6ac3d6295284084bed1a684f039157154e7bf8527636b4051e1037"
+    sha256 cellar: :any, arm64_golden_gate: "d4266e744a8932d7f0b6c2c49cf3b10d43c1366848302301e6c0419c58f7ff11"
+    sha256 cellar: :any, arm64_tahoe:       "e09eaa096c08a57471edd369854a84abe47b512e93af7f0c5ba8a246f93e5f41"
+    sha256 cellar: :any, arm64_sequoia:     "5a040ba0824bca14a78575f224fc903692ebf2f7e42872820a93040b3d4fffe7"
+    sha256 cellar: :any, arm64_linux:       "dbe2c78a0fd750cb01b17dbc94dc67792e1b953ce194adaaf4f37ac52fa471a8"
+    sha256 cellar: :any, x86_64_linux:      "2c36c0ef7fa083a610e56d9b8af472f814e99fe06d8875306cda0dacab02d8d1"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on "libks"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     # cotire builds a prefix header from the `clang -H` include list, which on macOS 27 also has `SDKSettings.json`
