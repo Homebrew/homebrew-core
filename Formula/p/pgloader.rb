@@ -43,13 +43,11 @@ class Pgloader < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "114bb8497977bf4ccd4c684809600d043bf4269bbf330ecfc29139a0e8dfa6cb"
-    sha256 cellar: :any,                 arm64_tahoe:       "12b8c22a69da1b380adc072b1f8ea9b9d2bdc69d03530a566251e163c7cfbe2b"
-    sha256 cellar: :any,                 arm64_sequoia:     "65977622649cc618a60bd5acaaedcce4ea0b5de39ef9a0ee3a77a5ba0819ffad"
-    sha256 cellar: :any,                 arm64_sonoma:      "69167a059b6cf21e05fba0680ca9e0184dc269b556940ce0e304d1bd731c30ef"
-    sha256 cellar: :any,                 sonoma:            "826b9b6529e101637416205667f78a0d0830f6f54c50b0b21f3ed8ef0d750758"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f5640cc4d253febe88e8531a1767f7f3e3be20521192def77bac8bbeb1b10225"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9f23ab10e44dba2d37a2581cf3ded0f0cfceb731e49af0f4565c98d60278a8a7"
+    sha256 cellar: :any, arm64_golden_gate: "e8fe4fee4c412f044630dd7895ea2ccdfaea858329311f5ae47422aa113783a1"
+    sha256 cellar: :any, arm64_tahoe:       "f165cb8d195b73c68033bbc9f88807c694f86868928e544eb3fa0efd6887831d"
+    sha256 cellar: :any, arm64_sequoia:     "6d197ce7cb750d3b7fe7df0d687ab23915f0b5c52474e2169c2de306d9c28cdc"
+    sha256 cellar: :any, arm64_linux:       "9c17f985edac3620ec52b5407be64fe0547bb34712ef157e910c3e660ce00a04"
+    sha256 cellar: :any, x86_64_linux:      "7cdd5f783ddcad605de8a46615c1d5bcfd1bae4c287e0cf4745bf4b37c605199"
   end
 
   head do
