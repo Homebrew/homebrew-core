@@ -2,6 +2,7 @@ class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   compatibility_version 1
   head "https://github.com/rust-lang/rust.git", branch: "main"
 
@@ -84,17 +85,17 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7525422d522cb4fafca1441ab42ace810b590edc540f93ad14a81bdee157de99"
-    sha256 cellar: :any, arm64_tahoe:       "9fd7f9b81fa70767432e1cd6cab9b945ab7a4297529b5e3f95fc2663e512b2f5"
-    sha256 cellar: :any, arm64_sequoia:     "ab2aad7448f020d2ceb660ef75ba79d06761f91d8afc29071b8e9a1bf99af8ca"
-    sha256 cellar: :any, arm64_linux:       "7587563b8bd5a17d0846cba46d41ccac9d45cdbf6554eeaf95f8504db79b4e36"
-    sha256 cellar: :any, x86_64_linux:      "06952c11381a7519c1e10b9b455942f0965c0f44dd6246cd4e4e29b3b85dee42"
+    sha256 cellar: :any, arm64_golden_gate: "0da15430cde258714a498cddf4ab7d32a70b843b83af8f3bc9061519f66044d7"
+    sha256 cellar: :any, arm64_tahoe:       "e8d91650aa4254656b78799e78d0219914103e5fd2452e6fb96893c4fbfe0f90"
+    sha256 cellar: :any, arm64_sequoia:     "ddac723f8c85f964f49235745a85a2efbc3ee09632d2dd2b0306d9c2bbdf46c9"
+    sha256 cellar: :any, arm64_linux:       "64a99b9c9fe16ed1ea2a5d5affabdbbd5b76fe234eb3b98491ae0bfa27ea4f7d"
+    sha256 cellar: :any, x86_64_linux:      "db380ae1e78c0763b101611a50d2a5afdfadfa97db40d3cbd0bbc80f8aeaf070"
   end
 
   depends_on "libgit2"
   depends_on "libssh2"
   depends_on "llvm"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pkgconf"
   depends_on "sqlite"
 
