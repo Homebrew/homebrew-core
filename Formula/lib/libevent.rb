@@ -4,6 +4,7 @@ class Libevent < Formula
   url "https://github.com/libevent/libevent/releases/download/release-2.1.13-stable/libevent-2.1.13-stable.tar.gz"
   sha256 "f7e9383b8c0baa81b687e5b5eecc01beefaf1b19b64151d95ed61647fe7a315c"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -12,17 +13,15 @@ class Libevent < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ea0abd1593f324f6d757928eb5800e50517e911e1c6216fa23c3959c8c26b010"
-    sha256 cellar: :any, arm64_tahoe:       "a89bc8b73301ea34ef28dfe355d8ef6a068250184e216a66b98f60435ecfb372"
-    sha256 cellar: :any, arm64_sequoia:     "fd79042d1b524a34e00ef2c04ab71069f4105c1cf3aaa2407c0d608736c4ad1a"
-    sha256 cellar: :any, arm64_sonoma:      "d9bd12ae21a16634bba8ca8c9dca13e36c9fa783f5907e789a93a95e75a91b3e"
-    sha256 cellar: :any, sonoma:            "9a84f598bdd5283e794ee467ce1e8505df47930d0c101309f7329944db743d96"
-    sha256 cellar: :any, arm64_linux:       "da39ded40a1d60992d16fa256185ce6bc84039a5cdd2ab31139262755326e94c"
-    sha256 cellar: :any, x86_64_linux:      "2d1db7d19f8ffe0791977488d3442d98cd334c9f38b91b11b0e19ab8d4170e01"
+    sha256 cellar: :any, arm64_golden_gate: "45b525d77c2ecc4cf0172587e929a2bc872b1e01aabcd3679b0f60f4d76ceef7"
+    sha256 cellar: :any, arm64_tahoe:       "a718c5bf998957d5c75e242ad4a0e42d86730d3321facbea282cc37cca74ff45"
+    sha256 cellar: :any, arm64_sequoia:     "55344e687f9be992ae9dca23aad5bf6f3bbaa9e63031915cd2738da11787500b"
+    sha256 cellar: :any, arm64_linux:       "592c7c42f355287124631461d7e51c034603526a0a6710987da73031c4604be9"
+    sha256 cellar: :any, x86_64_linux:      "de71a3d6a6caa93383dc132e91dcc86c7c5a8c3e406b1485e28a8be257835818"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     system "./configure", "--disable-debug-mode", *std_configure_args
