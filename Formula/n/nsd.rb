@@ -19,12 +19,11 @@ class Nsd < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "9bd3f79f5a5642d9d2d6d7f75e4ec24191c927579957d17c6c0db0d36186230d"
-    sha256 arm64_tahoe:       "b90e09cb3ee8c91f68c6a7418d581a9b164f5b6b9ea75d0f3ee41d4c70f88f37"
-    sha256 arm64_sequoia:     "b0df831119f73793af2f6645a89d159d59b32448cc538fa1678c4271c316391a"
-    sha256 arm64_sonoma:      "ee98c1b823179e83e76e239e344543935bab67ef098e5c75256a595e24ea036e"
-    sha256 arm64_linux:       "6577adef35bda581d415dff9653aadfb04e2019b62e783d096e4cde8a23dbef5"
-    sha256 x86_64_linux:      "a6efabd0178dda7c2bd8b30c12da6c8c49f24ba62aa8c0a3004288a3970055a5"
+    sha256 arm64_golden_gate: "6f6faf2d1c1002104e3231cb54d659bdc99808dae8c9117afa68e484e0a100a2"
+    sha256 arm64_tahoe:       "72ab9f58ab5b1c9219b9e8c523097ba4047d4b20a5872fe863ff04967e79dcde"
+    sha256 arm64_sequoia:     "5b1c7b1d925c4cc14f085bcf7816be3da971d3996d073983c1d72375d0d8fd2c"
+    sha256 arm64_linux:       "97ea8dbbbb97727f412f160932784f62fe23cbfe312b159c836eb479f11b6945"
+    sha256 x86_64_linux:      "e14a1191f0d3bf9fade7935ad5b1733ea54aebf174e6ee2ee5ddcd6ed03632dd"
   end
 
   depends_on "pkgconf" => :build
