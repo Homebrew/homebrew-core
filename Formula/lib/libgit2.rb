@@ -4,7 +4,7 @@ class Libgit2 < Formula
   url "https://github.com/libgit2/libgit2/archive/refs/tags/v1.9.7.tar.gz"
   sha256 "1a4fbe7589e814777ae76b64734ad80f4ecad22cd33a22682a2aaea4ae5375e7"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
-  revision 1
+  revision 2
   compatibility_version 1
   head "https://github.com/libgit2/libgit2.git", branch: "main"
 
@@ -14,18 +14,18 @@ class Libgit2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1795b3c33aa68b633a0db049da20e69d1b366a18a9573fd102a06dc65cbedfa2"
-    sha256 cellar: :any, arm64_tahoe:       "6d2c8e83efabc6058e3ee3df69c083b29d8d276e2949285e98f43229c31a8501"
-    sha256 cellar: :any, arm64_sequoia:     "c8108c71e0380a026de9622e9b200056751c2e09f48479bb6cc2b2aded6e6f3f"
-    sha256 cellar: :any, arm64_linux:       "610366175028cacc0618857ae22d644e2733f2a92670ed6d6c77625e4ec7cdc9"
-    sha256 cellar: :any, x86_64_linux:      "1b9da2be2e353c8bb9e4e309f863e6c5aa16114bf737aef92a77fd8c4388d414"
+    sha256 cellar: :any, arm64_golden_gate: "8087d62ae8c4802644b8f3b4057cb0df0aeb087a2393dc707f94a2d8a1ca4e12"
+    sha256 cellar: :any, arm64_tahoe:       "61cc4d0d03f5a400cede72fb57609df07909725a3f8cb6a1f75b2edaec3ddf85"
+    sha256 cellar: :any, arm64_sequoia:     "302c14f39d0308fc5efa27a6cbec77ad03a1c763419c05d08ce334a908720759"
+    sha256 cellar: :any, arm64_linux:       "250ca463b1e1b58ec5d6eb55d29b3bcbbda24b9707eee147e73fffe712ead625"
+    sha256 cellar: :any, x86_64_linux:      "ee9a37ee37860ddfeabf3f46dce5423930df4756a64c4430a448e88e7b9107e8"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "libssh2"
   depends_on "llhttp"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "pcre2" # Uses regcomp_l on macOS which needs xlocale.h
