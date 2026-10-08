@@ -13,11 +13,11 @@ class Znc < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "4f2a826ce0ded6b6712c07f7ef00522b04e29302a6d1c49ee7ea43595b015081"
-    sha256 arm64_tahoe:       "eed95d97fde1c6da93568e57b40095651b15b0219f0664cafee92a8d3e4e8591"
-    sha256 arm64_sequoia:     "5de378841c045102c6c5762476fbf36db9954400f11d9e5127dd555c960eb738"
-    sha256 arm64_linux:       "094595c6536f2cec05f621e5ec02f5d7839caa704579811c0c22f52a3f4f5bd3"
-    sha256 x86_64_linux:      "fcad025ae02cf535706dd314def9dac8f3f21b183a685dc93b735c492cfea482"
+    sha256 arm64_golden_gate: "8a35a25662a388a118498819f9052c1fa48f3ee75ab127115575bb416fa58af7"
+    sha256 arm64_tahoe:       "66c8f070b336cb7cbaff6f46ae2efcae78804ccdf6a1c29fc70f554915b98ce9"
+    sha256 arm64_sequoia:     "ebfcd7b77821598a83331d4691ede5094658b22b877c0401a664ccf7b0092319"
+    sha256 arm64_linux:       "7fc31807e492d15a974bf3a7e919a71c709ffefcbeb004b4c97b0f74ae7fad1a"
+    sha256 x86_64_linux:      "a3a23af630776dc4f85ae2e7de99945253e95a93f2a45a60ddcf1ae1c4b44743"
   end
 
   depends_on "cmake" => :build
