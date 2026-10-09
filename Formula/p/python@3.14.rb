@@ -4,7 +4,7 @@ class PythonAT314 < Formula
   url "https://www.python.org/ftp/python/3.14.8/Python-3.14.8.tgz"
   sha256 "a65b20a728f169f4e66ae143f40b1bd3d33c38d770251663f627c9767b79b210"
   license "Python-2.0"
-  revision 2
+  revision 3
   compatibility_version 1
 
   livecheck do
@@ -183,6 +183,7 @@ class PythonAT314 < Formula
       args << "--enable-framework=#{frameworks}"
       args << "--with-dtrace"
       args << "--with-dbmliborder=ndbm"
+      args << "--with-tail-call-interp"
 
       # Avoid linking to libgcc https://mail.python.org/pipermail/python-dev/2012-February/116205.html
       args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
