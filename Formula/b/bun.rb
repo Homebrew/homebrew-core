@@ -86,6 +86,7 @@ class Bun < Formula
 
   # Build patches for clang 23 and the macOS 27 SDK,
   # https://github.com/oven-sh/bun/issues/41141
+  # Also replaces nightly-only `core::mem::type_info::of` to build with stable Rust
   patch :DATA
 
   # Performing a manual shallow git clone since a full clone of WebKit repo is ~18GB in size
@@ -181,6 +182,40 @@ class Bun < Formula
 end
 
 __END__
+diff --git a/src/collections/lib.rs b/src/collections/lib.rs
+index 57539df..46e4209 100644
+--- a/src/collections/lib.rs
++++ b/src/collections/lib.rs
+@@ -6,9 +6,10 @@
+     unsized_const_params,
+     const_cmp,
+     const_trait_impl,
+-    allocator_api
++    allocator_api,
++    core_intrinsics
+ )]
+-#![allow(incomplete_features)]
++#![allow(incomplete_features, internal_features)]
+ #![warn(unused_must_use)]
+ 
+ pub mod hive_array;
+diff --git a/src/collections/multi_array_list.rs b/src/collections/multi_array_list.rs
+index fda15fa..3af1d82 100644
+--- a/src/collections/multi_array_list.rs
++++ b/src/collections/multi_array_list.rs
+@@ -47,7 +47,11 @@
+ 
+ use core::alloc::Layout;
+ use core::marker::PhantomData;
+-use core::mem::type_info;
++mod type_info {
++    pub(super) const fn of<T: ?Sized>() -> core::any::TypeId {
++        const { core::intrinsics::type_id::<T>() }
++    }
++}
+ use core::mem::{ManuallyDrop, MaybeUninit};
+ use core::ptr::{self, NonNull};
+ use std::alloc::{Allocator, Global};
 diff --git a/src/jsc/bindings/JSNodePerformanceHooksHistogram.cpp b/src/jsc/bindings/JSNodePerformanceHooksHistogram.cpp
 index 0f72fd6..7ab0c64 100644
 --- a/src/jsc/bindings/JSNodePerformanceHooksHistogram.cpp
