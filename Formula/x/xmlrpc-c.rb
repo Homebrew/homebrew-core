@@ -4,6 +4,7 @@ class XmlrpcC < Formula
   url "https://downloads.sourceforge.net/project/xmlrpc-c/Xmlrpc-c%20Super%20Stable/1.64.04/xmlrpc-c-1.64.04.tgz"
   sha256 "509c3a3bffb77c81e2c364175ac70b95b799e5b695cc37d4bf833ec28fdfe0b6"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "92ab61ef54709bb7299665b7eb25f117f46a863d7849c39cc60a737855196141"
@@ -14,7 +15,7 @@ class XmlrpcC < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "curl"
   uses_from_macos "libxml2"
