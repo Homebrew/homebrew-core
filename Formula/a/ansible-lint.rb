@@ -21,7 +21,7 @@ class AnsibleLint < Formula
   depends_on "ansible" => :test
   depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
 
   pypi_packages exclude_packages: ["cryptography", "rpds-py"]
@@ -62,8 +62,8 @@ class AnsibleLint < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/53/e4/34efcb869715cf299e47d1ac7b2624d2bcb6f2d3dffc2f0abe8417f65ab2/filelock-4.0.12.tar.gz"
-    sha256 "cf42711a7ac791818b299fab0332a088c65aeeefa36290de98db92c434303b0c"
+    url "https://files.pythonhosted.org/packages/4c/58/6fd434bec86eff7c38a3168454cb132b762b2bea9b3ac094101a2f7bc32a/filelock-4.1.0.tar.gz"
+    sha256 "ad7f724afef953e731b1cc39bcd3a09166d72ed7fcdf29e6e88b1c3235c6715d"
   end
 
   resource "jinja2" do
@@ -102,8 +102,8 @@ class AnsibleLint < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/42/23/4a86fc741c38c5b69792a4ef954b281afa69bea9f083f881de1b0d23bc07/platformdirs-4.12.3.tar.gz"
-    sha256 "427fc0bb321ae0c5b037fa03238ca74820437be162e78b4848c4d4055b9b766c"
+    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
+    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
   end
 
   resource "pytokens" do
