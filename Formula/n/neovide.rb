@@ -4,6 +4,7 @@ class Neovide < Formula
   url "https://github.com/neovide/neovide/archive/refs/tags/0.16.2.tar.gz"
   sha256 "a2016cceab3cba50b6a8b2f6787ae9017a85923575e89a83ebb9d428e8f80ca9"
   license "MIT"
+  revision 1
   head "https://github.com/neovide/neovide.git", branch: "main"
 
   bottle do
@@ -31,6 +32,7 @@ class Neovide < Formula
 
   on_linux do
     depends_on "xorg-server" => :test
+    depends_on "desktop-file-utils"
     depends_on "expat"
     depends_on "fontconfig"
     depends_on "freetype"
@@ -69,6 +71,14 @@ class Neovide < Formula
 
     system "cargo", "install", *std_cargo_args
 
+    if OS.linux?
+      (share/"applications").install "assets/neovide.desktop"
+      (share/"icons/hicolor/scalable/apps").install "assets/neovide.svg"
+      %w[16x16 32x32 48x48 256x256].each do |size|
+        (share/"icons/hicolor/#{size}/apps").install "assets/neovide-#{size}.png" => "neovide.png"
+      end
+    end
+
     return unless OS.mac?
 
     # https://github.com/burtonageo/cargo-bundle/issues/118
@@ -77,6 +87,12 @@ class Neovide < Formula
     prefix.install "target/release/bundle/osx/Neovide.app"
     rm bin/"neovide" # Remove the original binary first
     bin.write_exec_script prefix/"Neovide.app/Contents/MacOS/neovide"
+  end
+
+  post_install_steps do
+    on_linux do
+      update_desktop_database
+    end
   end
 
   def nvim_ui_count(socket)
