@@ -22,7 +22,7 @@ class Liquidctl < Formula
   depends_on "hidapi"
   depends_on "libusb"
   depends_on "pillow" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_linux do
     depends_on "i2c-tools"
@@ -31,8 +31,8 @@ class Liquidctl < Formula
   pypi_packages exclude_packages: "pillow"
 
   resource "colorlog" do
-    url "https://files.pythonhosted.org/packages/a2/61/f083b5ac52e505dfc1c624eafbf8c7589a0d7f32daa398d2e7590efa5fda/colorlog-6.10.1.tar.gz"
-    sha256 "eb4ae5cb65fe7fec7773c2306061a8e63e02efc2c72eba9d27b0fa23c94f1321"
+    url "https://files.pythonhosted.org/packages/8c/55/ba79756cb90c8d69d599d57785398ac87bba7b19c80e87f4e8a562197c93/colorlog-6.12.0.tar.gz"
+    sha256 "2a7924c1dadf18b22a0eb8b06d1c7b01d5341707ec1641eb6fcc4fde0c3e8e5f"
   end
 
   resource "crcmod" do
