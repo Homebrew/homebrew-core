@@ -19,7 +19,7 @@ class Streamlink < Formula
   depends_on "pkgconf" => :build
   depends_on "certifi" => :no_linkage
   depends_on "libxml2" # https://github.com/Homebrew/homebrew-core/issues/98468
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libffi"
   uses_from_macos "libxslt"
