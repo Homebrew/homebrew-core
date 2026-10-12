@@ -25,7 +25,7 @@ class Vsview < Formula
   depends_on "numpy"
   depends_on "pydantic" => :no_linkage
   depends_on "pyside"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "vapoursynth"
   depends_on "vapoursynth-bestsource" => :no_linkage
   depends_on "vapoursynth-vszip" => :no_linkage
@@ -87,8 +87,8 @@ class Vsview < Formula
   end
 
   resource "jetpytools" do
-    url "https://files.pythonhosted.org/packages/65/ad/480d76a74467ddf67c6f5b35cacc84f940ca08c520eba9c94d10c7372cb6/jetpytools-3.1.2.tar.gz"
-    sha256 "f645e6ed57d3968005b562b0b04e540d71a86887b41b45496b9fb0ef34321ff0"
+    url "https://files.pythonhosted.org/packages/87/37/6c941547913727f6479464d557d35a0b38574d2d1047bc09285e076bcdfc/jetpytools-3.2.0.tar.gz"
+    sha256 "d40b52b97e0e891bd827b1d8452f6da1da78f90b1ea814bc21c2117c864a6a79"
   end
 
   resource "jh2" do
@@ -137,8 +137,8 @@ class Vsview < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
-    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
+    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
+    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
   end
 
   resource "pluggy" do
@@ -187,8 +187,8 @@ class Vsview < Formula
   end
 
   resource "vsjetengine" do
-    url "https://files.pythonhosted.org/packages/d5/98/e81cc7238fa19885e32363df5a31730e0c60f7e5429792e8ce30e8694a51/vsjetengine-1.8.0.tar.gz"
-    sha256 "c588474aec08bbe2c70f8efb8fb57a15d7b521edacb361ca144b4a1df03a2624"
+    url "https://files.pythonhosted.org/packages/44/54/2642f09c1fe4d0a34b41f3f378b4f353785629cdedf15e729ea84f8493f0/vsjetengine-1.8.1.tar.gz"
+    sha256 "e08728b7b76d17c5a969e515f38cf6dc307e0e9101fa8b7c637f38d453529da1"
   end
 
   resource "vsjetpack" do
@@ -202,8 +202,8 @@ class Vsview < Formula
   end
 
   resource "vsview-comp" do
-    url "https://files.pythonhosted.org/packages/f1/e5/674b8c9ae51b2590c1b22d98e4811ae6c2d171b396c477f0cd57ba9d20ba/vsview_comp-0.14.0.tar.gz"
-    sha256 "bde0b1b6e717c45063794b9b63b2c87bb6d67f06e681653ae5877d3fee778726"
+    url "https://files.pythonhosted.org/packages/5f/06/6d75f0c760cf9f21115e20892622cbbd53933008365668a2a4b786f4389d/vsview_comp-0.15.0.tar.gz"
+    sha256 "77c80a9cf5eb8d9f9aa240961da026718422fa468d256bc909fb63901b6f0766"
   end
 
   resource "vsview-fftspectrum" do
