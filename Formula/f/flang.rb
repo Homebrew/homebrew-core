@@ -2,6 +2,7 @@ class Flang < Formula
   desc "LLVM Fortran Frontend"
   homepage "https://flang.llvm.org/"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
@@ -92,6 +93,14 @@ class Flang < Formula
     system "cmake", "--build", "build-rt"
     system "cmake", "--install", "build-rt"
 
+    # Install C++ headers for Flang frontend plugins (`-fc1 -load`). They match
+    # upstream's `flang-headers` component, which LLVM_INSTALL_TOOLCHAIN_ONLY skips.
+    { "flang/include" => "*.{def,h,inc,td}", "build/include" => "*.inc" }.each do |dir, pattern|
+      cd dir do
+        Dir["flang/**/#{pattern}"].each { |f| (include/File.dirname(f)).install f }
+      end
+    end
+
     if build.stable?
       resource("llvm_man_pages").stage do
         man1.install Utils::Gzip.compress("flang.1")
@@ -181,5 +190,29 @@ class Flang < Formula
     assert_equal expected, shell_output("./omptest").lines(chomp: true).sort
 
     system bin/"flang", "-v", "runtimes.f90"
+
+    (testpath/"plugin.cpp").write <<~CPP
+      #include "flang/Frontend/FrontendActions.h"
+      #include "flang/Frontend/FrontendPluginRegistry.h"
+      #include "flang/Parser/parse-tree.h"
+      #include "flang/Parser/parsing.h"
+
+      using namespace Fortran::frontend;
+
+      struct CountUnits : PluginParseTreeAction {
+        void executeAction() override {
+          llvm::outs() << "units: " << getParsing().parseTree()->v.size() << "\\n";
+        }
+      };
+
+      static FrontendPluginRegistry::Add<CountUnits> X("count-units", "Count program units");
+    CPP
+
+    plugin = testpath/shared_library("plugin")
+    args = %W[-std=c++17 -shared -fPIC -DFLANG_LITTLE_ENDIAN=1 -I#{include} -I#{formula_opt_include("llvm")}]
+    args += %W[-isysroot #{MacOS.sdk_path} -Wl,-undefined,dynamic_lookup] if OS.mac?
+    system formula_opt_bin("llvm")/"clang++", *args, "plugin.cpp", "-o", plugin
+    output = shell_output("#{bin}/flang -fc1 -load #{plugin} -plugin count-units sqrt72.f90")
+    assert_equal "units: 2", output.strip
   end
 end
