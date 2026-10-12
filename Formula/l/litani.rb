@@ -25,7 +25,7 @@ class Litani < Formula
   depends_on "graphviz"
   depends_on "libyaml"
   depends_on "ninja"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name:   "",
                 extra_packages: %w[jinja2 markupsafe pyyaml]
