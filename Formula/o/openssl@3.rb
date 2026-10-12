@@ -1,16 +1,15 @@
 class OpensslAT3 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl-library.org"
-  url "https://github.com/openssl/openssl/releases/download/openssl-3.6.5/openssl-3.6.5.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/openssl-3.6.5.tar.gz"
-  mirror "http://deb.debian.org/debian/pool/main/o/openssl/openssl_3.6.5.orig.tar.gz"
-  sha256 "a2157c2830efdec3788939b00c9b0638306d3f0bbb76dc4832ee503bb397df98"
+  url "https://github.com/openssl/openssl/releases/download/openssl-3.5.9/openssl-3.5.9.tar.gz"
+  sha256 "603f5602e2eef00d77fbd429d34dcd5822bb301757a1bc9cdb24c670f1eb859a"
   license "Apache-2.0"
+  version_scheme 1
   compatibility_version 1
 
   livecheck do
     url "https://openssl-library.org/source/"
-    regex(/href=.*?openssl[._-]v?(3(?:\.\d+)+)\.t/i)
+    regex(/href=.*?openssl[._-]v?(3\.5(?:\.\d+)+)\.t/i)
   end
 
   bottle do
@@ -23,24 +22,26 @@ class OpensslAT3 < Formula
 
   keg_only :versioned_formula
 
+  # https://openssl-library.org/post/2026-09-16-eol30/
+  # OpenSSL 3.5 is a LTS version
+  deprecate! date: "2030-04-08", because: :unmaintained
+  disable! date: "2031-04-08", because: :unmaintained
+
   depends_on "ca-certificates" => :no_linkage
 
   on_linux do
     resource "Test::Harness" do
       url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.52.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.52.tar.gz"
       sha256 "8fe65cfc0261ed3c8a4395f0524286f5719669fe305f9b03b16cf3684d62cd70"
     end
 
     resource "Test::More" do
       url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302224.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302224.tar.gz"
       sha256 "6c366b8ab03553976dd1813940770b60bdb4396e7bbae8c263baa6e96ec52fd7"
     end
 
     resource "ExtUtils::MakeMaker" do
       url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.78.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.78.tar.gz"
       sha256 "43b33c20f8d82dba7cc48f8cd702f8fc9811e9d07880886dfd31b7077bd4a3a6"
     end
   end
@@ -124,9 +125,6 @@ class OpensslAT3 < Formula
 
       and run
         #{opt_bin}/c_rehash
-
-      OpenSSL 3.6 is only supported until 2026-11-01 so the `openssl@3`
-      formula will be downgraded to OpenSSL 3.5 (LTS) in a future update.
     EOS
   end
 

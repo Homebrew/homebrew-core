@@ -18,6 +18,7 @@
   "ntbtls",
   "open-mpi",
   "openssl@3.0",
+  "openssl@3.6",
   "openssl@3",
   "openssl@4",
   "p11-kit",
