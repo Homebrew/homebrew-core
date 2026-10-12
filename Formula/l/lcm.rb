@@ -25,7 +25,7 @@ class Lcm < Formula
   depends_on "glib"
   depends_on "lua"
   depends_on "openjdk"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   deny_network_access!
   def install
