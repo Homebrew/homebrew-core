@@ -24,7 +24,7 @@ class Dnsdist < Formula
   depends_on "boost" => :build
   depends_on "libyaml" => :build # for PyYaml
   depends_on "pkgconf" => :build
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on "fstrm"
   depends_on "libnghttp2"
   depends_on "libsodium"
