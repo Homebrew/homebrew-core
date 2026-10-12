@@ -19,7 +19,7 @@ class Bittensor < Formula
 
   depends_on "openssl@4"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   conflicts_with "btcli", "btpd", because: "both install `btcli` binaries"
 
