@@ -3,15 +3,9 @@ class RapidMlx < Formula
 
   desc "Fast local AI engine for Apple Silicon with an OpenAI-compatible API"
   homepage "https://github.com/raullenchai/Rapid-MLX"
-  url "https://files.pythonhosted.org/packages/36/52/38cda5d432bbc0738863790c43513e96add4209c5d5fe3505d4f9e85d892/rapid_mlx-0.15.7.tar.gz"
-  sha256 "b5ad90eab4ad17b558a95438edbf5fed3146a332971c08998a41685c5f426b1b"
+  url "https://files.pythonhosted.org/packages/93/21/73ccb6dfe8c8649ad873bdddbf53acb7a9a4f524df0159980c09a2fea6e9/rapid_mlx-0.16.0.tar.gz"
+  sha256 "25d9f886a91a9df37341afebb994eb19aacaf9a16a56a2451b6c3d7afeeaf8ab"
   license "Apache-2.0"
-
-  bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a0e049ca6acf295bcfab47a546cdae09fb8420bdcfaf6c88d31e05cf7dd238cc"
-    sha256 cellar: :any, arm64_tahoe:       "157f4a0dbb0ff32dcc532be439ebdb5c9d794884987583c2d56a5cba6ea6034b"
-    sha256 cellar: :any, arm64_sequoia:     "8f51fb34bdb2503d1d273ab0a8edac528b4256d40aca7ca3539a7cc37e6b430d"
-  end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
@@ -26,7 +20,12 @@ class RapidMlx < Formula
   depends_on "python@3.14"
   depends_on "rpds-py" => :no_linkage
 
-  pypi_packages exclude_packages: %w[certifi cryptography mlx numpy pydantic rpds-py]
+  # PyPI's base install includes lazy-loaded vision, image and video runtimes.
+  # Homebrew keeps the text-serving runtime; the multimodal tree is not source-buildable.
+  pypi_packages exclude_packages: %w[
+    certifi cryptography imageio imageio-ffmpeg mflux mlx mlx-arsenal mlx-video-with-audio mlx-vlm
+    numpy opencv-python pillow pydantic rpds-py torch torchvision
+  ]
 
   resource "annotated-doc" do
     url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
