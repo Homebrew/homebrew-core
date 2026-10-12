@@ -19,7 +19,7 @@ class GalleryDl < Formula
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "yt-dlp" => :no_linkage
 
   pypi_packages package_name:     "gallery-dl[extra]",
