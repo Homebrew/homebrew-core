@@ -19,7 +19,7 @@ class Llm < Formula
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: ["certifi", "pydantic"]
 
@@ -49,13 +49,13 @@ class Llm < Formula
   end
 
   resource "httpcore2" do
-    url "https://files.pythonhosted.org/packages/15/8c/e925b1c92018abb3a1863ce1549d76d2381e334d21d65d4ac8f65dabd78a/httpcore2-2.13.0.tar.gz"
-    sha256 "2adc8be4fb285fbcd6d894298db3b52c177e74b6674eda3a76bd36be3292a3db"
+    url "https://files.pythonhosted.org/packages/cb/f3/1db7aa2bc2524062192bb0e0323969492d1883152a232fe36eea65f4e35c/httpcore2-2.13.1.tar.gz"
+    sha256 "e0aa977abe17e69a3b820a24542a6fa88702676d83880b8d194dcd18408e5103"
   end
 
   resource "httpx2" do
-    url "https://files.pythonhosted.org/packages/b9/a0/e9deef4654132857b5a5dbe4eddd0ac59c2814500e11f2f5044cd81103ee/httpx2-2.13.0.tar.gz"
-    sha256 "81bd07dc67a3701729ef1f777a3c00c915d4539604fdb5afd327f8682f6b7b44"
+    url "https://files.pythonhosted.org/packages/d5/44/474bef2a0e9d90f1715d32cb98b0738695ca17ba324095fb2497ed7fbd59/httpx2-2.13.1.tar.gz"
+    sha256 "e48744a19e3af5ee48313d0ce5fe941d5422fae5705ea922a4aabf94d7800dfa"
   end
 
   resource "idna" do
@@ -69,8 +69,8 @@ class Llm < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/1b/7b/a960e698f7126f31113764d7b441d7fe73caada32b6e65c6ca42c5343265/openai-3.18.0.tar.gz"
-    sha256 "780946991bc825f110ddde12c8c84885dd012ae64143d56d494922b7bb879b78"
+    url "https://files.pythonhosted.org/packages/b7/a3/3b5576af9c4b8cb7eef1383d33c48a9431b292983fe4b78cbffb31d0aeeb/openai-3.28.0.tar.gz"
+    sha256 "cf0509d32d7bd8eb6a3db02417957cb455212b6629d071826b9ea1f61659e2a4"
   end
 
   resource "pluggy" do
