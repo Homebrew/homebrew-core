@@ -477,8 +477,9 @@ jobs:
         env:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-      - name: Enable automerge
+      - name: Enqueue PR for merge
         id: automerge
+        timeout-minutes: 30
         env:
           GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
           EXPECTED_SHA: ${{steps.pr-upload.outputs.head_sha}}
@@ -497,11 +498,50 @@ jobs:
             exit 1
           fi
 
-          gh pr merge "$PR" \
-            --auto \
-            --merge \
-            --match-head-commit "$EXPECTED_SHA" \
-            --repo "$GITHUB_REPOSITORY"
+          gh pr checks "$PR" --required --watch --fail-fast --repo "$GITHUB_REPOSITORY"
+
+          merge_endpoint="repos/$GITHUB_REPOSITORY/pulls/$PR/merge-async"
+          merge_response="$(
+            gh api --method PUT \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2026-03-10' \
+              "$merge_endpoint" \
+              --raw-field sha="$EXPECTED_SHA" \
+              --raw-field merge_action=merge_queue
+          )"
+
+          for attempt in {1..60}
+          do
+            status="$(jq --exit-status --raw-output '.status' <<< "$merge_response")"
+            case "$status" in
+              enqueued|merged)
+                echo "::notice ::PR #$PR merge status: $status"
+                exit 0
+                ;;
+              pending)
+                if [[ "$attempt" -eq 60 ]]
+                then
+                  break
+                fi
+                uuid="$(jq --exit-status --raw-output '.details.uuid' <<< "$merge_response")"
+                sleep 5
+                merge_response="$(
+                  gh api \
+                    --header 'Accept: application/vnd.github+json' \
+                    --header 'X-GitHub-Api-Version: 2026-03-10' \
+                    "$merge_endpoint/$uuid"
+                )"
+                ;;
+              *)
+                echo "::error ::Failed to enqueue PR #$PR for merge."
+                jq . <<< "$merge_response"
+                exit 1
+                ;;
+            esac
+          done
+
+          echo "::error ::Timed out waiting for PR #$PR to enter the merge queue."
+          exit 1
 
       - name: Post comment on failure
         if: >
@@ -513,8 +553,8 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
-          body: ":warning: @${{github.actor}} [Failed to enable automerge](${{env.RUN_URL}})."
-          bot_body: ":warning: [Failed to enable automerge](${{env.RUN_URL}})."
+          body: ":warning: @${{github.actor}} [Failed to enqueue PR for merge](${{env.RUN_URL}})."
+          bot_body: ":warning: [Failed to enqueue PR for merge](${{env.RUN_URL}})."
           bot: github-actions[bot]
 
   update-command-not-found-db:
