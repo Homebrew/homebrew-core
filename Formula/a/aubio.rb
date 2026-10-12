@@ -27,7 +27,7 @@ class Aubio < Formula
   depends_on "python-setuptools" => :build
   depends_on "libsndfile"
   depends_on "numpy"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "homebrew-aiff", :test do
     url "https://archive.org/download/TestAifAiffFile/02DayIsDone.aif"
