@@ -55,7 +55,7 @@
   ["mupdf", "mupdf-tools"],
   ["mysql", "mysql-client"],
   ["notmuch", "notmuch-mutt"],
-  ["openssh", "ssh-copy-id"],
+  ["openssh", "openssh-sk-provider", "ssh-copy-id"],
   ["petsc", "petsc-complex"],
   ["pipewire", "pipewire-gstreamer"],
   ["poppler", "poppler-qt5"],
