@@ -9,7 +9,7 @@ class Cliproxyapi < Formula
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
-    throttle 5
+    throttle 5, days: 2
   end
 
   bottle do
