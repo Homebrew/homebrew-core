@@ -23,6 +23,10 @@ class OpensslAT3 < Formula
 
   keg_only :versioned_formula
 
+  # https://openssl-library.org/post/2026-09-16-eol30/
+  deprecate! date: "2026-11-01", because: :unmaintained
+  disable! date: "2027-11-01", because: :unmaintained
+
   depends_on "ca-certificates" => :no_linkage
 
   on_linux do
