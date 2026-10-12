@@ -18,7 +18,7 @@ class VapoursynthBm3d < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "fftw"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "vapoursynth"
 
   deny_network_access!
