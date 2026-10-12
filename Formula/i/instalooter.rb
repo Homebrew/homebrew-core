@@ -18,7 +18,7 @@ class Instalooter < Formula
   disable! date: "2027-07-10", because: :unmaintained, replacement_formula: "instaloader"
 
   depends_on "certifi" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi",
                 extra_packages:   "setuptools<82" # Upstream uses `pkg_resources`, so should limit the version < 82
