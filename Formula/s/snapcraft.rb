@@ -30,7 +30,7 @@ class Snapcraft < Formula
   depends_on "lxc"
   depends_on "pydantic" => :no_linkage
   depends_on "pygit2" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "snap"
   depends_on "xdelta"
 
@@ -64,8 +64,8 @@ class Snapcraft < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "click" do
@@ -94,8 +94,8 @@ class Snapcraft < Formula
   end
 
   resource "craft-parts" do
-    url "https://files.pythonhosted.org/packages/f5/dd/ef029e36529a039c5ccf03804cc638f4f80383e0f834ba1999d0df9704b6/craft_parts-2.37.1.tar.gz"
-    sha256 "f38f1c95a93428119971bd03ca7dd202e424068ede06ea8812e974988faf34e8"
+    url "https://files.pythonhosted.org/packages/df/81/85f27ec2ea9bd062f8bc323672f72203892144b604a7dc32bb2bac3c2077/craft_parts-2.35.2.tar.gz"
+    sha256 "ceb977f8f1b260ab5f8f598657867af7afb0eb4ad424aa97f6b3a67a53ee2b81"
   end
 
   resource "craft-platforms" do
@@ -189,8 +189,8 @@ class Snapcraft < Formula
   end
 
   resource "launchpadlib" do
-    url "https://files.pythonhosted.org/packages/30/ec/e659321733decaafe95d4cf964ce360b153de48c5725d5f27cefe97bf5f8/launchpadlib-2.1.0.tar.gz"
-    sha256 "b4c25890bb75050d54c08123d2733156b78a59a2555f5461f69b0e44cd91242f"
+    url "https://files.pythonhosted.org/packages/17/05/79115eea3f46a2048552b766d2e031740b53baff5a084d6a3f6318642ffe/launchpadlib-2.2.0.tar.gz"
+    sha256 "d4f7bb6b95739d4667dd6093d410220317b2415b6c2ef5b143379ebc5f5363a9"
   end
 
   resource "lazr-restfulclient" do
@@ -219,8 +219,8 @@ class Snapcraft < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "more-itertools" do
@@ -244,8 +244,8 @@ class Snapcraft < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/c3/8a/84ef03c1c83eacd7cc4540b05428a93b5cd4e42f62fb0b98ac2cb6ed3a6d/platformdirs-4.12.1.tar.gz"
-    sha256 "38da801a4af303033cbffccb39030db22bf0473e6414309b02acebeee7ca8bf1"
+    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
+    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
   end
 
   resource "protobuf" do
@@ -299,8 +299,8 @@ class Snapcraft < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/b0/ed/fa23d28713004418bbf2407127f80f385bfb0bf4e677bef02c25c27b00ee/pytz-2026.4.tar.gz"
-    sha256 "464303645bafafd72418898368b2429458f709cf1eb6a15372fbcc396b64da63"
+    url "https://files.pythonhosted.org/packages/14/21/d83d6ef28c4c912c4bb4d1dcf591f7b8c6bde87b9c66f9f454677314e16d/pytz-2026.5.tar.gz"
+    sha256 "fa23724b9c486543b9ff54a327ee7569ac83ade54bb9afd0fc18676620401c86"
   end
 
   resource "pyxdg" do
