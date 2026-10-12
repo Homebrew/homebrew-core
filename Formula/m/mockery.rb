@@ -1,8 +1,8 @@
 class Mockery < Formula
   desc "Mock code autogenerator for Golang"
   homepage "https://vektra.github.io/mockery/"
-  url "https://github.com/vektra/mockery/archive/refs/tags/v3.8.0.tar.gz"
-  sha256 "166487e34348d95057252e5a1a172d272f12eb01902c0c05c2a948567028800f"
+  url "https://github.com/vektra/mockery/archive/refs/tags/v3.8.1.tar.gz"
+  sha256 "6db3558b8c9f70b23458696b856d2207dcd7c0a48d02192ebcb10ee2e03924e4"
   license "BSD-3-Clause"
   head "https://github.com/vektra/mockery.git", branch: "v3"
 
@@ -15,12 +15,11 @@ class Mockery < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "78c117a04960f4bd026ca890067e23487f7fcc9d0ed5fd3563be0ec362bcd6cc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "78c117a04960f4bd026ca890067e23487f7fcc9d0ed5fd3563be0ec362bcd6cc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "78c117a04960f4bd026ca890067e23487f7fcc9d0ed5fd3563be0ec362bcd6cc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "78c117a04960f4bd026ca890067e23487f7fcc9d0ed5fd3563be0ec362bcd6cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1e3e0513a0207d11bc1e01afe0f35203b7137a49d3252115075785a9e00db70f"
-    sha256 cellar: :any,                 x86_64_linux:      "29711a8708a8e70b0bdac1ee4d564ed64bdd47df59a0e65fd1b793a36cf4d2a9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7590d89c01326be5876a2b7b94ac67e6350c4494ea977aa80a16175b1496fb46"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7590d89c01326be5876a2b7b94ac67e6350c4494ea977aa80a16175b1496fb46"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7590d89c01326be5876a2b7b94ac67e6350c4494ea977aa80a16175b1496fb46"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a3ef9d534733e9b18f4c6f04085c8d1ed577c2d1ab942a4a006e90193f78e8d3"
+    sha256 cellar: :any,                 x86_64_linux:      "b136f6a8a81f51a09661c5d1816354d24b9f2c6a91f4d536dcd14aaa63d35cd1"
   end
 
   depends_on "go" => :build
