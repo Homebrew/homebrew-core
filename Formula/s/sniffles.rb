@@ -19,7 +19,7 @@ class Sniffles < Formula
   depends_on "samtools" => :test
   depends_on "htslib"
   depends_on "numpy"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "spoa"
 
   on_linux do
