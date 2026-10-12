@@ -1,10 +1,10 @@
 class Qtcanvaspainter < Formula
   desc "Accelerated 2D painting solution for Qt Quick and QRhi-based render targets"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtcanvaspainter-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtcanvaspainter-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtcanvaspainter-everywhere-src-6.11.2.tar.xz"
-  sha256 "8a90a27250ceef5ff659744e035ef4f5d3cd7392e027d5f953765b3f1083e760"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtcanvaspainter-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtcanvaspainter-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtcanvaspainter-everywhere-src-6.12.0.tar.xz"
+  sha256 "09c0747c3bef7c58e3154346ca5fe2702ab09f7ad4083243e6d20307245119e2"
   license all_of: [
     "GPL-3.0-only",
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } }, # qcshadergen

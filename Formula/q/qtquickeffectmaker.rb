@@ -1,10 +1,10 @@
 class Qtquickeffectmaker < Formula
   desc "Tool to create custom Qt Quick shader effects"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtquickeffectmaker-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtquickeffectmaker-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtquickeffectmaker-everywhere-src-6.11.2.tar.xz"
-  sha256 "7923dc7284e933a5e36ae24a427564f04e0b27af8dfa38eee8092c01c2835cb7"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtquickeffectmaker-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtquickeffectmaker-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtquickeffectmaker-everywhere-src-6.12.0.tar.xz"
+  sha256 "290c8c3c9835e9d3991cbf7e8fe965992c8f7c8730e694f7cf90fb719c2c63ac"
   license all_of: [
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "BSD-3-Clause", # BlurHelper.qml
@@ -34,6 +34,9 @@ class Qtquickeffectmaker < Formula
   depends_on "qtshadertools"
 
   def install
+    # FIXME: app bundle is broken as CFBundleExecutable doesn't match after rename
+    inreplace "tools/qqem/CMakeLists.txt", 'set(EXECUTABLE "qqem")', 'set(EXECUTABLE "Qt Quick Effect Maker")'
+
     args = ["-DCMAKE_STAGING_PREFIX=#{prefix}"]
     args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON" if OS.mac?
 
@@ -49,7 +52,7 @@ class Qtquickeffectmaker < Formula
 
     bin.glob("*.app") do |app|
       libexec.install app
-      bin.write_exec_script libexec/app.basename/"Contents/MacOS"/app.stem
+      (bin/"qqem").write_env_script libexec/app.basename/"Contents/MacOS"/app.stem, {}
     end
   end
 
