@@ -4,6 +4,7 @@ class Yalantinglibs < Formula
   url "https://github.com/alibaba/yalantinglibs/archive/refs/tags/0.6.1.tar.gz"
   sha256 "2ef2089a49a08f764c558e9caf46e1d37697b111e04a48e5c5156f57f3afff24"
   license "Apache-2.0"
+  revision 1
   version_scheme 1
   head "https://github.com/alibaba/yalantinglibs.git", branch: "main"
 
@@ -17,7 +18,6 @@ class Yalantinglibs < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "asio"
   depends_on "async_simple"
   depends_on "frozen"
   depends_on "iguana"
@@ -44,12 +44,15 @@ class Yalantinglibs < Formula
     system "cmake", "-S", ".", "-B", "builddir", *args, *std_cmake_args
     system "cmake", "--build", "builddir"
     system "cmake", "--install", "builddir"
+    include.install "include/ylt/standalone/cinatra"
+    include.install "include/ylt/thirdparty/asio"
   end
 
   test do
     (testpath/"test.cpp").write <<~CPP
       #include <iostream>
       #include "ylt/version.hpp"
+      #include "ylt/coro_http/coro_http_client.hpp"
       #include "ylt/struct_json/json_reader.h"
       #include "ylt/struct_json/json_writer.h"
 
