@@ -4,6 +4,7 @@ class Libpeas < Formula
   url "https://download.gnome.org/sources/libpeas/2.2/libpeas-2.2.1.tar.xz"
   sha256 "589eca89b437006edf3755478df037c740a2a84cfa5d202dbad6095e828e2488"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_golden_gate: "9cf39893b9ccd59722e2a58783577a913e8e020f13279e9a07ca26a1c0f66e26"
