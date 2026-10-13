@@ -2,8 +2,8 @@ class DotnetAT8 < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-  url "https://github.com/dotnet/dotnet/archive/refs/tags/v8.0.131.tar.gz"
-  sha256 "b1adc9442ba3dd564c74630a402a7d25987619278c7f3d49cce8fb10b4a2c2f5"
+  url "https://github.com/dotnet/dotnet/archive/refs/tags/v8.0.132.tar.gz"
+  sha256 "e488a0713415c47ca93b6c8a185cabfa4fa58facb83e0f7c306e3bf5e86ab021"
   license "MIT"
   compatibility_version 1
 
@@ -55,8 +55,8 @@ class DotnetAT8 < Formula
   end
 
   resource "release.json" do
-    url "https://github.com/dotnet/dotnet/releases/download/v8.0.131/release.json"
-    sha256 "68f2d6f9c8d1a6856450ada23c3a6f01cc92a58d0b69956b183ff1207d800e95"
+    url "https://github.com/dotnet/dotnet/releases/download/v8.0.132/release.json"
+    sha256 "8c94ced5e6788003f762cd59f0e635ac935cf298374b449d89ba10bb93280380"
 
     livecheck do
       formula :parent
@@ -167,6 +167,9 @@ class DotnetAT8 < Formula
   end
 
   test do
+    # Runtime 8.0.32 puts user mutexes under the passwd home, which the Linux test sandbox blocks
+    ENV["XDG_RUNTIME_DIR"] = testpath
+
     target_framework = "net#{version.major_minor}"
 
     (testpath/"test.cs").write <<~CSHARP
