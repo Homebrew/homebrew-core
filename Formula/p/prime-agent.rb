@@ -387,7 +387,7 @@ class PrimeAgent < Formula
     libexec.install "models.bundled.json", "mcp-services.bundled.json"
     libexec.install "LICENSE", "README.md"
     ENV["PIP_NO_INDEX"] = "1"
-    venv = virtualenv_create(libexec/"venv", "python3.14")
+    venv = virtualenv_create(libexec/"venv", "python3.15")
     # Meson scripts and compiler discovery need the installed build backends.
     ENV.prepend_path "PATH", venv.root/"bin"
     ENV.prepend_path "PYTHONPATH", venv.site_packages
@@ -408,7 +408,7 @@ class PrimeAgent < Formula
       else
         if name == "setuptools-scm"
           # pip_install ignores existing installs; remove the temporary backend's files and entry points.
-          system "python3.14", "-m", "pip", "--python=#{libexec}/venv/bin/python",
+          system "python3.15", "-m", "pip", "--python=#{libexec}/venv/bin/python",
                  "uninstall", "--yes", "setuptools-scm"
         end
         venv.pip_install resource(name), build_isolation: false
