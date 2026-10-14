@@ -378,6 +378,17 @@ jobs:
           cleanup: ${{ matrix.cleanup }}
           download-bottles: true
 
+      - name: Build all Ruby preview dependents
+        run: |
+          brew ruby -e '
+            require "utils/inreplace"
+            Utils::Inreplace.inreplace(
+              HOMEBREW_LIBRARY/"Homebrew/test_bot/formulae_dependents.rb",
+              "split_source_dependents(dependents)",
+              "split_source_dependents(dependents, dependents.count)",
+            )
+          '
+
       - name: Test dependents
         run: |
           if [[ -n "$FORMULAE_DEPENDENTS_SHARD" ]]
