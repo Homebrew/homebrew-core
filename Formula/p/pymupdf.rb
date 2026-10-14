@@ -4,7 +4,7 @@ class Pymupdf < Formula
   url "https://files.pythonhosted.org/packages/a3/fb/b6761fa2d5266f2cdb24c3b91f4023070ab7848381417678e7a289a1d52a/pymupdf-1.28.2.tar.gz"
   sha256 "5e0be7908a715aa20333caddd73f1d6f01e4cd0c26e869fa2dd0b7f344da2249"
   license "AGPL-3.0-only"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "83bfd165b2f2e9708b1135703330240bd9a8bbb027faf1fbca600e05233fc8db"
@@ -18,7 +18,7 @@ class Pymupdf < Formula
   depends_on "python-setuptools" => :build
   depends_on "swig" => :build
   depends_on "mupdf"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   # Stop using the Python 2 C API macros that swig 4.5 no longer defines
   patch do
