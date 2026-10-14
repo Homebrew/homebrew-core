@@ -22,7 +22,7 @@ class Xapian < Formula
     sha256 cellar: :any, x86_64_linux:      "e59b982d200537bda5d76b279bf5ef73af38fc34fec7defd8a3b90f596803aa2"
   end
 
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "sphinx-doc" => :build
 
   on_linux do
