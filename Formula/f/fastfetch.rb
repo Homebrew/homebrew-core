@@ -25,7 +25,7 @@ class Fastfetch < Formula
   depends_on "imagemagick" => :build
   depends_on "lua" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on "vulkan-loader" => :build
   depends_on "yyjson"
 
