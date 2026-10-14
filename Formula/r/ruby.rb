@@ -2,20 +2,19 @@ class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
   license "Ruby"
-  revision 1
   compatibility_version 1
 
   stable do
-    # TODO: enable default_user_install when updating to Ruby 4.1
-    url "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.7.tar.gz"
-    sha256 "911ace20f90d068ca0e4dda6d0e4f0f81e52e52f2dd4f4004c721e253412e82d"
+    url "https://cache.ruby-lang.org/pub/ruby/4.1/ruby-4.1.0-preview1.tar.gz"
+    version "4.1.0-beta1"
+    sha256 "fb530bb88e90de3ae91c1310a27ae090e6bd989b8726de50ef12a890a85b88ef"
 
     # Should be updated only when Ruby is updated (if an update is available).
     # The exception is Rubygem security fixes, which mandate updating this
     # formula & the versioned equivalents and bumping the revisions.
     resource "rubygems" do
-      url "https://rubygems.org/rubygems/rubygems-4.0.20.tgz"
-      sha256 "177c816f9952419dbfd1f56ef93e4a9d1fdc60d885c6ca0787283485b0c05408"
+      url "https://rubygems.org/rubygems/rubygems-4.1.0.beta2.tgz"
+      sha256 "8a9d6692b72890214b98adcf53d5c48169f05a6631b5cff44e0fead91676f8da"
 
       livecheck do
         url "https://rubygems.org/pages/download"
@@ -55,9 +54,6 @@ class Ruby < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # TODO: remove when enabling default_user_install
-  link_overwrite "bin/bundle", "bin/bundler"
-
   # Test installs gems from rubygems.org
   allow_network_access! :test
 
@@ -74,7 +70,7 @@ class Ruby < Formula
         "#{stable.version.major.to_i}.#{stable.version.minor.to_i + 1}.0+0"
       end
     else
-      "#{version.major.to_i}.#{version.minor.to_i}.0"
+      "#{version.major.to_i}.#{version.minor.to_i}.0+5"
     end
   end
 
@@ -157,18 +153,13 @@ class Ruby < Formula
       end
     end
 
-    # Customize rubygems to look/install in the global gem directory
+    # Customize rubygems to look for shared gems in the global gem directory
     # instead of in the Cellar, making gems last across reinstalls
     config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
     config_file.write rubygems_config
   end
 
-  # Since Gem ships Bundle we want to provide that full/expected installation
-  # but to do so we need to handle the case where someone has previously
-  # installed bundle manually via `gem install`.
-  # TODO: remove the `remove` step when enabling default_user_install
   post_install_steps do
-    remove "{{HOMEBREW_PREFIX}}/lib/ruby/gems/{{version.major_minor}}.0/gems/bundler-*", recursive: true
     on_macos do
       if_path_exists "opt/ruby@{{version.major_minor}}/lib/libruby.{{version.major_minor}}.dylib",
                      base: :homebrew_prefix do
@@ -191,13 +182,9 @@ class Ruby < Formula
           alias :old_default_specifications_dir :default_specifications_dir
         end
 
-        # TODO: enable this with Ruby 4.1
-        #
-        # def self.default_user_install
-        #   return true unless ENV.key?("GEM_HOME")
-        #
-        #   false
-        # end
+        def self.default_user_install
+          !ENV.key?("GEM_HOME")
+        end
 
         def self.default_dir
           path = [
@@ -262,12 +249,10 @@ class Ruby < Formula
   end
 
   def caveats
-    # TODO: update path when enabling `Gem.default_user_install`
     <<~EOS
-      By default, binaries installed by gem will be placed into:
-        #{rubygems_bindir}
-
-      You may want to add this to your PATH.
+      Gems are installed to your user directory by default. Add their executables
+      to your PATH with:
+        export PATH="$(#{opt_bin}/ruby -e 'print Gem.user_dir')/bin:$PATH"
     EOS
   end
 
@@ -276,6 +261,12 @@ class Ruby < Formula
     assert_equal "hello\n", hello_text
 
     assert_equal api_version, determine_api_version
+
+    ENV.delete("GEM_HOME")
+    user_bin = Pathname(shell_output("#{bin}/ruby -e 'print Gem.user_dir'").strip)/"bin"
+    system bin/"gem", "install", "rake", "--no-document"
+    (testpath/"Rakefile").write 'task(:default) { puts "hello" }'
+    assert_equal "hello\n", shell_output(user_bin/"rake")
 
     ENV["GEM_HOME"] = testpath
     system bin/"gem", "install", "json"
