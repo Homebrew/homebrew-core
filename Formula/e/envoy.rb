@@ -31,11 +31,6 @@ class Envoy < Formula
     depends_on xcode: :build
   end
 
-  on_linux do
-    depends_on "lld@22" => :build
-    depends_on "llvm@22" => :build
-  end
-
   def install
     # Drop hickory DNS: its rust SDK pulls in mockall (incompatible with macOS)
     inreplace "source/extensions/extensions_build_config.bzl",
@@ -56,21 +51,13 @@ class Envoy < Formula
       override_repo(transcoding_deps, com_google_googleapis = "googleapis")
     STARLARK
 
-    # macOS builds with Apple's toolchain. Linux builds with LLVM, so use brew LLVM rather than a prebuilt one
     if OS.linux?
-      # Stage a local toolchain root to match official LLVM layout needed by upstream
-      llvm_path = buildpath/"llvm-toolchain"
-      ENV["BAZEL_USE_HOST_SYSROOT"] = "True"
-      llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }
-      llvm_path.install_symlink(llvm.opt_prefix.children.select(&:directory?) - [llvm.opt_bin])
-      (llvm_path/"bin").install_symlink llvm.opt_bin.children
-      (llvm_path/"bin").install_symlink formula_opt_bin(llvm.name.sub(/^llvm/, "lld")).children
-
-      inreplace "MODULE.bazel", /^llvm\.(?:cxx_cross_lib|sysroot|toolchain_root)\(.*?^\)\n/m, ""
-      (buildpath/"MODULE.bazel").append_lines <<~STARLARK
-        llvm.toolchain_root(name = "llvm_toolchain", path = "#{llvm_path}")
-        envoy_llvm_ext.host(path = "#{llvm_path}")
-      STARLARK
+      # Use GCC with a dynamically linked libstdc++ rather than statically linking a C++ standard library,
+      # and drop the remote-execution platform that `--config=gcc` selects
+      inreplace ".bazelrc" do |s|
+        s.gsub! "-l%:libstdc++.a", "-lstdc++"
+        s.gsub!(/^build:gcc --host_platform=.*\n/, "")
+      end
     end
 
     # Bazel cannot run in superenv. Also drop binutils as rules_foreign_cc CMake try-compile
@@ -86,7 +73,6 @@ class Envoy < Formula
       --action_env=CMAKE_POLICY_VERSION_MINIMUM=3.5
       --action_env=PATH=#{env_path}
       --host_action_env=PATH=#{env_path}
-      --repository_cache=#{HOMEBREW_CACHE}/envoy-repository-cache
       --jobs=#{ENV.make_jobs}
       --@proxy-wasm-cpp-host//bazel:engine=wamr
     ]
@@ -102,20 +88,20 @@ class Envoy < Formula
       args << "--per_file_copt=external/wamr\\+/.*\\.s@-x,assembler-with-cpp,-DBH_PLATFORM_DARWIN"
     end
     if OS.linux?
-      # lld needs help finding libc++.a and libc++abi.a in a non-standard path
-      args += %W[
-        --linkopt=-L#{llvm_path}/lib
-        --host_linkopt=-L#{llvm_path}/lib
-        --repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1
+      # Prefer the local GCC toolchain over the registered LLVM and remote ones, and raise its C++17 default to C++20
+      args += %w[
+        --config=gcc
+        --extra_toolchains=@local_config_cc_toolchains//:all
+        --cxxopt=-std=c++20
+        --host_cxxopt=-std=c++20
       ]
     end
 
     # `--config=macos` resets the action PATH to `/opt/homebrew/bin`, which hides keg-only deps
     args << "--repo_env=PATH=#{env_path}"
 
-    # Write the current version SOURCE_VERSION.
-    system "python3", "tools/github/write_current_source_version.py", "--skip_error_in_git",
-           "--github_api_token_env_name=HOMEBREW_GITHUB_API_TOKEN"
+    # Write the commit in SOURCE_VERSION. See tools/github/write_current_source_version.py
+    (buildpath/"SOURCE_VERSION").write Utils::Git.get_tar_commit_id(cached_download) if build.stable?
 
     system "bazel", *bazel_args, "build", *args, "//source/exe:envoy-static.stripped"
     bin.install "bazel-bin/source/exe/envoy-static.stripped" => "envoy"
