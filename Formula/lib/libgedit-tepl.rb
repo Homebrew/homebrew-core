@@ -1,10 +1,9 @@
 class LibgeditTepl < Formula
   desc "Gedit Technology - Text editor product line"
   homepage "https://gitlab.gnome.org/World/gedit/libgedit-tepl"
-  url "https://gitlab.gnome.org/World/gedit/libgedit-tepl/-/archive/6.14.0/libgedit-tepl-6.14.0.tar.bz2"
-  sha256 "2b695f41475573aa59f1cd004b5cc3d2021d0444decf26eb8d38864348fb3577"
+  url "https://gitlab.gnome.org/World/gedit/libgedit-tepl/-/archive/6.15.0/libgedit-tepl-6.15.0.tar.bz2"
+  sha256 "23126d33b0016e5823351c4845cfdc074f7c232a85288a73d00468d003bebbe1"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://gitlab.gnome.org/World/gedit/libgedit-tepl.git", branch: "main"
 
   bottle do
