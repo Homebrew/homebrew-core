@@ -6,6 +6,7 @@ class Molecule < Formula
   url "https://files.pythonhosted.org/packages/ea/86/6f3b9af840bea4296746db9ebfe6809f7848bb68e0dac7ac639879b72d6a/molecule-26.10.0.tar.gz"
   sha256 "32533aaba78c29eed80bcaab5d03ff63fe48b8f43071cf77953f391e0732d439"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "8c21b28e561a637d125af77a2380048794ba9df747627d16ef51ae3141b168c6"
@@ -19,7 +20,7 @@ class Molecule < Formula
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
 
   uses_from_macos "libffi"
@@ -87,8 +88,8 @@ class Molecule < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/c7/0b/9788e913f2202da49068c27ce821eebcf96319240a89d7bb11f206d6471f/google_auth-2.61.0.tar.gz"
-    sha256 "37f0815967322e8c32b12bf422531e8b637cafdaae0acbb9141117cfe6a96f23"
+    url "https://files.pythonhosted.org/packages/f5/b9/4b2528f30114b106e3c3a7298ba38d85e682fd1f83fe7c4a5b77c7677082/google_auth-2.62.0.tar.gz"
+    sha256 "0bef0ce54bdf9ce226c5d66e4264413bd918141c31bbe49fb52eac882f513d69"
   end
 
   resource "idna" do
@@ -152,8 +153,8 @@ class Molecule < Formula
   end
 
   resource "molecule-plugins" do
-    url "https://files.pythonhosted.org/packages/28/56/ad3cdeccce8329532f1bdee1ddfce5c01eda24a454e2ca3b4b74f2ef6bba/molecule_plugins-26.9.28.tar.gz"
-    sha256 "bef4549c2a9d342c206cea4b6733c67282346b628cfce8d9a1500a9de0f8fc15"
+    url "https://files.pythonhosted.org/packages/9d/a9/0e69e39a9e65a673b0d5f4fc1ea810a2f6fab671162b21b157a0cf124f71/molecule_plugins-26.10.12.tar.gz"
+    sha256 "03f79df9f7d6d6107ad9507f6c58724bbd18c21afb6f020fc532361b343ea333"
   end
 
   resource "openstacksdk" do
@@ -182,8 +183,8 @@ class Molecule < Formula
   end
 
   resource "pluggy" do
-    url "https://files.pythonhosted.org/packages/f9/e2/3e91f31a7d2b083fe6ef3fa267035b518369d9511ffab804f839851d2779/pluggy-1.6.0.tar.gz"
-    sha256 "7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3"
+    url "https://files.pythonhosted.org/packages/bf/db/7fc19e6f2dc92a966727031389fc2e08b558f0f25eb7403c1119ad4713cd/pluggy-1.7.0.tar.gz"
+    sha256 "d1eaa46ebb595891b860ab086b4d09c8588af65ebd4361b8e8f4bb8920b90ba8"
   end
 
   resource "psutil" do
