@@ -23,8 +23,6 @@ class PrimeAgent < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "cryptography" => :no_linkage
-  depends_on "libxml2"
-  depends_on "libxslt"
   depends_on "libyaml"
   depends_on "numpy" => :no_linkage
   depends_on "pillow" => :no_linkage
@@ -34,6 +32,9 @@ class PrimeAgent < Formula
   depends_on "scipy" => :no_linkage
   depends_on "uv"
   depends_on "zlib-ng-compat"
+
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   on_linux do
     depends_on "binutils" => :build
