@@ -7,11 +7,11 @@ class Portop < Formula
   head "https://github.com/padovanl/portop.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "62461d22fa3271310eb49b15aebd65bd159d4bf62136887895db003b3948b5b6"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "62461d22fa3271310eb49b15aebd65bd159d4bf62136887895db003b3948b5b6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "62461d22fa3271310eb49b15aebd65bd159d4bf62136887895db003b3948b5b6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b36de0245e7e2b3232e46cf83a4253ee9b6dfd69c17405590a2cd24d3b595803"
-    sha256 cellar: :any,                 x86_64_linux:      "aa614983f548f629fdbe0f5916122c97fa85555f2f6ed8ee117cab70f1170a78"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f84ddc2736cb9173d9d1a31959af756e4d058de849a93f4acfa8d56784873d6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8f84ddc2736cb9173d9d1a31959af756e4d058de849a93f4acfa8d56784873d6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8f84ddc2736cb9173d9d1a31959af756e4d058de849a93f4acfa8d56784873d6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "3dc9174f7b70d07145191a274b2d9257451d2ae6a1ac05f600fe07993deebd93"
+    sha256 cellar: :any,                 x86_64_linux:      "b220de7e29a0572cde52f98ffcf24e8a2ee138c88af581befb448a48b3796464"
   end
 
   depends_on "go" => :build
