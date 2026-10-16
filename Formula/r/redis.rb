@@ -35,11 +35,11 @@ class Redis < Formula
   depends_on "cmake" => :build
   depends_on "coreutils" => :build
   depends_on "libtool" => :build
-  depends_on "python@3.14" => :build
   depends_on "rust" => :build
   depends_on "openssl@4"
 
   uses_from_macos "llvm" => :build
+  uses_from_macos "python" => :build
 
   on_macos do
     depends_on "make" => :build # RediSearch needs Make 4.0+
