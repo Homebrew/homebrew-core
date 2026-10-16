@@ -6,6 +6,7 @@ class AnsibleLint < Formula
   url "https://files.pythonhosted.org/packages/fe/55/94814bfe335b58e1f65c0b2e6c8d0676737eadd7cc1466d8fe7213345a13/ansible_lint-26.10.1.tar.gz"
   sha256 "a746c6f3cb5719d1c202bc14e956ef3b0eca704025d1aa92707a27fc73ed73ea"
   license all_of: ["MIT", "GPL-3.0-or-later"]
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "64c3485c97c01a08036ac0e5875b407989a6ae8393e2e162b95423707b4056fe"
@@ -20,10 +21,10 @@ class AnsibleLint < Formula
   depends_on "ansible" => :test
   depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
 
-  pypi_packages exclude_packages: ["cryptography", "rpds-py"]
+  pypi_packages exclude_packages: %w[cryptography rpds-py]
 
   resource "ansible-compat" do
     url "https://files.pythonhosted.org/packages/44/f9/2074324a0c404e5f7d547fdaaa93042a792c66e2031ba02c972df67aed22/ansible_compat-26.10.0.tar.gz"
@@ -61,8 +62,8 @@ class AnsibleLint < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/35/c8/1d457d9150ff948f2ce6ada7715e0eeebbe5d3b58a45271a1e222474bcd3/filelock-4.1.1.tar.gz"
-    sha256 "7ba0927482c5a814b0a7f391d029ccdb8010f576f0a74c0dcde1811e8bc4c1b6"
+    url "https://files.pythonhosted.org/packages/f4/a9/1af41b37c3279712b22cdc63aac78a52432202b6fe1f9666a2a3d2831fb4/filelock-4.2.0.tar.gz"
+    sha256 "7a60906c75227cf04d0c273afadc8219400f11aeb13cc69591d4f6cdc6c8036e"
   end
 
   resource "jinja2" do
