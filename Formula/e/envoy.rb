@@ -94,7 +94,6 @@ class Envoy < Formula
       --action_env=CMAKE_POLICY_VERSION_MINIMUM=3.5
       --action_env=PATH=#{env_path}
       --host_action_env=PATH=#{env_path}
-      --repository_cache=#{HOMEBREW_CACHE}/envoy-repository-cache
       --jobs=#{ENV.make_jobs}
     ]
     if build.stable?
@@ -121,24 +120,18 @@ class Envoy < Formula
         --features=-supports_start_end_lib
         --host_features=-supports_start_end_lib
       ]
-    end
-    if OS.linux?
-      # lld needs help finding libc++.a and libc++abi.a in a non-standard path
-      args += %W[
-        --linkopt=-L#{llvm_path}/lib
-        --host_linkopt=-L#{llvm_path}/lib
-        --config=clang-local
-        --repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1
-      ]
+    else
+      # Use our preferred C++ standard library and avoid statically linking
+      inreplace ".bazelrc", "-l%:libstdc++.a", ""
+      args << "--config=gcc"
     end
 
     # TODO: remove when unpinning go@1.26
     # `--config=macos` resets the action PATH to `/opt/homebrew/bin`, which hides keg-only deps
     args << "--repo_env=PATH=#{env_path}"
 
-    # Write the current version SOURCE_VERSION.
-    system "python3", "tools/github/write_current_source_version.py", "--skip_error_in_git",
-           "--github_api_token_env_name=HOMEBREW_GITHUB_API_TOKEN"
+    # Write the commit in SOURCE_VERSION. See tools/github/write_current_source_version.py
+    (buildpath/"SOURCE_VERSION").write Utils::Git.get_tar_commit_id(cached_download) if build.stable?
 
     system "bazel", *bazel_args, "build", *args, "//source/exe:envoy-static.stripped"
     bin.install "bazel-bin/source/exe/envoy-static.stripped" => "envoy"
