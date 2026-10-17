@@ -1,10 +1,21 @@
 class PySpy < Formula
   desc "Sampling profiler for Python programs"
   homepage "https://github.com/benfred/py-spy"
-  url "https://github.com/benfred/py-spy/archive/refs/tags/v0.4.2.tar.gz"
-  sha256 "ecf8d945f63b172126abcd68e21f3e5f250498cb774d88247d80a6f2cacdb998"
   license "MIT"
   head "https://github.com/benfred/py-spy.git", branch: "master"
+
+  stable do
+    url "https://github.com/benfred/py-spy/archive/refs/tags/v0.4.2.tar.gz"
+    sha256 "ecf8d945f63b172126abcd68e21f3e5f250498cb774d88247d80a6f2cacdb998"
+
+    # Backport Python 3,15 support
+    # https://github.com/benfred/py-spy/pull/877
+    # TODO: remove in the next release
+    patch do
+      file "Patches/py-spy/python@3.15-support.diff"
+      type :unofficial
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4f511d64991908c34e9ca0ae6e1191d8bd413f74d691b302f51f51ec2761884b"
@@ -19,7 +30,7 @@ class PySpy < Formula
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "python@3.14" => :test
+    depends_on "python@3.15" => :test
     depends_on "libunwind"
   end
 
