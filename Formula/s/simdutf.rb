@@ -4,6 +4,7 @@ class Simdutf < Formula
   url "https://github.com/simdutf/simdutf/archive/refs/tags/v9.3.0.tar.gz"
   sha256 "f05b3549465f1bb3c5033a05395c372c0982ed1d166608185b3cc8c5c7e98071"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   compatibility_version 7
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
@@ -22,7 +23,7 @@ class Simdutf < Formula
 
   depends_on "aklomp-base64" => :build
   depends_on "cmake" => :build
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
 
   uses_from_macos "python" => :build
 
