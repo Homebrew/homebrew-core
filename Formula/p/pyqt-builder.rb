@@ -3,8 +3,8 @@ class PyqtBuilder < Formula
 
   desc "Tool to build PyQt"
   homepage "https://pyqt-builder.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/42/90/0aed537919f08cc5bd96e0ad2dc280766f578785ce82a7fa0e6abd22ba17/pyqt_builder-1.20.0.tar.gz"
-  sha256 "267ac1ee1593c67884f3c9cb6566f72a92ca28353050fc9d087433c28c74a889"
+  url "https://files.pythonhosted.org/packages/01/3d/eae24a561b731624ed44dc5d0f047e1b14d22497ac602e9739a8cb416561/pyqt_builder-1.20.1.tar.gz"
+  sha256 "b303cd9ec7a04100ecb66fcbcae432c409e22a98153249bf504db5900a361de3"
   license "BSD-2-Clause"
   compatibility_version 1
   head "https://github.com/Python-PyQt/PyQt-builder.git", branch: "main"
@@ -26,8 +26,8 @@ class PyqtBuilder < Formula
   end
 
   resource "sip" do
-    url "https://files.pythonhosted.org/packages/ef/1e/2a8018d798af124d32fc9da01e8c97241d6a7c89ed1b64fbd5ff49f4df32/sip-6.17.0.tar.gz"
-    sha256 "8c8839fb1fe87247cd315671c41897780b760aa76d01a6440f85c1fe76456bf4"
+    url "https://files.pythonhosted.org/packages/0d/d6/4108ef066e4a8452b393d5acd03fed176d7178c0512b2ecf564dc8dcf796/sip-6.17.1.tar.gz"
+    sha256 "34e2c1389e25394f5ba3c6b9d999d04373baf8d7161410536d444f48226d2f50"
   end
 
   def install
