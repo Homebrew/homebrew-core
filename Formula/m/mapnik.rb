@@ -4,7 +4,7 @@ class Mapnik < Formula
   url "https://github.com/mapnik/mapnik/releases/download/v4.3.2/mapnik-v4.3.2.tar.bz2"
   sha256 "1858a9d57f4d2007d717ea84af23bcb32bd984fbc635426b79124fe9f7a682c4"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://github.com/mapnik/mapnik.git", branch: "master"
 
   livecheck do
@@ -27,7 +27,7 @@ class Mapnik < Formula
   depends_on "freetype"
   depends_on "gdal"
   depends_on "harfbuzz"
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "jpeg-turbo"
   depends_on "libavif"
   depends_on "libpng"
