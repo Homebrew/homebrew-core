@@ -18,7 +18,8 @@ class Mr < Formula
   uses_from_macos "perl"
 
   resource("test-repo") do
-    url "https://github.com/Homebrew/homebrew-services.git"
+    url "https://github.com/Homebrew/homebrew-services.git",
+        revision: "2c294ab9515576d961cea28c93148c6452db2def"
   end
 
   def install
