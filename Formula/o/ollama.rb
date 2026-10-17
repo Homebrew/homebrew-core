@@ -5,6 +5,7 @@ class Ollama < Formula
       tag:      "v0.40.5",
       revision: "d919272e53593d1d55d40e1180eaa06dfbede3ac"
   license "MIT"
+  revision 1
   head "https://github.com/ollama/ollama.git", branch: "main"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -29,7 +30,9 @@ class Ollama < Formula
 
   on_macos do
     on_arm do
+      depends_on "dlpack" => :build
       depends_on "mlx-c" => :no_linkage
+      depends_on "xgrammar" => :build
 
       # Build with the mlx-c 0.7.0 bindings for tagged MLX 0.32.3. Upstream targets a later MLX commit:
       # https://github.com/ollama/ollama/commit/0bb09259203ff8f6d361faae1d40c4f83d2a99f7
@@ -123,8 +126,22 @@ class Ollama < Formula
     # The mlx runner dlopens MLX libraries from `<exe_dir>/lib/ollama/mlx_*/`.
     # Using `opt` keeps the link stable across mlx-c version bumps.
     if OS.mac? && Hardware::CPU.arm?
-      (libexec/"lib/ollama/mlx_metal_v3").mkpath
-      ln_sf formula_opt_lib("mlx-c")/"libmlxc.dylib", libexec/"lib/ollama/mlx_metal_v3/libmlxc.dylib"
+      # `mlx` bottles on macOS 26+ carry the NAX (Metal 4) kernels, and the
+      # runner skips `mlx_metal_v4` directories on older systems.
+      metal_dir = if MacOS.version >= :tahoe
+        "lib/ollama/mlx_metal_v4"
+      else
+        "lib/ollama/mlx_metal_v3"
+      end
+      (libexec/metal_dir).mkpath
+      ln_sf formula_opt_lib("mlx-c")/"libmlxc.dylib", libexec/metal_dir/"libmlxc.dylib"
+
+      # The runner loads the structured output library from next to libmlxc
+      system "cmake", "-S", "mlxrunner/xgrammar/native", "-B", "build-xgrammar",
+                      "-DXGRAMMAR_VERSION=v#{Formula["xgrammar"].version}",
+                      *std_cmake_args(install_prefix: libexec, install_libdir: metal_dir)
+      system "cmake", "--build", "build-xgrammar"
+      system "cmake", "--install", "build-xgrammar"
     end
   end
 
@@ -166,9 +183,39 @@ class Ollama < Formula
 
     # Test MLX (Apple silicon only)
     if OS.mac? && Hardware::CPU.arm?
-      output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/ollama --help 2>&1")
+      output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/ollama --help 2>&1").scrub
       assert_match "libmlxc.dylib", output
       assert_match "libmlx.dylib", output
+
+      # Structured output on the MLX engine; random weights only produce valid JSON when constrained
+      resource "homebrew-test-mlx-config" do
+        url "https://huggingface.co/stas/tiny-random-llama-2/resolve/3579d71fd57e04f5a364d824d3a2ec3e913dbb67/config.json"
+        sha256 "9197475bfcc987a4f9361dbc22b33397b101372c137c228b6a6fd7e4adf21622"
+      end
+      resource "homebrew-test-mlx-weights" do
+        url "https://huggingface.co/stas/tiny-random-llama-2/resolve/3579d71fd57e04f5a364d824d3a2ec3e913dbb67/model.safetensors"
+        sha256 "852db1b39acb2336abc997440c6f6d6e4ab640f91e5e2aa9e2488d5794159d30"
+      end
+      resource "homebrew-test-mlx-tokenizer" do
+        url "https://huggingface.co/stas/tiny-random-llama-2/resolve/3579d71fd57e04f5a364d824d3a2ec3e913dbb67/tokenizer.json"
+        sha256 "0afe36ee1358ce1fa277f4eac935250bb90253ed5c27867eb6ff376ded7d1980"
+      end
+      %w[config weights tokenizer].each do |name|
+        (testpath/"tiny").install resource("homebrew-test-mlx-#{name}")
+      end
+      (testpath/"Modelfile").write "FROM #{testpath}/tiny"
+
+      pid = spawn bin/"ollama", "serve"
+      begin
+        sleep 3
+        system bin/"ollama", "create", "tiny", "-f", testpath/"Modelfile"
+        request = { model: "tiny", prompt: "hi", stream: false, format: { enum: ["ok"] } }
+        response = shell_output("curl -s localhost:#{port}/api/generate -d '#{request.to_json}'")
+        assert_equal '"ok"', JSON.parse(response)["response"]
+      ensure
+        Process.kill "TERM", pid
+        Process.wait pid
+      end
     end
 
     testpath.install resource("homebrew-test-model")
