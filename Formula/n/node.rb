@@ -4,6 +4,7 @@ class Node < Formula
   url "https://nodejs.org/dist/v26.12.0/node-v26.12.0.tar.xz"
   sha256 "ce59f9038dda0e637656fb1c36cf52c07c637922fd81d419dbba2ec129afbd35"
   license "MIT"
+  revision 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
   livecheck do
@@ -27,7 +28,7 @@ class Node < Formula
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "hdrhistogram_c"
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "libffi" # System `libffi` is missing some definitions used by node
   depends_on "libnghttp2"
   depends_on "libuv"
