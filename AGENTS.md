@@ -49,6 +49,9 @@ end
 #### Livecheck
 
 Prefer default behavior. Only add a `livecheck` block if automatic detection fails.
+GitHub `stable` URLs default to the lightweight `Git` strategy; if tags need filtering, add `url :stable` and a `regex` rather than `strategy :github_latest`.
+Only use `strategy :github_latest` when the repository has tags without matching releases or uses pre-releases.
+See [`livecheck` guidelines](https://docs.brew.sh/Brew-Livecheck#general-guidelines).
 
 #### Head support
 
