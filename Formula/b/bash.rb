@@ -153,7 +153,7 @@ class Bash < Formula
     assert_equal "hello", shell_output("#{bin}/bash -c 'echo -n hello'")
     # If the following assertion breaks, then it's likely the configuration of `DEFAULT_LOADABLE_BUILTINS_PATH`
     # is broken. Changing the test below will probably hide that breakage.
-    assert_equal "csv is a shell builtin\n", shell_output("#{bin}/bash -c 'enable csv; type csv'")
+    assert_equal "builtin\n", shell_output("#{bin}/bash -c 'enable csv; type -t csv'")
 
     return if OS.linux? || MacOS.version > :sequoia
 
