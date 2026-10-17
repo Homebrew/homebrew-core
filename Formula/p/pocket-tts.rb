@@ -6,7 +6,7 @@ class PocketTts < Formula
   url "https://files.pythonhosted.org/packages/56/e4/08262e47704291a99c211515b17e754d4891a899323a8171e220f468e45b/pocket_tts-3.3.0.tar.gz"
   sha256 "997b3dd39d43c0555cdd9b8efd72ac926dbfcd250fb5f3575aa29c33db5b6621"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/kyutai-labs/pocket-tts.git", branch: "main"
 
   bottle do
@@ -23,7 +23,7 @@ class PocketTts < Formula
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "pytorch"
   depends_on "scipy" => :no_linkage
 
@@ -184,6 +184,9 @@ class PocketTts < Formula
 
     # `tokenizers` builds a PyO3 extension through maturin.
     ENV.append_to_rustflags "-C link-arg=-Wl,-undefined,dynamic_lookup"
+
+    # Allow Python 3.15
+    inreplace "pyproject.toml", 'requires-python = ">= 3.10,<3.15"', 'requires-python = ">= 3.10"'
 
     venv = virtualenv_install_with_resources(without: ["hf-xet", "sentencepiece"])
 

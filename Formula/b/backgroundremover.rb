@@ -6,7 +6,7 @@ class Backgroundremover < Formula
   url "https://files.pythonhosted.org/packages/01/23/b6db66a9a7ad24e34581bae7910e77e16fce103fd9658bd5b6aef4e5effd/backgroundremover-0.4.5.tar.gz"
   sha256 "b9fe5ebaa234d43bfae02a2f28734e589ee895a861e55c02f6f1a41518587852"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     rebuild 1
@@ -26,7 +26,7 @@ class Backgroundremover < Formula
   depends_on "llvm@22"
   depends_on "numpy" => :no_linkage
   depends_on "pillow" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "pytorch" => :no_linkage
   depends_on "scipy" => :no_linkage
   depends_on "torchvision" => :no_linkage
