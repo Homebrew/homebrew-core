@@ -6,6 +6,7 @@ class Pytorch < Formula
   url "https://github.com/pytorch/pytorch/releases/download/v2.14.1/pytorch-v2.14.1.tar.gz"
   sha256 "d0ebad9ca4219959b29b7ad9ab6469fe49a3d668f8b5a62dd115f02f3a914447"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 3
 
   livecheck do
@@ -23,7 +24,7 @@ class Pytorch < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "abseil"
   depends_on "eigen"
   depends_on "libuv"
