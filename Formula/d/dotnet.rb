@@ -2,18 +2,17 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   license "MIT"
-  revision 1
   version_scheme 1
-  compatibility_version 7
+  compatibility_version 8
 
   stable do
     # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-    url "https://github.com/dotnet/dotnet/releases/download/v10.0.401/release.json"
-    sha256 "6dc88b00a048b315868625e038212bfd06d2f9661254863848507ee4b70fdb36"
+    url "https://github.com/dotnet/dotnet/releases/download/v10.0.402/release.json"
+    sha256 "ef4ec1aab8a6e5305858afe4a6f42dcb80b9785369c5b81100ddf1acee7cd5fe"
 
     resource "src" do
-      url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.401.tar.gz"
-      sha256 "3119efad4a965c5b9bf87fc795da50176cff73047b396981710b3f1aefb7d6af"
+      url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.402.tar.gz"
+      sha256 "b4d1a01dd142fc8a726b0e9ec7488571dbab10624b498bea8183379ccd008b29"
 
       livecheck do
         formula :parent
@@ -23,8 +22,8 @@ class Dotnet < Formula
     # NOTE: 1xx band resources are only used when on 2xx/3xx/4xx band.
     # Can leave in formula even when unused to simplify version bumps.
     resource "1xx" do
-      url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.112.tar.gz"
-      sha256 "0107a6a9aca7635fcb66a90dd22269e42640797ce2ba0731c8669ba59f4e310d"
+      url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.113.tar.gz"
+      sha256 "5c3a5dcc776c94d314853ccf24d3a2b5627f2249c7defb8a8f0cbade8ecd4631"
 
       livecheck do
         url "https://github.com/dotnet/dotnet/releases/download/v#{LATEST_VERSION}/release.json"
@@ -50,8 +49,8 @@ class Dotnet < Formula
     end
 
     resource "1xx-manifest" do
-      url "https://github.com/dotnet/dotnet/releases/download/v10.0.112/release.json"
-      sha256 "df14b07ce83d8b4d59c9dbb34f83ca6d8e1f99f41aa02133cba87f546a620db0"
+      url "https://github.com/dotnet/dotnet/releases/download/v10.0.113/release.json"
+      sha256 "fbfc8572118e518be6ef736f143ffeb9b0c3bd872c9b34689a04f0ffde54b6e7"
 
       livecheck do
         url "https://github.com/dotnet/dotnet/releases/download/v#{LATEST_VERSION}/release.json"
@@ -270,6 +269,8 @@ class Dotnet < Formula
   end
 
   test do
+    ENV["XDG_RUNTIME_DIR"] = testpath
+
     assert_match version.to_s, shell_output("#{bin}/dotnet --version")
 
     target_framework = "net#{version.major_minor}"

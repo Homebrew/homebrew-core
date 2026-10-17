@@ -5,6 +5,7 @@ class Powershell < Formula
       tag:      "v7.6.7",
       revision: "c10ef6d557c0d6fe661836f78dbd6fc355261326"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,12 +23,18 @@ class Powershell < Formula
   depends_on "dotnet"
 
   def install
-    dotnet = Formula["dotnet"]
+    dotnet = deps.find { |d| d.name.match?(/dotnet(@\d+(\.\d+)*)?$/i) }.to_formula
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
     ENV["DOTNET_CLI_HOME"] = buildpath
     ENV["NUGET_PACKAGES"] = buildpath/".nuget/packages"
     ENV["DOTNET_ROOT"] = dotnet.opt_libexec
     inreplace "global.json", /"version": "\d.*"/, "\"version\": \"#{dotnet.version}\""
+
+    # Use System.Security.Cryptography.{Pkcs,Xml} 10.0.13 with the fixes for CVE-2026-70162 and CVE-2026-84008
+    inreplace %w[
+      src/System.Management.Automation/System.Management.Automation.csproj
+      src/Microsoft.PowerShell.SDK/Microsoft.PowerShell.SDK.csproj
+    ], /(Include="System\.Security\.Cryptography\.(?:Pkcs|Xml)" Version=)"[^"]+"/, '\1"10.0.13"'
 
     target_framework = "net#{dotnet.version.major_minor}"
     dotnet_sources = [
