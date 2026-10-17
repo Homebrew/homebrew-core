@@ -1,9 +1,10 @@
 class Raylib < Formula
   desc "Simple and easy-to-use library to learn videogames programming"
   homepage "https://www.raylib.com/"
-  url "https://github.com/raysan5/raylib/archive/refs/tags/6.0.tar.gz"
-  sha256 "2b3ee1e2120c7a0796b33062c7e9a694dd8a8caa56a96319ac8c8ecf54a90d0b"
+  url "https://github.com/raysan5/raylib/archive/refs/tags/6.2.tar.gz"
+  sha256 "df7a13129b1bec9e73a6962efff170beba310ee6eab8f94cd000b7316b4db5ee"
   license "Zlib"
+  compatibility_version 1
   head "https://github.com/raysan5/raylib.git", branch: "master"
 
   bottle do
@@ -31,20 +32,16 @@ class Raylib < Formula
   deny_network_access!
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                               "-DBUILD_SHARED_LIBS=ON",
-                               "-DMACOS_FATLIB=OFF",
-                               "-DBUILD_EXAMPLES=OFF",
-                               "-DBUILD_GAMES=OFF",
-                               *std_cmake_args
+    args = %w[
+      -DMACOS_FATLIB=OFF
+      -DBUILD_EXAMPLES=OFF
+      -DBUILD_GAMES=OFF
+    ]
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    system "cmake", "-S", ".", "-B", "build-static",
-                               "-DBUILD_SHARED_LIBS=OFF",
-                               "-DMACOS_FATLIB=OFF",
-                               "-DBUILD_EXAMPLES=OFF",
-                               "-DBUILD_GAMES=OFF",
-                               *std_cmake_args
+
+    system "cmake", "-S", ".", "-B", "build-static", "-DBUILD_SHARED_LIBS=OFF", *args, *std_cmake_args
     system "cmake", "--build", "build-static"
     lib.install "build-static/raylib/libraylib.a"
   end
