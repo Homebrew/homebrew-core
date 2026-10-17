@@ -4,6 +4,7 @@ class Icu4cAT78 < Formula
   url "https://github.com/unicode-org/icu/releases/download/release-78.3/icu4c-78.3-sources.tgz"
   sha256 "3a2e7a47604ba702f345878308e6fefeca612ee895cf4a5f222e7955fabfe0c0"
   license "Unicode-3.0"
+  revision 1
   compatibility_version 1
 
   # We allow the livecheck to detect new `icu4c` major versions in order to
@@ -27,7 +28,7 @@ class Icu4cAT78 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "b152f4b6f581af753a52bf6dc5b7a113cd9f77088dcc94deaf6c321109aa43c2"
   end
 
-  keg_only :shadowed_by_macos, "macOS provides libicucore.dylib (but nothing else)"
+  keg_only :versioned_formula
 
   deny_network_access!
 
