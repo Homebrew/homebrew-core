@@ -7,6 +7,7 @@ class Qtbase < Formula
     "BSD-3-Clause", # *.cmake
     "GFDL-1.3-no-invariants-only", # *.qdoc
   ]
+  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qtbase.git", branch: "dev"
 
@@ -50,7 +51,7 @@ class Qtbase < Formula
   depends_on "freetype"
   depends_on "glib"
   depends_on "harfbuzz"
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "jpeg-turbo"
   depends_on "libb2"
   depends_on "libpng"
