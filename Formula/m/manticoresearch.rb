@@ -5,7 +5,7 @@ class Manticoresearch < Formula
     "GPL-3.0-or-later",
     { any_of: ["Unlicense", "MIT"] }, # uni-algo (our formula is too new)
   ]
-  revision 2
+  revision 3
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "main"
 
@@ -51,7 +51,7 @@ class Manticoresearch < Formula
   depends_on "boost"
   depends_on "cctz"
   depends_on "croaring"
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "libpq"
   depends_on "mariadb-connector-c"
   depends_on "openssl@4"
