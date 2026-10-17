@@ -4,6 +4,7 @@ class Gjs < Formula
   url "https://download.gnome.org/sources/gjs/1.90/gjs-1.90.1.tar.xz"
   sha256 "05ceaa80f48e3782e5c44938572fad863e02b8c4a6c55657a99aa81db8ce9efa"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
+  revision 1
   head "https://gitlab.gnome.org/GNOME/gjs.git", branch: "master"
 
   # This regex is intended to avoid the `Gnome` strategy's version filtering
