@@ -4,6 +4,7 @@ class Libphonenumber < Formula
   url "https://github.com/google/libphonenumber/archive/refs/tags/v9.0.41.tar.gz"
   sha256 "5a5021295990c7ec36c639ab1b0e24ef54faa5571ba1cabcd59fa034563aad4d"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,7 +23,7 @@ class Libphonenumber < Formula
   depends_on "openjdk" => :build
   depends_on "abseil"
   depends_on "boost"
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "protobuf"
 
   # Fix build with Boost 1.89.0
