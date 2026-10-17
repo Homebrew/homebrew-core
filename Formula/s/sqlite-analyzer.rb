@@ -1,9 +1,9 @@
 class SqliteAnalyzer < Formula
   desc "Analyze how space is allocated inside an SQLite file"
   homepage "https://www.sqlite.org/"
-  url "https://www.sqlite.org/2026/sqlite-src-3540000.zip"
-  version "3.54.0"
-  sha256 "8847659821e0c5116bd14a94644c82ba932b2d9a05ac81af2e34af814aad7c58"
+  url "https://www.sqlite.org/2026/sqlite-src-3540100.zip"
+  version "3.54.1"
+  sha256 "387e7f6cad4797b17848c07d453dc6606917bb356a6cfe5a3abafd38c240c71b"
   license "blessing"
 
   livecheck do
@@ -21,11 +21,16 @@ class SqliteAnalyzer < Formula
   end
 
   depends_on "tcl-tk"
+
   uses_from_macos "sqlite" => :test
 
   on_macos do
     depends_on "libtommath"
   end
+
+  # https://sqlite.org/draft/sqlanalyze.html
+  deprecate! date: "2026-10-17", because: :deprecated_upstream
+  disable! date: "2027-10-17", because: :deprecated_upstream
 
   def install
     system "./configure", "--with-tcl=#{formula_opt_lib("tcl-tk")}", *std_configure_args

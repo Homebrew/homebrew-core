@@ -1,9 +1,9 @@
 class Sqldiff < Formula
   desc "Displays the differences between SQLite databases"
   homepage "https://www.sqlite.org/sqldiff.html"
-  url "https://www.sqlite.org/2026/sqlite-src-3540000.zip"
-  version "3.54.0"
-  sha256 "8847659821e0c5116bd14a94644c82ba932b2d9a05ac81af2e34af814aad7c58"
+  url "https://www.sqlite.org/2026/sqlite-src-3540100.zip"
+  version "3.54.1"
+  sha256 "387e7f6cad4797b17848c07d453dc6606917bb356a6cfe5a3abafd38c240c71b"
   license "blessing"
 
   livecheck do
