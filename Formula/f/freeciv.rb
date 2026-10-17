@@ -2,6 +2,7 @@ class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
   homepage "https://freeciv.org/"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/freeciv/freeciv.git", branch: "main"
 
   stable do
@@ -43,7 +44,7 @@ class Freeciv < Formula
   depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "gtk4"
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "lua"
   depends_on "pango"
   depends_on "readline"

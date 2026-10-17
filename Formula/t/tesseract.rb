@@ -4,6 +4,7 @@ class Tesseract < Formula
   url "https://github.com/tesseract-ocr/tesseract/archive/refs/tags/5.5.3.tar.gz"
   sha256 "9218e62793116d42a9f6d14cd9348518b27f382096eea3d0f2d1a24616bb5884"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
   head "https://github.com/tesseract-ocr/tesseract.git", branch: "main"
 
@@ -29,7 +30,7 @@ class Tesseract < Formula
   depends_on "fontconfig"
   depends_on "glib"
   depends_on "harfbuzz"
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "leptonica"
   depends_on "libarchive"
   depends_on "pango"

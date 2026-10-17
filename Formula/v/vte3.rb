@@ -4,7 +4,7 @@ class Vte3 < Formula
   url "https://download.gnome.org/sources/vte/0.84/vte-0.84.1.tar.xz"
   sha256 "aca1caa8478aebcdbb1d67897fb3511eb7601debae6810e16a15b6fa25f31ac8"
   license "LGPL-2.0-or-later"
-  revision 3
+  revision 4
   compatibility_version 1
 
   bottle do
@@ -32,7 +32,7 @@ class Vte3 < Formula
   depends_on "graphene"
   depends_on "gtk+3"
   depends_on "gtk4"
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "lz4"
   depends_on "pango"
   depends_on "pcre2"

@@ -4,6 +4,7 @@ class Zebra < Formula
   url "https://ftp.indexdata.com/pub/zebra/idzebra-2.2.11.tar.gz"
   sha256 "f8a2745425967d6dd133a55b9e8431484e50b0d62f6c90b7bca37399bd528dec"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://ftp.indexdata.com/pub/zebra/"
@@ -22,7 +23,7 @@ class Zebra < Formula
 
   depends_on "pkgconf" => :build
 
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "yaz"
 
   uses_from_macos "bzip2"

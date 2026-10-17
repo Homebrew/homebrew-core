@@ -3,6 +3,7 @@
   "codevis": "all",
   "get-flash-videos": "1.25.99.03",
   "grt": "0.2.4",
+  "icu4c@79": "79.1rc",
   "joshuto": "all",
   "libesedb": "20260704"
 }

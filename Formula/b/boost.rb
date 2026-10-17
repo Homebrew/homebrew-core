@@ -4,6 +4,7 @@ class Boost < Formula
   url "https://github.com/boostorg/boost/releases/download/boost-1.92.0/boost-1.92.0-b2-nodocs.tar.xz"
   sha256 "ea7b982002cc9dfbe59b0b217b206f470dc75f3de0bb2973d844118934d82411"
   license "BSL-1.0"
+  revision 1
   compatibility_version 2
   head "https://github.com/boostorg/boost.git", branch: "master"
 
@@ -25,7 +26,7 @@ class Boost < Formula
     sha256 cellar: :any, x86_64_linux:      "d90cc7b74ac1cba91e00f675b1cb36da5a94e5092eaed846f6a2e1e2974f59d3"
   end
 
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "xz"
   depends_on "zstd"
 

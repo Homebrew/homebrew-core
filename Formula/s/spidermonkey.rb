@@ -5,6 +5,7 @@ class Spidermonkey < Formula
   version "140.17.0"
   sha256 "4d6ed3b18b2069c55bab12d8ba95da6013ac0b036d8a031df8b9f39a25d05c33"
   license "MPL-2.0"
+  revision 1
   compatibility_version 1
   head "https://hg.mozilla.org/mozilla-central", using: :hg
 
@@ -27,7 +28,7 @@ class Spidermonkey < Formula
   depends_on "pkgconf" => :build
   depends_on "python@3.15" => :build
   depends_on "rust" => :build
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "nspr"
   depends_on "readline"
 

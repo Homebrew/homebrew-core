@@ -1,8 +1,11 @@
 [
+  "cdxgen",
   "cyan",
   "hive",
   "klee",
   "opencoarrays",
+  "opensearch-dashboards",
+  "node@22",
   "sapling",
   "thors-anvil"
 ]

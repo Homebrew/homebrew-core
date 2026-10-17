@@ -5,7 +5,7 @@ class Znc < Formula
   mirror "https://deb.debian.org/debian/pool/main/z/znc/znc_1.10.3.orig.tar.gz"
   sha256 "68f3f6641b480c041010c5596e1234043e05c9137eda06233845017603095f5b"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://znc.in/releases/"
@@ -26,7 +26,7 @@ class Znc < Formula
   depends_on "pkgconf" => :build
   depends_on "boost"
   depends_on "cctz"
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "openssl@4"
   depends_on "python@3.15"
 

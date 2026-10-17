@@ -4,6 +4,7 @@ class Harfbuzz < Formula
   url "https://github.com/harfbuzz/harfbuzz/releases/download/14.6.0/harfbuzz-14.6.0.tar.xz"
   sha256 "d07a007327277708a2a73ae437887cdbaf282937f6d03ca5467723e9099af586"
   license "MIT"
+  revision 1
   compatibility_version 1
   head "https://github.com/harfbuzz/harfbuzz.git", branch: "main"
 
@@ -25,7 +26,7 @@ class Harfbuzz < Formula
   depends_on "freetype"
   depends_on "glib"
   depends_on "graphite2"
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "libpng"
 
   on_linux do

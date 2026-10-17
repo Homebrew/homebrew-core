@@ -28,7 +28,7 @@ class PhpAT83 < Formula
     "TCL",                   # 7
     "Zlib",                  # 8
   ]
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.php.net/downloads?source=Y"
@@ -61,7 +61,7 @@ class PhpAT83 < Formula
   depends_on "freetds"
   depends_on "gd"
   depends_on "gmp"
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "krb5"
   depends_on "libpq"
   depends_on "libsodium"

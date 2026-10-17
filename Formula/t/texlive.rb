@@ -8,7 +8,7 @@ class Texlive < Formula
   mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2026/texlive-20260301-source.tar.xz"
   sha256 "cb120d314d3ceb23ac608af17ddd2c623afcf02331f400a0f25eead5b8ac1d70"
   license :cannot_represent
-  revision 1
+  revision 2
   compatibility_version 1
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
@@ -55,7 +55,7 @@ class Texlive < Formula
   depends_on "gmp"
   depends_on "graphite2"
   depends_on "harfbuzz"
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libx11"

@@ -4,6 +4,7 @@ class Yaz < Formula
   url "https://ftp.indexdata.com/pub/yaz/yaz-5.38.1.tar.gz"
   sha256 "755835efe8385d88725cc46a3b34dae2f5e784950832cbbe7f09ca0398de344c"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
 
   # The latest version text is currently omitted from the homepage for this
@@ -34,7 +35,7 @@ class Yaz < Formula
 
   depends_on "pkgconf" => :build
   depends_on "gnutls"
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
