@@ -4,7 +4,7 @@ class Pyqt < Formula
   url "https://files.pythonhosted.org/packages/8b/47/b25c13eca5bebc6505394d0223e46d7ebf0c57dcac2ed908d7d19b18ab6b/pyqt6-6.11.0.tar.gz"
   sha256 "45dd60aa69976de1918b5ced6b4e7b6a25abd2a919ecef5fd5826ecc76718889"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
   compatibility_version 1
 
   bottle do
@@ -16,7 +16,7 @@ class Pyqt < Formula
   end
 
   depends_on "pyqt-builder" => :build
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "qt3d"
   depends_on "qtbase"
   depends_on "qtcharts"
