@@ -10,6 +10,7 @@ class Qt5compat < Formula
     "BSD-2-Clause", # src/core5/codecs
     "BSD-3-Clause", # *.cmake
   ]
+  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qt5compat.git", branch: "dev"
 
@@ -29,7 +30,7 @@ class Qt5compat < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :test
 
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "qtbase"
   depends_on "qtdeclarative"
   depends_on "qtshadertools"
