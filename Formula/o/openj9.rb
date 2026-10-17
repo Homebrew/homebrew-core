@@ -1,8 +1,8 @@
 class Openj9 < Formula
   desc "High performance, scalable, Java virtual machine"
   homepage "https://www.eclipse.org/openj9/"
-  url "https://github.com/eclipse-openj9/openj9/archive/refs/tags/openj9-0.61.0.tar.gz"
-  sha256 "903620a8a2625b2c1152a70cfb5ed935623da0b00b41ff12dbf34c526d5f5e17"
+  url "https://github.com/eclipse-openj9/openj9/archive/refs/tags/openj9-0.62.0.tar.gz"
+  sha256 "7eac571357da536708a67ac16c9dbe2279a7ab112736a0e011d7d00976cecebe"
   license any_of: [
     "EPL-2.0",
     "Apache-2.0",
@@ -67,9 +67,9 @@ class Openj9 < Formula
 
   resource "omr" do
     url "https://github.com/eclipse-openj9/openj9-omr.git",
-        branch:   "v0.61.0-release",
+        branch:   "v0.62.0-release",
         revision: "ebd02d9129dc06fa67a6f885f99a3926aa869154"
-    version "0.61.0"
+    version "0.62.0"
 
     livecheck do
       formula :parent
@@ -88,14 +88,6 @@ class Openj9 < Formula
     livecheck do
       formula :parent
     end
-  end
-
-  # Fix build on Clang 17+
-  patch do
-    url "https://github.com/eclipse-openj9/openj9/commit/7936ac3ce51ff78e2853b35dce94cb3d4371596b.patch?full_index=1"
-    sha256 "998999131d989b1cf15c6e73650ba66505206e9635f925434182dc709c5d501a"
-    type :backport
-    resolves "https://github.com/eclipse-openj9/openj9/pull/24278"
   end
 
   def install
