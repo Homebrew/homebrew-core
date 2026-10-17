@@ -6,6 +6,7 @@ class Torchvision < Formula
   url "https://github.com/pytorch/vision/archive/refs/tags/v0.29.1.tar.gz"
   sha256 "0a14655bd32095148d93fa595f93aba45dda0d13b25cc7fe86a041340e4a4862"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,7 +23,7 @@ class Torchvision < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "numpy"
