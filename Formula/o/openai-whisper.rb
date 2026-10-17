@@ -6,7 +6,7 @@ class OpenaiWhisper < Formula
   url "https://files.pythonhosted.org/packages/35/8e/d36f8880bcf18ec026a55807d02fe4c7357da9f25aebd92f85178000c0dc/openai_whisper-20250625.tar.gz"
   sha256 "37a91a3921809d9f44748ffc73c0a55c9f366c85a3ef5c2ae0cc09540432eb96"
   license "MIT"
-  revision 7
+  revision 8
   head "https://github.com/openai/whisper.git", branch: "main"
 
   bottle do
@@ -23,7 +23,7 @@ class OpenaiWhisper < Formula
   depends_on "certifi"
   depends_on "ffmpeg"
   depends_on "llvm@22"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "pytorch"
 
   on_linux do
