@@ -4,57 +4,52 @@ class Agda < Formula
   # agda2hs.cabal specifies BSD-3-Clause but it installs an MIT LICENSE file.
   # Everything else specifies MIT license and installs corresponding file.
   license all_of: ["MIT", "BSD-3-Clause"]
-  revision 2
   compatibility_version 1
 
   stable do
-    url "https://github.com/agda/agda/archive/refs/tags/v2.8.0.2.tar.gz"
-    sha256 "c29ee2c06a7feb812fcb7f0543a2ddf800a9f806d09cc7813cee9c733a169b6d"
+    url "https://github.com/agda/agda/archive/refs/tags/v2.9.0.tar.gz"
+    sha256 "bec7f40736bf11f764e4fafcd03531a78e7283332ca7e25c0393a028c3ab6d06"
 
     resource "stdlib" do
-      url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.4.tar.gz"
-      sha256 "dd0fab4519523d6c08cd9583a4f5eac38ab135a12ccdab1fb164c271075f6747"
+      url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.4.1.tar.gz"
+      sha256 "eab52969e7cf4a4f80e5beea756ee9aebc670fba4b11f4516abc9e35693db3f2"
     end
 
     resource "stdlib-classes" do
-      url "https://github.com/agda/agda-stdlib-classes/archive/refs/tags/v2.3.tar.gz"
-      sha256 "00e59758b932597b4663b6ac7e3e183bfc0a4e9b905c0fb3dc8bb2b6c49cc693"
+      url "https://github.com/agda/agda-stdlib-classes/archive/refs/tags/v2.4.tar.gz"
+      sha256 "ad80133c7c72477bce5e736a102f9356ba195f36fb09ba6ace7ceecdf6f2ee29"
     end
 
     resource "stdlib-meta" do
-      url "https://github.com/agda/agda-stdlib-meta/archive/refs/tags/v2.3.tar.gz"
-      sha256 "9d12d5b4503907115be83e2c2701be29542173384f9a552f0e538e38d9f8e1ba"
+      url "https://github.com/agda/agda-stdlib-meta/archive/refs/tags/v2.4.1.tar.gz"
+      sha256 "d62255520689c9adf59b2cb54884e5caaeb6b88d21950646c26c578907fdb480"
     end
 
     resource "cubical" do
-      url "https://github.com/agda/cubical/archive/refs/tags/v0.9.tar.gz"
-      sha256 "3dde4c1936e8b5583a5adda429de7a6a6e14295d09434591d65ad52c7009cf9a"
-
-      # Bugfix in building documentation
-      # Remove on next version bump
-      patch do
-        url "https://github.com/agda/cubical/commit/294e7960eeb03a3a5f9041e49980b061e4a4a51b.patch?full_index=1"
-        sha256 "d845f5e7cfc17a7324d883a20e701e69fe2a3036c6da9b3837c0c6558136e138"
-        type :backport
-        resolves "https://github.com/agda/cubical/pull/1241"
-      end
+      url "https://github.com/agda/cubical.git",
+          # Current commit as of the release of Agda 2.9.0 support; replace this revision with an
+          # actually tagged one as soon as a suitably compatible released version of the library exists
+          revision: "8f0a71b3b3c2435cd1f579328314ae10233b1308"
     end
 
     resource "categories" do
       # Use git checkout due to `git ls-tree` usage in Makefile
       url "https://github.com/agda/agda-categories.git",
-          tag:      "v0.3.0",
-          revision: "02be9337ad5bf0dedae84cefd58b11f25b18855a"
+          # Current commit as of the release of Agda 2.9.0 support; replace this revision with an
+          # actually tagged one as soon as a suitably compatible released version of the library exists
+          revision: "ade267a5a02688fb97ec9d6e03ab6192be94439e"
     end
 
     resource "agda2hs" do
-      url "https://github.com/agda/agda2hs/archive/refs/tags/v1.4.tar.gz"
-      sha256 "e3f377b18a4545aea2cd9292f21962e896993be4b470f0b0a7865f3129688c6b"
+      url "https://github.com/agda/agda2hs.git",
+          # Current commit as of the release of Agda 2.9.0 support; replace this revision with an
+          # actually tagged one as soon as a suitably compatible released version of the project exists
+          revision: "b3d4cc12e9226c44d6a8b9f7d61c6dc46e7c8650"
     end
 
     resource "agda-language-server" do
-      url "https://github.com/agda/agda-language-server/archive/refs/tags/v8.tar.gz"
-      sha256 "58c18627786451d43269cde03a062716a05dc9ff1fa74fc82e6f48f449c9e5c9"
+      url "https://github.com/agda/agda-language-server/archive/refs/tags/v11.tar.gz"
+      sha256 "df653578bfcd7b8ce46a60dc56cbbd66ac929d8d00c7aaabf8cc8a9b17e4855e"
     end
   end
 
@@ -134,11 +129,6 @@ class Agda < Formula
     # Make the language server build tolerate point releases
     inreplace als/"package.yaml", "Agda == 2.8.0", "Agda >= 2.8.0 && < 2.9.0"
 
-    # Make agda2hs build compatible with GHC 9.14
-    inreplace agda2hs_build/"agda2hs.cabal",
-      "base                 >= 4.13    && < 4.22",
-      "base                 >= 4.13    && < 4.23"
-
     # Make the Agda Emacs mode compatible with Emacs >= 31.1
     inreplace buildpath/"src/data/emacs-mode/agda2-highlight.el", " font-lock-", " 'font-lock-"
 
@@ -148,13 +138,16 @@ class Agda < Formula
     end
 
     # Relative package paths keep Cabal file monitoring inside the build directory.
-    (buildpath/"cabal.project").write <<~HASKELL
-      packages: . agda2hs agda-language-server
-      package Agda
-        flags: +optimise-heavily +enable-cluster-counting
-      package agda-language-server
-        flags: +Agda-2-8-0
-    HASKELL
+    inreplace buildpath/"cabal.project", "packages: Agda.cabal", "packages: . agda2hs agda-language-server"
+    (buildpath/"cabal.project").open "a" do |f|
+      f.write <<~CABAL
+
+        package Agda
+          flags: +optimise-heavily +enable-cluster-counting
+        package agda-language-server
+          flags: +Agda-2-9-0
+      CABAL
+    end
 
     system "cabal", "v2-update"
     system "cabal", "fetch", "ieee754"
@@ -189,7 +182,7 @@ class Agda < Formula
     cabal_args += %w[--enable-executable-dynamic --enable-shared] if OS.mac?
 
     # Expose certain packages for building and testing
-    exposed_packages = %w[base ieee754 text directory containers]
+    exposed_packages = %w[base containers directory ieee754 text]
 
     system "cabal", "--store-dir=#{libexec}", "v2-install", *exposed_packages, "--lib", *cabal_args
     system "cabal", "--store-dir=#{libexec}", "v2-install", ".", agda2hs_build, als, *cabal_args
@@ -208,24 +201,27 @@ class Agda < Formula
     # work around issue related to find command on older macOS
     inreplace cubicallib/"generate-everything.sh", "find Cubical/ ", "find Cubical "
 
-    # allow categories library to work with newer stdlib
-    inreplace categorieslib/"agda-categories.agda-lib", "standard-library-2.3", "standard-library"
-    # allow stdlib-meta library to work with newer stdlib
-    inreplace metalib/"agda-stdlib-meta.agda-lib", "standard-library-2.3", "standard-library"
+    # work around heap exhaustion when building stdlib and categories in parallel
+    inreplace stdlib/"GNUmakefile",
+              "AGDA_RTS_OPTIONS=+RTS -M4.0G -H3.5G -A128M -RTS",
+              "AGDA_RTS_OPTIONS=+RTS -M6.0G -H3.5G -A128M -RTS"
+    inreplace categorieslib/"Makefile",
+              "RTSARGS = +RTS -M6G -A128M -RTS",
+              "RTSARGS = +RTS -M12G -A128M -RTS"
 
     # Generate documentation and interface files. We build without extra options
     # so generated interface files work on basic use case. Options like -Werror
     # will need re-generation: https://github.com/agda/agda/issues/5151
-    system "make", "-C", stdlib, "listings", "AGDA_OPTIONS="
-    system "make", "-C", cubicallib, "listings", "AGDA_FLAGS="
-    system "make", "-C", categorieslib, "html", "OTHEROPTS="
+    system "make", "-C", stdlib, "listings", "AGDA_OPTIONS=-j#{ENV.make_jobs}"
+    system "make", "-C", cubicallib, "listings", "AGDA_FLAGS=-j#{ENV.make_jobs}"
+    system "make", "-C", categorieslib, "html", "OTHEROPTS=-j#{ENV.make_jobs}"
 
     # More manually built documentation and interfaces
     cd classeslib do
-      system "agda", "--html", "standard-library-classes.agda"
+      system "agda", "-j#{ENV.make_jobs}", "--html", "standard-library-classes.agda"
     end
     cd metalib do
-      system "agda", "--html", "standard-library-meta.agda"
+      system "agda", "-j#{ENV.make_jobs}", "--html", "standard-library-meta.agda"
     end
 
     # Clean up references to Homebrew shims and temporary generated files
@@ -236,13 +232,11 @@ class Agda < Formula
 
     # generate interface files for agda2hs libraries
     cd agda2hs_lib/"base" do
-      system bin/"agda", "--no-default-libraries",
-                         "--build-library"
+      system bin/"agda", "-j#{ENV.make_jobs}", "--no-default-libraries", "--build-library"
     end
     cd agda2hs_lib/"containers" do
-      system bin/"agda", "--no-default-libraries",
-                         "--library-file=./agda2hs-libraries",
-                         "--build-library"
+      system bin/"agda", "-j#{ENV.make_jobs}", "--no-default-libraries",
+                         "--library-file=./agda2hs-libraries", "--build-library"
       # adapted from upstream at
       # https://github.com/agda/agda2hs/blob/master/lib/containers/generate-haskell.sh
       system bin/"agda2hs", "--no-default-libraries",
@@ -394,6 +388,23 @@ class Agda < Formula
       main = return tt
     AGDA
 
+    latextest = testpath/"LaTeXTest.lagda"
+    latextest.write <<~LATEX
+      \\documentclass{article}
+      \\usepackage{unicode-math,agda}
+      \\begin{document}
+      \\begin{code}
+      {-# OPTIONS --safe --cubical-compatible #-}
+      module LaTeXTest where
+      infix 4 _≡_
+      data _≡_ {A : Set} (x : A) : A → Set where
+        refl : x ≡ x
+      cong : ∀ {A B : Set} (f : A → B) {x y} → x ≡ y → f x ≡ f y
+      cong f refl = refl
+      \\end{code}
+      \\end{document}
+    LATEX
+
     agda2hstest = testpath/"Agda2HsTest.agda"
     agda2hstest.write <<~AGDA
       {-# OPTIONS --erasure #-}
@@ -412,7 +423,9 @@ class Agda < Formula
 
     agda2hsout = testpath/"Agda2HsTest.hs"
     agda2hsexpect = <<~HASKELL
-      module Agda2HsTest where
+      module Agda2HsTest
+        (BST(..))
+      where
 
       data BST a = Leaf
                  | Node a (BST a) (BST a)
@@ -438,7 +451,10 @@ class Agda < Formula
     system bin/"agda", categoriestest
 
     # compile a simple module using the JS backend
-    system bin/"agda", "--js", simpletest
+    system bin/"agda", "--js", "--js-es6", simpletest
+
+    # generate LaTeX from a simple module, with EGC counting
+    system bin/"agda", "--latex", "--count-clusters", latextest
 
     # test the GHC backend; compile and run a simple program
     system bin/"agda", "--compile", iotest
