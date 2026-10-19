@@ -1,9 +1,11 @@
 class Openfst < Formula
   desc "Library for weighted finite-state transducers"
   homepage "https://www.openfst.org/twiki/bin/view/FST/WebHome"
-  url "https://openfst.org/twiki/pub/FST/FstDownload/openfst-1.8.4.tar.gz"
-  sha256 "a8ebbb6f3d92d07e671500587472518cfc87cb79b9a654a5a8abb2d0eb298016"
+  url "https://www.openfst.org/twiki/pub/FST/FstDownload/openfst-1.8.5.tar.gz"
+  mirror "https://src.fedoraproject.org/repo/pkgs/openfst/openfst-1.8.5.tar.gz/sha512/0db618a394b321e8bd51e991559b880582fc9ecf19bd3b56e828bbdc99990722c0bfc8c294c016bee1676ce096d18eb5f1b543d047643adf05c8717fe0ef1fa3/openfst-1.8.5.tar.gz"
+  sha256 "895f98d04e98815b6c5c6b94427d112300f2996f14687b2a2bd536d9bd0ff7ec"
   license "Apache-2.0"
+  compatibility_version 1
 
   livecheck do
     url "https://www.openfst.org/twiki/bin/view/FST/FstDownload"
@@ -21,6 +23,8 @@ class Openfst < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:       "0fba19fbd00295bf3f4c8980c5f1cc7c7848eae6d22d7bc02432836f299f17db"
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "3e99e7fd868352d8f1956c5e2721ec89dbe064c39018c680d19e2ddaab3bb787"
   end
+
+  deny_network_access!
 
   def install
     system "./configure", "--disable-silent-rules",
