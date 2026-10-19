@@ -30,9 +30,18 @@ class Ccache < Formula
   depends_on "xxhash"
   depends_on "zstd"
 
+  on_macos do
+    depends_on "llvm" => [:build, :no_linkage] if DevelopmentTools.clang_build_version <= 1400
+  end
+
   on_linux do
     depends_on "elfutils" => :build
     depends_on "zlib-ng-compat"
+  end
+
+  fails_with :clang do
+    build 1400
+    cause "Requires C++20"
   end
 
   # Workaround to allow running tests with Xcode 27 / LLVM 23 after
@@ -64,6 +73,9 @@ class Ccache < Formula
     # (especially with IPO enabled), adds negligible time to the build process, and we don't actually test
     # this formula properly in the test block since doing so would be too complicated.
     # See https://github.com/Homebrew/homebrew-core/pull/83900#issuecomment-90624064
+    #
+    # The profiling tests can't merge Apple clang's profiles with `llvm`'s `llvm-profdata`, so hide it.
+    ENV.remove "PATH", "#{formula_opt_bin("llvm")}:" if OS.mac? && DevelopmentTools.clang_build_version <= 1400
     with_env(CC: DevelopmentTools.locate(DevelopmentTools.default_compiler)) do
       system "ctest", "-j#{ENV.make_jobs}", "--test-dir", "build", "--rerun-failed", "--output-on-failure"
     end
