@@ -20,6 +20,8 @@ class VapoursynthVszip < Formula
 
   preserve_rpath # skip unnecessary relocation for plugin which avoids headerpad errors
 
+  pypi_packages exclude_packages: "vapoursynth"
+
   deny_network_access!
 
   def fetch
