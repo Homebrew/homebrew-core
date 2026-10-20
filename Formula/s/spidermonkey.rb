@@ -1,9 +1,9 @@
 class Spidermonkey < Formula
   desc "JavaScript-C Engine"
   homepage "https://spidermonkey.dev"
-  url "https://archive.mozilla.org/pub/firefox/releases/140.17.0esr/source/firefox-140.17.0esr.source.tar.xz"
-  version "140.17.0"
-  sha256 "4d6ed3b18b2069c55bab12d8ba95da6013ac0b036d8a031df8b9f39a25d05c33"
+  url "https://archive.mozilla.org/pub/firefox/releases/153.5.1esr/source/firefox-153.5.1esr.source.tar.xz"
+  version "153.5.1"
+  sha256 "c6888848f90e7ebeacad38725b9bbbfe7c9bea7078098d47a2cf2c1ff3e18b83"
   license "MPL-2.0"
   compatibility_version 1
   head "https://hg.mozilla.org/mozilla-central", using: :hg
@@ -50,43 +50,6 @@ class Spidermonkey < Formula
     cause "Only GCC 8.1 or newer is supported"
   end
 
-  # Apply patch used by `gjs` to bypass build error.
-  # ERROR: *** The pkg-config script could not be found. Make sure it is
-  # *** in your path, or set the PKG_CONFIG environment variable
-  # *** to the full path to pkg-config.
-  # Ref: https://discourse.gnome.org/t/gnome-45-to-depend-on-spidermonkey-115/16653
-  patch do
-    on_macos do
-      url "https://github.com/ptomato/mozjs/commit/c82346c4e19a73ed4c7f65a6b274fc2138815ae9.patch?full_index=1"
-      sha256 "0f1cd5f80b4ae46e614efa74a409133e8a69fff38220314f881383ba0adb0f87"
-      type :unofficial
-      resolves "https://bugzilla.mozilla.org/show_bug.cgi?id=1783570"
-    end
-  end
-
-  # Apply patch used by `gjs` to work around https://bugzilla.mozilla.org/show_bug.cgi?id=1973994
-  patch do
-    url "https://github.com/ptomato/mozjs/commit/9aa8b4b051dd539e0fbd5e08040870b3c712a846.patch?full_index=1"
-    sha256 "5c2a8c804322ccacbc37f152a4a3d48a5fc2becffb1720a41e32c03899af0be6"
-    type :unofficial
-    resolves "https://bugzilla.mozilla.org/show_bug.cgi?id=1973994"
-  end
-
-  # Backport support for Python 3.14
-  patch do
-    url "https://github.com/mozilla-firefox/firefox/commit/d497aa4f770ca02f6083e93b94996a8fe32c2ff4.patch?full_index=1"
-    sha256 "026f91a56cd60907a87c62dd4143eac8300d6fc7433b94888229c632a43c34bf"
-    type :backport
-    resolves "https://bugzilla.mozilla.org/show_bug.cgi?id=1969769"
-  end
-
-  # Fix Rust target detection for OpenEmbedded Linux.
-  # TODO: Check resolution in https://bugzilla.mozilla.org/show_bug.cgi?id=2068494
-  # Fixes:
-  # checking for rust host triplet...
-  # ERROR: Don't know how to translate x86_64-pc-linux-gnu for rustc
-  patch :DATA
-
   def install
     ENV.runtime_cpu_detection
     ENV.O3 if DevelopmentTools.clang_build_version >= 1500 # lld doesn't support -Os
@@ -112,8 +75,7 @@ class Spidermonkey < Formula
     end
 
     mkdir "brew-build" do
-      args = %W[
-        --prefix=#{prefix}
+      args = %w[
         --enable-hardening
         --enable-optimize
         --enable-readline
@@ -121,7 +83,6 @@ class Spidermonkey < Formula
         --enable-rust-simd
         --enable-shared-js
         --disable-bootstrap
-        --disable-debug
         --disable-jemalloc
         --with-intl-api
         --with-system-icu
@@ -129,7 +90,7 @@ class Spidermonkey < Formula
         --with-system-zlib
       ]
 
-      system "../js/src/configure", *args
+      system "../js/src/configure", *args, *std_configure_args
       ENV.deparallelize { system "make" }
       system "make", "install"
     end
@@ -152,36 +113,3 @@ class Spidermonkey < Formula
     assert_equal "hello", shell_output("#{bin}/js #{path}").strip
   end
 end
-
-__END__
-diff --git a/build/moz.configure/rust.configure b/build/moz.configure/rust.configure
---- a/build/moz.configure/rust.configure
-+++ b/build/moz.configure/rust.configure
-@@ -410,7 +410,14 @@ def detect_rustc_target(
-             return narrowed[0].rust_target
-
--        # Finally, see if the vendor can be used to disambiguate.
--        narrowed = [c for c in candidates if c.target.vendor == host_or_target.vendor]
-+        # Finally, see if the vendor can be used to disambiguate. Autoconf uses
-+        # "pc" where Rust uses "unknown" for generic targets.
-+        vendor_aliases = {"unknown": ("pc",)}
-+        narrowed = [
-+            c
-+            for c in candidates
-+            if c.target.vendor == host_or_target.vendor
-+            or host_or_target.vendor in vendor_aliases.get(c.target.vendor, ())
-+        ]
-         if len(narrowed) == 1:
-             return narrowed[0].rust_target
-
-diff --git a/python/mozbuild/mozbuild/test/configure/test_toolchain_configure.py b/python/mozbuild/mozbuild/test/configure/test_toolchain_configure.py
---- a/python/mozbuild/mozbuild/test/configure/test_toolchain_configure.py
-+++ b/python/mozbuild/mozbuild/test/configure/test_toolchain_configure.py
-@@ -1881,6 +1881,7 @@ def gen_invoke_rustc(version, rustup_wrapper=False):
-                 "x86_64-fortanix-unknown-sgx",
-                 "x86_64-fuchsia",
-                 "x86_64-linux-android",
-+                "x86_64-oe-linux-gnu",
-                 "x86_64-pc-nto-qnx710",
-                 "x86_64-pc-solaris",
-                 "x86_64-pc-windows-gnu",
