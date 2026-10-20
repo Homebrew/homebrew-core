@@ -6,6 +6,7 @@ class Thrax < Formula
   url "https://www.openfst.org/twiki/pub/GRM/ThraxDownload/thrax-1.3.10.tar.gz"
   sha256 "78dedada58a0a8543b4ea90c77a36783ac82495cf5456bec5d83baafac74b764"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://www.openfst.org/twiki/bin/view/GRM/ThraxDownload"
