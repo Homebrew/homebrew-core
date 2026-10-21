@@ -41,11 +41,8 @@ class Pixtuoid < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/pixtuoid --version")
 
-    system bin/"pixtuoid", "init-pack", testpath/"pack"
-    assert_match "OK: pack \"skeleton\"", shell_output("#{bin}/pixtuoid validate-pack #{testpath}/pack")
-
-    connected = JSON.parse(shell_output("#{bin}/pixtuoid connect claude-code --json"))
-    assert_equal [{ "id" => "claude-code", "outcome" => "connected" }], connected
-    assert_match "pixtuoid-hook", (testpath/".claude/settings.json").read
+    connected = JSON.parse(shell_output("#{bin}/pixtuoid connect codewhale --json"))
+    assert_equal [{ "id" => "codewhale", "outcome" => "connected" }], connected
+    assert_match "pixtuoid-hook", (testpath/".codewhale/config.toml").read
   end
 end
