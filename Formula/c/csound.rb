@@ -2,14 +2,13 @@ class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
   license "LGPL-2.1-or-later"
-  revision 16
   head "https://github.com/csound/csound.git", branch: "develop"
 
   # Remove `stable` block when patches are no longer needed
   stable do
     url "https://github.com/csound/csound.git",
-        tag:      "6.18.1",
-        revision: "a1580f9cdf331c35dceb486f4231871ce0b00266"
+        tag:      "7.0.0",
+        revision: "c58f4de6b8056b9356f31615b395b3bfd9bd0775"
 
     # Fix build failure due to mismatched pointer types on macOS 14+
     patch do
