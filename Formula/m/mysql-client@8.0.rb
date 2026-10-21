@@ -23,6 +23,9 @@ class MysqlClientAT80 < Formula
 
   keg_only :versioned_formula
 
+  # See: https://endoflife.date/mysql
+  disable! date: "2027-04-30", because: :unsupported
+
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build

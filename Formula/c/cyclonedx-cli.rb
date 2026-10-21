@@ -17,6 +17,11 @@ class CyclonedxCli < Formula
 
   depends_on "dotnet"
 
+  resource "document.spdx.json", :test do
+    url "https://raw.githubusercontent.com/CycloneDX/cyclonedx-cli/refs/tags/v0.32.0/tests/cyclonedx.tests/Resources/document.spdx.json"
+    sha256 "6fed40c4b4774821c2a9002b3ad44c1234987ff5d7780345ed29b01e942b8142"
+  end
+
   def install
     dotnet = Formula["dotnet"]
     args = %W[
@@ -37,11 +42,6 @@ class CyclonedxCli < Formula
   end
 
   test do
-    resource "document.spdx.json" do
-      url "https://raw.githubusercontent.com/CycloneDX/cyclonedx-cli/refs/tags/v0.32.0/tests/cyclonedx.tests/Resources/document.spdx.json"
-      sha256 "6fed40c4b4774821c2a9002b3ad44c1234987ff5d7780345ed29b01e942b8142"
-    end
-
     testpath.install resource("document.spdx.json")
     system bin/"cyclonedx", "convert", "--input-file=document.spdx.json", "--output-file=bom.cdx.json"
     system bin/"cyclonedx", "validate", "--input-file=bom.cdx.json"

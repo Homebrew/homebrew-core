@@ -8,18 +8,16 @@ class Genometools < Formula
   head "https://github.com/genometools/genometools.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_golden_gate: "a46c21812f0885447d235ca0000f47ee118824bf70ed766a074e9d6a43d38e9a"
-    sha256 cellar: :any,                 arm64_tahoe:       "93b7227c19b00dcfc203cd07035c587c581f50290c60d9c2c01aa8eb8243ef39"
-    sha256 cellar: :any,                 arm64_sequoia:     "36d3a55a5f66a64b9e0f71335057388eeb752d0fb1df95f0e723d6172d759b09"
-    sha256 cellar: :any,                 arm64_sonoma:      "ab952c4fab136b0eb780b29a9bcfdfa11743dc0d89c057181a821a2a21b5d8c4"
-    sha256                               sonoma:            "710d23047dbe28c95592437e8d08e9cdaed34d416f5430090354efe0f0552564"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a6183d1cfa09dea81e547a747785a419753cc0c044934f96e0919c79e9858e18"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "20bd4d59acfc6ceb6c15053a4e00494a563cfaa4a0736a18a18db2e0a73d0b08"
+    rebuild 3
+    sha256 cellar: :any, arm64_golden_gate: "49a0d0c8d0718c9183129c5875cdcdba4eb9d4966570bd76af5c23f76a15e0b7"
+    sha256 cellar: :any, arm64_tahoe:       "05632d53beda8b77c23b66e677fd9eda9895e8f953f12757db1985d1a575feab"
+    sha256 cellar: :any, arm64_sequoia:     "1bef1866c00bf15d61215426a0bdfe8de571c3a628979c3481dc637e0d4ea84c"
+    sha256 cellar: :any, arm64_linux:       "f7f197e6520bd311c3388e1a16498065885054f0d84ab7a735d0b00703379c6f"
+    sha256 cellar: :any, x86_64_linux:      "8d4050090629131be86cc516a70e2a388c8cbbb91d8188bef20b9d4877bceab1"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "cairo"
   depends_on "glib"
   depends_on "pango"

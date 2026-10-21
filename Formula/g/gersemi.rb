@@ -8,16 +8,17 @@ class Gersemi < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "64fe8b22b13468205e40e720e1f224a2657da604ef6d0609e5a29d31c3c07787"
-    sha256 cellar: :any, arm64_tahoe:       "ed99cdb7443d123c9f6cf50296a206768a0b04a1ef404ddddaf52c29edd86ecb"
-    sha256 cellar: :any, arm64_sequoia:     "4aeea171054d6ef8f5d5e27ce8cb9f5302d4fa1f3e54d502c6bddb283114c4a1"
-    sha256 cellar: :any, arm64_linux:       "8344877d5ea28103c865848fdb3218dacea504fce59718fef250e002efa50a82"
-    sha256 cellar: :any, x86_64_linux:      "19f69b9b77d70a950400d4f9f9e5c1c0adc58d83878ac4d1c01ac82adec61636"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "e2abbfdc83a8a95b02e9f874b6c23bbe7821703758408086176ebf9a414c5d60"
+    sha256 cellar: :any, arm64_tahoe:       "a5b3b993074eaadd2d9f8298d2fb5d561b2fe3f99cf3ffa4c17278cbec080b02"
+    sha256 cellar: :any, arm64_sequoia:     "fe4a48e58a4c5221bd390ca17f4be4df85a6b899e92eef51c516a89e82b9b1ad"
+    sha256 cellar: :any, arm64_linux:       "3117b7c13ea6f3ada303ddfa0d21820398210b97b1fdf37ebc436a3762791463"
+    sha256 cellar: :any, x86_64_linux:      "ebae32e9f45d3018bae350324b9fefdd0612a3c5124c94734978e55353689934"
   end
 
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"

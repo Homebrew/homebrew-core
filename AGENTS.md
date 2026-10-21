@@ -49,6 +49,11 @@ end
 #### Livecheck
 
 Prefer default behavior. Only add a `livecheck` block if automatic detection fails.
+Check `brew livecheck --debug <formula>` first; GitHub `stable` URLs use the `Git` strategy by default.
+If the tags need filtering, add `url :stable` and a `regex` rather than `strategy :github_latest`.
+GitHub rate-limits API requests, so only use `strategy :github_latest` when `Git` can't adequately identify the latest version (e.g. tags using a stable version format are marked as pre-release or not all tags receive a release) or there's a notable time gap between a tag and release.
+The "latest" release must also reliably be the correct latest version.
+See [`livecheck` guidelines](https://docs.brew.sh/Brew-Livecheck#general-guidelines).
 
 #### Head support
 

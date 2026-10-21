@@ -16,19 +16,19 @@ class Nanopb < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "12ba90acfc82663b0dc130cb72e75de6ea002030276549103d6aff8f5dce3f92"
-    sha256 cellar: :any, arm64_tahoe:       "a563fb6d87fd8787d7500cac76ccd5b7d99a3bb518ba16ecb714d16846af518a"
-    sha256 cellar: :any, arm64_sequoia:     "2c9c2322a8dcf784b2e5b33ddd7f2cb6af7b88d44165f6b4bf20970ef5fb600f"
-    sha256 cellar: :any, arm64_linux:       "97e1716d790bb2150317200a0c4ce82975363ff25cdf4d901e32faf938255bca"
-    sha256 cellar: :any, x86_64_linux:      "d76a02d2497565d76b57d61407430dce2e976919ef830a4e997d59543c599e9a"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "9197e97ed217f14a8d1006c410493c8d69929f53706ad76c2774a370315101d7"
+    sha256 cellar: :any, arm64_tahoe:       "b625795f0fbaed9cbf5de49d739b6823e33a7b43c42280d32a3933cc01b46a84"
+    sha256 cellar: :any, arm64_sequoia:     "2d5d3e5529451547f5811164bed1701aa66133c9e3e42e1caa8617b1e0070ea4"
+    sha256 cellar: :any, arm64_linux:       "933eb526e2d707a0e3daab32c76dec850f90408bffae75efee851cc78d0172f4"
+    sha256 cellar: :any, x86_64_linux:      "fc238a48adc464f25d54f6534eedb40c19695f3b927d4876e63a201893425af4"
   end
 
   depends_on "cmake" => :build
   depends_on "protobuf" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
-  # Restore `package_name: "nanopb"` when 0.4.9.2 is on PyPI
-  pypi_packages package_name: "", extra_packages: "protobuf"
+  pypi_packages package_name: "nanopb", extra_packages: "protobuf"
 
   resource "protobuf" do
     url "https://files.pythonhosted.org/packages/d9/89/5b8517baa72f84a67b8a307ba953c91057af618bf40bf676f3c03551f8f0/protobuf-7.36.2.tar.gz"

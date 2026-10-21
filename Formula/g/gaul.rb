@@ -25,6 +25,11 @@ class Gaul < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  resource "gaul-examples", :test do
+    url "https://downloads.sourceforge.net/project/gaul/gaul-examples/0.1849/gaul-examples-0.1849-0.tar.bz2"
+    sha256 "f4f59a0d676b0d58ba068424dfcb2c1715ff9aeaa940cab2daebff323274594c"
+  end
+
   def install
     # Run autoreconf to regenerate the configure script and update outdated macros.
     # This ensures that the build system is properly configured on both macOS
@@ -36,10 +41,6 @@ class Gaul < Formula
   end
 
   test do
-    resource "gaul-examples" do
-      url "https://downloads.sourceforge.net/project/gaul/gaul-examples/0.1849/gaul-examples-0.1849-0.tar.bz2"
-      sha256 "f4f59a0d676b0d58ba068424dfcb2c1715ff9aeaa940cab2daebff323274594c"
-    end
     testpath.install resource("gaul-examples")
 
     system ENV.cc, "src/struggle.c", "-o", "test", "-L#{lib}", "-lgaul_util", "-lgaul"

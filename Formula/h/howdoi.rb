@@ -9,17 +9,18 @@ class Howdoi < Formula
   revision 23
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "5f8d38aa1c9540316a25052f1211eee7cd7c8cb0b321c7b5f6233d60ff55559a"
-    sha256 cellar: :any, arm64_tahoe:       "1c4610b32ed0d2f7f327b6388642f1996e7f7723b1abea666664c53ecac68c17"
-    sha256 cellar: :any, arm64_sequoia:     "f06ec8d490311bb30bd2febfa5313a1b41c3c59924e07814137f74ccf5e88e39"
-    sha256 cellar: :any, arm64_linux:       "182af6388c8e69c9f9c2d9823e09ba3ecbf345ad2c2686f03c3e3c0864fd8029"
-    sha256 cellar: :any, x86_64_linux:      "7884c61a9106175e946207c8e05fd741764290409574e5964bc6c12d2ae729d6"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "466185edf37e64608f6619536c8c3631e7966208656aafe358464f9041610752"
+    sha256 cellar: :any, arm64_tahoe:       "5c0ea25bad6bfefc54612024d5d7e4a0ab53e8d12b73d0d9f48da9af01f4b95a"
+    sha256 cellar: :any, arm64_sequoia:     "33172821ff95e7ba056c2e21e64d374c844b70d0311d4d01577506004c0c9b95"
+    sha256 cellar: :any, arm64_linux:       "8dbb605ec2031a27df2751cde0bf060da50567e17261b7155fdfce55dc361a88"
+    sha256 cellar: :any, x86_64_linux:      "3a87d9c37d410c2e0882d3dd231793435125e956a8efe643a5682567344a7b94"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "libsodium" # for pynacl
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
@@ -37,8 +38,8 @@ class Howdoi < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "click" do
@@ -52,8 +53,8 @@ class Howdoi < Formula
   end
 
   resource "cssselect" do
-    url "https://files.pythonhosted.org/packages/8e/5a/6d6fcf922709391fac986f0a03ad4546f4f45b94d10aeb6c1ee041599993/cssselect-1.5.0.tar.gz"
-    sha256 "3cbe82dd7acbee9ba9e5723b5f9e4749826912f1fb31cd7f92aabed5fde15b15"
+    url "https://files.pythonhosted.org/packages/c8/8b/dc32df939ab541fca6ee8964d26aa231dbe231cdc2b2713228161441ba9c/cssselect-1.6.0.tar.gz"
+    sha256 "8c83a7139e97b93aa5ebdc0f46e785f7056a08a8bf201e597a6a2629d7eb11db"
   end
 
   resource "idna" do

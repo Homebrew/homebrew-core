@@ -1,8 +1,9 @@
 class Fuego < Formula
   desc "Collection of C++ libraries for the game of Go"
   homepage "https://fuego.sourceforge.net/"
-  url "https://svn.code.sf.net/p/fuego/code/trunk", revision: "1981"
+  url "https://github.com/mmueller65/fuego/archive/edd2392f7a87d8f1dc9b83f6a5b54a17edf20826.tar.gz"
   version "1.1"
+  sha256 "85cf2fe4556847c2d48364980faf1d7a558d8170d4aea1fb1f4441819ad0b725"
   license any_of: ["GPL-3.0-only", "LGPL-3.0-only"]
   revision 17
   version_scheme 1
@@ -16,14 +17,17 @@ class Fuego < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256               arm64_golden_gate: "a0ec3c120cd6f4ec0f7b35b23cf79f176f3b13bdd5c26edfeec14eb068945acf"
-    sha256               arm64_tahoe:       "b4f73b3cf1d971fb3d7d59dc767e93f0edd04f849e9587f79eb67d7c2332e6d7"
-    sha256               arm64_sequoia:     "db06e5eee19bf7459b5573c9739c64b45bb6232efb8367ab140ce1afce29ac78"
-    sha256               arm64_sonoma:      "210784b0b6b3333aaff2b05aa3f8fdacd2882034970f6ef18ae4327b774ff944"
-    sha256               sonoma:            "ce658e6cba50c132720e14dad2e6622449ab7368d3ad7aef85ced966362a9e68"
-    sha256               arm64_linux:       "ce2c4cc6da7ea605087ebd5ad79260ea76cd9f5ca57f3e6af7eac8458f3276fe"
-    sha256 cellar: :any, x86_64_linux:      "80308e9cf1b751c2a0956b81070ceb7f412456481c2404b5bf572887d9195b7f"
+    rebuild 1
+    sha256               arm64_golden_gate: "0ac57f9efc9df803f73083d7b7c10e0fb5ede9d03973a3e53c454fa65bfd5bf0"
+    sha256               arm64_tahoe:       "2ad5e0e31c90e52b2c6c08c966dbed5639af0ed0c6563ca490ed09838e0a1674"
+    sha256               arm64_sequoia:     "82c01a4fe369b17681584dd93708c58831f496a366d8624ae68ecb1de14116d3"
+    sha256               arm64_linux:       "682aaf86607f2638749a1567988634d6933474338d5aab992a5b3e71ee5839e6"
+    sha256 cellar: :any, x86_64_linux:      "7d77975632ed4d15595cddf57abf2eec648d2ffe7ccc9b536cdc83733748c33a"
   end
+
+  # Last release on 2011-03-13, last svn activity on 2019-12-10
+  deprecate! date: "2026-10-17", because: :unmaintained
+  disable! date: "2027-04-17", because: :unmaintained
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

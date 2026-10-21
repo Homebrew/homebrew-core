@@ -1,10 +1,10 @@
 class Qtquickeffectmaker < Formula
   desc "Tool to create custom Qt Quick shader effects"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtquickeffectmaker-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtquickeffectmaker-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtquickeffectmaker-everywhere-src-6.11.2.tar.xz"
-  sha256 "7923dc7284e933a5e36ae24a427564f04e0b27af8dfa38eee8092c01c2835cb7"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtquickeffectmaker-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtquickeffectmaker-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtquickeffectmaker-everywhere-src-6.12.0.tar.xz"
+  sha256 "290c8c3c9835e9d3991cbf7e8fe965992c8f7c8730e694f7cf90fb719c2c63ac"
   license all_of: [
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "BSD-3-Clause", # BlurHelper.qml
@@ -17,12 +17,11 @@ class Qtquickeffectmaker < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b4a8f7b0d7f852ca54a3a58dbf105051d18d340893d9d34228d6568ae8605f89"
-    sha256 cellar: :any, arm64_tahoe:       "288817f8a66f41eb5423f51289f362db89cb71853cbf7e8f0d6af1073effa57f"
-    sha256 cellar: :any, arm64_sequoia:     "7489be83a2c6e8694a9047a39b34b3ca204be82eb1ba8b5f8882c5b38e00e707"
-    sha256 cellar: :any, arm64_sonoma:      "3e4270cd70792ea185f490a8836ad11e66e11047c62cc720dee7a8f0d75d24c4"
-    sha256 cellar: :any, arm64_linux:       "928b4d079f08e96bffc681305466a297884e32c46e3ea94c94f4640046b33048"
-    sha256 cellar: :any, x86_64_linux:      "0400bd1a31f0b37ebe22250b40a00da201449ed86d3da530fe500ed3d3fdd5ef"
+    sha256 cellar: :any, arm64_golden_gate: "efda551e457394bd03122720f0ad95101411a8f1e75e522d131a698014ebe236"
+    sha256 cellar: :any, arm64_tahoe:       "2aded4d52980af19190eafb38bec8db4b1f618793d058ca4a9ebcb8456be70c8"
+    sha256 cellar: :any, arm64_sequoia:     "cd1cdcef88545df623c99e2e90a333306779211c4208c179dcc7f336f43a531b"
+    sha256 cellar: :any, arm64_linux:       "4075af633bf00cb6a03409209db979b1609ce45bb2f472911f36246ee444c00f"
+    sha256 cellar: :any, x86_64_linux:      "bc7e99c0f5a24bb2caa81dd80b8efa3721aedfb87bd27a84520627d261aede0e"
   end
 
   depends_on "cmake" => :build
@@ -34,6 +33,9 @@ class Qtquickeffectmaker < Formula
   depends_on "qtshadertools"
 
   def install
+    # FIXME: app bundle is broken as CFBundleExecutable doesn't match after rename
+    inreplace "tools/qqem/CMakeLists.txt", 'set(EXECUTABLE "qqem")', 'set(EXECUTABLE "Qt Quick Effect Maker")'
+
     args = ["-DCMAKE_STAGING_PREFIX=#{prefix}"]
     args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON" if OS.mac?
 
@@ -49,7 +51,7 @@ class Qtquickeffectmaker < Formula
 
     bin.glob("*.app") do |app|
       libexec.install app
-      bin.write_exec_script libexec/app.basename/"Contents/MacOS"/app.stem
+      (bin/"qqem").write_env_script libexec/app.basename/"Contents/MacOS"/app.stem, {}
     end
   end
 

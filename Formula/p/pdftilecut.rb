@@ -22,7 +22,15 @@ class Pdftilecut < Formula
   depends_on "jpeg-turbo"
   depends_on "qpdf"
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
+    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+
     system "go", "build", *std_go_args
   end
 

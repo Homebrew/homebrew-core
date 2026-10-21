@@ -8,18 +8,16 @@ class Gdbgui < Formula
   license "GPL-3.0-only"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3789bbdc97c4cb16ea50d7fae3273084667f0e0357678d0f7b569658f8b1d513"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "305daf07812dd5941548e611414a1dd7ea509a8230275b12c7981f04481abb90"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2a8f4508a00e9302ebaf63888d4505e027dde3710278601fc7229d4fe06521e3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "a4ee59b13d9263ef333db195513bacde470ead12f92fb4a828ff6801f8624d3f"
-    sha256 cellar: :any_skip_relocation, sonoma:            "3a5a99218db05c8875e10ed5dae431912493f7296c8933763c163adbe0c7e7da"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e5cab7defea471b94a728c30bf2fcecb57f9b0ffcde63f704246cc02958e3a51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "42ddd8b183bbf4134c83b15345f53480bc73d0f246ef71891de56179ee094cb0"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a8337230b70e8dfb11051f6dabc104928286dcf871e9a2fb1b85af0ca144c78d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "919a19dfd2b5bfb0a649bf89f11ce1775613be5f9b0f6e10428254c3f4710956"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ad798ae81a8a689f5e5f8d75260e9f08c38b2379e1eedb90e68275597f091b59"
+    sha256 cellar: :any,                 arm64_linux:       "605d82196bf3f805a6c957eef48fd7a5e36aecc1a3262ef1efd7b681a61b4e59"
+    sha256 cellar: :any,                 x86_64_linux:      "fcf90033f8d5b77fad529c8499d5b29c0d4980af6d087d91b9b0b685ebbf7537"
   end
 
   depends_on "gdb"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "bidict" do
     url "https://files.pythonhosted.org/packages/9a/6e/026678aa5a830e07cd9498a05d3e7e650a4f56a42f267a53d22bcda1bdc9/bidict-0.23.1.tar.gz"

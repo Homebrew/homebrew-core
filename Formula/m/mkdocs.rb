@@ -9,23 +9,22 @@ class Mkdocs < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "497f392edacb2bef49eace4f81d18ca0f594971cc598c1cafebc19082b48c48d"
-    sha256 cellar: :any, arm64_tahoe:       "0076411cb8be48c77b98587c1b9b5150a3ac6f2a5ad0e3369b06a76db990f196"
-    sha256 cellar: :any, arm64_sequoia:     "c1574a9c537c3296ee92b4f61372821cfd9c380c142d1c3411f7e2c06eca3155"
-    sha256 cellar: :any, arm64_sonoma:      "e1d9f105030abf9be129f221b522cd9798d77c7ca2be1e18e7eeaf79655ac643"
-    sha256 cellar: :any, sonoma:            "f9ac93cc9757a00609a1bb29170a992c1b6dc7619cf824306805df1c03d0c73b"
-    sha256 cellar: :any, arm64_linux:       "7b443a93a680bd1996dc62136aea57c53c07b75fec7cabe11b21729a28de7a90"
-    sha256 cellar: :any, x86_64_linux:      "ef400923cf8275f08b947f051d563e5e5c2b4bd361689039429c29d7938fdbac"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "2774d89113575ac77203ae44359f479550b179b7d11b72863a3b09038e9c13e7"
+    sha256 cellar: :any, arm64_tahoe:       "72b17cc753fdfe6d6f8db25d177b2939dca594fc6263f6636cf335f726fb4801"
+    sha256 cellar: :any, arm64_sequoia:     "dad139e0018df5f1558788d4d6fa034424859aa371ef454d5c6f7836f91b1470"
+    sha256 cellar: :any, arm64_linux:       "e826ac6dbf0c80b5315a11001e702f108e8b1cf0a498c8c231676e0b62eab03b"
+    sha256 cellar: :any, x86_64_linux:      "7d5f222c0eaf666614d9ffaa505ec8e2ec658f0b8d005dfa0bcc8ebacc9be33b"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   conflicts_with "mkdocs-material", because: "both install `mkdocs` binaries"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "ghp-import" do
@@ -39,13 +38,13 @@ class Mkdocs < Formula
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/2b/f4/69fa6ed85ae003c2378ffa8f6d2e3234662abd02c10d216c0ba96081a238/markdown-3.10.2.tar.gz"
-    sha256 "994d51325d25ad8aa7ce4ebaec003febcce822c3f8c911e3b17c52f7f589f950"
+    url "https://files.pythonhosted.org/packages/f8/4f/700155c8c20d9e655dd0732b5fc3c7614f291b9148da271d7388e50bf774/markdown-3.11.tar.gz"
+    sha256 "180224db6aed87ba9ce1f2781ebcd5826253de8ff637112090e24b84502bbf9f"
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "mergedeep" do
@@ -59,8 +58,8 @@ class Mkdocs < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
-    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "pathspec" do
@@ -69,8 +68,8 @@ class Mkdocs < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/47/e4501f49c178ae1d9f4a75073fda4204f52647993f075a9db4d14930e0c5/platformdirs-4.10.0.tar.gz"
-    sha256 "31e761a6a0ca04faf7353ea759bdba55652be214725111e5aac52dfa29d4bef7"
+    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
+    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
   end
 
   resource "python-dateutil" do

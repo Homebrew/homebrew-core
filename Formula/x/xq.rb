@@ -1,10 +1,10 @@
 class Xq < Formula
   desc "Command-line XML and HTML beautifier and content extractor"
   homepage "https://github.com/sibprogrammer/xq"
-  url "https://github.com/sibprogrammer/xq.git",
-      tag:      "v1.5.1",
-      revision: "9803fc9565174eacc844319409688172ce1412aa"
+  url "https://github.com/sibprogrammer/xq/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "d57579a6c2009f3bd0f6b6f66f12744eb895575b767e7a02a099003c6bdcda3d"
   license "MIT"
+  head "https://github.com/sibprogrammer/xq.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "83f86d7fd6b23991856808a573ecf4fa085cad12de2ad9ab72a041b4cbc165b0"
@@ -28,13 +28,7 @@ class Xq < Formula
 
   def install
     ENV["CGO_ENABLED"] = "0"
-    ldflags = %W[
-      -X main.commit=#{Utils.git_head}
-      -X main.version=#{version}
-      -X main.date=#{time.iso8601}
-    ]
-
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", *std_go_args(ldflags: :goreleaser)
     man1.install "docs/xq.man" => "xq.1"
   end
 

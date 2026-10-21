@@ -1,8 +1,8 @@
 class Gitoxide < Formula
   desc "Idiomatic, lean, fast & safe pure Rust implementation of Git"
   homepage "https://github.com/GitoxideLabs/gitoxide"
-  url "https://github.com/GitoxideLabs/gitoxide/archive/refs/tags/v0.59.0.tar.gz"
-  sha256 "a2761fa1a75c696338e9f8511c1eef92ab2540ea26f7e74d446b9cf2f9ae5569"
+  url "https://github.com/GitoxideLabs/gitoxide/archive/refs/tags/v0.60.0.tar.gz"
+  sha256 "7414812a006ac67d38a8d7e5fa74ebb2863dac10d50fce6cdc2e0c3ddd419f2e"
   license "Apache-2.0"
   head "https://github.com/GitoxideLabs/gitoxide.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Gitoxide < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "07445f87b0b27c0cdf6ca6ccaba0a98b1f66942782845d9b3d8956f6475bdb24"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23538548bcf9652c060424160372c8343e340b0c81d5bba31a00c64c458afd02"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2c11a783389afc387834700b01a8e81dbc5bff722b06330012fb1620a3768927"
-    sha256 cellar: :any,                 arm64_linux:       "2ef6adf077ecf7cd4b0f64ec86c74d19b7082486e826c632037f1d9bd7d8a9ef"
-    sha256 cellar: :any,                 x86_64_linux:      "8d4a365121c0724324e182abbf219b04e0c7de7ac0dae0720394831bd622b2b8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "71f521996466298bac404f6d056e8edd3cd9218146d6d29db641f9030f0517ab"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c95fc49d6911d31b7a2a56f59259e7f470f1337b3428513d26c3d0a4bd9b78a6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4043ab496ba5cc2e731a9d6e57bf05f47348f28bfc9165536f9290a9f6ae09e2"
+    sha256 cellar: :any,                 arm64_linux:       "a6e7d4c3164536940a41a20bc307173e3ab6e2725330cf8167560127875d5aac"
+    sha256 cellar: :any,                 x86_64_linux:      "3639fdaf3c44300f95e254350375eac430e295632f48c3cf9275b9337820f7ef"
   end
 
   depends_on "pkgconf" => :build
@@ -25,6 +25,12 @@ class Gitoxide < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install

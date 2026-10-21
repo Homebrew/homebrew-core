@@ -1,18 +1,17 @@
 class PostgresLanguageServer < Formula
   desc "Language Server for Postgres"
   homepage "https://pg-language-server.com/"
-  url "https://github.com/supabase-community/postgres-language-server/archive/refs/tags/0.26.0.tar.gz"
-  sha256 "c01ed5ee8c019b4ac8d90a6db378e50a74cbde0a227cf28193b4fc092112a5b8"
+  url "https://github.com/supabase-community/postgres-language-server/archive/refs/tags/0.28.2.tar.gz"
+  sha256 "738f169880dffae0c219c88b5c2dae3d2b79fca147e4804f4f4d3362d210afcd"
   license "MIT"
-  revision 1
   head "https://github.com/supabase-community/postgres-language-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8861619f71074c8b829d0f0cd96f765b6e6900b6da511826250b2bde96843710"
-    sha256 cellar: :any, arm64_tahoe:       "c4c3ba958a673ae00416ce33365d78054fab64b56c21651969edd7867d5404bf"
-    sha256 cellar: :any, arm64_sequoia:     "be447b685e769480e0f698562d109d7d6230177ec4e38ab7df3278a7b1d55377"
-    sha256 cellar: :any, arm64_linux:       "5080f287b693bd417da3818e330ea9d33468ac7d574daa4f29bb235bcb9616df"
-    sha256 cellar: :any, x86_64_linux:      "4d79bbab40884a34c2b05c4841d0545b4305f0435cb183e6152b536c29ae7cdc"
+    sha256 cellar: :any, arm64_golden_gate: "148e9bcf6dea74b59138c694409424846a8f6e7edbc19a6b376e72492b520b9c"
+    sha256 cellar: :any, arm64_tahoe:       "3817d7842961d5442d57dc11f2a38831b9b1403bc79222652af11f0ea1e73b8d"
+    sha256 cellar: :any, arm64_sequoia:     "03de79694525f082a47b9c52dc33ef5e3b1a7841634aa2e5f89bbb4b7c7feaa5"
+    sha256 cellar: :any, arm64_linux:       "c6313684b9394ecd6eb308fa818aca5f29de61eaa62778839f0969247258d5f7"
+    sha256 cellar: :any, x86_64_linux:      "e31396321e8b62c4838ecbe118483a4008b3da10f0306ae0f2ada29e4df519e9"
   end
 
   depends_on "llvm" => :build
@@ -21,6 +20,12 @@ class PostgresLanguageServer < Formula
   depends_on "tree-sitter" => :build
   depends_on "tree-sitter-cli" => :build
   depends_on "libpg_query"
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     ENV["PGLS_VERSION"] = version.to_s

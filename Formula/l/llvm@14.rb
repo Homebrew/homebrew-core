@@ -6,10 +6,6 @@ class LlvmAT14 < Formula
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
 
-  livecheck do
-    skip "No longer developed or maintained"
-  end
-
   bottle do
     rebuild 4
     sha256 cellar: :any,                 arm64_sonoma:   "1b081d8bd775b69b5c95e98df2689844a3c44a77509bfd9adc1f169e9502c6a7"
@@ -26,6 +22,8 @@ class LlvmAT14 < Formula
   pour_bottle? only_if: :clt_installed
 
   keg_only :versioned_formula
+
+  disable! date: "2027-04-15", because: :versioned_formula
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   # We intentionally use Make instead of Ninja.

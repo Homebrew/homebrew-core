@@ -19,6 +19,12 @@ class Umoci < Formula
   depends_on "go-md2man" => :build
   depends_on "gpgme"
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "go", "build", *std_go_args, "./cmd/umoci"
 

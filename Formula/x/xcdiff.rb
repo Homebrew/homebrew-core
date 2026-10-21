@@ -21,6 +21,11 @@ class Xcdiff < Formula
 
   uses_from_macos "swift" => :build, since: :sonoma # swift 5.10+
 
+  resource "homebrew-testdata", :test do
+    url "https://github.com/bloomberg/xcdiff/archive/refs/tags/0.10.0.tar.gz"
+    sha256 "c093e128873f1bb2605b14bf9100c5ad7855be17b14f2cad36668153110b1265"
+  end
+
   def install
     system "make", "update_version"
     system "make", "update_hash"
@@ -30,11 +35,6 @@ class Xcdiff < Formula
   end
 
   test do
-    resource "homebrew-testdata" do
-      url "https://github.com/bloomberg/xcdiff/archive/refs/tags/0.10.0.tar.gz"
-      sha256 "c093e128873f1bb2605b14bf9100c5ad7855be17b14f2cad36668153110b1265"
-    end
-
     assert_match version.to_s, shell_output("#{bin}/xcdiff --version").chomp
     project = "Fixtures/ios_project_1/Project.xcodeproj"
     diff_args = "-p1 #{project} -p2 #{project}"

@@ -31,14 +31,12 @@ class Distcc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "bfa3f1a618d785da2b6dccd39d3e5cbee74814710a49c5f510aeb749708c7494"
-    sha256 arm64_tahoe:       "09fcd33f368d1daff6716752ee32cf50cbb62f7acb0200a0a07bd676d65cd3f2"
-    sha256 arm64_sequoia:     "232f2d8db68393c3f700e16d29d914e19aa565f2e8a6d2e0e3846c8b317fd931"
-    sha256 arm64_sonoma:      "a25d35cebbe97e9bb683c53994a2956e256d4f7dfb1bd024e1a412826ee7c1d1"
-    sha256 sonoma:            "ab7cc55d6cfae2c77316093229ae3668f7e34d2d80713e4eec5f2c41f69983d2"
-    sha256 arm64_linux:       "42071ee608cbbcfcc761fe4a9b18ed90499115dab3108c03ff72a27825a2beef"
-    sha256 x86_64_linux:      "d04aa534933e21b7e469f009c76e5bde6e50ecadecbab3d6de4f134db8f7eef2"
+    rebuild 2
+    sha256 arm64_golden_gate: "a66627ecc1e0a1900115180abb461071f455d40641a0c69d953ae7fc51560c4f"
+    sha256 arm64_tahoe:       "9f900b2ebc2e4c934e04e2c943997a3cad07ac5b7551c7106f22f62291939de5"
+    sha256 arm64_sequoia:     "050f3a4ba825136de3a4f446135c895d53d0d66056f15a3126aa70e306dbe44d"
+    sha256 arm64_linux:       "7eff919dba4794aa3b05bb6ce5c8fe4614e57b1432743582a7bd95677e0e31f7"
+    sha256 x86_64_linux:      "cef51d0d8a0c418b53be5159e26d663f88909fd57a8ade11c62790bfc9b66283"
   end
 
   head do
@@ -51,7 +49,7 @@ class Distcc < Formula
   end
 
   depends_on "python-setuptools" => :build
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     ENV["PYTHON"] = python3

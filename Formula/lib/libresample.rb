@@ -27,11 +27,27 @@ class Libresample < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "9c42f2a35518f75cc11ee79cdfd8985def6d079a7afd8b2b02f74ac82a165122"
   end
 
+  deny_network_access!
+
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make"
     lib.install "libresample.a"
     include.install "include/libresample.h"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <libresample.h>
+
+      int main(void) {
+        void *handle = resample_open(1, 2.0, 2.0);
+        if (!handle) return 1;
+        resample_close(handle);
+        return 0;
+      }
+    C
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lresample", "-lm", "-o", "test"
+    system "./test"
   end
 end

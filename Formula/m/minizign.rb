@@ -1,22 +1,20 @@
 class Minizign < Formula
   desc "Minisign reimplemented in Zig"
   homepage "https://github.com/jedisct1/zig-minisign"
-  url "https://github.com/jedisct1/zig-minisign/archive/refs/tags/0.1.13.tar.gz"
-  sha256 "018f768d5614a1fccedf806b62f5614a179507f4431e8df0574d2dd38e5d31e6"
+  url "https://github.com/jedisct1/zig-minisign/archive/refs/tags/0.1.14.tar.gz"
+  sha256 "cda224ceb7d6adb25b99f313f89212e4f6272f41108c1e6eb2a6ea2a05cedc34"
   license "ISC"
   head "https://github.com/jedisct1/zig-minisign.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "81bad43fe7060f9033450b1e21c33ce5234973ef8afe2e81e389f136d06065d9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9c79df922a2d3c6c37cf7295eff50f6bea3e56ded6d2daabf6854943eb825629"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "db6b7e50805d2ca5eabed6299b6b77bcace0b030e2f81e6f78ed3965298165b4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "047dc14e3448fce68827a85711e4534028bfd9e1754773892c50a91ae2627e22"
-    sha256 cellar: :any_skip_relocation, sonoma:            "573882e509717d889f73f17df7bc0bfa688a7e1a24cd8e10393b4ecf55d1cc66"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ff9db5247b3e9fb120a9ee1841b7660f3bf489be1a0f157ab9ca1bb57b71edfb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a2f745cbd517ad2ce762fe8474ec3246b4ea1f67c5914d0f93dd4b6d4d0d8e02"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0e4f46ada73e31793e4bdee42e19dbfa9421ae0e1086e1b0f1c72bea42e0080d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "34ac32cec571e5b5394abc6783d05bb72a6a7188ac3ce86b222d01e19aef100d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cb1471156e1e04eb60aab7d544544fbb7fa55c3fad7eec69cbf6ddc98aafadaa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "be405b87bb94707b987a27c25befe70e6752339e1e9630db14cf06dbbfeb3541"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "2c61ead0170fb9c84a746031bcdba735ce9e6d1b1add6e3bad1669449fdc3419"
   end
 
-  depends_on "zig@0.16" => :build
+  depends_on "zig" => :build
 
   deny_network_access!
 

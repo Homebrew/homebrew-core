@@ -4,6 +4,7 @@ class XmlSecurityC < Formula
   url "https://shibboleth.net/downloads/xml-security-c/3.0.0/xml-security-c-3.0.0.tar.bz2"
   sha256 "a4c9e1ae3ed3e8dab5d82f4dbdb8414bcbd0199a562ad66cd7c0cd750804ff32"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://shibboleth.net/downloads/xml-security-c/"
@@ -11,19 +12,15 @@ class XmlSecurityC < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "a554ceb4b2a51021e417e29bd83592a325e9a5da78ba30a78f19987d7165fc9f"
-    sha256 cellar: :any,                 arm64_tahoe:       "da245352f56c05ef6603edff2f3ce8cd0831aeac2fe02b38ce11e56523fff2e9"
-    sha256 cellar: :any,                 arm64_sequoia:     "7f42a4e63dc531c44888737938b0e97780bb25053f42f5cd35671294251a9f6d"
-    sha256 cellar: :any,                 arm64_sonoma:      "82490b87ef4a44db821acf34f13bffcf99fd52a3ff372886ee1f001f6d22433a"
-    sha256 cellar: :any,                 arm64_ventura:     "b4431f1f09c66f1dc9c73eb72cc78c724e0b0a072f93e26917a114b4eae88ccc"
-    sha256 cellar: :any,                 sonoma:            "58c0752a0c3a1aa6b51dd7c48058661c0d5c56e7d336412a47db907b851d6451"
-    sha256 cellar: :any,                 ventura:           "abc08033a4513a659e7938e3708dabc82fd26451d46ea6f400292e4bef28ff98"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "649bcd04da8d6bf105dab88cc9de4c1b6efb55e4b20a75371e7f4a4b96b47761"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "2cce7dc9da8984c26b39b9e203162782902841d2ca55b40299c846522ba17407"
+    sha256 cellar: :any, arm64_golden_gate: "8e258dd35c83055e4ea2e3f87d161fd6c1e305aef96127aaf3976de906f874cd"
+    sha256 cellar: :any, arm64_tahoe:       "221f874bb731ad783cbc0fe9f87f6303312a5bedbc7647ab0a9baf45965bd696"
+    sha256 cellar: :any, arm64_sequoia:     "dace6d864716bcdaa77cfd543116acf83ce7a2d4f673d85d16bda59a060addc5"
+    sha256 cellar: :any, arm64_linux:       "3391151d9c7264e40ff760b6c7664adc6d2232a831d1b339e57f5b8fc439778b"
+    sha256 cellar: :any, x86_64_linux:      "e8ad0a14dfa3bdcdd9cdd2642388f0d736a18aadd1d2e7c5c8b53dab1313d8d1"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "xerces-c"
 
   # Apply Debian patch to avoid segfault in test
@@ -33,8 +30,16 @@ class XmlSecurityC < Formula
     type :unofficial
   end
 
+  # Apply Ubuntu patch to support OpenSSL 4
+  patch do
+    url "https://archive.ubuntu.com/ubuntu/pool/universe/x/xml-security-c/xml-security-c_3.0.0-2ubuntu2.debian.tar.xz"
+    sha256 "bfbf7ad525046e4b76a91ac034b103da0d63e14118c9778877af5c8f85e62a86"
+    apply "patches/fix-for-openssl4-compat.patch"
+    type :unofficial
+  end
+
   def install
-    system "./configure", "--with-openssl=#{formula_opt_prefix("openssl@3")}", *std_configure_args
+    system "./configure", "--with-openssl=#{formula_opt_prefix("openssl@4")}", *std_configure_args
     system "make", "install"
   end
 

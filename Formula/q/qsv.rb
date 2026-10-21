@@ -1,8 +1,8 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
   homepage "https://qsv.dathere.com/"
-  url "https://github.com/dathere/qsv/archive/refs/tags/23.0.1.tar.gz"
-  sha256 "90dcf4853a91184411c8f92cbe8e438769965cafa7b445f6b1de933a3e845b04"
+  url "https://github.com/dathere/qsv/archive/refs/tags/26.0.0.tar.gz"
+  sha256 "166d3e9c9133098ba4705671e0dd68644c6daa343dc454f33718a6ba18963eec"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/dathere/qsv.git", branch: "master"
 
@@ -15,11 +15,11 @@ class Qsv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "05bcf7069f16a800989d143f8a8f3eb3ad83e5049c4599576479d4c20d827e0d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3c2a63b307f32696bdc5fb92c9d1c04d8397fcfaaee10a0d74921a6c6c16215b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8b1b0a433454d39d58bbcec8f592788068ea3411ebed4032793d584e823e6906"
-    sha256 cellar: :any,                 arm64_linux:       "ed75e50cc8c9b3adaa49275f7e9edf04c154dac72aab75c9d1dd8c5f112a28f0"
-    sha256 cellar: :any,                 x86_64_linux:      "cc8933065efdb9e63a359cc4513d564ab5db69c38b5df83363af51da981f007d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "363cf9f0b7909363422b21bb073fb9906d36d495c7c2143aa6423b64ccf3f9f6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4fad8bee124edfff2cac634ec3643d827878fcfb2a138eab022336d35e0c22a8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8b53b66d45623c608197dc7bd4af1093371d06393d167f9d5a98c06176238f40"
+    sha256 cellar: :any,                 arm64_linux:       "983d653e19d7ef52ff3e6504a8a3ac6b2c340220f831600332946fa6f7bcc772"
+    sha256 cellar: :any,                 x86_64_linux:      "ff80a13a7ac8a49ce0b1ecf9120f2434dc4e170598b746bc0965bac9ddc3bc61"
   end
 
   depends_on "cmake" => :build # for libz-ng-sys

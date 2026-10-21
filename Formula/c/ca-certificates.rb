@@ -1,8 +1,8 @@
 class CaCertificates < Formula
   desc "Mozilla CA certificate store"
   homepage "https://curl.se/docs/caextract.html"
-  url "https://curl.se/ca/cacert-2026-09-25.pem"
-  sha256 "a41b5d356aea97a529fe27e0f7316d2f9d946d75927476cf9cf1b90637d00505"
+  url "https://curl.se/ca/cacert-2026-10-20.pem"
+  sha256 "796f1389bfea13c0ed78f663b765baaff54a508e5483786bd6ece73c5e3e3cbe"
   license "MPL-2.0"
   compatibility_version 1
 
@@ -12,16 +12,27 @@ class CaCertificates < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "81804ad8a70a7a8d2a0a964d106765ff88716b310decaeffb4b4895a3252186a"
+    sha256 cellar: :any_skip_relocation, all: "8589f4e61b3afcc5ea375aab11af1c891ec4c94421c699c2a5a4765078de4443"
   end
 
   deny_network_access!
 
+  EXCLUDED_SPKI_HASHES = %w[
+    bd153ed7b0434f6886b17bce8bbe84ed340c7132d702a8f4fa318f756ecbd6f3
+    c619e4780ed8e0abeda24ad732567de4383a7ea941338f6d1a7d1b49ac792fe9
+    8d417db2dd8bf5e3084d1e3f196d583849d81bdd4c00c70b9d39369e96b8c782
+  ].freeze
+
   def install
-    pkgshare.install "cacert-#{version}.pem" => "cacert.pem"
+    require "openssl"
+
+    certificates = OpenSSL::X509::Certificate.load_file("cacert-#{version}.pem").reject do |certificate|
+      EXCLUDED_SPKI_HASHES.include?(Digest::SHA256.hexdigest(certificate.public_key.public_to_der))
+    end
+    (pkgshare/"cacert.pem").write certificates.map(&:to_pem).join
 
     post_install = libexec/"post-install"
-    post_install.write <<~'BASH'
+    post_install.write <<~'BASH'.sub("@EXCLUDED_SPKI_HASHES@", EXCLUDED_SPKI_HASHES.join("|"))
       #!/bin/bash
       # Build a CA bundle from trusted system and Mozilla certificates.
       set -euo pipefail
@@ -71,10 +82,18 @@ class CaCertificates < Formula
       append_unique_certificate() {
         local certificate_file="$1"
         local openssl_command="$2"
-        local fingerprint
+        local fingerprint spki_hash
         fingerprint="$("$openssl_command" x509 -inform pem -fingerprint -sha256 -noout \
           <"$certificate_file" 2>/dev/null)" || return 0
         grep -Fqx "$fingerprint" "$fingerprints_file" && return
+
+        # Exclude AAA Certificate Services and the emSign G3 roots by their public keys.
+        spki_hash="$("$openssl_command" x509 -inform pem -pubkey -noout <"$certificate_file" 2>/dev/null |
+          "$openssl_command" pkey -pubin -outform der 2>/dev/null |
+          "$openssl_command" dgst -sha256 -r)" || return 0
+        case "${spki_hash%% *}" in
+          @EXCLUDED_SPKI_HASHES@) return 0 ;;
+        esac
 
         printf '%s\n' "$fingerprint" >>"$fingerprints_file"
         cat "$certificate_file" >>"$bundle_file"
@@ -174,8 +193,20 @@ class CaCertificates < Formula
   end
 
   test do
+    require "openssl"
+
     assert_path_exists pkgshare/"cacert.pem"
     assert_path_exists pkgetc/"cert.pem"
-    assert_match "-----BEGIN CERTIFICATE-----", (pkgetc/"cert.pem").read
+
+    system libexec/"post-install", pkgshare/"cacert.pem", testpath/"cert.pem"
+
+    [pkgshare/"cacert.pem", pkgetc/"cert.pem", testpath/"cert.pem"].each do |bundle|
+      certificates = OpenSSL::X509::Certificate.load_file(bundle)
+      refute_empty certificates
+      spki_hashes = certificates.map do |certificate|
+        Digest::SHA256.hexdigest(certificate.public_key.public_to_der)
+      end
+      assert_empty spki_hashes & EXCLUDED_SPKI_HASHES
+    end
   end
 end

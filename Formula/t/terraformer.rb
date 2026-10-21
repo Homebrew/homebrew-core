@@ -24,6 +24,12 @@ class Terraformer < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     # Work around failure: ld: B/BL out of range -162045188 (max +/-128MB)
     ldflags = "-extldflags=-ld_classic" if DevelopmentTools.ld64_version.between?("1015.7", "1022.1")

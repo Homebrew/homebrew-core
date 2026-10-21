@@ -6,7 +6,7 @@ class Libssh2 < Formula
   mirror "http://download.openpkg.org/components/cache/libssh2/libssh2-1.11.1.tar.gz"
   sha256 "d9ec76cbe34db98eec3539fe2c899d26b0c837cb3eb466a56b0f109cabf658f7"
   license "BSD-3-Clause"
-  revision 6
+  revision 7
   compatibility_version 1
 
   livecheck do
@@ -15,11 +15,11 @@ class Libssh2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "24bf37928fe5cced4a228526f01bb279204a067c6570415c04adc517edd5b58a"
-    sha256 cellar: :any, arm64_tahoe:       "916856f463c8b6f29d5a36c5b6f0ab6f62f5c4c3098dcd0b111028fb311a69c7"
-    sha256 cellar: :any, arm64_sequoia:     "481010a7c43b80c86129e5bb2892864d4a50b165338fbe5eb8918f1bb926b483"
-    sha256 cellar: :any, arm64_linux:       "9b31f6b60a7b76944d670018185c81aab767f533b2d385e6aae8779510da7c86"
-    sha256 cellar: :any, x86_64_linux:      "d7547bd8b67ed4bdcf5fb97cf501b309a51ec47a616d051a9799a50db556f836"
+    sha256 cellar: :any, arm64_golden_gate: "5556a728575577915ed43171a3881c8aeed3d0d62c24d1eb13798f8a6a03834d"
+    sha256 cellar: :any, arm64_tahoe:       "d51f26fef662c9f562f8d6bee348c9e9fdd2a917cc96bb1b26aa53116b9e7481"
+    sha256 cellar: :any, arm64_sequoia:     "e0cd7666188510728b2e133ddfab7357437f4df5c347dfbe12cc89d8c06bd2ee"
+    sha256 cellar: :any, arm64_linux:       "d429e38ea1d9345a3590d16e1ef79b2d10b9689ac1b02f175c3725ded666d76e"
+    sha256 cellar: :any, x86_64_linux:      "67939513d8a056ee430572396dcae0446e75f7a6963cc34771971fc9eb2dfefb"
   end
 
   head do
@@ -30,7 +30,7 @@ class Libssh2 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
@@ -146,7 +146,7 @@ class Libssh2 < Formula
       --disable-examples-build
       --with-openssl
       --with-libz
-      --with-libssl-prefix=#{formula_opt_prefix("openssl@3")}
+      --with-libssl-prefix=#{formula_opt_prefix("openssl@4")}
     ]
 
     system "./buildconf" if build.head?

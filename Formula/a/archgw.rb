@@ -9,16 +9,17 @@ class Archgw < Formula
   revision 5
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "2aa0f4adefdb40e8fbb0054490fcd38def03b0fb1fc25161bad4ca1e19f63a11"
-    sha256 cellar: :any, arm64_tahoe:       "96755184acec4b6765dd0525b57daa336741b77a7a42d22a429be4751b1c3c4e"
-    sha256 cellar: :any, arm64_sequoia:     "80f9ff71063f4c0aba1a82652ced37f9e1433e7b3a3f8748ebf0682b0e13262c"
-    sha256 cellar: :any, arm64_linux:       "d6ed6c82a3c8c921452aeb3bde2f3eb485b0c8ac1ded1fd476cfa975159d488b"
-    sha256 cellar: :any, x86_64_linux:      "2a98481f40b82971c67a03df2d5a7055675fdf7aa6df67468b8119d573b95897"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "569dfe494ebab2cc23d17d523d474e19d28d64dc2ede78b171820d54574764f3"
+    sha256 cellar: :any, arm64_tahoe:       "b2677bd18ebb53afc9241f23e4ea13de0bc6317b66e6337897980be18c6c0ea0"
+    sha256 cellar: :any, arm64_sequoia:     "656e392f8c2fd4166ee8f6bf99e6d70828031ead2d91e27a15da90b23b0bc01b"
+    sha256 cellar: :any, arm64_linux:       "b84f2c1581568cefcf8aeb24aaeb5626ad0a8b6528c1ac68830fc9c8ec351143"
+    sha256 cellar: :any, x86_64_linux:      "de730fbc08fb580f97617802f42049fe35289fdde71998d3794fe639f7896691"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
 
   pypi_packages exclude_packages: %w[certifi rpds-py]
@@ -59,8 +60,8 @@ class Archgw < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "pyyaml" do

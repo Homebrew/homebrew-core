@@ -32,6 +32,11 @@ class Adplay < Formula
     depends_on "alsa-lib"
   end
 
+  resource "test_file", :test do
+    url "https://github.com/adplug/adplug/raw/b5fe1a77a521d8072a95bd5a63450a55365505e9/test/testmus/TheAlibi.d00"
+    sha256 "070bcb87f935d38e8561cb72228af4067c8f4f02a51d84437208d9f830055e2e"
+  end
+
   allow_network_access! :test
 
   def install
@@ -44,11 +49,6 @@ class Adplay < Formula
   end
 
   test do
-    resource "test_file" do
-      url "https://github.com/adplug/adplug/raw/b5fe1a77a521d8072a95bd5a63450a55365505e9/test/testmus/TheAlibi.d00"
-      sha256 "070bcb87f935d38e8561cb72228af4067c8f4f02a51d84437208d9f830055e2e"
-    end
-
     assert_includes(shell_output("#{bin}/adplay --version"), "AdPlay/UNIX")
 
     resource("test_file").stage do

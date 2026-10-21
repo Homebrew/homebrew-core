@@ -2,8 +2,8 @@ class Mimirtool < Formula
   desc "CLI for interacting with Grafana Mimir"
   homepage "https://grafana.com/docs/mimir/latest/operators-guide/tools/mimirtool/"
   url "https://github.com/grafana/mimir.git",
-        tag:      "mimir-3.2.1",
-        revision: "e49585d43c6e852225e114bd1ddd98da58a4c060"
+        tag:      "mimir-3.2.2",
+        revision: "b1fe15c38773edf871267735083e4445fc75c3d0"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/mimir.git", branch: "main"
 
@@ -17,12 +17,11 @@ class Mimirtool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "419dd71a41e4297dd6c2430df2c7d53697312d58edea5162cf2cdad95e27c5fd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "df375f3fdc0c31bc53876e430a8873d4d1ae4046b433baa1a4b2e12a5a2f298c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9cf9efabd55c2a689f9677384c1a70932920c6b80cef9e14dee7735345523b74"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "7b2e0b79f0cdd46b9d258bc83d5d2d7d1cf52888101f259d8fdd0300e80ef6ac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8e5d10667164a29f8a71c70e534064064f41eb1fe4898baf5f9a31fd605865ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "103032f8774e32c33b072fe53cb1e701ee1cf2b1277b84134d2d4e990d3fd18e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e66282d0d95d7a06b8924992b8088337f06db26b2ca496fdc11cecdffcbf7cb9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "79c78611c39cfc811052f47f8bdec8879a7b86d3d58e4e9159fb66ea0fade0a2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a7237635ea08d626817466d8dbb632d378c849fb9ab7c93a188e1b5105e0758d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4aef4a1fa4b4bcbd02d9a44984a9d1affa2ee4f0fcc51e5aeb6fec58dfbdcf2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "de19d12402e06aa0d24ea52379fcd5aa9fa6f210b725ff734914260df030bc47"
   end
 
   depends_on "go" => :build

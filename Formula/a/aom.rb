@@ -2,17 +2,17 @@ class Aom < Formula
   desc "Codec library for encoding and decoding AV1 video streams"
   homepage "https://aomedia.googlesource.com/aom"
   url "https://aomedia.googlesource.com/aom.git",
-      tag:      "v3.15.1",
-      revision: "44d0a57786f432d933ff64b653347c66f4d0fa1d"
+      tag:      "v3.15.2",
+      revision: "af3dc9aadc793c1b00edc003e3fc19a44fdeb574"
   license "BSD-2-Clause"
   head "https://aomedia.googlesource.com/aom.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1b8cc8b3704e99e634b6bb3baff07ec508cd7a055fbf51cb4a951d8fb4b2065f"
-    sha256 cellar: :any, arm64_tahoe:       "f78fc63421cf6d79eae934ffb0c0b8e671285cee6e4213c4fd08e5ff84b3d393"
-    sha256 cellar: :any, arm64_sequoia:     "356ad2843b8ab1c11cc83043256cbcfeb659eb031215ecd116dfcbe2ea3f1d11"
-    sha256 cellar: :any, arm64_linux:       "e6b3ee10a86d33cae4d6658a7cbfe3b164fedafe4cf279f80c14f84113cda99a"
-    sha256 cellar: :any, x86_64_linux:      "ed7e7a71a73934b4d5e599fa0f7e61517c8ef6bae02626f438ca2f90fb389370"
+    sha256 cellar: :any, arm64_golden_gate: "ca3e34c2d919d712bdff0799bd15689ac8cbacea8d33508718a3813be45153bf"
+    sha256 cellar: :any, arm64_tahoe:       "abdf34de13cbb520adaa7ea5cb3cc1f8313d281a0f456c9c39fa415cddef82a0"
+    sha256 cellar: :any, arm64_sequoia:     "d8b133d6a8e7b2193f34f2f3cbc2cb327e8898331432daf2cc4cb84164871b35"
+    sha256 cellar: :any, arm64_linux:       "63fef63ada9e237e795c6da37fa399a633b9b6315d7e5a470468e3455ab575bc"
+    sha256 cellar: :any, x86_64_linux:      "ef4de0b57f137eecbd45f1461cc005dc46712c69f8c4a84308a3abfd85a23995"
   end
 
   depends_on "cmake" => :build
@@ -21,6 +21,11 @@ class Aom < Formula
 
   on_intel do
     depends_on "nasm" => :build
+  end
+
+  resource "homebrew-bus_qcif_15fps.y4m", :test do
+    url "https://media.xiph.org/video/derf/y4m/bus_qcif_15fps.y4m"
+    sha256 "868fc3446d37d0c6959a48b68906486bd64788b2e795f0e29613cbb1fa73480e"
   end
 
   allow_network_access! :test
@@ -51,11 +56,6 @@ class Aom < Formula
   end
 
   test do
-    resource "homebrew-bus_qcif_15fps.y4m" do
-      url "https://media.xiph.org/video/derf/y4m/bus_qcif_15fps.y4m"
-      sha256 "868fc3446d37d0c6959a48b68906486bd64788b2e795f0e29613cbb1fa73480e"
-    end
-
     testpath.install resource("homebrew-bus_qcif_15fps.y4m")
 
     system bin/"aomenc", "--webm",

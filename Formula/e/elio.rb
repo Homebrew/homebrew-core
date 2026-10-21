@@ -1,18 +1,16 @@
 class Elio < Formula
   desc "Batteries-included terminal file manager with rich previews"
   homepage "https://elio-fm.github.io/"
-  url "https://github.com/elio-fm/elio/archive/refs/tags/v1.12.0.tar.gz"
-  sha256 "89c8bcb656dbee17cccfd4b0e676523bc1f3ff34c63a84ab8327646ce72984c6"
+  url "https://github.com/elio-fm/elio/archive/refs/tags/v1.14.0.tar.gz"
+  sha256 "7a78b104e48f94a0460333a02f5e5f3a95dad11ec21a24e2b0be69d6e1974799"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "15e97e0d4f28e1a005bf956676f61af002016a25c527a64ddbcffedcbc2a9464"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2157406b62f3846a489de468d8810ba0e017ec2699fc2e5a10273e4e3815cedc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f0b4a02f7b5bc94f6338628bef09657161df6c3d66d07f0818caff3d68f40f8d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "89d689a13c2716c688b523b48ba752f5be0a6596e3418e252f13897ca360809b"
-    sha256 cellar: :any_skip_relocation, sonoma:            "03fbb45273441c66cba3983caf8125aaf7c6463f2c67e8116d8c8a08829855f2"
-    sha256 cellar: :any,                 arm64_linux:       "90d6673398d863e399af52e243044ea11122a4ee9e7407e215c3ae5178a62dba"
-    sha256 cellar: :any,                 x86_64_linux:      "f06cd8c76c4f8503842fc2cd2cf28826cd3c7b1b2615e87df1a6e48a62cf361d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "66f1c8df7edf6f4461b5b3bc970245d68c37b65842d5341915c817713bd49a14"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "60be7582ccbac8bbf475e793fda28b10e6a85e81babc8bb3eb365511f7a11584"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "616c24aa5d47021ed368f9a542770197be26d28b80d293e1ed7793f4f01106ed"
+    sha256 cellar: :any,                 arm64_linux:       "7747ad8c9279265fb47fd3ebfaa46d1625cf212e6e7a2ed0a105c94b8c215ed7"
+    sha256 cellar: :any,                 x86_64_linux:      "87b17e86497cc9ba478f1d1df0aca30fb417723134b8727e412f43c02fc0eaa0"
   end
 
   depends_on "rust" => :build

@@ -1,17 +1,17 @@
 class Wuppiefuzz < Formula
   desc "Coverage-guided REST API fuzzer developed on top of LibAFL"
   homepage "https://github.com/TNO-S3/WuppieFuzz"
-  url "https://github.com/TNO-S3/WuppieFuzz/releases/download/v1.7.1/source.tar.gz"
-  sha256 "93e3c143b90d552a2620211b866176cedfea58d263bf75331f2da550a55996f3"
+  url "https://github.com/TNO-S3/WuppieFuzz/releases/download/v1.8.0/source.tar.gz"
+  sha256 "8405309fc4b51fbabda282540c25605a00e741b4f3c0c73fe8e7a594ed23ca9c"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "87a928a6982793d4a1d9886ca9a93283f64cc141cc34566858ceaef27a7bec61"
-    sha256 cellar: :any, arm64_tahoe:       "9c262ae160c959c3a173a1cdac5e8cc8dff007d76b2c9dec36bc18d6b0ffc933"
-    sha256 cellar: :any, arm64_sequoia:     "5027f7c0331bf2f97d6ad18807862a9fef576718524fce430cc94afe05b375a6"
-    sha256 cellar: :any, arm64_sonoma:      "fd84fcf149222b32a825730a697d969e152e1837a83288041ae82fe2c6a28aa4"
-    sha256 cellar: :any, arm64_linux:       "30dd3db10fa7bb455866d9c55540b84534f5115f5503558c1192425028c8bfda"
-    sha256 cellar: :any, x86_64_linux:      "bac2b56b09e4d0357d4b02e9265c6df2febea55021bda69a3b04352c4a86919a"
+    sha256 cellar: :any, arm64_golden_gate: "4911d8c8538fa900ed5b1acffc0edf3e7a95c001e60218e8d138c7da4ca63e80"
+    sha256 cellar: :any, arm64_tahoe:       "49d1ae2b76faa6ad0759dc174268ff5542a7405ae7bfd65f2a032d9fdf6ad5a5"
+    sha256 cellar: :any, arm64_sequoia:     "afa6ffa3eb01a5ffb3926ac945c5249a8f26d79bad0e1d14eeaf0dfc9365dd07"
+    sha256 cellar: :any, arm64_linux:       "56b1e7ef6fbba4e74dce403604703a8ea9c1257a01650517c76a920fea28604e"
+    sha256 cellar: :any, x86_64_linux:      "0e1644dbdd61027fccbf79d884914a0e2ab880ece310594f110eb02879ee9239"
   end
 
   depends_on "cmake" => :build
@@ -24,6 +24,13 @@ class Wuppiefuzz < Formula
 
   on_linux do
     depends_on "openssl@4" => :build
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+    system "cargo", "metadata", "--locked", "--format-version=1"
   end
 
   def install
@@ -41,6 +48,6 @@ class Wuppiefuzz < Formula
     YAML
 
     output = shell_output("#{bin}/wuppiefuzz fuzz openapi.yaml 2>&1", 1)
-    assert_match "Error: Error parsing OpenAPI-file at openapi.yaml", output
+    assert_match "Error: Could not extract server URL from API spec", output
   end
 end

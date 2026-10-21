@@ -1,0 +1,44 @@
+Index: omniORB/src/lib/omniORB/orbcore/http/httpConnection.cc
+===================================================================
+--- omniORB/src/lib/omniORB/orbcore/http/httpConnection.cc	(revision 6817)
++++ omniORB/src/lib/omniORB/orbcore/http/httpConnection.cc	(revision 6818)
+@@ -2556,14 +2556,14 @@
+ 
+     int lastpos = -1;
+ 
+-    X509_NAME* name = X509_get_subject_name(peer_cert);
++    const X509_NAME* name = X509_get_subject_name(peer_cert);
+     lastpos = X509_NAME_get_index_by_NID(name, NID_commonName, lastpos);
+ 
+     if (lastpos == -1)
+       return;
+ 
+-    X509_NAME_ENTRY* ne       = X509_NAME_get_entry(name, lastpos);
+-    ASN1_STRING*     asn1_str = X509_NAME_ENTRY_get_data(ne);
++    const X509_NAME_ENTRY* ne       = X509_NAME_get_entry(name, lastpos);
++    const ASN1_STRING*     asn1_str = X509_NAME_ENTRY_get_data(ne);
+ 
+     // Convert to native code set
+     cdrMemoryStream stream;
+Index: omniORB/src/lib/omniORB/orbcore/ssl/sslConnection.cc
+===================================================================
+--- omniORB/src/lib/omniORB/orbcore/ssl/sslConnection.cc	(revision 6817)
++++ omniORB/src/lib/omniORB/orbcore/ssl/sslConnection.cc	(revision 6818)
+@@ -548,14 +548,14 @@
+ 
+     int lastpos = -1;
+ 
+-    X509_NAME* name = X509_get_subject_name(peer_cert);
++    const X509_NAME* name = X509_get_subject_name(peer_cert);
+     lastpos = X509_NAME_get_index_by_NID(name, NID_commonName, lastpos);
+ 
+     if (lastpos == -1)
+       return;
+ 
+-    X509_NAME_ENTRY* ne       = X509_NAME_get_entry(name, lastpos);
+-    ASN1_STRING*     asn1_str = X509_NAME_ENTRY_get_data(ne);
++    const X509_NAME_ENTRY* ne       = X509_NAME_get_entry(name, lastpos);
++    const ASN1_STRING*     asn1_str = X509_NAME_ENTRY_get_data(ne);
+ 
+     // Convert to native code set
+     cdrMemoryStream stream;

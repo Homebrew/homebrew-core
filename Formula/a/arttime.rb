@@ -26,7 +26,24 @@ class Arttime < Formula
   end
 
   test do
-    # arttime is a GUI application
-    assert_match version.to_s, shell_output("#{bin}/arttime --version")
+    require "pty"
+
+    # arttime runs an interactive `zsh` that needs a controlling terminal
+    output = ""
+    PTY.spawn(bin/"arttime", "--version") do |r, _w, pid|
+      r.winsize = [24, 80]
+      begin
+        r.each_line { |line| output += line }
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      ensure
+        Process.wait(pid)
+      end
+    end
+    assert_match version.to_s, output
+
+    output = shell_output("#{bin}/artprint -a butterfly -t Homebrew --width 40")
+    assert_match "( @ : `.", output
+    assert_match "Homebrew", output
   end
 end

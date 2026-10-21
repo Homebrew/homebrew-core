@@ -4,6 +4,7 @@ class MonitoringPlugins < Formula
   url "https://www.monitoring-plugins.org/download/monitoring-plugins-3.0.3.tar.gz"
   sha256 "a1df32ef4791defd5418907b54be1549c81598fd02e339c4595d2d26107b3280"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://github.com/monitoring-plugins/monitoring-plugins"
@@ -11,17 +12,15 @@ class MonitoringPlugins < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "c48e6282f589e21627cda28f6be3d77d84299e36936502f5977ebcbc75166e49"
-    sha256 arm64_tahoe:       "4bd874b71c116d54622cbabf83b7be686d41d8550bfeabf2f983e26702785df4"
-    sha256 arm64_sequoia:     "570398ffd401bf7caa32f38aa68407f105bfab162fd0a9bbfa0a286d6ed12ab7"
-    sha256 arm64_sonoma:      "a4e0f31d8f66d0a4a22c763c18c3f1136839f3e20c72c05b8a651d7687d75b95"
-    sha256 sonoma:            "2ddd12ad429e24c84c7d12ae0e3eca51f67692711f4e524fb783614c4f7831ae"
-    sha256 arm64_linux:       "a60f35ee14cd47a3f50f6fcc302399ad7399373f5011ff998b16a5809484e8cf"
-    sha256 x86_64_linux:      "8a96a06ff66e4f6630c79df64aa7c7c1f91e56fba79d75555665c1c03fc196b1"
+    sha256 arm64_golden_gate: "a7c52cb5aa2883a94632674f9c1da385c3df61f876efb983714477792a9e0334"
+    sha256 arm64_tahoe:       "c949d37e61b3d7f3ed660a6889dc83403db7371b23dbe56b5046e790ec9d8443"
+    sha256 arm64_sequoia:     "e227db34ff6033f9985616bec73395e2f5ff397916e1e42ce91ce3f876d69d79"
+    sha256 arm64_linux:       "f6788742b50736b09a571c0733f38f2b7f884b8a6c971f1414364fe217114979"
+    sha256 x86_64_linux:      "5f9570bf8d57e886a792ba905e858a2a795b9c289dad42c007882c66fb319292"
   end
 
   depends_on "net-snmp"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_macos do
     depends_on "gettext"
@@ -34,19 +33,19 @@ class MonitoringPlugins < Formula
   conflicts_with "nagios-plugins", because: "both install their plugins to the same folder"
 
   # Fix check_snmp build at the site upstream missed when renaming `USE_OPENSSL`
+  # Fix check_snmp build against net-snmp without the legacy `DEFAULT_SNMP_VERSION` alias
   patch do
-    url "https://github.com/monitoring-plugins/monitoring-plugins/commit/b80f5de71eeafd809203da2690aec24d99b381e3.patch?full_index=1"
-    sha256 "7450acc000dccf52bcf9be2cd267e0ffc2a89a575eed52bb1a64978339603dbf"
-    type :unofficial
+    url "https://github.com/monitoring-plugins/monitoring-plugins/commit/09c05ab8d1838c7a39654cfef00eccfc105feb95.patch?full_index=1"
+    sha256 "a22583a8802126c2332179231d4f0fbda2c175e44d9830b9c88073624debf9c8"
+    type :backport
     resolves "https://github.com/monitoring-plugins/monitoring-plugins/pull/2319"
   end
 
-  # Fix check_snmp build against net-snmp without the legacy `DEFAULT_SNMP_VERSION` alias
+  # Backport support for OpenSSL 4
   patch do
-    url "https://github.com/monitoring-plugins/monitoring-plugins/commit/717a74ecedad30973a83b3eca1823dbe284c6de5.patch?full_index=1"
-    sha256 "e965307e728ee0289be0bcf776f92d4ff241b5373adf773e2299673f72005b3e"
-    type :unofficial
-    resolves "https://github.com/monitoring-plugins/monitoring-plugins/pull/2319"
+    file "Patches/monitoring-plugins/openssl-4.0.diff"
+    type :backport
+    resolves "https://github.com/monitoring-plugins/monitoring-plugins/pull/2326"
   end
 
   def install
@@ -55,7 +54,7 @@ class MonitoringPlugins < Formula
 
     args = %W[
       --libexecdir=#{libexec}/sbin
-      --with-openssl=#{formula_opt_prefix("openssl@3")}
+      --with-openssl=#{formula_opt_prefix("openssl@4")}
       --with-netsnmpconfig-command=#{formula_opt_bin("net-snmp")}/net-snmp-config
     ]
 

@@ -4,15 +4,15 @@ class IosWebkitDebugProxy < Formula
   url "https://github.com/google/ios-webkit-debug-proxy/archive/refs/tags/v1.9.2.tar.gz"
   sha256 "768f101612bf5d2507957f10a8e34e98675ea8fe3c63b8ed78772f8abd103fbf"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/google/ios-webkit-debug-proxy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "495426409dc5f5d8f3a8308e7595d5c093d054b2e7565a3c431b03b3223559f3"
-    sha256 cellar: :any, arm64_tahoe:       "27e1a82b10af5bb64bd1d70d21c4c49c9eac1f99c91b1cc5f2fdd932518067ff"
-    sha256 cellar: :any, arm64_sequoia:     "10cc141b7758f40c458df84a0e68496b140e4bce7b165e0db08af281fc819b9d"
-    sha256 cellar: :any, arm64_linux:       "7049de87834c2e981822f6fc2754440b96cb576a13c37b72d2aab0b30ecdad39"
-    sha256 cellar: :any, x86_64_linux:      "0f4fd6abf575ee83539ef31c76e6f0c3f54a2d9d525b0fedf3ce68e351233932"
+    sha256 cellar: :any, arm64_golden_gate: "c59efa369c0ea7dd80c9164d1001ef0e9fedb460f18b789f8a8aac483319374d"
+    sha256 cellar: :any, arm64_tahoe:       "4feede5d70f45f64cdc6c02228498bd9527584e514e082ebe4920fac06bd7ba4"
+    sha256 cellar: :any, arm64_sequoia:     "f570a1e916f859dca6ea38678d6120b0a94fc3074511e6a6954efee4404cafb7"
+    sha256 cellar: :any, arm64_linux:       "6eed93a15a8546a12746a4cda3444d94d302bebca0660469c8a659c22931aa16"
+    sha256 cellar: :any, x86_64_linux:      "2d258f272531b46e2ee4bd27f560d706ec8f3a3e0aa5549feef1a1f23a906e06"
   end
 
   depends_on "autoconf" => :build
@@ -22,7 +22,7 @@ class IosWebkitDebugProxy < Formula
   depends_on "libimobiledevice"
   depends_on "libplist"
   depends_on "libusbmuxd"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   allow_network_access! :test
 

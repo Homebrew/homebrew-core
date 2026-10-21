@@ -9,22 +9,20 @@ class YouGet < Formula
   head "https://github.com/soimort/you-get.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "226d4727a830bd40fe9deccbad859dfbb67bb1c6a5d74835401335fc7390763f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "353172e5d59bb80ba8649ae0df6a338afdd45be4337da36d1361bd83a525d0c6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0ce30b54400af7fade21a7e10840f1a96908f42410410b89d9fec60fc4d577ea"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "d847407c34d58b17732d03aee26d1697cd0267b433c50a7a2e441bfbc5b22f2f"
-    sha256 cellar: :any_skip_relocation, sonoma:            "b9d7f293864afb731ac05e2459b3999f30e686ec0038df1424a3157690f2a29d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1ef649b713d146c3be808bdc771b6425b8f94fa242994add6b89a1cc9e562369"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "64940795ad6349d12f2b11f1f7657b10bc9471573f4858eb57f5dc9759392387"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5af36643b679d3ed5136e13626d1a0bffcfb1aaa8ea4f80c3e1b78c9be6db4a7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "24db47cca71c512e6193a0c85e8ffb202e7d950dab53a4789999d7ea4ffcbe04"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "286f972ec36ca0369017c18819239f1b8777021462bde933a61fa372bd63ad87"
+    sha256 cellar: :any,                 arm64_linux:       "1cd18975dfacfa7568d12495808c908eb0fcf7b923bbbd1b58bebcb2a442b480"
+    sha256 cellar: :any,                 x86_64_linux:      "5c0bc5d85992d0d63c2ebc91b252784f7960862ce2d2889a08309a91e4e4caf6"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rtmpdump"
 
   resource "dukpy" do
-    url "https://files.pythonhosted.org/packages/dd/fe/8cef39f269aed53e940c238bf9ceb3ca0f80d7f5be6df2c00a84d87ac5d8/dukpy-0.5.0.tar.gz"
-    sha256 "079fe2d65ac5e24df56806c6b4e1a26f92bb7f13dc764f4fb230a6746744c1ad"
+    url "https://files.pythonhosted.org/packages/85/f5/0d731f71f68a784e9637c74bfd93ee36666f303da1ad32fed5dc26a54bed/dukpy-0.6.0.tar.gz"
+    sha256 "f8b1d1f75c6a5be9b525dc80f05b6c869a671481be689da146b2c6937b3450ee"
   end
 
   def install

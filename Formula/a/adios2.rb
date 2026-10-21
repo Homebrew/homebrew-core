@@ -4,6 +4,7 @@ class Adios2 < Formula
   url "https://github.com/ornladios/ADIOS2/archive/refs/tags/v2.12.1.tar.gz"
   sha256 "71edd8f721448311852122fca8d83ae497b43846e5bfcdfd275dc06bb7f3d0c5"
   license "Apache-2.0"
+  revision 2
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,11 @@ class Adios2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "15b37a093a0db8fa845d5886fbe5d2d58eb2177ad6a648edf129cd0410cc6022"
-    sha256 cellar: :any,                 arm64_tahoe:       "264adbac2b0515a18279cc09c2564f506d124b4972ba4c2ece22414c9d6d3577"
-    sha256 cellar: :any,                 arm64_sequoia:     "a40d806dc776c0a71daf37be4489c58d4515b6f78f6e7104f1dbbf3a9093070e"
-    sha256 cellar: :any,                 arm64_sonoma:      "970a0cf1cbf813bb8e24674b92ea06cdc9403df71d0edd97d0156067fec93d8a"
-    sha256 cellar: :any,                 sonoma:            "d39e90c524ab681ab22c2c67a832d2649d4d845874a935c8ca21d080a67bf250"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "fa59f68ddc63cd454ee9187efa912e39f2c1dc749ac1fa8e103dc3e625d2166f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "bbb723202b8917802c16657a1233a27c257178dbd5bbbc71b6067f498c4d7d5e"
+    sha256 cellar: :any, arm64_golden_gate: "88ceacce907560d13eef2864e34100b8d08b98f26766d28677731e611f7caf99"
+    sha256 cellar: :any, arm64_tahoe:       "f1cb508a9939ce64631c156eea6f3311cc4c92ecc15eda53d4f1b1592e839f30"
+    sha256 cellar: :any, arm64_sequoia:     "cb4409665a4ab4ae7fa0a591bd55145c2876fff872f6e1b0a44b9f66b74e38c3"
+    sha256 cellar: :any, arm64_linux:       "11e084f06858c647a7067aa0f29d5e9061cbbcfdd96403994143a9646bcd0395"
+    sha256 cellar: :any, x86_64_linux:      "0d8e0a6bc7bee7f941cc30707f8be8183102ff5df52a754a61d20343e3158d26"
   end
 
   depends_on "cmake" => :build
@@ -33,9 +32,9 @@ class Adios2 < Formula
   depends_on "nanobind"
   depends_on "numpy"
   depends_on "open-mpi"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pugixml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "sqlite"
   depends_on "yaml-cpp"
   depends_on "zeromq"

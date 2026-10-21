@@ -17,7 +17,7 @@ class Libmusicbrainz < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkgconf" => [:build, :test]
   depends_on "neon"
 
   uses_from_macos "libxml2"
@@ -38,9 +38,39 @@ class Libmusicbrainz < Formula
     resolves "https://github.com/metabrainz/libmusicbrainz/pull/21"
   end
 
+  deny_network_access!
+
   def install
     system "cmake", "-S", ".", "-B", ".", *std_cmake_args
     system "cmake", "--build", "."
     system "cmake", "--install", "."
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~CPP
+      #include <iostream>
+      #include <musicbrainz5/Metadata.h>
+      #include <musicbrainz5/Artist.h>
+
+      int main() {
+        const std::string xml =
+          "<metadata xmlns=\\"http://musicbrainz.org/ns/mmd-2.0#\\">"
+          "<artist><name>Radiohead</name></artist></metadata>";
+
+        XMLResults results;
+        XMLNode *root = XMLRootNode::parseString(xml, &results);
+        if (results.code != eXMLErrorNone) return 1;
+
+        MusicBrainz5::CMetadata metadata(*root);
+        delete root;
+        if (!metadata.Artist()) return 1;
+        std::cout << metadata.Artist()->Name() << std::endl;
+        return 0;
+      }
+    CPP
+
+    pkgconf_flags = shell_output("pkgconf --cflags --libs libmusicbrainz5").chomp.split
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *pkgconf_flags
+    assert_equal "Radiohead", shell_output("./test").strip
   end
 end

@@ -1,15 +1,16 @@
 class Qtremoteobjects < Formula
   desc "Provides APIs for inter-process communication"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtremoteobjects-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtremoteobjects-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtremoteobjects-everywhere-src-6.11.2.tar.xz"
-  sha256 "5e0c9681799ec2b1179a712506266fb01fb2491e94bd2dba942b72fdef797cfd"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtremoteobjects-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtremoteobjects-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtremoteobjects-everywhere-src-6.12.0.tar.xz"
+  sha256 "54faf680f7cc84d7f54ae9bd5f98255e5d2d7ab2d6f4d0464a3fbe50f8a55509"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } }, # repc
     "BSD-3-Clause", # *.cmake
   ]
+  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qtremoteobjects.git", branch: "dev"
 
@@ -18,12 +19,11 @@ class Qtremoteobjects < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "10c65fa4348e86cebe025b05d2b89fd73d25cbab69bf3b4ef6c383a0ba24a285"
-    sha256 cellar: :any, arm64_tahoe:       "3fcdd058b6f8e52664c2bdca3a21afabcdf62ac036d0aaa42177757df72ed0ec"
-    sha256 cellar: :any, arm64_sequoia:     "d9a0ecef48fb4c76fd8a0bb25855f898a184804e6a96a5dd0529fa1dbbc7d719"
-    sha256 cellar: :any, arm64_sonoma:      "fec40f51c4062962b2abfc79ab8e693adaad24676dc65de08c3326ffe109eb12"
-    sha256 cellar: :any, arm64_linux:       "b8c8be2aea7984c57f213b0df1e3631527103eb104706f24dccb72a4fa3048a6"
-    sha256 cellar: :any, x86_64_linux:      "1f0f7e176a94adda23db422c5572230fa259ce209b0952befae706b3078aaff4"
+    sha256 cellar: :any, arm64_golden_gate: "91fb3dd8cae44195eb225e367c13358509cd966f466a0619aea0e27b3821ce8a"
+    sha256 cellar: :any, arm64_tahoe:       "84f2d9cdb4c9475f1ec7761f435eb398c8691a373457176fbb1e8820875afa06"
+    sha256 cellar: :any, arm64_sequoia:     "86d5a3ef38ea893c7c08bc8752ff8734bb68d7dcb551d8d0cbcfc5f9b52916dc"
+    sha256 cellar: :any, arm64_linux:       "553ec13f2bf71bf5f5488303357da4dad3832e3002a800865e2115d8a9cf6952"
+    sha256 cellar: :any, x86_64_linux:      "090880f27cd7a22b25a0973450a7255918d55ebbcbb73119227016b5f881ec74"
   end
 
   depends_on "cmake" => [:build, :test]

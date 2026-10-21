@@ -9,10 +9,11 @@ class Redo < Formula
   revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d416c3c9c29f94263928f8ea61a5c45afed6e71c2c4ef3b6b831c0b5c83337e9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "8e37c342bcafe5f5f85d6cde4851c13083bca034f4ddc011b48928a54c8a19ec"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   conflicts_with "goredo", because: "both install `redo` and `redo-*` binaries"
 
@@ -26,13 +27,13 @@ class Redo < Formula
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/29/6f/da4c6aea59b3001f2e8c0ec7497475aadaf3b021c10cab5b2858f0f32b26/markdown-3.10.3.tar.gz"
-    sha256 "3589362618f743188b4d955b874402bc814f4f83f544dc207719f4baa7d9c45f"
+    url "https://files.pythonhosted.org/packages/f8/4f/700155c8c20d9e655dd0732b5fc3c7614f291b9148da271d7388e50bf774/markdown-3.11.tar.gz"
+    sha256 "180224db6aed87ba9ce1f2781ebcd5826253de8ff637112090e24b84502bbf9f"
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/69/99/a6ca3beb3ccacb41fb3321d8a60e5566f9e6467601ef8eba6a17e1b89778/soupsieve-2.9.2.tar.gz"
-    sha256 "4a55d8cf158a9c2e587fa4922f1bbb91d68ac829e2d6f25403a85747c71daf74"
+    url "https://files.pythonhosted.org/packages/0e/b9/014459776d0be4dd5f0c196fd2c8dc523a4b817a561667fae4f330b04b48/soupsieve-3.0.1.tar.gz"
+    sha256 "713d5c69f90ef84deffec0b9c6244796575e3c9fc9081cefb96091ce1200a308"
   end
 
   resource "typing-extensions" do

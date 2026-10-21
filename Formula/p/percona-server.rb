@@ -4,7 +4,7 @@ class PerconaServer < Formula
   url "https://downloads.percona.com/downloads/Percona-Server-9.7/Percona-Server-9.7.1-1/source/tarball/percona-server-9.7.1-1.tar.gz"
   sha256 "cfa835f66b415a46e64420d515096281f42a7bcf189bda0f6c434ea5a55d63ee"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.percona.com/wp-admin/admin-ajax.php", post_form: {
@@ -22,11 +22,11 @@ class PerconaServer < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "570ff45cbe72bbc932c8d9566f21dbfb5e636f5de99a7e7b0cc18b2eb5e411b2"
-    sha256 arm64_tahoe:       "785a6097b8feac73859e486444b9a6cacd5b21c4ed53cf8e148fdccbb39339fc"
-    sha256 arm64_sequoia:     "28ec878a6a0e29f88692f093034164ef14f346f165eb3d4a67505457c2c374f6"
-    sha256 arm64_linux:       "15dcd6577a6c87b4d1dfcd1ec86e9851eca084bd6817137176289e8ed5b0f965"
-    sha256 x86_64_linux:      "3cd7ae2d2f4c28a3672b9a4d652d38a889a5eb0ba038fff3606b49a09477a0cb"
+    sha256 arm64_golden_gate: "90b985fa6f912bc2eba88de2ca2278edb35328d16377d29fddd863786e84b1be"
+    sha256 arm64_tahoe:       "3baeaa3a2885da7ad9af8340d7c315c03fe620a85656addc97ad2a347d0f9da9"
+    sha256 arm64_sequoia:     "80894903bf1fef84a2b4be4c4756db307ff0d72be441588db2462be3d067812e"
+    sha256 arm64_linux:       "b35589e547ac77daec990065ed7b987e79c6cba93999bcbf6ec78f0cd0626bbf"
+    sha256 x86_64_linux:      "c8db05f0b39158dc32f876e3619295b95605e866fff5ea6dae747c6785848123"
   end
 
   depends_on "bison" => :build
@@ -37,7 +37,7 @@ class PerconaServer < Formula
   depends_on "libfido2"
   depends_on "lz4"
   depends_on "openldap" # Needs `ldap_set_urllist_proc`, not provided by LDAP.framework
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf"
   depends_on "zlib-ng-compat" # Zlib 1.2.13+
   depends_on "zstd"
@@ -65,6 +65,13 @@ class PerconaServer < Formula
     url "https://github.com/mysql/mysql-server/commit/b006e3af4b6b1b6f7fdf7b91a00c6293c4f292b1.patch?full_index=1"
     sha256 "e99e7e63d8581cbfb513a2dd43f36f8da0e3c1bf26e512156847c1036280adf3"
     type :backport
+  end
+
+  # Apply Debian's MySQL 9.7 patch to fix build with OpenSSL 4
+  patch do
+    url "https://salsa.debian.org/mariadb-team/mysql/-/raw/ac6576612c0afddccebf939fccedacc3b97db567/debian/patches/support-openssl4.patch"
+    sha256 "fd0eb6d47ce5aaef43e58240d9884d04b1ee30fd3c57395b405d9400ae136a02"
+    type :unofficial
   end
 
   # Patch out check for Homebrew `boost`.
@@ -111,7 +118,7 @@ class PerconaServer < Formula
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
       -DBISON_EXECUTABLE=#{formula_opt_bin("bison")}/bison
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
       -DWITH_ICU=#{icu4c.opt_prefix}
       -DWITH_SYSTEM_LIBS=ON
       -DWITH_EDITLINE=system

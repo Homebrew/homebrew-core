@@ -32,7 +32,6 @@ class Libdap < Formula
   depends_on "bison" => :build
   depends_on "pkgconf" => :build
   depends_on "libxml2"
-  depends_on "openssl@3"
 
   uses_from_macos "flex" => :build
   uses_from_macos "curl"

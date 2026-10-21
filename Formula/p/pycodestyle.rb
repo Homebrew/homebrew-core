@@ -9,10 +9,11 @@ class Pycodestyle < Formula
   head "https://github.com/PyCQA/pycodestyle.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f7878329ff002babefd806b7da085360bcdbb1676d4edd699e3df7d9e87c7d30"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "23bba1a658123f9af07884ad7525f0226fc61b13e2941ce4434bc291321f56c3"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     virtualenv_install_with_resources

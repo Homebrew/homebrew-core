@@ -35,8 +35,6 @@ class LibpostalRest < Formula
   end
 
   test do
-    require "json"
-
     port = free_port
     ENV["LISTEN_PORT"] = port.to_s
     pid = spawn bin/"libpostal-rest"

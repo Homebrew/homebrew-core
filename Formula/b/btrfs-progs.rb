@@ -14,13 +14,14 @@ class BtrfsProgs < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "f218a395fab6d9edaafaa09d468b3633c74bb49831ec3b4c99fa555d718d2179"
-    sha256 cellar: :any, x86_64_linux: "1c41de2221f72268a4b3d6cefc33d48dafda11b6b436579888a824503be2a128"
+    rebuild 1
+    sha256 cellar: :any, arm64_linux:  "7c1611b279b0979aad2304454bc1be13b1cb83db21dc827334c0f7d3c755cc5c"
+    sha256 cellar: :any, x86_64_linux: "b9919c222a791560323c5b9d821d486d382868924afed54dbc272c2c4cc8becc"
   end
 
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "sphinx-doc" => :build
   depends_on "e2fsprogs"
   depends_on :linux

@@ -1,22 +1,46 @@
 class Ccusage < Formula
   desc "CLI tool for analyzing Claude Code usage from local JSONL files"
   homepage "https://github.com/ccusage/ccusage"
-  url "https://github.com/ccusage/ccusage/archive/refs/tags/v20.0.26.tar.gz"
-  sha256 "ac356a431bc8703ad2548d5913f2c0797b2ddfeb0058c2afd7235796159f5002"
+  url "https://github.com/ccusage/ccusage/archive/refs/tags/v20.0.37.tar.gz"
+  sha256 "f7a1439f5c4ecfe064d8e9126eba3b973873fde1a63c66231296f352a7767c01"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5eec705be0708b2a354a0ae2505689d9d835b7567afa2bbcaf276d232f566d34"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f332caf30adb728ccde3440eab03d5e7e637773fea4384ce0dd72e230b2176d1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a71d519f8ffa2ea29e8ff57cf1ba1b692757c001f0c4c167126331e3cdc22bb5"
-    sha256 cellar: :any,                 arm64_linux:       "d1d96fca552c0c95e4d92931456923b24d57695c6dcd2b8857ea2b7bd657cd39"
-    sha256 cellar: :any,                 x86_64_linux:      "56208b282ebdb0ab5d5ec40ccc828d4f71929047fd8fbe773f13e03030a5277f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "746aab0eff668711373a352bf5eef72132209a545e20c77ef1112b770fdbf4e3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "da1d120bdea602688edcfeb03cb2ba37c07aa312d501aed493320dacf8869bed"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "29bfc36fabc9b8c71a39a62d34c8d2cbfca4459443af0f2ec696c917b881fa8d"
+    sha256 cellar: :any,                 arm64_linux:       "110732c2605f92287e0b3be4e0016a201b46dedd15fbe3521ebbf663bf5f53d1"
+    sha256 cellar: :any,                 x86_64_linux:      "66e20b9a446a748b038692329fc839ebf9385e68de8b6896b88470df623ba2f1"
   end
 
   depends_on "rust" => :build
 
+  resource "litellm-pricing-json" do
+    url "https://raw.githubusercontent.com/BerriAI/litellm/2e427c6247903b133bd8e3db9076bf5d70d3f9f0/model_prices_and_context_window.json"
+    version "2e427c6247903b133bd8e3db9076bf5d70d3f9f0"
+    sha256 "4b2eb0bc07e995417a7e10a39b442fb6cd95b1df3ca9fcb580a189d094b67355"
+
+    # Fetch the latest available resource
+    livecheck do
+      url "https://api.github.com/repos/BerriAI/litellm/branches/main"
+      strategy :json do |json|
+        json.dig("commit", "sha")
+      end
+    end
+  end
+
+  deny_network_access!
+
+  def fetch
+    cd "rust" do
+      system "cargo", "fetch", *std_cargo_fetch_args
+    end
+  end
+
   def install
-    system "cargo", "install", *std_cargo_args(path: "rust/crates/ccusage", features: "fetch-litellm-pricing")
+    resource("litellm-pricing-json").stage buildpath
+    ENV["CCUSAGE_PRICING_JSON_PATH"] = buildpath/"model_prices_and_context_window.json"
+    system "cargo", "install", *std_cargo_args(path: "rust/crates/ccusage")
   end
 
   test do

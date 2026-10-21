@@ -27,6 +27,12 @@ class Rubyfmt < Formula
   depends_on "rust" => :build
   uses_from_macos "llvm" => :build # for libclang to build ruby-prism-sys
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
     bin.install bin/"rubyfmt-main" => "rubyfmt"

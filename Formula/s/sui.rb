@@ -1,8 +1,8 @@
 class Sui < Formula
   desc "Next-generation smart contract platform powered by the Move programming language"
   homepage "https://sui.io"
-  url "https://github.com/MystenLabs/sui/archive/refs/tags/testnet-v1.81.0.tar.gz"
-  sha256 "0da0c7146e2afd757dd5a911cbf50c6d52afd839c8ca963a2f297eef674f091a"
+  url "https://github.com/MystenLabs/sui/archive/refs/tags/testnet-v1.82.2.tar.gz"
+  sha256 "291c9078dc400cab30a81b707d9e8d8b2f0641bfe10712154c4a9ab16262a6ed"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class Sui < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b946f3b32dcee7a2613bd1302657f1f2e9f2afcd25aabb919332a23dd5b2e1d8"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7a78fb7f5fd190943792191d685917fe9a21d5ccd56b707e0013fec697e6f75a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0dcb92a4318ec67c4529d0a1c96984cde0c98c2cc5842b9775bffdf99501d07f"
-    sha256 cellar: :any,                 arm64_linux:       "3d4184ff7848903531daafb8d8e8084936bc432e50cfe13db8320c6bacb73535"
-    sha256 cellar: :any,                 x86_64_linux:      "97bec6b5d799a0f688d9bd2c0eebca3554d1a50a0f988e26c008cbe73f39e0cf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d1a469a45215cbdfaedb37c3b67705508678c55f7e09d23573a385818113217e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7e7b57b1efd2ff6bdf6c59b40821c706958b708768d79e20e3dd99aa03a57dfe"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5de392b58e79817bca3684253ac2eba6041f8f23bc361483b4796ae0f6078e5b"
+    sha256 cellar: :any,                 arm64_linux:       "d74ca0c47ee53f2e1943f70650b93d52fb34259e958455fa7620c1afecac925d"
+    sha256 cellar: :any,                 x86_64_linux:      "8311dbc8bff047627f9c8ea3aa958b7c91f460b1554baa57d08fb96456b26d63"
   end
 
   depends_on "cmake" => :build
@@ -24,6 +24,12 @@ class Sui < Formula
 
   on_linux do
     depends_on "llvm" => :build
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install

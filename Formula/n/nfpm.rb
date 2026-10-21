@@ -1,19 +1,17 @@
 class Nfpm < Formula
   desc "Simple deb and rpm packager"
   homepage "https://nfpm.goreleaser.com/"
-  url "https://github.com/goreleaser/nfpm/archive/refs/tags/v2.47.0.tar.gz"
-  sha256 "906b8dde0c5626376779f3ebddea3554b0eb6e1b8450a09bdc746cba92ef5dea"
+  url "https://github.com/goreleaser/nfpm/archive/refs/tags/v2.48.0.tar.gz"
+  sha256 "878dab9c3e02549f981a227957fd73c042ab5316bd12d201a0db94445284df1b"
   license "MIT"
   head "https://github.com/goreleaser/nfpm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "09692665358be8c5a1b44ba09995c02c98ba947fa4c7a7c478e028ad1fc129d7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "60c13a961c2dbd2dee9691efe6cad1016731ef9d7706692361975a7ee1441739"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "60c13a961c2dbd2dee9691efe6cad1016731ef9d7706692361975a7ee1441739"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "60c13a961c2dbd2dee9691efe6cad1016731ef9d7706692361975a7ee1441739"
-    sha256 cellar: :any_skip_relocation, sonoma:            "2b152ceac3d45544db522af2e1298c6b63aded4d9f7eca5d04cd776975c025ba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0ab518bcdb693665f49f66c7e31c5a18bb12c727a30ad482abca26e06364dd35"
-    sha256 cellar: :any,                 x86_64_linux:      "9d2752ad789936e4b51eeb49095b952ce234fe15efbbe6497bf9f9e949ac654f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2da6adba5332a0c099c314d716019779c1c748380ee5c0f029c70352d0120451"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2da6adba5332a0c099c314d716019779c1c748380ee5c0f029c70352d0120451"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2da6adba5332a0c099c314d716019779c1c748380ee5c0f029c70352d0120451"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "16de4d434f2791c82fd24304d89774d18e9cdcb494fc21ebd6fde3109b0b53b7"
+    sha256 cellar: :any,                 x86_64_linux:      "3d00d105d54bac9cabf3ad3795b19819b177c35641ae1e1221e2f51a400a33b8"
   end
 
   depends_on "go" => :build

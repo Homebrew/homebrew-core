@@ -9,15 +9,16 @@ class AwsShell < Formula
   revision 16
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "57db4c3c20ff2c6ff34365f3eae1c5312dc42b36feb40af61620c87db80cb856"
-    sha256 cellar: :any, arm64_tahoe:       "46c3cfe1c345304539d6c3bce58226abde464a84e47650f1d74898e040c56133"
-    sha256 cellar: :any, arm64_sequoia:     "c2ca1923caf9c61aa507c5bcb60239d3f63a3f886cebc2346020ce492c57cf99"
-    sha256 cellar: :any, arm64_linux:       "4db0ff5a73ac160a79c95e0abc797d0c5c1017e8f825cd8d0d9bbb3326b91bdd"
-    sha256 cellar: :any, x86_64_linux:      "7ec2492e48cb4b26012d389f28a7331c6b685a9c05ad1ebc1c5734eb78e0af10"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "57df9a99feb5bfb5004288f4e9d04863450fa2f56faa2fba16b123c3813a6fb8"
+    sha256 cellar: :any, arm64_tahoe:       "c2752d49a998fce48e20eb64effdd3e5071b8918ea3812acdc9df7642e6b7526"
+    sha256 cellar: :any, arm64_sequoia:     "be7f706cbeb7c21aadb2a8600167fef792d54612aa18dc3518dc09831df5c126"
+    sha256 cellar: :any, arm64_linux:       "b5d4257be9a1b7e33a5469e7a445d200668d72ce09cf4d3648866a4fc6a16e6a"
+    sha256 cellar: :any, x86_64_linux:      "161c5372013c0d3f9e3b36b6c41c31d9865014c3a23ed6070bbca99e1887ea4c"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "awscli" do
     url "https://files.pythonhosted.org/packages/b1/92/907a22013a0177919a98d7b57cf302e86ae162b0c05c0714f3b565cea814/awscli-1.46.1.tar.gz"
@@ -25,13 +26,13 @@ class AwsShell < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/75/46/d8c87ada70a7647fb3d206c7f19eafca3580a0ae4c06d62da539a1ee1207/boto3-1.43.105.tar.gz"
-    sha256 "e51260aed9cc1474778b5488bc6f97ad28f27a0a7002f4bbaaf8191aff1422ea"
+    url "https://files.pythonhosted.org/packages/a9/6e/fe973c8ce8fe4f59d6df6128600b9cc7c4ed75788bed5f5f615f88379529/boto3-1.43.110.tar.gz"
+    sha256 "0251b67d99cc0e7b958db48e7dd149094d453377fcd03299fde7329f975db2e6"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/2b/30/668f3c0533a440787e212cf56404cb6ec234ae8e6baf97fe17329d512d88/botocore-1.43.105.tar.gz"
-    sha256 "afb3e7706b123ab069d1c34571ca1fdf82528a48425574fe4693df3d039d503f"
+    url "https://files.pythonhosted.org/packages/a7/d8/7a2320aabf1b1e62580e990f8a52760e396f4ec56e3ebcbce07d23acc031/botocore-1.43.110.tar.gz"
+    sha256 "888cd54d59502e2195dac30805e5c08dd1be5416932a3793373e81b8f463e006"
   end
 
   resource "colorama" do
@@ -100,8 +101,8 @@ class AwsShell < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/dc/ac/3a943d2792c9bb368aaa8b50121c0f778460ba2d7fbdc0a0366201d9e761/wcwidth-0.9.1.tar.gz"
-    sha256 "5823209b0d43af322ce698c689380d7c15ca31fa8e6e3be8459f27031bef0af5"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

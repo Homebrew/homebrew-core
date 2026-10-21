@@ -1,20 +1,26 @@
 class CloudflareSpeedCli < Formula
   desc "Cloudflare-based speed test with optional TUI"
   homepage "https://github.com/kavehtehrani/cloudflare-speed-cli"
-  url "https://github.com/kavehtehrani/cloudflare-speed-cli/archive/refs/tags/v1.0.9.tar.gz"
-  sha256 "bf54d0e8d89262d50b777a5bf2f545a333107e85fc9e634bba366d62194448b4"
+  url "https://github.com/kavehtehrani/cloudflare-speed-cli/archive/refs/tags/v1.0.10.tar.gz"
+  sha256 "230a5ecac583107b94d33ef9e603923278dcdda40c7e14d909e413657834d99a"
   license "GPL-3.0-only"
   head "https://github.com/kavehtehrani/cloudflare-speed-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f493cdfbf5df176c13c791e855f371c54275dfbeb9612275fcae0bbf6aaa7418"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "786bbde2e29c18d0436e8b867c39360e890165d057ed4e5467a8f2467f55b9bc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c198383412f217eaa60b16dc1076b35bed9772bba68d98655efa24809e4b84dc"
-    sha256 cellar: :any,                 arm64_linux:       "ff8a7319f9d0f199b662a6570df53897ba506d7705337d18512756c854121070"
-    sha256 cellar: :any,                 x86_64_linux:      "d2f752cee34f386725cb9a2fec606b4a41ed43283d9547d9d15dd102d239ac2d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "25f181eb4313b661203dbf272f42d4d18e4f07bf4dba65fae0fc11a791a43ce0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5fef050bc617376896a6a34695463e1fdc7d10eebdadcd56e8e8725b95fd5a43"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "84a47a24fe759982ae408d21a3dda4b245fa730e167580ef5e25e3d1c7ff2e4b"
+    sha256 cellar: :any,                 arm64_linux:       "486bb96d142b604f16ddfd3debf84884e4790c3931dea7c4bc2646502f9be8fb"
+    sha256 cellar: :any,                 x86_64_linux:      "d4ad82e90d3e24bd5b3bb9cf5a0b9b815bcd56448cf0a05c698b18acde1ebfed"
   end
 
   depends_on "rust" => :build
+
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

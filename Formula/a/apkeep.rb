@@ -26,6 +26,12 @@ class Apkeep < Formula
     depends_on "openssl@4"
   end
 
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end

@@ -9,15 +9,16 @@ class Pelican < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1e2ca8a073f5874a010bd2da0b0e387c930aec192886c8d6beb47365107f41c4"
-    sha256 cellar: :any, arm64_tahoe:       "fbc9af939d03e778a437a70f00d61f377d20037b8abcb6ff6b760c47bc052709"
-    sha256 cellar: :any, arm64_sequoia:     "52e5fc285c1db3a054b49116a6229173da5b24277c7fdbfc2845ef143145a4df"
-    sha256 cellar: :any, arm64_linux:       "d968303228488e84dd0061e2f9264955d769a1ee3e706fa4177f49cb7fcb6582"
-    sha256 cellar: :any, x86_64_linux:      "2498e4c3d3ac131a525c4895a7573875c28fb1e1c548aff1c2ea55f8abdf8cc5"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "e4d4b234a114e63ac7918f18c23c817c9a6061f3ed342b4ff162e68ecdc23d5b"
+    sha256 cellar: :any, arm64_tahoe:       "2b256eeecbffe79c2402b59de863d0fc6aea32c53e4aa3b24e9ef9dbce3a7d04"
+    sha256 cellar: :any, arm64_sequoia:     "d68daee02086b1576fd7c06e5638dd420109def37f5fba8817e153251c9dcaca"
+    sha256 cellar: :any, arm64_linux:       "0a6e032b84fa365d5879ab943feef2c9cbf7b3be8c52403e77abc199f6a810da"
+    sha256 cellar: :any, x86_64_linux:      "94079716f3a461d29022ffecd7c44458897709d21290d5527b216b88d04c0905"
   end
 
   depends_on "rust" => :build # for `watchfiles`
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name: "pelican[markdown]"
 
@@ -52,8 +53,8 @@ class Pelican < Formula
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/29/6f/da4c6aea59b3001f2e8c0ec7497475aadaf3b021c10cab5b2858f0f32b26/markdown-3.10.3.tar.gz"
-    sha256 "3589362618f743188b4d955b874402bc814f4f83f544dc207719f4baa7d9c45f"
+    url "https://files.pythonhosted.org/packages/f8/4f/700155c8c20d9e655dd0732b5fc3c7614f291b9148da271d7388e50bf774/markdown-3.11.tar.gz"
+    sha256 "180224db6aed87ba9ce1f2781ebcd5826253de8ff637112090e24b84502bbf9f"
   end
 
   resource "markdown-it-py" do
@@ -62,8 +63,8 @@ class Pelican < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "mdurl" do
@@ -96,19 +97,14 @@ class Pelican < Formula
     sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
-    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
-  end
-
   resource "unidecode" do
     url "https://files.pythonhosted.org/packages/94/7d/a8a765761bbc0c836e397a2e48d498305a865b70a8600fd7a942e85dcf63/Unidecode-1.4.0.tar.gz"
     sha256 "ce35985008338b676573023acc382d62c264f307c8f7963733405add37ea2b23"
   end
 
   resource "watchfiles" do
-    url "https://files.pythonhosted.org/packages/cd/41/5e1a4bb12aac5f1493fa1bdc11154eca3b258ca4eba65d39c473fe19d8e9/watchfiles-1.2.0.tar.gz"
-    sha256 "c995fba777f1ea992f090f9236e9284cf7a5d1a0130dd5a3d82c598cacd76838"
+    url "https://files.pythonhosted.org/packages/b3/68/e6aa0b77d217b31f8f486ec0cdfe5e00e6e38dc0be657e7d85819b9faf0a/watchfiles-1.3.0.tar.gz"
+    sha256 "99aee4a07847c06820765fd7b1b49ceac4f3f711ccb7d104655a33231de1c207"
   end
 
   def install

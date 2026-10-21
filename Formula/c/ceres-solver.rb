@@ -50,6 +50,8 @@ class CeresSolver < Formula
   depends_on "suite-sparse"
   depends_on "tbb"
 
+  deny_network_access!
+
   def install
     rm_r "third_party" if build.head?
 

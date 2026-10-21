@@ -4,15 +4,15 @@ class AwsCEventStream < Formula
   url "https://github.com/awslabs/aws-c-event-stream/archive/refs/tags/v1.0.0.tar.gz"
   sha256 "c3817ab04bf9c70fa3582a31243666a9a643ebe45f121f58d5fef5ff4787f8e0"
   license "Apache-2.0"
+  revision 1
   compatibility_version 2
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b172d78498a56d588fe3ca8bde4cfe043f1088fd85c49045075a365f3962fa5a"
-    sha256 cellar: :any, arm64_tahoe:       "3421dc29eb43b10024b9344bdbccc0cc5ab8cfd9efa2206c0383c3aa6ee87350"
-    sha256 cellar: :any, arm64_sequoia:     "eedbc91b7709177c64ffb9756c862c7c0970b807219260af9c8b24bc76aca66d"
-    sha256 cellar: :any, arm64_sonoma:      "a0c0c268dec6ab79ccceb4d56b45a96487091af29247a6fe0fcac9ebd3bd60ca"
-    sha256 cellar: :any, arm64_linux:       "a7f23e352bb33cb3c7714d974214329b901059cae6a3f5db30cec6c562926620"
-    sha256 cellar: :any, x86_64_linux:      "99ad7d1c690ce59b6bd7a48732c608d070400df5854ddf248c72347ab852cf20"
+    sha256 cellar: :any, arm64_golden_gate: "7f7a1f5d3435b401dadd509955225a96df462bcb40a470be2f69540fc04fbee3"
+    sha256 cellar: :any, arm64_tahoe:       "a4fa6ea2c5ca98bdff56e4570fb21301ce43b666b06311c9d57fa5f17a349147"
+    sha256 cellar: :any, arm64_sequoia:     "a14c5ec4f3ee3b3b825ffe9809c5ff027af33c04e77bb685ac80dd76c6135fd6"
+    sha256 cellar: :any, arm64_linux:       "bd10341b5a3aae1d541bd8640db708e333bc51fbedef51b57bafcf332a5a5096"
+    sha256 cellar: :any, x86_64_linux:      "7484d7bc56734a148d56b6ceb1b03792b5dbde78218ad94b7929a20f4c897fbb"
   end
 
   depends_on "cmake" => :build

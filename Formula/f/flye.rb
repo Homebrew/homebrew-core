@@ -15,17 +15,15 @@ class Flye < Formula
   head "https://github.com/mikolmogorov/Flye.git", branch: "flye"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2cb6fc1a7be58c14e32bbe1f55396d48ce8294577739886a23b3f71cb7c5cc45"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "da001a71cb1768fa863629df14bbeac7757f83f19cee3efffbf3e45fe84ac972"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fe6f8b6e489495ed8d374ecdd3918e60eeb5abf1818287817526c6e78b435f78"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "72ae20f3a7b3adc25bc6d27ceaa30c4f03ae07e81723ab4aadd1a9380669684e"
-    sha256 cellar: :any_skip_relocation, sonoma:            "e5769476e56abbcb2450acf418837e5bb80005f7be5dd8922db99acb21b2d77b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ec4658bd46026fa973059b18e83ce0ccda8f183afe9ce6050c9f23fd4c3c0f8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "926fdce4a0f64674434d766708ced9310e058ce8ba8f55f7ec2ff2e772b455b1"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b33ea78b7d3239be461b15546746298fa97c61fd55154a44fb42452280a8987"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8cf39112533b510aba6d872c17d1d4488476c44e81e5455b687511c576717c21"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "62707abbb4e2af929c602c9c14feff1bfe4bff0a698e8777064f747fc9858581"
+    sha256 cellar: :any,                 arm64_linux:       "c076fce9b0285052cad327094ee3112c83f104923d968c06f17515db69488a90"
+    sha256 cellar: :any,                 x86_64_linux:      "64311add2fe8e416832d99a9037929124da14e7fcebf6537cbddbd501b0d6fdc"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "samtools"
 
   on_linux do

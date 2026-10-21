@@ -9,14 +9,15 @@ class Tartufo < Formula
   head "https://github.com/godaddy/tartufo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f91ef4f32e662aa01bb805c2a64735cbb2dfe6a900cc2fb81f3079c2c6fd5a06"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "0e177441cfc751cba42894505bf9e74d77d2155b1ded113fc4a7f392231ab540"
   end
 
   deprecate! date: "2026-09-30", because: :repo_archived
   disable! date: "2027-09-30", because: :repo_archived
 
   depends_on "pygit2" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libffi"
 
@@ -38,8 +39,8 @@ class Tartufo < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/e0/db/3ca813cbacb23ab6fe46ff38a9b5ef8e73e970c8051f2ce903aacafe0446/gitpython-3.1.62.tar.gz"
-    sha256 "1791de66309bc0c7cfca40bf8d2e3de7ca091cbf94e6051be1ad0722c61062af"
+    url "https://files.pythonhosted.org/packages/6e/2d/6f6e649818da44d4499604802c89329b8d9799687a124e3a5e467a643336/gitpython-3.2.0.tar.gz"
+    sha256 "fb92310af6844d96adc95ca066ed2e617c00e1dbd146a326626c81e72e18cc2e"
   end
 
   resource "smmap" do

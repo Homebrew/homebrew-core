@@ -21,6 +21,12 @@ class Msedit < Formula
     depends_on "pkgconf" => :build
   end
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["RUSTC_BOOTSTRAP"] = "1"
     system "cargo", "install", *std_cargo_args(path: "crates/edit")

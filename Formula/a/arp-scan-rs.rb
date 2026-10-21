@@ -30,6 +30,12 @@ class ArpScanRs < Formula
 
   conflicts_with "arp-scan", because: "both install `arp-scan` binaries"
 
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end

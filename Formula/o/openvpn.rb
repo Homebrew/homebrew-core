@@ -1,10 +1,11 @@
 class Openvpn < Formula
   desc "SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension"
   homepage "https://openvpn.net/community/"
-  url "https://swupdate.openvpn.net/community/releases/openvpn-2.7.7.tar.gz"
-  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.7.7.tar.gz"
-  sha256 "3ab8f48fd6c26d49ba2333a092433949afdb5c85c0e6a1ff265784fbc04a2463"
+  url "https://swupdate.openvpn.net/community/releases/openvpn-2.7.8.tar.gz"
+  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.7.8.tar.gz"
+  sha256 "c070d1d2440b5a6fca6c2c68645c98cd492116ac36ef4f0946177115532c8e36"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
+  revision 1
 
   livecheck do
     url "https://openvpn.net/community-downloads/"
@@ -12,18 +13,17 @@ class Openvpn < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "735acded2c58e484ed705a1a49aa5d4964c5154a1f6f860f2155dd62009ff264"
-    sha256 arm64_tahoe:       "c1bae7c0655b006def4c74078bc9a810024771e2d51be47315a58fe13500e885"
-    sha256 arm64_sequoia:     "2f10357d212ac3f726b12a396bc9c86db6fe49b12fbee49e536dd2c0f62bdbf6"
-    sha256 arm64_sonoma:      "60ed11ee38371bef178f5f0149e091faa49a2d26f46b5b0d6be540d8ecda63b0"
-    sha256 arm64_linux:       "e4a2533e6b352b2bb1898e75654d63e81ac79f3c9e7bd0970e1ee87003904cd5"
-    sha256 x86_64_linux:      "f1174cddd97eb11078ebb4195a361c9bfc8fc7f27dd71fc116eb9358c087e9a8"
+    sha256 arm64_golden_gate: "e64da55e9cb2b051ed1b7b57bf9069c66b7b112a52d5689adcac9010b25f4e65"
+    sha256 arm64_tahoe:       "617781d469ce8dc7ef67c6208822aef62b37276eda76e198ca171124f28a43a9"
+    sha256 arm64_sequoia:     "c073d831a6179b815366547c7ed690d7492d2a2fbace1e7ebbd45009cac4bba7"
+    sha256 arm64_linux:       "121204f16c89fb365c4f344c7108c1e3b0a7e10d0c4c9e702efbfbe41b529656"
+    sha256 x86_64_linux:      "4cb1ecd16c12363bb0918e1047961436a4ae6216203b855f9a99f58090516ef6"
   end
 
   depends_on "pkgconf" => :build
   depends_on "lz4"
   depends_on "lzo"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pkcs11-helper"
 
   on_linux do

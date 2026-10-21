@@ -1,10 +1,9 @@
 class TinyRemapper < Formula
   desc "Tiny, efficient tool for remapping JAR files using \"Tiny\"-format mappings"
   homepage "https://fabricmc.net/"
-  url "https://maven.fabricmc.net/net/fabricmc/tiny-remapper/0.14.1/tiny-remapper-0.14.1-fat.jar"
-  sha256 "3d54d68fc747e0799f1080833aad2196fae8007ee9d588e5663dbc1258ff544b"
+  url "https://maven.fabricmc.net/net/fabricmc/tiny-remapper/0.15.0/tiny-remapper-0.15.0-fat.jar"
+  sha256 "ca93f562ab05daea928c7b89a355188c068d6154c9f7f485e8704dbaf35bfd44"
   license "LGPL-3.0-only"
-  revision 1
 
   livecheck do
     url "https://maven.fabricmc.net/net/fabricmc/tiny-remapper/maven-metadata.xml"
@@ -12,7 +11,7 @@ class TinyRemapper < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5274513a1151c6a6fd6acb726dbf7f9a7b2bd6ee0c37027847e719dad830f9de"
+    sha256 cellar: :any_skip_relocation, all: "8137195f809c8c06fdb9e70153728cebaf0755f4cc426ecfadbd10812531f4cc"
   end
 
   # TODO: Switch back to `openjdk` once a release bundles an ASM that supports

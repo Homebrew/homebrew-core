@@ -4,6 +4,7 @@ class Wxmaxima < Formula
   url "https://github.com/wxMaxima-developers/wxmaxima/archive/refs/tags/Version-26.09.0.tar.gz"
   sha256 "c490e30383e77e17de2005276429606ff4c5b43ae268aa889cfc3d4fb148a9e9"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/wxMaxima-developers/wxmaxima.git", branch: "main"
 
   livecheck do
@@ -12,11 +13,11 @@ class Wxmaxima < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "144fbce2cb1c4f04d02f60f8072979fbae04290b9d037842148704875e8fb4b5"
-    sha256 arm64_tahoe:       "457e0ffec9a3945c2857372e74b75c2d3527ee5e8eb1c2f43bce887a5bf5e04b"
-    sha256 arm64_sequoia:     "da8bad7c735c34f596cadbc14a821d098cfbfae374caaf27959d12d56829b4b5"
-    sha256 arm64_linux:       "eb45684688106368ed25a50a7b48ec1dab03c391d5ef4eebeedffd37915f4bbc"
-    sha256 x86_64_linux:      "6285b53f643d7a6069b4d9db491d62245e51b2d0f549db408e44f8cc910ec642"
+    sha256 arm64_golden_gate: "1ce64480996ac190fa9c2c16aa8fcfc51640d33be2cedfcdf82f4af502042779"
+    sha256 arm64_tahoe:       "6921b72bd5600525e2f30a1d85410d2ab702c8d9fe2b6c7b66c901d02f899753"
+    sha256 arm64_sequoia:     "da6a842c3b19cbad0335c3944c73e0384feb78489fd0aa4751329fd8f92b7666"
+    sha256 arm64_linux:       "ab91a67ca1091674c1935b532d90717a5103467919b99a8a2c1c22a2223f9135"
+    sha256 x86_64_linux:      "393319ee9adffcbef0a0e39d1bac12566950bbed21ab9580e304d0dfdc75401b"
   end
 
   depends_on "cmake" => :build

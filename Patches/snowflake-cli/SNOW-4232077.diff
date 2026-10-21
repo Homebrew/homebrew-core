@@ -1,0 +1,1457 @@
+diff --git a/src/snowflake/connector/vendored/urllib3/_collections.py b/src/snowflake/connector/vendored/urllib3/_collections.py
+index ee9ca662b6..bc72773454 100644
+--- a/src/snowflake/connector/vendored/urllib3/_collections.py
++++ b/src/snowflake/connector/vendored/urllib3/_collections.py
+@@ -400,6 +400,9 @@ def _prepare_for_method_change(self) -> Self:
+         """
+         Remove content-specific header fields before changing the request
+         method to GET or HEAD according to RFC 9110, Section 15.4.
++
++        ``Transfer-Encoding`` goes as well: it frames a request body that is
++        no longer going to be sent.
+         """
+         content_specific_headers = [
+             "Content-Encoding",
+@@ -409,6 +412,7 @@ def _prepare_for_method_change(self) -> Self:
+             "Content-Length",
+             "Digest",
+             "Last-Modified",
++            "Transfer-Encoding",
+         ]
+         for header in content_specific_headers:
+             self.discard(header)
+diff --git a/src/snowflake/connector/vendored/urllib3/_version.py b/src/snowflake/connector/vendored/urllib3/_version.py
+index bfed03985b..319b966f20 100644
+--- a/src/snowflake/connector/vendored/urllib3/_version.py
++++ b/src/snowflake/connector/vendored/urllib3/_version.py
+@@ -18,7 +18,7 @@
+ commit_id: str | None
+ __commit_id__: str | None
+ 
+-__version__ = version = '2.7.0'
+-__version_tuple__ = version_tuple = (2, 7, 0)
++__version__ = version = '2.8.0'
++__version_tuple__ = version_tuple = (2, 8, 0)
+ 
+ __commit_id__ = commit_id = None
+diff --git a/src/snowflake/connector/vendored/urllib3/connection.py b/src/snowflake/connector/vendored/urllib3/connection.py
+index cffb51ad0b..7756e58128 100644
+--- a/src/snowflake/connector/vendored/urllib3/connection.py
++++ b/src/snowflake/connector/vendored/urllib3/connection.py
+@@ -77,6 +77,37 @@ class BaseSSLError(BaseException):  # type: ignore[no-redef]
+ RECENT_DATE = datetime.date(2025, 1, 1)
+ 
+ _CONTAINS_CONTROL_CHAR_RE = re.compile(r"[^-!#$%&'*+.^_`|~0-9a-zA-Z]")
++# Starting the optional OWS match at the beginning of a whitespace run avoids
++# quadratic backtracking for long header values.
++_OBSOLETE_FOLD_RE = re.compile(r"(?:(?<![ \t])[ \t]+)?\r\n[ \t]+")
++
++
++def _normalize_header_value(value: str) -> str:
++    if "\r\n" not in value:
++        return value
++    return _OBSOLETE_FOLD_RE.sub(" ", value)
++
++
++def _normalize_header_values(
++    message: http.client.HTTPMessage,
++) -> list[tuple[str, str]]:
++    header_items = message.items()
++    headers_changed = False
++    for index, (name, value) in enumerate(header_items):
++        normalized_value = _normalize_header_value(value)
++        if normalized_value != value:
++            header_items[index] = (name, normalized_value)
++            headers_changed = True
++
++    if headers_changed:
++        # Keep the original message in sync for downstream consumers such as
++        # cookie jars while preserving its identity and header ordering.
++        for name, _ in header_items:
++            del message[name]
++        for name, value in header_items:
++            message[name] = value
++
++    return header_items
+ 
+ 
+ class HTTPConnection(_HTTPConnection):
+@@ -108,9 +139,13 @@ class HTTPConnection(_HTTPConnection):
+ 
+     #: Disable Nagle's algorithm by default.
+     #: ``[(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)]``
+-    default_socket_options: typing.ClassVar[connection._TYPE_SOCKET_OPTIONS] = [
+-        (socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+-    ]
++    #:
++    #: Use the ``socket_options`` parameter of :class:`~urllib3.PoolManager`,
++    #: :class:`~urllib3.ProxyManager`, or :class:`~urllib3.HTTPConnectionPool`
++    #: to change this behavior.
++    default_socket_options: typing.ClassVar[
++        typing.Final[connection._TYPE_SOCKET_OPTIONS]
++    ] = [(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)]
+ 
+     #: Whether this connection verifies the host's certificate.
+     is_verified: bool = False
+@@ -238,19 +273,33 @@ def set_tunnel(
+         super().set_tunnel(host, port=port, headers=headers)
+         self._tunnel_scheme = scheme
+ 
+-    if sys.version_info < (3, 11, 9) or ((3, 12) <= sys.version_info < (3, 12, 3)):
++    if sys.version_info < (3, 11, 16) or ((3, 12) <= sys.version_info < (3, 12, 14)):
+         # Taken from python/cpython#100986 which was backported in 3.11.9 and 3.12.3.
+         # When using connection_from_host, host will come without brackets.
++        # With a security patch from python/cpython#146211.
+         def _wrap_ipv6(self, ip: bytes) -> bytes:
+             if b":" in ip and ip[0] != b"["[0]:
+                 return b"[" + ip + b"]"
+             return ip
+ 
+-        if sys.version_info < (3, 11, 9):
+-            # `_tunnel` copied from 3.11.13 backporting
++        # Copied from CPython 3.12.13 Lib/http/client.py
++        _is_legal_header_name = staticmethod(re.compile(rb"[^:\s][^:\r\n]*").fullmatch)
++        _is_illegal_header_value = staticmethod(
++            re.compile(rb"\n(?![ \t])|\r(?![ \t\n])").search
++        )
++        _contains_disallowed_url_pchar_re = re.compile("[\x00-\x20\x7f]")
++
++        if sys.version_info < (3, 11, 16):
++            # `_tunnel` copied from 3.11.15 backporting
+             # https://github.com/python/cpython/commit/0d4026432591d43185568dd31cef6a034c4b9261
+             # and https://github.com/python/cpython/commit/6fbc61070fda2ffb8889e77e3b24bca4249ab4d1
++            # plus a fix from https://github.com/python/cpython/commit/56b7100b04e44ea27989242b176beb8f016b2c53
+             def _tunnel(self) -> None:
++                if self._contains_disallowed_url_pchar_re.search(self._tunnel_host):  # type: ignore[arg-type]
++                    raise ValueError(
++                        "Tunnel host can't contain control characters %r"
++                        % (self._tunnel_host,)
++                    )
+                 _MAXLINE = http.client._MAXLINE  # type: ignore[attr-defined]
+                 connect = b"CONNECT %s:%d HTTP/1.0\r\n" % (  # type: ignore[str-format]
+                     self._wrap_ipv6(self._tunnel_host.encode("ascii")),  # type: ignore[union-attr]
+@@ -258,7 +307,13 @@ def _tunnel(self) -> None:
+                 )
+                 headers = [connect]
+                 for header, value in self._tunnel_headers.items():  # type: ignore[attr-defined]
+-                    headers.append(f"{header}: {value}\r\n".encode("latin-1"))
++                    header_bytes = header.encode("latin-1")
++                    value_bytes = value.encode("latin-1")
++                    if not self._is_legal_header_name(header_bytes):
++                        raise ValueError(f"Invalid header name {header_bytes!r}")
++                    if self._is_illegal_header_value(value_bytes):
++                        raise ValueError(f"Invalid header value {value_bytes!r}")
++                    headers.append(b"%s: %s\r\n" % (header_bytes, value_bytes))
+                 headers.append(b"\r\n")
+                 # Making a single send() call instead of one per line encourages
+                 # the host OS to use a more optimal packet size instead of
+@@ -268,7 +323,7 @@ def _tunnel(self) -> None:
+ 
+                 response = self.response_class(self.sock, method=self._method)  # type: ignore[attr-defined]
+                 try:
+-                    (version, code, message) = response._read_status()  # type: ignore[attr-defined]
++                    version, code, message = response._read_status()  # type: ignore[attr-defined]
+ 
+                     if code != http.HTTPStatus.OK:
+                         self.close()
+@@ -290,17 +345,29 @@ def _tunnel(self) -> None:
+                 finally:
+                     response.close()
+ 
+-        elif (3, 12) <= sys.version_info < (3, 12, 3):
+-            # `_tunnel` copied from 3.12.11 backporting
++        elif (3, 12) <= sys.version_info < (3, 12, 14):
++            # `_tunnel` copied from 3.12.13 backporting
+             # https://github.com/python/cpython/commit/23aef575c7629abcd4aaf028ebd226fb41a4b3c8
++            # plus a fix from https://github.com/python/cpython/commit/c00c386faa579ad71196d33408644478488e43ec
+             def _tunnel(self) -> None:  # noqa: F811
++                if self._contains_disallowed_url_pchar_re.search(self._tunnel_host):  # type: ignore[arg-type]
++                    raise ValueError(
++                        "Tunnel host can't contain control characters %r"
++                        % (self._tunnel_host,)
++                    )
+                 connect = b"CONNECT %s:%d HTTP/1.1\r\n" % (  # type: ignore[str-format]
+                     self._wrap_ipv6(self._tunnel_host.encode("idna")),  # type: ignore[union-attr]
+                     self._tunnel_port,
+                 )
+                 headers = [connect]
+                 for header, value in self._tunnel_headers.items():  # type: ignore[attr-defined]
+-                    headers.append(f"{header}: {value}\r\n".encode("latin-1"))
++                    header_bytes = header.encode("latin-1")
++                    value_bytes = value.encode("latin-1")
++                    if not self._is_legal_header_name(header_bytes):
++                        raise ValueError(f"Invalid header name {header_bytes!r}")
++                    if self._is_illegal_header_value(value_bytes):
++                        raise ValueError(f"Invalid header value {value_bytes!r}")
++                    headers.append(b"%s: %s\r\n" % (header_bytes, value_bytes))
+                 headers.append(b"\r\n")
+                 # Making a single send() call instead of one per line encourages
+                 # the host OS to use a more optimal packet size instead of
+@@ -310,7 +377,7 @@ def _tunnel(self) -> None:  # noqa: F811
+ 
+                 response = self.response_class(self.sock, method=self._method)  # type: ignore[attr-defined]
+                 try:
+-                    (version, code, message) = response._read_status()  # type: ignore[attr-defined]
++                    version, code, message = response._read_status()  # type: ignore[attr-defined]
+ 
+                     self._raw_proxy_headers = http.client._read_headers(response.fp)  # type: ignore[attr-defined]
+ 
+@@ -589,7 +656,8 @@ def getresponse(  # type: ignore[override]
+                 exc_info=True,
+             )
+ 
+-        headers = HTTPHeaderDict(httplib_response.msg.items())
++        header_items = _normalize_header_values(httplib_response.msg)
++        headers = HTTPHeaderDict(header_items)
+ 
+         response = HTTPResponse(
+             body=httplib_response,
+@@ -802,25 +870,39 @@ def connect(self) -> None:
+             # Remove trailing '.' from fqdn hostnames to allow certificate validation
+             server_hostname_rm_dot = server_hostname.rstrip(".")
+ 
+-            sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+-                sock=sock,
+-                cert_reqs=self.cert_reqs,
+-                ssl_version=self.ssl_version,
+-                ssl_minimum_version=self.ssl_minimum_version,
+-                ssl_maximum_version=self.ssl_maximum_version,
+-                ca_certs=self.ca_certs,
+-                ca_cert_dir=self.ca_cert_dir,
+-                ca_cert_data=self.ca_cert_data,
+-                cert_file=self.cert_file,
+-                key_file=self.key_file,
+-                key_password=self.key_password,
+-                server_hostname=server_hostname_rm_dot,
+-                ssl_context=self.ssl_context,
+-                tls_in_tls=tls_in_tls,
+-                assert_hostname=self.assert_hostname,
+-                assert_fingerprint=self.assert_fingerprint,
+-            )
+-            self.sock = sock_and_verified.socket
++            # Forwarding proxies should use proxy SSL context for
++            # wrapping since that's the connection being established,
++            # whereas tunneling proxies should use the connection's SSL
++            # context.
++            # However, for backwards compatibility reasons, if the proxy
++            # is forwarding but no proxy SSL context is provided, we
++            # fall back to using the connection's SSL context until
++            # urllib3 v3.0. Appropriate warning is emitted in
++            # ``ProxyManager.__init__``.
++            wrapped_socket: ssl.SSLSocket | SSLTransport
++            if self.proxy_is_forwarding and self.proxy_config is not None:
++                wrapped_socket = self._connect_tls_proxy(self.host, sock)
++                is_verified = self.proxy_is_verified is True
++            else:
++                wrapped_socket, is_verified = _ssl_wrap_socket_and_match_hostname(
++                    sock=sock,
++                    cert_reqs=self.cert_reqs,
++                    ssl_version=self.ssl_version,
++                    ssl_minimum_version=self.ssl_minimum_version,
++                    ssl_maximum_version=self.ssl_maximum_version,
++                    ca_certs=self.ca_certs,
++                    ca_cert_dir=self.ca_cert_dir,
++                    ca_cert_data=self.ca_cert_data,
++                    cert_file=self.cert_file,
++                    key_file=self.key_file,
++                    key_password=self.key_password,
++                    server_hostname=server_hostname_rm_dot,
++                    ssl_context=self.ssl_context,
++                    tls_in_tls=tls_in_tls,
++                    assert_hostname=self.assert_hostname,
++                    assert_fingerprint=self.assert_fingerprint,
++                )
++            self.sock = wrapped_socket
+ 
+         # If an error occurs during connection/handshake we may need to release
+         # our lock so another connection can probe the origin.
+@@ -841,7 +923,7 @@ def connect(self) -> None:
+         # If this connection doesn't know if the origin supports HTTP/2
+         # we report back to the HTTP/2 probe our result.
+         if target_supports_http2 is None:
+-            supports_http2 = sock_and_verified.socket.selected_alpn_protocol() == "h2"
++            supports_http2 = wrapped_socket.selected_alpn_protocol() == "h2"
+             http2_probe.set_and_release(
+                 host=probe_http2_host,
+                 port=probe_http2_port,
+@@ -855,7 +937,7 @@ def connect(self) -> None:
+         if self.proxy_is_forwarding:
+             self.is_verified = False
+         else:
+-            self.is_verified = sock_and_verified.is_verified
++            self.is_verified = is_verified
+ 
+         # If there's a proxy to be connected to we are fully connected.
+         # This is set twice (once above and here) due to forwarding proxies
+@@ -865,24 +947,47 @@ def connect(self) -> None:
+         # Set `self.proxy_is_verified` unless it's already set while
+         # establishing a tunnel.
+         if self._has_connected_to_proxy and self.proxy_is_verified is None:
+-            self.proxy_is_verified = sock_and_verified.is_verified
++            self.proxy_is_verified = is_verified
+ 
+     def _connect_tls_proxy(self, hostname: str, sock: socket.socket) -> ssl.SSLSocket:
+         """
+-        Establish a TLS connection to the proxy using the provided SSL context.
++        Establish a TLS connection to the proxy using proxy-specific policy.
+         """
+-        # `_connect_tls_proxy` is called when self._tunnel_host is truthy.
+         proxy_config = typing.cast(ProxyConfig, self.proxy_config)
+-        ssl_context = proxy_config.ssl_context
++        proxy_ssl_context = proxy_config.ssl_context
++
++        ssl_context: ssl.SSLContext | None
++        cert_reqs: int | str | None
++        if proxy_ssl_context is not None:
++            # Prefer the proxy's cert policy for the proxy connection
++            ssl_context = proxy_ssl_context
++            cert_reqs = proxy_ssl_context.verify_mode
++            ca_certs = None
++            ca_cert_dir = None
++            ca_cert_data = None
++            ssl_version = None
++            ssl_minimum_version = None
++            ssl_maximum_version = None
++        else:
++            # Otherwise we inherit the pool's cert policies
++            ssl_context = self.ssl_context if self.proxy_is_forwarding else None
++            cert_reqs = self.cert_reqs
++            ca_certs = self.ca_certs
++            ca_cert_dir = self.ca_cert_dir
++            ca_cert_data = self.ca_cert_data
++            ssl_version = self.ssl_version
++            ssl_minimum_version = self.ssl_minimum_version
++            ssl_maximum_version = self.ssl_maximum_version
++
+         sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+             sock,
+-            cert_reqs=self.cert_reqs,
+-            ssl_version=self.ssl_version,
+-            ssl_minimum_version=self.ssl_minimum_version,
+-            ssl_maximum_version=self.ssl_maximum_version,
+-            ca_certs=self.ca_certs,
+-            ca_cert_dir=self.ca_cert_dir,
+-            ca_cert_data=self.ca_cert_data,
++            cert_reqs=cert_reqs,
++            ssl_version=ssl_version,
++            ssl_minimum_version=ssl_minimum_version,
++            ssl_maximum_version=ssl_maximum_version,
++            ca_certs=ca_certs,
++            ca_cert_dir=ca_cert_dir,
++            ca_cert_data=ca_cert_data,
+             server_hostname=hostname,
+             ssl_context=ssl_context,
+             assert_hostname=proxy_config.assert_hostname,
+diff --git a/src/snowflake/connector/vendored/urllib3/connectionpool.py b/src/snowflake/connector/vendored/urllib3/connectionpool.py
+index 70fbc5e725..5ed9444df6 100644
+--- a/src/snowflake/connector/vendored/urllib3/connectionpool.py
++++ b/src/snowflake/connector/vendored/urllib3/connectionpool.py
+@@ -61,6 +61,7 @@
+ log = logging.getLogger(__name__)
+ 
+ _TYPE_TIMEOUT = typing.Union[Timeout, float, _TYPE_DEFAULT, None]
++_DEFAULT_QUEUE_CLASS = queue.LifoQueue
+ 
+ 
+ # Pool objects
+@@ -76,7 +77,7 @@ class ConnectionPool:
+     """
+ 
+     scheme: str | None = None
+-    QueueCls = queue.LifoQueue
++    QueueCls = _DEFAULT_QUEUE_CLASS
+ 
+     def __init__(self, host: str, port: int | None = None) -> None:
+         if not host:
+@@ -112,6 +113,11 @@ def close(self) -> None:
+         Close all pooled connections and disable the pool.
+         """
+ 
++    def _new_pool_queue(self, maxsize: int) -> queue.LifoQueue[typing.Any]:
++        if self.QueueCls is _DEFAULT_QUEUE_CLASS:
++            return queue.LifoQueue(maxsize)
++        return self.QueueCls(maxsize)
++
+ 
+ # This is taken from http://hg.python.org/cpython/file/7aaba721ebc0/Lib/socket.py#l252
+ _blocking_errnos = {errno.EAGAIN, errno.EWOULDBLOCK}
+@@ -198,7 +204,7 @@ def __init__(
+         self.timeout = timeout
+         self.retries = retries
+ 
+-        self.pool: queue.LifoQueue[typing.Any] | None = self.QueueCls(maxsize)
++        self.pool: queue.LifoQueue[typing.Any] | None = self._new_pool_queue(maxsize)
+         self.block = block
+ 
+         self.proxy = _proxy
+@@ -582,9 +588,9 @@ def is_same_host(self, url: str) -> bool:
+             host = _normalize_host(host, scheme=scheme)
+ 
+         # Use explicit default port for comparison when none is given
+-        if self.port and not port:
++        if self.port is not None and port is None:
+             port = port_by_scheme.get(scheme)
+-        elif not self.port and port == port_by_scheme.get(scheme):
++        elif self.port is None and port == port_by_scheme.get(scheme):
+             port = None
+ 
+         return (scheme, host, port) == (self.scheme, self.host, self.port)
+@@ -710,7 +716,7 @@ def urlopen(  # type: ignore[override]
+         else:
+             parsed_url = parse_url(url)
+             destination_scheme = parsed_url.scheme
+-            url = to_str(parsed_url.url)
++            url = to_str(parsed_url._replace(fragment=None).url)
+ 
+         if headers is None:
+             headers = self.headers
+@@ -761,11 +767,10 @@ def urlopen(  # type: ignore[override]
+         # for future rewinds in the event of a redirect/retry.
+         body_pos = set_file_position(body, body_pos)
+ 
++        timeout_obj = self._get_timeout(timeout)
+         try:
+             # Request a connection from the queue.
+-            timeout_obj = self._get_timeout(timeout)
+             conn = self._get_conn(timeout=pool_timeout)
+-
+             conn.timeout = timeout_obj.connect_timeout  # type: ignore[assignment]
+ 
+             # Is this a closed/new connection that requires CONNECT tunnelling?
+@@ -867,7 +872,16 @@ def urlopen(  # type: ignore[override]
+         if not conn:
+             # Try again
+             log.warning(
+-                "Retrying (%r) after connection broken by '%r': %s", retries, err, url
++                "Retrying (%r) after connection broken by '%r': %s",
++                retries,
++                err,
++                url,
++                # Provide an unique attribute with the host needed by pip to
++                # rewrite this warning. Ideally, we'd go with a better solution,
++                # but backwards compatibility and other constraints make those
++                # unfeasible, so this is the least bad option.
++                # See also: https://github.com/urllib3/urllib3/issues/2580.
++                extra={"__urllib3-retry-warning": {"host": self.host}},
+             )
+             return self.urlopen(
+                 method,
+@@ -895,6 +909,11 @@ def urlopen(  # type: ignore[override]
+                 method = "GET"
+                 # And lose the body not to transfer anything sensitive.
+                 body = None
++                # The body is gone, so the state that describes it has to go
++                # too: there is nothing left to frame with chunked transfer
++                # encoding, and nothing left to rewind.
++                chunked = False
++                body_pos = None
+                 headers = HTTPHeaderDict(headers)._prepare_for_method_change()
+ 
+             # Strip headers marked as unsafe to forward to the redirected location.
+@@ -1140,7 +1159,8 @@ def connection_from_url(url: str, **kw: typing.Any) -> HTTPConnectionPool:
+     """
+     scheme, _, host, port, *_ = parse_url(url)
+     scheme = scheme or "http"
+-    port = port or port_by_scheme.get(scheme, 80)
++    if port is None:
++        port = port_by_scheme.get(scheme, 80)
+     if scheme == "https":
+         return HTTPSConnectionPool(host, port=port, **kw)  # type: ignore[arg-type]
+     else:
+diff --git a/src/snowflake/connector/vendored/urllib3/contrib/pyopenssl.py b/src/snowflake/connector/vendored/urllib3/contrib/pyopenssl.py
+index 637a38b58e..25b607f689 100644
+--- a/src/snowflake/connector/vendored/urllib3/contrib/pyopenssl.py
++++ b/src/snowflake/connector/vendored/urllib3/contrib/pyopenssl.py
+@@ -40,8 +40,10 @@
+ 
+ from __future__ import annotations
+ 
+-import OpenSSL.SSL  # type: ignore[import-not-found]
++import OpenSSL.SSL
+ from cryptography import x509
++from cryptography.hazmat.primitives.serialization import load_pem_private_key
++from cryptography.x509.oid import NameOID
+ 
+ try:
+     from cryptography.x509 import UnsupportedExtension  # type: ignore[attr-defined]
+@@ -54,13 +56,12 @@ class UnsupportedExtension(Exception):  # type: ignore[no-redef]
+ import logging
+ import ssl
+ import typing
+-from io import BytesIO
+ from socket import socket as socket_cls
+ 
+ from .. import util
+ 
+ if typing.TYPE_CHECKING:
+-    from OpenSSL.crypto import X509  # type: ignore[import-not-found]
++    from OpenSSL.crypto import X509
+ 
+ 
+ __all__ = ["inject_into_urllib3", "extract_from_urllib3"]
+@@ -69,9 +70,11 @@ class UnsupportedExtension(Exception):  # type: ignore[no-redef]
+ _openssl_versions: dict[int, int] = {
+     util.ssl_.PROTOCOL_TLS: OpenSSL.SSL.SSLv23_METHOD,  # type: ignore[attr-defined]
+     util.ssl_.PROTOCOL_TLS_CLIENT: OpenSSL.SSL.SSLv23_METHOD,  # type: ignore[attr-defined]
+-    ssl.PROTOCOL_TLSv1: OpenSSL.SSL.TLSv1_METHOD,
+ }
+ 
++if hasattr(ssl, "PROTOCOL_TLSv1") and hasattr(OpenSSL.SSL, "TLSv1_METHOD"):
++    _openssl_versions[ssl.PROTOCOL_TLSv1] = OpenSSL.SSL.TLSv1_METHOD
++
+ if hasattr(ssl, "PROTOCOL_TLSv1_1") and hasattr(OpenSSL.SSL, "TLSv1_1_METHOD"):
+     _openssl_versions[ssl.PROTOCOL_TLSv1_1] = OpenSSL.SSL.TLSv1_1_METHOD
+ 
+@@ -286,6 +289,15 @@ def get_subj_alt_name(peer_cert: X509) -> list[tuple[str, str]]:
+     return names
+ 
+ 
++def _get_common_name(peer_cert: X509) -> str | None:
++    """
++    Given a pyOpenSSL certificate, return the subject's common name.
++    """
++    cert = peer_cert.to_cryptography()
++    names = cert.subject.get_attributes_for_oid(NameOID.COMMON_NAME)
++    return typing.cast(str, names[0].value) if names else None
++
++
+ class WrappedSocket:
+     """API-compatibility wrapper for Python OpenSSL's Connection-class."""
+ 
+@@ -334,11 +346,11 @@ def recv(self, *args: typing.Any, **kwargs: typing.Any) -> bytes:
+         except OpenSSL.SSL.Error as e:
+             raise ssl.SSLError(f"read error: {e!r}") from e
+         else:
+-            return data  # type: ignore[no-any-return]
++            return data
+ 
+     def recv_into(self, *args: typing.Any, **kwargs: typing.Any) -> int:
+         try:
+-            return self.connection.recv_into(*args, **kwargs)  # type: ignore[no-any-return]
++            return self.connection.recv_into(*args, **kwargs)
+         except OpenSSL.SSL.SysCallError as e:
+             if self.suppress_ragged_eofs and e.args == (-1, "Unexpected EOF"):
+                 return 0
+@@ -365,7 +377,7 @@ def settimeout(self, timeout: float) -> None:
+     def _send_until_done(self, data: bytes) -> int:
+         while True:
+             try:
+-                return self.connection.send(data)  # type: ignore[no-any-return]
++                return self.connection.send(data)
+             except OpenSSL.SSL.WantWriteError as e:
+                 if not util.wait_for_write(self.socket, self.socket.gettimeout()):
+                     raise TimeoutError() from e
+@@ -398,24 +410,32 @@ def _real_close(self) -> None:
+         except OpenSSL.SSL.Error:
+             return
+ 
++    @typing.overload
++    def getpeercert(
++        self, binary_form: typing.Literal[False] = False
++    ) -> dict[str, list[typing.Any]] | None: ...
++
++    @typing.overload
++    def getpeercert(self, binary_form: typing.Literal[True]) -> bytes | None: ...
++
+     def getpeercert(
+         self, binary_form: bool = False
+-    ) -> dict[str, list[typing.Any]] | None:
++    ) -> dict[str, list[typing.Any]] | bytes | None:
+         x509 = self.connection.get_peer_certificate()
+ 
+-        if not x509:
+-            return x509  # type: ignore[no-any-return]
++        if x509 is None:
++            return None
+ 
+         if binary_form:
+-            return OpenSSL.crypto.dump_certificate(OpenSSL.crypto.FILETYPE_ASN1, x509)  # type: ignore[no-any-return]
++            return OpenSSL.crypto.dump_certificate(OpenSSL.crypto.FILETYPE_ASN1, x509)
+ 
+         return {
+-            "subject": ((("commonName", x509.get_subject().CN),),),  # type: ignore[dict-item]
++            "subject": ((("commonName", _get_common_name(x509)),),),  # type: ignore[dict-item]
+             "subjectAltName": get_subj_alt_name(x509),
+         }
+ 
+     def version(self) -> str:
+-        return self.connection.get_protocol_version_name()  # type: ignore[no-any-return]
++        return self.connection.get_protocol_version_name()
+ 
+     def selected_alpn_protocol(self) -> str | None:
+         alpn_proto = self.connection.get_alpn_proto_negotiated()
+@@ -457,7 +477,7 @@ def verify_flags(self) -> int:
+     @verify_flags.setter
+     def verify_flags(self, value: int) -> None:
+         self._verify_flags = value
+-        self._ctx.get_cert_store().set_flags(self._verify_flags)
++        self._ctx.get_cert_store().set_flags(self._verify_flags)  # type: ignore[union-attr]
+ 
+     @property
+     def verify_mode(self) -> int:
+@@ -488,7 +508,7 @@ def load_verify_locations(
+         try:
+             self._ctx.load_verify_locations(cafile, capath)
+             if cadata is not None:
+-                self._ctx.load_verify_locations(BytesIO(cadata))
++                self._ctx.load_verify_locations(cadata)
+         except OpenSSL.SSL.Error as e:
+             raise ssl.SSLError(f"unable to load trusted certificates: {e!r}") from e
+ 
+@@ -496,21 +516,41 @@ def load_cert_chain(
+         self,
+         certfile: str,
+         keyfile: str | None = None,
+-        password: str | None = None,
++        password: str | bytes | None = None,
+     ) -> None:
+         try:
+             self._ctx.use_certificate_chain_file(certfile)
+             if password is not None:
+                 if not isinstance(password, bytes):
+-                    password = password.encode("utf-8")  # type: ignore[assignment]
+-                self._ctx.set_passwd_cb(lambda *_: password)
+-            self._ctx.use_privatekey_file(keyfile or certfile)
+-        except OpenSSL.SSL.Error as e:
++                    password = password.encode("utf-8")
++                # pyOpenSSL added cryptography-key support in 24.3.0.
++                # Keep using the older password-callback path until 2026's
++                # versions because set_passwd_cb() became deprecated in 26.3.0.
++                if int(OpenSSL.__version__.split(".")[0]) >= 26:
++                    with open(keyfile or certfile, "rb") as key_file:
++                        key_data = key_file.read()
++                    try:
++                        private_key = load_pem_private_key(key_data, password)
++                    except TypeError:
++                        # Match SSLContext by ignoring passwords supplied
++                        # for unencrypted keys.
++                        # Incorrect passwords for encrypted keys raise
++                        # ValueError instead.
++                        private_key = load_pem_private_key(key_data, None)
++                    # cryptography's loader returns a wider private-key union
++                    # than pyOpenSSL accepts, so we add `type: ignore` here.
++                    self._ctx.use_privatekey(private_key)  # type: ignore[arg-type]
++                else:
++                    self._ctx.set_passwd_cb(lambda *_: password)
++                    self._ctx.use_privatekey_file(keyfile or certfile)
++            else:
++                self._ctx.use_privatekey_file(keyfile or certfile)
++        except (OpenSSL.SSL.Error, TypeError, ValueError) as e:
+             raise ssl.SSLError(f"Unable to load certificate chain: {e!r}") from e
+ 
+     def set_alpn_protocols(self, protocols: list[bytes | str]) -> None:
+         protocols = [util.util.to_bytes(p, "ascii") for p in protocols]
+-        return self._ctx.set_alpn_protos(protocols)  # type: ignore[no-any-return]
++        return self._ctx.set_alpn_protos(protocols)  # type: ignore[arg-type]
+ 
+     def wrap_socket(
+         self,
+diff --git a/src/snowflake/connector/vendored/urllib3/contrib/socks.py b/src/snowflake/connector/vendored/urllib3/contrib/socks.py
+index d37da8fc20..67fceb080a 100644
+--- a/src/snowflake/connector/vendored/urllib3/contrib/socks.py
++++ b/src/snowflake/connector/vendored/urllib3/contrib/socks.py
+@@ -41,7 +41,7 @@
+ from __future__ import annotations
+ 
+ try:
+-    import socks  # type: ignore[import-untyped]
++    import socks
+ except ImportError:
+     import warnings
+ 
+@@ -111,11 +111,11 @@ def _new_conn(self) -> socks.socksocket:
+                 (self.host, self.port),
+                 proxy_type=self._socks_options["socks_version"],
+                 proxy_addr=self._socks_options["proxy_host"],
+-                proxy_port=self._socks_options["proxy_port"],
++                proxy_port=self._socks_options["proxy_port"],  # type: ignore[arg-type]
+                 proxy_username=self._socks_options["username"],
+                 proxy_password=self._socks_options["password"],
+                 proxy_rdns=self._socks_options["rdns"],
+-                timeout=self.timeout,
++                timeout=self.timeout,  # type: ignore[arg-type]
+                 **extra_kw,
+             )
+ 
+@@ -192,10 +192,8 @@ def __init__(
+     ):
+         parsed = parse_url(proxy_url)
+ 
+-        if username is None and password is None and parsed.auth is not None:
+-            split = parsed.auth.split(":")
+-            if len(split) == 2:
+-                username, password = split
++        if username is None and password is None:
++            username, password = parsed.auth_decoded
+         if parsed.scheme == "socks5":
+             socks_version = socks.PROXY_TYPE_SOCKS5
+             rdns = False
+diff --git a/src/snowflake/connector/vendored/urllib3/http2/connection.py b/src/snowflake/connector/vendored/urllib3/http2/connection.py
+index 0a026da0a8..8cab76d1f4 100644
+--- a/src/snowflake/connector/vendored/urllib3/http2/connection.py
++++ b/src/snowflake/connector/vendored/urllib3/http2/connection.py
+@@ -127,10 +127,11 @@ def putrequest(  # type: ignore[override]
+         self._request_url = url or "/"
+         self._validate_path(url)  # type: ignore[attr-defined]
+ 
++        port = self.port if self.port is not None else 443
+         if ":" in self.host:
+-            authority = f"[{self.host}]:{self.port or 443}"
++            authority = f"[{self.host}]:{port}"
+         else:
+-            authority = f"{self.host}:{self.port or 443}"
++            authority = f"{self.host}:{port}"
+ 
+         self._headers.append((b":scheme", b"https"))
+         self._headers.append((b":method", method.encode()))
+diff --git a/src/snowflake/connector/vendored/urllib3/poolmanager.py b/src/snowflake/connector/vendored/urllib3/poolmanager.py
+index 8f2c56745c..df7cff936c 100644
+--- a/src/snowflake/connector/vendored/urllib3/poolmanager.py
++++ b/src/snowflake/connector/vendored/urllib3/poolmanager.py
+@@ -47,6 +47,8 @@
+     "ssl_context",
+     "key_password",
+     "server_hostname",
++    "assert_hostname",
++    "assert_fingerprint",
+ )
+ # Default value for `blocksize` - a new parameter introduced to
+ # http.client.HTTPConnection & http.client.HTTPSConnection in Python 3.7
+@@ -309,7 +311,7 @@ def connection_from_host(
+ 
+         request_context = self._merge_pool_kwargs(pool_kwargs)
+         request_context["scheme"] = scheme or "http"
+-        if not port:
++        if port is None:
+             port = port_by_scheme.get(request_context["scheme"].lower(), 80)
+         request_context["port"] = port
+         request_context["host"] = host
+@@ -452,7 +454,7 @@ def urlopen(  # type: ignore[override]
+             kw["headers"] = self.headers
+ 
+         if self._proxy_requires_url_absolute_form(u):
+-            response = conn.urlopen(method, url, **kw)
++            response = conn.urlopen(method, u._replace(fragment=None).url, **kw)
+         else:
+             response = conn.urlopen(method, u.request_uri, **kw)
+ 
+@@ -468,6 +470,11 @@ def urlopen(  # type: ignore[override]
+             method = "GET"
+             # And lose the body not to transfer anything sensitive.
+             kw["body"] = None
++            # The body is gone, so the state that describes it has to go too:
++            # there is nothing left to frame with chunked transfer encoding,
++            # and nothing left to rewind.
++            kw["chunked"] = False
++            kw["body_pos"] = None
+             kw["headers"] = HTTPHeaderDict(kw["headers"])._prepare_for_method_change()
+ 
+         retries = kw.get("retries", response.retries)
+@@ -581,13 +588,30 @@ def __init__(
+         if proxy.scheme not in ("http", "https"):
+             raise ProxySchemeUnknown(proxy.scheme)
+ 
+-        if not proxy.port:
++        # Keep the deprecated ssl_context fallback on the manager for
++        # compatibility, while passing only explicit proxy policy to connections.
++        self.proxy_ssl_context = proxy_ssl_context
++        if (
++            use_forwarding_for_https
++            and proxy.scheme == "https"
++            and connection_pool_kw.get("ssl_context") is not None
++        ):
++            warnings.warn(
++                "Passing ssl_context when use_forwarding_for_https=True is deprecated "
++                "and will raise an error in urllib3 v3.0. "
++                "Use proxy_ssl_context to configure the TLS connection to the proxy.",
++                FutureWarning,
++                stacklevel=2,
++            )
++            if self.proxy_ssl_context is None:
++                self.proxy_ssl_context = connection_pool_kw.get("ssl_context")
++
++        if proxy.port is None:
+             port = port_by_scheme.get(proxy.scheme, 80)
+             proxy = proxy._replace(port=port)
+ 
+         self.proxy = proxy
+         self.proxy_headers = proxy_headers or {}
+-        self.proxy_ssl_context = proxy_ssl_context
+         self.proxy_config = ProxyConfig(
+             proxy_ssl_context,
+             use_forwarding_for_https,
+diff --git a/src/snowflake/connector/vendored/urllib3/response.py b/src/snowflake/connector/vendored/urllib3/response.py
+index e9246b75e3..ec7d308330 100644
+--- a/src/snowflake/connector/vendored/urllib3/response.py
++++ b/src/snowflake/connector/vendored/urllib3/response.py
+@@ -50,6 +50,16 @@
+ 
+ log = logging.getLogger(__name__)
+ 
++# Read in 64 KiB chunks
++_READ_CHUNK_SIZE = 2**16
++
++# Maximum length of a chunk-size line (and the trailing CRLF line) when reading a
++# chunked-transfer-encoded response. Matches ``http.client._MAXLINE`` so urllib3's
++# streaming path bounds these reads exactly like the stdlib ``.read()`` path does,
++# preventing a malicious server from forcing unbounded buffering (memory exhaustion)
++# via an unterminated chunk-size line.
++_MAX_CHUNK_LINE_LENGTH = 2**16
++
+ 
+ class ContentDecoder:
+     def decompress(self, data: bytes, max_length: int = -1) -> bytes:
+@@ -73,6 +83,10 @@ def __init__(self) -> None:
+     def decompress(self, data: bytes, max_length: int = -1) -> bytes:
+         data = self._unfed_data + data
+         self._unfed_data = b""
++        # Data received after EOF cannot produce more output from this
++        # Deflate stream.
++        if self._obj.eof:
++            return b""
+         if not data and not self._obj.unconsumed_tail:
+             return data
+         original_max_length = max_length
+@@ -115,7 +129,9 @@ def decompress(self, data: bytes, max_length: int = -1) -> bytes:
+     @property
+     def has_unconsumed_tail(self) -> bool:
+         return bool(self._unfed_data) or (
+-            bool(self._obj.unconsumed_tail) and not self._first_try
++            bool(self._obj.unconsumed_tail)
++            and not self._first_try
++            and not self._obj.eof
+         )
+ 
+     def flush(self) -> bytes:
+@@ -496,6 +512,8 @@ def __init__(
+             self.chunked = True
+ 
+         self._decoder: ContentDecoder | None = None
++        # Distinguish an uninitialized decoder from a response needing no decoder.
++        self._decoder_initialized = False
+         self.length_remaining: int | None
+ 
+     def get_redirect_location(self) -> str | None | typing.Literal[False]:
+@@ -559,7 +577,7 @@ def retries(self, retries: Retry | None) -> None:
+         self._retries = retries
+ 
+     def stream(
+-        self, amt: int | None = 2**16, decode_content: bool | None = None
++        self, amt: int | None = _READ_CHUNK_SIZE, decode_content: bool | None = None
+     ) -> typing.Iterator[bytes]:
+         raise NotImplementedError()
+ 
+@@ -601,10 +619,13 @@ def _init_decoder(self) -> None:
+         """
+         Set-up the _decoder attribute if necessary.
+         """
+-        # Note: content-encoding value should be case-insensitive, per RFC 7230
+-        # Section 3.2
+-        content_encoding = self.headers.get("content-encoding", "").lower()
++        if self._decoder_initialized:
++            return
++
+         if self._decoder is None:
++            # Note: content-encoding value should be case-insensitive, per RFC 7230
++            # Section 3.2
++            content_encoding = self.headers.get("content-encoding", "").lower()
+             if content_encoding in self.CONTENT_DECODERS:
+                 self._decoder = _get_decoder(content_encoding)
+             elif "," in content_encoding:
+@@ -616,6 +637,8 @@ def _init_decoder(self) -> None:
+                 if encodings:
+                     self._decoder = _get_decoder(content_encoding)
+ 
++        self._decoder_initialized = True
++
+     def _decode(
+         self,
+         data: bytes,
+@@ -798,7 +821,8 @@ def drain_conn(self) -> None:
+         Unread data in the HTTPResponse connection blocks the connection from being released back to the pool.
+         """
+         try:
+-            self._raw_read()
++            while self._raw_read(_READ_CHUNK_SIZE):
++                pass
+         except (HTTPError, OSError, BaseSSLError, HTTPException):
+             pass
+         if self._has_decoded_content:
+@@ -1236,7 +1260,7 @@ def read1(
+         return self._decoded_buffer.get(amt)
+ 
+     def stream(
+-        self, amt: int | None = 2**16, decode_content: bool | None = None
++        self, amt: int | None = _READ_CHUNK_SIZE, decode_content: bool | None = None
+     ) -> typing.Generator[bytes]:
+         """
+         A generator wrapper for the read() method. A call will block until
+@@ -1340,7 +1364,12 @@ def _update_chunk_length(self) -> None:
+         # we'll try to read it from socket.
+         if self.chunk_left is not None:
+             return None
+-        line = self._fp.fp.readline()  # type: ignore[union-attr]
++        line = self._fp.fp.readline(_MAX_CHUNK_LINE_LENGTH + 1)  # type: ignore[union-attr]
++        if len(line) > _MAX_CHUNK_LINE_LENGTH:
++            self.close()
++            raise ProtocolError(
++                "Response chunk size line exceeded maximum allowed length"
++            ) from None
+         line = line.split(b";", 1)[0]
+         try:
+             self.chunk_left = int(line, 16)
+@@ -1451,7 +1480,11 @@ def read_chunked(
+ 
+             # Chunk content ends with \r\n: discard it.
+             while self._fp is not None:
+-                line = self._fp.fp.readline()
++                line = self._fp.fp.readline(_MAX_CHUNK_LINE_LENGTH + 1)
++                if len(line) > _MAX_CHUNK_LINE_LENGTH:
++                    raise ProtocolError(
++                        "Response chunk trailer line exceeded maximum allowed length"
++                    )
+                 if not line:
+                     # Some sites may not end with '\r\n'.
+                     break
+diff --git a/src/snowflake/connector/vendored/urllib3/util/request.py b/src/snowflake/connector/vendored/urllib3/util/request.py
+index 6c2372ba7e..8c6c7fbdcf 100644
+--- a/src/snowflake/connector/vendored/urllib3/util/request.py
++++ b/src/snowflake/connector/vendored/urllib3/util/request.py
+@@ -64,6 +64,9 @@ def make_headers(
+     basic_auth: str | None = None,
+     proxy_basic_auth: str | None = None,
+     disable_cache: bool | None = None,
++    *,
++    basic_auth_encoding: str = "latin-1",
++    proxy_basic_auth_encoding: str = "latin-1",
+ ) -> dict[str, str]:
+     """
+     Shortcuts for generating request headers.
+@@ -87,11 +90,42 @@ def make_headers(
+ 
+     :param basic_auth:
+         Colon-separated username:password string for 'authorization: basic ...'
+-        auth header.
++        auth header. Basic authentication transmits Base64-encoded bytes, not
++        Unicode text, so the string is encoded with ``basic_auth_encoding``
++        before Base64 encoding.
++
++        Must contain decoded credentials (not percent-encoded).
++        For URLs parsed with :func:`parse_url`, use :attr:`Url.auth_decoded_joined`
++        to get the properly formatted string.
++
++    :param basic_auth_encoding:
++        Text encoding used to encode ``basic_auth`` before Base64 encoding.
++        Defaults to "latin-1" for backward compatibility. Use "utf-8" only
++        when the peer expects UTF-8 Basic authentication credentials.
++
++        Must contain decoded credentials (not percent-encoded).
++        For URLs parsed with :func:`parse_url`, use :attr:`Url.auth_decoded_joined`
++        to get the properly formatted string.
+ 
+     :param proxy_basic_auth:
+         Colon-separated username:password string for 'proxy-authorization: basic ...'
+-        auth header.
++        auth header. Basic authentication transmits Base64-encoded bytes, not
++        Unicode text, so the string is encoded with ``proxy_basic_auth_encoding``
++        before Base64 encoding.
++
++        Must contain decoded credentials (not percent-encoded).
++        For URLs parsed with :func:`parse_url`, use :attr:`Url.auth_decoded_joined`
++        to get the properly formatted string.
++
++    :param proxy_basic_auth_encoding:
++        Text encoding used to encode ``proxy_basic_auth`` before Base64
++        encoding. Defaults to "latin-1" for backward compatibility. Use
++        "utf-8" only when the proxy expects UTF-8 Basic authentication
++        credentials.
++
++        Must contain decoded credentials (not percent-encoded).
++        For URLs parsed with :func:`parse_url`, use :attr:`Url.auth_decoded_joined`
++        to get the properly formatted string.
+ 
+     :param disable_cache:
+         If ``True``, adds 'cache-control: no-cache' header.
+@@ -125,12 +159,12 @@ def make_headers(
+ 
+     if basic_auth:
+         headers["authorization"] = (
+-            f"Basic {b64encode(basic_auth.encode('latin-1')).decode()}"
++            f"Basic {b64encode(basic_auth.encode(basic_auth_encoding)).decode()}"
+         )
+ 
+     if proxy_basic_auth:
+         headers["proxy-authorization"] = (
+-            f"Basic {b64encode(proxy_basic_auth.encode('latin-1')).decode()}"
++            f"Basic {b64encode(proxy_basic_auth.encode(proxy_basic_auth_encoding)).decode()}"
+         )
+ 
+     if disable_cache:
+@@ -183,6 +217,8 @@ def rewind_body(body: typing.IO[typing.AnyStr], body_pos: _TYPE_BODY_POSITION) -
+             "Unable to record file position for rewinding "
+             "request body during a redirect/retry."
+         )
++    elif body_seek is None:
++        raise UnrewindableBodyError("body does not implement seek.")
+     else:
+         raise ValueError(
+             f"body_pos must be of type integer, instead it was {type(body_pos)}."
+diff --git a/src/snowflake/connector/vendored/urllib3/util/retry.py b/src/snowflake/connector/vendored/urllib3/util/retry.py
+index 7649898e1d..868f293035 100644
+--- a/src/snowflake/connector/vendored/urllib3/util/retry.py
++++ b/src/snowflake/connector/vendored/urllib3/util/retry.py
+@@ -6,6 +6,8 @@
+ import re
+ import time
+ import typing
++import warnings
++from collections.abc import Collection
+ from itertools import takewhile
+ from types import TracebackType
+ 
+@@ -198,7 +200,8 @@ class Retry:
+         ["HEAD", "GET", "PUT", "DELETE", "OPTIONS", "TRACE"]
+     )
+ 
+-    #: Default status codes to be used for ``status_forcelist``
++    #: Default status codes that trigger a retry when a Retry-After header is
++    #: present and ``respect_retry_after_header`` is enabled.
+     RETRY_AFTER_STATUS_CODES = frozenset([413, 429, 503])
+ 
+     #: Default headers to be used for ``remove_headers_on_redirect``
+@@ -250,6 +253,15 @@ def __init__(
+ 
+         self.redirect = redirect
+         self.status_forcelist = status_forcelist or set()
++        if not allowed_methods and isinstance(allowed_methods, Collection):
++            warnings.warn(
++                "Using an empty collection for 'allowed_methods' option to "
++                "retry on any verb is deprecated and will skip retries for "
++                "all verbs in urllib3 v3.0. Instead use "
++                "Retry(..., allowed_methods=None).",
++                FutureWarning,
++                stacklevel=2,
++            )
+         self.allowed_methods = allowed_methods
+         self.backoff_factor = backoff_factor
+         self.backoff_max = backoff_max
+diff --git a/src/snowflake/connector/vendored/urllib3/util/ssl_.py b/src/snowflake/connector/vendored/urllib3/util/ssl_.py
+index e66549a76c..f6445a41da 100644
+--- a/src/snowflake/connector/vendored/urllib3/util/ssl_.py
++++ b/src/snowflake/connector/vendored/urllib3/util/ssl_.py
+@@ -7,6 +7,7 @@
+ import sys
+ import typing
+ import warnings
++from binascii import Error as BinasciiError
+ from binascii import unhexlify
+ 
+ from ..exceptions import ProxySchemeUnsupported, SSLError
+@@ -91,14 +92,14 @@ class _TYPE_PEER_CERT_RET_DICT(TypedDict, total=False):
+ 
+     from .ssltransport import SSLTransport  # type: ignore[assignment]
+ except ImportError:
+-    OP_NO_COMPRESSION = 0x20000  # type: ignore[assignment, misc]
+-    OP_NO_TICKET = 0x4000  # type: ignore[assignment, misc]
+-    OP_NO_SSLv2 = 0x1000000  # type: ignore[assignment, misc]
+-    OP_NO_SSLv3 = 0x2000000  # type: ignore[assignment, misc]
+-    PROTOCOL_SSLv23 = PROTOCOL_TLS = 2  # type: ignore[assignment, misc]
+-    PROTOCOL_TLS_CLIENT = 16  # type: ignore[assignment, misc]
++    OP_NO_COMPRESSION = 0x20000  # type: ignore[assignment,misc]
++    OP_NO_TICKET = 0x4000  # type: ignore[assignment,misc]
++    OP_NO_SSLv2 = 0x1000000  # type: ignore[assignment,misc]
++    OP_NO_SSLv3 = 0x2000000  # type: ignore[assignment,misc]
++    PROTOCOL_SSLv23 = PROTOCOL_TLS = 2  # type: ignore[assignment,misc]
++    PROTOCOL_TLS_CLIENT = 16  # type: ignore[assignment,misc]
+     VERIFY_X509_PARTIAL_CHAIN = 0x80000  # type: ignore[assignment,misc]
+-    VERIFY_X509_STRICT = 0x20  # type: ignore[assignment, misc]
++    VERIFY_X509_STRICT = 0x20  # type: ignore[assignment,misc]
+ 
+ 
+ _TYPE_PEER_CERT_RET = typing.Union["_TYPE_PEER_CERT_RET_DICT", bytes, None]
+@@ -128,7 +129,10 @@ def assert_fingerprint(cert: bytes | None, fingerprint: str) -> None:
+         )
+ 
+     # We need encode() here for py32; works on py2 and p33.
+-    fingerprint_bytes = unhexlify(fingerprint.encode())
++    try:
++        fingerprint_bytes = unhexlify(fingerprint.encode())
++    except BinasciiError as e:
++        raise SSLError(e) from e
+ 
+     cert_digest = hashfunc(cert).digest()
+ 
+diff --git a/src/snowflake/connector/vendored/urllib3/util/url.py b/src/snowflake/connector/vendored/urllib3/util/url.py
+index db057f17be..8a9f714684 100644
+--- a/src/snowflake/connector/vendored/urllib3/util/url.py
++++ b/src/snowflake/connector/vendored/urllib3/util/url.py
+@@ -2,6 +2,8 @@
+ 
+ import re
+ import typing
++from functools import partial
++from urllib.parse import unquote as _unquote
+ 
+ from ..exceptions import LocationParseError
+ from .util import to_str
+@@ -13,7 +15,9 @@
+ # Almost all of these patterns were derived from the
+ # 'rfc3986' module: https://github.com/python-hyper/rfc3986
+ _PERCENT_RE = re.compile(r"%[a-fA-F0-9]{2}")
++_HOST_PERCENT_RE = re.compile(r"%[a-fA-F0-9]{2}|%")
+ _SCHEME_RE = re.compile(r"^(?:[a-zA-Z][a-zA-Z0-9+-]*:|/)")
++_HOST_INVALID_CHAR_RE = re.compile(r"[\x00-\x20\x7f]")
+ _URI_RE = re.compile(
+     r"^(?:([a-zA-Z][a-zA-Z0-9+.-]*):)?"
+     r"(?://([^\\/?#]*))?"
+@@ -55,7 +59,9 @@
+ _REG_NAME_PAT = r"(?:[^\[\]%:/?#]|%[a-fA-F0-9]{2})*"
+ _TARGET_RE = re.compile(r"^(/[^?#]*)(?:\?([^#]*))?(?:#.*)?$")
+ 
+-_IPV4_RE = re.compile("^" + _IPV4_PAT + "$")
++_IPV4_RE = re.compile(
++    r"^(?:0[xX][0-9a-fA-F]+|[0-9]+)(?:\.(?:0[xX][0-9a-fA-F]+|[0-9]+)){0,3}$"
++)
+ _IPV6_RE = re.compile("^" + _IPV6_PAT + "$")
+ _IPV6_ADDRZ_RE = re.compile("^" + _IPV6_ADDRZ_PAT + "$")
+ _BRACELESS_IPV6_ADDRZ_RE = re.compile("^" + _IPV6_ADDRZ_PAT[2:-2] + "$")
+@@ -95,6 +101,10 @@ class Url(
+     Data structure for representing an HTTP URL. Used as a return value for
+     :func:`parse_url`. Both the scheme and host are normalized as they are
+     both case-insensitive according to RFC 3986.
++
++    :param auth: User information as defined in RFC 3986 3.2.1. This
++        component is kept percent-encoded. Use :attr:`auth_decoded` or
++        :attr:`auth_decoded_joined` to get the decoded form.
+     """
+ 
+     def __new__(  # type: ignore[no-untyped-def]
+@@ -113,6 +123,46 @@ def __new__(  # type: ignore[no-untyped-def]
+             scheme = scheme.lower()
+         return super().__new__(cls, scheme, auth, host, port, path, query, fragment)
+ 
++    @property
++    def auth_decoded(self) -> tuple[None, None] | tuple[str, str | None]:
++        """
++        User information with %-escapes decoded as UTF-8, returned as a
++        ``(username, password)`` tuple.
++
++        Both values are ``None`` if ``auth`` is ``None``.
++        ``password`` is ``None`` if not present in the auth component.
++        """
++        if self.auth is None:
++            return None, None
++        username, sep, password = self.auth.partition(":")
++        return (
++            _unquote(username, encoding="utf-8"),
++            _unquote(password, encoding="utf-8") if sep else None,
++        )
++
++    @property
++    def auth_decoded_joined(self) -> str | None:
++        """
++        User information with %-escapes decoded as UTF-8, as a string
++        prepared for encoding into an 'authorization: basic ...' header.
++
++        This property does not choose the encoding used for an
++        'authorization: basic ...' header. Use the ``basic_auth_encoding`` or
++        ``proxy_basic_auth_encoding`` parameters of
++        :func:`urllib3.util.make_headers` when converting the returned string
++        into Basic authentication bytes.
++
++        This is a convenience property that joins the username and
++        password with a colon, if both are present.
++        If only the username is present, a trailing colon is still
++        appended.
++        If ``auth`` is ``None``, this returns ``None``.
++        """
++        username, password = self.auth_decoded
++        if username is None:
++            return None
++        return f"{username}:{password or ''}"
++
+     @property
+     def hostname(self) -> str | None:
+         """For backwards-compatibility with urlparse. We're nice like that."""
+@@ -154,7 +204,7 @@ def netloc(self) -> str | None:
+         """
+         if self.host is None:
+             return None
+-        if self.port:
++        if self.port is not None:
+             return f"{self.host}:{self.port}"
+         return self.host
+ 
+@@ -235,6 +285,18 @@ def _encode_invalid_chars(
+ 
+     component = to_str(component)
+ 
++    # Fast path: an ASCII component that consists only of allowed characters
++    # and contains no '%' needs neither encoding nor percent-normalization.
++    # Components containing '%' always take the general path below because
++    # how '%' is treated depends on whether the whole component is already
++    # percent-encoded.
++    if (
++        "%" not in component
++        and component.isascii()
++        and all(map(allowed_chars.__contains__, component))
++    ):
++        return component
++
+     # Normalize existing percent-encoded bytes.
+     # Try to see if the component we're encoding is already percent-encoded
+     # so we can skip all '%' characters but still encode all others.
+@@ -246,16 +308,14 @@ def _encode_invalid_chars(
+     is_percent_encoded = percent_encodings == uri_bytes.count(b"%")
+     encoded_component = bytearray()
+ 
+-    for i in range(0, len(uri_bytes)):
+-        # Will return a single character bytestring
+-        byte = uri_bytes[i : i + 1]
+-        byte_ord = ord(byte)
+-        if (is_percent_encoded and byte == b"%") or (
+-            byte_ord < 128 and byte.decode() in allowed_chars
++    # Iterating over bytes yields integers; 0x25 is '%'.
++    for byte_ord in uri_bytes:
++        if (is_percent_encoded and byte_ord == 0x25) or (
++            byte_ord < 128 and chr(byte_ord) in allowed_chars
+         ):
+-            encoded_component += byte
+-            continue
+-        encoded_component.extend(b"%" + (hex(byte_ord)[2:].encode().zfill(2).upper()))
++            encoded_component.append(byte_ord)
++        else:
++            encoded_component += b"%%%02X" % byte_ord
+ 
+     return encoded_component.decode()
+ 
+@@ -300,6 +360,12 @@ def _normalize_host(host: str, scheme: str | None) -> str: ...
+ 
+ def _normalize_host(host: str | None, scheme: str | None) -> str | None:
+     if host:
++        invalid_host_char = _HOST_INVALID_CHAR_RE.search(host)
++        if invalid_host_char:
++            raise LocationParseError(
++                f"Host {host!r} contains invalid character "
++                f"{invalid_host_char.group()!r}"
++            )
+         if scheme in _NORMALIZABLE_SCHEMES:
+             is_ipv6 = _IPV6_ADDRZ_RE.match(host)
+             if is_ipv6:
+@@ -315,11 +381,17 @@ def _normalize_host(host: str | None, scheme: str | None) -> str | None:
+                         zone_id = zone_id[3:]
+                     else:
+                         zone_id = zone_id[1:]
++                    zone_id = _PERCENT_RE.sub(
++                        partial(_normalize_zone_id_percent_encoding, error_host=host),
++                        zone_id,
++                    )
+                     zone_id = _encode_invalid_chars(zone_id, _UNRESERVED_CHARS)
+                     return f"{host[:start].lower()}%{zone_id}{host[end:]}"
+                 else:
+                     return host.lower()
+             elif not _IPV4_RE.match(host):
++                if "%" in host:
++                    host = _HOST_PERCENT_RE.sub(_normalize_host_percent_encoding, host)
+                 return to_str(
+                     b".".join([_idna_encode(label) for label in host.split(".")]),
+                     "ascii",
+@@ -327,6 +399,36 @@ def _normalize_host(host: str | None, scheme: str | None) -> str | None:
+     return host
+ 
+ 
++def _decode_percent_encoding(match: re.Match[str], *, error_host: str) -> str:
++    percent_encoded_octet = match.group(0)
++    decoded_octet = chr(int(percent_encoded_octet[1:], 16))
++    # Keep this narrower than _HOST_INVALID_CHAR_RE because "%20" is valid
++    # percent-encoding and remains encoded.
++    if decoded_octet < "\x20" or decoded_octet == "\x7f":
++        raise LocationParseError(
++            f"Host {error_host!r} contains invalid percent-encoded "
++            f"control character {percent_encoded_octet!r}"
++        )
++    return decoded_octet
++
++
++def _normalize_host_percent_encoding(match: re.Match[str]) -> str:
++    # Reject invalid percent encodings
++    if match.group(0) == "%":
++        raise LocationParseError(f"{match.string!r} is not a valid host")
++    decoded_octet = _decode_percent_encoding(match, error_host=match.string)
++    if decoded_octet in _UNRESERVED_CHARS:
++        return decoded_octet
++    return match.group(0).upper()
++
++
++def _normalize_zone_id_percent_encoding(
++    match: re.Match[str], *, error_host: str
++) -> str:
++    _decode_percent_encoding(match, error_host=error_host)
++    return match.group(0).upper()
++
++
+ def _idna_encode(name: str) -> bytes:
+     if not name.isascii():
+         try:
+@@ -343,7 +445,9 @@ def _idna_encode(name: str) -> bytes:
+                 f"Name '{name}' is not a valid IDNA label"
+             ) from None
+ 
+-    return name.lower().encode("ascii")
++    return _PERCENT_RE.sub(lambda match: match.group(0).upper(), name.lower()).encode(
++        "ascii"
++    )
+ 
+ 
+ def _encode_target(target: str) -> str:
+@@ -396,7 +500,6 @@ def parse_url(url: str) -> Url:
+         # Empty
+         return Url()
+ 
+-    source_url = url
+     if not _SCHEME_RE.search(url):
+         url = "//" + url
+ 
+@@ -410,43 +513,48 @@ def parse_url(url: str) -> Url:
+     query: str | None
+     fragment: str | None
+ 
+-    try:
+-        scheme, authority, path, query, fragment = _URI_RE.match(url).groups()  # type: ignore[union-attr]
+-        normalize_uri = scheme is None or scheme.lower() in _NORMALIZABLE_SCHEMES
+-
+-        if scheme:
+-            scheme = scheme.lower()
+-
+-        if authority:
+-            auth, _, host_port = authority.rpartition("@")
+-            auth = auth or None
+-            host, port = _HOST_PORT_RE.match(host_port).groups()  # type: ignore[union-attr]
+-            if auth and normalize_uri:
+-                auth = _encode_invalid_chars(auth, _USERINFO_CHARS)
+-            if port == "":
+-                port = None
+-        else:
+-            auth, host, port = None, None, None
+-
+-        if port is not None:
+-            port_int = int(port)
+-            if not (0 <= port_int <= 65535):
+-                raise LocationParseError(url)
+-        else:
+-            port_int = None
+-
+-        host = _normalize_host(host, scheme)
+-
+-        if normalize_uri and path:
+-            path = _remove_path_dot_segments(path)
+-            path = _encode_invalid_chars(path, _PATH_CHARS)
+-        if normalize_uri and query:
+-            query = _encode_invalid_chars(query, _QUERY_CHARS)
+-        if normalize_uri and fragment:
+-            fragment = _encode_invalid_chars(fragment, _FRAGMENT_CHARS)
+-
+-    except (ValueError, AttributeError) as e:
+-        raise LocationParseError(source_url) from e
++    scheme, authority, path, query, fragment = _URI_RE.match(url).groups()  # type: ignore[union-attr]
++    normalize_uri = scheme is None or scheme.lower() in _NORMALIZABLE_SCHEMES
++
++    if scheme:
++        scheme = scheme.lower()
++
++    if authority:
++        auth, _, host_port = authority.rpartition("@")
++        auth = auth or None
++        host_port_match = _HOST_PORT_RE.fullmatch(host_port)
++        if not host_port_match:
++            invalid_host_char = _HOST_INVALID_CHAR_RE.search(host_port)
++            if invalid_host_char:
++                raise LocationParseError(
++                    f"Host {host_port!r} contains invalid character "
++                    f"{invalid_host_char.group()!r}"
++                )
++            raise LocationParseError(f"{host_port!r} is not a valid host or port")
++        host, port = host_port_match.groups()
++        if auth and normalize_uri:
++            auth = _encode_invalid_chars(auth, _USERINFO_CHARS)
++        if port == "":
++            port = None
++    else:
++        auth, host, port = None, None, None
++
++    if port is not None:
++        port_int = int(port)
++        if not (0 <= port_int <= 65535):
++            raise LocationParseError(url)
++    else:
++        port_int = None
++
++    host = _normalize_host(host, scheme)
++
++    if normalize_uri and path:
++        path = _remove_path_dot_segments(path)
++        path = _encode_invalid_chars(path, _PATH_CHARS)
++    if normalize_uri and query:
++        query = _encode_invalid_chars(query, _QUERY_CHARS)
++    if normalize_uri and fragment:
++        fragment = _encode_invalid_chars(fragment, _FRAGMENT_CHARS)
+ 
+     # For the sake of backwards compatibility we put empty
+     # string values for path if there are any defined values
+diff --git a/test/unit/test_vendored_pyopenssl.py b/test/unit/test_vendored_pyopenssl.py
+new file mode 100644
+index 0000000000..71937352ac
+--- /dev/null
++++ b/test/unit/test_vendored_pyopenssl.py
+@@ -0,0 +1,51 @@
++"""SNOW-4232077: vendored pyOpenSSL must import without ssl.PROTOCOL_TLSv1."""
++
++import importlib
++import ssl
++import sys
++
++import OpenSSL.SSL
++import pytest
++
++from snowflake.connector.vendored.urllib3 import util
++
++_PYOPENSSL = "snowflake.connector.vendored.urllib3.contrib.pyopenssl"
++# OpenSSL 4 drops the whole legacy PROTOCOL_TLSv1* family, not only TLS 1.0.
++_REMOVED_ON_OPENSSL4 = ("PROTOCOL_TLSv1", "PROTOCOL_TLSv1_1", "PROTOCOL_TLSv1_2")
++
++
++def test_protocol_tlsv1_mapped_when_stdlib_exposes_it():
++    """TLS 1.0 stays mapped on interpreters that still define the constant."""
++    if not hasattr(ssl, "PROTOCOL_TLSv1") or not hasattr(OpenSSL.SSL, "TLSv1_METHOD"):
++        pytest.skip("this interpreter does not expose TLS 1.0 constants")
++
++    pyopenssl = importlib.import_module(_PYOPENSSL)
++    assert pyopenssl._openssl_versions[ssl.PROTOCOL_TLSv1] is OpenSSL.SSL.TLSv1_METHOD
++
++
++def test_pyopenssl_imports_without_protocol_tlsv1():
++    """Import and PROTOCOL_TLS_CLIENT contexts succeed when TLS 1.0 is absent.
++
++    Python built against OpenSSL 4 omits ssl.PROTOCOL_TLSv1. The vendored
++    module used to dereference that attribute while building its protocol map,
++    so importing the connector failed before any connection was attempted.
++    """
++    removed = []
++    for name in _REMOVED_ON_OPENSSL4:
++        if hasattr(ssl, name):
++            removed.append((name, getattr(ssl, name)))
++            delattr(ssl, name)
++
++    sys.modules.pop(_PYOPENSSL, None)
++    try:
++        pyopenssl = importlib.import_module(_PYOPENSSL)
++        assert util.ssl_.PROTOCOL_TLS_CLIENT in pyopenssl._openssl_versions
++        if hasattr(OpenSSL.SSL, "TLSv1_METHOD"):
++            assert OpenSSL.SSL.TLSv1_METHOD not in pyopenssl._openssl_versions.values()
++        context = pyopenssl.PyOpenSSLContext(util.ssl_.PROTOCOL_TLS_CLIENT)
++        assert context.protocol == OpenSSL.SSL.SSLv23_METHOD
++    finally:
++        for name, value in removed:
++            setattr(ssl, name, value)
++        sys.modules.pop(_PYOPENSSL, None)
++        importlib.import_module(_PYOPENSSL)

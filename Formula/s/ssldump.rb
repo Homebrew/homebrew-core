@@ -21,7 +21,7 @@ class Ssldump < Formula
   depends_on "json-c"
   depends_on "libnet"
   depends_on "libpcap"
-  depends_on "openssl@3"
+  depends_on "openssl@3" # TODO: OpenSSL 4 issue - https://github.com/adulau/ssldump/issues/168
 
   deny_network_access!
 

@@ -19,6 +19,11 @@ class Stringtie < Formula
 
   depends_on "htslib"
 
+  resource "homebrew-test", :test do
+    url "https://github.com/gpertea/stringtie/raw/test_data/tests.tar.gz"
+    sha256 "815a31b2664166faa59cdd25f0dc2da3d3dcb13e69ee644abb972a93d374ac10"
+  end
+
   def install
     args = [
       "HTSLIB=#{formula_opt_lib("htslib")}",
@@ -29,11 +34,6 @@ class Stringtie < Formula
   end
 
   test do
-    resource "homebrew-test" do
-      url "https://github.com/gpertea/stringtie/raw/test_data/tests.tar.gz"
-      sha256 "815a31b2664166faa59cdd25f0dc2da3d3dcb13e69ee644abb972a93d374ac10"
-    end
-
     resource("homebrew-test").stage testpath
     assert_match version.to_s, shell_output("#{bin}/stringtie --version")
     system bin/"stringtie", "-o", "short_reads.out.gtf", "short_reads.bam"

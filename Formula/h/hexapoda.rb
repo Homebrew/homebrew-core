@@ -18,6 +18,12 @@ class Hexapoda < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["HEXAPODA_COMPLETIONS"] = buildpath
     ENV["HEXAPODA_MANPAGE"] = buildpath

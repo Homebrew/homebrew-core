@@ -6,24 +6,28 @@ class Modsurfer < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d155922a355ce3421f356ed69be41ef684aff38ac32493f6e4df735e5e6ea146"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "771be4aaa710c9ab747d8c99f16be41f132e0f0662cc59c5e5ef1b4827fcbbe2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4de08833308339b9707922798aeede8757c81d4e025667d2290b183aa2c161e6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "42474789dbb88caadbcf8c0d113545c1bf40036b77cc89a88368e28413c97886"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "7720cac93edc2ab0f29464ba3bc195cca1f5cc1e1d2ad6f9d98303b6b98f46ab"
-    sha256 cellar: :any_skip_relocation, arm64_monterey:    "34b454f9d922b88adea055d86ea1ecbf08943162f0b69c73c03da9c664020bbd"
-    sha256 cellar: :any_skip_relocation, sonoma:            "b917744c1619ac05cdf12c8236ed2d8f6e25078bd7369c701ff9a0a0ef041303"
-    sha256 cellar: :any_skip_relocation, ventura:           "9f033931b5c7fbf412ec53091fb423d5c376f509abe0a472fc2a6e52c320968e"
-    sha256 cellar: :any_skip_relocation, monterey:          "0e987ef1c06a80190898850d0aaa1e26d9c3515492f8ddbcef4a6c1a7af6dde2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "12a645180f3f4fa5735a85750d323b060dd085e408d0f0d5aee652ea07dcc845"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d0ae0a282777800dcabb713ce0f994bf1cb0d4154edd5bcf2cdaec083d05b2dd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7d561740c72ebcf3a01fea7db5ee11eca2486a607a20b94161b87af75717d8e2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3e519824fac34bcc80c508da8c5c2a1fd4f09aac1280681f9c26874ee29e4e40"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d25c85d57efbf38fa29fbc83354de21d74379c9ebe208603afe68225acacb993"
+    sha256 cellar: :any,                 arm64_linux:       "b944ffb5c1262c53a8b3e58055bb0d8bdae7bf70004991ff596f9bce025965c1"
+    sha256 cellar: :any,                 x86_64_linux:      "03f6d8153200b7ef04060b88addd5a70c8adb8512b52b135349e94d7eb13149d"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
+  end
+
+  # Update to openssl 0.10.78 and openssl-sys 0.9.114 for minimum needed to use OpenSSL 4
+  patch :DATA
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install
@@ -41,3 +45,36 @@ class Modsurfer < Formula
     system bin/"modsurfer", "validate", "-p", "sum.wasm", "-c", "mod.yaml"
   end
 end
+
+__END__
+diff --git a/Cargo.lock b/Cargo.lock
+index 8f3697f..8eeb1b1 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1661,11 +1661,11 @@ checksum = "dd8b5dd2ae5ed71462c540258bedcb51965123ad7e7ccf4b9a8cafaa4a63576d"
+ 
+ [[package]]
+ name = "openssl"
+-version = "0.10.54"
++version = "0.10.78"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "69b3f656a17a6cbc115b5c7a40c616947d213ba182135b014d6051b73ab6f019"
++checksum = "f38c4372413cdaaf3cc79dd92d29d7d9f5ab09b51b10dded508fb90bb70b9222"
+ dependencies = [
+- "bitflags 1.3.2",
++ "bitflags 2.4.1",
+  "cfg-if",
+  "foreign-types",
+  "libc",
+@@ -1693,9 +1693,9 @@ checksum = "ff011a302c396a5197692431fc1948019154afc178baf7d8e37367442a4601cf"
+ 
+ [[package]]
+ name = "openssl-sys"
+-version = "0.9.88"
++version = "0.9.114"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "c2ce0f250f34a308dcfdbb351f511359857d4ed2134ba715a4eadd46e1ffd617"
++checksum = "13ce1245cd07fcc4cfdb438f7507b0c7e4f3849a69fd84d52374c66d83741bb6"
+ dependencies = [
+  "cc",
+  "libc",

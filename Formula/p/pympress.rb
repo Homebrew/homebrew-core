@@ -9,12 +9,12 @@ class Pympress < Formula
   head "https://github.com/Cimbali/pympress.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "339feb3b225370afd424687da9db3203f4a305bea3cdaa0ab5ff90a7f0a84cfd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ed91496f2ac340987c1084be36b180a86533c6387bfc262214144805dd625107"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "88ed25f909c6c396a882e6c040c602f93201f6679c1d34ef3a87c1ee004bdf91"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f8ba43665083628ea2b064b4faf763d1f3e3c13081077f795aa3349ce909a40b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f8ba43665083628ea2b064b4faf763d1f3e3c13081077f795aa3349ce909a40b"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9ece30038f7171daeed1e1fd39e45dbdfec149ed669176a535c437f99b0f362b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e1fe447005a3459ad98e3f28544777ef762c54d7f3cd48ed70829b572f584c36"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "173e3e14c3497bb7598f07904904d0481df16fb487f2c27c57512bb90511b829"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ec042fa44bcab6d3b224d847ba4a03cdb9b4b173e55f0f83e0f2e763a2eae563"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ec042fa44bcab6d3b224d847ba4a03cdb9b4b173e55f0f83e0f2e763a2eae563"
   end
 
   depends_on "gobject-introspection"
@@ -23,7 +23,7 @@ class Pympress < Formula
   depends_on "libyaml"
   depends_on "poppler"
   depends_on "pygobject3"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "watchdog" do
     url "https://files.pythonhosted.org/packages/db/7d/7f3d619e951c88ed75c6037b246ddcf2d322812ee8ea189be89511721d54/watchdog-6.0.0.tar.gz"

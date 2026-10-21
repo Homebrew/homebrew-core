@@ -11,6 +11,11 @@ class LeakcanaryShark < Formula
 
   depends_on "openjdk"
 
+  resource "homebrew-sample_hprof", :test do
+    url "https://github.com/square/leakcanary/raw/v2.6/shark-android/src/test/resources/leak_asynctask_m.hprof"
+    sha256 "7575158108b701e0f7233bc208decc243e173c75357bf0be9231a1dcb5b212ab"
+  end
+
   def install
     # Remove Windows scripts
     rm(Dir["bin/*.bat"])
@@ -20,11 +25,6 @@ class LeakcanaryShark < Formula
   end
 
   test do
-    resource "homebrew-sample_hprof" do
-      url "https://github.com/square/leakcanary/raw/v2.6/shark-android/src/test/resources/leak_asynctask_m.hprof"
-      sha256 "7575158108b701e0f7233bc208decc243e173c75357bf0be9231a1dcb5b212ab"
-    end
-
     testpath.install resource("homebrew-sample_hprof")
     assert_match "1 APPLICATION LEAKS",
                  shell_output("#{bin}/shark-cli --hprof ./leak_asynctask_m.hprof analyze").strip

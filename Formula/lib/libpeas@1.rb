@@ -12,13 +12,12 @@ class LibpeasAT1 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "a95e8a356f2ada1557bfa7a989c7d225b1a0426d8da902439cd78cd8685ad6bc"
-    sha256 arm64_tahoe:       "a72b082abb085d326fc3e144815f977d7be22f56e1ea6069f973355517d7cbc4"
-    sha256 arm64_sequoia:     "c1c8cf6d9c0b5d0b64894d883b0ab62ec28c8ac4d1adbd2055bf4640af7eb4e3"
-    sha256 arm64_sonoma:      "31e03f2b631adfaa428c1f387256b64386c6aaee72ac7120a08b84762b6bbdd0"
-    sha256 sonoma:            "4aab17c710c1a86ceca29536194de50abd4a44dc2757f3a5911128708ccfc0ea"
-    sha256 arm64_linux:       "02b0153cf47f4970d7d7277c3698e69cf41ced94e3f2a2d3a7202d3cf02c7425"
-    sha256 x86_64_linux:      "cba275dc7195f4c2537d9d9e7ae6e9f81009d57d29f1da5310e86ac768b3724e"
+    rebuild 1
+    sha256 arm64_golden_gate: "03fc4c7a900b9c2d06f7bc7d36f6a657693caeb1fd9fdcddc50bf0911f4cce69"
+    sha256 arm64_tahoe:       "eeb58aeab4af7fbd4ca2202fecd5e51a456689d9f4d1c96b8d76e277802f1025"
+    sha256 arm64_sequoia:     "f492e286d623b5069e567e2e873d07cad9a0375f9ecc899bb9848b36eec15e8a"
+    sha256 arm64_linux:       "ed40fea503c21d95e1119af6ef14f237a449d808633374938b5fe2b2fa257ddb"
+    sha256 x86_64_linux:      "b404b8d15b6146786c34fa67954528176f7275b6f3dce36204785da045cdbbb8"
   end
 
   depends_on "meson" => :build
@@ -30,7 +29,7 @@ class LibpeasAT1 < Formula
   depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "pygobject3"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_macos do
     depends_on "gettext"
@@ -41,8 +40,8 @@ class LibpeasAT1 < Formula
     # Help pkg-config find python as we only provide `python3-embed` for aliased python formula
     inreplace "meson.build", "'python3-embed'", "'python-#{pyver}-embed'"
 
-    # ensure Meson uses homebrew python@3.14
-    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("python@3.14")/"pkgconfig"
+    # ensure Meson uses homebrew python
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("python@#{pyver}")/"pkgconfig"
 
     args = %w[
       -Dpython3=true

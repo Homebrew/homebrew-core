@@ -12,12 +12,12 @@ class Librespot < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "abd9e87ba45e5ae2e4a3798ca2042d068c2c6bc880d450e3f6e36259342061e7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "da5d471665712fb34f147bd605b4f8f960c0e0fc8d9a5e47ca7b70ca0e9132f1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a71699856a1c4ad908b3a1e5c9304a455d9cde1003a912da2d1298b0f9df73e0"
-    sha256 cellar: :any,                 arm64_linux:       "b46f177d84157d8790d26bdb5ac8326e29e8e7586aaf9b156e3709e91a45e71d"
-    sha256 cellar: :any,                 x86_64_linux:      "b026c712356b9cc4c6ae01b3a9f8e190b1fd3f31bd45ebc87caf279fd75d6e00"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "28bb8d675fe59691e4bee6f1a31b682e68fe5252411ccfc5b710d434bcd4bfe1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7132ecdab43ddbf1ed6c0c79401fd335a20390c02b377b6d58cac6a81fec67d2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6146c0048e5addc89d937d7fec449f236f3cdea6252fff2231d493ccabcfdd5c"
+    sha256 cellar: :any,                 arm64_linux:       "78c24f6d6dd8e20207594ab8369be6dc78e3154962285e04adb7c3906d626b78"
+    sha256 cellar: :any,                 x86_64_linux:      "09046ff6ee7383df138b0d20c0516b87e4147f653aaae393f3cde09f749a357b"
   end
 
   depends_on "pkgconf" => :build
@@ -25,7 +25,15 @@ class Librespot < Formula
 
   on_linux do
     depends_on "alsa-lib"
-    depends_on "openssl@3" # https://github.com/librespot-org/librespot/pull/1707
+    depends_on "openssl@4"
+  end
+
+  # Apply open PR to update openssl and openssl-sys for OpenSSL 4
+  patch do
+    url "https://github.com/librespot-org/librespot/commit/5ceaa54fcfca8ebe522e3463fb110dd49dade846.patch?full_index=1"
+    sha256 "3cd869925d498406c83878e55e6f26fc59b51554f8550b10f85bacf9168be9d8"
+    type :unofficial
+    resolves "https://github.com/librespot-org/librespot/pull/1707"
   end
 
   def install

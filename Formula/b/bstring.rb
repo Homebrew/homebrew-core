@@ -19,6 +19,8 @@ class Bstring < Formula
   depends_on "ninja" => :build
   depends_on "check" => :test
 
+  deny_network_access!
+
   def install
     args = %w[-Denable-docs=false -Denable-tests=false]
     system "meson", "setup", "build", *args, *std_meson_args

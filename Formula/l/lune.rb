@@ -1,22 +1,26 @@
 class Lune < Formula
   desc "Standalone Luau script runtime"
   homepage "https://lune-org.github.io/docs"
-  url "https://github.com/lune-org/lune/archive/refs/tags/v0.10.5.tar.gz"
-  sha256 "09d15b4380e5b02a3656939619e948e6d36d549a4adbb499c1de0707a143adbf"
+  url "https://github.com/lune-org/lune/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "4353072ee38d7ded19f487e0bdebb9b631ba7a3d52cb0eabe3be5d98581b16d5"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8e165ab8b6eb3e43ad9ca5448fb835be57bddff559c9d269393b96fbe2564f51"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f9ff9627b17489f62f157d51eff318969dea9c4ffe9ae65292d93295101087f2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92b73b515eaa1a0594b019cf2f160dcc6d67248bab8ebf1db117bae45d1bf1b9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "a55af112d3f5e0745c6be835804c4bfefddb6f1e398492976d0095325c29a0f2"
-    sha256 cellar: :any_skip_relocation, sonoma:            "db21862d0f523de06c7d01ded3b00b127430172daa6c6a91e1dadbfbce7af5dd"
-    sha256 cellar: :any,                 arm64_linux:       "c1588be14a565d060dced9664a9e79832960239821be3a93e558494250d0a223"
-    sha256 cellar: :any,                 x86_64_linux:      "4ef9dbe6167235e5e5c8b3e097bf2cd12556baa86bb6ca0235d10dbf765bd923"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cc06977460dbc7aaf20a7ff9e93a1e80a5453912f766d2bf78de38e27217112c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a38c162ad2ac4aa875f04ad8073465e61a946e4db751fc2311ca4936b28ae9be"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bae534330ad9cf0df4339f39376863686d066e978d3176aa2ffd26ff495e2615"
+    sha256 cellar: :any,                 arm64_linux:       "161a6b481a691246adc53e1820cc46025d09e5e01e7725984cbd513bfaf3629f"
+    sha256 cellar: :any,                 x86_64_linux:      "ffe5128e06b2ec68c25a83a5127b6141eba4a773ba2c40206585423496bac076"
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", "--all-features", *std_cargo_args(path: "crates/lune")

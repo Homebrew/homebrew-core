@@ -8,6 +8,7 @@ class Rpm < Formula
     "GPL-2.0-or-later",
     "LGPL-2.0-or-later", # rpm-sequoia
   ]
+  revision 1
   version_scheme 1
   compatibility_version 1
   head "https://github.com/rpm-software-management/rpm.git", branch: "master"
@@ -18,25 +19,24 @@ class Rpm < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "a4edb40f386df54cafd4a51d55b51cb6d70a213427bfe56588ccb2e7c173b7ea"
-    sha256 arm64_tahoe:       "d05318fd8cd639a10d516353fa2b1f64cd5955e610b2ee13c035bb997b1357ed"
-    sha256 arm64_sequoia:     "363200736332adcfa7cac84e5ff32ac1048aa3d0f6b2610f0d29bf7e3c746bfd"
-    sha256 arm64_sonoma:      "490697dfae364ebee811d76c2fa3145be7f80c81198437637de72a88e2ad8736"
-    sha256 sonoma:            "e762a6d1e18fd2cc12334bdc05eb809e05c22fd6d111a5025a12415766391c93"
-    sha256 arm64_linux:       "4fa984eb8ebf0fe293012bf18c2bb42a279211bddcffa2bc15978603d27cc935"
-    sha256 x86_64_linux:      "d58417ed3db12fd1dd1638167d7556a3b14008bf1433c421a675676f80af8fb2"
+    rebuild 1
+    sha256 arm64_golden_gate: "2b5916fb69a8e3c55701b74c7d67fe53eec5850363197a76abe21137c124995e"
+    sha256 arm64_tahoe:       "33d39e2d3e1481aafb3faccdd4a36062b06df14eb2f143bece294db6e4a6d47d"
+    sha256 arm64_sequoia:     "314f950d2cdbae36c3e790012232d44e29735ecab9d96f63e555c26444cc7f35"
+    sha256 arm64_linux:       "fe92215edd10c09329e6d38240544170a454e28a8e5994b5ecb762bc34f7e206"
+    sha256 x86_64_linux:      "2c0afb031c39a2a069094ba0f51bb36ee04011ee7f803e540ad708a1bf042d38"
   end
 
   depends_on "cmake" => :build
   depends_on "gettext" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "rust" => :build # for rpm-sequoia
   depends_on "scdoc" => :build
 
   depends_on "libarchive"
   depends_on "libmagic"
   depends_on "lua"
-  depends_on "openssl@3" # for rpm-sequoia
+  depends_on "openssl@4" # for rpm-sequoia
   depends_on "pkgconf"
   depends_on "popt"
   depends_on "readline"
@@ -79,7 +79,7 @@ class Rpm < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     resource("rpm-sequoia").stage do |r|
       with_env(PREFIX: prefix) do

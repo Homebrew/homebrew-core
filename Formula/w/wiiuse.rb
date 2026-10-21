@@ -1,18 +1,16 @@
 class Wiiuse < Formula
   desc "Connect Nintendo Wii Remotes"
   homepage "https://github.com/wiiuse/wiiuse"
-  url "https://github.com/wiiuse/wiiuse/archive/refs/tags/0.15.7.tar.gz"
-  sha256 "d16dbe3b38e3c1dbe3e9a2c5b0a32a801710da2aca66581500ef2b98eba1d8ff"
+  url "https://github.com/wiiuse/wiiuse/archive/refs/tags/0.16.0.tar.gz"
+  sha256 "084e0afe3ecd392a2daf4392e62e171be7bdf404659c1bfee92e914f973be9a5"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "0d9b7b2a5b18bd193c76a139e844268c0f14a9f1b374b9c624a06acdb8555311"
-    sha256 cellar: :any,                 arm64_tahoe:       "6f849e7e3d6d27d6c42b1bab948d6155863bc01d88b249aadc3c69b1b17277bf"
-    sha256 cellar: :any,                 arm64_sequoia:     "a9027f49f43e79bc47b7de50b96aeec1bec4a5afe68650065b3e6eb414c3365f"
-    sha256 cellar: :any,                 arm64_sonoma:      "9be4cbe0cf4d421607f693006860578348018c8d074543b4d102021ec8c19899"
-    sha256 cellar: :any,                 sonoma:            "9f4d0974a2a2443626e74ab1218827defeff80e2d8cae14e3a7e64d7386f20b1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "31d5ce2c575faab8098f0265a1e8fb610ae068445a3d311008e2e9d8e1777da7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "14cd9b83e9f2b799673ebfe3f65c11d5409db0e9af64831d812d3bdcb8374d70"
+    sha256 cellar: :any, arm64_golden_gate: "202c73205053c5693bf53258f36136a3aa513b41f98922a416da2ae96d53fa37"
+    sha256 cellar: :any, arm64_tahoe:       "c3799c163d4e1ac54f1dcadacdbd4efe6be1b17ea241c8a26ce9d04e16c3045d"
+    sha256 cellar: :any, arm64_sequoia:     "96402711a377e57842d8d00d97031162828270e23c61d50604cba4d3efc13b36"
+    sha256 cellar: :any, arm64_linux:       "45e1cac29dd121e10b42b68919a2bbd97593f2138267e4904f71d8a427726243"
+    sha256 cellar: :any, x86_64_linux:      "69110bbdc0be45011b7957145783023cdd56bf8406f38fd0b2bc232c75014c99"
   end
 
   depends_on "cmake" => :build

@@ -1,8 +1,8 @@
 class Gerbv < Formula
   desc "Gerber (RS-274X) viewer"
   homepage "https://gerbv.github.io/"
-  url "https://github.com/gerbv/gerbv/archive/refs/tags/v2.11.1.tar.gz"
-  sha256 "b9a01ed892702f21f78b6ef4ec701e2db3220b5702d1cf93b10e843cad1e69a1"
+  url "https://github.com/gerbv/gerbv/archive/refs/tags/v2.13.0.tar.gz"
+  sha256 "0479b333efffadc118b7e3080be5621d8890fdcd2376edbe40a686d5c3642784"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -10,13 +10,11 @@ class Gerbv < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "bd3faae6ce425d75f21c4dc96e4c4c7a30d708f24aed8fa77d0749f3f3f241b4"
-    sha256 arm64_tahoe:       "bf6c87fbaf8c1ba9224b0114f8274c5428b8dd4f5a9c9fda72609f6241466bc1"
-    sha256 arm64_sequoia:     "d13b732f78eed944284e3095d8c901212ff01398e2ca3396541725080054b19d"
-    sha256 arm64_sonoma:      "fb5a4094a415b80d3c321942fbaefff760ad3bf5ccb6ed1094d0ec40be460e32"
-    sha256 arm64_linux:       "a5a419bcdedf5f24b132a6d8b5208c7c50c7be99ea4a402805bcc8b15074e589"
-    sha256 x86_64_linux:      "d8b160c89e1f26c9259b1ea83ec5ac0e09ed317b9ccae0e1715d8b4c7e3409cd"
+    sha256 arm64_golden_gate: "c9f41308438d5a9ebff69e437751772ee790fa627b17d0489855016ccc816fb8"
+    sha256 arm64_tahoe:       "788e066539724b16e264114157b1aeb7f250d68fbf26209f563d3b2f615391fb"
+    sha256 arm64_sequoia:     "3a0eb6d8a1e72b1b5486a63301f7c34f4ed7e9be7c66b7ea46198d0f720e212c"
+    sha256 arm64_linux:       "7a5b0ee767f34240ebc2550311e0e7681fba7a5114b58ef4538dcaf3ce9d6e01"
+    sha256 x86_64_linux:      "dd21a26c7492e8897c49bee9fb00c46cb0ee1872184cbcd2af56b54c6d52c995"
   end
 
   # Can be undeprecated if upstream moves to GTK 3/4: https://github.com/gerbv/gerbv/issues/71
@@ -39,18 +37,12 @@ class Gerbv < Formula
     depends_on "pango"
   end
 
-  # Backport CMake fixes
-  patch do
-    url "https://github.com/gerbv/gerbv/commit/13e73c2767f0170cd4ff660ba0ccceac7c080573.patch?full_index=1"
-    sha256 "d1e8adc4371cfa3b2cc033b06c26daf2aa219cdd8d7a58b3fadfbdc0cbf9f920"
-    type :backport
-    resolves "https://github.com/gerbv/gerbv/pull/303"
-  end
+  deny_network_access!
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
-    # Ensure generated gettext sources exist before parallel translation build.
-    system "cmake", "--build", "build", "--target", "generated"
+    args = %w[--toolchain cmake/toolchains/macos-clang.cmake] if OS.mac?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

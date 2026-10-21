@@ -1,8 +1,8 @@
 class Ryelang < Formula
   desc "Rye is a homoiconic programming language focused on fluid expressions"
   homepage "https://ryelang.org/"
-  url "https://github.com/refaktor/rye/archive/refs/tags/v0.2.62.tar.gz"
-  sha256 "98986aeaf670f5f1ab8359fd34a800792328e1e71cb25284766ff93798260525"
+  url "https://github.com/refaktor/rye/archive/refs/tags/v0.2.65.tar.gz"
+  sha256 "1978105d966210f8143269e8a273425be3a0e6c80855e04da75f4690e63dde95"
   license "BSD-3-Clause"
   head "https://github.com/refaktor/rye.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Ryelang < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "77875fe811f2073d16d8fa66f1b7e0cf9309d4af991ef014b8e3d652815c9df4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b5ed24703de91af4f23172ba9a3ac4287c86c2178dc9d4003599bddb07543cbf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b2eff5422665dbec5bdfd7ff88c8b0b20041a836ab3af8ad4bd04c17654138d2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c0dad043d60221677bda341dcb3ecd3eccf057125f09dd559dd18fa6a0789e49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "40e16a5b31e1cb27e58119bcd0d40897ece51016dfac5f162a35e14e083be7e6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e1af9dc50c2f185d72fe6d0a055e54c8d17a0c50c2c2df58f55ed4cc7aa3b12b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c2554728a009533e85346317fb405e90f00778d99843da61d54fdfc201036cf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5d1a9fad06276f8cab492783667f82b1afd7bf1a48f96569e47dc983b5c3222e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "6daa4d93372df62043753a7939955119ed23b115222a5c96037f43d9d9b47684"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a6299ca7f633f4135e7c023107785f0a9240fc863540e8ca95091c9ccf0e2a7b"
   end
 
   depends_on "go" => :build

@@ -18,6 +18,14 @@ class StarlarkRust < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    # `https://github.com/facebookexperimental/rust-shed.git` does not have `Cargo.lock`
+    system "cargo", "generate-lockfile"
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "starlark_bin")
   end

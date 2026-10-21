@@ -5,6 +5,7 @@ class Ldapvi < Formula
   mirror "http://www.lichteblau.com/download/ldapvi-1.8.tar.gz"
   sha256 "359c84d61198c4b4b62930e21670c077c380a41a121f299313330907967949db"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -12,20 +13,18 @@ class Ldapvi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "1d8e08a878da7d96927ed275caa0fdab816b2cb0203a5f7e24f788814a387373"
-    sha256 cellar: :any,                 arm64_tahoe:       "ad2aec84c8f148541274a0c4ba6842d394422a3fd2a2b4fda522f85d2de04609"
-    sha256 cellar: :any,                 arm64_sequoia:     "0249209d0b49735a766a5748e276e1cf771a1ac7247ee3a3c3dc440721e28a32"
-    sha256 cellar: :any,                 arm64_sonoma:      "7f21a70ed40abb81148808896b2263cb6c1fe53afc44e60093af4c179a4f59ff"
-    sha256 cellar: :any,                 sonoma:            "a6d7ee2c1782381ee26aafc8ad37d2d6cb6f36867e0148d2fb6b69c28b41812d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4dc2d9dc55afa63a8fd1a6a538a28eae84c9251c4f032916e6e0aeeaf941a849"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3dad790aaa830697230bbfc4e37d8a8ee245d4b066a09679736eed27ab821b43"
+    sha256 cellar: :any, arm64_golden_gate: "c6b799d347aecd76ac20a01a8213e62085f9e9e58455f95a9ae86188340ea36d"
+    sha256 cellar: :any, arm64_tahoe:       "7513b0860ba84275ccdf408af93c082de9e9823e64a8ce7f71bca1b440c55826"
+    sha256 cellar: :any, arm64_sequoia:     "3f23ec23b01b2fc109822508fe456353d933a26258b5365b0f75f8ccda6db240"
+    sha256 cellar: :any, arm64_linux:       "af770777c23b7189ef30d53283a0054510a9a2172a8f7e3e9d67598b05936591"
+    sha256 cellar: :any, x86_64_linux:      "43a5645d5a28bb5646e07acd82bb5d22e97e86e172ac3d9545326d468fd61134"
   end
 
   depends_on "pkgconf" => :build
 
   depends_on "glib"
   depends_on "libxcrypt" # for crypt.h
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "popt"
   depends_on "readline"
 

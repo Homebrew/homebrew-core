@@ -28,6 +28,13 @@ class OperatorSdk < Formula
   depends_on "libassuan"
   depends_on "libgpg-error"
 
+  # Test scaffolds a project, which downloads Go modules
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ENV["GOBIN"] = bin
     system "make", "install", "CGO_ENABLED=1"

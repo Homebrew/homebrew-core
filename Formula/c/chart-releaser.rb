@@ -7,15 +7,12 @@ class ChartReleaser < Formula
   head "https://github.com/helm/chart-releaser.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0d7e89d7f5d8be676449df9399b2a54a26b7b9f16234549aa4005bc3108e5627"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "27092d541b6e311d481975577cd01d6e509d7dbc7f3ddfaa0d79a4e0403a9669"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ac48c960c540e8c832e43cc300ba9f111ef826b42d4b3ebbaff903935a0ff148"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "abeb352ebc9327bebb195149adaaf36e73a54a4a4e22ea943484d57d7791206f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "95bdc0d6c088802e3c2ee6d70494f72204bcd2f569fad4a31cf132e5340f120b"
-    sha256 cellar: :any_skip_relocation, sonoma:            "ddc5b4d029ee37526c683ec7a4256dfc3341a4b8d875a5b3eae9d203b94c74c2"
-    sha256 cellar: :any_skip_relocation, ventura:           "d62fedebe1170d0a230308039b7e13d2bf9843ef03956e9f65b4872041ee3843"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "794471d16801611983bb9aeed61f96500f7f985c9eaa12d8d9a419fff04f2ffa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c54dcb307cf826eb4cca3dacac438de2f0110d4b84d4dfe36b39146c633229e5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1575d0e68f4af3ccd39b9822a3e8a8f207918c79f5072cdcb7458060cddd78a0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9f6da8ad253bc96f4cbedec034499969d4895d5549687497568ee3aa80133da4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3f6aa9a1c49665848b24e0c8781e5d65bff802a5049f648bf5597bfe23f07093"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "614d3237b3fdb9d8ac7bdb1c8cb85b1e19557db65fd8636651412876753f4ba7"
+    sha256 cellar: :any,                 x86_64_linux:      "429fada1249a2c3affafe69798e57ce9ab3f63c4552c3653526d06550053dba7"
   end
 
   depends_on "go" => :build
@@ -34,6 +31,7 @@ class ChartReleaser < Formula
       -X github.com/helm/chart-releaser/cr/cmd.BuildDate=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags:, output: bin/"cr"), "./cr"
+    generate_completions_from_executable(bin/"cr", shell_parameter_format: :cobra)
   end
 
   test do

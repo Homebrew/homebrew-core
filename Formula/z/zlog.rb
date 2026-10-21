@@ -1,16 +1,16 @@
 class Zlog < Formula
   desc "High-performance C logging library"
   homepage "https://github.com/HardySimpson/zlog"
-  url "https://github.com/HardySimpson/zlog/archive/refs/tags/1.2.19.tar.gz"
-  sha256 "475df1b30be64190fd692de834ad4c45510f996188b5ecd4b6e3da2527c74a32"
+  url "https://github.com/HardySimpson/zlog/archive/refs/tags/1.2.20.tar.gz"
+  sha256 "432723ccd9a5b07ec1e4b8cc985d9011d768633b1e4c4facfc0e3e9a7ad5fcf7"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4b7acd797537992097538927b710515616f0d9242c833505f3253aa393326184"
-    sha256 cellar: :any, arm64_tahoe:       "68df05708e497ba44e05f9a29ae69300e80828d8d9aed525be3339d1c2a1c992"
-    sha256 cellar: :any, arm64_sequoia:     "12c23c9213302e0f2d37bd0dd8054d61759e24845677afc271be2ee3ce07e67e"
-    sha256 cellar: :any, arm64_linux:       "b67c8df75531aa96bbe34618e711dd0f908fc9c4ca219f042afbb49bfd426398"
-    sha256 cellar: :any, x86_64_linux:      "a6812c10fbf7026cb9dd067b20eb7785dd232915ebb420581060a0385c12cf81"
+    sha256 cellar: :any, arm64_golden_gate: "6762b89a3969799654e217d8fd88a14e563c48d1308df70098e1e16610b3fbcb"
+    sha256 cellar: :any, arm64_tahoe:       "f31caf504a45c8972ed9cf0940447699c46e5dbb99e21db32d0cf23b69db7657"
+    sha256 cellar: :any, arm64_sequoia:     "ea3d476b22dac374ebbc2c4b598301441b3ef46fd17b2b8d94348c79ef3a49bb"
+    sha256 cellar: :any, arm64_linux:       "b573ec2caee71daa8165bf01fd09c6539b80df0b67c850c0f2a92e4b06bd80ba"
+    sha256 cellar: :any, x86_64_linux:      "506eae9079597d4b3468b85880ed8656db2b6251f3e4254805c434d94e60df24"
   end
 
   on_macos do

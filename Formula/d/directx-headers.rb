@@ -19,6 +19,11 @@ class DirectxHeaders < Formula
   depends_on "ninja" => :build
   depends_on "mingw-w64" => :test
 
+  resource "test.cpp", :test do
+    url "https://raw.githubusercontent.com/microsoft/DirectX-Headers/a7d19030b872967c4224607c454273a2e65a5ed4/test/test.cpp"
+    sha256 "6ff077a364a5f0f96b675d21aa8f053711fbef75bfdb193b44cc10b8475e2294"
+  end
+
   def install
     system "meson", "setup", "build", "-Dbuild-test=false", *std_meson_args
     system "meson", "compile", "-C", "build"
@@ -26,11 +31,6 @@ class DirectxHeaders < Formula
   end
 
   test do
-    resource "test.cpp" do
-      url "https://raw.githubusercontent.com/microsoft/DirectX-Headers/a7d19030b872967c4224607c454273a2e65a5ed4/test/test.cpp"
-      sha256 "6ff077a364a5f0f96b675d21aa8f053711fbef75bfdb193b44cc10b8475e2294"
-    end
-
     resource("test.cpp").stage(testpath)
 
     ENV.remove_macosxsdk if OS.mac?

@@ -1,8 +1,8 @@
 class Glooctl < Formula
   desc "Envoy-Powered API Gateway"
   homepage "https://docs.solo.io/gloo-edge/main/reference/cli/glooctl/"
-  url "https://github.com/solo-io/gloo/archive/refs/tags/v1.22.4.tar.gz"
-  sha256 "e3d4115038ac63e4fe2bcdfc6b6101c5620be2202c4fa170c07a336605a66fe7"
+  url "https://github.com/solo-io/gloo/archive/refs/tags/v1.22.6.tar.gz"
+  sha256 "315aae57c573e6acbab6c4935ca1cb47e8f52750fb73f1e297b0060325c27b1c"
   license "Apache-2.0"
   head "https://github.com/solo-io/gloo.git", branch: "main"
 
@@ -16,17 +16,23 @@ class Glooctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e6cf1d8db12f284324b5d4a0b7de00f4d7a5d2e74e7bc0afc0aef764723adc17"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6f740df0fb7141d060daa737644f9999de7d24c15662cbb80ff401f0362c9123"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8cc4633ab06db2164dcb2cf650d8ebe60af6bbe9a4dd15daff3d2d4d5348310c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3d8c08896c5cedb581b0fabc1b805a8259f9d6bf0f3dcbf815e8f7ea6559757c"
-    sha256 cellar: :any,                 x86_64_linux:      "f44a3ee6f875262742ffb9d3e495ade60bf6af4f1f56ac73e2c2aff3cc5d2857"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "685572ce57f3c84dd2315c1192d886d81b5c8c60d2b8f2701e3f893603d5ff9e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "17ddb3fa36c188e1639de529a85cb562b12ce7c7df997b6b46f632364f384553"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b27208b6684f5e8bec34a82543be608b6d6fd7a0905ed5fd7b6cc2f3c6c4df39"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "10f94a5db2b16d7dbbf193dfbdc5a9414cdc1a26f8c1efa8eeac0e94693e7169"
+    sha256 cellar: :any,                 x86_64_linux:      "c89bedc8068b296da4fca2c48e8826f0d9029aed7a47f3a72cf77092f7f4b739"
   end
 
   deprecate! date: "2026-12-31", because: :deprecated_upstream
   disable! date: "2027-12-31", because: :deprecated_upstream
 
   depends_on "go" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     ldflags = "--X github.com/solo-io/gloo/pkg/version.Version=#{version}"

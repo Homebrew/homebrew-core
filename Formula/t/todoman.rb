@@ -10,17 +10,22 @@ class Todoman < Formula
   head "https://github.com/pimutils/todoman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1be6813d8b7f6f127d4b532ea4269aca0fc099e7694bd578f570fb7f4bfc4c6c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f981bba775cc347551fa91f085015bd294ffa6576d8b50352dbdeb0319ef6b07"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c0f9bdb456ac3070c753827ddaf665814afd598f9f1b93b6373563b384b8fd1e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1445c500af1aeab4ef8f2a0a3b13ea3282c8b3c8c0bb54896f91aa909e832255"
+    sha256 cellar: :any,                 arm64_linux:       "f8e5b9a1017bb671b36616dba7527134039d8cc1ddec9454a19a76a6ad1d700f"
+    sha256 cellar: :any,                 x86_64_linux:      "849e68b39d6d864c7d4d96a796028a1a5c1273c4f9c4ab4d0f74cb7996792f43"
   end
 
   depends_on "jq" # Needed for ZSH completions.
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   conflicts_with "bash-snippets", because: "both install `todo` binaries"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "click-log" do
@@ -34,8 +39,8 @@ class Todoman < Formula
   end
 
   resource "icalendar" do
-    url "https://files.pythonhosted.org/packages/2e/6c/3a20edd47656272f2d4016f6680f5bec6e2eb5ec7a23db97ebd1c15c384b/icalendar-7.2.0.tar.gz"
-    sha256 "32dacc396101825b82f9f1bbdf691c02be613130d5ab7a457e553fcd20959fdd"
+    url "https://files.pythonhosted.org/packages/47/2b/1bbf82d316df18c3331d9a06228819c8a5814ceda545a3e9980e52ffce1b/icalendar-7.3.0.tar.gz"
+    sha256 "7bd001c8e648205e1bde5c6a5b77096598e8d0893dcf57755c6c597635620132"
   end
 
   resource "parsedatetime" do
@@ -64,18 +69,18 @@ class Todoman < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/92/ff/5a28bdfd8c3ebec42564ac7d0e54ca3db65044a9314a97f9564fa7a1e926/tzdata-2026.3.tar.gz"
-    sha256 "4a1518b8993086a7982523e071643f3c0e5f213e75b21318e78bcabfff9d1415"
+    url "https://files.pythonhosted.org/packages/d9/68/f1b440335057bfce71b6e50a9d09445aa2ecbd08359a337976627b8409e7/tzdata-2026.5.tar.gz"
+    sha256 "8cc73c0a0bfca7dbfa59235d60b2eff82231dee33f53d206db1acd9173cfc0a7"
   end
 
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/e0/7d/4400463fb3f66c83094d97bc6c532d207996c928c83f150896cb3533422c/urwid-4.0.3.tar.gz"
-    sha256 "0f9a1d9b51a529f04c363d04c53dc446dada47a9eab641a82244ff9d1fe5029b"
+    url "https://files.pythonhosted.org/packages/3a/df/eb5dcbdf1638c38618096382b4a30b0423ed7d2aac97fd9469b51d6de43f/urwid-4.2.5.tar.gz"
+    sha256 "a1fea3a551953fae4e6b727536334233bbb8b88c45230bc91d9751b402a8c16d"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/34/74/c6428f875774288bec1396f5bfcbc2d925700a4dad61727fd5f2b12f249d/wcwidth-0.8.2.tar.gz"
-    sha256 "91fbef97204b96a3d4d421609b80340b760cf33e26da123ff243d76b1fda8dda"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

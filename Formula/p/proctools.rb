@@ -47,6 +47,8 @@ class Proctools < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     system "bsdmake", "PREFIX=#{prefix}"
 
@@ -54,5 +56,15 @@ class Proctools < Formula
       bin.install prog
       man1.install prog + ".1"
     end
+  end
+
+  test do
+    pid = spawn "sleep", "300"
+    assert_equal "#{pid} sleep", shell_output("#{bin}/pgrep -l -P #{Process.pid} -x sleep").strip
+    assert_match(/^#{pid}$/, shell_output("#{bin}/pfind -x -name sleep"))
+    shell_output("#{bin}/pgrep -P #{Process.pid} -x nonexistent-brew-process", 1)
+
+    system bin/"pkill", "-P", Process.pid.to_s, "-x", "sleep"
+    assert_equal Signal.list.fetch("TERM"), Process::Status.wait(pid).termsig
   end
 end

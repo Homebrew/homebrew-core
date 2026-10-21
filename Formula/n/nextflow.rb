@@ -1,10 +1,9 @@
 class Nextflow < Formula
   desc "Reproducible scientific workflows"
   homepage "https://nextflow.io"
-  url "https://github.com/nextflow-io/nextflow/archive/refs/tags/v26.04.6.tar.gz"
-  sha256 "485c4413948ddffce2bff02d8df63f6d5bbd88f7fd9c1a63d3a65a3cc8301b19"
+  url "https://github.com/nextflow-io/nextflow/archive/refs/tags/v26.10.3.tar.gz"
+  sha256 "6cf4331e5c74f9e55eabb06a72a688f34cc41723cf311ce4c08e6b1d55c44020"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,11 +11,11 @@ class Nextflow < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "84fc63c3791a832c7752884ab1b51bd3783ef012716b6a3626a737906ef3e242"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ea4a1073fdfa91b84488be40d038bce7f6a3edbc8f59bbc6df1f9974b8bff643"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d0910dd4ce68028a767f774b333dfc87e99f3e11e5d1ab5aa9d96588b9c110bd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2e3e44be5f2c8f938786a13e2d8d2e0aea60f7721d01016acb1d60b645f9b973"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "b616e17dffdaf0b5f8b3d30244985f1a9617481102892d25b595044d8869fb50"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a772192ad4b7f9b79992bf2948d519598d7e9d5fe90a09841124ad2345c09569"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0d041bc33967700e668386261db47df7879c1f2b6c92de09bd17f4a839c2fcf5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9dc5e717ef271d5b4d57aa974df94e5ac022e28883b3771b73945faee06bae75"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "1aa6507a1a7541943f33733a102e749481451abf022346225df0e244173abd19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "88dfde44fedc64e406be346d933cc31c271d66ed2ffffcb7a5c9a1976efd7f0f"
   end
 
   depends_on "gradle" => :build

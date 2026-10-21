@@ -9,16 +9,15 @@ class Keyring < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7d3192fb09f25d565836292b0d5427a780c73058c26d43a1f510435905c080a4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "05fe88bf0d79ee6a0d4e6794ce2cfb8727b4dccc8e1d850e4fc4218f9ff34c3f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "05fe88bf0d79ee6a0d4e6794ce2cfb8727b4dccc8e1d850e4fc4218f9ff34c3f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "05fe88bf0d79ee6a0d4e6794ce2cfb8727b4dccc8e1d850e4fc4218f9ff34c3f"
-    sha256 cellar: :any_skip_relocation, sonoma:            "4bbee0818e804547f13f8da8679f56ed5152477400d22d1a54075338a83a95cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d5aaaee3ad69593dd4d361f7b7c8cae215288c4e48dbd1d36224aaaf9b242df9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d5aaaee3ad69593dd4d361f7b7c8cae215288c4e48dbd1d36224aaaf9b242df9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "86f94c50ce6737d913970d5badc8c67485df39bcbac166b3b691904ca33d7aa7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "86f94c50ce6737d913970d5badc8c67485df39bcbac166b3b691904ca33d7aa7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "86f94c50ce6737d913970d5badc8c67485df39bcbac166b3b691904ca33d7aa7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ff24b6a6160cc800f3ebe07d02542f89189a8f6a8e8bf8b137c57b66e66685ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ff24b6a6160cc800f3ebe07d02542f89189a8f6a8e8bf8b137c57b66e66685ce"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_linux do
     depends_on "cryptography" => :no_linkage
@@ -34,13 +33,13 @@ class Keyring < Formula
   end
 
   resource "jaraco-context" do
-    url "https://files.pythonhosted.org/packages/cb/9c/a788f5bb29c61e456b8ee52ce76dbdd32fd72cd73dd67bc95f42c7a8d13c/jaraco_context-6.1.0.tar.gz"
-    sha256 "129a341b0a85a7db7879e22acd66902fda67882db771754574338898b2d5d86f"
+    url "https://files.pythonhosted.org/packages/af/50/4763cd07e722bb6285316d390a164bc7e479db9d90daa769f22578f698b4/jaraco_context-6.1.2.tar.gz"
+    sha256 "f1a6c9d391e661cc5b8d39861ff077a7dc24dc23833ccee564b234b81c82dfe3"
   end
 
   resource "jaraco-functools" do
-    url "https://files.pythonhosted.org/packages/0f/27/056e0638a86749374d6f57d0b0db39f29509cce9313cf91bdc0ac4d91084/jaraco_functools-4.4.0.tar.gz"
-    sha256 "da21933b0417b89515562656547a77b4931f98176eb173644c0d35032a33d6bb"
+    url "https://files.pythonhosted.org/packages/6c/1f/c23395957d41ccf27c4e535c3d334c4051e5395b3752057ba4cbaec35c56/jaraco_functools-4.6.0.tar.gz"
+    sha256 "880c577ec9720b3a052d5bc611fb9f2269b3d87902ef42440df443b88e443280"
   end
 
   resource "jeepney" do
@@ -49,8 +48,8 @@ class Keyring < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/ea/5d/38b681d3fce7a266dd9ab73c66959406d565b3e85f21d5e66e1181d93721/more_itertools-10.8.0.tar.gz"
-    sha256 "f638ddf8a1a0d134181275fb5d58b086ead7c6a72429ad725c67503f13ba30bd"
+    url "https://files.pythonhosted.org/packages/de/1d/f4da6f02cdffe04d6362210b807146a26044c88d839208aec273bb0d9184/more_itertools-11.1.0.tar.gz"
+    sha256 "48e8f4d9e7e5878571ecf6f2b4e57634f93cd474cc8cfbd2376f2d11b396e30d"
   end
 
   resource "secretstorage" do
@@ -59,8 +58,8 @@ class Keyring < Formula
   end
 
   resource "shtab" do
-    url "https://files.pythonhosted.org/packages/b0/7a/7f131b6082d8b592c32e4312d0a6da3d0b28b8f0d305ddd93e49c9d89929/shtab-1.8.0.tar.gz"
-    sha256 "75f16d42178882b7f7126a0c2cb3c848daed2f4f5a276dd1ded75921cc4d073a"
+    url "https://files.pythonhosted.org/packages/ef/71/ddb3c0a7a86db44d2fb3f9cbac162f7ddbcbf563b4a174963ba2b3d4d819/shtab-1.12.1.tar.gz"
+    sha256 "0637338723a8fc08ed1c2fd826d8432229924649c26e3247bb48c53d60ca3bf9"
   end
 
   def install

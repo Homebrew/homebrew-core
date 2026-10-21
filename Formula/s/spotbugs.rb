@@ -1,17 +1,17 @@
 class Spotbugs < Formula
   desc "Tool for Java static analysis (FindBugs's successor)"
   homepage "https://spotbugs.github.io/"
-  url "https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/4.10.4/spotbugs-4.10.4.tgz"
-  sha256 "72bc0d4edd686e462c0f71f42a049b27bf4da6708797ff7b2b56dd202714b4e5"
+  url "https://github.com/spotbugs/spotbugs/releases/download/4.10.5/spotbugs-4.10.5.tgz"
+  sha256 "cce3244900cc215ccd9f5a8db29ed9468fc47824faf662f4fad005343d96007e"
   license "LGPL-2.1-or-later"
 
   livecheck do
-    url "https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/"
-    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e80ff37b2d5081732eb35efe4757539664ad74242e4092e40cacf0b2182a1f2a"
+    sha256 cellar: :any_skip_relocation, all: "d55488bdf0421e05da53eae4f78088d1ef3e2c3e7596385fc49e3accaaa7dd3a"
   end
 
   head do
@@ -23,6 +23,8 @@ class Spotbugs < Formula
   depends_on "openjdk"
 
   conflicts_with "fb-client", because: "both install a `fb` binary"
+
+  deny_network_access!
 
   def install
     ENV["JAVA_HOME"] = formula_opt_prefix("openjdk")

@@ -1,0 +1,59 @@
+# Fix Python 3.15 SSL/TLS compatibility
+#
+# Python 3.15 removed the deprecated ssl.PROTOCOL_TLSv1, ssl.PROTOCOL_TLSv1_1,
+# and ssl.PROTOCOL_TLSv1_2 constants (PEP 644). The hardcoded dictionary
+# construction raises AttributeError on Python 3.15+.
+#
+# Replace direct references with hasattr() guards so only the constants
+# available on the running Python version are registered. TLS 1.0 and 1.1
+# are obsolete anyway — the main functional protocol is TLSv1.3 via
+# ssl.PROTOCOL_TLS.
+
+--- a/mysql-connector-python/lib/mysql/connector/network.py	2026-07-10 20:39:31.000000000 +0200
++++ b/mysql-connector-python/lib/mysql/connector/network.py	2026-09-22 01:30:35.259915967 +0200
+@@ -42,12 +42,15 @@
+ try:
+     import ssl
+ 
+-    TLS_VERSIONS = {
+-        "TLSv1": ssl.PROTOCOL_TLSv1,
+-        "TLSv1.1": ssl.PROTOCOL_TLSv1_1,
+-        "TLSv1.2": ssl.PROTOCOL_TLSv1_2,
+-        "TLSv1.3": ssl.PROTOCOL_TLS,
+-    }
++    TLS_VERSIONS = {}
++    if hasattr(ssl, "PROTOCOL_TLSv1"):
++        TLS_VERSIONS["TLSv1"] = ssl.PROTOCOL_TLSv1
++    if hasattr(ssl, "PROTOCOL_TLSv1_1"):
++        TLS_VERSIONS["TLSv1.1"] = ssl.PROTOCOL_TLSv1_1
++    if hasattr(ssl, "PROTOCOL_TLSv1_2"):
++        TLS_VERSIONS["TLSv1.2"] = ssl.PROTOCOL_TLSv1_2
++    if hasattr(ssl, "PROTOCOL_TLS"):
++        TLS_VERSIONS["TLSv1.3"] = ssl.PROTOCOL_TLS
+     TLS_V1_3_SUPPORTED = hasattr(ssl, "HAS_TLSv1_3") and ssl.HAS_TLSv1_3
+ except ImportError:
+     # If import fails, we don't have SSL support.
+--- a/mysql-connector-python/lib/mysql/connector/aio/network.py	2026-07-10 20:39:31.000000000 +0200
++++ b/mysql-connector-python/lib/mysql/connector/aio/network.py	2026-09-22 01:30:40.841840964 +0200
+@@ -40,12 +40,15 @@
+ try:
+     import ssl
+ 
+-    TLS_VERSIONS = {
+-        "TLSv1": ssl.PROTOCOL_TLSv1,
+-        "TLSv1.1": ssl.PROTOCOL_TLSv1_1,
+-        "TLSv1.2": ssl.PROTOCOL_TLSv1_2,
+-        "TLSv1.3": ssl.PROTOCOL_TLS,
+-    }
++    TLS_VERSIONS = {}
++    if hasattr(ssl, "PROTOCOL_TLSv1"):
++        TLS_VERSIONS["TLSv1"] = ssl.PROTOCOL_TLSv1
++    if hasattr(ssl, "PROTOCOL_TLSv1_1"):
++        TLS_VERSIONS["TLSv1.1"] = ssl.PROTOCOL_TLSv1_1
++    if hasattr(ssl, "PROTOCOL_TLSv1_2"):
++        TLS_VERSIONS["TLSv1.2"] = ssl.PROTOCOL_TLSv1_2
++    if hasattr(ssl, "PROTOCOL_TLS"):
++        TLS_VERSIONS["TLSv1.3"] = ssl.PROTOCOL_TLS
+ except ImportError:
+     ssl = None
+ 

@@ -17,6 +17,8 @@ class AwsChecksums < Formula
   depends_on "cmake" => :build
   depends_on "aws-c-common"
 
+  deny_network_access!
+
   def install
     # Intel: https://github.com/awslabs/aws-checksums/commit/e03e976974d27491740c98f9132a38ee25fb27d0
     # ARM:   https://github.com/awslabs/aws-checksums/commit/d7005974347050a97b13285eb0108dd1e59cf2c4

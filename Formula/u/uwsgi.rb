@@ -4,24 +4,23 @@ class Uwsgi < Formula
   url "https://files.pythonhosted.org/packages/9f/49/2f57640e889ba509fd1fae10cccec1b58972a07c2724486efba94c5ea448/uwsgi-2.0.31.tar.gz"
   sha256 "e8f8b350ccc106ff93a65247b9136f529c14bf96b936ac5b264c6ff9d0c76257"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "7a6d47b271207a472d66b1fb583ba934dc56e95cc591deac577470d26aa0ccd0"
-    sha256 arm64_tahoe:       "8dd8f54a7be80ec021184630117cbe46686d1cae882d9810a4a9ebef828e74d8"
-    sha256 arm64_sequoia:     "27e31b191d640607160d070ef0ebfa5f0bf5589c53c6c940726a4f48ab4b48ed"
-    sha256 arm64_sonoma:      "ab6bf0340b7c8ddfbd391781f45dd2d19ceca19ba2911f9321479ff15aaa37b6"
-    sha256 sonoma:            "3b99b7a279046bcb989caaf7eb2c5e97554dce20ac05c758bb079dcef4833cc3"
-    sha256 arm64_linux:       "714fd6fe7f6666bb298fdb4032e4ed683fb2e9a543316099265cd2dac8c91304"
-    sha256 x86_64_linux:      "3df9e1bafa096221e61f8c5fd50b39e71bdaf9d481164142423553bba0bdbcf3"
+    rebuild 1
+    sha256 arm64_golden_gate: "c3c4882b13f589ddd83b30b7a0669f3eeb865d8d97b57709244491a1c5539584"
+    sha256 arm64_tahoe:       "13c8016763b564bb5eb29276015851074a7324f85d39ebe01d3e663b3bf111fe"
+    sha256 arm64_sequoia:     "2c982164edbba34380742406043c0852215d0baf6e118e2f1620615c59fd554f"
+    sha256 arm64_linux:       "6311f021ab5137ce0f7a609899bce8a36c15b6dc18abd51b0189e247ede125b5"
+    sha256 x86_64_linux:      "0ac025b3af5d75ac1e3147ebbd95299e2d5dc395e83a14fe8c7237285de8a52a"
   end
 
   depends_on "pkgconf" => :build
   depends_on "jansson"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "sqlite"
 
   uses_from_macos "curl"
@@ -35,7 +34,7 @@ class Uwsgi < Formula
   end
 
   def install
-    openssl = Formula["openssl@3"]
+    openssl = Formula["openssl@4"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
     ENV.prepend "LDFLAGS", "-L#{openssl.opt_lib}"
 

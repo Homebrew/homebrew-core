@@ -11,26 +11,31 @@ class Malbolge < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4e4c519489601e00cf6e1379b9f3d89e5ffca170e4d28570ed46fce57825c1cc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "362a0dfad34c731bc75b81aa45736406c2b65b3f5f3c73894acb952d7025ec6d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a27217c73ffd65f6eeb9249e6120ec69dfbc0121bf2bd721d9270c9173f543e8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "21e3313bf2fc20b33e637016710d778140383e9dbc2a4e45b14a564ddb081d30"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "8dbf31191633eab5119ca16eda4b541264a42261c5c7b7103e50446d1505dfc0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey:    "05e689895ba5a84f1d6b44eab314ef7b71111ad3a19e054fb1a0b73e81a43f5a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:     "df9e2b8bc55e587840b6f51c5fcc09b7820f148daa34fcf19fd64e18dd6b8769"
-    sha256 cellar: :any_skip_relocation, sonoma:            "8cdaf2b347f1cde3026c930c0b928dd07d48c11fd958487b26fcac0fe6032161"
-    sha256 cellar: :any_skip_relocation, ventura:           "7c371b9845e7eb81eb6a9a9ed0611713d092e58b1a8e6e04f86c29656a6afaad"
-    sha256 cellar: :any_skip_relocation, monterey:          "4a7325d76aaadf2cc7da73b26ef40bbbf3e36e26a915f9cca27beb1c742432c7"
-    sha256 cellar: :any_skip_relocation, big_sur:           "1d20423d7d367645816e29d674ea45b2efd683cf781428c79a7fb73abb15974f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "fde58cf2cc3ca5bd14497c96ec0edd11c89f9570b0c8d8da7cc1ff52c927517e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d562330170f412427bd1d214d7521b400c8dd5d198d27d86ff1c47cf60339322"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9200d693051f33a58ff8e68f12928364d6653f3454308cac97d449cf98bcdfd7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9ed3ec05cff2e43fe1fc3b7f5f4f89a7fa3237500deb29d9b9d430483a6872f6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bd5f8220806eaf3c9b7095ccf6d1471026e86e6970ba04384e55d999ec986597"
+    sha256 cellar: :any,                 arm64_linux:       "fea2683e7e1da4731305b5185674c59c9566bfd4de6715faf6a5354dacbcf6b7"
+    sha256 cellar: :any,                 x86_64_linux:      "5c7fcd96f09124aa07f32b21e3edf807ee345d383edb50a3c66ba8e54cecb46e"
   end
 
   patch :DATA
 
+  deny_network_access!
+
   def install
     system ENV.cxx, "malbolge.c", "-o", "malbolge"
     bin.install "malbolge"
+  end
+
+  test do
+    (testpath/"hello.mb").write <<~EOS
+      (=<`#9]~6ZY32Vx/4Rs+0No-&Jk)"Fh}|Bcy?`=*z]Kw%oG4UUS0/@-ejc(:'8dc
+    EOS
+    assert_equal "Hello World!", shell_output("#{bin}/malbolge hello.mb")
+
+    (testpath/"bad.mb").write "aaaa\n"
+    assert_match "invalid character in source file", shell_output("#{bin}/malbolge bad.mb 2>&1", 1)
   end
 end
 

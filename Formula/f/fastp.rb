@@ -1,18 +1,17 @@
 class Fastp < Formula
   desc "Ultra-fast all-in-one FASTQ preprocessor"
   homepage "https://github.com/OpenGene/fastp"
-  url "https://github.com/OpenGene/fastp/archive/refs/tags/v1.3.7.tar.gz"
-  sha256 "5b7d6880c66e9e10e5923c68ee0c0b5a30f59bd252d836c379c74f8533c26993"
+  url "https://github.com/OpenGene/fastp/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "28c0537e9d1f32f5a5c404562e6a282bf373b034a4c3a3610d9aa31d6429b550"
   license "MIT"
   head "https://github.com/OpenGene/fastp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "acd2832590efd030f0fd0764cee27553aba205c6bd2b6e540e4fd1674b2d3e3a"
-    sha256 cellar: :any, arm64_tahoe:       "9a75066f6e239aa91017d62874994d00ab66ae9487eaa5066988bc1800b2685d"
-    sha256 cellar: :any, arm64_sequoia:     "14a607e1a05c18d790377fc352545916bfdadc75041941d6b314aa55fae16d8f"
-    sha256 cellar: :any, arm64_sonoma:      "2e0425d920e6ca121d5146f78af218eec80ebf81120faaea11637b43d822cd1e"
-    sha256 cellar: :any, arm64_linux:       "27cdb26d7affb30e515d370d636755a045f1a59b4e25baef746e1dc08155dba1"
-    sha256 cellar: :any, x86_64_linux:      "a08e628afdab698fe9e6e85b9edbd535b7986572f7aff76a2db7b96c48801aa1"
+    sha256 cellar: :any, arm64_golden_gate: "7b18c03f4b78f860f7a59a04898a97faf07a32c9380c286dcdac0648768c0ec5"
+    sha256 cellar: :any, arm64_tahoe:       "995312e7f01fa658e4d2c4d29c0350819fc48d2bcd00a37a51c82c867fab4f55"
+    sha256 cellar: :any, arm64_sequoia:     "fe550341fb5db9415ef784843397dbe04f26459ba5d14c2707f5bcb3bc30581b"
+    sha256 cellar: :any, arm64_linux:       "c68f24192b8fe96ad6a239682aa88c518794dff09539e22e740d1edca7c0b937"
+    sha256 cellar: :any, x86_64_linux:      "2c5c87a9f9aa944f14f022ee4eabe31f0ce0bb030448887a6d09cfbb46fe675b"
   end
 
   depends_on "highway"

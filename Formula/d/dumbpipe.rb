@@ -1,21 +1,25 @@
 class Dumbpipe < Formula
   desc "Unix pipes between devices"
   homepage "https://dumbpipe.dev"
-  url "https://github.com/n0-computer/dumbpipe/archive/refs/tags/v0.39.0.tar.gz"
-  sha256 "89d01b0b6d25fc8baf06ab791fd0a2b35b24ac51d0bd01b64d36c35750aaf3e9"
+  url "https://github.com/n0-computer/dumbpipe/archive/refs/tags/v0.40.0.tar.gz"
+  sha256 "04717f503fadd0ee86747036b232f89432c9d5ac2083b626019095f3f08266ef"
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "08af773b8e31f90a67446ceddc9845b9202d034f256733581a049dbcd38b7bfd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e05d87e00a7c62a14300394036ff51feeebe678e70b3db48eb9c7b31de056d5a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "62dd490b4f66c219b9b06de5d56c50ffb897ffc6c9b7e0071083a3e0528c1c79"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "d709d1b06dccadc777579b38f24fa6463cb2f9714fb43b342e15033660e12a38"
-    sha256 cellar: :any_skip_relocation, sonoma:            "45e6634404d8dd88999d88e0b82171ed1c23ec502fce3665cbbdcfa088fbbf81"
-    sha256 cellar: :any,                 arm64_linux:       "e2db7a50c56e0ad039b49ce915d53ea8c2da345fa699007408cdb6b80b7f52a5"
-    sha256 cellar: :any,                 x86_64_linux:      "ea3cc5d6f5f6c725e9326f33df5b24250586d2d1df22c4bd4734f66ec7ab6472"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6d7cda2d238687b5a766412b43bbaed1fe2f8370f19b561bd82b301795f7bc4f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2eb08b7c50e5a1ff1b4cfa3cdfabacc4132cf311c86fe76e0889087908234a20"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d6ada0e9d8e36ac5c2f2c3df258c3fcaae3ddb7830af2209e3b998d4f62c8e43"
+    sha256 cellar: :any,                 arm64_linux:       "760cbddecc9578eb0d56b590754c49390201b98d40a7e8ea614906521a0e8571"
+    sha256 cellar: :any,                 x86_64_linux:      "51d4f93a85d978a28b5da8bc48eef3e6299a92debfda17b877ab8411223b2b8a"
   end
 
   depends_on "rust" => :build
+
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

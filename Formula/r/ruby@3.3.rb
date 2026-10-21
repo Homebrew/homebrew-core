@@ -4,6 +4,7 @@ class RubyAT33 < Formula
   url "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.12.tar.gz"
   sha256 "b06d63beae271933033e27f0a389bc582a009e7845357d44365c39de525a051b"
   license "Ruby"
+  revision 1
 
   livecheck do
     url "https://www.ruby-lang.org/en/downloads/"
@@ -11,13 +12,11 @@ class RubyAT33 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "bb59b53f4b21d6c83106e2e39d215245edcb11fe0a2de59bab8aeda5ca7f5ac4"
-    sha256 arm64_tahoe:       "0a340019199aa1f9d303dd0f093461ab4f675ee97216dcd5ea11419754a9c6f7"
-    sha256 arm64_sequoia:     "2356ca0b89aab03f334907657a16b115776b4aef143060cb5973809b2b5b6433"
-    sha256 arm64_sonoma:      "e954f713ad92da6a7be3a62ec0c5806b64edc7775f811aab439b823c1e08101e"
-    sha256 sonoma:            "128ad390731cf2122ff735097d5cf6e88373990142d396e78b8961310586f1ec"
-    sha256 arm64_linux:       "670caddd903b4a539a56feb104551cc6ae9800e3e4e068db99c95c932e90619f"
-    sha256 x86_64_linux:      "c932d9838da780f30e58e76ca6596bcbdc2e0e222f5cd35fe6afc1a0fac12efc"
+    sha256 arm64_golden_gate: "3ff50442e7d59f6020d170fc3b2af7d8ef784b99a39a245ea7e2007ec3ae90a9"
+    sha256 arm64_tahoe:       "565328fd6dd7722ca23079f0d7685f3050e676b84360b2411ba719617a015286"
+    sha256 arm64_sequoia:     "f617e58b0a1350151a255b634a97f2e02b8a1a9fb6013a1477088bbfe44c5f80"
+    sha256 arm64_linux:       "0a864f289b655107000978a7abc5731eeb9014a153847aebf198e905f4ba1461"
+    sha256 x86_64_linux:      "13a7bd26a8d21fa8e6bfdaeabb29ac053b301d5e3ba472e666fc3dd54ab6c85c"
   end
 
   keg_only :versioned_formula
@@ -26,7 +25,7 @@ class RubyAT33 < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "gperf"
   uses_from_macos "libffi"
@@ -66,7 +65,7 @@ class RubyAT33 < Formula
     #       https://github.com/Homebrew/brew/pull/12508
     inreplace "tool/mkconfig.rb", /^(\s+val = )'"\$\(SDKROOT\)"'\+/, "\\1"
 
-    paths = %w[libyaml openssl@3].map { |f| formula_opt_prefix(f) }
+    paths = %w[libyaml openssl@4].map { |f| formula_opt_prefix(f) }
     args = %W[
       --prefix=#{prefix}
       --enable-shared

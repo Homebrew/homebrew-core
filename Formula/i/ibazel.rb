@@ -19,6 +19,13 @@ class Ibazel < Formula
   depends_on "go" => [:build, :test]
   depends_on "bazel" => :test
 
+  # Test starts a local Bazel server and downloads Bazel modules
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
     system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}"), "./cmd/ibazel"

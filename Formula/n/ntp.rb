@@ -27,7 +27,11 @@ class Ntp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "b7e45f68bdcd6758f869f30271115cbe845d5b9e0d1b72b9429e63624109bc09"
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@3" # TODO: OpenSSL 4 PR - https://github.com/ntp-project/ntp/pull/32
+
+  allow_network_access! :test
+
+  def openssl = deps.map(&:name).find { |d| d.start_with?("openssl@") }
 
   def install
     args = %W[
@@ -35,8 +39,8 @@ class Ntp < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --with-openssl-libdir=#{formula_opt_lib("openssl@3")}
-      --with-openssl-incdir=#{formula_opt_include("openssl@3")}
+      --with-openssl-libdir=#{formula_opt_lib(openssl)}
+      --with-openssl-incdir=#{formula_opt_include(openssl)}
       --with-net-snmp-config=no
     ]
 

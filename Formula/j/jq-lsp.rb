@@ -1,19 +1,17 @@
 class JqLsp < Formula
   desc "Jq language server"
   homepage "https://github.com/wader/jq-lsp"
-  url "https://github.com/wader/jq-lsp/archive/refs/tags/v0.1.18.tar.gz"
-  sha256 "186d36e92489304a46036ad51ddf411b7ae56a2fd8af8593cb6741c539634f3f"
+  url "https://github.com/wader/jq-lsp/archive/refs/tags/v0.1.19.tar.gz"
+  sha256 "a209ea43c2ae6b0c1273a1cac8f6a8e1ac5f7e2d43c18160fda0690ea0656890"
   license "MIT"
   head "https://github.com/wader/jq-lsp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4c0b705d98aed6483bd1dc26e4e2b2b48d6b5ac21b855068085df5ba7e407ab4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "09c79acb05cb9e4335539bfc4242b916653bde8865c949e946a3bc8af4e83f99"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "09c79acb05cb9e4335539bfc4242b916653bde8865c949e946a3bc8af4e83f99"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "09c79acb05cb9e4335539bfc4242b916653bde8865c949e946a3bc8af4e83f99"
-    sha256 cellar: :any_skip_relocation, sonoma:            "05a56d08e611df4605462f85642ddbb49f5a7e2f641a0bcc959bab998bf0ac02"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9080972df1a891839e9b05a7538fb132bc4691dbd61cf1b0810cbccc7b4f9d12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5ab59fba5da057dfcc78364381ab05537220a1e00c4e3c2c956baf6c93687f66"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0f633deb23fef675ace44a63d47d456eff6ffaeac9033f1280b88802668b1018"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0f633deb23fef675ace44a63d47d456eff6ffaeac9033f1280b88802668b1018"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0f633deb23fef675ace44a63d47d456eff6ffaeac9033f1280b88802668b1018"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "8a84693fbda62cd933f841879ad3913567e6743c5dbccbb30fe6307546286308"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7fbc475491d70aa02aafeaee45788506e54a271a6bbc08b81747d92a01620bca"
   end
 
   depends_on "go" => :build

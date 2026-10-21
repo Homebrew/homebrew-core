@@ -1,8 +1,8 @@
 class IpinfoCli < Formula
   desc "Official CLI for the IPinfo IP Address API"
   homepage "https://ipinfo.io/"
-  url "https://github.com/ipinfo/cli/archive/refs/tags/ipinfo-3.3.2.tar.gz"
-  sha256 "ad5464068ec370599bd7624cd69f58047ac56d8140ba8e50b468c80e06c438a1"
+  url "https://github.com/ipinfo/cli/archive/refs/tags/ipinfo-3.3.3.tar.gz"
+  sha256 "6227811eb7eb8da2931f66b1d4fe52e664610a101246ca6340a66a02723bce5d"
   license "Apache-2.0"
   head "https://github.com/ipinfo/cli.git", branch: "master"
 
@@ -12,13 +12,11 @@ class IpinfoCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "208e6af6b0b089ea69e3ced418f43892f152ffe710dc7da3e0037545354508cd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dd5a770f3763ffca3826152bd4e056eb2c60ae47219f36a33ec9f7c4b4d76a2c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0cafb083180fad88a5c117f36864d403227cc670e37937f5a2f2b3878e1de936"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "b26ca6c5b4dee902726c4230ef72b9793a5b4994f273d589af0656ef1f51c6e6"
-    sha256 cellar: :any_skip_relocation, sonoma:            "20931465b2b3a1430bc224c892b8c82db6ab79c31adbd0e06cc3efde74ef6003"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "bf2aacb42ea2ef2fff5efe7d481bd44964c277f474a0fa942da4ecbf1787a6a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "2aff14e9acb1e9df4c3d44e1305751d2e472432e2d3739d157a562f2680d7aca"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "814e82a1ef3a6e357a41ecd8a6acc6271dfef5ca0cba5f389f69f5d8c63604bd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0d7e88fea22be9192c73746717aee4a8dc9315d62fa82fb50088f34439fdfb55"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4d8691d2c4b77907d472598b8b9ab7e755addcff37047b1a1d78b4b2f882fdbf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "99af97f26dd7fa18d5a43a629450886b49b3ddfb52899f48d618a9c0c4094872"
+    sha256 cellar: :any,                 x86_64_linux:      "ce9533de4c89ef2bbfe68577dd2d7cfdf4db510afd4cb5b755e046175ea34fb1"
   end
 
   depends_on "go" => :build

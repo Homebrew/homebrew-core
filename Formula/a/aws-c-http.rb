@@ -1,18 +1,17 @@
 class AwsCHttp < Formula
   desc "C99 implementation of the HTTP/1.1 and HTTP/2 specifications"
   homepage "https://github.com/awslabs/aws-c-http"
-  url "https://github.com/awslabs/aws-c-http/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "ae992d9f24a88430cdd4b7538fab565e71faedb1f156f38d6a74f2a77269417f"
+  url "https://github.com/awslabs/aws-c-http/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "3074b3e022ed7daf14a550b8df80bf14428ee9af0b65773443407effa1c84812"
   license "Apache-2.0"
-  compatibility_version 2
+  compatibility_version 3
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "684b0e9021e6aaa598f61f6b5ea9a75cf3dc7bb3d08a082c1fd36d4925c1e309"
-    sha256 cellar: :any, arm64_tahoe:       "e793734edac0279ac45a94f671363553fa9ffdb44c1f8d34b575cc188267367a"
-    sha256 cellar: :any, arm64_sequoia:     "9440f33fae0b00ee12eb6c925d1c543e209cb0990b3a1dcd638fd08934b57f59"
-    sha256 cellar: :any, arm64_sonoma:      "77b45ab0e61fdcfe2816c5852c877d9daceadc2743a48f5ef9c251ce608f596e"
-    sha256 cellar: :any, arm64_linux:       "a664c1d2bdf74a5cd60b010e28c9116a6d1130b6391f37965522bdf9254f499c"
-    sha256 cellar: :any, x86_64_linux:      "beb9558ddf4289a35d4b3f307d049c7da399f94634de0ef100661508d2546f8a"
+    sha256 cellar: :any, arm64_golden_gate: "cbb0249c59129ff032416f2fdebb22c7d47b57f3d12a222924b7b2f33ddb5110"
+    sha256 cellar: :any, arm64_tahoe:       "e4d336f92e2029519c8ce45bb336dfcfe171aa3e051a1ef04ace339efd17f032"
+    sha256 cellar: :any, arm64_sequoia:     "185bc00f1e0a089119d9349eb2d8f439a4b68813d446b895199fc18aa9decc00"
+    sha256 cellar: :any, arm64_linux:       "b5854e9bad83b17c539a688fa208f864d990006e53595cb1e33b28de4c43aa8c"
+    sha256 cellar: :any, x86_64_linux:      "ba6c28eecdb8ee83c82f3eec42f2bc2e07b0d0d16b421da6092078c5a03c1578"
   end
 
   depends_on "cmake" => :build
@@ -21,13 +20,14 @@ class AwsCHttp < Formula
   depends_on "aws-c-compression"
   depends_on "aws-c-io"
 
-  on_macos do
-    depends_on "openssl@3"
-    depends_on "s2n"
-  end
+  deny_network_access!
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    args = ["-DBUILD_SHARED_LIBS=ON"]
+    # Avoid linkage to OpenSSL
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

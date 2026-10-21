@@ -23,6 +23,13 @@ class TclTkAT8 < Formula
 
   keg_only :versioned_formula
 
+  # See https://sourceforge.net/p/tcl/mailman/message/59333692/
+  #   "We intend these to be the final releases of Tcl 8.6 and Tk 8.6."
+  # See https://core.tcl-lang.org/tcl/wiki?name=Index
+  #   "Tcl 8.6 is at End of Life -- please upgrade to 9.0!!!"
+  deprecate! date: "2026-10-12", because: :unmaintained, replacement_formula: "tcl-tk"
+  disable! date: "2028-01-01", because: :unmaintained, replacement_formula: "tcl-tk"
+
   depends_on "openssl@3"
 
   on_linux do

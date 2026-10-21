@@ -1,13 +1,13 @@
 class Chunkah < Formula
   desc "OCI building tool for content-based layers"
   homepage "https://github.com/coreos/chunkah"
-  url "https://github.com/coreos/chunkah/releases/download/v0.7.0/chunkah-0.7.0.tar.gz"
-  sha256 "92a88a65c31d9fa223357334342ebc35c6a9c035eac3ce6dded536bc863ddd8a"
+  url "https://github.com/coreos/chunkah/releases/download/v0.7.1/chunkah-0.7.1.tar.gz"
+  sha256 "12c0101532e4c65cd63244f28ed801296df9d0a7302e3646026387f684fb690b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "47481bef7c4bf109adfd92a921ea9963d79ebb5fda240dfe25d605c4cc48fee1"
-    sha256 cellar: :any, x86_64_linux: "caa89d700f07b7751fe70b5b474ffe8d8f85c8919593f249b7840a259323fe4c"
+    sha256 cellar: :any, arm64_linux:  "bb2e690abe032ce9f4304f09b1987f2d1d58599fed0989393be7e878b6e69cf3"
+    sha256 cellar: :any, x86_64_linux: "d41200d95a1884d4dc2a73db3bdaa4fd336fe48f63b76fab8301d5ad24445652"
   end
 
   depends_on "pkgconf" => :build
@@ -16,9 +16,15 @@ class Chunkah < Formula
   depends_on "openssl@4"
   depends_on "zlib-ng-compat"
 
-  resource "homebrew-test-rootfs" do
-    url "https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/x86_64/alpine-minirootfs-3.23.4-x86_64.tar.gz"
-    sha256 "85498865362aa7ebececa0d725a2f2e4db7ac4e4b2850b8df21645afa0d03ee3"
+  resource "homebrew-test-rootfs", :test do
+    url "https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86_64/alpine-minirootfs-3.24.2-x86_64.tar.gz"
+    sha256 "c5ca053cfe1d85c5b96dff8b9bc57045f7f184a30ffb6b65776409ca90388677"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install

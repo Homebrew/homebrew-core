@@ -1,28 +1,27 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftpmirror.gnu.org/gdb/gdb-17.2.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gdb/gdb-17.2.tar.xz"
-  sha256 "1c036c0d72e4b3d1fb5c94c88632add6f9d76f4d7c4d2ea793c12a9f19a3228c"
+  url "https://ftpmirror.gnu.org/gdb/gdb-18.1.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gdb/gdb-18.1.tar.xz"
+  sha256 "cd9fc3fe2b47743840e42c1592d3d87f8302eb18639c0b8b4ba0898002e2348f"
   license "GPL-3.0-or-later"
   compatibility_version 1
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "9b904cf9b393a9fdbdbfd1840b92ff45be181bde48a160243e63ceecfc8935d4"
-    sha256 arm64_tahoe:       "12341ca6f6b31162ec70586e0772257dae2fa2840a4081efd30af0c604379db7"
-    sha256 arm64_sequoia:     "2feabbafc0fa519392852f4c683ac1f2ec77bfb206b8759c5d58a65aceca0a37"
-    sha256 arm64_sonoma:      "751ed85d1945ff8fd0892fda21fd0dd38a70138cb5ed8fda5c822ab90bacb6b1"
-    sha256 sonoma:            "c4ca53440086795fdb0ea5eb8609f278c412962259e4f02c0a27feb3d1151354"
-    sha256 arm64_linux:       "2c2b33885fd81a54aedf65f3783bca5b1ace11dff3824c6a738ccd2b0a5facfe"
-    sha256 x86_64_linux:      "1cd209394e560c53f14c50407459f242f1095e440fcff1bc4b456cac9aad8f8b"
+    rebuild 1
+    sha256 arm64_golden_gate: "91247f76ee73fbc366d3044eb8535481ec1bfb9cda70a2a44fa5c4e9ed0b7673"
+    sha256 arm64_tahoe:       "9f783087782b9503fe7f9cceab6dbf7d157fff4bc5655f60d58960986904b647"
+    sha256 arm64_sequoia:     "a95e812778d999050c682e0ee353c18e0ab8d33d32834fa31c13ea661f622d24"
+    sha256 arm64_linux:       "3eb3f9425ed5084dd39521f62fdd1009ac9e105a121959c6c7d5a5f07e0a590a"
+    sha256 x86_64_linux:      "e790c95283f479fa22c597833c8bb6044f46758a0ea242effb30bc9d4c0b36b4"
   end
 
   depends_on "pkgconf" => :build
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "ncurses" # https://github.com/Homebrew/homebrew-core/issues/224294
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "readline"
   depends_on "xz" # required for lzma support
   depends_on "zstd"

@@ -6,15 +6,15 @@ class PdfTocgen < Formula
   url "https://files.pythonhosted.org/packages/77/44/e6dafea2c491e84425ed725b69b689e58703609b1d70e7b7f49f28cf5df7/pdf_tocgen-1.3.4.tar.gz"
   sha256 "090758832614727eaf1fd0ba0075d5a10eb8f268d1d534fabd7131170a8ac79e"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/Krasjet/pdf.tocgen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b9fb09fc5314e9f2e9bc7fd66ad664a4afcc4aa26f0a38c4fecd728cca4abdc2"
+    sha256 cellar: :any_skip_relocation, all: "5fb44acf3659163c7de0e1e69ee6b809da266b5dfce1c77961ad4ec1a67589bf"
   end
 
   depends_on "pymupdf"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "pymupdf"
 
@@ -28,6 +28,16 @@ class PdfTocgen < Formula
     sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
   end
 
+  resource "pdf", :test do
+    url "https://raw.githubusercontent.com/Krasjet/pdf.tocgen/refs/heads/master/spec/files/level2.pdf"
+    sha256 "021e4d025341d31babee19e6b75afb26f167923db42d1d038610edb328b82da2"
+  end
+
+  resource "toc", :test do
+    url "https://raw.githubusercontent.com/Krasjet/pdf.tocgen/refs/heads/master/spec/files/level2.toc"
+    sha256 "b32649c6c86738542720fcfb9eaa3f1dff0b50b27865ee9c1558271010508bf1"
+  end
+
   def install
     virtualenv_install_with_resources
   end
@@ -35,16 +45,6 @@ class PdfTocgen < Formula
   test do
     # Keep pymupdf's `fitz` deprecation warning out of the recipe file
     ENV["PYMUPDF_MESSAGE"] = "fd:2"
-
-    resource "pdf" do
-      url "https://raw.githubusercontent.com/Krasjet/pdf.tocgen/refs/heads/master/spec/files/level2.pdf"
-      sha256 "021e4d025341d31babee19e6b75afb26f167923db42d1d038610edb328b82da2"
-    end
-
-    resource "toc" do
-      url "https://raw.githubusercontent.com/Krasjet/pdf.tocgen/refs/heads/master/spec/files/level2.toc"
-      sha256 "b32649c6c86738542720fcfb9eaa3f1dff0b50b27865ee9c1558271010508bf1"
-    end
 
     testpath.install resource("pdf")
     testpath.install resource("toc")

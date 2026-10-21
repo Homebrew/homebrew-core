@@ -8,14 +8,19 @@ class Mpremote < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "49b6be298f88e70fd9a774d8183d8fff665e0662bbd26a770484fab17811b373"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "473071f1fc70e954d08258b295f52826843cbdafed173d79bc4c3d269d0a2491"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "473071f1fc70e954d08258b295f52826843cbdafed173d79bc4c3d269d0a2491"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "473071f1fc70e954d08258b295f52826843cbdafed173d79bc4c3d269d0a2491"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ad6d2c1b14903730c6aa412b5e27732c08b265d4ac39b6d7761719e6966df255"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ad6d2c1b14903730c6aa412b5e27732c08b265d4ac39b6d7761719e6966df255"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/50/bb/ebc6636e1ae41314f796ebb7215fd28febb45f9aac72f2b04cb74b5071dc/platformdirs-4.11.4.tar.gz"
-    sha256 "f3373be828247211d0febabea97e238c3dfde8a60b3c90c32756fb52cb21556d"
+    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
+    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
   end
 
   resource "pyserial" do

@@ -4,22 +4,21 @@ class Icestorm < Formula
   url "https://github.com/YosysHQ/icestorm/archive/refs/tags/v1.1.tar.gz"
   sha256 "928dd541d15540a796a3d320122794d8d76acff90783de8c5747f613e474652f"
   license "ISC"
+  revision 1
   head "https://github.com/YosysHQ/icestorm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "a148d4dc9914962d32aa5c7ac50a71f8e1ec9e71184196057319800a4f5afdf7"
-    sha256 cellar: :any,                 arm64_tahoe:       "889af14b52d5f6026719f4b9bb9c3784a7606d82de14495a866c505462e26646"
-    sha256 cellar: :any,                 arm64_sequoia:     "9035439404af379e44d3d44d29c804cb756c7cb7d68bddde57cc55fedbf24635"
-    sha256 cellar: :any,                 arm64_sonoma:      "1d452cc8ca983e9b1d5a7417e973eb443c2089b90ef305c8229c6b240db77bc2"
-    sha256 cellar: :any,                 sonoma:            "4e4a217126b1b28f352c6fd8adc18cee56eb845860f7166142a08c098c6a56dd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "184fba3c4a42f84dcd393ca66c962a4a0eb3dbfb7e3f1a47b71e76e064e01373"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f0392bd42c618e66f60e675c88988133bdab5f28637e9382f554b78cecd38941"
+    sha256 cellar: :any, arm64_golden_gate: "fdba6727b9028fba662c2c52f826cab7852e2533e415156add6fba0c5f72c191"
+    sha256 cellar: :any, arm64_tahoe:       "16d3eb61d416359779ab3686db2a2761c2557e7fa3d472a3a291aea191f95d38"
+    sha256 cellar: :any, arm64_sequoia:     "5f22368099b4364bb74d9d8a2c14e0193a76a0699c1096e1a4c2236d197dc67a"
+    sha256 cellar: :any, arm64_linux:       "5f7f97c344b00a1dbc4e68966fb690c9d45fe8cb24176b24c1a9b63c5436b0cb"
+    sha256 cellar: :any, x86_64_linux:      "5f009f8e4a25f80f657ef911b4b89b515cd0a45867bf78d08c1d6ef7306b6300"
   end
 
   depends_on "pkgconf" => :build
   depends_on "libftdi"
   depends_on "libusb"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

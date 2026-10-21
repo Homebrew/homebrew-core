@@ -27,8 +27,14 @@ class Swfmill < Formula
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
 
+  deny_network_access!
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    false
   end
 end

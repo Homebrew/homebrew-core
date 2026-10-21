@@ -4,6 +4,7 @@ class TransmissionCli < Formula
   url "https://github.com/transmission/transmission/releases/download/4.1.3/transmission-4.1.3.tar.xz"
   sha256 "ce7d2d8b101f7eb54bc3cf0bc55f52f7ebd4a25fa48e00bdca9a7e0fc02617da"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
+  revision 1
 
   livecheck do
     url :stable
@@ -11,13 +12,11 @@ class TransmissionCli < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "0e5473b39363c9366c504fb89681b49e9ddbda5fff8f7649adedc08b26453c95"
-    sha256 arm64_tahoe:       "a86cf8ff4b7e410a4a425d25a755b42a63a4f66fc705d9b949f7ab5a32a10da8"
-    sha256 arm64_sequoia:     "f41d28ab18aeef94caace9eb08860e127c92ae939f2cb68b35701e9f69ac0743"
-    sha256 arm64_sonoma:      "8007dc63413ea7624d89c28d2ad58dd5d0e3a07d074041e249b71765086a2484"
-    sha256 sonoma:            "1a1db00f6da2d16a2d6a8c47b638b3f44de9791c9ccb80e84a1ad61b239dd361"
-    sha256 arm64_linux:       "2d179322f917e733098066db8705c4ca5e552a35b2537634a4ee878136600af2"
-    sha256 x86_64_linux:      "eaa2633e4f06cbcc683d52b8ce2fcf9ead1c2073d31c8100aa0b332d6992780b"
+    sha256 arm64_golden_gate: "76843aa95b41290e9b1c8d45cab8f0be62d60adb8522a6edbb7b6095b829c129"
+    sha256 arm64_tahoe:       "1c63731e69dba41d05c1858d40d2fd2f6a0ffef87206ebf030ac1a443b67a97e"
+    sha256 arm64_sequoia:     "75c76a6f72003a0dc6c5780778451f98c0a825e0a906ca62e5c69495c6b9eae6"
+    sha256 arm64_linux:       "40d6725e0a9341a0dae2bc155b3a2d8ad365c799290d2612ee98b273f9c08b46"
+    sha256 x86_64_linux:      "30b56003fb0fddb082ab9ae078b1a471a233d0f00d71250b2befcc9caf708703"
   end
 
   depends_on "cmake" => :build
@@ -31,9 +30,11 @@ class TransmissionCli < Formula
   uses_from_macos "curl"
 
   on_linux do
-    depends_on "openssl@3" # Uses CommonCrypto on macOS
+    depends_on "openssl@4" # Uses CommonCrypto on macOS
     depends_on "zlib-ng-compat"
   end
+
+  deny_network_access!
 
   def install
     args = %w[

@@ -6,19 +6,22 @@ class SmbclientNg < Formula
   url "https://github.com/p0dalirius/smbclient-ng/archive/refs/tags/3.1.0.tar.gz"
   sha256 "aad2a2b185ce3cbbc9d771dfea4144cc745d552dbd53c420d5719fff816d947c"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/p0dalirius/smbclient-ng.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "41650b55ce11dda3939dabb7c8a50a862c408cd5a04f8b574bb15f30fd7161a4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3cb4a752600d7a5c968f901ebc09117bcdcf453a4605963c26a51c1247ade13e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "69fe232e491112da79f9b744fc26616d99f48b6f905bdf655d55e28cc829f8fc"
-    sha256 cellar: :any,                 arm64_linux:       "6bd4a05fb1094e1e54de46e0fd0215bef456a7f01323fead40240d8deb3251cc"
-    sha256 cellar: :any,                 x86_64_linux:      "aea1f1eb2014db31c8a2022107936006a5852c403b9b41252bd7c2deba9f6d09"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ded580b62e19e62cb2c13573053e05fa1347a61d1b7c9c2c57fac8b6d7c9adf9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fde48527079eba9922985109fb908aeeb8e2921610776b12b0209dd5a2d9eadb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2df508997dba97ab33fca076574781f764e83dfaf5cecdce32b585a6afc5eb42"
+    sha256 cellar: :any,                 arm64_linux:       "a159e8a31240ca91ae4e77e4de0f04db786298546d39d3f773a51c040d9ab092"
+    sha256 cellar: :any,                 x86_64_linux:      "3410dc6967cffb800acd9ca547997d79b09d77e64a400e2887237d1b782ef91f"
   end
 
+  depends_on "rust" => :build # for dnspython > uv_build > maturin
   depends_on "samba" => :test
   depends_on "cryptography" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libffi"
 
@@ -30,8 +33,8 @@ class SmbclientNg < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "click" do
@@ -40,8 +43,8 @@ class SmbclientNg < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/8c/8b/57666417c0f90f08bcafa776861060426765fdb422eb10212086fb811d26/dnspython-2.8.0.tar.gz"
-    sha256 "181d3c6996452cb1189c4046c61599b84a5a86e099562ffde77d26984ff26d0f"
+    url "https://files.pythonhosted.org/packages/ef/4a/50822184bd67cc6493f0fb6a880749158fcd31ab3fa07409acfd91f9fc85/dnspython-2.9.0.tar.gz"
+    sha256 "b44dc6b18f07a8b1c56676a19fbfdb5209415b046a9cece286baafa87ff3f7f1"
   end
 
   resource "flask" do
@@ -80,8 +83,8 @@ class SmbclientNg < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "mdurl" do
@@ -105,8 +108,8 @@ class SmbclientNg < Formula
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/c9/85/e24bf90972a30b0fcd16c73009add1d7d7cd9140c2498a68252028899e41/pycryptodomex-3.23.0.tar.gz"
-    sha256 "71909758f010c82bc99b0abf4ea12012c98962fbf0583c2164f8b84533c2e4da"
+    url "https://files.pythonhosted.org/packages/f4/e7/50e72301e32acb73a314e663c2014e1ddefc019d5f434ff14ec89861d664/pycryptodomex-3.24.1.tar.gz"
+    sha256 "09081666ffc599976c0b8b29caf2cf82212c0f05bed233c8f8ed53e4f6e1d356"
   end
 
   resource "pygments" do
@@ -130,8 +133,8 @@ class SmbclientNg < Formula
   end
 
   resource "werkzeug" do
-    url "https://files.pythonhosted.org/packages/dd/b2/381be8cfdee792dd117872481b6e378f85c957dd7c5bca38897b08f765fd/werkzeug-3.1.8.tar.gz"
-    sha256 "9bad61a4268dac112f1c5cd4630a56ede601b6ed420300677a869083d70a4c44"
+    url "https://files.pythonhosted.org/packages/a4/34/4dd12fc8bb7d61c91467ec3efe415ffa7d5456f799954b40c5bbaeae470e/werkzeug-3.1.9.tar.gz"
+    sha256 "55ca7c70a75689be937aa27f8ff4b018f06ff4838fc73045560bf0f5a1291060"
   end
 
   def install

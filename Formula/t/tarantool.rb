@@ -4,6 +4,7 @@ class Tarantool < Formula
   url "https://hb.bizmrg.com/tarantool_repo/sources/tarantool-3.8.1.tar.gz"
   sha256 "84ba3129bcfc2a7eeb30cea17a955b7b3f96615b960497d5ca60eac1d14fd090"
   license "BSD-2-Clause"
+  revision 1
   version_scheme 1
   head "https://github.com/tarantool/tarantool.git", branch: "master"
 
@@ -15,18 +16,17 @@ class Tarantool < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b468859c4ec094c0183e20e0c7e4f2bc7aa2c9625da38bfff34fe8d82953d43c"
-    sha256 cellar: :any, arm64_tahoe:       "182d0696408d991dde6018d3e1439fcebc56da6e3deb4b921c95e4f74069c7b2"
-    sha256 cellar: :any, arm64_sequoia:     "94919ba032d2193a255b688dd47a894076a44359ba1e2540b25349d219c71f82"
-    sha256 cellar: :any, arm64_sonoma:      "44866d67eb82494f3bacc0c6c5e0c3531d89eb1fcceca77b688a669de33b4c5d"
-    sha256 cellar: :any, arm64_linux:       "ac6e418b0b004cdfd65809559313e693e054c7ccf0513b50cd99695f618b6a1b"
-    sha256 cellar: :any, x86_64_linux:      "fb2aaeb01748f6ab1f0cdfd67bdd83e92a2d494044437c2cb362451c21f7bd88"
+    sha256 cellar: :any, arm64_golden_gate: "106434fbb91a2becd263891a5f3eacc9e56026ce1b5b07933601ec64b02b139d"
+    sha256 cellar: :any, arm64_tahoe:       "94c7be9c5a1a09fee56892433593e1fde94b8ebbe055c764ce7221c40c1eaeea"
+    sha256 cellar: :any, arm64_sequoia:     "868ef590aa257d6fab8a4c3b8b7cf0bdc1d3a56928a2d139125a4b7b257f20b1"
+    sha256 cellar: :any, arm64_linux:       "162b60397c56bc1e684d42584161dc3ecd8eeb00baeea13ab618e9c5ffc26466"
+    sha256 cellar: :any, x86_64_linux:      "23d3bb77b66ed8a28a6f1167a2b889ca9f3fc21564e02fb39c00483698643d18"
   end
 
   depends_on "cmake" => :build
   depends_on "icu4c@78"
   depends_on "libyaml"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "readline"
   depends_on "zstd"
 
@@ -45,7 +45,7 @@ class Tarantool < Formula
       -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
       -DENABLE_DIST=ON
       -DICU_ROOT=#{icu4c.opt_prefix}
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
       -DREADLINE_ROOT=#{formula_opt_prefix("readline")}
       -DENABLE_BUNDLED_LIBCURL=OFF
       -DENABLE_BUNDLED_LIBUNWIND=OFF

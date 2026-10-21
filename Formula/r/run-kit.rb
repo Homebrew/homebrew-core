@@ -20,6 +20,12 @@ class RunKit < Formula
 
   conflicts_with "run", because: "both install a `run` binary"
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end

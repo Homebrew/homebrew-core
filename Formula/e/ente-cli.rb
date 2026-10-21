@@ -23,6 +23,12 @@ class EnteCli < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download", "-C", "cli"
+  end
+
   def install
     cd "cli" do
       system "go", "build", *std_go_args(output: bin/"ente"), "main.go"

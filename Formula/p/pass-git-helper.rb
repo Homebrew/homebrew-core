@@ -8,12 +8,13 @@ class PassGitHelper < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c3e67b9ba7dedd61c2e40e36d3cc67a81c0ffdd9d5eef8c8c43aaed908d7cd6e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "1ef9f0971b8205ff9d3da1b5b9eadd9026bf5f25d267bd98bf87788b41f35d82"
   end
 
   depends_on "gnupg" => :test
   depends_on "pass"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name:   "",
                 extra_packages: "pyxdg"

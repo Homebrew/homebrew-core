@@ -1,8 +1,8 @@
 class Xevd < Formula
   desc "Very fast Essential Video Decoder, MPEG-5 EVC (Essential Video Coding)"
   homepage "https://github.com/mpeg5/xevd"
-  url "https://github.com/mpeg5/xevd/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "febfdb532819bbf36b1b04e74d3ef328ad0f0f2db6224ddb7640fce6bd0014f4"
+  url "https://github.com/mpeg5/xevd/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "258d626fbb6c7ea1677b4fb0ffed3eaca2ec312810d6a76f67359fdc16068472"
   license "BSD-3-Clause"
   head "https://github.com/mpeg5/xevd.git", branch: "master"
 
@@ -13,12 +13,11 @@ class Xevd < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9fd292d6fcda23a7f610aadb4cacabfc9fc3a3db85855da346dc3f55c2f5e76c"
-    sha256 cellar: :any, arm64_tahoe:       "a3607cd47a4dc5a7a4bdae2b0e0075f5fabf9346ba96a9704360bf117d577d26"
-    sha256 cellar: :any, arm64_sequoia:     "2dc88ec5b07caa74e143a60ea4c44d5e67877f4ed4acf9fab5960f7af12cb30c"
-    sha256 cellar: :any, arm64_sonoma:      "dc5e935ded0b6ca5b65fcf1377a775e0c383998e18ce6d649afced42443dbd6a"
-    sha256 cellar: :any, arm64_linux:       "f77217acbb30118293715f9ddbcc00d7ccce1839913ae9b3832244ffd39654b5"
-    sha256 cellar: :any, x86_64_linux:      "e064fdacc27a21be48844c58260d19cab2af47d35ef6b394df29c54077cdaff9"
+    sha256 cellar: :any, arm64_golden_gate: "a16754afa6aed4a775342f46366b599c4883094969d484b530cc37a945689fa4"
+    sha256 cellar: :any, arm64_tahoe:       "f095092643e78a002de5a4caa2451c8b3ac55c41deae5ef2e310a5c2dd6dcf6f"
+    sha256 cellar: :any, arm64_sequoia:     "4ac67dcddedf6b3dfe83ffc9b4d77023ba6610fc26a84826db96e0f4b23a3854"
+    sha256 cellar: :any, arm64_linux:       "51e8dd390bf3308f656b1b2a0089c477489056e6b8e005f0aa2637b4e022ec52"
+    sha256 cellar: :any, x86_64_linux:      "451d9ba4175b73da5e23187286de2527ddcbceadb8cfd1739a399629838456bd"
   end
 
   depends_on "cmake" => :build

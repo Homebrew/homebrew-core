@@ -1,21 +1,25 @@
 class Dufs < Formula
   desc "Static file server"
   homepage "https://github.com/sigoden/dufs"
-  url "https://github.com/sigoden/dufs/archive/refs/tags/v0.46.0.tar.gz"
-  sha256 "e5bb926107736802bfd3be6937482dd3daf396a5c481fed714de542055286ebc"
+  url "https://github.com/sigoden/dufs/archive/refs/tags/v0.47.0.tar.gz"
+  sha256 "bab9d4fa1654adc6c88523b61bb8697f575334248cf554282e1f87e2329c0569"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1ca3c09096e1bca6639248e2b9ae117bf225f9dbf32f7f19179d3131a2e47f27"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8809a44c8faee498c2c02f8a12c6fbf0a4d9059505baec2f4e6e16fa09c8063a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b082b2be9df85031227cf41755f732de8f77d8e718334f5d7291542ef56fd074"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "e09eb3094f85d9d6ae7e5ab490e72415c96fc666446dcff36d577c4166f1f0c3"
-    sha256 cellar: :any_skip_relocation, sonoma:            "d44260fdeedd24b497e846259dfae15ca4266b09b4e40c6f90bc2e41c23a51d4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1958938715233820f40ba53132fffd9a130c3dcbbb69cb082147891fd9c3f061"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "de0e44808f99690325dc887515c931ee34e680a8d2d5655eb2f4187e48e189d8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6baa9d5e40b56599699c831aa4adc697219ab735584104bfe715ffad07a7ea3c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ca0fc8ecbf366d49cdfdbc5015005a9de1b209d6c57a271c86e2b08499033ad1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ecc87a1101986de063f156f6c5bfec989694ac966d82ab0cc993e8556d4eca8f"
+    sha256 cellar: :any,                 arm64_linux:       "1e9d181d9bed62aa9025d92153f2df1b1f071e452cf5868feb7f086945a6c10a"
+    sha256 cellar: :any,                 x86_64_linux:      "42511a2cd5c3ff1ee9eeacc4fd028f1ebbf76f89c638dca687efd2ff0ade7d8f"
   end
 
   depends_on "rust" => :build
+
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

@@ -13,11 +13,6 @@ on:
         description: Pull request number
         type: number
         required: true
-      large_runner:
-        description: "Run the upload job on a large runner? (default: false)"
-        type: boolean
-        required: false
-        default: false
       autosquash:
         description: "Squash pull request commits according to Homebrew style? (default: false)"
         type: boolean
@@ -236,7 +231,7 @@ jobs:
 
       - name: Post comment on failure
         if: ${{!success()}}
-        uses: Homebrew/actions/post-comment@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/post-comment@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
@@ -275,7 +270,7 @@ jobs:
       !fromJson(needs.check.outputs.replace)
     outputs:
       portable_ruby: ${{ steps.portable-ruby.outputs.fire }}
-    runs-on: ${{inputs.large_runner && 'homebrew-large-bottle-upload' || 'ubuntu-latest'}}
+    runs-on: ubuntu-latest
     container:
       image: ghcr.io/homebrew/brew:main
       volumes:
@@ -288,7 +283,7 @@ jobs:
       repository-projects: write # for `gh pr edit`
     steps:
       - name: Post comment once started
-        uses: Homebrew/actions/post-comment@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/post-comment@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
@@ -304,19 +299,19 @@ jobs:
 
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/setup-homebrew@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           core: true
           cask: false
 
       - name: Configure Git user
         id: git-user-config
-        uses: Homebrew/actions/git-user-config@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/git-user-config@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           username: ${{ (github.actor != 'github-actions[bot]' && github.actor) || 'BrewTestBot' }}
 
       - name: Set up commit signing
-        uses: Homebrew/actions/setup-commit-signing@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/setup-commit-signing@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
@@ -334,7 +329,6 @@ jobs:
           HOMEBREW_GIT_COMMITTER_NAME: BrewTestBot
           HOMEBREW_GIT_COMMITTER_EMAIL: 1589480+BrewTestBot@users.noreply.github.com
           EXPECTED_SHA: ${{needs.check.outputs.head_sha}}
-          LARGE_RUNNER: ${{inputs.large_runner}}
           WARN_ON_UPLOAD_FAILURE_FLAG: ${{inputs.warn_on_upload_failure && '--warn-on-upload-failure' || ''}}
           MESSAGE: ${{inputs.message}}
         run: |
@@ -351,12 +345,9 @@ jobs:
             exit 1
           fi
 
-          if [ -z "${LARGE_RUNNER}" ] || [ "${LARGE_RUNNER}" == "false" ]
-          then
-            sudo install -o "$(id -u)" -d "$(id -g)" /mnt/homebrew
-            export HOMEBREW_CACHE=/mnt/homebrew/cache
-            export HOMEBREW_TEMP=/mnt/homebrew/temp
-          fi
+          sudo install -o "$(id -u)" -g "$(id -g)" -d /mnt/homebrew
+          export HOMEBREW_CACHE=/mnt/homebrew/cache
+          export HOMEBREW_TEMP=/mnt/homebrew/temp
 
           # Don't quote arguments that might be empty; this causes errors.
           brew pr-pull \
@@ -389,7 +380,7 @@ jobs:
           subject-path: '${{steps.pr-pull.outputs.bottle_path}}/*.tar.gz'
 
       - name: Upload bottle metadata artifact
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: command-not-found-bottle-json
           path: ${{steps.pr-pull.outputs.bottle_path}}/*.bottle.json
@@ -419,7 +410,7 @@ jobs:
           echo "head_sha=$(git -C "$REPO_PATH" rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Push commits
-        uses: Homebrew/actions/git-try-push@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/git-try-push@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
           directory: ${{steps.set-up-homebrew.outputs.repository-path}}
@@ -438,7 +429,7 @@ jobs:
 
       - name: Post comment on failure
         if: failure()
-        uses: Homebrew/actions/post-comment@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/post-comment@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
@@ -518,7 +509,7 @@ jobs:
           (steps.approve.conclusion == 'failure' ||
            steps.wait-until-in-sync.conclusion == 'failure' ||
            steps.automerge.conclusion == 'failure')
-        uses: Homebrew/actions/post-comment@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/post-comment@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
@@ -552,7 +543,7 @@ jobs:
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/setup-homebrew@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           core: true
           cask: false
@@ -564,14 +555,14 @@ jobs:
         run: gh pr checkout "$PR" --repo "$GITHUB_REPOSITORY"
 
       - name: Install oras for interacting with GitHub Packages
-        uses: Homebrew/actions/cache-homebrew-prefix@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/cache-homebrew-prefix@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           install: oras
           workflow-key: command-not-found-db-entry
           uninstall: true
 
       - name: Download bottle metadata artifact
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: command-not-found-bottle-json
           path: bottle-json
@@ -623,19 +614,19 @@ jobs:
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/setup-homebrew@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           core: true
           cask: false
 
       - name: Configure Git user
         id: git-user-config
-        uses: Homebrew/actions/git-user-config@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/git-user-config@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           username: BrewTestBot
 
       - name: Set up commit signing
-        uses: Homebrew/actions/setup-commit-signing@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/setup-commit-signing@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
@@ -705,7 +696,7 @@ jobs:
 
       - name: Push branch
         if: steps.commit.outputs.changes == 'true'
-        uses: Homebrew/actions/git-try-push@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/git-try-push@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           token: ${{ steps.app-token.outputs.token }}
           directory: ${{ steps.resolve.outputs.brew_repo }}

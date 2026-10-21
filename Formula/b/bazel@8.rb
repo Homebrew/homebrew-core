@@ -1,8 +1,8 @@
 class BazelAT8 < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/8.8.1/bazel-8.8.1-dist.zip"
-  sha256 "3c8784ad4f3d2ba6c6b2bbe424849886567ed644c491e9686d666e47efd13744"
+  url "https://github.com/bazelbuild/bazel/releases/download/8.8.2/bazel-8.8.2-dist.zip"
+  sha256 "d14a2e18a02a1d50ef06ba5fdcf636587d595b41e1661903cfce916df43284a0"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class BazelAT8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1878d2df377c5d1aed37c150da36a04cbf60688da63373fcd71118f29a46d649"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "943a591ab789514e23fab3066801f4c30d6bd2126cee00d58a4cb0d1b98a6754"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3177e5a471e1e56f5cd83735815375eeff6c807a01392558d6027819467f1e8b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9516567d9062d3787ee52e3194eb5e269bdf65625880546861bc15fc4ddf8b72"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c67e0ebe92112c5479b5e8126bb081becc8273e392ee5fd8a9be39ed0d5dcec1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fc552e8b6428b738000a1bc9876d9152550dddfc60e5cb65629f8446e568022e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "15329033f2c3d41e9c36155ad0d61d7b5e6f4ed48d8681576988dea3074d5bca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "21f0efa3d6f394b469d88324e30b592942303c9820702fa584c71ac5757da9c9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a2234c86b44c0eb53578a07d8c7ebff42811ea8c98f52a862efd62e342cf41cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8e4f7eeba19751b838b4a28956309b5f5bb8fa9d89822e064f7b878916294d80"
   end
 
   keg_only :versioned_formula

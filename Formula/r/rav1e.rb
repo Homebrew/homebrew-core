@@ -31,17 +31,17 @@ class Rav1e < Formula
     depends_on "nasm" => :build
   end
 
+  resource "homebrew-bus_qcif_7.5fps.y4m", :test do
+    url "https://media.xiph.org/video/derf/y4m/bus_qcif_7.5fps.y4m"
+    sha256 "1f5bfcce0c881567ea31c1eb9ecb1da9f9583fdb7d6bb1c80a8c9acfc6b66f6b"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
     system "cargo", "cinstall", "--jobs", ENV.make_jobs.to_s, "--release", "--prefix", prefix, "--libdir", lib
   end
 
   test do
-    resource "homebrew-bus_qcif_7.5fps.y4m" do
-      url "https://media.xiph.org/video/derf/y4m/bus_qcif_7.5fps.y4m"
-      sha256 "1f5bfcce0c881567ea31c1eb9ecb1da9f9583fdb7d6bb1c80a8c9acfc6b66f6b"
-    end
-
     testpath.install resource("homebrew-bus_qcif_7.5fps.y4m")
     system bin/"rav1e", "--tile-rows=2", "bus_qcif_7.5fps.y4m", "--output=bus_qcif_15fps.ivf"
   end

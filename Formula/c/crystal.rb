@@ -2,24 +2,15 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
-  revision 1
   compatibility_version 2
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.21.1.tar.gz"
-    sha256 "174ad41131a155d0407fb9f66fac4e4baabc5b5d7d030fef9c631a43f553e112"
+    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.22.0.tar.gz"
+    sha256 "8ed6152d42666777b5019be02168c062b1d7270738613665aa31b7a92433c2a4"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/refs/tags/v0.20.0.tar.gz"
       sha256 "8655b87761016409e4411056e350b24e7fe79eae3f227b3354b181a03f14d5da"
-    end
-
-    # Backport support for LLVM 23
-    patch do
-      url "https://github.com/crystal-lang/crystal/commit/92773ed31c59f1a70c3b8ec0643fa4cf57362a9e.patch?full_index=1"
-      sha256 "de507d6eff80c0ef7d2309911aaf11b321d1ec960e3ada4b45c6c1cf3dc4a26a"
-      type :backport
-      resolves "https://github.com/crystal-lang/crystal/pull/17432"
     end
   end
 
@@ -29,11 +20,11 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "59ce85b849ea2e9efedfaa8e7990a441f656bf52e45616deadb59a7a0d7e5a73"
-    sha256 cellar: :any, arm64_tahoe:       "3efe943a1e958b1cb86360bdff2a025ad9854bbaed992a8d690a142465fdd25d"
-    sha256 cellar: :any, arm64_sequoia:     "30b8d9e04b84760db7e3f14713a573f69c3e404e0d9b867865d0e69ab17afb58"
-    sha256 cellar: :any, arm64_linux:       "fa0a7594dff38917696ed25433139da9ab95fd16613a38383561b9dee238f61d"
-    sha256 cellar: :any, x86_64_linux:      "b43270c362edf209e1ea6a41e8646031dbe8daf78af8c28ec10cbecc38d8184e"
+    sha256 cellar: :any, arm64_golden_gate: "465ad25aeae74f99a90ff2799cfd59044821a1b4cb496ec30d1f8bae135872f2"
+    sha256 cellar: :any, arm64_tahoe:       "6a03fc6980c37e7f59d3d286de1159c4fb4fa53e69dccc583511468e8e066a10"
+    sha256 cellar: :any, arm64_sequoia:     "6a5b4d0cb474bdfd7f6b3f4e471f23d596dd976caf992937293578df0f719b67"
+    sha256 cellar: :any, arm64_linux:       "2270dc42f1b2f51d089466155bb4579adb737aa00cdf295bcf740eae3e65847a"
+    sha256 cellar: :any, x86_64_linux:      "9f40275957737edd62c444b9090ab6cb42d72118f833166e630316f1e9d0ddb8"
   end
 
   head do

@@ -1,34 +1,49 @@
 class CargoOutdated < Formula
   desc "Cargo subcommand for displaying when Rust dependencies are out of date"
   homepage "https://github.com/kbknapp/cargo-outdated"
-  url "https://github.com/kbknapp/cargo-outdated/archive/refs/tags/v0.19.0.tar.gz"
-  sha256 "ea6592c08d4e8ea53aa0251cbbfbf8ad2b2167f794cb9599715eecb3653507f2"
   license "MIT"
+  revision 1
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
+  stable do
+    url "https://github.com/kbknapp/cargo-outdated/archive/refs/tags/v0.19.0.tar.gz"
+    sha256 "ea6592c08d4e8ea53aa0251cbbfbf8ad2b2167f794cb9599715eecb3653507f2"
+
+    # Backport openssl-sys update
+    patch do
+      url "https://github.com/kbknapp/cargo-outdated/commit/2681b1c2ffad45ccbb35e027804b6bf39fc4b75e.patch?full_index=1"
+      sha256 "8115a7b5bbbb204c44f250d494d1e24df2d9e6473ab247fa6c342014a1f85e1b"
+      type :backport
+    end
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "38bb83c4629df4791ec1a85f6d959ec01eacbf50c286ff7178dc420f8122f2b0"
-    sha256 cellar: :any,                 arm64_tahoe:       "6174085b6cd0d46cd1be2c6dda1a24a0f7bcd4e98c362808c63e09d0c11bf3bc"
-    sha256 cellar: :any,                 arm64_sequoia:     "57f2a20781ae0cbfcf3e279725f528d12d808d008876e0bcccf5cda173eafc1f"
-    sha256 cellar: :any,                 arm64_sonoma:      "c77702c3d4da76762864ace24b8b25318bd732b95019471c061b6188892c38bd"
-    sha256 cellar: :any,                 sonoma:            "6afd5d52a700fd64b1f613980c399f08a05ccfe5f38072f42bfc438bd89a826f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1f4b8afc5760e243f583e60f81e11cd92a9819a14d6d00bfdc7125fcede1b035"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8d8f21cc13aba011e544f746cb9096799337c335ff8796586c23163bab069f1c"
+    sha256 cellar: :any, arm64_golden_gate: "5133c6014beedcac9f9a99a2113b5f99ae9be6e5f1255ceccc2027f9af8b731e"
+    sha256 cellar: :any, arm64_tahoe:       "6a8ec88fedc2756ded1261eba129932024a0da9cbcf307c5157af24f3d82b5fa"
+    sha256 cellar: :any, arm64_sequoia:     "ad7fa0f96b961bab42632af270929a9a0f486ea0ee5710d41b0946b6790dee11"
+    sha256 cellar: :any, arm64_linux:       "a93da6a70017159d4535346522aee8763cbbfc299a36f83bfbdc8da0672b6fbb"
+    sha256 cellar: :any, x86_64_linux:      "90e437fb36ce33750f955eea5a382d906e19f3e758c7b93b81554cb286b62b58"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "rustup" => :test
   depends_on "libgit2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
 
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     system "cargo", "install", *std_cargo_args
   end
@@ -65,8 +80,8 @@ class CargoOutdated < Formula
 
     [
       formula_opt_lib("libgit2")/shared_library("libgit2"),
-      formula_opt_lib("openssl@3")/shared_library("libssl"),
-      formula_opt_lib("openssl@3")/shared_library("libcrypto"),
+      formula_opt_lib("openssl@4")/shared_library("libssl"),
+      formula_opt_lib("openssl@4")/shared_library("libcrypto"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"cargo-outdated", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."

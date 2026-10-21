@@ -10,6 +10,8 @@ class Yadm < Formula
     sha256 cellar: :any_skip_relocation, all: "323e01bb5b2d4578628cf24afdd1446f6b858927b62cc461da626339f5c053f0"
   end
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
     bash_completion.install "completion/bash/yadm"

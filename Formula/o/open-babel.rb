@@ -8,13 +8,12 @@ class OpenBabel < Formula
   head "https://github.com/openbabel/openbabel.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "4adf49b9ceafa263efcfc36cb338dae5fbdc6e6fafcafb82e12405f28cc1003c"
-    sha256 arm64_tahoe:       "d667891c9d9c49a9d60e67cc328614b77424c2d8d5bfcaa5c6566355596961b0"
-    sha256 arm64_sequoia:     "5e3c5353ffcd0dc7ca0ecf6dd675d237c572ef05fc53fd88b2d3fa80af739ba1"
-    sha256 arm64_sonoma:      "2324ac199cb685f82b502680dafe7f6be0bbcfcc7d8ee9cd68f70c1bcc101a94"
-    sha256 sonoma:            "6a8e5be4171c9c7ab552226d3a0f8f9a5873f12c8ab83581679f90d969493ae5"
-    sha256 arm64_linux:       "a224c4ad98f57e8492688c854a70982d9955e545f0ae88b0960b6d29e05d1188"
-    sha256 x86_64_linux:      "741ab890bea667e2129f3ca9d4d218ed5cd59a33af0f8d4fdb9b617539fa53ca"
+    rebuild 1
+    sha256 arm64_golden_gate: "603093a5e4deab773c1f1fbcbe3fc1778a45e0e26a1a950d8435b362982e39f4"
+    sha256 arm64_tahoe:       "7980fe2ac4bc44fb8836c6fbe47781c5cc449184287a711953417cec0169d5e5"
+    sha256 arm64_sequoia:     "c463a919a8c1c96967ae4f97b0fbf6ec9c093510955830c2c7dfe836ab451843"
+    sha256 arm64_linux:       "2b2c65c0f6da95edfad0cb5686f8c590ceeb63a9484eeaf8dae0dd23744d2298"
+    sha256 x86_64_linux:      "8783b8513e67d61d177f615960b036587db1f5c93ac8e4f8f7922d9492f9b65d"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +24,7 @@ class OpenBabel < Formula
   depends_on "cairo"
   depends_on "eigen"
   depends_on "inchi"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libxml2"
 

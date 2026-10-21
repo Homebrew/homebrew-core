@@ -48,12 +48,12 @@ class Libsigrok < Formula
   end
 
   bottle do
-    rebuild 5
-    sha256               arm64_golden_gate: "083bc299566beece6d7f582e9a091593e598bc6dfa542247019c31c570b299e4"
-    sha256               arm64_tahoe:       "28671d372513343cd4820779e13eb1bdf10a7ba1ce51be6f032664577c165039"
-    sha256               arm64_sequoia:     "452a314ee92dd001c8eeb742e731dfe343b925dd2d4bc33f71b38730838afc9a"
-    sha256               arm64_linux:       "8bb458272a5be45e1c1f5ce0cafc710e8f2af686cdd2bcd31a32fc990c1803c0"
-    sha256 cellar: :any, x86_64_linux:      "96bd5bd71fbd75c9a6a6058ff88dff3297a447fe3b4f234a0c96a77360055320"
+    rebuild 6
+    sha256               arm64_golden_gate: "009b89ccb79ec3cf829d13817aed5138ed4243552533bb0bc123644442dbf6ea"
+    sha256               arm64_tahoe:       "bcfaaca5249efd3400a5611b2cae07f80e1c179dcde274b1d3bd4e34779c13d6"
+    sha256               arm64_sequoia:     "3953ff1611f9d1f60b6d574ce945ba34f8df60844fcc70b7ee0c967dc881fc0c"
+    sha256               arm64_linux:       "c1360cf48bca514c59fb64ce1d284e8cd890083e4575088a43d9f6e534bea74b"
+    sha256 cellar: :any, x86_64_linux:      "e581eb13731c5111ace2d99e4bf5513dae33ffb409abc1f15762868fca1a2e95"
   end
 
   head do
@@ -86,7 +86,7 @@ class Libsigrok < Formula
   depends_on "libzip"
   depends_on "numpy"
   depends_on "pygobject3"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_macos do
     depends_on "gettext"

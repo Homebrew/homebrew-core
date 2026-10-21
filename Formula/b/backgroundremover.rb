@@ -6,25 +6,27 @@ class Backgroundremover < Formula
   url "https://files.pythonhosted.org/packages/01/23/b6db66a9a7ad24e34581bae7910e77e16fce103fd9658bd5b6aef4e5effd/backgroundremover-0.4.5.tar.gz"
   sha256 "b9fe5ebaa234d43bfae02a2f28734e589ee895a861e55c02f6f1a41518587852"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "762f9456f9dffacd10dc03e712ac8ce8f38433885b721c6248a91ee56d6605b8"
-    sha256 cellar: :any, arm64_tahoe:       "e725846b654f35a5b22d26bb5c3f1554b21f3cd480f730e3564bb725bf963750"
-    sha256 cellar: :any, arm64_sequoia:     "0a84335deec736bbb7cfd7c86b3ecd0174d2d639f24df4418246c9eb2de2bed9"
-    sha256 cellar: :any, arm64_linux:       "f8a076ea1bc322cb9fbe7c1b75a361e4e942ea591684cee109e0df71f233aa7f"
-    sha256 cellar: :any, x86_64_linux:      "e5d2e727dded6be23f2018c82647ec1427d16ec4762c5eb073c4928e9c925153"
+    sha256 cellar: :any, arm64_golden_gate: "569b20528f93a651d066ad2e1ea2b40891bf9ef08ec1637b5ea52ee8de2392cd"
+    sha256 cellar: :any, arm64_tahoe:       "8ddeb0fe7753974d2f594b939f831a77cdfbb231e7d28113533d1fad8dce5a1d"
+    sha256 cellar: :any, arm64_sequoia:     "1d31c5ea586142985af2a5d5a6dbe23175141ce1f81af07e8888d36f3ab16878"
+    sha256 cellar: :any, arm64_linux:       "348fa66d4dd9c27ca2e0be759bdc768d63dfd662968dbcf96bb7f1a6de860326"
+    sha256 cellar: :any, x86_64_linux:      "ac02020d59db0ad0e5d25cc8329e9c0a4dde766850f8fedc050681194ffc2f2b"
   end
 
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "certifi" => :no_linkage
   depends_on "ffmpeg"
   depends_on "libheif"
   depends_on "llvm@22"
+  depends_on "numpy" => :no_linkage
   depends_on "pillow" => :no_linkage
-  depends_on "python@3.14"
-  depends_on "scikit-image" => :no_linkage
+  depends_on "python@3.15"
+  depends_on "pytorch" => :no_linkage
   depends_on "scipy" => :no_linkage
   depends_on "torchvision" => :no_linkage
 
@@ -33,8 +35,8 @@ class Backgroundremover < Formula
     depends_on "openblas"
   end
 
-  pypi_packages exclude_packages: %w[certifi torch torchvision pillow scipy scikit-image],
-                extra_packages:   %w[imageio numpy] # numba needs numpy < 2.5, so vendor it as a resource
+  pypi_packages exclude_packages: %w[certifi numpy pillow scipy torch torchvision],
+                extra_packages:   %w[setuptools] # for distutils
 
   resource "blinker" do
     url "https://files.pythonhosted.org/packages/21/28/9b3f50ce0e048515135495f198351908d99540d69bfdc8c1d15b73dc55ce/blinker-1.9.0.tar.gz"
@@ -92,8 +94,8 @@ class Backgroundremover < Formula
   end
 
   resource "imageio" do
-    url "https://files.pythonhosted.org/packages/81/c8/2b56274457e4fadcfa86bf7c0fb93f19e124ab8f38f4bfa4372423052046/imageio-2.38.0.tar.gz"
-    sha256 "fe1d406862f6bc2930e8ec662d7bc40d4370cb76e3390dcd33819560d2708531"
+    url "https://files.pythonhosted.org/packages/f3/cd/69e4ac55b6dafdd2b5f32075236841a3945dea7323d0232d80f28c37cea8/imageio-2.38.1.tar.gz"
+    sha256 "6769f1f01c4dd46448307863a787c9a22fa4dbe11c0c88f525c6e410fdfd7983"
   end
 
   resource "imageio-ffmpeg" do
@@ -106,9 +108,14 @@ class Backgroundremover < Formula
     sha256 "e0050c0b7da1eea53ffaf149c0cfbb5c6e2e2b69c4bef22c81fa6eb73e5f6173"
   end
 
+  resource "lazy-loader" do
+    url "https://files.pythonhosted.org/packages/19/8c/0f2ff2a8b7513e68871a74740c17a504b0488c679b379e6445ebb7bd78dc/lazy_loader-0.6.tar.gz"
+    sha256 "2f4b7824d6401958639008a0cae20c776b61dff619accd6890693e2de8260167"
+  end
+
   resource "llvmlite" do
-    url "https://files.pythonhosted.org/packages/43/27/72ae94ea5c8f7349ec1c229d4cd058feb799cbd0833ad6d1b47c919b37b7/llvmlite-0.49.0.tar.gz"
-    sha256 "00f16db782f4a13c78c5804aedc434e46794a77e89999a168f9401106270e50a"
+    url "https://files.pythonhosted.org/packages/11/c5/907cec40688a34eb489cded74d555e1ee4af8cf49d83e03dba2c2d4cfe27/llvmlite-0.50.0.tar.gz"
+    sha256 "f2a2cd6ec9ffcc1b7147dea0d7a49efebf17a2b434e0c2844fe175999d571eb4"
   end
 
   resource "more-itertools" do
@@ -122,13 +129,13 @@ class Backgroundremover < Formula
   end
 
   resource "numba" do
-    url "https://files.pythonhosted.org/packages/7a/90/2544f4e3a61e501d6c9a5418fd4b905323222693d54a02cab0106a0af865/numba-0.67.0.tar.gz"
-    sha256 "cd75aa535b33fa05d9d930b1ae8af9f97a2881e96d72dfb38ec9b78284d9f851"
+    url "https://files.pythonhosted.org/packages/4e/cd/e8280f9ffa30fea9fabc5341223701231fcc5d53a31f51419d42d4bec3a6/numba-0.68.0.tar.gz"
+    sha256 "8a781de54b980b98f43bff7f1093701b5f07c80d031c7cfa8a87493d8bf73f2d"
   end
 
-  resource "numpy" do
-    url "https://files.pythonhosted.org/packages/13/01/11703282db468b85f6f7b8c7f22d058de5970d5c7e60a3a8aaa313c3de36/numpy-2.5.3.tar.gz"
-    sha256 "df2d5874ff183595a4ba404edd04f6bd9b5505c1d7708573f6a6c17489a67563"
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "pillow-heif" do
@@ -152,8 +159,8 @@ class Backgroundremover < Formula
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/6a/53/ed9d74092561d4b01a2ef1349d52cdbc135e526c245f366b089cfca6de49/python_dotenv-1.2.3.tar.gz"
-    sha256 "a20a594dabeaa385725aa239d5244871c143ecb356add8a20fcf23773a6c3a35"
+    url "https://files.pythonhosted.org/packages/74/26/2fbeedb218a787a5eea551c7532cac4e009f83d689dd2faa0d0353473f86/python_dotenv-1.2.4.tar.gz"
+    sha256 "f0d53e69935a851c0dcc78f3ab7aaccd8cabef0b92382b576b824212902873c0"
   end
 
   resource "requests" do
@@ -161,9 +168,24 @@ class Backgroundremover < Formula
     sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
   end
 
+  resource "scikit-image" do
+    url "https://files.pythonhosted.org/packages/a1/b4/2528bb43c67d48053a7a649a9666432dc307d66ba02e3a6d5c40f46655df/scikit_image-0.26.0.tar.gz"
+    sha256 "f5f970ab04efad85c24714321fcc91613fcb64ef2a892a13167df2f3e59199fa"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/6d/44/f5da03a8ef95d369145c5bb53050e7877c9f3d312e128605fd9504829143/setuptools-84.0.0.tar.gz"
+    sha256 "f4695c21257f0d9b537ec2692c941d02ee143b7cc1276941349a546573b2ef73"
+  end
+
   resource "six" do
     url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
     sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
+  end
+
+  resource "tifffile" do
+    url "https://files.pythonhosted.org/packages/92/66/634db78ebad513038d753830dd8815eea26278b5463ba0f43198b0c24c4e/tifffile-2026.9.20.tar.gz"
+    sha256 "30e145a7042ce7143ae50a50fe8b7221b0070aae22adab8f9e79a264be6b5cdc"
   end
 
   resource "tqdm" do
@@ -190,14 +212,12 @@ class Backgroundremover < Formula
     ENV["LLVMLITE_SHARED"] = "1"
     venv = virtualenv_install_with_resources without: "numba"
 
-    # We depend on the formula below, but they are separate formula, so install a `.pth` file to link them.
+    # We depend on torchvision and pytorch below, but their packages are installed
+    # into virtual environments, so install `.pth` files to link them.
     # NOTE: This is an exception to our usual policy as building them is complicated
     site_packages = Language::Python.site_packages(venv.root/"bin/python3")
-    torchvision_pth_contents = "import site; site.addsitedir('#{formula_opt_libexec("torchvision")/site_packages}')\n"
-    (venv.site_packages/"homebrew-torchvision.pth").write torchvision_pth_contents
-
-    skimage_pth_contents = "import site; site.addsitedir('#{formula_opt_libexec("scikit-image")/site_packages}')\n"
-    (venv.site_packages/"homebrew-scikit-image.pth").write skimage_pth_contents
+    (venv.site_packages/"homebrew-torchvision.pth").write "#{formula_opt_libexec("torchvision")/site_packages}\n"
+    (venv.site_packages/"homebrew-pytorch.pth").write "#{formula_opt_libexec("pytorch")/site_packages}\n"
 
     # We install `numba` separately without build isolation to avoid building another `numpy`
     venv.pip_install(resource("numba"), build_isolation: false)

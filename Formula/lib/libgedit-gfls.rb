@@ -1,19 +1,17 @@
 class LibgeditGfls < Formula
   desc "Gedit Technology - File loading and saving"
   homepage "https://gitlab.gnome.org/World/gedit/libgedit-gfls"
-  url "https://gitlab.gnome.org/World/gedit/libgedit-gfls/-/archive/0.4.2/libgedit-gfls-0.4.2.tar.bz2"
-  sha256 "9c6c6469a70d829b4476debe4b8b135daaa60164a6657db1fa803f28625aee2b"
+  url "https://gitlab.gnome.org/World/gedit/libgedit-gfls/-/archive/0.5.0/libgedit-gfls-0.5.0.tar.bz2"
+  sha256 "d9bf8277c790c3c3164c4bc6d0623d16a336921b2c29de90974904e6f94a3ad8"
   license "LGPL-3.0-or-later"
   head "https://gitlab.gnome.org/World/gedit/libgedit-gfls.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "609ec3fdf70fe97198f68c5629e3be6a2d98cbfd60337c1a7ce32a93986d4143"
-    sha256 cellar: :any, arm64_tahoe:       "df6de1a8aa8c4fcf8d023439c36105ac965e9f0ced53632765aecd2275e058e5"
-    sha256 cellar: :any, arm64_sequoia:     "cb1f4f2dc7c48d562f6b234b3bde9de30cbc5d53fbd0d108c9befa2a6bb084b1"
-    sha256 cellar: :any, arm64_sonoma:      "da8a5c139fbcb4e24d1f7212cecbd882e25aa0f41a803f3f58bc5f5a14bb9c50"
-    sha256 cellar: :any, sonoma:            "f4add3b16420cbc883a9996f849b35bcea24467769e883106b9a70e7bb0a37e3"
-    sha256               arm64_linux:       "ae46b257a6ac4c4edd18045d792ea884f6ef09344f1a7685043c1a79f5dc2dbc"
-    sha256               x86_64_linux:      "261ec133e0f94738629e10fa344363e90cd8eaa72c19ce39ea4c31a2a3c8c5e8"
+    sha256 cellar: :any, arm64_golden_gate: "539dbe3fee2b42d70d792922a709aca0a9439bdd09cfc1fc279928d189e07c73"
+    sha256 cellar: :any, arm64_tahoe:       "1395510717f99eed3b23aa122a61603653e4ad90940bcc95e1be6b336ba78139"
+    sha256 cellar: :any, arm64_sequoia:     "11de47d2be155cffb0c645ff21b0a6ecaf7b6fff38f85551689d9b15e56bddae"
+    sha256 cellar: :any, arm64_linux:       "9c5de947d55fda81f42ef25745f394b3fdf1383cb49efbf7e016e96fe3b96412"
+    sha256 cellar: :any, x86_64_linux:      "9ebc0943e0ef0236483e631ff65fda3f0b202b13ccdef46bf45662e6aa46e8e9"
   end
 
   depends_on "gobject-introspection" => :build

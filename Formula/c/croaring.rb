@@ -1,27 +1,31 @@
 class Croaring < Formula
   desc "Roaring bitmaps in C (and C++)"
   homepage "https://roaringbitmap.org"
-  url "https://github.com/RoaringBitmap/CRoaring/archive/refs/tags/v5.2.2.tar.gz"
-  sha256 "a7d8c10c954a971b7e2996b498cb7600e5002637412f4198dcd600b415e1eb5c"
+  url "https://github.com/RoaringBitmap/CRoaring/archive/refs/tags/v5.3.1.tar.gz"
+  sha256 "9151a8b0ebaf460a889630e9e11b96c9e4cc71934e8dd8ccd084707c6751e853"
   license "Apache-2.0"
+  compatibility_version 1
   head "https://github.com/RoaringBitmap/CRoaring.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "dfcae21fcee5830e02b00125c277ea605f31eed1b65b817b0d4ded6d13ac574b"
-    sha256 cellar: :any, arm64_tahoe:       "bcb1cc116aa3c4c33dc0e1a0f7c0704d04df5a0b27746959302ccb134d255427"
-    sha256 cellar: :any, arm64_sequoia:     "66057511474f02e72f08e9d2eb391c98b1808264bbcd7a742d6b710463c8e8fa"
-    sha256 cellar: :any, arm64_linux:       "87a5b87431c75e69e8b7431fa8f1e3b17530bb06b882373be7dc4a569e865926"
-    sha256 cellar: :any, x86_64_linux:      "5987526d4d9d71c0b7607f65a44ad91e2cc6cf23af3e604bfb0ddd580103c40f"
+    sha256 cellar: :any, arm64_golden_gate: "f5eb897368d39162bafefb896bf10b16d63ef94cc901560e2fc6ae7f06a706e9"
+    sha256 cellar: :any, arm64_tahoe:       "f6234b35b2bdc12d3594e4842901ad6f85a1ce92588b68f7f368bb217c696f40"
+    sha256 cellar: :any, arm64_sequoia:     "6806d4d453e7370a68f61e3c6f8683ea50f6052824367679825c97e2fa2f1233"
+    sha256 cellar: :any, arm64_linux:       "145a5fb853ec3c2fc0ba7e2a8661a52e07414b217a3a4133ce260da6c0e829f1"
+    sha256 cellar: :any, x86_64_linux:      "b2d35a25eac9963260a284504fd729384c38f6723137ba0c7671400c45677d2f"
   end
 
   depends_on "cmake" => :build
 
+  deny_network_access!
+
   def install
     system "cmake", "-S", ".", "-B", "build",
-                    "-DENABLE_ROARING_TESTS=OFF",
-                    "-DROARING_BUILD_STATIC=OFF",
                     "-DBUILD_SHARED_LIBS=ON",
+                    "-DENABLE_ROARING_TESTS=OFF",
                     "-DROARING_BUILD_LTO=ON",
+                    "-DROARING_BUILD_STATIC=OFF",
+                    "-DROARING_USE_CPM=OFF",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

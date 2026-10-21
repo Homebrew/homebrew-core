@@ -1,17 +1,17 @@
 class Vulcain < Formula
   desc "Fast and idiomatic client-driven REST APIs"
   homepage "https://vulcain.rocks/"
-  url "https://github.com/dunglas/vulcain/archive/refs/tags/v1.4.4.tar.gz"
-  sha256 "af022f399651aef02704a84a617586ebc67c7df987fecd521c2b0ec6401d30ba"
+  url "https://github.com/dunglas/vulcain/archive/refs/tags/v1.4.5.tar.gz"
+  sha256 "e16b0e691cb348d1622dc1dfdc12134a09d1c1d74559d220b9a5de55057983fc"
   license "AGPL-3.0-only"
   head "https://github.com/dunglas/vulcain.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a73b7344ca0b822699584f4f57fae6eb3782b3e99d1feee0b4ac0a264b191de1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "677d44a8d1d2598cf4613b1e5d4fcb0655f53cc3b140badd85a291a886e48ea3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "74f1065a9b0cd637eb2083c81895e2658e4138df6d674c8c2ef60dce0199a5a5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "43a1c4199c95040b2176608ae73e2e84f4fce984927af540c4866138b0863b23"
-    sha256 cellar: :any,                 x86_64_linux:      "77aa1fb216b432865537c3d7b85653305daf530ed791a8cd7140da1d69b5d9b1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4da72bea38381670016d909b73f456958bd866d63b3faf61fdbe7c69bd9b8cef"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "42357e323eb416eba8992d1c3a7b7f5cb63f66cf5e609c6a1b54db94fc13d07e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2581c5b6a8355054edc3ace06c0c3940ed383ce23e98a91f1b2c45e975ca430a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b3192b285bacca9f127643acbc34540c7d35393e46871cba2556d9488f2f94c0"
+    sha256 cellar: :any,                 x86_64_linux:      "85607cfa42d6a60cef566dbf0ae7a0c765146955b96f456eb18b924281a2267c"
   end
 
   depends_on "go" => :build

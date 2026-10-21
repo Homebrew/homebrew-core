@@ -12,11 +12,12 @@ class Lcm < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f252d68ed3ba4e280f83de644253f3daef3897ad6aae5d2207f010439dbfc1f2"
-    sha256 cellar: :any, arm64_tahoe:       "081b13339dca7511d79e77cc3f7e0f27d96870e01b6ebfef22a12e674f417660"
-    sha256 cellar: :any, arm64_sequoia:     "1b7cd49fd99ee488e7870c564d90ebdb4da6f53da539927a05c5c98eadfe6672"
-    sha256 cellar: :any, arm64_linux:       "7d29b026b5a82f7cc10c929aebf892544ee9f11c155df1964d6a076dbe209371"
-    sha256 cellar: :any, x86_64_linux:      "71208d791519e0c36b5e32b82813ea4556399469428ac56fcbfc33dd505a5b30"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "a4b82373bd377999a9537419740b1b02dae0d88c347d0720a58c569921048b19"
+    sha256 cellar: :any, arm64_tahoe:       "65b1c63c675361c7e252186707f76d727bb36d217d8706be82548f3b84fe7282"
+    sha256 cellar: :any, arm64_sequoia:     "0e574aa5562e4abbc55678ff1115be182bdca2cb8404d470d6912e154e6efbcf"
+    sha256 cellar: :any, arm64_linux:       "88ca6f6d4a040cd20e1f272d44fd59ee2cc626677be21905cfece13bd4bf99fb"
+    sha256 cellar: :any, x86_64_linux:      "b76547e3157396c1cef0c177e6ee112f7d3b0ae0d17e4981bd3febd168f272aa"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +26,7 @@ class Lcm < Formula
   depends_on "glib"
   depends_on "lua"
   depends_on "openjdk"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   deny_network_access!
   def install

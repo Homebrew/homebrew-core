@@ -1,10 +1,9 @@
 class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
-  url "https://include-what-you-use.org/downloads/include-what-you-use-0.26.src.tar.gz"
-  sha256 "5247c0c9a59df9d14e8aa7408ffec4134c6a4aef12f590929111fbfeac930a08"
+  url "https://include-what-you-use.org/downloads/include-what-you-use-0.27.src.tar.gz"
+  sha256 "f6871eeea7dc9741cd00aae546d7514abe84b91ca3d1f096f15095e6ac14875f"
   license "NCSA"
-  revision 1
   head "https://github.com/include-what-you-use/include-what-you-use.git", branch: "master"
 
   # This omits the 3.3, 3.4, and 3.5 versions, which come from the older
@@ -17,13 +16,11 @@ class IncludeWhatYouUse < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c39c475e5e351ee17a97c1a221557fd3254c69cae84ad8b14d8b15a2a6441c04"
-    sha256 cellar: :any, arm64_tahoe:       "3a0f1c08f818d98e8ce861ac7e81f3fc1b961e4306fdbd16c01eca692251ceb3"
-    sha256 cellar: :any, arm64_sequoia:     "be4e111aa8c0a6a8a23204459dd102e525efaa4a6042a39e21b01cfa6ddf39c9"
-    sha256 cellar: :any, arm64_sonoma:      "df2e90279bb2af185fdb734cf1dfa9d11e37315be75fd4f4cbee24f388758192"
-    sha256 cellar: :any, sonoma:            "065ee1cb122dca1383d8523118c2b5fa0bd37d8f8ec372cbefa7e68351729b27"
-    sha256 cellar: :any, arm64_linux:       "96b8344967aa0f947e016208ebbc886bc770c8d33de38b7026465c7bd05a751f"
-    sha256 cellar: :any, x86_64_linux:      "03fb836be4a0e4e78830bb6d5f36012c5848a0312400091198935cbf6dd13ba2"
+    sha256 cellar: :any, arm64_golden_gate: "4fce5918451b08ad5cd0a827748950af2b538d4f282fabbe342bfbfbc2b71dd5"
+    sha256 cellar: :any, arm64_tahoe:       "351fa8bc1e7418609ff30597104d5dc987f941f5a5129543de1fc8c1449def9f"
+    sha256 cellar: :any, arm64_sequoia:     "66c6f3859580a31a845875d49c30f5c3adc9adf66069765850c9d1058ba72413"
+    sha256 cellar: :any, arm64_linux:       "5bea47087378a639d64d68166a1e21e5f2afe1baa66f8a288cb76ba2ff801a59"
+    sha256 cellar: :any, x86_64_linux:      "24d4126ed0b06b7e3614b48327bec953e3e2e2fd29829b34b705be555501e7c8"
   end
 
   depends_on "cmake" => :build

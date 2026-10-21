@@ -8,14 +8,12 @@ class PhpAT81 < Formula
   license "PHP-3.01"
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "93c4e6a34a30ea010c76a7bda9db25b68f218faafdd16b186983d01fdfd8405c"
-    sha256 arm64_tahoe:       "5ff7fd9f131a31f4687f4c94326d8b1a32a8fb2e9fe105347210318d75c54574"
-    sha256 arm64_sequoia:     "8a6c91d23b7c081a89cdfb5de7f406e6602ab62df17b3c6c18175e1d761e4e62"
-    sha256 arm64_sonoma:      "f30bb2362d2624871040e87fe626a6b9403266e953195aed6f99cffb333eee1a"
-    sha256 sonoma:            "b67e28c6ecd1cdfacd93e38800b6932d5c26bce44944131a80e88e554d3db8e7"
-    sha256 arm64_linux:       "3303fd88f104755b8ed7afd47f64fd480697e53709b042e2e187fc178cd0e686"
-    sha256 x86_64_linux:      "90b8ea1e11381a9d967460cf44f9d15b5e1461af005aaf5e4c6334d4a96abd76"
+    rebuild 2
+    sha256 arm64_golden_gate: "d9a81735163dc0a89d8c702ef5b181f2b0054bd4b786fda4e48a5d5a77f5cec1"
+    sha256 arm64_tahoe:       "aee847e46363f982f8d591bc5e67add5421fff2dd6c29e3ac50d82e103ad457f"
+    sha256 arm64_sequoia:     "378fc7e713eae59285201701166b87ce121c938c7fb9a2b44acf574cbbb1f276"
+    sha256 arm64_linux:       "50fb1b6374116b3a451e84e729d78ea482f9954c802ebcb6adcce562cada767c"
+    sha256 x86_64_linux:      "8f5fbe30d94d718c0d846cc50b25cd007c760f2adffd397bf1ed71f5f6ecc9ba"
   end
 
   keg_only :versioned_formula
@@ -43,7 +41,7 @@ class PhpAT81 < Formula
   depends_on "libzip"
   depends_on "oniguruma"
   depends_on "openldap"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "sqlite"
   depends_on "tidy-html5"
@@ -65,6 +63,13 @@ class PhpAT81 < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  # Backport support for OpenSSL 4 from PHP 8.2 branch removing NEWS file
+  # https://github.com/php/php-src/commit/19255f4b784cedf6dd4bb21e97def348d335dd69
+  patch do
+    file "Patches/php/openssl4-8.1.34.diff"
+    type :backport
   end
 
   allow_network_access! :test
@@ -227,7 +232,7 @@ class PhpAT81 < Formula
     orig_ext_dir = File.basename(extension_dir)
     inreplace bin/"php-config", lib/"php", prefix/"pecl"
 
-    openssl = Formula["openssl@3"]
+    openssl = Formula["openssl@4"]
     %w[development production].each do |mode|
       inreplace "php.ini-#{mode}" do |s|
         # Allow pecl to install outside of Cellar

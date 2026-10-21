@@ -36,8 +36,6 @@ class Ffmate < Formula
   end
 
   test do
-    require "json"
-
     port = free_port
     database = testpath/".ffmate/data.sqlite"
     (testpath/".ffmate").mkpath

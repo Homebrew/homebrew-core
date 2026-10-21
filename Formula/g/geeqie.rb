@@ -1,10 +1,9 @@
 class Geeqie < Formula
   desc "Lightweight Gtk+ based image viewer"
   homepage "https://www.geeqie.org/"
-  url "https://github.com/BestImageViewer/geeqie/releases/download/v3.2/geeqie-3.2.tar.xz"
-  sha256 "ef10cdf72d8ab739286cc26fa3ff0a3535633ceea75c4cbdea39916bf9af2e0f"
+  url "https://github.com/BestImageViewer/geeqie/releases/download/v3.3/geeqie-3.3.tar.xz"
+  sha256 "45ea0ef3c2b93b754e33763a1074673ab380e088d8217c28be3779423f56fe48"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,11 +11,11 @@ class Geeqie < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a2e1c7c28b3170a9ba93c6d7c6212031b2f1a0100a0b2c704b28a390a4adb1b4"
-    sha256 cellar: :any, arm64_tahoe:       "1e7d05c2162066515efebe3134f8a059c2be50ff1b9800228b68baff48446f09"
-    sha256 cellar: :any, arm64_sequoia:     "037aab304205e9dee173eab604fc4c075bce76d037fb0fc5af3cea134e39b44b"
-    sha256 cellar: :any, arm64_linux:       "be1c211d58bb204520b6fb7399fbf5c9077303ebfd421336d7e6e145e7873491"
-    sha256 cellar: :any, x86_64_linux:      "dc0b602ba90fcfbe41f3264fd5638506c04df2b1f34cbfa740e4c20a43efb177"
+    sha256 cellar: :any, arm64_golden_gate: "0d1390313278100591a708ebd3325efc8e0bab8b79815b5c164244ea36a26ac4"
+    sha256 cellar: :any, arm64_tahoe:       "035169c0d519f613c9fc4b6163f795606a2f1b1a7819b80e879af1213d06f17e"
+    sha256 cellar: :any, arm64_sequoia:     "49b9fb9827285cec33b5126cdf8437565fbcb9eb63c4455b618ea476b9983118"
+    sha256 cellar: :any, arm64_linux:       "42ba53c23c7f27f041808777e5ba6bfd528956949dd7db6b824999a800979507"
+    sha256 cellar: :any, x86_64_linux:      "ac46987c09f282eba68d1756b60655b13ee06bec0b62c59cd5e74d321a004b0a"
   end
 
   depends_on "gettext" => :build
@@ -28,6 +27,7 @@ class Geeqie < Formula
   depends_on "cairo"
   depends_on "djvulibre"
   depends_on "exiv2"
+  depends_on "ffmpeg"
   depends_on "ffmpegthumbnailer"
   depends_on "gdk-pixbuf"
   depends_on "glib"
@@ -64,6 +64,7 @@ class Geeqie < Formula
   deny_network_access!
 
   def install
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib" if OS.linux?
     args = %w[-Dlua=disabled]
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

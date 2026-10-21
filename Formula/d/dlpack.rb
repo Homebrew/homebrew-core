@@ -12,7 +12,7 @@ class Dlpack < Formula
 
   depends_on "cmake" => :build
   depends_on "numpy" => :test
-  depends_on "python@3.14" => :test
+  depends_on "python@3.15" => :test
 
   deny_network_access!
 

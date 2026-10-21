@@ -27,6 +27,12 @@ class CartridgeCli < Formula
   depends_on "go" => :build
   depends_on "mage" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "mage", "build"
     bin.install "cartridge"

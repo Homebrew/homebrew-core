@@ -9,14 +9,15 @@ class Livereload < Formula
   revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "77dc6ee3ada2a0b47448a9af44669413f58e8525071532ac6f99f2e49822911e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "15aeb1318a37dab72f3aac01d20db588a8eb31ff819c54e6d1dddb3c85d1d89e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1367d1f126fa4bd4bfd435f360e0239578b9a7e71f044979c5b265272da802ae"
-    sha256 cellar: :any,                 arm64_linux:       "13e2f4ca25f0bc4f3a2040170be4b877593ef579c4494e20563d549839103cd4"
-    sha256 cellar: :any,                 x86_64_linux:      "01625e5f67bda053d0c9dd062465f1bd58241df1f028e9ab46c7d0222b3a8ee7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "81261202220ca64ab42119155bf290539a4d1d935894a2bde94818fa1d63731f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e4c0f649cb9def65438d88b50c24a67c1097cebcd4b89c8773c588c7dcc92f06"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "12eedc4e98202891995b8eda572f50803f4876cca62067ca309a04a73da129f4"
+    sha256 cellar: :any,                 arm64_linux:       "5ff267da13e7c4931f2f26052be77c2b87c2ae35c069f7cda861bb81d72d0ea9"
+    sha256 cellar: :any,                 x86_64_linux:      "cf4a8e449ad2683f0fa441a49bc2266cac0e2d61bae7a3443a6080f05c50452d"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "tornado" do
     url "https://files.pythonhosted.org/packages/06/61/53d562a57b28c08eda40b258c0f975e360541943ad7c7bef897a40caafda/tornado-6.5.10.tar.gz"

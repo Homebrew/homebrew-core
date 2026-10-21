@@ -1,9 +1,9 @@
 class Dbhash < Formula
   desc "Computes the SHA1 hash of schema and content of a SQLite database"
   homepage "https://www.sqlite.org/dbhash.html"
-  url "https://www.sqlite.org/2026/sqlite-src-3530400.zip"
-  version "3.53.4"
-  sha256 "d18fa15aec74d8c17e1463f861095adc01b5ad190256acb4f91d22f0368d232b"
+  url "https://www.sqlite.org/2026/sqlite-src-3540100.zip"
+  version "3.54.1"
+  sha256 "387e7f6cad4797b17848c07d453dc6606917bb356a6cfe5a3abafd38c240c71b"
   license "blessing"
 
   livecheck do
@@ -13,15 +13,11 @@ class Dbhash < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "57151e9545669334e23c71992dcf574c278308b81e8fb488b1d19a65fbe5f89f"
-    sha256 cellar: :any, arm64_tahoe:       "62142af6e4ae3eabefce706e5dcf45b3c5808c3c38f6212d8384cb3b3e2bda46"
-    sha256 cellar: :any, arm64_sequoia:     "701983f5975550e14ad8e825e61b79c4792bc4431e5fea4be90075b1abee8a1f"
-    sha256 cellar: :any, arm64_sonoma:      "fa4f33c5f22b95e43a8332deb84baf63014de4204681a9f24993ced1e7220708"
-    sha256 cellar: :any, tahoe:             "16d24cdfba5151a3b92b1db684300177b1e40ee0d84b03906310b0d56ab7ba41"
-    sha256 cellar: :any, sequoia:           "57484726365426aafb623ff456581d3d7ed15490bc21bd69617ff2eba83de18e"
-    sha256 cellar: :any, sonoma:            "2cfef1b20340970feb6133a7cdf83ae1987840961b1ff3c89fbf0257cb5531f1"
-    sha256 cellar: :any, arm64_linux:       "bebd2feaed95cb8364db222b40959d3e229cf86776c6ed1047fabc53c1ac5f4f"
-    sha256 cellar: :any, x86_64_linux:      "4af0bec0ac08edb0f5eff633c2a6e87022b0bf52a87eec8cf4015af1d08a6fe1"
+    sha256 cellar: :any, arm64_golden_gate: "c990a1919fd832cc83cf43a8a7556d0b90e095fa8e3f1ecf0a84c0182cdcd9da"
+    sha256 cellar: :any, arm64_tahoe:       "41476d5c27ab7ef028dca51329eae35457d2142e53b3b0f75ec95e4976afc848"
+    sha256 cellar: :any, arm64_sequoia:     "55b4cc15061fc531b0adafdd2966e6180b7dc6ecf4a79481d89480f311aed930"
+    sha256 cellar: :any, arm64_linux:       "e43c7616bc28867722d764a3d4a7efcc6f74b344053692b947fd15176c18a9a3"
+    sha256 cellar: :any, x86_64_linux:      "43856b93646cdb800ad70f5c75650b4515592ffd7548fe3fbc2070bed2d450ab"
   end
 
   uses_from_macos "tcl-tk" => :build

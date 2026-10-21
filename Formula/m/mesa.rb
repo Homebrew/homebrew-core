@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-26.2.4.tar.xz"
-  sha256 "bce5f7fbebb934373b86c999a064d52fb5065878dc57f287f95346648ec832e9"
+  url "https://archive.mesa3d.org/mesa-26.2.5.tar.xz"
+  sha256 "794b3d1729075dae7ebd47c7283b7ca0cdb5dec668f7f11cc0a5d82f6138a0a5"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -24,11 +24,11 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
-    sha256 arm64_golden_gate: "a0b56573cf9b7662010f20160b880c6037175c37ac16e9b351d5108e1385eb7f"
-    sha256 arm64_tahoe:       "c59ffcf11d785d47cf25a14727fe96aa1781085953a4f96fd20b1992e74be433"
-    sha256 arm64_sequoia:     "4aa88fda165257c6e98efa8ed5d88e0e2eb15015c73edafee6f0b034403b65d1"
-    sha256 arm64_linux:       "4878343b91730d9c76aab1af0120e975b852f0fcb0268f1ab06931c72e574162"
-    sha256 x86_64_linux:      "6c0a5f7ce5e206f74cd9299f69f329202ce3d32b48a3f791d1a2475dfa871980"
+    sha256 arm64_golden_gate: "710f64bc7fe30d1f8b355271fbdd4e466b2ec99c6aaf5f24a0e2dfe3f76d6aad"
+    sha256 arm64_tahoe:       "f05d939a5681c706eb00eaca9deefed91b71b6a9f62536843ee88f144622b759"
+    sha256 arm64_sequoia:     "0c21ec4fa20a239b12c5490d6de9c0ce57f8d521d47408ae295587d1710d3a20"
+    sha256 arm64_linux:       "2a1547438da4741e84f2ad58d645ec2df5b4dc315998c69cb308b793a4b2e77b"
+    sha256 x86_64_linux:      "e30e9ea95ce74c4421fb8decf14105c8b8c3051ffbc315a4de2ddcabb5457814"
   end
 
   depends_on "bindgen" => :build
@@ -43,7 +43,7 @@ class Mesa < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on "rust" => :build
   depends_on "xorgproto" => :build
 
@@ -96,8 +96,8 @@ class Mesa < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "packaging" do
@@ -127,6 +127,16 @@ class Mesa < Formula
     end
   end
 
+  resource "glxgears.c", :test do
+    url "https://gitlab.freedesktop.org/mesa/demos/-/raw/a533acd00ed0b6d1beda7df0c68a59a873dba2b3/src/xdemos/glxgears.c"
+    sha256 "36376674e73fb0657fd56a3738c330b828da6731c934e2b29d75253dc02ad03b"
+  end
+
+  resource "gl_wrap.h", :test do
+    url "https://gitlab.freedesktop.org/mesa/demos/-/raw/ddc35ca0ea2f18c5011c5573b4b624c128ca7616/src/util/gl_wrap.h"
+    sha256 "41f5a84f8f5abe8ea2a21caebf5ff31094a46953a83a738a19e21c010c433c88"
+  end
+
   def install
     resource("mesa-libclc").stage do
       system "cmake", "-S", ".", "-B", "build", *std_cmake_args
@@ -142,7 +152,7 @@ class Mesa < Formula
     ENV["CLANG_PATH"] = formula_opt_bin("llvm@22")/"clang"
 
     venv = virtualenv_create(buildpath/"venv", python3)
-    venv.pip_install resources.reject { |r| r.name == "mesa-libclc" || (OS.mac? && r.name == "ply") }
+    venv.pip_install resources.reject { |r| r.test? || r.name == "mesa-libclc" || (OS.mac? && r.name == "ply") }
     ENV.prepend_path "PYTHONPATH", venv.site_packages
     ENV.prepend_path "PATH", venv.root/"bin"
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath}" if OS.mac?
@@ -219,16 +229,6 @@ class Mesa < Formula
   end
 
   test do
-    resource "glxgears.c" do
-      url "https://gitlab.freedesktop.org/mesa/demos/-/raw/a533acd00ed0b6d1beda7df0c68a59a873dba2b3/src/xdemos/glxgears.c"
-      sha256 "36376674e73fb0657fd56a3738c330b828da6731c934e2b29d75253dc02ad03b"
-    end
-
-    resource "gl_wrap.h" do
-      url "https://gitlab.freedesktop.org/mesa/demos/-/raw/ddc35ca0ea2f18c5011c5573b4b624c128ca7616/src/util/gl_wrap.h"
-      sha256 "41f5a84f8f5abe8ea2a21caebf5ff31094a46953a83a738a19e21c010c433c88"
-    end
-
     %w[glxgears.c gl_wrap.h].each { |r| resource(r).stage(testpath) }
     flags = shell_output("pkgconf --cflags --libs gl x11 xext").chomp.split
     system ENV.cc, "glxgears.c", "-o", "gears", *flags, "-lm"

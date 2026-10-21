@@ -20,6 +20,11 @@ class Marcli < Formula
 
   depends_on "go" => :build
 
+  resource "testdata", :test do
+    url "https://raw.githubusercontent.com/hectorcorrea/marcli/5434a2f85c6f03771f92ad9f0d5af5241f3385a6/data/test_1a.mrc"
+    sha256 "7359455ae04b1619f3879fe39eb22ad4187fb3550510f71cb4f27693f60cf386"
+  end
+
   allow_network_access! :test
 
   def fetch
@@ -31,11 +36,6 @@ class Marcli < Formula
   end
 
   test do
-    resource "testdata" do
-      url "https://raw.githubusercontent.com/hectorcorrea/marcli/5434a2f85c6f03771f92ad9f0d5af5241f3385a6/data/test_1a.mrc"
-      sha256 "7359455ae04b1619f3879fe39eb22ad4187fb3550510f71cb4f27693f60cf386"
-    end
-
     resource("testdata").stage do
       assert_equal "=650  \\0$aCoal$xAnalysis.\n=650  \\0$aCoal$xSampling.\n\n",
       shell_output("#{bin}/marcli -file test_1a.mrc -fields 650")

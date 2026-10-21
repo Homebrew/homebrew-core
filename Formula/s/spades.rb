@@ -14,17 +14,16 @@ class Spades < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "dec056db73fe6919ce41510840fdcf1faca9651fb0412a7877a09abfa0a4d781"
-    sha256 cellar: :any, arm64_tahoe:       "bdf15913e69de45277657602d31a5137582d99df0356e0f814b12eab9f1d65e8"
-    sha256 cellar: :any, arm64_sequoia:     "7c9c3ec945f3782af3e992a316679e343c4fe38dcb3b761a0da30614c145edab"
-    sha256 cellar: :any, arm64_sonoma:      "84af7394f22ced50172d792c4b4edbd19ce2d78f530fe2747400804a78baa586"
-    sha256 cellar: :any, sonoma:            "1013ee0e0487a8df50f53b1ec4ee12b5b1e966355da68f1e0673f6ec4033cf4e"
-    sha256 cellar: :any, arm64_linux:       "e49853f710c9f5eda53e227c76249c1bad24be496f91da4fb6398493b5980f1a"
-    sha256 cellar: :any, x86_64_linux:      "f5424a99aa7f201e5114b940c56c5f112c071b1eecbb4169ae39b626866603a1"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "9b10dd3d6fb5e845b8ec7d6c82ef6dd5429215939080f971991958e6bcc3df12"
+    sha256 cellar: :any, arm64_tahoe:       "6f043968584261307908fa06256d777c2d24afac9c8b2aea09cb9a86299d0eab"
+    sha256 cellar: :any, arm64_sequoia:     "a6c2383c796a629e2bf18a42c495351c6e4efa834c82dd765d94fd15a8301fad"
+    sha256 cellar: :any, arm64_linux:       "127fd223b1eca5ec7a6e3513b93ce1f26c8b37427c9703357c648114ea8cfa2f"
+    sha256 cellar: :any, x86_64_linux:      "2ca5c3b8032572072be3a889c7b357c3f518a3ecca2dd7d34a6e824b59bd3788"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "bzip2" => :build
 

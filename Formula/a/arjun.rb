@@ -9,11 +9,12 @@ class Arjun < Formula
   revision 8
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0b5de6cafc9fbf41b585eff65168c511a320d31dfb0635805927f57f7d23d34a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "56274ff0f58273d721180e2ac212e87dd55de677e191d004faa3afc78f562b0b"
   end
 
   depends_on "certifi"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 

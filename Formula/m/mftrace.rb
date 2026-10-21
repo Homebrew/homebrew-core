@@ -4,7 +4,7 @@ class Mftrace < Formula
   url "https://lilypond.org/downloads/sources/mftrace/mftrace-1.2.20.tar.gz"
   sha256 "626b7a9945a768c086195ba392632a68d6af5ea24ef525dcd0a4a8b199ea5f6f"
   license "GPL-2.0-only"
-  revision 2
+  revision 3
 
   livecheck do
     url :homepage
@@ -12,14 +12,11 @@ class Mftrace < Formula
   end
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0f0db3de25d32e6d82334f9967be48df26bf632843ac88ffb12a42f3ef9b5821"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2d4dbf098949319339b846a75c34f03b67e6b9288be17881dc7a958e79d76000"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "29733fe05cdd66d2cd8933ea426d6cfb64463151e1b3737e07308c77d8e3d05e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "b6ad6365585dc156c13d18d72590ba208b48291d43d023cd24d9dac509c4fb3b"
-    sha256 cellar: :any_skip_relocation, sonoma:            "bd534c47c1a7b6c0d8ede69c36d0334ea7ce6acb61b9e120cde5ce2a1ecb21e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "99a63f01ac23f29dc26b14cd63a5f51bb0cdc489d3a902e3d376ae4c64662d87"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c2f5a4759a519ac0eb0ca66dca1ce9d57d096dcd55855b00c803fa02f9921358"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "da4528de49bddc9a2f4616c55e84eeb18269341af370447d959d0e0f77fed680"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4fe5cceb3c8057226955b07e1d42166e822670ad008611a1accbb3b86afb655c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "79b3bb505a769dc684a5ce9b37295481958300d067479b36e0f10aba0517fba3"
+    sha256 cellar: :any,                 arm64_linux:       "b1920ccac7d62ed7c4c1b1dd823e01a7b78c58bd968bc015b0edfa94af66364e"
+    sha256 cellar: :any,                 x86_64_linux:      "7844372685dd1c42dea454c30c482ac329f5db2ee1b24caad8af4b6ecb5b0736"
   end
 
   head do
@@ -29,7 +26,7 @@ class Mftrace < Formula
 
   depends_on "fontforge"
   depends_on "potrace"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "t1utils"
 
   # Fixed in https://github.com/hanwen/mftrace/pull/14

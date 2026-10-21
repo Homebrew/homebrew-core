@@ -1,17 +1,18 @@
 class SingBox < Formula
   desc "Universal proxy platform"
   homepage "https://sing-box.sagernet.org"
-  url "https://github.com/SagerNet/sing-box/archive/refs/tags/v1.14.2.tar.gz"
-  sha256 "67dd8f8c37ecaaadcfcafad1f0827eed4b034c963b86fd3aa5c0d7a36876845d"
+  url "https://github.com/SagerNet/sing-box/archive/refs/tags/v1.14.3.tar.gz"
+  sha256 "9a8e3712a5f611ad95f1d16874bbdcdffbd3b8eed16dae2d71ce7042a33c3386"
   license "GPL-3.0-or-later"
   head "https://github.com/SagerNet/sing-box.git", branch: "testing"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f9e19527e4b1e52bc6194c2e883d4c9a9a023f1feb19ca5873a0388bdf991483"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "36335bcef03bb489b1b5f2cd20322590878e69be4e3ceb70124bab0d0eba3328"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "deb719bbcb56cd757b9515a4726159bad0fa5946b761c6b3d6b3e3e171b98b17"
-    sha256 cellar: :any,                 arm64_linux:       "e66d868747019db971f5b94915d80ebbd2b86fa2cab8c6c837aeb9ef3e57aa54"
-    sha256 cellar: :any,                 x86_64_linux:      "b3d478c23c196886b96e81f3ee8d7dcad6b4b60d4c65781dd09b22bdf5498488"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "11f1a8aae4492a19c67e3ccda1e0f31adb990585377b6901a15023bcf7ebfbe6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "59e406755f0171fc95337afc9a51d22cb80c798531acf6724c8168730c075702"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "781ce4d99d5e755a25fcc925354770bc0e0091820faf360a01aaee7f8459acdf"
+    sha256 cellar: :any,                 arm64_linux:       "1f4df3f9502dc03fdd199fa5bc495260210303e0a3b6001ea698079223c71406"
+    sha256 cellar: :any,                 x86_64_linux:      "1298b232dcfbce1e40b17ebc32ffa4afc33ce24ef9c28ef6b4fc37258d021869"
   end
 
   # TODO: unpin go@1.26 when sing-box supports go 1.27
@@ -19,7 +20,7 @@ class SingBox < Formula
   depends_on "go@1.26" => :build
   depends_on "llvm" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.14" => :build # extract_histograms.py fails with macOS python
+  depends_on "python@3.15" => :build # extract_histograms.py fails with macOS python
 
   on_macos do
     depends_on xcode: :build # for xcodebuild
@@ -75,6 +76,8 @@ class SingBox < Formula
     end
   end
 
+  allow_network_access! :build
+
   def install
     resource("cronet-go").stage("cronet-go")
     resource("gn").stage("cronet-go/naiveproxy/src/gn")
@@ -114,54 +117,12 @@ class SingBox < Formula
   end
 
   test do
-    ss_port = free_port
-    (testpath/"shadowsocks.json").write <<~JSON
-      {
-        "inbounds": [
-          {
-            "type": "shadowsocks",
-            "listen": "::",
-            "listen_port": #{ss_port},
-            "method": "2022-blake3-aes-128-gcm",
-            "password": "8JCsPssfgS8tiRwiMlhARg=="
-          }
-        ]
-      }
-    JSON
-    server = spawn bin/"sing-box", "run", "-D", testpath, "-c", testpath/"shadowsocks.json"
+    rules = [{ "domain" => "example.com", "ip_cidr" => "192.0.2.0/24" }]
+    (testpath/"rules.json").write JSON.generate({ "version" => 2, "rules" => rules })
 
-    sing_box_port = free_port
-    (testpath/"config.json").write <<~JSON
-      {
-        "inbounds": [
-          {
-            "type": "mixed",
-            "listen": "::",
-            "listen_port": #{sing_box_port}
-          }
-        ],
-        "outbounds": [
-          {
-            "type": "shadowsocks",
-            "server": "127.0.0.1",
-            "server_port": #{ss_port},
-            "method": "2022-blake3-aes-128-gcm",
-            "password": "8JCsPssfgS8tiRwiMlhARg=="
-          }
-        ]
-      }
-    JSON
-    system bin/"sing-box", "check", "-D", testpath, "-c", "config.json"
-    client = spawn bin/"sing-box", "run", "-D", testpath, "-c", "config.json"
-
-    begin
-      sleep 3
-      system "curl", "--socks5", "127.0.0.1:#{sing_box_port}", "github.com"
-    ensure
-      Process.kill "TERM", server
-      Process.kill "TERM", client
-      Process.wait server
-      Process.wait client
-    end
+    system bin/"sing-box", "rule-set", "compile", "rules.json", "--output", "rules.srs"
+    assert_equal "SRS", (testpath/"rules.srs").binread(3)
+    system bin/"sing-box", "rule-set", "decompile", "rules.srs", "--output", "roundtrip.json"
+    assert_equal rules, JSON.parse((testpath/"roundtrip.json").read)["rules"]
   end
 end

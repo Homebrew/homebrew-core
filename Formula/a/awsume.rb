@@ -7,17 +7,16 @@ class Awsume < Formula
   url "https://github.com/trek10inc/awsume/archive/refs/tags/4.5.5.tar.gz"
   sha256 "33946d1dbd62394024b1d11c09aeb1eb566981b99e0d8eed5255b948e74ccebc"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/trek10inc/awsume.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "c12164915da3176960ba9654be3cf2085fb3f5e0e328d27f17463a198f532812"
-    sha256 cellar: :any,                 arm64_tahoe:       "912c294f4270cad32ba129a55ad7de6f297a22fcc7af22a62eddeacf4b6e2d46"
-    sha256 cellar: :any,                 arm64_sequoia:     "85513d3816f52eb95a95979227e54763f8f8c977c29910155f41d80169481dcc"
-    sha256 cellar: :any,                 arm64_sonoma:      "06bb905c74719049654e9a9c8c68cd6ff3d284baa2274049b9a48377826ed9d5"
-    sha256 cellar: :any,                 sonoma:            "b154b5ef67b65108428650e7b3d644a25b84d3c2cc448faa877599468cb5be47"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a750c88a9b764ab55a9ad12c108a422846955f417332ed9c95b4032755938a66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "35d320dcce1421dab098f6a23f083b3d740a82d67a992db3242778fa48cccf60"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "af78cb0c83bc75400956e97603400ce0ade2f6de01db4ae1785c688b58a779a9"
+    sha256 cellar: :any, arm64_tahoe:       "a81ceb553ac9409547c59d070bd68b1c64b6c1f19d84900e386c26604398fc4c"
+    sha256 cellar: :any, arm64_sequoia:     "a13aa72b6bb24485d4073eaf156a6b0bf7fd4d56c6f2941e54e90b5dbfaaebe3"
+    sha256 cellar: :any, arm64_linux:       "30c8e3fb89ad78901d2c132faa4d3cbc9ce57fdbbf9e5b7c30238a895cb516b1"
+    sha256 cellar: :any, x86_64_linux:      "14dd52a12ed8466386ddbb196dd6b3033dc2231d6af221cf20930b1fca18b8e6"
   end
 
   # https://github.com/trek10inc/awsume/blob/master/README.md
@@ -25,18 +24,18 @@ class Awsume < Formula
   disable! date: "2027-09-11", because: :deprecated_upstream, replacement_formula: "awscli"
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "sqlite"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/0a/37/78c630d1308964aa9abf44951d9c4df776546ff37251ec2434944e205c4e/boto3-1.43.6.tar.gz"
-    sha256 "e6315effaf12b890b99956e6f8e2c3000a3f64e4ee91943cec3895ce9a836afb"
+    url "https://files.pythonhosted.org/packages/a9/6e/fe973c8ce8fe4f59d6df6128600b9cc7c4ed75788bed5f5f615f88379529/boto3-1.43.110.tar.gz"
+    sha256 "0251b67d99cc0e7b958db48e7dd149094d453377fcd03299fde7329f975db2e6"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/79/a7/23d0f5028011455096a1eeac0ddf3cbe147b3e855e127342f8202552194d/botocore-1.43.6.tar.gz"
-    sha256 "b1e395b347356860398da42e61c808cf1e34b6fa7180cf2b9d87d986e1a06ba0"
+    url "https://files.pythonhosted.org/packages/a7/d8/7a2320aabf1b1e62580e990f8a52760e396f4ec56e3ebcbce07d23acc031/botocore-1.43.110.tar.gz"
+    sha256 "888cd54d59502e2195dac30805e5c08dd1be5416932a3793373e81b8f463e006"
   end
 
   resource "colorama" do
@@ -70,8 +69,8 @@ class Awsume < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/9b/ec/7c692cde9125b77e84b307354d4fb705f98b8ccad59a036d5957ca75bfc3/s3transfer-0.17.0.tar.gz"
-    sha256 "9edeb6d1c3c2f89d6050348548834ad8289610d886e5bf7b7207728bd43ce33a"
+    url "https://files.pythonhosted.org/packages/76/43/35e4d8aa320bffe8287fe8f65f578fa2d2db0a64212f0e710dce58267854/s3transfer-0.19.2.tar.gz"
+    sha256 "ba0309fd86be3c27dbf78cdd813c13c5e1df16e5874b99d2535ebbdfb9892993"
   end
 
   resource "six" do
@@ -80,8 +79,8 @@ class Awsume < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
-    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
+    url "https://files.pythonhosted.org/packages/e3/05/b17359e1cefb4f909b5e40b1b90a496d987258916dbbf88e842c729f510e/urllib3-2.8.0.tar.gz"
+    sha256 "63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63"
   end
 
   def install

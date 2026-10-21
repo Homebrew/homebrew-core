@@ -4,19 +4,16 @@ class Fontforge < Formula
   url "https://github.com/fontforge/fontforge/releases/download/20251009/fontforge-20251009.tar.xz"
   sha256 "69046500185a5581b58139dfad30c0b3d8128f00ebbfddc31f2fcf877e329e52"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   compatibility_version 1
   head "https://github.com/fontforge/fontforge.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "62b8732ffdaa5b2ea42db80347a51e2eef3fa881a16b67f092b396f9b784e4f5"
-    sha256 arm64_tahoe:       "fe4e8adc42c7763ed1e006c2966beea83baf6c012820391715a41cb8cd5af442"
-    sha256 arm64_sequoia:     "ea285c6bf59a9bcffdd24fbe0ae422c863b1eb0156015942ca1b76437291a424"
-    sha256 arm64_sonoma:      "33997a1a5250790fd7e9df618d66ae2ba515b7739908423dbffa55141b984c7f"
-    sha256 sonoma:            "b4603144bfe427dd67a0aa3a6d28d0bd77f4f7d074d95f538330b783027f7aec"
-    sha256 arm64_linux:       "423e7dc51a951f9a5fff4693b96e8ee4bf542d3d7645e099244774f76b9fa015"
-    sha256 x86_64_linux:      "8ce74cd480cd362e588066468c776c16ecbf48a967fe51fb769caa4db8837832"
+    sha256 arm64_golden_gate: "a8ff8c423ea70084dc6a4aa283a02218a886c178651d279d6145561ce02b890e"
+    sha256 arm64_tahoe:       "948b9316231286de096b7eb1280d76f4acd95dc7b16022778779f033fa7f9e68"
+    sha256 arm64_sequoia:     "0aa8a1eefb610f88d69df38272c31586fc08cec9a417218cfc1bf062cb6fe569"
+    sha256 arm64_linux:       "5e9c304c85c9205f09d0898d7fd5d8fac554ae18f6fc3758f4ff349ef0e9c9a2"
+    sha256 x86_64_linux:      "4152ba5e970bc9a9aa2e4118dc379989c674d218b4d70be33ab21a36749833d6"
   end
 
   depends_on "cmake" => :build
@@ -36,7 +33,7 @@ class Fontforge < Formula
   depends_on "libtool"
   depends_on "libuninameslist"
   depends_on "pango"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "readline"
   depends_on "woff2"
 
@@ -49,6 +46,11 @@ class Fontforge < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  resource "homebrew-testdata", :test do
+    url "https://raw.githubusercontent.com/fontforge/fontforge/1346ce6e4c004c312589fdb67e31d4b2c32a1656/tests/fonts/Ambrosia.sfd"
+    sha256 "6a22acf6be4ab9e5c5a3373dc878030b4b8dc4652323395388abe43679ceba81"
   end
 
   allow_network_access! :test
@@ -81,11 +83,6 @@ class Fontforge < Formula
   end
 
   test do
-    resource "homebrew-testdata" do
-      url "https://raw.githubusercontent.com/fontforge/fontforge/1346ce6e4c004c312589fdb67e31d4b2c32a1656/tests/fonts/Ambrosia.sfd"
-      sha256 "6a22acf6be4ab9e5c5a3373dc878030b4b8dc4652323395388abe43679ceba81"
-    end
-
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
     system python3, "-c", "import fontforge; fontforge.font()"

@@ -1,8 +1,8 @@
 class Hl < Formula
   desc "Fast and powerful log viewer and processor"
   homepage "https://github.com/pamburus/hl"
-  url "https://github.com/pamburus/hl/archive/refs/tags/v0.36.3.tar.gz"
-  sha256 "941780a2830f236037b9732c272e1ce2127a05191f257ce11e47b7a483414f3a"
+  url "https://github.com/pamburus/hl/archive/refs/tags/v0.36.4.tar.gz"
+  sha256 "ff4420d0529f490e4e953c037f62ef05b73b9d900a7a5492049f32f0b90b648e"
   license "MIT"
   head "https://github.com/pamburus/hl.git", branch: "master"
 
@@ -12,16 +12,20 @@ class Hl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dab889ba7f76991b5f0c3ea7d482c003adf2576e7932ee850fde84be9aeee539"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3d206ff6a7d0fc54233ff8b2591778fc27994dc8e4e6b55926d6724031f21d87"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b2bbd782bd830e4c358cf3db5a977bbfcb17b8455a9848f8cbaa939b157f5e92"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "259c6bc536b8424f42992f7aefa2134b4885d60f036973d2ff66d30f69992c72"
-    sha256 cellar: :any_skip_relocation, sonoma:            "c8ae8f7d0fec73c94aea2d2dc693d282428a968046492a6bee71de24d6ba1a4f"
-    sha256 cellar: :any,                 arm64_linux:       "0e5c9cedf3d9451103990fc4873654fe75fee9319af9e3bb9a8ae629a6385752"
-    sha256 cellar: :any,                 x86_64_linux:      "8b54b4ba3bc60f9a356e5f60ec88e2b6dcb32d11124c71540ce7fe234aba95d2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6d796a0df1ff8dbc8dd93db584c196b6e37433aa230848ce51e3e114a4693150"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "71cf9fba5197ace28d27bb3f7adea55f53d2362589323b8d66211fefedc4dba5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2ac29c584f18bb6ca9371e35aaa83a5fe450b72ae854f0d0d0addd690c4b49ac"
+    sha256 cellar: :any,                 arm64_linux:       "1f1c0635418a3bc7843ba47091cd50bcef64961a6c883d42f26043da438ac5c0"
+    sha256 cellar: :any,                 x86_64_linux:      "3908316e2828e5ba791529fa769aa752b68185cace2e428bd927b4f9a74f6c72"
   end
 
   depends_on "rust" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

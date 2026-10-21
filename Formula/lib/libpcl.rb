@@ -33,11 +33,37 @@ class Libpcl < Formula
     file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
   end
 
+  deny_network_access!
+
   def install
     args = []
     args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <stdio.h>
+      #include <pcl.h>
+
+      static void set_value(void *data) {
+        *(int *)data = 42;
+        co_exit();
+      }
+
+      int main(void) {
+        int value = 0;
+        coroutine_t co = co_create(set_value, &value, NULL, 32768);
+        if (co == NULL) return 1;
+        co_call(co);
+        printf("%d\\n", value);
+        return 0;
+      }
+    C
+
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lpcl", "-o", "test"
+    assert_equal "42", shell_output("./test").strip
   end
 end

@@ -8,16 +8,15 @@ class Topydo < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "beaa4963779dc6da7ad7f03f0c5b5f924409c4f5a6ccdee616ca237dc90987f4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0f4329353c1d1fb2e9b6d08296304d03763fe1a3339626fa2aeaaf4d85d09b72"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b2ab91f9a1c6d364941ea3917da7176cd447d496cf37776fec1bd0680aef74b2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "98b6180f111937e21f5b7b625cda75146db1fe661af6a8687912e2fbc73430bb"
-    sha256 cellar: :any_skip_relocation, sonoma:            "996cc264fc9ff19db29b8b7355585a79d9451ca4bb2e73ff0076eac88b35eb9d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3285119c254079b0d9e1ea4080664c4bc08e7f819734b34544dc8cdef70f8dda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3285119c254079b0d9e1ea4080664c4bc08e7f819734b34544dc8cdef70f8dda"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ee3d2caa07f71f9585f4850d01aa020e885c3ece283fc4943e1d6365e33348dd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dd553ebd8c646ddcb106a464e66fee328e12b0db2c438f6f08a55398eac6b13c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a4d59de15cf6a613c9cf6ddac886af59cf3ecfcd204510fd89f72984ff05250f"
+    sha256 cellar: :any,                 arm64_linux:       "7dfcb8032a896db0b7e756fc944da3f83afd102eb939fff96bfa84fc3a445fff"
+    sha256 cellar: :any,                 x86_64_linux:      "bf1c64561f785f39151031b5250bc8d6ce27ace5670b673ea83290d935f45ea7"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name: "topydo[columns,prompt]"
 
@@ -27,8 +26,8 @@ class Topydo < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/a1/96/06e01a7b38dce6fe1db213e061a4602dd6032a8a97ef6c1a862537732421/prompt_toolkit-3.0.52.tar.gz"
-    sha256 "28cde192929c8e7321de85de1ddbe736f1375148b02f2e17edd840042b1be855"
+    url "https://files.pythonhosted.org/packages/7d/ea/39b988c938f75cb75d7045b5c69f8bfed47ee2152c8837fb403de29d6fb8/prompt_toolkit-3.0.53.tar.gz"
+    sha256 "9ec8a0ad96d5c56148b3f914aa79c1564c3fde5d2e6b876e7bc327e353cf8fa6"
   end
 
   resource "python-dateutil" do
@@ -41,14 +40,19 @@ class Topydo < Formula
     sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
+  end
+
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/5e/a7/c202b344c5ca7daf398f3b8a477eeb205cf3b6f32e7ec3a6bac0629ca975/tzdata-2025.3.tar.gz"
-    sha256 "de39c2ca5dc7b0344f2eba86f49d614019d29f060fc4ebc8a417896a620b56a7"
+    url "https://files.pythonhosted.org/packages/d9/68/f1b440335057bfce71b6e50a9d09445aa2ecbd08359a337976627b8409e7/tzdata-2026.5.tar.gz"
+    sha256 "8cc73c0a0bfca7dbfa59235d60b2eff82231dee33f53d206db1acd9173cfc0a7"
   end
 
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/b1/59/67cd42db7c549c0c106d2b56d2d2ec1915c459e0a92722029efc5359e871/urwid-3.0.5.tar.gz"
-    sha256 "24be27ffafdb68c09cd95dc21b60ccfd02843320b25ce5feee1708b34fad5a23"
+    url "https://files.pythonhosted.org/packages/3a/df/eb5dcbdf1638c38618096382b4a30b0423ed7d2aac97fd9469b51d6de43f/urwid-4.2.5.tar.gz"
+    sha256 "a1fea3a551953fae4e6b727536334233bbb8b88c45230bc91d9751b402a8c16d"
   end
 
   resource "watchdog" do
@@ -57,8 +61,8 @@ class Topydo < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
-    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

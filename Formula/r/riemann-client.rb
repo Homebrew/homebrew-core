@@ -6,20 +6,15 @@ class RiemannClient < Formula
       tag:      "riemann-c-client-2.2.2",
       revision: "36cf5cde0648c8ae953f7636bedbf6fab02d58ef"
   license "EUPL-1.2"
+  revision 1
   head "https://git.madhouse-project.org/algernon/riemann-c-client.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "08a46a838f1e611f202ffaa67ad343bcbfee4c34fbba5367f0c42a29e405f93b"
-    sha256 cellar: :any,                 arm64_tahoe:       "c90018c4763d88af535cdb0bdc4ac02c6f40ed9a26b41105c48bb75714f5cf8e"
-    sha256 cellar: :any,                 arm64_sequoia:     "7c56837d9a12fad1b4c18ad219db98ff49775244355c29a797e40e8124d1ce78"
-    sha256 cellar: :any,                 arm64_sonoma:      "4116feb76d22357c68e8c5a08ffef422c0e01c3b60aabeef4e3b4f05839a62a6"
-    sha256 cellar: :any,                 arm64_ventura:     "b3507667a57c0d40ae48bab7c5e9dcf08cb0e17030a20b3f3d746973bbb8193e"
-    sha256 cellar: :any,                 arm64_monterey:    "a8afc4ddc4a4081a00908f94189611a642eb9cbf6419b41bef7db291960ad250"
-    sha256 cellar: :any,                 sonoma:            "426da29c687af12a8f693ad486f02a4fb7a1f6cca60416bb6715a536c5d62ffb"
-    sha256 cellar: :any,                 ventura:           "8bd9e8528e663ba4aab929be622df0830433aa554c0c133e131350d507c3f539"
-    sha256 cellar: :any,                 monterey:          "6dac6669b4d4b2fd9af0bde77fcd4ae7e5187ec8801eb0e26b7fa8796f8b3e1a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c15ce11aff7a4925e518713074b6fc53c8746eef3efc5540dc975ca83a026147"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "fc7736635610401fa99e4911155329f537c997b57d218821538f0e6b8b212111"
+    sha256 cellar: :any, arm64_golden_gate: "2e70c2d1cf344a868f00c4becb77522d02cefbd29f26065bb13d0262728e08b1"
+    sha256 cellar: :any, arm64_tahoe:       "08a1843e189bd5d712a548acb00fbd65ed8a3b5860cfc97450bc6f83468072a0"
+    sha256 cellar: :any, arm64_sequoia:     "a86f02ef998ec3675abcffb7d34b6d5e9a9322d0b2c2d440b4dbac689233a5b2"
+    sha256 cellar: :any, arm64_linux:       "0c2b3e6d998e21a01c99e69b2b2ff5f67bc272ee85cd505a02973c7d2f51fa7b"
+    sha256 cellar: :any, x86_64_linux:      "a66c25c2c783bf2a638d99da67945f98811d26e55540401a0ec775c28621a6eb"
   end
 
   depends_on "autoconf" => :build
@@ -28,7 +23,7 @@ class RiemannClient < Formula
   depends_on "pkgconf" => :build
 
   depends_on "json-c"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf-c"
 
   def install

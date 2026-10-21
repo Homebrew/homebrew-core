@@ -23,11 +23,18 @@ class CmuPocketsphinx < Formula
 
   depends_on "cmake" => :build
 
+  deny_network_access!
+
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
                                               "-DBUILD_SHARED_LIBS=ON",
                                               "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", "--build", "build"
     system "cmake", "--build", "build", "--target", "install"
+  end
+
+  test do
+    output = shell_output("#{bin}/pocketsphinx single #{test_fixtures("test.mp3")} 2>&1")
+    assert_match "{\"b\":0.000,\"d\":0.020,\"p\":1.000,\"t\":\"\",\"w\":[]}", output
   end
 end

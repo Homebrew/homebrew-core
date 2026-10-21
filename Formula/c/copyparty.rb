@@ -3,16 +3,16 @@ class Copyparty < Formula
 
   desc "Portable file server"
   homepage "https://github.com/9001/copyparty"
-  url "https://files.pythonhosted.org/packages/09/e0/8a141a0e4d1ff512e3330de5c2eae9e94484956fea4d3a1d1834e1e0fa10/copyparty-1.20.24.tar.gz"
-  sha256 "95dcf932dc04dd773921d1d1aace35a58912cbe7f9b9081e9ee66e0fca54d8ff"
+  url "https://files.pythonhosted.org/packages/5d/c7/135022ae843a8ad8b96212b4d0616826b07a3052edeee3533cebcee1d248/copyparty-1.20.26.tar.gz"
+  sha256 "6ecf20b612e1e59f2fce54ee31fb47278747769036504c21720e75b5d2799725"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "df9b7c8f3fa9bb61b287bc17a7b149e7bbb32432422b88ebf0c79c033fb72be4"
-    sha256 cellar: :any, arm64_tahoe:       "dbf673e4b9708a75ee3cbd100c994c5322236f257ad36a03d0f3e6f7e553a998"
-    sha256 cellar: :any, arm64_sequoia:     "90acfabfae7de2ce74c14620405eca9ee961305ff2dd77e2d9687ac60f28e51f"
-    sha256 cellar: :any, arm64_linux:       "26455d6880c3e63365bfd7fc3ed086e26c0f28f3c6fc3eebb7081b1256cfca15"
-    sha256 cellar: :any, x86_64_linux:      "baa314448e7310d36894559e91c757329492820967cf8e91dc43c12633eebe5c"
+    sha256 cellar: :any, arm64_golden_gate: "6755778132e90472c274f14269a315baeb3ed6bb0b106769aedf85b7ed443ca0"
+    sha256 cellar: :any, arm64_tahoe:       "bc139eeb073f218ff6a75e91925f3b1acf682f19a5e3fa896b072db31762d774"
+    sha256 cellar: :any, arm64_sequoia:     "761eea76a89dc526a952c699da713eece96f352f02193ba9374722024c2565c3"
+    sha256 cellar: :any, arm64_linux:       "35ad8ae234871581893dc972a9eef850f3ccab97c3e16e9e9aadf06d1daf083e"
+    sha256 cellar: :any, x86_64_linux:      "868ff12964bb6ca6e68ea103eb5164ad8e99f874860d3ec06993b1f5ae8abd05"
   end
 
   # `pkgconf` and `rust` are for bcrypt
@@ -23,7 +23,7 @@ class Copyparty < Formula
   depends_on "cryptography" => :no_linkage
   depends_on "libsodium"
   depends_on "pillow" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "zeromq"
 
   on_macos do
@@ -61,8 +61,8 @@ class Copyparty < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "paramiko" do

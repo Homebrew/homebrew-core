@@ -8,11 +8,12 @@ class Imgp < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "25a228f3fc9be51282ff36029fda1322123215aaa46edede5163a1a31b8156bf"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "0cd08bc8a29bfaa490333b1ecd1053c0232d71548430c84ca931005e8583948b"
   end
 
   depends_on "pillow"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "pillow"
 

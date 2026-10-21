@@ -1,19 +1,23 @@
 class OpenclawCli < Formula
   desc "Your own personal AI assistant"
   homepage "https://openclaw.ai/"
-  url "https://registry.npmjs.org/openclaw/-/openclaw-2026.9.6.tgz"
-  sha256 "1a7355691bc0e605222ba818f1f72c1787253c78dfeb0df6be2086ec73b71e63"
+  url "https://registry.npmjs.org/openclaw/-/openclaw-2026.10.5.tgz"
+  sha256 "dbb1bdcf2346292e25f672822b6a9928c234909abe6fee0df5fc4556e769d40e"
   license "MIT"
 
   bottle do
-    sha256                               arm64_golden_gate: "e8858f7545642cdb690bd41e969038f17109a0f836de084228fba24968404cc2"
-    sha256                               arm64_tahoe:       "e8858f7545642cdb690bd41e969038f17109a0f836de084228fba24968404cc2"
-    sha256                               arm64_sequoia:     "e8858f7545642cdb690bd41e969038f17109a0f836de084228fba24968404cc2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f12b351b557421c1e7cca67b80a7a5b0729a1b2823902e9af2f774685e653b03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "69307aabd207912a0dde333e81f9c6ce4e62e818628decbf857c754ed427ff45"
+    sha256               arm64_golden_gate: "97e89a10470b2f159b8c818848df1d9d410f8827cc74f96b1b2d1c9a27f28972"
+    sha256               arm64_tahoe:       "97e89a10470b2f159b8c818848df1d9d410f8827cc74f96b1b2d1c9a27f28972"
+    sha256               arm64_sequoia:     "97e89a10470b2f159b8c818848df1d9d410f8827cc74f96b1b2d1c9a27f28972"
+    sha256 cellar: :any, arm64_linux:       "31ee10e0b663cef9f7da3e5f2d4bee079cadaf04b004f28f59d3ee6a32a43d2a"
+    sha256 cellar: :any, x86_64_linux:      "188ac1094114361cd847a2f7846e41e860385fde8d8386312d9eb11f41bcdc55"
   end
 
   depends_on "node"
+
+  on_linux do
+    depends_on "libxcb"
+  end
 
   def install
     system "npm", "install", *std_npm_args
@@ -51,6 +55,9 @@ class OpenclawCli < Formula
       basename = dir.basename.to_s
       rm_r(dir) if basename != "#{os}-#{arch}"
     end
+
+    # Rebuild the X11 clipboard helper against our `libxcb`
+    system "bash", node_modules/"@earendil-works/pi-tui/native/linux/build.sh" if OS.linux?
 
     # koffi binaries moved to `@koromix/koffi-*`, which also ships a musl build
     node_modules.glob("@koromix/koffi-*/*").each do |dir|

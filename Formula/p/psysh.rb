@@ -11,8 +11,10 @@ class Psysh < Formula
 
   depends_on "php"
 
+  deny_network_access!
+
   def install
-    bin.install "psysh" => "psysh"
+    bin.install "psysh"
   end
 
   test do

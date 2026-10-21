@@ -9,25 +9,26 @@ class Conan < Formula
   head "https://github.com/conan-io/conan.git", branch: "develop2"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "09aa61ac3f1ab848754392aa3947a50fe362a531fad58d22de34e0bb1d669c58"
-    sha256 cellar: :any, arm64_tahoe:       "5a5ccf3c316c16f8e69a172d2b165901f0e70580a63a1dfbf789c5ec6c9a323b"
-    sha256 cellar: :any, arm64_sequoia:     "9174e7614912cf3c3321bd485d68b7dd23a12c0d73720f0b269699b3e9fbec96"
-    sha256 cellar: :any, arm64_linux:       "65833dbaf8da82f9b2f9f81ca66684e25c29698f756eb78f5e61f3be5da220aa"
-    sha256 cellar: :any, x86_64_linux:      "9f392590f8fac53fa0c3c5132c749a00e4f761f2e22860a9ab21ab6f168b0253"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "e08564f8466e954141e0adeac13837804db719e56ff2851de38fbf699657ea77"
+    sha256 cellar: :any, arm64_tahoe:       "1900764748d8cd5c81aab68b6ee68ff5e6a38da1bfb2ad2d0266fcaae9b67d25"
+    sha256 cellar: :any, arm64_sequoia:     "159e76807addd401c97ee3b81b9faa61d6e0e15422919a3504d66380514800fe"
+    sha256 cellar: :any, arm64_linux:       "55b38b78ad724079942dd51b0c319a72b786e71b1a2cc51efe59009cfbb707d7"
+    sha256 cellar: :any, x86_64_linux:      "73fce0102f98e78ddcda45ac96130c6a44f3c4f91b4071877cad80d19e914556"
   end
 
   depends_on "pkgconf" => :build
   depends_on "cmake" => :test
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi",
                 extra_packages:   "distro"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "colorama" do
@@ -56,8 +57,8 @@ class Conan < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "patch-ng" do

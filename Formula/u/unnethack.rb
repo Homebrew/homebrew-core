@@ -60,6 +60,8 @@ class Unnethack < Formula
   # directory for temporary level data of running games
   skip_clean "var/unnethack/level"
 
+  deny_network_access!
+
   def install
     # Workaround for newer Clang. Fixed in HEAD but requires large patch
     # Ref: https://github.com/UnNetHack/UnNetHack/commit/00dd95ccad390e72d6a4fb2e058df48ed509b564
@@ -72,22 +74,33 @@ class Unnethack < Formula
     version_specific_directory = "#{var}/unnethack/#{version}"
 
     args = [
-      "--prefix=#{prefix}",
       "--with-owner=#{`id -un`}",
       # common xlogfile for all versions
       "--enable-xlogfile=#{var}/unnethack/xlogfile",
       "--with-bonesdir=#{version_specific_directory}/bones",
       "--with-savesdir=#{version_specific_directory}/saves",
-      "--enable-wizmode=#{`id -un`}",
+      "--enable-wizmode=#{Utils.safe_popen_read("id", "-un")}",
     ]
     args << "--with-group=admin" if OS.mac?
     # Help old config scripts identify arm64 linux
     args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm64?
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     ENV.deparallelize # Race condition in make
 
     # disable the `chgrp` calls
     system "make", "install", "CHGRP=#"
+  end
+
+  test do
+    assert_match "UnNetHack Version #{version}", shell_output("#{bin}/unnethack --version")
+
+    # Reads the installed record file (prints "Cannot open record file!" if missing)
+    output = shell_output("#{bin}/unnethack -s all")
+    assert_match "Cannot find any current entries for all", output
+    refute_match "Cannot open record file", output
+
+    # The wrapper script installs the default config into $HOME
+    assert_path_exists testpath/".unnethackrc"
   end
 end

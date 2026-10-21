@@ -4,6 +4,7 @@ class Sapling < Formula
   url "https://github.com/facebook/sapling/archive/refs/tags/0.2.20260929-102736+288e0c2d.tar.gz"
   sha256 "7a6d3cf76ad2f215946870c28c779fe31b1c514ef23060ff9db1b844c5bc0f74"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/facebook/sapling.git", branch: "main"
 
   livecheck do
@@ -15,11 +16,11 @@ class Sapling < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_golden_gate: "f09e3562175b89ad384e025793fac8320f796026f011aee2cf5a18fed6b68f85"
-    sha256 arm64_tahoe:       "88dd0e3f822d70fab258082209cc5297d38630765aad7eeacd4ed9a0b4b48bfd"
-    sha256 arm64_sequoia:     "f2e84d464c9ac2056205ebfd0c0c1cb66c0a144eba568f9b5b77fbc016533f3f"
-    sha256 arm64_linux:       "647f8ad6a84bb45c9463078d4104c4dc5286d49f72eedb13ad9efc74ad1a34d5"
-    sha256 x86_64_linux:      "5397bb56198c600fb6606309fbe1c233335926a3920dce34b65523103b399442"
+    sha256 arm64_golden_gate: "ba32b884d69e5078f72d931c93511539bda38dda5d0648fd24bf28ab7c481f1b"
+    sha256 arm64_tahoe:       "056a341290c87c9701c097d2565720e590271e985848ad82a513e7a5803c9545"
+    sha256 arm64_sequoia:     "ff5ffda876f4f7770d93fe11a20d1e7882044a4e177021458d622472234ce4c3"
+    sha256 arm64_linux:       "df7fe73cb2551e32c329efdb04d25e18637bb5c75ef90f3e8ff364352c0e1ec5"
+    sha256 x86_64_linux:      "14c9e0cd884f843cbb7319d2d7cf983e62c0049ed8f5695b0c17aedc1f9c9e00"
   end
 
   depends_on "cmake" => :build
@@ -30,8 +31,8 @@ class Sapling < Formula
   depends_on "gh"
   depends_on "libssh2"
   depends_on "node"
-  depends_on "openssl@3"
-  depends_on "python@3.13"
+  depends_on "openssl@4"
+  depends_on "python@3.13" # remove from versioned_dependencies_conflicts_allowlist when using Python 3.14+
 
   uses_from_macos "llvm" => :build # for libclang
   uses_from_macos "bzip2"
@@ -92,7 +93,7 @@ class Sapling < Formula
     end
 
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
     ENV["PYTHON_SYS_EXECUTABLE"] = ENV["PYO3_PYTHON"] = python3
     ENV["SAPLING_VERSION"] = if build.stable?
       version
@@ -122,8 +123,8 @@ class Sapling < Formula
 
     dylibs = [
       formula_opt_lib("libssh2")/shared_library("libssh2"),
-      formula_opt_lib("openssl@3")/shared_library("libssl"),
-      formula_opt_lib("openssl@3")/shared_library("libcrypto"),
+      formula_opt_lib("openssl@4")/shared_library("libssl"),
+      formula_opt_lib("openssl@4")/shared_library("libcrypto"),
     ]
     dylibs << (formula_opt_lib("curl")/shared_library("libcurl")) if OS.linux?
 

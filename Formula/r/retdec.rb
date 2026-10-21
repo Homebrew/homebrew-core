@@ -31,12 +31,12 @@ class Retdec < Formula
   end
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any, arm64_golden_gate: "17c5462b65773fc080af01f01e90fc4dd3267390ef12e579ec9bde1991d45409"
-    sha256 cellar: :any, arm64_tahoe:       "cd4ac1ca4d48b061f06ef61111e4c95b80a913ec46cebc648f605f586f8d6946"
-    sha256 cellar: :any, arm64_sequoia:     "60b35fe2f60234a92b7091220503bbb91e660a8a3e9ef9cc290ee8247348ac84"
-    sha256 cellar: :any, arm64_linux:       "bbd5f16f1edeb18880cad175fbcaf728401adec9e4e0515d3f8759b333e05b77"
-    sha256 cellar: :any, x86_64_linux:      "48986bb64e250106c9327faa4d7a028daf542bc51b6ab53273b1c761896cc06d"
+    rebuild 6
+    sha256 cellar: :any, arm64_golden_gate: "e2d2033c9881b746e559a0f55e9a0e329ce2f8fcd7bedbfb71227127a3718160"
+    sha256 cellar: :any, arm64_tahoe:       "2400a33b1c689d213f33675c18155b99f601900aaadf372eb33bc8ba91b06188"
+    sha256 cellar: :any, arm64_sequoia:     "5ef8b4f7b6e4bcfb059265b55f71c79005a09c9ea4cebb99c9acc4c09623bfbe"
+    sha256 cellar: :any, arm64_linux:       "27824f581bf138fb89c444cc054e60e44dcc6e344df2e6aaa0c883d71e88f8ec"
+    sha256 cellar: :any, x86_64_linux:      "21715e61dea52b44668c88810e87dc63f9ee339a54d13752cdaadbbbdb6b152f"
   end
 
   depends_on "autoconf" => :build
@@ -44,7 +44,7 @@ class Retdec < Formula
   depends_on "cmake" => :build
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.14" => :build # needs python on PATH
+  depends_on "python@3.15" => :build # needs python on PATH
   depends_on "openssl@4"
 
   uses_from_macos "python"

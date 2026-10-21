@@ -20,7 +20,7 @@ class Libxcb < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "python@3.14" => :build # match version in `xcb-proto`
+  depends_on "python@3.15" => :build # match version in `xcb-proto`
   depends_on "xcb-proto" => :build
   depends_on "libxau"
   depends_on "libxdmcp"

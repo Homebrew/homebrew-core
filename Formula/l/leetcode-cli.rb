@@ -23,6 +23,13 @@ class LeetcodeCli < Formula
 
   uses_from_macos "sqlite"
 
+  # The test downloads the problem list from LeetCode.
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")

@@ -1,9 +1,10 @@
 class XorgServer < Formula
   desc "X Window System display server"
   homepage "https://www.x.org"
-  url "https://www.x.org/releases/individual/xserver/xorg-server-21.1.24.tar.xz"
-  sha256 "1a4eb36ca65cc3b1b936566d677a9786e13c11cd5806e951ac55f3f5ce3984af"
+  url "https://www.x.org/releases/individual/xserver/xorg-server-21.1.25.tar.xz"
+  sha256 "6ad4e3c7b59a309b32c92e5c15ce1267110f9e13f1ac78da62361a628da1a0eb"
   license all_of: ["MIT", "APSL-2.0"]
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -12,13 +13,11 @@ class XorgServer < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "a77d9ab66a5ca4abefbc59e42f4ba8b5840f30a4dffb0c1d6e8c67aca1037708"
-    sha256 arm64_tahoe:       "277d48e1ae129f621928d182dfb59d436bee94ef8c82f8ab18740b117b599ad0"
-    sha256 arm64_sequoia:     "0d8b6a8652cae487783f961c1a6d0f77f64542ca0d3a268f4f0386005ec538ff"
-    sha256 arm64_sonoma:      "7d571a9fe7dbf3520b5059f25e6ccde4ceec3da503ae1c37df27052501fb4c32"
-    sha256 sonoma:            "d00d56efb37d75edfee2a1fc44a03d297904d6eaecdfaa4c88cdd659798ffb12"
-    sha256 arm64_linux:       "49ebbe4fc3a9117f274e5c1ab0f5e1c0942ab07fa855ac5c3b7086f8865390e3"
-    sha256 x86_64_linux:      "7c4871c037d6635b9d798825c58f1745d19d3fc4e29cf1c588bd758f7375c4ef"
+    sha256 arm64_golden_gate: "c2b6d8dd41f009e5bacac7a9999b367d03bcedb91e9bccd39f7be495d806de12"
+    sha256 arm64_tahoe:       "c6738cea442e5fdaae03d0714082e941c06bc421ed63b392987a8f8c5b5010d6"
+    sha256 arm64_sequoia:     "2d5e9090c04d1684b10f906a2c384ed746c5f928f0474d85dbc9fa24516cf9b8"
+    sha256 arm64_linux:       "551f053e60b0b4aab463f5bcc8ecac5c3188b7f05d49f0b98b8fc60f2108614d"
+    sha256 x86_64_linux:      "d202efb7b174727504576cdcd89eba9e1a758047a4778cf3fd0c6c581d03af62"
   end
 
   depends_on "font-util"   => :build
@@ -63,7 +62,7 @@ class XorgServer < Formula
     depends_on "libtirpc"
     depends_on "libxcvt"
     depends_on "libxshmfence"
-    depends_on "openssl@3"
+    depends_on "openssl@4"
     depends_on "systemd"
 
     resource "xvfb-run" do
@@ -76,6 +75,8 @@ class XorgServer < Formula
       sha256 "7e8e39c98ae006b8ba583b59c8be0419885eaead062c3ae87592854de33e5a00"
     end
   end
+
+  allow_network_access! :test
 
   def install
     # ChangeLog contains some non relocatable strings

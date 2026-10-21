@@ -4,17 +4,15 @@ class Pyqt < Formula
   url "https://files.pythonhosted.org/packages/8b/47/b25c13eca5bebc6505394d0223e46d7ebf0c57dcac2ed908d7d19b18ab6b/pyqt6-6.11.0.tar.gz"
   sha256 "45dd60aa69976de1918b5ced6b4e7b6a25abd2a919ecef5fd5826ecc76718889"
   license "GPL-3.0-only"
+  revision 1
   compatibility_version 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "a5adbcaa026816da78384afa4ed2ca38d1e58f9df1d27677ded096b852b8c199"
-    sha256 cellar: :any, arm64_tahoe:       "d623c64edd6be180460e395733ae9413ebdf086341b3ea3060721c3900554b7d"
-    sha256 cellar: :any, arm64_sequoia:     "35085ed9d6b66ef762c0f2dc22c81dbf050231a4b8527afb5d33fd578fada68a"
-    sha256 cellar: :any, arm64_sonoma:      "2a5bedcc716b446b2f5de07b57d7824de1f2c6107601dbb2e4c7e29bb47d2add"
-    sha256 cellar: :any, sonoma:            "66b93e60c45d33d2954bf53780628021dcbeef6aeec4e0c74767efc4639c8d2b"
-    sha256 cellar: :any, arm64_linux:       "64d28b91772c0c4276ff9316265ec45b14b83933d26a7b96169a64e951422dce"
-    sha256 cellar: :any, x86_64_linux:      "1d0bc889fd9a71de12a010b8586476a17d374e4bae512ee9913c4135ece03055"
+    sha256 cellar: :any, arm64_golden_gate: "b90072e0f89ccd03c6753579645a6c335430ad83a3c4ea9f7d4c1d525ff97739"
+    sha256 cellar: :any, arm64_tahoe:       "d6b6d541314cd529c74db23573ecc353503a7a0c3fe3e72beec93f4b901cd0e4"
+    sha256 cellar: :any, arm64_sequoia:     "b36b1bb3ec6fd9f2b4828aea7455a87718df0522bae2e15fde12490f95e40d5f"
+    sha256 cellar: :any, arm64_linux:       "27c2fc0a0ccbe2b9e0aa96bdac8e296d48aa3e3ece841dffcd3cba99096e837a"
+    sha256 cellar: :any, x86_64_linux:      "7b3319a34dc736771a594819fc87ea6a3cb099690976a30b03ca6ce64215f5f1"
   end
 
   depends_on "pyqt-builder" => :build
@@ -75,8 +73,8 @@ class Pyqt < Formula
   end
 
   resource "pyqt6-sip" do
-    url "https://files.pythonhosted.org/packages/90/24/a753e1af94b9ae5b2da63d4598457308da3cdbf0838c959381db086ccc86/pyqt6_sip-13.11.1.tar.gz"
-    sha256 "869c5b48afe38e55b1ee0dd72182b0886e968cc509b98023ff50010b013ce1be"
+    url "https://files.pythonhosted.org/packages/78/35/bed43ff7cf040ced6b62a17b272abecb94914755284b54e8d06844e1ed23/pyqt6_sip-13.13.0.tar.gz"
+    sha256 "2cd55f575cde208c398d6cfdecc5a13394ed2afb54226210c50e3a6df7c3a997"
   end
 
   resource "pyqt6-webengine" do

@@ -1,8 +1,8 @@
 class Vcluster < Formula
   desc "Creates fully functional virtual k8s cluster inside host k8s cluster's namespace"
   homepage "https://www.vcluster.com"
-  url "https://github.com/loft-sh/vcluster/archive/refs/tags/v0.37.2.tar.gz"
-  sha256 "2e72497fa08a583d4d1f325427e2406c34e2876d98e0f4b70f0867dc07c62424"
+  url "https://github.com/loft-sh/vcluster/archive/refs/tags/v0.37.4.tar.gz"
+  sha256 "8fc11028b123ed928f9c6401d6d016d867d9a55e2848422783b7e842300f97c8"
   license "Apache-2.0"
   head "https://github.com/loft-sh/vcluster.git", branch: "main"
 
@@ -15,19 +15,25 @@ class Vcluster < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bb501d1e3bab65b21dff4cd3cc7bce1d3d29c005043321a96a02d166ab2b47f9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "684d25c79786fa555e65213e9049c4831a9adf0db9a7f34c25738e036ff86431"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f7f478185bd9496e593f37015fb059968db196b9d1f8617e25bf8e43045787ac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ddedfd30dcff74865e6480f6b18d4eafd6e7d49fcfb21f96024b5bab139b2102"
-    sha256 cellar: :any,                 x86_64_linux:      "c3842adade9cb6019c21e96141ca0fb4fa65a30576535fa86edb5c22faff3cb8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b3cc97b462eeb858dc08fc85029dc0d4ce3c69ba52138fd03c4e562c33159d82"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "20c84e02e7d22e8949fd2c2025be0975fae2c12636317a75b8d284c83eba1440"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "76b2fd5f9db8d73f43ce9080bd87e4355197c66fa0334dd0cb55a137f058dd40"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "8576dac995ac9fd5665106ad94de8caee34eb4d7664bde5c84f3f00dac627686"
+    sha256 cellar: :any,                 x86_64_linux:      "1aebd9e85f64eb629213e771682374567366801ccdf936e03899ebbffe7fc9a5"
   end
 
   depends_on "go" => :build
   depends_on "helm"
   depends_on "kubernetes-cli"
 
-  def install
+  deny_network_access!
+
+  def fetch
+    # `go generate` downloads the disposable email domains blocklist
     system "go", "generate", "./..."
+  end
+
+  def install
     system "go", "build", "-mod", "vendor", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/vclusterctl"
 
     generate_completions_from_executable(bin/"vcluster", shell_parameter_format: :cobra)

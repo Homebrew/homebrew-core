@@ -9,17 +9,18 @@ class McpGoogleSheets < Formula
   revision 5
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d5f51ec0e08e878ff4ac39db6cd9e3dbeca0a8fb7d847b0bc43bf4edb7b27b6a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7086c6ea254d96e529f7a14a9a7a889631a882ee2329d3f885b3df031b476de0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5760d4c73b429cb303f277566c77b37192593815e4a1eb34c9e6fd03a34635bb"
-    sha256 cellar: :any,                 arm64_linux:       "f07d3e777eababa0b1dd534f931417c331cc3b8c2d40fca3a1258f23f9b011de"
-    sha256 cellar: :any,                 x86_64_linux:      "bf6554c4552b00f8b7463975da934982e19f4fe4d6f83edad35640072545ac93"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "554c214f328cfa6c3cf750422a39c4d62ef5c30aac9c27ad3775e43ee1a2d1d7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "257dc06af60d11a81fcab5774b83f73291076f056c11e2067bdc1bc0f6a30233"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a3730538448e304b5af496803e780a9450d16b3ca0c4be37fd770cf8aca7526f"
+    sha256 cellar: :any,                 arm64_linux:       "56cec7deba605257932989bba061530155f43d15a50ad0fd8fa377723f936672"
+    sha256 cellar: :any,                 x86_64_linux:      "1c94304e77fe91a27a12f15959b208b40b3858655019520daaf425d13359af41"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
 
   # TODO: Remove the MCP 1.x pin when upstream supports MCP 2.x: https://github.com/xing5/mcp-google-sheets/issues/86

@@ -9,10 +9,15 @@ class Pyvim < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1d58cebd20b620cf8c5b8c3dba691fba241b4f7783f200e76dc4645f5e9ca90a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "256e18589710ad7ed0448f0bc0eb03670d7aa4cfad723af2538c96ca45db6c25"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "599048dc5e4be6430fe595f912c32e2970db218522dcc985dc69de041c52a3b0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "617114c69fe69b9fa0ebf68bb5a03424eb7cb9bc446223d8d91f98ea916abd80"
+    sha256 cellar: :any,                 arm64_linux:       "8d9d355b9c701e002f27975eef712c148db7b905ac07f730c29a6ff13931fce6"
+    sha256 cellar: :any,                 x86_64_linux:      "bbe78217bd124726a8d1a099718b2b3352337192ae5fd035285422f8c9f84820"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
@@ -20,18 +25,18 @@ class Pyvim < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/a1/96/06e01a7b38dce6fe1db213e061a4602dd6032a8a97ef6c1a862537732421/prompt_toolkit-3.0.52.tar.gz"
-    sha256 "28cde192929c8e7321de85de1ddbe736f1375148b02f2e17edd840042b1be855"
+    url "https://files.pythonhosted.org/packages/7d/ea/39b988c938f75cb75d7045b5c69f8bfed47ee2152c8837fb403de29d6fb8/prompt_toolkit-3.0.53.tar.gz"
+    sha256 "9ec8a0ad96d5c56148b3f914aa79c1564c3fde5d2e6b876e7bc327e353cf8fa6"
   end
 
   resource "pyflakes" do
-    url "https://files.pythonhosted.org/packages/45/dc/fd034dc20b4b264b3d015808458391acbf9df40b1e54750ef175d39180b1/pyflakes-3.4.0.tar.gz"
-    sha256 "b24f96fafb7d2ab0ec5075b7350b3d2d2218eab42003821c06344973d3ea2f58"
+    url "https://files.pythonhosted.org/packages/2c/1b/3ba8bd62723cfe1b651c4e4b89b33767fce7a08bb800491cf1d3dd3a7716/pyflakes-4.0.3.tar.gz"
+    sha256 "94762a3a5a343a79b28754f96c554bce057a592a4896907d73f0369fe824e053"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "six" do
@@ -40,8 +45,8 @@ class Pyvim < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz"
-    sha256 "cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

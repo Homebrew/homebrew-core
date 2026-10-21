@@ -12,12 +12,12 @@ class LlvmAT22 < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256               arm64_golden_gate: "3979809f7ab4398bbb738355bd32b186911800faef497b85a1ce8ca3bd6ee1a3"
-    sha256               arm64_tahoe:       "a321c5b4ac3657f54fab8fe455146c9f15c0b4f074983c822dba955fb04e0840"
-    sha256               arm64_sequoia:     "9705fde2a45b982f91bdfe60d1023fabf12266e67d24ba7bacc963c2950174d1"
-    sha256 cellar: :any, arm64_linux:       "94785e8ca8fcf820119a423f17fed2153c49b78768f12e81062a3a3c2d47ddbf"
-    sha256 cellar: :any, x86_64_linux:      "6a24b4e413983d48cebda87e1d3e7a19287e07213d84a18825d52ab0638ab4ba"
+    rebuild 3
+    sha256               arm64_golden_gate: "32e35983ae6beb784c946e102f65cd2d361769469643c526409b7d63030a53ee"
+    sha256               arm64_tahoe:       "c115c8e72a294c14a8d6df324ae6441a4b9aa854f5724d61f7f2bc012698fad7"
+    sha256               arm64_sequoia:     "ef30cfb83459becc660e3ed83c851fdc6c6c9cf7f57e04fb431d2ce732c2c128"
+    sha256 cellar: :any, arm64_linux:       "cb5f6c3116153c2855eb1142cf9d40c6c5370a393cb9b6cd47bc3a3aff1fb3ae"
+    sha256 cellar: :any, x86_64_linux:      "bb067a2202b8ef52070a4e6ac6f725d27f859fa3c0f445eb915cffbddd4dbb84"
   end
 
   keg_only :versioned_formula
@@ -25,7 +25,7 @@ class LlvmAT22 < Formula
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "zstd"
 
   uses_from_macos "libedit"
@@ -39,8 +39,7 @@ class LlvmAT22 < Formula
 
   # Fix triple config loading for clang-cl
   patch do
-    url "https://github.com/llvm/llvm-project/compare/1381ad497b9a6d3da630cbef53cbfa9ddf117bb6...40a8c7c0ff3f688b690e4c74db734de67f0f89e9.diff"
-    sha256 "f6dafd762737eb79761ab7ef814a9fc802ec4bb8d20f46691f07178053b0eb36"
+    file "Patches/llvm/pull-111397.diff"
     type :unofficial
     resolves "https://github.com/llvm/llvm-project/pull/111397"
   end

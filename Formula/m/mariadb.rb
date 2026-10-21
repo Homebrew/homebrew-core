@@ -4,6 +4,7 @@ class Mariadb < Formula
   url "https://archive.mariadb.org/mariadb-13.0.2/source/mariadb-13.0.2.tar.gz"
   sha256 "8ee8d955530faedcea344535de85495afb5b98128bbf660e56893e93e21ee8f7"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://downloads.mariadb.org/rest-api/mariadb/all-releases/?olderReleases=false"
@@ -17,11 +18,11 @@ class Mariadb < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "ef86a6319358e96f8af8497ae9d0f6291428bddb86b49c93ec420147916d0b15"
-    sha256 arm64_tahoe:       "556d42f31838456944ed3e9e8454d097d81b0d76b2bb36ae1b51c7b158e57fe2"
-    sha256 arm64_sequoia:     "062bb10d938df508b3352f68eba77e6c231a60ed6b5870a59b438a742cef35bb"
-    sha256 arm64_linux:       "ca968b41901717611980d289e7b2eabfb5b5bd79cf7730dd375f6b5f6d9c6adf"
-    sha256 x86_64_linux:      "bb470957887f7a68845b4bd46b08447856125038158553ac0d15ee386d36b9e7"
+    sha256 arm64_golden_gate: "1605c3f068f6aed1664316ec2ff43b6c50063027be857c6ae372274911c84115"
+    sha256 arm64_tahoe:       "9d1173130c304e25dfa6202e1ac932ad963005637167dbc08b2823fe7be5e26b"
+    sha256 arm64_sequoia:     "600e667288555d494f99a1cf3f916bfbaf953b8dfe48a6650011bd5c574a9e94"
+    sha256 arm64_linux:       "c6777fbb291fc5f228a6ff98422a9e0fc983d9bac9845b88a1ec41788552e3e0"
+    sha256 x86_64_linux:      "4ab00b87b46c3f3904c7e3c0e89f68062120d042f9f34b878e944145ad22c5f3"
   end
 
   depends_on "bison" => :build
@@ -31,7 +32,7 @@ class Mariadb < Formula
   depends_on "groonga"
   depends_on "lz4"
   depends_on "lzo"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "xz"
   depends_on "zstd"
@@ -53,6 +54,16 @@ class Mariadb < Formula
   end
 
   conflicts_with "mysql", "percona-server", because: "mariadb, mysql, and percona install the same binaries"
+
+  # Apply open PR to fix issue when using OpenSSL 4. This has been applied by
+  # Debian Forky / Ubuntu Stonking since Aug/Sep 2026. MariaDB may end up merging
+  # https://github.com/MariaDB/server/pull/5652 instead but it doesn't cleanly apply.
+  patch do
+    url "https://github.com/MariaDB/server/commit/5ca4ab639ad5f99d74f794b54ba1b4d6182ec2a9.patch?full_index=1"
+    sha256 "a0cc83631f63368457f8880626a18bb791409dfe02a672989b94b205c2cefaef"
+    type :unofficial
+    resolves "https://github.com/MariaDB/server/pull/5029"
+  end
 
   allow_network_access! :test
 

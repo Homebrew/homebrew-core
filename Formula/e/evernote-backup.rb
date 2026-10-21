@@ -9,23 +9,24 @@ class EvernoteBackup < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "09c9218f500ca73da1c0e9e400ee73fe454f2d3d92b13a9281e5c723f8804a11"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "931d55e6f32aada6c3281911c42b8c951e3ac3a2b65838cc4d479f22aca21b7b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9d935d7bb8d81ebcc057c72dcfffe482b4e4474ec6096421f0f499ac5d43e7cc"
-    sha256 cellar: :any,                 arm64_linux:       "0d77f91d885ec13795dc2236df902f0a43e07d21d04f413d799175273078250b"
-    sha256 cellar: :any,                 x86_64_linux:      "7aa7c54f71e39462e52bb6e1faa9ce2ba8a172a2f055aec93ae5966fe4df6433"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b943c9862b1bbb0f142abe2d2838597ff5ecb13e12bda09fd5c62734c7e1e151"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4e02fe8720057f50b9c399ae9018cc6a6790dd02d6c713291957868de8b0c580"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "75837d6bacd68ad5e6498c452821b68e5625ddbc0a6a86c9e1ac10f7157bbb0a"
+    sha256 cellar: :any,                 arm64_linux:       "a9cccba1f8bf313368fc12489bd76f572ecb3ef699a233c6749d8b5cd76c5b9e"
+    sha256 cellar: :any,                 x86_64_linux:      "c84476b09cf1457a1534238f53369a4d536b0becc9aab5e0b0c9161968157884"
   end
 
   depends_on "rust" => :build
   depends_on "certifi" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi",
                 extra_packages:   %w[pycryptodome keyring]
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "click" do

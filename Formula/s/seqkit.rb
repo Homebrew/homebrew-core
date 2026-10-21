@@ -16,6 +16,11 @@ class Seqkit < Formula
 
   depends_on "go" => :build
 
+  resource "homebrew-testdata", :test do
+    url "https://raw.githubusercontent.com/shenwei356/seqkit/e37d70a7e0ca0e53d6dbd576bd70decac32aba64/tests/seqs4amplicon.fa"
+    sha256 "b0f09da63e3c677cc698d5cdff60e2d246368263c22385937169a9a4c321178a"
+  end
+
   allow_network_access! :test
 
   def fetch
@@ -38,11 +43,6 @@ class Seqkit < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/seqkit version")
-
-    resource "homebrew-testdata" do
-      url "https://raw.githubusercontent.com/shenwei356/seqkit/e37d70a7e0ca0e53d6dbd576bd70decac32aba64/tests/seqs4amplicon.fa"
-      sha256 "b0f09da63e3c677cc698d5cdff60e2d246368263c22385937169a9a4c321178a"
-    end
 
     resource("homebrew-testdata").stage do
       assert_equal ">seq1\nCCCACTGAAA",

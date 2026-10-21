@@ -19,17 +19,23 @@ class Xleak < Formula
 
   depends_on "rust" => :build
 
+  resource "testfile" do
+    url "https://github.com/chenrui333/github-action-test/releases/download/2025.11.16/test.xlsx"
+    sha256 "1231165a2dcf688ba902579f0aafc63fc1481886c2ec7c2aa0b537d9cfd30676"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/xleak --version")
-
-    resource "testfile" do
-      url "https://github.com/chenrui333/github-action-test/releases/download/2025.11.16/test.xlsx"
-      sha256 "1231165a2dcf688ba902579f0aafc63fc1481886c2ec7c2aa0b537d9cfd30676"
-    end
 
     testpath.install resource("testfile")
     output = shell_output("#{bin}/xleak #{testpath}/test.xlsx")

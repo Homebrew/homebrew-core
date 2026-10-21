@@ -12,14 +12,12 @@ class Aubio < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_golden_gate: "5ff6c0237b5435341b150ad20331964a173102e9d70d4f29614267b5648b151f"
-    sha256 arm64_tahoe:       "54adb27d46e507c9fa6dd57b9da19b11fc435dc706d1a79a2835e83137813a05"
-    sha256 arm64_sequoia:     "c428580f0615808cafca003cc2596a913162586af33f5fd1235b274b413c3ed4"
-    sha256 arm64_sonoma:      "979cea612bed708e02710af48d438df7f48a28ed502fb714d023182c24caf43c"
-    sha256 sonoma:            "9200348f9f11f4149f91d7163e79f141f9bb7d2271a6af5398dc38ceadfd6ebd"
-    sha256 arm64_linux:       "d98aea68e9a3677405a41ff89820d6ee76b5fb6fa7f02d964846c7b674756d06"
-    sha256 x86_64_linux:      "be4fcc0b0a52320a3787a70cf2ba81bb1ba0e374921c7be49a96e0dc92d07feb"
+    rebuild 3
+    sha256 arm64_golden_gate: "93791777c67b8fa6cde559f3b799d9bb320b52f97a89b03a8c413aa9f708e05f"
+    sha256 arm64_tahoe:       "a867233c8e0aba10ccf0ec1458c8068d69a5b9c0af0a207f088f75f01553182c"
+    sha256 arm64_sequoia:     "b9bbe3be57a540aed82157cb8332378f589ee49ff8fee62d224c52e0668ff971"
+    sha256 arm64_linux:       "9c19c33e1ca6b94072d02c167352e6cf4f5101b29b2eca4e3f01ab4b7bacac57"
+    sha256 x86_64_linux:      "9d0fd367d58a6ddea8c8b4d7c32cc48e1b6593c2db63dfc5962f2e0d9dacf70d"
   end
 
   depends_on "libtool" => :build
@@ -27,7 +25,12 @@ class Aubio < Formula
   depends_on "python-setuptools" => :build
   depends_on "libsndfile"
   depends_on "numpy"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
+
+  resource "homebrew-aiff", :test do
+    url "https://archive.org/download/TestAifAiffFile/02DayIsDone.aif"
+    sha256 "bca81e8d13f3f6526cd54110ec1196afd5bda6c93b16a7ba5023e474901e050d"
+  end
 
   # Fix build with Python 3.12 using Fedora patch. Failure is due to old waf 2.0.14.
   # Remove on next release as HEAD has newer waf.
@@ -46,7 +49,7 @@ class Aubio < Formula
     # Work-around for build issue with Xcode 15.3: https://github.com/aubio/aubio/issues/402
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
-    system python3, "./waf", "configure", "--prefix=#{prefix}"
+    system python3, "./waf", "configure", "--prefix=#{prefix}", "--libdir=#{lib}"
     system python3, "./waf", "build"
     system python3, "./waf", "install"
 
@@ -54,11 +57,6 @@ class Aubio < Formula
   end
 
   test do
-    resource "homebrew-aiff" do
-      url "https://archive.org/download/TestAifAiffFile/02DayIsDone.aif"
-      sha256 "bca81e8d13f3f6526cd54110ec1196afd5bda6c93b16a7ba5023e474901e050d"
-    end
-
     testpath.install resource("homebrew-aiff")
     system bin/"aubiocut", "--verbose", "02DayIsDone.aif"
     system bin/"aubioonset", "--verbose", "02DayIsDone.aif"

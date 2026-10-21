@@ -1,8 +1,8 @@
 class Kumactl < Formula
   desc "Kuma control plane command-line utility"
   homepage "https://kuma.io/"
-  url "https://github.com/kumahq/kuma/archive/refs/tags/v2.14.5.tar.gz"
-  sha256 "56cdecc20c8c95b53c37656c2bd19dbd807f98fb995360ee271b0bdecd8f2aef"
+  url "https://github.com/kumahq/kuma/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "cb28582f3da98c26588c54a6439b86228191a2a4439f533ac3387c39820d6a08"
   license "Apache-2.0"
   head "https://github.com/kumahq/kuma.git", branch: "master"
 
@@ -12,11 +12,11 @@ class Kumactl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "94df930427857df2e9af883ad8601c8121d055926b44224b8c5b84f665f2d683"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "47672a3a38e789b76d59d5a852940b52ca9d8987615e3a98c34deb60929cc68a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "82d5f3438bf255c12d2bd26962d22348465993ebd32077355a80c88654b9379e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "688bdda9672f96d2ace62ac4e85175de1cf8162e9fb0283d7479d82565915fd8"
-    sha256 cellar: :any,                 x86_64_linux:      "5b907d1909f66ebccb05cb90328c043ba57e9ff8441e3a93fbc7a45568cf975e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "095f1ea86f7d636e22a82f4547ef3e1b30317df84a24e423455ae643fbb4a290"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b0e942dcff937d80f5f1ecdc42f331c5e73fdc201de5b3e0305efa7cb0e1b7d0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f742041125c586272722ad57a5e386b2fa9e3454228639ee84e0e6d32255b84b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "30912554e8aab680f2b989f3f16110787f2257c9d1d95182312b81ef36f532a6"
+    sha256 cellar: :any,                 x86_64_linux:      "dda6e1770fe99027207fa04d865fcfd8def034b4babfd0f9f155d8e8538a0f5e"
   end
 
   depends_on "go" => :build
@@ -29,9 +29,9 @@ class Kumactl < Formula
 
   def install
     ldflags = %W[
-      -X github.com/kumahq/kuma/v2/pkg/version.version=#{version}
-      -X github.com/kumahq/kuma/v2/pkg/version.gitTag=#{version}
-      -X github.com/kumahq/kuma/v2/pkg/version.buildDate=#{time.strftime("%F")}
+      -X github.com/kumahq/kuma/v#{version.major}/pkg/version.version=#{version}
+      -X github.com/kumahq/kuma/v#{version.major}/pkg/version.gitTag=#{version}
+      -X github.com/kumahq/kuma/v#{version.major}/pkg/version.buildDate=#{time.strftime("%F")}
     ]
 
     system "go", "build", *std_go_args(ldflags:), "./app/kumactl"

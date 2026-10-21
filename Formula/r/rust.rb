@@ -6,8 +6,8 @@ class Rust < Formula
   head "https://github.com/rust-lang/rust.git", branch: "main"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.99.0-src.tar.gz"
-    sha256 "2035e4077b834a42ff8afd07f277ae3f06340098b86b1d2843aa234b4cfcae67"
+    url "https://static.rust-lang.org/dist/rustc-1.99.1-src.tar.gz"
+    sha256 "db56bbc64db491ceda6b78a2811a6d121c639338906fd944f720289cbd02245c"
 
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0
     # HEAD does not use these as it needs a nightly rust
@@ -84,17 +84,17 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7525422d522cb4fafca1441ab42ace810b590edc540f93ad14a81bdee157de99"
-    sha256 cellar: :any, arm64_tahoe:       "9fd7f9b81fa70767432e1cd6cab9b945ab7a4297529b5e3f95fc2663e512b2f5"
-    sha256 cellar: :any, arm64_sequoia:     "ab2aad7448f020d2ceb660ef75ba79d06761f91d8afc29071b8e9a1bf99af8ca"
-    sha256 cellar: :any, arm64_linux:       "7587563b8bd5a17d0846cba46d41ccac9d45cdbf6554eeaf95f8504db79b4e36"
-    sha256 cellar: :any, x86_64_linux:      "06952c11381a7519c1e10b9b455942f0965c0f44dd6246cd4e4e29b3b85dee42"
+    sha256 cellar: :any, arm64_golden_gate: "ad99261670bcdffa5ef4518662eaffecb4bb07e20c265e24ace2f7239366b6d5"
+    sha256 cellar: :any, arm64_tahoe:       "3e8f3b4af11744d0120a5759ea9e4b2ebd387549e59c77e70cc75d132aa04dad"
+    sha256 cellar: :any, arm64_sequoia:     "f64776767e36296e228aa92c2badf6ab1c2a434d64364cbdc36871da114b3f7a"
+    sha256 cellar: :any, arm64_linux:       "60bfac4b423bdb48812bac2e0718657f7b9db49021a4a8689de71db8dcc21f84"
+    sha256 cellar: :any, x86_64_linux:      "4e57acd710d4a84dd72812af61f4e2ee618c60dec758dc2b7b73abb0304f86a4"
   end
 
   depends_on "libgit2"
   depends_on "libssh2"
   depends_on "llvm"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pkgconf"
   depends_on "sqlite"
 
@@ -108,14 +108,14 @@ class Rust < Formula
   # These used to belong in `rustfmt`.
   link_overwrite "bin/cargo-fmt", "bin/git-rustfmt", "bin/rustfmt", "bin/rustfmt-*"
 
-  def llvm
-    deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }
-  end
+  def llvm = deps.map(&:name).find { |dep| dep.match?(/^llvm(@\d+)?$/) }
+
+  def openssl = deps.map(&:name).find { |dep| dep.start_with?("openssl@") }
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://docs.rs/openssl/latest/openssl/#manual
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix(openssl)
 
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["LIBSQLITE3_SYS_USE_PKG_CONFIG"] = "1"
@@ -164,23 +164,17 @@ class Rust < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --tools=#{tools.join(",")}
-      --llvm-root=#{llvm.opt_prefix}
+      --llvm-root=#{formula_opt_prefix(llvm)}
       --enable-llvm-link-shared
       --enable-profiler
       --enable-vendor
       --disable-cargo-native-static
       --disable-docs
       --disable-lld
+      --release-channel=#{build.head? ? "nightly" : "stable"}
       --release-description=#{tap.user}
+      --set=build.allocator=jemalloc
     ]
-    if build.head?
-      args << "--disable-rpath"
-      args << "--release-channel=nightly"
-      args << "--set=build.allocator=jemalloc"
-    else
-      args << "--release-channel=stable"
-      args << "--set=rust.jemalloc" # TODO: use `--set=build.allocator=jemalloc` in 1.99.0 as old arg is deprecated
-    end
     # Restrict slower optimizations to bottling
     # https://github.com/rust-lang/rust/blob/main/src/doc/rustc-dev-guide/src/building/optimized-build.md
     if build.bottle?
@@ -207,7 +201,7 @@ class Rust < Formula
     # Replace the renamed llvm-objcopy with a symlink to make sure it can find libLLVM
     arch = Hardware::CPU.arm? ? :aarch64 : Hardware::CPU.arch
     rust_objcopy = lib/"rustlib/#{arch}-apple-darwin/bin/rust-objcopy"
-    llvm_objcopy = llvm.opt_bin/"llvm-objcopy"
+    llvm_objcopy = formula_opt_bin(llvm)/"llvm-objcopy"
     rm(rust_objcopy)
     ln_sf llvm_objcopy.relative_path_from(rust_objcopy.dirname), rust_objcopy
   end
@@ -248,11 +242,11 @@ class Rust < Formula
       bin/"cargo" => [
         formula_opt_lib("libgit2")/shared_library("libgit2"),
         formula_opt_lib("libssh2")/shared_library("libssh2"),
-        formula_opt_lib("openssl@3")/shared_library("libssl"),
+        formula_opt_lib(openssl)/shared_library("libssl"),
       ],
     }
     expected_linkage[bin/"cargo"] << if OS.mac?
-      formula_opt_lib("openssl@3")/shared_library("libcrypto")
+      formula_opt_lib(openssl)/shared_library("libcrypto")
     else
       formula_opt_lib("curl")/shared_library("libcurl")
     end

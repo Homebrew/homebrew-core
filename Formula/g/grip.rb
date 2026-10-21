@@ -9,15 +9,16 @@ class Grip < Formula
   revision 22
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9813bb434a834bba1a20b0a7e32f12a0edddc8a7bcd496da07f5f12d24c88e5d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7bfeb48c0a059f124188e8223341057c4d90ea470b84010e4fc31cf91380d46d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "523b02502c1fc3ed1eeac3b53da4055ff6517e1a320926078b3bf7d9276c1be1"
-    sha256 cellar: :any,                 arm64_linux:       "d9291412ef1cfaf2417f92670e33b0372fbecd5905bbf226cfa6302612edf048"
-    sha256 cellar: :any,                 x86_64_linux:      "fb596e64d1ba9065dfcb21042bebbafe9c72042ee8acc52ab6351b2ed3359d7f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d873d417cb1f7262b1775ac4923672d2e429b6a1044b0beaea31e9b80ba5e207"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2eabbaf709e08e12fff913d259e5d19e285eabfda3c83318daa8f9fae8c7e71f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "26b77497eb9e4cd42406212de192f4894cb73e8611892dc3342b08027f67e5b5"
+    sha256 cellar: :any,                 arm64_linux:       "fddbe0a7fb0940d1b066250181c78398de64f9a4ca81588cf73abd47896a2f90"
+    sha256 cellar: :any,                 x86_64_linux:      "9b79502c128988bdd221e7fc65804261095dea9c5a5d8072f0af8efdb2e9d71a"
   end
 
   depends_on "certifi"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 
@@ -67,8 +68,8 @@ class Grip < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "path-and-address" do

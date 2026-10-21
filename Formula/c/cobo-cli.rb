@@ -6,24 +6,24 @@ class CoboCli < Formula
   url "https://files.pythonhosted.org/packages/a4/78/6ce4772eac6acfdf58c1b2f51c4a074e7abf8ab44bb3c6e37ff998ef888a/cobo_cli-0.1.10.tar.gz"
   sha256 "fc631b4b51346941fcde398080e23cace14afb922ed9754777d2e0bb3e9763d6"
   license "MIT"
+  revision 1
   head "https://github.com/CoboGlobal/cobo-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "0bdcb8b490f409d5a930cf4b5e7b774ec980f88da1fb4752160393cb78a23cab"
-    sha256 cellar: :any, arm64_tahoe:       "88cb56e7953b2cbf533015992d01c00ef06df4cba17f6e03a6569aac1ce48ad4"
-    sha256 cellar: :any, arm64_sequoia:     "543eb52ebddec3f7cd090d89cf3f8c4c85ca351c38a9e9c2636448b6b487d267"
-    sha256 cellar: :any, arm64_sonoma:      "be0d6b7580cf6c3c8623e153b4ba0080e3f15ff209ea8e89c23e089628d7db3d"
-    sha256 cellar: :any, sonoma:            "68196ab45a13ae2db473edd79ec330b2c41d50f1901878ec6622d39235a86bd7"
-    sha256 cellar: :any, arm64_linux:       "3b98a46864cddcc1416bb63bdd8a8ef0b0579a48c16612fe54efbc7cda41dd48"
-    sha256 cellar: :any, x86_64_linux:      "37b951f57447afb1aaf9421a5c2a3f7d10438eafb422b69f6d3004fa97897647"
+    sha256 cellar: :any, arm64_golden_gate: "5731c491caeb8bc3bce4fc25579f5887e93b0b5e188e268e6b2d9f9d0d1024ff"
+    sha256 cellar: :any, arm64_tahoe:       "24274d23f632bdcb879213f58ba08bf19b6c90485f742f999e69289e57f82089"
+    sha256 cellar: :any, arm64_sequoia:     "40f5463507350c8c89983e93e7eff1441f4f56297214f6d17c1ac8ff68af67f3"
+    sha256 cellar: :any, arm64_linux:       "f1c8ee0c81527befa1376001401dd1ffb72e3c272376d4dc3d83783f3c5b8eae"
+    sha256 cellar: :any, x86_64_linux:      "20226587aecb8291ad6b670df826b07f13a3841596b887e53944b3a4bcdd5162"
   end
 
+  depends_on "rust" => :build # for dnspython > uv_build > maturin
   depends_on "certifi" => :no_linkage
   depends_on "cffi" => :no_linkage
   depends_on "libsodium"
   depends_on "libyaml"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libffi"
 
@@ -31,13 +31,13 @@ class CoboCli < Formula
                 extra_packages:   "typing-inspection"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "dataclasses-json" do
@@ -46,8 +46,8 @@ class CoboCli < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/8c/8b/57666417c0f90f08bcafa776861060426765fdb422eb10212086fb811d26/dnspython-2.8.0.tar.gz"
-    sha256 "181d3c6996452cb1189c4046c61599b84a5a86e099562ffde77d26984ff26d0f"
+    url "https://files.pythonhosted.org/packages/ef/4a/50822184bd67cc6493f0fb6a880749158fcd31ab3fa07409acfd91f9fc85/dnspython-2.9.0.tar.gz"
+    sha256 "b44dc6b18f07a8b1c56676a19fbfdb5209415b046a9cece286baafa87ff3f7f1"
   end
 
   resource "email-validator" do
@@ -66,8 +66,8 @@ class CoboCli < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
-    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
+    url "https://files.pythonhosted.org/packages/f5/08/8eea9d4b8302028f3abb2c0813953f7aec26d33b7a8960ed760e65ff29fa/idna-3.20.tar.gz"
+    sha256 "a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44"
   end
 
   resource "marshmallow" do
@@ -138,6 +138,13 @@ class CoboCli < Formula
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
     sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
+
+    # Backport fix for OpenSSL 4 until cobo-cli updates urllib3 pin to allow 2.8.0
+    patch do
+      url "https://github.com/urllib3/urllib3/commit/627636551e0e0159996b0f28dd21a60372cc5b10.patch?full_index=1"
+      sha256 "6e5f13b1b60313fbd8a70d0aab58f7c6a413f641ad6fa2e5a3539e3de68bbe27"
+      type :backport
+    end
   end
 
   resource "websocket-client" do
@@ -146,6 +153,10 @@ class CoboCli < Formula
   end
 
   def install
+    urllib3 = resource("urllib3")
+    odie "Remove urllib3 check as version is now >= 2.8.0!" if urllib3.version >= "2.8.0"
+    odie "Restore urllib3 patch!" if urllib3.patches.empty?
+
     virtualenv_install_with_resources
 
     generate_completions_from_executable(bin/"cobo", shell_parameter_format: :click)

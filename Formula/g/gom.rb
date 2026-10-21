@@ -13,12 +13,12 @@ class Gom < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "ecb897fa8aaac867d2e94bde956f9ecaf66dd82a235e90bfc8df4cbc4b311193"
-    sha256 cellar: :any, arm64_tahoe:       "b1a06c108f5d6825a633479cbfafaeb84b782489daf60a6e82e255a1b8870672"
-    sha256 cellar: :any, arm64_sequoia:     "5545021b60c1d4c427fa27a311d7b4800eed86b3c328534cd7ef7c6f354ea83b"
-    sha256 cellar: :any, arm64_linux:       "ec9e7993c9b8320781af9435430cce0ed594dd55d23e7e5ed5f90532f86011ba"
-    sha256 cellar: :any, x86_64_linux:      "3d6903358a8e8471eb52e99c18f20ea4c2a2792e449270e0769450970c6e7274"
+    rebuild 2
+    sha256 cellar: :any, arm64_golden_gate: "5bd51f701b73b8146758870182f539e5ad15ef7ed2987fd87006df71bf70b129"
+    sha256 cellar: :any, arm64_tahoe:       "0367b23bd13c51fb41cbd7d536488ef34d798321a7d64b6aa4c6a85d9c0661c5"
+    sha256 cellar: :any, arm64_sequoia:     "ba98021d67f1f966727723d8f99662c1dfd91326bbbddb712cf8beaaa7d89023"
+    sha256 cellar: :any, arm64_linux:       "fea810b0633df96f76a938f43751d21f9c90eaf327e2c069370455621078f3f5"
+    sha256 cellar: :any, x86_64_linux:      "a6168f7e7b8e11dd51a8da141408a51ba7c30f22f3860aeb47e4a6094614d946"
   end
 
   depends_on "gdk-pixbuf" => :build # https://gitlab.gnome.org/GNOME/gom/-/issues/18
@@ -26,7 +26,7 @@ class Gom < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on "glib"
   depends_on "sqlite" # indirect dependency via glib
 

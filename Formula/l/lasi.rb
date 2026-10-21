@@ -26,7 +26,7 @@ class Lasi < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkgconf" => [:build, :test]
   depends_on "freetype"
   depends_on "glib"
   depends_on "pango"
@@ -36,6 +36,8 @@ class Lasi < Formula
     depends_on "gettext"
     depends_on "harfbuzz"
   end
+
+  deny_network_access!
 
   def install
     # If we build/install examples they result in shim/cellar paths in the
@@ -47,5 +49,34 @@ class Lasi < Formula
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_CXX_STANDARD=11", *std_cmake_args(install_libdir: lib)
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~CPP
+      #include <iostream>
+      #include <LASi.h>
+
+      using namespace LASi;
+
+      int main() {
+        PostscriptDocument doc;
+        double lineSpacing, xAdvance, yMinimum, yMaximum;
+        doc.osBody() << setFont("sans") << setFontSize(12) << std::endl;
+        doc.get_dimensions("Hello Homebrew", &lineSpacing, &xAdvance, &yMinimum, &yMaximum);
+        doc.osBody() << "100 600 moveto" << std::endl;
+        doc.osBody() << show("Hello Homebrew");
+        doc.osBody() << "showpage" << std::endl;
+        doc.write(std::cout, 99, 590, 100 + xAdvance + 1, 600 + yMaximum + 1);
+        return 0;
+      }
+    CPP
+
+    flags = shell_output("pkg-config --cflags --libs lasi").chomp.split
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
+    output = shell_output("./test")
+    assert_match "%!PS-Adobe-3.0 EPSF-3.0", output
+    assert_match "%%BoundingBox: 99 590 ", output
+    assert_match(%r{^/H-\S+ \{$}, output)
+    assert_match "showpage", output
   end
 end

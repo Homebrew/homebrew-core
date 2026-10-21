@@ -4,6 +4,7 @@ class AzureStorageCommonCpp < Formula
   url "https://github.com/Azure/azure-sdk-for-cpp/archive/refs/tags/azure-storage-common_12.15.0.tar.gz"
   sha256 "23a10c84418f6d8c07858277f3b8e7c7344008f1ab9eacabdc485fb0744903e5"
   license "MIT"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -12,18 +13,20 @@ class AzureStorageCommonCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b00c8981cc471073c6ac58d8d317a8b5481fe912c2b1e0c0fbcf9fbe286a0a83"
-    sha256 cellar: :any, arm64_tahoe:       "85b6b625b71b845bb2c68e92eb2ad06687e66ca3082ae49f1440b68fe4fc1fe3"
-    sha256 cellar: :any, arm64_sequoia:     "5dd98d8e82ae42a430e98878c051c47a73aebf7fa1b3c3e341e7b672748cb19b"
-    sha256 cellar: :any, arm64_linux:       "8f9deafa3bf1f37aa9f499a936dc9deda66c94ef2e7d1066282d83935ebd268c"
-    sha256 cellar: :any, x86_64_linux:      "dff335fbf74d89c4921b389dcf7603a2b6109225e6b517aaf8d16a6e7d01a8ef"
+    sha256 cellar: :any, arm64_golden_gate: "ee1f9ed0ce8e806de4e0bde1e60cf28296ac9b211369cbff843170859d154ca1"
+    sha256 cellar: :any, arm64_tahoe:       "7428638c7d38903793b71671ed2e140b4a632bc9ab7ed7ffad82acdd46741298"
+    sha256 cellar: :any, arm64_sequoia:     "53413259ed5b38e9c0d78b73a83ea2904c3eb39fe20cb93aa8094eac7331d1de"
+    sha256 cellar: :any, arm64_linux:       "08d585a80c652a38803b13d95f76d942621d579ce42846ec6a19e2032fd04303"
+    sha256 cellar: :any, x86_64_linux:      "0f1650f49d7e0b0fcee3b7f827bf6e3b82f40d30b5e958b8a67474036dc5a9bc"
   end
 
   depends_on "cmake" => :build
   depends_on "azure-core-cpp"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "libxml2"
+
+  deny_network_access!
 
   def install
     ENV["AZURE_SDK_DISABLE_AUTO_VCPKG"] = "1"

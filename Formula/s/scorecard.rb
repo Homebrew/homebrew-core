@@ -2,8 +2,8 @@ class Scorecard < Formula
   desc "Security health metrics for Open Source"
   homepage "https://scorecard.dev"
   url "https://github.com/ossf/scorecard.git",
-      tag:      "v5.5.0",
-      revision: "c395761df6afe1a69e476bc60a013a94bcbc153f"
+      tag:      "v5.6.0",
+      revision: "61e84743356275f6ffca23b1b2f2cb945e19eb96"
   license "Apache-2.0"
   head "https://github.com/ossf/scorecard.git", branch: "main"
 
@@ -16,13 +16,11 @@ class Scorecard < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "398675b188a2d55be6ae2038bd3cb3f6e7070013574f5b378e23ecbe8d242422"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "67d18c35608006abd0c078f9c98da51256ba6b159ed3fea77155bcd69b71ef8e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "20a23690754ffdc36a7420865bedb257e5329ba0b628c87958823b66f7b1a994"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "4c540379921b421b86c879fcd8167eefaae143063ba3898a5abaedb80d7b0cf5"
-    sha256 cellar: :any_skip_relocation, sonoma:            "eedcab40b54e6de161675bd1f981715d8934400e2b206a5ee8783e410cad53fc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a2ce3626e278f23f9c521eba6389cacd79f81b03fc39364fea07b92d6db608dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3279aec0409aff3b2868d943fc8e9a88c201f328c29aa69b0f4d20673359155e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "925a122fff00e4c9d9632ca983633a8e9405aecfd698b0e75cb50894faad7871"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c117afb0536e27405e498adf952e922eb981535cb4feffacae80365867422263"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92cc86dde01294c7bdd8ba1137c33cf5f1ed862819bbb47add0444cc021cb8bd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "de23c9d8567206dbd11eba716fae89b70921a029212c4e524169027804feda85"
+    sha256 cellar: :any,                 x86_64_linux:      "2ec8fdf3760d75bcce397cde1723118ac9ebd2638ae3e51ebe8d96a5c94dd130"
   end
 
   depends_on "go" => :build

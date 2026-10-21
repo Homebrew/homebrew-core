@@ -13,12 +13,13 @@ class Echidna < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "301cc7a8227ea14f11273e2ee9824a06f0a64881267c2ddc528c10429a1cf786"
-    sha256 cellar: :any, arm64_sequoia: "a108b24ec074234e2f97e2638ad918fcad080823f0ee60bc0b47377d5db11881"
-    sha256 cellar: :any, arm64_sonoma:  "d94158bc2ea76c2be300f055ba507dcbc378a06ff9222042d51b63781c849f75"
-    sha256 cellar: :any, sonoma:        "c218fbc7ec6693122117803febd2c42855ef3d576bd96669e7c354832616dc7e"
-    sha256 cellar: :any, arm64_linux:   "398632a21131bd0463663a246da6360940a94c29899987c22102bf0788039d7c"
-    sha256 cellar: :any, x86_64_linux:  "a0071a9a2d39c8aee9ae64feda8fe8d3ae700da51e220c2258eb15f78f3975f5"
+    sha256 cellar: :any, arm64_golden_gate: "dec5cb65da2fb71f3028a06ad848ead0aed029ae6450e8a49b406998b883a862"
+    sha256 cellar: :any, arm64_tahoe:       "301cc7a8227ea14f11273e2ee9824a06f0a64881267c2ddc528c10429a1cf786"
+    sha256 cellar: :any, arm64_sequoia:     "a108b24ec074234e2f97e2638ad918fcad080823f0ee60bc0b47377d5db11881"
+    sha256 cellar: :any, arm64_sonoma:      "d94158bc2ea76c2be300f055ba507dcbc378a06ff9222042d51b63781c849f75"
+    sha256 cellar: :any, sonoma:            "c218fbc7ec6693122117803febd2c42855ef3d576bd96669e7c354832616dc7e"
+    sha256 cellar: :any, arm64_linux:       "398632a21131bd0463663a246da6360940a94c29899987c22102bf0788039d7c"
+    sha256 cellar: :any, x86_64_linux:      "a0071a9a2d39c8aee9ae64feda8fe8d3ae700da51e220c2258eb15f78f3975f5"
   end
 
   depends_on "ghc@9.10" => :build

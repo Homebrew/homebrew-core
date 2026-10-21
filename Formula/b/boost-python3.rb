@@ -4,6 +4,7 @@ class BoostPython3 < Formula
   url "https://github.com/boostorg/boost/releases/download/boost-1.92.0/boost-1.92.0-b2-nodocs.tar.xz"
   sha256 "ea7b982002cc9dfbe59b0b217b206f470dc75f3de0bb2973d844118934d82411"
   license "BSL-1.0"
+  revision 1
   compatibility_version 2
   head "https://github.com/boostorg/boost.git", branch: "master"
 
@@ -12,18 +13,16 @@ class BoostPython3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "78e7e49cbcc86322547965e4856b8e6e13629d05a3711cfe443e89ca7a489fea"
-    sha256 cellar: :any, arm64_tahoe:       "ba993fc843a2e0491bafb23fa3e66e83e75eb7491a5ca68e816ea448cf12be2a"
-    sha256 cellar: :any, arm64_sequoia:     "a3b8c0c72e47aa910606620c2dc8ff6f4bf1de2402e10e0318a832d6a93e113f"
-    sha256 cellar: :any, arm64_sonoma:      "b19c18377989359c04eac34969c077d73e71a082cfae0cef4a3939dc08b4030a"
-    sha256 cellar: :any, sonoma:            "6fee4f21a171aeab2bd4d329f0a7d97a360328c919708e4b8ccc084968598ba9"
-    sha256 cellar: :any, arm64_linux:       "200d378d1813f12a20f49e398d7ea5f13d310dfdec560c81af02a277c0608075"
-    sha256 cellar: :any, x86_64_linux:      "1d7a782ce31e27693e78b3178202ec5acf948d5e7e47c57a772dbf9f5119e046"
+    sha256 cellar: :any, arm64_golden_gate: "6bb5059ac4bb4e34957bfd6f2a02670c2dd4fe25ffea6987992f2b8fdb0b2c30"
+    sha256 cellar: :any, arm64_tahoe:       "56e49a5b7ee435ec5379b9a3f73567e0d1724661433eaffea2e44ca7a2189184"
+    sha256 cellar: :any, arm64_sequoia:     "ed6d7e52dec067bcc3df8fe9efa5b9117f55359fe38b1bafae3a0c769cfb69b8"
+    sha256 cellar: :any, arm64_linux:       "dc07bad4ecb7765b37bb06418da7a6a091fc0c2f85bcabddd758edd7c6fc35c4"
+    sha256 cellar: :any, x86_64_linux:      "f612d076520472eab0d01f610e4122637c1c48469ea781f509faa54216a0a124"
   end
 
   depends_on "numpy" => :build
   depends_on "boost"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     # "layout" should be synchronized with boost

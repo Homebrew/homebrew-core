@@ -22,6 +22,12 @@ class Httm < Formula
 
   conflicts_with "nicotine-plus", because: "both install `nicotine` binaries"
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(features: ["xattrs", "acls"])
     man1.install "httm.1"

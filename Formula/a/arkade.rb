@@ -1,8 +1,8 @@
 class Arkade < Formula
   desc "Open Source Kubernetes Marketplace"
   homepage "https://blog.alexellis.io/kubernetes-marketplace-two-year-update/"
-  url "https://github.com/alexellis/arkade/archive/refs/tags/0.11.126.tar.gz"
-  sha256 "53693acc51c48d23f199c1447973f0710976aa44e97b0a46d7123fd47213158b"
+  url "https://github.com/alexellis/arkade/archive/refs/tags/0.11.132.tar.gz"
+  sha256 "2bb5c6d26eca7511f0ee968af52605bc20d594e457f88b4988dac723d3b63b47"
   license "MIT"
   head "https://github.com/alexellis/arkade.git", branch: "master"
 
@@ -12,15 +12,20 @@ class Arkade < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a8bd43f0f88079b5525fab7e0eb15c14db5a3273f5924a5596e4acf17d126bf1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a7d4a55d411e37d9aaf01aaa695247ae2884d1d1dea20647120b267e0b3b9b94"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a7d4a55d411e37d9aaf01aaa695247ae2884d1d1dea20647120b267e0b3b9b94"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "a7d4a55d411e37d9aaf01aaa695247ae2884d1d1dea20647120b267e0b3b9b94"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "fea41f3504dd65808c57e03c3271e1c2f973de6998cf97bd488b4aa52f7333c0"
-    sha256 cellar: :any,                 x86_64_linux:      "11f89ed69752db63d5833d7794ccd0338d24b3187dfbb7a7ef6015b8e990a73b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d67d0c1caf770ab3df2086a25f9e4793989a4ba100e2c36098ffff04e5800710"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d67d0c1caf770ab3df2086a25f9e4793989a4ba100e2c36098ffff04e5800710"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d67d0c1caf770ab3df2086a25f9e4793989a4ba100e2c36098ffff04e5800710"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "16196fea79d5a1b53b025ebe5aef11c5a994a33f48c5451a71b2f24cb26d4651"
+    sha256 cellar: :any,                 x86_64_linux:      "9acd9f73a9b0ab28cfa52e2bc5993767a135952ad2919dc4d343e98ed9765cfe"
   end
 
   depends_on "go" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     ldflags = %W[

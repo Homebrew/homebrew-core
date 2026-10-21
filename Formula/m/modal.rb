@@ -3,20 +3,22 @@ class Modal < Formula
 
   desc "Client library and CLI for Modal"
   homepage "https://modal.com/"
-  url "https://files.pythonhosted.org/packages/3a/e5/eb665f233679ed6cde1b24a7daa68b14eec02cb25046983426145fd3d32c/modal-1.6.0.tar.gz"
-  sha256 "c5dd551b5e0a283f3c764476c0a4ebe5bdef1e4a69432fa27e1b1ad8ca5e0817"
+  url "https://files.pythonhosted.org/packages/f1/4c/4546bf12b132224a65a809766b6ada95a9a9fd63e28fb1abab1e1b962c2f/modal-1.6.2.tar.gz"
+  sha256 "f96bcd2de02abb74ac8ec3ff7d62400403633867a42c9c7b43f69f75ea00b952"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "2fac49a5395eb60f01fc03c2b162067aa110075013371c33f5f431487f552378"
-    sha256 cellar: :any, arm64_tahoe:       "d21ab41c1ca448dd2dc485e60dc47d44e5ff26a5e3c4dcf83920c0f437bf854d"
-    sha256 cellar: :any, arm64_sequoia:     "81ca8bed650cece1817a80a41e6520317e95f3806b0425355dae2b5134eb4a11"
-    sha256 cellar: :any, arm64_linux:       "489830b83e959a1b2eec5228886f2dc5e5637757ee56431f8901da287b7a3e36"
-    sha256 cellar: :any, x86_64_linux:      "769556ae02c54e14018695d6e696956486b516d34a5a6a6b33d8a64ed5ab614a"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "e8c4039e63c381b8b3e3a4096e9cd7127ea572ffc131216f4a63d291bcc2076f"
+    sha256 cellar: :any, arm64_tahoe:       "36621ef5045c58729896b742648c973d0e51fe0285ab74ee38c28e56cb33e5cb"
+    sha256 cellar: :any, arm64_sequoia:     "87b1fe3d9f2c1f62811856ea6caecf9434e4ba76bffa29b9b5586ea88abac5b7"
+    sha256 cellar: :any, arm64_linux:       "4bcccbbe0da53d9bd97e0ed2db4f519e6f2fd5389482b89a79a7034c96b22497"
+    sha256 cellar: :any, x86_64_linux:      "3ef91e4a4195091a40b68f73640dac090bc8f4100a08b0ec14a43ec04e6e4e53"
   end
 
   depends_on "rust" => :build # for `cbor2`
   depends_on "certifi" => :no_linkage
+  # TODO: Does not support Python 3.15 yet, check on next release
   depends_on "python@3.14"
 
   pypi_packages exclude_packages: "certifi"
@@ -27,8 +29,8 @@ class Modal < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz"
-    sha256 "9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc"
+    url "https://files.pythonhosted.org/packages/6c/4c/bdccd81e9ee225b69c60e7766c9a5b05364f118f4d383713b89a682d772d/aiohttp-3.14.5.tar.gz"
+    sha256 "5558a7f5a05af9ecf744af91e5baefc436f93c9333e656c27ec253f9a6bbe178"
   end
 
   resource "aiosignal" do
@@ -47,8 +49,8 @@ class Modal < Formula
   end
 
   resource "cbor2" do
-    url "https://files.pythonhosted.org/packages/c6/14/b02446bacfe44351b1689c04937ade007588f44570431880a6937e525e6c/cbor2-6.1.4.tar.gz"
-    sha256 "01ecc79a28f33d17331943ce508fc1e21f4b06553c73f874f4c77120d72b2ef9"
+    url "https://files.pythonhosted.org/packages/39/34/d443914ea562a985ccb357682e17b7190d5d58eff797c741379be47a8f31/cbor2-6.1.5.tar.gz"
+    sha256 "6eb06160c42315ac0c4ded461c7d84d92fa18c69d13d17fc1dfc1fae96580c95"
   end
 
   resource "click" do
@@ -97,8 +99,8 @@ class Modal < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/d6/99/1d4d69c3512d0ddbfa3a1b69cfd9a151012ab2eb4eabbb096201b1f0b7d8/multidict-6.9.1.tar.gz"
-    sha256 "0f06e60fa190aa7abd0914c2a766736fdc8e9f34878c4346338534b73d1b20e2"
+    url "https://files.pythonhosted.org/packages/f9/79/84ddb5ba16c4eb2c69c71db76ae3c579fe546e511f7170c7e27eedbab7c1/multidict-7.1.0.tar.gz"
+    sha256 "61a4e5d81b8d4e4ad61964b230129e7a2b914793d96289029078fc9009f074ec"
   end
 
   resource "propcache" do
@@ -107,8 +109,8 @@ class Modal < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/66/70/e908e9c5e52ef7c3a6c7902c9dfbb34c7e29c25d2f81ade3856445fd5c94/protobuf-6.33.6.tar.gz"
-    sha256 "a6768d25248312c297558af96a9f9c929e8c4cee0659cb07e780731095f38135"
+    url "https://files.pythonhosted.org/packages/d9/89/5b8517baa72f84a67b8a307ba953c91057af618bf40bf676f3c03551f8f0/protobuf-7.36.2.tar.gz"
+    sha256 "497d0463ff3316681da6c0b9e8d06cb465d61abce00b613ab42226175644d1bb"
   end
 
   resource "pygments" do
@@ -122,8 +124,8 @@ class Modal < Formula
   end
 
   resource "synchronicity" do
-    url "https://files.pythonhosted.org/packages/5d/1c/f51dc54bbd302991026a53f9790735540e0e9e1184e9d5939f02446aa5bc/synchronicity-0.12.5.tar.gz"
-    sha256 "94d96b1d85698e3056b96a793b8c0949af6584e4a7d877fabdeb5385efe230aa"
+    url "https://files.pythonhosted.org/packages/ee/5f/9f6f7df5919f0d085013b96b9cb99b622b974fe722a04c126c10497bba8b/synchronicity-0.12.6.tar.gz"
+    sha256 "ac971eadb64c95938816b8d6125d6e28473982f3256789a35bdbe02025e1ce17"
   end
 
   resource "toml" do
@@ -158,6 +160,7 @@ class Modal < Formula
 
   def install
     virtualenv_install_with_resources
+    generate_completions_from_executable(bin/"modal", shell_parameter_format: :click)
   end
 
   test do

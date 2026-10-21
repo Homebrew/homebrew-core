@@ -1,8 +1,8 @@
 class I2p < Formula
   desc "Anonymous overlay network - a network within a network"
   homepage "https://geti2p.net"
-  url "https://github.com/i2p/i2p.i2p/archive/refs/tags/i2p-2.13.0.tar.gz"
-  sha256 "1ee645fe313f582f5b605f3e6e8587e952e8fbc9cd7489f0cd93fb68b2b53524"
+  url "https://github.com/i2p/i2p.i2p/archive/refs/tags/i2p-2.14.0.tar.gz"
+  sha256 "603babd72d90f5ee5cd2c68349df29ec16a8d378c2a6cfced40150ca79002cbb"
   license :cannot_represent
 
   livecheck do
@@ -11,13 +11,11 @@ class I2p < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "96bae2cc2cdd06acd89965368f8eaa8dbea9021cab71c222ae8024785ba8db26"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b9a640a2b009ff563a5098c51471c0681bd65eed2aac2d268078f236fe2c20a3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "139bc46c7051ee5c39deade64b89903727028175a40b2e92ccb69836cbef987b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "00bfae76bd558ffc637a2087bfddd46169decfa84499b8fb14f87439f0a2b4f2"
-    sha256 cellar: :any_skip_relocation, sonoma:            "cb9c41ff72b84952e996e7346dc50b649f9362f19d82f16f5ea16eff50de2458"
-    sha256 cellar: :any,                 arm64_linux:       "e8a493f7fd779bb26428d075295b5888d98d9cb6c4890f85474193f9de841ca6"
-    sha256 cellar: :any,                 x86_64_linux:      "2a677f937979daf5f00241aca7aa77d31bf8aaee0769a01e7349a5d1f40bf664"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d0bc193e0be8c803247963f90529cc6b4cc674cde98fe59a98f06ef8f888ebb8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4545b306ef003e9e962c50af731dbc220dee90a0e1abe16d41ba25a82ff55287"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "13491c51cd98d6a9a098155fbf5b437895baf33750d5db8e7bf57d79aee930f4"
+    sha256 cellar: :any,                 arm64_linux:       "a558c352e3d33c44d55eb3b0b567e083533a8fe508d2f688b8db11b2eefcb5a4"
+    sha256 cellar: :any,                 x86_64_linux:      "16e4447091c5735be76f33663b456cccbcf997042adae07864ed4ed10aad0bc3"
   end
 
   depends_on "ant" => :build

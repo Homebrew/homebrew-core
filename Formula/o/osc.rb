@@ -3,18 +3,17 @@ class Osc < Formula
 
   desc "Command-line interface to work with an Open Build Service"
   homepage "https://openbuildservice.org"
-  url "https://files.pythonhosted.org/packages/30/4b/f30fedc9142a8445f12c92203fbbf6cecb3afc2d14c2e84d4311ef9f1f15/osc-1.27.3.tar.gz"
-  sha256 "c2cf934fe52509cd61887b6daebe2d1d4fb3ac5e80e190eeefa7440e1d6f38fc"
+  url "https://files.pythonhosted.org/packages/a8/42/d26e8cac936012d07780f32274219c160a1c27eb8a75ff8fb44ee5471930/osc-1.28.0.tar.gz"
+  sha256 "f2500db68c0a58282cb9bfc7f48f833a18b7fa7df7cb25db32b14dd278f56af8"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/openSUSE/osc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1f143125fbe5b3156227452bc5ca5d05c27cdfbe99e8e1b499bb388a3cf9a906"
+    sha256 cellar: :any_skip_relocation, all: "976ab32c1279c96e449f399097c5aac0bd314e943ac47cb5252329c30b45ac3a"
   end
 
   depends_on "cryptography" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpm"
 
   uses_from_macos "curl"

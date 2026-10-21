@@ -6,15 +6,15 @@ class Nbdime < Formula
   url "https://files.pythonhosted.org/packages/0c/22/d1ae77115b96b2ff8df6bbc54f8651eeb02d5716cea9079cdf94eaf6bb8b/nbdime-4.0.4.tar.gz"
   sha256 "8cd25ecfeeb5105d563237d7f64eb4748058fba9bba9ab3892a1ff61e177ce16"
   license "BSD-3-Clause"
-  revision 9
+  revision 10
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "aaf86221f14fc22c300193f5c7784afe86314e5151a1543f8af5646e4de0af05"
+    sha256 cellar: :any_skip_relocation, all: "2b82973688766fdec2b93c85d68241fc2e0f2d373d367acb2edc93d005615c15"
   end
 
   depends_on "certifi"
   depends_on "jupyterlab" # only to provide jupyter-server and nbconvert
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: %w[certifi jupyter-server nbconvert]
 

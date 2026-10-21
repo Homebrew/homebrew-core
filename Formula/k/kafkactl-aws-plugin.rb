@@ -20,6 +20,12 @@ class KafkactlAwsPlugin < Formula
   depends_on "go" => :build
   depends_on "kafkactl"
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download", "-C", "aws"
+  end
+
   def install
     cd "aws" do
       ldflags = %W[

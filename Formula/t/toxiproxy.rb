@@ -1,20 +1,16 @@
 class Toxiproxy < Formula
   desc "TCP proxy to simulate network & system conditions for chaos & resiliency testing"
   homepage "https://github.com/shopify/toxiproxy"
-  url "https://github.com/Shopify/toxiproxy/archive/refs/tags/v2.12.0.tar.gz"
-  sha256 "9332a884c559fbcf96cbe2c1b46312eb1e1b7191eb9a73a3d3b857d4e9789eb1"
+  url "https://github.com/Shopify/toxiproxy/archive/refs/tags/v2.13.0.tar.gz"
+  sha256 "6fe013a718a2d3595b26cd51536dfe3f32a1e346df7a7692e85c65c2cb1b680a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e2ae25c960c68e2107c0fd3225ddeb96fc7c3d4bb23e8d70f8c5789699acf5a6"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "366a468183e8c98dae90c4ce3dfaa6f740117e4d9485aee8caf687eac0b3b2eb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "294a21ff88b3b908d344de82803ff4d66bbeb6834bc42e0b503a4681f497ecb8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "fe38bd275653854eaeea1f762c9abbda9288e803da31118cd29a2d2ee0347553"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "a2fad1caee2311b6102a1f58d5f3a30de56f5df9f7e6a462ac3edebc36a64af9"
-    sha256 cellar: :any_skip_relocation, sonoma:            "34c15b5c0ee7761719352512657dfabfe1971b672dc498f0dde8b31a066ae17b"
-    sha256 cellar: :any_skip_relocation, ventura:           "8ab0b56d6ca497ad409b54a3f04c472faf10c972873a5fb07799655439b07e91"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "be11e08a83dc827210a32100c31f7d94533b1dc526ee8b8ae597ab48d7e0454e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ff23599856b2b7c08cd3873700a345b07480950ceb7f8d4484c6efaf492b6788"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6a731a98a748508b9d30866368f0fa1ca15095ae5aa31f92eada27542bfd3846"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "90bb61e1fb947cd1907fdcb9bf3cf034dadc3a98ed14fc9e690c408590ccc404"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d77388955bf69f8f43343f3ad967036273ae4a5f15650c1abd4eacdda0d8c37a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b68202f84502dee115b8e29991fc53f807cf5ce3d896f5942ebb502fce11aad1"
+    sha256 cellar: :any,                 x86_64_linux:      "78bc05c61235f417fe515c0300f35bf12965e9128294cf0d2509aea5fa719a3e"
   end
 
   depends_on "go" => :build

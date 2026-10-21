@@ -3,15 +3,16 @@ class Faker < Formula
 
   desc "Python-based fake data generator"
   homepage "https://faker.readthedocs.io"
-  url "https://github.com/joke2k/faker/archive/refs/tags/v40.40.0.tar.gz"
-  sha256 "6f6d6e463ec1a64397d0fcef5b2998a6dc417b4a3b9848ab6382d68a3ad00dc7"
+  url "https://github.com/joke2k/faker/archive/refs/tags/v40.43.0.tar.gz"
+  sha256 "757b74c3095edb31c386b76e29ded861e2becaf22cbeb7b9987246f9a97d3496"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0da5bc5bf51a3ae6885e7bc1e7863df2cf87248b06485d418e7259d983c6bc53"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "40ba6b8f1ef8e4b24de0193c887240a6306549d3ad35438e1c5381ba393ba553"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     virtualenv_install_with_resources

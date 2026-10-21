@@ -1,19 +1,18 @@
 class Deadfinder < Formula
   desc "Finds broken links"
   homepage "https://deadfinder.hahwul.com"
-  url "https://github.com/hahwul/deadfinder/archive/refs/tags/2.0.2.tar.gz"
-  sha256 "13d3d4b0392d6b1548071d44dc03a14e790ea161781d5a57a196577316a97543"
+  url "https://github.com/hahwul/deadfinder/archive/refs/tags/2.1.0.tar.gz"
+  sha256 "ae2364f33c1b94f9d2183162b6dd42ae33a68dbda970a1e67c9080ee1681c7d9"
   license "MIT"
+  revision 1
   head "https://github.com/hahwul/deadfinder.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "58ba4933e6685c5f8be7ccf6a890c936fcb28a8e0699aec98b53eb72acd1d00b"
-    sha256 cellar: :any,                 arm64_tahoe:       "3cd70822a8e851cba61fc82b404a3c288027c5e1428085419572da755190f3e7"
-    sha256 cellar: :any,                 arm64_sequoia:     "da399f4212adcd55edf32b957d467ba0ca4074b5b152b98761019110867b2807"
-    sha256 cellar: :any,                 arm64_sonoma:      "56b8210526219201d86964a11f215964e61bb78b21ad8663931f052c670f2d96"
-    sha256 cellar: :any,                 sonoma:            "25aae4c594c1a3a66a7f3c89df5958f044e61b09eb66989b135eb3607178314a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3c0b06102fec2f436837c35f2990b04ad9bb64dea9ba7e51a3bb6cbdb835b5ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7b3b0164aa904fda4b1cb754c6cd4cb450fd7ff3d0004f0f6ad5134f845c2666"
+    sha256 cellar: :any, arm64_golden_gate: "f14092874a87bac2119594d0648b5650bda38f4e867bb48258e4e6eb3bcaa593"
+    sha256 cellar: :any, arm64_tahoe:       "6bb11ef4b2d3756b6ad005cb547e3b9b890151f25696f1249d153ea4bcd5ff44"
+    sha256 cellar: :any, arm64_sequoia:     "34a1f7bcc759aa07b2486dcb6bc3412367180c8f57924f12bc4e4b1eb87b02ce"
+    sha256 cellar: :any, arm64_linux:       "5a1b427df0f88a764d114a8c288ade0fb42098254d3e309a5ff1eb39b5e799a0"
+    sha256 cellar: :any, x86_64_linux:      "a247599a12a2cf6b08d299b9e44bbba99893cb7343036b1a4a107d6b27bdffbb"
   end
 
   depends_on "crystal" => :build
@@ -22,7 +21,7 @@ class Deadfinder < Formula
   depends_on "bdw-gc"
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
 
   uses_from_macos "libxml2"

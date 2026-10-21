@@ -1,11 +1,10 @@
 class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
-  url "https://github.com/microsoft/onnxruntime/archive/refs/tags/v1.30.0.tar.gz"
-  sha256 "f6681ecbddf53898adf0cc9e8e9e84657485b84d2eca3c8aa353de6d7dd417ef"
+  url "https://github.com/microsoft/onnxruntime/archive/refs/tags/v1.31.0.tar.gz"
+  sha256 "a7e84230b5d509e48fbd6b73c2453a56345ccb22da34a46dac1f0cb4a2d6507b"
   license "MIT"
-  revision 1
-  compatibility_version 9
+  compatibility_version 10
 
   livecheck do
     url :stable
@@ -13,11 +12,11 @@ class Onnxruntime < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "6a4c4cd6a597708260e5d5ae8c803c51f38b35823f1f14f2e5de1f42f2106d90"
-    sha256 cellar: :any, arm64_tahoe:       "cf0f6e381b96d4c9b43e570719c1b17a1de8ddd9103c9fecde039ded9a998403"
-    sha256 cellar: :any, arm64_sequoia:     "5fef971df76a944014ec5f8e847e67935b586b1ba77c75759bf8588fe8b15113"
-    sha256 cellar: :any, arm64_linux:       "386b79bfa33b449cbba5eb2ab267855761c83afea5f4e966468dacc3159b4094"
-    sha256 cellar: :any, x86_64_linux:      "858e34ec135406c1b75aae36cdc3a32e97cba58a8de77ad438333c4d0765262b"
+    sha256 cellar: :any, arm64_golden_gate: "7a1cb52f207915a28ab81dfa6046f6c51e32fbc0ebf9b48db7503f69473e1155"
+    sha256 cellar: :any, arm64_tahoe:       "7e68d57c4ee326d1e8edabeeb2539e07ab85b9136ed74960455b148f9784578d"
+    sha256 cellar: :any, arm64_sequoia:     "d8c5f1690872ade4c655719a1808d0cce96cfa0cdbaf78e1436856bf82a9c8ad"
+    sha256 cellar: :any, arm64_linux:       "3ff9115d565db9b9103f4d0d0129268705a5ef1226ae82fc985fb2a8ca912258"
+    sha256 cellar: :any, x86_64_linux:      "e2287bd9388e60b9af6dd58bb88d9a4f25c31deba16b765a03590d331858915e"
   end
 
   depends_on "boost" => :build
@@ -57,8 +56,8 @@ class Onnxruntime < Formula
   end
 
   resource "coremltools" do
-    url "https://github.com/apple/coremltools/archive/refs/tags/7.1.tar.gz"
-    sha256 "d3222966982367b2be4ce62f1bd2b3dddc5a0ae018724a9acf850fbf2b0cc09a"
+    url "https://github.com/apple/coremltools/archive/refs/tags/9.0.tar.gz"
+    sha256 "0582e0307dbdccdcb4936f8b3b6880bb2e815d9a416a3e76127824bd3bec5ce6"
 
     livecheck do
       url "https://raw.githubusercontent.com/microsoft/onnxruntime/refs/tags/v#{LATEST_VERSION}/cmake/deps.txt"
@@ -87,6 +86,16 @@ class Onnxruntime < Formula
       regex(%r{^psimd;.*/(\h+)\.zip}i)
     end
   end
+
+  # Fix compatibility with newer ONNX types, upstream PR ref, https://github.com/microsoft/onnxruntime/pull/33259
+  patch do
+    url "https://github.com/microsoft/onnxruntime/commit/9be45798c9a3d17bdf6c29e623a9823cfee98547.patch?full_index=1"
+    sha256 "23aa70e50ae04fd67e563a5f81a9d387e7b068e0256f5fb1632b3744cc3b67ab"
+    type :unofficial
+    resolves "https://github.com/microsoft/onnxruntime/pull/33259"
+  end
+
+  deny_network_access!
 
   def install
     ENV.runtime_cpu_detection

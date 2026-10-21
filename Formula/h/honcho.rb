@@ -9,11 +9,11 @@ class Honcho < Formula
   head "https://github.com/nickstenning/honcho.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "f2c152161d10711eb03427dc2934e0a2f0d330ab029dbdbe715cb77a492f8481"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "8cbb268c275938b7349a819a9f4cae8af6ccad7d85aa124cf5729deef27a007e"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     virtualenv_install_with_resources

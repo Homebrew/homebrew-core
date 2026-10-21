@@ -1,33 +1,43 @@
 class Spim < Formula
   desc "MIPS32 simulator"
   homepage "https://spimsimulator.sourceforge.net/"
-  # No source code tarball exists
-  url "https://svn.code.sf.net/p/spimsimulator/code", revision: "764"
-  version "9.1.24"
   license "BSD-3-Clause"
   head "https://svn.code.sf.net/p/spimsimulator/code/"
+
+  stable do
+    url "https://src.fedoraproject.org/repo/pkgs/spim/spimsimulator-spim-20230804.tar.gz/sha512/628801e566c73ad4e0ebce04dedb97b1d55618cd7709cac6a1742c46523ce6be9e820c2e3afc87207ee9bc0304880ac2e15563630cde1d43c0dfb1022b6767b9/spimsimulator-spim-20230804.tar.gz"
+    version "9.1.24"
+    sha256 "f163fc3e9d58ea9d63d24c0df2b0ff374354d5ecfeda8d8aefab8e6e6ffa9924"
+
+    resource "CPU" do
+      url "https://src.fedoraproject.org/repo/pkgs/spim/spimsimulator-CPU-20230804.tar.gz/sha512/d5732125ffdefbb75d6795a5358cda18c3f22114af80ce4e34c43ea2f9556ede6220b5032454fab6fd334521eddecd3928706cc0ee1835a39035aeceacdd9684/spimsimulator-CPU-20230804.tar.gz"
+      sha256 "0368c73db63d1dcfa2db79e8f620d38500c0080f539e491dfa6494354357f9d7"
+    end
+
+    resource "Documentation" do
+      url "https://src.fedoraproject.org/repo/pkgs/spim/spimsimulator-Documentation-20230804.tar.gz/sha512/f8fe10b07265ed71582c30205e352d345fd2f80a4d98206910f470a3255740623d594119a450bde9a75784e0dc0d6f3fc12170d71b8df7991c54b2bb932e5f6d/spimsimulator-Documentation-20230804.tar.gz"
+      sha256 "baad6b5fc94b9c6ef957cd08e510735b1e0c174e329ea966cff776991227737c"
+    end
+  end
 
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "dcf7c68b088f79580c9db4be5a83d50f333b426b2c956e559338daeacf5091fe"
-    sha256 arm64_tahoe:       "6ce31175ac12463b4fedd31724fe17aeef8119826168717c3aaf57fa049ace15"
-    sha256 arm64_sequoia:     "0bbfdf9f722ade3b41dba3007110f92b87f5cdae144349b030399253fc7cf29c"
-    sha256 arm64_sonoma:      "a6a8458888bdc561d8f80f70c1010496864b7c9a1bdda22b784aff1a68c6e9a6"
-    sha256 arm64_ventura:     "815ba1c52cb4d6f1f216b10ed22f2c6e44802a774a5c3f8c0f5929deee570c31"
-    sha256 arm64_monterey:    "b3d11635140aed3325a3de85e70524b8016ee2a0851d1d1d5c319596b14c9d64"
-    sha256 sonoma:            "df97a10541f2bb5940ae426aaeaac7e973a5ce5c02f00f57cc9ac057f5853f27"
-    sha256 ventura:           "a362f8d46914498632a89be198c999311152adcc5a785529f1e73b666a681100"
-    sha256 monterey:          "b58327df67b8e42369981b471a6e2e1e0be51546bcd9ad30469bc1e88f862f57"
-    sha256 arm64_linux:       "c4ad7c44cf7df0e7624ff25309bf64cd966d352db59cbdeb8598c6a7ea1caf37"
-    sha256 x86_64_linux:      "3152719ea751f8e21e5febb3053cc7e8d9c171644b519ebd61e18a753b00225c"
+    rebuild 2
+    sha256 arm64_golden_gate: "bfa493c9c80e365fe5721ab6226f244528ab8cebfe6dca8899579d1ca8eedf1d"
+    sha256 arm64_tahoe:       "fecdc6101845049336385f58800dc0c996698568336e6d3165f3c673f18f8f7c"
+    sha256 arm64_sequoia:     "0ee17f876d15fd6b88452e7d19f2c1a182ce248aef26c1182deee6ba30538d45"
+    sha256 arm64_linux:       "db5606732a7bb6086e650d673c3b4c22366a4a4cf6cd777a0681f16b18bd5793"
+    sha256 x86_64_linux:      "c1b178dd6ac7d8be0bb3fc1c5cde0fa5da7ae94159ff69013a050fd0051676ba"
   end
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
   def install
+    (buildpath/"spim").install Dir["*"] if build.stable?
+    resources.each { |r| r.stage buildpath/r.name }
+
     bin.mkpath
     cd "spim" do
       system "make", "EXCEPTION_DIR=#{share}"

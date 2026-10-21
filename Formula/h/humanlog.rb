@@ -18,6 +18,13 @@ class Humanlog < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
+  def fetch
+    # `go.mod` references a private module that the build does not use
+    system "go", "list", "-deps", "./cmd/humanlog"
+  end
+
   def install
     ldflags = %W[
       -X main.versionMajor=#{version.major}

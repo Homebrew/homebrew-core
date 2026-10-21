@@ -21,6 +21,12 @@ class Terrascan < Formula
 
   depends_on "go" => :build
 
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ldflags = "-X google.golang.org/protobuf/reflect/protoregistry.conflictPolicy=ignore"
     system "go", "build", *std_go_args(ldflags:), "./cmd/terrascan"

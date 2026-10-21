@@ -31,4 +31,8 @@ class Curlftpfs < Formula
     system "./configure", *std_configure_args
     system "make", "install"
   end
+
+  test do
+    assert_match "curlftpfs #{version} libcurl/", shell_output("#{bin}/curlftpfs -V 2>&1", 1)
+  end
 end

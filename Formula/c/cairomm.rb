@@ -27,6 +27,8 @@ class Cairomm < Formula
   depends_on "libpng"
   depends_on "libsigc++"
 
+  deny_network_access!
+
   def install
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

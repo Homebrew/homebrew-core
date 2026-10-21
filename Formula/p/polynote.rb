@@ -26,20 +26,18 @@ class Polynote < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "a7d9b2f900edff1c647240472a6892ce300e61f185a423a42b8e578e88cc1b53"
-    sha256 cellar: :any, arm64_tahoe:       "97bcad9e3bec9679599e61a6132a9e2894f545a63467ed6d60654c42ec6dff70"
-    sha256 cellar: :any, arm64_sequoia:     "f7842ab01a975c0d4f66512aa6fedccaf00f92778bcaeaa4a575a7d1a97193d1"
-    sha256 cellar: :any, arm64_sonoma:      "f2fccd1682fed553f175e6edd248b347195ff4630649eb8c802bad07ab6b0194"
-    sha256 cellar: :any, sonoma:            "bb24853b7bb693c98096fc7d1b37507b40c72f02c288f432ce0aca99c7016b54"
-    sha256               arm64_linux:       "42c1f47c931413bc7f8281ce103b83df555c0b11cd1510f78a765ec62b11f6a6"
-    sha256               x86_64_linux:      "f43b22ef1081a4e8be7f6d6e101b20713d85282f53a190c98073a569662543df"
+    rebuild 2
+    sha256 cellar: :any, arm64_golden_gate: "56198e1f17cb8971b8a0ebc92aeb1631aafc6973a26f9fb6958e32e154c195c6"
+    sha256 cellar: :any, arm64_tahoe:       "c4fb116bffc7612087967855144b11af3e742a5524b0a61ee63798360272a706"
+    sha256 cellar: :any, arm64_sequoia:     "9ae73b23ad747fc483de5d6ad3dc1987b255c6bef3295011935fd37d8c8dd317"
+    sha256               arm64_linux:       "eb1c4df7d177825d5046fe930f8f75c3b209255a751a8a15c99adb929052280b"
+    sha256               x86_64_linux:      "44430e31a4946a97f14a00993b3aabd03d53621929131a6a47edfa5b128278e1"
   end
 
   depends_on "python-setuptools" => :build # to detect numpy (and avoid building numpy when we use jep >= 4.3)
   depends_on "numpy" # used by `jep` for Java primitive arrays
   depends_on "openjdk"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "jep" do
     url "https://files.pythonhosted.org/packages/52/43/34d397902b3e7c9b667f855e4be41eb8ba5e62df999b563095f713d03cfa/jep-4.2.1.tar.gz"

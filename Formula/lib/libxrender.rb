@@ -1,21 +1,17 @@
 class Libxrender < Formula
   desc "X.Org: Library for the Render Extension to the X11 protocol"
   homepage "https://www.x.org/"
-  url "https://xorg.freedesktop.org/archive/individual/lib/libXrender-0.9.12.tar.gz"
-  sha256 "0fff64125819c02d1102b6236f3d7d861a07b5216d8eea336c3811d31494ecf7"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libXrender-0.9.13.tar.gz"
+  sha256 "bf264b683d1e49ff9a6bc03af13baa430a556d943731a2b1ac2439dae4fea205"
   license "MIT"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "3bddadb77252a2393a9bdf94aa9efe6a1f569c25a2e997be123ef1429a836171"
-    sha256 cellar: :any,                 arm64_tahoe:       "6405639931b8924b009e16163b7d99f50a10274189cb7f7eba12a4585d1ef255"
-    sha256 cellar: :any,                 arm64_sequoia:     "edcb8884f9d33219d276051be3b5ad64f390cdf3abe9794d9a0050c02895c3a7"
-    sha256 cellar: :any,                 arm64_sonoma:      "a9e072e66b91797a41879d60271ac73a0b6a6e487a80ca054a44c209352e20ae"
-    sha256 cellar: :any,                 arm64_ventura:     "0d5c91bc0d13b447077fadd8a7b73e1b65091db9d03e5f6f515eb506591c8bec"
-    sha256 cellar: :any,                 sonoma:            "97554360bb9c9e82ebc7140f0186f02c103e877988c1d4a0139fbd5be1990f6a"
-    sha256 cellar: :any,                 ventura:           "7738d05da7567ca24736fc6ea5a4f881a0cd33ebbbb023d647844e183b785e7d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6370f22ed262b6bbf0ce75fc0993b26b4b0fa7a332e02ac21586ebe11c5ecb35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "44bddde0557643e137ddd5aa00d60bf220527719d2cb9263e397098dee2664c5"
+    sha256 cellar: :any, arm64_golden_gate: "98a4cdc34145658f8c4e5a27d78f985bab6c955485da21f5890f41bbd9ac56b8"
+    sha256 cellar: :any, arm64_tahoe:       "cc2f74e28c8a822020f025403796b560f937e46bfdae46b83f5d4860aaec7cc7"
+    sha256 cellar: :any, arm64_sequoia:     "d281b755455ee77f28bcf83c93501b525d7eb2c7a4b8eb8fdf640ee2c6e4b69b"
+    sha256 cellar: :any, arm64_linux:       "508a77d6a5bcdf42e895364deecfff474d4fb64a700de9a8d84027944c798b4c"
+    sha256 cellar: :any, x86_64_linux:      "248ebd6e734a951b0a3cf645b4a009abfa63c923c04fe3267a10f1c4765ef6e5"
   end
 
   depends_on "pkgconf" => :build

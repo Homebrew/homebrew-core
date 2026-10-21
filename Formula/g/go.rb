@@ -1,11 +1,11 @@
 class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.27.1.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.27.1.src.tar.gz"
-  sha256 "4e408abae126d916b6164627193f2c54f0e3ca1312d693b86db45f862ab238b1"
+  url "https://go.dev/dl/go1.27.3.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.27.3.src.tar.gz"
+  sha256 "6e7749035cf360f06b2575d162ea79df9fda8ef671889e5c375f8e50777f26bb"
   license "BSD-3-Clause"
-  compatibility_version 11
+  compatibility_version 13
   head "https://go.googlesource.com/go.git", branch: "master"
 
   livecheck do
@@ -22,12 +22,11 @@ class Go < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1c7bb8cafcde128fa58d762763ad64dcbbf8fedb5d1fc47902d86a8c77790e8c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1c7bb8cafcde128fa58d762763ad64dcbbf8fedb5d1fc47902d86a8c77790e8c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1c7bb8cafcde128fa58d762763ad64dcbbf8fedb5d1fc47902d86a8c77790e8c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "1c7bb8cafcde128fa58d762763ad64dcbbf8fedb5d1fc47902d86a8c77790e8c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "847974dcca635e9c8f495382b2bc121734126ebf074d55eebd19511cef665316"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "594b468aacbdef4bc40c30d20140f1cd60713a6a83374b44c579ba6b5eed40d4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c7bf84a6f727873581b3e1b5f79c1254cd5856f1241534e2f6943a8acc193e6e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c7bf84a6f727873581b3e1b5f79c1254cd5856f1241534e2f6943a8acc193e6e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c7bf84a6f727873581b3e1b5f79c1254cd5856f1241534e2f6943a8acc193e6e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "9ae86aba2107b26b5cf76658117eefa9803e9e2d3800872b93e81dac8f6dbae1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "979baea7402fd8b6b172fcb19a12477c4ee3db46d8d910af512d380121b063e9"
   end
 
   on_macos do

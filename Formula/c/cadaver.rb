@@ -4,6 +4,7 @@ class Cadaver < Formula
   url "https://notroj.github.io/cadaver/cadaver-0.28.tar.gz"
   sha256 "33e3a54bd54b1eb325b48316a7cacc24047c533ef88e6ef98b88dfbb60e12734"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -11,13 +12,11 @@ class Cadaver < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "b980056a8c9c24d6817bcfb20df55b43263f4de8f061b71f8c8fe33781707405"
-    sha256 arm64_tahoe:       "f2bf16931909ac6eec57117bf09175a2e0caa1082d2b6e2ae3b7a8245af29bc7"
-    sha256 arm64_sequoia:     "d5bcd805b50034bd950a9a5ff34eb57460468f62e8e5790609b41efc0f643699"
-    sha256 arm64_sonoma:      "2f7c951cd0fbd473492db2e3e32ca73bd1182d835aa2fa4e16bc18bb599b0fc0"
-    sha256 sonoma:            "3149e1aad7c35c9a2d5bcde614fd25a8e53cfd8117c10044867ebcb827fe1cf9"
-    sha256 arm64_linux:       "d8a6f3859f5db0c9cd26fbf52e655392bf1a06ca6298aca1d0ddf45e85a53122"
-    sha256 x86_64_linux:      "ea95ccc4cb3825ef2732ea6df7864c87016b40915fed14dac542bdff5a0b6868"
+    sha256 arm64_golden_gate: "1fb4b0d7f42c9f14ef541bcde82fba19244327b655ebef8e712dee2502be65a0"
+    sha256 arm64_tahoe:       "a96c8dcab0526683df4873360e4dd490a8d2ddc88151b3d04587a19ecaa327f2"
+    sha256 arm64_sequoia:     "577e6ca9b77deaebe81ad1b413810fae2075084bffd44024c3de58d363e69a98"
+    sha256 arm64_linux:       "bebed637097af5ba7b2519b078c06b23848c1b1a257ea0ca5bda0b5171086e38"
+    sha256 x86_64_linux:      "c08f5bf10869797619d52d56af8958c1ac21103da291a8790d75ca76375410a1"
   end
 
   head do
@@ -31,7 +30,6 @@ class Cadaver < Formula
 
   depends_on "pkgconf" => :build
   depends_on "neon"
-  depends_on "openssl@3"
   depends_on "readline"
 
   on_macos do
@@ -39,12 +37,13 @@ class Cadaver < Formula
   end
 
   def install
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac? # avoid openssl linkage
+
     if build.head?
       ENV["LIBTOOLIZE"] = "glibtoolize"
       system "./autogen.sh"
     end
     system "./configure", "--with-ssl=openssl",
-                          "--with-libs=#{formula_opt_prefix("openssl@3")}",
                           "--with-neon=#{formula_opt_prefix("neon")}",
                           *std_configure_args
     system "make"

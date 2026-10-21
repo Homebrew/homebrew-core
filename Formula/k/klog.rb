@@ -1,19 +1,17 @@
 class Klog < Formula
   desc "Command-line tool for time tracking in a human-readable, plain-text file format"
   homepage "https://klog.jotaen.net"
-  url "https://github.com/jotaen/klog/archive/refs/tags/v7.1.tar.gz"
-  sha256 "3cd6eee1adc16c2105713718e23b67d9607ac9872a0dbc31689c6051d0176ea6"
+  url "https://github.com/jotaen/klog/archive/refs/tags/v7.2.tar.gz"
+  sha256 "a11f6eb447103d9f77e02cdb37ea7fe77910835c1786f45b1760252e86672317"
   license "MIT"
   head "https://github.com/jotaen/klog.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5242c5afc81750a616adbb1d80c9ae9ea08ff7d414cb6ae25888997192fc700f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9f04bf8b78d72c92f0c708f48d5f9cb11c85b7266fc845874a08ef1d1c566fd3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9f04bf8b78d72c92f0c708f48d5f9cb11c85b7266fc845874a08ef1d1c566fd3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "9f04bf8b78d72c92f0c708f48d5f9cb11c85b7266fc845874a08ef1d1c566fd3"
-    sha256 cellar: :any_skip_relocation, sonoma:            "c9685c77feb099c5a57f84e4f7ebbfe675354bd9a53b4680bfc20b280a56117e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "085936825f08a8df46e9be28d676e676000c1035e24dadadcf3c7b1a908d82a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "b6fb17a890a85adbc8829818930bed2aa5910cd8c72b61bc6aebefac7f06817d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "392b4b7a819fa3f60bae2e65a25db261fb8ba140936698d24097cc56cebb68d2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "392b4b7a819fa3f60bae2e65a25db261fb8ba140936698d24097cc56cebb68d2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "392b4b7a819fa3f60bae2e65a25db261fb8ba140936698d24097cc56cebb68d2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7c4b9de0a3d9bea90c72dd928863bd7be857b8d6a974f5dc34c1c96cfefc3a54"
+    sha256 cellar: :any,                 x86_64_linux:      "16111061c4bde6d5c2125094ba163a4d86eda45ea6441a957aca92a12cc9dc30"
   end
 
   depends_on "go" => :build

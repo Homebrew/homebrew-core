@@ -4,24 +4,23 @@ class Scipy < Formula
   url "https://files.pythonhosted.org/packages/7e/74/66de6258867beb2ef08f35f9f2ac017a52cacd5081714d239ff1a442d458/scipy-1.18.1.tar.gz"
   sha256 "52c4b7422442aba924d03ad4019852b08a92e64ea187b933135687bfe2747307"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
   head "https://github.com/scipy/scipy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "0cbd912dd4e9c0de7d220d10dda60e3888387e01f23cab6bde0fb2fd76eacc55"
-    sha256 cellar: :any, arm64_tahoe:       "771297ca2277edab9511814291d361e92a7934ad7a5350f9c093e65cc9b4d21f"
-    sha256 cellar: :any, arm64_sequoia:     "ad15503e1851ec7468baf7537a620a58853c061de3c58681178cda58a8848188"
-    sha256 cellar: :any, arm64_sonoma:      "cf98a5276e80718a8aae44fb6e6ea90d6ee79ffa1a69904c5861b5116e60a00b"
-    sha256 cellar: :any, sonoma:            "c153a629c586f806f1ef6b4d20cd01fa24ee5e3c9ae92edfb579f5a163440075"
-    sha256 cellar: :any, arm64_linux:       "c227f92ab86f40a726858cad1ec08d909221efbfc938041398faf6ee4dbe68ca"
-    sha256 cellar: :any, x86_64_linux:      "875545b0526bad7d0b2c5b28c93331ea6088bd12b0ffb485dcd76d2b1a218bef"
+    sha256 cellar: :any, arm64_golden_gate: "e8ae830f596de5db64742e9002200e2c5dd446931329ab827699e2ea9e17b216"
+    sha256 cellar: :any, arm64_tahoe:       "2c9d141fcf20b4d940ae8f6afc72f2701575fc01a43d9405c856ce6ac7de4c7b"
+    sha256 cellar: :any, arm64_sequoia:     "0e257740e396f1681e4db35423db83f19233d25b2d9d4f24d57e243f0c725ed7"
+    sha256 cellar: :any, arm64_linux:       "cd30b8a3e6f3b15a9c5f40a67e26c2d15c8cb9d6ba43ad04c2640eb68451ea0b"
+    sha256 cellar: :any, x86_64_linux:      "4cf54564e8ae2e6700f572be36b22337c16aba90b9be7db9d76f78beda6e0f2f"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.13" => [:build, :test]
   depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "gcc" # for gfortran
   depends_on "numpy"
   depends_on "openblas"

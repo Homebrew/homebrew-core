@@ -9,15 +9,16 @@ class B2Tools < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9d061dc32c99f15c53aa17f0ea5a3a31bf7457b3a96a5821b4d523ac7cab07da"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9d061dc32c99f15c53aa17f0ea5a3a31bf7457b3a96a5821b4d523ac7cab07da"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9d061dc32c99f15c53aa17f0ea5a3a31bf7457b3a96a5821b4d523ac7cab07da"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "17b65b364642b6aede0991a572233671325b454006a49a4910b019a5acaf3bf6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "17b65b364642b6aede0991a572233671325b454006a49a4910b019a5acaf3bf6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "397d52f1767f28bf4d81d985cb7a0b8425631f0dfad5b8e40a33635029113f46"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "397d52f1767f28bf4d81d985cb7a0b8425631f0dfad5b8e40a33635029113f46"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "397d52f1767f28bf4d81d985cb7a0b8425631f0dfad5b8e40a33635029113f46"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "506793caf01009c3934b3bf78d43b8aea745f613735e0913770064621f4a8f66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "506793caf01009c3934b3bf78d43b8aea745f613735e0913770064621f4a8f66"
   end
 
   depends_on "certifi"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   conflicts_with "boost-build", because: "both install `b2` binaries"
 
@@ -39,8 +40,8 @@ class B2Tools < Formula
   end
 
   resource "b2sdk" do
-    url "https://files.pythonhosted.org/packages/87/9c/63c08bc3d737893689f62a1fb7a6a61cd60f73cb0e9ac07c62de65dbe9a1/b2sdk-2.13.0.tar.gz"
-    sha256 "edb586be7698b4b868194506cd81d594364e445817461c7e7b43df47378f6827"
+    url "https://files.pythonhosted.org/packages/32/1d/18ad9b5ed6408b74d159a65544a786813149aaf34128e888c6c42ed49595/b2sdk-2.13.1.tar.gz"
+    sha256 "45f91907bb677f916c920e9ccc3d120fdbd2b11d0059ff2cd06360973c281e6f"
   end
 
   resource "charset-normalizer" do
@@ -64,8 +65,8 @@ class B2Tools < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/17/c8/721b3855fe457da514fe249247d404b9b39c5d16532278f70ebaa6acf18b/platformdirs-4.12.2.tar.gz"
-    sha256 "eab5f70271a490ef74618bb314fbb86e3c7e82fa3b9c922c2ea0e0a1a155d329"
+    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
+    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
   end
 
   resource "python-dateutil" do
@@ -99,8 +100,8 @@ class B2Tools < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/e4/31/3d74fa778a63b98b7374323befcc0be5ab3bd94afd4096a0124e7379152c/tzdata-2026.4.tar.gz"
-    sha256 "f1b8bd365d8d210c55353f4d7f8d6d8561c0ba50d704b700d195a9424bba0d79"
+    url "https://files.pythonhosted.org/packages/d9/68/f1b440335057bfce71b6e50a9d09445aa2ecbd08359a337976627b8409e7/tzdata-2026.5.tar.gz"
+    sha256 "8cc73c0a0bfca7dbfa59235d60b2eff82231dee33f53d206db1acd9173cfc0a7"
   end
 
   resource "urllib3" do

@@ -16,6 +16,10 @@ class PaxRunner < Formula
     sha256 cellar: :any_skip_relocation, all: "f7195e6a142137e103125c0176376e562a2e0ba115d5e61ed15b0c2a00e92cf5"
   end
 
+  depends_on "openjdk" => :test
+
+  deny_network_access!
+
   def install
     (bin/"pax-runner").write <<~EOS
       #!/bin/sh
@@ -23,5 +27,29 @@ class PaxRunner < Formula
     EOS
 
     libexec.install Dir["*"]
+  end
+
+  test do
+    ENV.prepend_path "PATH", formula_opt_bin("openjdk")
+
+    # Seed a local Maven repository so the Felix framework "download" resolves offline
+    felix = testpath/"repo/org/apache/felix/org.apache.felix.main/5.4.0"
+    felix.mkpath
+    cp libexec/"bin/pax-runner-#{version}.jar", felix/"org.apache.felix.main-5.4.0.jar"
+
+    (testpath/"MANIFEST.MF").write <<~EOS
+      Bundle-ManifestVersion: 2
+      Bundle-SymbolicName: org.homebrew.test
+      Bundle-Version: 1.0.0
+    EOS
+    system "jar", "cfm", "test.jar", "MANIFEST.MF"
+
+    output = shell_output("#{bin}/pax-runner --executor=noop --noConsole --ee=JavaSE-1.8 " \
+                          "--localRepository=#{testpath}/repo file:#{testpath}/test.jar")
+    assert_match "Preparing framework [Felix 5.4.0]", output
+    assert_match "Skipping platform start and exit immediately", output
+    assert_path_exists testpath/"runner/bundles/org.homebrew.test_1.0.0.jar"
+    assert_match 'felix.auto.start.5="file:bundles/org.homebrew.test_1.0.0.jar"',
+                 (testpath/"runner/felix/config.ini").read
   end
 end

@@ -4,6 +4,7 @@ class Gdcm < Formula
   url "https://github.com/malaterre/GDCM/archive/refs/tags/v3.2.7.tar.gz"
   sha256 "b7b17b70c009677cf244cc7837b88386441e097f8861fdeee83aa27d1bc1b090"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,28 +13,28 @@ class Gdcm < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_golden_gate: "b878c632a6c4980a1683fab2b09bf6131f2f62ece1acd80c038f6c6933540d64"
-    sha256 arm64_tahoe:       "7a099a980c5d428737f373d55f9067fe8766eaef7c9cb15f5e40dc281ff5bab8"
-    sha256 arm64_sequoia:     "b4ff57757334bf89fc0e5dd5028108ce5fbf0fdf5fa4b02272a6b313b4ffeaf9"
-    sha256 arm64_linux:       "8639611e386bf90f5ed1fd40ee019dcbcf3836cd28bc4dd05435463c248205b5"
-    sha256 x86_64_linux:      "9f81c2fbc1ba1c68aee836cea3aaf5d2925244d1d191a6972808e9ab003ae3bc"
+    sha256 arm64_golden_gate: "99b7e963bb2c5d1130f510467cab8b281ee944dd499c25046fe11accb9aafce5"
+    sha256 arm64_tahoe:       "4f418fe7041cd0575970c66fb70504b1244a1ef0c66ee27a84cfe670b789fcbe"
+    sha256 arm64_sequoia:     "69de185dd736947607d0862a9c0ce03a17d72b28a888e18ea3ab7f5ef8db129f"
+    sha256 arm64_linux:       "193d94dc1ff0e45394c72938335fdbc858da901496dd67a2906ebfc98d2e5eae"
+    sha256 x86_64_linux:      "3ac46a9e66373c0898640a60ef5f93d30d6be52cfd3481d73fe7151436093008"
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.14" => [:build, :test] # for bindings, avoid runtime dependency due to `expat`
+  depends_on "python@3.15" => [:build, :test] # for bindings, avoid runtime dependency due to `expat`
   depends_on "swig" => :build
   depends_on "charls"
   depends_on "json-c"
   depends_on "openjpeg"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "expat"
   uses_from_macos "libxml2"
 
   on_linux do
-    depends_on "python@3.14"
+    depends_on "python@3.15"
     depends_on "util-linux" # for libuuid
     depends_on "zlib-ng-compat"
   end

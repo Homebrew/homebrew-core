@@ -8,15 +8,18 @@ class PgActivity < Formula
   license "PostgreSQL"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "289f4f1f16282e4ff6f09e350a54d6286d024ac2f2028d06a057885b0820b010"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7646e66ac9dbbd38f7212f3106e7fb7d187c3b61417824d5a19bd8711d60ec6a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3f79f652bd6e82e8f88fde8d13461537aba4431ebc41dcc25ac15d94d96a2839"
-    sha256 cellar: :any,                 arm64_linux:       "757175c1ced4195b65181cda57e07399ab8911a21f56d21e3a1dcfb7e7e401d5"
-    sha256 cellar: :any,                 x86_64_linux:      "d1af4cfa54a4d9027b568696df077883439125ae53087d52f18a260267779807"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fbc86bbcf4f8d597da51680be64538106333f5526aed945f09f2b62263ceed02"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "39b1c3a579e0ad780c13140b9f1a5a66a552cfb0a04565f204a37cb9d74c6a3c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7225c666d8a8d43ac5c9afae5221195922cb3babb09fdc09b1f61e9c4a461a2b"
+    sha256 cellar: :any,                 arm64_linux:       "99cadc23243fb39c356648fa45effaff5ef1a1bc981a3482cc42b9537a5ae1a0"
+    sha256 cellar: :any,                 x86_64_linux:      "302a9ac85e09851f953bfe571a18202ecb6e7a00d96f91152a5d79b1fecad26f"
   end
 
   depends_on "libpq"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
+
+  pypi_packages extra_packages: "psycopg"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/9a/8e/82a0fe20a541c03148528be8cac2408564a6c9a0cc7e9171802bc1d26985/attrs-26.1.0.tar.gz"
@@ -49,8 +52,8 @@ class PgActivity < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/dc/ac/3a943d2792c9bb368aaa8b50121c0f778460ba2d7fbdc0a0366201d9e761/wcwidth-0.9.1.tar.gz"
-    sha256 "5823209b0d43af322ce698c689380d7c15ca31fa8e6e3be8459f27031bef0af5"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

@@ -19,6 +19,11 @@ class Ncmdump < Formula
   depends_on "cmake" => :build
   depends_on "taglib"
 
+  resource "homebrew-test", :test do
+    url "https://raw.githubusercontent.com/taurusxin/ncmdump/516b31ab68f806ef388084add11d9e4b2253f1c7/test/test.ncm"
+    sha256 "a1586bbbbad95019eee566411de58a57c3a3bd7c86d97f2c3c82427efce8964b"
+  end
+
   allow_network_access! :test
 
   def install
@@ -28,11 +33,6 @@ class Ncmdump < Formula
   end
 
   test do
-    resource "homebrew-test" do
-      url "https://raw.githubusercontent.com/taurusxin/ncmdump/516b31ab68f806ef388084add11d9e4b2253f1c7/test/test.ncm"
-      sha256 "a1586bbbbad95019eee566411de58a57c3a3bd7c86d97f2c3c82427efce8964b"
-    end
-
     resource("homebrew-test").stage(testpath)
     system bin/"ncmdump", testpath/"test.ncm"
     assert_path_exists testpath/"test.flac"

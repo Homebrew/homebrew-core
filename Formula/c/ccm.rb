@@ -10,18 +10,17 @@ class Ccm < Formula
   head "https://github.com/apache/cassandra-ccm.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e895d4b37b6f0e91759bb27932e93259c642f4a68810f781e46a5271a71eb719"
-    sha256 cellar: :any, arm64_tahoe:       "67b755e68216edfdcbe945e3644c4a5cbab93b4f7b6f8cdc0a66dcb6955717bc"
-    sha256 cellar: :any, arm64_sequoia:     "891677994e9c63ddcf5b86405b86d8dfcce0b0c7a4c35857cb344dd23a29921d"
-    sha256 cellar: :any, arm64_sonoma:      "3891e530c85afeedbc5b09a4186744102c06ab98aab885fe4f28106a2ea0b8da"
-    sha256 cellar: :any, sonoma:            "465c9976007d204f33c9877c66ea5380311604f6429c3ad444c5633482bbd9a1"
-    sha256 cellar: :any, arm64_linux:       "a6dc7168ca471aa9a9f069d7e7eccfff655ccf31d4971bd194eaddd639a9b60e"
-    sha256 cellar: :any, x86_64_linux:      "229e27e99a7ab2d46e2b87de628f52095a68cb5f08dcd0b66ff3ba775e10251f"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "a36db15b07cbbaf04ddaf5777e3bd68557349c25ca8bf96997198c9d9bd4272c"
+    sha256 cellar: :any, arm64_tahoe:       "8ad9d0dd645885a99d1d34192dbcb7d0d4228c26adeb02ea6ecb34cb227745cf"
+    sha256 cellar: :any, arm64_sequoia:     "8aa02394c7ea97b739c35f85ae6224819ade3ba6a11ebe459071ad45a0c521dd"
+    sha256 cellar: :any, arm64_linux:       "b3d957ddaa8058ac27d59e01b16122babf205998f39170d3660705aa348d3871"
+    sha256 cellar: :any, x86_64_linux:      "878ccebb83f15fbc7c49c82c88e383036dfa029b97bc7fb3bde866104694a2be"
   end
 
   depends_on "libev"
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages extra_packages: ["cassandra-driver", "setuptools"]
 
@@ -31,13 +30,13 @@ class Ccm < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "deprecated" do
-    url "https://files.pythonhosted.org/packages/49/85/12f0a49a7c4ffb70572b6c2ef13c90c88fd190debda93b23f026b25f9634/deprecated-1.3.1.tar.gz"
-    sha256 "b1b50e0ff0c1fddaa5708a2c6b0a6588bb09b892825ab2b214ac9ea9d92a5223"
+    url "https://files.pythonhosted.org/packages/f7/9c/16649913bf14c73e0a9453782e148362ff2657067deff6aa9c7ebcddcc31/deprecated-3.0.0.tar.gz"
+    sha256 "16850204d3a1e6bb0acd06bff48d96e8b0a0d25d1c52f71705405a0f4894192d"
   end
 
   resource "geomet" do
@@ -51,8 +50,8 @@ class Ccm < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/34/26/f5d29e25ffdb535afef2d35cdb55b325298f96debd670da4c325e08d70f4/setuptools-83.0.0.tar.gz"
-    sha256 "025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef"
+    url "https://files.pythonhosted.org/packages/6d/44/f5da03a8ef95d369145c5bb53050e7877c9f3d312e128605fd9504829143/setuptools-84.0.0.tar.gz"
+    sha256 "f4695c21257f0d9b537ec2692c941d02ee143b7cc1276941349a546573b2ef73"
   end
 
   resource "six" do
@@ -61,8 +60,8 @@ class Ccm < Formula
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/fe/a4/282c8e64300a59fc834518a54bf0afabb4ff9218b5fa76958b450459a844/wrapt-2.2.2.tar.gz"
-    sha256 "0788e321027c999bf221b667bd4a54aaefd1a36283749a860ac3eb77daed0302"
+    url "https://files.pythonhosted.org/packages/3e/d2/a254a26d8ceaea87e0eee2e89fcfe53ddc1858418647493bb2937549ab6f/wrapt-2.5.0.tar.gz"
+    sha256 "c48cdb6c904dca76d9915a579e4a5fab6b0c25f650c1019ce78a78effaf7a345"
   end
 
   # Drop `pkg_resources`, removed in setuptools 81+; backport of upstream

@@ -9,15 +9,16 @@ class TranslateToolkit < Formula
   head "https://github.com/translate/translate.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "fda8ec4ccda2f91401d25c781bea3e4fa92496e159c77867253e5680a399ad39"
-    sha256 cellar: :any, arm64_tahoe:       "dd1c7eafd1a294d4e8f79a789837bfee700fa0a4331f5a2d516fd7083b6e77c9"
-    sha256 cellar: :any, arm64_sequoia:     "fb36d5f441993023ed146234f556d9c3a31510d6dfbc3cb242447239736a5ddf"
-    sha256 cellar: :any, arm64_linux:       "7e47bbb5adbb8b896ade22eb496b0a46d42bab3896800a931158698f4d3f823b"
-    sha256 cellar: :any, x86_64_linux:      "80e7b54def0f7bc92bbb5c25019c7e93043a08a47867245d5ffbcf2da16b7da4"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "3587239357879783bf164e6634ea625939226c1784b305023b53b570418b94f4"
+    sha256 cellar: :any, arm64_tahoe:       "fb076a029616a054e673a8e83c758361a10016a279a056239499e1d48966f728"
+    sha256 cellar: :any, arm64_sequoia:     "2b0f0b133db901b4e7f979d84c7b031893ca6522bb055e06921ca5e415da6fec"
+    sha256 cellar: :any, arm64_linux:       "2b0dbddeeeb77b641e062ae9de0d7f1ba628b4b314671d9e2afeb7b764961be9"
+    sha256 cellar: :any, x86_64_linux:      "604d3c14d0560c0bd75b5e7d0e73301371dbf26d8cd630ff003438983f3a479c"
   end
 
   depends_on "rust" => :build # for `unicode_segmentation_py`
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"

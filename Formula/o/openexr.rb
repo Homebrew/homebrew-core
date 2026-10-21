@@ -33,6 +33,11 @@ class Openexr < Formula
   link_overwrite "lib/libIlmThread.dylib"
   link_overwrite "lib/libIlmThread.so"
 
+  resource "homebrew-exr", :test do
+    url "https://github.com/AcademySoftwareFoundation/openexr-images/raw/f17e353fbfcde3406fe02675f4d92aeae422a560/TestImages/AllHalfValues.exr"
+    sha256 "eede573a0b59b79f21de15ee9d3b7649d58d8f2a8e7787ea34f192db3b3c84a4"
+  end
+
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
@@ -40,11 +45,6 @@ class Openexr < Formula
   end
 
   test do
-    resource "homebrew-exr" do
-      url "https://github.com/AcademySoftwareFoundation/openexr-images/raw/f17e353fbfcde3406fe02675f4d92aeae422a560/TestImages/AllHalfValues.exr"
-      sha256 "eede573a0b59b79f21de15ee9d3b7649d58d8f2a8e7787ea34f192db3b3c84a4"
-    end
-
     resource("homebrew-exr").stage do
       system bin/"exrheader", "AllHalfValues.exr"
     end

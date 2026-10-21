@@ -1,10 +1,10 @@
 class ArgocdVaultPlugin < Formula
   desc "Argo CD plugin to retrieve secrets from Secret Management tools"
   homepage "https://argocd-vault-plugin.readthedocs.io"
-  url "https://github.com/argoproj-labs/argocd-vault-plugin.git",
-      tag:      "v1.18.1",
-      revision: "fc452cdd8d4727b412ce3de61ee0416efd75050d"
+  url "https://github.com/argoproj-labs/argocd-vault-plugin/archive/refs/tags/v1.18.1.tar.gz"
+  sha256 "687141d21c1baaedab6b6d4f5e11e72faf6eec7f7d889be7095a48a888080e32"
   license "Apache-2.0"
+  head "https://github.com/argoproj-labs/argocd-vault-plugin.git", branch: "main"
 
   bottle do
     rebuild 1
@@ -19,13 +19,20 @@ class ArgocdVaultPlugin < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ENV["CGO_ENABLED"] = "0"
 
+    commit = build.head? ? Utils.git_head : Utils::Git.get_tar_commit_id(cached_download)
     ldflags = %W[
       -X github.com/argoproj-labs/argocd-vault-plugin/version.Version=#{version}
       -X github.com/argoproj-labs/argocd-vault-plugin/version.BuildDate=#{time.iso8601}
-      -X github.com/argoproj-labs/argocd-vault-plugin/version.CommitSHA=#{Utils.git_head}
+      -X github.com/argoproj-labs/argocd-vault-plugin/version.CommitSHA=#{commit}
     ]
 
     system "go", "build", *std_go_args(ldflags:)

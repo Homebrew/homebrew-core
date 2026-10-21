@@ -1,8 +1,8 @@
 class SignalCli < Formula
   desc "CLI and dbus interface for WhisperSystems/libsignal-service-java"
   homepage "https://github.com/AsamK/signal-cli"
-  url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.14.8.tar.gz"
-  sha256 "acc8d89463b5cdce2cf81ad00e91caf5aec37aab2d5f57d722139f254c0fd816"
+  url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.14.9.tar.gz"
+  sha256 "2316adb253a97cb9e35911303362386ca0c1b19515a886a4824ac95e6706191b"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,11 @@ class SignalCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1ade2e89145086de67fb439b205eeaf42ebac395761252b47ee43f694bccfd8f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9a823ba06b21e08c915a645cad15eaabfe76462df58fb6484b49393622d3eb73"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6f104ba0935a3fd15d4c2ebf5105bb0899c6bf8a745e1c4b9b402164c6adc7fe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "3d77c18866fca4366128b2e716c5cffc63ae937af65172e197594d0802faddea"
-    sha256                               arm64_linux:       "a05108d5e62d7ab1a2e8238c99b46177e42dc162257fa56c59dc969f09a0cddf"
-    sha256                               x86_64_linux:      "518da6c02eda4a5aef79e9279e7f1102fb68cbfae8c78e34e61a7c1448cc207a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "755ec857ec3afc9454bfc10e2c99a017bd109b76cbd524d58d1cfdc045ad15d3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a0de875ca0bd04700733848af01f0cd72cb4cce57ea15b3fb68fdbdea12c8b6f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "26dbf9e093c752c42c77a1a4cbdd37ba12cb408e9bba856b6766ddd15269c048"
+    sha256                               arm64_linux:       "cffe44d2432f455c3447cf3135ba989b25f94a0620defed0a1b78eda151e36d3"
+    sha256                               x86_64_linux:      "6b220cb64201e88affa41b732562d0cf14cc3805e9782284ce5e543ce0856ee6"
   end
 
   depends_on "asciidoc" => :build
@@ -37,8 +36,8 @@ class SignalCli < Formula
   end
 
   resource "libsignal-client" do
-    url "https://github.com/signalapp/libsignal/archive/refs/tags/v0.102.1.tar.gz"
-    sha256 "6dfd78963083917bf03814243a1e60086a62f3fb5dbb755c194db73dd958f810"
+    url "https://github.com/signalapp/libsignal/archive/refs/tags/v0.103.0.tar.gz"
+    sha256 "c16e8b7e647a81f498050294f75ad6675d474cc5fce6bb8d26e3152044579d82"
 
     livecheck do
       url "https://raw.githubusercontent.com/AsamK/signal-cli/refs/tags/v#{LATEST_VERSION}/libsignal-version"

@@ -14,11 +14,12 @@ class Calicoctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "285ab6442b7a97a5961d8e37198a80ff482316f6067f75e0e100b669592bca47"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "01dd66361727494f7874595262756bc00cb30b3007082828c28ebf929a86d37d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "491dd29d477b7b61a6944978fff8697b2063314f2d4248ebf59eeae504654dd0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f45deb3bd9bce015403f653be40299f7c99e447a28b793ea9cf282abf0107721"
-    sha256 cellar: :any,                 x86_64_linux:      "6ff21bcb3b90782f925423d7136543e40ae7da19191285c412b901f5c5c34630"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b746a75c8443df6388bed893cac7003b4922efa3fa2a0784f7cd126d16b7042c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c6011a710e926a10fcdb2b6c5e9f066bc4a7cfc285ce946cb10d0dc253b122ea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7ee71d0729442103cb102b49869f4fa45669354da8be3d1d941d2358386fbf87"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "484c318c339fa84a8feb33807de51de38145f12c271bcc9b62028efa17e6cd46"
+    sha256 cellar: :any,                 x86_64_linux:      "081821fcf268ea32c2a6a861b4d3803f52c4c7e92c2170cca8e4df76193f7bc5"
   end
 
   depends_on "go" => :build
@@ -36,6 +37,7 @@ class Calicoctl < Formula
       -X github.com/projectcalico/calico/pkg/buildinfo.BuildDate=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags:), "calicoctl/calicoctl/calicoctl.go"
+    generate_completions_from_executable(bin/"calicoctl", shell_parameter_format: :cobra)
   end
 
   test do

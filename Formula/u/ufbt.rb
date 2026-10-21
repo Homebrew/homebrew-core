@@ -8,11 +8,11 @@ class Ufbt < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, all: "2bd8cb39ff223bce351824caed83bc909b0b7bea6e61b7c8e91cc2c000bef32c"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, all: "00e922d31e19d1c9aad213ca15399df739f4d450130d1247444a8cb2c4807a74"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "mslex" do
     url "https://files.pythonhosted.org/packages/e0/97/7022667073c99a0fe028f2e34b9bf76b49a611afd21b02527fbfd92d4cd5/mslex-1.3.0.tar.gz"
@@ -20,8 +20,8 @@ class Ufbt < Formula
   end
 
   resource "oslex" do
-    url "https://files.pythonhosted.org/packages/5e/a9/ebd426ee0ca59fb5ba8f0039c53989f4ca475f2dd9583b5719e2fb01602c/oslex-0.1.3.tar.gz"
-    sha256 "1ed4cd82c75df2a8bcb0da34400984183753933155d0c7d999fa533137685f2d"
+    url "https://files.pythonhosted.org/packages/24/19/b74ea9590378a35014acf72f221e84c5980aa7531d1852ef961764e7d3a6/oslex-2.0.0.tar.gz"
+    sha256 "30d9f4a7201bdce3ab7d9cfc0f9ee9e18c423b2b1d1668141b0dd3594b368ffe"
   end
 
   def install

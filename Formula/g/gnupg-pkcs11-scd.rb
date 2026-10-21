@@ -4,6 +4,7 @@ class GnupgPkcs11Scd < Formula
   url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/download/gnupg-pkcs11-scd-0.11.0/gnupg-pkcs11-scd-0.11.0.tar.bz2"
   sha256 "954787e562f2b3d9294212c32dd0d81a2cd37aca250e6685002d2893bb959087"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,15 +13,11 @@ class GnupgPkcs11Scd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "e1cc405104121fa1786ad3b683e2af83c566d3c91304c15ae955a00faa78e288"
-    sha256 cellar: :any,                 arm64_tahoe:       "65d2c6a55292c288781f2242d23e5dd32cbe812de84a34d67d4d9d1843962449"
-    sha256 cellar: :any,                 arm64_sequoia:     "61fe705d3372be045ef36d9963f239f995fa8eaadfd3a958453bc40779a484ae"
-    sha256 cellar: :any,                 arm64_sonoma:      "1a11d7e2b1382db7387cf3fc3d42434b312badc118bde4ec5656e6c64e8b2a91"
-    sha256 cellar: :any,                 arm64_ventura:     "1651f0fa0cdd511617f7d254d85e5b560150b80b2077607c40178f2b74084dc5"
-    sha256 cellar: :any,                 sonoma:            "c5fb594eed11f09d7fa58936b9aaefa5279b500ed06d001177e915a26a551a61"
-    sha256 cellar: :any,                 ventura:           "b684dcd097fe3591f06a40af7087f6fe425e926769041fa3cba61d4931122905"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6f82efd2908e52f5f3bdddb3058d90a6249955cacac286b6d493c74ee2adb947"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c73d56aaa9f8a96b1bcf700727a25e2bbb89e03aa1e0d456f8e6a418712a29a3"
+    sha256 cellar: :any, arm64_golden_gate: "8b0bdb58d5901c55a9440e26aa4517cc7adcd9b11b986a48459ec08fcffa5a46"
+    sha256 cellar: :any, arm64_tahoe:       "b11527d4954e4186110bae684771152f7469f62bdf801b237ca835fe90ce7543"
+    sha256 cellar: :any, arm64_sequoia:     "c9429a21c0bf49b31071791099d6ed2ca39ef83739bc7ceabf1503c6c2f6bc4a"
+    sha256 cellar: :any, arm64_linux:       "33e84c7d2e70d23d562326c74b1ee73e776ef00b7fd478ff044722fb123cb89c"
+    sha256 cellar: :any, x86_64_linux:      "57ec2397088bc335b24efb808c62f826e948004b9d01a3a5f25c0a34b4a1ea4b"
   end
 
   depends_on "autoconf" => :build
@@ -30,7 +27,7 @@ class GnupgPkcs11Scd < Formula
   depends_on "libassuan"
   depends_on "libgcrypt"
   depends_on "libgpg-error"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pkcs11-helper"
 
   def install

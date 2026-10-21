@@ -26,7 +26,7 @@ class Logrotate < Formula
     system "make", "install"
 
     inreplace "examples/logrotate.conf", "/etc/logrotate.d", "#{etc}/logrotate.d"
-    etc.install "examples/logrotate.conf" => "logrotate.conf"
+    etc.install "examples/logrotate.conf"
 
     (etc/"logrotate.d").mkpath
     (var/"lib").mkpath

@@ -31,7 +31,7 @@ class GoTask < Formula
     ]
     system "go", "build", *std_go_args(ldflags:, output: bin/"task"), "./cmd/task"
     bash_completion.install "completion/bash/task.bash" => "task"
-    zsh_completion.install "completion/zsh/_task" => "_task"
+    zsh_completion.install "completion/zsh/_task"
     fish_completion.install "completion/fish/task.fish"
   end
 

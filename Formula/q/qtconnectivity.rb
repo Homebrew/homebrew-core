@@ -1,14 +1,15 @@
 class Qtconnectivity < Formula
   desc "Provides access to Bluetooth hardware"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtconnectivity-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtconnectivity-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtconnectivity-everywhere-src-6.11.2.tar.xz"
-  sha256 "85b01a57bd059583ab520a857990dfdf4021447507ff5b9498f036b7295e6037"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtconnectivity-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtconnectivity-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtconnectivity-everywhere-src-6.12.0.tar.xz"
+  sha256 "ed51f7f02c1f437fcf8a42940c7a84f6c0908c0ec7a4f5a5304fe68f47521954"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-3-Clause", # *.cmake
   ]
+  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qtconnectivity.git", branch: "dev"
 
@@ -17,12 +18,11 @@ class Qtconnectivity < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3ca2c4fc3d80702338d11b713a5739a10de3ab442cf3c9cb99772a3b2ae259b1"
-    sha256 cellar: :any, arm64_tahoe:       "30a11a821995dbe0d86f02feda17229851928920279a13b19efc54a8a300192e"
-    sha256 cellar: :any, arm64_sequoia:     "3a0565746066d6c582e7cb36805542fae1b6ba2c4887f829452960b485b4bbc6"
-    sha256 cellar: :any, arm64_sonoma:      "350074e2dd05d4b97f7e38d66835fd40bcdb39ff532b9a060023a66857973e7c"
-    sha256 cellar: :any, arm64_linux:       "fcdb01cacc4fb6ad1f1bb02051f6801a81bc4a59e4be2de8f8eee0c3ef4c0989"
-    sha256 cellar: :any, x86_64_linux:      "96466c09f50057b7324e683cf3de0960ad4b14733c9dea49bc7309d1529dfe90"
+    sha256 cellar: :any, arm64_golden_gate: "276aeb46883320717bcf17b114b4d3886c5e45a9e163b60fda6882b8521b11a6"
+    sha256 cellar: :any, arm64_tahoe:       "093afb7946cd05be0f8454fbf0c1bbab1d117b02f6eac9f2f1a97e62ef70d934"
+    sha256 cellar: :any, arm64_sequoia:     "180887340213edff5abdf471ab94ad111751420666aa57d33932be64b3d9c6ce"
+    sha256 cellar: :any, arm64_linux:       "3741a7533163a016c4287e94bd022c0fb46392db4da4bd5c7b482ec06691f344"
+    sha256 cellar: :any, x86_64_linux:      "49c327f696faa14fe8e2ec4d554a626f09e181c798bdf1b7d203eaabd7fd5ead"
   end
 
   depends_on "cmake" => [:build, :test]

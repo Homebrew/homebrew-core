@@ -1,22 +1,27 @@
 class StaticWebServer < Formula
   desc "High-performance and asynchronous web server for static files-serving"
   homepage "https://static-web-server.net"
-  url "https://github.com/static-web-server/static-web-server/archive/refs/tags/v2.44.0.tar.gz"
-  sha256 "aaaab02eddb488a14f021cc29a169ed7921ef7e0fe7668f38cb281d2d04d190b"
+  url "https://github.com/static-web-server/static-web-server/archive/refs/tags/v2.44.1.tar.gz"
+  sha256 "448f20b95e4a7e08fdaad372544bfa6faeeb7a37709658f80fcd81b9b8b80345"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/static-web-server/static-web-server.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9406fc8411f24b14a53f91ee5447a5fc17c00cd76686c050a10c13dd05f636da"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fe1e725691b03bee387343f29ca89900415b76d50202d15a64be60620593b522"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ca67f96e1d3abee9fce506a54af66c79f735116b95b41e81c325a38c80da32b8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "43c62bc5c92b0d8a872ba7a19bb565234af4f1086a057b8f0637c5d77797e2ab"
-    sha256 cellar: :any_skip_relocation, sonoma:            "77b7059a22f198f3353ea3cb2fb08bbaf6442be04ebdeac6e94d53fe807ba3d2"
-    sha256 cellar: :any,                 arm64_linux:       "5cb2ed53cd8a8a79568baabcb271823aed51271af7ddda267d5ba4992a25f8af"
-    sha256 cellar: :any,                 x86_64_linux:      "60c1ed165bd93fad4500cf85523e7e0a1415537c78009986ff1e3bb3887bc6e7"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "edd9d9301a51532517448557e7a91343a5ea6aeba07ba02b4ddb434ecd6606fa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "50d1f756ce6b85960f631506112165e3349d46d5e4f6b1a745a434cf49a4a705"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a312d81a21afe609ee6d7551abc5a25855a05da754816dbd6bdfa475651853e4"
+    sha256 cellar: :any,                 arm64_linux:       "f3ce3b348aab5ada7250b7d7918f1a3ad2a881aa3a3b51280414ca014fcf8df6"
+    sha256 cellar: :any,                 x86_64_linux:      "dcf5647edf810048c0775fcd41efe2b63bbf557c1b5863bab9196adec15bf917"
   end
 
   depends_on "rust" => :build
+
+  # `test do` block runs a local HTTP server.
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

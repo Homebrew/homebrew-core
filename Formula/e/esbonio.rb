@@ -8,16 +8,15 @@ class Esbonio < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d3feba3a000e9d3e29b2186cb668101039d1b16151a7f47c5da437af7903608c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "100f216f03616b6d222161de1747fe482e333a03cce6347f760987f874e968f4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "86a92b25eb73c0fcffeaf6d846b0d6229a905b984eef64d2fafa4905d9acc34a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "6c4b1ecc42f9c797121c766925a898124301d621458a95be40ff055669df9a0b"
-    sha256 cellar: :any_skip_relocation, sonoma:            "c28e149b9a979df21b4ddb165a0dfd1e3825c037f62dc9769ba8e7ef1c791322"
-    sha256 cellar: :any,                 arm64_linux:       "702e6519514e1c7289a4cf9539bab2f03b5497917a7705883ed4504ec48a3bd6"
-    sha256 cellar: :any,                 x86_64_linux:      "8b0f7b22a8e5927f592fa911ed130c368942d312582960b48be53d455c938574"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "278831a9f7ef18b32165461987eb4293d9ae26e6933c152e976774a4314506e9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4de7dff017cf56b5463b1fa7a2ab744eea8c9e45df515dd74fcb738c5eae903f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "183da30c35fba7960d5aae46e549fa85ddf5578223d1667b830293982f388fb6"
+    sha256 cellar: :any,                 arm64_linux:       "dbaa8ed7b88b739f3fb1ffb9ba55d113364b7b77e56bcbb96233c699b8a6f148"
+    sha256 cellar: :any,                 x86_64_linux:      "94fe365da023c42d0882f9026f48ec00e3f0b84ab92824a652f1499a1e88fab8"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "aiosqlite" do
     url "https://files.pythonhosted.org/packages/4e/8a/64761f4005f17809769d23e518d915db74e6310474e733e3593cfc854ef1/aiosqlite-0.22.1.tar.gz"
@@ -30,8 +29,8 @@ class Esbonio < Formula
   end
 
   resource "cattrs" do
-    url "https://files.pythonhosted.org/packages/a0/ec/ba18945e7d6e55a58364d9fb2e46049c1c2998b3d805f19b703f14e81057/cattrs-26.1.0.tar.gz"
-    sha256 "fa239e0f0ec0715ba34852ce813986dfed1e12117e209b816ab87401271cdd40"
+    url "https://files.pythonhosted.org/packages/23/75/e72b839c3dc869c990b4842f3dba730bdcdf5215f68fc7955edf849a1792/cattrs-26.2.1.tar.gz"
+    sha256 "679132bfdc225c5ee40c024fc42519954767c387f950dc6751946c586bccdc6d"
   end
 
   resource "docutils" do
@@ -45,8 +44,8 @@ class Esbonio < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/47/e4501f49c178ae1d9f4a75073fda4204f52647993f075a9db4d14930e0c5/platformdirs-4.10.0.tar.gz"
-    sha256 "31e761a6a0ca04faf7353ea759bdba55652be214725111e5aac52dfa29d4bef7"
+    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
+    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
   end
 
   resource "pygls" do
@@ -60,8 +59,8 @@ class Esbonio < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/04/24/4b2031d72e840ce4c1ccb255f693b15c334757fc50023e4db9537080b8c4/websockets-16.0.tar.gz"
-    sha256 "5f6261a5e56e8d5c42a4497b364ea24d94d9563e8fbd44e78ac40879c60179b5"
+    url "https://files.pythonhosted.org/packages/01/89/3f825ab71c242fffb62ea8fe638741c290f62f8d7aadf8125ff897747af3/websockets-17.2.tar.gz"
+    sha256 "36c2fb94c990cc2545143b12690e2de6c16300f9dbe5b4f33fa300cf57dc8792"
   end
 
   def install

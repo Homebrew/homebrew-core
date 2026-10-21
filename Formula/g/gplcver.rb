@@ -28,6 +28,8 @@ class Gplcver < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "c7781b1d43d27d447386d9563e2c04d7b253b467773d077f29f2171723a66829"
   end
 
+  deny_network_access!
+
   def install
     inreplace "src/makefile.osx" do |s|
       s.gsub! "-mcpu=powerpc", ""
@@ -37,5 +39,9 @@ class Gplcver < Formula
 
     system "make", "-C", "src", "-f", "makefile.osx"
     bin.install "bin/cver"
+  end
+
+  test do
+    assert_match "Design contains no modules - nothing to do.", shell_output("#{bin}/cver /dev/null")
   end
 end

@@ -9,17 +9,18 @@ class Vunnel < Formula
   head "https://github.com/anchore/vunnel.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8baa905783c22e7f374632f79c93884f904bd63c54b05b47ad180dea42e174fd"
-    sha256 cellar: :any, arm64_tahoe:       "385f1d574c6134a6fbdaa23db29d15aadd2f828c8bdd4a8b9c17336545d5ac2b"
-    sha256 cellar: :any, arm64_sequoia:     "2a51a95af1b5d3abe3f5d7596b81fd118acb837a39a495736fa136ed0412a7cb"
-    sha256 cellar: :any, arm64_linux:       "b20fa3a4ca0634a924cf1bc56015d4d50ec27ecfbd3d16ecd3acf0c924fccbe3"
-    sha256 cellar: :any, x86_64_linux:      "fcdd0a966a053ca9681bef78b053ae1b7f221c239ea0390d3760527e18250f44"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "4a1a25274a9168684173204c678fbbfa2c36c56d20cb7bb011631dfb475bb240"
+    sha256 cellar: :any, arm64_tahoe:       "79400cd035cf3baffc575faf8063182cbcd61a8133494097dbcf2c333b6286a1"
+    sha256 cellar: :any, arm64_sequoia:     "959814adb89e6a4bd37ebdafd766d2a6acf99fdb3207fdfb7344f8ea53564125"
+    sha256 cellar: :any, arm64_linux:       "b3a47260292d75ac3bb70de84022b3ccca058e32f44f5595d9cdfbda0395672f"
+    sha256 cellar: :any, x86_64_linux:      "f059a6822a897a59bfad24771a33c07b67a225bc197323f24ca7de6bba1ceca4"
   end
 
   depends_on "rust" => :build
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
   depends_on "xxhash"
   depends_on "zstd"
@@ -236,6 +237,10 @@ class Vunnel < Formula
 
   def install
     ENV["XXHASH_LINK_SO"] = "1"
+
+    # Allow Python 3.15
+    inreplace "pyproject.toml", 'requires-python = "<3.15,>=3.13"', 'requires-python = ">=3.13"'
+
     venv = virtualenv_install_with_resources without: "zstandard"
 
     resource("zstandard").stage do

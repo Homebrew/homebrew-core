@@ -11,11 +11,12 @@ class Duplicity < Formula
   no_autobump! because: "`update-python-resources` cannot determine dependencies"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "af5f3b36b5b987a293b0a5e3d7d4d74b0f7a3967613c3e0a0e567c04adc2a9be"
-    sha256 cellar: :any, arm64_tahoe:       "2d71e862cd3b315e141e3a500e794aa23230ced7ac903e4fbca31026ca097950"
-    sha256 cellar: :any, arm64_sequoia:     "daaf7391a61652ec1a8b478ced7bc0979cdfe9e6e3370f99feb8a1ec9d307997"
-    sha256 cellar: :any, arm64_linux:       "4edd14f083146a16f5006d5ae992ca240a0214ca11a84de8d2d06d90d4e6f6b5"
-    sha256 cellar: :any, x86_64_linux:      "e66763910636c5270d03171e62fe60b4ec0b798eb78fabf0bcfd9e40f376eadf"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "1b858932e64dfd163794acdd700c0d989d47a01862fa70e1d439c9fcde0016af"
+    sha256 cellar: :any, arm64_tahoe:       "66d32a359529c98ffd357739addfcd271cdc8ea7ac940a22424b38fbb895dc91"
+    sha256 cellar: :any, arm64_sequoia:     "f412b0c6807a813fb9ab1d2fe900a59d266345cad72ab05824ed22bdb18761e5"
+    sha256 cellar: :any, arm64_linux:       "5ab7f543bf6fd1c31856ba4d152b8c42c8960bdd9e2fbc56ef3da14ae51175dd"
+    sha256 cellar: :any, x86_64_linux:      "b9a37d47aaf253357ff0f35076154817c18f27166ac334afe265a1a8efd742f8"
   end
 
   # `pkgconf` and `rust` are for bcrypt
@@ -28,7 +29,7 @@ class Duplicity < Formula
   depends_on "librsync"
   depends_on "libsodium" # for pynacl
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libffi"
   uses_from_macos "libxml2", since: :ventura
@@ -528,9 +529,12 @@ class Duplicity < Formula
   end
 
   def install
+    # Backport support for 3.15: https://gitlab.com/duplicity/duplicity/-/commit/4ca0c38058795826e20042bfa11e8f063fdb3fb9
+    inreplace "pyproject.toml", 'requires-python = ">=3.10, <3.15"', 'requires-python = ">=3.10"'
+    inreplace "duplicity/__main__.py", "sys.version_info[:2] <= (3, 14)", "sys.version_info[:2]"
+
     without = ["logfury"]
     without += %w[jeepney secretstorage] unless OS.linux?
-
     venv = virtualenv_install_with_resources(without:)
 
     resource("logfury").stage do

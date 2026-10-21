@@ -4,6 +4,7 @@ class Monit < Formula
   url "https://mmonit.com/monit/dist/monit-6.0.0.tar.gz"
   sha256 "ddacd2a8120aeb2351e4486ee04a17782b5004aee99f2041d829bc4dcf2a5b3b"
   license "AGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://mmonit.com/monit/dist/"
@@ -11,16 +12,14 @@ class Monit < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c09972f21bd7a3a18437fb063ffc18bf01d0562d1a8919dfa60c14e4666af46c"
-    sha256 cellar: :any, arm64_tahoe:       "4ca2ec2602bad5c37d7b07954d966e8834124cd97600637dc7cdfdd82a850ef0"
-    sha256 cellar: :any, arm64_sequoia:     "7c43581cc73b89a8de2e4b91a708e03dc843e2c873e6ebcf3d2214b04f34d6de"
-    sha256 cellar: :any, arm64_sonoma:      "1d0f9ab36c0c7f938a2ce25115d3922fca0297dda200da36ab3f5f3f84c2db87"
-    sha256 cellar: :any, sonoma:            "0badbc8e5be8a3069c5e31ad24f49c85c94bc36d381b68d6c632cb188432406a"
-    sha256 cellar: :any, arm64_linux:       "60e2478b3b8c7cabfaf2f00142e6c13d50ce31afb292db7166fe66a2460d936d"
-    sha256 cellar: :any, x86_64_linux:      "e8077e05324760fa6f9992c2917945b71cbf301452a7f553addd08b1163347c9"
+    sha256 cellar: :any, arm64_golden_gate: "e71a6a2deb67c965d5d7348c1682c51608ce7559141db08c22ded93ec42210a5"
+    sha256 cellar: :any, arm64_tahoe:       "477331b19fc0b1cf7f425b2634ed2a214246b4dbf5c4a303096580af03e90f1e"
+    sha256 cellar: :any, arm64_sequoia:     "fa7d02a81004e486c5165dcbe9cd7411310f43b7a90d2c6a06966fbf920cb7f4"
+    sha256 cellar: :any, arm64_linux:       "17d2a2d43398ffd40ba1f436abbe4363733d27dafdcd86995fd31cae3b717515"
+    sha256 cellar: :any, x86_64_linux:      "f357307da065b779ff93bceef3d314403bd20841fef4393a3ff42f438a542fba"
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "libxcrypt"
 
@@ -33,7 +32,7 @@ class Monit < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--localstatedir=#{var}/monit",
                           "--sysconfdir=#{etc}/monit",
-                          "--with-ssl-dir=#{formula_opt_prefix("openssl@3")}"
+                          "--with-ssl-dir=#{formula_opt_prefix("openssl@4")}"
     system "make"
     system "make", "install"
     etc.install "monitrc"

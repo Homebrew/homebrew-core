@@ -3,8 +3,8 @@ class Torrra < Formula
 
   desc "Find and download torrents without leaving your CLI"
   homepage "https://torrra.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/16/0a/5f3bd73167c694317f13aa926ba93a3f3702d3beb9f0594c0008926950cd/torrra-2.5.0.tar.gz"
-  sha256 "308ac08c5ce71feb1f370140e53f1a1b9cd3b7d9bda6d7495719f379d8bc3742"
+  url "https://files.pythonhosted.org/packages/49/90/c8e191a7152ec0010f1019d40d83c45a17dfa6fa3f736723d6b16453f882/torrra-2.5.1.tar.gz"
+  sha256 "0a966202f3d5ecf6868d7bd0ed5ff728d985daa6b955788a0d6f7e596625f85c"
   license "MIT"
   head "https://github.com/stabldev/torrra.git", branch: "main"
 
@@ -14,23 +14,23 @@ class Torrra < Formula
   no_autobump! because: "`update-python-resources` cannot determine dependencies"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "20c75cd1b7ed9984518f8015949132ee3e303af9fcbee08cfa760b5a4d42ca96"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "20c75cd1b7ed9984518f8015949132ee3e303af9fcbee08cfa760b5a4d42ca96"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "20c75cd1b7ed9984518f8015949132ee3e303af9fcbee08cfa760b5a4d42ca96"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "20c75cd1b7ed9984518f8015949132ee3e303af9fcbee08cfa760b5a4d42ca96"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c9c07bcf20a00ca244ad4ffb6b5dbcdba5279aa8485e97c0218e2f1c200b0cb9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "20c75cd1b7ed9984518f8015949132ee3e303af9fcbee08cfa760b5a4d42ca96"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6c4c0e428b484bdd4620d8eb088715643f86eb800ee9a29602069259a0e43fcd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6c4c0e428b484bdd4620d8eb088715643f86eb800ee9a29602069259a0e43fcd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6c4c0e428b484bdd4620d8eb088715643f86eb800ee9a29602069259a0e43fcd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "3085f27bb1e6133ae9422b2f3616660405e1d8c9dfa1eb72448004be992e1a86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3085f27bb1e6133ae9422b2f3616660405e1d8c9dfa1eb72448004be992e1a86"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "libtorrent-rasterbar" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: %w[certifi libtorrent libtorrent-windows-dll]
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/61/cc/a381afa6efea9f496eff839d4a6a1aed3bfafc7b3ab4b0d1b243a12573dd/anyio-4.14.2.tar.gz"
-    sha256 "cfa139f3ed1a23ee8f88a145ddb5ac7605b8bbfd8592baacd7ce3d8bb4313c7f"
+    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
+    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
   end
 
   resource "click" do
@@ -59,13 +59,13 @@ class Torrra < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
-    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
+    url "https://files.pythonhosted.org/packages/f5/08/8eea9d4b8302028f3abb2c0813953f7aec26d33b7a8960ed760e65ff29fa/idna-3.20.tar.gz"
+    sha256 "a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44"
   end
 
   resource "linkify-it-py" do
-    url "https://files.pythonhosted.org/packages/53/3e/79f35b8c31a1881893b7e62be80b2573f06e38db47c33065749293ee1b97/linkify_it_py-2.1.1.tar.gz"
-    sha256 "a78f40fee177eb912e9d2375074108378523c38d3fde5d3ee804f465b6cfbfee"
+    url "https://files.pythonhosted.org/packages/45/98/7a1a5f31fd5c7ba93e963b168e244b8e3dd705b3d2a718e3c3307583bf57/linkify_it_py-2.2.0.tar.gz"
+    sha256 "907acd2d17ac1fbb9ddb62c8957ccbd6158cac602231a15c3b0cd1e215f03cee"
   end
 
   resource "markdown-it-py" do
@@ -84,8 +84,8 @@ class Torrra < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/ea/06/cf1564dcc2e2261c8c8c6c05628dc8b418943bdae2a4e58640ceb2f770fa/platformdirs-4.11.5.tar.gz"
-    sha256 "e8b31f4f8bcbbedef91a6b57a706255e4f148d2a4e01648382a0a47342539173"
+    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
+    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
   end
 
   resource "pygments" do
@@ -111,11 +111,6 @@ class Torrra < Formula
   resource "typing-extensions" do
     url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
     sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
-  end
-
-  resource "uc-micro-py" do
-    url "https://files.pythonhosted.org/packages/78/67/9a363818028526e2d4579334460df777115bdec1bb77c08f9db88f6389f2/uc_micro_py-2.0.0.tar.gz"
-    sha256 "c53691e495c8db60e16ffc4861a35469b0ba0821fe409a8a7a0a71864d33a811"
   end
 
   def install

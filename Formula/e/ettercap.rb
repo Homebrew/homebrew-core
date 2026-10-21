@@ -4,16 +4,15 @@ class Ettercap < Formula
   url "https://github.com/Ettercap/ettercap/archive/refs/tags/v0.8.4.1.tar.gz"
   sha256 "210a535138772ee67f5946ef61efe3bba31413d0f241a11d953fb553cacbbacd"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/Ettercap/ettercap.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "5eecdee993f81f172770e84c6482b03e955d4dd040efa2ebeb0853b58d166d42"
-    sha256 arm64_tahoe:       "683a1e70a4ed420180dc80604f60bc2f1862f0f37db7fd315c6ed0a98c427ea2"
-    sha256 arm64_sequoia:     "4d89d3266fc1456c361809c437ddd63efbd2b22f4f843cb7f6a0930cce0e418c"
-    sha256 arm64_sonoma:      "57b7ba0a951d2d150bc15e4c550dea9d72d8b8185950b9ad8771c16f23bde0be"
-    sha256 sonoma:            "71e45b355ab2fcd63cfd1d50797908832d2d0a75a6da4b68076eaf8e1b671d0b"
-    sha256 arm64_linux:       "8b73234cc878c74b1c948428238c7d5db228d4c445f25bb732b657ca8853e7ff"
-    sha256 x86_64_linux:      "5c052b9cfffeb2a6ab032ff9903575894dadefc364b8dcb1090d28d34ec4648c"
+    sha256 arm64_golden_gate: "2067bebeff7ee6a107aa74a0319a297fb4f2a3f8427a804c425f268fcd3edbc5"
+    sha256 arm64_tahoe:       "1ce97459f932492aaf8639b7ca222b1fb3d250e2fbb1689562c30bd8023f4657"
+    sha256 arm64_sequoia:     "bd07cbd1265e4ce88e9e583c26ad9732a0806637ec3ceec57091ef9c887292c2"
+    sha256 arm64_linux:       "8b84982eb7c34ff667976e87c21044d67438d259f5d9646352da8195136dc741"
+    sha256 x86_64_linux:      "0fb808262825f92f2ff4bee730fdcb19f4311606357cdca277d31dbf5c1fe4eb"
   end
 
   depends_on "cmake" => :build
@@ -23,7 +22,7 @@ class Ettercap < Formula
   depends_on "libmaxminddb"
   depends_on "libnet"
   depends_on "ncurses"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
 
   uses_from_macos "bison" => :build

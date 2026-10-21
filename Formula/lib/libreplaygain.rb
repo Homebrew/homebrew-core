@@ -31,6 +31,8 @@ class Libreplaygain < Formula
 
   depends_on "cmake" => :build
 
+  deny_network_access!
+
   def install
     # Fix build with CMake 4.0+.
     inreplace "CMakeLists.txt",
@@ -42,5 +44,20 @@ class Libreplaygain < Formula
     system "cmake", "--install", "build"
 
     include.install "include/replaygain/"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <replaygain/gain_analysis.h>
+
+      int main(void) {
+        if (gain_init_analysis(44100) != INIT_GAIN_ANALYSIS_OK) return 1;
+        if (gain_init_analysis(12345) != INIT_GAIN_ANALYSIS_ERROR) return 1;
+        return 0;
+      }
+    C
+
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lreplaygain", "-lm", "-o", "test"
+    system "./test"
   end
 end

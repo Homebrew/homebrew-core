@@ -4,6 +4,7 @@ class Libpq < Formula
   url "https://ftp.postgresql.org/pub/source/v18.6/postgresql-18.6.tar.bz2"
   sha256 "555610c24d53e4316da5b7d3fc25c279d96856d5e0e23ee308c328c5fa881d9f"
   license "PostgreSQL"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -12,13 +13,11 @@ class Libpq < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "d629205c9896b8bdda4ed654dfc2069f22f34e83e8f2077b870ccf8e44c8897f"
-    sha256 arm64_tahoe:       "6fadf0b2e2ba3f6008086e624cb2417823988e78bccbe07b93a5f3cefc7573c1"
-    sha256 arm64_sequoia:     "f660d66a19e3960f16426f34b0350a84946672c23ce375408ff1d501e1a6d090"
-    sha256 arm64_sonoma:      "00c6d6128a75ac52740c79f65af01961fd2c0408a3ce0797b7c185408a079c59"
-    sha256 sonoma:            "509cb83e2fb3075e51c44d83a6db67d4f3dc1487a2996b101d4eeb304617b013"
-    sha256 arm64_linux:       "ee5ac4a2e3c39f7756c2781f049068a155f5d6af3e74c56d6e4c05c034bc51e3"
-    sha256 x86_64_linux:      "e4d1403cdb9c4f2c23551036ffc87f0ee3b5bc86df130caffcab9ed9cf6467e7"
+    sha256 arm64_golden_gate: "00250f5c1a16dfd1955cb94b68a9171a2ccba739bc161a75f09a03393e21d8b8"
+    sha256 arm64_tahoe:       "7107ff901d0e9a402d6d210a96942a99bc834d7d7c15ef2e436e6f86d8549b81"
+    sha256 arm64_sequoia:     "9e91d1af37e0c44755059d6a402d6d94138e817c3f36400c4c9bfcfadc7ea054"
+    sha256 arm64_linux:       "3ca52e0715a50fd41c1ed19e96e8cd550afafc9fb328a4a053d29bfcfff49354"
+    sha256 x86_64_linux:      "3d151d8b1f3d49d608d06ad85929b5a814a7f1b10197e860bd0cfe2331e1fa97"
   end
 
   keg_only "it conflicts with PostgreSQL"
@@ -30,7 +29,7 @@ class Libpq < Formula
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "readline"
 
   uses_from_macos "bison" => :build

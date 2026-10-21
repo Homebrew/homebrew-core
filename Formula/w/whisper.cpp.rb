@@ -1,8 +1,8 @@
 class WhisperCpp < Formula
   desc "Port of OpenAI's Whisper model in C/C++"
   homepage "https://github.com/ggml-org/whisper.cpp"
-  url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.9.4.tar.gz"
-  sha256 "57e280cee375ab02425b806ad5146b99f6eb9357e3c2b31357c8a6af2e2e44ae"
+  url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.9.5.tar.gz"
+  sha256 "ff1a9053feb509ff9d7729703355541ae9690073a6b1c40eb692c962e0dc1720"
   license "MIT"
   compatibility_version 1
   head "https://github.com/ggml-org/whisper.cpp.git", branch: "master"
@@ -13,11 +13,11 @@ class WhisperCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "878cb8f0f608ca7a4c6bd4677d911772b09498c0f51fe50400b9e482aef046b0"
-    sha256 cellar: :any, arm64_tahoe:       "7f4638ec796dadd46cf4436afe439f1c9f8056e61f8624379a800417e905d321"
-    sha256 cellar: :any, arm64_sequoia:     "d7baf5454e1c886adc33380c1cd1bfe810477e3196a250d8096bc5d02600dfd0"
-    sha256 cellar: :any, arm64_linux:       "006fc8f2b384ff1a538ec1c9fb62a96d2d7a7c422343c62935b3cf1f805fda29"
-    sha256 cellar: :any, x86_64_linux:      "2a3304c82ab88fa6a597471b8a3dd10b06689cddcd4a58e4ed84504174118287"
+    sha256 cellar: :any, arm64_golden_gate: "4960b2068b6c9820ab0e686fc4fe58e2edeb19c58c9613751b417a4ea9ab7ec3"
+    sha256 cellar: :any, arm64_tahoe:       "8c72ed8b6624aab6d9058ae4de65e73190265fdaeb3a7cd3f7d96417dc67325b"
+    sha256 cellar: :any, arm64_sequoia:     "a6691f811f613d79d1e508a89c7523e69f5b13a58c10e26083e77f8909b6db1e"
+    sha256 cellar: :any, arm64_linux:       "da1155a46b4d2e8ede1d4bd9da94d17b3b5aeeff473701a4859d7de3ffb5c507"
+    sha256 cellar: :any, x86_64_linux:      "f4d28a5d683ad92571dc089d1e2ce0168ebd0dcfaef117311742714e61b2bd1b"
   end
 
   depends_on "cmake" => :build
@@ -53,7 +53,7 @@ class WhisperCpp < Formula
       To obtain model files (.bin), visit one of these locations:
 
         https://huggingface.co/ggerganov/whisper.cpp/tree/main
-        https://ggml.ggerganov.com/
+        https://github.com/ggml-org/whisper.cpp/tree/master/models
     EOS
   end
 

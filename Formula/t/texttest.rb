@@ -8,23 +8,30 @@ class Texttest < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b909343595ba965d15ba271604485aa8cba22a34e86f43a7fb1d972d7a2ebab2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "832571055ac92ca8238bc82f577cd7c79523ad2e2193e52ab854b9a7527025f2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3cc868e7faed48bee9913df824bed353d7caaaee13b9df1e1b2c14c556c28d2f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "e5b90f947bf17649646c87dd493ee7cda94ead006751078c4ec2d156631ac454"
-    sha256 cellar: :any_skip_relocation, sonoma:            "85a615e5b8b7c3a1612d113e7f73d9e182bdc5990149250ccd76820e748832d6"
-    sha256 cellar: :any,                 arm64_linux:       "4fb5d327bc22b864041d1c8664e64a6949a9f3c810f8498db9b530b75e3a0f0b"
-    sha256 cellar: :any,                 x86_64_linux:      "4465570b8c8ba4cad53ce566e8a46c481036831ca62fd9dac1b9a87a4346d021"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b7b5d1d9c00a41213dcf359f860f13b135f56eb949dd6f2d1555727e475d1a00"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4d61336c6ca1c2cb0ae7aa3bc107c00583f4022d269353534bd86be97f45de3b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "670298760c09770543e0e0145e9819131f72dcd6acc17858fb66e825763c9f7f"
+    sha256 cellar: :any,                 arm64_linux:       "5f57888bd1da6ba88f21a1c9be61909e2cd3ce47c085b69b27970cd1edc1816a"
+    sha256 cellar: :any,                 x86_64_linux:      "c213279a5f9183379fb24e57e2a6747787acabd9b382e86efcd2de9ba66f95ff"
   end
 
   depends_on "adwaita-icon-theme"
   depends_on "gtk+3"
   depends_on "pygobject3"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/aa/c6/d1ddf4abb55e93cebc4f2ed8b5d6dbad109ecb8d63748dd2b20ab5e57ebe/psutil-7.2.2.tar.gz"
     sha256 "0746f5f8d406af344fd547f1c8daa5f5c33dbc293bb8d6a16d80b4bb88f59372"
+  end
+
+  # Fix import on Python 3.15
+  patch do
+    url "https://github.com/texttest/texttest/commit/f1ccd0a9dd5086f1e1e32587250aeef59e8db3b3.patch?full_index=1"
+    sha256 "d7395ab06ea5ebf86bbd4c8ea0d1eaabf4f821df52116c409ae7088387978749"
+    type :unofficial
+    resolves "https://github.com/texttest/texttest/pull/160"
   end
 
   def install

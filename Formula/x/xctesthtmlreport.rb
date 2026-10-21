@@ -18,6 +18,11 @@ class Xctesthtmlreport < Formula
   depends_on xcode: "14.0"
   uses_from_macos "swift"
 
+  resource "homebrew-testdata", :test do
+    url "https://pub-0b56a3a43f5b4adc91c743afc384fe1a.r2.dev/SanityResults.xcresult.tar.gz"
+    sha256 "e04a42a99dc05910aa31e6819016e5a481553d27d0dde121840f36fdb58e57b7"
+  end
+
   # `test do` block downloads a test fixture resource
   allow_network_access! :test
 
@@ -34,11 +39,6 @@ class Xctesthtmlreport < Formula
   end
 
   test do
-    resource "homebrew-testdata" do
-      url "https://pub-0b56a3a43f5b4adc91c743afc384fe1a.r2.dev/SanityResults.xcresult.tar.gz"
-      sha256 "e04a42a99dc05910aa31e6819016e5a481553d27d0dde121840f36fdb58e57b7"
-    end
-
     resource("homebrew-testdata").stage("SanityResult.xcresult")
     # It will generate an index.html file
     system bin/"xchtmlreport", "-r", "SanityResult.xcresult"

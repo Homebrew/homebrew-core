@@ -1,16 +1,16 @@
 class IcpCli < Formula
   desc "Development tool for building and deploying canisters on ICP"
   homepage "https://dfinity.github.io/icp-cli/"
-  url "https://github.com/dfinity/icp-cli/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "6bb4013895e077ad0a51efd8e9639bd82d4c9d364f27169a7df17fda4ba6a709"
+  url "https://github.com/dfinity/icp-cli/archive/refs/tags/v1.7.0.tar.gz"
+  sha256 "6ab68c9276ddbe34ddfe4b82cb4343b4705cf57777f00aa28479e515569d7be2"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "2f1cf2897c761e6b7ceb23f701e989a12a383f3f428aa6f345ba7b61b463616c"
-    sha256 cellar: :any, arm64_tahoe:       "9c5301855f0e6d57726b9c84642290c1d849c10af0d5e7041c64744ed8091339"
-    sha256 cellar: :any, arm64_sequoia:     "ebe097dbc3ee5cc82d987738103fbfaaf2ae3c78324daa1e14f0b5c599db4666"
-    sha256 cellar: :any, arm64_linux:       "15564ce13051d357f33eb434b48093c00b4d2fc0f21e748d7bca1fa8a0e4c6b4"
-    sha256 cellar: :any, x86_64_linux:      "ff8c8460f898f79ba35687969a1e3d5abc21817998629b09899ed2b4063f8f07"
+    sha256 cellar: :any, arm64_golden_gate: "dd7d0ce352d0d8da1800b41a525b7bfc87f6403aa461328a16114fa119b8f901"
+    sha256 cellar: :any, arm64_tahoe:       "7902fa9fd3f4014517878bf0b07bc14aa29385227debc9979022bf2112cf2f91"
+    sha256 cellar: :any, arm64_sequoia:     "48a4ea9fdc59989e4cc8239a6899cb93a73329bcada4d1ee9e18cd7ec3a444d8"
+    sha256 cellar: :any, arm64_linux:       "0d3752add32a4eaae0059f524fcbc274e55c668ccc0912d1b4f1b38b54d080c2"
+    sha256 cellar: :any, x86_64_linux:      "15428e31f81ba03e28aac554241af0355d5e07bde5ff76bad83001d19b1a9e74"
   end
 
   depends_on "lld" => :build # for `wasm-ld`
@@ -32,6 +32,7 @@ class IcpCli < Formula
     ENV.append_to_rustflags "--sysroot #{HOMEBREW_PREFIX}"
 
     system "cargo", "install", *std_cargo_args(path: "crates/icp-cli")
+    generate_completions_from_executable(bin/"icp", shell_parameter_format: :clap)
   end
 
   test do

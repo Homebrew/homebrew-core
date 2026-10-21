@@ -1,8 +1,8 @@
 class Flowrs < Formula
   desc "TUI application for Apache Airflow"
   homepage "https://github.com/jvanbuel/flowrs"
-  url "https://github.com/jvanbuel/flowrs/archive/refs/tags/flowrs-tui-v0.15.2.tar.gz"
-  sha256 "a2aaaac9f2652a23c7cdedfc8e750f225d72161884f8aaac9b91cac19ac487d6"
+  url "https://github.com/jvanbuel/flowrs/archive/refs/tags/flowrs-tui-v0.16.1.tar.gz"
+  sha256 "b88e2b5fbcc42182c9b38f5572d5f9222ce73f3fd421eb40da4bd30cc6583aa2"
   license "MIT"
   head "https://github.com/jvanbuel/flowrs.git", branch: "main"
 
@@ -12,16 +12,21 @@ class Flowrs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d57dba863eb586c02c0996dc06490a870f13be581137d2f613e8d519857e9ddb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ec0df5944b5b00d8d7b451bfb7f1aecbd277257682e3375504f6a5165028672c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "843bb8c561f3da1e27e0ac7f58f4797200d5af1bd4bb610406f59ffee0ca516e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "4d86440f284cff7bfef73eb51cd2cc4dedbfd327b41a91ab35dae4dfd6079edf"
-    sha256 cellar: :any,                 arm64_linux:       "80c6b5233df6e740b33422b8ccb88999c70720f9bacaab1e04c031ec2351515f"
-    sha256 cellar: :any,                 x86_64_linux:      "6464a0099e15c867852f878babf3ae3ec5dd89d029e5b999ed07c753bf0e7413"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "50c1d6cb1dddca69c233d8f700b3108f5755a9d316fc9d76d67ddd8a636e6331"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fde68e0f01e791500e268e8373b068d7634fbd24aca9c0a99b32531dd9f3a68b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6142f95e60793f80415c7b97c6faaa6846b184a8c07639d23835659d1cc9e1ee"
+    sha256 cellar: :any,                 arm64_linux:       "f29b94646b670ac7814ab85862f46411d0062174b6a5edd65cf97d034d0318c8"
+    sha256 cellar: :any,                 x86_64_linux:      "453959e5578b638f07410b7e3884d7d2a8d723916b09a415bc3aa53294463453"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

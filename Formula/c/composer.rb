@@ -26,6 +26,8 @@ class Composer < Formula
     pour_bottle? only_if: :default_prefix
   end
 
+  allow_network_access! :test
+
   def install
     bin.install "composer.phar" => "composer"
   end

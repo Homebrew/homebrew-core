@@ -1,16 +1,31 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/29.9.0.tar.gz"
-  sha256 "e1dc58dc671e74278a6ab5327c2fc666d75ae3ad6fbc59587f60376043f3cb4e"
   license all_of: [
     "GPL-3.0-or-later",
-    "GPL-2.0-only", # wsrep
-    { "GPL-2.0-only" => { with: "x11vnc-openssl-exception" } }, # galera
     { any_of: ["Unlicense", "MIT"] }, # uni-algo (our formula is too new)
   ]
+  revision 2
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "main"
+
+  stable do
+    url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/29.9.0.tar.gz"
+    sha256 "e1dc58dc671e74278a6ab5327c2fc666d75ae3ad6fbc59587f60376043f3cb4e"
+
+    resource "mcl" do
+      url "https://github.com/manticoresoftware/columnar/archive/cb282a2442d2d51349fbea67cda97c2dda37f0bd.tar.gz"
+      version "cb282a2442d2d51349fbea67cda97c2dda37f0bd"
+      sha256 "5d444222405c00ce21f3a360e5983b140247f43b18c7f01b85d4b564e87a8432"
+
+      livecheck do
+        url "https://api.github.com/repos/manticoresoftware/manticoresearch/contents/mcl?ref=#{LATEST_VERSION}"
+        strategy :json do |json|
+          json["sha"]
+        end
+      end
+    end
+  end
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created, so we check the "latest" release instead
@@ -21,11 +36,11 @@ class Manticoresearch < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "96ab5a6c528030bf8ac8e8dabe2ff1d8daa31e7e3e7cd1d1c856c55e497f6d75"
-    sha256 arm64_tahoe:       "07b7007c3b5f8d3ccd04e300d6bcbfbee81b4c3fa6e110b4e8a57b2066e25e13"
-    sha256 arm64_sequoia:     "d9a3b7e2706300f492dacc5a8cf5f00b8fbeefe8ea156328edadd083d845739e"
-    sha256 arm64_linux:       "ba864d904bf6e26e20670647a5898bcc59e411fe168a78a3839225908dad7001"
-    sha256 x86_64_linux:      "8d25056aae06eb44bb911e605e90bd6d180403df537a2647ba3442c7f7884d5e"
+    sha256 arm64_golden_gate: "0923f5b6eadf34697fc478fccce0221b7876f76381278f1cc49036c493e9c3a3"
+    sha256 arm64_tahoe:       "d07a13884658435b6376a6c031c656e7628b84285d936353902d868819b6047f"
+    sha256 arm64_sequoia:     "7f83ed8151c4a68651e6ebabf0aecb1869d65eb7f6f0ed01d3cec36316424860"
+    sha256 arm64_linux:       "9ec9be6b7b4fa65a5e45883811c7f1e8685df8ca796d595c37cf573849f6e4b7"
+    sha256 x86_64_linux:      "5372b3eaaeb6112d29d98bde4be95b8e60131dee671cbe6633f7a6d206dfaa6d"
   end
 
   depends_on "cmake" => :build
@@ -35,10 +50,11 @@ class Manticoresearch < Formula
   # NOTE: `libpq`, `mariadb-connector-c`, `unixodbc` and `zstd` are dynamically loaded rather than linked
   depends_on "boost"
   depends_on "cctz"
+  depends_on "croaring"
   depends_on "icu4c@78"
   depends_on "libpq"
   depends_on "mariadb-connector-c"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "re2"
   depends_on "unixodbc"
   depends_on "xxhash"
@@ -52,36 +68,42 @@ class Manticoresearch < Formula
     depends_on "zlib-ng-compat"
   end
 
-  resource "mcl" do
-    url "https://github.com/manticoresoftware/columnar/archive/cb282a2442d2d51349fbea67cda97c2dda37f0bd.tar.gz"
-    version "cb282a2442d2d51349fbea67cda97c2dda37f0bd"
-    sha256 "5d444222405c00ce21f3a360e5983b140247f43b18c7f01b85d4b564e87a8432"
+  resource "uni-algo" do
+    url "https://github.com/manticoresoftware/uni-algo/archive/refs/tags/v0.7.2.tar.gz"
+    sha256 "4df3a10b6f9f0cc3be98834f09100c822ba3e3be13e9dfd23cf4810ed229633f"
 
     livecheck do
-      url "https://api.github.com/repos/manticoresoftware/manticoresearch/contents/mcl?ref=#{LATEST_VERSION}"
-      strategy :json do |json|
-        json["sha"]
-      end
+      url "https://raw.githubusercontent.com/manticoresoftware/manticoresearch/refs/tags/release-#{LATEST_VERSION}/cmake/GetUniAlgo.cmake"
+      regex(%r{UNIALGO_GITHUB.*?/v?(\d+(?:\.\d+)+)\.t}i)
     end
   end
 
   # Workarounds for building with Boost 1.89+ and GCC, until fixed upstream:
-  # - galera: disable Boost (Boost.System stub removed in 1.89)
-  #   Issue ref: https://github.com/manticoresoftware/manticoresearch/issues/3673
   # - searchdbuddy: include Boost.Process v1 environment header
   #   (`<boost/process.hpp>` now pulls Process v2 where `environment` is a namespace)
+  #   TODO: Remove in the next release.
   # - sortergroup: drop redundant `using` that GCC rejects as private
+  # - searchdssl: support OpenSSL 4
   patch :DATA
 
+  deny_network_access!
+
   def install
-    resource("mcl").stage buildpath/"mcl"
+    resource("mcl").stage("mcl") if build.stable?
+
+    resource("uni-algo").stage do
+      system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: buildpath/"uni-algo")
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
+      ENV.append_path "CMAKE_PREFIX_PATH", buildpath/"uni-algo"
+    end
 
     # Avoid statically linking to boost
     inreplace "src/CMakeLists.txt", "set ( Boost_USE_STATIC_LIBS ON )", "set ( Boost_USE_STATIC_LIBS OFF )"
 
     ENV["ICU_ROOT"] = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
                           .to_formula.opt_prefix.to_s
-    ENV["OPENSSL_ROOT_DIR"] = formula_opt_prefix("openssl@3").to_s
+    ENV["OPENSSL_ROOT_DIR"] = formula_opt_prefix("openssl@4").to_s
     ENV["PostgreSQL_ROOT"] = formula_opt_prefix("libpq").to_s
 
     args = %W[
@@ -92,10 +114,13 @@ class Manticoresearch < Formula
       -DCMAKE_REQUIRE_FIND_PACKAGE_cctz=ON
       -DCMAKE_REQUIRE_FIND_PACKAGE_nlohmann_json=ON
       -DCMAKE_REQUIRE_FIND_PACKAGE_re2=ON
+      -DCMAKE_REQUIRE_FIND_PACKAGE_roaring=ON
       -DCMAKE_REQUIRE_FIND_PACKAGE_stemmer=ON
       -DCMAKE_REQUIRE_FIND_PACKAGE_xxHash=ON
       -DMYSQL_CONFIG_EXECUTABLE=#{formula_opt_bin("mariadb-connector-c")}/mariadb_config
       -DRE2_LIBRARY=#{formula_opt_lib("re2")/shared_library("libre2")}
+      -DWITH_GALERA=OFF
+      -DWITH_JIEBA=OFF
       -DWITH_ICU_FORCE_STATIC=OFF
       -DWITH_RE2_FORCE_STATIC=OFF
       -DWITH_STEMMER_FORCE_STATIC=OFF
@@ -131,23 +156,6 @@ class Manticoresearch < Formula
 end
 
 __END__
-diff --git a/cmake/galera-imported.cmake.in b/cmake/galera-imported.cmake.in
-index 0ffa9caf1..806c929b4 100644
---- a/cmake/galera-imported.cmake.in
-+++ b/cmake/galera-imported.cmake.in
-@@ -15,9 +15,9 @@ include ( ExternalProject )
- ExternalProject_Add ( galera_populate
- 		URL @GALERA_PLACE@
- 		URL_MD5 @GALERA_SRC_MD5@
--		CMAKE_CACHE_ARGS -DWSREP_PATH:STRING=${wsrep_populate_SOURCE_DIR} -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo -DGALERA_REV:STRING=@GALERA_REV@
-+		CMAKE_CACHE_ARGS -DWSREP_PATH:STRING=${wsrep_populate_SOURCE_DIR} -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo -DGALERA_REV:STRING=@GALERA_REV@ -DWITH_BOOST:BOOL=OFF -DCMAKE_CXX_FLAGS:STRING=-DASIO_DISABLE_BOOST_REGEX=1\ -DBOOST_DATE_TIME_POSIX_TIME_STD_CONFIG=1
- 		BUILD_COMMAND "@CMAKE_COMMAND@" --build . --config RelWithDebInfo
- 		INSTALL_COMMAND "@CMAKE_COMMAND@" --install . --config RelWithDebInfo --prefix "@GALERA_BUILD@"
- 		)
- 
--# file configured from cmake/galera-imported.cmake.in
-\ No newline at end of file
-+# file configured from cmake/galera-imported.cmake.in
 diff --git a/src/searchdbuddy.cpp b/src/searchdbuddy.cpp
 index 39985f6..9c83062 100644
 --- a/src/searchdbuddy.cpp
@@ -172,3 +180,20 @@ index 13c4feb..d1f91ad 100644
  
  	using CSphMatchQueueTraits::m_iSize;
  	using CSphMatchQueueTraits::m_dData;
+diff --git a/src/searchdssl.cpp b/src/searchdssl.cpp
+index 5d947f949..7a270d97d 100644
+--- a/src/searchdssl.cpp
++++ b/src/searchdssl.cpp
+@@ -261,9 +261,11 @@ static bool GenerateInMemorySslKeys ( CSphString & sSslCert, CSphString & sSslKe
+ 	X509_set_pubkey ( pCert.get(), pKey.get() );
+ 
+ 	// subject and issuer name (self-signed)
+-	X509_NAME * pName = X509_get_subject_name ( pCert.get() );
++	X509_NAME * pName = X509_NAME_new();
+ 	X509_NAME_add_entry_by_txt ( pName, "CN", MBSTRING_ASC, (const BYTE *)"ManticoreSoftwareLTD", -1, -1, 0);
++	X509_set_subject_name ( pCert.get(), pName );
+ 	X509_set_issuer_name ( pCert.get(), pName );
++	X509_NAME_free ( pName );
+ 
+ 	// extensions for TLS server certificate
+ 	if ( !AddCertExtension ( pCert.get(), NID_subject_alt_name, "IP:127.0.0.1,DNS:localhost" ) || !AddCertExtension ( pCert.get(), NID_basic_constraints, "critical,CA:FALSE" ) || !AddCertExtension ( pCert.get(), NID_key_usage, "critical,digitalSignature,keyEncipherment" ) )

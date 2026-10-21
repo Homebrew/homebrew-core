@@ -1,10 +1,21 @@
 class Kitex < Formula
   desc "Golang RPC framework for microservices"
   homepage "https://www.cloudwego.io/docs/kitex/"
-  url "https://github.com/cloudwego/kitex/archive/refs/tags/v0.16.3.tar.gz"
-  sha256 "89a82cb1e86b2c8f7cdee8d73ba243674d159c22a23d33c398291a5cfd79b725"
   license "Apache-2.0"
   head "https://github.com/cloudwego/kitex.git", branch: "main"
+
+  stable do
+    url "https://github.com/cloudwego/kitex/archive/refs/tags/v0.16.4.tar.gz"
+    sha256 "db369c6387af3d29e1037adf31edf556356502b1e406bc056b448c24acce18fa"
+
+    # Fix the reported version, upstream PR ref, https://github.com/cloudwego/kitex/pull/2009
+    patch do
+      url "https://github.com/chenrui333/kitex/commit/e136273bd4fce56882cc3f59efa5cbf55170892f.patch?full_index=1"
+      sha256 "17bb2821c34139f8111e921b261f696d80aab95888abc44beee3158c59aee9d9"
+      type :unofficial
+      resolves "https://github.com/cloudwego/kitex/pull/2009"
+    end
+  end
 
   livecheck do
     url :stable
@@ -12,13 +23,11 @@ class Kitex < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3ecb7fe94dab985ed89defa42a705b77bbc8e8eaa0f1087cfa1d44efc3bd0b76"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "be43c1e06d59d842f383f33b47936081dfa7b77135cb9da4b038fc57f15378cb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "be43c1e06d59d842f383f33b47936081dfa7b77135cb9da4b038fc57f15378cb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "be43c1e06d59d842f383f33b47936081dfa7b77135cb9da4b038fc57f15378cb"
-    sha256 cellar: :any_skip_relocation, sonoma:            "f0ba4c22202fc0250924a741a6714f0065301b6d041e2a2db3f7473789493292"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4b0bc54797bac50553f1698389b1e1bfba1925ae2bed74ae3d2c032ce477274c"
-    sha256 cellar: :any,                 x86_64_linux:      "5f7c68f560204daa51ae253db75092409469068ae00c5bae751d9e9ab8bde6d4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7716007a4332f6c906d96e19c327d6d845590127772b7aaa82d085549f4f52c5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7716007a4332f6c906d96e19c327d6d845590127772b7aaa82d085549f4f52c5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7716007a4332f6c906d96e19c327d6d845590127772b7aaa82d085549f4f52c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7c44ef269e7a959d8f93b81de9067fcabf0ea3a7296aa842f29d3d5e47d40351"
+    sha256 cellar: :any,                 x86_64_linux:      "0c7f056e36e2c322f143cc015d2a2f117f809a1736cd5d835605f21e14c13b5a"
   end
 
   depends_on "go" => [:build, :test]
@@ -35,8 +44,7 @@ class Kitex < Formula
   end
 
   test do
-    output = shell_output("#{bin}/kitex --version 2>&1")
-    assert_match "v#{version}", output
+    assert_match "v#{version}", shell_output("#{bin}/kitex --version 2>&1")
 
     thriftfile = testpath/"test.thrift"
     thriftfile.write <<~EOS

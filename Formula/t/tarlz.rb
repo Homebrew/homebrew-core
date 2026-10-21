@@ -1,9 +1,9 @@
 class Tarlz < Formula
   desc "Data compressor"
   homepage "https://www.nongnu.org/lzip/tarlz.html"
-  url "https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.30.tar.lz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.30.tar.lz"
-  sha256 "c6339319413f37fc4b155b1ba8a58640a7fee36498b095d3b6d3c13d9c7f286c"
+  url "https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.31.tar.lz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.31.tar.lz"
+  sha256 "e7fafcaf83ce215d94f758ff07037a3fda4bcea006ccb7909ce3f83218e98f71"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,16 +12,16 @@ class Tarlz < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "0646622e31b555a448c7cef47ba5da7075fd7878c75bccc6c843459b6a7c5625"
-    sha256 cellar: :any, arm64_tahoe:       "1c39f86e634b0a13f0614047a41694748d26a75ab32c0a4b15fd3c4c87426f85"
-    sha256 cellar: :any, arm64_sequoia:     "016449a5c0caeb49d96fb2527aa349d2a7eba7a973fc752c3cf7832ecf6a1a77"
-    sha256 cellar: :any, arm64_sonoma:      "12903a0aeed39ee40488a1002a6a38cb4d66ef24d2e2e05cae22d7d163034f4d"
-    sha256 cellar: :any, sonoma:            "519b3f566e1e46725938f5977ba4d05575289504991af71ef2d0df10c9aec8fa"
-    sha256 cellar: :any, arm64_linux:       "6b515b803fbd636ec1bd9cf5bd4993ed6938a4fbb788d46f421a98679a02fce0"
-    sha256 cellar: :any, x86_64_linux:      "7d177431afd66cbada06599e62702594724f02f7a1bba544668b053051ad0ae8"
+    sha256 cellar: :any, arm64_golden_gate: "328421f6970c6a2ef8d6761756cf430f9e7729288abd19f66ddc86db47b27ac6"
+    sha256 cellar: :any, arm64_tahoe:       "f86f03912b3b3a5249d1bb7654d29b914c2b117e125e5f22a8e1d9821fc54c62"
+    sha256 cellar: :any, arm64_sequoia:     "7496de4b57ec402943cbd955dd4aad174415dcc08c2f9db551e9785a4b09322d"
+    sha256 cellar: :any, arm64_linux:       "8f39075c4858a8a8f5dd0cedb75077c1a0e49d13fd44e08740a69b4359ec3b23"
+    sha256 cellar: :any, x86_64_linux:      "f5fbb0ecc6fbac68bc548dafeed95eea54527c80a58b6c6393719abe41b58114"
   end
 
   depends_on "lzlib"
+
+  deny_network_access!
 
   def install
     system "./configure", *std_configure_args

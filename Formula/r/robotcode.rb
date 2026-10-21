@@ -8,17 +8,16 @@ class Robotcode < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d27accbff9f5d1f35e4438acc594745a90b8745350d9c19eb017ec4586647874"
-    sha256 cellar: :any, arm64_tahoe:       "dc02d922264811178c04dbfd08b9392eac51531704dfa4239dd5f6bb606ad145"
-    sha256 cellar: :any, arm64_sequoia:     "72d4063f3a2822a6cd6a717e64265afc7394132c9beb58cb7d91ecd64c31a805"
-    sha256 cellar: :any, arm64_sonoma:      "53c2166d27e0edcd855340e74850db31d37a10a41ec932066cf482c76d7aea73"
-    sha256 cellar: :any, sonoma:            "2c2397817576f74f14584d570bc467917fd04d51c9cffceea861e6ceb3bcb687"
-    sha256 cellar: :any, arm64_linux:       "ff091dc169596b248548510f29d0f161f945d09dae9576d6c90c8468d6ab7986"
-    sha256 cellar: :any, x86_64_linux:      "5df9e93a9ea8ec9c5cac1ae6acbf5dca1079db2981a63c8f31de5726c561b3a3"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "3982cffd2bad7ace4dad33e7b136d7ecdf5939f565634101bc988641ed14af1c"
+    sha256 cellar: :any, arm64_tahoe:       "02c68863ec2f5ff93504e1fdf7f2af4b78f2924489d7d793b02aaa756d01348b"
+    sha256 cellar: :any, arm64_sequoia:     "c61a3b4caad9b151297eedb4ade6d47c1c2bdbbf638e9511d3cf1be8ebbe8522"
+    sha256 cellar: :any, arm64_linux:       "4a0b7ae1db899b2f7f822472ae6b9fa377f44dcd6d13a3f686be4edb6143288c"
+    sha256 cellar: :any, x86_64_linux:      "c6718fff0640e8c10277b189796346faffb26289f4b5a01b659f654db646db75"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name: "robotcode[all]"
 
@@ -28,8 +27,8 @@ class Robotcode < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "colorama" do
@@ -53,8 +52,8 @@ class Robotcode < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "mdurl" do
@@ -63,8 +62,8 @@ class Robotcode < Formula
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/31/f9/c0a1c127f9049db9155afc316952ea571720dd01833ff5e4d7e8e6352dbb/msgpack-1.2.1.tar.gz"
-    sha256 "04c721c2c7448767e9e3f2520a475663d8ee0f09c31890f6d2bd70fd636a9647"
+    url "https://files.pythonhosted.org/packages/0a/e7/bb605a7bab2d8425a64b3fa762b39dc1bf1c7e3f11ba6fb5413d6db0ff8c/msgpack-1.2.3.tar.gz"
+    sha256 "32edb81a2b5eb7cd7c9d941b2bfbbb082fd2cd09e0e725930316af6b708db186"
   end
 
   resource "pathspec" do
@@ -73,8 +72,8 @@ class Robotcode < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/b8/d7/e7bfbc86e9f99ff7807e24de7703f032e9c9ba80bb355cf26e0e9bc5a75e/platformdirs-4.11.3.tar.gz"
-    sha256 "66a73d38a849810252df809a3d8bcbda8e26f6c189920e7535ad608a48dbb5ab"
+    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
+    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
   end
 
   resource "pluggy" do
@@ -90,11 +89,6 @@ class Robotcode < Formula
   resource "pygments" do
     url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
     sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
-  end
-
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/fb/48/fb042503b6ca6cd271261dc559fd6432f7d8c713153e9ec5c591af4dfc1c/pytz-2026.3.post1.tar.gz"
-    sha256 "2211d3fcf9a797d3405cac96ac7f61d80e6a644f72a3309607282fe8a2010c5d"
   end
 
   resource "pyyaml" do
@@ -163,13 +157,13 @@ class Robotcode < Formula
   end
 
   resource "robotframework" do
-    url "https://files.pythonhosted.org/packages/19/f3/ad51daf85d95848831601851598640f951a47a9f9de88039235cf58c5bb9/robotframework-7.4.2.tar.gz"
-    sha256 "1c934e7f43600de407860cd2bd2fdc41adad4a4a785d8b46b1ed485fdc0f6c9f"
+    url "https://files.pythonhosted.org/packages/66/77/5f60e5619082d387971d111c1354f1f529d2959ee742877982002d38d53d/robotframework-7.5.tar.gz"
+    sha256 "ff6233ff752a200ece4d0a6c59f6f9f7d0e96dcff0a7a3458296b997b812482e"
   end
 
   resource "robotframework-robocop" do
-    url "https://files.pythonhosted.org/packages/83/17/34141292d0d9d552d2d2bc7107a9c66111d10b932cd594fcaa3dfaf44a72/robotframework_robocop-8.8.0.tar.gz"
-    sha256 "8da173558587e0d0b3f51ac0bd9d333414a7c28565563d4a93d829f10652dedb"
+    url "https://files.pythonhosted.org/packages/21/a6/3dee138281a211bb44cff4f3e88a48a1a0e0b782f1746a46b2da1970fa87/robotframework_robocop-9.1.0.tar.gz"
+    sha256 "1204a8645a48eaba0a7779035a8af3419a681fa3d511b875f57856e5357fe749"
   end
 
   resource "shellingham" do
@@ -183,8 +177,8 @@ class Robotcode < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/ae/40/4a3db7990d1f62a53182aa96eaef57aeb2886a27f90a195bc66713565d31/typer-0.27.1.tar.gz"
-    sha256 "a79bef8469a79c45498e7b814ecf8d603cc7644e9acbd9e19cac0334240b18df"
+    url "https://files.pythonhosted.org/packages/03/51/d33db42cc72ffd8c30777547b42d01f0cbf9d95a770457698d0174b3ed71/typer-0.27.3.tar.gz"
+    sha256 "d0396f770a560ab1b0a8504e13b5f254b728cedb05c61cf0359e944e50ce8901"
   end
 
   resource "typing-extensions" do
@@ -193,8 +187,8 @@ class Robotcode < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/34/74/c6428f875774288bec1396f5bfcbc2d925700a4dad61727fd5f2b12f249d/wcwidth-0.8.2.tar.gz"
-    sha256 "91fbef97204b96a3d4d421609b80340b760cf33e26da123ff243d76b1fda8dda"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

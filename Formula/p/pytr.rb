@@ -6,21 +6,21 @@ class Pytr < Formula
   url "https://files.pythonhosted.org/packages/05/ac/c3d75b9337f81bb3a54fa61d54d44ad4672812a6613cfb4649e221f57132/pytr-0.4.10.tar.gz"
   sha256 "41dbb9446d290fc36b21410b5547504088e7fdf49a6e637675c900ec353381d5"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "066aafaaec6c0ecd9b5a96bbbf0ce42dc9d9a3469a086708b4248095c3b45c97"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ff0dd7978d079ca3419445b04b392dd408fe1f0ca7340f3d1ed135e356767812"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7b2b5787e79e832821ea7f02533dbdecb5ab573c6ea662162b63ba07d7d1672d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "b69a562854b7e7d824155997bc969fbd965e9d36ec1143fa784f89aaf0526846"
-    sha256 cellar: :any_skip_relocation, sonoma:            "9e62397faaf36d50f1f150980c7c63e1308cb681173f4f3055daec9f576e04e8"
-    sha256 cellar: :any,                 arm64_linux:       "ece585b389693d8f425a6f4809d8b2a58986e9608f9c3956353064fca4363ae7"
-    sha256 cellar: :any,                 x86_64_linux:      "86c3a0e855c59609371e6839f8dd61b5d374d5f310409f57510125b2d947f501"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3a8a86c8613d923b6b8e7ae8e217dd5fa1ef073fb0e0a7ed829f7d818adf72a7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "521b3f2fc0edcf6124a99f5b7739b63043b3376e6e1aa3c5228129fee6eb1926"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dbb821d3fdbe391956d3d1a9d23adc4e45c2bc30a0eaea1e9c3aa14e10eb458d"
+    sha256 cellar: :any,                 arm64_linux:       "4e56954c66a25ecda0b765a48cfdbd2190313d62f495a105b28ccaa212bf3c82"
+    sha256 cellar: :any,                 x86_64_linux:      "636b851ba1a25bd46dda6cd826fe0e9dddd863bdfbe6227310b2b6228bea19ae"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "node"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: %w[certifi cryptography playwright],
                 extra_packages:   %w[greenlet pyee typing-extensions]
@@ -42,8 +42,8 @@ class Pytr < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
-    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "coloredlogs" do
@@ -52,13 +52,13 @@ class Pytr < Formula
   end
 
   resource "curl-cffi" do
-    url "https://files.pythonhosted.org/packages/b4/23/d32e113b16dbfb458bea408871ed98dd12f306a366a04215e84537e0af7e/curl_cffi-0.16.0.tar.gz"
-    sha256 "b00b423da8028eb6221e3b63bcd63d681150c07cee8b16000d1f7ea292731895"
+    url "https://files.pythonhosted.org/packages/82/e1/730125c43e3e331d98e17af3cb310ba526b3f1101b7635ca23d976ebfcf5/curl_cffi-0.16.3.tar.gz"
+    sha256 "d15d0c2a35f2d75bec430c28946c2a833f421c85773bdb0795182cc5c515665b"
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/a3/74/b13368064b09053253555d3f2839cc2684d22d5aed0d2ccffbf7a6736558/greenlet-3.5.4.tar.gz"
-    sha256 "0232ae1de90a8e07867bb127d7a6ba2301e859145489f25cda8a6096dabe1d20"
+    url "https://files.pythonhosted.org/packages/3e/6e/0091f175ccd02b02bc8811bbcbcc6ac2e980be116e3b2f7a736ca322bf84/greenlet-3.5.6.tar.gz"
+    sha256 "8e67c43bdfc88d5fee6db0d3e40175b362fc95fb85f0412d233b9b203c53a575"
   end
 
   resource "humanfriendly" do
@@ -67,8 +67,8 @@ class Pytr < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
-    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
+    url "https://files.pythonhosted.org/packages/f5/08/8eea9d4b8302028f3abb2c0813953f7aec26d33b7a8960ed760e65ff29fa/idna-3.20.tar.gz"
+    sha256 "a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44"
   end
 
   resource "packaging" do
@@ -82,13 +82,13 @@ class Pytr < Formula
   end
 
   resource "pyee" do
-    url "https://files.pythonhosted.org/packages/8b/04/e7c1fe4dc78a6fdbfd6c337b1c3732ff543b8a397683ab38378447baa331/pyee-13.0.1.tar.gz"
-    sha256 "0b931f7c14535667ed4c7e0d531716368715e860b988770fc7eb8578d1f67fc8"
+    url "https://files.pythonhosted.org/packages/1d/f1/fdedc2c75c3e31a330659c85e5793bb18b3397981fbf0844c6dee5b18926/pyee-14.0.0.tar.gz"
+    sha256 "76dd0f4314ecd27f02dc73589dea7fd3853f9b6176d8ef9b122860657e3602de"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "requests" do
@@ -97,13 +97,13 @@ class Pytr < Formula
   end
 
   resource "requests-futures" do
-    url "https://files.pythonhosted.org/packages/88/f8/175b823241536ba09da033850d66194c372c65c38804847ac9cef0239542/requests_futures-1.0.2.tar.gz"
-    sha256 "6b7eb57940336e800faebc3dab506360edec9478f7b22dc570858ad3aa7458da"
+    url "https://files.pythonhosted.org/packages/30/9f/efe743156e717c8abc499526fd8b4c613847214cf0a8ec8741189f5a84f2/requests_futures-1.1.0.tar.gz"
+    sha256 "f839cf536e6638a6e0ca1cfd54ac761bf3bb2b5a7ecf9349557e53acc5244d36"
   end
 
   resource "shtab" do
-    url "https://files.pythonhosted.org/packages/fb/79/789eac85ffa705c1405e8524bd99b88b882b4495cd6d2bf30bfa9af909e7/shtab-1.9.3.tar.gz"
-    sha256 "76d9b980cb7fca90b808380f9f1d251f37891d1abc30e1d63f6bde030f804c02"
+    url "https://files.pythonhosted.org/packages/ef/71/ddb3c0a7a86db44d2fb3f9cbac162f7ddbcbf563b4a174963ba2b3d4d819/shtab-1.12.1.tar.gz"
+    sha256 "0637338723a8fc08ed1c2fd826d8432229924649c26e3247bb48c53d60ca3bf9"
   end
 
   resource "typing-extensions" do
@@ -112,13 +112,13 @@ class Pytr < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
-    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
+    url "https://files.pythonhosted.org/packages/e3/05/b17359e1cefb4f909b5e40b1b90a496d987258916dbbf88e842c729f510e/urllib3-2.8.0.tar.gz"
+    sha256 "63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63"
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/f7/96/e01084f83a64bcb3a27994bd0cb0db68ff29d9c6707fae37ec19b18ba990/websockets-17.0.1.tar.gz"
-    sha256 "5baa9bc0dfbae8c507e51c8cf1b6d4628086f7a87bbd3a9952bd5f035451f1cc"
+    url "https://files.pythonhosted.org/packages/01/89/3f825ab71c242fffb62ea8fe638741c290f62f8d7aadf8125ff897747af3/websockets-17.2.tar.gz"
+    sha256 "36c2fb94c990cc2545143b12690e2de6c16300f9dbe5b4f33fa300cf57dc8792"
   end
 
   def install

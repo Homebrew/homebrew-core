@@ -8,16 +8,16 @@ class Terminator < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "41bacb04458545a8959686d114b5f533559879148de22d4eb1b82a0739502936"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "411920983a7e149c030ff16a08b38a2b3ecaa6e3bddee4dc9d644da7d6322cc9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "487b99dd3b096cae9db5e29a6eaec08098031ec7187830e67aa5125fa05503f0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "a2fb445a6ee48645d18691eb7665bdd864184ea617fd9a80b131767765a24918"
-    sha256 cellar: :any,                 arm64_linux:       "b48513bf076d0edb03f4555f326799fec466d57d8f718e3537d8a2fa4f705573"
-    sha256 cellar: :any,                 x86_64_linux:      "3178192dc2ac7b03c124d600fca7edc86e26519be589c3474b7932f1e3ec6235"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "80b77252e05f646c8c63ad1900f4ac9719ba96054daf649dfe2be7ffb34103d2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5adefd53b8360e8874e2f1f359af102ab64917096be48dcfe0f9ffeacc7e2097"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ae94d242749eec37319b6713a52674b4fc4cfb8114934f0e9e1999967ba6531e"
+    sha256 cellar: :any,                 arm64_linux:       "61055328effc7668afcc8f8bef871818de946331715879bd43b776c9f4b50547"
+    sha256 cellar: :any,                 x86_64_linux:      "3a7d6b23ebbe84bac6fa0c49b1345b2c5dd7be92a6a26d243c09c83c8146cd5b"
   end
 
   depends_on "pygobject3" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "vte3"
 
   on_linux do

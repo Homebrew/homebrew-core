@@ -1,20 +1,26 @@
 class BoshCli < Formula
   desc "Cloud Foundry BOSH CLI v2"
   homepage "https://bosh.io/docs/cli-v2/"
-  url "https://github.com/cloudfoundry/bosh-cli/archive/refs/tags/v7.11.0.tar.gz"
-  sha256 "e8d18fa5a2d5dae2a5f5ee554df47cc662cd5144543a3133e9afe3708ce2db10"
+  url "https://github.com/cloudfoundry/bosh-cli/archive/refs/tags/v7.11.1.tar.gz"
+  sha256 "06a2d6a15e7fb77223e711af69bbca825d9d6cd267a4c207d65f3b06380d34e8"
   license "Apache-2.0"
   head "https://github.com/cloudfoundry/bosh-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8a1171c37410c28762967d56bf4cd0a4d42a034f2ebda2b75ddd2ea9c7ba0be8"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8a1171c37410c28762967d56bf4cd0a4d42a034f2ebda2b75ddd2ea9c7ba0be8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8a1171c37410c28762967d56bf4cd0a4d42a034f2ebda2b75ddd2ea9c7ba0be8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f37232694f50d270d72429bea36c8f31e96f75e6a571d0d6d00337bc6d688d70"
-    sha256 cellar: :any,                 x86_64_linux:      "c134d8d34918d3885eaccf20237d10b4a98511e07d05c1c1f7a959d42a8b4728"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "65cea2df5a1aaf9b4a663aa74d72fb33a1bd6ae8495a92a6eaec544e3930e7cb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "65cea2df5a1aaf9b4a663aa74d72fb33a1bd6ae8495a92a6eaec544e3930e7cb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "65cea2df5a1aaf9b4a663aa74d72fb33a1bd6ae8495a92a6eaec544e3930e7cb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7947502cc08918db66199a72000b610800ed1116977dd8d0ee042dde215d911a"
+    sha256 cellar: :any,                 x86_64_linux:      "dd59067548ab332d3709ff0b2e8e1df1e190d559d582fb580d588d05494bcc42"
   end
 
   depends_on "go" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     # https://github.com/cloudfoundry/bosh-cli/blob/master/ci/tasks/build.sh#L23-L24

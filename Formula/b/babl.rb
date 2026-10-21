@@ -37,6 +37,8 @@ class Babl < Formula
     depends_on "util-linux" => :build # to add to PKG_CONFIG_PATH for glib
   end
 
+  deny_network_access!
+
   def install
     system "meson", "setup", "build", "-Dwith-docs=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

@@ -37,6 +37,11 @@ class Nco < Formula
     sha256 "d06e0ae7a0380c806321045d045ccacac92071f0f843aeef7bdf5841d330a989"
   end
 
+  resource "homebrew-example_nc", :test do
+    url "https://archive.unidata.ucar.edu/software/netcdf/examples/WMI_Lear.nc"
+    sha256 "e37527146376716ef335d01d68efc8d0142bdebf8d9d7f4e8cbe6f880807bdef"
+  end
+
   def install
     resource("antlr2").stage do
       args = ["--disable-csharp"]
@@ -69,11 +74,6 @@ class Nco < Formula
   end
 
   test do
-    resource "homebrew-example_nc" do
-      url "https://archive.unidata.ucar.edu/software/netcdf/examples/WMI_Lear.nc"
-      sha256 "e37527146376716ef335d01d68efc8d0142bdebf8d9d7f4e8cbe6f880807bdef"
-    end
-
     testpath.install resource("homebrew-example_nc")
     output = shell_output("#{bin}/ncks --json -M WMI_Lear.nc")
     assert_match "\"time\": 180", output

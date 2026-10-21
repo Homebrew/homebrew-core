@@ -6,12 +6,14 @@ class Opendoor < Formula
   url "https://files.pythonhosted.org/packages/9b/67/f05f0d3a4c2aaea9651d348ddd196ecb84965e2d50586dc08e1a2f649b0d/opendoor-5.18.0.tar.gz"
   sha256 "f912e876b57b5416bcd1bb9423d74f7440f1366e0289877609e5dd0a8a2b3d67"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "78b11419755c4103ea256c866cbd5a30a377697ce98e351301a6d179cb2a4dc1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "019f22d6e8a7629e5def6a7efe5cd216ba237b2270eaf12ddf0ffb742921a720"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
@@ -24,8 +26,24 @@ class Opendoor < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
-    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
+    url "https://files.pythonhosted.org/packages/e3/05/b17359e1cefb4f909b5e40b1b90a496d987258916dbbf88e842c729f510e/urllib3-2.8.0.tar.gz"
+    sha256 "63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63"
+  end
+
+  # Apply open PR to update urllib3 pin so that metadata is aligned
+  patch do
+    url "https://github.com/stanislav-web/OpenDoor/commit/24700704fffbf2778742a4d6b426dbd1e16772bc.patch?full_index=1"
+    sha256 "3543ac90478118ea55ff4918b91a9ad3bb445298ac489f862ec4b975d4423e8c"
+    type :unofficial
+    resolves "https://github.com/stanislav-web/OpenDoor/pull/134"
+  end
+
+  # Python 3.15 runtime support, upstream PR ref, https://github.com/stanislav-web/OpenDoor/pull/135
+  patch do
+    url "https://github.com/stanislav-web/OpenDoor/commit/213bff67f0d777edbba79e28ffcdbe92fd767594.patch?full_index=1"
+    sha256 "13940d730310fd00802a9c5262999065c13cad7c6a52dd2c6eb49c74a171b477"
+    type :unofficial
+    resolves "https://github.com/stanislav-web/OpenDoor/pull/135"
   end
 
   def install
@@ -43,28 +61,44 @@ class Opendoor < Formula
   end
 
   test do
-    port = free_port
+    require "socket"
+
+    system libexec/"bin/python", "-m", "pip", "check"
+
+    server = TCPServer.new("127.0.0.1", 0)
+    port = server.addr[1]
     wordlist = testpath/"wordlist.txt"
 
     wordlist.write ["opendoor-health.txt", "missing-opendoor.txt", ""].join(10.chr)
-    (testpath/"opendoor-health.txt").write "ok"
 
-    server_pid = spawn python3, "-m", "http.server", port.to_s,
-                                "--bind", "127.0.0.1",
-                                "--directory", testpath.to_s
+    server_pid = fork do
+      loop do
+        socket = server.accept
+        begin
+          request = socket.gets("\r\n\r\n")
+          next unless request
 
-    sleep 4
-
-    output = shell_output(
-      "#{bin}/opendoor --host 127.0.0.1 --port #{port} --scheme http:// " \
-      "--scan directories --method GET --wordlist #{wordlist} " \
-      "--threads 1 --include-status 200 --debug -1 2>&1",
-    )
+          found = request.lines.first.split[1] == "/opendoor-health.txt"
+          status = found ? "200 OK" : "404 Not Found"
+          body = found ? "ok" : "not found"
+          socket.print "HTTP/1.1 #{status}\r\nContent-Length: #{body.bytesize}\r\nConnection: close\r\n\r\n#{body}"
+        ensure
+          socket.close
+        end
+      end
+    end
+    output = begin
+      shell_output(
+        "#{bin}/opendoor --host 127.0.0.1 --port #{port} --scheme http:// " \
+        "--scan directories --method GET --wordlist #{wordlist} " \
+        "--threads 1 --include-status 200 --debug -1 2>&1",
+      )
+    ensure
+      Process.kill("TERM", server_pid)
+      Process.wait(server_pid)
+    end
 
     assert_match "opendoor-health.txt", output
     refute_match "missing-opendoor.txt", output
-  ensure
-    Process.kill("TERM", server_pid)
-    Process.wait(server_pid)
   end
 end

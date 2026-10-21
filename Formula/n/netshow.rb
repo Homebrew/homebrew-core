@@ -9,14 +9,15 @@ class Netshow < Formula
   head "https://github.com/taylorwilsdon/netshow.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fa0e5a5368cefe90e16c40d4ea3f3d7d3e27675b49743fed5523b8ff2018f9b5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f263f859f94b773b607fcce2835e91a41010a7e08b30e331bf38a9b7b2642183"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5b40453e1b9694f045b8bdaceba70ac7cb4a7d993a10e2dffe0212d973c6a32b"
-    sha256 cellar: :any,                 arm64_linux:       "294a8b3bdb565bc09f92f16d61b2a2f82d4644b59f7ac2643cc1b12f1883d1e3"
-    sha256 cellar: :any,                 x86_64_linux:      "dea578f1d76356612454476ebff2a7e3f1fe5ed4067fe2e3f15efabac2005a0f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d3ee0ea4ffc8468d54b7cad5e54e2fabef94f15fdcaf81761ec4258e86337f0f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f2e5d8bbb50647e17520d1080ef187eccbbbb627aadab736ebd0bd8856609bf3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "77febd95085c23f04910eae82ce5ec4371cb3b2f2a5b167aeb9ddd583f78720b"
+    sha256 cellar: :any,                 arm64_linux:       "ca0722f712ce863fc839f6e60d40487ad683295690020ecd7d159f3d45cebad5"
+    sha256 cellar: :any,                 x86_64_linux:      "4f6307f14ecb91e8a97586cacd3f3d8d70ae80dc468eadc1f2d84c87e69ef34e"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "linkify-it-py" do
     url "https://files.pythonhosted.org/packages/45/98/7a1a5f31fd5c7ba93e963b168e244b8e3dd705b3d2a718e3c3307583bf57/linkify_it_py-2.2.0.tar.gz"
@@ -39,8 +40,8 @@ class Netshow < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/f8/13/f870dd0b42690138e4e37a76b5138e5690ed4365a77071bb092d59037da0/platformdirs-4.11.11.tar.gz"
-    sha256 "b0befe8a90759e4a9a8b9820d434ae226a6549063210b596da0038a7a05aede4"
+    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
+    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
   end
 
   resource "psutil" do

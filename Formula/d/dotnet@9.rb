@@ -2,8 +2,8 @@ class DotnetAT9 < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-  url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.121.tar.gz"
-  sha256 "81bb1b6e59922f49c4155fb3b4bd17eed024e8df613ef4b6cff88c027a42edc0"
+  url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.122.tar.gz"
+  sha256 "2e55d8e6c56813253d2dcb1c8c99c61517f0178ec42ca4ed705f5be46eb4bfbf"
   license "MIT"
   compatibility_version 1
 
@@ -13,12 +13,11 @@ class DotnetAT9 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "0168446e4b6ad5aa91958f81b427c009461a2ecbf8f653499118393b0a757b37"
-    sha256 cellar: :any, arm64_tahoe:       "b3cda74d7e57c7785df495740f5aa58885fcc04e0573a863c89430edf71c2f43"
-    sha256 cellar: :any, arm64_sequoia:     "d33d536329e6af75eae6697893b5f2d9e063084a5e8e3efc9c7f3fd3b6bd5720"
-    sha256 cellar: :any, arm64_linux:       "f9ee8df3284fc32b7bac7efcc0e35625f598ecfbfe70b7181eeae7d13a80a97e"
-    sha256               x86_64_linux:      "9d772182909d3a4162efd89a8a76049df89d8f7ab6d7d26e8cf2fa84f7b9fe07"
+    sha256 cellar: :any, arm64_golden_gate: "f4324540a50e222eb1ca636ac8fdc2b96f67af4003833c034364f3536b990aec"
+    sha256 cellar: :any, arm64_tahoe:       "ec2c087fd852d698826de2d12f249d87eec8d25456823fead86d2b63a3541ef0"
+    sha256 cellar: :any, arm64_sequoia:     "bb8b7599841935c38829b2b1de3f4da60d05a19e473fcb5dc07ae088ec04428d"
+    sha256 cellar: :any, arm64_linux:       "a70f620b1fd687217c8e35891c17c55d2ec34565ba5c4f8a673681d35f99ff3b"
+    sha256 cellar: :any, x86_64_linux:      "237932f6c9de0475350d7d45169caca042899fe647926c72e85a6372d11b860d"
   end
 
   keg_only :versioned_formula
@@ -57,12 +56,19 @@ class DotnetAT9 < Formula
   end
 
   resource "release.json" do
-    url "https://github.com/dotnet/dotnet/releases/download/v9.0.121/release.json"
-    sha256 "24e6a99a2f7401054ff0b9445c4a205bc32481b320a821545312eea7e83a0d22"
+    url "https://github.com/dotnet/dotnet/releases/download/v9.0.122/release.json"
+    sha256 "137fd3f6548649402b91c33916d28fb666c5fd8d2e4ae549ae188a6c172d6335"
 
     livecheck do
       formula :parent
     end
+  end
+
+  # Test to avoid uploading broken Intel Sonoma bottle which has stack overflow on restore.
+  # See https://github.com/Homebrew/homebrew-core/issues/197546
+  resource "docfx", :test do
+    url "https://github.com/dotnet/docfx/archive/refs/tags/v2.78.4.tar.gz"
+    sha256 "255f71f4a6fc7b9ffd0c598d0eba11630dc01262f1fa45ec4f1794508f7033cf"
   end
 
   def install
@@ -141,6 +147,19 @@ class DotnetAT9 < Formula
     libexec.mkpath
     tarball = buildpath.glob("artifacts/*/Release/dotnet-sdk-*.tar.gz").first
     system "tar", "--extract", "--file", tarball, "--directory", libexec
+
+    if OS.linux?
+      # Source-only builds default `KeepNativeSymbols` to true, so the native
+      # binaries keep their DWARF. That leaves build paths in the binaries and
+      # adds hundreds of MB to the x86_64 bottle. Upstream asks packagers to
+      # strip downstream rather than flip that switch, see
+      # https://github.com/dotnet/source-build/blob/main/Documentation/debugging-support.md
+      # `--strip-debug` keeps `.symtab`, so native frames still symbolise, and
+      # unlike an `--only-keep-debug` split it leaves no `.dbg` files behind.
+      native_binaries = libexec.glob("**/*").select { |path| path.file? && path.elf? }
+      system "strip", "--strip-debug", "--preserve-dates", *native_binaries
+    end
+
     doc.install libexec.glob("*.txt")
     (bin/"dotnet").write_env_script libexec/"dotnet", DOTNET_ROOT: libexec
 
@@ -198,12 +217,6 @@ class DotnetAT9 < Formula
     output = shell_output("#{bin}/dotnet run --framework #{target_framework} #{testpath}/test.dll a b c")
     assert_equal "#{testpath}/test.dll,a,b,c\n", output
 
-    # Test to avoid uploading broken Intel Sonoma bottle which has stack overflow on restore.
-    # See https://github.com/Homebrew/homebrew-core/issues/197546
-    resource "docfx" do
-      url "https://github.com/dotnet/docfx/archive/refs/tags/v2.78.4.tar.gz"
-      sha256 "255f71f4a6fc7b9ffd0c598d0eba11630dc01262f1fa45ec4f1794508f7033cf"
-    end
     resource("docfx").stage do
       system bin/"dotnet", "restore", "src/docfx", "--disable-build-servers", "--no-cache"
     end

@@ -2,8 +2,8 @@ class DockerEngine < Formula
   desc "Pack, ship and run any application as a lightweight container (Daemon)"
   homepage "https://www.docker.com/"
   url "https://github.com/moby/moby.git",
-      tag:      "docker-v29.8.2",
-      revision: "8af9fe3a36bab3e039862a2ab1cef1880c9b4d03"
+      tag:      "docker-v29.9.2",
+      revision: "0367cbeb49b9d98cb0b4f51e95f7b54b4803e76c"
   license "Apache-2.0"
   head "https://github.com/moby/moby.git", branch: "master"
 
@@ -13,8 +13,8 @@ class DockerEngine < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "394f467a061e8d24a1a255cb28263fc5cf2e656f646eeb53a8dd53ecb03d1272"
-    sha256 cellar: :any,                 x86_64_linux: "df339771d14033fbe17f138e2a63c5d2e8bc903c5af8355cf2c9fbb1690a6894"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "26911fd445eec7e188e606ff75f07505db8b72cf08ac496e0d40548f8bf3ccf6"
+    sha256 cellar: :any,                 x86_64_linux: "c2a2c6e4ae5a88487534b17364e2dd8785c48290658973af5ae69e54ef3a07dd"
   end
 
   depends_on "go" => :build
@@ -25,6 +25,12 @@ class DockerEngine < Formula
   depends_on "nftables"
   depends_on "runc"
   depends_on "tini"
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     ldflags = %W[

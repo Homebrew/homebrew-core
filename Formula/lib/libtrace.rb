@@ -5,6 +5,7 @@ class Libtrace < Formula
   version "4.0.34"
   sha256 "b3e73b9ca6757094047295937ab4d834155a0c64674f499132b56e8f81f8fcc9"
   license all_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
+  revision 1
 
   livecheck do
     url :stable
@@ -15,26 +16,29 @@ class Libtrace < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "45f209a40f64c9d4e7131d79b7d91487c358ae09f7eedb568f645a07f475eac9"
-    sha256 cellar: :any, arm64_tahoe:       "9587cf2b3e8d21d114486ae24fbce59901ef47435e776e417d8e9e0ec8ef4c34"
-    sha256 cellar: :any, arm64_sequoia:     "ca305993258f596bd46c2d06203b60033fd75c8588a2fd3592a919caef0ec2f4"
-    sha256 cellar: :any, arm64_sonoma:      "e91ab7f1bf95cff16169fd063b3638276f0386059d26082ab9b9e557036e73c5"
-    sha256 cellar: :any, sonoma:            "9263057041b13eac706800688578c21f3650e767395636b7303e08aee94b20da"
-    sha256 cellar: :any, arm64_linux:       "b3957786522a41e553d51aa057329676e5ba1318b97d76e6e0fafcf2b32fbbee"
-    sha256 cellar: :any, x86_64_linux:      "9993ecea0c42030e9ec6c4edd02dd0b3bddcaea09ef3e46017c079a2dde4bb3f"
+    sha256 cellar: :any, arm64_golden_gate: "cdff88b830b9f51bb49203b3b585c968095f903722ca27c73918157b41988b40"
+    sha256 cellar: :any, arm64_tahoe:       "51730b4731944e1cb02fa1d64d83a1d8677163291c71b1837a36903412d34154"
+    sha256 cellar: :any, arm64_sequoia:     "1516903fc0297df9e8cbd5d753c7947670e0a2c3430adf40535001764cdab1bd"
+    sha256 cellar: :any, arm64_linux:       "77b01fb1e7881201ba11d55addb9d0c6e37c7528c9a622fdc7d93cda69fe7141"
+    sha256 cellar: :any, x86_64_linux:      "d110750546e2ae08fa1c5bee261658e7d78d9abaf260667b0a5ba995eaa9ef67"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "wandio"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "libpcap"
   uses_from_macos "ncurses"
+
+  resource "homebrew-8021x.pcap", :test do
+    url "https://github.com/LibtraceTeam/libtrace/raw/9e82eabc39bc491c74cc4215d7eda5f07b85a8f5/test/traces/8021x.pcap"
+    sha256 "aa036e997d7bec2fa3d387e3ad669eba461036b9a89b79dcf63017a2c4dac725"
+  end
 
   def install
     system "./bootstrap.sh"
@@ -44,11 +48,6 @@ class Libtrace < Formula
   end
 
   test do
-    resource "homebrew-8021x.pcap" do
-      url "https://github.com/LibtraceTeam/libtrace/raw/9e82eabc39bc491c74cc4215d7eda5f07b85a8f5/test/traces/8021x.pcap"
-      sha256 "aa036e997d7bec2fa3d387e3ad669eba461036b9a89b79dcf63017a2c4dac725"
-    end
-
     (testpath/"test.c").write <<~C
       #include <libtrace.h>
       #include <inttypes.h>

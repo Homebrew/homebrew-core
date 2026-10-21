@@ -8,10 +8,11 @@ class Codespell < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3fd518b49389d83851b5319b3ef5ba58ce1c0e043efae48abb83fc392cbef75c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "d0333b7cca34257d2f7b3e5dc9b5de21c46cb3d40abb08ed87a9fd2f9e1cf85a"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     virtualenv_install_with_resources

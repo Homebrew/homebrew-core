@@ -4,6 +4,7 @@ class VapoursynthBestsource < Formula
   url "https://github.com/vapoursynth/bestsource/archive/refs/tags/R22.tar.gz"
   sha256 "8233ecf8f1bbc9edb2330ce0e0cf79a5f821220a95750edbcddf2fb0b46c0ed2"
   license "MIT"
+  revision 1
   head "https://github.com/vapoursynth/bestsource.git", branch: "master"
 
   livecheck do
@@ -12,11 +13,11 @@ class VapoursynthBestsource < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "111c5162447ef0a4d4813bf1def84bdb4edbe58a640630f48e9c2b1be4cc4ecb"
-    sha256 cellar: :any, arm64_tahoe:       "eec2ec30f58df856f53a3355f6c490d09a50e59e913a987c2b0e38159149a0ab"
-    sha256 cellar: :any, arm64_sequoia:     "918a419a28cba355c47f2ca805f037d229afb55537776afc9ea61277260236e1"
-    sha256 cellar: :any, arm64_linux:       "d34f0c0d6e37bbb72b54244ab567fe2e119026b5b313ec88083b7057e030dd41"
-    sha256 cellar: :any, x86_64_linux:      "413baca85ceb01bcd0b5aba2fdaec9e61e17c14993b9ac03a8875d7ffa426796"
+    sha256 cellar: :any, arm64_golden_gate: "7603309bdde52cf876abe7ed793d43ce1c60a5a6b2b087fa32c03ac54073b20a"
+    sha256 cellar: :any, arm64_tahoe:       "cc28e0c145c65412c0dd187225261c385811cfa9a772ca5fd107f81db1a814b9"
+    sha256 cellar: :any, arm64_sequoia:     "0eb09fd4c408557556bc435be0751e7f18c0ebd5938d0ba48e0700f5a594fa22"
+    sha256 cellar: :any, arm64_linux:       "4ea7d9906c16735d7f013bc0110209b26fb63d27d981058ff8f20466a98269dc"
+    sha256 cellar: :any, x86_64_linux:      "0a33cdd216b09a58cc4ec4da793d4f4e1519d0389ffc329ee9c9e150084b3472"
   end
 
   depends_on "avisynthplus" => :build
@@ -24,7 +25,7 @@ class VapoursynthBestsource < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "ffmpeg"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "vapoursynth"
   depends_on "xxhash"
 

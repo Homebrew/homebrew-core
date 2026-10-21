@@ -35,6 +35,8 @@ class Ogmtools < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     ENV.cxx11
 
@@ -52,5 +54,25 @@ class Ogmtools < Formula
       architectures, which the author will not fix or accept patches for.
       Keep this in mind when deciding whether to use this software.
     EOS
+  end
+
+  test do
+    srt = <<~EOS
+      1
+      00:00:01,000 --> 00:00:02,500
+      Hello Homebrew
+
+      2
+      00:00:03,000 --> 00:00:04,000
+      Second line
+
+    EOS
+    (testpath/"subs.srt").write srt
+
+    system bin/"ogmmerge", "-o", "test.ogm", "subs.srt"
+    assert_match %r{\(t1/serial \d+\) text/subtitle stream}, shell_output("#{bin}/ogminfo test.ogm")
+
+    system bin/"ogmdemux", "test.ogm"
+    assert_equal srt, (testpath/"test.ogm-t1.srt").read.gsub("\r\n", "\n")
   end
 end

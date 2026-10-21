@@ -1,22 +1,17 @@
 class Soapyremote < Formula
   desc "Use any Soapy SDR remotely"
   homepage "https://github.com/pothosware/SoapyRemote/wiki"
-  url "https://github.com/pothosware/SoapyRemote/archive/refs/tags/soapy-remote-0.5.2.tar.gz"
-  sha256 "66a372d85c984e7279b4fdc0a7f5b0d7ba340e390bc4b8bd626a6523cd3c3c76"
+  url "https://github.com/pothosware/SoapyRemote/archive/refs/tags/soapy-remote-0.5.3.tar.gz"
+  sha256 "de5bdf209dc93bf7c341077e1e21353037fc387e7c6a9ee41eace3390669dcc1"
   license "BSL-1.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "4341abfb05ce547941f94f8a5e5b9253d3c55e5ecaaafd2707a3e076e61e9d25"
-    sha256 cellar: :any,                 arm64_tahoe:       "b245e94aaf094ec9511e1f0f47fcd40499db9d62d28d710e6c26d6753536e852"
-    sha256 cellar: :any,                 arm64_sequoia:     "45db2916465bc4c352d69c0089f03f2fc39f1fe7c0dd193f657dd21f44b5be43"
-    sha256 cellar: :any,                 arm64_sonoma:      "ffe12b4564bf9090e8d20a8befd7f1ae66783c90395052fe016f44bd0ada6343"
-    sha256 cellar: :any,                 arm64_ventura:     "2bfd849620a751a566c7eea4101c31ee70b685bd220275171f5d3fa5ab615fee"
-    sha256 cellar: :any,                 arm64_monterey:    "abbd8323df9212a717d9d6dbf19fdb24fd55665548bdb5bd27111c7dbd523e6f"
-    sha256 cellar: :any,                 sonoma:            "2a9951c5c2f6b01200efc94ffd6f19dc8001b3051759c3a793a4e606c4f7c9d8"
-    sha256 cellar: :any,                 ventura:           "812dc85d3f0eab0fbdd201c4f7520250ee8997827b0cfa721306b1170e31ff27"
-    sha256 cellar: :any,                 monterey:          "668170d64a27d4de6aae24d8a9965b788e2b956eb8db5c3d3adf6807c31478ba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "83938e8783f67851865ee4aaad50da21c0e6d7b33ed3cd9db8da0b786185e5be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "afb465a0deb07570685ee8ce05b960f6b4159310db9403f49ef4d37d0eae0f09"
+    sha256 cellar: :any, arm64_golden_gate: "959e8c989590505c99f5689c2ad84e6a320a71d467c7932cdb8e40eb4db9030f"
+    sha256 cellar: :any, arm64_tahoe:       "55e369064ec119a4dfa60c431cd91731f5b18c297370f7b8d3b5788130f91d09"
+    sha256 cellar: :any, arm64_sequoia:     "feb1662facc60fb7d3b6a75500b688700887ddcfbf1559b3e31d519a39e27139"
+    sha256 cellar: :any, arm64_linux:       "b01873eb5becf5e4e601abf7ba8ada34d697ef0014496291889b86b5750846dc"
+    sha256 cellar: :any, x86_64_linux:      "129c00a601d93b2fb46e25a6dd46d73016de1ccddf828658e09ce390d560215f"
   end
 
   depends_on "cmake" => :build

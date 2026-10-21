@@ -6,22 +6,19 @@ class Ffsend < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eaf4c5b336ec975373744064f531d9091b82a5112600937a54b55c3e27eaf762"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "77cae62ecbbd3f434c1d50b40ac1f7fb281ea070d2afecf5751d2d1e7694735b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6d60f43b2fdb056059608e05dd6e4e9f1fad57486180c3732a40ffaaa440116d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "98551254d908b6fa9496bfd9281fb359c7fdc34b9d172db68d1fa633d8c67f07"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "398d00de4d062551f33c186bdb932c9ae62847f5e0a594663d4d09886ecbcc69"
-    sha256 cellar: :any_skip_relocation, sonoma:            "58610267085cd19c5445172c1f59662c58b840b6ac3bcc4da04a8598ba222f6a"
-    sha256 cellar: :any_skip_relocation, ventura:           "f4784a7c6f31e7e0ab55e1c44095c84ab20544a05211c20b212e14daaf143e13"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "57499a24df5e2e1f1042b40d7d81fc7257af612d36e593516935d6a768a560ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "2800da04659f26aacbd7ca4619fa0a06762cc5ef0c652630c139881f64c5aeba"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "adb9b5aa54eca4c05a55b2684d87a19b8e763303a0e6b95717b611c716740178"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4210c58439c612769aea0fca9e997de722a81698a717c440da35d3ec5329b31f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "31fe3f277c0867c897cf9b70c2fc447e1fc5358f99c600f2dc0a4345bcc0beab"
+    sha256 cellar: :any,                 arm64_linux:       "aea73c383d377bd012d91d66c7978d904d19e47cf56372a311a23b54df7f9282"
+    sha256 cellar: :any,                 x86_64_linux:      "71389553ae67a2fb65ca482d85277b0a6a47763a2c198f3228da1dd32a3a0409"
   end
 
   depends_on "rust" => :build
 
   on_linux do
     depends_on "pkgconf" => :build
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   # rust 1.87.0 patch
@@ -30,6 +27,15 @@ class Ffsend < Formula
     sha256 "e5171b23ffd3cc0f4f1d47b29d110735c211ce96ba601a166a66537df28ed1c4"
     type :backport
     resolves "https://gitlab.com/timvisee/ffsend/-/merge_requests/44"
+  end
+
+  # Update to openssl 0.10.78 and openssl-sys 0.9.114 for minimum needed to use OpenSSL 4
+  patch :DATA
+
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install
@@ -49,3 +55,36 @@ class Ffsend < Formula
     assert_match "File deleted", output
   end
 end
+
+__END__
+diff --git a/Cargo.lock b/Cargo.lock
+index 8f82361..9cf22d9 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1494,11 +1494,11 @@ dependencies = [
+ 
+ [[package]]
+ name = "openssl"
+-version = "0.10.56"
++version = "0.10.78"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "729b745ad4a5575dd06a3e1af1414bd330ee561c01b3899eb584baeaa8def17e"
++checksum = "f38c4372413cdaaf3cc79dd92d29d7d9f5ab09b51b10dded508fb90bb70b9222"
+ dependencies = [
+- "bitflags 1.3.2",
++ "bitflags 2.4.0",
+  "cfg-if 1.0.0",
+  "foreign-types",
+  "libc",
+@@ -1526,9 +1526,9 @@ checksum = "ff011a302c396a5197692431fc1948019154afc178baf7d8e37367442a4601cf"
+ 
+ [[package]]
+ name = "openssl-sys"
+-version = "0.9.91"
++version = "0.9.114"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "866b5f16f90776b9bb8dc1e1802ac6f0513de3a7a7465867bfbc563dc737faac"
++checksum = "13ce1245cd07fcc4cfdb438f7507b0c7e4f3849a69fd84d52374c66d83741bb6"
+ dependencies = [
+  "cc",
+  "libc",

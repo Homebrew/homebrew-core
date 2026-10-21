@@ -4,6 +4,7 @@ class PythonAT314 < Formula
   url "https://www.python.org/ftp/python/3.14.8/Python-3.14.8.tgz"
   sha256 "a65b20a728f169f4e66ae143f40b1bd3d33c38d770251663f627c9767b79b210"
   license "Python-2.0"
+  revision 2
   compatibility_version 1
 
   livecheck do
@@ -13,11 +14,11 @@ class PythonAT314 < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_golden_gate: "5029e587666812139ecd7582829aa9db86ac861007febdd9523611f4672037fb"
-    sha256 arm64_tahoe:       "14a1da5f9ee3d2e344ac8be1686d5cab15a4f0148754eab3b6b31549bb7787c8"
-    sha256 arm64_sequoia:     "2fb302150080fca00042a774ad4c3041593852268c3ac8ab02c5d18ef4f82542"
-    sha256 arm64_linux:       "3552d65ea3152427e25b599a9d146a7e99b770708d2acc9a89464fdf325dd3fe"
-    sha256 x86_64_linux:      "87a955d0f6f076cf0403a1d25841378181285c131ce89ce108b01b60b5fac5f2"
+    sha256 arm64_golden_gate: "789869eac42ee37cc4311059d65f88cb673fa62d170693da4ab44d00c014f4f2"
+    sha256 arm64_tahoe:       "a6e9f54e583c2ca8668a4c63141ef599dd6db5cf927f3cb210820321e97c86cd"
+    sha256 arm64_sequoia:     "3849a3188921562ed6d698a84e9a0f5d9c0c7b921f40e1fcb0c21d4ce531b99f"
+    sha256 arm64_linux:       "9d53b15def0d3bc96d0d0cc5b7c84286fc69d5bc38955a22924224c580865334"
+    sha256 x86_64_linux:      "8e2ea9ce754771c5be07ad023887a1511708a136370770895204ab715e4cd3a6"
   end
 
   # https://devguide.python.org/versions/#versions
@@ -27,7 +28,7 @@ class PythonAT314 < Formula
   depends_on "pkgconf" => :build
   depends_on "ca-certificates" => :no_linkage
   depends_on "mpdecimal"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "sqlite"
   depends_on "xz"
   depends_on "zstd"
@@ -42,22 +43,8 @@ class PythonAT314 < Formula
     depends_on "zlib-ng-compat"
   end
 
-  link_overwrite "bin/idle3"
-  link_overwrite "bin/pip3"
-  link_overwrite "bin/pydoc3"
-  link_overwrite "bin/python3"
-  link_overwrite "bin/python3-config"
-  link_overwrite "bin/wheel3"
-  link_overwrite "share/man/man1/python3.1"
-  link_overwrite "lib/libpython3.so"
-  link_overwrite "lib/pkgconfig/python3.pc"
-  link_overwrite "lib/pkgconfig/python3-embed.pc"
   link_overwrite "lib/python3.14/site-packages/pip*"
   link_overwrite "lib/python3.14/site-packages/wheel*"
-  link_overwrite "Frameworks/Python.framework/Headers"
-  link_overwrite "Frameworks/Python.framework/Python"
-  link_overwrite "Frameworks/Python.framework/Resources"
-  link_overwrite "Frameworks/Python.framework/Versions/Current"
 
   pypi_packages package_name:   "",
                 extra_packages: %w[flit-core pip wheel]
@@ -80,6 +67,40 @@ class PythonAT314 < Formula
   resource "wheel" do
     url "https://files.pythonhosted.org/packages/d0/20/50ed6bdf27dec98b568a8ae25dc599f35baa3d9709f9e83fd1edb56b9a90/wheel-0.48.0.tar.gz"
     sha256 "94800765601e9171bf5d58d066e640662842bcedcbab982b2c90787a2c987322"
+  end
+
+  # Backports needed for OpenSSL 4 support
+  # Ref: https://github.com/python/cpython/issues/148600
+  # Ref: https://github.com/python/cpython/pull/149783
+  patch do
+    url "https://github.com/python/cpython/commit/3364e7e62fa24d0e19133fb0f90b1c24ef1110c5.patch?full_index=1"
+    sha256 "3b52614eea77dfdb527ace4e734dfe396c99af9176f7ee9ae0ab03a70df2de3f"
+    type :backport
+    resolves "https://github.com/python/cpython/pull/146217"
+  end
+  patch do
+    url "https://github.com/python/cpython/commit/c5e4ae03004767104dcf2d2c7b19f663700cc129.patch?full_index=1"
+    sha256 "f2f6c479b6251cef684c71a5c89ca2fbae0180f813e5a84f1d88b735f3a6e171"
+    type :backport # using https://github.com/python/cpython/pull/149783
+    resolves "https://github.com/python/cpython/pull/148601"
+  end
+  patch do
+    url "https://github.com/python/cpython/commit/3c2a3014af7d73cc34f2498f60fdf863d9bc7c6c.patch?full_index=1"
+    sha256 "8a8cdbeb9fd127926599ff0fe8d25a28325cf31dba041de7c1dd9ed69efd327d"
+    type :backport # using https://github.com/python/cpython/pull/149783
+    resolves "https://github.com/python/cpython/pull/149102"
+  end
+  patch do
+    url "https://github.com/python/cpython/commit/1e21cf6fee3830012e458c0fe5dbc6fcd45ace92.patch?full_index=1"
+    sha256 "5526b5b6158e07d18c3c657dc4ad6753321c81f7b6c08c1d005e7625764d6f6d"
+    type :backport
+    resolves "https://github.com/python/cpython/pull/149366"
+  end
+  patch do
+    url "https://github.com/python/cpython/commit/4974d8e8f387df97abd2521067f9b7a31c9c78fe.patch?full_index=1"
+    sha256 "e9da44793e0c2bd4bc719846b2557883e5d2367ddcb341f067fdb4dd54c4aec8"
+    type :backport # using PR commit to avoid conflict
+    resolves "https://github.com/python/cpython/pull/149356"
   end
 
   # Modify default sysconfig to match the brew install layout.
@@ -112,6 +133,7 @@ class PythonAT314 < Formula
   deny_network_access!
 
   def install
+    openssl = deps.find { |dep| dep.name.start_with?("openssl@") }.name
     # Unset these so that installing pip and setuptools puts them where we want
     # and not into some other Python the user has installed.
     ENV["PYTHONHOME"] = nil
@@ -136,7 +158,7 @@ class PythonAT314 < Formula
       --datadir=#{share}
       --without-ensurepip
       --enable-loadable-sqlite-extensions
-      --with-openssl=#{formula_opt_prefix("openssl@3")}
+      --with-openssl=#{formula_opt_prefix(openssl)}
       --enable-optimizations
       --with-system-expat
       --with-system-libmpdec
@@ -175,7 +197,7 @@ class PythonAT314 < Formula
     # `brew install enchant && pip install pyenchant`
     inreplace "./Lib/ctypes/macholib/dyld.py" do |f|
       f.gsub! "DEFAULT_LIBRARY_FALLBACK = [",
-              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{formula_opt_lib("openssl@3")}',"
+              "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib', '#{formula_opt_lib(openssl)}',"
       f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
     end
 
@@ -413,7 +435,6 @@ class PythonAT314 < Formula
       # This file is created by Homebrew and is executed on each python startup.
       # Don't print from here, or else python command line scripts may fail!
       # <https://docs.brew.sh/Homebrew-and-Python>
-      import re
       import os
       import site
       import sys
@@ -431,22 +452,20 @@ class PythonAT314 < Formula
       if os.path.realpath(sys.executable).startswith('#{rack}'):
           # the Cellar site-packages is a symlink to the HOMEBREW_PREFIX
           # site_packages; prefer the shorter paths
-          long_prefix = re.compile(r'#{rack}/[0-9\\._abrc]+/(?:Frameworks/Python\\.framework/Versions/#{version.major_minor}/)?lib/python#{version.major_minor}/site-packages')
-          sys.path = [long_prefix.sub('#{site_packages}', p) for p in sys.path]
+          sys.path = [p.replace('#{site_packages_cellar}', '#{site_packages}') for p in sys.path]
           # Set the sys.executable to use the opt_prefix. Only do this if PYTHONEXECUTABLE is not
           # explicitly set and we are not in a virtualenv:
           if 'PYTHONEXECUTABLE' not in os.environ and sys.prefix == sys.base_prefix:
               sys.executable = sys._base_executable = '#{opt_bin}/python#{version.major_minor}'
       if 'PYTHONHOME' not in os.environ:
-          cellar_prefix = re.compile(r'#{rack}/[0-9\\._abrc]+(?=/|$)')
           if os.path.realpath(sys.base_prefix).startswith('#{rack}'):
-              new_prefix = cellar_prefix.sub('#{opt_prefix}', sys.base_prefix)
+              new_prefix = sys.base_prefix.replace('#{prefix}', '#{opt_prefix}')
               site.PREFIXES[:] = [new_prefix if x == sys.base_prefix else x for x in site.PREFIXES]
               if sys.prefix == sys.base_prefix:
                   sys.prefix = new_prefix
               sys.base_prefix = new_prefix
           if os.path.realpath(sys.base_exec_prefix).startswith('#{rack}'):
-              new_exec_prefix = cellar_prefix.sub('#{opt_prefix}', sys.base_exec_prefix)
+              new_exec_prefix = sys.base_exec_prefix.replace('#{prefix}', '#{opt_prefix}')
               site.PREFIXES[:] = [new_exec_prefix if x == sys.base_exec_prefix else x for x in site.PREFIXES]
               if sys.exec_prefix == sys.base_exec_prefix:
                   sys.exec_prefix = new_exec_prefix
@@ -472,11 +491,14 @@ class PythonAT314 < Formula
 
     <<~EOS
       Python is installed as
-        #{HOMEBREW_PREFIX}/bin/python3
+        #{HOMEBREW_PREFIX}/bin/python#{version.major_minor}
 
-      Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
-      `python3`, `python3-config`, `pip3` etc., respectively, are installed into
+      Unversioned and major-versioned symlinks `python`, `python3`, `python-config`, `python3-config`, `pip`, `pip3`, etc. pointing to
+      `python#{version.major_minor}`, `python#{version.major_minor}-config`, `pip#{version.major_minor}` etc., respectively, are installed into
         #{opt_libexec}/bin
+
+      If you do not need a specific version of Python, and always want Homebrew's `python3` in your PATH:
+        brew install python3
 
       `idle#{version.major_minor}` requires tkinter, which is available separately:
         brew install python-tk@#{version.major_minor}

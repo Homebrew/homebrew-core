@@ -25,6 +25,11 @@ class RaxmlNg < Formula
     depends_on "open-mpi"
   end
 
+  resource "homebrew-example", :test do
+    url "https://cme.h-its.org/exelixis/resource/download/hands-on/dna.phy"
+    sha256 "c2adc42823313831b97af76b3b1503b84573f10d9d0d563be5815cde0effe0c2"
+  end
+
   allow_network_access! :test
 
   def install
@@ -58,11 +63,6 @@ class RaxmlNg < Formula
   end
 
   test do
-    resource "homebrew-example" do
-      url "https://cme.h-its.org/exelixis/resource/download/hands-on/dna.phy"
-      sha256 "c2adc42823313831b97af76b3b1503b84573f10d9d0d563be5815cde0effe0c2"
-    end
-
     testpath.install resource("homebrew-example")
     # `--start` fails with missing `startTree` output on 2.0.0,
     # upstream issue ref, https://github.com/amkozlov/raxml-ng/issues/227.

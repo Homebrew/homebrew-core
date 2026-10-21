@@ -28,6 +28,12 @@ class Whalebrew < Formula
     resolves "https://github.com/whalebrew/whalebrew/pull/299"
   end
 
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
     ldflags = %W[-X github.com/whalebrew/whalebrew/version.Version=#{version}+homebrew]

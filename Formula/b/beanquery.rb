@@ -9,19 +9,18 @@ class Beanquery < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "54932d27f4b52ff02dae9c1c1f950161e967385541d493c15c81e6ff454cfc73"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ddd8c2ad4ba947cc614faf96f7374b610f96e54c0fabf4774a597806c0d82dc6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1b639bc6f221f33c0a82b416a1590f52cfc1bf7eb63fb98969682a572566c8c9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "43b7bfa0114e5a85269aa7830667ee01adc0dc4c93e0fb5f6dbd20b287663019"
-    sha256 cellar: :any_skip_relocation, sonoma:            "6da6f5a89a4d8c6fc09c9196439ff5f525195c711202594abce9575fe7148c55"
-    sha256 cellar: :any,                 arm64_linux:       "3d35a98ed624a6d99c065cd4d3ad131e00d5327f8d296060cb66df31f7978689"
-    sha256 cellar: :any,                 x86_64_linux:      "1f1a8d07367f8be58e0fe7b1d5cf556e24196d2dac0db8032b6ec35fa17c3164"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dc5cb548f518d07830368db0034c8d4688b46f3d6feb4d56e024dfd2394b2b9c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1696997edb1352415a9147ca591bf3664fe9d679867bcee6aaeca1fcd93cc664"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9b973c462f3942b3f7bb0847e79a13f9fbe443cd15b9c06d2fd7f22c97dc95fd"
+    sha256 cellar: :any,                 arm64_linux:       "282b2c0d7ed2ad02e96226b1a326633f56afcbb52e7f43fe341e2209c083914a"
+    sha256 cellar: :any,                 x86_64_linux:      "2ef3d81d6cd9e3639f8c4e64f61bc5b30225d43a4c6d84fe234282d91e67576d"
   end
 
   depends_on "bison" => :build # for beancount
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "flex" => :build # for beancount
 
@@ -35,8 +34,8 @@ class Beanquery < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "python-dateutil" do
@@ -45,8 +44,8 @@ class Beanquery < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/7b/37/451aaddbf50922f34d744ad5ca919ae1fcfac112123885d9728f52a484b3/regex-2026.7.10.tar.gz"
-    sha256 "1050fedf0a8a92e843971120c2f57c3a99bea86c0dfa1d63a9fac053fe54b135"
+    url "https://files.pythonhosted.org/packages/fc/f2/af1da9d3ceed77bfcdce40427d49ba0be94e4fe84245e3bfef68c10e75b6/regex-2026.9.29.tar.gz"
+    sha256 "8b5fcc4771732191b2b7d1dd68d8f0353f47f8d90b6150f6dce58bf1112442cb"
   end
 
   resource "six" do

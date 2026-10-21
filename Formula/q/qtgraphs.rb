@@ -1,14 +1,15 @@
 class Qtgraphs < Formula
   desc "Provides functionality for 2D and 3D graphs"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtgraphs-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtgraphs-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtgraphs-everywhere-src-6.11.2.tar.xz"
-  sha256 "9f2109854afa45dd144116c11461989c411a17065c63da5068441a1200fb8b21"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtgraphs-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtgraphs-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtgraphs-everywhere-src-6.12.0.tar.xz"
+  sha256 "18c4e968785447051d94b01f8e3c975e31ddc46065c0777443cecc50753a4d8c"
   license all_of: [
     "GPL-3.0-only",
     "BSD-3-Clause", # *.cmake
   ]
+  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qtgraphs.git", branch: "dev"
 
@@ -17,12 +18,11 @@ class Qtgraphs < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ede2dcff537c9aac1efa4190496be2658c1bb7ffe2c3a0ad48caaddf3fa02cbc"
-    sha256 cellar: :any, arm64_tahoe:       "98877e8fe08f65b35f488e049bdb2863622769fc8a89e45303c285948f8f9797"
-    sha256 cellar: :any, arm64_sequoia:     "d56cd4a21031a39b63ea01374f1a7132d43c6178204e42b7159450d4b9076da6"
-    sha256 cellar: :any, arm64_sonoma:      "5dee7bf14428f5d5e302942429faedd8a4ef36c28d7e74f5ab71b69f132a53d8"
-    sha256 cellar: :any, arm64_linux:       "d8ab3f79da36ca6783e0ccfdbcfa4f720e55cb34663288f9e1f075535261e0bd"
-    sha256 cellar: :any, x86_64_linux:      "ea3ecc2d45cd6b715acddfba9c60eaca27c6e5fcf2aa3c4e109a9631cc6bcdac"
+    sha256 cellar: :any, arm64_golden_gate: "3b9b72dc57fc0389c797526bde9201ed9999dfbf134dcf6227511304a7d621a8"
+    sha256 cellar: :any, arm64_tahoe:       "3a6694fc51a6b9de788bb4a1cea1057115a29473c02e110b3f9d1aed0c271cdf"
+    sha256 cellar: :any, arm64_sequoia:     "b4b744cdced50cbf055ff3b00f6e46bc55821e27a5f2e70108c4b8f357d265f2"
+    sha256 cellar: :any, arm64_linux:       "2a9933d40958ec4f929f6e599d3c5fb351ab3cce63e78f72da3566a7ee1811db"
+    sha256 cellar: :any, x86_64_linux:      "b86c04fe471e4b10788208a0bb5b404f2abec8716a0325b4023f2b9c509f52ae"
   end
 
   depends_on "cmake" => [:build, :test]

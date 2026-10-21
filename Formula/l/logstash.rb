@@ -1,8 +1,8 @@
 class Logstash < Formula
   desc "Tool for managing events and logs"
   homepage "https://www.elastic.co/products/logstash"
-  url "https://github.com/elastic/logstash/archive/refs/tags/v9.5.4.tar.gz"
-  sha256 "4108b4eba0d5c4eaaf3943837e1e04a6f0db9d61a50b31159c078ffbe004f4a7"
+  url "https://github.com/elastic/logstash/archive/refs/tags/v9.5.5.tar.gz"
+  sha256 "543cda2a9a49cfe9cbd18a72436c97ace566390e18fdb0bc9f72d92fd3735ad1"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/elastic/logstash.git", branch: "main"
@@ -13,11 +13,11 @@ class Logstash < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4ee0bca930f4fda9ad9b39af26ffa40219d78e78b2748400588408499b601367"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "938a6f1b928980b96dd144fb8715262d010d32305ace14384a55b72005552f93"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "62db6ea60f9acb80aa7fb483556bca6440330ad6e7f98cb238b9059c728ea45d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "326cbaed5ad3cbc25f9dc8c6e2c74512a3b703a627262fb45e2900b562d612e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0e4731532d89174ab1600ceb7025b660df87d8017206922257b20b384ffdc762"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b112302016d5a9a8fe6522b33e04b835d43f94ec0299cbe9c60905c4dee229d1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2962bafdb2d388bbd0ca06c75e95fd692b47c0befad3727277ca5d5a123adfe"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "477a65e0f09e55b66ded464b880d365957c659b566a68213cbf02f1a3e884e0f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "33a8ba0fd8f8f15d53a14b4154f08adb2297f6e2fcbe428c2860924dbcd61cc7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7c44f67ef0d4693f53438c2c934ed4a20c6abf5dd4f6a085bad063f7c2bbfa33"
   end
 
   depends_on "gradle@8" => :build # gradle 9 support issue, https://github.com/elastic/logstash/issues/16641

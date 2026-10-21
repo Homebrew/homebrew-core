@@ -6,17 +6,18 @@ class MysqlToSqlite3 < Formula
   url "https://files.pythonhosted.org/packages/bb/6d/b54e03a421bb7fe15ca46bcd432bd843007e4d8ab4a3db484b87b6b9b964/mysql_to_sqlite3-2.6.1.tar.gz"
   sha256 "6966d3ed22b7a981303c87b8692449f81cea1a1f7405b28588a10043d55fe148"
   license "MIT"
+  revision 1
   head "https://github.com/techouse/mysql-to-sqlite3.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c7d6d440524c684c5578d174181ff3cb70fd93ac94fcc8809d5fd1722df320d0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7eab98d6ff584142d452febc9e9617ec3f00030e4244003c14fae365c45555c4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ce7c37e26ff4c431958187ac7b402af2f5f82915d1bf4d1321beca70bda36ecc"
-    sha256 cellar: :any,                 arm64_linux:       "0f6a60b110f5239d45b1419cf8521cf02425ae2771a67e21d61882020cf8eef0"
-    sha256 cellar: :any,                 x86_64_linux:      "4a2c4bd072395bced5542f748d468a853c22bb2f37a4866466308f377644be65"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fd86bee03ef39490931b67755798ac84579c4aced133aa9c8759812eb520de8c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "44da317d2fa5a2c070dc7043ea963d0c90c4ee56e2ebe9809ac7ee5458301f9c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "28fc6f750942efe84c2e283fc320bad2c7ee46ccccecf0c58a6233b557112b17"
+    sha256 cellar: :any,                 arm64_linux:       "60a6d53dbafeac4de7c1001c9c85cf94830dde791a149e13a11c35a284bf920c"
+    sha256 cellar: :any,                 x86_64_linux:      "71928c2c354ab8a2acbb5bba62c1254b9a80cbdaebc8aa84b08748d1ebd06947"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "sqlite"
 
@@ -28,6 +29,13 @@ class MysqlToSqlite3 < Formula
   resource "mysql-connector-python" do
     url "https://files.pythonhosted.org/packages/f2/ce/a53b169388f8c6a595cfa9a653138381f3afef1d2af60f5c1972d015f52f/mysql_connector_python-26.7.0.tar.gz"
     sha256 "d8ff5ee236ea46661ee639336323e124ed868e37f3ea991bdc5de5a146f39fd5"
+
+    # Apply Fedora patch to support OpenSSL 4 / Python 3.15
+    # https://src.fedoraproject.org/rpms/mysql-connector-python/blob/rawhide/f/mysql-connector-python-python315-ssl.patch
+    patch :p2 do
+      file "Patches/mysql-connector-python/mysql-connector-python-python315-ssl.patch"
+      type :unofficial
+    end
   end
 
   resource "python-dateutil" do

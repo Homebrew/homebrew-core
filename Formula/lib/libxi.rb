@@ -1,19 +1,17 @@
 class Libxi < Formula
   desc "X.Org: Library for the X Input Extension"
   homepage "https://www.x.org/"
-  url "https://xorg.freedesktop.org/archive/individual/lib/libXi-1.8.3.tar.xz"
-  sha256 "7ad60056f01af4f786cfe93b3a7707447711626fc8da2637bec71a90409babe5"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libXi-1.8.4.tar.xz"
+  sha256 "ddd6057b89a91903bc2f884d55c8467440906945e482c36547260dff28661afc"
   license "MIT"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "69bb8b5378155130ebbe41a3c54ea69f6acdc9065483556a5a81550bd716fdcb"
-    sha256 cellar: :any,                 arm64_tahoe:       "0caffca513b30f308fa1bd54682319f140ea0543397c3f61046f64a39ebcbe85"
-    sha256 cellar: :any,                 arm64_sequoia:     "b8267eff95643d75f879e222a0dee27f938bf9eac0ebd93d39abfd557a05e0e5"
-    sha256 cellar: :any,                 arm64_sonoma:      "1f48d151e61ad252b4b34e7a083d7f4985969b53e32ae76e974aacc719ab18e7"
-    sha256 cellar: :any,                 sonoma:            "156699bb0a014109ede563b0e056d977e00c12ee8526b051910664385dd6d522"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9eec879337fd7d374842691b2662e96c885a5b70e1d3b366ca2b139e14eb1b7f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5128c5f8ad475f0115e02bd2273029d93ef90ab63dfc0bfd414cf2eb01072c89"
+    sha256 cellar: :any, arm64_golden_gate: "c4ea7477a16ffb5c74162f30ee428b6dad8548fecf6393a07f702a787af307b4"
+    sha256 cellar: :any, arm64_tahoe:       "7a70e3f2cfb5d61ac4c02cb9370945bad39302964df7c48ccca8f4ea794483a1"
+    sha256 cellar: :any, arm64_sequoia:     "e4baaa8a0d044d9b85a9df2705e0c6ae53478c5f5a2a96d5b9de46794b721443"
+    sha256 cellar: :any, arm64_linux:       "0681a48da50c14074169f0ce53e19b115d4eab1cf94ae55aa883c8ce48200d76"
+    sha256 cellar: :any, x86_64_linux:      "74fd528e3d852db335c4d8de289cdec8dd907432ba052eeab4a6ab348f1cf55a"
   end
 
   depends_on "pkgconf" => :build

@@ -6,19 +6,20 @@ class Pferd < Formula
   url "https://files.pythonhosted.org/packages/16/cf/35aedbc5da2fb46fe45b00d8449f817c336e7020ea08aab7c95db67301f9/pferd-3.9.4.tar.gz"
   sha256 "3085b9387d3157b90b311330f799975a732dafa919f2e72a319c9605d534505b"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "24fb92abab8f3f65e17e17f41902ec1e9be85724fcd3199baa2c9178b12c4074"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c00fe45337b8cf111eb64d93ee454f99d523bcb942aefa73f80636f8dea64815"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cc733105b31d4c31a391249e8feb85ed6e2fc4b95b41d2ee8846211c91ee3513"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "cd3ed45089a125f690095f4875ad6a114008dfc379b70de55a2805e435cf1800"
-    sha256 cellar: :any,                 arm64_linux:       "5a87e92580c42d1793772de683baa8b86591bfc59543f46d8e009527c1f4bd12"
-    sha256 cellar: :any,                 x86_64_linux:      "ceccc56b199a5637d8337b03550cb75acc25ea6f3fd6b2df299f41c7a22f725d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8bbf87b98faea821b2be0d193959cefdc6b9aaee6a30d57b500a4e1f22193448"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "241d5cfb873247c8c63ee779cb3fea71123cf70f84ccbc5d3a1df023ef4425aa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6cb831d2be2efb04d48233db1c9159f6d4fa3e235363d63b800a3ae9cf6366d3"
+    sha256 cellar: :any,                 arm64_linux:       "e5b53d97e76e46e14aa1990ccbf9f2a08c4994265115f73b93bdc3c44fd20ab8"
+    sha256 cellar: :any,                 x86_64_linux:      "5bce33d0ba67bbe60741ffe560145e78a0aed769d529148e5aca6e7c6626d8b0"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: %w[certifi cryptography],
                 extra_packages:   %w[jeepney secretstorage]
@@ -29,8 +30,8 @@ class Pferd < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz"
-    sha256 "9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc"
+    url "https://files.pythonhosted.org/packages/6c/4c/bdccd81e9ee225b69c60e7766c9a5b05364f118f4d383713b89a682d772d/aiohttp-3.14.5.tar.gz"
+    sha256 "5558a7f5a05af9ecf744af91e5baefc436f93c9333e656c27ec253f9a6bbe178"
   end
 
   resource "aiosignal" do
@@ -54,8 +55,8 @@ class Pferd < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
-    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
+    url "https://files.pythonhosted.org/packages/f5/08/8eea9d4b8302028f3abb2c0813953f7aec26d33b7a8960ed760e65ff29fa/idna-3.20.tar.gz"
+    sha256 "a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44"
   end
 
   resource "jaraco-classes" do
@@ -99,13 +100,13 @@ class Pferd < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/1a/c2/c2d94cbe6ac1753f3fc980da97b3d930efe1da3af3c9f5125354436c073d/multidict-6.7.1.tar.gz"
-    sha256 "ec6652a1bee61c53a3e5776b6049172c53b6aaba34f18c9ad04f82712bac623d"
+    url "https://files.pythonhosted.org/packages/f9/79/84ddb5ba16c4eb2c69c71db76ae3c579fe546e511f7170c7e27eedbab7c1/multidict-7.1.0.tar.gz"
+    sha256 "61a4e5d81b8d4e4ad61964b230129e7a2b914793d96289029078fc9009f074ec"
   end
 
   resource "propcache" do
-    url "https://files.pythonhosted.org/packages/ec/44/c87281c333769159c50594f22610f77398a47ccbfbbf23074e744e86f87c/propcache-0.5.2.tar.gz"
-    sha256 "01c4fc7480cd0598bb4b57022df55b9ca296da7fc5a8760bd8451a7e63a7d427"
+    url "https://files.pythonhosted.org/packages/b3/9a/9fbf4e4ec0c2d7f1c32519fff782ef467859b8faa9fbc5331a96f6395d43/propcache-0.5.4.tar.gz"
+    sha256 "ff6b113f50bc066a698db5d944d2c6dc7507168dd3341e255a8892fd0715a558"
   end
 
   resource "pygments" do
@@ -124,8 +125,8 @@ class Pferd < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/69/99/a6ca3beb3ccacb41fb3321d8a60e5566f9e6467601ef8eba6a17e1b89778/soupsieve-2.9.2.tar.gz"
-    sha256 "4a55d8cf158a9c2e587fa4922f1bbb91d68ac829e2d6f25403a85747c71daf74"
+    url "https://files.pythonhosted.org/packages/71/c3/1b817965ac12dc002d7c9cd7dfffdd7d4fbf9b45763ef2ffe7b86ee94670/soupsieve-2.10.tar.gz"
+    sha256 "49e9380d7d2905463583bafe285e818c7366a9ed7b3aee221c1ac79c905d8bc0"
   end
 
   resource "typing-extensions" do
@@ -134,8 +135,8 @@ class Pferd < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/31/33/ebe9e3d1f86c7a0b51094c0a146392045ca1631d2664889539dec8088a33/yarl-1.24.5.tar.gz"
-    sha256 "e81b83143bee16329c23db3c1b2d82b29892fcbcb849186d2f6e98a5abe9a57f"
+    url "https://files.pythonhosted.org/packages/75/16/e8be8e2fb175bbf41a0680381a319f1199fae256588241a2ac8677eafb49/yarl-1.25.1.tar.gz"
+    sha256 "03dd38de09bc213e9a8b29761eec33ee1d5318dac0e49d8af36e4d27830e23a7"
   end
 
   def install

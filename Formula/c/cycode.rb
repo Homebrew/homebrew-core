@@ -3,31 +3,32 @@ class Cycode < Formula
 
   desc "Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning"
   homepage "https://github.com/cycodehq/cycode-cli"
-  url "https://files.pythonhosted.org/packages/1f/f1/1897eadd9ed4411719cc8df491a263964c4dfbef4c083f16729045e928bb/cycode-3.25.0.tar.gz"
-  sha256 "b990f23af62f2418b8caa9a2e6fcf4522414d15c6b2f2559e20c4a67abbb5564"
+  url "https://files.pythonhosted.org/packages/8c/01/0654eb7ba018f0824ffa6a476ef94fd7b03f31bcfd96ac0d983d1f0f7c49/cycode-3.26.0.tar.gz"
+  sha256 "6f44bf3660a132cd7feea79e55bb962019ecdacda6c07ba386f03817b866af6f"
   license "MIT"
   head "https://github.com/cycodehq/cycode-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f2b5f0404efbc714f4d7df39fcaf0324893b453590118ddd6c29b58d884380ac"
-    sha256 cellar: :any, arm64_tahoe:       "eae1ac7a7a7251f52356fb69a53b490f0d60d11a67d1e71a733661edfe1e5e44"
-    sha256 cellar: :any, arm64_sequoia:     "bcfa998169a09e504e8e2f15651269403ee940305059f1a4753aa60162260510"
-    sha256 cellar: :any, arm64_linux:       "bb527f9f6d4f4f1b33c902834337ba0b2ba19f8f947c1bed351495eeea0a47af"
-    sha256 cellar: :any, x86_64_linux:      "c3a70ba35c44d309ce340aa4713bbe0d53d32472bd773a0c10b91abe582ab124"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "0f6786520c989e6b38cd7396c1b7aee7aff22c1f0b9fb46ac6e1c08d93dad250"
+    sha256 cellar: :any, arm64_tahoe:       "d1d0a9f272abca5015d5f792b0bc598281c305b6f06173d0cfef6c703cb80e03"
+    sha256 cellar: :any, arm64_sequoia:     "08888e92632cd5a91850f9ad66e4316f97e38367cffb05a45e2849b986bf16e4"
+    sha256 cellar: :any, arm64_linux:       "2e9024489e3255326508c070b11ea8a1e1fa6139efcbc333a10aa080eff680d2"
+    sha256 cellar: :any, x86_64_linux:      "b18525b75aa4fd3f18b4ed87ec27b5abd44947bc23ff8b5e375d414fbb8a0541"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
 
   pypi_packages exclude_packages: %w[certifi cryptography pydantic rpds-py]
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/96/f0/5eb65b2bb0d09ac6776f2eb54adee6abe8228ea05b20a5ad0e4945de8aac/anyio-4.12.1.tar.gz"
-    sha256 "41cfcc3a4c85d3f05c932da7c26d0201ac36f72abd4435ba90d0464a3ffed703"
+    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
+    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
   end
 
   resource "arrow" do
@@ -106,8 +107,8 @@ class Cycode < Formula
   end
 
   resource "marshmallow" do
-    url "https://files.pythonhosted.org/packages/cc/ff/8f092fe402ef12aa71b7f4ceba0c557ce4d5876a9cf421e01a67b7210560/marshmallow-4.0.1.tar.gz"
-    sha256 "e1d860bd262737cb2d34e1541b84cb52c32c72c9474e3fe6f30f137ef8b0d97f"
+    url "https://files.pythonhosted.org/packages/4e/d7/611e68d57e6a903c29cb33b5afec0f93b4baecacc6c6c62e33cde9eb9dcb/marshmallow-4.3.1.tar.gz"
+    sha256 "fb6b8048af08d4ab061610d5b7d3696a7e4c95337dbda880edb9f95812cabc20"
   end
 
   resource "mcp" do
@@ -226,8 +227,8 @@ class Cycode < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/e4/31/3d74fa778a63b98b7374323befcc0be5ab3bd94afd4096a0124e7379152c/tzdata-2026.4.tar.gz"
-    sha256 "f1b8bd365d8d210c55353f4d7f8d6d8561c0ba50d704b700d195a9424bba0d79"
+    url "https://files.pythonhosted.org/packages/d9/68/f1b440335057bfce71b6e50a9d09445aa2ecbd08359a337976627b8409e7/tzdata-2026.5.tar.gz"
+    sha256 "8cc73c0a0bfca7dbfa59235d60b2eff82231dee33f53d206db1acd9173cfc0a7"
   end
 
   resource "urllib3" do

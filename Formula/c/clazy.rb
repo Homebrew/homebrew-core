@@ -34,6 +34,8 @@ class Clazy < Formula
     cause "errors while linking LLVM's static libraries due to libLTO version"
   end
 
+  deny_network_access!
+
   def install
     # macOS has undefined symbols if only linking clang-cpp.
     # This is just the default value already set by CMakeLists.txt.

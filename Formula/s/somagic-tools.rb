@@ -24,8 +24,15 @@ class SomagicTools < Formula
   depends_on "libgcrypt"
   depends_on "libusb"
 
+  deny_network_access!
+
   def install
     system "make"
     system "make", "PREFIX=#{prefix}", "install"
+  end
+
+  test do
+    # requires actual firmware to function
+    assert_match version.to_s, shell_output("#{bin}/somagic-extract-firmware --version 2>&1")
   end
 end

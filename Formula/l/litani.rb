@@ -9,14 +9,12 @@ class Litani < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any,                 arm64_golden_gate: "ea0c89704b6584af5b14a2f0105eb42790991ec4f1cccba4ab2cdfad23e569b7"
-    sha256 cellar: :any,                 arm64_tahoe:       "9759632a6582af9013d067c4461d07a5cd713405b2325593dcbbcd80dba1dee5"
-    sha256 cellar: :any,                 arm64_sequoia:     "e90d4268066cfc34e1324f2b65fbc83ebd8b2c13727a8e5bb9fe2720fd7335bc"
-    sha256 cellar: :any,                 arm64_sonoma:      "d3e1a4ef297c94137c6ee223fa246f89c45b11a2dd92a3778415efb923f8ec08"
-    sha256 cellar: :any,                 sonoma:            "aa07f4bd06cfef36b6c1aeb00f0399dde3a5f2757905891ca77ba4ffaca0127e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "626ef7ddbb0b86a50f8f7f6e3f846afe918bb3820a26a4861e03186e1be97e0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0331320a1a3ab0d6b7564b35460c0b455824aaadc7f9d0f757c73aee894e71c2"
+    rebuild 6
+    sha256 cellar: :any, arm64_golden_gate: "b1f3b9ffe85fe744c934841f1d9c8af12250c12ed4931b394efee0bec76f684d"
+    sha256 cellar: :any, arm64_tahoe:       "5511b337ee941ff7964dbf81b151a23600f6c057badb61b0b664d29383411c8f"
+    sha256 cellar: :any, arm64_sequoia:     "230060a4d766996de02ae31cd796174e22ad697f6dd4f9df10714eae9e5f84fd"
+    sha256 cellar: :any, arm64_linux:       "9b6ec1bedbab0cacebdd84f25017d8cec7be81239639d7878bcdb69e8daeeb36"
+    sha256 cellar: :any, x86_64_linux:      "bb55557af53237e93e02a2aa4ae1838060bd5b2410626c9d8510a57ccf335e68"
   end
 
   depends_on "coreutils" => :build
@@ -25,7 +23,7 @@ class Litani < Formula
   depends_on "graphviz"
   depends_on "libyaml"
   depends_on "ninja"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name:   "",
                 extra_packages: %w[jinja2 markupsafe pyyaml]

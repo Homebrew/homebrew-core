@@ -24,6 +24,10 @@ class Zurl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "fd9298662889e90ecfc5078599cfeab0862621e9839b92af94a93b32b5db4430"
   end
 
+  # https://github.com/fanout/zurl/commit/0fddb560bc8a4963fb2fc9619b32247b68932c71
+  deprecate! date: "2026-10-07", because: :deprecated_upstream, replacement_formula: "pushpin"
+  disable! date: "2027-04-07", because: :deprecated_upstream, replacement_formula: "pushpin"
+
   depends_on "pkgconf" => [:build, :test]
   depends_on "qtbase"
   depends_on "zeromq"

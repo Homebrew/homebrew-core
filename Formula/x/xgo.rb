@@ -4,6 +4,7 @@ class Xgo < Formula
   url "https://github.com/goplus/xgo/archive/refs/tags/v1.7.5.tar.gz"
   sha256 "aceb20c547645016b4feb33b7e32de79267f4796a0f26832d5b89e7329724afb"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/goplus/xgo.git", branch: "main"
 
   livecheck do
@@ -12,16 +13,20 @@ class Xgo < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "55ef78c5b83411cd377382b5a5bc90b14f60d093528daf1e74c14b85617ea9ef"
-    sha256 arm64_tahoe:       "0a006c221de1b63e4e48fd0c93d54179c27bf14564a38e8f287a3eb4db406d21"
-    sha256 arm64_sequoia:     "0a006c221de1b63e4e48fd0c93d54179c27bf14564a38e8f287a3eb4db406d21"
-    sha256 arm64_sonoma:      "0a006c221de1b63e4e48fd0c93d54179c27bf14564a38e8f287a3eb4db406d21"
-    sha256 sonoma:            "996f11ba46e98229ad0af218246941442aadf3009de31e3216dcb39294a9cf8f"
-    sha256 arm64_linux:       "13876585999db200c48d057e48fb2c899e0f927d65a6a323a88934d47df711c1"
-    sha256 x86_64_linux:      "d82b76666a996113c29ee2ed4933e2fa5d90a6a4112d888028b88ebf303de600"
+    sha256 arm64_golden_gate: "c56d27f6491c0891b3fd069c360c284e558d07d1d57726569b887f44fdea439a"
+    sha256 arm64_tahoe:       "c56d27f6491c0891b3fd069c360c284e558d07d1d57726569b887f44fdea439a"
+    sha256 arm64_sequoia:     "c56d27f6491c0891b3fd069c360c284e558d07d1d57726569b887f44fdea439a"
+    sha256 arm64_linux:       "14cea8b0af1fe0ca9dc77ad43c0981fffe01514c141d1e3fad6a9bb2054ffae6"
+    sha256 x86_64_linux:      "1d6886dc54b972a45a883e370a6718c47e4adad41d3e34e81546989bc55cbbc1"
   end
 
   depends_on "go"
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     ENV["CGO_ENABLED"] = "0"

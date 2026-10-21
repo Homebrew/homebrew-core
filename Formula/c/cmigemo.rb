@@ -32,7 +32,7 @@ class Cmigemo < Formula
 
   def install
     chmod 0755, "./configure"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     os = if OS.mac?
       "osx"
     else
@@ -50,6 +50,12 @@ class Cmigemo < Formula
       See also https://github.com/emacs-jp/migemo to use cmigemo with Emacs.
       You will have to save as migemo.el and put it in your load-path.
     EOS
+  end
+
+  test do
+    output = pipe_output("#{bin}/cmigemo -q -d #{share}/migemo/utf-8/migemo-dict", "kaki\n", 0)
+    assert_match "かき", output
+    assert_match "カキ", output
   end
 end
 

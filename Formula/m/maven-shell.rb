@@ -11,14 +11,27 @@ class MavenShell < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "8cf238b82fe150f113e5df470ec8f73d9d8cb58d940c716726a3442492a8fa16"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "5a843fccb7f0f9c53ab493d82fe2d2579cdce60d16f3274437bb7a01c9475b72"
   end
+
+  depends_on "openjdk" => :test
+
+  deny_network_access!
 
   def install
     # Remove windows files.
     rm(Dir["bin/*.bat"])
     libexec.install Dir["*"]
     bin.install_symlink libexec/"bin/mvnsh"
+  end
+
+  test do
+    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk")
+    # Old Guice/XStream need reflective access on modern Java
+    opens = %w[java.base/java.util java.base/java.lang.reflect java.base/java.text java.desktop/java.awt.font]
+    ENV["MAVEN_OPTS"] = "-Duser.home=#{testpath} " + opens.map { |o| "--add-opens=#{o}=ALL-UNNAMED" }.join(" ")
+
+    assert_equal "hello world", shell_output("#{bin}/mvnsh -c 'echo hello world'").strip
   end
 end

@@ -46,10 +46,37 @@ class Vip < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     bin.install "vip"
     resource("man").stage do
       man1.install "vip.man" => "vip.1"
     end
+  end
+
+  test do
+    require "pty"
+
+    # Non-interactive "editor" that upcases the file it is given
+    (testpath/"editor").write <<~SH
+      #!/bin/sh
+      tr a-z A-Z < "$1" > "$1.new" && mv "$1.new" "$1"
+    SH
+    chmod 0755, testpath/"editor"
+
+    # vip reads from and writes to /dev/tty, so run it in a pseudo-terminal
+    output = +""
+    env = { "VISUAL" => (testpath/"editor").to_s, "TMPDIR" => testpath.to_s }
+    PTY.spawn(env, bin/"vip", "echo hello world") do |r, _w, pid|
+      begin
+        r.each_line { |line| output << line }
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      end
+      Process.wait(pid)
+      assert_equal 0, $CHILD_STATUS.exitstatus
+    end
+    assert_equal "HELLO WORLD", output.strip
   end
 end

@@ -9,17 +9,18 @@ class Abi3audit < Formula
   revision 5
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "658e5cb570e0e9ee40f17e3b0918f03a2e6ede8dd2a234ed69db247fcc1571cc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "658e5cb570e0e9ee40f17e3b0918f03a2e6ede8dd2a234ed69db247fcc1571cc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "658e5cb570e0e9ee40f17e3b0918f03a2e6ede8dd2a234ed69db247fcc1571cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b38e8ea36cfa10c462073593e1e0cf50bc3e76e74495872f704d688a52a34620"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "b38e8ea36cfa10c462073593e1e0cf50bc3e76e74495872f704d688a52a34620"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7696e30c03be5fb8ce445ab25e823fe6e2bec1692d7addebab505b89060bfe69"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7696e30c03be5fb8ce445ab25e823fe6e2bec1692d7addebab505b89060bfe69"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7696e30c03be5fb8ce445ab25e823fe6e2bec1692d7addebab505b89060bfe69"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "685aca2a84f158cb28563f6c845ee1d671b44c70f88ddfcebaf91e46eb647056"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "685aca2a84f158cb28563f6c845ee1d671b44c70f88ddfcebaf91e46eb647056"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "certifi"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_linux do
     depends_on "rust" => :build
@@ -78,8 +79,8 @@ class Abi3audit < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/17/c8/721b3855fe457da514fe249247d404b9b39c5d16532278f70ebaa6acf18b/platformdirs-4.12.2.tar.gz"
-    sha256 "eab5f70271a490ef74618bb314fbb86e3c7e82fa3b9c922c2ea0e0a1a155d329"
+    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
+    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
   end
 
   resource "pyelftools" do

@@ -8,18 +8,18 @@ class Weasyprint < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "64ea29cbceb67e053a702cd07c22440c8745ccbc04e0f27875e34045cde3544b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f6b9080aac776ef49372402564ba7fb7b5b04e705aa0916f97ce493b0b53594d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d255edb2a6709b26a9f235ac08a0ddb9bf626d3117843b6753351288328b4eed"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "a0458889f4d350235f13593994cc353811ef8916c3668ebdc00f47f33cbaa0d9"
-    sha256 cellar: :any,                 arm64_linux:       "9c4ffe278a31b252f404893c3b590f8daed16bfb206772fc15183660ffca73ba"
-    sha256 cellar: :any,                 x86_64_linux:      "c2c81e0dcaa6c8c73060ecf7a5454d58ca93153207c8d9799920207937478704"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "19590af9f409b34191dcc6852ff1fbf56f9d03e1a8c65c3e06b08ba1e951aed1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ed84b5ebc627bf4dcf86599b2d4f54427178b1cdb41e0226a7a8cd05b792a1e7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cae166a73db87eb2cdb677affe66698acc5b3693443b16aa8804ed62b6a43eb9"
+    sha256 cellar: :any,                 arm64_linux:       "3baca13cb4f2231a0ff48512231a0ac8b65f8ebc807698e83e5ceba8cee392a7"
+    sha256 cellar: :any,                 x86_64_linux:      "d5242679a0be62eb7f89ed9b6e1ab5276e4ce66c754f580a688e7520d124805c"
   end
 
   depends_on "cffi" => :no_linkage
   depends_on "pango"
   depends_on "pillow"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libffi"
 
@@ -36,8 +36,8 @@ class Weasyprint < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/d4/41/0f072a712dc74496e03710e462a18a4cfd8a258ad055a4e22d28b43a7abd/fonttools-4.64.0.tar.gz"
-    sha256 "ecb2e59a7bc692fee64dda6010deb66222335693b30046f15cccf81233aa715f"
+    url "https://files.pythonhosted.org/packages/87/b6/126c659ab7e0e03e01a5f5d223abf7b2c0691ae92718085a212a3924a2a3/fonttools-4.66.1.tar.gz"
+    sha256 "64967c6ddb0d4c610dfd8cb1485981b2d27972ddfb7d4bbbd9e199d2a089c450"
   end
 
   resource "pydyf" do

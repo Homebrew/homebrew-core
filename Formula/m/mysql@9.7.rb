@@ -4,7 +4,7 @@ class MysqlAT97 < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.2.tar.gz"
   sha256 "e5a676c7cb73738dc6ea33db2093806ebd512b629a139b897fcab68fcd81aaa4"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 3
+  revision 4
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/9.7.html?tpl=files&os=src",
@@ -13,11 +13,11 @@ class MysqlAT97 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "c3c1b3d08f05a75eb4e08565c276857c7210ec9624b5dd6dc3480fe246bd1251"
-    sha256 arm64_tahoe:       "d0a10b49989ff3c344d1a2d1328e59eedee59ad934d3c3e178c775f5d0139930"
-    sha256 arm64_sequoia:     "07a5097b9fd6bd3ea809c13726c0e6623b25a0b09d9969b6fd55771791142f80"
-    sha256 arm64_linux:       "84b8c11a6a8933127f973c18e407a127d5b7e09db7db6f8a6b444706d489cac6"
-    sha256 x86_64_linux:      "d206a018bbd48001de38343fa342a9f9336bd433d3a1310981c5609d4f2bb365"
+    sha256 arm64_golden_gate: "6b963cba6a1a530d4c54c47f7bb51982e600dfddf652b520cd66bfe40a6ef6d8"
+    sha256 arm64_tahoe:       "42e6a0ae9303cc0b8a8d3246b229fe133b92f09f3cd8f9f2a114d7868c498576"
+    sha256 arm64_sequoia:     "02e79d71225ee0e3459936a754d2274b23291a38bdb06930ac44d62329380c73"
+    sha256 arm64_linux:       "a892005be11b00bbaf811cfbe40e976e4c261ba90ddcad212a8043554b455ae6"
+    sha256 x86_64_linux:      "48a6fa9839fdd933d98beeb8d75e59fa0731dc7a36e69da20b988392b9d2fc13"
   end
 
   keg_only :versioned_formula
@@ -31,7 +31,7 @@ class MysqlAT97 < Formula
   depends_on "abseil"
   depends_on "icu4c@78"
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf"
   depends_on "zlib-ng-compat" # Zlib 1.2.13+
   depends_on "zstd"
@@ -58,6 +58,13 @@ class MysqlAT97 < Formula
   fails_with :gcc do
     version "12"
     cause "fails handling PROTOBUF_FUTURE_ADD_EARLY_WARN_UNUSED"
+  end
+
+  # Apply Debian's MySQL 9.7 patch to fix build with OpenSSL 4
+  patch do
+    url "https://salsa.debian.org/mariadb-team/mysql/-/raw/ac6576612c0afddccebf939fccedacc3b97db567/debian/patches/support-openssl4.patch"
+    sha256 "fd0eb6d47ce5aaef43e58240d9884d04b1ee30fd3c57395b405d9400ae136a02"
+    type :unofficial
   end
 
   # Patch out check for Homebrew `boost`.
@@ -102,7 +109,7 @@ class MysqlAT97 < Formula
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
       -DBISON_EXECUTABLE=#{formula_opt_bin("bison")}/bison
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
       -DWITH_ICU=#{icu4c.opt_prefix}
       -DWITH_SYSTEM_LIBS=ON
       -DWITH_EDITLINE=system

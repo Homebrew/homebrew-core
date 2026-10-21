@@ -2,20 +2,19 @@ class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
   license "Apache-2.0"
-  revision 1
   compatibility_version 1
   head "https://github.com/neovim/neovim.git", branch: "master"
 
   stable do
-    url "https://github.com/neovim/neovim/archive/refs/tags/v0.12.5.tar.gz"
-    sha256 "a810c95332317bd0017e1ca07e376a8472c79075cbed00fa3737d190a8a0a45a"
+    url "https://github.com/neovim/neovim/archive/refs/tags/v0.12.6.tar.gz"
+    sha256 "8629fdc5eb951daf89a76f68cad12f2f1e03fab0d539150ba3fe6d177d254b7f"
 
     # Keep resources updated according to:
     # https://github.com/neovim/neovim/blob/v#{version}/cmake.deps/deps.txt
 
     # TODO: Consider shipping these as separate formulae instead. See discussion at
     #       https://github.com/orgs/Homebrew/discussions/3611
-    # NOTE: The `install` method assumes that the parser name follows the final `-`.
+    # NOTE: The `fetch` method assumes that the parser name follows the final `-`.
     #       Please name the resources accordingly.
     resource "tree-sitter-c" do
       url "https://github.com/tree-sitter/tree-sitter-c/archive/refs/tags/v0.24.1.tar.gz"
@@ -84,12 +83,11 @@ class Neovim < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "fda07719c6cdd5ed43684e1e68517fbb0d1d66b379dda958007490ee4d84481f"
-    sha256 arm64_tahoe:       "1fa5192523a6cc34b8c76cfb25b909888de98d4fd114def770921412172444a1"
-    sha256 arm64_sequoia:     "a6f4b223c5ee632a04afbd490411624e01b261dfbb6285275e4726d6cc01510f"
-    sha256 arm64_sonoma:      "878760350f9fadc29a2fe7873ce452b4648d9d601ba537980fe9782dc24ef72c"
-    sha256 arm64_linux:       "e565cfb4664b511b34eb4a3d57572969abd0d291d9be7d5e1f89d2cb26279f59"
-    sha256 x86_64_linux:      "54bf8c1bb1b895e89e72421cbd9208911eb6cac31a0593963403df451699c324"
+    sha256 arm64_golden_gate: "cb3a81a4a98cd20e17968e1d8fde4b0b4f52277ab92e3163c6d05157504e33ce"
+    sha256 arm64_tahoe:       "0c4372daf046ead32eda05f3b2d98be59ae59942dcdd5040f97eab7e6c04dcec"
+    sha256 arm64_sequoia:     "5aec5f3fdaf78c6bd269d083b2e64e2dbc260bff96496c2f15f9ea07a78b6dd6"
+    sha256 arm64_linux:       "ed148c408252851a051c271275049b83661ee7b18ab5ef2ef328de5f4d16833b"
+    sha256 x86_64_linux:      "dcb0240a8ce7c20755201e4fde5e5340b7b2b90bd8d6728c6f9130c3c6019552"
   end
 
   depends_on "cmake" => :build
@@ -108,56 +106,27 @@ class Neovim < Formula
 
   deny_network_access!
 
-  def resource_source_directory(root, resource_name) = root/"deps-build/build/src"/resource_name
-
-  def resource_build_directory(root, resource_name) = root/"deps-build/build"/resource_name
-
-  def define_resources
-    cmake_deps = (buildpath/"cmake.deps/deps.txt").read.lines
-    cmake_deps.each do |line|
-      next unless line.match?(/TREESITTER_[^_]+_URL/)
-
-      parser, parser_url = line.split
-      parser_name = parser.delete_suffix("_URL")
-      parser_sha256 = cmake_deps.find { |l| l.include?("#{parser_name}_SHA256") }.split.last
-      parser_name = parser_name.downcase.tr("_", "-")
-
-      resource parser_name do
-        url parser_url
-        sha256 parser_sha256
-      end
-    end
-  end
-
   def fetch
-    define_resources if build.head?
-
     resources.each do |r|
-      source_directory = resource_source_directory(buildpath, r.name)
-
-      parser_name = r.name.split("-").last
-      cmakelists = case parser_name
-      when "markdown" then "MarkdownParserCMakeLists.txt"
-      else "TreesitterParserCMakeLists.txt"
-      end
-
-      r.stage(source_directory)
-      cp buildpath/"cmake.deps/cmake"/cmakelists, source_directory/"CMakeLists.txt"
+      r.stage(buildpath/"deps-build/build/src/treesitter_#{r.name.split("-").last}")
     end
+
+    (buildpath/"fetch-parsers.cmake").write <<~CMAKE
+      set_property(DIRECTORY PROPERTY EP_STEP_TARGETS download)
+      cmake_language(DEFER CALL get_property targets DIRECTORY PROPERTY BUILDSYSTEM_TARGETS)
+      cmake_language(DEFER CALL list FILTER targets INCLUDE REGEX "-download$")
+      cmake_language(DEFER CALL add_custom_target download DEPENDS ${targets})
+    CMAKE
+    system "cmake", "-S", "cmake.deps", "-B", "deps-build",
+                    "-DUSE_BUNDLED=OFF", "-DUSE_BUNDLED_TS_PARSERS=ON", "-DCMAKE_TLS_VERIFY=ON",
+                    "-DUSE_EXISTING_SRC_DIR=#{build.stable? ? "ON" : "OFF"}",
+                    "-DCMAKE_PROJECT_INCLUDE=#{buildpath}/fetch-parsers.cmake", *std_cmake_args
+    system "cmake", "--build", "deps-build", "--target", "download"
   end
 
   def install
-    define_resources if build.head?
-
-    resources.each do |r|
-      source_directory = resource_source_directory(buildpath, r.name)
-      build_directory = resource_build_directory(buildpath, r.name)
-      parser_name = r.name.split("-").last
-
-      system "cmake", "-S", source_directory, "-B", build_directory, "-DPARSERLANG=#{parser_name}", *std_cmake_args
-      system "cmake", "--build", build_directory
-      system "cmake", "--install", build_directory
-    end
+    system "cmake", "--build", "deps-build"
+    (lib/"nvim/parser").install (buildpath/"deps-build/usr/lib/nvim/parser").children
 
     # Point system locations inside `HOMEBREW_PREFIX`.
     inreplace "src/nvim/os/stdpaths.c" do |s|
@@ -171,12 +140,11 @@ class Neovim < Formula
     # Replace `-dirty` suffix in `--version` output with `-Homebrew`.
     inreplace "cmake/GenerateVersion.cmake", "--dirty", "--dirty=-Homebrew"
 
-    args = [
-      "-DLUV_LIBRARY=#{formula_opt_lib("luv")/shared_library("libluv")}",
-      "-DLIBUV_LIBRARY=#{formula_opt_lib("libuv")/shared_library("libuv")}",
-      "-DLPEG_LIBRARY=#{formula_opt_lib("lpeg")/shared_library("liblpeg")}",
-    ]
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DLUV_LIBRARY=#{formula_opt_lib("luv")/shared_library("libluv")}",
+                    "-DLIBUV_LIBRARY=#{formula_opt_lib("libuv")/shared_library("libuv")}",
+                    "-DLPEG_LIBRARY=#{formula_opt_lib("lpeg")/shared_library("liblpeg")}",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

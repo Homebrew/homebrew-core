@@ -20,6 +20,12 @@ class Benchi < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/benchi"
   end
@@ -43,15 +49,16 @@ class Benchi < Formula
           type: noop
     YAML
 
-    cmd = "#{bin}/benchi -config #{test_config} -out #{testpath} 2>&1"
-    output = if OS.mac?
-      shell_output(cmd, 1)
-    else
-      require "pty"
-      r, _w, pid = PTY.spawn(cmd)
-      Process.wait(pid)
-      r.read_nonblock(1024)
+    require "pty"
+    r, w, pid = PTY.spawn("#{bin}/benchi -config #{test_config} -out #{testpath} 2>&1")
+    output = ""
+    begin
+      r.each_line { |line| output += line }
+    rescue Errno::EIO
+      # GNU/Linux raises EIO when read is done on closed pty
     end
+    [r, w].each(&:close)
+    Process.wait(pid)
     assert_match "Cannot connect to the Docker daemon", output
   end
 end

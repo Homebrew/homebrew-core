@@ -8,14 +8,15 @@ class AdbEnhanced < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0bfd1e557448e788ff7d0c04faf874ea7ceb743ebbe81a940ef16938842f84bb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fe9448f2254b46252259210bd0ec62f8b845bfdc96f1b138886097ca91865758"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f0e582eff03588c63ca9d8553eb4d1904f4315e25bcd9aa170fa51e990336c30"
-    sha256 cellar: :any,                 arm64_linux:       "1797202002980fd7de28e1101643b1570a3aa2fcafd5e2119390cb03edf93393"
-    sha256 cellar: :any,                 x86_64_linux:      "1e345062061e2a5fbd25003d8b727709e208aa12ccb62c722722ba8e597c4106"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "483ae064e1044b73fe4076051e261e85332cb745a29f9be3561d2ebbcbee4bd2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "828e688eda04f785d63146b9a2862b08150e1905412c3ac7d7547df5bcb30667"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5411a417913761684367ee2ab03c8b9c71d5286cb29c4c7581246cd0f6e81b08"
+    sha256 cellar: :any,                 arm64_linux:       "57d61f392815522628dab768f27ef72e56e02db926124bcae1ad7e00e405a5e4"
+    sha256 cellar: :any,                 x86_64_linux:      "11ddbadaf4cfb6db7a8a4e760dec0f0facea60f8a7f9451c9e1d2a4473f0a8fe"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"

@@ -4,6 +4,7 @@ class Tsduck < Formula
   url "https://github.com/tsduck/tsduck/archive/refs/tags/v3.45-4798.tar.gz"
   sha256 "a35845430fff1385cf1cda9645bbfd0ec887ed440137fc6c26863c624c24eb63"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/tsduck/tsduck.git", branch: "master"
 
   # There can be a notable gap between when a version is tagged and a
@@ -16,11 +17,11 @@ class Tsduck < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c938b5f8195505dcd8ad78dc3956d5927a44d6119dbf118f2140d834e2e88de3"
-    sha256 cellar: :any, arm64_tahoe:       "d145541c72fc01e95d001cca4b81387df0dc79dac884e6a07cbc78873b413300"
-    sha256 cellar: :any, arm64_sequoia:     "e52ee946ecfcce14bc3e98aaad40baf4d30a59ec14128f8cfe2499e5856226f0"
-    sha256 cellar: :any, arm64_linux:       "66bf97928952b7c2f3b7585c9f61c5e52efa7cb72dd4c788aea856c3238825d1"
-    sha256 cellar: :any, x86_64_linux:      "42a344adbaa5ce21fa8ade216c2ab0573c119c6403b5e91abb84cb72cb623a20"
+    sha256 cellar: :any, arm64_golden_gate: "00e75b5b3b3b6a5d9a38764c543f6cada103841dbbf9b88c080f22103e754762"
+    sha256 cellar: :any, arm64_tahoe:       "951ddc68d24c793772712c6847893e0c52f9683efd52625acf47ce7da2a1da30"
+    sha256 cellar: :any, arm64_sequoia:     "35aea7a0a6fa99a069412ec76871eb6a704c870526e580c615d5a698974a20a6"
+    sha256 cellar: :any, arm64_linux:       "a24d0c99bf094e01725ac2d3099eee3d18fba1ca30de27723de8ca0937d022ac"
+    sha256 cellar: :any, x86_64_linux:      "65f41991a89fdc867ceed4a3aad9f157478f49cad8f9d5f1ba41d5d4b9d16b34"
   end
 
   depends_on "asciidoctor" => :build
@@ -29,7 +30,7 @@ class Tsduck < Formula
   depends_on "qpdf" => :build
   depends_on "librist"
   depends_on "libvatek"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "srt"
 
   uses_from_macos "python" => :build

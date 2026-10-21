@@ -37,6 +37,12 @@ class Cig < Formula
     resolves "https://github.com/stevenjack/cig/pull/44"
   end
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "go", "build", *std_go_args
   end

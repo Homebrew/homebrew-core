@@ -2,8 +2,8 @@ class DotnetAT8 < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-  url "https://github.com/dotnet/dotnet/archive/refs/tags/v8.0.131.tar.gz"
-  sha256 "b1adc9442ba3dd564c74630a402a7d25987619278c7f3d49cce8fb10b4a2c2f5"
+  url "https://github.com/dotnet/dotnet/archive/refs/tags/v8.0.132.tar.gz"
+  sha256 "e488a0713415c47ca93b6c8a185cabfa4fa58facb83e0f7c306e3bf5e86ab021"
   license "MIT"
   compatibility_version 1
 
@@ -13,12 +13,11 @@ class DotnetAT8 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "1541927a6d3509acafc72ae3735e8d449e2c67835e84296da542a43b1784ecea"
-    sha256 cellar: :any, arm64_tahoe:       "c78fadd8d5546c7cfa7cef7127ae8dc942b41263eed9e9714029dac3601b9315"
-    sha256 cellar: :any, arm64_sequoia:     "c0c2fa17e79aa727bfe40d9ae3b284b9cce10c2f3407457a5587ffcbc978bc0f"
-    sha256 cellar: :any, arm64_linux:       "2dbcb5921af87f3aa8de94c6ef9d798a08efd2396207d393c30be4706c160038"
-    sha256 cellar: :any, x86_64_linux:      "f39876995501a0350b3b6c4e9940167f037267da1b30796f189c2eb345cc20f3"
+    sha256 cellar: :any, arm64_golden_gate: "460827928cc5dc3dcf6947b5fdcf929278d48428883aa625f65b2f27d804ac7b"
+    sha256 cellar: :any, arm64_tahoe:       "5119edbd3ff185892d140b4bb61665187fcf3f7e40cdd3cf34bf0311d61cbce1"
+    sha256 cellar: :any, arm64_sequoia:     "35de497a5719c674565776e360c87b1b9e5ccfd755fd535e6a615c25e5aa6890"
+    sha256 cellar: :any, arm64_linux:       "78aa22779b2c03961bf653adf6b23e9ea79e6847af84848074eea87b0f8893e1"
+    sha256 cellar: :any, x86_64_linux:      "e602b24799924b77ebae0c8e48040ea9dba40509f25285429e87ec10f418c52b"
   end
 
   keg_only :versioned_formula
@@ -55,12 +54,19 @@ class DotnetAT8 < Formula
   end
 
   resource "release.json" do
-    url "https://github.com/dotnet/dotnet/releases/download/v8.0.131/release.json"
-    sha256 "68f2d6f9c8d1a6856450ada23c3a6f01cc92a58d0b69956b183ff1207d800e95"
+    url "https://github.com/dotnet/dotnet/releases/download/v8.0.132/release.json"
+    sha256 "8c94ced5e6788003f762cd59f0e635ac935cf298374b449d89ba10bb93280380"
 
     livecheck do
       formula :parent
     end
+  end
+
+  # Test to avoid uploading broken Intel Sonoma bottle which has stack overflow on restore.
+  # See https://github.com/Homebrew/homebrew-core/issues/197546
+  resource "docfx", :test do
+    url "https://github.com/dotnet/docfx/archive/refs/tags/v2.78.4.tar.gz"
+    sha256 "255f71f4a6fc7b9ffd0c598d0eba11630dc01262f1fa45ec4f1794508f7033cf"
   end
 
   def install
@@ -160,6 +166,9 @@ class DotnetAT8 < Formula
   end
 
   test do
+    # Runtime 8.0.32 puts user mutexes under the passwd home, which the Linux test sandbox blocks
+    ENV["XDG_RUNTIME_DIR"] = testpath
+
     target_framework = "net#{version.major_minor}"
 
     (testpath/"test.cs").write <<~CSHARP
@@ -200,12 +209,6 @@ class DotnetAT8 < Formula
     output = shell_output("#{bin}/dotnet run --framework #{target_framework} #{testpath}/test.dll a b c")
     assert_equal "#{testpath}/test.dll,a,b,c\n", output
 
-    # Test to avoid uploading broken Intel Sonoma bottle which has stack overflow on restore.
-    # See https://github.com/Homebrew/homebrew-core/issues/197546
-    resource "docfx" do
-      url "https://github.com/dotnet/docfx/archive/refs/tags/v2.78.4.tar.gz"
-      sha256 "255f71f4a6fc7b9ffd0c598d0eba11630dc01262f1fa45ec4f1794508f7033cf"
-    end
     resource("docfx").stage do
       msbuild_args = ["-p:TargetFrameworks=net8.0"]
       system bin/"dotnet", "restore", "src/docfx", "--disable-build-servers", "--no-cache", *msbuild_args

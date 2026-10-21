@@ -1,8 +1,8 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy2.7-v8.0.0-src.tar.gz"
-  sha256 "e2a56b587014a97a7e6bd14ae99b55247cf2939d67a05a09e62af0afc16125cb"
+  url "https://downloads.python.org/pypy/pypy2.7-v8.0.1-src.tar.gz"
+  sha256 "1397c303c46fdb6eb28091377668bf2bf89909fdf5824dfe067f9b47da31844a"
   license "MIT"
   head "https://github.com/pypy/pypy.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Pypy < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1a9b8421c23abf87f1eb974e3bbac18013d042f7b2ecec89f1075485afa03ecc"
-    sha256 cellar: :any, arm64_tahoe:       "55335dba761b5a36705e0a19d8fdd67b0b25d418f275b9c0d385ec92a8f4308c"
-    sha256 cellar: :any, arm64_sequoia:     "edcb93d7c3ff8ccb83975f35ccc8d27d801e29c706bd5a2d6a97b10d378e2b72"
-    sha256 cellar: :any, arm64_linux:       "bfe7a367b2af89a616b04f653720d0fb72fdcc685f4c3a3dfa0d5d8aa7bf6743"
-    sha256 cellar: :any, x86_64_linux:      "7f65b9c1898c96d714bf71b79b87dc30085050399e385af8f1201a549f2c3ccf"
+    sha256 cellar: :any, arm64_golden_gate: "196eb7f1a3e130475dae88642b1c84b51a7cd6955b1797a8e1e66ca3c5f7c78b"
+    sha256 cellar: :any, arm64_tahoe:       "56a32512e3776d848580010a25d7372d56db5f42285b17d923fc474bf648ee5f"
+    sha256 cellar: :any, arm64_sequoia:     "a4349b59f50bddebcca60f96bed3524b53451b281aefe41816bd1313001fc9c9"
+    sha256 cellar: :any, arm64_linux:       "c59dbccaf9c1fbae1334396afefb32ebd2f7671a07dac6da8d361e076757b6a9"
+    sha256 cellar: :any, x86_64_linux:      "5fb0a61b99e84ea7f7b196724f783818dede997a684e6fd58573b46561f85571"
   end
 
   deprecate! date: "2026-09-29", because: "is Python 2 and needs vulnerable versions of pip and setuptools"

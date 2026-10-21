@@ -1,8 +1,8 @@
 class Tofrodos < Formula
   desc "Converts DOS <-> UNIX text files, alias tofromdos"
   homepage "https://github.com/ChristopherHeng/tofrodos"
-  url "https://github.com/ChristopherHeng/tofrodos/archive/refs/tags/2.1.1.tar.gz"
-  sha256 "77e6855917e5dd04ff445b6de3f8373531af15b2cb70e3b29058658f9d495c06"
+  url "https://github.com/ChristopherHeng/tofrodos/archive/refs/tags/3.0.0.tar.gz"
+  sha256 "3c2e14a33d704b48cde344540095a09e696f6b7907169ae6f2ff78ab54ad6f8d"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,11 @@ class Tofrodos < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9c2099416d0a4f3f4757eeda1b8aefa93fa08650f453f2d7625461e0e0288bcc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb9bccec0b6facab6deb29e573a58688ca536fc626a495c8dbf14b1bf30aa625"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e1d7e019ae05f7eedc3b6f7eeed1576d3eaed131344ff5341f347d4a7232ac42"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "45523cb29f07d2958725ffee8b52a482ef7cc38a8b733b458d4c23f1ea484950"
-    sha256 cellar: :any_skip_relocation, sonoma:            "bc8b42d53d4c3f5c94aee049393680c0521d4cc8d10e4f08fc036662b8193ab9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "23e087b1626acd44299d5a4c05bfbf8330824898a59f5e3514db5a94f119eeb7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9736424740fa62707a4cd5061f5bc14958fc8726c69a9cd6f7d8dcadd800090b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "342942036f6109280bc10b0a27de08487212f40bbe71aa405a042b8123c7225f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1975780f21d7e2504649dc52b92bc234bff4e58064c0dd93c15da11acc56ed62"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e8cb6e9524618be985e77720471ffe31fe3e92b2132ed61509caefd537434ace"
+    sha256 cellar: :any,                 arm64_linux:       "c7ffd634393777ba666fe599bcf0d505a5f53d82b2378e4deab8e3b8428b033c"
+    sha256 cellar: :any,                 x86_64_linux:      "d2579e060f82887c9f9437672fb272a19721e5c78df6de434d9aa15ff82c8eac"
   end
 
   def install

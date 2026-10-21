@@ -18,6 +18,12 @@ class FlipLink < Formula
   depends_on "rust" => :build
   depends_on "rustup" => :test
 
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
     (pkgshare/"examples").install "test-flip-link-app"

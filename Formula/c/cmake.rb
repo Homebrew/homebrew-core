@@ -1,10 +1,10 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v4.4.3/cmake-4.4.3.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/cmake-4.4.3.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/cmake-4.4.3.tar.gz"
-  sha256 "c46400618b4f1f2b43507f24fb22f3ae830c3416cf23b776e16e1d413aa892f0"
+  url "https://github.com/Kitware/CMake/releases/download/v4.4.4/cmake-4.4.4.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/cmake-4.4.4.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/cmake-4.4.4.tar.gz"
+  sha256 "bd24c30d80a7744ae84b845ff080cc8453b06c622ef01066564108e9cefc44cf"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
@@ -18,21 +18,18 @@ class Cmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f0687dd7fc33beea223f96946fb64b2dc1345990048b145bc160f9db218b3975"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0a53d2312ce16641029e616591e15dd256258401b401f5663d9560fddf78fc25"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "49b8b85daec411080b7cfaaaed84846d1e08c366ddb27b199e61ff21cf881646"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "d50416765d0be66fba64b845e9198c9185a9b26a4baea54a50996c3a68b56238"
-    sha256 cellar: :any_skip_relocation, tahoe:             "9e321dc7e2f284ece5f048949ad98caeabc9c5fd853c90a1d2c930a33e0bf44e"
-    sha256 cellar: :any_skip_relocation, sequoia:           "0422f40c02b98e088ffe0a8f37c6b7efb24ed4f8832cb9efe0e53f97225e586f"
-    sha256 cellar: :any_skip_relocation, sonoma:            "f4176e173808ea4a59acb6182ec5bbb0be6fe3e452dbdfd0f8303a6377b13fee"
-    sha256 cellar: :any,                 arm64_linux:       "bc56c4bb2c45965103d613f962e9d0ec14989fc9355a908686cfe17532317bef"
-    sha256 cellar: :any,                 x86_64_linux:      "b37d85310c00b84eaaa62fa96d51251f6f59fba39e36495eab224f0b76909043"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6614033037dd78df8ef4fea463235b7a463f92caba61fc9fc93214fcd948cbe4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "30efb5adfba2b7441a0fd6980039fadba94aff6ee1052a383dad9fab9b078eeb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b2a7da6b1f351024c84fe36af692f31a196cb21be74dae8a3f36925467fa676b"
+    sha256 cellar: :any,                 arm64_linux:       "0ed7f678a53d9f729dbf80444ecb56769da1e232e642b9e803c9ef8b4352cb3d"
+    sha256 cellar: :any,                 x86_64_linux:      "103c3634b5e6027b19bcf41100bbe02b0146a68aa88d563ec296afcba206c46e"
   end
 
   uses_from_macos "ncurses"
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   deny_network_access!

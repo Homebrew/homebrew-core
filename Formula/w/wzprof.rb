@@ -24,6 +24,11 @@ class Wzprof < Formula
 
   depends_on "go" => :build
 
+  resource "simple.wasm", :test do
+    url "https://github.com/dispatchrun/wzprof/raw/c2e9f22/testdata/c/simple.wasm"
+    sha256 "f838a6edabfc830177f10f8cba0a07f36bb1d81209d4300f6d41ad2305756b3a"
+  end
+
   allow_network_access! :test
 
   def fetch
@@ -35,11 +40,6 @@ class Wzprof < Formula
   end
 
   test do
-    resource "simple.wasm" do
-      url "https://github.com/dispatchrun/wzprof/raw/c2e9f22/testdata/c/simple.wasm"
-      sha256 "f838a6edabfc830177f10f8cba0a07f36bb1d81209d4300f6d41ad2305756b3a"
-    end
-
     testpath.install resource("simple.wasm")
     expected = <<~EOS
       start

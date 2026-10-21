@@ -23,7 +23,7 @@ class Bsdsfv < Formula
 
   # bug report:
   # https://sourceforge.net/p/bsdsfv/bugs/1/
-  # Patch from MacPorts
+  # Patch from MacPorts, plus storing `getopt()` in an `int` since `char` is unsigned on arm64 Linux
   patch :DATA
 
   def install
@@ -38,6 +38,13 @@ class Bsdsfv < Formula
     system "make", "all"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.rar").write "Homebrew"
+    system bin/"bsdsfv", "-c", "test.sfv", "test.rar"
+    assert_match "test.rar 17AD264F", (testpath/"test.sfv").read
+    assert_match "1 OK - 0 bad - 0 missing", shell_output("#{bin}/bsdsfv -T test.sfv")
+  end
 end
 
 __END__
@@ -50,3 +57,12 @@ __END__
 +	unsigned int crc;
 	int found;
  } SFVTABLE;
+@@ -321,7 +321,7 @@
+ 	time_t curtime;
+ 	struct tm zeit;
+ 	char mytime[80];
+-	char ch;
++	int ch;
+ 
+ // output program name & version number
+ 	printf("%s\n", BSDSFV_VERSION);

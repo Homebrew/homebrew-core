@@ -9,11 +9,12 @@ class Twarc < Formula
   revision 5
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "32bf63aca6c8652d829e19488f6aa51bdfe08ae55219f0f665152aca1fd0bda5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7507f3efb1b6add925500d88b58c4eac26fe508343e399c08f74db4495944945"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3a57b7232dd918b991618dedbecdab09286bf8e93c6fdd51db209d907fee0256"
-    sha256 cellar: :any,                 arm64_linux:       "916a420c3a9deb6f0ff31bc65e284071311fb5dea87291a6cb3e233684db0c07"
-    sha256 cellar: :any,                 x86_64_linux:      "ed8be7fd77f80a882b34a16c1a9459c9005dbe701745a96629b41d7c1557422f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "07821bd604e691f411d8c8bcb3cd6458e204cb155642844cd7186e874677a0af"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "add5b9047138e5511853238a67809fb4cd8f16b31a202c73aad73006f67889a8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a4d2a045d85c0641240a0c6c71b7771cd8e859567e6571066efee4295b0fe30a"
+    sha256 cellar: :any,                 arm64_linux:       "582c93904da8f4b40591bca7f64d2a851419ce5281aca8975ebab98c4cc9783e"
+    sha256 cellar: :any,                 x86_64_linux:      "2e65986c24b36203a6950e75ff83f325741f048d85ba8349e58c0f4ec31684eb"
   end
 
   depends_on "cmake" => :build
@@ -22,7 +23,7 @@ class Twarc < Formula
   depends_on "rust" => :build
   depends_on "certifi" => :no_linkage
   depends_on "numpy" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_linux do
     depends_on "patchelf" => :build
@@ -31,8 +32,8 @@ class Twarc < Formula
   pypi_packages exclude_packages: %w[certifi numpy]
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "click" do

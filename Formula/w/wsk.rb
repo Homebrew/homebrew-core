@@ -25,6 +25,12 @@ class Wsk < Formula
   depends_on "go" => :build
   depends_on "go-bindata" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "go-bindata", "-pkg", "wski18n", "-o",
                           "wski18n/i18n_resources.go", "wski18n/resources"

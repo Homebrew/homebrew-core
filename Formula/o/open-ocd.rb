@@ -43,6 +43,8 @@ class OpenOcd < Formula
   depends_on "libftdi"
   depends_on "libusb"
 
+  deny_network_access!
+
   def install
     ENV["CCACHE"] = "none"
 
@@ -54,5 +56,20 @@ class OpenOcd < Formula
                           "--enable-remote-bitbang",
                           *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    # Parse bundled interface/target configs with the dummy adapter and query
+    # the resulting setup, shutting down before `init` touches any hardware.
+    output = shell_output("#{bin}/openocd -s #{pkgshare}/scripts " \
+                          "-f interface/dummy.cfg -f target/stm32f1x.cfg " \
+                          "-c 'echo \"targets: [target names]\"' " \
+                          "-c 'echo \"flash: [flash list]\"' " \
+                          "-c 'echo \"answer [expr {6*7}]\"' " \
+                          "-c shutdown 2>&1")
+    assert_match "targets: stm32f1x.cpu", output
+    assert_match "name stm32f1x.flash driver stm32f1x base 134217728", output
+    assert_match "answer 42", output
+    assert_match "shutdown command invoked", output
   end
 end

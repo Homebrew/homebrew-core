@@ -1,19 +1,18 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
   homepage "https://github.com/facebook/fbthrift"
-  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2026.09.21.00.tar.gz"
-  sha256 "d3d2539e444f06259273868a26e510a185a1ece836912a385684301ce26a9538"
+  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2026.10.19.00.tar.gz"
+  sha256 "51fe01005b3c82294310a398086425262707b410cd8d2b0238de38cd426dc105"
   license "Apache-2.0"
-  revision 1
   compatibility_version 1
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e810f3b234e6ea9b51230b277bc40a0d7019f6550c6864a6ee3dab95a1e6d337"
-    sha256 cellar: :any, arm64_tahoe:       "ad90bab34b294d310c6c330d278f2524ead387483eca709d20b77d62b66972cb"
-    sha256 cellar: :any, arm64_sequoia:     "fe9e9bea731cd843550009c932a87f09307b0ecf864b405e8c7eb6370b3b22b5"
-    sha256 cellar: :any, arm64_linux:       "dedcaab133e0223e95eca21c859ed87d592b2a2cf395f6b0ebe948f490fff9d3"
-    sha256 cellar: :any, x86_64_linux:      "0224e923f506f08e9f98920f1ffc3c421f0c52e5df9571de30f18f8fd3a5a40b"
+    sha256 cellar: :any, arm64_golden_gate: "3dfe73f8db98375669f0297e0d57e3d80db2bc2d9869da85505667b9151ea2c7"
+    sha256 cellar: :any, arm64_tahoe:       "8a959df5f5d2eb08de7a63ff4ad1604afd1efac81f9c045a41eb2fdde5d95d5f"
+    sha256 cellar: :any, arm64_sequoia:     "a5fda848678b8b94cc490885eff696ef5b26b1182f0ef698e890a3e1bc6c4c1c"
+    sha256 cellar: :any, arm64_linux:       "bc733d51ea808a6e11a5e34c96e08c9c177ac37c28ba2ba7864a9ce10829610c"
+    sha256 cellar: :any, x86_64_linux:      "3258ef3a27d7b13c35c8ca4b22c0d8cc66b66cf2f6d97acd7068e3441b8f5d21"
   end
 
   depends_on "bison" => :build # Needs Bison 3.1+
@@ -26,7 +25,7 @@ class Fbthrift < Formula
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "wangle"
   depends_on "xxhash"
 
@@ -38,6 +37,8 @@ class Fbthrift < Formula
     depends_on "zlib-ng-compat"
   end
 
+  conflicts_with "thrift", because: "both install `thrift` binaries"
+
   def install
     # Work around build failure with Xcode 16
     # Issue ref: https://github.com/facebook/fbthrift/issues/618
@@ -47,7 +48,7 @@ class Fbthrift < Formula
     # PR ref: https://github.com/facebook/fbthrift/pull/702
     ENV.append "CXXFLAGS", "-DFMT_DEPRECATED_HEAVY_CORE"
 
-    ENV["OPENSSL_ROOT_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_ROOT_DIR"] = formula_opt_prefix("openssl@4")
 
     # The static libraries are a bit annoying to build. If modifying this formula
     # to include them, make sure `bin/thrift1` links with the dynamic libraries
@@ -102,7 +103,7 @@ class Fbthrift < Formula
       target_link_libraries(test FBThrift::transport)
     CMAKE
 
-    ENV.append_path "CMAKE_PREFIX_PATH", formula_opt_prefix("openssl@3")
+    ENV.append_path "CMAKE_PREFIX_PATH", formula_opt_prefix("openssl@4")
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
   end

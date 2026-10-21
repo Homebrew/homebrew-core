@@ -8,6 +8,7 @@ class Texlive < Formula
   mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2026/texlive-20260301-source.tar.xz"
   sha256 "cb120d314d3ceb23ac608af17ddd2c623afcf02331f400a0f25eead5b8ac1d70"
   license :cannot_represent
+  revision 1
   compatibility_version 1
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
@@ -36,13 +37,12 @@ class Texlive < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_golden_gate: "98444a17b950edfaef101879b256acdd844a36952b0cc0e1b1108a8142e2d176"
-    sha256 arm64_tahoe:       "107a9d90dadaa539a2b81965d616c213b85884e3ac11b664590cd7499d75aa3d"
-    sha256 arm64_sequoia:     "f95f28f08b5ad97dabcc0ff674a2ba2628cd28a9cb72e4479028057a63afb82d"
-    sha256 arm64_sonoma:      "d0ec9ff9f399284628612edf2dffd3d962272d380216a5425d16faf28086919d"
-    sha256 sonoma:            "457d840d2e97cea5f8a11e46adc9ade67c3e197b54875889033638b143222508"
-    sha256 arm64_linux:       "f04609a0e06b0385278649da3408e8229296ef12d481d32632f564b20d3f94cc"
-    sha256 x86_64_linux:      "4ab2674e0c636ab1cd8c8428ebcac12509976bd881f83853d08310aaab23cf33"
+    rebuild 1
+    sha256 arm64_golden_gate: "10dad928a43900b07a552aabe6c437cb684fcda63350a9c836e8a3b932577cfa"
+    sha256 arm64_tahoe:       "62f080ddb07da865d57b30ac72112451fdac24769e17d8b26a55cec49525ed09"
+    sha256 arm64_sequoia:     "5d874379f5d594ac5d96cc5632625bd484f451b28436af79e98d840176acb6da"
+    sha256 arm64_linux:       "aa6fec05d51c5424d6076395703fbb05c0025b5f124ef9aff931ffbb3f83b4cd"
+    sha256 x86_64_linux:      "e771c73576d8a6ade8542d7bd575b3c6aff50aed25bb4791310941d344795aad"
   end
 
   depends_on "pkgconf" => :build
@@ -64,12 +64,12 @@ class Texlive < Formula
   depends_on "luajit"
   depends_on "mpfr"
   depends_on "openjdk"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "perl"
   depends_on "pixman"
   depends_on "potrace"
   depends_on "pstoedit"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "tcl-tk"
 
   uses_from_macos "ncurses"
@@ -93,7 +93,7 @@ class Texlive < Formula
   conflicts_with "lcdf-typetools", because: "both install a `cfftot1` executable"
   conflicts_with "ht", because: "both install `ht` binaries"
   conflicts_with "opendetex", because: "both install `detex` binaries"
-  conflicts_with "ratex", because: "both install `lualatex`, `pdflatex`, `xelatex` binaries"
+  conflicts_with "texres", because: "both install `lualatex`, `pdflatex`, `xelatex` binaries"
   conflicts_with "weave", because: "both install a `weave` binary"
 
   resource "texlive-extra" do
@@ -320,8 +320,16 @@ class Texlive < Formula
   end
 
   resource "Net::SSLeay" do
-    url "https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.94.tar.gz"
-    sha256 "9d7be8a56d1bedda05c425306cc504ba134307e0c09bda4a788c98744ebcd95d"
+    url "https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.96.tar.gz"
+    sha256 "ab213691685fb2a576c669cbc8d9266f8165a31563ad15b7c4030b94adfc0753"
+
+    # Backport support for OpenSSL 4.0
+    patch do
+      url "https://github.com/radiator-software/p5-net-ssleay/commit/a55abab4a33b040fbd56cc18fde6c257af2928e2.patch?full_index=1"
+      sha256 "dd0fab47cfb05393ba1124f0b3fcbdf43cb346212ca145beed5aa8af9dfbd12d"
+      type :backport
+      resolves "https://github.com/radiator-software/p5-net-ssleay/pull/553"
+    end
   end
 
   resource "IO::Socket::SSL" do
@@ -340,8 +348,8 @@ class Texlive < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   def install
@@ -351,7 +359,7 @@ class Texlive < Formula
     # Install Perl resources
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV["PERL_MM_USE_DEFAULT"] = "1"
-    ENV["OPENSSL_PREFIX"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_PREFIX"] = formula_opt_prefix("openssl@4")
 
     tex_resources = %w[texlive-extra install-tl texlive-texmf]
 

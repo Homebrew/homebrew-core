@@ -8,13 +8,12 @@ class Gexiv2 < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9bbc292c25a8f5c641289439f6d4596253ec80ce56f4c5f4224e6cf3d4d4a55a"
-    sha256 cellar: :any, arm64_tahoe:       "a77214ac1ef891b0c618cb7035823ee8eee2e91761620176b92bfd0733abc9e0"
-    sha256 cellar: :any, arm64_sequoia:     "fc96598da3ca91ef05c004dda94b62a4b12675cff1a631d0dfb775823bcaf080"
-    sha256 cellar: :any, arm64_sonoma:      "d0ba02ae08419f39324684ac5678e2c791d308591a8d9b9af54969ed751607a3"
-    sha256 cellar: :any, sonoma:            "db9b422562e9d8041a63ea305cf93dfc3fe7f2456caa1f5313456ae012396758"
-    sha256               arm64_linux:       "23628e31be56d8d63d8cca6a3fd343e5106a43ddae8605f8dfad854a48d2e35e"
-    sha256               x86_64_linux:      "fecb00195dc793205fc06742f040dc2492efc29eaefa1a29d08143c98da57909"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "2e204499e2c5020da2f9444a17a74b1f5e54766d488391df23aa434f13759843"
+    sha256 cellar: :any, arm64_tahoe:       "b1ead16882a5901c4fce3e577f80a619eb28ee3d118f25055887a1827ba6d255"
+    sha256 cellar: :any, arm64_sequoia:     "983259b8361b35ad3b36271e2f700b6501f0a7f8fe321569bc31bf7598a7e143"
+    sha256 cellar: :any, arm64_linux:       "6dcef23aeb0616a03eba7718254d8c04f76ebbeb94d9610fefb73c77c7d848f0"
+    sha256 cellar: :any, x86_64_linux:      "e69a8f189e0ba658ba6d2f8f06a8e52315643bcc4b0983c9312b4142c39f7c13"
   end
 
   depends_on "gobject-introspection" => :build
@@ -22,7 +21,7 @@ class Gexiv2 < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on "pygobject3" => [:build, :test]
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "vala" => :build
   depends_on "exiv2"
   depends_on "glib"
@@ -40,6 +39,9 @@ class Gexiv2 < Formula
   end
 
   test do
+    openssl = runtime_formula_dependencies.find { |f| f.name.start_with?("openssl@") }
+    ENV.prepend_path "PKG_CONFIG_PATH", openssl.opt_lib/"pkgconfig"
+
     (testpath/"test.c").write <<~C
       #include <gexiv2/gexiv2.h>
       int main() {

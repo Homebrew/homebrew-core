@@ -19,19 +19,17 @@ class Ponysay < Formula
   end
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f36c75a00f3cfcc24e55ba721f82428daea35ec8cd01e82b7b44316cb0e8713e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "436a1f52adab32d7d21c3ebe39dee39f8d2bec2cdcfe0c650973b47961aa3852"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4f62fa211582ff29e9494cd2215609d16b6296ea0affb2582b1335db3270ee4a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "5ce3e3d143f8164f2c88c4357e780ff8ba9b606892f88550aa6bb9bc00ffb57f"
-    sha256 cellar: :any_skip_relocation, sonoma:            "a4ed42c1e433ff890d69b8efd820ec6f95171904c8ec0af96da7c72701bf2369"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6b029e23e21fd4ac75a4cd6d69a10b766cbff2199b342db7ccca88b33aacf26e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "eb8cc2a4ab043dbb08c57344164315a5653bbcb1f9dd36103d9e697eb010f2c1"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3700eccd17ee72657164db2487c86463d1cbbfdcf793ea4a97c0612b9fdb9371"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e7ea464892cdd2b245c203e33e7679857663d444b923919da2c1285974939fe0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "af2695f055a97a313745266077f95638ac0103ee772184cababcb4f23e8d553c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "e1aef0ab9599b29a34cce59e5214dbc906454052c0cdee80c989ed760459415c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "cbe2bf940b057a0d8e236d6f8398ea05aee04978a492398d1688053a2cce3dbf"
   end
 
   depends_on "gzip" => :build
   depends_on "coreutils"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build

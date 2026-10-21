@@ -4,22 +4,20 @@ class Snownews < Formula
   url "https://downloads.sourceforge.net/project/snownews/snownews-1.11.tar.gz"
   sha256 "afd4db7c770f461a49e78bc36e97711f3066097b485319227e313ba253902467"
   license "GPL-3.0-only"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 arm64_golden_gate: "93c24467f9c5495a955d27376577182ee228a9074d9654f54edc0619dd3db0b3"
-    sha256 arm64_tahoe:       "fc57fbf60e598146c28686c404f621a386c955ae63a8a5ed0d7376d73ce62076"
-    sha256 arm64_sequoia:     "64dca2fb95dc41e989ce85e01ff04562a72d47e1d9ea8836efb8086775fa0fd5"
-    sha256 arm64_sonoma:      "4db952a31225cf2dc4af72c3fdd0b2d72c8f38498cffea6099d1b446d3d4028a"
-    sha256 sonoma:            "5cde70ddd3826d0074e625cb2178bb745ae627a5c4562d9e78b10bc8beb1333f"
-    sha256 arm64_linux:       "f2329c5bd004312a4074b6320072d607045db64766e3393645222b4d92193924"
-    sha256 x86_64_linux:      "65c5beec4e63d9ff40dcb175d0b1afa3d8a994d0519d389bb2f090d03cd5afdc"
+    sha256 arm64_golden_gate: "df23d946e3615c38f9dd0611e57c51c6eb7ba61f98ae7c3fc5ec206af4e69aca"
+    sha256 arm64_tahoe:       "fd4780e0e097fb0fe14e4b4b23b253e2ec233df3cde2e05d64cb43266977ea1e"
+    sha256 arm64_sequoia:     "ebdf9f09a9eedbc6318d7f5e150af3495d70c33956d561175780b682939e0b3d"
+    sha256 arm64_linux:       "3edc1a87a4e493c7175fb956476d08b9ec6dca2bd5a0957622bc4e6c1022e27b"
+    sha256 x86_64_linux:      "615eb21e24063ea23cc7452df29625662a0b48cedf6afeeddf707959cdffab13"
   end
 
   depends_on "gettext" => :build
   depends_on "pkgconf" => :build
   depends_on "ncurses"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "curl"
   uses_from_macos "libxml2"

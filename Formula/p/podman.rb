@@ -1,8 +1,8 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
-  url "https://github.com/podman-container-tools/podman/archive/refs/tags/v6.1.3.tar.gz"
-  sha256 "6253aee14e573f747ca77e5a83a0df4ef9c2f609604f56715070ed06b6f9ddd8"
+  url "https://github.com/podman-container-tools/podman/archive/refs/tags/v6.1.4.tar.gz"
+  sha256 "200fd9b4b6d820cae24fc99d8e290ec945512365cf3cda8283b3905c0c284ea8"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
   compatibility_version 1
   head "https://github.com/podman-container-tools/podman.git", branch: "main"
@@ -18,11 +18,11 @@ class Podman < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b52c5f1e85ff93ab13fcbe391e7b068195d151d07421947fa6961c02579886e7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "70756ef562ef0a78eea6782e40f014e5943c881eb4e90450b49befad519659a5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b39663d47ed13fbcd5b6eeec59227c4152350d93209d24085bf597e97b9a0149"
-    sha256                               arm64_linux:       "2783cf313f108b4e1f08ee6a7660edddbf190cc88651aeb8d423447b8d586f9e"
-    sha256                               x86_64_linux:      "e0787bce7cfcf109ee4036a58618483b926db4c586f7fec520349b50fe9eae16"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7b2b9fbb29eca8b313534b8939bfc107ffb6b42254fd5ea587e7fb65034a4404"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8338573355c42dcfc3e50ec686480af6545d10e367f24f7cb8399bdb428a703b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "661e345a5d1cf10e92372cc9e514d5a1c94c6fc0e756c9d973a3e44d501af0ab"
+    sha256                               arm64_linux:       "10d0a3987f09d63eaeb0b292cebb4be2a72c8b5cb533d9ae75bcf89cbf95fdbe"
+    sha256                               x86_64_linux:      "b4130feb9ed055a0037c301a0bcb1a373d58a77048eb22f8baff3e63669e6e64"
   end
 
   depends_on "go" => :build
@@ -59,8 +59,8 @@ class Podman < Formula
   # More context: https://github.com/Homebrew/homebrew-core/pull/205303
   resource "gvproxy" do
     on_macos do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.8.9.tar.gz"
-      sha256 "6cbcb7959a5d90b59253ea6d8bdf0285e2cfbc3b301398704b41e3069293f4fb"
+      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.9.0.tar.gz"
+      sha256 "b83e6049623845f626aa09720ba162e630188f3a5d539d5a773457bc5ab61023"
 
       livecheck do
         url :url
@@ -128,6 +128,28 @@ class Podman < Formula
     type :unofficial
   end
 
+  # `test do` block needs local sockets for machine setup
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+    if OS.mac?
+      resource("gvproxy").stage do
+        system "go", "mod", "download"
+      end
+      resource("vfkit").stage do
+        system "go", "mod", "download"
+      end
+    else
+      resource("netavark").stage do
+        system "cargo", "fetch", *std_cargo_fetch_args
+      end
+      resource("aardvark-dns").stage do
+        system "cargo", "fetch", *std_cargo_fetch_args
+      end
+    end
+  end
+
   def install
     if OS.mac?
       ENV["CGO_ENABLED"] = "1"
@@ -138,7 +160,7 @@ class Podman < Formula
       bin.install_symlink bin/"podman-remote" => "podman"
 
       system "gmake", "podman-mac-helper"
-      bin.install "bin/darwin/podman-mac-helper" => "podman-mac-helper"
+      bin.install "bin/darwin/podman-mac-helper"
 
       resource("gvproxy").stage do
         system "gmake", "gvproxy"

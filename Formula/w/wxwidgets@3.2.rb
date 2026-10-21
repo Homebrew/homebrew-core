@@ -1,8 +1,8 @@
 class WxwidgetsAT32 < Formula
   desc "Cross-platform C++ GUI toolkit"
   homepage "https://www.wxwidgets.org"
-  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.11/wxWidgets-3.2.11.tar.bz2"
-  sha256 "6a129015bce2e914e4bf61ec4411854ad962801d47e92f2eb8340adb6a90af08"
+  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.12/wxWidgets-3.2.12.tar.bz2"
+  sha256 "a62719bb5e1dcc41c1a6fc1eecd499c7ee8521f70402c7b1bb3342a1e16344e0"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
   compatibility_version 1
 
@@ -13,13 +13,11 @@ class WxwidgetsAT32 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "81473cf8a7be639c68da76ef3dde9fb7de3cbcd27c07976c122444d28f794980"
-    sha256 cellar: :any, arm64_tahoe:       "8bbb9af7070b41a14137e5fdb8096415048cdbe311099c03b3f43ced44bf71de"
-    sha256 cellar: :any, arm64_sequoia:     "01eb58b0173a88a4bb53c653533ff9fe680605d97d6acb2d8f5ed34ef438bfaa"
-    sha256 cellar: :any, arm64_sonoma:      "f7f4bc9692b4580c616d5a5a76f1e0e7dd5ad7e28b5ed6d1f4b97aa633606ff0"
-    sha256 cellar: :any, sonoma:            "2c386a5df7a8ad9dcf27abf0a78c8280d10347ca2457af0094a1c10d64dabcff"
-    sha256 cellar: :any, arm64_linux:       "f836b6a081a978491924be60f005a0f3b78ac7b99fabb4c3746f1fb696f2bb72"
-    sha256 cellar: :any, x86_64_linux:      "d56ad2762090edea55becb9e16817bc9dc67b864c33277a72312aa0d473186b5"
+    sha256 cellar: :any, arm64_golden_gate: "b79a10b5d1b192df7347c5f4fc393cfed189ddbc9fe72a5182b2cd226cd4753a"
+    sha256 cellar: :any, arm64_tahoe:       "0f261fd4269bbe6bc56ef5b702c3df7eb6a1cc4e73def625843a6f6299f5ccfe"
+    sha256 cellar: :any, arm64_sequoia:     "0cc1f249b77dfd7cd22d22412ca659f8de99a890e7a8cb43e3b06db508348cdf"
+    sha256 cellar: :any, arm64_linux:       "f2a29f86d532c34e900e771dd7b50226592320d1216b51d4d6d6b9ef8834af76"
+    sha256 cellar: :any, x86_64_linux:      "df339caa3258d75f55559128ac9b252e8c7dcb6b577bf6bc3439ebaea170a4f6"
   end
 
   depends_on "pkgconf" => :build

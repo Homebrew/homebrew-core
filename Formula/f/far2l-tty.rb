@@ -1,10 +1,10 @@
 class Far2lTty < Formula
   desc "Unix TTY port of FAR Manager v2 (with NetRocks support)"
   homepage "https://github.com/elfmz/far2l"
-  url "https://github.com/elfmz/far2l/archive/refs/tags/v_2.9.0.tar.gz"
-  sha256 "69a5218fcfd072a2d4b99ecac8363a67d85f2fd67b65243f8ea7b239bb134ed0"
+  url "https://github.com/elfmz/far2l/archive/refs/tags/v_2.9.1.tar.gz"
+  sha256 "a28d647f12b17fce3a89e939ce036fe4ef0d4fb1a9fc7c44fe27d292021522e4"
   license "GPL-2.0-only"
-  revision 4
+  revision 1
 
   livecheck do
     url :stable
@@ -12,11 +12,11 @@ class Far2lTty < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "575e09a86ae341e6c6d6ef36aa68c9a659193f95d495d74b25e17129589266a6"
-    sha256 cellar: :any, arm64_tahoe:       "366ec7187d858a2b04868948dc14a9cc3073cfabb409eb235dd8c0b5d6cadf72"
-    sha256 cellar: :any, arm64_sequoia:     "d36ae0b8e8c141ed9c0fb512bc48023d41adaea99ea211915e1362b2e0df3129"
-    sha256 cellar: :any, arm64_linux:       "9c38fdd7d9dfc8ab6d4bc910ea8136c813df2e059bb49f6262751d4837d51449"
-    sha256 cellar: :any, x86_64_linux:      "a32278654d860f1163af83abeff169a1fdf009f153752273d720cd5bc20c8e8c"
+    sha256 cellar: :any, arm64_golden_gate: "cfdc3bd2b41791a333a069508ce22391647439190fe728d360f8545b2798e4c3"
+    sha256 cellar: :any, arm64_tahoe:       "010a4560c73c26662eb6c518a46117d04849a640bd9a8fc8439cfa7b1b75458f"
+    sha256 cellar: :any, arm64_sequoia:     "72762b902c45a7544580275e38ae9335b56583066d877e827f0309ffce5589e0"
+    sha256 cellar: :any, arm64_linux:       "10ded4e0e8b165b3ce5f32d3124ec8b7e7d0a20b9ab7425120858c7c18e2334c"
+    sha256 cellar: :any, x86_64_linux:      "099ea7de7ad78ccdf53f0758b5033400d2c0db7be670562b8f93b25755c6f429"
   end
 
   depends_on "cmake" => :build
@@ -27,7 +27,7 @@ class Far2lTty < Formula
   depends_on "libnfs"
   depends_on "libssh"
   depends_on "neon"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "uchardet"
 
   uses_from_macos "m4" => :build

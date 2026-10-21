@@ -1,16 +1,21 @@
 class Aube < Formula
   desc "Fast Node.js package manager"
   homepage "https://aube.en.dev"
-  url "https://github.com/jdx/aube/archive/refs/tags/v2.6.1.tar.gz"
-  sha256 "69fe32b2a6cfc61828dc07fd4bd888eb58b2a6803a5d9e95fba5c511bdc3c8fc"
+  url "https://github.com/jdx/aube/archive/refs/tags/v2.8.1.tar.gz"
+  sha256 "157d04293f4a84387ac0aa36f4b080d1a47f4e69dae2ed13c058be076a4c467f"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7ade0544f5f407b4eb51239d27aba4b7de626c9d0834f996973e904daa909a5e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "16e8f547f3663acbf3dc50a4d3a46de0c72f2983913a586a056f8fb2664b0f3c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4644d030c1954595457242a1cc1f723b27938bed8237bd80ba35184e6b7f4eac"
-    sha256 cellar: :any,                 arm64_linux:       "97a7374ec54f428364dd2338304c4366e3ea4de2eac48aa1cf1038330080af2d"
-    sha256 cellar: :any,                 x86_64_linux:      "f50823afc3562585b21cd76bfb5d029a6d397bca56c5c189928051f9e96c3d3e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9c5ed731e91a499390af6e134a7585916beff6a21cfda8e28b112b15a3617c27"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8eaa5ffec502f542b517f13c8799c77d8480497ff3b957e6e2ac56131022087c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b5444afe7864abece17a9eb76a59996c73bb5187862de6713244faf4f983f7ee"
+    sha256 cellar: :any,                 arm64_linux:       "407fb9d9f9c384bbdb7428d74cdb3302274d7739bfcdbc6e76b0ed2be11464ec"
+    sha256 cellar: :any,                 x86_64_linux:      "be41f544926defe500f11a70877b2940d34eea401b439d4c8e29db4356a6acdf"
   end
 
   depends_on "cmake" => :build

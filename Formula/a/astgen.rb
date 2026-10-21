@@ -1,8 +1,8 @@
 class Astgen < Formula
   desc "Generate AST in json format for JS/TS"
   homepage "https://github.com/joernio/astgen-monorepo"
-  url "https://github.com/joernio/astgen-monorepo/archive/refs/tags/javascript-astgen/v3.50.1.tar.gz"
-  sha256 "8d9728dca8eab694a0f07bcd7a1c9a88368cb7bd354fc19c2ee8ca8611ff869a"
+  url "https://github.com/joernio/astgen-monorepo/archive/refs/tags/javascript-astgen/v3.51.0.tar.gz"
+  sha256 "4eedce9cf55123b550fe1abe2b895d9a2159d0f242ed6da28a2685aacbaf47a7"
   license "Apache-2.0"
   head "https://github.com/joernio/astgen-monorepo.git", branch: "main"
 
@@ -12,12 +12,11 @@ class Astgen < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "f4e17b94198dbdd4cc8dc1eb5d816e50eac6af367fec84e151c082cfa3974437"
-    sha256 arm64_tahoe:       "52fc4b1ad752ea49c557940a422e6bf04d3d7587edb6671a9fdd646a8747101d"
-    sha256 arm64_sequoia:     "ca7a9223c1b018c3570c9c4e57866f8000ab265e050a175226fe69274b8f35b9"
-    sha256 arm64_sonoma:      "85a63b704378534a04a02807285da837e9a63863e72345fce1a03daa547e8f5b"
-    sha256 arm64_linux:       "794207481248c1914761b50ae0e56b6f895c784f99100eb9798ee9acf8663168"
-    sha256 x86_64_linux:      "bbfd253c4e20b11fc241eae0bdcfc4fbcd16c655e4e2f06604e12d5e606e830c"
+    sha256 arm64_golden_gate: "bdaa10eba658281ce62fa9751087cc49e60dac4cd9d5d5ccfcc373af88efb74e"
+    sha256 arm64_tahoe:       "cda544cec0d26dc77519e0f084c08733b4fa4554411acab32c7c0c90d8cf3b8f"
+    sha256 arm64_sequoia:     "aadea6e66c86141b13d1ac8d31c33bb0327be1d438ad3788b98833381c249974"
+    sha256 arm64_linux:       "0edc9cc08bedf5e57a8d02ab10664775b8780118d68d78212dedde81b41da7a1"
+    sha256 x86_64_linux:      "0cd62c0a872de805b475af0f44f81294381ffc7995c0d531009e7f4ff9d68974"
   end
 
   depends_on "bun" => :build

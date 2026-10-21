@@ -1,22 +1,23 @@
 class Obscura < Formula
   desc "Headless browser for AI agents and web scraping"
   homepage "https://obscura.sh"
-  url "https://github.com/h4ckf0r0day/obscura/archive/refs/tags/v0.2.3.tar.gz"
-  sha256 "6c448e4c1deac7e057a146f53005c825ded428fb642379911a04f5dda8eaca4f"
+  url "https://github.com/h4ckf0r0day/obscura/archive/refs/tags/v0.2.5.tar.gz"
+  sha256 "af287fa7658270a68ad6f1220197eb55035614a91b14295117da78e55494958a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f7755c52b382d974705946a037900d19ac9b9d2fb7f97c1e2ae09334820b3a57"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "58b5c6879785d8105318d7b45453b3fe8ebe479282e77d41a669aea077b133e3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1828b0c3a42d92cd2a00416c4403315a0d760675a9a76adca0d0a1c8c4ba768e"
-    sha256 cellar: :any,                 arm64_linux:       "7ed51d5d77cdfac047abe2b3bc075c15d4593a461c33befc85774daf261fd066"
-    sha256 cellar: :any,                 x86_64_linux:      "bf455bb95c5837a0c5b9e09a627825a60b274d79f111188925e44f429aa37d6a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bc74fa36af69116f69f76355a859ae443e91e8318e5a312c67f2aae21412d899"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a5194dfb186815761c1cabeb78385f7a74f8aa3a3d016d199ea2e28657eed119"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "be54c5f7f125aa3e22b3b70ae8006f4a1186c62d65cd76b3ff74d3987686cf7c"
+    sha256 cellar: :any,                 arm64_linux:       "29367528a991a78daa0601b7d1bbefc5b4bed05908377f53dcad8c08528446fa"
+    sha256 cellar: :any,                 x86_64_linux:      "455533e00843bbefbd3082e654f16778fd4a6be8d0d3e9f7786f1c056b6e2514"
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "crates/obscura-cli")
+    system "cargo", "install", *std_cargo_args(path: "crates/obscura-cli", features: "render")
   end
 
   test do
@@ -24,6 +25,11 @@ class Obscura < Formula
       "#{bin}/obscura fetch 'data:text/html,<title>Homebrew Test</title>' --eval 'document.title'",
     )
     assert_equal "Homebrew Test\n", output
+
+    assert_equal "rgb(255, 0, 0)\n", shell_output(
+      %Q(#{bin}/obscura fetch 'data:text/html,<style>p{color:red}</style><p>x' \
+      --eval 'getComputedStyle(document.querySelector("p")).color'),
+    )
 
     # obscura blocks fetches to loopback/private addresses by default (SSRF protection)
     blocked = shell_output("#{bin}/obscura fetch http://127.0.0.1:1/ 2>&1", 1)

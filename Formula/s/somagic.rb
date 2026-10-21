@@ -25,6 +25,8 @@ class Somagic < Formula
   depends_on "libusb"
   depends_on "somagic-tools"
 
+  deny_network_access!
+
   def install
     system "make"
     system "make", "PREFIX=#{prefix}", "install"
@@ -35,5 +37,21 @@ class Somagic < Formula
       Before running somagic-capture you must extract the official firmware from the CD.
       See https://code.google.com/archive/p/easycap-somagic-linux/wikis/GettingStarted.wiki for details.
     EOS
+  end
+
+  test do
+    (testpath/"bad.bin").write "not a firmware image"
+    output = shell_output("#{bin}/somagic-init -f #{testpath}/bad.bin 2>&1", 1)
+    assert_match "Firmware file '#{testpath}/bad.bin' was not recognized", output
+
+    # 6634-byte image whose CRC32 matches the EasyCAP002 firmware
+    firmware = ["0c94cc00"].pack("H*") + ("\0" * 6626) + ["d96890a3"].pack("H*")
+    (testpath/"firmware.bin").binwrite firmware
+
+    # libusb cannot be initialised without usbfs in Linux containers
+    return unless OS.mac?
+
+    output = shell_output("#{bin}/somagic-init -f #{testpath}/firmware.bin 2>&1", 1)
+    assert_match "USB device 1c88:0007 was not found. Is the device attached?", output
   end
 end

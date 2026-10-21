@@ -3,10 +3,9 @@ class MysqlAT84 < Formula
   # FIXME: Actual homepage fails audit due to Homebrew's user-agent
   # homepage "https://dev.mysql.com/doc/refman/8.4/en/"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.11.tar.gz"
-  sha256 "eb3051164d625dd346a8203f76e0d5d5d9aec51dbe9d51788e39ec6b3f1394c2"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.13.tar.gz"
+  sha256 "f6ddc7f7fb6462bab8b533b13c06af3fff57fa9ca12259b81ab13cd9930b9d58"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 6
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/8.4.html?tpl=files&os=src&version=8.4",
@@ -15,11 +14,11 @@ class MysqlAT84 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "b306443fd470a77fe971a8c0d73ba8f67299f9d8dd742e31da0e37996004ec9d"
-    sha256 arm64_tahoe:       "cfdd96121d7ebfcb3170128da5ca9a0fe48166d90a031e17e0f2a4f60605ba46"
-    sha256 arm64_sequoia:     "9b07f4d2e067e57b92fe8c282ce75da387e71747f8e41acf2f3289710feddd82"
-    sha256 arm64_linux:       "98447dff2d3eff1cbf7657e0a0a85ac37821cadc958c31042656ef5a12003e1c"
-    sha256 x86_64_linux:      "490f9955d65829dc8698e85669feb6a2be1134bfcaf6cb2c120630ec6062710a"
+    sha256 arm64_golden_gate: "7d9b1d256ec98421f6c8bdc9e26e7e36b6d455ede7ea0142c46a8b15dcae413b"
+    sha256 arm64_tahoe:       "c9eec5479401a475f17fda8e0bfee7021bc0ad1efa41d644ed63a48cfcbed311"
+    sha256 arm64_sequoia:     "de222334adc3457802b736495052a6fd5b572898dac0c36030752c9aa66e1a20"
+    sha256 arm64_linux:       "9889ced4be89e475168b27c9e759eb4e60014da09966d86c81a27a80e656c537"
+    sha256 x86_64_linux:      "5fc54205cf5e61e518252a0e6d59aebb14fe039ef93641da5be0aa500f2488af"
   end
 
   keg_only :versioned_formula
@@ -33,7 +32,7 @@ class MysqlAT84 < Formula
   depends_on "abseil"
   depends_on "icu4c@78"
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf"
   depends_on "zlib-ng-compat" # Zlib 1.2.13+
   depends_on "zstd"
@@ -59,6 +58,13 @@ class MysqlAT84 < Formula
   fails_with :gcc do
     version "9"
     cause "Requires C++20"
+  end
+
+  # Apply Debian's patch to fix build with OpenSSL 4
+  patch do
+    url "https://salsa.debian.org/mariadb-team/mysql/-/raw/ac6576612c0afddccebf939fccedacc3b97db567/debian/patches/support-openssl4.patch"
+    sha256 "fd0eb6d47ce5aaef43e58240d9884d04b1ee30fd3c57395b405d9400ae136a02"
+    type :unofficial
   end
 
   # Patch out check for Homebrew `boost`.
@@ -96,7 +102,7 @@ class MysqlAT84 < Formula
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
       -DBISON_EXECUTABLE=#{formula_opt_bin("bison")}/bison
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
       -DWITH_ICU=#{icu4c.opt_prefix}
       -DWITH_SYSTEM_LIBS=ON
       -DWITH_EDITLINE=system

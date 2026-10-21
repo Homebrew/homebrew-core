@@ -1,18 +1,16 @@
 class Polkit < Formula
   desc "Toolkit for defining and handling authorizations"
   homepage "https://github.com/polkit-org/polkit"
-  url "https://github.com/polkit-org/polkit/archive/refs/tags/127.tar.gz"
-  sha256 "9b7bc16f086479dcc626c575976568ba4a85d34297a750d8ab3d2e57f6d8b988"
+  url "https://github.com/polkit-org/polkit/archive/refs/tags/128.tar.gz"
+  sha256 "6edb06bf1448e49e428f9597a97af6a05d62146dd0b58f86eeaebcee3f5ecfaa"
   license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_golden_gate: "3457db45692ef29f9708397bc810fd78e06c2c1090904352b5d95cf8b419a6a4"
-    sha256 arm64_tahoe:       "cb9f1624d4c79471a0e1b01d11b8c7c1a20f974891f23877fa2a432c62e91aa9"
-    sha256 arm64_sequoia:     "04c9e2681cf67eefc119d11ac7f2565cf4c53b9b7d901bfc503f21ba56ac1b00"
-    sha256 arm64_sonoma:      "68f66562efcb4514d9cd2bcbf936859a52380166f36152f7213779c86ce0bdf0"
-    sha256 sonoma:            "292f968c8038ad0cdeeded5f4ff3bf4a01396fbad93a0c0b453530a23f319046"
-    sha256 arm64_linux:       "af1a6f406501df5cbf78b25665e1430579306b5ea5cf79e1c3fb64d709c64283"
-    sha256 x86_64_linux:      "b701cf5a66a2ea0770f66a3f514820c0679674498e828007242ef412616c4859"
+    sha256 arm64_golden_gate: "daf513f1270b19090bc8c6060877b860b4424af4bceaaa98d2f6abf6505616b0"
+    sha256 arm64_tahoe:       "9ead3bd790d8dd4dff010e83f9d039d7ade180c86343b685b2549cc00756aba3"
+    sha256 arm64_sequoia:     "ee6c7cfb714f6b61a9cad87ef6088874fad6af4f957124131073442459d7dc49"
+    sha256 arm64_linux:       "50845efd3aca93baee5c895a767ec5394f8d2b444d99ccbc9e2da65c71f2dc25"
+    sha256 x86_64_linux:      "b4d1ab1ba5df1395b655b528358ec652c2995b0eace62f4e9b7c98bd01957aea"
   end
 
   depends_on "gettext" => :build
@@ -33,16 +31,11 @@ class Polkit < Formula
     depends_on "systemd"
   end
 
-  # Backport macOS build fix (merged upstream via PR #629); remove once released
-  patch do
-    url "https://github.com/polkit-org/polkit/commit/066b55bf2e2b82c4d9b75306aaada9416296e9e9.patch?full_index=1"
-    sha256 "5aad9b8df059fcc99d2f3eb8918e0d0aceaee366c41089e0c66db11d31adac7a"
-    type :backport
-    resolves "https://github.com/polkit-org/polkit/pull/629"
-  end
-
   def install
+    # Avoid installing into the systemd keg (paths taken from systemd.pc) or /usr/lib
     inreplace "meson.build" do |s|
+      s.gsub!("systemd_dep.get_variable(pkgconfig : 'sysusers_dir')", "'#{etc}/sysusers.d'")
+      s.gsub!("systemd_dep.get_variable(pkgconfig : 'tmpfiles_dir')", "'#{etc}/tmpfiles.d'")
       s.gsub!("sysusers_dir = '/usr/lib/sysusers.d'", "sysusers_dir = '#{etc}/sysusers.d'")
       s.gsub!("tmpfiles_dir = '/usr/lib/tmpfiles.d'", "tmpfiles_dir = '#{etc}/tmpfiles.d'")
     end

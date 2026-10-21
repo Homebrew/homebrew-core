@@ -20,8 +20,6 @@ class Sextractor < Formula
   depends_on "fftw"
   depends_on "openblas"
 
-  # Backport for C23
-
   def install
     # Allow OpenBLAS header migration to subdirectory. Can remove once done
     openblas_incdir = formula_opt_include("openblas")/"openblas"

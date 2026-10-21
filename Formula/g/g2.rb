@@ -11,6 +11,8 @@ class G2 < Formula
     sha256 cellar: :any_skip_relocation, all: "db643e8eb1b3d9b685e605656c4116f38a91c3b716ee855d0c9909ec20ff18b8"
   end
 
+  deny_network_access!
+
   def install
     system "make", "prefix=#{prefix}", "install"
   end
@@ -24,5 +26,10 @@ class G2 < Formula
       file first. For more information view:
         #{prefix}/README.md
     EOS
+  end
+
+  test do
+    system opt_prefix/"g2-install.sh"
+    assert_path_exists ".gitconfig"
   end
 end

@@ -10,17 +10,18 @@ class MagicWormhole < Formula
   head "https://github.com/magic-wormhole/magic-wormhole.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d44e4d3166664f65cbca2634edfd84a0419619ba471bb37d91393f6928b657e2"
-    sha256 cellar: :any, arm64_tahoe:       "c810839bf02796c3d21baecab70df83af0eebdfd285e32c75758cf03a632775c"
-    sha256 cellar: :any, arm64_sequoia:     "dc696bd6d77bf4ef8fd64fa8d366d77e2822d19334461576d888ef3f8c7dd350"
-    sha256 cellar: :any, arm64_linux:       "b3f34af4641dd89f62a460dad403a8ae37fc38400d24e27bb2848a4bb04bc523"
-    sha256 cellar: :any, x86_64_linux:      "6ab21ace4d8f8a9813e11095e9368c09b0a0d98497a8be965c1f9e8f85b000d3"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "ec6ec6d8c87d828054e3ada86a449a931d21887f27de98b7c8e3d69987b50ee2"
+    sha256 cellar: :any, arm64_tahoe:       "7bc79ab5f0c6116d942acedb5a7cd5e29a2d4e67211668cf931f4b52a41290d7"
+    sha256 cellar: :any, arm64_sequoia:     "73880ed1653cde4091adc85b118c59c2aef6ab25e0b94557bc034c05a62d7ecf"
+    sha256 cellar: :any, arm64_linux:       "1300bc3e9b247539993908b9ee5a1023fb38c341d9cffa9bc51736d7b2a174e6"
+    sha256 cellar: :any, x86_64_linux:      "949cf09bc12d78daffce64c599c16484d0b5c357762a71ece93fac901dd228e0"
   end
 
   depends_on "rust" => :build # for `cbor2`
   depends_on "cryptography" => :no_linkage
   depends_on "libsodium"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libffi"
 
@@ -42,8 +43,8 @@ class MagicWormhole < Formula
   end
 
   resource "cbor2" do
-    url "https://files.pythonhosted.org/packages/c6/14/b02446bacfe44351b1689c04937ade007588f44570431880a6937e525e6c/cbor2-6.1.4.tar.gz"
-    sha256 "01ecc79a28f33d17331943ce508fc1e21f4b06553c73f874f4c77120d72b2ef9"
+    url "https://files.pythonhosted.org/packages/39/34/d443914ea562a985ccb357682e17b7190d5d58eff797c741379be47a8f31/cbor2-6.1.5.tar.gz"
+    sha256 "6eb06160c42315ac0c4ded461c7d84d92fa18c69d13d17fc1dfc1fae96580c95"
   end
 
   resource "click" do
@@ -82,8 +83,8 @@ class MagicWormhole < Formula
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/6d/44/ea2100ec54d30c46ee9dba10a3bfb79b655e96c6df237238a3234c75869b/msgpack-1.2.2.tar.gz"
-    sha256 "9eb0b0e602064527a045ea28c4f174ed69383587e29cebe28947e3b84106eb2a"
+    url "https://files.pythonhosted.org/packages/0a/e7/bb605a7bab2d8425a64b3fa762b39dc1bf1c7e3f11ba6fb5413d6db0ff8c/msgpack-1.2.3.tar.gz"
+    sha256 "32edb81a2b5eb7cd7c9d941b2bfbbb082fd2cd09e0e725930316af6b708db186"
   end
 
   resource "packaging" do

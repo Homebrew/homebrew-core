@@ -1,8 +1,8 @@
 class Hubble < Formula
   desc "Network, Service & Security Observability for Kubernetes using eBPF"
   homepage "https://github.com/cilium/hubble"
-  url "https://github.com/cilium/hubble/archive/refs/tags/v1.19.4.tar.gz"
-  sha256 "82e8d062e8f2cfeecaeda19f300350d6b453d6d1584f2111f6a7763722994366"
+  url "https://github.com/cilium/hubble/archive/refs/tags/v1.20.2.tar.gz"
+  sha256 "929ee40b4b3e5087a88c448970509c626f46ce8080b6e36f829658765a803800"
   license "Apache-2.0"
   head "https://github.com/cilium/hubble.git", branch: "main"
 
@@ -15,16 +15,20 @@ class Hubble < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dc8ec0bc3432e5a1ba272a174a32e247e02b4f92ec80fe8b0aa7f88b6db3f1b5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bbf1cbfa6b68d9458103f003dff66a51a330034ddb975ed51c0768509de06559"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c9f633516425227d7afef82760ec9fc0cae8fc59611dbd75e63305927d613494"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "9db96a45f36e4b8a08a6f092546e368981ab31f013782300a71c4e553fed18bc"
-    sha256 cellar: :any_skip_relocation, sonoma:            "1b4f6126b34e20b91ba5880e588bd3aa228b3dadad0804d84d7c99a60d6c7485"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "11c657d5b915c40b55be47b9bceeb90761092554dd77f163d9433253daf19faa"
-    sha256 cellar: :any,                 x86_64_linux:      "1826c0a4e0d4ba63ea70c14a077357fcd73d2eb4ad24d2b39ffe27901d281bf8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ba68ca94bdf9877fc38aa8b433149f145145d2edc66967f46e825fc8b3491741"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d8410afe1378a9e3e9e0a07d91b7babd0c8a73df91626055aa84dcf2f78224e4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "218570f6f3228b9bdf28b8cdb2c89c5f1713d3ba2d91ab455e86d17c3d29481d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "3cf1cf836071a993c81d142a7565a00fce0fe35452c59a3f40b3efd60218dda9"
+    sha256 cellar: :any,                 x86_64_linux:      "324a48155df75f132a1092d333b1a8e970c4ebac34730828b61c6f18df57ef49"
   end
 
   depends_on "go" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     ldflags = "-X github.com/cilium/cilium/hubble/pkg.Version=#{version}"

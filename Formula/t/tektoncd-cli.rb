@@ -24,7 +24,7 @@ class TektoncdCli < Formula
 
   def install
     system "make", "bin/tkn"
-    bin.install "bin/tkn" => "tkn"
+    bin.install "bin/tkn"
 
     generate_completions_from_executable(bin/"tkn", shell_parameter_format: :cobra)
   end

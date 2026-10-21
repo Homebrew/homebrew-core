@@ -1,18 +1,20 @@
 class Libevdev < Formula
   desc "Wrapper library for evdev devices"
   homepage "https://www.freedesktop.org/wiki/Software/libevdev/"
-  url "https://www.freedesktop.org/software/libevdev/libevdev-1.13.7.tar.xz"
-  sha256 "0caf824971108f15bb2ad356433bae198d7d3bf1e82d43f63626e069e060bfa6"
+  url "https://www.freedesktop.org/software/libevdev/libevdev-1.14.0.tar.xz"
+  sha256 "5a0966c7110648665983848bad696c7acba614a2160d2865d535397101007332"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "341e16ad15b34c000d1c50d7ebbadf77ff4482ced4e55d8863032417dce60f03"
-    sha256 cellar: :any, x86_64_linux: "28468dd362b31343eff6116d5943cc7ef917763bb627bb6cab6bc93c5b5d7c95"
+    sha256 cellar: :any, arm64_linux:  "73e7c8138dd0955c482fa9e6fd87bbdfb89a3045b75deb1f4b4fda8a33d69bdd"
+    sha256 cellar: :any, x86_64_linux: "92d31e986391308838c15131b8bc4acb64c0399ea85387cfae58ffacae3261e1"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on :linux
+
+  deny_network_access!
 
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
@@ -32,6 +34,6 @@ class Libevdev < Formula
       }
     C
     system ENV.cc, testpath/"test.c", "-I#{include}/libevdev-1.0", "-L#{lib}", "-levdev", "-o", "test"
-    assert_equal "Inappropriate ioctl for device", shell_output(testpath/"test").chomp
+    assert_equal "Permission denied", shell_output(testpath/"test").chomp
   end
 end

@@ -1,19 +1,18 @@
 class Mvfst < Formula
   desc "QUIC transport protocol implementation"
   homepage "https://github.com/facebook/mvfst"
-  url "https://github.com/facebook/mvfst/archive/refs/tags/v2026.09.21.00.tar.gz"
-  sha256 "27a5e5b1244077af58ba92ead2c3a866fcfcbc46fdb9ca2114e44a68d5c4e2ae"
+  url "https://github.com/facebook/mvfst/archive/refs/tags/v2026.10.19.00.tar.gz"
+  sha256 "e3862b6680bd49d013b701d62d1f30b7dc83a3b8c9b7712613ef2208e0c399e2"
   license "MIT"
-  revision 1
   compatibility_version 1
   head "https://github.com/facebook/mvfst.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "2dc909b6496a620ac3acb10d97431c4cd141b8aa0656105264559417132a2573"
-    sha256 cellar: :any, arm64_tahoe:       "a8ab660d76cba975cc7c43942ef8c32fa13500cff10529345ff7360e645d1c1e"
-    sha256 cellar: :any, arm64_sequoia:     "1646688d60141b9e98a0f682a61cd63f6f6df03338af29a97d7185692fb1bcee"
-    sha256 cellar: :any, arm64_linux:       "ea6d383e54417ecb4054afe47aaadd8eee86b0b0d454a0352a9883edadaa6ec2"
-    sha256 cellar: :any, x86_64_linux:      "ef0aa0248043240838d026f56c51eeb1c065295c33987c6fb7ccac57f08ef491"
+    sha256 cellar: :any, arm64_golden_gate: "7ec8c674207e4a771a1a367da5f4037a19226b32e33b43d75386597739ce3892"
+    sha256 cellar: :any, arm64_tahoe:       "fdfdfa5cc1b919625ca9d0e360808fe28964c8ef7e7b2e4fa5a9090232d937cf"
+    sha256 cellar: :any, arm64_sequoia:     "3ef70a41c059f882c7d29f9f6c75a54b66de5d17280458ecb134beba74c7f7f4"
+    sha256 cellar: :any, arm64_linux:       "1c38691bb69f160b74e22cb4695f28f5439a4412c2586d0794169f52e8be4b7b"
+    sha256 cellar: :any, x86_64_linux:      "834be8169119f85296137b33646fe7b7c348e15ec00de60677186564a1e68c88"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -24,7 +23,7 @@ class Mvfst < Formula
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   allow_network_access! :test
 
@@ -63,7 +62,7 @@ class Mvfst < Formula
       set_target_properties(echo PROPERTIES BUILD_RPATH "#{lib};#{HOMEBREW_PREFIX}/lib")
     CMAKE
 
-    ENV.append_path "CMAKE_PREFIX_PATH", formula_opt_prefix("openssl@3")
+    ENV.append_path "CMAKE_PREFIX_PATH", formula_opt_prefix("openssl@4")
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
 

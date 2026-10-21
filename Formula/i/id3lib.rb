@@ -53,10 +53,40 @@ class Id3lib < Formula
 
   patch :DATA
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~CPP
+      #include <cstdio>
+      #include <id3/tag.h>
+      #include <id3/misc_support.h>
+
+      int main() {
+        {
+          ID3_Tag tag;
+          tag.Link("test.mp3");
+          ID3_AddTitle(&tag, "Homebrew Song", true);
+          ID3_AddArtist(&tag, "Homebrew Artist", true);
+          tag.Update(ID3TT_ID3V2);
+        }
+        ID3_Tag tag("test.mp3");
+        char* title = ID3_GetTitle(&tag);
+        char* artist = ID3_GetArtist(&tag);
+        std::printf("%s by %s\\n", title, artist);
+        ID3_FreeString(title);
+        ID3_FreeString(artist);
+        return 0;
+      }
+    CPP
+    (testpath/"test.mp3").write "dummy audio data"
+    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-lid3", "-lz", "-o", "test"
+    assert_equal "Homebrew Song by Homebrew Artist", shell_output("./test").strip
   end
 end
 

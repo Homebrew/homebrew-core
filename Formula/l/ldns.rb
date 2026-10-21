@@ -4,6 +4,7 @@ class Ldns < Formula
   url "https://nlnetlabs.nl/downloads/ldns/ldns-1.9.2.tar.gz"
   sha256 "b524fa21994b6e834200ceb8c27f1b84bda5982fe35706f058196c079db94d5d"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
 
   # https://nlnetlabs.nl/downloads/ldns/ since the first-party site has a
@@ -14,18 +15,17 @@ class Ldns < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f742f6a0076671fece777278b2250c73e7341dc5f3abbe5f7e1919bbe1bca576"
-    sha256 cellar: :any, arm64_tahoe:       "18ef267d76b2a85fc04987398e0012eded3bdc47fd409711a6b012c7655b6e3c"
-    sha256 cellar: :any, arm64_sequoia:     "ded4e6317d7f9f548fc24fcd44a93371768d610664effa4c1485dea5fa77633d"
-    sha256 cellar: :any, arm64_sonoma:      "2274979d269fdc864a4d34410d558fde8fd52910a228ffe5a021412536aeed94"
-    sha256 cellar: :any, sonoma:            "536900427dfdf4c4df1fa9606ebc6436e38747a2d55b69f215aa50239a61e8c7"
-    sha256 cellar: :any, arm64_linux:       "80b38e17dcc951e58f13c928ea207f55fbff3387f817f89bb84bdf12d6268162"
-    sha256 cellar: :any, x86_64_linux:      "f5e402ae93090399f76159c897d61d2b3ff258613d8a198b510b3bf0690b6959"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "bd5f2fd751a447da77cb8528bda0019d8230d0045dd094bafac0b40579280ff9"
+    sha256 cellar: :any, arm64_tahoe:       "b091aad44eaf206d452c168760e542ab1a288241670dd06b4e8854b98db3d22a"
+    sha256 cellar: :any, arm64_sequoia:     "ea5496fc061586e2b9f4547ed614d2f18ba10b771524fcff4ea3080c63447288"
+    sha256 cellar: :any, arm64_linux:       "bea6ef6fb5b2e072190a57984806f124112feb22e18a41fd6ba914cac2919cff"
+    sha256 cellar: :any, x86_64_linux:      "e11ba0a197b2396e6e92ea269044210a2d7a279afc03cf6522ad65f3dc3bcc31"
   end
 
   depends_on "swig" => :build
-  depends_on "openssl@3"
-  depends_on "python@3.14"
+  depends_on "openssl@4"
+  depends_on "python@3.15"
 
   conflicts_with "drill", because: "both install a `drill` binary"
 
@@ -33,7 +33,7 @@ class Ldns < Formula
     args = %W[
       --with-drill
       --with-examples
-      --with-ssl=#{formula_opt_prefix("openssl@3")}
+      --with-ssl=#{formula_opt_prefix("openssl@4")}
       --with-pyldns
       PYTHON_PLATFORM_SITE_PKG=#{prefix/Language::Python.site_packages(python3)}
       top_builddir=#{buildpath}

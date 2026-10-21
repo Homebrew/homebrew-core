@@ -4,6 +4,7 @@ class Gnupg < Formula
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.5.24.tar.bz2"
   sha256 "bf149d01a2b9fcc0e4589b8ae8697d3d5c557ea48ed95a3fa55dd3b1187e6039"
   license "GPL-3.0-or-later"
+  revision 1
   compatibility_version 1
 
   # GnuPG usually indicates stable releases with an even-numbered minor but
@@ -18,11 +19,11 @@ class Gnupg < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "6c1d6a8fec9e054a01dfb57856160a37898dd68405c0ae1b4b713cde423d7679"
-    sha256 arm64_tahoe:       "641983de8774502eef7572de8c3cfc7dd8300b3829e6847b7c358ca23faf6334"
-    sha256 arm64_sequoia:     "c6a15fa0be01a9acd2d3a9df7aa3e555678fabcdd05a21530c92766d4ca5de29"
-    sha256 arm64_linux:       "9ba01e836fe6c6512cbf298b2c625ebd4d3d8be777b8829adc652de5202a0d0e"
-    sha256 x86_64_linux:      "51c561be0e77f45960591590f65fdf1b7d9396e73a97e7529193bcee5a0dd2f5"
+    sha256 arm64_golden_gate: "1cbc3ab22b562d1bef04ca0d00b0917195870a80b6a7de1051d07c1b44ac75c0"
+    sha256 arm64_tahoe:       "16b53990074dfe23dbe2342a548e8b72a91a5697c522d1eef3410fe8be5c1e0a"
+    sha256 arm64_sequoia:     "91163072d2759706aa41c014bc865019900eaa815ab5bd017263ab059694addf"
+    sha256 arm64_linux:       "12e8cda7299a624bd92f45f63284ac527ff07bcbcf7d7107e76a5ff77cefa7f2"
+    sha256 x86_64_linux:      "3f5c7667ecc9b2d6342eab1a69b4e8f16faace4e536d3f60c5653b939cd5c5c6"
   end
 
   depends_on "pkgconf" => :build
@@ -46,6 +47,21 @@ class Gnupg < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  # Fix import of unprotected ECDH secret keys, a regression in 2.5.23
+  patch do
+    url "https://github.com/gpg/gnupg/commit/42386bcf8861f04c1bdec5cbb139a03da83d8ef9.patch?full_index=1"
+    sha256 "93817449be3f93dcade3d79960e33e72959f54f95ff6108f22176bef28111f2b"
+    type :backport
+    resolves "https://dev.gnupg.org/T8469"
+  end
+
+  patch do
+    url "https://github.com/gpg/gnupg/commit/5523cec6913bcbd1a374d183899a6f298d2c0e32.patch?full_index=1"
+    sha256 "0a0acd2f7f25723f3f84ec5c4ecf03b786d73ca61c48487d4d00c0559be89d66"
+    type :backport
+    resolves "https://dev.gnupg.org/T8469"
   end
 
   deny_network_access!

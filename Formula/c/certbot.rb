@@ -10,11 +10,12 @@ class Certbot < Formula
   head "https://github.com/certbot/certbot.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "17fce4f11ed1c10caa86de9c4212d80896b35fb1ab6824001f1dde3239cf7e75"
-    sha256 cellar: :any, arm64_tahoe:       "047e3f82f42062bbcf4562fd8e14530e85f1f9ebb8f7bf188dc9fba748f76373"
-    sha256 cellar: :any, arm64_sequoia:     "3dd222e0bd34d5db6926fb3cc0ad17acad531340567d5de14270e163cf495a36"
-    sha256 cellar: :any, arm64_linux:       "0bc5ba12ccd206f5b3d79f3981088ecc77548749059bb00e14b7630271fd79a3"
-    sha256 cellar: :any, x86_64_linux:      "535b69342a7025b905780abc62aee12e690368c682cbb85584a3c7d42633e16f"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "ceb5b9fb9aee1d679ada03392122218f41a9e8d31fe77dc9b8f780de8baadd2e"
+    sha256 cellar: :any, arm64_tahoe:       "2d7a118c29dce7179f084290d87750e4dcc1a481a415f7e176731ad7798cca18"
+    sha256 cellar: :any, arm64_sequoia:     "84810bcd8f65c2ae1e17b23c37cd7a2a3e1545f4322e69e16cf6a56a61f353b5"
+    sha256 cellar: :any, arm64_linux:       "17376e856657a6ec63484bab651f0539132cc9cb23fc86bd7f8e3fb8fd484369"
+    sha256 cellar: :any, x86_64_linux:      "a8b2717bfad4d1e267431c205fe1059fb0db8a23a53bb8d32f6a46c352d99bc1"
   end
 
   depends_on "augeas"
@@ -22,7 +23,7 @@ class Certbot < Formula
   depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libffi"
 
@@ -60,8 +61,8 @@ class Certbot < Formula
   end
 
   resource "cloudflare" do
-    url "https://files.pythonhosted.org/packages/a2/67/66f7ba0227d7e36cb00008ffae58ce7d8ab1628839b2035ef84e1530edf5/cloudflare-5.8.0.tar.gz"
-    sha256 "d6537b331f0d061ccafd21501741b812d4f458d76f7ea62ce13f080126c4f0a6"
+    url "https://files.pythonhosted.org/packages/4b/52/5e736d63637e79c2381045250dbb6154a1fb4da8f3fd47518bff406c24d2/cloudflare-5.9.0.tar.gz"
+    sha256 "1c9b9e243602c754e03636204272422dc45776f3babdc67f8341ca4d559d49e8"
   end
 
   resource "configargparse" do

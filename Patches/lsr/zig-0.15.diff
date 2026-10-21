@@ -1,0 +1,131 @@
+diff --git a/build.zig.zon b/build.zig.zon
+index fd02bc8..6f7332d 100644
+--- a/build.zig.zon
++++ b/build.zig.zon
+@@ -7,16 +7,16 @@
+ 
+     .dependencies = .{
+         .ourio = .{
+-            .url = "git+https://github.com/rockorager/ourio#c94a93d34c0b0082facdabc12b6b997f7ee8b648",
+-            .hash = "ourio-0.0.0-_s-z0S0XAgB2nng8oxDng5AlACiqMTcFGq77494HMBXw",
++            .url = "git+https://github.com/rockorager/ourio#07bf94db87a9aea70d6e1a1dd99cac6fb9d38b35",
++            .hash = "ourio-0.0.0-_s-z0Z0XAgBU_BFjdY8QjGhJ8vcdIONPSErlYRwLoxfg",
+         },
+         .zeit = .{
+-            .url = "git+https://github.com/rockorager/zeit#4496d1c40b2223c22a1341e175fc2ecd94cc0de9",
+-            .hash = "zeit-0.6.0-5I6bk1J1AgA13rteb6E0steXiOUKBYTzJZMMIuK9oEmb",
++            .url = "git+https://github.com/rockorager/zeit#74be5a2afb346b2a6a6349abbb609e89ec7e65a6",
++            .hash = "zeit-0.6.0-5I6bk4t8AgCP0UGGHVF_khlmWZkAF5XtfQWEKCyLoptU",
+         },
+         .zzdoc = .{
+-            .url = "git+https://github.com/rockorager/zzdoc#57e86eb4e621bc4a96fbe0dd89ad0986db6d0483",
+-            .hash = "zzdoc-0.0.0-tzT1PuPZAACr1jIJxjTrdOsLbfXS6idWFGfTq0gwxJiv",
++            .url = "git+https://github.com/rockorager/zzdoc#a54223bdc13a80839ccf9f473edf3a171e777946",
++            .hash = "zzdoc-0.0.0-tzT1Ph7cAAC5YmXQXiBJHAg41_A5AUAC5VOm7ShnUxlz",
+         },
+     },
+     .paths = .{
+diff --git a/src/main.zig b/src/main.zig
+index 38c634c..53cf43f 100644
+--- a/src/main.zig
++++ b/src/main.zig
+@@ -146,13 +146,16 @@ pub fn main() !void {
+ 
+     var cmd: Command = .{ .arena = allocator };
+ 
+-    cmd.opts.winsize = getWinsize(std.io.getStdOut().handle);
++    cmd.opts.winsize = getWinsize(std.fs.File.stdout().handle);
+ 
+     cmd.opts.shortview = if (cmd.opts.isatty()) .columns else .oneline;
+ 
+-    const stdout = std.io.getStdOut().writer();
+-    const stderr = std.io.getStdErr().writer();
+-    var bw = std.io.bufferedWriter(stdout);
++    var stdout_buf: [4096]u8 = undefined;
++    var stderr_buf: [4096]u8 = undefined;
++    var stdout_writer = std.fs.File.stdout().writer(&stdout_buf);
++    var stderr_writer = std.fs.File.stderr().writer(&stderr_buf);
++    var stdout = &stdout_writer.interface;
++    var stderr = &stderr_writer.interface;
+ 
+     var args = std.process.args();
+     // skip binary
+@@ -244,8 +247,8 @@ pub fn main() !void {
+                 } else if (eql(opt, "help")) {
+                     return stderr.writeAll(usage);
+                 } else if (eql(opt, "version")) {
+-                    try bw.writer().print("lsr {s}\r\n", .{build_options.version});
+-                    try bw.flush();
++                    try stdout.print("lsr {s}\r\n", .{build_options.version});
++try stdout.flush();
+                     return;
+                 } else {
+                     try stderr.print("Invalid opt: '{s}'", .{opt});
+@@ -300,12 +303,12 @@ pub fn main() !void {
+     }
+ 
+     if (cmd.opts.long) {
+-        try printLong(cmd, bw.writer());
++        try printLong(cmd, stdout);
+     } else switch (cmd.opts.shortview) {
+-        .columns => try printShortColumns(cmd, bw.writer()),
+-        .oneline => try printShortOnePerLine(cmd, bw.writer()),
++        .columns => try printShortColumns(cmd, stdout),
++        .oneline => try printShortOnePerLine(cmd, stdout),
+     }
+-    try bw.flush();
++    try stdout.flush();
+ }
+ 
+ fn printShortColumns(cmd: Command, writer: anytype) !void {
+@@ -382,7 +385,8 @@ fn printShortColumns(cmd: Command, writer: anytype) !void {
+ 
+             if (i < columns.items.len - 1) {
+                 const spaces = column.width - (icon_width + entry.name.len);
+-                try writer.writeByteNTimes(' ', spaces);
++                var space_buf = [_][]const u8{" "};
++        try writer.writeSplatAll(&space_buf, spaces);
+             }
+         }
+         try writer.writeAll("\r\n");
+@@ -509,21 +513,25 @@ fn printLong(cmd: Command, writer: anytype) !void {
+         try writer.writeAll(&mode);
+         try writer.writeByte(' ');
+         try writer.writeAll(user.name);
+-        try writer.writeByteNTimes(' ', longest_user - user.name.len);
++        var space_buf1 = [_][]const u8{" "};
++        try writer.writeSplatAll(&space_buf1, longest_user - user.name.len);
+         try writer.writeByte(' ');
+         try writer.writeAll(group.name);
+-        try writer.writeByteNTimes(' ', longest_group - group.name.len);
++        var space_buf2 = [_][]const u8{" "};
++        try writer.writeSplatAll(&space_buf2, longest_group - group.name.len);
+         try writer.writeByte(' ');
+ 
+         var size_buf: [16]u8 = undefined;
+         const size = try entry.humanReadableSize(&size_buf);
+         const suffix = entry.humanReadableSuffix();
+ 
+-        try writer.writeByteNTimes(' ', longest_size - size.len);
++        var space_buf3 = [_][]const u8{" "};
++        try writer.writeSplatAll(&space_buf3, longest_size - size.len);
+         try writer.writeAll(size);
+         try writer.writeByte(' ');
+         try writer.writeAll(suffix);
+-        try writer.writeByteNTimes(' ', longest_suffix - suffix.len);
++        var space_buf4 = [_][]const u8{" "};
++        try writer.writeSplatAll(&space_buf4, longest_suffix - suffix.len);
+         try writer.writeByte(' ');
+ 
+         try writer.print("{d: >2} {s} ", .{
+@@ -909,8 +917,8 @@ fn onCompletion(io: *ourio.Ring, task: ourio.Task) anyerror!void {
+             const n = try result.read;
+             _ = try io.close(task.req.read.fd, .{});
+             const bytes = task.req.read.buffer[0..n];
+-            var fbs = std.io.fixedBufferStream(bytes);
+-            const tz = try zeit.timezone.TZInfo.parse(cmd.arena, fbs.reader());
++            var reader = std.Io.Reader.fixed(bytes);
++            const tz = try zeit.timezone.TZInfo.parse(cmd.arena, &reader);
+             cmd.tz = .{ .tzinfo = tz };
+         },
+ 

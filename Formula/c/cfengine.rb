@@ -4,6 +4,7 @@ class Cfengine < Formula
   url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-community-3.28.0.tar.gz"
   sha256 "03722ab589c00b4e823ee22eb0afef5611b82e4f764fccc37ad3b18a3732c49e"
   license all_of: ["BSD-3-Clause", "GPL-2.0-or-later", "GPL-3.0-only", "LGPL-2.0-or-later"]
+  revision 1
 
   livecheck do
     url "https://cfengine-package-repos.s3.amazonaws.com/release-data/community/releases.json"
@@ -17,18 +18,16 @@ class Cfengine < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "c174071f848807351fd82681765f125642a67b9772adc06c3d681b6e10c89a9e"
-    sha256 arm64_tahoe:       "154c060b7fcd7ed487b6e2e8f58af6cc1ca81334f546579e45b273c1a6680140"
-    sha256 arm64_sequoia:     "4ad15e1ad7532ad7c52d27584ad5ed459381b585d62f90554297d55146c7cb9a"
-    sha256 arm64_sonoma:      "16307ea57719fa7677365d75cfd98f957d458ed83e611ce4d3ab1f0dd025a2bf"
-    sha256 sonoma:            "89635917980c1fe090f1d36ad33a8d6a7e33817dec514714a5180dd7c4eab755"
-    sha256 arm64_linux:       "732453e8f736bfd354579b01e65065dc7dc9e4cfa2efd2d06e8ded9d9afdf0db"
-    sha256 x86_64_linux:      "1facd055a632f3948294b974e5e74c12c29b6c62dec1c454a9e614b6924034e1"
+    sha256 arm64_golden_gate: "aabd414cf300c8f8c0bb77c2284f838dcb08157159cf305c493c039de0143b25"
+    sha256 arm64_tahoe:       "5ca7354bb409f4a4368201c7238c3d57240484a2c52c338e4d0ebb9bd9737748"
+    sha256 arm64_sequoia:     "f10f8f15a6557e3c4dfad57819b2ef710b0d4c06c2079f423172c0a614f8eef6"
+    sha256 arm64_linux:       "af13e68cbae6695514beb559976b4698f19941f2466486ec6c850468f341478d"
+    sha256 x86_64_linux:      "761bf6e3cee2da013a822e892fe5793951828cab86506d7e8e2d9b6b253d65cd"
   end
 
   depends_on "librsync"
   depends_on "lmdb"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
 
   uses_from_macos "curl", since: :ventura # uses CURLOPT_PROTOCOLS_STR, available since curl 7.85.0

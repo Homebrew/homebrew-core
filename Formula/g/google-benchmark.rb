@@ -1,19 +1,17 @@
 class GoogleBenchmark < Formula
   desc "C++ microbenchmark support library"
   homepage "https://github.com/google/benchmark"
-  url "https://github.com/google/benchmark/archive/refs/tags/v1.9.5.tar.gz"
-  sha256 "9631341c82bac4a288bef951f8b26b41f69021794184ece969f8473977eaa340"
+  url "https://github.com/google/benchmark/archive/refs/tags/v1.10.0.tar.gz"
+  sha256 "acc5c7c0fbed855c4aaa2d7c3c36fb82b0c15c28f4e151e3f679c2fc0aa404af"
   license "Apache-2.0"
   head "https://github.com/google/benchmark.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7bc420c2a2addababc546cb8ed274c8fac5b30a51fdda311470272cf387e3404"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5869b5f29dc83b37a1a7d44bc846149111d1e3b89e27fa3237502c507ce86945"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "019455d89f81c72633489b62d4456bc0272ffe1bc77c17f98838c16d48351411"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "f8e628bc6a25ea09d254a199a6c1427784e46df9dc98db6684382b946f7f5812"
-    sha256 cellar: :any_skip_relocation, sonoma:            "006f44aca539706c9b216afc902219256dd0bf8c018a704cb6f06178b17dfce2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6a66268855a18d1595ae79c2c0321605009710dfec02cc1ab276dc39e1ee3bd6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "4a3f4b7908ccd9c1b945a81f41cf07209bdb87c5e397e1ad34f5e271893152d4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4cfb010a52dc70ed0f3eae99bc0132197e2a6c8ea098513323127213ba6a9bc4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "08aa1d2c26de8f05870eff02b3fff6b90bcb0b74ab64a1cd5f7e35638e45bfb3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7409914c8dbb678557f64ff5fccadb64f4549fc5d4b611dd3a7ae4cf31236fa4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d2947b225257fe50e79714ab9166a38096933673b61d5969726f2a1ed930ea65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "76322ee48a1110c2e22923d0cd8aad14e60eff001cff0282e956fb892bef8f41"
   end
 
   depends_on "cmake" => :build

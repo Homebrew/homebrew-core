@@ -20,6 +20,13 @@ class Jprq < Formula
 
   depends_on "go" => :build
 
+  # `test do` block starts a local server and contacts the jprq service
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cli"
   end

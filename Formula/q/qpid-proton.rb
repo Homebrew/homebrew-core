@@ -1,28 +1,35 @@
 class QpidProton < Formula
   desc "High-performance, lightweight AMQP 1.0 messaging library"
   homepage "https://qpid.apache.org/proton/"
-  url "https://www.apache.org/dyn/closer.lua?path=qpid/proton/0.40.0/qpid-proton-0.40.0.tar.gz"
-  mirror "https://archive.apache.org/dist/qpid/proton/0.40.0/qpid-proton-0.40.0.tar.gz"
-  sha256 "0acb39e92d947e30175de0969a5b2e479e2983bc3e3d69c835ee5174610e9636"
   license "Apache-2.0"
-  head "https://gitbox.apache.org/repos/asf/qpid-proton.git", branch: "main"
+  revision 1
+  head "https://github.com/apache/qpid-proton.git", branch: "main"
+
+  stable do
+    url "https://www.apache.org/dyn/closer.lua?path=qpid/proton/0.40.0/qpid-proton-0.40.0.tar.gz"
+    mirror "https://archive.apache.org/dist/qpid/proton/0.40.0/qpid-proton-0.40.0.tar.gz"
+    sha256 "0acb39e92d947e30175de0969a5b2e479e2983bc3e3d69c835ee5174610e9636"
+
+    patch do
+      url "https://github.com/apache/qpid-proton/commit/7be093d8d96104caab3fa858ab9886f23d62ee04.patch?full_index=1"
+      sha256 "472f573caf0ed1f545a9ed25a850d5117db857f9ce5cd1d0687022d98cc045f5"
+      type :backport
+      resolves "https://github.com/apache/qpid-proton/pull/447"
+    end
+  end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "8b0d88550cc0836e7a7c53e09b662d8850b01a31ed1db5766d914febe2b97f09"
-    sha256 cellar: :any,                 arm64_tahoe:       "fb2e582995d74fa3b379e8e4d895fbf0d8ddd291cdb79e9d8d11c82e42180da1"
-    sha256 cellar: :any,                 arm64_sequoia:     "ad2d0628f2d4cfca80bd45f29612ec776c48de10a3f4f49f65e8c7f4cc2bbe0d"
-    sha256 cellar: :any,                 arm64_sonoma:      "80e748066920432d06e1ef02053cf91ca25126f72432c7cb48d4b58d70b0213d"
-    sha256 cellar: :any,                 arm64_ventura:     "7ba2629ad9f29a3fdfc38b9400f805fb598d68a9740cb1f950bb27a21ceaea9f"
-    sha256 cellar: :any,                 sonoma:            "91a726082f6b056f11bf05f702270977a08c3c3d842f1e5ecc3c0e6501501dcd"
-    sha256 cellar: :any,                 ventura:           "7dcf7fac3dc9cb98a388b4e7fa0c0ca9c33897f5fa0657afadc55fd018eb84e4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "264e02d20e0fe761f2c866e52d21955063c016c58841a8333255cf70a8d677f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "529a54660787834c31b10aae535c4b99faf146b5f567715f9a44e06fdc3b37b0"
+    sha256 cellar: :any, arm64_golden_gate: "56e55efa0b662312ed6acebb75e89b9e7244ffe75ce0a27b076cd513da752589"
+    sha256 cellar: :any, arm64_tahoe:       "baa86a5bb46dc8a4f281ebcd100d98a68009a2ae82080906e4fbad89e78cfbf1"
+    sha256 cellar: :any, arm64_sequoia:     "44cd2be3e3f85bb100810f107178230067e56f16a5fbffb383bc04fc37f8d9b8"
+    sha256 cellar: :any, arm64_linux:       "ae96c75d3605093924d86cfc79b3420e978b5167781ca3ce00f417513274cb7d"
+    sha256 cellar: :any, x86_64_linux:      "8d6e1966b7dc98ec6bbe237c64d8d609058148a0639af1e5c1ff65ca55cb764d"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "libuv"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "python" => :build
 

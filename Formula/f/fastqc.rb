@@ -1,21 +1,18 @@
 class Fastqc < Formula
   desc "Quality control tool for high throughput sequence data"
   homepage "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/"
-  url "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.1.zip"
-  sha256 "5f4dba8780231a25a6b8e11ab2c238601920c9704caa5458d9de559575d58aa7"
+  url "https://github.com/s-andrews/FastQC/releases/download/v0.13.0/fastqc_v0.13.0.zip"
+  sha256 "c9504d47752e79ecfe61691e09bf367fc3f15167ac3fe83d9e33534fffbcc301"
   license "GPL-3.0-or-later"
-
-  livecheck do
-    url "https://www.bioinformatics.babraham.ac.uk/projects/download.html"
-    regex(/href=.*?fastqc[._-]v?(\d+(?:\.\d+)+)\.zip/i)
-  end
+  head "https://github.com/s-andrews/FastQC.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "b55cf3f17b3c62267f72029429f662fe70e19c817bbe61872f7b85b5149d7564"
+    sha256 cellar: :any_skip_relocation, all: "1c7fe2b894185e522e6d136bc612f491c7fab0f2d5d02c8bd11bb744a3863afd"
   end
 
   depends_on "openjdk"
+
+  uses_from_macos "python"
 
   def install
     libexec.install Dir["*"]
@@ -24,6 +21,8 @@ class Fastqc < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/fastqc --version")
+
     (testpath/"test.fasta").write <<~EOS
       @SRR098281.1 HWUSI-EAS1599_1:2:1:0:318 length=35
       CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN

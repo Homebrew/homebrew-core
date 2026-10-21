@@ -1,16 +1,16 @@
 class AngularCli < Formula
   desc "CLI tool for Angular"
   homepage "https://angular.dev/cli/"
-  url "https://registry.npmjs.org/@angular/cli/-/cli-22.2.1.tgz"
-  sha256 "797ab1bf9caca4c8a1c2bc3750b984f27ec24142c31fb491fdb9ccaf2c3522eb"
+  url "https://registry.npmjs.org/@angular/cli/-/cli-22.2.3.tgz"
+  sha256 "a5097ef81e384d89f01ab68396ceaa5050e2cedbc60430b76d74820ef8d56117"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "7c1b47fcc22cd0b9e2d95ce04c0eea30cdf25519fb0d5cf90da6e4c2ca607d38"
-    sha256 cellar: :any,                 arm64_tahoe:       "d98313e3eac6bf11d5c63d1a301db89c4960ab7c54409121c1293523e01aa59a"
-    sha256 cellar: :any,                 arm64_sequoia:     "c704a7c62695e1623468f6d4aa9db094a150c6e85eb9c38b17aab8a9db997729"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f22360c7596c1e119af2286187386453dca9ea38ed04c58e90841c4a6ff9f263"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "62993cc6a7ae58d6995df8dce31eb0d9b8688dac903efcd4dbdf63aeeef90009"
+    sha256 cellar: :any,                 arm64_golden_gate: "2e17345fde34d58eab26300b8f7664d3ead127bed94746ba9a423c91929b2247"
+    sha256 cellar: :any,                 arm64_tahoe:       "191f098a251a11e0c31b247bd107535c451807da81aa54cd8161eb66105c7933"
+    sha256 cellar: :any,                 arm64_sequoia:     "3d9ac6b7840245337137bfdd281ce42f23986f3bf3fe82f0a5b7b8c9a34b52db"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7c3ea388ba3ef238acf74847f83b5859482ca3c6e444fda34717fd6d52c2cd2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9e8e542c03cd63d1f6d8b7a8c5223aa93fa6e603139d4a9cb797df6bb5cddd28"
   end
 
   depends_on "node"

@@ -19,8 +19,15 @@ class Cyphernetes < Formula
 
   depends_on "go" => :build
 
-  def install
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+    # downloads and runs `controller-gen` and `kustomize` to generate embedded manifests
     system "make", "operator-manifests"
+  end
+
+  def install
     system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}"), "./cmd/cyphernetes"
 
     generate_completions_from_executable(bin/"cyphernetes", shell_parameter_format: :cobra)

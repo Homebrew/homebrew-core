@@ -2,6 +2,7 @@ class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
+  revision 1
   compatibility_version 1
   head "https://gitlab.freedesktop.org/pulseaudio/pulseaudio.git", branch: "master"
 
@@ -25,14 +26,11 @@ class Pulseaudio < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_golden_gate: "188739c5b88a09cb24b1ee83fe4c7c95760c977249c102045ca4251c59408503"
-    sha256 arm64_tahoe:       "73c349f7d337ebb0bdd1169325685e79f4cb4c253dd920339a7bc52c833ea4c7"
-    sha256 arm64_sequoia:     "3b0c4054a598015af0838395bfb6b96b40ff9297d4d382b80e06c6df7b76b9ab"
-    sha256 arm64_sonoma:      "bf612fdd30e917faf4c6627a1324f1ffaf509f5dfa92748199ff57c6ce1efcfb"
-    sha256 sonoma:            "07c3d88ac76789dc1c94b6881a11ea02868a3e0023f3fd3e2760b95c5aef2161"
-    sha256 arm64_linux:       "2122e7fdeb6dfbd23c71b1454e5da23792857aa2b0e9a78db172ab6448891675"
-    sha256 x86_64_linux:      "3e8c61fa5d337d64747fb305559f1a4821d75cecfd15dc59323450cde1816d29"
+    sha256 arm64_golden_gate: "76c4d4eea0d3f8a452577dd6083cb1961866fb4a2d3062c9bfbf415c70e681d0"
+    sha256 arm64_tahoe:       "205b0d4e91803d44c893af002afd2d001f61edc426f7aa332b55994b86834a7a"
+    sha256 arm64_sequoia:     "1a26b32a8d3e13d7d9c31b0ab2c0caef7846fcc2b148704254b555e1f8579e6d"
+    sha256 arm64_linux:       "cc6e054232730f6d80dbdd2688a71c38b812e83f315aaedb3dbaef9fa0bc1b6e"
+    sha256 x86_64_linux:      "b6b965cbc6a3940f66034eb7322c8e1d0aab980f72a7625f879fed8c2a2a3edb"
   end
 
   depends_on "gettext" => :build
@@ -43,7 +41,7 @@ class Pulseaudio < Formula
   depends_on "libsndfile"
   depends_on "libsoxr"
   depends_on "libtool"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "orc"
   depends_on "speexdsp"
 

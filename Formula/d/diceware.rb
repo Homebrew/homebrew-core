@@ -8,11 +8,11 @@ class Diceware < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "3fecb6390567f06e893d664105063c32aa80a8bb3b2f4cdc1944b8850b5c9749"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "071e3eccb812c87b1799257d1be5e262ee02c80c118b2900f879fd6a7605feb9"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     venv = virtualenv_install_with_resources

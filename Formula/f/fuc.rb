@@ -1,22 +1,26 @@
 class Fuc < Formula
   desc "Modern, performance focused unix commands"
   homepage "https://github.com/supercilex/fuc"
-  url "https://github.com/supercilex/fuc/archive/refs/tags/3.2.0.tar.gz"
-  sha256 "2f9f3572e7a956015593ec7e5f8225f704601404bac7d1e471e1d67632cbf074"
+  url "https://github.com/supercilex/fuc/archive/refs/tags/3.2.1.tar.gz"
+  sha256 "c9ee5227aa7344fae0444ff8d1da0c6f74240fea7226796dffc2438cc581aed3"
   license "Apache-2.0"
   head "https://github.com/supercilex/fuc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a60820f8bf0184793e9b543b77381ac85cb6ec53de39e03db402f8fcc86090bb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "233689ca282c04d10b6110abb317240f458dfb7d52f55a3e479fefc7a950505e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ec876dd9f75bd22e4195cf5a7814103c272217d1ce75ae567728bcbf6fda4bbb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "5954bb9c04258d9115a63d1be7a7924428aec2f5177ce1219080b216599cdf80"
-    sha256 cellar: :any_skip_relocation, sonoma:            "fd510b9bf56bb0553a5295dc4966dcaf43dd0397d610b4195179052544aa513b"
-    sha256 cellar: :any,                 arm64_linux:       "78270c2365ffb15103240718c3ce4e36bb80c464f898d8e479668f98ef45f892"
-    sha256 cellar: :any,                 x86_64_linux:      "40ac06437dcda2e1b1ce57ad2ec77373435cefb895f013874254c8993a7e4919"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7a277040eb6e83b60cc1b7b6bf5375745c103fe6287af5037e5027fadf239b0a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d52c38582cdb059fd659e62bbd3b6015018115f857875bb9616063ce5e4addf9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "30ae888377f23bf7e5e77d3519a1b15326d35003888b9b8accf8024534f32d8c"
+    sha256 cellar: :any,                 arm64_linux:       "03012c790d3b8d1e99e2264e21a09b18bcdf69cce4166199a2b94835f0126cc0"
+    sha256 cellar: :any,                 x86_64_linux:      "42aaea9f8eb0c1ccf7788fe21dbfb6deb8bceb0d7dd6797d89fb3877fd65db57"
   end
 
   depends_on "rust" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "cpz")

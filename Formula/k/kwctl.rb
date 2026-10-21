@@ -17,6 +17,13 @@ class Kwctl < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
+  # The test downloads a policy from the container registry.
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/kwctl")
 

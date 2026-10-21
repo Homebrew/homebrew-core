@@ -18,6 +18,11 @@ class ExcalidrawConverter < Formula
 
   depends_on "go" => :build
 
+  resource "test_homebrew.excalidraw", :test do
+    url "https://raw.githubusercontent.com/sindrel/excalidraw-converter/refs/tags/v1.5.6/test/data/test_homebrew.excalidraw"
+    sha256 "87e06e6b89a489fe01ccd06e51b8cc2b73bb51ff02e998d04eaa092a025d64e0"
+  end
+
   allow_network_access! :test
 
   def fetch
@@ -30,13 +35,6 @@ class ExcalidrawConverter < Formula
   end
 
   test do
-    test_version = version
-
-    resource "test_homebrew.excalidraw" do
-      url "https://raw.githubusercontent.com/sindrel/excalidraw-converter/refs/tags/v#{test_version}/test/data/test_homebrew.excalidraw"
-      sha256 "87e06e6b89a489fe01ccd06e51b8cc2b73bb51ff02e998d04eaa092a025d64e0"
-    end
-
     resource("test_homebrew.excalidraw").stage testpath
     system bin/"excalidraw-converter", "gliffy", "-i", testpath/"test_homebrew.excalidraw", "-o",
 testpath/"test_output.gliffy"

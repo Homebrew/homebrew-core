@@ -1,8 +1,8 @@
 class Open62541 < Formula
   desc "Open source implementation of OPC UA"
   homepage "https://open62541.org/"
-  url "https://github.com/open62541/open62541/archive/refs/tags/v1.5.8.tar.gz"
-  sha256 "cf7951baf253c0537b3397e4ce3ff13930542abcb6ffc3b9cb082af88f95c300"
+  url "https://github.com/open62541/open62541/archive/refs/tags/v1.5.9.tar.gz"
+  sha256 "610aa4db6d4d1a818be128b2889369df3acb9e769aaa18dcc6f4f97e6fbdc9a7"
   license "MPL-2.0"
 
   livecheck do
@@ -11,12 +11,11 @@ class Open62541 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7d9da69e33ebe4f90c91ea2859730cc08e77bc39bf16e002ca0ba4365958118d"
-    sha256 cellar: :any, arm64_tahoe:       "0d2c5923cece0b08717a9a9d191f8c3e81d62c23f63c848134e9cc6873315378"
-    sha256 cellar: :any, arm64_sequoia:     "7cb5050f6ef7cef85a0a2dac5470e5d8eb372f8f81bf47f046c773bff14e881f"
-    sha256 cellar: :any, arm64_sonoma:      "5a1f242bac7267e0291845229a0527fe33e353d1f416f30a4b2425e1667965b7"
-    sha256 cellar: :any, arm64_linux:       "b1d5acf532c8f68dc77e1eb1a405190797039dee2223aa61849860b5d97a1cfb"
-    sha256 cellar: :any, x86_64_linux:      "bd997eefc81d26ca5a097169f92aaf6e27799c594d7cfed2545f5333641fb432"
+    sha256 cellar: :any, arm64_golden_gate: "1ca04e6a45ab219e7014de0d0e783ba7cd502f343c68d7a6ac39089fed4487d0"
+    sha256 cellar: :any, arm64_tahoe:       "b0ac13799809a3bed63b77c36400b377b0bedd2ece63eca14c00befb57f24343"
+    sha256 cellar: :any, arm64_sequoia:     "ff9b6b6bb6bcef204a321f231cee36b1882e48d44d63244f6e44e7365c8f2bd9"
+    sha256 cellar: :any, arm64_linux:       "8987337b1b8b2ee04bdcd3a0ea46e3c0375ab74f3d8e58236f372e6439cd4fba"
+    sha256 cellar: :any, x86_64_linux:      "fc5391fb1f18a63f211a654cfacc78fbee97e16df5d429a1ade4f25d2f9a635d"
   end
 
   depends_on "cmake" => :build

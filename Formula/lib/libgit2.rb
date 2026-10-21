@@ -4,6 +4,7 @@ class Libgit2 < Formula
   url "https://github.com/libgit2/libgit2/archive/refs/tags/v1.9.7.tar.gz"
   sha256 "1a4fbe7589e814777ae76b64734ad80f4ecad22cd33a22682a2aaea4ae5375e7"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
+  revision 2
   compatibility_version 1
   head "https://github.com/libgit2/libgit2.git", branch: "main"
 
@@ -13,22 +14,20 @@ class Libgit2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "135454bb8bb86efdf95b218448db8d0a90d97e4411198c38bfdd8478aba03010"
-    sha256 cellar: :any, arm64_tahoe:       "68a1ad4fce40bdf9e0c260255673ad0922fa907e6694640fadd13390175b2ba7"
-    sha256 cellar: :any, arm64_sequoia:     "1d74b1ac7a97adda0eeb9e09d04d7d22d5116b2896b5a5c38d0224c3c7c38f3b"
-    sha256 cellar: :any, arm64_sonoma:      "73d1d2a42ec12c9358061812f8b76ec60133f576ed6a1deb7eec6702965d1eb0"
-    sha256 cellar: :any, sonoma:            "eaa45bc1e600e79f5b281797af48eca04f0e29114dd418207361a6baf0543133"
-    sha256 cellar: :any, arm64_linux:       "8ab19827f62d97d23ad6d2c6e0b12b4f11aa1b35824935cca3990e9aedf4523f"
-    sha256 cellar: :any, x86_64_linux:      "0c13eaf7a228f13657080aa1e7f7e25318ab7e53c193e577e19fe5a62a2f1e77"
+    sha256 cellar: :any, arm64_golden_gate: "8087d62ae8c4802644b8f3b4057cb0df0aeb087a2393dc707f94a2d8a1ca4e12"
+    sha256 cellar: :any, arm64_tahoe:       "61cc4d0d03f5a400cede72fb57609df07909725a3f8cb6a1f75b2edaec3ddf85"
+    sha256 cellar: :any, arm64_sequoia:     "302c14f39d0308fc5efa27a6cbec77ad03a1c763419c05d08ce334a908720759"
+    sha256 cellar: :any, arm64_linux:       "250ca463b1e1b58ec5d6eb55d29b3bcbbda24b9707eee147e73fffe712ead625"
+    sha256 cellar: :any, x86_64_linux:      "ee9a37ee37860ddfeabf3f46dce5423930df4756a64c4430a448e88e7b9107e8"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "libssh2"
   depends_on "llhttp"
+  depends_on "openssl@4"
 
   on_linux do
-    depends_on "openssl@3" # Uses SecureTransport on macOS
     depends_on "pcre2" # Uses regcomp_l on macOS which needs xlocale.h
     depends_on "zlib-ng-compat"
   end
@@ -43,6 +42,7 @@ class Libgit2 < Formula
       -DBUILD_EXAMPLES=OFF
       -DBUILD_TESTS=OFF
       -DUSE_BUNDLED_ZLIB=OFF
+      -DUSE_HTTPS=OpenSSL
       -DUSE_HTTP_PARSER=llhttp
       -DUSE_SSH=ON
     ]
@@ -65,6 +65,7 @@ class Libgit2 < Formula
 
       int main(int argc, char *argv[]) {
         int options = git_libgit2_features();
+        assert(options & GIT_FEATURE_HTTPS);
         assert(options & GIT_FEATURE_SSH);
         return 0;
       }

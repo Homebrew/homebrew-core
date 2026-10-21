@@ -1,17 +1,17 @@
 class Kubevpn < Formula
   desc "Offers a Cloud-Native Dev Environment that connects to your K8s cluster network"
   homepage "https://www.kubevpn.dev"
-  url "https://github.com/kubenetworks/kubevpn/archive/refs/tags/v2.11.9.tar.gz"
-  sha256 "548c8364c5ef81123fd2fdbb6e6d0884d85c782d612ed557b8e42ca28bda6f8a"
+  url "https://github.com/kubenetworks/kubevpn/archive/refs/tags/v2.11.10.tar.gz"
+  sha256 "0acbedcafe51572c42daad67c7d8af5ee57ae566a80fdc6d2c9e6fe5fba3556d"
   license "MIT"
   head "https://github.com/kubenetworks/kubevpn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "196b6810a3d97cb483d2179c66ff95b4d0ff44f3dbae10738f899b8c2eb216a9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "246fd7168ea4c27f04b1a95d56f40f12d2e97311814b4273e117f53c578a5186"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "775909332bf73ad0077632b02c6dd4b8583ab57b089caa3dbd215823ce630f01"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "12f6a5521c3d68ee9698391e7d8224ce75b7e994d2c102c81a880ac1eb0db448"
-    sha256 cellar: :any,                 x86_64_linux:      "29be82665c19c6dc72d53350a1f1108ada4945804c384da0f2c97de2c15aa589"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "02c35ac803a4626024f1355777e55ac9fee06767a2ef5d091d974dcb6de8e33d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23646fe94690b5fbed5615c6f1be04e9b823fd1e92f7e73792892ce1d3be5af4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8708e483a85c6d6573948035de9c234280fc195a7b65a9dc0052a829ce38087c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "56dd9b75328f76e50952eda64afcdd7586e666341080f0f66e62b67230d81223"
+    sha256 cellar: :any,                 x86_64_linux:      "1a589aa6e9f7f179cb73085c79952e708c1ec0faa66e7e09f640d51d5dd20585"
   end
 
   depends_on "go" => :build

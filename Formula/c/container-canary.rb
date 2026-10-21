@@ -20,6 +20,11 @@ class ContainerCanary < Formula
   depends_on "go" => :build
   depends_on "docker" => :test
 
+  resource "awesome_validator", :test do
+    url "https://raw.githubusercontent.com/NVIDIA/container-canary/refs/heads/main/examples/awesome.yaml"
+    sha256 "7f5e2f78df709d4179c1ae1b549669f80a4307c4f698080fac27efae96b02a42"
+  end
+
   allow_network_access! :test
 
   def fetch
@@ -39,11 +44,6 @@ class ContainerCanary < Formula
 
   test do
     ENV["DOCKER_HOST"] = "unix://#{testpath}/invalid.sock"
-
-    resource "awesome_validator" do
-      url "https://raw.githubusercontent.com/NVIDIA/container-canary/refs/heads/main/examples/awesome.yaml"
-      sha256 "7f5e2f78df709d4179c1ae1b549669f80a4307c4f698080fac27efae96b02a42"
-    end
 
     assert_match version.to_s, shell_output("#{bin}/canary version 2>&1")
 

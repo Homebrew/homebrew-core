@@ -1,18 +1,17 @@
 class Algolia < Formula
   desc "Command-line tool to manage Algolia applications, accounts, and search resources"
   homepage "https://www.algolia.com/doc/tools/cli/get-started"
-  url "https://github.com/algolia/cli/archive/refs/tags/v1.17.0.tar.gz"
-  sha256 "0234fda05d6351fec58b8749ba618054db9d783a202c142c246eef12b35d200e"
+  url "https://github.com/algolia/cli/archive/refs/tags/v1.18.0.tar.gz"
+  sha256 "aaf4870c8b64e4c3a3fbbd3a6650424924e5dac2b3a9900ce7b96f89905a751b"
   license "MIT"
   head "https://github.com/algolia/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "182ac16523f959b5c791ce8c6e7bac7f48d7b01284f2d5aaf88e98bcf864ae2d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "182ac16523f959b5c791ce8c6e7bac7f48d7b01284f2d5aaf88e98bcf864ae2d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "182ac16523f959b5c791ce8c6e7bac7f48d7b01284f2d5aaf88e98bcf864ae2d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "182ac16523f959b5c791ce8c6e7bac7f48d7b01284f2d5aaf88e98bcf864ae2d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6c7c6b9c194e326b6b7c71c5d3987594552acede6a1bf98e44881ebebaeaa2aa"
-    sha256 cellar: :any,                 x86_64_linux:      "4b62873f444bf8f833bc4b174826d130fc8be7d81e98273a1fd46d1979140618"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "20384d59e998742f5cd6f428188bddac97b7a65631180510740961f05c2e150e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "20384d59e998742f5cd6f428188bddac97b7a65631180510740961f05c2e150e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "20384d59e998742f5cd6f428188bddac97b7a65631180510740961f05c2e150e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "9166e69884021e3c86bae6d3bbf987b07974716f7206373e442103897000b75b"
+    sha256 cellar: :any,                 x86_64_linux:      "84319373e6fbcc15a3b259c48029aaabbbda4418a8051a6071725a12e7844fc3"
   end
 
   depends_on "go" => :build

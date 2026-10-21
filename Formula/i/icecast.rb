@@ -5,7 +5,7 @@ class Icecast < Formula
   mirror "https://mirror.csclub.uwaterloo.ca/xiph/releases/icecast/icecast-2.4.4.tar.gz"
   sha256 "49b5979f9f614140b6a38046154203ee28218d8fc549888596a683ad604e4d44"
   license "GPL-2.0-only"
-  revision 3
+  revision 4
 
   # Upstream has used a 999 patch version to presumably indicate an unstable
   # version. We've seen this in other projects that use a 90+ patch to indicate
@@ -17,21 +17,18 @@ class Icecast < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "a0ac51bd8271949dff94a41d5b938cfd28f25e0fcc0943c4763e0e68be7dcbce"
-    sha256 cellar: :any, arm64_tahoe:       "5fff6c2e934272b3b0dc2075d9abfa52942d77b1dac0dd38d54ed0e76c311a52"
-    sha256 cellar: :any, arm64_sequoia:     "0e6c57ce5aad591029a75887504ba8da456032bbfcf58f99ce2c643a38313d6f"
-    sha256 cellar: :any, arm64_sonoma:      "afece122c6e2f7cd6d9fa10fc048ba180766cfa869b0688160f7300e2b6d4cbe"
-    sha256 cellar: :any, sonoma:            "66f6127375f34afd6f2fcafeb5ffd95550a32718c388f1060f7934e76e213160"
-    sha256 cellar: :any, arm64_linux:       "0da5d82c397a820b701610da5a6d7963cad3a1e2f9b4c6c182bb3a4b89f93801"
-    sha256 cellar: :any, x86_64_linux:      "f86153d8d8a2238285668371f217282bfdea77bad2411db56320b3a9400787dd"
+    sha256 cellar: :any, arm64_golden_gate: "fefe32bfb60ffe18efbe3035c0a2c67d673370b56fdb9a96018aba384175c91c"
+    sha256 cellar: :any, arm64_tahoe:       "b0781f681f51a39f7c40a7331259047ac989b5ddb5f72c02b7b84ebc516c3a4b"
+    sha256 cellar: :any, arm64_sequoia:     "32f81c5b48760d1dafaeb5d2731aceef27c6653926b21a090edf6af80912b635"
+    sha256 cellar: :any, arm64_linux:       "4813e7adf73f4f0db9cebcf5da2845ae15257a7814bda41e870a7214cf1b325c"
+    sha256 cellar: :any, x86_64_linux:      "eb5bca4283d7f8149c2417ad772754d9f853fcb49e5c3e735e8292724322bee7"
   end
 
   depends_on "pkgconf" => :build
 
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "curl"
   uses_from_macos "libxml2"

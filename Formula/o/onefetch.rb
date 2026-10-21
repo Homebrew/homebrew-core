@@ -1,18 +1,17 @@
 class Onefetch < Formula
   desc "Command-line Git information tool"
   homepage "https://onefetch.dev/"
-  url "https://github.com/o2sh/onefetch/archive/refs/tags/2.28.1.tar.gz"
-  sha256 "d51e7411588b3aa8c4d747199941d93b8eb7878d8cfd605463a4c3da125b6be7"
+  url "https://github.com/o2sh/onefetch/archive/refs/tags/3.1.0.tar.gz"
+  sha256 "7381912c62ed1c8a3b1a443afac2fa22d8a10db8414cd44198c5d4997fab0d54"
   license "MIT"
   head "https://github.com/o2sh/onefetch.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d505ffc7a24797c9a4b1db56833969dc101f69726ecb075a55eb73580640bed5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f370ca8df4c094544ba3c249ad5eb8b060c70d4c628549b3311976a781613de5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5f126dda4c0acf2d0ceee0b767b9081cb4c8db0b051b31d5e7b3562b995ce9ab"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "9aa40a3ecf60c99558b00ae511d4dab43b44acca32215a0f52731b47b35e9bb4"
-    sha256 cellar: :any,                 arm64_linux:       "63c15416e4b401a88f09e6e336e14f0288125dbea1709c3dadd10d497f087785"
-    sha256 cellar: :any,                 x86_64_linux:      "f503f9c162da583efac9d85fe900d2cdca8455e6c04894a6a9e77f3ea4a96f92"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "233bb972f47ac36e733f5a90cea45d6f7bbf782e1d91f51e1c586aab964256f8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "75778b495504265d68d117bd6cedce95f1b892815f69e15f70ec98a13930d603"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "830edde54475ad69e07d492f4f88c9ac91e2d5e36586fcf0f4ea8cf223957272"
+    sha256 cellar: :any,                 arm64_linux:       "cda3ca78eddbc0cbca9be5289f8302d7578d61c9ab97336c0e4b6a0a024de337"
+    sha256 cellar: :any,                 x86_64_linux:      "4afb18872d9853223d6c77e68ca8296eb9c38182d4558b61f4547bc6bcb4fab1"
   end
 
   # `cmake` is used to build `zlib`.
@@ -21,6 +20,12 @@ class Onefetch < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "zstd"
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     ENV["ZSTD_SYS_USE_PKG_CONFIG"] = "1"

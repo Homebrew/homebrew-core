@@ -8,19 +8,18 @@ class Memray < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3f06b28e6441a372db197cb53951ab89feeaa34d0f8fe78f618bb54b52f6c9a2"
-    sha256 cellar: :any, arm64_tahoe:       "931a06d3b9bc7a10bc91908c9fc29b0c26a1a7979af85c05b7731f54fa5fcc02"
-    sha256 cellar: :any, arm64_sequoia:     "af4a425d98494847be17734de83b9b71babe4d5c3702e1186fe3178e5ce1a385"
-    sha256 cellar: :any, arm64_sonoma:      "ed0cfb730baf4cd99c24824f24e1fea3d1a38bb257b35d9670b0293c7562461d"
-    sha256 cellar: :any, sonoma:            "834b12c893a578fab68fd2e1c41e23a2f6cb8484db98d7e93a96ed523b42b1e8"
-    sha256 cellar: :any, arm64_linux:       "199b0f1382e5374c85fee2a943766049bb47f84ad9d9e6d47836aa08707554c8"
-    sha256 cellar: :any, x86_64_linux:      "7f1a0f9d7aead5e974a449d68a26926b8bcc50e7047b87249ca609382484546d"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "9d5ad6d244d087d7be54b5a3d3e7c9a34727eced75c38338f85e239d35ceabca"
+    sha256 cellar: :any, arm64_tahoe:       "d62562682513908aa5340b837faf7de2bb57cc7640d30002bdba91a949c98f02"
+    sha256 cellar: :any, arm64_sequoia:     "b5b6e0fe8991439b8d7cf74ff1232e402622566f11645b44af5a0db72245ae1a"
+    sha256 cellar: :any, arm64_linux:       "5798952644c594aa5191563a33e27a88654ab25edb70f9b4de45aa6d24cff237"
+    sha256 cellar: :any, x86_64_linux:      "f5d9a10cc367b4dbdeeb77d6ec684829eb6fe32f6b89dfca7898a549af3d137a"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "lz4"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_linux do
     depends_on "curl" # for libdebuginfod
@@ -46,8 +45,8 @@ class Memray < Formula
   end
 
   resource "linkify-it-py" do
-    url "https://files.pythonhosted.org/packages/2e/c9/06ea13676ef354f0af6169587ae292d3e2406e212876a413bf9eece4eb23/linkify_it_py-2.1.0.tar.gz"
-    sha256 "43360231720999c10e9328dc3691160e27a718e280673d444c38d7d3aaa3b98b"
+    url "https://files.pythonhosted.org/packages/45/98/7a1a5f31fd5c7ba93e963b168e244b8e3dd705b3d2a718e3c3307583bf57/linkify_it_py-2.2.0.tar.gz"
+    sha256 "907acd2d17ac1fbb9ddb62c8957ccbd6158cac602231a15c3b0cd1e215f03cee"
   end
 
   resource "markdown-it-py" do
@@ -56,8 +55,8 @@ class Memray < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "mdit-py-plugins" do
@@ -71,13 +70,13 @@ class Memray < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/78/9b/560e4be8e26f6fd133a03630a8df0c663b9e8d61b4ade152b72005aec83b/platformdirs-4.11.0.tar.gz"
-    sha256 "0555d18370482847566ffabcaa53ad7c6c1c29f195989ae1ed634a05f76ea1e0"
+    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
+    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "rich" do
@@ -93,11 +92,6 @@ class Memray < Formula
   resource "typing-extensions" do
     url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
     sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
-  end
-
-  resource "uc-micro-py" do
-    url "https://files.pythonhosted.org/packages/78/67/9a363818028526e2d4579334460df777115bdec1bb77c08f9db88f6389f2/uc_micro_py-2.0.0.tar.gz"
-    sha256 "c53691e495c8db60e16ffc4861a35469b0ba0821fe409a8a7a0a71864d33a811"
   end
 
   def install

@@ -4,14 +4,15 @@ class Garble < Formula
   url "https://github.com/burrowers/garble/archive/refs/tags/v0.18.0.tar.gz"
   sha256 "56ca8f1c354eb1043c18099726c7ab7b685751d5f020434561b1676308ea9754"
   license "BSD-3-Clause"
+  revision 2
   head "https://github.com/burrowers/garble.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cc64811a6f633848f1d6e06f95f1ee47821d23251ee913d1635a3da8a36f9ec9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cc64811a6f633848f1d6e06f95f1ee47821d23251ee913d1635a3da8a36f9ec9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cc64811a6f633848f1d6e06f95f1ee47821d23251ee913d1635a3da8a36f9ec9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "56ad8af355db29da561a4063723961e31444c0415bed8ad10c8056e091d37f8e"
-    sha256 cellar: :any,                 x86_64_linux:      "4647c4cc9342d87053932f601959eafc3e4a6e49d67cb4e970328c9d65ce2c40"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c2eb8a550eb5b567f05f46fe15c7b1625c663494e220be0ea952edc252482c4f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c2eb8a550eb5b567f05f46fe15c7b1625c663494e220be0ea952edc252482c4f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c2eb8a550eb5b567f05f46fe15c7b1625c663494e220be0ea952edc252482c4f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "e2b83433b3f229faa0a9cf3bbe64c7fb313093e9eb6d7f323a1f2dc305df1a75"
+    sha256 cellar: :any,                 x86_64_linux:      "23c93d730ebede1696fe4f245b4a660523bd5132df35b6317ae55d1650978240"
   end
 
   depends_on "go" => [:build, :test]

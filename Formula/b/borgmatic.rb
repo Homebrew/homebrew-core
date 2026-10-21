@@ -3,21 +3,22 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/26/b8/2d6cae8bc1bddbf20eb9b4e04c4cfce71b5091e674aa654841d2ca273dc9/borgmatic-2.1.9.tar.gz"
-  sha256 "fbf3f7eace4938dddcf132cc33a634ba090136e5ead91c63899d18ab3ee53c48"
+  url "https://files.pythonhosted.org/packages/db/77/c163debaf74354863ebcc64a1fadaf4ec930e17a6db8ceb6473339fa217b/borgmatic-2.1.10.tar.gz"
+  sha256 "cb98f1d893d5586fed43ece8bf6c75477b6892c536e7a5a2eaad189fe00d1541"
   license "GPL-3.0-or-later"
   head "https://projects.torsion.org/borgmatic-collective/borgmatic.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "43ec665d54c96f800f103f73ab80ca6fde7d1c8a065a36e16d6537c29ad9400c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a9ed8eea9b96ceebb6362f22b37a63868dd8ff4fac88663bf56afdb5751dc010"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ff9950fe61cfe509f4383f27dfff3e19104baa0673f37bc5e86a5004be769235"
-    sha256 cellar: :any,                 arm64_linux:       "b0b5b39401bc90bba8f0160c2af5682a995bd6fd46ee95a7c78780045113f632"
-    sha256 cellar: :any,                 x86_64_linux:      "3abba5862fd191fca877bec5433c32b3afc81040456e26a4eb4b137bc676f487"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "29d7a98a23f492ce1dcf6b94ffe1ff5885a4a683ebef45910e034b76f64e6181"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ad4e5b44504d0a3a9544d9a41445b06d59899257077ec316cc4e4061036164de"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dc9db1aa3b08a4928045b408ca7a8b0e10b4e8e9476a30a658f3e277692825dd"
+    sha256 cellar: :any,                 arm64_linux:       "0b028f8455024442386b3c518f8cb196aa29d71da242eff2afb251e72054b646"
+    sha256 cellar: :any,                 x86_64_linux:      "53578465dc3690af63851ecb63e1edce8995ffaad47a5cb15bfe0d0859f25071"
   end
 
   depends_on "certifi" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
 
   pypi_packages exclude_packages: ["certifi", "rpds-py"]
@@ -28,8 +29,8 @@ class Borgmatic < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "idna" do

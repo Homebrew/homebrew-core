@@ -1,20 +1,16 @@
 class Libxls < Formula
   desc "Read binary Excel files from C/C++"
   homepage "https://github.com/libxls/libxls"
-  url "https://github.com/libxls/libxls/releases/download/v1.6.3/libxls-1.6.3.tar.gz"
-  sha256 "b2fb836ea0b5253a352fb5ca55742e29f06f94f9421c5b8eeccef2e5d43f622c"
+  url "https://github.com/libxls/libxls/releases/download/v1.6.4/libxls-1.6.4.tar.gz"
+  sha256 "064ee1da6cf3d481d8af4a936e0e0ce0190114e468fb7dfef5a81610746081e0"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "010af7db3c0a26fdbb33bd877c22d7a36bd882e14ca8d932a9679a2ddcb4c2f2"
-    sha256 cellar: :any,                 arm64_tahoe:       "e400590151f209f52ff66dbd8a11b76f1fb773128b1b6c05e26d93a661b9c011"
-    sha256 cellar: :any,                 arm64_sequoia:     "abaffb1c9027ca974c12ca4ded7a0b2be05f55cfb7b4ed371a3e14d382278073"
-    sha256 cellar: :any,                 arm64_sonoma:      "d90a8a341886453222b61a6fc9015797f5b3b517620f7f4fa5ec217364bf1896"
-    sha256 cellar: :any,                 arm64_ventura:     "d265631b00cebb4c0afc5dce7e1aa31c332e50022b1b3718acdb10bc68639021"
-    sha256 cellar: :any,                 sonoma:            "dfbc41b4db8cb154d168ccd41d8a730400fd49b73239cb6fc1d2b1ef15b80e96"
-    sha256 cellar: :any,                 ventura:           "6ba571cf05be33a069621adc5e455983a26ce132f55bbee5ed2b3b6cab98cde7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "773ca56b2f5b6b529843780b77ebcb600a813970eaedeb0a07cdac45fa8b8d85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "af8e8be72b0f2317a9901db68e14b77595d48da2294df10ef3aafc2aeaa9df02"
+    sha256 cellar: :any, arm64_golden_gate: "8106160b907bc71a2d8361d482dffc72ff2d24e71ce3a914fb987cf6c5a00520"
+    sha256 cellar: :any, arm64_tahoe:       "e2ec987b75932f475d9256392b5e38ecde92bbea2bf01697db2e34d08a8b27fc"
+    sha256 cellar: :any, arm64_sequoia:     "ad42d9a4494d04a1e24edacc3944873062f12261169351844dd904570e61ee0c"
+    sha256 cellar: :any, arm64_linux:       "4f7fc830cd655200ff7f155014357798d24dd92734ccc98c6b26f64c900f6a58"
+    sha256 cellar: :any, x86_64_linux:      "9cb179bee11e0651c57cd2706d27365c74ed895cf7a7dad4c6fa3ba088770408"
   end
 
   def install

@@ -12,17 +12,15 @@ class Udis86 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_golden_gate: "e5887040a1918bf70728b2622d9501df0af1874437353ebf2858aebd8f185749"
-    sha256 cellar: :any,                 arm64_tahoe:       "64411bb2fb41c08729313426c8753ca7d79932086111c970803ecf5a87b6d06b"
-    sha256 cellar: :any,                 arm64_sequoia:     "c8ace05db1e4342ac3920f58c3841e8952df549f1385bb7b76305c332073fd00"
-    sha256 cellar: :any,                 arm64_sonoma:      "9dcbdeb6b295c79410cd870c01c87b7313c62252089a2b2821df27ceae2db586"
-    sha256 cellar: :any,                 sonoma:            "96c8db68a32708148bbbdcbfdb0ed3144c8f118972eabdaca6d8ec49f868ba64"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d6468cbe7b75d58bd68d0907006195ce52159a18444febf1f260e19d81a1f08f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "4799d288d7a86e2b63f0a9c55d7b50e21bae0770b6a728542e09a1fbcd62c96b"
+    rebuild 2
+    sha256 cellar: :any, arm64_golden_gate: "43ffd7492dd24a7ab0ca827bb0d6a341f53f0a8c2ecd9df3a0e7ccc13d37cea3"
+    sha256 cellar: :any, arm64_tahoe:       "6a4f65773f826eee44097f7dc87595becdf9eb9e4cfda3582c28548a46815889"
+    sha256 cellar: :any, arm64_sequoia:     "00dbd553b6e18ce7463ee3b5b16ab9eb3faf64a0ff6fa4876400ac11080651f4"
+    sha256 cellar: :any, arm64_linux:       "948a75f16574c51e2524621ebf826309154d417d2dc526498b464911004722ce"
+    sha256 cellar: :any, x86_64_linux:      "ada75abea63fda079ef0ad452a8d6cfafb7cf79ce3f4a707711380b50abd2629"
   end
 
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do

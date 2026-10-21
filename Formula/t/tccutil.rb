@@ -10,15 +10,16 @@ class Tccutil < Formula
   head "https://github.com/jacobsalmela/tccutil.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ce96ff07ad82ba49592bf60abe1c246c7ef9c96ac9ca3ae984174ac532f4bbc3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "b8c38cddd25c2f2c46b5c38d4f424abd6280ed51c0565a389d81dbb8515e3121"
   end
 
   depends_on :macos
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   def install

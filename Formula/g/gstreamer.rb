@@ -2,17 +2,17 @@ class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 2
+  revision 1
   compatibility_version 1
 
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.28.7/gstreamer-1.28.7.tar.bz2"
-    sha256 "4aabbbf88837a592d425c592c852c577359df65f62c2f58d57db7695d6ebbaa8"
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.28.8/gstreamer-1.28.8.tar.bz2"
+    sha256 "f181a8e3115326fc9e0abf132c19db7e6b71648c8c001e15d13fd9402ba61625"
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.28.7/gst-plugins-rs-gstreamer-1.28.7.tar.bz2"
-      sha256 "d5acc3e2cd92f09ccfefa357905758274b205ce9b3521ab1d88dbb4072a25f21"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.28.8/gst-plugins-rs-gstreamer-1.28.8.tar.bz2"
+      sha256 "1c0406a1b0e2e5ca71611347273fe584629cf59e874ffcea07f8b82729793b0e"
 
       livecheck do
         formula :parent
@@ -26,11 +26,11 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "a6e736b6e1ab7a9da87b7c6c8d104becc1cf56fa878433a6e148dbb2c260d8ef"
-    sha256 arm64_tahoe:       "480a5e8b7a30a7a57420881328207a101d09d19e77442c10f2ed9643e7f4343c"
-    sha256 arm64_sequoia:     "a344ccc47d1fd774cd19e60e22c5a2e751d723062932bc94bb3e23b4cd5fb1fc"
-    sha256 arm64_linux:       "23606233a4228f0a09022d38a55343d755c4b5cddeccca6fcc658511883a62c2"
-    sha256 x86_64_linux:      "a563843df0b9a549128a700553e64736bf3c9b919b392b78c416943755acf7de"
+    sha256 arm64_golden_gate: "6e828b3ce12f10260b8df4de3236564a7950dd4c79b7b191562d05539be5232c"
+    sha256 arm64_tahoe:       "1c0f1ed663251c654b8a1a76cdd8305874a2bd13f5d2bcbff1dd5f56afb26e12"
+    sha256 arm64_sequoia:     "5ae3cdb0f56b6b73d89ba2d7982e5518d9e9a53e0799f702e8362fd7e2ec4e7b"
+    sha256 arm64_linux:       "47fa680a32e96a4a475d7bf5a52632d438a0bb0865549dcf8fe61a74c6579b4e"
+    sha256 x86_64_linux:      "7aeac0022e7fcdd4bac3ae56e8cd6a252d79300509feca3194b72cb317bc813b"
   end
 
   head do
@@ -91,12 +91,12 @@ class Gstreamer < Formula
   depends_on "opencore-amr"
   depends_on "openexr"
   depends_on "openjpeg"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "opus"
   depends_on "orc"
   depends_on "pango"
   depends_on "pygobject3" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rtmpdump"
   depends_on "speex"
   depends_on "srt"
@@ -145,7 +145,7 @@ class Gstreamer < Formula
   # These paths used to live in various `gst-*` formulae.
   link_overwrite "bin/gst-*", "lib/ligst*", "lib/libges*", "lib/girepository-1.0/Gst*-1.0.typelib"
   link_overwrite "lib/girepository-1.0/GES-1.0.typelib", "lib/gst-validate-launcher/*", "lib/gstreamer-1.0/*"
-  link_overwrite "lib/pkgconfig/gst*.pc", "lib/python3.14/site-packages/gi/overrides/*", "include/gstreamer-1.0/*"
+  link_overwrite "lib/pkgconfig/gst*.pc", "lib/python3.15/site-packages/gi/overrides/*", "include/gstreamer-1.0/*"
   link_overwrite "share/gir-1.0/Gst*.gir", "share/gir-1.0/GES-1.0.gir", "share/gstreamer-1.0/*"
   link_overwrite "share/locale/*/LC_MESSAGES/gst-*.mo", "share/man/man1/g*"
 
@@ -245,7 +245,10 @@ class Gstreamer < Formula
     ENV.append_to_rustflags "--codegen link-args=-Wl,#{rpath_args.join(",")}"
 
     # Make sure the `openssl-sys` crate uses our OpenSSL.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+
+    # Work around superenv breaking aws-lc-sys `-O0` needed to build CPU Jitter RNG
+    ENV["AWS_LC_SYS_NO_JITTER_ENTROPY"] = "1"
 
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

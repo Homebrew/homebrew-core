@@ -1,26 +1,25 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "https://www.numpy.org/"
-  url "https://files.pythonhosted.org/packages/13/01/11703282db468b85f6f7b8c7f22d058de5970d5c7e60a3a8aaa313c3de36/numpy-2.5.3.tar.gz"
-  sha256 "df2d5874ff183595a4ba404edd04f6bd9b5505c1d7708573f6a6c17489a67563"
+  url "https://files.pythonhosted.org/packages/95/b0/c7453d0b6e2073c3264468b106ee1563750cecc910965e67357e3698c83e/numpy-2.5.4.tar.gz"
+  sha256 "9a94cf751c9ad8ebaa835bcd3d40dacf8534ad086b88c38029b65123c7999d2a"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/numpy/numpy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "76cb4bdb653776e822fccb8937866410f82ea44dbd8b614603e3ea099b977fb5"
-    sha256 cellar: :any, arm64_tahoe:       "bdcfe1be445140cfcb65a43bb8f99981a482cb43ad7dbc4a76ffc22a62f66ac5"
-    sha256 cellar: :any, arm64_sequoia:     "3a29ad16b006dd043b9e6241bb7dde3760a7c1ad53a66b8ddd8163bb6532816b"
-    sha256 cellar: :any, arm64_sonoma:      "1dc2d1e20c18507d3e5fc8f06ffb970de14f28d2e1da064b365c526c08c55a96"
-    sha256 cellar: :any, arm64_linux:       "b99c2ae58c9289d0ba396ee27fd47b67c4d6a8b5ea277ec2383821a5b219104c"
-    sha256 cellar: :any, x86_64_linux:      "1198f57045ae41ff962b09393c35a7bad9d077b3bb596985d26756ccc23c9fc7"
+    sha256 cellar: :any, arm64_golden_gate: "6b69c291d9739d9c80aaa486b90e474a89a7330f1248a2e814936807f982afef"
+    sha256 cellar: :any, arm64_tahoe:       "c93773d40bd5924082c8ccd73ed4b77cd7964adfe206012d4048b2509c7736ce"
+    sha256 cellar: :any, arm64_sequoia:     "dfa9717c4a2cf5016bc8668ea2d8bfd2e7c1833b0eb3c1d78e7d4cc0f49e6a30"
+    sha256 cellar: :any, arm64_linux:       "13474cf162913699e38679f58815acda75609d035a6b42c680b5c83f320d9725"
+    sha256 cellar: :any, x86_64_linux:      "3b643638f3a350f028253b3769e39fcef2401e95d22b1679239cb1e16c613b06"
   end
 
   depends_on "gcc" => :build # for gfortran
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.13" => [:build, :test]
   depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "openblas"
 
   on_linux do

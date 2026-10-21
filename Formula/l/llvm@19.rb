@@ -12,14 +12,12 @@ class LlvmAT19 < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_golden_gate: "cd9291ec597cc0e14dc423523dde71c1f3d65ab9359d92fcaa0d91d9059432d5"
-    sha256 cellar: :any,                 arm64_tahoe:       "28c7fece7d2ea7a8952f747f7d5d2c16f071eb9816f1cb3b052705121993142c"
-    sha256 cellar: :any,                 arm64_sequoia:     "7c5f193a831e4296a73ae06d611be2bcbab357510bfb1110c2a124a7da2f9ff4"
-    sha256 cellar: :any,                 arm64_sonoma:      "37747f7b66d323ef07f18d471b928480a67ad93de8d5f7bdd3418367f1a8eac6"
-    sha256 cellar: :any,                 sonoma:            "7739d54a784eafaa3c7d76a112bbafdd16214e60a58e60bc9a41240d2b981577"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8ef18f97820ef8d630e7bebec7e429a8db87511e7e51e4432d1ec95967afb265"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "cdc5c9b0be11f6047a801b1bcc56e75d3047be1f91ade13965ffdadf077406a6"
+    rebuild 3
+    sha256 cellar: :any, arm64_golden_gate: "e7865a7b30dcc44fd36a2e61259de7cb8d92e1a042ad7ff3ed8928a82b6cb64f"
+    sha256 cellar: :any, arm64_tahoe:       "1df57f91731116a5250d6272718c2095b2f9c652d080448f2290cc7551ef9845"
+    sha256 cellar: :any, arm64_sequoia:     "20101eea95e0f3d9aafdd715a8db02c4651f3a6ee1d7a4a3dc301c40199259ac"
+    sha256 cellar: :any, arm64_linux:       "be5d7b9eb469a3e22caed9a8c381e06332b0a68533bce7ce32e4c61fcdd1e400"
+    sha256 cellar: :any, x86_64_linux:      "1ea34f9a122ceddc0759a51415ff899490cfa458ec9497c6996cf824311fc5f1"
   end
 
   keg_only :versioned_formula
@@ -27,7 +25,7 @@ class LlvmAT19 < Formula
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "zstd"
 
   uses_from_macos "libedit"

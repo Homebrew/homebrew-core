@@ -13,14 +13,18 @@ class KubernetesCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5631eb9a9fbf75037add6275f9a9acf58acbf963fa2b45725dc59f8cd9932546"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "64f0c5b577f582095f4263847a6fd9bc10c7ecf1768e039777a1428b2e13fc40"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1c09f67bcd5823ef6320bd4af45ff1d325b0f75f4cd15970c7a2db8dcf96fc7e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8ce82f771ec0203f9559d068fe5e2f3dac66ae0e68b862e080442e3bb56adee1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f71f9ac3329741d2e228a4b7d19f35caad1fedfc1a47b28e32c41194c7ec2868"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6f29919ed3e6eac28acbef2dfc818ab8b4e5bf0779ed393510ea3e0e96ff870a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8b0f055c752bf016c3c184ad540ebe19de13aa194c6ac7bd9c0f5eede97320b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0300e994f298be4e7b88c698684f88c38f41bd93f04161aeb9692ab4b48bf1fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a63a5406c21b17f43a8166bdf1ef8a5e2e2522260a65efeb021d0a7e129c07a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f9f7668844dbcc5ef1591ad248d9d1ab001d1fe1880593d2e912a22e6c732822"
   end
 
-  depends_on "go" => :build
+  # TODO: unpin go@1.26 when Go 1.27's ML-DSA ClientHello no longer gets reset by TLS middleboxes
+  # Upstream also builds v1.37 with Go 1.26
+  # ref: https://github.com/golang/go/issues/81199
+  depends_on "go@1.26" => :build
 
   on_macos do
     depends_on "bash" => :build

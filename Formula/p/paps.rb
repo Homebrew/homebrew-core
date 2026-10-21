@@ -1,19 +1,16 @@
 class Paps < Formula
   desc "Pango to PostScript converter"
   homepage "https://github.com/dov/paps"
-  url "https://github.com/dov/paps/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "8fd8db04e6f8c5c164806d2c1b5fea6096daf583f83f06d1e4813ea61edc291f"
+  url "https://github.com/dov/paps/archive/refs/tags/v0.8.1.tar.gz"
+  sha256 "603bab59a49a8dd76b2a025919a705d21d44c8e929c72c6ed5e7ad0e87fbc486"
   license "LGPL-2.0-or-later"
-  revision 3
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c62494b8dadb713c19b4ce12625946844f1b34406317643abc84572476ab9c31"
-    sha256 cellar: :any, arm64_tahoe:       "8d95f99591217a56718331ee68a6996b39f059ca4aecfe5d0921a11566d75735"
-    sha256 cellar: :any, arm64_sequoia:     "b26fed1929f8d01dac18fb575c540f386006b2db8ce860288001f1424b3e6baa"
-    sha256 cellar: :any, arm64_sonoma:      "e3679db03c165c79cdbb9a8ceac9fc0df4f3226622590452249e076e38ebe0ff"
-    sha256 cellar: :any, sonoma:            "183b02cb1d125fa77ad0320bd003589aa346d9077d530ab85779916c41503547"
-    sha256               arm64_linux:       "f8bff76dd84fc102e71509567f16a62036320efb8d3fb10240cee22ae5b70d19"
-    sha256               x86_64_linux:      "cf456bd3c1d9da480517bda9f2bf04ca1545c409538e802caba1c11411329029"
+    sha256 cellar: :any, arm64_golden_gate: "5caf704b51a5f4dfa8309f5745cac17aef8c7296f5b5e692eff890f8a7c9e219"
+    sha256 cellar: :any, arm64_tahoe:       "4b57c006cf85f7dcaea18e19b05d8c25b55d4c166b625bf480e35c7af03ee421"
+    sha256 cellar: :any, arm64_sequoia:     "06edd9a9aae62a9eb6de5c9533d888c5960fd2064e6bdeda2c189f4b70826920"
+    sha256 cellar: :any, arm64_linux:       "6924713364576ad033b3f8955ff6abbec70353a1f00d5e8a53deadea0510c916"
+    sha256 cellar: :any, x86_64_linux:      "2f7da263f2626c6f5a02ceed30c918826a1b0b64fb4633e07e1200577c97fe32"
   end
 
   depends_on "meson" => :build
@@ -22,27 +19,11 @@ class Paps < Formula
   depends_on "cairo"
   depends_on "fmt"
   depends_on "glib"
+  depends_on "libpaper"
   depends_on "pango"
 
   on_macos do
     depends_on "gettext"
-  end
-
-  # Apply open PR to fix build with recent `glib`. This restores behavior before
-  # https://gitlab.gnome.org/GNOME/glib/-/commit/c583162cc6d7078ff549c72615617092b0bc150a
-  patch do
-    url "https://github.com/dov/paps/commit/e6ec698be127822661e31f7fca7d2e0107944b24.patch?full_index=1"
-    sha256 "52848f9618dab9bc98c1554cc8a7a0b3ce419cfca53781b909d543ec4e4b27ea"
-    type :backport
-    resolves "https://github.com/dov/paps/pull/71"
-  end
-
-  # Fix compatibility with fmt 12.
-  patch do
-    url "https://github.com/dov/paps/commit/a26a20d7ca3feb08476a8a19fd97c3ececcc1e2e.patch?full_index=1"
-    sha256 "604bc9e60b33162b522d18f251e3436745ca20b39a763202cfc7660423d9a9fe"
-    type :backport
-    resolves "https://github.com/dov/paps/pull/77"
   end
 
   def install

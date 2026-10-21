@@ -1,14 +1,14 @@
 class Baguette < Formula
   desc "Headless iOS Simulator manager and host-side input injection for iOS 26"
   homepage "https://tddworks.github.io/baguette/"
-  url "https://github.com/tddworks/baguette/archive/refs/tags/v0.2.1.tar.gz"
-  sha256 "5a5248c17f68e276af4e98b94665cf6c4735902ef08fe10aedda5b73d3028584"
+  url "https://github.com/tddworks/baguette/archive/refs/tags/v0.2.9.tar.gz"
+  sha256 "04e67b9930deba7a99dc9bcf3ff5d7dadca54bda83ac1bb89c4976bd2dec936a"
   license "Apache-2.0"
   head "https://github.com/tddworks/baguette.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7fbf2d5e834be72914dd8680c4f5340caad0291b338f66b850cad53977e0fa55"
-    sha256 cellar: :any, arm64_tahoe:       "3a354b3097956572353e94d0736774437d9b3e3e4c4412539d37543dbf1fc230"
+    sha256 cellar: :any, arm64_golden_gate: "fa9deb86e7bab98cd7dc68d256aaf5f0c88bcf58dae166f4534eff5103896b63"
+    sha256 cellar: :any, arm64_tahoe:       "1b8b184f6644ad541a97340b4cfe9c3c1f85d9a44fc747b941992fbafb3e2cc6"
   end
 
   depends_on xcode: ["26.0", :build]
@@ -65,7 +65,7 @@ class Baguette < Formula
     libexec.install ".build/release/Baguette_Baguette.bundle"
     bin.install_symlink libexec/"baguette"
 
-    deuniversalize_machos libexec/"Baguette_Baguette.bundle/Contents/Resources/HingeControl/HingeControl"
+    deuniversalize_machos
   end
 
   test do

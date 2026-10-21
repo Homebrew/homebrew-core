@@ -18,8 +18,9 @@ class PythonTkAT311 < Formula
   end
 
   # https://devguide.python.org/versions/#versions
-  deprecate! date: "2027-11-01", because: :deprecated_upstream
-  disable! date: "2028-11-01", because: :deprecated_upstream
+  # https://sourceforge.net/p/tcl/mailman/message/59333692/
+  deprecate! date: "2026-10-04", because: "needs EOL Tcl/Tk 8.6"
+  disable! date: "2028-01-01", because: :deprecated_upstream
 
   depends_on "python@3.11"
   depends_on "tcl-tk@8"

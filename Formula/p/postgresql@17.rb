@@ -4,6 +4,7 @@ class PostgresqlAT17 < Formula
   url "https://ftp.postgresql.org/pub/source/v17.11/postgresql-17.11.tar.bz2"
   sha256 "dd27f2b3c59e73ed14aa3324901242bf69a032a6347805f274e6260322d42979"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -11,13 +12,11 @@ class PostgresqlAT17 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "7c032792aef986f75c62cd76ff9e66ce3b82bf66e1abb680ec65cd361097f69b"
-    sha256 arm64_tahoe:       "1fbc3c17f3da21f29363a6a942aa9db176e5d808d2c39e86f225ee9f665147db"
-    sha256 arm64_sequoia:     "93b3eb9cd4f54f34874ba26d6b7d2e8dfa86d4892a98499c9bb947a7761a2921"
-    sha256 arm64_sonoma:      "508af59730184c810e393b98835fd3ae282bb8298157e6c2d92399d6ea6aaf2b"
-    sha256 sonoma:            "5b13661db39775152cbe1d2825cca3cfc2131284146df13913b935e7e6c1e5fd"
-    sha256 arm64_linux:       "89cc31dba5ee656bae792dae391a3a93d84c59f6d63ef63efe39a84ffa6c7618"
-    sha256 x86_64_linux:      "a11e90525aeacafdb93569fe75a9ccffffb3b6e191e0a6683f8f1e1bcac3ccfa"
+    sha256 arm64_golden_gate: "a5bf59bb6b458d858dbf2b69f83277917cb04404fc5add128f47ffd69d0501e2"
+    sha256 arm64_tahoe:       "725d8636f31c3978d0f71ea8b8d4ca302c514eef2e8c0e416425b7befdc11852"
+    sha256 arm64_sequoia:     "51bd57deaa30e5c529822f9fff8d171fbc5418fc7d08ede4d5d039b2fc4a8116"
+    sha256 arm64_linux:       "8b2d1fd1a2b5c15fccd67b57653280055c94ca08b4652a21e4f0ea0349cb05ba"
+    sha256 x86_64_linux:      "6ba9572109a5171e6f671acf25a188faa32e97b5bca205fc5602d6ca64c70652"
   end
 
   keg_only :versioned_formula
@@ -35,7 +34,7 @@ class PostgresqlAT17 < Formula
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "readline"
   depends_on "zstd"
 
@@ -65,8 +64,8 @@ class PostgresqlAT17 < Formula
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     ENV.runtime_cpu_detection
     ENV.delete "PKG_CONFIG_LIBDIR"
-    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@3")} -L#{formula_opt_lib("readline")}"
-    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("openssl@3")} -I#{formula_opt_include("readline")}"
+    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@4")} -L#{formula_opt_lib("readline")}"
+    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("openssl@4")} -I#{formula_opt_include("readline")}"
 
     # Fix 'libintl.h' file not found for extensions
     # Update config to fix `error: could not find function 'gss_store_cred_into' required for GSSAPI`

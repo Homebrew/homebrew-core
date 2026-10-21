@@ -2,6 +2,7 @@ class Root < Formula
   desc "Analyzing petabytes of data, scientifically"
   homepage "https://root.cern"
   license "LGPL-2.1-or-later"
+  revision 2
   head "https://github.com/root-project/root.git", branch: "master"
 
   stable do
@@ -25,12 +26,11 @@ class Root < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "975710117d8477d5af3dace10fc0d1fec7c599d740ee65bd9b49a16fa5d519f2"
-    sha256 arm64_tahoe:       "94f7b838a7bdee3f23883db98e663ef0b71f55391236768e0a1cf10ed59b8e7b"
-    sha256 arm64_sequoia:     "ae3ec829f8fa27a74261ea9cd4d51de122b72b70504b22bf36f4da500682391a"
-    sha256 arm64_sonoma:      "08f0018a99450e24b3e9bd266cd23fd2b390984c1e33afe12a4d2cc90e51cb18"
-    sha256 arm64_linux:       "3770a1310450cb190cce9b7ac519fe63030c64af91992bc4bc2841b8657659cc"
-    sha256 x86_64_linux:      "1ce144359de1568f340f297ff91068efb1684129b40a6b61c6732f6ffe22ecd4"
+    sha256 arm64_golden_gate: "ee0f291732403b9e9df260f0fe4192dc2912b1eafb41ad545e444056b16bce15"
+    sha256 arm64_tahoe:       "320859c2da9b45e6959027dbd91b1595f256e55e3a021cf3cefdb759e651469c"
+    sha256 arm64_sequoia:     "428d6b679ffa193c5480057067b8cb4586bfb7d51e486a3eae79388ca4513bec"
+    sha256 arm64_linux:       "58db34fe0d49ee29eeacd358b409e31055154089a10e5753de5b8bb552e5d268"
+    sha256 x86_64_linux:      "1db6a3fa33a0b842950e0990feccf3adec6a75588fec96b911e8bf4985c52a40"
   end
 
   depends_on "cmake" => :build
@@ -54,9 +54,9 @@ class Root < Formula
   depends_on "nlohmann-json" => :no_linkage
   depends_on "numpy" # for tmva
   depends_on "openblas"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "sqlite"
   depends_on "tbb"
   depends_on "unuran"

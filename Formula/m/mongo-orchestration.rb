@@ -10,15 +10,16 @@ class MongoOrchestration < Formula
   head "https://github.com/mongodb-labs/mongo-orchestration.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d7df1c44377977d741acad2ccd12c01fe49400ece6d36ce0091a8191d3fd78a0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "626367ed910b291e69fb160cd8a1f5a1e5211edeeeda9f5ffd01a005eb412b98"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "96de464286b9b3b418e060bcd9094b0135ccd2b34b06fbf2468c3a38c60bbeae"
-    sha256 cellar: :any,                 arm64_linux:       "9ef25c6ffba7f9e72f7fb43d02657cd04bf305fbd68e95ea6ac5c61da587e184"
-    sha256 cellar: :any,                 x86_64_linux:      "b0caf75946a7792342184a885c9f731cc0fac6b032e3c64a1c86869d5f8614b4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "628ab3461e36cda43ad6e6ace11e454bf6fc87f5abc18a5d7a2f361094048544"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e949614c70a455ad0450eb085732bd18faf3c6b5b54d62c2cced53a0f694bd76"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1991f904527563263feb834c2b8d01c7e93074ccd04b1cddeb3bd4af2fab5350"
+    sha256 cellar: :any,                 arm64_linux:       "c28acf964d4c7e42b5a2b242bb8500b4be7b99e59abacec89f8dbc4710a10028"
+    sha256 cellar: :any,                 x86_64_linux:      "4e498139cb7d2154afa9301946f22773f9d1ed3c8f93e718de7abd6aacd61066"
   end
 
   depends_on "certifi" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 

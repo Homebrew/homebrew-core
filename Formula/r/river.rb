@@ -7,19 +7,18 @@ class River < Formula
   head "https://github.com/memorysafety/river.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "b896b62e95e6f88c62316934c0da8103750b83c555292d183356ecbc660db4c4"
-    sha256 cellar: :any, arm64_tahoe:       "65ca2b30775f9a010cd7a2fc8408581a596295de3ebc12a5060451a949f6499f"
-    sha256 cellar: :any, arm64_sequoia:     "390f6ec9178f51e8b0998a05676eec457da45c894c1175c16f98fdac88c979ce"
-    sha256 cellar: :any, arm64_sonoma:      "e034913a46c445d4c1e63c34b5479ac4601e37dc4af3ac2931ffe226f597fac0"
-    sha256 cellar: :any, arm64_linux:       "1d166f0942c670c915542ce1dd7ccb17ec6fff21a61caed0825cecbc94bfaa2a"
-    sha256 cellar: :any, x86_64_linux:      "7f89656a962554f6248a9ae9850b8ebb6ae87209b20e2b5e563c268efc76d439"
+    rebuild 2
+    sha256 cellar: :any, arm64_golden_gate: "ae1e3320e450302e6beb74cdb0e318341c2a7951a11f3a4795ccef36407ecfe6"
+    sha256 cellar: :any, arm64_tahoe:       "ddb809719d4724d1456b74877c9a54aabf7f62facb52872b92233326133a41e1"
+    sha256 cellar: :any, arm64_sequoia:     "c4816a178a1648664702bb58d7c0dedc738eb0c2029fa23e39409e4d7f073d59"
+    sha256 cellar: :any, arm64_linux:       "51d48149065e9379799a7bd55a3be05fc8d60362128011a4ceee584ece0ac342"
+    sha256 cellar: :any, x86_64_linux:      "edc1e10ce97a4de7c702ebceff1be80d3cfdbbebf650e3d5ecdf1bb2d76d5574"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   # `pandora-web-server` moved off GitHub, so the pinned git dependency 404s
   patch do
@@ -29,6 +28,9 @@ class River < Formula
     resolves "https://github.com/memorysafety/river/pull/92"
   end
 
+  # Update to openssl-sys 0.9.114 for minimum needed to use OpenSSL 4
+  patch :DATA
+
   deny_network_access!
 
   def fetch
@@ -37,7 +39,7 @@ class River < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     system "cargo", "install", *std_cargo_args(path: "source/river")
   end
@@ -55,11 +57,41 @@ class River < Formula
     system bin/"river", "--validate-configs", "--config-toml", testpath/"example-config.toml"
 
     [
-      formula_opt_lib("openssl@3")/shared_library("libssl"),
-      formula_opt_lib("openssl@3")/shared_library("libcrypto"),
+      formula_opt_lib("openssl@4")/shared_library("libssl"),
+      formula_opt_lib("openssl@4")/shared_library("libcrypto"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"river", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end
 end
+
+__END__
+diff --git a/Cargo.lock b/Cargo.lock
+index 7057f43..08fc409 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1229,9 +1229,9 @@ checksum = "3fdb12b2476b595f9358c5161aa467c2438859caa136dec86c26fdd2efe17b92"
+ 
+ [[package]]
+ name = "openssl"
+-version = "0.10.66"
++version = "0.10.78"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "9529f4786b70a3e8c61e11179af17ab6188ad8d0ded78c5529441ed39d4bd9c1"
++checksum = "f38c4372413cdaaf3cc79dd92d29d7d9f5ab09b51b10dded508fb90bb70b9222"
+ dependencies = [
+  "bitflags 2.5.0",
+  "cfg-if",
+@@ -1270,9 +1270,9 @@ dependencies = [
+ 
+ [[package]]
+ name = "openssl-sys"
+-version = "0.9.103"
++version = "0.9.114"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "7f9e8deee91df40a943c71b917e5874b951d32a802526c85721ce3b776c929d6"
++checksum = "13ce1245cd07fcc4cfdb438f7507b0c7e4f3849a69fd84d52374c66d83741bb6"
+ dependencies = [
+  "cc",
+  "libc",

@@ -9,17 +9,18 @@ class Gitingest < Formula
   revision 9
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "92162e9ec3dadd4b61339b07c70c3d38b9dcd42a69ff132009a55f4e73f63ffa"
-    sha256 cellar: :any, arm64_tahoe:       "68e970a83d016b09ed9733f4d52f1520ce8a8a5fc9fdfab4c6ea7c878af589f4"
-    sha256 cellar: :any, arm64_sequoia:     "a3d99c796a0389ce5505f72cf49bdaa7c0f1cd9fda199ba19a16ed49c081e3d7"
-    sha256 cellar: :any, arm64_linux:       "f867ab7198c0acda8d2667a3589ba7c652d97280b9630ae80df6c9861ae5b95c"
-    sha256 cellar: :any, x86_64_linux:      "93d1b6622ce5ede2bdcd7bb6c92dea853480c5addfe49a1ef2082f6dbb21f2da"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "e42812f54fe3a3ebd6645054110519c57e9f9b10f620e74392a9dd4ebbad6a57"
+    sha256 cellar: :any, arm64_tahoe:       "994d1e1fa5c0ad8fe0b52aab3c17e3d82acb70c8ca9ac82ae965f6896b54e7e5"
+    sha256 cellar: :any, arm64_sequoia:     "aeb43be6de61e8f4edc3d184d8b1bf98ac3029dca8c7112f68ed499e7dabd2a9"
+    sha256 cellar: :any, arm64_linux:       "1ac9ae0b71397befc088d54b242622a339b66af1ad1c9a6589907424667f923f"
+    sha256 cellar: :any, x86_64_linux:      "f2fa104dc7ebddd3d2abdd092ad660d6313dac56bbaa407e81eddb916a6fd625"
   end
 
   depends_on "rust" => :build # for tiktoken
   depends_on "certifi" => :no_linkage
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: ["certifi", "pydantic"]
 
@@ -29,8 +30,8 @@ class Gitingest < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "click" do
@@ -69,13 +70,13 @@ class Gitingest < Formula
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/6a/53/ed9d74092561d4b01a2ef1349d52cdbc135e526c245f366b089cfca6de49/python_dotenv-1.2.3.tar.gz"
-    sha256 "a20a594dabeaa385725aa239d5244871c143ecb356add8a20fcf23773a6c3a35"
+    url "https://files.pythonhosted.org/packages/74/26/2fbeedb218a787a5eea551c7532cac4e009f83d689dd2faa0d0353473f86/python_dotenv-1.2.4.tar.gz"
+    sha256 "f0d53e69935a851c0dcc78f3ab7aaccd8cabef0b92382b576b824212902873c0"
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/b9/5c/f403115361de25809e8f785686ec7096e30fef73be9ae35aa51da4e80abb/regex-2026.9.10.tar.gz"
-    sha256 "1e321e2c84f0e52c457f5ea5944f796d6e8e09cb99738ea98dcc1bfe402a128d"
+    url "https://files.pythonhosted.org/packages/fc/f2/af1da9d3ceed77bfcdce40427d49ba0be94e4fe84245e3bfef68c10e75b6/regex-2026.9.29.tar.gz"
+    sha256 "8b5fcc4771732191b2b7d1dd68d8f0353f47f8d90b6150f6dce58bf1112442cb"
   end
 
   resource "requests" do
@@ -84,8 +85,8 @@ class Gitingest < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/b5/b4/205b0d5241d934e8add0c38aa924c4f9fb7330834ff11e5444db964ec3f9/starlette-1.6.0.tar.gz"
-    sha256 "d4e3ac5e546444960c710297a3c9fc3f7ebae1b7e963f3d36173b49da535be9b"
+    url "https://files.pythonhosted.org/packages/7b/2b/3850dc6bf7ef71b088962eba31dafc6cffd2f96e577ebb0bb316df96da3e/starlette-1.7.0.tar.gz"
+    sha256 "c79f74ea63cff761804fbbfb182f1e0b440c2d07b164d24700c5a1bab5d6ff5d"
   end
 
   resource "tiktoken" do

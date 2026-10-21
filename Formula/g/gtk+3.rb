@@ -4,6 +4,7 @@ class Gtkx3 < Formula
   url "https://download.gnome.org/sources/gtk/3.24/gtk-3.24.52.tar.xz"
   sha256 "80931fa472a77b9a164f6740e3c0b444fac6770054632d35a7ff9d679e5e7b9f"
   license "LGPL-2.0-or-later"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -12,12 +13,11 @@ class Gtkx3 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "846fdb9b039227c2f1a69709dad0390b3fb371f0eb29b84545214b8337e50eed"
-    sha256 arm64_tahoe:       "876a6859aa6618e476e0aa530918a686aa4a802e5fef602626ccd0ee5c545ea7"
-    sha256 arm64_sequoia:     "6ee9037312d555abef508aa0dbbb1c8dd4f3e6565245266d298c4ed1a6efa67e"
-    sha256 arm64_linux:       "0a180c47d631b683c752411f0fdaebde43dc8ecf1062c35365eaed41e05ba0fd"
-    sha256 x86_64_linux:      "5396f5547b354dd8448e30603aa177e5b9424c95425673dce4098c198a52648f"
+    sha256 arm64_golden_gate: "a999458cf54e8d440673da8f4c110481081b775b8258aaf7b47561792bdf9802"
+    sha256 arm64_tahoe:       "cfb433ae2b1ac08ef423491c7236861c7b25c31743bd1de899b103e7f9cb1a05"
+    sha256 arm64_sequoia:     "1e73c5fefdf1c6395fd3398eafbb484a70fc0059750973ced3c8b3ac9eb7bd01"
+    sha256 arm64_linux:       "d57c67a20ba76eafd8977be29bafd0f4c678177a66b361bf382d65f17a4df4a3"
+    sha256 x86_64_linux:      "513e03c1af12eb60337b6b840e37f0315af8c5b62b9f43dae5a5c2e7499d90d7"
   end
 
   depends_on "docbook" => :build
@@ -61,6 +61,26 @@ class Gtkx3 < Formula
     depends_on "wayland"
     depends_on "wayland-protocols"
     depends_on "xorgproto"
+  end
+
+  # Fix macOS focus regression introduced in GTK 3.24.52:
+  # New dialogs do not receive focus on macOS.
+  # Remove for GTK 3.24.53 or later.
+  patch do
+    url "https://github.com/GNOME/gtk/commit/f80b61d6c8d6de0ce80c29052590c359a7f4b465.patch?full_index=1"
+    sha256 "5f9e57e0824e35fdf78c3c388e084a840909c0d4c760e7fec69d99b2326a37fd"
+    type :backport
+    resolves "https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/9951"
+  end
+
+  # Fix macOS focus regression introduced in GTK 3.24.52:
+  # Closed dialogs do not restore parent focus on macOS.
+  # Remove for GTK 3.24.53 or later.
+  patch do
+    url "https://github.com/GNOME/gtk/commit/9667dc9166513ba0e99043920cf80562f8a8b926.patch?full_index=1"
+    sha256 "3fc4ea96f8be403233421953da572744e4806d76cc2b1ec2d18af79ddc7f8030"
+    type :backport
+    resolves "https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/10037"
   end
 
   def install

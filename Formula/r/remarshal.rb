@@ -9,16 +9,15 @@ class Remarshal < Formula
   head "https://github.com/remarshal-project/remarshal.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "afb76efd55f8ce5c5c50d3ed9eb0863c741f159a08cac79e93582be91a486812"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c7c84287f2315b534728121437eee283e2af1a04e49e2fb959320bb920d395de"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9c0ba21996cb4d714193dca86c9f73316f5c39451f4aca90ca877830d0704364"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "78a6b00c4ed321b4238560371fc574ebc1915f27b7c8b168d044255d6ac723d1"
-    sha256 cellar: :any_skip_relocation, sonoma:            "ed395fa36d5f5ea3ed7bd4193b6b7ac8aee25063eb58170e5f717e0a10302811"
-    sha256 cellar: :any,                 arm64_linux:       "cb238cae65a309c17c65d24a20bd86fef8a1d74b1d8825004e212efa51d4db4a"
-    sha256 cellar: :any,                 x86_64_linux:      "e2ec990791f0aecc0b6f0774b64fc91f5d1f669fa10425feba271ccb441ef9c6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0b6c25d2667bd00593415155fa5a8a80ddc22b4ebfacefc870dd448ed9219698"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c27c6585ced0c8ba2d95be74405e5b8dfbd98fa94931a0e9e6727717e0cb82ac"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1f4122c3ddc738739c1f62a834bb9e8ea4db8d5e60f1f3a1aceaca9b67903102"
+    sha256 cellar: :any,                 arm64_linux:       "2d89bf9164c508b1bb8847355735fb63f21b488ceb09e2cf5f6921897cdb947a"
+    sha256 cellar: :any,                 x86_64_linux:      "68366c4cbeab6c302cd31706c72953624361642eeb564d78cd2ea7798c7ce50b"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   conflicts_with "msgpack-tools", because: "both install 'json2msgpack' binary"
   conflicts_with "toml2json", because: "both install `toml2json` binaries"
@@ -50,8 +49,8 @@ class Remarshal < Formula
   end
 
   resource "tomli" do
-    url "https://files.pythonhosted.org/packages/22/de/48c59722572767841493b26183a0d1cc411d54fd759c5607c4590b6563a6/tomli-2.4.1.tar.gz"
-    sha256 "7c7e1a961a0b2f2472c1ac5b69affa0ae1132c39adcb67aba98568702b9cc23f"
+    url "https://files.pythonhosted.org/packages/b0/78/9ad63712633ed3ab5cc1a648d863d7e7da371e9425e209555a0fe711b695/tomli-2.5.0.tar.gz"
+    sha256 "264507556cd8b8c8e7c6ee037cdf443a463f03f4c958e57195e3d369711b8ff6"
   end
 
   resource "tomlkit" do

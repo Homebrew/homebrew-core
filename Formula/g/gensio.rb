@@ -4,14 +4,15 @@ class Gensio < Formula
   url "https://github.com/cminyard/gensio/releases/download/v3.0.4/gensio-3.0.4.tar.gz"
   sha256 "e28c24fc5d9f3cb90005bc008fec8bb8eedce503753024ab650bed0ac250cbe3"
   license all_of: ["LGPL-2.1-only", "GPL-2.0-only", "Apache-2.0"]
-  revision 1
+  revision 2
 
   bottle do
-    sha256 arm64_golden_gate: "8c2ba861113f75f7b2ffa0d9dca95c069e94ba5b68dcc1f196a49544813cb57a"
-    sha256 arm64_tahoe:       "ccd0bbeb4530bfd31ae10d83a82b7e8830bceb92669f2b5157bb0c937709bfa6"
-    sha256 arm64_sequoia:     "1d851c3835480381a9309d0dc01202707c0db65e6053435504597316e7552b1a"
-    sha256 arm64_linux:       "16893875cf024bc3d09404553189c95cce4a2a86558859c11bdce3ec00ee40a3"
-    sha256 x86_64_linux:      "0bdcd8c010da9475fca47a651ee98bd8ace93ca1e1b8c31982dacfd180d575c7"
+    rebuild 1
+    sha256 arm64_golden_gate: "060ca9f89e9d2deaf99e760862a2126681eb6ec47442b36ddf32a5b35312583f"
+    sha256 arm64_tahoe:       "a5c3a8ab7365409caf6f4dcff3502026bf14e282d9481632a41e8f39895515d7"
+    sha256 arm64_sequoia:     "b564a7a57d9f33c88a38986d60946fcf615f86b2d574179e4e497f9a8f07f40d"
+    sha256 arm64_linux:       "9f2bb6bb84500d9e09b0bdfcd35b19ade960da515cb8c7ae79424e7e89654c89"
+    sha256 x86_64_linux:      "bbd5f2a8eca323b5f842a7c2fa0ee925b441f50787daa146783d4a5aaea69492"
   end
 
   depends_on "go" => :build
@@ -19,8 +20,8 @@ class Gensio < Formula
   depends_on "swig" => :build
 
   depends_on "glib"
-  depends_on "openssl@3"
-  depends_on "python@3.14"
+  depends_on "openssl@4"
+  depends_on "python@3.15"
   depends_on "tcl-tk"
 
   on_macos do

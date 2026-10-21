@@ -10,15 +10,16 @@ class Ford < Formula
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c07f49e919ea4453a192dccdd296fe2e79aef89cb3f0cc65ce01238997fb973a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "829f8b1395209686c4c5ad0363cf48483dbca2bedb95a47e8963b7d1e46bb2ce"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a9a8a946ae175b2e52c1706c9a1ab6a39bea693bc29fe80f1ed3fbfc4bbccc4a"
-    sha256 cellar: :any,                 arm64_linux:       "204a2b236418df3fe200e756f7436d85d7932881711e36a3f003276f3196e2e5"
-    sha256 cellar: :any,                 x86_64_linux:      "703a8cfe96de40b8a124185d617a960811316ca15a2f44f531c23d64043c59b5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "95a62faabfbea8f46fcf815798d8957e02f71cd85e1b256745bfa8e580e4c3c7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3061d762054d1666c30e5e0b590e0697ac91b2846efda0db599cba044a3cf52b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c06cadef2364a7f7bc293d4fbfae52a76f08eeda7c36a821a375022bbe5e3670"
+    sha256 cellar: :any,                 arm64_linux:       "ddde2d52432e8900fac2c00926215a1417bee80e1867c44424b288f230d09fb0"
+    sha256 cellar: :any,                 x86_64_linux:      "ac83aa744e9a42bad5be6d8bbd7c997e64ffb939fbdb7715218df268a36ae05b"
   end
 
   depends_on "graphviz"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/43/65/318323f98dbee45d42dff61d8f047181bc6f2268a9068cfad035a46be5af/beautifulsoup4-4.15.0.tar.gz"
@@ -51,8 +52,8 @@ class Ford < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "mdurl" do
@@ -81,8 +82,8 @@ class Ford < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/69/99/a6ca3beb3ccacb41fb3321d8a60e5566f9e6467601ef8eba6a17e1b89778/soupsieve-2.9.2.tar.gz"
-    sha256 "4a55d8cf158a9c2e587fa4922f1bbb91d68ac829e2d6f25403a85747c71daf74"
+    url "https://files.pythonhosted.org/packages/71/c3/1b817965ac12dc002d7c9cd7dfffdd7d4fbf9b45763ef2ffe7b86ee94670/soupsieve-2.10.tar.gz"
+    sha256 "49e9380d7d2905463583bafe285e818c7366a9ed7b3aee221c1ac79c905d8bc0"
   end
 
   resource "toposort" do

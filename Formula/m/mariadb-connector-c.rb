@@ -2,10 +2,11 @@ class MariadbConnectorC < Formula
   desc "MariaDB database connector for C applications"
   homepage "https://mariadb.org/download/?tab=connector&prod=connector-c"
   # TODO: Remove backward compatibility library symlinks on breaking version bump
-  url "https://archive.mariadb.org/connector-c-3.4.9/mariadb-connector-c-3.4.9-src.tar.gz"
-  mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.4.9-src.tar.gz/"
-  sha256 "a84bba97e59b6a322637a189964d4fd72bd8d92f2d22a9f8d6a5f0657c821e97"
+  url "https://archive.mariadb.org/connector-c-3.4.11/mariadb-connector-c-3.4.11-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.4.11-src.tar.gz/"
+  sha256 "521c0712e9291fa96558df9e2ff431376a3a79329f13751896b694cae12765b4"
   license "LGPL-2.1-or-later"
+  revision 1
   compatibility_version 1
   head "https://github.com/mariadb-corporation/mariadb-connector-c.git", branch: "3.4"
 
@@ -25,19 +26,17 @@ class MariadbConnectorC < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "b174f327eefad305ebee1c4d0a096af647e609b40f17b8ec8f61317b4337df0c"
-    sha256 arm64_tahoe:       "45d46ce8efcd4090429cc070975f7d93a87204d9bc466caaa040dadcfb59595f"
-    sha256 arm64_sequoia:     "9c081cecb6d0929f1ccd9c0d22a8ab66bbc211ecb1fe2f4193d9f4b6927979b2"
-    sha256 arm64_sonoma:      "d5d8b435dc880722432a7a1518e095233c638ff1a7a22399a08f9791d901896f"
-    sha256 sonoma:            "75ba826c6f9ae85bab7646e590071dea4cdd977a56704dd8cc90f6873648b1ab"
-    sha256 arm64_linux:       "5fe111f3b848bae6b6a3a9894d49da74bb04c1e85719b2e9f3369995c36d38a2"
-    sha256 x86_64_linux:      "d9c0927b765ea810e1ed4525154dc78a93eca791e85c3e8cd72195334225e6b0"
+    sha256 arm64_golden_gate: "ddf397ca3f6fc16c8a0e2e07327de560a767712afdd3e95e0b08cde122580347"
+    sha256 arm64_tahoe:       "87595e0874db22f73ce3851878ef6a1b1c245329483ab62bfea941192effefaf"
+    sha256 arm64_sequoia:     "17f850c2acfc88296813e47293805498c8138f9bc1bb2d8818602619445cf674"
+    sha256 arm64_linux:       "bd5e3301918492e473d4210569792505e8e22b47c7df86e7883a3edd209fe4ff"
+    sha256 x86_64_linux:      "8589a8b0b96508903ecb3f5b95cbc6a59353a9d1c80a1b9274ba5dc8b1adb450"
   end
 
   keg_only "it conflicts with mariadb"
 
   depends_on "cmake" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   uses_from_macos "curl"

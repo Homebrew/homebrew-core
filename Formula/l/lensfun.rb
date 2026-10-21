@@ -22,21 +22,19 @@ class Lensfun < Formula
   end
 
   bottle do
-    rebuild 5
-    sha256 arm64_golden_gate: "fe795f88f4de7350d91a74cf955ff275f8c718358a0abe675b0542ccf842a04b"
-    sha256 arm64_tahoe:       "c04d1179c9ddb6a6c56495d942509d502478de5654631709c5d1cba41fb1d1df"
-    sha256 arm64_sequoia:     "b9d366691c96aa2e9cc86df636e8fa62e4016712a97b865bf976c86f3c3a8be9"
-    sha256 arm64_sonoma:      "e339238c789ba00a0742a0878b534d646d447e9581ad6556317fe52e33462b72"
-    sha256 sonoma:            "3cc01d582abd35c7071dc57e600d076c9e7db789793dde489e751f383279140d"
-    sha256 arm64_linux:       "8431034a807c782f9b8da3ce8b3c0d482e61ae4557d596cac35b31ddbf2f9c0d"
-    sha256 x86_64_linux:      "85581789aef7eea988ee657559321b555bce95b962a6298156fd6d1ac2453cf1"
+    rebuild 6
+    sha256 arm64_golden_gate: "0eaadc8c9a75308798d97b360663065c3b3d639a69f814459f6b95794d56a77e"
+    sha256 arm64_tahoe:       "e973bb3a6d390dd73ad7b80aab57c8addb8dac68adfcefe4a37f91879ad8f56c"
+    sha256 arm64_sequoia:     "994558434781a12b6bcb8a0c93aa4e92401ac2e189b00485b753f9c924acd463"
+    sha256 arm64_linux:       "e70c6ac65c2a23d3d28e4b84ed0f0b316a853c777e09c13d0d7c26f65a58cb6a"
+    sha256 x86_64_linux:      "db72b77fe5653b5c41df162c573e49057ef38a5dae6d1a6c4721e1b0ce0a3e39"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "glib"
   depends_on "libpng"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_macos do
     depends_on "gettext"

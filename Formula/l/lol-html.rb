@@ -20,6 +20,14 @@ class LolHtml < Formula
   depends_on "rust" => :build
   depends_on "pkgconf" => :test
 
+  deny_network_access!
+
+  def fetch
+    cd "c-api" do
+      system "cargo", "fetch", *std_cargo_fetch_args
+    end
+  end
+
   def install
     system "cargo", "cinstall", "--jobs", ENV.make_jobs.to_s, "--release", "--locked",
                     "--manifest-path", "c-api/Cargo.toml",

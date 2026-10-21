@@ -4,22 +4,20 @@ class Prjtrellis < Formula
   url "https://github.com/YosysHQ/prjtrellis/archive/refs/tags/1.4.tar.gz"
   sha256 "46fe9d98676953e0cccf1d6332755d217a0861e420f1a12dabfda74d81ccc147"
   license all_of: ["ISC", "MIT"]
-  revision 9
+  revision 10
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "6318d66c0f8df7b7e0eeef98c5871864cd15108536add68805ffeba8b81b8be4"
-    sha256 cellar: :any, arm64_tahoe:       "b5704b0c94159ae307faa175a626884f5c0c5b93be34ab3f6fff1cd7c6420485"
-    sha256 cellar: :any, arm64_sequoia:     "5799ecac5726e00270a710bc20b274523c3cfb25f7c2a5dac778f8d1746b29f9"
-    sha256 cellar: :any, arm64_sonoma:      "add7029f8281e3069b852b98230a8e557a8e455c0ce90448b7e52697175ab2ba"
-    sha256 cellar: :any, sonoma:            "499f952b070fdd2235958873a574e48421521fdaeaf9055fd7fd0b9d3be5c38f"
-    sha256 cellar: :any, arm64_linux:       "8e409cbd38a73add5003dea5bca10f086ef24a721fc0a7e0c8cdeb36d9051828"
-    sha256 cellar: :any, x86_64_linux:      "cb8ca6b45e91e48bc1a09e4e496392fe2102c47eb9f119aa326b917302116ab8"
+    sha256 cellar: :any, arm64_golden_gate: "6430f4541d908c19834b67477da8d756230469e040d0b66d5ebfaf4a90c30bc3"
+    sha256 cellar: :any, arm64_tahoe:       "57266af60eccbcdad436dbd72412e267fca9694936a0cf039e2a6d88e879f673"
+    sha256 cellar: :any, arm64_sequoia:     "a431c3b257ba19d73d658611309c74b3a83189a9d44478f3168fd0be3ac7a88c"
+    sha256 cellar: :any, arm64_linux:       "bc230beabaf50eed71be3f6f5f152e0f7c41c805f608af9e8342916ec8ecd3b7"
+    sha256 cellar: :any, x86_64_linux:      "b0f8c2c083a4fb6ebfc23ed1c93918436af4917f6d0af9a9c5ee7e755250047e"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "boost-python3"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "prjtrellis-db" do
     url "https://github.com/YosysHQ/prjtrellis/releases/download/1.4/prjtrellis-db-1.4.zip"
@@ -28,6 +26,11 @@ class Prjtrellis < Formula
     livecheck do
       formula :parent
     end
+  end
+
+  resource "homeebrew-ecp-config", :test do
+    url "https://www.trabucayre.com/blink.config"
+    sha256 "394d71ba416517cceee5135b853dd1e94f99b07d5e9a809760618fa820d32619"
   end
 
   # Fix build with Boost 1.89.0
@@ -50,11 +53,6 @@ class Prjtrellis < Formula
   end
 
   test do
-    resource "homeebrew-ecp-config" do
-      url "https://www.trabucayre.com/blink.config"
-      sha256 "394d71ba416517cceee5135b853dd1e94f99b07d5e9a809760618fa820d32619"
-    end
-
     testpath.install resource("homeebrew-ecp-config")
 
     system bin/"ecppack", testpath/"blink.config", testpath/"blink.bit"

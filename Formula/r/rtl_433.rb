@@ -4,23 +4,27 @@ class Rtl433 < Formula
   url "https://github.com/merbanan/rtl_433/archive/refs/tags/25.12.tar.gz"
   sha256 "d283ec7a41a02d398e8918b20b65df3bf684cf4478371830662004005dadcdd2"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/merbanan/rtl_433.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "d250fa25da6f2b4b207010ec05742c22a01461ae41bcaff6bd25989166bb1714"
-    sha256 cellar: :any,                 arm64_tahoe:       "22b43f0eb2c9899189e3c33d8bf75164d21b7165a7f31abad2067553df8a7a0f"
-    sha256 cellar: :any,                 arm64_sequoia:     "c7d29dd8afb14227875759650c7ec1166462b452d9aa3f9749a354c050267d71"
-    sha256 cellar: :any,                 arm64_sonoma:      "b426f76e5b9664a781f6e80fa2fbfbb2178226343f10a635b1f78381759d1069"
-    sha256 cellar: :any,                 sonoma:            "922beeb4abc104f5e5b653ff83fca1412006b1debbab210a3013454f1e70fcbc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "dba0bb785442b49492e69176003117025384dbea6e71e782c0138fdcde6abcfe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e4871e6bb7ec1b56935a8f99accef274a29bc2f90c9b2e7f54d06de9f1197073"
+    sha256 cellar: :any, arm64_golden_gate: "cb63d1d4051c9c289f24a7f5c3484101836207eb2bceb5f28501682b8ff5bbc8"
+    sha256 cellar: :any, arm64_tahoe:       "60d880ae9575f44dc53d72ca05f666863b2dc87853ba74b14d4105dc3d56b1bc"
+    sha256 cellar: :any, arm64_sequoia:     "8b80046bfd0a6375b3a13e6955fed7c8acadd67e56a5a9c790ca634b0aaffb3d"
+    sha256 cellar: :any, arm64_linux:       "20749caddb277e63d473978de1839f542cd40bc3ee4f4f2156f535894a39dc19"
+    sha256 cellar: :any, x86_64_linux:      "a8987509422dc19f9cb1389816d3ddc8699af63c8864f3f2c4416ef0a38bec6d"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "librtlsdr"
   depends_on "libusb"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
+
+  resource "homebrew-test_cu8", :test do
+    url "https://raw.githubusercontent.com/merbanan/rtl_433_tests/038234077f4d8b9022759430da1154d2c3631344/tests/oregon_scientific/uvr128/g001_433.92M_250k.cu8"
+    sha256 "7aa07b72cec9926f463410cda6056eb2411ac9e76006ba4917a0527492c5f65d"
+  end
 
   # Test needs to download resources
   allow_network_access! :test
@@ -32,10 +36,6 @@ class Rtl433 < Formula
   end
 
   test do
-    resource "homebrew-test_cu8" do
-      url "https://raw.githubusercontent.com/merbanan/rtl_433_tests/038234077f4d8b9022759430da1154d2c3631344/tests/oregon_scientific/uvr128/g001_433.92M_250k.cu8"
-      sha256 "7aa07b72cec9926f463410cda6056eb2411ac9e76006ba4917a0527492c5f65d"
-    end
     testpath.install resource("homebrew-test_cu8")
 
     # Check following if test fails on new release

@@ -1,17 +1,17 @@
 class DerAscii < Formula
   desc "Reversible DER and BER pretty-printer"
   homepage "https://github.com/google/der-ascii"
-  url "https://github.com/google/der-ascii/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "4335ed4f0229d0452e6a8793ce25d45d3fe633ff388f08cfba422d50a009a005"
+  url "https://github.com/google/der-ascii/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "15e7268f6ac03617080751be9208df04a6d431d86c72c4ae5d8334e01b03c4a7"
   license "Apache-2.0"
   head "https://github.com/google/der-ascii.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c26d32eff2a2323d6c7a5b05fef68e6b1801885b94aa085f87fedaad8237ffeb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c26d32eff2a2323d6c7a5b05fef68e6b1801885b94aa085f87fedaad8237ffeb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c26d32eff2a2323d6c7a5b05fef68e6b1801885b94aa085f87fedaad8237ffeb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9a8681211a16239baec5b8f3b968041389dc2dcc1558d1c7b3fbe95b076f1d95"
-    sha256 cellar: :any,                 x86_64_linux:      "197939e5f08db8c574335146e29d969a0de4ac4fd6d6c7f724d377ccf32cd28a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fae19ef6e6b9ba686dba87022f687be7e7a3aff81586d57a1fa08f89a752b3fb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fae19ef6e6b9ba686dba87022f687be7e7a3aff81586d57a1fa08f89a752b3fb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fae19ef6e6b9ba686dba87022f687be7e7a3aff81586d57a1fa08f89a752b3fb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a18063794b78599ac1b0a1c65dbfa24068970bd4cc73c53207547a791ad1275d"
+    sha256 cellar: :any,                 x86_64_linux:      "8bcd0fc7e7d02e888601b4a7131903183bb567f20773de829c78b083b28bb8eb"
   end
 
   depends_on "go" => :build

@@ -7,15 +7,12 @@ class Duckscript < Formula
   head "https://github.com/sagiegurari/duckscript.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bd7f1f9c1cb21914756dc0add0fcd2c1d5729d1ce3ee727f9f1b377f58c06ea0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "511837c8de4a2edc3cec770ac4a5d732767cf3074755cb58cb14b359be3647a2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5582ec1f3830f0ba37bd1562663c64df16dec7249edea7abf44b8d4a4283e912"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "6d23b3da8b2b44581e7f0dfe911f8e1edd43279a88aded7ea8d5e025d35972ab"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "f462e56f82dcf7e2a30276ba5b9f43f310ee9de6c1143fc7da8d481cc195a436"
-    sha256 cellar: :any_skip_relocation, sonoma:            "0821ca6f519677e8504aeb4307b2f9c2fbfa6a7423eff300e2a8da4e6aae966a"
-    sha256 cellar: :any_skip_relocation, ventura:           "8dd3fca5e3317481cd6d2e8c0d4d83b66de311179eec5fd7fb04a43e14bd3ebc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ea5de2c68d6c5afabb1ebfd8b0551911c627bad105f050d87f489a295c04eb98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5235e7033e0a8ed818f198f52df387bd1d82422000c9a32297b7265df247ac36"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "85dff50620212b1131a69adc0c3d049d3f104b0a5f1d893736412aee39dea451"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fac39965b287a7a902b514a7aa9c1e735925914521e5b477001a74fc8353db50"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "88738c2f2440ce279be8dc4a4be77af2358d214a74f809fb7b3bff6672d56cc9"
+    sha256 cellar: :any,                 arm64_linux:       "8c96048f672a0902dd41db269145519b9fb084d1600c5e3ff376e86056a9b25e"
+    sha256 cellar: :any,                 x86_64_linux:      "7ed735f2fa7cad3adfbdf80e812ab2c987fbb7f08588cac11d16f36803d13339"
   end
 
   depends_on "pkgconf" => :build
@@ -24,13 +21,29 @@ class Duckscript < Formula
   uses_from_macos "bzip2"
 
   on_linux do
-    depends_on "openssl@3" # Uses Secure Transport on macOS
+    depends_on "openssl@4" # Uses Secure Transport on macOS
   end
 
   conflicts_with "duck", because: "both install `duck` binaries"
 
+  deny_network_access!
+
+  def fetch
+    # Update to openssl 0.10.78 and openssl-sys 0.9.114 for minimum needed to use OpenSSL 4
+    if build.stable?
+      openssl_sys_version = File.read("Cargo.lock")[/name = "openssl-sys"\nversion = "(\d+(?:\.\d+)+)/i, 1]
+      odie "Remove `cargo update` workaround!" if Version.new("0.9.114") <= openssl_sys_version
+    end
+    system "cargo", "update", "openssl-sys", "--precise", "0.9.114"
+    system "cargo", "update", "openssl", "--precise", "0.10.78"
+
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
-    system "cargo", "install", *std_cargo_args(path: "duckscript_cli", features: "tls-native")
+    # Replace tls-rustls with tls-native
+    features = "tls-native"
+    system "cargo", "install", "--no-default-features", *std_cargo_args(path: "duckscript_cli", features:)
   end
 
   test do

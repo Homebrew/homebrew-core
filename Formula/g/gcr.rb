@@ -49,6 +49,11 @@ class Gcr < Formula
     depends_on "systemd"
   end
 
+  resource "der-certificate.crt", :test do
+    url "https://gitlab.gnome.org/GNOME/gcr/-/raw/9019498dfef15efec4d12eee8becc55781062a30/gcr/fixtures/der-certificate.crt"
+    sha256 "bc23f98a313cb92de3bbfc3a5a9f4461ac39494c4ae15a9e9df131e99b73019a"
+  end
+
   def install
     # Disabled GTK4 which is only for gcr-viewer-gtk4 tool
     system "meson", "setup", "build", "-Dgtk4=false", "-Dgtk_doc=false", *std_meson_args
@@ -57,10 +62,6 @@ class Gcr < Formula
   end
 
   test do
-    resource "der-certificate.crt" do
-      url "https://gitlab.gnome.org/GNOME/gcr/-/raw/9019498dfef15efec4d12eee8becc55781062a30/gcr/fixtures/der-certificate.crt"
-      sha256 "bc23f98a313cb92de3bbfc3a5a9f4461ac39494c4ae15a9e9df131e99b73019a"
-    end
     testpath.install resource("der-certificate.crt")
 
     # https://gitlab.gnome.org/GNOME/gcr/-/blob/main/gcr/test-simple-certificate.c

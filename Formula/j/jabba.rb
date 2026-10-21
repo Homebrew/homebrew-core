@@ -19,6 +19,13 @@ class Jabba < Formula
 
   depends_on "go" => :build
 
+  # `test do` block downloads and installs a JDK
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ENV["JABBA_GET"] = "false"
     inreplace "Makefile", " bash install.sh", " bash install.sh --skip-rc"

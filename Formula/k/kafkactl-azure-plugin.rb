@@ -20,6 +20,12 @@ class KafkactlAzurePlugin < Formula
   depends_on "go" => :build
   depends_on "kafkactl"
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download", "-C", "azure"
+  end
+
   def install
     Dir.chdir("azure") do
       ldflags = %W[
@@ -50,7 +56,7 @@ class KafkactlAzurePlugin < Formula
 
     ENV["KAFKA_CTL_PLUGIN_PATHS"] = bin
 
-    kafkactl = formula_opt_bin("kafkactl")
+    kafkactl = formula_opt_bin("kafkactl")/"kafkactl"
     output = shell_output("#{kafkactl} -C #{config_file} get topics -V 2>&1", 1)
     assert_match "kafkactl-azure-plugin: plugin initialized", output
   end

@@ -7,20 +7,28 @@ class Tuisky < Formula
   head "https://github.com/sugyan/tuisky.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eca6fa71d48fdea0ab4bc8ef2d554bdbb5a236378e194d4bf4586fa7ac3b8495"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a8b87016d190d22809fa5ad344ba07bb51ab1415daa6c7a5383a975418758f3f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "34cadf2a53e4ad9b8c7057064126b390dfe8ae0a9814b99535cbba1b2864ad94"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "01d1a226400db44d379a0b0788652f6f6d7cd7f2a0e99d0e0d685c0ddbf74dad"
-    sha256 cellar: :any_skip_relocation, sonoma:            "2df26c17c036d72fd1eb39fc6d05b2b9a3735671e7a803a6c6b973d58dd17afd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9d923309cc7912539965ab0a69fb053de1d62f8f151db39467eb5188468e177d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "55cf2a6eb4e49aeca71cd2b534c71159278a4c0c254075b58eb8cb7e7347f03b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8016522e174aafd3ef5b3e07acf13f40a4527b59a46d5ea61bcacb778da17694"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "04e8e26ee06f440a31135e5f4992e8687acdbc3a94f5e00212ca2fb3e767bbea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6eab316d240901713ea4ad33331423d6c77e131cb26f46821b081572656658e2"
+    sha256 cellar: :any,                 arm64_linux:       "aacedb1a58d66e750d016ac73a28d84e5cbe010325ce720e1f7634f65a22300e"
+    sha256 cellar: :any,                 x86_64_linux:      "b6c49ba8f7579781e7c7d692ccbd81e7e54dbe4d621919a99036626ae410cc8e"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
+  end
+
+  # Update to openssl 0.10.78 and openssl-sys 0.9.114 for minimum needed to use OpenSSL 4
+  patch :DATA
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install
@@ -49,3 +57,33 @@ class Tuisky < Formula
     end
   end
 end
+
+__END__
+diff --git a/Cargo.lock b/Cargo.lock
+index c03de05..a0f161e 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1325,9 +1325,9 @@ dependencies = [
+ 
+ [[package]]
+ name = "openssl"
+-version = "0.10.66"
++version = "0.10.78"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "9529f4786b70a3e8c61e11179af17ab6188ad8d0ded78c5529441ed39d4bd9c1"
++checksum = "f38c4372413cdaaf3cc79dd92d29d7d9f5ab09b51b10dded508fb90bb70b9222"
+ dependencies = [
+  "bitflags 2.6.0",
+  "cfg-if",
+@@ -1357,9 +1357,9 @@ checksum = "ff011a302c396a5197692431fc1948019154afc178baf7d8e37367442a4601cf"
+ 
+ [[package]]
+ name = "openssl-sys"
+-version = "0.9.103"
++version = "0.9.114"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "7f9e8deee91df40a943c71b917e5874b951d32a802526c85721ce3b776c929d6"
++checksum = "13ce1245cd07fcc4cfdb438f7507b0c7e4f3849a69fd84d52374c66d83741bb6"
+ dependencies = [
+  "cc",
+  "libc",

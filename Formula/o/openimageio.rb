@@ -1,8 +1,8 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "https://openimageio.readthedocs.io/en/stable/"
-  url "https://github.com/AcademySoftwareFoundation/OpenImageIO/archive/refs/tags/v3.2.1.1.tar.gz"
-  sha256 "3a959f90e80b866580e77c1c8577d12e54c8988264941eb5bbb1f3a7221020f0"
+  url "https://github.com/AcademySoftwareFoundation/OpenImageIO/archive/refs/tags/v3.2.1.2.tar.gz"
+  sha256 "3f4ccfbd9ef40098bcc81bbdcd7f9d4ed97724bb2f4de92daf2310885704404e"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/AcademySoftwareFoundation/OpenImageIO.git", branch: "main"
@@ -14,11 +14,12 @@ class Openimageio < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c7f7f1756205baf9dcc96f919c08a389674b850b506d5b80eb52015033431f14"
-    sha256 cellar: :any, arm64_tahoe:       "deca7e165179625cd539d1bba3bd200b2690befe6f1957cee714886f5e8fe194"
-    sha256 cellar: :any, arm64_sequoia:     "99b3143b0652733360f68f3978580de2c0fa1eb7c4a02db68800458fce69177c"
-    sha256 cellar: :any, arm64_linux:       "7b450b1d03d3fc13cfaffc822faddfb8780c33be0c10948e06ae3fc505c9aea2"
-    sha256 cellar: :any, x86_64_linux:      "3538a0f4b60338ce36128a9d4497eb0d75c5210343f4292da4bb82a8d76df288"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "170b8bccfae05640eb521bc9ef1f7fce0a45c369e340bc6cd238d215a40e35dc"
+    sha256 cellar: :any, arm64_tahoe:       "3ef214bb3c628e696d87da1b627dd33ccf2a4f6f98e531556df1c02f8078c302"
+    sha256 cellar: :any, arm64_sequoia:     "6c765ca9a95dfa52a4d8209d8111b1494eb5d7c9426ed2f9a7e5d8d07485cc1b"
+    sha256 cellar: :any, arm64_linux:       "4c099044b421994e62c22affcf4f6dd1f2b044b049f1978d9a7e07f52cde7610"
+    sha256 cellar: :any, x86_64_linux:      "cfe197704ce271fc3495f6d3c5b68519aaa22bb97bc7c65d78958c85a65b9391"
   end
 
   depends_on "cmake" => :build
@@ -39,7 +40,7 @@ class Openimageio < Formula
   depends_on "opencolorio"
   depends_on "openexr"
   depends_on "pugixml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "tbb"
   depends_on "webp"
   depends_on "zlib-ng-compat"

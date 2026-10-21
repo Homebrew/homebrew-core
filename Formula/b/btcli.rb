@@ -6,15 +6,14 @@ class Btcli < Formula
   url "https://files.pythonhosted.org/packages/58/5f/fd9ede99e419ec618d5b6e6136b62a94840bd45be3af8bb0ded5f45cfbb4/bittensor_cli-9.23.2.tar.gz"
   sha256 "0770e70cd756328093f32556561faa548a8ea357ddc5726918b9422068d2a25d"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f6f3c7f916915220750ebad0dee09a29eaa371f9f09b038eb7d56951f4cb9a86"
-    sha256 cellar: :any, arm64_tahoe:       "cd66ced85caa927fc232ba3a42fd3207823b194a89d7cc467941b41e8c242040"
-    sha256 cellar: :any, arm64_sequoia:     "27f15b2b825b3b2fa9439421752904b283d6ce1bb7c77bf300a5f3706a3740e9"
-    sha256 cellar: :any, arm64_sonoma:      "e36967d257272c1354b845eaf51254cc924a679c960101086ecf4a10cb1d9de9"
-    sha256 cellar: :any, sonoma:            "610ad3d89f8c20fcd311ac6a602d34ab3001f4061d8b82d148d965dbbde01b35"
-    sha256 cellar: :any, arm64_linux:       "2103af4d0efd7fef4a1eabf429a2018a683d840eaa0db906516ef5dda07769e6"
-    sha256 cellar: :any, x86_64_linux:      "ce5a5e1273092385254bbdd077740282045952647236287c01676028af77d6e8"
+    sha256 cellar: :any, arm64_golden_gate: "3b9219a0107cd35cbbefb8ba9f39d3e9f4c1bffb24a0836a2e4c70f32112db69"
+    sha256 cellar: :any, arm64_tahoe:       "cc37d9f43d902462a470e2e7967955abca730048e4d21be0eac33f47c59cd952"
+    sha256 cellar: :any, arm64_sequoia:     "dd990a2d34914b57b16fac362d77b40455e2e40e004779e027c13c0cb7e92bd3"
+    sha256 cellar: :any, arm64_linux:       "a26f9f6d873202f4e2a20a193e59e808197eb1e3759f63fea3381ff15046ea8e"
+    sha256 cellar: :any, x86_64_linux:      "0a8ada53299d2c5bac6ed075da570391433e358b8cff9711c9174955ed8f7d91"
   end
 
   deprecate! date: "2026-07-19", because: :repo_removed, replacement_formula: "bittensor"
@@ -25,7 +24,7 @@ class Btcli < Formula
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
   depends_on "numpy"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "python@3.14"
   depends_on "xxhash"
 
@@ -76,6 +75,9 @@ class Btcli < Formula
   resource "bittensor-wallet" do
     url "https://files.pythonhosted.org/packages/a0/30/7eb06cfd5d901d2cd3760a8b85d66c7b84f96f03d6d0402b306fdf8b6a2d/bittensor_wallet-4.1.0.tar.gz"
     sha256 "f0f34641a4b9110def9e35fe22498195fcb31d143dc4f76dd9022db374ccd484"
+
+    # https://github.com/RaoFoundation/btwallet/commit/bbbef4a9484679f17fb63ed1ae121b8d7995e170
+    patch :DATA
   end
 
   resource "cyscale" do
@@ -204,8 +206,7 @@ class Btcli < Formula
   end
 
   def install
-    ENV.O0
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
     ENV["XXHASH_LINK_SO"] = "1"
     virtualenv_install_with_resources
 
@@ -213,7 +214,6 @@ class Btcli < Formula
   end
 
   test do
-    require "json"
     wallet_path = testpath/"btcli-brew-test"
     test_wallet_name = "brew-test"
     ss58_address = "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty"
@@ -275,3 +275,39 @@ class Btcli < Formula
     assert_equal expected_balance, parsed_balance
   end
 end
+
+__END__
+diff --git a/Cargo.lock b/Cargo.lock
+index ad3b0e31b7dca17ef69945ebc425c54fd7cbdfc6..1f1926a2827453a0953e05c3d5229001b93e853a 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1552,15 +1552,14 @@ checksum = "c08d65885ee38876c4f86fa503fb49d7b507c2b62552df7c70b2fce627e06381"
+ 
+ [[package]]
+ name = "openssl"
+-version = "0.10.66"
++version = "0.10.80"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "9529f4786b70a3e8c61e11179af17ab6188ad8d0ded78c5529441ed39d4bd9c1"
++checksum = "a45fa2aa886c42762255da344f0a0d313e254066c46aad76f300c3d3da62d967"
+ dependencies = [
+  "bitflags 2.6.0",
+  "cfg-if",
+  "foreign-types",
+  "libc",
+- "once_cell",
+  "openssl-macros",
+  "openssl-sys",
+ ]
+@@ -1587,9 +1586,9 @@ dependencies = [
+ 
+ [[package]]
+ name = "openssl-sys"
+-version = "0.9.103"
++version = "0.9.116"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "7f9e8deee91df40a943c71b917e5874b951d32a802526c85721ce3b776c929d6"
++checksum = "f28a22dc7140cda5f096e5e7724a6962ca81a7f8bfd2979f9b18c11af56318c4"
+ dependencies = [
+  "cc",
+  "libc",

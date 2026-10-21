@@ -8,11 +8,11 @@ class CmakeLint < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "37812acbfd761cf26c9e8f96c3a71a89d458b3e8973f3a9d5b97eb9757236871"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "ed77dd4088e262aed589c7e9cf52306935289dfe836d9d1e6f434ab3cdacb3e5"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     virtualenv_install_with_resources

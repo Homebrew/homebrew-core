@@ -4,18 +4,16 @@ class VapoursynthImwri < Formula
   url "https://github.com/vapoursynth/vs-imwri/archive/refs/tags/R2.tar.gz"
   sha256 "f4d2965d32877005d0709bd8339828f951885a0cb51e0c006d123ede0b74307b"
   license "LGPL-2.1-or-later"
-  revision 4
+  revision 5
   version_scheme 1
   head "https://github.com/vapoursynth/vs-imwri.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4b9d972dcd25455da67ee6943762418ea9928d38b2b64e6b51a9434b7c308237"
-    sha256 cellar: :any, arm64_tahoe:       "741d14cb00892c51017db89d9d6282bc27d819cf515f1d438021329a8c953daa"
-    sha256 cellar: :any, arm64_sequoia:     "15772647abe3ac7014dd7c172df5bab501c2fd2d77fea844c1a73cae83e41163"
-    sha256 cellar: :any, arm64_sonoma:      "af27a43d46f0b920914e63a0c0c869e33ccad92ceadd6d163ac7d7fb787d5ede"
-    sha256 cellar: :any, sonoma:            "82a3b82baf9bcef234ff74ce531066bc00822cfb15ae9b2731c10c5acf64cb7f"
-    sha256               arm64_linux:       "a6f007ebff290fde0639f18e84209257904caa71ab3b2c637917afef351077be"
-    sha256               x86_64_linux:      "06b8af0cd92ae0c33c058575712a7f4cc37767962ebf3423a25bf20d2a0db6fd"
+    sha256 cellar: :any, arm64_golden_gate: "eed007ba02299a42baa81ec18ea8d7feda1998b2df09c85e3e9a3717b02f8e12"
+    sha256 cellar: :any, arm64_tahoe:       "a141604500909e5f8c965268cd7a6eb9967e9cd465f9ece4ba523b23cff6cbe9"
+    sha256 cellar: :any, arm64_sequoia:     "d2b655610e5974403466d19621c54f5300e292cbc3d623708c5e9749d9c42a53"
+    sha256 cellar: :any, arm64_linux:       "cabea6a36b04f5065e0debd88e041ddeb9476da6fb4114b935a81fdcb88f73f2"
+    sha256 cellar: :any, x86_64_linux:      "5fa5d17370a37adcf9229b2f7308513a28f17cd8eac768f0f35abf6dbd4a20ea"
   end
 
   # "This repository was archived by the owner on Apr 9, 2026"
@@ -28,7 +26,7 @@ class VapoursynthImwri < Formula
 
   depends_on "imagemagick"
   depends_on "libheif"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "vapoursynth"
 
   on_macos do

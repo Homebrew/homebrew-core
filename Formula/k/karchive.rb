@@ -1,8 +1,8 @@
 class Karchive < Formula
   desc "Reading, creating, and manipulating file archives"
   homepage "https://api.kde.org/karchive-index.html"
-  url "https://download.kde.org/stable/frameworks/6.30/karchive-6.30.0.tar.xz"
-  sha256 "4cf89d91e429d2ece3110e78f7ef7011952b0412cb15011329516b46f21e98e2"
+  url "https://download.kde.org/stable/frameworks/6.31/karchive-6.31.0.tar.xz"
+  sha256 "95acaf5a459593184104e1c157cef415ec59a33e71674186169e0df33cdacaac"
   license all_of: [
     "BSD-2-Clause",
     "LGPL-2.0-only",
@@ -17,12 +17,11 @@ class Karchive < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7fb7963ee37c3876f012072af1ab5a11e88bf22f7778ba6b8fb37dd4250a02b4"
-    sha256 cellar: :any, arm64_tahoe:       "fa237b5d0ba712ace0efe493567fbd632cf376822c1346913b07fd6b40d3050c"
-    sha256 cellar: :any, arm64_sequoia:     "7cb60121e1a6ce869372767228c55135747a0abee8e4d6bbcbc310496069968a"
-    sha256 cellar: :any, arm64_sonoma:      "e770c16597749715154be7f1cc6e3a85f8a8034403c406f50530d2c6c473b639"
-    sha256 cellar: :any, arm64_linux:       "931893232f12273a4a9ee502b4fbac478736de5e0dba544ea11502f334224d66"
-    sha256 cellar: :any, x86_64_linux:      "4dbeba4ac4e94d835c43722d4919f7b446557b8c0fefa268659237712a671a62"
+    sha256 cellar: :any, arm64_golden_gate: "0e48e08e5c88476a4118c58da94ee1c4996b0ddb9388f495dabd403f8a232b44"
+    sha256 cellar: :any, arm64_tahoe:       "55527fdf81fe83a1fa8e872420e4ff4a829a83c0bab86cf3d2cc1c7296accaa0"
+    sha256 cellar: :any, arm64_sequoia:     "79b14a405384f8d6ed4161c6beb8f0d28e5fbad43814f76bd06c324421f3b5e7"
+    sha256 cellar: :any, arm64_linux:       "739005b07dc8f1e7ed138021b948590a08a6cadc56af7c068c7070fce37b7a24"
+    sha256 cellar: :any, x86_64_linux:      "497be836e817e825900f0c3c23343ecf7eacbbacd8c2f13d9bac705a55d1f51c"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -30,7 +29,7 @@ class Karchive < Formula
   depends_on "extra-cmake-modules" => [:build, :test]
   depends_on "pkgconf" => :build
   depends_on "qttools" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "qtbase"
   depends_on "xz"
   depends_on "zstd"

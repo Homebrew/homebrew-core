@@ -2,8 +2,8 @@ class Flagd < Formula
   desc "Feature flag daemon with a Unix philosophy"
   homepage "https://flagd.dev"
   url "https://github.com/open-feature/flagd.git",
-      tag:      "flagd/v0.17.0",
-      revision: "b3e07c9c40489a7060ebc5c7aaf42b3cbd1deb4c"
+      tag:      "flagd/v0.18.0",
+      revision: "ac826d8e9cf3f5b14ad56f6e9eeeb981f45321eb"
   license "Apache-2.0"
   head "https://github.com/open-feature/flagd.git", branch: "main"
 
@@ -18,24 +18,31 @@ class Flagd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0f288054b3ec9679d88d37c86629a350795ee949f9dad60cc9152ccef197bcb0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "455003dd129f9644b76f0043278ba5b62e08529db35a0115e28c775b49a99b49"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7e57a1ebe22b45da0dd9af93aca415d09a1fad8d9cd5c891bd284e439732d492"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d7cdce824e0ee5c2f291a6635f1c72a8fcdc099cd214a0ef5f0cb08d90157430"
-    sha256 cellar: :any,                 x86_64_linux:      "9edd894dbcec1aa74f91a6618ebb439306115758cbe5234a06b3c8080d8532af"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "aa0fb6abc969f468e0f79a98650d39a4ab964faadcc8f4595ebefda24118abd9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "87eb57f28ea733496dc9ed639f99c186ed45fff1610d71322da404770ffd7861"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "31809e2d2332529bfc1ffd94e0df49f4732688eea4aa767abe1103db2b69a69d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "66ad38d7d1e4a53418fb6459c0f6c20d2dbd5a98c19abc5bc39564fb5e7fbb04"
+    sha256 cellar: :any,                 x86_64_linux:      "023eda1410d7568ed4ec881878a865affac08e2d092c761a3e585578b742bdf2"
   end
 
   depends_on "go" => :build
 
-  def install
+  # `test do` block runs a local flagd server with flags from a remote URL
+  allow_network_access! :test
+
+  def fetch
     ENV["GOPRIVATE"] = "buf.build/gen/go"
+    system "make", "workspace-init"
+    system "go", "mod", "download"
+  end
+
+  def install
     ldflags = %W[
       -X main.version=#{version}
       -X main.commit=#{Utils.git_head}
       -X main.date=#{time.iso8601}
     ]
 
-    system "make", "workspace-init"
     system "go", "build", *std_go_args(ldflags:), "./flagd/main.go"
     generate_completions_from_executable(bin/"flagd", shell_parameter_format: :cobra)
   end

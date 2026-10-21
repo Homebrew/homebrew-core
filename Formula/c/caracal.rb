@@ -22,6 +22,17 @@ class Caracal < Formula
 
   depends_on "rust" => :build
 
+  resource "corelib" do
+    url "https://github.com/starkware-libs/cairo/archive/refs/tags/v2.5.0.tar.gz"
+    sha256 "0c21b58bc7ae2e8a6d47acedc4d20f30a41957deb6e24f8adaf31183112f8a4d"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
 
@@ -30,11 +41,6 @@ class Caracal < Formula
   end
 
   test do
-    resource "corelib" do
-      url "https://github.com/starkware-libs/cairo/archive/refs/tags/v2.5.0.tar.gz"
-      sha256 "0c21b58bc7ae2e8a6d47acedc4d20f30a41957deb6e24f8adaf31183112f8a4d"
-    end
-
     resource("corelib").stage do
       assert_match("controlled-library-call Impact: High Confidence: Medium",
                    shell_output("#{bin}/caracal detect #{pkgshare}/detectors/controlled_library_call.cairo " \

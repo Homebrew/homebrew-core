@@ -86,7 +86,8 @@ class Ddd < Formula
       # Since it is tricky to test window/XQuartz on CI, just check no crash.
       assert_equal "Test", shell_output("#{bin}/ddd --perl --nw -e \"print 'Test'\"")
     else
-      assert_match testpath.to_s, pipe_output("#{bin}/ddd --gdb --nw true 2>&1", "pwd\nquit")
+      # Avoid `pwd` and loading a program as gdb cannot find its working directory in the Linux sandbox
+      assert_match "$1 = 42", pipe_output("#{bin}/ddd --gdb --nw 2>&1", "print 6*7\nquit")
     end
   end
 end

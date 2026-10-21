@@ -1,10 +1,10 @@
 class Zbar < Formula
   desc "Suite of barcodes-reading tools"
   homepage "https://linuxtv.org/downloads/zbar/"
-  url "https://linuxtv.org/downloads/zbar/zbar-0.23.93.tar.bz2"
-  sha256 "83be8f85fc7c288fd91f98d52fc55db7eedbddcf10a83d9221d7034636683fa0"
+  url "https://linuxtv.org/downloads/zbar/zbar-0.23.95.tar.gz"
+  sha256 "7b0907a3114503e0a8fbd1c6bfdb61592e6ded79f68716d7ca673ddeb6a87e99"
   license "LGPL-2.1-only"
-  revision 4
+  head "https://github.com/mchehab/zbar.git", branch: "master"
 
   livecheck do
     url :homepage
@@ -12,30 +12,23 @@ class Zbar < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "3f0948f78c993d1315173d6cb2c764011a1be3d272b3bae0aa56946e68171647"
-    sha256 arm64_tahoe:       "b4deb14c35eead04e9aba7f9f8bf990e8adb3987efd2f721c8a600bcb8c91ba1"
-    sha256 arm64_sequoia:     "1dc038ef320116fc0189292e46e6b1849df3caf33c45e53e2861a804c9a8986f"
-    sha256 arm64_sonoma:      "427a79a4f97bdf6e67de3feb529981a962e26b11003ddcc8ee7b4b0fd530d52b"
-    sha256 sonoma:            "69272a54a24e5899c18a2f1eb6d631528fcc12ffe29f0170d8d9b984aa7f6f81"
-    sha256 arm64_linux:       "0f702ac6c4a6c3fce3fc6cfaa596b7d80b7858dce5e67e7a39205c893f2bf09e"
-    sha256 x86_64_linux:      "9bd3a7733de4b5c4b15d7a1b8de0450a2176bcea9b995a0203f31cb8d5d3b722"
+    sha256 arm64_golden_gate: "132f6bdf33f253a14d4d49e44105a53169559aaebdc10025c158eefcb78f713a"
+    sha256 arm64_tahoe:       "9e4d77a11224eb74d0f3d8cbce1d4ecebe060530a8d93f42b4e33675d18a12c1"
+    sha256 arm64_sequoia:     "a98b49716c7fa998cf58003f1cd31fd7d1a8345cf8bf8f9958fdce10e56cfcbe"
+    sha256 arm64_linux:       "562b4bcff0f99072f99fc88c0d49784c6fe49f2178d40c171ae563f0ba260bce"
+    sha256 x86_64_linux:      "34596c45dc26eb4cae6e6d50e6f8ebf8eb8e7292cc8619b0b6274a075495904b"
   end
 
-  head do
-    url "https://github.com/mchehab/zbar.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gettext" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "gettext" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "xmlto" => :build
 
   depends_on "imagemagick"
   depends_on "jpeg-turbo"
+
+  uses_from_macos "python"
 
   on_macos do
     depends_on "fontconfig"
@@ -52,33 +45,26 @@ class Zbar < Formula
     depends_on "dbus"
   end
 
-  # Fix pointer wrap-around UB that SIGSEGVs zbarimg on images taller than 1px with newer Clang.
-  patch do
-    url "https://github.com/mchehab/zbar/commit/3fa414aa82375648635281924904557cbe4d2d83.patch?full_index=1"
-    sha256 "580ba483ea402dfbd9c5ea5f7459e6f531f4b61a644eddb74196d31552e2926c"
-    type :unofficial
-    resolves "https://github.com/mchehab/zbar/pull/299"
-  end
-
   deny_network_access!
 
   def install
-    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+    args = %w[
+      -Dvideo=false
+      -Djava=disabled
+      -Dqt=false
+      -Dgtk=no
+      -Dx11=disabled
+    ]
 
     # zbar uses gettext but upstream only links libintl on Windows, and the
     # newer macOS linker no longer resolves it transitively. Link it explicitly.
     ENV.append "LDFLAGS", "-lintl" if OS.mac?
 
-    system "autoreconf", "--force", "--install", "--verbose" if build.head?
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
-    system "./configure", "--disable-silent-rules",
-                          "--disable-video",
-                          "--without-python",
-                          "--without-qt",
-                          "--without-gtk",
-                          "--without-x",
-                          *std_configure_args
-    system "make", "install"
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
 
     pkgshare.install "examples/qr-code.png"
   end

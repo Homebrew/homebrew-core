@@ -1,0 +1,248 @@
+diff --git a/plugins/sslutils.c b/plugins/sslutils.c
+index 9151f722a..baf7c65ae 100644
+--- a/plugins/sslutils.c
++++ b/plugins/sslutils.c
+@@ -47,6 +47,33 @@ int np_net_ssl_init_with_hostname_and_version(int sd, char *host_name, int versi
+ 	return np_net_ssl_init_with_hostname_version_and_cert(sd, host_name, version, NULL, NULL);
+ }
+ 
++#	ifdef MOPL_USE_OPENSSL
++int np_net_asn1_time_to_time_t(const ASN1_TIME *asn1_time, time_t *out) {
++	struct tm tm = {};
++	if (!ASN1_TIME_to_tm(asn1_time, &tm)) {
++		return 0;
++	}
++	*out = timegm(&tm);
++	if (*out == (time_t)-1) {
++		return 0;
++	}
++	return 1;
++}
++
++void np_net_format_timestamp(time_t t, char *buf, size_t buflen) {
++	char *tz = getenv("TZ");
++	setenv("TZ", "GMT", 1);
++	tzset();
++	strftime(buf, buflen, "%c %z", localtime(&t));
++	if (tz) {
++		setenv("TZ", tz, 1);
++	} else {
++		unsetenv("TZ");
++	}
++	tzset();
++}
++#endif /* MOPL_USE_OPENSSL */
++
+ int np_net_ssl_init_with_hostname_version_and_cert(int sd, char *host_name, int version, char *cert,
+ 												   char *privkey) {
+ 	long options = 0;
+@@ -213,55 +240,16 @@ mp_state_enum np_net_ssl_check_certificate(X509 *certificate, int days_till_exp_
+ 	}
+ 
+ 	/* Retrieve timestamp of certificate */
+-	ASN1_STRING *tm = X509_get_notAfter(certificate);
+-
+-	int offset = 0;
+-	struct tm stamp = {};
+-	/* Generate tm structure to process timestamp */
+-	if (tm->type == V_ASN1_UTCTIME) {
+-		if (tm->length < 10) {
+-			printf("%s\n", _("CRITICAL - Wrong time format in certificate."));
+-			return STATE_CRITICAL;
+-		}
+-		stamp.tm_year = (tm->data[0] - '0') * 10 + (tm->data[1] - '0');
+-		if (stamp.tm_year < 50) {
+-			stamp.tm_year += 100;
+-		}
+-		offset = 0;
+-
+-	} else {
+-		if (tm->length < 12) {
+-			printf("%s\n", _("CRITICAL - Wrong time format in certificate."));
+-			return STATE_CRITICAL;
+-		}
+-		stamp.tm_year = (tm->data[0] - '0') * 1000 + (tm->data[1] - '0') * 100 +
+-						(tm->data[2] - '0') * 10 + (tm->data[3] - '0');
+-		stamp.tm_year -= 1900;
+-		offset = 2;
++	const ASN1_TIME *asn1_not_after = X509_get_notAfter(certificate);
++	time_t expiry_time;
++	if (!np_net_asn1_time_to_time_t(asn1_not_after, &expiry_time)) {
++		printf("%s\n", _("CRITICAL - Wrong time format in certificate."));
++		return STATE_CRITICAL;
+ 	}
+-	stamp.tm_mon = (tm->data[2 + offset] - '0') * 10 + (tm->data[3 + offset] - '0') - 1;
+-	stamp.tm_mday = (tm->data[4 + offset] - '0') * 10 + (tm->data[5 + offset] - '0');
+-	stamp.tm_hour = (tm->data[6 + offset] - '0') * 10 + (tm->data[7 + offset] - '0');
+-	stamp.tm_min = (tm->data[8 + offset] - '0') * 10 + (tm->data[9 + offset] - '0');
+-	stamp.tm_sec = (tm->data[10 + offset] - '0') * 10 + (tm->data[11 + offset] - '0');
+-	stamp.tm_isdst = -1;
+-
+-	time_t tm_t = timegm(&stamp);
+-	float time_left = difftime(tm_t, time(NULL));
++	float time_left = difftime(expiry_time, time(NULL));
+ 	int days_left = time_left / 86400;
+-	char *tz = getenv("TZ");
+-	setenv("TZ", "GMT", 1);
+-	tzset();
+-
+ 	char timestamp[50] = "";
+-	strftime(timestamp, 50, "%c %z", localtime(&tm_t));
+-	if (tz) {
+-		setenv("TZ", tz, 1);
+-	} else {
+-		unsetenv("TZ");
+-	}
+-
+-	tzset();
++	np_net_format_timestamp(expiry_time, timestamp, sizeof(timestamp));
+ 
+ 	int time_remaining;
+ 	mp_state_enum status = STATE_UNKNOWN;
+@@ -341,66 +329,15 @@ retrieve_expiration_time_result np_net_ssl_get_cert_expiration(X509 *certificate
+ 	}
+ 
+ 	/* Retrieve timestamp of certificate */
+-	ASN1_STRING *expiration_timestamp = X509_get_notAfter(certificate);
+-
+-	int offset = 0;
+-	struct tm stamp = {};
+-	/* Generate tm structure to process timestamp */
+-	if (expiration_timestamp->type == V_ASN1_UTCTIME) {
+-		if (expiration_timestamp->length < 10) {
+-			result.errors = WRONG_TIME_FORMAT_IN_CERTIFICATE;
+-			return result;
+-		}
+-
+-		stamp.tm_year =
+-			(expiration_timestamp->data[0] - '0') * 10 + (expiration_timestamp->data[1] - '0');
+-		if (stamp.tm_year < 50) {
+-			stamp.tm_year += 100;
+-		}
+-		offset = 0;
+-	} else {
+-		if (expiration_timestamp->length < 12) {
+-			result.errors = WRONG_TIME_FORMAT_IN_CERTIFICATE;
+-			return result;
+-		}
+-
+-		stamp.tm_year = (expiration_timestamp->data[0] - '0') * 1000 +
+-						(expiration_timestamp->data[1] - '0') * 100 +
+-						(expiration_timestamp->data[2] - '0') * 10 +
+-						(expiration_timestamp->data[3] - '0');
+-		stamp.tm_year -= 1900;
+-		offset = 2;
++	const ASN1_TIME *asn1_not_after = X509_get_notAfter(certificate);
++	time_t expiry_time;
++	if (!np_net_asn1_time_to_time_t(asn1_not_after, &expiry_time)) {
++		result.errors = WRONG_TIME_FORMAT_IN_CERTIFICATE;
++		return result;
+ 	}
+-	stamp.tm_mon = (expiration_timestamp->data[2 + offset] - '0') * 10 +
+-				   (expiration_timestamp->data[3 + offset] - '0') - 1;
+-	stamp.tm_mday = (expiration_timestamp->data[4 + offset] - '0') * 10 +
+-					(expiration_timestamp->data[5 + offset] - '0');
+-	stamp.tm_hour = (expiration_timestamp->data[6 + offset] - '0') * 10 +
+-					(expiration_timestamp->data[7 + offset] - '0');
+-	stamp.tm_min = (expiration_timestamp->data[8 + offset] - '0') * 10 +
+-				   (expiration_timestamp->data[9 + offset] - '0');
+-	stamp.tm_sec = (expiration_timestamp->data[10 + offset] - '0') * 10 +
+-				   (expiration_timestamp->data[11 + offset] - '0');
+-	stamp.tm_isdst = -1;
+-
+-	time_t tm_t = timegm(&stamp);
+-	double time_left = difftime(tm_t, time(NULL));
++	double time_left = difftime(expiry_time, time(NULL));
+ 	result.remaining_seconds = time_left;
+ 
+-	char *timezone = getenv("TZ");
+-	setenv("TZ", "GMT", 1);
+-	tzset();
+-
+-	char timestamp[50] = "";
+-	strftime(timestamp, 50, "%c %z", localtime(&tm_t));
+-	if (timezone) {
+-		setenv("TZ", timezone, 1);
+-	} else {
+-		unsetenv("TZ");
+-	}
+-
+-	tzset();
+-
+ 	X509_free(certificate);
+ 
+ 	return result;
+@@ -482,65 +419,17 @@ mp_subcheck mp_net_ssl_check_certificate(X509 *certificate, int days_till_exp_wa
+ 	}
+ 
+ 	/* Retrieve timestamp of certificate */
+-	ASN1_STRING *expiry_timestamp = X509_get_notAfter(certificate);
+-
+-	int offset = 0;
+-	struct tm stamp = {};
+-	/* Generate tm structure to process timestamp */
+-	if (expiry_timestamp->type == V_ASN1_UTCTIME) {
+-		if (expiry_timestamp->length < 10) {
+-			xasprintf(&sc_cert.output, _("Wrong time format in certificate"));
+-			sc_cert = mp_set_subcheck_state(sc_cert, STATE_CRITICAL);
+-			return sc_cert;
+-		}
+-
+-		stamp.tm_year = (expiry_timestamp->data[0] - '0') * 10 + (expiry_timestamp->data[1] - '0');
+-		if (stamp.tm_year < 50) {
+-			stamp.tm_year += 100;
+-		}
+-
+-		offset = 0;
+-	} else {
+-		if (expiry_timestamp->length < 12) {
+-			xasprintf(&sc_cert.output, _("Wrong time format in certificate"));
+-			sc_cert = mp_set_subcheck_state(sc_cert, STATE_CRITICAL);
+-			return sc_cert;
+-		}
+-		stamp.tm_year = (expiry_timestamp->data[0] - '0') * 1000 +
+-						(expiry_timestamp->data[1] - '0') * 100 +
+-						(expiry_timestamp->data[2] - '0') * 10 + (expiry_timestamp->data[3] - '0');
+-		stamp.tm_year -= 1900;
+-		offset = 2;
++	const ASN1_TIME *asn1_not_after = X509_get_notAfter(certificate);
++	time_t expiry_time;
++	if (!np_net_asn1_time_to_time_t(asn1_not_after, &expiry_time)) {
++		xasprintf(&sc_cert.output, _("Wrong time format in certificate"));
++		sc_cert = mp_set_subcheck_state(sc_cert, STATE_CRITICAL);
++		return sc_cert;
+ 	}
+-
+-	stamp.tm_mon = (expiry_timestamp->data[2 + offset] - '0') * 10 +
+-				   (expiry_timestamp->data[3 + offset] - '0') - 1;
+-	stamp.tm_mday = (expiry_timestamp->data[4 + offset] - '0') * 10 +
+-					(expiry_timestamp->data[5 + offset] - '0');
+-	stamp.tm_hour = (expiry_timestamp->data[6 + offset] - '0') * 10 +
+-					(expiry_timestamp->data[7 + offset] - '0');
+-	stamp.tm_min = (expiry_timestamp->data[8 + offset] - '0') * 10 +
+-				   (expiry_timestamp->data[9 + offset] - '0');
+-	stamp.tm_sec = (expiry_timestamp->data[10 + offset] - '0') * 10 +
+-				   (expiry_timestamp->data[11 + offset] - '0');
+-	stamp.tm_isdst = -1;
+-
+-	time_t tm_t = timegm(&stamp);
+-	double time_left = difftime(tm_t, time(NULL));
++	double time_left = difftime(expiry_time, time(NULL));
+ 	int days_left = (int)(time_left / 86400);
+-	char *timeZone = getenv("TZ");
+-	setenv("TZ", "GMT", 1);
+-	tzset();
+-
+ 	char timestamp[50] = "";
+-	strftime(timestamp, 50, "%c %z", localtime(&tm_t));
+-	if (timeZone) {
+-		setenv("TZ", timeZone, 1);
+-	} else {
+-		unsetenv("TZ");
+-	}
+-
+-	tzset();
++	np_net_format_timestamp(expiry_time, timestamp, sizeof(timestamp));
+ 
+ 	int time_remaining;
+ 	if (days_left > 0 && days_left <= days_till_exp_warn) {

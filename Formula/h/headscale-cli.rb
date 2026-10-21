@@ -1,8 +1,8 @@
 class HeadscaleCli < Formula
   desc "CLI for headscale, an open-source implementation of the Tailscale control server"
   homepage "https://github.com/juanfont/headscale"
-  url "https://github.com/juanfont/headscale/archive/refs/tags/v0.29.4.tar.gz"
-  sha256 "dae8ad94078c1447f566f1f0843afae48cd11e78d7b0af400d01cb53112dcc3c"
+  url "https://github.com/juanfont/headscale/archive/refs/tags/v0.29.5.tar.gz"
+  sha256 "b4ea4abd8b333181906dacc379edceeb3df562aa3d40df086476728fa30e4e8f"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,11 +11,11 @@ class HeadscaleCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f606d2a20c953551e3dacf61ab4acc1c0e947956a47b5372df29ad55bab932cf"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7520ef980a345dd08830bdb9bdaeb01477b65f83065e0b527ec8489d7f252de9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "431f3183c2f83e513cc0d558e0b5c81026d3ffea4608e625361077ddc8392149"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a4c01e0b08eab87608a3e30a296ce6d7c7d08a86dce2bdf5db516511b1555697"
-    sha256 cellar: :any,                 x86_64_linux:      "afde48459ea0913b575b25e12cfc90d9d2c0f739ca7b04b230ba8d7c3bd95a92"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "65f19a13226bcaae62ff0745d7c489b41aec6ca9e3e2b31b6afbf4146da95315"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "335f6e0e7734314af92ea38c020716223924f04149819d6e750b933b44ee09e6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "75f7746688ed007f8a2e567a55a5c55a2691090e4bb5a7e27b6c22e171429ea6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "15f51d5b8f2f758f877aae84535ce6c5532f134a8753b47c5db7554d83849029"
+    sha256 cellar: :any,                 x86_64_linux:      "600f8b9e9e09444138788911ab07b28da927868ae05a7d7d2ab965156d6c36d9"
   end
 
   depends_on "go" => :build

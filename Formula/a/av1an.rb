@@ -44,6 +44,12 @@ class Av1an < Formula
     sha256 "78a74c9f236141bbc35e1a7e039b5f3b45d730ad7bb7bda62b337b95daf50e55"
   end
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["VERGEN_GIT_COMMIT_DATE"] = time.iso8601
     ENV["VERGEN_GIT_SHA"] = tap.user

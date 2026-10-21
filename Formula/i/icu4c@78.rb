@@ -6,12 +6,9 @@ class Icu4cAT78 < Formula
   license "Unicode-3.0"
   compatibility_version 1
 
-  # We allow the livecheck to detect new `icu4c` major versions in order to
-  # automate version bumps. To make sure PRs are created correctly, we output
-  # an error during installation to notify when a new formula is needed.
   livecheck do
     url :stable
-    regex(/^release[._-]v?(\d+(?:[.-]\d+)+)$/i)
+    regex(/^release[._-]v?(78(?:[.-]\d+)+)$/i)
     strategy :git do |tags, regex|
       tags.filter_map { |tag| tag[regex, 1]&.tr("-", ".") }
     end
@@ -32,8 +29,6 @@ class Icu4cAT78 < Formula
   deny_network_access!
 
   def install
-    odie "Major version bumps need a new formula!" if version.major.to_s != name[/@(\d+)$/, 1]
-
     args = %w[
       --disable-samples
       --disable-tests

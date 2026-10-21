@@ -18,6 +18,11 @@ class Vvenc < Formula
 
   depends_on "cmake" => :build
 
+  resource "homebrew-test_video", :test do
+    url "https://raw.githubusercontent.com/fraunhoferhhi/vvenc/master/test/data/RTn23_80x44p15_f15.yuv"
+    sha256 "ecd2ef466dd2975f4facc889e0ca128a6bea6645df61493a96d8e7763b6f3ae9"
+  end
+
   allow_network_access! :test
 
   def install
@@ -30,11 +35,6 @@ class Vvenc < Formula
   end
 
   test do
-    resource "homebrew-test_video" do
-      url "https://raw.githubusercontent.com/fraunhoferhhi/vvenc/master/test/data/RTn23_80x44p15_f15.yuv"
-      sha256 "ecd2ef466dd2975f4facc889e0ca128a6bea6645df61493a96d8e7763b6f3ae9"
-    end
-
     resource("homebrew-test_video").stage testpath
     system bin/"vvencapp",
            "-i", testpath/"RTn23_80x44p15_f15.yuv",

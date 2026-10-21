@@ -24,6 +24,11 @@ class Uavs3d < Formula
 
   depends_on "cmake" => :build
 
+  resource "test", :test do
+    url "https://raw.githubusercontent.com/YupItzAfi/homebrew-testfiles/d4630db319b16e838473b141cd9da818d7ecee9a/AVS3/test.avs3"
+    sha256 "cb51f5d7ea8ada807121a1b812c1bbae64e2ffecea384efa3fda2468b519513c"
+  end
+
   allow_network_access! :test
 
   def install
@@ -44,11 +49,6 @@ class Uavs3d < Formula
   end
 
   test do
-    resource "test" do
-      url "https://raw.githubusercontent.com/YupItzAfi/homebrew-testfiles/d4630db319b16e838473b141cd9da818d7ecee9a/AVS3/test.avs3"
-      sha256 "cb51f5d7ea8ada807121a1b812c1bbae64e2ffecea384efa3fda2468b519513c"
-    end
-
     testpath.install resource("test")
     system bin/"uavs3dec", "-i", "test.avs3", "-o", "output.yuv"
   end

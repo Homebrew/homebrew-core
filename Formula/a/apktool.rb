@@ -11,17 +11,17 @@ class Apktool < Formula
 
   depends_on "openjdk"
 
+  resource "homebrew-test.apk", :test do
+    url "https://raw.githubusercontent.com/iBotPeaches/Apktool/v3.0.1/brut.apktool/apktool-lib/src/test/resources/issue1157/issue1157.apk"
+    sha256 "b3159fd172d39c6b73d1c0f18e31ceeaf1fe25c638e8946eb1a9af9432e1fd24"
+  end
+
   def install
     libexec.install "apktool_#{version}.jar"
     bin.write_jar_script libexec/"apktool_#{version}.jar", "apktool"
   end
 
   test do
-    resource "homebrew-test.apk" do
-      url "https://raw.githubusercontent.com/iBotPeaches/Apktool/v3.0.1/brut.apktool/apktool-lib/src/test/resources/issue1157/issue1157.apk"
-      sha256 "b3159fd172d39c6b73d1c0f18e31ceeaf1fe25c638e8946eb1a9af9432e1fd24"
-    end
-
     resource("homebrew-test.apk").stage do
       system bin/"apktool", "d", "issue1157.apk"
       # apktool b doesn't work on ARM Linux

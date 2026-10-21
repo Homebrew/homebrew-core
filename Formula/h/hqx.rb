@@ -24,6 +24,8 @@ class Hqx < Formula
   depends_on "php" => :test
   depends_on "devil"
 
+  deny_network_access!
+
   def install
     ENV.deparallelize
     system "autoreconf", "--force", "--install", "--verbose"

@@ -8,11 +8,12 @@ class Ocrmypdf < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "644972ccfb32343389b159e0d35a86153baa4fe5aa581763e2fa4d0d1e7e00ed"
-    sha256 cellar: :any, arm64_tahoe:       "157481829b5582a78040b8d944b2d43b76849646083b5b3bac2836c16463c63b"
-    sha256 cellar: :any, arm64_sequoia:     "783eb57c482a4c2efa9a6880a7214b1f0c2bc129fa72b803b4227e5129963cd9"
-    sha256 cellar: :any, arm64_linux:       "1ab984881da3a3b06d07a8b839aa64871ec5d1179f96b5800e6582e210927396"
-    sha256 cellar: :any, x86_64_linux:      "afd511e145cb5d1f0d336f76f4aed0dc6d21d30866013218485b8f0f9f8a82d5"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "4f8abac0fc7dcbe650290f000012d88134ad6199fda18354d283ae7e7df3569c"
+    sha256 cellar: :any, arm64_tahoe:       "047f9dc0ad061893d57eaf5f5bdda943d43f783e5a24e2a50aab09f2f39f744a"
+    sha256 cellar: :any, arm64_sequoia:     "3af20b42d31018580ffdd78080e70987a28ff60de06637760f66e43d477832df"
+    sha256 cellar: :any, arm64_linux:       "b53e8ca23b8da1f41517e5c5ef622ea6371182685d52a3cf7f29806a93371ff9"
+    sha256 cellar: :any, x86_64_linux:      "56a110f00a311ba43d767b93958746808e646028873cd2a868c40057f4244f4f"
   end
 
   depends_on "cmake" => :build # for pikepdf
@@ -28,7 +29,7 @@ class Ocrmypdf < Formula
   depends_on "pngquant"
   depends_on "pybind11"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "qpdf"
   depends_on "rpds-py" => :no_linkage
   depends_on "tesseract"
@@ -46,8 +47,8 @@ class Ocrmypdf < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "defusedxml" do
@@ -56,13 +57,13 @@ class Ocrmypdf < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/a2/24/86f9930b930b97fc82266083320f3c34643ef67261c32651e893db525aca/fonttools-4.66.0.tar.gz"
-    sha256 "ef0610dfe7bb5bf574d9bdad6f597403ebc9807d124ac6f148d7604b2609be98"
+    url "https://files.pythonhosted.org/packages/87/b6/126c659ab7e0e03e01a5f5d223abf7b2c0691ae92718085a212a3924a2a3/fonttools-4.66.1.tar.gz"
+    sha256 "64967c6ddb0d4c610dfd8cb1485981b2d27972ddfb7d4bbbd9e199d2a089c450"
   end
 
   resource "fpdf2" do
-    url "https://files.pythonhosted.org/packages/1e/bc/8fd4321aed40cadadddc8f311c65b6082346b252bca048f7b476d8f35d72/fpdf2-2.8.8.tar.gz"
-    sha256 "9e94e155e85e8053329a9a1fce8b566fd7a7c5bb79e98a1a3952d379b947c5b9"
+    url "https://files.pythonhosted.org/packages/12/23/84dbe637708c2690972eff5df233a7c9f8d4bde809f714839dc1b08f5e5e/fpdf2-2.8.9.tar.gz"
+    sha256 "5b0b3786f5236a2b3cc83c1fee567df17ddd314f8c4e13d820d8f09b617ab4f0"
   end
 
   resource "img2pdf" do
@@ -106,8 +107,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/03/17/3a88c6488c93a02e83c9ddb32eabeb6285c67ab3ccf795af8dbabace60be/pikepdf-10.15.0.tar.gz"
-    sha256 "396e5eb89f2f24991bde386b1bf0e51a28c71c9a5b72e79aeabc50430d35ae5b"
+    url "https://files.pythonhosted.org/packages/32/80/0fb229f1d4772f102af425975b302c9de1b177b3e191ed7f7ffe24a02e98/pikepdf-10.16.0.tar.gz"
+    sha256 "d9541429f079f7838f2856fea5c2ad165885693cdb36894e73d40d1b845d2e11"
   end
 
   resource "pluggy" do
@@ -121,8 +122,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pypdfium2" do
-    url "https://files.pythonhosted.org/packages/ec/78/a52cb80611339ec95f35c7a10d7bfe7a6f97f3b50a35a9f94283d062512e/pypdfium2-5.13.0.tar.gz"
-    sha256 "7ca2d8e31bd8d0d40c496416b7d8bea423388669ffd494929f50e8c3a82326b8"
+    url "https://files.pythonhosted.org/packages/95/d0/c81d3a7c2a9af37b817ace1de0acd40cf44d15f12407c5e86b3668364a5c/pypdfium2-5.14.0.tar.gz"
+    sha256 "c5f009b3157f10e97dceb55963f5910eff92feb00587ba10a76f12b87ce1a4b6"
   end
 
   resource "referencing" do
@@ -136,8 +137,8 @@ class Ocrmypdf < Formula
   end
 
   resource "uharfbuzz" do
-    url "https://files.pythonhosted.org/packages/90/cb/b87e1e470e43c6d0b8edd9b5ed968c4465c3de5391a0f253edb0df1a9f18/uharfbuzz-0.56.2.tar.gz"
-    sha256 "303cd60c329bc4d88053ca03eb752476b51ca023944051c33710534dbc4fdac6"
+    url "https://files.pythonhosted.org/packages/04/55/0b4e05cfb5134e8902c56e9a0d2d629c5de4b89806a0b698f422ec06bd55/uharfbuzz-0.56.3.tar.gz"
+    sha256 "dbb6cc2c36b42929e4059290a980640f2391d858f6eab36e369ed4f373f96caa"
   end
 
   def install

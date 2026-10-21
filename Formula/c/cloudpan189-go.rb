@@ -27,6 +27,12 @@ class Cloudpan189Go < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     # TODO: remove `-checklinkname=0` workaround when fixed
     # https://github.com/tickstep/cloudpan189-go/issues/101

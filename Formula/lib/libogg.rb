@@ -27,6 +27,11 @@ class Libogg < Formula
 
   depends_on "cmake" => :build
 
+  resource "oggfile", :test do
+    url "https://upload.wikimedia.org/wikipedia/commons/c/c8/Example.ogg"
+    sha256 "f57b56d8aae4c847cf01224fb45293610d801cfdac43d932b5eeab1cd318182a"
+  end
+
   allow_network_access! :test
 
   def install
@@ -40,11 +45,6 @@ class Libogg < Formula
   end
 
   test do
-    resource "oggfile" do
-      url "https://upload.wikimedia.org/wikipedia/commons/c/c8/Example.ogg"
-      sha256 "f57b56d8aae4c847cf01224fb45293610d801cfdac43d932b5eeab1cd318182a"
-    end
-
     (testpath/"test.c").write <<~C
       #include <ogg/ogg.h>
       #include <stdio.h>

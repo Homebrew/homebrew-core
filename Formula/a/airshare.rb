@@ -9,15 +9,16 @@ class Airshare < Formula
   revision 26
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eaf2c602d03c65ed46366da9e5ddcb2e60822f97bf8909064b2d95db9a40d1cb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6a28c6fc3c48fb7e1154c21772f269fa085c66865d584d335fdf75cd531dcc88"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ac238e7e7feafbe16630f259e90cea25ea63f9a0b633678972321552ea260bf7"
-    sha256 cellar: :any,                 arm64_linux:       "831549489b178494d664e47837f2d49698014446069eeb7e70c252cba3dbe30c"
-    sha256 cellar: :any,                 x86_64_linux:      "d9d9d2a9f42d2808536af72213102b9d86e7c1e3665ac16ef457c0a30cd39d22"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "20de8b7ca9c85acae70de29d9b2b017e7d7b5d10533fc800de305a6007381885"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "92eac11af00881a641f5f7f4e8ffe5f979200f3e6b9ac24b10cde48a2c4644f9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fccf6c3402700144b21dfe22693d49441c6d68be5690f2441ff1e38c30011d4c"
+    sha256 cellar: :any,                 arm64_linux:       "c385599762eea140b8c6cc3b51e03e2b530757de3933d3eb6727c9fd314e40af"
+    sha256 cellar: :any,                 x86_64_linux:      "17a8a05ca6cc75e627954430b83762668fa7791ba75d7cf5595f4718b47b3cf2"
   end
 
   depends_on "certifi" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 
@@ -27,8 +28,8 @@ class Airshare < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz"
-    sha256 "9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc"
+    url "https://files.pythonhosted.org/packages/93/2f/6a91adaa2dc26877d6ed2f54c0370c8910f019db7d77c5c6a194611e93ea/aiohttp-3.14.4.tar.gz"
+    sha256 "831fc5bd39ec2517851e348f613ddb5447a47cf4b71cb09845af7ad7ed45d8f9"
   end
 
   resource "aiosignal" do

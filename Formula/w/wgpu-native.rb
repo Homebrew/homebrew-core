@@ -25,6 +25,12 @@ class WgpuNative < Formula
     depends_on "mesa" => :test
   end
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["LIBCLANG_PATH"] = formula_opt_lib("llvm").to_s if OS.linux?
     # Not using `cargo install` because wgpu-native doesn't ship binaries

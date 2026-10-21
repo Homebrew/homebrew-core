@@ -1,18 +1,16 @@
 class Quantlib < Formula
   desc "Library for quantitative finance"
   homepage "https://www.quantlib.org/"
-  url "https://github.com/lballabio/QuantLib/releases/download/v1.43/QuantLib-1.43.tar.gz"
-  sha256 "b41206ccc4ba39b5e86bdc940d51138222b352f79d2c6fc68649f9c9bbe58701"
+  url "https://github.com/lballabio/QuantLib/releases/download/v1.44/QuantLib-1.44.tar.gz"
+  sha256 "34d7787a367404447f84be6942b19fd091f1e8e45a380d3f153e6cd8c4bb8ad8"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "5613a56da04168c3ddd0db988c6f63b79ce6496ee7ec30ba3f94c8256c98db57"
-    sha256 cellar: :any, arm64_tahoe:       "ea1cde8f958e5a5a7e821f57b1bbde543ae67f82bc722d190f90c76c0dfba688"
-    sha256 cellar: :any, arm64_sequoia:     "0d27c612bfc6c9d7c785618c2c8e39f08868cfadf5960ef1dba06c24003f4bb7"
-    sha256 cellar: :any, arm64_sonoma:      "3bb2c3afc1adc316caa109344733ecca5e0a60989293ab4ceb7777439a6a1e27"
-    sha256 cellar: :any, sonoma:            "32e6e2f47d78019b61028bdc5b5a2076b704fdf74f30394bb6ac2a3f5fbfb869"
-    sha256 cellar: :any, arm64_linux:       "8878588f1c55bb4e9917f50b88d91b13ee39f9d489b047da3069bd731fe63959"
-    sha256 cellar: :any, x86_64_linux:      "4b962f2ec6fe7aa0ff1ec23b0827885012997932e4665acfa07ec67e91400921"
+    sha256 cellar: :any, arm64_golden_gate: "2885f3cd85b501f49ec8fd7603ea9991e8606764b6947c19e948445c18313172"
+    sha256 cellar: :any, arm64_tahoe:       "42ee71a9b4188d1106f2395b96042fdab6c254ae1bc914d59cc00b6bb089cb8b"
+    sha256 cellar: :any, arm64_sequoia:     "82e15fc4efd544757aa4a054a8ff8e41eb61871d83b3240e4a14980aa73709da"
+    sha256 cellar: :any, arm64_linux:       "2d700f7ebcc97df96eb3ff9733a1d019cd2298612bc95b9bc030c35d35991ab2"
+    sha256 cellar: :any, x86_64_linux:      "30a0d7acb033600e2372d048fc000bac657aab67c9edf33ca638442b58ffff32"
   end
 
   head do

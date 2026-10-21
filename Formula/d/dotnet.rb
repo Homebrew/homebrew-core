@@ -3,16 +3,16 @@ class Dotnet < Formula
   homepage "https://dotnet.microsoft.com/"
   license "MIT"
   version_scheme 1
-  compatibility_version 7
+  compatibility_version 8
 
   stable do
     # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-    url "https://github.com/dotnet/dotnet/releases/download/v10.0.401/release.json"
-    sha256 "6dc88b00a048b315868625e038212bfd06d2f9661254863848507ee4b70fdb36"
+    url "https://github.com/dotnet/dotnet/releases/download/v10.0.402/release.json"
+    sha256 "ef4ec1aab8a6e5305858afe4a6f42dcb80b9785369c5b81100ddf1acee7cd5fe"
 
     resource "src" do
-      url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.401.tar.gz"
-      sha256 "3119efad4a965c5b9bf87fc795da50176cff73047b396981710b3f1aefb7d6af"
+      url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.402.tar.gz"
+      sha256 "b4d1a01dd142fc8a726b0e9ec7488571dbab10624b498bea8183379ccd008b29"
 
       livecheck do
         formula :parent
@@ -22,8 +22,8 @@ class Dotnet < Formula
     # NOTE: 1xx band resources are only used when on 2xx/3xx/4xx band.
     # Can leave in formula even when unused to simplify version bumps.
     resource "1xx" do
-      url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.112.tar.gz"
-      sha256 "0107a6a9aca7635fcb66a90dd22269e42640797ce2ba0731c8669ba59f4e310d"
+      url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.113.tar.gz"
+      sha256 "5c3a5dcc776c94d314853ccf24d3a2b5627f2249c7defb8a8f0cbade8ecd4631"
 
       livecheck do
         url "https://github.com/dotnet/dotnet/releases/download/v#{LATEST_VERSION}/release.json"
@@ -37,11 +37,20 @@ class Dotnet < Formula
           end
         end
       end
+
+      # Backport OpenSSL 4 support
+      patch do
+        url "https://github.com/dotnet/runtime/commit/73ae2764c385c0f7dd6ecd53aeaa961fd6db508c.patch?full_index=1"
+        sha256 "5238ab26337672635a0ffc969680ef1db8399fa38e769a563a01a39568dbaf28"
+        directory "src/runtime"
+        type :backport
+        resolves "https://github.com/dotnet/runtime/pull/135534"
+      end
     end
 
     resource "1xx-manifest" do
-      url "https://github.com/dotnet/dotnet/releases/download/v10.0.112/release.json"
-      sha256 "df14b07ce83d8b4d59c9dbb34f83ca6d8e1f99f41aa02133cba87f546a620db0"
+      url "https://github.com/dotnet/dotnet/releases/download/v10.0.113/release.json"
+      sha256 "fbfc8572118e518be6ef736f143ffeb9b0c3bd872c9b34689a04f0ffde54b6e7"
 
       livecheck do
         url "https://github.com/dotnet/dotnet/releases/download/v#{LATEST_VERSION}/release.json"
@@ -67,12 +76,11 @@ class Dotnet < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "a5024a30fdc501d20ff89c6f5d9466fb6b6bcb2ff9322f3e0af70e6838a4e5fb"
-    sha256 cellar: :any, arm64_tahoe:       "6dfc193bf00817200f19683c7993e7ce5b96240842aac662456b702323f9da7f"
-    sha256 cellar: :any, arm64_sequoia:     "4c2036895068dff02de38d0d70e56106a3fb6d013cfd5685d2ffe474283e1094"
-    sha256 cellar: :any, arm64_linux:       "a10b57d633642f97861efa31a614ef3667cd7606af1b4fe230eb6e712443777c"
-    sha256 cellar: :any, x86_64_linux:      "e5d520ed9ebfd35b82e215de0aef3c5ace18b8809e74f7f02443c97b50d7f527"
+    sha256 cellar: :any, arm64_golden_gate: "e3c3efaa46339913021eb1abb74f33d198171bec9c907a34158a6b6e44fdb6d4"
+    sha256 cellar: :any, arm64_tahoe:       "a299e2f2be8471de612f38714df0e263656a7ce3703103c26e9f11b4d591be7a"
+    sha256 cellar: :any, arm64_sequoia:     "b538fc24b1495b45745c34f9e04c14e722de5a03a0cc50f7b472347dddc47515"
+    sha256 cellar: :any, arm64_linux:       "c3a1fc62e2ba6d05c9ed7acc1857e75493bfbde069ab40229a2a95c4909dd6ab"
+    sha256 cellar: :any, x86_64_linux:      "ff52bc6f41ec4db478d5c5532b3f5edced3d3b864eafffce3bdfe3a71568b7ad"
   end
 
   head do
@@ -91,7 +99,7 @@ class Dotnet < Formula
   depends_on "rapidjson" => :build
   depends_on "brotli"
   depends_on "icu4c@78"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "cpio" => :build
   uses_from_macos "python" => :build
@@ -148,6 +156,13 @@ class Dotnet < Formula
     system "./prep-source-build.sh"
     system "./build.sh", *args
     buildpath.install "artifacts/assets/Release"
+  end
+
+  # Test to avoid uploading broken Intel Sonoma bottle which has stack overflow on restore.
+  # See https://github.com/Homebrew/homebrew-core/issues/197546
+  resource "docfx", :test do
+    url "https://github.com/dotnet/docfx/archive/refs/tags/v2.78.5.tar.gz"
+    sha256 "79f9e2c4bb8de2225d91a812a4e9d2cc71a8ed5613b3b4b2940d2a1d5db38793"
   end
 
   def install
@@ -254,6 +269,8 @@ class Dotnet < Formula
   end
 
   test do
+    ENV["XDG_RUNTIME_DIR"] = testpath
+
     assert_match version.to_s, shell_output("#{bin}/dotnet --version")
 
     target_framework = "net#{version.major_minor}"
@@ -296,12 +313,6 @@ class Dotnet < Formula
     output = shell_output("#{bin}/dotnet run --framework #{target_framework} #{testpath}/test.dll a b c")
     assert_equal "#{testpath}/test.dll,a,b,c\n", output
 
-    # Test to avoid uploading broken Intel Sonoma bottle which has stack overflow on restore.
-    # See https://github.com/Homebrew/homebrew-core/issues/197546
-    resource "docfx" do
-      url "https://github.com/dotnet/docfx/archive/refs/tags/v2.78.5.tar.gz"
-      sha256 "79f9e2c4bb8de2225d91a812a4e9d2cc71a8ed5613b3b4b2940d2a1d5db38793"
-    end
     resource("docfx").stage do
       system bin/"dotnet", "restore", "src/docfx", "--disable-build-servers", "--no-cache"
     end

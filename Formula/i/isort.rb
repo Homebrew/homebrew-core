@@ -9,11 +9,12 @@ class Isort < Formula
   head "https://github.com/PyCQA/isort.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a3f8d6c7c699e48f0d2110d6db8031e11ce1b864e911a56d6257d6823d69b44f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "a5a99acedabaae197c453882a363e463fe7ff273e1b6a7d192d07faeaf037caa"
   end
 
   depends_on "rust" => :build
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "mypy-extensions" do
     url "https://files.pythonhosted.org/packages/a2/6e/371856a3fb9d31ca8dac321cda606860fa4548858c0cc45d9d1d4ca2628b/mypy_extensions-1.1.0.tar.gz"

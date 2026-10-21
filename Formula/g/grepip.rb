@@ -1,8 +1,8 @@
 class Grepip < Formula
   desc "Filters IPv4 & IPv6 addresses with a grep-compatible interface"
   homepage "https://ipinfo.io"
-  url "https://github.com/ipinfo/cli/archive/refs/tags/grepip-1.2.2.tar.gz"
-  sha256 "2ed9477bc5599a10348a7026968242fb4609e6b580c04aaae46d7c71b9fa3d55"
+  url "https://github.com/ipinfo/cli/archive/refs/tags/grepip-3.3.3.tar.gz"
+  sha256 "0c76734ce34573999def6abf0eb3087669af6898ec307308d39aae7994d57389"
   license "Apache-2.0"
   head "https://github.com/ipinfo/cli.git", branch: "master"
 
@@ -12,16 +12,11 @@ class Grepip < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1f3f46e175c58b54ca597eac0167fee136ea78e9395362e59661a714da743f09"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "22b47360d59e127a7ef33ec598cbae91fbc393d2c4a7d787a589bf1e308e9695"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ef333d42f469784211e7520c89ac8ac07014ca9e56a7ef3a87a29749ddae30dd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "ef333d42f469784211e7520c89ac8ac07014ca9e56a7ef3a87a29749ddae30dd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "ef333d42f469784211e7520c89ac8ac07014ca9e56a7ef3a87a29749ddae30dd"
-    sha256 cellar: :any_skip_relocation, sonoma:            "d831e7a316e08e58f230b208ed0b7a5db4b2c3ae425dbb71a52b1099d15bf77b"
-    sha256 cellar: :any_skip_relocation, ventura:           "d831e7a316e08e58f230b208ed0b7a5db4b2c3ae425dbb71a52b1099d15bf77b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e2ad83ecab46b2e50890c75e9e583b060de0fb480da868639645ad48702f84b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "89fb159a561f18bd7ddb41e4fe0e280d1aa632165f0b887d4ce2c04af65633bc"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "809aafcba8b6fb8eefc407a159bea7a540fbc20cb553a1bfd6ac6522f852fbd4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "809aafcba8b6fb8eefc407a159bea7a540fbc20cb553a1bfd6ac6522f852fbd4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "809aafcba8b6fb8eefc407a159bea7a540fbc20cb553a1bfd6ac6522f852fbd4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "60f913de4ec38349b665bc204f7f45a8bfaa74a1adccf3a7e3ca9b288065c879"
+    sha256 cellar: :any,                 x86_64_linux:      "279883d3208201e3a3644a7167712a665a3b83939dc4bbd3e6a4a2640ca67d6a"
   end
 
   depends_on "go" => :build

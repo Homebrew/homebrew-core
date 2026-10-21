@@ -5,22 +5,14 @@ class Gocr < Formula
   mirror "https://fossies.org/linux/privat/gocr-0.52.tar.gz"
   sha256 "df906463105f5f4273becc2404570f187d4ea52bd5769d33a7a8661a747b8686"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "386efb1fcde7ebbcc2d81a5671d79266e89440d507691dbea28524d49941bf19"
-    sha256 cellar: :any,                 arm64_tahoe:       "22d93d120980d188dbee305cbec8c1d22aab0a9def0580ff3ecaeaa44fe488e7"
-    sha256 cellar: :any,                 arm64_sequoia:     "f38bbed5dfe8ae2150cab6f508e71dc9402d9f05c3c72273f3c9270dd42ff6fa"
-    sha256 cellar: :any,                 arm64_sonoma:      "0d859924dd354cc1c623786533136a7ecded331ad47565f208f954ad7091e957"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "83e2ae4571c3fede1d3af4d0c46a09179275af8c8506d54843a7a01f55efc712"
-    sha256 cellar: :any_skip_relocation, arm64_monterey:    "53e3f30e26e5c707e006cf08ebe4043b8f4bced950ce61bb6ba2e7926797d0a9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:     "e18ecb5d37e3105891f5ef43b6e81dff52cb5148e1425a42bdc7c5a71f106ddd"
-    sha256 cellar: :any,                 sonoma:            "8d1a2d42e8c6063d35390c128c34ee66420912b9a78c37dbf5c015cff1ac1d58"
-    sha256 cellar: :any_skip_relocation, ventura:           "44bfd6e6d26d3554a8cf204e053adfb063b1bcbe3d7c62e2d8dd6814e53b8498"
-    sha256 cellar: :any_skip_relocation, monterey:          "43d025be56c56b56f15621742a716f1c6ad7d645a4c2f4ceceb0b85f63ec2787"
-    sha256 cellar: :any_skip_relocation, big_sur:           "4d0cd5d85d36fd7e34ade41d36f49628323f81f2274fc3de1654d8b3b837c90d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4012b5d2e3c64d8bffa02852c25348f57cee8475aa726d7e14384e248a08e349"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "614341527ffeeb9e65ea13c95c230569bd68316f11b6e4c3d5bbc4c46757faa8"
+    sha256 cellar: :any, arm64_golden_gate: "a46d3d1c4af1c44bfe397a9a03e6e8cc2de136e6fe19a277260d901a13c52b61"
+    sha256 cellar: :any, arm64_tahoe:       "cbd973c1b8777dc10907bf3ef89def34faa6ddf4c7e6f618cf05a2d271fba3dc"
+    sha256 cellar: :any, arm64_sequoia:     "5a3ae91a8c0eb89b304af4c532774057498b8fe0955ea1631c824329e9a48b67"
+    sha256 cellar: :any, arm64_linux:       "88eb3668a823d43b3c50ab1bfb7054b1d33cf400a6af9de8b8f8b049720a92c4"
+    sha256 cellar: :any, x86_64_linux:      "3afbb5a8810d9aa759503415fdd0beb83cd2bbd090a660d8e322aa96179c7ce3"
   end
 
   # Upstream homepage is gone

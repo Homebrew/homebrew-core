@@ -10,17 +10,18 @@ class Breezy < Formula
   head "https://github.com/breezy-team/breezy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8b3305e9eb22eb40221ea150740cfb798f169dc6c435526de9b8b5af6a81136e"
-    sha256 cellar: :any, arm64_tahoe:       "5dc0ba980d5fb51cdfccb47837a1591a063f71d3cab7a4a12f5774e56844b779"
-    sha256 cellar: :any, arm64_sequoia:     "ec8a3b6364c914faad26dcd81d93306fd5d49d1d67d28219791af0f82b8ab3b3"
-    sha256 cellar: :any, arm64_linux:       "78d80be34dda0097657efd41cd54345b966b985c1465f9c3ef58ff60e18644bc"
-    sha256 cellar: :any, x86_64_linux:      "d8dc45733c2bb97922c96e70403559421f9dc65d0f036deb88413e7232509798"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "5a607dca6cb67bc6f5e3d29a9f6a4123c667c2327bf371e76bba119ae1b4fe53"
+    sha256 cellar: :any, arm64_tahoe:       "99719253ef473c426dda2809956532116444aed94a278b9e100e55590dd98238"
+    sha256 cellar: :any, arm64_sequoia:     "199864e6bf1bc59625d01863273ecd90184804664acf9902e2f55b84bc9e24d8"
+    sha256 cellar: :any, arm64_linux:       "8d3ba8dae05b6b727e241479b776e29b3ff9f2fb9aa4d593a9e16a3951ea07e3"
+    sha256 cellar: :any, x86_64_linux:      "2bca901d205db8451d3a01dcca39e9774bac4dc48764f2ae898715726fef46d0"
   end
 
   depends_on "gettext" => :build
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "configobj" do
     url "https://files.pythonhosted.org/packages/f5/c4/c7f9e41bc2e5f8eeae4a08a01c91b2aea3dfab40a3e14b25e87e7db8d501/configobj-5.0.9.tar.gz"
@@ -58,6 +59,9 @@ class Breezy < Formula
   end
 
   def install
+    # Allow Python 3.15
+    inreplace "pyproject.toml", 'requires-python = ">=3.10,<3.15"', 'requires-python = ">=3.10,<3.16"'
+
     virtualenv_install_with_resources
     bin.each_child do |f|
       f.unlink

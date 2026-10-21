@@ -7,26 +7,28 @@ class Xwpe < Formula
   head "https://codeberg.org/mendezr/xwpe.git", branch: "main"
 
   bottle do
-    sha256 arm64_golden_gate: "3f50f30b17e9d69ec21579b559f655b20fddaccaadab8a07ddf9d1613029f99f"
-    sha256 arm64_tahoe:       "d100465bbff75c3eec82e924c92cc5577083c21ba7b2703975e572c016675e09"
-    sha256 arm64_sequoia:     "0357c06072e8587026af848d3c6e8dcc01a485f1d66799bc296ff1dc7436fb79"
-    sha256 arm64_sonoma:      "394c446ce528e68f03a71f172a9b4169d43f7b4b78f1cace60afab8c38471221"
-    sha256 sonoma:            "2c6ea095f6e6e7af4a6384f219aaac5a86bc54c6f39848eb58d5f70018e23556"
-    sha256 arm64_linux:       "22a6d704370a8f2ad1ebdb693714d045dcfdc56ba2ca674876e0c5f6008f21de"
-    sha256 x86_64_linux:      "0ad256c936030155c82339e1d77a3497fd8422ea004ce7ee1a4903adedecc316"
+    rebuild 1
+    sha256 arm64_golden_gate: "3c9969071fe4a1d90908a343c4cf6fbfed7e754aae52519bb9386268cd4201a9"
+    sha256 arm64_tahoe:       "c5f25065066d35c1489cfdd1b2da866525c282609b62d807694e3afda2ca297e"
+    sha256 arm64_sequoia:     "fa4762b46bb0d24295b486fbb7fab42e355b22f0e6959a0a098ab4ad42d2c400"
+    sha256 arm64_linux:       "78c367bb664ba50ba49f1625df905286142344b93b11bbeeb62233b08e8703ff"
+    sha256 x86_64_linux:      "fb963dd6dc2529793c917ec9dd3043192c03f1dee70be8946f7529da8580cac5"
   end
 
   depends_on "pkgconf" => :build
 
   depends_on "json-c"
   depends_on "libvterm"
-  depends_on "ncurses"
-  depends_on "zlib"
+
+  uses_from_macos "ncurses"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
+
+  deny_network_access!
 
   def install
-    # ncurses is keg-only on macOS; teach pkg-config where ncursesw.pc lives.
-    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("ncurses")/"pkgconfig" if OS.mac?
-
     # The release tarball is a `make dist` archive: it ships a working configure
     # and the pre-built Texinfo pages (docs/xwpe.info), so no autoreconf or
     # makeinfo run is needed.

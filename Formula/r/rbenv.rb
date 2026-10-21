@@ -26,7 +26,7 @@ class Rbenv < Formula
     end
 
     # bash completion handled by rbenv-init
-    zsh_completion.install "completions/_rbenv" => "_rbenv"
+    zsh_completion.install "completions/_rbenv"
     prefix.install ["bin", "completions", "libexec", "rbenv.d"]
     man1.install "share/man/man1/rbenv.1"
   end

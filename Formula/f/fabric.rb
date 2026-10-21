@@ -10,13 +10,12 @@ class Fabric < Formula
   head "https://github.com/fabric/fabric.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "c00db67325a8c655af2822b13181d2bfaa196b2ee03cf8a7c899b1670dca77aa"
-    sha256 cellar: :any,                 arm64_tahoe:       "1177e8a10b8224740416642316730300b708f7a2266100d41a89f7127995c327"
-    sha256 cellar: :any,                 arm64_sequoia:     "b4be3fd62c518105bfbcfd7f1880f5e1bf1c4483a0208e746300ce07ca866172"
-    sha256 cellar: :any,                 arm64_sonoma:      "869c3c99def5951d5347ae9397aaf290c7cbacde40d6e92a12439122cd0eed16"
-    sha256 cellar: :any,                 sonoma:            "dfdd62823570836bfbedb2f5a86cf4fb4ae9fab23aefab8f0246d71781b220a9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "125d533ad61f91b06c6e58b94dfc75be4809e523df694f8be9321a552c389212"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "1e2c3b200325ff671ff12bc50d12c6698e7f13bb449e6faf90b8a284da2e840f"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "885088ef5d4ffb4dcdd7398cf842682b298fe51556483b67609dbf8f6aac0d71"
+    sha256 cellar: :any, arm64_tahoe:       "9d8c7316f364015a0dab0000900e96098189e9102b8cef802c4b20ea1f5f522b"
+    sha256 cellar: :any, arm64_sequoia:     "68ea089a5d7fb08543f7208272277fd55e665010fed73215c24118c78a37afb8"
+    sha256 cellar: :any, arm64_linux:       "f85f2494876569fa47c76d46dd88322bc4ca16f120e2ad37723a223f3d62484c"
+    sha256 cellar: :any, x86_64_linux:      "91a09d4608f8f8baee538d9cc45352abb0ed22cf553d0ca8c1ccbee1ad3fe0eb"
   end
 
   # `pkgconf` and `rust` are for bcrypt
@@ -24,7 +23,7 @@ class Fabric < Formula
   depends_on "rust" => :build
   depends_on "cryptography"
   depends_on "libsodium" # for pynacl
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "cryptography",
                 extra_packages:   "decorator"
@@ -35,13 +34,13 @@ class Fabric < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/43/fa/6d96a0978d19e17b68d634497769987b16c8f4cd0a7a05048bec693caa6b/decorator-5.2.1.tar.gz"
-    sha256 "65f266143752f734b0a7cc83c46f4618af75b8c5911b00ccb61d0ac9b6da0360"
+    url "https://files.pythonhosted.org/packages/60/8b/32f9823da46cde7df2087faa08cd98d01b908f8dcab982cdba9c84e85355/decorator-5.3.1.tar.gz"
+    sha256 "4cbcdd55a6efadb9dbea26b858f4fb3264567b52d69ca0d25b721b553f60ea82"
   end
 
   resource "deprecated" do
-    url "https://files.pythonhosted.org/packages/49/85/12f0a49a7c4ffb70572b6c2ef13c90c88fd190debda93b23f026b25f9634/deprecated-1.3.1.tar.gz"
-    sha256 "b1b50e0ff0c1fddaa5708a2c6b0a6588bb09b892825ab2b214ac9ea9d92a5223"
+    url "https://files.pythonhosted.org/packages/f7/9c/16649913bf14c73e0a9453782e148362ff2657067deff6aa9c7ebcddcc31/deprecated-3.0.0.tar.gz"
+    sha256 "16850204d3a1e6bb0acd06bff48d96e8b0a0d25d1c52f71705405a0f4894192d"
   end
 
   resource "invoke" do
@@ -60,8 +59,8 @@ class Fabric < Formula
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/2e/64/925f213fdcbb9baeb1530449ac71a4d57fc361c053d06bf78d0c5c7cd80c/wrapt-2.1.2.tar.gz"
-    sha256 "3996a67eecc2c68fd47b4e3c564405a5777367adfd9b8abb58387b63ee83b21e"
+    url "https://files.pythonhosted.org/packages/3e/d2/a254a26d8ceaea87e0eee2e89fcfe53ddc1858418647493bb2937549ab6f/wrapt-2.5.0.tar.gz"
+    sha256 "c48cdb6c904dca76d9915a579e4a5fab6b0c25f650c1019ce78a78effaf7a345"
   end
 
   def install

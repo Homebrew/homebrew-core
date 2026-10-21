@@ -1,19 +1,17 @@
 class Skalibs < Formula
   desc "Skarnet's library collection"
   homepage "https://skarnet.org/software/skalibs/"
-  url "https://skarnet.org/software/skalibs/skalibs-2.15.1.0.tar.gz"
-  sha256 "f9c905e74935c6fe911c7e344e3e89d5fbd2014c1a04650b524b15ce9b5635d1"
+  url "https://skarnet.org/software/skalibs/skalibs-2.16.0.0.tar.gz"
+  sha256 "90a3deda94a40d7d6a4495fe6feaf91c0185e0428d59cbd150a1a468741269aa"
   license "ISC"
   head "git://git.skarnet.org/skalibs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "37aa7fec97bf7842792785a2bb75a86fa4fc52b001ff0cfb884a7e32b2ca8932"
-    sha256 cellar: :any, arm64_tahoe:       "8522f1063ab766954841104b3b2dcd79fa419465647450e3e226309cc0c268b7"
-    sha256 cellar: :any, arm64_sequoia:     "8aa2dbf98365714dbd8d6f4745ffec3e9fe2a05cbbcbc5aee887af5dd75624b8"
-    sha256 cellar: :any, arm64_sonoma:      "dd2429c17359fdffdbc50f339ef95cb356c012fd0e0139be55700796bf62a2e6"
-    sha256 cellar: :any, sonoma:            "4fa06b2d3f3e0b965beb41c38277b0e175217117565b7fa4e21da1c7df80e892"
-    sha256 cellar: :any, arm64_linux:       "0b3aa7c4c3deae00e8a218ffe218015cf4a1d24eb3d40a9ceca3b18bc9a63267"
-    sha256 cellar: :any, x86_64_linux:      "ff64368afe3ca42f66ff00390b60513f7fd9e3379da876fff52ad12117a9400a"
+    sha256 cellar: :any, arm64_golden_gate: "f9ea2841a10c1800bfe3b67edc23d2949f5f9d9cd6d449f9369f946451e7ba04"
+    sha256 cellar: :any, arm64_tahoe:       "4f07e606d0e15631dcfc2f81c210857feed5e4281ed28a5ca31e411eedf7f0b5"
+    sha256 cellar: :any, arm64_sequoia:     "1d2ae8a01779354d206527671c810e1be4d62d662c9d24803b6e84d6583952da"
+    sha256 cellar: :any, arm64_linux:       "ec8445c97a6082844f919e2c4599e9c524b4ab85bfc6d3fe2949da9efbf06687"
+    sha256 cellar: :any, x86_64_linux:      "c02de2dbba6a95bebabd422e6b7ceef7ceca626a2934ea1f047f15a2b29e5aaa"
   end
 
   def install

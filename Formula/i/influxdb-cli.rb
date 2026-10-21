@@ -1,9 +1,8 @@
 class InfluxdbCli < Formula
   desc "CLI for managing resources in InfluxDB v2"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influx-cli.git",
-      tag:      "v2.8.0",
-      revision: "8cdf40161d7662e942582086853fca948fc1a842"
+  url "https://github.com/influxdata/influx-cli/archive/refs/tags/v2.8.0.tar.gz"
+  sha256 "a507a4d0a0f4858d575f5a5c343c0f80e00151715c381d8be402c8bb6c9b8769"
   license "MIT"
   head "https://github.com/influxdata/influx-cli.git", branch: "main"
 
@@ -32,15 +31,8 @@ class InfluxdbCli < Formula
   end
 
   def install
-    ldflags = %W[
-      -s
-      -w
-      -X main.version=#{version}
-      -X main.commit=#{Utils.git_short_head(length: 10)}
-      -X main.date=#{time.iso8601}
-    ]
-
-    system "go", "build", *std_go_args(output: bin/"influx", ldflags:), "./cmd/influx"
+    # Although project no longer uses GoReleaser, the defines were kept the same
+    system "go", "build", *std_go_args(output: bin/"influx", ldflags: :goreleaser), "./cmd/influx"
 
     generate_completions_from_executable(bin/"influx", "completion", shells: [:bash, :zsh])
   end

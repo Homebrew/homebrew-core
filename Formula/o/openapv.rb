@@ -1,8 +1,8 @@
 class Openapv < Formula
   desc "Open Advanced Professional Video Codec"
   homepage "https://github.com/AcademySoftwareFoundation/openapv"
-  url "https://github.com/AcademySoftwareFoundation/openapv/archive/refs/tags/v1.1.2.0.tar.gz"
-  sha256 "970f65255896c906b22d7c9f9850deeee03fecf001415804848a03b6d1bbe41a"
+  url "https://github.com/AcademySoftwareFoundation/openapv/archive/refs/tags/v1.1.3.0.tar.gz"
+  sha256 "38f841ce44e80c40b682a5323b4f3ebc6e339b6071965bc1c705a17d46ab2fc8"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,14 +11,19 @@ class Openapv < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f6e9b637a312eea964ebec57891d85927a579fc5aee64aea740455ad6ed1a555"
-    sha256 cellar: :any, arm64_tahoe:       "53f398dab107d600ca3570041729dcd3f577ff7c0d8e89029736b7051819c47c"
-    sha256 cellar: :any, arm64_sequoia:     "51e10f9240d52c742b0d5fea31b0ebc6db072f23b62f3624d9418561391b5216"
-    sha256 cellar: :any, arm64_linux:       "82b1668b0ea9a8caa105c3f112cc44b22ddf778b70047adf08084be54dce9489"
-    sha256 cellar: :any, x86_64_linux:      "f50d27daad0758ae073a9208f08bc5d097f792b80d90135a80dfe764e4d5c90b"
+    sha256 cellar: :any, arm64_golden_gate: "2a8715fd76c564d029a4ac0295481b6d412ad22d371e9017905d34eb9877f807"
+    sha256 cellar: :any, arm64_tahoe:       "2a11f2037eb3ae23d34b1b7d3bb8d35a1926b06f2dc4f7a3ed46a6f0027db52c"
+    sha256 cellar: :any, arm64_sequoia:     "c6e5d28d52c6ba6514ab78fa5e2041c5bdd6c3d25ffa0db15cf22729142cfd75"
+    sha256 cellar: :any, arm64_linux:       "669736bc07bf97ad792f0fae3144087aa201547d46455eab62cf03349e12d115"
+    sha256 cellar: :any, x86_64_linux:      "4595fa9445d051da79dfff9cbc7aef24f1682e4846c0f996e7e83372f6976eb5"
   end
 
   depends_on "cmake" => :build
+
+  resource "homebrew-test_video", :test do
+    url "https://raw.githubusercontent.com/fraunhoferhhi/vvenc/master/test/data/RTn23_80x44p15_f15.yuv"
+    sha256 "ecd2ef466dd2975f4facc889e0ca128a6bea6645df61493a96d8e7763b6f3ae9"
+  end
 
   allow_network_access! :test
 
@@ -32,11 +37,6 @@ class Openapv < Formula
   end
 
   test do
-    resource "homebrew-test_video" do
-      url "https://raw.githubusercontent.com/fraunhoferhhi/vvenc/master/test/data/RTn23_80x44p15_f15.yuv"
-      sha256 "ecd2ef466dd2975f4facc889e0ca128a6bea6645df61493a96d8e7763b6f3ae9"
-    end
-
     resource("homebrew-test_video").stage testpath
 
     system bin/"oapv_app_enc", "-i", "RTn23_80x44p15_f15.yuv",

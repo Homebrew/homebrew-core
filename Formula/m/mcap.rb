@@ -1,8 +1,8 @@
 class Mcap < Formula
   desc "Serialization-agnostic container file format for pub/sub messages"
   homepage "https://mcap.dev"
-  url "https://github.com/foxglove/mcap/archive/refs/tags/releases/mcap-cli/v0.3.0.tar.gz"
-  sha256 "9a6dbbd938dbd3bdd4c1bc9fb5541b43c644c6e238c9143c256fc54d45e964c0"
+  url "https://github.com/foxglove/mcap/archive/refs/tags/releases/mcap-cli/v0.4.0.tar.gz"
+  sha256 "f3f91a632195ca996829717d0cad480db14376e7c8534d9ac0d03d58d24299aa"
   license "MIT"
   head "https://github.com/foxglove/mcap.git", branch: "main"
 
@@ -12,16 +12,35 @@ class Mcap < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d74113861069dd5d518324f0814f068c4a4bd554327e15c612913d47cea7d07c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d0b6c8ce8fea0d56e96c8536b79ee01f46ac9f5e3311d96cdf5e9efee59112e8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "848830bf79df06bccebad1810d1430a5136b1dd2eb3db52294573c92fae4ec7d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "897ddc0b46acd24061961ee3d3ece4dccd2b3367e00cccc1724ef527001d5e60"
-    sha256 cellar: :any_skip_relocation, sonoma:            "eb05daa81ec10a19bed7d563ef61a73a3cf05c10ef1d48dfe530727e01f3b800"
-    sha256 cellar: :any,                 arm64_linux:       "ed87fd8673d0d4ce72aceef6848f708fe6bc3c7276b1ae7013c291506eb3bda3"
-    sha256 cellar: :any,                 x86_64_linux:      "38dd65f00c7325d49abb8dbefdf2adfe33964ef0f4b581873b6a618e28c9c77e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f01a518987c86391e3f41a76e1ad4154c8f03523c4c67ebf35645fb38e841284"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9f739ebb4d57ed60dd2af88b2343abeda2586bbd71c1a0bae4932b884abba5d0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9019117708d0a89d19d0aa697c5b5fc525c25f02f3ab943f1ff0b4a7f114592b"
+    sha256 cellar: :any,                 arm64_linux:       "374f5cd6e90aeadaa148bfc15b61e7faf194f987fa90fae2a80c2be7c11ef27b"
+    sha256 cellar: :any,                 x86_64_linux:      "17b261ff14d53937505e13c670f9df4b09a43e591abb1d2938e54b9c058cc12b"
   end
 
   depends_on "rust" => :build
+
+  resource "homebrew-testdata-OneMessage", :test do
+    url "https://github.com/foxglove/mcap/raw/releases/mcap-cli/v0.0.20/tests/conformance/data/OneMessage/OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap"
+    sha256 "16e841dbae8aae5cc6824a63379c838dca2e81598ae08461bdcc4e7334e11da4"
+  end
+
+  resource "homebrew-testdata-OneAttachment", :test do
+    url "https://github.com/foxglove/mcap/raw/releases/mcap-cli/v0.0.20/tests/conformance/data/OneAttachment/OneAttachment-ax-pad-st-sum.mcap"
+    sha256 "f9dde0a5c9f7847e145be73ea874f9cdf048119b4f716f5847513ee2f4d70643"
+  end
+
+  resource "homebrew-testdata-OneMetadata", :test do
+    url "https://github.com/foxglove/mcap/raw/releases/mcap-cli/v0.0.20/tests/conformance/data/OneMetadata/OneMetadata-mdx-pad-st-sum.mcap"
+    sha256 "cb779e0296d288ad2290d3c1911a77266a87c0bdfee957049563169f15d6ba8e"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "rust/cli")
@@ -29,27 +48,12 @@ class Mcap < Formula
   end
 
   test do
-    resource "homebrew-testdata-OneMessage" do
-      url "https://github.com/foxglove/mcap/raw/releases/mcap-cli/v0.0.20/tests/conformance/data/OneMessage/OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap"
-      sha256 "16e841dbae8aae5cc6824a63379c838dca2e81598ae08461bdcc4e7334e11da4"
-    end
-
-    resource "homebrew-testdata-OneAttachment" do
-      url "https://github.com/foxglove/mcap/raw/releases/mcap-cli/v0.0.20/tests/conformance/data/OneAttachment/OneAttachment-ax-pad-st-sum.mcap"
-      sha256 "f9dde0a5c9f7847e145be73ea874f9cdf048119b4f716f5847513ee2f4d70643"
-    end
-
-    resource "homebrew-testdata-OneMetadata" do
-      url "https://github.com/foxglove/mcap/raw/releases/mcap-cli/v0.0.20/tests/conformance/data/OneMetadata/OneMetadata-mdx-pad-st-sum.mcap"
-      sha256 "cb779e0296d288ad2290d3c1911a77266a87c0bdfee957049563169f15d6ba8e"
-    end
-
     # Revision in parens must be a git short SHA, not "unknown" (also 7 chars, hence the hex check)
     assert_match(%r{^mcap #{version} \([0-9a-f]{7,40}\) mcap-rust/}, shell_output("#{bin}/mcap --version").strip)
 
     resource("homebrew-testdata-OneMessage").stage do
       assert_equal "2 example [Example] [1 2 3]",
-      shell_output("#{bin}/mcap cat OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap").strip
+      shell_output("#{bin}/mcap cat --time-format=nanoseconds OneMessage-ch-chx-mx-pad-rch-rsh-st-sum.mcap").strip
     end
     resource("homebrew-testdata-OneAttachment").stage do
       assert_equal "\x01\x02\x03",

@@ -1,17 +1,17 @@
 class AwsSpiffeWorkloadHelper < Formula
   desc "Helper for providing AWS credentials to workloads using their SPIFFE identity"
   homepage "https://github.com/spiffe/aws-spiffe-workload-helper"
-  url "https://github.com/spiffe/aws-spiffe-workload-helper/archive/refs/tags/v0.0.6.tar.gz"
-  sha256 "83dfbfb0288dc79ed75968e86fb5ffe0bdd99f94a4ccbae0bf4677cf4b010bd5"
+  url "https://github.com/spiffe/aws-spiffe-workload-helper/archive/refs/tags/v0.0.7.tar.gz"
+  sha256 "9ff2c4f824dd8715e5eb5c186a9bf877887aff1b3bef153b653facbd833040ca"
   license "Apache-2.0"
   head "https://github.com/spiffe/aws-spiffe-workload-helper.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b19ea518bc0130349fb38eab5ececc8a6c3db7bbc708dcdc755e8d92c7881596"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b19ea518bc0130349fb38eab5ececc8a6c3db7bbc708dcdc755e8d92c7881596"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b19ea518bc0130349fb38eab5ececc8a6c3db7bbc708dcdc755e8d92c7881596"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "70c82193ba68c5d82f1104849fba935facc4e15b1c251f83aaf29d1c8d2067a4"
-    sha256 cellar: :any,                 x86_64_linux:      "b85539082c2a3120c82124e60990f6ebbba37d280ba778faefef842391565c56"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fef17afdd9796fac88f78499fb895f8859f8fb7e866b27314ec7dcdac96eb764"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fef17afdd9796fac88f78499fb895f8859f8fb7e866b27314ec7dcdac96eb764"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fef17afdd9796fac88f78499fb895f8859f8fb7e866b27314ec7dcdac96eb764"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "1871af561bc24aed02cad20fc83d633190eb3f2b8a3fe4476c8d945e9c096f4b"
+    sha256 cellar: :any,                 x86_64_linux:      "254a0144af1ab9ba1ce6e83dfb6995acf69d7da5aeb240f2882bd50a28fd09ec"
   end
 
   depends_on "go" => :build

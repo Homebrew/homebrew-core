@@ -6,25 +6,36 @@ class Mailcheck < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2e720eb2388fc240cd7100d88f44aeb39438ed9d3a6b8bc62fb1ab9399ba6630"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8e59c981638d71fa3e78a9998b696e677189346da07f918bc290752c289f1dc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9826a29c8ea6cc9f8a3c2c1a85c39726d0412898ab38feccdc027ccf505a5662"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "5892072eefc7d2c38a7acabbb05bb380943380d11e46ea2c6f514abe08979184"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "aa14d797b2b2de01428e52e56c0e26ffe36d72227393ec4554c0749b8189aa60"
-    sha256 cellar: :any_skip_relocation, arm64_monterey:    "ebfbf5a09b426cf879dc604f856b3512febfe7013bc74039dc35dcbf0d28b57e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:     "9cb8f491eff846164c8732bf372b323f8546830237ac097dc55dfba3747d6331"
-    sha256 cellar: :any_skip_relocation, sonoma:            "193fcd7805d976190391ae4bcf34afd28ebd82bfd45aff54c307aa6325a7a93f"
-    sha256 cellar: :any_skip_relocation, ventura:           "d6e91d19af4b560df0f8a4c02dc922e7e31273812076b8d326109f394a8d7dbf"
-    sha256 cellar: :any_skip_relocation, monterey:          "212f413b638cf5e1e95f27edec31f6f197cf4ff2f20d24e0580d7db1957b2ea6"
-    sha256 cellar: :any_skip_relocation, big_sur:           "59d3c8716efff8670b81cec68c47b0663ffa079938ee6aae55078770564fa481"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f1c3ac175abf729a56d77e55d0039cafe7f478c9e069961a8383f1b2c6f1e963"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "84fa4f1d288f0f8824334bb68621b8589b65e0d9e21a4ca0961a33aae5d0ef63"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8a4bc1f7c913076ef17c1b531efac03d16993d206cb7ad979b21dd416ab0ff51"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "78a04acdb60b3a1876761dcf587175162fa9512b795863b3e7acbe78c3d4c415"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9f8feccdcd2c1ee2bed597b1195571b042969ef0a793fee7b239ab56dd6d6f3c"
+    sha256 cellar: :any,                 arm64_linux:       "7893498ebc75f1b60b5fe77842113b1211b7176d16f0e457613ce6338d4414ea"
+    sha256 cellar: :any,                 x86_64_linux:      "5b8bc9f845aa6912dc77eb59ab8caa16610513398f087e3f0ab213af73d146e5"
   end
+
+  deny_network_access!
 
   def install
     system "make", "mailcheck"
     bin.install "mailcheck"
     man1.install "mailcheck.1"
     etc.install "mailcheckrc"
+  end
+
+  test do
+    ENV["HOME"] = testpath
+    %w[cur new tmp].each { |d| (testpath/"Maildir"/d).mkpath }
+    touch testpath/"Maildir/new/1"
+    touch testpath/"Maildir/new/2"
+    touch testpath/"Maildir/cur/3"
+    (testpath/".mailcheckrc").write "$(HOME)/Maildir\n"
+
+    assert_equal "You have 2 new and 1 saved messages in #{testpath}/Maildir",
+                 shell_output("#{bin}/mailcheck").strip
+
+    # Login mode exits silently when ~/.hushlogin exists
+    touch testpath/".hushlogin"
+    assert_empty shell_output("#{bin}/mailcheck -l")
   end
 end

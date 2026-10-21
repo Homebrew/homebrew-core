@@ -8,14 +8,15 @@ class DoviConvert < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "dd0e7cd8a783a1aa0fd13df1c0c0b4728f6ec6f49f24705088bed20baa44dab0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "6e290b72efb6eb68516da6ab3da4cce8f8da72bd28f8064dd81598b5af15a189"
   end
 
   depends_on "dovi_tool"
   depends_on "ffmpeg"
   depends_on "media-info"
   depends_on "mkvtoolnix"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     rewrite_shebang detected_python_shebang, "dovi_convert.py"

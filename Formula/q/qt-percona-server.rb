@@ -1,10 +1,10 @@
 class QtPerconaServer < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtbase-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtbase-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtbase-everywhere-src-6.11.2.tar.xz"
-  sha256 "5b2e00eccaf5a4d8c14134ffa0ea8dfd0a35ae1ffc7f8d87fa4305a1ed23cf22"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtbase-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtbase-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtbase-everywhere-src-6.12.0.tar.xz"
+  sha256 "a951bd163c7b80fc6b8c88d7668fb56abf91c152373e13c10666763238131307"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -12,12 +12,12 @@ class QtPerconaServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d3fdc930a0703545df7b6b97cb28dc574171bf65790067a5bde6e37a0c92c479"
-    sha256 cellar: :any, arm64_tahoe:       "f929cb6a71b55b4ef4c6f0d68cc72dbb518389c7645bbd2aa91c3e3c59ce6745"
-    sha256 cellar: :any, arm64_sequoia:     "2c5adcaef8e55a4d411bbda794b948d95e83d4789630f86be77267eee7b1cc05"
-    sha256 cellar: :any, arm64_sonoma:      "7f1bc24101dc15ff482732c1b6d9b9fc40d61706b0837070960f4a5170f86eed"
-    sha256 cellar: :any, arm64_linux:       "dfbf66d3bd7143899119133942018bad6232242dc74c6274bae2c3aa8ec0c4f1"
-    sha256 cellar: :any, x86_64_linux:      "a1a8d81354613707b32a5e7595ebe5304883af2fb666c2e9622e8f49cf3db591"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "c1819ba1c492abcd663eb3e3ddee66fed0cddb3c8fee5ee4b173aafd15f1bdbd"
+    sha256 cellar: :any, arm64_tahoe:       "0d70d3e0acd07253d4b6af4a5c54da298abc8641488c81d6ce0c26d1fbdea31e"
+    sha256 cellar: :any, arm64_sequoia:     "06dd1d8540bf01fbcc00dfeadaf83c03783aea29445bf9ea699fe0023f63be01"
+    sha256 cellar: :any, arm64_linux:       "b673647cf627dac7271722a1cb00450cf7751ed3692fa54d2c1c0a22c9790d20"
+    sha256 cellar: :any, x86_64_linux:      "71cb921fa8517d86f213bcb9f5856c87a7e62477aee857b8e5a127c22a762f0c"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -41,6 +41,7 @@ class QtPerconaServer < Formula
       -DQT_GENERATE_SBOM=OFF
     ]
     args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON" if OS.mac?
+    args << "-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON" if OS.linux?
 
     system "cmake", "-S", "src/plugins/sqldrivers", "-B", "build", "-G", "Ninja", *args, *std_cmake_args
     system "cmake", "--build", "build"

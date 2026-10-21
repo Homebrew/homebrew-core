@@ -9,12 +9,12 @@ class Wllvm < Formula
   revision 1
 
   bottle do
-    rebuild 6
-    sha256 cellar: :any_skip_relocation, all: "34b9e23ff00414b2329a09ea3e9820175aa07881d236a218aeebd5abec34d9c6"
+    rebuild 7
+    sha256 cellar: :any_skip_relocation, all: "e0626150b6fa122d1618d8685fb547a6fc094d6a2bb65295cf0244f4b8e761ce"
   end
 
   depends_on "llvm" => :test
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     virtualenv_install_with_resources

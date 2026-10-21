@@ -2,8 +2,8 @@ class Kapacitor < Formula
   desc "Open source time series data processor"
   homepage "https://github.com/influxdata/kapacitor"
   url "https://github.com/influxdata/kapacitor.git",
-      tag:      "v1.8.7",
-      revision: "732d0f06a862762529eda2d2743986d6fff5e940"
+      tag:      "v1.8.8",
+      revision: "5795d00a62fa02bec66c4ae0ed0c572cb7d2fa69"
   license "MIT"
   head "https://github.com/influxdata/kapacitor.git", branch: "master"
 
@@ -13,12 +13,11 @@ class Kapacitor < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1f1a32167d73ea8962a7da2f05e8215742fd70f3b022df475755c3bba4e84114"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fa5787af03c87a93b12513d307ed38efa320b31f75e894e6da8d3a13b388f99b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eb65e4f7cbdc07bbd6a9716fc0a917a5cc9e860274acf79c5c354a2fb22ed166"
-    sha256 cellar: :any,                 arm64_linux:       "d3f93b7570977c0aea6a26bbd3365f811c1bcd985cca2dc53efd961110d604df"
-    sha256 cellar: :any,                 x86_64_linux:      "6bd4f4d917ec6d108ff379eef10009d77b9d6b4430fc8d65d37e63a7c5baa18e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6fbde5666d07e79d6bf9570434b225ebddd7639bfb054daee46311dbf069bbc7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a81557daaec013aa0297b6ce2b0daae7ca291a1ebdf14fbd884b8309d4e5f5df"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e7ae076f08d9895c6b48e4f10db375a0923e14a9f80f42add23c4d58a683fe7a"
+    sha256 cellar: :any,                 arm64_linux:       "22ece7e2ac1d8d7565b2c6fd4c170b4d6d4c87bf0364470a67e730222cea56c2"
+    sha256 cellar: :any,                 x86_64_linux:      "6dfc9e8f3c38ee4e785d43809c51bdcab0a5ac68109b01136f1115827f2261ad"
   end
 
   depends_on "go" => :build
@@ -37,6 +36,20 @@ class Kapacitor < Formula
     end
   end
 
+  # `test do` block runs a local kapacitord server
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+    resource("pkg-config-wrapper").stage do
+      system "go", "mod", "download"
+    end
+    # `pkg-config-wrapper` drives a cargo build of libflux inside the `flux`
+    # Go module during `install`; warm the cargo cache for it here.
+    flux_dir = Utils.safe_popen_read("go", "list", "-m", "-f", "{{.Dir}}", "github.com/influxdata/flux").chomp
+    system "cargo", "fetch", "--manifest-path", "#{flux_dir}/libflux/Cargo.toml", *std_cargo_fetch_args
+  end
+
   def install
     # `flux-core` Workaround for `error: hiding a lifetime that's elided elsewhere is confusing` with `rust` 1.89+
     ENV.append_to_rustflags "--allow dead_code --allow mismatched_lifetime_syntaxes"
@@ -44,6 +57,8 @@ class Kapacitor < Formula
     ENV.append_to_rustflags "--allow hidden_glob_reexports"
     # `flux` Workaround for `error: value assigned to `<varname>` is never read`
     ENV.append_to_rustflags "--allow unused_assignments"
+    # `flux` Workaround for `error: use of deprecated associated function` with `rust` 1.99+
+    ENV.append_to_rustflags "--allow deprecated"
 
     # Workaround to avoid patchelf corruption when cgo is required (for flux)
     if OS.linux? && Hardware::CPU.arch == :arm64

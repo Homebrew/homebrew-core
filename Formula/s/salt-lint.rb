@@ -8,22 +8,20 @@ class SaltLint < Formula
   license "MIT"
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any,                 arm64_golden_gate: "995daa36194dad5bb981e23c87476e51f42b99e007490ac05da3b8a4a753d95b"
-    sha256 cellar: :any,                 arm64_tahoe:       "b606364c1a88093ebede5792fbd635b2341e88be4445bcdd3df4e5a86311bf72"
-    sha256 cellar: :any,                 arm64_sequoia:     "66e97e657e2f63d010ae22eca72be97f2852ff05c766875d979bed46d6c3a97a"
-    sha256 cellar: :any,                 arm64_sonoma:      "8a714043bf26e236545a4c7b14a80618eb192757176b632678e8c3077040798f"
-    sha256 cellar: :any,                 sonoma:            "c9f93105dae3ecb41c3536a5e462027915159283114ee79ce154e52eb6e491bd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "cce0ed5262eb581bff74a9aadd2c4bb5f83f172d4c1a68d2c9685893aca0785e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3406be26bba9f19eeda9236f526a0eba97654495365e78dc2226ce5910f8bcb3"
+    rebuild 6
+    sha256 cellar: :any, arm64_golden_gate: "a977f3ded9ade7efab26c7cc9d6c7ff3a1981861c1024ba4370e2d5dfb8ea876"
+    sha256 cellar: :any, arm64_tahoe:       "463ca6e44950c80415077f7680c584957f1cc2ca113db9eb804aff0058361ae8"
+    sha256 cellar: :any, arm64_sequoia:     "3292bb3838f275d9786b9387d70b240106422ef46ba8ad94da82743857ddc89a"
+    sha256 cellar: :any, arm64_linux:       "fc4424e8b985981d483436d2591dd17c67212b8074401c96b3017ef5b76bd67b"
+    sha256 cellar: :any, x86_64_linux:      "9b50c064b8d76309a2b04ebe8aea65cf7fa8d191764d9021ac5d0964db0dbf40"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/ca/bc/f35b8446f4531a7cb215605d100cd88b7ac6f44ab3fc94870c120ab3adbf/pathspec-0.12.1.tar.gz"
-    sha256 "a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"
+    url "https://files.pythonhosted.org/packages/5a/82/42f767fc1c1143d6fd36efb827202a2d997a375e160a71eb2888a925aac1/pathspec-1.1.1.tar.gz"
+    sha256 "17db5ecd524104a120e173814c90367a96a98d07c45b2e10c2f3919fff91bf5a"
   end
 
   resource "pyyaml" do

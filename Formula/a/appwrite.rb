@@ -1,19 +1,26 @@
 class Appwrite < Formula
   desc "Command-line tool for Appwrite"
   homepage "https://appwrite.io"
-  url "https://github.com/appwrite/sdk-for-cli/archive/refs/tags/28.1.0.tar.gz"
-  sha256 "e270ecd9e0f4fb1583ef4e2eaac79e657d7dc2891cb40242929c287b427dd700"
+  url "https://github.com/appwrite/sdk-for-cli/archive/refs/tags/28.8.0.tar.gz"
+  sha256 "a35f60a04b067caccae73749a41b8fac813f519487a9016342b900d5277625d8"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "64189a92ecd4b39281f8e607fdf83bcd79a038d6a81198cd6a4791bd87cb9769"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "64189a92ecd4b39281f8e607fdf83bcd79a038d6a81198cd6a4791bd87cb9769"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "64189a92ecd4b39281f8e607fdf83bcd79a038d6a81198cd6a4791bd87cb9769"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1f192d753d5d8c4a6ee918a08eb807e2dd4f1ef7d514adc8b76737029ae516ef"
-    sha256 cellar: :any,                 x86_64_linux:      "35e620a2df49d187296c053eeba2b78e74e98876747e8cc1a620a29c0c9f1181"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "64c3eb5d8eebaaa6544465a76167822865cec97dad4684e118fea324c4eac030"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "64c3eb5d8eebaaa6544465a76167822865cec97dad4684e118fea324c4eac030"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "64c3eb5d8eebaaa6544465a76167822865cec97dad4684e118fea324c4eac030"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "c06c9ea3c84c152fa24646b4bad37c2d203c350307f274a40581a74ab145201a"
+    sha256 cellar: :any,                 x86_64_linux:      "1854553b5bf5692bc63652cedad9531ca3705539c46ea627175e161ac022070f"
   end
 
   depends_on "go" => :build
+
+  deny_network_access!
+
+  def fetch
+    # `go mod tidy` needs module metadata beyond what `go mod download` fetches
+    system "go", "mod", "tidy"
+  end
 
   def install
     # https://github.com/appwrite/sdk-for-cli/blob/4399a3321898f40cf982acbd4859d506c9d4d9f4/.goreleaser.yaml#L19-L22

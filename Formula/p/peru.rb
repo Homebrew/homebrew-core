@@ -10,17 +10,16 @@ class Peru < Formula
   head "https://github.com/buildinspace/peru.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "374bdb0049a5907aea055b5c1a3ee66b2e2aa85c4da278c23febca8b5c228a0d"
-    sha256 cellar: :any,                 arm64_tahoe:       "5a7e7669fb8cdf7e4bf5175f9d01be1d0a9d75aa693c6161c2b27145a8c62059"
-    sha256 cellar: :any,                 arm64_sequoia:     "1b2840d24355227568032ad13df06a4ab9d0ae8c61bf2477d0f837fe7bb7b4a2"
-    sha256 cellar: :any,                 arm64_sonoma:      "d4b0ba0f201b97d60292fd8f2539cdfa0e71b24ccccc963f40dbcd5ab03e8565"
-    sha256 cellar: :any,                 sonoma:            "1d7ba45fd3db6b8154eee9d11ddc65859dc8be21ed882e9907c856d2d496c975"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d90e59b8f68ff875b46e7edea66ca293733abcdc5b071153ce347d3ca3ee484e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "65b950ac4d3bb7af7bdd3221cad598590f02663010bb27d6176501dea43bd61c"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "b58c5fd45085887e66448ce84898bfd92416acf768c6e450095ab3d4fd9611ab"
+    sha256 cellar: :any, arm64_tahoe:       "1225528b3151402c59e607982d0686643d77ae510b05ede6a829776cb05ab638"
+    sha256 cellar: :any, arm64_sequoia:     "3024f57fa07ba7b6251605bc99af6af490dd9463ba135e76b3b4a17993e2bd3a"
+    sha256 cellar: :any, arm64_linux:       "a48224577d15e40447662a6ea737292a36fad06bb13fbab73e7e6b009e2b2e01"
+    sha256 cellar: :any, x86_64_linux:      "c62725aec4d75736ab194f803f43c02eea5929cd75fed48216dff61030153405"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"

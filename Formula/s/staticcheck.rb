@@ -1,19 +1,17 @@
 class Staticcheck < Formula
   desc "State of the art linter for the Go programming language"
   homepage "https://staticcheck.dev/"
-  url "https://github.com/dominikh/go-tools/archive/refs/tags/2026.2.1.tar.gz"
-  sha256 "8d807cd909f4481d6777f7707e5ae75dcc399e14d68ff14a3c814731826e0dfc"
+  url "https://github.com/dominikh/go-tools/archive/refs/tags/2026.2.2.tar.gz"
+  sha256 "f957eca5ee25bba46711433bfc320e0e900304ebb89641264bde256031926139"
   license "MIT"
-  revision 1
   head "https://github.com/dominikh/go-tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "77b60bcd0ec5ebe4aa2f0b51b33cc5d0f67c1a9e53d9cf96c8a24044bb8f44d3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "77b60bcd0ec5ebe4aa2f0b51b33cc5d0f67c1a9e53d9cf96c8a24044bb8f44d3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "77b60bcd0ec5ebe4aa2f0b51b33cc5d0f67c1a9e53d9cf96c8a24044bb8f44d3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "77b60bcd0ec5ebe4aa2f0b51b33cc5d0f67c1a9e53d9cf96c8a24044bb8f44d3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "177afc1e20f698794d1c6bc119073572422b79be02c3c2ad83e7459a63f4f29f"
-    sha256 cellar: :any,                 x86_64_linux:      "b2c172c6763e761878de10fc80273ead35a04475f6a6a7b73a58d1da48434b82"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f9dd05553e1faf09714fb5bbfbed2fa228577d5a55c1457233d0280652dcaa1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8f9dd05553e1faf09714fb5bbfbed2fa228577d5a55c1457233d0280652dcaa1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8f9dd05553e1faf09714fb5bbfbed2fa228577d5a55c1457233d0280652dcaa1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4a257e28f6c5bee671cd36d6f8c29c0761182068884dd21117c0fe9fcca4fe6f"
+    sha256 cellar: :any,                 x86_64_linux:      "83c06e974ea0d97b299d45604efd8ca585b6a4db887e84ceb17de662ac61dc7c"
   end
 
   depends_on "go"

@@ -8,22 +8,21 @@ class PodmanCompose < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "5aa126374b56ee9ee9d231d10c13f5b879f8f88e68a9a8930d703f9c1e209f25"
-    sha256 cellar: :any, arm64_tahoe:       "97704e9501523ee9e8a58a863fbee60ac0a28d92dafda898c144787e70272d61"
-    sha256 cellar: :any, arm64_sequoia:     "cb8a6a4c0109b92c3bb4380c6b25af0d013b2dc91806a23e28ddd28ab6a3558c"
-    sha256 cellar: :any, arm64_sonoma:      "20b45f872570323c8c7adb78792911df1f440d06022b8d62c3c2760b17766240"
-    sha256 cellar: :any, sonoma:            "bd14f22447ff9ebb5fbf2837a13e7cfc65c0b1dbaa6923df7a5b0b253192453b"
-    sha256 cellar: :any, arm64_linux:       "581329e037c0965d3e573193524d879bbbf53f1b10e2d03d9bb3b46fe6231701"
-    sha256 cellar: :any, x86_64_linux:      "dc6f0c240db6ec3a0e3bf878c1d955c997b18e4b89c1ccf21edf8a8e8f12c52a"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "c7050064a5a62abd626e29ddc2fe819ec3898bea98d8013fc0fe229098fc18cd"
+    sha256 cellar: :any, arm64_tahoe:       "7bc87cd8a3b94b493ec7e2d7695e69c120dc97ed5666cc46543e0ae8a466b0d0"
+    sha256 cellar: :any, arm64_sequoia:     "33cd6144da68f8a941af2735eb2da5107a43b89dda22a925a084e689e2ae9ae3"
+    sha256 cellar: :any, arm64_linux:       "b40b76b8f7de6e33f9bc6efc866c49ff0c086732fb585b1f036d7bac36855dc5"
+    sha256 cellar: :any, x86_64_linux:      "19458ab1e88b6217b903259abea485e67c70b46500408494031283f18083e200"
   end
 
   depends_on "libyaml"
   depends_on "podman"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/82/ed/0301aeeac3e5353ef3d94b6ec08bbcabd04a72018415dcb29e588514bba8/python_dotenv-1.2.2.tar.gz"
-    sha256 "2c371a91fbd7ba082c2c1dc1f8bf89ca22564a087c2c287cd9b662adde799cf3"
+    url "https://files.pythonhosted.org/packages/74/26/2fbeedb218a787a5eea551c7532cac4e009f83d689dd2faa0d0353473f86/python_dotenv-1.2.4.tar.gz"
+    sha256 "f0d53e69935a851c0dcc78f3ab7aaccd8cabef0b92382b576b824212902873c0"
   end
 
   resource "pyyaml" do

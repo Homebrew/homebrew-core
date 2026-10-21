@@ -1,18 +1,17 @@
 class Regclient < Formula
   desc "Docker and OCI Registry Client in Go and tooling using those libraries"
   homepage "https://regclient.org/"
-  url "https://github.com/regclient/regclient/archive/refs/tags/v0.11.6.tar.gz"
-  sha256 "6e1d1ba693e0bb47afe6e32fd85513cbb78dc20d9564b5de380a6b5e275a7c83"
+  url "https://github.com/regclient/regclient/archive/refs/tags/v0.11.7.tar.gz"
+  sha256 "a648fcf3b5b81c55773f47f6d7401d1904675c32520a76159d960a9e8798badd"
   license "Apache-2.0"
   head "https://github.com/regclient/regclient.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "924899cd61035413a0fc7755d9f774e083e3a03c2e0ffba41ec04c0ded73fce2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "924899cd61035413a0fc7755d9f774e083e3a03c2e0ffba41ec04c0ded73fce2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "924899cd61035413a0fc7755d9f774e083e3a03c2e0ffba41ec04c0ded73fce2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "924899cd61035413a0fc7755d9f774e083e3a03c2e0ffba41ec04c0ded73fce2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "86147298c044120128c6122784fd72a3ffcc1d4b355397b333d74d9f471a8cd5"
-    sha256 cellar: :any,                 x86_64_linux:      "8dc66fd47e77afe3839bcf58ff1a95ef6a2abc9233bf1827dbb4da2ba942b1c1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dfb3204f430873c6f5a7bcbbe605fadbdc26927139c2a1dbbcef5c53a3347487"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dfb3204f430873c6f5a7bcbbe605fadbdc26927139c2a1dbbcef5c53a3347487"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dfb3204f430873c6f5a7bcbbe605fadbdc26927139c2a1dbbcef5c53a3347487"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a0c47b606c25f98f79076a1ac81736a806502f0b95a72cc6891d191cb889bf4f"
+    sha256 cellar: :any,                 x86_64_linux:      "b8803ecebbd1a59d25144f8a44609e8052f687ae571c60f2b820102e9863acf2"
   end
 
   depends_on "go" => :build

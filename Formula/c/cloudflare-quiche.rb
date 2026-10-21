@@ -27,6 +27,14 @@ class CloudflareQuiche < Formula
 
   uses_from_macos "llvm" => :build
 
+  allow_network_access! :test
+
+  def fetch
+    # `Cargo.lock` files are ignored
+    system "cargo", "generate-lockfile"
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "apps")
 

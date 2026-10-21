@@ -21,6 +21,12 @@ class GitAbsorb < Formula
   depends_on "rust" => :build
   depends_on "libgit2"
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
 

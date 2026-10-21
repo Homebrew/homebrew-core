@@ -1,8 +1,8 @@
 class Turso < Formula
   desc "Interactive SQL shell for Turso"
   homepage "https://github.com/tursodatabase/turso"
-  url "https://github.com/tursodatabase/turso/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "b5fd172a9defb55e78dec9c574dcb79b0d988a5bfdfb59b64a591890f3f29a5c"
+  url "https://github.com/tursodatabase/turso/archive/refs/tags/v0.8.3.tar.gz"
+  sha256 "18912d5142b3d4abe29aeeb771ccbbdb4c819105627833d2232d746013d9cd0a"
   license "MIT"
   head "https://github.com/tursodatabase/turso.git", branch: "main"
 
@@ -12,15 +12,21 @@ class Turso < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6e4f0902b48a1e96bb1e23fba987b02d2b94f0c7a235025308cc854f39ff0b53"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d25148917034ca5cb14987d074752812d343095697158b281a44f306a249cf1c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3a8dcb094294f18556834b8e2771dff255ba4f29882ba9e3fbffd403c6dec5f4"
-    sha256 cellar: :any,                 arm64_linux:       "25b9b5b619eb73efef3ec95e478b1c5fbe0aef4c5f1f435a62f4be65344f2c0e"
-    sha256 cellar: :any,                 x86_64_linux:      "244d5201ed3d6f1c378c2a69fa9b2255cbf0e6b5fbcc64533a80606600bcc059"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "47a0890fdb028897e341dacabb91b07e5f3484751c1b33250491ac12c965ea3a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "67efadc00266071e8fc9b037ab61445c7754dff0818a326cdb56bcd09a724f99"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "99561b3c357353314453bf05568c5c3abab90332f1d5dbc050da3b92e993222a"
+    sha256 cellar: :any,                 arm64_linux:       "576bc4d735a57baa6592c44780384d17b23d4a335419decf755c0b72e6747848"
+    sha256 cellar: :any,                 x86_64_linux:      "1e608dff13ccf307732081dfa1f5cbd9e8a1f4eee8ff112999173e1c3bcd87d9"
   end
 
   depends_on "rust" => :build
   uses_from_macos "sqlite" => :test
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "cli")

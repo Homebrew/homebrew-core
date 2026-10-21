@@ -34,6 +34,8 @@ class Libcuefile < Formula
   # Fix comparison operators for proper range checking.
   patch :DATA
 
+  deny_network_access!
+
   def install
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
@@ -46,6 +48,32 @@ class Libcuefile < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     include.install "include/cuetools/"
+  end
+
+  test do
+    (testpath/"test.cue").write <<~EOS
+      TITLE "Test Album"
+      FILE "test.wav" WAVE
+        TRACK 01 AUDIO
+          INDEX 01 00:00:00
+    EOS
+
+    (testpath/"test.c").write <<~C
+      #include <stdio.h>
+      #include <cuetools/cuefile.h>
+
+      int main(void) {
+        int format = UNKNOWN;
+        Cd *cd = cf_parse("test.cue", &format);
+        if (cd == NULL) return 1;
+        printf("%s\\n", cdtext_get(PTI_TITLE, cd_get_cdtext(cd)));
+        cd_delete(cd);
+        return 0;
+      }
+    C
+
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lcuefile", "-o", "test"
+    assert_equal "Test Album", shell_output("./test").strip
   end
 end
 

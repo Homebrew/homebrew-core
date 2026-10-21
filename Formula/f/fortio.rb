@@ -2,8 +2,8 @@ class Fortio < Formula
   desc "HTTP and gRPC load testing and visualization tool and server"
   homepage "https://fortio.org/"
   url "https://github.com/fortio/fortio.git",
-      tag:      "v1.75.3",
-      revision: "5c19725ff61c9f7ad944b91ec32d96a399341d87"
+      tag:      "v1.76.0",
+      revision: "67ce9fa2a3a62fdb2f7a0d2b50acda1f7002d32b"
   license "Apache-2.0"
   head "https://github.com/fortio/fortio.git", branch: "master"
 
@@ -16,12 +16,11 @@ class Fortio < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "adae032905a9a932ce31f4883dc8d907e32586740ad5886d181566ed893b200f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c066d17408ceab9ac6891a86e5a714d088b3f20debe47b4570cadbd49914bdf0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c066d17408ceab9ac6891a86e5a714d088b3f20debe47b4570cadbd49914bdf0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "c066d17408ceab9ac6891a86e5a714d088b3f20debe47b4570cadbd49914bdf0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d9cf405df21a5cb11b09e33baa5396860c980f2710fbed32ca94f2fde3aaca35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a8a6de6c00b2c4d501b4a813551628d33d475339c724bfb87f3185946d630de8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "854989c7b8bfa790956b9aa50caff1a780dc835e70d33534108ec3bdecad3581"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2436c65dc2ee54f2c177206ae4f023f659df343fa921f161b7ba202586c4e7cb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "67f987b5ad193170817b4c0e97dfc37140c3cffe67731bd9feded935ab8c9547"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "e8bd405659535b5e6c6abd81f1af5f493080ae0cc86007987e8c30094041a655"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d77c2692ecfb4af0a0b763fa8a18e7e90c5780304695e9ba87b1fc85dcae4204"
   end
 
   depends_on "go" => :build

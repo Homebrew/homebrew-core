@@ -31,7 +31,6 @@ class Gpk < Formula
     assert_match version.to_s, shell_output("#{bin}/gpk --version")
 
     # gpk must enumerate the real Homebrew installation it was just installed into.
-    require "json"
     listed = JSON.parse(shell_output("#{bin}/gpk list --json --manager brew --quiet"))
     assert_equal 1, listed["schema"]
     assert listed["data"].any? { |pkg| pkg["name"] == "gpk" }, "gpk did not find itself via brew"

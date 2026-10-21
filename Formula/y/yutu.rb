@@ -1,5 +1,5 @@
 class Yutu < Formula
-  desc "MCP server and CLI for YouTube"
+  desc "CLI, MCP server, and AI agent to automate YouTube workflows"
   homepage "https://yutu.ifor.dev"
   url "https://github.com/eat-pray-ai/yutu/archive/refs/tags/v0.11.0.tar.gz"
   sha256 "456affd706e72cdcc96c23bc3394b9011b9c1c2564054a155c081b70d05fcfb5"

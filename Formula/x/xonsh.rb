@@ -9,16 +9,15 @@ class Xonsh < Formula
   head "https://github.com/xonsh/xonsh.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "61ffadbc86c2eeb6b7e1c11abe1a753a0260202b0bb95c74e3dec99c26e4e479"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bd6f5febe88a740e4c4dca1374fa5ce1fbe6e4c85bdf75f6c39179ee8aff0f7b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "be2d52d63d46ccffb6313cc3dba49be635c6609242acebcd9121e272857017b1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "8fb8bb34f74abfe7fd2a64d08e26149a4cd69072b6bd29944040eff0b0513c84"
-    sha256 cellar: :any_skip_relocation, sonoma:            "205915b9bce44c8a08b6222e91a4dc5e65ada04fc1a965c408cc368c7245482d"
-    sha256 cellar: :any,                 arm64_linux:       "68cb88360903556f2320da899c5891e39cd7ceef4846a36820ea92e7e56c58b2"
-    sha256 cellar: :any,                 x86_64_linux:      "9f2fa3eef2c63c50f0b8fbb99c630bb7490b567d4bf653dbab02cbd9ebd3d8fb"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "36c7b830e631d3319e0d6a2f7cb6ba023c1ce0db0efb1344d24ffee7bb5bde48"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6e925d9f218e1ecef77d43c965afab8025b36a2f17102eef144466a373302638"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c3503269de8c0e3f67056ca91f22789f01b578337336239b29fc1a4ba7a92461"
+    sha256 cellar: :any,                 arm64_linux:       "b515b02b0264355e59ddaaf1cd9c1006df1cde54c26390d384a670062ea7b391"
+    sha256 cellar: :any,                 x86_64_linux:      "e73b53b14f2ab5f0cbdbc7fe3c6d3aa0161bd955d16c535f86f8ff835df7fc3d"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name: "xonsh[ptk,pygments,proctitle]"
 
@@ -38,13 +37,13 @@ class Xonsh < Formula
   end
 
   resource "setproctitle" do
-    url "https://files.pythonhosted.org/packages/8d/48/49393a96a2eef1ab418b17475fb92b8fcfad83d099e678751b05472e69de/setproctitle-1.3.7.tar.gz"
-    sha256 "bc2bc917691c1537d5b9bca1468437176809c7e11e5694ca79a9ca12345dcb9e"
+    url "https://files.pythonhosted.org/packages/49/b0/6b8a516c5a9e9630bd5293db78314ac012f690305fe93beadea388626efb/setproctitle-1.3.8.tar.gz"
+    sha256 "cafe209d064a6efb88cb45a03e97981ff8832802b2b5d009dde0197a3b7b41c8"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/34/74/c6428f875774288bec1396f5bfcbc2d925700a4dad61727fd5f2b12f249d/wcwidth-0.8.2.tar.gz"
-    sha256 "91fbef97204b96a3d4d421609b80340b760cf33e26da123ff243d76b1fda8dda"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

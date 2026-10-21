@@ -7,17 +7,12 @@ class Teller < Formula
   head "https://github.com/tellerops/teller.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e80eb2e4a92d957755ba22d47fbb34b6cbdfed1695b4c949b9fe4b9c7b6b9947"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c3ab62c1579d3f41b3642fe3b3170a8c116be3abb320b09aac2c8f37b5ad51ef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a9e07be61dd9142e5650014b5f8ef4df9bf689dc59d1b2a4e8825554db831ea2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "703d3907b7c26f917c3fe9fd1e87cad407a54c9f687104bf0b99a0027a91bfc7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "a778a5408aa36e9c37b43b174e836bec8b3a33e47c277fe1848bca16e138f159"
-    sha256 cellar: :any_skip_relocation, arm64_monterey:    "ee1a519ff52b6ac79cf9452148c1e43da20f53b3c480c4e6c720dc6eaa7aa1d9"
-    sha256 cellar: :any_skip_relocation, sonoma:            "1e8cec0e0438ed0d2fd78f55732c0e25817a5f5b29abec395feab13ed7064ce4"
-    sha256 cellar: :any_skip_relocation, ventura:           "ef538ec71a01c3d9c720834548d1d1ef69c188e3b35af336aa929cdbcc410dcf"
-    sha256 cellar: :any_skip_relocation, monterey:          "6a2c68920ddfa793d15b9929c3776bdf57dae94c1bba39a3ecc98b469971fdf2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "732e1ec643cafa019abff281687553156cb58b234b896f4294617137b37c21bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d5a575efbb6d5fc01d43cd7ba2f6df6c0fc121e696b7b176a8b309c55b955503"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "498a4c2d3407a60a1ca31581c9d694217d989a7d8af58f50249661ac3cbf6704"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5a9ae23fea270e5a54848ad267bbbc6333f8ae4fb7d343a6ae9d1ac693350e45"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "87cf330481da777449b02b7ec37182b9c51544d0bf99eb93baeecde764647d6e"
+    sha256 cellar: :any,                 arm64_linux:       "55426859c6e808915e5e3ffbfdc56cd770bba8b0ccc18f6dad1bf8d750d15222"
+    sha256 cellar: :any,                 x86_64_linux:      "8eb9ccbb9a46d6c14abb7fcc087a8dec282cabd4fe44de99d6c98d3a7f8b6193"
   end
 
   depends_on "pkgconf" => :build
@@ -25,7 +20,22 @@ class Teller < Formula
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
+  end
+
+  deny_network_access!
+
+  def fetch
+    # Update to openssl 0.10.78 and openssl-sys 0.9.114 for minimum needed to use OpenSSL 4.
+    # Using `cargo update` rather than patch to work with stable and head.
+    if build.stable?
+      openssl_sys_version = File.read("Cargo.lock")[/name = "openssl-sys"\nversion = "(\d+(?:\.\d+)+)/i, 1]
+      odie "Remove `cargo update` workaround!" if Version.new("0.9.114") <= openssl_sys_version
+    end
+    system "cargo", "update", "openssl-sys", "--precise", "0.9.114"
+    system "cargo", "update", "openssl", "--precise", "0.10.78"
+
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install

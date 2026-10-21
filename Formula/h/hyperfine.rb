@@ -1,19 +1,17 @@
 class Hyperfine < Formula
   desc "Command-line benchmarking tool"
   homepage "https://github.com/sharkdp/hyperfine"
-  url "https://github.com/sharkdp/hyperfine/archive/refs/tags/v1.20.0.tar.gz"
-  sha256 "f90c3b096af568438be7da52336784635a962c9822f10f98e5ad11ae8c7f5c64"
+  url "https://github.com/sharkdp/hyperfine/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "f4b71df3c78e4cf752ca6fb6ebc4b025f7ea6a5ca5c48fea75f8a1fdb4c7d721"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/sharkdp/hyperfine.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "80cd61175626bc35b5354fee6a0bc987196b66b8aa71ef706c6f7e3f5cda1b5a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2a79829da44dc03e12ea4977b6bfa122cea8487e741c24a7fbcc7ce6a4788db3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d0c8ce81f2d2e32e5d600c474c433cd67af71c7f95c4c9de0622369557d4667b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "491753d73c724655595030aac15f675f3fe0240af8be73c673251b37a7a90017"
-    sha256 cellar: :any_skip_relocation, sonoma:            "35f05803354dc8621b9bdf918d50aef83eca450b90babc5b9899ca151177c39a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "cc0b9a0eb7628a130fb45cd3a5abc08321daa6f48eb175e26f784ef44fa9a18f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a6cdec4cc985c9fdef714051f2c921b8d5158c444be11e73af825054589d0ddc"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d797e75f328c0e8d5aae214f18640f82cdb620971b207b03105b1b4a25caec63"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bdef558822250a41bcc15d0ddfdb8edde44a93834abae3c8a33af18047332d97"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5f6106d336697f7611ba071e98224b1e91a9225e1a40e996f752c1625c5e2da9"
+    sha256 cellar: :any,                 arm64_linux:       "629256719d1898bbbdd683a278110076028f1b3274f2749c0d80c90c1d60d838"
+    sha256 cellar: :any,                 x86_64_linux:      "1cb9dcf00e6071ddbe0ee63a1e0d06bcfe75b3e130130430b5fda2efa98740fd"
   end
 
   depends_on "rust" => :build

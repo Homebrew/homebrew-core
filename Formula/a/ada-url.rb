@@ -4,16 +4,16 @@ class AdaUrl < Formula
   url "https://github.com/ada-url/ada/archive/refs/tags/v4.0.0.tar.gz"
   sha256 "6d6c7ef7dd2e329320d34eb2ab29ccdc879ee3935af9dfb894a6640e58dc381d"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   compatibility_version 2
   head "https://github.com/ada-url/ada.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "6235988a1cb39e53645f3d9b0ef889e94e7278ccd627a2b8fe16c64a7e4c0fb9"
-    sha256 cellar: :any, arm64_tahoe:       "8cd5b8133d5d34575ad20ddc10fd1c999d8445528bb636da563e3f7cb17b1937"
-    sha256 cellar: :any, arm64_sequoia:     "bb5f6f94e6215be0eed9580c6a204148d17618466fe2ee99201e2b7107b05e8e"
-    sha256 cellar: :any, arm64_linux:       "8e442e00c3b47def8f6d8fb38d18d9ad15be89c66a27085ae4ee40f067d0b722"
-    sha256 cellar: :any, x86_64_linux:      "6cc8c56c008d31dcb63f3beca7d20d124fcfb52e9710e69ef8a9ada954ce9df6"
+    sha256 cellar: :any, arm64_golden_gate: "128eaf9715ebd44f3225db77cae4b4f4388dbe8e76ba5e43e51e490f0b7028a7"
+    sha256 cellar: :any, arm64_tahoe:       "c47d62dbcf1d8a254f88fab01691998b85fcfa8eb37331dcc672447fa76275cc"
+    sha256 cellar: :any, arm64_sequoia:     "62d2b023afbdc5cc29ce919b2d44b66c4da67c9b5b79460e34ec6f9f324ce387"
+    sha256 cellar: :any, arm64_linux:       "cb222e1daef4716eba8d1bfeb93113e94bc89833357911d2233819c205d1c087"
+    sha256 cellar: :any, x86_64_linux:      "07042596fb78754997f38d3f802818a5917018de3922e75c389748a257e19d58"
   end
 
   depends_on "cmake" => :build

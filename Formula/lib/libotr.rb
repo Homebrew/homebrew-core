@@ -28,6 +28,7 @@ class Libotr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "9a88f909cde9e876f1f3a9ffe30d2ba483715ba3fc03c188f78bc07758a18491"
   end
 
+  depends_on "pkgconf" => :test
   depends_on "libgcrypt"
 
   on_macos do
@@ -47,10 +48,31 @@ class Libotr < Formula
     resolves "https://bugs.debian.org/1009420"
   end
 
+  deny_network_access!
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <libotr/proto.h>
+      #include <libotr/b64.h>
+
+      int main(void) {
+        OTRL_INIT;
+        char *encoded = otrl_base64_otr_encode((const unsigned char *)"Homebrew", 8);
+        printf("%s\\n", encoded);
+        free(encoded);
+        return 0;
+      }
+    C
+
+    pkgconf_flags = shell_output("pkgconf --cflags --libs libotr").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkgconf_flags
+    assert_equal "?OTR:SG9tZWJyZXc=.", shell_output("./test").strip
   end
 end

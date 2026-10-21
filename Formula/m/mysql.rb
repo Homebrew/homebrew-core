@@ -5,7 +5,7 @@ class Mysql < Formula
   mirror "https://repo.mysql.com/apt/ubuntu/pool/mysql-innovation/m/mysql-community/mysql-community_26.7.0.orig.tar.gz"
   sha256 "95e949183b94bbe39e70c6355e6c90d2a640a62ede996ca5f7a6a3e0827a3260"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 3
+  revision 4
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src",
@@ -14,11 +14,11 @@ class Mysql < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "1e00b03ad84817ebf0ecaa2714cc5de9df640150a10178e8ccd64ef999eb1086"
-    sha256 arm64_tahoe:       "e26294c8531b96db90671aa6de1b56fcb3dc3dfd0d552ac1f819d1d7e8ccaab7"
-    sha256 arm64_sequoia:     "4b06b5b2a10c156a7a07a41fb661d58a4c6e1736f881f07b1c7af6ed13803363"
-    sha256 arm64_linux:       "38d4ab7c9d98add8fd53e1ab28921df1795cb941eb92e61461b4b7fe02ac1841"
-    sha256 x86_64_linux:      "08a0bd7faa007aec7725ff8c4ecf3d9f5433e3cd51616560d248b50bc89be9a6"
+    sha256 arm64_golden_gate: "ebe505361b50d58f951d5dbf3a6ce45ddf4a4160d5cb21e2abd033509c71c598"
+    sha256 arm64_tahoe:       "5e7eb267efe81c469fe344924a40220a2a9897af0798b0bab2d4daee8f70ce3a"
+    sha256 arm64_sequoia:     "2d8cc59cc82d275549ff091afb631e5114b115e71e886971fd63d4d684ec3ced"
+    sha256 arm64_linux:       "c616a966e3d84d17db8abcb27b75fe58695e70fb4da891dd9560ac769eed0304"
+    sha256 x86_64_linux:      "1558dc149823e8edb06951403f8f700742fc23d742e928658364951024de4454"
   end
 
   depends_on "bison" => :build
@@ -27,7 +27,7 @@ class Mysql < Formula
   depends_on "abseil"
   depends_on "icu4c@78"
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf"
   depends_on "zlib-ng-compat" # Zlib 1.2.13+
   depends_on "zstd"
@@ -56,6 +56,17 @@ class Mysql < Formula
   fails_with :gcc do
     version "12"
     cause "fails handling PROTOBUF_FUTURE_ADD_EARLY_WARN_UNUSED"
+  end
+
+  # Backports to support OpenSSL 4
+  patch do
+    file "Patches/mysql/26.7.0.diff"
+    type :backport # https://github.com/mysql/mysql-server/commit/04ba58a223afc1339c75b080825042ad17a85b43
+  end
+  patch do
+    url "https://github.com/mysql/mysql-server/commit/a045c23214ec225c49d9bc4caeea78d3d1f99ba9.patch?full_index=1"
+    sha256 "b597781554b7fbcf4e13402dc8dca97bea59e059ed6e40e4eb71cd5c26a91ad9"
+    type :backport
   end
 
   # Patch out check for Homebrew `boost`.
@@ -100,7 +111,7 @@ class Mysql < Formula
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
       -DBISON_EXECUTABLE=#{formula_opt_bin("bison")}/bison
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
       -DWITH_ICU=#{icu4c.opt_prefix}
       -DWITH_SYSTEM_LIBS=ON
       -DWITH_EDITLINE=system

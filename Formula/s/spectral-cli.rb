@@ -11,22 +11,22 @@ class SpectralCli < Formula
 
   depends_on "node"
 
+  resource "homebrew-petstore.yaml", :test do
+    url "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/b12acf0c/examples/v3.0/petstore.yaml"
+    sha256 "7dc119919441597e2b24335d8c8f6d01f1f0b895637f79b35e3863a3c2df9ddf"
+  end
+
+  resource "homebrew-streetlights-mqtt.yml", :test do
+    url "https://raw.githubusercontent.com/asyncapi/spec/1824379b/examples/streetlights-mqtt.yml"
+    sha256 "7e17c9b465437a5a12decd93be49e37ca7ecfc48ff6f10e830d8290e9865d3af"
+  end
+
   def install
     system "npm", "install", *std_npm_args(ignore_scripts: false)
     bin.install_symlink libexec.glob("bin/*")
   end
 
   test do
-    resource "homebrew-petstore.yaml" do
-      url "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/b12acf0c/examples/v3.0/petstore.yaml"
-      sha256 "7dc119919441597e2b24335d8c8f6d01f1f0b895637f79b35e3863a3c2df9ddf"
-    end
-
-    resource "homebrew-streetlights-mqtt.yml" do
-      url "https://raw.githubusercontent.com/asyncapi/spec/1824379b/examples/streetlights-mqtt.yml"
-      sha256 "7e17c9b465437a5a12decd93be49e37ca7ecfc48ff6f10e830d8290e9865d3af"
-    end
-
     test_config = testpath/".spectral.yaml"
     test_config.write "extends: [\"spectral:oas\", \"spectral:asyncapi\"]"
 

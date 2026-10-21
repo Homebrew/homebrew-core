@@ -4,22 +4,20 @@ class Arturo < Formula
   url "https://github.com/arturo-lang/arturo/archive/refs/tags/v0.10.0.tar.gz"
   sha256 "408646496895753608ad9dc6ddfbfa25921c03c4c7356f2832a9a63f4a7dc351"
   license "MIT"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_golden_gate: "fa6105e41161f410eb3b9f2be54cbb5a544193fee80bd5d8e97006e6052c36be"
-    sha256 cellar: :any,                 arm64_tahoe:       "ebba8e3fbb4a744beaac399da9b1ffb8307a0804d7c05b7076fb785613b5d552"
-    sha256 cellar: :any,                 arm64_sequoia:     "9341ba90985816c15c47bdcac2920389879773a50ef363041dc6f4ecee689fd0"
-    sha256 cellar: :any,                 arm64_sonoma:      "17408c0bbc0e822b990ecff5b09984217bbb759533c9583fa4cbe522126a370d"
-    sha256 cellar: :any,                 sonoma:            "1d3f1fda2e54e2a47a255e4da81b268e00cb004990957cc920bc83b5fb867c7d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1d022b862b9319ffddd133b8701fbc1d57c012288d0edb3a4d5481b53a3ec4f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c0ca9d6b0315a3d4cd6ad14ab1b385a0cbc42d5eaa0cce0ec69241931bd2b864"
+    sha256 cellar: :any, arm64_golden_gate: "6b1c3b757f0f08a102426ff62459c80886e7333b829ffbeba13b941b270c4844"
+    sha256 cellar: :any, arm64_tahoe:       "d26c05685142a1f3f38bc8e93b30e6e7bed671a7f73219f191e62863b354c441"
+    sha256 cellar: :any, arm64_sequoia:     "d59f8df9298dccbb14d97e27f97f2837d04c23cb1db172150fe77d03fa5c93fa"
+    sha256 cellar: :any, arm64_linux:       "691ccd432fcb433ea59611816d14081070e184f529af3b0f7c8c3e1e6dde34c9"
+    sha256 cellar: :any, x86_64_linux:      "203904c48c4b5e4e208bad2390d49c436e992fac68451adf62f63ac38acea15c"
   end
 
   depends_on "nim" => :build
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   # accessed via dlsym
   depends_on "pcre2" => :no_linkage
@@ -46,7 +44,7 @@ class Arturo < Formula
     # FIXME: Unbundle OpenSSL. Should find a way to do this upstream
     inreplace "src/library/Net.nim",
               /\{\.passL: "[^"]*(-lcrypto|libcrypto\.a)[^"]*"\.\}/,
-              "{.passL: \"-Wl,-rpath,#{formula_opt_lib("openssl@3")} -lssl -lcrypto\".}"
+              "{.passL: \"-Wl,-rpath,#{formula_opt_lib("openssl@4")} -lssl -lcrypto\".}"
 
     # Workaround to use pcre2 after patching `nimble`
     inreplace "src/vm/values/custom/vregex.nim",

@@ -30,6 +30,7 @@ class Proj < Formula
   uses_from_macos "sqlite"
 
   conflicts_with "blast", because: "both install a `libproj.a` library"
+  conflicts_with "claude-code-templates", because: "both install `cct` binaries"
 
   skip_clean :la
 

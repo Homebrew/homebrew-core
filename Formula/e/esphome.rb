@@ -12,11 +12,12 @@ class Esphome < Formula
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d51c6a10bd4d1ae169dc346d18020945f797825c78036d2b9563f6bf3e5a5148"
-    sha256 cellar: :any, arm64_tahoe:       "26fee85dd01a3a1f49c09b6909b093247e354e06a36bf461900af261df91d205"
-    sha256 cellar: :any, arm64_sequoia:     "7eb79014f689334b51810190a562850e6b0a1a60f148e74036b3877059f485b1"
-    sha256 cellar: :any, arm64_linux:       "f86cdb8ef8163fd983acaca74c562d1163c4a6946e2e60b1cc3ffc1a7a7c0bfa"
-    sha256 cellar: :any, x86_64_linux:      "eb462d51b1f959256f9e2451d63678c80b8e1717b56d7d1712f8644c07d95dc8"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "c8422dc60989513a193e02f84bd776f0acbdb8d76a08f5e122441e302650cece"
+    sha256 cellar: :any, arm64_tahoe:       "9edb14becd7be1ffc894c56b446f11b2788afca5b927023cd8d9c0986d59b91e"
+    sha256 cellar: :any, arm64_sequoia:     "4fb17287f6ba3d2bfde9707d3d614e03ffdf2de64324b07b80cb469eefc6ef8d"
+    sha256 cellar: :any, arm64_linux:       "63a8885236e5679cb8d3b57d9fd3559110cf9f918750fb236290d1c7f407ddec"
+    sha256 cellar: :any, x86_64_linux:      "fac24435dfa16c7db9b50dd720b0cf32c7a1eb9e9051a40be6aa56711a73cd5b"
   end
 
   depends_on "rust" => :build
@@ -25,7 +26,7 @@ class Esphome < Formula
   depends_on "libyaml"
   depends_on "pillow" => :no_linkage
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
@@ -425,6 +426,9 @@ class Esphome < Formula
   end
 
   def install
+    # Allow Python 3.15
+    inreplace "pyproject.toml", 'requires-python = ">=3.12.0,<3.15"', 'requires-python = ">=3.12.0,<3.16"'
+
     # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
     ENV.append_to_cflags "-isysroot #{MacOS.sdk_path}" if OS.mac?
 

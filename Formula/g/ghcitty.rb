@@ -1,18 +1,16 @@
 class Ghcitty < Formula
   desc "Fast, friendly GHCi"
   homepage "https://github.com/mattlianje/ghcitty"
-  url "https://github.com/mattlianje/ghcitty/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "d38c1c030351f18f4d35e6ccf2be2d8e9ba388501b5f4f6de8b7f2574a254c58"
+  url "https://github.com/mattlianje/ghcitty/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "13c26d741630d4c5d4dab0c7acc92ff6d9fa2382f25b83b0a4b261e20925a9b2"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bfe28bc5e6f92d1d19accc3473cffd8c386a555c54b429fea1f67503e7242c28"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0c032fe52845c09a4e0060ca069654e3d8040938e09ffae30a11d9f4baa9fe8e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "660748c0dcc151ef38a6e90290e82f88a37335d428e2f120826ba30a2d178570"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "9a8eacddfc7f17fff0cb4bddc55ffdb96a2e41958bbff6b43172fdd7d05fa189"
-    sha256 cellar: :any_skip_relocation, sonoma:            "33ed928e52c558faa71991d4e34beb3001c5e6aef080f5ef7a213d2518baf530"
-    sha256 cellar: :any,                 arm64_linux:       "97c2d267f8ded96f071276d288de59af7d53b11a7590dfd7fad0eada0107d8da"
-    sha256 cellar: :any,                 x86_64_linux:      "1e5077aa314e3d6b8f68182a226fdf628ebb7a27828e7720f3ab756aecab0a86"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "97d54da8b7240fb28913190e8298b363381c4e596abdaea7e9c173bdfb6a1557"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f3c52753aba1e890d588d6015b196921c633118e3cda54f0fe328bc553b7f846"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4edbde42a5d4e1af6c281b1ba3f181c5996eda93f5e5aa71285940be3af5fdb6"
+    sha256 cellar: :any,                 arm64_linux:       "2a23483711f55b9d4d7a0142d15b5100749dd54a60c9daf7591010dd91413525"
+    sha256 cellar: :any,                 x86_64_linux:      "6fb6326c88700bf7133a0faaf19f8dafe72119f57cd6060686344ba8c8c859e4"
   end
 
   depends_on "rust" => :build

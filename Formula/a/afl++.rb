@@ -12,18 +12,18 @@ class Aflxx < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "34651d4371d17caa02a4ea5e3a0706c440b7cae51001c4d911ac1be1c9f128c7"
-    sha256 arm64_tahoe:       "f33e4c13560716e131830031231cee4557d2412fdb42eb1d31e237d5bab245f2"
-    sha256 arm64_sequoia:     "6f05cfb63fc14bfe6eca002a4f739412468393a274846f37851768ad63f8b862"
-    sha256 arm64_sonoma:      "1457bb1c66fa4d79cbefa0e4e62ec8fbd5886ee708b50ffe0c656446ba155e8b"
-    sha256 arm64_linux:       "0aa2f098482dbaf1632ce5c65287280c45d501c72e6aa23d348ceb4fe1d15b98"
-    sha256 x86_64_linux:      "08a891c56269d274fd55b54c74a7587ff5540ed549032d4a9fb4724d4ba34fbf"
+    rebuild 1
+    sha256 arm64_golden_gate: "c1bef335568baa534e74b980038d04d1c4f9eba041fd32bf9e4c7f4e3549429e"
+    sha256 arm64_tahoe:       "4888debf97ab073658a50b47d7d971be1742a7893a359f64967d3283781544cb"
+    sha256 arm64_sequoia:     "ad45b7f4085b42e4bb8b619dcb1a50d277f99f7dd1e435ce21808de17987ca2a"
+    sha256 arm64_linux:       "746128a45ef705adc4abc6950628590d91d96ba74df3f5dc42aa8d10b87bfc6e"
+    sha256 x86_64_linux:      "1713c39232765877919f72fb6b7032ab9a662e65a2c76ae94a1405cd3a419530"
   end
 
   depends_on "coreutils" => :build
   depends_on "lld"
   depends_on "llvm"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_linux do
     depends_on "zlib-ng-compat"

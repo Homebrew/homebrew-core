@@ -2,6 +2,7 @@ class Rustup < Formula
   desc "Rust toolchain installer"
   homepage "https://rust-lang.github.io/rustup/"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   compatibility_version 1
   head "https://github.com/rust-lang/rustup.git", branch: "main"
 
@@ -14,23 +15,21 @@ class Rustup < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b4397d25e9397419b22cb2cfcf72d4b8653bb538c73c40b37696d43a4b3c1ab3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "964b345d066613eb1fc70c174c101505361db44d206e0e53adc5d05a45fccd94"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "86a5e25e13d485d49880a059a436a6f295d03d1538c7a8801c61615651c23c07"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "76b66db2b3dd40b7e3f8c609e40179bfceaae90e9304b827fed61899c329a1e2"
-    sha256 cellar: :any,                 arm64_linux:       "ecbda8ac95f9a8f6588f0f215808e130c2f32dfee677c5d6b41e0585f70c6580"
-    sha256 cellar: :any,                 x86_64_linux:      "cdc068158d4d273168c914b9cf6cdba97b223718d3ee03babb8278ae7771a6fb"
+    sha256 cellar: :any, arm64_golden_gate: "4b477dd5e5de10a9d1518773de69521f27bf34053e54c5b63c7b60c0b378a8c8"
+    sha256 cellar: :any, arm64_tahoe:       "8bc2e3e7547cb990101e554542c85a0f28086ae34be929e23e8a2685222a47ca"
+    sha256 cellar: :any, arm64_sequoia:     "f91db8ed2e19c72ec4d4f4bbba0d76aebe8385d358582d59b32d78b4b626ba2c"
+    sha256 cellar: :any, arm64_linux:       "466409e46da5082156e59a46fba8150956fb131cd5e02c8b51bf71a36975c148"
+    sha256 cellar: :any, x86_64_linux:      "bc6d95ad7ebdf2ba63bd5e1cdc0dce33b45dc90670d28b046c4d7535ce2bb992"
   end
 
   keg_only "it conflicts with rust"
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
-
-  uses_from_macos "xz"
+  depends_on "xz"
 
   on_linux do
-    depends_on "pkgconf" => :build
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   # Test downloads a Rust toolchain

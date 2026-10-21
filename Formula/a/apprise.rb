@@ -3,28 +3,28 @@ class Apprise < Formula
 
   desc "Send notifications from the command-line to popular notification services"
   homepage "https://pypi.org/project/apprise/"
-  url "https://files.pythonhosted.org/packages/38/b0/2f2e9b6d9e52f7530b47ba7a9259ebf2378e3953f445222f54412fb27a68/apprise-2.0.0.tar.gz"
-  sha256 "aeb321737f951860d7cb0a9574159090cbdbcb0f1ba01c6b49c69018380adf8d"
+  url "https://files.pythonhosted.org/packages/1b/8d/61c02aeb9b7644d915106252b8fc42e5f3b3765343c9fe3bef5489e903a4/apprise-2.0.1.tar.gz"
+  sha256 "8cae8ae5877b9cfd1dddffc17ac1e50f780ab6bdf948f95215e2466ef7230565"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "695ea94e78599fbf72e5bc5d3ed8a82ebba42be026b399c59fbcc8e27731d669"
-    sha256 cellar: :any, arm64_tahoe:       "bfb2f4a6ab1f7c5c72e74313d5ddb5a4a4db8e521f603a99d8498549896d2993"
-    sha256 cellar: :any, arm64_sequoia:     "981c51f0c19538155cf6705fffa18f5cb38d0eb27179c301331a39a85e80fb59"
-    sha256 cellar: :any, arm64_linux:       "2072d241f851457fb8d168e5380ebb8894c437936eda2ef2a580bd0c5cf1c459"
-    sha256 cellar: :any, x86_64_linux:      "136ebe7d7018aec671401f2597bb321c4c2b4bf3be41384f64c60004fcd62269"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "25be84c8c8bad4d754765e52ca4a27ad543c79bbb039902797665d5c82777af7"
+    sha256 cellar: :any, arm64_tahoe:       "8759d983fdb68d6c59d2e81955d1bd78b72ed2805aad0f31a72f4fb6e1e605a2"
+    sha256 cellar: :any, arm64_sequoia:     "1443c724659ec7814fbb59b2afa58d0a4e48e0d794fb140852dd55968b199cf5"
+    sha256 cellar: :any, arm64_linux:       "59ddff6fc8fb0c35e2c4b2f3490a92786fdea18abe0965951d7359bd8920863b"
+    sha256 cellar: :any, x86_64_linux:      "7a39502d41e7d5d36d76a09bc290c942650fdcf19a0235ee0ad687b0620b1a18"
   end
 
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "click" do

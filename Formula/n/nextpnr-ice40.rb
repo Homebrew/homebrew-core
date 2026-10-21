@@ -4,17 +4,15 @@ class NextpnrIce40 < Formula
   url "https://github.com/YosysHQ/nextpnr/archive/refs/tags/nextpnr-0.11.1.tar.gz"
   sha256 "2af682d94abf3f3e116f2fad36dc7db314fa93bfbb185e63619f2ec4f5fe40dc"
   license "ISC"
-  revision 1
+  revision 2
   head "https://github.com/YosysHQ/nextpnr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b5f4d26fa48f55ccd4f908db6bc878d062e03abccef8ef0f025f51e435af1a76"
-    sha256 cellar: :any, arm64_tahoe:       "06da19337d5526520681227e15b7a67a60add9a4deef6c96b7a12e8248fdff4b"
-    sha256 cellar: :any, arm64_sequoia:     "21172ef4af4a7b965b33a811b7399d0ece75a9a6bd5cbbdc731e35e7e17f9fde"
-    sha256 cellar: :any, arm64_sonoma:      "6a3bf25630d719bcbe77000d92ea2ce177c091739af3e1ab46620480d82b8d45"
-    sha256 cellar: :any, sonoma:            "5475075b5e67b7edce0671caec59b011787a7c2003cfb4f77b5687e71835e887"
-    sha256 cellar: :any, arm64_linux:       "af1abce4aa122decb55f37a2835a1c9bb1aa2596b482e42ee05646ce499c2eeb"
-    sha256 cellar: :any, x86_64_linux:      "44d5867bdfd66a47ecc5afa81343a1daf0394b88f1367e53d2d05711589885c4"
+    sha256 cellar: :any, arm64_golden_gate: "d97901ecf10487fd92f7f34a193e1e0698499ca040003f9841ce676d42bc5f7a"
+    sha256 cellar: :any, arm64_tahoe:       "7f02efbd0f4bc7f93ffe34d0c640b59fc0cf942de0831832e39a880f6fe11e11"
+    sha256 cellar: :any, arm64_sequoia:     "3b43f3393502055f80869b1f9a4da0dfd12ea09e26dcfc334e03ed3eddf79ab0"
+    sha256 cellar: :any, arm64_linux:       "84f4dc9f9b0703b535b08fbd277702e0ae7528521bfb0f749df49bcaff0c844a"
+    sha256 cellar: :any, x86_64_linux:      "1d081f85065dc8535c8e9fb85ee16b99a2cc6f04be83d4ad4aaaa3daa9906fc7"
   end
 
   depends_on "cmake" => :build
@@ -22,7 +20,7 @@ class NextpnrIce40 < Formula
   depends_on "boost"
   depends_on "eigen"
   depends_on "icestorm"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     icestorm = Formula["icestorm"]

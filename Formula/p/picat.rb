@@ -33,7 +33,7 @@ class Picat < Formula
       "Makefile.linux64"
     end
     system "make", "-C", "emu", "-f", makefile
-    bin.install "emu/picat" => "picat"
+    bin.install "emu/picat"
     prefix.install "lib" => "pi_lib"
     doc.install Dir["doc/*"]
     pkgshare.install "exs"

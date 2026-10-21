@@ -21,6 +21,11 @@ class Nbimg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "d4c91a552e56c4f2e78422c8a4721d7ffbb54bb0bdb326e983f9989c5c9500ce"
   end
 
+  resource "homebrew-test-bmp", :test do
+    url "https://gist.githubusercontent.com/staticfloat/8253400/raw/41aa4aca5f1aa0a82c85c126967677f830fe98ee/tiny.bmp"
+    sha256 "08556be354e0766eb4a1fd216c26989ad652902040676379e1d0f0b14c12f2e2"
+  end
+
   def install
     inreplace "Makefile", "all: nbimg win32", "all: nbimg"
     system "make", "prefix=#{prefix}",
@@ -31,11 +36,6 @@ class Nbimg < Formula
   end
 
   test do
-    resource "homebrew-test-bmp" do
-      url "https://gist.githubusercontent.com/staticfloat/8253400/raw/41aa4aca5f1aa0a82c85c126967677f830fe98ee/tiny.bmp"
-      sha256 "08556be354e0766eb4a1fd216c26989ad652902040676379e1d0f0b14c12f2e2"
-    end
-
     resource("homebrew-test-bmp").stage testpath
     system bin/"nbimg", "-Ftiny.bmp"
     assert_path_exists testpath/"tiny.bmp.nb"

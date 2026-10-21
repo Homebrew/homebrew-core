@@ -4,18 +4,14 @@ class Limesuite < Formula
   url "https://github.com/myriadrf/LimeSuite/archive/refs/tags/v23.11.0.tar.gz"
   sha256 "fd8a448b92bc5ee4012f0ba58785f3c7e0a4d342b24e26275318802dfe00eb33"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
-    sha256                               arm64_golden_gate: "c73f5876fe9bd5309a6fbe5d1f6078992b3d2f8e8d73e066034ec09fac593f9d"
-    sha256                               arm64_tahoe:       "c972a35fbb24b250b4b15f9dd07c44972997f32d365e1c740a0cf5bb63760725"
-    sha256                               arm64_sequoia:     "d9a62dcbd788fb2d607b563949f027d2c83a806dd6eede83c7e756c86d06c475"
-    sha256 cellar: :any,                 arm64_sonoma:      "412a1287101507e62517f810b903e5dfd619fd0ccac3c23c6fe5e8580221b0b1"
-    sha256 cellar: :any,                 arm64_ventura:     "26c22dc6a7143e5006e5d5ccf28ce807b5e77c4a66648aec9b7afc529c38f1ae"
-    sha256 cellar: :any,                 sonoma:            "a0c8528c441e6f09eb54397549907bc5481fc96a24e3853683807e450111dc1f"
-    sha256 cellar: :any,                 ventura:           "500ddb9fa793b9cf9b85945b0459e70199b1ece8afc9220bcd312e42b011d962"
-    sha256                               arm64_linux:       "bb64df9bb34063ff16d2f84e7e4b883f19e43e60b35c1edf47a763aaac6518a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "61e7dc45e90a1e1237bc7f423548a8af0760fe61bb473469fea5de0ab5d4a624"
+    sha256               arm64_golden_gate: "3d2aaa62850e225ca4276e6e8b8409c12f3a18d840351921f8c935ea55be3fa9"
+    sha256               arm64_tahoe:       "1f55b0467487856cc6f361175475b77ecd76d43635c1253d41fb80492da5d9ca"
+    sha256               arm64_sequoia:     "3bc0c8e31ee9a982b32d9174b418fd8ee70bd7ea33d70db385295a6a5fcf2bfc"
+    sha256               arm64_linux:       "92642dc8f77df042b5568787604f339414f917db479cb842ec948a75b86c52b1"
+    sha256 cellar: :any, x86_64_linux:      "79dad8c545ced9451d6572a38ab4c720c4741efd247046a3c7cfb0557a7c2d8a"
   end
 
   depends_on "cmake" => :build

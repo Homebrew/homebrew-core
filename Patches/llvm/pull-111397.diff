@@ -1,0 +1,90 @@
+diff --git a/clang/lib/Driver/Driver.cpp b/clang/lib/Driver/Driver.cpp
+index 99de9519f36978c..68e71321128a2a8 100644
+--- a/clang/lib/Driver/Driver.cpp
++++ b/clang/lib/Driver/Driver.cpp
+@@ -1491,6 +1491,19 @@ Compilation *Driver::BuildCompilation(ArrayRef<const char *> ArgList) {
+   CLOptions = std::make_unique<InputArgList>(
+       ParseArgStrings(ArgList.slice(1), /*UseDriverMode=*/true, ContainsError));
+ 
++  // We want to determine the triple early so that we load the correct config.
++  if (IsCLMode()) {
++    // clang-cl targets MSVC-style Win32.
++    llvm::Triple T(TargetTriple);
++    T.setOS(llvm::Triple::Win32);
++    T.setVendor(llvm::Triple::PC);
++    T.setEnvironment(llvm::Triple::MSVC);
++    T.setObjectFormat(llvm::Triple::COFF);
++    if (CLOptions->hasArg(options::OPT__SLASH_arm64EC))
++      T.setArch(llvm::Triple::aarch64, llvm::Triple::AArch64SubArch_arm64ec);
++    TargetTriple = T.str();
++  }
++
+   // Try parsing configuration file.
+   if (!ContainsError)
+     ContainsError = loadConfigFiles();
+@@ -1525,6 +1538,16 @@ Compilation *Driver::BuildCompilation(ArrayRef<const char *> ArgList) {
+         for (auto *Opt : *CLModePassThroughOptions)
+           appendOneArg(Args, Opt);
+     }
++
++    // The config file may have changed the architecture so apply it.
++    if (HasConfigFileHead && Args.hasArg(options::OPT__SLASH_arm64EC)) {
++      llvm::Triple T(TargetTriple);
++      if (T.getArch() != llvm::Triple::aarch64 ||
++          T.getSubArch() != llvm::Triple::AArch64SubArch_arm64ec) {
++        T.setArch(llvm::Triple::aarch64, llvm::Triple::AArch64SubArch_arm64ec);
++        TargetTriple = T.str();
++      }
++    }
+   }
+ 
+   // Check for working directory option before accessing any files
+@@ -1575,17 +1598,7 @@ Compilation *Driver::BuildCompilation(ArrayRef<const char *> ArgList) {
+ 
+   // FIXME: TargetTriple is used by the target-prefixed calls to as/ld
+   // and getToolChain is const.
+-  if (IsCLMode()) {
+-    // clang-cl targets MSVC-style Win32.
+-    llvm::Triple T(TargetTriple);
+-    T.setOS(llvm::Triple::Win32);
+-    T.setVendor(llvm::Triple::PC);
+-    T.setEnvironment(llvm::Triple::MSVC);
+-    T.setObjectFormat(llvm::Triple::COFF);
+-    if (Args.hasArg(options::OPT__SLASH_arm64EC))
+-      T.setArch(llvm::Triple::aarch64, llvm::Triple::AArch64SubArch_arm64ec);
+-    TargetTriple = T.str();
+-  } else if (IsDXCMode()) {
++  if (IsDXCMode()) {
+     // Build TargetTriple from target_profile option for clang-dxc.
+     if (const Arg *A = Args.getLastArg(options::OPT_target_profile)) {
+       StringRef TargetProfile = A->getValue();
+diff --git a/clang/test/Driver/Inputs/config-cl/arm64ec-pc-windows-msvc.cfg b/clang/test/Driver/Inputs/config-cl/arm64ec-pc-windows-msvc.cfg
+new file mode 100644
+index 000000000000000..e69de29bb2d1d64
+diff --git a/clang/test/Driver/Inputs/config-cl/config-arm64ec-arg.cfg b/clang/test/Driver/Inputs/config-cl/config-arm64ec-arg.cfg
+new file mode 100644
+index 000000000000000..2eb4402ddf6cd7a
+--- /dev/null
++++ b/clang/test/Driver/Inputs/config-cl/config-arm64ec-arg.cfg
+@@ -0,0 +1 @@
++/arm64EC
+diff --git a/clang/test/Driver/config-file.c b/clang/test/Driver/config-file.c
+index e84d6dfca373a69..1bd27b4fec92ccc 100644
+--- a/clang/test/Driver/config-file.c
++++ b/clang/test/Driver/config-file.c
+@@ -83,6 +83,15 @@
+ // CHECK-TWO-CONFIGS-SAME: /opt/data
+ // CHECK-TWO-CONFIGS-SAME: -Wall
+ 
++//--- clang-cl loads the correct triple
++// RUN: env -u CLANG_NO_DEFAULT_CONFIG %clang_cl /arm64EC --config-system-dir=%S/Inputs/config-cl --config-user-dir= -v 2>&1 | FileCheck %s -check-prefix CHECK-CL --implicit-check-not 'Configuration file:'
++// CHECK-CL: Configuration file: {{.*}}Inputs{{.}}config-cl{{.}}arm64ec-pc-windows-msvc.cfg
++
++//--- clang-cl configs support setting /arm64EC
++// RUN: %clang_cl --config-system-dir=%S/Inputs/config-cl --config-user-dir= --config=config-arm64ec-arg.cfg -v 2>&1 | FileCheck %s -check-prefix CHECK-CL-FLAG --implicit-check-not 'Configuration file:'
++// CHECK-CL-FLAG: Target: arm64ec-pc-windows-msvc
++// CHECK-CL-FLAG: Configuration file: {{.*}}Inputs{{.}}config-cl{{.}}config-arm64ec-arg.cfg
++
+ //--- The linker input flags should be moved to the end of input list and appear only when linking.
+ // RUN: %clang --target=aarch64-unknown-linux-gnu --config %S/Inputs/config-l.cfg %s -lmylib -Wl,foo.a -### 2>&1 | FileCheck %s -check-prefix CHECK-LINKING
+ // RUN: %clang --target=aarch64-unknown-linux-gnu --config %S/Inputs/config-l.cfg -fopenmp=libomp %s -lmylib -Wl,foo.a -### 2>&1 | FileCheck %s -check-prefix CHECK-LINKING-LIBOMP-GOES-AFTER

@@ -8,10 +8,11 @@ class TorfCli < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b7758a90df48547bab1b1e348803e2d94ff4e056db3670f11ef23774f47739f0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "f9f1bc0a40053035ab17d61c55094d5c659b7aa24b21c60c2ce8d79b1cbc7d9b"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "pyxdg" do
     url "https://files.pythonhosted.org/packages/b0/25/7998cd2dec731acbd438fbf91bc619603fc5188de0a9a17699a781840452/pyxdg-0.28.tar.gz"

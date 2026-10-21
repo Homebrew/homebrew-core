@@ -43,6 +43,8 @@ class Appstream < Formula
     depends_on "wayland"
   end
 
+  deny_network_access!
+
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 

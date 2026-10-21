@@ -1,20 +1,18 @@
 class LibgeditAmtk < Formula
   desc "Actions, Menus and Toolbars Kit for GTK applications"
   homepage "https://gedit-technology.net"
-  url "https://gitlab.gnome.org/World/gedit/libgedit-amtk/-/archive/5.10.0/libgedit-amtk-5.10.0.tar.bz2"
-  sha256 "7ee3d0cce3b21f3cc6a51ba644901b467da3b3c3e0b0adf74bd56c9e0e456140"
+  url "https://gitlab.gnome.org/World/gedit/libgedit-amtk/-/archive/5.11.0/libgedit-amtk-5.11.0.tar.bz2"
+  sha256 "eda52600fc2e8b49f98fe974397a75e0286d744e09446b13e631202e99ca536e"
   license "LGPL-3.0-or-later"
   compatibility_version 1
   head "https://gitlab.gnome.org/World/gedit/libgedit-amtk.git", branch: "main"
 
   bottle do
-    sha256 arm64_golden_gate: "10d773c3753a30ca28a10ec9a677d478aeccadd0a7e02241fec561b0f607763d"
-    sha256 arm64_tahoe:       "9a97a6da9b9869ccfc4eeb45c527d579b6a5f646f719aac95a275f94d9d2ff3f"
-    sha256 arm64_sequoia:     "837a3adf99f31de0f7fa314998c19f34917b532c1ec0d0b7cf15078ebb0af7f1"
-    sha256 arm64_sonoma:      "ef199b96da45bca35ce0c6a54ca34987ca57811ecc83cc8926d3afb29c37d44b"
-    sha256 sonoma:            "bec5bc8941347e1bc91a024876beea8ef801a335c0ef4b8aa1aa42f59a0d7942"
-    sha256 arm64_linux:       "ba79ceb4612e7a04b6e4a246e8890eb8d0240d7d3c55601b41fefa26b704002b"
-    sha256 x86_64_linux:      "f682994518431437323aeec6e87a29dba13750c68bb291e4f97ba05b574aeabf"
+    sha256               arm64_golden_gate: "a4edf7a352f21a83c16f35101256fe211d54cd6e8dd37e61a5adb2cc555b1180"
+    sha256               arm64_tahoe:       "bf6e1c6179c0190380459078383dd608aafc6eee94823780932788b37e2ad950"
+    sha256               arm64_sequoia:     "ec6710d7195e655119de78a483ebc360081cae31cd20d5bea265690abe2b147d"
+    sha256 cellar: :any, arm64_linux:       "05f37155ad5ee5c57387d3f8b2cdd77bc4b674f935bd327beba390719f5cda48"
+    sha256 cellar: :any, x86_64_linux:      "f7e2dbeb17000801dd9ff0834d49da19cd49201ca8ed7907412fbb0211b8547c"
   end
 
   depends_on "gobject-introspection" => :build

@@ -11,19 +11,17 @@ class Tern < Formula
   no_autobump! because: "`update-python-resources` cannot determine dependencies"
 
   bottle do
-    rebuild 8
-    sha256 cellar: :any, arm64_golden_gate: "b8257805d09c7c716874fc5eb5a0bc043c2387298ec9ed359fe4ceaecb47e954"
-    sha256 cellar: :any, arm64_tahoe:       "01fb256ab5222bbf6e9f63458b314b0bcbdd7012a5928662b79d1401a2c1c916"
-    sha256 cellar: :any, arm64_sequoia:     "65e943141485c639cab0f424b36e84a397ca040f8a4da2ec027c2ecf586f77e5"
-    sha256 cellar: :any, arm64_sonoma:      "602b1cd41c112dabb603311cafef2a74bb573391217dfdaaaa18293a45598e5c"
-    sha256 cellar: :any, sonoma:            "2cfc8b78af35be6bb91d31402910a3ed6674f68f04a097274946ebe48e22683b"
-    sha256 cellar: :any, arm64_linux:       "fcd1578fefbe906c1a653120f22a404896575e4886dc79233458b1b4ae0061dd"
-    sha256 cellar: :any, x86_64_linux:      "e6e505ad15ae9351c9c50a5e0465fd145f46b2ce4314971692e42b23158d6992"
+    rebuild 9
+    sha256 cellar: :any, arm64_golden_gate: "2f8792cc5564670b095695582ce7a5702484ad164d3e3283a6725cc00bc94294"
+    sha256 cellar: :any, arm64_tahoe:       "b2a51e8185c05364051f5ffdf3e8f25e8e63bbc287a1e17815d3929869870e6b"
+    sha256 cellar: :any, arm64_sequoia:     "972ece72a1d99c200037818cf0679bd045e328638eafc445c950bbe0b0bfeb83"
+    sha256 cellar: :any, arm64_linux:       "9d1abb7ded8c2df166775fa8344a7b650b945f4477259bb6b681b58325e124f3"
+    sha256 cellar: :any, x86_64_linux:      "1119bfbce0c1a337fa872cbc2fd90be8580f5d5837a85c458f762921d17d1b42"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_linux do
     depends_on "attr" # for `getfattr`

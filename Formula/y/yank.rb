@@ -19,6 +19,8 @@ class Yank < Formula
     depends_on "xsel"
   end
 
+  deny_network_access!
+
   def install
     yankcmd = OS.mac? ? "pbcopy" : "xsel"
     system "make", "install", "PREFIX=#{prefix}", "YANKCMD=#{yankcmd}"

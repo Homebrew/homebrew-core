@@ -1,21 +1,17 @@
 class EnterTex < Formula
   desc "TeX/LaTeX text editor"
   homepage "https://gitlab.gnome.org/swilmet/enter-tex"
-  url "https://gitlab.gnome.org/World/gedit/enter-tex/-/archive/3.49.0/enter-tex-3.49.0.tar.bz2"
-  sha256 "cd83dc75c36edcc9fc53c27b092796f0c1df1c4e1b36a15516a56e7aab48f31d"
+  url "https://gitlab.gnome.org/World/gedit/enter-tex/-/archive/3.51.0/enter-tex-3.51.0.tar.bz2"
+  sha256 "8423115492d28b140b594cf103b3ba0740786bd308e835ce65885f47fef12b1b"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://gitlab.gnome.org/swilmet/enter-tex.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "7e645147096f4a46a4e9a5c7a5bab78f23ec5bddd0fc66d476c9b8821d7c9fbb"
-    sha256 arm64_tahoe:       "642a39bd8896727469dc8e18dee0fb1a78670445b9260c8448735d2ff5224d05"
-    sha256 arm64_sequoia:     "91eef2c5d6cb6f7c390598ec473597f8483becb0d8a5412bc4f9e2e6cc8eec04"
-    sha256 arm64_sonoma:      "1523b7a53310d9e1720e7c651339823cde5aaab43eac1a68174fd5447c5bf47c"
-    sha256 sonoma:            "f34d9cb07ef686285a7668f6ed66ff9551ee34462597f13064a4359038f87879"
-    sha256 arm64_linux:       "631738d30fa2e7bb50cce137cfa5232d9961c631e0d9777fced217229bed1e95"
-    sha256 x86_64_linux:      "24376a6463bd801fccafadafa5b1e6a7e76f8021fcd50ea7f57ee9bb5b135132"
+    sha256               arm64_golden_gate: "44a65a569aeabacb64fe050c0cf9a29c88d3e36c6b02b097ea3aaca52a127ffa"
+    sha256               arm64_tahoe:       "75c234cc67340d64125d0028d52941f0322cd26586b5e8cbab4df971dc766ae0"
+    sha256               arm64_sequoia:     "c6ed7968ff27170a16f3e1174bc7308006c2d9af854adac61937ce70c6ac8f33"
+    sha256               arm64_linux:       "d01d7aa15f3f39558476913c2c3fec6f81161753f5a3ff7cf65a9de97b25d885"
+    sha256 cellar: :any, x86_64_linux:      "1414e8e0d16deebcc98423bbb5d7b62e9996aab2a006e3f552f90be55133ed78"
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database
@@ -33,9 +29,11 @@ class EnterTex < Formula
   depends_on "gspell"
   depends_on "gtk+3"
   depends_on "libgedit-amtk"
+  depends_on "libgedit-gfls"
   depends_on "libgedit-gtksourceview"
   depends_on "libgedit-tepl"
   depends_on "libgee"
+  depends_on "libhandy"
   depends_on "pango"
 
   on_macos do

@@ -17,6 +17,13 @@ class Killport < Formula
 
   depends_on "rust" => :build
 
+  # `test do` block binds a local port.
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
 

@@ -34,6 +34,16 @@ class Breseq < Formula
     end
   end
 
+  resource "homebrew-test-gbk", :test do
+    url "https://raw.githubusercontent.com/barricklab/breseq/refs/tags/v0.39.0/tests/data/REL606/REL606.fragment.gbk"
+    sha256 "0e6edf3df46da73db9d07622316e0b9617e7a95faf87589bb0a7bc2393e2d92e"
+  end
+
+  resource "homebrew-test-fastq", :test do
+    url "https://raw.githubusercontent.com/barricklab/breseq/refs/tags/v0.39.0/tests/data/REL606/REL606.fragment.2.fastq"
+    sha256 "79775ab79421d43b41087f256f99f38681af5421d1303b86e6e92a471edbb0fb"
+  end
+
   def install
     system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args
@@ -41,16 +51,6 @@ class Breseq < Formula
   end
 
   test do
-    resource "homebrew-test-gbk" do
-      url "https://raw.githubusercontent.com/barricklab/breseq/refs/tags/v0.39.0/tests/data/REL606/REL606.fragment.gbk"
-      sha256 "0e6edf3df46da73db9d07622316e0b9617e7a95faf87589bb0a7bc2393e2d92e"
-    end
-
-    resource "homebrew-test-fastq" do
-      url "https://raw.githubusercontent.com/barricklab/breseq/refs/tags/v0.39.0/tests/data/REL606/REL606.fragment.2.fastq"
-      sha256 "79775ab79421d43b41087f256f99f38681af5421d1303b86e6e92a471edbb0fb"
-    end
-
     testpath.install resource("homebrew-test-gbk")
     testpath.install resource("homebrew-test-fastq")
 

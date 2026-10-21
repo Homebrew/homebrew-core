@@ -2,17 +2,17 @@ class Teku < Formula
   desc "Java Implementation of the Ethereum 2.0 Beacon Chain"
   homepage "https://docs.teku.consensys.net/"
   url "https://github.com/ConsenSys/teku.git",
-      tag:      "26.9.1",
-      revision: "f863a700aaa976fb0cb080ecddec4637daed72f0"
+      tag:      "26.10.1",
+      revision: "115ab400185bebee063ce13d0ab7f9f80b296c4e"
   license "Apache-2.0"
   head "https://github.com/ConsenSys/teku.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7ecd0a797de23094a9e3c83682f3b10aa2dac10612b84f124ace287399b23b9f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7ecd0a797de23094a9e3c83682f3b10aa2dac10612b84f124ace287399b23b9f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7ecd0a797de23094a9e3c83682f3b10aa2dac10612b84f124ace287399b23b9f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4bbaff2e396d60a04e2cfef3c24cbc97494a6b090bf469e0f397ce91f7b3f345"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "4bbaff2e396d60a04e2cfef3c24cbc97494a6b090bf469e0f397ce91f7b3f345"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "36b30246cc0a5bbeb419e0c7b5e3e84bdd03e10e2cb93cfef42b9ab75ebf5830"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "36b30246cc0a5bbeb419e0c7b5e3e84bdd03e10e2cb93cfef42b9ab75ebf5830"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "36b30246cc0a5bbeb419e0c7b5e3e84bdd03e10e2cb93cfef42b9ab75ebf5830"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "09d771c3354d711d1f87a6e3c55965b24201e6d72cb3289519438372d5f55dfa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "09d771c3354d711d1f87a6e3c55965b24201e6d72cb3289519438372d5f55dfa"
   end
 
   depends_on "gradle" => :build

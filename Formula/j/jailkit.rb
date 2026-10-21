@@ -12,22 +12,34 @@ class Jailkit < Formula
   end
 
   bottle do
-    rebuild 4
-    sha256 arm64_golden_gate: "8a6c7874c21ecd7f2dfb6428592cd0b56d8408ab79b710d102c999f48c6142d6"
-    sha256 arm64_tahoe:       "3beb6a1ce60e6650160ff71cf64d77920834134018551376cad01365291f6be2"
-    sha256 arm64_sequoia:     "83cd968856bbc4f8933c1372b74975169265c4162f1e9b40460037773f1be37b"
-    sha256 arm64_sonoma:      "9d33fd677c79d6066cf6734adb4526becfa36b5cc57f34769ab03de88178833d"
-    sha256 sonoma:            "692ef1ca0ffbe0e2295d789686a23accefe9cdd29a475118be97c06bdd8697bc"
-    sha256 arm64_linux:       "57de95e3030b4885a69a541fddeea9caf1b08eb25ae58549e482ccc245c565e7"
-    sha256 x86_64_linux:      "48db655b0b901abb3a6caaedbc6609a3a36fea0601676f23bf3894ddb800626c"
+    rebuild 5
+    sha256 arm64_golden_gate: "d529a63479995c394fb67c4e3714f5ffb2b1e983465068ea1a29fa2ca79d6005"
+    sha256 arm64_tahoe:       "ca7605ff12b5dd62ff98cba78d2d62471722a7e42dd3ae849dbd54b242b96ebb"
+    sha256 arm64_sequoia:     "bebadf4a159d48a919b8365cf561f41681b77ff3e698d000c1fc38899019f838"
+    sha256 arm64_linux:       "8876b9e4aff2060fbed01db3468f61efd6e0937ecd7edb56b30bfe3b8869cee2"
+    sha256 x86_64_linux:      "2a9e856b227b87dd22f212788d1959895430547500f6d2a2337f6e7f0a4a3c9a"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
+
+  deny_network_access!
 
   def install
     ENV["PYTHONINTERPRETER"] = python3
 
     system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    jail = testpath/"jail"
+    (jail/"etc").mkpath
+    (jail/"tmp").mkpath
+    chmod 0777, jail/"tmp"
+    (testpath/"jk_check.ini").write "[#{jail}]\n"
+
+    output = shell_output("#{sbin}/jk_check -c #{testpath}/jk_check.ini 2>&1")
+    assert_match "ERROR: #{jail} is not owned by root:root!", output
+    assert_match "WARNING: #{jail}/tmp/ is writable for others!", output
   end
 end

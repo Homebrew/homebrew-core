@@ -17,7 +17,7 @@ class Echtvar < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "python@3.14" => :test
+  depends_on "python@3.15" => :test
   depends_on "openssl@4"
 
   uses_from_macos "llvm" => :build # for `libclang`, used by `hts-sys` bindgen
@@ -34,7 +34,7 @@ class Echtvar < Formula
   def install
     # portable_simd feature requires nightly.
     # Use a stable-Rust stub to keep the CLI buildable without nightly.
-    ENV["RUSTC_BOOTSTRAP"] = "1"
+    ENV["RUSTC_BOOTSTRAP"] = "1" if Hardware::CPU.intel?
     ENV["LIBCLANG_PATH"] = formula_opt_lib("llvm") if OS.linux?
 
     system "cargo", "install", *std_cargo_args

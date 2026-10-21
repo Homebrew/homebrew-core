@@ -69,7 +69,6 @@ class GitlabGem < Formula
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
-      r.fetch
       system "gem", "install", r.cached_download, "--ignore-dependencies",
              "--no-document", "--install-dir", libexec
     end

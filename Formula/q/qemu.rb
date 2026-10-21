@@ -26,7 +26,7 @@ class Qemu < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.14" => :build # keep aligned with meson
+  depends_on "python@3.15" => :build # keep aligned with meson
   depends_on "spice-protocol" => :build
 
   depends_on "capstone"
@@ -73,6 +73,9 @@ class Qemu < Formula
     # * removes `meson` so that brew `meson` is always used
     # * keeps `pycotap` and `qemu_qmp` which are pure-python "none-any" wheels (allowed in homebrew/core)
     rm(Dir["python/wheels/*"] - Dir["python/wheels/{pycotap,qemu_qmp}-*-none-any.whl"])
+
+    # Python 3.15 no longer bundles `wheel` and setuptools builds wheels without it
+    inreplace "pythondeps.toml", /^"wheel" = .*\n/, ""
 
     args = %W[
       --prefix=#{prefix}

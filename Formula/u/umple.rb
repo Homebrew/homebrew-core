@@ -1,8 +1,8 @@
 class Umple < Formula
   desc "Modeling tool/programming language that enables Model-Oriented Programming"
   homepage "https://cruise.umple.org/umple/"
-  url "https://github.com/umple/umple/releases/download/v1.37.1/umple-1.37.1.8672.ffc0b7ae3.jar"
-  sha256 "e045a12313cf930b12e7d6529a916465731105aff70930b242e516bd8715542f"
+  url "https://github.com/umple/umple/releases/download/v1.38.0/umple-1.38.0.8918.bda708970.jar"
+  sha256 "64a4c87bf83c8a977f7e84511a400673590d9b648b4e08567e1a86f0f944598e"
   license "MIT"
   version_scheme 1
 
@@ -14,7 +14,7 @@ class Umple < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "aa3bbf7d3cd9ee08f291e2e6452e6314194c192c82d588a677acb37332b74e07"
+    sha256 cellar: :any_skip_relocation, all: "2125eee7a8f7d8a4c805d1acf2a2f0049c701c6af73b1a23f9bb7eba7278ef07"
   end
 
   depends_on "openjdk"

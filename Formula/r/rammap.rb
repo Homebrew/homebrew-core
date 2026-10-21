@@ -1,20 +1,26 @@
 class Rammap < Formula
   desc "Extensible and performant aligner and read mapper"
   homepage "https://github.com/jwanglab/rammap"
-  url "https://github.com/jwanglab/rammap/archive/refs/tags/v1.1.3.tar.gz"
-  sha256 "39b9e74da0b39546d39c992f8e8c91ce9da97a7ac0f0045d541c44e0106eb17b"
+  url "https://github.com/jwanglab/rammap/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "66d96ba52cd4ed6f1365aa3f1b1e736aeccbbcab71b8b590d3b7cc997b1a7fbd"
   license "MIT"
   head "https://github.com/jwanglab/rammap.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7a01caa76af6e0d40977553b4c40c91214c7e121be6b78f10a88a53eafe183d4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9e0f269ccf869bc30e115ebcd37e195d3e453b5c87b80871ea77cc9bca713971"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1a7162807a86f553fae6d85cbcd23bc9765cb5ce8bf60c6269c909ded28b11a1"
-    sha256 cellar: :any,                 arm64_linux:       "f4ec690be0d9953cf5cf152f597d5b8add4d41ea4e3756a9fed40fe961cdc194"
-    sha256 cellar: :any,                 x86_64_linux:      "07d0137fe3ec3f1b6fb2f076f3555d602e40abf1bfe315cdb6d55d836bf60bc7"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2fedad69bfb4425e5c0373f617dffeb98562f29fbac5e8f8b49816dbe1f05773"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c581cab3411839cea869625335457898c9e597b57d9d9c454eabc51438511a9a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "38b1ce9ff42b9f110c8602eb394c284e30bd8e4b103d781642151c8005974fd0"
+    sha256 cellar: :any,                 arm64_linux:       "a3d2969beb53ebe998c400587c1e4cc40821b8ad086554a6ffa529316e2f0526"
+    sha256 cellar: :any,                 x86_64_linux:      "8660ed0bf9b4750387fb5a92898d46e65d5ec1fa8e80fb14bff359997ea41285"
   end
 
   depends_on "rust" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "rammap")

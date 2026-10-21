@@ -1,64 +1,33 @@
 class ApachePulsar < Formula
   desc "Cloud-native distributed messaging and streaming platform"
   homepage "https://pulsar.apache.org/"
+  url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-5.0.0/apache-pulsar-5.0.0-src.tar.gz"
+  mirror "https://archive.apache.org/dist/pulsar/pulsar-5.0.0/apache-pulsar-5.0.0-src.tar.gz"
+  sha256 "ba9cbbc8db22d756b4c0917ce2a1606962a7210e4cc3ba953bc8e8216308f67c"
   license "Apache-2.0"
-
-  stable do
-    url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-4.2.4/apache-pulsar-4.2.4-src.tar.gz"
-    mirror "https://archive.apache.org/dist/pulsar/pulsar-4.2.4/apache-pulsar-4.2.4-src.tar.gz"
-    sha256 "c3e2f12ac2160b11a23602583a900eefd959f01b8fb675f400f7642b895917c8"
-
-    depends_on "maven" => :build
-    depends_on "protoc-gen-grpc-java" => :build
-    depends_on "openjdk@21"
-  end
+  head "https://github.com/apache/pulsar.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d8d82599cf6a4ca3d3d4f3c050a2ba6a2b8c4639afba51d40659279d2b22521e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2fe67e7be69710722be40ff5f496ebb6c041f33e989addc3f8eaa58c9bfe313c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "05d0b7c1541bd2f8f3ce23d3ab6ae577b7ba6aa46923a6b9e95e8feb9bc5febb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "de1f8977e3928c3688469e753b9f43bc8db7d1c0b237e9000be55bba203f487d"
-    sha256 cellar: :any_skip_relocation, sonoma:            "3d0e404514cc6c573a37eddad0b3a6dac26b9086a7fdf6ce0c0e44dbb1a14ff1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5eb6da872a01ac40766eed9befb355eac9909c910f2ddc95e5d4e78145536bca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "31af4a5234a6692a5f6eedfc5d5d5d4efd922294a16768de22a101009a8b170c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "de17ce9d40df6a9193253576db8ce4daf7fa53642ebe91b6d400a8927447e30f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "de17ce9d40df6a9193253576db8ce4daf7fa53642ebe91b6d400a8927447e30f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "de17ce9d40df6a9193253576db8ce4daf7fa53642ebe91b6d400a8927447e30f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "0796e609d4435c32dd34ad70193abb42cc32822d30974a26f5a603851803bf17"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0796e609d4435c32dd34ad70193abb42cc32822d30974a26f5a603851803bf17"
   end
 
-  head do
-    url "https://github.com/apache/pulsar.git", branch: "master"
+  depends_on "gradle" => :build
+  depends_on "openjdk@25"
 
-    depends_on "gradle" => :build
-    depends_on "openjdk@25"
+  uses_from_macos "zip" => :build
 
-    uses_from_macos "zip" => :build
-  end
+  deny_network_access! :postinstall
 
   def install
-    tarball = if build.head?
-      java_home_env = Language::Java.java_home_env("25")
-      ENV["JAVA_HOME"] = java_home_env[:JAVA_HOME]
+    java_home_env = Language::Java.java_home_env("25")
+    ENV["JAVA_HOME"] = java_home_env[:JAVA_HOME]
 
-      system "gradle", "assemble", "--no-daemon"
-      Dir["distribution/server/build/distributions/apache-pulsar-*-bin.tar.gz"].first
-    else
-      # Pin gRPC Java version to that of protoc-gen-grpc-java
-      inreplace "pom.xml",
-                %r{<grpc.version>\d+(?:\.\d+)+</grpc.version>},
-                "<grpc.version>#{Formula["protoc-gen-grpc-java"].version}</grpc.version>"
-
-      # Avoid using pre-built `protoc-gen-grpc-java`
-      grpc_java_files = ["pulsar-client/pom.xml", "pulsar-functions/proto/pom.xml"]
-      plugin_artifact = "io.grpc:protoc-gen-grpc-java:${protoc-gen-grpc-java.version}:exe:${os.detected.classifier}"
-      inreplace grpc_java_files, %r{<pluginArtifact>#{Regexp.escape(plugin_artifact)}\s*</pluginArtifact>}, ""
-
-      java_home_env = Language::Java.java_home_env("21")
-      with_env(TMPDIR: buildpath, **java_home_env) do
-        # Exclude the `docker` module, we don't need the image.
-        system "mvn", "clean", "package", "-DskipTests", "-Pcore-modules",
-                      "-pl", "!:docker-images,!:pulsar-docker-image,!:pulsar-all-docker-image"
-      end
-
-      "distribution/server/target/apache-pulsar-#{version}-bin.tar.gz"
-    end
+    system "gradle", ":distribution:pulsar-server-distribution:assemble", "--no-daemon"
+    tarball = Dir["distribution/server/build/distributions/apache-pulsar-*-bin.tar.gz"].first
 
     libexec.mkpath
     system "tar", "--extract", "--file", tarball, "--directory", libexec, "--strip-components=1"
@@ -94,7 +63,7 @@ class ApachePulsar < Formula
     output = shell_output("#{bin}/pulsar-client produce my-topic --messages 'hello-pulsar'")
     assert_match "1 messages successfully produced", output
     output = shell_output("#{bin}/pulsar initialize-cluster-metadata -c a -cs localhost -uw localhost -zk localhost")
-    assert_match "Cluster metadata for 'a' setup correctly", output
+    assert_match "Cluster metadata setup correctly {cluster=a}", output
   ensure
     Process.kill("TERM", pid)
     Process.wait(pid)

@@ -1,19 +1,17 @@
 class CabalInstall < Formula
   desc "Command-line interface for Cabal and Hackage"
   homepage "https://www.haskell.org/cabal/"
-  url "https://hackage.haskell.org/package/cabal-install-3.18.1.0/cabal-install-3.18.1.0.tar.gz"
-  sha256 "7e5c3f5e53f7c91f9ff8f0fb075574e772562d0eeb400c402c7d9277558f0821"
+  url "https://hackage.haskell.org/package/cabal-install-3.18.2.0/cabal-install-3.18.2.0.tar.gz"
+  sha256 "1d55fea99bf82b2f4a2ae51bd47313167048ba05aac6290a30752d91cd5f7cb8"
   license "BSD-3-Clause"
   head "https://github.com/haskell/cabal.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a9c94421a1724bb307b8f96f13174e1919c1b6289ddaacdcbf3c3be32d523c6f"
-    sha256 cellar: :any, arm64_tahoe:       "473d34a30b9fc3d87a04787cb6c2c8716c48f1bfa20accbead8dc857e61652c0"
-    sha256 cellar: :any, arm64_sequoia:     "ebe7dcba714fdcefeec0ed65d2df2ac5cca0759674a4074873977d759a854808"
-    sha256 cellar: :any, arm64_sonoma:      "a91a0512a3f0b41d424a4ddeab0cff4318565574a1b3211529a99744ec6de289"
-    sha256 cellar: :any, sonoma:            "ed6968cd7f7cf837bdb229f79d111d0d2cfac06a8b8add2f2bfe1e9b47705065"
-    sha256 cellar: :any, arm64_linux:       "84f496193d18b2765e442c04fa4a3a4201685aa2797d8c86a75d10854d3b0e6a"
-    sha256 cellar: :any, x86_64_linux:      "1a46769f5d35b4d6e03f8185eae6342bfa7b99be1c75eaa7fd989953e601a6ee"
+    sha256 cellar: :any, arm64_golden_gate: "e8a22d63f75f48a9aa72b598547e759380799e3814760880df6f81bba8d7d6c2"
+    sha256 cellar: :any, arm64_tahoe:       "e13c6ede5f2e25dd19b7d58ca06fc5129103e3dcbfb648732847e3d3f5c7a7a9"
+    sha256 cellar: :any, arm64_sequoia:     "5bce40512dced3f12d8511bee51b1661021ea097aa66457d76d48e69c07d5a7b"
+    sha256 cellar: :any, arm64_linux:       "7afc31d2b0bbb28005fbba15c1461455f8fc20e40f6fa2db810efe45137e3d52"
+    sha256 cellar: :any, x86_64_linux:      "8c9cad0a3f393454cc3bc05a2796773882ad06e0f8178aadedc275622e454599"
   end
 
   depends_on "ghc" => [:build, :test]

@@ -23,13 +23,25 @@ class K3d < Formula
 
   depends_on "go" => :build
 
-  def install
+  deny_network_access!
+
+  def fetch
     require "net/http"
     uri = URI("https://update.k3s.io/v1-release/channels")
     resp = Net::HTTP.get(uri)
     resp_json = JSON.parse(resp)
     k3s_version = resp_json["data"].find { |channel| channel["id"]=="stable" }["latest"].sub("+", "-")
     raise "Invalid k3s version" unless k3s_version.match?(/\Av\d+\.\d+\.\d+-k3s\d+\z/)
+
+    (buildpath/"k3s_version").write k3s_version
+    # Resolve the dependencies the same way `install` builds (`-mod=readonly`, which
+    # differs from the workspace graph); `go mod download` trips over unresolved
+    # `v0.0.0` requirements of the workspace's other modules.
+    system "go", "list", "-mod=readonly", "-deps", "."
+  end
+
+  def install
+    k3s_version = (buildpath/"k3s_version").read
 
     ldflags = %W[
       -X github.com/k3d-io/k3d/v#{version.major}/version.Version=v#{version}

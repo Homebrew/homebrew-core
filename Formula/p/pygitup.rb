@@ -3,16 +3,15 @@ class Pygitup < Formula
 
   desc "Nicer 'git pull'"
   homepage "https://github.com/msiemens/PyGitUp"
-  url "https://files.pythonhosted.org/packages/45/19/b3f4b5adbb9e0118d858d8ede758da325a45ba105ed33eb37eca7668cad9/git_up-2.5.0.tar.gz"
-  sha256 "7341db24c27add12cc16ac7ce048c1a9a851d945b0be4d8a48f93c8b1a69f83f"
+  url "https://files.pythonhosted.org/packages/d8/30/379a2daabd6ec00144afa6e19055684a566a7bbe58fddbadd2bfe36bda85/git_up-2.6.1.tar.gz"
+  sha256 "f2e55a6f6a5254a5cfaa98ebdf53a0cb0ab93aa474d7445a8694a20b450306ec"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7567fadda303198bb57afd03cf840766c82f49df7b8c12eff9fd3c2805746165"
+    sha256 cellar: :any_skip_relocation, all: "f19c7f12d11ee83705ee1f9cfebd477482cc6459bbc6872d8afc62797353b004"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
@@ -25,8 +24,8 @@ class Pygitup < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/e0/db/3ca813cbacb23ab6fe46ff38a9b5ef8e73e970c8051f2ce903aacafe0446/gitpython-3.1.62.tar.gz"
-    sha256 "1791de66309bc0c7cfca40bf8d2e3de7ca091cbf94e6051be1ad0722c61062af"
+    url "https://files.pythonhosted.org/packages/c0/ff/fee293f1ec3e1b64db6eb270e00964f29c086d769201474cedb8d1608930/gitpython-3.2.1.tar.gz"
+    sha256 "0f1229ec5c057bdabdeeda8bda4f17bda679ab33dbccc00f24e6a480553c8613"
   end
 
   resource "packaging" do

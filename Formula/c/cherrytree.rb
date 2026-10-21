@@ -58,6 +58,8 @@ class Cherrytree < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     # Link libxml2 directly: cherrytree uses its C API but CMake only links libxml++
     ENV.append "LDFLAGS", "-Wl,--no-as-needed" if OS.linux?

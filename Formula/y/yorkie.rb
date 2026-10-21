@@ -1,8 +1,8 @@
 class Yorkie < Formula
   desc "Document store for collaborative applications"
   homepage "https://yorkie.dev/"
-  url "https://github.com/yorkie-team/yorkie/archive/refs/tags/v0.7.23.tar.gz"
-  sha256 "c54b7fe00e8844f00703bef1a1c29d4f2e5a141a61f900fcaed1edd6431d2ab5"
+  url "https://github.com/yorkie-team/yorkie/archive/refs/tags/v0.7.25.tar.gz"
+  sha256 "37865315c8a4ae17f79eae1c81ec35ec011405519532526d0fdd48f396d3cd2a"
   license "Apache-2.0"
   head "https://github.com/yorkie-team/yorkie.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Yorkie < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "40c2f63fb0c3cd84ff83b1a4deb0b65d08721e7022dd8508321b363f58784af9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "95b099d82980d7960ac5977ba66960709386e5acfdb9ce3857ba7adfd66d2c67"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "88220ffbe7727ba376f849a71e39d6dd078b14849884dd7018fe4fbfe46aaf9e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1e4403e2ae2fabaf2ba715a302fc7059a2cb17b8313f2e0087b55f8c34e17bcc"
-    sha256 cellar: :any,                 x86_64_linux:      "ffed8bb0e961b6aabe6a5b3e94f81e0b29a442e836cbb00386d6e6bd92a08c8e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bbaa0ce772ca1143ca11febe3cb549ef4b22824a2902dd58a92e696ebccf18ca"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8802758c51e649d484c6f504dac53ad79ded5ab6229894473bae8afb374562da"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "864617f59c6f7823e7f439d97adb1ccda5dd7300e85dc0d68d2167e013b2a5a3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "15804c96d6e9534a9cca23c55e67bd74f3bcc0977743acf3a188103f57ac0216"
+    sha256 cellar: :any,                 x86_64_linux:      "44f2ce0c2c8342f877f5516948fb71adca2ba3f15a98b9858f9984dd17bb0d0a"
   end
 
   depends_on "go" => :build

@@ -4,24 +4,24 @@ class MetaPackageManager < Formula
 
   desc "Wrapper around all package managers with a unifying CLI"
   homepage "https://kdeldycke.github.io/meta-package-manager/"
-  url "https://files.pythonhosted.org/packages/a1/99/07e4fb417e0ebe70d0b4d3cf3979a0577648217908c24c722656c128ec5b/meta_package_manager-8.0.2.tar.gz"
-  sha256 "28c6ba5e3087171154e8013e0ff93d2dd9ba965617d4148b5dbbfa850b1b02ae"
+  url "https://files.pythonhosted.org/packages/26/09/a168bda8ef7bb8d66e13fbeecc3f9fdc09f6bb55f6b216b474780b90247b/meta_package_manager-8.1.2.tar.gz"
+  sha256 "ceeb12d493e50101a46cfed6c999f3c8aff690b727b12b111f8a57d74cabd795"
   license "GPL-2.0-or-later"
   head "https://github.com/kdeldycke/meta-package-manager.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "05eee5b2a221ddfd7847dd7b743076c460886857e98d4f64b76693ad9384bb6a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4038198524acd99514c1181658072c1a973cbfcc59c023dafecdec61dcfef2a4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c8f8acde79cb7c0227a04300135971db70728dfc3e708add54103bbb05aaf8ba"
-    sha256 cellar: :any,                 arm64_linux:       "39aae6921d500aef9fde39b42c99428d79932331d3c697377f0e7a3af8e018d5"
-    sha256 cellar: :any,                 x86_64_linux:      "7dd1db4c1189604d0c908ee2b0ecde442894b46e928e01fecd625a0cda10c414"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1ec4504b89a822353e579072b787bde3ae703826cb1cbb39035766000dc4c83b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9b9fa84ee92d438d7f788ee5b82256b6d3d2e1a5f0a8bf83ef6364082c09e219"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7cceedcbacdb2f5161c1550e7ff4624d127ecab43b31e1b25825b4ac2bda3cb3"
+    sha256 cellar: :any,                 arm64_linux:       "e2d109ff72af99454ed54810acf83495d1ab902b21a6ec4d936bd191b078a04d"
+    sha256 cellar: :any,                 x86_64_linux:      "3e379c46e3df33bcadba2925dd9f70db8c6eec7a8607ea1593039de65b842fe9"
   end
 
   depends_on "rust" => :build
 
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
 
   uses_from_macos "libxml2"
@@ -35,8 +35,8 @@ class MetaPackageManager < Formula
   end
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/ac/01/5f394b8bcd6e5b92f73130990960423bbb19711f906bd9fe9ea5557c667c/bracex-3.0.1.tar.gz"
-    sha256 "4e38e32392e4a4780fe15d644bfc7c8514057cfc3861e060b11814ce829c25e4"
+    url "https://files.pythonhosted.org/packages/e1/60/e2a6409041cb3f8ce7ac3d6917b5b30c39f81a0a5b2d414ec30f36fd96bf/bracex-3.1.tar.gz"
+    sha256 "35c69fc105f08d77c02722e8ae707c656ff298dd4d26c89bcb3c98fca8bc3614"
   end
 
   resource "click" do
@@ -45,8 +45,8 @@ class MetaPackageManager < Formula
   end
 
   resource "click-extra" do
-    url "https://files.pythonhosted.org/packages/8e/c5/a856a174f091d796d6ad21ac531f20192485afcb321c35c7d260c31fdd3f/click_extra-9.3.5.tar.gz"
-    sha256 "92c90e7307867c56713a30230272e24d31dc52439dac76d555e68c6da2793d64"
+    url "https://files.pythonhosted.org/packages/13/20/e2d60c90277a668b10a00f7a74cd52a87ab0c85afd5b8975cc582601eafc/click_extra-9.4.1.tar.gz"
+    sha256 "065df41b1c8f6601bd9e550d79ac34a73ba40bfc84cfdb320cdcfe066c40a6d1"
   end
 
   resource "cloup" do
@@ -60,8 +60,8 @@ class MetaPackageManager < Formula
   end
 
   resource "extra-platforms" do
-    url "https://files.pythonhosted.org/packages/d4/10/5803927617f21359f940fe611db04ead99b0fee23b0be3300d0e4094ebb5/extra_platforms-13.10.1.tar.gz"
-    sha256 "adada8aadf654b92964b369c7fb5c548467fc1616ef15f6c5943ec0141efa96d"
+    url "https://files.pythonhosted.org/packages/2b/7e/b92eb5fe6c14b00c1469357622ee32e8b96ba8247b90b9da4cba3743ab32/extra_platforms-13.12.0.tar.gz"
+    sha256 "883feefe546402e1ccfe6f53b3f248dbaee3cd72d82e137549769db452c4712c"
   end
 
   resource "packageurl-python" do
@@ -80,13 +80,13 @@ class MetaPackageManager < Formula
   end
 
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/57/43/30e407989e313677dbb9d5f045f966549a7254834571e342eaa4b55cc67b/wcmatch-11.0.1.tar.gz"
-    sha256 "1ea2b4fa678b8ca268253798d5963935df39132d47c3e241c0a0732224005e7d"
+    url "https://files.pythonhosted.org/packages/78/cd/0e028d8b7d906d51acdac537334fbe85f8284f2a8147d48bc9403af77a0d/wcmatch-11.1.tar.gz"
+    sha256 "f2b6f0fad6f5e2571498723fcb3c8facdd0fba0dcc139f31d32f592eb648153e"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/dc/ac/3a943d2792c9bb368aaa8b50121c0f778460ba2d7fbdc0a0366201d9e761/wcwidth-0.9.1.tar.gz"
-    sha256 "5823209b0d43af322ce698c689380d7c15ca31fa8e6e3be8459f27031bef0af5"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   resource "xmltodict" do

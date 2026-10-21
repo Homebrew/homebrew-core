@@ -8,17 +8,17 @@ class Fusesoc < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "401b3322c036083f4843059999d0711cc093bc7db97a5fe0ea20f9d0a75d6af5"
-    sha256 cellar: :any, arm64_tahoe:       "314e1a7ce168a9abf6988646c7c3595683b49a556aed989bb7e0180e800416da"
-    sha256 cellar: :any, arm64_sequoia:     "ec49e8a6830ee3294543f7c39d1c799460317fed04967e6a4022703037c2431b"
-    sha256 cellar: :any, arm64_sonoma:      "b03c499d31c652306c59d938b3e271ea4c2b6fab398b2c9a8c9b898fa8861c1e"
-    sha256 cellar: :any, arm64_linux:       "c8165eac9bcc80219cc65a9c687f1213451a173dd0876421939b270b4e60dfe9"
-    sha256 cellar: :any, x86_64_linux:      "9e2f65ab5169e50aff6220ff388ce323bed235e87467eedb3c05087a4921ca2b"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "21e1974d9c485bba09fd438522d1d8694c746d3a43ac8a3c5ddf60772c5ea0ca"
+    sha256 cellar: :any, arm64_tahoe:       "702b90d2325ecf4039100792e6fc0e1a0084a7a6bf0ac180360c4b6c951d126e"
+    sha256 cellar: :any, arm64_sequoia:     "ac4347a287d12695ab54e71ae535d4c2ad78fc9a8dc888e9be9e40abf6954819"
+    sha256 cellar: :any, arm64_linux:       "1fc25a6fe00771966116a15f061b51adb8e50edd05afb9518452c14948c83023"
+    sha256 cellar: :any, x86_64_linux:      "6970c07dd67eccdaf9bbf86dc9e64cffac6a90f47d64d2d5746e15dd98e336b8"
   end
 
   depends_on "libyaml"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "pydantic"
 
@@ -48,8 +48,8 @@ class Fusesoc < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "okonomiyaki" do
@@ -58,8 +58,8 @@ class Fusesoc < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/f3/91/9c6ee907786a473bf81c5f53cf703ba0957b23ab84c264080fb5a450416f/pyparsing-3.3.2.tar.gz"
-    sha256 "c777f4d763f140633dcb6d8a3eda953bf7a214dc4eff598413c070bcdc117cbc"
+    url "https://files.pythonhosted.org/packages/e4/11/b213bebff182584360cb8d17c72c1677fec5c5c228de439e63bcf8ab1c8f/pyparsing-3.3.3.tar.gz"
+    sha256 "928ae7e20211f3b6f3915a72f06a0cfd29ab9d24279dd6346b6b1a7146397d36"
   end
 
   resource "pyyaml" do
@@ -70,6 +70,14 @@ class Fusesoc < Formula
   resource "simplesat" do
     url "https://files.pythonhosted.org/packages/24/60/9c4a2534ae17dc5397c0536c3875a6ea8acf5d65f099ae617ce676433f3b/simplesat-0.9.2.tar.gz"
     sha256 "8cb800d09289bdc051126e725949368f8ac25105d40865cb93aa20eae9d46a9c"
+
+    # Fix import on Python 3.15
+    patch do
+      url "https://github.com/enthought/sat-solver/commit/cae79b0c938fc796c37474221e53b6e4fde87d30.patch?full_index=1"
+      sha256 "743079f81396d73fbdcd3eef97a9fbfd53f9a187cddd1d81e11d590fa6ad979a"
+      type :unofficial
+      resolves "https://github.com/enthought/sat-solver/pull/305"
+    end
   end
 
   resource "six" do

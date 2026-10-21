@@ -1,18 +1,16 @@
 class Libyang < Formula
   desc "YANG data modeling language library"
   homepage "https://github.com/CESNET/libyang"
-  url "https://github.com/CESNET/libyang/archive/refs/tags/v5.8.6.tar.gz"
-  sha256 "6906b0f26c1d4494c5c2464313b16169ec92ccd07b45ecf3a1e9eb9cd7a55c0b"
+  url "https://github.com/CESNET/libyang/archive/refs/tags/v6.4.13.tar.gz"
+  sha256 "bf78a437225027ce9e20d2c449b7853204d7fd450bb00fb01e83339145561a86"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 arm64_golden_gate: "70ebbe73f92a25d3f087d98ec393c7f062e433bdb0adc5ab1905d519e2dc4f6d"
-    sha256 arm64_tahoe:       "df2603408387362fe94e1ac5edeafbac46321f9f9f755cab342c7c342db58249"
-    sha256 arm64_sequoia:     "0492d0014e209506ee5226ba0845ecec581310a60077e91f2427c2f727a7e9f3"
-    sha256 arm64_sonoma:      "a9faede86d3f06e93214b1b34ae4b0f9babcad694ee135876999334b8a1ad9de"
-    sha256 sonoma:            "715fd9ad19079c748720f743be056834261b817e1a261b4cad3e1747b749772e"
-    sha256 arm64_linux:       "c44b9fd6eb56a1fcbdaeccadef17c4446be642b96c1da0c1b53f53ef5d395ea2"
-    sha256 x86_64_linux:      "29a4c2815e999c23334bf39ef9a46cb15994ce563ef164dfa9c1138173df48a3"
+    sha256 arm64_golden_gate: "cda40e72aaeca6bcfe1fce5de806d3327822c60219ee4e6ab96791ae10ea10a8"
+    sha256 arm64_tahoe:       "2b2f9e9250633843249a274168940e6103a785691cef820a4da691ee46a19591"
+    sha256 arm64_sequoia:     "0736495a772692d11043f9cbee93372540930db413ef1514fa2c2e0b3ba940e0"
+    sha256 arm64_linux:       "5a2d7b9519e87c08a374be74c4b92fe541c079e1f815812f6d17975403e2f823"
+    sha256 x86_64_linux:      "32000a77ae1eca071c483bb578cf496d581b3d52259fe8eb6e05c48b9ba49f08"
   end
 
   depends_on "cmake" => :build

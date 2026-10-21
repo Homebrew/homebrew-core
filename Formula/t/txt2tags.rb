@@ -8,11 +8,11 @@ class Txt2tags < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, all: "b938a2bda24749153a44deefd623b6551d5b3349e859dc80c22c18323987f62b"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, all: "80cd9ce2147e38e29ecf1de148b892ce27c16bf0a7b89f571136ccfe03d17c4c"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     virtualenv_install_with_resources

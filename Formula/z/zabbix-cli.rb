@@ -10,12 +10,17 @@ class ZabbixCli < Formula
   head "https://github.com/unioslo/zabbix-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "248641217d73e09e040b62f7303bae3c5beb6e586fabb2d521ab517b2955d269"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f6ce055ea01886ece6650c0ab2190910f44aa8adb45cb70a78a6df4a005f09d8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "16a5b42069be8c7cede49dda492c5f92b3e9407d79de3102e32ff2fb7effb814"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "66307a4ae746a8dc4793dd727df1113f9a521e8dd36adf1dee037bd829d39bba"
+    sha256 cellar: :any,                 arm64_linux:       "a93d2e84c8e48311eff0c1f476a15afa3609a0aa88f1dbd3aeeb8f23175a09a6"
+    sha256 cellar: :any,                 x86_64_linux:      "727f116c0795733007c9031a02474cd5412c214aa171cde00e768b5156f10e52"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name:     "zabbix_cli_uio",
                 exclude_packages: ["certifi", "pydantic"]
@@ -71,8 +76,8 @@ class ZabbixCli < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/89/24/92d90bebedf197eb15b144367ce6fd4ad2de571927cd09dde190a36db8fc/platformdirs-4.11.10.tar.gz"
-    sha256 "9cd351c078ccf7dda1fdc5f8ccb9d8f5258984c63990e6df3627dde0b70b51d0"
+    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
+    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
   end
 
   resource "prompt-toolkit" do
@@ -131,8 +136,8 @@ class ZabbixCli < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/3d/7a/f98d4ada7c499565ab0c0fcef28a4e54fafa72b8228a6309803c80493c92/wcwidth-0.8.4.tar.gz"
-    sha256 "2dae09efa25253ae2874188e86d6861af3b1652aef4118cdf3f0bda288a957fb"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   allow_network_access! :build

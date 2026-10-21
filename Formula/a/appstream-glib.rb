@@ -45,6 +45,8 @@ class AppstreamGlib < Formula
     depends_on "util-linux"
   end
 
+  deny_network_access!
+
   def install
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

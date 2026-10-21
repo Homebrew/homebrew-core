@@ -4,29 +4,30 @@ class Somalier < Formula
   url "https://github.com/brentp/somalier/archive/refs/tags/v0.3.5.tar.gz"
   sha256 "506f540589495cdc933b5c9e014f01b16261a567e003bcce60afbcf8de4519a8"
   license "MIT"
+  revision 1
   head "https://github.com/brentp/somalier.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "339d9361d8e804b216c069e51e4ac9a4b318ff84b826d899b6bbb8e4a05c80a7"
-    sha256 cellar: :any, arm64_tahoe:       "04bab8218031928411b50449a2e36df85ab0ab13cfcb41d7d31f5bd552fe191e"
-    sha256 cellar: :any, arm64_sequoia:     "d1aeffe146658c15fb904ad87bd7863ac35aeb07af7cd185f905d57116f41eba"
-    sha256 cellar: :any, arm64_linux:       "f9f41f7c9d298c42005ccb11b8c4406173d17c14bd98ef1f4d87368e06ccd08b"
-    sha256 cellar: :any, x86_64_linux:      "58e92f860a2e73d15baecc6a76517a8a41da648712579a5a92283ff10774afa7"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "2a052913ff9dd15d787839e4101df2d448bf476e93fdcbfdd7914ade90764d3c"
+    sha256 cellar: :any, arm64_tahoe:       "b93a8382e401f62054c7a499e7b5e565a5d393665a1132f05aefbc8aeebd1117"
+    sha256 cellar: :any, arm64_sequoia:     "a2a91e38eb270c7918363de2553388cfe1faf77b9855f24a6c2ab52c703cd174"
+    sha256 cellar: :any, arm64_linux:       "93bc4ca4122594098e9cf3a0178838bf3063e2780240109e8b56831ca24b2c0e"
+    sha256 cellar: :any, x86_64_linux:      "92f506756375ecdbd7f5783ab95ceedce4eca2bade5af9bece07285c6de30ffa"
   end
 
   depends_on "nim" => :build
   depends_on "htslib"
   depends_on "libdeflate"
-  depends_on "openssl@3"
   depends_on "xz"
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"
-  uses_from_macos "zlib"
 
   on_linux do
     # arraymancer's BLAS/LAPACK backend; macOS uses the Accelerate framework.
     depends_on "openblas"
+    depends_on "zlib-ng-compat"
   end
 
   # Nim library dependencies, resolved offline instead of via `nimble`, from the
@@ -184,13 +185,11 @@ class Somalier < Formula
       "--passC:-I#{formula_opt_include("htslib")}",
       "--passL:-L#{formula_opt_lib("htslib")} -lhts",
       "--passL:-L#{formula_opt_lib("libdeflate")} -ldeflate",
-      "--passL:-L#{formula_opt_lib("openssl@3")} -lcrypto -lssl",
       "--passL:-L#{formula_opt_lib("xz")} -llzma",
       "--passL:-lz -lbz2 -lcurl",
       "--dynlibOverride:hts",
       "--passL:-Wl,-rpath,#{rpath(target: formula_opt_lib("htslib"))}",
       "--passL:-Wl,-rpath,#{rpath(target: formula_opt_lib("libdeflate"))}",
-      "--passL:-Wl,-rpath,#{rpath(target: formula_opt_lib("openssl@3"))}",
       "--passL:-Wl,-rpath,#{rpath(target: formula_opt_lib("xz"))}",
     ]
 

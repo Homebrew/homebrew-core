@@ -1,20 +1,17 @@
 class Profanity < Formula
   desc "Console based XMPP client"
   homepage "https://profanity-im.github.io"
-  url "https://profanity-im.github.io/tarballs/profanity-0.18.2.tar.xz"
-  sha256 "46964928742733fffcf8ca65d37ac0874c8ccd6270cbc065cb1013cee94e9e3b"
+  url "https://profanity-im.github.io/tarballs/profanity-0.19.0.tar.xz"
+  sha256 "fa201a10df688a173a0ce61da3be528f8e03f44d72817ed327568acb1c8fb259"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/profanity-im/profanity.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "ebff65148285402f25739e6780b4d83bc3a6a89f52a6b7179614428afe1493e2"
-    sha256 arm64_tahoe:       "30b0296eed40de1140470010da6fe562574a802c6f41ff1848e519e897b7971f"
-    sha256 arm64_sequoia:     "047d3d9b82750ac907046107803d465738dec5692b6180cc931f8b234cbe0940"
-    sha256 arm64_sonoma:      "509d59ceaab4bdf334f58e24af6391bc9b2151345b40ac95038299fd8399a36e"
-    sha256 sonoma:            "107b58f0db1b558f20f76e59633ebe6f628ebd7dd1a44406d62fee8c85e5551b"
-    sha256 arm64_linux:       "c1862ab73b74923268ae57e7ebc966cc5804bff0ae4b6eaf5023f28c74b07e86"
-    sha256 x86_64_linux:      "f3512d92fd693b0e65dcd9912c7166652f04d2cc9829d22fa76d5df04ae970d5"
+    sha256 arm64_golden_gate: "e8f73582a912a2325a042ccc35cae563528d1585a68ccc03c6967799e9c861e0"
+    sha256 arm64_tahoe:       "1cb182a6a25209e7c7e5c5aa0f22698ae5d4d38c8b298f7eace2808dfdad37b9"
+    sha256 arm64_sequoia:     "a949cabe1b7e4a600e16f4e02991b4a16d941aaac20249c32eb227a7da0652c9"
+    sha256 arm64_linux:       "3b68547440e6ee4cb5fd934752ff4b6663c257078a9329bf8dd99669cfa41dda"
+    sha256 x86_64_linux:      "98bf38f2693f545cac295d6ef9d07893b136a9871d640a161c6f6119917ed430"
   end
 
   depends_on "meson" => :build
@@ -30,7 +27,7 @@ class Profanity < Formula
   depends_on "libstrophe"
   depends_on "libx11"
   depends_on "libxscrnsaver"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "qrencode"
   depends_on "readline"
   depends_on "sqlite"

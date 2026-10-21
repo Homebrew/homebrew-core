@@ -17,14 +17,18 @@ class Rmux < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
     man1.install "docs/man/rmux.1"
   end
 
   test do
-    require "json"
-
     assert_match "rmux #{version}", shell_output("#{bin}/rmux -V")
     diagnostics = JSON.parse(shell_output("#{bin}/rmux diagnose --json"))
     assert_equal version.to_s, diagnostics.fetch("version")

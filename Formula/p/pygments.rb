@@ -9,10 +9,11 @@ class Pygments < Formula
   head "https://github.com/pygments/pygments.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "54074e6a643ba4c01e54c4243c300a4f6f941ed6340f91b2fb83766bbf5960ce"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "e4580f74601ac607744e6a6a57705175f3baf4eeed61e69d623085091ff2f269"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     virtualenv_install_with_resources

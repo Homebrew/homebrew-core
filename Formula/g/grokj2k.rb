@@ -1,8 +1,8 @@
 class Grokj2k < Formula
   desc "JPEG 2000 Library"
   homepage "https://github.com/GrokImageCompression/grok"
-  url "https://github.com/GrokImageCompression/grok/releases/download/v20.4.14/source-full.tar.gz"
-  sha256 "4ddb38430b65a28f29b488e419708e9dd4ed2ecf88308c415bf2d4c796b50457"
+  url "https://github.com/GrokImageCompression/grok/releases/download/v20.4.18/source-full.tar.gz"
+  sha256 "3dff7265a2cd2022102c7e35600c39c696e8f3568b7242c30f82010d38a1e0fd"
   license "AGPL-3.0-or-later"
   head "https://github.com/GrokImageCompression/grok.git", branch: "master"
 
@@ -12,11 +12,11 @@ class Grokj2k < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ac51933815b3005fd6733c1987494c70b6ecc0331a1ca8062ed0555d85807c54"
-    sha256 cellar: :any, arm64_tahoe:       "fecf88cdbe07df2da38aa53a23ff119043d67b4b52fc050ccee16808afd1e98e"
-    sha256 cellar: :any, arm64_sequoia:     "a73c568d04d2e11e4b85e025b81de8cf6dfc019ba9f1b1627f7306ab7d663b85"
-    sha256 cellar: :any, arm64_linux:       "53db5bd09034aee39cf112d2ef64f16011a8262118d0ea8878dbb622006a86e7"
-    sha256 cellar: :any, x86_64_linux:      "5c8c8e0519d5994e2392b3ae2fd2a19e5ec5656085d1f63532461ab539d56f50"
+    sha256 cellar: :any, arm64_golden_gate: "00df6357dd243dd55ad5d78b2a4af8260af0ecf19b56500fe15e8a57b013e81c"
+    sha256 cellar: :any, arm64_tahoe:       "81411825740e0f5876dacd0d3e3f64caba3c5daa1590223d6ed411b49a45b11b"
+    sha256 cellar: :any, arm64_sequoia:     "e66dd30a0554bb91afaf3544f9a0f223cddf163ec829d989bf5eb64b8c89c5ae"
+    sha256 cellar: :any, arm64_linux:       "9f25ba2a82704afa85f678d2570e755039190e4902236ab63220cd8a63136229"
+    sha256 cellar: :any, x86_64_linux:      "fee1617d7f6652ab51930342b2e976a89ecd438ea956be35e0ce334d2564aa84"
   end
 
   depends_on "cmake" => :build
@@ -49,6 +49,11 @@ class Grokj2k < Formula
     cause "GNU compiler version must be at least 10.0"
   end
 
+  resource "homebrew-test_image", :test do
+    url "https://github.com/GrokImageCompression/grok-test-data/raw/43ce4cb/input/nonregression/basn6a08.tif"
+    sha256 "d0b9715d79b10b088333350855f9721e3557b38465b1354b0fa67f230f5679f3"
+  end
+
   allow_network_access! :test
 
   def install
@@ -72,11 +77,6 @@ class Grokj2k < Formula
   end
 
   test do
-    resource "homebrew-test_image" do
-      url "https://github.com/GrokImageCompression/grok-test-data/raw/43ce4cb/input/nonregression/basn6a08.tif"
-      sha256 "d0b9715d79b10b088333350855f9721e3557b38465b1354b0fa67f230f5679f3"
-    end
-
     (testpath/"test.c").write <<~C
       #include <grok/grok.h>
 

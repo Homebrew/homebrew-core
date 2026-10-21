@@ -1,19 +1,17 @@
 class Nbsdgames < Formula
   desc "Text-based modern games"
   homepage "https://github.com/abakh/nbsdgames"
-  url "https://github.com/abakh/nbsdgames/archive/refs/tags/v6.0.2.tar.gz"
-  sha256 "9545b099f6edb2be08d8885eaae2e10cf3d114c3a8fa1fc3eefff156053f37ca"
+  url "https://github.com/abakh/nbsdgames/archive/refs/tags/v6.0.3.tar.gz"
+  sha256 "359da5f698da00437205eddad3fc97fbdcecfa8cb005fd8d1830fe8fd3dd7e3b"
   license :public_domain
   head "https://github.com/abakh/nbsdgames.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c81c19712fbe90d6a81faa887da798a59ae6e379611a3843a0f5f222ba3cc0d0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cc0699404d93af0c48f6b09d79731ac55ac914f8882336c77a79bb569a9fd6fb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cab4bdbb4f81fcb81a6b36f2d4847f88f987069e6abb49ff566fa65f6ea6c540"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "a72d596f76b58fb78d1d3a74d76a1b2c24da6f42f8092411a72f22670ada03d3"
-    sha256 cellar: :any_skip_relocation, sonoma:            "ccc332edf5b6de3c7fa08f83713c9d7472b53c303b8233ecb1b4df7e17d12767"
-    sha256 cellar: :any,                 arm64_linux:       "eca571daf08b41c07922289f8bfa32c155899dd47be0cd74dc9cdf3ad9ec8423"
-    sha256 cellar: :any,                 x86_64_linux:      "df0af8ba58f6cca6262ffdb789cdf0582d5feee1dada287333fcbc8cce1a95f6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fd6fca94d9b6453aa53c82ec09481ff0866928a3a58296fe4a2b3685158f67c0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d5783c6f1e6757142771a262c3b4624987dd6ac1ec90936f8fa19f2f40e8a240"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "08b079def0fb3bc076824e2f7cdd234de230b353c11fbea44377aa91bdf1dd37"
+    sha256 cellar: :any,                 arm64_linux:       "b4174a183b18c2cd280248bf9c51fe79eb17dbbf97c44a2d1bd27a47c21ea3d6"
+    sha256 cellar: :any,                 x86_64_linux:      "8567cd11e80c38c936b9163c6535beb9b278130866c48e8265b27b3fe127ae40"
   end
 
   depends_on "pkgconf" => :build

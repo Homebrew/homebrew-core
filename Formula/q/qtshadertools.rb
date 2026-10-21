@@ -1,10 +1,10 @@
 class Qtshadertools < Formula
   desc "Provides tools for the cross-platform Qt shader pipeline"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtshadertools-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtshadertools-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtshadertools-everywhere-src-6.11.2.tar.xz"
-  sha256 "805046b8b7757665586890b375940047e874ae3ab00adb6d3f2b38fc6b200b1c"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtshadertools-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtshadertools-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtshadertools-everywhere-src-6.12.0.tar.xz"
+  sha256 "c7d84f436e1aaef39fdcadebf2bd71bdf24dc69497e13f2e0198873cbbfea2ab"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } }, # qsb
@@ -13,6 +13,7 @@ class Qtshadertools < Formula
                "GPL-3.0-or-later" => { with: "Bison-exception-2.2" }] }, # bundled glslang
     "BSD-3-Clause", # *.cmake
   ]
+  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qtshadertools.git", branch: "dev"
 
@@ -21,12 +22,11 @@ class Qtshadertools < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "81a23368f8a6a9bfd4c35e44f719f761b68a2981f4bd6b97d4b0e8c0930a87fc"
-    sha256 cellar: :any, arm64_tahoe:       "3d0bf5ce8ec69dc8c39acf4ed20556443d63dff8f67743cc6fa7b6e590dcfb4c"
-    sha256 cellar: :any, arm64_sequoia:     "2ef6ac078dbc0fa9dcb90231d00430e70f72d20bd34b82745353e8fda2dd444a"
-    sha256 cellar: :any, arm64_sonoma:      "c2606bc42523b6ac8580674b0c3a648076224d1d184b95480cf251fe6ee8bbdb"
-    sha256 cellar: :any, arm64_linux:       "f2422660ec1184a399bb32f83a884813c0ad682261f4233f1bc30def5eaa5ecc"
-    sha256 cellar: :any, x86_64_linux:      "828192d5dcbc902079ab07c56c73b58defec955e7a83ee338a2457d416e5ffc0"
+    sha256 cellar: :any, arm64_golden_gate: "ce0f6de39dc8979ba041360ab5fcbd5aa585f573e60dbb775d4ba8ef600cb50f"
+    sha256 cellar: :any, arm64_tahoe:       "ce8f56aa405011bebcaa4dcccefc310cb4b241396dcc2af4db3cefdd071ab44e"
+    sha256 cellar: :any, arm64_sequoia:     "5666a2efc40797b9e07f47175c8552025b68a581ac15427f7b432c23fdbd6248"
+    sha256 cellar: :any, arm64_linux:       "14f149ad4f3022336a96d8464de84ffbb8d95b98d3f63dba17efb50a9ad5a725"
+    sha256 cellar: :any, x86_64_linux:      "d441c46cbff4308b951820fa0183679d73e1a7ef8e73dcbd9cf27a5b6ab96997"
   end
 
   depends_on "cmake" => :build

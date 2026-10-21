@@ -5,21 +5,22 @@ class Httpd < Formula
   mirror "https://downloads.apache.org/httpd/httpd-2.4.69.tar.bz2"
   sha256 "c5e6ebc66e349b87d7fc6916ae7cc2a808ed348003de134cf9e9d89d3e2cc73d"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
 
   bottle do
-    sha256 arm64_golden_gate: "6a0c5eec30f59c94ffc697ac3c2f667772d8175ff994e5abebed31b79e19508e"
-    sha256 arm64_tahoe:       "fbaad1f54bc8cfbc9e62ef2731a46e005c0dea7f9d3a7b5377711c6b39a760d8"
-    sha256 arm64_sequoia:     "9993ab0c6f9a3a1754dd5cd427d8417effe0abd5afd5211772a387d9f288322a"
-    sha256 arm64_linux:       "81f042b55f5abed917e3a4d245ece9c667f9b94dee0ecc3adff2dd53f1b5003c"
-    sha256 x86_64_linux:      "e72c8163194eeb7e403eebe1d6aec2c9292547e0aa03f79351f65c4509c6ec64"
+    sha256 arm64_golden_gate: "01c86c7086e7430cb878cb82b6332f5dfb110d3d608583e2908e09aeb4562870"
+    sha256 arm64_tahoe:       "54f05c8e52f17ac0850c0ad3a370b04044641f56649ea4eb73a645e97b819e02"
+    sha256 arm64_sequoia:     "5a080a49d64ce830fe9aba49f804c9c0fcfc0f5b53696683412703ddc54fdb0f"
+    sha256 arm64_linux:       "f76cd7db514b6959ad02ba08a26e8fd63a7e92cd50c121c61383afae6ddf40ac"
+    sha256 x86_64_linux:      "fe466ac20df96bf8e9eb3677352dc8e8650d27726957ac7d0a29dfcf47d4d591"
   end
 
   depends_on "apr"
   depends_on "apr-util"
   depends_on "brotli"
   depends_on "libnghttp2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
 
   uses_from_macos "libxcrypt"
@@ -81,7 +82,7 @@ class Httpd < Formula
                           "--with-libxml2=#{libxml2}",
                           "--with-mpm=prefork",
                           "--with-nghttp2=#{formula_opt_prefix("libnghttp2")}",
-                          "--with-ssl=#{formula_opt_prefix("openssl@3")}",
+                          "--with-ssl=#{formula_opt_prefix("openssl@4")}",
                           "--with-pcre=#{formula_opt_prefix("pcre2")}/bin/pcre2-config",
                           "--with-z=#{zlib}",
                           "--disable-lua",

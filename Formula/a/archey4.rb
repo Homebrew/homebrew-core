@@ -8,17 +8,15 @@ class Archey4 < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d994a3cfdbf3bc4cc61806bb1a039ad7c02fc68842769081544856a5ac7a3664"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8b51742b76a0d2c6fa1f889d22c4c1346ff2a1c696adff0e27936ef1b113ee84"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f89f2d74d626422931410d34c7d8b5399ea0751098945065b0225c45751df928"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "892ee32d2fee5bb6c81d0ce7f9d09856eea40d5a1cc47ef3e11d7ff9f534e6d0"
-    sha256 cellar: :any_skip_relocation, sonoma:            "72a8d23ac8b71a3d221173b763cbc0b24741585707134ba3b5a1da295014c721"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2903334f800483b711c76502cde2a16ed6a44c8d2ce4ddeae17a9299a230dad6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "fcf85f57e5437fd832700cf479064e7c1d5ee3582abfe235d9b42c51ffb92f70"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cfa6d2f78c76ed507c5c5b26fa024c65d421410f13d64df70cc67ce5543382a2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0154792e1fb2a7f5b04c5851e9ad65ad3d026c3f21668ad217ee299356de68cf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8c39d4d277039c216edf01fed49f92a5c8784c105a8352985f27fbeb1f287ba0"
+    sha256 cellar: :any,                 arm64_linux:       "82bf31327d381962b0fa2ab6b24c385b3039120b74f3df3c85c01f11b7085d73"
+    sha256 cellar: :any,                 x86_64_linux:      "9d8014e67b533b8e8331b86f9fe52b4a9d1b71145651fc76a69da78d48d62ee0"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "distro" do
     url "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz"

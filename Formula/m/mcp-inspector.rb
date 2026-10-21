@@ -1,16 +1,16 @@
 class McpInspector < Formula
   desc "Visual testing tool for MCP servers"
   homepage "https://modelcontextprotocol.io/docs/tools/inspector"
-  url "https://registry.npmjs.org/@modelcontextprotocol/inspector/-/inspector-2.9.0.tgz"
-  sha256 "0671ad3cc535b00cbfbd3a9aad7559a735ec471d72030f0e69b7add778f8ed09"
+  url "https://registry.npmjs.org/@modelcontextprotocol/inspector/-/inspector-2.11.0.tgz"
+  sha256 "f316f4e4cb25f8ea052c733cad14b530c6eb6e89f6f9b9370d7022e49ab8b757"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "7b62c4e796106e59deb6cf0870d6f2f17865e8b7cf5f1f864b8e306c843c203f"
-    sha256 cellar: :any,                 arm64_tahoe:       "777339b3835a262a3627decfad94c7ba6102061fb111c97a5845cf5f1ca5b47f"
-    sha256 cellar: :any,                 arm64_sequoia:     "a2bfb6b098133b23786b0daec680089392661bf49930dc2061a40170370f3313"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5b4aa31a4cf59812bc15b27f165cca1a97351308906370b122391ddb63825912"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0e407756b2d2a8daabfddf79f3a4da7204d6e40a1f5ccc85d8cd231ecbf0678b"
+    sha256 cellar: :any,                 arm64_golden_gate: "ff2fec0db8c9ad61813f91d02dd3fcf7d61179fbb233e24045bc6031f5f5bc11"
+    sha256 cellar: :any,                 arm64_tahoe:       "19b59f7c15b93e3b20a7c3e16aac4d67672e0a4611bba387d3432907c412ce79"
+    sha256 cellar: :any,                 arm64_sequoia:     "7dbe474fef0aa55ea26bd78bed227504b6970e04ba33c208807aac6d52e47d25"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "47753509e02f0d1eea7a015da155dbd1331e9f0f03933f84f729e0c9354ab224"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3f595d98ad1a3ebe0d6a4e2fabb2f62f45431b20b12c15ded5b9a0edeb805fca"
   end
 
   depends_on "node"
@@ -21,8 +21,8 @@ class McpInspector < Formula
   end
 
   resource "rolldown" do
-    url "https://github.com/rolldown/rolldown/archive/refs/tags/v1.2.1.tar.gz"
-    sha256 "05615e3dd0991fe24070626ed80e18bb95a253faa865d45e5b86e65057672d73"
+    url "https://github.com/rolldown/rolldown/archive/refs/tags/v1.2.13.tar.gz"
+    sha256 "f22d36d1dc3fc068274149b5e699058657a3f7da1802aee42e7e667f3a31cf04"
 
     livecheck do
       url "https://raw.githubusercontent.com/modelcontextprotocol/inspector/#{LATEST_VERSION}/package-lock.json"
@@ -34,8 +34,8 @@ class McpInspector < Formula
   end
 
   resource "keyring" do
-    url "https://github.com/Brooooooklyn/keyring-node/archive/refs/tags/v1.3.0.tar.gz"
-    sha256 "349be987e7582e6aa26763b2de96c4cbbd0d3cfba2417d9733524589fdbc275f"
+    url "https://github.com/Brooooooklyn/keyring-node/archive/refs/tags/v2.1.1.tar.gz"
+    sha256 "b1f4847eb61306e8c4f1a0418bf9e47231e8fdbc41a88631777d5cfa515eaaaf"
 
     livecheck do
       url "https://raw.githubusercontent.com/modelcontextprotocol/inspector/#{LATEST_VERSION}/package-lock.json"

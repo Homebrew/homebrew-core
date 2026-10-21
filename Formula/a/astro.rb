@@ -1,8 +1,8 @@
 class Astro < Formula
   desc "To build and run Airflow DAGs locally and interact with the Astronomer API"
   homepage "https://www.astronomer.io/"
-  url "https://github.com/astronomer/astro-cli/archive/refs/tags/v1.46.0.tar.gz"
-  sha256 "ceb62ebdcb88ec733ab2ca8ffe25d593aca55dc5cc05c28c785939bf2f77c7ab"
+  url "https://github.com/astronomer/astro-cli/archive/refs/tags/v1.46.1.tar.gz"
+  sha256 "0c37f6ebfee5bafab1384d13ff2e55351c4623b31b09476ec6730f51cfa189f2"
   license "Apache-2.0"
   head "https://github.com/astronomer/astro-cli.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Astro < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "86f1ce85902678f56f9bcb6c467ddb4b6c3c52db0d22beeac554eb1afdaa7acf"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f2c5c63f416d86170251fd48d40f292589a8dec97e36baa71d674e62cd0e5023"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5bbf3f7938ffaba94eb0331b82979702804263a9d017916250f91656c73e1bc3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4dd2112fab1d2af63a1bb4c416156836576c33e603a985fc5aac7d89327649b5"
-    sha256 cellar: :any,                 x86_64_linux:      "cb2bf1d5eab715583b4d0c45ca9dcd5e383b43d669d1d7cb199171befed717aa"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c4e9d907e28e3dc0e385d5eafc4cc78dcdceb2b6728677ac5da10cb58edac4fb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a89a8bcf10557e56062c6e59a20f2628fd916ca26e2a5ef0470242648917d590"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9db6670e056814fc241a0f9155778c0fb212a488bc1c8e6926b242f75e13f6df"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "2ae8d0868c9291149482486deafc2ad198e5c06a7c8acff9fc8604012b1c917b"
+    sha256 cellar: :any,                 x86_64_linux:      "6e723587584c12d7654afadd606d0a43947ffcaf3c39ba79faa7feb7dfbed2da"
   end
 
   depends_on "go" => :build

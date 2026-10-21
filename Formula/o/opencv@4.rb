@@ -4,7 +4,7 @@ class OpencvAT4 < Formula
   url "https://github.com/opencv/opencv/archive/refs/tags/4.14.0.tar.gz"
   sha256 "ee8fb9b30eb60850431b4656447080e3737b56e45719c92b67f245950609f86e"
   license "Apache-2.0"
-  revision 10
+  revision 11
   compatibility_version 2
 
   livecheck do
@@ -13,11 +13,11 @@ class OpencvAT4 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "9fad80d894b1f4448e1638856b1e191e36f6b067f2233242bc67c1cacb65e069"
-    sha256 arm64_tahoe:       "9880d482b5bd105b37f177f5a830058d1ffb682a256569fd1cce991a40fdca55"
-    sha256 arm64_sequoia:     "e9e3cdc4fbc6bd85988896c8db6d9f0b0dac62289dc11db902ccda250cbd2ea2"
-    sha256 arm64_linux:       "4492429b661e78a2add7637cbaec65430630622b922b5e64294b5bd303e9025b"
-    sha256 x86_64_linux:      "421371b09a2ffd1a014ec50a9eec16108125a184b11edb1f35442b914c589557"
+    sha256 arm64_golden_gate: "50100f319d175cd623b5dba8bae72f19bd039569bc212931cf45c30e9cc71ecc"
+    sha256 arm64_tahoe:       "9ee879c7351051ec38d8cd5ef15613c5da704f26c27b6e171a6ac6e3a94f8cce"
+    sha256 arm64_sequoia:     "3cc94997de5d22dbaf7fc185658131e9a92180c5f8baca9c22be7525558d2cbb"
+    sha256 arm64_linux:       "2c7fd71e18929a2da569ea531c13289527cb190a9293fbe763f81727b73998c1"
+    sha256 x86_64_linux:      "6b93020395ec50143e40d7af73e4430405cd76869ddc8861d5b453383c30cf85"
   end
 
   keg_only :versioned_formula

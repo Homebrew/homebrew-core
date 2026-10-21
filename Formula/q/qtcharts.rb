@@ -1,14 +1,15 @@
 class Qtcharts < Formula
   desc "UI Components for displaying visually pleasing charts"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtcharts-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtcharts-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtcharts-everywhere-src-6.11.2.tar.xz"
-  sha256 "5069e53b81d125509e937c6379cba6d664c562d5a1e5ed28dd383690d4b6fb29"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtcharts-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtcharts-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtcharts-everywhere-src-6.12.0.tar.xz"
+  sha256 "dc5e0599455c78729248a1bb95824fe6a3420e860b8cabc5ac0c7a93c2062bfb"
   license all_of: [
     "GPL-3.0-only",
     "BSD-3-Clause", # *.cmake
   ]
+  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qtcharts.git", branch: "dev"
 
@@ -17,12 +18,11 @@ class Qtcharts < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e99f7f19c23d9c1a1a9d9b19e022151f2aba9ad9622d1ba6c9c6b2152962ed80"
-    sha256 cellar: :any, arm64_tahoe:       "55cd21d5aabb9054bc4b5b4c636e11673ae5b64e4c64c30c7b5d451aab896894"
-    sha256 cellar: :any, arm64_sequoia:     "5b9e76246c981f27b5d95ece260b29cc564f0199b1facf350fd8548dd215c4ef"
-    sha256 cellar: :any, arm64_sonoma:      "35c7a54bbe9f1a5983e9b399d238b0279f59c5f42c910ba4a90744745a3a121e"
-    sha256 cellar: :any, arm64_linux:       "741cc18c6980e9932e7506dcd760c9291e21a58c2ffad743bf04bfdf86f53ea0"
-    sha256 cellar: :any, x86_64_linux:      "3733598b81ec52a7a804b547b95f537809fd6aa92e0fd31a46430d08e38197b8"
+    sha256 cellar: :any, arm64_golden_gate: "92bb58b8ef3c32e06f1eaf45d253c604f79e3d4e227d55c5d85b46f90bfaf6d9"
+    sha256 cellar: :any, arm64_tahoe:       "a57e6a43e6239130009db7aee3063a3562ae7744e96bf7a4e4a965b4d1c70964"
+    sha256 cellar: :any, arm64_sequoia:     "fe7f0666280a1f19ff274eedde82163cc136bec2e446682ec44bab8475c6030f"
+    sha256 cellar: :any, arm64_linux:       "0070ce4ae89782c4a2297f4a140a121dfd032f6e93dc35080542475d2db73893"
+    sha256 cellar: :any, x86_64_linux:      "e200fc51e6127566f465e8d60cb0694735b85c9e624e42c7328975fb823a36f4"
   end
 
   depends_on "cmake" => [:build, :test]

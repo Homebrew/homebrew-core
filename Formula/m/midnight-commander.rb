@@ -34,7 +34,6 @@ class MidnightCommander < Formula
 
   depends_on "glib"
   depends_on "libssh2"
-  depends_on "openssl@3"
   depends_on "s-lang"
 
   on_macos do

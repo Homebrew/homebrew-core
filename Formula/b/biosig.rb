@@ -4,6 +4,7 @@ class Biosig < Formula
   url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig-3.9.8.src.tar.xz"
   sha256 "9d7298cb6e466eb3b9eb7f4c8bc501dc4c3a71dcdf2f4156bad0ca9797220422"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,11 +12,11 @@ class Biosig < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "53189b21bb5d69e6228230ceeaffc2e6c7e3b156f93c9f739dd118e9a83c40f2"
-    sha256 cellar: :any, arm64_tahoe:       "9d69a2ebb60dc759566e07cd24b70e739692aa1251b70a365abd2de64b7a9494"
-    sha256 cellar: :any, arm64_sequoia:     "39802973d3b25a519cbb9e1d13497312f7ceb4ffe9b0707f8d878f8c5c299c6c"
-    sha256 cellar: :any, arm64_linux:       "85394d04e21fd4be94ca6aad6beada910adacee45a1c159b048a6a0b13931b16"
-    sha256 cellar: :any, x86_64_linux:      "277bd005562cdad3d2dba34bba0e9ee1564df6290b43a6257936d010a0abe5cb"
+    sha256 cellar: :any, arm64_golden_gate: "fbcebb16f18801a62104f57ac6aa7c897478520eec032e230f0957cfd228fe62"
+    sha256 cellar: :any, arm64_tahoe:       "b4427b3468999ddf9195a7e1dd6b6c973f457540b309ba8e3800d79540793503"
+    sha256 cellar: :any, arm64_sequoia:     "93f3265be17eb1a8a916036c99b15234320893f89985bbf092a7b4a575304e86"
+    sha256 cellar: :any, arm64_linux:       "d2d70ea3d7fa3511e95883f08f6a62dc2b6f81f211bbf3e72d1f88699902d64b"
+    sha256 cellar: :any, x86_64_linux:      "352815c9b25abac34d6f022e44735725cada7b8378b33f538a73cddc1ebb9593"
   end
 
   depends_on "gawk" => :build

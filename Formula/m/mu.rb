@@ -4,8 +4,8 @@
 class Mu < Formula
   desc "Tool for searching e-mail messages stored in the maildir-format"
   homepage "https://www.djcbsoftware.nl/code/mu/"
-  url "https://github.com/djcb/mu/releases/download/v1.14.3/mu-1.14.3.tar.xz"
-  sha256 "edea1a4e6be390a2bf5260e0156813f9b473c2d91da934b219dbb38229b0930a"
+  url "https://github.com/djcb/mu/releases/download/v1.14.4/mu-1.14.4.tar.xz"
+  sha256 "3714ea0d1e4811bd2c160cc2e222dc00723485df9756e2d90f2bb66e90f894f7"
   license "GPL-3.0-or-later"
   head "https://github.com/djcb/mu.git", branch: "master"
 
@@ -18,16 +18,15 @@ class Mu < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "77cf8196913584dc5bf92fddf8964054ac5704783a7530a8473c1e60991ce770"
-    sha256 arm64_tahoe:       "cbdefd2848e92bd6b2e2b8e5c55cd17771e6d0407e03560022339206b2e72c83"
-    sha256 arm64_sequoia:     "88bf9d1ff9585cc80194c20926a048dca747d1746432487bb4320a2e3072b44a"
-    sha256 arm64_sonoma:      "4003872b02902f4f7eb9ad8c29943f71fd3d63d370b65d69724c4057a9cf525b"
-    sha256 sonoma:            "f82605595d247fb5a7ef14020f4ce7233197107c59241575576baea7b70e4cba"
-    sha256 arm64_linux:       "678d7927d82e17ba7e043f9fe67e0ba69978e0d73c90303a3e4dadb899e5be81"
-    sha256 x86_64_linux:      "7d03f1d73cf4eae88218d2a0eec4a0fbc7c8a924298fd1801b60a2e6f879425c"
+    sha256 arm64_golden_gate: "81457d8a83e505445fe5f6d253f376e31c70620027b3289331a9b88e4e12b7e8"
+    sha256 arm64_tahoe:       "e01e887be6b15aacb1c693902926645e672a890d7876ed1236d1c8c76084e5d2"
+    sha256 arm64_sequoia:     "8e2496099cf4e129b35e529e82fb8fd1100aa0d9cd3779b2fc53cd1ed99425d5"
+    sha256 arm64_linux:       "dce42a315d16d1b41023fd88361ea68d45a125c67ba483733042ee5ff67c5092"
+    sha256 x86_64_linux:      "8c5ddd60097a65134b7535c178f7c3ceb56ed7719d9b0e52e5d68e2152b7952e"
   end
 
   depends_on "cli11" => :build
+  depends_on "cmake" => :build
   depends_on "emacs" => :build
   depends_on "libgpg-error" => :build
   depends_on "libtool" => :build
@@ -39,6 +38,7 @@ class Mu < Formula
   depends_on "glib"
   depends_on "gmime"
   depends_on "guile"
+  depends_on "tl-expected"
   depends_on "xapian"
 
   on_macos do

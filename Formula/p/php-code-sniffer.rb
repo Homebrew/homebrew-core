@@ -25,6 +25,8 @@ class PhpCodeSniffer < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     odie "phpcbf.phar resource needs to be updated" if version != resource("phpcbf.phar").version
 

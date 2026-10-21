@@ -8,14 +8,15 @@ class Gixy < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5f411dd7f9edd6bd6453f0756e308412106bd2143a766c410317aebbbf3b1ba6"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "08d634eaf35f179c26c0bf377ba4eda881da4372d9dff4d3b647a3188d62e01b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d9ac6ac198d406cbcfa10697bebd1cf4d9de97617c96b95e253b8a13a841ea8f"
-    sha256 cellar: :any,                 arm64_linux:       "fdac3e352ecc35766ddbd63aef82048746e9ca604d2283ce51b29a679edc0dc9"
-    sha256 cellar: :any,                 x86_64_linux:      "0c1469c94954f3aa281af81600c3fef2ef9b620a78f9470542f190c4e766ebf2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5f45796934cb1e2b5f11535789e4931692062d874f62b311a3fb63673137ffd2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a62ab18602510f09b979e901e49e9bd39b2ccd801d61c79c9e535144dbec09af"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ad1abaccf18b9a88176d15f72e619729c36bf09eb72a67253a75a15e387445c6"
+    sha256 cellar: :any,                 arm64_linux:       "e9d4bc230e0f97ce194d9333c88e81e4ad33a3d117102bdc928d343f2f75a0d7"
+    sha256 cellar: :any,                 x86_64_linux:      "c661fe3bd53f9f83a4b7b3fc504c381b76d6a0aa59349253936d95fc1e9b2594"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "configargparse" do
     url "https://files.pythonhosted.org/packages/5d/ed/33c0ba7f0b5be384ff8a2101ce77728f219e816b2104819f1651477e1ad5/configargparse-1.8.0.tar.gz"
@@ -28,8 +29,8 @@ class Gixy < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "ngxparse" do

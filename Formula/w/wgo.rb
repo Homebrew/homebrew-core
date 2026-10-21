@@ -1,18 +1,16 @@
 class Wgo < Formula
   desc "Watch arbitrary files and respond with arbitrary commands"
   homepage "https://github.com/bokwoon95/wgo"
-  url "https://github.com/bokwoon95/wgo/archive/refs/tags/v0.7.1.tar.gz"
-  sha256 "4d70bdd313600df64927928dc767c1e1ba980dcbb0da1cf03e9fa8bf4fdc5d55"
+  url "https://github.com/bokwoon95/wgo/archive/refs/tags/v0.7.2.tar.gz"
+  sha256 "71fe38b652f2a9f89f8ba18dbdd5381b35b8f5d3f7dd7eb5c382908a69ff6f93"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b448752a8503544a26ace1f2b51f2243b1f87d430a384518a08aa51cbc56ce96"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c37be7e43f3f7d564b5db804f75911c34ca69296d2d90315a9fcd400de971ef4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c37be7e43f3f7d564b5db804f75911c34ca69296d2d90315a9fcd400de971ef4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "c37be7e43f3f7d564b5db804f75911c34ca69296d2d90315a9fcd400de971ef4"
-    sha256 cellar: :any_skip_relocation, sonoma:            "ab0fd91cabc5782e76398459df757cf34ec43b0dc8736ceb0acce67e5077f444"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a728aa451f2c1a533051fd2585e34a5848fe4d3dd2cc79f01de44d51b17f712f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "045afaa415db7100519baf5eb129eecf289702b5208bd7890459060db7c357bf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7a93f927cfd13cfdaa471ef6989099940680c8c58d1a01d7358811db79f1be9c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7a93f927cfd13cfdaa471ef6989099940680c8c58d1a01d7358811db79f1be9c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7a93f927cfd13cfdaa471ef6989099940680c8c58d1a01d7358811db79f1be9c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f3399976abf61c70d48bee31aa034c64c2b9087943f6e67e94b0f78d116c7d56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "daa8ca5f9db9c64005b810862bf7c1327959261febf7068a80409d3517938dfd"
   end
 
   depends_on "go" => :build

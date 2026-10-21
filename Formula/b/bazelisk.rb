@@ -1,19 +1,17 @@
 class Bazelisk < Formula
   desc "User-friendly launcher for Bazel"
   homepage "https://github.com/bazelbuild/bazelisk/"
-  url "https://github.com/bazelbuild/bazelisk/archive/refs/tags/v1.29.0.tar.gz"
-  sha256 "7e4c7b8ade016052e63c1553cb4fbe0c4fe921e1e66913d49eef074ed894e933"
+  url "https://github.com/bazelbuild/bazelisk/archive/refs/tags/v1.30.0.tar.gz"
+  sha256 "938c875176d6895d1f9cce21d71a76f56f82e88d819f22ed587f124f795aad33"
   license "Apache-2.0"
   head "https://github.com/bazelbuild/bazelisk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4ff2b059579494b658e6310dac4ff965799a65e81125c61c20dccfec61e161a0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0824ffd0ab8116ca041650a90ea808cc2c119c348f0bca2da8472d8b704b1e76"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0824ffd0ab8116ca041650a90ea808cc2c119c348f0bca2da8472d8b704b1e76"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "0824ffd0ab8116ca041650a90ea808cc2c119c348f0bca2da8472d8b704b1e76"
-    sha256 cellar: :any_skip_relocation, sonoma:            "0f53eadd7c371006455391e012378dda2289a84e6354b18e00656119815aa6c5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0526ff4378067e5c637b4caf556feb86288c1175f1da187d045bb8291b2eaae4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e9cff7e5590735e1da0dcfe4bae080a0a7d278c4cda615d270451c2d145f4114"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a0fba61b4954deca58c164d41be2a2a2cad6da50e64882932530aff9a9f23628"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a0fba61b4954deca58c164d41be2a2a2cad6da50e64882932530aff9a9f23628"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a0fba61b4954deca58c164d41be2a2a2cad6da50e64882932530aff9a9f23628"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7221dca9a409b90ce9a45754dd8e31beaf9b31a943b5c2248669622781144e8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "715cf2105fb955496d3560ae85ce1fa92d5447a9e7566db928244d5327bf09c9"
   end
 
   depends_on "go" => :build

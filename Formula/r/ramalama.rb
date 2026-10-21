@@ -8,15 +8,16 @@ class Ramalama < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "941f6c7c4eafcae55b6936414b114b55cd5cf01d5d23e54060ab493f098f7a56"
-    sha256 cellar: :any, arm64_tahoe:       "eb33ebd589e91493b58dcbde23f8537b8cf34160b9bcd9e2372613fa96ca1521"
-    sha256 cellar: :any, arm64_sequoia:     "528d9922af7d277043276bdd1bf8c4fe0107b7f97ba75aace01829ecdc641fe0"
-    sha256 cellar: :any, arm64_linux:       "336e92f0acfd8c3d72c4ff71b342c708cf4e8bcf1c0d991cf2eb3351d506bdee"
-    sha256 cellar: :any, x86_64_linux:      "cb7e35e968db1fba34e5fc914a93b21288c706ebfc13f8ff8e2b1fa41d1af605"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "bf697e4ecb5401a5d2b782c9d3403d3cff247aa107894b9c53fd3156351f9410"
+    sha256 cellar: :any, arm64_tahoe:       "153c46f702bbcd6c6a1b2ace9236b037117422a5e15d6a8bdc1663476cd827b3"
+    sha256 cellar: :any, arm64_sequoia:     "798aa89bd3143f859b8e4b5ab64dd86ced3c33f413b0d31dfed0e15733f9b11d"
+    sha256 cellar: :any, arm64_linux:       "acefe8e15312549e2c23492aacec15cad5abfdd503035da2b021286d3d80b922"
+    sha256 cellar: :any, x86_64_linux:      "db702b36769bfe0496ce89943d6b72ef732e6cf4181e5c2ccbcea849a50c5903"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
 
   on_macos do
@@ -36,8 +37,8 @@ class Ramalama < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "pyyaml" do

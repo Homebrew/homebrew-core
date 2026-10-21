@@ -46,6 +46,8 @@ class Cling < Formula
     sha256 "6d023a311393eee6025bf3b1e6bb9caa9b31ec2f288f9bee1a2fbe71072b2849"
   end
 
+  deny_network_access!
+
   def install
     # Skip modification of CLING_OSX_SYSROOT to the unversioned SDK path
     # Related: https://github.com/Homebrew/homebrew-core/issues/135714

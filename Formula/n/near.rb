@@ -4,24 +4,30 @@ class Near < Formula
   url "https://github.com/near/near-cli-rs/archive/refs/tags/v0.30.1.tar.gz"
   sha256 "57e1249856b70b3cf6562becc618602d3c1a1f3aca98e7d909f33dfdb85e5439"
   license any_of: ["MIT", "Apache-2.0"]
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a125af9c0dce89e54ac234428db5244faf8f600cab30bdda9c3761ab2d96de9b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "332a038e6b64dc6dc0ccbd7c7b66963efa438586d6992bb89c490c71ec887cbd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ab6f16759a48ccc1fdd7d64cf24ddfa4d3141dfe8d4ceaa330ef61e0380526e9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "fa781dd0b819eb09697223139d428292efb99689e01b57cf23fc2a00aaf29c3f"
-    sha256 cellar: :any,                 arm64_linux:       "fb8d9ea745c1e2785dc4fdb59a3f171c2fc97cf24b4c6e1574c04143d714d86a"
-    sha256 cellar: :any,                 x86_64_linux:      "333aaab37b92dbd710cdef9ce7f8a86a3d50841d1b2f32710f3b29042ba92224"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1918565d359e5641c05739646acc1dbdae6f55218cf9beeac967fa2a2b7afc71"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1bedd2e7f3bcf98bd2cde565aa3bc3553646e213309a23b428e3076524655688"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5f9ec90712f734adf366edd9e4790a998b1823ee92f80d4ba747515b4536aa01"
+    sha256 cellar: :any,                 arm64_linux:       "39ba64c108e18433007f033d93f60b50068769fc5bf4400cd8321a2c8dc0e1ae"
+    sha256 cellar: :any,                 x86_64_linux:      "8dd188d6c42de851e24b0ddde97c74cd6802c6f0dc95fe9fdf0706d6191b6add"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "systemd"
     depends_on "zlib-ng-compat"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install

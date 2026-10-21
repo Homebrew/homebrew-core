@@ -4,6 +4,7 @@ class RubyAT34 < Formula
   url "https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.11.tar.gz"
   sha256 "5c22be44524312b3d433d68739bcc530633b1da5ef8ba0afa0a37680da17d3de"
   license "Ruby"
+  revision 1
 
   livecheck do
     url "https://www.ruby-lang.org/en/downloads/releases/"
@@ -11,11 +12,11 @@ class RubyAT34 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "8cea19f6b222e3221960641b8037fc78de60498cbe6da10ea3f46dcee9a9b7bc"
-    sha256 arm64_tahoe:       "986fe68bf256aef0090be6e5b27c70f5d892b6c88014b47533a6023e07f5995e"
-    sha256 arm64_sequoia:     "c4b8a94c65a52324f8f3097edaabc671b965eed836f09c05a2e23348feda1c04"
-    sha256 arm64_linux:       "125178461b61a7770156efe33d0795b1bf5e22c6d1a9bde47a200bf082108193"
-    sha256 x86_64_linux:      "7749d4d23a8d4988cf082aa101d836d860747ad6bf93b31a48c6797a2a4db1ea"
+    sha256 arm64_golden_gate: "f9e7194cc0e8d427e0a092a5b7e033edae2504560da816cde4b096a98c35988a"
+    sha256 arm64_tahoe:       "5230eb06be313deda13b7d6e2adfdb14148f5bd871cabf1b776e5d0ee071e363"
+    sha256 arm64_sequoia:     "793f01267849c1af221571bb866c4c54bafbb5952010226d41dab507a0ef250b"
+    sha256 arm64_linux:       "58c8c2ee5772807b06a4490f1404fe0af0f3476cff19d8c7c67fd18c90cbf349"
+    sha256 x86_64_linux:      "b89741791c3807e1053fc06b3282e5297be142a462f757ffe2a5a2064a58b54b"
   end
 
   keg_only :versioned_formula
@@ -24,7 +25,7 @@ class RubyAT34 < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "gperf"
   uses_from_macos "libffi"
@@ -68,7 +69,7 @@ class RubyAT34 < Formula
     #       https://github.com/Homebrew/brew/pull/12508
     inreplace "tool/mkconfig.rb", /^(\s+val = )'"\$\(SDKROOT\)"'\+/, "\\1"
 
-    paths = %w[libyaml openssl@3].map { |f| formula_opt_prefix(f) }
+    paths = %w[libyaml openssl@4].map { |f| formula_opt_prefix(f) }
     args = %W[
       --prefix=#{prefix}
       --enable-shared

@@ -22,6 +22,11 @@ class Blockhash < Formula
 
   uses_from_macos "python" => :build
 
+  resource "homebrew-testdata", :test do
+    url "https://raw.githubusercontent.com/commonsmachinery/blockhash/ce08b465b658c4e886d49ec33361cee767f86db6/testdata/clipper_ship.jpg"
+    sha256 "a9f6858876adadc83c8551b664632a9cf669c2aea4fec0c09d81171cc3b8a97f"
+  end
+
   def install
     system "python3", "./waf", "configure", "--prefix=#{prefix}"
     system "python3", "./waf"
@@ -29,11 +34,6 @@ class Blockhash < Formula
   end
 
   test do
-    resource "homebrew-testdata" do
-      url "https://raw.githubusercontent.com/commonsmachinery/blockhash/ce08b465b658c4e886d49ec33361cee767f86db6/testdata/clipper_ship.jpg"
-      sha256 "a9f6858876adadc83c8551b664632a9cf669c2aea4fec0c09d81171cc3b8a97f"
-    end
-
     resource("homebrew-testdata").stage testpath
     hash = "00007ff07ff07fe07fe67ff07560600077fe701e7f5e000079fd40410001ffff"
     result = shell_output("#{bin}/blockhash #{testpath}/clipper_ship.jpg")

@@ -4,6 +4,7 @@ class Zeek < Formula
   url "https://github.com/zeek/zeek/releases/download/v9.0.0/zeek-9.0.0.tar.gz"
   sha256 "1345474b3ea04c700f5421c30c7b81cf570056a16842abba03dfa5e2b6e3ed4e"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/zeek/zeek.git", branch: "master"
 
   livecheck do
@@ -12,11 +13,12 @@ class Zeek < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "dd3a185a028e77815b2ee355f90de0baf8816fd3fbd6d8fe82dfa00ee2ad5901"
-    sha256 arm64_tahoe:       "b063c7914d615e4d1ec9739a86d64a0a67e81ff633788aa93d0603f5a88e62e6"
-    sha256 arm64_sequoia:     "7296e223562cf4bff325e99cd6572178d9f298c02d22bac7066508d90e215dff"
-    sha256 arm64_linux:       "4466490f7983ccd78fb9e185ee8aedc9a66465e134820cb79c508868f8d52809"
-    sha256 x86_64_linux:      "75a1248e0b226ed6153c086e2dd9f2ed67a385a88be7f5cc13771a8d9cf1d5f8"
+    rebuild 2
+    sha256 arm64_golden_gate: "aa92187411a053b0ffcce7756e8ccfde614f37ebdc70b7d5b9f0cdd7fb4963f2"
+    sha256 arm64_tahoe:       "44d0f3e175d6d3f2da7264e0f588ac4c01448d755467785d7b08314acc26ff4d"
+    sha256 arm64_sequoia:     "a7e7e6a04a8bdf0c40769c62a54651ed8258f90718703844a83d065a6602c950"
+    sha256 arm64_linux:       "bbb11ee62a84aab554047f2e7c891af9eec5dea6b8fa21107412cd312e9ef851"
+    sha256 x86_64_linux:      "b3543be14b78cc787af9eb54ec11b91129d7af7b373d890bcf2cd6c54cfdaec5"
   end
 
   depends_on "bison" => :build
@@ -26,9 +28,9 @@ class Zeek < Formula
   depends_on "c-ares"
   depends_on "libmaxminddb"
   depends_on "libuv"
-  depends_on "node@24"
-  depends_on "openssl@3"
-  depends_on "python@3.14"
+  depends_on "node"
+  depends_on "openssl@4"
+  depends_on "python@3.15"
   depends_on "zeromq"
 
   uses_from_macos "krb5"
@@ -51,21 +53,23 @@ class Zeek < Formula
     # Avoid references to the Homebrew shims directory
     inreplace "auxil/spicy/hilti/toolchain/src/config.cc.in", "${CMAKE_CXX_COMPILER}", ENV.cxx
 
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DBROKER_DISABLE_TESTS=on",
-                    "-DINSTALL_AUX_TOOLS=on",
-                    "-DINSTALL_ZEEKCTL=on",
-                    "-DUSE_GEOIP=on",
-                    "-DCARES_ROOT_DIR=#{formula_opt_prefix("c-ares")}",
-                    "-DCARES_LIBRARIES=#{formula_opt_lib("c-ares")/shared_library("libcares")}",
-                    "-DLibMMDB_LIBRARY=#{formula_opt_lib("libmaxminddb")/shared_library("libmaxminddb")}",
-                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}",
-                    "-DPYTHON_EXECUTABLE=#{python3}",
-                    "-DZEEK_ETC_INSTALL_DIR=#{etc}",
-                    "-DZEEK_LOCAL_STATE_DIR=#{var}",
-                    "-DDISABLE_JAVASCRIPT=off",
-                    "-DNODEJS_ROOT_DIR=#{formula_opt_prefix("node@24")}",
-                    *std_cmake_args
+    args = %W[
+      -DBROKER_DISABLE_TESTS=on
+      -DINSTALL_AUX_TOOLS=on
+      -DINSTALL_ZEEKCTL=on
+      -DUSE_GEOIP=on
+      -DCARES_ROOT_DIR=#{formula_opt_prefix("c-ares")}
+      -DCARES_LIBRARIES=#{formula_opt_lib("c-ares")/shared_library("libcares")}
+      -DLibMMDB_LIBRARY=#{formula_opt_lib("libmaxminddb")/shared_library("libmaxminddb")}
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
+      -DPYTHON_EXECUTABLE=#{python3}
+      -DZEEK_ETC_INSTALL_DIR=#{etc}
+      -DZEEK_LOCAL_STATE_DIR=#{var}
+      -DDISABLE_JAVASCRIPT=off
+      -DNODEJS_ROOT_DIR=#{formula_opt_prefix("node")}
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

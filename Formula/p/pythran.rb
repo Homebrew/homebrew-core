@@ -9,20 +9,15 @@ class Pythran < Formula
   head "https://github.com/serge-sans-paille/pythran.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8b9e1550fb6721c6667ca7d363d4d3ee813043f9b5912d806b1f9defc29e98ba"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "67ac72ad94168e18d5817877538317fbd52468bdf24a69112cd9118c25865d57"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "67ac72ad94168e18d5817877538317fbd52468bdf24a69112cd9118c25865d57"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "67ac72ad94168e18d5817877538317fbd52468bdf24a69112cd9118c25865d57"
-    sha256 cellar: :any_skip_relocation, sonoma:            "d5a6ed5fc7e32827a8c770d06a3492fc4d1714e88b4ade02a47d306ab04c2288"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "67ac72ad94168e18d5817877538317fbd52468bdf24a69112cd9118c25865d57"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "67ac72ad94168e18d5817877538317fbd52468bdf24a69112cd9118c25865d57"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "785b62344900c458f82eb0c48aa25124f698358fb760762dc371860c9a013b71"
   end
 
   depends_on "gcc" => :test
   depends_on "boost" => :no_linkage
   depends_on "numpy"
   depends_on "openblas" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "xsimd" => :no_linkage
 
   pypi_packages exclude_packages: "numpy"

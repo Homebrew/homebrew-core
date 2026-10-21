@@ -9,17 +9,16 @@ class Uhdm < Formula
   head "https://github.com/chipsalliance/UHDM.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "59920ae5927c253977f720851486d49e4c46c0801f87593bc913a06e6c499f01"
-    sha256 cellar: :any, arm64_tahoe:       "fcbce8c33693e89df27c415e5ff8e84c814d0b521514629762ccc2930d2d8edf"
-    sha256 cellar: :any, arm64_sequoia:     "2347b003868577a54f2209b3a1e1fd2e04f568ade18197bcb8de8b7fa0732195"
-    sha256 cellar: :any, arm64_sonoma:      "f7625c203f0179593070fb879c6db569ad2ccc8a5fbc935289ffe698736809db"
-    sha256 cellar: :any, sonoma:            "23d836b3f21e4ee4edd378c70326108e6caf9517d2b3f73d1762b472317a4fd5"
-    sha256 cellar: :any, arm64_linux:       "5283c0153383bf25cfed03aa78a3f6fccf415610d17c383644f8dbf2332e778f"
-    sha256 cellar: :any, x86_64_linux:      "9ed54340103454bfba146eeeb9514899c73165e110d9e6a2d3429c468eb0303d"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "707c1baaf2ecc64358e934aa99e0a6f5cb70b2e7f54a929478a10ee9b64f0c10"
+    sha256 cellar: :any, arm64_tahoe:       "88a22cd1e4a2a391e3c855e434f960dff61213334678773e0b91c6de11ecd6a2"
+    sha256 cellar: :any, arm64_sequoia:     "f138e0d4e26945f7304c7252ef149b9960bd21016ab7d1b8b1c7aaf660bc56e2"
+    sha256 cellar: :any, arm64_linux:       "4afe253289485d8cd47c2531ca71261e89bc3d6bab6e620831fec9674ed46565"
+    sha256 cellar: :any, x86_64_linux:      "6d9c546fc62d83f1aadfbd7bb1de7834369bb5d9922a1db5f7e532c6891ac7bc"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on "pkgconf" => :test
   depends_on "capnp"
 

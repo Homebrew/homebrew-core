@@ -4,14 +4,14 @@ class EtcdCppApiv3 < Formula
   url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.15.4.tar.gz"
   sha256 "4516ecfa420826088c187efd42dad249367ca94ea6cdfc24e3030c3cf47af7b4"
   license "BSD-3-Clause"
-  revision 53
+  revision 54
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "83df6206fb2c2219221e3dc307164608565fe72654bd8adee0ca5c37a717e0a1"
-    sha256 cellar: :any, arm64_tahoe:       "327943a21acea5a408b729821b4d2730f39da49a0a9af6d79d7f33668b8bf08c"
-    sha256 cellar: :any, arm64_sequoia:     "95aedfa695a3598c30469a8c4727c7f8b93b72a36e14e2e52955b6367d302a6d"
-    sha256               arm64_linux:       "3a8dfbd152c5e50b1b0af9b6e0e51d5fbcb0a1f86f38fee2d66aca1f7f361786"
-    sha256               x86_64_linux:      "3b3be82557b447fc92e3ff8cc1986fac4625ec3c27e9c62a63b1d362a56854ee"
+    sha256 cellar: :any, arm64_golden_gate: "fe7899980b63ed9e3d27c3dfbae08da2f93f0c416e4b71b2a93823c3046ddc61"
+    sha256 cellar: :any, arm64_tahoe:       "3a92763cb94cf2f23e89a7dfa1a2b33ed369caf9ea34d7817510f9f8da86f180"
+    sha256 cellar: :any, arm64_sequoia:     "71a0b08580672759de5db398a139835a6d8df69e375a5f0d08e1a94ef96a6960"
+    sha256               arm64_linux:       "3fedbd449334e06f00812839b8c51c000fb390946919bad9073d1dcca4a3bcc0"
+    sha256               x86_64_linux:      "d348432f6401d3a23b90a9e8d881fbb1d5155b6d2e2a2ffa56f3e0a388404cea"
   end
 
   deprecate! date: "2026-06-12", because: "needs deprecated cpprestsdk"
@@ -24,7 +24,7 @@ class EtcdCppApiv3 < Formula
   depends_on "c-ares"
   depends_on "cpprestsdk"
   depends_on "grpc"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf"
   depends_on "re2"
 
@@ -73,7 +73,7 @@ class EtcdCppApiv3 < Formula
                     "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
                     "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
                     "-DBUILD_ETCD_TESTS=OFF",
-                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}",
+                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

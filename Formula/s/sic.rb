@@ -27,7 +27,14 @@ class Sic < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "fa93fbe3a3e4ed400bfdad52b0ba893161505e7579e5c1731a9f28a7e993f59a"
   end
 
+  allow_network_access! :test
+
   def install
     system "make", "PREFIX=#{prefix}", "install"
+  end
+
+  test do
+    output = shell_output("#{bin}/sic -h 127.0.0.1 -p #{free_port} -n brewbot 2>&1", 1)
+    assert_match "cannot connect to host '127.0.0.1'", output
   end
 end

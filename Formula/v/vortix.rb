@@ -1,17 +1,17 @@
 class Vortix < Formula
   desc "Terminal UI for WireGuard and OpenVPN with live telemetry and leak guarding"
   homepage "https://github.com/Harry-kp/vortix"
-  url "https://github.com/Harry-kp/vortix/archive/refs/tags/v0.5.2.tar.gz"
-  sha256 "65d7ba9be74d538833113c488fb9a94aad1f11413ccdf0fc3087dd8bfe835125"
+  url "https://github.com/Harry-kp/vortix/archive/refs/tags/v0.5.4.tar.gz"
+  sha256 "7a1b14c3c8902270eeef8ed4308d7600643ba7121cba73b9aa5b00bd8e9a35fe"
   license "MIT"
   head "https://github.com/Harry-kp/vortix.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5956a47f3219515b63884b15d9df7055215b67df8f8593a90165d01e8a5a8280"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2c2bdbf422bb540569a3dee6584375a22e9e4324c4fd8a80c30fea2baa46f889"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f4fe8e2b9605abb110cb4c8503744c02e7f90541cbd39e236870858ff7dcab10"
-    sha256 cellar: :any,                 arm64_linux:       "170151d05899ebbeec21ec3eb7618839da604c6ab89e8f48adca84f8334b27ef"
-    sha256 cellar: :any,                 x86_64_linux:      "78f83bb37c551a286b1803b3a8b562616f6f65bdbcbba66cfd26d26e53ad162c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5607c554ac0bc07f0bf5aa20de810ddce10bfd01bd0fd7334fa9b746434c3b14"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "865466e241e74df3f2104c58db2c078bd5a1707ab2468ea730d1a8a51ff2815c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fc78fd0ffbf3265fd9a8e59560b4b819fd4c088a3682725a06cc19d42651aa47"
+    sha256 cellar: :any,                 arm64_linux:       "4e7b3106451dfc3aa2e47b832dbfb8ceb29fb0092965b54413f000b8d5caa602"
+    sha256 cellar: :any,                 x86_64_linux:      "db71586dba103c4e3ccff5529fe503f5b7b730b3f15720acd74181fa9f565c97"
   end
 
   depends_on "rust" => :build

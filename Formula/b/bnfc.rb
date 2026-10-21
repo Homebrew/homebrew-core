@@ -120,7 +120,8 @@ class Bnfc < Formula
     mkdir "agda-test" do
       system bin/"bnfc", "-m", "-o.", "--haskell", "--text-token",
              "--generic", "--functor", "--agda", "-d", testpath/"calc.cf"
-      system "make"
+      # The Haskell and Agda targets race to compile the same modules
+      system "make", "-j1"
       assert_equal check_out_hs, shell_output("./Calc/Test #{testpath}/test.calc") # Haskell
       assert_equal check_out_agda, shell_output("./Main #{testpath}/test.calc") # Agda
     end

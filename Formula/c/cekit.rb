@@ -9,26 +9,25 @@ class Cekit < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b1dbfcaca1a64f878ea402ed9af419dcc4656b8a828c4aa7e9e71397a6a2db4a"
-    sha256 cellar: :any, arm64_tahoe:       "74ce0199659386d80485f4d3feb3dd7132bcc6cacd3f13637ee178baced8c1e0"
-    sha256 cellar: :any, arm64_sequoia:     "ad863ef06f0d94a24f9b8c4a4489bc19fc0000e92aa435c01e78ad27bfbe031b"
-    sha256 cellar: :any, arm64_sonoma:      "098eb2d627d42b5751e702abced54047c677e619a963ec5e38ba9e4cb674ffc3"
-    sha256 cellar: :any, sonoma:            "1d80ac1f3f4b65636d6288413f01dbe3682cbc412889292a39d1710745324070"
-    sha256 cellar: :any, arm64_linux:       "fa7b2c6dfc51fbea72009c8d139f1252bd580ae2e2939fe1eb36d8bb00ada78a"
-    sha256 cellar: :any, x86_64_linux:      "28831baa81f3a2d2d1701c9f18aaf95c15351eb3664e387fcf2aa52348ee088a"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "9f412aa02a6b19a017219935680c16f0f19e9d8d10157e37c7faf70f62fa3733"
+    sha256 cellar: :any, arm64_tahoe:       "26a04179b69e9a591d1d7ec82eca6aef1b7575db8c41cdfdad9d98733cd9e8cb"
+    sha256 cellar: :any, arm64_sequoia:     "acc266993159621861f82f2e73baaf7cb7df1e20b803cc406e02e35b592b9f0a"
+    sha256 cellar: :any, arm64_linux:       "8417d00fef82155a947c9fad6e9defbbbb8527ff6063122616cf3dab8c1939d7"
+    sha256 cellar: :any, x86_64_linux:      "01843eac323265b1fac02a27cab377d156f7fc2bc89624a31259c4c42c0a3cd4"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "colorlog" do
-    url "https://files.pythonhosted.org/packages/a2/61/f083b5ac52e505dfc1c624eafbf8c7589a0d7f32daa398d2e7590efa5fda/colorlog-6.10.1.tar.gz"
-    sha256 "eb4ae5cb65fe7fec7773c2306061a8e63e02efc2c72eba9d27b0fa23c94f1321"
+    url "https://files.pythonhosted.org/packages/8c/55/ba79756cb90c8d69d599d57785398ac87bba7b19c80e87f4e8a562197c93/colorlog-6.12.0.tar.gz"
+    sha256 "2a7924c1dadf18b22a0eb8b06d1c7b01d5341707ec1641eb6fcc4fde0c3e8e5f"
   end
 
   resource "docopt" do
@@ -42,13 +41,13 @@ class Cekit < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
-    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "pykwalify" do

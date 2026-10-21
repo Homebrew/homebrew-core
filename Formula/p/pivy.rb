@@ -4,23 +4,22 @@ class Pivy < Formula
   url "https://github.com/coin3d/pivy/archive/refs/tags/0.6.11.tar.gz"
   sha256 "78f79bd7d1ce7e8140ceba4b1220136ea1f14b4403b1e463c59fa892feed961e"
   license "ISC"
+  revision 1
   head "https://github.com/coin3d/pivy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "0998906fbd3c0d7dfff2b55efadab40737a8868329c8efbbf2a42a64da87684b"
-    sha256 cellar: :any,                 arm64_tahoe:       "3c3efc4969c94db900ff5a8d2e564792db5b2aa0b17d687f441e29d654e872bf"
-    sha256 cellar: :any,                 arm64_sequoia:     "4ad65036fd17e5f291383b618d1d4d0a372a424baf46db6f9d5660350bb2099f"
-    sha256 cellar: :any,                 arm64_sonoma:      "bafa801b126aec60325b9a44060cffa929b2cbb064b2799972868f6b5a0cd51c"
-    sha256 cellar: :any,                 sonoma:            "8d401a42d19e519d79fceb13e776808a6f249b52c054ee464e18fdc20730e872"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a9f4842d2e3d7cda6a5576989b3f99c80904831dafc11953ce1091e80b6384db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "fec926400c3514af60807399894ac76d0a0f1251795b36d512c9aa50ef2240d7"
+    sha256 cellar: :any, arm64_golden_gate: "e15c0bcda241db1537f3b25f0b0a604f698d6775d18650d3c88be1e55e370aab"
+    sha256 cellar: :any, arm64_tahoe:       "7195cf00c873129d21b662233a291bca0049920e85208993db49b884b6ead1af"
+    sha256 cellar: :any, arm64_sequoia:     "1d3cf17966d63736ca2ccf59082d6bfe0390535f933ca9aacf1a893bd6f9198f"
+    sha256 cellar: :any, arm64_linux:       "ba4ce313da93419e306a11286cb123e4d7d927f4c002e180f8ed30408389c24e"
+    sha256 cellar: :any, x86_64_linux:      "2bb3504c32f17abe77daf1db75107e3a5dcb436f8604fa672b60dd2bb3ed23a9"
   end
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on "coin3d"
   depends_on "pyside"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "qtbase"
 
   # Apply FreeCAD fork's fixes for newer Swig. Part of https://github.com/coin3d/pivy/pull/149

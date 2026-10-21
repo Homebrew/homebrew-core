@@ -1,19 +1,17 @@
 class Hut < Formula
   desc "CLI tool for sr.ht"
   homepage "https://sr.ht/~xenrox/hut"
-  url "https://git.sr.ht/~xenrox/hut/archive/v0.8.0.tar.gz"
-  sha256 "f7994375673f253705ed7499f44b712b2d9fcec8a5a42f1d0408002552b7d0e7"
+  url "https://git.sr.ht/~xenrox/hut/archive/v0.9.0.tar.gz"
+  sha256 "1636cc4b8c983bb55dce25b074b24b9db989b47c2408c6835a6a4849c3ca9563"
   license "AGPL-3.0-or-later"
   head "https://git.sr.ht/~xenrox/hut", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a6843ea1f507ec19a07283ad634b04fb46d46003bacc02f9ee3650336cee6839"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eab8caeeb2d2b7188960ef3d62253898ef52c5e9946846b7221095a2b99c34b2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a46df5069ce266de5fde75f60a8b4e073500711efcf7e62a0cca95861bedaced"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "19b63774e2f23be87faef6211f173fce763d3593cfca7f5095f1534dec87a490"
-    sha256 cellar: :any_skip_relocation, sonoma:            "3f2af6b651a86312c2629539cf68fcf6f4defc66f86bf903dedabb7530bf550a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c9e8310d8cd5ec4bb376aeb0d1df6325af8a34e21a66d41e87f7c557eb94f33d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "bd0ed430648743fe454a209c37b2de392d242e27a4b171c07f80ac2a2c6662fa"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0d297d9701b3d05f8e92ec42d6bdf678ca49209117bbc8fffd630803bc3a443b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4f529f33e84d583e29dc836d49e41e43156906bd90072b251ff1d0fd47192755"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43d4ce48eb0eae6d821b60288574fbe67e47efd6276a3ac52fd1e04bc30e4837"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ef3357461a6e166ebaead83b5d73617bab88352e0a8fa6c7da8c09b05dd175a4"
+    sha256 cellar: :any,                 x86_64_linux:      "ead0ed27f40ff314ea426f45ff202372bacd9f7bfed7cfc054247d7f21595344"
   end
 
   depends_on "go" => :build

@@ -1,17 +1,17 @@
 class K8sgpt < Formula
   desc "Scanning your k8s clusters, diagnosing, and triaging issues in simple English"
   homepage "https://k8sgpt.ai/"
-  url "https://github.com/k8sgpt-ai/k8sgpt/archive/refs/tags/v0.4.39.tar.gz"
-  sha256 "743a9e40521b32663e1f592983d7e4097cabca94e3d0b75ec6e023649d855f22"
+  url "https://github.com/k8sgpt-ai/k8sgpt/archive/refs/tags/v0.4.40.tar.gz"
+  sha256 "1153994475a609f8b9bb6a281bf3bff517c1fa9390633682eb88f091da8f2ffa"
   license "Apache-2.0"
   head "https://github.com/k8sgpt-ai/k8sgpt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5d6619d42aa8008ad0b1ba4abbe6cb2538d984bb1447fa0231d8e5fb7bdd8008"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b0e65a7a3bc35a6ff8201777045d281cd1db4ad400451a68c4a60a5830f356cb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "57d8cd69be28b94f29aaced5935dccad496c747575f0980b4e540f0f2e99f556"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "38249d9f39342af258781c43ce3aa420a75950bbcd799752e89636d99f2ef219"
-    sha256 cellar: :any,                 x86_64_linux:      "e448cd21b680b3bfdf2b72a72719463639d0f388e83d2d11f16d7f3277e3207b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ccefb9f1752eb2e1cd37c4617116855a27161cbe2c8b22b01a6dc472475ad0e1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4af08b35567f0a727ad03aee8deba52b8adca1bfff253eed56b78abeffc86ce7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d5a985a9a18da6a2f781c90d2fb633c8026d638fd328e3e15f0b1b20082f603a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a83de3c592541bc95cd3dcb051d609b7afa53f7780831d33f7a43002a06c7718"
+    sha256 cellar: :any,                 x86_64_linux:      "9f0a1b9c0b977f07febc6d7b21925de307413361f772c84572540927d1a5157d"
   end
 
   depends_on "go" => :build

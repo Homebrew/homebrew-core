@@ -2,19 +2,17 @@ class ChartTesting < Formula
   desc "Testing and linting Helm charts"
   homepage "https://github.com/helm/chart-testing"
   url "https://github.com/helm/chart-testing.git",
-      tag:      "v3.14.0",
-      revision: "2651b49048950c5473b1f533c900d17614bc6aa0"
+      tag:      "v3.15.0",
+      revision: "c65afcebd6649d48179fc8b30db34fa9b1459cce"
   license "Apache-2.0"
   head "https://github.com/helm/chart-testing.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "90f9b717ce9793568f21870a5ac1d796b29c8e246db62c339cade21771b3d9d3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c1df796ab13d24fd7f6a786393a10807fd0e783d4b47ab4a4e9de1c11ded7245"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c1df796ab13d24fd7f6a786393a10807fd0e783d4b47ab4a4e9de1c11ded7245"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "c1df796ab13d24fd7f6a786393a10807fd0e783d4b47ab4a4e9de1c11ded7245"
-    sha256 cellar: :any_skip_relocation, sonoma:            "83e6618ea266830c8b9968f7e6b6ac17ee3490210627753528cc46389aa2a4a0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "92c94595c95d8aa4d96cfce81c4baa6d018e3a6ffba221de525cdd31d1b43f3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ebc6e33ee4183e77342abc7a8ce58eb172d8ca344f12c833adef315f01b5fcad"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b93e26f8d7b204fbe9df598dfb786e8a8180071ca1790566fc6e9271dd33bdc9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b93e26f8d7b204fbe9df598dfb786e8a8180071ca1790566fc6e9271dd33bdc9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b93e26f8d7b204fbe9df598dfb786e8a8180071ca1790566fc6e9271dd33bdc9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "02e58a5224634b08f22405a15c0d814af02877fa3ae42eb45992a5f39e29066a"
+    sha256 cellar: :any,                 x86_64_linux:      "7f4cc7ac78d260193a07c7ba36d1b2ef056ed7092803683c22bc8b29af22f513"
   end
 
   depends_on "go" => :build

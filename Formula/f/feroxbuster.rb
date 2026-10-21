@@ -6,23 +6,35 @@ class Feroxbuster < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ff258dcddcaaa7dec2bb87d79a005ba0cfa0bda0b26698a6229b81c7dbeadb5a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cf3d55e45eb9afabc85f7c67eae77c6709d1fc4a8185778623123a80122c6c28"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7ab47077afdd89da24c43701285b8c72907793e5f8c37c45937d658477468b78"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "48a383c603dd30adc6c913746686c4e7ffa734b7a5891e0fa26ec70a7e3d763a"
-    sha256 cellar: :any_skip_relocation, sonoma:            "71c0e2331a9c2181491888c1bc1c76aadd6ee454fea4c872115ae661ea2abd19"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2352ef2c7a4f221b5ab323274e35ff40793ec3d787a0daf8744637645b7467f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "20afd4144eff9917898c9708e1073c071c27a5a8b4dfff6ba65f211b86862c9c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "39aadacc8e2b71f1f51f967612f8c17ae2d0d15d7686046c57d564c6351d9c18"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e3b5d4c06230ab1df92d7551894d3d6d75f746f602e03956ba7f612bb16aa3c8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5d092fa8ea2c9e0c2c0ff512e7539eb342a79f29c78162be9e880d6768c9d12c"
+    sha256 cellar: :any,                 arm64_linux:       "9b20f6cef7334d9951d8aadd0d4fd183708bd0e2c0a251b8a653c4d5ae9300b4"
+    sha256 cellar: :any,                 x86_64_linux:      "360dc98dc0a6b0a664a1093b9b82a1a3c122e10376e56131bd949f18e83f16ec"
   end
 
+  depends_on "openssl@4" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "miniserve" => :test
-  depends_on "openssl@3"
+
+  on_linux do
+    depends_on "openssl@4"
+  end
+
+  # Update to openssl 0.10.78 and openssl-sys 0.9.114 for minimum needed to use OpenSSL 4
+  patch :DATA
+
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     system "cargo", "install", *std_cargo_args
 
@@ -43,13 +55,43 @@ class Feroxbuster < Formula
 
     port = free_port
     pid = spawn "miniserve", testpath/"web", "-i", "127.0.0.1", "--port", port.to_s
-    sleep 1
 
     begin
-      exec bin/"feroxbuster", "-q", "-w", testpath/"wordlist", "-u", "http://127.0.0.1:#{port}"
+      sleep 1
+      system bin/"feroxbuster", "-q", "-w", testpath/"wordlist", "-u", "http://127.0.0.1:#{port}"
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
     end
   end
 end
+
+__END__
+diff --git a/Cargo.lock b/Cargo.lock
+index 0af50e8..443710b 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -2227,9 +2227,9 @@ checksum = "a4895175b425cb1f87721b59f0f286c2092bd4af812243672510e1ac53e2e0ad"
+ 
+ [[package]]
+ name = "openssl"
+-version = "0.10.73"
++version = "0.10.78"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "8505734d46c8ab1e19a1dce3aef597ad87dcb4c37e7188231769bd6bd51cebf8"
++checksum = "f38c4372413cdaaf3cc79dd92d29d7d9f5ab09b51b10dded508fb90bb70b9222"
+ dependencies = [
+  "bitflags",
+  "cfg-if",
+@@ -2274,9 +2274,9 @@ dependencies = [
+ 
+ [[package]]
+ name = "openssl-sys"
+-version = "0.9.109"
++version = "0.9.114"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "90096e2e47630d78b7d1c20952dc621f957103f8bc2c8359ec81290d75238571"
++checksum = "13ce1245cd07fcc4cfdb438f7507b0c7e4f3849a69fd84d52374c66d83741bb6"
+ dependencies = [
+  "cc",
+  "libc",

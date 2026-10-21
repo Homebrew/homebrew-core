@@ -13,17 +13,17 @@ class Botan < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "22553306185fc848e81c7e88c5df5954e0dcf22e1841f089e911cfeaaaa309a7"
-    sha256 arm64_tahoe:       "172d81cf6d6958ee819bb5576f15e39a55ad4a832f653c71fa9f09ee408a2e44"
-    sha256 arm64_sequoia:     "8900beebc0493371a6fde3b7b78d4941ae839f732c0c681be02d52debdd38507"
-    sha256 arm64_linux:       "392fb0efdde799208c755a4506e4482289457531858489657cce41e32d73ed4a"
-    sha256 x86_64_linux:      "07f24225875cf8133295f25db4a514cca408aa2dbcbacf7d6e443ee487d000f6"
+    rebuild 2
+    sha256 arm64_golden_gate: "186d19fd58372b892a698c6a8d52f6c101203df14cc9d9c683f658735ff4a2fe"
+    sha256 arm64_tahoe:       "742116f51eb2c7bddc9eb2b4f723853ac98618daad7e47f31fe6fcfcc7b3ef83"
+    sha256 arm64_sequoia:     "55698379ed27473a093440ee2a17b8015e446def99ecfc28b885154145b98679"
+    sha256 arm64_linux:       "7f19e6b0e82dc0541b119a130626f80bbf9d18c60d419f901407d0a2fcacf603"
+    sha256 x86_64_linux:      "4c627311a172fcb9d5daa1cef8907e82b753637e7752b8be8587b9fb0669f73b"
   end
 
   depends_on "pkgconf" => :build
   depends_on "ca-certificates"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "sqlite"
 
   uses_from_macos "bzip2"

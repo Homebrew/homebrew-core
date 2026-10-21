@@ -19,6 +19,13 @@ class Kwok < Formula
   depends_on "go" => :build
   depends_on "docker" => :test
 
+  # Test creates a cluster, which downloads its components
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "make", "build", "VERSION=v#{version}"
 

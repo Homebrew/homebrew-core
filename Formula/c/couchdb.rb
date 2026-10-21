@@ -1,18 +1,17 @@
 class Couchdb < Formula
   desc "Apache CouchDB database server"
   homepage "https://couchdb.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=couchdb/source/3.5.2/apache-couchdb-3.5.2.tar.gz"
-  mirror "https://archive.apache.org/dist/couchdb/source/3.5.2/apache-couchdb-3.5.2.tar.gz"
-  sha256 "e561102aaadfdda1e499e6e9e12d2473433291b608bcd390bcbcf590bbb6cf68"
+  url "https://www.apache.org/dyn/closer.lua?path=couchdb/source/3.5.3/apache-couchdb-3.5.3.tar.gz"
+  mirror "https://archive.apache.org/dist/couchdb/source/3.5.3/apache-couchdb-3.5.3.tar.gz"
+  sha256 "ae0bb374cc89900d6cb1dfb8d8e80c799186dcf2d143ca886296c230af420896"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "ca5ca7f5e71f16d1357b4b556c7c31463959118a33764acd445e6b53e26599e1"
-    sha256 cellar: :any, arm64_tahoe:       "48f2ae643eeb235bb2a70c5e1a2db90377bbdff21924f3de11e6b8f93f06a175"
-    sha256 cellar: :any, arm64_sequoia:     "3d7a7c55b9bf5cce01bb8a0328e946871d4adebad3178b7de5260ce30bb9d73c"
-    sha256 cellar: :any, arm64_linux:       "85c85bda4579e617663b08576636f9f535ea418971ced5453e6c365b2f62f9a3"
-    sha256 cellar: :any, x86_64_linux:      "e323311e757733ef6701b0eda3351d6bfb71560bcdc387bf454afcb2f66111e5"
+    sha256 cellar: :any, arm64_golden_gate: "9952c668b91962ae2743dd704ef7abc4aada7cd28ebaa7dad25ab6cf17e9265b"
+    sha256 cellar: :any, arm64_tahoe:       "e66fcdbda6684cd8142cb435c1d5dc94fd387feecbbaa234195b4ecb3b6c29ec"
+    sha256 cellar: :any, arm64_sequoia:     "c78e0c26298f64fb210f16104b4456624a9b6c940047ffa8cb70668061abfcae"
+    sha256 cellar: :any, arm64_linux:       "2327bf89d8f59fc72e22ce7f1f29b17c117a6b2e5d9e1c273a197b0ebd6364a8"
+    sha256 cellar: :any, x86_64_linux:      "1c0574939ea368405c804452ef130c1eb3ddc571230d0b784a96bfb1100cdc28"
   end
 
   depends_on "autoconf" => :build

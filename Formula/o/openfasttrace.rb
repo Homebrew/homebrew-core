@@ -1,15 +1,17 @@
 class Openfasttrace < Formula
   desc "Requirement tracing suite"
   homepage "https://github.com/itsallcode/openfasttrace"
-  url "https://github.com/itsallcode/openfasttrace/releases/download/4.10.0/openfasttrace-4.10.0.jar"
-  sha256 "8449a1652f140841a89fb053b71130b9c880fe2b7dd06f3490ae9c740a0c5e08"
+  url "https://github.com/itsallcode/openfasttrace/releases/download/4.11.0/openfasttrace-4.11.0.jar"
+  sha256 "f094cd314f0fc4236f513f66fb39260a16f72e2320beb6b4fdeb7940b9b8cf87"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ad2e71f486edb3447495b607d196c4b478d44022b5078970984d4476a860e45e"
+    sha256 cellar: :any_skip_relocation, all: "4ac3e3e4b3f754b2ca13027ff6c1601a37e1859d6d307e506a197ca5365cfa52"
   end
 
   depends_on "openjdk"
+
+  deny_network_access!
 
   def install
     libexec.install "openfasttrace-#{version}.jar"

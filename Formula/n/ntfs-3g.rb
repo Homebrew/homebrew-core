@@ -1,34 +1,32 @@
 class Ntfs3g < Formula
   desc "Read-write NTFS driver for FUSE"
   homepage "https://www.tuxera.com/community/open-source-ntfs-3g/"
-  url "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2026.9.18.tgz"
-  sha256 "bcf3cf301a79e42d330128ffb52d4cf615bd1d30c10a92d9d8d14f2bb4fcd9bf"
+  # tuxera.com returns 403 to CI runners, so use the GitHub tag tarball instead
+  url "https://github.com/tuxera/ntfs-3g/archive/refs/tags/2026.9.28.tar.gz"
+  sha256 "8a75293f07bf40df5701d296de32a4cb0e46d6ae135abb4f41b438df9868a390"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
   compatibility_version 2
+  head "https://github.com/tuxera/ntfs-3g.git", branch: "edge"
 
-  # GitHub release descriptions contain a link to the `stable` tarball.
   livecheck do
-    url :head
+    url :stable
     strategy :github_latest
   end
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "dc22139019c664e418029b2ae74f92a8813947655b918370cd227b83b34c74af"
-    sha256 cellar: :any, x86_64_linux: "6570028c4fd08c130c37ff34771baf302d2e06ba139f6f75083a20ac54314411"
+    sha256 cellar: :any, arm64_linux:  "0fe401877e6a03904563450a90dfdc6cc6b2706af0877672e9b3e365203c1a27"
+    sha256 cellar: :any, x86_64_linux: "60da469cb04ac47158f1ca829de37e3305a89ae441516091868aa7ddda216615"
   end
 
-  head do
-    url "https://github.com/tuxera/ntfs-3g.git", branch: "edge"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libgcrypt" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libgcrypt" => :build
+  depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "coreutils" => :test
   depends_on :linux # on macOS, requires closed-source macFUSE
+
+  deny_network_access!
 
   def install
     # Using upstream-maintained libfuse-lite similar to Debian and Fedora
@@ -41,7 +39,7 @@ class Ntfs3g < Formula
       --disable-ldconfig
     ]
 
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     # Workaround for hardcoded /sbin
     inreplace Dir["{ntfsprogs,src}/Makefile.in"], "$(DESTDIR)/sbin/", "$(DESTDIR)#{sbin}/"
     system "./configure", *args, *std_configure_args

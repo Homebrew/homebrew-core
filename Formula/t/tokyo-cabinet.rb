@@ -22,15 +22,51 @@ class TokyoCabinet < Formula
     sha256 x86_64_linux:      "049e05440f7039b0f3bf2bde34a891a00cac26da036d7a8cf74fae2cde43d2c8"
   end
 
+  depends_on "pkgconf" => :test
+
   uses_from_macos "bzip2"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <stdbool.h>
+      #include <stdint.h>
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <tcutil.h>
+      #include <tchdb.h>
+
+      int main(void) {
+        TCHDB *hdb = tchdbnew();
+        if (!tchdbopen(hdb, "test.tch", HDBOWRITER | HDBOCREAT)) return 1;
+        tchdbput2(hdb, "foo", "bar");
+        char *value = tchdbget2(hdb, "foo");
+        printf("%s\\n", value);
+        free(value);
+        tchdbclose(hdb);
+        tchdbdel(hdb);
+        return 0;
+      }
+    C
+
+    pkgconf_flags = shell_output("pkgconf --cflags --libs tokyocabinet").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkgconf_flags
+    assert_equal "bar", shell_output("./test").strip
+
+    system bin/"tchmgr", "create", "cli.tch"
+    system bin/"tchmgr", "put", "cli.tch", "hello", "world"
+    assert_equal "world", shell_output("#{bin}/tchmgr get cli.tch hello").strip
+    assert_match "record number: 1", shell_output("#{bin}/tchmgr inform cli.tch")
   end
 end

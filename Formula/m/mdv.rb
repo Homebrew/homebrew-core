@@ -9,28 +9,27 @@ class Mdv < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "b567374f25f0267b6d9cc6fa3b9213ab7d73852cceff20b4e34ced2e49cefd96"
-    sha256 cellar: :any,                 arm64_tahoe:       "7e3f993dff2c2285c95d307052eb788af49064b39416a4af601f1b6c8ccff2ed"
-    sha256 cellar: :any,                 arm64_sequoia:     "2b2066297ec9e9fe3a49ebab06160e6a8c40b13e70ae5c2afe1e67a2066923b9"
-    sha256 cellar: :any,                 arm64_sonoma:      "4948a815dfb995aafe81414e4c8ff8cedf80654574d8521bb71c2aff69e9955c"
-    sha256 cellar: :any,                 sonoma:            "182702c80f2feeb950166ccff5f33825d02207948503d3a540c808836b749cd6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "bcae45fe0cd6e612aa92fce775f120a8414c2937005f0d1821712abd29f1820e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6db5f55e163a5bcdfcc3e2cb15ac45717470850c7c980145ba9fc5e0ff54813e"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "091705d25749fcb42f4b9b8a8a1fc9d594a3fa19789e4ffdb63449787306a8d4"
+    sha256 cellar: :any, arm64_tahoe:       "fc2931ddac09fd9141814affe336efa306abd1571e7a8835ba0efbf3f31c226c"
+    sha256 cellar: :any, arm64_sequoia:     "be288bc4aff8d4e4b443be085a1bbb8b4306323f40a1693ee85488f0512df8cb"
+    sha256 cellar: :any, arm64_linux:       "10245bd506c8a0f0d9d69890e04c594ca767f1eee7222c2df51fc6fe8b095ce6"
+    sha256 cellar: :any, x86_64_linux:      "43fe07ae0ab0db6087249248e649c7b2685413c4ae0da26f83a74abc4804e38d"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name: "mdv[yaml]"
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/2b/f4/69fa6ed85ae003c2378ffa8f6d2e3234662abd02c10d216c0ba96081a238/markdown-3.10.2.tar.gz"
-    sha256 "994d51325d25ad8aa7ce4ebaec003febcce822c3f8c911e3b17c52f7f589f950"
+    url "https://files.pythonhosted.org/packages/f8/4f/700155c8c20d9e655dd0732b5fc3c7614f291b9148da271d7388e50bf774/markdown-3.11.tar.gz"
+    sha256 "180224db6aed87ba9ce1f2781ebcd5826253de8ff637112090e24b84502bbf9f"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "pyyaml" do

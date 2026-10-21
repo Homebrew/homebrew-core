@@ -1,6 +1,7 @@
 class SNail < Formula
   desc "Fork of Heirloom mailx"
   homepage "https://www.sdaoden.eu/code.html"
+  # TODO: Switch to openssl@4 on next release
   url "https://www.sdaoden.eu/downloads/s-nail-14.9.25.tar.xz"
   sha256 "20ff055be9829b69d46ebc400dfe516a40d287d7ce810c74355d6bdc1a28d8a9"
   license all_of: [

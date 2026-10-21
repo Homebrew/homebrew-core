@@ -1,18 +1,16 @@
 class G3log < Formula
   desc "Asynchronous, 'crash safe', logger that is easy to use"
   homepage "https://github.com/KjellKod/g3log"
-  url "https://github.com/KjellKod/g3log/archive/refs/tags/2.6.1.tar.gz"
-  sha256 "65cb6e56e7757221fd4f3f6e97a47834cacf45288010f8fa2b192272eaa63637"
+  url "https://github.com/KjellKod/g3log/archive/refs/tags/2.6.2.tar.gz"
+  sha256 "def0e36d3e4a4382f73c3e28949cb2506ee53952c2d209dd1584f4de71880f57"
   license "Unlicense"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7d2b1b56add3ea2923fa68a28304688dcd04ac8ff557ad2fd0cd30bb4591c18a"
-    sha256 cellar: :any, arm64_tahoe:       "465bcf7f06b31b9fae69bc916fbc73128fef05c3199e13cecadcbbede7542121"
-    sha256 cellar: :any, arm64_sequoia:     "caff3c0ad6f0113d5aef7734e2cfc9f511d874af93e26d1a5fac7038298740ea"
-    sha256 cellar: :any, arm64_sonoma:      "4d4d929ab6d60e6582e6d166bf1b29926d49bc2df2d39bafe1e09b5b01c957a6"
-    sha256 cellar: :any, sonoma:            "1fb84057c3213072be9b7b67ffa8df57ee1dc9f6b7729fddc960151612369eb2"
-    sha256 cellar: :any, arm64_linux:       "bc1b18e3d9c7a32d099b28036ba2030c233c32a187133f28eac99e0363c2eaa2"
-    sha256 cellar: :any, x86_64_linux:      "efaf4e5f98e3ad5403bbfe31aadc156da984faa6daa70a1fde54b26615e1e201"
+    sha256 cellar: :any, arm64_golden_gate: "49873f2179186250fbac3998335926647dc3b5e9c0a6036e4005cf3f8c14201d"
+    sha256 cellar: :any, arm64_tahoe:       "f22f91e81fa7d15100763a8d0ab5cfe2cde57a32cbdc3f085a1ac300c482766e"
+    sha256 cellar: :any, arm64_sequoia:     "cd4b794fa87b8020a682335a2567748005acfa6aaf2aaf35c0daa01190c9fa2c"
+    sha256 cellar: :any, arm64_linux:       "904ad88c792807a2e1bb28d678d4438a1aed0a9988b9bab25dd2af5b6c815b77"
+    sha256 cellar: :any, x86_64_linux:      "08e099884a633ca4e933f828cffb3d38c3c40f26e82f615a072d5cae004160ac"
   end
 
   depends_on "cmake" => :build

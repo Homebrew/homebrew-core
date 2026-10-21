@@ -10,16 +10,16 @@ class Pdfalyzer < Formula
   head "https://github.com/michelcrypt4d4mus/pdfalyzer.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "1eab5bf3e528016a8466b886eac1f14aae9f6fa7d9232d8ce6724e6305780f4e"
-    sha256 cellar: :any, arm64_tahoe:       "c669fef059da5e192a88d9306423424c9d6803257be5929e26efe7fb2efebe8c"
-    sha256 cellar: :any, arm64_sequoia:     "24c97c9c468d228b47468c6746703e05707d939b24c8aeb0292ff283f2eaf43b"
-    sha256 cellar: :any, arm64_linux:       "2b7240d07aa58ceb139e7e2179600c3ba08f4792f4bb02f8754292b09c131f57"
-    sha256 cellar: :any, x86_64_linux:      "5fcf1323b4439cce5af256fc9840bf5a076e7e941bc06ed1527b44ecacb22226"
+    rebuild 2
+    sha256 cellar: :any, arm64_golden_gate: "79718d8e764001c00f91d2f196fc288b9346c125c52e559258345de413c10ae9"
+    sha256 cellar: :any, arm64_tahoe:       "686eb6fc2113a400a608bcf00d280e99b96a2211ead4ece7b185168a20f15917"
+    sha256 cellar: :any, arm64_sequoia:     "0bb5b9132d348824abe0d2b38880698d5e7df4ff733fb99e8dc16a0367ae4ca4"
+    sha256 cellar: :any, arm64_linux:       "53d89f9de7d41e05cc1bb2579047d943a6b533e9113bd14c6b9b94944ab96d8a"
+    sha256 cellar: :any, x86_64_linux:      "6adf9a3a5b63a339decd7e4f2f44a91d332b45d952675cd5b21f4e952e879edc"
   end
 
   depends_on "pillow"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "yara"
 
   resource "anytree" do
@@ -33,8 +33,8 @@ class Pdfalyzer < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
-    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
+    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
+    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
   end
 
   resource "mdurl" do
@@ -43,8 +43,8 @@ class Pdfalyzer < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "pypdf" do
@@ -53,8 +53,8 @@ class Pdfalyzer < Formula
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/82/ed/0301aeeac3e5353ef3d94b6ec08bbcabd04a72018415dcb29e588514bba8/python_dotenv-1.2.2.tar.gz"
-    sha256 "2c371a91fbd7ba082c2c1dc1f8bf89ca22564a087c2c287cd9b662adde799cf3"
+    url "https://files.pythonhosted.org/packages/74/26/2fbeedb218a787a5eea551c7532cac4e009f83d689dd2faa0d0353473f86/python_dotenv-1.2.4.tar.gz"
+    sha256 "f0d53e69935a851c0dcc78f3ab7aaccd8cabef0b92382b576b824212902873c0"
   end
 
   resource "rich" do
@@ -77,6 +77,11 @@ class Pdfalyzer < Formula
     sha256 "d33fc7a6361ca780bd019602bfee5f0834dd3b1a65f169981e4ffbbaf4664442"
   end
 
+  resource "homebrew-test-pdf", :test do
+    url "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+    sha256 "3df79d34abbca99308e79cb94461c1893582604d68329a41fd4bec1885e6adb4"
+  end
+
   def install
     venv = virtualenv_install_with_resources without: "yara-python"
 
@@ -88,11 +93,6 @@ class Pdfalyzer < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/pdfalyze --version")
-
-    resource "homebrew-test-pdf" do
-      url "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
-      sha256 "3df79d34abbca99308e79cb94461c1893582604d68329a41fd4bec1885e6adb4"
-    end
 
     resource("homebrew-test-pdf").stage testpath
 

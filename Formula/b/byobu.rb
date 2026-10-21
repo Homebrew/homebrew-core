@@ -1,8 +1,8 @@
 class Byobu < Formula
   desc "Text-based window manager and terminal multiplexer"
   homepage "https://byobu.org"
-  url "https://github.com/dustinkirkland/byobu/archive/refs/tags/7.20.tar.gz"
-  sha256 "aa2563a0567f2c74e62d03b4a07bf7f1f005c88e8cf8007194c873c770371931"
+  url "https://github.com/dustinkirkland/byobu/archive/refs/tags/7.22.tar.gz"
+  sha256 "89793f984132732c4491e4a569431b799a40e397d670e86be92f3db70291955d"
   license "GPL-3.0-only"
 
   livecheck do
@@ -11,11 +11,11 @@ class Byobu < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e4b89c3400932c3936e5b03ac1ce2d5ae2587d9532b14d2bfbbcf14a708b50a7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e4b89c3400932c3936e5b03ac1ce2d5ae2587d9532b14d2bfbbcf14a708b50a7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e4b89c3400932c3936e5b03ac1ce2d5ae2587d9532b14d2bfbbcf14a708b50a7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8388a7612cd754dee31cfb8e579b5a0c5c11ccaecf948f3cff20da33affe1db5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8388a7612cd754dee31cfb8e579b5a0c5c11ccaecf948f3cff20da33affe1db5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4875a67d1e9daefb20ee910a995054fc5cf57af2c6b76a5d21e232f66320db39"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4875a67d1e9daefb20ee910a995054fc5cf57af2c6b76a5d21e232f66320db39"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4875a67d1e9daefb20ee910a995054fc5cf57af2c6b76a5d21e232f66320db39"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "58df4c66613518bc0c8d3a49944e9d61f8d54a0ae5c1786cd0cf15c7fd858ba9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "58df4c66613518bc0c8d3a49944e9d61f8d54a0ae5c1786cd0cf15c7fd858ba9"
   end
 
   depends_on "autoconf" => :build
@@ -51,6 +51,9 @@ class Byobu < Formula
   end
 
   test do
+    # Keep the tmux socket out of the shared `/tmp`, where the sandbox blocks connecting to stale ones
+    ENV["TMUX_TMPDIR"] = testpath
+
     system bin/"byobu-status"
     assert_match "open terminal failed", shell_output("#{bin}/byobu-select-session 2>&1", 1)
   end

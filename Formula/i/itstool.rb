@@ -4,7 +4,7 @@ class Itstool < Formula
   url "https://files.itstool.org/itstool/itstool-2.0.7.tar.bz2"
   sha256 "6b9a7cd29a12bb95598f5750e8763cee78836a1a207f85b74d8b3275b27e87ca"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://itstool.org/download.html"
@@ -12,13 +12,11 @@ class Itstool < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "fed613387203f6d151b4ade44fd408934922c5a10f2524d9e3c0684023d425cb"
-    sha256 cellar: :any,                 arm64_tahoe:       "716cb0efd44428ef62000438ff166627c117befbdd87b6d9c5580afac54c9dc2"
-    sha256 cellar: :any,                 arm64_sequoia:     "8659b398ae66d88d974879a6a4e4372f21b81f7d018b13d9dd10b459e84ddd95"
-    sha256 cellar: :any,                 arm64_sonoma:      "d632addd4bb1f3f422347e9f78d49d5e50d15b7a2479ff197b228082b08c32f2"
-    sha256 cellar: :any,                 sonoma:            "9304cac2b3d4b0ce0cc09134157dcd281536f5ece469dda5f2bff14fbb16c126"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d6482a8c862c867c1c53bd78c2128c9997d67a0905c700ba05eebbc0417742d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8847008ec88f06667281b8517d4a934cf68757cb3b835d2c00a0fe356190f02a"
+    sha256 cellar: :any, arm64_golden_gate: "a31dcf345f29a0fd0fcfc1d6cf0c34bc7e7482f87349f458acdd8c54b0dfcc85"
+    sha256 cellar: :any, arm64_tahoe:       "798b7493e61251f654eeef9e0d2b83be3a320e2e61c4d812315a8c9febb57d5d"
+    sha256 cellar: :any, arm64_sequoia:     "88fb9fd3d60d99ccfef02dafc07ec1dab2fd420c5b9a0e1720f9cfecb357ce3e"
+    sha256 cellar: :any, arm64_linux:       "87b1be0ca0cf01f2aecc766040c560754fd0c217e49c23210c55f6fa48fcd4e1"
+    sha256 cellar: :any, x86_64_linux:      "1997de57a1e67740115325154dc6b3e06e878a2f4397dea354dbd531c6a93bf5"
   end
 
   head do
@@ -32,7 +30,7 @@ class Itstool < Formula
   depends_on "pkgconf" => :build # for libxml2 python bindings
   depends_on "python-setuptools" => :build # for libxml2 python bindings
   depends_on "libxml2"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   # Need deprecated libxml2 python bindings. May switch to lxml in future:
   # Ref: https://github.com/itstool/itstool/pull/57

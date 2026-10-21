@@ -20,6 +20,8 @@ class OpensearchDashboards < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "ab22d18044d2d37934d2c2594e727b313c4974962fff13ea4aa2145f415a430b"
   end
 
+  deprecate! date: "2026-10-28", because: "needs deprecated `node@22`"
+
   depends_on "yarn" => :build
   depends_on "opensearch" => :test
   depends_on "node@22"

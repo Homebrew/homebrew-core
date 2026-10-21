@@ -8,16 +8,17 @@ class Diffoscope < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ccfb4405c44add753b19bcd069d0eb30bf7e92817be43e91eac55b221c927652"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ccfb4405c44add753b19bcd069d0eb30bf7e92817be43e91eac55b221c927652"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ccfb4405c44add753b19bcd069d0eb30bf7e92817be43e91eac55b221c927652"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "fe91c2c9f570518d8e48ebb0317f82897a46cc6826fd6fe36e6266ddbe13ac46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "fe91c2c9f570518d8e48ebb0317f82897a46cc6826fd6fe36e6266ddbe13ac46"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a3ae8cc018941b0dd3adf57453a3da1935bb8c1f13bc3088bfe561460e4f544d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a3ae8cc018941b0dd3adf57453a3da1935bb8c1f13bc3088bfe561460e4f544d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a3ae8cc018941b0dd3adf57453a3da1935bb8c1f13bc3088bfe561460e4f544d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "c4a874ca2b1d80df26164286a4a4d0b2cc7fc0fbbb6a7e9a8beeb3eb1739ede5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c4a874ca2b1d80df26164286a4a4d0b2cc7fc0fbbb6a7e9a8beeb3eb1739ede5"
   end
 
   depends_on "libarchive"
   depends_on "libmagic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name: "diffoscope[cmdline]"
 

@@ -30,6 +30,12 @@ class Inko < Formula
 
   uses_from_macos "libffi"
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     # Avoid statically linking to LLVM
     inreplace "compiler/Cargo.toml", 'prefer-static"]', 'force-dynamic"]'

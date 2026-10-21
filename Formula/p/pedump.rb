@@ -13,6 +13,11 @@ class Pedump < Formula
 
   conflicts_with "mono", because: "both install `pedump` binaries"
 
+  resource "notepad.exe", :test do
+    url "https://github.com/zed-0xff/pedump/raw/master/samples/notepad.exe"
+    sha256 "e4dce694ba74eaa2a781f7696c44dcb54fed5aad337dac473ac8a6b77291d977"
+  end
+
   allow_network_access! :test
 
   def fetch
@@ -34,11 +39,6 @@ class Pedump < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/pedump --version")
-
-    resource "notepad.exe" do
-      url "https://github.com/zed-0xff/pedump/raw/master/samples/notepad.exe"
-      sha256 "e4dce694ba74eaa2a781f7696c44dcb54fed5aad337dac473ac8a6b77291d977"
-    end
 
     resource("notepad.exe").stage testpath
     assert_match "2008-04-13 18:35:51", shell_output("#{bin}/pedump --pe notepad.exe")

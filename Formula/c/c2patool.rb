@@ -24,6 +24,12 @@ class C2patool < Formula
   depends_on "rust" => :build
   depends_on "openssl@4"
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
     system "cargo", "install", *std_cargo_args(path: "cli")

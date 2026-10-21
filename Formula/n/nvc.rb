@@ -33,6 +33,11 @@ class Nvc < Formula
     depends_on "zlib-ng-compat"
   end
 
+  resource "homebrew-test", :test do
+    url "https://raw.githubusercontent.com/suoto/vim-hdl-examples/fcb93c287c8e4af7cc30dc3e5758b12ee4f7ed9b/basic_library/very_common_pkg.vhd"
+    sha256 "42560455663d9c42aaa077ca635e2fdc83fda33b7d1ff813da6faa790a7af41a"
+  end
+
   def install
     system "./autogen.sh" if build.head?
 
@@ -56,11 +61,6 @@ class Nvc < Formula
   end
 
   test do
-    resource "homebrew-test" do
-      url "https://raw.githubusercontent.com/suoto/vim-hdl-examples/fcb93c287c8e4af7cc30dc3e5758b12ee4f7ed9b/basic_library/very_common_pkg.vhd"
-      sha256 "42560455663d9c42aaa077ca635e2fdc83fda33b7d1ff813da6faa790a7af41a"
-    end
-
     testpath.install resource("homebrew-test")
     system bin/"nvc", "-a", testpath/"very_common_pkg.vhd"
     system bin/"nvc", "-a", pkgshare/"examples/wait1.vhd", "-e", "wait1", "-r"

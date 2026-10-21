@@ -3,21 +3,21 @@ class Nuitka < Formula
 
   desc "Python compiler written in Python"
   homepage "https://nuitka.net"
-  url "https://files.pythonhosted.org/packages/75/27/9fef9381e967c333c808d8b087ca2cca713d608647a638d962f34ea22a45/nuitka-4.2.2.tar.gz"
-  sha256 "29c1bfb6f53154e620b38cf6167cbb03f54043f6e08ef7d3f2d5080a95df7e0d"
+  url "https://files.pythonhosted.org/packages/da/0f/db5cfdebf906a6de141bfdadcd72a7417ba710ba9c9d307be185a69a7c8d/nuitka-4.3.1.tar.gz"
+  sha256 "b9c87a694acc424cfffa06abf149fddbdfa85f6daac998df67411b5f4269df0f"
   license "AGPL-3.0-only"
   head "https://github.com/Nuitka/Nuitka.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d286d6213e9a314faf52685ae31c88f67df10d7bf69555aff07855be67d10d4d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b1cad436bb23a9bc59a438b3f03cc5fb113a5a76787e66541647aa42d24fb077"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "026e04e15d5e1a84692ac3c8dc00268ce48333db2d3dcdacee8b270267ad71c9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "daf2ed7d74cf838126cc3a25aff2f703caeca22f1d16fda47e472bcd34551e87"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ab7495222f242f5fe745f9e223f98df28e5feff2247f12fcad78a570f141538e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e3ee2cdaa810e3043a013f82783e2b163139df597b01624580117fe0eb5f0ccf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "845c265f64000e6043d249270616cebcdbd90698a0d7edaa84bc255b1c990e94"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a1b16239458578a145943b9070e7433aa99416d37281ed4b4a9a97d14627a2fb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "9a2799a9d162d57822c3ca7dca83b036bdab161f3e73a6404d623d6fca7a55cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "524efe44991331de4cda85ca92923fc746dc2c906a03ef91ed874d3af7ffc034"
   end
 
   depends_on "ccache"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_linux do
     depends_on "patchelf"

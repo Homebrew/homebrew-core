@@ -3,21 +3,21 @@ class Mktxp < Formula
 
   desc "Prometheus Exporter for Mikrotik RouterOS devices"
   homepage "https://github.com/akpw/mktxp"
-  url "https://files.pythonhosted.org/packages/f8/ac/ab2c925a43b0451e57c14183071f1ef83cb2fd2ff46f82e3fb5378b83280/mktxp-2.0.3.tar.gz"
-  sha256 "0cc0b3619152b4be10070ccbb0e3c87657cdbff1902ef9d10cbe8cab07481a67"
+  url "https://files.pythonhosted.org/packages/c9/ac/f2dbad0af8d668efa862e9d0af153b43c2a0a6ffa94c47c736d2da737934/mktxp-2.1.0.tar.gz"
+  sha256 "243c791a1d376613e00dc794cf5d2208f4b189c36dce5a71bf4597d120ea2045"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b113e422d0f31ee7e021a12e48d0729dd6ac29078234315ab429211d5bbe57e3"
-    sha256 cellar: :any, arm64_tahoe:       "d8ac18477bb1350fdc8371bd1f14749a1480aa6907e50d2fc8a412fd9eb9171c"
-    sha256 cellar: :any, arm64_sequoia:     "d4781caadf51ccdc46911819e1cfb7c6d4e4438ab92d8206035f99ea60f84860"
-    sha256 cellar: :any, arm64_sonoma:      "02f6845c2746cba7e480a2cd71a30a04c8b676aa98202f8ea1673356ec4edb0c"
-    sha256 cellar: :any, arm64_linux:       "51dde585fc06efa6a57ad753f6dcfd2f4d65336c165f17d9c09d7dffc0d9382e"
-    sha256 cellar: :any, x86_64_linux:      "7c67eaa2f85b9b84499fdadffa005aebc44139a9048e56a1da93f679edf21b69"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "8221919640065bb1619015cc13a0d868065c47e09de71620c493a68258d1318d"
+    sha256 cellar: :any, arm64_tahoe:       "fa0d566f09be01a3f38c53f675ccabde367b52f7f925aaf0c6d85f72f6349eec"
+    sha256 cellar: :any, arm64_sequoia:     "23c6a67a3733fcb1f1bf0aaaadcae732b8905e7e54ef7ac802701ea72652b075"
+    sha256 cellar: :any, arm64_linux:       "30290df60d61d727da154daf8fd8ffa99e50777ee3e14b691f60a92f02faf6be"
+    sha256 cellar: :any, x86_64_linux:      "358cee7781a1154a4ac50d01cccf950b2f69172ba19b10e40e1ebb52cb86201e"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "configobj" do
     url "https://files.pythonhosted.org/packages/f5/c4/c7f9e41bc2e5f8eeae4a08a01c91b2aea3dfab40a3e14b25e87e7db8d501/configobj-5.0.9.tar.gz"

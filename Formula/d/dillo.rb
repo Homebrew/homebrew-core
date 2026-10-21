@@ -1,23 +1,25 @@
 class Dillo < Formula
   desc "Fast and small graphical web browser"
-  homepage "https://dillo-browser.github.io/"
-  url "https://github.com/dillo-browser/dillo/releases/download/v3.2.0/dillo-3.2.0.tar.bz2"
-  sha256 "1066ed42ea7fe0ce19e79becd029c651c15689922de8408e13e70bb5701931bf"
+  homepage "https://dillo-browser.org/"
+  url "https://dillo-browser.org/release/3.3.0/dillo-3.3.0.tar.gz"
+  sha256 "db1863261d5efbd27b090e430c88064082b891cea1edf7a14e234cca51754f60"
   license "GPL-3.0-or-later"
-  revision 1
+
+  livecheck do
+    url "https://dillo-browser.org/release/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
-    sha256 arm64_golden_gate: "9cbfe8545733a29135da340712c0ec0ea3b5d25413e479296cda15794c307e69"
-    sha256 arm64_tahoe:       "da77692abb96f86d4d0427308f403fbcf16d065976fa32f5fb98a60ac93c159a"
-    sha256 arm64_sequoia:     "dfa302f5f967a9b01d66755ab4b1e37fcfb8095ce68c2cadfeb66c43f11f031f"
-    sha256 arm64_sonoma:      "85d85b5e3c449de29a6d2ad5f607ab17545fff90f3a21f88a4b741c5e76089c1"
-    sha256 sonoma:            "115efce250911169652cabaf6917acecd236e80b648dd7dd3a27cd8df5f28181"
-    sha256 arm64_linux:       "8702a43940327df2fc982348866612cd9f0085c341032a5688d08edf1aac011b"
-    sha256 x86_64_linux:      "638583a861928687adc34e6b7293d7a27dc5b94f02bf2b94845a68a7f85bdf00"
+    sha256 arm64_golden_gate: "9e53e2905cfea454df590baf4ffba3565df42dc44997b2beb634f527d4ff5aea"
+    sha256 arm64_tahoe:       "714182643dd7271f7db53ea0a741f169814781a5ed38dfce7cc4c00ff8553145"
+    sha256 arm64_sequoia:     "fb195740b308915c58205ea9dd0a0b2c8984671073a4325af5d5fe924a64d5d5"
+    sha256 arm64_linux:       "f351f9265065ca1f811fa2bedf39eb14d5127004d3e6e926f84d396f5b82ba70"
+    sha256 x86_64_linux:      "bafdfc3c73412595199131270a760b6c80a2f34d5432263b0caea40a7112f11e"
   end
 
   head do
-    url "https://github.com/dillo-browser/dillo.git", branch: "master"
+    url "https://git.dillo-browser.org/dillo/", using: :git, branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -31,9 +33,12 @@ class Dillo < Formula
   depends_on "openssl@4"
 
   on_linux do
+    depends_on "brotli"
     depends_on "libx11"
     depends_on "zlib-ng-compat"
   end
+
+  deny_network_access!
 
   def install
     if build.head?

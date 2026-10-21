@@ -7,11 +7,12 @@ class Neocmakelsp < Formula
   head "https://github.com/neocmakelsp/neocmakelsp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0a030af044639a351fd66a5dfb35b405e73358088af562bed8480340412fce2c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "196eed60fbcad6386687f98811b2cce61f28f6e4269471e46b4298e9c05f7df6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6dafc9bede5c5cb4c3975065ef162c8d7d195564384b405922c712bab67ed2d3"
-    sha256 cellar: :any,                 arm64_linux:       "3e70e1502cf5a355e5a06a6a1760f26ba872e2a2e82c9493cc103ce3ceabe797"
-    sha256 cellar: :any,                 x86_64_linux:      "d4c1d472e7ed6e0e36c8e5184560bfb5ed4bfe4447fd73a59f0672f3242646b4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b4deb2f49ab382cbf77fb5e6d0076e034484e131b7571bf74923cbb3e8f206cc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5f749f0461dd6b7e001bd1b3c67ab0dac17b5f27221b092f459476da74b1b43b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "96bb38cdcb892308df24b1253c30e2355006bce9b2f22032f2ebe61ebd7ef13a"
+    sha256 cellar: :any,                 arm64_linux:       "eb538986b4ae959657d3b27330b12c5e94a50d93eb48e10b095cde2d3766b9eb"
+    sha256 cellar: :any,                 x86_64_linux:      "1a85ff2f5942930d606688fdb75830d34f9126dad8e30f172788901f7207bc90"
   end
 
   depends_on "rust" => :build
@@ -24,6 +25,7 @@ class Neocmakelsp < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    generate_completions_from_executable(bin/"neocmakelsp", shell_parameter_format: :clap)
   end
 
   test do

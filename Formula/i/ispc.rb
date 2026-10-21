@@ -1,10 +1,9 @@
 class Ispc < Formula
   desc "Compiler for SIMD programming on the CPU"
   homepage "https://ispc.github.io"
-  url "https://github.com/ispc/ispc/archive/refs/tags/v1.31.0.tar.gz"
-  sha256 "671c79bdff2d97aead3897da1a6b67a163af8c4e329350d07cf3e63d592955ff"
+  url "https://github.com/ispc/ispc/archive/refs/tags/v1.32.0.tar.gz"
+  sha256 "705b818062602a0c6b62965a8aa011508ef7f9decce716cf1645f2b04ba1e9f8"
   license "BSD-3-Clause"
-  revision 1
 
   # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
   # but are labeled as "pre-release" on GitHub, so it's necessary to use the
@@ -15,25 +14,25 @@ class Ispc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "bbac7253257134d948a69c6328ec3a790417ca7c760b9966e8a222bbc5dc1931"
-    sha256 cellar: :any, arm64_tahoe:       "1c27e7b22b2d8bc1bdee0e0ce6e167ccecbff130b00d2c407d04bcaaaf9a75bf"
-    sha256 cellar: :any, arm64_sequoia:     "ad0ac922f31c76f5ecf0232520466dbec4172c062a7acd7fc83b1c0538dfda45"
-    sha256 cellar: :any, arm64_sonoma:      "4024f80c33dd1bd300fa33c090f55866dba123585fd750f5564fbf65f73400d4"
-    sha256 cellar: :any, sonoma:            "87b33c51f994bfd8ff01557a081643505d0be68295194368ff02e52e035d421a"
-    sha256 cellar: :any, arm64_linux:       "799d33e2c0deda1c85e9761c83e05be55d187c1c4ff7ffeb1d360a53ef7ae5dd"
-    sha256 cellar: :any, x86_64_linux:      "04a0e27587dc7a90b5d6e3dc7b7d18b816fe8d9356b753476cd9cb159d31c0a3"
+    sha256 cellar: :any, arm64_golden_gate: "58a32becf7ec6476e04c77a74ed8b7a3b1ec16956bc7862b5212c7670663a643"
+    sha256 cellar: :any, arm64_tahoe:       "82bec983967c0d8fd9ac4390227cd1c1aa278d7127cdda7b766bf4ed51c22987"
+    sha256 cellar: :any, arm64_sequoia:     "2fe0d82015851d5cdab69354091881fa7a1ef4d6f408763302da78517445f292"
+    sha256 cellar: :any, arm64_linux:       "bc73fa3d46eacdd1658353e6dcf01ab6ba2455f9343c447bddd4234cb1c4a588"
+    sha256 cellar: :any, x86_64_linux:      "b94b7178f6ceaea3c6e7f142c06e33cb08628da63e5abc230d352b6fc8632403"
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
-  depends_on "llvm@22"
+  depends_on "llvm"
 
   uses_from_macos "python" => :build
 
   on_linux do
     depends_on "tbb"
   end
+
+  deny_network_access!
 
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }

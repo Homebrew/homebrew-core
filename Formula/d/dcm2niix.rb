@@ -24,6 +24,11 @@ class Dcm2niix < Formula
 
   depends_on "cmake" => :build
 
+  resource "homebrew-sample.dcm", :test do
+    url "https://raw.githubusercontent.com/dangom/sample-dicom/master/MR000000.dcm"
+    sha256 "4efd3edd2f5eeec2f655865c7aed9bc552308eb2bc681f5dd311b480f26f3567"
+  end
+
   allow_network_access! :test
 
   def install
@@ -33,11 +38,6 @@ class Dcm2niix < Formula
   end
 
   test do
-    resource "homebrew-sample.dcm" do
-      url "https://raw.githubusercontent.com/dangom/sample-dicom/master/MR000000.dcm"
-      sha256 "4efd3edd2f5eeec2f655865c7aed9bc552308eb2bc681f5dd311b480f26f3567"
-    end
-
     resource("homebrew-sample.dcm").stage testpath
     system bin/"dcm2niix", "-f", "%d_%e", "-z", "n", "-b", "y", testpath
     assert_path_exists testpath/"localizer_1.nii"

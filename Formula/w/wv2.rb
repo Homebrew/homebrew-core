@@ -35,12 +35,6 @@ class Wv2 < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # Temporary test resource for bottles built before testole.doc was added.
-  resource "testole.doc" do
-    url "https://sourceforge.net/p/wvware/svn/2/tree/wv2-trunk/tests/testole.doc?format=raw"
-    sha256 "fd3a5e28d96655fa320c3118f5ccdc6435034513779b1f59f88e8d8892e78954"
-  end
-
   # Remove .la file creation logic it does not work with CMake 4, and .la files
   # are cleaned up post-build.
   patch :DATA
@@ -62,7 +56,7 @@ class Wv2 < Formula
   end
 
   test do
-    testpath.install resource("testole.doc")
+    cp pkgshare/"test/testole.doc", testpath
 
     (testpath/"test.cpp").write <<~CPP
       #include <cstdlib>

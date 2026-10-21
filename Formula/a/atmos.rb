@@ -1,8 +1,8 @@
 class Atmos < Formula
   desc "Universal Tool for DevOps and Cloud Automation"
   homepage "https://atmos.tools"
-  url "https://github.com/cloudposse/atmos/archive/refs/tags/v1.230.1.tar.gz"
-  sha256 "71f6b1a6522c63874d138485b55cfe0444f8b4ed935895e2bb1fd5213067c539"
+  url "https://github.com/cloudposse/atmos/archive/refs/tags/v1.233.0.tar.gz"
+  sha256 "9340d6da0fa39c3d3fbbd12d63ed9daf7058583c06721684d7a9a3be5b4d4237"
   license "Apache-2.0"
   head "https://github.com/cloudposse/atmos.git", branch: "main"
 
@@ -14,11 +14,11 @@ class Atmos < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "63f064e39aa434a6c0ab4d95dc5e4ab04bdeb563cb5cbde580bad76aa8ee14d4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b6b81d611ccf62f2f560c85adad24d8cd2ecae5e217690fda205d82e814b89c6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e838199fb5d6738cae61019da1780b4f80850a0e94b80f29691bc3cdd5c45eaf"
-    sha256 cellar: :any,                 arm64_linux:       "cf8a811907c413730567176d949da28ea0b18fd96520f3b53c302c1f458b66ba"
-    sha256 cellar: :any,                 x86_64_linux:      "4dd0e2208b142760fab8553037411bef0e161225e9df72c7ea5cc1f8d4a3b226"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "86f613ee25c75c29e36f1fc4b92781af5a90ef8164326a15d49740a165c98220"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "519ff4b49a69cda5c368bbb5b9d3d15bb5f72da5c99d49f6482bcd19a2495aea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "50811bd8f264c24aae826f0e8fe10b196b0dbe9092b18d1db7115d866128fc89"
+    sha256 cellar: :any,                 arm64_linux:       "90c797c2617d244c5f8ed578486268719dfe24760a41842ae979fc570799c5cb"
+    sha256 cellar: :any,                 x86_64_linux:      "0965379df22f827d3419c0602c3b8e3284470603c7acb6b9976467192f8c35ac"
   end
 
   depends_on "go" => :build
@@ -29,6 +29,12 @@ class Atmos < Formula
   end
 
   conflicts_with "tenv", because: "tenv symlinks atmos binaries"
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?

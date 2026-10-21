@@ -1,19 +1,17 @@
 class Roswell < Formula
   desc "Lisp installer and launcher for major environments"
   homepage "https://github.com/roswell/roswell"
-  url "https://github.com/roswell/roswell/archive/refs/tags/v26.02.116.tar.gz"
-  sha256 "edece1aa4a807ee36f44061aa802354c722cb5bd80b5056b19aa982c14709a6c"
+  url "https://github.com/roswell/roswell/archive/refs/tags/v26.10.118.tar.gz"
+  sha256 "19d61198ec747bd8ee0ab0764547d95e74907ef8f73cc4a4e72c9277d22b53e3"
   license "MIT"
   head "https://github.com/roswell/roswell.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "c633490fa38ec2efc726d145f480b3d9ed336d465a83a5af757f8f9112e634b3"
-    sha256 arm64_tahoe:       "a2dd66e40a708c94ba62a6e58bb4f284d991105988ab296148115d063feacc28"
-    sha256 arm64_sequoia:     "83f487ad84514a7298eaec541972da65ca72dc834de6357ee35f986096a77346"
-    sha256 arm64_sonoma:      "82039a4f889030eccfacd55ec69ee9b83dd0c04981b41129839f9b2c7400c801"
-    sha256 sonoma:            "8ecfdc665c4faef705304c09f9ed1a0089a8e1054b633c39b81bc9a10e898221"
-    sha256 arm64_linux:       "5bd3a28804d8c0b377d3fad621702d625c78417c1ec11e94d42cda1aaf74d0a8"
-    sha256 x86_64_linux:      "5f3be9a1d104a2861823c5879273c94dbe04ee24a0e15830f602c27f89d83100"
+    sha256 arm64_golden_gate: "391182a12d785a131591facd11be19d09748529a32504020b5ae5736a6fbbeb6"
+    sha256 arm64_tahoe:       "c4b7558af350bb23ddab57d2dc0e9a07735676ca3187a3ef113b7f2cb23516ed"
+    sha256 arm64_sequoia:     "e6ea6621a13f77942343405f1efd68666dfe71de9e4e010f13b3fd463b84f990"
+    sha256 arm64_linux:       "3b02aea3cb60aaecb3ecba07d8dc184c42304782bd3f198e29a005f2dfc5d0f2"
+    sha256 x86_64_linux:      "42a9c0c5e9bd63538357117a8dd33d753319bcce12bd8734326b28559219f07d"
   end
 
   depends_on "autoconf" => :build

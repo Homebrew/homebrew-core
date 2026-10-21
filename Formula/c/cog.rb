@@ -1,8 +1,8 @@
 class Cog < Formula
   desc "Containers for machine learning"
   homepage "https://cog.run/"
-  url "https://github.com/replicate/cog/archive/refs/tags/v0.23.0.tar.gz"
-  sha256 "1f9ea0139c74c403bc0a63515396247800be1a67682f4e476ced60de2adcbab7"
+  url "https://github.com/replicate/cog/archive/refs/tags/v0.23.1.tar.gz"
+  sha256 "151a973370d6e25c95e039f96b299ea1c838538eb116cba85b3eb7295c9b5a17"
   license "Apache-2.0"
   head "https://github.com/replicate/cog.git", branch: "main"
 
@@ -12,16 +12,22 @@ class Cog < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "60b73981b5f72ed59bb30989ecdbbf7ad0378544c95e08cefa149f7a82bfc0ff"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1fc476195f334b0255baaaa16b369e667a6873ae283eaf6a526018fa65e24537"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9dfd5783868cda86f351390c9096bc2a9acf55765f7894740fc288a31b156c94"
-    sha256 cellar: :any,                 arm64_linux:       "607c2421c1f09ad6f7c21ca649ef5a28a9ef49ebc3e7642cba3b0ced87812aa7"
-    sha256 cellar: :any,                 x86_64_linux:      "dbb62518f5fb7e18e89ef8127fb2bd859d1b63c5526ca72213d06baa2e95e7f3"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "203ea08caaf1524d4e93005b0c623e19387f9f28e0962152a1e34d2e2832bd87"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cb57f8a893226767dd2d900846e960d9d93e050455159174174f4ce5ae1f4a4b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a5fa638a6bd2fd68c5b851022e041681fd5723a35098f41b01026ecb0899239d"
+    sha256 cellar: :any,                 arm64_linux:       "07e86cebebe39c5ee3bdce1f476c5870bd746abecf7ea5aaf39a8452d4ab7423"
+    sha256 cellar: :any,                 x86_64_linux:      "b8917602fa997da0af519bbcda81a44b8428a647b5860d38e2e460df3f263741"
   end
 
   depends_on "go" => :build
 
   conflicts_with "cocogitto", "cogapp", because: "both install `cog` binaries"
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?

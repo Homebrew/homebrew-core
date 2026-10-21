@@ -9,18 +9,17 @@ class Jrnl < Formula
   head "https://github.com/jrnl-org/jrnl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1f643d88149fa9acda744759dc42519ebc62b9d030ba18710605a52c3ab6c1d3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7970ae1b59b093b7661b6142f54f3ac6b3b4752d04392eb6ca05ed548f6892de"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "37c4571be3f90bb5d3f366b66d4c60d76062062576e6926f9f566dc2f2cbbd8c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "a39a5beacd4ab7570d16a63493384ea99aabcc736b95ca762fda6abcc49dea30"
-    sha256 cellar: :any_skip_relocation, sonoma:            "2c96b1647e2ab54db8db0bf9321c2673a98c88f2d1acc0151f034ba3f7be1319"
-    sha256 cellar: :any,                 arm64_linux:       "56f2a75f3a9ff701d5b6aa4f19989050ee46c74357729bdaaa803816c642af8d"
-    sha256 cellar: :any,                 x86_64_linux:      "149c2b58499dbcfb2018f3678083dfb3fad8a53f4842d7614e4d0f825fc8126e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4085ecba9046a2cda15d7cb41d9c0ecbbb01717b9b423e26d18eb84c3b312a9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b7e6b5e6113949bd718abc223357cdfa45dd91c50fb993acb927c7c1d1bb6f5b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "214f21fbd7dd695c1e3a1e470d01840eab8c3b721b91c867032a9d8d31997e9a"
+    sha256 cellar: :any,                 arm64_linux:       "91ec33dd3ad1d034379309daed3b6e20488b808f8aff36b5c1a061c0c99c9277"
+    sha256 cellar: :any,                 x86_64_linux:      "738340025b8a965a46ad01a01416ea1ee32e6970dc15e93a52444f162708667b"
   end
 
   depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "cryptography",
                 extra_packages:   %w[jeepney secretstorage]
@@ -121,6 +120,9 @@ class Jrnl < Formula
   end
 
   def install
+    # Allow Python 3.15
+    inreplace "pyproject.toml", "requires-python = '>=3.11.0,<3.15'", "requires-python = '>=3.11.0'"
+
     without = %w[jeepney secretstorage] unless OS.linux?
     virtualenv_install_with_resources(without:)
   end

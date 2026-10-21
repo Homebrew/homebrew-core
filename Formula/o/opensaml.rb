@@ -4,7 +4,7 @@ class Opensaml < Formula
   url "https://shibboleth.net/downloads/c++-opensaml/3.3.1/opensaml-3.3.1.tar.bz2"
   sha256 "d8e24e070fc6bb80682632ca32c8569a9f3ef170ba57e3b82818322e75b6a37e"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://shibboleth.net/downloads/c++-opensaml/latest/"
@@ -12,20 +12,15 @@ class Opensaml < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "55a080cd0bbe656f9046102df25cf85761ce06bf31874184240b8588783eff64"
-    sha256 cellar: :any,                 arm64_tahoe:       "5805c25d6cbc6a232a11171cbe6b42d4bd5cd79bb58a80eb58fc8897cb95d809"
-    sha256 cellar: :any,                 arm64_sequoia:     "07a24e559fba8ef6206aa142b47c40d15dd68ec6ecebfcf6ef4e249461a1ebfc"
-    sha256 cellar: :any,                 arm64_sonoma:      "2433e81f6f75b41ace4f4b39a8bc336aad0d07324efe4f5758966ba8db3270be"
-    sha256 cellar: :any,                 arm64_ventura:     "30a5d4e496a4053fc99686974cca11d4b8be3d331fe55c0cec552d8171060730"
-    sha256 cellar: :any,                 sonoma:            "11823d44fd8032eb8e3f61827de120b93656107a2e31fbeedc95a78c52e34017"
-    sha256 cellar: :any,                 ventura:           "8045e1d48ada4b5fa6c2a524cda2dd2b31e33014e49d2894b9fdd134597703cc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ccf298955ba2cf7cc5c54feaab9baedd5faa1b351ea02525ceeda3d35d76e805"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7113cf3ec71403d5a0c60bb4f6e9c358c60f57cf80e203d9cd34cb19f5d1898e"
+    sha256 cellar: :any, arm64_golden_gate: "378f215d2d73f72c3ab321fe3ded8324ae5840a9c0d3628465cc9bbac91089f3"
+    sha256 cellar: :any, arm64_tahoe:       "c3507a33631f583e325f1f00fcfad2390a9005ab7dd0bd40e6204ae699734e9c"
+    sha256 cellar: :any, arm64_sequoia:     "85705f8c0882f2ead6f6b545529c5294bfbca6dc7e8dc99fce47d268abfe4cae"
+    sha256 cellar: :any, arm64_linux:       "15031a901cf7433fab5b36e1ed3bdb1cc8973c25f856daf0a82861e3c4e3b8f3"
+    sha256 cellar: :any, x86_64_linux:      "98c61bc6b6207472b2a0bf8ddc34d59c9d9378e628c5eb89a6449d5e7efedbb5"
   end
 
   depends_on "pkgconf" => :build
   depends_on "log4shib"
-  depends_on "openssl@3"
   depends_on "xerces-c"
   depends_on "xml-security-c"
   depends_on "xml-tooling-c"
@@ -35,6 +30,8 @@ class Opensaml < Formula
 
     system "./configure", *std_configure_args
     system "make", "install"
+
+    inreplace lib/"pkgconfig/opensaml.pc", prefix, opt_prefix
   end
 
   test do

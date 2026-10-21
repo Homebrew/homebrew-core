@@ -1,8 +1,8 @@
 class ApachePolaris < Formula
   desc "Interoperable, open source catalog for Apache Iceberg"
   homepage "https://polaris.apache.org/"
-  url "https://github.com/apache/polaris/archive/refs/tags/apache-polaris-1.7.0.tar.gz"
-  sha256 "cd56c1fd62d07a76154ca3805104b7a6fa947a6b6e38b90b7f14164c32f81659"
+  url "https://github.com/apache/polaris/archive/refs/tags/apache-polaris-1.8.0.tar.gz"
+  sha256 "c7addba31ff553a49a1b6b6c77b253a519d37da3eee82b90e5321cdc08b76f2d"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,11 @@ class ApachePolaris < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1427aa253f2dcd6204ebd8394cfcb4a6edb7a7f6834c1a30b26a3e41a4b33412"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b41354d7b5fc5fda3755221cc93235bed8334dcb77f684096215aa9265eab37b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0fbeb6817dd7a3ca6f9da1b3bafa5fb17f6be3e26997aad5d9374cec3a8f4d06"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "ac3905955df79d3a47de408d83bc2087f74f5949062698aa2ba4a57cdcb5791f"
-    sha256 cellar: :any_skip_relocation, sonoma:            "279fec0e998bb1a3249194ab00a185f983f89bfa429c1aba5dea15f61a7ef6c9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "bec49597ed014ddc8ab9c25b604c10de95cde452091f4c02e245cb4baa5b8f93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9d2ce0bcb01e2b9d0b43181ca510c86919b864c1e6824349dc62a0a111311095"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1f791831e7282a9b53f78a3e590deae0d2e03af1dda645e7c7b537ccd2f9a476"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "efa5308e053328888f518435737cc476b6af384f814307a4f2c7d17f247d5d51"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3cb1d9c2ef4b5849ec6f67a5000eb1de27015825433b24ec4341fc77d573e9bb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "21255ccd106d2f9c5fd64e085696261267edd4d9986e6f9a27ac01ff4dedf312"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7d31554514b827f1948e4c28799fe9300ac94af02a490498808673ff03cf3945"
   end
 
   depends_on "gradle" => :build
@@ -25,6 +23,14 @@ class ApachePolaris < Formula
 
   def install
     ENV.delete "CI" # work around Gradle stalling on macOS CI runners
+
+    # TODO: Remove once the distribution includes the conditional Amazon transport dependency.
+    # https://github.com/apache/polaris/issues/5681
+    inreplace "runtime/common/build.gradle.kts",
+              'implementation("io.quarkiverse.amazonservices:quarkus-amazon-rds")',
+              'implementation("io.quarkiverse.amazonservices:quarkus-amazon-rds")' \
+              "\n  " \
+              'implementation("io.quarkiverse.amazonservices:quarkus-amazon-apache-client-internal")'
 
     system "gradle", "assemble", "--no-daemon"
 
@@ -47,6 +53,7 @@ class ApachePolaris < Formula
   end
 
   test do
+    ENV["QUARKUS_LOG_FILE_PATH"] = (testpath/"polaris.log").to_s
     port = free_port
     ENV["QUARKUS_HTTP_PORT"] = free_port.to_s
     ENV["QUARKUS_MANAGEMENT_PORT"] = port.to_s

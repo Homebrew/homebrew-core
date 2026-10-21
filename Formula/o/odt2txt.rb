@@ -20,16 +20,16 @@ class Odt2txt < Formula
     depends_on "zlib-ng-compat"
   end
 
+  resource "homebrew-sample", :test do
+    url "https://github.com/Turbo87/odt2txt/raw/samples/samples/sample-1.odt"
+    sha256 "78a5b17613376e50a66501ec92260d03d9d8106a9d98128f1efb5c07c8bfa0b2"
+  end
+
   def install
     system "make", "install", "DESTDIR=#{prefix}"
   end
 
   test do
-    resource "homebrew-sample" do
-      url "https://github.com/Turbo87/odt2txt/raw/samples/samples/sample-1.odt"
-      sha256 "78a5b17613376e50a66501ec92260d03d9d8106a9d98128f1efb5c07c8bfa0b2"
-    end
-
     testpath.install resource("homebrew-sample")
     system bin/"odt2txt", "sample-1.odt"
   end

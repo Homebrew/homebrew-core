@@ -27,10 +27,14 @@ class Libdaemon < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "66573e3e026fca5fab4dd7e1f7c9712e837fd65ca21cfc1e0687e719d8905c90"
   end
 
+  depends_on "pkgconf" => :test
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
   end
+
+  deny_network_access!
 
   def install
     args = ["--disable-silent-rules"]
@@ -39,5 +43,21 @@ class Libdaemon < Formula
 
     system "./configure", *std_configure_args, *args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <stdio.h>
+      #include <libdaemon/daemon.h>
+
+      int main(void) {
+        printf("%s\\n", daemon_ident_from_argv0("/usr/sbin/testd"));
+        return 0;
+      }
+    C
+
+    pkgconf_flags = shell_output("pkgconf --cflags --libs libdaemon").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkgconf_flags
+    assert_equal "testd", shell_output("./test").strip
   end
 end

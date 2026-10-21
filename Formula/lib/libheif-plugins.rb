@@ -1,8 +1,8 @@
 class LibheifPlugins < Formula
   desc "ISO/IEC 23008-12:2017 HEIF file format decoder and encoder"
   homepage "https://www.libde265.org/"
-  url "https://github.com/strukturag/libheif/releases/download/v1.23.5/libheif-1.23.5.tar.gz"
-  sha256 "fd9036064c4432f0550d15072ddf34956a248279ee9aeaff0fba3fa0f77d8f1a"
+  url "https://github.com/strukturag/libheif/releases/download/v1.23.6/libheif-1.23.6.tar.gz"
+  sha256 "4484346dc5995319dbc11e3a1c35d0a2ec46511ce370900869337fd2c7033125"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -10,11 +10,11 @@ class LibheifPlugins < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7033a7cd8e7b70ab2616c1b262b2e67ab5448629042e187d57f91fbb6e4d71b8"
-    sha256 cellar: :any, arm64_tahoe:       "de97d50796e01a54ad197456c6edec6a26b32e910f6150759b1d8e7f34a64c58"
-    sha256 cellar: :any, arm64_sequoia:     "1170bf4cce7faab622460d055df5de6994e86d670d5929499e6c690f80cd267f"
-    sha256 cellar: :any, arm64_linux:       "e0cba0a83c9bb88f1bcde1ddd8517ae94eca869a73b883aa2378358ff6ddbefe"
-    sha256 cellar: :any, x86_64_linux:      "f5b01ff7577606fd2d5f0ac2275ad6fc04c1b6bdf7c0608bba2aeb9d15a2e390"
+    sha256 cellar: :any, arm64_golden_gate: "97f12e7aedb98708817c641b12fcd315c4718345a62f816ce2399b9ab6c1e897"
+    sha256 cellar: :any, arm64_tahoe:       "0030b009ee53e0237ddd77bb87537dadff5f0362fab4626a4da1fb400b6a4528"
+    sha256 cellar: :any, arm64_sequoia:     "36198396ac2716c18477f04bc6a882470039d252088621f5de8b8e444ae7297c"
+    sha256 cellar: :any, arm64_linux:       "f4de05680289ed8d32eaeef7d8da0c7a70d8e76462e6c2102a8cc768a6786cca"
+    sha256 cellar: :any, x86_64_linux:      "3dc365b977d94877733a33af0e0cb44238c4630da117926f56ba6488c477aadc"
   end
 
   depends_on "cmake" => :build

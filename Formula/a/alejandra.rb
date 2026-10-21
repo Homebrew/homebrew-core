@@ -1,21 +1,17 @@
 class Alejandra < Formula
   desc "Command-line tool for formatting Nix Code"
-  homepage "https://kamadorueda.com/alejandra/"
-  url "https://github.com/kamadorueda/alejandra/archive/refs/tags/4.0.0.tar.gz"
-  sha256 "f3f9989c3fb6a56e2050bf5329692fae32a2b54be7c0652aa394afe4660ebb74"
+  homepage "https://alejandra.kamadorueda.com/"
+  url "https://github.com/kamadorueda/alejandra/archive/refs/tags/4.1.0.tar.gz"
+  sha256 "cf74acd0bbbaa166abed6d155f3a6206392d715336e74f9bb5fe05d874de183b"
   license "Unlicense"
   head "https://github.com/kamadorueda/alejandra.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8497c71a988e12bae438feca5570a008ab724bb0abd1bec43ec1471c111f4c35"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ee21f9015c2853fb4ccd0b5e8b8674c7d1c27ef9c17ff73771ca33f035a4eddd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a105b8e8c06f4e240b052d62e5b271e4a1c196f8367780ae22fe4bf705ad65b1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "e02b48f1e647cf69ccbb6846c8335f912cc08344f7107af6f3b4ad3780981f8c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "d220e43933b6412b9b2c55193af67aa046a935f282f7bb2bcbe73ce0987561fe"
-    sha256 cellar: :any_skip_relocation, sonoma:            "82324a20fbc443a94c675997c412c0394d9dc511f7bb72e9b36e1861deeee324"
-    sha256 cellar: :any_skip_relocation, ventura:           "bbdac460582dfb76e32ca4976eae2ca4a58ab2ce5aa54091136040d9634b9af8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "cc7e20816b52cb47ab33221af91747fdf9e537a7b4bc252ed3aab37602cd4e65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "34b9aa4a4f9d81bec8bd22b0f2199000be9469a732f3c140f5fabd7a4e766c04"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9f1336b2e798effd955c56b803afdb22fccbd436c462fc9869142cc600965600"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "723d97ac661b25897b67c83ed4200f29ecea06e07aeb14fcf0464aefe95cc9f1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8a285b8b37eef4f19d409f042bb21c8e3ba33ab086d3310c5fbb6660d8ae0b65"
+    sha256 cellar: :any,                 arm64_linux:       "cd6f46c33bc6811f44a321737104c06716787b265f206cdbb199215081d19b14"
+    sha256 cellar: :any,                 x86_64_linux:      "cd793c00b7dbe1d1d24c99eb35dc649b2f61e3780cf2975376072ba2843050a1"
   end
 
   depends_on "rust" => :build

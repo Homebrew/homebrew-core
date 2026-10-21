@@ -6,13 +6,14 @@ class PythonMatplotlib < Formula
   url "https://files.pythonhosted.org/packages/e7/c8/9aa712a0afb882649424dd8de8ad9aa6235e796e84c6052e8f6dc1598d0d/matplotlib-3.11.2.tar.gz"
   sha256 "cec596316640f2b394b8f0daa0ea61a8eae82d017b620b9f202befb972a59ea4"
   license "PSF-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "83debd71f3bd86005e87a71f90cc050afd6ea13c9c84b8a32e684ebfa598a3bd"
-    sha256 cellar: :any, arm64_tahoe:       "cb261af4bfdf8736adb53d77a7115badc37e6bdd1e52196c883d9f83de64cf8b"
-    sha256 cellar: :any, arm64_sequoia:     "277c0161f440ac2c0f6312800c30a2dac778abef10e4eea4de06597b27dff031"
-    sha256 cellar: :any, arm64_linux:       "21e087c295071d099aaed896d0a26cb80e2a400253a8d738b3c628f59f422eb6"
-    sha256 cellar: :any, x86_64_linux:      "81c0d4bd7372776834a958812de7b19899fbcc7769e9cda5950146304841a3ed"
+    sha256 cellar: :any, arm64_golden_gate: "480528f7169b0eeb01798199b15b5fc7178b76bbb553fdc7b96ab88640140d9a"
+    sha256 cellar: :any, arm64_tahoe:       "07c9a09123943be9ffd92154047b12500d2c4ad5098a026b4dcca6cf7dd3f74a"
+    sha256 cellar: :any, arm64_sequoia:     "4c89d10cfc820d7c307fe398f29840dc0174e6b11385f121c287a9b354d29107"
+    sha256 cellar: :any, arm64_linux:       "c1cebfa7d0da66c810fc7255ab8fca987f12bddbaeea1ee5077cdc1d6468a88a"
+    sha256 cellar: :any, x86_64_linux:      "182d1654b4d1806a07b05742c027bd22ff2431e5b698c85e7d49425cc5b64a76"
   end
 
   depends_on "cmake" => :build # for contourpy
@@ -22,7 +23,7 @@ class PythonMatplotlib < Formula
   depends_on "freetype"
   depends_on "numpy"
   depends_on "pillow" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "qhull"
 
   on_linux do
@@ -42,8 +43,8 @@ class PythonMatplotlib < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/77/51/d63c7e52163ac14393a35bd14bd7c0da95f8f74be5d7cc988092f9965129/fonttools-4.65.0.tar.gz"
-    sha256 "762ba5431358d0dbd4a01982484a1d494fb267e91f974cdcf20b80eab8560f6f"
+    url "https://files.pythonhosted.org/packages/87/b6/126c659ab7e0e03e01a5f5d223abf7b2c0691ae92718085a212a3924a2a3/fonttools-4.66.1.tar.gz"
+    sha256 "64967c6ddb0d4c610dfd8cb1485981b2d27972ddfb7d4bbbd9e199d2a089c450"
   end
 
   resource "kiwisolver" do
@@ -57,8 +58,8 @@ class PythonMatplotlib < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/f3/91/9c6ee907786a473bf81c5f53cf703ba0957b23ab84c264080fb5a450416f/pyparsing-3.3.2.tar.gz"
-    sha256 "c777f4d763f140633dcb6d8a3eda953bf7a214dc4eff598413c070bcdc117cbc"
+    url "https://files.pythonhosted.org/packages/e4/11/b213bebff182584360cb8d17c72c1677fec5c5c228de439e63bcf8ab1c8f/pyparsing-3.3.3.tar.gz"
+    sha256 "928ae7e20211f3b6f3915a72f06a0cfd29ab9d24279dd6346b6b1a7146397d36"
   end
 
   resource "python-dateutil" do

@@ -17,6 +17,12 @@ class Tpack < Formula
   depends_on "go" => :build
   depends_on "tmux"
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/tpack"
     generate_completions_from_executable(bin/"tpack", shell_parameter_format: :cobra)

@@ -25,7 +25,18 @@ class Kubetail < Formula
   depends_on "node" => :build
   depends_on "pnpm" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "pnpm", "with", "current", "--dir", "dashboard-ui", "fetch", "--ignore-scripts"
+    cd "modules" do
+      system "go", "mod", "download"
+    end
+  end
+
   def install
+    inreplace "Makefile", "pnpm install && pnpm build",
+                           "pnpm --offline with current install --frozen-lockfile && pnpm with current build"
     system "make", "build", "VERSION=#{version}"
     bin.install "bin/kubetail"
     generate_completions_from_executable(bin/"kubetail", shell_parameter_format: :cobra)

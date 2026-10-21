@@ -9,11 +9,12 @@ class Fred < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "61c68842bbb58d42f65b301eddd13be8bbd8c76101497fb8cee882967fd5de99"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "6d6ab3235fe432b975df52376d88933d6abb4387c72b79659c0508bf82df2a98"
   end
 
   depends_on "certifi"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 

@@ -9,16 +9,17 @@ class MkdocsMaterial < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "420767f633ca16dfe055e6919e149352679284986f7b55b6da598251c1c61e5b"
-    sha256 cellar: :any, arm64_tahoe:       "7375327bc7f494d3173335ca1e6920283c47e1f84aa99778f802adb705185da7"
-    sha256 cellar: :any, arm64_sequoia:     "7f49f32b1ce0f4f377c0ebad0eab3642c834f1e255420680ebbe48d40fd3adb6"
-    sha256 cellar: :any, arm64_linux:       "77ca28ea35575a10cb1e0b39644bd072da22cb59deb473fb8290918a1d85bea5"
-    sha256 cellar: :any, x86_64_linux:      "3427aa63299ee8cf224ebe55339887ec5918ae387cda45a115108acba221fde3"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "38f5f7ce3e258c08839db740eac551eda4b6089824f618b4bc4c9e21ef586d0d"
+    sha256 cellar: :any, arm64_tahoe:       "463f922c807b698d8212bd11a08e43292e8f2208f5b8786d1f4fac63034e77c7"
+    sha256 cellar: :any, arm64_sequoia:     "58d80ca9ed58449b53f80844f24c4db355677901f8ee89e134bc61cd69c5d5d7"
+    sha256 cellar: :any, arm64_linux:       "49ce2e31f85285330acdd3d7ff062a70565766811ee2c2949e40252a2543760e"
+    sha256 cellar: :any, x86_64_linux:      "8595d5ef7b6d447ec58ce44ca88e8c8b42362300e21eb6a8cda27bb49f9d84ba"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   conflicts_with "mkdocs", because: "both install `mkdocs` binaries"
 
@@ -70,8 +71,8 @@ class MkdocsMaterial < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "mergedeep" do
@@ -110,8 +111,8 @@ class MkdocsMaterial < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/17/c8/721b3855fe457da514fe249247d404b9b39c5d16532278f70ebaa6acf18b/platformdirs-4.12.2.tar.gz"
-    sha256 "eab5f70271a490ef74618bb314fbb86e3c7e82fa3b9c922c2ea0e0a1a155d329"
+    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
+    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
   end
 
   resource "pygments" do

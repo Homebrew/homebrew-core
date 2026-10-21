@@ -1,14 +1,13 @@
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/6.0.10.tar.gz"
-  sha256 "182f4b8aa2b649c434da199886c637f32b017259f97907554e7c31385cf401b6"
+  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/6.0.13.tar.gz"
+  sha256 "a0258c1deb71d20532d1c38af4bc43082d27c8f8f91e18d50e9106f4249952ba"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
     any_of: ["MIT", "NCSA"], # emscripten
   ]
-  revision 1
   head "https://github.com/emscripten-core/emscripten.git", branch: "main"
 
   livecheck do
@@ -17,16 +16,16 @@ class Emscripten < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f68279d6c259c6c496172fde2f7affbc3b66505e6d822705361a9e62af49357d"
-    sha256 cellar: :any, arm64_tahoe:       "3e219c0a25ce2305b5baa06a5373eeecb2ca7602a050c061768f342fd8c46d72"
-    sha256 cellar: :any, arm64_sequoia:     "4646681e6c70bffe65fec06e05a7206da378264406aec57b3e6e2db5793f080f"
-    sha256 cellar: :any, arm64_linux:       "2f769c50f0a57d54de945a250c2b27fee2fb8f588dc1320dd602eb475195e031"
-    sha256 cellar: :any, x86_64_linux:      "94b97fba7ef43ae8c976b2bb08f5f724affcdb7101d2b1f4a218908b8ece9599"
+    sha256 cellar: :any, arm64_golden_gate: "0cc45497dfcba324cd7d5970e35e1a0948bdb8dc80ec059084912729b416d0c4"
+    sha256 cellar: :any, arm64_tahoe:       "b75b6827cf02dea762bad43a748fa9081535d9f4f5c8bf922410e2ab8cb66769"
+    sha256 cellar: :any, arm64_sequoia:     "2ae84618cb5adeaecd5ff0291a57be121361423e0b229b63d45c315150b97996"
+    sha256 cellar: :any, arm64_linux:       "4b74df9abf33ab6a19be220230aa2c64d656a69b6dcb329cdccea85fadc03596"
+    sha256 cellar: :any, x86_64_linux:      "f6a210743a7651343d9410556c5110a4d0a99438b5697fc0160635d6313abf0a"
   end
 
   depends_on "cmake" => :build
   depends_on "node"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "yuicompressor"
 
   # OpenJDK is needed as a dependency on Linux and ARM64 for google-closure-compiler,
@@ -50,9 +49,9 @@ class Emscripten < Formula
   # https://chromium.googlesource.com/emscripten-releases/+/<commit>/DEPS
   # Then use the listed binaryen_revision for the revision below.
   resource "binaryen" do
-    url "https://github.com/WebAssembly/binaryen/archive/21312a03e1d028a9d53f2cf855888a23b4b69862.tar.gz"
-    version "21312a03e1d028a9d53f2cf855888a23b4b69862"
-    sha256 "90e3d2271b1583fafc5f1b5e6aae7b56a993e09c6e879d6b7836004d30d48223"
+    url "https://github.com/WebAssembly/binaryen/archive/a631c1445ced72a905b3303b26f148fc706647dd.tar.gz"
+    version "a631c1445ced72a905b3303b26f148fc706647dd"
+    sha256 "f18112c782f2ab4a596afcaf2208a22732a07983bb59d19d391bbb463149c1ca"
 
     livecheck do
       url "https://raw.githubusercontent.com/emscripten-core/emsdk/refs/tags/#{LATEST_VERSION}/emscripten-releases-tags.json"
@@ -76,9 +75,9 @@ class Emscripten < Formula
   # See binaryen resource above for instructions on how to update this.
   # Then use the listed llvm_project_revision for the tarball below.
   resource "llvm" do
-    url "https://github.com/llvm/llvm-project/archive/a06d9165905ce89b5ffef2bbb84c886d60a9b8bf.tar.gz"
-    version "a06d9165905ce89b5ffef2bbb84c886d60a9b8bf"
-    sha256 "7ed6c0151868e4c4fbfab24a2fb6e733f4b318c5f69d25d78e66759b32a410f4"
+    url "https://github.com/llvm/llvm-project/archive/5f47feeedda059f88c30ca6f11109faa5ce5428c.tar.gz"
+    version "5f47feeedda059f88c30ca6f11109faa5ce5428c"
+    sha256 "744178fda5dcae4154db63c4f90e81bf5613504e340b4f8dc81ee64e40c12d7a"
 
     livecheck do
       url "https://raw.githubusercontent.com/emscripten-core/emsdk/refs/tags/#{LATEST_VERSION}/emscripten-releases-tags.json"
@@ -147,6 +146,7 @@ class Emscripten < Formula
         -DLLVM_INCLUDE_TESTS=OFF
         -DLLVM_INSTALL_UTILS=OFF
         -DLLVM_ENABLE_ZSTD=OFF
+        -DLLVM_ENABLE_LZMA=OFF
         -DLLVM_ENABLE_Z3_SOLVER=OFF
         -DLLVM_INCLUDE_BENCHMARKS=OFF
       ]
@@ -214,6 +214,7 @@ class Emscripten < Formula
 
       # Remove musl-libc native variants
       rm_r libexec/"node_modules/lightningcss-#{os}-#{arch}-musl" if OS.linux?
+      rm_r libexec/"node_modules/@rolldown/binding-#{os}-#{arch}-musl" if OS.linux?
     end
 
     # Add JAVA_HOME to env_script on ARM64 macOS and Linux, so that google-closure-compiler

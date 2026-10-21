@@ -93,6 +93,10 @@ class PortableFormula < Formula
   desc "Abstract portable formula"
   homepage "https://github.com/Homebrew/homebrew-portable-ruby"
 
+  test do
+    false
+  end
+
   def self.inherited(subclass)
     subclass.class_eval do
       super

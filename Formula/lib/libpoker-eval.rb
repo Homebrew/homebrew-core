@@ -27,6 +27,10 @@ class LibpokerEval < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "723cc1e71146dbe997acaacd71fd71f46266de3977b0ee24f3cf54fae280d208"
   end
 
+  depends_on "pkgconf" => :test
+
+  deny_network_access!
+
   def install
     args = []
     # Help old config scripts identify arm64 linux
@@ -34,5 +38,30 @@ class LibpokerEval < Formula
 
     system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <poker_defs.h>
+      #include <inlines/eval.h>
+
+      int main(void) {
+        char *cards[] = { "Ah", "Kh", "Qh", "Jh", "Th" };
+        CardMask hand;
+        int i, card;
+
+        CardMask_RESET(hand);
+        for (i = 0; i < 5; i++) {
+          if (StdDeck_stringToCard(cards[i], &card) == 0) return 1;
+          StdDeck_CardMask_SET(hand, card);
+        }
+        StdRules_HandVal_print(StdDeck_StdRules_EVAL_N(hand, 5));
+        return 0;
+      }
+    C
+
+    pkgconf_flags = shell_output("pkgconf --cflags --libs poker-eval").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkgconf_flags
+    assert_equal "StFlush (A)", shell_output("./test").strip
   end
 end

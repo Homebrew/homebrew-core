@@ -1,18 +1,17 @@
 class Firefoxpwa < Formula
   desc "Tool to install, manage and use Progressive Web Apps in Mozilla Firefox"
   homepage "https://pwasforfirefox.filips.si/"
-  url "https://github.com/filips123/PWAsForFirefox/archive/refs/tags/v2.20.0.tar.gz"
-  sha256 "dc35ddba5c37351f0726dee0bbf85a2d1d7df3f95f43e958df8afb3d59a3c4e7"
+  url "https://github.com/filips123/PWAsForFirefox/archive/refs/tags/v2.20.1.tar.gz"
+  sha256 "97ee2e61698f79629871b7eeca1d70c32ccfc68a49902b9ecd6da05b142bfe19"
   license "MPL-2.0"
   head "https://github.com/filips123/PWAsForFirefox.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0b1e3a14faede097ed467064fde4d8fc3df104c367380b2b1452744902dd1312"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f9a2eb48c0d4a25cd39c950fa950d9aad583c2e19e6b57972d47be372e5f78b7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "94b8067949481ab732de2609c6b8834a639bb4f1967fcf7360ac844972915681"
-    sha256 cellar: :any,                 arm64_linux:       "f54a6d1751446e2d79df7ae84f7a985f5226685a06fb2cbad8c07f397e898e6c"
-    sha256 cellar: :any,                 x86_64_linux:      "df67e62ece4a339420de153ad9106304c5f62d696a54dd5ea7ad987a63934403"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "26649dd862ec0fd836b5b5c36ac7c88b83a3cc4e88b9654d0abc2815a2e18e67"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6d7e5034022ced004d696de2a89dab3c989ad075eb40e39480ab447a7b15dfc3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6a93df3bbb4d58673ee11fc9a1fc7b401d82c8513e15edc8284ddee4aa8bfe92"
+    sha256 cellar: :any,                 arm64_linux:       "4747caffa8cbf607cc5f94f17e80b044b30c1fd360e37c524c4ac4e8a1c07509"
+    sha256 cellar: :any,                 x86_64_linux:      "2597537067a34dcc50510a4ce7879c14080119423f4f7ecca8552eaf5e2b8967"
   end
 
   depends_on "pkgconf" => :build
@@ -21,6 +20,14 @@ class Firefoxpwa < Formula
   on_linux do
     depends_on "bzip2" # not used on macOS
     depends_on "openssl@4"
+  end
+
+  deny_network_access!
+
+  def fetch
+    cd "native" do
+      system "cargo", "fetch", *std_cargo_fetch_args
+    end
   end
 
   def install

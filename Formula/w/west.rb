@@ -9,18 +9,16 @@ class West < Formula
   head "https://github.com/zephyrproject-rtos/west.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_golden_gate: "3effb5587b417789e8bf87a50e439e99a4cbbfedb77eae6169bafb4a8cc391c5"
-    sha256 cellar: :any,                 arm64_tahoe:       "f870725d0d96ad5062cedb8513fd3ba49aaa38cae49d98dbf54610bbe61ca460"
-    sha256 cellar: :any,                 arm64_sequoia:     "9b43c9ab44bcf6038552240e59c14530451e3b6a39fa36ba6bd83cb1e2859842"
-    sha256 cellar: :any,                 arm64_sonoma:      "22dd84e3fe1cad6e81fe1e333212ef5eb28c6dce4d9de0c7234255714cb24e78"
-    sha256 cellar: :any,                 sonoma:            "b00b0d9a49752f758cb38f4a38503f927c545f5e330557299f3ca7d3d14ee491"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "aebbd91683301166bb13c402192372c33949595503c00afc1ee93b4f0b27920d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "95330775a87e799568bbb903db4c95534fd1ff4c6f3335aa0c06c4244a5b104a"
+    rebuild 2
+    sha256 cellar: :any, arm64_golden_gate: "062d58235bdb4f9c74349ea8ddd2efe13000443412e64be19d583ac71a51e538"
+    sha256 cellar: :any, arm64_tahoe:       "3563e97b83a0f5eb7d4069b8bc42807ab29965ca797fb86bc72f807a2f20b6a1"
+    sha256 cellar: :any, arm64_sequoia:     "1c38fc5007257acfaefd09f06a9b419d67696da0708ea685e00f17d74b9eeb3f"
+    sha256 cellar: :any, arm64_linux:       "4e7e12a57ad854decb237294c1bfbe1d453e75b46ed6f741f9f44e7c747cf9a6"
+    sha256 cellar: :any, x86_64_linux:      "08667f0c20a584fc0df99e2a266a28efacd224b6c33fd831a6a9bec5f30422f5"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
@@ -33,8 +31,8 @@ class West < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "pykwalify" do
@@ -53,8 +51,8 @@ class West < Formula
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/3e/db/f3950f5e5031b618aae9f423a39bf81a55c148aecd15a34527898e752cf4/ruamel.yaml-0.18.15.tar.gz"
-    sha256 "dbfca74b018c4c3fba0b9cc9ee33e53c371194a9000e694995e620490fd40700"
+    url "https://files.pythonhosted.org/packages/c7/3b/ebda527b56beb90cb7652cb1c7e4f91f48649fbcd8d2eb2fb6e77cd3329b/ruamel_yaml-0.19.1.tar.gz"
+    sha256 "53eb66cd27849eff968ebf8f0bf61f46cdac2da1d1f3576dd4ccee9b25c31993"
   end
 
   resource "six" do

@@ -6,11 +6,26 @@ class Nelm < Formula
   license "Apache-2.0"
   head "https://github.com/werf/nelm.git", branch: "main"
 
-  # Not all releases are marked as "latest" but there is also "pre-release"
-  # on GitHub, so it's necessary to check releases.
+  # Upstream may indicate an unstable release by marking it as pre-release,
+  # appending an unstable suffix to the tag (e.g. "v1.2.3-alpha.1"), or
+  # appending unstable text to the release title (e.g. "v1.2.3 [alpha]").
+  # Unstable versions are not always marked as pre-release, so we have to check
+  # multiple releases to reliably identify stable versions.
   livecheck do
     url :stable
-    strategy :github_releases
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_releases do |json, regex|
+      json.map do |release|
+        next if release["draft"] || release["prerelease"]
+
+        next if release["name"]&.match?(/(alpha|beta|dev|rc)/i)
+
+        match = release["tag_name"]&.match(regex)
+        next if match.blank?
+
+        match[1]
+      end
+    end
   end
 
   bottle do
@@ -24,6 +39,12 @@ class Nelm < Formula
   end
 
   depends_on "go" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     ldflags = %W[-X github.com/werf/nelm/pkg/common.Version=#{version}]

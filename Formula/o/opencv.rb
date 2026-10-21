@@ -2,7 +2,7 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   license "Apache-2.0"
-  revision 10
+  revision 11
   compatibility_version 2
 
   stable do
@@ -25,11 +25,12 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "07cfb839d99ad50bd6ee1a45c2d4fbbd13263642e49932748414283e962d1621"
-    sha256 arm64_tahoe:       "a9d2c559a87e85bbdf4ba5f1a4aa858933984e53e04bd5186e802968bca7dcd5"
-    sha256 arm64_sequoia:     "a697d311d0f21cac47be5c20cc850a624fccda567ff638de8caf623c50b23681"
-    sha256 arm64_linux:       "3d94a4927021f5ca7b9b47487431c3664b7c87a156089a56f91570dc39cc1459"
-    sha256 x86_64_linux:      "6a59ec5e320584bb5d5831da7669fe87aad38d7dc6616d78deae5dcec3a5cc7a"
+    rebuild 1
+    sha256 arm64_golden_gate: "8bd01cf556280d8502fc165fed77eb630d4965dee6d50d874e05eec14de01aca"
+    sha256 arm64_tahoe:       "82623a069a62ae58bdb128b90cbcf03889387b983b705778a4db120ffb8bc3bf"
+    sha256 arm64_sequoia:     "1cd40a1ba11bdf9a33d97fc2a5c0cae62fb6281c967ba012053e22e9f0505658"
+    sha256 arm64_linux:       "53fe905a223ceb31b1b5f9f638c386c14d1c3f261b0f60af75a3e5029efffad8"
+    sha256 x86_64_linux:      "912886fa3fd8418758c1de7c843b2f1e6bb30a565458a6974b53aec66a7e8314"
   end
 
   head do
@@ -53,6 +54,7 @@ class Opencv < Formula
   depends_on "harfbuzz"
   depends_on "jpeg-turbo"
   depends_on "jsoncpp"
+  depends_on "libavif"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "numpy"
@@ -152,6 +154,7 @@ class Opencv < Formula
       -DOPENCV_GENERATE_PKGCONFIG=ON
       -DPROTOBUF_UPDATE_FILES=ON
       -DWITH_1394=OFF
+      -DWITH_AVIF=ON
       -DWITH_CUDA=OFF
       -DWITH_EIGEN=ON
       -DWITH_FFMPEG=ON
@@ -218,6 +221,15 @@ class Opencv < Formula
         cv::Mat img = cv::imread("#{test_fixtures("test.jpg")}", cv::IMREAD_COLOR);
         if (img.empty()) {
           std::cerr << "Could not read test.jpg fixture" << std::endl;
+          return 1;
+        }
+        if (!cv::haveImageWriter("test.avif") || !cv::imwrite("test.avif", img)) {
+          std::cerr << "Could not write AVIF image" << std::endl;
+          return 1;
+        }
+        cv::Mat avif = cv::imread("test.avif", cv::IMREAD_COLOR);
+        if (avif.empty() || avif.size() != img.size() || avif.type() != img.type()) {
+          std::cerr << "Could not read AVIF image with the expected dimensions and type" << std::endl;
           return 1;
         }
         return 0;

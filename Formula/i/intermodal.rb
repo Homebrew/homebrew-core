@@ -6,21 +6,26 @@ class Intermodal < Formula
   license "CC0-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7b08d23c2cd1393295a670d32edc4d4776b5e2d5124574cbb27a332e66a3b202"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1f873e05c4b6c00717b18cd0b49248cc9d126b6aa37232a0d9de2228b4cd0907"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "53009e91234fdb3598c91b82e6b9986f56c06468b40653fa04cbd131340c5fd5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "d2f1d0bd08f541bd0c7d4e40d05e9a55b85d7ecf5415ac46af4ed6838b46aabe"
-    sha256 cellar: :any_skip_relocation, sonoma:            "d9a681fa9cb105b9b7de1d3d6be81dd5858da7fefd52331e552154c98647b3c1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e1d91a49b2e5b2b1687de635be27e3406d0124dc57f2b78f5febcade82bf84ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "40616ffe3acc0e553d24b803f8c5234c5013127b49f4ab18452fc9565861a887"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d6182f32f8d3f901ce2b36018df5a6587299b3a97c6318651b71784ce3e03c7d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "48e2b42b49eeb7957a74d2e52b44b497049ede8a3cc90aa6589038337e40a605"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2837a22ce775db6f40debefd3fd0741209840616585b25bfadad4d6bf29e2fb9"
+    sha256 cellar: :any,                 arm64_linux:       "8c5640aa28c15c64e48a753cf6fc0de5ae88c24700d6d2c54d6c330380e5a6d5"
+    sha256 cellar: :any,                 x86_64_linux:      "2b4b415b876e4754355772187bb13e85acc904907b4e721eccbc5332c745fbaa"
   end
 
   depends_on "help2man" => :build
+  depends_on "openssl@4" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
-  on_linux do
-    depends_on "openssl@3"
+  # Update to openssl-sys 0.9.114 for minimum needed to use OpenSSL 4
+  patch :DATA
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install
@@ -36,3 +41,21 @@ class Intermodal < Formula
     system bin/"imdl", "torrent", "verify", "--content", test_fixtures("test.flac"), "--input", "test.torrent"
   end
 end
+
+__END__
+diff --git a/Cargo.lock b/Cargo.lock
+index 0cc8c5c..c1e74d4 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1256,9 +1256,9 @@ checksum = "d05e27ee213611ffe7d6348b942e8f942b37114c00cc03cec254295a4a17852e"
+ 
+ [[package]]
+ name = "openssl-sys"
+-version = "0.9.112"
++version = "0.9.114"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "57d55af3b3e226502be1526dfdba67ab0e9c96fc293004e79576b2b9edb0dbdb"
++checksum = "13ce1245cd07fcc4cfdb438f7507b0c7e4f3849a69fd84d52374c66d83741bb6"
+ dependencies = [
+  "cc",
+  "libc",

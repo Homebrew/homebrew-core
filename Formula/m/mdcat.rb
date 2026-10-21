@@ -1,17 +1,17 @@
 class Mdcat < Formula
   desc "Show markdown documents on text terminals"
   homepage "https://github.com/BIRSAx2/mdcat"
-  url "https://github.com/BIRSAx2/mdcat/archive/refs/tags/mdcat-2.18.0.tar.gz"
-  sha256 "a0db6cfb5623396d78420778a077360d3c53fc0252cab28f76af657ddcf0c232"
+  url "https://github.com/BIRSAx2/mdcat/archive/refs/tags/mdcat-2.19.0.tar.gz"
+  sha256 "3be97adf9feff078d95e64f176c957074d20e1111046eb7d7331aefee2c65b9d"
   license "MPL-2.0"
   head "https://github.com/BIRSAx2/mdcat.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "58f017560e8010c8912d9146a56def5fc7a2bcbc78184b708ba3bc089f41db46"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "416494a73ba68f4764127222a9ba1c9aca90400f79234db9864445282a408500"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "19f63a746dc4d356230be87bfa04d0f375690760c7f4f87a4b0023aeda5a78c7"
-    sha256 cellar: :any,                 arm64_linux:       "17277f1fb7a010234c851fae85131534682bcd323f3000215a0317cd58c0a022"
-    sha256 cellar: :any,                 x86_64_linux:      "5e8dc97365dafd33b495ef5e06d76979ac5acc71cb13b7ea7c3c28e2e15e9f07"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8ec48e3625ce7ef829e28c74f0c41fd4e120209c2b793574cb97ab93827d2c61"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1107532868a674eb74dc29c728a346a35f3f515cdda12e24f5f51a384b039ca3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d2bc088b350921156da726de602b7056556dff9e21e7a45f372923d7a75238c0"
+    sha256 cellar: :any,                 arm64_linux:       "c785fbfb0a53dee7d428b762297fef09ff66fe2091fcff844a317fe061a3356d"
+    sha256 cellar: :any,                 x86_64_linux:      "c9a4ef930ea3b9c721d357de6dd5faa37920cba1aa622f481e26718493291c51"
   end
 
   depends_on "asciidoctor" => :build
@@ -21,7 +21,13 @@ class Mdcat < Formula
   uses_from_macos "curl"
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install

@@ -4,6 +4,7 @@ class PostgresqlAT14 < Formula
   url "https://ftp.postgresql.org/pub/source/v14.24/postgresql-14.24.tar.bz2"
   sha256 "a7fa7ed3d558172355f51406097a7bd4f6b473be80f311ef7cda96bf383d8897"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -11,13 +12,11 @@ class PostgresqlAT14 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "84db2ae3e1a3502ad171c07c09facf378310c3cc9bcb154c3dc3d2dc28eaea41"
-    sha256 arm64_tahoe:       "8e7717ecebd0dc94bf7e109ee9193095bd53c9ba68c54f71f4ebb7479050d30a"
-    sha256 arm64_sequoia:     "fa85e17006952656df354cf0b79621425c4cb730b861c6444b1534219da15a9e"
-    sha256 arm64_sonoma:      "f9daa68a9da56602b0a2fc53b29442f54c4c71879e9c1dbe7f92f06dee9a1f10"
-    sha256 sonoma:            "f7afb4270306ca7ffa3d22c8b0fe793e5482e8ef22e7dfc8d59a5f916566fbbc"
-    sha256 arm64_linux:       "899706aeff56d11431b2b6d87272f45378c1745647814dee3f4af4e9c7a69e98"
-    sha256 x86_64_linux:      "069f271a6ea2b2705e770ffaf8c695e6a85f8f9a3ea754318f99f2de7306afb7"
+    sha256 arm64_golden_gate: "807534e55e779d6b5eff854e03d84411a67e1fa1335abde6e2ce2e662369d94e"
+    sha256 arm64_tahoe:       "51717d32631721b3aef29c3cd7b1cc77d6d35be7e26e42f295d65286ff7255f9"
+    sha256 arm64_sequoia:     "d3e86e1a11ff072ca88bcd9d50e3ce553ab8fa73fa4ed09b7b9230815855b3b0"
+    sha256 arm64_linux:       "4641f92ab704d4e089a8cbc20512c44de0bae602f13167220e4421a17cde6fff"
+    sha256 x86_64_linux:      "78545b277fe40e3a8c02973a6e74aee3139e23face8dbfb08429326af52c5c76"
   end
 
   # deprecating one year before the last release,
@@ -33,7 +32,7 @@ class PostgresqlAT14 < Formula
   depends_on "krb5"
 
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "readline"
 
   uses_from_macos "libxml2"
@@ -49,8 +48,8 @@ class PostgresqlAT14 < Formula
 
   def install
     ENV.runtime_cpu_detection
-    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@3")} -L#{formula_opt_lib("readline")}"
-    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("openssl@3")} -I#{formula_opt_include("readline")}"
+    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@4")} -L#{formula_opt_lib("readline")}"
+    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("openssl@4")} -I#{formula_opt_include("readline")}"
 
     args = %W[
       --disable-debug

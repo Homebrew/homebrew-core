@@ -32,6 +32,8 @@ class ColladaDom < Formula
   # Issue ref: https://github.com/rdiankov/collada-dom/issues/42
   patch :DATA
 
+  deny_network_access!
+
   def install
     # Remove bundled libraries to avoid fallback
     rm_r(buildpath/"dom/external-libs")

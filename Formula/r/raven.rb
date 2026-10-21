@@ -6,21 +6,19 @@ class Raven < Formula
   url "https://files.pythonhosted.org/packages/d8/b6/4bc5aecae28382720fca4e9492a623e3d821d96e8f4d06e4335c77779ebd/raven_cycode-1.0.9.tar.gz"
   sha256 "a7cb02102b43dbaad3b50970f92090b86a3b3bb65aae9976a3887f4c8c935238"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_golden_gate: "4f6985ca01ac13b6b31aeaeac70670d41fbede6858121b51d5cc654cda7e1a36"
-    sha256 cellar: :any,                 arm64_tahoe:       "d3e905633eb1f0d3d7e5fc048e8fe2fa6a5790243c0181db8e2c190705fe8a80"
-    sha256 cellar: :any,                 arm64_sequoia:     "01217a819e571872f899fa5d9c6ceb79618c31e6a837936457c241a1ea555b2b"
-    sha256 cellar: :any,                 arm64_sonoma:      "7aa0a40d4446df2aad0c7d8db6e29701607ab32335e4a70101b77d9c1ea99ce2"
-    sha256 cellar: :any,                 sonoma:            "ce38a5aedcd289f909feea97abe3d5b0c7e1226832d7035561aafac30ba8b688"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2b2a4dc459ba3a8920aabae6e35d660a72c5db180028a16234e9f9cada84be28"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9bfe3e68919eef6de9f572601c59174431425ba393bc5a9b7b8a84a59a757123"
+    sha256 cellar: :any, arm64_golden_gate: "905c5480df3e288357ac5c99c9fad0864e3417bdd9bfa970507da6ba3d74ca41"
+    sha256 cellar: :any, arm64_tahoe:       "0f332623bce5bcb2aa0464cdceaefdeaca376ef7bce3519a65f76deb88d66541"
+    sha256 cellar: :any, arm64_sequoia:     "caafc5679fedbab92575c72453eeba751ff1fdee03b5cee923e68ef4a9c4630d"
+    sha256 cellar: :any, arm64_linux:       "4a8584e63c49461b311989605ad075755a7d48b1e450d44ba2899dfa005336da"
+    sha256 cellar: :any, x86_64_linux:      "978fb4009feff657889650b061e30655b58cd3ea37b48ade99d80fded46f4df7"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 
@@ -129,9 +127,20 @@ class Raven < Formula
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
     sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+
+    # Backport fix for OpenSSL 4 until upstream updates urllib3 pin to allow 2.8.0
+    patch do
+      url "https://github.com/urllib3/urllib3/commit/627636551e0e0159996b0f28dd21a60372cc5b10.patch?full_index=1"
+      sha256 "6e5f13b1b60313fbd8a70d0aab58f7c6a413f641ad6fa2e5a3539e3de68bbe27"
+      type :backport
+    end
   end
 
   def install
+    urllib3 = resource("urllib3")
+    odie "Remove urllib3 check as version is now >= 2.8.0!" if urllib3.version >= "2.8.0"
+    odie "Restore urllib3 patch!" if urllib3.patches.empty?
+
     virtualenv_install_with_resources
   end
 

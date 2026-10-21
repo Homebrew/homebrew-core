@@ -3,22 +3,21 @@ class Pyspelling < Formula
 
   desc "Spell checker automation tool"
   homepage "https://facelessuser.github.io/pyspelling/"
-  url "https://files.pythonhosted.org/packages/fe/ed/3fe00b8a3f8a74a993e1e08931d674cde7bd718c1af44ef415ff1f6b000b/pyspelling-2.12.1.tar.gz"
-  sha256 "9108981dc174d6400a7ed4917cf4af91daf3eb83578d4570c0726b92c2a32e7a"
+  url "https://files.pythonhosted.org/packages/1d/49/4a80f24e1188286e65c2c5005415ddac0d64a8c2cc975f00b5758ca51db1/pyspelling-2.13.tar.gz"
+  sha256 "6464afb9da9d3fd35b11a47d0297b67f4f1e3ba73a98d948326b34a85deb4ab1"
   license "MIT"
-  revision 3
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a174a1d067b3b4eea7ceeb70836c230ba9146a85d0675062b1a4a864acf13696"
-    sha256 cellar: :any, arm64_tahoe:       "53ef517e0c3a54ce3b3e0f74f9b81838f6fec74aac2d84fce7054b71ed9d4211"
-    sha256 cellar: :any, arm64_sequoia:     "ddfa190d29c754cbe0eae7a38152585a82c180269fb7e97f5b6463fb22ab8d05"
-    sha256 cellar: :any, arm64_linux:       "20e14770e3c8f61e9e1751386af491590e166a55dd2089e7f984e6a727307aa4"
-    sha256 cellar: :any, x86_64_linux:      "b1b09834642fca3b35dca5789a48a20cb7a6435b6d55704888e9902fa85e1e79"
+    sha256 cellar: :any, arm64_golden_gate: "12db2ce810e6f3cfa64f7c94718cc5bdbdb58fa91c2d43685f4e3536e9b45b5d"
+    sha256 cellar: :any, arm64_tahoe:       "78cf99aae0a98c0c26b423c69380a78bfac87a39bd2226d2b5a223bef8935cbf"
+    sha256 cellar: :any, arm64_sequoia:     "cb295663ea2da4d52f066d9fbca89c68dd5d2cd8866bedec74bbe293e6d398b6"
+    sha256 cellar: :any, arm64_linux:       "4dccbc6e828b64a291a46f7f755df4c53114945ae23736afcbfb77cedafa73b7"
+    sha256 cellar: :any, x86_64_linux:      "f95c38dfd655841039efbf35c9b04a96f976a2a68aacecfc6ec4ea667543506f"
   end
 
   depends_on "aspell" => :test
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
@@ -29,8 +28,8 @@ class Pyspelling < Formula
   end
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/ac/01/5f394b8bcd6e5b92f73130990960423bbb19711f906bd9fe9ea5557c667c/bracex-3.0.1.tar.gz"
-    sha256 "4e38e32392e4a4780fe15d644bfc7c8514057cfc3861e060b11814ce829c25e4"
+    url "https://files.pythonhosted.org/packages/e1/60/e2a6409041cb3f8ce7ac3d6917b5b30c39f81a0a5b2d414ec30f36fd96bf/bracex-3.1.tar.gz"
+    sha256 "35c69fc105f08d77c02722e8ae707c656ff298dd4d26c89bcb3c98fca8bc3614"
   end
 
   resource "html5lib" do
@@ -52,8 +51,8 @@ class Pyspelling < Formula
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/29/6f/da4c6aea59b3001f2e8c0ec7497475aadaf3b021c10cab5b2858f0f32b26/markdown-3.10.3.tar.gz"
-    sha256 "3589362618f743188b4d955b874402bc814f4f83f544dc207719f4baa7d9c45f"
+    url "https://files.pythonhosted.org/packages/f8/4f/700155c8c20d9e655dd0732b5fc3c7614f291b9148da271d7388e50bf774/markdown-3.11.tar.gz"
+    sha256 "180224db6aed87ba9ce1f2781ebcd5826253de8ff637112090e24b84502bbf9f"
   end
 
   resource "pyyaml" do
@@ -67,8 +66,8 @@ class Pyspelling < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/69/99/a6ca3beb3ccacb41fb3321d8a60e5566f9e6467601ef8eba6a17e1b89778/soupsieve-2.9.2.tar.gz"
-    sha256 "4a55d8cf158a9c2e587fa4922f1bbb91d68ac829e2d6f25403a85747c71daf74"
+    url "https://files.pythonhosted.org/packages/e2/28/d05a6e0818f302952dc80fb1054a1e617ec6cba9dd8f9cba75df445f3be8/soupsieve-3.0.2.tar.gz"
+    sha256 "841ce01c8e80b3bf95c2f2657f191b024be1cdd9d6c0d24a663af247da81911a"
   end
 
   resource "typing-extensions" do
@@ -77,8 +76,8 @@ class Pyspelling < Formula
   end
 
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/57/43/30e407989e313677dbb9d5f045f966549a7254834571e342eaa4b55cc67b/wcmatch-11.0.1.tar.gz"
-    sha256 "1ea2b4fa678b8ca268253798d5963935df39132d47c3e241c0a0732224005e7d"
+    url "https://files.pythonhosted.org/packages/78/cd/0e028d8b7d906d51acdac537334fbe85f8284f2a8147d48bc9403af77a0d/wcmatch-11.1.tar.gz"
+    sha256 "f2b6f0fad6f5e2571498723fcb3c8facdd0fba0dcc139f31d32f592eb648153e"
   end
 
   resource "webencodings" do

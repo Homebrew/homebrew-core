@@ -4,22 +4,14 @@ class Nanomsgxx < Formula
   url "https://github.com/achille-roussel/nanomsgxx/archive/refs/tags/0.2.tar.gz"
   sha256 "116ad531b512d60ea75ef21f55fd9d31c00b172775548958e5e7d4edaeeedbaa"
   license "MIT"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "78673eebb3989c953b3d8423dc5bea9f1a9422bf000552cf3bcf1d3b08d1f807"
-    sha256 cellar: :any,                 arm64_tahoe:       "e859aa7a86e2a0703c6c26f69a6c841a2a92bb00c0f5617f472cac0bfed51457"
-    sha256 cellar: :any,                 arm64_sequoia:     "e00674de838fa31a3eb50d9ce61925893777887d27fd28772cfc5baa2582069b"
-    sha256 cellar: :any,                 arm64_sonoma:      "d792d22d76f9b3a2ca31eaaafa8853cd5d04a29bd0b635ecf6a2d1789e02bc7d"
-    sha256 cellar: :any,                 arm64_ventura:     "edb680fdffb9c416a4d16175673b8a94f1ad2c84a668ff3814f749a811f98889"
-    sha256 cellar: :any,                 arm64_monterey:    "8436ab0a7b9ed4472dfa37e576b2003510ca115e1ae686b2352d3bb00c351d92"
-    sha256 cellar: :any,                 arm64_big_sur:     "722cb87d23c8dc14f3be995f3a83d3c8da43a2b76ebf621d57c27d63ce7c2598"
-    sha256 cellar: :any,                 sonoma:            "2e682a0178342df86acb5df585a0df7a2af0455a86b151d7c45648e74c6ee8ad"
-    sha256 cellar: :any,                 ventura:           "b3f6da0864f1363f4841affd17e32669c718e39865e5678af6fc968799e0fb96"
-    sha256 cellar: :any,                 monterey:          "2cfef95f0fc27d9d297a50191ae3d8e1d69b9a8f80ff3f34bc6bb90a9626a41f"
-    sha256 cellar: :any,                 big_sur:           "6509c8160cbe5dba38a77d3adc1f1d5d515feff427bad6441992dc40cb5b4d1a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5477033f88e080325eb53fbe0226f7e19c34fcbe0a0b5650c079d2029f319936"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ed20e2617835e53e1ee41927a5066275c7b7a6058de093932be16bb89bf23cd4"
+    sha256 cellar: :any, arm64_golden_gate: "01912c3e6e92067cd9b234006271a00b235a3a91f15f5e1948aa7add4830b6b8"
+    sha256 cellar: :any, arm64_tahoe:       "8517e8dc49794d794f4a1fd2473039e6bb1d0e90065bb53123ddc4bcf652fbe2"
+    sha256 cellar: :any, arm64_sequoia:     "f6a068a937d9f6eb8f01697600b851a6e4a938349037d759f52b2f14133f7529"
+    sha256 cellar: :any, arm64_linux:       "f409ca07a6bbec34e33aa96c8306594731eedfb9aefce36fa7c863d9a222137e"
+    sha256 cellar: :any, x86_64_linux:      "8b59ee63415ff903446f997a7a8373cfc1803aa370e323cfdf68dd20fc4dd273"
   end
 
   depends_on "pkgconf" => :build
@@ -61,6 +53,7 @@ class Nanomsgxx < Formula
       --static
       --shared
       --prefix=#{prefix}
+      --libdir=#{lib}
     ]
 
     system "python3", "./waf", "configure", *args

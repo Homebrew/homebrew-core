@@ -10,16 +10,17 @@ class Cruft < Formula
   head "https://github.com/cruft/cruft.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9e15ea5625cbbefe96c4f4cf93894ff360a3f136e45960a9fc40465496752dde"
-    sha256 cellar: :any, arm64_tahoe:       "aa72c382215a78455c3a511055874977be3fb2d2a9fc5df1e7eba8f3248c0f36"
-    sha256 cellar: :any, arm64_sequoia:     "5c95580197564fc64d2dbd43655ac503b3ef4209ce18fb6cc1b10c80560733f3"
-    sha256 cellar: :any, arm64_linux:       "0c196bf37152a6d5452e066ec6d3457b2490f6b70f600e56118e06abde0ac736"
-    sha256 cellar: :any, x86_64_linux:      "11491f2508da35d0cdd7cf9c66f7669974ec03431c8a1fcf50698c817aa6173f"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "cb157a7b1efb64d2ee8e1806692fd3d79407f3fb2c7d883c67aec89ac0cdd2dc"
+    sha256 cellar: :any, arm64_tahoe:       "5396bf7a09f3c6ebac9a4dd629c6fe4ebca133546ccb50d342930e41ebd36aa3"
+    sha256 cellar: :any, arm64_sequoia:     "5975a276eab3d1635943ec45e169358734c90c44bd86bc0ecfafb9f8b8610a1e"
+    sha256 cellar: :any, arm64_linux:       "94099985f5af1f6aa83e955d29a6b3e07e6796cc3dc07f2c817a693c8f059d25"
+    sha256 cellar: :any, x86_64_linux:      "435701b01130fe8877f2a5b202fe96e38507faecb03976f848b15810e58391ea"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 
@@ -59,8 +60,8 @@ class Cruft < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/e0/db/3ca813cbacb23ab6fe46ff38a9b5ef8e73e970c8051f2ce903aacafe0446/gitpython-3.1.62.tar.gz"
-    sha256 "1791de66309bc0c7cfca40bf8d2e3de7ca091cbf94e6051be1ad0722c61062af"
+    url "https://files.pythonhosted.org/packages/6e/2d/6f6e649818da44d4499604802c89329b8d9799687a124e3a5e467a643336/gitpython-3.2.0.tar.gz"
+    sha256 "fb92310af6844d96adc95ca066ed2e617c00e1dbd146a326626c81e72e18cc2e"
   end
 
   resource "idna" do
@@ -79,8 +80,8 @@ class Cruft < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "mdurl" do
@@ -99,8 +100,8 @@ class Cruft < Formula
   end
 
   resource "python-slugify" do
-    url "https://files.pythonhosted.org/packages/ad/df/32c87abe18f7d0560e2154ffbe23dfca6edad5d0d2d6c4636c99f4fb8b02/python_slugify-9.1.2.tar.gz"
-    sha256 "bd36ca98e5ebb1cd2b9dfa2f27b948ce87402fb083b762cbd9d0fa3aed489a92"
+    url "https://files.pythonhosted.org/packages/bd/e8/26b1af09d728d604dc16427a39f53985b22a170dbd61addac3f48db73f03/python_slugify-9.1.3.tar.gz"
+    sha256 "90e997f2e0987239ce95e12f700086eb18e1d1d3ee22624fbbdbd095afca42b6"
   end
 
   resource "pyyaml" do
@@ -139,13 +140,13 @@ class Cruft < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/16/f7/57713ba479fd405eb76de31404b2c744c289e336b2d999511ebf51e496f7/typer-0.27.2.tar.gz"
-    sha256 "269b7eb9d3c202ca84b4bc9618cb04ebb43d3d4d1e567e4c768607232c05f945"
+    url "https://files.pythonhosted.org/packages/03/51/d33db42cc72ffd8c30777547b42d01f0cbf9d95a770457698d0174b3ed71/typer-0.27.3.tar.gz"
+    sha256 "d0396f770a560ab1b0a8504e13b5f254b728cedb05c61cf0359e944e50ce8901"
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/e4/31/3d74fa778a63b98b7374323befcc0be5ab3bd94afd4096a0124e7379152c/tzdata-2026.4.tar.gz"
-    sha256 "f1b8bd365d8d210c55353f4d7f8d6d8561c0ba50d704b700d195a9424bba0d79"
+    url "https://files.pythonhosted.org/packages/d9/68/f1b440335057bfce71b6e50a9d09445aa2ecbd08359a337976627b8409e7/tzdata-2026.5.tar.gz"
+    sha256 "8cc73c0a0bfca7dbfa59235d60b2eff82231dee33f53d206db1acd9173cfc0a7"
   end
 
   resource "urllib3" do

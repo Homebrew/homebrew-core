@@ -1,8 +1,8 @@
 class TreeSitterCli < Formula
   desc "Parser generator tool"
   homepage "https://tree-sitter.github.io"
-  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.27.0.tar.gz"
-  sha256 "d35c96e68736bd9569d2757c3cc71052485f33082c3825f1aed9d0e86013a159"
+  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.27.1.tar.gz"
+  sha256 "982cd3d4d9eb7be18c243240a622423fd2e4ecb4bec2cd98832c2f3fa1f0f333"
   license "MIT"
   head "https://github.com/tree-sitter/tree-sitter.git", branch: "master"
 
@@ -11,12 +11,11 @@ class TreeSitterCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7511d666e46b50ccec5e7c4a92ba84a975c31da1889974707cc9f3b8ea001f9a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c1e4865e90a81586656c0027daef6046757968659c5cebe1f99321ab4e04a021"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "60e4cb5e6ccd6a68e0c0eaddbc6038445cb10b371d3aec47ba258fb3f37617c2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "d0e56ea40a11bd7014eeaa98355b36569c6bd7d24ddfd2198f653fdbe73ec15b"
-    sha256 cellar: :any,                 arm64_linux:       "19eb18ac3cf6c11416d2143764efc8c0928ac6e462423ad4578decfbddceacf1"
-    sha256 cellar: :any,                 x86_64_linux:      "88c855f4b54e377a69cb86c457b99716015d0f9e0d4d5b75f01482a37ac747cf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f40e48b912900b22df5ec20785cc08df23bc2e053cd2c6058b614a3a46f7cdba"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f5b208d0e1ad8c0def5460ab590d893deaa320a8ad5fea0f6b3d88a7b023f046"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bee3a06c394bea639f4fc1ff0692262808a8b8873a4ec11e09bf466bd5637ab5"
+    sha256 cellar: :any,                 arm64_linux:       "b351897d830b56f8a39ff53e0d19ac1636241422c6c7949e5fcfec8af645ba3b"
+    sha256 cellar: :any,                 x86_64_linux:      "f327ee508d70ef71fa009615a8c2972d0a4e420faf7f0c148f522c5a69771347"
   end
 
   depends_on "rust" => :build

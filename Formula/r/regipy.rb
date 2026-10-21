@@ -3,16 +3,16 @@ class Regipy < Formula
 
   desc "Offline registry hive parsing tool"
   homepage "https://github.com/mkorman90/regipy"
-  url "https://files.pythonhosted.org/packages/c2/3a/d154b10bbf5ac4051937493311ab74b05c67cab57053875968d7898bb84c/regipy-6.4.0.tar.gz"
-  sha256 "dc3f2fd33af7566ae66a9ddb0b78f15552ac009de262568e4ab7c4e36cb9a9e1"
+  url "https://files.pythonhosted.org/packages/8f/2f/dff9b51191b02c9639fe7bac600a1d658a4a9467d98805ac8fcd6d3d5fd0/regipy-6.5.0.tar.gz"
+  sha256 "8c01a71a1232ed4fc945e2463b35e1ef01f32751fdb8a5adf84de895121976ec"
   license "MIT"
   head "https://github.com/mkorman90/regipy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0f603d354b5663547bd47b732a7b80fa9848b37a74b4fb701e4fcf7e2a73e695"
+    sha256 cellar: :any_skip_relocation, all: "57738fe53628ee77b5565594c9df115561c6f23818ca5e0f1782183d529fc423"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name: "regipy[cli]"
 
@@ -32,13 +32,18 @@ class Regipy < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/b0/ed/fa23d28713004418bbf2407127f80f385bfb0bf4e677bef02c25c27b00ee/pytz-2026.4.tar.gz"
-    sha256 "464303645bafafd72418898368b2429458f709cf1eb6a15372fbcc396b64da63"
+    url "https://files.pythonhosted.org/packages/14/21/d83d6ef28c4c912c4bb4d1dcf591f7b8c6bde87b9c66f9f454677314e16d/pytz-2026.5.tar.gz"
+    sha256 "fa23724b9c486543b9ff54a327ee7569ac83ade54bb9afd0fc18676620401c86"
   end
 
   resource "tabulate" do
     url "https://files.pythonhosted.org/packages/46/58/8c37dea7bbf769b20d58e7ace7e5edfe65b849442b00ffcdd56be88697c6/tabulate-0.10.0.tar.gz"
     sha256 "e2cfde8f79420f6deeffdeda9aaec3b6bc5abce947655d17ac662b126e48a60d"
+  end
+
+  resource "homebrew-test_hive", :test do
+    url "https://raw.githubusercontent.com/mkorman90/regipy/71acd6a65bdee11ff776dbd44870adad4632404c/regipy_tests/data/SYSTEM.xz"
+    sha256 "b1582ab413f089e746da0528c2394f077d6f53dd4e68b877ffb2667bd027b0b0"
   end
 
   def install
@@ -54,11 +59,6 @@ class Regipy < Formula
   end
 
   test do
-    resource "homebrew-test_hive" do
-      url "https://raw.githubusercontent.com/mkorman90/regipy/71acd6a65bdee11ff776dbd44870adad4632404c/regipy_tests/data/SYSTEM.xz"
-      sha256 "b1582ab413f089e746da0528c2394f077d6f53dd4e68b877ffb2667bd027b0b0"
-    end
-
     testpath.install resource("homebrew-test_hive")
 
     system bin/"regipy-plugins-run", "-p", "computer_name", "-o", "out.json", "SYSTEM"

@@ -16,12 +16,22 @@ class Authoscope < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "6a73ecf5bcb046d8f4083230f5f425cbe918b7a792f8474c3921f7d2f1075268"
   end
 
+  # Last release and activity in March 2022
+  deprecate! date: "2026-10-15", because: :unmaintained
+  disable! date: "2027-04-15", because: :unmaintained
+
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   on_linux do
     depends_on "openssl@3" # Uses Secure Transport on macOS
     depends_on "zlib-ng-compat"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install

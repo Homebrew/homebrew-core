@@ -22,6 +22,12 @@ class Bpftop < Formula
     cause "build.rs needs to run clang and not shim for gcc"
   end
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     # Bypass Homebrew's compiler clang shim which adds incompatible option:
     # clang: error: unsupported option '-mbranch-protection=' for target 'bpf'

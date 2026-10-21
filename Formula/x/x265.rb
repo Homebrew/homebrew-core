@@ -22,6 +22,11 @@ class X265 < Formula
     depends_on "nasm" => :build
   end
 
+  resource "homebrew-test_video", :test do
+    url "https://raw.githubusercontent.com/fraunhoferhhi/vvenc/master/test/data/RTn23_80x44p15_f15.yuv"
+    sha256 "ecd2ef466dd2975f4facc889e0ca128a6bea6645df61493a96d8e7763b6f3ae9"
+  end
+
   # downloads a test file
   allow_network_access! :test
 
@@ -77,11 +82,6 @@ class X265 < Formula
   end
 
   test do
-    resource "homebrew-test_video" do
-      url "https://raw.githubusercontent.com/fraunhoferhhi/vvenc/master/test/data/RTn23_80x44p15_f15.yuv"
-      sha256 "ecd2ef466dd2975f4facc889e0ca128a6bea6645df61493a96d8e7763b6f3ae9"
-    end
-
     resource("homebrew-test_video").stage testpath
     yuv_path = testpath/"RTn23_80x44p15_f15.yuv"
     x265_path = testpath/"x265.265"

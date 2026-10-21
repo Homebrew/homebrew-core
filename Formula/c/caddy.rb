@@ -1,17 +1,17 @@
 class Caddy < Formula
   desc "Powerful, enterprise-ready, open source web server with automatic HTTPS"
   homepage "https://caddyserver.com/"
-  url "https://github.com/caddyserver/caddy/archive/refs/tags/v2.11.6.tar.gz"
-  sha256 "cb65c6d2081e2700f44e03d808a0330344b483688934c87e53ba7b5728a3a04b"
+  url "https://github.com/caddyserver/caddy/archive/refs/tags/v2.11.7.tar.gz"
+  sha256 "86e39de5fa0bc433a9cd574a00e7751059903401f3389c61f8937fd0ad0180f5"
   license "Apache-2.0"
   head "https://github.com/caddyserver/caddy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1b873c00dc3a62cd38c62081cd58736259ff3355868b79351ed70aeb6c50e97f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1b873c00dc3a62cd38c62081cd58736259ff3355868b79351ed70aeb6c50e97f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1b873c00dc3a62cd38c62081cd58736259ff3355868b79351ed70aeb6c50e97f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9adc9e9e5361b8f7befe187a99e1db4a66889263781070a6cff6dd4fe26ecf19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "263507fdd358fab21318e13ee4aaf03148ac76a4a9523830369d5c04c0fa15f2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7afb55ae0f5a46a9d76a8278ef999a8f7abc8fdf7fe55b7dae615af5de1ab5b5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7afb55ae0f5a46a9d76a8278ef999a8f7abc8fdf7fe55b7dae615af5de1ab5b5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7afb55ae0f5a46a9d76a8278ef999a8f7abc8fdf7fe55b7dae615af5de1ab5b5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "58964220f1b630583efd669d7181a7691d962ab8ee3c33c7c1025085534a2660"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "4b2f7b09cead0281082a9cc84fcd0a118f33fab46409a3ad6a9ac921b8d2f1ea"
   end
 
   depends_on "go" => :build
@@ -19,6 +19,11 @@ class Caddy < Formula
   resource "xcaddy" do
     url "https://github.com/caddyserver/xcaddy/archive/refs/tags/v0.4.5.tar.gz"
     sha256 "53c6a9e29965aaf19210ac6470935537040e782101057a199098feb33c2674f8"
+
+    livecheck do
+      url :url
+      strategy :github_latest
+    end
   end
 
   # `test do` block runs a local server

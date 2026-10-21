@@ -26,6 +26,8 @@ class GoAT125 < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
   def install
     libexec.install Dir["*"]
 

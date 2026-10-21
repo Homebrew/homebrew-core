@@ -7,22 +7,28 @@ class OpenapiTui < Formula
   head "https://github.com/zaghaghi/openapi-tui.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7966a0576da1b8cc74a54b5195ec69f1661dbf39dfe3adb5983d3366a14fe718"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "729ecb681e443c4997743c99d139df413b01406076440c6911ce1514c678257d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f7b112fae0439ef77af1a9e09c8a410f01e8c1252b844bc2f7d6b60ab9d07d75"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "d599c38c9300b99b49333535053f1b6fc53818c44ee849ff1757a40f58d236d6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "63b3e891441decfa79e4b67e540c621bd5612ffba84afa88f39331a51288a571"
-    sha256 cellar: :any_skip_relocation, sonoma:            "d97601e0e2591e9f91575a45b4aafd1df30bb1a8e70c45c33a0bba5dfc991c66"
-    sha256 cellar: :any_skip_relocation, ventura:           "4b3b7fbf36c415d947e3036563cf82f868a041599cb4b9a1f527df18f21a6fee"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ef65bdde2ae8c1e3d8ff7732650b2e7191e3521976ceec10438a1e5151f7601c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c1dcf51adfd672b44a54ee82e3e9ba21a8f0021252e50ac40eba70a7ce4e8d5c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b5df572439ff88546c0fdb844b6ff0b8fb844d751f626977e2b3fcf4fafafd6d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fc66816a224994b3047b9cfbbd64295c8830e2fc21d9a340db473fc5de761964"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ce9e1a9b5e68e11c42e43949e8738b648dc91cd444ea84c1cba48e12b589b1f6"
+    sha256 cellar: :any,                 arm64_linux:       "32f74b8dca6dd529fa41deba1d5ff97f2415f1f9d80d3c30aeb06c1e5378d0ba"
+    sha256 cellar: :any,                 x86_64_linux:      "3a2a74500c667e1f6efe8693813d48ea7e02ddecab790db2a381830860d2814c"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
+  end
+
+  # Update to openssl 0.10.78 and openssl-sys 0.9.114 for minimum needed to use OpenSSL 4
+  patch :DATA
+
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install
@@ -51,3 +57,33 @@ class OpenapiTui < Formula
     end
   end
 end
+
+__END__
+diff --git a/Cargo.lock b/Cargo.lock
+index 12b1273..7e1f00b 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -2261,9 +2261,9 @@ dependencies = [
+ 
+ [[package]]
+ name = "openssl"
+-version = "0.10.71"
++version = "0.10.78"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "5e14130c6a98cd258fdcb0fb6d744152343ff729cbfcb28c656a9d12b999fbcd"
++checksum = "f38c4372413cdaaf3cc79dd92d29d7d9f5ab09b51b10dded508fb90bb70b9222"
+ dependencies = [
+  "bitflags 2.11.0",
+  "cfg-if",
+@@ -2302,9 +2302,9 @@ dependencies = [
+ 
+ [[package]]
+ name = "openssl-sys"
+-version = "0.9.106"
++version = "0.9.114"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "8bb61ea9811cc39e3c2069f40b8b8e2e70d8569b361f879786cc7ed48b777cdd"
++checksum = "13ce1245cd07fcc4cfdb438f7507b0c7e4f3849a69fd84d52374c66d83741bb6"
+ dependencies = [
+  "cc",
+  "libc",

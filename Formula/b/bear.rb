@@ -1,18 +1,17 @@
 class Bear < Formula
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/refs/tags/4.2.2.tar.gz"
-  sha256 "9f9d0236bf0751cb4f5d747c077697f396546ba1ad8653c2e9b7192ea47df14a"
+  url "https://github.com/rizsotto/Bear/archive/refs/tags/4.2.3.tar.gz"
+  sha256 "7c3901786f01da60d606cc80afdda36e866259b78e1dd7f890fd42cee64d3574"
   license "GPL-3.0-or-later"
   head "https://github.com/rizsotto/Bear.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4c149fdfabb8e9e4242e92209fbe96fd0aa34aafa9aaea4bd1987a8c126ad044"
-    sha256 cellar: :any, arm64_tahoe:       "d9dc45bb5c7eff6eee31605eefee286ba5d9a1240fc758a72da81ea0e0e7170c"
-    sha256 cellar: :any, arm64_sequoia:     "9d13c377975426b6b530f3b8f09afc0e4b4bf628e1443489f69257ea9b1d93ca"
-    sha256 cellar: :any, arm64_sonoma:      "0e218fccdf4bc62ef814fd8eaa0021ae52a27927798e831e5489c23b0bfd8229"
-    sha256 cellar: :any, arm64_linux:       "f144db41fa0559506091621e1ceb429aad9ee7dc93f945b84e9029da11aa90b3"
-    sha256 cellar: :any, x86_64_linux:      "1078d725e00e6dd2530ddae37ed4e8af0bd221ab3944170f26d8d3cd3ce9e48c"
+    sha256 cellar: :any, arm64_golden_gate: "2c445a926e272eb3ead9bdff8a2e4d3b62c7533baba77a8dbbd998541370b757"
+    sha256 cellar: :any, arm64_tahoe:       "7353e6f874632db78f123de076a7b30bd9015cd9fef74a01268e0045397a093b"
+    sha256 cellar: :any, arm64_sequoia:     "8b78d97468c9ab433b9df184d5b5bdc7f28b93473e3d7cd46296a6496c10c97b"
+    sha256 cellar: :any, arm64_linux:       "fb9c0b47e5bd2b286f23e570362cdf1a2df6f093f6a7b345f5c50eeaf8ab6de8"
+    sha256 cellar: :any, x86_64_linux:      "89693fb1a122301d8600c0a226d0eb89ae704ba9535e3633d902fd20ad09f052"
   end
 
   depends_on "pkgconf" => :build
@@ -21,6 +20,12 @@ class Bear < Formula
   on_linux do
     depends_on "lld" => :build
     depends_on "llvm" => :test
+  end
+
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install

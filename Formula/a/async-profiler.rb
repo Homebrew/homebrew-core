@@ -1,23 +1,23 @@
 class AsyncProfiler < Formula
   desc "Sampling CPU & HEAP profiler for Java using AsyncGetCallTrace + perf_events"
   homepage "https://github.com/async-profiler/async-profiler"
-  url "https://github.com/async-profiler/async-profiler/archive/refs/tags/v4.5.tar.gz"
-  sha256 "807b83aefc86fcb067395d526684f3ea127919d611fe3bde1647938af7522869"
+  url "https://github.com/async-profiler/async-profiler/archive/refs/tags/v4.6.tar.gz"
+  sha256 "f1c8d0a1afac4330d1b4d1bc911874516bc06109d1f5c87d2ff699d9ef4b39cb"
   license "Apache-2.0"
   head "https://github.com/async-profiler/async-profiler.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f3c1f844105a476c8ad552aa922ef61be01e7a07d58e264c54e95cc3f189b01a"
-    sha256 cellar: :any, arm64_tahoe:       "7a6ef5d802f552069cae0f1bf996d2531a483e0b1f6ff1eecde005c5a80a43e3"
-    sha256 cellar: :any, arm64_sequoia:     "0fe8ba37688e5010871840251b95b9ce59fff80f482865a329a603cb655fa4c7"
-    sha256 cellar: :any, arm64_sonoma:      "7eb94695c8ef4e80ba95292113ac2f95558e026a8f3b50ebfe44d6ad59a6a4cb"
-    sha256 cellar: :any, sonoma:            "9f374919114caf5d1d80318db54edea72c0aa81b5c0551ed54651d2fa0c0cc19"
-    sha256 cellar: :any, arm64_linux:       "ebca17f909478321a9d7185b97637af9cd72c30633bcc3fdfb5d02449b179cb0"
-    sha256 cellar: :any, x86_64_linux:      "8e5e7eb07a23f364a054285bf0eb1b77d85023e7af378c6b8ab426503593e9f4"
+    sha256 cellar: :any, arm64_golden_gate: "7c23638889a7f7adaf509a9f97cc9db2247596d06088f498ff51aaf1d5395dea"
+    sha256 cellar: :any, arm64_tahoe:       "c5339c2ba41d116da1ff5947e3a02d472ac9883c938d65741cfb15b9d8661770"
+    sha256 cellar: :any, arm64_sequoia:     "8db797e09b9abb6fc5387f6676cd476397f64c3b5c56f7966ac3a077a8323c7d"
+    sha256 cellar: :any, arm64_linux:       "07d282fe7938f23dafefeba388a5f168f175f7010dd20712bb064e09e7b4ab2e"
+    sha256 cellar: :any, x86_64_linux:      "d67d6f9a28314ac1e9509615abd607fecf11a06f0bd202f4faca38b1cb24ab55"
   end
 
   depends_on "cmake" => :build
   depends_on "openjdk" => [:build, :test]
+
+  deny_network_access!
 
   def install
     args = []

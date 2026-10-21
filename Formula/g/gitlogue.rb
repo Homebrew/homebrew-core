@@ -1,29 +1,40 @@
 class Gitlogue < Formula
   desc "Cinematic Git commit replay tool"
   homepage "https://github.com/unhappychoice/gitlogue"
-  url "https://github.com/unhappychoice/gitlogue/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "cf0814005bd39c02b7c48d385a258e2e4e1fd57980bb57db72ecb490494de06c"
+  url "https://github.com/unhappychoice/gitlogue/archive/refs/tags/v0.12.1.tar.gz"
+  sha256 "1d271302883be633d7d8dfdb7540d2382f2ab0742c9772e43a585e769230ea29"
   license "ISC"
   head "https://github.com/unhappychoice/gitlogue.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fa5b9b9dbf5657e107662f0b89322ea318974880d2fa7cca8a6ddf70661f68ac"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2e3a72a19029a95c36e5b8371f77dfa920396ef4cc9de7a92291b27628e3c5d5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4139f6d66683b69298e15077b9944a7d0710ab3921fbf00ac06b0649592bd585"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "59eb342cc7c8b5775e459ba7568adc110bc9dc6fd17ce33c16b93fa949cc2078"
-    sha256 cellar: :any,                 arm64_linux:       "9701d92549616f3c0c3317a58d6817b1f97bd0b81bce0e536f9ba42699fb7b3a"
-    sha256 cellar: :any,                 x86_64_linux:      "cbf5f41b66b0bd919d1746bfd2049c1c6f2aa38b0cab906df5d462b1c8da5f87"
+    sha256 cellar: :any, arm64_golden_gate: "0e836415cefe7aff2a809b38b18c6640c88d0e125891346d86c693d548b86b95"
+    sha256 cellar: :any, arm64_tahoe:       "4bc975efe411ef6196721117290251c2a360566a03f0a136e990a61c7afec627"
+    sha256 cellar: :any, arm64_sequoia:     "405b4fe91564718e05a52a500090d3d15033432a2698fb9d9362bdbf79c1330b"
+    sha256 cellar: :any, arm64_linux:       "77e90d887d1daf13ceb1be806b7693e9db86cf38b5baf74140032061fa4c73fb"
+    sha256 cellar: :any, x86_64_linux:      "95d1d0db0d287a3a3eef69be068c3b67ca85b19d32d82b67c69e093e4d3a9d7b"
   end
 
+  depends_on "openssl@4" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+  depends_on "libgit2"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
 
+  # Update to openssl-sys 0.9.114 for minimum needed to use OpenSSL 4
+  # Issue ref: https://github.com/unhappychoice/gitlogue/issues/226
+  patch :DATA
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
     system "cargo", "install", *std_cargo_args
   end
 
@@ -33,3 +44,21 @@ class Gitlogue < Formula
     assert_match "Error: Not a Git repository", shell_output("#{bin}/gitlogue 2>&1", 1)
   end
 end
+
+__END__
+diff --git a/Cargo.lock b/Cargo.lock
+index 698ae5b..ce63719 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1197,9 +1197,9 @@ dependencies = [
+ 
+ [[package]]
+ name = "openssl-sys"
+-version = "0.9.111"
++version = "0.9.114"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "82cab2d520aa75e3c58898289429321eb788c3106963d0dc886ec7a5f4adc321"
++checksum = "13ce1245cd07fcc4cfdb438f7507b0c7e4f3849a69fd84d52374c66d83741bb6"
+ dependencies = [
+  "cc",
+  "libc",

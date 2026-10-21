@@ -1,8 +1,8 @@
 class Nmap < Formula
   desc "Port scanning utility for large networks"
   homepage "https://nmap.org/"
-  url "https://nmap.org/dist/nmap-7.991.tar.bz2"
-  sha256 "a5d507f29437bef3bedd4771ff9aaa8fc1c2a109ddba1f5b1cf12027456929be"
+  url "https://nmap.org/dist/nmap-7.992.tar.bz2"
+  sha256 "0c12660eddbf7eabeff6996cb0c044a4eadf2bb0c6fbcb340d6cf72b1caee402"
   license :cannot_represent
   compatibility_version 1
   head "https://svn.nmap.org/nmap/"
@@ -13,12 +13,11 @@ class Nmap < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "da686a61f09704b97db2f688d77925bc343dc5cd0f9bbd2fa5214d3439763c7d"
-    sha256 arm64_tahoe:       "2af6d8142c901b9cafa4a51a9c4f6af9efb5e25dff425640ee9b191e48bd45d0"
-    sha256 arm64_sequoia:     "9981df8a0aedf35b1d0d6aa07d824f21616d2bc19a89d312677467066e73891f"
-    sha256 arm64_linux:       "8f39c06169f489bf54172bddc47690e8f45575f10b1fed412db8457a426c2313"
-    sha256 x86_64_linux:      "7e587aad517ea562de25586e3da591bc88e7edef09783a8e0cac6b0c8a0b4d6a"
+    sha256 arm64_golden_gate: "ccc2756db90d4a7fe768b473ce4e006109002ab5c91aba60034c9969e0be0d8c"
+    sha256 arm64_tahoe:       "affe98fb2db9b7712ca41b6485a4403aad4af549c626032b6c1ea6ed57a75c7a"
+    sha256 arm64_sequoia:     "e3fbe5d32fee8255873112ea0b334370e69dd06d2cdc67ae4595e61aa015066f"
+    sha256 arm64_linux:       "c2aed414bec25d82ed498b9f66cae486a8e586cd75ab4dd5af50a3dfe22d6830"
+    sha256 x86_64_linux:      "3fe32360824e60cd1f0ed7da590edeaf1ffe629a3a14e2dffab1f32794992f28"
   end
 
   depends_on "python-setuptools" => :build
@@ -26,9 +25,9 @@ class Nmap < Formula
   depends_on "libssh2"
   # Check supported Lua version at https://github.com/nmap/nmap/tree/master/liblua.
   depends_on "lua"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
-  depends_on "python@3.14" # for ndiff
+  depends_on "python@3.15" # for ndiff
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -50,16 +49,12 @@ class Nmap < Formula
 
     ENV.deparallelize
 
-    libpcap_path = if OS.mac?
-      MacOS.sdk_path/"usr/"
-    else
-      formula_opt_prefix("libpcap")
-    end
+    libpcap_path = OS.mac? ? MacOS.sdk_path/"usr/" : formula_opt_prefix("libpcap")
 
     args = %W[
       --with-liblua=#{formula_opt_prefix("lua")}
       --with-libpcre=#{formula_opt_prefix("pcre2")}
-      --with-openssl=#{formula_opt_prefix("openssl@3")}
+      --with-openssl=#{formula_opt_prefix("openssl@4")}
       --with-libpcap=#{libpcap_path}
       --without-nmap-update
       --disable-universal
@@ -72,7 +67,7 @@ class Nmap < Formula
     system "make", "install"
 
     # Install `ndiff` separately so that we can use `pip` and `setuptools`.
-    system "python3", "-m", "pip", "install", *std_pip_args, "./ndiff"
+    system python3, "-m", "pip", "install", *std_pip_args, "./ndiff"
     bin.glob("uninstall_*").map(&:unlink) # Users should use brew uninstall.
   end
 

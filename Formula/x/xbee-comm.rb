@@ -32,14 +32,19 @@ class XbeeComm < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
+  deny_network_access!
+
   def install
     system "aclocal"
     system "autoconf"
     system "autoheader"
     system "automake", "-a", "-c"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    assert_match "No such file or directory", shell_output("#{bin}/xbfwup test.ebl 2>&1", 1)
   end
 end

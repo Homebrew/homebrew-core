@@ -23,11 +23,36 @@ class Libfishsound < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "cfaa33c5d408f6f60308bc962a9815b0456de64c8f559c797589ab3f4118f4c3"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkgconf" => [:build, :test]
   depends_on "libvorbis"
+
+  deny_network_access!
 
   def install
     system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <stddef.h>
+      #include <fishsound/fishsound.h>
+
+      int main(void) {
+        FishSoundInfo info;
+        info.samplerate = 8000;
+        info.channels = 1;
+        info.format = FISH_SOUND_VORBIS;
+
+        FishSound *fsound = fish_sound_new(FISH_SOUND_ENCODE, &info);
+        if (fsound == NULL) return 1;
+        fish_sound_delete(fsound);
+        return 0;
+      }
+    C
+
+    pkgconf_flags = shell_output("pkgconf --cflags --libs fishsound").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkgconf_flags
+    system "./test"
   end
 end

@@ -4,6 +4,7 @@ class VapoursynthMvtools < Formula
   url "https://github.com/dubhatervapoursynth/vapoursynth-mvtools/archive/refs/tags/v29.tar.gz"
   sha256 "b1124604f76963e507c537839fd2ef1bee9b89b3c75bbd40c12a0c687aee6775"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/dubhatervapoursynth/vapoursynth-mvtools.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,11 @@ class VapoursynthMvtools < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "07407143717d73511e996d3f4aae90ec2d7d100661b3f729274ddd37c93bfb7d"
-    sha256 cellar: :any, arm64_tahoe:       "6f51dd40f80a4b3de5a353b3536cf3b938aab0191a89661566a471e1f191b189"
-    sha256 cellar: :any, arm64_sequoia:     "f6dfd685bbce67d76cb7f6667b772bf7e08720595c455d14d2b51c7a60a597e6"
-    sha256 cellar: :any, arm64_sonoma:      "4ba2f83033e2cc8ef5a475001c55d17a591795d18cdf4d2964ac1f170a5f868f"
-    sha256 cellar: :any, sonoma:            "a928ba73bd115c65599f35e77e1b244df08be2b7300b82d0c928c836658af4d7"
-    sha256               arm64_linux:       "c3c0373966a9f022eaf611a547b98ab3c7ed4c4226259f9a0c01db1eee43bea3"
-    sha256               x86_64_linux:      "8e89537820532a7d393ad0700e0d7d7ab8be16a96db39c3b164d6a9ac75ca10f"
+    sha256 cellar: :any, arm64_golden_gate: "e630e9616c3ec7785bce37a3506bd4508b18f7c7dca29e165b4a545770b1ebf0"
+    sha256 cellar: :any, arm64_tahoe:       "5cbd3626405d4020e28cf25af2c9a93e2827bda6ce681ae9b5ea4df14371057d"
+    sha256 cellar: :any, arm64_sequoia:     "40e7f01cfff91b6f592c4bbcdbd87ba8f9f1846cc62ad02940ca351b6a114be4"
+    sha256 cellar: :any, arm64_linux:       "66016f9a69063f07b349348e20993c44550bdb6b6a967b7427d2fabc6edc9c7b"
+    sha256 cellar: :any, x86_64_linux:      "3dfdfe71eaa956d719dce300a78a2111f8cd71fd63d947e40e6b641cfabab465"
   end
 
   depends_on "meson" => :build
@@ -26,11 +25,19 @@ class VapoursynthMvtools < Formula
   depends_on "pkgconf" => :build
 
   depends_on "fftw"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "vapoursynth"
 
   on_intel do
     depends_on "nasm" => :build
+  end
+
+  # Fix compilation on Linux
+  patch do
+    url "https://github.com/dubhatervapoursynth/vapoursynth-mvtools/commit/895bf5d145cf8d2f3633ebc3aba0e32fe4cd5a7d.patch?full_index=1"
+    sha256 "412d1d727d3c706a044c2f6cb0ec006114f69e89c6c81503d4fca0131a9c18a6"
+    type :unofficial
+    resolves "https://github.com/dubhatervapoursynth/vapoursynth-mvtools/pull/104"
   end
 
   def install

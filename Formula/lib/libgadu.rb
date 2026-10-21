@@ -19,6 +19,8 @@ class Libgadu < Formula
   deprecate! date: "2026-02-20", because: :repo_archived
   disable! date: "2027-02-20", because: :repo_archived
 
+  depends_on "pkgconf" => :test
+
   on_linux do
     depends_on "zlib-ng-compat"
   end
@@ -28,8 +30,26 @@ class Libgadu < Formula
     file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--without-pthread", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <stdio.h>
+      #include <libgadu.h>
+
+      int main(void) {
+        printf("%08x\\n", gg_crc32(0, (const unsigned char *)"123456789", 9));
+        return 0;
+      }
+    C
+
+    pkgconf_flags = shell_output("pkgconf --cflags --libs libgadu").chomp.split
+    system ENV.cc, "test.c", "-DGG_IGNORE_DEPRECATED", "-o", "test", *pkgconf_flags
+    assert_equal "cbf43926", shell_output("./test").strip
   end
 end

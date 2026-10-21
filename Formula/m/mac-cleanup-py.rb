@@ -9,18 +9,16 @@ class MacCleanupPy < Formula
   head "https://github.com/mac-cleanup/mac-cleanup-py.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b758dfa7e1fa497ba970e9e1c6375141920688f8850c2db02e7915dcef12f3a4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eec63de40a6249ab2595124edfe094dc03a4211226caabb93898c72cea9966c1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4382ec8b1619469791c7f3aa35d7ecc7ab0b3e5a273f6f03b8c85652a5b598f5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "6d3f47bc09461d1ce2c1055669e86b03b599be2676a5119c54d5572da86f9873"
-    sha256 cellar: :any_skip_relocation, sonoma:            "64e1e73ebd95814394446ea78b4b681ee72460070ae38a65c5da165aea81dc26"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0b3cd0f446f075510ab4dd9e12333840ebfc085bd22e3b24a439fab163df4f4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "02577be91ae473eea3b27986d2d81e2cb9c3e85838e1d7c1c4512d1e6c1000fd"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "16df5efa5d888a43507ebfa637852daa78d3061bcff170f3c1cf37003097cd0e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f26249588807d486ba02b29af1ba0810da38d670b501f5b50397ef6cacbc7bb0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d867b29daf8fd7ff360b3fdbc42d908b136c9dec12c1b14566514ec4de4072ce"
+    sha256 cellar: :any,                 arm64_linux:       "9bc2b1cbd5d5cbc342cfd708a31c3e1150f0fea080a1f7d8e306f29949a94f8d"
+    sha256 cellar: :any,                 x86_64_linux:      "9ff100b328563f5c0970d922cbe4807f7940f5fd3dfd6ccb7af8c289e076b8de"
   end
 
   depends_on "cffi"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: ["cffi", "pycparser"]
 
@@ -30,8 +28,8 @@ class MacCleanupPy < Formula
   end
 
   resource "beartype" do
-    url "https://files.pythonhosted.org/packages/04/96/43ed27f27127155f24f5cf85df0c27fd2ac2ab67d94cecc8f76933f91679/beartype-0.22.2.tar.gz"
-    sha256 "ff3a7df26af8d15fa87f97934f0f6d41bbdadca971c410819104998dd26013d2"
+    url "https://files.pythonhosted.org/packages/79/34/c0cfdaee9c796c8381439fed0fcab62810753b8b0adb1ec88fa7f41eaa5d/beartype-0.23.1.tar.gz"
+    sha256 "8b805f246b32931c74f2b321ea0939fe5bb2ff43c12a3eff19cc4c854b832e1d"
   end
 
   resource "blessed" do

@@ -1,16 +1,16 @@
 class Lfk < Formula
   desc "Terminal user interface for navigating and managing Kubernetes clusters"
   homepage "https://github.com/janosmiko/lfk"
-  url "https://github.com/janosmiko/lfk/archive/refs/tags/v0.19.2.tar.gz"
-  sha256 "a129b6b7b81382a6983e1cc05e704925cbe8bc763bffa014dc61022ac38a65ea"
+  url "https://github.com/janosmiko/lfk/archive/refs/tags/v0.19.10.tar.gz"
+  sha256 "14fd340a2ca5c95b80303b2652a18478155da88bed3eccfb3555dc58a4e89fcc"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2d6737723c076ffeb2f58099423743e50a33a4a498394b96c3bd95d314c2aeb9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3d098f24feff7715b63e19ce768ce53dc0cb88586717f86a4ef422c3d100e3f7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "173c1b3ca5f34678310f5aa0f07c4877aafa79e4bb897c8b80bff7e72524009c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3262b55b43867e9efb81f689bbf082dc627f3eaf9c95583b11464553fdd7a225"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c5ecf16c1b30dbec98c1e462ff784e5b255870d1ddadcc7376aa6995859cfd0a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f6a34fde88abe7da04ff3613b38aa813e4c9f367e1ddd0bb2a1432da1f306dad"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f6a34fde88abe7da04ff3613b38aa813e4c9f367e1ddd0bb2a1432da1f306dad"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f6a34fde88abe7da04ff3613b38aa813e4c9f367e1ddd0bb2a1432da1f306dad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "5eab6e7acf3aadcf023f9f2ee3f2d314da3de6c7c83614b782b9e14e43de56d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9fec77cd00909bc316abbf05d887cea046aae37a6e904fc0318109e5cdeabfb9"
   end
 
   depends_on "go" => :build
@@ -25,7 +25,7 @@ class Lfk < Formula
     ENV["CGO_ENABLED"] = "0"
     ldflags = %W[
       -X github.com/janosmiko/lfk/internal/version.Version=#{version}
-      -X github.com/janosmiko/lfk/internal/version.BuildDate=#{Time.now.utc.iso8601}
+      -X github.com/janosmiko/lfk/internal/version.BuildDate=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags:)
   end

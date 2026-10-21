@@ -1,24 +1,23 @@
 class Btllib < Formula
   desc "Bioinformatics Technology Lab common code library"
   homepage "https://github.com/BirolLab/btllib"
-  url "https://github.com/BirolLab/btllib/releases/download/v1.7.8/btllib-1.7.8.tar.gz"
-  sha256 "cd213d20a971ae3441551dd61b0e46a08559e3d9da19cb59ee8dc3397807f121"
+  url "https://github.com/BirolLab/btllib/releases/download/v1.8.0/btllib-1.8.0.tar.gz"
+  sha256 "c78449648f9a512ceb2bc4e95ee349bad4edd864197a63fd6d399e759018eb91"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "3635952650d09c51e89f75eb334c5fc8dd9620b9897bd3d490b84f3ef0630740"
-    sha256 cellar: :any,                 arm64_tahoe:       "c97fa830bec809a259eafea78ad8d575fdd39246e300a094db6e9e6828b20cb1"
-    sha256 cellar: :any,                 arm64_sequoia:     "b199cb1787d5f6650c6ba33e3fe3d84ea4d4bbada0df36cc8f2a79c751eeb2a2"
-    sha256 cellar: :any,                 arm64_sonoma:      "b27993864f2a1b481c89020aa6b2384a4c76a2373213038d97cc1d82b29a593d"
-    sha256 cellar: :any,                 sonoma:            "f265eb6beb110c04dfdb3aa85fbf23016e7b8a8ed4943c3d96da32aebe066905"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e6242f4b4c44840b063c1a159c3afaa12ec00c8044c0a632149b2db29829987b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a40c45bac82f1fdfc8c01fa149515964b3e509a77eee0d47a1900aa738778305"
+    sha256 cellar: :any, arm64_golden_gate: "c0362c25bef5d56648e63f8bf50456eeb46e3420a8edd4507e0e14f909f39ea0"
+    sha256 cellar: :any, arm64_tahoe:       "15384b54b309de50ffdc7ff08201cc226a4be0ac53b3da42d2af487339ed8add"
+    sha256 cellar: :any, arm64_sequoia:     "e91b803f0a1aaa9620df553db4aadf18603a015eb0620152ecd2c182bcf07c77"
+    sha256 cellar: :any, arm64_linux:       "ba3dbf67c5756ad5ebb2e42d702a10df5cd1a33c522f38b670b76e6175094aa2"
+    sha256 cellar: :any, x86_64_linux:      "4877868f7d2238b0f33db9036d4b96bde72d9c6e42e3c2c5efa54b872adf79b6"
   end
 
   depends_on "cmake" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.14" => :build
+
+  uses_from_macos "python" => :build
 
   on_macos do
     depends_on "libomp"
@@ -32,6 +31,8 @@ class Btllib < Formula
     type :unofficial
     resolves "https://github.com/simongog/sdsl-lite/issues/462"
   end
+
+  deny_network_access!
 
   def install
     # Workaround for CMake 4 compatibility

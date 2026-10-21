@@ -18,7 +18,6 @@ class Btfs < Formula
   depends_on "libfuse"
   depends_on "libtorrent-rasterbar"
   depends_on :linux # on macOS, requires closed-source macFUSE
-  depends_on "openssl@3"
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"

@@ -1,17 +1,17 @@
 class Qtgrpc < Formula
   desc "Provides support for communicating with gRPC services"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtgrpc-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtgrpc-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtgrpc-everywhere-src-6.11.2.tar.xz"
-  sha256 "44414617f0058ff34965fa852027bfcc7e4f71eefca8cd4406c96af22c64ad93"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtgrpc-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtgrpc-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtgrpc-everywhere-src-6.12.0.tar.xz"
+  sha256 "771852c4e5fbeb3d7c3b2a9aacc13db9efe942a46e7d1454ec1f16092ec3ef9c"
   license all_of: [
     "GPL-3.0-only", # QtGrpc
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] }, # QtProtobuf
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } }, # qtgrpcgen; qtprotobufgen
     "BSD-3-Clause", # *.cmake
   ]
-  revision 2
+  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qtgrpc.git", branch: "dev"
 
@@ -20,11 +20,11 @@ class Qtgrpc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "79e72ff7aec68fee6f4e0f92dcf98d9dee41a5294516773c5aa7cff4cb736b5d"
-    sha256 cellar: :any, arm64_tahoe:       "ea3ff918ea447375ddfdd34bcea211dfd5a4b520cce377026e0d37eaac2b8807"
-    sha256 cellar: :any, arm64_sequoia:     "c58259a30a34c865d2709a87f2ebed2c797646724386bc67b2821452c1e4c061"
-    sha256 cellar: :any, arm64_linux:       "acdfda33f4e5cc4e0c21bc8f1e4dc45292f1914993380247d8524948165231d0"
-    sha256 cellar: :any, x86_64_linux:      "31df719d5b37614d0b862aa52941ceb677417bb6ff98c4be644b81082a2d4213"
+    sha256 cellar: :any, arm64_golden_gate: "fe99a6bcc97f5198e9804096a81a0c386603f11df1451adb4c6f00315f4cda92"
+    sha256 cellar: :any, arm64_tahoe:       "038147e90ccdc1d3d89a91da2771e08bc584438f89a6b614126f8b831e76c9bd"
+    sha256 cellar: :any, arm64_sequoia:     "76932f09697b959f4ac676f38b5bf43a72277a7c257de59e7d22c4710068992e"
+    sha256 cellar: :any, arm64_linux:       "e027d5489dd47b87a038c4156daa813c9aee7f65eb0de2428a29ee3422e2dd51"
+    sha256 cellar: :any, x86_64_linux:      "35b633f1bb00599e42fef00f7bb1bf94dd6a8fbab1edc145c0f3d733cdfb2e9a"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -35,6 +35,10 @@ class Qtgrpc < Formula
   depends_on "protobuf"
   depends_on "qtbase"
   depends_on "qtdeclarative"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   allow_network_access! :test
 

@@ -24,6 +24,8 @@ class Lldpd < Formula
 
   uses_from_macos "libxml2"
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}
@@ -48,5 +50,10 @@ class Lldpd < Formula
     run opt_sbin/"lldpd"
     keep_alive true
     require_root true
+  end
+
+  test do
+    output = shell_output("#{sbin}/lldpcli -u #{testpath}/lldpd.socket show neighbors 2>&1", 1)
+    assert_match "unable to connect to socket #{testpath}/lldpd.socket", output
   end
 end

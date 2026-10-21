@@ -3,23 +3,23 @@ class GalleryDl < Formula
 
   desc "Command-line downloader for image-hosting site galleries and collections"
   homepage "https://codeberg.org/mikf/gallery-dl"
-  url "https://files.pythonhosted.org/packages/e6/a7/81d656eee98122bbae8234a3e85b6923b19c6c5b7c43d3a907625806003a/gallery_dl-1.32.14.tar.gz"
-  sha256 "70657865488e09c2d7bcabc1faf9b5f8c5a8b550ee123a87ca5c7740f70ed382"
+  url "https://files.pythonhosted.org/packages/4e/7e/3ba52253f4edc121c2e5d4cc1bbc613c29822acd3435eecc54e6308157a5/gallery_dl-1.32.17.tar.gz"
+  sha256 "7e49b3140d23b88e020ff24049dfac59edd855d6fdfb11bc725ad44b0335bbb6"
   license "GPL-2.0-only"
   head "https://codeberg.org/mikf/gallery-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "6d405564af011d2f4453fae3275a0786901d1a96ffd7107b41706c9e141b81da"
-    sha256 cellar: :any, arm64_tahoe:       "d7df515810591bad433089bf3c9c5ba3b95491ad5d1412d7016ed5aa0f9b6a6d"
-    sha256 cellar: :any, arm64_sequoia:     "ec8d614a77435af93a48b42e4817a73157b1ffe439df0cc5cc09f778f0c8705b"
-    sha256 cellar: :any, arm64_linux:       "4ddc44a6567482a9c9830775e1d94473a979ef0c5e035edab5b2333015e687eb"
-    sha256 cellar: :any, x86_64_linux:      "27af792055428d058b9b68423c5601450083b30cb095bc280ff241968a448d92"
+    sha256 cellar: :any, arm64_golden_gate: "2343bea0d4405b6aa63ff27cab0c544d8bd86d359e345973f2d47d4056b3cf78"
+    sha256 cellar: :any, arm64_tahoe:       "07210af70cf13f08ff430de66880a6933e9094317ba529d4ada16c78cafa70cd"
+    sha256 cellar: :any, arm64_sequoia:     "0d91966dba93929bc6c42a83e7cae2e5151f8b6925d34280570c6ad89caa011d"
+    sha256 cellar: :any, arm64_linux:       "55f7116cf36536f4e617be6560e7be8668ea7778de208df9ef22541fd0c7c896"
+    sha256 cellar: :any, x86_64_linux:      "4dfc4d37bd6a7068b0113e4b9a966401819adbebccd071d36f238a3db7eea292"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "yt-dlp" => :no_linkage
 
   pypi_packages package_name:     "gallery-dl[extra]",
@@ -32,8 +32,8 @@ class GalleryDl < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "idna" do
@@ -52,8 +52,8 @@ class GalleryDl < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "mutagen" do
@@ -62,8 +62,8 @@ class GalleryDl < Formula
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/c9/85/e24bf90972a30b0fcd16c73009add1d7d7cd9140c2498a68252028899e41/pycryptodomex-3.23.0.tar.gz"
-    sha256 "71909758f010c82bc99b0abf4ea12012c98962fbf0583c2164f8b84533c2e4da"
+    url "https://files.pythonhosted.org/packages/f4/e7/50e72301e32acb73a314e663c2014e1ddefc019d5f434ff14ec89861d664/pycryptodomex-3.24.1.tar.gz"
+    sha256 "09081666ffc599976c0b8b29caf2cf82212c0f05bed233c8f8ed53e4f6e1d356"
   end
 
   resource "pysocks" do
@@ -87,8 +87,8 @@ class GalleryDl < Formula
   end
 
   resource "truststore" do
-    url "https://files.pythonhosted.org/packages/53/a3/1585216310e344e8102c22482f6060c7a6ea0322b63e026372e6dcefcfd6/truststore-0.10.4.tar.gz"
-    sha256 "9d91bd436463ad5e4ee4aba766628dd6cd7010cf3e2461756b3303710eebc301"
+    url "https://files.pythonhosted.org/packages/ee/9f/c5201d42a484c061e528825fc8e2d565f5abd50a4ced6fb7d29c4ec99b2b/truststore-0.10.5.tar.gz"
+    sha256 "30d36967ccaded5cbb38d602c433f53600036c79d502f4533a49b60a03bbefcd"
   end
 
   resource "urllib3" do
@@ -97,8 +97,8 @@ class GalleryDl < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/18/72/fba934cb3dff7a85d811820efffcd141ddd52b5a2a01637f64551373ff4d/websockets-17.1.tar.gz"
-    sha256 "acfea4c20bf54384883ea33b1240fc1db4f52e190823a4e2b334bc3e8bfca96a"
+    url "https://files.pythonhosted.org/packages/01/89/3f825ab71c242fffb62ea8fe638741c290f62f8d7aadf8125ff897747af3/websockets-17.2.tar.gz"
+    sha256 "36c2fb94c990cc2545143b12690e2de6c16300f9dbe5b4f33fa300cf57dc8792"
   end
 
   resource "yt-dlp-ejs" do

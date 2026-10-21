@@ -21,6 +21,14 @@ class Certigo < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
+  def fetch
+    # `./build` uses a GOPATH inside the source tree, and with it its module cache
+    ENV["GOPATH"] = buildpath/"gopath"
+    system "go", "mod", "download"
+  end
+
   def install
     system "./build"
     bin.install "bin/certigo"

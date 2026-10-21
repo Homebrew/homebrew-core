@@ -40,6 +40,12 @@ class Picotool < Formula
   depends_on "pkgconf" => :build
   depends_on "libusb"
 
+  # from https://github.com/raspberrypi/pico-examples?tab=readme-ov-file#first-examples
+  resource "homebrew-blink_universal", :test do
+    url "https://datasheets.raspberrypi.com/soft/blink_picow.uf2"
+    sha256 "d1e68082a74d3ffac56bc45b1e2df05810704f2cf7b32d2b0e2519b7dffcfee6"
+  end
+
   allow_network_access! :test
 
   def install
@@ -55,12 +61,6 @@ class Picotool < Formula
   end
 
   test do
-    # from https://github.com/raspberrypi/pico-examples?tab=readme-ov-file#first-examples
-    resource "homebrew-blink_universal" do
-      url "https://datasheets.raspberrypi.com/soft/blink_picow.uf2"
-      sha256 "d1e68082a74d3ffac56bc45b1e2df05810704f2cf7b32d2b0e2519b7dffcfee6"
-    end
-
     resource("homebrew-blink_universal").stage do
       result = <<~EOS
         File blink_universal.uf2 family ID 'rp2040':

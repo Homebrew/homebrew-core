@@ -2,9 +2,10 @@ class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
   # NOTE: Make sure to update RPATHs if any "@rpath-referenced libraries" show up in `brew linkage`
-  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2026_03_6.tar.gz"
-  sha256 "d4d20b3b140237084694518aab34fdba6929d44bd7f720bce69329516abef663"
+  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2026_09_1.tar.gz"
+  sha256 "86711e340759a3a0678a2e62f54f26f7ff564c3a02de0460f60b1ce89ac1bfe9"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
   livecheck do
@@ -16,12 +17,11 @@ class Rdkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c4cbaa7f8942d281d4db8827d5c229f57af08dde1903f4bfb16400409b5d6dd6"
-    sha256 cellar: :any, arm64_tahoe:       "dedcf00d2c5b8b1021f3695eeb8788779886ad60dae6c14ac830f72e38ec5622"
-    sha256 cellar: :any, arm64_sequoia:     "80273e89611148b15e117cfe2502494085a3eea88620e201b9c9561e06c9d176"
-    sha256 cellar: :any, arm64_sonoma:      "c9ef0680e9e1ff558ebf8b0b525aa70fc1172c392800311ab2917a4a88adf27f"
-    sha256 cellar: :any, arm64_linux:       "cb9c967c6c923c879fa93718c8c40a4b1203920f854f33f36f5f3665ffbfdf73"
-    sha256 cellar: :any, x86_64_linux:      "a5e9d3892a3c813d4f36f2faddceee1527ba5025118a98dec2a3a25de07081eb"
+    sha256 cellar: :any, arm64_golden_gate: "cc7299912e5ea88e5c2b18dd9989d6b6603e599bc0bd3b05e343fd2e79230e9a"
+    sha256 cellar: :any, arm64_tahoe:       "7659b2095d779622ee0cc1385cca073ea9e29a2584f2d7a94c5550686da8a6c2"
+    sha256 cellar: :any, arm64_sequoia:     "2195c188923bfc38103871bde616a0e0472a0ff0f8f705d2f314a8c907ab6d5c"
+    sha256 cellar: :any, arm64_linux:       "733aa225b08793d129fdc26f980af7d1e7c9bb979dfab818d89400b28f643baa"
+    sha256 cellar: :any, x86_64_linux:      "c01c00c00793e0a6d279d335c4cbe81be2c917621ddf101947ebeaaaf14a436b"
   end
 
   depends_on "catch2" => :build
@@ -39,7 +39,7 @@ class Rdkit < Formula
   depends_on "maeparser"
   depends_on "numpy"
   depends_on "py3cairo" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "expat", since: :sequoia # minimum macOS due to python
 

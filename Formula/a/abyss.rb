@@ -40,6 +40,11 @@ class Abyss < Formula
     depends_on "libomp"
   end
 
+  resource "homebrew-testdata", :test do
+    url "https://www.bcgsc.ca/sites/default/files/bioinformatics/software/abyss/releases/1.3.4/test-data.tar.gz"
+    sha256 "28f8592203daf2d7c3b90887f9344ea54fda39451464a306ef0226224e5f4f0e"
+  end
+
   allow_network_access! :test
 
   def install
@@ -60,11 +65,6 @@ class Abyss < Formula
   end
 
   test do
-    resource "homebrew-testdata" do
-      url "https://www.bcgsc.ca/sites/default/files/bioinformatics/software/abyss/releases/1.3.4/test-data.tar.gz"
-      sha256 "28f8592203daf2d7c3b90887f9344ea54fda39451464a306ef0226224e5f4f0e"
-    end
-
     testpath.install resource("homebrew-testdata")
     if which("column")
       system bin/"abyss-pe", "B=2G", "k=25", "name=ts", "in=reads1.fastq reads2.fastq"

@@ -23,6 +23,12 @@ class Amfora < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "go", "build", *std_go_args(ldflags: :goreleaser)
     pkgshare.install "contrib/themes"
@@ -33,20 +39,21 @@ class Amfora < Formula
 
     require "open3"
 
-    input, _, wait_thr = Open3.popen2 "script -q screenlog.txt"
-    input.puts "stty rows 80 cols 43"
-    input.puts bin/"amfora"
-    sleep 2
-    input.putc "1"
-    sleep 2
-    input.putc "1"
-    sleep 2
-    input.putc "q"
+    Open3.popen2("script -q screenlog.txt") do |input, _, wait_thr|
+      input.puts "stty rows 80 cols 43"
+      input.puts bin/"amfora"
+      sleep 2
+      input.putc "1"
+      sleep 2
+      input.putc "1"
+      sleep 2
+      input.putc "q"
 
-    screenlog = (testpath/"screenlog.txt").read
-    assert_match "# New Tab", screenlog
-    assert_match "## Learn more about Amfora!", screenlog
-  ensure
-    Process.kill("TERM", wait_thr.pid)
+      screenlog = (testpath/"screenlog.txt").read
+      assert_match "# New Tab", screenlog
+      assert_match "## Learn more about Amfora!", screenlog
+    ensure
+      Process.kill("TERM", wait_thr.pid)
+    end
   end
 end

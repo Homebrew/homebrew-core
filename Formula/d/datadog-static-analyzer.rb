@@ -1,8 +1,8 @@
 class DatadogStaticAnalyzer < Formula
   desc "Static analysis tool for code quality and security"
   homepage "https://docs.datadoghq.com/security/code_security/static_analysis/"
-  url "https://github.com/DataDog/datadog-static-analyzer/archive/refs/tags/0.9.8.tar.gz"
-  sha256 "793164c5defd1eeefd2907e60dec00dbe0d8c05f45915af546a0b012ca693b0e"
+  url "https://github.com/DataDog/datadog-static-analyzer/archive/refs/tags/0.9.9.tar.gz"
+  sha256 "20771c833f274a38040964c58f2cea97956a64a44a8b10aa0cca5d215b0e9f19"
   license "Apache-2.0"
   head "https://github.com/DataDog/datadog-static-analyzer.git", branch: "main"
 
@@ -12,11 +12,11 @@ class DatadogStaticAnalyzer < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "76226da7760e7e9da83059d26b85c0706521c429451457b4de7d76bf84a746d8"
-    sha256 cellar: :any, arm64_tahoe:       "a2a76ed543656d5ddc35c97f1a6935ab0ee69e7e51c4e2b9b85228ff5b12726c"
-    sha256 cellar: :any, arm64_sequoia:     "544480b8f02eab8ad462189d009f29972e7354db1e6bbeb58a06dacf9a1534c9"
-    sha256 cellar: :any, arm64_linux:       "072858df9a4aff50558e432cdb90832546ee8dd932bf4047beb4cb8a843c0456"
-    sha256 cellar: :any, x86_64_linux:      "b34fa98012321840c8423faf9beba91154ab0ae9c94004e8c391333709402f48"
+    sha256 cellar: :any, arm64_golden_gate: "df22bf5451becb1092e748fd547f7afb2ed079138fd50659acad23ae085e64a6"
+    sha256 cellar: :any, arm64_tahoe:       "ed448a85f90c9e902b813c1cb7f3997e48a4ee8e7a516b5c2f0e2316832568ed"
+    sha256 cellar: :any, arm64_sequoia:     "3066b05a44c2eb46fe5988beb90feb1ddcfaf6fa65db00b389ed21f16ecb7ea2"
+    sha256 cellar: :any, arm64_linux:       "24283c25140cabf0471bd85ebb7e0aef886eae26eb2e61dcb9d1ffcaaae4ef65"
+    sha256 cellar: :any, x86_64_linux:      "6b067a91a6b28141628d41cb5ec0ebe75916e6fbb4a411c4a3adbc707ad8e9c1"
   end
 
   depends_on "pkgconf" => :build

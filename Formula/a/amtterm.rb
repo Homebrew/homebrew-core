@@ -16,12 +16,14 @@ class Amtterm < Formula
     sha256               x86_64_linux:      "154840975aafddd9adc085ed90130611905e52d1cad8a4aa2c3bc4785a21466e"
   end
 
-  depends_on "glib"
+  depends_on "glib" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkgconf" => :build
   depends_on "gnutls"
-  depends_on "meson"
-  depends_on "pkgconf"
 
   on_linux do
+    depends_on "glib"
     depends_on "gtk+3"
     depends_on "pango"
     depends_on "vte3"

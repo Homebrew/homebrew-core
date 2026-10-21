@@ -24,7 +24,7 @@ class Xmrig < Formula
   depends_on "cmake" => :build
   depends_on "hwloc"
   depends_on "libuv"
-  depends_on "openssl@3"
+  depends_on "openssl@3" # TODO: OpenSSL 4 PR - https://github.com/xmrig/xmrig/pull/3808
 
   def install
     # Use shared OpenSSL on macOS. In cmake/OpenSSL.cmake:

@@ -10,11 +10,12 @@ class Grokmirror < Formula
   head "https://github.com/mricon/grokmirror.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "924e9c9aa89d10c8d10e9311ceedce5e67a714157bd57aeef7013bbbf3d17900"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "4955b0ea765c33769b29d1a4943170783834aef8dbee83804b998adb5aa34ea8"
   end
 
   depends_on "certifi"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 

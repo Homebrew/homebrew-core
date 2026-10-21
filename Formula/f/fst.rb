@@ -1,13 +1,13 @@
 class Fst < Formula
   desc "Represent large sets and maps compactly with finite state transducers"
   homepage "https://github.com/BurntSushi/fst"
-  url "https://github.com/BurntSushi/fst/archive/refs/tags/fst-bin-0.4.3.tar.gz"
-  sha256 "13d1b28a6a6eaf5ce53c1840e7e6c2cb42ff7f846cd57047ddd32601667c8a5f"
+  url "https://static.crates.io/crates/fst-bin/fst-bin-0.4.3.crate"
+  sha256 "b3bc3f5b1becb288856c43673d440ab680d4c4d7221360247dd97cca00b5a20e"
   license any_of: ["Unlicense", "MIT"]
   head "https://github.com/BurntSushi/fst.git", branch: "master"
 
   livecheck do
-    url :stable
+    url :homepage
     regex(/^fst-bin[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
@@ -29,8 +29,17 @@ class Fst < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    cd(build.head? ? "fst-bin" : ".") do
+      system "cargo", "generate-lockfile" if build.head?
+      system "cargo", "fetch", *std_cargo_fetch_args
+    end
+  end
+
   def install
-    cd "fst-bin" do
+    cd(build.head? ? "fst-bin" : ".") do
       system "cargo", "install", *std_cargo_args
     end
   end

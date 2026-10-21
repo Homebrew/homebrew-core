@@ -4,6 +4,7 @@ class Iccdev < Formula
   url "https://github.com/InternationalColorConsortium/iccDEV/archive/refs/tags/v2.3.2.3.tar.gz"
   sha256 "0748d2759b5c010efa84faf1820d9743f88adf79f4d3dc740651a7b579517e62"
   license "BSD-3-Clause"
+  revision 1
 
   # Skip `wasm-` tags
   livecheck do
@@ -12,13 +13,11 @@ class Iccdev < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7fbd974c45874e4b8888c324a4ef69719c7a7101e5662cd03f9be7ffa8f17c8b"
-    sha256 cellar: :any, arm64_tahoe:       "917b5909f944246b9e9093eaf5f6a124f1708d7fc334036b6c4ac37eadf43e4a"
-    sha256 cellar: :any, arm64_sequoia:     "202a8c00a26690ed456723e05c812b2b4fc94bcaffab645c3967b6d3931b245f"
-    sha256 cellar: :any, arm64_sonoma:      "79d49ab254744b22ee1ef3bc679bcd5714b35ca44559614352f939bebb53bdc3"
-    sha256 cellar: :any, sonoma:            "57d4dd57501bec9075f035d11c855c042cd415a27769e2d17a429a4d4b4948d3"
-    sha256 cellar: :any, arm64_linux:       "b231cfb681f280049f9d7e1749976274272de6ed9b00f1eb88ad9a7aff67899a"
-    sha256 cellar: :any, x86_64_linux:      "b4d5d14c0c706f716a68261520cea6e22eb1145ee1105277760b057716d36d02"
+    sha256 cellar: :any, arm64_golden_gate: "dfc00808892abfebefc348e9db6fce3c6f349bd3a20cf3851e4fe74dcc1842f6"
+    sha256 cellar: :any, arm64_tahoe:       "9f97d2e565a33bc9bb3ae4b760e31f34330145001b373c7a4bcfc44de49aa4bc"
+    sha256 cellar: :any, arm64_sequoia:     "e5b8c30310656d3d67497386e575c91a6bdd8599422d4a05b00faaeffd598883"
+    sha256 cellar: :any, arm64_linux:       "e7a4c15007c9610c901ab392af7a27541602d4ed017f55d7349a420ccca67493"
+    sha256 cellar: :any, x86_64_linux:      "8eb53684f54a5a501bb303b4d5f7b379656d5e32f4cef637f662acdb5b39b7e7"
   end
 
   depends_on "cmake" => :build

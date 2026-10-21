@@ -1,28 +1,26 @@
 class Pillow < Formula
   desc "Friendly PIL fork (Python Imaging Library)"
   homepage "https://python-pillow.github.io/"
-  url "https://files.pythonhosted.org/packages/1c/3d/bb7fca845737cf9d7dbde16ed1843984665ff2e0a518f5db43e77ec540b9/pillow-12.3.0.tar.gz"
-  sha256 "3b8182a766685eaa002637e28b4ec8d6b18819a0c71f579bf0dbaa5830297cce"
+  url "https://files.pythonhosted.org/packages/ce/a4/9cc30690a394a8305e8be4c9036aa16d0dfddadd09079860b582f562496d/pillow-13.0.0.tar.gz"
+  sha256 "cdcd1ba258178f7356d74170c9a81ba4eab6a5d55748bc402a5a2a6fe6be3510"
   license "MIT-CMU"
   compatibility_version 1
   head "https://github.com/python-pillow/Pillow.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c08a81ebfdcc9070ab20dce92e40198ab50e7433d87103d835871bddf8117cda"
-    sha256 cellar: :any, arm64_tahoe:       "368dd59ca13924d5bb3389dbc251dddc0fa4bc931f8a723cfa132ce1d31055dc"
-    sha256 cellar: :any, arm64_sequoia:     "3b3e8bfaa5ca2d7fc699923c86610e18c240bd8bab70e5f54bebfbdc0f7e5de1"
-    sha256 cellar: :any, arm64_sonoma:      "b3df9bfe1c2b7423a9cb2c6e3565bd17e9d4fdc7069e2c733414d46cc8f714e9"
-    sha256 cellar: :any, sonoma:            "5b5f330f08114aee902d719119fa41fd256064dfcde8c6f77690c18c8059009f"
-    sha256               arm64_linux:       "aa36b1124bca6af72026c6b6ab8e4155239f7c9d4a43a3da109aa082c6896878"
-    sha256               x86_64_linux:      "d7968166b5d2d7dba702ad5672f23100b47c876cfd0ef337863742894d649474"
+    sha256 cellar: :any, arm64_golden_gate: "95f2ea71a71bb7bdd7452dccb088b26b92786f7eb72331e5971be97a2170deb1"
+    sha256 cellar: :any, arm64_tahoe:       "d681aa28322831e580d8711e1e2108b32267d637fc556ed84bbd5f679c7e769d"
+    sha256 cellar: :any, arm64_sequoia:     "0f5d9c2f49e51771b595f75ee188894c68068b26038f6bbd0bec566b6156a866"
+    sha256               arm64_linux:       "539a6ea91bc118114f8faafb3d7384e3f0bb54be8b182e43753748704d6b06e0"
+    sha256               x86_64_linux:      "c25e0e751300132842ca1a5bd4774838006751c067c07be47403566e6d55421b"
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "pybind11" => :build
-  depends_on "python@3.13" => [:build, :test]
   depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "freetype"
   depends_on "jpeg-turbo"
   depends_on "libavif"
@@ -42,6 +40,18 @@ class Pillow < Formula
     deps.map(&:to_formula)
         .select { |f| f.name.match?(/^python@\d\.\d+$/) }
         .map { |f| f.opt_libexec/"bin/python" }
+  end
+
+  # Test webp support
+  resource "test-webp", :test do
+    url "https://raw.githubusercontent.com/python-pillow/Pillow/refs/heads/main/Tests/images/flower.webp"
+    sha256 "af5bf1a0e420467c09d221fbfbb739646956c17f2b67f8280eacfacf87059a37"
+  end
+
+  # Test avif support
+  resource "test-avif", :test do
+    url "https://raw.githubusercontent.com/python-pillow/Pillow/refs/heads/main/Tests/images/avif/exif.avif"
+    sha256 "438dc63eb5aa722f4b23a93ac48cd0c19b7a575865c89e666c86b7ac363cff04"
   end
 
   def install
@@ -77,12 +87,6 @@ class Pillow < Formula
       assert_equal "JPEG (1, 1) RGB", shell_output("#{python} test.py").chomp
     end
 
-    # Test webp support
-    resource "test-webp" do
-      url "https://raw.githubusercontent.com/python-pillow/Pillow/refs/heads/main/Tests/images/flower.webp"
-      sha256 "af5bf1a0e420467c09d221fbfbb739646956c17f2b67f8280eacfacf87059a37"
-    end
-
     testpath.install resource("test-webp")
     test_webp = testpath/"flower.webp"
     (testpath/"test_webp.py").write <<~PYTHON
@@ -93,12 +97,6 @@ class Pillow < Formula
 
     pythons.each do |python|
       assert_equal "WEBP (480, 360) RGB", shell_output("#{python} test_webp.py").chomp
-    end
-
-    # Test avif support
-    resource "test-avif" do
-      url "https://raw.githubusercontent.com/python-pillow/Pillow/refs/heads/main/Tests/images/avif/exif.avif"
-      sha256 "438dc63eb5aa722f4b23a93ac48cd0c19b7a575865c89e666c86b7ac363cff04"
     end
 
     testpath.install resource("test-avif")

@@ -7,19 +7,18 @@ class Tbb < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "327992c219067222f979f2dbe89b39fa204a9fe6c1c237301b36ab55c959f8ed"
-    sha256 cellar: :any, arm64_tahoe:       "a22d949f7716fb25f1bf7a35a7357206ef36a581f63b27a1025c690913736cb5"
-    sha256 cellar: :any, arm64_sequoia:     "d70b4cecfb5f3803554856437de3713380a13b81eb19bfe02569d2bdc03a486e"
-    sha256 cellar: :any, arm64_sonoma:      "716d0f6b514266c1927263ba37f5bdc9bafccde459d257d2def6683631dc98ee"
-    sha256 cellar: :any, sonoma:            "eb65a529712d2fc817da657279ca634d949ff2e25a222324c394bef788c7946c"
-    sha256 cellar: :any, arm64_linux:       "c4e171925dca51b9e1dd4b8c13cda476825df2e5ecd74586d5899efbec2218c2"
-    sha256 cellar: :any, x86_64_linux:      "d07e15ec5922544419b1ee6bc05020f52d41144e79fcf01b6bd3b7b40c0cb8b1"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "6ae99a7c34b8c0a6cd72c3653dd512f8ad218a471075809b275098ad5f804de4"
+    sha256 cellar: :any, arm64_tahoe:       "5977af4c4c89fae7f009db5bd7d2135812f2c221292a807c647ab38a3bd304e0"
+    sha256 cellar: :any, arm64_sequoia:     "fd554cce2ad4eedac6dc6e3b02c7f5e8a747d11df848eb2ad4a7f45d07b8671a"
+    sha256 cellar: :any, arm64_linux:       "0fc12ed8515e5e018d90ff5e312c8060d41e89d0acc4760da7b0305b3e02120c"
+    sha256 cellar: :any, x86_64_linux:      "aa6c40cd2cdd30cc9943b294382a2bdb1cb241bcfca6521429f82a88da06b15e"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "swig" => :build
   depends_on "hwloc"
 

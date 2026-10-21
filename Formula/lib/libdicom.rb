@@ -26,6 +26,11 @@ class Libdicom < Formula
 
   depends_on "uthash"
 
+  resource "homebrew-sample.dcm", :test do
+    url "https://raw.githubusercontent.com/dangom/sample-dicom/master/MR000000.dcm"
+    sha256 "4efd3edd2f5eeec2f655865c7aed9bc552308eb2bc681f5dd311b480f26f3567"
+  end
+
   def install
     system "meson", "setup", "build", "-Dtests=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
@@ -33,10 +38,6 @@ class Libdicom < Formula
   end
 
   test do
-    resource "homebrew-sample.dcm" do
-      url "https://raw.githubusercontent.com/dangom/sample-dicom/master/MR000000.dcm"
-      sha256 "4efd3edd2f5eeec2f655865c7aed9bc552308eb2bc681f5dd311b480f26f3567"
-    end
     testpath.install resource("homebrew-sample.dcm")
 
     assert_match "File Meta Information", shell_output("#{bin}/dcm-dump #{testpath}/MR000000.dcm")

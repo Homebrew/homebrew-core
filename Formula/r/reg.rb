@@ -32,6 +32,12 @@ class Reg < Formula
     depends_on arch: :arm64
   end
 
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "go", "build", *std_go_args
   end

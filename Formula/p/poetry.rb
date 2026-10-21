@@ -9,11 +9,12 @@ class Poetry < Formula
   head "https://github.com/python-poetry/poetry.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3113af7554fa9ff1184ad83f82fa51bc9c99d25836bbb98f57dcbb1b92c05a04"
-    sha256 cellar: :any, arm64_tahoe:       "1a5877d1c842be460e34c090298a3e5b3d3644b09b194b72acafc9d15263ca66"
-    sha256 cellar: :any, arm64_sequoia:     "6c1e18982f053c2957f665a56536777834a5a2efbd95063f4c14bf55401095ac"
-    sha256 cellar: :any, arm64_linux:       "93a7fb1a279181e76fe45b75095b931c295f2c27585cdb06329f904fd244329e"
-    sha256 cellar: :any, x86_64_linux:      "1f8a9eba9b0a5ab11acccca3f5c84b5c6998eb2c04d8084445fd1bd44ddaa80e"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "466edfb52c684694a0f5c719b05209f3ab348bd70699c322612fd1c5350edd00"
+    sha256 cellar: :any, arm64_tahoe:       "d1ca0f5f26b412ad9ccb599746a007c5ea33457201019979612eb8e5f35a400e"
+    sha256 cellar: :any, arm64_sequoia:     "902041cb561374e3b0d5d4c6f70ed869d39ee5d2ea5a959dadc835330cf70d7f"
+    sha256 cellar: :any, arm64_linux:       "d780a70eccda5bd978e8095c8c052cd104d2de399f750fd21f8542c052f85215"
+    sha256 cellar: :any, x86_64_linux:      "b7b0fecde09e95f3707f34b97a3004de3802a20103525d4acbb04bda8af08992"
   end
 
   depends_on "cmake" => :build # for rapidfuzz
@@ -21,7 +22,7 @@ class Poetry < Formula
   depends_on "rust" => :build # for cachecontrol
   depends_on "certifi" => :no_linkage
   depends_on "cffi"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libffi"
 
@@ -48,8 +49,8 @@ class Poetry < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "cleo" do
@@ -68,8 +69,8 @@ class Poetry < Formula
   end
 
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/63/b9/5b68d879282190b0429c815d582dc1f212d4910aa22ac7c1aff39675a719/dulwich-1.2.15.tar.gz"
-    sha256 "e98f775601846fb4d44a384003e93c53c42b0c9796c8fe0cc3128b8e2e0bbf88"
+    url "https://files.pythonhosted.org/packages/43/4b/4104d84a92e9996bb8418e1a917c939666c73aeed68234b1aec10b818e73/dulwich-1.2.17.tar.gz"
+    sha256 "42e98f04b1adb2a05fa55c97e5245fd07f51e51adb2b73bf486f516166877899"
   end
 
   resource "fastjsonschema" do
@@ -78,8 +79,8 @@ class Poetry < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/0f/59/e19834834cb01a32febfbb0f8a23a9088088f5d45991824ff2bc3b5e8acb/filelock-3.32.7.tar.gz"
-    sha256 "37b8a3d9811b0f9aef7e5ec5c71bb320de52df51e6ca9bcd6f5ad81187660da7"
+    url "https://files.pythonhosted.org/packages/53/e4/34efcb869715cf299e47d1ac7b2624d2bcb6f2d3dffc2f0abe8417f65ab2/filelock-4.0.12.tar.gz"
+    sha256 "cf42711a7ac791818b299fab0332a088c65aeeefa36290de98db92c434303b0c"
   end
 
   resource "findpython" do
@@ -143,8 +144,8 @@ class Poetry < Formula
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/6d/44/ea2100ec54d30c46ee9dba10a3bfb79b655e96c6df237238a3234c75869b/msgpack-1.2.2.tar.gz"
-    sha256 "9eb0b0e602064527a045ea28c4f174ed69383587e29cebe28947e3b84106eb2a"
+    url "https://files.pythonhosted.org/packages/0a/e7/bb605a7bab2d8425a64b3fa762b39dc1bf1c7e3f11ba6fb5413d6db0ff8c/msgpack-1.2.3.tar.gz"
+    sha256 "32edb81a2b5eb7cd7c9d941b2bfbbb082fd2cd09e0e725930316af6b708db186"
   end
 
   resource "packaging" do
@@ -153,8 +154,8 @@ class Poetry < Formula
   end
 
   resource "pbs-installer" do
-    url "https://files.pythonhosted.org/packages/4d/8a/c5273404d40cc8c7f821f8d80838d04b2316e1ba9e0cb33e157cd559c8f1/pbs_installer-2026.9.1.tar.gz"
-    sha256 "b21eb21a53557d197899e1bf3d8b7f4f264feb1c546327106fdfcc967cb3a704"
+    url "https://files.pythonhosted.org/packages/d9/a8/a2eb220cca13a7606549a82c295b290174500ca200ea5474303bfb3f6905/pbs_installer-2026.10.3.tar.gz"
+    sha256 "2e8a1a470e46d220b4ffae12db40a3f2f577604c18d0331789ca1eeb4b70ca65"
   end
 
   resource "pkginfo" do
@@ -163,8 +164,8 @@ class Poetry < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/f8/13/f870dd0b42690138e4e37a76b5138e5690ed4365a77071bb092d59037da0/platformdirs-4.11.11.tar.gz"
-    sha256 "b0befe8a90759e4a9a8b9820d434ae226a6549063210b596da0038a7a05aede4"
+    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
+    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
   end
 
   resource "poetry-core" do
@@ -213,13 +214,8 @@ class Poetry < Formula
   end
 
   resource "trove-classifiers" do
-    url "https://files.pythonhosted.org/packages/c2/e3/7ca82ee24c82d344584abd5b8637b3bd056f2900226e8d82fc22f1184b92/trove_classifiers-2026.6.1.19.tar.gz"
-    sha256 "c5132b4b61a829d11cfbd2d72e97f20a45ed6edb95e45c5efdeb5e00836b2745"
-  end
-
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
-    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
+    url "https://files.pythonhosted.org/packages/bf/93/af436dfaa845cab5d96f0adbc1e4f3730532d37fa249e4eb796fb1d7fc82/trove_classifiers-2026.9.21.13.tar.gz"
+    sha256 "0a9ebc8d4e2f3e8a22848c5258033035bec17a3012ac3fea16dbaa764489eb71"
   end
 
   resource "urllib3" do
@@ -228,8 +224,8 @@ class Poetry < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/2f/5d/42254e91a9203a13d95ab4f5211f4cdda52b82fc3546340f7fb33a642173/virtualenv-21.9.0.tar.gz"
-    sha256 "fa0f2a26fcb6f32b376fc8b2c705b6057366763d5b9e5242d1ab10ecc3279fd3"
+    url "https://files.pythonhosted.org/packages/92/f3/589727d02bc832750cfa00ced4315d127535a22a6d7cfcb369b2fe219a2e/virtualenv-21.14.6.tar.gz"
+    sha256 "c6b74616e64bffa9532cfa9dfd54ffbab0dc9b999df2bb8ec0d75e559b983661"
   end
 
   resource "xattr" do

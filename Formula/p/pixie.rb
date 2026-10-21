@@ -27,6 +27,12 @@ class Pixie < Formula
 
   conflicts_with "px", because: "both install `px` binaries"
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     semver = build.head? ? "0.0.0-dev" : version
     ldflags = %W[

@@ -23,6 +23,12 @@ class VrcGet < Formula
 
   depends_on "rust" => :build
 
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "vrc-get")
     generate_completions_from_executable(bin/"vrc-get", "completion", shells: [:bash, :zsh, :fish, :pwsh])

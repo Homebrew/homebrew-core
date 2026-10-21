@@ -10,17 +10,17 @@ class Ldeep < Formula
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cb98d84715ea56da970dee9d9c878b1c833143b6ca37e7b49a10389e457e160c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d1453d714f4787f80489d251e1c4bd7b164b5408490fb62df823da25b4bf183d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0bbdb84955a14b508dbeb4bf9a6d73448625f2341a21b38d87e8bf37268f2929"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "e8f87e3a08848622fa003dccf3e5943a387518a8c191c3515465abc8340c58eb"
-    sha256 cellar: :any_skip_relocation, sonoma:            "ede6322847a47590bbab6c373abf32647e9e85e7992c1a67b29be45a1e78a9c5"
-    sha256 cellar: :any,                 arm64_linux:       "40d7dc7581bf884699bd5c16281cb958ecacaa1b731ef1be7a62cc0515d37974"
-    sha256 cellar: :any,                 x86_64_linux:      "61f5856924b01b509c7ddf747fb7c12e6bf5f4c85b755700843ddacf5c856f03"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6f36afc20fbaa8c83a31dd83df3bcf2c235d9e83e4ddcd3939850689691fd42f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4f9a703a80874af8d6158dc114af7bdb2f349edcbbb7419cd682ddce1eb6a68e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "129141eeff1bbd55d29fb3708681daa2e93b36ef34abee94563dfbf4cca89cf1"
+    sha256 cellar: :any,                 arm64_linux:       "05f30d486896cd1e1681cb13c192362c0545338a2cccf9917ad1872f4f1466c2"
+    sha256 cellar: :any,                 x86_64_linux:      "a32cafc77b22ce748faeba276ad62b5e6a9006af32b48d6b6c3c084d73a10d72"
   end
 
+  depends_on "rust" => :build # for `dnspython`
   depends_on "cryptography" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "krb5"
 
@@ -42,13 +42,13 @@ class Ldeep < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/8c/8b/57666417c0f90f08bcafa776861060426765fdb422eb10212086fb811d26/dnspython-2.8.0.tar.gz"
-    sha256 "181d3c6996452cb1189c4046c61599b84a5a86e099562ffde77d26984ff26d0f"
+    url "https://files.pythonhosted.org/packages/ef/4a/50822184bd67cc6493f0fb6a880749158fcd31ab3fa07409acfd91f9fc85/dnspython-2.9.0.tar.gz"
+    sha256 "b44dc6b18f07a8b1c56676a19fbfdb5209415b046a9cece286baafa87ff3f7f1"
   end
 
   resource "gssapi" do
-    url "https://files.pythonhosted.org/packages/23/52/c1e90623c259a42ab0587078bb04f959867b970add46ff66750ead8fc7c5/gssapi-1.11.1.tar.gz"
-    sha256 "2049ee4b1d0c363163a1344b7282a363f9f4094e51d2c36de0cf01d4735e0ae2"
+    url "https://files.pythonhosted.org/packages/6b/fb/9492eb37b5786369b7e96fff2cf4040713acb33b96124813e058cbbd4356/gssapi-1.12.0.tar.gz"
+    sha256 "0b48f17296f869db89221c3bde463fdff35152a4cb99ae4aaa42b0b64333fc6c"
   end
 
   resource "ldap3-bleeding-edge" do
@@ -67,13 +67,13 @@ class Ldeep < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/8e/a6/8452177684d5e906854776276ddd34eca30d1b1e15aa1ee9cefc289a33f5/pycryptodome-3.23.0.tar.gz"
-    sha256 "447700a657182d60338bab09fdb27518f8856aecd80ae4c6bdddb67ff5da44ef"
+    url "https://files.pythonhosted.org/packages/a9/75/b8a9ba9a15b1b190d1fb21e75e921934c9bcd7e63e137f96b56ed274328c/pycryptodome-3.24.1.tar.gz"
+    sha256 "3f9e74444c0ecbec7af232a95d282c74b114d53212ce075ed17b7fd7dca32bb3"
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/c9/85/e24bf90972a30b0fcd16c73009add1d7d7cd9140c2498a68252028899e41/pycryptodomex-3.23.0.tar.gz"
-    sha256 "71909758f010c82bc99b0abf4ea12012c98962fbf0583c2164f8b84533c2e4da"
+    url "https://files.pythonhosted.org/packages/f4/e7/50e72301e32acb73a314e663c2014e1ddefc019d5f434ff14ec89861d664/pycryptodomex-3.24.1.tar.gz"
+    sha256 "09081666ffc599976c0b8b29caf2cf82212c0f05bed233c8f8ed53e4f6e1d356"
   end
 
   resource "six" do
@@ -87,11 +87,12 @@ class Ldeep < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/8c/69/40407dfc835517f058b603dbf37a6df094d8582b015a51eddc988febbcb7/tqdm-4.69.0.tar.gz"
-    sha256 "700c5e85dcd5f009dd6222588a29180a193a748247a5d855b4d67db93d79a53b"
+    url "https://files.pythonhosted.org/packages/0d/ea/b2a5bd54b28a324dae8211928b2d730b6547500342c7e6c6dea08bd0a485/tqdm-4.70.1.tar.gz"
+    sha256 "cefd0eca11b2a37a3aee776544d4f4ae913f02688135b5556b8788dfa474afc4"
   end
 
   def install
+    inreplace "pyproject.toml", 'requires-python = ">=3.9,<3.15"', 'requires-python = ">=3.9"'
     virtualenv_install_with_resources
   end
 

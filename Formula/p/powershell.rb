@@ -2,8 +2,8 @@ class Powershell < Formula
   desc "Command-line shell and scripting language"
   homepage "https://github.com/PowerShell/PowerShell"
   url "https://github.com/PowerShell/PowerShell.git",
-      tag:      "v7.6.6",
-      revision: "f260eb9c31ec72c5282f98e5ea24d9be4f8d7536"
+      tag:      "v7.6.7",
+      revision: "c10ef6d557c0d6fe661836f78dbd6fc355261326"
   license "MIT"
   revision 1
 
@@ -13,22 +13,29 @@ class Powershell < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d28301b155236b399a77a6d13190e6ec7405877ce8defb42b2975c3df9db0ccf"
-    sha256 cellar: :any, arm64_tahoe:       "70ba5e8f53a78a08fbaf4a7770fad53ecebcbea094efe46bdd04e4f501f38e75"
-    sha256 cellar: :any, arm64_sequoia:     "5dfa2921a9c56528ab83ceb4f9d6aa8957277f040143383c476639675822655b"
-    sha256 cellar: :any, arm64_linux:       "38e037bf3a659d3edcd6774b76cde907351a88c244478107f72472450508fbff"
-    sha256 cellar: :any, x86_64_linux:      "7b3ff9bd0a6d115a0d05f1648a953c6e89daf2b5c70ba24b02555a52e9a7bfbd"
+    sha256 cellar: :any, arm64_golden_gate: "7bf6f2d1bc50befa073cdf5bcead2594f8eaadd48f17cf794668348bb90999d3"
+    sha256 cellar: :any, arm64_tahoe:       "1c882f24e7475d950c7d681786b7f5938f9e18e4358d7822350cb2fb57ff221b"
+    sha256 cellar: :any, arm64_sequoia:     "0fdecd6ef2ca21cbf9886764ad13c1c9365dc08998666e4b37a3cd14c5035e87"
+    sha256 cellar: :any, arm64_linux:       "6db9e432696725ebd8fe979f61d0f8e705a4a5d9d1b0c37fe1d73811ea87c71c"
+    sha256 cellar: :any, x86_64_linux:      "3da854f2e49262843e169e3d7868a126c5c416a74953f68668876dbf266ee26c"
   end
 
   depends_on "dotnet"
 
   def install
-    dotnet = Formula["dotnet"]
+    dotnet = deps.find { |d| d.name.match?(/dotnet(@\d+(\.\d+)*)?$/i) }.to_formula
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
     ENV["DOTNET_CLI_HOME"] = buildpath
+    ENV["XDG_RUNTIME_DIR"] = buildpath
     ENV["NUGET_PACKAGES"] = buildpath/".nuget/packages"
     ENV["DOTNET_ROOT"] = dotnet.opt_libexec
     inreplace "global.json", /"version": "\d.*"/, "\"version\": \"#{dotnet.version}\""
+
+    # Use System.Security.Cryptography.{Pkcs,Xml} 10.0.13 with the fixes for CVE-2026-70162 and CVE-2026-84008
+    inreplace %w[
+      src/System.Management.Automation/System.Management.Automation.csproj
+      src/Microsoft.PowerShell.SDK/Microsoft.PowerShell.SDK.csproj
+    ], /(Include="System\.Security\.Cryptography\.(?:Pkcs|Xml)" Version=)"[^"]+"/, '\1"10.0.13"'
 
     target_framework = "net#{dotnet.version.major_minor}"
     dotnet_sources = [

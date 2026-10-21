@@ -16,6 +16,12 @@ class CniPlugins < Formula
   depends_on "go" => :build
   depends_on :linux
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     buildpath.glob("plugins/{meta,main,ipam}/*").each do |plugin_path|
       basename = plugin_path.basename

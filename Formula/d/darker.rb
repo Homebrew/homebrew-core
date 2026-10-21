@@ -9,28 +9,27 @@ class Darker < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "855e44d663650e9b4baad1f529f53b36615a5224ad1066f0476bdc980e9002c5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "02e21a974bae70f67a3b52d764da980696a89f4fac7987dcb6c0cfa99bbe0d66"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7e9c5f797cba8fba4758d297996ea31bfd531201c810bb6137728367dd8fde8d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "280862988a1ba81641ca5117e462b01c5ee11e4322e80a89edef75070d909c15"
-    sha256 cellar: :any_skip_relocation, sonoma:            "b88539f673dfc1ded1a55407ac5e11ed5c297ed4f50a8fed70cfbcd5b58f0fb2"
-    sha256 cellar: :any,                 arm64_linux:       "3b5fb4a1a33e4e423fe454d3c4d1c9de2870f8c6db55e3a420466301d298013b"
-    sha256 cellar: :any,                 x86_64_linux:      "ff6352bdb61f25b4edefccab2bb73f07b47fd163143508c86dc3c4c88d596383"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c7f1211b15f64ec6e8c2e65f4b208f5823ab8e0b366c45562ed0c3a0d02a387e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5dd4ade2999756f7691d45dbfcf9d3710532de0c1e9326836783dfa4042ee8d7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "028ff23bc9d07140746b474147f9781040a3b7c4ff4c86e773e141487ec3ae53"
+    sha256 cellar: :any,                 arm64_linux:       "f669b78d7fc7b9749c4680c58a83ba17818dd3a627ed0315e2fb32a27584eb2f"
+    sha256 cellar: :any,                 x86_64_linux:      "1e456644ffce05e88752c1fa8aa4209477d957e39549bbb4f5913e3cb89b61d3"
   end
 
   depends_on "rust" => :build
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name: "darker[black]"
 
   resource "black" do
-    url "https://files.pythonhosted.org/packages/c0/37/5628dd55bf2b34257fc7603f0fe97c40e3aaf24265f416a9c85c95ca1436/black-26.5.1.tar.gz"
-    sha256 "dd321f668053961824bcc1be1cc1df748b2d7e4fa28086b08331e577b0100a73"
+    url "https://files.pythonhosted.org/packages/f8/65/a9611a6ec0a8c88d86e59385da02d68d9533f7e86a05913d20c67be54029/black-26.10.1.tar.gz"
+    sha256 "5f9f83beae62437e060dafd53d7f1fc327e3d3494f74d72ee5c2b73eb90fc4e7"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "darkgraylib" do
@@ -44,8 +43,8 @@ class Darker < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
-    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "pathspec" do
@@ -54,8 +53,8 @@ class Darker < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/47/e4501f49c178ae1d9f4a75073fda4204f52647993f075a9db4d14930e0c5/platformdirs-4.10.0.tar.gz"
-    sha256 "31e761a6a0ca04faf7353ea759bdba55652be214725111e5aac52dfa29d4bef7"
+    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
+    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
   end
 
   resource "pytokens" do

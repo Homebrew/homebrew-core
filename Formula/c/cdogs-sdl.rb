@@ -1,8 +1,8 @@
 class CdogsSdl < Formula
   desc "Classic overhead run-and-gun game"
   homepage "https://cxong.github.io/cdogs-sdl/"
-  url "https://github.com/cxong/cdogs-sdl/archive/refs/tags/2.4.0.tar.gz"
-  sha256 "0fde6aaf07db2156e5d4c8e448f0ddb4608ed3b92b89aae1e2c87b20866e451c"
+  url "https://github.com/cxong/cdogs-sdl/archive/refs/tags/2.5.0.tar.gz"
+  sha256 "18b594e85af9986b7e895aba0f72de05bdf0c73c808653ecd004c45c1842f147"
   license "GPL-2.0-or-later"
   head "https://github.com/cxong/cdogs-sdl.git", branch: "master"
 
@@ -12,28 +12,29 @@ class CdogsSdl < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "90beb1a5fb71d430449a0cb9e2111a08abb51051abdd9ac3954a40ee881585cc"
-    sha256 arm64_tahoe:       "43cb95679ae4236f5f3b24a07e0419de27a93688cb610e5bfde88781e50fbc8a"
-    sha256 arm64_sequoia:     "0946f291de2aa944b2ad348bacdeda34c9c17c6ecb92d886ff777ed16a6443a0"
-    sha256 arm64_sonoma:      "b3a876d3a2556e6cfb4784fc46ebbc4c4f0e1231c00d43a97668a754091092e8"
-    sha256 sonoma:            "938c7c419cf215c4d118f079840b60d30877f25852a8d4893e6436d4cb7d4617"
-    sha256 arm64_linux:       "d09d6dc4b6acda8cbef949250bf964568de9685dea0a0576296e286d20168f98"
-    sha256 x86_64_linux:      "ef5c5f617815355ce474291696af44a88e8243c0b15a099ff0a97155ba43f68e"
+    sha256 arm64_golden_gate: "29ac580f02f3d0e16d6dcf9d6c2ef37b46355fa3ccfa893e19deef6bc3b7e56f"
+    sha256 arm64_tahoe:       "d1fc8dd530aba51aa4e0742a693d2db6f23316bbf20b0b4a24f52610c33fe7a5"
+    sha256 arm64_sequoia:     "81a7827460102dafa2184473f7ffbeb1354792d2e8dd52d5d577864c7f2ca065"
+    sha256 arm64_linux:       "b65116fa72e04c5e8cd953f0174ba8c114f810968abf36f9fe3b3637dec48728"
+    sha256 x86_64_linux:      "8b4807dde80c7d4e6d30882cb98dde9ce52b71d3bde183af765e0f179910f3f7"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
-  depends_on "python@3.14"
   depends_on "sdl2-compat"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
+
+  uses_from_macos "python"
 
   on_linux do
     depends_on "glib"
     depends_on "gtk+3"
     depends_on "mesa"
   end
+
+  deny_network_access!
 
   def install
     system "cmake", "-S", ".", "-B", "build",

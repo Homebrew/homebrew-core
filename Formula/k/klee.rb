@@ -4,40 +4,17 @@ class Klee < Formula
 
   desc "Symbolic Execution Engine"
   homepage "https://klee-se.org"
+  url "https://github.com/klee/klee/archive/refs/tags/v3.3.tar.gz"
+  sha256 "baa73ad3d4bc345d28434c9aa54c639bfb504cd71c26852d1da1dd7cb22bfb48"
   license "NCSA"
-  revision 6
-
-  stable do
-    url "https://github.com/klee/klee/archive/refs/tags/v3.2.tar.gz"
-    sha256 "83d9b9ce0ba187e48c0e55623bf1a68b5eb61376da7ce82551c9d885715a21dd"
-
-    depends_on "llvm@16"
-
-    # klee needs a version of libc++ compiled with wllvm
-    resource "libcxx" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.6/llvm-project-16.0.6.src.tar.xz"
-      sha256 "ce5e71081d17ce9e86d7cbcfa28c4b04b9300f8fb7e78422b1feb6bc52c3028e"
-    end
-  end
+  revision 1
+  head "https://github.com/klee/klee.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "11ad8309bdee556b758e0c98f329f331c50a831359b5069458e89e46be0b9294"
-    sha256 arm64_sequoia: "149099ae03066ed219684da84989bcd402fd91a0368d8e23e9a5086d3e61cc58"
-    sha256 arm64_sonoma:  "d1364a17a148f3e433f65dea5c5b50d7c5869d8c3fc2eb3d22b11f6058b60bfa"
-    sha256 sonoma:        "5ede06f54a246b6e73fcf22d9605f26c10aa0212218c8df19eff011ae7179469"
-    sha256 x86_64_linux:  "6e52aeaf2b3ea52145098af1dcf0fa28e6c6363dd05ed173ee4c841e91a34601"
-  end
-
-  head do
-    url "https://github.com/klee/klee.git", branch: "master"
-
-    depends_on "llvm@18"
-
-    # klee needs a version of libc++ compiled with wllvm
-    resource "libcxx" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.8/llvm-project-18.1.8.src.tar.xz"
-      sha256 "0b58557a6d32ceee97c8d533a59b9212d87e0fc4d2833924eb6c611247db2f2a"
-    end
+    sha256 arm64_golden_gate: "61aaf5d4d30fca9d10fbad3563890f5cedc65c5f8373920f0e80687f98b8ca5f"
+    sha256 arm64_tahoe:       "289089d5a09bd037405ee3dcff07251839a72a8e8595169b745ab2608a34bd85"
+    sha256 arm64_sequoia:     "4d4fefa40af9f27c92592f897b7dcbc41c97977fc9062653357c08e5d9a60d31"
+    sha256 x86_64_linux:      "651476c37a969f617ef310d9929cf271245308782faec25be47e0af4daaece50"
   end
 
   depends_on "cmake" => :build
@@ -45,7 +22,8 @@ class Klee < Formula
   depends_on "wllvm" => :build
 
   depends_on "gperftools"
-  depends_on "python@3.14"
+  depends_on "llvm@19"
+  depends_on "python@3.15"
   depends_on "sqlite"
   depends_on "stp"
   depends_on "z3"
@@ -58,9 +36,15 @@ class Klee < Formula
     depends_on "zlib-ng-compat"
   end
 
+  # klee needs a version of libc++ compiled with wllvm
+  resource "libcxx" do
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/llvm-project-19.1.7.src.tar.xz"
+    sha256 "82401fea7b79d0078043f7598b835284d6650a75b93e64b6f761ea7b63097501"
+  end
+
   resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
-    sha256 "0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"
+    url "https://files.pythonhosted.org/packages/46/58/8c37dea7bbf769b20d58e7ace7e5edfe65b849442b00ffcdd56be88697c6/tabulate-0.10.0.tar.gz"
+    sha256 "e2cfde8f79420f6deeffdeda9aaec3b6bc5abce947655d17ac662b126e48a60d"
   end
 
   def llvm
@@ -76,7 +60,7 @@ class Klee < Formula
     # https://github.com/klee/klee/blob/v#{version}/scripts/build/p-libcxx.inc
     libcxx_args = std_cmake_args(install_prefix: libcxx_install_dir) + %W[
       -DRUNTIMES_CMAKE_ARGS=-DCMAKE_INSTALL_RPATH=#{rpath}
-      -DLLVM_ENABLE_RUNTIMES=libcxx;libcxxabi#{";libunwind" if build.head?}
+      -DLLVM_ENABLE_RUNTIMES=libcxx;libcxxabi;libunwind
       -DLLVM_ENABLE_PROJECTS=
       -DLLVM_ENABLE_PROJECTS_USED:BOOL=ON
       -DLLVM_ENABLE_THREADS:BOOL=OFF
@@ -86,8 +70,8 @@ class Klee < Formula
       -DLIBCXX_ENABLE_SHARED:BOOL=ON
       -DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=#{OS.mac? ? "OFF" : "ON"}
       -DLIBCXXABI_ENABLE_THREADS:BOOL=OFF
+      -DLIBCXXABI_USE_LLVM_UNWINDER:BOOL=ON
     ]
-    libcxx_args << "-DLIBCXXABI_USE_LLVM_UNWINDER:BOOL=ON" if build.head?
 
     with_env(
       CC:                 "wllvm",
@@ -169,7 +153,7 @@ class Klee < Formula
                     "-c", "-g", "-O0", "-Xclang", "-disable-O0-optnone",
                     testpath/"get_sign.c"
 
-    total_instructions = 32
+    total_instructions = 30
     expected_output = <<~EOS
       KLEE: done: total instructions = #{total_instructions}
       KLEE: done: completed paths = 3

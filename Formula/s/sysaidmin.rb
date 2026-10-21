@@ -9,18 +9,19 @@ class Sysaidmin < Formula
   revision 20
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "bf9f45a52f168d9495459500d380862fe740d3cceea222f866a4a132d2f04bd7"
-    sha256 cellar: :any, arm64_tahoe:       "b8145bfa95de7ef97be2479d5174eab030791abdccf09a293d1a9433c99e2691"
-    sha256 cellar: :any, arm64_sequoia:     "eedcc57adb327d1210124c2bf0aba85e42747f91c53788c132e152eef9c3c927"
-    sha256 cellar: :any, arm64_linux:       "8aa6d32270e120e83a1c1e819ae8028abde579cf5af3922210174e1e02493d50"
-    sha256 cellar: :any, x86_64_linux:      "f021f9bdef10daefac5c4ef9293de6fcd3510fdabcc8970fa3cc1411a9c5f72d"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "1e055d8edaf731a83dba13a789001e3173ccd0e961617aad461c9068644117da"
+    sha256 cellar: :any, arm64_tahoe:       "3b81f7e419603fddeafb499bbee759ff451efa9f96bfacbba615f3755a4155c0"
+    sha256 cellar: :any, arm64_sequoia:     "b66d8a5fc5c2796e3476c368e43c7efb2cbc4cd3ac61b080901777bfa1a658b4"
+    sha256 cellar: :any, arm64_linux:       "6c67037875e3905090fbbf6f953a1079489550028077776dddbb4c5a06962245"
+    sha256 cellar: :any, x86_64_linux:      "4e1e5549c5dcfb096e4b5dc516b5bbdfa80fcbda12cf31cd9cf7ac13246af47a"
   end
 
   depends_on "rust" => :build # for jiter
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
 
   pypi_packages exclude_packages: %w[certifi cryptography pydantic rpds-py]
@@ -36,8 +37,8 @@ class Sysaidmin < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "click" do
@@ -46,8 +47,8 @@ class Sysaidmin < Formula
   end
 
   resource "griffelib" do
-    url "https://files.pythonhosted.org/packages/27/af/018c10bc9edd42b6ef6db2e96b09542050d5253f9b195e74bc910b2d13ab/griffelib-2.3.0.tar.gz"
-    sha256 "7b0952caf5bca6afa4bb5ee8c6a2d183fe3f21b62efc5f6c7243cb2b26d2d115"
+    url "https://files.pythonhosted.org/packages/2b/27/b55f1a5278918be765fb2fd8b20966bc72bbdd3f789f031937cceea7834a/griffelib-2.3.2.tar.gz"
+    sha256 "df00c7a0dee3d86268d76788997a1859272cb1fb7b865658e043d2c0c3d52e60"
   end
 
   resource "h11" do
@@ -86,28 +87,28 @@ class Sysaidmin < Formula
   end
 
   resource "mcp" do
-    url "https://files.pythonhosted.org/packages/76/31/ac54fb0fdd5b37de704486e288bba4fbbb463f24cfcfedbede407b854513/mcp-2.2.0.tar.gz"
-    sha256 "2dc37ecb1974becdcebdbf7561e7c15a07dbbf20ba21ba16c3593b3038b3afbd"
+    url "https://files.pythonhosted.org/packages/9d/8d/e0d339616f4810e9051d4aba6887afab289ab1f81875fe908b606cdfd0e3/mcp-2.3.0.tar.gz"
+    sha256 "8b147a50441cf059dc88c684e0aeed3687f0aa0f39c6cde7b90330effd2b34d8"
   end
 
   resource "mcp-types" do
-    url "https://files.pythonhosted.org/packages/ae/91/762d7755d971aff8a28d75f7961656148edf27875c8026e6385aaab08ae7/mcp_types-2.2.0.tar.gz"
-    sha256 "d3ed53703ddd10d9c6399f29d322bb66f3f67ab41348ac8556ba23e07fedefad"
+    url "https://files.pythonhosted.org/packages/9e/2d/7c251e34207f6c51000312fc8839111ac45cfe02023f90b44e7f1051dd8e/mcp_types-2.3.0.tar.gz"
+    sha256 "d1e46549edb35ee19a94940fcee6d1addd7e589ab7ea92dda83f5d84781fc362"
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/99/9a/008ff67f5f39ff680b7c9adf38373779247c365c611b9c60302e2dc65eea/openai-3.20.0.tar.gz"
-    sha256 "5e5dc0a3c0a9362e69cd35a65d04580a73a66eb39d5abeb78881b6190ca5d98c"
+    url "https://files.pythonhosted.org/packages/e4/99/5f6206494a87edbaa67b35c5212a2cb5e6f414bee5efb0f0672c4704315a/openai-3.29.0.tar.gz"
+    sha256 "bc70a46d97b70ba64daedfcb3227f610a395f297ec68d39f735676190a92be94"
   end
 
   resource "openai-agents" do
-    url "https://files.pythonhosted.org/packages/88/2a/78734078b2d6c2132fab1c4c0ca223b4085b3c983c135a5bd7171c5d57ff/openai_agents-0.22.3.tar.gz"
-    sha256 "33c79a5da0c9cf8ace0019bb09e268338d9162a18edbb6c2ce12bc139917109e"
+    url "https://files.pythonhosted.org/packages/e6/8e/67aa6f764c9041e96c523ff01407d3304bb1c886e2cfb216821a1086ef8f/openai_agents-0.23.1.tar.gz"
+    sha256 "2bbd0a87a42531d25638529396644defd3ff2afd92fd9ec7d2f02167e5458a99"
   end
 
   resource "opentelemetry-api" do
-    url "https://files.pythonhosted.org/packages/1f/dc/e12c1fe1ed8a7b7149777127b1a0e12ce5bd5a81d97408bedc2128c260f5/opentelemetry_api-1.45.0.tar.gz"
-    sha256 "711ede81773c8025c2c03dac0450bc89f3d30aea6eabcc815c570d4e35a963f7"
+    url "https://files.pythonhosted.org/packages/2e/02/6e0ae9cc61bd3169d401077b507b3ebc344745171e1051ab430be012dcd9/opentelemetry_api-1.45.1.tar.gz"
+    sha256 "aa38ed19bcc084ba42782a73255b3582283eced7ad6dddbd6695189e69adfb75"
   end
 
   resource "pyjwt" do

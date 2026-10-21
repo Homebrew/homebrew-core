@@ -7,6 +7,7 @@ class FbClient < Formula
   url "https://paste.xinu.at/data/client/fb-2.4.0.tar.gz"
   sha256 "a3dd5580c7ba459c18f2d2ac39614422fd9c0dccb4545dbd683c77104062af39"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :homepage
@@ -14,18 +15,17 @@ class FbClient < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "2fc92f0cee021bea9ec742da7dfacd2f7d3bef369c53d858458bc4d71f2f51a2"
-    sha256 cellar: :any,                 arm64_tahoe:       "94836e631e1cebba28bc3327d3cb63a2725af425a34949ea5b3d643b3e88a18b"
-    sha256 cellar: :any,                 arm64_sequoia:     "87c40285614876d05e7b8f4274ac5bb5b171d1cdcea2931eefc6d32ccd4f490d"
-    sha256 cellar: :any,                 arm64_sonoma:      "059881236183d0a075ac3059e01eeb9be2546e82bcb8d6daa0e295ffb0d4971c"
-    sha256 cellar: :any,                 sonoma:            "6af4054c808c8f5c3ec176d38dfe8fcedab2516ff410f9bf7d747afbf0520521"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "fa64e34d0861774bb7570f22b37fc37ca517d484f9c4d38307bd76d474b0ed44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7dacaf9c2b823ba207783b95c773e5820ca391393b93cdf0c05f1cb7e993d86c"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "73eab9597ced2af5e28f7a3580e80ad54e9aebc93177dc75c121f67c5d9acb77"
+    sha256 cellar: :any, arm64_tahoe:       "aea1a956520bef76111f72cd9949a8e74678117db6d7c2469877637813f5906c"
+    sha256 cellar: :any, arm64_sequoia:     "e49f0cbd68444ea836e10c1c73c7dd62187bc168ca5d3295932529e04d9e57ad"
+    sha256 cellar: :any, arm64_linux:       "d1c90c2c15ce11b67b596a7a147d84d6f0514adc8ee97cb0842a834382ba753d"
+    sha256 cellar: :any, x86_64_linux:      "a232b396890e9972baa893618e3863110b982ae620b193da9538deb2a792b0cd"
   end
 
   depends_on "curl"
-  depends_on "openssl@3"
-  depends_on "python@3.14"
+  depends_on "openssl@4"
+  depends_on "python@3.15"
 
   conflicts_with "spotbugs", because: "both install a `fb` binary"
 
@@ -33,8 +33,8 @@ class FbClient < Formula
                 extra_packages: ["pycurl", "pyxdg"]
 
   resource "pycurl" do
-    url "https://files.pythonhosted.org/packages/95/23/cc07b16591af8ca373494d29aafc8df13e547077579e6779bb865a3f5a7f/pycurl-7.46.0.tar.gz"
-    sha256 "422ed7005b98768fe60fe6b6cb8bb6a4e1fc18b5433402e8fbdaba91811c4604"
+    url "https://files.pythonhosted.org/packages/fe/62/5851dbbaba9b8ba69019ee74213f1c31b0b2b7ba643ad48e9407638b0dea/pycurl-7.48.0.tar.gz"
+    sha256 "b70961a76c412cd34f9cc2c9558e63f89fb37045c59eee396c585b52973be280"
   end
 
   resource "pyxdg" do

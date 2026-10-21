@@ -9,52 +9,52 @@ class Eralchemy < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "12c93a3c5749cbacdaed82b29d31d1858f5e0a117638c06b45b9c9f8b259523b"
-    sha256 cellar: :any, arm64_tahoe:       "5257e0349e7f67325f7d5bb21c96d92991870f365ed09b54255c52192fd3fd67"
-    sha256 cellar: :any, arm64_sequoia:     "9bb68943f8fac357629a343914628c41ee84ebb86db9e1822eb37d6250cfec80"
-    sha256 cellar: :any, arm64_sonoma:      "0954018789a1495a2e1f79de19ccb793421857a939089243704193335204109e"
-    sha256 cellar: :any, arm64_linux:       "40da2e37d5a1b40f8426d3a9cc0050f949be7ca4fdfeca2736772a96503853cc"
-    sha256 cellar: :any, x86_64_linux:      "8fdc3fa45428de10c02bcd34ee699096dc9ca59119bae95074274865442852c4"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "4394105ed86de197b8dc0eeb9089fa7f2bd60870263963e8c9671e4ba72c51af"
+    sha256 cellar: :any, arm64_tahoe:       "73c2f4d4258c3e8d0f6099eaa6afaeeca4c21e8b542d067e63df8b21376cf832"
+    sha256 cellar: :any, arm64_sequoia:     "333dbe99f334ed3ed6b24a15404229373391655538a85c8b40df56c4bb0f8317"
+    sha256 cellar: :any, arm64_linux:       "18f99852c7b6fcde3d12990676947365f4ef15d120fb04a9574af1d217b9f158"
+    sha256 cellar: :any, x86_64_linux:      "7b7fe10ce569dbd49c19b1ed8bf3def54ed793668c63aca457fe929a157a07a5"
   end
 
   depends_on "pkgconf" => :build
   depends_on "graphviz"
-  depends_on "libpq"
-  depends_on "openssl@3"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name: "eralchemy[pygraphviz]"
 
-  resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/3c/3f/dbf99fb14bfeb88c28f16729215478c0e265cacd6dc22270c8f31bb6892f/greenlet-3.5.0.tar.gz"
-    sha256 "d419647372241bc68e957bf38d5c1f98852155e4146bd1e4121adea81f4f01e4"
-  end
-
   resource "pygraphviz" do
-    url "https://files.pythonhosted.org/packages/66/ca/823d5c74a73d6b8b08e1f5aea12468ef334f0732c65cbb18df2a7f285c87/pygraphviz-1.14.tar.gz"
-    sha256 "c10df02377f4e39b00ae17c862f4ee7e5767317f1c6b2dfd04cea6acc7fc2bea"
+    url "https://files.pythonhosted.org/packages/01/f7/a82e7f47573168960ce7e2a6c937a084a14d58599fe2a48ea3cde8ca555b/pygraphviz-2.0.3.tar.gz"
+    sha256 "e46818608638959ceabec66a36d2efc1d60b790a845f29705e403feecc7ee0c0"
   end
 
   resource "sqlalchemy" do
-    url "https://files.pythonhosted.org/packages/09/45/461788f35e0364a8da7bda51a1fe1b09762d0c32f12f63727998d85a873b/sqlalchemy-2.0.49.tar.gz"
-    sha256 "d15950a57a210e36dd4cec1aac22787e2a4d57ba9318233e2ef8b2daf9ff2d5f"
+    url "https://files.pythonhosted.org/packages/1f/44/311bac6b6ef81e4dfd0287d04900108b1f5c00c9761dd3c0a2b7b9d0f86b/sqlalchemy-2.1.4.tar.gz"
+    sha256 "7bd7ad604487daa7eab8716471c29a7185f17b5287ce73bb7bc79fea050d8cfd"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
-    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
+  end
+
+  resource "er_example", :test do
+    url "https://raw.githubusercontent.com/Alexis-benoist/eralchemy/refs/tags/v1.1.0/example/newsmeme.er"
+    sha256 "5c475bacd91a63490e1cbbd1741dc70a3435e98161b5b9458d195ee97f40a3fa"
   end
 
   def install
+    # Work around pygraphviz source-build discovery and runtime paths for nonstandard prefixes.
+    # https://github.com/pygraphviz/pygraphviz/issues/630
+    if OS.linux?
+      graphviz_prefix = formula_opt_prefix("graphviz")
+      ENV["GRAPHVIZ_PREFIX"] = graphviz_prefix
+      ENV.append "LDFLAGS", "-Wl,-rpath,#{graphviz_prefix}/lib/graphviz"
+    end
     virtualenv_install_with_resources
   end
 
   test do
-    resource "er_example" do
-      url "https://raw.githubusercontent.com/Alexis-benoist/eralchemy/refs/tags/v1.1.0/example/newsmeme.er"
-      sha256 "5c475bacd91a63490e1cbbd1741dc70a3435e98161b5b9458d195ee97f40a3fa"
-    end
-
     system bin/"eralchemy", "-v"
     resource("er_example").stage do
       system bin/"eralchemy", "-i", "newsmeme.er", "-o", "test_eralchemy.pdf"

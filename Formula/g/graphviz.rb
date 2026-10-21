@@ -56,6 +56,8 @@ class Graphviz < Formula
     depends_on "zlib-ng-compat"
   end
 
+  conflicts_with "gascity", because: "both install a `gc` binary"
+
   deny_network_access!
 
   def install

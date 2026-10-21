@@ -1,18 +1,17 @@
 class Jet < Formula
   desc "Type safe SQL builder with code generation and auto query result data mapping"
   homepage "https://github.com/go-jet/jet"
-  url "https://github.com/go-jet/jet/archive/refs/tags/v2.16.0.tar.gz"
-  sha256 "1a2643f234345faca6d4ceeedef45db70235f92ff09bb67636496baa95235803"
+  url "https://github.com/go-jet/jet/archive/refs/tags/v2.16.1.tar.gz"
+  sha256 "b718fe71acf9f87a5e8c464b8b1ff611a48984d3b77e6a838db14e6014ef9bed"
   license "Apache-2.0"
   head "https://github.com/go-jet/jet.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8a57bf4aa057af3b7ad99ed723e6f233d2227e1900224eb5b7a9973376d2ef42"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0eec7a6fb4ed36617aeb4af6d58aa34c2486b773eebcca79b39a719bbfeab496"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6dbfa0bea2d082d1997ad162ddae00dca7c99e722076b4df7a2ffd619fd3616d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "556ddcc2eb3e01e038735ebfc14918fabd26211bbec778ce40212a414a77d33d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "aa66fdeb211d39b2ac45ed6ec96fa45212479e9a2a5dfc22b5e8efe2eedd30f5"
-    sha256 cellar: :any,                 x86_64_linux:      "a650ff5269da5566877b616e892ff809b408b3e8ffab93a27d4e29b42a6a19ac"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1a3b6de3f1297dc0ab77585cab6e64417f026c3dbd87ad447530342626e66a75"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b3f66ef2a1a3b980dbbea32bb425ec64059e0a3e2b6c50cb26827570ab9557ce"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b6b566288257f9231ffba2f053b2afbce12a21280cf93b98932528a677da6937"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "279928d50cf48947f49f871cf41c11fe6e7fc9b1fa2199f25b8d678ce8335238"
+    sha256 cellar: :any,                 x86_64_linux:      "ce6600352e1cfe63e5b51ce739b8e692b7e8c419b960604d5e526f96c8627d17"
   end
 
   depends_on "go" => :build

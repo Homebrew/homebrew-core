@@ -1,17 +1,17 @@
 class Spicedb < Formula
   desc "Open Source, Google Zanzibar-inspired database"
   homepage "https://authzed.com/docs/spicedb/getting-started/discovering-spicedb"
-  url "https://github.com/authzed/spicedb/archive/refs/tags/v1.56.2.tar.gz"
-  sha256 "a8e0fabc378a3c31417ca325b8737b5cd299d6b96213ce69d44a44b0c2e2916a"
+  url "https://github.com/authzed/spicedb/archive/refs/tags/v1.57.0.tar.gz"
+  sha256 "d9ef895cd0544ac43af5773d68d08c8e7c6bc02ac4fd21357e037715824759df"
   license "Apache-2.0"
   head "https://github.com/authzed/spicedb.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b2b2ce622949aad3e3dc24af075eef0725fc2e15975c23c1cfa63ee4ab82ac3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d1e2c3a2e99cda8524603ae8761877478281118284ab00d6d62f5783840fcee9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9af145f8b6e067b47a3b75855c37ebd06bfba0d4233d874cb3ef5b448c2842a0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "71af2b6210b73393eb1fb8e0c73324f99c880cc7139fb59deffd613a00702a9e"
-    sha256 cellar: :any,                 x86_64_linux:      "313b6b70fd0eedc59fd530d0fc4b7742a356f5d58992c4107a7fe92da109f43f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e22f422a6eec4bcc7b58eb8c9549f2b371698a83b33d97d7b2025e1736bc2a81"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7ddde79f0a56bec14720f9528b81180a7e5de46ec4bc9df20bff100c320399f8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4bfd5688f3f77db129669d2166bb7d40b23d19d531a7ec6252e63b265336e96b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7796aedefaff5d52b33d81dd02a352df4dc7abbe59edf15eb7587ec29a4e35f8"
+    sha256 cellar: :any,                 x86_64_linux:      "2119f291750f6c361d70bf93a54f306f8e55af4641964364155447d2d7014c3c"
   end
 
   depends_on "go" => :build

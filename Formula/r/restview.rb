@@ -10,10 +10,11 @@ class Restview < Formula
   head "https://github.com/mgedmin/restview.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7fec6b20e863c3b009a03ae1506640d405c12b5ee81038b288b85e163d036fab"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "1748f0fcbf60c7a1b82fd8ef7fbc89e336d4dfe198d03cacc5bb484f1d2540ed"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "bleach" do
     url "https://files.pythonhosted.org/packages/48/3c/e12ac860709702bd5ebeb9b56a4fe334f1001246ee1b8f2b7ee28912df7d/bleach-6.4.0.tar.gz"
@@ -26,8 +27,8 @@ class Restview < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "readme-renderer" do
@@ -36,8 +37,8 @@ class Restview < Formula
   end
 
   resource "webencodings" do
-    url "https://files.pythonhosted.org/packages/0b/02/ae6ceac1baeda530866a85075641cec12989bd8d31af6d5ab4a3e8c92f47/webencodings-0.5.1.tar.gz"
-    sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
+    url "https://files.pythonhosted.org/packages/d5/a0/8fd707bcb776a7be556bad06a2ea5fb9bd519df78ef8e26f70ccf0f38bff/webencodings-0.6.1.tar.gz"
+    sha256 "565f9ad031c702dae404e27a099e3e09186a3ab1b9520f06d215502b651fd910"
   end
 
   def install

@@ -44,6 +44,8 @@ class Bitcoin < Formula
     cause "Requires C++ 20"
   end
 
+  deny_network_access!
+
   def install
     ENV.runtime_cpu_detection
     args = %w[

@@ -10,6 +10,7 @@ class Git < Formula
     "BSD-3-Clause",      # xdiff/xhistogram.c; reftable/
     "MIT",               # khash.h; sha1dc/
   ]
+  revision 1
   compatibility_version 1
   head "https://github.com/git/git.git", branch: "master"
 
@@ -19,11 +20,11 @@ class Git < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "32638a7c7c26f1d3d595a7543247baa234abbb819f8887aac5c2b858da91d0a9"
-    sha256 arm64_tahoe:       "1b5d5749c5092daaa6c88b2e0430f095aac55a5c723117da7758910e506a8982"
-    sha256 arm64_sequoia:     "db3fbed936fd0a1dbdc265e1be33bfe6584a98d692aab9c21c10f1890fd3b78b"
-    sha256 arm64_linux:       "d013c21067ac3f044cb1e1c1bdbb5529a2dab364081600424f333f964e1ca755"
-    sha256 x86_64_linux:      "79987fa0d484cc5aabb909cb2bffc83e2aedacfdf4cc98aff8db4803819daeef"
+    sha256 arm64_golden_gate: "8ac72c13f283a7b997604b479683bf418650d931bd2d9b8fe2f9059642b81bd9"
+    sha256 arm64_tahoe:       "f932c1525a4d6aaf2d982c471f95992a1faafc8ff9e3f331395e6dd538cfa9ca"
+    sha256 arm64_sequoia:     "8761edfe7a24efa75e6ded6aa98489a0d978eeca053d51c1f7b2b74bf365a587"
+    sha256 arm64_linux:       "6df0cc15eccfad7112d82df088ed2abe60f068e6faa1bb5f1a23b5dea71b2d84"
+    sha256 x86_64_linux:      "7b9b5082c7ffbf3a5084d1a11a1126ea646fcb9bddec2d24edc4d11efe9b60b9"
   end
 
   depends_on "gettext" => :build
@@ -41,7 +42,7 @@ class Git < Formula
   end
 
   on_linux do
-    depends_on "openssl@3" # for git-imap-send (GPL-2.0-or-later), uses CommonCrypto on macOS
+    depends_on "openssl@4" # for git-imap-send (GPL-2.0-or-later), uses CommonCrypto on macOS
     depends_on "zlib-ng-compat"
   end
 
@@ -118,7 +119,7 @@ class Git < Formula
     args += if OS.mac?
       %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]
     else
-      openssl_prefix = formula_opt_prefix("openssl@3")
+      openssl_prefix = formula_opt_prefix("openssl@4")
 
       %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
     end

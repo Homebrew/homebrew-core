@@ -37,13 +37,12 @@ class Singular < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "d7a9dc975300ae4d1008d3149caeae7213b1a9eaae901272bccd032ce038539c"
-    sha256 arm64_tahoe:       "a0eff7f1303dadf6e87f32dc2db2e12df0a3371b845ec473b0cc51763d20a9f5"
-    sha256 arm64_sequoia:     "8d44a9cdae5e24cfa477aa87070c9059dd035a4a4b66ec4b14e687caeb807167"
-    sha256 arm64_sonoma:      "80b04fa26d0a5a030c12dcd8be639e4280fb37d8a1d71275b7d2fcd897afb3ae"
-    sha256 sonoma:            "212d418cdc0a39095885e3e0264cd0a22306efd9eef6b59588d42964a008a651"
-    sha256 arm64_linux:       "86c09cc2f0763660ed70c7884c56355f6671593788e4e95b0b6ccc91ce15a7ef"
-    sha256 x86_64_linux:      "c52d7d0daf52fe19d132da3d33a2e33f769c407d6ae69ede03c81401ec7072d9"
+    rebuild 1
+    sha256 arm64_golden_gate: "cf2dfcca855c1dbb38a55f6bf3ed3fbcc16f27c0f0ed5812350178f9bb206d4c"
+    sha256 arm64_tahoe:       "c2247c8d99c4b9d966f26968cbd1713c962dc008a6b97b6aa7fb80b6db25d62d"
+    sha256 arm64_sequoia:     "5e03ab7db05efb09e23c15eb24ffa75d9b950a34f67cfa160758027927783ec1"
+    sha256 arm64_linux:       "9d2473e8d2138d34a7c7c48be2c45215691f644d2467daaa01747b9dde8e2528"
+    sha256 x86_64_linux:      "c3b0126fd2aa5b0ce2e51279a1b10e703410572b23d2c3253e7f45de9cb22c8b"
   end
 
   head do
@@ -58,7 +57,7 @@ class Singular < Formula
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "ntl"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "readline"
 
   def install

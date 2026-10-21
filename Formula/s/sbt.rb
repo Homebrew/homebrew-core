@@ -1,8 +1,8 @@
 class Sbt < Formula
   desc "Build tool for Scala projects"
   homepage "https://www.scala-sbt.org/"
-  url "https://github.com/sbt/sbt/releases/download/v2.0.10/sbt-2.0.10.tgz"
-  sha256 "783fe0c278564e67fbd14ecaa9ace6b9433cf8ece0ad8f50ad436cb24622105c"
+  url "https://github.com/sbt/sbt/releases/download/v2.0.11/sbt-2.0.11.tgz"
+  sha256 "d8409a244e97c3839f27c4f435f49421196c126a450d30f4cf53522d39e3c379"
   license "Apache-2.0"
 
   # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
@@ -13,7 +13,7 @@ class Sbt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "62c72ecc8283e8c1419221b16e2477232766deed267b65f040b30a405bd0cbc5"
+    sha256 cellar: :any_skip_relocation, all: "54a2f29af5286e91f684325cb56f09af9cf46ddc30f6e6d089976a15965e68d5"
   end
 
   depends_on "openjdk"

@@ -33,4 +33,13 @@ class Ballerburg < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
+
+  test do
+    ENV["SDL_VIDEODRIVER"] = "dummy"
+    pid = spawn bin/"ballerburg"
+    sleep 3
+    Process.kill "TERM", pid
+    Process.wait pid
+    assert_equal 0, $CHILD_STATUS.exitstatus
+  end
 end

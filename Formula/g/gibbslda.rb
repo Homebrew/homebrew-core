@@ -28,11 +28,17 @@ class Gibbslda < Formula
   # https://sourceforge.net/p/gibbslda/bugs/5/
   patch :DATA
 
+  deny_network_access!
+
   def install
     system "make", "clean"
     system "make", "all"
     bin.install "src/lda"
     share.install "docs/GibbsLDA++Manual.pdf"
+  end
+
+  test do
+    assert_match "Please specify the task you would like to perform", shell_output("#{bin}/lda 2>&1", 1)
   end
 end
 
@@ -56,9 +62,9 @@ index 273d469..4b03d85 100644
 @@ -21,6 +21,8 @@
   * Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
   */
- 
+
 +#include <stdio.h>
 +
  #include "model.h"
- 
+
  using namespace std;

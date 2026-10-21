@@ -1,9 +1,9 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/index.html"
-  url "https://www.sqlite.org/2026/sqlite-autoconf-3530400.tar.gz"
-  version "3.53.4"
-  sha256 "0e9483900e92cd5de8fd48d16bf9200145a61f7fd5be542a5ac81d8a9516eb9c"
+  url "https://www.sqlite.org/2026/sqlite-autoconf-3540100.tar.gz"
+  version "3.54.1"
+  sha256 "926ef8d3eab93fbf6e06011901273eec076b25594a4e1cdadd50c987f4f6d64e"
   license "blessing"
   compatibility_version 1
 
@@ -18,16 +18,11 @@ class Sqlite < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "804bef8ca4631bf2cf790c2b0564cee7ace649eb4052f2e16da3ac9142e77f51"
-    sha256 cellar: :any, arm64_tahoe:       "d09c4852f75e19c18c3e347ce73c81b0b864792046f079d074205522c735d3fc"
-    sha256 cellar: :any, arm64_sequoia:     "4eefe9a700a6de4c31d20a16a2e675b51a24c87638d79fbc2195b952e7cb8d6a"
-    sha256 cellar: :any, arm64_sonoma:      "45049bbdee244bc9d91e22c36629b5ba93b719b52c4d121b86392b3410be630f"
-    sha256 cellar: :any, tahoe:             "58c8931be9f84faf36cd62062f161dcc7c70a104761a4d0753ef4398dd9f627f"
-    sha256 cellar: :any, sequoia:           "f6752e93c0ddf55d10ae3aaea01d280be9632855649caa87daf1371fa6e26eb4"
-    sha256 cellar: :any, sonoma:            "32f6a117203a602fe3e06f524c19e431965ecc0bf9ede4c11ab443551558cfe9"
-    sha256 cellar: :any, arm64_linux:       "70f4fd9c239aa60c3b437d9c2638bd3186d920a19090cb62e2ce9f79f8e0a04c"
-    sha256 cellar: :any, x86_64_linux:      "a7d570ed08f4678d8aee733ab6f12a3193891709b8047042b07b48b90473fad5"
+    sha256 cellar: :any, arm64_golden_gate: "3c8be00f5e80568f00ff389c40e2a738949b08e199935a4538d2f5d054ef4457"
+    sha256 cellar: :any, arm64_tahoe:       "813f7e1a708d256259a07a0aa113d1d62bad4909d04e7ad24296900b60d18d6a"
+    sha256 cellar: :any, arm64_sequoia:     "38bdb30f8e13a07cdcd86233de9ab4d8db29f2b81cb08c15c202ecea6835ab2f"
+    sha256 cellar: :any, arm64_linux:       "5b011ca14e5e52141cc8eb358171ca7c3a20eec06fc5eb3955114ef0b0551e22"
+    sha256 cellar: :any, x86_64_linux:      "8783ecd3f534390d2cb8733f0c21d6a9e7ae85802226ee4a891bedd8654271b7"
   end
 
   keg_only :provided_by_macos

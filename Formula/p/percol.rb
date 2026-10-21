@@ -10,11 +10,11 @@ class Percol < Formula
   head "https://github.com/mooz/percol.git", branch: "master"
 
   bottle do
-    rebuild 6
-    sha256 cellar: :any_skip_relocation, all: "2c3890df22100cdc7677b196d924237649a0d7e3af5d0c26fa52e012cdcd1dac"
+    rebuild 7
+    sha256 cellar: :any_skip_relocation, all: "7e532aea84d749b2e3ad1a5ac163da21037904b9026b90c77caa2aa5df42a408"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "cmigemo" do
     url "https://files.pythonhosted.org/packages/2f/e4/374df50b655e36139334046f898469bf5e2d7600e1e638f29baf05b14b72/cmigemo-0.1.6.tar.gz"

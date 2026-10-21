@@ -9,18 +9,17 @@ class Fiona < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "23a84d38e6defeea62a338edeeb59447425ef983e952fef89ec3cb5a3feed522"
-    sha256 cellar: :any,                 arm64_tahoe:       "e185ec84243f3876b9155f6a808fc37185ebf4f43d070d484893043b0b4b8962"
-    sha256 cellar: :any,                 arm64_sequoia:     "eb67ec1899e4bd093194fecfe412d4075b4549b92d7c67bbdef61ec57958ab60"
-    sha256 cellar: :any,                 arm64_sonoma:      "545745b1ed597d12e44e9c998e552490c4af4ed79421f1912e1c14e0bf516c93"
-    sha256 cellar: :any,                 sonoma:            "f8d1d462b80b2a6d3fd6fcad56bb567726c26f9057685e629c6692951e373c70"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "81b758f1abc2fff5f32496f62aa1646d6c0a3aa6f6fccb016c014de8a02e37ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8c680dd74cf3eaa431bf51c7bfd8ca70a61c93e9d236bb3bcb9fbca1fab06c1c"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "b3894082992e0f3ce486e2688c5b7d63bdb39ec9b45983f6fc41d08ec992f0c4"
+    sha256 cellar: :any, arm64_tahoe:       "4f257790d661ab260a8f06bc666f284f713a72b3d628b0479d181d9c545d7556"
+    sha256 cellar: :any, arm64_sequoia:     "981393e7eb02958c6eb5e44d2b03c88fe374f49c77ef12d32c11de792bfb02a6"
+    sha256 cellar: :any, arm64_linux:       "baa93e7988e5cdc9d8198d33d48f285e1d0bfbfbe324b0fa3dd32bb178068eae"
+    sha256 cellar: :any, x86_64_linux:      "3edb10941f264528f3ed14ad0ee6261d91e64e63a4f971828988182b8105bda9"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "gdal"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   conflicts_with "fio", because: "both install `fio` binaries"
 
@@ -46,6 +45,11 @@ class Fiona < Formula
     sha256 "a4bc13d623356b373c2c27c53dbd9c68cae5d526270bfa71f6c6fa69669c6b27"
   end
 
+  resource "test_file", :test do
+    url "https://github.com/Toblerity/Fiona/raw/refs/heads/main/tests/data/coutwildrnp.shp"
+    sha256 "fc9f563b2b0f52ec82a921137f47e90fdca307cc3a463563387217b9f91d229b"
+  end
+
   def install
     virtualenv_install_with_resources
 
@@ -56,11 +60,6 @@ class Fiona < Formula
     assert_match version.to_s, shell_output("#{bin}/fio --version")
 
     ENV["SHAPE_RESTORE_SHX"] = "YES"
-
-    resource "test_file" do
-      url "https://github.com/Toblerity/Fiona/raw/refs/heads/main/tests/data/coutwildrnp.shp"
-      sha256 "fc9f563b2b0f52ec82a921137f47e90fdca307cc3a463563387217b9f91d229b"
-    end
 
     testpath.install resource("test_file")
     output = shell_output("#{bin}/fio info #{testpath}/coutwildrnp.shp")

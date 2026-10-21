@@ -28,6 +28,8 @@ class Phpmyadmin < Formula
 
   depends_on "php" => :test
 
+  deny_network_access!
+
   def install
     # Make bottles uniform
     usr_local_files = %w[

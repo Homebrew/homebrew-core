@@ -4,6 +4,7 @@ class Kmod < Formula
   url "https://mirrors.edge.kernel.org/pub/linux/utils/kernel/kmod/kmod-34.2.tar.xz"
   sha256 "5a5d5073070cc7e0c7a7a3c6ec2a0e1780850c8b47b3e3892226b93ffcb9cb54"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  revision 1
 
   livecheck do
     url "https://mirrors.edge.kernel.org/pub/linux/utils/kernel/kmod/"
@@ -11,9 +12,8 @@ class Kmod < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_linux:  "61677724c3f5a7390c6fb6b7ea9bb8a63d579be87223b4d1bc4a958c5a2413dd"
-    sha256 x86_64_linux: "bf100adc797109c78f5a9811d224673e36f7670f90677cbf4d6ce1b5fbe49d3e"
+    sha256 arm64_linux:  "e365c972a3cd3bc1484853c8a612aaf1560c9db8612f285136236973f121c9eb"
+    sha256 x86_64_linux: "944678c63d7c839272ab3ceb731864c0eb53fe62d77c24922f8c493ad026a773"
   end
 
   depends_on "meson" => :build
@@ -21,7 +21,7 @@ class Kmod < Formula
   depends_on "pkgconf" => :build
   depends_on "scdoc" => :build
   depends_on :linux
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "xz"
   depends_on "zlib-ng-compat"
   depends_on "zstd"

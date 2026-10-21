@@ -33,6 +33,8 @@ class GoAT124 < Formula
     resolves "https://github.com/golang/go/issues/77387"
   end
 
+  deny_network_access!
+
   def install
     libexec.install Dir["*"]
 

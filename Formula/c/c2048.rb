@@ -1,21 +1,17 @@
 class C2048 < Formula
   desc "Console version of 2048"
   homepage "https://github.com/mevdschee/2048.c"
-  url "https://github.com/mevdschee/2048.c/archive/refs/tags/v1.0.3.tar.gz"
-  sha256 "f26b2af87c03e30139e6a509ef9512203f4e5647f3225b969b112841a9967087"
+  url "https://github.com/mevdschee/2048.c/archive/refs/tags/v1.0.5.tar.gz"
+  sha256 "83b9008dc77d7ab2ad721d7316551fb015dce97c40337a354040fe45d8296fd4"
   license "MIT"
   head "https://github.com/mevdschee/2048.c.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "557431ca505faa60898a4a9f3e3dc24a8063cc297335f55e48ef9d5a0309d9b4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0563e808fedace771b34dc5be651e242898101d1ba16e5af2d93fc9776dc9d45"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aac8d147591dcc68329b42238cc2363f05fda1533e3e897fd0d2d67c830f6ac0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "6b575648a9003e0a7479ce49a0224cfb1e9f1d9e492f7a5b050ec096375a5135"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "d6c6ade21d0fe28b3408b166d29ab5f6d16435f9dc4c8700fe6a7c490816009f"
-    sha256 cellar: :any_skip_relocation, sonoma:            "0c43e42fd31143a4e0f008a2620e092b0a431b0fe0c68c5adc72acc975859cb1"
-    sha256 cellar: :any_skip_relocation, ventura:           "6c6cc4ae173a335eda1f921c2f37dc34bb7b5a3cbba6b77c32f296ba5cd54be2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "483edc63ab9cf31614e368777afccc1934660e5e0b72b801e23fd869ae8133ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "dabedc2a620cb0966fcf79c27b6135366a02fc7f37f3413c7cb65df0eec15644"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "34d1b744f2e83653e15e47921aab9b516f010678e52b5e95b8d7b8d66c5769a5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7e2167cada11507d11613f88ff12ece3ef94c4a798e57f758c47fb719257c18a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "18e9b337d2b521fb6d57a1dec101bf9f68f22e1fd188a1a3f2be1a853b6e2b98"
+    sha256 cellar: :any,                 arm64_linux:       "41dd2678b0a9d85a7b54383c9ce8b2a4628875995430043691bf82f6d4265593"
+    sha256 cellar: :any,                 x86_64_linux:      "8f1a701fa1daba5eae8995d86cd031f78e59d7a65667220b6e29c559a0fd20ec"
   end
 
   def install

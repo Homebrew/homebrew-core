@@ -1,8 +1,8 @@
 class Wal2json < Formula
   desc "Convert PostgreSQL changesets to JSON format"
   homepage "https://github.com/eulerto/wal2json"
-  url "https://github.com/eulerto/wal2json/archive/refs/tags/wal2json_2_6.tar.gz"
-  sha256 "18b4bdec28c74a8fc98a11c72de38378a760327ef8e5e42e975b0029eb96ba0d"
+  url "https://github.com/eulerto/wal2json/archive/refs/tags/wal2json_2_7.tar.gz"
+  sha256 "e6c12d02dc32e4d610dce33ee52ea85a54e12a563e79c4844508b6c061ff07a1"
   license "BSD-3-Clause"
 
   livecheck do
@@ -14,14 +14,11 @@ class Wal2json < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bb6d50a77fe5c734593c38a45c1f42ae38ef50c54bf98be600bc42c0eb4f868c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6df07eb3b4c76fd3a26aabbd3d9512f2018ca40991a213805b3d97a359e6bbea"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0cd88f515f6d34e3aeb5ecbf7ef5a869639b032373512e8eb6d68b58e9b3b2af"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "79300555385707acce8e526b38f75d91445f7bf43ad8dcc4b3d51083edd29a82"
-    sha256 cellar: :any_skip_relocation, sonoma:            "1bd372e6fe5bf4532c35eea95a8da392cca051f40fb43eb2721a6d8669375eb0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "98ff83a1fd6e9730c36c443fd57824831f83b48d426836a33e6a98e94b70647b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "b73b0d8f8d95d485c6a5b8e9bc0ccf357292d8ca232ca6708cba79cb0875a7e9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0bee9e50cc7a4beee7e0058c0c9e51fadfa69092812f7f7db6f1645618a47f9c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b81ba84ad33472f553470645b65010d3b2b3aa85bc6a6ac86bb0edd5b4a5a2e5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "baa6d3e26166c5c47f4328542074d4cdc2fc26d5c7292e4ec63d09ab176250df"
+    sha256 cellar: :any,                 arm64_linux:       "320a93e54dfef073cc62276d968cc717129e292eba211d54dbaf6f7d6952a5d3"
+    sha256 cellar: :any,                 x86_64_linux:      "1a517efd74ab3202c425fb49d5f07633189e16f2bf0cb05c2c73c878c699d481"
   end
 
   depends_on "postgresql@17" => [:build, :test]

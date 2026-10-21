@@ -31,8 +31,6 @@ class Duf < Formula
   end
 
   test do
-    require "json"
-
     devices = JSON.parse shell_output("#{bin}/duf --json")
     assert root = devices.find { |d| d["mount_point"] == "/" }
     assert_equal "local", root["device_type"]

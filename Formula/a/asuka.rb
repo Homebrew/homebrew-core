@@ -19,6 +19,10 @@ class Asuka < Formula
     sha256 cellar: :any,                 x86_64_linux:      "789d5787d195d510189eb4a4c4ba5a473a1b5e563942ed5effc8e03fb1c62937"
   end
 
+  # Last release and activity on 2022-05-05
+  deprecate! date: "2026-10-15", because: :unmaintained
+  disable! date: "2027-04-15", because: :unmaintained
+
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 

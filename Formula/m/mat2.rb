@@ -11,7 +11,8 @@ class Mat2 < Formula
   no_autobump! because: "`update-python-resources` cannot determine dependencies"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3994d3c3034d60f2d69cbc9c1da795a49742bcac3d36869d75f028245f267354"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "a719f021ce410189759f2b39c86a8aa6cfb591d5783f0ea5fb2e82fde90d9732"
   end
 
   depends_on "exiftool"
@@ -21,7 +22,7 @@ class Mat2 < Formula
   depends_on "poppler"
   depends_on "py3cairo" => :no_linkage
   depends_on "pygobject3" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "pygobject"
 

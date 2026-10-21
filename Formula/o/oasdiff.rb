@@ -1,8 +1,8 @@
 class Oasdiff < Formula
   desc "OpenAPI Diff and Breaking Changes"
   homepage "https://www.oasdiff.com/"
-  url "https://github.com/oasdiff/oasdiff/archive/refs/tags/v1.33.0.tar.gz"
-  sha256 "ecd6c0b87b780749963d0b2948a0419b6d3e221d888043e539c3bec9c724268f"
+  url "https://github.com/oasdiff/oasdiff/archive/refs/tags/v1.34.0.tar.gz"
+  sha256 "75e2bf60dd2f0530385eb18fd1deb6daa0ea7f2d88600c23099ef93b716bfc09"
   license "Apache-2.0"
   head "https://github.com/oasdiff/oasdiff.git", branch: "main"
 
@@ -13,14 +13,24 @@ class Oasdiff < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "55e8c716518eba94afce26288dc9490c8ea32b6303d15c192407506560ae3daa"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "55e8c716518eba94afce26288dc9490c8ea32b6303d15c192407506560ae3daa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "55e8c716518eba94afce26288dc9490c8ea32b6303d15c192407506560ae3daa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d3dacc753bf5c81e17b692859248ecbbe05a0d50c43df864236b633895250468"
-    sha256 cellar: :any,                 x86_64_linux:      "e9060d40e9ccb3728167882443ddc8f1095dd27fa8f39c7098c76bd51ecc0ecb"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b1a088aff5389a7018629ae7e66c9d9726c2655b0fd78e712771211a8e3cec24"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b1a088aff5389a7018629ae7e66c9d9726c2655b0fd78e712771211a8e3cec24"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b1a088aff5389a7018629ae7e66c9d9726c2655b0fd78e712771211a8e3cec24"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "5c8a0b674212d0f1582d4d9d9c910b4b0c228350ebd841ad855870abf851c3e6"
+    sha256 cellar: :any,                 x86_64_linux:      "dffacb2ae5d57ebcfdf74d86991bf272d0e9c605a634b83fdc1adc914c1c5621"
   end
 
   depends_on "go" => :build
+
+  resource "homebrew-openapi-test1.yaml", :test do
+    url "https://raw.githubusercontent.com/oasdiff/oasdiff/8fdb99634d0f7f827810ee1ba7b23aa4ada8b124/data/openapi-test1.yaml"
+    sha256 "f98cd3dc42c7d7a61c1056fa5a1bd3419b776758546cf932b03324c6c1878818"
+  end
+
+  resource "homebrew-openapi-test5.yaml", :test do
+    url "https://raw.githubusercontent.com/oasdiff/oasdiff/8fdb99634d0f7f827810ee1ba7b23aa4ada8b124/data/openapi-test5.yaml"
+    sha256 "07e872b876df5afdc1933c2eca9ee18262aeab941dc5222c0ae58363d9eec567"
+  end
 
   allow_network_access! :test
 
@@ -36,20 +46,10 @@ class Oasdiff < Formula
   end
 
   test do
-    resource "homebrew-openapi-test1.yaml" do
-      url "https://raw.githubusercontent.com/oasdiff/oasdiff/8fdb99634d0f7f827810ee1ba7b23aa4ada8b124/data/openapi-test1.yaml"
-      sha256 "f98cd3dc42c7d7a61c1056fa5a1bd3419b776758546cf932b03324c6c1878818"
-    end
-
-    resource "homebrew-openapi-test5.yaml" do
-      url "https://raw.githubusercontent.com/oasdiff/oasdiff/8fdb99634d0f7f827810ee1ba7b23aa4ada8b124/data/openapi-test5.yaml"
-      sha256 "07e872b876df5afdc1933c2eca9ee18262aeab941dc5222c0ae58363d9eec567"
-    end
-
     testpath.install resource("homebrew-openapi-test1.yaml")
     testpath.install resource("homebrew-openapi-test5.yaml")
 
-    expected = "3 error, 1 warning"
+    expected = "[api-path-removed-without-deprecation]"
     assert_match expected, shell_output("#{bin}/oasdiff changelog openapi-test1.yaml openapi-test5.yaml")
 
     assert_match version.to_s, shell_output("#{bin}/oasdiff --version")

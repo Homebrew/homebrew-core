@@ -4,7 +4,7 @@ class Libsigrokdecode < Formula
   url "https://sigrok.org/download/source/libsigrokdecode/libsigrokdecode-0.5.3.tar.gz"
   sha256 "c50814aa6743cd8c4e88c84a0cdd8889d883c3be122289be90c63d7d67883fc0"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "git://sigrok.org/libsigrokdecode", branch: "master"
 
   # The upstream website has gone down due to a server failure and the previous
@@ -16,14 +16,11 @@ class Libsigrokdecode < Formula
   end
 
   bottle do
-    rebuild 4
-    sha256 arm64_golden_gate: "e17de96bd7494e682a949cf0d8eb1184adc075fd7d290b75fc335d3ad4fbe678"
-    sha256 arm64_tahoe:       "23396e67a66de629ac081dc782c68f9fcd38617f0b6f9127f2f46dbd245f2d37"
-    sha256 arm64_sequoia:     "d117a9548cd69c1e115b85c7ef62a277b69aa14af761de1748c3bf1811fdd5b1"
-    sha256 arm64_sonoma:      "4d85c0c5d5623c0e3714d75c4e4d4fdf00f4c31b760cc1ce43da3ba47ee06521"
-    sha256 sonoma:            "3d88591dccf61eaa1381eabf2b0dcff873d72238cf4268f9e2820a9ad4c2648d"
-    sha256 arm64_linux:       "d642fc4f3665d70301ea2195b43926e5bf9deefdee64dab83717b90476c68a6a"
-    sha256 x86_64_linux:      "4ff7dc34d6405ca194b26dc6cf68637aa81f8161786d7ceb4dd49d2abe1f7b5e"
+    sha256 arm64_golden_gate: "c9270ad711b3a079cde5eeb3700df0d549ef9ebf1e85ed5f60900d24f4ba8ec8"
+    sha256 arm64_tahoe:       "bed30b10a44f20e5f2d96a571068a55b34ea8372746c90f110a9ab2aec8b5f3b"
+    sha256 arm64_sequoia:     "8197a495bd8e5d4a2bdb2e3a72bbca215b7d93c694bedd78647dfa37d7024b86"
+    sha256 arm64_linux:       "3396cd05fc80c5c4f268fd0e00eb1a99b308baa809e7d06a8ba6783eb19e345b"
+    sha256 x86_64_linux:      "33c42fe38e333a44de429acc5a425756523db8c50c579ef4770f18e8f55e9a4b"
   end
 
   depends_on "autoconf" => :build
@@ -34,7 +31,7 @@ class Libsigrokdecode < Formula
   depends_on "pkgconf" => [:build, :test]
 
   depends_on "glib"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_macos do
     depends_on "gettext"

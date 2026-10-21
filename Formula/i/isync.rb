@@ -4,16 +4,14 @@ class Isync < Formula
   url "https://downloads.sourceforge.net/project/isync/isync/1.5.1/isync-1.5.1.tar.gz"
   sha256 "28cc90288036aa5b6f5307bfc7178a397799003b96f7fd6e4bd2478265bb22fa"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_golden_gate: "ae50190ebb76360893c60b2d356e1374f83b2aee19e684202ba7f7ae6d1a55fa"
-    sha256 cellar: :any,                 arm64_tahoe:       "112d7d4dd67530267fd137c2a4dc088128cfb86645df9baacdf347657f638779"
-    sha256 cellar: :any,                 arm64_sequoia:     "0f5182fcd8741c7a5206d2dbe599e4ae4d69af77e9cfd6fce910fb73da81790b"
-    sha256 cellar: :any,                 arm64_sonoma:      "27e9a03df42264de7db35d52232a1752051caee2ab0eeead25e16d81c026cf9a"
-    sha256 cellar: :any,                 sonoma:            "a0ced90c4006994b8a962ff402b1580aa27f821193aaec168562f08eee713c13"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "bb02c3cdc9fdae85acc97a271031a4fc62b23241926f3cd905f2d201a21f1e0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "328a896bb3825d07bf63b0650f0031fc1a0ff7c44a785952cf3c29f88f53a881"
+    sha256 cellar: :any, arm64_golden_gate: "aac10990f0035a59af38824b644835090f4f40d35e74b1ed8efdd164ec3c9a8d"
+    sha256 cellar: :any, arm64_tahoe:       "b4c6e597e2d119bc81bf052a2c25ae0a648692e987d144e0e4752bd806e91f7b"
+    sha256 cellar: :any, arm64_sequoia:     "ebf1eb759ae36f017092f94daa95c07ead59c8de411e5a2c81aeddac3591368e"
+    sha256 cellar: :any, arm64_linux:       "4e9e22c05eef3b1bdf41704a5f05c4859ab0ef0fd50603d30795a52c4aa53993"
+    sha256 cellar: :any, x86_64_linux:      "e18321686c530f9067cbc9ad990476437cbaf235b2e841d3d741ed0265e6759b"
   end
 
   head do
@@ -23,13 +21,22 @@ class Isync < Formula
   end
 
   depends_on "berkeley-db@5"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "cyrus-sasl"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
+
+  # Backport fix for OpenSSL 4
+  # https://sourceforge.net/p/isync/isync/ci/bdd9ff8d931236e1926a58cb44bd2644e4538217/
+  patch do
+    file "Patches/isync/openssl-4.diff"
+    type :backport
+  end
+
+  deny_network_access!
 
   def install
     system "./autogen.sh" if build.head?

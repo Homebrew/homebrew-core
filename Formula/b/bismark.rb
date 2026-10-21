@@ -20,6 +20,14 @@ class Bismark < Formula
   depends_on "bowtie2"
   depends_on "minimap2"
 
+  deny_network_access!
+
+  def fetch
+    cd "rust" do
+      system "cargo", "fetch", *std_cargo_fetch_args
+    end
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "rust/bismark")
   end

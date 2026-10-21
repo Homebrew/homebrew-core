@@ -19,6 +19,8 @@ class Canfigger < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
 
+  deny_network_access!
+
   def install
     system "meson", "setup", "build", "-Dbuild_tests=false", "-Dbuild_examples=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

@@ -1,29 +1,20 @@
 class Netpbm < Formula
   desc "Image manipulation"
   homepage "https://netpbm.sourceforge.net/"
-  # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
-  # for stable versions and matching revisions.
-  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "5358"
-  version "11.02.30"
+  # We track "super stable" release series as subversion checkouts are not allowed for stable url
+  url "https://downloads.sourceforge.net/project/netpbm/super_stable/10.86.51/netpbm-10.86.51.tgz"
+  sha256 "17d41387e7343da10925690b813ba91c6bd901b417e51500ba4272556a4e5302"
   license "GPL-3.0-or-later"
-  version_scheme 1
-  compatibility_version 1
+  version_scheme 2
+  compatibility_version 2
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
-  livecheck do
-    url "https://sourceforge.net/p/netpbm/code/HEAD/log/?path=/stable"
-    regex(/Release\s+v?(\d+(?:\.\d+)+)/i)
-    strategy :page_match
-  end
-
-  no_autobump! because: :incompatible_version_format
-
   bottle do
-    sha256 arm64_golden_gate: "2fd7307fa5a703a288971d7b38efb217c912b5da90daea0b114d2e555d2e554e"
-    sha256 arm64_tahoe:       "acb9284d843ccbe3667b976bbba3cbe5a295dcc281853cbcd91962abb42452d9"
-    sha256 arm64_sequoia:     "292e1635e563dfe22f4103d5f5313f4ea912f0cfd8b5814a70a64f8f99acc1e6"
-    sha256 arm64_linux:       "bf8ee82e9d646f6a75b0e369b9e1a002cb74134a48ec3b4cefc4c10a2c57679b"
-    sha256 x86_64_linux:      "d234463812ea8bfe30df940ee2732a622366ac4ade33216865b3edd86aad123d"
+    sha256 arm64_golden_gate: "ed9cb4f4f4594ef2c5d2afd7e5ba7bea80bd9d1bbb8d042302385fdce5caa05e"
+    sha256 arm64_tahoe:       "3e19506a833bc9090193d61b2c19b348a02ab377d743824f9d16db9e57ea1726"
+    sha256 arm64_sequoia:     "5c3d55c105decbc650943223197f02a6a35d08c9011a3ed8ce537332a1ff842c"
+    sha256 arm64_linux:       "cb22b0c20d45f0a62b274b8ce0d7c30d1231142f110cd8260007b7bd3f1b8bf6"
+    sha256 x86_64_linux:      "4d4afc6d0bc8f5806f2128fd96e868047b5f75b79e90b38f9367d8bb2ea47f47"
   end
 
   depends_on "pkgconf" => :build
@@ -41,19 +32,6 @@ class Netpbm < Formula
   end
 
   conflicts_with "jbigkit", because: "both install `pbm.5` and `pgm.5` files"
-
-  resource "html" do
-    # Rolling release, latest revision also documents previous software versions
-    # NOTE: Keep "revision" and "version" in sync
-    url "https://svn.code.sf.net/p/netpbm/code/userguide", revision: "5348"
-    version "5348"
-
-    livecheck do
-      url "https://sourceforge.net/p/netpbm/code/HEAD/log/?path=/userguide"
-      regex(/\[r?(\d+)\]/i)
-      strategy :page_match
-    end
-  end
 
   deny_network_access!
 
@@ -104,18 +82,6 @@ class Netpbm < Formula
     # Generate unversioned library symlink (upstream does not do this)
     libnetpbm = lib.glob(shared_library("libnetpbm", "*")).reject(&:symlink?).first.basename
     lib.install_symlink libnetpbm => shared_library("libnetpbm")
-
-    resource("html").stage buildpath/"userguide"
-    make_args = %W[
-      USERGUIDE=#{buildpath}/userguide
-      -f
-      #{buildpath}/buildtools/manpage.mk
-    ]
-    mkdir buildpath/"netpbmdoc" do
-      system "make", *make_args, "manpages"
-      [man1, man3, man5].map(&:mkpath)
-      system "make", "MANDIR=#{man}", *make_args, "installman"
-    end
   end
 
   test do

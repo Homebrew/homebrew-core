@@ -11,18 +11,17 @@ class Otf2 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "3f62f994f7e2787d068ccf6574ebe01554f8f5ae08f76fdff73c940fe9f34aee"
-    sha256 arm64_tahoe:       "35278dc5769e0222e034307e2882bd070e987c191912f0d7620267ec8ed9bf2f"
-    sha256 arm64_sequoia:     "f4b0509ef762a1f4e6bf003b27f3efe1071d5ae5e71675ab99c5df17b9f74348"
-    sha256 arm64_sonoma:      "d1ff3b7df78614ae970983220609c607306da8d7a6f716138750c8f93f87704b"
-    sha256 sonoma:            "e4b55ced4491b7d5079ccdb79d27996ac8d13b7aa4859c46fb3520f3dfed0aca"
-    sha256 arm64_linux:       "86af0058db787e9b87b08a1d2c261e26f1f0cfb77234ea8f68305683a0ce8b2d"
-    sha256 x86_64_linux:      "d6abbaad20c450ecc3f6a728ee246e51f7b8c79c05b9c75879aebffb7b2908a2"
+    rebuild 1
+    sha256 arm64_golden_gate: "ed969eb7ea11f1b0dae92542ba35a95bb0a2490ad5122246a5e7848802ff39f1"
+    sha256 arm64_tahoe:       "19832cc78f09c74fcb2302f1bfca65b009ef5792b7652436b329af2d3743e0b1"
+    sha256 arm64_sequoia:     "7b055aa1059dabf91b8d3a2355898d2c9aaaaf1a6e2704feba854948f97febc0"
+    sha256 arm64_linux:       "e443aa8afa6f2d35aef845dcfaad48a6fda64216109cfdc92c9150adc7ceba54"
+    sha256 x86_64_linux:      "1d970892175c67b95c36013f00f33a36200a64b031277c88ad6086db07e03e5b"
   end
 
   depends_on "sphinx-doc" => :build
   depends_on "open-mpi"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do

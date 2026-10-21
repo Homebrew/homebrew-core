@@ -28,6 +28,12 @@ class TidyViewer < Formula
 
   conflicts_with "television", because: "both install `tv` binaries"
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "tidy-viewer-cli")
     bin.install_symlink "tidy-viewer" => "tv"

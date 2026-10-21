@@ -10,19 +10,18 @@ class Showcert < Formula
   head "https://github.com/yaroslaff/showcert.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ce214124653ae96cc922b97c95509451698f3f6b52c4c7187e6212ab50aa556a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "61efa9e55713a6d1ad96c79bd138592e39559843ce22f68bfe3bd909409929a5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "61efa9e55713a6d1ad96c79bd138592e39559843ce22f68bfe3bd909409929a5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "61efa9e55713a6d1ad96c79bd138592e39559843ce22f68bfe3bd909409929a5"
-    sha256 cellar: :any_skip_relocation, sonoma:            "87f0ab20be8f4845db37ab131205d6a9f92119a07d8473dd41ccce2879dd09c8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "724a82f9351318d77bf7ff9e65eef779a12d7c67cae88c3f6307bd9337aad9fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "724a82f9351318d77bf7ff9e65eef779a12d7c67cae88c3f6307bd9337aad9fe"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b5e78ff3be637a7848faf8ec737758d011b6b148c872c84f4d84602875c43ffe"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b5e78ff3be637a7848faf8ec737758d011b6b148c872c84f4d84602875c43ffe"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b5e78ff3be637a7848faf8ec737758d011b6b148c872c84f4d84602875c43ffe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "077390664e84bf144caa4a58c036ae7c7af1ed0a5d1729e89e57f3673cd73084"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "077390664e84bf144caa4a58c036ae7c7af1ed0a5d1729e89e57f3673cd73084"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "libmagic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: %w[certifi cryptography]
 
@@ -32,8 +31,8 @@ class Showcert < Formula
   end
 
   resource "pyopenssl" do
-    url "https://files.pythonhosted.org/packages/74/b7/da07bae88f5a9506b4def6f2f4903cf4c3b8831e560dba8fa18ca08f758f/pyopenssl-26.3.0.tar.gz"
-    sha256 "589de7fae1c9ea670d18422ed00fc04da787bbde8e1454aea872aa57b49ad341"
+    url "https://files.pythonhosted.org/packages/3f/e8/7325d258199b159eb2c03fe32107533e2832e70e63f4fb88a6aa00023201/pyopenssl-26.4.0.tar.gz"
+    sha256 "28dfcce0162b9211413e26dfbfdf1d24317fbeba18fc93c12400a1856b2a0bc7"
   end
 
   resource "python-magic" do

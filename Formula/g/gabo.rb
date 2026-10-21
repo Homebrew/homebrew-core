@@ -1,17 +1,17 @@
 class Gabo < Formula
   desc "Generates GitHub Actions boilerplate"
   homepage "https://ashishb.net/tech/common-pitfalls-of-github-actions/"
-  url "https://github.com/ashishb/gabo/archive/refs/tags/v1.22.0.tar.gz"
-  sha256 "d0e3b4bc4011aa8cb4b3371bbb6b887ca652edbbfc04ed7f4837809c3339e652"
+  url "https://github.com/ashishb/gabo/archive/refs/tags/v1.25.0.tar.gz"
+  sha256 "9a009a74007433645abe0171e5f50aba73317b1bb9991c2de519557eb3ee4028"
   license "Apache-2.0"
   head "https://github.com/ashishb/gabo.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82a3b640b84fced3ebb8afd843bc836736a56041af6d02c68864a58a7dd390b6"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "82a3b640b84fced3ebb8afd843bc836736a56041af6d02c68864a58a7dd390b6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "82a3b640b84fced3ebb8afd843bc836736a56041af6d02c68864a58a7dd390b6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "02fe1ab61bc61b826383ff1afc68ae8517b460455ede84eafcd30d0936d8a49a"
-    sha256 cellar: :any,                 x86_64_linux:      "69ce7a81cb33f49869103c0a14e2d314510d98c410da7ee43adc648c45fb1233"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c4663b71639a9896f6df33ad865ddf7147df1112bdefadc49641cbee64e2693d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c4663b71639a9896f6df33ad865ddf7147df1112bdefadc49641cbee64e2693d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c4663b71639a9896f6df33ad865ddf7147df1112bdefadc49641cbee64e2693d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "6cdfa0ad0b45f3a998ba982a6f063dc374183ff82f8cde080ecc70bf93c66afa"
+    sha256 cellar: :any,                 x86_64_linux:      "dbde905c7fbde7a782b7d1bd375f150bab8f2271f089487bf3f0e6f89956b154"
   end
 
   depends_on "go" => :build

@@ -3,17 +3,16 @@ class CondaLock < Formula
 
   desc "Lightweight lockfile for conda environments"
   homepage "https://conda.github.io/conda-lock/"
-  url "https://files.pythonhosted.org/packages/06/44/52deb5012f8ef85c224cb3b1638c09c3b3d70b2f9e101e893bb61b9ee9ba/conda_lock-4.0.2.tar.gz"
-  sha256 "c4ebc4404ea760b1dd0035d6403fa27e291050269a5fd1b629b89fcbc75ef32a"
+  url "https://files.pythonhosted.org/packages/4b/a2/5b088ae0b780cb98849a8ee93d293d82076f6d297850fc3797d31521fe8d/conda_lock-4.0.3.tar.gz"
+  sha256 "455efdfddb8e03cb44f2c4b7921e0ddc9d30e949c90611569dbe5aa652eb3079"
   license "MIT"
-  revision 7
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "df0ca5dc61628aee79fc3ed80c0ed90358b28bdf6ca77b62f0cb6ac62353202e"
-    sha256 cellar: :any, arm64_tahoe:       "a9d019696a88607948d7e92fe574104511860cbb151919a227fe7058dd986e3e"
-    sha256 cellar: :any, arm64_sequoia:     "114aee93f088eed9172f35531e54124713f8b050f3c55aa615860dde9ddf5173"
-    sha256 cellar: :any, arm64_linux:       "82457931011db686a7bac822ae4ae29efcc136831405259d09fa75ee6aebe558"
-    sha256 cellar: :any, x86_64_linux:      "62f87b36368ad96bf42b1d37b7f6ae75d66f47ba5c64431033b5e3667644a5ba"
+    sha256 cellar: :any, arm64_golden_gate: "2857858d68adc4c2ed01d880bc5f6d379a55c7fd2eba7779216420360977c966"
+    sha256 cellar: :any, arm64_tahoe:       "dfdab67946e54140650d0ba0ab06e49d354f7f8b199e68dbff84440dab549696"
+    sha256 cellar: :any, arm64_sequoia:     "ec059f700467f4b395f66e39ce46e097b32091ae50e017f205f78e45dcd03157"
+    sha256 cellar: :any, arm64_linux:       "ac1081ed4463446fa0fbad29318a2fa63a184e09451896f8ed1b9ae7a7e9f961"
+    sha256 cellar: :any, x86_64_linux:      "c3559e0b1c0865af43d8cc412f1cf0a42f873099f54459e57fc57c81eb1d88cc"
   end
 
   depends_on "rust" => :build # for cachecontrol, uv-backend
@@ -21,7 +20,7 @@ class CondaLock < Formula
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "zstd"
 
   on_linux do
@@ -107,8 +106,8 @@ class CondaLock < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/e0/db/3ca813cbacb23ab6fe46ff38a9b5ef8e73e970c8051f2ce903aacafe0446/gitpython-3.1.62.tar.gz"
-    sha256 "1791de66309bc0c7cfca40bf8d2e3de7ca091cbf94e6051be1ad0722c61062af"
+    url "https://files.pythonhosted.org/packages/6e/2d/6f6e649818da44d4499604802c89329b8d9799687a124e3a5e467a643336/gitpython-3.2.0.tar.gz"
+    sha256 "fb92310af6844d96adc95ca066ed2e617c00e1dbd146a326626c81e72e18cc2e"
   end
 
   resource "idna" do
@@ -152,8 +151,8 @@ class CondaLock < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "more-itertools" do
@@ -177,8 +176,8 @@ class CondaLock < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/17/c8/721b3855fe457da514fe249247d404b9b39c5d16532278f70ebaa6acf18b/platformdirs-4.12.2.tar.gz"
-    sha256 "eab5f70271a490ef74618bb314fbb86e3c7e82fa3b9c922c2ea0e0a1a155d329"
+    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
+    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
   end
 
   resource "pyproject-hooks" do

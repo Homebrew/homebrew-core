@@ -19,8 +19,6 @@ class Pagmo < Formula
   depends_on "nlopt"
   depends_on "tbb"
 
-  # Backport support for eigen 5.0.0
-
   deny_network_access!
 
   def install

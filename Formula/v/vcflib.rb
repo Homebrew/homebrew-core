@@ -6,20 +6,18 @@ class Vcflib < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "fa99925d71e1e23861a47e73340cf66be7929158a362f40253fccaefd30525b5"
-    sha256 cellar: :any, arm64_tahoe:       "837e94d79bd6b94f62aa5da9ada2695c30421933fbbf121bff6d3bc32bfe8ac0"
-    sha256 cellar: :any, arm64_sequoia:     "ce48bd31457f57bbdc44ccca1bcc198a7002d7a91069fb352c980318d19241ef"
-    sha256 cellar: :any, arm64_sonoma:      "0bbc25128abb0a232e460042373b9d8ac516c6f47dae1d5107d66c591b4b0de7"
-    sha256 cellar: :any, sonoma:            "572645a1d26f3f0de4c7dd2a704fec02a70b53bc9f209c9147d9b0f3951ddd4f"
-    sha256 cellar: :any, arm64_linux:       "9151d202f36c0f4ec53c44ae264a7f5a0466aff4a7c477c70d5ac32e03de2c02"
-    sha256 cellar: :any, x86_64_linux:      "3262faae8a544bd217c646635d6309e2555612aeec51fdc6ebb77f07cacdde69"
+    rebuild 2
+    sha256 cellar: :any, arm64_golden_gate: "0b339d97915ac67f305370bd1740bbdd9a75250960b4e71ad5a7c5d24d7654cd"
+    sha256 cellar: :any, arm64_tahoe:       "680d0feafdaec559754c45d28da285e78f0e856c524e9f20ae06c1dc68808e77"
+    sha256 cellar: :any, arm64_sequoia:     "d13ba9f4eb4c624162094da61897ac7952920a1db1dc178456462e40b24977df"
+    sha256 cellar: :any, arm64_linux:       "153b819d6f30821671f8804510f20f968a94bc3525795adba509863f4e0885c0"
+    sha256 cellar: :any, x86_64_linux:      "faa9ad16ac410cb8f59f2e55b0dc694c3ef734eaa3a5a48b66ea7737027a683c"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "pybind11" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "htslib"
   depends_on "wfa2-lib"
   depends_on "xz"

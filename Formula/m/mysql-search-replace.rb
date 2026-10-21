@@ -12,6 +12,8 @@ class MysqlSearchReplace < Formula
 
   depends_on "php"
 
+  deny_network_access!
+
   def install
     libexec.install "srdb.class.php"
     libexec.install "srdb.cli.php" => "srdb"

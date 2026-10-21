@@ -9,15 +9,16 @@ class Isponsorblocktv < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d430baac080e0d05a8731b18e3ce29902a224f7fe0d1b9fad9913fd7b7a9a002"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dfd17cf35f6af60931394a25978282f06c0432449c002423a0192c15076c6945"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a52d3a57dd6dca7266cf4e6b77fcf72279abfe01a7d11c9d4f26178f37fcdf77"
-    sha256 cellar: :any,                 arm64_linux:       "cf370ef7460cca8cd34ed528a3d35fe7f74c6c2736b88ff7595da0124277ccf7"
-    sha256 cellar: :any,                 x86_64_linux:      "06d45febde4fb5dcf254e5bcf4fc6ed1ad5830c6a926a6cbb8203b5dc7b00dd3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f548572871a9ff20ab764bd34ca874cf58e7b488cfb4bd581683b69840d7a2bb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23d30f76dd55f0f6a22a72e8f7395b940cc50908d6402094d7f0fb1e97ded098"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ac52112fb78bc64acb29f104b84656529d008f94a2ca0e8e4db9efed6bfccf4d"
+    sha256 cellar: :any,                 arm64_linux:       "6ce8050f5b3da94c1d9df6919bf0fb0b1201cabc392021ad319e59773916942e"
+    sha256 cellar: :any,                 x86_64_linux:      "2280ac00c50982a3cc6a58d95e674e1dd30fb1fea497e9e0d5f8e8796150b0a0"
   end
 
   depends_on "certifi"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 
@@ -107,8 +108,8 @@ class Isponsorblocktv < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/17/c8/721b3855fe457da514fe249247d404b9b39c5d16532278f70ebaa6acf18b/platformdirs-4.12.2.tar.gz"
-    sha256 "eab5f70271a490ef74618bb314fbb86e3c7e82fa3b9c922c2ea0e0a1a155d329"
+    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
+    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
   end
 
   resource "propcache" do

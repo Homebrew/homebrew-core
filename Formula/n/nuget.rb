@@ -23,7 +23,7 @@ class Nuget < Formula
   depends_on "mono"
 
   def install
-    libexec.install "nuget.exe" => "nuget.exe"
+    libexec.install "nuget.exe"
     (bin/"nuget").write <<~BASH
       #!/bin/bash
       mono #{libexec}/nuget.exe "$@"

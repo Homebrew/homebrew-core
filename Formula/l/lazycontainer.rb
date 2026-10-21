@@ -17,6 +17,12 @@ class Lazycontainer < Formula
   depends_on arch: :arm64
   depends_on macos: :tahoe
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "go", "build", *std_go_args, "./cmd"
   end
@@ -24,12 +30,13 @@ class Lazycontainer < Formula
   test do
     require "pty"
 
-    PTY.spawn(bin/"lazycontainer") do |r, _w, pid|
+    PTY.spawn(bin/"lazycontainer") do |r, w, pid|
       out = r.readpartial(1024)
       assert_match "Error listing containers", out
     rescue Errno::EIO
       # GNU/Linux raises EIO when read is done on closed pty
     ensure
+      [r, w].each(&:close)
       Process.kill("TERM", pid)
       Process.wait(pid)
     end

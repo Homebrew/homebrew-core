@@ -23,6 +23,8 @@ class Typespeed < Formula
 
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     # Work around failure from GCC 10+ using default of `-fno-common`
     # multiple definition of `rules'; typespeed-file.o:(.bss+0x2050): first defined here
@@ -31,7 +33,7 @@ class Typespeed < Formula
     # multiple definition of `now'; typespeed-file.o:(.bss+0x30b0): first defined here
     ENV.append_to_cflags "-fcommon" if OS.linux?
 
-    args = []
+    args = %W[--with-highscoredir=#{HOMEBREW_PREFIX}/var/cache]
     # Help old config scripts identify arm64 linux
     args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
 
@@ -40,5 +42,22 @@ class Typespeed < Formula
     inreplace "testsuite/Makefile.in", "gcc", ENV.cc
     system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    require "pty"
+
+    # Pass the terminal size through the environment so curses sees it before the size check
+    output = ""
+    PTY.spawn({ "TERM" => "xterm", "LINES" => "24", "COLUMNS" => "24" }, bin/"typespeed") do |r, _w, pid|
+      begin
+        r.each_line { |line| output += line }
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      end
+      Process.wait(pid)
+    end
+    assert_equal 1, $CHILD_STATUS.exitstatus
+    assert_match "You need at least 80 x 24 terminal!", output
   end
 end

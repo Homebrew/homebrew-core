@@ -28,7 +28,16 @@ class CargoPublicApi < Formula
   uses_from_macos "curl"
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4" => :build
+  end
+
+  # Update to openssl-sys 0.9.114 for minimum needed to use OpenSSL 4
+  patch :DATA
+
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install
@@ -64,3 +73,21 @@ class CargoPublicApi < Formula
     assert_match version.to_s, shell_output("#{bin}/cargo-public-api --version")
   end
 end
+
+__END__
+diff --git a/Cargo.lock b/Cargo.lock
+index d0eab81..2a9a6e8 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -818,9 +818,9 @@ checksum = "ff011a302c396a5197692431fc1948019154afc178baf7d8e37367442a4601cf"
+ 
+ [[package]]
+ name = "openssl-sys"
+-version = "0.9.88"
++version = "0.9.114"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "c2ce0f250f34a308dcfdbb351f511359857d4ed2134ba715a4eadd46e1ffd617"
++checksum = "13ce1245cd07fcc4cfdb438f7507b0c7e4f3849a69fd84d52374c66d83741bb6"
+ dependencies = [
+  "cc",
+  "libc",

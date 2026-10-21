@@ -1,33 +1,23 @@
 class Lldb < Formula
   desc "Next generation, high-performance debugger"
   homepage "https://lldb.llvm.org/"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.3/llvm-project-23.1.3.src.tar.xz"
+  sha256 "c44186a7762ed28954be72e5ff6df9808e0779d4f1bf014ecc4e7e211d31ee34"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
   compatibility_version 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
-
-  stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.2/llvm-project-23.1.2.src.tar.xz"
-    sha256 "c98bbef08a2b4c2613cd50e9aa9ae7b69b1fe6c16b2c40373bc0ab6116fdf78a"
-
-    # Fix build with macOS 27 SDK, which defines `CPU_SUBTYPE_ARM64E_X1`
-    patch do
-      url "https://github.com/llvm/llvm-project/commit/923902483c7a6937a65b9679795a247ae2a2ad56.patch?full_index=1"
-      sha256 "779ad57084a91143c84907ea83f41925a1d08b396a08551c08ce39e7d35a0f07"
-      type :backport
-      resolves "https://github.com/llvm/llvm-project/pull/223090"
-    end
-  end
 
   livecheck do
     formula "llvm"
   end
 
   bottle do
-    sha256 arm64_golden_gate: "979c03ae07b85b9bd80c43671fe758e01faf10f63d26e9e348c9a19908e9fb4d"
-    sha256 arm64_tahoe:       "39d4418e0f570065523c3ab25d2a08426354a74a9196a0ee6e78e1702262071e"
-    sha256 arm64_sequoia:     "64ed799abc98a5bca35bc4d113d62d860448c0ce31e3bea131db4e362fadf0b5"
-    sha256 arm64_linux:       "8210d267d7f869a79eaecdd5da1bee004e57f1167dcebcac715bf89142e45ced"
-    sha256 x86_64_linux:      "8d94954bcaf0d454fe476b2061963f42d8dc46ce13636f50e35b510b675668b3"
+    sha256 arm64_golden_gate: "d755db9ba8c6a6109509d8a477ba88fced6a9768341f9f63be24088e0af5d632"
+    sha256 arm64_tahoe:       "d4dd9e225b64d4771fe51c41ed6ee985cc732ae63b5651806fa057ea5e06dbd2"
+    sha256 arm64_sequoia:     "279af7f8b0d0b8b70c1aebd13c5d4b1b2bd5dfe74128abfb3ae9b477697cb178"
+    sha256 arm64_linux:       "250da738d70289dc354829f90810c5416b0c0d4b7c83675e40bb0db74f2b645b"
+    sha256 x86_64_linux:      "3a02bd80835f4da7b3911a197b72c8284979d4d4d41f6b6585ba88bf4ee7eab6"
   end
 
   keg_only :provided_by_macos
@@ -37,7 +27,7 @@ class Lldb < Formula
   depends_on "ninja" => :build
   depends_on "swig" => :build
   depends_on "llvm"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "xz"
   depends_on "z3" # TODO: remove in LLVM 24
   depends_on "zstd"

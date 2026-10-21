@@ -1,19 +1,18 @@
 class Fizz < Formula
   desc "C++14 implementation of the TLS-1.3 standard"
   homepage "https://github.com/facebookincubator/fizz"
-  url "https://github.com/facebookincubator/fizz/archive/refs/tags/v2026.09.21.00.tar.gz"
-  sha256 "2281a374488f8f5ee9157c2e7eb66806c9b517a55e9c72851a98530d81b60146"
+  url "https://github.com/facebookincubator/fizz/archive/refs/tags/v2026.10.19.00.tar.gz"
+  sha256 "88fcc4d518b41b727399423c680f17bdb1b26e7f8fcb256ac7319a698e40b94b"
   license "BSD-3-Clause"
-  revision 1
   compatibility_version 1
   head "https://github.com/facebookincubator/fizz.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f9d60b493503ccbde74acd4ee798532bb7f89d2b06791ea7114f4109e04e5762"
-    sha256 cellar: :any, arm64_tahoe:       "5600719ae6ed4f80cb0cfefd212daf7f2e62e77da93ddfd7b30ebdf70ac03807"
-    sha256 cellar: :any, arm64_sequoia:     "da7dbc0d623ce4f3e15f0a351c6d175891b116d27375f6d546b2bfbf8fe216bb"
-    sha256 cellar: :any, arm64_linux:       "71b94ffa5c736fd3beb5c53cee9e385cb278e1bc82489a42e9e22b18386ca50b"
-    sha256 cellar: :any, x86_64_linux:      "3c1429dd1c3cf8560d794139ab18538a5c85fd7b65c5e133cb1635fcfa7ebdc4"
+    sha256 cellar: :any, arm64_golden_gate: "7da90ba20796588d6c9bd965abd5a73f5bd5533d00c572ea5138511b42ab58b2"
+    sha256 cellar: :any, arm64_tahoe:       "9c82a2d5448131a0ff7d6d39ea3ab26a97f0b0fc48655517a262493811ee5105"
+    sha256 cellar: :any, arm64_sequoia:     "9548fbcd0c7be38b8818b070974a3ef5ededbdf3fc0577bd43b31a0dbb408505"
+    sha256 cellar: :any, arm64_linux:       "dc5032f647fe25930f229e05d374178d903bf86d8e93961a3b0b21666032be31"
+    sha256 cellar: :any, x86_64_linux:      "1abb222ef46e1620624294b78504619f2a86d1c3283a9bf1ec6768b31fdf63a3"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -23,7 +22,7 @@ class Fizz < Formula
   depends_on "folly"
   depends_on "glog"
   depends_on "libsodium"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   on_linux do
@@ -86,7 +85,7 @@ class Fizz < Formula
 
     ENV.delete "CPATH"
 
-    args = ["-DCMAKE_PREFIX_PATH=#{formula_opt_prefix("openssl@3")}"]
+    args = ["-DCMAKE_PREFIX_PATH=#{formula_opt_prefix("openssl@4")}"]
     args << "-DCMAKE_BUILD_RPATH=#{lib};#{HOMEBREW_PREFIX}/lib" if OS.linux?
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

@@ -1,17 +1,17 @@
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/refs/tags/1.11.5.tar.gz"
-  sha256 "d8ad3f9ed113d4e44a48cb7459302bd0e011c0ed2117df2d4d4be1111f122362"
+  url "https://github.com/influxdata/chronograf/archive/refs/tags/1.11.6.tar.gz"
+  sha256 "00756bde5e5a1b9e1201d93d4c5c3558cb3cf16d914acf9f8fa8165be7e30a55"
   license "AGPL-3.0-or-later"
   head "https://github.com/influxdata/chronograf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "843d554ccd56b327b0b20b7658535a169a937f89e10cc4c3d913bb5cb6a144c1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "612ffb2386bc2b9658952ef1d8921e8fb7a0adba9d4437f23fcf581ac67f9848"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c69246aaedf6f029f6e7b049a35a8d3a05abb3ed25204a78410827b1f3c3ae9f"
-    sha256 cellar: :any,                 arm64_linux:       "b768015383266690169d9cec5793830ba9a56c0a431684612d9f3fac7faa226f"
-    sha256 cellar: :any,                 x86_64_linux:      "39371f270c5773f94d43a7ad46d76c3853aa21adc4fe817922cd5e36754a615d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "49ab86506a78abb26b9de14e363c69f64f9ff71526921fe0ffa7d010ccad288d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6fce5f5a970ce30ff2c402a606924879dd1477400ebfcb8290631c62a3c50fed"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5eacced2ff40b0b4cfefd17d356c83e59e5b28fe0de970ee81b05d450a8b7901"
+    sha256 cellar: :any,                 arm64_linux:       "4957f37818aee615b6255e5df37f467adfc4618caddad8158a623fcaae688bef"
+    sha256 cellar: :any,                 x86_64_linux:      "9753efa4dc62d36f5725f21de64b31f3ea14f8638b96e9d2903d28af732d1e81"
   end
 
   depends_on "go" => :build

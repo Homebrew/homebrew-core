@@ -13,7 +13,7 @@ class Musikcube < Formula
     "bcrypt-Solar-Designer", # src/3rdparty/{include,src}/md5.*
     "blessing", # src/3rdparty/{include,src}/sqlite/sqlite3*
   ]
-  revision 1
+  revision 2
   head "https://github.com/clangen/musikcube.git", branch: "master"
 
   livecheck do
@@ -22,13 +22,11 @@ class Musikcube < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "cc755cd7d89ce224eec5befe1c4c252deb727ff153aa1e4c28ea35f6a3fb4a73"
-    sha256 cellar: :any, arm64_tahoe:       "9e0d6a84e80bfe0b666620ff7af1dfe4930663b35459427d3a11936605b4c8c2"
-    sha256 cellar: :any, arm64_sequoia:     "7ca04409904132009521373117e965bf86d7d6a8f0c758b2486913b6f73d2a70"
-    sha256 cellar: :any, arm64_sonoma:      "9b435854d342e93c8b686753e340d04e00d53921fe2317e944c9fd77e3a5a7eb"
-    sha256 cellar: :any, sonoma:            "bb152d79a453d0ea24c79014ea5da27659af0b91a8627e3f787d5a27caf5a56c"
-    sha256 cellar: :any, arm64_linux:       "c3c221ebdde5933095ad653c79701ddde0e28f92203b27da2655f137460bef5f"
-    sha256 cellar: :any, x86_64_linux:      "cbdf33b356c9219715db3b7460bb3913521ad9fac5725a257f883c4574a1caa7"
+    sha256 cellar: :any, arm64_golden_gate: "cc12ec4777c26ea49c38a5c6024b27c3c9ee18e89abf25155bb8d55c3b576c82"
+    sha256 cellar: :any, arm64_tahoe:       "bab5ac692f3b01ce87371d891bbe15765b154d3c79f641b82905a3548be609a1"
+    sha256 cellar: :any, arm64_sequoia:     "4da016a929309c881a429f48a5466ca0a71a0347ae59ca1a485e0db8aad59284"
+    sha256 cellar: :any, arm64_linux:       "8ea2023e95992dca6647dcfb68bb27aff7b5fec43be933da7485206755ebd927"
+    sha256 cellar: :any, x86_64_linux:      "2e5c5e6ba52f4e98ee2d660fabb8b8005590c5d3ee60ef6e4ac8757a59fa20ab"
   end
 
   depends_on "asio" => :build
@@ -42,7 +40,7 @@ class Musikcube < Formula
   depends_on "libmicrohttpd"
   depends_on "libopenmpt"
   depends_on "ncurses"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "portaudio"
   depends_on "taglib"
 

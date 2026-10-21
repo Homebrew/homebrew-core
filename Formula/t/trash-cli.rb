@@ -9,16 +9,17 @@ class TrashCli < Formula
   head "https://github.com/andreafrancia/trash-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5a5eeae8398c0040d806067e2204ecb7e26530c456668879d25cd7368f8f6939"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "20a5e685184748a046bf4e03689ca83a2dd31feaedbf6f5c6aa71e7f89bd5ebb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a2b5d3c85c4f52775c4e8390158329f00529ccd1737bade3cf19d3ce1cd3e4da"
-    sha256 cellar: :any,                 arm64_linux:       "c64f6f17bd30ece7bb3bf7c7f13cc1ff068a0aef992963307a09319d10fbd5be"
-    sha256 cellar: :any,                 x86_64_linux:      "fb164eca5af4de10d5a3860a108ae92cd3c8aace8922d2c77d968979be9b2471"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "04268e97c1da1b84dfe9f6206a45a94921253c0e3fab08e97b5961ad6d0afd0c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2a6144dacb34d2ac1bfc3f5180aac37d575f8eb7f75200730e8970fdb00c08d5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0032cc531121a61087393bd3d65fe48e501dd39fc1b2be7497a8387cbfd28d7e"
+    sha256 cellar: :any,                 arm64_linux:       "64bccc25d669b27066a67daa38498bcc4c1fe4eb0680de68b4d8278fba8919dc"
+    sha256 cellar: :any,                 x86_64_linux:      "75ef0b13712264de3d36d8c969250d6a5753f126725bb358ec68a5c20d96b4d1"
   end
 
   keg_only :shadowed_by_macos
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   conflicts_with "macos-trash", because: "both install a `trash` binary"
   conflicts_with "osx-trash", because: "both install a `trash` binary"

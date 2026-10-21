@@ -7,18 +7,26 @@ class Cek < Formula
   head "https://github.com/bschaatsbergen/cek.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ec560a594f53c1039bb8718a61e3ad197d381053ddff378156e10f073cc687a2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ec560a594f53c1039bb8718a61e3ad197d381053ddff378156e10f073cc687a2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ec560a594f53c1039bb8718a61e3ad197d381053ddff378156e10f073cc687a2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "348d0f4fce928c9fd1ec0d109fce2ccec191b979125097e679b3a0cd47790da4"
-    sha256 cellar: :any,                 x86_64_linux:      "6823661b656fb14477b8f26b10ff69c9d6e6d2675b600df1d3106dc2e339c91c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4b10010fdce4faa68f989566361610541d90f81c5719029820344dc43d619280"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4b10010fdce4faa68f989566361610541d90f81c5719029820344dc43d619280"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4b10010fdce4faa68f989566361610541d90f81c5719029820344dc43d619280"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "e3cf706c12e49fd12f6d7c3c6a710fcfe5e636db04e5abe8c249501d3d5ab772"
+    sha256 cellar: :any,                 x86_64_linux:      "0c22acf4525cb49c49ccfed04345aa89badb63ffb627ec7f7e3f0b4d3964ac19"
   end
 
   depends_on "go" => :build
 
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ldflags = %W[-X github.com/bschaatsbergen/cek/version.Version=#{version}]
     system "go", "build", *std_go_args(ldflags:)
+    generate_completions_from_executable(bin/"cek", shell_parameter_format: :cobra)
   end
 
   test do

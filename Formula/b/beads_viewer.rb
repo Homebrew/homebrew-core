@@ -6,18 +6,26 @@ class BeadsViewer < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7d898557aead2702aeb652442d2779056946da4438334a7f85368317021ff833"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7d898557aead2702aeb652442d2779056946da4438334a7f85368317021ff833"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7d898557aead2702aeb652442d2779056946da4438334a7f85368317021ff833"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "23b88278bf3eb1a6dc70b906ffcadccf5e4be7839aecbb4a6e12e5f38ffdf8d8"
-    sha256 cellar: :any,                 x86_64_linux:      "74dc3233b62748942f9fa807362cea97ed79a48d041b628df0eb2178defa6e4b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cab700b6b61c04bb96909dbbbf19d2ff154465327f598d88c3b2279abf245207"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cab700b6b61c04bb96909dbbbf19d2ff154465327f598d88c3b2279abf245207"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cab700b6b61c04bb96909dbbbf19d2ff154465327f598d88c3b2279abf245207"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "5d3a43651f8fbe36a1a2f2bf209c4fdfbd70567c9cea644f55d111a694ba1312"
+    sha256 cellar: :any,                 x86_64_linux:      "9afeca2eb4e971dd65e85e17f73e2af995959678357eef4b04830ce6e76bfcea"
   end
 
   depends_on "go" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ldflags = %W[-X github.com/Dicklesworthstone/beads_viewer/pkg/version.version=v#{version}]
     system "go", "build", *std_go_args(ldflags:, output: bin/"bv"), "./cmd/bv"
+    generate_completions_from_executable(bin/"bv", shell_parameter_format: :cobra)
   end
 
   test do

@@ -1,33 +1,19 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-26.0.0/apache-arrow-26.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-26.0.0/apache-arrow-26.0.0.tar.gz"
+  sha256 "b153ef472dd89ef4cb84867ca238f2a3a9347d8f4a78913d16ca2201606f0425"
   license "Apache-2.0"
-  revision 8
-  compatibility_version 3
+  compatibility_version 4
   head "https://github.com/apache/arrow.git", branch: "main"
 
-  stable do
-    url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-25.0.1/apache-arrow-25.0.1.tar.gz"
-    mirror "https://archive.apache.org/dist/arrow/arrow-25.0.1/apache-arrow-25.0.1.tar.gz"
-    sha256 "43d5de0a581f43cf63a2c06b4dcf13b9ff6fcd800f023324596e5781093bc500"
-
-    # Apply commit from Debian maintainer's upstream PR to support CPUs older than SSE4.2.
-    patch do
-      on_intel do
-        url "https://github.com/apache/arrow/commit/d048f71964fe2df5540be2256048eb15f830962b.patch?full_index=1"
-        sha256 "1a6b6924e505f4d1c70a24240e52be90b00aa25b116e7db52fd69f76d2b7e189"
-        type :backport
-        resolves "https://github.com/apache/arrow/pull/50547"
-      end
-    end
-  end
-
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ab932f31e5c92e1869316178931a0b146ff069fd841dedacaef1316e7939c4fb"
-    sha256 cellar: :any, arm64_tahoe:       "8028c307e83c0040e8e5554f7ef359336146408141910a94cd215d0a8a92322f"
-    sha256 cellar: :any, arm64_sequoia:     "842a0a6d379cef090e9c3f701cfd38155521ce37c82c9ad98d38377ae7de1d1e"
-    sha256               arm64_linux:       "d997a398d6cc221e53f8d36ae6aee2a56d1bcabded79cfff8696e7e6e42bf0f3"
-    sha256               x86_64_linux:      "d017a336564623118e98557b86c88a49c1ae57854aba8c0a6d0da7b8e0bd026d"
+    sha256 cellar: :any, arm64_golden_gate: "5447592cf89f27f532aa03fb93e3fd8718860f164506da771ae4dcd736550e06"
+    sha256 cellar: :any, arm64_tahoe:       "f903ec02fb7e966362bd50ae4a12328f87017daab14be42439bfb73faa539e16"
+    sha256 cellar: :any, arm64_sequoia:     "98c52a5959062ada5cd5085083ba7462373148efabddbca08998288d77e58955"
+    sha256               arm64_linux:       "6831fc586e71827f402fc5b8cb0bd17e7db721e320e772fcd58f8cfbec7e3d3c"
+    sha256               x86_64_linux:      "f4c71288fd0b83f09c8a01e87f2b2adf63dd5dd3e1ecd1bfab63ee7375430ba7"
   end
 
   depends_on "boost" => :build
@@ -40,13 +26,15 @@ class ApacheArrow < Formula
   depends_on "aws-sdk-cpp"
   depends_on "brotli"
   depends_on "grpc"
-  depends_on "llvm@22"
+  depends_on "llvm"
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf"
   depends_on "re2"
+  depends_on "simdjson"
   depends_on "snappy"
   depends_on "thrift"
+  depends_on "uriparser"
   depends_on "utf8proc"
   depends_on "zstd"
 
@@ -67,7 +55,7 @@ class ApacheArrow < Formula
 
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
-      -DLLVM_ROOT=#{formula_opt_prefix("llvm@22")}
+      -DLLVM_ROOT=#{formula_opt_prefix("llvm")}
       -DARROW_DEPENDENCY_SOURCE=SYSTEM
       -DARROW_ACERO=ON
       -DARROW_COMPUTE=ON

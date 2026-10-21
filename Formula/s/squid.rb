@@ -34,7 +34,7 @@ class Squid < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@3" # TODO: OpenSSL 4 PR - https://github.com/squid-cache/squid/pull/2501
 
   uses_from_macos "libxcrypt"
 

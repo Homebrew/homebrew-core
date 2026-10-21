@@ -6,19 +6,20 @@ class Nvchecker < Formula
   url "https://files.pythonhosted.org/packages/be/43/e2b9699bb92a8125a24f2052152dfbfa4286285e6ea7aa7a47e8728ed72e/nvchecker-2.22.tar.gz"
   sha256 "7c5d04d55e3faffa2f7e7a81165a2f6b68786f4b185d4e1e2ec7af03a524e784"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "08a320596dc44ce969e6c9ea34e904a8bf88a594b4e0c41ca32349c706dbc87d"
-    sha256 cellar: :any, arm64_tahoe:       "24ab9beb7be8f98c6f6912b5483c2fc381384af1ce4bd233b8d2a0d498b1f512"
-    sha256 cellar: :any, arm64_sequoia:     "f4cfc04e9102fef78dcf5c04dd7e3e3c5d10c69f3ae9634afdf94dc26a579cd0"
-    sha256 cellar: :any, arm64_linux:       "9a57bc9833daf20043502e51142925691a2c7874830782210e31a4ac4f5bcdb7"
-    sha256 cellar: :any, x86_64_linux:      "f5f622a43f9a9125e324bc99fb8197f1cb0e77e835472a65d536fdbe8b8426d1"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "8ebdbfba133809bdc4cff56aeab7fc0d7f1704725893d507eb306a0fb3ba550d"
+    sha256 cellar: :any, arm64_tahoe:       "594da078c3449f65cdf95e9f9d4db59c7243e42a808ba455ae261d8be2da400a"
+    sha256 cellar: :any, arm64_sequoia:     "787b7cf47e3a4f973bc0d8101ca56d9b8de4ede7e32aca37aa99e77cabd97cc6"
+    sha256 cellar: :any, arm64_linux:       "4d3fc5dac03004c53c22d320470e9bd4155ae04c53a09bea085a4a026c1f140b"
+    sha256 cellar: :any, x86_64_linux:      "2b8a0c6294a31964bfe75388a0f0c22dac248230b79f14c936176eab679c8abb"
   end
 
   depends_on "curl"
-  depends_on "openssl@3"
-  depends_on "python@3.14"
+  depends_on "openssl@4"
+  depends_on "python@3.15"
 
   pypi_packages package_name: "nvchecker[pypi]"
 
@@ -28,8 +29,8 @@ class Nvchecker < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/17/c8/721b3855fe457da514fe249247d404b9b39c5d16532278f70ebaa6acf18b/platformdirs-4.12.2.tar.gz"
-    sha256 "eab5f70271a490ef74618bb314fbb86e3c7e82fa3b9c922c2ea0e0a1a155d329"
+    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
+    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
   end
 
   resource "pycurl" do

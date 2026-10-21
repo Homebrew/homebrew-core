@@ -1,8 +1,8 @@
 class Gperftools < Formula
   desc "Multi-threaded malloc() and performance analysis tools"
   homepage "https://github.com/gperftools/gperftools"
-  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.18.1/gperftools-2.18.1.tar.gz"
-  sha256 "d18d919175f9e4d740ace6b52f0f4f91284160c454e91b36ffd6456282a02206"
+  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.19/gperftools-2.19.tar.gz"
+  sha256 "97adc4509128200e21f3b29cd0f1184d4a41cfad892750cd15e6b8f5b5f96f21"
   license "BSD-3-Clause"
   compatibility_version 1
 
@@ -13,13 +13,11 @@ class Gperftools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "4978b0c8744adf3c1906d1f94a97821f45bb50562400ffcc5465f1d8518755f2"
-    sha256 cellar: :any,                 arm64_tahoe:       "441be19e92f18df04aacfbe09dffe235c9bf8b070c5d5e3f8db6611c9890c23d"
-    sha256 cellar: :any,                 arm64_sequoia:     "8cc759dba8cf08fe71fd36cf585b6a626bd22bd41718c26616eefa665443b383"
-    sha256 cellar: :any,                 arm64_sonoma:      "5dc611bd687d0b5b3ddadf2f200edcedad5d95b6f07d45324bb782e62d57d750"
-    sha256 cellar: :any,                 sonoma:            "96980b401d0332ec875685001597fee2a37006f40bd1e92d55bf53fa315c62bb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f6cf2911544eb57a83f4baeaf71e7b5e9b905af8c31d73461306cdf3bf5a728f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "2dafaf048a2e362d06592fa527fba49a22eefa29f66c60edb14a10e9edbf0876"
+    sha256 cellar: :any, arm64_golden_gate: "642bc7196deddcecda46f7194b158423d1942276d6938abee3986d5bae75c103"
+    sha256 cellar: :any, arm64_tahoe:       "d3ff906f9eae5b6cc5947ec4fca0b17b8f2ccb61bef21cb548c0274e44328a3e"
+    sha256 cellar: :any, arm64_sequoia:     "892b72bed00f6077b7c4c166e180a17d6b43e525f9a71a9dc4ec77d548d4aaa5"
+    sha256 cellar: :any, arm64_linux:       "ed44f60ba0f3d59f69ab505b016d5b53003e1452d0030cec40e8c64cb10dcb60"
+    sha256 cellar: :any, x86_64_linux:      "a14f497ea88a4ef9a72fa731bdaae384ea09d9173f47cc18aa836b16a0133ccf"
   end
 
   head do

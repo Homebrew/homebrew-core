@@ -6,6 +6,7 @@ class KnotResolver < Formula
   url "https://knot-resolver.nic.cz/release/knot-resolver-6.5.0.tar.xz"
   sha256 "84599bbf889ecc7892aeabc088753355d63326354e5992b53a5ec82306224ee6"
   license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
+  revision 1
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git", branch: "master"
 
   livecheck do
@@ -14,11 +15,11 @@ class KnotResolver < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "a28e66bbc3a3e942b35ac054a34cbbd9ea2e4251bfbaa8ba9f1feb6bbe03e568"
-    sha256 arm64_tahoe:       "055f733d384542dd77e1a4cb865802d1a1d47c4c0b64f4574c5e4fe3749e1930"
-    sha256 arm64_sequoia:     "e6baf025909d7d9e626bba5e29a1bf31abe812c42bdadc33be14666e00c2f2c2"
-    sha256 arm64_linux:       "9f21dbf3abd8fd1e0bd8820ee59b8731f7e50b712551994be45e306ac18ad139"
-    sha256 x86_64_linux:      "ef7316ba3b81a58ef2fe9cf78ce27e5348adbff730d2b928798bd953dcad103f"
+    sha256 arm64_golden_gate: "dead10c006ffd85379775dd5e011ee83beed4971341410879573ed11b78f6f45"
+    sha256 arm64_tahoe:       "b9e6c4f73118a2f47d7c4d0c6ce0830718fb4df76613ebb502ce8fb07260d034"
+    sha256 arm64_sequoia:     "f12e3ae95c12b9e2b950f766084e860733d03295adf3d833c35556c7b7f46091"
+    sha256 arm64_linux:       "57d5fcf686d7d167b99ed5612d5ee4aab20c288000aae612062ec9d12a66e9c8"
+    sha256 x86_64_linux:      "fead306fb52b6961a9e3458f96ad1878a0424a69d8c900d0b168d08383120449"
   end
 
   depends_on "meson" => :build
@@ -33,7 +34,7 @@ class KnotResolver < Formula
   depends_on "lmdb"
   depends_on "luajit"
   depends_on "protobuf-c"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libedit"
 
@@ -52,8 +53,8 @@ class KnotResolver < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz"
-    sha256 "9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc"
+    url "https://files.pythonhosted.org/packages/6c/4c/bdccd81e9ee225b69c60e7766c9a5b05364f118f4d383713b89a682d772d/aiohttp-3.14.5.tar.gz"
+    sha256 "5558a7f5a05af9ecf744af91e5baefc436f93c9333e656c27ec253f9a6bbe178"
   end
 
   resource "aiosignal" do
@@ -82,13 +83,13 @@ class KnotResolver < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/d6/99/1d4d69c3512d0ddbfa3a1b69cfd9a151012ab2eb4eabbb096201b1f0b7d8/multidict-6.9.1.tar.gz"
-    sha256 "0f06e60fa190aa7abd0914c2a766736fdc8e9f34878c4346338534b73d1b20e2"
+    url "https://files.pythonhosted.org/packages/f9/79/84ddb5ba16c4eb2c69c71db76ae3c579fe546e511f7170c7e27eedbab7c1/multidict-7.1.0.tar.gz"
+    sha256 "61a4e5d81b8d4e4ad61964b230129e7a2b914793d96289029078fc9009f074ec"
   end
 
   resource "prometheus-client" do

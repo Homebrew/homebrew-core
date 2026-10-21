@@ -1,30 +1,32 @@
 class AwsCIo < Formula
   desc "Event driven framework for implementing application protocols"
   homepage "https://github.com/awslabs/aws-c-io"
-  url "https://github.com/awslabs/aws-c-io/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "5fecb19c2c0a165687cdd94723943a02ab23a0270deade5661fd935a3cd55e78"
+  url "https://github.com/awslabs/aws-c-io/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "a437ec3b5929582d79f43904e4939626db19d6fd30c44cb16841bc70c7d6548b"
   license "Apache-2.0"
-  compatibility_version 2
+  compatibility_version 3
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "2ec493e1ab13a40ced07a5b7203b2a8cd2ef607547bd9a0543f7ca56a0aa18e4"
-    sha256 cellar: :any, arm64_tahoe:       "65af61010890938814768b618a543ab222ab760ad19a08e8c7e6e075d03d16dd"
-    sha256 cellar: :any, arm64_sequoia:     "85e9dc2ac23c5d280e71e3f71b7107385282f3fb2cc2206a1bb5d8e6a7e2852d"
-    sha256 cellar: :any, arm64_sonoma:      "290d7a03edbc9c44a563458520150777ceb1474514bb53f54a2f8aa560f126ac"
-    sha256 cellar: :any, arm64_linux:       "dda27f924d1af2035f485ac5324803482d396ac4de993e2b4151f45a47632aa9"
-    sha256 cellar: :any, x86_64_linux:      "4c0b9176cfa29cde228f14084758627c0c584c934ac3968313ed39416f5fb587"
+    sha256 cellar: :any, arm64_golden_gate: "a7192b7f1838716ca24b671213d7cb86a98051066a47d5fc0dfd5a635add6cea"
+    sha256 cellar: :any, arm64_tahoe:       "b036392ace4c791d5c3166f7517f0238540175791e937587c66d631325135b0d"
+    sha256 cellar: :any, arm64_sequoia:     "5124450c7aa72d93315776bc2cb38ff67de0d15dacf72bfda3be41af62d3b96e"
+    sha256 cellar: :any, arm64_linux:       "be8e1fcbda881a60d58e4c924890794fc703c6f687f2624b68647e1cc5724aa0"
+    sha256 cellar: :any, x86_64_linux:      "4df75a873dc8ad4cf4c634972931ce3b4926e65531375e51e7632e3949c74679"
   end
 
   depends_on "cmake" => :build
   depends_on "aws-c-cal"
   depends_on "aws-c-common"
-  depends_on "openssl@3"
   depends_on "s2n"
 
   deny_network_access!
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    args = ["-DBUILD_SHARED_LIBS=ON"]
+    # Avoid linkage to OpenSSL
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

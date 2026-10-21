@@ -22,6 +22,11 @@ class Tfproviderlint < Formula
   # ref: https://github.com/bflad/tfproviderlint/issues/345
   depends_on "go@1.26" => [:build, :test]
 
+  resource "homebrew-test_resource", :test do
+    url "https://github.com/russellcardullo/terraform-provider-pingdom/archive/refs/tags/v1.1.3.tar.gz"
+    sha256 "3834575fd06123846245eeeeac1e815f5e949f04fa08b65c67985b27d6174106"
+  end
+
   allow_network_access! :test
 
   def fetch
@@ -38,11 +43,6 @@ class Tfproviderlint < Formula
   end
 
   test do
-    resource "homebrew-test_resource" do
-      url "https://github.com/russellcardullo/terraform-provider-pingdom/archive/refs/tags/v1.1.3.tar.gz"
-      sha256 "3834575fd06123846245eeeeac1e815f5e949f04fa08b65c67985b27d6174106"
-    end
-
     # TODO: remove when unpinning go 1.26
     ENV.prepend_path "PATH", formula_opt_libexec("go@1.26")/"bin" # for keg_only go 1.26 binary
 

@@ -1,16 +1,16 @@
 class Pgbackrest < Formula
   desc "Reliable PostgreSQL Backup & Restore"
   homepage "https://pgbackrest.org"
-  url "https://github.com/pgbackrest/pgbackrest/releases/download/release/2.59.2/pgbackrest-2.59.2.tar.gz"
-  sha256 "dbdc5edb5161c57bd3ae61e416b1cd763205ad6ce41d9356114432a0cc0ce577"
+  url "https://github.com/pgbackrest/pgbackrest/releases/download/release/2.60.0/pgbackrest-2.60.0.tar.gz"
+  sha256 "6d3ee1b5defdadc85228969b4be804096f5e65e54707bb95c7c4c4ce41f5d007"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7d311219289993ac8ea9743aa0150acddc3c8f73b61d6074c4a0ebe7f2c55ec3"
-    sha256 cellar: :any, arm64_tahoe:       "cc97f013b76516d4e7f9af80fa5f88601e0176bfee1d1acabc7807aa842fabe5"
-    sha256 cellar: :any, arm64_sequoia:     "fa6371227704f3903d8cf874d461d36acfec0ec41f6c9e30cd98648321de45ec"
-    sha256 cellar: :any, arm64_linux:       "57c174eae8e358c247b6a3ae4f2713729cfa1781ae71670ff8bbce991b7545ee"
-    sha256 cellar: :any, x86_64_linux:      "192f7c176521061fbd04700a9c2cd87d13b5f72e41d85e9223a06a10d3bda760"
+    sha256 cellar: :any, arm64_golden_gate: "95df2decd2f9e146cd3de3fd0bbd94a0b073ae714490b6834a40679541bb60f5"
+    sha256 cellar: :any, arm64_tahoe:       "67dfc0e88fc5a7b8bce77d2d128037282c6e1144382fb233a9b52cac735ff082"
+    sha256 cellar: :any, arm64_sequoia:     "5657bc628b3b017db202ee0a63367966def23331dec49cc70519eb1efda014eb"
+    sha256 cellar: :any, arm64_linux:       "b51c10b3274577fc6b828a352658c42ebb3e048155eb9881888eb895bbe0052f"
+    sha256 cellar: :any, x86_64_linux:      "36a0dce8a41f209795b30592560815aa9bba7342b4d47abe54ae6f6cbffa2a19"
   end
 
   depends_on "cmake" => :build
@@ -20,7 +20,7 @@ class Pgbackrest < Formula
   depends_on "libpq"
   depends_on "libssh2"
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   uses_from_macos "bzip2"
@@ -29,6 +29,8 @@ class Pgbackrest < Formula
   on_linux do
     depends_on "zlib-ng-compat"
   end
+
+  deny_network_access!
 
   def install
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: formula_opt_lib("libpq"))}" if OS.linux?

@@ -1,18 +1,17 @@
 class Hyphy < Formula
   desc "Hypothesis testing using Phylogenies"
   homepage "https://www.hyphy.org"
-  url "https://github.com/veg/hyphy/archive/refs/tags/2.5.101.tar.gz"
-  sha256 "7eb3ff9c660e9a88b3e5f3ed8c553dc9ed6ab254259a9d00612d8347795c961f"
+  url "https://github.com/veg/hyphy/archive/refs/tags/2.5.103.tar.gz"
+  sha256 "e3602aa3add7f4d88c18038828bc49080a749dd377f9d41c92933fbf07d846c2"
   license "MIT"
+  head "https://github.com/veg/hyphy.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "9961353a45113a5705ea4fb534ed3a6fc05686bfb3c97f37303c4d07d9a2ce81"
-    sha256 arm64_tahoe:       "9c2090b54e8021f1fa91639f95ef0c9d0b120c819db3ed73a89a977b363ce3db"
-    sha256 arm64_sequoia:     "695e75fa0363144ec45dc50afc8fb2cf59fa23c3b4873eeebcd372648e9a1250"
-    sha256 arm64_sonoma:      "5a4c658273673d2db12c03312b6c94cc3f066fecf66d3a3aaba01704a75aaafa"
-    sha256 sonoma:            "e0b20b65a50800eede00bfd6155575f375d2c447a3a6542aa1aa878cd7e4793a"
-    sha256 arm64_linux:       "8f5256d366e9e42359b0d013dead4676f97672b920ee03abf378561ff9d1795b"
-    sha256 x86_64_linux:      "4a711bdfbd1b2c591308c548a6694cd65eed3ccb9cad195e5053c860e498f16a"
+    sha256 arm64_golden_gate: "3697197128a0d8fa47732fcd170e00cad640128f566f6b4ed89e66dc6ab3c55d"
+    sha256 arm64_tahoe:       "b101d8a59fc60a19144aa60fc27c3b70634e2e2aa4f7ed849335290ec2657a6d"
+    sha256 arm64_sequoia:     "a222eaa19a6991771f70590c9b225c5f00bae1530970cff112859279099262e1"
+    sha256 arm64_linux:       "d1e4f009ac57e9b2afa5b6d42552419c38e6fb064fb4fbc046d8c7163cb972d5"
+    sha256 x86_64_linux:      "d792b20fbb7edf78f5e7466272c58b5ec56164f9325aef591acbdb2ebb903e33"
   end
 
   depends_on "cmake" => :build
@@ -26,6 +25,8 @@ class Hyphy < Formula
   on_linux do
     depends_on "zlib-ng-compat"
   end
+
+  deny_network_access!
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

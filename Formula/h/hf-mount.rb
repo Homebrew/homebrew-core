@@ -22,6 +22,12 @@ class HfMount < Formula
     depends_on "openssl@4"
   end
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     # macOS FUSE needs closed-source macFUSE (not allowed in homebrew/core)
     features = ["nfs"]

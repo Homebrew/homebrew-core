@@ -1,8 +1,8 @@
 class SynergyCore < Formula
   desc "Synergy, the keyboard and mouse sharing tool"
   homepage "https://symless.com/synergy"
-  url "https://github.com/symless/synergy/archive/refs/tags/v1.21.4.tar.gz"
-  sha256 "369d789ae5616e6e43b5eeb6feac644ab7d3384c138748a13ed9f7e1df7361a6"
+  url "https://github.com/symless/synergy/archive/refs/tags/v1.22.2.tar.gz"
+  sha256 "c80a1bc6c0e40fe60e8614e88e988d34ccf5a04b57d3560de946989282d526c9"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
   head "https://github.com/symless/synergy.git", branch: "master"
 
@@ -17,16 +17,16 @@ class SynergyCore < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "206543de543008dd31c3725f746a02a397b998154d153506a68f3046daff288c"
-    sha256 cellar: :any, arm64_tahoe:       "8aad19e0da49e4d7283d9443629a4a30d179955409268fcbe5b373238d53960d"
-    sha256 cellar: :any, arm64_sequoia:     "8a6d7afafb04f52e7992711d1ee7e8d060f2a3b940163e827f2ec87978dff417"
-    sha256 cellar: :any, arm64_linux:       "5f78a812090c0a41721a8bb32b644b6ea85f3df71beb6dfe44daf63e180fc81a"
-    sha256 cellar: :any, x86_64_linux:      "82438dcfe467ce26a5c17dcdbe3de64e7cab24780fd847c539c27b8d18598b32"
+    sha256 cellar: :any, arm64_golden_gate: "21a13214c2e342729826c304cec3a1a2972315c0af7cbeca78e5011ccb5060f3"
+    sha256 cellar: :any, arm64_tahoe:       "58f8adf056ec963b144e7ae68d764423f4b5a42fae6a75a572d216143f577daf"
+    sha256 cellar: :any, arm64_sequoia:     "7a6895a7dd8fcdb78ad1e33ec46091e546e319aff50743dcd39cb0152de206b9"
+    sha256 cellar: :any, arm64_linux:       "07007e3721635b03b0e9e2577782327e4c0589006307db6d4a71175ada0d0387"
+    sha256 cellar: :any, x86_64_linux:      "b4a7916ce6bdec0b9db009ed39786cf08012b9ef7312b210cb7647a8c064efa5"
   end
 
   depends_on "cmake" => :build
   depends_on "qttools" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "qtbase"
 
   on_macos do
@@ -51,6 +51,8 @@ class SynergyCore < Formula
     build 1402
     cause "needs `std::ranges::find`"
   end
+
+  allow_network_access! :test
 
   def install
     # Avoid statically linking OpenSSL on macOS
@@ -107,8 +109,7 @@ class SynergyCore < Formula
     # Linux CI has no display for the default xcb platform plugin
     ENV["QT_QPA_PLATFORM"] = "minimal" if OS.linux?
 
-    assert_match "synergy-core v#{version.major_minor_patch}, protocol v",
-                 shell_output("#{bin}/synergy-core --version")
+    assert_match version.to_s, shell_output("#{bin}/synergy-core --version")
     assert_match "synergy-core: failed to load config", shell_output("#{bin}/synergy-core server 2>&1", 4)
   end
 end

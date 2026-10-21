@@ -1,19 +1,17 @@
 class Circumflex < Formula
   desc "Hacker News in your terminal"
   homepage "https://github.com/bensadeh/circumflex"
-  url "https://github.com/bensadeh/circumflex/archive/refs/tags/5.0.tar.gz"
-  sha256 "04f23071b02580b474593b6f3509d9734761dfda23d978eca2e2c9f460a2e1e4"
+  url "https://github.com/bensadeh/circumflex/archive/refs/tags/5.1.tar.gz"
+  sha256 "2e978f57b426ff7c5fc0fedf7e510f9669da9a3886cb54a29f2bd846d4a04a06"
   license "MIT"
   head "https://github.com/bensadeh/circumflex.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "67a54f74d84d763fb1f6a72226298aeadbe5f47f861b789fe545806a73aea724"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "52a406985c13e74222f443df5ec3dd2a471e073cee561e64986931aa022cdc86"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9a6d9e1430cec0541cadf8a4ca9bc82a8d26a1921f5d4d9ef0760ef6f5f215f5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "a3a0449698f6bee22c2594afa927764c244f6fe249ca7e6b9947c51862acc1a3"
-    sha256 cellar: :any_skip_relocation, sonoma:            "e82108bea310080d50c8fce7a282296fc686108e796406561f3ddce461c1a78d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "248b94fb84b73b09350e1310edec1d6e1ac8a1181a45c77cb592cbe4f73b6026"
-    sha256 cellar: :any,                 x86_64_linux:      "86dedca1fdb828ad049ffd3414da5c4505bcaaf14d8dc5bb4ac220e3e6a53666"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "663967727e8598c5328297256bf75c8e9a4f24adfba6d8a5f86d1e213a8aa4b5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "19dfc7ba1ebdba82d46b8df12a6d674fe3255df05a2117f801c76fe1936c4717"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "079be006d0074cee8a247fe5343e2ce17fc182b2152accb00387755b68b778b9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d287afee8d1be20722e28ad3e719d19e062af3e666c4d2debf1da506bc028ed7"
+    sha256 cellar: :any,                 x86_64_linux:      "2a47a942e4579f8e3888cad35ef7c47787f1535e01cc366a2fb107220e912b40"
   end
 
   depends_on "go" => :build

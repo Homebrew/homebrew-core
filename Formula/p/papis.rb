@@ -10,16 +10,17 @@ class Papis < Formula
   head "https://github.com/papis/papis.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "58fa7b7776552d96df5ed2b464b5965d93683fa546d626218876eaa79a10f9be"
-    sha256 cellar: :any, arm64_tahoe:       "1e342e215c15534016e49a05faf2f0f8377e75cb9be9f1a608b9f47ab75c5c11"
-    sha256 cellar: :any, arm64_sequoia:     "27fd33f03f2e7178ba7dbf0fc12a56474a9501141113e7b02ee8c2f91c8c33b3"
-    sha256 cellar: :any, arm64_linux:       "66a77a508b3ccf9cb343ce3666c9c8694ed97331dc95ea92064e49b478bb2747"
-    sha256 cellar: :any, x86_64_linux:      "2b19e5804b1d876eebfefd3dc61abdfc4d2577b5749960d6d661f6dd0d276a82"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "32a71d2443e49ba12fde32de6104f0198f87abef823c882e707fe2202cc9ccb2"
+    sha256 cellar: :any, arm64_tahoe:       "a26151f76c746c9b2e1370da0ebbac168c4875b5c5a58406f73917cd7360b88a"
+    sha256 cellar: :any, arm64_sequoia:     "7b0fe63811ffbaac4d0bc803abd3f0c7dfe03f1431c5387735ea22ade535f506"
+    sha256 cellar: :any, arm64_linux:       "82c96f601af6877b11eeb6582eb26c44a9c6aa0e4f7a76a6bf1f62450202022b"
+    sha256 cellar: :any, x86_64_linux:      "806894879c36b76ce190b955d33f7a942d8bb9a839ea9959ac3f2b51f49fd062"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
@@ -42,8 +43,8 @@ class Papis < Formula
   end
 
   resource "bibtexparser" do
-    url "https://files.pythonhosted.org/packages/8b/78/0096d455f90f4c1f38f0115b74f2ce3fa32814e58a1549f4af1a46bc6d8f/bibtexparser-2.0.1.tar.gz"
-    sha256 "672a59f4ba431c4e9a6647cc7c42a267b22e257bcd2cfdb661863f3756c9ab14"
+    url "https://files.pythonhosted.org/packages/40/bb/38f8b2ee3e3da9161fb4a845fb04b4ccb0b8d5a5f5e25aaea39154073532/bibtexparser-2.1.0.tar.gz"
+    sha256 "9f48851eef4693cb7ef6897f7628966c5d0ef49b6403b13a862679a4c313d176"
   end
 
   resource "charset-normalizer" do
@@ -112,8 +113,8 @@ class Papis < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/17/c8/721b3855fe457da514fe249247d404b9b39c5d16532278f70ebaa6acf18b/platformdirs-4.12.2.tar.gz"
-    sha256 "eab5f70271a490ef74618bb314fbb86e3c7e82fa3b9c922c2ea0e0a1a155d329"
+    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
+    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
   end
 
   resource "prompt-toolkit" do
@@ -137,8 +138,8 @@ class Papis < Formula
   end
 
   resource "python-slugify" do
-    url "https://files.pythonhosted.org/packages/ad/df/32c87abe18f7d0560e2154ffbe23dfca6edad5d0d2d6c4636c99f4fb8b02/python_slugify-9.1.2.tar.gz"
-    sha256 "bd36ca98e5ebb1cd2b9dfa2f27b948ce87402fb083b762cbd9d0fa3aed489a92"
+    url "https://files.pythonhosted.org/packages/bd/e8/26b1af09d728d604dc16427a39f53985b22a170dbd61addac3f48db73f03/python_slugify-9.1.3.tar.gz"
+    sha256 "90e997f2e0987239ce95e12f700086eb18e1d1d3ee22624fbbdbd095afca42b6"
   end
 
   resource "pyyaml" do
@@ -182,8 +183,8 @@ class Papis < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/dc/ac/3a943d2792c9bb368aaa8b50121c0f778460ba2d7fbdc0a0366201d9e761/wcwidth-0.9.1.tar.gz"
-    sha256 "5823209b0d43af322ce698c689380d7c15ca31fa8e6e3be8459f27031bef0af5"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

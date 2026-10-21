@@ -1,18 +1,17 @@
 class Sdb < Formula
   desc "Ondisk/memory hashtable based on CDB"
   homepage "https://www.radare.org/"
-  url "https://github.com/radareorg/sdb/archive/refs/tags/2.5.2.tar.gz"
-  sha256 "c63479a7c74aaa81b9eea44ec38e677c9e10f889c07ea3e55b5ec001b992772e"
+  url "https://github.com/radareorg/sdb/archive/refs/tags/2.5.8.tar.gz"
+  sha256 "34f31a0fc99cc8d84390f8a46a0e12a77acccbfe3d7f1581293f7362dbd8db6d"
   license "MIT"
   head "https://github.com/radareorg/sdb.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f1f7e8d7ce2f76d03792983abed37582f08043cafefa96a25d9780fdffd1646c"
-    sha256 cellar: :any, arm64_tahoe:       "2e0d7138a4348bd6efe41c4d232591cd4f35d5c31791f7af586f119b7d3106ac"
-    sha256 cellar: :any, arm64_sequoia:     "2ce99368ac60b1bd25fda57d911cd3d2c73d5a435d80be5c1b001c9380238684"
-    sha256 cellar: :any, arm64_sonoma:      "aa76fe581f361dc1b343a453352b3b847d7ae9d04130294b967a5ad534c03c06"
-    sha256 cellar: :any, arm64_linux:       "c3795dad6e348e3d6c6a626c5ff5edd5572d0c8aef5431622c6020b8fa020c83"
-    sha256 cellar: :any, x86_64_linux:      "743b341d49612901cf045ecae4e1a375718aaeef5840a94b83a75514e00e5ba4"
+    sha256 cellar: :any, arm64_golden_gate: "1de4bf2908a108ddda9d74a2c5dc2865b30e575c2b1ca531cb301d3bbe709027"
+    sha256 cellar: :any, arm64_tahoe:       "e935f6c574b3b1074923389ed5d80255db150f3cd9edd95499b5c02bb501f217"
+    sha256 cellar: :any, arm64_sequoia:     "8f4dfa18820e5e58fd3d0125f472ae66af3684dcf5569ec3ffe4ea624f58a256"
+    sha256 cellar: :any, arm64_linux:       "0a473e7892bfc752bc3f7b2b6b8dfeb1ae36ce87d0518d2ba6aab8236626379d"
+    sha256 cellar: :any, x86_64_linux:      "f651f26b76293890570d06a5016e130c152fd27c8aff5439fe4f60da6d91bd2e"
   end
 
   depends_on "meson" => :build
@@ -22,6 +21,8 @@ class Sdb < Formula
   depends_on "glib"
 
   conflicts_with "snobol4", because: "both install `sdb` binaries"
+
+  deny_network_access!
 
   def install
     system "meson", "setup", "build", *std_meson_args

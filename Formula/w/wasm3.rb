@@ -23,6 +23,11 @@ class Wasm3 < Formula
   depends_on "cmake" => :build
   depends_on "uvwasi"
 
+  resource "homebrew-fib32.wasm", :test do
+    url "https://github.com/wasm3/wasm3/raw/ae7b69b6d2f4d8561c907d1714d7e68b48cddd9e/test/lang/fib32.wasm"
+    sha256 "80073d9035c403b6caf62252600c5bda29cf2fb5e3f814ba723640fe047a6b87"
+  end
+
   allow_network_access! :test
 
   def install
@@ -44,11 +49,6 @@ class Wasm3 < Formula
   end
 
   test do
-    resource "homebrew-fib32.wasm" do
-      url "https://github.com/wasm3/wasm3/raw/ae7b69b6d2f4d8561c907d1714d7e68b48cddd9e/test/lang/fib32.wasm"
-      sha256 "80073d9035c403b6caf62252600c5bda29cf2fb5e3f814ba723640fe047a6b87"
-    end
-
     testpath.install resource("homebrew-fib32.wasm")
 
     # Run function fib(24) and check the result is 46368

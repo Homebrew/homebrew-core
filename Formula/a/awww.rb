@@ -18,6 +18,12 @@ class Awww < Formula
   depends_on "wayland"
   depends_on "wayland-protocols"
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "client")
     system "cargo", "install", *std_cargo_args(path: "daemon")

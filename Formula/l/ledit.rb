@@ -1,31 +1,32 @@
 class Ledit < Formula
   desc "Line editor for interactive commands"
   homepage "https://pauillac.inria.fr/~ddr/ledit/"
-  url "https://github.com/chetmurthy/ledit/archive/refs/tags/ledit-2-07.tar.gz"
-  sha256 "0252dc8d3eb40ba20b6792f9d23b3a736b1b982b674a90efb913795f02225877"
+  url "https://github.com/chetmurthy/ledit/archive/refs/tags/2.08.tar.gz"
+  sha256 "0f10f70bcdde68ce6514d4eedeb0774653322385a642d1ee696438b5594050f1"
   license "BSD-3-Clause"
-  revision 4
 
   livecheck do
     url :stable
-    regex(/^ledit[._-]v?(\d+(?:[.-]\d+)+)$/i)
+    regex(/^(?:ledit[._-])?v?(\d+(?:[.-]\d+)+)$/i)
     strategy :git do |tags, regex|
       tags.filter_map { |tag| tag[regex, 1]&.tr("-", ".") }
     end
   end
 
   bottle do
-    sha256                               arm64_golden_gate: "09936a19fd839c942fc87d955b692aecfe37e5ff56b4050b6571feca111d609d"
-    sha256                               arm64_tahoe:       "5436407da729171a830263530217b8bfd7997c38bd7e8a6d42e8120cf54296d4"
-    sha256                               arm64_sequoia:     "f7676f12ed17e6ecbdd5f134d28027b86ce9fd50e17faa1280ba6b5f4d5c6ab6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ce83484af144e1162b1f91c81432466fdebc27b5a5788fd798dfa1e0a0f1cf39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ce83484af144e1162b1f91c81432466fdebc27b5a5788fd798dfa1e0a0f1cf39"
+    sha256                               arm64_golden_gate: "4d9be2b4f721cbba9b6ad2d14f10262539d74766c7e4a097605c031efee81b04"
+    sha256                               arm64_tahoe:       "17679f5216e8689bd781e33abcb408f27880e578275feadd966868a12a2829a9"
+    sha256                               arm64_sequoia:     "83b1292aa5da89a37a2fa0735d23569ee01c40cc88de3c802989c502478603dd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "837f200c1b5d0b4adba5468d8d2a9f5c57c08a3470cc156e4c4f10bb00c3abdc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "837f200c1b5d0b4adba5468d8d2a9f5c57c08a3470cc156e4c4f10bb00c3abdc"
   end
 
   depends_on "ocaml-findlib" => :build
   depends_on "camlp-streams"
   depends_on "camlp5"
   depends_on "ocaml"
+
+  deny_network_access!
 
   def install
     # Work around for https://github.com/Homebrew/homebrew-test-bot/issues/805

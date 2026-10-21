@@ -1,9 +1,10 @@
 class Librdkafka < Formula
   desc "Apache Kafka C/C++ library"
   homepage "https://github.com/confluentinc/librdkafka"
-  url "https://github.com/confluentinc/librdkafka/archive/refs/tags/v2.15.1.tar.gz"
-  sha256 "23c8575c7d1ced07246cb9cf200c11325b72201fd4134a02414ca869fbdd8ed3"
+  url "https://github.com/confluentinc/librdkafka/archive/refs/tags/v2.16.0.tar.gz"
+  sha256 "e6b61de61d3282879a88e4ee3d9f634a8b05bf78a9198dfc25c4820c0c9ed231"
   license "BSD-2-Clause"
+  revision 1
   compatibility_version 1
   head "https://github.com/confluentinc/librdkafka.git", branch: "master"
 
@@ -13,18 +14,17 @@ class Librdkafka < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "fee19ffd81582acf6edf60b0da2f07232549382601dbe53388da5389adc5c5d7"
-    sha256 cellar: :any, arm64_tahoe:       "ed3fb41a87771c4c1c049b6247daaf5adc8660d20ae743596617401913ee4890"
-    sha256 cellar: :any, arm64_sequoia:     "a7a62196cda98ceca6af3edcf735df04d103dc44e4af131ec28ee2d4ca419c33"
-    sha256 cellar: :any, arm64_sonoma:      "5600c0b03159960f3b59363f279dc4f9f0a416333c60e2a2ebf6cffcec89ced9"
-    sha256 cellar: :any, arm64_linux:       "1a510d17417be5a3e4eee56b731a579145faf12d06dd591734aa24986435a378"
-    sha256 cellar: :any, x86_64_linux:      "d6226b9e6c404280c5921da0a4ae407b05a7e971160008ae7859841f72270afa"
+    sha256 cellar: :any, arm64_golden_gate: "65f514461395d96e732205fb23a549dd030c264f1f55de9eedbf1ed7b24d4259"
+    sha256 cellar: :any, arm64_tahoe:       "6158cd4b04a7034da5543eca3004eb64610f4094c7a9ffcc74ce561e40b7b739"
+    sha256 cellar: :any, arm64_sequoia:     "40adcbed915d53f85e575aceb2e43f2723835a5706de6bed51f068c930486cfc"
+    sha256 cellar: :any, arm64_linux:       "06943c2cd73806fac8c4b57df8edbcd6294d9debda5418f69e3e86b0e987455c"
+    sha256 cellar: :any, x86_64_linux:      "24514b2b9fe83f99a0f6ab052c0c0ecc3c47b65a6c9c0d5fc3268b695f7f3504"
   end
 
   depends_on "pkgconf" => :build
   depends_on "lz4"
   depends_on "lzlib"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zstd"
 
   uses_from_macos "python" => :build

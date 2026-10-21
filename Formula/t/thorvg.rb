@@ -1,8 +1,8 @@
 class Thorvg < Formula
   desc "Lightweight portable library used for drawing vector-based scenes and animations"
   homepage "https://www.thorvg.org"
-  url "https://github.com/thorvg/thorvg/archive/refs/tags/v1.1.2.tar.gz"
-  sha256 "cd466f4abf2522a6dcdc1a69a75d04a214b7163c89731fb8481eceaa6cb73842"
+  url "https://github.com/thorvg/thorvg/archive/refs/tags/v1.1.3.tar.gz"
+  sha256 "ba9957aeeadb4151d4486f11c638ae118c00210fa4906daa7b30143aa341e690"
   license "MIT"
   head "https://github.com/thorvg/thorvg.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Thorvg < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "dca437b145825b7449c2250e397d9a9353db88a0fdcb8a6bfcd59c0294a4471f"
-    sha256 cellar: :any, arm64_tahoe:       "3eefa766d175587d83110d5106deacc144a890aa4975331cd8ba03b6c6c82038"
-    sha256 cellar: :any, arm64_sequoia:     "3adbacc1c1830423bb887ffcb43d89dd852dfb3bacc2e1cf962fe90c01e45c70"
-    sha256 cellar: :any, arm64_linux:       "106a6d5774c081e03dafd73e6a0a402f1ccb54c2ec86c16ee84724967eea8da7"
-    sha256 cellar: :any, x86_64_linux:      "91ffe0f218f676ca93eb04f3a298b3fb7c7f3aa31f4037f9f2712f4022c0a745"
+    sha256 cellar: :any, arm64_golden_gate: "c73d14a608ec13d72650b3c30261826bd08c889776411000d93c82a4c5707aad"
+    sha256 cellar: :any, arm64_tahoe:       "93142d78e65eac5121d6d4e4a9be9b38979714d767a69061abc88f7281de5182"
+    sha256 cellar: :any, arm64_sequoia:     "f4eceaf597931a5aaaaad62238abe9e92aa3ed9bf0beadc569eb5dc14a928ebb"
+    sha256 cellar: :any, arm64_linux:       "ba55c1a73481ae0bc3d7cedeae141a47f05893c7c4bbba172c9c123701eea440"
+    sha256 cellar: :any, x86_64_linux:      "8c9e50969fbd456b6a8d2c53650f91d273668dddcdb6319521486fb8a15630a4"
   end
 
   depends_on "meson" => :build

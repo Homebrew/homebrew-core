@@ -6,22 +6,21 @@ class SigmaCli < Formula
   url "https://files.pythonhosted.org/packages/13/63/f6bae3c67004d3f0f496805d25cf8d7e355c59341b58ae534778e33c17be/sigma_cli-3.1.0.tar.gz"
   sha256 "e87e4f241b309e84f67fb38aa768ddd6d911f90e061c885c0aa16a6dcb7fbad7"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://github.com/SigmaHQ/sigma-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "fc12d2416d780d3d65b45063a4d7275eacfe790b2e6b9e6205e62521d56f1a55"
-    sha256 cellar: :any, arm64_tahoe:       "d07d71836b2f1d4b73d5c74d3f12135ed0210c04ae9f74215e38915a6dab1051"
-    sha256 cellar: :any, arm64_sequoia:     "0d5b9675189e06f504e9ca93644d3b30dfbc4dc900003300f50beb86a1922875"
-    sha256 cellar: :any, arm64_sonoma:      "ee4c119e841512720f5dd72b7008f043ac97c016348ad7ee5215b262f24715e3"
-    sha256 cellar: :any, sonoma:            "600d559cbb8e85856ff51496b1f1840672e84a4a4e169d6cf30357a5e100e52f"
-    sha256 cellar: :any, arm64_linux:       "9d94d289e424115864717b699aaabadac24982bc041a97c647a81c4540bad7fa"
-    sha256 cellar: :any, x86_64_linux:      "8fb1d6ed69180e31a2eff134f67e2f9067a07959e72cbcceb95e564d431b2f36"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "12e9823b55736f03b8a0cbdbcb6a49097da106db7f44de68b2649ae95a67e619"
+    sha256 cellar: :any, arm64_tahoe:       "565430f809112fba99721693959219b23da559ee2b4e94369aa03493c9c12cef"
+    sha256 cellar: :any, arm64_sequoia:     "32043e2f46f5a689120f2e57efb777ca89781f941ba1abb9251f79a07d0f60aa"
+    sha256 cellar: :any, arm64_linux:       "2cfba78756752f072a62cc315d0b53b9bb4fac2981c88400335c60c969829915"
+    sha256 cellar: :any, x86_64_linux:      "8f71c638ef23e16908f330b4bfc24b011e5477949bf0640e9fc93fd40ea00ec7"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   conflicts_with "open-simh", because: "both install `sigma` binaries"
 
@@ -29,13 +28,13 @@ class SigmaCli < Formula
                 extra_packages:   "pysigma-backend-sqlite"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
-    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "colorama" do
@@ -54,8 +53,8 @@ class SigmaCli < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
-    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
+    url "https://files.pythonhosted.org/packages/f5/08/8eea9d4b8302028f3abb2c0813953f7aec26d33b7a8960ed760e65ff29fa/idna-3.20.tar.gz"
+    sha256 "a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44"
   end
 
   resource "jinja2" do
@@ -64,18 +63,18 @@ class SigmaCli < Formula
   end
 
   resource "jq" do
-    url "https://files.pythonhosted.org/packages/b8/ef/60ec5e3d8b6ae79c02af010030692e9e7e12a3a8134bc048728de16eb137/jq-1.11.0.tar.gz"
-    sha256 "67f1032e3a61b4e5dcdd4e390527b0000db521ac9872b64517c83c5f71ef8450"
+    url "https://files.pythonhosted.org/packages/95/ec/3da01457bbd3c6a2fc8fea6736c0b657ffc628e3decbfb1fafcf33dc7dbe/jq-1.12.0.tar.gz"
+    sha256 "729b2d3418c8ca7dccfaa66b9fb7a98bec28474212650d27c5c04358ce26f55c"
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
-    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "prettytable" do
@@ -84,18 +83,18 @@ class SigmaCli < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/f3/91/9c6ee907786a473bf81c5f53cf703ba0957b23ab84c264080fb5a450416f/pyparsing-3.3.2.tar.gz"
-    sha256 "c777f4d763f140633dcb6d8a3eda953bf7a214dc4eff598413c070bcdc117cbc"
+    url "https://files.pythonhosted.org/packages/e4/11/b213bebff182584360cb8d17c72c1677fec5c5c228de439e63bcf8ab1c8f/pyparsing-3.3.3.tar.gz"
+    sha256 "928ae7e20211f3b6f3915a72f06a0cfd29ab9d24279dd6346b6b1a7146397d36"
   end
 
   resource "pysigma" do
-    url "https://files.pythonhosted.org/packages/92/e6/1b200cea322b987cc1e7150acec33158c51fedc60bc2ad5363e3e96d3f51/pysigma-1.4.0.tar.gz"
-    sha256 "0a9cc76f76470e8097543b653aecf91e59f7de1199c67e36fc57f2831b35eed7"
+    url "https://files.pythonhosted.org/packages/8c/ca/ed5d1e86bb08501a0b664500224d5e58d6801a63713ad8f05857b9cf3c1f/pysigma-1.5.1.tar.gz"
+    sha256 "5f27ea435bc53480b43f9e385104c6df3d473715321d662a52a1fc283ab0b8db"
   end
 
   resource "pysigma-backend-sqlite" do
-    url "https://files.pythonhosted.org/packages/45/49/4589f6b9d87133bfdaab39a8b49ed05a84c07ea4946e8b1e7b8551c02476/pysigma_backend_sqlite-1.2.2.tar.gz"
-    sha256 "3970518045192d5aeb93f444221dce4661388e7b5b1aab289568930dacbfd247"
+    url "https://files.pythonhosted.org/packages/4f/39/a782807e8a59388ba1ac2280d9a95edd0ef2aca5bf19c0083af857619d44/pysigma_backend_sqlite-2.0.0.tar.gz"
+    sha256 "fbbdd8853e3ddd256016d7bd968c0e53f7cb83cab2a9d837beb8b87bec45f8fe"
   end
 
   resource "pyyaml" do
@@ -109,8 +108,8 @@ class SigmaCli < Formula
   end
 
   resource "types-pyyaml" do
-    url "https://files.pythonhosted.org/packages/b8/83/4a1afc3fbfcf5b8d46fc390cd95ed6b0dc9010a265f4e9f46314efffa37a/types_pyyaml-6.0.12.20260518.tar.gz"
-    sha256 "d917f83fb38462550338c1297faedd860b3ec83912b96b1e3d73255f7473e466"
+    url "https://files.pythonhosted.org/packages/90/6e/abec85b9013db5b934b0280a6dd104904d84f7bcbaab2e2f3def87ac7463/types_pyyaml-6.0.12.20260906.tar.gz"
+    sha256 "f59c1cc05010b833d2d72287bbaa72610106b28d42d89a907313117faba85212"
   end
 
   resource "typing-extensions" do
@@ -119,13 +118,13 @@ class SigmaCli < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
-    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
+    url "https://files.pythonhosted.org/packages/e3/05/b17359e1cefb4f909b5e40b1b90a496d987258916dbbf88e842c729f510e/urllib3-2.8.0.tar.gz"
+    sha256 "63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/34/74/c6428f875774288bec1396f5bfcbc2d925700a4dad61727fd5f2b12f249d/wcwidth-0.8.2.tar.gz"
-    sha256 "91fbef97204b96a3d4d421609b80340b760cf33e26da123ff243d76b1fda8dda"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

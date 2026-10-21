@@ -1,0 +1,96 @@
+diff --git a/lib/pkcs11_cat.c b/lib/pkcs11_cat.c
+index 39b0b87..c39788d 100644
+--- a/lib/pkcs11_cat.c
++++ b/lib/pkcs11_cat.c
+@@ -364,8 +364,8 @@ func_rc pkcs11_cat_object_with_handle(pkcs11Context *p11Context, CK_OBJECT_HANDL
+ 		    }
+ 
+ 		    pk = pkcs11_pkey_from_ec_public(group_name,
+-						    ec_point_container->data,
+-						    (size_t)ec_point_container->length);
++						    ASN1_STRING_get0_data(ec_point_container),
++						    (size_t)ASN1_STRING_length(ec_point_container));
+ 		    if (pk == NULL) {
+ 			P_ERR();
+ 			goto key_ec_error;
+@@ -448,7 +448,7 @@ func_rc pkcs11_cat_object_with_handle(pkcs11Context *p11Context, CK_OBJECT_HANDL
+ 			goto key_ed_error;
+ 		    }
+ 
+-		    if(!X509_PUBKEY_set0_param(x509pk, ed_oid, V_ASN1_UNDEF, NULL, ed_point->data, ed_point->length)) {
++		    if(!X509_PUBKEY_set0_param(x509pk, ed_oid, V_ASN1_UNDEF, NULL, ASN1_STRING_get0_data(ed_point), ASN1_STRING_length(ed_point))) {
+ 			P_ERR();
+ 			goto key_ed_error;
+ 		    }
+diff --git a/lib/pkcs11_cert_common.c b/lib/pkcs11_cert_common.c
+index 8f88de7..b12751b 100644
+--- a/lib/pkcs11_cert_common.c
++++ b/lib/pkcs11_cert_common.c
+@@ -485,8 +485,8 @@ EVP_PKEY *pkcs11_SPKI_from_EC(pkcs11AttrList *attrlist )
+     }
+ 
+     pk = pkcs11_pkey_from_ec_public(group_name,
+-				    ec_point_container->data,
+-				    (size_t)ec_point_container->length);
++				    ASN1_STRING_get0_data(ec_point_container),
++				    (size_t)ASN1_STRING_length(ec_point_container));
+     if (pk == NULL) {
+ 	P_ERR();
+ 	goto err;
+@@ -568,7 +568,7 @@ EVP_PKEY *pkcs11_SPKI_from_ED(pkcs11AttrList *attrlist )
+      * Some tokens expose CKA_EC_POINT as raw bytes instead of DER-wrapped
+      * OCTET STRING. Also reject suspicious DER decodes with unexpected point length.
+      */
+-    if(ed_point == NULL || (expected_point_len > 0 && ed_point->length != expected_point_len)) {
++    if(ed_point == NULL || (expected_point_len > 0 && ASN1_STRING_length(ed_point) != expected_point_len)) {
+     if(ed_point) {
+         ASN1_OCTET_STRING_free(ed_point);
+         ed_point = NULL;
+@@ -592,7 +592,7 @@ EVP_PKEY *pkcs11_SPKI_from_ED(pkcs11AttrList *attrlist )
+ 	goto key_ed_error;
+     }
+ 
+-    if(!X509_PUBKEY_set0_param(x509pk, ed_oid, V_ASN1_UNDEF, NULL, ed_point->data, ed_point->length)) {
++    if(!X509_PUBKEY_set0_param(x509pk, ed_oid, V_ASN1_UNDEF, NULL, ASN1_STRING_get0_data(ed_point), ASN1_STRING_length(ed_point))) {
+ 	P_ERR();
+ 	goto key_ed_error;
+     }
+diff --git a/lib/pkcs11_masq.c b/lib/pkcs11_masq.c
+index d578772..8fec43c 100644
+--- a/lib/pkcs11_masq.c
++++ b/lib/pkcs11_masq.c
+@@ -272,8 +272,8 @@ bool pkcs11_masq_X509_REQ(x509_req_handle_t *req,
+ 		X509_ALGOR_get0(&aobj, &ptype, &pval, sig_alg);
+ 		if(ptype == V_ASN1_SEQUENCE && pval) {
+ 		    const ASN1_STRING *str = (const ASN1_STRING *)pval;
+-		    const unsigned char *p = str->data;
+-		    RSA_PSS_PARAMS *pss = d2i_RSA_PSS_PARAMS(NULL, &p, str->length);
++		    const unsigned char *p = ASN1_STRING_get0_data(str);
++		    RSA_PSS_PARAMS *pss = d2i_RSA_PSS_PARAMS(NULL, &p, ASN1_STRING_length(str));
+ 		    if(pss && pss->hashAlgorithm) {
+ 			md_nid = OBJ_obj2nid(pss->hashAlgorithm->algorithm);
+ 		    }
+diff --git a/lib/pkcs11_more.c b/lib/pkcs11_more.c
+index d66fb73..08cd810 100644
+--- a/lib/pkcs11_more.c
++++ b/lib/pkcs11_more.c
+@@ -312,8 +312,8 @@ func_rc pkcs11_more_object_with_label(pkcs11Context *p11Context, char *label)
+ 				}
+ 
+ 				pk = pkcs11_pkey_from_ec_public(group_name,
+-								ec_point_container->data,
+-								(size_t)ec_point_container->length);
++								ASN1_STRING_get0_data(ec_point_container),
++								(size_t)ASN1_STRING_length(ec_point_container));
+ 				if (pk == NULL) {
+ 				    P_ERR();
+ 				    goto key_ec_error;
+@@ -395,7 +395,7 @@ func_rc pkcs11_more_object_with_label(pkcs11Context *p11Context, char *label)
+ 				    goto key_ed_error;
+ 				}
+ 
+-				if(!X509_PUBKEY_set0_param(x509pk, ed_oid, V_ASN1_UNDEF, NULL, ed_point->data, ed_point->length)) {
++				if(!X509_PUBKEY_set0_param(x509pk, ed_oid, V_ASN1_UNDEF, NULL, ASN1_STRING_get0_data(ed_point), ASN1_STRING_length(ed_point))) {
+ 				    P_ERR();
+ 				    goto key_ed_error;
+ 				}

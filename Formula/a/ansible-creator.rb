@@ -3,20 +3,20 @@ class AnsibleCreator < Formula
 
   desc "CLI tool for scaffolding Ansible Content"
   homepage "https://ansible.readthedocs.io/projects/creator/"
-  url "https://files.pythonhosted.org/packages/b3/a1/74bbbc43d3c0b195060a91a69dabeb30462125a057d2d2d27601ce62b5c9/ansible_creator-26.9.0.tar.gz"
-  sha256 "8f8d47009ebc33852e23137654c612532c78be0d97c1958432b6f6aa70d99d7c"
+  url "https://files.pythonhosted.org/packages/2e/34/de2be164fd02e7b7e0cfa33bbb4d0565dd40c5196762b9bbb305ab852bdd/ansible_creator-26.10.0.tar.gz"
+  sha256 "99468d5fca539e65423e1acd6fe6ba8a67b1fb51473fae21b352c945ad068c1b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d4933c2f33a837b83e2579e53fd01db4a60b752b4b46a9d6c54089dfe26cdd9e"
-    sha256 cellar: :any, arm64_tahoe:       "b7df404feaf71519ecfd71337d66ca308083a53a2626ea7f71b797598362906e"
-    sha256 cellar: :any, arm64_sequoia:     "6e396391a3e5ff60b02b4c1ce58f2686b93cd00418e4040a8720d08a5997ce74"
-    sha256 cellar: :any, arm64_linux:       "3043c1662926dd48f2eb2ab20f6cc652fce972c006d95f764f3bf687201dbdb9"
-    sha256 cellar: :any, x86_64_linux:      "cabc0d85a51bf77226ccf22d6da35999aa630c01d4a50c834f8fdac277daba27"
+    sha256 cellar: :any, arm64_golden_gate: "86bec49461ae1cdfea898ef14dfcd87bb64bab36ca0940caebf7686eca5bf7d5"
+    sha256 cellar: :any, arm64_tahoe:       "983c36a5953da268a1c613fa051280a2fcba48b9d5b71a5529ab998d955e9e21"
+    sha256 cellar: :any, arm64_sequoia:     "b9c3986437f5d65c6c66d05d984a79470fb99a2923cc3d6144514ef5148711bd"
+    sha256 cellar: :any, arm64_linux:       "888eb5a215d29c27a8fbce96862cd1b789f1e1a37dd247f3d60ebbb642588f68"
+    sha256 cellar: :any, x86_64_linux:      "2d168f3e76dc811c2aa59c311660f57d8f6d470798e5a23ce92de1508652b53f"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "jinja2" do
     url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
@@ -24,8 +24,8 @@ class AnsibleCreator < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "pyyaml" do

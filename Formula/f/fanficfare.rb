@@ -3,23 +3,23 @@ class Fanficfare < Formula
 
   desc "Download fanfiction and original stories as e-books"
   homepage "https://github.com/JimmXinu/FanFicFare"
-  url "https://files.pythonhosted.org/packages/99/05/3c6e7cfe337f247e902c2220d4b43a1bf9f25cf0b670ce71ba2253e1d545/fanficfare-4.61.0.tar.gz"
-  sha256 "84bd204b5458972f18ca22dffd4a4b67778ed6a85330ee4e5369cc5109071b85"
+  url "https://files.pythonhosted.org/packages/92/24/a394ed6de5daf39237ce371cac34a72cd6936608b278d7568a43ef99c288/fanficfare-4.62.0.tar.gz"
+  sha256 "eee865d46b0b863cab470c6c7e60d59e102d25d4cea096ca08491337ab81b69e"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/JimmXinu/FanFicFare.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "db2d7c3051c98fc15e8b24b21c3bf988f5bc46205ff1ce2239168c545384d777"
-    sha256 cellar: :any, arm64_tahoe:       "4dde8128ba07112751a3a337e9e6dfb6bdfed8909afee28c8905e8c2bd5019c4"
-    sha256 cellar: :any, arm64_sequoia:     "0288458add20793f4174f5fd76d451c24010914fd1820ffa9aef1e915dca843a"
-    sha256 cellar: :any, arm64_linux:       "9b9f3ec4e90184b25c9110d0e02296280eb3d7ff2ac22a1a020f546f6c8a6980"
-    sha256 cellar: :any, x86_64_linux:      "843451168f5431c87a6a926f30b36404ac29bf86c93de0d677494470f0880e11"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "1291b98eda99c52263ba1d83b7d3cf523fbba5bfe6d349926b49fd56b24615fe"
+    sha256 cellar: :any, arm64_tahoe:       "3c81959855c0c3c60c64ef0e7ae0ed1c8390c50c446967fe25b34bdbb52fba2e"
+    sha256 cellar: :any, arm64_sequoia:     "0ee111db4d1e41fe97dc6a505b4eb99d99597eaeb64afa411af3dfd68ee8c30a"
+    sha256 cellar: :any, arm64_linux:       "b1df7ad87c033aac3e5d47a5a0ca9febc7434d702a8c6f17239bde8abd70a0f1"
+    sha256 cellar: :any, x86_64_linux:      "6bdafa1002391eeac4513a7f1bbfb6026be57786c008d3787c6cbf0dc460677e"
   end
 
   depends_on "pkgconf" => :build
   depends_on "certifi" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "sqlite" # APSW requires SQLite APIs not provided by macOS
 
   pypi_packages package_name:     "FanFicFare",
@@ -112,8 +112,8 @@ class Fanficfare < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/71/c3/1b817965ac12dc002d7c9cd7dfffdd7d4fbf9b45763ef2ffe7b86ee94670/soupsieve-2.10.tar.gz"
-    sha256 "49e9380d7d2905463583bafe285e818c7366a9ed7b3aee221c1ac79c905d8bc0"
+    url "https://files.pythonhosted.org/packages/0e/b9/014459776d0be4dd5f0c196fd2c8dc523a4b817a561667fae4f330b04b48/soupsieve-3.0.1.tar.gz"
+    sha256 "713d5c69f90ef84deffec0b9c6244796575e3c9fc9081cefb96091ce1200a308"
   end
 
   resource "typing-extensions" do

@@ -29,4 +29,8 @@ class Cocot < Formula
     system "./configure", *std_configure_args
     system "make", "install"
   end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/cocot --version 2>&1", 1)
+  end
 end

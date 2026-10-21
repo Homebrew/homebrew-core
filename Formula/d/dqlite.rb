@@ -20,6 +20,11 @@ class Dqlite < Formula
   depends_on "lz4"
   depends_on "sqlite"
 
+  resource "dqlite-demo", :test do
+    url "https://raw.githubusercontent.com/canonical/go-dqlite/2425f137a185a27e2b2fee7c2cb5f97d459e695d/cmd/dqlite-demo/dqlite-demo.go"
+    sha256 "302890eb50419e7fee4d8c5dc27a77353ed7e9d9047f65e872def971fd3ef178"
+  end
+
   def install
     ENV["CGO_ENABLED"] = "1" if Hardware::CPU.arm?
 
@@ -30,11 +35,6 @@ class Dqlite < Formula
 
   test do
     ENV["CGO_ENABLED"] = "1" if Hardware::CPU.arm?
-
-    resource "dqlite-demo" do
-      url "https://raw.githubusercontent.com/canonical/go-dqlite/2425f137a185a27e2b2fee7c2cb5f97d459e695d/cmd/dqlite-demo/dqlite-demo.go"
-      sha256 "302890eb50419e7fee4d8c5dc27a77353ed7e9d9047f65e872def971fd3ef178"
-    end
 
     (testpath/"testproject").mkpath
     (testpath/"testproject").install resource("dqlite-demo")

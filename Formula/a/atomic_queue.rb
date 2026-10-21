@@ -17,6 +17,8 @@ class AtomicQueue < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => :test
 
+  deny_network_access!
+
   def install
     system "meson", "setup", "build", "-Dtests=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

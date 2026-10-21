@@ -1,17 +1,19 @@
 class Sandvault < Formula
   desc "Run AI agents isolated in a sandboxed macOS user account"
   homepage "https://github.com/webcoyote/sandvault"
-  url "https://github.com/webcoyote/sandvault/archive/refs/tags/v1.31.0.tar.gz"
-  sha256 "78eb53cad342d0efd476ce5d415533c3da8732f77c71b9ec1438b7367b784fd6"
+  url "https://github.com/webcoyote/sandvault/archive/refs/tags/v1.35.0.tar.gz"
+  sha256 "e9e1494e0a0680442a28cea83a395c70fc729682f25772e70bbd346c66f9d21e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "bf0ee3a01005445d8a835f6bd0634117f360b1658a2ef83470e933db575ca0cf"
+    sha256 cellar: :any_skip_relocation, all: "a9da27a2d6e031b511f420c041ac43f7d9c7e7b89e71b393b5c5b06e3ad9403e"
   end
 
   depends_on :macos
 
   conflicts_with "runit", because: "both install `sv` binaries"
+
+  deny_network_access!
 
   def install
     libexec.install "guest", "helpers", "skills", "sv", "sv-clone", "sv-agentsview-setup"

@@ -9,16 +9,16 @@ class Fprettify < Formula
   head "https://github.com/fortran-lang/fprettify.git", branch: "master"
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, all: "fdd5b8e9dc7618159259e688b329a44ea1c6f5be9bc615f98d6c29128e07dd2d"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, all: "2eed8e7434178165e755f3a4862a8b79e045d89b08754c9e7abccfd918b4c5b1"
   end
 
   depends_on "gcc" => :test
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "configargparse" do
-    url "https://files.pythonhosted.org/packages/85/4d/6c9ef746dfcc2a32e26f3860bb4a011c008c392b83eabdfb598d1a8bbe5d/configargparse-1.7.1.tar.gz"
-    sha256 "79c2ddae836a1e5914b71d58e4b9adbd9f7779d4e6351a637b7d2d9b6c46d3d9"
+    url "https://files.pythonhosted.org/packages/5d/ed/33c0ba7f0b5be384ff8a2101ce77728f219e816b2104819f1651477e1ad5/configargparse-1.8.0.tar.gz"
+    sha256 "22a417f4d7b00149f0af82ef7c491f8ecc4b1d5454633fd319b386f5eb806f92"
   end
 
   def install

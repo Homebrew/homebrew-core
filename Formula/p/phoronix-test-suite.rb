@@ -26,6 +26,8 @@ class PhoronixTestSuite < Formula
 
   depends_on "php"
 
+  deny_network_access!
+
   def install
     # Use homebrew's share directory
     inreplace "phoronix-test-suite", "/usr/share/phoronix-test-suite/", "#{pkgshare}/"

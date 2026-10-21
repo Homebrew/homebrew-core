@@ -27,6 +27,15 @@ class CargoDepgraph < Formula
   depends_on "rust" => :build
   depends_on "rustup" => :test
 
+  # The test downloads a rustup toolchain and resolves a dependency from crates.io.
+  allow_network_access! :test
+
+  def fetch
+    # Refresh the release's lockfile while retaining existing dependency versions.
+    system "cargo", "update", "--workspace"
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end

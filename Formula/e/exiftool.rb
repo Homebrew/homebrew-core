@@ -91,13 +91,18 @@ class Exiftool < Formula
     sha256 "37f40dd7cee44acea26f2f763a773e61d4ec223305ddeeca4612443cbf288fbf"
   end
 
+  resource "sunset-logo-jxl", :test do
+    url "https://github.com/libjxl/conformance/blob/5399ecf01e50ec5230912aa2df82286dc1c379c9/testcases/sunset_logo/input.jxl?raw=true"
+    sha256 "6617480923e1fdef555e165a1e7df9ca648068dd0bdbc41a22c0e4213392d834"
+  end
+
   allow_network_access! :test
 
   def install
     perl_lib = libexec/"lib/perl5"
     ENV.prepend_create_path "PERL5LIB", perl_lib
 
-    resources.each do |r|
+    resources.reject(&:test?).each do |r|
       r.stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         if r.name == "IO::Compress::Brotli"
@@ -128,11 +133,6 @@ class Exiftool < Formula
     test_image = test_fixtures("test.jpg")
     assert_match %r{MIME Type\s+: image/jpeg},
                  shell_output("#{bin}/exiftool #{test_image}")
-
-    resource "sunset-logo-jxl" do
-      url "https://github.com/libjxl/conformance/blob/5399ecf01e50ec5230912aa2df82286dc1c379c9/testcases/sunset_logo/input.jxl?raw=true"
-      sha256 "6617480923e1fdef555e165a1e7df9ca648068dd0bdbc41a22c0e4213392d834"
-    end
 
     resource("sunset-logo-jxl").stage do
       system bin/"exiftool", "-api", "Compress=1", "-Artist=homebrew", "-m", "input.jxl"

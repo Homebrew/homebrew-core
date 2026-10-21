@@ -11,13 +11,12 @@ class Nest < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "55bbecffac0aa5d1aa6663d67e70dd57c47023559f6d6974e7fe5e8f6fef1148"
-    sha256 arm64_tahoe:       "22e28550d2ade9e945536a8730ad9150fd46c9f69e4ae6c6d897757e5efcbd24"
-    sha256 arm64_sequoia:     "8d5ed9d180ca7126016616c3cf0ff31009b2692b6c524b4dd900ef6e9fd70b26"
-    sha256 arm64_sonoma:      "0f36e77a6153f7dcb1cb5c51c939e1bafa148ccd1a096a305283bc3dc86ffde1"
-    sha256 sonoma:            "a51dc3b73e9f094a305a2e6e75c3503e13dcb94cd134ab996a21f5c0d5b3a9ad"
-    sha256 arm64_linux:       "486e4437cb5e5e910aa80c5ab5e768e9ef123a36f61d5161c824f4451a5f6822"
-    sha256 x86_64_linux:      "e68d65b7a442a6dbb459359ddd6e49877d3306d90a78910b1931c1cf93e4e275"
+    rebuild 1
+    sha256 arm64_golden_gate: "4526de21f025292a04991033ae3db0e4cd01d4514ab0870807b4b9f805076e75"
+    sha256 arm64_tahoe:       "d92504fd5c36cad9f8074cd9e6e0a75c0fca51b4edcc70d9d08df489e48128b2"
+    sha256 arm64_sequoia:     "a5488e8621d032e13576d5d597efdba3dbc99a8c356a53c8ae6d94db9dbfe821"
+    sha256 arm64_linux:       "5e5315405e5cc62aba772793ca34e61643e1e4d7fea2ebc96587ae90b552f83a"
+    sha256 x86_64_linux:      "cb32c5520f06bef7340c01be12e1dd12754f5c5eeeaa46444b9e78fdda46ad87"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +24,7 @@ class Nest < Formula
   depends_on "gsl"
   depends_on "libtool"
   depends_on "numpy"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "readline"
 
   uses_from_macos "ncurses"
@@ -55,10 +54,10 @@ class Nest < Formula
 
   def caveats
     <<~EOS
-      The PyNEST bindings and its dependencies are installed with the python@3.14 formula.
+      The PyNEST bindings and its dependencies are installed with the python@#{Language::Python.major_minor_version python3} formula.
       If you want to use PyNEST, use the Python interpreter from this path:
 
-          #{Formula["python@3.14"].bin}
+          #{python3.dirname}
 
       You may want to add this to your PATH.
     EOS

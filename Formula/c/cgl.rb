@@ -31,6 +31,11 @@ class Cgl < Formula
     depends_on "openblas"
   end
 
+  resource "homebrew-coin-or-tools-data-sample-p0033-mps", :test do
+    url "https://raw.githubusercontent.com/coin-or-tools/Data-Sample/releases/1.2.12/p0033.mps"
+    sha256 "8ccff819023237c79ef32e238a5da9348725ce9a4425d48888baf3a0b3b42628"
+  end
+
   def install
     system "./configure", "--disable-silent-rules", "--includedir=#{include}/cgl", *std_configure_args
     system "make", "install"
@@ -39,11 +44,6 @@ class Cgl < Formula
   end
 
   test do
-    resource "homebrew-coin-or-tools-data-sample-p0033-mps" do
-      url "https://raw.githubusercontent.com/coin-or-tools/Data-Sample/releases/1.2.12/p0033.mps"
-      sha256 "8ccff819023237c79ef32e238a5da9348725ce9a4425d48888baf3a0b3b42628"
-    end
-
     resource("homebrew-coin-or-tools-data-sample-p0033-mps").stage testpath
     cp pkgshare/"examples/cgl1.cpp", testpath
 

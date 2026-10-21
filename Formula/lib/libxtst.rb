@@ -1,23 +1,17 @@
 class Libxtst < Formula
   desc "X.Org: Client API for the XTEST & RECORD extensions"
   homepage "https://www.x.org/"
-  url "https://xorg.freedesktop.org/archive/individual/lib/libXtst-1.2.5.tar.gz"
-  sha256 "244ba6e1c5ffa44f1ba251affdfa984d55d99c94bb925a342657e5e7aaf6d39c"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libXtst-1.2.6.tar.gz"
+  sha256 "f30f2d4f8370077de9f35220a539bf34c042ca02a55669a4d8f345c661ce7839"
   license "MIT"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "40c2e25d09a1f8726a0e9561629de122cb69d8e1cc00db12827ccd1d46ad06db"
-    sha256 cellar: :any,                 arm64_tahoe:       "3695416abec8f1da23fddcc232bdc5e9522f822f67c7a0c69f522f54c8653617"
-    sha256 cellar: :any,                 arm64_sequoia:     "28d4af1505473aed939328ace91056e111623d0c60b817d0b98dc3e00472dc4d"
-    sha256 cellar: :any,                 arm64_sonoma:      "aaefda085ce2cd52a2fccada770bc3280c75128ecbd66f92ea7afa25c11631c8"
-    sha256 cellar: :any,                 arm64_ventura:     "ee96653ea151d173c107e01ef1945ddca27e4585dc89c1eab34e7dd70a5718fa"
-    sha256 cellar: :any,                 arm64_monterey:    "618320ced081879132c2a569a2e8843326628423bcc8b1fbca86a0de66cbdc11"
-    sha256 cellar: :any,                 sonoma:            "fac9520eabdd31b4defc300ec39c860da9809c8850415b2c8ba799e1849e5f2f"
-    sha256 cellar: :any,                 ventura:           "1b29a72e003a2f5b3ea2bf308ed8be1218146051fa941177a1eca49099558362"
-    sha256 cellar: :any,                 monterey:          "252a0ae6686b4d4f5098360cb7ed9a2f25d8dd122ae79150af3533509da1e102"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "270e406f0aa8cdbd35a39c76ebaea72a79325ac23ee3342d1cc5f7c930a8f337"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "51cacd4573d0d4e1cc33c83574cf4838d93de28276a9cd3c69496da8a4466771"
+    sha256 cellar: :any, arm64_golden_gate: "99e1bb69e67e3f12060f65a963b42f7a414e42304af01c19cac344fe7fe8bba8"
+    sha256 cellar: :any, arm64_tahoe:       "4cccd2f54e0b00cf2e0be69f1f978ab36f033851b091a22a7413174bbdc6ad7e"
+    sha256 cellar: :any, arm64_sequoia:     "1c3749e2a12829869eb8b6a85feb805cb0abcbb7ad928cdf7c706de4d9a5a75e"
+    sha256 cellar: :any, arm64_linux:       "cfd02c4c61b6556a34c4e13552c6d3086b6d625d4c412462d1fbcd8367a1ace1"
+    sha256 cellar: :any, x86_64_linux:      "6ac18f8733259cc308962131433f580e028155cd2e3cc57dd6b9c7500dac0e16"
   end
 
   depends_on "pkgconf" => :build

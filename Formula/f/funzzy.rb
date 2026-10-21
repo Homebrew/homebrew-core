@@ -1,21 +1,26 @@
 class Funzzy < Formula
   desc "Lightweight file watcher"
   homepage "https://github.com/cristianoliveira/funzzy"
-  url "https://github.com/cristianoliveira/funzzy/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "79c4e934ea2035b365b01d5bcb1c7b72e6cc089543fae29c71800ae274638c0a"
+  url "https://github.com/cristianoliveira/funzzy/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "ebec4e15771fedf8c9bb0c32c0ec4b90b2d24887bc3b8fa054efe7b197f4a4e6"
   license "MIT"
   head "https://github.com/cristianoliveira/funzzy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b8f5a15455315131175baad0bab4cde9737f089f8ca6036462353f18da5cef06"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1bdde97d95332903840a025af4c36348f78f0e24425c1908672f15a357742f66"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "27125dc7ca5c102c8a4bd519e5aa56836dbaf5073b23bdda905e09bc943bc7b7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "b7da2d38750d2ff7ac2cfd2303cbb47d056d27d610c97b8be6aa20babf1f524f"
-    sha256 cellar: :any,                 arm64_linux:       "b23022b4706528659d66ab1b3b60dbed24a3b87858795c8343b4e46b5dbc4ad1"
-    sha256 cellar: :any,                 x86_64_linux:      "4369d53c7ae9ac195a8d009e05624cdc12eb3c610a11910752f52784ac2a5e42"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ad1b3ea1b3c8bfc22526c6d298940269735bb36acbf1614e2c6f5943b01feae4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e938955195d1c31fc67858f12e7d9a06049145822138d370fef340772ad44cbd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a6086d1456b343981a0c95c93400956776754ac251ac2a32bee3b93dd7de4063"
+    sha256 cellar: :any,                 arm64_linux:       "4e153109de65977d5530ff52a705c919831f2eb8736f18a453ba7eb72924da68"
+    sha256 cellar: :any,                 x86_64_linux:      "279f2001b326cb2e0161793a7e1f7a6f3eb7e806cf089fffa7e9140bc4c3202d"
   end
 
   depends_on "rust" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

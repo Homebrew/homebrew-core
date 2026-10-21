@@ -2,8 +2,9 @@ class Rpiboot < Formula
   desc "Raspberry Pi USB boot tool for Compute Modules"
   homepage "https://github.com/raspberrypi/usbboot"
   url "https://github.com/raspberrypi/usbboot.git",
-      tag:      "20250908-162618",
-      revision: "d90eab5130c4fe4a6d92699e5268c1956f46939c"
+      tag:      "20261002-115811",
+      revision: "51006f8d77dbb99c408737825dd0d57285b7d00d"
+  version "20261002-115811"
   license "Apache-2.0"
   head "https://github.com/raspberrypi/usbboot.git", branch: "master"
 
@@ -13,19 +14,19 @@ class Rpiboot < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "c94708eb4dd3df12e6ca39a9bdf85fc2fed0eea629065a92974944ac937b49e3"
-    sha256 arm64_tahoe:       "31cb9beee0a7ec2286049723c054e8db04f54adbad073b51566ec967bda97149"
-    sha256 arm64_sequoia:     "f7a90ea74346f3e711f948d047edf2e2cd824f85e8ca0b4c7a7097d863942779"
-    sha256 arm64_sonoma:      "c66e0d7c224d8a185dbec4b96b2a54971d9c4d3acc5ccfce9d7e057bae0463c0"
-    sha256 sonoma:            "beca79fd2907f5c3a5a220d19d729d501c8ebaf3e61d4ad3939ebe903399d481"
-    sha256 arm64_linux:       "d46d84f2dca76f09f8a12511e76625f8c8a20e27301300b0432b7c1dd90b68d2"
-    sha256 x86_64_linux:      "2523c3dbff24ee0d324180c581a9b57ba8d718da4cbcc385fe536d898bc06a86"
+    sha256 arm64_golden_gate: "89bc8eed4f37b8c53abb40f5370b7208ca1ce1c476df085254277a82e78fcf62"
+    sha256 arm64_tahoe:       "f63b5f67eecfe7d4bc7c24052705f456fe23a541722dfd5fac92d99fdb091727"
+    sha256 arm64_sequoia:     "9c5ed03e24b2fa0d6c3b05d021ff4f67ed245b42af97f95db8b730ccbb868449"
+    sha256 arm64_linux:       "8f4f810d4a22ac53ab9a5e9188b847b848ab036422817b3c3e2e90ccb413c157"
+    sha256 x86_64_linux:      "af46bd06e72ddc7794bae9a763b7a964a5947dc3d14218e2cbfa572add605761"
   end
 
   depends_on "pkgconf" => :build
   depends_on "libusb"
 
   uses_from_macos "vim" => :build # for xxd
+
+  deny_network_access!
 
   def install
     bin.mkpath

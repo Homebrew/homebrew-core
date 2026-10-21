@@ -3,24 +3,25 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/87/01/cd2f0dd3e706cc24caf47f91b1cb14fa156100ad5b4b994961b9b3a30a12/datalad-1.6.5.tar.gz"
-  sha256 "f23c4b6eeb0699f6a275a0d6ba9b4fcd267af2cea26c67b60df6566fe384e811"
+  url "https://files.pythonhosted.org/packages/fe/d9/4cf5c57cab55c5f07a25ef13437e7e70cb80f4c08ea77a92005270d0f601/datalad-1.7.1.tar.gz"
+  sha256 "805c52af920ffff54b285896eb5db8d57087ba51c2c414f30cf412b45b6ffc59"
   license "MIT"
   head "https://github.com/datalad/datalad.git", branch: "maint"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7aed3cb49e58375ae7c5c5f482a1ea8798255e6f6391c96eb51074ba926b18d3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f407d0be78d9bd2da7bd1dc9b88fc7f0915a38afe2ff4f2fcf3cedc6a694b40f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e963e5754cedb942af7e3f2c573457914e974bc6f009a5977a5e08a61283d8c1"
-    sha256 cellar: :any,                 arm64_linux:       "c60c38474456ed803f91afb5ffabfa8dae0d2a5ff0b6fd828313f2756c7ce80d"
-    sha256 cellar: :any,                 x86_64_linux:      "5100d380577962ef477e18f12d545c27d960e9a47725947aa8747aa42bf6dc04"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "13ce3496a0cc0701bb4c7ed2124ab2e31a85933cb85e2ed5e522ffafb0fd173f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5f955784cf06b2ba28a2dc257aa9dfadd7253d30faf25a61a4e69f69502394ca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8583fa71284d641fee79917950cdadee4ceb37c94bc123d5bd0ae508c8045886"
+    sha256 cellar: :any,                 arm64_linux:       "8743e1ebdaf82b6ee73483ed6799ed34dd5b2643a7ae46a398675612b725a254"
+    sha256 cellar: :any,                 x86_64_linux:      "6dc44ce1f3c9d9d045379ee0f6a0b36f69576fe161cb932cb74163f2b113975a"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "git-annex"
   depends_on "p7zip"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name:     "datalad[misc]",
                 exclude_packages: ["certifi", "cryptography"],
@@ -37,13 +38,13 @@ class Datalad < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/49/01/97aaee4d3e94467983a0c1b986ed4f4da48960d7ebc948e7d739c818cb59/boto3-1.43.106.tar.gz"
-    sha256 "c11ad4c429a983493ba10014c7af9831a455c2c0eea91c1cefff74530e480277"
+    url "https://files.pythonhosted.org/packages/a9/6e/fe973c8ce8fe4f59d6df6128600b9cc7c4ed75788bed5f5f615f88379529/boto3-1.43.110.tar.gz"
+    sha256 "0251b67d99cc0e7b958db48e7dd149094d453377fcd03299fde7329f975db2e6"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/11/b9/10ca68d0092895d5ea60f485a61a9840d5aff9d732c66ed60da53a20b1d4/botocore-1.43.106.tar.gz"
-    sha256 "006870b3b4e40547232ad12c3bb4faec91bbbe0659aafaa3b7fa48a112c4ee97"
+    url "https://files.pythonhosted.org/packages/a7/d8/7a2320aabf1b1e62580e990f8a52760e396f4ec56e3ebcbce07d23acc031/botocore-1.43.110.tar.gz"
+    sha256 "888cd54d59502e2195dac30805e5c08dd1be5416932a3793373e81b8f463e006"
   end
 
   resource "chardet" do
@@ -147,8 +148,8 @@ class Datalad < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/17/c8/721b3855fe457da514fe249247d404b9b39c5d16532278f70ebaa6acf18b/platformdirs-4.12.2.tar.gz"
-    sha256 "eab5f70271a490ef74618bb314fbb86e3c7e82fa3b9c922c2ea0e0a1a155d329"
+    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
+    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
   end
 
   resource "psutil" do

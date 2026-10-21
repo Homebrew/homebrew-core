@@ -3,8 +3,8 @@ class Dnsdist < Formula
 
   desc "Highly DNS-, DoS- and abuse-aware loadbalancer"
   homepage "https://www.dnsdist.org/"
-  url "https://downloads.powerdns.com/releases/dnsdist-2.1.2.tar.xz"
-  sha256 "9fcb469d7a1b5116606f2563761343d1c595523c1fd67808835fa4edc03c24ce"
+  url "https://downloads.powerdns.com/releases/dnsdist-2.1.3.tar.xz"
+  sha256 "41cc224817ff0f7753b46fe5b814ddb9221dd9dbf76e9eb1a09f01c3c5cbb4aa"
   license "GPL-2.0-only" # with OpenSSL Exception (non-SPDX)
 
   livecheck do
@@ -13,23 +13,22 @@ class Dnsdist < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "861d859901bd974bf36c6961f6d2bc0e251486c02a0088d3e05caffdb64890e4"
-    sha256 arm64_tahoe:       "8e7e0efd34b3cbf364ceeb2654993eb1fc92faf3b5410f6fa4398e1950dfd7c2"
-    sha256 arm64_sequoia:     "47c2c15b1ab56025ba1dd96d891fc394c0ef301b98b7861bb6a74425efa17f55"
-    sha256 arm64_sonoma:      "3ecc7c05cea6293d15b443f366b9caac99fda43748435d69e7fcab17415228e0"
-    sha256 arm64_linux:       "deffdd8789b460e08a9d1ea6c88ea98fd70e176cf6fddafc6956eda81a96461d"
-    sha256 x86_64_linux:      "422c72613c57d0e6011a213e66fb00b7a09e7bf6f9a33699fcd94eda4fa0d640"
+    sha256 arm64_golden_gate: "8ec01506fe21d155b3a93583fce041548fdd0a5f7e11f8b77b4cc468c5c00f7a"
+    sha256 arm64_tahoe:       "e6a4274e091d9a3078604e01b77a22ce1a363f6d816c48c98766c814535ef951"
+    sha256 arm64_sequoia:     "b95ce0d07446bdb830c0d9b872be838c7cbef132fb8023c81fdc319d3428e252"
+    sha256 arm64_linux:       "a7d8a17a86333cbf27357b1cc358d543f3c18917f665a48a37c89478b94fc625"
+    sha256 x86_64_linux:      "f27dd0d8e2da5d7d51229e64c47d91e296e226b5914b43f3a8b3a16e729adbbf"
   end
 
   depends_on "boost" => :build
   depends_on "libyaml" => :build # for PyYaml
   depends_on "pkgconf" => :build
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on "fstrm"
   depends_on "libnghttp2"
   depends_on "libsodium"
   depends_on "luajit"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "re2"
   depends_on "tinycdb"
 

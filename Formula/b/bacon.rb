@@ -4,22 +4,30 @@ class Bacon < Formula
   url "https://github.com/Canop/bacon/archive/refs/tags/v3.26.0.tar.gz"
   sha256 "d86249d01175f83ce30c7d52d36ed3422855c7eef00907161e673d490955702d"
   license "AGPL-3.0-or-later"
+  revision 1
   head "https://github.com/Canop/bacon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ca223043e4a28db5fa369a5ffc8c14368112f49e0940c242f3880eb6d2a67a54"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b27d3533ce8c8ac7abc1737c3d2d7f8fbe1be1515e952b32c5b42ac247d9bae6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9084b6e9ad5c57572f84e0175f2f20e3ba1ebb14660bc89884478a844b7a4959"
-    sha256 cellar: :any,                 arm64_linux:       "b397d1c665129398b4742a7a8ac6167bb7315ee5bc12b72a94db0b0b83a67b1a"
-    sha256 cellar: :any,                 x86_64_linux:      "70153aee87958cd6b3b49c161c78fe1c6c179729b5d07cec6ebd9de9c14211e0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "963ce13eb65a2065164431d1691506353bfbf04eb1a195b8bccab4e6f453e561"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "57dfd236cbdbc2c01f0655d60303ad6caf566daa7751c2ad532939f083735d2a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2144195cd431d72695a7a4cb849ad75af48f3bb68459529a37432501148f1bee"
+    sha256 cellar: :any,                 arm64_linux:       "feca94f0e0323578563f0da2177a8fe2a00efa8faf43d7b3c98e776410617357"
+    sha256 cellar: :any,                 x86_64_linux:      "2628e7932c928e74e67008ff2b021525fc70fb754de112c25aa9c9e11e3612ef"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "rustup" => :test
 
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
+    generate_completions_from_executable(bin/"bacon", shell_parameter_format: :clap)
   end
 
   test do

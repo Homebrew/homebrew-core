@@ -20,6 +20,8 @@ class Pickle < Formula
     end
   end
 
+  allow_network_access! :test
+
   def install
     # TODO: Switch to following when using unversioned `php`:
     # bin.install "pickle.phar" => "pickle"

@@ -15,15 +15,16 @@ class Cppcheck < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "e5954f4f24f2c6e2fccfe9f477a1a6be25636c2ccae29430f945551630195c7e"
-    sha256 arm64_tahoe:       "2db5c07999f39897185f2abe9689c1af372cc2c54e6e24794e3b99b14008226b"
-    sha256 arm64_sequoia:     "382697c060216d4155ac9d45c4f8dec957fc2ca98de0356cb9d7a1a2ef103003"
-    sha256 arm64_linux:       "330c0222ca146fff64dcebc83b9305e0f014b1df0d636278c620d93df6d240d3"
-    sha256 x86_64_linux:      "c9afd395fbeebeb198e8045dab895fabf0b5282963d7389623e7cad0c1bd8ef8"
+    rebuild 1
+    sha256 arm64_golden_gate: "bd7b079af9a1f52309e30673db29183b705a271c190a7c2af802f98de5c7c9bb"
+    sha256 arm64_tahoe:       "ea278ea54a1a81510bd4b8a1beae0d7c29793a697ca3819de9e24ba9b3fc30b1"
+    sha256 arm64_sequoia:     "dcf0b01f72efeb7099ff7b7e9071a7826521bcf463e1a359cc45c83cfa9388b5"
+    sha256 arm64_linux:       "a7a1caa586381b4be2c10a83c5477874197f8b6d1a2ce6b363dc35747018e6eb"
+    sha256 x86_64_linux:      "8b942f03106a04e63b0d9653b9cd819fde6ddc16a3333fa3ab135ed60a6499fc"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "tinyxml2"
 
   uses_from_macos "libxml2" => :build

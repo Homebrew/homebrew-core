@@ -8,18 +8,17 @@ class Jinja2Cli < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "dff829f1364632dd17d5c968cb44a36180cb73aabba42bca88599d437e265e97"
-    sha256 cellar: :any,                 arm64_tahoe:       "684ea655961fe3fa1d9cb29bc9e9e37953a4e4e40f0cd77ebc9b53429f21bb16"
-    sha256 cellar: :any,                 arm64_sequoia:     "78cd8059e59ebb5b31c076281b2119a205caf82a08fb4645d9e02493d35670f8"
-    sha256 cellar: :any,                 arm64_sonoma:      "c589aaf5e1a7f329112a88ec10114ed85551469b69645c28d5deae854d2a3c4b"
-    sha256 cellar: :any,                 sonoma:            "cd31e70f879e729e8c0bcc0b70be096e1377d79f2d3429e3f3b399b611ae5009"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5c858f22dca555fc3d6a213c7544cb5f29f8713c3c20183fe908b5205499f37f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d69fb38f48f16b2061722212f05ccbcb9236040b3211c44f46fcecfc3b18fd84"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "e3a373d7f7fb80aec73ec26a334e742b179a7fbe5ad4ca5c300ea59168000824"
+    sha256 cellar: :any, arm64_tahoe:       "0e9f93450d68abc7749d8f680a2c30e39c6cbc7f56654626e3927d58ed502848"
+    sha256 cellar: :any, arm64_sequoia:     "04fee8f85a04a7dcaf3e7be7a92d6e5aac69984a5e687e83417afd51217861d5"
+    sha256 cellar: :any, arm64_linux:       "f311cd7eda501eb59b74ffdff9cfaaff5739ffd9ba52c0c5ce6e8583647bd32c"
+    sha256 cellar: :any, x86_64_linux:      "3435220927986ad31d224f97c098c71e4f13dd073c0b4ad40c1e83de4bdfacfd"
   end
 
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name: "jinja2-cli[yaml,toml,xml]"
 
@@ -29,8 +28,8 @@ class Jinja2Cli < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "pyyaml" do

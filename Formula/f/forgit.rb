@@ -21,7 +21,7 @@ class Forgit < Formula
   def install
     bin.install "bin/git-forgit"
     bash_completion.install "completions/git-forgit.bash" => "git-forgit"
-    zsh_completion.install "completions/_git-forgit" => "_git-forgit"
+    zsh_completion.install "completions/_git-forgit"
     fish_completion.install "completions/git-forgit.fish"
     inreplace "forgit.plugin.zsh", 'FORGIT="$FORGIT_INSTALL_DIR', "FORGIT=\"#{opt_prefix}"
     inreplace "conf.d/forgit.plugin.fish",

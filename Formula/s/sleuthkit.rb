@@ -25,9 +25,7 @@ class Sleuthkit < Formula
 
   depends_on "afflib"
   depends_on "libewf"
-  depends_on "libpq"
   depends_on "openjdk"
-  depends_on "openssl@3"
   depends_on "sqlite"
 
   on_linux do

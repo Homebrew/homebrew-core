@@ -1,10 +1,9 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Dec2025-SP2/MonetDB-11.55.5.tar.xz"
-  sha256 "480c921a45b54c610dee9a17147f0e89ae74c31516b9250e5c8f2371e1bd70c2"
+  url "https://www.monetdb.org/downloads/sources/Dec2025-SP4/MonetDB-11.55.9.tar.xz"
+  sha256 "c2edb5a930fc0c5aaf7fe1cac34be2bb125a1e52ee5fbdf1df9a993cc526cffe"
   license "MPL-2.0"
-  revision 1
   head "https://www.monetdb.org/hg/MonetDB", using: :hg
 
   livecheck do
@@ -15,13 +14,11 @@ class Monetdb < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 arm64_golden_gate: "6a078d6120290dfba9bd5d6e788b4eee5f3fd5c0bd8fbadf0981163c0d29fbbc"
-    sha256 arm64_tahoe:       "951fa07466c28d36575e06b842ad4e310e9038140a8dc2bf02f1e5d1292c2833"
-    sha256 arm64_sequoia:     "2d9851e2ade6dfef6f171b6e6c5825082a8cbc8ed65061cf02ed755b54f8ed4e"
-    sha256 arm64_sonoma:      "0a7991075d5c3252fd4202612dbf9fcb35abfa0a48fa492c05d20117f0a0a8ce"
-    sha256 sonoma:            "d67baf8654716372510526e30a6cc60262c421a80a422bd90df59f2382ccceff"
-    sha256 arm64_linux:       "8c5841e66f574394356652817e29844f7da9f04b9d93aa14dbe8794351a89f1f"
-    sha256 x86_64_linux:      "a83a81f1323f6b7c132521fd1a5f82c18d200923f8cdf88ffd5d374586a6061f"
+    sha256 arm64_golden_gate: "a38076d26c183ace8585540a0a48f70ebe3e15d00f82c8faaf9bed863ab62d00"
+    sha256 arm64_tahoe:       "44850ce0266da93c34d4a2a6538ec064d11bd0a75a53cf6fe2036ad068cc6ef4"
+    sha256 arm64_sequoia:     "f69d78a3b0e54962c7097587701e6673f57666350e6df11d77d049cf166b425e"
+    sha256 arm64_linux:       "6adf4506a21a461ad1d017021860f9dc8bc7627560e7949202598d2837296cd5"
+    sha256 x86_64_linux:      "c57093954a6ced9836f855da5110ded87e71028268cbe6f131b41a9ee39abcf0"
   end
 
   depends_on "bison" => :build # macOS bison is too old
@@ -43,32 +40,33 @@ class Monetdb < Formula
   deny_network_access!
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DRELEASE_VERSION=ON",
-                    "-DASSERT=OFF",
-                    "-DSTRICT=OFF",
-                    "-DTESTING=OFF",
-                    "-DFITS=OFF",
-                    "-DGEOM=OFF",
-                    "-DNETCDF=OFF",
-                    "-DODBC=OFF",
-                    "-DPY3INTEGRATION=OFF",
-                    "-DRINTEGRATION=OFF",
-                    "-DSHP=OFF",
-                    "-DWITH_BZ2=ON",
-                    "-DWITH_CMOCKA=OFF",
-                    "-DWITH_CURL=ON",
-                    "-DWITH_LZ4=ON",
-                    "-DWITH_LZMA=ON",
-                    "-DWITH_OPENSSL=ON",
-                    "-DWITH_PCRE=ON",
-                    "-DWITH_PROJ=OFF",
-                    "-DWITH_RTREE=OFF",
-                    "-DWITH_SQLPARSE=OFF",
-                    "-DWITH_VALGRIND=OFF",
-                    "-DWITH_XML2=ON",
-                    "-DWITH_ZLIB=ON",
-                    *std_cmake_args
+    args = %w[
+      -DRELEASE_VERSION=ON
+      -DASSERT=OFF
+      -DSTRICT=OFF
+      -DTESTING=OFF
+      -DFITS=OFF
+      -DGEOM=OFF
+      -DNETCDF=OFF
+      -DODBC=OFF
+      -DPY3INTEGRATION=OFF
+      -DRINTEGRATION=OFF
+      -DSHP=OFF
+      -DWITH_BZ2=ON
+      -DWITH_CMOCKA=OFF
+      -DWITH_CURL=ON
+      -DWITH_LZ4=ON
+      -DWITH_LZMA=ON
+      -DWITH_OPENSSL=ON
+      -DWITH_PCRE=ON
+      -DWITH_PROJ=OFF
+      -DWITH_RTREE=OFF
+      -DWITH_SQLPARSE=OFF
+      -DWITH_VALGRIND=OFF
+      -DWITH_XML2=ON
+      -DWITH_ZLIB=ON
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     # remove reference to shims directory from compilation/linking info
     inreplace "build/tools/mserver/monet_version.c", %r{"/[^ ]*/}, "\""
     system "cmake", "--build", "build"

@@ -9,16 +9,17 @@ class Hatch < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "739f87b6344945a99fc1c81845430eab850bdab31bae90a10c11123dcd3b1e3f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "739f87b6344945a99fc1c81845430eab850bdab31bae90a10c11123dcd3b1e3f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "739f87b6344945a99fc1c81845430eab850bdab31bae90a10c11123dcd3b1e3f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8f00b35ff7ccc8bba622984032a04b54c746a71f22cd491d8e1c1b5fb9b62f50"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8f00b35ff7ccc8bba622984032a04b54c746a71f22cd491d8e1c1b5fb9b62f50"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c890b2568988048d893260aa44b0a633c74e23efa5befc6e1a2f9531e1800d30"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c890b2568988048d893260aa44b0a633c74e23efa5befc6e1a2f9531e1800d30"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c890b2568988048d893260aa44b0a633c74e23efa5befc6e1a2f9531e1800d30"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "fb400f3b621ebbec69c2de6f3c9a80733ea66d7efb41a084c3926f84efd1a2bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "48e65a32501c398a0a392e5c7b1d798b78471b6501fe4d6b6ae6bd9bd4536a21"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "uv"
 
   on_linux do
@@ -45,8 +46,8 @@ class Hatch < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/cc/19/d4f21fc4b7ad098dd3c774ccb2a2929178b15d6e1a3ba7d0929817c0b30c/filelock-4.0.8.tar.gz"
-    sha256 "733d9b6b153fc63672f86104324186818b6bbe9dd7db84e9bb9887b6a04a2775"
+    url "https://files.pythonhosted.org/packages/4c/58/6fd434bec86eff7c38a3168454cb132b762b2bea9b3ac094101a2f7bc32a/filelock-4.1.0.tar.gz"
+    sha256 "ad7f724afef953e731b1cc39bcd3a09166d72ed7fcdf29e6e88b1c3235c6715d"
   end
 
   resource "h11" do
@@ -135,8 +136,8 @@ class Hatch < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/17/c8/721b3855fe457da514fe249247d404b9b39c5d16532278f70ebaa6acf18b/platformdirs-4.12.2.tar.gz"
-    sha256 "eab5f70271a490ef74618bb314fbb86e3c7e82fa3b9c922c2ea0e0a1a155d329"
+    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
+    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
   end
 
   resource "pluggy" do
@@ -160,8 +161,8 @@ class Hatch < Formula
   end
 
   resource "python-discovery" do
-    url "https://files.pythonhosted.org/packages/0c/57/250bd238b966cece44328235eb85290045d059265fdaf7527a3a958123db/python_discovery-1.6.1.tar.gz"
-    sha256 "cf87d3627dfb4412437fdd5b13eae402607722998d21567993aedbc59b23c15e"
+    url "https://files.pythonhosted.org/packages/b0/73/54993df8fc57e906dc9b7e01d1d9b0b2d3eb0ce3190639e33dccb12853f7/python_discovery-1.6.2.tar.gz"
+    sha256 "cd1738ca1d37c86ef9d0b654dd46fcee1e41c97c6add12575e8501ced39afdb4"
   end
 
   resource "rich" do
@@ -199,19 +200,14 @@ class Hatch < Formula
     sha256 "9d91bd436463ad5e4ee4aba766628dd6cd7010cf3e2461756b3303710eebc301"
   end
 
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
-    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
-  end
-
   resource "userpath" do
     url "https://files.pythonhosted.org/packages/d5/b7/30753098208505d7ff9be5b3a32112fb8a4cb3ddfccbbb7ba9973f2e29ff/userpath-1.9.2.tar.gz"
     sha256 "6c52288dab069257cc831846d15d48133522455d4677ee69a9781f11dbefd815"
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/67/57/630a01cf5ab58f33b9c7dc8a7f13464cb5740b5227f8a08cab9d798bd532/virtualenv-21.14.2.tar.gz"
-    sha256 "571930928b11e43db690073ad8228162eca8a3f8fd3a87acdeae07df7dd57068"
+    url "https://files.pythonhosted.org/packages/92/f3/589727d02bc832750cfa00ced4315d127535a22a6d7cfcb369b2fe219a2e/virtualenv-21.14.6.tar.gz"
+    sha256 "c6b74616e64bffa9532cfa9dfd54ffbab0dc9b999df2bb8ec0d75e559b983661"
   end
 
   def install

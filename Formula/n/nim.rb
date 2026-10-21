@@ -4,6 +4,7 @@ class Nim < Formula
   url "https://nim-lang.org/download/nim-2.2.12.tar.xz"
   sha256 "2639a06a5ea7a7fcf57df1e7e1ef4d1b2bee58c7ac9bd00dbd2aa5bea1e5a56a"
   license "MIT"
+  revision 1
   compatibility_version 1
   head "https://github.com/nim-lang/Nim.git", branch: "devel"
 
@@ -13,18 +14,17 @@ class Nim < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e8822dfac3dcb17d51495233cef89c6f0010b9990d950dcb9c9ad19df543f4b2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1c9f56f6246e35c2adbe293d1c35f36687a25a6cd7b47305bba7cc71a3e300c4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0bb64964dfadb7bc00b984dc9efa5bfb190f39e010c8f519f4d4171a7df4adf9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "bb43c1ee29eb5345b64c9da8c2e4f06c3a391b041fa4c3383247c0b59ebecb25"
-    sha256 cellar: :any,                 arm64_linux:       "149ca4284efc1bee86cacbad6a96bd878821163df13ce1144c6f7d653dd4e780"
-    sha256 cellar: :any,                 x86_64_linux:      "95d7ee10379cce87bab03c85494959ebacae257d59cc99699221383f12499c8d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4d2df55b1cf0c4978b44bbf4ff1814b6c3670062e2088b61aa0c7663d6176d75"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e2b09f464acfc030f26c79aad90f07bc112cd286f90689975b028f7a30ac4dcc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9f6cbe0feedbe93f81d51add47893da2a23f8d72e5c24715e2498e1dcad9756d"
+    sha256 cellar: :any,                 arm64_linux:       "84f955f610307ed247d01510aa163d1db1050dabad370f7236bf75a9b1592d20"
+    sha256 cellar: :any,                 x86_64_linux:      "ff26686250267609cf902c882d7f038478285dd6364c54da6e95a280621d2fcd"
   end
 
   depends_on "help2man" => :build
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   conflicts_with "atlas", "mongodb-atlas-cli", because: "both install `atlas` executable"

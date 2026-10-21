@@ -23,6 +23,11 @@ class Inframap < Formula
 
   depends_on "go" => :build
 
+  resource "homebrew-test_resource", :test do
+    url "https://raw.githubusercontent.com/cycloidio/inframap/7ef22e7/generate/testdata/azure.tfstate"
+    sha256 "633033074a8ac43df3d0ef0881f14abd47a850b4afd5f1fbe02d3885b8e8104d"
+  end
+
   allow_network_access! :test
 
   def fetch
@@ -36,11 +41,6 @@ class Inframap < Formula
   end
 
   test do
-    resource "homebrew-test_resource" do
-      url "https://raw.githubusercontent.com/cycloidio/inframap/7ef22e7/generate/testdata/azure.tfstate"
-      sha256 "633033074a8ac43df3d0ef0881f14abd47a850b4afd5f1fbe02d3885b8e8104d"
-    end
-
     assert_match "v#{version}", shell_output("#{bin}/inframap version")
     testpath.install resource("homebrew-test_resource")
     output = shell_output("#{bin}/inframap generate --tfstate #{testpath}/azure.tfstate")

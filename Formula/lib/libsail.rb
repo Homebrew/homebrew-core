@@ -1,21 +1,20 @@
 class Libsail < Formula
   desc "Missing small and fast image decoding library for humans (not for machines)"
   homepage "https://sail.software"
-  url "https://github.com/HappySeaFox/sail/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "fe2673d76e8088084447f388b94b4639f060afec4fab4e080e493049fbb24bf2"
+  url "https://github.com/HappySeaFox/sail/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "bf2905717c06b4ff4269dec010339a85994be9cc524fa3dcde3734b4df376089"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 arm64_golden_gate: "e09a763116e7c282df8374e004538111d29a96edbcb5c0b88e7b7ed52387c4f6"
-    sha256 arm64_tahoe:       "80a9bd81cdf68b81cc545711c31cabe522b23ca105f1b144e0d51888e793db84"
-    sha256 arm64_sequoia:     "b705ff94784f2cd13f575bf96aadd088d4525da5aa17ce45b3f3d5a939927511"
-    sha256 arm64_linux:       "0c5cfedc418a52ba343522dc98d9d690254e74b0ee41b780b34e12166bd3d0b9"
-    sha256 x86_64_linux:      "5afdb283b316ad83adec1799dcc464fd2a1b52aaa7994bbad891110014838798"
+    sha256 arm64_golden_gate: "d96d61570d4526332936b81290e8fc878acb54c7c867df01f5f5646a21181174"
+    sha256 arm64_tahoe:       "3b91a115670d4cc6574fe642342dfcee1b70ef69104a93a86129ed5d54b17d93"
+    sha256 arm64_sequoia:     "f23bb14fa37b29695cd953eeb1e657880a9ea494974f75b6067b47d0198b9174"
+    sha256 arm64_linux:       "8345d4937bd9c5f5921c67dea2694758692fd5bda4fd05b68ca9a8d5137b7f59"
+    sha256 x86_64_linux:      "5761de7ed9b9c107b00b0a40614df03cf9c47b92e8941850590a4f251850186b"
   end
 
   depends_on "cmake" => :build
-  depends_on "pkgconf" => [:build, :test]
+  depends_on "pkgconf" => :build
   depends_on "ffmpeg" # for `libavutil`
   depends_on "giflib"
   depends_on "imath"
@@ -69,9 +68,7 @@ class Libsail < Formula
       }
     C
 
-    flags = shell_output("#{formula_opt_bin("pkgconf")}/pkgconf --cflags --libs sail").strip.split
-
-    system ENV.cc, "test.c", "-o", "test", *flags
+    system ENV.cc, "test.c", "-o", "test", "-I#{include}/sail", "-L#{lib}", "-lsail", "-lsail-common"
     system "./test", test_fixtures("test.jpg")
   end
 end

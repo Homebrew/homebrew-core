@@ -1,23 +1,23 @@
 class PlinkNg < Formula
   desc "Whole-genome association analysis toolset (PLINK 2.0)"
   homepage "https://www.cog-genomics.org/plink/2.0/"
-  url "https://github.com/chrchang/plink-ng/archive/refs/tags/v2.0.0-a.7.11.tar.gz"
-  version "2.0.0-a.7.11"
-  sha256 "6b83f2ff0a2d59ed9693c7270935d59893729f451831e60fc7b646d91042ddce"
+  url "https://github.com/chrchang/plink-ng/archive/refs/tags/v2.0.0-b.1.0.tar.gz"
+  version "2.0.0-b.1.0"
+  sha256 "07e08fe3a2c3287d5b85697fea95cb7885fbf0d877f792817237c3bf1343411f"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later"]
   head "https://github.com/chrchang/plink-ng.git", branch: "master"
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+-a\.\d+(?:\.\d+)*)$/i)
+    regex(/^v?(\d+(?:\.\d+)+-[ab]\.\d+(?:\.\d+)*)$/i)
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7f21558604b9c9514aefd7dde97b064501dc9fed20eeebd05ea765bddb61406a"
-    sha256 cellar: :any, arm64_tahoe:       "2282ee662ad926a5a454de4cb98c5ded1a9592191b182be381938a4dfe3ff633"
-    sha256 cellar: :any, arm64_sequoia:     "343be675a9a22998c208ff0ab71375b78cb3b856c2c008f7a104965638e62ae3"
-    sha256 cellar: :any, arm64_linux:       "6812c638ed8bbb80b55bcc7c7883bc6983d70f432c4bc2e626210631e23eba04"
-    sha256 cellar: :any, x86_64_linux:      "356a75b22af7bb082204d5ed8ecd91a9e5f4e0abdf6d58a647373ac4e68ef0ab"
+    sha256 cellar: :any, arm64_golden_gate: "6b36e10047823c5a7878fd16226c18b1df9284aae17c7860b6b85328a0201c9e"
+    sha256 cellar: :any, arm64_tahoe:       "17b23b41fb6d08ef711ded4cf95a2188daddc2b7b0d770c5f15d898fca56a1b4"
+    sha256 cellar: :any, arm64_sequoia:     "26b57bc80cfc13cf302924b7344a9544de66231eb6358d378fc676e5bff62e0d"
+    sha256 cellar: :any, arm64_linux:       "67d4c9fdc5c008a7b660ee69ec174b9b7ff4aa0c6300b92dc2022ed2cc268727"
+    sha256 cellar: :any, x86_64_linux:      "67d7578574a3d202ed0f89782e0a6d91def91bc8906f9f8aeffb8b0e1669446a"
   end
 
   depends_on "zstd"
@@ -54,8 +54,8 @@ class PlinkNg < Formula
     system bin/"plink2", "--pfile", "dummy", "--make-bed", "--out", "binary"
     assert_path_exists testpath/"binary.bed"
 
-    # --pca goes through the BLAS/LAPACK backend.
-    system bin/"plink2", "--pfile", "dummy", "--pca", "2", "--out", "pca"
+    # --pca goes through the BLAS/LAPACK backend; it needs rare variants filtered.
+    system bin/"plink2", "--pfile", "dummy", "--maf", "0.05", "--pca", "2", "--out", "pca"
     assert_equal 2, (testpath/"pca.eigenval").read.lines.count
   end
 end

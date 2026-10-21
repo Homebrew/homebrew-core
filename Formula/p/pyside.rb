@@ -1,9 +1,9 @@
 class Pyside < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.11.2-src/pyside-setup-everywhere-src-6.11.2.tar.xz"
-  mirror "https://cdimage.debian.org/mirror/qt.io/qtproject/official_releases/QtForPython/pyside6/PySide6-6.11.2-src/pyside-setup-everywhere-src-6.11.2.tar.xz"
-  sha256 "cba47efbaad1bedd529725cbc14e21f156c7a19366f07b3edfbb076ffd7afdf8"
+  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.12.0-src/pyside-setup-everywhere-src-6.12.0.tar.xz"
+  mirror "https://cdimage.debian.org/mirror/qt.io/qtproject/official_releases/QtForPython/pyside6/PySide6-6.12.0-src/pyside-setup-everywhere-src-6.12.0.tar.xz"
+  sha256 "099c1a597cf33c1b000e11cf68a0b82d216fb802bf81726efc720394f10c7751"
   # NOTE: We omit some licenses even though they are in SPDX-License-Identifier or LICENSES/ directory:
   # 1. LicenseRef-Qt-Commercial is removed from "OR" options as non-free
   # 2. GFDL-1.3-no-invariants-only is only used by not installed docs, e.g. sources/{pyside6,shiboken6}/doc
@@ -21,12 +21,11 @@ class Pyside < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ee480640f99968ceb6084c705df5d2d2a5f791ba0bfb6c3fa1f15a05a91aefee"
-    sha256 cellar: :any, arm64_tahoe:       "b7dcb58efb3226e80b4dad6f9a476660b65ddbbd6e69a01fa798a84640b71dba"
-    sha256 cellar: :any, arm64_sequoia:     "05226fca68c99f43432c745a116e6a827c026604552623e7f0d4f6afbc4baf3f"
-    sha256 cellar: :any, arm64_sonoma:      "80a8f86deca23c5a2a1e79e42046f02d0e7e17cf47594446e95be2631063aaa3"
-    sha256 cellar: :any, arm64_linux:       "d57644558b0c8a9af2be24f66117568fb1c4ec1c7c86eca7ca7fd052d8b69626"
-    sha256 cellar: :any, x86_64_linux:      "4741e75b22fb2e9d4837653baabb73914003f8a1b2bd375501f9881c7f46341d"
+    sha256 cellar: :any, arm64_golden_gate: "db5a5b5b0d6f9f20b099688194281d94539c370c2e5e2bd8785fedfb0e9a2b38"
+    sha256 cellar: :any, arm64_tahoe:       "6374395982fa25a68f17ba6249394369456f92c9d96f202b78078bc8f29908e0"
+    sha256 cellar: :any, arm64_sequoia:     "62766c6015573b8c67125891accc889e18d0eae869d45aa56d6f8b8af6824ae5"
+    sha256 cellar: :any, arm64_linux:       "b37d62eed0c9f671a3f1a60b0fad4891e2b3ac45c100b9c326f5cde7665348cd"
+    sha256 cellar: :any, x86_64_linux:      "55203e44689b86e4c945405ed48703634ada8078d99be05a1b151fadafec8923"
   end
 
   depends_on "cmake" => :build
@@ -36,7 +35,7 @@ class Pyside < Formula
   depends_on "pkgconf" => :test
 
   depends_on "llvm"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "qt3d"
   depends_on "qtbase"
   depends_on "qtcanvaspainter"

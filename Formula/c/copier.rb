@@ -3,22 +3,21 @@ class Copier < Formula
 
   desc "Utility for rendering projects templates"
   homepage "https://copier.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/f9/60/2fe1777b27f489450ed8ac5c75390caf91a175d647be05b4284bf515b413/copier-9.18.2.tar.gz"
-  sha256 "0f97902fee79374551c9391fb1132f5a038079f3b497f4dad673295489fc032e"
+  url "https://files.pythonhosted.org/packages/fb/16/c299f48d12a97c1fc51294cbb7874ad1ba701e8383559c85c7c0edfe7a28/copier-9.19.1.tar.gz"
+  sha256 "3fe48c38a290c90dfa67cfc7811bc3f576c03f59d3a1e6a09a8d46c2f0403988"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3f86df4dba27b6e094baafc6a5737e85ee008de7b1d1046b5f46ce4c0b5522c2"
-    sha256 cellar: :any, arm64_tahoe:       "18954a2ef6eb90a0257b0787a2b6805153c26b4965bda87e87af65a075d7dde7"
-    sha256 cellar: :any, arm64_sequoia:     "c6e3c909b5d23590b7460b4a761b52a411a2dcc607964df33864444a2bf1dd70"
-    sha256 cellar: :any, arm64_sonoma:      "0fcc9df3091fc153325dfc5724953088128bf55d66fe9930dbf0a55fe3ed5e89"
-    sha256 cellar: :any, arm64_linux:       "3b3c75ce04738a7416e5bcd6ff1d717090eae03be8f0354efbe21e437b5661e4"
-    sha256 cellar: :any, x86_64_linux:      "a028d35da1cbe57c1e9dd30b55567ef8c859ce740b679b5ddfa32c46212ec78f"
+    sha256 cellar: :any, arm64_golden_gate: "264774d30e5ca6ba028a39fc50ee435023b5ace9d58d7b2c846f009e05dbb5c1"
+    sha256 cellar: :any, arm64_tahoe:       "7f904086013db8bfb694258ef9acedb7ba0e308a70c6c57f53b77022a921f9c6"
+    sha256 cellar: :any, arm64_sequoia:     "f393c982943c5d312fd214174f538907577886d3b1f507897c607f096bfd1226"
+    sha256 cellar: :any, arm64_linux:       "decb869b8f7c3131fc9696bdc85ffcf6216234718d8021a975320c0cac4ce9c8"
+    sha256 cellar: :any, x86_64_linux:      "073dffbbb2fca62092949003d39742daa6e02e37985026f8ff5f731594c4cf18"
   end
 
   depends_on "libyaml"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "pydantic"
 
@@ -33,8 +32,8 @@ class Copier < Formula
   end
 
   resource "funcy" do
-    url "https://files.pythonhosted.org/packages/70/b8/c6081521ff70afdff55cd9512b2220bbf4fa88804dae51d1b57b4b58ef32/funcy-2.0.tar.gz"
-    sha256 "3963315d59d41c6f30c04bc910e10ab50a3ac4a225868bfa96feed133df075cb"
+    url "https://files.pythonhosted.org/packages/03/2c/c704bc76973088cb17b663a467aab7e2d46a999d647116db145daa2121ed/funcy-2.1.tar.gz"
+    sha256 "8979feb3de7120afd1d00e5a8eae810c1942e4bfbc91697151e9ee1e49f79284"
   end
 
   resource "jinja2" do
@@ -48,8 +47,8 @@ class Copier < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "packaging" do
@@ -63,8 +62,8 @@ class Copier < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/69/b7/802a56eca9f2fac455b8bab5375a2647b0f0e14a2cd63ef077de3c4a7658/platformdirs-4.11.7.tar.gz"
-    sha256 "4f41487eeeeeb07f3a6625e61d9bc0ae6809f92d3386dbd74392fbb76108104d"
+    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
+    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
   end
 
   resource "plumbum" do
@@ -93,8 +92,8 @@ class Copier < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/36/57/ed58088fafdf4c55a0ad6bde846502567645424d7ebf325230b9237f4085/wcwidth-0.8.3.tar.gz"
-    sha256 "d128512515fbf4612e0ff21fd6380399210318b7b54a9af59dff8454cf9730eb"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

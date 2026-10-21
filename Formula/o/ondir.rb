@@ -29,8 +29,28 @@ class Ondir < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "af6c1d77f136f3ccab4ef5f6114aab283514d7bf01a893d9948e5017d1d366ea"
   end
 
+  deny_network_access!
+
   def install
     system "make"
     system "make", "PREFIX=#{prefix}", "install"
+  end
+
+  test do
+    (testpath/".ondirrc").write <<~EOS
+      enter /projects/(proj[0-9]+)
+      \techo "entering $1 in $ONDIRWD"
+
+      leave /projects/proj1
+      \techo "leaving $ONDIRWD"
+    EOS
+
+    ENV["HOME"] = testpath
+    output = shell_output("#{bin}/ondir /projects/proj1/src /projects/proj2/lib")
+    assert_match 'echo "leaving /projects/proj1"', output
+    assert_match 'echo "entering proj2 in /projects/proj2"', output
+    refute_match "entering proj1", output
+
+    assert_match "not absolute", shell_output("#{bin}/ondir relative/path 2>&1", 1)
   end
 end

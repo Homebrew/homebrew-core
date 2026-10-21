@@ -33,6 +33,11 @@ class Rpm2cpio < Formula
 
   conflicts_with "rpm", because: "both install `rpm2cpio` binaries"
 
+  resource "homebrew-testdata", :test do
+    url "https://github.com/github/gh-ost/releases/download/v1.1.7/gh-ost-1.1.7-1.x86_64.rpm"
+    sha256 "9e7c91d07ccae51c653252b8c58c148032f3785223bfa8e531eba81aa912b71a"
+  end
+
   def install
     tar = OS.mac? ? "tar" : "bsdtar"
     inreplace "rpm2cpio", "tar", formula_opt_bin("libarchive")/tar
@@ -40,11 +45,6 @@ class Rpm2cpio < Formula
   end
 
   test do
-    resource "homebrew-testdata" do
-      url "https://github.com/github/gh-ost/releases/download/v1.1.7/gh-ost-1.1.7-1.x86_64.rpm"
-      sha256 "9e7c91d07ccae51c653252b8c58c148032f3785223bfa8e531eba81aa912b71a"
-    end
-
     testpath.install resource "homebrew-testdata"
     system bin/"rpm2cpio", "gh-ost-1.1.7-1.x86_64.rpm"
   end

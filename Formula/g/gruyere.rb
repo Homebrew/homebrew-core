@@ -10,20 +10,19 @@ class Gruyere < Formula
   head "https://github.com/savannahostrowski/gruyere.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e7670e469373495094e6cf391d6b21595149d411513ae6bce2b00db8c99dd866"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "694fd038c4d1c47d5a6d0ba2c4114df3ea79999e83397599d7d921c61266e8ad"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f16d9cdb47405b6e0de3d95586d527b16d48986c39c8518510ec8c5f94641874"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "2482c1d061eb2ec5e4e1214c0a609c5e9550e145d9da19dc71cc5c3469ea59c1"
-    sha256 cellar: :any_skip_relocation, sonoma:            "03a66ad8b082ab473e8965cb50d9d72af1de9f3276aa2a7e3c1121ab3e0106df"
-    sha256 cellar: :any,                 arm64_linux:       "67aabde28e84ab6afdbd34503a60947a9e07312c9059b66eb7877bea329e90d9"
-    sha256 cellar: :any,                 x86_64_linux:      "66c678beb441a73d45ea7a4eea968d3ec447bd0ef483925053a20127ec8669fa"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "29df3928d4b89687abd7224e4cbd7c19692778c9d08bf1afefbce80d095a4ff0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9c4d5ae61a3f7fcd00615d8e01f5b0ebda1e01ebaf4d7abe7d4886342cb61c0e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9a4150f9847075ec44ebcadcbae7b97af323b24e9e0fcdcc95b261c3faa07e30"
+    sha256 cellar: :any,                 arm64_linux:       "3e7f0b024ffd48db8545ee0110b6d25a84e1179e981bf39f188a9c68b262aaa9"
+    sha256 cellar: :any,                 x86_64_linux:      "c7ec88491a3e5549e9df176fe92636c3d956fed81c6624ca4318d5f78e75dc04"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "annotated-doc" do
-    url "https://files.pythonhosted.org/packages/57/ba/046ceea27344560984e26a590f90bc7f4a75b06701f653222458922b558c/annotated_doc-0.0.4.tar.gz"
-    sha256 "fbcda96e87e9c92ad167c2e53839e57503ecfda18804ea28102353485033faa4"
+    url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
+    sha256 "c7e58ce09192557605d8bbd92836d7e1d520ac9580096042c0bfd197efacf1bb"
   end
 
   resource "markdown-it-py" do
@@ -42,8 +41,8 @@ class Gruyere < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "readchar" do
@@ -62,8 +61,8 @@ class Gruyere < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/7c/f7/68adc395201b20b872d68e975386832e8005ffeacedd43a1d837a32815be/typer-0.26.8.tar.gz"
-    sha256 "c244a6bd558886fe3f8780efb6bdd28bb9aff005a94eedebaa5cb32926fe2f7e"
+    url "https://files.pythonhosted.org/packages/03/51/d33db42cc72ffd8c30777547b42d01f0cbf9d95a770457698d0174b3ed71/typer-0.27.3.tar.gz"
+    sha256 "d0396f770a560ab1b0a8504e13b5f254b728cedb05c61cf0359e944e50ce8901"
   end
 
   def install

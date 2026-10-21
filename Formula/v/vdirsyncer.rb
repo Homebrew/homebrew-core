@@ -10,15 +10,16 @@ class Vdirsyncer < Formula
   head "https://github.com/pimutils/vdirsyncer.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6464e7cbfea5d3000e61eedcb593f46879fd172601719d401c2bb4c7f725de91"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8421190127ca2ad0cbf32e9835c783f412fd69337954afc5ce2fac26d780b5ff"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a065715a30ff3e410e874473c517d2b9dcece1a4d478ff52c9d1a29aa07e685f"
-    sha256 cellar: :any,                 arm64_linux:       "cee5643f8686857955ad334ff2229f7644af4fe28c164554f7d6bb74a5bd0d20"
-    sha256 cellar: :any,                 x86_64_linux:      "24204e2a56424c37e79c6d2d8056cfe5019a7d91fa305e351f395729bedac0c0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d1562c7443979f6bb6a4d3bfcd1166bcda05d7529ae6c11be5e953f2bb38afef"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a92a80d9d79e9a76a830619b48fe4b3f46f0d5960149ed3e94824efbf89efcf5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a38209baf4cfc1a07fea3d191b494bef32ed7c3b729c33a239f20b7a2e304dfe"
+    sha256 cellar: :any,                 arm64_linux:       "fb37833d8e3d9cf2720bacb9ce8d0296893cd9ec84b311309675e35203907288"
+    sha256 cellar: :any,                 x86_64_linux:      "f316b74ad3b2933d8ec6aeb4d36815ba7fef077a97078ffaa11a8e9a1ce60134"
   end
 
   depends_on "certifi"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name:     "vdirsyncer[google]",
                 exclude_packages: "certifi"
@@ -29,8 +30,8 @@ class Vdirsyncer < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz"
-    sha256 "9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc"
+    url "https://files.pythonhosted.org/packages/6c/4c/bdccd81e9ee225b69c60e7766c9a5b05364f118f4d383713b89a682d772d/aiohttp-3.14.5.tar.gz"
+    sha256 "5558a7f5a05af9ecf744af91e5baefc436f93c9333e656c27ec253f9a6bbe178"
   end
 
   resource "aiohttp-oauthlib" do
@@ -54,8 +55,8 @@ class Vdirsyncer < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "click" do
@@ -79,8 +80,8 @@ class Vdirsyncer < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/d6/99/1d4d69c3512d0ddbfa3a1b69cfd9a151012ab2eb4eabbb096201b1f0b7d8/multidict-6.9.1.tar.gz"
-    sha256 "0f06e60fa190aa7abd0914c2a766736fdc8e9f34878c4346338534b73d1b20e2"
+    url "https://files.pythonhosted.org/packages/f9/79/84ddb5ba16c4eb2c69c71db76ae3c579fe546e511f7170c7e27eedbab7c1/multidict-7.1.0.tar.gz"
+    sha256 "61a4e5d81b8d4e4ad61964b230129e7a2b914793d96289029078fc9009f074ec"
   end
 
   resource "oauthlib" do
@@ -99,8 +100,8 @@ class Vdirsyncer < Formula
   end
 
   resource "tenacity" do
-    url "https://files.pythonhosted.org/packages/47/c6/ee486fd809e357697ee8a44d3d69222b344920433d3b6666ccd9b374630c/tenacity-9.1.4.tar.gz"
-    sha256 "adb31d4c263f2bd041081ab33b498309a57c77f9acf2db65aadf0898179cf93a"
+    url "https://files.pythonhosted.org/packages/82/9e/497c1c8ebe5a5b5d1d4a7511aea22c0bb1a97e3170d98abdef0e1b34265a/tenacity-9.2.1.tar.gz"
+    sha256 "a606b5c808d0cded4a359d5b9932d867ff2a6a6b64d37350260fd01bbdf83839"
   end
 
   resource "typing-extensions" do

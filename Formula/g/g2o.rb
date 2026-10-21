@@ -27,6 +27,11 @@ class G2o < Formula
   depends_on "cmake" => :build
   depends_on "eigen"
 
+  resource "homebrew-testdata", :test do
+    url "https://raw.githubusercontent.com/OpenSLAM-org/openslam_g2o/2362b9e1e9dab318625cd0af9ba314c47ba8de48/data/2d/intel/intel.g2o"
+    sha256 "4d87aaf96e1e04e47c723c371386b15358c71e98c05dad16b786d585f9fd70ff"
+  end
+
   # Backport support for eigen 5.0.0
   patch do
     url "https://github.com/RainerKuemmerle/g2o/commit/5ad2b3d8b550bad67242d90115f28c5b725da2a1.patch?full_index=1"
@@ -71,11 +76,6 @@ class G2o < Formula
   end
 
   test do
-    resource "homebrew-testdata" do
-      url "https://raw.githubusercontent.com/OpenSLAM-org/openslam_g2o/2362b9e1e9dab318625cd0af9ba314c47ba8de48/data/2d/intel/intel.g2o"
-      sha256 "4d87aaf96e1e04e47c723c371386b15358c71e98c05dad16b786d585f9fd70ff"
-    end
-
     cp_r pkgshare/"examples/simple_optimize", testpath/"src"
     libs = %w[-lg2o_core -lg2o_solver_eigen -lg2o_stuff -lg2o_types_slam2d -lg2o_types_slam3d]
     cd "src" do

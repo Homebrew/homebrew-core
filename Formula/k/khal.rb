@@ -6,13 +6,14 @@ class Khal < Formula
   url "https://files.pythonhosted.org/packages/7f/e3/982937a23abdba94e6f858cc4be5bf7bf032b96db4ce14c520a7d1868f61/khal-0.14.1.tar.gz"
   sha256 "2b51679d80662b2d65e757c509813bd72b496043d789839bfd970f0026da687d"
   license "MIT"
+  revision 1
   head "https://github.com/pimutils/khal.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "462a481392a29fd151d6eda8d1af77697f20cf803b8c4700f02bae5dfcca381e"
+    sha256 cellar: :any_skip_relocation, all: "d665aa09a138a7c41253d9a419e0a443cc87b78a2932c4da8c9e6117fa6c474c"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
@@ -79,7 +80,20 @@ class Khal < Formula
     sha256 "91fbef97204b96a3d4d421609b80340b760cf33e26da123ff243d76b1fda8dda"
   end
 
+  # Python 3.15 date parsing support, upstream PR ref, https://github.com/pimutils/khal/pull/1470
+  patch do
+    url "https://github.com/pimutils/khal/commit/bc181c736c191883dae8646f10bb176e2820bb5f.patch?full_index=1"
+    sha256 "d4b92c79fc4647ef02fa08a24d689374e56f15c3623374f9bebdd5268da487fe"
+    type :unofficial
+    resolves "https://github.com/pimutils/khal/pull/1470"
+  end
+
+  allow_network_access! :build
+
   def install
+    # TODO: Remove when Python 3.15 support is released: https://github.com/pimutils/khal/pull/1470
+    inreplace "pyproject.toml", 'requires-python = ">=3.10,<3.15"', 'requires-python = ">=3.10,<3.16"'
+
     virtualenv_install_with_resources
 
     %w[khal ikhal].each do |cmd|
@@ -115,10 +129,15 @@ class Khal < Formula
       path = #{testpath}/.calendar/khal.db
       [locale]
       firstweekday = 0
+      dateformat = %d.%m.
+      longdateformat = %d.%m.%Y
       [default]
       default_calendar = test
     EOS
 
-    system bin/"khal", "--no-color", "search", "testevent"
+    assert_match "testevent", shell_output("#{bin}/khal --no-color search testevent")
+
+    system bin/"khal", "new", "26.07.", "27.07.", "python315-event"
+    assert_match "python315-event", shell_output("#{bin}/khal --no-color search python315-event")
   end
 end

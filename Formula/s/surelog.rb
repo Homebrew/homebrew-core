@@ -20,11 +20,12 @@ class Surelog < Formula
   depends_on "cmake" => :build
   depends_on "nlohmann-json" => :build
   depends_on "openjdk" => :build
-  depends_on "python@3.14" => :build
   depends_on "pkgconf" => :test
   depends_on "antlr4-cpp-runtime"
   depends_on "capnp"
   depends_on "uhdm"
+
+  uses_from_macos "python" => :build
 
   on_linux do
     depends_on "zlib-ng-compat"
@@ -36,15 +37,15 @@ class Surelog < Formula
 
   def install
     antlr = Formula["antlr"]
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DANTLR_JAR_LOCATION=#{antlr.opt_prefix}/antlr-#{antlr.version}-complete.jar",
-                    "-DBUILD_SHARED_LIBS=ON",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DPython3_EXECUTABLE=#{python3}",
-                    "-DSURELOG_BUILD_TESTS=OFF",
-                    "-DSURELOG_USE_HOST_ALL=ON",
-                    "-DSURELOG_WITH_ZLIB=ON",
-                    *std_cmake_args
+    args = %W[
+      -DANTLR_JAR_LOCATION=#{antlr.opt_prefix}/antlr-#{antlr.version}-complete.jar
+      -DBUILD_SHARED_LIBS=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DSURELOG_BUILD_TESTS=OFF
+      -DSURELOG_USE_HOST_ALL=ON
+      -DSURELOG_WITH_ZLIB=ON
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

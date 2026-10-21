@@ -21,6 +21,14 @@ class B3sum < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    cd "b3sum" do
+      system "cargo", "fetch", *std_cargo_fetch_args
+    end
+  end
+
   def install
     cd "b3sum" do
       system "cargo", "install", *std_cargo_args

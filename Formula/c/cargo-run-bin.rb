@@ -1,24 +1,26 @@
 class CargoRunBin < Formula
   desc "Build, cache, and run binaries from Cargo.toml to avoid global installs"
   homepage "https://dustinblackman.com/posts/why-does-everyone-install-crates-globally/"
-  url "https://github.com/dustinblackman/cargo-run-bin/archive/refs/tags/v1.7.4.tar.gz"
-  sha256 "fd492430a60ca488ad8c356f9c6389426f3fbcd59658e5b721855e171cb62841"
+  url "https://static.crates.io/crates/cargo-run-bin/cargo-run-bin-1.7.5.crate"
+  sha256 "1ba4ea665f68a2042470ec6e27a36755783ebd3367b90bec2fb100f9d5012fd8"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1842d8899647aadf288097a3638ce7bcbd90b64ec6e70b5ca45f58d4c8d8a32d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1b42c4020debdc5882322126e1a9cde14f8c78fd37de35ab7d9c51ecaf58e5f6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e7c12e5d94ffbe160210e9acfb61d1d01363fdf40650bd738a9529417aeb3e39"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "baace800a845a4478368f4f44438fb55be90b595850584b8ba0333c01774cec8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "18b37befe574ec3716f12943da256fb7b0c066dedacc9f45ec985a7c42bb3678"
-    sha256 cellar: :any_skip_relocation, sonoma:            "52873150520a420f132bc02acf2a488597eb4957107a55da37633a26a7142d59"
-    sha256 cellar: :any_skip_relocation, ventura:           "eae3e5a1faff8be5f6606211dc3fb2f38d6d0930f0dff73559667448d3decd36"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d06798a0e079e6d97a0f56bac16c87271a2c42aaa5185febb28edf71376e6218"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "df0cd8b3c3dac21a4430ac243db6f937aa3765efa7855dce3918cbd4f2421c13"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cadd68946820502d065224e4b9feab8057faa9b64cf5e7ae31d7ff8a69dbf347"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "612fe1b5e4612cc02cd894935bc2972b97bca307eeea86dfe2338f5fe18002de"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5ac42ea13ede216ae5569e303e3928602072bed15dbd27a9b9a3df7a075d3c8c"
+    sha256 cellar: :any,                 arm64_linux:       "cfdbcbb1a58e6953d861edae620bde85414911cf87b8691801ce256d69e98d6a"
+    sha256 cellar: :any,                 x86_64_linux:      "50d405ef6432dbf05e43108cea83aba288aef176bb55daa19bb223e1cb161e19"
   end
 
   depends_on "rust" => :build
   depends_on "rustup" => :test
+
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

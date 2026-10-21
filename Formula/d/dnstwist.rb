@@ -9,17 +9,18 @@ class Dnstwist < Formula
   revision 13
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c1fe82f6bb5f8cee4e1275ea986c115c3c05a8b174389af533a0a22e99df0eb0"
-    sha256 cellar: :any, arm64_tahoe:       "b03e1005b92b816898639c7b66535e1d3ecb243fe5494cebb88a137579a97f75"
-    sha256 cellar: :any, arm64_sequoia:     "245bb75abaaf058e1309e492e246777d1c1b5642363d348673e4f9ad4d5ec87f"
-    sha256 cellar: :any, arm64_linux:       "0239518ba5a6e1bbef10941b871767eff6f4e0ba80f970eb479d9c48be92d8e9"
-    sha256 cellar: :any, x86_64_linux:      "b851f95b80f70b557bb87cb8816af3d11ca0ba6d8a77c7e50c5a5a43ee0444f6"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "0f351678e4f3f6b194d47fbecef600fe5184a3f2d6d6b28c6fe9426efa316b90"
+    sha256 cellar: :any, arm64_tahoe:       "e310505b4ff7e1a565ca907ee610b00dd8edae42b441ce97110448d205a629ab"
+    sha256 cellar: :any, arm64_sequoia:     "a0366b6303018874b6b90d7a4b9e890f2517ce4ea1e8c9f6ec652524ac8141f6"
+    sha256 cellar: :any, arm64_linux:       "8387526cd6111715abe433bcb2f96c6d748dde4ffb036b6164253c51e1bbc283"
+    sha256 cellar: :any, x86_64_linux:      "b8d1e82477e591491869f90b46f76557db40efc5f22c6a8f9bd732307aa60df9"
   end
 
   depends_on "rust" => :build # for geoip2, uv-backend
   depends_on "certifi" => :no_linkage
   depends_on "libmaxminddb"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "ssdeep"
 
   uses_from_macos "libffi"
@@ -37,8 +38,8 @@ class Dnstwist < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz"
-    sha256 "9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc"
+    url "https://files.pythonhosted.org/packages/93/2f/6a91adaa2dc26877d6ed2f54c0370c8910f019db7d77c5c6a194611e93ea/aiohttp-3.14.4.tar.gz"
+    sha256 "831fc5bd39ec2517851e348f613ddb5447a47cf4b71cb09845af7ad7ed45d8f9"
   end
 
   resource "aiosignal" do
@@ -57,8 +58,8 @@ class Dnstwist < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/8c/8b/57666417c0f90f08bcafa776861060426765fdb422eb10212086fb811d26/dnspython-2.8.0.tar.gz"
-    sha256 "181d3c6996452cb1189c4046c61599b84a5a86e099562ffde77d26984ff26d0f"
+    url "https://files.pythonhosted.org/packages/ef/4a/50822184bd67cc6493f0fb6a880749158fcd31ab3fa07409acfd91f9fc85/dnspython-2.9.0.tar.gz"
+    sha256 "b44dc6b18f07a8b1c56676a19fbfdb5209415b046a9cece286baafa87ff3f7f1"
   end
 
   resource "frozenlist" do

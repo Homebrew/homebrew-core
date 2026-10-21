@@ -1,25 +1,30 @@
 class Qrupdate < Formula
   desc "Fast updates of QR and Cholesky decompositions"
   homepage "https://gitlab.mpi-magdeburg.mpg.de/koehlerm/qrupdate-ng"
-  url "https://gitlab.mpi-magdeburg.mpg.de/koehlerm/qrupdate-ng/-/archive/v1.2.0/qrupdate-ng-v1.2.0.tar.bz2"
-  sha256 "d3bea4ceafd7b1641ca74c50b74060aeacd7a3cb9ff4159a92aad9c262c57666"
+  url "https://gitlab.mpi-magdeburg.mpg.de/koehlerm/qrupdate-ng/-/archive/v1.3.1/qrupdate-ng-v1.3.1.tar.bz2"
+  sha256 "3877a52ff7bedd1edd746fed82f8347a8d1c4f48e59ebfbde7841eea79db87ee"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8082d1129721c4dd8a634c17b03209f3fbdae6096a9e46d00153594a83f6fcec"
-    sha256 cellar: :any, arm64_tahoe:       "5f3b00d4d1cdb79a375186561384a729ce693b4318dcc03fa54478abf784c752"
-    sha256 cellar: :any, arm64_sequoia:     "7fb2fd0aeb930f13a44003cb94c5a3891be1f9b2c333910487e7cec152fd853b"
-    sha256 cellar: :any, arm64_sonoma:      "184388b19a09bbaf9f821e0bc8fee0be683e596cb47b7c04ed63274b55ef9ed7"
-    sha256 cellar: :any, sonoma:            "7669fd92b4f180606f4ead7616796b940cde94c2c0df702719f826a362be6e05"
-    sha256 cellar: :any, arm64_linux:       "5f5f98be5978fb903010c7d4f49db25d81f761fc538bd6b2bd5f4c661488dd30"
-    sha256 cellar: :any, x86_64_linux:      "884b9617d497624bb800650b596a2c9abfeac02c7a95f33af950d84783195232"
+    sha256 cellar: :any, arm64_golden_gate: "20ae004b21fd7bdc2107a200d7f95330606f31d2fdd872dff653ffd28542850d"
+    sha256 cellar: :any, arm64_tahoe:       "5494926f72245393fc03f80befab79cd4d7bd9c7b6c00eb54706c211c33c73b4"
+    sha256 cellar: :any, arm64_sequoia:     "b61f3a3eea17f904797887cadb122bb00914ea64f6fac1657da312012c4d510d"
+    sha256 cellar: :any, arm64_linux:       "bb413db2276e5ff87bd07947dc2aa3be901b74b9e45756167df572fcd315ebc2"
+    sha256 cellar: :any, x86_64_linux:      "e2155413e91f6e08a2dc138e153dc0e0085483932e0d6eab3177731684b563f3"
   end
 
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
   depends_on "openblas"
 
+  deny_network_access!
+
   def install
+    ENV.fortran
+
+    # CMake's Fortran/C interface probe requires matching GCC LTO versions.
+    ENV.method("gcc-#{Formula["gcc"].version.major}").call if OS.linux?
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

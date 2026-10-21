@@ -26,6 +26,13 @@ class Bombadillo < Formula
 
   depends_on "go" => :build
 
+  # `test do` block browses a remote gopher server
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end

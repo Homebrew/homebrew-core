@@ -9,17 +9,18 @@ class Dolphie < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "0eacfd49bdc5936974af12045e93e45f678b92d91242434b43d0ee2ec2f9b5ba"
-    sha256 cellar: :any, arm64_tahoe:       "7738a74a092d49b009f8c2ac610ec2d0c79ae26b8f68152cbe5961c2a1ad0e6f"
-    sha256 cellar: :any, arm64_sequoia:     "e85cf14d288deacbcf7caa21476d193aac95cbcd41bf0f511b7dc99df7cc00e3"
-    sha256 cellar: :any, arm64_linux:       "2f77a964be5b9f771304f2bca8bf79506b6576373b702e03b3759e6060e1b65c"
-    sha256 cellar: :any, x86_64_linux:      "388b89aa09464677787f24a94bb9fadd5397f0377d64dfb8a7dd30439fe2daa5"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "846746b2bf5467d46cdc92d759c4fd50bfc74158147360ec35ecb73adc04c036"
+    sha256 cellar: :any, arm64_tahoe:       "418470bcfc42b68d246f1b915e82d042456129f2efc1cfc2bebf6ba52b16c4b8"
+    sha256 cellar: :any, arm64_sequoia:     "2f11265853add7873793e15e7e063722517353c4b808da8d7891d122cbf2e624"
+    sha256 cellar: :any, arm64_linux:       "1868fcb3e8199149bca0db44e0a1165198fbd9a389cf5dda2b0fced5fd635185"
+    sha256 cellar: :any, x86_64_linux:      "869e93b81f10256fc996436701dc661c6cbb7abe01bcbb73b03e58e818146458"
   end
 
   depends_on "rust" => :build # for orjson
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: ["certifi", "cryptography"]
 
@@ -64,8 +65,8 @@ class Dolphie < Formula
   end
 
   resource "orjson" do
-    url "https://files.pythonhosted.org/packages/0f/f3/742fb1f62b825f2c010697eaf4e828004bc2a81e7e806666989c132c7c42/orjson-3.12.0.tar.gz"
-    sha256 "d14203fb1aae2ad9b3d52f8a0e82aeb10197ef1c9bc61da7f358bd70b00123d5"
+    url "https://files.pythonhosted.org/packages/f2/72/380b97dc45bd162d23afe5194721ef678d9eac7cfaa549fe2873f7f0a518/orjson-3.13.0.tar.gz"
+    sha256 "d1de5eb04485110c5da4c657e49168995d55e076b1ce60f1a042e254f4186c4f"
   end
 
   resource "packaging" do
@@ -74,8 +75,8 @@ class Dolphie < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/17/c8/721b3855fe457da514fe249247d404b9b39c5d16532278f70ebaa6acf18b/platformdirs-4.12.2.tar.gz"
-    sha256 "eab5f70271a490ef74618bb314fbb86e3c7e82fa3b9c922c2ea0e0a1a155d329"
+    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
+    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
   end
 
   resource "plotext" do

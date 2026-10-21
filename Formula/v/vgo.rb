@@ -18,6 +18,12 @@ class Vgo < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "go", "build", *std_go_args
 
@@ -25,6 +31,18 @@ class Vgo < Formula
   end
 
   test do
-    assert_match "Failed to build the vgo tool", shell_output("#{bin}/vgo build 2>&1")
+    require "pty"
+
+    # vgo opens /dev/tty for its progress output, so give it a terminal of its own
+    output = +""
+    PTY.spawn(bin/"vgo", "build") do |r, _w, pid|
+      begin
+        r.each_line { |line| output << line }
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      end
+      Process.wait(pid)
+    end
+    assert_match "Failed to build the vgo tool", output
   end
 end

@@ -19,6 +19,12 @@ class CargoRelease < Formula
   depends_on "rustup" => :test
   depends_on "libgit2"
 
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"

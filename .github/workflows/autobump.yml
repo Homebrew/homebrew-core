@@ -16,6 +16,10 @@ on:
     # Every 3 hours from 1 through 23 with an offset of 45 minutes
     - cron: "45 1-23/3 * * *"
 
+concurrency:
+  group: autobump-${{ inputs.formulae && github.run_id || 'scheduled' }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -30,22 +34,23 @@ jobs:
     container:
       image: ghcr.io/homebrew/brew:main
     env:
+      HOMEBREW_DEVELOPER: 1
       GNUPGHOME: /tmp/gnupghome
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/setup-homebrew@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           core: true
           cask: false
 
       - name: Configure Git user
-        uses: Homebrew/actions/git-user-config@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/git-user-config@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           username: ${{ (github.event_name == 'workflow_dispatch' && github.actor) || 'BrewTestBot' }}
 
       - name: Set up commit signing
-        uses: Homebrew/actions/setup-commit-signing@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/setup-commit-signing@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 

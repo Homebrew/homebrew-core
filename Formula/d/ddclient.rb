@@ -11,14 +11,8 @@ class Ddclient < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f452dee0510455eded074cfe4cc37598ae00d73f1c5bffe11fde686a7776540c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d963690c63fb5f28fe5729c3a98d43dc3822508658b4f5e9a335bd19b6956903"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d963690c63fb5f28fe5729c3a98d43dc3822508658b4f5e9a335bd19b6956903"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "d963690c63fb5f28fe5729c3a98d43dc3822508658b4f5e9a335bd19b6956903"
-    sha256 cellar: :any_skip_relocation, sonoma:            "fd6b4f96c529a8bd8540e0963f1e349bff91348e9f74bd52e78d1ec6f188ff1b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d963690c63fb5f28fe5729c3a98d43dc3822508658b4f5e9a335bd19b6956903"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d963690c63fb5f28fe5729c3a98d43dc3822508658b4f5e9a335bd19b6956903"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, all: "dd5a0ecc4036f9ed9f287ea1240f09cbc2bf2cfeb5d672069e3ea384465ceb9c"
   end
 
   head do
@@ -34,6 +28,11 @@ class Ddclient < Formula
     system "./autogen" if build.head?
     system "./configure", "--sysconfdir=#{etc}", "--localstatedir=#{var}", "CURL=curl", *std_configure_args
     system "make", "install", "CURL=curl"
+
+    # Ensure uniform bottles across architectures
+    inreplace bin/"ddclient" do |s|
+      s.gsub!(%r{/(usr/local|opt/homebrew)}, HOMEBREW_PREFIX, audit_result: false)
+    end
 
     # Install sample files
     inreplace "sample-ddclient-wrapper.sh", "/etc/ddclient/", "#{pkgetc}/"

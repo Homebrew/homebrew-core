@@ -8,10 +8,11 @@ class PythonTabulate < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cf5d7aede52290a5bf98484a5d72b5475f88a6cf877a8b2e04a6d284f927bf3d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "8d74b4679d191aae770cf9409e4d9523a445c8045ee685230d5cfeea71314130"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     virtualenv_install_with_resources

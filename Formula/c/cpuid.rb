@@ -1,19 +1,17 @@
 class Cpuid < Formula
   desc "CPU feature identification for Go"
   homepage "https://github.com/klauspost/cpuid"
-  url "https://github.com/klauspost/cpuid/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "84646f95812586763e010f46c7cf2d9aee6774724ff75f34e0ea4a25aa51a437"
+  url "https://github.com/klauspost/cpuid/archive/refs/tags/v2.4.1.tar.gz"
+  sha256 "2ebe64c72afbcdfc761efc16c8ad625a142131465f58921f567f2e93c9f72e13"
   license "MIT"
   head "https://github.com/klauspost/cpuid.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a54b0539b756c382c83e511a17ca35f9bf187ac04faac9edc00374df7bbd0bfc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "05c690130690c2fbb988e37bd5e40d23f16115030997c9c4605dbf07835784e3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "05c690130690c2fbb988e37bd5e40d23f16115030997c9c4605dbf07835784e3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "05c690130690c2fbb988e37bd5e40d23f16115030997c9c4605dbf07835784e3"
-    sha256 cellar: :any_skip_relocation, sonoma:            "e6c2e4ff86d85de9e5bab22dafa4c5d81f81fc40c749833dcc98a7593d00f9c4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2cdee2cb73e8210cf5e9d7341afc0844c505da349e3a6d5a9421fc4becf7a439"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "aef010ef8db4bef315e0d82f6c42e4bc59ac0f6e5a6ff7330f19baea34a39bf9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "13fbd13d92f676f52d9b95bebcf326271ce69b4c0248327cf22298592e9e5aba"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "13fbd13d92f676f52d9b95bebcf326271ce69b4c0248327cf22298592e9e5aba"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "13fbd13d92f676f52d9b95bebcf326271ce69b4c0248327cf22298592e9e5aba"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "2b933c5ffbce708b98cb38aa8c4d469aa93c18fe57c116939201b7953be15c9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "1103e43c522c279f3b467341558787ef19373b7a48ff2723cf8d073d180176c3"
   end
 
   depends_on "go" => :build

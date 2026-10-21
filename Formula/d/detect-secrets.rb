@@ -10,16 +10,17 @@ class DetectSecrets < Formula
   head "https://github.com/Yelp/detect-secrets.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9c668433fb7e7cc6813b5fcc826cbbb0abaf47568f2a33f4287ff5d2d034ea5f"
-    sha256 cellar: :any, arm64_tahoe:       "4f5aeb3d7af7b3d7ab2bc2938ac5661b7d56a776d460547f4ccbefe18e1339aa"
-    sha256 cellar: :any, arm64_sequoia:     "664840ac378fa9e988a11adf3a4acaf31b8d7b249e05e8a49fdd7f65a1a35c11"
-    sha256 cellar: :any, arm64_linux:       "5d99ad1fb5613a47297db5237715d28bcd24ea8c61199419e26bd882a66cd944"
-    sha256 cellar: :any, x86_64_linux:      "06c07b783baa9308efeb4b5ba298411ccde9e670ce84c333674bc14f5a2a7bd9"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "0ef04f26858a8d7592e83f41fd56f314b923ecaab18c8a2e0ffdf1a3290a113d"
+    sha256 cellar: :any, arm64_tahoe:       "437d77b2c669a347fa5d5058bd6fafaabec1c664b16ab7d6f120494f8f79f4ef"
+    sha256 cellar: :any, arm64_sequoia:     "bfaf53140bb7d49dbbbaeaed63990632219955ef839a164b56a0094d3f0d8ed0"
+    sha256 cellar: :any, arm64_linux:       "f4eb98dc1b067107f357402a53f7fdc2e3b89b54112dbe6c8866b90451da0b68"
+    sha256 cellar: :any, x86_64_linux:      "2b1dac317ca8c7edbb782831b3a7c144130375ad553767415e502228999ce4c7"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 

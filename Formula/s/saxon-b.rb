@@ -23,8 +23,40 @@ class SaxonB < Formula
     sha256 cellar: :any_skip_relocation, all: "689001c5df91d0cf80e9ea2d72a5a8ae88abb45142dd47bf9797728d215d2139"
   end
 
+  depends_on "openjdk" => :test
+
+  deny_network_access!
+
   def install
     (buildpath/"saxon-b").install Dir["*.jar", "doc", "notices"]
     share.install Dir["*"]
+  end
+
+  test do
+    java = formula_opt_bin("openjdk")/"java"
+    jar = share/"saxon-b/saxon9.jar"
+
+    (testpath/"input.xml").write <<~XML
+      <?xml version="1.0"?>
+      <items><item price="2">apple</item><item price="3">pear</item></items>
+    XML
+
+    (testpath/"test.xsl").write <<~XML
+      <?xml version="1.0"?>
+      <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+        <xsl:output method="text"/>
+        <xsl:template match="/">
+          <xsl:value-of select="string-join(for $i in //item return upper-case($i), ',')"/>
+          <xsl:text>:</xsl:text>
+          <xsl:value-of select="sum(//item/@price)"/>
+        </xsl:template>
+      </xsl:stylesheet>
+    XML
+
+    assert_equal "APPLE,PEAR:5", shell_output("#{java} -jar #{jar} -s:input.xml -xsl:test.xsl").strip
+
+    output = shell_output("#{java} -cp #{jar} net.sf.saxon.Query -s:input.xml " \
+                          "-qs:'string-join(//item/string(), \"-\")' '!method=text'")
+    assert_equal "apple-pear", output.strip
   end
 end

@@ -4,17 +4,18 @@ class Sby < Formula
 
   desc "Front-end for Yosys-based formal verification flows"
   homepage "https://symbiyosys.readthedocs.io/en/latest/"
-  url "https://github.com/YosysHQ/sby/archive/refs/tags/v0.69.tar.gz"
-  sha256 "65e1ee7610ade9297a1482a442d0aef79a79f5490229e7899b78747d3ca1ff8e"
+  url "https://github.com/YosysHQ/sby/archive/refs/tags/v0.70.tar.gz"
+  sha256 "f2a3614f4ca56180d5e650d48a510fc8c1359b4f81a971634a479feb171f363a"
   license "ISC"
   head "https://github.com/YosysHQ/sby.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "fa8934c8a308abb661d108a73fde38e039debfc48ceb7ad1058584e85616172e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "9db6f150976dc7fabb4e856f21eadf3034253bcd6c12c6d5d19254ef8e436907"
   end
 
   depends_on "yices2" => :test
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "yosys"
 
   def install

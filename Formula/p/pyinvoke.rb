@@ -9,10 +9,11 @@ class Pyinvoke < Formula
   head "https://github.com/pyinvoke/invoke.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f46e5217b0e3117c9baea206c276c7b87fb6b1f02ce17940cd3c4789b0f3d54b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "d235da7eec7c59bbed91f9313386cf2bb18bdbec988cda9b229b28f373097974"
   end
 
-  depends_on "python@3.14" # Do not remove runtime dependency https://github.com/Homebrew/homebrew-core/issues/151248
+  depends_on "python@3.15" # Do not remove runtime dependency https://github.com/Homebrew/homebrew-core/issues/151248
 
   def install
     virtualenv_install_with_resources

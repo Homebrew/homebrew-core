@@ -18,6 +18,11 @@ class Openjph < Formula
   depends_on "cmake" => :build
   depends_on "libtiff"
 
+  resource "homebrew-test.ppm", :test do
+    url "https://raw.githubusercontent.com/aous72/jp2k_test_codestreams/ca2d370/openjph/references/Malamute.ppm"
+    sha256 "e4e36966d68a473a7f5f5719d9e41c8061f2d817f70a7de1c78d7e510a6391ff"
+  end
+
   allow_network_access! :test
 
   def install
@@ -33,10 +38,6 @@ class Openjph < Formula
   end
 
   test do
-    resource "homebrew-test.ppm" do
-      url "https://raw.githubusercontent.com/aous72/jp2k_test_codestreams/ca2d370/openjph/references/Malamute.ppm"
-      sha256 "e4e36966d68a473a7f5f5719d9e41c8061f2d817f70a7de1c78d7e510a6391ff"
-    end
     resource("homebrew-test.ppm").stage testpath
 
     system bin/"ojph_compress", "-i", "Malamute.ppm", "-o", "homebrew.j2c"

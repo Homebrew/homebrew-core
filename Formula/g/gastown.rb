@@ -22,6 +22,13 @@ class Gastown < Formula
 
   conflicts_with "genometools", "libslax", because: "both install `gt` binaries"
 
+  # Test binds a local port
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ldflags = %W[
       -s -w

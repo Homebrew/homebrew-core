@@ -37,6 +37,8 @@ class Baobab < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     # Work-around for build issue with Xcode 15.3
     # upstream bug report, https://gitlab.gnome.org/GNOME/baobab/-/issues/122

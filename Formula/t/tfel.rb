@@ -7,19 +7,18 @@ class Tfel < Formula
   head "https://github.com/thelfer/tfel.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "f402ded5aeb71facb8a6912fa51ef1eec82cdf50a802b225cc3ac5cb1ffe2a17"
-    sha256 arm64_tahoe:       "6c176029b0f9a9a97eba1a77309303a6e21d06f9b732dd36b21a6a906c0af94e"
-    sha256 arm64_sequoia:     "c6df35305057ba120a952044049c3b11ec4036453ed0bfe6034ba3ee998b0677"
-    sha256 arm64_sonoma:      "2af5946f1175cfd3ee7e78b27ecca53257c45128b71782bc08692a6c6280965e"
-    sha256 sonoma:            "24947bbb4aa4789ba475114643e7e27301d1c5848963dc79f3cf2c6f827cb2d0"
-    sha256 arm64_linux:       "b0a9c7bbfe1fde48bd5bc46a8504dd1b1337063ab86e215779b3367f9f634607"
-    sha256 x86_64_linux:      "bb7e42bbd5f89718c0be51a12c9ab0af0236dd1bdbdc4eb6a7e48a633d144949"
+    rebuild 1
+    sha256 arm64_golden_gate: "1bbf558e0fb67a25e66b5b3abca3a0ab704652698ffbe65fe525fa857ccf853c"
+    sha256 arm64_tahoe:       "c8e07173e8aa8574e0662d090cb59833ef897e9d0f2a36c9ef3b9bbadbcef4b5"
+    sha256 arm64_sequoia:     "d9e48aea97a38f5cb1c72214c3703f607ecf6b3a664a705065dd30260fbc7546"
+    sha256 arm64_linux:       "a5a704b272fb1e769e023fe32194a4fd8db2861591c28ac8b4e1fd0d410e1a44"
+    sha256 x86_64_linux:      "6280050c2bdddc6925c327cf586968a2eeaebfe240bfa45bface948ffd88a6a1"
   end
 
   depends_on "cmake" => :build
   depends_on "gcc" => :build # for gfortran
   depends_on "pybind11" => :build
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   deny_network_access!
 

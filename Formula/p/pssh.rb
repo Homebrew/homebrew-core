@@ -9,10 +9,11 @@ class Pssh < Formula
   head "https://github.com/lilydjwg/pssh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "42ee0775a8a57ef28617fb582456c2a59e53620e2fa332e2de2bb970e33b12da"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "46343759f297d6df298ec1c82184386db8a59291de4d7331327ce8d3f60d6a1f"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   conflicts_with "putty", because: "both install `pscp` binaries"
 

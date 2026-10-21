@@ -47,7 +47,6 @@ class Dexter < Formula
     ENV["PG_CONFIG"] = formula_opt_bin("libpq")/"pg_config"
 
     resources.each do |r|
-      r.fetch
       system "gem", "install", r.cached_download, "--ignore-dependencies",
              "--no-document", "--install-dir", libexec
     end

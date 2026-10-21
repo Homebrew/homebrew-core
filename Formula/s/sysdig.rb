@@ -52,6 +52,12 @@ class Sysdig < Formula
     sha256 "9e977001dd42586df42a5dc7e7a948c297124865a233402e44bdec68839d322a"
   end
 
+  # More info on https://gist.github.com/juniorz/9986999
+  resource "homebrew-sample_file", :test do
+    url "https://gist.githubusercontent.com/juniorz/9986999/raw/a3556d7e93fa890a157a33f4233efaf8f5e01a6f/sample.scap"
+    sha256 "efe287e651a3deea5e87418d39e0fe1e9dc55c6886af4e952468cd64182ee7ef"
+  end
+
   # Fix inclusion of removed `zlib.cmake` module
   patch do
     url "https://github.com/draios/sysdig/commit/1f4565219b74c8b8ff9084425e24c50b43ec3d7b.patch?full_index=1"
@@ -104,12 +110,6 @@ class Sysdig < Formula
   end
 
   test do
-    # More info on https://gist.github.com/juniorz/9986999
-    resource "homebrew-sample_file" do
-      url "https://gist.githubusercontent.com/juniorz/9986999/raw/a3556d7e93fa890a157a33f4233efaf8f5e01a6f/sample.scap"
-      sha256 "efe287e651a3deea5e87418d39e0fe1e9dc55c6886af4e952468cd64182ee7ef"
-    end
-
     testpath.install resource("homebrew-sample_file").files("sample.scap")
     output = shell_output("#{bin}/sysdig --read=#{testpath}/sample.scap")
     assert_match "/tmp/sysdig/sample", output

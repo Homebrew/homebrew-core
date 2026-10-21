@@ -4,35 +4,21 @@ class Stubby < Formula
   url "https://github.com/getdnsapi/stubby/archive/refs/tags/v0.4.3.tar.gz"
   sha256 "99291ab4f09bce3743000ed3ecbf58961648a35ca955889f1c41d36810cc4463"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/getdnsapi/stubby.git", branch: "develop"
 
   bottle do
-    sha256 arm64_golden_gate: "fcfbe41439f18193d2fcbd17d4931a7164eafdda1cdccd58e99d280ccd0e00f2"
-    sha256 arm64_tahoe:       "cf21effb238d2df0de643661b21cd67328a8cb440f7858b2fcee1ed7e7b851bf"
-    sha256 arm64_sequoia:     "7e9b965dcf689e5c31274e2d5ebe0ecc6f5aa7d4b3fc17a4abefdd65d94a64a8"
-    sha256 arm64_sonoma:      "eec9c56666a83664194ac6612bba1c330a54d14ead67dba1100757fc303f8edb"
-    sha256 arm64_ventura:     "ade3c36ec956feefe503081cabbb3eefb02e4dc45cb333433866e6bb46db49ac"
-    sha256 arm64_monterey:    "31e36e04775bf9c033db8519d2a893ee10f7a0b9fd55f394d1d6d9593a28bffa"
-    sha256 arm64_big_sur:     "846901b552ae3f6146d058453b16094860e4cb330857b96dc5eb0d96e11ead0e"
-    sha256 sonoma:            "3064b04c529f9ce23df5d0df80ac8aba0bbdbfaecd5dc61384de7dc38e0addac"
-    sha256 ventura:           "9b09af1e56899b9069fa5141af931ca86086891d3dc434ea217f1ae2418f07f3"
-    sha256 monterey:          "a215b86f3bd4cfcf9684b056db2ead9d59b76de0b9cc4ab6d08a218e4ab69f07"
-    sha256 big_sur:           "f68065895579d27cda75d2d5b1635749502205922ff260524e5e47e62c01bab2"
-    sha256 arm64_linux:       "74cff1a598c66d7b8bbe09bba4ac23617ae0d89d58d0c1179b8eb8fe1c5bc965"
-    sha256 x86_64_linux:      "9be25773bc7f384a70943d6edf294174a59d901c17f497e3dc91c855cb00733e"
+    sha256 arm64_golden_gate: "53cf1ae763ad5f9b2e9f406bb3c6acb88ce57b4a9c7f23245a41caf3e78aab17"
+    sha256 arm64_tahoe:       "78a752f51fc6e9bb87be7be10fde0e62b77b32a585318516f8d5a8e787b80b1e"
+    sha256 arm64_sequoia:     "2e789612111c36d6f8f9a181fbf29dece851640359f2421b622852fb859c4cb5"
+    sha256 arm64_linux:       "c3470c5c23c72716a6389633982ecf51c3b805dc755c0822aeb4cce62b88f8b5"
+    sha256 x86_64_linux:      "0f0ed9828ada0b10bbced52fd7f2f8d9aaf1691ee6c290d2d12fc9c911f8a890"
   end
 
   depends_on "cmake" => :build
   depends_on "libtool" => :build
   depends_on "getdns"
   depends_on "libyaml"
-
-  on_macos do
-    depends_on "libidn2"
-    depends_on "openssl@3"
-    depends_on "unbound"
-  end
 
   on_linux do
     depends_on "bind" => :test
@@ -45,6 +31,8 @@ class Stubby < Formula
       -DCMAKE_INSTALL_RUNSTATEDIR=#{var}/run/
       -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
     ]
+    args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
+
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

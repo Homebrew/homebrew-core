@@ -6,11 +6,12 @@ class Networkit < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f5648fc41e771dad414a0e5373a68cb6972a72492f95e723c8a4687aaf560253"
-    sha256 cellar: :any, arm64_tahoe:       "5e652ca9e62b405b5433da7a9142150d55789074069d7db242f463c4e851b2fe"
-    sha256 cellar: :any, arm64_sequoia:     "db98c836a5a215c45ff27363e1fb0d3c73452c272317b87440d3271f21275f16"
-    sha256               arm64_linux:       "a4c1348e4668eee24955e129f432b8e8ff314e6e56ad230fa05ed4d7ca469fe0"
-    sha256               x86_64_linux:      "e606cd5834dc59789320cbd57bb73b237fb7ee6e67a43bf309517d53c5eefb7c"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "059710b0c965b189255a4835dfa00581368d05caff093c83a5c014d641bf06ff"
+    sha256 cellar: :any, arm64_tahoe:       "b4a97fe8392462ce1f5911048941876f84e5880cc0624ccb937359ed78571c00"
+    sha256 cellar: :any, arm64_sequoia:     "35381f2336244806798ce5d858e467987ed1b674e7f841fc45d4accccd1c56ea"
+    sha256               arm64_linux:       "fc8409d586e1a06ee7558a1f05dde0b97f0c3559b9dc531a114f8a520f4a731d"
+    sha256               x86_64_linux:      "63d9a7c0219912d782a4cae207e5101746dd8a9053b859ef842b15094e91a43d"
   end
 
   depends_on "cmake" => :build
@@ -21,7 +22,7 @@ class Networkit < Formula
 
   depends_on "libnetworkit"
   depends_on "numpy"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "scipy"
 
   on_macos do

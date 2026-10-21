@@ -4,6 +4,7 @@ class Freetds < Formula
   url "https://www.freetds.org/files/stable/freetds-1.5.19.tar.bz2"
   sha256 "0dc2df2fea9934e3a99e00d417f3d192e9897572f6aff3905bd48f2507d16dff"
   license "GPL-2.0-or-later"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -12,13 +13,11 @@ class Freetds < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "f9519eace59da46b25fecad7670293ea647216be2f0fa5df0c4b74b4e4b7048f"
-    sha256 arm64_tahoe:       "b0eb61b463d521f6cd42af3ac201894f4fa0c74f75357cdbbbecc9640d2824e5"
-    sha256 arm64_sequoia:     "df9e2fd1fd5a5db20d45ac9e984faed821c5670048053bfed54fd9ed653ee2e7"
-    sha256 arm64_sonoma:      "e96dfe999ccb7345619352b5c82351ce156ce4ef795ecc2165762248970533e2"
-    sha256 sonoma:            "03b6477d1d6c762d741a44a9467494a6ab5397e673a84647a3b7b72b1b1901c4"
-    sha256 arm64_linux:       "b61b900dbb31021d101e73005b478b2ee4eb03b84350138199710a6d09641185"
-    sha256 x86_64_linux:      "98de300451af07921cbad4f678cd66a8162156681b56309247a5ec81f76f70f1"
+    sha256 arm64_golden_gate: "cab9c7bb5b3612f23e92022fd4669c34848e4d2fe85b1e8fba38c777e3462eab"
+    sha256 arm64_tahoe:       "dcb36b94451805b1fb5f114766ae22ad7088748d42510df31688becbe5378214"
+    sha256 arm64_sequoia:     "a2f7136be85c9197685c90cc8f65a537a093613aaef4ae87e33707d3f0cc7c32"
+    sha256 arm64_linux:       "318f9e88bc4bcfc00c9985ace0976ff7305511c8d79ce1d339a27626c65e539f"
+    sha256 x86_64_linux:      "d350e66fad5101a51f27ac20e5c216b9a9714740070c1dd41d141fa58d3493b2"
   end
 
   head do
@@ -31,7 +30,7 @@ class Freetds < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "unixodbc"
 
   uses_from_macos "krb5"
@@ -47,7 +46,7 @@ class Freetds < Formula
       --mandir=#{man}
       --sysconfdir=#{etc}
       --with-unixodbc=#{formula_opt_prefix("unixodbc")}
-      --with-openssl=#{formula_opt_prefix("openssl@3")}
+      --with-openssl=#{formula_opt_prefix("openssl@4")}
       --enable-sybase-compat
       --enable-krb5
       --enable-odbc-wide

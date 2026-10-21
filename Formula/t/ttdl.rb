@@ -1,21 +1,25 @@
 class Ttdl < Formula
   desc "Terminal Todo List Manager"
   homepage "https://github.com/VladimirMarkelov/ttdl"
-  url "https://github.com/VladimirMarkelov/ttdl/archive/refs/tags/v6.2.2.tar.gz"
-  sha256 "12dc4f62ee48914bf46e27c4367a697b4a4392677f5b49efa71e24802470889d"
+  url "https://github.com/VladimirMarkelov/ttdl/archive/refs/tags/v6.2.3.tar.gz"
+  sha256 "ca416e2bb76e4770e9d89a8dfffde723a5b0be78f70cf746e0a7ab368d933f89"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6142b5f8783cab7636a520114a3777a2d2459fe0dd7d876c27fd352a1fc70c2e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1e3fffb79e314a0e0adc9b524dbe120c4d2e89847d9bc91d9409987cee0136fe"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cd273dcd30e9701e9294343d3de1f2c6928eb76499c641274574d41974daaf86"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "9e75eecf808d81d79966938058c4926a9ad0ab9a755f7b85fd40bd57baba18e9"
-    sha256 cellar: :any_skip_relocation, sonoma:            "1188c8b1db6be817abb702fbcef73e702797cf460c9b959d4d2e7286a2b8662b"
-    sha256 cellar: :any,                 arm64_linux:       "b78b6ff15271ab3b0db10b2cc588d4ffb2ab9d4dbf807ce8bd054770694abaf8"
-    sha256 cellar: :any,                 x86_64_linux:      "4b518f10f8f953ab28dc8e528aac98d2caf3c94ba680e43e0e4300d78138617e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d3c9ac866fc075b0ecfd48fc484643954ae9372a10983e3778334f865edd338"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e4835022d9d6a0916357df872b86204640bb4312ac80c734db14c0b5558f40ba"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1aad056613280e11f1f04b5c5afe5aeae85efb7413b123f5a8e121ba315322d4"
+    sha256 cellar: :any,                 arm64_linux:       "f3679b4d1bed8f85f4f7b39d36141562c6f6b83a082fa0a4d1dcaeca9cedf945"
+    sha256 cellar: :any,                 x86_64_linux:      "6d0d1318031e854e5cd2cbea18e249b5828107670c15c39be559a11ae73424c3"
   end
 
   depends_on "rust" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

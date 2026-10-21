@@ -1,29 +1,24 @@
 class Libchewing < Formula
   desc "Intelligent phonetic input method library"
   homepage "https://chewing.im/"
-  url "https://github.com/chewing/libchewing/releases/download/v0.12.0/libchewing-0.12.0.tar.zst"
-  sha256 "6a7fae4aaa6e6ce2bd9f70f0016c553585ed5aca1e086476749a03ac5c3f4cb0"
+  url "https://codeberg.org/chewing/libchewing/releases/download/v0.13.1/libchewing-0.13.1.tar.zst"
+  sha256 "c897a5d0aadfdeb07784e1411ceac0efef2c97bea8143fb3b1dcde8274e14fc0"
   license "LGPL-2.1-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "c24fb068e5f4e58ec3974ae99d3739c6179ecba9b50fbb583c8a53c60ccf77d7"
-    sha256 cellar: :any,                 arm64_tahoe:       "132a00dc2d430eee97da513f027bbf7538c741a5a906213f24eae75523325dcd"
-    sha256 cellar: :any,                 arm64_sequoia:     "93393ae059645d40d480d9ffd46fc24bac18311dcc8b7dda2c9ad60e18d242ac"
-    sha256 cellar: :any,                 arm64_sonoma:      "2857339bc640c248c24b7e89470ffff99c75c5b22f3219b5c8a3d8a55c817379"
-    sha256 cellar: :any,                 sonoma:            "872ccd2c82e688df4cf89e5b6a59556941131caa45f0bcb3c865847c07994115"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f3d54639766d9098ea291fdf8f35772c3c69155c64031155e4bf3a643646702d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "dc33705591f2168afb5d547d1d3eca3657a1ca57d406e0c7e5fb3746b7cb0e8e"
+    sha256 cellar: :any, arm64_golden_gate: "d40f3a8796693535bdc3c78bd9087487d98876bf0ee1dd6f39fff90f274b9777"
+    sha256 cellar: :any, arm64_tahoe:       "523a12b90702988206afde2b19eed70b23e704c21d090139167e0d0949d3273a"
+    sha256 cellar: :any, arm64_sequoia:     "14007c3e17daecc4a41911311d6b74ca1502e11230187c2cedaae37845f2c07c"
+    sha256 cellar: :any, arm64_linux:       "28f17d077f16e1b420b8b266c6b8295ada1f5fc45339c7e09f7acad6fa7085a2"
+    sha256 cellar: :any, x86_64_linux:      "2a58739f398d09b15f2435cd803b3bc7e07e0ed61f58b22e819a25cafbb3b0a7"
   end
 
   depends_on "cmake" => :build
   depends_on "corrosion" => :build
   depends_on "rust" => :build
+  depends_on "texinfo" => :build
 
   uses_from_macos "sqlite"
-
-  on_system :linux, macos: :ventura_or_newer do
-    depends_on "texinfo" => :build
-  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

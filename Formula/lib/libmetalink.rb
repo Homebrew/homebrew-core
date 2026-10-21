@@ -26,12 +26,42 @@ class Libmetalink < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "583e662593473f7310e1c3e3bed77a89a4dc43aed5fd1ce6a12a7260ec69c5f5"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkgconf" => [:build, :test]
 
   uses_from_macos "expat"
+
+  deny_network_access!
 
   def install
     system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.meta4").write <<~XML
+      <?xml version="1.0" encoding="UTF-8"?>
+      <metalink xmlns="urn:ietf:params:xml:ns:metalink">
+        <file name="example.tar.gz">
+          <url>https://example.com/example.tar.gz</url>
+        </file>
+      </metalink>
+    XML
+
+    (testpath/"test.c").write <<~C
+      #include <stdio.h>
+      #include <metalink/metalink.h>
+
+      int main(void) {
+        metalink_t *metalink;
+        if (metalink_parse_file("test.meta4", &metalink) != 0) return 1;
+        printf("%s\\n", metalink->files[0]->name);
+        metalink_delete(metalink);
+        return 0;
+      }
+    C
+
+    pkgconf_flags = shell_output("pkgconf --cflags --libs libmetalink").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkgconf_flags
+    assert_equal "example.tar.gz", shell_output("./test").strip
   end
 end

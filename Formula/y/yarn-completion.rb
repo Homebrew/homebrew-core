@@ -14,6 +14,8 @@ class YarnCompletion < Formula
     depends_on "bash"
   end
 
+  deny_network_access!
+
   def install
     bash_completion.install "yarn-completion.bash" => "yarn"
   end

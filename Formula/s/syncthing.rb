@@ -1,8 +1,8 @@
 class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
-  url "https://github.com/syncthing/syncthing/archive/refs/tags/v2.1.5.tar.gz"
-  sha256 "1b3e217022848b65a1b7ececa4d5e752fc044b4e8643befa1f9a8a9dc9b2bbbf"
+  url "https://github.com/syncthing/syncthing/archive/refs/tags/v2.1.6.tar.gz"
+  sha256 "912cf0cf214a3cb68dedf88fbafc78bb842bfcdc857f5e26c4d3a6971f1a5c8e"
   license "MPL-2.0"
   head "https://github.com/syncthing/syncthing.git", branch: "main"
 
@@ -12,12 +12,11 @@ class Syncthing < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "653687fdfe4b0ef441240ad5669997a2f000201a5b365b99d4712daa91b5120f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4d48134c7f47a5de9b7a07b98be10e42780c77c852d2301b26021e288d5bb709"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fa382557928d53bbc02e65bebbcff20e5fe5406bfdf57a17c7cdb44ffe1b93c7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "359a7fa0adc0f3c7e1b7219e06a18c7f6b3da69bce8d25c8b6236441afeb402c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "52c09f3b97eef64765400e06e1d4d81adf3276867a19c1f21c39a1ba5478b73d"
-    sha256 cellar: :any,                 x86_64_linux:      "286db36bd9eb9e40a00b69825f0e45ee937994ce5a275ea74b65e2c43cbdd684"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eedc43241cd948b16ff7aebade999fec21dec606d8d56ea083d21971bdbea7ea"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9da1b5e7fcc61dac506a8fe5b05a5c991aed7428defd341af27262b867ff9909"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "577dd9302d564b2a751e182604c34e68cda1025519847c2c727b0567f8adb303"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "6c2e4357e2764fd7200353602ef770f2104901aee1407e8702c6359715fca14a"
+    sha256 cellar: :any,                 x86_64_linux:      "57c131c16250cde6ad0ebddea94296a7b53f176591406d40a59d283215ad469d"
   end
 
   depends_on "go" => :build

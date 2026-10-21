@@ -1,20 +1,19 @@
 class Makepkg < Formula
   desc "Compile and build packages suitable for installation with pacman"
-  homepage "https://wiki.archlinux.org/index.php/makepkg"
+  homepage "https://wiki.archlinux.org/title/Makepkg"
   url "https://gitlab.archlinux.org/pacman/pacman.git",
       tag:      "v7.1.0",
       revision: "5683f8477a0afcc6b331766175a83445b2dcfe89"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://gitlab.archlinux.org/pacman/pacman.git", branch: "master"
 
   bottle do
-    sha256               arm64_golden_gate: "d9d058191b3ae8da9fcc3808ac479a1b9b54f301ceea5f8976b88c3426a94955"
-    sha256               arm64_tahoe:       "437af5d09741dd52b5c010e56ad27ce2f44b9f04d6dad061d45086a5c99602d8"
-    sha256               arm64_sequoia:     "62fd3d7eec4486efe93fd2a8bdf99615efeaf778bb74e42682fb0b27115d348c"
-    sha256               arm64_sonoma:      "a28ff22bdfcddb04c3d986464c29e69322faa7cb87f97838ec99eb71c8b9da7d"
-    sha256 cellar: :any, sonoma:            "0b4e76c60d7475c0a11de8bc5aab08be1c88fcc234f5191d0cc159c76b954e15"
-    sha256               arm64_linux:       "0efea1e4d153388446b13bcb72b22bbb54eea0edecba47e55884e3d452d4e716"
-    sha256               x86_64_linux:      "997a27e40a380fa9cdc29efabc88cdf021b18c51b81ffe4fcfa4889ba8fea785"
+    sha256 arm64_golden_gate: "46c4fc96d53e976fe47de36b55f0c0ab4b7e59a1731dc8d087b568e39a3c3141"
+    sha256 arm64_tahoe:       "72257a30b8c5f4bdf744c7023717c7b53bd8238bb23258b4620e8d6aee542de2"
+    sha256 arm64_sequoia:     "ae487ee514831cd971255fc79129896725b3fddcba0934a01b73eba4f5f231de"
+    sha256 arm64_linux:       "cdafd97a206d6872e741fc73edcfa7a45abe5323705687ec7d8904489f88d792"
+    sha256 x86_64_linux:      "52299e04c1713384411d0ae6f65851ee7656f98ffe4e32a898c5783057d0eeca"
   end
 
   depends_on "meson" => :build
@@ -24,10 +23,11 @@ class Makepkg < Formula
   depends_on "fakeroot"
   depends_on "gettext" # runs gettext command
   depends_on "libarchive"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "m4" => :build
   uses_from_macos "python" => :build
+  uses_from_macos "curl"
   uses_from_macos "libxslt"
 
   on_sonoma :or_older do

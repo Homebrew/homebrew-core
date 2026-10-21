@@ -12,26 +12,39 @@ class Xidel < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "158c86c38d4dae52ae4445f5b11823508cc7fd0b66d754cca92a736338e01da6"
-    sha256 cellar: :any,                 arm64_tahoe:       "893ce6750b83aacf15da84dc44f535f5c5d748bbf34042a89338d0648eeabf0a"
-    sha256 cellar: :any,                 arm64_sequoia:     "d4c138e8f96841a078760a66d77c550851edb5b53821581b525fbbd422c07e74"
-    sha256 cellar: :any,                 arm64_sonoma:      "4216a3bfbff62a9c4be411d277a01eefd54c1b0654d253830dcce54a116c5392"
-    sha256 cellar: :any,                 sonoma:            "aee924c40e2005e7144f90b9d3c1ef77c85dc992af3f53b110d47a01fc3715fe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "788625993895701af031f238eee640ba17e88aa2e4db6336c05c265852c16375"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "269d8d4872005910434489a6f980e3b6ec646863ff5d763108ec664acbb52b30"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "1d1553e622c0ec71255940058acf72941ac2d1eae5337daa46dad9e1ef961612"
+    sha256 cellar: :any, arm64_tahoe:       "1d1553e622c0ec71255940058acf72941ac2d1eae5337daa46dad9e1ef961612"
+    sha256 cellar: :any, arm64_sequoia:     "6ecc8a2b6d82ad2eb7d2752521cdc0d5bde48e2d30bb86a62ad71a8580d2ace5"
+    sha256 cellar: :any, arm64_linux:       "b3df31b4cdf8eca1eb55e1e5b95a7a42930a969d572783987e09f4cd67251531"
+    sha256 cellar: :any, x86_64_linux:      "fa6ba1d404080260b5695594f7f49c99ce8b35d21494da7bb5240d227c946335"
   end
 
   head do
     url "https://github.com/benibela/xidel.git", branch: "master"
-    resource("flre") { url "https://github.com/benibela/flre.git", branch: "master" }
-    resource("internettools") { url "https://github.com/benibela/internettools.git", branch: "master" }
-    resource("pasdblstrutils") { url "https://github.com/BeRo1985/pasdblstrutils.git", branch: "master" }
-    resource("rcmdline") { url "https://github.com/benibela/rcmdline.git", branch: "master" }
-    resource("synapse") { url "https://svn.code.sf.net/p/synalist/code/synapse/40/" }
+
+    # https://github.com/benibela/xidel/blob/master/.github/download-dependencies.sh
+    resource "flre" do
+      url "https://github.com/benibela/flre.git", branch: "master"
+    end
+    resource "internettools" do
+      url "https://github.com/benibela/internettools.git", branch: "master"
+    end
+    resource "pasdblstrutils" do
+      url "https://github.com/BeRo1985/pasdblstrutils.git", branch: "master"
+    end
+    resource "rcmdline" do
+      url "https://github.com/benibela/rcmdline.git", branch: "master"
+    end
+    resource "synapse" do
+      url "https://github.com/benibela/ararat-synapse.git", branch: "master"
+    end
   end
 
   depends_on "fpc" => :build
   depends_on "openssl@4"
+
+  deny_network_access!
 
   def install
     resources.each do |r|

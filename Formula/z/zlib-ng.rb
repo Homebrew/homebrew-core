@@ -25,6 +25,12 @@ class ZlibNg < Formula
 
   depends_on "cmake" => :build
 
+  # https://zlib.net/zlib_how.html
+  resource "zpipe.c", :test do
+    url "https://raw.githubusercontent.com/madler/zlib/3f5d21e8f573a549ffc200e17dd95321db454aa1/examples/zpipe.c"
+    sha256 "e79717cefd20043fb78d730fd3b9d9cdf8f4642307fc001879dc82ddb468509f"
+  end
+
   allow_network_access! :test
 
   def install
@@ -34,12 +40,6 @@ class ZlibNg < Formula
   end
 
   test do
-    # https://zlib.net/zlib_how.html
-    resource "zpipe.c" do
-      url "https://raw.githubusercontent.com/madler/zlib/3f5d21e8f573a549ffc200e17dd95321db454aa1/examples/zpipe.c"
-      sha256 "e79717cefd20043fb78d730fd3b9d9cdf8f4642307fc001879dc82ddb468509f"
-    end
-
     # Test uses an example of code for zlib and overwrites its API with zlib-ng API
     testpath.install resource("zpipe.c")
     inreplace "zpipe.c", "#include \"zlib.h\"", <<~C

@@ -6,6 +6,7 @@ class Libewf < Formula
   url "https://github.com/libyal/libewf-legacy/releases/download/20140817/libewf-20140817.tar.gz"
   sha256 "6dbbefe68e913243dc000b9daaf59f293e33c2340024f7dfb144f1ad90b06544"
   license "LGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -14,11 +15,11 @@ class Libewf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1ec9dbeadfcff305be1c18d9e5b0899eafe4ad7433fc9739d901773b2804aa35"
-    sha256 cellar: :any, arm64_tahoe:       "8792a4b916c961bd9b3e7de6faf86f3a10736e280a9c24f22ef5278c9046c7ad"
-    sha256 cellar: :any, arm64_sequoia:     "f3d83ba7fbcf13ea2c9791cc4292a952950a97e3d03704d9a80817618b1ce33e"
-    sha256 cellar: :any, arm64_linux:       "28bd71b9e943961157da7409353c1a6bcd95c851e65952a399405e756162bd4a"
-    sha256 cellar: :any, x86_64_linux:      "20d57304f8cd5355fb4761a3d74d0577fbfcc50acdb867627c8f2155477b1676"
+    sha256 cellar: :any, arm64_golden_gate: "2d62fc084f4de25b3fe1a8384bcc0fcc4b6e086e65e2e60db752894442ae8847"
+    sha256 cellar: :any, arm64_tahoe:       "f6077d81c5adc0bf4c458538df465ba3a5ea24ae1738ff050e17ec9156cb6af6"
+    sha256 cellar: :any, arm64_sequoia:     "7aad689fe7db2f0b8c0aa27e8a27462ed202e2460a1b3d3576ba41033474041a"
+    sha256 cellar: :any, arm64_linux:       "b2cbd0b66dcbda5e67ae8a6ea785e2acdbbfc59b5ef837d65e4881e2cdce7eb7"
+    sha256 cellar: :any, x86_64_linux:      "621222b6c182d17739b1c956d8d6b53c5a65a9192c91e63d0dd6466c3a228d52"
   end
 
   head do
@@ -30,7 +31,7 @@ class Libewf < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "bzip2"
 

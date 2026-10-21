@@ -29,6 +29,12 @@ class Radicle < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["RADICLE_VERSION"] = version.to_s
 

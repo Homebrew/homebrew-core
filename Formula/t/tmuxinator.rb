@@ -1,19 +1,17 @@
 class Tmuxinator < Formula
   desc "Manage complex tmux sessions easily"
   homepage "https://github.com/tmuxinator/tmuxinator"
-  url "https://github.com/tmuxinator/tmuxinator/archive/refs/tags/v3.4.1.tar.gz"
-  sha256 "090589171e15f92d00b544c4f7fd23cf042468d813204e25951ebf45f6057548"
+  url "https://github.com/tmuxinator/tmuxinator/archive/refs/tags/v3.4.2.tar.gz"
+  sha256 "5abf32ddd6cb22fac7991310024bc14d95820e09cb7d86c6b633210afd549f67"
   license "MIT"
   head "https://github.com/tmuxinator/tmuxinator.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "41b59b039abec9b89d65b610cc7e146092672c3f5ae932e7d730a5b946dc3bac"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9465d1b308bdca3a11efe97cbd4c0e29e8053b76b943e4abfb1d4dc1ab3900d0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9465d1b308bdca3a11efe97cbd4c0e29e8053b76b943e4abfb1d4dc1ab3900d0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "9465d1b308bdca3a11efe97cbd4c0e29e8053b76b943e4abfb1d4dc1ab3900d0"
-    sha256 cellar: :any_skip_relocation, sonoma:            "9465d1b308bdca3a11efe97cbd4c0e29e8053b76b943e4abfb1d4dc1ab3900d0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b08d319c7d8cfa1ebc81f5df7dfd0daa779dc8a7b21dbfa3913ee26d3c32189b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "b08d319c7d8cfa1ebc81f5df7dfd0daa779dc8a7b21dbfa3913ee26d3c32189b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d67f07267922500c3c0a8d001a153d134aa795f145bfa2f0483ac996f6f128ee"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d67f07267922500c3c0a8d001a153d134aa795f145bfa2f0483ac996f6f128ee"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d67f07267922500c3c0a8d001a153d134aa795f145bfa2f0483ac996f6f128ee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "e27bc711dbc5d7f3d159307c17874c2baaac85bdf1bfac2a4b618e6eccab85b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e27bc711dbc5d7f3d159307c17874c2baaac85bdf1bfac2a4b618e6eccab85b9"
   end
 
   depends_on "ruby"
@@ -33,7 +31,6 @@ class Tmuxinator < Formula
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
-      r.fetch
       system "gem", "install", r.cached_download, "--ignore-dependencies",
              "--no-document", "--install-dir", libexec
     end

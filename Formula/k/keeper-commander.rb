@@ -3,20 +3,20 @@ class KeeperCommander < Formula
 
   desc "Command-line and SDK interface to Keeper Password Manager"
   homepage "https://docs.keeper.io/en/privileged-access-manager/commander-cli/overview"
-  url "https://files.pythonhosted.org/packages/6f/1b/36eb0178d6539eb78edb5878cc23056ac982f69a6f7bf9b0c6c5dad7fc34/keepercommander-18.1.5.tar.gz"
-  sha256 "56fbc0fc3a92af441d3b7a24ff38ada43c42f8d7788c5ca51a36007b349fbbe3"
+  url "https://files.pythonhosted.org/packages/86/e6/5f5bad8a216953867f13df1949092894d5e6a93d14328ee571c030171ce8/keepercommander-18.1.8.tar.gz"
+  sha256 "7bbea24a5d3d0184667f5f2b735c942a18807a0b17c0bc38843e75668b3a195a"
   license "MIT"
-  revision 1
   head "https://github.com/Keeper-Security/Commander.git", branch: "master"
 
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "2fff5276ffbbd91080aa9fa71746ce333444f48a31e0bc64f7cf8c349444e64e"
-    sha256 cellar: :any, arm64_tahoe:       "f6f83d811fcc53b2065faae5710256b6221bd1a5a3fa44648efb68727d27df79"
-    sha256 cellar: :any, arm64_sequoia:     "a60dbc721981d75415e7663a7239e9f404c1ea8b91052a02534cba064fd1a398"
-    sha256 cellar: :any, arm64_linux:       "18374b05c791cb4190791e5cadb1f5b3ec999d63f84bdd98bb2a6e7383cafcea"
-    sha256 cellar: :any, x86_64_linux:      "d320658cb4ccc9dd3ca02a5900abc35ec667d0926fa134040257b4cd2f7f8d5b"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "996eb28c2678ae0348b7ebcb78fe3282da5a137657c947d15793fa4e281faca0"
+    sha256 cellar: :any, arm64_tahoe:       "2e5ab0d2472a3d787f07d224619d2f9e2d7c0913be5f82dedc814246c9284e8c"
+    sha256 cellar: :any, arm64_sequoia:     "fda6e8365406207caa571d9cca802784f8e9b539e9c20f34ea14789dfd2eec0a"
+    sha256 cellar: :any, arm64_linux:       "16f9c43eb8d998e550eb7ad7f6b6a915e5ed86f1dfc2d453fb001deed240378b"
+    sha256 cellar: :any, x86_64_linux:      "4b240ddc5dbf9445fda5a9635e363dcc505dc573db9d884bcf385493230227a8"
   end
 
   # `pkgconf` and `rust` are for bcrypt
@@ -24,23 +24,13 @@ class KeeperCommander < Formula
   depends_on "rust" => :build
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
-  depends_on "ffmpeg"
-  depends_on "libvpx"
   depends_on "libyaml"
-  depends_on "opus"
   depends_on "pillow" => :no_linkage
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
-  depends_on "srtp"
+  depends_on "python@3.15"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
-    depends_on "openssl@3"
-  end
-
-  on_intel do
-    depends_on "libxcb"
-    depends_on "openjpeg"
   end
 
   fails_with :clang do

@@ -29,6 +29,7 @@ class PhpAT84 < Formula
     "TCL",                   # 7
     "Zlib",                  # 8
   ]
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -37,11 +38,11 @@ class PhpAT84 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "a1ef660a4d6799b9f898ea13e5f23df1a230f20b7324c3efc70abb75dc725f2e"
-    sha256 arm64_tahoe:       "6fe4f570ec56e33a9108101c5e27569fa14112a72e8764a471d6a6e7e457906b"
-    sha256 arm64_sequoia:     "0b1f604bf9dcd9e7b472323e0ce0c68afc814d09846280a51c7241de37f3b1df"
-    sha256 arm64_linux:       "e39fc4f57f964150f6c91089fe3cfa771dab7063df19d3923d056a27e7c5aec9"
-    sha256 x86_64_linux:      "b0123cf7a21aaec4a9165cca363440e3657453040e64c9fd69cace1c11faaedf"
+    sha256 arm64_golden_gate: "cf710dc3205fc0d642f284176b72e4417d43b961beed2a094fe0ba2e543ddfc5"
+    sha256 arm64_tahoe:       "e6e07d3573f3be869d3e9b5b2d7ba3a00fc2128a9cdd0687b6a5120d9907af3c"
+    sha256 arm64_sequoia:     "7514a9ce27876c2ad3bfe8edaabd163f1aba92ed1d759c35d7543f2e55052dff"
+    sha256 arm64_linux:       "76b06d3ad0b7418870e8d7a76396246d4633cf9d6fd1db8d572561d50a60ab85"
+    sha256 x86_64_linux:      "e23efa4380efd845110514d18e82e60098ba7ad085ac93a73f15514e2096b4d0"
   end
 
   keg_only :versioned_formula
@@ -68,7 +69,7 @@ class PhpAT84 < Formula
   depends_on "net-snmp"
   depends_on "oniguruma"
   depends_on "openldap"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "sqlite"
   depends_on "tidy-html5"
@@ -233,7 +234,7 @@ class PhpAT84 < Formula
     orig_ext_dir = File.basename(extension_dir)
     inreplace bin/"php-config", lib/"php", prefix/"pecl"
 
-    openssl = Formula["openssl@3"]
+    openssl = Formula["openssl@4"]
     %w[development production].each do |mode|
       inreplace "php.ini-#{mode}" do |s|
         # Allow pecl to install outside of Cellar

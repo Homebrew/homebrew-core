@@ -2,27 +2,19 @@ class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 2
   compatibility_version 2
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.2/llvm-project-23.1.2.src.tar.xz"
-    sha256 "c98bbef08a2b4c2613cd50e9aa9ae7b69b1fe6c16b2c40373bc0ab6116fdf78a"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.3/llvm-project-23.1.3.src.tar.xz"
+    sha256 "c44186a7762ed28954be72e5ff6df9808e0779d4f1bf014ecc4e7e211d31ee34"
 
     # Fix triple config loading for clang-cl
     patch do
-      url "https://github.com/llvm/llvm-project/compare/1381ad497b9a6d3da630cbef53cbfa9ddf117bb6...40a8c7c0ff3f688b690e4c74db734de67f0f89e9.diff"
-      sha256 "f6dafd762737eb79761ab7ef814a9fc802ec4bb8d20f46691f07178053b0eb36"
+      file "Patches/llvm/pull-111397.diff"
       type :unofficial
       resolves "https://github.com/llvm/llvm-project/pull/111397"
-    end
-
-    # Backport fix for macOS 27 SDK
-    patch do
-      url "https://github.com/llvm/llvm-project/commit/b8007a8e4020b8bca2b12e941660e10bf5bf6716.patch?full_index=1"
-      sha256 "e41e300eb6f5cca9172ab344e572c3fb24f0d05885ae23dd7cb4f9c2528839f7"
-      type :backport
-      resolves "https://github.com/llvm/llvm-project/pull/222721"
     end
   end
 
@@ -32,11 +24,11 @@ class Llvm < Formula
   end
 
   bottle do
-    sha256               arm64_golden_gate: "0fb59fe5a6c704c45a0f5278cf6afce04edf35d04a13b15e9115fdef822ece60"
-    sha256               arm64_tahoe:       "bc2ff4fa3f9359d3b8b49d70cb1782f9b63040d050ca1316c047d65ed799ec6e"
-    sha256               arm64_sequoia:     "63a5f733263b561b704165fad06c36de11bedddcdc1a3963da7dcda361ea941d"
-    sha256 cellar: :any, arm64_linux:       "c7d3a48cde4bbe606a9b2bd5d11962852bee556361cb08171818d93b5d4a9733"
-    sha256 cellar: :any, x86_64_linux:      "a28688de4ab686346a45760c4f0ca00810ed5f8a563f227c84d9cfa5d379f749"
+    sha256               arm64_golden_gate: "f2435845b5fcd20ecbe28fc8206e0705d6abf72a47a443414629ab75ba72444a"
+    sha256               arm64_tahoe:       "100c1b67a834daa56b5ebe88cedef1b06caf085613f95c04b4b5a1f318315688"
+    sha256               arm64_sequoia:     "cd68b4b54d1bcd70da83984a3fd139b96cdfc4b4db3171b2b836b29d8e1f7ab6"
+    sha256 cellar: :any, arm64_linux:       "79cd22427ede911e8ff1abaaa0178bbc786f5550607ad30091cf0fffc7b431df"
+    sha256 cellar: :any, x86_64_linux:      "9cbc1a162b3d64fa6faaaea96e6ecf56dd4d33a124a8bfc79baf63b17801b74b"
   end
 
   keg_only :provided_by_macos
@@ -44,7 +36,7 @@ class Llvm < Formula
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "zstd"
 
   uses_from_macos "libedit"
@@ -149,6 +141,7 @@ class Llvm < Formula
       libunwind_install_libdir = lib/"unwind"
       libcxx_rpaths = [loader_path, rpath(source: libcxx_install_libdir, target: libunwind_install_libdir)]
 
+      args << "-DCLANG_USE_XCSELECT=ON"
       args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
       args << "-DLIBCXX_ENABLE_VENDOR_AVAILABILITY_ANNOTATIONS=ON"
@@ -408,15 +401,6 @@ class Llvm < Formula
 
       # Install a major-versioned symlink that can be used across minor/patch version upgrades.
       xctoolchain.parent.install_symlink xctoolchain.basename.to_s => "LLVM#{soversion}.xctoolchain"
-
-      # Write config files for each macOS major version so that this works across OS upgrades.
-      MacOSVersion::SYMBOLS.each_value do |v|
-        macos_version = MacOSVersion.new(v)
-        write_config_files(macos_version, MacOSVersion.kernel_major_version(macos_version), Hardware::CPU.arch)
-      end
-
-      # Also write an unversioned config file as fallback
-      write_config_files("", "", Hardware::CPU.arch)
     end
 
     # Install Vim plugins
@@ -487,23 +471,6 @@ class Llvm < Formula
         system bin/"llvm-ar", "r", static_archive, *converted_files
       end
     end
-  end
-
-  # We use the extra layer of indirection in `arch` because the FormulaAudit/OnSystemConditionals
-  # doesn't want to let us use `Hardware::CPU.arch` outside of `install` or `post_install` blocks.
-  def write_config_files(macos_version, kernel_version, arch)
-    require "utils/clang"
-
-    Utils::Clang.write_system_config_files(
-      config_dir:     clang_config_file_dir,
-      macos_version:,
-      kernel_version:,
-      arch:,
-    )
-  end
-
-  post_install_steps do
-    configure_clang_system
   end
 
   def caveats
@@ -843,11 +810,5 @@ class Llvm < Formula
         end
       end
     end
-
-    return if OS.linux?
-    return unless clang_config_file_dir.exist? # https://github.com/Homebrew/homebrew-test-bot/issues/805
-
-    assert_match("Configuration file: #{opt_prefix}/etc/clang/",
-                 shell_output("#{opt_bin}/clang --version -no-canonical-prefixes"))
   end
 end

@@ -25,7 +25,7 @@ class Kea < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on "boost" => :no_linkage
   depends_on "log4cplus"
   depends_on "openssl@4"

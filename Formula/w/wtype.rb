@@ -1,13 +1,13 @@
 class Wtype < Formula
   desc "Xdotool type for wayland"
   homepage "https://github.com/atx/wtype"
-  url "https://github.com/atx/wtype/archive/refs/tags/v0.4.tar.gz"
-  sha256 "da91786d828b6a6e29b884bc510473939eda052658ebef87d7bdeafa6a8746f9"
+  url "https://github.com/atx/wtype/archive/refs/tags/v0.5.tar.gz"
+  sha256 "684308ac8b47c510dddf4abac3aef86b4f7b8c0e165389a40608679a7a5b77ed"
   license "MIT"
 
   bottle do
-    sha256 arm64_linux:  "67c56b2dd69bc9e41cb2f1d31fae8421bf589e1c094cc16bd975dc743fc61c00"
-    sha256 x86_64_linux: "fb8b560329a38b9ffce961dbedbbfa9cd687d6e07f104604754da4328035ed11"
+    sha256 cellar: :any, arm64_linux:  "b42851dcb1be681c7fcd878dbb2dd02e1e3da9bb3d8ce3606129a990673215b4"
+    sha256 cellar: :any, x86_64_linux: "3884b208e31bb6afe4dd693c5d1241690d732ba201b715ace851cf54a10d5266"
   end
 
   depends_on "meson" => :build

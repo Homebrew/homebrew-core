@@ -11,14 +11,12 @@ class LlvmAT18 < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_golden_gate: "4264e65320e501cac5f5b08716e2a2a3fa67f0c1a5c4a478a026ae715a6cbaed"
-    sha256 cellar: :any,                 arm64_tahoe:       "1e9a19bff9679522f731a5b45d9667a544f505a10f25bb2ec85a3743976e3a27"
-    sha256 cellar: :any,                 arm64_sequoia:     "7444fd9adfdec6b4f388f2a321d802115f839aa4c45f565aee25284504e9e225"
-    sha256 cellar: :any,                 arm64_sonoma:      "84f895cfadaeba96a43db53c1bea77b6ab731326719fe6021ef9d30d55695620"
-    sha256 cellar: :any,                 sonoma:            "56bb12c01aa3f619f88d4f06220fa2ddd6e7d4dcc87860e3f3087ec211e1bf41"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9ec22755167c15a099347cfa71da87ed7855c1a086a59d3524162749045499ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a4a95ef131b99b1ceb7fd5b6a16626efee62722f53ebc74fbcfddf50a785f8b4"
+    rebuild 3
+    sha256 cellar: :any, arm64_golden_gate: "8695d745db18541547d954d19ac8ede8a2032c3e712ba4470a1937d1c9c6fba1"
+    sha256 cellar: :any, arm64_tahoe:       "c1fe00517036c5518e478899177fb505bcc3cc545cb52622057e0a00e5a896b4"
+    sha256 cellar: :any, arm64_sequoia:     "196f7ed71ae73b3b857908c1cdc482048e13feffe4698c69ae807f35ecfd7575"
+    sha256 cellar: :any, arm64_linux:       "dc2f37b753d8366a2f1061ae22024cb5f0686134f4571d2f0f523b04e8dcc777"
+    sha256 cellar: :any, x86_64_linux:      "90c997aa42d78872849510f9081de3509c31b0aee0fd7bd3d3cbeb82da8bf87b"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -29,7 +27,7 @@ class LlvmAT18 < Formula
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "zstd"
 
   uses_from_macos "libedit"
@@ -299,7 +297,7 @@ class LlvmAT18 < Formula
     # These tests should ignore the usual SDK includes
     with_env(CPATH: nil) do
       # Testing Command Line Tools; skipped on CLT 26.4+ due to __builtin_clzg added in LLVM 19+
-      if OS.mac? && MacOS::CLT.installed? && MacOS::CLT.version < "26.4"
+      if OS.mac? && !MacOS::CLT.version.null? && MacOS::CLT.version < "26.4"
         toolchain_path = "/Library/Developer/CommandLineTools"
         cpp_base = (MacOS.version >= :big_sur) ? MacOS::CLT.sdk_path : toolchain_path
         system bin/"clang++", "-v",

@@ -10,14 +10,12 @@ class Shyaml < Formula
   head "https://github.com/0k/shyaml.git", branch: "master"
 
   bottle do
-    rebuild 6
-    sha256 cellar: :any,                 arm64_golden_gate: "1a7cdce91580867298e736350ba55b6795bd9ef1199dc64da7ace490676c2c34"
-    sha256 cellar: :any,                 arm64_tahoe:       "84f85648e8f7a9e3b6d23bc774b4035e68987ec320afa9a26681a34984f54606"
-    sha256 cellar: :any,                 arm64_sequoia:     "12253411fc0733aeb8580e76eb8c498e968d5fbf26fc2c9ee0a969ed3d81f896"
-    sha256 cellar: :any,                 arm64_sonoma:      "8bc9980e56a28c35bb9e73b018296a99a2d327d00886079362e13074516bcf6c"
-    sha256 cellar: :any,                 sonoma:            "53720f2b4c3d835c02119ee91e3108b5aa9adda2ec3fda2964d672a8c42f11ac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "06fdc63c06d8747e6865af44a5e5b93a6c69688b03957c5d2e5f8bd77f98d52d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "94fa46b2c7b21233b659a07743538eca11873d6787515cf74b98b8632e014abf"
+    rebuild 7
+    sha256 cellar: :any, arm64_golden_gate: "9ae8c668000d8e7533dd4d9b9e48fd5b92024f25749f680c45811e4818935715"
+    sha256 cellar: :any, arm64_tahoe:       "113b6daed19d8f34cbeb793f290066781d77945a3810ae0549e47d9c0d1b7ded"
+    sha256 cellar: :any, arm64_sequoia:     "2e54da490b82bc88dbb9ff3f2f9cf4f57ade4390b7e31d44d560193db98a2afe"
+    sha256 cellar: :any, arm64_linux:       "3b76804447ca7db54c0fb5bc95c2c29670f7568d735d50654714cded341c7fc3"
+    sha256 cellar: :any, x86_64_linux:      "5984d1fb37aa77106bd1058e4ad5a28c5e0741a11dc8c1c2f16577f1b72feefb"
   end
 
   # Last release in 2020, needs patch to build with modern setuptools
@@ -25,7 +23,7 @@ class Shyaml < Formula
   disable! date: "2026-10-26", because: :unmaintained, replacement_formula: "yq"
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"

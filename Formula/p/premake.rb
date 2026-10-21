@@ -1,25 +1,18 @@
 class Premake < Formula
   desc "Write once, build anywhere Lua-based build system"
   homepage "https://premake.github.io/"
-  url "https://github.com/premake/premake-core/archive/refs/tags/v5.0.0-beta8.tar.gz"
-  sha256 "2a55195fd2b27e5aa3de8ff6d22cdb127232a86f801d06e7f673d30a0eba09ac"
+  url "https://github.com/premake/premake-core/archive/refs/tags/v5.0.0.tar.gz"
+  sha256 "ed52d17463112d6b93bc6e34bb6e15c6332e1f313ad5259fdde60e270aa30aec"
   license "BSD-3-Clause"
   version_scheme 1
   head "https://github.com/premake/premake-core.git", branch: "master"
 
-  livecheck do
-    url "https://premake.github.io/download/"
-    regex(/href=.*?premake[._-]v?(\d+(?:\.\d+)+(?:[._-][a-z]+\d*)?)[._-]src\.zip/i)
-  end
-
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f13c33997b18391e386d7632ddea43348f7db193a060a385f92e14074c7850a6"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8208d6a888a07776ef2783f9922722bd447d0c0a670d6589b6c4d8f59b3cead3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7ccbee7007446621865c016ee7ee0ee72291ef2403ea07b681bf11de23e0ce0c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "2165155556cf361ecb838b0672f170123f76d8f9aef457f18591ad4f551e7f36"
-    sha256 cellar: :any_skip_relocation, sonoma:            "9aa1523add5b5ea2bfd9fbf80baa237a41e120bbd38a625507281afbbe52795e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b35d7adbc0ef9d17faeb7838b5a00b53889708a3705b833ada04288049db1b1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "01caf266ed92e54b10c818c032ef8546def23020d74c784133bf3f713be683ba"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fb3a10cd4d06c6a765e9420c9e96093328401a9e3396d443942931b55f78ce5d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ab86f4550238dccd1dc4bf648add5bb9e8115f326306bf30058e015f165c409d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "72788f973fac2ecec163b6489253ff21c990d4aa710f1cd272c6a94f6b968af2"
+    sha256 cellar: :any,                 arm64_linux:       "11eefadb7a7d317a294614c48374a2c02c635202439d147622f250d87f77b1da"
+    sha256 cellar: :any,                 x86_64_linux:      "09b1c4d00cab87ccda6448c3665d06314914a9a24038343f32ba2d33c008e60c"
   end
 
   on_linux do

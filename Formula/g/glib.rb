@@ -3,8 +3,8 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://docs.gtk.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.90/glib-2.90.0.tar.xz"
-  sha256 "17d15cac2af80a33271127408e0abc2748eb297c595c2a26409e81e14e7d1b8f"
+  url "https://download.gnome.org/sources/glib/2.90/glib-2.90.1.tar.xz"
+  sha256 "93c941aa17d5eb1d53fe838365f29a8b4e539c222a256d974ec8f30fc413e396"
   license "LGPL-2.1-or-later"
   compatibility_version 1
 
@@ -17,11 +17,12 @@ class Glib < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "07422c68ee1c3d01ba6ac6296668e82cad2ee21c9466e60e79a70da2c5947207"
-    sha256 arm64_tahoe:       "e2d2d3cff3bb121e8f6c98f9a831e03f78b66e88063fc5d432a68bf0b4951092"
-    sha256 arm64_sequoia:     "91df2202a093cd00b90fa9919f1c1e61e8f78d8ddd9a307009af6d4007072180"
-    sha256 arm64_linux:       "456f327b958864c762c53286469ec4471fd41a57c031ce2d8c3e24f6dedbad0f"
-    sha256 x86_64_linux:      "91d875d68772c609400983913f59695beb053223973791ee32ee33d1edd9df6c"
+    rebuild 1
+    sha256 arm64_golden_gate: "5ccb7a549258ed35cddc280882a11a854bd0ef1b2329a1ce77e43e39d2d98e3a"
+    sha256 arm64_tahoe:       "56145c606a672f7b69845be6e16e8e6f1611052620e4638237116c177fe15c43"
+    sha256 arm64_sequoia:     "ce9568a335281cb6bd12c48fd89d7a118a046f9df16761c120826fdae116e468"
+    sha256 arm64_linux:       "3ce028927d1d01745efb1b6f83f1469e0bb967b801096a601b223030dfb87279"
+    sha256 x86_64_linux:      "ca0144204f1844125166d69208650c5b12c2fbd68bbd3fa904127c6e4fe8a3b1"
   end
 
   depends_on "bison" => :build # for gobject-introspection
@@ -30,7 +31,7 @@ class Glib < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on "python-setuptools" => :build # for gobject-introspection
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on "pcre2"
 
   uses_from_macos "flex" => :build # for gobject-introspection

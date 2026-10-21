@@ -3,23 +3,23 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/2c/73/e6830db52ba8d307e0980195d14b69c3ad5c8bc82c4369fc834badacb7e3/oci_cli-3.94.1.tar.gz"
-  sha256 "d4b8ea7c451d619f01d46e7e8f7c267b2235919df602a7dec7884ab479b3ba0c"
+  url "https://files.pythonhosted.org/packages/44/60/386f415a77c2ce81d462d2a657cd05ca5a278b773d8f26c13e054da7d34d/oci_cli-3.95.0.tar.gz"
+  sha256 "663e558dea4cdf64fe20e9db2f7252a01852ac13b30639a60710163c86428f4f"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9984c47f747ca886017ad03a6ffa38d0cc65f20aec431b252aa1a9a53e4b4fa8"
-    sha256 cellar: :any, arm64_tahoe:       "d89b8bb840057a8d3fb641bcf01bafb0d533a19bf36aaa34882376d98c025752"
-    sha256 cellar: :any, arm64_sequoia:     "24620975ccf94c1cd0b464d386d369db4a416e21c104e52fd12676490c5eb61d"
-    sha256 cellar: :any, arm64_linux:       "a07e4b4db23d7dc53f38dd38bfcfd9831fac3e8aff8f31792384d42579d8c364"
-    sha256 cellar: :any, x86_64_linux:      "e15904317869ba683d0c7e0a10442977e675c2bd187347c017ae46350004524a"
+    sha256 cellar: :any, arm64_golden_gate: "4d124387b99032e341b4efea1b59322713a601062bd1315bb86e22291ff1bed7"
+    sha256 cellar: :any, arm64_tahoe:       "0ea46efaa8eb353e092733896a4da76c4107385b64216a891dd6a09459dda6d9"
+    sha256 cellar: :any, arm64_sequoia:     "cb97c9ce34d3bcf060a9205262da2d2dd255b78701ea2d403b12eccdb03459bd"
+    sha256 cellar: :any, arm64_linux:       "7ce6b264744c4cfe3a04bac1cba4c05ae59614a8a327274c2801137517bc470d"
+    sha256 cellar: :any, x86_64_linux:      "fd40eca864a5970c41c0e622fb11c7f5853a39fefcf04b0bc28f0a007c405791"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: %w[certifi cryptography]
 
@@ -29,8 +29,8 @@ class OciCli < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz"
-    sha256 "9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc"
+    url "https://files.pythonhosted.org/packages/6c/4c/bdccd81e9ee225b69c60e7766c9a5b05364f118f4d383713b89a682d772d/aiohttp-3.14.5.tar.gz"
+    sha256 "5558a7f5a05af9ecf744af91e5baefc436f93c9333e656c27ec253f9a6bbe178"
   end
 
   resource "aiosignal" do
@@ -84,13 +84,13 @@ class OciCli < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/d6/99/1d4d69c3512d0ddbfa3a1b69cfd9a151012ab2eb4eabbb096201b1f0b7d8/multidict-6.9.1.tar.gz"
-    sha256 "0f06e60fa190aa7abd0914c2a766736fdc8e9f34878c4346338534b73d1b20e2"
+    url "https://files.pythonhosted.org/packages/f9/79/84ddb5ba16c4eb2c69c71db76ae3c579fe546e511f7170c7e27eedbab7c1/multidict-7.1.0.tar.gz"
+    sha256 "61a4e5d81b8d4e4ad61964b230129e7a2b914793d96289029078fc9009f074ec"
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/97/79/28d75548d6fe9e531b604516783c8fcd8dfe295d65bcdeea1dc77da5d593/oci-2.187.1.tar.gz"
-    sha256 "9c7beeebe9f60ba92191f97d645185168c48877e3bbfff0fd9ab743106159f5f"
+    url "https://files.pythonhosted.org/packages/8e/09/69de33858a8574f6e7f7ebf3d027ac198986c95d3f0efd5c203a882be8d6/oci-2.188.0.tar.gz"
+    sha256 "a4ff307ed315112cf357d9dc0bd5091cb0bae77892870b51ffd0cf46175ba8b6"
   end
 
   resource "prompt-toolkit" do
@@ -149,8 +149,8 @@ class OciCli < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/e4/31/3d74fa778a63b98b7374323befcc0be5ab3bd94afd4096a0124e7379152c/tzdata-2026.4.tar.gz"
-    sha256 "f1b8bd365d8d210c55353f4d7f8d6d8561c0ba50d704b700d195a9424bba0d79"
+    url "https://files.pythonhosted.org/packages/d9/68/f1b440335057bfce71b6e50a9d09445aa2ecbd08359a337976627b8409e7/tzdata-2026.5.tar.gz"
+    sha256 "8cc73c0a0bfca7dbfa59235d60b2eff82231dee33f53d206db1acd9173cfc0a7"
   end
 
   resource "urllib3" do
@@ -159,8 +159,8 @@ class OciCli < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/dc/ac/3a943d2792c9bb368aaa8b50121c0f778460ba2d7fbdc0a0366201d9e761/wcwidth-0.9.1.tar.gz"
-    sha256 "5823209b0d43af322ce698c689380d7c15ca31fa8e6e3be8459f27031bef0af5"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   resource "yarl" do

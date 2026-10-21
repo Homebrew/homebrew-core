@@ -10,18 +10,19 @@ class Cyan < Formula
   head "https://github.com/asdfzxcvbn/pyzule-rw.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "207ab362ff1d7cdc407a325362dd38ca9d9ff1162ca47d5df73f41e5c5191577"
-    sha256 cellar: :any, arm64_tahoe:       "e329832402b95e031ccf71cf7158cf747f90701ec36ded36a24fcec6f30e3fd7"
-    sha256 cellar: :any, arm64_sequoia:     "9f42456f4e01b317bde3261ec215cc826d472f92f02714d35ab605b516b4d47e"
-    sha256 cellar: :any, arm64_linux:       "729374ebe9c37e811bbed2e1887930dcf20528933fbcf9e2e9b086e13fb2c79d"
-    sha256 cellar: :any, x86_64_linux:      "e869bc11fbd097a0653e597f1aee40d728582193555876355bb1dcf8dfdbb352"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "52cc6000a9a67a242f455db1e13ba2a31664d164f251cf92d2c61a6b21630f1e"
+    sha256 cellar: :any, arm64_tahoe:       "9482f01935c9f0df5f2b5b910622901b2e696d25ae49957674578f9760ded5e9"
+    sha256 cellar: :any, arm64_sequoia:     "b7963eb2fb7d37c639f19ffb38c93e428ec366afead86daa3e617c5b4e24f0dd"
+    sha256 cellar: :any, arm64_linux:       "f37df5113c3af409e21a94825643b65a25af250190366fac4ee055c937c72ebc"
+    sha256 cellar: :any, x86_64_linux:      "3f10e6d697bdb75a5038dd5b960defc8d384a4211a2eb7681d02ed4c8c092225"
   end
 
   depends_on "cmake" => :build # for lief
   depends_on "ninja" => :build # for lief
   depends_on "rust" => :build # for lief
   depends_on "ldid-procursus"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_linux do
     depends_on "llvm"

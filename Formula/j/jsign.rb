@@ -1,19 +1,17 @@
 class Jsign < Formula
   desc "Tool for signing Windows executable files, installers and scripts"
   homepage "https://ebourg.github.io/jsign/"
-  url "https://github.com/ebourg/jsign/archive/refs/tags/7.5.tar.gz"
-  sha256 "80667046ce4b6accc205f558bce5c912e918ed9407510474cc6015be3c01b09d"
+  url "https://github.com/ebourg/jsign/archive/refs/tags/7.6.tar.gz"
+  sha256 "18ee1bbfc8a45b8991467055ea71ba8266c4229ddba9cfb4f3372d7a26a1c625"
   license "Apache-2.0"
   head "https://github.com/ebourg/jsign.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "38840cd512a12f1c583d6f2416050dfb2fab9bbc248010ac231bdeaf8bd03e6e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d31ce707ac84a804d89f70942aff0dde0616f913a313ed5c1d97c42e3164f402"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d31ce707ac84a804d89f70942aff0dde0616f913a313ed5c1d97c42e3164f402"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "d31ce707ac84a804d89f70942aff0dde0616f913a313ed5c1d97c42e3164f402"
-    sha256 cellar: :any_skip_relocation, sonoma:            "d31ce707ac84a804d89f70942aff0dde0616f913a313ed5c1d97c42e3164f402"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "bec35e77a156af2ae9399e7fe32b833b47a0f42145a20dbe657bb870f1234f70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "bec35e77a156af2ae9399e7fe32b833b47a0f42145a20dbe657bb870f1234f70"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0b00617c247f242e8dcc61c537b750d7f401205d350876f2afbfdb9050c25bd9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0b00617c247f242e8dcc61c537b750d7f401205d350876f2afbfdb9050c25bd9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0b00617c247f242e8dcc61c537b750d7f401205d350876f2afbfdb9050c25bd9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "6a775335e80058d6a705a0abce1d4f4717b437410bde84a9ba72f88cf7dcad11"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6a775335e80058d6a705a0abce1d4f4717b437410bde84a9ba72f88cf7dcad11"
   end
 
   depends_on "maven" => :build

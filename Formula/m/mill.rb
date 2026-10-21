@@ -1,8 +1,8 @@
 class Mill < Formula
   desc "Fast, scalable JVM build tool"
   homepage "https://mill-build.org/"
-  url "https://search.maven.org/remotecontent?filepath=com/lihaoyi/mill-dist/1.1.10/mill-dist-1.1.10.exe"
-  sha256 "8103208ac29b1d92dbd0f78a3305ece6e2316de2a2b09f7cf7953e44636ba5f4"
+  url "https://search.maven.org/remotecontent?filepath=com/lihaoyi/mill-dist/1.3.1/mill-dist-1.3.1.exe"
+  sha256 "374b734cb5275f89fc9a92b88c0649cb2f633316dc56ad3565ba6f36d76d607e"
   license "MIT"
 
   livecheck do
@@ -11,7 +11,7 @@ class Mill < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c8448333c23758050ecb8e3a70e25bc64d630241f7d77d47b47cd14e7e6ea144"
+    sha256 cellar: :any_skip_relocation, all: "d54280879b6d76f2c19f3f2ee8b024ada3f191e459a6256a23a58abff5b477a8"
   end
 
   depends_on "openjdk"

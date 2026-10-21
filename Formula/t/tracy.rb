@@ -3,18 +3,16 @@ class Tracy < Formula
   homepage "https://tracy.nereid.pl/"
   # NOTE: Do not report issues with dependencies upstream as they only support
   # vendored dependencies, see https://github.com/wolfpld/tracy/issues/1079
-  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.13.1.tar.gz"
-  sha256 "d4efc50ebcb0bfcfdbba148995aeb75044c0d80f5d91223aebfaa8fa9e563d2b"
+  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.14.1.tar.gz"
+  sha256 "bf4af567e9c7524d07f3caa745fad02fb33bd5694f11910750382d1efbb251c1"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "47f6c6b7e13cd85f869b80012621a5246fe66814f7d983da84bf8d5f3d32c462"
-    sha256 cellar: :any,                 arm64_tahoe:       "b6ca03823befeec20af1c9f3ee4117560d64d94b371d59c1617a8e00ebfb8353"
-    sha256 cellar: :any,                 arm64_sequoia:     "dcc660c342ecff72fe7f7a596323e609283c45922789d800ecef66c5455ea57b"
-    sha256 cellar: :any,                 arm64_sonoma:      "19d370d5bc621409f2cb0213a70cd03802ce75dcd9ac28263bb366c58fad0085"
-    sha256 cellar: :any,                 sonoma:            "350b91756e80530a10096160624ba921bd13426660e51839759b360509a891f3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d829d6d75d94b266bd79a25887ba6a2eb910d378bb836fc938e2324b32f5ac3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e7cdff0be4cca4002493400ca693c0638ea51957a556555a32f4df5bbb25b3bc"
+    sha256 cellar: :any, arm64_golden_gate: "86c886dd9aa1df9ec1e2770ec914c88fe19545dd7554f6b2d29a3f42fe1a203c"
+    sha256 cellar: :any, arm64_tahoe:       "1ddc9848cebb0aa9525840066403eab154414756929c3cb2601ca4e6566c9cc6"
+    sha256 cellar: :any, arm64_sequoia:     "b68140824409c1ddfac310712044ce1ea0c560cfd4f35ec2fe007ce6a685305f"
+    sha256 cellar: :any, arm64_linux:       "96f39f7f1dc7916340ba7635ab28443ecbec189fb2307fa4473644aa1eab82c4"
+    sha256 cellar: :any, x86_64_linux:      "608694a84e1dfb3099d3b55d1f4a9d4f4f87eaee44eecef5b174c9919de9fd7d"
   end
 
   depends_on "cmake" => :build
@@ -58,8 +56,8 @@ class Tracy < Formula
 
   resource "usearch" do
     url "https://github.com/unum-cloud/USearch.git",
-        tag:      "v2.23.0",
-        revision: "7306bb446be5f0f0c529ec8acdc57361cef8a8a7"
+        tag:      "v2.26.0",
+        revision: "cc23bbaf21ef52313c5a495adbc40cbd733cdcfb"
   end
 
   def install
@@ -71,6 +69,17 @@ class Tracy < Formula
     # Upstream only allows vendored deps so add some workarounds to use brew formulae instead
     inreplace "cmake/server.cmake", " libzstd ", " zstd::libzstd_shared "
     inreplace "cmake/vendor.cmake", /NAME json$/, "NAME nlohmann_json"
+    inreplace "cmake/vendor.cmake", /NAME nfd$/,
+              "NAME nfd\n            VERSION #{Formula["nativefiledialog-extended"].version}"
+
+    # md4c does not install a CMake package version file, so use pkg-config.
+    (staging_prefix/"Findmd4c.cmake").write <<~CMAKE
+      find_package(PkgConfig REQUIRED)
+      pkg_check_modules(md4c REQUIRED IMPORTED_TARGET md4c)
+      add_library(md4c ALIAS PkgConfig::md4c)
+      include(FindPackageHandleStandardArgs)
+      find_package_handle_standard_args(md4c REQUIRED_VARS md4c_LIBRARIES VERSION_VAR md4c_VERSION)
+    CMAKE
 
     # Workaround to bypass upstream vendoring tidy-html5 by adding a find module
     (staging_prefix/"Findtidy.cmake").write <<~CMAKE
@@ -111,16 +120,20 @@ class Tracy < Formula
       system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args(install_prefix: staging_prefix)
       system "cmake", "--build", "build"
       system "cmake", "--install", "build"
-      (staging_prefix/"fp16").install "fp16/include"
     end
 
     args = %w[CAPSTONE GLFW FREETYPE LIBCURL PUGIXML].map { |arg| "-DDOWNLOAD_#{arg}=OFF" }
     args << "-DCMAKE_MODULE_PATH=#{staging_prefix}"
+    args << "-DNO_CCACHE=ON"
+
+    # `monitor` uses Linux `perf_event` APIs and is unguarded upstream
+    skip_dirs = %w[python test]
+    skip_dirs << "monitor" if OS.mac?
 
     buildpath.each_child do |child|
       next unless child.directory?
       next unless (child/"CMakeLists.txt").exist?
-      next if %w[python test].include?(child.basename.to_s)
+      next if skip_dirs.include?(child.basename.to_s)
 
       # Workaround to link to shared nativefiledialog-extended. Upstream only supports vendored libs
       extra_args = ["-DCMAKE_EXE_LINKER_FLAGS=-lobjc"] if OS.mac? && child.basename.to_s == "profiler"
@@ -130,20 +143,26 @@ class Tracy < Formula
       bin.install child.glob("build/tracy-*").select(&:executable?)
     end
 
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", "-DTRACY_ENABLE=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     bin.install_symlink "tracy-profiler" => "tracy"
   end
 
   test do
-    assert_match "Tracy Profiler #{version}", shell_output("#{bin}/tracy --help")
+    (testpath/"test.cpp").write <<~CPP
+      #include <tracy/Tracy.hpp>
+      #include <iostream>
+      int main() {
+        ZoneScoped;
+        FrameMark;
+        std::cout << "instrumented client" << std::endl;
+      }
+    CPP
+    system ENV.cxx, "test.cpp", "-std=c++17", "-DTRACY_ENABLE", "-DTRACY_IMPORTS", "-I#{include}/tracy",
+           "-L#{lib}", "-lTracyClient", "-pthread", "-o", "test"
+    assert_equal "instrumented client", shell_output("./test").strip
 
-    port = free_port
-    pid = spawn bin/"tracy", "-p", port.to_s
-    sleep 1
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    assert_match "Tracy Profiler #{version}", shell_output("#{bin}/tracy --help")
   end
 end

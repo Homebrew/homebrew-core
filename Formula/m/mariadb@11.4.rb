@@ -4,6 +4,7 @@ class MariadbAT114 < Formula
   url "https://archive.mariadb.org/mariadb-11.4.13/source/mariadb-11.4.13.tar.gz"
   sha256 "1bb254b106d0a7ca871cfa18fa6e18d4b80a7430f9ec9d1571ec4271a13def96"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://downloads.mariadb.org/rest-api/mariadb/all-releases/?olderReleases=false"
@@ -18,13 +19,11 @@ class MariadbAT114 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "80664074d47a528d29c6c12a0a5386e5b3a0f0519acf9b49be63f1d0241d389a"
-    sha256 arm64_tahoe:       "2e50d83abc662bdcf905a8a6c0ee0292ccfb70b0a203985263fc9f9b720a0c4a"
-    sha256 arm64_sequoia:     "1bf823abb22709674ef0f856271e856ce8f68da32636e8fcedceb8eaa5bca1bd"
-    sha256 arm64_sonoma:      "6d6cb23ff89b8064bf0feab3c40a9d137d4dfce6b4fab96f28ef8965c62fe937"
-    sha256 sonoma:            "1f8822a19b350d0d0df6454cd079e5e01f5d6f188e848a3ab2bdc2f56cb8d35e"
-    sha256 arm64_linux:       "ac5f7d5c5ac82b44671ad239bbdd27784550c4acab1f7dcd4d5d189612f463dd"
-    sha256 x86_64_linux:      "bdedbfa8b581f48a5a9343f34a7ce8a69b0ba2f98fed92415427ef32bd5cd761"
+    sha256 arm64_golden_gate: "b0bf6459c5803f73dbe365da9fa3447f96e583d085901611177e2e88bcf90be0"
+    sha256 arm64_tahoe:       "e99a0e623825e6fef5b0f07377b37feeba58595f253d60258ed7c55e753fe236"
+    sha256 arm64_sequoia:     "892d596f51aefcef94ee892a149f15fcfa77ae42066239a6189c6dd115a517b6"
+    sha256 arm64_linux:       "f06499f3695f9909fe96b6b011425d9021bbb57cf3e70d586db5a07c2f99505f"
+    sha256 x86_64_linux:      "bf08faa8104f217a90dcec42073850b5d1aad5daa59b39ce2c4508b8a18ab4a9"
   end
 
   keg_only :versioned_formula
@@ -40,7 +39,7 @@ class MariadbAT114 < Formula
   depends_on "groonga"
   depends_on "lz4"
   depends_on "lzo"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "xz"
   depends_on "zstd"
@@ -59,6 +58,16 @@ class MariadbAT114 < Formula
   on_linux do
     depends_on "linux-pam"
     depends_on "zlib-ng-compat"
+  end
+
+  # Apply open PR to fix issue when using OpenSSL 4. This has been applied by
+  # Debian Forky / Ubuntu Stonking since Aug/Sep 2026. MariaDB may end up merging
+  # https://github.com/MariaDB/server/pull/5652 instead but it doesn't cleanly apply.
+  patch do
+    url "https://github.com/MariaDB/server/commit/5ca4ab639ad5f99d74f794b54ba1b4d6182ec2a9.patch?full_index=1"
+    sha256 "a0cc83631f63368457f8880626a18bb791409dfe02a672989b94b205c2cefaef"
+    type :unofficial
+    resolves "https://github.com/MariaDB/server/pull/5029"
   end
 
   allow_network_access! :test

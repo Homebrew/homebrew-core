@@ -23,10 +23,13 @@ class Rancid < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "5b4b6267a47aef7344f8e3502be5b50d7ee70010b2a452062cd976daea23c61c"
   end
 
-  uses_from_macos "expect"
   uses_from_macos "perl"
 
   on_linux do
+    deprecate! date: "2026-10-12", because: "needs deprecated `expect`"
+    disable! date: "2028-01-01", because: "needs deprecated `expect`"
+
+    depends_on "expect" # TODO: switch to uses_from_macos if undeprecated
     depends_on "iputils"
   end
 

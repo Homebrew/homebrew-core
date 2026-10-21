@@ -267,7 +267,6 @@ class Krane < Formula
     resources.each do |r|
       next if r.name == "llhttp-ffi"
 
-      r.fetch
       system "gem", "install", r.cached_download,
              "--no-document", "--install-dir", libexec, "--ignore-dependencies"
     end

@@ -21,6 +21,12 @@ class Rure < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "build", "--jobs", ENV.make_jobs, "--lib", "--release"
     include.install "include/rure.h"

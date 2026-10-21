@@ -3,17 +3,18 @@ class Hf < Formula
 
   desc "Client library for huggingface.co hub"
   homepage "https://huggingface.co/docs/huggingface_hub/guides/cli"
-  url "https://files.pythonhosted.org/packages/5e/58/542f21ca4af36c79b157280abc1874cd0d8dedd45a8a3554759a859abe02/huggingface_hub-2.1.1.tar.gz"
-  sha256 "c56285bb7047ff1fe510f23be0705934fb3fd43afda75543341e6574a7e79630"
+  url "https://files.pythonhosted.org/packages/12/47/6858d63643e66fb4f6585c3cfd4029c0b2bc1ae21688cee9b3335f20a10d/huggingface_hub-2.2.0.tar.gz"
+  sha256 "5d1b47537394e4215cb858aa12fd493d0f7ef7f58990f5dcd24bc173107b2871"
   license "Apache-2.0"
   head "https://github.com/huggingface/huggingface_hub.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "945f495d0890b4a25f5e94ce1f662a1a4316773ef0f30306dc6f4c93f3d2a456"
-    sha256 cellar: :any, arm64_tahoe:       "02bd252a6a03c4841d8eeb7092a077cbf88237eef589befa84108c2bf2b246e8"
-    sha256 cellar: :any, arm64_sequoia:     "901eee2c094e20d98fb26f2ffed00556fec1b147eeec3f2bf35513602085273e"
-    sha256 cellar: :any, arm64_linux:       "250c0291f08805b514612908df5248cd3764f9469cea5c200acf8139378e79b7"
-    sha256 cellar: :any, x86_64_linux:      "051b33a0c022bb92a2ccf8273b4ca851ff66099383b3938194d75aaaceb21ce4"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "9e00d9c0ba1e4d9ceab34031bec953dee2d2bacbdffe0ea288612922f25214b5"
+    sha256 cellar: :any, arm64_tahoe:       "4edafd6cce3f901367f7dda9aa71efddec1fd5b5e7b549ac36b433b870dbf0c1"
+    sha256 cellar: :any, arm64_sequoia:     "ace4aac197db65f463982779dfb3f6b63aafccc3322c7680f0010c7c0869f8c5"
+    sha256 cellar: :any, arm64_linux:       "3b11cb5cf2a83daa0f1fd8931218bf5ab069cd33e6d38da22d68900be6f79607"
+    sha256 cellar: :any, x86_64_linux:      "a1aff5065b5deaba34ef781a7ba553e4b52eef822df04bbcf1a92ffd320533e0"
   end
 
   depends_on "pkgconf" => :build
@@ -22,10 +23,10 @@ class Hf < Formula
   depends_on "certifi" => :no_linkage
   depends_on "git-lfs"
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   pypi_packages package_name:     "huggingface_hub[cli]",
@@ -42,8 +43,8 @@ class Hf < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/cc/19/d4f21fc4b7ad098dd3c774ccb2a2929178b15d6e1a3ba7d0929817c0b30c/filelock-4.0.8.tar.gz"
-    sha256 "733d9b6b153fc63672f86104324186818b6bbe9dd7db84e9bb9887b6a04a2775"
+    url "https://files.pythonhosted.org/packages/53/e4/34efcb869715cf299e47d1ac7b2624d2bcb6f2d3dffc2f0abe8417f65ab2/filelock-4.0.12.tar.gz"
+    sha256 "cf42711a7ac791818b299fab0332a088c65aeeefa36290de98db92c434303b0c"
   end
 
   resource "fsspec" do
@@ -57,8 +58,8 @@ class Hf < Formula
   end
 
   resource "hf-xet" do
-    url "https://files.pythonhosted.org/packages/1b/ab/522a2ab67f27971a9d48ca666d4fca85ef7d5282d142e31fd087e27b1bbe/hf_xet-1.6.0.tar.gz"
-    sha256 "2e58454a340b3556dfa4972d5451aff4fba8dd42a236600ba1a1d2b1514f0fef"
+    url "https://files.pythonhosted.org/packages/9e/27/06d899ea7bd721d272f84aac98bdb238de98af4cc767a69056d967d68c71/hf_xet-1.7.0.tar.gz"
+    sha256 "d406ec79053c0871817f700c2ac8c36ba0d87f9c34b7458b0f0063bb218b0466"
   end
 
   resource "httpcore2" do
@@ -100,6 +101,8 @@ class Hf < Formula
     url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
     sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
   end
+
+  allow_network_access! :build
 
   def install
     venv = virtualenv_install_with_resources(without: "hf-xet")

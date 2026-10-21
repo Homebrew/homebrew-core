@@ -4,6 +4,7 @@ class Strongswan < Formula
   url "https://download.strongswan.org/strongswan-6.1.0.tar.bz2"
   sha256 "fe6c97481298767213cfc2e9a1da29fdd8018d481ff4cb9cf0283099654f20d4"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://download.strongswan.org/"
@@ -11,12 +12,11 @@ class Strongswan < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "3b1348d860baf46237f97e24726e8107350f3f0c5cbae68e36b6839502af6629"
-    sha256 arm64_tahoe:       "2a9cce27fed8db4b83dd8181c1284e42c583788888c9aaeef9ec1a25b605c850"
-    sha256 arm64_sequoia:     "8d1832026b25483bfd5735d7b262c7f9a69974fea9edc3628f6aecfafabe7dac"
-    sha256 arm64_sonoma:      "ba11d900d659d376e9306aa9e1e81047a3b94c44f290d6a1f8d1be40bbf673e8"
-    sha256 arm64_linux:       "0c80d564d7f0db7cae6bb6c588170a9b477fc1b7d03170c8b2cfb6efc29eff91"
-    sha256 x86_64_linux:      "a56826d23e05553a4f7841f76efb1d0e30bbba3a0d11a026a4c9b328cc4e06a5"
+    sha256 arm64_golden_gate: "dbdcfd4cb3e7fab289441cd6bff5ed60d862f20c461cfddbde303f7fa95a59d6"
+    sha256 arm64_tahoe:       "17f42ae0f527c300c202edd8493c1a0712ebb06bf60dd681adbbfc6a106900e1"
+    sha256 arm64_sequoia:     "bccde74b4e79fe277f74013efd6c83ae3970dd02843b46edc0611c11ffd3cfda"
+    sha256 arm64_linux:       "71340c65a0ed2cd91646041324f2ccc1eecfd01d5f523f0f0116a2d23e2016e4"
+    sha256 x86_64_linux:      "d11806e02e78a35d4f6af0b60fa3170d6be9b58af74714a8432e0be57f230ca8"
   end
 
   head do
@@ -30,7 +30,7 @@ class Strongswan < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "curl"
 

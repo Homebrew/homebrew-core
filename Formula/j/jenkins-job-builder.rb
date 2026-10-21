@@ -9,16 +9,17 @@ class JenkinsJobBuilder < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8d1e1612a0ce854a348e7325f1fb8714a0022711912753030eab66294bd48edc"
-    sha256 cellar: :any, arm64_tahoe:       "c0f76316551a1b31fb87da10671698220834504b17fdc8eb36bd742053fa098c"
-    sha256 cellar: :any, arm64_sequoia:     "133d475ce675e7f900a50bb0018f1df064dedea558772437e6da64d5f18cf3b9"
-    sha256 cellar: :any, arm64_linux:       "29b0e37db5eefa2c81e9b6b29aae281a728c06d972f530cda82093f88fc4dd3d"
-    sha256 cellar: :any, x86_64_linux:      "39f17d23e8fe51df397bb06d30c5d3b85ef76d05b799db234833a37f24d8f280"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "e60a6850e0b1e690498ed333fd5912ef464d97f0b0e8729d9b67ee7dccea74bf"
+    sha256 cellar: :any, arm64_tahoe:       "5252ba6e9cfdeaef90e93bb0353e73ed942db04e3fc43b78443dae2d6944af94"
+    sha256 cellar: :any, arm64_sequoia:     "c52170a844f943798a345c47be9b2d87f0d1d737043286bb2b689194748bde2c"
+    sha256 cellar: :any, arm64_linux:       "8842de348ca349d5576517fe36ef932306b6feda5189e2d900e8f3d5b4301bcc"
+    sha256 cellar: :any, x86_64_linux:      "aed6085b11e2a096b0b0bb84e2e1f6c634aa1a1d343f0da61a89d2be82eb3b2e"
   end
 
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi",
                 extra_packages:   "setuptools<82" # Upstream uses `pkg_resources`, so should limit the version < 82
@@ -44,8 +45,8 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "multi-key-dict" do
@@ -59,8 +60,8 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/5e/ab/1de9a4f730edde1bdbbc2b8d19f8fa326f036b4f18b2f72cfbea7dc53c26/pbr-7.0.3.tar.gz"
-    sha256 "b46004ec30a5324672683ec848aed9e8fc500b0d261d40a3229c2d2bbfcedc29"
+    url "https://files.pythonhosted.org/packages/6b/8d/ce438c28c7958e33184e8ac851ea2225b47a41e5e9e708fa3bddba631135/pbr-7.1.3.tar.gz"
+    sha256 "9a4a85b84e906337708009af0b5f5cdabeeb72d4dc213c9e97974da54fd9acc5"
   end
 
   resource "python-jenkins" do

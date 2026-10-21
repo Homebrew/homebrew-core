@@ -15,18 +15,15 @@ class Reuse < Formula
   head "https://github.com/fsfe/reuse-tool.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3ab037fad52a3dd27cb1fd2a93e658cd48a664daff021882adb0bf43e8e0a1d0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "29b5a4a0b0a1653a66ed796b83feb91a897c7c41021b285fdda1245f81ab03e6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4e9b5851cfa04c03c7a11f3009e26f94054d551f5df8a0120e9fb0f2d6242ffa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "8d34df3cbeae074a10be39a7f029014ef986ad50c101755b11c033567db9dca2"
-    sha256 cellar: :any_skip_relocation, tahoe:             "72b31b45aafda3d423be79c05a57beb96e2ab1250c18b55ca6beb00c4e324815"
-    sha256 cellar: :any_skip_relocation, sequoia:           "e48a685a780dc86619acc7a1fe1ba5e2ca5bf24f14fb693f6459b86a79c907ad"
-    sha256 cellar: :any_skip_relocation, sonoma:            "3a32ef4ccd0d9f96a68e9325431fe373225943e2b96483bca4dd8c426885dffd"
-    sha256 cellar: :any,                 arm64_linux:       "ed6f740db4bc656327c84b28991ca6828494c8569072d39a9364286c750c1710"
-    sha256 cellar: :any,                 x86_64_linux:      "a110a70a3fd514a7e93fcd094355d2332ec450777ad27caf405c24040cd8cb97"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fc573fb13b8eb2f85268bd5ffcbb48475fec9758d7c35cdd7a5820c0b9f34963"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8fa0fd4e4929623042f81e4cac6d3dca46710e5ad1d756272c4834ec724d2df4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1043b8bec8d72e602cf2dc7edfebd75f890aa83dc0eecd6e5df760793939a549"
+    sha256 cellar: :any,                 arm64_linux:       "77460fd9c6f8d9130cd3efe93b963395d172e6618f711882ed2b3de490fce67c"
+    sha256 cellar: :any,                 x86_64_linux:      "d0e660560105789f2492451ad2a562c190e49001a40a712ded0892ccfd98561e"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name: "reuse[charset-normalizer]"
 
@@ -41,13 +38,13 @@ class Reuse < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz"
-    sha256 "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "jinja2" do
@@ -61,8 +58,8 @@ class Reuse < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "python-debian" do
@@ -76,8 +73,8 @@ class Reuse < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/51/db/03eaf4331631ef6b27d6e3c9b68c54dc6f0d63d87201fed600cc409307fd/tomlkit-0.15.0.tar.gz"
-    sha256 "7d1a9ecba3086638211b13814ea79c90dd54dd11993564376f3aa92271f5c7a3"
+    url "https://files.pythonhosted.org/packages/94/96/e07752635b98536177fa1f37671c8f3cdde2e724c6bcf6034b2cfb571565/tomlkit-0.15.1.tar.gz"
+    sha256 "e25bbf38843005246210a12982776f27f99cb9be67160e14434d0c0d21ee1e97"
   end
 
   def install

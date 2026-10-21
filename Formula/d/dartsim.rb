@@ -1,8 +1,8 @@
 class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
-  url "https://github.com/dartsim/dart/archive/refs/tags/v6.19.4.tar.gz"
-  sha256 "627a6d21650427da634503829eba6c0c20887cd3441082eb44187fb3f9250150"
+  url "https://github.com/dartsim/dart/archive/refs/tags/v6.20.2.tar.gz"
+  sha256 "61e6d2542d85c1891ae25471412617715b98e620a044be919514671116c0c5fe"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,13 +11,11 @@ class Dartsim < Formula
   end
 
   bottle do
-    sha256               arm64_golden_gate: "bb85a1238c4fb94601e7377530ec6b132ef623f153015104fa625e085d3b8969"
-    sha256               arm64_tahoe:       "f63057be0ef688c2d1eb482a39aa4f1a4e05cb1709c0d167ef8ecaa3f97c2293"
-    sha256               arm64_sequoia:     "776e505b28c9bac1ae279cd6098e99a6c5a802eb5ec2c84b6b459840d6dc07d1"
-    sha256               arm64_sonoma:      "5bb7f57da268c37c6051d3a870b2bd2d0c439ba0c5aa8c553d4b588bcc585445"
-    sha256               sonoma:            "15ef52ed76a01bdb93383be08334b329484af03a709820ef54a27a99daaa9ce5"
-    sha256               arm64_linux:       "ac94c358317cd1172ab84b97b48247a1a2833a676308a6a195c9680edc6da6d6"
-    sha256 cellar: :any, x86_64_linux:      "772da48e17dfcb714fbe921a120e6493b4b61766d5e24d8f20e977c63e0989b4"
+    sha256               arm64_golden_gate: "48c2bec7a6bc85be18b7ea8cbd1a0af6fab96463c82282fcde861cdbac6fcab6"
+    sha256               arm64_tahoe:       "df50314051826a16fed81bde3e530efe424c6cb8d93ce0b4c0981916d8623c71"
+    sha256               arm64_sequoia:     "71ab703eff8b554cd2ffe1fe3e0cf2e98972cbe551d7666d22d70c5c8f1c088c"
+    sha256               arm64_linux:       "a38c2e6501daaef989fbb19e31fbb7bb52c2135aae9b4e996e6becc8b776ae6a"
+    sha256 cellar: :any, x86_64_linux:      "81dbb49ea1d6091834b42f7da7e16770491fe2b1fdcd96afeae1902eb6f00145"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -45,11 +43,25 @@ class Dartsim < Formula
     depends_on "mesa"
   end
 
+  # Keep DART's bundled ImGui compatibility patches without downloading during CMake.
+  resource "imgui" do
+    url "https://github.com/ocornut/imgui/archive/refs/tags/v1.92.8.tar.gz"
+    sha256 "fecb33d33930e12ff53a34064e9d3a06c8f7c3e04408f14cd36c80e3faac863b"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/dartsim/dart/refs/tags/v#{LATEST_VERSION}/dart/gui/imgui/CMakeLists.txt"
+      regex(/set\(IMGUI_TARGET_VERSION\s+"v?(\d+(?:\.\d+)+)"\)/i)
+    end
+  end
+
   def install
+    resource("imgui").stage buildpath/"imgui"
+
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DDART_BUILD_DARTPY=OFF
       -DDART_ENABLE_SIMD=OFF
+      -DFETCHCONTENT_SOURCE_DIR_DART_IMGUI=#{buildpath}/imgui
     ]
 
     if OS.mac?

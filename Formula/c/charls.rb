@@ -1,19 +1,17 @@
 class Charls < Formula
   desc "C++ JPEG-LS library implementation"
   homepage "https://github.com/team-charls/charls"
-  url "https://github.com/team-charls/charls/archive/refs/tags/2.4.4.tar.gz"
-  sha256 "fbd712903d61306ad00d5fa5029a9882630c7311ca487f48d2d76000956e8ff9"
+  url "https://github.com/team-charls/charls/archive/refs/tags/2.4.5.tar.gz"
+  sha256 "b55c742ef96b5e9d63f813a75d0ba29944302abb5a6ab59756ad61fa017b1dd3"
   license "BSD-3-Clause"
   head "https://github.com/team-charls/charls.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a9989f124867bdf9b147127a798d2e1aa5d056644b6f541f83fcd6dabe8ce3f6"
-    sha256 cellar: :any, arm64_tahoe:       "d0a67e9b45f8d59b907a1cb48a1e06d54a53255ebd86d665e9bbdffef19ee108"
-    sha256 cellar: :any, arm64_sequoia:     "014a6e667c1572a3ce331484fa512459093b48af7d43ec709d340d3694f19538"
-    sha256 cellar: :any, arm64_sonoma:      "31a404ff9ea71c0b6f8abc603dd8e7282a5ac81d24ae5d8f1aa7a6f7edcc6de9"
-    sha256 cellar: :any, sonoma:            "02610dee00fef9b3dea8d0e7df1a5c703959ec47a6c2a57c31ef1947759e6cea"
-    sha256 cellar: :any, arm64_linux:       "25253e5341b7507f2e12b6a4e9a80d02dbd65e3f931bfd425a5655511a388827"
-    sha256 cellar: :any, x86_64_linux:      "a8ceb4a16f10f2915c862c0f5b439bbb51567087a5b6f81acd52d26c06945d1a"
+    sha256 cellar: :any, arm64_golden_gate: "6f24c580dd9af1b9dd9e680edef59d026a5189c8a553f8c654a7756e32f799b5"
+    sha256 cellar: :any, arm64_tahoe:       "64b8f53f9a0c638f6168f0e22ec9517a7b13beddcecab47d70ddae652788fd33"
+    sha256 cellar: :any, arm64_sequoia:     "0dee7e1585e8c31b235fe7b33451496fea21cbf452fcd94674bd2e33adcc2881"
+    sha256 cellar: :any, arm64_linux:       "41f30e444b2c3d75809d10a2717ae277c5d1725505f7e5dcf587d19b06f1b91a"
+    sha256 cellar: :any, x86_64_linux:      "e4540a05130d1f6389e3c955827b60abbea45e65cf7904e2064249a0c10e0544"
   end
 
   depends_on "cmake" => :build

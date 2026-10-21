@@ -1,9 +1,8 @@
 [
-  "apt",
-  "dasht",
+  "cyan",
   "hive",
+  "klee",
   "opencoarrays",
-  "pake",
-  "rpki-client",
-  "tsung"
+  "sapling",
+  "thors-anvil"
 ]

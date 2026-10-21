@@ -4,7 +4,7 @@ class Coal < Formula
   url "https://github.com/coal-library/coal/releases/download/v3.0.4/coal-3.0.4.tar.gz"
   sha256 "0a9091aa281f51b9513f11aae39758a6188bca63010524f36b3bdc566381ca4a"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   compatibility_version 2
   head "https://github.com/coal-library/coal.git", branch: "devel"
 
@@ -14,13 +14,11 @@ class Coal < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "19d0b2e47ac8b4e1508293a6b7ba5d32981286e7c6e8d0e4f190dcff7ddeb0d5"
-    sha256 cellar: :any, arm64_tahoe:       "495cdffb94bd2ade436176c1bd351c3c4fc78db6ecab39870efa080322253f24"
-    sha256 cellar: :any, arm64_sequoia:     "6b5394dc00cd7799e76ff788967d781bf5df4b9218e3fbb773e2be967eeadce8"
-    sha256 cellar: :any, arm64_sonoma:      "09cb242a343665a4dd26e03bad28d2f2aa5d030b1ec05c713feb52983a252e46"
-    sha256 cellar: :any, sonoma:            "1c2fbb8235fae840e539ed6e5e4f4e408f3429a280869b63a2fe0354323d1b8b"
-    sha256 cellar: :any, arm64_linux:       "02bb279ea8edf73cd667d3d4fecfe038ed5f9418da1d960230e0f9e54ac50f59"
-    sha256 cellar: :any, x86_64_linux:      "c7bb161695df442bfe9bbb3612c3753e9aaf086e160b4da4771d1474149c8a23"
+    sha256 cellar: :any, arm64_golden_gate: "6659ecec2b29e75f6d2e1436231b6cb55b761a0174eee94a885726678016e4c2"
+    sha256 cellar: :any, arm64_tahoe:       "759bf90f11ecd64c433ef03fb5e6b0501f217e096fd6609a86b8882c3a92e64c"
+    sha256 cellar: :any, arm64_sequoia:     "2d12d563732f474726880e9f63a98dd32c458c3be361b331b98cfa19785804e4"
+    sha256 cellar: :any, arm64_linux:       "39f05a3b92125ed78d3649d9d05afa200e83c886f397bcdbdabcff91acb95cc8"
+    sha256 cellar: :any, x86_64_linux:      "dfb9ce4eeb055e2c21991567b6dd68b41b50f1851aedf9dba4dcfd44ca0fcb66"
   end
 
   depends_on "cmake" => :build
@@ -32,7 +30,9 @@ class Coal < Formula
   depends_on "eigen"
   depends_on "eigenpy"
   depends_on "octomap"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
+
+  deny_network_access!
 
   def install
     ENV.prepend_path "PYTHONPATH", formula_opt_prefix("eigenpy")/Language::Python.site_packages(python3)

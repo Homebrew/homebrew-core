@@ -1,14 +1,15 @@
 class Qtwebsockets < Formula
   desc "Provides WebSocket communication compliant with RFC 6455"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtwebsockets-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtwebsockets-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtwebsockets-everywhere-src-6.11.2.tar.xz"
-  sha256 "2bfe25c383c37f7690e3c59b02c9907d2744cf8527b1f3f1fc2c785b2ff3c9a3"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtwebsockets-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtwebsockets-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtwebsockets-everywhere-src-6.12.0.tar.xz"
+  sha256 "21690a365cd5fbfa8dea051473e98968df9f4eca0121fed7481d1215b7455a31"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-3-Clause", # *.cmake
   ]
+  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qtwebsockets.git", branch: "dev"
 
@@ -17,12 +18,11 @@ class Qtwebsockets < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9849b5a964ea069e6f2fa8a11c9b51d3e76897d681455dbd828392424c69fb33"
-    sha256 cellar: :any, arm64_tahoe:       "b109a87ab128dfd4b9512fcf36626f52ff4b02cc6fa3018d13a7a8aa09548718"
-    sha256 cellar: :any, arm64_sequoia:     "fc840142fe3232a844b87536afc44e474db3ebdb5b665e66486c5f84dc374616"
-    sha256 cellar: :any, arm64_sonoma:      "d8d1faf11f0762053cd1b0ec265077a764928ea504392b9179d807e88b8a44b6"
-    sha256 cellar: :any, arm64_linux:       "9e1461d323f2bd9d322fd04f98af2c85cc0d9833b7cfae4d22713518d921748e"
-    sha256 cellar: :any, x86_64_linux:      "959810e91bf034f7a51b1fa43b6a7377b8cba8a1fbdd9bf8dc4f02b41dd972e4"
+    sha256 cellar: :any, arm64_golden_gate: "2265906d1929f3bcd18496faf8e0d65f62b934acde50d2b17d0e994a482cc51d"
+    sha256 cellar: :any, arm64_tahoe:       "f99e1f761af9d09da2a526f46db24c0982a5ff86724736daa7f4a7442e0e8ffd"
+    sha256 cellar: :any, arm64_sequoia:     "dbfc7acfd62a7af4c40630af601ca50809e83a4b360f4eb6433ee05551077bee"
+    sha256 cellar: :any, arm64_linux:       "5f01e04bace9db7289174c8add004c323a9fb6256f5ebf89883df304d3419384"
+    sha256 cellar: :any, x86_64_linux:      "51771eb47a1212a6f1b29080384b8d9ea5e8b5e540a83a199c2e8359680a0800"
   end
 
   depends_on "cmake" => [:build, :test]

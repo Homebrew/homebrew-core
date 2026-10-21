@@ -9,11 +9,11 @@ class Supervisor < Formula
   head "https://github.com/Supervisor/supervisor.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "9230f2d5ca368fe07907e906e02f3ef3aabee153d88e4d068587206a30a19b23"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, all: "d81f535e38854e5c83abc34e9400fd2cbc18119947e38cadd097e23f68a9fe72"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     inreplace buildpath/"supervisor/skel/sample.conf" do |s|

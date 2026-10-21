@@ -13,6 +13,7 @@ class Lilypond < Formula
     "AGPL-3.0-only",
     "LPPL-1.3c",
   ]
+  revision 1
 
   livecheck do
     url "https://lilypond.org/source.html"
@@ -20,13 +21,11 @@ class Lilypond < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "28188bfcf7b6600ca291d5061228d0d235071a9d38dab1d23ab955f1d5728a18"
-    sha256 arm64_tahoe:       "3105d0c645967f0405173d0521d258fb88b6f95d4154547d4b71df72470831d9"
-    sha256 arm64_sequoia:     "1f4389b9f3a425d7c54b6de2b83966bfcc89cbcb9c0e2652361da84ee247d952"
-    sha256 arm64_sonoma:      "607a9d68b9032c97b8a7e3aaf8798002732e00d80f4e86d3fdb2e5049b6beb1f"
-    sha256 sonoma:            "76d49d11c62ee6443fb82e5011ad3939942ba91863aee07cd62759d37a97570b"
-    sha256 arm64_linux:       "fc9bf54f0e144441e031ff5c956ac7fc0e4f454ad4d6648a3a733c6b1ca87169"
-    sha256 x86_64_linux:      "7e8c8a433ddc32619b5b828c37f94400a5a586be4da50cb3f410615cb42ef4b8"
+    sha256 arm64_golden_gate: "2d6b242b5afb5565e67b319a22e05cd97b631302c99ce0afa4566f2d06415495"
+    sha256 arm64_tahoe:       "e9516501362b90f45cb9a4fcf9dda925317257daacccc86de6a1752fe04dc79a"
+    sha256 arm64_sequoia:     "02c983c870f58c9a83fbb56bf97c2187dbea7b93b86a4f05bc73326d50554e03"
+    sha256 arm64_linux:       "97dc4c26299c1fc4af9dbe41687f58a22265e16d79ae3dd642b58930ad61a9f2"
+    sha256 x86_64_linux:      "e9bfa1adfa1bd0b804c87efd6cabdf8f2992ef07e85bfd32c48dcf228c1c5add"
   end
 
   head do
@@ -51,7 +50,7 @@ class Lilypond < Formula
   depends_on "guile"
   depends_on "libpng"
   depends_on "pango"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build

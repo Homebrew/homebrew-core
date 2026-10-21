@@ -34,6 +34,11 @@ class DmtxUtils < Formula
     depends_on "little-cms2"
   end
 
+  resource "homebrew-test_image12", :test do
+    url "https://raw.githubusercontent.com/dmtx/libdmtx/ca9313f/test/rotate_test/images/test_image12.png"
+    sha256 "683777f43ce2747c8a6c7a3d294f64bdbfee600d719aac60a18fcb36f7fc7242"
+  end
+
   # Workaround buffer overflow
   patch do
     url "https://github.com/dmtx/dmtx-utils/commit/f7b97efc3bd6fc2e4403803f46514ae28318743b.patch?full_index=1"
@@ -49,11 +54,6 @@ class DmtxUtils < Formula
   end
 
   test do
-    resource "homebrew-test_image12" do
-      url "https://raw.githubusercontent.com/dmtx/libdmtx/ca9313f/test/rotate_test/images/test_image12.png"
-      sha256 "683777f43ce2747c8a6c7a3d294f64bdbfee600d719aac60a18fcb36f7fc7242"
-    end
-
     testpath.install resource("homebrew-test_image12")
     image = File.read("test_image12.png")
     assert_equal "9411300724000003", pipe_output("#{bin}/dmtxread", image, 0)

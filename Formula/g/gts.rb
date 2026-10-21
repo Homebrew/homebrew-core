@@ -4,15 +4,14 @@ class Gts < Formula
   url "https://downloads.sourceforge.net/project/gts/gts/0.7.6/gts-0.7.6.tar.gz"
   sha256 "059c3e13e3e3b796d775ec9f96abdce8f2b3b5144df8514eda0cc12e13e8b81e"
   license "LGPL-2.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "ea98acbd02ff7364565d0b1f73375b21ecca38648ea53341945a570437e2fca6"
-    sha256 cellar: :any, arm64_tahoe:       "ce2913388e26ca0509df2504cc4db13b6855075d734f0b4757f5b592ccfa01c1"
-    sha256 cellar: :any, arm64_sequoia:     "ec1d22e070fdbc6ddddbb3689f745218f6fd8b0c4ad25706cea9abc10381f76d"
-    sha256 cellar: :any, arm64_linux:       "b943b311e50ceb20188b9e7214b374c6d1064ab9ef31e2722e71c3d675d8fa97"
-    sha256 cellar: :any, x86_64_linux:      "49f026fbc5f1a7dfb651f350fad3f3fedfd72c04f385340b9f713753131fe597"
+    sha256 cellar: :any, arm64_golden_gate: "afea12b155fa2547184e9bd141a4233248a3a450206d12b9a0750176e532f4fc"
+    sha256 cellar: :any, arm64_tahoe:       "a60842b845a7fd3e0ad73585b480df78179191296017ecd10761806968a62c15"
+    sha256 cellar: :any, arm64_sequoia:     "bb888bdb6f17cda6bca9801f286b8038b63f45298dd5b8f9948c8f51900907ec"
+    sha256 cellar: :any, arm64_linux:       "67091279cbbbaec014b36d797679a77090f1f7a76ca17ec560bcd67d3ef81320"
+    sha256 cellar: :any, x86_64_linux:      "e3af7824ad48ccca81064229d4f3062b3fb82173a204f8f8ebe44af3c1a8c9a1"
   end
 
   # We regenerate configure to avoid the `-flat_namespace` flag.

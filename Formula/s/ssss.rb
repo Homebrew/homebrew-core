@@ -31,6 +31,8 @@ class Ssss < Formula
   depends_on "gmp"
   depends_on "xmltoman"
 
+  deny_network_access!
+
   def install
     inreplace "Makefile" do |s|
       # Compile with -DNOMLOCK to avoid warning on every run on macOS.
@@ -44,5 +46,19 @@ class Ssss < Formula
     system "make"
     man1.install "ssss.1"
     bin.install %w[ssss-combine ssss-split]
+  end
+
+  test do
+    shares = pipe_output("#{bin}/ssss-split -t 3 -n 5 -w brew -Q", "Homebrew secret\n", 0).lines
+    assert_equal 5, shares.count
+    shares.each_with_index { |share, i| assert_match(/\Abrew-#{i + 1}-\h+\n\z/, share) }
+
+    secret = pipe_output("#{bin}/ssss-combine -t 3 -Q 2>&1", shares.values_at(0, 2, 4).join, 0)
+    assert_equal "Homebrew secret", secret.strip
+    secret = pipe_output("#{bin}/ssss-combine -t 3 -Q 2>&1", shares.values_at(1, 3, 4).join, 0)
+    assert_equal "Homebrew secret", secret.strip
+
+    output = pipe_output("#{bin}/ssss-combine -t 3 -Q 2>&1", shares.first(2).join, 1)
+    assert_match "I/O error while reading shares", output
   end
 end

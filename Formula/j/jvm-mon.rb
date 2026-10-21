@@ -26,6 +26,12 @@ class JvmMon < Formula
   depends_on "go" => :build
   depends_on "openjdk" => :build
 
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download", "-C", "jvm-mon-go"
+  end
+
   def install
     cd "jvm-mon-go" do
       system "./make-agent.sh"

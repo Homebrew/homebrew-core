@@ -8,11 +8,12 @@ class Weechat < Formula
   head "https://github.com/weechat/weechat.git", branch: "main"
 
   bottle do
-    sha256 arm64_golden_gate: "44c8714f960cd7bb425902245289e1a238c720dc697e662fc0af1a2273a8cf6e"
-    sha256 arm64_tahoe:       "8f1cbbeaac2ec0684a9d2ce2e4b2d1454f34b752cb6e5e09642017b8626062af"
-    sha256 arm64_sequoia:     "eb8d4dc8954a31d90bda1a405603f3ace79f7d63553774739c7a7822fad29baa"
-    sha256 arm64_linux:       "22d323c3ebdac40110cea3e4854d45362f97079e19cbf1520d38fd6a0e52e3b1"
-    sha256 x86_64_linux:      "2f4fa98892f228860de30bcaefa6acd11af7694194f82dc892e5de28601e7802"
+    rebuild 1
+    sha256 arm64_golden_gate: "8b42885facd5d08e4c907a7ff37325c00d183d072dee7383a764cd562889e5d9"
+    sha256 arm64_tahoe:       "56343f6691b8a0b873fcb9751315bf491a849517261e1de2dbd48b6459320d6b"
+    sha256 arm64_sequoia:     "faf8d89114939f25d3e2a33bb327fdcf27c3b016e57f63af58cd839c503dbd13"
+    sha256 arm64_linux:       "2e855675de15581d2486c4b72706ad3885ba39665df692024bb413205451a391"
+    sha256 x86_64_linux:      "dc2ede532b8c72ea5d6cf501be781caf5d5ea470f3ce4887d500df09e47b7c3c"
   end
 
   depends_on "asciidoctor" => :build
@@ -25,7 +26,7 @@ class Weechat < Formula
   depends_on "libgcrypt"
   depends_on "lua"
   depends_on "ncurses"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "ruby"
   depends_on "tcl-tk"
   depends_on "zstd"
@@ -43,7 +44,7 @@ class Weechat < Formula
   end
 
   def install
-    tcltk = Formula["tcl-tk"]
+    tcltk = deps.find { |dep| dep.name.match?(/^tcl-tk(@\d+(\.\d+)*)?$/) }.to_formula
     args = %W[
       -DENABLE_ENCHANT=ON
       -DENABLE_GUILE=OFF

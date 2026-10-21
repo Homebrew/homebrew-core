@@ -36,6 +36,11 @@ class Libopenmpt < Formula
     depends_on "zlib-ng-compat"
   end
 
+  resource "homebrew-mystique.s3m", :test do
+    url "https://api.modarchive.org/downloads.php?moduleid=54144#mystique.s3m"
+    sha256 "e9a3a679e1c513e1d661b3093350ae3e35b065530d6ececc0a96e98d3ffffaf4"
+  end
+
   def install
     system "./configure", "--disable-silent-rules",
                           *std_configure_args
@@ -44,11 +49,6 @@ class Libopenmpt < Formula
   end
 
   test do
-    resource "homebrew-mystique.s3m" do
-      url "https://api.modarchive.org/downloads.php?moduleid=54144#mystique.s3m"
-      sha256 "e9a3a679e1c513e1d661b3093350ae3e35b065530d6ececc0a96e98d3ffffaf4"
-    end
-
     resource("homebrew-mystique.s3m").stage do
       output = shell_output("#{bin}/openmpt123 --probe mystique.s3m")
       assert_match "Success", output

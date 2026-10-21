@@ -39,12 +39,26 @@ class Freealut < Formula
     depends_on "openal-soft"
   end
 
+  deny_network_access!
+
   def install
     system "./autogen.sh"
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"freealut-test.c").write <<~C
+      #include <AL/alut.h>
+      #include <stdio.h>
+      int main() {
+        printf("%d.%d\\n", ALUT_API_MAJOR_VERSION, ALUT_API_MINOR_VERSION);
+        return 0;
+      }
+    C
+    flags = shell_output("#{bin}/freealut-config --libs --cflags").chop
+    system ENV.cc, "freealut-test.c", *flags, "-o", "freealut-test"
+    assert_match version.major_minor.to_s, shell_output("./freealut-test")
   end
 end
 

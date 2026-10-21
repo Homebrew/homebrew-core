@@ -11,6 +11,8 @@ class Deployer < Formula
 
   depends_on "php"
 
+  deny_network_access!
+
   def install
     bin.install "deployer.phar" => "dep"
   end

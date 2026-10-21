@@ -8,18 +8,16 @@ class Keystone < Formula
   head "https://github.com/keystone-engine/keystone.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_golden_gate: "f1faa4fd924a6183a7a080046dc0228e8b8b34375ff7bff8c919e494bfdcd979"
-    sha256 cellar: :any,                 arm64_tahoe:       "792e2f64e52c56b737ffa463eebbc8c69912b6528c0aa6094b1547417bdafb64"
-    sha256 cellar: :any,                 arm64_sequoia:     "0a34a8cc81909cd75cb20bc2573a3a5d1328f4b3ac44e8a814d3da9dff59a7d7"
-    sha256 cellar: :any,                 arm64_sonoma:      "7f16a69f3cafa919b46840c4dff01d6f7220167499c0dcc22c972738a6b3c7fb"
-    sha256 cellar: :any,                 sonoma:            "5777578985ee84ccba4730e20677576c9024ad0a86c0f49546344a232e9413ec"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f78641458d84848c32803626ba0127081539d768e284ccfa262baa48265e4cc8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e4f985a7993b44fba4ca497a76488ce22eaa4ac77de292fccf716c4d5e9acca7"
+    rebuild 2
+    sha256 cellar: :any, arm64_golden_gate: "778ca2c22d2f7f31fe852406e0b843f337dd6339120e00b2ace28cece0ea6c6a"
+    sha256 cellar: :any, arm64_tahoe:       "6fdcb3473e6ef6e69c13deb8493faf16ef5b5fcf78487b1bef9d601ad10c2de9"
+    sha256 cellar: :any, arm64_sequoia:     "93f04ae45bc858856ae22ed8dcffa6cb8c946b24a134458a3f4e983cb076ca42"
+    sha256 cellar: :any, arm64_linux:       "f9d4e84a59e2d4923efccbf64fdc082963917c8e5789c3ee946974d50fdc9278"
+    sha256 cellar: :any, x86_64_linux:      "924a3a69cb37cf2300fac52336f07c48b688bfdea23403bad9703b38797ddc81"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
 
   deny_network_access!
 

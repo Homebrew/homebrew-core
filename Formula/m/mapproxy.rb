@@ -9,11 +9,12 @@ class Mapproxy < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "308545bf63b46e5e0be2b609a575d013744c567e39f496f8f0f42f13f1d71258"
-    sha256 cellar: :any, arm64_tahoe:       "e8de1bc56679f2f04c49087db3ab21599babdc8b1a333f529fb4683c5a05d786"
-    sha256 cellar: :any, arm64_sequoia:     "95eeb05b79389516ac6e61c8030cfb94eef58431fe958af3e4373a936046b429"
-    sha256 cellar: :any, arm64_linux:       "9197b0eb45ee15953901346c773563b93b58421af6395923cc2591057f62ea04"
-    sha256 cellar: :any, x86_64_linux:      "c029dd5ebb77537b8e11d7ff28b7da089942f73503f2a3c17e250063a841b6dc"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "eb3ef20a6229206847d734f61fdf8490b2388ce16e2b86d1f68db835aacd326c"
+    sha256 cellar: :any, arm64_tahoe:       "46a7f963da39548cb72431e1adbf3ba2eb06d935d0a6386bec6ef1a3dfad3a40"
+    sha256 cellar: :any, arm64_sequoia:     "ad1b81466dc6464d31700564e2b1b65a393926dace730519d8952d5ff924273b"
+    sha256 cellar: :any, arm64_linux:       "e8f7012bc68706d7df0ea1de352d114144939952c59786d2eb6ff127e5b9f617"
+    sha256 cellar: :any, x86_64_linux:      "b15515f031cb361e4da26a010dd483002ca08228f5fe1e7fee167433ff1fc596"
   end
 
   depends_on "pkgconf" => :build
@@ -24,7 +25,7 @@ class Mapproxy < Formula
   depends_on "numpy" # for shapely
   depends_on "pillow" => :no_linkage
   depends_on "proj"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
 
   uses_from_macos "libxml2", since: :ventura
@@ -88,8 +89,8 @@ class Mapproxy < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "multiprocess" do
@@ -123,8 +124,8 @@ class Mapproxy < Formula
   end
 
   resource "shapely" do
-    url "https://files.pythonhosted.org/packages/4d/bc/0989043118a27cccb4e906a46b7565ce36ca7b57f5a18b78f4f1b0f72d9d/shapely-2.1.2.tar.gz"
-    sha256 "2ed4ecb28320a433db18a5bf029986aa8afcfd740745e78847e330d5d94922a9"
+    url "https://files.pythonhosted.org/packages/f3/ab/924b6e202f796d270a3041a230151f7908db5ea48c74effe6f8023e9bd05/shapely-2.2.0.tar.gz"
+    sha256 "e8865e553d874a1ec4a032057ea81fca9def37b188cd8fb550af3b3480b3f88c"
   end
 
   resource "six" do

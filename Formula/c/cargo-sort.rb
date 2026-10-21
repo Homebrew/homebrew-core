@@ -19,6 +19,12 @@ class CargoSort < Formula
   depends_on "rust" => :build
   depends_on "rustup" => :test
 
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     # Fix version string, should remove in next release
     inreplace "Cargo.toml", "version = \"2.1.3\"", "version = \"#{version}\""

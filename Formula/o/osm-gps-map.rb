@@ -1,18 +1,16 @@
 class OsmGpsMap < Formula
   desc "GTK+ library to embed OpenStreetMap maps"
   homepage "https://github.com/nzjrs/osm-gps-map"
-  url "https://github.com/nzjrs/osm-gps-map/releases/download/1.2.1/osm-gps-map-1.2.1.tar.gz"
-  sha256 "277d6835220a6a2954e09eb304a8cd6ff49b72542c97c4fc36e53e905f2a747c"
+  url "https://github.com/nzjrs/osm-gps-map/releases/download/1.2.2/osm-gps-map-1.2.2.tar.gz"
+  sha256 "051383588f0fdb60f59047c6559110c35025ea72b6eca700af532c020a6b55ec"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256               arm64_golden_gate: "6041b650bcf21e9d19ba35e376f123cf6f5818827b067276156320b507f0ac24"
-    sha256               arm64_tahoe:       "bdd8de2894986d597f3bd66c3a51c2cab55256b6e5cf16871e3bb1a60ef69428"
-    sha256               arm64_sequoia:     "fd1c1933d296a9cc05ed9bb2a3e3349f0bcb90d493ce35849b3f86bb0051ac46"
-    sha256               arm64_sonoma:      "b4f804b3ecc408958cbd01df994c4c4af8a97e6f5337d7d8f66a23090943256e"
-    sha256               sonoma:            "e5c7bc673363392b5e3f76e4f5ab27711f1d9cd37397e6bd279b95f5176774af"
-    sha256 cellar: :any, arm64_linux:       "7bee7a5fd377ceff39f2f406ca5331d80cc389ced2febea2914b89d813b5b019"
-    sha256 cellar: :any, x86_64_linux:      "a0b65784639acb4e288c00fe6fd6422fb239a42e601f549dfd27d04302fb83dd"
+    sha256               arm64_golden_gate: "9a229e9b70d62a524600d7f89ebda612f222bffabd2340109bd9ba1ed96d4247"
+    sha256               arm64_tahoe:       "175de31db5ba8bd2636c7fa860f6a13050ea71363f9312c339cde398493c5167"
+    sha256               arm64_sequoia:     "a8e0f7a4b7046c6c30afbd7a1931b617be827530341d606ef316309db1ad8181"
+    sha256 cellar: :any, arm64_linux:       "9e3dd4c5d6fb320fa3cd3cac822da56a6e3da0597f939b39e8e43f0fe86de760"
+    sha256 cellar: :any, x86_64_linux:      "04cf9db2cbcd94d6be58587b2fa5b247c3bdedf930f1889fdce6d203454cef0c"
   end
 
   head do

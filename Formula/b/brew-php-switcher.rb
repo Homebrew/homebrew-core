@@ -12,6 +12,8 @@ class BrewPhpSwitcher < Formula
 
   depends_on "php" => :test
 
+  deny_network_access!
+
   def install
     bin.install "phpswitch.sh"
     bin.install_symlink "phpswitch.sh" => "brew-php-switcher"

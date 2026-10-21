@@ -9,26 +9,25 @@ class Hyfetch < Formula
   head "https://github.com/hykilpikonna/hyfetch.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7110238b75388a62ac4594ecd01d081de27423a73a6d6a3bada4715692674f9a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fb8481ea6441a5aa39f369b75088de5544067e0bf34ba06f25f594893359348b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "598322420d08901cfa2eb3ea2da014ea9e82e1f25a59253054514bd0900dec23"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "341fbab3798b23e6d2de5f100e9e8d6e854b29a577b21ca5eca641fb65d43c4d"
-    sha256 cellar: :any_skip_relocation, sonoma:            "9366343c6ab96f6fd4335dfad368b9e997c5265eb0204e99a866683509f8a86e"
-    sha256 cellar: :any,                 arm64_linux:       "da7e929d591c164c8c5addf38b0d6cd3c555343dfe55b59a2e9f895f55e58444"
-    sha256 cellar: :any,                 x86_64_linux:      "f68ee68af3617c677e8667c363e64d5877af8095f2d8f65e256aefa6fdbe426a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f5dfbd1a513b338279e54ad3e7ea03ead8e95c2ef91b59cd2cde5cd834e15bf9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2cb10da0647858066e0b5801b606f2a6d80448503436e1b501c07075f411fee6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "18a328e3f0f9fa1b58c9fe051770dac5ea9a3acfeba9cc3c5488384ba779fa14"
+    sha256 cellar: :any,                 arm64_linux:       "4ac2b1aa69bdb2fcb29bdb5319f8dfe70f00ccf89d39bfe3aaa002ec12598ad7"
+    sha256 cellar: :any,                 x86_64_linux:      "e5846904ce4697618de416eacb96cfbf214b48ed60d6b9f47a1e055835832402"
   end
 
   depends_on "rust" => :build
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/a1/96/06e01a7b38dce6fe1db213e061a4602dd6032a8a97ef6c1a862537732421/prompt_toolkit-3.0.52.tar.gz"
-    sha256 "28cde192929c8e7321de85de1ddbe736f1375148b02f2e17edd840042b1be855"
+    url "https://files.pythonhosted.org/packages/7d/ea/39b988c938f75cb75d7045b5c69f8bfed47ee2152c8837fb403de29d6fb8/prompt_toolkit-3.0.53.tar.gz"
+    sha256 "9ec8a0ad96d5c56148b3f914aa79c1564c3fde5d2e6b876e7bc327e353cf8fa6"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/2c/ee/afaf0f85a9a18fe47a67f1e4422ed6cf1fe642f0ae0a2f81166231303c52/wcwidth-0.7.0.tar.gz"
-    sha256 "90e3a7ea092341c44b99562e75d09e4d5160fe7a3974c6fb842a101a95e7eed0"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

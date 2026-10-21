@@ -9,12 +9,12 @@ class Brpc < Formula
   head "https://github.com/apache/brpc.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "a5ffb1d3daf0d8fb3cb572cc1b0c3104b3a7b5276ac51d6beff35f46d11ada02"
-    sha256 cellar: :any, arm64_tahoe:       "11b1209c74cc8a3d4038a32a203db35afd67352455a4f7ae1e6a610292bbc08c"
-    sha256 cellar: :any, arm64_sequoia:     "f87c76f320709612a87cf76c1ed5884c650b846a19aaa29b5d2bf224f66b0638"
-    sha256               arm64_linux:       "a5e7b2f2c09a03e8281c1f39f4483f676bfa191e03d0b415703eee59f759f1c5"
-    sha256               x86_64_linux:      "16cb87cfe35958809d1fbd428b7ec965335130d443d8b6d3f17e2a95c8af80d9"
+    rebuild 2
+    sha256 cellar: :any, arm64_golden_gate: "674826278d5fd23ec322f14a494ee28884663dc548ace8a2362b1d107cdf9927"
+    sha256 cellar: :any, arm64_tahoe:       "c3ff2d5a555aa3001f0dc4e29c634c3e291e329eef0625c2628a8f3ee670520c"
+    sha256 cellar: :any, arm64_sequoia:     "5430935e44918fafa8b2745d45e64784595da8fb95cd9f7b70b030c09578d626"
+    sha256               arm64_linux:       "0679768c2bdd43169cf7b65463a951496d137d5504a827ec42a469f40bda2bfb"
+    sha256               x86_64_linux:      "d9bd3f04240649cc2c9c8c8ca824190f67616d934b7888ccbd15b6a20e66bb5c"
   end
 
   depends_on "cmake" => :build
@@ -22,8 +22,11 @@ class Brpc < Formula
   depends_on "abseil"
   depends_on "gflags"
   depends_on "leveldb"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf"
+
+  # Apply OpenSSL 4 fix from https://github.com/apache/brpc/pull/3616
+  patch :DATA
 
   allow_network_access! :test
 
@@ -34,7 +37,7 @@ class Brpc < Formula
       -DDOWNLOAD_GTEST=OFF
       -DWITH_DEBUG_SYMBOLS=OFF
       -DCMAKE_POLICY_VERSION_MINIMUM=3.5
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -88,3 +91,22 @@ class Brpc < Formula
     assert_equal "200", shell_output("./test")
   end
 end
+
+__END__
+diff --git a/src/brpc/details/ssl_helper.cpp b/src/brpc/details/ssl_helper.cpp
+index 1673db1d87..25ee4c6a83 100644
+--- a/src/brpc/details/ssl_helper.cpp
++++ b/src/brpc/details/ssl_helper.cpp
+@@ -287,10 +287,10 @@ void ExtractHostnames(X509* x, std::vector<std::string>* hostnames) {
+ #endif // SSL_CTRL_SET_TLSEXT_HOSTNAME 
+ 
+     int i = -1;
+-    X509_NAME* xname = X509_get_subject_name(x);
++    auto* xname = X509_get_subject_name(x);
+     while ((i = X509_NAME_get_index_by_NID(xname, NID_commonName, i)) != -1) {
+         char* str = nullptr;
+-        X509_NAME_ENTRY* entry = X509_NAME_get_entry(xname, i);
++        auto* entry = X509_NAME_get_entry(xname, i);
+         const int len = ASN1_STRING_to_UTF8((unsigned char**)&str, 
+                                             X509_NAME_ENTRY_get_data(entry));
+         if (len >= 0) {

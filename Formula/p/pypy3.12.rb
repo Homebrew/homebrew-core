@@ -1,8 +1,8 @@
 class Pypy312 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy3.12-v8.0.0-src.tar.gz"
-  sha256 "eb406334e413828901034544d0033d67452c3cf2f11f77fd2daae0cd4fbb0a7b"
+  url "https://downloads.python.org/pypy/pypy3.12-v8.0.1-src.tar.gz"
+  sha256 "9d5c82d39d590dc04677f4721738b21d670570cdc9824c003836bafd38556cda"
   license "MIT"
 
   livecheck do
@@ -11,11 +11,11 @@ class Pypy312 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9e8012cff98b27eb6c23cf13d491591d29789f4c8291eba2a613babedd81c85a"
-    sha256 cellar: :any, arm64_tahoe:       "6b5becfadd80286f8f041e56e5c06de9cec9d695c0e236734838280e042b141e"
-    sha256 cellar: :any, arm64_sequoia:     "a3af115730dda79ab7767fa36a15bc25da7db6f1596f96d8fa09ae0ee231efbf"
-    sha256 cellar: :any, arm64_linux:       "80754b0620756cca02468cf119b03455e942c9fa1b7fdc22423650c1c34612a7"
-    sha256 cellar: :any, x86_64_linux:      "f50920558e9d5b855f263f2b1892b7dbe55fc26841b6959bc0ef931227406bf2"
+    sha256 cellar: :any, arm64_golden_gate: "d9237f57b55359f6804a08b409bf70acae12e8369d6d9084f1c8fece1aeaaa7c"
+    sha256 cellar: :any, arm64_tahoe:       "9a931bfc1dc2912a47b402c3f4a1eb10d25063b9f83d484921fccc66967ab122"
+    sha256 cellar: :any, arm64_sequoia:     "f67ac890df35a5318094fd5e3139f0b6b2984b643641b33810c8dc5ba9cfd70e"
+    sha256 cellar: :any, arm64_linux:       "9c697401772061efdc3cfe243be3bfabec35eead137d8e336b9e07a557da364e"
+    sha256 cellar: :any, x86_64_linux:      "7a89560ec708e31ed177303a43244d98c1e8636ca4a6a52491efe6c705cbfd85"
   end
 
   depends_on "pkgconf" => :build

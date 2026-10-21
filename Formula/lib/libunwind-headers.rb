@@ -17,10 +17,27 @@ class LibunwindHeaders < Formula
   deprecate! date: "2026-05-17", because: :unmaintained
   disable! date: "2027-05-17", because: :unmaintained
 
+  deny_network_access!
+
   def install
     cd "libunwind" do
       include.install Dir["include/*"]
       (include/"libunwind").install Dir["src/*.h*"]
     end
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <stdio.h>
+      #include <libunwind.h>
+      #include <mach-o/compact_unwind_encoding.h>
+
+      int main(void) {
+        printf("0x%08x\\n", (unsigned)UNWIND_ARM64_MODE_FRAME);
+        return 0;
+      }
+    C
+    system ENV.cc, "test.c", "-I#{include}", "-o", "test"
+    assert_equal "0x04000000", shell_output("./test").strip
   end
 end

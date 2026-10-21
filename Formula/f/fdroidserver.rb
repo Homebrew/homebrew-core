@@ -9,11 +9,12 @@ class Fdroidserver < Formula
   revision 6
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "35763a634bdb117baa59232f35f034f64b21398878d508b780de87fcad5895ac"
-    sha256 cellar: :any, arm64_tahoe:       "e44db356f6405a931c0fed6426891365616dd4b7521f712b96de2f192dde39e1"
-    sha256 cellar: :any, arm64_sequoia:     "088ddf20247ae6af086243df439137117e082c1b76f7f2942124840044eb3ba9"
-    sha256 cellar: :any, arm64_linux:       "4d569ff6361a35a99b847f205baa58986eba3774987785a5924b61cdcfa0e480"
-    sha256 cellar: :any, x86_64_linux:      "6f0fe50eefede6469209944dff985e9c5fa7f20f38b5ad1f0046858c1f6e4438"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "3411d0702a71d0ae7eba9e1632cf9fe43c6a6925946be7bcf0d0fbe2ee4497c1"
+    sha256 cellar: :any, arm64_tahoe:       "01d9e658875d7cab76b0c6aca979e27d772e1261628104958b31ddec3c4f3889"
+    sha256 cellar: :any, arm64_sequoia:     "17a3d43858889e548cf2152bfe0693a7ecc82e5304d5157c6a69c3efbf9ef59b"
+    sha256 cellar: :any, arm64_linux:       "09666824640465619149c983e421157403a7962ddf49eb1096a05a729885d459"
+    sha256 cellar: :any, x86_64_linux:      "129e64ebca45ab25718e6b366106ff751cb46583540ac2df580cb6da93ff9dc1"
   end
 
   # `pkgconf` and `rust` are for bcrypt
@@ -30,7 +31,7 @@ class Fdroidserver < Formula
   depends_on "libyaml"
   depends_on "numpy"
   depends_on "pillow" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "qhull"
   depends_on "rclone"
   depends_on "s3cmd"
@@ -128,8 +129,8 @@ class Fdroidserver < Formula
   end
 
   resource "executing" do
-    url "https://files.pythonhosted.org/packages/cc/28/c14e053b6762b1044f34a13aab6859bbf40456d37d23aa286ac24cfd9a5d/executing-2.2.1.tar.gz"
-    sha256 "3632cc370565f6648cc328b32435bd120a1e4ebb20c77e3fdde9a13cd1e533c4"
+    url "https://files.pythonhosted.org/packages/52/92/8a611141e42930c0f194f7504063ab87dfe970cf1a5af28e7703df448734/executing-2.3.0.tar.gz"
+    sha256 "15919cb5d667e5cb4e099511971d00d659573fff2dd5c4e6cd8b71636c7858d2"
   end
 
   resource "gitdb" do
@@ -138,8 +139,8 @@ class Fdroidserver < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/e0/db/3ca813cbacb23ab6fe46ff38a9b5ef8e73e970c8051f2ce903aacafe0446/gitpython-3.1.62.tar.gz"
-    sha256 "1791de66309bc0c7cfca40bf8d2e3de7ca091cbf94e6051be1ad0722c61062af"
+    url "https://files.pythonhosted.org/packages/6e/2d/6f6e649818da44d4499604802c89329b8d9799687a124e3a5e467a643336/gitpython-3.2.0.tar.gz"
+    sha256 "fb92310af6844d96adc95ca066ed2e617c00e1dbd146a326626c81e72e18cc2e"
   end
 
   resource "greenlet" do
@@ -193,8 +194,8 @@ class Fdroidserver < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "matplotlib-inline" do
@@ -238,8 +239,8 @@ class Fdroidserver < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/17/c8/721b3855fe457da514fe249247d404b9b39c5d16532278f70ebaa6acf18b/platformdirs-4.12.2.tar.gz"
-    sha256 "eab5f70271a490ef74618bb314fbb86e3c7e82fa3b9c922c2ea0e0a1a155d329"
+    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
+    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
   end
 
   resource "prompt-toolkit" do
@@ -318,8 +319,8 @@ class Fdroidserver < Formula
   end
 
   resource "sqlalchemy" do
-    url "https://files.pythonhosted.org/packages/a8/cb/7c68da82239ffae9378eca076afe14c310e17a4f01e3d315112f266e26c7/sqlalchemy-2.1.1.tar.gz"
-    sha256 "fcf3cbb33bb23bad75d2150157c21804618745731e9931ab27e61879a9f6123b"
+    url "https://files.pythonhosted.org/packages/1f/44/311bac6b6ef81e4dfd0287d04900108b1f5c00c9761dd3c0a2b7b9d0f86b/sqlalchemy-2.1.4.tar.gz"
+    sha256 "7bd7ad604487daa7eab8716471c29a7185f17b5287ce73bb7bc79fea050d8cfd"
   end
 
   resource "stack-data" do
@@ -343,8 +344,8 @@ class Fdroidserver < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/dc/ac/3a943d2792c9bb368aaa8b50121c0f778460ba2d7fbdc0a0366201d9e761/wcwidth-0.9.1.tar.gz"
-    sha256 "5823209b0d43af322ce698c689380d7c15ca31fa8e6e3be8459f27031bef0af5"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   resource "yamllint" do

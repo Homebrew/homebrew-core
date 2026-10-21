@@ -25,7 +25,7 @@ class Goocanvas < Formula
   disable! date: "2027-06-09", because: :repo_archived
 
   depends_on "gobject-introspection" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkgconf" => [:build, :test]
 
   depends_on "at-spi2-core"
   depends_on "cairo"
@@ -44,11 +44,28 @@ class Goocanvas < Formula
     file "Patches/libtool/configure-big_sur.diff"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-gtk-doc-html",
                           "--disable-silent-rules",
                           "--enable-introspection=yes",
                           *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~CPP
+      #include <goocanvas-3.0/goocanvas.h>
+
+      int main(int argc, char *argv[])
+      {
+         return 0;
+      }
+    CPP
+
+    pkg_config_cflags = shell_output("pkg-config --cflags --libs goocanvas-3.0").chomp.split
+    system ENV.cxx, "test.cpp", *pkg_config_cflags, "-o", "test"
+    system "./test"
   end
 end

@@ -22,12 +22,36 @@ class Libmms < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "5bf0654cdf09b4ca5c749e75d8920ff2eddee195e31a468c64bee07f74571b29"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkgconf" => [:build, :test]
   depends_on "glib"
+
+  deny_network_access!
 
   def install
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
     system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <stdio.h>
+      #include <libmms/mms.h>
+
+      static int fake_connect(void *data, const char *host, int port) {
+        printf("%s:%d\\n", host, port);
+        return -1;
+      }
+
+      int main(void) {
+        mms_io_t io = *mms_get_default_io_impl();
+        io.connect = fake_connect;
+        return mms_connect(&io, NULL, "mms://media.example.com/live.asf", 128000) == NULL ? 0 : 1;
+      }
+    C
+
+    pkgconf_flags = shell_output("pkgconf --cflags --libs libmms").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkgconf_flags
+    assert_equal "media.example.com:1755", shell_output("./test").strip
   end
 end

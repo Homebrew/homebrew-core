@@ -3,8 +3,8 @@ class V8 < Formula
   homepage "https://v8.dev/docs"
   # Track V8 version from Chrome stable: https://chromiumdash.appspot.com/releases?platform=Mac
   # Check `brew livecheck --resources v8` for any resource updates
-  url "https://github.com/v8/v8/archive/refs/tags/15.5.35.14.tar.gz"
-  sha256 "1ea88768682a6e0afb638663ebc5671fa28d9b43ce0935bd4aebd4f1d1ecaf65"
+  url "https://github.com/v8/v8/archive/refs/tags/15.6.75.19.tar.gz"
+  sha256 "60c3dfdec757b51a7fab6b6b09bd3a559f40fed3bdeb5be1c6ee273a59517dd8"
   license "BSD-3-Clause"
 
   livecheck do
@@ -24,11 +24,11 @@ class V8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "67266afb7fd9d94b54bc6f4f4b5ef5d3fa328e31022a5da43a5f34474e00f444"
-    sha256 cellar: :any, arm64_tahoe:       "6c6d86942729b2367a070b3746cd6bfaff05cc7360e9470183ef22f65377f10b"
-    sha256 cellar: :any, arm64_sequoia:     "3010afef5dc265b161a38c7a92535afb414b490f0fabe259eea9b0f86ed1bf42"
-    sha256 cellar: :any, arm64_linux:       "4095dd6af91b05f46576094f63d8f47f9bfd7e2457216d08ddfb6f56c9b0e664"
-    sha256 cellar: :any, x86_64_linux:      "1e59ed73064fc17d05ca0ef5de9122c609195d3a99c48c6b18834eb3a6529e59"
+    sha256 cellar: :any, arm64_golden_gate: "e96eeaf5e42570f58c6515b1eff9e152950fd5f7135fd0a5682fa0fc286b0215"
+    sha256 cellar: :any, arm64_tahoe:       "5c83819ae3f9bbf6a3ec02516282d581135a2ce8776b2057fb922574191cd5c1"
+    sha256 cellar: :any, arm64_sequoia:     "a0765114811c95a6b42c51f55e899bf253cc6e112c1f903fedf0751eb4a8a104"
+    sha256 cellar: :any, arm64_linux:       "12a5b96e1be2b05dd899edf78a2d51088e925fa677f59cf328c075f1c0e2150c"
+    sha256 cellar: :any, x86_64_linux:      "1af9d16d9b49f2a2ad98a3b549a92ef0602cf25de90e93254eca8df960be3820"
   end
 
   depends_on "llvm" => :build
@@ -58,8 +58,8 @@ class V8 < Formula
   # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/<version>/DEPS#99
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "a99d46a9d04c770d6bb87387058e1d7b151758ce"
-    version "a99d46a9d04c770d6bb87387058e1d7b151758ce"
+        revision: "127dd2a6d582528d6d61c4d838dc17385ef31abd"
+    version "127dd2a6d582528d6d61c4d838dc17385ef31abd"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -69,8 +69,8 @@ class V8 < Formula
 
   resource "build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "8ca8a372cab9ff143072204053d30fbc2c17bd7a"
-    version "8ca8a372cab9ff143072204053d30fbc2c17bd7a"
+        revision: "bc0661cf80717e97e1b6868396f61f7f94f2d04a"
+    version "bc0661cf80717e97e1b6868396f61f7f94f2d04a"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -80,8 +80,8 @@ class V8 < Formula
 
   resource "buildtools" do
     url "https://chromium.googlesource.com/chromium/src/buildtools.git",
-        revision: "6f6a5dbf04b734214f3b1f386567d101ec9d607e"
-    version "6f6a5dbf04b734214f3b1f386567d101ec9d607e"
+        revision: "c202b4a9dac30e789ed6e3b2354efa94357a56f3"
+    version "c202b4a9dac30e789ed6e3b2354efa94357a56f3"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -91,8 +91,8 @@ class V8 < Formula
 
   resource "third_party/abseil-cpp" do
     url "https://chromium.googlesource.com/chromium/src/third_party/abseil-cpp.git",
-        revision: "435e7d977fb36fb47854a4c552c0706dad0bd7cf"
-    version "435e7d977fb36fb47854a4c552c0706dad0bd7cf"
+        revision: "edf0931ff4e2cddfeecade307ae948b5d09b8b38"
+    version "edf0931ff4e2cddfeecade307ae948b5d09b8b38"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -113,8 +113,8 @@ class V8 < Formula
 
   resource "third_party/fast_float/src" do
     url "https://chromium.googlesource.com/external/github.com/fastfloat/fast_float.git",
-        revision: "34164f547b7df3f5d794ff67e9f885c36819ebfc"
-    version "34164f547b7df3f5d794ff67e9f885c36819ebfc"
+        revision: "b0ab987b3dfdde13fa1915f65ef2a5c068d9208c"
+    version "b0ab987b3dfdde13fa1915f65ef2a5c068d9208c"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -157,8 +157,8 @@ class V8 < Formula
 
   resource "third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "6ebb40c594776cc2c21ea14df85a2a89a328b364"
-    version "6ebb40c594776cc2c21ea14df85a2a89a328b364"
+        revision: "5aa526207171ecadf31597f0980a7b7ad8872f33"
+    version "5aa526207171ecadf31597f0980a7b7ad8872f33"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -179,8 +179,8 @@ class V8 < Formula
 
   resource "third_party/llvm-libc/src" do
     url "https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libc.git",
-        revision: "43a9a99ce4b5a04954090f8a0e74bf2786f59379"
-    version "43a9a99ce4b5a04954090f8a0e74bf2786f59379"
+        revision: "5e61624667bf9e44ea452191dbda0172997018a2"
+    version "5e61624667bf9e44ea452191dbda0172997018a2"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -201,8 +201,8 @@ class V8 < Formula
 
   resource "third_party/partition_alloc" do
     url "https://chromium.googlesource.com/chromium/src/base/allocator/partition_allocator.git",
-        revision: "c029851c21b7e1154fa3964e08c97710adc92cc7"
-    version "c029851c21b7e1154fa3964e08c97710adc92cc7"
+        revision: "a0f30e381c6e132215a0c8d809fd08ff4cdad244"
+    version "a0f30e381c6e132215a0c8d809fd08ff4cdad244"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -223,8 +223,8 @@ class V8 < Formula
 
   resource "third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "285e94b8fa95ad3b7d16b80798ec8dce6febb8c8"
-    version "285e94b8fa95ad3b7d16b80798ec8dce6febb8c8"
+        revision: "13395eebe853e811d274f7bd9b71fb7d9b5a5851"
+    version "13395eebe853e811d274f7bd9b71fb7d9b5a5851"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -234,6 +234,11 @@ class V8 < Formula
 
   def install
     resources.each { |r| r.stage(buildpath/r.name) }
+
+    # `internal_allocator_forward.h` uses `size_t` without <cstddef>, which libstdc++ doesn't provide via <new>.
+    # Remove when partition_alloc includes it.
+    inreplace "third_party/partition_alloc/src/partition_alloc/internal_allocator_forward.h",
+              "#include <new>\n", "#include <cstddef>\n#include <new>\n"
 
     # Build gn from source and add it to the PATH
     cd "gn" do

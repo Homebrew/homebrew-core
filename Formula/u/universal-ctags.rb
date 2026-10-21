@@ -30,14 +30,17 @@ class UniversalCtags < Formula
 
   depends_on "docutils" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.14" => :build
   depends_on "jansson"
   depends_on "libyaml"
   depends_on "pcre2"
 
+  uses_from_macos "python" => :build
+
   uses_from_macos "libxml2"
 
   conflicts_with "ctags", because: "both install `ctags` binaries"
+
+  deny_network_access!
 
   def install
     system "./autogen.sh" if build.head?

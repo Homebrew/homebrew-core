@@ -18,6 +18,12 @@ class DotenvLinter < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "dotenv-cli")
   end
@@ -25,16 +31,16 @@ class DotenvLinter < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/dotenv-linter --version")
 
-    (testpath/".env").write <<~EOS
+    (testpath/".env").write <<~ENV
       FOO=bar
       FOO=bar
       BAR=foo
-    EOS
+    ENV
 
-    (testpath/".env.test").write <<~EOS
+    (testpath/".env.test").write <<~ENV
       1FOO=bar
       _FOO=bar
-    EOS
+    ENV
 
     output = shell_output("#{bin}/dotenv-linter check .env .env.test", 1)
     assert_match(/\.env:2\s+DuplicatedKey/, output)

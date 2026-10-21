@@ -4,14 +4,15 @@ class CargoBundle < Formula
   url "https://github.com/burtonageo/cargo-bundle/archive/refs/tags/v0.12.0.tar.gz"
   sha256 "686592eca1e4d0bac0a29b28825214809d02b6552f2c9fd5e954920632b6016b"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/burtonageo/cargo-bundle.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "68e6280a21a26a14b22854e9e834c816b4a34dc7a807d16a97d5bd2a6cf6846c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b05cdc6709f0c2053045307bbce55d39dede8baf6efac3ade7b544f300b2f8ca"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f23c367224830401e4d76f29a02b3e7181d519adb6b5f714121892a90c9fc863"
-    sha256 cellar: :any,                 arm64_linux:       "4572932552f2452f4a99175f0600dd1bb3d629ba4c011c85e855757972470cb8"
-    sha256 cellar: :any,                 x86_64_linux:      "156e26bb8580554514e0648a507e3db97746815fddc430ea54ade390d9879244"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bd88e7255e722bc01364958afb0af26a55b7ab5022576a8c7ef0c9e5a8bff0a0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e6cd6e199ef1ec95a34aaa6fc0cbbe4883f08481b99fe05ad9be1ab7712aa6f8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "265625df34d3dece4148cee7f08c9d9d1b376e9ae48bfb473305522141e76f5b"
+    sha256 cellar: :any,                 arm64_linux:       "2df287c9e1cf0525c2fe3be957ed789666a2ddc68c9f77fe0ca7b9568945f122"
+    sha256 cellar: :any,                 x86_64_linux:      "99d8cf87f996786235b96e5a4c1761b9bc58c50115da3516227775fbe0620807"
   end
 
   depends_on "pkgconf" => :build
@@ -20,7 +21,15 @@ class CargoBundle < Formula
 
   on_linux do
     depends_on "squashfs" => :test
-    depends_on "openssl@3"
+    depends_on "openssl@4"
+  end
+
+  allow_network_access! :test
+
+  def fetch
+    # `Cargo.lock` file is ignored
+    system "cargo", "generate-lockfile"
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install

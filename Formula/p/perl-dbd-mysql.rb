@@ -3,21 +3,18 @@
 class PerlDbdMysql < Formula
   desc "MySQL driver for the Perl5 Database Interface (DBI)"
   homepage "https://dbi.perl.org/"
-  url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-5.013.tar.gz"
-  sha256 "aeb0a6e1c26fc28a5cf6de1161e0f056ddcbb739f87954dba7cb1c5acb4e1c33"
+  url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-5.014.tar.gz"
+  sha256 "c5fee5207e6a340e59cfa67df211698271f7b4c885f740e52bb5c2c3a10df55c"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
-  revision 2
   compatibility_version 1
   head "https://github.com/perl5-dbi/DBD-mysql.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d7244d397406741743d4c52f7614d276501244021d6509d0b98567fcdca3edc9"
-    sha256 cellar: :any, arm64_tahoe:       "722a4fe1171da879885f2153bbf3a6100070663c002f0b2b0421c9d653294c06"
-    sha256 cellar: :any, arm64_sequoia:     "769dca01680b8dd122820f8c4b26614c621fbf2525ff6732372bfd4a55ae9f14"
-    sha256 cellar: :any, arm64_sonoma:      "e08cef78e2659e0cb1ba664602ab5f89ed8c6ffb4cf228a901561cad028a0f92"
-    sha256 cellar: :any, sonoma:            "04048bde5e19f835d7d5db7f4d95e14f2a6290e25b71495953e3b188d2224a4c"
-    sha256 cellar: :any, arm64_linux:       "1896b31b7903fb882cb84e9a74baa978e38dff5058f1d83f60ec197df7f7ce22"
-    sha256 cellar: :any, x86_64_linux:      "32b7e598696ac82933ebc27bd98d830e12dd045e7c1daef816bc81124b8d2953"
+    sha256 cellar: :any, arm64_golden_gate: "05199c71ae2bc27bbc225029a14f7a93496023fce856841c3e62b979cf97306c"
+    sha256 cellar: :any, arm64_tahoe:       "4e6bf13b65ca2a5f764b27946fb7810c5ef9eef5fdeb97b55e7e5dfb04d31c0b"
+    sha256 cellar: :any, arm64_sequoia:     "48a49b9a8bd7c5870b43539ba2a749f100e4f31c859ce66d432bdb864aca448c"
+    sha256 cellar: :any, arm64_linux:       "c61289c0493e37e82a1ff1e993d9dabdcdb9f8fef05115c70326c6c9e3a5349f"
+    sha256 cellar: :any, x86_64_linux:      "bda812a50fb7a97a1db7d765b2976ca4c8425a751326d28cd04aa2738fb5d2ad"
   end
 
   keg_only <<~EOS

@@ -15,6 +15,8 @@ class Crash < Formula
   deprecate! date: "2026-01-29", because: :unmaintained
   disable! date: "2027-01-29", because: :unmaintained
 
+  depends_on "openjdk"
+
   resource "docs" do
     url "https://search.maven.org/remotecontent?filepath=org/crashub/crash.distrib/1.3.2/crash.distrib-1.3.2-docs.tar.gz"
     sha256 "b3bf1efe50fb640224819f822835e3897c038ab5555049f2279a5b26171178bb"
@@ -24,5 +26,10 @@ class Crash < Formula
     doc.install resource("docs")
     libexec.install Dir["crash/*"]
     bin.install_symlink "#{libexec}/bin/crash.sh"
+  end
+
+  test do
+    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk")
+    assert_match "usage: crash", shell_output("#{bin}/crash.sh -h")
   end
 end

@@ -21,11 +21,17 @@ class Gptsync < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "6cf8612d628a08c143b24697ee37265edea17cfcfaa2bed8fa60be6a2e21356d"
   end
 
+  deny_network_access!
+
   def install
     cd "gptsync" do
       system "make", "-f", "Makefile.unix", "CC=#{ENV.cc}"
       sbin.install "gptsync", "showpart"
       man8.install "gptsync.8"
     end
+  end
+
+  test do
+    assert_match "No such file or directory", shell_output("#{sbin}/gptsync /dev/this-is-not-real 2>&1", 1)
   end
 end

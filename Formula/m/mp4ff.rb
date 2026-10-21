@@ -1,16 +1,16 @@
 class Mp4ff < Formula
   desc "Tools for parsing and manipulating MP4/ISOBMFF files"
   homepage "https://github.com/Eyevinn/mp4ff"
-  url "https://github.com/Eyevinn/mp4ff/archive/refs/tags/v0.57.0.tar.gz"
-  sha256 "642b451f674fde115dc41d249fb9e8f0bbbe10ca8b9099a9cd55cb4cf9601efb"
+  url "https://github.com/Eyevinn/mp4ff/archive/refs/tags/v0.60.0.tar.gz"
+  sha256 "7da1d4f80e6c61d7c3fbe6adea2d29eeecb9cdc7966ebf793db7898d2ce387b8"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "56cca18c08711a1c254470a0368852db4eea81e080296b00f43f4ee1205387c6"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "56cca18c08711a1c254470a0368852db4eea81e080296b00f43f4ee1205387c6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "56cca18c08711a1c254470a0368852db4eea81e080296b00f43f4ee1205387c6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6e26ae898def3894e86c746a6a646cf54e658cca86626b520d6792820e992d37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a0cb6a80d587c8ae381a7b4411c1c78b5fcc80a888986e9f8833f32749e49938"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9b1ea8a8cbcb723898484a0ad1a811a4f75a412d430efe9348d37b244adb736d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9b1ea8a8cbcb723898484a0ad1a811a4f75a412d430efe9348d37b244adb736d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9b1ea8a8cbcb723898484a0ad1a811a4f75a412d430efe9348d37b244adb736d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "da8a16b60b6f013000e33cd6f72d8b1a6cad7a04a339577424720bc3b33cb286"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "bc45c9396e809ce23609303e971e501facafa4ec24b5f5247baf02cd57d8fd63"
   end
 
   depends_on "go" => :build
@@ -22,6 +22,31 @@ class Mp4ff < Formula
     ]
   end
 
+  resource "homebrew-init", :test do
+    url "https://raw.githubusercontent.com/Eyevinn/mp4ff/v0.52.0/mp4/testdata/init.mp4"
+    sha256 "09a99ab8be9a39c80dc41ac6d4c9539b16947aab95abbadec903bfcb7a322221"
+  end
+
+  resource "homebrew-segment", :test do
+    url "https://raw.githubusercontent.com/Eyevinn/mp4ff/v0.52.0/mp4/testdata/1.m4s"
+    sha256 "00dd5f29bc6ba64a9d8540cdbeda7a3e5be0f0ed67475ab307506d7462fc2d98"
+  end
+
+  resource "homebrew-prog", :test do
+    url "https://raw.githubusercontent.com/Eyevinn/mp4ff/v0.52.0/mp4/testdata/prog_8s.mp4"
+    sha256 "86651d2aa80c714440fee3499ac3dd258b75043c4ceb455d70babb7873b16feb"
+  end
+
+  resource "homebrew-subs", :test do
+    url "https://raw.githubusercontent.com/Eyevinn/mp4ff/v0.52.0/cmd/mp4ff-subslister/testdata/multi_vttc.mp4"
+    sha256 "1518ba79c86f28414f9285910f8118e00d3b70aa07c6a48ebb1f80b476b1192a"
+  end
+
+  resource "homebrew-mvhevc", :test do
+    url "https://raw.githubusercontent.com/Eyevinn/mp4ff/v0.53.0/cmd/mp4ff-mvhevc/testdata/stereo_spatial.mp4"
+    sha256 "caa53ab7cf493d5a59d98b0eb8788a6add5faac6b5adcba58e89fd533174f90e"
+  end
+
   allow_network_access! :test
 
   def fetch
@@ -29,37 +54,13 @@ class Mp4ff < Formula
   end
 
   def install
+    ldflags = "-X github.com/Eyevinn/mp4ff/internal.commitVersion=v#{version}"
     tools.each do |tool|
-      system "go", "build", *std_go_args(output: bin/tool), "./cmd/#{tool}"
+      system "go", "build", *std_go_args(ldflags:, output: bin/tool), "./cmd/#{tool}"
     end
   end
 
   test do
-    resource "homebrew-init" do
-      url "https://raw.githubusercontent.com/Eyevinn/mp4ff/v0.52.0/mp4/testdata/init.mp4"
-      sha256 "09a99ab8be9a39c80dc41ac6d4c9539b16947aab95abbadec903bfcb7a322221"
-    end
-
-    resource "homebrew-segment" do
-      url "https://raw.githubusercontent.com/Eyevinn/mp4ff/v0.52.0/mp4/testdata/1.m4s"
-      sha256 "00dd5f29bc6ba64a9d8540cdbeda7a3e5be0f0ed67475ab307506d7462fc2d98"
-    end
-
-    resource "homebrew-prog" do
-      url "https://raw.githubusercontent.com/Eyevinn/mp4ff/v0.52.0/mp4/testdata/prog_8s.mp4"
-      sha256 "86651d2aa80c714440fee3499ac3dd258b75043c4ceb455d70babb7873b16feb"
-    end
-
-    resource "homebrew-subs" do
-      url "https://raw.githubusercontent.com/Eyevinn/mp4ff/v0.52.0/cmd/mp4ff-subslister/testdata/multi_vttc.mp4"
-      sha256 "1518ba79c86f28414f9285910f8118e00d3b70aa07c6a48ebb1f80b476b1192a"
-    end
-
-    resource "homebrew-mvhevc" do
-      url "https://raw.githubusercontent.com/Eyevinn/mp4ff/v0.53.0/cmd/mp4ff-mvhevc/testdata/stereo_spatial.mp4"
-      sha256 "caa53ab7cf493d5a59d98b0eb8788a6add5faac6b5adcba58e89fd533174f90e"
-    end
-
     # Build a combined fragmented MP4 from init segment + media segment
     resource("homebrew-init").stage(testpath/"init")
     resource("homebrew-segment").stage(testpath/"seg")

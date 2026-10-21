@@ -4,7 +4,7 @@ class Gpac < Formula
   url "https://github.com/gpac/gpac/archive/refs/tags/v26.07.0.tar.gz"
   sha256 "57822c1a74dcb83d76ff1f671e1b4fae2e7614e8194a5adb9f20661e0e9421dd"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   compatibility_version 1
   head "https://github.com/gpac/gpac.git", branch: "master"
 
@@ -14,13 +14,11 @@ class Gpac < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ece9aa589f99d5d494db737762881f911b484585724192e4ef79d24c6fdd6321"
-    sha256 cellar: :any, arm64_tahoe:       "e96bcef96cb863772ecc39922b7b5c85a2fa2e31776391547b51120903dae916"
-    sha256 cellar: :any, arm64_sequoia:     "3a8c864c93a3ca709180e85ea9b44bc068e2f4f67fe251f8f70c6d026eb20c19"
-    sha256 cellar: :any, arm64_sonoma:      "6d734eed6998ec195b9c7bd3624c962d267b123a98ec78ba3b87b21cbd449337"
-    sha256               sonoma:            "900b5e077c394eb1bf117fa4657a710a3d04937679cec2906a3b03f27c21da22"
-    sha256 cellar: :any, arm64_linux:       "3cb38c73094fff869812074cc079df8da73fd6d16ebc26318ede069374229848"
-    sha256 cellar: :any, x86_64_linux:      "6988e4e4b5b612961b0834ac9ff7d90d3d742066987a7fd0a166e06816b9ade3"
+    sha256 cellar: :any, arm64_golden_gate: "290a9890df2edb3a4d8ac1b69fea23a6c4741639b8c55df63647a4bc0b8afd34"
+    sha256 cellar: :any, arm64_tahoe:       "7e3b4dcf71025b8175f3b041e4bff0edb21f7645956c61be334335f1bcc9b168"
+    sha256 cellar: :any, arm64_sequoia:     "48d5de9aaec41d4b5a3e03bdbba9b6566a06f2b79050a0d34f91a879106e511e"
+    sha256 cellar: :any, arm64_linux:       "6a7c33391cb9793f6237c5f1599c38dfffee2407c0d02278b926e3cea29aa462"
+    sha256 cellar: :any, x86_64_linux:      "912259a77887539fc39647c402893cc9d3d8816c04cbb63cf210f130a2aeef10"
   end
 
   depends_on "pkgconf" => :build
@@ -33,7 +31,7 @@ class Gpac < Formula
   depends_on "libx11"
   depends_on "libxext"
   depends_on "openjpeg"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "sdl2-compat"
   depends_on "theora"
   depends_on "xz"

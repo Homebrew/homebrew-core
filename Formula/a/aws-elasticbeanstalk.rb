@@ -3,17 +3,16 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/b8/b1/ee48b9e7a0e0c03254d27623f2b82a95f0ba95defe9bc6a6dc334d925501/awsebcli-3.27.3.tar.gz"
-  sha256 "05a153843eb167581d888b878c8628f95f629e5a4615adcb9ff621c254a413c4"
+  url "https://files.pythonhosted.org/packages/9c/22/d5cc7b4dd9b80adc705523fb34f65f435eadf666fd6e5f71bb60ea30891f/awsebcli-3.27.4.tar.gz"
+  sha256 "f3a566a21b716f71b76357770176d52593e2677c8e285d656dfef2eff2227e8f"
   license "Apache-2.0"
-  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3a9abbcb4f2d3db3508ad57638e33c9b7a13e3a4f7d5e625883efa6491935ebd"
-    sha256 cellar: :any, arm64_tahoe:       "0b6507e21bb2965e9e257acb1da4cb02c2729e25a415210edeb9b857ed70c67e"
-    sha256 cellar: :any, arm64_sequoia:     "6279eb67dfebabfc394de57c4d83a47227055bd4eb1d626130ae9330f8343b20"
-    sha256 cellar: :any, arm64_linux:       "ce55aacacb580f6b84daac1512f4a6a4634f4fdaefaa8ff3204be809234500a1"
-    sha256 cellar: :any, x86_64_linux:      "b2360a39a24adbecb6efadba13f7adb32848c512d7100b42704ba2c42af2ef88"
+    sha256 cellar: :any, arm64_golden_gate: "a267272cdd58dc173794a859d6bee80844bf6a585b66376d0cb4b1b5e450d1b2"
+    sha256 cellar: :any, arm64_tahoe:       "7ab90eb1ed12bd38d978c87476b59e1ceb8964dab0816f9c36dfb30ed74b9505"
+    sha256 cellar: :any, arm64_sequoia:     "69955ca0b9e8fea513fd0c21c65555cbb6d137ec27e1d6e624ff620cb97205d0"
+    sha256 cellar: :any, arm64_linux:       "e683992c31b50fa272450528f8ba49892cdebab954693b7a354ce01f4c824193"
+    sha256 cellar: :any, x86_64_linux:      "9ca12f2c7635774cbfcfda8588ba4bb19b1761dcd2de2d5ec79b4ba9c8abe07e"
   end
 
   # `pkgconf` and `rust` are for bcrypt
@@ -23,7 +22,7 @@ class AwsElasticbeanstalk < Formula
   depends_on "cryptography"
   depends_on "libsodium" # for pynacl
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libffi"
 
@@ -40,8 +39,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/2b/30/668f3c0533a440787e212cf56404cb6ec234ae8e6baf97fe17329d512d88/botocore-1.43.105.tar.gz"
-    sha256 "afb3e7706b123ab069d1c34571ca1fdf82528a48425574fe4693df3d039d503f"
+    url "https://files.pythonhosted.org/packages/0e/49/58187bfb510831e4cdafd7ced8e2a748097da81e8b9799d93f8d6ebf9f61/botocore-1.43.112.tar.gz"
+    sha256 "9ce0d70e09fabbb3a2e1126d3ec79ed67d14c88bb3f064e62ab2881d5eaf3c7b"
   end
 
   resource "cement" do

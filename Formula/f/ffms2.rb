@@ -6,7 +6,7 @@ class Ffms2 < Formula
   # The FFMS2 source is licensed under the MIT license, but its binaries
   # are licensed under the GPL because GPL components of FFmpeg are used.
   license "GPL-2.0-or-later"
-  revision 5
+  revision 6
   head "https://github.com/FFMS/ffms2.git", branch: "master"
 
   livecheck do
@@ -15,25 +15,28 @@ class Ffms2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a8f05fc4ddba686e5a5bbae318dfe7faa0e9052302bf738a0965b3da59553981"
-    sha256 cellar: :any, arm64_tahoe:       "fb902e7a5250bf15d0f493636c4fcec52880a72d82d37941cd80dac4a2259ec9"
-    sha256 cellar: :any, arm64_sequoia:     "62a622df2d25b82b159d45dd43e3be53e100179565aabe66b9d2354833a0b1ec"
-    sha256 cellar: :any, arm64_sonoma:      "bc7b8351939b487d569e3ee5d6ade29a4a14de2623b5d1fa95e45dd943e1cb3d"
-    sha256 cellar: :any, sonoma:            "1e093ed87dee6fac05650182192784231139ead764fa7497169ad265f84523ea"
-    sha256 cellar: :any, arm64_linux:       "8c81538df4dc9528d550e10d4b31aefbc354202085d06223340613855e3317aa"
-    sha256 cellar: :any, x86_64_linux:      "5ece14fd0c674c74b7f5936c76c87523d7d82f955a9f20cf8fb9635df4abd882"
+    sha256 cellar: :any, arm64_golden_gate: "390bc343cb9bfb518424e86486b2caaf0795bb8e4b6d9259100244b25f10a280"
+    sha256 cellar: :any, arm64_tahoe:       "e655531ea369437dc0207603d7a40b5d1402350f753f6da925a7aa02377a314b"
+    sha256 cellar: :any, arm64_sequoia:     "b81d18042f0c46ca625e453167aa4e566742e195035a5ead37ecf76b97ab8c2b"
+    sha256 cellar: :any, arm64_linux:       "3ec9e963f78602bd3cecb7bf7e16e9ee6062ed0de1536438515f9ff581cb3863"
+    sha256 cellar: :any, x86_64_linux:      "c5b3e838cdd5c9e9fadb78d7cc96406268071e198deb3c5dc04e471e3356cd37"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "vapoursynth" => :test
   depends_on "ffmpeg"
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  resource "homebrew-videosample", :test do
+    url "https://samples.mplayerhq.hu/V-codecs/lm20.avi"
+    sha256 "a0ab512c66d276fd3932aacdd6073f9734c7e246c8747c48bf5d9dd34ac8b392"
   end
 
   def install
@@ -45,11 +48,6 @@ class Ffms2 < Formula
   end
 
   test do
-    resource "homebrew-videosample" do
-      url "https://samples.mplayerhq.hu/V-codecs/lm20.avi"
-      sha256 "a0ab512c66d276fd3932aacdd6073f9734c7e246c8747c48bf5d9dd34ac8b392"
-    end
-
     # download small sample and check that the index was created
     resource("homebrew-videosample").stage do
       system bin/"ffmsindex", "lm20.avi"

@@ -23,6 +23,8 @@ class Libident < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  deny_network_access!
+
   def install
     # Run autoreconf to regenerate the configure script and update outdated macros.
     # This ensures that the build system is properly configured on both macOS
@@ -35,5 +37,30 @@ class Libident < Formula
 
     system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <unistd.h>
+      #include <ident.h>
+
+      int main(void) {
+        int fds[2];
+        char buf[64] = {0};
+        ident_t *id = calloc(1, sizeof(ident_t));
+
+        if (pipe(fds) != 0) return 1;
+        id->fd = fds[1];
+        if (id_query(id, 6191, 23, NULL) < 0) return 1;
+        if (read(fds[0], buf, sizeof(buf) - 1) <= 0) return 1;
+        printf("%s", buf);
+        return 0;
+      }
+    C
+
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lident", "-o", "test"
+    assert_equal "6191 , 23\r\n", shell_output("./test")
   end
 end

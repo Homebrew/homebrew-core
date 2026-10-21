@@ -1,26 +1,24 @@
 class Edbrowse < Formula
   desc "Command-line editor and web browser"
   homepage "https://edbrowse.org"
-  url "https://github.com/edbrowse/edbrowse/archive/refs/tags/v3.8.18.tar.gz"
-  sha256 "fde2fceceeb08befa23289e76f6e8a22a7ba87b77dca79b165adfb4170a98629"
+  url "https://github.com/edbrowse/edbrowse/archive/refs/tags/v3.8.19.tar.gz"
+  sha256 "8ebfd92b5200e8b2190e104b9ce4edd6e3c38276449716cfc69705bf71c891a3"
   license "GPL-2.0-or-later"
   head "https://github.com/edbrowse/edbrowse.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3d7ced416dc605c3610662c08bf3a4ab246f157a3a4dffd4a66fdd935e509580"
-    sha256 cellar: :any, arm64_tahoe:       "67a34ec5929622304a0a9314e7701edb9ee8149fe00556b05421cdbc91560138"
-    sha256 cellar: :any, arm64_sequoia:     "a71d976e8437fcb66f651b9a3ae887aca434c1c787c041694591bd182a024fc1"
-    sha256 cellar: :any, arm64_sonoma:      "12dd81f869ad85b71af60d247a5b485c8fc4f05fd78d9ce52c6670062b7e7bd6"
-    sha256 cellar: :any, sonoma:            "f77ef43197f3a7f82b26469c4b84abbc632a99b478e7b8d5e90e78856bd6bb0a"
-    sha256 cellar: :any, arm64_linux:       "84613edf13399a3d74a72c478a10a707f7d72ff9a31f42bb5b6202c263874d25"
-    sha256 cellar: :any, x86_64_linux:      "b56c0b498489b3049ece4ae872b3944acf417ef2cf83b999b82d58e42d8bb70c"
+    sha256 cellar: :any, arm64_golden_gate: "eabfa6d7248309229f53a8a741ecfe6e0f17c4e4b0f2755452e611cbb1e1c834"
+    sha256 cellar: :any, arm64_tahoe:       "b7c09aa2a5a9b9571b538c521dbc14fbaaca6345918a91ce028eeb0aef96a32b"
+    sha256 cellar: :any, arm64_sequoia:     "3f944dba1a34bed36269aaeebfdb8c8c4121ebae945bb44d6cd9189efadebb16"
+    sha256 cellar: :any, arm64_linux:       "7ade4310f8c98639c4558c7bf056c0bd9198da3d475abe70519b4707506745bf"
+    sha256 cellar: :any, x86_64_linux:      "3df0d1bedb1a06a4a6be76223cc4206e527e5e68b87384466bb5ee94a359c611"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "quickjs" => :build
   depends_on "curl"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
+  depends_on "quickjs-ng"
   depends_on "readline"
   depends_on "unixodbc"
 
@@ -28,13 +26,13 @@ class Edbrowse < Formula
     # :: is a GNU make operator, but BSD make doesn't support it
     inreplace "src/makefile", "::=", ":="
 
-    ENV.append_to_cflags "-DQ_NG=0"
+    # `malloc_size` is declared in <malloc/malloc.h> on macOS
+    inreplace "src/jseng-quick.c", "#include <malloc.h>", "#include <malloc/malloc.h>" if OS.mac?
 
     cd "src" do
       make_args = [
-        "QUICKJS_INCLUDE=#{formula_opt_include("quickjs")}/quickjs",
-        "QUICKJS_LIB=#{formula_opt_lib("quickjs")}/quickjs",
-        "QUICKJS_LIB_NAME=quickjs",
+        "QUICKJS_INCLUDE=#{formula_opt_include("quickjs-ng")}",
+        "QUICKJS_LIB=#{formula_opt_lib("quickjs-ng")}",
       ]
 
       system "make", *make_args

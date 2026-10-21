@@ -30,6 +30,12 @@ class Crfsuite < Formula
 
   conflicts_with "freeling", because: "both install `crfsuite` binaries"
 
+  # The original CoNLL-2000 host (cnts.ua.ac.be) is gone; NLTK redistributes the same corpus
+  resource "homebrew-conll2000-training-data", :test do
+    url "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/conll2000.zip"
+    sha256 "01e65164f268366e7caa0db92332a1955d081908c87016e2c7640c3c5279b7cd"
+  end
+
   # Fix autoconf failure.
   patch do
     url "https://github.com/chokkan/crfsuite/commit/a6a4a38ccc4738deb0e90fc9ff2c11868922aa11.patch?full_index=1"
@@ -50,12 +56,6 @@ class Crfsuite < Formula
   end
 
   test do
-    # The original CoNLL-2000 host (cnts.ua.ac.be) is gone; NLTK redistributes the same corpus
-    resource "homebrew-conll2000-training-data" do
-      url "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/conll2000.zip"
-      sha256 "01e65164f268366e7caa0db92332a1955d081908c87016e2c7640c3c5279b7cd"
-    end
-
     resource("homebrew-conll2000-training-data").stage testpath
 
     # Use spawn instead of {shell,pipe}_output to directly read and write

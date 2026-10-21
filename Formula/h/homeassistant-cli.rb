@@ -10,15 +10,16 @@ class HomeassistantCli < Formula
   head "https://github.com/home-assistant-ecosystem/home-assistant-cli.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a4f44d97c0269ce0ac91da88fc0adbbb21666e1a5ea1e139ab070315f0c2cda7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b83b626d85ef45cafb4ba3958f7bbd8fc48c0f637aad8ffdca9b9365789ece7f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "090a38c674bf3e129b0e62b4739072110e7334cd3dc18eb1a03e8480be566133"
-    sha256 cellar: :any,                 arm64_linux:       "7261390e34b5fd1cd7f0e04e626a40b5abfec1c0ac613c12f8ec6a202cbc43a0"
-    sha256 cellar: :any,                 x86_64_linux:      "a2f24bfa5a126cbb497e83efc856db1efcf278054307c5436c47a93ba041a400"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7c156e097c9db7364aedc25e38ce2d23d9b49f74c2f57a2eed6c11c6d8e98966"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3f9c88b710fa9970121b270fb4a1c063fd667fbf795ce77b5dbcd558be109f69"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "faeca16c327b84420b463186e2b03ab76512dfd15ab2846c5fcb1720d23b92ee"
+    sha256 cellar: :any,                 arm64_linux:       "5cec055e88728b2c72d7e7188c5c2f7d570495a628f2574e0e2bcaae9f289a30"
+    sha256 cellar: :any,                 x86_64_linux:      "da0ac69c0d80049a8b4b444dc39aab50f70ec78be894726ebe6817642d0bd2be"
   end
 
   depends_on "certifi" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 
@@ -28,8 +29,8 @@ class HomeassistantCli < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz"
-    sha256 "9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc"
+    url "https://files.pythonhosted.org/packages/93/2f/6a91adaa2dc26877d6ed2f54c0370c8910f019db7d77c5c6a194611e93ea/aiohttp-3.14.4.tar.gz"
+    sha256 "831fc5bd39ec2517851e348f613ddb5447a47cf4b71cb09845af7ad7ed45d8f9"
   end
 
   resource "aiosignal" do
@@ -83,13 +84,13 @@ class HomeassistantCli < Formula
   end
 
   resource "jsonpath-ng" do
-    url "https://files.pythonhosted.org/packages/32/58/250751940d75c8019659e15482d548a4aa3b6ce122c515102a4bfdac50e3/jsonpath_ng-1.8.0.tar.gz"
-    sha256 "54252968134b5e549ea5b872f1df1168bd7defe1a52fed5a358c194e1943ddc3"
+    url "https://files.pythonhosted.org/packages/95/5f/29d3b755e3d0fd5572315435c0d0473891c60b53df5f92edf1785a9c8729/jsonpath_ng-1.10.0.tar.gz"
+    sha256 "e5fd041a757778dd5b75375a5d92237589cfd3b681c154654c3998ea37a09e64"
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "multidict" do
@@ -118,8 +119,8 @@ class HomeassistantCli < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/b0/ed/fa23d28713004418bbf2407127f80f385bfb0bf4e677bef02c25c27b00ee/pytz-2026.4.tar.gz"
-    sha256 "464303645bafafd72418898368b2429458f709cf1eb6a15372fbcc396b64da63"
+    url "https://files.pythonhosted.org/packages/14/21/d83d6ef28c4c912c4bb4d1dcf591f7b8c6bde87b9c66f9f454677314e16d/pytz-2026.5.tar.gz"
+    sha256 "fa23724b9c486543b9ff54a327ee7569ac83ade54bb9afd0fc18676620401c86"
   end
 
   resource "regex" do

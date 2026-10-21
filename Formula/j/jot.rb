@@ -24,6 +24,12 @@ class Jot < Formula
 
   conflicts_with "json-table", because: "both install `jt` binaries"
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end

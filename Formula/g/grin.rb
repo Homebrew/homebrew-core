@@ -1,24 +1,28 @@
 class Grin < Formula
   desc "Minimal implementation of the Mimblewimble protocol"
   homepage "https://grin.mw/"
-  url "https://github.com/mimblewimble/grin/archive/refs/tags/v5.5.1.tar.gz"
-  sha256 "841a698986ff05768c6d7cdf2e59d44571533522fbcffdab0a0de01c8de1d4a3"
+  url "https://github.com/mimblewimble/grin/archive/refs/tags/v5.5.2.tar.gz"
+  sha256 "df68a9496db18f6f1e6e286a95ecdc5f3d25de38affe9872c650b4b004c1e2d3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c773339ceb71b6d4a9d759fa9601a2844f80e022916505abe0897168702c62bb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1f19fdcf9f187549dd49da11a12cf7dce574f6b5d89e9d3c50c35bfc8ecf5621"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "087eb7a38ce5d960588c7c0f5e417141e7ff8764208790affeb663b1fade6fe6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "0665dd3c9d4846b9156a4129ece161d40611e78cac9da5a23ba17790c56dd8ed"
-    sha256 cellar: :any_skip_relocation, sonoma:            "c396b818b315c432e5aa96af427e29c37afc090b6f36c0ced3dd56acab8bb4e1"
-    sha256 cellar: :any,                 arm64_linux:       "a1bfe1f7d0060adee98297ad8b0c621f451feefad909fb630b4a1c60968d89e0"
-    sha256 cellar: :any,                 x86_64_linux:      "0f9912baebe58e3fd17887cffcc4e7737641ad4eced6920b42ca82fc9b838969"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4ad750e572786954155600d9390fa677c28a0bd9636e950d27088b95da650782"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3a743286e3d8034b3b49180fd7a0247f1a1dbef51d0f5d84403eebf9a9772e6f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d3fda40993933e667d0f21ae8aa5646abac06d4e40a017be8a0d17ece10509c4"
+    sha256 cellar: :any,                 arm64_linux:       "a9d67bcf72f432f61a07636111ce825406bdf69b0935dcb332b5ccc39aaca7f4"
+    sha256 cellar: :any,                 x86_64_linux:      "a07b23cbec09bf482fc32eb253dc81105a268426451449527d06694016c0b5c5"
   end
 
   depends_on "rust" => :build
 
   uses_from_macos "llvm" => :build # for libclang
   uses_from_macos "ncurses"
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

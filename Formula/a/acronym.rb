@@ -9,19 +9,19 @@ class Acronym < Formula
   revision 5
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ca54f6d143055d6562c7225431c169b80964dbff83f370bfb12e642aa9fdc52d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "67ceec788b30221c97af9122e483361b50bc489ca5186f116b80f994af07b52a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1e8e7fae4f33b048eb99598a114bac2e06be5f4a48da5517620dfe041c284215"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "1574b1b3736f8d5c785dc7b79c2d68052a5272ca48ca872c8043760ace869e1c"
-    sha256 cellar: :any,                 arm64_linux:       "c126a4ec1454bb29e7ec32469ce730eca812d3eb2576356a75322257db8c5a65"
-    sha256 cellar: :any,                 x86_64_linux:      "ed818ec3e73bad52271ac423eddbf8cb783c4deb9ba68e6e9e207d583a1471cb"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "aa8d2432b490e61773e2e932e14f10e87ae3ad54e502c8e1ec3299cca58b5c34"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7f484eec17610c529b4ca5b3282f3a62776e982267c15092c759b52855ec254a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "68df424bee636c5ce23c2d70216c17798325d75bb581bdbb8f7a95c09e64c5f1"
+    sha256 cellar: :any,                 arm64_linux:       "90b5a19a7c4783dc374318effc3e892d799a692b15a64ec407a88ab76f4e1cf2"
+    sha256 cellar: :any,                 x86_64_linux:      "8622db05b1c58b290bbad3c925bfe21693a8121fbdb55a0f1c80bcf504da8e4f"
   end
 
   depends_on "cmake" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "numpy"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_linux do
     depends_on "patchelf" => :build
@@ -34,14 +34,27 @@ class Acronym < Formula
     sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
+  resource "cloudpickle" do
+    url "https://files.pythonhosted.org/packages/27/fb/576f067976d320f5f0114a8d9fa1215425441bb35627b1993e5afd8111e5/cloudpickle-3.1.2.tar.gz"
+    sha256 "7fda9eb655c9c230dab534f1983763de5835249750e85fbcef43aaa30a9a2414"
+
+    # TODO: Remove when cloudpickle releases the Flit 4 metadata fix
+    patch do
+      url "https://github.com/cloudpipe/cloudpickle/commit/465ac44aa0c85c81fa21324a8c698ad86be38d18.patch?full_index=1"
+      sha256 "35f578d5709b32811fe7cdceec6e9df2ddc90578f39e29de8df54bfe323f25f6"
+      type :backport
+      resolves "https://github.com/cloudpipe/cloudpickle/pull/598"
+    end
+  end
+
   resource "defusedxml" do
     url "https://files.pythonhosted.org/packages/0f/d5/c66da9b79e5bdb124974bfe172b4daf3c984ebd9c2a06e2b8a4dc7331c72/defusedxml-0.7.1.tar.gz"
     sha256 "1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"
   end
 
   resource "joblib" do
-    url "https://files.pythonhosted.org/packages/41/f2/d34e8b3a08a9cc79a50b2208a93dce981fe615b64d5a4d4abee421d898df/joblib-1.5.3.tar.gz"
-    sha256 "8561a3269e6801106863fd0d6d84bb737be9e7631e33aaed3fb9ce5953688da3"
+    url "https://files.pythonhosted.org/packages/d5/1d/537ab090f302b838943a1b56497dd53059b9a9b46a074936470173a2e207/joblib-1.6.0.tar.gz"
+    sha256 "2ccc96785b12046c08fd6d55839c12857831b54a3c1673ffadd2f04bfc4eda03"
   end
 
   resource "nltk" do
@@ -50,8 +63,8 @@ class Acronym < Formula
   end
 
   resource "pandas" do
-    url "https://files.pythonhosted.org/packages/be/4f/5f3422a2afec5ffc46308b79e53291365a93748b498ac2e58bead0197916/pandas-3.0.5.tar.gz"
-    sha256 "dca3734d6ab7c906e6730f0788b0a1dbb9f2467731f9711f77995c8e9d62d712"
+    url "https://files.pythonhosted.org/packages/e2/17/d7b106e05bfa642e8694451e7d3d759c6a241c5386a5d962e4f66c047e06/pandas-3.0.6.tar.gz"
+    sha256 "66b07ef7315a31bfe1089cd3d71a7de781c9dca986762d0b4fe7c0ef17465d10"
   end
 
   resource "python-dateutil" do
@@ -60,8 +73,8 @@ class Acronym < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/20/98/04b13f1ddfb63158025291c02e03eb42fbb7acb51d091d541050eb4e35e8/regex-2026.7.19.tar.gz"
-    sha256 "7e77b324909c1617cbb4c668677e2c6ae13f44d7c1de0d4f15f2e3c10f3315b5"
+    url "https://files.pythonhosted.org/packages/fc/f2/af1da9d3ceed77bfcdce40427d49ba0be94e4fe84245e3bfef68c10e75b6/regex-2026.9.29.tar.gz"
+    sha256 "8b5fcc4771732191b2b7d1dd68d8f0353f47f8d90b6150f6dce58bf1112442cb"
   end
 
   resource "six" do
@@ -70,8 +83,8 @@ class Acronym < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/21/3b/6c24bec5be5e743ffd99576daa5cc077722fc7d5bbc00bd133fa0c698dc6/tqdm-4.70.0.tar.gz"
-    sha256 "55b0b0dbd97462d06ebee91e4dac24ed4d4702be82b24f07e6c1d27e08cea220"
+    url "https://files.pythonhosted.org/packages/0d/ea/b2a5bd54b28a324dae8211928b2d730b6547500342c7e6c6dea08bd0a485/tqdm-4.70.1.tar.gz"
+    sha256 "cefd0eca11b2a37a3aee776544d4f4ae913f02688135b5556b8788dfa474afc4"
   end
 
   # Although the virtualenv_install_with_resources uses the package resources listed above,

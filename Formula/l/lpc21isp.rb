@@ -24,8 +24,24 @@ class Lpc21isp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "9b431e013e9df59ee8888f46bc8b972285c7f4c7d559c7441162179d7d920f66"
   end
 
+  deny_network_access!
+
   def install
     system "make"
     bin.install ["lpc21isp"]
+  end
+
+  test do
+    (testpath/"test.hex").write <<~EOS
+      :0400000001020304F2
+      :00000001FF
+    EOS
+
+    # Converts the Intel hex file (dumped to debugout.bin at debug level 4),
+    # then fails to open the non-existent serial port
+    output = shell_output("#{bin}/lpc21isp -debug4 -hex test.hex #{testpath}/nonexistent 115200 12000 2>&1", 2)
+    assert_match "Image size : 4", output
+    assert_match "Can't open COM-Port #{testpath}/nonexistent !", output
+    assert_equal "\x01\x02\x03\x04".b, (testpath/"debugout.bin").binread
   end
 end

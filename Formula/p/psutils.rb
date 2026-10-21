@@ -10,11 +10,12 @@ class Psutils < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "fc8d4c41d6a6b8a9a2a6a63948f65447e74b96752fbf6b2d3413d0f5c87ecaaa"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "48f20385c4acf0c0b01eabab89edd2a2477d9e4fbe5b1867f5d6a1b7331964bb"
   end
 
   depends_on "libpaper"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "puremagic" do
     url "https://files.pythonhosted.org/packages/24/74/ce5987ab9b8aec4ced06e2723ebb604205c9eb58abdad91453da93166380/puremagic-2.2.0.tar.gz"
@@ -22,8 +23,13 @@ class Psutils < Formula
   end
 
   resource "pypdf" do
-    url "https://files.pythonhosted.org/packages/1f/ac/63d71aaedb59acbcdef491e6ca6469165e3771c9c74358204818fd9bc5a6/pypdf-6.19.0.tar.gz"
-    sha256 "bbc43aca292369ccc6cbc8a921991ecf2538a3587ab5a116eff06c321d647155"
+    url "https://files.pythonhosted.org/packages/e2/c1/da25a099164cf4b210d63b957c902ad687139f4b8c12c20aec7953a4a266/pypdf-6.20.1.tar.gz"
+    sha256 "28f5a9d2fdc2749264612d94e6a58de54c11d730d9f0cabf8ad34117c4942b45"
+  end
+
+  resource "homebrew-test-ps", :test do
+    url "https://raw.githubusercontent.com/rrthomas/psutils/e00061c21e114d80fbd5073a4509164f3799cc24/tests/test-files/psbook/3/expected.ps"
+    sha256 "bf3f1b708c3e6a70d0f28af55b3b511d2528b98c2a1537674439565cecf0aed6"
   end
 
   def install
@@ -31,10 +37,6 @@ class Psutils < Formula
   end
 
   test do
-    resource "homebrew-test-ps" do
-      url "https://raw.githubusercontent.com/rrthomas/psutils/e00061c21e114d80fbd5073a4509164f3799cc24/tests/test-files/psbook/3/expected.ps"
-      sha256 "bf3f1b708c3e6a70d0f28af55b3b511d2528b98c2a1537674439565cecf0aed6"
-    end
     resource("homebrew-test-ps").stage testpath
 
     expected_psbook_output = "[4] [1] [2] [3] \nWrote 4 pages\n"

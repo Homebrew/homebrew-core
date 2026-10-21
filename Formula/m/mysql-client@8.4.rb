@@ -3,8 +3,8 @@ class MysqlClientAT84 < Formula
   # FIXME: Actual homepage fails audit due to Homebrew's user-agent
   # homepage "https://dev.mysql.com/doc/refman/8.4/en/"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.11.tar.gz"
-  sha256 "eb3051164d625dd346a8203f76e0d5d5d9aec51dbe9d51788e39ec6b3f1394c2"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.13.tar.gz"
+  sha256 "f6ddc7f7fb6462bab8b533b13c06af3fff57fa9ca12259b81ab13cd9930b9d58"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -12,13 +12,11 @@ class MysqlClientAT84 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "b30c998c2de1e9ef2ab576e5cc42a5bffa603eecbe5ce6179d09e524ca429c20"
-    sha256 arm64_tahoe:       "58e87b93a602e9279aab64c7f2116648ac982c5b487010ce4478a3d9c0aa912f"
-    sha256 arm64_sequoia:     "f969c6eb507a37019a3933b637986e58f17a4b9b011ca04da35e4c83c301e6c3"
-    sha256 arm64_sonoma:      "1f5bcd6236d8eabb2635593986d6735baadbfcb0f4821b489c7ce72d6214624f"
-    sha256 sonoma:            "32e2a9e69a77bd3826dfb1a790f2bd300b9239d1e25549166a6d15d1171ce825"
-    sha256 arm64_linux:       "2b4833fc601c6f814f21ef95d2df92cc6a67b77bbd5066b98e785bbc6f7e8a42"
-    sha256 x86_64_linux:      "348a14347341d83c2753ed0ad6a517f2802bcf2b23b4d4f4b9b542fe1cacc858"
+    sha256 arm64_golden_gate: "7cb27042e6fc126013b57085198136ce3dfb2ee26c640dfae39af50b7207cfe7"
+    sha256 arm64_tahoe:       "db10c9ae57f4a0a5bd2f666d1e37ff6540223e9cee9d4957130b12e8137372f5"
+    sha256 arm64_sequoia:     "023fd7a7d72b3b66b6540f1d5e23d78c1031188c51f24b676b801c1e0715b0e2"
+    sha256 arm64_linux:       "12aba51d84bc112bb7f0d06680693cc3871c44611c1e7e2bc3a4d75534a13095"
+    sha256 x86_64_linux:      "80058b45726f5a730407882de0b1e0253036e5e4dc25b7bac0b940bc798a16a5"
   end
 
   keg_only :versioned_formula
@@ -28,7 +26,7 @@ class MysqlClientAT84 < Formula
   depends_on "pkgconf" => :build
   depends_on "libevent"
   depends_on "libfido2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "zlib-ng-compat" # Zlib 1.2.13+
   depends_on "zstd"
 
@@ -36,6 +34,13 @@ class MysqlClientAT84 < Formula
 
   on_linux do
     depends_on "libtirpc" => :build
+  end
+
+  # Apply Debian's patch to fix build with OpenSSL 4
+  patch do
+    url "https://salsa.debian.org/mariadb-team/mysql/-/raw/ac6576612c0afddccebf939fccedacc3b97db567/debian/patches/support-openssl4.patch"
+    sha256 "fd0eb6d47ce5aaef43e58240d9884d04b1ee30fd3c57395b405d9400ae136a02"
+    type :unofficial
   end
 
   def install

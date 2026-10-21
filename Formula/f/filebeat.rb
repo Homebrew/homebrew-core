@@ -2,23 +2,29 @@ class Filebeat < Formula
   desc "File harvester to ship log files to Elasticsearch or Logstash"
   homepage "https://www.elastic.co/products/beats/filebeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v9.5.4",
-      revision: "ccdfcad1de773e22e494089f508162c52b027ee2"
+      tag:      "v9.5.5",
+      revision: "b80bf8464fba72f582cefed91dd72909eb7116db"
   # Outside of the "x-pack" folder, source code in a given file is licensed
   # under the Apache License Version 2.0
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "abc3bfdca48bb8f9c2a505db7aa8397db3452fd09cb8384241104fd8d4ee4507"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "58e481f0246b41da63f6011d179813f85b21675ca624773cff6f3721da0e1461"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "456e164efc7f0375cf5cc918186784b6838f00d6487f9a44767f66b6d31c27ea"
-    sha256 cellar: :any,                 arm64_linux:       "d62eaa48ba208d8284b806019fd8223f26243b429c86a0853f00ccf219da4eac"
-    sha256 cellar: :any,                 x86_64_linux:      "c53185d2b89864d12363a8aabf1b576b64018ee1bfc9be5812395091e8b881fe"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9c3ee777f0bf0d4df9eb474f88fdda2e36111972fc922ebddbb13aadb113e5b9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "60f4cf4c2c378933f7462f3ef1f92be9e095db1fa81943d9c1fdc8e0a6b49435"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dbec80d03b04c61906b4025d407969170dd4f9549d8280e1736a3616c604b265"
+    sha256 cellar: :any,                 arm64_linux:       "2d7a66dcb25aa2fd4090eb4394ba4834fa01479f2375cdef1e7f375ec3e3a29e"
+    sha256 cellar: :any,                 x86_64_linux:      "7d29d33841de95f9b6b81c291117baff53059de5aa589d5e410f0e561f2ad215"
   end
 
   depends_on "go" => :build
   depends_on "mage" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?

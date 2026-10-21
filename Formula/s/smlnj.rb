@@ -1,8 +1,8 @@
 class Smlnj < Formula
   desc "Compiler and programming system for Standard ML"
   homepage "https://www.smlnj.org/"
-  url "https://smlnj.org/dist/working/2026.2/smlnj-arm64-unix-2026.2.tgz"
-  sha256 "504119bc2cf8fab6f469e33126cdc16769777584822e89ff7e9866c06021cda4"
+  url "https://smlnj.org/dist/working/2026.3/smlnj-arm64-unix-2026.3.tgz"
+  sha256 "7d5826317a8be3a0b347cf4001d5354b9dfdc319f80c26e2c21f265de55154e1"
   license "BSD-3-Clause"
   head "https://github.com/smlnj/smlnj.git", branch: "main"
 
@@ -12,18 +12,17 @@ class Smlnj < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "5990c67b27af5edc4bef782b90f2d9ac65c73fbcc2796621c44b18b52b15d990"
-    sha256 arm64_tahoe:       "4ce9d4e7428d7a198fc2e708bcc0c01972d9579e8543a0def9476f233c458044"
-    sha256 arm64_sequoia:     "3d2763be5e5de582ae81b527c88379721716afa4976468e033719fe5e59bc06b"
-    sha256 arm64_sonoma:      "2f5f5684decbd6fe333f95ce3cc6af83b21568be3c946b390d5138eaef5a9ace"
-    sha256 sonoma:            "0962303312f1db8c0d989aeb87a7111a9a16180f07917c26cf738e42361520e9"
-    sha256 arm64_linux:       "6c711d11aef31e1e65599a49a757d5d1a2eff056e00eba644e56728a997bd8f7"
-    sha256 x86_64_linux:      "540523a0a48f9826b00e874bf0ef7f7c3261c66b7e1fb8ee06b5d37fc8e197ed"
+    sha256 arm64_golden_gate: "89eeed55fbcacbab4b4e9f5e9140c5001aeeca353fafddddccfd783f229e3686"
+    sha256 arm64_tahoe:       "90c2bca668f52f10f627b96bb805ac09d53448e03f499bb57cdf87dd3a40d91b"
+    sha256 arm64_sequoia:     "f7e037738fad6b2bf09053dcb28dc99f4ad2dcb578145bbf86f80f675a912cd4"
+    sha256 arm64_linux:       "cadcb21ed23ded7ec71da376635193b0cf217bf6bc53f4baaefda80b72a6a8e5"
+    sha256 x86_64_linux:      "1f042684d922d5e44b14eb2199a785041c7a7d289ab67e08d9b3cdb3340d60f5"
   end
 
   depends_on "autoconf" => :build
   depends_on "cmake" => :build
-  depends_on "python@3.14" => :build
+
+  uses_from_macos "python" => :build
 
   on_linux do
     depends_on "zlib-ng-compat"
@@ -38,14 +37,6 @@ class Smlnj < Formula
       url "https://smlnj.org/dist/working/2026.2/boot.amd64-unix.tgz", using: :nounzip
       sha256 "ba0d81bac93a6987aa10687ddb7646f1cdf1c350a399cb76171bfb2b8e1c8ceb"
     end
-  end
-
-  # Make `build.sh` script more portable
-  patch do
-    url "https://github.com/smlnj/smlnj/commit/a50972b5a16baf6bd3b41d48c577b28b7d406d9d.patch?full_index=1"
-    sha256 "157101e2b57857ef69b261e8fd092b6eaacec06b4bdfcabdb14789af6ff9ddb3"
-    type :unofficial
-    resolves "https://github.com/smlnj/smlnj/pull/361"
   end
 
   def install
@@ -66,7 +57,7 @@ class Smlnj < Formula
   end
 
   test do
-    hello_sml = <<~EOF
+    hello_sml = <<~SML
       val () = print "Hello, Homebrew!\n";
       val _ = (
         CM.make "$/smlnj-lib.cm";
@@ -81,7 +72,7 @@ class Smlnj < Formula
         CM.make "$/uuid-lib.cm";
         CM.make "$/xml-lib.cm"
       ) handle _ => OS.Process.exit OS.Process.failure
-    EOF
+    SML
     output = pipe_output(bin/"sml", hello_sml, 0)
     banner = Regexp.new("Standard ML of New Jersey [[Version #{version}, 64-bit; .*]]")
     assert_match banner, output

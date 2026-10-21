@@ -6,15 +6,15 @@ class Gupnp < Formula
   url "https://download.gnome.org/sources/gupnp/1.6/gupnp-1.6.10.tar.xz"
   sha256 "a1ee07b7b12673c32d7fc73ca158a50c1a4dc69ab35b65e94d24d38ac875345e"
   license "LGPL-2.0-or-later"
+  head "https://gitlab.gnome.org/GNOME/gupnp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "442008a658a9d8b5fdcc3058cca7e1713f7adec99dcebd1ef84163b0e8ad890c"
-    sha256 cellar: :any, arm64_tahoe:       "963a27df0b3674a9026cfd232c24a87a71e1b40abe4c07d138d2e9a0b76566e6"
-    sha256 cellar: :any, arm64_sequoia:     "8b1c8656f2c44d74920c0171b3265d3cee54ce4b55a7c59958913cb368f94e1c"
-    sha256 cellar: :any, arm64_sonoma:      "3dd3ca5c60dbe71428763577f808d12a39bba5d36af383209faae693be8d3db6"
-    sha256 cellar: :any, sonoma:            "5374607b88156b67bef8545b21d0fb29694cbd15988bb611be45862c7a15edb6"
-    sha256               arm64_linux:       "a8b37e494619d0d92c7fcd5a4e4d41291d5c84dc10c29b02ccdf66760de990c4"
-    sha256               x86_64_linux:      "acacf04f20e9ceea26eb0e95f58f6ba76f6a744b12c5ad49e05d944df1f3a252"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "95b1f52125f9094faca42206523eb85114295ce0c1a74e15291b4bb159087788"
+    sha256 cellar: :any, arm64_tahoe:       "35ab6ff76a2f81c5b3f0ebc819cd473c8975f928f33f264f11e453badcfe3d2b"
+    sha256 cellar: :any, arm64_sequoia:     "1e0ced1c92b924a60930a47c747e3231e0880a2e06b274ea8b5459415b939cb9"
+    sha256 cellar: :any, arm64_linux:       "b9404dd858f2f35a4fb8769756cdcb8a0e27cc18e8e99e27bd3f9dc0ad3cbf45"
+    sha256 cellar: :any, x86_64_linux:      "904031b26e94822c708e65dd1b60850eeeae459009a7a582fd691e1171deb556"
   end
 
   depends_on "docbook-xsl" => :build
@@ -27,7 +27,8 @@ class Gupnp < Formula
   depends_on "gssdp"
   depends_on "libsoup"
   depends_on "libxml2"
-  depends_on "python@3.14"
+
+  uses_from_macos "python"
 
   def install
     ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
@@ -36,7 +37,7 @@ class Gupnp < Formula
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
-    rewrite_shebang detected_python_shebang, *bin.children
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), *bin.children
   end
 
   test do

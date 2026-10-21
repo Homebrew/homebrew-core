@@ -11,13 +11,12 @@ class Vsd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d1294c0fb3c39903b69b5a65439ed892e62abe342d9772eed4aef4a41ab24da3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2824d1545037a038493c3ea5dc2ef33d168793e55c256ad165e5ace9892f34ec"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8f420d304a245d8d8ec270f04f7071eea800f65661bf1e905b8fd67da1c7c25e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "cac2b1c8306daf6220a6ef4e1791d1d9308cf18cce7eb308151f9809181ae4de"
-    sha256 cellar: :any_skip_relocation, sonoma:            "26e2ab4d646c354ca91cd73e8012eefb3fa5032ac80e2f3aae9fc1de8b5fa64b"
-    sha256 cellar: :any,                 arm64_linux:       "e881b922206a2cb5a53ac4cd339618f4fe989357032e7aa634e05cc2d9dfd150"
-    sha256 cellar: :any,                 x86_64_linux:      "9cf551ab8f7248233379b7bd4245de341380deb146e780d207c579b8c0271517"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82282a8a17513fd8dd7de2cca44ef495c051d5ad10ca06974175b49fadf7977c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "71fc506abfabffb5b25a1441bccec05b942cd736ff268e79dc68bbcd2d0a4717"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bc6bde619cb080f8df0a85eaf7c1be6c7b8bbc44a5d5c318dfc1f7e30c6f7959"
+    sha256 cellar: :any,                 arm64_linux:       "6f680b091539c063342f794ded64c17bffd726d9819e18036365cf25b02fc615"
+    sha256 cellar: :any,                 x86_64_linux:      "66f0d6658d754d2805eb2f6abf1f217a6553fe9f994e5ff743bf9984c87237fc"
   end
 
   depends_on "pkgconf" => :build
@@ -26,15 +25,16 @@ class Vsd < Formula
   depends_on "ffmpeg"
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4") if OS.linux?
 
-    inreplace "vsd/Cargo.toml", ", path = \"../vsd-mp4\"", ""
+    # Replace rustls + aws-lc with our preferred native TLS backend
+    features = %w[capture license native-tls]
 
-    system "cargo", "install", *std_cargo_args(path: "vsd")
+    system "cargo", "install", "--no-default-features", *std_cargo_args(path: "vsd", features:)
   end
 
   test do

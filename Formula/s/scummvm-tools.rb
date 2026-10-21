@@ -4,7 +4,7 @@ class ScummvmTools < Formula
   url "https://downloads.scummvm.org/frs/scummvm-tools/2.9.0/scummvm-tools-2.9.0.tar.xz"
   sha256 "1b4bbd7a7ccf4584bfc2c0142b7c1b4e5db97c39d8d214757c72d50e0905b71d"
   license "GPL-3.0-or-later"
-  revision 9
+  revision 10
   head "https://github.com/scummvm/scummvm-tools.git", branch: "master"
 
   livecheck do
@@ -13,13 +13,11 @@ class ScummvmTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d63de7de04eb0ff96af312ead561629282e761f93e181af652d5b10bbc73178d"
-    sha256 cellar: :any, arm64_tahoe:       "50d8ffe794a9964152bdea3d644cdb767ce3079188e19f0de9a3b1c24421c6e4"
-    sha256 cellar: :any, arm64_sequoia:     "e853d26598617e90007df486edca6e605807d7f6907521824e4511ed12a6c9e4"
-    sha256 cellar: :any, arm64_sonoma:      "4a639a517509d37e91bda0648e602e1d84a5b3fd0a617d1a1779cf419ac96866"
-    sha256 cellar: :any, sonoma:            "b798c2ab29611357294932f855b796752fdaa35e38e1a6022e302ab55e0c994b"
-    sha256 cellar: :any, arm64_linux:       "b91848b334c016d83a1448a91222a77771684eaa41aa6c085739009d3b8f1ad7"
-    sha256 cellar: :any, x86_64_linux:      "1c1103f04abccbaad16ae1b72bb2460fa4594ca5fc1400d123026ff3959d35b5"
+    sha256 cellar: :any, arm64_golden_gate: "1699f9a8cbae6e15eb968ddad4b5aaef03c628e874cb9319a02ffc00927000fd"
+    sha256 cellar: :any, arm64_tahoe:       "2ffbac47c4b6adf158cf29db99049282d27c0d0b0f0e0cdae0d4e77d8e23b78b"
+    sha256 cellar: :any, arm64_sequoia:     "35a0ed05dca00400f6f3d03c06446a784cb402ad7df1cf793432e88ddb00a7b6"
+    sha256 cellar: :any, arm64_linux:       "68561ff7e5f31c435c0de03b2162b40a33a89855ee62b2a9a572e35961f30d6e"
+    sha256 cellar: :any, x86_64_linux:      "ee4e7a1237dce8f62599d7638b7e096aa37a987280c24970b31083e6f0de48d5"
   end
 
   depends_on "boost"

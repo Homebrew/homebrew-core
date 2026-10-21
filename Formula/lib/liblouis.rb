@@ -6,12 +6,12 @@ class Liblouis < Formula
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 arm64_golden_gate: "3f976411273e42c02eef532475d052516139cd4b35a4a3f07ec61cc4c167a804"
-    sha256 arm64_tahoe:       "b99fbc2a714f4bf4ae6134c435b32c97fdea1627b05d5082ac4f9d6dbbb59f34"
-    sha256 arm64_sequoia:     "da450da46bcdb7204c6e676040ce131693b0b3be5511d7a3d32e0a276b81e24d"
-    sha256 arm64_sonoma:      "61b92d0ffac7be262e53a384cb860dea7b9a74e6694d58f840a70d4675fa57f7"
-    sha256 arm64_linux:       "33b61832c6af5ddd32ebc59c0fba8d8dc9fce9cf6908e4640aa258820af4f11c"
-    sha256 x86_64_linux:      "7585b2fa29646e82af2a0e3b2e31e52aefab31f74b7ff333c508c5a47e32de74"
+    rebuild 1
+    sha256 arm64_golden_gate: "60cadae9a7434f9cb7887560efd19cb44a70b8157aed040dcb813d811ce8386f"
+    sha256 arm64_tahoe:       "56e4f4d314661bce75bc35213f0d3ec49e0f30ba998a604f64d74217b7a3b002"
+    sha256 arm64_sequoia:     "f6ae9d39f4433af8607ebdda1456d64c0a0bd9927ba5a3640fff8792531748d3"
+    sha256 arm64_linux:       "57e4b7d9ae8c310fee99a4527f5abc874ee4e2b57b9ceed9af449332c8abbabb"
+    sha256 x86_64_linux:      "582a2367509a834b7fd6dffb9394e3183b5e09638bdba54b218cc39f26eed0f0"
   end
 
   head do
@@ -24,7 +24,7 @@ class Liblouis < Formula
 
   depends_on "help2man" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "m4"
 

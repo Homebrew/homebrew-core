@@ -42,6 +42,16 @@ class Ipopt < Formula
     end
   end
 
+  resource "test", :test do
+    url "https://github.com/coin-or/Ipopt/archive/refs/tags/releases/3.14.19.tar.gz"
+    sha256 "b3eb84a23812b53a3325bcd2c599de2b0f5df45a18ed251f9e3c1cd893136287"
+  end
+
+  resource "miniampl", :test do
+    url "https://github.com/dpo/miniampl/archive/refs/tags/v1.0.tar.gz"
+    sha256 "b836dbf1208426f4bd93d6d79d632c6f5619054279ac33453825e036a915c675"
+  end
+
   def install
     ENV.delete("MPICC")
     ENV.delete("MPICXX")
@@ -83,16 +93,6 @@ class Ipopt < Formula
   end
 
   test do
-    resource "test" do
-      url "https://github.com/coin-or/Ipopt/archive/refs/tags/releases/3.14.19.tar.gz"
-      sha256 "b3eb84a23812b53a3325bcd2c599de2b0f5df45a18ed251f9e3c1cd893136287"
-    end
-
-    resource "miniampl" do
-      url "https://github.com/dpo/miniampl/archive/refs/tags/v1.0.tar.gz"
-      sha256 "b836dbf1208426f4bd93d6d79d632c6f5619054279ac33453825e036a915c675"
-    end
-
     testpath.install resource("test")
     pkgconf_flags = shell_output("pkgconf --cflags --libs ipopt").chomp.split
     system ENV.cxx, "examples/hs071_cpp/hs071_main.cpp", "examples/hs071_cpp/hs071_nlp.cpp", *pkgconf_flags

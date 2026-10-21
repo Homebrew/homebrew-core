@@ -1,11 +1,11 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/md5sums.txt"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/md5sums.txt"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/md5sums.txt"
-  version "6.11.2"
-  sha256 "1034acf85131b4c8b11469ce5e23db2e6adaa8b74a7f92a5eb9b933eb65e8071"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/md5sums.txt"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/md5sums.txt"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/md5sums.txt"
+  version "6.12.0"
+  sha256 "f82126a39b6e93da4f986f846addfe21082fd4a314bbcec69d5cf64b86cb348e"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",
@@ -19,12 +19,11 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b4c3064f727ba2ec3e26567ce5beed34fa267f29f1e0ae242b34f6dc10841207"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9c67b4739b66e20a5274b3fadad59efcb37dd808680daccad96d3bdf893c699c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9c67b4739b66e20a5274b3fadad59efcb37dd808680daccad96d3bdf893c699c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "9c67b4739b66e20a5274b3fadad59efcb37dd808680daccad96d3bdf893c699c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "04e3a2e7b0bc9c1803b2475feb6a795d952bd47e6ab33c4b1315a2a1e3d3d1ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "04e3a2e7b0bc9c1803b2475feb6a795d952bd47e6ab33c4b1315a2a1e3d3d1ff"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "32c736a49554d0234b032551143cf6506c19daf242700fa2cffeb08c62676b27"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "32c736a49554d0234b032551143cf6506c19daf242700fa2cffeb08c62676b27"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "32c736a49554d0234b032551143cf6506c19daf242700fa2cffeb08c62676b27"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "635ef5bcad6384a353edea78f7dc0419faaabbbcc616099de466bb911d5a500a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "635ef5bcad6384a353edea78f7dc0419faaabbbcc616099de466bb911d5a500a"
   end
 
   depends_on "cmake" => :test
@@ -91,13 +90,14 @@ class Qt < Formula
     # Check for any new formulae that need to be created before bottling
     if build.bottle?
       submodules = File.read("md5sums.txt").scan(/^\h+[ \t]+(\S+)-everywhere-src-/i).flatten.to_set
-      submodules -= ["qtwebengine", "qtwebview"] unless webengine_supported?
+      submodules.delete("qtwebview") unless webengine_supported?
       submodules.delete("qtwayland") unless OS.linux?
       submodules.delete("qtactiveqt") # Windows-only
       submodules.delete("qtdoc") # skip HTML documentation
       submodules.delete("qtopenapi") # TODO: add in follow up PR
 
       dep_names = deps.reject(&:test?).to_set(&:name)
+      dep_names.delete("qtwebengine")
       missing = submodules - dep_names
       odie "Possible new #{Utils.pluralize("formula", missing.count)}: #{missing.join(", ")}" unless missing.empty?
       extras = dep_names - submodules

@@ -1,28 +1,20 @@
 class Monolith < Formula
   desc "CLI tool for saving complete web pages as a single HTML file"
   homepage "https://github.com/Y2Z/monolith"
-  url "https://github.com/Y2Z/monolith/archive/refs/tags/v2.10.1.tar.gz"
-  sha256 "1afafc94ba693597f591206938e998fcf2c78fd6695e7dfd8c19e91061f7b44a"
+  url "https://github.com/Y2Z/monolith/archive/refs/tags/v2.11.6.tar.gz"
+  sha256 "19390d1032cd2e10a7a589228fd035ab60b07f093a46e8a2bce4fa1c08f5e66b"
   license "CC0-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cff07006220221af8ecbe8cf5e48073bfba476d508e37ab03f4f0dba04814970"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1d1266667cffd60fc5ce4ba4e8c08ae6b776f4bd58be50b920c51f658dd4c42a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92826aa3a7f4ca6eac24d7c1b1aee3fd75b3502338cf8c284c99613364d373e6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "44f84b6ccacd950b953340af3a7b46d743626fb44eac00ea27eee1fc1a87afa6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "628d8282e77e55dddf76981418a0f92d6aa96cd01ee7adf0b2874eb8288d7f8f"
-    sha256 cellar: :any_skip_relocation, sonoma:            "81364ea28028bc6a147edbd0c0613db6baef11078f14555330e438a0e2159e5d"
-    sha256 cellar: :any_skip_relocation, ventura:           "e2168d625c8330f2462e1f8c6da8c97db0aa2e42443c6045b194fdd9b885722e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e2915bebfb7b5a0a116d1922987969e9be94236917e54c7389a5ee964a20198f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "66d1a5ae8947717fad4f322fa95c6fe603ea543a07a8188eaab279cf0ea01a56"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0819ad1e672c482fe9ef81de79f2d1ad9f1f9973e62ea747cd9d3fb9704294a7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a3768fd17b26e95d71cc3961d5da0971ef8e2125f4579ab2e38fd1c60ae70ce7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "194326564fc5b4152a0b87954011e5ac73aac156ac642b3809b3058d351ca495"
+    sha256 cellar: :any,                 arm64_linux:       "3932df1c9d4d5824c36526f41b55879a865ba07ddd29ac26b4d748a81a9d77b9"
+    sha256 cellar: :any,                 x86_64_linux:      "e0801235acaa8fcaa49e95dc7c37f1cca36e96ca5d67fc539ac8c62a087f7286"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-
-  on_linux do
-    depends_on "openssl@3"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args

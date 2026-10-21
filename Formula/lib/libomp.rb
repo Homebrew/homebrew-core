@@ -1,8 +1,8 @@
 class Libomp < Formula
   desc "LLVM's OpenMP runtime library"
   homepage "https://openmp.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.2/llvm-project-23.1.2.src.tar.xz"
-  sha256 "c98bbef08a2b4c2613cd50e9aa9ae7b69b1fe6c16b2c40373bc0ab6116fdf78a"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.4/llvm-project-23.1.4.src.tar.xz"
+  sha256 "819ecf7351f1a66f76b2d701d8942faaf5faeb324cb90c9d5b090de142434bb2"
   license "MIT"
   compatibility_version 1
 
@@ -12,11 +12,11 @@ class Libomp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a7fe7cbfed34baed94715bb7b390c692ac0830e64bea10303e9be7cc0511ee07"
-    sha256 cellar: :any, arm64_tahoe:       "059d00d8198dc31dc33a04cef52c558afeb97138364f202c76c09231e4d30927"
-    sha256 cellar: :any, arm64_sequoia:     "a90f9ec48553a39f420c26600239df24b4c1cd30202d93a53128854afb6ff9fb"
-    sha256 cellar: :any, arm64_linux:       "8e5df650500b5c1e37325abf851e8ce2c600e559adacd109dc3fcff015d877fa"
-    sha256 cellar: :any, x86_64_linux:      "a3401910bf4cbbfd93b98011f16a0770097ed7a08448cb04cfe693db1b19c49d"
+    sha256 cellar: :any, arm64_golden_gate: "7e3d719497e11daf61f37762846e6d9b76b1d51377eb1115fb30b43fe21aee45"
+    sha256 cellar: :any, arm64_tahoe:       "b8060c0ffebc3393ea26e0b9e0b94bcc34ad1667e967aa2d60532759e54e250d"
+    sha256 cellar: :any, arm64_sequoia:     "af8425bbe39630ec9b2022b67449ac737e0ed6d48e98a6309f841295d3c6f0f2"
+    sha256 cellar: :any, arm64_linux:       "661bdd4532bcbf9d9c664bb57d9f34296c37712eaafd18121987f1192983a2e3"
+    sha256 cellar: :any, x86_64_linux:      "c52517b79b4c07ff3457d039886109f85404f3f623646ddb874307899a204f29"
   end
 
   # Ref: https://github.com/Homebrew/homebrew-core/issues/112107
@@ -26,7 +26,7 @@ class Libomp < Formula
   uses_from_macos "llvm" => :build
 
   on_linux do
-    depends_on "python@3.14"
+    depends_on "python@3.15"
   end
 
   deny_network_access!

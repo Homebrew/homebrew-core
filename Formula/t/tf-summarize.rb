@@ -18,6 +18,11 @@ class TfSummarize < Formula
 
   depends_on "go" => :build
 
+  resource "tfplan.json", :test do
+    url "https://raw.githubusercontent.com/dineshba/tf-summarize/c447ded989b8e84b52d993e0b0e30139b5fb5818/example/tfplan.json"
+    sha256 "ceca61c72c77b4400d4170e58abc0cafd3ad1d42d622fe8a5b06cdfba3273131"
+  end
+
   allow_network_access! :test
 
   def fetch
@@ -29,11 +34,6 @@ class TfSummarize < Formula
   end
 
   test do
-    resource "tfplan.json" do
-      url "https://raw.githubusercontent.com/dineshba/tf-summarize/c447ded989b8e84b52d993e0b0e30139b5fb5818/example/tfplan.json"
-      sha256 "ceca61c72c77b4400d4170e58abc0cafd3ad1d42d622fe8a5b06cdfba3273131"
-    end
-
     assert_match version.to_s, shell_output("#{bin}/tf-summarize -v")
 
     testpath.install resource("tfplan.json")

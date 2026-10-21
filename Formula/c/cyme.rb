@@ -18,6 +18,12 @@ class Cyme < Formula
 
   on_linux do
     depends_on "umockdev" => :test
+
+    # Mock USB devices using example from umockdev
+    resource "usbkbd.umockdev", :test do
+      url "https://raw.githubusercontent.com/martinpitt/umockdev/1b58d24fb78e8297f2b0e96abb99fcbee7f37784/devices/input/usbkbd.umockdev"
+      sha256 "cc7d5b277531630dbe7d93a74d24ff13f7740c5f96f6933b3ba8d1db54e25b7a"
+    end
   end
 
   def install
@@ -33,11 +39,6 @@ class Cyme < Formula
     assert_includes output, "buses"
 
     if OS.linux?
-      # Mock USB devices using example from umockdev
-      resource "usbkbd.umockdev" do
-        url "https://raw.githubusercontent.com/martinpitt/umockdev/1b58d24fb78e8297f2b0e96abb99fcbee7f37784/devices/input/usbkbd.umockdev"
-        sha256 "cc7d5b277531630dbe7d93a74d24ff13f7740c5f96f6933b3ba8d1db54e25b7a"
-      end
       resource("usbkbd.umockdev").stage(testpath)
 
       umockdev_run = "#{formula_opt_bin("umockdev")}/umockdev-run --device usbkbd.umockdev"

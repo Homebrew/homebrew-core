@@ -18,6 +18,12 @@ class Pastel < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath/"completions"
 

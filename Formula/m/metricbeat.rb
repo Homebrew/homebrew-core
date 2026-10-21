@@ -2,21 +2,27 @@ class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/beats/metricbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v9.5.4",
-      revision: "ccdfcad1de773e22e494089f508162c52b027ee2"
+      tag:      "v9.5.5",
+      revision: "b80bf8464fba72f582cefed91dd72909eb7116db"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "97c01ae7e01cdd4677cc887ce9a3117816d56c78c61a674df2a9c71924afce05"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "58707a7a8a6e7d03d5fa1d1ad0b8f8854518d6864ee6bc3d121ba4c53ae9132f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c6295e944f76f84c68c5fd92ea1eafa81cd365a989370b5676a4f57676d8bff4"
-    sha256 cellar: :any,                 arm64_linux:       "9276aaf0f5a1c91dfef2b85e49fb3423b9a159c2359808a694759effa21ca60c"
-    sha256 cellar: :any,                 x86_64_linux:      "578625cb7dcd16ca2e7a8f5cd4ee9540dcbfc9702b2917e25a3aef632e8e3da4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fe51483546ff678d021b1b3acff053365a3f81039286d444f3a6edddd91378ba"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "663d8065d00d7af5cb3518a32f39c7bb069721136d1c821cf4007b3d7b54f1fb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "53ad39f94ba65a6e4a947a720f3500ff8d8bfb720e61681ee9201003cefd1a14"
+    sha256 cellar: :any,                 arm64_linux:       "a96e94262d867f2db27ec6d5922d21a26bdb20a733c908e02eff5673b79d0556"
+    sha256 cellar: :any,                 x86_64_linux:      "6df9ce1d70d74d1a4ecb204e27b22555f33a23be93fb5e79d78c985730f13c93"
   end
 
   depends_on "go" => :build
   depends_on "mage" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?

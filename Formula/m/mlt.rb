@@ -1,21 +1,17 @@
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
-  url "https://github.com/mltframework/mlt/releases/download/v7.40.0/mlt-7.40.0.tar.gz"
-  sha256 "f11c30e21670f62a3dfc56a31306ac02f3feea00908a2821a4a0bf3e989d3d6a"
+  url "https://github.com/mltframework/mlt/releases/download/v7.42.0/mlt-7.42.0.tar.gz"
+  sha256 "8800e343f43aaa885bd5d9d23553030fa220aa3e2f0c94d9fd6a936d41638cdd"
   license "LGPL-2.1-only"
-  revision 2
   head "https://github.com/mltframework/mlt.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "e43eb12da915a5817d8572f70c8c6e2d61636478967fcbd5f25f6059c74ecea6"
-    sha256 arm64_tahoe:       "da7b97a9f64c6d6106cbd82ae611ba51bdc5ee072031f19dac6dfe8fb16d6f74"
-    sha256 arm64_sequoia:     "35b0784f25599dac56ec438093aa3876617104c3bdbdd44c3e55aadbf84a18c4"
-    sha256 arm64_sonoma:      "2fb1066b94087ba9369d64710c1c014bf8f0bf38b345dfa109c27d3a0fb3b6a7"
-    sha256 sonoma:            "b40e167e1035ef9157794e90a7ffbf54aabf4e16d047bc6ff94724e859ffac22"
-    sha256 arm64_linux:       "1a3f61c4bd14c1af14057de48edd773ad7becb055da316d0bafecc0991e0602d"
-    sha256 x86_64_linux:      "8aaa1d6afd45f7259db3a639870c0b7eaade242227f96e418d55f0c65de69ebb"
+    sha256 arm64_golden_gate: "a6ea73abbd41e37949bec755e903419f980c564489184671f09adf87c95ce3d3"
+    sha256 arm64_tahoe:       "0c00321c3a3386c36fc2261b06ba58feee58d19cc48ccdaab4c86ef74df2063b"
+    sha256 arm64_sequoia:     "7bd54eca36d6e54488df31bef435dfd8a46b221921db3472eaee91e7d459311b"
+    sha256 arm64_linux:       "f08671f700480ca084a9add436469eb1ff02905ec631ec8a213e559c720c812b"
+    sha256 x86_64_linux:      "bb934f133afc4027b691ab2ff856b2c756009bb98e95dab99d0069d898fdf729"
   end
 
   depends_on "cmake" => :build
@@ -55,13 +51,7 @@ class Mlt < Formula
     depends_on "pulseaudio"
   end
 
-  # Fix builds with FFmpeg 9. Remove with the next release.
-  patch do
-    url "https://github.com/mltframework/mlt/commit/68bceba12a3c3278ce69033c3e7dadaa13d45811.patch?full_index=1"
-    sha256 "a2e7acbb2c3b585a36ae5fcddada634220c8bb30ebb75922958b5b7b30d49f96"
-    type :backport
-    resolves "https://github.com/mltframework/mlt/pull/1281"
-  end
+  deny_network_access!
 
   def install
     rpaths = [rpath, rpath(source: lib/"mlt")]
@@ -88,6 +78,10 @@ class Mlt < Formula
   end
 
   test do
-    assert_match "help", shell_output("#{bin}/melt -help")
+    system bin/"melt", "-profile", "atsc_720p_25", "color:red", "out=4",
+           "-consumer", "avformat:output.mkv", "vcodec=ffv1", "an=1"
+    output = shell_output("#{formula_opt_bin("ffmpeg")}/ffprobe -v error -select_streams v:0 " \
+                          "-show_entries stream=codec_name,width,height -of csv=p=0 output.mkv")
+    assert_equal "ffv1,1280,720", output.strip
   end
 end

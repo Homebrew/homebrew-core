@@ -3,27 +3,32 @@ class MistralVibe < Formula
 
   desc "Minimal CLI coding agent"
   homepage "https://github.com/mistralai/mistral-vibe"
-  url "https://files.pythonhosted.org/packages/8d/aa/958dcc0bb2260d40c844283ebb90c95eca5ed54ec9cefcfbaab450f17d7c/mistral_vibe-2.25.0.tar.gz"
-  sha256 "1d51d99904fc7dd82bbd0f06d76b14a47f4b54d045029a3c701b4fec2e92862c"
+  url "https://files.pythonhosted.org/packages/36/a3/ab0ebab5586cdd56094d43b9dc1e3edb58f26aa6e9688da5d2a3ce04aa39/mistral_vibe-2.26.1.tar.gz"
+  sha256 "e92402b2a1705c66463cad9d1f33d549ea2d8fc1bb608ec228c7acaf49ef4332"
   license "Apache-2.0"
   head "https://github.com/mistralai/mistral-vibe.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "53b76229238b5dd7e39d6489db0a6fa4de3f075091e7761b096fdabd49059ccf"
-    sha256 cellar: :any, arm64_tahoe:       "87a4b8d0fdb04f72c89465e80ecedca4ad25e7929c511dd5ab2cdc5bdb4faff3"
-    sha256 cellar: :any, arm64_sequoia:     "e6ff8708254ff6be7a23e61d687649b9cf98fe98f4df0eabb946c844929a713b"
-    sha256 cellar: :any, arm64_sonoma:      "ebc9eb4519b6211868138639c27bc3da1ec36c53293a32d8438ea04c387bf9ac"
-    sha256 cellar: :any, arm64_linux:       "29ca3383a9ed9ff89bff70a8bcb6ed5ebe02be13122708112fab7872d3fe6c59"
-    sha256 cellar: :any, x86_64_linux:      "b87edf2b481afe6a23fc98c4c65f3341ddc9d385194499a15225bee0a634d700"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "8106905937cd73a50d9c7bcb2d0e37babf3bdea937c458bf29c5755b992f796a"
+    sha256 cellar: :any, arm64_tahoe:       "05172ad5e0d9d4ef77fe21ada0dd663424560fe4784dad057f438ee89fac4f79"
+    sha256 cellar: :any, arm64_sequoia:     "a2c018028add802304b1ec632ab7c874f8dc1d3cb0218a9eb8eab839559cc428"
+    sha256 cellar: :any, arm64_linux:       "daabaf05ddac087d563c2ec410f353fe7bfe78ba17c0b818cad883d295fb2815"
+    sha256 cellar: :any, x86_64_linux:      "038c588d43447a36ddf5f84de86c4c489990afb41b59653e89188007875f6260"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
+
+  on_linux do
+    depends_on "alsa-lib"
+  end
 
   pypi_packages exclude_packages: %w[certifi cryptography pydantic rpds-py]
 
@@ -33,8 +38,8 @@ class MistralVibe < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/3b/72/5562aabb8dd7181e8e860622a38bea08d17842b99ecd4c91f84ac95251b0/anyio-4.14.1.tar.gz"
-    sha256 "8d648a3544c1a700e3ff78615cd679e4c5c3f149904287e73687b2596963629e"
+    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
+    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
   end
 
   resource "attrs" do
@@ -62,6 +67,11 @@ class MistralVibe < Formula
     sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
+  resource "croniter" do
+    url "https://files.pythonhosted.org/packages/37/57/2e2a65aee2a70483cb28e2b7e15a072d00a523207593b44400d4717bb100/croniter-6.2.4.tar.gz"
+    sha256 "fc124f751b1b04805c2a04b061898b436b45ab2320b045e1e052ea895de65189"
+  end
+
   resource "eval-type-backport" do
     url "https://files.pythonhosted.org/packages/fb/a3/cafafb4558fd638aadfe4121dc6cefb8d743368c085acb2f521df0f3d9d7/eval_type_backport-0.3.1.tar.gz"
     sha256 "57e993f7b5b69d271e37482e62f74e76a0276c82490cf8e4f0dffeb6b332d5ed"
@@ -73,8 +83,8 @@ class MistralVibe < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/26/d6/5f358ff283325580c2003a6d953aea18cfe10ae87b46f5ebc80fa3a386dc/gitpython-3.1.58.tar.gz"
-    sha256 "621416df10ef3fd0e19fabf9172ddeed0fa704d353d04f194eec56a625a95b22"
+    url "https://files.pythonhosted.org/packages/e0/db/3ca813cbacb23ab6fe46ff38a9b5ef8e73e970c8051f2ce903aacafe0446/gitpython-3.1.62.tar.gz"
+    sha256 "1791de66309bc0c7cfca40bf8d2e3de7ca091cbf94e6051be1ad0722c61062af"
   end
 
   resource "giturlparse" do
@@ -207,6 +217,11 @@ class MistralVibe < Formula
     sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
   end
 
+  resource "miniaudio" do
+    url "https://files.pythonhosted.org/packages/d8/d5/e5439dc08561f73656bfeb3340fc64ab63163e101426593d8fb9a025ff1e/miniaudio-1.71.tar.gz"
+    sha256 "ff51e2887bb673e2e757752b586b3dc924d59aa5fbcae9bbc45f4a111bd3262b"
+  end
+
   resource "mistralai" do
     url "https://files.pythonhosted.org/packages/39/c1/c6452c81a3d7fc0423b4cfcd84840cf7141c93a0c50755abc27a7619a988/mistralai-2.6.0.tar.gz"
     sha256 "531a86292ad498fc0fcd6dfcd480a3f4db9e92f558e14ffb22172824831e3a6e"
@@ -293,8 +308,8 @@ class MistralVibe < Formula
   end
 
   resource "pyjwt" do
-    url "https://files.pythonhosted.org/packages/3b/81/58d0ac84e1ef3a3843791d6954d94c0b33d526c75eeb1efbce9d0a4c4077/pyjwt-2.13.0.tar.gz"
-    sha256 "41571c89ca91598c79e8ef18a2d07367d4810fbbd6f637794879baf1b7703423"
+    url "https://files.pythonhosted.org/packages/43/ea/5194e52748b0da83d71e082d75496eaec6e58f419f5e184786ded517e6a9/pyjwt-2.15.1.tar.gz"
+    sha256 "4f259e80cdfb6b3fc18a7de51fd1ef9ec79652f25019bae68975ca2468a34df8"
   end
 
   resource "pyperclip" do
@@ -353,8 +368,8 @@ class MistralVibe < Formula
   end
 
   resource "setproctitle" do
-    url "https://files.pythonhosted.org/packages/8d/48/49393a96a2eef1ab418b17475fb92b8fcfad83d099e678751b05472e69de/setproctitle-1.3.7.tar.gz"
-    sha256 "bc2bc917691c1537d5b9bca1468437176809c7e11e5694ca79a9ca12345dcb9e"
+    url "https://files.pythonhosted.org/packages/49/b0/6b8a516c5a9e9630bd5293db78314ac012f690305fe93beadea388626efb/setproctitle-1.3.8.tar.gz"
+    sha256 "cafe209d064a6efb88cb45a03e97981ff8832802b2b5d009dde0197a3b7b41c8"
   end
 
   resource "six" do
@@ -367,14 +382,9 @@ class MistralVibe < Formula
     sha256 "4d9debb8b99007ae47165abc08670bd74cb74b5227dda7f643eccc4e9eb5642c"
   end
 
-  resource "sounddevice" do
-    url "https://files.pythonhosted.org/packages/2a/f9/2592608737553638fca98e21e54bfec40bf577bb98a61b2770c912aab25e/sounddevice-0.5.5.tar.gz"
-    sha256 "22487b65198cb5bf2208755105b524f78ad173e5ab6b445bdab1c989f6698df3"
-  end
-
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/47/2c/0a5f6f8ee0d5589e48c7640213ed5175d52cf540a06725b628cc1a45d6ce/soupsieve-2.8.4.tar.gz"
-    sha256 "e121fd02e975c695e4e9e8774a5ee35d74714b59307868dcc5319ad2d9e3328e"
+    url "https://files.pythonhosted.org/packages/69/99/a6ca3beb3ccacb41fb3321d8a60e5566f9e6467601ef8eba6a17e1b89778/soupsieve-2.9.2.tar.gz"
+    sha256 "4a55d8cf158a9c2e587fa4922f1bbb91d68ac829e2d6f25403a85747c71daf74"
   end
 
   resource "sse-starlette" do
@@ -395,6 +405,13 @@ class MistralVibe < Formula
   resource "textual-speedups" do
     url "https://files.pythonhosted.org/packages/d4/73/bba3e9feae9ca730c32122306ddac61278a8bc47633346eddad9d52a435d/textual_speedups-0.2.1.tar.gz"
     sha256 "72cf0f7bdeede015367b59b70bcf724ba2c3080a8641ebc5eb94b36ad1536824"
+
+    patch do
+      url "https://github.com/willmcgugan/textual-speedups/commit/acb510d0dafa82ca1bd4291a880c6785b96be5f3.patch?full_index=1"
+      sha256 "7eeb90dbfc3ecb903827c61314941b590f105279b297c8eb57bb664be916f26e"
+      type :unofficial
+      resolves "https://github.com/willmcgugan/textual-speedups/pull/11"
+    end
   end
 
   resource "tomli-w" do
@@ -423,8 +440,8 @@ class MistralVibe < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
-    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
+    url "https://files.pythonhosted.org/packages/e3/05/b17359e1cefb4f909b5e40b1b90a496d987258916dbbf88e842c729f510e/urllib3-2.8.0.tar.gz"
+    sha256 "63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63"
   end
 
   resource "uvicorn" do
@@ -453,7 +470,16 @@ class MistralVibe < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    # Work around superenv breaking aws-lc-sys `-O0` needed to build CPU Jitter RNG
+    ENV["AWS_LC_SYS_NO_JITTER_ENTROPY"] = "1"
+
+    venv = virtualenv_install_with_resources without: "agent-client-protocol"
+
+    resource("agent-client-protocol").stage do
+      # Allow Python 3.15
+      inreplace "pyproject.toml", 'requires-python = ">=3.10,<3.15"', 'requires-python = ">=3.10"'
+      venv.pip_install Pathname.pwd
+    end
   end
 
   test do

@@ -2,24 +2,25 @@ class Barman < Formula
   include Language::Python::Virtualenv
 
   desc "Backup and Recovery Manager for PostgreSQL"
-  homepage "https://www.pgbarman.org/"
+  homepage "https://pgbarman.org/"
   url "https://files.pythonhosted.org/packages/eb/8c/b225bca1623a6370885f005e2f575f5f13c5c790eb9bef6695299efca4dd/barman-3.20.1.tar.gz"
   sha256 "cac6542ac7a8f7cf2a7892807509d78dd24346a021afc24a7c3ec5b1626cc636"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/EnterpriseDB/barman.git", branch: "REL_3_X_master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d23b8930c53c3b18b4a791cc3c571bb0c5156cdc24c0fc81a57dc10dd9edf631"
-    sha256 cellar: :any, arm64_tahoe:       "d34f8e988ee531ece5ee754ee3f0476dca90c9ef67ad732f65d1ae9666fa98f6"
-    sha256 cellar: :any, arm64_sequoia:     "0fdd3a55d21e9b2fd4d57e3d96113a579b6857e826c8c0a76173a64af799dcfb"
-    sha256 cellar: :any, arm64_linux:       "baa24a7899a00105cd1aa2e3e9484e3a8376f31884d7d2d35c572b0603a45542"
-    sha256 cellar: :any, x86_64_linux:      "5678f52d4c13ff120308bb728c9ead0c5c4b55d5475bc072151a930c79fb06b5"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "5731864b3d91a264c33711670e4d1e10ebd34e675dd80fb214f75ddf9a37115c"
+    sha256 cellar: :any, arm64_tahoe:       "ca40b495693abb0b5d4c1b410a457e5eae9e9ecfdf47a0c1a1c0a25d55654bc6"
+    sha256 cellar: :any, arm64_sequoia:     "c4f8a3dd2ef4c6cf6eac867800988f13bcf8aac33bb385a5574f8c9d7c7ceca1"
+    sha256 cellar: :any, arm64_linux:       "1bb1e852137a2d944100f7ec2a4fb25abc19f64d97750758556a7a1b222f2162"
+    sha256 cellar: :any, x86_64_linux:      "12c46194af868574bfc7336c25f033cfe7bbb635656997bc8f79ca3989c3bbb0"
   end
 
   depends_on "rust" => :build # for uv_build > maturin
   depends_on "libpq"
-  depends_on "openssl@3"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "psycopg2" do
     url "https://files.pythonhosted.org/packages/91/81/6ea19b8b28feb9405c8c87a307776614d6e404bdb98467d1ce10a39d2c1d/psycopg2-2.9.13.tar.gz"
@@ -37,6 +38,8 @@ class Barman < Formula
   end
 
   def install
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac? # avoid openssl linkage
+
     virtualenv_install_with_resources
     etc.install "docs/barman.conf"
   end

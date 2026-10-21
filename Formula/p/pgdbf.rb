@@ -21,6 +21,8 @@ class Pgdbf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "7f2e231fc1b78b7837dfe257a04e2495128237e5800609675573dd2734185ea5"
   end
 
+  deny_network_access!
+
   def install
     args = []
     # Help old config scripts identify arm64 linux
@@ -28,5 +30,21 @@ class Pgdbf < Formula
 
     system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    # Build a minimal dBase III table with a character and a numeric column
+    fields = [["NAME", "C", 10, 0], ["AGE", "N", 3, 0]]
+    header = [0x03, 124, 1, 1, 2, 32 + (32 * fields.length) + 1, 1 + 10 + 3].pack("CCCCVvv") + ("\0" * 20)
+    fields.each do |name, type, len, dec|
+      header += name.ljust(11, "\0") + type + [0, len, dec].pack("VCC") + ("\0" * 14)
+    end
+    header += "\r"
+    records = " #{"Alice".ljust(10)} 42" + " #{"Bob".ljust(10)}  7"
+    (testpath/"test.dbf").binwrite header + records + "\x1A"
+
+    output = shell_output("#{bin}/pgdbf #{testpath}/test.dbf")
+    assert_match "CREATE TABLE test (name VARCHAR(10), age NUMERIC(3));", output
+    assert_match "\\COPY test FROM STDIN\nAlice\t42\nBob\t7\n\\.\n", output
   end
 end

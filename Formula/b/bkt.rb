@@ -20,6 +20,8 @@ class Bkt < Formula
 
   depends_on "rust" => :build
 
+  conflicts_with "bitbucket-cli", because: "both install `bkt` binaries"
+
   deny_network_access!
 
   def fetch

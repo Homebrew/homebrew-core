@@ -32,6 +32,12 @@ class Pngquant < Formula
     sha256 "831f485ccb3664436e72c4c8142f15cc35b93854e18c5f01f0d2f3dbc918d374"
   end
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
 

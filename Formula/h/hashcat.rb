@@ -18,19 +18,18 @@ class Hashcat < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_golden_gate: "86206ed449eeea3cc111e032b977b1e6543c989a6a28886105770ff0674656e4"
-    sha256 arm64_tahoe:       "e7a4a2f834223bbd0a6cc98fa37c322c50df75e3af42106973cd015c38d80f4f"
-    sha256 arm64_sequoia:     "1e52f0146178dbee305dce189b2252cc8281bedc8cefaf6f6c0772330009a285"
-    sha256 arm64_sonoma:      "a1050a21c04753c0711f77d0cba6cdff0d5df3c64a14f16132faeb9ca89833d1"
-    sha256 sonoma:            "f48e951eb2e1d4779cedf97bc64f57dc77c34aa906d17af8952fbf629ae88006"
-    sha256 arm64_linux:       "2f87ec3529e895d0023ba9aad41bfa23561ec90f7d078e118f69cf94d1ae1fac"
-    sha256 x86_64_linux:      "71e6f0aca36375f3ce64d931210cbcf6e84f28e16d96c0f7af8e80be8e169ce4"
+    rebuild 3
+    sha256 arm64_golden_gate: "cc3fc40438facc4020562175bc2b93b73c0243828aefb7a21f7bcc0aaf3bc59e"
+    sha256 arm64_tahoe:       "9660281ddadbd08f981600044f9ab8a77bb94251709b5465904c545ad8bdbc31"
+    sha256 arm64_sequoia:     "5b76d2a56bcb712905529d4ee1cbc5f8e16b7cdcfbc1f7a79812e4124bae9258"
+    sha256 arm64_linux:       "edf1ba68b54f13e2bfa8f5e7414eb8d5ca30d7397e07d05ad210b104772537cd"
+    sha256 x86_64_linux:      "41ce78c2f40c40e00421b5706eace1feec56624fcce3cfef94432617cacf16a9"
   end
 
-  depends_on "python@3.14" => :build
   depends_on "minizip"
   depends_on "xxhash"
+
+  uses_from_macos "python"
 
   on_macos do
     depends_on "gnu-sed" => :build
@@ -92,6 +91,6 @@ class Hashcat < Formula
       assert_match "Hash-Mode 0 (MD5)", shell_output("#{bin}/hashcat_bin #{args.join(" ")}")
     end
 
-    assert_equal "v#{version}", shell_output("#{bin}/hashcat_bin --version").chomp
+    assert_match version.to_s, shell_output("#{bin}/hashcat_bin --version")
   end
 end

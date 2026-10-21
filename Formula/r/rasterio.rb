@@ -51,6 +51,11 @@ class Rasterio < Formula
     sha256 "928ae7e20211f3b6f3915a72f06a0cfd29ab9d24279dd6346b6b1a7146397d36"
   end
 
+  resource "test_file", :test do
+    url "https://github.com/rasterio/rasterio/raw/refs/heads/main/tests/data/red.tif"
+    sha256 "faff88a7935f2993ad2a24f572bb73c4d1fa4c5159377f4d9742583ae7c4c52b"
+  end
+
   def install
     virtualenv_install_with_resources
 
@@ -59,11 +64,6 @@ class Rasterio < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/rio --version")
-
-    resource "test_file" do
-      url "https://github.com/rasterio/rasterio/raw/refs/heads/main/tests/data/red.tif"
-      sha256 "faff88a7935f2993ad2a24f572bb73c4d1fa4c5159377f4d9742583ae7c4c52b"
-    end
 
     testpath.install resource("test_file")
 

@@ -1,18 +1,19 @@
 class GnomePapers < Formula
   desc "Document viewer for PDF and other document formats aimed at the GNOME desktop"
   homepage "https://apps.gnome.org/Papers/"
-  url "https://download.gnome.org/sources/papers/51/papers-51.0.tar.xz"
-  sha256 "4b8caf527d85f7eabc63ebe9d2320e0490653c2e138b88fbf42e6f41dd3e451c"
+  url "https://download.gnome.org/sources/papers/51/papers-51.1.tar.xz"
+  sha256 "ac0db229883b3d2aacbbda1700dc12aa69716664df201120926096f066e4796b"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_golden_gate: "5f79227a03d73e3ded412a57b451a17dd0dafbd2cee4e2cfcfd06856e932909e"
-    sha256 arm64_tahoe:       "8c417ee882f3a398b327b4f06a37bd3118427a082bb78f60f3c84782ae934f67"
-    sha256 arm64_sequoia:     "6a2c9eda37d82204744dd3ff74b28b2b8a98cdf5798164955514c9f43951d500"
-    sha256 arm64_linux:       "bcaa560f7eba27c0388a6e4f11d26d3b9afd00957143bf17656b49e03d325f41"
-    sha256 x86_64_linux:      "63205c6e810ab0bce2e116ae6ce493f4c9320b878b622447fd6fa4ee6cfc89b3"
+    sha256 arm64_golden_gate: "6f8be0e1cbcfd5137b4cdd00cae89547cb21740fc901d9588ad6f9ecf95e9c3b"
+    sha256 arm64_tahoe:       "da53f4399ec5f490911694b5f646260278de69c9ff81499fca84a905409bdc56"
+    sha256 arm64_sequoia:     "1bed9b320e5861ce1ef07297ba84648f358706a8afcd46381da9d7e4197eebd3"
+    sha256 arm64_linux:       "38091300352e41102547f22d85518e7e3975a777627a58767e9f1ff119b7c7ee"
+    sha256 x86_64_linux:      "c0f9bc83b5c0d628769b0ba1bee476390928c69ae0f6c004582186afcb344457"
   end
 
+  depends_on "appstream" => :build
   depends_on "blueprint-compiler" => :build
   depends_on "desktop-file-utils" => :build
   depends_on "gettext" => :build # for msgfmt
@@ -21,7 +22,6 @@ class GnomePapers < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "python@3.14" => :build # For blueprint-compiler
   depends_on "rust" => :build
 
   depends_on "adwaita-icon-theme"
@@ -41,9 +41,16 @@ class GnomePapers < Formula
   depends_on "pango"
   depends_on "poppler"
 
+  uses_from_macos "python" => :build
+
   on_macos do
     depends_on "gettext"
     depends_on "harfbuzz"
+  end
+
+  resource "test-pdf", :test do
+    url "https://gitlab.freedesktop.org/poppler/test/-/raw/1aca8a13eeaa37403f9330febcb4745affcfd139/tests/text.pdf"
+    sha256 "9fac4cf9ac688f067ee38ddddcf9f237d4f6adf29601672e4ef1765c63997880"
   end
 
   def install
@@ -87,11 +94,6 @@ class GnomePapers < Formula
   end
 
   test do
-    resource "test-pdf" do
-      url "https://gitlab.freedesktop.org/poppler/test/-/raw/1aca8a13eeaa37403f9330febcb4745affcfd139/tests/text.pdf"
-      sha256 "9fac4cf9ac688f067ee38ddddcf9f237d4f6adf29601672e4ef1765c63997880"
-    end
-
     resource("test-pdf").stage testpath
     (testpath/"test.c").write <<~C
       #include <fcntl.h>

@@ -29,6 +29,12 @@ class Leaf < Formula
   conflicts_with "leaf-markdown-viewer", because: "both install `leaf` binaries"
   conflicts_with "leaf-proxy", because: "both install `leaf` binaries"
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "go", "build", *std_go_args, "./cmd/leaf/main.go"
   end

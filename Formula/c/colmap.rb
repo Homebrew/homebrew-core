@@ -4,14 +4,14 @@ class Colmap < Formula
   url "https://github.com/colmap/colmap/archive/refs/tags/4.2.1.tar.gz"
   sha256 "15fb9e333541676e4ee9bc5d8ab95a3ed6e549a20eb13fc5aafd04ca06c76c88"
   license "BSD-3-Clause"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c409e9a23becb7d06c1e95c2b13ff72db84ce57b9add93c51edb507d5b092074"
-    sha256 cellar: :any, arm64_tahoe:       "d1de63a50011e06f7703c62e099bdd238ce19cae490bf83f721c5b5ccbb75410"
-    sha256 cellar: :any, arm64_sequoia:     "fcbb384bf9b1a0d01a56ca3567a0af4dabe121391992fae6f0416e1a2e9ca06d"
-    sha256 cellar: :any, arm64_linux:       "539a35873f7170dbb9ae8f4474762bf76c7a080576e46bd59dc1a11851f81750"
-    sha256 cellar: :any, x86_64_linux:      "453cca671454c37bc7b517d58cda21c282f03d226a1f13c2e705865d10cf3926"
+    sha256 cellar: :any, arm64_golden_gate: "43a810b18484ed7c19ad825efb4eea7ff9296a2b7ba2b5e72aede21247f4bae8"
+    sha256 cellar: :any, arm64_tahoe:       "7af627c4405d1342c5edf9cc9f1f348bcb08ca149b809cbe7fa0b064650dfac7"
+    sha256 cellar: :any, arm64_sequoia:     "c888116f82052dbaa4b438fa1cc4cb0767072f52a8c6259f4c44be3846ae782f"
+    sha256 cellar: :any, arm64_linux:       "50b2755755f5669aea1c896323228fdfb89a36469f95e4b4285453f6f22b86c1"
+    sha256 cellar: :any, x86_64_linux:      "802b79264fc971c9a0bf30874db1c38688140c674e15ca49fd4c03df0303cd26"
   end
 
   depends_on "cmake" => :build
@@ -31,7 +31,7 @@ class Colmap < Formula
   depends_on "onnx"
   depends_on "onnxruntime"
   depends_on "openimageio"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "qtbase"
   depends_on "qtsvg"
   depends_on "suite-sparse"
@@ -55,6 +55,8 @@ class Colmap < Formula
     url "https://github.com/PoseLib/PoseLib/archive/fa7280fee27f97aff31ae7f98bab7f583fac7d08.tar.gz"
     sha256 "ff1c44342ab2c84ac9ac74c4028762c50d12ab5a483d20466cc1f635fe8f4d1f"
   end
+
+  deny_network_access!
 
   def install
     resource("poselib").stage do
@@ -84,9 +86,7 @@ class Colmap < Formula
     # Fix library install directory and rpath
     inreplace "CMakeLists.txt", "LIBRARY DESTINATION thirdparty/", "LIBRARY DESTINATION lib/"
     args << "-DCMAKE_INSTALL_RPATH=#{loader_path};#{loader_path}/../libexec/poselib/lib"
-    # Set openssl@3 to avoid indirect linkage with openssl@4
-    # TODO: switch to openssl@4
-    args << "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}"
+    args << "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}"
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

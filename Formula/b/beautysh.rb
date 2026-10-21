@@ -8,10 +8,11 @@ class Beautysh < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "14ac5b6157587a1693d8a7b88164f5182406948ddbf8c3a4a5e8291305ef38ae"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "bd087a1c69b02c1665640295280af9881b6b0fddbf8fe27408846552c1702988"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"

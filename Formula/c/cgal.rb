@@ -22,6 +22,8 @@ class Cgal < Formula
   depends_on "gmp" => :no_linkage
   depends_on "mpfr" => :no_linkage
 
+  deny_network_access!
+
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"

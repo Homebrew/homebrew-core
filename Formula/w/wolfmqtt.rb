@@ -1,18 +1,17 @@
 class Wolfmqtt < Formula
   desc "Small, fast, portable MQTT client C implementation"
   homepage "https://www.wolfssl.com"
-  url "https://github.com/wolfSSL/wolfMQTT/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "abfea53ef25678a540f9b44aceb4aeff3f7789d7b23454074471c8e8dbcb4ccb"
+  url "https://github.com/wolfSSL/wolfMQTT/archive/refs/tags/v2.2.0.tar.gz"
+  sha256 "e6b940d5da7bf3fa05ce07d8a2b7ea8604d524b7633fef51159d895cc3b3a1c4"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/wolfSSL/wolfMQTT.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ebc3c1b5b18b34218838255f3602649f45e8b33633ced2b31a302ee782be4188"
-    sha256 cellar: :any, arm64_tahoe:       "d49f4693e1aecbcfe0543d9a95560a3d135456b564d1a6064dd5ee38127dae9b"
-    sha256 cellar: :any, arm64_sequoia:     "ccfd7d918e37ade189bb82818c0b673c5bcb3a276dc255886d9396cdfcf542ef"
-    sha256 cellar: :any, arm64_linux:       "8530cf463c9106e14cc6b072be9cfc77c8138fe13273ef2e91a0f6c11848947c"
-    sha256 cellar: :any, x86_64_linux:      "acff17fb6292633caafcb05dea63bbc2bc02ee2209302ecc7d8e5543ff77b883"
+    sha256 cellar: :any, arm64_golden_gate: "4b40bafb5f54f7098e46dd06b265ffd5a622db91ab7ac7de8cdbf91b0d81a9af"
+    sha256 cellar: :any, arm64_tahoe:       "e20283e43a6f81cbeb787b025b1981a33383ea14ffa6e97a7f962dd58af5486e"
+    sha256 cellar: :any, arm64_sequoia:     "514ea3e89d2e5634547b123e6187112cbb3a4918f1d62d779360cd3fec3a2a91"
+    sha256 cellar: :any, arm64_linux:       "32e2aa6dde49876552220f02542e449a321b25bd9858ef22206bd9e7f784d0a4"
+    sha256 cellar: :any, x86_64_linux:      "90e23f5fc913b247be043b5ffb83ca05bcc8a9c9aab8e800fc38e5c6fa2fe2ff"
   end
 
   depends_on "autoconf" => :build

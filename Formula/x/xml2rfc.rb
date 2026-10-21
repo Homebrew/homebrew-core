@@ -6,19 +6,21 @@ class Xml2rfc < Formula
   url "https://files.pythonhosted.org/packages/2c/54/0ceb0cab2e4811a31cc55fbc42c074867d1905af3351167d804ad71dcbe3/xml2rfc-3.34.1.tar.gz"
   sha256 "537fd45cd9b8e2c0b1fa45c6e0fd1bf2794fb7708a187c568265f3944d2a4de8"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/ietf-tools/xml2rfc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b95196d8e63c58b0e8042016b1d1f421d356ad110aa93eaee0039bb01c5c1971"
-    sha256 cellar: :any, arm64_tahoe:       "17cfd43e327056c5c39bc8bd9875f761177dba8080194ece6263ef0c227819f8"
-    sha256 cellar: :any, arm64_sequoia:     "c45e54441e8a29a7496b9dcaef45d92c8ba7e1e5ad4dd8a1bab7ce212d58b380"
-    sha256 cellar: :any, arm64_linux:       "359cced2db32c44ecc57ba9fee7de1bed48961efd829a3723745570f9fd4df3f"
-    sha256 cellar: :any, x86_64_linux:      "3ac0b528a345617f7a6af7b725b3d63579bda621e5a57a2609cc9d130634394c"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "c82fecdbbed219c00c1d3fb3e112d874b1379ec68c9dd4426d70920a3ebb5072"
+    sha256 cellar: :any, arm64_tahoe:       "f9ff370320712cd8721e891defd250f9e8df737f3553be2efa399fe04bdda470"
+    sha256 cellar: :any, arm64_sequoia:     "cf0093bc07be35967d158541ee2158d523c8bcc7449ae01288790a25508c8c23"
+    sha256 cellar: :any, arm64_linux:       "637236f512047f8b76c6fe44236809025a3b4382a786a2c7fa7f2f66448f56ab"
+    sha256 cellar: :any, x86_64_linux:      "1cb5a79a7abffacd1a6362172d798d12304dbad8dffaf9393f5f3b0d4fbb1be2"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
 
@@ -32,13 +34,13 @@ class Xml2rfc < Formula
   # if not then there will be an ModuleNotFoundError: No module named 'i18naddress'
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "configargparse" do
-    url "https://files.pythonhosted.org/packages/9b/b4/7065677004d4ec8728da15a70580f431f1a4a079e0e8e8b7aa4ffee4e972/configargparse-1.7.7.tar.gz"
-    sha256 "607bea276a219912158afa1e5a716c3f8f88d542f9997dfd43bbd0b492a9f5a6"
+    url "https://files.pythonhosted.org/packages/5d/ed/33c0ba7f0b5be384ff8a2101ce77728f219e816b2104819f1651477e1ad5/configargparse-1.8.0.tar.gz"
+    sha256 "22a417f4d7b00149f0af82ef7c491f8ecc4b1d5454633fd319b386f5eb806f92"
   end
 
   resource "google-i18n-address" do
@@ -47,8 +49,8 @@ class Xml2rfc < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
-    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
+    url "https://files.pythonhosted.org/packages/f5/08/8eea9d4b8302028f3abb2c0813953f7aec26d33b7a8960ed760e65ff29fa/idna-3.20.tar.gz"
+    sha256 "a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44"
   end
 
   resource "intervaltree" do
@@ -67,8 +69,8 @@ class Xml2rfc < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "natsort" do
@@ -77,8 +79,8 @@ class Xml2rfc < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/53/18/f3bb8ef0d3b930692343da8aa4d3cbcd6749477c053959395ac81965a6e9/platformdirs-4.11.8.tar.gz"
-    sha256 "f23abafea7dd4276d1f29104b83598d7dcc567cafd07c9c951e66665645437fc"
+    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
+    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
   end
 
   resource "pycountry" do
@@ -102,13 +104,13 @@ class Xml2rfc < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
-    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
+    url "https://files.pythonhosted.org/packages/e3/05/b17359e1cefb4f909b5e40b1b90a496d987258916dbbf88e842c729f510e/urllib3-2.8.0.tar.gz"
+    sha256 "63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/36/57/ed58088fafdf4c55a0ad6bde846502567645424d7ebf325230b9237f4085/wcwidth-0.8.3.tar.gz"
-    sha256 "d128512515fbf4612e0ff21fd6380399210318b7b54a9af59dff8454cf9730eb"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

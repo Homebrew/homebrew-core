@@ -28,6 +28,11 @@ class Xclogparser < Formula
     patch :DATA
   end
 
+  resource "homebrew-test_log", :test do
+    url "https://github.com/chenrui333/github-action-test/releases/download/2024.04.14/test.xcactivitylog"
+    sha256 "3ac25e3160e867cc2f4bdeb06043ff951d8f54418d877a9dd7ad858c09cfa017"
+  end
+
   # `test do` block downloads a test fixture resource
   allow_network_access! :test
 
@@ -48,11 +53,6 @@ class Xclogparser < Formula
 
     # skip tests for linux build and sequoia macos build due to the test file issue
     return if OS.linux? || (OS.mac? && MacOS.version == :sequoia)
-
-    resource "homebrew-test_log" do
-      url "https://github.com/chenrui333/github-action-test/releases/download/2024.04.14/test.xcactivitylog"
-      sha256 "3ac25e3160e867cc2f4bdeb06043ff951d8f54418d877a9dd7ad858c09cfa017"
-    end
 
     resource("homebrew-test_log").stage(testpath)
     output = shell_output("#{bin}/xclogparser dump --file #{testpath}/test.xcactivitylog")

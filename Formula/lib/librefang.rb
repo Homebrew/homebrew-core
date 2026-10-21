@@ -1,17 +1,17 @@
 class Librefang < Formula
   desc "Self-hostable operating system for autonomous AI agents"
   homepage "https://librefang.ai"
-  url "https://github.com/librefang/librefang/archive/refs/tags/v2026.9.19.tar.gz"
-  sha256 "e8d6ab93e0db775e05b936303f376a1b50c2e62ea46a7b83a85fda19af86de12"
+  url "https://github.com/librefang/librefang/archive/refs/tags/v2026.10.16.tar.gz"
+  sha256 "513c4310967d66f7e3346384323ab3a26ec191cf9e3c75ad7cac44003fae3f74"
   license "MIT"
   head "https://github.com/librefang/librefang.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "af1b5530b60f22288731f12dd62fc9fef29517450b02886e28ecde303dc0eb12"
-    sha256 cellar: :any, arm64_tahoe:       "3c9a732e2dd6a30f3fc0dac5c94c2662355c577bfac5e25c92eee2acd4fb8a0e"
-    sha256 cellar: :any, arm64_sequoia:     "8ba47166ba76449da3567b0504e67791e10227b3445b9fbdb6c2d861cb4e1e9c"
-    sha256 cellar: :any, arm64_linux:       "e67ee26352cf99e359cec7c411f5003ed0bc638e1d488d385061719e35c8d34f"
-    sha256 cellar: :any, x86_64_linux:      "d3cdfe37535cf2123ed823bc16dc3dfb2ee619d67d92b0a077a60c7b2f05d8f6"
+    sha256 cellar: :any, arm64_golden_gate: "e92982abb03181019ce832947f98d5933dfae2ea6f356fcca56759c96e05c67f"
+    sha256 cellar: :any, arm64_tahoe:       "4131278025e3b5cbd0ea4ea9db15c511a3b8e66384d93d9a27f64dd9d70c6a14"
+    sha256 cellar: :any, arm64_sequoia:     "12050fa9ede503ad4104a437c4e9f5864b34b1c31adfa32dbeabe8b219b5d86d"
+    sha256 cellar: :any, arm64_linux:       "fd64023d89ea7a69c6b4b19eebe7ae4c7c82c0b94d46e065f856ea07feacd0ef"
+    sha256 cellar: :any, x86_64_linux:      "cb1a025c9734bd72ac8121d3c0ee38ec8ae2102c854070d569a11364f57393fa"
   end
 
   depends_on "pkgconf" => :build
@@ -22,6 +22,14 @@ class Librefang < Formula
     depends_on "dbus"
   end
 
+  # Support Rust 1.99+
+  patch do
+    url "https://github.com/librefang/librefang/commit/2d0e85b0d6755aa928f552116ac9680c4eb16d26.patch?full_index=1"
+    sha256 "2c6aaad8951e2f8adfc4293f147c15ebb4bf7dd1a0acaa97ccbda1c5303ec0df"
+    type :unofficial
+    resolves "https://github.com/librefang/librefang/pull/8635"
+  end
+
   deny_network_access!
 
   def fetch
@@ -29,6 +37,11 @@ class Librefang < Formula
   end
 
   def install
+    # Fat LTO exceeds the memory available on hosted Linux ARM64 builders.
+    github_arm64_linux = OS.linux? && Hardware::CPU.arm? &&
+                         ENV["HOMEBREW_GITHUB_ACTIONS"].present? &&
+                         ENV["GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED"].blank?
+    ENV["CARGO_PROFILE_RELEASE_LTO"] = "thin" if github_arm64_linux
     ENV.deparallelize if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
     system "cargo", "install", *std_cargo_args(path: "crates/librefang-cli")
   end

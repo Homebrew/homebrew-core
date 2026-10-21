@@ -13,6 +13,8 @@ class ZshHistoryEnquirer < Formula
 
   uses_from_macos "zsh"
 
+  deny_network_access!
+
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
@@ -28,7 +30,34 @@ class ZshHistoryEnquirer < Formula
   end
 
   test do
-    zsh_command = "autoload -U history_enquire; where history_enquire"
-    assert_match "history_enquire", shell_output("zsh -ic '#{zsh_command}'")
+    (testpath/".zsh_history").write <<~EOS
+      echo homebrew
+      ls -la
+      git status
+    EOS
+    ENV["HISTFILE"] = testpath/".zsh_history"
+    output_log = testpath/"output.log"
+
+    require "pty"
+    require "expect"
+    require "io/console"
+
+    PTY.spawn(bin/"zsh-history-enquirer", "brew", [:out, :err] => output_log.to_s) do |r, w, pid|
+      r.winsize = [24, 80]
+      # first `node` launch on CI macOS VMs can take over 20s
+      refute_nil r.expect(/\e\[6n/, 60), "expected cursor position query"
+      w.write "\e[1;1R"
+      refute_nil r.expect("echo homebrew", 10), "expected the filtered history"
+      w.write "\r"
+      begin
+        r.read
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      end
+    ensure
+      Process.kill "KILL", pid
+      Process.wait pid
+    end
+    assert_equal "echo homebrew\n", output_log.read
   end
 end

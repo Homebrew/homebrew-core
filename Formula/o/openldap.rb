@@ -5,6 +5,7 @@ class Openldap < Formula
   mirror "http://mirror.koddos.net/OpenLDAP/openldap-release/openldap-2.7.1.tgz"
   sha256 "253db80f301258ea69cda1184766d57395b836aaabf41157eb0316eb0fac1341"
   license "OLDAP-2.8"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -13,17 +14,16 @@ class Openldap < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "486fb6411c6d1f7b2e56140626d469d757ab0e8588ff0e0b110dbc88044a3166"
-    sha256 arm64_tahoe:       "99520f460581c5d6108288ba532a9d00b1d6bc71a5a2e3160eaf4a3c7259d195"
-    sha256 arm64_sequoia:     "6a42b4fc9c8d2387ba1a1db5cbd9a09b96e2513b979bee5c6cc474b21610a8f7"
-    sha256 arm64_sonoma:      "606c6f7500e31f9410fb75d91f8f1cf4e7169e44a9feb3a9b26686bd8629c76e"
-    sha256 arm64_linux:       "9cb41774eb29e9e495567734a385149815afa2026a46ad5346f16e0ddba1a086"
-    sha256 x86_64_linux:      "e4988f982ddd7d6cbd4ae1a75f214acd16503627ba3869127ad7953c5493f325"
+    sha256 arm64_golden_gate: "14db7870f2249738029a8ad3fccf76028b9bc6db7dacde756edfae6734ec020e"
+    sha256 arm64_tahoe:       "1c976928f9b9091e0588a9367cefdd8be14ba0ec42d29f9deb4f4a889699da97"
+    sha256 arm64_sequoia:     "03bcbc4d521f23a2941917039345cd72fc2a8b663b54e2bae28c006622f904f9"
+    sha256 arm64_linux:       "9c973378895f21d3b3560b4517c426a21a85aa15b01977ee5956d498e2b8d1a8"
+    sha256 x86_64_linux:      "79191466b270dd3b1cff215db9fc2f1859e044ee5d8a9e2d0a770cb82e870630"
   end
 
   keg_only :provided_by_macos
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "mandoc" => :build
   uses_from_macos "cyrus-sasl"

@@ -16,13 +16,12 @@ class Nwchem < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256                               arm64_golden_gate: "57cf05b47b4a08231eac60bda036bd6d1ddc274c36be7d77ba353192dde8872e"
-    sha256                               arm64_tahoe:       "33fc3d51309ae901d070e2380d5a0552ff0e2a2da355c94fbc36afaa7dd46eba"
-    sha256                               arm64_sequoia:     "416b29913eb2e227ffb4c98bf6f62c9c8a8670db34f06fd9d8578a373d75296b"
-    sha256                               arm64_sonoma:      "b45508056077a395b0deb84d4f923602fab5337d67644952d1c3b1f7140f337f"
-    sha256 cellar: :any,                 sonoma:            "c037408994a20f9552262a4e1005da9639f7e23fbb7fa8f3fd2e4c211d709680"
-    sha256                               arm64_linux:       "788f61cfc30939a21bdbc11cfac058565bd0a51d63ffd65d82faa75e13e2b981"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "daa6ff90b5ea14633f27c3f1853cbfe019c80d5e66996a5abf76d1dfbf26f8e7"
+    rebuild 1
+    sha256               arm64_golden_gate: "ce8d58d355bac801d51f476424c5964ac05c2a13ffa52a10341e47494ae5cbc4"
+    sha256               arm64_tahoe:       "4f0a72a0caa660856a63e20299e4000a3e53e471a0c69e5f602f0aa6a6c1745a"
+    sha256               arm64_sequoia:     "591154d0b15beb8ec7b3a34e99fd9347fc6ec36acb3fb9e99c5a64f5babe72a9"
+    sha256               arm64_linux:       "84d10f68d851190e20fb56db4fdd2911aa49de40030c59cecfc33855f62d0d64"
+    sha256 cellar: :any, x86_64_linux:      "442e692a141f900119a581092133b12a43ed7274b4e88a06dc552e6c234e187a"
   end
 
   depends_on "gcc" # for gfortran
@@ -31,7 +30,7 @@ class Nwchem < Formula
   depends_on "open-mpi"
   depends_on "openblas"
   depends_on "pkgconf"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "scalapack"
 
   uses_from_macos "libxcrypt"

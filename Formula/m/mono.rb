@@ -13,14 +13,12 @@ class Mono < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_golden_gate: "36e536f89ddf0eb0a03b5db14a9bf4d3c23361618f75e49142605b7ce7f81f7e"
-    sha256 arm64_tahoe:       "2859f9fc32324373e145969a201a90621c1443001d454d8b0c48ce349356f725"
-    sha256 arm64_sequoia:     "ada6e9683f3e1c9c4f0dc372680250252cfca61ac77c1f8f6299ad3b8452cfd8"
-    sha256 arm64_sonoma:      "66ab0b66299f71ab5f37ad15ac0282b7628af0e9daf210df43120118cb4bc8e4"
-    sha256 sonoma:            "42ea1aab95e1cdb360e600e2ef1d0b868a91fa8aba7d0d1e6d437d7388b39d3d"
-    sha256 arm64_linux:       "bf35bf67b10fa9755014d6efb0bbe5b882309675846ffce33bf2c9fc824e7453"
-    sha256 x86_64_linux:      "a2671d691010f3649f86ef822be69121d1bcb7071f1c04b1959d4b05a4ad7a96"
+    rebuild 3
+    sha256 arm64_golden_gate: "bb3ced09c44ad6a265f35fbc4538151f340fe44c915042862b7557cd84f9d29d"
+    sha256 arm64_tahoe:       "599ff3c36efca4e2571c617384f96792f5286d6792b8bf1c7e48270f92c2480e"
+    sha256 arm64_sequoia:     "0cb30adb311d1acc39002eb8a69614b84462f3c4a9a4f799d0fce0acbed38c59"
+    sha256 arm64_linux:       "7acf75f6898683b38a47806cac02d04bb73323b77d651fbf34b8eec48615782e"
+    sha256 x86_64_linux:      "cc7138d13f44f75943f003dab7d7305ad79f9304e5607d2299983f1bd40441d2"
   end
 
   depends_on "autoconf" => :build
@@ -29,7 +27,7 @@ class Mono < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "unzip" => :build
   uses_from_macos "krb5"

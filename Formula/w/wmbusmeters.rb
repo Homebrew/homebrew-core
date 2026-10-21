@@ -1,25 +1,26 @@
 class Wmbusmeters < Formula
   desc "Read wired or wireless mbus protocol to acquire utility meter readings"
   homepage "https://github.com/wmbusmeters/wmbusmeters"
-  url "https://github.com/wmbusmeters/wmbusmeters/archive/refs/tags/3.0.0.tar.gz"
-  sha256 "d1bfc90db81e0340b806151f6c05337e9a0be3d5418c625e18bb137f45fb6ed7"
+  url "https://github.com/wmbusmeters/wmbusmeters/archive/refs/tags/3.1.0.tar.gz"
+  sha256 "bb4f739551093167fb22dd65b618536d62b99fb7b7fe5335edbfeb382d391a28"
   license "GPL-3.0-or-later"
   head "https://github.com/wmbusmeters/wmbusmeters.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "98397f6773e8c6f25d61f28883ef497e717358592e00e54633b6f09090caead1"
-    sha256 cellar: :any, arm64_tahoe:       "6fe2c42deaddacdd876bc496e814ee84c2821ee9d38f2cc86b760b7538bb42c5"
-    sha256 cellar: :any, arm64_sequoia:     "c31c6432c57e2a1bcb220fbed474f5ec6a0b0c57bebb2d1cce2a355e4fa5673c"
-    sha256 cellar: :any, arm64_sonoma:      "9ffbd595ef709f53a2181a134d6f1d88230ecfcbbd10bb708a6779fc2994b831"
-    sha256 cellar: :any, sonoma:            "b925711df363a619dabd00d46f780d4a72e612be4cabb0554b444847a6a10d6b"
-    sha256 cellar: :any, arm64_linux:       "d012dacb1ad806412121128c76ed5c62dde3480efbaf2f14b2a94e411f559c32"
-    sha256 cellar: :any, x86_64_linux:      "29171c7a663c1f19b054d22c8f9f51153a614f3d88c7748bd6531565be40b603"
+    sha256 cellar: :any, arm64_golden_gate: "fd1faf6f31181ec2deb3a134d4536defc162cb7b118d4af95b8d8b08a0e551e8"
+    sha256 cellar: :any, arm64_tahoe:       "53bc61ea9e80426a33b0537c80f10e1f953567b46408eb3c562a0d675f40971d"
+    sha256 cellar: :any, arm64_sequoia:     "9f2129437a8a224d5daf2a0e9a97cd2dbd58592c50f47ce8725e6e4d370a1ad6"
+    sha256 cellar: :any, arm64_linux:       "8db3d80bb2b1b913d70c3b290e801447698feb256a441dbf738b5353c6e42193"
+    sha256 cellar: :any, x86_64_linux:      "dde0341287bdedeeaafbc51b5f4fc7d6415355e2be355ce034ef521df25b120b"
   end
 
   depends_on "pkgconf" => :build
   depends_on "librtlsdr"
   depends_on "libusb"
+
   uses_from_macos "libxml2"
+
+  deny_network_access!
 
   def install
     system "./configure", *std_configure_args

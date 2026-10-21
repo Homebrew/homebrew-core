@@ -11,6 +11,8 @@ class OhdearCli < Formula
 
   depends_on "php"
 
+  allow_network_access! :test
+
   def install
     bin.install "ohdear.phar" => "ohdear"
     # The cli tool was renamed (3.x -> 4.0.0)

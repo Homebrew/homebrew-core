@@ -1,8 +1,8 @@
 class Hunk < Formula
   desc "Review-first terminal diff viewer for agent-authored changesets"
   homepage "https://hunk.dev/"
-  url "https://github.com/modem-dev/hunk/archive/refs/tags/v0.23.0.tar.gz"
-  sha256 "41ee0e79c56fc292d0fe09ed174736048be4662d867ca448506921e7b9a65fa6"
+  url "https://github.com/modem-dev/hunk/archive/refs/tags/v0.24.0.tar.gz"
+  sha256 "108120c25c64017d1b608e1aa2b7317dc1bb9220285fdccffcde6c67d89ace04"
   license "MIT"
   head "https://github.com/modem-dev/hunk.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Hunk < Formula
   end
 
   bottle do
-    sha256                               arm64_golden_gate: "7015a2c63789ba3be5330cc3abca004d1408f5f54f497f75f64de7e439737c20"
-    sha256                               arm64_tahoe:       "7015a2c63789ba3be5330cc3abca004d1408f5f54f497f75f64de7e439737c20"
-    sha256                               arm64_sequoia:     "7015a2c63789ba3be5330cc3abca004d1408f5f54f497f75f64de7e439737c20"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "abb5098d0b57e78d89443e5c6f94fcb2620dcb6156314285d542dc975a145c02"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "dbbd755f1b4cbd964abe225c1cbcf127ed5f363e4eba8a155b41f1c7c584b7fc"
+    sha256                               arm64_golden_gate: "a1be049ccf08e34c2a87688cea738ad9a092e2707ae75bb1268c7dc9d3cddbc1"
+    sha256                               arm64_tahoe:       "a1be049ccf08e34c2a87688cea738ad9a092e2707ae75bb1268c7dc9d3cddbc1"
+    sha256                               arm64_sequoia:     "a1be049ccf08e34c2a87688cea738ad9a092e2707ae75bb1268c7dc9d3cddbc1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "3c7e40bc300711d615ba5dab36d753d4af0a00770aaa5fb508834a90ce818de6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "734966626ed961025dc9eb9d38d333e92cbce99c790f86bd761ff7e6907e907d"
   end
 
   depends_on "bun" => :build
@@ -33,7 +33,7 @@ class Hunk < Formula
 
     # Install the compiled binary and bundled skills. The repository-root
     # `skills` holds maintainer-only documents that upstream does not ship.
-    libexec.install "dist/hunk" => "hunk"
+    libexec.install "dist/hunk"
     libexec.install "packages/hunk/skills"
     (bin/"hunk").write_env_script libexec/"hunk", HUNK_INSTALL_SOURCE: "homebrew"
   end

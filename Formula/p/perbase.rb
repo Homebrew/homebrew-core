@@ -2,6 +2,7 @@ class Perbase < Formula
   desc "Fast and correct perbase BAM/CRAM analysis"
   homepage "https://github.com/sstadick/perbase"
   license "MIT"
+  revision 1
   head "https://github.com/sstadick/perbase.git", branch: "master"
 
   stable do
@@ -29,14 +30,11 @@ class Perbase < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "926c3c7a3c8acc5c03fdc230c95e02071cbba93da2368c5e9dd1b85e61560c91"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "db301d59e5776cf75acdcd7d68d003d8079214e14e0ff919f7762def827a6404"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c9eb5021cc0e1b266849709483bcb0e19cf92ef262e2e3efe46e1d460801ed4a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "48e46a4060863bfb3ac7d4949e549e49fc0dd8952a2fa46ee2ea7db0f80bcae1"
-    sha256 cellar: :any_skip_relocation, sonoma:            "e4221dcf8ff76d7104dd2facef196f88ded3ca23240fd7a8ec674c1ca07f2b2a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "bed582fbd2dac3de2d846a82b1bb543b1a745f2c741709715e84ebbbab1e417b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ad1e22315efecbf08511298c1e24a6b48c489ad3a1ee7006ee287e2d23caffe5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "53702bb86d29e3daab44e8e55c37d5e464ed13a7dfb32099f7472b18f0fd825b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cce60fe3ecdecc42c1f32e50d8b2b92a2d7bc10c3db98672242e8dd899b32b35"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d554f19a1b85a4b7c80645c90aec890ede85b84339b8b377a4ae42f0fe97b130"
+    sha256 cellar: :any,                 arm64_linux:       "787079ab44a87f56b95c0899097aa0b3f8d2b97214087afca2bdb4e6af610ae4"
+    sha256 cellar: :any,                 x86_64_linux:      "828188f82f7f51c5e27838b65b1d140eaf008a7ac3abad455ee44dd4770a5900"
   end
 
   depends_on "cmake" => :build
@@ -45,14 +43,14 @@ class Perbase < Formula
   depends_on "bamtools" => :test
 
   uses_from_macos "bzip2"
-  uses_from_macos "llvm" # for `libclang`
 
   on_linux do
-    depends_on "openssl@3" # need to build `openssl-sys`
+    # FIXME: bindgen 0.69 (via rust-htslib 0.51) generates opaque structs with libclang 22+
+    depends_on "llvm@21" => :build # for `libclang`
   end
 
   def install
-    ENV["LIBCLANG_PATH"] = formula_opt_lib("llvm") if OS.linux?
+    ENV["LIBCLANG_PATH"] = formula_opt_lib("llvm@21") if OS.linux?
 
     if build.stable?
       # TODO: remove this check when bump-formula-pr can automatically update resources

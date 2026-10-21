@@ -24,8 +24,19 @@ class VisionmediaWatch < Formula
 
   conflicts_with "watch"
 
+  deny_network_access!
+
   def install
     bin.mkdir
     system "make", "PREFIX=#{prefix}", "install"
+  end
+
+  test do
+    # Run the command every 10ms and halt (-x) once it fails on the third iteration
+    cmd = "echo run >> log; echo iteration; test $(wc -l < log) -lt 3 || exit 42"
+    output = shell_output("#{bin}/watch -x -i 10ms '#{cmd}' 2>&1", 42)
+    assert_equal 3, output.scan("iteration").size
+    assert_match "exit: 42", output
+    assert_equal "run\n" * 3, (testpath/"log").read
   end
 end

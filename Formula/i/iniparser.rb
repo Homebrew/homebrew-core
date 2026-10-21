@@ -1,17 +1,17 @@
 class Iniparser < Formula
   desc "Library for parsing ini files"
   homepage "https://gitlab.com/iniparser/iniparser"
-  url "https://gitlab.com/iniparser/iniparser/-/archive/v4.3.0/iniparser-v4.3.0.tar.bz2"
-  sha256 "5516ed5ca9871531936af25764f3d3b4a8ed7d7d0ecfc314d23ba980450cc8d9"
+  url "https://gitlab.com/iniparser/iniparser/-/archive/v4.3.2/iniparser-v4.3.2.tar.bz2"
+  sha256 "60fbba5c2f6c2aa3856c3ba1b6674e48f3322e3437228e5e7df7a0f222e52ac7"
   license "MIT"
   head "https://gitlab.com/iniparser/iniparser.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "50db3f59d1200080fec2fdd366fe942ce9bc43fee12327925786ff5102f996bd"
-    sha256 cellar: :any, arm64_tahoe:       "f6ca33ba6ede9f764aa7e9b5ea8c84de8b92112aed61d8051e5c8a282833623e"
-    sha256 cellar: :any, arm64_sequoia:     "8ac82a569780c1fdc7adb374f5568807bfedbc9905a8cf1b9634e952824b2e26"
-    sha256 cellar: :any, arm64_linux:       "09d200784f38acab6d6dd7c6f3bbb11e9b1d32ebafb5c5550b0fe4ccb6f182df"
-    sha256 cellar: :any, x86_64_linux:      "35c3e075be57d654d1a8ab8fa786a0887f413428466e5189a668ff7c7c60f6c1"
+    sha256 cellar: :any, arm64_golden_gate: "1591a9725ea441182807bd5a0a5b125e7e84b8f0919b2f5846b0dd81dba9be82"
+    sha256 cellar: :any, arm64_tahoe:       "8830552f5c82db87a882efff61ee7fdddfe3bf6b31b5129377356327710bf9bf"
+    sha256 cellar: :any, arm64_sequoia:     "a4b78540d02064d07483df6b30a6b0d6ff370449c991e5a2e46f6fe88ce3c49b"
+    sha256 cellar: :any, arm64_linux:       "17aff49714e7643f8178122d4e38c751e5280a3a0185b86c3bc042e6bb8a6a15"
+    sha256 cellar: :any, x86_64_linux:      "9c67785e4c9c19dff138baf9168b42c5afe014aae56db48e5c68ed57e6828635"
   end
 
   depends_on "cmake" => :build

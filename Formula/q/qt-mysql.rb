@@ -1,10 +1,10 @@
 class QtMysql < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtbase-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtbase-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtbase-everywhere-src-6.11.2.tar.xz"
-  sha256 "5b2e00eccaf5a4d8c14134ffa0ea8dfd0a35ae1ffc7f8d87fa4305a1ed23cf22"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtbase-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtbase-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtbase-everywhere-src-6.12.0.tar.xz"
+  sha256 "a951bd163c7b80fc6b8c88d7668fb56abf91c152373e13c10666763238131307"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -12,12 +12,11 @@ class QtMysql < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1942326b93850312514dc529988b241e504d5ab781946e1269fcdceff144df97"
-    sha256 cellar: :any, arm64_tahoe:       "28804db255cd2ecbb0edd73f96f766f8c4a385aef4e848f1a8f09444cbd62a87"
-    sha256 cellar: :any, arm64_sequoia:     "11ec8a0350aaca1e66d185ae646b61ea2c6dccfcf8f007a781b72b9840b65a16"
-    sha256 cellar: :any, arm64_sonoma:      "b5f72111c84040b78a8e6506ae60d6c1f451dbe28e2bb1cd730d8bb9d0529a3d"
-    sha256 cellar: :any, arm64_linux:       "574c1050a7de4bcc62db0eac387220142537b262639908f4a57bbcc40860df1f"
-    sha256 cellar: :any, x86_64_linux:      "80145131438129164574a1e2727deb79d4943d267973d42027e7ac0ebbd495cc"
+    sha256 cellar: :any, arm64_golden_gate: "503c55ed0a9665ddd3024dbe98fb9da9bbf91fc0ed5bd884be1e56cbc8f3b30a"
+    sha256 cellar: :any, arm64_tahoe:       "51327a7b9ba5cff2838129b1bbebb4066dd39e9e9e77d5816a1277113b87a94b"
+    sha256 cellar: :any, arm64_sequoia:     "ebc373ee76af6d947002c1a4e82384ffff395a80fefa623ae11fbd06c15e135c"
+    sha256 cellar: :any, arm64_linux:       "27e8b66e8a337f56aff987af364e0d8c55c98ca336d836068f09b3c0e1078339"
+    sha256 cellar: :any, x86_64_linux:      "b1e3698960e90c1eb3ed1ad0b10bce1cd2df364c2f996bf982c6b8a1c9637315"
   end
 
   depends_on "cmake" => [:build, :test]

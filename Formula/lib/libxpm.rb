@@ -1,19 +1,17 @@
 class Libxpm < Formula
   desc "X.Org: X Pixmap (XPM) image file format library"
   homepage "https://www.x.org/"
-  url "https://xorg.freedesktop.org/archive/individual/lib/libXpm-3.5.19.tar.gz"
-  sha256 "f241f705c607fba1a53338f7e1c12005d6da326b5cb55a11a10847781b4578c0"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libXpm-3.5.20.tar.gz"
+  sha256 "736704d843459abbf769560ff8e443a5de4e6023082e7086c9d195253ada17ff"
   license "MIT"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "be85bf2a11f74793e1d441e899ba06c06a08bce12710f0ef5efc6c3f0ec1828e"
-    sha256 cellar: :any,                 arm64_tahoe:       "fef03ab80e768bc0fc5c567e800c95bca21157340e0e0d297537c8d595215e85"
-    sha256 cellar: :any,                 arm64_sequoia:     "79818bdb6efbfd188b9511251f22d217b49b2fb7970ab09810386da0f5d13287"
-    sha256 cellar: :any,                 arm64_sonoma:      "e090a33a97bb1e17d100c1ea7bc335e18a5e265d26712e3fe572f8c9ab17c47a"
-    sha256 cellar: :any,                 sonoma:            "252204dc54592339724faab52d4589ce62610b17f9a2b7a5d3d2c890f52af4a9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8af9cf8b188aae0d4730b2a6aea7afaf282867299d4a4b62281bdf1d47eae5d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "43b6a4aabe0711b533e2c6cf27db7bb0568817c54fb5ecf91d1e6dd6b62abcb3"
+    sha256 cellar: :any, arm64_golden_gate: "bd2bede2f5d67c7738b16674aee2adda460281e5cd06d4d6ce3208cd3e56c862"
+    sha256 cellar: :any, arm64_tahoe:       "5c18c69c73b995e1f64533b6967132c366478e4655517f5a2008a3e9ebb0fe2b"
+    sha256 cellar: :any, arm64_sequoia:     "dbd4617a2e688e7ad53b4adc4ad7937180c3cb997a2aa67e15b03043e39af515"
+    sha256 cellar: :any, arm64_linux:       "145a09ecd50931329b3a247313a6ed67500e4889cc54cf5621b1cb1a666d5ea7"
+    sha256 cellar: :any, x86_64_linux:      "219a5e5e1e5b023a4b44ba0b441f99714beb7579527908e2b02654d0b9cac6c8"
   end
 
   depends_on "gettext" => :build

@@ -1,17 +1,17 @@
 class Crit < Formula
   desc "Your feedback loop with the agent: review plans and code locally"
   homepage "https://crit.md/"
-  url "https://github.com/tomasz-tomczyk/crit/archive/refs/tags/v0.21.1.tar.gz"
-  sha256 "73096cc8a38ba809721d5f31683f911f52c14e2c5c0ee8e36b832fc77d756096"
+  url "https://github.com/tomasz-tomczyk/crit/archive/refs/tags/v0.23.0.tar.gz"
+  sha256 "4b1c0f9835f752ac07014ef306a60051f4fb1839f1911f8916eceff0938f2383"
   license "MIT"
   head "https://github.com/tomasz-tomczyk/crit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3980bdf5d0185180f607cc3eacb59f1b15b258a87f2d3f10b355ac54e22bb5f3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3980bdf5d0185180f607cc3eacb59f1b15b258a87f2d3f10b355ac54e22bb5f3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3980bdf5d0185180f607cc3eacb59f1b15b258a87f2d3f10b355ac54e22bb5f3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5bba7cd17c59f3b060466a8e2ce0c8868f5953e4141e73f4bd2909a7eea0d4e2"
-    sha256 cellar: :any,                 x86_64_linux:      "6069180293295b61ce803472658d447af88825c74a42b9f414de7d756e67dcd1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cec749b028b78ab789b71c5ff2c08fb422cd9790707644cc9cc5c46c62d169df"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cec749b028b78ab789b71c5ff2c08fb422cd9790707644cc9cc5c46c62d169df"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cec749b028b78ab789b71c5ff2c08fb422cd9790707644cc9cc5c46c62d169df"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "2ff3798b9eede8cd1cddaedfe5d6ae7e08a44780a7aa1766b920a5f795c58e78"
+    sha256 cellar: :any,                 x86_64_linux:      "958bdb471982328aac4896b2f86f78a2c2425fb558be9e95e78995e977087b4f"
   end
 
   depends_on "go" => :build

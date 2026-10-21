@@ -18,6 +18,11 @@ class Mmdbinspect < Formula
 
   depends_on "go" => :build
 
+  resource "homebrew-test-data", :test do
+    url "https://raw.githubusercontent.com/maxmind/MaxMind-DB/507c17e7cf266bb47bca4922aa62071cb21f6d06/test-data/GeoIP2-City-Test.mmdb"
+    sha256 "7959cc4c67576efc612f1cfdea5f459358b0d69e4be19f344417e7ba4b5e8114"
+  end
+
   allow_network_access! :test
 
   def fetch
@@ -29,11 +34,6 @@ class Mmdbinspect < Formula
   end
 
   test do
-    resource "homebrew-test-data" do
-      url "https://raw.githubusercontent.com/maxmind/MaxMind-DB/507c17e7cf266bb47bca4922aa62071cb21f6d06/test-data/GeoIP2-City-Test.mmdb"
-      sha256 "7959cc4c67576efc612f1cfdea5f459358b0d69e4be19f344417e7ba4b5e8114"
-    end
-
     testpath.install resource("homebrew-test-data")
 
     output = shell_output("#{bin}/mmdbinspect -db GeoIP2-City-Test.mmdb 175.16.199.1")

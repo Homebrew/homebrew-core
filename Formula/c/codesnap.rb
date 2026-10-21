@@ -1,18 +1,17 @@
 class Codesnap < Formula
   desc "Generates code snapshots in various formats"
   homepage "https://codesnap-docs.netlify.app/"
-  url "https://github.com/codesnap-rs/codesnap/archive/refs/tags/v0.13.4.tar.gz"
-  sha256 "47a249efd507c0e1dcd8122da1d263b2bf00dcedfa27eed976a02909cefe0725"
+  url "https://github.com/codesnap-rs/codesnap/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "21599899581c0a8dcdd3a8fcb30e212a521aa99bac35b9ad04ace2ae8059e256"
   license "MIT"
   head "https://github.com/codesnap-rs/codesnap.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "06c1dafd27965b4e274ccfc36b2ee23d5f049be1a6ec6cb8cb4b4175db36a8d1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "888e72eb89988d3f9db4467512eeb82762d33b41d9127a20de5a7e3111765a37"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6620e43422a8bf5ef8679b765d25546375c433298799e0a878ec97a62f181590"
-    sha256 cellar: :any,                 arm64_linux:       "6dcf6708d06fe819fe8def2cdf44cc5cfdf109bd6eb44359512387fa5685dd93"
-    sha256 cellar: :any,                 x86_64_linux:      "f36bd8236c35f11f305596e300cbbf2012bb23c4c7c9d9443917f241319f70a4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b20f87a33e824b93d3dd868c1ece15310970aa4754e6ff637a9c494cded69528"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "27c8a0ddb9593df4eaff34c151cf1991e4d95d0c3bc284b34a67163397554b9e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ccd056eeda264fca17d44c0b8a1985c8c3574a6108811b42a58a48f12fbd5246"
+    sha256 cellar: :any,                 arm64_linux:       "2ccd4c71eed7eeab7bedff6913fbeefb05854d0d5a27d155a2d37d2f8f0dd398"
+    sha256 cellar: :any,                 x86_64_linux:      "9e4d02cc56df7fc995c1507e65035201eb618b2ec858d4ce3e695c13032d4e55"
   end
 
   depends_on "pkgconf" => :build

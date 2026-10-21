@@ -5,6 +5,7 @@ class LlvmAT21 < Formula
   sha256 "4633a23617fa31a3ea51242586ea7fb1da7140e426bd62fc164261fe036aa142"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -13,13 +14,11 @@ class LlvmAT21 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "46e365b50a5f6f02543f610b7d0b86b6d8a0aa1ab437a615acc753720a6cc73d"
-    sha256 cellar: :any,                 arm64_tahoe:       "e3a3579a56ca64c479040de7eb4d0748efe369338216e81af2e59e3aed608c58"
-    sha256 cellar: :any,                 arm64_sequoia:     "71f4ead77d52d42da9dd7f34441b45304474837b7ace887c7669048f830df6e6"
-    sha256 cellar: :any,                 arm64_sonoma:      "1d8422fcaacee615ff78ba5ac530b8a141ce127087b3e861ba1faf972dc88256"
-    sha256 cellar: :any,                 sonoma:            "e58f968196af2f0db01f546cae78792d0b0cf885641c380ec3efa10817f52d13"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "faaf642e58e4d98e64681beeaa811f269a88eeddeae4d53bc0626311f659d459"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3e924cb91a56d752a2fb9ea4a01d02838df973611f59ff51747b60c4d67bf82b"
+    sha256 cellar: :any, arm64_golden_gate: "47ec474083c17dcd646723068669418c4cc2acc31162b16eebcf5cab47dbc055"
+    sha256 cellar: :any, arm64_tahoe:       "aef68da81e94be677a2260d4901f156b54e70fbde69a92c0b47d28573eca0f8e"
+    sha256 cellar: :any, arm64_sequoia:     "63d776e3c1865f647b9c3df8dba8ef2ab024f6f045a07b7f1cdf5af6e0d0e9c3"
+    sha256 cellar: :any, arm64_linux:       "95b388f71ef7c9321db7a383be2dfcddcf883b1861839514230cec8545f2cad3"
+    sha256 cellar: :any, x86_64_linux:      "b133e6bc26a1c352f3280ed27510617986881da02ed5593354b48e9bb9050956"
   end
 
   keg_only :versioned_formula
@@ -27,7 +26,7 @@ class LlvmAT21 < Formula
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "zstd"
 
   uses_from_macos "libedit"
@@ -41,8 +40,7 @@ class LlvmAT21 < Formula
 
   # Fix triple config loading for clang-cl
   patch do
-    url "https://github.com/llvm/llvm-project/compare/1381ad497b9a6d3da630cbef53cbfa9ddf117bb6...40a8c7c0ff3f688b690e4c74db734de67f0f89e9.diff"
-    sha256 "f6dafd762737eb79761ab7ef814a9fc802ec4bb8d20f46691f07178053b0eb36"
+    file "Patches/llvm/pull-111397.diff"
     type :unofficial
     resolves "https://github.com/llvm/llvm-project/pull/111397"
   end

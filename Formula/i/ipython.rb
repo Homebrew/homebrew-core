@@ -9,15 +9,15 @@ class Ipython < Formula
   head "https://github.com/ipython/ipython.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bf498fb6f0b79540161f997f49d590f493e91196b6a0560bc0f507f7d24ea243"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e9c5a8fa8341fd0e8366b3809b69d1c33ec448ea49c7665359e4704b6cc459ec"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ede02525b1d8a6565ec5629eb6bb368c711b829f1d59fea0c29131c787efabfe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "c1dce825656a8f617f06edcc9b7eb1e176396b854666d33463790765c62c9152"
-    sha256 cellar: :any,                 arm64_linux:       "42657843c15ee8a448c391fcdf56c760ae15089f14619b14a7b5833ae42009c5"
-    sha256 cellar: :any,                 x86_64_linux:      "9b0aa6632516554f6a45a3c09af25c934a6c527ffb5aedf1d10746923f2c878b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5e28834fcddf319abe55612a846d5c5bd1b575063c19402e58dc2d44c5912678"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "056f18d13a4fa8bbf175ca896c458bd8b03da6c8e11bbafd13f8404ce24a2080"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "373573c56824bb486b0b9ff65648203260c1ad31dcd2d8c8971b41dd78d36c85"
+    sha256 cellar: :any,                 arm64_linux:       "085515c81cf80ce37d5aaf38b98d25a55552323f2fb4822c0a2b21fa53fe175e"
+    sha256 cellar: :any,                 x86_64_linux:      "9658dae19c8a4419e286b0d03467ab54f12a2c866cc9c15aa74dfd14f821dd01"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "asttokens" do
     url "https://files.pythonhosted.org/packages/25/1e/faf0f247f6f881b98fc4d6d07e14085cb89d13665084e6d6ac1dc2c03d0b/asttokens-3.0.2.tar.gz"
@@ -70,8 +70,8 @@ class Ipython < Formula
   end
 
   resource "pure-eval" do
-    url "https://files.pythonhosted.org/packages/cd/05/0a34433a064256a578f1783a10da6df098ceaa4a57bbeaa96a6c0352786b/pure_eval-0.2.3.tar.gz"
-    sha256 "5f4e983f40564c576c7c8635ae88db5956bb2229d7e9237d03b3c0b0190eaf42"
+    url "https://files.pythonhosted.org/packages/da/9f/abfd2959e9261dd5217ca8551d4de211ca6ab26fe9b72cf44731ff6c4442/pure_eval-0.2.4.tar.gz"
+    sha256 "260c2774686e651b79f8b8e7fc9d80b3599ea6a66334b47d5f4abb69fc2c0ea1"
   end
 
   resource "pygments" do
@@ -90,8 +90,8 @@ class Ipython < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/36/57/ed58088fafdf4c55a0ad6bde846502567645424d7ebf325230b9237f4085/wcwidth-0.8.3.tar.gz"
-    sha256 "d128512515fbf4612e0ff21fd6380399210318b7b54a9af59dff8454cf9730eb"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

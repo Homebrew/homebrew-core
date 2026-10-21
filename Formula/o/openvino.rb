@@ -3,11 +3,10 @@ class Openvino < Formula
 
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2026.4.0.tar.gz"
-  sha256 "ff816f55e591ded0b60a748405010a8507291ee2b16ef2caf4c4ff662c4d4b6d"
+  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2026.4.1.tar.gz"
+  sha256 "1ee85264556025486a4745a2d452ea823c578b3d162768bfef590366d2e6c539"
   license "Apache-2.0"
-  revision 1
-  compatibility_version 7
+  compatibility_version 8
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
   livecheck do
@@ -16,11 +15,11 @@ class Openvino < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8aeb0a2ca3aa958c4f4913bfab96c1a44b4f7f2e20cefc7aa4c01715ab04d435"
-    sha256 cellar: :any, arm64_tahoe:       "f100ec8a540d851c54b975c3a73da2597c68e547962a3d002c457317c2354817"
-    sha256 cellar: :any, arm64_sequoia:     "7c96d0aeee1a57e420c3155177fefe7e8270c749b83fa22048177fa804791f85"
-    sha256               arm64_linux:       "a68ea0f9c72349df9c664f1af049373ae058e9a87880852174e08eabf49183d4"
-    sha256               x86_64_linux:      "cb58de62ce65e26869c78032c10dacf745ac4a30e5495aa8c46d81fd896b07c4"
+    sha256 cellar: :any, arm64_golden_gate: "9209c10a5f0b6a15a6b1d06cdad7a24c5021fcd3636b889fb2050fd63a623525"
+    sha256 cellar: :any, arm64_tahoe:       "98daf1613ed8c342294903f4f37042360c3ae3f1ec5cdbb7934c582b3031fbb4"
+    sha256 cellar: :any, arm64_sequoia:     "746feb262a779aff182d34b3586bc4a30e775bc3a383bdbe282d94bca91454b5"
+    sha256               arm64_linux:       "b1bc0da7956e469b58879f1b10b3636c56d7e8825661b9789389095e0244fc68"
+    sha256               x86_64_linux:      "2042ec60ab0a83f3bb5b59598ac323bbacf714a958266c2670c113ad40382406"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -42,7 +41,6 @@ class Openvino < Formula
     depends_on "automake" => :build
     depends_on "opencl-clhpp-headers" => :build
     depends_on "opencl-headers" => :build
-    depends_on "openssl@3" => :build
     depends_on "rapidjson" => :build
     depends_on "opencl-icd-loader"
 

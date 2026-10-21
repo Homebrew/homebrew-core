@@ -3,8 +3,8 @@ class Systemd < Formula
 
   desc "System and service manager"
   homepage "https://systemd.io"
-  url "https://github.com/systemd/systemd/archive/refs/tags/v262.tar.gz"
-  sha256 "6aa77506c0644aa67f940a48e3d3a7368601f787e4f249139516d353f107bcab"
+  url "https://github.com/systemd/systemd/archive/refs/tags/v262.1.tar.gz"
+  sha256 "100fc873b848b9b0297d8a705e8e2ed326256c8483d9960ee1ffe264c8a5c3e3"
   license all_of: [
     # Main license is LGPL-2.1-or-later while systemd-udevd is GPL-2.0-or-later
     "LGPL-2.1-or-later",
@@ -31,8 +31,8 @@ class Systemd < Formula
   head "https://github.com/systemd/systemd.git", branch: "main"
 
   bottle do
-    sha256 arm64_linux:  "b8781f5f5dd6f7294408065331d564fa7e1d089fa8598e0e02431252801f2a4c"
-    sha256 x86_64_linux: "8992355dbcecf65e0fc4ba2f8929cc1204c46050dd359b7506a59524604c8f1c"
+    sha256 arm64_linux:  "5c187152e90c68875a9f0e8c94bf5217e5b1248ab75ce240892da47169b10f46"
+    sha256 x86_64_linux: "6dbe8142459c75b274dacd657d01b2760443eb5e41918a36881942be5eebedb3"
   end
 
   keg_only "it will shadow system systemd if linked"
@@ -47,11 +47,11 @@ class Systemd < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on "libxcrypt"
   depends_on :linux
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "util-linux" # for libmount
   depends_on "xz"
   depends_on "zstd"
@@ -70,8 +70,8 @@ class Systemd < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   def install

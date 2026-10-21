@@ -36,6 +36,11 @@ class Mupen64plus < Formula
     depends_on "nasm" => :build
   end
 
+  resource "rom", :test do
+    url "https://github.com/mupen64plus/mupen64plus-rom/raw/76ef14c876ed036284154444c7bdc29d19381acc/m64p_test_rom.v64"
+    sha256 "b5fe9d650a67091c97838386f5102ad94c79232240f9c5bcc72334097d76224c"
+  end
+
   # Backport fix to avoid macOS app bundle path
   patch do
     url "https://github.com/mupen64plus/mupen64plus-ui-console/commit/1cab2e6dfe46d5fbc4c23e1e7fbb4502a4e57981.patch?full_index=1"
@@ -63,11 +68,6 @@ class Mupen64plus < Formula
   test do
     # Disable test in Tahoe CI because it hangs because a display is not available.
     return if OS.mac? && MacOS.version >= :tahoe && ENV["HOMEBREW_GITHUB_ACTIONS"]
-
-    resource "rom" do
-      url "https://github.com/mupen64plus/mupen64plus-rom/raw/76ef14c876ed036284154444c7bdc29d19381acc/m64p_test_rom.v64"
-      sha256 "b5fe9d650a67091c97838386f5102ad94c79232240f9c5bcc72334097d76224c"
-    end
 
     resource("rom").stage(testpath)
     system bin/"mupen64plus", "--testshots", "1", "m64p_test_rom.v64"

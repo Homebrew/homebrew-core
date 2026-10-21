@@ -28,6 +28,8 @@ class YazeAg < Formula
 
   conflicts_with "cpm", because: "both install `cpm` binaries"
 
+  deny_network_access!
+
   def install
     if OS.mac?
       inreplace "Makefile_solaris_gcc-x86_64", "md5sum -b", "md5"

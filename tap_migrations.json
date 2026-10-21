@@ -4,6 +4,8 @@
   "app-engine-go-32": "homebrew/cask/google-cloud-sdk",
   "app-engine-go-64": "homebrew/cask/google-cloud-sdk",
   "avidemux": "homebrew/cask",
+  "az": "homebrew/cask/azure-cli",
+  "azure-cli": "homebrew/cask",
   "chromedriver": "homebrew/cask",
   "cockatrice": "homebrew/cask",
   "codex": "homebrew/cask",
@@ -31,5 +33,7 @@
   "sentry-cli": "homebrew/cask",
   "transmission-remote-gtk": "homebrew/cask/transmission-remote-gui",
   "truetree": "homebrew/cask",
+  "vercel": "homebrew/cask",
+  "vercel-cli": "homebrew/cask/vercel",
   "wesnoth": "homebrew/cask/the-battle-for-wesnoth"
 }

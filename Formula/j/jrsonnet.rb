@@ -22,6 +22,12 @@ class Jrsonnet < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     # TODO: `throw!` macro trips `semicolon_in_expressions_from_macros`, deny-by-default since Rust 1.91
     ENV.append_to_rustflags "--allow semicolon_in_expressions_from_macros"

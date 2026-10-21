@@ -6,14 +6,16 @@ class RobotFramework < Formula
   url "https://files.pythonhosted.org/packages/66/77/5f60e5619082d387971d111c1354f1f529d2959ee742877982002d38d53d/robotframework-7.5.tar.gz"
   sha256 "ff6233ff752a200ece4d0a6c59f6f9f7d0e96dcff0a7a3458296b997b812482e"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/robotframework/robotframework.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "bc53a0c063d6beccd29a590ec723d0d5b4a5533ebd7e64f7033f5dca96411519"
-    sha256 cellar: :any, arm64_tahoe:       "80d1b37f19e8abf7abd1b3079c8d5dc66e4942d5457525a9a0e4423fd7826ec3"
-    sha256 cellar: :any, arm64_sequoia:     "fc7b26b70b0630ed4e96b96c586cfa11d1f75613366619a190f1cbe4e76bed12"
-    sha256 cellar: :any, arm64_linux:       "96140bde4a19a4b1aecf2734a165a36004d2846c82e084c8f6abcb71f9de0809"
-    sha256 cellar: :any, x86_64_linux:      "faba779ad6140713bc88636334857c6550c36296727f5f370d50b2de28ce0b09"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "6aa514724bff5611852a44f4d00e668e76519e8497cd2b0d26d3ff716a7aba58"
+    sha256 cellar: :any, arm64_tahoe:       "e1255c47a78dd59a06c60a0fdf140a9fe80d7cf6a4c9bce159d387e72dff59ca"
+    sha256 cellar: :any, arm64_sequoia:     "49bd47d57a7db0ff3dd90239110c505414c010daebdcbf1e52a2252c25cdabf3"
+    sha256 cellar: :any, arm64_linux:       "099d0b031ac9f50f6ae3732b11d2da6c8f964047c87037947cb8ea3908d3c218"
+    sha256 cellar: :any, x86_64_linux:      "0b4110a762071b8839acbab0cc804e15f26466c0025ad59506f6b1722fa9fe3e"
   end
 
   # `pkgconf` and `rust` are for bcrypt
@@ -22,7 +24,7 @@ class RobotFramework < Formula
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "libsodium" # for pynacl
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "bzip2"
 
@@ -56,8 +58,8 @@ class RobotFramework < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
-    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
+    url "https://files.pythonhosted.org/packages/f5/08/8eea9d4b8302028f3abb2c0813953f7aec26d33b7a8960ed760e65ff29fa/idna-3.20.tar.gz"
+    sha256 "a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44"
   end
 
   resource "invoke" do
@@ -111,13 +113,13 @@ class RobotFramework < Formula
   end
 
   resource "scp" do
-    url "https://files.pythonhosted.org/packages/f8/35/fcef45d52d76a6dc70778c11eea719ff0ab550594bc51e55e66d28b5f424/scp-0.16.1.tar.gz"
-    sha256 "3f2b260bf9bd4c2b6857f697a1d7e8edc26fa569282b77027e849dfe1e48580a"
+    url "https://files.pythonhosted.org/packages/38/c3/4d0230664b7c505ba2fa7bf9fe4bee83f6f1fa195e865ad7f92b12917e59/scp-0.16.2.tar.gz"
+    sha256 "d049f9aa77db4042c44b922cecabe97ef0716fb334a95701d68d1c7991684fc2"
   end
 
   resource "selenium" do
-    url "https://files.pythonhosted.org/packages/5d/1c/d4346c986b21ccaa0bbd9407191590557b77bc34336bd4fb4fa76526d5e7/selenium-4.49.0.tar.gz"
-    sha256 "c9d91274e5f55835e12b524adf1f231739ea811a8866d810e5bb42ba87cd8eda"
+    url "https://files.pythonhosted.org/packages/c3/d3/c925308af2c9b9a9ccf531cf23ffba4f38c0d750f088a06e560fb2ca0c59/selenium-4.51.0.tar.gz"
+    sha256 "6bec9bd8d9b6599f850b0f6e9fb06d44d2e4245adccd11ae02c9d5cde7596276"
   end
 
   resource "sniffio" do
@@ -146,8 +148,8 @@ class RobotFramework < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
-    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
+    url "https://files.pythonhosted.org/packages/e3/05/b17359e1cefb4f909b5e40b1b90a496d987258916dbbf88e842c729f510e/urllib3-2.8.0.tar.gz"
+    sha256 "63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63"
   end
 
   resource "websocket-client" do

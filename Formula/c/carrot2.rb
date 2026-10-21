@@ -17,6 +17,9 @@ class Carrot2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "26902c74d9cdf96d37051cc3872edc8d7b4cbd7e6c80e2073dea616146bd97d1"
   end
 
+  deprecate! date: "2026-10-28", because: "needs deprecated node@22 to build"
+  disable! date: "2027-10-28", because: "needs deprecated node@22 to build"
+
   depends_on "gradle" => :build
   depends_on "node@22" => :build
   depends_on "yarn" => :build

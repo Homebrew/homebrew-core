@@ -10,17 +10,18 @@ class GimmeAwsCreds < Formula
   head "https://github.com/Nike-Inc/gimme-aws-creds.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e55dba8409e9a7177a1856bbce02b2077c67698da8309e23ac0a1aeed5299124"
-    sha256 cellar: :any, arm64_tahoe:       "dedbeaefddbc446cf5080f7e26dabf871270fc8603e87e0057c63bf999c06281"
-    sha256 cellar: :any, arm64_sequoia:     "dbda053234ecb5f5c898e792a0b8cce31026a9672b19694d8972159e6eef27e2"
-    sha256 cellar: :any, arm64_linux:       "db68f6f11cffd6b2e5de34e89e853f1b3231bdea0af97549bcdc11d58737c79b"
-    sha256 cellar: :any, x86_64_linux:      "7c45557dd7eabaddc3219e801d66b4572668078a6ee9527464be2f2ac172dd95"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "ebfd09ceb0b27752debb6e22194cc4009e7ed73ef5a8bee50bb7b13008c178e3"
+    sha256 cellar: :any, arm64_tahoe:       "0d0ba4f639d0a7ca253505a97e7e631c9445f994db8813fb614032dc3ab8bfef"
+    sha256 cellar: :any, arm64_sequoia:     "49a54a0c5bc643c43be58075e45856a9c1800ffc4f21f4227cdfded309fa0bf2"
+    sha256 cellar: :any, arm64_linux:       "46b8601813e0950383d3596f49f0973fe54754c8b82f445b297559507d2de19d"
+    sha256 cellar: :any, x86_64_linux:      "a411eb1250e9ea379b5d86477ad2b20d2ef6f6bb978d654a2fd2db27358259b7"
   end
 
-  depends_on "certifi"
-  depends_on "cryptography"
+  depends_on "certifi" => :no_linkage
+  depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libffi"
 
@@ -59,8 +60,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz"
-    sha256 "9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc"
+    url "https://files.pythonhosted.org/packages/93/2f/6a91adaa2dc26877d6ed2f54c0370c8910f019db7d77c5c6a194611e93ea/aiohttp-3.14.4.tar.gz"
+    sha256 "831fc5bd39ec2517851e348f613ddb5447a47cf4b71cb09845af7ad7ed45d8f9"
   end
 
   resource "aiosignal" do
@@ -79,18 +80,18 @@ class GimmeAwsCreds < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/b3/d3/aae7125fb2ed6796aea7a0f5588af71971569f14063cfa65a01178f619ca/boto3-1.43.104.tar.gz"
-    sha256 "d26ad9b8f6066e9be90c78c1f8f0cdd82e33e0a363a1ccc5ab01008b0e48c7fd"
+    url "https://files.pythonhosted.org/packages/59/d3/fa092ae1c109100d0c5c14c69a316cd6d53c05fb57183fa77b1fcdef86ce/boto3-1.43.111.tar.gz"
+    sha256 "5ae342a16c848909cd42d4be404f69d9082e5705460198d4d3327eca5f6cddcb"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/9f/47/5825401cb9883bc0fbf981dfb4893371f48bc77527bde6c1efe8f9aa8754/botocore-1.43.104.tar.gz"
-    sha256 "099f84876df9f6dc23a24b4d8c02da2d73c6949249761dd85585f735b825c182"
+    url "https://files.pythonhosted.org/packages/6c/43/257e97270ddd6833fd54b11e544a09b441b02f8c731bdeb29b90479be565/botocore-1.43.111.tar.gz"
+    sha256 "44d5e80962ac6cb9e85af72667b77c9586451e3328ab0ce33195380767e213d8"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "ctap-keyring-device" do
@@ -205,8 +206,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/c9/85/e24bf90972a30b0fcd16c73009add1d7d7cd9140c2498a68252028899e41/pycryptodomex-3.23.0.tar.gz"
-    sha256 "71909758f010c82bc99b0abf4ea12012c98962fbf0583c2164f8b84533c2e4da"
+    url "https://files.pythonhosted.org/packages/4c/25/214ea825a9031f5af2c8b2506ee16701a2560d4712165dd00098dd527bcb/pycryptodomex-3.24.0.tar.gz"
+    sha256 "0428f19f13452c6b89bbaf2c530f84f369873811dfa77f0cee0da4f40fb0474f"
   end
 
   resource "pydash" do
@@ -270,8 +271,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/71/c3/1b817965ac12dc002d7c9cd7dfffdd7d4fbf9b45763ef2ffe7b86ee94670/soupsieve-2.10.tar.gz"
-    sha256 "49e9380d7d2905463583bafe285e818c7366a9ed7b3aee221c1ac79c905d8bc0"
+    url "https://files.pythonhosted.org/packages/6a/a9/4af6e80fab273e06a9682fe8c9984c4b031dc07c7d425568835286bcdfad/soupsieve-3.0.tar.gz"
+    sha256 "1136e639f72f95f1a9351b4587f640553d08d41a5653b187da30d6c9200c296c"
   end
 
   resource "typing-extensions" do
@@ -280,8 +281,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/e4/e8/6ff5e6bc22095cfc59b6ea711b687e2b7ed4bdb373f7eeec370a97d7392f/urllib3-1.26.20.tar.gz"
-    sha256 "40c2dc0c681e47eb8f90e7e27bf6ff7df2e677421fd46756da1161c39ca70d32"
+    url "https://files.pythonhosted.org/packages/e3/05/b17359e1cefb4f909b5e40b1b90a496d987258916dbbf88e842c729f510e/urllib3-2.8.0.tar.gz"
+    sha256 "63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63"
   end
 
   resource "webencodings" do
@@ -297,6 +298,13 @@ class GimmeAwsCreds < Formula
   resource "yarl" do
     url "https://files.pythonhosted.org/packages/75/16/e8be8e2fb175bbf41a0680381a319f1199fae256588241a2ac8677eafb49/yarl-1.25.1.tar.gz"
     sha256 "03dd38de09bc213e9a8b29761eec33ee1d5318dac0e49d8af36e4d27830e23a7"
+  end
+
+  # Backport support for newer urllib3
+  patch do
+    url "https://github.com/Nike-Inc/gimme-aws-creds/commit/7896145aeb3ed5665a2102d4f3cf43508a2493f4.patch?full_index=1"
+    sha256 "9bea3faad4eabe40e7724af2841db49dd4abb874546b3581e3097b920c7b5649"
+    type :backport
   end
 
   def install

@@ -41,9 +41,31 @@ class Libflowmanager < Formula
     type :backport
   end
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~CPP
+      #include <libtrace.h>
+      #include <libflowmanager.h>
+
+      int main() {
+        bool opt = true;
+        FlowManager *fm = new FlowManager();
+        if (fm->setConfigOption(LFM_CONFIG_IGNORE_RFC1918, &opt) == 0) return 1;
+        delete fm;
+        return 0;
+      }
+    CPP
+
+    libtrace = Formula["libtrace"]
+    system ENV.cxx, "test.cpp", "-I#{include}", "-I#{libtrace.opt_include}",
+           "-L#{lib}", "-L#{libtrace.opt_lib}", "-lflowmanager", "-ltrace", "-o", "test"
+    system "./test"
   end
 end

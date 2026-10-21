@@ -1,8 +1,8 @@
 class Sprocket < Formula
   desc "Bioinformatics workflow engine built on the Workflow Description Language (WDL)"
   homepage "https://sprocket.bio"
-  url "https://github.com/stjude-rust-labs/sprocket/archive/refs/tags/v0.31.0.tar.gz"
-  sha256 "71e61ebc2aa03253c1a1836721ab3afe4b14563b215de8a8fa2fdf20548fe4fe"
+  url "https://github.com/stjude-rust-labs/sprocket/archive/refs/tags/v0.32.0.tar.gz"
+  sha256 "056c6588558275657af0e93d1a8f8285727a7c279190c6ac6096639d994bdf0b"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/stjude-rust-labs/sprocket.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Sprocket < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "26fc6de346fd9cd7d95928b0186f392fca4ab10dcb2bd13f385978b5ebe57a62"
-    sha256 cellar: :any, arm64_tahoe:       "04bf43c6de0cee0485abdfd6e9125f5cb6d810dad27b0d7a30ac4f4f478a2345"
-    sha256 cellar: :any, arm64_sequoia:     "4b72eb7fe673cdeef858d7f54f3ff705415ee72de861db50aaf8b08b1e3f860f"
-    sha256 cellar: :any, arm64_linux:       "409e9de50b46fa1a856760610a0e08bfcf8788455b61dd3cbc165c1b9193f120"
-    sha256 cellar: :any, x86_64_linux:      "93471fa2c64fa3995613d4b7d0908c36c2ed31cb0af44cd5a87bcd09545b7c94"
+    sha256 cellar: :any, arm64_golden_gate: "0890625965bf8f5f1e08dfcc3f7279815cdc076c48b9d2a43723d88453523e16"
+    sha256 cellar: :any, arm64_tahoe:       "232a8563b52070b97f1efe54d3ab07f69d4627fa6cfbd8b487dd892ddfd1ada3"
+    sha256 cellar: :any, arm64_sequoia:     "da063017c8e1fa86d56ad09ca88b4c3fee03fa03e9b950abec71b56e14cc6b1d"
+    sha256 cellar: :any, arm64_linux:       "c34b5d7f6624a356df0b51b7533a7ff66d81b6627dcb8aabce429ef401a95629"
+    sha256 cellar: :any, x86_64_linux:      "c09e1d9062b2df91e69aaf8fa6cb224bdfde927fe49b63b8902b7eb5e8f0e2d1"
   end
 
   depends_on "pkgconf" => :build
@@ -25,6 +25,12 @@ class Sprocket < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install

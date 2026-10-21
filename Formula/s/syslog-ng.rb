@@ -6,7 +6,7 @@ class SyslogNg < Formula
   url "https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-4.12.0/syslog-ng-4.12.0.tar.gz"
   sha256 "03a03d19ac203dca53c7ec79a7005c8a850665a95ff4cd0f1e7bb4c497c64d46"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 9
+  revision 11
   head "https://github.com/syslog-ng/syslog-ng.git", branch: "develop"
 
   livecheck do
@@ -15,14 +15,15 @@ class SyslogNg < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "b05a6377a8a1468fa3cb63f7aad6db4a82d821fac7a82fad2e6e821991fab288"
-    sha256 arm64_tahoe:       "a8065664a8ea88355c41667afc974fe55821b5691ec9f31aa07b67d1c9bd8e39"
-    sha256 arm64_sequoia:     "363e12cef60648439c6b130f16d23e3fef2ac19e34b89d107bb35316e2fad675"
-    sha256 arm64_linux:       "4220b18b1063ca540f97c3956c2770ec387c474c61c4875ed21a002b95816ec9"
-    sha256 x86_64_linux:      "2a23b37eeed6f5389f8ee26dd2fdcbe33f06c4baaf7b7d2644f4873bb1d743f8"
+    sha256 arm64_golden_gate: "20042e073b12eb6a3490a6e9351a3531d704fe855b977e573e8a6c67b76713cb"
+    sha256 arm64_tahoe:       "c7c9ad7580ed44bc2cf2d7b2383a0fe2ce0f5680928d6c5d793c4a8022a8e9eb"
+    sha256 arm64_sequoia:     "e76c239144da08261310d6a0ab4867aa10a620910f5aeb1841d68b6d51c1b319"
+    sha256 arm64_linux:       "2df3813796d013ba9f0cb5b7715d89e40efb68dce3a0fda6e56b3721c22da817"
+    sha256 x86_64_linux:      "527dda5e40a448f8a3acc132c60322a720fd8549f8ef8d7f45718e57b4fb1193"
   end
 
   depends_on "pkgconf" => :build
+  depends_on "rust" => :build # for kubernetes > pydantic > pydantic-core
 
   depends_on "abseil"
   depends_on "glib"
@@ -38,10 +39,10 @@ class SyslogNg < Formula
   depends_on "libyaml"
   depends_on "mongo-c-driver"
   depends_on "net-snmp"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "protobuf"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rabbitmq-c"
   depends_on "riemann-client"
 

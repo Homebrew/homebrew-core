@@ -8,15 +8,16 @@ class Pgcli < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "077bad072d0eb3b2d374703e2e3d1f23e3fbd4566b6ffc15a9797ac51e54cb9d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e79ae34e6ac22f15dbe552083a419fe88b3c26870a3f1ba04e081f5be044ec57"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d001290f9f337c7febb957dcffd3130ac59f14482a4469a15ed9dbf71a6aaa0b"
-    sha256 cellar: :any,                 arm64_linux:       "c4592205e4cf7b2e710dd47038e7e390841f2b49256a40f129f177d0303775ba"
-    sha256 cellar: :any,                 x86_64_linux:      "b3cc63f9d20cdf05df70b68bb9a1c9b12484ec4f9ebd530e0d6a38c3cb9a19e4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e0a1e4963f8c8f87bf9ffb0ddfbbd9fa856650d77df38bc6132fdebdba7c3b15"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b15fcb4a3367e0b2aceeab086e5d3590f7af3d6064157be94f655f20c3c866ad"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f85c3033bab150e4b4112c74615aa7c7e84fddd88e7f459f0a2c4d78a3d0a78e"
+    sha256 cellar: :any,                 arm64_linux:       "252b700aacff1e62e2580e725b5a40fb659eb7862c1c37d1a9dc7ac808cb0a3f"
+    sha256 cellar: :any,                 x86_64_linux:      "eb4430d36e883d9d1277c9fd72dafdd80c908aeb94d9d811647600ffb91bef6f"
   end
 
   depends_on "libpq"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "cli-helpers" do
     url "https://files.pythonhosted.org/packages/3f/de/278f4885fcd03661ab9b69dba9fc745c27d820858dbc06e427057899dcf5/cli_helpers-2.15.1.tar.gz"
@@ -54,8 +55,8 @@ class Pgcli < Formula
   end
 
   resource "setproctitle" do
-    url "https://files.pythonhosted.org/packages/8d/48/49393a96a2eef1ab418b17475fb92b8fcfad83d099e678751b05472e69de/setproctitle-1.3.7.tar.gz"
-    sha256 "bc2bc917691c1537d5b9bca1468437176809c7e11e5694ca79a9ca12345dcb9e"
+    url "https://files.pythonhosted.org/packages/49/b0/6b8a516c5a9e9630bd5293db78314ac012f690305fe93beadea388626efb/setproctitle-1.3.8.tar.gz"
+    sha256 "cafe209d064a6efb88cb45a03e97981ff8832802b2b5d009dde0197a3b7b41c8"
   end
 
   resource "sqlparse" do
@@ -74,8 +75,8 @@ class Pgcli < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/3d/7a/f98d4ada7c499565ab0c0fcef28a4e54fafa72b8228a6309803c80493c92/wcwidth-0.8.4.tar.gz"
-    sha256 "2dae09efa25253ae2874188e86d6861af3b1652aef4118cdf3f0bda288a957fb"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

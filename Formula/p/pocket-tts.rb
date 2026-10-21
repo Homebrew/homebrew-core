@@ -6,14 +6,15 @@ class PocketTts < Formula
   url "https://files.pythonhosted.org/packages/56/e4/08262e47704291a99c211515b17e754d4891a899323a8171e220f468e45b/pocket_tts-3.3.0.tar.gz"
   sha256 "997b3dd39d43c0555cdd9b8efd72ac926dbfcd250fb5f3575aa29c33db5b6621"
   license "MIT"
+  revision 2
   head "https://github.com/kyutai-labs/pocket-tts.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4f2580fa3c141acbf4a2d6179794f3f228654e672ed1c9c185dfa45ebbbb9dac"
-    sha256 cellar: :any, arm64_tahoe:       "5c29cbb62a5c0d93ed87ef77ff9f0791fab7bf80976063ef88b4f1f07d1e8d85"
-    sha256 cellar: :any, arm64_sequoia:     "8ed0dfa02db56d118f5f170b3af446859f53f2b3a3e76cbc1188ecbcdb1bd3f9"
-    sha256 cellar: :any, arm64_linux:       "38bf483a2b45445083e470de826fb9d6b214f32bc3dcfa0982762b413e4e3251"
-    sha256 cellar: :any, x86_64_linux:      "ddacfe76ce10a4c7667c1b6c0b87a51de5414372979b677992648e68c9d3901f"
+    sha256 cellar: :any, arm64_golden_gate: "153cbce5664be5c87ac91560e2f32aecad729f4075be2be21156670f53e7b60e"
+    sha256 cellar: :any, arm64_tahoe:       "92fd409f23cc430b12463314a4e30a61c350cc1e56453d5658be5de1e9957da5"
+    sha256 cellar: :any, arm64_sequoia:     "a8cd3d8d93b09a29bc3fc10877582ea3e6c8297a2e31914638a144f6bef63b4c"
+    sha256 cellar: :any, arm64_linux:       "f6c4e02b8b4f60dbfeb39399f35170bddc1a7f14ecbe907db1be426bd5feb7d5"
+    sha256 cellar: :any, x86_64_linux:      "dd9e60fa965782ef581ae261e754a3e52a6088f8fe324665a00f245269779f50"
   end
 
   depends_on "cmake" => :build
@@ -22,12 +23,12 @@ class PocketTts < Formula
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "pytorch"
   depends_on "scipy" => :no_linkage
 
   on_linux do
-    depends_on "openssl@3" # for hf-xet
+    depends_on "openssl@4" # for hf-xet
   end
 
   pypi_packages exclude_packages: %w[certifi pydantic scipy torch]
@@ -183,6 +184,9 @@ class PocketTts < Formula
 
     # `tokenizers` builds a PyO3 extension through maturin.
     ENV.append_to_rustflags "-C link-arg=-Wl,-undefined,dynamic_lookup"
+
+    # Allow Python 3.15
+    inreplace "pyproject.toml", 'requires-python = ">= 3.10,<3.15"', 'requires-python = ">= 3.10"'
 
     venv = virtualenv_install_with_resources(without: ["hf-xet", "sentencepiece"])
 

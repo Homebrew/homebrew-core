@@ -1,18 +1,16 @@
 class PandocCrossref < Formula
   desc "Pandoc filter for numbering and cross-referencing"
   homepage "https://lierdakil.github.io/pandoc-crossref/"
-  url "https://github.com/lierdakil/pandoc-crossref/archive/refs/tags/v0.3.25a.tar.gz"
-  version "0.3.25a"
-  sha256 "91712810bf91807869dbda35f5186cd4f39352c6201d5712c8f4ce1ac3691ab5"
+  url "https://github.com/lierdakil/pandoc-crossref/archive/refs/tags/v0.3.26.tar.gz"
+  sha256 "17c1ec465291d779e23c14bba23730d2de927c0ed35a8fd24c3ddd6e91463660"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8baf63bdaf5a90cff63365481afa4de0ed53b9e1678cdb4bf080a1952ed6065f"
-    sha256 cellar: :any, arm64_tahoe:       "0f656d96c2b4066a7cda1116e858c62836cc9fe09dc494231ccda73aa7032952"
-    sha256 cellar: :any, arm64_sequoia:     "eb3f1d7443971a27ce678840fd0132edb5dafc8ec802f608c83023f2c9868722"
-    sha256 cellar: :any, arm64_linux:       "f8b14d36dc80528f96b35ebf54d25e174ed5fa3c8a559695e3517ffde505e83b"
-    sha256 cellar: :any, x86_64_linux:      "ab176e90248bfc3ec1d4ba4b633f848493ddab1cc7d4a87a803003a939142f5b"
+    sha256 cellar: :any, arm64_golden_gate: "e989f8215558ba0284d0db43770f08a5cdd47fd1e03a2e6e2285e115f4b29c70"
+    sha256 cellar: :any, arm64_tahoe:       "701e3808f3cf5d15b9c9fd9f33256aa717e0a005c62580b8d7aca0d193839d4a"
+    sha256 cellar: :any, arm64_sequoia:     "8e8fd27651f90ce19804eaa61936a3cd8c7fd36c1546f1b597eab5f28678f445"
+    sha256 cellar: :any, arm64_linux:       "89505a7029d9fe748e90f4124adaa32cc251f298b667c68f9af0cb4330b26617"
+    sha256 cellar: :any, x86_64_linux:      "527a84a45ebb29834f208df654b450e843f5820b7268654ec116a846afdc7b7e"
   end
 
   depends_on "cabal-install" => :build
@@ -27,21 +25,18 @@ class PandocCrossref < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # Relax the pandoc bound so the filter is compiled against pandoc 3.12
-  patch do
-    url "https://github.com/daeho-ro/pandoc-crossref/commit/5709f41df96ab5a7ca6d573e5695d10fc0db2928.patch?full_index=1"
-    sha256 "6ad18e41d5b89dd58cf452ccc83a9a6f1dcbb16562a954c86e328ea0306ec43f"
-    type :unofficial
-    resolves "https://github.com/lierdakil/pandoc-crossref/pull/514"
+  deny_network_access!
+
+  # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
+  def args = ["--allow-newer=base,containers,template-haskell"]
+
+  def fetch
+    rm("cabal.project.freeze")
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", "--only-download", *args, *std_cabal_v2_args
   end
 
   def install
-    rm("cabal.project.freeze")
-
-    # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
-    args = ["--allow-newer=base,containers,template-haskell"]
-
-    system "cabal", "v2-update"
     system "cabal", "v2-install", *args, *std_cabal_v2_args
   end
 

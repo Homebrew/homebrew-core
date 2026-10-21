@@ -4,19 +4,20 @@ class Cnats < Formula
   url "https://github.com/nats-io/nats.c/archive/refs/tags/v3.14.0.tar.gz"
   sha256 "1f8b450bc295d0c94be201e34713ca0b515aae2c0d1b279273c3e6e0e72fe005"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c0b48c772a713bf986e7c0ed1b8c4d95dcb5c775034d37537026812d6dff0d34"
-    sha256 cellar: :any, arm64_tahoe:       "b12e05c399c776e78a6b088aad44019cf55eee0c27f250c96bfb34e5eaa681b7"
-    sha256 cellar: :any, arm64_sequoia:     "453efb871697b97b47c507332fd4f187d94af33ac88e9269af5729ba5b29818d"
-    sha256 cellar: :any, arm64_linux:       "7b35686110c20daf884ae3a3f73892f03f0df14fbf757c6971c0c3d0ac7d31bc"
-    sha256 cellar: :any, x86_64_linux:      "66e637912b64ecbc22701a8e8d12765bb43beef917623579f4c7e9bf394f6839"
+    sha256 cellar: :any, arm64_golden_gate: "d292cae09692a23470f2979184e8f7d65cded4099ab1b296d33c1ad86e53d438"
+    sha256 cellar: :any, arm64_tahoe:       "0183f643903a67f0315b31e2171d3a3cbf67d9a83866267a2f876f50464a847b"
+    sha256 cellar: :any, arm64_sequoia:     "8c319f01345442e649e939c6659bf0cf66e1ebba5a447e24c966aca2fb142344"
+    sha256 cellar: :any, arm64_linux:       "6a07a305c20a94cf16b8db8d9576aaaa0156f9d07f9c38bddccdcbb2f17f2fc5"
+    sha256 cellar: :any, x86_64_linux:      "9a6d507ada1dc34a77eca2ee9af7d4b089a709b4695d1a0b6149abdc4c4b2b21"
   end
 
   depends_on "cmake" => :build
   depends_on "libevent"
   depends_on "libuv"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf-c"
 
   deny_network_access!

@@ -19,6 +19,11 @@ class Libredwg < Formula
   depends_on "pkgconf" => :build
   depends_on "texinfo" => :build
 
+  resource "testdata", :test do
+    url "https://github.com/LibreDWG/libredwg/raw/refs/heads/master/test/test-data/example_2000.dwg"
+    sha256 "34574244d7556d1ef7b437443d9b3d1ad8662e1c669c42d80cff6a8a19799be9"
+  end
+
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
@@ -26,11 +31,6 @@ class Libredwg < Formula
   end
 
   test do
-    resource "testdata" do
-      url "https://github.com/LibreDWG/libredwg/raw/refs/heads/master/test/test-data/example_2000.dwg"
-      sha256 "34574244d7556d1ef7b437443d9b3d1ad8662e1c669c42d80cff6a8a19799be9"
-    end
-
     resource("testdata").stage do
       system bin/"dwgread", "-o", "example_2000.dxf", "example_2000.dwg"
       assert_path_exists "example_2000.dxf"

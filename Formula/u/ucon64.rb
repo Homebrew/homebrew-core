@@ -28,6 +28,11 @@ class Ucon64 < Formula
     depends_on "zlib-ng-compat"
   end
 
+  resource "homebrew-super_bat_puncher_demo", :test do
+    url "https://morphcat.de/superbatpuncher/Super%20Bat%20Puncher%20Demo.zip"
+    sha256 "d74cb3ba11a4ef5d0f8d224325958ca1203b0d8bb4a7a79867e412d987f0b846"
+  end
+
   def install
     # ucon64's normal install process installs the discmage library in
     # the user's home folder. We want to store it inside the prefix, so
@@ -56,11 +61,6 @@ class Ucon64 < Formula
   end
 
   test do
-    resource "homebrew-super_bat_puncher_demo" do
-      url "https://morphcat.de/superbatpuncher/Super%20Bat%20Puncher%20Demo.zip"
-      sha256 "d74cb3ba11a4ef5d0f8d224325958ca1203b0d8bb4a7a79867e412d987f0b846"
-    end
-
     resource("homebrew-super_bat_puncher_demo").stage testpath
 
     assert_match "00000000  4e 45 53 1a  08 00 11 00  00 00 00 00  00 00 00 00",

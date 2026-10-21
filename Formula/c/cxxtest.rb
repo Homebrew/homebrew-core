@@ -7,13 +7,14 @@ class Cxxtest < Formula
   sha256 "1c154fef91c65dbf1cd4519af7ade70a61d85a923b6e0c0b007dc7f4895cf7d8"
   license "LGPL-3.0-only"
   revision 3
+  head "https://github.com/CxxTest/cxxtest.git", branch: "master"
 
   bottle do
-    rebuild 6
-    sha256 cellar: :any_skip_relocation, all: "aa6fedcd740d5f396b372bfae35f71164499faf2b62c1737befbcada3ea4d7f8"
+    rebuild 7
+    sha256 cellar: :any_skip_relocation, all: "71f0403e65f3e5a01559dc1a8154e77ac6e63c48ad999a96d5babb5a3913b8cc"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     venv = virtualenv_create(libexec, python3)

@@ -30,13 +30,39 @@ class Wslay < Formula
   end
 
   depends_on "cunit" => :build
-  depends_on "pkgconf" => :build
+  depends_on "pkgconf" => [:build, :test]
   depends_on "sphinx-doc" => :build
+
+  deny_network_access!
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "check"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <string.h>
+      #include <wslay/wslay.h>
+
+      int main(void) {
+        struct wslay_event_callbacks callbacks;
+        struct wslay_event_msg msg = { WSLAY_TEXT_FRAME, (const uint8_t *)"Hello", 5 };
+        wslay_event_context_ptr ctx;
+
+        memset(&callbacks, 0, sizeof(callbacks));
+        if (wslay_event_context_client_init(&ctx, &callbacks, NULL) != 0) return 1;
+        if (wslay_event_queue_msg(ctx, &msg) != 0) return 1;
+        if (!wslay_event_want_write(ctx)) return 1;
+        wslay_event_context_free(ctx);
+        return 0;
+      }
+    C
+
+    pkgconf_flags = shell_output("pkgconf --cflags --libs libwslay").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkgconf_flags
+    system "./test"
   end
 end

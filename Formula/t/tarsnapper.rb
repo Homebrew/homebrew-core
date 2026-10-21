@@ -9,18 +9,16 @@ class Tarsnapper < Formula
   revision 1
 
   bottle do
-    rebuild 8
-    sha256 cellar: :any,                 arm64_golden_gate: "c9aab494352e609a83ab55aac80409ddd0ac4708656736ed9fa6d46245481b5d"
-    sha256 cellar: :any,                 arm64_tahoe:       "32c13f98b225238a1c36beb4aea44cc7aa9fc5f0ea6916836e9f24c9009a759a"
-    sha256 cellar: :any,                 arm64_sequoia:     "aede490b7d29991225df23efd94e0c740fc0a179b2625a54e026865ac4916f78"
-    sha256 cellar: :any,                 arm64_sonoma:      "4a553095ec22748abec5bdab416bd67fc74865d373b20d36befb36afe40ba08f"
-    sha256 cellar: :any,                 sonoma:            "4368cf715ad3a98e93ae54bcd6df1532199927753a4bb5915155141a183ea5a0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4a08f2b3ac06f061600d9a402ac6ffca74de70f9e973699fbf14e9f3dfaa7a08"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ba5eacaf4328d52c8277a96a4befdcac0570cb99372882717562683797c677c5"
+    rebuild 9
+    sha256 cellar: :any, arm64_golden_gate: "afd50b26f881005c7475550bd820f07b7315c0d0c280907ed3cd245e1a903901"
+    sha256 cellar: :any, arm64_tahoe:       "4132ddba92421d31c3174aa898460bbe51de1d10451e91e41864e19083d57059"
+    sha256 cellar: :any, arm64_sequoia:     "0dcdd36e1f1344a967c926b8ad6ae4a8ae4333654e6fba074210be075297da86"
+    sha256 cellar: :any, arm64_linux:       "3f4f36f42f67ce294df75efc95dd48114027e4f59d4062785b8a3310648e6d35"
+    sha256 cellar: :any, x86_64_linux:      "1598ef348e2e2cf74619d6b44d7f4bcd8f74c2d5e812ce666e3993421cd7d428"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "tarsnap"
 
   resource "pexpect" do

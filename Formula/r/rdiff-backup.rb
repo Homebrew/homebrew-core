@@ -9,19 +9,17 @@ class RdiffBackup < Formula
   revision 2
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_golden_gate: "61fa22fb959099022ebd7ccce0158dad48587d0d8185fa17997aaa6748fa7854"
-    sha256 cellar: :any,                 arm64_tahoe:       "ebea57ecc6915c0b154d732cc9694f360c77815e98d8b81948e6e52b3bb881b9"
-    sha256 cellar: :any,                 arm64_sequoia:     "2f5ac3490d900871fae7157a93425498112962b41824c0b725dc3a0acd466673"
-    sha256 cellar: :any,                 arm64_sonoma:      "bccc1b81a71c6c37e91412f2083c8922045b07f5a5cf1c11a37924a480f58871"
-    sha256 cellar: :any,                 sonoma:            "9136e68895a67828a273cd4930fcbc2dbf8dbf4598c5ba938d4c2825d1f25c2f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "baba91a650c1813d89435bfe1bcc41463e9fa64ff81d79592c70a7219147216b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "384758ed7f5ab60a60993d6c73f2a835a878c00cd6066ede4e054334aafc7731"
+    rebuild 4
+    sha256 cellar: :any, arm64_golden_gate: "6ed4437995d6dfb5354c16626742ab2330df442c4722e0f8f5d8293b19f95857"
+    sha256 cellar: :any, arm64_tahoe:       "3586159c45c3a4614efd126fc6c4b14070f59d462973db35640a15836bb42e10"
+    sha256 cellar: :any, arm64_sequoia:     "fe543f0236e963f360d46bad87fe34a5bcc46ab812c048ef156ccede727ca2ec"
+    sha256 cellar: :any, arm64_linux:       "de5aa5852eca3304c45d6a5809d64a118441bb1f3f0dffc8a6bbf186cf924672"
+    sha256 cellar: :any, x86_64_linux:      "f6671330b9e3e371e18829c5babec44df0c1147736addec60a39382fd944e3fc"
   end
 
   depends_on "librsync"
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages extra_packages: "pyxattr"
 

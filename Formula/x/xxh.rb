@@ -3,23 +3,21 @@ class Xxh < Formula
 
   desc "Bring your favorite shell wherever you go through the ssh"
   homepage "https://github.com/xxh/xxh"
-  url "https://files.pythonhosted.org/packages/d6/ac/fb40368ff37fbdd00d041e241cc0d7a50cdac7bc6ae54dcb9f1349acdde6/xxh-xxh-0.8.14.tar.gz"
-  sha256 "7904c35efdff0a6f50f76b30879d3fbfe726cc765db47a1306ab2f19c03fdfae"
+  # TODO: check if we can switch back to PyPI in next release
+  url "https://github.com/xxh/xxh/archive/refs/tags/0.8.16.tar.gz"
+  sha256 "a8100a831049be3131146da6a26d8cdb2fb15afc8d637521fcbdba37a3429a50"
   license "BSD-2-Clause"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_golden_gate: "17b8a5fb2bcd68541d341b6a1f4534087e07ddfc2ff3355182693d78448fa5a4"
-    sha256 cellar: :any,                 arm64_tahoe:       "07ed49c087bd4b82099ff25d213a71627a53d0c86bce7f95938a0072cf1e05ac"
-    sha256 cellar: :any,                 arm64_sequoia:     "9d00fc1786130a6714ae9b87c8d2477b4487605bc921fe37666c22d2794a73d1"
-    sha256 cellar: :any,                 arm64_sonoma:      "15847d147ad2cc7806d50a69f2df443ca95a081a99222eac211d809047e57583"
-    sha256 cellar: :any,                 sonoma:            "8a1313dff05fbd4a04345cc3c5782d2142eb07ad9ba0dfa21761d58363ac76c7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f69ba9f8e23d52efd349c6d51cdfcd2dec59c8828b76589ba2a2a94765b58301"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "4fe168ea7da7ddf85fba4193337c1c4e60d52f0005fdc48c3510de8c35cef67b"
+    sha256 cellar: :any, arm64_golden_gate: "43ffd6bfd6d48c4045309e9f2cf1913dff652797c5ff96aa08cd2b7896dab794"
+    sha256 cellar: :any, arm64_tahoe:       "c1a547e72717040e794c210a7d4e26220062dc39f9a27a3b84f78ef4f16745cf"
+    sha256 cellar: :any, arm64_sequoia:     "6d70f92dd850b2d888181945c58f678d171a386a4286d98e3773dcf7609de39c"
+    sha256 cellar: :any, arm64_linux:       "dd978859c9f1f98235abc247aa4ae550d6b8cecf43ec283460fc6aa92d487c00"
+    sha256 cellar: :any, x86_64_linux:      "7f788beb5e72d70cbebf2e193b84c16088028950e79fd9c0c58750ab5e59c1da"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "pexpect" do
     url "https://files.pythonhosted.org/packages/42/92/cc564bf6381ff43ce1f4d06852fc19a2f11d180f23dc32d9588bee2f149d/pexpect-4.9.0.tar.gz"

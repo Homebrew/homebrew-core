@@ -2,23 +2,22 @@ class Termscp < Formula
   desc "Feature rich terminal file transfer and explorer"
   # https://termscp.veeso.dev is not accessible, upstream bug report, https://github.com/veeso/termscp/issues/420
   homepage "https://termscp.rs"
-  url "https://github.com/veeso/termscp/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "fe35ae14d72a3e40f43532c44ffbced9667ca515c82b93ce2b4398b768fd1113"
+  url "https://github.com/veeso/termscp/archive/refs/tags/v1.2.1.tar.gz"
+  sha256 "378b06607669edd6fdbcf1f3e040928b4a5e41c3792334d8b140270bd9afe0b7"
   license "MIT"
   head "https://github.com/veeso/termscp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8ba733bb89b96875cdfd810f9e13420528b7418d56e3716954450b8c609931c5"
-    sha256 cellar: :any, arm64_tahoe:       "66ffc3b3b471ef4ce25c5e3d2671288408463b343933406fa7b29cdbde4ab83c"
-    sha256 cellar: :any, arm64_sequoia:     "7efb6875872adf0d7581f5d4a1768205bc12eefb2b573e4bb1eedde435605888"
-    sha256 cellar: :any, arm64_sonoma:      "297b0c32b09e07d5a03a7ba59d0c508c09ab9ce24feebaa240401e0c23e56e27"
-    sha256 cellar: :any, arm64_linux:       "62a49ec5f6d76aae853fd84563201e50c8e7e3104cd556b018280c34da05208e"
-    sha256 cellar: :any, x86_64_linux:      "bd7c8fc286d3a4e9672c91ba3255f5f0c34ecfc088ff41d1248f5fb537e78035"
+    sha256 cellar: :any, arm64_golden_gate: "229d4098d3139ed200796dbe72144d47366ec476de7b8621f77019eccf36c975"
+    sha256 cellar: :any, arm64_tahoe:       "74791107963ec3b77072b7c646b061d5af9cb25b454360f8412a0b0f9edc64b2"
+    sha256 cellar: :any, arm64_sequoia:     "db1dae93d335a3b99fd20da25b89b23ad603fa0327caeb9037eb9f3d4a5042e1"
+    sha256 cellar: :any, arm64_linux:       "ec6c0a71424e1b4d0c783262fe94af59e515884397da87f07d699fee2fd1429d"
+    sha256 cellar: :any, x86_64_linux:      "72db075e5c9f209242ee760b1bd18d6bd6596ae39e9610b6e71b26b860bc7af9"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "samba"
 
   on_linux do
@@ -28,7 +27,7 @@ class Termscp < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     system "cargo", "install", *std_cargo_args
   end

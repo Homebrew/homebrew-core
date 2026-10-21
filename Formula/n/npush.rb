@@ -24,6 +24,8 @@ class Npush < Formula
 
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
     # Remove after migration to 18.04.
@@ -34,5 +36,31 @@ class Npush < Formula
       #!/bin/sh
       cd "#{pkgshare}" && exec ./npush $@
     SH
+  end
+
+  test do
+    require "pty"
+    require "expect"
+
+    PTY.spawn({ "TERM" => "xterm" }, "#{bin}/npush") do |r, w, pid|
+      r.winsize = [40, 100]
+      refute_nil r.expect("Welcome to nPush", 10), "Expected main menu"
+      w.write "\n"
+      refute_nil r.expect("Level 01 - Gold and Exit", 10), "Expected level list"
+      w.write "\n"
+      refute_nil r.expect("Game Elements:", 10), "Expected first level to load"
+      w.write "q"
+      refute_nil r.expect("Welcome to nPush", 10), "Expected return to main menu"
+      # Wrap around from the first menu item to "Quit"
+      w.write "\eOA\n"
+      r.read
+    rescue Errno::EIO
+      # GNU/Linux raises EIO when read is done on closed pty
+    ensure
+      r.close
+      w.close
+      Process.wait(pid)
+    end
+    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end

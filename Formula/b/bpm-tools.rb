@@ -33,4 +33,8 @@ class BpmTools < Formula
     bin.install "bpm"
     bin.install "bpm-tag"
   end
+
+  test do
+    assert_match "/dev/null: file extension not known", shell_output("#{bin}/bpm-tag /dev/null 2>&1", 1)
+  end
 end

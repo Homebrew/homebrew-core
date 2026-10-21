@@ -4,8 +4,8 @@ class SwiftProtobuf < Formula
   # We use a git checkout as swift needs to find submodule files specified
   # in Package.swift even though they aren't built for `protoc-gen-swift`
   url "https://github.com/apple/swift-protobuf.git",
-      tag:      "1.38.1",
-      revision: "55d7a1cc5666b85c13464aea1c4b4a90feccb4c8"
+      tag:      "1.39.0",
+      revision: "3d537cb81aef272a03cb3be815439e9bf0eb3bd3"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/apple/swift-protobuf.git", branch: "main"
@@ -16,13 +16,11 @@ class SwiftProtobuf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2ff69f100c06707fc9198627101ffbf688afed794115b533df8e581f23f8ad41"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dd308cfd89ea68cf72d0d130ccdc773c0adfd86d42fb55b6a44ce5c87559039e"
-    sha256 cellar: :any,                 arm64_sequoia:     "63c34902dcefc19a21b73305eddbed302fc0f0249cef627a42f7464dda56302c"
-    sha256 cellar: :any,                 arm64_sonoma:      "6fbd774bc450ad1354541862023ee17fe6518eadd7b88ba1f16f707e5a946af1"
-    sha256 cellar: :any,                 sonoma:            "9390976d32cb39f0d98d0238fc0147a81631f00431c02fe7cc36dbce5a49496f"
-    sha256 cellar: :any,                 arm64_linux:       "6166b41119d66e67a0f2a04e3d27f91f0c763db111826627d069d34f6bbdd0a0"
-    sha256 cellar: :any,                 x86_64_linux:      "a17c7080d57615cc7ec58cf2c327b21978600e666f2bd5e46b7d730f171140d8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c36fe0110251be806be013a57013efc95178bc5aecace8043088551f007b9f7c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23e2a614c306c04d56c8efb2ceba53d9451c3a8d53e16542aefebb3e206fc7dd"
+    sha256 cellar: :any,                 arm64_sequoia:     "0df15f5637eb488c691c5d59ab466b23d150a56ab3f795ea5f77ee693093810d"
+    sha256 cellar: :any,                 arm64_linux:       "646512d0fcb762fa964cb22ab210bad51823c5baf732c32c785eabbda6603e7d"
+    sha256 cellar: :any,                 x86_64_linux:      "373019a3b45b5613e8c9709e35ece9764ee4499ed8579bf01a2d5745b6d15e4d"
   end
 
   depends_on "protobuf"

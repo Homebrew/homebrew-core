@@ -1,12 +1,12 @@
 class Phpstan < Formula
   desc "PHP Static Analysis Tool"
   homepage "https://phpstan.org/"
-  url "https://github.com/phpstan/phpstan/releases/download/2.2.16/phpstan.phar"
-  sha256 "1a2fb5460c142502d3cd06272529c18b19fda004ada974bd2581cb9fd6c0a53b"
+  url "https://github.com/phpstan/phpstan/releases/download/2.3.1/phpstan.phar"
+  sha256 "85157dba3d95d77ca603d2b7303aa78a538f9e3b56ccad07dd794c53aa96d1ae"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "41ac3722f34ab5df44e4ba16597a6e60f9aee753f571dadf0b0e50370e4934f0"
+    sha256 cellar: :any_skip_relocation, all: "3361b2d39799513fd5bfb06a5a478788662321bf59bdbbada116419005461a00"
   end
 
   depends_on "php" => :test
@@ -17,6 +17,8 @@ class Phpstan < Formula
       pour_bottle? only_if: :default_prefix
     end
   end
+
+  allow_network_access! :test
 
   def install
     bin.install "phpstan.phar" => "phpstan"

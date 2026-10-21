@@ -1,8 +1,8 @@
 class Elfutils < Formula
   desc "Libraries and utilities for handling ELF objects"
   homepage "https://fedorahosted.org/elfutils/"
-  url "https://sourceware.org/elfutils/ftp/0.196/elfutils-0.196.tar.bz2"
-  sha256 "fd5cc6b77ad6773cac93cb3f415f9318ac3b3455eecf801f6b4a742c4f6c7209"
+  url "https://sourceware.org/elfutils/ftp/0.197/elfutils-0.197.tar.bz2"
+  sha256 "1fdf525f22dcf796d99a99ba3ea00a1f7b1ae5421bc62e8443a708920b99b904"
   license all_of: [
     "GPL-3.0-or-later", # programs
     { any_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"] }, # libraries
@@ -16,8 +16,8 @@ class Elfutils < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "2db7befa09c95783db45a7e6b01e2de442d40f8b0c917d2be8a4a851f49ccb12"
-    sha256 x86_64_linux: "08c8a1c665c837f33394a6d488540aaf8477d2db5018fed28d4baa421764ac43"
+    sha256 arm64_linux:  "016cf02a099a01e3bd164512c49cc98de5e4c7d8b810bd184d5f2ef814d63848"
+    sha256 x86_64_linux: "8d8590853f50dc056092afa497854439954ae8c768c1330450a553f702f492ae"
   end
 
   depends_on "m4" => :build
@@ -29,10 +29,6 @@ class Elfutils < Formula
   depends_on "zstd"
 
   def install
-    # Kernel UAPI header redefines `struct iovec` as `lib/system.h` now includes <fcntl.h>
-    # TODO: Fix is reported to upstream through email, check this is required or not in future releases.
-    inreplace %w[backends/aarch64_initreg.c backends/arm_initreg.c], "<linux/uio.h>", "<sys/uio.h>"
-
     args = %w[
       --disable-silent-rules
       --disable-libdebuginfod
@@ -45,22 +41,9 @@ class Elfutils < Formula
     system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
-
-    # Create temporary compatibility executables for previous Homebrew-specific names.
-    # Remove them after 2 minor releases, i.e. 0.197
-    odie "Remove compatibility scripts!" if version >= "0.197"
-    bin.glob("eu-*") do |path|
-      old_cmd = path.basename.to_s.sub("eu-", "elfutils-")
-      (bin/old_cmd).write <<~SHELL
-        #!/bin/bash
-        echo "WARNING: #{old_cmd} has been renamed to #{path.basename}; #{old_cmd} will be removed in 0.197" >&2
-        exec "#{path}" "$@"
-      SHELL
-    end
   end
 
   test do
     assert_match "elf_kind", shell_output("#{bin}/eu-nm #{bin}/eu-nm")
-    assert_match "elf_kind", shell_output("#{bin}/elfutils-nm #{bin}/eu-nm")
   end
 end

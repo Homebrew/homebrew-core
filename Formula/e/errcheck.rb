@@ -1,19 +1,16 @@
 class Errcheck < Formula
   desc "Finds silently ignored errors in Go code"
   homepage "https://github.com/kisielk/errcheck"
-  url "https://github.com/kisielk/errcheck/archive/refs/tags/v1.20.0.tar.gz"
-  sha256 "d16b7757bf57dea5bbcfce42badd1bbfadd4c112b2da90b4ccaeb81c6c438c1e"
+  url "https://github.com/kisielk/errcheck/archive/refs/tags/v1.30.0.tar.gz"
+  sha256 "0c7b3bfdc9cc659d87c6ed72eb8980e4740e2990a6243a6e67743394ea1c20ff"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0c10b1d8c0af9943a45b3423ba19d7d215192c18bbc7929beb1b59417c2fe297"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "87ab2f4d507e4f352e7b0caf8c609db8a7120f6565703025f4675a9efba64a06"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "87ab2f4d507e4f352e7b0caf8c609db8a7120f6565703025f4675a9efba64a06"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "87ab2f4d507e4f352e7b0caf8c609db8a7120f6565703025f4675a9efba64a06"
-    sha256 cellar: :any_skip_relocation, sonoma:            "cb8c570bd1db614a45e41f2ba0757c1526c1bbdb5b93e20dd59bb025fb3d8d8a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "091cf764499995cdd32d70e493820116f9eb64838fe7e536036037c594a5b508"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "84f2e8121e858ffa87725fda4a35d4d55e88221ceae431e628e7d334c0a83fa1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "00cac7449214a85a9b27425cc474e78c38f48fa2d95339890e42173e0bad7c75"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "00cac7449214a85a9b27425cc474e78c38f48fa2d95339890e42173e0bad7c75"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "00cac7449214a85a9b27425cc474e78c38f48fa2d95339890e42173e0bad7c75"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "3f2abd17014e5b0f34e6246d4a570846fe84d1fde385dd62a98a4ba6d2ba5f48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "91d75e39476e6af241d16e53090ba46a415ccc52c2bd226fb71071b12d68b42a"
   end
 
   depends_on "go" => [:build, :test]

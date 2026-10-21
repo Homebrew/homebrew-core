@@ -1,18 +1,16 @@
 class Ps2eps < Formula
   desc "Convert PostScript to EPS files"
   homepage "https://github.com/roland-bless/ps2eps"
-  url "https://github.com/roland-bless/ps2eps/archive/refs/tags/v1.71.tar.gz"
-  sha256 "5020371b18a661ed40fa5567420bde562f15e47827616792f2e4389af61d24c6"
+  url "https://github.com/roland-bless/ps2eps/archive/refs/tags/v1.72.tar.gz"
+  sha256 "03bd71d8f1cc86369ec865486e8d371f3bd9a3741e86c9f0780797b9ab0a3fd4"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fcde96346b984232796874e169763f6e27985c8d621b8f83c35dc52c2bae9cd2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3de6a32878ee0dfd184245f74d3ad706b669384c6115051b0efc62220889e346"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cbba0b0707b327315648cca252c79a5d816966c39970a3e6dcca59a8f3c97d7b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "be72fe232327a965fc95ebf660558104cc71659305026c1c06b1788e2f912fb4"
-    sha256 cellar: :any_skip_relocation, sonoma:            "1cbec2b24c55373d40dab088e2fd38a4dd5710466a357cbf8809a6bf41a993cb"
-    sha256 cellar: :any,                 arm64_linux:       "150ba6d03a0890370ae4cc32442e14f53fafb0b4c139f01750f1df2af8aa5747"
-    sha256 cellar: :any,                 x86_64_linux:      "a529c083f0ca26c98810a79b961245e46e2dacee8d74304a91dd9a17a6fdb711"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1e614f533ddb0aebccbd70e89a4fee6a93720896dea44ea06495ff4d91525426"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23f0a910cf3c5b530be5011b50666016d7d5cb27285355d46063442b6e98af34"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5152b64948cc7677eb73600d2273b89d056786e6479483dcc00fc1ecb71aa3ee"
+    sha256 cellar: :any,                 arm64_linux:       "780aa02d4c08cfaaf5c82e5d8771b7a15d8d5f2ba2667c63abf0b95d66894220"
+    sha256 cellar: :any,                 x86_64_linux:      "c982b8dc27a5fc60f3908ca8710e077e3700105e01ad7a4b541a8b16bc4516e8"
   end
 
   depends_on "ghostscript"

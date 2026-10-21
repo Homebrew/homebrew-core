@@ -4,6 +4,7 @@ class MinLang < Formula
   url "https://git.sr.ht/~h3rald/min/archive/v0.48.1.tar.gz"
   sha256 "baec4d176ff138fcf39784ad97a6a9125454a8d3ccb4db3e6ea59aa2d6716a45"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,17 +12,15 @@ class MinLang < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f3433b2a60875b17d7f21278b18d3479bad9606191cd6e49349e646ad58ce675"
-    sha256 cellar: :any, arm64_tahoe:       "fa6272ef9e4977c79ef598c4b06b3a1e22211f79a8862b40b3a6a093f7014251"
-    sha256 cellar: :any, arm64_sequoia:     "86a190e4e9e51fc1c8ce39826a0f5431ac86e6c0dede686e0a14721edb4892f0"
-    sha256 cellar: :any, arm64_sonoma:      "06700e980f16bd6e26ddd174b67c5fba9217aa392f118c01d1577884c94efea9"
-    sha256 cellar: :any, sonoma:            "5fac5e0d8b7c806a5a229eeb83c80f1449f3f2f7da789d9ff1d1363940848a5b"
-    sha256 cellar: :any, arm64_linux:       "3669a9f51363b901f54ae34da65ed0b834f02f77ebfdb9809d7641ee0babe11c"
-    sha256 cellar: :any, x86_64_linux:      "e6d07ca9b67335e210dbdd07bf7c2e1fe91e6d3da5a6f2b827147687ece0ecc3"
+    sha256 cellar: :any, arm64_golden_gate: "9ba7d908e8927e6e24c9d67c47e42dd0b93b78134ca7f71ce008d378836dccfd"
+    sha256 cellar: :any, arm64_tahoe:       "85d885093ce1e6278883aad1c181aff2697ab6d31ea824c0a8fc45829ff424a2"
+    sha256 cellar: :any, arm64_sequoia:     "b67aaaf74e17823951657eaafb271c530bbb73ef69c5e135bb7a2316c4d99839"
+    sha256 cellar: :any, arm64_linux:       "6769211ce2049d407d41d7d1f5f4973f22b22112c16b23f33d31dc15c99b2766"
+    sha256 cellar: :any, x86_64_linux:      "86dbf1981a452a9abcc2371b1b3de738071cea459c4248402965ef0a7de8fddd"
   end
 
   depends_on "nim"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2" => :no_linkage
 
   def install

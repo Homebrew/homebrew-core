@@ -16,16 +16,22 @@ class Autocycler < Formula
 
   depends_on "rust" => :build
 
+  resource "autocycler-demo-dataset", :test do
+    url "https://github.com/rrwick/Autocycler/releases/download/v0.1.0/autocycler-demo-dataset.tar"
+    sha256 "70a5480b4390b2629a9406aad788cb2813570827b86b37b982609e6842ba0bc9"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
 
   test do
-    resource "autocycler-demo-dataset" do
-      url "https://github.com/rrwick/Autocycler/releases/download/v0.1.0/autocycler-demo-dataset.tar"
-      sha256 "70a5480b4390b2629a9406aad788cb2813570827b86b37b982609e6842ba0bc9"
-    end
-
     resource("autocycler-demo-dataset").stage testpath
     system bin/"autocycler", "subsample", "--reads", "reads.fastq.gz",
                              "--out_dir", "subsampled_reads",

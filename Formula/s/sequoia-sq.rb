@@ -1,23 +1,17 @@
 class SequoiaSq < Formula
   desc "Sequoia-PGP command-line tool"
   homepage "https://sequoia-pgp.org"
-  url "https://gitlab.com/sequoia-pgp/sequoia-sq/-/archive/v1.4.1/sequoia-sq-v1.4.1.tar.gz"
-  sha256 "d6c1fd6454b4f469913ab22de4fc6ec349f6effa1bd0423a4f68d868dfbbee39"
+  url "https://static.crates.io/crates/sequoia-sq/sequoia-sq-1.5.0.crate"
+  sha256 "43f230abc78a8daec8a06cfc8c1191045b7b210fee5bee50dc3f75bd9f22950e"
   license "LGPL-2.0-or-later"
   head "https://gitlab.com/sequoia-pgp/sequoia-sq.git", branch: "main"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "622f31af9956e3a8903c8817cc2bb1ff0043e24ed16c4de20e648b43ec898df4"
-    sha256 cellar: :any, arm64_tahoe:       "8024c747ca5b7ba54c2f439729ae1dbbb7c9f26d5c78487e640ed04b3047d83c"
-    sha256 cellar: :any, arm64_sequoia:     "9bb43b2aeae455aa329ca1b529f3a0e571d388ca26e378ef144c1addc169cc0c"
-    sha256 cellar: :any, arm64_linux:       "4dbb45b4b8bf1a3110267ddd10bacc7b3d2519966680afc1ce23a4656f38e4d7"
-    sha256 cellar: :any, x86_64_linux:      "6b377318dc71380cd0fe5ff03b18f7ee1818d0fa5630cd77d69731ea699205e5"
+    sha256 cellar: :any, arm64_golden_gate: "a4710983c76c8d4a0519eb624d6bd321b2722cd99b3f110d53e26796da298692"
+    sha256 cellar: :any, arm64_tahoe:       "90e7aee923e6f01aa080ff2b6a8c95e1b3ecc0dd1388b1c10ca331fd7f925e65"
+    sha256 cellar: :any, arm64_sequoia:     "80efb29df8371f2978686015abae0b1b3d9297efeedfd95734a644be7092e4a5"
+    sha256 cellar: :any, arm64_linux:       "04e2af43cb4fadad76b84ec496a5f0cabe50857e41cd403ee5c8a9674d988e7e"
+    sha256 cellar: :any, x86_64_linux:      "9765fd7d79e29ae17d947fcbd149ddea80d6630b6d4551fdb7617dba214ad383"
   end
 
   depends_on "capnp" => :build
@@ -42,7 +36,8 @@ class SequoiaSq < Formula
     ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
     ENV["ASSET_OUT_DIR"] = buildpath
 
-    system "cargo", "install", "--no-default-features", *std_cargo_args(features: "crypto-openssl")
+    path = build.head? ? "tool" : "."
+    system "cargo", "install", "--no-default-features", *std_cargo_args(features: "crypto-openssl", path:)
     man1.install Dir["man-pages/*.1"]
 
     bash_completion.install "shell-completions/sq.bash" => "sq"

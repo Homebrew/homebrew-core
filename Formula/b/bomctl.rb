@@ -18,6 +18,11 @@ class Bomctl < Formula
 
   depends_on "go" => :build
 
+  resource "homebrew-testbom", :test do
+    url "https://raw.githubusercontent.com/bomctl/bomctl-playground/4712cefc49fbfbe71362aa1dd1d5dce8339b76c5/examples/bomctl-container-image/app/bomctl_0.3.0_linux_amd64.tar.gz.spdx.json"
+    sha256 "01337ee051fac432f124ba4898541e84bc3d6bc97833e01136501d68e252e94e"
+  end
+
   allow_network_access! :test
 
   def fetch
@@ -40,10 +45,6 @@ class Bomctl < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/bomctl --version")
 
-    resource "homebrew-testbom" do
-      url "https://raw.githubusercontent.com/bomctl/bomctl-playground/4712cefc49fbfbe71362aa1dd1d5dce8339b76c5/examples/bomctl-container-image/app/bomctl_0.3.0_linux_amd64.tar.gz.spdx.json"
-      sha256 "01337ee051fac432f124ba4898541e84bc3d6bc97833e01136501d68e252e94e"
-    end
     testpath.install resource("homebrew-testbom")
 
     system bin/"bomctl", "import", "--alias=testbom", "--tag=foo", "bomctl_0.3.0_linux_amd64.tar.gz.spdx.json"

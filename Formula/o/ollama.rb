@@ -2,8 +2,8 @@ class Ollama < Formula
   desc "Create, run, and share large language models (LLMs)"
   homepage "https://ollama.com/"
   url "https://github.com/ollama/ollama.git",
-      tag:      "v0.35.1",
-      revision: "b0c1ca4f7549d7acdfa52a7dcffc934bc63a43ce"
+      tag:      "v0.40.7",
+      revision: "2cd63f7a15039ccd790e97b31edc091fa1707c56"
   license "MIT"
   head "https://github.com/ollama/ollama.git", branch: "main"
 
@@ -16,11 +16,11 @@ class Ollama < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "61a44e48885633e86b190e4bcd4fefe4d43abe3c43d79104560b1f162dd9b35b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ccbe4690c28ea3125a9eb66d2d7f97fc85614915ddcf33d72cba317ffddb2cd6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ff664622b50ad3853d5e8b58842b704d7966dcb1ae5b17cebc59daa0bf220f5c"
-    sha256 cellar: :any,                 arm64_linux:       "d6647d303e03178f053d16ab282720e7a3abf7822636958a089ec2100a262ae7"
-    sha256 cellar: :any,                 x86_64_linux:      "ba0f882811dd297350e359ddb197d53781da4e2b169a9434fb3e88bb8162cbbd"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "95e5292662c96d0b6b968a432a47b9e0276096d8db7739f8deb00f5d2ea4cce6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "613db9b284d62ca78913c6508c344bef3a9379be14778cb5ac373bcadfce9f9e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3c56eda1f262b1de193ea6e8ad5ed2977b03441731cc1500da908f8f3a17d51b"
+    sha256 cellar: :any,                 arm64_linux:       "9e8999a411c3a4abc8d1ced55ea9768c8a393f440f38fa6358f1d50c74279d7a"
+    sha256 cellar: :any,                 x86_64_linux:      "7b71633b6abc2d398e3058c7b5c51dd93860e14a8d1671536a4a4866d763320b"
   end
 
   depends_on "ccache" => :build
@@ -31,13 +31,11 @@ class Ollama < Formula
     on_arm do
       depends_on "mlx-c" => :no_linkage
 
-      # Build with the mlx-c bindings for tagged MLX 0.32.1. Upstream targets a later MLX commit:
+      # Build with the mlx-c 0.7.0 bindings for tagged MLX 0.32.3. Upstream targets a later MLX commit:
       # https://github.com/ollama/ollama/commit/0bb09259203ff8f6d361faae1d40c4f83d2a99f7
-      # `mlx_cumsum_axis` only exists after mlx-c commit for MLX 0.32.2:
-      # https://github.com/ml-explore/mlx-c/commit/d4afaec5cc5c9ffbe58f37fdc038b2faaedc6e70
-      # `mlx_gather_qmm` has no `global_scale` in MLX 0.32.1, so always use the wrapper fallback:
+      # `mlx_gather_qmm` has no `global_scale` in mlx-c 0.7.0, so always use the wrapper fallback:
       # https://github.com/ollama/ollama/blob/v0.34.1/mlx/compat/0001-mlx-c-qmm-global-scale.patch
-      # `mlx_fast_gated_delta_update` needs MLX newer than 0.32.1, so always use Ollama's own kernel:
+      # `mlx_fast_gated_delta_update` is not in mlx-c 0.7.0, so always use Ollama's own kernel:
       # https://github.com/ollama/ollama/blob/v0.34.4/mlx/compat/mlx-c/0002-fast-gated-delta-update.patch
       patch :DATA
     end
@@ -46,8 +44,8 @@ class Ollama < Formula
   # Pinned dependency required by llama-server
   resource "llama.cpp" do
     url "https://github.com/ggml-org/llama.cpp.git",
-        tag:      "b11232",
-        revision: "6f767fe960c3b97cf37fac4626c86400561ca1e4"
+        tag:      "b11738",
+        revision: "f174553e1621c6a22a64e7bfcbb58d3a5c49e6fb"
 
     livecheck do
       url "https://raw.githubusercontent.com/ollama/ollama/refs/tags/v#{LATEST_VERSION}/LLAMA_CPP_VERSION"
@@ -60,6 +58,12 @@ class Ollama < Formula
       sha256 "1e51afe4b8cfed5653289270064370d926258b5bbd662a93eac240d7a37f2735"
       type :unofficial
     end
+  end
+
+  # Check llama-server binary; it needs a model as upstream builds it without router mode support
+  resource "homebrew-test-model", :test do
+    url "https://huggingface.co/ggml-org/models/resolve/499bc8821c6b12b4e53c5bffcb21ec206f212d81/tinyllamas/stories260K.gguf"
+    sha256 "270cba1bd5109f42d03350f60406024560464db173c0e387d91f0426d3bd256d"
   end
 
   # downloads go modules in install and runs a server in test
@@ -167,11 +171,6 @@ class Ollama < Formula
       assert_match "libmlx.dylib", output
     end
 
-    # Check llama-server binary; it needs a model as upstream builds it without router mode support
-    resource "homebrew-test-model" do
-      url "https://huggingface.co/ggml-org/models/resolve/499bc8821c6b12b4e53c5bffcb21ec206f212d81/tinyllamas/stories260K.gguf"
-      sha256 "270cba1bd5109f42d03350f60406024560464db173c0e387d91f0426d3bd256d"
-    end
     testpath.install resource("homebrew-test-model")
 
     require "pty"
@@ -203,18 +202,10 @@ end
 
 __END__
 diff --git a/mlx/fast.go b/mlx/fast.go
+index 7d5506b3..e9301514 100644
 --- a/mlx/fast.go
 +++ b/mlx/fast.go
-@@ -21,7 +21,7 @@
- 	}
- 
- 	out := New("FAST_SDPA")
--	mlxCheck(C.mlx_fast_scaled_dot_product_attention(&out.ctx, q.ctx, k.ctx, v.ctx, C.float(scale), cMode, maskCtx, sinks.ctx, C.bool(false), DefaultStream().ctx))
-+	mlxCheck(C.mlx_fast_scaled_dot_product_attention(&out.ctx, q.ctx, k.ctx, v.ctx, C.float(scale), cMode, maskCtx, sinks.ctx, DefaultStream().ctx))
- 	return out
- }
- 
-@@ -30,38 +30,6 @@
+@@ -30,38 +30,6 @@ type LayerNorm struct {
  	Bias   *Array `weight:"bias"`
  }
  
@@ -253,22 +244,26 @@ diff --git a/mlx/fast.go b/mlx/fast.go
  func (r *LayerNorm) Forward(x *Array, eps float32) *Array {
  	out := New("FAST_LAYERNORM")
  	mlxCheck(C.mlx_fast_layer_norm(&out.ctx, x.ctx, r.Weight.ctx, r.Bias.ctx, C.float(eps), DefaultStream().ctx))
-diff --git a/mlx/ops.go b/mlx/ops.go
---- a/mlx/ops.go
-+++ b/mlx/ops.go
-@@ -103,7 +103,6 @@
- 
- func (t *Array) Cumsum(axis int, reverse, inclusive bool) *Array {
- 	out := New("CUMSUM")
--	optDtype := C.mlx_optional_dtype{has_value: false}
--	mlxCheck(C.mlx_cumsum_axis(&out.ctx, t.ctx, C.int(axis), C.bool(reverse), C.bool(inclusive), optDtype, DefaultStream().ctx))
-+	mlxCheck(C.mlx_cumsum(&out.ctx, t.ctx, C.int(axis), C.bool(reverse), C.bool(inclusive), DefaultStream().ctx))
- 	return out
- }
+diff --git a/mlx/gated_delta.go b/mlx/gated_delta.go
+index 77a7ea94..8e6324eb 100644
+--- a/mlx/gated_delta.go
++++ b/mlx/gated_delta.go
+@@ -299,10 +299,6 @@ func gatedDeltaRecurrenceGraph(q, k, v, g, beta, state *Array) (y, nextState *Ar
+ // directly.
+ func gatedDeltaRecurrence(q, k, v, g, beta, state *Array) (y, nextState *Array) {
+ 	if dims, ok := resolveGatedDeltaRecurrenceDims(q, k, v, g, beta, state); ok {
+-		// MLX's fast update casts the decay gate to the query dtype.
+-		if supportsFastGatedDeltaUpdate(dims) && g.DType() == q.DType() {
+-			return fastGatedDeltaUpdate(q, k, v, g, beta, state, nil)
+-		}
+ 		outs := gatedDeltaRecurrenceKernel.run(gpuLaunch{
+ 			dtypes: []gpuDTypeArg{{"InT", q.DType()}, {"StT", state.DType()}},
+ 			ints:   []gpuIntArg{{"Dk", dims.Dk}, {"Dv", dims.Dv}, {"Hk", dims.Hk}, {"Hv", dims.Hv}},
 diff --git a/mlx/ops_extra.go b/mlx/ops_extra.go
+index 9aff3248..caa3084c 100644
 --- a/mlx/ops_extra.go
 +++ b/mlx/ops_extra.go
-@@ -122,7 +122,7 @@
+@@ -133,7 +133,7 @@ func GatherQMM(x, w, scales *Array, biases, lhsIndices, rhsIndices *Array, trans
  	optGroupSize := C.mlx_optional_int{value: C.int(groupSize), has_value: true}
  	optBits := C.mlx_optional_int{value: C.int(bits), has_value: true}
  
@@ -277,7 +272,7 @@ diff --git a/mlx/ops_extra.go b/mlx/ops_extra.go
  	if biases != nil {
  		b = biases.ctx
  	}
-@@ -134,13 +134,10 @@
+@@ -145,13 +145,10 @@ func GatherQMM(x, w, scales *Array, biases, lhsIndices, rhsIndices *Array, trans
  	}
  	// The wrapper fallback needs rhs indices to map output rows to experts;
  	// without them the native path reports the unsupported combination.
@@ -293,16 +288,3 @@ diff --git a/mlx/ops_extra.go b/mlx/ops_extra.go
  	if applyWrapperScale {
  		out = mulGatherQMMGlobalScale(out, globalScale, rhsIndices)
  	}
-diff --git a/mlx/gated_delta.go b/mlx/gated_delta.go
---- a/mlx/gated_delta.go
-+++ b/mlx/gated_delta.go
-@@ -298,9 +298,6 @@
- // directly.
- func gatedDeltaRecurrence(q, k, v, g, beta, state *Array) (y, nextState *Array) {
- 	if dims, ok := resolveGatedDeltaRecurrenceDims(q, k, v, g, beta, state); ok {
--		if supportsFastGatedDeltaUpdate(dims) {
--			return fastGatedDeltaUpdate(q, k, v, g, beta, state, nil)
--		}
- 		outs := gatedDeltaRecurrenceKernel.run(gpuLaunch{
- 			dtypes: []gpuDTypeArg{{"InT", q.DType()}, {"StT", state.DType()}},
- 			ints:   []gpuIntArg{{"Dk", dims.Dk}, {"Dv", dims.Dv}, {"Hk", dims.Hk}, {"Hv", dims.Hv}},

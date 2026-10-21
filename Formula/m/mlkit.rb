@@ -1,8 +1,8 @@
 class Mlkit < Formula
   desc "Compiler for the Standard ML programming language"
   homepage "https://melsman.github.io/mlkit"
-  url "https://github.com/melsman/mlkit/archive/refs/tags/v4.7.23.tar.gz"
-  sha256 "6a79ae8d910392827d3405c2acb3bd975f568c76d0da5db0bf5017077de1fb1f"
+  url "https://github.com/melsman/mlkit/archive/refs/tags/v4.7.25.tar.gz"
+  sha256 "a39033eb870c477e7b121627311f433c5560fba431760be3bd810f4b07dff475"
   license "GPL-2.0-or-later"
   head "https://github.com/melsman/mlkit.git", branch: "master"
 
@@ -12,10 +12,10 @@ class Mlkit < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "e24b7427a34ac06de335882227851b72ed9a3df7b37d9637862314fc83d3ebfd"
-    sha256 arm64_tahoe:       "f8d5a3680ede372d063795b2da20293cb1713b9a3ed5385ab56ed77a6522c513"
-    sha256 arm64_sequoia:     "a76c1f1fb63cda699f7c31440ae3ceb478603e7cc9d46b3839282dc3348a4186"
-    sha256 x86_64_linux:      "c0aae9571a07a319cdd9e4e6bef46ff6b26adb63a59fa7633c33a8901460e5bd"
+    sha256 arm64_golden_gate: "964dfc49808f6df7510568f5d6128da910306efe85cdef8565bb348f1430bbf3"
+    sha256 arm64_tahoe:       "4c667ca3193cfb29a64847bc15f1ecc8d8902efd99cb22e7e6a3b47cce5dc8d5"
+    sha256 arm64_sequoia:     "0086c334a118c6e68db340c1b06f79fbb4cd3a8e506ff4111663ff1a4278c3d8"
+    sha256 x86_64_linux:      "9b3d8e3ddba6038547c25cd46dcb90bb738f8c71a5fe19dec5e6a5abd00f8aee"
   end
 
   depends_on "autoconf" => :build
@@ -33,8 +33,8 @@ class Mlkit < Formula
   # Similar to other bootstraps, can keep on oldest compatible version.
   resource "bootstrap" do
     on_arm do
-      url "https://github.com/melsman/mlkit/releases/download/v4.7.23/mlkit-bin-dist-darwin.tgz"
-      sha256 "1872feca49574c2dacc1e508657c6bdec3fdcd38a2fb71b9ab929c1c8735229b"
+      url "https://github.com/melsman/mlkit/releases/download/v4.7.24/mlkit-bin-dist-darwin.tgz"
+      sha256 "3d01153394d967b2fead9fa004332f087066fba3904677b15423ac06e592739b"
     end
   end
 
@@ -44,12 +44,12 @@ class Mlkit < Formula
     # https://github.com/melsman/mlkit/tree/master#native-arm64-on-macos
     if OS.mac? && Hardware::CPU.arm?
       resource("bootstrap").stage("bootstrap")
-      ENV["MLKIT_BOOTSTRAP"] = buildpath/"bootstrap/bin/mlkit"
-      ENV["MLKIT_BOOTSTRAP_SML_LIB"] = buildpath/"bootstrap"
-      ENV["MLKIT_BOOTSTRAP_FLAGS"] = "-gc"
       ENV["SML_LIB"] = buildpath
       ENV["DARWIN_NATIVE"] = "1"
-      args = ["--with-compiler=mlkit"]
+      args = [
+        "--with-compiler=#{buildpath}/bootstrap/bin/mlkit",
+        "--with-compiler-lib=#{buildpath}/bootstrap/lib/mlkit",
+      ]
     end
 
     system "sh", "./autobuild"

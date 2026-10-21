@@ -1,31 +1,17 @@
 class Swctl < Formula
   desc "Apache SkyWalking CLI (Command-line Interface)"
   homepage "https://skywalking.apache.org/"
+  url "https://github.com/apache/skywalking-cli/archive/refs/tags/0.15.0.tar.gz"
+  sha256 "2b167a3f32939a6fa03363720e94d5c44e2e66563a5991627b109a2377883c7d"
   license "Apache-2.0"
   head "https://github.com/apache/skywalking-cli.git", branch: "master"
 
-  stable do
-    url "https://github.com/apache/skywalking-cli/archive/refs/tags/0.14.0.tar.gz"
-    sha256 "9b1861a659e563d2ba7284ac19f3ae72649f08ac7ff7064aee928a7df2cd2bff"
-
-    # fish and zsh completion support patch, upstream pr ref, https://github.com/apache/skywalking-cli/pull/207
-    patch do
-      url "https://github.com/apache/skywalking-cli/commit/3f9cf0e74a97f16d8da48ccea49155fd45f2d160.patch?full_index=1"
-      sha256 "dd17f332f86401ef4505ec7beb3f8863f13146718d8bdcf92d2cc2cdc712b0ec"
-      type :backport
-      resolves "https://github.com/apache/skywalking-cli/pull/207"
-    end
-  end
-
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b7835ef079a6d0785fb7bf85a38d00845016c9f59deab1868e330d8ecd0231eb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b9af57f6ad01333ac24e4ecc421eba5ee201f7a5302d56f501bb8e1494ac4e24"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b9af57f6ad01333ac24e4ecc421eba5ee201f7a5302d56f501bb8e1494ac4e24"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "b9af57f6ad01333ac24e4ecc421eba5ee201f7a5302d56f501bb8e1494ac4e24"
-    sha256 cellar: :any_skip_relocation, sonoma:            "624acdc72d44849936d334739c194c880319524091aeea753662f7445a63ff3b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "30df7166e091ecdd5e6cf92cd2d73d98eae728ec58e23ce7ccfd4f0ca231c29a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9005d0b0a2edd4d0661257b07d1d9ef0b5328718e0f2ca7caedaae48025df560"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "39a3ce3fb1b08d2bfcdfb4e922239d9dd558b088233b58d6adb6c7474bcf49f4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "254f90510993dd04f46261ad3cc5286d143cbeac907cdd79ea2f5b7b1bc187c2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "95a0ad4824cc024500eb17a8427f69f79b4ea2f0a39ca79c35b9be4005572b60"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "1105428577f7c91e3780be2695f170f914e665450d5e5b40d836f5e39dc4d88c"
+    sha256 cellar: :any,                 x86_64_linux:      "59e44d71c95374511cb6e8ae142a51f60c6d6f99b1a4ffa26159c6d5ce041569"
   end
 
   depends_on "go" => :build

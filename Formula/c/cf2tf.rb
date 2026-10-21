@@ -10,17 +10,18 @@ class Cf2tf < Formula
   head "https://github.com/DontShaveTheYak/cf2tf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a4ee30224a576fe83ea5068f5e3996901002def5ec636caf97b5aad4b2a59372"
-    sha256 cellar: :any, arm64_tahoe:       "f51c3af127169d34c22a6d7112ffdf5e1ea1f712dd401f3cbf81556f9af714ea"
-    sha256 cellar: :any, arm64_sequoia:     "638203cca69d3385db0a187764510064bb8c887570c0bbeb63f0ce9330d73d8d"
-    sha256 cellar: :any, arm64_linux:       "1e6a6e894a0f7d64f4178529d29a7166ec21ca36d35f902538fb7ccc07f0ce9e"
-    sha256 cellar: :any, x86_64_linux:      "ae9e82dada31a13efbad7f4cf642d64802c1c3e9f9d47a67182c0ce7a53f6573"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "bc8315e99d693e6c0780b7cf354547d08a7c49f8044b0eee2c1679659fc0d1c0"
+    sha256 cellar: :any, arm64_tahoe:       "0c717fcad6a78412e468f49ea64ad1b4b0e1fe0ddc2878c95839b619c569608b"
+    sha256 cellar: :any, arm64_sequoia:     "40a4efae81b4b59e6ee60df77de670f6caf782da63762ba26663f9709c43cd01"
+    sha256 cellar: :any, arm64_linux:       "3e82011fc63743fc54c8910bbd4f74fe68fb80c1d11e87343b8eb2e8bb47819d"
+    sha256 cellar: :any, x86_64_linux:      "3fb4f56b8013e93d1b9769b7c28811c9db348a16ccde8f066e325044b6f7ec36"
   end
 
   depends_on "cmake" => :build
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 
@@ -50,8 +51,8 @@ class Cf2tf < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/e0/db/3ca813cbacb23ab6fe46ff38a9b5ef8e73e970c8051f2ce903aacafe0446/gitpython-3.1.62.tar.gz"
-    sha256 "1791de66309bc0c7cfca40bf8d2e3de7ca091cbf94e6051be1ad0722c61062af"
+    url "https://files.pythonhosted.org/packages/6e/2d/6f6e649818da44d4499604802c89329b8d9799687a124e3a5e467a643336/gitpython-3.2.0.tar.gz"
+    sha256 "fb92310af6844d96adc95ca066ed2e617c00e1dbd146a326626c81e72e18cc2e"
   end
 
   resource "idna" do

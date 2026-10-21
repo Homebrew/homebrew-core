@@ -26,6 +26,11 @@ class Openvdb < Formula
     depends_on "zlib-ng-compat"
   end
 
+  resource "homebrew-test_file", :test do
+    url "https://artifacts.aswf.io/io/aswf/openvdb/models/cube.vdb/1.0.0/cube.vdb-1.0.0.zip"
+    sha256 "05476e84e91c0214ad7593850e6e7c28f777aa4ff0a1d88d91168a7dd050f922"
+  end
+
   allow_network_access! :test
 
   def install
@@ -41,11 +46,6 @@ class Openvdb < Formula
   end
 
   test do
-    resource "homebrew-test_file" do
-      url "https://artifacts.aswf.io/io/aswf/openvdb/models/cube.vdb/1.0.0/cube.vdb-1.0.0.zip"
-      sha256 "05476e84e91c0214ad7593850e6e7c28f777aa4ff0a1d88d91168a7dd050f922"
-    end
-
     testpath.install resource("homebrew-test_file")
     system bin/"vdb_print", "-m", "cube.vdb"
   end

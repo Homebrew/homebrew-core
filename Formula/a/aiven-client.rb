@@ -10,11 +10,12 @@ class AivenClient < Formula
   head "https://github.com/aiven/aiven-client.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9fb871138999d65746be1855c5db1c712747f7b218e7f4d8d4883a0f11c4d59b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "66f17068eff0755c91987dabc8bcb0ce9c350fe2fecabf7018260f32a92e73fa"
   end
 
   depends_on "certifi"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 

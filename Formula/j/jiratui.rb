@@ -3,17 +3,17 @@ class Jiratui < Formula
 
   desc "Textual User Interface for interacting with Atlassian Jira from your shell"
   homepage "https://jiratui.sh/"
-  url "https://files.pythonhosted.org/packages/ac/4a/36e70a89f425b3b9f1d9a34734c12985798abd8f1c39ebf16e6cdc982e2f/jiratui-1.16.0.tar.gz"
-  sha256 "975d1165e67ba8875a7edeef00a6da557dbdea109d9677ccdd3c768e7420354d"
+  url "https://files.pythonhosted.org/packages/07/fd/41f2de6d8b0debe5e8e233c7b2d6b07e2c4a9d82a40f54e58c34978a9d44/jiratui-1.18.0.tar.gz"
+  sha256 "982595aea9aa3a8aa0edff03f196eccff6d5075628753bfd95b002c01a1437cb"
   license "MIT"
   head "https://github.com/whyisdifficult/jiratui.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "5befad6caae5736bf9c337551127a5c60ca2ac10f4b705a80c1894d3a82fa3f4"
-    sha256 cellar: :any, arm64_tahoe:       "f9aaee010dfce325e06c04d15e1ec9fbba9eae14a4f6b5cefe59c3febeee281d"
-    sha256 cellar: :any, arm64_sequoia:     "4ee2e26f29450bb1f9a4126dbf92bae9ed9232a2637707866223e47bbff23076"
-    sha256 cellar: :any, arm64_linux:       "9783402c091d438988826b0198b90fe87ffa82236fe8589edca9ba190d7d3f00"
-    sha256 cellar: :any, x86_64_linux:      "2b78b9de98e5b7b58c1d81f1b948914a378355d0be74be1fc370b7bd72e79365"
+    sha256 cellar: :any, arm64_golden_gate: "eeb558228f44e502a9aa3d3d714d46dc1b606f4049b6f3f0e62e901f32ae5dfc"
+    sha256 cellar: :any, arm64_tahoe:       "8ba9293541f3c9b49c5c807b1c9fd7e48b0a79f35f64e10f4999b07577fe9524"
+    sha256 cellar: :any, arm64_sequoia:     "2f0ca9885b5a3493366441ab38a02d5c74e90ae5f7164ab48907ac51e9165216"
+    sha256 cellar: :any, arm64_linux:       "4948bdd28524c736865677f11925d46b6e1117763c1950cebb21d8553ee56c89"
+    sha256 cellar: :any, x86_64_linux:      "29eee4c700b58d6a6593fbbe135f353d5cf588f51454dc08cca0fdcbdf12c8a5"
   end
 
   depends_on "rust" => :build
@@ -23,7 +23,7 @@ class Jiratui < Formula
   depends_on "libyaml"
   depends_on "pillow" => :no_linkage
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: %w[certifi cryptography pillow pydantic]
 
@@ -109,8 +109,8 @@ class Jiratui < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/17/c8/721b3855fe457da514fe249247d404b9b39c5d16532278f70ebaa6acf18b/platformdirs-4.12.2.tar.gz"
-    sha256 "eab5f70271a490ef74618bb314fbb86e3c7e82fa3b9c922c2ea0e0a1a155d329"
+    url "https://files.pythonhosted.org/packages/b7/89/dfd269de936e76319cf27787d9eaaca513491f635d49b0fbe7cdb6d3bf6f/platformdirs-4.13.4.tar.gz"
+    sha256 "dd96496961684a7f42041923f842ec7494e09f5e87aded99117e1109cd40570e"
   end
 
   resource "prompt-toolkit" do
@@ -124,8 +124,8 @@ class Jiratui < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/68/ca/31c57507b13119d7d3cfa1576dad2911a4861e3be07b579395f4e9d393f9/pydantic_settings-2.15.0.tar.gz"
-    sha256 "694b793e84f766ba76a90ebdefc01d0a9a045dab0382bee70393da93712ad117"
+    url "https://files.pythonhosted.org/packages/2e/3b/a5d2294799b53b448319978cfb5bd139d5a9d45e862af91661614f14c922/pydantic_settings-2.16.0.tar.gz"
+    sha256 "5b6c578049ede4db0e2ef3b4eaa4ad4069cfa9211f83fb38df899dfade50a614"
   end
 
   resource "pygments" do
@@ -269,13 +269,13 @@ class Jiratui < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
-    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
+    url "https://files.pythonhosted.org/packages/e3/05/b17359e1cefb4f909b5e40b1b90a496d987258916dbbf88e842c729f510e/urllib3-2.8.0.tar.gz"
+    sha256 "63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/dc/ac/3a943d2792c9bb368aaa8b50121c0f778460ba2d7fbdc0a0366201d9e761/wcwidth-0.9.1.tar.gz"
-    sha256 "5823209b0d43af322ce698c689380d7c15ca31fa8e6e3be8459f27031bef0af5"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   resource "xdg-base-dirs" do
@@ -284,6 +284,9 @@ class Jiratui < Formula
   end
 
   def install
+    # Allow Python 3.15
+    inreplace "pyproject.toml", 'requires-python = ">=3.12,<3.15"', 'requires-python = ">=3.12"'
+
     virtualenv_install_with_resources
 
     generate_completions_from_executable(bin/"jiratui", shell_parameter_format: :click)

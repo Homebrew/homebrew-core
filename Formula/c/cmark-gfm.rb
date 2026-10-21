@@ -27,6 +27,8 @@ class CmarkGfm < Formula
   depends_on "cmake" => :build
   uses_from_macos "python" => :build
 
+  deny_network_access!
+
   def install
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}

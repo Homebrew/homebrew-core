@@ -1,10 +1,10 @@
 class QtMariadb < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtbase-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtbase-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtbase-everywhere-src-6.11.2.tar.xz"
-  sha256 "5b2e00eccaf5a4d8c14134ffa0ea8dfd0a35ae1ffc7f8d87fa4305a1ed23cf22"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtbase-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtbase-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtbase-everywhere-src-6.12.0.tar.xz"
+  sha256 "a951bd163c7b80fc6b8c88d7668fb56abf91c152373e13c10666763238131307"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -12,12 +12,11 @@ class QtMariadb < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3fe5f53f65d732253c035d84ed8aed92a572e2bb7cf92b946098de37ff4937f3"
-    sha256 cellar: :any, arm64_tahoe:       "152876be8131034d9a849643a403b08d10b7ee6abf87704dc5fc031104def8df"
-    sha256 cellar: :any, arm64_sequoia:     "e906145b48120344d884e24ee2571b43fc9a17b41c38ca77fa38099a1c8bed93"
-    sha256 cellar: :any, arm64_sonoma:      "896140d0b36c06fe25be208feea6905ba52254a96ff17f702507a21dab2d8a35"
-    sha256 cellar: :any, arm64_linux:       "004fbc5a9356b3e34d2cb406c138dafd4317ba981195157ca540fe49aae4aafb"
-    sha256 cellar: :any, x86_64_linux:      "a4798081bb3e4b41f66832f7c6a12b1d0471a61a7641ed5eb44e799b733c611c"
+    sha256 cellar: :any, arm64_golden_gate: "4e1b0a436464732e79bce1b44cbb7bb31161094afcf326e2837c2522c49c2e24"
+    sha256 cellar: :any, arm64_tahoe:       "b021b88523275419d29d9cf7a301f651d786ea725d7a66c765269d1d2be17521"
+    sha256 cellar: :any, arm64_sequoia:     "a3f8f9c86584f28e0b9b2e534998388a5513cbe1dc09a908055235406ac671ff"
+    sha256 cellar: :any, arm64_linux:       "7a8d51be576c803fa69e1be8f47ed14f4053aa30ca28212016941de80ee4f9b2"
+    sha256 cellar: :any, x86_64_linux:      "1cbafbee15abcc351746d0e16cb433e78e8eef721dcbe40b4f2858b411c3d59e"
   end
 
   depends_on "cmake" => [:build, :test]

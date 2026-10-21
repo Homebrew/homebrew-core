@@ -6,6 +6,11 @@ class Nip4 < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/libvips/nip4.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_golden_gate: "492e8f49db685b67f84642d926a1b808a4c0387570e5351a9f8512bec957e892"

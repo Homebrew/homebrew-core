@@ -41,6 +41,12 @@ class Dissent < Formula
     depends_on "xorg-server" => :test
   end
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     # Workaround to avoid patchelf corruption when cgo is required
     if OS.linux? && Hardware::CPU.arm64?

@@ -3,8 +3,8 @@ class Pytorch < Formula
 
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
-  url "https://github.com/pytorch/pytorch/releases/download/v2.14.0/pytorch-v2.14.0.tar.gz"
-  sha256 "e4bc64b802db095a8a53e216e5aba168eba629b99dd397cfa44e72d9c84e7657"
+  url "https://github.com/pytorch/pytorch/releases/download/v2.14.1/pytorch-v2.14.1.tar.gz"
+  sha256 "d0ebad9ca4219959b29b7ad9ab6469fe49a3d668f8b5a62dd115f02f3a914447"
   license "BSD-3-Clause"
   revision 1
   compatibility_version 3
@@ -15,16 +15,16 @@ class Pytorch < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7cb3a591da1fb739ce75e7033145451f780ea6934c5e9790192efe77733726b8"
-    sha256 cellar: :any, arm64_tahoe:       "2ea0f6a893b54dae2a2a66cbef03d21bd4345ac8be48b0b7c928c43b532e3c67"
-    sha256 cellar: :any, arm64_sequoia:     "391586e4030d14495f7231d764cc2b0f20497d4524e3bd4fc81cde39ad59764e"
-    sha256 cellar: :any, arm64_linux:       "08f20de24d8c2bfb20a59efdb12cd05f3dfc6387d117de531e73ce6fdb2cb8bd"
-    sha256 cellar: :any, x86_64_linux:      "db667d2c30ca3206692841a8da3331383516d1dedca1e610c885bf897e24e3de"
+    sha256 cellar: :any, arm64_golden_gate: "b69626b30488114e314c7ca4d91a4e2f27e847c34bd00596c07f13c1ca4af1ec"
+    sha256 cellar: :any, arm64_tahoe:       "f5e9473c9219b74a40f212e7655573d661ca05daf601023e38a5a5990f85236f"
+    sha256 cellar: :any, arm64_sequoia:     "28dd667557401c4cf353b4ba0ef4474e623f1828647240c9e9a2d859a8442a83"
+    sha256 cellar: :any, arm64_linux:       "34c994eb3e97bb32db644679e068d2b591eeb50cc5aae8cce8bd872d6ce970e6"
+    sha256 cellar: :any, x86_64_linux:      "68cf9b44e1b1e292de18e9f4a5e21b008fcabe38a288d419b37dada5f9e24528"
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "abseil"
   depends_on "eigen"
   depends_on "libuv"
@@ -46,13 +46,13 @@ class Pytorch < Formula
                 exclude_packages: %w[cuda-bindings numpy nvidia-cublas]
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/0a/a0/50c2c0ce5e74d7721bbb1b19a26ebd339aac5878553a6e35308c2f31f935/filelock-3.32.5.tar.gz"
-    sha256 "f6a6a28f743f9b95ce19db5abe0f376f75eb56517dff21e1a4751e2657d3e83d"
+    url "https://files.pythonhosted.org/packages/d8/9c/925c4f62920e4200d573d2bfe5cfd1b993134c3aee5f9bd3b7c55e20297e/filelock-4.0.11.tar.gz"
+    sha256 "9dc453a1edd25626a6fc97c2cb1bd9f7e46345843d40b3181c071761fb9a5f7a"
   end
 
   resource "fsspec" do
-    url "https://files.pythonhosted.org/packages/00/78/f34251dadb8f3921264a1d9b8946f5e542014ee2614b285261b4e40e6775/fsspec-2026.7.0.tar.gz"
-    sha256 "c803c40f4cf860b49dea58ee3e1c33cb9c790520e233537e1340049f89b82a88"
+    url "https://files.pythonhosted.org/packages/77/cd/9be253869fc42e764de7f3dedd6969af7d44ff9c3375214a3442a6f3fc08/fsspec-2026.9.0.tar.gz"
+    sha256 "0f08147951c8cb31d844c3547d631053b127863b60be04cf06e121333ee0e2fe"
   end
 
   resource "jinja2" do
@@ -61,8 +61,8 @@ class Pytorch < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "mpmath" do
@@ -71,8 +71,8 @@ class Pytorch < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/6a/51/63fe664f3908c97be9d2e4f1158eb633317598cfa6e1fc14af5383f17512/networkx-3.6.1.tar.gz"
-    sha256 "26b7c357accc0c8cde558ad486283728b65b6a95d85ee1cd66bafab4c8168509"
+    url "https://files.pythonhosted.org/packages/dc/76/3af777226b63a5e64a6b36b1ec5855c14e2b94a37096d4760e595fc43511/networkx-3.7.tar.gz"
+    sha256 "fd77a511bd90f39f3d016351345b52cf5319b813bdca01de3f755d3cca62e96a"
   end
 
   resource "opt-einsum" do
@@ -96,8 +96,8 @@ class Pytorch < Formula
   end
 
   resource "scikit-build-core" do
-    url "https://files.pythonhosted.org/packages/8d/7c/0f69b0c7150ce4bcee78c199fe3b7e03a6e01578451bd5d5d1a58beb32f9/scikit_build_core-1.0.3.tar.gz"
-    sha256 "a4d7a05978ee37975c37743510c8991e2debce7ef83afb0a07c0c576fd4f16e8"
+    url "https://files.pythonhosted.org/packages/b2/1a/8c00b19c0a1e7acf890676af2efa430339d38e59fa9437f2aab8517af3f4/scikit_build_core-1.1.1.tar.gz"
+    sha256 "e347a59193c878ac56a363e57506938652a6dd8c965790cb1cbc6bc7e8d5abad"
   end
 
   resource "setuptools" do

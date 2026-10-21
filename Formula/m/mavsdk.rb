@@ -2,8 +2,8 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io/main/en/index.html"
   url "https://github.com/mavlink/MAVSDK.git",
-      tag:      "v4.0.1",
-      revision: "ff3b367c5e16a67ec598bf3ecc650469199a3625"
+      tag:      "v4.0.6",
+      revision: "92cd383a2f58117f99afda5c96d1439d60236faa"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,16 +12,15 @@ class Mavsdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a83d1738889b11b8328bee635013389badf29363397d795f97c37d37e8edd420"
-    sha256 cellar: :any, arm64_tahoe:       "d84cb8737a5bc9ccd246931fe542fb26faa80cae43e0927c678271a369e62aed"
-    sha256 cellar: :any, arm64_sequoia:     "11d6bedd8ae7b58497c9e95d040b274d05977444ba6ea49853020f13dd05c73e"
-    sha256               arm64_linux:       "2c3e481fac4b96d3a588be3f6c8310d58fac32a75ee8c2041c0f63728c142010"
-    sha256               x86_64_linux:      "e6c6ad5551cf7ebdb239919a4f799527c8b563e2bd4eda7878f07ee89ee85908"
+    sha256 cellar: :any, arm64_golden_gate: "9a650087873b7167a9968b832ce653b969225aedd6e63454e02dd89e9800fb5a"
+    sha256 cellar: :any, arm64_tahoe:       "39313fe807f3dc6ac17a8ca3a8b7016bf40bc8dce351520140c25dc01edfc69b"
+    sha256 cellar: :any, arm64_sequoia:     "0558ac6becdb2709ccd8a3c5f87dd574a896ccf95807987c88c19e620e830a39"
+    sha256               arm64_linux:       "a2aeb6b51b091fe717ccb427659b06fa84c831660c7cafea83f0e84d3e82fc59"
+    sha256               x86_64_linux:      "70f5a18b55821dc6bd40175d2279979c99c2bb601c2b5db8e4c423726baadb0f"
   end
 
   depends_on "asio" => :build
   depends_on "cmake" => :build
-  depends_on "python@3.14" => :build
   depends_on "rust" => :build
   depends_on "abseil"
   depends_on "c-ares"
@@ -29,11 +28,13 @@ class Mavsdk < Formula
   depends_on "fmt"
   depends_on "grpc"
   depends_on "nlohmann-json"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "protobuf"
   depends_on "re2"
   depends_on "tinyxml2"
   depends_on "xz"
+
+  uses_from_macos "python" => :build
 
   on_macos do
     # `cpp/tools/generate_from_protos.sh` uses `mapfile`, which needs Bash 4

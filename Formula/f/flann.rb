@@ -22,6 +22,11 @@ class Flann < Formula
   depends_on "hdf5"
   depends_on "lz4"
 
+  resource "homebrew-dataset", :test do
+    url "https://github.com/flann-lib/flann/files/6518483/dataset.zip"
+    sha256 "169442be3e9d8c862eb6ae4566306c31ff18406303d87b4d101f367bc5d17afa"
+  end
+
   allow_network_access! :test
 
   def install
@@ -38,11 +43,6 @@ class Flann < Formula
   end
 
   test do
-    resource "homebrew-dataset" do
-      url "https://github.com/flann-lib/flann/files/6518483/dataset.zip"
-      sha256 "169442be3e9d8c862eb6ae4566306c31ff18406303d87b4d101f367bc5d17afa"
-    end
-
     testpath.install resource("homebrew-dataset")
 
     system bin/"flann_example_c"

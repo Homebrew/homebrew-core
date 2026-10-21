@@ -9,10 +9,11 @@ class GitRevise < Formula
   head "https://github.com/mystor/git-revise.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3e1ae84726cd469773545306d82f51ede22cf7fe406b05f811fb59404012276c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "dc10cbf6cb8d8d8367f0fc3d213d455352044ab5cf5a9c3bb7dbfac988618ca5"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     virtualenv_install_with_resources

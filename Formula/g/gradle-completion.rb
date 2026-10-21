@@ -13,7 +13,7 @@ class GradleCompletion < Formula
 
   def install
     bash_completion.install "gradle-completion.bash" => "gradle"
-    zsh_completion.install "_gradle" => "_gradle"
+    zsh_completion.install "_gradle"
   end
 
   test do

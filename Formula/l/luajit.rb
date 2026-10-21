@@ -10,14 +10,14 @@ class Luajit < Formula
   # Get the latest commit with:
   #   `git ls-remote --heads https://github.com/LuaJIT/LuaJIT.git v2.1`
   # This is a rolling release model so take care not to ignore CI failures that may be regressions.
-  url "https://github.com/LuaJIT/LuaJIT/archive/c6ffc141a8762b41703f9287d63d93622a13dd8f.tar.gz"
+  url "https://github.com/LuaJIT/LuaJIT/archive/dd3b24369ddfaa83c78cd6fdd91d157c8968ec8d.tar.gz"
   # Use the version scheme `2.1.timestamp` where `timestamp` is the Unix timestamp of the
   # latest commit at the time of updating.
   # `brew livecheck luajit` will generate the correct version for you automatically.
-  version "2.1.1788856981"
-  sha256 "6e5fec07750add912e7c3eae0c194d24cd6d023714e1f04a0298a5b4819e4457"
+  version "2.1.1792349434"
+  sha256 "a6ac8457c474c6fb71aaa7660dd5bf8f6e0506496fc74786b2dae18e26a768cc"
   license "MIT"
-  compatibility_version 30
+  compatibility_version 33
   head "https://github.com/LuaJIT/LuaJIT.git", branch: "v2.1"
 
   livecheck do
@@ -31,13 +31,14 @@ class Luajit < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e6dd2bf10ac0b3231b59d2f0c0acd96eac60d911deec5be62a5dec40fa8ee36e"
-    sha256 cellar: :any, arm64_tahoe:       "f784345a4fa60b214f2bcf2cd4d2072adfb9c454f9734c4eb365d84293bd91ec"
-    sha256 cellar: :any, arm64_sequoia:     "8b5af0d20361304d6941eecb50077a900607e908183ebda255bb0e917c797628"
-    sha256 cellar: :any, arm64_sonoma:      "283b2171e6f0d4c76c729105c6b05419bdbb27fcb40532432bcfeac14593ad15"
-    sha256 cellar: :any, arm64_linux:       "e842fd2a1b3fb1f2401d05bb418ebc104d5c648222f63f46240f764a2ccfcea0"
-    sha256 cellar: :any, x86_64_linux:      "5a5f81ca0d0c50aa34fcc6f8f117d2bb0a488d2b69c6d9aa331606ee42af43ef"
+    sha256 cellar: :any, arm64_golden_gate: "a767241dfad6ee4a8fe0b1fcc602c0462d758296a556d951f90da30f7c3a6bcb"
+    sha256 cellar: :any, arm64_tahoe:       "82126373ea0859d7098a3ecd3e43245d53c482fedd7ab362bad7792e92b6efd0"
+    sha256 cellar: :any, arm64_sequoia:     "e1b273c1602ff3db4a91b65a77dd79d5b26995eca5986b3c435d218774dccdc4"
+    sha256 cellar: :any, arm64_linux:       "ceaf718183fd1295392d9728aeaa6c8708d47d79f95903812455c85644981e36"
+    sha256 cellar: :any, x86_64_linux:      "1d9299f9163f30d23fd057cadf846ee7a3ebfe90bd0c81836863ef43c99802e2"
   end
+
+  deny_network_access!
 
   def install
     # 1 - Override the hardcoded gcc.

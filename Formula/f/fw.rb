@@ -15,22 +15,19 @@ class Fw < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_golden_gate: "525ee6a09b97e9131f568cbc3ac80bea9c9e4167e6234280523f837007735712"
-    sha256 cellar: :any,                 arm64_tahoe:       "7780f59e32df0457b9148d55505e274053393a4545cf61fcf790cb0b23dfe19e"
-    sha256 cellar: :any,                 arm64_sequoia:     "29432219c0916cdca047dd8cccd1cd207dbc68411f0e65d2118a574f977d923b"
-    sha256 cellar: :any,                 arm64_sonoma:      "93b69db1251551a66d1a24f4a9940562d2a04672ef4b19e4b39fde432365a174"
-    sha256 cellar: :any,                 sonoma:            "40916ca263737c78e58fd02c91d7aa82e738fad567031cd62c0a67d7e8c4ac6b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0c60ab562c31623fcb540d57810708e49c38f652430c85a239b46210b5fdab21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d3ebff57c1fc6a7739a8486817e893a075902406d6c00ef329818f5bbbf46ad2"
+    rebuild 2
+    sha256 cellar: :any, arm64_golden_gate: "dc4c1ec645f55270517cdf132ff267beb18bc35a156b91b3e9690e17e6bb227a"
+    sha256 cellar: :any, arm64_tahoe:       "1fb2b437ff237ac4fa943a4d9adb5cc7f05e61f1edb233e7b2bafedf386c5c23"
+    sha256 cellar: :any, arm64_sequoia:     "d7f33f20be35a9b61b687cbb6473d10b1273f03a384f2b37953843689a935f4d"
+    sha256 cellar: :any, arm64_linux:       "0bf676395e4e6334aac5d4953a303cac406c728ae261e471b9ec59e38f7c59ea"
+    sha256 cellar: :any, x86_64_linux:      "6a5c1d47ac5c682c646770e836aca13973ffd07e2720f7051da523abe82dc28a"
   end
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
-
-  on_linux do
-    depends_on "zlib-ng-compat"
-  end
+  depends_on "libgit2"
+  depends_on "libssh2"
+  depends_on "openssl@4"
 
   resource "fw.1" do
     url "https://github.com/brocode/fw/releases/download/v2.21.0/fw.1"
@@ -41,9 +38,20 @@ class Fw < Formula
     end
   end
 
+  # Backport https://github.com/brocode/fw/commit/de58a9ec7ecef5d1c5dbb0112a948222d4984732
+  patch :DATA
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
+    ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     system "cargo", "install", *std_cargo_args
     man1.install resource("fw.1")
@@ -54,3 +62,33 @@ class Fw < Formula
     assert_match "fw #{version}", shell_output("#{bin}/fw --version")
   end
 end
+
+__END__
+diff --git a/Cargo.lock b/Cargo.lock
+index 6997124..930ebe1 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -958,9 +958,9 @@ checksum = "a4895175b425cb1f87721b59f0f286c2092bd4af812243672510e1ac53e2e0ad"
+ 
+ [[package]]
+ name = "openssl"
+-version = "0.10.72"
++version = "0.10.78"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "fedfea7d58a1f73118430a55da6a286e7b044961736ce96a16a17068ea25e5da"
++checksum = "f38c4372413cdaaf3cc79dd92d29d7d9f5ab09b51b10dded508fb90bb70b9222"
+ dependencies = [
+  "bitflags",
+  "cfg-if",
+@@ -999,9 +999,9 @@ dependencies = [
+ 
+ [[package]]
+ name = "openssl-sys"
+-version = "0.9.108"
++version = "0.9.114"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "e145e1651e858e820e4860f7b9c5e169bc1d8ce1c86043be79fa7b7634821847"
++checksum = "13ce1245cd07fcc4cfdb438f7507b0c7e4f3849a69fd84d52374c66d83741bb6"
+ dependencies = [
+  "cc",
+  "libc",

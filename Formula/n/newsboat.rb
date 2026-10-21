@@ -1,8 +1,8 @@
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
-  url "https://newsboat.org/releases/2.44/newsboat-2.44.tar.xz"
-  sha256 "8cb376b14c44809750a41b74c239a47092edb8e496f657c38af9b852dd8e4ea4"
+  url "https://newsboat.org/releases/2.45/newsboat-2.45.tar.xz"
+  sha256 "defe303d2518f3c4241780a9165e8750e9984e3f10aa341b7dde107579e34b3d"
   license "MIT"
   head "https://github.com/newsboat/newsboat.git", branch: "master"
 
@@ -12,13 +12,11 @@ class Newsboat < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "31394f32cad4dc7a3fb4cc7e638bfb862a4bde8e5ead94fce7ca9a58ee06ec7b"
-    sha256 arm64_tahoe:       "91917308c99d3f4c520f0212ab9f597345105d5341a643521b48712f3f1d90ae"
-    sha256 arm64_sequoia:     "b809a6a65a626b2e779f57a8c7d2e4e33167fcf69f13e6254621689064ccaffa"
-    sha256 arm64_sonoma:      "7fb79dbc72d0137d2925ed7522f85b6efc789876abca75d916520176518c127f"
-    sha256 sonoma:            "c4b1492ed64c4065c4728491cde8c2de33beebad6297b16a71462db45c473e06"
-    sha256 arm64_linux:       "d000281082142d1e0d75047862d81b52040c6e6a9e617b1fb8d43b050da2d11f"
-    sha256 x86_64_linux:      "b395a1bb45221e70742c3b45ec172f6bd79db497af79e2ed63b62d5166a5c03a"
+    sha256 arm64_golden_gate: "0b1b40bb00f55601625942b6b687bc19b2a1c65c03106a5ec530cf456b7dc8cc"
+    sha256 arm64_tahoe:       "08fecbabd944f2b6fedda624f8c31e2d53ce9ba48edb5d97f2fc9071e3433a7c"
+    sha256 arm64_sequoia:     "21b41a9c832bbdcedc953bdf764b0b7d63bdfd0fa9a57dc2851cdce0d1606338"
+    sha256 arm64_linux:       "e3d6fddb777c157bac53fd3d76f575e5f9be11b6d48c66dc531702931473f6ae"
+    sha256 x86_64_linux:      "81b8b42948e7029d135bfbd66350104496be641dad5ac9c7aec214d3386fba3d"
   end
 
   depends_on "asciidoctor" => :build
@@ -56,6 +54,12 @@ class Newsboat < Formula
   resource("libstfl") do
     url "https://github.com/newsboat/stfl.git",
         revision: "bbb2404580e845df2556560112c8aefa27494d66"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install

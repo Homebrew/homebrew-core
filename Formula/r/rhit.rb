@@ -18,16 +18,22 @@ class Rhit < Formula
 
   depends_on "rust" => :build
 
+  resource "homebrew-testdata", :test do
+    url "https://raw.githubusercontent.com/Canop/rhit/c78d63b/test-data/access.log"
+    sha256 "e9ec07d6c7267ec326aa3f28a02a8140215c2c769ac2fe51b6294152644165eb"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
 
   test do
-    resource "homebrew-testdata" do
-      url "https://raw.githubusercontent.com/Canop/rhit/c78d63b/test-data/access.log"
-      sha256 "e9ec07d6c7267ec326aa3f28a02a8140215c2c769ac2fe51b6294152644165eb"
-    end
-
     require "pty"
     require "io/console"
 

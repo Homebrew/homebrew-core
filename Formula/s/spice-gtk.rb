@@ -3,10 +3,10 @@ class SpiceGtk < Formula
 
   desc "GTK client/libraries for SPICE"
   homepage "https://www.spice-space.org"
-  url "https://www.spice-space.org/download/gtk/spice-gtk-0.42.tar.xz"
-  sha256 "9380117f1811ad1faa1812cb6602479b6290d4a0d8cc442d44427f7f6c0e7a58"
+  url "https://www.spice-space.org/download/gtk/spice-gtk-0.43.tar.xz"
+  sha256 "cee26e5b2d22909f35b40a94398d1e863ca3962ee46494ca97aab206abc3203b"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
-  revision 3
+  revision 1
 
   livecheck do
     url "https://www.spice-space.org/download/gtk/"
@@ -14,14 +14,11 @@ class SpiceGtk < Formula
   end
 
   bottle do
-    rebuild 4
-    sha256 arm64_golden_gate: "94daa7294ec7bb061de72fa11f8ef6db96932dda6ba58399e477bc8b3863dc21"
-    sha256 arm64_tahoe:       "21eceed114b1e4ffa0448d21508d99d2c93ae878325b9b51c146ced4181a31fd"
-    sha256 arm64_sequoia:     "249a4261f91fe205b61e1636440d889def5f5e4aec5ffd19821caf0a9e743dea"
-    sha256 arm64_sonoma:      "73b27a8348177262ab9e24628a0139163cfbf8cf264457c504ac1ddd145cbf8b"
-    sha256 sonoma:            "aac4c0b6608b911ac73ca8960add7a8bda7f5f3a316f83430b588140c39b011a"
-    sha256 arm64_linux:       "2a66a37b796347b663e8f75fafe1f47589c091b9a5267c2f78fbb361ecb0d906"
-    sha256 x86_64_linux:      "83c56974836f7c0159133c7058c58fd32b087e2e0fcdd1503abf8c3d86bb55a0"
+    sha256 arm64_golden_gate: "1864f18dbeda602def2ef63a652dd723b23c121f048424d8b58bdcbf21a902b0"
+    sha256 arm64_tahoe:       "ac1200b9df94da7b8038adfda6190681d4b80a62504791df234fe8528ab0c9fb"
+    sha256 arm64_sequoia:     "342a8c77f2fe122518eca2f734612e254d077159bcaeff8949e74dac431949c5"
+    sha256 arm64_linux:       "01a87882c664a6f6e86b78df588de1b11b898be44d11c236982a9cf754b04209"
+    sha256 x86_64_linux:      "bbe92a271ecb4d7559b3547b4c52338e6662f9e0a8b3be9874401f1fb7dad373"
   end
 
   depends_on "gettext" => :build
@@ -44,7 +41,7 @@ class SpiceGtk < Formula
   depends_on "libusb"
   depends_on "libx11"
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "opus"
   depends_on "phodav"
   depends_on "pixman"
@@ -60,6 +57,7 @@ class SpiceGtk < Formula
   on_linux do
     depends_on "cyrus-sasl"
     depends_on "libva"
+    depends_on "systemd" # for libudev
     depends_on "wayland"
     depends_on "zlib-ng-compat"
   end
@@ -68,36 +66,22 @@ class SpiceGtk < Formula
                 extra_packages: "pyparsing"
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/f3/91/9c6ee907786a473bf81c5f53cf703ba0957b23ab84c264080fb5a450416f/pyparsing-3.3.2.tar.gz"
-    sha256 "c777f4d763f140633dcb6d8a3eda953bf7a214dc4eff598413c070bcdc117cbc"
+    url "https://files.pythonhosted.org/packages/e4/11/b213bebff182584360cb8d17c72c1677fec5c5c228de439e63bcf8ab1c8f/pyparsing-3.3.3.tar.gz"
+    sha256 "928ae7e20211f3b6f3915a72f06a0cfd29ab9d24279dd6346b6b1a7146397d36"
   end
 
-  # Backport fix for "ld: unknown file type in '.../spice-gtk-0.42/src/spice-glib-sym-file'"
+  # Fix macOS DRM header usage, upstream PR ref, https://gitlab.freedesktop.org/spice/spice-gtk/-/merge_requests/158
   patch do
-    url "https://gitlab.freedesktop.org/spice/spice-gtk/-/commit/1511f0ad5ea67b4657540c631e3a8c959bb8d578.diff"
-    sha256 "67c2b1d9c689dbb8eb3ed7c92996cf8c9d083d51050883593ee488957ad2a083"
-    type :backport
-    resolves "https://gitlab.freedesktop.org/spice/spice-gtk/-/merge_requests/119"
-  end
-
-  # Backport six removal
-  patch do
-    url "https://gitlab.freedesktop.org/spice/spice-common/-/commit/91fc091358ac4906a05b68d70e9db94082c0749f.diff"
-    sha256 "dd5ef8701bc1d97c0ff20af9ff95dffc660a5e1a3a8a0a92cd4d643d0a3553ed"
-    type :backport
-    resolves "https://gitlab.freedesktop.org/spice/spice-common/-/merge_requests/63"
-    directory "subprojects/spice-common"
-  end
-  patch do
-    url "https://gitlab.freedesktop.org/spice/spice-common/-/commit/29dacb5f53f5183fb089a3fb02d081dd08bde8a1.diff"
-    sha256 "3c8a0adaf4b088986bef7541ffef399c7652969c5584c4a4c4055f4988ef0f7a"
-    type :backport
-    resolves "https://gitlab.freedesktop.org/spice/spice-common/-/merge_requests/63"
-    directory "subprojects/spice-common"
+    url "https://gitlab.freedesktop.org/spice/spice-gtk/-/commit/02377912fe173e4af7714aef036d0555ee7531bc.diff"
+    sha256 "f2cc068e62d4310825f1107820fefb4c29c318acd45cabc4247528a91f7945be"
+    type :unofficial
+    resolves "https://gitlab.freedesktop.org/spice/spice-gtk/-/merge_requests/158"
   end
 
   # https://gitlab.com/keycodemap/keycodemapdb/-/merge_requests/18
   patch :DATA
+
+  allow_network_access! :build
 
   def install
     venv = virtualenv_create(buildpath/"venv", python3)
@@ -117,8 +101,9 @@ class SpiceGtk < Formula
         return spice_session_new() ? 0 : 1;
       }
     CPP
-    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("openssl@3")/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("openssl@4")/"pkgconfig"
     ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("icu4c")/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("systemd")/"pkgconfig" if OS.linux?
     system ENV.cc, "test.cpp",
                    *shell_output("pkgconf --cflags --libs spice-client-gtk-3.0").chomp.split,
                    "-o", "test"

@@ -8,11 +8,11 @@ class Cogapp < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "a7137db8332857614eecfd870f6e44bbd9d5504fff07c508c684043b98ff4760"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "b73ade25b3b055d47463fbc6f937bf61fb074c5af1976b96039c373d4971d44a"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   conflicts_with "cocogitto", "cog", because: "both install `cog` binaries"
 

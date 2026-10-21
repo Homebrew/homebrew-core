@@ -5,15 +5,15 @@ class Coreutils < Formula
   mirror "https://ftp.gnu.org/gnu/coreutils/coreutils-9.12.tar.xz"
   sha256 "a480198559733e9b3da999e90543ac6f888a2caa544d8d664c5a1f17e528e210"
   license "GPL-3.0-or-later"
+  revision 1
   compatibility_version 1
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "47f3076c16c02a734c142e52d16646bb76961353e7f9dc621b6e45215d916cb3"
-    sha256 arm64_tahoe:       "df8e4e3dfb6ee737404df9e8dc78bb54d5eeb3c767241fca617fa5196c5747e2"
-    sha256 arm64_sequoia:     "208a94fb7d6c2ebfb412fc127a6699d8ccb37e8492a940b843d1046db6a1e755"
-    sha256 arm64_linux:       "d379b254313c151324d2220ef1009f5e7572eb7e39fac15ba9cc0a8b3e877687"
-    sha256 x86_64_linux:      "2694642f5877654a15ef2277bdf7197b578368f9d505d45690a9dc06aec27616"
+    sha256 arm64_golden_gate: "3230dfda5ec735db8f69a113518a68f8f375f929178cab7c69f618c2606aae9d"
+    sha256 arm64_tahoe:       "38e01cd05410c44aa21fac5ae1700164771cd2028a9e1506f07a743b53a7b73d"
+    sha256 arm64_sequoia:     "c845a8ad8933ec45614e331e4f861862a4766a716ea7c13ee102e50a056c7792"
+    sha256 arm64_linux:       "51e6c759ba3872c59a82610c429bfa343926c48e7f4296bb6a1a23b863545ea2"
+    sha256 x86_64_linux:      "4a261303ec2ac867e77e32b156306fb9f27781a4a5cce754d4e9f249882a00db"
   end
 
   head do
@@ -30,6 +30,10 @@ class Coreutils < Formula
   depends_on "texinfo" => :build
   depends_on "gmp"
   uses_from_macos "gperf" => :build
+
+  on_macos do
+    depends_on "openssl@4"
+  end
 
   on_sonoma :or_older do
     conflicts_with "md5sha1sum", because: "both install `md5sum` and `sha1sum` binaries"
@@ -71,6 +75,11 @@ class Coreutils < Formula
       --with-libgmp
       --without-selinux
     ]
+
+    if OS.mac?
+      ENV.append "CPPFLAGS", "-I#{formula_opt_include("openssl@4")}"
+      ENV.append "LDFLAGS", "-L#{formula_opt_lib("openssl@4")}"
+    end
 
     system "./configure", *args, *std_configure_args
     system "make", "install"

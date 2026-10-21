@@ -6,15 +6,15 @@ class OpenaiWhisper < Formula
   url "https://files.pythonhosted.org/packages/35/8e/d36f8880bcf18ec026a55807d02fe4c7357da9f25aebd92f85178000c0dc/openai_whisper-20250625.tar.gz"
   sha256 "37a91a3921809d9f44748ffc73c0a55c9f366c85a3ef5c2ae0cc09540432eb96"
   license "MIT"
-  revision 7
+  revision 8
   head "https://github.com/openai/whisper.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "aba46921e803daaa6aa0e86cd6c200a43196f41a3fa3316b36c00ff32c922041"
-    sha256 cellar: :any, arm64_tahoe:       "8318c85c10b489a7371899607e7cc1f530f63d352744592bbd00cf914d1a87f5"
-    sha256 cellar: :any, arm64_sequoia:     "99df5bbb86f3bc7ee713997d2046a1b7165015f5c21d27713b3f1d639125fb28"
-    sha256 cellar: :any, arm64_linux:       "c11f7fcbabdc2b9ac6ab8363e3aa5b5f8534e46e06281cce02407df33ca4f8a5"
-    sha256 cellar: :any, x86_64_linux:      "43ffdf57cfe685df91da51d9c765aafb6effefdcd4a37ff7d2b90a2a878f4176"
+    sha256 cellar: :any, arm64_golden_gate: "dc5064298320d54e5ee2eebcfe591dd1ad0cd4922a98d3f488e0d0ad35a8a121"
+    sha256 cellar: :any, arm64_tahoe:       "9947572517722534757225b638c99524bd01f394f2be922f0862b823e1e96de4"
+    sha256 cellar: :any, arm64_sequoia:     "db1377441a1934d0cec56668574a891baf97c48ba6b3f04a7ef477919838a605"
+    sha256 cellar: :any, arm64_linux:       "cbcf53ad0cbac056e8c2af122d7e1a12c2c82a3760460f634583d8dc1a7deac2"
+    sha256 cellar: :any, x86_64_linux:      "567931abf90be359ca0d11139e6e945c5b74c5ac7469fdf402dd2f9165f85b73"
   end
 
   depends_on "cmake" => :build
@@ -23,7 +23,7 @@ class OpenaiWhisper < Formula
   depends_on "certifi"
   depends_on "ffmpeg"
   depends_on "llvm@22"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "pytorch"
 
   on_linux do
@@ -89,6 +89,16 @@ class OpenaiWhisper < Formula
     sha256 "63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63"
   end
 
+  resource "homebrew-test-audio", :test do
+    url "https://raw.githubusercontent.com/openai/whisper/7858aa9c08d98f75575035ecd6481f462d66ca27/tests/jfk.flac"
+    sha256 "63a4b1e4c1dc655ac70961ffbf518acd249df237e5a0152faae9a4a836949715"
+  end
+
+  resource "homebrew-test-model", :test do
+    url "https://openaipublic.azureedge.net/main/whisper/models/d3dd57d32accea0b295c96e26691aa14d8822fac7d9d27d5dc00b4ca2826dd03/tiny.en.pt"
+    sha256 "d3dd57d32accea0b295c96e26691aa14d8822fac7d9d27d5dc00b4ca2826dd03"
+  end
+
   def install
     ENV["LLVMLITE_SHARED"] = "1"
     venv = virtualenv_install_with_resources without: "numba"
@@ -104,16 +114,6 @@ class OpenaiWhisper < Formula
   end
 
   test do
-    resource "homebrew-test-audio" do
-      url "https://raw.githubusercontent.com/openai/whisper/7858aa9c08d98f75575035ecd6481f462d66ca27/tests/jfk.flac"
-      sha256 "63a4b1e4c1dc655ac70961ffbf518acd249df237e5a0152faae9a4a836949715"
-    end
-
-    resource "homebrew-test-model" do
-      url "https://openaipublic.azureedge.net/main/whisper/models/d3dd57d32accea0b295c96e26691aa14d8822fac7d9d27d5dc00b4ca2826dd03/tiny.en.pt"
-      sha256 "d3dd57d32accea0b295c96e26691aa14d8822fac7d9d27d5dc00b4ca2826dd03"
-    end
-
     testpath.install resource("homebrew-test-audio")
     (testpath/"models").install resource("homebrew-test-model")
     # for some unknown reason, the file is installed as `tests` rather than `jfk.flac`

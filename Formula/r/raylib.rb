@@ -1,19 +1,18 @@
 class Raylib < Formula
   desc "Simple and easy-to-use library to learn videogames programming"
   homepage "https://www.raylib.com/"
-  url "https://github.com/raysan5/raylib/archive/refs/tags/6.0.tar.gz"
-  sha256 "2b3ee1e2120c7a0796b33062c7e9a694dd8a8caa56a96319ac8c8ecf54a90d0b"
+  url "https://github.com/raysan5/raylib/archive/refs/tags/6.2.tar.gz"
+  sha256 "df7a13129b1bec9e73a6962efff170beba310ee6eab8f94cd000b7316b4db5ee"
   license "Zlib"
+  compatibility_version 1
   head "https://github.com/raysan5/raylib.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "86ed9803fccea2d5034e4ad865e327db4564ed3362069d4515e69be074b7c466"
-    sha256 cellar: :any, arm64_tahoe:       "15b25ecba281a742ded68d937b94128ac48ba99a38ca5472458a7677921665c2"
-    sha256 cellar: :any, arm64_sequoia:     "0034c21f3ddbf09ca8e3f47e15715c386521079fd24e6ceb4602ed4b354dcbd4"
-    sha256 cellar: :any, arm64_sonoma:      "113800ffaaf2d633b7e57470ae982e99a0955297e93efca7b0085b191df73231"
-    sha256 cellar: :any, sonoma:            "506bd5433099e45f6c2e2ec4275bbc17cbbc7f7429ff4e1d508b7818a20a49bb"
-    sha256 cellar: :any, arm64_linux:       "7043c22df6ea2bd11ee9cc38cdf4f29ab2e90fe9d140da3cda96efd3f7eaaff7"
-    sha256 cellar: :any, x86_64_linux:      "117389644a50a59966af649bcc25f5b1cb393de791fb8ea6abf54cf61c71b057"
+    sha256 cellar: :any, arm64_golden_gate: "673a7b53ade625117feee008a1a88a77ca068c5c01cfd9981c13f727f6a57540"
+    sha256 cellar: :any, arm64_tahoe:       "a0f742f031ea902a5762fe6aded4461ffcad8d4c5d235b30f46919e01830a267"
+    sha256 cellar: :any, arm64_sequoia:     "87705d21de2e87e0128096bb059310f1cc4bd0673a543b5f55a9b0e4f5d43191"
+    sha256 cellar: :any, arm64_linux:       "0e0d6c2733a90fea8435402d5944b09ed587ec65576a4f0dbb9384c7459bbd15"
+    sha256 cellar: :any, x86_64_linux:      "817953eff8058abeeb098a5faed76159947d2368190107fee34f5d404f1b2cd3"
   end
 
   depends_on "cmake" => :build
@@ -31,20 +30,16 @@ class Raylib < Formula
   deny_network_access!
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                               "-DBUILD_SHARED_LIBS=ON",
-                               "-DMACOS_FATLIB=OFF",
-                               "-DBUILD_EXAMPLES=OFF",
-                               "-DBUILD_GAMES=OFF",
-                               *std_cmake_args
+    args = %w[
+      -DMACOS_FATLIB=OFF
+      -DBUILD_EXAMPLES=OFF
+      -DBUILD_GAMES=OFF
+    ]
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    system "cmake", "-S", ".", "-B", "build-static",
-                               "-DBUILD_SHARED_LIBS=OFF",
-                               "-DMACOS_FATLIB=OFF",
-                               "-DBUILD_EXAMPLES=OFF",
-                               "-DBUILD_GAMES=OFF",
-                               *std_cmake_args
+
+    system "cmake", "-S", ".", "-B", "build-static", "-DBUILD_SHARED_LIBS=OFF", *args, *std_cmake_args
     system "cmake", "--build", "build-static"
     lib.install "build-static/raylib/libraylib.a"
   end

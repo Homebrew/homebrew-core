@@ -1,8 +1,8 @@
 class GtkGnutella < Formula
   desc "Share files in a peer-to-peer (P2P) network"
   homepage "https://gtk-gnutella.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/gtk-gnutella/gtk-gnutella/1.3.1/gtk-gnutella-1.3.1.tar.xz"
-  sha256 "9631c82b8c975485b9927a8fa48ef10172d1224e7b3b2049462d37ca33d71f08"
+  url "https://downloads.sourceforge.net/project/gtk-gnutella/gtk-gnutella/1.3.2/gtk-gnutella-1.3.2.tar.xz"
+  sha256 "897d856e5f7dea35df6783372a6ae0d83306a9054f8cde25d6006e4f15e44dc4"
   license "GPL-2.0-or-later"
 
   # Track updates while deprecated. Remove if undeprecated.
@@ -11,13 +11,11 @@ class GtkGnutella < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "fb065ff2163dc253a5112a8f6c1115fb5759504796ef9ea7e109087f83167d34"
-    sha256 arm64_tahoe:       "f492432b6563cffe018b22d40bc67ac10df71218191bcb3d01bdb44439c4fd90"
-    sha256 arm64_sequoia:     "3ddf5be67bae89d47e24e091fe506f7df1c683afa50c0a9f9bfea627294619d0"
-    sha256 arm64_sonoma:      "c1eb2f15ccd9aeb50fdf9b9d0f08e1d9c129e6be6b558f80cec2978e312d7bba"
-    sha256 sonoma:            "577e742af6e7e062a2b18bfb59d3081bea7d0bcfe316792d48c899547e21f239"
-    sha256 arm64_linux:       "ff989c183f80b230b847617fd63810b60acb3eddd3b003510d414fcebbb215a1"
-    sha256 x86_64_linux:      "42da940ea4d5b4e15fc07d033f986b119de287944b136cea7f4ff02319214f24"
+    sha256 arm64_golden_gate: "d261e6e17dec3840e816f620a0e91864b8df079a2599cfe37dbe175154683c69"
+    sha256 arm64_tahoe:       "9582742005c1465ce216041c79f7f3eb78f165086c799ac49bc10e9b24c2c5fe"
+    sha256 arm64_sequoia:     "a34532d9d85ce69bfc7a33a52cbfdf11a4e24c8dd1c0e46851ca3953bd56a7b3"
+    sha256 arm64_linux:       "de510fd890c9afdcb5511cd2aff9e8b4ba141dfbaa9856813a4ad3f29134c34c"
+    sha256 x86_64_linux:      "deb85b770fe557269375ca06ed6a98adf3aa52a11067ea782613ff30c36e8cf2"
   end
 
   deprecate! date: "2026-08-28", because: "needs EOL `gtk+`"

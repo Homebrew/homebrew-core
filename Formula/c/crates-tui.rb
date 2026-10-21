@@ -7,22 +7,34 @@ class CratesTui < Formula
   head "https://github.com/ratatui/crates-tui.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c7e11dceab744571e2fbc83ee42b3a10f6f0055fa91e35baf2b6f199a15ebd22"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7a4d3f4d546495d9eada59e3329b86c0172422e4796be32ca05c01eb3303e6f6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f56fcc14fa7ac18c23012b124c2c1332b496ca0e9ade5a07a6d531a5f7bb4e62"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "30f81c73519341098deba38f9709c99347db6b33612bba1550711e68a45a0501"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "3bb365cdc581270ec3b678e116906be8804b8456f9177a9da96c82596c5c4d8a"
-    sha256 cellar: :any_skip_relocation, sonoma:            "8a9d22f1366b378bcc6815bcfaaf8757f7411e2ebcbadd8d25fdcaaee58e2162"
-    sha256 cellar: :any_skip_relocation, ventura:           "b2a38ed0df2652636b17333925225751941160871dd6a2f33a41e3d178a92271"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c7d2f55e2a85701ef682ebd95b1e545419d31ce1342eb665b044441309e0f1d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d61432d14ad58729837802eb342892a52a6fda9c600efdea3e25f6f3f4f570d7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cbd1a1f8537eb591f8f342c2ce626daa5555816402e248c919c93dbb791cb6ad"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ea21f3ebf847d27e811afe469a9dea2c86959e933bbdffb5df13e53e567d355d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "491e8b2eb972a5fb67d3954990109f15d87b5968a9499a66626fb633ced28ca0"
+    sha256 cellar: :any,                 arm64_linux:       "75ba336719871af965cadd8311a617a5ef41fdcee014c62f2558e61ceac40bff"
+    sha256 cellar: :any,                 x86_64_linux:      "743c60883fcbc3c7cd1506852d63be4295a65852fb0f36c21e56adb858c2db66"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
+  end
+
+  allow_network_access! :test
+
+  def fetch
+    # Update to openssl 0.10.78 and openssl-sys 0.9.114 for minimum needed to use OpenSSL 4.
+    # Using `cargo update` rather than patch to work with stable and head.
+    if build.stable?
+      openssl_sys_version = File.read("Cargo.lock")[/name = "openssl-sys"\nversion = "(\d+(?:\.\d+)+)/i, 1]
+      odie "Remove `cargo update` workaround!" if Version.new("0.9.114") <= openssl_sys_version
+    end
+    system "cargo", "update", "openssl-sys", "--precise", "0.9.114"
+    system "cargo", "update", "openssl", "--precise", "0.10.78"
+
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install

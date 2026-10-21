@@ -1,8 +1,8 @@
 class Nsd < Formula
   desc "Name server daemon"
   homepage "https://www.nlnetlabs.nl/projects/nsd/"
-  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.15.2.tar.gz"
-  sha256 "bb4d57753c2cc2a641c92dab1021016d25fb4b972920bf4f0bbb8c40c1a9cce2"
+  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.15.3.tar.gz"
+  sha256 "6cd323354ebdf8c6a1eb5a14ecce25c69534013b70e7b0197d915cd581ab530c"
   license "BSD-3-Clause"
 
   # We check the GitHub repo tags instead of
@@ -18,17 +18,16 @@ class Nsd < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "9bd3f79f5a5642d9d2d6d7f75e4ec24191c927579957d17c6c0db0d36186230d"
-    sha256 arm64_tahoe:       "b90e09cb3ee8c91f68c6a7418d581a9b164f5b6b9ea75d0f3ee41d4c70f88f37"
-    sha256 arm64_sequoia:     "b0df831119f73793af2f6645a89d159d59b32448cc538fa1678c4271c316391a"
-    sha256 arm64_sonoma:      "ee98c1b823179e83e76e239e344543935bab67ef098e5c75256a595e24ea036e"
-    sha256 arm64_linux:       "6577adef35bda581d415dff9653aadfb04e2019b62e783d096e4cde8a23dbef5"
-    sha256 x86_64_linux:      "a6efabd0178dda7c2bd8b30c12da6c8c49f24ba62aa8c0a3004288a3970055a5"
+    sha256 arm64_golden_gate: "adb43e5b25782fe86664b9f50c4100aa128547ea8f9b30551e1168944ecba031"
+    sha256 arm64_tahoe:       "5766f00bfe5307e987cb1d613039bcbbf950880e385a9bf3080e91254cea3c66"
+    sha256 arm64_sequoia:     "cd7170e90413a2f3ecfa7c620ffbe6c70ecdf60172206ddd3deaef435f0c4699"
+    sha256 arm64_linux:       "40356305a3961845bc60601f496621cc5c34256ee7e8b0b2c2a8d65c9cf6946d"
+    sha256 x86_64_linux:      "973eb0a6cd9f2b29972cbdc9d6dfe3ed1e97e4dad9f6196764b0bfca6a5f2322"
   end
 
   depends_on "pkgconf" => :build
   depends_on "libevent"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   def install
     ENV.runtime_cpu_detection if Hardware::CPU.intel?
@@ -37,7 +36,7 @@ class Nsd < Formula
                           "--localstatedir=#{var}",
                           "--disable-dnstap",
                           "--with-libevent=#{formula_opt_prefix("libevent")}",
-                          "--with-ssl=#{formula_opt_prefix("openssl@3")}",
+                          "--with-ssl=#{formula_opt_prefix("openssl@4")}",
                           *std_configure_args
     system "make", "install"
   end

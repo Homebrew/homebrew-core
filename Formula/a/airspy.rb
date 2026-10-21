@@ -65,6 +65,8 @@ class Airspy < Formula
     resolves "https://github.com/airspy/airspyone_host/pull/103"
   end
 
+  deny_network_access!
+
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"

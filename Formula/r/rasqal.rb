@@ -26,7 +26,7 @@ class Rasqal < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "2267d3f39fc7d088095d64bb6cf86f5fcad6c2a72fdd72dde8237cc910b123d1"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkgconf" => [:build, :test]
   depends_on "raptor"
 
   on_linux do
@@ -39,8 +39,42 @@ class Rasqal < Formula
     type :unofficial
   end
 
+  allow_network_access! :test
+
   def install
     system "./configure", "--with-html-dir=#{share}/doc", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"data.nt").write <<~EOS
+      <http://example.org/bob> <http://xmlns.com/foaf/0.1/name> "Bob" .
+      <http://example.org/alice> <http://xmlns.com/foaf/0.1/name> "Alice" .
+    EOS
+
+    query = "SELECT ?name WHERE { ?p <http://xmlns.com/foaf/0.1/name> ?name } ORDER BY ?name"
+    output = shell_output("#{bin}/roqet -q -i sparql -r csv -F ntriples -D #{testpath}/data.nt -e '#{query}' 2>&1", 2)
+    assert_equal "name\r\nAlice\r\nBob\r\n", output
+
+    (testpath/"test.c").write <<~C
+      #include <rasqal.h>
+
+      int main(void) {
+        rasqal_world *world = rasqal_new_world();
+        if (!world || rasqal_world_open(world)) return 1;
+
+        rasqal_query *query = rasqal_new_query(world, "sparql", NULL);
+        if (!query) return 1;
+        if (rasqal_query_prepare(query, (const unsigned char *)"SELECT ?s WHERE { ?s ?p ?o }", NULL)) return 1;
+
+        rasqal_free_query(query);
+        rasqal_free_world(world);
+        return 0;
+      }
+    C
+
+    pkgconf_flags = shell_output("pkgconf --cflags --libs rasqal").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkgconf_flags
+    system "./test"
   end
 end

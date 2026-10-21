@@ -32,7 +32,7 @@ class Libgweather < Formula
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on "pygobject3" => :build
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
 
   depends_on "geocode-glib"
   depends_on "glib"

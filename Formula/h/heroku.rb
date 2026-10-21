@@ -1,16 +1,16 @@
 class Heroku < Formula
   desc "CLI for Heroku"
   homepage "https://www.npmjs.com/package/heroku/"
-  url "https://registry.npmjs.org/heroku/-/heroku-11.11.0.tgz"
-  sha256 "27fde7f6717b5a93d1368f71fb79e139fc9db70a2d1e61738be4a9945e2e4fa8"
+  url "https://registry.npmjs.org/heroku/-/heroku-11.12.0.tgz"
+  sha256 "fe6dbf07053470bb575fbb466680466ff08a2eb970255cde6fb6d3c5c0eadfb2"
   license "ISC"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "bc3f4d07eb8f975c00f0e65138e47129ba7213b0ae754e51383bb4056e7fb350"
-    sha256 cellar: :any, arm64_tahoe:       "bc3f4d07eb8f975c00f0e65138e47129ba7213b0ae754e51383bb4056e7fb350"
-    sha256 cellar: :any, arm64_sequoia:     "bc3f4d07eb8f975c00f0e65138e47129ba7213b0ae754e51383bb4056e7fb350"
-    sha256 cellar: :any, arm64_linux:       "a5a9d8973463188b1bd5031b579f1a2140d9f309d38d4acea901c716d616a9a0"
-    sha256 cellar: :any, x86_64_linux:      "6c8b5f6f8358cd5463e058f768077dec67a02c55adc1238bda5a9ca61be5225e"
+    sha256 cellar: :any, arm64_golden_gate: "25f38ca7cf43e65dc810bc954edc2456375be2a3baa9ef8f69f6bcbd9f9775bd"
+    sha256 cellar: :any, arm64_tahoe:       "25f38ca7cf43e65dc810bc954edc2456375be2a3baa9ef8f69f6bcbd9f9775bd"
+    sha256 cellar: :any, arm64_sequoia:     "25f38ca7cf43e65dc810bc954edc2456375be2a3baa9ef8f69f6bcbd9f9775bd"
+    sha256 cellar: :any, arm64_linux:       "70d8569bf5954af1940bf5aaa7de89c4d67cd1af88b1a42b223b7772425b6039"
+    sha256 cellar: :any, x86_64_linux:      "865051b65b5168ec584f0e6efe711e6103f9e56c4996269b41f7ce0f74b2541f"
   end
 
   depends_on "node"

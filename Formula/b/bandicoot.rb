@@ -1,18 +1,16 @@
 class Bandicoot < Formula
   desc "C++ library for GPU accelerated linear algebra"
   homepage "https://coot.sourceforge.io/"
-  url "https://gitlab.com/bandicoot-lib/bandicoot-code/-/archive/4.0.3/bandicoot-code-4.0.3.tar.bz2"
-  sha256 "76913d2b1273b4f63f34e7e530ed0e69170f39f598ae472b8271ba1c75a3a7db"
+  url "https://gitlab.com/bandicoot-lib/bandicoot-code/-/archive/5.0.0/bandicoot-code-5.0.0.tar.bz2"
+  sha256 "875f64e13d370d9659a719a389ada4bbc1cd2caa38c68d52087c9a8ff88ef64f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "aac29a2d14850f73f01a43438f1cd7b218b334cc559fa26e98e298afc16256dc"
-    sha256 cellar: :any, arm64_tahoe:       "1da75a50a5264145b76e139594cb1c6eb08b392ccbdc8b8244f64f6815e7289b"
-    sha256 cellar: :any, arm64_sequoia:     "be011ebe9cef13d2159fb1f87e13417e4a4e1f368efffcf06d3fff1ffd4daf51"
-    sha256 cellar: :any, arm64_sonoma:      "2d89effd74a0c1e388c38fe505396c12e74a5c69529f6484cec51d8fd0156c31"
-    sha256 cellar: :any, sonoma:            "f45affbd8373d28c7884298713c5abf17f3d670165b82b813e6a0e94f94bf4e4"
-    sha256 cellar: :any, arm64_linux:       "0b03a42eca24973d80ee82ef5621e3e26f6beb1801ac569f9258c788f4d07b66"
-    sha256 cellar: :any, x86_64_linux:      "850de6da4b08a4b9d56e5db3c53f43a5fec162870da21fc0910a5fad8ea7d979"
+    sha256 cellar: :any, arm64_golden_gate: "e18cf9df7ff19d6d5c9c6767d0d2da7995e093937de599ff0cd68c28dda4f098"
+    sha256 cellar: :any, arm64_tahoe:       "70f4d0a11902993cc8c60b6803e7fe2b7ad6d7db0276d829e5b4a7159669f7aa"
+    sha256 cellar: :any, arm64_sequoia:     "1d26a369ed78009eb64ccbeb4727c76acf2d259cc539737ea3dff85571d640f6"
+    sha256 cellar: :any, arm64_linux:       "f785fa3b76b4fe032148e8e4767d0162f43bf306431ddc5764d03875c368194c"
+    sha256 cellar: :any, x86_64_linux:      "529afe730af85f611cdf55c491d135291c507247aafc7d9f5eafbb289f6a616f"
   end
 
   depends_on "cmake" => :build

@@ -31,9 +31,20 @@ class Hurl < Formula
   uses_from_macos "libxml2"
   uses_from_macos "llvm" # for libclang
 
+  on_macos do
+    depends_on "openssl@4" => :build # for `openssl-sys` build script, not linked
+  end
+
+  # `test do` block requests hurl.dev.
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
-    # FIXME: This formula uses the `openssl-sys` crate on Linux but does not link with our OpenSSL.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    # `curl-sys` pulls in `openssl-sys` even though macOS uses the system libcurl
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4") if OS.mac?
 
     system "cargo", "install", *std_cargo_args(path: "packages/hurl")
     system "cargo", "install", *std_cargo_args(path: "packages/hurlfmt")

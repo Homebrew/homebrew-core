@@ -3,8 +3,8 @@ class Bun < Formula
   homepage "https://bun.com/"
   # Need git checkout to build. Alternatively could set GIT_SHA if we extract the commit.
   url "https://github.com/oven-sh/bun.git",
-      tag:      "bun-v1.4.2",
-      revision: "744846f844374847c902b5e7fd59b4342a51ef99"
+      tag:      "bun-v1.4.3",
+      revision: "c6da4a4d3010e5553438c60f6bd76d981976867c"
   license all_of: [
     "MIT",
     "LGPL-2.0-or-later", # JavaScriptCore
@@ -26,17 +26,17 @@ class Bun < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "1e749a65e17ad90e1fdad40a19481915366771a53d2548a0de1802d0e7c29c16"
-    sha256 arm64_tahoe:       "0c138912583eb9fa6ed12a1cf84e6d78ee51c65bd3291fb9a758bf220469b52d"
-    sha256 arm64_sequoia:     "a547f6f128597ded6bfe3f467ce46606bae741b8b9ef32d0736650a07584cf51"
-    sha256 arm64_linux:       "d110a88f1f69a128605c07064d8c3d3484ce650f52304d18a4fa51c49a52b8dd"
-    sha256 x86_64_linux:      "823f9cfe182892e3df144e6406a6677e3c83eb299e1468ec70352b1d5f8ac97f"
+    sha256 arm64_golden_gate: "1884cc7d66623250146673e57e2a4ee2a9bbde6db8a7c0d1af80014243912c77"
+    sha256 arm64_tahoe:       "0a8b872558cf06a5acecd6ec7e31bd08af9390212cf70e5f61b8bb8712148696"
+    sha256 arm64_sequoia:     "167bc297590aaeedfe095c18a568b8c41b7b5fdc53fa636e488afc1f63312dd8"
+    sha256 arm64_linux:       "87929e9a7bdf5e31e5ed84cad46ad74dbceb568e3891896ea2562fcfa56dbfea"
+    sha256 x86_64_linux:      "3b04b8447e5bf3944c08528b4ca8c18c4029cec9a3acbef6a72449a7bd260ae8"
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm@21" => :build # LLVM 22 PR: https://github.com/oven-sh/bun/pull/34299
+  depends_on "llvm" => :build
   depends_on "ninja" => :build
-  depends_on "rustup" => :build # needs nightly as uses `-Z` flags and unstable `#![feature(...)]`
+  depends_on "rust" => :build
 
   uses_from_macos "llvm" => :build
   uses_from_macos "perl" => :build # for webkit
@@ -45,7 +45,7 @@ class Bun < Formula
   uses_from_macos "unzip" => :build
 
   on_linux do
-    depends_on "lld@21" => :build
+    depends_on "lld" => :build
     depends_on "icu4c@78"
   end
 
@@ -58,34 +58,35 @@ class Bun < Formula
   end
 
   # Bootstrap with the same Bun version as upstream CI,
-  # https://github.com/oven-sh/bun/blob/bun-v#{version}/.buildkite/Dockerfile
+  # https://github.com/oven-sh/bun/blob/bun-v#{version}/scripts/build/ci-images/spec.ts
   resource "bootstrap" do
     on_macos do
       on_arm do
-        url "https://github.com/oven-sh/bun/releases/download/bun-v1.3.13/bun-darwin-aarch64.zip"
-        version "1.3.13"
-        sha256 "5467e3f65dba526b9fea98f0cce04efafc0c63e169733ec27b876a3ad32da190"
+        url "https://github.com/oven-sh/bun/releases/download/bun-v1.4.2/bun-darwin-aarch64.zip"
+        version "1.4.2"
+        sha256 "90987a3a16d7db556d886ac3d551e7b6d3edf0a1cf43acaed622e8676be1d12f"
       end
       on_intel do
-        url "https://github.com/oven-sh/bun/releases/download/bun-v1.3.13/bun-darwin-x64-baseline.zip"
-        sha256 "a98ba6a480f22fda9b343626b906a4e26aa53618bf85d2bc5928ecf2ba45f0ed"
+        url "https://github.com/oven-sh/bun/releases/download/bun-v1.4.2/bun-darwin-x64-baseline.zip"
+        sha256 "bad5bbd6cf14d0980d115f5954c9ff904df619d5e994d2da1ffccd3f316300b0"
       end
     end
     on_linux do
       on_arm do
-        url "https://github.com/oven-sh/bun/releases/download/bun-v1.3.13/bun-linux-aarch64.zip"
-        version "1.3.13"
-        sha256 "70bae41b3908b0a120e1e58c5c8af30e74afae3b8d11b0d3fdd8e787ddfb4b22"
+        url "https://github.com/oven-sh/bun/releases/download/bun-v1.4.2/bun-linux-aarch64.zip"
+        version "1.4.2"
+        sha256 "54328bbc2d9c8e0c9f892c544d66c57a83b84139e34909e5ee81758f1ac8fda7"
       end
       on_intel do
-        url "https://github.com/oven-sh/bun/releases/download/bun-v1.3.13/bun-linux-x64-baseline.zip"
-        sha256 "9d8a24292a7068090205daac0a5a223f5f69736f5287e37bf88d3b4031edc750"
+        url "https://github.com/oven-sh/bun/releases/download/bun-v1.4.2/bun-linux-x64-baseline.zip"
+        sha256 "c678040f14fe0440eb839d37cbd0ce4c051a32da72806ac97de6a6aab6bf728f"
       end
     end
   end
 
   # Build patches for clang 23 and the macOS 27 SDK,
   # https://github.com/oven-sh/bun/issues/41141
+  # Also replaces nightly-only `core::mem::type_info::of` to build with stable Rust
   patch :DATA
 
   # Performing a manual shallow git clone since a full clone of WebKit repo is ~18GB in size
@@ -112,7 +113,7 @@ class Bun < Formula
 
   # Based on https://github.com/oven-sh/bun/blob/main/CONTRIBUTING.md#building-webkit-locally--debug-mode-of-jsc
   def install
-    bootstrap_version = File.read(".buildkite/Dockerfile")[/OLD_BUN_VERSION="v?(\d+(?:\.\d+)+)"/i, 1]
+    bootstrap_version = File.read("scripts/build/ci-images/spec.ts")[/^\s*bun: \{ version: "(\d+(?:\.\d+)+)" \}/, 1]
     odie "Update bootstrap to #{bootstrap_version}" if resource("bootstrap").version != bootstrap_version
 
     # Upstream only allows building for specific microarchitectures they support
@@ -128,6 +129,7 @@ class Bun < Formula
       inreplace "scripts/build/flags.ts", "-march=armv8-a+crc", ENV["HOMEBREW_OPTFLAGS"].to_s
     end
 
+    ENV["RUSTC_BOOTSTRAP"] = "1" # workaround to build with stable rust
     # Nested dep builds run `cmake --build` without `--parallel`, four at a time
     # (the `dep` ninja pool), so each one spawns its own core-count worth of
     # compilers on top of the outer build and Homebrew's job limit is ignored.
@@ -180,50 +182,40 @@ class Bun < Formula
 end
 
 __END__
-diff --git a/src/jsc/bindings/JSCommonJSModule.cpp b/src/jsc/bindings/JSCommonJSModule.cpp
-index 484a719..7d43b31 100644
---- a/src/jsc/bindings/JSCommonJSModule.cpp
-+++ b/src/jsc/bindings/JSCommonJSModule.cpp
-@@ -1568,7 +1568,7 @@ static JSC::SourceCode commonJSModuleSyntheticSourceCode(const SourceOrigin& sou
+diff --git a/src/collections/lib.rs b/src/collections/lib.rs
+index 57539df..46e4209 100644
+--- a/src/collections/lib.rs
++++ b/src/collections/lib.rs
+@@ -6,9 +6,10 @@
+     unsized_const_params,
+     const_cmp,
+     const_trait_impl,
+-    allocator_api
++    allocator_api,
++    core_intrinsics
+ )]
+-#![allow(incomplete_features)]
++#![allow(incomplete_features, internal_features)]
+ #![warn(unused_must_use)]
  
-                 JSValue keyValue = identifierToJSValue(vm, moduleKey);
-                 JSValue entry = globalObject->requireMap()->get(globalObject, keyValue);
--                RETURN_IF_EXCEPTION(scope, {});
-+                RETURN_IF_EXCEPTION(scope, void());
+ pub mod hive_array;
+diff --git a/src/collections/multi_array_list.rs b/src/collections/multi_array_list.rs
+index fda15fa..3af1d82 100644
+--- a/src/collections/multi_array_list.rs
++++ b/src/collections/multi_array_list.rs
+@@ -47,7 +47,11 @@
  
-                 if (entry) {
-                     if (auto* moduleObject = dynamicDowncast<JSCommonJSModule>(entry)) {
-@@ -1587,7 +1587,7 @@ static JSC::SourceCode commonJSModuleSyntheticSourceCode(const SourceOrigin& sou
-                                 // On error, remove the module from the require map
-                                 // so that it can be re-evaluated on the next require.
-                                 globalObject->requireMap()->remove(globalObject, moduleObject->filename());
--                                RETURN_IF_EXCEPTION(scope, {});
-+                                RETURN_IF_EXCEPTION(scope, void());
- 
-                                 scope.throwException(globalObject, exception);
-                                 return;
-@@ -1595,7 +1595,7 @@ static JSC::SourceCode commonJSModuleSyntheticSourceCode(const SourceOrigin& sou
-                         }
- 
-                         moduleObject->toSyntheticSource(globalObject, moduleKey, exportNames, exportValues);
--                        RETURN_IF_EXCEPTION(scope, {});
-+                        RETURN_IF_EXCEPTION(scope, void());
-                     }
-                 } else {
-                     // require map was cleared of the entry
-diff --git a/src/jsc/bindings/JSMockFunction.cpp b/src/jsc/bindings/JSMockFunction.cpp
-index bc8f149..dfe5e15 100644
---- a/src/jsc/bindings/JSMockFunction.cpp
-+++ b/src/jsc/bindings/JSMockFunction.cpp
-@@ -897,7 +897,7 @@ JSC_DEFINE_HOST_FUNCTION(jsMockFunctionCall, (JSGlobalObject * lexicalGlobalObje
-     auto setReturnValue = [&](JSC::JSValue value) -> void {
-         if (auto* returnValuesArray = fn->returnValues.get()) {
-             returnValuesArray->push(globalObject, value);
--            RETURN_IF_EXCEPTION(scope, {});
-+            RETURN_IF_EXCEPTION(scope, void());
-             returnValueIndex = returnValuesArray->length() - 1;
-         } else {
-             JSC::ObjectInitializationScope object(vm);
+ use core::alloc::Layout;
+ use core::marker::PhantomData;
+-use core::mem::type_info;
++mod type_info {
++    pub(super) const fn of<T: ?Sized>() -> core::any::TypeId {
++        const { core::intrinsics::type_id::<T>() }
++    }
++}
+ use core::mem::{ManuallyDrop, MaybeUninit};
+ use core::ptr::{self, NonNull};
+ use std::alloc::{Allocator, Global};
 diff --git a/src/jsc/bindings/JSNodePerformanceHooksHistogram.cpp b/src/jsc/bindings/JSNodePerformanceHooksHistogram.cpp
 index 0f72fd6..7ab0c64 100644
 --- a/src/jsc/bindings/JSNodePerformanceHooksHistogram.cpp
@@ -268,26 +260,3 @@ index 481ccdd..1ff80f1 100644
 +
  #undef EMIT_SIGNPOST
  #undef FOR_EACH_TRACE_EVENT
- 
-diff --git a/src/jsc/modules/ObjectModule.cpp b/src/jsc/modules/ObjectModule.cpp
-index 5505408..4311d5b 100644
---- a/src/jsc/modules/ObjectModule.cpp
-+++ b/src/jsc/modules/ObjectModule.cpp
-@@ -47,7 +47,7 @@ generateObjectModuleSourceCodeForJSON(JSC::JSGlobalObject* globalObject,
-         PropertyNameArrayBuilder properties(vm, PropertyNameMode::Strings,
-             PrivateSymbolMode::Exclude);
-         object->getPropertyNames(globalObject, properties, DontEnumPropertiesMode::Exclude);
--        RETURN_IF_EXCEPTION(scope, {});
-+        RETURN_IF_EXCEPTION(scope, void());
-         gcUnprotectNullTolerant(object);
- 
-         exportNames.append(vm.propertyNames->defaultKeyword);
-@@ -61,7 +61,7 @@ generateObjectModuleSourceCodeForJSON(JSC::JSGlobalObject* globalObject,
-             exportNames.append(entry);
- 
-             JSValue value = object->get(globalObject, entry);
--            RETURN_IF_EXCEPTION(scope, {});
-+            RETURN_IF_EXCEPTION(scope, void());
-             exportValues.append(value);
-         }
-     };

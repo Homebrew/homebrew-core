@@ -1,17 +1,17 @@
 class Zero < Formula
   desc "Terminal coding agent you own"
   homepage "https://zero.gitlawb.com/"
-  url "https://github.com/Gitlawb/zero/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "9f8ec37478f13d6e72b90b85f87ae586a8dea1debd94d035e8dce22eb67a1fa1"
+  url "https://github.com/Gitlawb/zero/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "d253f69beb00cbc0fb23a302914caf960e2a1d94b045778ff2ed2671fab35f50"
   license "MIT"
   head "https://github.com/Gitlawb/zero.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c813340e91edd724a9abe7054e8d5b02a0612988be95d5c2173be0d20ea91c25"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c813340e91edd724a9abe7054e8d5b02a0612988be95d5c2173be0d20ea91c25"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c813340e91edd724a9abe7054e8d5b02a0612988be95d5c2173be0d20ea91c25"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "efeff823c809818f5bc96c41f4e1bb60d1effb895fb2aec4d2040283ac98ec7e"
-    sha256 cellar: :any,                 x86_64_linux:      "a5f69045c131c71f4b1a65068b92f0a720a36d2f795c75c76a8e90c93747cad3"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f96eb9fd9027489281842f9fffe2449c7d9c5f83d6c66bb4ebdf5ef492edc3a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8f96eb9fd9027489281842f9fffe2449c7d9c5f83d6c66bb4ebdf5ef492edc3a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8f96eb9fd9027489281842f9fffe2449c7d9c5f83d6c66bb4ebdf5ef492edc3a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "52bb69d4329517574f9019acc625f688bdf2639d7b2ade98cda2ba34e495df5e"
+    sha256 cellar: :any,                 x86_64_linux:      "5fa78034475928156980de4fd20e469a9c128c0047d3bccbefca9148af09a114"
   end
 
   depends_on "go" => :build

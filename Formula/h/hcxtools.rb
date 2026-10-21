@@ -4,20 +4,19 @@ class Hcxtools < Formula
   url "https://github.com/ZerBea/hcxtools/archive/refs/tags/7.1.2.tar.gz"
   sha256 "c726b93df32efd3298874b324f820d93cb08a4dae03d9144b0d5062c003fd77f"
   license "MIT"
+  revision 1
   head "https://github.com/ZerBea/hcxtools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "91987c77dc1ef94816e70e1782a991a7471873ef4322eff24bd1a174c4aefa8a"
-    sha256 cellar: :any,                 arm64_tahoe:       "b786532da808f3d2df2a0196664c412cbcb7b9e8075ff4986be97516c7dda34c"
-    sha256 cellar: :any,                 arm64_sequoia:     "b6ed19ef3e202ff7fccd37d1cb507a15ae9d27a0642b9adaed3f681d0898c167"
-    sha256 cellar: :any,                 arm64_sonoma:      "1651738e247aacea8e5370cd6864c7c74ea469326838eceb9a26fe0545c20bf3"
-    sha256 cellar: :any,                 sonoma:            "f780ee105f6fad885e76c94ca9dc0d0f262c45bcdbee5ab91f9db46c6006d6b9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a5dd620ba49c62840721470976e8c9fc315ccf53073a970e2fb773fab2b514a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8168c9e6a68a1707ec3c18c7f4c141664f1f9609f3432b761e2e076c0a3f71a7"
+    sha256 cellar: :any, arm64_golden_gate: "b5f01178ab5387a809deeedc4197aa5f7e97e01dd7c312c1ee2e7f2972965c01"
+    sha256 cellar: :any, arm64_tahoe:       "9e01f404748137c27638c3464800c31f4dea874205be7af2c70eeb439db55946"
+    sha256 cellar: :any, arm64_sequoia:     "948b82734d6251902c54d3397525ea88667ab287c8e33c2a9657a668594fb713"
+    sha256 cellar: :any, arm64_linux:       "cab3a33d7881a68af1e80e1ddd8862616ac2ce99d93f03e139f0030367f4ba4a"
+    sha256 cellar: :any, x86_64_linux:      "4209db6ddbfa401e969326c7a6e364d00fab66d938d7d0be8d909c9bf0dfc949"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "curl"
 

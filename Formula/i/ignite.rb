@@ -19,6 +19,13 @@ class Ignite < Formula
   depends_on "go"
   depends_on "node"
 
+  # Test scaffolds a project, which downloads Go modules
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "go", "build", "-mod=readonly", *std_go_args, "./ignite/cmd/ignite"
   end

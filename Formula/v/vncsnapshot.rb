@@ -30,6 +30,8 @@ class Vncsnapshot < Formula
 
   patch :DATA # remove old PPC __APPLE__ ifdef from sockets.cxx
 
+  allow_network_access! :test
+
   def install
     # From Ubuntu
     inreplace "rfb.h", "typedef unsigned long CARD32;",
@@ -48,6 +50,11 @@ class Vncsnapshot < Formula
     system "make", *args
     bin.install "vncsnapshot", "vncpasswd"
     man1.install "vncsnapshot.man1" => "vncsnapshot.1"
+  end
+
+  test do
+    output = shell_output("#{bin}/vncsnapshot 127.0.0.1::#{free_port} out.jpg 2>&1", 1)
+    assert_match "Connection refused", output
   end
 end
 

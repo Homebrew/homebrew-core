@@ -42,14 +42,39 @@ class Libnids < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     # C23 makes `()` mean `(void)`, breaking the K&R-style callback pointers in nids.h and ip_fragment.c
     ENV.append_to_cflags "-std=gnu17"
 
     # autoreconf the old 2005 era code for sanity.
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}",
-                          "--enable-shared"
+    system "./configure", "--mandir=#{man}", "--enable-shared", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    # An empty pcap file holding just the global header
+    (testpath/"test.pcap").binwrite [0xa1b2c3d4, 2, 4, 0, 0, 65535, 1].pack("VvvVVVV")
+
+    (testpath/"test.c").write <<~C
+      #include <stdio.h>
+      #include <nids.h>
+
+      int main(void) {
+        nids_params.filename = "test.pcap";
+        nids_params.scan_num_hosts = 0;
+        if (!nids_init()) {
+          fprintf(stderr, "%s\\n", nids_errbuf);
+          return 1;
+        }
+        nids_run();
+        return 0;
+      }
+    C
+
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lnids", "-lpcap", "-o", "test"
+    system "./test"
   end
 end

@@ -7,11 +7,33 @@ class Matlab2tikz < Formula
   head "https://github.com/matlab2tikz/matlab2tikz.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "f76f11ee806e2256f088b5dd34b534e94e8bfd48f495152bb623d7519dc2b893"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "eb8e50b9e5382c9cf9664a559dab432dde58e071bc13d97fab006273184d3002"
   end
+
+  depends_on "gnuplot" => :test
+  depends_on "octave" => :test
+
+  deny_network_access!
 
   def install
     pkgshare.install Dir["src/*"]
+  end
+
+  test do
+    (testpath/"plot_test.m").write <<~MATLAB
+      addpath('#{pkgshare}');
+      graphics_toolkit('gnuplot');
+      f = figure('visible', 'off');
+      plot([1 2 3], [1 4 9]);
+      matlab2tikz('test.tex', 'figurehandle', f, 'showInfo', false, ...
+                  'showWarnings', false, 'checkForUpdates', false);
+    MATLAB
+    system formula_opt_bin("octave")/"octave-cli", "--norc", "plot_test.m"
+
+    output = (testpath/"test.tex").read
+    assert_match "\\begin{tikzpicture}", output
+    assert_match "\\begin{axis}", output
+    assert_match "\\addplot", output
   end
 end

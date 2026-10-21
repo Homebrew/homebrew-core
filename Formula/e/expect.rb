@@ -23,6 +23,15 @@ class Expect < Formula
     sha256 x86_64_linux:      "500bbf556dea3b9536753959c9a2a7c6c8b8d79ac929ce3008529812b62f6209"
   end
 
+  # TODO: Can consider https://github.com/tcltk-depot/expect if it ever meets
+  # out fork policy, see https://docs.brew.sh/Acceptable-Formulae#forks
+  # Currently none of original Expect maintainers have commented on fork
+  # (https://sourceforge.net/p/expect/bugs/107/) but it is maintained by a
+  # Tcl Core Team member (https://www.tcl-lang.org/community/coreteam/).
+  # As of deprecation date, not used by any major distro and no stable release.
+  deprecate! date: "2026-10-12", because: :unmaintained
+  disable! date: "2028-01-01", because: :unmaintained
+
   # Autotools are introduced here to regenerate configure script. Remove
   # if the patch has been applied in newer releases.
   depends_on "autoconf" => :build

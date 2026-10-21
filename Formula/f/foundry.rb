@@ -4,8 +4,8 @@ class Foundry < Formula
   # `build.rs` in `common` crate requires `.git` repository
   # https://github.com/foundry-rs/foundry/blob/4072e48705af9d93e3c0f6e29e93b5e9a40caed8/crates/common/build.rs#L9-L12
   url "https://github.com/foundry-rs/foundry.git",
-      tag:      "v1.8.4",
-      revision: "50af4efe189dc64bad2b75ed6990b835de66c4ae"
+      tag:      "v1.8.5",
+      revision: "51a52c59cffd940f76eddd0b4bb1791aa4b5ac7f"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/foundry-rs/foundry.git", branch: "master"
 
@@ -15,11 +15,11 @@ class Foundry < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e54fe6fcc88689db862f1ee972b8799f1c54b3e37b9f153abf2a756113afdbfc"
-    sha256 cellar: :any, arm64_tahoe:       "14a0b9ef9242033a6f71a37ec92144aef401bc63caf6018f96f4cd6dfb84bab8"
-    sha256 cellar: :any, arm64_sequoia:     "d7c543b6f37936c4fcb011adfed4a4a6dec64df53235f83c06109ac0ed607dce"
-    sha256 cellar: :any, arm64_linux:       "bb28ab32804841526aeb3efbb975879a3ca269ffb3061db30037579cbb435d5e"
-    sha256 cellar: :any, x86_64_linux:      "3db5a33da5c3b0efbea378cb43a60c85432d4ca7f8e54daf7012a74259b3b672"
+    sha256 cellar: :any, arm64_golden_gate: "e0f51036c87e4a318cb29339daf378a20143de4bce7ae233eddc12cc2fd4a3f0"
+    sha256 cellar: :any, arm64_tahoe:       "74889acf85e6613a506896a6ccd2769b6c87501470f01326302ca179c14528d3"
+    sha256 cellar: :any, arm64_sequoia:     "e6111a8ca9b5a10ae4ae2bc376d461c1c83ede8cc56e6346e4b3971c1c5a5993"
+    sha256 cellar: :any, arm64_linux:       "0630aaf40540702592b3a75e8724d1f0a567db35108cd5317e2feeb3adf5cb3a"
+    sha256 cellar: :any, x86_64_linux:      "eccdbe6aaa1a44036f32941a7899e727653ae57827a9773f8c4cd7273b0eac26"
   end
 
   depends_on "help2man" => :build
@@ -30,6 +30,7 @@ class Foundry < Formula
   end
 
   conflicts_with "chisel-tunnel", because: "both install `chisel` binaries"
+  conflicts_with "chisel-ubuntu", because: "both install `chisel` binaries"
   conflicts_with "jboss-forge", because: "both install `forge` binaries"
 
   def install

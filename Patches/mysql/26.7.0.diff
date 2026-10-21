@@ -1,0 +1,13 @@
+diff --git a/storage/ndb/include/util/ndb_openssl3_compat.h b/storage/ndb/include/util/ndb_openssl3_compat.h
+index ebe90062f00..be26c3f3300 100644
+--- a/storage/ndb/include/util/ndb_openssl3_compat.h
++++ b/storage/ndb/include/util/ndb_openssl3_compat.h
+@@ -43,7 +43,7 @@
+ #define X509_REQ_VERSION_1 0
+ #endif
+ 
+-#if OPENSSL_VERSION_NUMBER < 0x30000000L && OPENSSL_VERSION_NUMBER > 0x10002000L
++#if OPENSSL_VERSION_NUMBER < 0x30000000L
+ 
+ EVP_PKEY *EVP_RSA_gen(unsigned int bits);
+ int EVP_PKEY_eq(const EVP_PKEY *a, const EVP_PKEY *b);

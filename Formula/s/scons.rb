@@ -8,10 +8,11 @@ class Scons < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "85d173cb38af6698fda85e039969b97217ca2fb97ca4ec0411cc0737965586ed"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "9002a5fbf5eac0ced22cebe209678f1ba8ac8a9b108ae8464f827a9c322e2ca2"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     virtualenv_install_with_resources

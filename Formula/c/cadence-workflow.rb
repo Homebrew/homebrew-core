@@ -2,8 +2,8 @@ class CadenceWorkflow < Formula
   desc "Distributed, scalable, durable, and highly available orchestration engine"
   homepage "https://cadenceworkflow.io/"
   url "https://github.com/cadence-workflow/cadence.git",
-      tag:      "v1.4.1",
-      revision: "3410187d214d4b6bc19fd74e34b8cb11d112f93c"
+      tag:      "v1.4.2",
+      revision: "c98e64e010409fbaae94cdc19c2e70ee662634b7"
   license "Apache-2.0"
   head "https://github.com/cadence-workflow/cadence.git", branch: "master"
 
@@ -16,18 +16,23 @@ class CadenceWorkflow < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d67b4b46528664f70aa980d8d9d50336802603f36941b22307ee38164c1de3b2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "83967799528abc05e2d8d4cdc63eb2310a26eabdee9103ed2fe6d8f162ade0af"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "940105d1f7548ae8aac4e1c36014c2d0dc6f668fa6ce43247fe8864a4b734b4a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "1fe5ed3fc9fe5ebf020dda5d58892915aed73725deb67854e596837e755448b9"
-    sha256 cellar: :any_skip_relocation, sonoma:            "66c97e89bc92c2b3b032493454c80f44591c4dde2f5161980b4b8e04548ca374"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "cc8686c857b14d9a8bf8c01e4dba2a1f02146e95803cafa3e93579e16d55e51e"
-    sha256 cellar: :any,                 x86_64_linux:      "d5d49406904313d8865c861eaafddbbb850d7feab408b8aead5f14e8a078be5b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1fbb110c50b629456b6cf9aad1b62c9517c2649ef90cb608249a1be125b0c38a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6ef3808218f82f2ca477bf63a5fdd8632df2b311c143712abbae674c1a35ac40"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "be8ddbf97947234b933537c39a0fb4bb031cec87137effb32e95977b975816e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "9e64141df3b423878b273392a85fafc71a58fdd7e5374d63fec62d762629c74b"
+    sha256 cellar: :any,                 x86_64_linux:      "b3f4a42712bb86528d08adc41bca1247207b98048cc5f0bef2b434e26f4ee2ad"
   end
 
   depends_on "go" => :build
 
   conflicts_with "cadence", because: "both install an `cadence` executable"
+
+  # `test do` block binds a local port
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     system "make", ".just-build"

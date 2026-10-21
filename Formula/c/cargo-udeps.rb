@@ -4,15 +4,14 @@ class CargoUdeps < Formula
   url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.61.tar.gz"
   sha256 "c50b60817cf112fb8cfd4272bbdd3c342947c72aeb60435c87d45d197da96e77"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "98d8666ceaa40f4fa49fd418af34fd42b4d70e2b12561594c7dbd0c42c9f3065"
-    sha256 cellar: :any,                 arm64_tahoe:       "d80af82efdf3c7b06fe4189fe09664b955848c83077d346f1ffb4eeff7f8e9a3"
-    sha256 cellar: :any,                 arm64_sequoia:     "466209aa6ba61edccb693f540fb5a7b6a3774cd172f3b6eabd894553db1bc226"
-    sha256 cellar: :any,                 arm64_sonoma:      "dd3340af06b1d5ffc42d139e49257b1ac00665a8e75b3b7245252a2e52d4383b"
-    sha256 cellar: :any,                 sonoma:            "f272485e3f56b147e1c68e07d8fd7fd91b06e343cc4250b84cb9ebaae0e63296"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2d3bcca123df90077cf852de6ef808c2c28135a13a5b643d48d930457a5e199c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8d30eb29b6cde34d57f10a502b565bd6bc9baabcb569f0341974060cc8c252f7"
+    sha256 cellar: :any, arm64_golden_gate: "2106e88f26c88f445e5d4bf658113459a29edc20c13202104385f0a8a3759782"
+    sha256 cellar: :any, arm64_tahoe:       "45c4062d3480f18c3daccea786172f411867d17a7e1d23d52f03f48cb11019cb"
+    sha256 cellar: :any, arm64_sequoia:     "936916be7035a4f7f72b80786586462c2668441b0ba7c33ffd0efb8ea8be8e05"
+    sha256 cellar: :any, arm64_linux:       "4b7eaf4a4c7e284dd9fe0a94964ad0db1c6b56e5618a02fc896a4351454d81b0"
+    sha256 cellar: :any, x86_64_linux:      "240f95db6d7dddf2a399bca126edc273d0ce0b8567708ba041342195ee524188"
   end
 
   depends_on "pkgconf" => :build
@@ -20,16 +19,24 @@ class CargoUdeps < Formula
   depends_on "rustup" => :test
   depends_on "libgit2"
   depends_on "libssh2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
+
+  uses_from_macos "curl"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
 
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     system "cargo", "install", "--no-default-features", *std_cargo_args
   end
@@ -63,8 +70,7 @@ class CargoUdeps < Formula
     [
       formula_opt_lib("libgit2")/shared_library("libgit2"),
       formula_opt_lib("libssh2")/shared_library("libssh2"),
-      formula_opt_lib("openssl@3")/shared_library("libssl"),
-      formula_opt_lib("openssl@3")/shared_library("libcrypto"),
+      formula_opt_lib("openssl@4")/shared_library("libssl"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"cargo-udeps", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."

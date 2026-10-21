@@ -4,16 +4,15 @@ class Rizin < Formula
   url "https://github.com/rizinorg/rizin/releases/download/v0.9.1/rizin-src-v0.9.1.tar.xz"
   sha256 "7ac1cd7daca7afdda742e15478b1f747fc1f813e496fee71839d1e109e543dca"
   license "LGPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/rizinorg/rizin.git", branch: "dev"
 
   bottle do
-    sha256 arm64_golden_gate: "c1e566ba0220f27bad79cd83a74c67ddd37778e86b96a4d8fa8617e710dd6e5a"
-    sha256 arm64_tahoe:       "300c7829238fcad0718decc9ca8a37d6fa48737bbcfe2fc604cfe79fe52da177"
-    sha256 arm64_sequoia:     "a7fcb87c28c47ddf4c295f4063b6a2a5450076f4cfafe52ec3bd6451de1b291a"
-    sha256 arm64_sonoma:      "ba43503e7975796d6cfe415b9df863aa21bb0c826098b0519b0326f0dc50178f"
-    sha256 arm64_linux:       "de6387d5e1843b2ea960778bb289f49c64dd000d5d8302721fb032ccb52ed046"
-    sha256 x86_64_linux:      "7ccffe9f458255aa30939d0aab2ca88dd10e28b1fa64cad7a24e31e064fdb2c2"
+    sha256 arm64_golden_gate: "0ac456ddf4091f012260a63fc9b14a408fc06bc9ea6b3833bd42f96b8ec7a395"
+    sha256 arm64_tahoe:       "ce7a6a0d2970e512721ed5a8f5f541e62a6ee3dec0072b55e4300e5646c19fc0"
+    sha256 arm64_sequoia:     "79a65682c26d17f9c9e347ec3ca681728d9467242e2127269e566e7e9303b2b6"
+    sha256 arm64_linux:       "a9fa1e59b124a6229775a74a0b1c6cb1eb7302ef9949be01bda2a0c2af8ce18e"
+    sha256 x86_64_linux:      "a769d7926bfd33df56538c5f7ab0d83799ee4725602aa5a38a484b17c336c185"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +24,7 @@ class Rizin < Formula
   depends_on "libmagic"
   depends_on "libzip"
   depends_on "lz4"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "tree-sitter"
   depends_on "xxhash"

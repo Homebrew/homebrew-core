@@ -21,8 +21,8 @@ class Convco < Formula
     system "cargo", "install", "--no-default-features", *std_cargo_args(features: "gix")
 
     bash_completion.install "target/completions/convco.bash" => "convco"
-    zsh_completion.install  "target/completions/_convco" => "_convco"
-    fish_completion.install "target/completions/convco.fish" => "convco.fish"
+    zsh_completion.install  "target/completions/_convco"
+    fish_completion.install "target/completions/convco.fish"
   end
 
   test do

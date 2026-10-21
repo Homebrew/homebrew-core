@@ -4,6 +4,7 @@ class Gwenhywfar < Formula
   url "https://www.aquamaniac.de/rdm/attachments/download/630/gwenhywfar-5.14.1.tar.gz"
   sha256 "8916feaa99cb954f963f2cba8dd2dffe57cacf7f284daf00eab071aad6fe2ab3"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://www.aquamaniac.de/rdm/projects/gwenhywfar/files"
@@ -13,13 +14,11 @@ class Gwenhywfar < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_golden_gate: "50dcb5df3394907231bb80aca7829a0d5e063591b23ac6ec382db137d5b8c274"
-    sha256 arm64_tahoe:       "0064b8768502f583fd8ca6efb644af7b4951e36157f6f88951d7d8d617e98db2"
-    sha256 arm64_sequoia:     "00562b743c4f8dad11ce5746934cad1ecd89d7c7794fb1b1536f8735be528210"
-    sha256 arm64_sonoma:      "f48b5464707113f0ea72a518904a46cf6967904ab82e7ceaa5f0084a03aef71a"
-    sha256 sonoma:            "d248c00aca75c6333b9edfd2d89f0e33f4d49835d53dd1f95ed723741751ff4c"
-    sha256 arm64_linux:       "6f5f7d2f098ca5b058b487c890bb4691921f0d9bed0cc86f74944ac60b02545e"
-    sha256 x86_64_linux:      "8141ecaa807eefbcc2e17f6989c4025788aae4f3111b8d83b40e04abfb19813f"
+    sha256 arm64_golden_gate: "3b92731f6fd0fe933cd77e872320900eda7feea94a0c410f2134d3dff9a08f44"
+    sha256 arm64_tahoe:       "379b9a8b986fe25ea938d6d3a71bd9a71c8d6e4a36cd6f5ceef0ee38b7ee758b"
+    sha256 arm64_sequoia:     "bcdf51cb7f01ea83217aaba3c44a5bc5eab04dfe3b1856f8d93f39ed277be915"
+    sha256 arm64_linux:       "a110f1688dd95355dac2d7c2138e2073c5d3119338bc91395a798116a15613e8"
+    sha256 x86_64_linux:      "6865071211fc5538357cd7f248d815ecc04b832d66cc837dc63e92cfb456d9cf"
   end
 
   depends_on "gettext" => :build
@@ -27,7 +26,7 @@ class Gwenhywfar < Formula
   depends_on "gnutls"
   depends_on "libgcrypt"
   depends_on "libgpg-error"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pkgconf" # gwenhywfar-config needs pkg-config for execution
   depends_on "qtbase"
 

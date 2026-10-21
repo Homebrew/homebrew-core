@@ -10,13 +10,14 @@ class Ratarmount < Formula
   head "https://github.com/mxmlnkn/ratarmount.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "9c6b53f9a162f18a341b5d99a9483ef68f8fb7d426564b5ec174991b012329f4"
-    sha256 cellar: :any, x86_64_linux: "7c4265022f5704bc1324b44c565d1fc6a6bf2b4b2179335e37e35f92b04e0dcc"
+    rebuild 1
+    sha256 cellar: :any, arm64_linux:  "235ef1772f3f5f3a4c21a936fdc9c75b227061a25fdbde9aa2a1d08fb6edecb8"
+    sha256 cellar: :any, x86_64_linux: "7c4f8bb5389c2a95633b90480c6759cade77dcb2ffb3a99215e5d846bebc5d3a"
   end
 
   depends_on "libfuse" => :no_linkage
   depends_on :linux
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "zlib-ng-compat"
   depends_on "zstd"
 
@@ -71,13 +72,13 @@ class Ratarmount < Formula
   end
 
   resource "pybcj" do
-    url "https://files.pythonhosted.org/packages/12/0c/2670b672655b18454841b8e88f024b9159d637a4c07f6ce6db85accf8467/pybcj-1.0.7.tar.gz"
-    sha256 "72d64574069ffb0a800020668376b7ebd7adea159adbf4d35f8effc62f0daa67"
+    url "https://files.pythonhosted.org/packages/14/c9/e2de4f98c21f2ff9e58047395b6a8e17701a0f2977f0e63f80948f61647f/pybcj-1.0.8.tar.gz"
+    sha256 "6818270692912d47e81ccd777b7d0ed2ad3a19ef7aaead3735b38048c80bf368"
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/c9/85/e24bf90972a30b0fcd16c73009add1d7d7cd9140c2498a68252028899e41/pycryptodomex-3.23.0.tar.gz"
-    sha256 "71909758f010c82bc99b0abf4ea12012c98962fbf0583c2164f8b84533c2e4da"
+    url "https://files.pythonhosted.org/packages/4c/25/214ea825a9031f5af2c8b2506ee16701a2560d4712165dd00098dd527bcb/pycryptodomex-3.24.0.tar.gz"
+    sha256 "0428f19f13452c6b89bbaf2c530f84f369873811dfa77f0cee0da4f40fb0474f"
   end
 
   resource "pyppmd" do
@@ -96,8 +97,8 @@ class Ratarmount < Formula
   end
 
   resource "rarfile" do
-    url "https://files.pythonhosted.org/packages/26/3f/3118a797444e7e30e784921c4bfafb6500fb288a0c84cb8c32ed15853c16/rarfile-4.2.tar.gz"
-    sha256 "8e1c8e72d0845ad2b32a47ab11a719bc2e41165ec101fd4d3fe9e92aa3f469ef"
+    url "https://files.pythonhosted.org/packages/b2/eb/33ea5625de4e84144069ea021a282ea3c44ff7bd341b740bcadff028bea7/rarfile-4.5.tar.gz"
+    sha256 "7425d0afa180f0092db903abb1526a130b36858980aad90b3694f48e41420155"
   end
 
   resource "ratarmountcore" do

@@ -1,8 +1,8 @@
 class Pkgsite < Formula
   desc "Documentation server for Go packages"
   homepage "https://pkg.go.dev/golang.org/x/pkgsite"
-  url "https://github.com/golang/pkgsite/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "ec88faa9940cdcd58ed15058a1a932f81b4c3a21cf37b3119bf974a3137373fd"
+  url "https://github.com/golang/pkgsite/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "63643f608bf927d35b5216cf546b7c52d90ec88190a2c83cc78eca5d42191d61"
   license "BSD-3-Clause"
   head "https://go.googlesource.com/pkgsite.git", branch: "master"
 
@@ -12,12 +12,11 @@ class Pkgsite < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bea59e96a94b29716c223383743fa690b707e4664ff1bf386cad8b5e8d17d239"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bea59e96a94b29716c223383743fa690b707e4664ff1bf386cad8b5e8d17d239"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bea59e96a94b29716c223383743fa690b707e4664ff1bf386cad8b5e8d17d239"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "bea59e96a94b29716c223383743fa690b707e4664ff1bf386cad8b5e8d17d239"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "de5ea560f4f84d80072723b22dc9d804d933d06a3c39872cfd01107da76dfbfc"
-    sha256 cellar: :any,                 x86_64_linux:      "814fc969c6ba654e77f16e63cd3fc6254aa60291efc8401efa36e3c6af64359e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "41196526d83f2b7918d0ace9b92a759eff1128da12da35e58b068d1fea93a044"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "41196526d83f2b7918d0ace9b92a759eff1128da12da35e58b068d1fea93a044"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "41196526d83f2b7918d0ace9b92a759eff1128da12da35e58b068d1fea93a044"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ca159b28012fd6a341d17422a81769f8d2606833db5362c13b8d8c40e056d992"
+    sha256 cellar: :any,                 x86_64_linux:      "576294f06157b6cece61cef83caf2cc101c65a20608b944d432e7afecab43115"
   end
 
   depends_on "go" => [:build, :test]

@@ -10,31 +10,26 @@ class Fades < Formula
   head "https://github.com/PyAr/fades.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3b4037f8531acb84d8f51f7abff752cb70dd8664784de560474bb99e85940017"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c3618b1ea45886be2e09faa71f9753837fde758195462b94d4626684db4f8d95"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c3618b1ea45886be2e09faa71f9753837fde758195462b94d4626684db4f8d95"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "c3618b1ea45886be2e09faa71f9753837fde758195462b94d4626684db4f8d95"
-    sha256 cellar: :any_skip_relocation, sonoma:            "6f9767b1596c8a0a2fe8601caad7ff860a0b2e81ea3a509592c9cfdb5abbd25f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0a3cc7a74768b843fcf23ad64ce59ab1bea584e2525b571fc1a8954c0705c735"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0a3cc7a74768b843fcf23ad64ce59ab1bea584e2525b571fc1a8954c0705c735"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "133002dce2c6e6459dc3894023172639492bc27d81bc6390d3a5dba1eacac161"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "133002dce2c6e6459dc3894023172639492bc27d81bc6390d3a5dba1eacac161"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "133002dce2c6e6459dc3894023172639492bc27d81bc6390d3a5dba1eacac161"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "02dc87070190402af436f92ad3e10e63b92aff508f138b6b1d8d4abe16feb59d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "02dc87070190402af436f92ad3e10e63b92aff508f138b6b1d8d4abe16feb59d"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
-  # `flit-core` builds `packaging`; keep it first so it is staged before it
-  resource "flit-core" do
-    url "https://files.pythonhosted.org/packages/69/59/b6fc2188dfc7ea4f936cd12b49d707f66a1cb7a1d2c16172963534db741b/flit_core-3.12.0.tar.gz"
-    sha256 "18f63100d6f94385c6ed57a72073443e1a71a4acb4339491615d0f16d6ff01b2"
-  end
+  pypi_packages extra_packages: %w[packaging]
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
-    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/34/26/f5d29e25ffdb535afef2d35cdb55b325298f96debd670da4c325e08d70f4/setuptools-83.0.0.tar.gz"
-    sha256 "025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef"
+    url "https://files.pythonhosted.org/packages/6d/44/f5da03a8ef95d369145c5bb53050e7877c9f3d312e128605fd9504829143/setuptools-84.0.0.tar.gz"
+    sha256 "f4695c21257f0d9b537ec2692c941d02ee143b7cc1276941349a546573b2ef73"
   end
 
   # Backport switch from removed `pkg_resources` to `packaging`
@@ -49,7 +44,7 @@ class Fades < Formula
 
     resources.each do |r|
       r.stage do
-        system python3, "-m", "pip", "install", *std_pip_args(prefix: libexec), "."
+        system python3, "-m", "pip", "install", *std_pip_args(prefix: libexec, build_isolation: true), "."
       end
     end
     system python3, "-m", "pip", "install", *std_pip_args(prefix: libexec), "."

@@ -27,6 +27,12 @@ class CargoShuttle < Formula
 
   conflicts_with "shuttle-cli", because: "both install `shuttle` binaries"
 
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     system "cargo", "install", *std_cargo_args(path: "cargo-shuttle")

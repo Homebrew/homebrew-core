@@ -20,11 +20,34 @@ class Libdmtx < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkgconf" => :test
+
+  deny_network_access!
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
     system "make"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <string.h>
+      #include <dmtx.h>
+
+      int main(void) {
+        unsigned char str[] = "Homebrew";
+        DmtxEncode *enc = dmtxEncodeCreate();
+        if (enc == NULL) return 1;
+        if (dmtxEncodeDataMatrix(enc, strlen((const char *)str), str) == DmtxFail) return 1;
+        dmtxEncodeDestroy(&enc);
+        return 0;
+      }
+    C
+
+    pkgconf_flags = shell_output("pkgconf --cflags --libs libdmtx").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkgconf_flags
+    system "./test"
   end
 end

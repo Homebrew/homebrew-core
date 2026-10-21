@@ -29,6 +29,18 @@ class DoviTool < Formula
     depends_on "freetype"
   end
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+    system "cargo", "metadata", "--locked", "--format-version=1"
+
+    cd "dolby_vision" do
+      system "cargo", "fetch", *std_cargo_fetch_args
+      system "cargo", "metadata", "--locked", "--format-version=1"
+    end
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
     pkgshare.install "assets"

@@ -4,23 +4,21 @@ class VapoursynthDescale < Formula
   url "https://github.com/Irrational-Encoding-Wizardry/descale/archive/refs/tags/r8.tar.gz"
   sha256 "317d955cc2dfbc3fd1aecef2ea2d56e4f1cd99434492d71c6a1d48213ff35972"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/Irrational-Encoding-Wizardry/descale.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "93c38a95fdad41f9839c45db469f52d09a3de13dafc882792d43943eaa15a22b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6f9634605ee0f4847576315b231184694138b1acde8092705e3bb465b4bb3a06"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "baa8d37ca8fb30b658a49831fff0dd09b3fb74163f655b4fb742e55f619a216d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "99889b5ab38fbfccc54913f103d37fab1a32161e4fba2244b701e186a0760c53"
-    sha256 cellar: :any_skip_relocation, sonoma:            "b4ee93781befa25edce1bc69a12f772643b1369b5a0fecfbdb0dc70a3c779788"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0733d5b06a7a860adb8ebd3a8f951fa1f87d7bd876bdde302334899c7ff91b72"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "449087686e60c7ee1d59cc82290c791c139d7210aea8e936f6a099b071282f71"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "590bae183f8ba91eb69332ad98655cb8ec16692d107546799cd78dd26df095db"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b85bec238cb4346a056228ff9a145c86be263951947c9baca0687a5823ca3b42"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "57407f006c35ddb7b664767a56586b02ef8c110fa101534a9abb93a9083cff94"
+    sha256 cellar: :any,                 arm64_linux:       "d27ad72ab77db9916705bec025a8301277f3c61abc468af3b2fd7d04cf65355e"
+    sha256 cellar: :any,                 x86_64_linux:      "a6fd93e324c706af3f460d01017ba80ce636989c38b17b1e10da7d44d95a19cd"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "vapoursynth"
 
   def install

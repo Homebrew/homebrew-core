@@ -4,16 +4,17 @@ class Envoy < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.39.1.tar.gz"
-    sha256 "3fca3330b3c9b632d0039f4da1ece3e177fc12348907ebaa8be7b489a9f9287f"
+    url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.39.4.tar.gz"
+    sha256 "d70c16f78cd4326717c124d520a3aadfa0ccd67dc2bd470d5dad95f3ca1397ac"
 
     depends_on "llvm@18" => :build
 
-    # Allow using host-installed toolchains
+    # TODO: Remove once 1.39 reuses API CEL protos, upstream PR ref, https://github.com/envoyproxy/envoy/pull/47984
     patch do
-      url "https://github.com/envoyproxy/envoy/commit/be513213e888c443f4e00b1343cc05149f4f92a7.patch?full_index=1"
-      sha256 "363bf44a752c44b3532b7ce6ebc541e8a85b528ae7c79a6f7e621c881358a106"
-      type :backport
+      url "https://github.com/envoyproxy/envoy/commit/4160c05c1e935678e11fb5b690ce228a919ba8c6.patch?full_index=1"
+      sha256 "cb5ca3f32d7222c7f24c99dafa4fbf542ae686b6c3afb6bbe3c84f4f0d7b08e7"
+      type :unofficial
+      resolves "https://github.com/envoyproxy/envoy/pull/47984"
     end
   end
 
@@ -23,12 +24,11 @@ class Envoy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a5a6c1b9ab0abb5fe0b5587ae4dd070995480fa4f3ab103b33774d9c1a0a5093"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0de95c4e5eef41062b71a971fb73ab1ef4f37801db1823b7e3789a021db812bd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "849820437bb33216fa7b3ca3063262b0fdb74d36648ac7d34dcfb6d72352f015"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "fd7562f7e481dd769020ca9fdac55301f1bf66c489aefdbd5559fef8fc2cd96d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4bc227af9374a1d9d7d2539f9c69c9cd7fc36b94abffca389b62629470cf9034"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a9473b7a8c6ee091feb9dc7453d7b1b788db239ec7fdfd3542862053a16bf96e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e73e17e953b7f41f9b0d109c8eb940404ea78eec85c90788af7251cb9d2f9a0b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "31d875de238a7ad42ac5797a5755793e446b792bb05cbd5906c9d420870bb4c5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "525c97b6b7ae72180e6d93fd990508d8bbb4c3cd743b6936645ec738613bedbc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "6f880872294c6ad21d589e6baceccb1acff256516352b1190e04cd50027a8056"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c23f9e6a03d008da59852a96f0abe3f6a03d5b0e4147d600f60028d145624b7e"
   end
 
   head do
@@ -103,6 +103,23 @@ class Envoy < Formula
         --@envoy//bazel/foreign_cc:parallel_builds
         --define=wasm=wamr
         --copt=-Wno-nullability-completeness
+      ]
+    end
+    if OS.mac?
+      # TODO: Remove once the configured LLVM linker supports Xcode 27 SDK targets.
+      # https://github.com/envoyproxy/envoy/issues/47964
+      # Set the bottle deployment target for LLVM actions and CMake subprocesses.
+      args += %W[
+        --action_env=MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}
+        --host_action_env=MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}
+        --copt=-mmacosx-version-min=#{MacOS.version}
+        --host_copt=-mmacosx-version-min=#{MacOS.version}
+        --linkopt=-mmacosx-version-min=#{MacOS.version}
+        --host_linkopt=-mmacosx-version-min=#{MacOS.version}
+        --linkopt=--ld-path=/usr/bin/ld
+        --host_linkopt=--ld-path=/usr/bin/ld
+        --features=-supports_start_end_lib
+        --host_features=-supports_start_end_lib
       ]
     end
     if OS.linux?

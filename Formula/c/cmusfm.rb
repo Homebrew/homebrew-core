@@ -4,21 +4,14 @@ class Cmusfm < Formula
   url "https://github.com/Arkq/cmusfm/archive/refs/tags/v0.5.0.tar.gz"
   sha256 "17aae8fc805e79b367053ad170854edceee5f4c51a9880200d193db9862d8363"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e7a85bafcb6e2ac40850d0f999beff820176d707ad9bc40b5d420093234fa431"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "844a2f8e9ddbf09e79945a32979812f92c35e5db032bcf204bd50c1af307ee81"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f9de4e6485544f8cbe0c2fb56acde11a3f0e689ee244f6ae40048739c36c12f4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "60311618694710c592998896b3bf6c6dce1019991e563dbc3e43d1989fe3b4f0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "edb2e0a7092079e3ad015e27ea37ff940d6ef9a6fed73ff2355d6d7b23d04c0d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey:    "7580167d4bd0c71cdafc4dff2ede95d0081dab49e0f0b555fffa1e29eba03381"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:     "25de6ec5f582426deea7f1bae8f97e9adf9074f598d2a1a28c14c5d5ecc64602"
-    sha256 cellar: :any_skip_relocation, sonoma:            "9c1f739ee0182295d4f332171a975ed2118961d2c44848aad416732c3ef193b6"
-    sha256 cellar: :any_skip_relocation, ventura:           "f1346608b765ed2219f6b963d80b8b72a90b430a10894fe924d64d2d67c535a4"
-    sha256 cellar: :any_skip_relocation, monterey:          "b2e90bb7f3dbb25e7149d8e6c47a54725095b5dca2ecbdd2ad91d0d383824a28"
-    sha256 cellar: :any_skip_relocation, big_sur:           "6ef7f13482b03d75ce2eb9c4ce72123f997f68c246477445b9aeb1d4e0d49e61"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e5e8154717f9cbf0a3824cc58471ba1e88308beaec32533e2d51fcb91032ccbf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "85080d3911b11f136d5baf6e3304d50c7bc8918aee103308068cd817162e993f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c468424e8ac997b4023e2c7e4ec625080c97f2c9ddeadfc70736537abfeb0d9b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2ef65ce1fc192ca63fb9cf3e93bfe02e506d64e5ae3c0055bc78577a4426c621"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d9fbdb03148c3656857bbdfc833bd0514abaa472b75ffe143a0e042481758d17"
+    sha256 cellar: :any,                 arm64_linux:       "d7a116d48c138e4f23cc4c5edbd71c7a79ead35cdfc81d792b7ac8ec6b7eef7b"
+    sha256 cellar: :any,                 x86_64_linux:      "17ba2ee6eb8de213d46ddf46e0958225f814069f8b401b3a29c6b4b1d9f249c6"
   end
 
   depends_on "autoconf" => :build
@@ -29,7 +22,7 @@ class Cmusfm < Formula
   uses_from_macos "curl"
 
   on_linux do
-    depends_on "openssl@3"
+    depends_on "openssl@4"
   end
 
   def install

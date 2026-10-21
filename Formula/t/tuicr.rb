@@ -18,6 +18,12 @@ class Tuicr < Formula
   depends_on "rust" => :build
   depends_on "libgit2"
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end

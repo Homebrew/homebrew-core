@@ -9,18 +9,19 @@ class CharmTools < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "47c85e9649fdf49f090c6fff8828ed2ba3db1f9ccb8c4d98afaee030bbcfee20"
-    sha256 cellar: :any, arm64_tahoe:       "8c916dd97397aec1792774006d2088147fd4e2401b2cc2bb1ed3317a25a85d79"
-    sha256 cellar: :any, arm64_sequoia:     "e6fe42ca4a792c1dbec6ac1069a32fe9d4cd76bb552e92af017f10597d54f29c"
-    sha256 cellar: :any, arm64_linux:       "5259839cbcddca1ca5f3ce480014b61a34ffb3126946039b935787591beeb90f"
-    sha256 cellar: :any, x86_64_linux:      "59391a2b843c37b1542583677a94aef7b64c3ae55b19497ff748de9bbca3b153"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "31405c0ada15a4c8d4630e2eedac24d3e3b90575fe012a0d235d5c234c996d2e"
+    sha256 cellar: :any, arm64_tahoe:       "c5b94902d0459fb5176804709ffcfdf713f1697e455080d6c30d20615e065639"
+    sha256 cellar: :any, arm64_sequoia:     "fa725a4426ab04cbbb895fa8abe1bf7d03c07de0e254b5ea5f559a6b53fb94d1"
+    sha256 cellar: :any, arm64_linux:       "5b69ce2a8ca38ed765635b6b276b6c150963c098a1aa1759f425cca2f4ceb8ca"
+    sha256 cellar: :any, x86_64_linux:      "ec6aa2da19d5bdfd2b8cd92af9e105f9888421e23cf208a14ae7d4b73c30c634"
   end
 
   depends_on "certifi"
   depends_on "charm"
   depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_linux do
     depends_on "gmp"
@@ -133,8 +134,8 @@ class CharmTools < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/17/c8/721b3855fe457da514fe249247d404b9b39c5d16532278f70ebaa6acf18b/platformdirs-4.12.2.tar.gz"
-    sha256 "eab5f70271a490ef74618bb314fbb86e3c7e82fa3b9c922c2ea0e0a1a155d329"
+    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
+    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
   end
 
   resource "pyrsistent" do
@@ -188,8 +189,8 @@ class CharmTools < Formula
   end
 
   resource "types-setuptools" do
-    url "https://files.pythonhosted.org/packages/4f/cd/3b2a3362a526f91c33f785a291462b2ec448ae531101c62372fc30a21f53/types_setuptools-84.0.0.20260812.tar.gz"
-    sha256 "09bedc248ebbb7a232c9419dfcdca329706e61bf2aa5743e9424d027f1d956b4"
+    url "https://files.pythonhosted.org/packages/fc/36/012e992d81f3c3575e6428d53c2bbe266858cf1b7df7335476ab99f17908/types_setuptools-84.0.0.20261006.tar.gz"
+    sha256 "0f123655f44390a15ec62c9fa30b57f6dafe53014524d28b62cab1edbc303059"
   end
 
   resource "urllib3" do

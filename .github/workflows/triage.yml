@@ -25,7 +25,7 @@ jobs:
     if: always() && github.repository_owner == 'Homebrew'
     runs-on: ubuntu-slim
     steps:
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: event_payload
           path: ${{ github.event_path }}
@@ -93,7 +93,7 @@ jobs:
     steps:
       - name: Set up Homebrew
         id: setup-homebrew
-        uses: Homebrew/actions/setup-homebrew@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/setup-homebrew@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           core: true
           cask: false
@@ -126,7 +126,7 @@ jobs:
         if: >
           github.actor != 'BrewTestBot' &&
           !contains(github.event.pull_request.labels.*.name, 'CI-published-bottle-commits')
-        uses: Homebrew/actions/check-commit-format@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/check-commit-format@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           check_package_commit_format: >-
@@ -136,7 +136,7 @@ jobs:
             }}
 
       - name: Label pull request
-        uses: Homebrew/actions/label-pull-requests@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/label-pull-requests@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         if: always()
         with:
           token: ${{secrets.GITHUB_TOKEN}}
@@ -197,9 +197,9 @@ jobs:
                 - Formula/lib/libxml++@5.rb
                 - Formula/o/openssl@4.rb
                 - Formula/p/postgresql@18.rb
-                - Formula/p/python@3.14.rb
-                - Formula/p/python-gdbm@3.14.rb
-                - Formula/p/python-tk@3.14.rb
+                - Formula/p/python@3.15.rb
+                - Formula/p/python-gdbm@3.15.rb
+                - Formula/p/python-tk@3.15.rb
 
             - label: boost
               path: Formula/.+
@@ -332,17 +332,20 @@ jobs:
             - label: CI-parallel-dependents
               path: "Formula/.+/(\
                 cabal-install|\
+                certifi|\
                 docbook-xsl|\
                 erlang|\
                 gettext|\
                 ghc|\
                 glib|\
                 go|\
+                libx11|\
                 libxml2|\
                 ocaml|\
                 ocaml-findlib|\
                 openjdk|\
                 openssl@3|\
+                openssl@4|\
                 pkgconf|\
                 python@3.14|\
                 rust|\
@@ -401,7 +404,7 @@ jobs:
 
             - label: shell-completion
               path: Formula/.+
-              patch_content: '\n[-+].*(generate_completions_from_executable|bash_completion|zsh_completion|fish_completion|pwsh_completion)'
+              patch_content: '(^|\n)[-+].*(generate_completions_from_executable|bash_completion|zsh_completion|fish_completion|pwsh_completion)'
 
             - label: missing network sandbox
               path: Formula/.+

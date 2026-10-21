@@ -1,35 +1,39 @@
 class Code2prompt < Formula
   desc "CLI tool to convert your codebase into a single LLM prompt"
   homepage "https://code2prompt.dev/"
-  url "https://github.com/mufeedvh/code2prompt/archive/refs/tags/v4.2.0.tar.gz"
-  sha256 "de0fe811914bee2d03a0025e734d702d1cb50472dd75c42017cc65ac9435e481"
+  url "https://static.crates.io/crates/code2prompt/code2prompt-4.3.0.crate"
+  sha256 "990ebe1d34dec07580dd23e4097423989f0bd6c8d4f4de9d47c0ae77a0c2c732"
   license "MIT"
   head "https://github.com/mufeedvh/code2prompt.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_golden_gate: "441b8a6c936cb89ff361792add840d2dc77b149c48301187fd917caab76e0c53"
-    sha256 cellar: :any,                 arm64_tahoe:       "14aa4f7a6f013ffc948306bbe0210b951ccc0523d78ebd1b1c5ef0a36c08f1c2"
-    sha256 cellar: :any,                 arm64_sequoia:     "e7bdea92a684ab0483bad093e9aa554d2df195d77eb2676f1f469b71c524a7ed"
-    sha256 cellar: :any,                 arm64_sonoma:      "d25ee8e05d2016985e5ebcf1befe31d2ddbd9b67fc482ed9d00a39f0e61ff04b"
-    sha256 cellar: :any,                 sonoma:            "48fb47f8ece13be5215c64d39b3b641498fe3f9e46c901dedaa2123adddd9361"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8133b94fe8d8ff29a3b14dfadfd7c333b40f811193d0a0cc8fa81805e8851133"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "901f372469f56db97e43cb4ad0beff306ed34532bb7728be03d71cfd19ca8fa1"
+    sha256 cellar: :any, arm64_golden_gate: "2d50d0a0b2e6b17376d54114227d8faeef934990586dac85d642728a6bb81c08"
+    sha256 cellar: :any, arm64_tahoe:       "1d2ef2f2614821901b55959c0d5202f8baba4b395370b7c2ef5ee13fdec9eaee"
+    sha256 cellar: :any, arm64_sequoia:     "6c44b6490c5b23ff62845d1868308168cb2849c09067d4c59bfc63aed7988f0a"
+    sha256 cellar: :any, arm64_linux:       "36770c0a2f2e665fdbacbb5034679524ddce920d225cb6b19a421f4aa306580d"
+    sha256 cellar: :any, x86_64_linux:      "cb845d3dc985f9bd98e60ad2b34bb24cacbfe05e6b919283bc42b2f3ed644f4e"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     # Ensure the correct `openssl` will be picked up.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
-    system "cargo", "install", *std_cargo_args(path: "crates/code2prompt")
+    path = build.head? ? "crates/code2prompt" : "."
+    system "cargo", "install", *std_cargo_args(path:)
   end
 
   test do
@@ -47,8 +51,8 @@ class Code2prompt < Formula
     assert_match "ChatGPT models, text-embedding-ada-002", JSON.parse(json_output)["model_info"]
 
     [
-      formula_opt_lib("openssl@3")/shared_library("libssl"),
-      formula_opt_lib("openssl@3")/shared_library("libcrypto"),
+      formula_opt_lib("openssl@4")/shared_library("libssl"),
+      formula_opt_lib("openssl@4")/shared_library("libcrypto"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"code2prompt", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."

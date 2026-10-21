@@ -34,8 +34,25 @@ class Writerperfect < Formula
   depends_on "libwpg"
   depends_on "libwps"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    # Minimal WordPerfect 5.1 document: 16-byte "\xFFWPC" header followed by the text
+    header = ["\xFFWPC".b, 16, 1, 0x0a, 0, 1, 0, 0].pack("a4VCCCCvv")
+    (testpath/"test.wpd").binwrite header + "Hello Homebrew"
+
+    output = shell_output("#{bin}/wpd2odt --stdout test.wpd")
+    assert_match 'office:mimetype="application/vnd.oasis.opendocument.text"', output
+    assert_match %r{<text:p [^>]*><text:span [^>]*>Hello Homebrew</text:span></text:p>}, output
+
+    system bin/"wpd2odt", "test.wpd", "test.odt"
+    odt = (testpath/"test.odt").binread
+    assert_equal "PK\x03\x04", odt[0, 4]
+    assert_match "mimetypeapplication/vnd.oasis.opendocument.text", odt
   end
 end

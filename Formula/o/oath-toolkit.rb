@@ -1,11 +1,10 @@
 class OathToolkit < Formula
   desc "Tools for one-time password authentication systems"
   homepage "https://oath-toolkit.codeberg.page/"
-  url "https://download.savannah.nongnu.org/releases/oath-toolkit/oath-toolkit-2.6.14.tar.gz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.6.14.tar.gz"
-  sha256 "8b1da365759f1249be57a82aec6e107f7b57dc77d813f96dc0aaf81624f28971"
+  url "https://download.savannah.nongnu.org/releases/oath-toolkit/oath-toolkit-2.6.15.tar.gz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.6.15.tar.gz"
+  sha256 "8ad24aa9ff13c0edf3efc2573d90e85cf8b5ce7e82c08042574c1591f9d91eaa"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
-  revision 3
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/oath-toolkit/"
@@ -13,13 +12,11 @@ class OathToolkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "99ba59d037003da05452fc3da17ee83ddde97c07a15ea581c8ae0664550225ee"
-    sha256 cellar: :any, arm64_tahoe:       "0e3189a79283536902ac625eae9bb2b2cf08e94efa223b9c1309f49644c3f916"
-    sha256 cellar: :any, arm64_sequoia:     "5df29b142ddd79a981d26641fe1407185ec13053038e45f518ec0cf2db99b13a"
-    sha256 cellar: :any, arm64_sonoma:      "3eebb109d310fa1a06d6b3f895dc6740651bb2079fa4fb160140c7ebb07f8094"
-    sha256               sonoma:            "a3a81851ae782909c7ea9c6d2fd9634e8154d1de774da00714b6601f24102711"
-    sha256               arm64_linux:       "85e93423745de435c7646aa6b9ae12edbaa4e9196ca43c482b6fd3cb4e763f32"
-    sha256               x86_64_linux:      "6b892babe12808ff3f8470831689114f057b71c4c7e37ccbbee387920257cfbb"
+    sha256 cellar: :any, arm64_golden_gate: "4d70c86c3ae6ddb9bf3978b01249f7b94e1dd5ce7dd6d3a94e3d3aeac70c8c7d"
+    sha256 cellar: :any, arm64_tahoe:       "e4916bccb14b795fd7caf92402a2543726823de43d0cb3e3cb8c043692f1d025"
+    sha256 cellar: :any, arm64_sequoia:     "4fcf347f4312bcdcd4eb3e30f06f54616cdde25d6eee67e3ec104b3bf9f5308c"
+    sha256               arm64_linux:       "4843e3f37d4bf9566b9cdf1dfb9581d09561f811df140af9a95de871392fdbdc"
+    sha256               x86_64_linux:      "ccbfe9159ffa1301b9fb130982bd94e1b31ab4e9dc736cd2eb17d5a03803a3c7"
   end
 
   head do
@@ -35,11 +32,11 @@ class OathToolkit < Formula
 
   depends_on "libxml2"
   depends_on "libxmlsec1"
-  depends_on "openssl@3"
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose" if build.head?
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac? # avoid openssl linkage
 
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *std_configure_args
     system "make"
     system "make", "install"

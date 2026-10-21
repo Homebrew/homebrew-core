@@ -20,6 +20,12 @@ class DockerMachineDriverVultr < Formula
   depends_on "go" => :build
   depends_on "rancher-machine"
 
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "go", "build", *std_go_args, "./machine"
   end

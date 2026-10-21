@@ -18,6 +18,13 @@ class Kubebuilder < Formula
 
   depends_on "go"
 
+  # Test scaffolds a project, which downloads Go modules
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     goos = Utils.safe_popen_read("#{formula_opt_bin("go")}/go", "env", "GOOS").chomp
     goarch = Utils.safe_popen_read("#{formula_opt_bin("go")}/go", "env", "GOARCH").chomp

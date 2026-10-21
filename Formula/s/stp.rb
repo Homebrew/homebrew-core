@@ -4,7 +4,7 @@ class Stp < Formula
   url "https://github.com/stp/stp/archive/refs/tags/2.4.1.tar.gz"
   sha256 "6f8bca3612e3d61868450dbf7771897b2a909f446e8de460bdf31f13a6cd0318"
   license "MIT"
-  revision 1
+  revision 2
   compatibility_version 1
   head "https://github.com/stp/stp.git", branch: "master"
 
@@ -14,13 +14,11 @@ class Stp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "caaa488fe3c40da5a0469468f43c8f45470ced5ab9cc955acb0f2967ff80c5a8"
-    sha256 cellar: :any, arm64_tahoe:       "8c80280e9010ee4f6d9b8d3209a22db3165174ad547995c864b70deb05c01519"
-    sha256 cellar: :any, arm64_sequoia:     "566f097aa3fd82f63b405394b3dfd22d0fc6d97f083771f51c8fe3949c86043f"
-    sha256 cellar: :any, arm64_sonoma:      "6ffeab720b5ba93ee2d2b5aaec0fc0d11be336ceb33cf6c226c87b5dc088608e"
-    sha256 cellar: :any, sonoma:            "3b8b9955b7c6785bcc1223282d97fea39279c6f1bc21d6aff9c9d8647f3b20fd"
-    sha256 cellar: :any, arm64_linux:       "6fed04895b8b20d2e8f7584b33ac235c31d472a5cbbde9f5c525068c33214530"
-    sha256 cellar: :any, x86_64_linux:      "86e662b2511abad1e3044eec93c903554f308e853dad949c4ec45c02939b73a9"
+    sha256 cellar: :any, arm64_golden_gate: "f20949480e0757bce49451dc2daebf36031ff8beeedb5ea4f04ce845800d386e"
+    sha256 cellar: :any, arm64_tahoe:       "5727302d16e580e627c7dee12baf30b690332cd844f39ce118c8a86e437a75c4"
+    sha256 cellar: :any, arm64_sequoia:     "a78706e0ee2ab1b18a4c7f0883ebddcd3adf2668fe1775dd139ad46a2f86eecb"
+    sha256 cellar: :any, arm64_linux:       "1c991daf31f4d69de1f14d3d1915eb002063070a3ca4ffda915c573b2796c7bc"
+    sha256 cellar: :any, x86_64_linux:      "73675034aaf5c0029c9006edef7fd691082c4505fa39c46e3138b5312977b6df"
   end
 
   # stp refuses to build with system bison and flex
@@ -31,7 +29,7 @@ class Stp < Formula
   depends_on "cryptominisat"
   depends_on "gmp"
   depends_on "minisat"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "perl"
 

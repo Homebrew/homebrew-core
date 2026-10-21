@@ -1,18 +1,17 @@
 class GoCamo < Formula
   desc "Secure image proxy server"
   homepage "https://github.com/cactus/go-camo"
-  url "https://github.com/cactus/go-camo/archive/refs/tags/v2.7.6.tar.gz"
-  sha256 "81edd70f806ac4e2b5a3cc0c2ce3493de4b54395c6e741e45b4efbccb295b71a"
+  url "https://github.com/cactus/go-camo/archive/refs/tags/v2.7.7.tar.gz"
+  sha256 "e75d744025c97121566209e63dce13edd41ed0d396db9fc2ca0ddf6d862c1293"
   license "MIT"
   head "https://github.com/cactus/go-camo.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e5bab641261f28e9fca0b464271ad70f72a3ec6f7fe0b52e37b0c752664c6181"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9201bf242753aad3e3079ba521736da298f6ee07fd606aa9444ed6019550b3ef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "56eca7ac0c1e597dbe48cba793e2e8511b4ee1f4975eaa2dbb4dc7805fa00d47"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "a47f0fd499638f9df31f04118713c7907e77da5f96b6218042f404661a158bbf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6a5439264d7fb6e5f2283bfbb226ae766d009e69c8466d26de972f052a286708"
-    sha256 cellar: :any,                 x86_64_linux:      "c7c2cc3acf8a187a737ad77b8e088a4c3099c097c1048749579900af6ba23809"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c4bd957290e0698f9d2c72a04a75791fffd3d66fdf8e300723d9473733e0dd5b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2a550b8c68231ad958546030b8fb86cb464cb3fdf0079decb1e1cff1aa8412e7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4279deb00ac9e4bc3192bdda33e9d935fe8d00cd47c55dc840d7272636067ed6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "69d0fc0c3c114967483e86b047421d84b944c1e5a91b8c8f2c719e3afc8a8493"
+    sha256 cellar: :any,                 x86_64_linux:      "407c6ade3e90117c743f1cdee87d7721d94cbfcbdf83331e774c7bf67350da69"
   end
 
   depends_on "go" => :build

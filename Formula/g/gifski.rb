@@ -35,6 +35,12 @@ class Gifski < Formula
   # https://github.com/zmwangx/rust-ffmpeg-sys/commit/aff42027f62c61a95d025b714c582cfb75ed4e92
   patch :DATA
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(features: "video")
   end

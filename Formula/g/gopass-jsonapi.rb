@@ -1,17 +1,17 @@
 class GopassJsonapi < Formula
   desc "Gopass Browser Bindings"
   homepage "https://github.com/gopasspw/gopass-jsonapi"
-  url "https://github.com/gopasspw/gopass-jsonapi/archive/refs/tags/v1.17.3.tar.gz"
-  sha256 "4b2c0fc019b2667af845202059103f70d684d924a5dc0590469f825ca7d251d3"
+  url "https://github.com/gopasspw/gopass-jsonapi/archive/refs/tags/v1.17.4.tar.gz"
+  sha256 "5cc12a3894a60fc3b0233344636638fcb04a0e834912247160e333878a60e37f"
   license "MIT"
   head "https://github.com/gopasspw/gopass-jsonapi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "38d166ab9e6865363ebd2027c12d3665d9ad87df2509fb7e10a7763d73cb4526"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eee17fe1410861ea49e29cf62ca6ae75197dcebb95ee475732cf21238cbe15d7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3ffec0e354293aca84ea898cdfacfd882c33059cd8887c89735ec6299da9213e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "de745a0eae2f3fa2137d28ddc07a071f6bea513feb9d4e8a771680fd7dcd8103"
-    sha256 cellar: :any,                 x86_64_linux:      "29c3feb200e5ba74ba2841ff516d572bf4303f292f108ec9a1b8f96d02ab8f7a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3c259afb845fbc8e5e884361414f3dacac2e53bb35ebceec56fa88be03da1cfd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "95764865832ff86e08ed11386a1d110e723e9cdc848e3be409866a921d3cf4e2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "64c1ebb697e86364b9156f2c3d48b35f0da92a8bd1ee4c0b333aeaf52f4145ea"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "8a5bec0d40464e1e5024fafedac0788715dd8955e8ca284870ab866d23da0b73"
+    sha256 cellar: :any,                 x86_64_linux:      "d403d9e5bf9d85f7ef84cb6dc2ce0ef5432248d6f143bd3357661112ebbc9f1e"
   end
 
   depends_on "go" => :build

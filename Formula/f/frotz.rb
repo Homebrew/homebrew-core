@@ -34,6 +34,11 @@ class Frotz < Formula
     depends_on "zlib-ng-compat"
   end
 
+  resource "testdata", :test do
+    url "https://gitlab.com/DavidGriffith/frotz/-/raw/2.53/src/test/etude/etude.z5"
+    sha256 "bfa2ef69f2f5ce3796b96f9b073676902e971aedb3ba690b8835bb1fb0daface"
+  end
+
   # fix SDL interface build failure
   patch do
     url "https://gitlab.com/DavidGriffith/frotz/-/commit/52be64afc92a6ea0a982ff83205a67cbfb94b619.diff"
@@ -54,11 +59,6 @@ class Frotz < Formula
   end
 
   test do
-    resource "testdata" do
-      url "https://gitlab.com/DavidGriffith/frotz/-/raw/2.53/src/test/etude/etude.z5"
-      sha256 "bfa2ef69f2f5ce3796b96f9b073676902e971aedb3ba690b8835bb1fb0daface"
-    end
-
     resource("testdata").stage do
       assert_match "TerpEtude", pipe_output("#{bin}/dfrotz etude.z5", ".")
     end

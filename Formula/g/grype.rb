@@ -1,17 +1,17 @@
 class Grype < Formula
   desc "Vulnerability scanner for container images and filesystems"
   homepage "https://github.com/anchore/grype"
-  url "https://github.com/anchore/grype/archive/refs/tags/v0.120.0.tar.gz"
-  sha256 "8bf9e1c197a956dade39879d75836d519a075baa744a0dec45a8ac3d042a3d3d"
+  url "https://github.com/anchore/grype/archive/refs/tags/v0.121.0.tar.gz"
+  sha256 "87244bc41b3fbd596d12f31f2f0e335d36c1059662f27baa31036584e427d169"
   license "Apache-2.0"
   head "https://github.com/anchore/grype.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8778987916721a7602972159c60ea5e84e979218143235834f2b9bb0142236fc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7fd418670df62d3116bf143081ad84722dc0ceb119d054c2d96b294e847a018f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1d3d295874175c0ff02832015000e78ad65821395af10a4d7100e874cdbc901f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a27b76f31e9b222e6be3fb171f4560c0ede13fa2ef9e8f76a150b1d1647b13ae"
-    sha256 cellar: :any,                 x86_64_linux:      "043861ec066952c390540fa1a511cd7cff2d44aae81e03e1d5bf430c210611bc"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dec7e9bee99194441ee7e9681dac649c842e519566bf29332398365e3451428f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1cf299e4a173dd3401f77062a91152003017159c858c09d9b62bcc6dca05c286"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "741930d6b161fa84e777d979b38d686066eb7ecb7aad0afec55f892797baf57b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b97bcb2c8c6209d5587bbeb6d61f8b56ad798d3784e7755d20c812ecad53b7f4"
+    sha256 cellar: :any,                 x86_64_linux:      "203545344c2b495ecb5090d077cbc2c33522aefbe91ca4c6be677842c757930c"
   end
 
   depends_on "go" => :build

@@ -27,6 +27,11 @@ class Ptex < Formula
     depends_on "zlib-ng-compat"
   end
 
+  resource "homebrew-wtest", :test do
+    url "https://raw.githubusercontent.com/wdas/ptex/v2.4.2/src/tests/wtest.cpp"
+    sha256 "95c78f97421eac034401b579037b7ba4536a96f4b356f8f1bb1e87b9db752444"
+  end
+
   allow_network_access! :test
 
   def install
@@ -36,11 +41,6 @@ class Ptex < Formula
   end
 
   test do
-    resource "homebrew-wtest" do
-      url "https://raw.githubusercontent.com/wdas/ptex/v2.4.2/src/tests/wtest.cpp"
-      sha256 "95c78f97421eac034401b579037b7ba4536a96f4b356f8f1bb1e87b9db752444"
-    end
-
     testpath.install resource("homebrew-wtest")
     system ENV.cxx, "wtest.cpp", "-o", "wtest", "-I#{opt_include}", "-L#{opt_lib}", "-lPtex"
     system "./wtest"

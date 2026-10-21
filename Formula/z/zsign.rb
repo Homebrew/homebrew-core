@@ -1,19 +1,17 @@
 class Zsign < Formula
   desc "Cross-platform codesigning tool for iOS apps"
   homepage "https://github.com/zhlynn/zsign"
-  url "https://github.com/zhlynn/zsign/archive/refs/tags/v1.1.2.tar.gz"
-  sha256 "65b4c64b96bfa3e6f6f98a595428212700455281a6993b5bf4c3b7b61a5bb2a5"
+  url "https://github.com/zhlynn/zsign/archive/refs/tags/v1.1.3.tar.gz"
+  sha256 "a18493f399208dde3293efd753642cdda05e0506c3b05270ad6eb893d0a061af"
   license "MIT"
   head "https://github.com/zhlynn/zsign.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8ce605c8affb33467783c7a700f4ab4b3265493b8b8ee1a56d65f0196b3af02e"
-    sha256 cellar: :any, arm64_tahoe:       "51b700b8ea62fbcf9ae56fd893c75a87f121c5e814c343ce54673f59d008a526"
-    sha256 cellar: :any, arm64_sequoia:     "677efd5a5eee1df0bf31ec674153b59750c2cad7f5e8bec224b7204f59dadf63"
-    sha256 cellar: :any, arm64_sonoma:      "07b3571f310398a55ee492ea1597e1d6134d3fa44244185c7b15a41a1b8c72f9"
-    sha256 cellar: :any, sonoma:            "aa9996b76d0fb76e423d4bd86b1801de4c4a666fe5eb3503e74e1aa8fe6eb62a"
-    sha256 cellar: :any, arm64_linux:       "e9f2b02243edff9f05333d8f012c7f26fcb9a9964179c720d74eb6585c5cbca4"
-    sha256 cellar: :any, x86_64_linux:      "e5272b0e0afe888a8439e9a3b90bcf40268c15ab9d9f442aa258e28f36574566"
+    sha256 cellar: :any, arm64_golden_gate: "18ec5a9df3e4010e28dcab846759b35960abc7fb1ab171568b6f9b036d3d9579"
+    sha256 cellar: :any, arm64_tahoe:       "0e779315821e2b7baa10144d8145393dbb0ec13ef248576d895322e2c08cb29f"
+    sha256 cellar: :any, arm64_sequoia:     "cefcee73206f34c7b07f1c5943c06022f43d9c32fe6781445a3cf643f03427d4"
+    sha256 cellar: :any, arm64_linux:       "b0366af68e249cdda4eead77ce69143fc999e957b5d073bfaa989b64f3b57708"
+    sha256 cellar: :any, x86_64_linux:      "811d835b6a4ca12324404742edb8cf71c7aafbc24d1af8acc9bdf1cec8f4d19a"
   end
 
   depends_on "pkgconf" => :build

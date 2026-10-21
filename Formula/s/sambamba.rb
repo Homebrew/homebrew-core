@@ -25,6 +25,11 @@ class Sambamba < Formula
     depends_on "zlib-ng-compat"
   end
 
+  resource "homebrew-testdata", :test do
+    url "https://raw.githubusercontent.com/biod/sambamba/f898046c5b9c1a97156ef041e61ac3c42955a716/test/ex1_header.sam"
+    sha256 "63c39c2e31718237a980c178b404b6b9a634a66e83230b8584e30454a315cc5e"
+  end
+
   # remove `-flto=full` flag
   patch :DATA
 
@@ -41,11 +46,6 @@ class Sambamba < Formula
   end
 
   test do
-    resource "homebrew-testdata" do
-      url "https://raw.githubusercontent.com/biod/sambamba/f898046c5b9c1a97156ef041e61ac3c42955a716/test/ex1_header.sam"
-      sha256 "63c39c2e31718237a980c178b404b6b9a634a66e83230b8584e30454a315cc5e"
-    end
-
     resource("homebrew-testdata").stage testpath
     system bin/"sambamba", "view", "-S", "ex1_header.sam", "-f", "bam", "-o", "ex1_header.bam"
     system bin/"sambamba", "sort", "-t2", "-n", "ex1_header.bam", "-o", "ex1_header.sorted.bam", "-m", "200K"

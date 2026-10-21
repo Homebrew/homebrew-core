@@ -15,16 +15,17 @@ class Gffread < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "e89307727dd3730db1edd52ac69069225ebeb70b0cfbb4b0e117cbb67e40ab99"
   end
 
+  resource "test_gtf", :test do
+    url "https://raw.githubusercontent.com/gpertea/gffread/4959f6b/examples/output/annotation.gtf"
+    sha256 "f8dcf147dd451e994cebfe054e120ecbf19fd40f99ae9e9865a312097c228741"
+  end
+
   def install
     system "make", "release"
     bin.install "gffread"
   end
 
   test do
-    resource "test_gtf" do
-      url "https://raw.githubusercontent.com/gpertea/gffread/4959f6b/examples/output/annotation.gtf"
-      sha256 "f8dcf147dd451e994cebfe054e120ecbf19fd40f99ae9e9865a312097c228741"
-    end
     testpath.install resource("test_gtf")
     system bin/"gffread", "-E", testpath/"annotation.gtf", "-o", "ann_simple.gff"
     assert_match "##gff-version 3", (testpath/"ann_simple.gff").read

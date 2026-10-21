@@ -19,6 +19,15 @@ class CargoHack < Formula
   depends_on "rust" => :build
   depends_on "rustup" => :test
 
+  # The test downloads the beta toolchain using rustup.
+  allow_network_access! :test
+
+  def fetch
+    # The release does not include a `Cargo.lock`.
+    system "cargo", "generate-lockfile"
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end

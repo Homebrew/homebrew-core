@@ -38,6 +38,8 @@ class Yaf < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     # OpenSSL is disabled as Apache-2.0 is not compatible with GPL-2.0-only
     # Ref: https://www.gnu.org/licenses/license-list.html#apache2

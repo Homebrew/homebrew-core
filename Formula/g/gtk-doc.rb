@@ -15,11 +15,12 @@ class GtkDoc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7d1898204cd8ca31f070f6330031edd3f1dfa73dc9deba726bc70820bba45f25"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c60299b698203012eca8ba77eb2ef628e2e9a49c76b3fac7f649219e090723c5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cb13c51e5ef584c0088a2a9696ca55ecb304bb281503aaed354c4be0f8321080"
-    sha256 cellar: :any,                 arm64_linux:       "8ede875de3135522b871f54fe7898a712d39af955a3bf42db0a8aa9e68b0786a"
-    sha256 cellar: :any,                 x86_64_linux:      "85fcd7f3589814d422c46975c53a1b1e187b8187e07a4a2f693b4075555cad88"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "13ff63b764076b1127f04a2695abb91780a770207368865682289962569db2fc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3a9b23408f1392435c126035a9e42f6232325b45e074be2e25cd43ef90ae9f7d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cab42481acb3dabc5eeed76a1e7e83414e076e166c55b977942525db3906cdea"
+    sha256 cellar: :any,                 arm64_linux:       "d268e62d73609cf6042ad6aa21d9287f3b7d7ecb0ea90d0c314eae71dd7c6b99"
+    sha256 cellar: :any,                 x86_64_linux:      "d7e000cc817fac51e8effc326ce52e9d09fade155a4c81f65051ace5292b3e91"
   end
 
   depends_on "meson" => :build
@@ -27,7 +28,7 @@ class GtkDoc < Formula
   depends_on "pkgconf" => :build
   depends_on "docbook"
   depends_on "docbook-xsl"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"

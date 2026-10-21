@@ -29,16 +29,16 @@ class Libsepol < Formula
     depends_on "coreutils" => :build # for GNU ln
   end
 
+  resource "homebrew-example-policy", :test do
+    url "https://web.archive.org/web/20250912032601/https://dl.fedoraproject.org/pub/fedora/linux/development/rawhide/Server/x86_64/os/Packages/s/selinux-policy-targeted-42.8-1.fc44.noarch.rpm"
+    sha256 "f551899bec63f9496e4fda49db734a0dbd740c63537d3d4bf285cc5c742b8c2a"
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}", "SHLIBDIR=#{lib}"
   end
 
   test do
-    resource "homebrew-example-policy" do
-      url "https://web.archive.org/web/20250912032601/https://dl.fedoraproject.org/pub/fedora/linux/development/rawhide/Server/x86_64/os/Packages/s/selinux-policy-targeted-42.8-1.fc44.noarch.rpm"
-      sha256 "f551899bec63f9496e4fda49db734a0dbd740c63537d3d4bf285cc5c742b8c2a"
-    end
-
     resource("homebrew-example-policy").stage testpath
 
     pipe_output("cpio -idm", shell_output("rpm2cpio selinux-policy-targeted-42.8-1.fc44.noarch.rpm"))

@@ -9,16 +9,17 @@ class LinodeCli < Formula
   head "https://github.com/linode/linode-cli.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "bfd9b9f886c95eacd74fc0dd994b8d622d6e2db0f720b0c3c503510245a37e50"
-    sha256 cellar: :any, arm64_tahoe:       "7f8fc05fe0c09af5ffce882902525aed10b4298ff08a948c858289b4d28e7a26"
-    sha256 cellar: :any, arm64_sequoia:     "2e58334699977c44c7d537d0ec0e07db69fdb38424f484bdc2b0dfc0c7d2a4a7"
-    sha256 cellar: :any, arm64_linux:       "2320e1e090ff5513374f6e5f34e5c0b62267510d10bc8817fb0d36cee83a1de2"
-    sha256 cellar: :any, x86_64_linux:      "5cdee23c74bbe9ffa0248faa5a9bfd36977879e8a31676e5aa613def6327d3c0"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "c8519fa733f0da84c8682d4a10a1c386de69369ea58ce3fb97a5e9d1a5f69b40"
+    sha256 cellar: :any, arm64_tahoe:       "23f1a30f7d10b92a3d085ee87a68762be71f78fd49587efd5256bb505ec7b248"
+    sha256 cellar: :any, arm64_sequoia:     "0f6901bdf78b240f38a856db908e2bc9721bae6f13cb8a311c8c7bec651ec0ac"
+    sha256 cellar: :any, arm64_linux:       "b8a809c53262a8e2942aa30efefe4eed59809bb23542cb1909ff7a0f4097dbd9"
+    sha256 cellar: :any, x86_64_linux:      "44ed5ee87d4596e37f33c35be958aea7e87faf21f604571d71b7ecc3ee2707ae"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 

@@ -1,19 +1,17 @@
 class Chawan < Formula
   desc "TUI web browser with CSS, inline image and JavaScript support"
   homepage "https://sr.ht/~bptato/chawan/"
-  url "https://git.sr.ht/~bptato/chawan/archive/v0.4.4.tar.gz"
-  sha256 "e0a06e1504e10a51c6009751d79b798c98d8274e559fe195d4b4b7ddadf91bb8"
+  url "https://git.sr.ht/~bptato/chawan/archive/v0.5.0.tar.gz"
+  sha256 "031d1ef809e1e94f16815c543a450f62a3577a7b7240ac02160dd8c78512f588"
   license "Unlicense"
   head "https://git.sr.ht/~bptato/chawan", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "fc0ca9ef038dd6fe1aa558a156cd7a9e25dea3fc613f3f83ea76bcdff96ae4aa"
-    sha256 cellar: :any, arm64_tahoe:       "dfef144aa6e632941c194fcef6041ec76982db39fdc2397278e8a60475fbe66b"
-    sha256 cellar: :any, arm64_sequoia:     "51f9388c7e07708388d48b0a823081661c6a5678f49a6051d0d0f6bf024130fc"
-    sha256 cellar: :any, arm64_sonoma:      "fe3b49e760e4b0b82b4473a848554a73839f884322cc60de0ddf0b8703ea1c16"
-    sha256 cellar: :any, sonoma:            "0dc3332b90d0f8811016f213af86af542b6c22d8944757de29faa45b85123dbb"
-    sha256 cellar: :any, arm64_linux:       "40a5438b93cf240a5c751d969618195746762349c05bb7d2445e4ba27e2c37d2"
-    sha256 cellar: :any, x86_64_linux:      "de0c0fe6e6459f251daded1c355c37d1133bdf866f9f7f656f77ee6489b73d36"
+    sha256 cellar: :any, arm64_golden_gate: "1fc062e3cf4d8ad13e95f4adbe3c40516994d4fa0c35866178a19c036ea8fbcc"
+    sha256 cellar: :any, arm64_tahoe:       "1f2d375ce218017e6d7012d45380dd050669ccd12a82acc8b990b410202d5387"
+    sha256 cellar: :any, arm64_sequoia:     "fc25664f05a415dd84daafc7ca7663fe469b2730ca26dad5df016248e74c7fe4"
+    sha256 cellar: :any, arm64_linux:       "3f0c07b7448cf7bce9db6760083c3f83dc6de49e5d91725b0fe5032cf4445be0"
+    sha256 cellar: :any, x86_64_linux:      "9581693ec185c30741033db06be6de7735ce16ec8a2cbc487148a4e2feb21c87"
   end
 
   depends_on "nim" => :build
@@ -21,7 +19,7 @@ class Chawan < Formula
 
   depends_on "brotli"
   depends_on "libssh2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "curl"
   uses_from_macos "ncurses"

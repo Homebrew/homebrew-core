@@ -9,14 +9,15 @@ class Principalmapper < Formula
   revision 9
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e8f9f3b1d9ca8294abab9e32ece80b4fd2186484079384d0eb2d6cf0ee970bd5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "d2abf6a5a3ed01372167bbe782f6f5ebbcabb9b28ad4cecf139587469a51cc3d"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/11/b9/10ca68d0092895d5ea60f485a61a9840d5aff9d732c66ed60da53a20b1d4/botocore-1.43.106.tar.gz"
-    sha256 "006870b3b4e40547232ad12c3bb4faec91bbbe0659aafaa3b7fa48a112c4ee97"
+    url "https://files.pythonhosted.org/packages/6c/43/257e97270ddd6833fd54b11e544a09b441b02f8c731bdeb29b90479be565/botocore-1.43.111.tar.gz"
+    sha256 "44d5e80962ac6cb9e85af72667b77c9586451e3328ab0ce33195380767e213d8"
   end
 
   resource "jmespath" do

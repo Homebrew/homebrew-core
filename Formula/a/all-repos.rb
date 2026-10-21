@@ -8,14 +8,15 @@ class AllRepos < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b040ed36823087349983193c7130015d6e552e2c908be0717ee6b33d78c6148c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "e3bf5fa84da4b7797ef0843604d99d3e49a742d32ff3c60576fc86ab1c737d9f"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "identify" do
-    url "https://files.pythonhosted.org/packages/52/63/51723b5f116cc04b061cb6f5a561790abf249d25931d515cd375e063e0f4/identify-2.6.19.tar.gz"
-    sha256 "6be5020c38fcb07da56c53733538a3081ea5aa70d36a156f83044bfbf9173842"
+    url "https://files.pythonhosted.org/packages/53/35/d70c0006c7cee65999ea94a6273e60b2094f600a3d8b71b04318253fc643/identify-2.6.20.tar.gz"
+    sha256 "ad729860a923858d26917c2f4fb0a1d83d27a75b1e090c06440c573f048f3285"
   end
 
   resource "packaging" do

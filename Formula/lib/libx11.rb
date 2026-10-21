@@ -1,18 +1,17 @@
 class Libx11 < Formula
   desc "X.Org: Core X11 protocol client library"
   homepage "https://www.x.org/"
-  url "https://xorg.freedesktop.org/archive/individual/lib/libX11-1.8.13.tar.gz"
-  sha256 "acf0e7cd7541110e6330ecb539441a2d53061f386ec7be6906dfde0de2598470"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libX11-1.8.14.tar.gz"
+  sha256 "ebb8a58549ddde50aa2e742b3b256557f451053d173be8dbfc2e8ac078eee1d6"
   license "MIT"
   compatibility_version 1
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "0e2fe58e32bcc6a65fd01f653b9f6986c38723f295a60fdf3648111d774dc3ee"
-    sha256 arm64_tahoe:       "eea875959b2cd7b129fe9459e1771141b9215f3452e671996434f664fe96e193"
-    sha256 arm64_sequoia:     "af553e32325d1817b6526682e3ca5d73e354145df362790eb9fc9f231e6d8a35"
-    sha256 arm64_linux:       "93f44b03e57d3d6b02eb9a5155a969b974b0b4040d8de2f0a88d25e34f5eaff1"
-    sha256 x86_64_linux:      "bf17b051a14a369ee1aa3e3566338aafe21fedae9735f6b178197e871d042ac2"
+    sha256 arm64_golden_gate: "f16e804d426ea8b43df43c0a6207a106a342b35275e5c061ec8f89ad032140a1"
+    sha256 arm64_tahoe:       "38fbafb4e0ff48cf924f110e1e11442df06091298dfce50b82866dcb7355cb1b"
+    sha256 arm64_sequoia:     "fdc6503c67fb5814bf7de665629b8dbda0807eda7b07d3c2668807768b4ae103"
+    sha256 arm64_linux:       "4fee0a56737a4d2f402edaa3e4b762c45766790c2903899a9a062f3e081b8d19"
+    sha256 x86_64_linux:      "f45a8c9534486b9537d4be52ac32b0742f72d7faf485b99e0f089f07803be224"
   end
 
   depends_on "pkgconf" => :build
@@ -33,7 +32,6 @@ class Libx11 < Formula
       --enable-unix-transport
       --enable-tcp-transport
       --enable-ipv6
-      --enable-loadable-i18n
       --enable-xthreads
       --enable-specs=no
     ]
@@ -46,8 +44,13 @@ class Libx11 < Formula
   test do
     (testpath/"test.c").write <<~C
       #include <X11/Xlib.h>
+      #include <locale.h>
       #include <stdio.h>
+
       int main() {
+        setlocale(LC_ALL, "");
+        printf("XSupportsLocale=%d", XSupportsLocale());
+
         Display* disp = XOpenDisplay(NULL);
         if (disp == NULL)
         {
@@ -76,6 +79,6 @@ class Libx11 < Formula
       }
     C
     system ENV.cc, "test.c", "-L#{lib}", "-lX11", "-o", "test", "-I#{include}"
-    system "./test"
+    assert_match "XSupportsLocale=1", shell_output("./test")
   end
 end

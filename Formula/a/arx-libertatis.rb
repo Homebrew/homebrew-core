@@ -44,6 +44,8 @@ class ArxLibertatis < Formula
 
   conflicts_with "rnv", because: "both install `arx` binaries"
 
+  deny_network_access!
+
   def install
     args = %w[
       -DBUILD_CRASHREPORTER=OFF

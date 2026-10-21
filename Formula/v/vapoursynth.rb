@@ -3,24 +3,25 @@ class Vapoursynth < Formula
 
   desc "Video processing framework with simplicity in mind"
   homepage "https://www.vapoursynth.com"
-  url "https://files.pythonhosted.org/packages/66/22/4e7bb7682495b03470b2f594cbe30b13fb81d7b3378edf359042c9f1f6bf/vapoursynth-80.tar.gz"
-  sha256 "4d03e3ef64df65a855490e6fd77ccc74d5debf89799aea93a6bd08f6a90afeb0"
+  url "https://files.pythonhosted.org/packages/69/6a/f9441173c91a3355a32b870522726ed2252cd3c7b04b45e499f30b1a2c98/vapoursynth-81.tar.gz"
+  sha256 "3bf6c90ad737e8ffc5605b05a1ff29cd884f8632fbe0eb49a2705942073a96be"
   license "LGPL-2.1-or-later"
+  revision 1
   compatibility_version 2
   head "https://github.com/vapoursynth/vapoursynth.git", branch: "master"
 
   bottle do
-    sha256               arm64_golden_gate: "f72abae3e621067617b021b597787916e3511e0f8e3b6ba7f70632e76c8e58cc"
-    sha256               arm64_tahoe:       "7c1ebe0fdcd313876c49a4228f8b8dd201915debdffe928030587c9a245891ce"
-    sha256               arm64_sequoia:     "81c0ce98eb728d987019413997b1288ddf25d2413a23a9993a602045fde0b7e7"
-    sha256 cellar: :any, arm64_linux:       "9acc9542ff2f4058e3c5ebfe014094f14c9365c615d08192d8313369148057d2"
-    sha256 cellar: :any, x86_64_linux:      "4b01172ff71302d10b11316520c77d606bc49f0e16e1def6c3c7704533c95912"
+    sha256               arm64_golden_gate: "7cc5660b28f3e9944ac92989a9c6d4c0275971ae9ef1de3bad813693b3e3e80b"
+    sha256               arm64_tahoe:       "f59763b802efe4273b3374df2facc13dffc2a4d04ccece5cd436d720ec9574f5"
+    sha256               arm64_sequoia:     "f278d9fa49033b1f90692ad4a92ffc4d903b8fc1cb61e85f9d6b6edbe565394b"
+    sha256 cellar: :any, arm64_linux:       "646cbade5992aa323a97ac9c51d357374314446559493e93aff18795e237ecc4"
+    sha256 cellar: :any, x86_64_linux:      "a910474cc3fdf6ca185abe0d3a1f30313b7ed6cbae128d7b9803f5a2d30ebcc1"
   end
 
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "vulkan-headers" => :build
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "zimg"
 
   # std::to_chars requires at least MACOSX_DEPLOYMENT_TARGET=13.3
@@ -37,8 +38,13 @@ class Vapoursynth < Formula
 
   # Upstream pins the shader compiler to keep the accepted GLSL dialect stable.
   resource "glslang" do
-    url "https://github.com/KhronosGroup/glslang/archive/refs/tags/vulkan-sdk-1.4.357.0.tar.gz"
-    sha256 "81038794e20494556edbcc0fc70fa984d71d1b440f9c49adf2cbaaa60a519757"
+    url "https://github.com/KhronosGroup/glslang/archive/refs/tags/vulkan-sdk-1.4.363.0.tar.gz"
+    sha256 "cda24ec765e6d2845d106b7caa593f34127195a88524cf87821ff0088fb6edec"
+
+    livecheck do
+      url :url
+      regex(/^vulkan-sdk-(\d+(?:\.\d+)+)$/i)
+    end
   end
 
   def install

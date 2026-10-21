@@ -31,6 +31,8 @@ class WpCli < Formula
     end
   end
 
+  allow_network_access! :test
+
   def install
     bin.install "wp-cli-#{version}.phar" => "wp"
   end

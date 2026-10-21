@@ -20,6 +20,19 @@ class Blades < Formula
 
   depends_on "rust" => :build
 
+  patch do
+    url "https://github.com/grego/blades/commit/dccfd8e30b41309929184386040c8da918f08162.patch?full_index=1"
+    sha256 "07507ad167f1cabfa1b479c2658c5e3212611ecb876a9c9daeccbdda29d087b2"
+    type :unofficial
+    resolves "https://github.com/grego/blades/pull/29"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end

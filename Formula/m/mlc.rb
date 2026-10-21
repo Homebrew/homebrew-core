@@ -1,18 +1,17 @@
 class Mlc < Formula
   desc "Check for broken links in markup files"
   homepage "https://github.com/becheran/mlc"
-  url "https://github.com/becheran/mlc/archive/refs/tags/v1.2.2.tar.gz"
-  sha256 "6584889f81406f905d38bf624815861948abe62a13259a7a6805a00109f89648"
+  url "https://github.com/becheran/mlc/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "d9e31137952c96230876f690bf7fb236e67c13fa3cd98eb505dbd98ffe2ad2bb"
   license "MIT"
   head "https://github.com/becheran/mlc.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b8bc74070f12f643d8dd7d94909b431dd5d6ff4f7002b59841a2d54f7cf6ba1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ee8c1d98726c59dfd60eb0d6df4eaae8fa087c97d67a3554fa111d8077920e59"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6708c54bf42a1f1e9cd02b5ce69b467e2e748a5b180839c492c2a0e185f296ae"
-    sha256 cellar: :any,                 arm64_linux:       "51d010447eb946c2649e8c9afb635449b949d3dff4d7826b845208373a91e376"
-    sha256 cellar: :any,                 x86_64_linux:      "e993a1d09f938bf712f33d0dde8cc277fd95b73c87dea16ab1572395cfdd3003"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2b11420c64f09652972ac4beaf38c15943ffdcd418a2548df45b2cd3951ee2a1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dfec3208f0d0c65da4169e24ec02c1a39d136bbd073648549dde6ddd62c191de"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0d5656545c43ca5cb1ecc2db3299daa3f6015bfe63c289e701c056250086e7e3"
+    sha256 cellar: :any,                 arm64_linux:       "845d67958063517d80af01b5498fdf10495e368cb853d03be8df25a106564473"
+    sha256 cellar: :any,                 x86_64_linux:      "5378f4d6f65781acd847c8a68495131412bbc7f6135727d6e29d73267f900742"
   end
 
   depends_on "pkgconf" => :build
@@ -20,6 +19,12 @@ class Mlc < Formula
 
   on_linux do
     depends_on "openssl@4"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install

@@ -3,21 +3,21 @@ class Djlint < Formula
 
   desc "Lint & Format HTML Templates"
   homepage "https://djlint.com"
-  url "https://files.pythonhosted.org/packages/97/89/802575614cda0554b57e112c025a79729b50a0bcc32daaf4f8a989850d68/djlint-1.46.4.tar.gz"
-  sha256 "5e05f356bf14a7ecd3d885867b5110e778dafba19640ef88e701c060f3a98a20"
+  url "https://files.pythonhosted.org/packages/da/df/4140783b3e4043b1eed65b118657d1a7cd2d6ce7bd2818e23bfec17759a7/djlint-1.46.6.tar.gz"
+  sha256 "22902d741035cc101d83f7c759ed01426c34bf203a0e3211fc8c2ffb4bb35480"
   license "GPL-3.0-or-later"
   head "https://github.com/djlint/djLint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "87838d24c2dcd24f21b2765f3ecf764ae7683aa0658040f838349415be51400a"
-    sha256 cellar: :any, arm64_tahoe:       "383d1e65b571f5444a5320bfa199e36962d5587fd8e72eb159ff26e827e691c3"
-    sha256 cellar: :any, arm64_sequoia:     "6d90dc0409c97ce430e3e8d63ee747a7e93ae7439bade5b53310f836127bc9ba"
-    sha256 cellar: :any, arm64_linux:       "e406b7806a8524addfc00422ed0731257987ab6f0af9145c08559668f62e29f8"
-    sha256 cellar: :any, x86_64_linux:      "3c4c3914835f46f9ed17f1aba80ffe391ef45440a2fd2d5a6eff6f30dec9878e"
+    sha256 cellar: :any, arm64_golden_gate: "d4e4e22add4671d72c534b73f9e9a915f287369301bb12c5cf08797a1984192d"
+    sha256 cellar: :any, arm64_tahoe:       "abc5e7f4f8c9e4b400a53f0bf45e3bf954bfc156f82b60a972afe6e04a5d051b"
+    sha256 cellar: :any, arm64_sequoia:     "f14bcc35490ca4d392ab99a97209ffadcf3000a08412b2b8bd90dd6d3eea9b2d"
+    sha256 cellar: :any, arm64_linux:       "b9dfca4636df80b6368a97ad8c9e7ea6473f876a95feb266aca6b82eeed537dc"
+    sha256 cellar: :any, x86_64_linux:      "71cc02b79976670c7c9acb5389487df7831f9a3d61e15c776446ee937c854a61"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
@@ -40,8 +40,8 @@ class Djlint < Formula
   end
 
   resource "json5" do
-    url "https://files.pythonhosted.org/packages/e4/7d/05c46a96a78147ae3bf99c2f4169ce144a70220b8d6fcd56f6ec368b8ce9/json5-0.15.0.tar.gz"
-    sha256 "7424d1f1eb1d56da6e3d70643f53619862b4ce81440bdb8ecfd6f875e5ba4a71"
+    url "https://files.pythonhosted.org/packages/16/1f/58a4d7ee466f81bc3c7337036380fc6d49de3afb7855d74f8121b1e89b32/json5-0.17.3.tar.gz"
+    sha256 "8d0278ad34ebaa9c3af76d9519274811830224a2d1cd5af156dbd067f461b8a4"
   end
 
   resource "pathspec" do

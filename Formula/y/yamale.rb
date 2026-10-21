@@ -9,17 +9,16 @@ class Yamale < Formula
   head "https://github.com/23andMe/Yamale.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "ae0d26f1082b2284a51ae94cc5f827871f2b78a61d406e67181ee1aa91ca3b3d"
-    sha256 cellar: :any,                 arm64_tahoe:       "d49d4d42166eb67fa258a430f4613fa9a1a74ab48a5839900a2b0459f8401635"
-    sha256 cellar: :any,                 arm64_sequoia:     "07e32a73e8b5ee15ef397cc29984d3fe2662a1d598409c868811bdcb939cd09d"
-    sha256 cellar: :any,                 arm64_sonoma:      "477bb88ad9e1dc07e77657718fd205a646c2a64b670b51ee14161090f7775dd4"
-    sha256 cellar: :any,                 sonoma:            "50e2564584208d180dc83c80200f3bac4813f1d4e9c80124de6beb9667155a4b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "eb5b04b9d77edb9bb5f85dc39742c4dbb4cb616957b97bc6c6b59ec5b95ff26a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "09591168c37d57139676c401f7eff3b9d80bfec138919f1ccb5c76b0f18ce0be"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "623f6f77e7574a43e43ab2517b1df3de366de687e0ad15fb0d6bf3c6c177a978"
+    sha256 cellar: :any, arm64_tahoe:       "0cbc5945ca2f3a5e7640f225a7cc68ad26df0ec12497b5ffecd33956fc2b40fc"
+    sha256 cellar: :any, arm64_sequoia:     "226b343afae317a7f6667b9216131499457d2bf817ba151715386b58aa56c993"
+    sha256 cellar: :any, arm64_linux:       "331cfe0382a46001a4de2f5520a3ce6260a684565b5ac9bdd2a98e7dffd1b029"
+    sha256 cellar: :any, x86_64_linux:      "9f8ccec565c6092758145e6c2bd4e8e37ac9b5d9d913b63346e72eee55dfc740"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"

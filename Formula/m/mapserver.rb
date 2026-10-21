@@ -11,16 +11,17 @@ class Mapserver < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "852837fcb088138dd062db80b1a77d6a62e60b74e94c249fde8c508626720046"
-    sha256 cellar: :any, arm64_tahoe:       "cfa3f2bca5cdf532a8ce65f9281d38336ba105c70a352bdd5972a6eaa8736db3"
-    sha256 cellar: :any, arm64_sequoia:     "80545335296608f2291dad55f1963a3b5d4dd1793156feb4fd045caf361c9a45"
-    sha256 cellar: :any, arm64_sonoma:      "6096618b999a648f6fe3c2b480818854729016a3e83497251fa4ede7079721a4"
-    sha256 cellar: :any, arm64_linux:       "092a6c679dfdc3a4c025d9ea13316f9c891cd3a53495556467634a24b8eb9ac3"
-    sha256 cellar: :any, x86_64_linux:      "05279e34eb9514ba580fb2375e954dd975fe9ba962dc273b88649e80b24c603a"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "e9a959c5c3a3f37231d3e50b7af727ff8798f8cdc83993083bf25bb8cf6a9c5e"
+    sha256 cellar: :any, arm64_tahoe:       "6815caf44be786a387bdb9864b6a6cbaaaf706f781dca741eca2066684fb4034"
+    sha256 cellar: :any, arm64_sequoia:     "7bb5abe3e6116cfa29011c6d80a9560a7e7da27008df7e0c523b887688ff6ddd"
+    sha256 cellar: :any, arm64_linux:       "cf50ac9856f3527b4d8f27851359a6a0d0706529a9dcd9dda0a16f3937680bd6"
+    sha256 cellar: :any, x86_64_linux:      "c23ffdd6e6adf4bba5d8e25f83782e6d6c947bfcb653820e1cc0905481cef657"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
+  depends_on "python-setuptools" => :build
   depends_on "swig" => :build
   depends_on "cairo"
   depends_on "fcgi"
@@ -35,9 +36,11 @@ class Mapserver < Formula
   depends_on "pcre2"
   depends_on "proj"
   depends_on "protobuf-c"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "curl"
+
+  deny_network_access!
 
   def install
     if OS.mac?
@@ -47,29 +50,31 @@ class Mapserver < Formula
                                                        "-Wl,-undefined,dynamic_lookup,-rpath,#{mapscript_rpath}"
     end
 
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DWITH_CLIENT_WFS=ON",
-                    "-DWITH_CLIENT_WMS=ON",
-                    "-DWITH_CURL=ON",
-                    "-DWITH_FCGI=ON",
-                    "-DWITH_FRIBIDI=OFF",
-                    "-DWITH_GDAL=ON",
-                    "-DWITH_GEOS=ON",
-                    "-DWITH_HARFBUZZ=OFF",
-                    "-DWITH_KML=ON",
-                    "-DWITH_OGR=ON",
-                    "-DWITH_POSTGIS=ON",
-                    "-DWITH_PYTHON=ON",
-                    "-DWITH_SOS=ON",
-                    "-DWITH_WFS=ON",
-                    "-DPython_EXECUTABLE=#{python3}",
-                    "-DPHP_EXTENSION_DIR=#{lib}/php/extensions",
-                    *std_cmake_args
+    args = %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DWITH_CLIENT_WFS=ON
+      -DWITH_CLIENT_WMS=ON
+      -DWITH_CURL=ON
+      -DWITH_FCGI=ON
+      -DWITH_FRIBIDI=OFF
+      -DWITH_GDAL=ON
+      -DWITH_GEOS=ON
+      -DWITH_HARFBUZZ=OFF
+      -DWITH_KML=ON
+      -DWITH_OGR=ON
+      -DWITH_POSTGIS=ON
+      -DWITH_PYTHON=ON
+      -DWITH_SOS=ON
+      -DWITH_WFS=ON
+      -DPython_EXECUTABLE=#{python3}
+      -DPHP_EXTENSION_DIR=#{lib}/php/extensions
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "./build/src/mapscript/python"
+    system python3, "-m", "pip", "install", *std_pip_args, "./build/src/mapscript/python"
   end
 
   test do

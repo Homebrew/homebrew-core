@@ -11,11 +11,11 @@ class Scour < Formula
   head "https://github.com/scour-project/scour.git", branch: "master"
 
   bottle do
-    rebuild 7
-    sha256 cellar: :any_skip_relocation, all: "e08d200e5c6c2e52a3b6037e4ef13e9aa8438effa9cabb4e99d4078dca0c9769"
+    rebuild 8
+    sha256 cellar: :any_skip_relocation, all: "ed9276f7f3832a16f8c8a2a6a7ec83ea5819a5489f7eb4fdceed349bb3e7ca8e"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"

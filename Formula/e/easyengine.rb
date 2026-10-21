@@ -1,16 +1,16 @@
 class Easyengine < Formula
   desc "Command-line control panel to manage WordPress sites"
   homepage "https://easyengine.io/"
-  url "https://github.com/EasyEngine/easyengine/releases/download/v4.13.1/easyengine.phar"
-  sha256 "afc069b78a6a8c0e9b8c75681f61244aabe4577b26f4174d559ab03885ae8bf8"
+  url "https://github.com/EasyEngine/easyengine/releases/download/v4.13.2/easyengine.phar"
+  sha256 "e47cc3cdf33be54008126e2c07e7a685dbc9ca5c1da8718e8430da83468a698b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0ad999daeda2c80ea5e50f62722bb8f0d315e21661182973a2eadb3e28b8b382"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0ad999daeda2c80ea5e50f62722bb8f0d315e21661182973a2eadb3e28b8b382"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0ad999daeda2c80ea5e50f62722bb8f0d315e21661182973a2eadb3e28b8b382"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6faf7befaf34cd87e7c49bf68342da085e3019773de24b6f4d7c1ffc63cca40b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6faf7befaf34cd87e7c49bf68342da085e3019773de24b6f4d7c1ffc63cca40b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0bb24e95d9b1b46ae7279ddfcce8674f1c64a4a6a6e85560d1232150b1e021da"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0bb24e95d9b1b46ae7279ddfcce8674f1c64a4a6a6e85560d1232150b1e021da"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0bb24e95d9b1b46ae7279ddfcce8674f1c64a4a6a6e85560d1232150b1e021da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b2b9315e5b97f0269a9d17f3a5dc707ee58896569b2c6c63dd113e8b9dcee6c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "b2b9315e5b97f0269a9d17f3a5dc707ee58896569b2c6c63dd113e8b9dcee6c3"
   end
 
   depends_on "dnsmasq"
@@ -22,6 +22,8 @@ class Easyengine < Formula
       pour_bottle? only_if: :default_prefix
     end
   end
+
+  deny_network_access!
 
   def install
     bin.install "easyengine.phar" => "ee"

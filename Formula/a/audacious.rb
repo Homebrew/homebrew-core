@@ -2,15 +2,14 @@ class Audacious < Formula
   desc "Lightweight and versatile audio player"
   homepage "https://audacious-media-player.org/"
   license "BSD-2-Clause"
-  revision 1
 
   stable do
-    url "https://distfiles.audacious-media-player.org/audacious-4.6.1.tar.bz2"
-    sha256 "62a5a609267eca7f6e3ce52ef6f42d5618d2961e3b4ddc227c6a5859026965d9"
+    url "https://distfiles.audacious-media-player.org/audacious-4.6.2.tar.bz2"
+    sha256 "af4c68b7dd09304d382df18616aecd843c8efa4e4eef31bfc76abce465271c83"
 
     resource "plugins" do
-      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.6.1.tar.bz2"
-      sha256 "22e58a8a2c3f3caa9687434353618c822963cc8846cd239de36d4e8e5bd166a6"
+      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.6.2.tar.bz2"
+      sha256 "c295c65bdaae71775b4fa9eb206799c627b383c4f45444d637c714196daf8077"
 
       livecheck do
         formula :parent
@@ -24,13 +23,11 @@ class Audacious < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "3422796a4b46b3b52f24d4ed35eda5bbbb312b7768402db56fe398dc7e2176cb"
-    sha256 arm64_tahoe:       "48dbe878fd9df67c86b7e437c2e4770f033f834cada423a10ae66c3a4c6b1113"
-    sha256 arm64_sequoia:     "2cfb53981e028830ddd8bef9502f4561f46f873ae4033799dc7a27aa9edc0cea"
-    sha256 arm64_sonoma:      "314fe296aa6b20dd16824fa0394edbc5212a0096043ef696b492d195666325e4"
-    sha256 sonoma:            "e3490319addfa23b35a3b745bfd62eb6db3a3a363202af70ceaf9774d64cbc48"
-    sha256 arm64_linux:       "6a9f6156904b0ef56f775d6818f0ba9ff33ec855665e62ffbd7925534727ece3"
-    sha256 x86_64_linux:      "3617052325f3933306defaf34cadcef3d0c8b40aca0fb89b47c1b2f5a338f2d3"
+    sha256 arm64_golden_gate: "05e512a320c9de13f001842f19df6e52b94d12e08c1147196fd047992ae559a2"
+    sha256 arm64_tahoe:       "9b30d83a47b226b502061acd077c21440585c176069499a71df0d39d7d295ce3"
+    sha256 arm64_sequoia:     "5dad01e77ea67872e8a1ac924cbd61fb07b59c2518356fd704daa6966c7edc46"
+    sha256 arm64_linux:       "b71640033310b5500e39f9e20d553af74784665793ba0d192044b94885cd8c58"
+    sha256 x86_64_linux:      "33a8e46706c5a857b3fcca15380a3442379a8509ead15b66e5fef3e83ce77189"
   end
 
   head do
@@ -88,6 +85,8 @@ class Audacious < Formula
     depends_on "pulseaudio"
     depends_on "zlib-ng-compat"
   end
+
+  deny_network_access!
 
   def install
     odie "plugins resource needs to be updated" if build.stable? && version != resource("plugins").version

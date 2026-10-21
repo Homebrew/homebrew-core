@@ -10,20 +10,19 @@ class Hapless < Formula
   head "https://github.com/bmwant/hapless.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "21bef5688bfcdeaffbad601a5f03c28534b68349306c6644eea3ff5d23d3d740"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "da08ce56df28a0ba4aa5961303408a30758de532b674167a91f6d50680b6d42e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "16845ee1b8f397956dfce79cbbfd516b58fa61e2ca8f55be7dc0e0d1dffcd213"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "85328d7dceb3952ba09e22c44aef001be74ff872bd9093fcba2073a59a781ac6"
-    sha256 cellar: :any_skip_relocation, sonoma:            "dd43290de50a062a326d1d7a9611b925e55de3801ce4321aa02cf9f3ab9343ff"
-    sha256 cellar: :any,                 arm64_linux:       "5f4e5702112637ee2a46ceda8afaab4668b95aaad8142abe944a8f03e0992fec"
-    sha256 cellar: :any,                 x86_64_linux:      "e4b3986d718dbdec80fbf1a128d2862b6fe44fae40f12f17c561afd238261251"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8c4a8abad7a825e0af46936d46b1d7c37dbf3a3bdff7a94c2e119b0a27f37eea"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "773eaf7faca505c02feaa8cc7a710414fcc832dbc6a7dde21612637bcf9ff1fb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0210b50e7a01cfb54fbd8c11007103b568e5265bad5d8b5368341d191342f1f0"
+    sha256 cellar: :any,                 arm64_linux:       "eae7e3a0a9e25df4d88c2f8f415ab64cf3fc17ba87cfa5d03aac2258e5bb2fb0"
+    sha256 cellar: :any,                 x86_64_linux:      "981461e9ee40c4146e2960e14194ab6d76fad5d70cb9d4c6e10f3acb535b83b6"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "django-environ" do
@@ -52,8 +51,8 @@ class Hapless < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "rich" do

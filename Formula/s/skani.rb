@@ -1,22 +1,26 @@
 class Skani < Formula
   desc "Fast, robust ANI and aligned fraction for (metagenomic) genomes and contigs"
   homepage "https://github.com/bluenote-1577/skani"
-  url "https://github.com/bluenote-1577/skani/archive/refs/tags/v0.3.2.tar.gz"
-  sha256 "5cae2fc3b8c57881fd9d3494c372eb8c8703eb69900513bfaef01f8892c55ae0"
+  url "https://github.com/bluenote-1577/skani/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "c8fe23ffae0119aa79cc801ac08dfc33862c94006690074daff274d937f1f786"
   license "MIT"
   head "https://github.com/bluenote-1577/skani.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "62c06aafdf17068fabd0693f0bf17e5430b4021943f50b80ab75e57188b5d0b1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "137e39a846e64d1a17d0a02714910e1ce05d554ec9cdfc229700271db407ec41"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3d43f0b4c13a9a4afd313c37eb93c2b89e164e2176678715e35383231d636033"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "3e50a575e21c93500424351eae6562bc74a98666231c31b7763391f6220c6db5"
-    sha256 cellar: :any_skip_relocation, sonoma:            "71e1da005539c47dc3910cced0e526cc025c8b8beb170e6822e1182109f14b52"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "638ff917ed6a9482d53e412ef5930fd687282dad76fcddf617edf5673ddb2040"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "172570f197be852d7b640de7b4cecf3250b7bc148d8042cca84a91608f4af933"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6c83611da7900e969ed4ba2651621130534d5bcd24da8c2668f32d61d46aaf70"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1edc78f45779992e62612f9295c3779d28c55e2ced9613b37438e13c48831ce0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2544b02bbaee647b988221a7b1e87d90250042bea4aabfd33800419bc3b6aa2c"
+    sha256 cellar: :any,                 arm64_linux:       "15c4e1bb1c01522d3c252401b842c286fe511dca2d26d8d3cf3b86cb4d64d098"
+    sha256 cellar: :any,                 x86_64_linux:      "45d72315fa364ab82e2665acb8d1697d794a75d2b185f4a6abf3083bcc172e9a"
   end
 
   depends_on "rust" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

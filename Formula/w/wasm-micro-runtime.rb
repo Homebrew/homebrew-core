@@ -26,6 +26,11 @@ class WasmMicroRuntime < Formula
 
   depends_on "cmake" => :build
 
+  resource "homebrew-fib_wasm", :test do
+    url "https://github.com/wasm3/wasm3/raw/main/test/lang/fib.c.wasm"
+    sha256 "e6fafc5913921693101307569fc1159d4355998249ca8d42d540015433d25664"
+  end
+
   allow_network_access! :test
 
   def install
@@ -54,11 +59,6 @@ class WasmMicroRuntime < Formula
   end
 
   test do
-    resource "homebrew-fib_wasm" do
-      url "https://github.com/wasm3/wasm3/raw/main/test/lang/fib.c.wasm"
-      sha256 "e6fafc5913921693101307569fc1159d4355998249ca8d42d540015433d25664"
-    end
-
     resource("homebrew-fib_wasm").stage testpath
 
     output = shell_output("#{bin}/iwasm -f fib #{testpath}/fib.c.wasm 2>&1", 1)

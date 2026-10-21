@@ -1,20 +1,17 @@
 class Lcov < Formula
   desc "Graphical front-end for GCC's coverage testing tool (gcov)"
   homepage "https://github.com/linux-test-project/lcov"
-  url "https://github.com/linux-test-project/lcov/releases/download/v2.5/lcov-2.5.tar.gz"
-  sha256 "7e5e5a154bd5f3557659c328cab376764e7abd238bb403c424472c296b175126"
+  url "https://github.com/linux-test-project/lcov/releases/download/v2.6/lcov-2.6.tar.gz"
+  sha256 "67a45db99b8ef0260c3fac9a2e3749fd8fa350a15e235dd3c29b356d97755c75"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/linux-test-project/lcov.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c104911ccdc705876e95ccff43c262cac3cf046edf650dbfea44600f0ca46e7d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0339c052f980b5221138a890499b037ce9be0989428116be8293315f6cdf2312"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "264e190fc3712dc2ea033d3e95c140bcbef9d7c4f4cc04a3be805fb4da5c08c5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "b04ff0abfa6a93050a5c97d44c86d490ab4b7bf3da9df77055c03b38194c7644"
-    sha256 cellar: :any_skip_relocation, sonoma:            "61f99b6f9d03220b35d79f0869ac22804c186c778af200d4cfa1f64a215556e5"
-    sha256 cellar: :any,                 arm64_linux:       "6ea84ac3f401d9e8488b3fe405ec7ce0fe537b925ed4b02b03a70310f1f98f21"
-    sha256 cellar: :any,                 x86_64_linux:      "98aabc087e2052c2c32baf8b5f4fdf9646185b561bafcc1ea491a8bb1cf2af06"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b4d31d0b102db3d36832c1c97304ee2b38bf3ce0c2a444084403faa1e3c2b5d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0273a9b6e2d9a07f1051916bf3815d06bb6a2a5b665a2bc4c882aa8eb094db68"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3a76c9453e453f1ef5f998c8858337fc7cc1307d8e09ccd8dea2a46958a9c848"
+    sha256 cellar: :any,                 arm64_linux:       "dbf53669b6622217982a3e4c4a3400fa298f76eeb5f57512485f274b6004d469"
+    sha256 cellar: :any,                 x86_64_linux:      "1fca26be18586438421135b815e35493b9b69811cf5dc3fdde33b67ed7252e20"
   end
 
   depends_on "sphinx-doc" => :build
@@ -183,6 +180,14 @@ class Lcov < Formula
   resource "PerlIO::gzip" do
     url "https://cpan.metacpan.org/authors/id/N/NW/NWCLARK/PerlIO-gzip-0.20.tar.gz"
     sha256 "4848679a3f201e3f3b0c5f6f9526e602af52923ffa471a2a3657db786bd3bdc5"
+  end
+
+  # Fix macOS XS build and install, upstream PR ref, https://github.com/linux-test-project/lcov/pull/549
+  patch do
+    url "https://github.com/linux-test-project/lcov/commit/761a5a42479f2c347caa2e9ec9447fcfad498309.patch?full_index=1"
+    sha256 "b1e89199ef09bfc8330d7d6c8226b54e9ab7821f4fdeb60e1b257a5c638f4051"
+    type :unofficial
+    resolves "https://github.com/linux-test-project/lcov/pull/549"
   end
 
   deny_network_access!

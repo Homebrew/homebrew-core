@@ -3,21 +3,20 @@ class LizardAnalyzer < Formula
 
   desc "Extensible Cyclomatic Complexity Analyzer"
   homepage "https://github.com/terryyin/lizard"
-  url "https://files.pythonhosted.org/packages/a5/c9/97837b967a1a6bb64acb0e1738e19a154393ae1a9a448b9958176be5b10a/lizard-1.24.0.tar.gz"
-  sha256 "2e88a7af9d23a98d3f4a30767134361bd4b7dde02c410209c6c72732a43bbb65"
+  url "https://files.pythonhosted.org/packages/05/87/0352f911886e8b10b06b36dca674b9da91a25112bd08253b84346a1815e5/lizard-1.24.1.tar.gz"
+  sha256 "c022cf1aac8170994b175e2a700f0535088f66da7e6bdf6c59fbd3b716cd10ac"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ccc2422e19b7818a85d9747bdffd5b45a8d1264606d31f2154c0494a19750875"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d0d16eb179c7271c49067edfb92719159a03f9cd1916a66c74ba5bc6c44033b6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e0e50984849f360c0026ba30871cfd1b68dc815b1917037451ebd63e7f7ad2be"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "d9c8d4c6fbe4c80e261c50db54bffa90fac0244bd088940722b265937b06e966"
-    sha256 cellar: :any_skip_relocation, sonoma:            "983a3304998df6a3b63e609202c36b93ef29d03b46dbf1e33bc124d69ae36118"
-    sha256 cellar: :any,                 arm64_linux:       "da5e93b83d95f8f08a03414eafa42bf977a77b56d894cee880c7c54478382676"
-    sha256 cellar: :any,                 x86_64_linux:      "04bfaa0ea9aeabe01f45165350789c14653b59727191dbcad41a4f4edf89ffa0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "193f05b7f4a77bf6772602ca52fff08bf7ac425471ff5081231fc47084cd543c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1731a3169518dcccf3f3846f318c49108ed1798e5aaad74038c60707392e0c3a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "837153536fef72d120fab56784e92575d3c723327585c24b0176a5e477d398e0"
+    sha256 cellar: :any,                 arm64_linux:       "13b606f955dfe9276bb463dfccd8998990fa654a4ccdd29c1475b0a058e71e52"
+    sha256 cellar: :any,                 x86_64_linux:      "ad1584dbc6ffe74ffd0e08d9f21172f2f4c87dc0999477df6b511efd0bc1adf3"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   conflicts_with "lizard", because: "both install `lizard` binaries"
 
@@ -29,8 +28,8 @@ class LizardAnalyzer < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "pathspec" do

@@ -7,17 +7,15 @@ class Alot < Formula
       tag:      "v0.12",
       revision: "40a190f4c5f18c1283fdb3186393c4a778f865a5"
   license "GPL-3.0-only"
-  revision 2
-  head "https://github.com/pazz/alot.git", branch: "master"
+  revision 3
+  head "https://github.com/pazz/alot.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3dec6bfa203fa482ab3dae1adea43de14b8677e012c7faa1f93c045df6fa03c8"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c0dfbfe3647e134f91767e72b908a3e1b24ab994c91d10c53dc8b36087792d6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e01192444286d89e9341ca9782cb36d9ae3bd0a6fb8cf6ff4fbc5f134a6f063a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "1acb758067096184a9b2ce4a5b022f920201ce72aedbb76549dea947026a3553"
-    sha256 cellar: :any_skip_relocation, sonoma:            "3d994fa5d8eb76029ca9c537e16b55a54a2981b0ac6b4b963de9a3056891a0f2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6fa30cc144494600df5d1c416d84151fced2eb6924a733bc567388c0bd8c1316"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "368c652bd63705c5c9a1644524c00e476a826a22870d56119c70efe4b3b3b5b2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d5fe67b91d2ae31393ef57e24accf66529f585675e0e5586141f5de0f3aeeaac"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1293a542497a8886747637df81c82f1f1c0622efd2a37e55f5ef6170fa994932"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7a7de9a12c130b5cdf16c84a82abb2367b48f7ad20d6bab032b5ee771789d97e"
+    sha256 cellar: :any,                 arm64_linux:       "d2e0907e2d687d90c307199bd105d0da7bb67490b75cc3c8dd4b4f622c2179f5"
+    sha256 cellar: :any,                 x86_64_linux:      "2f3f6e9cd7ead4fc5ba3063c15226918cb306c4c29abe89351870353870d4dff"
   end
 
   depends_on "sphinx-doc" => :build
@@ -25,7 +23,7 @@ class Alot < Formula
   depends_on "gpgmepy" => :no_linkage
   depends_on "libmagic" => :no_linkage
   depends_on "notmuch"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   # Dependencies include non-PyPI packages so cannot use Homebrew's default resolver
   pypi_packages package_name:   "",
@@ -57,8 +55,8 @@ class Alot < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
-    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
+    url "https://files.pythonhosted.org/packages/f5/08/8eea9d4b8302028f3abb2c0813953f7aec26d33b7a8960ed760e65ff29fa/idna-3.20.tar.gz"
+    sha256 "a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44"
   end
 
   resource "incremental" do
@@ -67,8 +65,8 @@ class Alot < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
-    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "python-magic" do
@@ -87,13 +85,13 @@ class Alot < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
-    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
   end
 
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/1c/09/afbd44c7c57b1124d94ffe6321154798b816bd09c00e0aaabb701583a1c8/urwid-4.0.0.tar.gz"
-    sha256 "58ddc5c65eb3109b69e2e95469553f9f86070645cc1b553d6ee3fe8dbac2e0ba"
+    url "https://files.pythonhosted.org/packages/3a/df/eb5dcbdf1638c38618096382b4a30b0423ed7d2aac97fd9469b51d6de43f/urwid-4.2.5.tar.gz"
+    sha256 "a1fea3a551953fae4e6b727536334233bbb8b88c45230bc91d9751b402a8c16d"
   end
 
   resource "urwidtrees" do
@@ -102,13 +100,21 @@ class Alot < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/2c/ee/afaf0f85a9a18fe47a67f1e4422ed6cf1fe642f0ae0a2f81166231303c52/wcwidth-0.7.0.tar.gz"
-    sha256 "90e3a7ea092341c44b99562e75d09e4d5160fe7a3974c6fb842a101a95e7eed0"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   resource "zope-interface" do
-    url "https://files.pythonhosted.org/packages/9f/65/34a6e6e4dfa260c4c55ee02bb2fc53625e126ff0181485286cf0c9d453d6/zope_interface-8.4.tar.gz"
-    sha256 "9dbee7925a23aa6349738892c911019d4095a96cff487b743482073ecbc174a8"
+    url "https://files.pythonhosted.org/packages/26/39/a8481b926e42c44a6fcc670904f8251469ec42edbff1ba066719ca1e7fb4/zope_interface-8.6.tar.gz"
+    sha256 "b40ef9b4873afb5d0dec02b8d2dfde1cf18c72337b60c99cb735961e0bac05c0"
+  end
+
+  # Python 3.15 removed `glob.glob1`
+  patch do
+    url "https://github.com/pazz/alot/commit/1632613bf03a20d0d81b6e1cb0e5b8fc96e6c16e.patch?full_index=1"
+    sha256 "4f4826967eaae447aca7fae399fcc4e89af37f14bc8bf5a89aeba752471d743e"
+    type :backport
+    resolves "https://github.com/pazz/alot/pull/1713"
   end
 
   # Check for any changes needed in `extra_packages`

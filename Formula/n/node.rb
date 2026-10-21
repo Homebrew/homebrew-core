@@ -1,29 +1,10 @@
 class Node < Formula
   desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
+  url "https://nodejs.org/dist/v26.12.0/node-v26.12.0.tar.xz"
+  sha256 "ce59f9038dda0e637656fb1c36cf52c07c637922fd81d419dbba2ec129afbd35"
   license "MIT"
-  revision 1
-  compatibility_version 1
   head "https://github.com/nodejs/node.git", branch: "main"
-
-  stable do
-    url "https://nodejs.org/dist/v26.10.0/node-v26.10.0.tar.xz"
-    sha256 "7b3a546d33cb7e15a43bdd7a57e0be5d5fd5ffc553e6e4c120033e66f0ba20c5"
-
-    # Backport support for temporal with system ICU
-    patch do
-      url "https://github.com/nodejs/node/commit/c4c11636b1420fd996e16a583b37309c179d17df.patch?full_index=1"
-      sha256 "7790de4db394b03fc6c8df8101c126ea401506347d67cc1555aeeb9be1ad87f1"
-      type :backport
-      resolves "https://github.com/nodejs/node/pull/65992"
-    end
-    patch do
-      url "https://github.com/nodejs/node/commit/bba34225c149b21f5fee96e168d7ee6f0bb5efb9.patch?full_index=1"
-      sha256 "68764ccc83203cd0a9e5b3693ffc4f9673f7dc348dffe76efb15948c07fa3d03"
-      type :backport
-      resolves "https://github.com/nodejs/node/pull/65992"
-    end
-  end
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -31,15 +12,15 @@ class Node < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "a9b7dd7df23477efc9ef741c7550394e106cbb6126628ddfd54e8b2e3a1c934f"
-    sha256 arm64_tahoe:       "a0e40226c78b59e15d17b381fc1b314cd1a3fee5999ea9659b217b28a88dafa5"
-    sha256 arm64_sequoia:     "79cf85225e2968d3fc35c02b55f340e3604fc73ee6c4f6b04543eedcac659621"
-    sha256 arm64_linux:       "99d5876aebcd8a993a2eb11d6850eeaa7ed16fa6d6886d840a36ac6aa504b813"
-    sha256 x86_64_linux:      "e0eb65b1f63ae9cb0f242a97b1d71885d81a3b6565dd71e82393879ed3f32e79"
+    sha256 arm64_golden_gate: "e67dcd39e1694e807d6736e8f8989c85727393d7cd2e202e22f367e9f54fb48a"
+    sha256 arm64_tahoe:       "0a15f8924e9c9c4bdfbbf7f8ce0c9cf4f6364c84e09142885c86be134dea3637"
+    sha256 arm64_sequoia:     "3d0a3317609ec84d69559202ac16d9b7bed4b2cb2616ab6e20d034fccfed61c6"
+    sha256 arm64_linux:       "ae8587524fe66995993f3dee59bb59844b093db37b2a9294eca366381359cd8c"
+    sha256 x86_64_linux:      "46ecef7b78e4c15828978131c893ce4e99e44d9206a3d34243c22c83764a54d8"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on "rust" => :build
   depends_on "abseil"
   depends_on "ada-url"
@@ -53,7 +34,7 @@ class Node < Formula
   depends_on "llhttp"
   depends_on "merve"
   depends_on "nbytes"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "simdjson"
   depends_on "simdutf"
   depends_on "sqlite" # Fails with macOS sqlite.
@@ -90,8 +71,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-11.19.1.tgz"
-    sha256 "9f58bff01604cb1b14008fef14dceb14d836a49225e45c6c2e37de3be3e707f0"
+    url "https://registry.npmjs.org/npm/-/npm-11.20.0.tgz"
+    sha256 "d1a92f40e6c407b84c3a00c3cf978a10b24fd42f153c527e2016cef7bb34a483"
 
     livecheck do
       url "https://raw.githubusercontent.com/nodejs/node/refs/tags/v#{LATEST_VERSION}/deps/npm/package.json"
@@ -106,6 +87,8 @@ class Node < Formula
   def install
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = python3
+    # simdjson 5 `key_selector` uses `throw` in consteval, which clang <= 20 rejects with -fno-exceptions
+    ENV.append "CXXFLAGS", "-DSIMDJSON_CONCEPT_DISABLED"
 
     # Ensure Homebrew deps are used
     rm_r(["deps/icu-small", "deps/npm"])
@@ -140,7 +123,7 @@ class Node < Formula
       "merve"         => ["merve",                     "merve"],
       "nbytes"        => ["nbytes",                    "nbytes"],
       "nghttp2"       => ["nghttp2",                   "libnghttp2"],
-      "openssl"       => ["openssl/openssl",           "openssl@3"],
+      "openssl"       => ["openssl/openssl",           "openssl@4"],
       "simdjson"      => ["simdjson",                  "simdjson"],
       "simdutf"       => ["v8/third_party/simdutf",    "simdutf"],
       "sqlite"        => ["sqlite",                    "sqlite"],

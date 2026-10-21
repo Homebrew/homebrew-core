@@ -32,6 +32,10 @@ class Dafny < Formula
     # Use our `gradle` to build rather than wrapper which uses its own copy
     rm("Source/DafnyRuntime/DafnyRuntimeJava/gradlew")
     inreplace "Source/DafnyRuntime/DafnyRuntime.csproj", 'Command="./gradlew ', 'Command="gradle '
+    # Maven Central returns 429 Too Many Requests to CI runners, so use Google's mirror instead
+    inreplace "Source/DafnyRuntime/DafnyRuntimeJava/build.gradle",
+              "https://repo.maven.apache.org/maven2",
+              "https://maven-central.storage-download.googleapis.com/maven2"
 
     system "make", "exe"
     libexec.install Dir["Binaries/*", "Scripts/quicktest.sh"]
@@ -43,6 +47,9 @@ class Dafny < Formula
   end
 
   test do
+    # .NET named mutexes need `XDG_RUNTIME_DIR` (or `USER`) on Linux, which test containers may lack
+    ENV["XDG_RUNTIME_DIR"] = testpath
+
     (testpath/"test.dfy").write <<~DAFNY
       method Main() {
         var i: nat :| true;

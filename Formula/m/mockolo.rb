@@ -1,19 +1,16 @@
 class Mockolo < Formula
   desc "Efficient Mock Generator for Swift"
   homepage "https://github.com/uber/mockolo"
-  url "https://github.com/uber/mockolo/archive/refs/tags/2.6.1.tar.gz"
-  sha256 "e7243c1213dc9788c9eec866ca7e5dfe7b95c296febc54e33e5c9d4c28646e3a"
+  url "https://github.com/uber/mockolo/archive/refs/tags/2.7.0.tar.gz"
+  sha256 "43b8dba76938b4d86df0e3e40be46211a2ea1616a17e87553248dd27e7cec045"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ab967e5b484322749b4b4079f6e65f0804df87080533cdaf276b24561eaec8f4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "672c6c24b9e5bcbec341e30c2904709ad6451cbe5bf0616048bef4fd88eb75cb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4a85b865dfc03617199bf14d7b392af1aab23401df70c330c7744ba08126f0c9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "9ca61d8280ecc64958225c7860b556bc132d521c055847d476275d5bbc117f89"
-    sha256 cellar: :any_skip_relocation, sonoma:            "209dcf4e21d99e40e206708505a0e902c576cfa8b3f78fd3a93a71f95177eb68"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0e1cef95840e26a78cd28cd2b515033025bd1af26beb7459fbb7a28e8ada8f0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a7939818512b30239cbda264db9d01481066ff9c76b0f4fb1836591edb7bd9d1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7c2a52cf72ef0ad4e787b564358e27f925fb2db6201b2facf765766176a32c54"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9d8670e2a919766ae8a3c047aacda18bbb77bbf6b9609073cbbc9c659372ab7b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7c9b24b30ebfd69eab92c1b7250c4e31c16730e615c1529448119a0ec8751781"
+    sha256 cellar: :any,                 arm64_linux:       "2a198131e0f6e738c750d91b3e9ed9bc70937087986005241d3e57724589732e"
+    sha256 cellar: :any,                 x86_64_linux:      "8ec480bff40b0a277261adbc438f4c621809d713a849fff248538217e50510b2"
   end
 
   uses_from_macos "swift" => :build

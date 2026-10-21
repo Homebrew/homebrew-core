@@ -1,9 +1,9 @@
 class Aarch64ElfGdb < Formula
   desc "GNU debugger for aarch64-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftpmirror.gnu.org/gdb/gdb-17.2.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gdb/gdb-17.2.tar.xz"
-  sha256 "1c036c0d72e4b3d1fb5c94c88632add6f9d76f4d7c4d2ea793c12a9f19a3228c"
+  url "https://ftpmirror.gnu.org/gdb/gdb-18.1.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gdb/gdb-18.1.tar.xz"
+  sha256 "cd9fc3fe2b47743840e42c1592d3d87f8302eb18639c0b8b4ba0898002e2348f"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Aarch64ElfGdb < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "1366102d31c3a3b88e971a09892ef0a6c3c01db76d1176a3adbc8f90c0ca2a5c"
-    sha256 arm64_tahoe:       "c958dd17cd4589be2776d5dc2ea42407e97e8e8fa6144ab6e557715644c700be"
-    sha256 arm64_sequoia:     "ed517cad598f41182e050ebb66bcc10249b520ebb283de167b8b4ef28df9d6fb"
-    sha256 arm64_sonoma:      "b36350487f63d82dfb9f8e73d7d61b92ef10f671ebf1d03040897783a7fe5060"
-    sha256 sonoma:            "a34575014e49cba4ab7744a4318e523906ea3d99ab93b6dd850375102484989e"
-    sha256 arm64_linux:       "2b1f5ab9b9c1d88d884c5c1ede27c64995e093fc1e785608dbcee33a9f893bbb"
-    sha256 x86_64_linux:      "f5093f7b253715bb6a7df45f63f3c491774e7fcd74d79e9fc23c8cfe45aeabf8"
+    rebuild 1
+    sha256 arm64_golden_gate: "2c3e6b49cf2bc36df341e57d4811788ea82c1e20babac1515b949c5fca7dff0d"
+    sha256 arm64_tahoe:       "653ddaee64b53fd4029d3b4c6ea6aedd119684e5fa75a853666c56fe7072ccb5"
+    sha256 arm64_sequoia:     "f475560d0ea7603a5101a6bdc385e56f407359bd2dac95ce79151fc093825d79"
+    sha256 arm64_linux:       "bed612519115fabc085749b3bad91eda6bb95e5d2f6348af88cf23d02526447f"
+    sha256 x86_64_linux:      "59028ce682dad68dd197989ac07b1640469584c589dd4cd95d84d79e53d30366"
   end
 
   depends_on "pkgconf" => :build
@@ -26,7 +25,7 @@ class Aarch64ElfGdb < Formula
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "ncurses" # https://github.com/Homebrew/homebrew-core/issues/224294
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "readline"
   depends_on "xz" # required for lzma support
   depends_on "zstd"

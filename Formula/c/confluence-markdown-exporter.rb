@@ -8,17 +8,18 @@ class ConfluenceMarkdownExporter < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c53720ad61fe2149cda93097dddf9fe480d5a025d72da105b1e859293f48284e"
-    sha256 cellar: :any, arm64_tahoe:       "14d370829cc671b38f5a15d5bcae4da410d3df69a3e6d37d898084410c398807"
-    sha256 cellar: :any, arm64_sequoia:     "4c2adea3e36e1cea5568366ff460c30177bcfcdc5d6865fed3a47352760ebfcf"
-    sha256 cellar: :any, arm64_linux:       "73bbd2dd70afc2b122e082a000163595673b352920cc120a29930431f077111c"
-    sha256 cellar: :any, x86_64_linux:      "93240c66c78e6587b78cd7802b3513f9bc36c5afdb1fa6748ec5311ce3de582e"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "9520ff4b075715bc0ebba41fe782cea59cd99302a43664468b8d651e020d8fda"
+    sha256 cellar: :any, arm64_tahoe:       "25016fa58d3b0279380309d5cf84fb9b93fdf0efd04959960582a162f8fcdcb4"
+    sha256 cellar: :any, arm64_sequoia:     "038571969a067ab21e406ae2017100b81739db9355eff8bed24e9cfae87be0ba"
+    sha256 cellar: :any, arm64_linux:       "cd09b5c90bdfd7982ad9757cd827c0d44f0b8c9442771738df4036e0c662bb27"
+    sha256 cellar: :any, x86_64_linux:      "2591b3b16799dde5066cb9682c696ff277436f73e0a34d618f541b7bacbea23e"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
@@ -41,8 +42,8 @@ class ConfluenceMarkdownExporter < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "deprecated" do
@@ -106,8 +107,8 @@ class ConfluenceMarkdownExporter < Formula
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/6a/53/ed9d74092561d4b01a2ef1349d52cdbc135e526c245f366b089cfca6de49/python_dotenv-1.2.3.tar.gz"
-    sha256 "a20a594dabeaa385725aa239d5244871c143ecb356add8a20fcf23773a6c3a35"
+    url "https://files.pythonhosted.org/packages/74/26/2fbeedb218a787a5eea551c7532cac4e009f83d689dd2faa0d0353473f86/python_dotenv-1.2.4.tar.gz"
+    sha256 "f0d53e69935a851c0dcc78f3ab7aaccd8cabef0b92382b576b824212902873c0"
   end
 
   resource "pyyaml" do
@@ -156,8 +157,8 @@ class ConfluenceMarkdownExporter < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/16/f7/57713ba479fd405eb76de31404b2c744c289e336b2d999511ebf51e496f7/typer-0.27.2.tar.gz"
-    sha256 "269b7eb9d3c202ca84b4bc9618cb04ebb43d3d4d1e567e4c768607232c05f945"
+    url "https://files.pythonhosted.org/packages/03/51/d33db42cc72ffd8c30777547b42d01f0cbf9d95a770457698d0174b3ed71/typer-0.27.3.tar.gz"
+    sha256 "d0396f770a560ab1b0a8504e13b5f254b728cedb05c61cf0359e944e50ce8901"
   end
 
   resource "urllib3" do
@@ -166,8 +167,8 @@ class ConfluenceMarkdownExporter < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/dc/ac/3a943d2792c9bb368aaa8b50121c0f778460ba2d7fbdc0a0366201d9e761/wcwidth-0.9.1.tar.gz"
-    sha256 "5823209b0d43af322ce698c689380d7c15ca31fa8e6e3be8459f27031bef0af5"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   resource "wrapt" do

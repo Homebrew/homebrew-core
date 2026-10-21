@@ -10,16 +10,17 @@ class CryticCompile < Formula
   head "https://github.com/crytic/crytic-compile.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9fded727d106f47a06410dd3eb5f49f236ddaa19d3cebc71b6a2fcbcf9bb3262"
-    sha256 cellar: :any, arm64_tahoe:       "476d3ca6dea32e86a63eb62a9658da4ffa74367882abea15012bdf72fdb9ae9b"
-    sha256 cellar: :any, arm64_sequoia:     "900b632d6f71a5b9ea075e636873976ee4c22debce245567b97d7a64af2e1485"
-    sha256 cellar: :any, arm64_linux:       "cb4c6f7a1a77040ff09bfb8e048770f13e269092e3709e8b3569b161d95b8a82"
-    sha256 cellar: :any, x86_64_linux:      "9238a4eabb7a759e96afd8d9251bbac83b36ee519db54861a17e2f65d3c03477"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "3836d8778a1c41c75032daf47a92be3f1097f52436e45be801b5e5d6363832d0"
+    sha256 cellar: :any, arm64_tahoe:       "8bc2b0b9b77d37c7750a20691915750cd8100f0c8e332829808170f92df12865"
+    sha256 cellar: :any, arm64_sequoia:     "b2a04f96745ee13d89a72f8d781b2d08b41654554322fe9eb82290243a6042fe"
+    sha256 cellar: :any, arm64_linux:       "dc331d689fa177b75685657a248151be09ee7f227695572261840a6cd1e8c93e"
+    sha256 cellar: :any, x86_64_linux:      "0be12845fb4350b453257bfaabb3e6a71337fe8b53a0aceb1926ebb05daedcd1"
   end
 
   depends_on "rust" => :build # for `cbor2`
   depends_on "certifi" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 
@@ -63,16 +64,16 @@ class CryticCompile < Formula
     sha256 "63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63"
   end
 
+  resource "testdata", :test do
+    url "https://github.com/crytic/slither/raw/d0a4f5595d7177b3b7d4bd35e1384bf35ebc22d4/tests/ast-parsing/compile/variable-0.8.0.sol-0.8.15-compact.zip", using: :nounzip
+    sha256 "2f165f629882d0250d03a56cb67a84e9741375349195915a04385b0666394478"
+  end
+
   def install
     virtualenv_install_with_resources
   end
 
   test do
-    resource "testdata" do
-      url "https://github.com/crytic/slither/raw/d0a4f5595d7177b3b7d4bd35e1384bf35ebc22d4/tests/ast-parsing/compile/variable-0.8.0.sol-0.8.15-compact.zip", using: :nounzip
-      sha256 "2f165f629882d0250d03a56cb67a84e9741375349195915a04385b0666394478"
-    end
-
     resource("testdata").stage do
       system bin/"crytic-compile", "variable-0.8.0.sol-0.8.15-compact.zip",
              "--export-format=solc", "--export-dir=#{testpath}/export"

@@ -22,13 +22,20 @@ class Dcp < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
 
   test do
-    output = shell_output("#{bin}/dcp busybox 2>&1", 1)
-    assert_match "docker socket not found: falling back to podman configuration", output
+    socket = "unix://#{testpath}/missing.sock"
+    output = shell_output("#{bin}/dcp --socket #{socket} busybox 2>&1", 1)
+    assert_match socket, output
 
     assert_match version.to_s, shell_output("#{bin}/dcp --version")
   end

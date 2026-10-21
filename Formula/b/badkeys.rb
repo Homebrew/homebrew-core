@@ -9,24 +9,25 @@ class Badkeys < Formula
   head "https://github.com/badkeys/badkeys.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "92e9142d2b508eef73361de8901a9913f548a126aaebfdb8eb802fe33f46303b"
-    sha256 cellar: :any, arm64_tahoe:       "20b8dc3d5d1c404c79b4eadf8eaa8497e1f0d400611f3aecf4f04c8862f7ba74"
-    sha256 cellar: :any, arm64_sequoia:     "0b193beb57b95d7588416dd4af56e7f2d9b3cb832c749a9b0057637459c858f2"
-    sha256 cellar: :any, arm64_linux:       "83f26506993091d39c8a053275aedc125bcb45a18ccf8bc0323bd2d3d062e826"
-    sha256 cellar: :any, x86_64_linux:      "71d53b19cf02b2e20f7fe9521bd72adb1a19ec7a486238e14fca83ac126ef744"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "f7745b11a144fdaf59fbbde2ac8f09d0bd48d80de4ed7c5b846787ac2dbd954c"
+    sha256 cellar: :any, arm64_tahoe:       "19684ee467e099008191b249bd50e48d1e372403592550cdb5d74c0ecccc7ba1"
+    sha256 cellar: :any, arm64_sequoia:     "091e81418fcba127bb71caba86506de8d15cadf8f414978611b9a4cd58f2b2a3"
+    sha256 cellar: :any, arm64_linux:       "76d09360da1ef272f4ea89d40d4c2ac8c7b158f3cac7f0bafcd9ef9ef01caceb"
+    sha256 cellar: :any, x86_64_linux:      "47aa113209ead5eb41f85e9ef9d9e55b55a11adfbb3ca223c9a615d174ece102"
   end
 
   depends_on "cryptography" => :no_linkage
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "cryptography"
 
   resource "gmpy2" do
-    url "https://files.pythonhosted.org/packages/03/47/5c59682cd4d94291382f447dbe1f6229c8b8a144aa85d32d38ecaf8cfb73/gmpy2-2.3.1.tar.gz"
-    sha256 "313f35e9fe6b9ddf72759b14dac25166fe5757c970403e4bbf87a70ab2be07df"
+    url "https://files.pythonhosted.org/packages/0b/3d/1c648af871024438207d5a017fb3f0ebc6da6b59bb9ff6f5047464a3192d/gmpy2-2.3.2.tar.gz"
+    sha256 "f20b7e2f8fd16f8d6846bb5b73359c3cc5aa41ec5cf266321d362f547c8fd097"
   end
 
   resource "pyopenssl" do

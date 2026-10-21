@@ -1,32 +1,53 @@
 class Libtensorflow < Formula
+  include Language::Python::Virtualenv
+
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
   url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.21.0.tar.gz"
   sha256 "ef3568bb4865d6c1b2564fb5689c19b6b9a5311572cd1f2ff9198636a8520921"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_golden_gate: "608043ba636c34b13b604c5eaf9fcf3f3ab2ffe6a4dd59e8a5c4f9fe33bcddfc"
-    sha256 cellar: :any,                 arm64_tahoe:       "e30c7e633dd48606523ef247d765af4da4a171bde174dd765b1f9a75d364d253"
-    sha256 cellar: :any,                 arm64_sequoia:     "7eec009c5a3ba94e8e4146d2fb776db98a5187e35242a1d480d0df4bb24076f5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2db70d228c438a1c29095f355ef567dfba73d2938381f0494b695e36a6295459"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "2a5029ecf30a3694cddd932e66b6d6379ed8d573daecc54535fd082feba6601f"
+    sha256 cellar: :any, arm64_golden_gate: "120736ceb03358fc1f6ca553a337b83588172627bf649504832806e1d3f9ac2f"
+    sha256 cellar: :any, arm64_tahoe:       "34100fc36d361127dea8feffca407159ef40669d5b21f8e19825c505cdfafc0c"
+    sha256 cellar: :any, arm64_sequoia:     "4f66d7fb898069c20d778c24ab6d107bf4ad922374a6af7d92b5a9c8c5a36bc2"
+    sha256 cellar: :any, arm64_linux:       "5caaa8079fc81c3f06cfbf452fa33e01da15dac5eb3016b59b3ee7c5c9982cfa"
+    sha256 cellar: :any, x86_64_linux:      "fb113a6e5290eab1c62fe1b10fefb26608d42e1a0dcb388eba9d6ae75a6aa0cd"
   end
 
   depends_on "bazel@7" => :build
-  depends_on "numpy" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "python@3.13" => :build # Python 3.14 support: https://github.com/tensorflow/tensorflow/issues/102890
+  depends_on "openblas"
 
   on_macos do
     depends_on "gnu-getopt" => :build
   end
 
   on_linux do
+    depends_on "patchelf" => :build
     depends_on "vim" => :build # for xxd, TODO: try to remove in next release
   end
 
+  pypi_packages package_name:   "",
+                extra_packages: "numpy"
+
+  resource "numpy" do
+    url "https://files.pythonhosted.org/packages/13/01/11703282db468b85f6f7b8c7f22d058de5970d5c7e60a3a8aaa313c3de36/numpy-2.5.3.tar.gz"
+    sha256 "df2d5874ff183595a4ba404edd04f6bd9b5505c1d7708573f6a6c17489a67563"
+  end
+
+  resource "homebrew-test-model", :test do
+    url "https://github.com/tensorflow/models/raw/v1.13.0/samples/languages/java/training/model/graph.pb"
+    sha256 "147fab50ddc945972818516418942157de5e7053d4b67e7fca0b0ada16733ecb"
+  end
+
   def install
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install resources.reject(&:test?)
+
     optflag = ENV["HOMEBREW_OPTFLAGS"].presence
     optflag ||= if Hardware::CPU.arm? && OS.mac?
       "-mcpu=apple-m1"
@@ -34,7 +55,7 @@ class Libtensorflow < Formula
       "-march=native"
     end
     ENV["CC_OPT_FLAGS"] = optflag
-    ENV["PYTHON_BIN_PATH"] = python3
+    ENV["PYTHON_BIN_PATH"] = venv.root/"bin/python"
     ENV["USE_DEFAULT_PYTHON_LIB_PATH"] = "1"
     ENV["TF_NEED_CUDA"] = "0"
     ENV["TF_NEED_MPI"] = "0"
@@ -115,11 +136,6 @@ class Libtensorflow < Formula
   end
 
   test do
-    resource "homebrew-test-model" do
-      url "https://github.com/tensorflow/models/raw/v1.13.0/samples/languages/java/training/model/graph.pb"
-      sha256 "147fab50ddc945972818516418942157de5e7053d4b67e7fca0b0ada16733ecb"
-    end
-
     (testpath/"test.c").write <<~C
       #include <stdio.h>
       #include <tensorflow/c/c_api.h>

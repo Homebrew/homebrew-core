@@ -1,19 +1,16 @@
 class Libjodycode < Formula
   desc "Shared code used by several utilities written by Jody Bruchon"
   homepage "https://codeberg.org/jbruchon/libjodycode"
-  url "https://codeberg.org/jbruchon/libjodycode/archive/v4.1.2.tar.gz"
-  sha256 "0343cf2ff53fb19887663b8c1f47210fc2d1599a4a8f95e292991d5b1034bc05"
+  url "https://codeberg.org/jbruchon/libjodycode/archive/v4.2.tar.gz"
+  sha256 "eeb54fc50b9ebec4e43c954704e69f56c104fede67aaee9f375fbecbb87933b0"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "e0567eabdf5646e3b40e0cd493778df8eb5de6340f04bb5960e3c8ec97c6303b"
-    sha256 cellar: :any, arm64_tahoe:       "0cf544850a13ea319614e60d0adaaf8a0569877f7f98b84d055c9c8205521fa1"
-    sha256 cellar: :any, arm64_sequoia:     "1214902f70141379d7786f2abf597e4f08cf7f569cab23ef42423b413aa1fbbb"
-    sha256 cellar: :any, arm64_sonoma:      "ba8022b4f7c9d9ab4d6d77c65a2678f6566a8ccc58ffcb0247a666ce8a93457a"
-    sha256 cellar: :any, sonoma:            "9bc9879bea3b4c49a46cc4ee4e2f8476664cf66c3351e7f74045af536e6dab95"
-    sha256 cellar: :any, arm64_linux:       "ce11b85bffe45143b963210c3838a8f8e51cf49b0deb41f697bead8315c2a20b"
-    sha256 cellar: :any, x86_64_linux:      "f10e4029e4e88cd570d668edc7c4023b0062acd0690d84bbae981e1c2af0a795"
+    sha256 cellar: :any, arm64_golden_gate: "83e23477ee5a814cd9f6801c5d8fcad6161ba6dc1d941cfb620474a25eaa9176"
+    sha256 cellar: :any, arm64_tahoe:       "073330f62fd7c97addcf3b43fd146b401b9cc2801fc5fc44e7369f55f2b6c8af"
+    sha256 cellar: :any, arm64_sequoia:     "2431749499aabc426faa6f7108f5eea6b5112ed9160cf32232dc4a8e3e9bc9ed"
+    sha256 cellar: :any, arm64_linux:       "eb03e31193bda2be8b75368c1e26caaf364eed93271fbc4bf859993f2a0ac4b9"
+    sha256 cellar: :any, x86_64_linux:      "0b2096e2952453b9016c2f306361fef6ea335f5bdd07c04a7d47faf667f84dbb"
   end
 
   # These files used to be distributed as part of the jdupes formula

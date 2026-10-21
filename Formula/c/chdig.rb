@@ -1,22 +1,26 @@
 class Chdig < Formula
   desc "Dig into ClickHouse with TUI interface"
   homepage "https://github.com/azat/chdig"
-  url "https://github.com/azat/chdig/archive/refs/tags/v26.8.1.tar.gz"
-  sha256 "4d5310d91f9e65132d74db14cd5d5fe2b08f212807d4eb89c427a81b9c7bfc1b"
+  url "https://github.com/azat/chdig/archive/refs/tags/v26.10.1.tar.gz"
+  sha256 "a6c63271cec839d862cab09ef46feb062e6a41b18b826984c92a53b537db1236"
   license "MIT"
   head "https://github.com/azat/chdig.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3c155ddd26af62af18ceaf5d49569ecedfb590bda2090d144f465d75e10b49e6"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d7e580a8dd1e561e97363151dbf8cc07b5df884c2eab72fd9125194bb91a33f7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ade6dbe4732bd359c44f7b09d12c66e0b660b7ba9c3da7336730995f6244240d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "986ec42e080e4d598206191096ef7ecc485bc42c80f75b255a2787cf0e63d958"
-    sha256 cellar: :any_skip_relocation, sonoma:            "3500b35d882bd7e75955ec88f9f1da346b3107258e94c701a90cdea8c7fb8c5e"
-    sha256 cellar: :any,                 arm64_linux:       "a86efd222e19be8b8d4bd0bc40184e1601e8621292263aafc17ea7016ff54a58"
-    sha256 cellar: :any,                 x86_64_linux:      "e9c5b83e195828685200fafc4ed818b06ca2fccdc2c58d90df437999bc3eb5d0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3ac55c87f7a55afef1845831037b0c4211b8e85bdaab6ec7166a6fdde43fa3be"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "743f29415854638dfcd641907de6c0fbbd51cf1fb4779ecfc2be74ea0eaa9bb7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "463487c246eb9169ee202ee96c5b6c259cdffb987692feb3e80c2bbc50464bb5"
+    sha256 cellar: :any,                 arm64_linux:       "ace11384aa346dda2119eb3cf7a1c80bfefde90e4aa8ca878d3302570e3d165b"
+    sha256 cellar: :any,                 x86_64_linux:      "922bb43e421e0139522730a61e0d0c990bedc8eb698258669022fcdb7b4df95a"
   end
 
   depends_on "rust" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

@@ -7,19 +7,12 @@ class Mjpegtools < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "058e46771ed8412fa37bfc7e673f555fcf7a11ac3008d37696044fb9f90f8c7b"
-    sha256 cellar: :any,                 arm64_tahoe:       "3b9ddb01e9c28192d76d02795aeec7c686663dca28d67b7997901c12ba0a3368"
-    sha256 cellar: :any,                 arm64_sequoia:     "ceffd1cacfbd70df4bc8763a63379aef688299d0d454243034964ae4d990fc87"
-    sha256 cellar: :any,                 arm64_sonoma:      "819ed433976e0822f4357ab0b24f2de38f32500e169add9671ebd0fda5d1a818"
-    sha256 cellar: :any,                 arm64_ventura:     "6617edf8918a64e1850a6b94627617a460dc85234bf56c2c4f0af9bd77608d3f"
-    sha256 cellar: :any,                 arm64_monterey:    "c7d05e5fc6d485aa298f4aa7ce6cdfb0c28f2a7792650bba2e3fda8adc030f85"
-    sha256 cellar: :any,                 arm64_big_sur:     "35bd5112b5352ad73c9636e205134628682d93f2502d33951945f676464f1e72"
-    sha256 cellar: :any,                 sonoma:            "1c8e6fee330874d11f0da2845385ce577e8d1727458960d7d43074e0dc12a66c"
-    sha256 cellar: :any,                 ventura:           "1e9e03514b9817e89ed635a9657bb226a3582b52765511e8a8fd36f5a7208ced"
-    sha256 cellar: :any,                 monterey:          "9afd34745954ea736c8e894c42b4552aa414df0d44942a09d7c47a6113c3ed2b"
-    sha256 cellar: :any,                 big_sur:           "49857ba4da574bcbdf2795f9bed39ab9b9ca4c4b3d6ff39196b707f0981e8523"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "eb5ddfcb456ade203f5d6a0d7bd721dab23b7a6ddb365125b358183323b75078"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7efdf0c986f0afd7094a355256ee6743f2ce7720d23f680005e53a8ae5213244"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "b837a632e4043b64a8eb3a6cc1fc8fd27358c6d6a79e0728ed8364b839afcfd1"
+    sha256 cellar: :any, arm64_tahoe:       "2abecdb0e554d4f388fff7348b628a47fb7895743cc8868541724ce4d85ae88d"
+    sha256 cellar: :any, arm64_sequoia:     "c47b25ab68df1da19d4fc125415cec33f6c19dfdb61e7df83a67f34571fb1540"
+    sha256 cellar: :any, arm64_linux:       "21c6aa501bd95efff455177f4f95651efc07094c77ea1bc0bf520996c2d51f44"
+    sha256 cellar: :any, x86_64_linux:      "3d7777e45ce7cdf38caecb5f96e0812d6a9247c378a81e88f7c2efba78de2b80"
   end
 
   depends_on "pkgconf" => :build
@@ -38,8 +31,29 @@ class Mjpegtools < Formula
     resolves "https://sourceforge.net/p/mjpeg/patches/63/"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--enable-simd-accel", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    system "#{bin}/y4mcolorbars -v 0 -n 5 -W 64 -H 48 -S 420jpeg > bars.y4m"
+    assert_match "YUV4MPEG2 W64 H48 F30000:1001 Ip A10:11 C420jpeg", (testpath/"bars.y4m").read(50)
+
+    # Encode to MJPEG AVI and inspect / decode it again
+    system "#{bin}/yuv2lav -v 0 -f a -o bars.avi < bars.y4m"
+    info = shell_output("#{bin}/lavinfo bars.avi")
+    assert_match "video_frames=5", info
+    assert_match "video_width=64", info
+    assert_match "video_height=48", info
+    system "#{bin}/lav2yuv bars.avi > decoded.y4m"
+    assert_equal "YUV4MPEG2 W64 H48 ", (testpath/"decoded.y4m").binread(18)
+    assert_equal 5, (testpath/"decoded.y4m").binread.scan("FRAME\n").size
+
+    # Encode to MPEG-1 video and check for the sequence header start code
+    system "#{bin}/mpeg2enc -v 0 -f 0 -a 2 -o bars.m1v < bars.y4m"
+    assert_equal "\x00\x00\x01\xB3".b, (testpath/"bars.m1v").binread(4)
   end
 end

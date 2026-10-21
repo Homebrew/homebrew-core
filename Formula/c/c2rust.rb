@@ -17,10 +17,27 @@ class C2rust < Formula
   end
 
   depends_on "cmake" => [:build, :test]
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  depends_on "tinycbor" => :build
   depends_on "llvm@21"
 
+  # Allow to build c2rust using brewed tinycbor
+  patch do
+    url "https://raw.githubusercontent.com/immunant/c2rust/9199011134df8ba95a12b8703fe708a947f06c7f/nix-tinycbor-cmake.patch"
+    sha256 "2ee5b463cee25893b274b59d555df524558a40be92a768caf63dd859e9615806"
+    type :cherry_pick
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
+    ENV["TINYCBOR_DIR"] = formula_opt_prefix("tinycbor")
+
     system "cargo", "install", *std_cargo_args(path: "c2rust")
 
     pkgshare.install "examples"

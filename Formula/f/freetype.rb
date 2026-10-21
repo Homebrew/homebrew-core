@@ -1,9 +1,9 @@
 class Freetype < Formula
   desc "Software library to render fonts"
   homepage "https://www.freetype.org/"
-  url "https://downloads.sourceforge.net/project/freetype/freetype2/2.14.3/freetype-2.14.3.tar.xz"
-  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.14.3.tar.xz"
-  sha256 "36bc4f1cc413335368ee656c42afca65c5a3987e8768cc28cf11ba775e785a5f"
+  url "https://downloads.sourceforge.net/project/freetype/freetype2/2.15.0/freetype-2.15.0.tar.xz"
+  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.15.0.tar.xz"
+  sha256 "93cd47eb719c325107f2d3cf087d06299e944c3b48a40b55537302304dea1dd5"
   license "FTL"
   compatibility_version 1
 
@@ -13,16 +13,15 @@ class Freetype < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "fe80e94f6a046b6a473f49fb7a7ec652f4dd921ca29500449c5c198aa83016e9"
-    sha256 cellar: :any,                 arm64_tahoe:       "449e22351da81ba5c8c398f87c295decac6b396bd6fab54becbb3d18800b62d1"
-    sha256 cellar: :any,                 arm64_sequoia:     "905d44c655367754329e9fcc67630c71c03c527f5ee0d9c89794b21e9708b172"
-    sha256 cellar: :any,                 arm64_sonoma:      "4aeceab2c37d3685dd0de24b737f07c33a1098eaf757eb24d8d8bbe6ed68d02d"
-    sha256 cellar: :any,                 sonoma:            "c266877a4676016b189131c87355f3e9be0d5e0edbe3a464b5b6ef039945f199"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "65a5b757dc5949a7d0bcbd86f3ecfc9571b2baca626846d73d214932d0240083"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "4dfd17e1b578e43e2200b48b3b6745e18280df3ce9c9504f365f1bcc8fe8869e"
+    sha256 cellar: :any, arm64_golden_gate: "e95cd1f10672199f21f824b4f8a848c3a4f733df2fcd6e3d88b08446131eeed3"
+    sha256 cellar: :any, arm64_tahoe:       "75125d33e1fa0ea106b138e0458aba3054abd86ad7fbadd86ee4ed81fc8a2174"
+    sha256 cellar: :any, arm64_sequoia:     "7e7a7bb07a484cf6fccb168587d697ed24b98cce52e6ac735debb22adb422237"
+    sha256 cellar: :any, arm64_linux:       "da5494c91d3d359701c6af3bb2c0c3525aa512d1f90fee0fd915c92497b5387d"
+    sha256 cellar: :any, x86_64_linux:      "0f637083d41afca2d7b9b8aae297fc08583897b4659b170f5495f96bdf696c11"
   end
 
   depends_on "pkgconf" => :build
+  depends_on "brotli"
   depends_on "libpng"
 
   uses_from_macos "bzip2"
@@ -31,6 +30,8 @@ class Freetype < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     # This file will be installed to bindir, so we want to avoid embedding the
     # absolute path to the pkg-config shim.
@@ -38,6 +39,7 @@ class Freetype < Formula
 
     system "./configure", "--prefix=#{prefix}",
                           "--enable-freetype-config",
+                          "--with-brotli",
                           "--without-harfbuzz"
     system "make"
     system "make", "install"

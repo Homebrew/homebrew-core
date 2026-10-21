@@ -21,6 +21,11 @@ class Jbig2dec < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "fb3732eb4744293f9354ab856ea2f9b350897fa5408ae9c07330ba454f3ec95c"
   end
 
+  resource "homebrew-test", :test do
+    url "https://github.com/apache/tika/raw/master/tika-parsers/src/test/resources/test-documents/testJBIG2.jb2"
+    sha256 "40764aed6c185f1f82123f9e09de8e4d61120e35d2b5c6ede082123749c22d91"
+  end
+
   def install
     args = %W[
       --disable-dependency-tracking
@@ -34,11 +39,6 @@ class Jbig2dec < Formula
   end
 
   test do
-    resource "homebrew-test" do
-      url "https://github.com/apache/tika/raw/master/tika-parsers/src/test/resources/test-documents/testJBIG2.jb2"
-      sha256 "40764aed6c185f1f82123f9e09de8e4d61120e35d2b5c6ede082123749c22d91"
-    end
-
     resource("homebrew-test").stage testpath
     output = shell_output("#{bin}/jbig2dec -t pbm --hash testJBIG2.jb2")
     assert_match "aa35470724c946c7e953ddd49ff5aab9f8289aaf", output

@@ -1,20 +1,27 @@
 class Gauge < Formula
   desc "Test automation tool that supports executable documentation"
   homepage "https://gauge.org"
-  url "https://github.com/getgauge/gauge/archive/refs/tags/v1.6.38.tar.gz"
-  sha256 "376a1e3ee05fbfac48746284f4149a01929c05dc91af68b4156d2f2b51a2dbd8"
+  url "https://github.com/getgauge/gauge/archive/refs/tags/v1.6.40.tar.gz"
+  sha256 "5c3e2262c96164599a04382d1fecd9462d69efd03cfba6863d67b624973429da"
   license "Apache-2.0"
   head "https://github.com/getgauge/gauge.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f6077050a12ed9462476832026f86048c7ba6c256866ffb5dcc15cd573c65003"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3ff4984cb808e8c9649cc6e012ac8ebc7d911f0bd7ddbaf2a157ae3851549674"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d1735d4a4de47c37de12fd4bd9a2f5247da8608084862b0dcc26849eb03dd0ba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0edc4fa62329c02e7159e7255c4dbd459749a2370b9be0c95d4822336f9701f8"
-    sha256 cellar: :any,                 x86_64_linux:      "061f67e6acb422933d59a46f5d5fa1fd4054f2b390eccb60b757ae898cedd07f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "05342a58f9b807f73ecb5e559cc5b5fa7e00e06cd69ad5cf8443631c77d6d0bf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "36473c686dc9985b2e5dd4858bacff6738dbf3ca01cc3dcb5fbc93e6561db5f5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "36b27cd518553cd664a10bca9f9152d89db64121a898f4561e7008381f731ef9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "631dc9b7256f0dd63d3508f64d3cddf0eef68932896c59ba54e6bf099c2333b6"
+    sha256 cellar: :any,                 x86_64_linux:      "84f1a537f6882828355ed000881907cd967930b4585433f82badaeff5874fbb1"
   end
 
   depends_on "go" => :build
+
+  # Test installs a gauge plugin
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     system "go", "run", "build/make.go"

@@ -1,14 +1,15 @@
 class Qtsvg < Formula
   desc "Classes for displaying the contents of SVG files"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtsvg-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtsvg-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtsvg-everywhere-src-6.11.2.tar.xz"
-  sha256 "d594337feca84c26fb67fe87b85e6a5c12fda404b611d905f9d138210c311876"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtsvg-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtsvg-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtsvg-everywhere-src-6.12.0.tar.xz"
+  sha256 "e4ab39534ec97987b1b9b60ef7f4d3253d5912a69f8c713a01753174a4029331"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-3-Clause", # *.cmake
   ]
+  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qtsvg.git", branch: "dev"
 
@@ -17,12 +18,11 @@ class Qtsvg < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1b3b1533c853a61f6c32e47f7da21f98a53805866be4adac57aa7c569e20ab74"
-    sha256 cellar: :any, arm64_tahoe:       "abd651fdf753ef854ca99ed77456a31092491559b080e212aad2705f698b2730"
-    sha256 cellar: :any, arm64_sequoia:     "0933d3315651fb72c797d77d5b7b5292b653a96dfdb101fde57471c0b53a0c7c"
-    sha256 cellar: :any, arm64_sonoma:      "928f98adaa4660af6a91a7fbf5aadeed75da92e0fcd22e30c7c3a70e757b95e7"
-    sha256 cellar: :any, arm64_linux:       "27cf7e11a580582f590e1b0941221f989673f1dc161119577e9eef0999796d11"
-    sha256 cellar: :any, x86_64_linux:      "d14bc1241648ffb57e16355ade34e13217cea3bf17483af2d2d1e22d4a0efc94"
+    sha256 cellar: :any, arm64_golden_gate: "d698be4c6f245af24a86e6ac51263591d9482dda1e16c8bf39d537ed55e813c5"
+    sha256 cellar: :any, arm64_tahoe:       "1a50f2c17b353307677e196b992dd177245fcc89b0e729657928973f1af6b175"
+    sha256 cellar: :any, arm64_sequoia:     "a5c37e6d73df990d07e2211012db88abbecf978e163bfe7a02a558e14e8472e7"
+    sha256 cellar: :any, arm64_linux:       "b21b5c7e4201b8320439ec7029df8789f522d73e0cd35747170f6f0932fe165b"
+    sha256 cellar: :any, x86_64_linux:      "0d0096c2d0772cab89184b53e0cc8d6503d9edd5bf9393e89fcca8e268070e8b"
   end
 
   depends_on "cmake" => [:build, :test]

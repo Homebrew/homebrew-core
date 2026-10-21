@@ -1,8 +1,8 @@
 class Rabbitmq < Formula
   desc "Messaging and streaming broker"
   homepage "https://www.rabbitmq.com"
-  url "https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.3.6/rabbitmq-server-generic-unix-4.3.6.tar.xz"
-  sha256 "aa0ff5de9ff0136dc42eba21dc3a973cc3b286437cdba0f45556e890509c1614"
+  url "https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.4.0/rabbitmq-server-generic-unix-4.4.0.tar.xz"
+  sha256 "68c22d5dafa15c0911463aeca73c362d638cd6fb8e407ad39512959c6cc37f0f"
   license "MPL-2.0"
 
   livecheck do
@@ -12,14 +12,16 @@ class Rabbitmq < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "543066449bbfcd6da7003940e1a05be2e71c660d6c9a8a046d2d5c2ba657459d"
+    sha256 cellar: :any_skip_relocation, all: "5ffb37a8f76494407f5ac2e4bd0541031d8ffa9eacaff241cc29416cbb73ced1"
   end
 
-  depends_on "erlang@28"
+  depends_on "erlang"
 
   uses_from_macos "python" => :build
 
   allow_network_access! :test
+
+  def erlang = deps.map(&:name).find { |d| d.match?(/^erlang(@\d+(\.\d+)*)?$/) }
 
   def install
     # Install the base files
@@ -29,11 +31,10 @@ class Rabbitmq < Formula
     (var/"lib/rabbitmq").mkpath
 
     # Correct SYS_PREFIX for things like rabbitmq-plugins
-    erlang = Formula["erlang@28"]
     inreplace sbin/"rabbitmq-defaults" do |s|
       s.gsub! "SYS_PREFIX=${RABBITMQ_HOME}", "SYS_PREFIX=#{HOMEBREW_PREFIX}"
-      s.gsub! "CLEAN_BOOT_FILE=start_clean", "CLEAN_BOOT_FILE=#{erlang.opt_lib/"erlang/bin/start_clean"}"
-      s.gsub! "SASL_BOOT_FILE=start_sasl", "SASL_BOOT_FILE=#{erlang.opt_lib/"erlang/bin/start_clean"}"
+      s.gsub! "CLEAN_BOOT_FILE=start_clean", "CLEAN_BOOT_FILE=#{formula_opt_lib(erlang)/"erlang/bin/start_clean"}"
+      s.gsub! "SASL_BOOT_FILE=start_sasl", "SASL_BOOT_FILE=#{formula_opt_lib(erlang)/"erlang/bin/start_clean"}"
     end
 
     # Set RABBITMQ_HOME in rabbitmq-env
@@ -51,10 +52,6 @@ class Rabbitmq < Formula
       enabled_plugins_path.write "[rabbitmq_management,rabbitmq_stomp,rabbitmq_amqp1_0," \
                                  "rabbitmq_mqtt,rabbitmq_stream]."
     end
-
-    # Help find versioned Erlang executables
-    # TODO: Remove with unversioned erlang
-    sbin.env_script_all_files(libexec, PATH: "#{erlang.opt_bin}:${PATH}")
   end
 
   def caveats
@@ -65,13 +62,13 @@ class Rabbitmq < Formula
   end
 
   def rabbitmq_env
-    <<~EOS
+    <<~ENV
       CONFIG_FILE=#{etc}/rabbitmq/rabbitmq
       NODE_IP_ADDRESS=127.0.0.1
       NODENAME=rabbit@localhost
       RABBITMQ_LOG_BASE=#{var}/log/rabbitmq
       PLUGINS_DIR="#{opt_prefix}/plugins:#{HOMEBREW_PREFIX}/share/rabbitmq/plugins"
-    EOS
+    ENV
   end
 
   service do

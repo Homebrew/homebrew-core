@@ -9,11 +9,12 @@ class DockerSquash < Formula
   revision 8
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e184687f1be079896efa73ebbc13810012a25be09e956d2f9d537f9c6f795dd1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "055ca10faa3f790a33e7d7acd2d1d7d4a73bca981289d7b30b09cfe7c6bc3064"
   end
 
   depends_on "certifi"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 

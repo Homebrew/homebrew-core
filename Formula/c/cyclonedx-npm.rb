@@ -11,6 +11,16 @@ class CyclonedxNpm < Formula
 
   depends_on "node"
 
+  resource "homebrew-package.json", :test do
+    url "https://raw.githubusercontent.com/CycloneDX/cyclonedx-node-npm/43bf9e7e176c4eb3c2d648a5c462f0bf7f401c89/demo/package-integrity/project/package.json"
+    sha256 "2de23dea5663204981638ff9eb4815092fbc34ba93397469be957a306ce6fb24"
+  end
+
+  resource "homebrew-package-lock.json", :test do
+    url "https://raw.githubusercontent.com/CycloneDX/cyclonedx-node-npm/43bf9e7e176c4eb3c2d648a5c462f0bf7f401c89/demo/package-integrity/project/package-lock.json"
+    sha256 "f7570777484bc3f03041264dbe6e9c8ca46b02a55187cda849f3e338aa627d4a"
+  end
+
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
@@ -19,14 +29,6 @@ class CyclonedxNpm < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/cyclonedx-npm --version")
 
-    resource "homebrew-package.json" do
-      url "https://raw.githubusercontent.com/CycloneDX/cyclonedx-node-npm/43bf9e7e176c4eb3c2d648a5c462f0bf7f401c89/demo/package-integrity/project/package.json"
-      sha256 "2de23dea5663204981638ff9eb4815092fbc34ba93397469be957a306ce6fb24"
-    end
-    resource "homebrew-package-lock.json" do
-      url "https://raw.githubusercontent.com/CycloneDX/cyclonedx-node-npm/43bf9e7e176c4eb3c2d648a5c462f0bf7f401c89/demo/package-integrity/project/package-lock.json"
-      sha256 "f7570777484bc3f03041264dbe6e9c8ca46b02a55187cda849f3e338aa627d4a"
-    end
     testpath.install resource("homebrew-package.json"), resource("homebrew-package-lock.json")
 
     system bin/"cyclonedx-npm", "--package-lock-only", "-o", "sbom.json"

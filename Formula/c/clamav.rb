@@ -1,11 +1,23 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://github.com/Cisco-Talos/clamav/releases/download/clamav-1.5.4/clamav-1.5.4.tar.gz"
-  mirror "https://www.clamav.net/downloads/production/clamav-1.5.4.tar.gz"
-  sha256 "1af1117a228f1b5bc7fa91a0dabc37848a99e7d25188e9be8043332ce721dfd3"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/Cisco-Talos/clamav.git", branch: "main"
+
+  stable do
+    url "https://github.com/Cisco-Talos/clamav/releases/download/clamav-1.5.4/clamav-1.5.4.tar.gz"
+    mirror "https://www.clamav.net/downloads/production/clamav-1.5.4.tar.gz"
+    sha256 "1af1117a228f1b5bc7fa91a0dabc37848a99e7d25188e9be8043332ce721dfd3"
+
+    # Backport support for OpenSSL 4
+    patch do
+      url "https://github.com/Cisco-Talos/clamav/commit/0097a6f99d9f6b78381e12b677a38fb62242c41a.patch?full_index=1"
+      sha256 "3d8d697e3d1b369836b2a3b2a4d618de682330b5c804ae655ae36a16d28f7403"
+      type :backport
+      resolves "https://github.com/Cisco-Talos/clamav/pull/1731"
+    end
+  end
 
   livecheck do
     url :stable
@@ -13,20 +25,18 @@ class Clamav < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "842b8386a78d5df3de528efd19fcae0d807622d5c187ac60d386cfb50d03c73d"
-    sha256 arm64_tahoe:       "f3d487c09435064df158bc3cac331c43543a9de9a71fb65add0cb7d65d71a0e4"
-    sha256 arm64_sequoia:     "526101fb67470ea38594bc7ac384ebda619e2a6a6b31de9d45068f8583f20bc3"
-    sha256 arm64_sonoma:      "a95e3bd5dfe9a620c661e1a7bb14a7d0f2fd38ce7cb5050f3c6a37011c0083de"
-    sha256 sonoma:            "89d4e47cf33d494249dbac96cf2ebd04af4ed186e9075d37eb336c22a62fb264"
-    sha256 arm64_linux:       "7c5d9387f73105976d5dad78d6daa0b425da1b22d4b69c5ef2971af8e89a6edf"
-    sha256 x86_64_linux:      "400ed20330f6cc5eb512e92475a7d204774ef48de9b7fef45af3187fd4d021a7"
+    sha256 arm64_golden_gate: "a59d766442b813bb72b06d5ae93b282427ff66833e52469db701d00e860c8642"
+    sha256 arm64_tahoe:       "19e979267ece5b8f2f1799d201d5a04d2985c39cbebb6f5e1891ef6dc8e22ac3"
+    sha256 arm64_sequoia:     "d46ea817789ea3ca3101908de09289d8b40f0e6ab5d0f4d448d28063f67e0bad"
+    sha256 arm64_linux:       "aeb9e1ed1825696e9383ae4a99151c77638965bd81f8b268c8fff09e8359b53b"
+    sha256 x86_64_linux:      "44961a9b9c4bba288f191a7b76331afb865293df939c2bfabcbf5101b2a9f463"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "json-c"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
   depends_on "yara"
 

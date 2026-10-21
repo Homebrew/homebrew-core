@@ -10,10 +10,15 @@ class ShallowBackup < Formula
   head "https://github.com/alichtman/shallow-backup.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2a3b1cb1698b73b6c2b5054d7516853c7a9367a96eeed119ab59257c4e362ee9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "90349129364b6860f54827bb95b3d63162c3684f86766f17e8d60b07647a0fd8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "889b715655e0d750fc15bcb3da8dbfb328d63153a836daf186721c882c44417f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8e864381288f540be45ca058a44468e794253907d1456d461f2484800509e4c9"
+    sha256 cellar: :any,                 arm64_linux:       "64b8252069102479284e2008861cdd7d10d7f8fa2679bce60523533bc6411fd3"
+    sha256 cellar: :any,                 x86_64_linux:      "f30f2da048c4496052b69bddf272cd110888915688515dc2c87118414423af50"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "blessed" do
     url "https://files.pythonhosted.org/packages/0c/7d/44d82d953d9bbcac57fe26507ea7ffba65ef1ec8f41f2b58da2fb12ef26c/blessed-1.50.0.tar.gz"
@@ -41,8 +46,8 @@ class ShallowBackup < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/e0/db/3ca813cbacb23ab6fe46ff38a9b5ef8e73e970c8051f2ce903aacafe0446/gitpython-3.1.62.tar.gz"
-    sha256 "1791de66309bc0c7cfca40bf8d2e3de7ca091cbf94e6051be1ad0722c61062af"
+    url "https://files.pythonhosted.org/packages/6e/2d/6f6e649818da44d4499604802c89329b8d9799687a124e3a5e467a643336/gitpython-3.2.0.tar.gz"
+    sha256 "fb92310af6844d96adc95ca066ed2e617c00e1dbd146a326626c81e72e18cc2e"
   end
 
   resource "inquirer" do
@@ -78,8 +83,8 @@ class ShallowBackup < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/dc/ac/3a943d2792c9bb368aaa8b50121c0f778460ba2d7fbdc0a0366201d9e761/wcwidth-0.9.1.tar.gz"
-    sha256 "5823209b0d43af322ce698c689380d7c15ca31fa8e6e3be8459f27031bef0af5"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   resource "xmod" do

@@ -1,19 +1,18 @@
 class Rtmidi < Formula
   desc "API for realtime MIDI input/output"
   homepage "https://github.com/thestk/rtmidi"
-  url "https://github.com/thestk/rtmidi/archive/refs/tags/6.0.0.tar.gz"
-  sha256 "ef7bcda27fee6936b651c29ebe9544c74959d0b1583b716ce80a1c6fea7617f0"
+  url "https://github.com/thestk/rtmidi/archive/refs/tags/6.1.0.tar.gz"
+  sha256 "809ce56bfa67b80afcfa566927ce242a60b6f4c1bacc7e89486fbcf5624c5721"
   license "MIT"
-  revision 1
+  compatibility_version 1
   head "https://github.com/thestk/rtmidi.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "0312be54d2fa1f3b2276285fc2fa877913761fc2eddd4592916f91138bc30ef3"
-    sha256 cellar: :any, arm64_tahoe:       "5b514e132976094c956351e5f7c3d12a40e67b007d027cc1dae32c526e4231e8"
-    sha256 cellar: :any, arm64_sequoia:     "e575e9ccadbf67966dc23d94135d12403c70f18f0e4fdfc01f7901211663ad5b"
-    sha256 cellar: :any, arm64_linux:       "ad3c2d9efb4fb496dd38f0cf82aa9f4167fd40c1d2e1b059edf064efacc5caec"
-    sha256 cellar: :any, x86_64_linux:      "a4765854e5c0e4419ccb9c95fa8943f021a0e8a09f5cc70e5efb7600720d9207"
+    sha256 cellar: :any, arm64_golden_gate: "6dea7bb61e9391f3a3ab65d0cdafcbaf7a4edf521b49bbfaea66aa385cc9c16a"
+    sha256 cellar: :any, arm64_tahoe:       "dfcb4642bc30dc2c458c2f60999ec20ddd344bfc27c9601cb808ef9b02f081c4"
+    sha256 cellar: :any, arm64_sequoia:     "c7cff7e6397c37c658322393b98996ae2795421f8d6cbed6b85b005977cdab75"
+    sha256 cellar: :any, arm64_linux:       "fcb315cdb016204548009ee7b7c5d7bd9f62a568b0dac37075a31093fc20e8f8"
+    sha256 cellar: :any, x86_64_linux:      "bcff5ce9d46166f6dc5528df1dd5344dc3255b559efe2cdb6c7ef54a4ffd8380"
   end
 
   depends_on "cmake" => :build

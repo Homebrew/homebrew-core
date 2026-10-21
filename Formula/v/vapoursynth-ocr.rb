@@ -4,24 +4,22 @@ class VapoursynthOcr < Formula
   url "https://github.com/vapoursynth/vs-ocr/archive/refs/tags/R3.tar.gz"
   sha256 "e9da11b7f5f3e4acfee5890729769217aa5b385bb573cb303c2661d8d8a83712"
   license "MIT"
-  revision 1
+  revision 2
   version_scheme 1
   head "https://github.com/vapoursynth/vs-ocr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "efe451d2da7015d5e7c58fab723576401e86aced1f3a2365fd9e7b7cefd89a32"
-    sha256 cellar: :any, arm64_tahoe:       "4ccfbd44ff93e0f78643332c798346e6479fb87045fdcf50f29843155ad9c377"
-    sha256 cellar: :any, arm64_sequoia:     "5617d9225a32445a33dee971980b3cea4917b1b26ffc7d37811417daaed1d19a"
-    sha256 cellar: :any, arm64_sonoma:      "5a0b6dbc7cf8fbb2cd5eea410badfa459ad28a09ea5b01d44e20b482fc427bb1"
-    sha256 cellar: :any, sonoma:            "f704f5d1c64d57421f3b68e10cae855197757b841e232657ed387b6fa2410ba3"
-    sha256               arm64_linux:       "be8cdbe8e26862454aff1e05c0b6edac7b05cebe5c22ed724908834ef667756a"
-    sha256               x86_64_linux:      "6f48fa48839bcd4c6bfe4c6b0c687ee3ce91048b953096f0027bd136ba25ea5c"
+    sha256 cellar: :any, arm64_golden_gate: "1fd7b4b155da4e95c9923f3d211ecf67d05b0aef9f6b4571399e97fa45ec42b4"
+    sha256 cellar: :any, arm64_tahoe:       "c968f89e3c811a95fa7bfdefd19866ee5ddea675e9563a91454ebcd99ef0ecc8"
+    sha256 cellar: :any, arm64_sequoia:     "3e12656a5afcb516b4aa9a93046623cb1ff03e01ba67be4ff49f8a8946204e6a"
+    sha256 cellar: :any, arm64_linux:       "2f8e6160a413cbbf03898e47d3cd84482b1de8fd79967698958d8f9698be6e08"
+    sha256 cellar: :any, x86_64_linux:      "0e082d5f8a530380212cd383bb135936c6757de6c9fa338db1b2bc77a6eff993"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "tesseract"
   depends_on "vapoursynth"
 

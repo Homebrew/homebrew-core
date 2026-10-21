@@ -1,34 +1,39 @@
 class CargoGeiger < Formula
   desc "Detects usage of unsafe Rust in a Rust crate and its dependencies"
   homepage "https://github.com/geiger-rs/cargo-geiger"
-  url "https://github.com/geiger-rs/cargo-geiger/archive/refs/tags/cargo-geiger-0.13.0.tar.gz"
-  sha256 "02a3999b58e45527932cc9fa60503b3197f011778dc1954909fb5fe9dd168f72"
+  url "https://github.com/geiger-rs/cargo-geiger/archive/refs/tags/geiger-0.14.0.tar.gz"
+  sha256 "60bc6aa6e0169aa9be755188fd42f496b92cf8fb3b6c9e9c1c10be48fe2ea82c"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/geiger-rs/cargo-geiger.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_golden_gate: "65fcd034dfe8323592080d1af45ffda42215b4c1a1c34b1047a46f5de89f8bd4"
-    sha256 cellar: :any,                 arm64_tahoe:       "88ec2b410e24b605256007ac5638b8a5a49d5ffb1a62e60393961e11971a1d42"
-    sha256 cellar: :any,                 arm64_sequoia:     "51b91185a2d416c65ad628f9b84a5e1612c8e44a5f0418099bb4407d6cf77fcd"
-    sha256 cellar: :any,                 arm64_sonoma:      "6a5a514bbee93789316736a19e716ea74bfaa877a8627aa45fe28fc9c9033228"
-    sha256 cellar: :any,                 sonoma:            "777ba436a9bb9416bcf1bdd7988a8da9ac1a4b50943990b7dd78f974b070889a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "043847d1967ef34c4e55f3825c3498fa3f919ce919232316323bdcb3e3ed1e18"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "991088f8555c7dabbe84f4519d8d4b527d14bc035f6db978da4a605efb9f1145"
+    sha256 cellar: :any, arm64_golden_gate: "c2582520ce44aeaa862431604617396e65f792e3486dd0439f5754ac41c3d144"
+    sha256 cellar: :any, arm64_tahoe:       "973839796b092a60d16096c2fbce68bf73f32625bfd605e2e797186e9b6d0e73"
+    sha256 cellar: :any, arm64_sequoia:     "0739657c209ab356518f0924bcb0c5e6ab7802ba30377423c90d4ff0a5a4826d"
+    sha256 cellar: :any, arm64_linux:       "a7fa7a4e581da9ab923ee28c274dacc84d8471950c38b8ffb9c33d8e36cbd8c5"
+    sha256 cellar: :any, x86_64_linux:      "6a31427b3e30682fd030328e2f9c486df5f88629244842ddca524df784cbbdf6"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "rustup" => :test
-  depends_on "openssl@3"
+  depends_on "openssl@4"
+
+  uses_from_macos "curl"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
 
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
     system "cargo", "install", *std_cargo_args(path: "cargo-geiger")
   end
@@ -66,8 +71,8 @@ class CargoGeiger < Formula
     require "utils/linkage"
 
     [
-      formula_opt_lib("openssl@3")/shared_library("libcrypto"),
-      formula_opt_lib("openssl@3")/shared_library("libssl"),
+      formula_opt_lib("openssl@4")/shared_library("libcrypto"),
+      formula_opt_lib("openssl@4")/shared_library("libssl"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"cargo-geiger", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."

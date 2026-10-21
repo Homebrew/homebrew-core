@@ -1,24 +1,28 @@
 class Rip2 < Formula
   desc "Safe and ergonomic alternative to rm"
   homepage "https://github.com/MilesCranmer/rip2"
-  url "https://github.com/MilesCranmer/rip2/archive/refs/tags/v0.9.6.tar.gz"
-  sha256 "657ded2ee364e0d548697c0de28ae4e8d9564c0b5c63fd16b6718edba9a33554"
+  url "https://github.com/MilesCranmer/rip2/archive/refs/tags/v0.9.7.tar.gz"
+  sha256 "8f3dbd77775e4b632e99eff6cd3b0ac4e9f886d7e879d8648484cf3e7d0e0cee"
   license "GPL-3.0-or-later"
   head "https://github.com/MilesCranmer/rip2.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6a8b11a52014c1e941d170c4a88713521f5d3f865cf21a582d62d20930c87651"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7a0e49f9192ce8230a4ed85ed3db21c92aa67a83528eed0cc7f84bf60972c6aa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eff959874609fee82ce0b0f3cf597cf5940ff57c293cad89d24889e8a17088f0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "bbb60b76782a258804c09b7367108f11de0f388bf9780c4278c9192bc383fdb6"
-    sha256 cellar: :any_skip_relocation, sonoma:            "4604458cdf5d35b317fc845448ff700c39151f070f7503794a38969f54bc41b4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8ab9740bddaace23b393153f08988f7afccd60b67c3f81c5319b88acc55b4d24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6a582694b6bcd21a59f5393e5d56b648b3c553d5be2e1b31b49106a099d970a2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6f967fb6f3431a6c4ab981a44f2684b712001c63b5d653bbd19374b481da1ae6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eb8162b1904822d5ba4ae34d49d9d8a2da2acdec0fc2251ce5c46012b772ad80"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fa8efa4b7b779fd88b61cfc77bf9d151bf045d04eb1f558523b73b10a7a6889a"
+    sha256 cellar: :any,                 arm64_linux:       "3d45726bcf83c28ccc1ae2cbf4d0ce24885de05a296ace8207c8e3466dffbae4"
+    sha256 cellar: :any,                 x86_64_linux:      "48edd668cb28e1477f327362a7b6cbf8bdf2a269ae60855349a50bc9fcd6f569"
   end
 
   depends_on "rust" => :build
 
   conflicts_with "rm-improved", because: "both install `rip` binaries"
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

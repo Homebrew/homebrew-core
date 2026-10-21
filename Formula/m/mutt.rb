@@ -10,10 +10,11 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://ftp.osuosl.org/pub/mutt/mutt-2.4.2.tar.gz"
-  mirror "http://ftp.mutt.org/pub/mutt/mutt-2.4.2.tar.gz"
-  sha256 "2703ff1a51a99c3163d4fd998ac22e982bbd5493d512a7c5bde716a8adba0394"
+  url "https://ftp.osuosl.org/pub/mutt/mutt-2.4.3.tar.gz"
+  mirror "http://ftp.mutt.org/pub/mutt/mutt-2.4.3.tar.gz"
+  sha256 "ce9154e3afede622d98b90a22c87d06f32051c930a9afb2b7ef41656c4dbc948"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "http://www.mutt.org/download.html"
@@ -21,12 +22,11 @@ class Mutt < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "695ca4f237e987b8121e9997a05b73d83654394624f737e45b5bb733d8d35a6f"
-    sha256 arm64_tahoe:       "85472b3588f5f0d7468c28564740d94f4ba8b76003f719d20394795cdabd3cd2"
-    sha256 arm64_sequoia:     "d0e62c89594c32f7635a125b454d79dc2b38104d2d64d57456a45e32b65103ca"
-    sha256 arm64_sonoma:      "91ed9e4e9b0d6885c48355265dd724e6efd685639e4c34e1a2560db10801fdae"
-    sha256 arm64_linux:       "dac27c9ff346a88230810b1084725f3bbd3f60fc1de3795803c914b4bcc1e263"
-    sha256 x86_64_linux:      "543d6134dfaa023dd55d1833c0d793573634e6ec448bbfcc7490c4ef220cbaa2"
+    sha256 arm64_golden_gate: "919e6e5ba8d967a2b36270c11a19b2b1f77e6713c4a276342a0f148b7b9a5443"
+    sha256 arm64_tahoe:       "3eb26fc7b2b55bbb084c710489952b428070d952829243538f742b4f916268bf"
+    sha256 arm64_sequoia:     "b0627a57334416c3a042c4a622958099d908dfa472aeafa49eb1f309371e0bf3"
+    sha256 arm64_linux:       "292c17925597fd7c6d17cb5ed73db5ffdd4dd9ed28e434243af4f1f7080780a3"
+    sha256 x86_64_linux:      "6ddb3d4329a6d6d04be1a49709fe21b1dd328f788044b4791cd0e73cb422c52a"
   end
 
   head do
@@ -45,7 +45,7 @@ class Mutt < Formula
   depends_on "libidn2"
   depends_on "lmdb"
   depends_on "ncurses"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "bzip2"
   uses_from_macos "cyrus-sasl"
@@ -82,7 +82,7 @@ class Mutt < Formula
       --with-idn2
       --with-lmdb
       --with-sasl
-      --with-ssl=#{formula_opt_prefix("openssl@3")}
+      --with-ssl=#{formula_opt_prefix("openssl@4")}
     ]
 
     configure = build.head? ? "./prepare" : "./configure"

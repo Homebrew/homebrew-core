@@ -9,14 +9,15 @@ class Jello < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5e5564ce4d6f9a2095a9c16340ee5515b242d69d58c0e40a1b11203378507f65"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "c8309f9add296020c8fd450140fe405ecf2a8888b53b48c9e96d58ebed9f1a56"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   def install

@@ -1,8 +1,8 @@
 class Limine < Formula
   desc "Modern, secure, portable, multiprotocol bootloader and boot manager"
   homepage "https://github.com/Limine-Bootloader/Limine"
-  url "https://github.com/Limine-Bootloader/Limine/releases/download/v12.9.1/limine-12.9.1.tar.gz"
-  sha256 "ee7c498670d0d16c897ecb391cd837cd375081cfd364bd3198db144c92aaccb4"
+  url "https://github.com/Limine-Bootloader/Limine/releases/download/v12.9.4/limine-12.9.4.tar.gz"
+  sha256 "4f75ffca8e11a1030e43e2b9ab82fac1a0f8985e1c40d429fea9fd2972693447"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,11 +11,11 @@ class Limine < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "339afa246218e3ec848437fd9b2b8436f98ee88dc068a2afd8cf229ea38a4260"
-    sha256 arm64_tahoe:       "8e16ba5a432a6b3d4222155e402aa21e1533cde582599f9a3b7f5aad24b4d2e1"
-    sha256 arm64_sequoia:     "9618d1e5452522893a1727b568d605fd031385556dc9b76494caed0a55b8a2be"
-    sha256 arm64_linux:       "8ae959a32d0ca1575ae002f84058ca65283b6ecb65890fc35d4ad9c6c0078ed0"
-    sha256 x86_64_linux:      "df30c9c3c083785e318f1fe797be12d5def83e57b531b73b541eded6b61ee81d"
+    sha256 arm64_golden_gate: "819b2007a752db7de447b61aebeb8c5a52344665a4b7602659b3fd06a53cbe34"
+    sha256 arm64_tahoe:       "a89bd5d437964399b10c018a41b605f9f23894b27fcc0abed1ffe15a0dcfc9d2"
+    sha256 arm64_sequoia:     "aa3e1c1e9e26f4e7bbec3411f7ceef490467373ca91a7c7680e9738cd71a3c54"
+    sha256 arm64_linux:       "f7301f778cffe7a356a81e679d5e2706befce1574af6d69a5f7c28d0397021f3"
+    sha256 x86_64_linux:      "9a8d8df0abb857dc9ac212e926c48cc3ce10cf9ee2c70da5867664f7012503d7"
   end
 
   # The reason to have LLVM and LLD as dependencies here is because building the
@@ -32,11 +32,6 @@ class Limine < Formula
   deny_network_access!
 
   def install
-    # Work around configure misreading the space-padded output of macOS `od`
-    # Remove in the next release
-    # Ref: https://github.com/Homebrew/homebrew-core/pull/313773#issuecomment-5851072866
-    inreplace "configure", '-N 1)"', "-N 1 | tr -d ' ')\""
-
     # Homebrew LLVM is not in path by default. Get the path to it, and override the
     # build system's defaults for the target tools.
     llvm_bins = formula_opt_bin("llvm")

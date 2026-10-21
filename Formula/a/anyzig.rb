@@ -1,8 +1,8 @@
 class Anyzig < Formula
   desc "Universal zig executable that runs any version of zig"
   homepage "https://github.com/marler8997/anyzig"
-  url "https://github.com/marler8997/anyzig/archive/refs/tags/v2026_03_26.tar.gz"
-  sha256 "bad066c1d98a4ac469cf1d9a0203a3be65425d4cd0bc1f1a3dbf042ebb9c1c62"
+  url "https://github.com/marler8997/anyzig/archive/refs/tags/v2026_10_13.tar.gz"
+  sha256 "fa87b33ea91cda5f7df7bfb74fdb4ead644b53f68a5bdf9480b7292bcb1affbe"
   license "MIT"
 
   livecheck do
@@ -16,25 +16,22 @@ class Anyzig < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b74b8a10618d168a874dfb7cbb1bd8a32a81347b6a818f223b47867090b86f23"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e325f79fe7feec7d8be39362aeb50782bf324ea99c074fb1eb392dc7991e0b96"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22edb36bfb2d62b7c3e70b970fb811fc9c3609eefe87181d5e7c5200b2e8a206"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1b8227dc878ab1f9ddb379e15ae0d886f40dcdd4a472314c6fb96eafe96a075c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eff964177238e0129e2dce0d96b6e0c09a690da2135148607b6597f409179034"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ec5b50befefe7b3e36c11b2ad750ba9e64905a1594fc3ec5d74a08b5e8abd82"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "59f476bf71a90d6166bb03115d81576680f174d2158ee6d04fd073afe8191448"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b48dc89c7179364378d93e421209812f5514f4adcca340a3a88d4196dde79aa5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b7fc211cf8b92a6ba711060929c8f4091e9486be706dafb78037ccb02b48a6f0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "c36b277f82fbd5b97605f15f09399006c656db2df8d48790cd7dbe13e7363466"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e0f6b8a9e59298eb131045a38d6444a3d26c735fcfc77916ae758936d8f0a5c8"
   end
 
-  # Aligned to `zig@0.14` formula. Can be removed if upstream updates to newer Zig.
-  deprecate! date: "2026-08-19", because: "does not build with Zig >= 0.15"
-  disable! date: "2027-08-19", because: "does not build with Zig >= 0.15"
+  keg_only "it conflicts with zig"
 
-  depends_on "zig@0.14" => :build # https://github.com/marler8997/anyzig/pull/76
+  depends_on "zig" => :build
 
-  on_macos do
-    depends_on maximum_macos: [:sequoia, :build] # TODO: remove with Zig 0.15+
+  deny_network_access!
+
+  def fetch
+    system "zig", "build", "--fetch"
   end
-
-  conflicts_with "zig", because: "both install `zig` binaries"
 
   def install
     args = %W[-Dforce-version=v#{version.to_s.tr(".", "_")}]

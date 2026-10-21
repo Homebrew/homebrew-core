@@ -1,10 +1,10 @@
 class Qttools < Formula
   desc "Facilitate the design, development, testing and deployment of applications"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qttools-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qttools-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qttools-everywhere-src-6.11.2.tar.xz"
-  sha256 "9ea75af35c512f7e09e61c8c3af3997f13b4d43bb099cf43fcec470126b4041e"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qttools-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qttools-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qttools-everywhere-src-6.12.0.tar.xz"
+  sha256 "8dab8f3611496486a470ad5f115ceea584f36bc22a2b8b6f6ebdbafbb8160693"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
@@ -19,12 +19,11 @@ class Qttools < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "bd09f31f569d3d0c50a9715ef48ec16901e64f9a50863b61741b444a064b442e"
-    sha256 cellar: :any, arm64_tahoe:       "bfa3b31e8c5e13163476f62302e6ca3e93d2eaca559cc7bf90b34761aa713f31"
-    sha256 cellar: :any, arm64_sequoia:     "b2ac23fcf18daa058f65806f691517cf8299bb4fab775fffdb4cfc635746596e"
-    sha256 cellar: :any, arm64_sonoma:      "ca05919b151e8e6d4b937745f09e87770207675e06751645dadd91a5904963c3"
-    sha256 cellar: :any, arm64_linux:       "761efe70e18f05fbade316d2f88e93bd2692f4623da68f60321ac4df63dc3555"
-    sha256 cellar: :any, x86_64_linux:      "9cc0642a824fbf6f8530a57652dbbce0692db9616abcc6ba608ced6ac3e0a3ef"
+    sha256 cellar: :any, arm64_golden_gate: "7dfee97bbb7d1b4a2474e3449f2a2d0e836439bac5da1de4cb672e0b1eb4215a"
+    sha256 cellar: :any, arm64_tahoe:       "f04dfe220eb9a4bf083001e7885785fd4c177168a346f7243a87bb07818ca3b3"
+    sha256 cellar: :any, arm64_sequoia:     "dda285ceee6e4547ed2da70b80089df0946a812f31747513901c09c35e53cf00"
+    sha256 cellar: :any, arm64_linux:       "962a181d0da98cce3852b61139fe7f9134f45fccf19428fc9ce9d6b7eac33483"
+    sha256 cellar: :any, x86_64_linux:      "0526289e13b3fee48968d455f82d32856b257fb668c17b28c40f88cd912dcb0b"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -41,13 +40,6 @@ class Qttools < Formula
   end
 
   conflicts_with "qt@5", because: "both link conflicting binaries"
-
-  # Backport qlitehtml's litehtml 0.10 support, which qttools has not pulled into its submodule yet.
-  patch do
-    file "Patches/qttools/litehtml-0.10.patch"
-    type :backport
-    resolves "https://code.qt.io/cgit/playground/qlitehtml.git/commit/?id=1f56cfe0a8e9a8a99072e0d325632bd8dc0e20d3"
-  end
 
   def install
     rm_r("src/assistant/qlitehtml/src/3rdparty/litehtml")

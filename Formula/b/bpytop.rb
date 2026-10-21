@@ -10,17 +10,15 @@ class Bpytop < Formula
   head "https://github.com/aristocratos/bpytop.git", branch: "master"
 
   bottle do
-    rebuild 6
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "012bc1b554fd27ca4960cc81c1423fe6b5e56f00c14894558abf00bcab6de259"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b19bca99c4b0dadd6f0acaab677713cb36e69066d938e40975bb6ec5e1e5e0a5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f5de2cc3e6a468f7de3afc1a4c0e89b6fdc5b015c9948a069163a4cd8f5e883f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "a68fda2ed5723d9a9dbd8314b432256fea597aed76249e118f5d84f9ad7f3435"
-    sha256 cellar: :any_skip_relocation, sonoma:            "f47e3022d6b8328e32736b7193ac9d3c6678567697ad808252db830ce3b634db"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "7c67cef4be215e9374aebee5f4541a7f87b4d3a87dde27c738ce4f9d349ad90c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f8429d3cbe14ef4215355724446eb5720130c89d596441d7184166f3b4c1f8dd"
+    rebuild 7
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "00cb4c1b77641395ada449f1954fd7fef0fafec953f57718c4a4de581ce5a9d5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ed3b3902a8c0082d56296be270fb11c764018d810f1cc930e29366697e02f3ce"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bc5641928ce45eb2198dac79fc9c8a559e6041c4f43401b3d6127ba98a2737f0"
+    sha256 cellar: :any,                 arm64_linux:       "9d087d3d7c6cd6f0d7895baed3c26c76f8a16d8b9b315b4493bdd5ffb9c27070"
+    sha256 cellar: :any,                 x86_64_linux:      "e5c2fa1e7c99d34c0000207b7d95b3607bdbcc61a294c402f50a2724c5c0c492"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_macos do
     depends_on "osx-cpu-temp"

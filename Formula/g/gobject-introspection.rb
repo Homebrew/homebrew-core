@@ -7,17 +7,15 @@ class GobjectIntrospection < Formula
   url "https://download.gnome.org/sources/gobject-introspection/1.86/gobject-introspection-1.86.0.tar.xz"
   sha256 "920d1a3fcedeadc32acff95c2e203b319039dd4b4a08dd1a2dfd283d19c0b9ae"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
-  revision 3
+  revision 5
   compatibility_version 1
 
   bottle do
-    sha256 arm64_golden_gate: "bfd6ab36f3f80ffda3a130cbd5890272066447d6468c3dbd4f38b406056be277"
-    sha256 arm64_tahoe:       "7626946518290438bb39682f49b4cbfe48fefa3a2a651314fe7a9e36f9ad7912"
-    sha256 arm64_sequoia:     "722743b16501778a92553b0967b4ac4fc00408fd3742ee5ba9b11ea50a7fc22c"
-    sha256 arm64_sonoma:      "d3bab28068563383c77eba96c97de06c4b9acbce372c6b8ff6d5c6c1feb63887"
-    sha256 sonoma:            "d828266a982a993b4c954aaeda6f948adcdf3875ec33b17d9807aaeb3d0551f7"
-    sha256 arm64_linux:       "18d9306f68f5d7059a8a84cff6cc9af37b95d020f72d3a3fe3e146d331e7a0ab"
-    sha256 x86_64_linux:      "fee8fc3524298ee5eec84ba9af6f6e4dc2e41411bff617ad36651eba79c5df23"
+    sha256 arm64_golden_gate: "bf75452655dd860a22248f3cd6f7978015212a7c63d5aee881daaa5de4bdb538"
+    sha256 arm64_tahoe:       "58065fd01aded5a2542e52430cfcc5fbb11f7f51421d12f05402c95f1fe2f375"
+    sha256 arm64_sequoia:     "f8ae7c52e7c71a75d187fab3c4d6e524ad2a33fa80a38f3b4a36989eb8c9b5a8"
+    sha256 arm64_linux:       "7e066ae8f54f1e69f625a6ff0a0599d18f2d03367a7e7799791ee580978ae4b0"
+    sha256 x86_64_linux:      "19ac75340133f5c431233f2741f2cc2f5de0fcee70508952c7eaf90fd0760958"
   end
 
   depends_on "bison" => :build
@@ -26,8 +24,8 @@ class GobjectIntrospection < Formula
   depends_on "cairo"
   depends_on "glib"
   depends_on "pkgconf"
-  # Ships a `_giscanner.cpython-314-darwin.so`, so needs a specific version.
-  depends_on "python@3.14"
+  # Ships a `_giscanner.cpython-315-darwin.so`, so needs a specific version.
+  depends_on "python@3.15"
 
   uses_from_macos "flex" => :build
   uses_from_macos "libffi"
@@ -36,23 +34,23 @@ class GobjectIntrospection < Formula
                 extra_packages: %w[mako markdown setuptools]
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/00/62/791b31e69ae182791ec67f04850f2f062716bbd205483d63a215f3e062d3/mako-1.3.12.tar.gz"
-    sha256 "9f778e93289bd410bb35daadeb4fc66d95a746f0b75777b942088b7fd7af550a"
+    url "https://files.pythonhosted.org/packages/5a/09/e07c4b5579a79f4b16f8d4f29f6c54514ac787c4ad506b8c4f28a0e6b0bf/mako-1.4.3.tar.gz"
+    sha256 "cd6537fe88d5fec315c55c2f8529bc4ce7a9a352ad7db3eeaa6a66e2dd4ec37a"
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/2b/f4/69fa6ed85ae003c2378ffa8f6d2e3234662abd02c10d216c0ba96081a238/markdown-3.10.2.tar.gz"
-    sha256 "994d51325d25ad8aa7ce4ebaec003febcce822c3f8c911e3b17c52f7f589f950"
+    url "https://files.pythonhosted.org/packages/f8/4f/700155c8c20d9e655dd0732b5fc3c7614f291b9148da271d7388e50bf774/markdown-3.11.tar.gz"
+    sha256 "180224db6aed87ba9ce1f2781ebcd5826253de8ff637112090e24b84502bbf9f"
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/34/26/f5d29e25ffdb535afef2d35cdb55b325298f96debd670da4c325e08d70f4/setuptools-83.0.0.tar.gz"
-    sha256 "025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef"
+    url "https://files.pythonhosted.org/packages/6d/44/f5da03a8ef95d369145c5bb53050e7877c9f3d312e128605fd9504829143/setuptools-84.0.0.tar.gz"
+    sha256 "f4695c21257f0d9b537ec2692c941d02ee143b7cc1276941349a546573b2ef73"
   end
 
   # Fix library search path on non-/usr/local installs (e.g. Apple Silicon)

@@ -26,6 +26,11 @@ class Libemf2svg < Formula
     depends_on "argp-standalone" => :build
   end
 
+  resource "homebrew-testdata", :test do
+    url "https://github.com/kakwa/libemf2svg/raw/1.1.0/tests/resources/emf/test-037.emf"
+    sha256 "d2855fc380fc3f791da58a78937af60c77ea437b749702a90652615019a5abdf"
+  end
+
   allow_network_access! :test
 
   def install
@@ -37,11 +42,6 @@ class Libemf2svg < Formula
   end
 
   test do
-    resource "homebrew-testdata" do
-      url "https://github.com/kakwa/libemf2svg/raw/1.1.0/tests/resources/emf/test-037.emf"
-      sha256 "d2855fc380fc3f791da58a78937af60c77ea437b749702a90652615019a5abdf"
-    end
-
     resource("homebrew-testdata").stage do
       system bin/"emf2svg-conv", "-i", "test-037.emf", "-o", testpath/"test.svg"
     end

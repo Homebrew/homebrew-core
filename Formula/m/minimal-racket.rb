@@ -4,6 +4,7 @@ class MinimalRacket < Formula
   url "https://mirror.racket-lang.org/installers/9.3/racket-minimal-9.3-src.tgz"
   sha256 "19bdc4f9507737e7f4a11b6411d184683c336b5942d0700ddaf2f4c54d639146"
   license any_of: ["MIT", "Apache-2.0"]
+  revision 1
 
   # File links on the download page are created using JavaScript, so we parse
   # the filename from a string in an object. We match the version from the
@@ -15,16 +16,14 @@ class MinimalRacket < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "ffd031c7c38780fd9c6716a40400699ce191ff1977fd2a5db5ff6cb9e50d80fd"
-    sha256 arm64_tahoe:       "4244cc788426d12ef29d9d0a68d5182df539d6a26723219176786c69da7a1e27"
-    sha256 arm64_sequoia:     "9646f072359dbec97b1cb86264642eda2cfbca28dc732380f58abb04561ca0e0"
-    sha256 arm64_sonoma:      "a571f7a11dab2f9e844c2b277a94e16a69cb0984cc4fa9c952256c5f640a4606"
-    sha256 sonoma:            "56912e55c16ea6c13257cc3de9cf9ba05e6e7b14fd06628a4247a8d1ed6818c9"
-    sha256 arm64_linux:       "2ecae6e83ad95f50fdea665875c701be8aeeb8def5129b0cd6bcc80a31641afa"
-    sha256 x86_64_linux:      "87c4409b73198f6915d370f09ac2b43fc984468c6bef28b0f59acfdd4b333627"
+    sha256 arm64_golden_gate: "b2348768dd8bf3c68b2d0809d00ba96c282db1bffd28e9f48ded2229cd17ce3d"
+    sha256 arm64_tahoe:       "3479008f05780ee8b5512897c73df988f1744dc88ca782fe94c23fa1346b0e33"
+    sha256 arm64_sequoia:     "ac8f242e9b8601b3c4b2a89314f2bb24c7d73b8d58071ab739c6e7f97d2548bc"
+    sha256 arm64_linux:       "2e77bed0516c7e8eea6d00163eb203d4c8579d5b1ed1f1136e341674a370a5c9"
+    sha256 x86_64_linux:      "cc96c4abe7aa7ac827300c53e6645456f8812c5f6cad78f5ec0285f9d07e5282"
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "libffi"
 
@@ -46,7 +45,7 @@ class MinimalRacket < Formula
 
     # Prioritise OpenSSL 3 over OpenSSL 1.1.
     inreplace %w[libssl.rkt libcrypto.rkt].map { |file| buildpath/"collects/openssl"/file },
-              '"1.1"', '"3"'
+              /"(?:1\.1|3)"/, '"4"'
 
     cd "src" do
       args = %W[
@@ -60,8 +59,8 @@ class MinimalRacket < Formula
         --enable-useprefix
       ]
 
-      ENV["LDFLAGS"] = "-rpath #{formula_opt_lib("openssl@3")}"
-      ENV["LDFLAGS"] = "-Wl,-rpath=#{formula_opt_lib("openssl@3")}" if OS.linux?
+      ENV["LDFLAGS"] = "-rpath #{formula_opt_lib("openssl@4")}"
+      ENV["LDFLAGS"] = "-Wl,-rpath=#{formula_opt_lib("openssl@4")}" if OS.linux?
 
       system "./configure", *args
       system "make"
@@ -69,16 +68,16 @@ class MinimalRacket < Formula
 
       # Link to the Homebrew ssl libraries, overwriting the bundled libraries
       if OS.mac?
-        openssl = Formula["openssl@3"]
+        openssl = Formula["openssl@4"]
         racket_libdir = lib/"racket"
 
-        %w[libssl.3.dylib libcrypto.3.dylib].each do |dylib|
+        %w[libssl.4.dylib libcrypto.4.dylib].each do |dylib|
           path = racket_libdir/dylib
           path.unlink if path.exist?
         end
 
-        ln_s openssl.opt_lib/"libssl.3.dylib",    racket_libdir/"libssl.3.dylib"
-        ln_s openssl.opt_lib/"libcrypto.3.dylib", racket_libdir/"libcrypto.3.dylib"
+        ln_s openssl.opt_lib/"libssl.4.dylib",    racket_libdir/"libssl.4.dylib"
+        ln_s openssl.opt_lib/"libcrypto.4.dylib", racket_libdir/"libcrypto.4.dylib"
       end
     end
 
@@ -124,10 +123,10 @@ class MinimalRacket < Formula
     # ensure Homebrew openssl is used
     if OS.mac?
       output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/racket -e '(require openssl)' 2>&1")
-      assert_match(%r{.*openssl@3/.*/libssl.*\.dylib}, output)
+      assert_match(%r{.*openssl@4/.*/libssl.*\.dylib}, output)
     else
       output = shell_output("LD_DEBUG=libs #{bin}/racket -e '(require openssl)' 2>&1")
-      assert_match "init: #{formula_opt_lib("openssl@3")/shared_library("libssl")}", output
+      assert_match "init: #{formula_opt_lib("openssl@4")/shared_library("libssl")}", output
     end
   end
 end

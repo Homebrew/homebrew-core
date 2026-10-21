@@ -9,19 +9,19 @@ class Litecli < Formula
   revision 4
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "44661b7339c7cf875c9a0c9e9b7be21e4e9cb12652289e1bd24f81a8ad2d4b3b"
-    sha256 cellar: :any, arm64_tahoe:       "ab64562393e8205b8317d0145b831550fedac6a154ef19f246c8b38783f254c9"
-    sha256 cellar: :any, arm64_sequoia:     "042051318c6bbdca17b2d90c271ca9bcc889f81298e69d8902da4736e6f76276"
-    sha256 cellar: :any, arm64_sonoma:      "4798bf90009ed60dfdf7e4ed27c13dffff21328987bd3c16a9df05aa9318c5eb"
-    sha256 cellar: :any, arm64_linux:       "a773b2a1a2669544d97fb893c1515b4f835f45ad2c03b1a9122925f719f9ab7d"
-    sha256 cellar: :any, x86_64_linux:      "5b9fe24c509992126b0d5648157535692bca88c9271f3cf55f45664dcc4dc133"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "4dacff3b229de9b5d8406699488acd1b9a6a162f0e0ebe89235d6ba5448653ae"
+    sha256 cellar: :any, arm64_tahoe:       "9138a0f607efe957d171b7df883ff49e3ae8e9dd80332c2993a03b43c7140beb"
+    sha256 cellar: :any, arm64_sequoia:     "8b0e2e860c1d570571b6a82b22b34eea3a63330ecb179bf6cb90b8f6e135f226"
+    sha256 cellar: :any, arm64_linux:       "120ca128fd514c9249e6d2b4b2cc494fd1a13cf0697f48a1f10f286e4a98059c"
+    sha256 cellar: :any, x86_64_linux:      "395c316139d47b84af053a4d312ae64ddb0fab9bc54db2d2586a0aa91e0c51ba"
   end
 
   depends_on "rust" => :build # for jiter
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "sqlite"
 
@@ -64,33 +64,33 @@ class Litecli < Formula
   end
 
   resource "httpcore2" do
-    url "https://files.pythonhosted.org/packages/be/ad/f4f0e57345f1870f3e8cb624e058d7eca6e5a27d33bcc3311d9b618734cd/httpcore2-2.12.0.tar.gz"
-    sha256 "9293522bba0aa7c4c8e9e3f040c16575bd8868e155a77fa30c7a9085a5eae648"
+    url "https://files.pythonhosted.org/packages/cb/f3/1db7aa2bc2524062192bb0e0323969492d1883152a232fe36eea65f4e35c/httpcore2-2.13.1.tar.gz"
+    sha256 "e0aa977abe17e69a3b820a24542a6fa88702676d83880b8d194dcd18408e5103"
   end
 
   resource "httpx2" do
-    url "https://files.pythonhosted.org/packages/7f/f8/579a8b51e42e38ee32647df9f08aa25643ae788e275cc625b199829c4671/httpx2-2.12.0.tar.gz"
-    sha256 "7631fe9887a8a2275f4a2540e053aa670fcc50742864a9ae7c66e609fdcf12cf"
+    url "https://files.pythonhosted.org/packages/d5/44/474bef2a0e9d90f1715d32cb98b0738695ca17ba324095fb2497ed7fbd59/httpx2-2.13.1.tar.gz"
+    sha256 "e48744a19e3af5ee48313d0ce5fe941d5422fae5705ea922a4aabf94d7800dfa"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
-    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
+    url "https://files.pythonhosted.org/packages/f5/08/8eea9d4b8302028f3abb2c0813953f7aec26d33b7a8960ed760e65ff29fa/idna-3.20.tar.gz"
+    sha256 "a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44"
   end
 
   resource "jiter" do
-    url "https://files.pythonhosted.org/packages/1d/1f/10936e16d8860c70698a1aa939a46aa0224813b782bce4e000e637da0b2d/jiter-0.16.0.tar.gz"
-    sha256 "7b24c3492c5f4f84a37946ad9cf504910cf6a782d6a4e0689b6673c5894b4a1c"
+    url "https://files.pythonhosted.org/packages/9c/1f/8176d92e001f86505424b41664032ae26a882bc9ca41a32c803f373f9195/jiter-0.17.0.tar.gz"
+    sha256 "03e432f226a453851079fb84cd17c6da9991eab723e28d716f14ae3d906e0c12"
   end
 
   resource "llm" do
-    url "https://files.pythonhosted.org/packages/b5/68/baeda27122a280940c5e9ae7291b821fa96ea23f50a00f568e9cff0c3aac/llm-0.35.tar.gz"
-    sha256 "2ee0955b2e372408813ce966f3d03ad2c7419b85a547880c53797d31d3a3fdb6"
+    url "https://files.pythonhosted.org/packages/93/5e/7d5e3c85a64b7b08d74ff6332ece77685383261575c693ed694f0f9c2e78/llm-0.36.tar.gz"
+    sha256 "e59ad30875a99be2eea0c880543b1ebfe40eea24ae55d4008eb1e12c77964626"
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/f2/b0/1100c93f93e1c174205ce8d15a049a446f0dc88e9262c1f1f223fe6b9493/openai-3.8.0.tar.gz"
-    sha256 "6138a5a1333a1be9e4d1edea2d160b311542787b029543f87de4961c66358d16"
+    url "https://files.pythonhosted.org/packages/b7/a3/3b5576af9c4b8cb7eef1383d33c48a9431b292983fe4b78cbffb31d0aeeb/openai-3.28.0.tar.gz"
+    sha256 "cf0509d32d7bd8eb6a3db02417957cb455212b6629d071826b9ea1f61659e2a4"
   end
 
   resource "pluggy" do
@@ -164,8 +164,8 @@ class Litecli < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/36/57/ed58088fafdf4c55a0ad6bde846502567645424d7ebf325230b9237f4085/wcwidth-0.8.3.tar.gz"
-    sha256 "d128512515fbf4612e0ff21fd6380399210318b7b54a9af59dff8454cf9730eb"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

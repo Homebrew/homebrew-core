@@ -1,21 +1,26 @@
 class Macmon < Formula
   desc "Sudoless performance monitoring for Apple Silicon processors"
   homepage "https://github.com/vladkens/macmon"
-  url "https://github.com/vladkens/macmon/archive/refs/tags/v0.8.2.tar.gz"
-  sha256 "f613c7e1b395a68e696b8f2ed82a0157cae87215b91e429e15c98f5a9662076a"
+  url "https://github.com/vladkens/macmon/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "3c7dcff34813bc09f50d5cf077e17ba6e8ca1d8a7509513d07597303b37a10e7"
   license "MIT"
   head "https://github.com/vladkens/macmon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4ab2d41671b597d1fb00b3da2e7fe9cfdda65630d6f4d1fddb5b302af6dacc6c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "371881f2d351ce3291309b4997a61943566084f478ab7913396383268042efcc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "557ed23d9ec407e15c4253544a8b1ddff3c558b4dde2fad45d4eb9ef9cb48b42"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "0f883a324def10d1dfa421af6f46826ea73bd8f81d6919b4eec4da70bf3cfa6c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1045e45fd1ecc443501d9bbf08eb4ef5be07e1e968a11772e1b7f5bceb077595"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e8ecb628af81c224e69ff23fe52ec2a1736b725772b93ce780e6b62ac869a426"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "baff2eddc183c0c4b1ec0735eb9a39a1ca4e4d7a86a623d40e3e7882c686e8ee"
   end
 
   depends_on "rust" => :build
   depends_on arch: :arm64
   depends_on :macos
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
@@ -23,6 +28,6 @@ class Macmon < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/macmon --version")
-    assert_match "Failed to create subscription", shell_output("#{bin}/macmon debug 2>&1", 1)
+    assert_match "hw.nperflevels", shell_output("#{bin}/macmon debug 2>&1")
   end
 end

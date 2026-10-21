@@ -1,26 +1,25 @@
 class Py3cairo < Formula
   desc "Python 3 bindings for the Cairo graphics library"
   homepage "https://cairographics.org/pycairo/"
-  url "https://github.com/pygobject/pycairo/releases/download/v1.29.1/pycairo-1.29.1.tar.gz"
-  sha256 "4fbd26b4af24c9787d84cf5448e34eb8dca064b732479aaecd03109520eebd5f"
+  url "https://github.com/pygobject/pycairo/releases/download/v1.29.2/pycairo-1.29.2.tar.gz"
+  sha256 "3e69fff74fe64f5ba2dfa31f67c6bdf26413342574047437d2ac520d35e9a489"
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
+  revision 1
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a14d5948203f6ed71e367657eee9d071241aa5d9bf748e3036db513197fe60a9"
-    sha256 cellar: :any, arm64_tahoe:       "bb4b42d1a1057e84108f383e0d72955f7cf5975fb6897910cc181dccc8167180"
-    sha256 cellar: :any, arm64_sequoia:     "a5992328b8e630888b26f3c533e4c754f8ca33097ab46c7dce1fcb3501731d8f"
-    sha256 cellar: :any, arm64_sonoma:      "837aee600bfaf857f7131c7e1deadcccccf596182451f08a0fcc543a563aa83a"
-    sha256 cellar: :any, sonoma:            "a6752508c41efaee1a23746104268ca56be9566933fab10e66b18d7871ea29ba"
-    sha256               arm64_linux:       "a526357a59d85808fdfae0eb7b89d0bddaa9d07b994f38a695fceb122b82ed57"
-    sha256               x86_64_linux:      "2329cc38ce7645d0be9da6ce8c153039b6b960099baaa73617f93ce0b2043a61"
+    sha256 cellar: :any, arm64_golden_gate: "f655280ba2f9f284b43ab39f3c6a2400d2844a7b1ce0a4c7386e3fb67e03c666"
+    sha256 cellar: :any, arm64_tahoe:       "b514f1c006f63711ab230bf3833a5a29d18221777250ec51b6fe2269eb42e874"
+    sha256 cellar: :any, arm64_sequoia:     "3bede70c829760bf17e9fa3d66969d3789c85e0927f23b97f07ecc3a2cdc8063"
+    sha256 cellar: :any, arm64_linux:       "a0542258cdfa629cffa2c343751d851280de15d1fae37b948e64404a3f337de0"
+    sha256 cellar: :any, x86_64_linux:      "cdb5fc354213e7e8e3738a403908677a44f087a6a91e85f623ff0616e51726c3"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.13" => [:build, :test]
   depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "cairo"
 
   def pythons

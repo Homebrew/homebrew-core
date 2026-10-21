@@ -26,14 +26,21 @@ class Reaver < Formula
   uses_from_macos "libpcap"
   uses_from_macos "sqlite"
 
+  deny_network_access!
+
   def install
     # reported upstream in https://github.com/t6x/reaver-wps-fork-t6x/issues/195
     man1.install "docs/reaver.1"
     prefix.install_metafiles "docs"
     cd "src"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make"
     bin.mkpath
     system "make", "install"
+  end
+
+  test do
+    output = shell_output("#{bin}/reaver -i test_interface -b 00:90:4C:C1:AC:21 -vv 2>&1", 1)
+    assert_match "Failed to retrieve a MAC address for interface 'test_interface'!", output
   end
 end

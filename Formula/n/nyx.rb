@@ -9,15 +9,15 @@ class Nyx < Formula
   revision 3
 
   bottle do
-    rebuild 6
-    sha256 cellar: :any_skip_relocation, all: "923f5f72eee8bd8f5ed40fb9010489dabe5b954f7bf10edf09634104458e63ad"
+    rebuild 7
+    sha256 cellar: :any_skip_relocation, all: "dbc68f0e69b205068afc61fe51ce45b732a28c08862de8d62e9f0ce55e5ceb2d"
   end
 
   # See https://gitlab.torproject.org/legacy/gitolite/nyx
   deprecate! date: "2026-03-29", because: :repo_archived
   disable! date: "2027-03-29", because: :repo_archived
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "stem" do
     url "https://files.pythonhosted.org/packages/94/c6/b2258155546f966744e78b9862f62bd2b8671b422bb9951a1330e4c8fd73/stem-1.8.2.tar.gz"

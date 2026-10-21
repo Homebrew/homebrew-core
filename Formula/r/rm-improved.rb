@@ -32,6 +32,14 @@ class RmImproved < Formula
 
   conflicts_with "rip2", because: "both install `rip` binaries"
 
+  deny_network_access!
+
+  def fetch
+    # The release's `Cargo.lock` needs to be regenerated.
+    system "cargo", "generate-lockfile"
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end

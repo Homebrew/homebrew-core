@@ -21,6 +21,12 @@ class Tirith < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     # Build only the `tirith` binary from the workspace (skip the threat-db compiler crate).
     system "cargo", "install", "--bin", "tirith", *std_cargo_args(path: "crates/tirith")

@@ -7,20 +7,19 @@ class VimClassic < Formula
   revision 1
 
   bottle do
-    sha256               arm64_golden_gate: "be3edcffbb8005a642b2aea99f587294ebd525b72d26ac8ddd634d090a18f2f2"
-    sha256               arm64_tahoe:       "8b12caf8f290174109cbcf4ac7f96c241db1f70436ba4afb32644074f028eaae"
-    sha256               arm64_sequoia:     "7f83a8be316c2854e6e3a2ce388a69049445821e3a8835adf32e5d67fb0d3f0a"
-    sha256               arm64_sonoma:      "bafdcdd367475cc91ccd5f3ec2756ef0211966ce501a6e460ae01edfc93a9122"
-    sha256 cellar: :any, sonoma:            "4a98780a59b4fad4d357ea27959fc2586860268dcf01cb9be06c2c72419a2130"
-    sha256               arm64_linux:       "ba446864da4aefa72a614f80c5d884b9476ffb794f06b30377a40a5d524bb639"
-    sha256               x86_64_linux:      "61a37cd38bd938a35feaede87c491839bce33d67b2d5d2a8f4cf65e4dfdbdc06"
+    rebuild 1
+    sha256 arm64_golden_gate: "95c1df30090dcfbfc3d61ae796ac69226c6c6cd2d983933563879b72f00642b1"
+    sha256 arm64_tahoe:       "41ad80cc6adfa1dbed886f911b120a9eb35b3a49a19c210b1c8b5f22a775004d"
+    sha256 arm64_sequoia:     "20a4e7502969dccc8c90392246aa965cd949c0c78391315520cbc55518d25c8f"
+    sha256 arm64_linux:       "6156073b2dbeceaa09ca9018ac95024e74b0017ecb4947f2a9c200bf71b913cc"
+    sha256 x86_64_linux:      "f7d0fe354b048c8809b3d6964bc7f973d554d25055f0bf32b40cea5ad47ad265"
   end
 
   # Homebrew Ruby installs (4.x) currently cause a linker error with vim-classic,
   # so we don't try building in Ruby interpreter support.
   depends_on "gettext" => :build
   depends_on "lua" => [:build, :test]
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
 
   uses_from_macos "perl" => [:build, :test]
   uses_from_macos "ncurses"
@@ -40,7 +39,7 @@ class VimClassic < Formula
   def extra_deps = deps.select { |dep| dep.build? && dep.test? }
 
   def install
-    ENV.prepend_path "PATH", formula_opt_libexec("python@3.14")/"bin"
+    ENV.prepend_path "PATH", python3.dirname
 
     # Allow dynamically loading formulae libraries when not linked
     extra_deps.each do |dep|

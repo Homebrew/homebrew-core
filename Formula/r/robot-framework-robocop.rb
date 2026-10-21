@@ -8,14 +8,15 @@ class RobotFrameworkRobocop < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4b2412a399ab2e1a79c083d83ae40a83f9c5b2c6fee39bee6b1beb82db96e32a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5d746b9d2cf820ad07b8816a318e96eb68071d23b70d7fe70efbc121cc4c1ce7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1ba782c253ec44bc7abae7a944eb96889a5c5bf80ca7a8d6e856cb9d2c3c666b"
-    sha256 cellar: :any,                 arm64_linux:       "9a32d972ad37653d440fc43dd3b34a7f4305a5b05a3f45d3e805b45a0cf22005"
-    sha256 cellar: :any,                 x86_64_linux:      "4b69ce7e8bd16218e655f9a9f04cf121f31589024dd1cfbaed06352ef220aa9a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ff67621feb7ca5feabc9d7c3255ae46b1562b5356977ccec410f51806dd6757c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f3f9297044201a676c17dc4a76f71c71d97d7ac526a5971bcfc91acbb3babb89"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c65fcdcaad16481eea448ee9f1e0524277b1222678f6506a120d0ec41dd40b68"
+    sha256 cellar: :any,                 arm64_linux:       "4a9cc34def04dd0e0d80baf70dea2ab978e22940cadf0ffaf67773b66b573e8e"
+    sha256 cellar: :any,                 x86_64_linux:      "d326e4abe8789c7fb4150e37e483ccf1d37a66d8e505c89bc21a802f3ec7d276"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "annotated-doc" do
     url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
@@ -33,8 +34,8 @@ class RobotFrameworkRobocop < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "mdurl" do
@@ -43,8 +44,8 @@ class RobotFrameworkRobocop < Formula
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/6d/44/ea2100ec54d30c46ee9dba10a3bfb79b655e96c6df237238a3234c75869b/msgpack-1.2.2.tar.gz"
-    sha256 "9eb0b0e602064527a045ea28c4f174ed69383587e29cebe28947e3b84106eb2a"
+    url "https://files.pythonhosted.org/packages/0a/e7/bb605a7bab2d8425a64b3fa762b39dc1bf1c7e3f11ba6fb5413d6db0ff8c/msgpack-1.2.3.tar.gz"
+    sha256 "32edb81a2b5eb7cd7c9d941b2bfbbb082fd2cd09e0e725930316af6b708db186"
   end
 
   resource "pathspec" do
@@ -53,8 +54,8 @@ class RobotFrameworkRobocop < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/53/0e/7be2983c52622d6c0899300f760e31ba143355cedf1afcb3e65689d5ca85/platformdirs-4.11.13.tar.gz"
-    sha256 "6985eefdc2298693e4ce1fe124645524cb967428eb6384e0ce5b49767e7ea8ba"
+    url "https://files.pythonhosted.org/packages/90/a1/d5f9002a70298c64a789779077d8dd90c10aa1f47fe40c86802df874f2a6/platformdirs-4.12.4.tar.gz"
+    sha256 "63743c02414e755de4e31b8f68125c1407495b86c5a006e203c01ff8b9924250"
   end
 
   resource "pygments" do
@@ -83,8 +84,8 @@ class RobotFrameworkRobocop < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/16/f7/57713ba479fd405eb76de31404b2c744c289e336b2d999511ebf51e496f7/typer-0.27.2.tar.gz"
-    sha256 "269b7eb9d3c202ca84b4bc9618cb04ebb43d3d4d1e567e4c768607232c05f945"
+    url "https://files.pythonhosted.org/packages/03/51/d33db42cc72ffd8c30777547b42d01f0cbf9d95a770457698d0174b3ed71/typer-0.27.3.tar.gz"
+    sha256 "d0396f770a560ab1b0a8504e13b5f254b728cedb05c61cf0359e944e50ce8901"
   end
 
   resource "typing-extensions" do

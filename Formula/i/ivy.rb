@@ -12,9 +12,22 @@ class Ivy < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     libexec.install Dir["ivy*"]
     doc.install Dir["doc/*"]
     bin.write_jar_script libexec/"ivy-#{version}.jar", "ivy", "$JAVA_OPTS"
+  end
+
+  test do
+    (testpath/"ivy.xml").write <<~XML
+      <ivy-module version="2.0">
+        <info organisation="org.example" module="test"/>
+      </ivy-module>
+    XML
+
+    output = shell_output("#{bin}/ivy -ivy ivy.xml -retrieve 'lib/[artifact]-[revision].[ext]'")
+    assert_match "0 artifacts copied", output
   end
 end

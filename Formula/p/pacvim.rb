@@ -35,8 +35,44 @@ class Pacvim < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     ENV.cxx11
+    inreplace "src/globals.h", "#include <set>", "#include <set>\n#include <string>"
     system "make", "install", "PREFIX=#{prefix}"
+  end
+
+  test do
+    require "pty"
+    require "expect"
+
+    PTY.spawn({ "TERM" => "xterm" }, "#{bin}/pacvim", "10") do |r, _w, pid|
+      r.winsize = [40, 100]
+      refute_nil r.expect("Invalid starting level.", 10), "Expected invalid level error"
+      r.read
+    rescue Errno::EIO
+      # GNU/Linux raises EIO when read is done on closed pty
+    ensure
+      r.close
+      Process.wait(pid)
+    end
+
+    PTY.spawn({ "TERM" => "xterm" }, "#{bin}/pacvim", "0") do |r, w, pid|
+      r.winsize = [40, 100]
+      refute_nil r.expect("LEVEL 0", 10), "Expected level banner"
+      # Text from the installed map0.txt
+      refute_nil r.expect("Every", 10), "Expected map to be drawn"
+      refute_nil r.expect("PRESS ENTER TO PLAY!", 10), "Expected start prompt"
+      w.write "q"
+      r.read
+    rescue Errno::EIO
+      # GNU/Linux raises EIO when read is done on closed pty
+    ensure
+      r.close
+      w.close
+      Process.wait(pid)
+    end
+    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end

@@ -17,6 +17,12 @@ class CfTerraforming < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     proj = "github.com/cloudflare/cf-terraforming"
     ldflags = "-X #{proj}/internal/app/cf-terraforming/cmd.versionString=#{version}"
@@ -27,7 +33,7 @@ class CfTerraforming < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/cf-terraforming version")
-    output = shell_output("#{bin}/cf-terraforming generate 2>&1", 1)
+    output = shell_output("#{bin}/cf-terraforming generate --token dummy 2>&1", 1)
     assert_match "you must define a resource type to generate", output
   end
 end

@@ -1,8 +1,8 @@
 class Dnote < Formula
   desc "Simple command-line notebook"
   homepage "https://www.getdnote.com"
-  url "https://github.com/dnote/dnote/archive/refs/tags/cli-v0.16.0.tar.gz"
-  sha256 "fb63c6099ca441a2027a9e8ae2a3c38376e5c0950bef9e8028b96ca2b8b6427f"
+  url "https://github.com/dnote/dnote/archive/refs/tags/cli-v0.17.0.tar.gz"
+  sha256 "29a15bc4e397a1c02117adc1e5a35ff8f6bd35d50cb36f570144a3d10c2ed0bc"
   license "Apache-2.0"
   head "https://github.com/dnote/dnote.git", branch: "master"
 
@@ -12,13 +12,11 @@ class Dnote < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b5e59f8dd3ca47bec8b24be3f4758ad7c302c9572eccae7de1fb776fa9434fb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9f637f4ab476f78b3958461227122f698b0f11f7ea63b24db9e58c3c766b075e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "883b47fc6eb59dc29cf6bdda3fd5733da9268dd3b5bef0d8a3dd39b3a6fe2be2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "46f67f0f6bed3576a601c8de799a14c46a239b43971ddac113fab02fc3f05b88"
-    sha256 cellar: :any_skip_relocation, sonoma:            "55ef785d358763e6266ad5d5d806cd7bd115b25841b5d161537881babc60f91b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9f11ba266b712e74a4a06caccd74592e975eba3e8157e88ed64bd0e228ade1e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f51a5368322863db842812dde4cd9ddc1db22feecf5fc7c937012c40155c28dd"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4c0f624aa1d2dc38208be0ae287a76e0c2e8fa6d688068ad31d1375499c27d41"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "21fa4192d6a2339847043dd0594643ba4463cfc15a543e19c4bac6d425833370"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0edb2943f3e6812fe0d59141ce3dd403638e89436d4cffec7fc6d1f0f6eb3762"
+    sha256 cellar: :any,                 arm64_linux:       "271061a746c03a40565e4c9082b3a411c21ecfbe779ac775b3dfe80df2cb8374"
+    sha256 cellar: :any,                 x86_64_linux:      "60be9af2505c5c1073535d141ff5005a263e01e7a788858d769093a782ca0a8d"
   end
 
   depends_on "go" => :build

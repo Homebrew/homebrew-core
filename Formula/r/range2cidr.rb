@@ -1,8 +1,8 @@
 class Range2cidr < Formula
   desc "Converts IP ranges to CIDRs"
   homepage "https://ipinfo.io"
-  url "https://github.com/ipinfo/cli/archive/refs/tags/range2cidr-1.3.0.tar.gz"
-  sha256 "562f130483c8c7b2d376f8b0325392136f53e74912c879fae0677ffe46299738"
+  url "https://github.com/ipinfo/cli/archive/refs/tags/range2cidr-3.3.3.tar.gz"
+  sha256 "bcf717e779d72f5b1ee01d808d6c86dfa5d9431ab786391c103a19cf3753948d"
   license "Apache-2.0"
 
   livecheck do
@@ -11,19 +11,11 @@ class Range2cidr < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f77fed73d8736b20cf8cb4b7da47a7586d4ad319962d6bd572481088528f94cc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "222dc28cb19073d0c6d8a68b9a6d26085c247600eb7d99ae4140a46fe78172a7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8ce7fa7b06bdbc333fb6b71d512de6d2c6f040df3123fe3b77662e1562606be4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "9b538cd77fd79f1edbf41c0c74ba289c62ae51d8870712f2b56f5be2f7a1031e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "719332735abc456c90e585fc8f802e418bb9a1d56c6871f5c27247f077577894"
-    sha256 cellar: :any_skip_relocation, arm64_monterey:    "cb9471b5f9b4ea6abefb2a8a3b0ee68125098c66565efb77385e5a5e1a46bbbd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:     "5514b7e035bfdde163594f595f5e776ac8dd998dbdf548d892be91abf06a0ddd"
-    sha256 cellar: :any_skip_relocation, sonoma:            "281b35fa3d1b4294e263c6624e5938051f7fd69de1c418572ea466eaba9c56fd"
-    sha256 cellar: :any_skip_relocation, ventura:           "f40f62f155e78760e2471d49cc545afefdbc3943f69b07c6decaef2174c8bd3b"
-    sha256 cellar: :any_skip_relocation, monterey:          "7559ea0525e6feaecdc50a741185765d4991dbc34c4c57d4a7b0121a4c9f9647"
-    sha256 cellar: :any_skip_relocation, big_sur:           "2103581c5d4bdbac9d5c4e046f2f4344afa65ec6320151a2af2606d4a7a3e617"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "73c474acb521c2a4ed1a79ec3e94851b9d7c25049c92bef5a0f85d2849c82196"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "738f9617ee60fef2ec1f30930b45dfc633d4f65ccdb97659d9d311aa52eb9c2a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "194205c3710533b5bd5313166172d32f749325d1bcd2551c5bf4d9d341594051"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "194205c3710533b5bd5313166172d32f749325d1bcd2551c5bf4d9d341594051"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "194205c3710533b5bd5313166172d32f749325d1bcd2551c5bf4d9d341594051"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b2eba04f51dc44309e0bba1d2948149a22187902322c37cad670ea8e26c991e1"
+    sha256 cellar: :any,                 x86_64_linux:      "a0012abfebcd97ec4e4900fbda3bb10b007a392dce1ff09c61d4da17a3c28f55"
   end
 
   depends_on "go" => :build

@@ -8,16 +8,17 @@ class Opencolorio < Formula
   head "https://github.com/AcademySoftwareFoundation/OpenColorIO.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "0a764ad21304d7562723eb1938fe33246a4405b21064c021e09dac8ea18f3ad2"
-    sha256 cellar: :any, arm64_tahoe:       "467cd0b91a9b07cb25a54592b65f7f5e2ffa71a4ea74bc4db553771aa2544323"
-    sha256 cellar: :any, arm64_sequoia:     "2770dbb2a624170a938ffffe158f3e9828ed79dfd90d3fbb7ab9dc98539f7f73"
-    sha256 cellar: :any, arm64_linux:       "24f3f1ef831c8d4fd9201b1c62f1de3e0c96b0d36eabbee523ede0aea5bc4efb"
-    sha256 cellar: :any, x86_64_linux:      "7f7733a1913f6e80a28164ac1400f7251d7cb3da31c59ae14d10f85ce325b4cd"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "1875fc9c938fc6d92a14e6737f2916a22f61ddc4d6c86c138de626ff1e37a3ea"
+    sha256 cellar: :any, arm64_tahoe:       "d810e410ab8cc4a5f070e328bf1242a474b7ec1e45c741d7e555fea37a988247"
+    sha256 cellar: :any, arm64_sequoia:     "b07a8386e0461ee5ab116478e538b2a4e954a05bad8398e3df63586c5ee0e38a"
+    sha256 cellar: :any, arm64_linux:       "9e15fb67bd4414dd06611faced4217391703cec9f0099eb70d9bd04cae3d76da"
+    sha256 cellar: :any, x86_64_linux:      "76a59ba4315208961b26efe3d92c15e5643c3c301e06df689b1cfbc6aceab115"
   end
 
   depends_on "cmake" => :build
   depends_on "pybind11" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "imath"
   depends_on "little-cms2"
   depends_on "minizip-ng"

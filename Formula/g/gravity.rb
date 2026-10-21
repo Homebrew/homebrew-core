@@ -1,20 +1,17 @@
 class Gravity < Formula
   desc "Embeddable programming language"
   homepage "https://www.gravity-lang.org/"
-  url "https://github.com/marcobambini/gravity/archive/refs/tags/0.9.8.tar.gz"
-  sha256 "c221a8dc747e46de61482631209efd1c3cd95c1b8dd441e7eeeefcdb2fbfce5a"
+  url "https://github.com/marcobambini/gravity/archive/refs/tags/0.9.9.tar.gz"
+  sha256 "6b14bf45a0657c0e5a088e5dc941d72669b086847eb3474bcf65b37a522da548"
   license "MIT"
   head "https://github.com/marcobambini/gravity.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "de226604e489968edf80adeb6bc7ea38f305af6cedd7d1975c8370e4f3714f4f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d1b614f8dbfa6431e31a5d319074600edb9b7b2b7ecf4091206ca3f13db26c2b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "00d97ebd241f51fd20069ae0d1de6a80a333853c358dd81321eef7c5a20490d9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "e1e247a20d7b3ff45c439260d96ed1cdda1ef5aaee838515ffddf99613ae09a8"
-    sha256 cellar: :any_skip_relocation, sonoma:            "71c5ca24b9c6de57d9ed7f236de8dd332b82a460ff95bf59e188b2f509fa9a38"
-    sha256 cellar: :any,                 arm64_linux:       "a11deed37024839e5844abe6b1dc3cff723eaad826c6f0efa1b5d6e4aea725c2"
-    sha256 cellar: :any,                 x86_64_linux:      "e75a4c3ff3d58a4aec68e194d9af29ca0d1a604c8d002e26fb980486616351cf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c9e8301fce9e751f3123aa5f7a58a81d650ce05785727c98a2843452d3dce602"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9838676d3fe8c10e9149c6f90bfdb53fe9f162343a72bfb70170728126046bfb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "541343331427bf176eeb65f78a5068ba403e4b2a1964995af109a7dc2444040c"
+    sha256 cellar: :any,                 arm64_linux:       "0eacb6001e90b237e1fae897399a9ca2c4e38bd778c456e2a0cc40de03219e4c"
+    sha256 cellar: :any,                 x86_64_linux:      "25cacb4b7e2477d0d42dc6e70fc8c2b9a1c71ef3b3f8cb7e37c32cf818dd7cb0"
   end
 
   def install

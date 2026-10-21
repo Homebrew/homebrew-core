@@ -9,11 +9,12 @@ class Bagels < Formula
   revision 15
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c00cf0f68e8b9c067893d733d3566c6d84b60bdac49fd22e54c8b40772375cdb"
-    sha256 cellar: :any, arm64_tahoe:       "127ad073d28c63963b5782b12d35ac6b3446d425a7283571ce878ea2e5d99705"
-    sha256 cellar: :any, arm64_sequoia:     "fc86ade629afcd87b528dee1cd692ebee9c0735dcca5f05293306f58bdaddaf4"
-    sha256 cellar: :any, arm64_linux:       "81a45ad615ab0de2e97f51cc046b92d77265b13689971536180fa732f68e0911"
-    sha256 cellar: :any, x86_64_linux:      "61ebfa0573434f54d04a2b7ec2776d62b00a0094440cc8c9f707b6c5f9792845"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "aa8a67fac185732b1bfdeb6154bbc5d448bf121a8e1719cc7cd1c17b3996e897"
+    sha256 cellar: :any, arm64_tahoe:       "b0441a35532e09d4dc4299e6c84e88b5d25798d12d403afa1f90b2bfa6f76bbd"
+    sha256 cellar: :any, arm64_sequoia:     "61834c7101d7ea107b9f7f6038bed0df85cfa57d6aabd57367e59c84888287c5"
+    sha256 cellar: :any, arm64_linux:       "975182e12ca2c15b9b998529425c7a7d92c87ccb75ffe6d8f51bf3d3bb5b7b9f"
+    sha256 cellar: :any, x86_64_linux:      "86a12133b338f8a911409dea4d173e620e69ae4ab0f95f5ea8c35e8b6fdd809b"
   end
 
   depends_on "rust" => :build
@@ -21,7 +22,7 @@ class Bagels < Formula
   depends_on "libyaml"
   depends_on "numpy"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: %w[certifi numpy pydantic]
 
@@ -31,8 +32,8 @@ class Bagels < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/58/d9/22ce5786ac0c1653ae8b6c23bded02c1686d11f0dbb45b31ce128e0df985/aiohttp-3.14.3.tar.gz"
-    sha256 "9491196535a88924a60afd5b5f434b5b203b6cc616250878dbdb223a8f7844bc"
+    url "https://files.pythonhosted.org/packages/6c/4c/bdccd81e9ee225b69c60e7766c9a5b05364f118f4d383713b89a682d772d/aiohttp-3.14.5.tar.gz"
+    sha256 "5558a7f5a05af9ecf744af91e5baefc436f93c9333e656c27ec253f9a6bbe178"
   end
 
   resource "aiohttp-jinja2" do
@@ -101,8 +102,8 @@ class Bagels < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "mdit-py-plugins" do
@@ -131,8 +132,8 @@ class Bagels < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/17/c8/721b3855fe457da514fe249247d404b9b39c5d16532278f70ebaa6acf18b/platformdirs-4.12.2.tar.gz"
-    sha256 "eab5f70271a490ef74618bb314fbb86e3c7e82fa3b9c922c2ea0e0a1a155d329"
+    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
+    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
   end
 
   resource "plotext" do
@@ -176,8 +177,8 @@ class Bagels < Formula
   end
 
   resource "sqlalchemy" do
-    url "https://files.pythonhosted.org/packages/a8/cb/7c68da82239ffae9378eca076afe14c310e17a4f01e3d315112f266e26c7/sqlalchemy-2.1.1.tar.gz"
-    sha256 "fcf3cbb33bb23bad75d2150157c21804618745731e9931ab27e61879a9f6123b"
+    url "https://files.pythonhosted.org/packages/1f/44/311bac6b6ef81e4dfd0287d04900108b1f5c00c9761dd3c0a2b7b9d0f86b/sqlalchemy-2.1.4.tar.gz"
+    sha256 "7bd7ad604487daa7eab8716471c29a7185f17b5287ce73bb7bc79fea050d8cfd"
   end
 
   resource "textual" do
@@ -186,8 +187,8 @@ class Bagels < Formula
   end
 
   resource "tomli" do
-    url "https://files.pythonhosted.org/packages/22/de/48c59722572767841493b26183a0d1cc411d54fd759c5607c4590b6563a6/tomli-2.4.1.tar.gz"
-    sha256 "7c7e1a961a0b2f2472c1ac5b69affa0ae1132c39adcb67aba98568702b9cc23f"
+    url "https://files.pythonhosted.org/packages/b0/78/9ad63712633ed3ab5cc1a648d863d7e7da371e9425e209555a0fe711b695/tomli-2.5.0.tar.gz"
+    sha256 "264507556cd8b8c8e7c6ee037cdf443a463f03f4c958e57195e3d369711b8ff6"
   end
 
   resource "uc-micro-py" do

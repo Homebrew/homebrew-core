@@ -23,6 +23,8 @@ class Jvmtop < Formula
     depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   end
 
+  deny_network_access!
+
   def install
     rm Dir["*.bat"]
     mv "jvmtop.sh", "jvmtop"
@@ -30,5 +32,9 @@ class Jvmtop < Formula
 
     libexec.install Dir["*"]
     (bin/"jvmtop").write_env_script(libexec/"jvmtop", Language::Java.java_home_env("1.8"))
+  end
+
+  test do
+    false
   end
 end

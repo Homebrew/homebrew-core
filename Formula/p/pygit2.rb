@@ -4,19 +4,20 @@ class Pygit2 < Formula
   url "https://files.pythonhosted.org/packages/9c/11/592cc7854795830a7257ab6025a1fc803b58b0e7bf7d31f619bc7288ed4d/pygit2-1.20.1.tar.gz"
   sha256 "36dff84d237f2b8f18b0b146d6e7c3f99a7bce2da98cc4103a14387f53319f95"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
+  revision 1
   compatibility_version 1
   head "https://github.com/libgit2/pygit2.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e2abda1fe37ef063c31a915d17cbdd21306ad1290f5ff7baa8462be740acc093"
-    sha256 cellar: :any, arm64_tahoe:       "b75937a6e4604325f7197e3a3b3fab48c2c67da3b38e6a4acd5eee4f134b0ba4"
-    sha256 cellar: :any, arm64_sequoia:     "7a2a7fa73b46aa24fe72d1182b208ffcd6755d9c8b2ac264dbb9260d0f3df472"
-    sha256 cellar: :any, arm64_linux:       "78e34cc4ada6ed12cda9fa6161f5f9cb6c4c56a4b2e60ff88807eb57afbf3af5"
-    sha256 cellar: :any, x86_64_linux:      "dedef89ae1f9d119a1d0fce35f78205ecfe4efcb3430ea4e0efcbdc66b46d831"
+    sha256 cellar: :any, arm64_golden_gate: "6b9d27606c9f39b72a196ec82f00a42c80bb62417592f733945d84f5bee9fefd"
+    sha256 cellar: :any, arm64_tahoe:       "43d71afdcb58948ec726f2114403b7fbfe0ec291c8e76d0e0bb1973194141ef9"
+    sha256 cellar: :any, arm64_sequoia:     "eecc90639d6e5078d4331e44398b98c03909057bda77814dd85972895cca654c"
+    sha256 cellar: :any, arm64_linux:       "11f2babe0f9e921f3876567e26177b24f7ca617df3c7da258fdd01d884e544a2"
+    sha256 cellar: :any, x86_64_linux:      "2ba250b5ee0775a76898d32b402010485f7b27385bdc2d0c675c70c929eaaabb"
   end
 
-  depends_on "python@3.13" => [:build, :test]
   depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "cffi"
   depends_on "libgit2"
 

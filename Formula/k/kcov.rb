@@ -2,7 +2,7 @@ class Kcov < Formula
   desc "Code coverage tester for compiled programs, Python, and shell scripts"
   homepage "https://simonkagstrom.github.io/kcov/"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/SimonKagstrom/kcov.git", branch: "master"
 
   stable do
@@ -25,21 +25,18 @@ class Kcov < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "5865b2a3fdd1a916e6efd9355e8c55a238aeb44e0fe2a8f1f4b45a4981696a7e"
-    sha256 arm64_tahoe:       "66b47f9d61f53b74499405515b06143e082dbbb6dc2c7b5c1a5899f70a5e6627"
-    sha256 arm64_sequoia:     "011a405bdcae2f4b98225fd2acaa344dc8f4e1146d11a1278b57d90fc549c8c1"
-    sha256 arm64_sonoma:      "d1f7d21d5295a410fe7f7f1eee6af7893fe25100470079e899129081cd680220"
-    sha256 sonoma:            "01edb51341252ffc753b17bdbdb63cf6c352cc2535742aa2f13c2915f07dda07"
-    sha256 arm64_linux:       "7038d1494b3b56a5fc8f4d3f0b3bf3960597cd0516bf28bc90a2adf4068689b4"
-    sha256 x86_64_linux:      "ad1cff7d8d0f3b6d044604c0ea0c6635048f01a9f2494724a91eac68646135a4"
+    sha256 arm64_golden_gate: "dc4911b119a8ef544c99f9f8fb7328540d4628813eff29982a4512f034ded671"
+    sha256 arm64_tahoe:       "5e54bdf13adaab924aa1b999dbfbd057f002b874ddc8bc07a9420948d827b62d"
+    sha256 arm64_sequoia:     "c141d20ae6e2e32741d2f8de9a9557bd95f64fab020c6115380af6b6e3804acd"
+    sha256 arm64_linux:       "f1943b4533447ff45e052a4274bf90c335763cda65a69600731cd1ed0983750d"
+    sha256 x86_64_linux:      "7c911603055d1dab3d6c52cb19006ab23b91d5bafbf00d8736a483f014a8e257"
   end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
 
   depends_on "dwarfutils"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "python" => :build
   uses_from_macos "curl"
@@ -48,6 +45,8 @@ class Kcov < Formula
     depends_on "elfutils"
     depends_on "zlib-ng-compat"
   end
+
+  allow_network_access! :test
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DSPECIFY_RPATH=ON", *std_cmake_args

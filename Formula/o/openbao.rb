@@ -13,11 +13,12 @@ class Openbao < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e0daec08213e85b46112bf0ba6cad748881c234ce1524274aeddb4adcaf78dc1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7d407b2d76df792039120b7496ddc842a97120f68a1859a410158f12dccc31b1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d29098077ea63d6927b7f5555fa38b4e4541f6b0fe2f0232192c04e854ce110b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3704ded0cb1b26c2680797ec7efa3cadd49957dadaaaae0dbd6cbe06effa10ec"
-    sha256 cellar: :any,                 x86_64_linux:      "279929a735bd53ada8ef3b5533a8dc77684652358804a60d13d5b2e3c2cc77e3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "156b7651c04dda0e21e81282b88ec15f27cc1384e288dc39ff06444e3d180960"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7d3283dfa0ab210155b18b54002bbb49aac0b064cfd5280408443fcccbc481fa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e7e236a2c5afd9645dde9ca1df13fe72c8cf751450e29aac1de026a246576eef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "0c371c395061ffbb1951bd777a8065eb988cd84914f92c31ba15632a905038b2"
+    sha256 cellar: :any,                 x86_64_linux:      "62a66068bfaa8ce67fbf6ce1e79310a6bec02852df4b99565424402c581442f7"
   end
 
   depends_on "go" => :build
@@ -47,9 +48,9 @@ class Openbao < Formula
     end
 
     ldflags = %W[
-      -X github.com/openbao/openbao/version.fullVersion=#{version}
-      -X github.com/openbao/openbao/version.GitCommit=#{Utils.git_head}
-      -X github.com/openbao/openbao/version.BuildDate=#{time.iso8601}
+      -X github.com/openbao/openbao/v2/internal/version.fullVersion=#{version}
+      -X github.com/openbao/openbao/v2/internal/version.GitCommit=#{Utils.git_head}
+      -X github.com/openbao/openbao/v2/internal/version.CommitDate=#{time.iso8601}
     ]
     tags = %w[testonly ui]
     system "go", "build", *std_go_args(ldflags:, tags:, output: bin/"bao")
@@ -64,6 +65,8 @@ class Openbao < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/bao version")
+
     addr = "127.0.0.1:#{free_port}"
     ENV["VAULT_DEV_LISTEN_ADDRESS"] = addr
     ENV["VAULT_ADDR"] = "http://#{addr}"

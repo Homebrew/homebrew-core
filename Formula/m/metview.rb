@@ -1,8 +1,8 @@
 class Metview < Formula
   desc "Meteorological workstation software"
   homepage "https://metview.readthedocs.io/en/latest/"
-  url "https://confluence.ecmwf.int/download/attachments/3964985/Metview-5.26.2-Source.tar.gz"
-  sha256 "6245b34909ac697f941f92ee1293f14f96c31c3919f41db5dba706de6c9d43e3"
+  url "https://confluence.ecmwf.int/download/attachments/3964985/Metview-5.27.0-Source.tar.gz"
+  sha256 "075a8c420c4850bd6695637470ef4a4638486a82d77092c65cc7921a30cdd5f0"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,11 @@ class Metview < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any, arm64_golden_gate: "5a1d1e76099dbf127a5b12d140c67177c89badf19738f851329a68e2fc907057"
-    sha256 cellar: :any, arm64_tahoe:       "bd863ad07297b790be7f2926d5c0ece1ac0e6ac539a917df45bd2598a0505529"
-    sha256 cellar: :any, arm64_sequoia:     "3faa35a75423cf43a8792429f3c37d6ad586573ad6993dd480e143eff9946874"
-    sha256 cellar: :any, arm64_linux:       "4ca04059eda9ac1ba987a1735b48bbe4aacd240c5be43fb00d6bcbeb473513e7"
-    sha256 cellar: :any, x86_64_linux:      "61d3356ddca4c0457bdac6122ee00357340c0adf7fe3bef276de6e92238caa34"
+    sha256 cellar: :any, arm64_golden_gate: "55dea06ea5b4955dbb1487bf450a7582b5bd98b27bacefc4d63927253ce47a2b"
+    sha256 cellar: :any, arm64_tahoe:       "4057fcde198282a5df807e72dfd9ebca94d5eed333ee52d56231b0bf9dc4cddb"
+    sha256 cellar: :any, arm64_sequoia:     "2e41b93fda66bc5744d30db2fc8b0751513088f961be87d91bbf7602e9dd84bc"
+    sha256 cellar: :any, arm64_linux:       "0efe4526e5cefdfad2c78d90601f8a13d5972a79e64106b0af64790fb3adce3b"
+    sha256 cellar: :any, x86_64_linux:      "77a3da9cce7e0a31b7a3f68700f865d43469a31a8d835080f68796e105741ea3"
   end
 
   depends_on "cmake" => :build
@@ -53,12 +52,8 @@ class Metview < Formula
   on_linux do
     depends_on "libtirpc"
     depends_on "openblas"
+    depends_on "util-linux"
   end
-
-  # FIXME: Should be handled upstream
-  # MvTemplates.h:159:11: error: virtual function 'getInfo' has a different return type
-  # ('char *') than the function it overrides (which has return type 'const char *')
-  patch :DATA
 
   def install
     args = %W[
@@ -117,18 +112,3 @@ class Metview < Formula
     assert_path_exists testpath/"test.1.png"
   end
 end
-
-__END__
-diff --git a/metview/src/libMetview/MvTemplates.h b/metview/src/libMetview/MvTemplates.h
-index 1bbb4cc..8296b57 100644
---- a/metview/src/libMetview/MvTemplates.h
-+++ b/metview/src/libMetview/MvTemplates.h
-@@ -156,7 +156,7 @@ protected:
-     TMvFunction(MvTransaction* t) :
-         MvFunction(t) {}
-     MvTransaction* cloneSelf() { return new TMvFunction<T>(this); }
--    char* getInfo() { return Info; }
-+    const char* getInfo() { return Info; }
- 
- public:
-     TMvFunction() :

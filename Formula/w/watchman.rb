@@ -3,17 +3,17 @@ class Watchman < Formula
 
   desc "Watch files and take action when they change"
   homepage "https://facebook.github.io/watchman/"
-  url "https://github.com/facebook/watchman/archive/refs/tags/v2026.09.21.00.tar.gz"
-  sha256 "f6ea4036e4b292f31a9185d55f023aa875e6201f386c85ae8661976d055fcc85"
+  url "https://github.com/facebook/watchman/archive/refs/tags/v2026.10.19.00.tar.gz"
+  sha256 "1d19db2e72b6ebcb0bd6ddd0e10ef55e877c3c4d16009faad20c54ab8eecdae8"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7936525ddc847375460cbbd34935ce55161bae041336efc4eca50a72ab337890"
-    sha256 cellar: :any, arm64_tahoe:       "b389ac112db24749351f8f8da57bce7a03a5c5826c3c409e3b755a49e330b798"
-    sha256 cellar: :any, arm64_sequoia:     "f27e5dd645aead4277830783b88e60f064488e6879a3c2c08700d38ce9272290"
-    sha256 cellar: :any, arm64_linux:       "fe8ddb337a36189cf1cf657fc3312b980eec022cff6db12296ed12223092d31e"
-    sha256 cellar: :any, x86_64_linux:      "8e0bd4d0764ae960ddd5cff021970233e9b8218140769896e52416ff21e3fdeb"
+    sha256 cellar: :any, arm64_golden_gate: "c7af93985ca6ba6f3de85cf1d17610c55ffd07f3ffc5b30270cb3ddd69726a9a"
+    sha256 cellar: :any, arm64_tahoe:       "3c88965da57c61575d4e719699b76fca308c445ffa6a99851aea160849c82f8b"
+    sha256 cellar: :any, arm64_sequoia:     "89a484c6732b5e4a20c5adf466d06789eb231c88fa891e2b490db765ecf43214"
+    sha256 cellar: :any, arm64_linux:       "5c24d6c594cd97aafc87dd9093b34aa2514c958bfffdb5528d99ef030780e8ed"
+    sha256 cellar: :any, x86_64_linux:      "36c5c8afd9cbf18f421b2a65e19aaa5e2212de5b91ed5783becbe9588e5a053e"
   end
 
   depends_on "cmake" => :build
@@ -33,7 +33,7 @@ class Watchman < Formula
   depends_on "folly"
   depends_on "glog"
   depends_on "pcre2"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_linux do
     depends_on "boost"
@@ -70,6 +70,7 @@ class Watchman < Formula
       -DWATCHMAN_BUILDINFO_OVERRIDE=#{tap&.user || "Homebrew"}
       -DWATCHMAN_USE_XDG_STATE_HOME=ON
       -DCMAKE_CXX_STANDARD=20
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
     ]
     # Avoid overlinking with libsodium and mvfst
     args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?

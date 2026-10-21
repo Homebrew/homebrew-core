@@ -9,8 +9,8 @@ class Zim < Formula
   head "https://github.com/zim-desktop-wiki/zim-desktop-wiki.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "9a3040b9fcf74c2742c45a5c0b2c766707206eaf9bdf6b93adbb442d1606ac00"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "db97bd8040ab582ac6f38728eb27d8908fa92a5c7c5dd01bb4e8a68dba4e813e"
   end
 
   depends_on "pkgconf" => :build
@@ -20,7 +20,7 @@ class Zim < Formula
   depends_on "gtk+3"
   depends_on "gtksourceview4"
   depends_on "pygobject3"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name:   "",
                 extra_packages: "pyxdg"

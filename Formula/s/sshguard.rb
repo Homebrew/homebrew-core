@@ -1,21 +1,17 @@
 class Sshguard < Formula
   desc "Protect from brute force attacks against SSH"
   homepage "https://www.sshguard.net/"
-  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.5.1/sshguard-2.5.1.tar.gz"
-  sha256 "997a1e0ec2b2165b4757c42f8948162eb534183946af52efc406885d97cb89fc"
+  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.6.0/sshguard-2.6.0.tar.gz"
+  sha256 "17cf44e29ce7853bd2df1425785947a097eda1d4f87ffb03a92d4c98bae4654d"
   license "ISC"
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fae532db16c84c5852a031ca52efbf00772808d5b9d2b5b43cf4a3c47d631475"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e9518ae9f10154dcc84c9f1348b436a49ebb0b59d07982c468d0edad7cc38cdd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a0f56a4e44504c78bf201cbb62b0d01d1ab2fcf1149e6dcc6e7562fb41c0ac99"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "11ef33ea3f5e54e448b493db07993839407bd6e62fd50ed3b7feaae74f0419f0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "1d3904d7dfa3b416126cd6f3088fd21eea79ac94af8cf5c6c787af6a27f8ba1e"
-    sha256 cellar: :any_skip_relocation, sonoma:            "8c22c01d6e11c18443e9d3a12b5e858f5468c8da4f0aba9f716b054267a631de"
-    sha256 cellar: :any_skip_relocation, ventura:           "8c7e0ca50223efc082c428aad1e0d62fda73f55d9cf280f7255f7228093917a2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "28355a7f475cfaa5092312e781333f17718098181707052e90fc97f2dea8deff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "22338d5f5ba21e11cbccca5dc0e2bc860d39d5f7822c5e1e3e43835e722456a2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a599097cf3d467ae7d5e47c1764d7e34317ce7a0874010f8cc2e2aacac191540"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "67daea1302f4a4f3f9bb989c0d858b92ede6efbb1f52f19267ddd3f27c0325bc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3079d307e121aac95c5afcf5935e2c8402c8127bb6919d6b43df1befa145eced"
+    sha256 cellar: :any,                 arm64_linux:       "950cd0e4cea4cda3ec1e0d85166a5ac7afa96a6a552241f657db79b5bb07e420"
+    sha256 cellar: :any,                 x86_64_linux:      "5a6145efdf01e865cbee5475e15ad63dab94265e169050e49336d2aa05f052b3"
   end
 
   head do

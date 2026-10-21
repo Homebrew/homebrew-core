@@ -21,6 +21,11 @@ class HapiFhirCli < Formula
 
   depends_on "openjdk"
 
+  resource "homebrew-test_resource", :test do
+    url "https://github.com/hapifhir/hapi-fhir/raw/v5.4.0/hapi-fhir-structures-dstu3/src/test/resources/specimen-example.json"
+    sha256 "4eacf47eccec800ffd2ca23b704c70d71bc840aeb755912ffb8596562a0a0f5e"
+  end
+
   def install
     inreplace "hapi-fhir-cli", /SCRIPTDIR=(.*)/, "SCRIPTDIR=#{libexec}"
     libexec.install "hapi-fhir-cli.jar"
@@ -29,11 +34,6 @@ class HapiFhirCli < Formula
   end
 
   test do
-    resource "homebrew-test_resource" do
-      url "https://github.com/hapifhir/hapi-fhir/raw/v5.4.0/hapi-fhir-structures-dstu3/src/test/resources/specimen-example.json"
-      sha256 "4eacf47eccec800ffd2ca23b704c70d71bc840aeb755912ffb8596562a0a0f5e"
-    end
-
     testpath.install resource("homebrew-test_resource")
     system bin/"hapi-fhir-cli", "validate", "--file", "specimen-example.json",
            "--fhir-version", "dstu3"

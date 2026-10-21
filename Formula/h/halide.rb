@@ -2,7 +2,7 @@ class Halide < Formula
   desc "Language for fast, portable data-parallel computation"
   homepage "https://halide-lang.org"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/halide/Halide.git", branch: "main"
 
   stable do
@@ -40,17 +40,17 @@ class Halide < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7ca0e83ac0f31147e09d3327ba0749abd66f751eaf99f9a99d33f00371c20dae"
-    sha256 cellar: :any, arm64_tahoe:       "f97b9e138d92960a4747adaa6a784b2f5dc0338ab35c7d4b7bd6ec8ff19f3af3"
-    sha256 cellar: :any, arm64_sequoia:     "abb26d7b8cbd036bfccc45286b0d3d17d48cc707c2abeca443ac9793a44f9710"
-    sha256 cellar: :any, arm64_linux:       "169e921ef07f11439f914659c19d8916cc38ca9ca69795f6b336c644e59a42c1"
-    sha256 cellar: :any, x86_64_linux:      "9c1ed4e74648921d129c2d1619c4b3705c73be8bef50ab9420aa24e9e9263c57"
+    sha256 cellar: :any, arm64_golden_gate: "23e33295130e50668e88f1584fc7acbc2ee7d993c07d46d537065d0ecabeea64"
+    sha256 cellar: :any, arm64_tahoe:       "b2e14cdf00ae4df135cf528f53c9b25d7264e514b4f97b80f2e6bcd534592dea"
+    sha256 cellar: :any, arm64_sequoia:     "e531b5917b7a8d2989c87fc0cf655562d3c8cf71e3220201d4c5ca29e1c34ffd"
+    sha256 cellar: :any, arm64_linux:       "53f96fea1511920e8ff08723e3a01cc58b2fd42432dc3500064afd9bc799eb4c"
+    sha256 cellar: :any, x86_64_linux:      "071c003cceb95138fc48b48ab0777b199cf7cd1240f4044af8690e58466596a4"
   end
 
   depends_on "cmake" => :build
   depends_on "flatbuffers" => :build
   depends_on "pybind11" => :build
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "lld@21"
   depends_on "llvm@21"
   depends_on "wabt" => :no_linkage

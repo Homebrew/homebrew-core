@@ -17,6 +17,12 @@ class Forgecode < Formula
   depends_on "protobuf" => :build
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["APP_VERSION"] = version.to_s
 

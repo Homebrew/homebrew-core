@@ -1,11 +1,12 @@
 class Openssh < Formula
   desc "OpenBSD freely-licensed SSH connectivity tools"
   homepage "https://www.openssh.com/"
-  url "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.5p1.tar.gz"
-  mirror "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.5p1.tar.gz"
-  version "10.5p1"
-  sha256 "d44d28a839ea9daf969cc69150fde59910b2b39361dad81a3bd6cbd19218db11"
+  url "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.6p1.tar.gz"
+  mirror "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.6p1.tar.gz"
+  version "10.6p1"
+  sha256 "a9dc9565dffe8640f64d863cd29a32bc4a3dbdec0566a7fc44c5d6ee767d5f39"
   license "SSH-OpenSSH"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -14,13 +15,11 @@ class Openssh < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "a6e570a6db2e595e18c9543a499f8079d6aaf85cb2f949ce122bd792c3526018"
-    sha256 arm64_tahoe:       "4c2ccf5627e6f828305f242128b8763bb9360d28ea13a5e3c565a0a8f1a36a1b"
-    sha256 arm64_sequoia:     "32a4774dd72242b4a9edc85ef9ac3da1e0a6b890fc5fe794759b25161c03ccd5"
-    sha256 arm64_sonoma:      "eb91e04da08f67b0b52d5dd6991bf511478ab267ebe8ee3d2532d5cbcd5f3645"
-    sha256 sonoma:            "9c3f633ef50138f4dd704567cf80857d4c17a0f03d451c7ef407be80d93ae988"
-    sha256 arm64_linux:       "f8ba944aeedf80c1260a6b746f73c016a804e95e9f24d4b7df20af5124566641"
-    sha256 x86_64_linux:      "7884435d1290c3f9a890cd55c97dc72b23a6ac657d2772f6b4bbf6f56098c9bc"
+    sha256 arm64_golden_gate: "d79b5fb06078a1d262343a9b9bdb768acba0d08c9d5648b9ee2b1c3c405b29ef"
+    sha256 arm64_tahoe:       "d6c083908c3e6fecce2dd6a46fa02ab7f50778b56653c2b07c4e1a136035f909"
+    sha256 arm64_sequoia:     "08339f96e37c5d085b65df52a8a9cc33782a163fdf4537b09e55b17bf08b3697"
+    sha256 arm64_linux:       "5b7d2086cc8ea983a4ebeda63b0a0b3f1d6d8f52a02db73dd11b8577748ba47f"
+    sha256 x86_64_linux:      "6279716a104f8140da4548a440f1bd9f1eff5d81bf4e70d68b7f8ef3ca138d39"
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.
@@ -29,24 +28,13 @@ class Openssh < Formula
   depends_on "pkgconf" => :build
   depends_on "ldns"
   depends_on "libfido2"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "mandoc" => :build
   uses_from_macos "lsof" => :test
   uses_from_macos "krb5"
   uses_from_macos "libedit"
   uses_from_macos "libxcrypt"
-
-  # Backport for kSBXProfilePureComputation removal
-  on_golden_gate :or_newer do
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    patch do
-      url "https://github.com/openssh/openssh-portable/commit/d4b4c304a202f5099f2f60be9af9ba266212bb74.patch?full_index=1"
-      sha256 "55bd3ca5d1f1ba82279572a357c8d0d72c447668a67fe1d6cf2eee40599c3b2d"
-      type :backport
-    end
-  end
 
   on_linux do
     depends_on "linux-pam"
@@ -58,11 +46,10 @@ class Openssh < Formula
     sha256 "a273f86360ea5da3910cfa4c118be931d10904267605cdd4b2055ced3a829774"
   end
 
+  allow_network_access! :test
+
   def install
     ENV.append "CPPFLAGS", "-D__APPLE_SANDBOX_NAMED_EXTERNAL__" if OS.mac?
-
-    # Regenerate configure due to patch
-    system "autoreconf", "--force", "--install", "--verbose" if OS.mac? && MacOS.version >= :golden_gate
 
     args = %W[
       --sysconfdir=#{etc}/ssh
@@ -70,7 +57,7 @@ class Openssh < Formula
       --with-libedit
       --with-kerberos5
       --with-pam
-      --with-ssl-dir=#{formula_opt_prefix("openssl@3")}
+      --with-ssl-dir=#{formula_opt_prefix("openssl@4")}
       --with-security-key-builtin
     ]
 

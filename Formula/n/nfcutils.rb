@@ -25,9 +25,19 @@ class Nfcutils < Formula
     depends_on "libusb-compat"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make"
     system "make", "install"
+  end
+
+  test do
+    ENV["LIBNFC_AUTO_SCAN"] = "false"
+    assert_equal "ERROR: No device found.", shell_output(bin/"lsnfc").strip
+
+    ENV["LIBNFC_DEVICE"] = "pn532_uart:#{testpath}/nonexistent"
+    assert_equal "ERROR: Unable to connect to NFC device.", shell_output(bin/"lsnfc", 1).strip
   end
 end

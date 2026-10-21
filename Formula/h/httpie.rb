@@ -10,15 +10,16 @@ class Httpie < Formula
   head "https://github.com/httpie/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f34b289ef2f4125c6def07032243749950718e1bf5ec50436ad60adaa7e11f3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2680ba2be68050c6c1c5274c1cd35b1425febbe5018d26b0cb1c1a90415b5b2d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bc37c59f9edf61bb9560f02cd43aa8f8250779d721916b445436c5b2e67d4d54"
-    sha256 cellar: :any,                 arm64_linux:       "e41fd8569f8fc67dd1c05dbf8fa450cf4c53216cb70ebe23dbf6f8b55f0beb23"
-    sha256 cellar: :any,                 x86_64_linux:      "a6a81113a7a76a3e999fe7f7b8ed0dffc14502e3b1490eb6aaa23e07897f0af3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d2f7cc5d09d7467cdf548981d6372f79f9cd7e546d9c0b2e60a16fcc5d6e6545"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "783fc4a871555c5a5e1c976a8b8bdb5161b8a30f821db100ed6d040751f4f1b0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2dd86a488c6fc075780d3911e4caa7533364e2fb373240570bc3ce88259be6a2"
+    sha256 cellar: :any,                 arm64_linux:       "a47b5ae577c9bf168f6f632615c90adc27841a718c216189ff7e97a6c0183459"
+    sha256 cellar: :any,                 x86_64_linux:      "4956b24e6d5a3915540b8df53c4da2d3b78e8284012a249a0232c214aca03661"
   end
 
   depends_on "certifi"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages package_name:     "httpie",
                 exclude_packages: "certifi"

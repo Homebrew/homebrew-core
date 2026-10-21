@@ -29,9 +29,34 @@ class Tivodecode < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "28e4184504b5139d3532d972cad416bcd9188669c075681e36834f4e93d2b60d"
   end
 
+  deny_network_access!
+
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    # Build a minimal TiVo file: 16-byte header, an XML chunk (key material),
+    # an encrypted metadata chunk (id 1) and an unscrambled MPEG payload.
+    tivo_file = lambda do |blob, payload|
+      xml = '<?xml version="1.0"?><TvBusMarshalledStruct/>'
+      chunks = [12 + xml.bytesize, xml.bytesize, 3, 0].pack("NNnn") + xml
+      chunks += [12 + blob.bytesize, blob.bytesize, 1, 1].pack("NNnn") + blob
+      ["TiVo", 4, 0x0d, 0, 16 + chunks.bytesize, 2].pack("a4nnnNn") + chunks + payload
+    end
+
+    (testpath/"plain.tivo").binwrite tivo_file.call("Homebrew metadata", "Homebrew TiVo payload\n")
+    system bin/"tivodecode", "-m", "0123456789", "-o", "out.mpg", "plain.tivo"
+    assert_equal "Homebrew TiVo payload\n", (testpath/"out.mpg").read
+
+    # Turing is a stream cipher, so applying it twice restores the plaintext
+    system bin/"tdcat", "-m", "0123456789", "-o", "enc.bin", "plain.tivo"
+    encrypted = (testpath/"enc.bin").binread
+    assert_equal "4f9f31fa29f8ee340da8413225fe5dd6e5", encrypted.unpack1("H*")
+
+    (testpath/"enc.tivo").binwrite tivo_file.call(encrypted, "")
+    system bin/"tdcat", "-m", "0123456789", "-o", "dec.bin", "enc.tivo"
+    assert_equal "Homebrew metadata", (testpath/"dec.bin").read
   end
 end

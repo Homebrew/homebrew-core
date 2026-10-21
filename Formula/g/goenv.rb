@@ -1,8 +1,8 @@
 class Goenv < Formula
   desc "Go version management"
   homepage "https://github.com/go-nv/goenv"
-  url "https://github.com/go-nv/goenv/archive/refs/tags/3.2.1.tar.gz"
-  sha256 "29030c8362c6f07ada11244f4e0926a170aa9631a33c4d08f534ddd4f72ca58f"
+  url "https://github.com/go-nv/goenv/archive/refs/tags/3.2.2.tar.gz"
+  sha256 "b5b39ce5b711a64e75a2d7df27a867645338002a2184beb49cb7984755ed6975"
   license "MIT"
   version_scheme 1
   # TODO: Uncomment when default branch is changed from 'master' to 'main'
@@ -14,11 +14,11 @@ class Goenv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1f4802bfb68a686daabd327a17df9c35e37db15d4aaaee5b977066664e3b7614"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1f4802bfb68a686daabd327a17df9c35e37db15d4aaaee5b977066664e3b7614"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1f4802bfb68a686daabd327a17df9c35e37db15d4aaaee5b977066664e3b7614"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "65899c1d056dd9e3a228d3a97774f6f559f48ee118157a642dbf12cf967879df"
-    sha256 cellar: :any,                 x86_64_linux:      "da9bf96a272b9de816806300f8050f9ef2bda832e170161fab366f3b2288c733"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9d45841c2a4104bfb19abcdb421451040da43be685b53d10147eacd1369dd195"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9d45841c2a4104bfb19abcdb421451040da43be685b53d10147eacd1369dd195"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9d45841c2a4104bfb19abcdb421451040da43be685b53d10147eacd1369dd195"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7b1cabfd4d0e2e97d8a96ed661fd2aec16c220dec58c6e7a3e931fdeee4ebe66"
+    sha256 cellar: :any,                 x86_64_linux:      "1b1b6c1841ec6e61978ff36e4f47406cc6106d9449b9a32b07ae356098e712e1"
   end
 
   depends_on "go" => :build

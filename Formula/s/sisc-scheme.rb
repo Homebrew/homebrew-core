@@ -10,6 +10,10 @@ class SiscScheme < Formula
     sha256 cellar: :any_skip_relocation, all: "cc07c73860b9acfbad278e89277cacd790f4b5ac3de3800352d8ac6d6e833ccb"
   end
 
+  depends_on "openjdk" => :test
+
+  deny_network_access!
+
   def install
     libexec.install Dir["*"]
     (bin/"sisc").write <<~SH
@@ -17,5 +21,17 @@ class SiscScheme < Formula
       SISC_HOME=#{libexec}
       exec #{libexec}/sisc "$@"
     SH
+  end
+
+  test do
+    ENV.prepend_path "PATH", formula_opt_bin("openjdk")
+
+    (testpath/"fact.scm").write <<~SCHEME
+      (define (fact n) (if (= n 0) 1 (* n (fact (- n 1)))))
+      (display (fact 25))
+      (newline)
+    SCHEME
+
+    assert_equal "15511210043330985984000000", shell_output("#{bin}/sisc -x fact.scm").strip
   end
 end

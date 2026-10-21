@@ -3,30 +3,28 @@ class Bittensor < Formula
 
   desc "SDK and command-line tool for the Bittensor network"
   homepage "https://subtensor.vercel.app/"
-  url "https://files.pythonhosted.org/packages/e5/78/6a67e5814663debefa20d180c6d4df7a581eace2ffc3c196409d46808025/bittensor-11.1.0.tar.gz"
-  sha256 "97be7e9d523ca36d93eddc7b96318b42a7bbd9512b53c757c5807a7dafb4371d"
+  url "https://files.pythonhosted.org/packages/f3/76/166ec4263a7889df2bb8796a57187906cec3aa3079e235b9e60517041c51/bittensor-11.3.0.tar.gz"
+  sha256 "8ce05029a712866048c6cf3e3d5df1592ac896175f5b4227f63044b7e7b7edb3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "db51cda8ebe2c74aee07afc09d8bb7359f72c17d6493cec55147e85ad4dcdb56"
-    sha256 cellar: :any, arm64_tahoe:       "512c4f0b716b2a096349f1f313b8d10457a92af4b693783a446665b3928839e4"
-    sha256 cellar: :any, arm64_sequoia:     "67b52c1eae69b59b3f836ff46fed0efab5ebd31011b0dbdd7baf3c50239d4ba8"
-    sha256 cellar: :any, arm64_sonoma:      "6ed7b7978e2d58715695a5f67467e217aa2d9e0d3f60a51fb4c47fac6d53b3ee"
-    sha256 cellar: :any, sonoma:            "651fecb9e6f2a993ea71187e3af973ece7dfcff212f588d0f31fbf87408e4a16"
-    sha256 cellar: :any, arm64_linux:       "1eb7d227bfa64d96d432d2e9a212172a0528a5ef307ff6b06a0a25335f7e7f0b"
-    sha256 cellar: :any, x86_64_linux:      "6d3b4d89788d0640c2125153b09cf3069dac7a12eb667519bf91f4b1728960f0"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "f8cbd87bd655b6a2733e579ebb7bff016ce5435d71da9a51712eeed9c1804c66"
+    sha256 cellar: :any, arm64_tahoe:       "63b5366de84f5e5141d10159086bc5e2bc47b35bd20ab63a2ba15339f8e36aba"
+    sha256 cellar: :any, arm64_sequoia:     "e71af8e2d98b5284591be8899e9fcffcb43b347140e10ff079448328d541c2a2"
+    sha256 cellar: :any, arm64_linux:       "56a4ee8eeff4adc4d06a4c6a1013abf1ef80b396719c685953f2da28ae538907"
+    sha256 cellar: :any, x86_64_linux:      "cb29e721a14c7aa8d3008e3d2ba57cbd682ba879bc36fd5dbc7ba8e2a2ae0ef6"
   end
 
   depends_on "rust" => :build # for bittensor-core
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   conflicts_with "btcli", "btpd", because: "both install `btcli` binaries"
 
-  pypi_packages exclude_packages: %w[pydantic],
-                extra_packages:   %w[eth-abi<6] # FIXME: eth-abi 6.0.0b1 is a pre-release
+  pypi_packages exclude_packages: %w[pydantic]
 
   resource "annotated-doc" do
     url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
@@ -34,13 +32,13 @@ class Bittensor < Formula
   end
 
   resource "bitarray" do
-    url "https://files.pythonhosted.org/packages/1f/c2/ac331091a307bf9f56b7a0f9a8fb4916158bf8dae3a97edebd91f43c985c/bitarray-3.10.1.tar.gz"
-    sha256 "c33e48906407ab3d0edb96cc5ab2a599bda5dd04704ebcd9b3e0eedce7310e0a"
+    url "https://files.pythonhosted.org/packages/04/f7/6765577df59e2345036e435f7e983e1c291d67b7d76a51918eff04ad1494/bitarray-3.11.0.tar.gz"
+    sha256 "bf19437ec00ec3d40aef82eaeedc14cf4000be9b635c4f5049796506e6630dd8"
   end
 
   resource "bittensor-core" do
-    url "https://files.pythonhosted.org/packages/87/1d/6fdd630e46ae3a84e016415027900b0aa91d9d3265501b8d5fcb1491bb6d/bittensor_core-0.1.3.tar.gz"
-    sha256 "c8a4b3f3c560bb5d9c23c635a4e00122c3ef425b3aa0083200878eb3060d2a47"
+    url "https://files.pythonhosted.org/packages/d2/25/121407d496268d62bd7e75fa8d842d9aef5787070d9d657d7cb035642130/bittensor_core-0.1.5.tar.gz"
+    sha256 "bb6175643ef351e8afc5059cb907b6f13083bec7525ad287c1a6db30be9ee980"
   end
 
   resource "ckzg" do
@@ -54,8 +52,8 @@ class Bittensor < Formula
   end
 
   resource "eth-abi" do
-    url "https://files.pythonhosted.org/packages/00/71/d9e1380bd77fd22f98b534699af564f189b56d539cc2b9dab908d4e4c242/eth_abi-5.2.0.tar.gz"
-    sha256 "178703fa98c07d8eecd5ae569e7e8d159e493ebb6eeb534a8fe973fbc4e40ef0"
+    url "https://files.pythonhosted.org/packages/b6/90/8bbcb07308436211a1e9a09a2fbaa259d2a169d3b081ca22525e22d16444/eth_abi-6.0.0.tar.gz"
+    sha256 "e83a0ed91f2dadeeb50236d673736fe2edc6fcc0a1c1e13d461192d4b23d5bcc"
   end
 
   resource "eth-account" do
@@ -74,13 +72,13 @@ class Bittensor < Formula
   end
 
   resource "eth-keys" do
-    url "https://files.pythonhosted.org/packages/58/11/1ed831c50bd74f57829aa06e58bd82a809c37e070ee501c953b9ac1f1552/eth_keys-0.7.0.tar.gz"
-    sha256 "79d24fd876201df67741de3e3fefb3f4dbcbb6ace66e47e6fe662851a4547814"
+    url "https://files.pythonhosted.org/packages/39/58/f54660cffe3f39aad2d80d13b072973ee9134b6cdfd8b4d086419eda997b/eth_keys-0.8.0.tar.gz"
+    sha256 "11549b251876fccd7caedd6905e494ea2309aec352ec2579b00ef9978017a964"
   end
 
   resource "eth-rlp" do
-    url "https://files.pythonhosted.org/packages/7f/ea/ad39d001fa9fed07fad66edb00af701e29b48be0ed44a3bcf58cb3adf130/eth_rlp-2.2.0.tar.gz"
-    sha256 "5e4b2eb1b8213e303d6a232dfe35ab8c29e2d3051b86e8d359def80cd21db83d"
+    url "https://files.pythonhosted.org/packages/5f/e1/9719acaa45e6f158ebfc260a97edc71591264c1d09701cf8a30a687a36b0/eth_rlp-3.0.0.tar.gz"
+    sha256 "9663e54a4a1c1c847d2d328c1d07e4174ec1c082953fbb42b60e61c501c4931c"
   end
 
   resource "eth-typing" do
@@ -94,8 +92,8 @@ class Bittensor < Formula
   end
 
   resource "hexbytes" do
-    url "https://files.pythonhosted.org/packages/7f/87/adf4635b4b8c050283d74e6db9a81496063229c9263e6acc1903ab79fbec/hexbytes-1.3.1.tar.gz"
-    sha256 "a657eebebdfe27254336f98d8af6e2236f3f83aed164b87466b6cf6c5f5a4765"
+    url "https://files.pythonhosted.org/packages/27/4f/eabe45c58f2d27cd0b338ecc41b0b475a3751ed70eb1a21db08497e3ceec/hexbytes-2.0.0.tar.gz"
+    sha256 "01312fcd5c57e8a8d2d7dd3274dcf84ea50422aff2abcc2d9fd89ad6a32498e5"
   end
 
   resource "markdown-it-py" do
@@ -114,13 +112,13 @@ class Bittensor < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/8e/a6/8452177684d5e906854776276ddd34eca30d1b1e15aa1ee9cefc289a33f5/pycryptodome-3.23.0.tar.gz"
-    sha256 "447700a657182d60338bab09fdb27518f8856aecd80ae4c6bdddb67ff5da44ef"
+    url "https://files.pythonhosted.org/packages/34/e0/0d0bd5b1089a4bf5ef48164459289ddf02a9110ca1db854edaad25127e64/pycryptodome-3.24.0.tar.gz"
+    sha256 "9140779b40405476a799305b9ac1bcaab4ee6791dc3d38b12a9aa84ffbd6aabf"
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "qrcode" do
@@ -129,8 +127,8 @@ class Bittensor < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/20/98/04b13f1ddfb63158025291c02e03eb42fbb7acb51d091d541050eb4e35e8/regex-2026.7.19.tar.gz"
-    sha256 "7e77b324909c1617cbb4c668677e2c6ae13f44d7c1de0d4f15f2e3c10f3315b5"
+    url "https://files.pythonhosted.org/packages/fc/f2/af1da9d3ceed77bfcdce40427d49ba0be94e4fe84245e3bfef68c10e75b6/regex-2026.9.29.tar.gz"
+    sha256 "8b5fcc4771732191b2b7d1dd68d8f0353f47f8d90b6150f6dce58bf1112442cb"
   end
 
   resource "rich" do
@@ -139,8 +137,8 @@ class Bittensor < Formula
   end
 
   resource "rlp" do
-    url "https://files.pythonhosted.org/packages/1b/2d/439b0728a92964a04d9c88ea1ca9ebb128893fbbd5834faa31f987f2fd4c/rlp-4.1.0.tar.gz"
-    sha256 "be07564270a96f3e225e2c107db263de96b5bc1f27722d2855bd3459a08e95a9"
+    url "https://files.pythonhosted.org/packages/1e/45/68859ee36a69ddd8fa819d52fab75214de56f05500907e8bf09b5fd7bd75/rlp-5.0.0.tar.gz"
+    sha256 "ae8ac791160c160e270f9c7df76e68f4d42bb86a13726d807b9357c312d0bac4"
   end
 
   resource "shellingham" do
@@ -149,13 +147,13 @@ class Bittensor < Formula
   end
 
   resource "toolz" do
-    url "https://files.pythonhosted.org/packages/11/d6/114b492226588d6ff54579d95847662fc69196bdeec318eb45393b24c192/toolz-1.1.0.tar.gz"
-    sha256 "27a5c770d068c110d9ed9323f24f1543e83b2f300a687b7891c1a6d56b697b5b"
+    url "https://files.pythonhosted.org/packages/31/6f/ae20c212a07aa2d156c787383d8088a5e045ee39628661edb190c97e1659/toolz-1.2.0.tar.gz"
+    sha256 "9667a038e9d6ecba37995e26cb2f59ec6420b6ad8dd9677de59db9b956b08490"
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/ae/40/4a3db7990d1f62a53182aa96eaef57aeb2886a27f90a195bc66713565d31/typer-0.27.1.tar.gz"
-    sha256 "a79bef8469a79c45498e7b814ecf8d603cc7644e9acbd9e19cac0334240b18df"
+    url "https://files.pythonhosted.org/packages/03/51/d33db42cc72ffd8c30777547b42d01f0cbf9d95a770457698d0174b3ed71/typer-0.27.3.tar.gz"
+    sha256 "d0396f770a560ab1b0a8504e13b5f254b728cedb05c61cf0359e944e50ce8901"
   end
 
   resource "websockets" do
@@ -164,8 +162,11 @@ class Bittensor < Formula
   end
 
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
     ENV["OPENSSL_NO_VENDOR"] = "1"
+
+    # Allow Python 3.15
+    inreplace "pyproject.toml", 'requires-python = ">=3.10,<3.15"', 'requires-python = ">=3.10,<3.16"'
 
     virtualenv_install_with_resources
 
@@ -176,7 +177,6 @@ class Bittensor < Formula
   end
 
   test do
-    require "json"
     wallet_path = testpath/"btcli-brew-test"
     test_wallet_name = "brew-test"
     # Substrate dev seed for //Alice, so the regenerated address is deterministic

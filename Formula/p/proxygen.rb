@@ -1,10 +1,9 @@
 class Proxygen < Formula
   desc "Collection of C++ HTTP libraries"
   homepage "https://github.com/facebook/proxygen"
-  url "https://github.com/facebook/proxygen/releases/download/v2026.09.21.00/proxygen-v2026.09.21.00.tar.gz"
-  sha256 "7144f76b1a47424d82a432b55522f7391f7fc3b5d46214238b1bc3ba4d529476"
+  url "https://github.com/facebook/proxygen/releases/download/v2026.10.19.00/proxygen-v2026.10.19.00.tar.gz"
+  sha256 "ff71e3fe818424ad84da33ca576801237f0d35feefb27946a859595a0937386f"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/facebook/proxygen.git", branch: "main"
 
   livecheck do
@@ -13,11 +12,11 @@ class Proxygen < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "399b55f1fe66c4bd8ff9adcbc49003bfa817c3bd4870dc2e56fde0d4e5e01720"
-    sha256 cellar: :any, arm64_tahoe:       "7a418603bdb7abc3e535bfcf50cd58e4bbc78675210df636d4f64ad47a988f71"
-    sha256 cellar: :any, arm64_sequoia:     "e8fc672331a210a2e35c0bd76a4f9530456ebf7d24e734c52ccf5237eacbc0ec"
-    sha256 cellar: :any, arm64_linux:       "b1a5a80a968c75d5245d0529eb09ae9120c562cefe4aa81492b677d7102dac96"
-    sha256 cellar: :any, x86_64_linux:      "14c68b97f017ef5a0f99deeea037ba327a1b8670708567b5ccc4eb0fafaff31a"
+    sha256 cellar: :any, arm64_golden_gate: "043261b547e7696b1a7c772f64f08c771b8e6d20ef1628ddd27ad95a103b237a"
+    sha256 cellar: :any, arm64_tahoe:       "83a60448be15029c4228c2a3629b6516e9102784cd6bc9a27691491e31129bac"
+    sha256 cellar: :any, arm64_sequoia:     "6f3ffcb0708a28be0cd355f000ee8ac8ba82a5bb4efce8a47aa7419170dc309f"
+    sha256 cellar: :any, arm64_linux:       "f886c7e450db42def936798066ea51100172fb874bb605a1db82cea947dc397d"
+    sha256 cellar: :any, x86_64_linux:      "cb37c9d840c5cf937bc0f6068cfac3b3d60304f41fb66c3b2d8323160fb842e0"
   end
 
   depends_on "boost" => :build
@@ -29,7 +28,7 @@ class Proxygen < Formula
   depends_on "gflags"
   depends_on "glog"
   depends_on "mvfst"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "wangle"
   depends_on "zstd"
 

@@ -11,8 +11,9 @@ class Webkitgtk < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "60e34d6f63b52969f73591983da92eb3dff73daab0d6a971c2d18bc24aefe4bd"
-    sha256 x86_64_linux: "d0afdf533087d8de307c3f7fe7af6d56dfb014febf52ae94963970706200f1e9"
+    rebuild 1
+    sha256 arm64_linux:  "ee1c8b66079c87e9a966e049b448a782ee9231f205e4b432ae02d3f4da76db87"
+    sha256 x86_64_linux: "6c11b31bcc68c5b92fc70b7f8a6226a4aa6ec8c41b7e3488eac459e2305c574f"
   end
 
   depends_on "cmake" => :build
@@ -22,7 +23,7 @@ class Webkitgtk < Formula
   depends_on "ninja" => :build
   depends_on "perl" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on "ruby" => :build
   depends_on "unifdef" => :build
   depends_on "at-spi2-core"

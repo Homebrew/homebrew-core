@@ -41,6 +41,8 @@ class Darcs < Formula
   def install
     # Workaround to build aeson with GHC 9.14, https://github.com/haskell/aeson/issues/1155
     args = ["--allow-newer=base,containers,template-haskell,hashable:ghc-bignum"]
+    # The solver otherwise picks `constraints` 0.13, which fails to parse `forall` with GHC 9.14
+    args << "--constraint=constraints>=0.14"
 
     system "cabal", "v2-update"
     system "cabal", "v2-install", *args, *std_cabal_v2_args

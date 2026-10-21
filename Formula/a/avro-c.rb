@@ -26,6 +26,11 @@ class AvroC < Formula
     depends_on "zlib-ng-compat"
   end
 
+  resource "homebrew-example", :test do
+    url "https://raw.githubusercontent.com/apache/avro/88538e9f1d6be236ce69ea2e0bdd6eed352c503e/lang/c/examples/quickstop.c"
+    sha256 "8108fda370afb0e7be4e213d4e339bd2aabc1801dcd0b600380d81c09e5ff94f"
+  end
+
   allow_network_access! :test
 
   def install
@@ -35,11 +40,6 @@ class AvroC < Formula
   end
 
   test do
-    resource "homebrew-example" do
-      url "https://raw.githubusercontent.com/apache/avro/88538e9f1d6be236ce69ea2e0bdd6eed352c503e/lang/c/examples/quickstop.c"
-      sha256 "8108fda370afb0e7be4e213d4e339bd2aabc1801dcd0b600380d81c09e5ff94f"
-    end
-
     testpath.install resource("homebrew-example")
     system ENV.cc, "quickstop.c", "-o", "test", "-I#{include}", "-L#{lib}", "-lavro"
     assert_match "Silent |  (555) 123-6422 | 29 |", shell_output("./test")

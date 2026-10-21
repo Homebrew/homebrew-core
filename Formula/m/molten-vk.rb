@@ -175,8 +175,8 @@ class MoltenVk < Formula
 
     (libexec/"include").install "External/SPIRV-Cross/include/spirv_cross"
     (libexec/"include").install "External/SPIRV-Tools/include/spirv-tools"
-    (libexec/"include").install "External/Vulkan-Headers/include/vulkan" => "vulkan"
-    (libexec/"include").install "External/Vulkan-Headers/include/vk_video" => "vk_video"
+    (libexec/"include").install "External/Vulkan-Headers/include/vulkan"
+    (libexec/"include").install "External/Vulkan-Headers/include/vk_video"
 
     frameworks.install "Package/Release/MoltenVK/static/MoltenVK.xcframework"
     lib.install "Package/Release/MoltenVK/dylib/macOS/libMoltenVK.dylib"

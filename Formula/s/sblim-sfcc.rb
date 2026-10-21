@@ -31,7 +31,6 @@ class SblimSfcc < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl@3"
 
   uses_from_macos "curl"
 
@@ -40,6 +39,8 @@ class SblimSfcc < Formula
     file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
     type :unofficial
   end
+
+  deny_network_access!
 
   def install
     if DevelopmentTools.clang_build_version >= 1500

@@ -27,6 +27,9 @@ class LibatomicOps < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkgconf" => :test
+
+  deny_network_access!
 
   def install
     system "cmake", "-S", ".", "-B", "build",
@@ -41,5 +44,35 @@ class LibatomicOps < Formula
                     "--rerun-failed",
                     "--output-on-failure"
     system "cmake", "--install", "build"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <stdio.h>
+      #include <string.h>
+      #include <atomic_ops.h>
+
+      typedef struct {
+        AO_uintptr_t next; /* must be first */
+        int value;
+      } node_t;
+
+      int main(void) {
+        volatile AO_t counter = 0;
+        AO_t old = AO_fetch_and_add1(&counter);
+        AO_fetch_and_add(&counter, 41);
+        int swapped = AO_compare_and_swap(&counter, 42, 100);
+        int not_swapped = AO_compare_and_swap(&counter, 42, 200);
+        printf("counter: %lu old: %lu cas: %d %d\\n", (unsigned long)AO_load(&counter),
+               (unsigned long)old, swapped, not_swapped);
+        return 0;
+      }
+    C
+
+    flags = shell_output("pkgconf --cflags --libs atomic_ops").chomp.split
+    system ENV.cc, "test.c", *flags, "-o", "test"
+    assert_equal <<~EOS, shell_output("./test")
+      counter: 100 old: 0 cas: 1 0
+    EOS
   end
 end

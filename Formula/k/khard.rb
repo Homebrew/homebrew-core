@@ -3,15 +3,16 @@ class Khard < Formula
 
   desc "Console carddav client"
   homepage "https://khard.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/8f/47/e31cf968dbbba341887dd33bb84fd1ecba737bc762a5149c9c673f1ab6da/khard-0.21.0.tar.gz"
-  sha256 "67a99a4655ceec9520ec4bb282845f83cc6c6efd29daf9b3208e5ed50270affb"
+  url "https://files.pythonhosted.org/packages/b8/80/56b6698504dd5ed2e1f354af6e823845da62254150198071958b900eada8/khard-0.22.0.tar.gz"
+  sha256 "99f8ce6ab338eafb4840d82881a155b3f13031505123efc92ea42e88e900c6dd"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3076560e118814a4585519a518165ad52799407453ab454b1e96bbf313bc0461"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "4c195f3132769a2c3f54d34585f5aaf9434f5b9c6d7f2f9d5cb05e8a3a060f5b"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "configobj" do
     url "https://files.pythonhosted.org/packages/f5/c4/c7f9e41bc2e5f8eeae4a08a01c91b2aea3dfab40a3e14b25e87e7db8d501/configobj-5.0.9.tar.gz"
@@ -24,8 +25,8 @@ class Khard < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/ff/46/dd499ec9038423421951e4fad73051febaa13d2df82b4064f87af8b8c0c3/pytz-2026.2.tar.gz"
-    sha256 "0e60b47b29f21574376f218fe21abc009894a2321ea16c6754f3cad6eb7cdd6a"
+    url "https://files.pythonhosted.org/packages/14/21/d83d6ef28c4c912c4bb4d1dcf591f7b8c6bde87b9c66f9f454677314e16d/pytz-2026.5.tar.gz"
+    sha256 "fa23724b9c486543b9ff54a327ee7569ac83ade54bb9afd0fc18676620401c86"
   end
 
   resource "ruamel-yaml" do

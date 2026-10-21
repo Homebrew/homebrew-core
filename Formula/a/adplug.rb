@@ -32,6 +32,11 @@ class Adplug < Formula
     depends_on "texinfo" => :build
   end
 
+  resource "ksms", :test do
+    url "https://advsys.net/ken/ksmsongs.zip"
+    sha256 "2af9bfc390f545bc7f51b834e46eb0b989833b11058e812200d485a5591c5877"
+  end
+
   allow_network_access! :test
 
   def install
@@ -44,11 +49,6 @@ class Adplug < Formula
   end
 
   test do
-    resource "ksms" do
-      url "https://advsys.net/ken/ksmsongs.zip"
-      sha256 "2af9bfc390f545bc7f51b834e46eb0b989833b11058e812200d485a5591c5877"
-    end
-
     resource("ksms").stage do
       (testpath/".adplug").mkpath
       system bin/"adplugdb", "-v", "add", "JAZZSONG.KSM"

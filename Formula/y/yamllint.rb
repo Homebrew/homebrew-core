@@ -9,21 +9,20 @@ class Yamllint < Formula
   head "https://github.com/adrienverge/yamllint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "7942c508396449ad38f5df9edf839f00c1a94b1f977e0af7ffc330ee49e1118b"
-    sha256 cellar: :any,                 arm64_tahoe:       "da7c942af5a8d2dd8dacb439539a21251a2ee82aa965a7de7cb47713665471fa"
-    sha256 cellar: :any,                 arm64_sequoia:     "8e1afec98302dd31a2e7fb3d68e9a707a39a397fe2115b2f0dd9bbbf3b14d648"
-    sha256 cellar: :any,                 arm64_sonoma:      "31fe178c470660060b420dc1f114067e4fdb763cda30d55650ab2e786fec7794"
-    sha256 cellar: :any,                 sonoma:            "aea22a0b41c5319cf84793594d92825a8d6649cc41e62c984666a1ba5de35fab"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "93fd00ec0b1ceab422f20817ddba3e50e50f8ca69e0a026750dd036ed012d767"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8775acbc37acdeafd89099399fd587cf0a73ef43cd8f552e265c10891586f3bc"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "ede13336416c7c79617fa6aad7136a8fe3c8888b6c878917a34d5efe9d1e6160"
+    sha256 cellar: :any, arm64_tahoe:       "32b829bff17400cbfb651af60e2280241dbd4371122f264b3796fa7215a0ba00"
+    sha256 cellar: :any, arm64_sequoia:     "f75d86b93af557ec7d779000e25dee33e4c61478adaa587f2be617ca7d520bc4"
+    sha256 cellar: :any, arm64_linux:       "6ec37a0e9b7fe300fb4f4c28aca2a75b2bd547ee293b7842762d8a28357123a4"
+    sha256 cellar: :any, x86_64_linux:      "d50c0ff0022793c35ad5bcb96f2d1c64db57ca0cc901679151623b941d414f8e"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/4c/b2/bb8e495d5262bfec41ab5cb18f522f1012933347fb5d9e62452d446baca2/pathspec-1.0.3.tar.gz"
-    sha256 "bac5cf97ae2c2876e2d25ebb15078eb04d76e4b98921ee31c6f85ade8b59444d"
+    url "https://files.pythonhosted.org/packages/5a/82/42f767fc1c1143d6fd36efb827202a2d997a375e160a71eb2888a925aac1/pathspec-1.1.1.tar.gz"
+    sha256 "17db5ecd524104a120e173814c90367a96a98d07c45b2e10c2f3919fff91bf5a"
   end
 
   resource "pyyaml" do

@@ -1,8 +1,8 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/9.2.0/bazel-9.2.0-dist.zip"
-  sha256 "81af02b33128ec1922c6b60212df3fb6150baa96bb33d32ffa020e5fed47fefc"
+  url "https://github.com/bazelbuild/bazel/releases/download/9.3.1/bazel-9.3.1-dist.zip"
+  sha256 "6169ed42d506f3466fac899cc0a1ffa05718dece512cde9c2cd5eebf4e9ff4c3"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,11 @@ class Bazel < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0f0b0333f72675423ae32f99138f077abed5d88fb732fabbf931ca6be82e1c08"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "11df1e33af4a593964b07fc894125c7ef27c90944b304da40cb826b129f63b4f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cf03ca636b1cb518322412130093f5f931c8f37f12ec45b3f696e09fcecb9a5f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e3642145e908523033f2813a90dd23e01dbe0fe67cb147388614a4ca1ce2e552"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8c62d86ff3d077f192b2c9682ace41bc17eaa4877aa6ea78386191a6c9bf3bdc"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "68b7c6ae3270fe07401b023fdebe6204bd3501aa9fb66165f41d54b93e3eb208"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eaf8e196b2f78b40ce947cca032011f20a07cfe21419160fbfb2cee3f995b944"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ca188db5be0c881b5a070a1b4f1fc96a040bf7f6d43583147633f3e1d4ffbb31"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "6f7a35aaa609b200eb5bbe5e46e7c9c4ccecbcf788cc62977a39a03b6425ebbf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a19071ce3b9f399f7271b7ec10cbde6f5b4f1eaf62c61a8a788fccdaaf262836"
   end
 
   depends_on "openjdk@21"
@@ -52,6 +51,8 @@ class Bazel < Formula
     # Force Bazel to use brewed OpenJDK and PATH
     extra_bazel_args = %w[--tool_java_runtime_version=local_jdk --action_env=PATH --host_action_env=PATH --isatty=no]
     extra_bazel_args << "--macos_minimum_os=#{MacOS.version}" if OS.mac?
+    # Bootstrap skips .bazelrc, which disables apple_support's layering_check that grpc fails
+    extra_bazel_args << "--repo_env=APPLE_SUPPORT_LAYERING_CHECK_BETA=0" if OS.mac?
     ENV.merge! java_home_env.transform_keys(&:to_s)
     # Bazel clears environment variables which breaks superenv shims
     ENV.remove "PATH", Superenv.shims_path

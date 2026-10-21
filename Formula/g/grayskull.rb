@@ -10,18 +10,19 @@ class Grayskull < Formula
   head "https://github.com/conda/grayskull.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "93e1512c2d8e67fe3bf28c07b16ae76e50c82408c7d2219e3e82265b03e0a964"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6991337b6edcba36a88773d6f4a79622c11785c65911e89630328e62513199a1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "708ebe4d79c386ce9f5164446e1484605d181cc1bd4cb2ad3bbf2aa47d1455c4"
-    sha256 cellar: :any,                 arm64_linux:       "b009db1c93a92e8499640ef143b2e16b22ca2df6f33439e1952d77f5d46fe7fb"
-    sha256 cellar: :any,                 x86_64_linux:      "f8303f8ca6eb3308c25401abd6a3197f08b927e4bc77421c7de7bf38d7c1ea85"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "60611eb6040b5c18a5569f54343e565c18b80d56ce51eec2477ae23c023719f2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "634fc70613a1fcf8758eb6a576bc3d495e6d399233e4ec33b859efc7ad445359"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "614deb14d92abcd3dfb7073db9f59373d7e5d83682e9e9661869cd5ad8c46d34"
+    sha256 cellar: :any,                 arm64_linux:       "d02e29e4d739776a254768d8be0e27a4496173439aa9219fe7a9894c40c73b62"
+    sha256 cellar: :any,                 x86_64_linux:      "3a3398d4f09f73ca60878e68479fcb4b436d0951194f73977da6e5ea72ff0b7d"
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build # for python-utils
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 
@@ -66,8 +67,8 @@ class Grayskull < Formula
   end
 
   resource "python-utils" do
-    url "https://files.pythonhosted.org/packages/5d/71/ec6665d4ce42ee5a59fffd31a4d5164f92da15ccb8c758dba13d2419ea53/python_utils-4.0.1.tar.gz"
-    sha256 "4e8e8ecaba3862f843a60c1982c99cda23b522f417006a807996a876c18beb8d"
+    url "https://files.pythonhosted.org/packages/8f/dd/fdc08309ce1122e77e5ebc3908aa6f4e2dfed3e08f6987ae650c2591ee0c/python_utils-4.1.0.tar.gz"
+    sha256 "218518ac7ba34a7d8ea66d19274e5246cd5de122efeedcf2e5b6c00965b969b7"
   end
 
   resource "rapidfuzz" do

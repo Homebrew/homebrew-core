@@ -1,20 +1,17 @@
 class PinboardNotesBackup < Formula
   desc "Efficiently back up the notes you've saved to Pinboard"
   homepage "https://github.com/bdesham/pinboard-notes-backup"
-  url "https://github.com/bdesham/pinboard-notes-backup/archive/refs/tags/v1.0.7.1.tar.gz"
-  sha256 "8539a62b8a4a718a716ecc4bf17150d7cef8a358b43fbca458de3540db3d5177"
+  url "https://github.com/bdesham/pinboard-notes-backup/archive/refs/tags/v1.0.7.2.tar.gz"
+  sha256 "c3499d02171fadbb6104bd6559d3ca95a09217c78d056fe08f45be5dd50755ad"
   license "GPL-3.0-or-later"
   head "https://github.com/bdesham/pinboard-notes-backup.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any, arm64_golden_gate: "e5a7ce7c7a4d509936796604db4842e9d45ad274ccf22332c57f9450fad0a387"
-    sha256 cellar: :any, arm64_tahoe:       "9d81ad2cf860dcbbe903d303a5ab7aea6e9bedf73baa748355cb6feb8785d307"
-    sha256 cellar: :any, arm64_sequoia:     "317cb613612a6d18c8ed4fe8bc4b7947179455d647d3988a41c1cb2f1f7e214d"
-    sha256 cellar: :any, arm64_sonoma:      "f913b55543f506bada705e43550504c5fa8643d4e1d5f1aeef34e71bb3da923d"
-    sha256 cellar: :any, sonoma:            "d7483dba1f7ad5f27174a39f91f85c06004ed5dc938fdc555ff968f5f951f71f"
-    sha256 cellar: :any, arm64_linux:       "403d32f5dd143781fd39b11100d24b9b2dd772ac3bebf8ee259cf53539a32a5c"
-    sha256 cellar: :any, x86_64_linux:      "2a5fca050ae989d10198ecaa79bb19d8624b52b7f902bbe1e1a73bc85f3e1785"
+    sha256 cellar: :any, arm64_golden_gate: "6bfac23b984fdfd44d10901e9d3e104a5ea5f2ebdf6b9570d2219b29713bb3d2"
+    sha256 cellar: :any, arm64_tahoe:       "bd2c56e222b2cb807951af276d1ac11be1606fed2e8eb72bcb4bfbb63820a761"
+    sha256 cellar: :any, arm64_sequoia:     "9af682e38cd19f166b21ee9bb3c3db0896ded9c895a732c3fc412c3fe28e46b2"
+    sha256 cellar: :any, arm64_linux:       "c4056dc3fc0e69137909a9d1dde7ebdcfcf2bf2c261358191319e8c662e201c9"
+    sha256 cellar: :any, x86_64_linux:      "af91351f430a18eedceb660cd872e32ed53829ef4a3bd38a2fdeeb2eb8e902b3"
   end
 
   depends_on "cabal-install" => :build

@@ -8,10 +8,11 @@ class Visidata < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8d1cc1740d0894e8e5e114d20875497cf722a57c19b8c72288133d25d7b8d086"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "542d32e3ced7bd9b150463d65e9438b535dfb6d2f6b0a508f41b528f7fb42ce4"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages extra_packages: "openpyxl"
 

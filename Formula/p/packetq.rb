@@ -1,8 +1,8 @@
 class Packetq < Formula
   desc "SQL-like frontend to PCAP files"
   homepage "https://www.dns-oarc.net/tools/packetq"
-  url "https://www.dns-oarc.net/files/packetq/packetq-1.7.4.tar.gz"
-  sha256 "9e2e72a37db9449aa0cae997b35ba7b80e4c1a88fc646e2299fd823769824929"
+  url "https://www.dns-oarc.net/files/packetq/packetq-1.8.0.tar.gz"
+  sha256 "d89be327a505a86af0a76c3e41529998b75ebee10bd86e0c0b7f907666f9c741"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,16 +11,24 @@ class Packetq < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ae61213865e69472a189ed5e0f745e61ea88117a57438927bafa05f10adf4b36"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "07058bd8ef754f321a06312d752c0700918df1ef93c3a8bfd7333de5d74440f7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ec0ab5d6534cda819fadd75cfb0d146ca330858fce4b16f36b5b819e44c8623a"
-    sha256 cellar: :any,                 arm64_linux:       "fec19271ac1d3939a1f307a8fc615804d417d764bc682fabee8e2d7e253fd101"
-    sha256 cellar: :any,                 x86_64_linux:      "6c61f563c1972dadd5ea06d75434c43d9d892f37a35d9fd80b4d59ce7c8c5ea3"
+    sha256 cellar: :any, arm64_golden_gate: "bffbf8b039c3e2d1364a5114ec3e1e550a51eaa19c46604bdf5dd1126bc67ef6"
+    sha256 cellar: :any, arm64_tahoe:       "9e7c6165060837d81be19767afbb9f78ca3648152684e7ecfaa8b9fc4bfc8ecd"
+    sha256 cellar: :any, arm64_sequoia:     "93f379e6c0b6f00334b243d08bab26c4f5f43bb5a04fe16254a21948ba4b3050"
+    sha256 cellar: :any, arm64_linux:       "451a60c57176afac58bac1f6ce3c5441e63a4224818a566823bce56a37fdc209"
+    sha256 cellar: :any, x86_64_linux:      "f7d2e36a2c80912d2c6d416180e2183f8c6193985ae6eb2e52c29c90cc6d6f6b"
   end
+
+  depends_on "pkgconf" => :build
+  depends_on "dnswire"
+  depends_on "libmaxminddb"
+  depends_on "protobuf-c"
+  depends_on "tinyframe"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
+
+  deny_network_access!
 
   def install
     system "./configure", *std_configure_args

@@ -13,16 +13,17 @@ class C7n < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1c271d34cdb113d16eb27b0fb08e58108f22f6cc37733f1fe18a615c38deb81f"
-    sha256 cellar: :any, arm64_tahoe:       "74e3821b9e8b5ba59dc23860afca7fc338602423297f1c36747e85dc93096946"
-    sha256 cellar: :any, arm64_sequoia:     "c63a6259d39f8c5ebe85ee20b80c8e8c97e20b5dad7561ab2be76dec6913d5b3"
-    sha256 cellar: :any, arm64_linux:       "5d6efa40757d91041d922a701ef87125ff2e0086fdc28f758ce7b19871528264"
-    sha256 cellar: :any, x86_64_linux:      "020bf5ea0e155ec594cdb30ece35ec26c75629838dd56639c84cf065ed66e089"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "d8bfb1bd8df74b73afd88e2a33fde9fd4d1fdb42b7a677a9d1e17b81fdcf2174"
+    sha256 cellar: :any, arm64_tahoe:       "0ac26c46b65095f865d3314ffffeb66776871c93c0a7153fc207a46a898f9801"
+    sha256 cellar: :any, arm64_sequoia:     "01108cb118124a596c55911adcf461fb4b9af32d107ba47c7be6b3ae23c9474d"
+    sha256 cellar: :any, arm64_linux:       "7b47743d9f5191949ef57796335bfa95b2645e7b242786414d8e09862a0e6ac8"
+    sha256 cellar: :any, x86_64_linux:      "c6a0b6b350189b897291b2b3aec16f1a70b1ed9776163dfae9bd05a79bee76a6"
   end
 
   depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
 
   pypi_packages exclude_packages: ["cryptography", "rpds-py"]
@@ -38,13 +39,13 @@ class C7n < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/49/01/97aaee4d3e94467983a0c1b986ed4f4da48960d7ebc948e7d739c818cb59/boto3-1.43.106.tar.gz"
-    sha256 "c11ad4c429a983493ba10014c7af9831a455c2c0eea91c1cefff74530e480277"
+    url "https://files.pythonhosted.org/packages/59/d3/fa092ae1c109100d0c5c14c69a316cd6d53c05fb57183fa77b1fcdef86ce/boto3-1.43.111.tar.gz"
+    sha256 "5ae342a16c848909cd42d4be404f69d9082e5705460198d4d3327eca5f6cddcb"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/11/b9/10ca68d0092895d5ea60f485a61a9840d5aff9d732c66ed60da53a20b1d4/botocore-1.43.106.tar.gz"
-    sha256 "006870b3b4e40547232ad12c3bb4faec91bbbe0659aafaa3b7fa48a112c4ee97"
+    url "https://files.pythonhosted.org/packages/6c/43/257e97270ddd6833fd54b11e544a09b441b02f8c731bdeb29b90479be565/botocore-1.43.111.tar.gz"
+    sha256 "44d5e80962ac6cb9e85af72667b77c9586451e3328ab0ce33195380767e213d8"
   end
 
   resource "jmespath" do

@@ -6,11 +6,23 @@ class MemcacheTop < Formula
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "087a748b42b751770abe12ce9529e0e55d96b9f69f28ee7b6951e099271b8f3e"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "2ea3d9e19842c495db8dfe35711495867fbd1f3745558f4d6e93c1dbde3d35a9"
   end
+
+  allow_network_access! :test
 
   def install
     bin.install "memcache-top-v#{version}" => "memcache-top"
+  end
+
+  test do
+    pid = spawn bin/"memcache-top", "--instances=127.0.0.1:#{free_port}", "--port=#{free_port}"
+    sleep 10
+    assert_nil Process.wait(pid, Process::WNOHANG), "memcache-top exited early"
+    Process.kill "TERM", pid
+  ensure
+    Process.kill "TERM", pid
+    Process.wait pid
   end
 end

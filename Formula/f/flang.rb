@@ -2,15 +2,16 @@ class Flang < Formula
   desc "LLVM Fortran Frontend"
   homepage "https://flang.llvm.org/"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.2/llvm-project-23.1.2.src.tar.xz"
-    sha256 "c98bbef08a2b4c2613cd50e9aa9ae7b69b1fe6c16b2c40373bc0ab6116fdf78a"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.3/llvm-project-23.1.3.src.tar.xz"
+    sha256 "c44186a7762ed28954be72e5ff6df9808e0779d4f1bf014ecc4e7e211d31ee34"
 
     resource "llvm_man_pages" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.2/llvm_man_pages-23.1.2.tar.xz"
-      sha256 "bca1e2c6b58025dad7c5a589bc730e5bf10ff9920187861d41c16b6112a1ea61"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.3/llvm_man_pages-23.1.3.tar.xz"
+      sha256 "f5e6461a6b7cb176ed243c8a93c96669c4de6ed6dfc134b18a81c5c3b8779a31"
 
       livecheck do
         formula :parent
@@ -23,11 +24,11 @@ class Flang < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b02762374faceff6acc871d5110fd346796732db579eb1f07e04809c38d7d137"
-    sha256 cellar: :any, arm64_tahoe:       "8053ba692a3382821f086183b10723c802f40d505c0eb852b2154476aaf95a62"
-    sha256 cellar: :any, arm64_sequoia:     "c844e6e18ce9e26239a5851ff074c10e2d8339c5be5d87c61c0a474f6b4bbbcb"
-    sha256 cellar: :any, arm64_linux:       "37ffdee805f9435020f6f4645b411dea33b5be5a00f34852bd7e1771e43c8070"
-    sha256 cellar: :any, x86_64_linux:      "61b5a87807800dc8f3b667df897512483708337ec4548f00ea2902266f57b589"
+    sha256 cellar: :any, arm64_golden_gate: "d8500579706a7a47736d3843bb576db9678c6926f5927453eed62ddc900e5672"
+    sha256 cellar: :any, arm64_tahoe:       "900fae16fbfe78fcabf4271400220ed9158bca50ae5bd4ff6a2e0f3e2e5ad789"
+    sha256 cellar: :any, arm64_sequoia:     "2c69f20a64aca859379ac5739b2a69e5c0250cfdf01b870973d8629866bea12d"
+    sha256 cellar: :any, arm64_linux:       "73f08db2a97f958cedb1b90746d4e9901a6635655f040b4ac28fc274ec3a37a9"
+    sha256 cellar: :any, x86_64_linux:      "96b88f2dbcb6eb7877c648ad48f30d344bb9f45371661dadbce1d8a825611ac9"
   end
 
   depends_on "cmake" => :build
@@ -54,15 +55,14 @@ class Flang < Formula
       -DLLVM_ENABLE_LTO=ON
     ]
 
-    # LLVM_INSTALL_TOOLCHAIN_ONLY is to avoid shipping unnecessary libraries. Gentoo uses the same option.
-    # Fedora builds as part of full LLVM so manually removes files after install to achieve a similar result:
-    # https://src.fedoraproject.org/rpms/llvm/blob/821c6dcbd0d721d2c91e7c87bb4e483aaf1af715/f/llvm.spec#_2477-2523
+    # Libraries are static because `-DBUILD_SHARED_LIBS=ON` duplicated MLIR singletons and miscompiled (#301233).
+    # Add back `-DBUILD_SHARED_LIBS=ON` when this is fixed upstream:
+    # https://github.com/llvm/llvm-project/issues/219579
     flang_args = %W[
       -DCLANG_DIR=#{llvm.opt_lib}/cmake/clang
       -DFLANG_INCLUDE_TESTS=OFF
       -DFLANG_REPOSITORY_STRING=#{tap&.issues_url}
       -DFLANG_VENDOR=#{tap&.user}
-      -DLLVM_INSTALL_TOOLCHAIN_ONLY=ON
       -DLLVM_RAM_PER_COMPILE_JOB=5000
       -DLLVM_RAM_PER_LINK_JOB=10000
       -DLLVM_USE_SYMLINKS=ON
@@ -181,10 +181,28 @@ class Flang < Formula
 
     system bin/"flang", "-v", "runtimes.f90"
 
-    return if OS.linux?
-    return unless (etc/"clang").exist? # https://github.com/Homebrew/homebrew-test-bot/issues/805
+    (testpath/"plugin.cpp").write <<~CPP
+      #include "flang/Frontend/FrontendActions.h"
+      #include "flang/Frontend/FrontendPluginRegistry.h"
+      #include "flang/Parser/parse-tree.h"
+      #include "flang/Parser/parsing.h"
 
-    assert_match %r{^Configuration file: .*/etc/clang/.*\.cfg$}i,
-                 shell_output("#{bin}/flang --version")
+      using namespace Fortran::frontend;
+
+      struct CountUnits : PluginParseTreeAction {
+        void executeAction() override {
+          llvm::outs() << "units: " << getParsing().parseTree()->v.size() << "\\n";
+        }
+      };
+
+      static FrontendPluginRegistry::Add<CountUnits> X("count-units", "Count program units");
+    CPP
+
+    plugin = testpath/shared_library("plugin")
+    args = %W[-std=c++17 -shared -fPIC -DFLANG_LITTLE_ENDIAN=1 -I#{include} -I#{formula_opt_include("llvm")}]
+    args << "-Wl,-undefined,dynamic_lookup" if OS.mac?
+    system formula_opt_bin("llvm")/"clang++", *args, "plugin.cpp", "-o", plugin
+    output = shell_output("#{bin}/flang -fc1 -load #{plugin} -plugin count-units sqrt72.f90")
+    assert_equal "units: 2", output.strip
   end
 end

@@ -1,21 +1,17 @@
 class Libsais < Formula
   desc "Fast linear time suffix array, lcp array and bwt construction"
   homepage "https://github.com/IlyaGrebnov/libsais"
-  url "https://github.com/IlyaGrebnov/libsais/archive/refs/tags/v2.10.4.tar.gz"
-  sha256 "94aa88f9e29f8812214ecfa6b55f5dca14c7d8a427409c062f734a61ca4c6931"
+  url "https://github.com/IlyaGrebnov/libsais/archive/refs/tags/v2.12.0.tar.gz"
+  sha256 "011dd352ad3792483b6a84dfa1fa191a78f310b536773315d278aaf7c61e66b3"
   license "Apache-2.0"
   head "https://github.com/IlyaGrebnov/libsais.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "8cf2b9dc6ac6489ebbb7a027716d6e5b78d261df85f073f16bb5766aa94a2141"
-    sha256 cellar: :any,                 arm64_tahoe:       "79b1f20b666c77eca72b9f827a036dabe7a8114e93aae6c0c8fcc635410a79c8"
-    sha256 cellar: :any,                 arm64_sequoia:     "63b58d789abc1dc31fcb3481c35b4f9af494711d3c82c04c6181c62df2ab0e66"
-    sha256 cellar: :any,                 arm64_sonoma:      "6e04433193079ffc4d9f9054757d796e54607c4a7326a9f110b049743944b19a"
-    sha256 cellar: :any,                 arm64_ventura:     "c63cc2a0b039b04b0c98692130454f2225256320f2acdea2ab7225fdbcd6b009"
-    sha256 cellar: :any,                 sonoma:            "af064b9655232645376cf0c0c47b58fdb2f14cd698f8ea55e541a9f521a102ba"
-    sha256 cellar: :any,                 ventura:           "510f51daa4f565716ff5a1dc5deaedbc893ed3b3cbd93f432f1552be7e4f9cd0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "63e009572fc39dfdd39424201b784cb5b5b6728e5f21ba9ee906da515888d638"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "4dc70d2f05f2cc95896bc3e28d1df5d4974df21c9bc303341e6b60d4de385a98"
+    sha256 cellar: :any, arm64_golden_gate: "b888c36277cf41b1a70526be91ed0b19b328d2c34a0a9a7062b147e5412c448c"
+    sha256 cellar: :any, arm64_tahoe:       "08275f42379e0e1c4f992c404fd5b597a7dd08e6ff10b909d5ea88253ee8e482"
+    sha256 cellar: :any, arm64_sequoia:     "208205756e92c767a4b597fab7abac80e5b098d19219af428f967011163ead91"
+    sha256 cellar: :any, arm64_linux:       "72c6eb851b18801b8fb93fa1837d17f7a1c80a4eefa8b5e833963637e0fa5d41"
+    sha256 cellar: :any, x86_64_linux:      "04059478085f811b859ca4a179377897f00e7e9a9b0d01fef2e28e84c8d742e7"
   end
 
   depends_on "cmake" => :build

@@ -1,19 +1,18 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 and HTTP/2 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=trafficserver/trafficserver-10.2.0.tar.bz2"
-  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-10.2.0.tar.bz2"
-  sha256 "bef171a7d064794e05ec7559e46d3e07c3ae6487a4647987fcc4f1cc5a82cec6"
+  url "https://www.apache.org/dyn/closer.lua?path=trafficserver/trafficserver-10.2.1.tar.bz2"
+  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-10.2.1.tar.bz2"
+  sha256 "352957dc55cab2dd9accfa6b02f1c827109a6b6bb34607381743dbfb8de3b87f"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/apache/trafficserver.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "25dc171995cf3f45663d95c1953575322ef2267059f50e70dd1a5ee0771d7217"
-    sha256 arm64_tahoe:       "695ab27752e888384b39aba46f8e240306c673b645cbda0310ca900c65b3f6cd"
-    sha256 arm64_sequoia:     "fdc674281e20e886b735130ec9f77ec4ef1e71c2a07734d488304d38dad243d0"
-    sha256 arm64_linux:       "0e136daa8aeb1d44194875dfae62bf16de73403a24b47792d0e1ea16c117706c"
-    sha256 x86_64_linux:      "fdd1a3704ed6e98176eee285f43a772685faabac9657f7fe43021a0dd19db5b2"
+    sha256 arm64_golden_gate: "028a7cfd18d6ee1466275168c6935fa19aa290a84c69f8034137b8e097020f7c"
+    sha256 arm64_tahoe:       "3ee57169cd9cafd6a7ac4db32eb66e9cd78117e5034aac65f9040d0e73e79ccf"
+    sha256 arm64_sequoia:     "9a91aaa4a0c7a4e842ccc3abcca182c35459ab73efeeb350be8bc181875026fe"
+    sha256 arm64_linux:       "c4b9e0827ba8f4d5b42ddc806ef880bcab9c650aeabca90c7183d875fda362e9"
+    sha256 x86_64_linux:      "859a06584fdbbdb2b43fcdd9e85d2b64a66dea8bc5df1f3a1513430d25b68434"
   end
 
   depends_on "cmake" => :build

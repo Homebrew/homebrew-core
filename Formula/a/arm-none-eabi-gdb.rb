@@ -1,9 +1,9 @@
 class ArmNoneEabiGdb < Formula
   desc "GNU debugger for arm-none-eabi cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftpmirror.gnu.org/gdb/gdb-17.2.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gdb/gdb-17.2.tar.xz"
-  sha256 "1c036c0d72e4b3d1fb5c94c88632add6f9d76f4d7c4d2ea793c12a9f19a3228c"
+  url "https://ftpmirror.gnu.org/gdb/gdb-18.1.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gdb/gdb-18.1.tar.xz"
+  sha256 "cd9fc3fe2b47743840e42c1592d3d87f8302eb18639c0b8b4ba0898002e2348f"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
@@ -12,13 +12,12 @@ class ArmNoneEabiGdb < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "c39ee0ca6ce4369ecdff995ee37a53f46ba2b21df5bd18e668085a7695fa8074"
-    sha256 arm64_tahoe:       "19ff195ba43db782e3372141e75cd917c9a809616f7d8fdc7a8ad8559bc8d8d4"
-    sha256 arm64_sequoia:     "2c65dcacf5b6c19079287f80d14ab3be2331dd77240fccf6a13838df240f26d0"
-    sha256 arm64_sonoma:      "b3270d6dfee7ba828fd39f6e7b2347a554c37cceafecf9d8d3fb573e452cb795"
-    sha256 sonoma:            "b234e1006af9ea544524938cc6036419df58a7123f2c444ee12b9f6aaad44d21"
-    sha256 arm64_linux:       "03e8f7a7b814ab6026058b33c9604a0b762e67d342dde2c28acc65aa64eee791"
-    sha256 x86_64_linux:      "2c8bc28b9e200aa0f03bbf6875b731ff8a34c75a9cdcef1bce0b63423c593ffd"
+    rebuild 1
+    sha256 arm64_golden_gate: "80e78381224d85cc3bab5897502389c1ecca6adac478a037ac18e8defe495db9"
+    sha256 arm64_tahoe:       "69288dc1991206c7365cb2f20cf4554a5399c4befe3fcd3e089000707e5adbeb"
+    sha256 arm64_sequoia:     "ba1c4d8f59b2820b2bf55220af38ec234df83eb170c7aad52cd391f1b1dfe677"
+    sha256 arm64_linux:       "33c84ee436e668fc6de66d75007bd7b3450ead2e47824bba1a5a96ebd965879c"
+    sha256 x86_64_linux:      "0db8ff908b6f69fbd57b2ee7814a2f1b8f5f45e9c9f8be6282c2ad034574f772"
   end
 
   depends_on "pkgconf" => :build
@@ -26,7 +25,7 @@ class ArmNoneEabiGdb < Formula
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "ncurses" # https://github.com/Homebrew/homebrew-core/issues/224294
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "readline"
   depends_on "xz" # required for lzma support
   depends_on "zstd"

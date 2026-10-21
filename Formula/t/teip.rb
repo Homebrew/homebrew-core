@@ -22,6 +22,14 @@ class Teip < Formula
 
   uses_from_macos "llvm" => :build # for libclang
 
+  deny_network_access!
+
+  def fetch
+    # Refresh the release's lockfile while retaining existing dependency versions.
+    system "cargo", "update", "--workspace"
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["RUSTONIG_DYNAMIC_LIBONIG"] = "1"
     ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"

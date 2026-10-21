@@ -25,6 +25,11 @@ class Flif < Formula
   depends_on "libpng"
   depends_on "sdl2-compat"
 
+  resource "homebrew-test_c", :test do
+    url "https://raw.githubusercontent.com/FLIF-hub/FLIF/dcc2011/tools/test.c"
+    sha256 "a20b625ba0efdb09ad21a8c1c9844f686f636656f0e9bd6c24ad441375223afe"
+  end
+
   allow_network_access! :test
 
   def install
@@ -40,11 +45,6 @@ class Flif < Formula
   end
 
   test do
-    resource "homebrew-test_c" do
-      url "https://raw.githubusercontent.com/FLIF-hub/FLIF/dcc2011/tools/test.c"
-      sha256 "a20b625ba0efdb09ad21a8c1c9844f686f636656f0e9bd6c24ad441375223afe"
-    end
-
     testpath.install resource("homebrew-test_c")
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lflif", "-o", "test"
     system "./test", "dummy.flif"

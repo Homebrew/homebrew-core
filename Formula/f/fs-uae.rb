@@ -34,7 +34,7 @@ class FsUae < Formula
     depends_on "libtool" => :build
     depends_on "flac"
     depends_on "mpg123"
-    depends_on "python@3.14"
+    depends_on "python@3.15"
     depends_on "sdl3"
     depends_on "sdl3_image"
     depends_on "sdl3_ttf"

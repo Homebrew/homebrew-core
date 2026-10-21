@@ -9,11 +9,12 @@ class Goolabs < Formula
   revision 19
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7448bfd2cd4894bb5d508e9529b32e12c6c832745a0fca3107731f98b214e694"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "fd74658a6c22537254dcd0c82986bf9d949dae79d6591f7d2e80d23fc0dc265f"
   end
 
   depends_on "certifi"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 

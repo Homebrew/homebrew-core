@@ -1,8 +1,8 @@
 class CloudfoundryCli < Formula
   desc "Official command-line client for Cloud Foundry"
   homepage "https://docs.cloudfoundry.org/cf-cli"
-  url "https://github.com/cloudfoundry/cli/archive/refs/tags/v8.19.0.tar.gz"
-  sha256 "bfbbb833c2727432e48d7b383ba749f6ca7e5c11c1377cc6cd22ddc802057d23"
+  url "https://github.com/cloudfoundry/cli/archive/refs/tags/v8.19.1.tar.gz"
+  sha256 "b8a84d34a355dca188ef546e51d374f54f1aa82c0165bdb5e8d7ad7ee15da774"
   license "Apache-2.0"
   head "https://github.com/cloudfoundry/cli.git", branch: "main"
 
@@ -12,12 +12,11 @@ class CloudfoundryCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "893d1dc7db0a05f1f62d40c36fdfdeab963d3c7dc08bcf0a7968ff6a08cbd02d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6a89bbbc6fd61c7f5c1f791eab969b24325deefe1cfcce67d53251a3527593bd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6a89bbbc6fd61c7f5c1f791eab969b24325deefe1cfcce67d53251a3527593bd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "6a89bbbc6fd61c7f5c1f791eab969b24325deefe1cfcce67d53251a3527593bd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "7e4fd211e34340695a52e528d7444c5877b17785a84cd03ba0c766ca32f5b36e"
-    sha256 cellar: :any,                 x86_64_linux:      "5584469a2e82862f3b7dcec5f5b7f3ce282532c60a6ded55ff48e5617ca950ce"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "09bc518822fb9be04129814a51e11baa75fa2a44818993a1cfc2ba1d1460ac1e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "09bc518822fb9be04129814a51e11baa75fa2a44818993a1cfc2ba1d1460ac1e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "09bc518822fb9be04129814a51e11baa75fa2a44818993a1cfc2ba1d1460ac1e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "299182bf73121311c314c0f3cd8015da10846757e15fc51f660e422ed944cfd2"
+    sha256 cellar: :any,                 x86_64_linux:      "9728bb9b94400a5feba1dbbcbd3fbca8a904e22d962059af902946ccabd7a563"
   end
 
   # TODO: unpin go@1.26 when go 1.27 is supported

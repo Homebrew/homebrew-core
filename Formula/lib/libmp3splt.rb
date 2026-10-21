@@ -25,7 +25,7 @@ class Libmp3splt < Formula
     sha256 x86_64_linux:      "b2b5ae6925094b4619cc97902c8bdd27088fbbd78343f5acc4d9fe2b6153d58d"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkgconf" => [:build, :test]
   depends_on "flac"
   depends_on "libid3tag"
   depends_on "libogg"
@@ -37,10 +37,31 @@ class Libmp3splt < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     # Disabling usage of EOL `pcre`. Can be reconsidered if upstream ports to `pcre2`.
     # Issue ref: https://github.com/mp3splt/mp3splt/issues/366
     system "./configure", "--disable-pcre", *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <stddef.h>
+      #include <libmp3splt/mp3splt.h>
+
+      int main(void) {
+        splt_code err = SPLT_OK;
+        splt_state *state = mp3splt_new_state(&err);
+        if (state == NULL || err < 0) return 1;
+        mp3splt_free_state(state);
+        return 0;
+      }
+    C
+
+    pkgconf_flags = shell_output("pkgconf --cflags --libs libmp3splt").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkgconf_flags
+    system "./test"
   end
 end

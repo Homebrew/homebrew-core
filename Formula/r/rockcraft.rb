@@ -17,11 +17,12 @@ class Rockcraft < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8b29fe8171049d9c51e97448e31d22db97612cdb0bbad10e2f8ee8bd0dcf8f39"
-    sha256 cellar: :any, arm64_tahoe:       "cae12ec13664f3744dea5f638327ba5ad5c25d3ce9e6f0afb3083d492860f78f"
-    sha256 cellar: :any, arm64_sequoia:     "21876bfeeab332d7d7f1e977857a7e04f222b4962e5f1c96320a2300953ec565"
-    sha256 cellar: :any, arm64_linux:       "80df5882239c6f60033b3e2a04574fb95b83999d0d584d2861112e7767cd772a"
-    sha256 cellar: :any, x86_64_linux:      "9ff8bcfd640fe457d5a453d9304cc143f1ecc9d98d1bf2bffa8f2b9ef6c87105"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "7033d6ef407a53ab6601ab4439ca23fca420031678e9645f8834c34e835ab7e4"
+    sha256 cellar: :any, arm64_tahoe:       "30fe4669fa21f8de219583cf491af149a453a907416785506956d1ee59b1ea58"
+    sha256 cellar: :any, arm64_sequoia:     "54cb565f0f49838008d6e8a32d6198fd99e97b8f7b6ffdd7cb186a17ec29288c"
+    sha256 cellar: :any, arm64_linux:       "63a7dfe88396a6e174c785a81a3542b41e4f2988e9fa34fba157227c16cc9849"
+    sha256 cellar: :any, x86_64_linux:      "0d1f26b5f504a2487af254dc0a4cceacc40182316653be058a7e2f3e95726d43"
   end
 
   depends_on "certifi" => :no_linkage
@@ -31,7 +32,7 @@ class Rockcraft < Formula
   depends_on "lxc"
   depends_on "pydantic" => :no_linkage
   depends_on "pygit2" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libffi"
   uses_from_macos "libxml2", since: :ventura
@@ -48,8 +49,8 @@ class Rockcraft < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "craft-application" do
@@ -118,8 +119,8 @@ class Rockcraft < Formula
   end
 
   resource "launchpadlib" do
-    url "https://files.pythonhosted.org/packages/30/ec/e659321733decaafe95d4cf964ce360b153de48c5725d5f27cefe97bf5f8/launchpadlib-2.1.0.tar.gz"
-    sha256 "b4c25890bb75050d54c08123d2733156b78a59a2555f5461f69b0e44cd91242f"
+    url "https://files.pythonhosted.org/packages/17/05/79115eea3f46a2048552b766d2e031740b53baff5a084d6a3f6318642ffe/launchpadlib-2.2.0.tar.gz"
+    sha256 "d4f7bb6b95739d4667dd6093d410220317b2415b6c2ef5b143379ebc5f5363a9"
   end
 
   resource "lazr-restfulclient" do
@@ -143,8 +144,8 @@ class Rockcraft < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "oauthlib" do
@@ -163,8 +164,8 @@ class Rockcraft < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/c3/8a/84ef03c1c83eacd7cc4540b05428a93b5cd4e42f62fb0b98ac2cb6ed3a6d/platformdirs-4.12.1.tar.gz"
-    sha256 "38da801a4af303033cbffccb39030db22bf0473e6414309b02acebeee7ca8bf1"
+    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
+    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
   end
 
   resource "pylxd" do
@@ -175,6 +176,11 @@ class Rockcraft < Formula
   resource "pyparsing" do
     url "https://files.pythonhosted.org/packages/e4/11/b213bebff182584360cb8d17c72c1677fec5c5c228de439e63bcf8ab1c8f/pyparsing-3.3.3.tar.gz"
     sha256 "928ae7e20211f3b6f3915a72f06a0cfd29ab9d24279dd6346b6b1a7146397d36"
+  end
+
+  resource "pysocks" do
+    url "https://files.pythonhosted.org/packages/bd/11/293dd436aea955d45fc4e8a35b6ae7270f5b8e00b53cf6c024c83b657a11/PySocks-1.7.1.tar.gz"
+    sha256 "3f8804571ebe159c380ac6de37643bb4685970655d3bba243530d6558b799aa0"
   end
 
   resource "python-dateutil" do

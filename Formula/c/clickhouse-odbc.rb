@@ -45,6 +45,8 @@ class ClickhouseOdbc < Formula
   depends_on "poco"
   depends_on "unixodbc"
 
+  deny_network_access!
+
   def install
     resource("nanodbc").stage("contrib/nanodbc")
 

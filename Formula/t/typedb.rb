@@ -18,6 +18,12 @@ class Typedb < Formula
 
   uses_from_macos "llvm" => :build # for libclang
 
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
     bin.install_symlink "typedb_server_bin" => "typedb"

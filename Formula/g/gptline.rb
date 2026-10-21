@@ -10,11 +10,12 @@ class Gptline < Formula
   head "https://github.com/gnachman/gptline.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e7d7ce99bccf63cec4a15c92315622cf884d28e50a1c6b78b124675bafcb2584"
-    sha256 cellar: :any, arm64_tahoe:       "85b66c997ce807d43f979cdc83c37a5695cc8ee01efb207ba20fcd1f93bb6a57"
-    sha256 cellar: :any, arm64_sequoia:     "bce2ac8164cb7503a816f7d1dc23ebb77f896bd234a7c7054e4a548d06ba7d34"
-    sha256 cellar: :any, arm64_linux:       "d3d7f2bf488441e838bd3f06b6fabb895cad3964300e5792164ab629813b7861"
-    sha256 cellar: :any, x86_64_linux:      "589eab39cc89331cc74aa7d8df72bb08e0642cd804f6063eac8cee3e22c97c38"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "cef96e1b87bae916eab5874c0f5a7fa3eb2255a2d55dd3f1fce5b7c7a44306f0"
+    sha256 cellar: :any, arm64_tahoe:       "2146aa1aee4c36cadfc76c88ff56455ad17bae20f01de61fa35e5a19abec153a"
+    sha256 cellar: :any, arm64_sequoia:     "27af88c49f29371900577f3b6b89b67baa8a0a37343473c1b993f3fab20af7d9"
+    sha256 cellar: :any, arm64_linux:       "49da33793241f5c021995fddd395cee65ec746e9c773167778d8c3b08a94c2c1"
+    sha256 cellar: :any, x86_64_linux:      "57f3736fda8b681ac59975c0280fb4b0d70187264a110c81dffabf98c9402bdb"
   end
 
   depends_on "pkgconf" => :build
@@ -28,7 +29,7 @@ class Gptline < Formula
   depends_on "little-cms2"
   depends_on "pillow" => :no_linkage
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "webp"
 
   uses_from_macos "libxml2", since: :ventura
@@ -80,8 +81,8 @@ class Gptline < Formula
   end
 
   resource "cssselect" do
-    url "https://files.pythonhosted.org/packages/8e/5a/6d6fcf922709391fac986f0a03ad4546f4f45b94d10aeb6c1ee041599993/cssselect-1.5.0.tar.gz"
-    sha256 "3cbe82dd7acbee9ba9e5723b5f9e4749826912f1fb31cd7f92aabed5fde15b15"
+    url "https://files.pythonhosted.org/packages/c8/8b/dc32df939ab541fca6ee8964d26aa231dbe231cdc2b2713228161441ba9c/cssselect-1.6.0.tar.gz"
+    sha256 "8c83a7139e97b93aa5ebdc0f46e785f7056a08a8bf201e597a6a2629d7eb11db"
   end
 
   resource "defusedxml" do
@@ -105,8 +106,8 @@ class Gptline < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/cc/19/d4f21fc4b7ad098dd3c774ccb2a2929178b15d6e1a3ba7d0929817c0b30c/filelock-4.0.8.tar.gz"
-    sha256 "733d9b6b153fc63672f86104324186818b6bbe9dd7db84e9bb9887b6a04a2775"
+    url "https://files.pythonhosted.org/packages/4c/58/6fd434bec86eff7c38a3168454cb132b762b2bea9b3ac094101a2f7bc32a/filelock-4.1.0.tar.gz"
+    sha256 "ad7f724afef953e731b1cc39bcd3a09166d72ed7fcdf29e6e88b1c3235c6715d"
   end
 
   resource "h11" do
@@ -170,8 +171,8 @@ class Gptline < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/e7/db/b135830095e2ae120ea04b0a53d3a1644eb65554385a8ef4c9cb4de3f5fd/openai-3.22.1.tar.gz"
-    sha256 "2575f961e4c1df8761f8eeb4d78e967de3f9b9f91b22f7120d60e393e970094d"
+    url "https://files.pythonhosted.org/packages/b7/a3/3b5576af9c4b8cb7eef1383d33c48a9431b292983fe4b78cbffb31d0aeeb/openai-3.28.0.tar.gz"
+    sha256 "cf0509d32d7bd8eb6a3db02417957cb455212b6629d071826b9ea1f61659e2a4"
   end
 
   resource "prompt-toolkit" do
@@ -210,8 +211,8 @@ class Gptline < Formula
   end
 
   resource "simplejson" do
-    url "https://files.pythonhosted.org/packages/f1/e3/1cc7dbf4deebc16e9dc42db37f473b5b612d021eb10e69974be308425171/simplejson-4.1.2.tar.gz"
-    sha256 "6ae4186f90362e9c03c80a1cd5062a20f3a11ac9d391f7ee0ef0701a0e2b7394"
+    url "https://files.pythonhosted.org/packages/2f/f0/ea064bba6c9afda0168ddb834f1c75a93351031e25aee35c046108e7f292/simplejson-4.2.0.tar.gz"
+    sha256 "55b121b70a560f4610bd3a355ab2015aca4f39978f6a82353f24d2013fe85861"
   end
 
   resource "six" do
@@ -240,8 +241,8 @@ class Gptline < Formula
   end
 
   resource "tldextract" do
-    url "https://files.pythonhosted.org/packages/01/a9/ed5d3be29bfaf90c00b7159d3884b311f3880b55833d1c7be764164dc288/tldextract-5.3.2.tar.gz"
-    sha256 "c017431bc0800f2d3d1b57cce36e06668f0930f60a6d8c4615d4e2b8da298fa9"
+    url "https://files.pythonhosted.org/packages/fd/5d/45ece871390ccc985f821353543165bcf3784fa97d8484fd0ca5f2726612/tldextract-5.4.0.tar.gz"
+    sha256 "6c9223212c15c25c0da2bf7313893c14f175cb36b64a0c42da67a468e0c61ee3"
   end
 
   resource "tqdm" do
@@ -260,8 +261,8 @@ class Gptline < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/dc/ac/3a943d2792c9bb368aaa8b50121c0f778460ba2d7fbdc0a0366201d9e761/wcwidth-0.9.1.tar.gz"
-    sha256 "5823209b0d43af322ce698c689380d7c15ca31fa8e6e3be8459f27031bef0af5"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

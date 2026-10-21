@@ -26,18 +26,19 @@ class Embulk < Formula
   # See: https://github.com/Homebrew/brew/issues/18695
   depends_on "openjdk@21"
 
+  # In order to install a different plugin, we need JRuby, but brew `jruby`
+  # seems to hit some failures so using a resource.
+  resource "jruby-complete", :test do
+    url "https://search.maven.org/remotecontent?filepath=org/jruby/jruby-complete/9.4.8.0/jruby-complete-9.4.8.0.jar"
+    sha256 "ce537f21a2cfc34cf91fc834d8d1c663c6f3b5bca57cacd45fd4c47ede71c303"
+  end
+
   def install
     libexec.install "embulk-#{version}.jar"
     bin.write_jar_script libexec/"embulk-#{version}.jar", "embulk", java_version: "21"
   end
 
   test do
-    # In order to install a different plugin, we need JRuby, but brew `jruby`
-    # seems to hit some failures so using a resource.
-    resource "jruby-complete" do
-      url "https://search.maven.org/remotecontent?filepath=org/jruby/jruby-complete/9.4.8.0/jruby-complete-9.4.8.0.jar"
-      sha256 "ce537f21a2cfc34cf91fc834d8d1c663c6f3b5bca57cacd45fd4c47ede71c303"
-    end
     testpath.install resource("jruby-complete")
     jruby = "jruby=file://#{testpath}/jruby-complete-#{resource("jruby-complete").version}.jar"
 

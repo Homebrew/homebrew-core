@@ -21,6 +21,13 @@ class HickoryDns < Formula
     depends_on "bind" => :test # for `dig`
   end
 
+  # `test do` block runs a local DNS server.
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "bin")
     pkgshare.install "tests/test-data"

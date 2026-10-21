@@ -1,12 +1,12 @@
 class Flamebearer < Formula
   desc "Blazing fast flame graph tool for V8 and Node"
   homepage "https://github.com/mapbox/flamebearer"
-  url "https://registry.npmjs.org/flamebearer/-/flamebearer-2.1.0.tgz"
-  sha256 "35ebda2a2a30e954f7732098f67d215b7ccadf5a0672f631ed8b7e0277c6c624"
+  url "https://registry.npmjs.org/flamebearer/-/flamebearer-2.2.0.tgz"
+  sha256 "30464b792b16b27acee532045f8fa54dd4fbb319925b6989a1765ae52603530a"
   license "ISC"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4a8717204ca6eb054fe336dfdb73fe918fc432cee32ce50cb07f1a6b05e17310"
+    sha256 cellar: :any_skip_relocation, all: "6e47f059d69e35fa11b6995c304ed1f3251bbc65d1f98e28265292c7eacfa307"
   end
 
   depends_on "node"

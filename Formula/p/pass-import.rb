@@ -10,16 +10,17 @@ class PassImport < Formula
   head "https://github.com/roddhjav/pass-import.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9352578c3ec8e4842f74b2e173a672256af6f857cc8f942fd1c96baa9b803a20"
-    sha256 cellar: :any, arm64_tahoe:       "e3c24def82f506cec459785af307f21b1ff3a503f46021141bc54fee09a31134"
-    sha256 cellar: :any, arm64_sequoia:     "2f6dce619c0d41de03be1e640465a86e0db7abca2a26a135ad2fe8cb0c51763c"
-    sha256 cellar: :any, arm64_linux:       "4cec55b6eca0328ab5e858e862388167f889d7812aaff5405c998180b2a2d334"
-    sha256 cellar: :any, x86_64_linux:      "bad0a181ea8bbb72ae1b228b4d3fa1dbd1a3d368d53b49442b01dce9ffb1c588"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "8ba42d8e09358611c6680a076e323f1e5e349d4c733efb9a3be5c0ae892c0cd3"
+    sha256 cellar: :any, arm64_tahoe:       "16231a09dbc58bcfa89cf7df5836ff28f8fa44aaf0e809f47e9d08b10e81eca6"
+    sha256 cellar: :any, arm64_sequoia:     "ce9560660ba0130ebeabd3881dcd368e508ec102893bc4f13940b277f2f87791"
+    sha256 cellar: :any, arm64_linux:       "b640fd6e6da646896474a023b3eff5305caf7b2ced8b1b18f6d7a7e80fa3ffd8"
+    sha256 cellar: :any, x86_64_linux:      "ac9ad4217542e196797400e0131ef0485fbd121957c576b3a08128b1940f7b93"
   end
 
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 

@@ -9,12 +9,13 @@ class Easyeda2kicad < Formula
   head "https://github.com/uPesy/easyeda2kicad.py.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "340ce9e2dcb623e0b5917db839b59c6f681ad4450f03a1f4059f1089d0695234"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "7c1e166f88a02e77a511aaaf035367da444e79c02db7743e36f0301685e3f648"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: ["certifi", "pydantic"]
 

@@ -1,14 +1,15 @@
 class Qtserialport < Formula
   desc "Provides classes to interact with hardware and virtual serial ports"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtserialport-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtserialport-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtserialport-everywhere-src-6.11.2.tar.xz"
-  sha256 "df3a733616444f31b2ecb689218ea1444be91d8628aa3ab8e464c5eb1b17ad8e"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtserialport-everywhere-src-6.12.0.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtserialport-everywhere-src-6.12.0.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtserialport-everywhere-src-6.12.0.tar.xz"
+  sha256 "ba8886a54eee466e57c9fa1341255cc09c462c84baab3ee7b19d67cdbcbd71c3"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-3-Clause", # *.cmake
   ]
+  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qtserialport.git", branch: "dev"
 
@@ -17,12 +18,11 @@ class Qtserialport < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1a103aebcbf228ddbbcc4b2118958249353080147264c4323ec4bc7f3fac4384"
-    sha256 cellar: :any, arm64_tahoe:       "a1748cf5658971cda06dbb4006622334a5b4e44f3ebbc53ad498607ff840d39f"
-    sha256 cellar: :any, arm64_sequoia:     "ec458a0310d2c542c2801c9c9997397568ba51098ab49972304f6f390bb8eebf"
-    sha256 cellar: :any, arm64_sonoma:      "f06e16c104ce0c86303ed8202d9cc801d07b4349bab84296f015b46ee6c964cc"
-    sha256 cellar: :any, arm64_linux:       "c2e2d415225cfbb98e511a8b5988bcadc2f28696af1a9df5fb6539b83eebbedc"
-    sha256 cellar: :any, x86_64_linux:      "8758b1c4d8c33a559210b65dd1f02d14f9dfe5bb7d5170ed08f3764fec395b28"
+    sha256 cellar: :any, arm64_golden_gate: "f104c77d6cda7bef8d2c44095607bc7e0a34e998162fd739c445c1b346edefa7"
+    sha256 cellar: :any, arm64_tahoe:       "1a8e539944c593bb5076120744f685831247f4b295eb703d9a69cd4413233c0e"
+    sha256 cellar: :any, arm64_sequoia:     "e3532cf6eec20dc93b589f24c78ff5dad3f088068fff98192bc851d887e62c4a"
+    sha256 cellar: :any, arm64_linux:       "5488f7ca73dd83159cc8840978a034ffe6c3318100b74cd4320e55bbd87c77c5"
+    sha256 cellar: :any, x86_64_linux:      "1b9cf2b845472e0945804de5502346e5253baffc96e3d91fa79fdb4fae01b493"
   end
 
   depends_on "cmake" => [:build, :test]

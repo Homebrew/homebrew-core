@@ -1,9 +1,9 @@
 class Findent < Formula
   desc "Indent and beautify Fortran sources and generate dependency information"
   homepage "https://www.ratrabbit.nl/ratrabbit/findent/index.html"
-  url "https://downloads.sourceforge.net/project/findent/findent-4.4.0.tar.gz"
-  mirror "https://www.ratrabbit.nl/downloads/findent/findent-4.4.0.tar.gz"
-  sha256 "01cddb56be6b55e4c210817f6b81a3474945b01f69c30dc87656c3946f8bcbfd"
+  url "https://downloads.sourceforge.net/project/findent/findent-4.4.2.tar.gz"
+  mirror "https://www.ratrabbit.nl/downloads/findent/findent-4.4.2.tar.gz"
+  sha256 "005a0a8cb8e25c8aab10ba3e0735a26b00835281040ee4d3453580ca8604e078"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,11 +12,11 @@ class Findent < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e01821c301fd95de769c3bc98fbf5b891daef2510fac2ba0b1de981f4e06ba71"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d395a5254a6a99c428e1ca07d01f83ef28c1a443f4382c9901bb354c767ee5f0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f483ac6ca4872a8518282963ed0aa180e995d10197a78091b4f73e1a137c1797"
-    sha256 cellar: :any,                 arm64_linux:       "6e64ca49414c263a42b9c05303c1dd7b7f49246b54e394318342a501d962b092"
-    sha256 cellar: :any,                 x86_64_linux:      "26b247c008089643577c5fe4145cda0d47fe06077abc4fcae8e1174138a3ad06"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e24bd6c232ba9d7b301aa0d4ddb9541971ab2446189dfcb9507b7be56cadfba7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "61c9de86f9854291e128eb29e62be7f6717e74e2db83a511d42202c9d1c335e1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2f9f4389e3e092320a864d2952c6ccf3e5f43e87de843e73b6d02c457ca9ffbd"
+    sha256 cellar: :any,                 arm64_linux:       "c88e4b623209f2a769d7feee8d35d2671591a3e63d16487470e9219d7a110cda"
+    sha256 cellar: :any,                 x86_64_linux:      "a988cfa29e896820e533174e7103ae459974067130ea7d44779039971467a6b2"
   end
 
   def install

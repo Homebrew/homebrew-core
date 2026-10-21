@@ -18,6 +18,12 @@ class Immortal < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ldflags = "-X main.version=#{version}"
     %w[immortal immortalctl immortaldir].each do |file|

@@ -1,25 +1,24 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://github.com/phusion/passenger/releases/download/release-6.2.0/passenger-6.2.0.tar.gz"
-  sha256 "bd0e14538fa4a9f479a3ce60805a201bf10757d6051d23087759b1abbc811529"
+  url "https://github.com/phusion/passenger/releases/download/release-6.2.1/passenger-6.2.1.tar.gz"
+  sha256 "4b7e1c4f2528facbbb5be07722cad8786605886611a59ff0df52205089aa7e7d"
   license "MIT"
-  revision 3
   head "https://github.com/phusion/passenger.git", branch: "stable-6.2"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4525134b680d1192e500a9353cbbe8dfdebebfb573148ce79a2d0d30bf0178ef"
-    sha256 cellar: :any, arm64_tahoe:       "c8a40c514d9bebb045f26c64ced79d54fdeb0a969e459fe897b2f78d281c797d"
-    sha256 cellar: :any, arm64_sequoia:     "06d4b9baa5bce895424ee99048379e6ac57d2023d004eed01dde6bc368981363"
-    sha256 cellar: :any, arm64_linux:       "99d469fc3465a5d9a329d2717929aaba29a021cc952528a03e213c80af1a4786"
-    sha256 cellar: :any, x86_64_linux:      "4a20b09f9a9d23571b5b09e652320f7adf5f8f330c4e07b7e9503be55c5fd71a"
+    sha256 cellar: :any, arm64_golden_gate: "4b0eae8405bc2cd6e0755edceffcaa7939b9c31ba8e483da82893f77e9db2c8f"
+    sha256 cellar: :any, arm64_tahoe:       "c9d5b4e91e8f637de37fb39925d5120536f066bfc9843b156c8b520bdf864539"
+    sha256 cellar: :any, arm64_sequoia:     "a6156dd8150229ff7c3e0ac679a1fa325ea5088793d55f7c71f15bd623c07355"
+    sha256 cellar: :any, arm64_linux:       "d660ecaa6cb7a1c3b54c9233ea7ca269d7cbac26ca1a76eb601b44a96b74d024"
+    sha256 cellar: :any, x86_64_linux:      "d15e96f5910cd4f2a85fc848c5059f154fbb6dbaa6cc9715a7552a2f0d1d6999"
   end
 
   depends_on "httpd" => :build # to build the apache2 module
   depends_on "nginx" => [:build, :test] # to build nginx module
   depends_on "apr"
   depends_on "apr-util"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pcre2"
 
   uses_from_macos "xz" => :build
@@ -39,8 +38,8 @@ class Passenger < Formula
     end
 
     inreplace "src/ruby_supportlib/phusion_passenger/platform_info/openssl.rb" do |s|
-      s.gsub! "-I/usr/local/opt/openssl/include", "-I#{formula_opt_include("openssl@3")}"
-      s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{formula_opt_lib("openssl@3")}"
+      s.gsub! "-I/usr/local/opt/openssl/include", "-I#{formula_opt_include("openssl@4")}"
+      s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{formula_opt_lib("openssl@4")}"
     end
 
     system "rake", "apache2"

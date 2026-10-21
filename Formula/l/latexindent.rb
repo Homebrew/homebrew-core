@@ -1,20 +1,16 @@
 class Latexindent < Formula
   desc "Add indentation to LaTeX files"
   homepage "https://latexindentpl.readthedocs.io"
-  url "https://github.com/cmhughes/latexindent.pl/archive/refs/tags/V4.0.2.tar.gz"
-  sha256 "06b70cd1cc2ca6509c66a9f0a29a01d38ff22122b2fd559549f6df075bad1693"
+  url "https://github.com/cmhughes/latexindent.pl/archive/refs/tags/V4.0.3.tar.gz"
+  sha256 "80aef9350a404b03b2cb367e6f1321976b906aaa0ca61fcfaa4c82c82204bbf5"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b0558fcbe722e9f842173890c0973d48a2adbe273bdca6c84e74ce81f4ee71d0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a760d1f9b9fb0a34fc50a86c9cac776db35f87e77126ceb22318498b319d273d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a719fc5965a1e4fd71e35110f27dc251bd4316cbaf16389f9d1d6f541689f33a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "ec8b7aa531dfd1b4525d58ac957aa8b3ae0d86c99c475169641ad58747d6fb96"
-    sha256 cellar: :any_skip_relocation, sequoia:           "2b956b73ad1f7580379e6da6beebb93004094a45e79b7841728cc46998f7f2e0"
-    sha256 cellar: :any_skip_relocation, sonoma:            "5471f1141b4e7d4446ed699257a4b1b50bf929cb7212c366905345cb36a97cbf"
-    sha256 cellar: :any,                 arm64_linux:       "1ad79d6115a1e79a8d90b498bd850d0c251131c6faa6d709cb88330f7a5d8607"
-    sha256 cellar: :any,                 x86_64_linux:      "f518cb78843cdc04c88b5ca618dd9b9565fc36deb7898064d7a62fec9e38a560"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c93e6c51534a030e542eb8fd82df7bc247ce4d9977b69ebadd035eff5a86d70d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e440fa2b59881913020b6a4bda2f2722f4724f384cc7c2b671e2e65a0700a349"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6ffdaca71c671b5872e7a0144fd58232e09a316f040b70810e06e9d9924a6107"
+    sha256 cellar: :any,                 arm64_linux:       "f94061cfaf38655a81c672593d8f24e046f05cbd35a3042d2683bcf26338e13c"
+    sha256 cellar: :any,                 x86_64_linux:      "03002705d4c18aa8250b95ad5fec1d4b8c18a8275b2897f568d6dd455a1d3d45"
   end
 
   depends_on "perl"
@@ -185,6 +181,8 @@ class Latexindent < Formula
     url "https://cpan.metacpan.org/authors/id/R/RI/RIBASUSHI/namespace-clean-0.27.tar.gz"
     sha256 "8a10a83c3e183dc78f9e7b7aa4d09b47c11fb4e7d3a33b9a12912fd22e31af9d"
   end
+
+  deny_network_access!
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"

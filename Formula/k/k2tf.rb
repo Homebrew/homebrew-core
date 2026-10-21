@@ -22,6 +22,11 @@ class K2tf < Formula
 
   depends_on "go" => :build
 
+  resource "homebrew-test", :test do
+    url "https://raw.githubusercontent.com/sl1pm4t/k2tf/b1ea03a68bd27b34216c080297924c8fa2a2ad36/test-fixtures/service.tf.golden"
+    sha256 "c970a1f15d2e318a6254b4505610cf75a2c9887e1a7ba3d24489e9e03ea7fe90"
+  end
+
   allow_network_access! :test
 
   def fetch
@@ -35,11 +40,6 @@ class K2tf < Formula
   end
 
   test do
-    resource "homebrew-test" do
-      url "https://raw.githubusercontent.com/sl1pm4t/k2tf/b1ea03a68bd27b34216c080297924c8fa2a2ad36/test-fixtures/service.tf.golden"
-      sha256 "c970a1f15d2e318a6254b4505610cf75a2c9887e1a7ba3d24489e9e03ea7fe90"
-    end
-
     cp pkgshare/"test-fixtures/service.yaml", testpath
     testpath.install resource("homebrew-test")
     system bin/"k2tf", "-f", "service.yaml", "-o", testpath/"service.tf"

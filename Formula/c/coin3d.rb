@@ -50,6 +50,8 @@ class Coin3d < Formula
     depends_on "mesa-glu"
   end
 
+  deny_network_access!
+
   def install
     system "cmake", "-S", ".", "-B", "_build",
                     "-DCOIN_BUILD_MAC_FRAMEWORK=OFF",

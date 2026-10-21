@@ -1,8 +1,8 @@
 class Gomplate < Formula
   desc "Command-line Golang template processor"
   homepage "https://gomplate.ca/"
-  url "https://github.com/hairyhenderson/gomplate/archive/refs/tags/v5.2.0.tar.gz"
-  sha256 "fb08872f54f776863a30adcd58dce0437529d0e6a468839d107803bbff1d0b23"
+  url "https://github.com/hairyhenderson/gomplate/archive/refs/tags/v5.3.0.tar.gz"
+  sha256 "57082793307653a7b5189922c0be93da144db281dc478523a480858f6f906985"
   license "MIT"
   head "https://github.com/hairyhenderson/gomplate.git", branch: "main"
 
@@ -12,13 +12,11 @@ class Gomplate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "944bc6de087a4086c94092f033faf23b82c2d0ad41edf689a7d741094f124df2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dae55e481fddcb3061a57c06a811cb96e19d834fbfb266a771aa405770b0e848"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2b9a43e55f2cd1262f4a88e382c60995cc592bcd02a9b186593e2d2d2fac6dbb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "66c78605986e1e271d4d3bdbfd5751a26f7d5c3451d108cd8597ae51f529534a"
-    sha256 cellar: :any_skip_relocation, sonoma:            "86e3848d04ccab8b7bbb8ff4f06caa0db4095ad6db9af9c7af8c27b8b25833bb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f838a801831f98711045834053845c247dcf96760b75f4e366e2cf8d0949a322"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0ea170a4986806c104a4f7151c3253f16bc46a812a5ea6c1d75389377ddcb8e2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "86c27eb30e8de6d3e24826df544fc2917215ab656ec6d6e11a937a1cc0e0f388"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8168604167f4210c0664e70a82eca375ee18d8c4e0258e8ea1c085267f1f0a9b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "871fbdb8d6a1b77ad428013fab0041c22116f8394197c217f30c0a41bdb49019"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "0b82c48194473461cbc569dead859e5ef2f00bb293f45590dbde6fe8a9891bb4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8293576433d3ee4e77212d2d3546a18498a4e2965234945db43ed683641b4932"
   end
 
   depends_on "go" => :build
@@ -31,7 +29,7 @@ class Gomplate < Formula
 
   def install
     system "make", "build", "VERSION=#{version}"
-    bin.install "bin/gomplate" => "gomplate"
+    bin.install "bin/gomplate"
     generate_completions_from_executable(bin/"gomplate", shell_parameter_format: :cobra)
   end
 

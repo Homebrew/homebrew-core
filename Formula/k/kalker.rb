@@ -19,6 +19,16 @@ class Kalker < Formula
 
   uses_from_macos "m4" => :build
 
+  deny_network_access!
+
+  def fetch
+    cd "cli" do
+      # The release's `Cargo.lock` needs to be regenerated.
+      system "cargo", "generate-lockfile"
+      system "cargo", "fetch", *std_cargo_fetch_args
+    end
+  end
+
   def install
     cd "cli" do
       system "cargo", "install", *std_cargo_args

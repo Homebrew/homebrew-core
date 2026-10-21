@@ -14,7 +14,7 @@ class Sslscan < Formula
     sha256 cellar: :any, x86_64_linux:      "d43bfdf4fdb8dfe72c475005a9486709d41a3bd031944e86bc57798c25c0b6a1"
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@3" # TODO: OpenSSL 4 issue - https://github.com/rbsec/sslscan/issues/361
 
   def install
     system "make"

@@ -23,8 +23,10 @@ class Schroedinger < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "32c7db0617f2a2d01b89d446860529fc3520f377e601a460fadc5e3ce2bc0baa"
   end
 
-  depends_on "pkgconf" => :build
+  depends_on "pkgconf" => [:build, :test]
   depends_on "orc"
+
+  deny_network_access!
 
   def install
     args = []
@@ -42,5 +44,23 @@ class Schroedinger < Formula
     end
 
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <schroedinger/schro.h>
+
+      int main(void) {
+        schro_init();
+        SchroEncoder *encoder = schro_encoder_new();
+        if (encoder == NULL) return 1;
+        schro_encoder_free(encoder);
+        return 0;
+      }
+    C
+
+    pkgconf_flags = shell_output("pkgconf --cflags --libs schroedinger-1.0").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkgconf_flags
+    system "./test"
   end
 end

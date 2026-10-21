@@ -5,21 +5,20 @@ class AprUtil < Formula
   mirror "https://archive.apache.org/dist/apr/apr-util-1.6.5.tar.bz2"
   sha256 "96de1dd6f6a0476d2d2e7964926d8c1ddc3bb0e210e1b1812d3ba5a454a392e2"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 arm64_golden_gate: "1ec1aa561bc4597aa5771a7706e78de577da06a5d27e1db67075499941b127c8"
-    sha256 arm64_tahoe:       "2bc24b7b834b7f9e8f0ac799189687123835a389b3ce68584d94e8b02b38b178"
-    sha256 arm64_sequoia:     "a5a55680dccde97bb0d565744c106f44fac7c8a1bbd25e556ed9e950ca368f9f"
-    sha256 arm64_sonoma:      "4a09d5ce3a12a19287c15427ad1bbb1d02fc9aa8e6080028bbabaf2858a65af7"
-    sha256 sonoma:            "b3c6f79539d6df8bd066f167d383b32ef82bed80ce1dc0f166d033b978ce368a"
-    sha256 arm64_linux:       "dfb776cd6ca7cad412673b96b86d0011359374f629e50388bcce1fce63f3a3bb"
-    sha256 x86_64_linux:      "2b544e6c6da545dc8e822283ae291abe55561b0e3f2ab0355cd929612fd3071a"
+    sha256 arm64_golden_gate: "ad199dc3a5579906d061fdde92fa50568967d01c5766a2e0881b18f5e77cf894"
+    sha256 arm64_tahoe:       "22e6ad6d2811495d5c5467e56c64e710b093e36f2141e4490b0e65d4ffaa59fe"
+    sha256 arm64_sequoia:     "9e16cae0d49d057a60f8f611bfd77757229bfafb36dcbe61b14893ddb285883c"
+    sha256 arm64_linux:       "5a339e9ac46c40b11acd4c009881fbcd62509a7419a025928a035a9e591c136b"
+    sha256 x86_64_linux:      "797b9cf4b25eab090db9255f7eaf5080ef2c5ced3ca2153631eb4e65475e626e"
   end
 
   keg_only :shadowed_by_macos, "Apple's CLT provides apr (but not apr-util)"
 
   depends_on "apr"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "expat"
   uses_from_macos "libxcrypt"
@@ -32,7 +31,7 @@ class AprUtil < Formula
   def install
     system "./configure", "--with-apr=#{formula_opt_prefix("apr")}",
                           "--with-crypto",
-                          "--with-openssl=#{formula_opt_prefix("openssl@3")}",
+                          "--with-openssl=#{formula_opt_prefix("openssl@4")}",
                           "--without-pgsql",
                           *std_configure_args
     system "make"

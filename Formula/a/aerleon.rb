@@ -9,21 +9,22 @@ class Aerleon < Formula
   head "https://github.com/aerleon/aerleon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "0d2037308d4419c13f94bdb460d4bceb1d69a4a872b3ed336da9b869a2e8c6ea"
-    sha256 cellar: :any, arm64_tahoe:       "c753b5558528d1f6bec7745ff4c17ba00fd3c2daff2352d5878794a8c4781d0a"
-    sha256 cellar: :any, arm64_sequoia:     "bf4451aa94e73ce9905c694a24260fdad4bd83881d8f0b0a433d6452d19cb11d"
-    sha256 cellar: :any, arm64_linux:       "1d20d796f99c93e4c0b6afc4b3c7948429e9420374ed76a1aa9cb61c90f04890"
-    sha256 cellar: :any, x86_64_linux:      "837b102617a35fcebbc7707c76c133181ea496b5ee95076934f283b0f9a16b3e"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "82b6072b7119e80184baf11f8bd1f54bdb52904869c54b227f6387c23276e3db"
+    sha256 cellar: :any, arm64_tahoe:       "d03ec72cd6b33e50a9ed9ba406f9668d39f6ef4682369e229576e4042d49084f"
+    sha256 cellar: :any, arm64_sequoia:     "32f390d55ae2bbf6cf3414350acecd2951cd60dcb352533de5a1f59bba65a3dd"
+    sha256 cellar: :any, arm64_linux:       "54116f0362403bd122a09ed85b0fbf45f32413930e46117ad5b8f8c7ab2f1dcd"
+    sha256 cellar: :any, x86_64_linux:      "593ea26e2dbc7410db8aaa4ba620621ade3af20df41ec5dcc09215ffdab07be1"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   conflicts_with "cgrep", because: "both install `cgrep` binaries"
 
   resource "absl-py" do
-    url "https://files.pythonhosted.org/packages/d0/4f/d79676ab82f2e42fc3611618139f13a9c4c31d0cff4b486982047679a802/absl_py-2.5.0.tar.gz"
-    sha256 "0c996f25c0490700fadabe6351630f6111534fa0ae252cc6d2014ea3b141135f"
+    url "https://files.pythonhosted.org/packages/1f/1d/58e2b5a6e4d703ccb2a029943d665974cb3d5a4fb2b3e3675dd03a9df10e/absl_py-2.5.1.tar.gz"
+    sha256 "286e71c82c1a38e75bbcf185f9b37d0305ad7786535107cb49bf4df9ff2e1f95"
   end
 
   resource "pyyaml" do

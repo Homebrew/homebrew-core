@@ -21,10 +21,11 @@ class EulerPy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1f0b353fae5f2356901a0d33ae8c994f35194bc1a23acd06397b6458e892231c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "312c6131b3f8915132ccc76a74083c142034b90924665e6b4add191739d866fb"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   # Manually updated
   resource "click" do

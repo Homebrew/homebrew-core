@@ -23,9 +23,17 @@ class Icbirc < Formula
   depends_on "bmake" => :build
   depends_on :macos # needs strlcpy and Linux headers aren't included
 
+  deny_network_access!
+
   def install
     system "bmake"
     bin.install "icbirc"
     man8.install "icbirc.8"
+  end
+
+  test do
+    # Binding to the broadcast address fails, exercising option parsing and socket setup
+    output = shell_output("#{bin}/icbirc -d -l 255.255.255.255 -p 0 -s 127.0.0.1 2>&1", 1)
+    assert_match "bind 255.255.255.255:0: ", output
   end
 end

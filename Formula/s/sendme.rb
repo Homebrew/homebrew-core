@@ -1,22 +1,26 @@
 class Sendme < Formula
   desc "Tool to send files and directories, based on iroh"
   homepage "https://iroh.computer/sendme"
-  url "https://github.com/n0-computer/sendme/archive/refs/tags/v0.36.0.tar.gz"
-  sha256 "69897a9785c5b87c769417f77de8bff6e34e5391eed3d2df5d270599daf485ad"
+  url "https://github.com/n0-computer/sendme/archive/refs/tags/v0.37.0.tar.gz"
+  sha256 "bbde0e324ffcb4c2fae6d8dd3af2c8191796be2d34bd40f354692c44eea5e9cf"
   license "MIT"
   head "https://github.com/n0-computer/sendme.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1fe7edabce91aab26cafa01fa5033d5116e1c8b172610a864106ef72337a0dec"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0f7f0524e038b8a3072a2d8ed153f5a93c049c3545157f42a3a6c826885c96a7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8ca15d93e8ba160a1f0d0565ef798cabdb61e27f54a9caa28948eccb5f5ec080"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "02a809e07c0afd0c99d3435ed74b0375746a24f8e0d4dc67af6905c8d1ab68ca"
-    sha256 cellar: :any_skip_relocation, sonoma:            "271ff4f22ee303866e8c45cf0ed278a33dc1513cf1d547dce2e542038def3a7e"
-    sha256 cellar: :any,                 arm64_linux:       "10929be76d3000b5cdedc8a1d49ab08413947cc43fc6bcbfe2dc8c32131c149d"
-    sha256 cellar: :any,                 x86_64_linux:      "f4629942a570de5a781197b8616e1da24bc23c3ae478f95252522b2f09c2c1c6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cfe39c5fb0d4dff8d6d20caa87db749735825d91892fc8cd5149d17ac2368c89"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "38864808ab8db64d02df3edd3e152a0706d6a41a0cd074d9345412339a0322bc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2d19a6264bb3fdd3905164bd64f765b4fbf547dae920beed5aca44146a28c55e"
+    sha256 cellar: :any,                 arm64_linux:       "d425c67c4688f75ae52811ef49b17ebfe0b839bcedc1fe58117cc2bc26432699"
+    sha256 cellar: :any,                 x86_64_linux:      "ee32cb5a5e2022e8ab247945351559cc299cefa13fe84e48e3f0f1b8105b1993"
   end
 
   depends_on "rust" => :build
+
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

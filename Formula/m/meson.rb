@@ -7,11 +7,12 @@ class Meson < Formula
   head "https://github.com/mesonbuild/meson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6c6784e363ba2c1322c91c08b08e94ee5addc70803631a506ded3d1c094ac57e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "a6fd325ff232fff1223f98507bfd98c01a99ba570d6bc8864248d437620523f3"
   end
 
   depends_on "ninja"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."

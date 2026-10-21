@@ -25,7 +25,7 @@ class GhcAT912 < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on "sphinx-doc" => :build
   depends_on "xz" => :build
   depends_on "gmp"

@@ -26,6 +26,12 @@ class Bitwuzla < Formula
   depends_on "gmp"
   depends_on "mpfr"
 
+  deny_network_access!
+
+  def fetch
+    system "meson", "subprojects", "download", "cadical", "symfpu"
+  end
+
   def install
     # Not compatible with brew cadical (>= 3)
     args = %w[

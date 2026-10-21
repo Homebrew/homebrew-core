@@ -6,13 +6,13 @@ class PythonPackaging < Formula
   url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
   sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   license any_of: ["Apache-2.0", "BSD-2-Clause"]
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "6c52dfd74c69a6fdb4ce844deb483e50b314684713e855793d3528493687054e"
+    sha256 cellar: :any_skip_relocation, all: "58715fc706578d585033b5c41ef23ea5f33e3fcc0e1637431055a880bfc50bbd"
   end
 
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
 
   allow_network_access! :build
 
@@ -39,5 +39,9 @@ class PythonPackaging < Formula
       v2 = Version("1.0")
       assert v1 < v2
     PYTHON
+
+    # Check that the wheel is safe to use on all pythons
+    wheel = prefix/Language::Python.site_packages(python3)/"packaging-#{version}.dist-info/WHEEL"
+    assert_match(/^Tag: py3-none-any$/, wheel.read)
   end
 end

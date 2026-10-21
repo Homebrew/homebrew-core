@@ -1,22 +1,26 @@
 class Millet < Formula
   desc "Language server for Standard ML (SML)"
   homepage "https://github.com/azdavis/millet"
-  url "https://github.com/azdavis/millet/archive/refs/tags/v0.15.2.tar.gz"
-  sha256 "dd0de00174182013543efe91e4755e56611fe872f40d5b9f1353b7a319d7f711"
+  url "https://github.com/azdavis/millet/archive/refs/tags/v0.15.3.tar.gz"
+  sha256 "f974a7dacd0e163bd10ebdbc798ec249a89efd01905e8e57b32d2f017254cedf"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/azdavis/millet.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "225e738b49bd9ae941bb3b5cfaee1fe9dd1d1d5bddfc1fb673fdbf9d4c4d0aaa"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ecd593350008c6e56cef1227b949472011e3a373ded1f177d120fff19c83f455"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "79e6cf5cbe43cd791c0e7d7b056d84f7ad2efd17d16244e0dc46b026ad3821b3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "4cde2ae38e21fb8ac20e67807b869ae61e3e046001bb5f12fcdc129d3b4ba9a6"
-    sha256 cellar: :any_skip_relocation, sonoma:            "ead9867137f148dfde3dde8b2ea9c995b0b8ea602d47f9c42544418ec97159a8"
-    sha256 cellar: :any,                 arm64_linux:       "76c1bee8d56109eeae4011b20288dc9d04bdab4ab79bb72902851e6f4e12d37f"
-    sha256 cellar: :any,                 x86_64_linux:      "c0a7daf887dc5a0aadfba3dff6f7108970f33fe4b99269019b1e2065a7cbc202"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1231769414aa7b9fa00b60d0e9a3bf17cb3de933c4bd2ac088b3dbdce0b8e8ae"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c50649fc78a10ad297f913526a298776c2227b6cee14557d35da8648de268390"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5d349db0bf0799c613ac0cc36f54f2785869fbf2d3870d10510ad5b59e769845"
+    sha256 cellar: :any,                 arm64_linux:       "5da54cf964944dd44d2148ee11b051fee8ebac5ba325b8aebf8495cb7752660a"
+    sha256 cellar: :any,                 x86_64_linux:      "df9b4bcf3141a94fee630741be731e93a5b8d897d0b0a82707f49e8e6b65c66e"
   end
 
   depends_on "rust" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/millet-ls")

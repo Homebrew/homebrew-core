@@ -8,17 +8,16 @@ class Dotbot < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "4c464214632ecf2369cb23b4b7d868c9877e7b605f1338b3da0c8179d47f1d86"
-    sha256 cellar: :any,                 arm64_tahoe:       "f11fc268afc48eb84dcec075be866a777a427124d4cabf10b82b4cbf43c53b70"
-    sha256 cellar: :any,                 arm64_sequoia:     "9e80c9348d4858e59425bd693c38d6a81b2bc16322d23d637285f02644c42fde"
-    sha256 cellar: :any,                 arm64_sonoma:      "3ba6b8474ba3866d41188e1ac3dbdf372d4ab6220844dd3304db422ffa0ee9d0"
-    sha256 cellar: :any,                 sonoma:            "6bca4a4f996a6f36ac5cf0c3094a9ed1d9aa2130059c41b98eb2981462541caf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "60f9c9f4dc510d699b4f238d3da190e5cb2a499ddf28540aad8b8676c5e460df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "2428eb6bb83ca72e5597648724b4c8e8f1f82e45ed0f61ed8a574e7085e6ba7c"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "747b71ad01cbcc93da523220e9eec7032f2951d2290d8ebcb1c38a9bc51e8bc3"
+    sha256 cellar: :any, arm64_tahoe:       "60dad598a032220dedcd96532ac8b38f5aa7f9150ac1cfad03ac1688696d2d6a"
+    sha256 cellar: :any, arm64_sequoia:     "cb264c02e2061ecf7b6b8b6ee5bd3925af7381cf13b357edea1aa37d95dd9aba"
+    sha256 cellar: :any, arm64_linux:       "e50a0ef9a58f91d4de17d52fcdde5f7aef6906c8324eca1d71cc627c539e50e3"
+    sha256 cellar: :any, x86_64_linux:      "7d2e5fee46fa922ea245d4e3397c693e9de8a55c008f0283480bd5ea7da59fc2"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"

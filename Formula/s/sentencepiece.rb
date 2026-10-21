@@ -12,19 +12,25 @@ class Sentencepiece < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "81e81f81928ca189d7696727a589280bd0d406de263911d54c8520199c54966e"
-    sha256 arm64_tahoe:       "7d406f5c4038297a6c4e74d29c787d2e61c4a4e9a3731d932a16ececd3907063"
-    sha256 arm64_sequoia:     "bcc1478961f02808a8e6c4aafbba13e45d278a2c6d14c989af893d9bd4667089"
-    sha256 arm64_sonoma:      "b410a67e14a12781d70067321da4428986fa79984fb9bae0cda527ee5e7031b7"
-    sha256 sonoma:            "a805c767d5434b055f66b997f3cfe0aac2e65d69c852023c42eb8f31e758eb8e"
-    sha256 arm64_linux:       "4b1555d09f19e8d0e1511e698f8e91bb085087d0f72b83b6d10ce1d924c6015c"
-    sha256 x86_64_linux:      "e312e1b6fed7ba3c61e922db05bd647b50084c46052f118a3a4d42f7acd041af"
+    rebuild 1
+    sha256 arm64_golden_gate: "04cc7dbd8ea89f54dc2ba80985452abaa1aaaa1c644dbedd40c334a961f94962"
+    sha256 arm64_tahoe:       "04c5953f410677d5e8deb67a42ee7953a10ed4e3d253895dc4c4b23b0abbd35f"
+    sha256 arm64_sequoia:     "fa58bcba804774439f661438b539885cfdf26c6393e2bbb009599b0c07ec7352"
+    sha256 arm64_linux:       "41684851ee90609e8c24579618dc3564963328a09c83ba82ccd264273f389a87"
+    sha256 x86_64_linux:      "a392b4de6b2ab1edb6abced8d88214ffa32c9a35c8a8cb68c7980550b468cdfb"
   end
 
   depends_on "cmake" => :build
+  depends_on "abseil"
+  depends_on "protobuf"
+
+  deny_network_access!
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DSPM_PROTOBUF_PROVIDER=package",
+                    "-DSPM_ABSL_PROVIDER=package",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 

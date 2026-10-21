@@ -24,10 +24,27 @@ class Lxsplit < Formula
   deprecate! date: "2026-07-17", because: :unmaintained
   disable! date: "2027-01-17", because: :unmaintained
 
+  deny_network_access!
+
   def install
     bin.mkpath
     inreplace "Makefile", "/usr/local/bin", bin
     system "make"
     system "make", "install"
+  end
+
+  test do
+    data = (0...3000).map { |i| (i % 251).chr }.join
+    (testpath/"data.bin").binwrite data
+
+    output = shell_output("#{bin}/lxsplit -s data.bin 1k")
+    assert_match "Splitting data.bin into 3 pieces.", output
+    assert_equal 1024, (testpath/"data.bin.001").size
+    assert_equal 952, (testpath/"data.bin.003").size
+
+    rm "data.bin"
+    output = shell_output("#{bin}/lxsplit -j data.bin.001")
+    assert_match "Complete size: 3000 in 3 files.", output
+    assert_equal data, (testpath/"data.bin").binread
   end
 end

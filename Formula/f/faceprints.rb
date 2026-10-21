@@ -20,6 +20,11 @@ class Faceprints < Formula
 
   uses_from_macos "swift" => :build # swift 5.9+
 
+  resource "testfaceimg", :test do
+    url "https://upload.wikimedia.org/wikipedia/commons/8/8b/Franklin-Roosevelt-1884.jpg"
+    sha256 "048c91e6714608d7aade38be43ef18c60a8b6fd3a86e8abfd20af6751b042b0a"
+  end
+
   def install
     system "swift", "build", *std_swift_args
     bin.install ".build/release/faceprints"
@@ -27,11 +32,6 @@ class Faceprints < Formula
 
   test do
     assert_match(version.to_s, shell_output("#{bin}/faceprints --version"))
-
-    resource "testfaceimg" do
-      url "https://upload.wikimedia.org/wikipedia/commons/8/8b/Franklin-Roosevelt-1884.jpg"
-      sha256 "048c91e6714608d7aade38be43ef18c60a8b6fd3a86e8abfd20af6751b042b0a"
-    end
 
     resource("testfaceimg").stage do
       system bin/"faceprints", "extract", "Franklin-Roosevelt-1884.jpg"

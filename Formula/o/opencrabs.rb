@@ -1,17 +1,28 @@
 class Opencrabs < Formula
   desc "Autonomous, self-improving AI agent in a single Rust binary"
   homepage "https://opencrabs.com"
-  url "https://github.com/adolfousier/opencrabs/archive/refs/tags/v0.5.4.tar.gz"
-  sha256 "84f014d7dd2f17939489168db15ba2600ffb65e72f056474a6c2b39b24dba661"
   license "MIT"
-  head "https://github.com/adolfousier/opencrabs.git", branch: "main"
+  head "https://github.com/opencrabs/opencrabs.git", branch: "main"
+
+  stable do
+    url "https://github.com/opencrabs/opencrabs/archive/refs/tags/v0.5.11.tar.gz"
+    sha256 "134b7383c6eebf4e636062d5199b210679d846e3f360c3d83812f8f5b520c3eb"
+
+    # Fix `opencrabs init` failing on a fresh install
+    patch do
+      url "https://github.com/opencrabs/opencrabs/commit/09f25a468cdd16b5f61519468a8fe6a32e6f820a.patch?full_index=1"
+      sha256 "0e01a74cea9782a3078f1c91d324979dd0c733b37ed1c2c8e250ba2f96bafab5"
+      type :backport
+      resolves "https://github.com/opencrabs/opencrabs/issues/2093"
+    end
+  end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "0dcecb382085efcb2db1b62c249d2c8e1930503eeffe4e5df3fc60837efdc8aa"
-    sha256 cellar: :any, arm64_tahoe:       "c0f8afa8aad8dbbc74fa16ba0336282806f9fc6e868cbc837f3c5199e6392b96"
-    sha256 cellar: :any, arm64_sequoia:     "947e5135985b6986f86e44899d4e3e8a56435af1fc0c0ff6c76f7f62b53b385e"
-    sha256 cellar: :any, arm64_linux:       "61cb8da2264f1ea3ed8eb79e467317e626be8a28515bb7af1958208e68417ddb"
-    sha256 cellar: :any, x86_64_linux:      "7a446e0546236e675079a016b52e7e16aab1f52e7815afe7e93127bfcb978498"
+    sha256 cellar: :any, arm64_golden_gate: "5a799b87b2512a8bbd778c9774a5d72ba79b204ae789e1e2d558d99ab932d788"
+    sha256 cellar: :any, arm64_tahoe:       "78dcbb23717e6cb3598003bd1a2f0286d89a83330e6dd75634303ea26f8c2ef9"
+    sha256 cellar: :any, arm64_sequoia:     "daabaf4dbb06177797de174255597c91a3e156f8cdbac916b5e047f95092fd4b"
+    sha256 cellar: :any, arm64_linux:       "4ea6bb8134b7f193d10435759675c791d1a2c302b08c28005d39b907348ac6f5"
+    sha256 cellar: :any, x86_64_linux:      "e22dc176bba836ce302b924746c78832020e2a29c6842676784240298c662626"
   end
 
   depends_on "cmake" => :build
@@ -56,7 +67,7 @@ class Opencrabs < Formula
 
     config = testpath/".opencrabs/config.toml"
     assert_path_exists config
-    assert_match "[provider_registry]", config.read
+    assert_match "[database]", config.read
 
     assert_match "Database:", shell_output("#{bin}/opencrabs config")
   end

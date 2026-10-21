@@ -8,10 +8,11 @@ class Pter < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9e4a6bf7ffd9142af6f683ab4e7e423ccb0b9a0354f2a312e95977614f1c2983"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "dcae688eadf335adeb4b9a7ceec046121f2f93c5f49249f14b913a869dc72367"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "cursedspace" do
     url "https://files.pythonhosted.org/packages/cd/3b/72657c9e867dd5034814dcea21b1128a70a1b8427e48c7de8b3b9ea3dd93/cursedspace-1.5.2.tar.gz"

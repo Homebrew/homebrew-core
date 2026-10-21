@@ -13,11 +13,12 @@ class Suricata < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "283bd9b638ec85ce190bd84768427bb8d8005f4532e42adc329231dd1b9d6f43"
-    sha256 arm64_tahoe:       "a51ed5c38f2f1c1fe5ab89cd61434c0f6328ceda7a93590d7c2e085ea7545e1d"
-    sha256 arm64_sequoia:     "d66ffa0cb29e2063db3c2d3bcb59296b8a883e773bf9f37409d9947b3434f488"
-    sha256 arm64_linux:       "67a859a358de6ff68453b5fd0d845ab9399f0e88b60d820d0f0d6420d90b9c4e"
-    sha256 x86_64_linux:      "b412552d31260f2333ad5882f99e9fcdac5ea6be54c11d2ef3b89c081e1369a2"
+    rebuild 1
+    sha256 arm64_golden_gate: "7ed8b5478e18f57e2e76923b759128d84896d9decc0b145e48ee6771a23019d4"
+    sha256 arm64_tahoe:       "4890096d759ff4bc8286cd8d570761418dd40d940aa3eb252609f450192afc79"
+    sha256 arm64_sequoia:     "ffc6195a2508bad7faafa426bbb2f476611e4294aa9220bc99b43254188cbfb5"
+    sha256 arm64_linux:       "c7f4a917c88ed7491d0c65baf5d4643e72b549597b135df48fa1e12499f76889"
+    sha256 x86_64_linux:      "98011f9dadf98c4a4be6bbaac3bc208435fb98acc42041dc4dc57520e7b56ead"
   end
 
   depends_on "pkgconf" => :build
@@ -28,7 +29,7 @@ class Suricata < Formula
   depends_on "libyaml"
   depends_on "lz4"
   depends_on "pcre2"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libpcap"
 

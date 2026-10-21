@@ -4,7 +4,7 @@ class Pdns < Formula
   url "https://downloads.powerdns.com/releases/pdns-5.1.4.tar.bz2"
   sha256 "f8a10edbf60e49d8c160e93121989d5ebcdad838d0e0b747f26ef7e89fd220c0"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   # The first-party download page (https://www.powerdns.com/downloads) isn't
   # always updated for newer versions, so for now we have to check the
@@ -17,13 +17,11 @@ class Pdns < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "2fdde60870d8a79fb4239e27eeebbde97cd2c9fe99f451eb4840c4c5c62dff8b"
-    sha256 arm64_tahoe:       "f9ae01cc72b5d6cc59ce65aba5838f5846fcb5e1f92d4835a805b5201ef5902e"
-    sha256 arm64_sequoia:     "5b028a81bf981f1863681236aef0eda607ce833407e5f4068197bf444231b19a"
-    sha256 arm64_sonoma:      "5d1a24e7b7f12d6f5a5890a7a5b04e9aea362c44244213a9e53815213c0e7719"
-    sha256 sonoma:            "b5033532473e8380f77827e166a378be6d0b395549e36ce39499d91b580c1281"
-    sha256 arm64_linux:       "fa7210190354446861777a132462235040d75859a466cef7c6945a18f511abbc"
-    sha256 x86_64_linux:      "2f0c18cac62b4c6e8e9207e175d39525589557cec16e7b5510c72d8232682ed6"
+    sha256 arm64_golden_gate: "3f392cbd76db562bd68583c3ade8f58a3d74c10e1edfd37b9a71216942d4fb24"
+    sha256 arm64_tahoe:       "d7102fd99834a7b2585dd8e79ba7bd452349d4e177a34712216b4263193f3359"
+    sha256 arm64_sequoia:     "ed7507d7db6bff569d3e593ce1db5267f02ea4806f8fc1a4ae3dbd0ed5feb3a8"
+    sha256 arm64_linux:       "b274729ba5d613e72194b0d53087b56513118a5cb9468abcb94e35dd1baad417"
+    sha256 x86_64_linux:      "d75df0d2832314c396b48014b2f92539f7377261112a317df3ef45cbcbecbfa2"
   end
 
   head do
@@ -38,7 +36,7 @@ class Pdns < Formula
   depends_on "pkgconf" => :build
   depends_on "boost"
   depends_on "lua"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "sqlite"
 
   uses_from_macos "curl"
@@ -48,7 +46,7 @@ class Pdns < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}/powerdns
       --with-lua
-      --with-libcrypto=#{formula_opt_prefix("openssl@3")}
+      --with-libcrypto=#{formula_opt_prefix("openssl@4")}
       --with-sqlite3
       --with-modules=gsqlite3
     ]

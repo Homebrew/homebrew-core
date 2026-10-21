@@ -3,23 +3,20 @@ class AnsibleBuilder < Formula
 
   desc "CLI tool for building Ansible Execution Environments (Containers)"
   homepage "https://ansible-builder.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/fe/6b/0525894e5dd510c3a67da0b8819209333ca939cfa94b7f0d3ef041a628ec/ansible_builder-3.1.1.tar.gz"
-  sha256 "9d88bc15acc7d31056d0c51914a6102dac8e5ad73f9f2d35ba98378c89714ed2"
+  url "https://files.pythonhosted.org/packages/b0/87/999145b4dadcde9916990ca8462d78564fbcbe754e8256d9037537ffa663/ansible_builder-3.2.0.tar.gz"
+  sha256 "8cd8639011127aaa5046fd60e56ae753eb599061bf493eca2c6b75c54cfc6212"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "dfb99710cb0301016fb33066d8aa502a1a94a151771f6a13488d30a5bd2d7ebb"
-    sha256 cellar: :any, arm64_tahoe:       "a3c7948caddd81ba892ad8c0ac781b33d26aaaa0f884f035af192fd523fdd43d"
-    sha256 cellar: :any, arm64_sequoia:     "b8b984f597adeebaea844aa67d8d2b9f98289f98fd1a681399156ce2c7b02a10"
-    sha256 cellar: :any, arm64_sonoma:      "89a2129d196ad564997ff6825672a1213f3296d9ec925c47e13db4460e67f661"
-    sha256 cellar: :any, sonoma:            "5e959e4f95270a8e9a1a9951ae86278e239e2b07d713cc60454ce725259f66a2"
-    sha256 cellar: :any, arm64_linux:       "b6157ba9546a46a72aa44758a12240cfc6e4af81b1b5cd465fb98fc641c24130"
-    sha256 cellar: :any, x86_64_linux:      "678f255237e8825954cc8dad01272a881729f1486c96ffa01cd3202903b5d59a"
+    sha256 cellar: :any, arm64_golden_gate: "5bd98d53421bca56ced5eaaeb29dd3dd10d0cbc4b2c1b19d1173f262fb4a743a"
+    sha256 cellar: :any, arm64_tahoe:       "2b1d2eb180b506bb361cf422c5a03bf424d765172bcb10a93ea7adaf8a5a8b17"
+    sha256 cellar: :any, arm64_sequoia:     "2379217f75e87a1481080175b53a3bc96fedd52a9ca8c8f25555970bde81ce6d"
+    sha256 cellar: :any, arm64_linux:       "edf1eda72461548c01c773f232434966c239b4958d9048a307b285d61344871e"
+    sha256 cellar: :any, x86_64_linux:      "21fa2886e6b8d83ffcf3dfd06f8a97704c603d28fcba58295f7b0ca6d9c8d741"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
 
   pypi_packages exclude_packages: "rpds-py"
@@ -50,8 +47,8 @@ class AnsibleBuilder < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
-    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "parsley" do
@@ -60,8 +57,8 @@ class AnsibleBuilder < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/5e/ab/1de9a4f730edde1bdbbc2b8d19f8fa326f036b4f18b2f72cfbea7dc53c26/pbr-7.0.3.tar.gz"
-    sha256 "b46004ec30a5324672683ec848aed9e8fc500b0d261d40a3229c2d2bbfcedc29"
+    url "https://files.pythonhosted.org/packages/6b/8d/ce438c28c7958e33184e8ac851ea2225b47a41e5e9e708fa3bddba631135/pbr-7.1.3.tar.gz"
+    sha256 "9a4a85b84e906337708009af0b5f5cdabeeb72d4dc213c9e97974da54fd9acc5"
   end
 
   resource "pyyaml" do
@@ -75,8 +72,8 @@ class AnsibleBuilder < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/34/26/f5d29e25ffdb535afef2d35cdb55b325298f96debd670da4c325e08d70f4/setuptools-83.0.0.tar.gz"
-    sha256 "025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef"
+    url "https://files.pythonhosted.org/packages/6d/44/f5da03a8ef95d369145c5bb53050e7877c9f3d312e128605fd9504829143/setuptools-84.0.0.tar.gz"
+    sha256 "f4695c21257f0d9b537ec2692c941d02ee143b7cc1276941349a546573b2ef73"
   end
 
   def install

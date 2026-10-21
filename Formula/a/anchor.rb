@@ -1,17 +1,16 @@
 class Anchor < Formula
   desc "Solana Program Framework"
   homepage "https://anchor-lang.com"
-  url "https://github.com/otter-sec/anchor/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "2b08bcb9b0dabb3ca4dfb24cd865f255fc7b5519d0b5c41063b8a8b89e16d58c"
+  url "https://github.com/otter-sec/anchor/archive/refs/tags/v1.2.1.tar.gz"
+  sha256 "c346ba9189b0d3e500653fdf7331940b8bca9b2fbf7286c53976b9ac55b8975f"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_golden_gate: "34de60342a21cb1adb5dabc0a6c1ad88bd759639791ca70de3deb009f9d367b6"
-    sha256 arm64_tahoe:       "14df7a7e7842f5d04697a6fc03b5165a557a20c2a7a1753b3703499d7c247b4e"
-    sha256 arm64_sequoia:     "c7626a179d30f39c07cce1e0d09a22d9ab9082edeaa5710a9a675f1db992ab85"
-    sha256 arm64_sonoma:      "f141564e4868163a823e092bdb1a3ef89090699a8d0b4682c1dfe13767e7c7dd"
-    sha256 arm64_linux:       "4725a7f018759fb80bb11be3eed94ab85124a04098d225f7820a6f9cd53307e9"
-    sha256 x86_64_linux:      "58cc2fdbf9da4037ba125f3a804ce7dbe892b1023b828963186f617b9b0cd911"
+    sha256 arm64_golden_gate: "c1eabe14272c725055816f60483a32c79a487fd327dd5641bd1584c942442d0d"
+    sha256 arm64_tahoe:       "54fe0dfdd319660bf85263bd1d0b90cddd351b14d496197d4160138f295c1f4f"
+    sha256 arm64_sequoia:     "046b721d1dff0759b4650d5ff68ad0d1c65ec0052555a3cd64b02ca24f8438dd"
+    sha256 arm64_linux:       "6c3751cc1739028b4fc363a7cbea69b1eeed4b753c124d4a5e963dd59e3877c5"
+    sha256 x86_64_linux:      "b3a1db40f6c6e377f537dcd05d7d13f67de1bdf984be1b4efcae3acdc4f66f85"
   end
 
   depends_on "pkgconf" => :build
@@ -21,6 +20,8 @@ class Anchor < Formula
   on_linux do
     depends_on "systemd" # for `libudev`
   end
+
+  allow_network_access! :test
 
   def anchor_workspace_toml
     <<~TOML
@@ -32,11 +33,15 @@ class Anchor < Formula
     TOML
   end
 
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     # FIXME: "Unknown attribute kind (102) (Producer: 'LLVM21.1.8' Reader: 'LLVM APPLE_1_1600.0.26.6_0')"
     inreplace "Cargo.toml", "lto = true", "lto = false"
 
-    system "cargo", "install", "--no-default-features", *std_cargo_args(path: "cli")
+    system "cargo", "install", "--no-default-features", *std_cargo_args(path: "cli", features: "solana-v4")
 
     # TEMPORARY: anchor searches parents for `Anchor.toml` and the Linux sandbox denies listing `/`
     (buildpath/"Anchor.toml").write anchor_workspace_toml
@@ -44,7 +49,7 @@ class Anchor < Formula
   end
 
   test do
-    assert_match "anchor-cli #{version}", shell_output("#{bin}/anchor --version")
+    assert_match version.to_s, shell_output("#{bin}/anchor --version")
 
     (testpath/"Anchor.toml").write anchor_workspace_toml
     (testpath/"Cargo.toml").write <<~TOML

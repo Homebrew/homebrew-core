@@ -9,18 +9,19 @@ class Kaskade < Formula
   head "https://github.com/sauljabin/kaskade.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "171352b96f9e47dca855d761cfa42c7d34f2971d4aced9ce886e671326b3f850"
-    sha256 cellar: :any, arm64_tahoe:       "23005d43c7f78717a920e948742f4ba2fbe08573d5d14e230cee09618b589f96"
-    sha256 cellar: :any, arm64_sequoia:     "60bf98521592c1a2a32bd3592650a2f905373e32351bef0dfee67a2bfc3becba"
-    sha256               arm64_linux:       "a021b3003a5269854117ab20b35070cb1d3f639fcd3c5efa375596ed0d1eea9a"
-    sha256               x86_64_linux:      "7628619164507d6b8a311397a7bee88875a0c0e0b979c79de078960a585bb67f"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "7cf52a0d5ee714d0cdc07a841eb00917f195fe11c2a9ce2a01b904bf3e0448da"
+    sha256 cellar: :any, arm64_tahoe:       "1f92729b2775b1a13766a0091fa383f401a713347b1d799a0f5ee668c63da08c"
+    sha256 cellar: :any, arm64_sequoia:     "91cf2498e73af4b5d7653d7441dedca6baf5f0011577b6eb27995e185eb17393"
+    sha256               arm64_linux:       "7db77dbd93b5e341be41bb1741b550a7d936d3f623d7a9a0899d7be881c00f25"
+    sha256               x86_64_linux:      "4c8a288253cd04f0ca3200239728b8164de032d80e72a8389b6b168d7f213efb"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "librdkafka"
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
 
   pypi_packages exclude_packages: %w[certifi cryptography rpds-py],
@@ -53,23 +54,23 @@ class Kaskade < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/46/59/012898d78087105e9c20fe31605d3f1999921745e1890ee0f0d993846e2e/boto3-1.43.103.tar.gz"
-    sha256 "524821052527f6446d249bf710847b032d9b12135e346c9751777a0a2811cf04"
+    url "https://files.pythonhosted.org/packages/59/d3/fa092ae1c109100d0c5c14c69a316cd6d53c05fb57183fa77b1fcdef86ce/boto3-1.43.111.tar.gz"
+    sha256 "5ae342a16c848909cd42d4be404f69d9082e5705460198d4d3327eca5f6cddcb"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/3c/83/acbee6f2e3b1f02de935fef0c48a387511bf979149dc6b44466aaafba6a5/botocore-1.43.103.tar.gz"
-    sha256 "8c7f220e09f3b7ec99c59c716aa66cf6f5b2b57fd8731544054f3778aa744c6a"
+    url "https://files.pythonhosted.org/packages/6c/43/257e97270ddd6833fd54b11e544a09b441b02f8c731bdeb29b90479be565/botocore-1.43.111.tar.gz"
+    sha256 "44d5e80962ac6cb9e85af72667b77c9586451e3328ab0ce33195380767e213d8"
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/29/2c/3f18755527b03ca9ff6be724bd5370cb777c76a87f17301377cf04a4729b/cachetools-7.2.0.tar.gz"
-    sha256 "bcac1a1b8da6909994a2957238a57b8140dab7c5c5c69a43669654fe87a33c1d"
+    url "https://files.pythonhosted.org/packages/31/44/71476a5812da1ddf2c9a3efd31ae76d01480a1cf03ed13ac28aa8f2402e4/cachetools-7.2.1.tar.gz"
+    sha256 "b1a7537025c06abf96fcc1443e496af9a3fb95e774e70e1f0af226f73f7f2dcc"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "click" do
@@ -88,13 +89,13 @@ class Kaskade < Formula
   end
 
   resource "fastavro" do
-    url "https://files.pythonhosted.org/packages/6e/5b/ccb338db71f347e3bc031d268bf6dc41e5ead63b6997b8e72af92f05e18e/fastavro-1.12.2.tar.gz"
-    sha256 "3c79502d56cf6b76210032e1c53494ddfbc73c140bccf2ef4092b3f0825323ab"
+    url "https://files.pythonhosted.org/packages/d6/ee/05cae1eeb332f876a1226b382a1f1be4ac8ce66634c313f2746beadab16f/fastavro-1.13.1.tar.gz"
+    sha256 "6f05aa2539bf7a19e9eb3bdaf6580c4d0f082a8230f641eaf9c84e4bcf0e6bc4"
   end
 
   resource "googleapis-common-protos" do
-    url "https://files.pythonhosted.org/packages/4b/13/f83676de1dce4f8106bcba91725b3f3f4baf6ca1977685102b008b8e0097/googleapis_common_protos-1.75.4.tar.gz"
-    sha256 "4587babdc82a8d7e5a3d4f5a6697e064bf44a598b4d08341c212b68185eadbcd"
+    url "https://files.pythonhosted.org/packages/8d/2b/6ce81972d5c8cab9705fddce3153be63222d9e12fd96f8baba5038a744dd/googleapis_common_protos-1.75.5.tar.gz"
+    sha256 "c7a866fc34ed29a3b10af627a4b9b1dc2433313ca6e959f0ae4feb132047ed72"
   end
 
   resource "grpcio" do
@@ -238,6 +239,8 @@ class Kaskade < Formula
   end
 
   def install
+    # Allow 3.15: https://github.com/sauljabin/kaskade/issues/152
+    inreplace "pyproject.toml", 'requires-python = ">=3.10,<3.15"', 'requires-python = ">=3.10"'
     virtualenv_install_with_resources
 
     generate_completions_from_executable(bin/"kaskade", shell_parameter_format: :click)

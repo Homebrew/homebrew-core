@@ -25,6 +25,14 @@ class Cfonts < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    cd "rust" do
+      system "cargo", "fetch", *std_cargo_fetch_args
+    end
+  end
+
   def install
     chdir "rust" do
       system "make"

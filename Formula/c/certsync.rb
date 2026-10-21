@@ -9,16 +9,18 @@ class Certsync < Formula
   revision 12
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c94387188b42b58d6e499e6de7d5ccfeb16dc79ecdcd357a526990557599bd82"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "03e864be6f2478154a57739fed729e72596a291bb6f8adc3f213b1e34a3d641b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2015cdca53cf7a131d60279e9796abf6e5e7bddce86ba41dd5a429f23f95a927"
-    sha256 cellar: :any,                 arm64_linux:       "21bdd94ef58176b2a8162eda1f995be4f26f6a286069bd4583108a48b394c732"
-    sha256 cellar: :any,                 x86_64_linux:      "1c8e8bd6aa9c9a4d5cfabe3718105c65b20768d80427398ceced8e4ba4c720bc"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "12ada15a918169f495887d3e3fbde78fd7dfa4323d3bcebbf0f1a77712e34da9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cdb7043e8f69256c5c10388082737af2401341bd3f9134a8c457712973c2d079"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9f9eb20edcc9d0637ba1f93f0a3f7f3617af4207eadb21c756bfbc23a3f42486"
+    sha256 cellar: :any,                 arm64_linux:       "d42140b44c726c0cc32ab51d48e0b7cb58cc29925cfa2ed51d137ecf82f213ca"
+    sha256 cellar: :any,                 x86_64_linux:      "ee76737c1ad99763cd1b17fbf7880a63dc144c326e5b44d0bec8cc1ded92241f"
   end
 
+  depends_on "rust" => :build # for dnspython > uv_build > maturin
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libffi"
 
@@ -51,8 +53,8 @@ class Certsync < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/8c/8b/57666417c0f90f08bcafa776861060426765fdb422eb10212086fb811d26/dnspython-2.8.0.tar.gz"
-    sha256 "181d3c6996452cb1189c4046c61599b84a5a86e099562ffde77d26984ff26d0f"
+    url "https://files.pythonhosted.org/packages/ef/4a/50822184bd67cc6493f0fb6a880749158fcd31ab3fa07409acfd91f9fc85/dnspython-2.9.0.tar.gz"
+    sha256 "b44dc6b18f07a8b1c56676a19fbfdb5209415b046a9cece286baafa87ff3f7f1"
   end
 
   resource "dsinternals" do
@@ -96,8 +98,8 @@ class Certsync < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "pyasn1" do
@@ -111,13 +113,13 @@ class Certsync < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/8e/a6/8452177684d5e906854776276ddd34eca30d1b1e15aa1ee9cefc289a33f5/pycryptodome-3.23.0.tar.gz"
-    sha256 "447700a657182d60338bab09fdb27518f8856aecd80ae4c6bdddb67ff5da44ef"
+    url "https://files.pythonhosted.org/packages/34/e0/0d0bd5b1089a4bf5ef48164459289ddf02a9110ca1db854edaad25127e64/pycryptodome-3.24.0.tar.gz"
+    sha256 "9140779b40405476a799305b9ac1bcaab4ee6791dc3d38b12a9aa84ffbd6aabf"
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/c9/85/e24bf90972a30b0fcd16c73009add1d7d7cd9140c2498a68252028899e41/pycryptodomex-3.23.0.tar.gz"
-    sha256 "71909758f010c82bc99b0abf4ea12012c98962fbf0583c2164f8b84533c2e4da"
+    url "https://files.pythonhosted.org/packages/4c/25/214ea825a9031f5af2c8b2506ee16701a2560d4712165dd00098dd527bcb/pycryptodomex-3.24.0.tar.gz"
+    sha256 "0428f19f13452c6b89bbaf2c530f84f369873811dfa77f0cee0da4f40fb0474f"
   end
 
   resource "pyopenssl" do
@@ -126,8 +128,8 @@ class Certsync < Formula
   end
 
   resource "pyspnego" do
-    url "https://files.pythonhosted.org/packages/fd/8f/30bb9568554899a6147bed657762a3c707e2d3dcaabf3492161cc9550bb4/pyspnego-0.12.3.tar.gz"
-    sha256 "c4982c9f92e6aa5979c9d9a142a21339ff82ebcfbdb4e0649320cb050961a3cd"
+    url "https://files.pythonhosted.org/packages/4b/58/d7c9cfdf1394a8b4d85ac488888814b28d26c4bd732191bd4169687cbfdd/pyspnego-0.12.4.tar.gz"
+    sha256 "acb314d6ca5c9ce87994b1eebbe2d8b687e0d564f9d650b306afb4c8f9c2ffd5"
   end
 
   resource "requests" do

@@ -1,9 +1,10 @@
 class Nushell < Formula
   desc "Modern shell for the GitHub era"
   homepage "https://www.nushell.sh"
-  url "https://github.com/nushell/nushell/archive/refs/tags/0.116.0.tar.gz"
-  sha256 "1174d023ffc8083750daec8ee2dfe6486a8ef9f5c22396aa675b61d1bb0fad2d"
+  url "https://github.com/nushell/nushell/archive/refs/tags/0.116.1.tar.gz"
+  sha256 "0cca0c5bc9d9eb608dee00c75b6b511917df6e66c784b034468bab2ff0fbb9b4"
   license "MIT"
+  revision 1
   head "https://github.com/nushell/nushell.git", branch: "main"
 
   livecheck do
@@ -13,16 +14,16 @@ class Nushell < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d603b3f6afa449b4ff7c1a323a13e3b31f9e26d43f663d35ad3e4c6e26d75c1f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d2570af2675749c20604afafec125580e5164241b05871a96f9bee1fb89a1bad"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "daf066540cea5fa5ec1e51da261aaf62b11b7d04d961dbda524f2b508638adb4"
-    sha256 cellar: :any,                 arm64_linux:       "19b38f0346f4a6a82a2970a36c921eb455b26255ea42b1a04db4b545c5c2fbcc"
-    sha256 cellar: :any,                 x86_64_linux:      "c274b7a9cdbcfdb2c1d29662f68634a8a9dd572d950bfbe5c013dece7318c5e7"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d18196a0a8500ce635f118eab3f3d6cbf8459042a22d3fa123d7cf466379a86c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c2f83ab98dec74d69d142f1de6630c39c9a5f2d3ab53dceece1bb309d0d647d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "565e6bf6e0e8fc13e8cf898465b942d575aae19fdf9b47ecfd67c77bfa6e1b71"
+    sha256 cellar: :any,                 arm64_linux:       "a138bc04782c9c0c761a0f8b75422d2fe5fecb930445f1dad971e6ce4ae2aa00"
+    sha256 cellar: :any,                 x86_64_linux:      "d8c5b15f24e509634e7b634fda6bbf4575288933ccb131365741344efd323791"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "curl"
 

@@ -34,6 +34,12 @@ class MinioMc < Formula
 
   conflicts_with "midnight-commander", because: "both install an `mc` binary"
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     if build.head?
       system "go", "build", *std_go_args(output: bin/"mc")

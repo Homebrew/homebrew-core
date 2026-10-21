@@ -17,11 +17,11 @@ class GitImerge < Formula
   end
 
   bottle do
-    rebuild 6
-    sha256 cellar: :any_skip_relocation, all: "45eec1f8fc1d680a3148b4d2b6d1e2a87fa6c792be7a8793b9e35d5b82d057f3"
+    rebuild 7
+    sha256 cellar: :any_skip_relocation, all: "7b4ff75971568d2bd712d22e35083b9b6d7a3a2ce8b8ef5db47085a2ae055653"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     virtualenv_install_with_resources

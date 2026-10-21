@@ -1,12 +1,15 @@
 class FlowControl < Formula
   desc "Programmer's text editor"
   homepage "https://flow-control.dev/"
-  # version is used to build by `git describe --always --tags`
-  url "https://github.com/neurocyte/flow.git",
-      tag:      "v0.7.2",
-      revision: "af7c97acb9579f76a237a52e3104b1639dd24fbd"
   license "MIT"
-  head "https://github.com/neurocyte/flow.git", branch: "master"
+
+  stable do
+    # version is used to build by `git describe --always --tags`
+    url "https://github.com/neurocyte/flow.git",
+        tag:      "v0.7.2",
+        revision: "af7c97acb9579f76a237a52e3104b1639dd24fbd"
+    depends_on "zig@0.15" => :build
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e59b27462e2eb15a69b92fdf4c1e322cd172cdc6c29d5f1bac7fe022244e951b"
@@ -18,15 +21,26 @@ class FlowControl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "23ea757119c328bc9fc880ec1df320cdead86f29ba3f58d3787f00efe7cd81b5"
   end
 
-  depends_on "zig@0.15" => :build
+  head do
+    url "https://github.com/neurocyte/flow.git", branch: "master"
+    depends_on "zig" => :build
+  end
 
   conflicts_with "flow", "flow-cli", because: "both install `flow` binaries"
 
+  deny_network_access!
+
+  def fetch
+    system "zig", "build", "--fetch"
+  end
+
   def install
-    # Avoid an error when the git repository is detached from HEAD
-    inreplace "build.zig",
-              /const describe_base_commit_ = try (.*);/,
-              "const describe_base_commit_ = \\1 catch \"\";"
+    if build.stable?
+      # Avoid an error when the git repository is detached from HEAD
+      inreplace "build.zig",
+                /const describe_base_commit_ = try (.*);/,
+                "const describe_base_commit_ = \\1 catch \"\";"
+    end
 
     # Remove `--release=` flag as upstream uses it to build multiple
     # cross-compiled binaries to upload as release assets.

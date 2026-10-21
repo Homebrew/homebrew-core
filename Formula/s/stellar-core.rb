@@ -2,8 +2,8 @@ class StellarCore < Formula
   desc "Backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      tag:      "v28.0.1",
-      revision: "947aad8413c189d85504acf72207e85eeda9b021"
+      tag:      "v30.0.0",
+      revision: "0e49751aa9ddf892302cca02cea7f3f5d97df9f1"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-core.git", branch: "master"
 
@@ -16,12 +16,11 @@ class StellarCore < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1bc9c9cc101593df1b000a0211784e268f1f00d5ff6674d15dbd0ed06d606f1a"
-    sha256 cellar: :any, arm64_tahoe:       "a45eba22d3dd41db23c8f67a90245705c92eff9792087643905af0c8b18c3f79"
-    sha256 cellar: :any, arm64_sequoia:     "8ede2f5d5d1f7fc2df785e2f65d48f3d26e475b30ed9712f87aa4e5b46c8d456"
-    sha256 cellar: :any, arm64_sonoma:      "5869860c035e22c125bede8ad5f3268a5fcd0c601a48eaac4c90d414ab4dae07"
-    sha256 cellar: :any, arm64_linux:       "e53ae206410140a852c9efdb31da72b8d9150f049d3b076a9d5e0b1a0c17d50c"
-    sha256 cellar: :any, x86_64_linux:      "3380990ed3f198969a7e294a425b06dbee31d31bb05af6a669d324f541b76e0f"
+    sha256 cellar: :any, arm64_golden_gate: "41d48362f55480aa57590dd0f90938ed15a7cf096b5b43d39568d9e7df136d50"
+    sha256 cellar: :any, arm64_tahoe:       "4f2963bae1af06b037e8ce6e397719ed3721e093d89f98d8358f69ec457aa25c"
+    sha256 cellar: :any, arm64_sequoia:     "bee2b67e4625de8f1c63353e89cdf4acb348a62d9bc929d294562181c127b709"
+    sha256 cellar: :any, arm64_linux:       "fd6a9808efb97796fa4c185ebcb46e10875e51bd5f3ee4555e8de107fd3e534b"
+    sha256 cellar: :any, x86_64_linux:      "f9cbeb8c633bc22fbbf5fbbbc8fd2ba60c47f063173c0bcc6ed069360bc1fe44"
   end
 
   depends_on "autoconf" => :build
@@ -57,7 +56,7 @@ class StellarCore < Formula
     system "./autogen.sh"
     system "./configure", "--disable-silent-rules",
                           "--enable-postgres",
-                          *std_configure_args
+                          *std_configure_args.reject { |s| s["--disable-debug"] }
 
     # The p21-p26 soroban host submodules lock `ethnum` 1.5.0, which fails on
     # current Rust: it transmutes `()` into the now-non-zero-sized

@@ -1,20 +1,26 @@
 class Fallow < Formula
   desc "Codebase intelligence for TypeScript and JavaScript"
   homepage "https://docs.fallow.tools"
-  url "https://github.com/fallow-rs/fallow/archive/refs/tags/v3.31.0.tar.gz"
-  sha256 "e0eed1c4fca276be30ebf830ac1faef75b2f676d5bb8a8e1ced46a35c8287835"
+  url "https://github.com/fallow-rs/fallow/archive/refs/tags/v3.34.1.tar.gz"
+  sha256 "226b9c0b3a9cde9ccf7fd6b7b99b7dfac4bd1081ec2f19694879a9b637158153"
   license "MIT"
   head "https://github.com/fallow-rs/fallow.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6a1a35138a70d49d348ee5873fbb215d26fea18ff50bb7d092bc9fa38027f29e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "102623c9187360ec97a57385187853abf087081ce260bc4cc6651cbe9ca21e55"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5eb886dca23afcbebaef88edac488b5f6b8469574bd3ca7e8aac05b7f13cd99e"
-    sha256 cellar: :any,                 arm64_linux:       "7f4950aab0ce2d88d6f562a8605817d4c95ee7c4e5105d6c2a59c3afbdf02d67"
-    sha256 cellar: :any,                 x86_64_linux:      "9cc22761ca67461fb8c39a676d9bc04973176a5aad48cf3d25fa9c61df540217"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "decd0d64747197be4a301cba5b81cc3cc464b65b78c0c12dc66ea5c15166a3a2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f56bf8a8c38a31ad1b41d4044baab20d896984497961474f7d8dc01dc02484f3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2c653f6d3b3c52d240ef86b8ee35fa601f029297902a5ee606ffdc374ed6052b"
+    sha256 cellar: :any,                 arm64_linux:       "e8cccefb1d7e43195521cd23d489213081908e5e8b1894d264ce65c9aac1cc97"
+    sha256 cellar: :any,                 x86_64_linux:      "24ba7a01866a7f653c059f29a52ae630671ee6cbf59c2b99fdef09f0a75ce13a"
   end
 
   depends_on "rust" => :build
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/cli")

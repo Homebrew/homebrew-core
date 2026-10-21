@@ -8,17 +8,18 @@ class SvtplayDl < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e94e2d99106de8555257ed78985f5e85e776c26a67983566eb3e6b8775a19578"
-    sha256 cellar: :any, arm64_tahoe:       "64597b89742296c2ac2278630d6697f8574cc893ecd2b868c86d90425085fe05"
-    sha256 cellar: :any, arm64_sequoia:     "7b9da284401934ab5ae4031c56e27686f334217efd33b4889fff13bbd7876af8"
-    sha256 cellar: :any, arm64_linux:       "43400e6f0596c1adbc6f13f1671646e1ba9053542d45d1dd6e04506b15a0cf61"
-    sha256 cellar: :any, x86_64_linux:      "a428c52bc3e45dfa9bb75efa3c8f674b8752614b6276089c31ba1853012b54c6"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "6bc0f9afd06aa376fa1dcb789fccd15f93dd9822deed4830ca274bd9c8b982c4"
+    sha256 cellar: :any, arm64_tahoe:       "3f3727f48ecb667ed1a09da6a875fbef21a14ca53aecb9d9fd54b79bdcff1879"
+    sha256 cellar: :any, arm64_sequoia:     "0c99f841f73bd3e499e9a13951c1b0ff63ac5c9fdbeb3832a4b2bda15c0139bf"
+    sha256 cellar: :any, arm64_linux:       "e16cd5af3fd0490b5be30ad697394f54f3518d760e7a0a937e8ad3af56f839a9"
+    sha256 cellar: :any, x86_64_linux:      "6ed42a809d1e2a61e5eb87946b190373a28325e6b915340a78bcce5bb7a6d58a"
   end
 
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: %w[certifi cryptography]
 

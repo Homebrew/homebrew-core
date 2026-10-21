@@ -4,14 +4,15 @@ class Nanobind < Formula
   url "https://github.com/wjakob/nanobind/archive/refs/tags/v3.1.0.tar.gz"
   sha256 "39659890a112e84e7263e4a263c71dd2621f866f7a4386ce95ef410e6c0e5c2f"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/wjakob/nanobind.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "03147cd5289dec0c06e84b13c56d960857d659af33c903a4b969652e7f8b1653"
+    sha256 cellar: :any_skip_relocation, all: "41268df3f484c7c677093cd884e87f126837552113b74ae14b209dd860c2bfce"
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "robin-map" => :no_linkage
 
   def install

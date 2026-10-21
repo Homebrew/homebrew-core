@@ -18,7 +18,12 @@ class DejaGnu < Formula
     depends_on "automake" => :build
   end
 
-  uses_from_macos "expect"
+  on_linux do
+    deprecate! date: "2026-10-12", because: "needs deprecated `expect`"
+    disable! date: "2028-01-01", because: "needs deprecated `expect`"
+
+    depends_on "expect" # TODO: switch to uses_from_macos if undeprecated
+  end
 
   def install
     ENV.deparallelize # Or fails on Mac Pro

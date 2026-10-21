@@ -1,19 +1,16 @@
 class Chromaprint < Formula
   desc "Core component of the AcoustID project (Audio fingerprinting)"
   homepage "https://acoustid.org/chromaprint"
-  url "https://github.com/acoustid/chromaprint/releases/download/v1.6.1/chromaprint-1.6.1.tar.gz"
-  sha256 "3368805af0ee47b9df74df10b5001a44569e01df2844dab520031720dde9ad23"
+  url "https://github.com/acoustid/chromaprint/releases/download/v1.6.2/chromaprint-1.6.2.tar.gz"
+  sha256 "d54ada62c16b2db396d3251ec54fc7a58909c163131a1cfcf7fa6407dbc14360"
   license "LGPL-2.1-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "92612578c19f57c424c187506c40bde94a16d36d7cb9f20de2b93748a710c552"
-    sha256 cellar: :any, arm64_tahoe:       "4bbfd1fff49b1e3f602e4c22fc57432e3235ed93c931d18f6e16c9e8f5ac61a8"
-    sha256 cellar: :any, arm64_sequoia:     "2707ad3b5485c678f3f291c02ab621d30771c89509b1df446458e49610b3f197"
-    sha256 cellar: :any, arm64_sonoma:      "6ec11502595524570391b3afbd99910216272d8d1444e24214b1570d0c34936d"
-    sha256 cellar: :any, sonoma:            "454684649fd41eace479350f18b1fc2602f4e08747e74f5a0c187a7dd29fec9d"
-    sha256 cellar: :any, arm64_linux:       "1c468590de3d8df81fe2a37748cfaa56a0f972bb01ed86a6bf9a1208bd2463ec"
-    sha256 cellar: :any, x86_64_linux:      "59606ff7903edb508f2b2db6f48e8e7b76943a9010940274db833515c18a5ae9"
+    sha256 cellar: :any, arm64_golden_gate: "9446f7a7a9204f250cc483249e06483b947b28997146f44ed41d8ee801fd0d04"
+    sha256 cellar: :any, arm64_tahoe:       "0008cd637f81515fd52cb97a589d1c13cbaeea5314561098b6735c176eec47a1"
+    sha256 cellar: :any, arm64_sequoia:     "181a34d298b3a98ceb26b6bf93b3089eaafd38544f4038a63767bd8d1b707cbc"
+    sha256 cellar: :any, arm64_linux:       "77ba669af47e4175bf717addf5cdb4f7aa66e174d4e4dcdae7b7baeb9302cec8"
+    sha256 cellar: :any, x86_64_linux:      "a9df07a75ffbb54c9beae2b9cb8be7d9d70ca17e25b809ab3918d3cb9c1c788b"
   end
 
   depends_on "cmake" => :build

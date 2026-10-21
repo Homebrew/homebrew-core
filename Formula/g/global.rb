@@ -10,13 +10,12 @@ class Global < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_golden_gate: "d15f0040884165336fec5a3a60256e1574b64299ac922f960571fae82b96aa3d"
-    sha256 arm64_tahoe:       "61becbfb303939428359773d7ae7c96d5e6d869dc05e6d7437cbf73b0bde364a"
-    sha256 arm64_sequoia:     "104437cf6c9a196013efeac2bd195b94edacf4fd113980944200a67eb25e6772"
-    sha256 arm64_sonoma:      "0ecdc3b9e6d7e912336f4ac722acad2e96904ff6da0f6cc206e67e2c9eff7c74"
-    sha256 sonoma:            "bbc374bb1ec1ef3e45102eadd08614cfb674d0f0c30be1dd788098c306ca5235"
-    sha256 arm64_linux:       "39b589b953e08dbd0714e21311c69564433d7493cbba01bcb6611982c1284ce0"
-    sha256 x86_64_linux:      "55f9d6c8fa78c5fd9e0980b57c9bd2d56dd72d6611c7823092c2944464aea56d"
+    rebuild 1
+    sha256 arm64_golden_gate: "659d46ce7d1b8e3bd9c91a497af921cc6d0b9107f1038abbb399a254be4499cb"
+    sha256 arm64_tahoe:       "a323d15234aa887ab706d85c97a18166ee7e6a9fba7052709234528e927a631f"
+    sha256 arm64_sequoia:     "de5bb9af0b57a012e6d305a648d0e772b1f4daec89a5ba823497fab11bf420cd"
+    sha256 arm64_linux:       "4d24c39aab61adf5ff043c2d9532d132bdfd0eaa145e7fada1907674a66a557c"
+    sha256 x86_64_linux:      "dad9cc3baab9bec8e98f7497eb258a3dc9b7a3ae70833f4881222c0e5a80cd25"
   end
 
   head do
@@ -32,15 +31,15 @@ class Global < Formula
 
   depends_on "libtool"
   depends_on "ncurses"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "sqlite"
   depends_on "universal-ctags"
 
   skip_clean "lib/gtags"
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   def install

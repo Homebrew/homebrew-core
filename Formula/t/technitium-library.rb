@@ -1,22 +1,23 @@
 class TechnitiumLibrary < Formula
   desc "Library for technitium .net based applications"
   homepage "https://technitium.com"
-  url "https://github.com/TechnitiumSoftware/TechnitiumLibrary/archive/refs/tags/dns-server-v15.5.1.tar.gz"
-  sha256 "783dd03aaa0a06b9d6ca7cce8b64d557dc8eacfa854c761b15f0ea5166ec722a"
+  url "https://github.com/TechnitiumSoftware/TechnitiumLibrary/archive/refs/tags/dns-server-v15.6.2.tar.gz"
+  sha256 "e7f5add92da555fc3120991fabd802c0605ab9c45cb4b56137dfb0699a006cec"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "65ad8f06c8efd94ea29870aece9cf138cb2d674b9f86bafc744be72b413337db"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3fe25fb0ff0d79337dca6f99fe6efe3f7e1dfa58475a98cbe8c5b416b294f9b6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d26b84e31cc076507429698ef1beac1a735ead361964e1cf5a5e451d1b67ef61"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d66800d5e6813945986f524b6c58d208956a3ac2b0807125a54e1c4b4334523b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "4fc9b167a2e26f07a587fe86a7cc9f927d70adba9e94ce069b3feb9274db2a9c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bb244ea50399b9891ae553e8566cdd0bc75649823223c809d3eb79b7b14e9aa4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3786a0d640769b6650fb4e02404e8b361b3cdadbc276b74560ab9f2d26c1262e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bd9ef5ae7dea6512ec2ae29a3016e4548a22cc990d428a07ddfc21f06d9d5b97"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a6bf98a335dc2004c08348eed07bc2b96b391ce3eb95122d5a51b1b3b2b3dcfb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "13e3ccc67a1c2bf59b423f2e4d744effc6d3f4032f1e8cdb145638b70d58389c"
   end
 
   depends_on "dotnet"
 
   def install
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
+    ENV["XDG_RUNTIME_DIR"] = buildpath
 
     dotnet = Formula["dotnet"]
     args = %W[
@@ -33,6 +34,8 @@ class TechnitiumLibrary < Formula
   end
 
   test do
+    # .NET named mutexes need `XDG_RUNTIME_DIR` (or `USER`) on Linux, which test containers may lack
+    ENV["XDG_RUNTIME_DIR"] = testpath
     dotnet = Formula["dotnet"]
     target_framework = "net#{dotnet.version.major_minor}"
 

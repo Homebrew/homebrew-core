@@ -1,16 +1,16 @@
 class Seal < Formula
   desc "Easy-to-use homomorphic encryption library"
   homepage "https://github.com/microsoft/SEAL"
-  url "https://github.com/microsoft/SEAL/archive/refs/tags/v4.4.5.tar.gz"
-  sha256 "2ed7528b33c08589cfd0a8e964d8f68ca3fdc5293d25423c6ac6e67526916e06"
+  url "https://github.com/microsoft/SEAL/archive/refs/tags/v4.7.0.tar.gz"
+  sha256 "e92a6dd668e83d592c020b233538496d754721dc9a48c7629412a81c4e136717"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "851e669eb9202efc8aece886fda2a7e1804bb82631817823664995af08f0853e"
-    sha256 cellar: :any, arm64_tahoe:       "c525aa8f6d53a5d2b85815e6e8ce6d7c00e1f814f49f4eca0aed1aea526e833d"
-    sha256 cellar: :any, arm64_sequoia:     "03699d9c9e1223b3e56c3c785ddb24661bc52bbcdf5b9d2367886bab1450bc0a"
-    sha256 cellar: :any, arm64_linux:       "621fbe2a04c3b4199314c6bbd4ae28ee3cedb68e5303f1f98aeb9707136419ed"
-    sha256 cellar: :any, x86_64_linux:      "c687af894a00b991289fed3e8b1bd1c71d4d5a4ac71af755c86825b0ae35432c"
+    sha256 cellar: :any, arm64_golden_gate: "bf94ef0aa33b544bb631b67473a5e444947acff40393edff5c5275739817df05"
+    sha256 cellar: :any, arm64_tahoe:       "ae057a459ce62f1f773e2d5489edef39ed4df7e03c80e8c409af7388aa541c81"
+    sha256 cellar: :any, arm64_sequoia:     "f94d4f4503c5f886f8079120867795ff839bff0c7ab52c7b5bfb48a9a6f9a59a"
+    sha256 cellar: :any, arm64_linux:       "7f780d03bf5118f6d521386544d617ae4b083be4a30566e59b19c9946e620316"
+    sha256 cellar: :any, x86_64_linux:      "93202b6b14325c31c06ec80a4f641e323bb519bdb7d4e4f78980e45969bc6777"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -21,6 +21,10 @@ class Seal < Formula
     depends_on "zlib-ng-compat"
   end
 
+  on_intel do
+    depends_on "cpu_features"
+  end
+
   resource "hexl" do
     url "https://github.com/IntelLabs/hexl/archive/refs/tags/v1.2.6.tar.gz"
     sha256 "5035cedff6984060c10e2ce7587dab83483787ea2010e1b60d18d19bb3538f3b"
@@ -29,9 +33,6 @@ class Seal < Formula
   deny_network_access!
 
   def install
-    # Support Microsoft GSL 5.x, which upstream has not widened its version request to yet
-    inreplace "CMakeLists.txt", "Microsoft.GSL 4 CONFIG", "Microsoft.GSL 5 CONFIG"
-
     if Hardware::CPU.intel?
       resource("hexl").stage do
         hexl_args = %w[

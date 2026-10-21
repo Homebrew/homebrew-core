@@ -1,18 +1,17 @@
 class Versitygw < Formula
   desc "Versity S3 Gateway"
   homepage "https://www.versity.com/products/versitygw/"
-  url "https://github.com/versity/versitygw/archive/refs/tags/v1.8.0.tar.gz"
-  sha256 "0ac3f5f81bcf8833a9d5c4bc134721fa95d7f062bd48eb1ed18bd5edd738e78b"
+  url "https://github.com/versity/versitygw/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "0bad0aa6eb277eeba71dbad61c7e9141b748dfa1f4f1837dd43939b7ca23bf7c"
   license "Apache-2.0"
   head "https://github.com/versity/versitygw.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a09b46d4ad7d8d50f12628f0a42ca49ad3ec69b913cf8d08431fc712c355704f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f71bc89111ba03d053d89d7111ebc0cf73a50a076da5c1552bcfa3d936ed1880"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5714755c8fc59ebb42275f409d78a1b157264f69a679bd395caf833cd198e142"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "5a7c767bef098c5c62dc3cf285a8701fb30ce80848b462c0fbdf92f11f1dff09"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a5ed0d51d5944941cdf251cf4760d4e30e22fea6abfaf30f3642fa8e37a95eb6"
-    sha256 cellar: :any,                 x86_64_linux:      "28e1ccf97e95bf635d0ea1b146ccc6b645053798b7536d53cf90e1fd430cf0b6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a9dc0bd5b7152864b62cae490a9acd9a7e34ec5bd51a74a6b85b4cfa1a0db020"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b3f0e1286521be25e6014f3cdca04c5587e9738696846aedf8d8110c77c8e796"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "783fac542e9d513893e4690e000fc273df8f074740c507c32dc7528ddc4becfd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "14c91adf8041aa518513d9dfd403e0e75dbc0b68cd68d22472ac7332f4a872fe"
+    sha256 cellar: :any,                 x86_64_linux:      "e193e1b3e05afd4051207e799e414e23f613ea15fd5ff4ecffb14ae802cdf3f3"
   end
 
   depends_on "go" => :build

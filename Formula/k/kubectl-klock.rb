@@ -1,18 +1,16 @@
 class KubectlKlock < Formula
   desc "Kubectl plugin to render watch output in a more readable fashion"
   homepage "https://github.com/applejag/kubectl-klock"
-  url "https://github.com/applejag/kubectl-klock/archive/refs/tags/v0.9.2.tar.gz"
-  sha256 "57c69971602520f02ef4ccf20c30065dddd0122fe9e208159f3d87cd22d025e5"
+  url "https://github.com/applejag/kubectl-klock/archive/refs/tags/v0.9.3.tar.gz"
+  sha256 "98f28a0d32a5cd0bd07f6d4dc12fd8f1ef069dba176f222540b31e3689366719"
   license all_of: ["GPL-3.0-or-later", "CC0-1.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "98733cddb6dba4602cdc74a15a9e0c1cecf1e1dc1537caa101756760aa8ccd1b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "718ec67a9be82616939817ef908a73d1cf093889fb59e981bd07c99b64609c3a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8e30f7f70df92acb2446f7c18e83960c2b45fcfd2615a329469fdbf8fc1e81af"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "74dc015bb6e0ad8ec31e19fac79e83d192c6c7fe0e5c4e572906c515cf75a984"
-    sha256 cellar: :any_skip_relocation, sonoma:            "07dd21c3a5707d28f41b299a146ab9b6b76fcc63c79720a84fb3b772473d9b6d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5f5dfaa5ccd5cc1efde16768eb7fb756efd69cef3922aea87a42783a4d365a94"
-    sha256 cellar: :any,                 x86_64_linux:      "c3daa7a5ba2c30ce3547ee369f9e969ad5bcb28f435b2139a8542aa44aacb346"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8a4681cc233eadd8ed81bfc6479e7675fe8edacf699e0d29dc2a84932345c8e1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f29b9279987a99360dda140780976b30a440e856ed1282a9e2b18d200988fc09"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f1baf999ff858612bb0a8036e0306fe178e661a4de0004a327e21fceed3c0c81"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "918fa237fd7a6fdce41c33a83e68621d01559a1a40b9c9335603b29cf83f3484"
+    sha256 cellar: :any,                 x86_64_linux:      "6f04cc1e39ee523d2106a1cb3a5556676c057101916b0c52ddfd5f750c81ec22"
   end
 
   depends_on "go" => :build

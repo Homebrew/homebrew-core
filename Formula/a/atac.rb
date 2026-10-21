@@ -1,23 +1,28 @@
 class Atac < Formula
   desc "Simple API client (Postman-like) in your terminal"
   homepage "https://github.com/Julien-cpsn/ATAC"
-  url "https://github.com/Julien-cpsn/ATAC/archive/refs/tags/v0.23.1.tar.gz"
-  sha256 "af34280a23cf3d8cf1b6d79b35a61bfcaaac661e79358166b05548b5153df53a"
+  url "https://github.com/Julien-cpsn/ATAC/archive/refs/tags/v0.24.0.tar.gz"
+  sha256 "7d39488b1dbf30ad370c6fc033922db104aac42796188ee870adfe3e735d9d54"
   license "MIT"
   head "https://github.com/Julien-cpsn/ATAC.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "bcf660020eb78ba4f18f7988ec33a123edc327dcf41cdeee137a25e700ff9942"
-    sha256 cellar: :any, arm64_tahoe:       "54cd6d2a327960ffc2a522b881a40f77470d66a2bd36b673083692c2ef2ebdff"
-    sha256 cellar: :any, arm64_sequoia:     "da57838ae9fd6b63987a5890235df6e98edcf399f0703fc959089b09cded5d61"
-    sha256 cellar: :any, arm64_sonoma:      "6e5c38d01a67f50fa345dbd9bc0de70eb5a72094d303bac2d06976889c5920a5"
-    sha256 cellar: :any, arm64_linux:       "542025beacdb2fa6e91d2d61627fca95a7d413f806b556e773661c649aa5a7de"
-    sha256 cellar: :any, x86_64_linux:      "c33c50907289ffbcca9d58c7eea967dfdadb187bf00c087824047d8d56d096de"
+    sha256 cellar: :any, arm64_golden_gate: "67388cc622f5850aa2d7f1af0f199e27233ecf4d7e8d05ad86f03afd26489d7a"
+    sha256 cellar: :any, arm64_tahoe:       "1b37cd21394c7e22cebe4c97817cd731148a5917d7aa6e5169cb45ff19670272"
+    sha256 cellar: :any, arm64_sequoia:     "65c774f656d17fe803f1ee0368f7282773365db68ce38f852dc521dd0952cf8e"
+    sha256 cellar: :any, arm64_linux:       "dc55cf5581582f8951902223f2acc4d1579c013992825884a2f62a5049215980"
+    sha256 cellar: :any, x86_64_linux:      "c2a6027961705ce7c5e9fc2a4a09efa1ecca2886e9c238e796e0e1bc391c34ff"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "oniguruma"
+
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     ENV["RUSTONIG_DYNAMIC_LIBONIG"] = "1"

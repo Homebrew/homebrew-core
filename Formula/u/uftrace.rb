@@ -7,8 +7,9 @@ class Uftrace < Formula
   head "https://github.com/namhyung/uftrace.git", branch: "master"
 
   bottle do
-    sha256 arm64_linux:  "3b3570a275ea8bee82e006e74be511efa981a6457d73e3057023fb5873879803"
-    sha256 x86_64_linux: "a40de0ad411dac3f06e010668729bbb09646cea78611e808394b4c166de24cba"
+    rebuild 1
+    sha256 arm64_linux:  "e04804d875425f3f453095e2c140a25aebeaafcff91bdfd231324ab60789aaa0"
+    sha256 x86_64_linux: "78c8aed953ac99083dc492732ec1ef46aa98fff8dfadb1eea858fe69e1f380f8"
   end
 
   depends_on "pandoc" => :build
@@ -19,7 +20,7 @@ class Uftrace < Formula
   depends_on :linux
   depends_on "luajit"
   depends_on "ncurses"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "xz"
 
   def install

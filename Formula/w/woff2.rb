@@ -25,6 +25,16 @@ class Woff2 < Formula
   depends_on "cmake" => :build
   depends_on "brotli"
 
+  resource "homebrew-roboto_1", :test do
+    url "https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxP.ttf"
+    sha256 "466989fd178ca6ed13641893b7003e5d6ec36e42c2a816dee71f87b775ea097f"
+  end
+
+  resource "homebrew-roboto_2", :test do
+    url "https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2"
+    sha256 "90a0ad0b48861588a6e33a5905b17e1219ea87ab6f07ccc41e7c2cddf38967a8"
+  end
+
   allow_network_access! :test
 
   def install
@@ -44,16 +54,6 @@ class Woff2 < Formula
   end
 
   test do
-    resource "homebrew-roboto_1" do
-      url "https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxP.ttf"
-      sha256 "466989fd178ca6ed13641893b7003e5d6ec36e42c2a816dee71f87b775ea097f"
-    end
-
-    resource "homebrew-roboto_2" do
-      url "https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2"
-      sha256 "90a0ad0b48861588a6e33a5905b17e1219ea87ab6f07ccc41e7c2cddf38967a8"
-    end
-
     # Convert a TTF to WOFF2
     resource("homebrew-roboto_1").stage testpath
     system bin/"woff2_compress", "KFOmCnqEu92Fr1Mu4mxP.ttf"

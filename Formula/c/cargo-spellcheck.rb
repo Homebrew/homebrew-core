@@ -22,6 +22,12 @@ class CargoSpellcheck < Formula
   depends_on "rustup" => :test
   depends_on "hunspell"
 
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["LIBCLANG_PATH"] = formula_opt_lib("llvm")
     system "cargo", "install", *std_cargo_args

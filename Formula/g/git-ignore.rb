@@ -22,6 +22,13 @@ class GitIgnore < Formula
 
   conflicts_with "git-extras", because: "both install a `git-ignore` binary"
 
+  # `test do` block downloads the template list on a cold cache.
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
 

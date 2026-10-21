@@ -44,4 +44,20 @@ class Clens < Formula
     ENV.deparallelize
     system "make", "all", "install", "LOCALBASE=#{prefix}"
   end
+
+  test do
+    (testpath/"test.c").write <<~C
+      #include <stdio.h>
+      #include <clens.h>
+
+      int main(void) {
+        char buf[FMT_SCALED_STRSIZE];
+        if (fmt_scaled(1536, buf) != 0) return 1;
+        printf("%s %s\\n", clens_verstring(), buf);
+        return 0;
+      }
+    C
+    system ENV.cc, "test.c", "-I#{include}/clens", "-L#{lib}", "-lclens", "-o", "test"
+    assert_equal "#{version} 1.5K", shell_output("./test").strip
+  end
 end

@@ -30,11 +30,29 @@ class Tta < Formula
     depends_on arch: :x86_64
   end
 
+  deny_network_access!
+
   def install
     args = ["--disable-silent-rules"]
     args << "--enable-sse2" if Hardware::CPU.intel?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    # Generate a mono 16-bit 44.1kHz PCM WAV file containing a sine wave
+    samples = (0...4410).map { |i| (Math.sin(i * 0.1) * 10000).to_i }
+    data = samples.pack("s<*")
+    header = ["RIFF", 36 + data.bytesize, "WAVE", "fmt ", 16, 1, 1, 44100, 88200, 2, 16, "data", data.bytesize]
+             .pack("a4Va4a4VvvVVvva4V")
+    (testpath/"test.wav").binwrite(header + data)
+
+    assert_match "Encoding: \"test.wav\" to \"test.tta\"", shell_output("#{bin}/tta -e test.wav test.tta 2>&1")
+    assert_equal "TTA1", (testpath/"test.tta").binread(4)
+    assert_operator (testpath/"test.tta").size, :<, (testpath/"test.wav").size
+
+    assert_match "Decoding: \"test.tta\" to \"out.wav\"", shell_output("#{bin}/tta -d test.tta out.wav 2>&1")
+    assert_equal (testpath/"test.wav").binread, (testpath/"out.wav").binread
   end
 end

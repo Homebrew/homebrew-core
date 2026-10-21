@@ -1,20 +1,17 @@
 class LibgeditTepl < Formula
   desc "Gedit Technology - Text editor product line"
   homepage "https://gitlab.gnome.org/World/gedit/libgedit-tepl"
-  url "https://gitlab.gnome.org/World/gedit/libgedit-tepl/-/archive/6.14.0/libgedit-tepl-6.14.0.tar.bz2"
-  sha256 "2b695f41475573aa59f1cd004b5cc3d2021d0444decf26eb8d38864348fb3577"
+  url "https://gitlab.gnome.org/World/gedit/libgedit-tepl/-/archive/6.15.0/libgedit-tepl-6.15.0.tar.bz2"
+  sha256 "23126d33b0016e5823351c4845cfdc074f7c232a85288a73d00468d003bebbe1"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://gitlab.gnome.org/World/gedit/libgedit-tepl.git", branch: "main"
 
   bottle do
-    sha256 arm64_golden_gate: "5c754a38c3ef66f67f000f3e35abb1d9bd571cbb89d09e5eb8b1a26eb2f4cdd0"
-    sha256 arm64_tahoe:       "20148171f340884e2ea8580f1a4870d15c5a8c498b1029f6515aeb4b735f03eb"
-    sha256 arm64_sequoia:     "ea7f006494423aea8a7816f2d3f331eb8116cadc3688bf7f4f052f6462a80b5f"
-    sha256 arm64_sonoma:      "25274a0255b4b8e6d9f36e72ac80eabfde8f4270659c7d4cf73d33e5e828fce2"
-    sha256 sonoma:            "f49ac4935063ff4b08e5cea8959829d7a2f37074a9c69bb6624cd3c9f4a051eb"
-    sha256 arm64_linux:       "ee8f02ca17eec111b5dac39e0ee9b4cfe56809638515f656dcee879014c4cccc"
-    sha256 x86_64_linux:      "1a8e119f8d5b3f48264f88979bae8b14041665aed64dc3aff5b0a46db32918f8"
+    sha256               arm64_golden_gate: "e13fa36b94526812dc0b2bc1514f36e34cfc71358ccef141d34a6f6504df6d7d"
+    sha256               arm64_tahoe:       "56f023d5e38db5d171d35266cad73bd232a2bc265e86cdc27c733883f8bd1b69"
+    sha256               arm64_sequoia:     "225c33c058e304fd07d8a75fc69946971d6ab01c248b7a78711c9e4e42ba05d8"
+    sha256               arm64_linux:       "39fc9baf9429ce1fefdb895b9e181492413ef3c3a278e62f2354a7c73859fda6"
+    sha256 cellar: :any, x86_64_linux:      "76464ed5b14fd8a762da5d27cd0933c0f9290a500d7ceffa71755384d43dbb5a"
   end
 
   depends_on "gettext" => :build

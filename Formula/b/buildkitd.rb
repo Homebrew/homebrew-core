@@ -1,8 +1,8 @@
 class Buildkitd < Formula
   desc "Concurrent, cache-efficient, and Dockerfile-agnostic builder toolkit (Daemon)"
   homepage "https://github.com/moby/buildkit"
-  url "https://github.com/moby/buildkit/archive/refs/tags/v0.33.1.tar.gz"
-  sha256 "044ab46b73e8aac007f504cf4e8c3ee3a2eb05c4c2a65018bd8b6f2c56a17f62"
+  url "https://github.com/moby/buildkit/archive/refs/tags/v0.34.1.tar.gz"
+  sha256 "0f7d4a765b273359d0752aa1c8a309606578fd0db42e71f0fc5de845d3b1139b"
   license "Apache-2.0"
   head "https://github.com/moby/buildkit.git", branch: "master"
 
@@ -15,14 +15,20 @@ class Buildkitd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "1600489cfa63c52a57372bef936c0be02e98a9bdad6036eb508a8664dabdd0e9"
-    sha256 cellar: :any,                 x86_64_linux: "7a203f1ed4bce6bb962bdbdc22c29a910881521af4349edc5cdcca991c983bd5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "0bfb3eebabb37ecf2d08fc6c06ad156fcd3e21194ca6c36adfd6f035a3b55dbe"
+    sha256 cellar: :any,                 x86_64_linux: "e204407ef88c4fcbc5ba4ed649e85ed0dcde58762d633ae9938e1ebc17ff7f1b"
   end
 
   depends_on "go" => :build
 
   depends_on :linux
   depends_on "runc"
+
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     revision = build.head? ? Utils.git_short_head : tap.user

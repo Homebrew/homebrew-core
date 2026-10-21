@@ -9,11 +9,11 @@ class Geoip2fast < Formula
   head "https://github.com/rabuchaim/geoip2fast.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, all: "b15ac86dd48a66af511f441163d6ac76a9e44f87bbe407f44b926fd7f5836914"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, all: "60ac230c517d6f581b57173fcc625b8935f19937730d01e3a59ff70f4c549d6d"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     virtualenv_install_with_resources

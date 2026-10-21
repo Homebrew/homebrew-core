@@ -10,24 +10,25 @@ class Parliament < Formula
   head "https://github.com/duo-labs/parliament.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f4d966374db9c1111ef25434a0e215cba274343ac6fe34f63934a0be8f84d951"
-    sha256 cellar: :any, arm64_tahoe:       "d0295fae2d2398f2102292b480553a5196ef11e7f8ee3b662b186208c3fd719d"
-    sha256 cellar: :any, arm64_sequoia:     "9fbbfca6f3168ff23e757c5fee77c079e8b450dc71b07f0211312ac05f99ab20"
-    sha256 cellar: :any, arm64_linux:       "01ec1557ca0970c44d916955326d55d1c9bb06ca6b1a2d059b5cf783b2ae8534"
-    sha256 cellar: :any, x86_64_linux:      "c1af5015acea01a4061cc5042df3f1e8cf6b581da1e61cfa27e29f0397b32d9b"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "f39845987b80f583d51223490907646a76382feb787e8be05153ce295c6d5f5b"
+    sha256 cellar: :any, arm64_tahoe:       "9e880878226940d4391c8fa490e9ac0aa62015eca8b265f7a865b221348f965a"
+    sha256 cellar: :any, arm64_sequoia:     "4ad6aec97846a442b667a0c62ac71bc81d23d4be0ce4693925fc8dc45c5b0578"
+    sha256 cellar: :any, arm64_linux:       "4b3b122a3273b4135dbecd3ff79bcc8763e29520d0a57d9f07538cedbbfd6f80"
+    sha256 cellar: :any, x86_64_linux:      "3f4b4db54f9b5335a3d51f8e76803bffae3c3da4e7c098d51f1e7f06d666ee8d"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/49/01/97aaee4d3e94467983a0c1b986ed4f4da48960d7ebc948e7d739c818cb59/boto3-1.43.106.tar.gz"
-    sha256 "c11ad4c429a983493ba10014c7af9831a455c2c0eea91c1cefff74530e480277"
+    url "https://files.pythonhosted.org/packages/59/d3/fa092ae1c109100d0c5c14c69a316cd6d53c05fb57183fa77b1fcdef86ce/boto3-1.43.111.tar.gz"
+    sha256 "5ae342a16c848909cd42d4be404f69d9082e5705460198d4d3327eca5f6cddcb"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/11/b9/10ca68d0092895d5ea60f485a61a9840d5aff9d732c66ed60da53a20b1d4/botocore-1.43.106.tar.gz"
-    sha256 "006870b3b4e40547232ad12c3bb4faec91bbbe0659aafaa3b7fa48a112c4ee97"
+    url "https://files.pythonhosted.org/packages/6c/43/257e97270ddd6833fd54b11e544a09b441b02f8c731bdeb29b90479be565/botocore-1.43.111.tar.gz"
+    sha256 "44d5e80962ac6cb9e85af72667b77c9586451e3328ab0ce33195380767e213d8"
   end
 
   resource "jmespath" do

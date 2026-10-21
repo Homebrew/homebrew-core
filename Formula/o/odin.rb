@@ -2,19 +2,19 @@ class Odin < Formula
   desc "Programming language with focus on simplicity, performance and modern systems"
   homepage "https://odin-lang.org/"
   url "https://github.com/odin-lang/Odin.git",
-      tag:      "dev-2026-09",
-      revision: "a2fb372b76e81ef31fbbc8a2cf2b4fdf5ac6c924"
-  version "2026-09"
+      tag:      "dev-2026-10",
+      revision: "84bc3fc2100b0f7880a3af37f71bccdcda41c6f9"
+  version "2026-10"
   license "Zlib"
+  revision 1
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   bottle do
-    sha256               arm64_golden_gate: "e823c6ead70f91a40a97595d479e44427c662efe450253fe3e8df440750ea8ab"
-    sha256               arm64_tahoe:       "27516d28b8c00915019e107500a86066387dc1f1b1b5a54244b0e05692c313f7"
-    sha256               arm64_sequoia:     "446689cc6f3f288367fe9088f5c5eb987b8a6ed0f89170965b72543c894380f2"
-    sha256               arm64_sonoma:      "85d7e50a0b30758ba6de1307228c21e6290c524fce46f43da1bd1ce97ae86db1"
-    sha256 cellar: :any, arm64_linux:       "8f0d7dac4c01b1ecd8ee4847379ce66007862f6c42a943a9efc214498b54e967"
-    sha256 cellar: :any, x86_64_linux:      "0b4e9a3133626cc01c6aa153afd22d5671e9b4f627979287d4b863f31bd03c99"
+    sha256               arm64_golden_gate: "a3cf4e9713819e9c5da601e064de8f2f390a2fb32cdfe8e804aa7356073e780c"
+    sha256               arm64_tahoe:       "32476e4b7dcd6d79022ce3790b54093658c996d368ddc74287ac77026e04c444"
+    sha256               arm64_sequoia:     "d94266f7178b98bc95cb0617258b66a03fdf04511178da45f22db85371e94493"
+    sha256 cellar: :any, arm64_linux:       "1c7b8a43a060188b17aad14045b99e9edffed9a7787e83d443924bb7bd0e5019"
+    sha256 cellar: :any, x86_64_linux:      "c7bda2807a090ad4d5b810ed22b55f685085e7ee0013f9ff254f6c446841e174"
   end
 
   depends_on "glfw" => :no_linkage
@@ -71,8 +71,13 @@ class Odin < Formula
     end
 
     ln_s raylib.lib/"libraylib.a", vendor/raylib_dir/"libraylib.a"
-    ln_s raylib.lib/shared_library("libraylib", "6.0.0"),
-         vendor/raylib_dir/shared_library("libraylib", "600")
+    ln_s raylib.lib/shared_library("libraylib"), vendor/raylib_dir/shared_library("libraylib", "600")
+
+    # raylib 6.2's bundled glfw references `CAMetalLayer`, so static links need QuartzCore
+    if OS.mac?
+      inreplace vendor/"raylib.odin", "\"system:Cocoa.framework\",",
+                "\\0\n\t\t\"system:QuartzCore.framework\","
+    end
 
     raygui_dir = vendor/(OS.mac? ? "macos" : "linux")
     raygui_name = (OS.mac? && Hardware::CPU.arm?) ? "libraygui-arm64" : "libraygui"

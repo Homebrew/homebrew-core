@@ -3,27 +3,35 @@ class Posting < Formula
 
   desc "Modern API client that lives in your terminal"
   homepage "https://github.com/darrenburns/posting"
-  url "https://files.pythonhosted.org/packages/e2/78/f3caa8ca36fd6d8a722c0d0233da6acd6a3543f7b67b8caa2948eae1b321/posting-2.11.0.tar.gz"
-  sha256 "3aca99e916f7d05640ba5a9e0393cdc019586d5ef49e0dba64770c6fbde670bc"
   license "Apache-2.0"
 
-  bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d0dec045c241e06560dcc87cc42bbba20ece600cd52c717096a9fd7b1a1cf9d8"
-    sha256 cellar: :any, arm64_tahoe:       "8a8ec191612cecff744e9891d1e9ae8a69673922b9fca276768c2f51cebbd715"
-    sha256 cellar: :any, arm64_sequoia:     "db0bcb7d028548c2bf68b0bfc23c1b9853aa1cb0038f0e914173fa2e8a58d194"
-    sha256 cellar: :any, arm64_linux:       "ff1819039bcca83eaaf215d43118b2963dd51024b3c3317ad0cd5c2e7d39089f"
-    sha256 cellar: :any, x86_64_linux:      "2e9a9f1a807e1a110debb43c9508542ef9bda15217d931db266eb6b06efffe96"
+  stable do
+    url "https://github.com/darrenburns/posting/archive/refs/tags/2.11.2.tar.gz"
+    sha256 "64f79be3b3d04c8a9653497dc03b9c04436a7db54098f14bb4c2daa1f6626e1f"
+
+    depends_on "cmake" => :build
+    depends_on "rust" => :build # for watchfiles
+
+    depends_on "brotli"
+    depends_on "certifi" => :no_linkage
+    depends_on "libyaml"
+    depends_on "pydantic" => :no_linkage
+    depends_on "python@3.15"
+    depends_on "tree-sitter" => :no_linkage
   end
 
-  depends_on "cmake" => :build
-  depends_on "rust" => :build # for watchfiles
+  bottle do
+    sha256 cellar: :any, arm64_golden_gate: "94bbdbca89ec9b49036e323829991fac296c507da0ee6e96e2dabcbc314ad9c4"
+    sha256 cellar: :any, arm64_tahoe:       "e418ea9903f008cdb4bd2a9c04528c4adc56c31774f6288bdfdf5847eff6a47b"
+    sha256 cellar: :any, arm64_sequoia:     "35338b638b18d6c1da9d25f726e735d26dc0db6d5f972f7571a563a7a712574b"
+    sha256 cellar: :any, arm64_linux:       "3a909fc72b0d4790ac81e6d8a6648cafc3ffc7a190ee1b6e1dcbc4387e05edd2"
+    sha256 cellar: :any, x86_64_linux:      "84edfd72ef6f95d829f2fcac05a1a12d413659618e52d4a825333387b62c087a"
+  end
 
-  depends_on "brotli"
-  depends_on "certifi" => :no_linkage
-  depends_on "libyaml"
-  depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
-  depends_on "tree-sitter" => :no_linkage
+  head do
+    url "https://github.com/darrenburns/posting.git", branch: "main"
+    depends_on "go" => :build
+  end
 
   pypi_packages exclude_packages: ["certifi", "pydantic"]
 
@@ -88,18 +96,18 @@ class Posting < Formula
   end
 
   resource "openapi-pydantic" do
-    url "https://files.pythonhosted.org/packages/02/2e/58d83848dd1a79cb92ed8e63f6ba901ca282c5f09d04af9423ec26c56fd7/openapi_pydantic-0.5.1.tar.gz"
-    sha256 "ff6835af6bde7a459fb93eb93bb92b8749b754fc6e51b2f1590a19dc3005ee0d"
+    url "https://files.pythonhosted.org/packages/2b/32/0c9bd3e4e847cd6117b64dbef4cf810faa9cdbd6689323b811569cc8a1b8/openapi_pydantic-0.6.0.tar.gz"
+    sha256 "11f3ac6ad41521fc156381ec587246b0c0ecea523bd9565ed74d3e7fac9d91cd"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/23/4d/e78afe1b449720c481884ca0a2f960f85f9ffdaa34b2d127b5427422c564/platformdirs-4.12.0.tar.gz"
-    sha256 "095be5c143382b1bee917c4f3e9987a0d8d6a582261f1d061ad0c403b7695b5b"
+    url "https://files.pythonhosted.org/packages/58/e6/d0abbb256b44e6a05748c6942511ff67db8dbb068de0c35b24bf1b395b09/platformdirs-4.13.5.tar.gz"
+    sha256 "05831adf87d392760f4b5c3a0a95579ab5a10b18b9b9bd43680dcb47544788a0"
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/68/ca/31c57507b13119d7d3cfa1576dad2911a4861e3be07b579395f4e9d393f9/pydantic_settings-2.15.0.tar.gz"
-    sha256 "694b793e84f766ba76a90ebdefc01d0a9a045dab0382bee70393da93712ad117"
+    url "https://files.pythonhosted.org/packages/2e/3b/a5d2294799b53b448319978cfb5bd139d5a9d45e862af91661614f14c922/pydantic_settings-2.16.0.tar.gz"
+    sha256 "5b6c578049ede4db0e2ef3b4eaa4ad4069cfa9211f83fb38df899dfade50a614"
   end
 
   resource "pygments" do
@@ -113,8 +121,8 @@ class Posting < Formula
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/6a/53/ed9d74092561d4b01a2ef1349d52cdbc135e526c245f366b089cfca6de49/python_dotenv-1.2.3.tar.gz"
-    sha256 "a20a594dabeaa385725aa239d5244871c143ecb356add8a20fcf23773a6c3a35"
+    url "https://files.pythonhosted.org/packages/74/26/2fbeedb218a787a5eea551c7532cac4e009f83d689dd2faa0d0353473f86/python_dotenv-1.2.4.tar.gz"
+    sha256 "f0d53e69935a851c0dcc78f3ab7aaccd8cabef0b92382b576b824212902873c0"
   end
 
   resource "pyyaml" do
@@ -228,9 +236,13 @@ class Posting < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    if build.head?
+      system "go", "build", *std_go_args(ldflags: :goreleaser), "./cmd/posting"
+    else
+      virtualenv_install_with_resources
 
-    generate_completions_from_executable(bin/"posting", shell_parameter_format: :click)
+      generate_completions_from_executable(bin/"posting", shell_parameter_format: :click)
+    end
   end
 
   test do

@@ -9,11 +9,11 @@ class CmakeLanguageServer < Formula
   head "https://github.com/regen100/cmake-language-server.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "4067002616d19dd610a111948026e3ef733dbffb44c86238cf882fe3b2b26359"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "5bb30e7b6859ca0c6eb920ec341dfd102c4785e44ac1dab81bb3e3186df7ce36"
   end
 
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/49/7c/fdf464bcc51d23881d110abd74b512a42b3d5d376a55a831b44c603ae17f/attrs-25.1.0.tar.gz"

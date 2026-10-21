@@ -62,7 +62,7 @@ jobs:
       id-token: write # for actions/attest
     steps:
       - name: Post comment once started
-        uses: Homebrew/actions/post-comment@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/post-comment@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue: ${{ env.PR }}
@@ -72,7 +72,7 @@ jobs:
 
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/setup-homebrew@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           core: true
           cask: false
@@ -118,7 +118,7 @@ jobs:
 
       - name: Configure Git user
         id: git-user-config
-        uses: Homebrew/actions/git-user-config@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/git-user-config@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           username: BrewTestBot
 
@@ -143,14 +143,14 @@ jobs:
 
       - name: Dismiss approvals
         if: fromJson(steps.reviewers.outputs.approved)
-        uses: Homebrew/actions/dismiss-approvals@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/dismiss-approvals@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           pr: ${{ env.PR }}
           message: Replacement PR dispatched
 
       - name: Set up commit signing
-        uses: Homebrew/actions/setup-commit-signing@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/setup-commit-signing@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
@@ -209,7 +209,7 @@ jobs:
 
 
       - name: Push commits
-        uses: Homebrew/actions/git-try-push@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/git-try-push@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           token: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
           directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
@@ -281,7 +281,7 @@ jobs:
         run: gh pr ready --undo "$PR" --repo "$GITHUB_REPOSITORY"
 
       - name: Post comment on success
-        uses: Homebrew/actions/post-comment@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/post-comment@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue: ${{ env.PR }}
@@ -291,7 +291,7 @@ jobs:
 
       - name: Post comment on failure
         if: ${{ !success() }}
-        uses: Homebrew/actions/post-comment@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        uses: Homebrew/actions/post-comment@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue: ${{ env.PR }}

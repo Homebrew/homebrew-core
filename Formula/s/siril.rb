@@ -1,11 +1,24 @@
 class Siril < Formula
   desc "Astronomical image processing tool"
   homepage "https://www.siril.org"
-  url "https://free-astro.org/download/siril-1.4.4.tar.bz2"
-  sha256 "b1682f2129d2e06b034445ed225766a06e38cfaa7451b92d606a3ee36eb077a4"
   license "GPL-3.0-or-later"
   revision 3
-  head "https://gitlab.com/free-astro/siril.git", branch: "master"
+
+  stable do
+    url "https://free-astro.org/download/siril-1.4.4.tar.bz2"
+    sha256 "b1682f2129d2e06b034445ed225766a06e38cfaa7451b92d606a3ee36eb077a4"
+
+    depends_on "gtk+3"
+    depends_on "gtksourceview4"
+
+    # Build against opencv 5.
+    patch do
+      url "https://gitlab.com/free-astro/siril/-/commit/743956900c65129ab12421951781c12b94c6e996.diff"
+      sha256 "c07b0e62efea0c9622808992bbee77a9e707fb5aaeebf4cd44d9c9a6e680a7c0"
+      type :backport
+      resolves "https://gitlab.com/free-astro/siril/-/merge_requests/1073"
+    end
+  end
 
   livecheck do
     url "https://siril.org/download/"
@@ -22,6 +35,13 @@ class Siril < Formula
     sha256 x86_64_linux:      "4ecb1ff88405db5f59aec103935f1faa37b83f7386cf26d17edffdee8c17012f"
   end
 
+  head do
+    url "https://gitlab.com/free-astro/siril.git", branch: "master"
+
+    depends_on "gtk4"
+    depends_on "gtksourceview5"
+  end
+
   depends_on "cmake" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -35,22 +55,16 @@ class Siril < Formula
   depends_on "fftw"
   depends_on "gdk-pixbuf"
   depends_on "glib"
-  depends_on "gnuplot"
   depends_on "gsl"
-  depends_on "gtk+3"
-  depends_on "gtksourceview4"
   depends_on "healpix"
   depends_on "jpeg-turbo"
   depends_on "jpeg-xl"
-  depends_on "json-glib"
   depends_on "libgit2"
   depends_on "libheif"
   depends_on "libpng"
   depends_on "libraw"
-  depends_on "librsvg"
   depends_on "libtiff"
   depends_on "little-cms2"
-  depends_on "netpbm"
   depends_on "opencv"
   depends_on "pango"
   depends_on "wcslib"
@@ -62,14 +76,6 @@ class Siril < Formula
   on_macos do
     depends_on "gettext"
     depends_on "libomp"
-  end
-
-  # Build against opencv 5.
-  patch do
-    url "https://gitlab.com/free-astro/siril/-/commit/743956900c65129ab12421951781c12b94c6e996.diff"
-    sha256 "c07b0e62efea0c9622808992bbee77a9e707fb5aaeebf4cd44d9c9a6e680a7c0"
-    type :backport
-    resolves "https://gitlab.com/free-astro/siril/-/merge_requests/1073"
   end
 
   deny_network_access!

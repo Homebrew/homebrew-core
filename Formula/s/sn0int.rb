@@ -28,6 +28,12 @@ class Sn0int < Formula
     depends_on "libseccomp"
   end
 
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
 

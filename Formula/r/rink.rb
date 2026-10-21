@@ -6,22 +6,32 @@ class Rink < Formula
   license all_of: ["MPL-2.0", "GPL-3.0-or-later"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "12f7a991dfa367b3c5b1b971735695b526775c858d453f46ad2ec310fe4400ee"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b91b3bf390647ac22c5abdde4304da2179b168bf25d23e9e0da05e3bc4a0f223"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "84272cb620b4a7740a36f40ec44b96630c6cd2fffd50f65dd919b771445c1539"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "b42420d5cb825c64e63f5e9ba12e40fab6fe1e830d977d81949f3ee9c8277fee"
-    sha256 cellar: :any_skip_relocation, sonoma:            "1ab0308f1a2c8b32c7188137998be5be574cd6e12c1de7720d6f6cb5f5d9f9d7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "fc24f314147b46f0cfb9f4ef84fc7d6aa1fee05683090a15b5501c26b548f80d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "269131507cf83ae7586c9b60813f9555e0aec730178ce73fa789097a2b75ccc1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9e985d83c66f57da6a0aaf73c17edd73e26a8f853f50f5f3eae80902b1361b02"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "24817050850c9a65be6a4b25840c4f4298b69f3937c9bcc02c93111fd257681b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a5dcb189aea4b2546735789169e0d4ada2fe938ee90a92cf83bc43255b353b2e"
+    sha256 cellar: :any,                 arm64_linux:       "593e9cd5014a250efeb238ec96980b1f66db5c57790ac0178363641143e43fad"
+    sha256 cellar: :any,                 x86_64_linux:      "d609fb49f477517f6a368d7979402a48210e5e9abc6aeb02a57ece3658ee7972"
   end
 
   depends_on "asciidoctor" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
+  uses_from_macos "curl"
+
   on_linux do
-    depends_on "openssl@3"
-    depends_on "zlib-ng-compat"
+    depends_on "openssl@4" => :build
+    depends_on "zlib-ng-compat" => :build
+  end
+
+  # Update to openssl 0.10.78 and openssl-sys 0.9.114 for minimum needed to use OpenSSL 4
+  patch :DATA
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install
@@ -43,3 +53,33 @@ class Rink < Formula
     assert_match "2.54 centi meter (length)", output
   end
 end
+
+__END__
+diff --git a/Cargo.lock b/Cargo.lock
+index e73c79b..6396e0f 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1425,9 +1425,9 @@ checksum = "3fdb12b2476b595f9358c5161aa467c2438859caa136dec86c26fdd2efe17b92"
+ 
+ [[package]]
+ name = "openssl"
+-version = "0.10.73"
++version = "0.10.78"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "8505734d46c8ab1e19a1dce3aef597ad87dcb4c37e7188231769bd6bd51cebf8"
++checksum = "f38c4372413cdaaf3cc79dd92d29d7d9f5ab09b51b10dded508fb90bb70b9222"
+ dependencies = [
+  "bitflags 2.5.0",
+  "cfg-if 1.0.0",
+@@ -1457,9 +1457,9 @@ checksum = "ff011a302c396a5197692431fc1948019154afc178baf7d8e37367442a4601cf"
+ 
+ [[package]]
+ name = "openssl-sys"
+-version = "0.9.109"
++version = "0.9.114"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "90096e2e47630d78b7d1c20952dc621f957103f8bc2c8359ec81290d75238571"
++checksum = "13ce1245cd07fcc4cfdb438f7507b0c7e4f3849a69fd84d52374c66d83741bb6"
+ dependencies = [
+  "cc",
+  "libc",

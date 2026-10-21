@@ -10,16 +10,17 @@ class CloudflareCli4 < Formula
   head "https://github.com/cloudflare/python-cloudflare-cli4.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "055c87d689abdffe2fe59999765763f0265b2177a855224fde5c2b2a25bbcd9c"
-    sha256 cellar: :any, arm64_tahoe:       "82614235fd42f76a35553fa49f3e5660332329b1e7f85df64a11bd6f4f8147ab"
-    sha256 cellar: :any, arm64_sequoia:     "a16f42c802e1475d068198233b4d9e9fdca5e8787c749072bb5ca3670da6cbef"
-    sha256 cellar: :any, arm64_linux:       "5cdd15691d88b7f0006935837822db2fff7a4dec9d7e72ea0a04bdd04e770bf2"
-    sha256 cellar: :any, x86_64_linux:      "9f5cde1dcf7888ca3b23b22bac305ac6ab0933290fdf3adbb19714bd414d9ea9"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "66b7debc1448f7e784080a6e9e5fd5e1dac0f370dcd44590d56c1c8832c0dadc"
+    sha256 cellar: :any, arm64_tahoe:       "08a8f55475eb70c4ab1776e55d8a2e944555740acb0799718f1921bc8be60649"
+    sha256 cellar: :any, arm64_sequoia:     "26cb0ff5ee86c2de8b6edbe8793625740067340a4cea28c87b23d1f130dabc94"
+    sha256 cellar: :any, arm64_linux:       "10c6ddf7003ce614357e856bb9cfd862358e4f9c0f0fef836300634c6e192b7e"
+    sha256 cellar: :any, x86_64_linux:      "bb9007a2bc430c4dae0bd589974d9b4bd09f3e26af45dc9d5bef2eadbc373434"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: ["certifi"]
 

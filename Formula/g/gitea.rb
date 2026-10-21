@@ -1,8 +1,8 @@
 class Gitea < Formula
   desc "Painless self-hosted all-in-one software development service"
   homepage "https://about.gitea.com/"
-  url "https://dl.gitea.com/gitea/28.0.0/gitea-src-28.0.0.tar.gz"
-  sha256 "efb0f0fe95005f8b10f68aaaf2fc0e77540604925b51a376efcf932b9509c257"
+  url "https://dl.gitea.com/gitea/28.2.0/gitea-src-28.2.0.tar.gz"
+  sha256 "b8ad80f8a79ea42fa5cf52bdc3d5fd3457bb6abd6bd57cfcfab6a5ad4f31c3dc"
   license "MIT"
 
   livecheck do
@@ -13,11 +13,11 @@ class Gitea < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1a3ed8de85b8f119654413ae4855057d56d47ca6f96cbc61909255fb472c4f93"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "46f3164a2cf4f959df5132eeb89d9f23cf3360a7909fe24b590285358d2a5819"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c1ce3329c28a9aa9f80b12341c1dc51fed868c1065656e2fd211cc5258f6c5fd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "314c44843c769254e04d7cb4fecf952d82e175e0e6750ad91079095f4fe65f0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5001bdc290bb6a76170027248a9e804e2112921d846ad94ed383961771b90c92"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "75b2192673f463e8e1b7dbe0ff022bfb235aa69c66574de1249d92c28f7cc65b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "255f8b2074219fc5a88fae48905b4a5c07ef0ea834954ed648c1af480b9fd99c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "edfd5c74dd96a95734272ec09346a5fc41e01ebc7a0af8b8569d23de5e3739b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "6e52b1e8f99eb111289663066e9c94ace739f6f5faf475761f4ab0684fc9ba67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6bbd3359ac42377459b51e4c63b5f1f1389041f2ef98ef461c4140f8e6492102"
   end
 
   head do

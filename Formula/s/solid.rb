@@ -38,6 +38,8 @@ class Solid < Formula
   # Was reported to bugs@dtecta.com (since it also applies to solid-3.5.6)
   patch :DATA
 
+  deny_network_access!
+
   def install
     # Avoid `required file not found` errors
     touch ["AUTHORS", "ChangeLog", "NEWS"]
@@ -50,6 +52,32 @@ class Solid < Formula
     inreplace "Makefile", /^(SUBDIRS *=.*) examples( .+)?/, '\1\2'
 
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~CPP
+      #include <SOLID/SOLID.h>
+      #include <stdio.h>
+
+      int main() {
+        DT_ShapeHandle sphere = DT_NewSphere(1.0f);
+        DT_ObjectHandle a = DT_CreateObject(NULL, sphere);
+        DT_ObjectHandle b = DT_CreateObject(NULL, sphere);
+        DT_Vector3 pos = {5.0f, 0.0f, 0.0f};
+        DT_SetPosition(b, pos);
+
+        DT_Vector3 p1, p2;
+        printf("%.2f\\n", DT_GetClosestPair(a, b, p1, p2));
+
+        DT_DestroyObject(a);
+        DT_DestroyObject(b);
+        DT_DeleteShape(sphere);
+        return 0;
+      }
+    CPP
+
+    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-lsolid", "-o", "test"
+    assert_equal "3.00", shell_output("./test").strip
   end
 end
 

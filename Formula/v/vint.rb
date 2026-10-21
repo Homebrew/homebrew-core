@@ -10,27 +10,25 @@ class Vint < Formula
   head "https://github.com/Vimjas/vint.git", branch: "master"
 
   bottle do
-    rebuild 7
-    sha256 cellar: :any,                 arm64_golden_gate: "c3ce1a231f647ea848dd2b5b63dfb4fd61906b551584c8a0ad8a283bb43b752f"
-    sha256 cellar: :any,                 arm64_tahoe:       "253fc8481dee8ad20013ec07a09d1de0857b361f4ea4b9109e1d042720be995a"
-    sha256 cellar: :any,                 arm64_sequoia:     "162fc8f95662794610623e833c5dc3b8a8b4061b96e051ece9df831c35b6857f"
-    sha256 cellar: :any,                 arm64_sonoma:      "03f615049167d33b5ab100cbbaff0d4461503392d550b895c98438ba5e5855e4"
-    sha256 cellar: :any,                 sonoma:            "0f54ebab62e360237f7dbb53db433dbf7270a94a57f63f6fbca5b7ce4dc06618"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "627fcee4eb35a20a7af92b2e52e4dd278ce997a1107406cfc45fb07aefa4bc21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a203916188f247d771f950c352eb7d70c5483651a612e2366ff9804da26b00c2"
+    rebuild 8
+    sha256 cellar: :any, arm64_golden_gate: "144985ca156cce73efc9f6d1a3e60e6ac20d8278b790dc5856316f099a666af1"
+    sha256 cellar: :any, arm64_tahoe:       "adcb2e82925f9dc290f910258cb425236e6700b503c2ee7009f5582a423526cc"
+    sha256 cellar: :any, arm64_sequoia:     "c23dfeef0c48935eaf313eb30a3d3d1b8da4967573b03e32cba7862147a81c69"
+    sha256 cellar: :any, arm64_linux:       "e4488650fd5a142036a4d2ead83f7b9d087e3a15fa69b7dc2ca15679c67a59df"
+    sha256 cellar: :any, x86_64_linux:      "6b3143ca1b4d6c4b50b1ba7d49a21cba01114a710b4fe157254d2945f80d67e4"
   end
 
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   resource "ansicolor" do
-    url "https://files.pythonhosted.org/packages/79/74/630817c7eb1289a1412fcc4faeca74a69760d9c9b0db94fc09c91978a6ac/ansicolor-0.3.2.tar.gz"
-    sha256 "3b840a6b1184b5f1568635b1adab28147947522707d41ceba02d5ed0a0877279"
+    url "https://files.pythonhosted.org/packages/eb/9e/1dd8400cb8bb63ee52ae08e4908bc4081bf68f8072e973be5d32d8aa648d/ansicolor-0.3.3.tar.gz"
+    sha256 "6de60837fb322b9fb8c8863061504688520bd0aa62defab43dbf4f2c011dafda"
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/f3/0d/f7b6ab21ec75897ed80c17d79b15951a719226b9fababf1e40ea74d69079/chardet-5.2.0.tar.gz"
-    sha256 "1b3b6ff479a8c414bc3fa2c0852995695c4a026dcd6d0633b2dd092ca39c1cf7"
+    url "https://files.pythonhosted.org/packages/b1/51/cd61c567092a6cec796144510a68aff158ebfc1df82950a45bae65f28413/chardet-7.6.0.tar.gz"
+    sha256 "93d9df6089ded42ed1fe9f57e272c0b74bd0464d45c0c7d50f09f26f31105c3c"
   end
 
   resource "pyyaml" do

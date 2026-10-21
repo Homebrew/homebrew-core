@@ -16,30 +16,24 @@ class GhcAT910 < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any, arm64_tahoe:   "5d45a266d556ab13dfbac50bd09aafe2d9d6b6a16d1ac2c7ffca7f0e7b728dc4"
-    sha256 cellar: :any, arm64_sequoia: "7f565ca7f2097973e3f1fee7414a919c0e894c408df26c2f6f53185f423d2c80"
-    sha256 cellar: :any, arm64_sonoma:  "536c415e3a3e31c4c2c12a6f7bcf93904911f937125ea91679d3465a50e3f7c5"
-    sha256 cellar: :any, sonoma:        "8bf14f971c0a27a20aea6f73a4f8f0cc3e07acaf56d7c06d01eb137bfb5d3718"
-    sha256 cellar: :any, arm64_linux:   "53c74ddc820efa09e79666ead4c88c1c47b3d6da572a3fb68599dd58ac2f5bf3"
-    sha256 cellar: :any, x86_64_linux:  "bbbc4a0cfa6aa36b3f4b08c21ebcdaeefea7fc2a10d7b2070f00670c49d8f4a7"
+    rebuild 3
+    sha256 cellar: :any, arm64_golden_gate: "0b09d754f86551d012b098faa24bb62cc10dfc38803dd4cba45cf40c97e57106"
+    sha256 cellar: :any, arm64_tahoe:       "f9f79ec44ee0a4187321782b5c96ee9301b91b86858b671d65dd2808bf6acffd"
+    sha256 cellar: :any, arm64_sequoia:     "cbcfaea28ed8efe45ad4c097588bad4205ab6988666e8b7e062e5c36b93a090f"
+    sha256 cellar: :any, arm64_linux:       "917e0464433deb2f4fc12c2e9ad29d451db8bba2e02b6ac97a499156ba484259"
+    sha256 cellar: :any, x86_64_linux:      "f045a837421abe1aef66c847fdfe267edac6098c3042ec033c6bcbbe67773748"
   end
 
   keg_only :versioned_formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on "sphinx-doc" => :build
   depends_on "xz" => :build
 
   uses_from_macos "m4" => :build
   uses_from_macos "ncurses"
-
-  on_macos do
-    # TODO: Try removing in 9.10.4: https://gitlab.haskell.org/ghc/ghc/-/merge_requests/16079
-    depends_on maximum_macos: [:tahoe, :build]
-  end
 
   on_linux do
     depends_on "gmp" => :build
@@ -92,6 +86,57 @@ class GhcAT910 < Formula
     end
   end
 
+  # Remove RTS `-undefined dynamic_lookup` use broken by macOS 26 linkers, from 9.10.4 backports (GHC MR !16079)
+  # TODO: Try removing in 9.10.4
+  patch do
+    url "https://gitlab.haskell.org/ghc/ghc/-/commit/6db1e81c76b338ca18677906c9767e5f60e9ff0e.diff"
+    sha256 "48f8a2bdb6af1c060f6f4d976744c9d9d1c3297c9f8f26ca39f65a18dab7f81c"
+    type :backport
+    resolves "https://gitlab.haskell.org/ghc/ghc/-/issues/26166"
+  end
+
+  patch do
+    url "https://gitlab.haskell.org/ghc/ghc/-/commit/d0966d3753da095dc76f2c314b2eb0dcbc828b65.diff"
+    sha256 "229cf8ebf7c3228a4addf1c6dc40d79b1d4892fad4e9ca339dfc393fbc1cac2e"
+    type :backport
+    resolves "https://gitlab.haskell.org/ghc/ghc/-/issues/26166"
+  end
+
+  patch do
+    url "https://gitlab.haskell.org/ghc/ghc/-/commit/4ab3132f1318f36b84e7a9382bb7f26144e22388.diff"
+    sha256 "cbe091d1c20473b6e1eb7e0a86674f09a336cd2fffb094656d19bd3b21aea6f4"
+    type :backport
+    resolves "https://gitlab.haskell.org/ghc/ghc/-/issues/26166"
+  end
+
+  patch do
+    url "https://gitlab.haskell.org/ghc/ghc/-/commit/31db96c597a6427c49de52def42883e7a3352569.diff"
+    sha256 "cb5e5e7028891293927a2e2daa730dee33bfa0458f2d386cb724d0f55b22e187"
+    type :backport
+    resolves "https://gitlab.haskell.org/ghc/ghc/-/issues/26166"
+  end
+
+  patch do
+    url "https://gitlab.haskell.org/ghc/ghc/-/commit/2c27a1e1a39b45816323b9b0cda8585599625b63.diff"
+    sha256 "399415d688a941ffcd5d22027cb3529ca2808ad9ced5e7b9a1ab9605f6bcfbe2"
+    type :backport
+    resolves "https://gitlab.haskell.org/ghc/ghc/-/issues/26166"
+  end
+
+  patch do
+    url "https://gitlab.haskell.org/ghc/ghc/-/commit/e1911282f61806b41fe78024b784b2d4daf4a1f8.diff"
+    sha256 "60a363e1edcdf4242a8e1113b53f9545a118aa10a465c0513abfa09faa58a398"
+    type :backport
+    resolves "https://gitlab.haskell.org/ghc/ghc/-/issues/26166"
+  end
+
+  patch do
+    url "https://gitlab.haskell.org/ghc/ghc/-/commit/062c10a7cb68ee95ff52ae76552d6c4ff01b1d66.diff"
+    sha256 "a28682b246f66900d450c877ede7b44f31b11d1a619ed692fb0ed99fea291642"
+    type :backport
+    resolves "https://gitlab.haskell.org/ghc/ghc/-/issues/26166"
+  end
+
   def install
     # ENV.cc and ENV.cxx return specific compiler versions on Ubuntu, e.g.
     # gcc-11 and g++-11 on Ubuntu 22.04. Using such values effectively causes
@@ -105,10 +150,10 @@ class GhcAT910 < Formula
     ENV["LD"] = ENV["MergeObjsCmd"] = "ld"
     ENV["PYTHON"] = python3
 
-    # Workaround for https://gitlab.haskell.org/ghc/ghc/-/issues/26166
+    # macOS `patch` ignores the git renames in the backported diffs, so finish moving these files
     # TODO: Try removing in 9.10.4
-    if DevelopmentTools.ld64_version >= "1221.4"
-      inreplace "rts/rts.cabal", /("-Wl,-undefined,dynamic_lookup)"/, "\\1,-ld_classic\""
+    %w[atomic bitrev bswap clz ctz longlong mulIntMayOflo pdep popcnt word2float].each do |file|
+      mv "libraries/ghc-prim/cbits/#{file}.c", "rts/prim" unless File.exist?("rts/prim/#{file}.c")
     end
 
     binary = buildpath/"binary"

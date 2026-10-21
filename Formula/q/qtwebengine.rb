@@ -47,7 +47,7 @@ class Qtwebengine < Formula
   depends_on "ninja" => :build
   depends_on "node" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on "qttools" => :build
 
   depends_on "libpng"

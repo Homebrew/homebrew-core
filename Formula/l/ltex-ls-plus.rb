@@ -7,22 +7,22 @@ class LtexLsPlus < Formula
   head "https://github.com/ltex-plus/ltex-ls-plus.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bf1dbaae2cc643d3753f06c4b27270691272f7589a7e163d157021966cf43026"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8932d4554f943f91770427f83ffc0a82cf22160f025db9b4380dc63a1b9e102"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c8932d4554f943f91770427f83ffc0a82cf22160f025db9b4380dc63a1b9e102"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "c8932d4554f943f91770427f83ffc0a82cf22160f025db9b4380dc63a1b9e102"
-    sha256 cellar: :any_skip_relocation, sonoma:            "c8932d4554f943f91770427f83ffc0a82cf22160f025db9b4380dc63a1b9e102"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1f6e0cc5c8fdbe2e3ad62603939883135b3356548a30269854552e79e2aa3f92"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "1f6e0cc5c8fdbe2e3ad62603939883135b3356548a30269854552e79e2aa3f92"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "586bbfa6a458e146577e47aa1dfcadb941a77cd5aba14ba285cf87103ad1f872"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "586bbfa6a458e146577e47aa1dfcadb941a77cd5aba14ba285cf87103ad1f872"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "586bbfa6a458e146577e47aa1dfcadb941a77cd5aba14ba285cf87103ad1f872"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "fbbdce5a050ae2ae10a79ce7bc250b05b928cd60db5340907b4c74617772388d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "fbbdce5a050ae2ae10a79ce7bc250b05b928cd60db5340907b4c74617772388d"
   end
 
   depends_on "maven" => :build
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on "openjdk"
 
+  def python = deps.map(&:name).find { |d| d.match?(/^python(@\d+(\.\d+)*)?$/) }
+
   def install
-    ENV.prepend_path "PATH", formula_opt_libexec("python@3.14")/"bin"
+    ENV.prepend_path "PATH", formula_opt_libexec(python)/"bin"
     ENV["JAVA_HOME"] = Language::Java.java_home
     ENV["TMPDIR"] = buildpath
 

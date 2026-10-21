@@ -4,16 +4,14 @@ class Emqx < Formula
   url "https://github.com/emqx/emqx/archive/refs/tags/v5.8.8.tar.gz"
   sha256 "5861d8d32c4934175ca3d01c691ea679ac1a7903a1faee72027f6484d3085c89"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_golden_gate: "348c7d9b5b018c22848b1a23a89c3cc9ad03c8c48817430fd7f92d32ed5992fe"
-    sha256 cellar: :any,                 arm64_tahoe:       "ea4bc45725fd897789f8360bdb243ce2d36936f66326a07d91ad0c3882c9e299"
-    sha256 cellar: :any,                 arm64_sequoia:     "13dd5052c5746825684505959eb6f411df487913f2adec72720582ff648ddbb5"
-    sha256 cellar: :any,                 arm64_sonoma:      "6dd0c8bf218af6232eaf6accbe4485efef61224cbba8b68bdb932e4fa61485cf"
-    sha256 cellar: :any,                 sonoma:            "b0753b148145e421a7e9f43db9b07723f7ad5b01592b5d647edc7984b4a25cea"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8e122333462acf2e5cc639eea4d56afeb80426b619938b941496c7b6e011be16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "130babd6f5e5408a49cccdcfc312106cdca17225031c3978899257c38691408b"
+    sha256 cellar: :any, arm64_golden_gate: "3aee423290d705a6278a2a408b967c30bb06f462a8fc4c5ff477d2282fa01b43"
+    sha256 cellar: :any, arm64_tahoe:       "079191e3f9d1772bfef9e622545ae4efb7774e28c839708a26550df9e273a5e9"
+    sha256 cellar: :any, arm64_sequoia:     "a326711e60e87d6b5d1d286ec79715715e6cd3cc6c9fc88df4544c944985b0a2"
+    sha256 cellar: :any, arm64_linux:       "b755ea36997f557d4de910e38ce72dd541d1ba40ed3c50ebfeccf78f24dcc9db"
+    sha256 cellar: :any, x86_64_linux:      "d94cbee08764f04e6a9f34bbb0b40f3a591332dc231b1a16b6f389559b254bd8"
   end
 
   # https://www.emqx.com/en/news/emqx-adopts-business-source-license
@@ -28,7 +26,7 @@ class Emqx < Formula
   depends_on "erlang@26" => :build
   depends_on "freetds"   => :build
   depends_on "libtool"   => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "curl"       => :build
   uses_from_macos "unzip"      => :build

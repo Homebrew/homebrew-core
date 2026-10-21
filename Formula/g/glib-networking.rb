@@ -1,19 +1,24 @@
 class GlibNetworking < Formula
   desc "Network related modules for glib"
   homepage "https://gitlab.gnome.org/GNOME/glib-networking"
-  url "https://download.gnome.org/sources/glib-networking/2.80/glib-networking-2.80.1.tar.xz"
-  sha256 "b80e2874157cd55071f1b6710fa0b911d5ac5de106a9ee2a4c9c7bee61782f8e"
+  url "https://download.gnome.org/sources/glib-networking/2.90/glib-networking-2.90.0.tar.xz"
+  sha256 "83a75e3d9c36b66ee86d3281c2fc997816101968a5126ba322b2acb9a74dd8c0"
   license "LGPL-2.1-or-later"
 
+  # This regex is intended to avoid the `Gnome` strategy's version filtering
+  # logic while maintaining the "even-numbered minor is stable" behavior, as
+  # minor versions >= 90 are still stable in this case.
+  livecheck do
+    url :stable
+    regex(/glib-networking[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+  end
+
   bottle do
-    rebuild 1
-    sha256               arm64_golden_gate: "f98a3c1dd23e211d3e5cb39ad0da5a4d6ad037c026f96844539931fc37f043cf"
-    sha256               arm64_tahoe:       "ae0e5bf817df76e53439bb005204453a44a1c142d0b0ee47cd5d6e789e2d7276"
-    sha256               arm64_sequoia:     "b2c118026358bc57f302b83f4e39784929b384d81ddff0b19dbd9c4c22b0c72c"
-    sha256               arm64_sonoma:      "284f9bb9a95e69608868574a74b1dc89d70b84bfa97a8442793aa6896bb06d3a"
-    sha256 cellar: :any, sonoma:            "96f9cc104e18a43db2842c092b198fc25d24ac0c218b3708830fd144bfcc1c60"
-    sha256               arm64_linux:       "bcfcaf0897ca867f2970f6b09c826c6a38b7ea574d81faaaeb82a1d23437a13c"
-    sha256               x86_64_linux:      "8aebdfee3449082444c36fc6351e6a2a331aa2d37f85c6caf55b0e519c6e0833"
+    sha256               arm64_golden_gate: "da4332ddddfe5a14ca664b4b851622c6e74899e1c7ec2ceab51017b7628b037a"
+    sha256               arm64_tahoe:       "06c8af940e885e2b499184444d4fd98c7e343ba1dd80ae4c1bcc0e85963d3eb9"
+    sha256               arm64_sequoia:     "9d437295eb3e4af595b0f3722d2733e9659ee764db9fa275004a0b29282112ce"
+    sha256 cellar: :any, arm64_linux:       "716a983f9c64c1f5901754aa2962c53d284ae859ddd3e9ab3822324e59a9a479"
+    sha256 cellar: :any, x86_64_linux:      "4cb5837be1c35bf7b2f59414e67465425f96efa3019b78639fc06543bca4bd1c"
   end
 
   depends_on "meson" => :build

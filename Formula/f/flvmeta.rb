@@ -1,17 +1,17 @@
 class Flvmeta < Formula
   desc "Manipulate Adobe flash video files (FLV)"
   homepage "https://flvmeta.com/"
-  url "https://github.com/noirotm/flvmeta/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "dc0297e0e7b2cb2a044dac9cd13fa58ee3dbb3a9a6ba473b3f4d1c1787d3da78"
+  url "https://github.com/noirotm/flvmeta/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "e1a7449d5ff1d601f85534d5acb41bcb5f6adf785473401ca755fcdfb1874c00"
   license "GPL-2.0-or-later"
   head "https://github.com/noirotm/flvmeta.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "374d955e41e703f408694ffff8a78caac0fb890223e6a153189316d44717c01f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "934ca1abe6fdd3758a2d1254dd3ed9214ccc1c441431a7d8c9c8843beaf8dbfa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9d2b5b90d3a95e7b2039d7aa430cf4d3c336e29ac77bf15bb70c1d2508eb1575"
-    sha256 cellar: :any,                 arm64_linux:       "ebc838e6883dda21bbb4daec46d7f6f80d88aecbdfb30917e5c03d4e5b90a389"
-    sha256 cellar: :any,                 x86_64_linux:      "5277dd8efa915221e9630aaa057b834f3222aceed3630019ab6dc90afa8383a4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "31393d5899d781eda032cc8e6866a1ca948303171b1264bbc6130293183cb489"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0f9db2e32066c386d1adf27b7e492c7ce7036d6b47548047b9c7c20ce4086a73"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8686b1d77ca6dec644725fded64322a898bbc7e2b79a221384bac376094e1af6"
+    sha256 cellar: :any,                 arm64_linux:       "9622edd977e46511e8e53b8a093e3e7a45e3886f3b3d81f0725822305079fdb5"
+    sha256 cellar: :any,                 x86_64_linux:      "2a89a23f18307c66c7779c8130907a980027bf1a8676e741718ee59f23a3d699"
   end
 
   depends_on "cmake" => :build

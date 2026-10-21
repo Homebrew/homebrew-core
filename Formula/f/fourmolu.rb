@@ -1,19 +1,17 @@
 class Fourmolu < Formula
   desc "Formatter for Haskell source code"
   homepage "https://fourmolu.github.io/"
-  url "https://hackage.haskell.org/package/fourmolu-0.20.1.0/fourmolu-0.20.1.0.tar.gz"
-  sha256 "345e420b6871852b6148caa26a23991f7646786377276716dd36ae5a6cd842c9"
+  url "https://hackage.haskell.org/package/fourmolu-0.21.0.0/fourmolu-0.21.0.0.tar.gz"
+  sha256 "db321715aa08d24fbf58276dd6f705911d5ced07c00379e9ad10c09aaa064078"
   license "BSD-3-Clause"
   head "https://github.com/fourmolu/fourmolu.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "46bcdbf552c2edb072bd5f6da1ae2836ce2d2f0cf2f633c4865ca2b67379fa49"
-    sha256 cellar: :any, arm64_tahoe:       "acc98406429fac5fa1ed83c9f36df396a4f802987aa164518380077cf9c290ec"
-    sha256 cellar: :any, arm64_sequoia:     "05b8da7c1aee0cdfa5994ac1eae2731ef2a890ad5e978d28fe864148eb646726"
-    sha256 cellar: :any, arm64_sonoma:      "21a8f3a16680ef22d8f4d31a57216062ec1173c80181f6cae4b4d7039526bf7c"
-    sha256 cellar: :any, sonoma:            "fb5f5bed2efa7f8ac9494ec6a3b0cebfc36f028f8028c1ffddd49bcffbf3f21d"
-    sha256 cellar: :any, arm64_linux:       "ba2e99eb466748ec13d75dbdf00423e9cf9cc0c6808bc47f39536571979c9e44"
-    sha256 cellar: :any, x86_64_linux:      "252f46576468737725049ac2f14e1e3f2506b3a1c6ef3a153d06a8c7e1369619"
+    sha256 cellar: :any, arm64_golden_gate: "6c9c0b5a984860433195de96e624f98bbf5898aea01bab14ec3be2d5f85ad8a7"
+    sha256 cellar: :any, arm64_tahoe:       "372ed995b99f77202edf4309dbf29abd5398c0f8d916d3135f6efb53b263eb4e"
+    sha256 cellar: :any, arm64_sequoia:     "a445de12f555689febce22828d26401c1ed6d611fc1555a216f2e071f0930df2"
+    sha256 cellar: :any, arm64_linux:       "8f2fc5ca1c0187aac0d85e4bd64db8b670aa0c59ef6bcb722195f5bdf4ab4605"
+    sha256 cellar: :any, x86_64_linux:      "4bdac27d3f5bbb9796aade0547174e95d3dde92beb92007e262b36741d360cd5"
   end
 
   depends_on "cabal-install" => :build

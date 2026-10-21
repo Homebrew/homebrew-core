@@ -42,7 +42,6 @@ class Fastplong < Formula
     # The low-quality head of read2 must be trimmed away.
     assert_match "read1", (testpath/"out.fq").read
 
-    require "json"
     report = JSON.parse((testpath/"report.json").read)
     assert_equal 2, report["summary"]["before_filtering"]["total_reads"]
   end

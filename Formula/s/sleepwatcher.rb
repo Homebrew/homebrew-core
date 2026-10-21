@@ -27,6 +27,8 @@ class Sleepwatcher < Formula
 
   depends_on :macos
 
+  deny_network_access!
+
   def install
     # Adjust Makefile to build native binary only
     inreplace "sources/Makefile" do |s|
@@ -61,5 +63,10 @@ class Sleepwatcher < Formula
         ~/.sleep
         ~/.wakeup
     EOS
+  end
+
+  test do
+    assert_match "sleepwatcher #{version}", shell_output("#{sbin}/sleepwatcher -v", 2)
+    assert_match(/\A\d+\Z/, shell_output("#{sbin}/sleepwatcher -g"))
   end
 end

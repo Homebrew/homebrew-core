@@ -10,16 +10,17 @@ class HttpPrompt < Formula
   head "https://github.com/httpie/http-prompt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "deaf61dc8e494dde17fb532e4940cc99fff629180aca09e5d4df4f685a4113bd"
-    sha256 cellar: :any, arm64_tahoe:       "5d35d387b835ddf89d00812acdc3d5445147f055806ffda0599092e6f29aff83"
-    sha256 cellar: :any, arm64_sequoia:     "d4d07937d0256c6da5b245ff401cd7cb78fb5465fb42070530f60a8c2103c4bb"
-    sha256 cellar: :any, arm64_linux:       "57c22cbc04a725e17d06d54a41fd4b147c7cd609b004ba9a47ccd6ddb2c6b98c"
-    sha256 cellar: :any, x86_64_linux:      "e495c7603f58721ef1dc9ba08b3b8594a4875eca8b1f02d7d8acd053b9bc8b1e"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "5b599bf557ae5259888a78bf672c2e570236a7deb458e3197b44c6cd7016f84c"
+    sha256 cellar: :any, arm64_tahoe:       "2bdb02efa05ac69bc6abe38be6a298ce5e2ea212ea415c35f4a6a7d41d8afbde"
+    sha256 cellar: :any, arm64_sequoia:     "2221c387f0fb2acf5ddbf83df0a9b505717e1f7920b2ef42b6f041afc4f5788a"
+    sha256 cellar: :any, arm64_linux:       "5972f533553a3e3c18194acd4f0d73cb39c9ab30e880f00142038d3a858dd3ea"
+    sha256 cellar: :any, x86_64_linux:      "9b3e646c5893c3ec57fd1ffea1900a714329482b565bcf2a1edf295e40636d8b"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 
@@ -59,8 +60,8 @@ class HttpPrompt < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/c4/64/642465a4827331a98ba4ae29f97658be25d1bdcb868872a2f78f7482b507/multidict-7.0.0.tar.gz"
-    sha256 "a7fcd089a0af2e0ef053c0d39c22c9ebf2434dddcb91034fd2f59ec99623788e"
+    url "https://files.pythonhosted.org/packages/f9/79/84ddb5ba16c4eb2c69c71db76ae3c579fe546e511f7170c7e27eedbab7c1/multidict-7.1.0.tar.gz"
+    sha256 "61a4e5d81b8d4e4ad61964b230129e7a2b914793d96289029078fc9009f074ec"
   end
 
   resource "parsimonious" do
@@ -124,8 +125,8 @@ class HttpPrompt < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/dc/ac/3a943d2792c9bb368aaa8b50121c0f778460ba2d7fbdc0a0366201d9e761/wcwidth-0.9.1.tar.gz"
-    sha256 "5823209b0d43af322ce698c689380d7c15ca31fa8e6e3be8459f27031bef0af5"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   def install

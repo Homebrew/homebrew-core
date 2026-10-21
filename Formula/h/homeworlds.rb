@@ -4,17 +4,15 @@ class Homeworlds < Formula
   url "https://github.com/Quuxplusone/Homeworlds/archive/refs/tags/v1.1.0.tar.gz"
   sha256 "3ffbad58943127850047ef144a572f6cc84fd1ec2d29dad1f118db75419bf600"
   license "BSD-2-Clause"
-  revision 4
+  revision 5
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "54514e30775b09a4f65a0e6397ac241100d46b4f1101d1808d6c36e19d8e7ed8"
-    sha256 cellar: :any, arm64_tahoe:       "b54d64aa4b808f8e766bd97eb686810c7aaac1a5a75e2da90df5b213459c6561"
-    sha256 cellar: :any, arm64_sequoia:     "a1a1e22ec2f4e99dc67ae371a0a51dc0fb423d01bc9fd667d88e00fbb730ceb9"
-    sha256 cellar: :any, arm64_sonoma:      "8c10e66a2b4040f43af16401ab968aa9b1f7bd81082d231e2da508f0ed4db08c"
-    sha256 cellar: :any, sonoma:            "18889c9eb4c4a7af491e70ce902b02f7072e0fa7f8d92b9c8f6c5c64b70ed7a7"
-    sha256 cellar: :any, arm64_linux:       "b1f09b7e626a6703f98721fa0d0e820dc76fb701f0f38b983a37df75138191df"
-    sha256 cellar: :any, x86_64_linux:      "1abe3d5dc91d0b2444e285fac0356e6fabee7e1cb61df19eadf45056c0e9cf15"
+    sha256 cellar: :any, arm64_golden_gate: "8fbdd9b444486de209290281698aaeec9bf3e5220a9db5dd3d37e674b4dd5813"
+    sha256 cellar: :any, arm64_tahoe:       "8b43666c54c4fc0223b792a696da1a78c4d8c84d61599f4142adb4e5b77fc8ad"
+    sha256 cellar: :any, arm64_sequoia:     "6b2094ee410a53953e6d12cce501ee7adca86cb7e3cde2fb06aaff038f7707ea"
+    sha256 cellar: :any, arm64_linux:       "8f453b57e22aa6e74610a3fa64fa71cd91ddd52e1cd1f8117c9e6920752cd36e"
+    sha256 cellar: :any, x86_64_linux:      "d17bc723913564e57e6cab33ad5c57a5193c95e7836c8306902eb193b0cabba0"
   end
 
   depends_on "wxwidgets"

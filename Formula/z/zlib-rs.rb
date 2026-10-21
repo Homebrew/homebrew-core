@@ -21,6 +21,12 @@ class ZlibRs < Formula
     depends_on "zlib-ng-compat" => :test
   end
 
+  # https://zlib.net/zlib_how.html
+  resource "zpipe.c", :test do
+    url "https://raw.githubusercontent.com/trifectatechfoundation/zlib-rs/refs/tags/v0.6.2/libz-rs-sys-cdylib/zpipe.c"
+    sha256 "4fd3b0b41fb8da462d28da5b3e214cc6f4609205b38aaee1e20524b57124f338"
+  end
+
   # FIXME: needs to download a test resource. Brew changes are needed to
   # allow `brew fetch` to handle this properly so it works in dependent tests
   allow_network_access! :test
@@ -38,12 +44,6 @@ class ZlibRs < Formula
   end
 
   test do
-    # https://zlib.net/zlib_how.html
-    resource "zpipe.c" do
-      url "https://raw.githubusercontent.com/trifectatechfoundation/zlib-rs/refs/tags/v0.6.2/libz-rs-sys-cdylib/zpipe.c"
-      sha256 "4fd3b0b41fb8da462d28da5b3e214cc6f4609205b38aaee1e20524b57124f338"
-    end
-
     testpath.install resource("zpipe.c")
     ENV.append_to_cflags "-I#{formula_opt_include("zlib-ng-compat")}" if OS.linux?
     system ENV.cc, "zpipe.c", *ENV.cflags.to_s.split, "-L#{lib}", "-lz_rs", "-o", "zpipe"

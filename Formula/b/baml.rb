@@ -22,6 +22,14 @@ class Baml < Formula
   depends_on "cmake" => :build
   depends_on "rust" => :build
 
+  allow_network_access! :test
+
+  def fetch
+    cd "baml_language/crates" do
+      system "cargo", "fetch", *std_cargo_fetch_args
+    end
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(
       path:     "baml_language/crates/baml",

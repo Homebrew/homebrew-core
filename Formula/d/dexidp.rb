@@ -1,18 +1,16 @@
 class Dexidp < Formula
   desc "OpenID Connect Identity and OAuth 2.0 Provider"
   homepage "https://dexidp.io"
-  url "https://github.com/dexidp/dex/archive/refs/tags/v2.45.1.tar.gz"
-  sha256 "6dc9bf768d67723d8117268d5177c7450519608f5403cd10e857c89465fa2b9e"
+  url "https://github.com/dexidp/dex/archive/refs/tags/v2.46.0.tar.gz"
+  sha256 "3c09c0f2be88719d5bc2a061d3df9310052c8220b651a3b72d774eecd9b50b65"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b205e3597da0e8e66d6fae8727cc867ed3a793dde83b6e85115ae3ef9a30e33d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "15141e3dd75c5bc4e0f665553457211b74b3833c6c5926973a4d661f7a9994a2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b6ab2b2c4aaed2d3e57e28a85909980ecebe65889850d7e4298ee9baed5b9e79"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "8d4965e80f2f6201d6c2d801918a02484c5d998b8d4bafbdd27f760922025e22"
-    sha256 cellar: :any_skip_relocation, sonoma:            "384968f300366d8edba254f785db8a530e7d9f39cd9c0570b2d57c3d380425b8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "aa05dc5aa680b8c18f7f487fb252540451a694ed4cb3f81c37a0adb197bd1d1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ecff412bcb6adc3c72ce03780b650dd123cf4b403c66e0c08baa4ba33f06b019"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a9e4792eeac05a8f0887c058fa1b1f6efd62ef2b0d334cbf3b35772488813b02"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "65b71e800fbb494cff6c2cb8609a1d7c102d04a445802559356094873af0ebea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5081d8de58513e9835538590127d8a631cf89db9aadff07f546e1fc471349d7b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b70bb8212b19fe11cea13191a3af176f3dfe2d32d7f91a60bb0de9c8b1fa14eb"
+    sha256 cellar: :any,                 x86_64_linux:      "850cad36c5c7401a4c3693e7e3b4bf374ddc919053d5316e28cb8bbd2f14f352"
   end
 
   depends_on "go" => :build

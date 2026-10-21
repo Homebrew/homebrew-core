@@ -1,18 +1,18 @@
 class Trivy < Formula
   desc "Vulnerability scanner for container images, file systems, and Git repos"
   homepage "https://trivy.dev/"
-  url "https://github.com/aquasecurity/trivy/archive/refs/tags/v0.75.0.tar.gz"
-  sha256 "4ee2010384f90bf23d4059ae49c11129e5041816a3754d890a90ae80f678d765"
+  url "https://github.com/aquasecurity/trivy/archive/refs/tags/v0.76.0.tar.gz"
+  sha256 "38899439182f18f03f1a70b133d3541b809f77647a0b95fcf194674aa34952f0"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/aquasecurity/trivy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4fe3192f521a72e0100943ffcde6d4eb3e2d2e2ff02b4bf4038726de90c57909"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1d7f287ed34d2bd244e27d03fb56f28107d9dfe873e757761dd356281a5ec0ad"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "00587c5652a9c9ad7667a4b70af180cadaef5a05f40b0fea94b51c97a9cda21e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "7bfa5bf2cad495975da23f7ed4df0520fb6149779765b595b36832897ff8dc0e"
-    sha256 cellar: :any,                 x86_64_linux:      "308cc089fc0abef3b37c9db36cb5e531ebdcdd967eb5cb7c97c655df055a1c39"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7c797b67619ba220a1890c829db827432702322b4bccc9cdc90582c071b33de4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "718c3e8be4799c2332841b4db900928fa344879c3470c88cf005ec52d2878fae"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "94e978aaa1c830f33ab3cef5896afa6efbf3e49431cf88a5ba26b0573ce8186e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a2181a5ad9263618f756a62351818b3ea7073b00f57ea2a557a44d9cc099696e"
+    sha256 cellar: :any,                 x86_64_linux:      "5784b0d3a2ce6820f5fe0578b6758dee54bacd7e8ec6a2efaa583339b298c44e"
   end
 
   depends_on "go" => :build

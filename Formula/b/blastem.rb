@@ -20,17 +20,18 @@ class Blastem < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1d3be837a182c9c3794f99f8d05a56d9b664dff177a46012b43ae59210f3abac"
-    sha256 cellar: :any, arm64_tahoe:       "3ada7ac311478d5f37fbccd77cd14c9c9eda18276e700b81592f81e09f43a72b"
-    sha256 cellar: :any, arm64_sequoia:     "7fa084989f2845f425d2a29ae96ffb2e583a2b4bf7f971826af914312eeff0d8"
-    sha256 cellar: :any, arm64_linux:       "501d1b152dee4f26e7bd3a7139dcbc553a1ea5af6bddde4562340351dd014597"
-    sha256 cellar: :any, x86_64_linux:      "cbbb133a9566d6c825815d1cd85ae45c33b8bb16121ab303d72553536f2293a8"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "3fcac028c23517ba673cadb558eed9b76392c5f12ec58617bb078c38b0117fde"
+    sha256 cellar: :any, arm64_tahoe:       "343a5f53fef1d5472cd06ac4a32460d5f0ff9845dc8bd67ba4b599308757f49a"
+    sha256 cellar: :any, arm64_sequoia:     "f14e79f9a97074fd55a2cb1c5f367f43da3681799f443adb2ed4c635d3fde302"
+    sha256 cellar: :any, arm64_linux:       "9a1e5bc7c0aa632528046f244d2f59c5a3494c99cd8ada4f527178da0972c0fd"
+    sha256 cellar: :any, x86_64_linux:      "e6d741cf44e4610ba0e9dc6a376e4de16e16197891dd53815defd8842265734a"
   end
 
   depends_on "imagemagick" => :build
   depends_on "pillow" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.14" => :build
+  depends_on "python@3.15" => :build
   depends_on "glew"
   depends_on "sdl2-compat"
 
@@ -59,6 +60,6 @@ class Blastem < Formula
   end
 
   test do
-    assert_equal "blastem #{version}", shell_output("#{bin}/blastem -b 1 -v").chomp
+    assert_match version.to_s, shell_output("#{bin}/blastem -b 1 -v").chomp
   end
 end

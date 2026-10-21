@@ -33,6 +33,12 @@ class TerraformLsp < Formula
     depends_on arch: :arm64
   end
 
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ldflags = %W[
       -X main.Version=#{version}
@@ -56,7 +62,7 @@ class TerraformLsp < Formula
       EOF
       assert_match "Content-Length:", tcp_socket.gets("\n")
     ensure
-      Process.kill("SIGINT", pid)
+      Process.kill("TERM", pid)
       Process.wait(pid)
     end
 

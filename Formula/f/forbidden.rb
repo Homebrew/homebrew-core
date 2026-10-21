@@ -6,24 +6,25 @@ class Forbidden < Formula
   url "https://files.pythonhosted.org/packages/9b/aa/98fc3ee28aac41cae341a197858ff6af5d79e40dcd45c8a6e37b1fdbfd19/forbidden-13.4.tar.gz"
   sha256 "dc987150b71515810d7ae252895b3ca6e077a8d9b3cbb0d09dfc9797c933a14d"
   license "MIT"
-  revision 8
+  revision 9
   head "https://github.com/ivan-sincek/forbidden.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "2a7c909987bd2a4f0bd8434b15a5f9bb45d1806b411f1788025e2f743a31d07e"
-    sha256 cellar: :any, arm64_tahoe:       "db9449dace9afc4c19593e1f897e0ef551b8ffef29f11087d43c8133916e881a"
-    sha256 cellar: :any, arm64_sequoia:     "f0cf0dda284c275cb0d6c5351a0c464d090011bd70ac1fea00a8624bfb748c60"
-    sha256 cellar: :any, arm64_linux:       "68628116b5acde48ec9f09a26c87aff87d3e9327b8d78e99b0abaf0164e73cda"
-    sha256 cellar: :any, x86_64_linux:      "abecba717fbda4053b52de85588eb1b4b7057110509fe805b0d8fc9fa1f5d169"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "d80e61a72686b81ed5733c7a02f6e90151ff5989eba9c25f09b9b79b58fb013b"
+    sha256 cellar: :any, arm64_tahoe:       "a371f6d19deaa3e096bac512c40e08f509a08e923c4a0418354f4bb08e49de53"
+    sha256 cellar: :any, arm64_sequoia:     "c262822dee2838acdaf320cf0016042eba7fb36352db785360efe65b60df9fcd"
+    sha256 cellar: :any, arm64_linux:       "41dbb7dc0aabd66d1eb582e34a9cd5a98023d4cfdb67a93c2d13c6af4007dd53"
+    sha256 cellar: :any, x86_64_linux:      "432346dfd83dd4bfbbaa4bdfc1ea20bcdc1c9f7c407fec842d1e91551d58b238"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "cffi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "curl"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
   depends_on "pycparser" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: %w[certifi cffi cryptography pycparser]
 
@@ -43,8 +44,8 @@ class Forbidden < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "colorama" do

@@ -63,6 +63,17 @@ class Dynare < Formula
     cause "needs GCC >= 13 for C++20 features"
   end
 
+  resource "datatypes", :test do
+    url "https://github.com/pr0m1th3as/datatypes/releases/download/release-1.2.3/datatypes-1.2.3.tar.gz",
+        using: :nounzip
+    sha256 "2dbd6e0140354c069227412c495cbde975d088ca71d964117371735be4646c72"
+  end
+
+  resource "statistics", :test do
+    url "https://github.com/gnu-octave/statistics/archive/refs/tags/release-1.7.3.tar.gz", using: :nounzip
+    sha256 "570d52af975ea9861a6fb024c23fc0f403199e4b56d7a883ee6ca17072e26990"
+  end
+
   def install
     # This needs a bit of extra help in finding the Octave libraries on Linux.
     octave = Formula["octave"]
@@ -85,17 +96,6 @@ class Dynare < Formula
   end
 
   test do
-    resource "datatypes" do
-      url "https://github.com/pr0m1th3as/datatypes/releases/download/release-1.2.3/datatypes-1.2.3.tar.gz",
-          using: :nounzip
-      sha256 "2dbd6e0140354c069227412c495cbde975d088ca71d964117371735be4646c72"
-    end
-
-    resource "statistics" do
-      url "https://github.com/gnu-octave/statistics/archive/refs/tags/release-1.7.3.tar.gz", using: :nounzip
-      sha256 "570d52af975ea9861a6fb024c23fc0f403199e4b56d7a883ee6ca17072e26990"
-    end
-
     ENV.delete "CXX" # avoid overriding Octave flags
     ENV.delete "LDFLAGS" # avoid overriding Octave flags
 

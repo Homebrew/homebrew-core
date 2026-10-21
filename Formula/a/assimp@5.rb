@@ -37,6 +37,8 @@ class AssimpAT5 < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     args = %W[
       -DASSIMP_BUILD_TESTS=OFF

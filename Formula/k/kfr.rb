@@ -1,18 +1,16 @@
 class Kfr < Formula
   desc "Fast, modern C++ DSP framework"
   homepage "https://www.kfrlib.com/"
-  url "https://github.com/kfrlib/kfr/archive/refs/tags/7.1.0.tar.gz"
-  sha256 "9ca43ee8f0d7b166c92f06d20953d2a753774c4237b2721bea366115811dff64"
+  url "https://github.com/kfrlib/kfr/archive/refs/tags/7.2.0.tar.gz"
+  sha256 "4f1603d5b6e609c25d25cff58fe7154a371583fd6d379615b342e44223be0763"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "509c2da9eeb2c85d01aae8446baf9067208618b5ba08c1322f85f29478aef3de"
-    sha256 cellar: :any,                 arm64_tahoe:       "f8c0e575d71338be7f1dc85558cca4839ae8881d1c47cbc0c911ce2e099d0e10"
-    sha256 cellar: :any,                 arm64_sequoia:     "edea10b7dda7aa1faa2df0a8c2e9c120619099d6ae120937a4683a2d45a6065f"
-    sha256 cellar: :any,                 arm64_sonoma:      "a0b2530179442951d697cd7dec0d9ae8de395787e275947cf0bb636f589f7eff"
-    sha256 cellar: :any,                 sonoma:            "8046d3d9c76ca7c1cd0a728aa41804ad9f90d1910fffba6ac4bac9da4c464348"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f171b125283cf0b0e8c0e091a667cb506650fee41bd9e61c8c723f0470951e6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "846fedfb8e6c84c1a7915efe85ae15fbf788187051c8a6c76c99a4ddf8628397"
+    sha256 cellar: :any,                 arm64_golden_gate: "3549e334cf37a900f937f514089b140c0d37a30fc125a2f1af7ee4a591f6ade5"
+    sha256 cellar: :any,                 arm64_tahoe:       "eaa423a0e46ad5b7ce41783521a9528589526dd199c028813effc3c5daeec79c"
+    sha256 cellar: :any,                 arm64_sequoia:     "ca6b3cab25a9414b0ed1985d5effa9ae75d6e92a807005a5e308670147c642b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "3bc284fe2d08bd24f52968a88745ba20b192eaa8b5050f6835d5b24111cec8ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f03134333e0dbc59dee0343b3c7dee2636f84f48c558738e24d6822fbe4967e8"
   end
 
   depends_on "boost" => :build

@@ -28,6 +28,12 @@ class Termshark < Formula
   depends_on "socat" => :test
   depends_on "wireshark"
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "go", "build", *std_go_args, "./cmd/termshark"
   end

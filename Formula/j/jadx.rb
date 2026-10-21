@@ -20,6 +20,11 @@ class Jadx < Formula
   depends_on "gradle" => :build
   depends_on "openjdk"
 
+  resource "homebrew-test.apk", :test do
+    url "https://raw.githubusercontent.com/facebook/redex/fa32d542d4074dbd485584413d69ea0c9c3cbc98/test/instr/redex-test.apk"
+    sha256 "7851cf2a15230ea6ff076639c2273bc4ca4c3d81917d2e13c05edcc4d537cc04"
+  end
+
   def install
     ENV["JADX_VERSION"] = version.to_s if build.stable?
 
@@ -32,11 +37,6 @@ class Jadx < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/jadx --version")
-
-    resource "homebrew-test.apk" do
-      url "https://raw.githubusercontent.com/facebook/redex/fa32d542d4074dbd485584413d69ea0c9c3cbc98/test/instr/redex-test.apk"
-      sha256 "7851cf2a15230ea6ff076639c2273bc4ca4c3d81917d2e13c05edcc4d537cc04"
-    end
 
     resource("homebrew-test.apk").stage do
       system bin/"jadx", "-d", "out", "redex-test.apk"

@@ -1,19 +1,25 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
-  url "https://download.gnome.org/sources/gjs/1.88/gjs-1.88.1.tar.xz"
-  sha256 "767bab80e665d672cb00563c25f0b392a9ec8c2996ed1d4454c698b4c2f0a3d9"
+  url "https://download.gnome.org/sources/gjs/1.90/gjs-1.90.1.tar.xz"
+  sha256 "05ceaa80f48e3782e5c44938572fad863e02b8c4a6c55657a99aa81db8ce9efa"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
   head "https://gitlab.gnome.org/GNOME/gjs.git", branch: "master"
 
+  # This regex is intended to avoid the `Gnome` strategy's version filtering
+  # logic while maintaining the "even-numbered minor is stable" behavior, as
+  # minor versions >= 90 are still stable in this case.
+  livecheck do
+    url :stable
+    regex(/gjs[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
+  end
+
   bottle do
-    sha256 arm64_golden_gate: "cf63e6713f148bad3d212680822fb95cfacc221f8c7816818531988ad28ce4e7"
-    sha256 arm64_tahoe:       "cd60dfefcd32590d2bad0baa7b9e8b62a9ef17ed66b519c1c242aaec870c956d"
-    sha256 arm64_sequoia:     "4f56f844683bd3adde37fc5324b0cda2d241015d1b164bcaa41eb63df4f26a88"
-    sha256 arm64_sonoma:      "80a5d74f635a3d6511a242e30aa06a4f580d135ad4ce5cc4a8a8beb02593119e"
-    sha256 sonoma:            "cb10584a8d4f5e23b81e40096e9a1a1b4841d2bf8f097537c23ac5c78eb6ced2"
-    sha256 arm64_linux:       "ed006abd3321b958ba48d5369056af0ae1c1463d0b93c3203bbab158c97fbacc"
-    sha256 x86_64_linux:      "1e0d9a70aebf146c9ac9d0f1b051631d15923f1b70909051b7f65ae4b32db07c"
+    sha256 arm64_golden_gate: "386c6340c513c7ff05acf0282d39330793df58f13b8e99b54f213832b95e4a6d"
+    sha256 arm64_tahoe:       "9a202cc21bdb9962b6f889b75c96d621b4a674105d4d4034e68cdc64e75d8606"
+    sha256 arm64_sequoia:     "c9eb5977fb3bcb94198f4315f38cb7f753ad29cbf9a4a4f9982276e203d1acca"
+    sha256 arm64_linux:       "5e4310c8cefd0168118c6b8817acb572a4b9f0dfb697a737cb8ce2dc9219a0f9"
+    sha256 x86_64_linux:      "583b88ece09c64dd81685eadf68beb33c4f80fe0eebb05bddd373574fb56fde6"
   end
 
   depends_on "gobject-introspection" => :build # for generate_gir
@@ -32,6 +38,8 @@ class Gjs < Formula
   on_macos do
     depends_on "gettext"
   end
+
+  deny_network_access!
 
   def install
     # ensure that we don't run the meson post install script

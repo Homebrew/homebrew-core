@@ -7,16 +7,14 @@ class YelpTools < Formula
   url "https://download.gnome.org/sources/yelp-tools/42/yelp-tools-42.1.tar.xz"
   sha256 "3e496a4020d4145b99fd508a25fa09336a503a4e8900028421e72c6a4b11f905"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "cf1f178117fd252a7aa56d03e4579b315e300824ec2cfb7fcb4ddd1e106e06a7"
-    sha256 cellar: :any,                 arm64_tahoe:       "0a3f9404c8d97b4e5bf674a6a412a4d0ebe70264cf7d3e1f2bc7457d4ec50105"
-    sha256 cellar: :any,                 arm64_sequoia:     "a9cb317bc7a4ab248246e110c4fe84a545497a03ca03e22bbd9149a5d5fcc997"
-    sha256 cellar: :any,                 arm64_sonoma:      "64dc7141411fd67c7fadf810871698084a38550d98f0434e95b4e5567f43ad8e"
-    sha256 cellar: :any,                 sonoma:            "0e0d0165ca19b4bc03d8907462d3b7204c3763eaee291bb49236dd33bf98e20b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0ade5f26615b99ea03312c681075265f29020713ad10f928205ac354d30bbd8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8b46a9066e4361ba000c17ddc5b05e5016432dd6576c7ad3cd4e369af635f5fa"
+    sha256 cellar: :any, arm64_golden_gate: "77c8c92eb99e889b03952f2b35927d6f805401e1e3bfda3aa289a689b9c8cb04"
+    sha256 cellar: :any, arm64_tahoe:       "5ca8695e886e3b296dd0a1ee3f973a62233fadadc255b9539a1b5e7b7051b03e"
+    sha256 cellar: :any, arm64_sequoia:     "2b431b1444438b813deca46ec0f2f4c66da0b4696e8726b6e202bed041d993b6"
+    sha256 cellar: :any, arm64_linux:       "6302ece25c5dd450e92c56e50585c5fea8060e4c2b6ec6d14484b4325c40d402"
+    sha256 cellar: :any, x86_64_linux:      "b86655ba248297b4ac871f29139fe17f8b78cbcdddced7a1ac48fb74d14d009d"
   end
 
   depends_on "meson" => :build
@@ -24,7 +22,7 @@ class YelpTools < Formula
   depends_on "pkgconf" => :build
   depends_on "itstool"
   depends_on "libxml2"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "yelp-xsl" => :no_linkage
 
   uses_from_macos "libxslt"
@@ -33,8 +31,8 @@ class YelpTools < Formula
                 extra_packages: "lxml"
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/28/30/9abc9e34c657c33834eaf6cd02124c61bdf5944d802aa48e69be8da3585d/lxml-6.1.0.tar.gz"
-    sha256 "bfd57d8008c4965709a919c3e9a98f76c2c7cb319086b3d26858250620023b13"
+    url "https://files.pythonhosted.org/packages/23/ad/28ecd7cb894d172f3c9c80a075eeeb2017ac62e3632cee05a5f9493547eb/lxml-6.1.3.tar.gz"
+    sha256 "45222d94ddd511536f3b2f7d9deae3b2339b4ce0f075f1ca25703b07cad9dd21"
   end
 
   resource "mallard-rng" do

@@ -37,6 +37,11 @@ class Musepack < Formula
   depends_on "libcuefile"
   depends_on "libreplaygain"
 
+  resource "test-mpc", :test do
+    url "https://trac.ffmpeg.org/raw-attachment/ticket/1160/decodererror.mpc"
+    sha256 "b16d876b58810cdb7fc06e5f2f8839775efeffb9b753948a5a0f12691436a15c"
+  end
+
   # Backport upstream fixes from SVN for `-fno-common` and installing shared library
   patch :p0 do
     file "Patches/musepack/r479.patch"
@@ -72,11 +77,6 @@ class Musepack < Formula
   end
 
   test do
-    resource "test-mpc" do
-      url "https://trac.ffmpeg.org/raw-attachment/ticket/1160/decodererror.mpc"
-      sha256 "b16d876b58810cdb7fc06e5f2f8839775efeffb9b753948a5a0f12691436a15c"
-    end
-
     resource("test-mpc").stage do
       assert_match(/441001 samples decoded in/,
                    shell_output("#{bin}/mpcdec decodererror.mpc 2>&1"))

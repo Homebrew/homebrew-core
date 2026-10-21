@@ -27,6 +27,12 @@ class ApacheBrooklynCli < Formula
 
   depends_on "go" => :build
 
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download", "-C", "cli"
+  end
+
   def install
     cd "cli" do
       system "go", "build", *std_go_args(output: bin/"br"), "./br"

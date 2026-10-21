@@ -10,16 +10,17 @@ class Cookiecutter < Formula
   head "https://github.com/cookiecutter/cookiecutter.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c2cbcdee25c8ab754a68b3d450e2209bf65e824d3e84959a53de3190fc5e5ba0"
-    sha256 cellar: :any, arm64_tahoe:       "cd46b189534e133fe3d90d8ed7811124da70e67f067e17e5e5a111cf84711763"
-    sha256 cellar: :any, arm64_sequoia:     "da06f05849d13c9f98394b18e00679f6694abc14dbcc6d1d30eb426f83b6fd7e"
-    sha256 cellar: :any, arm64_linux:       "4282658cb9283f119f5465383601cebe36dff289a467618e8b8b8b19a3e383b4"
-    sha256 cellar: :any, x86_64_linux:      "60fb021316a587fab2c3830a0eafda27232515a3082d4551bc3e34a53a150f1f"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "143b9742d1bc3c1e6dc0bba5bb318551f6975483c823e18e75fc7efa0904fe1d"
+    sha256 cellar: :any, arm64_tahoe:       "ffa3719113641026d3c09d5fc9b318f30166e593afdb65d5a95fc06c9fbb9f86"
+    sha256 cellar: :any, arm64_sequoia:     "1c6e52c9fa3ac7c96e3159b92c5c1369a311d0c1539145331c346a9e8c1ff4dc"
+    sha256 cellar: :any, arm64_linux:       "0a38f9fc48b0e8e7914d0b0104375c7ab326143b50f0cab212bc8b9f73595775"
+    sha256 cellar: :any, x86_64_linux:      "ce125cde270a6c9930c43bd50ad45db7553e7f028090528275ca8c846cbd0652"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   pypi_packages exclude_packages: "certifi"
 
@@ -59,8 +60,8 @@ class Cookiecutter < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "mdurl" do
@@ -79,8 +80,8 @@ class Cookiecutter < Formula
   end
 
   resource "python-slugify" do
-    url "https://files.pythonhosted.org/packages/ad/df/32c87abe18f7d0560e2154ffbe23dfca6edad5d0d2d6c4636c99f4fb8b02/python_slugify-9.1.2.tar.gz"
-    sha256 "bd36ca98e5ebb1cd2b9dfa2f27b948ce87402fb083b762cbd9d0fa3aed489a92"
+    url "https://files.pythonhosted.org/packages/bd/e8/26b1af09d728d604dc16427a39f53985b22a170dbd61addac3f48db73f03/python_slugify-9.1.3.tar.gz"
+    sha256 "90e997f2e0987239ce95e12f700086eb18e1d1d3ee22624fbbdbd095afca42b6"
   end
 
   resource "pyyaml" do
@@ -109,8 +110,8 @@ class Cookiecutter < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/e4/31/3d74fa778a63b98b7374323befcc0be5ab3bd94afd4096a0124e7379152c/tzdata-2026.4.tar.gz"
-    sha256 "f1b8bd365d8d210c55353f4d7f8d6d8561c0ba50d704b700d195a9424bba0d79"
+    url "https://files.pythonhosted.org/packages/d9/68/f1b440335057bfce71b6e50a9d09445aa2ecbd08359a337976627b8409e7/tzdata-2026.5.tar.gz"
+    sha256 "8cc73c0a0bfca7dbfa59235d60b2eff82231dee33f53d206db1acd9173cfc0a7"
   end
 
   resource "urllib3" do

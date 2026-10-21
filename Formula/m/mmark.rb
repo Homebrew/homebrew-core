@@ -18,6 +18,11 @@ class Mmark < Formula
 
   depends_on "go" => :build
 
+  resource "homebrew-test", :test do
+    url "https://raw.githubusercontent.com/mmarkdown/mmark/v2.2.19/rfc/2100.md"
+    sha256 "0e12576b4506addc5aa9589b459bcc02ed92b936ff58f87129385d661b400c41"
+  end
+
   allow_network_access! :test
 
   def fetch
@@ -30,11 +35,6 @@ class Mmark < Formula
   end
 
   test do
-    resource "homebrew-test" do
-      url "https://raw.githubusercontent.com/mmarkdown/mmark/v2.2.19/rfc/2100.md"
-      sha256 "0e12576b4506addc5aa9589b459bcc02ed92b936ff58f87129385d661b400c41"
-    end
-
     resource("homebrew-test").stage do
       assert_match "The Naming of Hosts", shell_output("#{bin}/mmark -ast 2100.md")
     end

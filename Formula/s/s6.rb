@@ -1,19 +1,17 @@
 class S6 < Formula
   desc "Small & secure supervision software suite"
   homepage "https://skarnet.org/software/s6/"
-  url "https://skarnet.org/software/s6/s6-2.15.1.0.tar.gz"
-  sha256 "eab9c46e22b66b16135f9a05ec68a0ea287d9060b84d10defaaa2caad158ab52"
+  url "https://skarnet.org/software/s6/s6-2.15.1.1.tar.gz"
+  sha256 "62080839eb5b04d51efd4ef6e7b43e29b5d0576efce9eb319ace32ea90c05931"
   license "ISC"
   head "git://git.skarnet.org/s6.git", branch: "main"
 
   bottle do
-    sha256 arm64_golden_gate: "619e3a0b3b2ba0693b2769ef5b33d24794d312cec225aa133c8d4dbcab69effb"
-    sha256 arm64_tahoe:       "97d2b9ae8f7d72200101a733e5fcc6ae540e041a99e6f1c53633f06c49c1428b"
-    sha256 arm64_sequoia:     "ee0027a9b6666d5615a632a1a7a4be55e169285c96685455ae1ccafb295a27e8"
-    sha256 arm64_sonoma:      "d85f1551fa98060027da074465b4ca03c34d1982d5abdaa2a1c2b22e332ecfe9"
-    sha256 sonoma:            "8f67b42f8db8c7006675f5b43770e6c65a9dc5dadcf97439a93463820e5bf8e1"
-    sha256 arm64_linux:       "99944f685caaf9d66de610868d3e89f482d1d1e0933c3159c226f3955ae471b6"
-    sha256 x86_64_linux:      "4cc6bc1a649dbb242f1fdb65462a1051b6dc7dede4d56eb7119f9b2d3bbb9910"
+    sha256 arm64_golden_gate: "13bc68dfa69cb632018545548b37673c0bc62b2d752e7f5be34e8d19e941a40e"
+    sha256 arm64_tahoe:       "d1055a78aee3f206636908c44fa1efdcbcb4b78395e497bd79f670ed51f60cd2"
+    sha256 arm64_sequoia:     "7fd232a6caacca72eb022646b320008142b9ad6288ee8066f8e81be14daca55d"
+    sha256 arm64_linux:       "9587a52cab4f67a1767c323a28c617bece2a8a1c9f5d33c23b1aa7c8d9fbf986"
+    sha256 x86_64_linux:      "5b62644f6c3154611b309fc0e358a258054f68267d265c81658b0d9b94fda5dd"
   end
 
   depends_on "pkgconf" => :build

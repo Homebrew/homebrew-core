@@ -18,6 +18,12 @@ class Binsider < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     # We pass this arg to disable the `dynamic-analysis` feature on macOS.
     # This feature is not supported on macOS and fails to compile.

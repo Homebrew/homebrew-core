@@ -4,7 +4,7 @@ class Volk < Formula
   desc "Vector Optimized Library of Kernels"
   homepage "https://www.libvolk.org/"
   license "LGPL-3.0-or-later"
-  revision 2
+  revision 3
   compatibility_version 1
   head "https://github.com/gnuradio/volk.git", branch: "main"
 
@@ -23,13 +23,11 @@ class Volk < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "99b5c4b33bbdcf58d28ee2a6b7cd100fe51e8bafab2cb6b3624b2a275cca6e4a"
-    sha256 cellar: :any, arm64_tahoe:       "191cd1de815b6a227597a8d734e323a9d8f41587da9e2ef0f6f8be98c716bf6c"
-    sha256 cellar: :any, arm64_sequoia:     "f62aa1a95e3f8ed22968fe8e92b036754db1c02f9d80f6ed0cccbbfd7dfc5f2f"
-    sha256 cellar: :any, arm64_sonoma:      "3454fbda5eae8449ce41463f6f88c929cdb054aa2feb024d8a2be58770aeacbc"
-    sha256 cellar: :any, sonoma:            "2d359de9c959e7ef49d200f8f702158845d2730213a4f5b73de126b4a93f7897"
-    sha256 cellar: :any, arm64_linux:       "6fb7686968e2c94fee1d4a4829a8a89430ebb96eb7f522c935cafae913cf13a0"
-    sha256 cellar: :any, x86_64_linux:      "303e1b62238f08c8929062431295a62c915fd5191e4f3c543390d73e14ff4ce8"
+    sha256 cellar: :any, arm64_golden_gate: "4c7107f873563792a3331165478d81e21d3eb6959795abb02b1c2100f8e4235f"
+    sha256 cellar: :any, arm64_tahoe:       "32f197fc9ed1e52973bc0dd90dc643e84480b7fee8b525d74e04478bf6d9d518"
+    sha256 cellar: :any, arm64_sequoia:     "09cc4a97b1af64c4a804b4e40dc0a049d3d622402c925c85bf8f7752646daffb"
+    sha256 cellar: :any, arm64_linux:       "1231efc8b87da47a558bae6693aa69a524dc129367935850562063928506eced"
+    sha256 cellar: :any, x86_64_linux:      "4b41845d71eab03ba8da3df9822ed08f663c2304113716b2319806697aaba0d2"
   end
 
   depends_on "cmake" => :build
@@ -37,7 +35,7 @@ class Volk < Formula
   depends_on "cpu_features"
   depends_on "fmt"
   depends_on "orc"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   conflicts_with "vulkan-volk", because: "both install volkConfig.cmake"
 
@@ -45,13 +43,13 @@ class Volk < Formula
                 extra_packages: "mako"
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/00/62/791b31e69ae182791ec67f04850f2f062716bbd205483d63a215f3e062d3/mako-1.3.12.tar.gz"
-    sha256 "9f778e93289bd410bb35daadeb4fc66d95a746f0b75777b942088b7fd7af550a"
+    url "https://files.pythonhosted.org/packages/5a/09/e07c4b5579a79f4b16f8d4f29f6c54514ac787c4ad506b8c4f28a0e6b0bf/mako-1.4.3.tar.gz"
+    sha256 "cd6537fe88d5fec315c55c2f8529bc4ce7a9a352ad7db3eeaa6a66e2dd4ec37a"
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   def install

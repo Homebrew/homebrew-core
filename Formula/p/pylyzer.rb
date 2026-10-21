@@ -19,6 +19,12 @@ class Pylyzer < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["HOME"] = buildpath # The build will write to HOME/.erg
     system "cargo", "install", *std_cargo_args(root: libexec)

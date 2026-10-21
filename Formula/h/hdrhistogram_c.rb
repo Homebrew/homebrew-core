@@ -1,17 +1,17 @@
 class HdrhistogramC < Formula
   desc "C port of the HdrHistogram"
   homepage "https://github.com/HdrHistogram/HdrHistogram_c"
-  url "https://github.com/HdrHistogram/HdrHistogram_c/archive/refs/tags/0.12.0.tar.gz"
-  sha256 "6bc54427b2e5c3639f08f13517a38deb242f8b97b44964d584834d44f02a0be1"
+  url "https://github.com/HdrHistogram/HdrHistogram_c/archive/refs/tags/0.12.1.tar.gz"
+  sha256 "b2cff564b49f900e7f951c95428100a4aed36561703237ffc5e41b4843d804ce"
   license any_of: ["CC0-1.0", "BSD-2-Clause"]
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "532d825722f6529ffc01c4828831043da9919283f2e09dbeaca9ec19aa5f5b74"
-    sha256 cellar: :any, arm64_tahoe:       "b0987ffa1bbe7545fd5fe57f7508acf723e65df13073d4683fd2fff8e736df8d"
-    sha256 cellar: :any, arm64_sequoia:     "83285c4906088c1bfb67299ef198e381dfc5e7ba172641c26089110dd59475bd"
-    sha256 cellar: :any, arm64_linux:       "e0cb04b42342bde10ff4fb8eda57bf38dcb04d69fff4817027c622f094579134"
-    sha256 cellar: :any, x86_64_linux:      "d3b27766bf9ad7fd61ef91315e07df070ce7fc8ce3ea2cf6dca5d3cc1e5529fc"
+    sha256 cellar: :any, arm64_golden_gate: "1aadec5ca79aaa35ac1a23a67d68b5890d2c94da125ee9ad3b7d6412770296c1"
+    sha256 cellar: :any, arm64_tahoe:       "4fabc58a96b5d3444a23dfdb3963aa6d8b30ce7939ee445b01891822e9236726"
+    sha256 cellar: :any, arm64_sequoia:     "9ac2a2b0243ba0f796abfb23928e0362fbaa1b447354bb24b63fb96c901d0ed2"
+    sha256 cellar: :any, arm64_linux:       "3af4fb4d544da1208e4544b933d318808e7dd0dbbc35bb309bc39afcebcab416"
+    sha256 cellar: :any, x86_64_linux:      "5c10dd53f8f44d1ae7ef10a0ba3247c159b810a418b3a232d447a394289125c3"
   end
 
   depends_on "cmake" => :build

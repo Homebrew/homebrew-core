@@ -4,6 +4,7 @@ class Nut < Formula
   url "https://github.com/networkupstools/nut/releases/download/v2.8.5/nut-2.8.5.tar.gz"
   sha256 "18bf32e59eb764b13da3c4fa70384926d7fa584cb31d2fe7f137a570633eeec1"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,13 +13,11 @@ class Nut < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "adcd527ed2e2c6c78f0c21a16d52c92cd33515c61e6f0507bd4fcad415aed11e"
-    sha256 arm64_tahoe:       "3fe4c8bea0483722456da80d1565be5954b382243d0ca7daa19038d0705f1be9"
-    sha256 arm64_sequoia:     "d4a4e3998d26057e7bcb24a61469a3dd55e2fe9b102bfa6d6fcb1759b7e28bbe"
-    sha256 arm64_sonoma:      "615cc285fc354971ba7b6252e109707ecb7a045a505dca0eb03d4f6cf5fe79aa"
-    sha256 sonoma:            "e6b77ad2036fab7be4aa3054ed14112db9b6a4f27d500242b5f989a41982528b"
-    sha256 arm64_linux:       "8f5ff079a039c0bd20bf1fb9db3286a82ef5f021e470c8ef30464a225c9b4d5c"
-    sha256 x86_64_linux:      "0648f8942e42afe5625ce26a6653fc263de93d5f8c402649b4af60eba88495f6"
+    sha256 arm64_golden_gate: "076a5c7afd045db536a83937ffbf2b92018a2e9d0f85f3d15dd0c2cb07339721"
+    sha256 arm64_tahoe:       "6c21a836f940cae0738da89dfc631d6a78fe785788e1d694af658c97260053a3"
+    sha256 arm64_sequoia:     "1f59e67ae5955118fe767371f8b4cfbe168e0fd56149f24c6d69f75832615f6a"
+    sha256 arm64_linux:       "f68ec7f9ef05eb1353444eda6746ce98b37c03fc9829fd99aeed62024b1b4fec"
+    sha256 x86_64_linux:      "719ed46ff2df25cfefd7dcea584891c08333a8a593ac08c301977810628a7c73"
   end
 
   head do
@@ -31,7 +30,7 @@ class Nut < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
   depends_on "libusb"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   on_linux do
     depends_on "glib"
@@ -71,10 +70,16 @@ class Nut < Formula
       --without-snmp
       --without-wrap
     ]
-    args << if OS.mac?
-      "--with-macosx_ups"
+    if OS.mac?
+      args << "--with-macosx_ups"
     else
-      "--with-udev-dir=#{lib}/udev"
+      args += %W[
+        --with-udev-dir=#{lib}/udev
+        --with-systemdsystemunitdir=#{lib}/systemd/system
+        --with-systemdsystempresetdir=#{lib}/systemd/system-preset
+        --with-systemdshutdowndir=#{lib}/systemd/system-shutdown
+        --with-systemdsysusersdir=#{lib}/sysusers.d
+      ]
     end
 
     system "./configure", *args

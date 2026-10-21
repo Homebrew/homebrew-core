@@ -18,6 +18,12 @@ class Buffa < Formula
   depends_on "rust" => :build
   depends_on "protobuf"
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "protoc-gen-buffa")
     system "cargo", "install", *std_cargo_args(path: "protoc-gen-buffa-packaging")

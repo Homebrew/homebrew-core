@@ -3,18 +3,18 @@ class Durdraw < Formula
 
   desc "Versatile ASCII and ANSI Art text editor for drawing in the terminal"
   homepage "https://durdraw.org"
-  url "https://github.com/cmang/durdraw/archive/refs/tags/0.30.1.tar.gz"
-  sha256 "7b33f3216813adf5da296c95b544d70d2f021c8afb837bc395920c1fdd5e18b4"
+  url "https://github.com/cmang/durdraw/archive/refs/tags/0.31.1.tar.gz"
+  sha256 "c87f67cdb6c1e419bc3ef5d165d06c7408629777fb9d52adddb5c822892a39fb"
   license "BSD-3-Clause"
   head "https://github.com/cmang/durdraw.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3ec53d1a36ea6657ef3c7391e12c4431ae216415f3c1df8a917e626ab137f754"
+    sha256 cellar: :any_skip_relocation, all: "d9e9b2ead603ff760c2725961a1b7efece1994dfa49449ce9437295d31ddfb62"
   end
 
   depends_on "ansilove" => :no_linkage
   depends_on "pillow" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   def install
     virtualenv_install_with_resources

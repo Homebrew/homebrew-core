@@ -6,15 +6,16 @@ class Standardebooks < Formula
   url "https://files.pythonhosted.org/packages/42/bc/3c0e51153c754f63f4db92517fced1ea34972185c6b8432443e408d161d6/standardebooks-4.1.0.tar.gz"
   sha256 "84883e47e404e9c6fe323a3710f402c9537aa61d59850bae4f365482a5e11a7f"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/standardebooks/tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "55fcb6c6c756df3c86866b86c38f6b812edfb67692a133e48b78185cf07de126"
-    sha256 cellar: :any, arm64_tahoe:       "e26633a3a15a50783331c9632ba33716b17e17433dcb45b1d6974674f7ebe704"
-    sha256 cellar: :any, arm64_sequoia:     "1cad71ecf78126a7290ebd79380f191c085e2d25ea83e1b54d7298fa06813e25"
-    sha256 cellar: :any, arm64_sonoma:      "7706bbbbcd0414fc2d62fe98f07be0e4e3e0abef82e140f863602e57a8b7063b"
-    sha256 cellar: :any, arm64_linux:       "ab9ae4dd4e736806ea75e0702762b2aae517b8814331f704a3a7e3f609f36ab4"
-    sha256 cellar: :any, x86_64_linux:      "df38e0c135778c9d63c06ea0319e0ba54c0af53cca808d439221699578b14473"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "dc439a0350a4be230f981ba325e4ee8d11bc4beeb4781eb3b8c944c5fb581a28"
+    sha256 cellar: :any, arm64_tahoe:       "1a8055402e634bc15550f523a724f0d88af9f3d8a6d9df3314526edce8bc141a"
+    sha256 cellar: :any, arm64_sequoia:     "61b3d27634f93ae36c6375297e2d3427d1addd05f46eab7b1fec06d2fe39de68"
+    sha256 cellar: :any, arm64_linux:       "f20dd18e3aa5fee64de90437ffd53516452581bfcef4bc754597bc73dd061119"
+    sha256 cellar: :any, x86_64_linux:      "ef5ce55b77bd6511afd6cf5443e0134cc3fbc53988a68668611f5b1ac50ce9fa"
   end
 
   depends_on "rust" => :build # for selenium
@@ -23,7 +24,7 @@ class Standardebooks < Formula
   depends_on "openjdk"
   depends_on "pillow" => :no_linkage
   depends_on "pycparser" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
@@ -56,8 +57,8 @@ class Standardebooks < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e5/3f/143b048436775b0f76ac3eec145c019e8173ccc2885c8f20319b996d5e83/charset_normalizer-3.5.1.tar.gz"
-    sha256 "6117b84ea48435e5356dc737f5121485c30920ba43375fa7b434fd753df0eac3"
+    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
+    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
   end
 
   resource "cssselect" do
@@ -106,8 +107,8 @@ class Standardebooks < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
-    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
+    url "https://files.pythonhosted.org/packages/f5/08/8eea9d4b8302028f3abb2c0813953f7aec26d33b7a8960ed760e65ff29fa/idna-3.20.tar.gz"
+    sha256 "a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44"
   end
 
   resource "installed-browsers" do
@@ -261,13 +262,13 @@ class Standardebooks < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
-    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
+    url "https://files.pythonhosted.org/packages/e3/05/b17359e1cefb4f909b5e40b1b90a496d987258916dbbf88e842c729f510e/urllib3-2.8.0.tar.gz"
+    sha256 "63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/36/57/ed58088fafdf4c55a0ad6bde846502567645424d7ebf325230b9237f4085/wcwidth-0.8.3.tar.gz"
-    sha256 "d128512515fbf4612e0ff21fd6380399210318b7b54a9af59dff8454cf9730eb"
+    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
+    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
   resource "webencodings" do

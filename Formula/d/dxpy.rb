@@ -3,17 +3,16 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/98/98/7f8504aa4b04172fb73e8226696349111a92221db85016e6baf4e258f319/dxpy-0.415.0.tar.gz"
-  sha256 "62ca97b746e673da5428f0ab1cb2517aaed324173c340b1a2039dbdf5e3befd2"
+  url "https://files.pythonhosted.org/packages/c2/a0/1f16ce13dbc10b89ac1dfe2d61bc4c3d642b6fa3db2d1c36d66429c1118d/dxpy-0.417.1.tar.gz"
+  sha256 "ae65ba1d0eeae2df2f98feabe8ee4308106d9fe035389adb19c5304e2188ac90"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1017ead52d46a0df63ffdba1d8a9fc986ab5b189c19b5702afcead82e76bd285"
-    sha256 cellar: :any, arm64_tahoe:       "21a809007d49b3c0d6c841db88fd576ece54f151d51cbf0ec1dfea5aea34635b"
-    sha256 cellar: :any, arm64_sequoia:     "9d8ad05f51a6893f8a079f0c205fdfd8e22fbf164d84dc9c2f3ee96f0fc49e12"
-    sha256 cellar: :any, arm64_linux:       "34e1e4e79d2ab9d62be2d4d992128aae1de7e554f55013e745519b347f4f08cf"
-    sha256 cellar: :any, x86_64_linux:      "e4dc6965901ee3f0f6779940987f04288441254394a955bef9c89614d936c1d4"
+    sha256 cellar: :any, arm64_golden_gate: "20d777767e75b34b696c6f19141a1ce2a655a98ad3e26454a20f32f43055d8e7"
+    sha256 cellar: :any, arm64_tahoe:       "1cecb62e9766d3aff05f5ee68395e5a1bdc1a3368d9070f684398a025589bf98"
+    sha256 cellar: :any, arm64_sequoia:     "c6231eff5bb07be8b968d09efa29471093871be660387bdfca47a15bbb3fd761"
+    sha256 cellar: :any, arm64_linux:       "00393e4028c623112593818a2666ea3b5422643a4657f9758ce4a226ef5d87d8"
+    sha256 cellar: :any, x86_64_linux:      "121f175f917c09047deefb21a1d0f689697c490f01d7b5b78615c7d366a7276f"
   end
 
   depends_on "aws-c-auth"
@@ -27,14 +26,7 @@ class Dxpy < Formula
   depends_on "aws-checksums"
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
-  depends_on "python@3.14"
-  depends_on "s2n"
-
-  on_macos do
-    depends_on "aws-c-compression"
-    depends_on "aws-c-sdkutils"
-    depends_on "openssl@3"
-  end
+  depends_on "python@3.15"
 
   conflicts_with "deno", because: "both install `dx` binaries"
 
@@ -73,6 +65,13 @@ class Dxpy < Formula
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
     sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
+
+    # Backport fix for OpenSSL 4 until dxpy updates urllib3 pin to allow 2.8.0
+    patch do
+      url "https://github.com/urllib3/urllib3/commit/627636551e0e0159996b0f28dd21a60372cc5b10.patch?full_index=1"
+      sha256 "6e5f13b1b60313fbd8a70d0aab58f7c6a413f641ad6fa2e5a3539e3de68bbe27"
+      type :backport
+    end
   end
 
   # Issue ref: https://github.com/dnanexus/dx-toolkit/pull/1530
@@ -86,8 +85,14 @@ class Dxpy < Formula
   end
 
   def install
+    urllib3 = resource("urllib3")
+    odie "Remove urllib3 check as version is now >= 2.8.0!" if urllib3.version >= "2.8.0"
+    odie "Restore urllib3 patch!" if urllib3.patches.empty?
+
     ENV["AWS_CRT_BUILD_USE_SYSTEM_LIBCRYPTO"] = "1"
     ENV["AWS_CRT_BUILD_USE_SYSTEM_LIBS"] = "1"
+    # Avoid overlinking to aws-c-* indirect dependencies
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac?
 
     virtualenv_install_with_resources
   end

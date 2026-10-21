@@ -1,8 +1,8 @@
 class Massdriver < Formula
   desc "Manage applications and infrastructure on Massdriver Cloud"
   homepage "https://www.massdriver.cloud/"
-  url "https://github.com/massdriver-cloud/mass/archive/refs/tags/2.4.0.tar.gz"
-  sha256 "a19a3709b39401eaf236323383aae1de1641e06f3d09b7a51b4c262a2ee2a4e6"
+  url "https://github.com/massdriver-cloud/mass/archive/refs/tags/2.4.1.tar.gz"
+  sha256 "07eeed96c8b9886e57e3b283c37c8b583ea45188cc19f7826d0737c6102fbd08"
   license "Apache-2.0"
   head "https://github.com/massdriver-cloud/mass.git", branch: "main"
 
@@ -15,11 +15,11 @@ class Massdriver < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "36b312a93d8805c49bf684257e374a0c382953840021e73029c136615658aaa7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "36b312a93d8805c49bf684257e374a0c382953840021e73029c136615658aaa7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "36b312a93d8805c49bf684257e374a0c382953840021e73029c136615658aaa7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a762206a536c568fa46e384bd2a5b6be558cba57dd4abafe72d70ebd7357660e"
-    sha256 cellar: :any,                 x86_64_linux:      "6f0b0bf0e152b4b135c60b11f72742c730ab0b34c8260d01f6dbeb19ba007810"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5ddaf2327994fa4495d6a64b4d2fdf00ddfeb70a4298a3e88f347ed2649470fe"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5ddaf2327994fa4495d6a64b4d2fdf00ddfeb70a4298a3e88f347ed2649470fe"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5ddaf2327994fa4495d6a64b4d2fdf00ddfeb70a4298a3e88f347ed2649470fe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d00cf5645be9a5dc79bfcb9503964167c64d29cc21595dc86ee3b10d091055ef"
+    sha256 cellar: :any,                 x86_64_linux:      "c4105798ffc5f5237a0068ed4ffdbdc829717823d2fd24edb9116f45443fa3b4"
   end
 
   depends_on "go" => :build

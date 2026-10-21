@@ -2,8 +2,8 @@ class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
   # vim should only be updated every 50 releases on multiples of 50
-  url "https://github.com/vim/vim/archive/refs/tags/v9.2.1150.tar.gz"
-  sha256 "07a1e2d0e4a5c07cd2ee5d484306f53ded69407fa4beb886d71bd93674692c08"
+  url "https://github.com/vim/vim/archive/refs/tags/v9.2.1200.tar.gz"
+  sha256 "bfa90e670961958499d28e2d1b5d8b396d5dceb38d30b48f4e241a43086f5927"
   license "Vim"
   compatibility_version 1
   head "https://github.com/vim/vim.git", branch: "master"
@@ -26,16 +26,16 @@ class Vim < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "1714ffe420e510f8e9ed57d848c8ad5220286dd6966dacab6d0aefa2f6d9397c"
-    sha256 arm64_tahoe:       "4ec75a2d0d560a4cebbdd471c8253d7aefbe75d48cf976864a73ba370995ae3b"
-    sha256 arm64_sequoia:     "8ebd1e6d14aaabc2ba09bfd70226f56058b8a8bd2d1cffcfb719e3ace458d871"
-    sha256 arm64_linux:       "2ccd1e778eb868d4d03f3ca3e5843713f2cb8093de31a37435959de68053e62a"
-    sha256 x86_64_linux:      "e39d13291a949d6de3462e7c021f312f9bb1e2906608a15e7df1b59a8f7c0340"
+    sha256 arm64_golden_gate: "9d0b8e809c003d03b25df2b5026bcf5413515748a02b8352418006b6a73dfba2"
+    sha256 arm64_tahoe:       "dfe81d0b41e90c9357dac0434c7003c64d7df9074bacb126b3fe2c999168d1e2"
+    sha256 arm64_sequoia:     "f247033dba10134e8e083e67e5269e7cda3f059c4a64542a78cc44b1e4072d99"
+    sha256 arm64_linux:       "c4c2d5cc180ccf749e89b7fc11bc04b4d019352bb0395b615238525654f60085"
+    sha256 x86_64_linux:      "9756bf2cf026f4f15fe3deba48ab5a07f83436c3b59ea12bcf51070d63d54e6a"
   end
 
   depends_on "gettext" => :build
   depends_on "lua" => [:build, :test]
-  depends_on "python@3.14" => [:build, :test]
+  depends_on "python@3.15" => [:build, :test]
   depends_on "ruby" => [:build, :test]
   depends_on "libsodium"
   depends_on "ncurses"
@@ -59,7 +59,7 @@ class Vim < Formula
   deny_network_access!
 
   def install
-    ENV.prepend_path "PATH", formula_opt_libexec("python@3.14")/"bin"
+    ENV.prepend_path "PATH", python3.dirname
 
     # Allow dynamically loading formulae libraries when not linked
     extra_deps.each do |dep|

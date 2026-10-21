@@ -30,6 +30,8 @@ class Yalantinglibs < Formula
     resolves "https://github.com/alibaba/yalantinglibs/pull/1203"
   end
 
+  deny_network_access!
+
   def install
     args = %w[
       -DINSTALL_INDEPENDENT_STANDALONE=OFF

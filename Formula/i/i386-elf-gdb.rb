@@ -1,9 +1,9 @@
 class I386ElfGdb < Formula
   desc "GNU debugger for i386-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftpmirror.gnu.org/gdb/gdb-17.2.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gdb/gdb-17.2.tar.xz"
-  sha256 "1c036c0d72e4b3d1fb5c94c88632add6f9d76f4d7c4d2ea793c12a9f19a3228c"
+  url "https://ftpmirror.gnu.org/gdb/gdb-18.1.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gdb/gdb-18.1.tar.xz"
+  sha256 "cd9fc3fe2b47743840e42c1592d3d87f8302eb18639c0b8b4ba0898002e2348f"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
@@ -12,13 +12,12 @@ class I386ElfGdb < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "73e73ffa68d181c0acc140e22a252805ffa69da371a0386731b2d2218685011e"
-    sha256 arm64_tahoe:       "f656b8175658f9dd51000840dbec444fdff1fd8e56eb3688ffc2086dad720381"
-    sha256 arm64_sequoia:     "ec28440819f180b235e57bf96841a44bc148573524e049508b88f4570ad7191c"
-    sha256 arm64_sonoma:      "716d7dd45026a566859c29c9a29b638a842df391ba3e6118e4ba8a075b2519d2"
-    sha256 sonoma:            "3f9d139ed3c615948304305cdb0bd959d020c3450a3a983aa49b23e44d773b51"
-    sha256 arm64_linux:       "00bd1a3f4ee5653b647afd70acf3feb03e0360578ff2af7288ebef1261f97257"
-    sha256 x86_64_linux:      "c6b59c4f4109ec8cf8018d09da1eda0b96e56267e206f3c3402315e7acf93192"
+    rebuild 1
+    sha256 arm64_golden_gate: "b79f61a8232cd4b91a7138878f2d8f903d0f7d3993e1394130930b75b1bbbb93"
+    sha256 arm64_tahoe:       "7faf826fdb7c0fcfd6cc7fad9ae013dc9f1d42a92fd4872b0fb21c8aa156e77a"
+    sha256 arm64_sequoia:     "2d25ffc1eba3ecae47f37b71b049dc8ee9bc3208a8e60a4b0d9a701457118fc1"
+    sha256 arm64_linux:       "6b065e9d9a1d21c42c791fd6b8d214bc552809b9bde46210213dcfad54cb6345"
+    sha256 x86_64_linux:      "8da7b5ff0dea9c32a3e95cdbce1cee8a00ea0baaca1acd250797577e663f3296"
   end
 
   depends_on "pkgconf" => :build
@@ -26,7 +25,7 @@ class I386ElfGdb < Formula
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "ncurses" # https://github.com/Homebrew/homebrew-core/issues/224294
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "readline"
   depends_on "xz" # required for lzma support
   depends_on "zstd"
@@ -82,7 +81,8 @@ class I386ElfGdb < Formula
     (testpath/"test.c").write "void _start(void) {}"
     system formula_opt_bin("i686-elf-gcc")/"i686-elf-gcc", "-g", "-nostdlib", "test.c"
 
-    output = shell_output("#{bin}/i386-elf-gdb -batch -ex 'info address _start' a.out")
+    # `--cd` sets gdb's working directory without `getcwd`, which the Linux sandbox denies
+    output = shell_output("#{bin}/i386-elf-gdb -batch --cd=#{testpath} -ex 'info address _start' a.out")
     assert_match "Symbol \"_start\" is a function at address 0x", output
   end
 end

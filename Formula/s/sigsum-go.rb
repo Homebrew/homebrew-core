@@ -1,18 +1,16 @@
 class SigsumGo < Formula
   desc "Key transparency toolkit"
   homepage "https://sigsum.org"
-  url "https://git.glasklar.is/sigsum/core/sigsum-go/-/archive/v0.14.1/sigsum-go-v0.14.1.tar.bz2"
-  sha256 "a08b173a6450710d39b68b48ec905f8cd6d52a33e04ddcb011fccc2308e8060b"
+  url "https://git.glasklar.is/sigsum/core/sigsum-go/-/archive/v1.0.0/sigsum-go-v1.0.0.tar.bz2"
+  sha256 "804854f2ca7579e1d7aba49d9579d24d72de9152cadd4fe1cb902aabfa08a888"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fd5e334f7cfb88ce496a43c4e4e24cf56da4507b3d620ef9cd801d03becd5e9a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c658d93f76ded4925fa069d5eb829a294af92d1d80e2e5d9e2db50df5d6abaf7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c658d93f76ded4925fa069d5eb829a294af92d1d80e2e5d9e2db50df5d6abaf7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "c658d93f76ded4925fa069d5eb829a294af92d1d80e2e5d9e2db50df5d6abaf7"
-    sha256 cellar: :any_skip_relocation, sonoma:            "aeaa644cc60417fbaec3c1955dabacd2b7a5ee32efe1b3df9511e8eba24762d6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "76328003a629d38b6bbead901eb68d0944c9d2541b0f3802755d68de82329619"
-    sha256 cellar: :any,                 x86_64_linux:      "ffa72b71bf4c5dea5d0f90f0c86434caf009ba0edb409cda54b4ee3ea5eb6a90"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f226c3b60127bbc0fedd38392559de3ce2059ed6a91d61c5b4283e5a98f6cf4e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f226c3b60127bbc0fedd38392559de3ce2059ed6a91d61c5b4283e5a98f6cf4e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f226c3b60127bbc0fedd38392559de3ce2059ed6a91d61c5b4283e5a98f6cf4e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "993bb0c330b98231d7589966535effd30bab9a43ff886063204c8b1e3ed310af"
+    sha256 cellar: :any,                 x86_64_linux:      "5ab02af84651e72e7d23db690d70dda5240596a55e19cdcdeecd2ec100e275e2"
   end
 
   depends_on "go" => :build
