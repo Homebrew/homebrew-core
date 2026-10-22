@@ -5,8 +5,8 @@ class Maclean < Formula
   sha256 "286a9a419a9d92c0cf5a7b2b64db6392b275a04857848c38dc5e5813fde7b7d1"
   license "Apache-2.0"
 
-  depends_on :macos
   depends_on "rust" => :build
+  depends_on :macos
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "apps/maclean-cli"
