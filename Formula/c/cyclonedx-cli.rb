@@ -22,8 +22,18 @@ class CyclonedxCli < Formula
     sha256 "6fed40c4b4774821c2a9002b3ad44c1234987ff5d7780345ed29b01e942b8142"
   end
 
+  deny_network_access!
+
+  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
+
+  def fetch
+    ENV["XDG_RUNTIME_DIR"] = buildpath
+    system "dotnet", "restore", "src/cyclonedx/cyclonedx.csproj", "--use-current-runtime",
+           "-p:TargetFrameworks=net#{dotnet.version.major_minor}"
+  end
+
   def install
-    dotnet = Formula["dotnet"]
+    ENV["XDG_RUNTIME_DIR"] = buildpath
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
