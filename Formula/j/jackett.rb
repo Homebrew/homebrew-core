@@ -20,11 +20,21 @@ class Jackett < Formula
 
   depends_on "dotnet@9"
 
+  allow_network_access! :test
+
+  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
+
+  def fetch
+    ENV["XDG_RUNTIME_DIR"] = buildpath
+
+    system "dotnet", "restore", "src/Jackett.Server", "--use-current-runtime",
+           "-p:TargetFrameworks=net#{dotnet.version.major_minor}"
+  end
+
   def install
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
     ENV["DOTNET_SYSTEM_GLOBALIZATION_INVARIANT"] = "1"
-
-    dotnet = Formula["dotnet@9"]
+    ENV["XDG_RUNTIME_DIR"] = buildpath
 
     args = %W[
       --configuration Release
