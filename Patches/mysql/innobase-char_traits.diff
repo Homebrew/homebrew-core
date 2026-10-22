@@ -1,0 +1,50 @@
+diff --git a/storage/innobase/include/log0parsed_index_lru_cache.h b/storage/innobase/include/log0parsed_index_lru_cache.h
+index 25c2ac91d4f..4dbe2b2f4b1 100644
+--- a/storage/innobase/include/log0parsed_index_lru_cache.h
++++ b/storage/innobase/include/log0parsed_index_lru_cache.h
+@@ -40,8 +40,8 @@ class Parsed_index_lru_cache {
+   and one for each of srv_n_read_io_threads. */
+   static constexpr size_t k_capacity = 100;
+ 
+-  using sequence = std::basic_string<byte>;
+-  using sequence_view = std::basic_string_view<byte>;
++  using sequence = std::basic_string<byte, my_char_traits<byte>>;
++  using sequence_view = std::basic_string_view<byte, my_char_traits<byte>>;
+ 
+   Parsed_index_lru_cache() : m_cache(k_capacity) {}
+   Parsed_index_lru_cache(const Parsed_index_lru_cache &) = delete;
+diff --git a/storage/innobase/include/ut0prefix_cache.h b/storage/innobase/include/ut0prefix_cache.h
+index 3c21580c084..eba417acbca 100644
+--- a/storage/innobase/include/ut0prefix_cache.h
++++ b/storage/innobase/include/ut0prefix_cache.h
+@@ -30,6 +30,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
+ #include <string_view>
+ #include <utility>
+ 
++#include "my_char_traits.h"
+ #include "univ.i"
+ 
+ namespace ut {
+@@ -50,8 +51,9 @@ prefixes such that one is a proper prefix of another. */
+ template <typename CharType, typename Value>
+ class prefix_cache {
+  public:
+-  using sequence = std::basic_string<CharType>;
+-  using sequence_view = std::basic_string_view<CharType>;
++  using sequence = std::basic_string<CharType, my_char_traits<CharType>>;
++  using sequence_view =
++      std::basic_string_view<CharType, my_char_traits<CharType>>;
+ 
+   /** Create a cache with at most @p capacity stored prefixes.
+ 
+@@ -148,8 +150,8 @@ class prefix_cache {
+ 
+   static bool is_prefix(sequence_view key, sequence_view buffer) {
+     return buffer.size() >= key.size() &&
+-           std::char_traits<CharType>::compare(key.data(), buffer.data(),
+-                                               key.size()) == 0;
++           my_char_traits<CharType>::compare(key.data(), buffer.data(),
++                                             key.size()) == 0;
+   }
+ 
+   It try_find(sequence_view buffer) {

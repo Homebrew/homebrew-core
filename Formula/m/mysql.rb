@@ -60,8 +60,16 @@ class Mysql < Formula
   # Patch out check for Homebrew `boost`.
   # This should not be necessary when building inside `brew`.
   # https://github.com/Homebrew/homebrew-test-bot/pull/820
-  # Also use `my_char_traits`, as libc++ 19 removed `std::char_traits<unsigned char>`.
-  patch :DATA
+  patch do
+    file "Patches/mysql/remove-boost-check.diff"
+    type :unofficial
+  end
+
+  # Use `my_char_traits`, as libc++ 19 removed `std::char_traits<unsigned char>`.
+  patch do
+    file "Patches/mysql/innobase-char_traits.diff"
+    type :unofficial
+  end
 
   def datadir
     var/"mysql"
@@ -226,91 +234,3 @@ class Mysql < Formula
     end
   end
 end
-
-__END__
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 438dff720c5..47863c17e23 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -1948,31 +1948,6 @@ MYSQL_CHECK_RAPIDJSON()
- MYSQL_CHECK_FIDO()
- MYSQL_CHECK_FIDO_DLLS()
-
--IF(APPLE)
--  GET_FILENAME_COMPONENT(HOMEBREW_BASE ${HOMEBREW_HOME} DIRECTORY)
--  IF(EXISTS ${HOMEBREW_BASE}/include/boost)
--    FOREACH(SYSTEM_LIB ICU LZ4 PROTOBUF ZSTD FIDO)
--      IF(WITH_${SYSTEM_LIB} STREQUAL "system")
--        MESSAGE(FATAL_ERROR
--          "WITH_${SYSTEM_LIB}=system is not compatible with Homebrew boost\n"
--          "MySQL depends on ${BOOST_PACKAGE_NAME} with a set of patches.\n"
--          "Including headers from ${HOMEBREW_BASE}/include "
--          "will break the build.\n"
--          "Please use WITH_${SYSTEM_LIB}=bundled\n"
--          "or do 'brew uninstall boost' or 'brew unlink boost'"
--          )
--      ENDIF()
--    ENDFOREACH()
--  ENDIF()
--  # Ensure that we look in /usr/local/include or /opt/homebrew/include
--  FOREACH(SYSTEM_LIB ICU LZ4 PROTOBUF ZSTD FIDO)
--    IF(WITH_${SYSTEM_LIB} STREQUAL "system")
--      INCLUDE_DIRECTORIES(SYSTEM ${HOMEBREW_BASE}/include)
--      BREAK()
--    ENDIF()
--  ENDFOREACH()
--ENDIF()
--
- IF(WITH_AUTHENTICATION_WEBAUTHN OR
-   WITH_AUTHENTICATION_CLIENT_PLUGINS)
-   IF(WITH_FIDO STREQUAL "system" AND
-diff --git a/storage/innobase/include/log0parsed_index_lru_cache.h b/storage/innobase/include/log0parsed_index_lru_cache.h
-index 25c2ac9..4dbe2b2 100644
---- a/storage/innobase/include/log0parsed_index_lru_cache.h
-+++ b/storage/innobase/include/log0parsed_index_lru_cache.h
-@@ -40,8 +40,8 @@ class Parsed_index_lru_cache {
-   and one for each of srv_n_read_io_threads. */
-   static constexpr size_t k_capacity = 100;
- 
--  using sequence = std::basic_string<byte>;
--  using sequence_view = std::basic_string_view<byte>;
-+  using sequence = std::basic_string<byte, my_char_traits<byte>>;
-+  using sequence_view = std::basic_string_view<byte, my_char_traits<byte>>;
- 
-   Parsed_index_lru_cache() : m_cache(k_capacity) {}
-   Parsed_index_lru_cache(const Parsed_index_lru_cache &) = delete;
-diff --git a/storage/innobase/include/ut0prefix_cache.h b/storage/innobase/include/ut0prefix_cache.h
-index 3c21580..eba417a 100644
---- a/storage/innobase/include/ut0prefix_cache.h
-+++ b/storage/innobase/include/ut0prefix_cache.h
-@@ -30,6 +30,7 @@ this program; if not, write to the Free Software Foundation, Inc.,
- #include <string_view>
- #include <utility>
- 
-+#include "my_char_traits.h"
- #include "univ.i"
- 
- namespace ut {
-@@ -50,8 +51,9 @@ prefixes such that one is a proper prefix of another. */
- template <typename CharType, typename Value>
- class prefix_cache {
-  public:
--  using sequence = std::basic_string<CharType>;
--  using sequence_view = std::basic_string_view<CharType>;
-+  using sequence = std::basic_string<CharType, my_char_traits<CharType>>;
-+  using sequence_view =
-+      std::basic_string_view<CharType, my_char_traits<CharType>>;
- 
-   /** Create a cache with at most @p capacity stored prefixes.
- 
-@@ -148,8 +150,8 @@ class prefix_cache {
- 
-   static bool is_prefix(sequence_view key, sequence_view buffer) {
-     return buffer.size() >= key.size() &&
--           std::char_traits<CharType>::compare(key.data(), buffer.data(),
--                                               key.size()) == 0;
-+           my_char_traits<CharType>::compare(key.data(), buffer.data(),
-+                                             key.size()) == 0;
-   }
- 
-   It try_find(sequence_view buffer) {
