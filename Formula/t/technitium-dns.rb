@@ -21,11 +21,20 @@ class TechnitiumDns < Formula
     depends_on "bind" => :test # for `dig`
   end
 
+  allow_network_access! :test
+
+  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
+
+  def fetch
+    ENV["XDG_RUNTIME_DIR"] = buildpath
+    system "dotnet", "restore", "DnsServerApp/DnsServerApp.csproj", "--use-current-runtime",
+           "-p:TargetFrameworks=net#{dotnet.version.major_minor}"
+  end
+
   def install
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
     ENV["XDG_RUNTIME_DIR"] = buildpath
 
-    dotnet = Formula["dotnet"]
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
@@ -40,12 +49,12 @@ class TechnitiumDns < Formula
               audit_result: false
     system "dotnet", "publish", "DnsServerApp/DnsServerApp.csproj", *args
 
-    (bin/"technitium-dns").write <<~SHELL
+    (bin/"technitium-dns").write <<~BASH
       #!/bin/bash
       export DYLD_FALLBACK_LIBRARY_PATH=#{formula_opt_lib("libmsquic")}
       export DOTNET_ROOT=#{dotnet.opt_libexec}
       exec #{dotnet.opt_libexec}/dotnet #{libexec}/DnsServerApp.dll #{etc}/technitium-dns "$@"
-    SHELL
+    BASH
   end
 
   service do
@@ -62,7 +71,6 @@ class TechnitiumDns < Formula
     ENV["DOTNET_USE_POLLING_FILE_WATCHER"] = "1" if OS.mac?
     ENV["XDG_RUNTIME_DIR"] = testpath
 
-    dotnet = Formula["dotnet"]
     # Start the DNS server
     require "pty"
     dns_cmd = "#{dotnet.opt_libexec}/dotnet #{libexec}/DnsServerApp.dll #{testpath}"
