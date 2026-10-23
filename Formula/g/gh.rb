@@ -1,8 +1,8 @@
 class Gh < Formula
   desc "GitHub command-line tool"
   homepage "https://cli.github.com/"
-  url "https://github.com/cli/cli/archive/refs/tags/v2.103.0.tar.gz"
-  sha256 "c15a3794f56f6b9c0dca05d5f5b357f27da3c1b7031523fb42c0870ef16c6aff"
+  url "https://github.com/cli/cli/archive/refs/tags/v2.103.1.tar.gz"
+  sha256 "590a1fd4d9ba8e678ab5aef41c52dc1adff69379cb82cdbb7ee7a64ac33f2d04"
   license "MIT"
   compatibility_version 1
   head "https://github.com/cli/cli.git", branch: "trunk"
@@ -13,11 +13,11 @@ class Gh < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1f7bf9daf6c960e72a6afb54f6d6d03c563aa9f484b679bea855e90f7e9fc8af"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0f1a6f07e07b116773cd998d4ae9f7bfef47df25fc649a73b8f043e3290c01d4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8ca0987497c217db42ebe41847469b545e1b8a499ace3a8760180ffd38936f54"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ccc9166e4cb98e308c402435ca92727a5e43fecdc4683a1eca67e24821aa0d3c"
-    sha256 cellar: :any,                 x86_64_linux:      "9fbc9834515b57e17ebedd507d2482630f739836d4912d3d3eaace1ee357622c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0de13f9d4241eb568583a8a8888c557cae04e92828ebf134196cc3b9bdb2c30c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "330396a45aef280bbcca0614f174cf3f409432190e7c7350c5f0070ad4037eca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a8eb5f3f049848c33f170c2d52b167824d3a09284ee1b69f03b27a8512c8f4d0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "692868cbe250f7e402fe90d5f1d622e71fb2891152ef19269a6b27d310e5dcc7"
+    sha256 cellar: :any,                 x86_64_linux:      "d4ab8708f78704a6f590eb3f4a4f4071530043b41a8f83953fc53250d1c13055"
   end
 
   depends_on "go" => :build
