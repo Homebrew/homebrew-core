@@ -22,6 +22,8 @@ class Blogc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "5188455011d94f56149adb535c9a159e925eba66e28ab4362639ebb3e72ba5ba"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-tests",
                           "--disable-dependency-tracking",
