@@ -31,6 +31,8 @@ class Classads < Formula
   # Different fix upstream: https://github.com/htcondor/htcondor/commit/ae841558fcffa4cad12f019975292ad27b917f47
   patch :DATA
 
+  deny_network_access!
+
   def install
     args = ["--enable-namespace", "--without-pcre"]
     # Help old config scripts identify arm64 linux
