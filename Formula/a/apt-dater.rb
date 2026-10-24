@@ -46,6 +46,8 @@ class AptDater < Formula
     type :backport
   end
 
+  deny_network_access!
+
   def install
     ENV.prepend_path "PATH", formula_opt_libexec("coreutils")/"gnubin" if OS.mac?
 
