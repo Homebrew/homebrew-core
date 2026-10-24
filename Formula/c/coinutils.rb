@@ -34,6 +34,8 @@ class Coinutils < Formula
     sha256 "8352d7f121289185f443fdc67080fa9de01e5b9bf11b0bf41087fba4277c07a4"
   end
 
+  deny_network_access!
+
   def install
     args = [
       "--datadir=#{pkgshare}",
