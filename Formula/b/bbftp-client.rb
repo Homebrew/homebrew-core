@@ -30,6 +30,8 @@ class BbftpClient < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     # Workaround for Xcode 14.3
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
