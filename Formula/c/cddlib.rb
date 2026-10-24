@@ -25,6 +25,8 @@ class Cddlib < Formula
   depends_on "libtool" => :build
   depends_on "gmp"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-dependency-tracking",
