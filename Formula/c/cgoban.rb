@@ -26,6 +26,8 @@ class Cgoban < Formula
   depends_on "libsm"
   depends_on "libx11"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
