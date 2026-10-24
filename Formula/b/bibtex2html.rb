@@ -34,6 +34,8 @@ class Bibtex2html < Formula
 
   depends_on "ocaml" => :build
 
+  deny_network_access!
+
   def install
     # See: https://trac.macports.org/ticket/26724
     inreplace "Makefile.in" do |s|
