@@ -23,6 +23,8 @@ class Ccrypt < Formula
 
   conflicts_with "ccat", because: "both install `ccat` binaries"
 
+  deny_network_access!
+
   def install
     args = ["--mandir=#{man}", "--with-lispdir=#{elisp}"]
     args << "--disable-libcrypt" if OS.linux? # https://sourceforge.net/p/ccrypt/bugs/28/#22b5
