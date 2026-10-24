@@ -3,10 +3,10 @@ class Qtwebengine < Formula
 
   desc "Provides functionality for rendering regions of dynamic web content"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.11/6.11.2/submodules/qtwebengine-everywhere-src-6.11.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtwebengine-everywhere-src-6.11.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtwebengine-everywhere-src-6.11.2.tar.xz"
-  sha256 "6101c1aa00ff933d1b65ee5d167f76e8d71b9ac5b378b0111277723ebda7c163"
+  url "https://download.qt.io/development_releases/qtwebengine/6.140.0-rc/qtwebengine-everywhere-src-6.140.0-rc.tar.xz"
+  # mirror "https://qt.mirror.constant.com/archive/qt/6.11/6.11.2/submodules/qtwebengine-everywhere-src-6.11.2.tar.xz"
+  # mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.11/6.11.2/submodules/qtwebengine-everywhere-src-6.11.2.tar.xz"
+  sha256 "61257967afd9803a1db6403e86ea25c4efff8fad479bda365a9d81bfd709f621"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } }, # qwebengine_convert_dict; QtWebEngineProcess
@@ -183,7 +183,7 @@ class Qtwebengine < Formula
     # Chromium always uses bundled libraries on macOS
     args += if OS.mac?
       # Cannot deploy to version later than 14, due to functions obsoleted in macOS 15.0
-      # https://bugreports.qt.io/browse/QTBUG-128900
+      # https://issues.chromium.org/issues/327458809
       deploy = [MacOS.version, MacOSVersion.from_symbol(:sonoma)].min
 
       %W[
