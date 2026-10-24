@@ -29,6 +29,8 @@ class BibTool < Formula
     sha256                               x86_64_linux:      "26d038986c5f22a7fd14898391052bd93ac18d34374c2662624efd50ff86a137"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}", "--without-kpathsea"
     system "make"
