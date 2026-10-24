@@ -26,6 +26,8 @@ class Chordii < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "8dc33f2a8fd3dda76dc87a7a919c7e590a4853a0736bc92c20d25e0d8382db6d"
   end
 
+  deny_network_access!
+
   def install
     # Work around failure from GCC 10+ using default of `-fno-common`
     ENV.append_to_cflags "-fcommon" if OS.linux?
