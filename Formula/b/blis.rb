@@ -20,8 +20,11 @@ class Blis < Formula
 
   on_macos do
     depends_on "libomp"
+
     patch :DATA # patch to use libomp when CC=clang as common.mk is installed
   end
+
+  deny_network_access!
 
   def install
     # https://github.com/flame/blis/blob/master/docs/ConfigurationHowTo.md
