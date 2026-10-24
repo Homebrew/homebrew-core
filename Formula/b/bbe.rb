@@ -21,6 +21,8 @@ class Bbe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "b683897c9241114a529a017dafad699e55a4bc3f19f1e3ef9bed408c8ee6c72f"
   end
 
+  deny_network_access!
+
   def install
     args = []
     # Help old config scripts identify arm64 linux
