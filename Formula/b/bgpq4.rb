@@ -25,6 +25,8 @@ class Bgpq4 < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  allow_network_access! :test
+
   def install
     system "./bootstrap"
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
