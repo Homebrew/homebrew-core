@@ -20,6 +20,8 @@ class Bcpp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "7b501371fb124bd5814589d0e6f3dd850221ccb40e0e4b4d3fc41b72fcec32c6"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
