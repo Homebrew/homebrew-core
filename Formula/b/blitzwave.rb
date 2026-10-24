@@ -29,6 +29,8 @@ class Blitzwave < Formula
   # reported upstream: https://github.com/oschulz/blitzwave/issues/2
   patch :DATA
 
+  deny_network_access!
+
   def install
     system "./autogen.sh"
     system "./configure", *std_configure_args
