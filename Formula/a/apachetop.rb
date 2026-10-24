@@ -32,6 +32,8 @@ class Apachetop < Formula
     depends_on "readline"
   end
 
+  deny_network_access!
+
   def install
     ENV.append "CXX", "-std=gnu++17"
 
