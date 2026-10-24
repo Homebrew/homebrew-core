@@ -33,6 +33,8 @@ class BashCompletionAT2 < Formula
 
   conflicts_with "bash-completion", because: "each are different versions of the same formula"
 
+  deny_network_access!
+
   def install
     inreplace "bash_completion" do |s|
       # `/usr/bin/readlink -f` exists since macOS 12.3. Older systems
