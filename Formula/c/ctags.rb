@@ -61,6 +61,8 @@ class Ctags < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     if build.head?
       system "autoheader"
