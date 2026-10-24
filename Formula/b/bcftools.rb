@@ -25,6 +25,8 @@ class Bcftools < Formula
   depends_on "gsl"
   depends_on "htslib"
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--with-htslib=#{formula_opt_prefix("htslib")}",
