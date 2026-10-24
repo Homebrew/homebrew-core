@@ -23,6 +23,8 @@ class Asn1c < Formula
     depends_on "libtool" => :build
   end
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
 
