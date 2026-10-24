@@ -553,6 +553,8 @@ class Aspell < Formula
     sha256 "3fa255cd0b20e6229a53df972fd3c5ed8481db11cfd0347dd3da629bbb7a6796"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
