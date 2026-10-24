@@ -46,6 +46,8 @@ class Cracklib < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     buildpath.install (buildpath/"src").children if build.head?
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
