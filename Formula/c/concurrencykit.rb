@@ -29,6 +29,8 @@ class Concurrencykit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "ae7af3262f13d4917f84f0522cc36cc8709e482f458067578c6e58f0a26737ac"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
