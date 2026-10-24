@@ -20,6 +20,8 @@ class Byacc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "135f6821d7a1c90f3d5ca46dec5d53baa5ed57435c83ec545480c7e0d318d1f0"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--program-prefix=b", "--prefix=#{prefix}", "--man=#{man}"
