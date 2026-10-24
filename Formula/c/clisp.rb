@@ -45,6 +45,8 @@ class Clisp < Formula
     build 1700
   end
 
+  deny_network_access!
+
   def install
     # FIXME: Apple clang 21 miscompiles clisp, making `compile-file` trip an
     # assertion in `c-TEST/TEST-NOT`. Upstream's unreleased "fix" uses `-O0`
