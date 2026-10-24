@@ -34,6 +34,8 @@ class Cbc < Formula
 
   conflicts_with "libcouchbase", because: "both install `cbc` binaries"
 
+  deny_network_access!
+
   def install
     # Work around for:
     # Error 1: "mkdir: #{include}/cbc/coin: File exists."
