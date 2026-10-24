@@ -18,6 +18,8 @@ class Chadwick < Formula
     sha256 cellar: :any, x86_64_linux:      "65b1646953bf82d1577caffb08a232757a87344f69d31974bc3ab5e332db065e"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make"
