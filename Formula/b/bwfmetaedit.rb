@@ -19,6 +19,8 @@ class Bwfmetaedit < Formula
     sha256 cellar: :any,                 x86_64_linux:      "f541508741ae28e5b09a9de4c90d68707a4bf8f255d078b355676b932e8cf748"
   end
 
+  deny_network_access!
+
   def install
     cd "Project/GNU/CLI" do
       system "./configure", "--disable-debug", "--prefix=#{prefix}"
