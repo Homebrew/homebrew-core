@@ -55,6 +55,8 @@ class Czmq < Formula
   depends_on "lz4"
   depends_on "zeromq"
 
+  allow_network_access! :test
+
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
