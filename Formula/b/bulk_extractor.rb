@@ -22,6 +22,7 @@ class BulkExtractor < Formula
 
   head do
     url "https://github.com/simsong/bulk_extractor.git", branch: "main"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
@@ -38,6 +39,8 @@ class BulkExtractor < Formula
     depends_on "openssl@4" # uses CommonCrypto on macOS
     depends_on "zlib-ng-compat"
   end
+
+  deny_network_access!
 
   def install
     # Avoid overlinkage with abseil.
