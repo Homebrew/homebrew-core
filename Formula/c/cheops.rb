@@ -27,6 +27,8 @@ class Cheops < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "94c3e683dcb5922d7060a9a8253825d79d5a699492770e3e59caca9674c9e09a"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
