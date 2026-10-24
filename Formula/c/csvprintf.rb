@@ -20,6 +20,8 @@ class Csvprintf < Formula
 
   uses_from_macos "libxslt"
 
+  deny_network_access!
+
   def install
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
 
