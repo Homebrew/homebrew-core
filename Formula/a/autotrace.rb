@@ -51,6 +51,8 @@ class Autotrace < Formula
     depends_on "perl-xml-parser" => :build
   end
 
+  deny_network_access!
+
   def install
     system "./autogen.sh"
     system "./configure", "--enable-magick-readers",
