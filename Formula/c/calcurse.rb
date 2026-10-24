@@ -37,6 +37,8 @@ class Calcurse < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
 
