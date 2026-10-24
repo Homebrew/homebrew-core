@@ -31,6 +31,8 @@ class Bc < Formula
 
   conflicts_with "bc-gh", because: "both install `bc` and `dc` binaries"
 
+  deny_network_access!
+
   def install
     # prevent user BC_ENV_ARGS from interfering with or influencing the
     # bootstrap phase of the build, particularly
