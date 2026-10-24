@@ -18,6 +18,8 @@ class Cflow < Formula
     sha256 x86_64_linux:      "fc739d521aacfc482f787c8843057c122317b3a91434bafd55cf94f182ef4f93"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--infodir=#{info}",
