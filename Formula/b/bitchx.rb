@@ -38,6 +38,8 @@ class Bitchx < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     plugins = %w[
       acro arcfour amp autocycle blowfish cavlink encrypt
