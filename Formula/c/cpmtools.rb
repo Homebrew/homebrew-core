@@ -31,6 +31,8 @@ class Cpmtools < Formula
 
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     # The ./configure script that comes with the 2.21 tarball is too old to work with Xcode 12
     system "autoconf", "--force"
