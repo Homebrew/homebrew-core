@@ -28,6 +28,8 @@ class Bgpq3 < Formula
   # there was discussion about this patch for 0.1.18 and 0.1.19 as well
   patch :DATA
 
+  allow_network_access! :test
+
   def install
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"

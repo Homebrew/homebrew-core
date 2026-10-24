@@ -31,6 +31,8 @@ class Bluez < Formula
   depends_on "readline"
   depends_on "systemd" # for libudev
 
+  allow_network_access! :test
+
   def install
     # libical 4 split vCard helpers into libicalvcal; obexd needs it linked.
     ENV.append "LIBS", "-licalvcal"

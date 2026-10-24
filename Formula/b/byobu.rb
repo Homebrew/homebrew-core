@@ -31,6 +31,8 @@ class Byobu < Formula
 
   conflicts_with "ctail", because: "both install `ctail` binaries"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args

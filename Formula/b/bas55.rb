@@ -26,6 +26,8 @@ class Bas55 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "687aa791b5bece0576dbe003bc84a50fd8aa65a4ec639b0ee8a16fa8b6702f39"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

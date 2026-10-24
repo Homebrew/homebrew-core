@@ -24,6 +24,8 @@ class Btpd < Formula
 
   conflicts_with "bittensor", "btcli", because: "both install `btcli` binaries"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args

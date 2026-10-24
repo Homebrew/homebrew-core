@@ -27,6 +27,8 @@ class Backupninja < Formula
     depends_on "bash"
   end
 
+  deny_network_access!
+
   def install
     args = %W[
       --disable-silent-rules

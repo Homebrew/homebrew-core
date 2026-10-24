@@ -76,6 +76,8 @@ class Bic < Formula
 
   uses_from_macos "libedit" # readline's license is incompatible with GPL-2.0-only
 
+  deny_network_access!
+
   def install
     unless OS.mac?
       ENV.append_to_cflags "-I#{formula_opt_libexec("libedit")}/include"

@@ -21,6 +21,8 @@ class Btparse < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "eb28ef3caa60d179c008ab9fbd54395014c35119cb9b1c1f2168a3e6bde294d0"
   end
 
+  deny_network_access!
+
   def install
     # workaround for Xcode 14.3
     if DevelopmentTools.clang_build_version >= 1403 || (OS.linux? && Hardware::CPU.arm?)

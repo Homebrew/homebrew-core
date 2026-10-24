@@ -25,6 +25,8 @@ class BwmNg < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
+  deny_network_access!
+
   def install
     ENV.append "CFLAGS", "-std=gnu89"
 

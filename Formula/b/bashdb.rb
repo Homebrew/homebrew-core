@@ -31,6 +31,8 @@ class Bashdb < Formula
 
   depends_on "bash"
 
+  deny_network_access!
+
   def install
     # Update configure to support Bash 5.3 by replacing `'5.2' | '5.0' | '5.1'`
     inreplace "configure", /(?:'5\.\d+'(?:\s+\|\s+)?)+/, "'#{Formula["bash"].version.major_minor}'"

@@ -20,6 +20,8 @@ class Bitwise < Formula
 
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     # `inc/compat.h` is missing from the release tarball; it only declares strndup/l64a fallbacks
     # Upstream PR ref: https://github.com/mellowcandle/bitwise/pull/71

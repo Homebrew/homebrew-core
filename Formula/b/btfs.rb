@@ -19,6 +19,8 @@ class Btfs < Formula
   depends_on "libtorrent-rasterbar"
   depends_on :linux # on macOS, requires closed-source macFUSE
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules", *std_configure_args

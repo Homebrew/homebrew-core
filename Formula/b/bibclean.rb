@@ -26,6 +26,8 @@ class Bibclean < Formula
     sha256 x86_64_linux:      "3e6f4a7531a9e96f3cdb75f01271287c7bb477566ccf80438895c730d35c995d"
   end
 
+  deny_network_access!
+
   def install
     ENV.deparallelize
 

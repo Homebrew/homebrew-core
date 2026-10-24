@@ -22,6 +22,9 @@ class Bgpstream < Formula
   depends_on "librdkafka"
   depends_on "wandio"
 
+  # `configure` script checks for wandio HTTP support
+  allow_network_access! :build
+
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"

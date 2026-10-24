@@ -41,6 +41,8 @@ class Beecrypt < Formula
     resolves "https://sourceforge.net/p/beecrypt/patches/13/"
   end
 
+  deny_network_access!
+
   def install
     cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
     system "./configure", "--disable-debug",

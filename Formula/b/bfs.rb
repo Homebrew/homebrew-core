@@ -32,6 +32,8 @@ class Bfs < Formula
     build 1300
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--enable-release"
     system "make"
