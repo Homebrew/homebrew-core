@@ -80,6 +80,8 @@ class Cvs < Formula
   # Original patch idea by Jason White from stackoverflow
   patch :DATA
 
+  deny_network_access!
+
   def install
     # Do the same work as patches/remove-libcrypto.diff but by
     # changing autoconf's input instead of editing ./configure directly
