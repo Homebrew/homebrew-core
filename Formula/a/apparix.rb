@@ -26,6 +26,8 @@ class Apparix < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "0597c7147ee8a66fe491ccb3e8c386e1580953cc1eedbc9ddbb0349037f312d7"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
