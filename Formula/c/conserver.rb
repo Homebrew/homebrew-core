@@ -27,6 +27,8 @@ class Conserver < Formula
 
   conflicts_with "uffizzi", because: "both install `console` binaries"
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}", "--with-openssl", "--with-ipv6", "--with-gssapi", "--with-striprealm"
     system "make"
