@@ -19,6 +19,8 @@ class Ignite < Formula
   depends_on "go"
   depends_on "node"
 
+  conflicts_with "ignite-swift", because: "both install an ignite executable"
+
   # Test scaffolds a project, which downloads Go modules
   allow_network_access! :test
 
