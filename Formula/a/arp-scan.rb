@@ -35,6 +35,8 @@ class ArpScan < Formula
 
   conflicts_with "arp-scan-rs", because: "both install `arp-scan` binaries"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args
