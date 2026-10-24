@@ -26,6 +26,8 @@ class Cf < Formula
 
   conflicts_with "cloudfoundry-cli", because: "both install `cf` binaries"
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
