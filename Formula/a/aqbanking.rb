@@ -35,6 +35,8 @@ class Aqbanking < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     ENV.deparallelize
     ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac? # avoid openssl linkage
