@@ -57,6 +57,8 @@ class Cmus < Formula
     depends_on "pulseaudio"
   end
 
+  deny_network_access!
+
   def install
     # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=765634#10
     # https://www.gnu.org/licenses/license-list.html#MPL
