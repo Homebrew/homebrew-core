@@ -28,6 +28,8 @@ class Cafeobj < Formula
 
   depends_on "clisp"
 
+  deny_network_access!
+
   def install
     # Exclude unrecognized options
     args = std_configure_args.reject { |s| s["--disable-debug"] || s["--disable-dependency-tracking"] }
