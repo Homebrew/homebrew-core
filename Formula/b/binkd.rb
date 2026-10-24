@@ -29,6 +29,8 @@ class Binkd < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     cp Dir["mkfls/unix/*"].select { |f| File.file? f }, "."
     inreplace "binkd.conf", "/var/", "#{var}/" if build.stable?
