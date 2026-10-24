@@ -4,7 +4,7 @@ class Pymol < Formula
   desc "Molecular visualization system"
   homepage "https://pymol.org/"
   license :cannot_represent
-  revision 3
+  revision 4
   head "https://github.com/schrodinger/pymol-open-source.git", branch: "master"
 
   stable do
@@ -42,7 +42,7 @@ class Pymol < Formula
   depends_on "netcdf"
   depends_on "numpy"
   depends_on "pyqt"
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   uses_from_macos "libxml2"
 
