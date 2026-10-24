@@ -21,6 +21,8 @@ class Asciitex < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "630265b0202b14fd9459b9f772f8f2c1518ddf1b5a5baf6f086f693c8054b470"
   end
 
+  deny_network_access!
+
   def install
     # Work around failure from GCC 10+ using default of `-fno-common`
     # multiple definition of `SYNTAX_ERR_FLAG'; array.o:(.bss+0x0): first defined here
