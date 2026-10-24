@@ -22,6 +22,8 @@ class Cpio < Formula
 
   keg_only :shadowed_by_macos, "macOS provides cpio"
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
