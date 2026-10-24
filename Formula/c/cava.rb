@@ -37,6 +37,8 @@ class Cava < Formula
     depends_on "pulseaudio"
   end
 
+  deny_network_access!
+
   def install
     # change ncursesw to ncurses
     inreplace "configure.ac", "ncursesw", "ncurses"

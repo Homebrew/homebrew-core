@@ -12,6 +12,8 @@ class Cgvg < Formula
     sha256 cellar: :any_skip_relocation, all: "06ba6e4b8f27a86f39d20fa7d6b0b456d584d9973f15c5a7916145ae46c4d989"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"

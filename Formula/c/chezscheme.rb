@@ -18,7 +18,10 @@ class Chezscheme < Formula
 
   depends_on "libx11" => :build
   depends_on "xterm" => :build
+
   uses_from_macos "ncurses"
+
+  deny_network_access!
 
   def install
     inreplace "c/version.h", "/usr/X11R6", formula_opt_prefix("libx11")

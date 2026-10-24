@@ -25,6 +25,8 @@ class Cloog < Formula
   depends_on "gmp"
   depends_on "isl"
 
+  deny_network_access!
+
   def install
     # Avoid doc build.
     ENV["ac_cv_prog_TEXI2DVI"] = ""

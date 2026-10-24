@@ -17,6 +17,8 @@ class Colortail < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "e7f6aa1cfcfd61cef470944acee240c93f2442639355dea39fe06e414d168cab"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"

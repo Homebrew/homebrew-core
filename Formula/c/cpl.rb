@@ -27,15 +27,17 @@ class Cpl < Formula
 
   conflicts_with "gdal", because: "both install cpl_error.h"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-cfitsio=#{Formula["cfitsio"].prefix}",
-                          "--with-fftw=#{Formula["fftw"].prefix}",
-                          "--with-libcext=#{Formula["libcext"].prefix}",
-                          "--with-wcslib=#{Formula["wcslib"].prefix}"
+                          "--with-cfitsio=#{formula_opt_prefix("cfitsio")}",
+                          "--with-fftw=#{formula_opt_prefix("fftw")}",
+                          "--with-libcext=#{formula_opt_prefix("libcext")}",
+                          "--with-wcslib=#{formula_opt_prefix("wcslib")}"
     system "make", "install"
   end
 
@@ -49,9 +51,9 @@ class Cpl < Formula
         return 0;
       }
     C
-    libcext = Formula["libcext"]
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lcplcore",
-                             "-I#{libcext.include}", "-L#{libcext.lib}", "-lcext", "-o", "test"
+                             "-I#{formula_opt_include("libcext")}", "-L#{formula_opt_lib("libcext")}", "-lcext",
+                             "-o", "test"
     system "./test"
   end
 end

@@ -46,6 +46,8 @@ class Cfengine < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     odie "masterfiles resource needs to be updated" if version != resource("masterfiles").version
 

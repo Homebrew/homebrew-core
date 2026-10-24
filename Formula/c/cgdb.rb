@@ -46,6 +46,8 @@ class Cgdb < Formula
   # patch for readline check code, upstream pr ref, https://github.com/cgdb/cgdb/pull/359
   patch :DATA
 
+  deny_network_access!
+
   def install
     system "sh", "autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",

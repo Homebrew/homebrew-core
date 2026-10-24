@@ -21,6 +21,8 @@ class Clpbar < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "34f612cc13329af2cb8bb90f7457a5222538acbd7304ad2ebf0a16650bec2dfc"
   end
 
+  deny_network_access!
+
   def install
     args = []
     # Help old config scripts identify arm64 linux

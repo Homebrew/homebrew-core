@@ -24,9 +24,11 @@ class Catgirl < Formula
 
   depends_on "pkgconf" => :build
   depends_on "universal-ctags" => :build
-
   depends_on "libretls"
+
   uses_from_macos "ncurses"
+
+  deny_network_access!
 
   def install
     args = %W[

@@ -32,6 +32,8 @@ class Cuetools < Formula
   # see https://github.com/svend/cuetools/pull/18
   patch :DATA
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--mandir=#{man}", *std_configure_args

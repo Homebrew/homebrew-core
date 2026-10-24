@@ -26,6 +26,8 @@ class Cuba < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "a6d0398225a7a9364431992f44347ee9fad5bb3a049f5ed628aabb23bd405ed7"
   end
 
+  deny_network_access!
+
   def install
     ENV.deparallelize # Makefile does not support parallel build
     system "./configure", "--prefix=#{prefix}"

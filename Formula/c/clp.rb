@@ -26,10 +26,12 @@ class Clp < Formula
   depends_on "openblas"
   depends_on "osi"
 
-  resource "coin-or-tools-data-sample-p0033-mps" do
+  resource "coin-or-tools-data-sample-p0033-mps", :test do
     url "https://raw.githubusercontent.com/coin-or-tools/Data-Sample/releases/1.2.12/p0033.mps"
     sha256 "8ccff819023237c79ef32e238a5da9348725ce9a4425d48888baf3a0b3b42628"
   end
+
+  deny_network_access!
 
   def install
     # Work around https://github.com/coin-or/Clp/issues/109:

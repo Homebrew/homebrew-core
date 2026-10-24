@@ -27,9 +27,13 @@ class Coturn < Formula
 
   uses_from_macos "sqlite"
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
-    ENV["SSL_CFLAGS"] = "-I#{formula_opt_include("openssl@4")}"
-    ENV["SSL_LIBS"] = "-L#{formula_opt_lib("openssl@4")} -lssl -lcrypto"
+    ENV["SSL_CFLAGS"] = "-I#{formula_opt_include(openssl)}"
+    ENV["SSL_LIBS"] = "-L#{formula_opt_lib(openssl)} -lssl -lcrypto"
     system "./configure", "--disable-silent-rules",
                           "--mandir=#{man}",
                           "--localstatedir=#{var}",

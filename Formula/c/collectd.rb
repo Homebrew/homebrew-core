@@ -52,6 +52,8 @@ class Collectd < Formula
     depends_on "libgpg-error"
   end
 
+  deny_network_access!
+
   def install
     # Workaround for: Built-in generator --c_out specifies a maximum edition
     # PROTO3 which is not the protoc maximum 2023.

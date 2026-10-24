@@ -22,6 +22,8 @@ class Cocot < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "b2cd1dd3dbbe2f6474e43965f09859c3d9921a6b7e21507c2a2c70fe69335c01"
   end
 
+  deny_network_access!
+
   def install
     # Workaround for newer Clang
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500

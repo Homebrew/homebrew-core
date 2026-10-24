@@ -20,6 +20,8 @@ class Cadical < Formula
     sha256 cellar: :any,                 x86_64_linux:      "cef0be1bad5d61be121bd000090bf1639d2ac89279892278312b647742c38625"
   end
 
+  deny_network_access!
+
   def install
     args = []
     args << "-fPIC" if OS.linux?

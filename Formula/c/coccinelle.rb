@@ -36,6 +36,8 @@ class Coccinelle < Formula
     resolves "https://github.com/ocamllibs/stdcompat/pull/75"
   end
 
+  deny_network_access!
+
   def install
     # Remove unused bundled libraries
     rm_r(["bundles/menhirLib", "bundles/pcre2"])

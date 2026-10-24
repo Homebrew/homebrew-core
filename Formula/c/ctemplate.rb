@@ -27,7 +27,10 @@ class Ctemplate < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
   uses_from_macos "python" => :build
+
+  deny_network_access!
 
   def install
     system "./autogen.sh"

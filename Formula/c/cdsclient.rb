@@ -24,6 +24,8 @@ class Cdsclient < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "244a0d04795c89d1e51cdd4b671bf438c0698bb1177555122403cfa4c071079d"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}", "--libdir=#{lib}"
     man.mkpath

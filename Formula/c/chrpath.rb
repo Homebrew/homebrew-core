@@ -18,6 +18,8 @@ class Chrpath < Formula
   depends_on "automake" => :build
   depends_on :linux
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args, "--disable-silent-rules"

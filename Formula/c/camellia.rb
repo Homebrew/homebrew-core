@@ -26,6 +26,8 @@ class Camellia < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "3eaafd00c8c6f8addff45fa1be46912ec2b411552450c48dbe09795c1ec7e370"
   end
 
+  deny_network_access!
+
   def install
     # Fix missing include - https://sourceforge.net/p/camellia/bugs/1/
     # cam_demo_cpp.cpp:212:52: error: ‘sprintf’ was not declared in this scope

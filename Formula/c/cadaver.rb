@@ -36,6 +36,8 @@ class Cadaver < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac? # avoid openssl linkage
 

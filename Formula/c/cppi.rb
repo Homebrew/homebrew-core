@@ -22,6 +22,8 @@ class Cppi < Formula
     sha256                               x86_64_linux:      "4c51c1d89a082e419ba33ab1c257fae2b1882125070d2e89ab2e49258164a7e5"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

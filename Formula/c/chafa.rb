@@ -42,6 +42,8 @@ class Chafa < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     with_env(NOCONFIGURE: "1") { system "./autogen.sh" } if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args

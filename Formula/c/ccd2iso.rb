@@ -21,6 +21,8 @@ class Ccd2iso < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "eca2835beb5b622b6f0b2b781524e638e67a65b8d4f683cb0984c74c34c1603b"
   end
 
+  deny_network_access!
+
   def install
     # Missing <string.h> header file, see https://sourceforge.net/p/ccd2iso/bugs/11/
     inreplace "src/ccd2iso.c", "#include <stdlib.h>\n", "#include <stdlib.h>\n#include <string.h>\n"

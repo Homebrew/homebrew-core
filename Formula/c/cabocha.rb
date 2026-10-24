@@ -33,6 +33,8 @@ class Cabocha < Formula
   depends_on "mecab"
   depends_on "mecab-ipadic"
 
+  deny_network_access!
+
   def install
     ENV["LIBS"] = "-liconv" if OS.mac?
 

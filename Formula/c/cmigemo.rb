@@ -30,14 +30,12 @@ class Cmigemo < Formula
 
   depends_on "nkf" => :build
 
+  deny_network_access!
+
   def install
     chmod 0755, "./configure"
     system "./configure", *std_configure_args
-    os = if OS.mac?
-      "osx"
-    else
-      "gcc"
-    end
+    os = OS.mac? ? "osx" : "gcc"
     system "make", os
     ENV.deparallelize # Install can fail on multi-core machines unless serialized
     system "make", "#{os}-dict"

@@ -24,6 +24,8 @@ class Cproto < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

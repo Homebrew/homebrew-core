@@ -17,6 +17,8 @@ class Cvsutils < Formula
 
   uses_from_macos "perl"
 
+  deny_network_access!
+
   def install
     ENV["CONFIG_SHELL"] = "/bin/bash" # for all bottle
     system "./configure", *std_configure_args
