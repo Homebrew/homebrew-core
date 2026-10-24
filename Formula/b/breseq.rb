@@ -44,6 +44,8 @@ class Breseq < Formula
     sha256 "79775ab79421d43b41087f256f99f38681af5421d1303b86e6e92a471edbb0fb"
   end
 
+  deny_network_access!
+
   def install
     system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args
