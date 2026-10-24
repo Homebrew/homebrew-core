@@ -31,6 +31,8 @@ class Couchdb < Formula
 
   conflicts_with "ejabberd", because: "both install `jiffy` lib"
 
+  allow_network_access! :test
+
   def install
     system "./configure", "--disable-spidermonkey", "--js-engine=quickjs"
     system "make", "release"
