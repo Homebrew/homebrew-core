@@ -30,6 +30,8 @@ class Ctail < Formula
 
   conflicts_with "byobu", because: "both install `ctail` binaries"
 
+  deny_network_access!
+
   def install
     # Workaround for ancient config files not recognizing aarch64 macos.
     system "autoreconf", "--force", "--install", "--verbose" if Hardware::CPU.arm?
