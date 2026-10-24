@@ -36,6 +36,8 @@ class Cgl < Formula
     sha256 "8ccff819023237c79ef32e238a5da9348725ce9a4425d48888baf3a0b3b42628"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules", "--includedir=#{include}/cgl", *std_configure_args
     system "make", "install"
