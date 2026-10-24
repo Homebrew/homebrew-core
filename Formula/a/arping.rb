@@ -21,6 +21,8 @@ class Arping < Formula
 
   uses_from_macos "libpcap"
 
+  deny_network_access!
+
   def install
     system "./bootstrap.sh"
     system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
