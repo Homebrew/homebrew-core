@@ -17,6 +17,8 @@ class Confuse < Formula
 
   depends_on "pkgconf" => :build
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "check"
