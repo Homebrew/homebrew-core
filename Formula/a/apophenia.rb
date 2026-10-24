@@ -44,6 +44,8 @@ class Apophenia < Formula
     type :backport
   end
 
+  deny_network_access!
+
   def install
     # Regenerate configure to avoid binaries being built with flat namespace
     system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
