@@ -44,6 +44,8 @@ class Arabica < Formula
 
   conflicts_with "nss", because: "both install `mangle` binaries"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args

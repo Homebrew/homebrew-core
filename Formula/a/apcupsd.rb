@@ -34,6 +34,8 @@ class Apcupsd < Formula
     depends_on "systemd" # for shutdown
   end
 
+  deny_network_access!
+
   def install
     ENV.prepend_path "PATH", Formula["systemd"].opt_sbin if OS.linux?
     sysconfdir = etc/name

@@ -29,6 +29,8 @@ class Ats2Postiats < Formula
 
   depends_on "gmp"
 
+  deny_network_access!
+
   def install
     ENV.deparallelize
     system "./configure", "--prefix=#{prefix}"
@@ -37,10 +39,10 @@ class Ats2Postiats < Formula
   end
 
   test do
-    (testpath/"hello.dats").write <<~EOS
+    (testpath/"hello.dats").write <<~DATS
       val _ = print ("Hello, world!\n")
       implement main0 () = ()
-    EOS
+    DATS
 
     system bin/"patscc", "hello.dats", "-o", "hello"
     assert_match "Hello, world!", shell_output(testpath/"hello")

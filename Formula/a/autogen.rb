@@ -46,6 +46,8 @@ class Autogen < Formula
     resolves "https://sourceforge.net/p/autogen/bugs/196/"
   end
 
+  deny_network_access!
+
   def install
     # Uses GNU-specific mktemp syntax: https://sourceforge.net/p/autogen/bugs/189/
     inreplace %w[agen5/mk-stamps.sh build-aux/run-ag.sh config/mk-shdefs.in], "mktemp", "gmktemp"

@@ -35,6 +35,8 @@ class ArgusClients < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     ENV.append_to_cflags "-I#{formula_opt_include("libtirpc")}/tirpc" if OS.linux?
 

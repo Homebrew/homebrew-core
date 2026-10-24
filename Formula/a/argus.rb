@@ -24,6 +24,8 @@ class Argus < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     if OS.linux?
       ENV.append_to_cflags "-I#{formula_opt_include("libtirpc")}/tirpc"

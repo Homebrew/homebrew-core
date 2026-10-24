@@ -27,6 +27,8 @@ class Apr < Formula
     depends_on "util-linux"
   end
 
+  deny_network_access!
+
   def install
     # https://bz.apache.org/bugzilla/show_bug.cgi?id=57359
     # The internal libtool throws an enormous strop if we don't do...

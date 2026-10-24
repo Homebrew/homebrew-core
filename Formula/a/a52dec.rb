@@ -26,6 +26,8 @@ class A52dec < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "7a3d786826405966046c6962db674c563b89e86bf9ff5a53aecb9cea18f4df3d"
   end
 
+  deny_network_access!
+
   def install
     # Fixes duplicate symbols errors on arm64
     ENV.append_to_cflags "-std=gnu89" if OS.mac?

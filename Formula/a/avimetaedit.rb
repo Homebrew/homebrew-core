@@ -26,6 +26,8 @@ class Avimetaedit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "4358ad784993160a54dde004c372a315404352d4dfad8e1dcb7e63b232332fa8"
   end
 
+  deny_network_access!
+
   def install
     cd "Project/GNU/CLI" do
       system "./configure", "--disable-debug",

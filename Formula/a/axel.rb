@@ -33,6 +33,8 @@ class Axel < Formula
     depends_on "gettext"
   end
 
+  allow_network_access! :test
+
   def install
     if build.head?
       ENV.append_path "ACLOCAL_PATH", Formula["gettext"].pkgshare/"m4"

@@ -27,6 +27,8 @@ class Aribb24 < Formula
   depends_on "pkgconf" => :build
   depends_on "libpng"
 
+  deny_network_access!
+
   def install
     system "./bootstrap"
     system "./configure", "--disable-silent-rules", *std_configure_args

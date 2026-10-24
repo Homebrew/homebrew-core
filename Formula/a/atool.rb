@@ -15,6 +15,8 @@ class Atool < Formula
     sha256 cellar: :any_skip_relocation, all: "7bdc1cec48daaf7c140aa3ebb5e32ea863e560947ff2ed110339f84bdcea25c4"
   end
 
+  deny_network_access!
+
   def install
     # Build an `:all` bottle.
     files = %w[ChangeLog README]

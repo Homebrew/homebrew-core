@@ -26,6 +26,8 @@ class Aescrypt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "2a2705c4423a86919b9309235a468b5cc1ac66200501bd255cefe0d26d1f07c6"
   end
 
+  deny_network_access!
+
   def install
     # Workaround for newer Clang
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
