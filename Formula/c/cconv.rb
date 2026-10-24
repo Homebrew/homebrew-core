@@ -25,6 +25,8 @@ class Cconv < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  deny_network_access!
+
   def install
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
 
