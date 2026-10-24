@@ -26,6 +26,8 @@ class Cksfv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "ff8e6905611d7301b37271fdb5486d8d7598c4568a1035fe36269f7f97210723"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
