@@ -24,6 +24,8 @@ class Biosig < Formula
   depends_on "dcmtk"
   depends_on "suite-sparse"
 
+  deny_network_access!
+
   def install
     ENV.append "CXX", "-std=gnu++17"
 
