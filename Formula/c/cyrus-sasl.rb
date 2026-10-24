@@ -30,6 +30,8 @@ class CyrusSasl < Formula
 
   uses_from_macos "libxcrypt"
 
+  deny_network_access!
+
   def install
     # Workaround for missing time.h. Fixed upstream but backport would require autotools deps
     # https://github.com/cyrusimap/cyrus-sasl/commit/266f0acf7f5e029afbb3e263437039e50cd6c262
