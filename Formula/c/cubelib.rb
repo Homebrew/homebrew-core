@@ -33,6 +33,8 @@ class Cubelib < Formula
     directory "build-frontend"
   end
 
+  deny_network_access!
+
   def install
     ENV.deparallelize
 
