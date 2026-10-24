@@ -21,6 +21,8 @@ class Clzip < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "172b8fcc9ba87b1ccc92bacc37a41ac8ddc2080e40d9ed553d8e49f33d1b2c49"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"
