@@ -33,6 +33,8 @@ class Bochs < Formula
   # include `<libgen.h>` for macos build, upstream bug report, https://sourceforge.net/p/bochs/bugs/1466/
   patch :DATA
 
+  deny_network_access!
+
   def install
     args = %W[
       --prefix=#{prefix}
