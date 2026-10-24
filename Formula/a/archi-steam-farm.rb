@@ -23,13 +23,31 @@ class ArchiSteamFarm < Formula
   depends_on "node" => :build
   depends_on "dotnet"
 
-  def install
-    plugins = %w[
+  deny_network_access!
+
+  def plugins
+    %w[
       ArchiSteamFarm.OfficialPlugins.ItemsMatcher
       ArchiSteamFarm.OfficialPlugins.MobileAuthenticator
     ]
+  end
 
-    dotnet = Formula["dotnet"]
+  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
+
+  def fetch
+    ENV["XDG_RUNTIME_DIR"] = buildpath
+    system "npm", "ci", "--prefix", "ASF-ui"
+    system "dotnet", "restore", "ArchiSteamFarm", "--use-current-runtime",
+           "-p:TargetFrameworks=net#{dotnet.version.major_minor}"
+    plugins.each do |plugin|
+      system "dotnet", "restore", plugin, "--use-current-runtime",
+             "-p:TargetFrameworks=net#{dotnet.version.major_minor}"
+    end
+  end
+
+  def install
+    ENV["XDG_RUNTIME_DIR"] = buildpath
+
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
@@ -42,8 +60,7 @@ class ArchiSteamFarm < Formula
       -p:PublishSingleFile=true
     ]
 
-    system "npm", "ci", "--no-progress", "--prefix", "ASF-ui"
-    system "npm", "run-script", "deploy", "--no-progress", "--prefix", "ASF-ui"
+    system "npm", "run-script", "deploy", "--prefix", "ASF-ui"
 
     system "dotnet", "publish", "ArchiSteamFarm", *args, *asf_args
     plugins.each do |plugin|
@@ -63,9 +80,11 @@ class ArchiSteamFarm < Formula
   end
 
   test do
-    _, stdout, wait_thr = Open3.popen2("#{bin}/asf")
-    assert_match version.to_s, stdout.gets("\n")
-  ensure
-    Process.kill("TERM", wait_thr.pid)
+    Open3.popen2("#{bin}/asf") do |_, stdout, wait_thr|
+      assert_match version.to_s, stdout.gets("\n")
+    ensure
+      Process.kill("TERM", wait_thr.pid)
+      Process.wait(wait_thr.pid)
+    end
   end
 end

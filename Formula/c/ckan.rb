@@ -21,10 +21,20 @@ class Ckan < Formula
 
   depends_on "dotnet"
 
+  allow_network_access! :test
+
+  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
+
+  def fetch
+    ENV["XDG_RUNTIME_DIR"] = buildpath
+    system "dotnet", "restore", "Cmdline/CKAN-cmdline.csproj", "--use-current-runtime",
+           "-p:TargetFrameworks=net#{dotnet.version.major_minor}"
+  end
+
   def install
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
+    ENV["XDG_RUNTIME_DIR"] = buildpath
 
-    dotnet = Formula["dotnet"]
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}

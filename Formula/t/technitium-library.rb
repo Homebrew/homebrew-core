@@ -15,11 +15,31 @@ class TechnitiumLibrary < Formula
 
   depends_on "dotnet"
 
+  deny_network_access!
+
+  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
+
+  def libraries
+    %w[
+      TechnitiumLibrary.ByteTree/TechnitiumLibrary.ByteTree.csproj
+      TechnitiumLibrary.Net/TechnitiumLibrary.Net.csproj
+      TechnitiumLibrary.Security.OTP/TechnitiumLibrary.Security.OTP.csproj
+    ]
+  end
+
+  def fetch
+    ENV["XDG_RUNTIME_DIR"] = buildpath
+    args = [
+      "--use-current-runtime",
+      "-p:TargetFrameworks=net#{dotnet.version.major_minor}",
+    ]
+    libraries.each { |library| system "dotnet", "restore", library, *args }
+  end
+
   def install
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
     ENV["XDG_RUNTIME_DIR"] = buildpath
 
-    dotnet = Formula["dotnet"]
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
@@ -28,15 +48,12 @@ class TechnitiumLibrary < Formula
       --use-current-runtime
     ]
 
-    system "dotnet", "publish", "TechnitiumLibrary.ByteTree/TechnitiumLibrary.ByteTree.csproj", *args
-    system "dotnet", "publish", "TechnitiumLibrary.Net/TechnitiumLibrary.Net.csproj", *args
-    system "dotnet", "publish", "TechnitiumLibrary.Security.OTP/TechnitiumLibrary.Security.OTP.csproj", *args
+    libraries.each { |library| system "dotnet", "publish", library, *args }
   end
 
   test do
     # .NET named mutexes need `XDG_RUNTIME_DIR` (or `USER`) on Linux, which test containers may lack
     ENV["XDG_RUNTIME_DIR"] = testpath
-    dotnet = Formula["dotnet"]
     target_framework = "net#{dotnet.version.major_minor}"
 
     (testpath/"test.cs").write <<~CSHARP

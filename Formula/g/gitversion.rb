@@ -21,7 +21,10 @@ class Gitversion < Formula
 
   deny_network_access!
 
+  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
+
   def fetch
+    ENV["XDG_RUNTIME_DIR"] = buildpath
     # GitVersion uses a global.json file to pin the latest SDK version, which may not be available
     File.rename("global.json", "global.json.ignored")
 
@@ -30,8 +33,8 @@ class Gitversion < Formula
 
   def install
     ENV["DOTNET_SYSTEM_GLOBALIZATION_INVARIANT"] = "1"
+    ENV["XDG_RUNTIME_DIR"] = buildpath
 
-    dotnet = Formula["dotnet"]
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}

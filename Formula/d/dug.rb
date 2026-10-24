@@ -27,10 +27,20 @@ class Dug < Formula
     depends_on "zlib-ng-compat"
   end
 
+  allow_network_access! :test
+
+  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
+
+  def fetch
+    ENV["XDG_RUNTIME_DIR"] = buildpath
+    system "dotnet", "restore", "cli/dug.csproj", "--use-current-runtime",
+           "-p:TargetFrameworks=net#{dotnet.version.major_minor}"
+  end
+
   def install
     ENV["DOTNET_SYSTEM_GLOBALIZATION_INVARIANT"] = "1"
+    ENV["XDG_RUNTIME_DIR"] = buildpath
 
-    dotnet = Formula["dotnet"]
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
