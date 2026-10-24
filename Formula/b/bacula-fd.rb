@@ -42,6 +42,8 @@ class BaculaFd < Formula
     resolves "https://gitlab.bacula.org/bacula-community-edition/bacula-community/-/work_items/2771"
   end
 
+  deny_network_access!
+
   def install
     # CoreFoundation is also used alongside IOKit
     inreplace "configure", '"-framework IOKit"',
