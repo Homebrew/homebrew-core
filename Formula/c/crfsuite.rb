@@ -44,6 +44,8 @@ class Crfsuite < Formula
     resolves "https://github.com/chokkan/crfsuite/pull/29"
   end
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
 
