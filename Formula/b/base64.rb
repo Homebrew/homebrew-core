@@ -28,6 +28,8 @@ class Base64 < Formula
 
   conflicts_with "aklomp-base64", because: "both install `base64` binaries"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking"
     system "make"
