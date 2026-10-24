@@ -58,6 +58,8 @@ class Bind < Formula
     depends_on "zlib-ng-compat"
   end
 
+  allow_network_access! :test
+
   def install
     # Apply macOS 15+ libxml2 deprecation to all macOS versions.
     # This allows our macOS 14-built Intel bottle to work on macOS 15+
