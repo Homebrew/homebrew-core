@@ -204,7 +204,7 @@ class Php < Formula
       --with-pdo-pgsql=#{formula_opt_prefix("libpq")}
       --with-pdo-sqlite
       --with-pgsql=#{formula_opt_prefix("libpq")}
-      --with-pic
+      #{build.head? ? "--enable-pic" : "--with-pic"}
       --with-snmp=#{formula_opt_prefix("net-snmp")}
       --with-sodium
       --with-sqlite3
