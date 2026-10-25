@@ -16,6 +16,8 @@ class Nanobot < Formula
     sha256 cellar: :any,                 x86_64_linux:      "02c107f62ab252df059dba9f3a092e28272bcce9d157de2e4d49b5d9e9e0d85a"
   end
 
+  deprecate! date: "2026-10-24", because: :repo_archived
+
   depends_on "go" => :build
 
   deny_network_access!
