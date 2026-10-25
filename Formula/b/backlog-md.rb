@@ -17,7 +17,7 @@ class BacklogMd < Formula
 
   on_linux do
     # `bun build --compile` embeds the runtime, so the output inherits bun's ICU linkage.
-    depends_on "icu4c@78"
+    depends_on "icu4c@79"
   end
 
   deny_network_access!
