@@ -26,7 +26,7 @@ class Opencode < Formula
   depends_on "ripgrep"
 
   on_linux do
-    depends_on "icu4c@78"
+    depends_on "icu4c@79"
   end
 
   resource "opencode-pty" do
