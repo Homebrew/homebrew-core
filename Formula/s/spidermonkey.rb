@@ -81,6 +81,14 @@ class Spidermonkey < Formula
     resolves "https://bugzilla.mozilla.org/show_bug.cgi?id=1969769"
   end
 
+  # Backport mach support for Python 3.15, which removed `ast.Constant.s`
+  patch do
+    url "https://github.com/mozilla-firefox/firefox/commit/e6db063cdccce8ace1fc7f7bc881175f9d10b255.patch?full_index=1"
+    sha256 "57b07ee0982328bed30bb28de707b9679f943454edc54589eb4f98a4c8e6eaa7"
+    type :backport
+    resolves "https://bugzilla.mozilla.org/show_bug.cgi?id=1983713"
+  end
+
   # Fix Rust target detection for OpenEmbedded Linux.
   # TODO: Check resolution in https://bugzilla.mozilla.org/show_bug.cgi?id=2068494
   # Fixes:
@@ -112,28 +120,32 @@ class Spidermonkey < Formula
       end
     end
 
-    mkdir "brew-build" do
-      args = %W[
-        --prefix=#{prefix}
-        --enable-hardening
-        --enable-optimize
-        --enable-readline
-        --enable-release
-        --enable-rust-simd
-        --enable-shared-js
-        --disable-bootstrap
-        --disable-debug
-        --disable-jemalloc
-        --with-intl-api
-        --with-system-icu
-        --with-system-nspr
-        --with-system-zlib
-      ]
+    # https://firefox-source-docs.mozilla.org/js/build.html
+    ENV["MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE"] = "none"
+    ENV["MOZCONFIG"] = mozconfig = buildpath/"mozconfig"
+    mozconfig.write <<~EOS
+      # Build the JS shell and shared library
+      ac_add_options --enable-project=js
+      ac_add_options --enable-shared-js
+      ac_add_options --prefix=#{prefix}
 
-      system "../js/src/configure", *args
-      ENV.deparallelize { system "make" }
-      system "make", "install"
-    end
+      # Features, optimisations, etc.
+      ac_add_options --disable-bootstrap
+      ac_add_options --disable-debug
+      ac_add_options --disable-jemalloc
+      ac_add_options --enable-hardening
+      ac_add_options --enable-optimize
+      ac_add_options --enable-readline
+      ac_add_options --enable-release
+      ac_add_options --enable-rust-simd
+      ac_add_options --with-intl-api
+      ac_add_options --with-system-icu
+      ac_add_options --with-system-nspr
+      ac_add_options --with-system-zlib
+    EOS
+
+    system "./mach", "build"
+    system "./mach", "install"
 
     rm(lib/"libjs_static.ajs")
 
@@ -141,9 +153,8 @@ class Spidermonkey < Formula
     bin.install_symlink "js#{version.major}" => "js"
 
     # Avoid writing nspr's versioned Cellar path in js*-config
-    inreplace bin/"js#{version.major}-config",
-              Formula["nspr"].prefix.realpath,
-              formula_opt_prefix("nspr")
+    nspr_prefix = formula_opt_prefix("nspr")
+    inreplace bin/"js#{version.major}-config", nspr_prefix.realpath, nspr_prefix
   end
 
   test do
