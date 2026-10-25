@@ -19,7 +19,7 @@ class Noodle < Formula
   depends_on "zig@0.16" => :build
 
   on_linux do
-    depends_on "icu4c@78"
+    depends_on "icu4c@79"
   end
 
   resource "opentui" do
