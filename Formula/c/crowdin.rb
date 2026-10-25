@@ -22,7 +22,7 @@ class Crowdin < Formula
   depends_on "bun" => :build
 
   on_linux do
-    depends_on "icu4c@78"
+    depends_on "icu4c@79"
   end
 
   deny_network_access! :test
