@@ -110,7 +110,7 @@ class Agda < Formula
   depends_on "pkgconf" => :build
   depends_on "ghc"
   depends_on "gmp"
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
 
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
