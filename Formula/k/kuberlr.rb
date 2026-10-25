@@ -18,7 +18,7 @@ class Kuberlr < Formula
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/kuberlr"
 
-    generate_completions_from_executable(bin/"kuberlr", "completion")
+    generate_completions_from_executable(bin/"kuberlr", shell_parameter_format: :cobra)
 
     (libexec/"bin").install_symlink bin/"kuberlr" => "kubectl"
   end
