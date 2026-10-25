@@ -55,14 +55,12 @@ class Mariadb < Formula
 
   conflicts_with "mysql", "percona-server", because: "mariadb, mysql, and percona install the same binaries"
 
-  # Apply open PR to fix issue when using OpenSSL 4. This has been applied by
-  # Debian Forky / Ubuntu Stonking since Aug/Sep 2026. MariaDB may end up merging
-  # https://github.com/MariaDB/server/pull/5652 instead but it doesn't cleanly apply.
+  # Backport for OpenSSL 4
   patch do
-    url "https://github.com/MariaDB/server/commit/5ca4ab639ad5f99d74f794b54ba1b4d6182ec2a9.patch?full_index=1"
-    sha256 "a0cc83631f63368457f8880626a18bb791409dfe02a672989b94b205c2cefaef"
-    type :unofficial
-    resolves "https://github.com/MariaDB/server/pull/5029"
+    url "https://github.com/MariaDB/server/commit/fb641b0cd1810e7d148d6b4d70f915c06c2c0f9e.patch?full_index=1"
+    sha256 "bfc517ae33842539d9c8d02b6336476cb339b73b80c12dd2b5f873953228ef7e"
+    type :backport
+    resolves "https://github.com/MariaDB/server/pull/5652"
   end
 
   allow_network_access! :test
