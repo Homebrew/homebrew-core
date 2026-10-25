@@ -27,6 +27,7 @@ class Qtwebengine < Formula
     "Zlib",              # zlib (macOS)
     :public_domain,      # sigslot; SPL-SQRT-FLOOR
   ]
+  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qtwebengine.git", branch: "dev"
 
@@ -83,7 +84,7 @@ class Qtwebengine < Formula
     depends_on "fontconfig"
     depends_on "freetype"
     depends_on "harfbuzz"
-    depends_on "icu4c@78"
+    depends_on "icu4c@79"
     depends_on "jpeg-turbo"
     depends_on "libdrm"
     depends_on "libevent"
