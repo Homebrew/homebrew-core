@@ -21,7 +21,7 @@ class Vtk < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "pyqt" => :test
+  depends_on "pyside" => :test
   depends_on "boost"
   depends_on "cgns"
   depends_on "double-conversion"
