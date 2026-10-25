@@ -5,6 +5,7 @@ class I386ElfGdb < Formula
   mirror "https://ftp.gnu.org/gnu/gdb/gdb-18.1.tar.xz"
   sha256 "cd9fc3fe2b47743840e42c1592d3d87f8302eb18639c0b8b4ba0898002e2348f"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   livecheck do
@@ -26,7 +27,6 @@ class I386ElfGdb < Formula
   depends_on "mpfr"
   depends_on "ncurses" # https://github.com/Homebrew/homebrew-core/issues/224294
   depends_on "python@3.15"
-  depends_on "readline"
   depends_on "xz" # required for lzma support
   depends_on "zstd"
 
@@ -62,7 +62,6 @@ class I386ElfGdb < Formula
       --with-expat
       --with-lzma
       --with-python=#{python3}
-      --with-system-readline
       --with-system-zlib
       --with-zstd
     ]
