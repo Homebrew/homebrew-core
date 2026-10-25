@@ -41,7 +41,7 @@ class PerconaXtrabackupAT80 < Formula
   depends_on "pkgconf" => :build
   depends_on "sphinx-doc" => :build
   depends_on "mysql@8.0" => :test
-  depends_on "icu4c@78"
+  depends_on "icu4c@79"
   depends_on "libev"
   depends_on "libgcrypt"
   depends_on "lz4"
