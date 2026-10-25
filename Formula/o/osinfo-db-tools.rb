@@ -1,15 +1,11 @@
 class OsinfoDbTools < Formula
   desc "Tools for managing the libosinfo database files"
   homepage "https://libosinfo.org/"
-  url "https://releases.pagure.org/libosinfo/osinfo-db-tools-1.12.0.tar.xz"
+  url "https://gitlab.com/libosinfo/osinfo-db-tools/-/releases/v1.12.0/downloads/osinfo-db-tools-1.12.0.tar.xz"
   sha256 "f3315f675d18770f25dea8ed04b20b8fc80efb00f60c37ee5e815f9c3776e7f3"
   license "GPL-2.0-or-later"
   revision 1
-
-  livecheck do
-    url "https://releases.pagure.org/libosinfo/?C=M&O=D"
-    regex(/href=.*?osinfo-db-tools[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  head "https://gitlab.com/libosinfo/osinfo-db-tools.git", branch: "main"
 
   bottle do
     rebuild 1
