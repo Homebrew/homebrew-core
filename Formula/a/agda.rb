@@ -4,15 +4,24 @@ class Agda < Formula
   # agda2hs.cabal specifies BSD-3-Clause but it installs an MIT LICENSE file.
   # Everything else specifies MIT license and installs corresponding file.
   license all_of: ["MIT", "BSD-3-Clause"]
-  revision 2
 
   stable do
-    url "https://github.com/agda/agda/archive/refs/tags/v2.8.0.2.tar.gz"
-    sha256 "c29ee2c06a7feb812fcb7f0543a2ddf800a9f806d09cc7813cee9c733a169b6d"
+    url "https://github.com/agda/agda/archive/refs/tags/v2.9.0-rc1.tar.gz"
+    sha256 "3845a296404af54d5a146fbd53ff0c002925e5265c46d3615b3cf56422781cb9"
+    version "2.9.0"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.4.tar.gz"
       sha256 "dd0fab4519523d6c08cd9583a4f5eac38ab135a12ccdab1fb164c271075f6747"
+
+      # Build fix for Agda 2.9.0
+      # Remove on next version bump
+      patch do
+        url "https://github.com/agda/agda-stdlib/commit/2ffa8b7d4e8e818717ad643d184f055a4d1b0447.patch?full_index=1"
+        sha256 "61ccbd074e73e6c8ab5274632da70055d7cd4e915057738fb10546071e3cd971"
+        type :backport
+        resolves "https://github.com/agda/agda-stdlib/pull/3115"
+      end
     end
 
     resource "stdlib-classes" do
@@ -37,6 +46,24 @@ class Agda < Formula
         type :backport
         resolves "https://github.com/agda/cubical/pull/1241"
       end
+
+      # Build fix for Agda 2.9.0
+      # Remove on next version bump
+      patch do
+        url "https://github.com/agda/cubical/commit/c2d05f7909c2254e2dfa5783b1bc88d99b878b87.patch?full_index=1"
+        sha256 "0a896019be8fc2f4ebd1244cfac88a1369c406d3b7aa55bfd81e23f4c9c3c097"
+        type :backport
+        resolves "https://github.com/agda/cubical/pull/1325"
+      end
+
+      # Build fix for Agda 2.9.0
+      # Remove on next version bump
+      patch do
+        url "https://github.com/agda/cubical/commit/3d828afcac588414920565ad22d08d3dcdf02249.patch?full_index=1"
+        sha256 "2fedc3118b09f73274ff6e2e770fad8ac4c3a03d635f2f05eed5cac27f645dae"
+        type :backport
+        resolves "https://github.com/agda/cubical/pull/1329"
+      end
     end
 
     resource "categories" do
@@ -44,6 +71,15 @@ class Agda < Formula
       url "https://github.com/agda/agda-categories.git",
           tag:      "v0.3.0",
           revision: "02be9337ad5bf0dedae84cefd58b11f25b18855a"
+
+      # Build fix for Agda 2.9.0
+      # Remove on next version bump
+      patch do
+        url "https://github.com/agda/agda-categories/commit/5f52ac8753c468df1f9ed8cb93b7d731d88b2cb9.patch?full_index=1"
+        sha256 "302f4979a90f56b2a15a32d92e58ed91b92cd8705b51cc85da5e4a40f1180d39"
+        type :backport
+        resolves "https://github.com/agda/agda-categories/pull/554"
+      end
     end
 
     resource "agda2hs" do
@@ -54,6 +90,19 @@ class Agda < Formula
     resource "agda-language-server" do
       url "https://github.com/agda/agda-language-server/archive/refs/tags/v8.tar.gz"
       sha256 "58c18627786451d43269cde03a062716a05dc9ff1fa74fc82e6f48f449c9e5c9"
+
+      # Bug fix for linkage on macOS
+      # Remove on next version bump
+      patch do
+        url "https://github.com/agda/agda-language-server/commit/0ff4166e375f7e0c3f503d7fea58e14d90fd335b.patch?full_index=1"
+        sha256 "3f074b5c556d2838d7de7ec22dc4cc806b6a334c6ace8d7cf43fe4b4ecf87b4d"
+        type :backport
+        resolves "https://github.com/agda/agda-language-server/issues/30"
+      end
+
+      # Build fix for Agda 2.9.0
+      # Remove on next version bump
+      patch :DATA
     end
   end
 
@@ -119,6 +168,8 @@ class Agda < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     agda2hs_build = buildpath/"agda2hs"
     als = buildpath/"agda-language-server"
@@ -143,9 +194,6 @@ class Agda < Formula
     mkdir_p agdaprim
     ENV["Agda_datadir"] = agdaprim.to_s
 
-    # Make the language server build tolerate point releases
-    inreplace als/"package.yaml", "Agda == 2.8.0", "Agda >= 2.8.0 && < 2.9.0"
-
     # Make agda2hs build compatible with GHC 9.14
     inreplace agda2hs_build/"agda2hs.cabal",
       "base                 >= 4.13    && < 4.22",
@@ -165,7 +213,7 @@ class Agda < Formula
       package Agda
         flags: +optimise-heavily +enable-cluster-counting
       package agda-language-server
-        flags: +Agda-2-8-0
+        flags: +Agda-2-9-0
     HASKELL
 
     cabal_args = std_cabal_v2_args.map { |s| s.sub "=copy", "=symlink" }
@@ -202,16 +250,16 @@ class Agda < Formula
     # Generate documentation and interface files. We build without extra options
     # so generated interface files work on basic use case. Options like -Werror
     # will need re-generation: https://github.com/agda/agda/issues/5151
-    system "make", "-C", stdlib, "listings", "AGDA_OPTIONS="
-    system "make", "-C", cubicallib, "listings", "AGDA_FLAGS="
-    system "make", "-C", categorieslib, "html", "OTHEROPTS="
+    system "make", "-C", stdlib, "listings", "AGDA_OPTIONS=-j#{ENV.make_jobs}"
+    system "make", "-C", cubicallib, "listings", "AGDA_FLAGS=-j#{ENV.make_jobs}"
+    system "make", "-C", categorieslib, "html", "OTHEROPTS=-j#{ENV.make_jobs}"
 
     # More manually built documentation and interfaces
     cd classeslib do
-      system "agda", "--html", "standard-library-classes.agda"
+      system "agda", "-j#{ENV.make_jobs}", "--html", "standard-library-classes.agda"
     end
     cd metalib do
-      system "agda", "--html", "standard-library-meta.agda"
+      system "agda", "-j#{ENV.make_jobs}", "--html", "standard-library-meta.agda"
     end
 
     # Clean up references to Homebrew shims and temporary generated files
@@ -222,13 +270,11 @@ class Agda < Formula
 
     # generate interface files for agda2hs libraries
     cd agda2hs_lib/"base" do
-      system bin/"agda", "--no-default-libraries",
-                         "--build-library"
+      system bin/"agda", "-j#{ENV.make_jobs}", "--no-default-libraries", "--build-library"
     end
     cd agda2hs_lib/"containers" do
-      system bin/"agda", "--no-default-libraries",
-                         "--library-file=./agda2hs-libraries",
-                         "--build-library"
+      system bin/"agda", "-j#{ENV.make_jobs}", "--no-default-libraries",
+                         "--library-file=./agda2hs-libraries", "--build-library"
       # adapted from upstream at
       # https://github.com/agda/agda2hs/blob/master/lib/containers/generate-haskell.sh
       system bin/"agda2hs", "--no-default-libraries",
@@ -438,3 +484,29 @@ class Agda < Formula
                  shell_output("#{bin}/als -V").strip
   end
 end
+__END__
+diff --git a/package.yaml b/package.yaml
+index 4b3fcc78cff47cf6e4fa11a701899c20fd1e5eb2..45010eefad075369e9ccc9ae32c2da10efb34d88 100644
+--- a/package.yaml
++++ b/package.yaml
+@@ -37,6 +37,10 @@ flags:
+     description: Embed Agda-2.8.0
+     manual: true
+     default: false
++  Agda-2-9-0:
++    description: Embed Agda-2.9.0
++    manual: true
++    default: false
+   reactor:
+     description: Build as a WASI reactor module
+     manual: true
+@@ -51,6 +55,9 @@ when:
+ - condition: "flag(Agda-2-8-0)"
+   dependencies:
+     - Agda == 2.8.0
++- condition: "flag(Agda-2-9-0)"
++  dependencies:
++    - Agda == 2.9.0
+ - condition: "arch(wasm32)"
+   then:
+     dependencies:
