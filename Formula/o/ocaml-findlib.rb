@@ -4,7 +4,7 @@ class OcamlFindlib < Formula
   url "https://github.com/ocaml/ocamlfind/archive/refs/tags/findlib-1.9.8.tar.gz"
   sha256 "d6899935ccabf67f067a9af3f3f88d94e310075d13c648fa03ff498769ce039d"
   license "MIT"
-  revision 5
+  revision 6
 
   livecheck do
     url "https://opam.ocaml.org/packages/ocamlfind/"

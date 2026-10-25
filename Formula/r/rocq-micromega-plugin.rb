@@ -4,7 +4,7 @@ class RocqMicromegaPlugin < Formula
   url "https://github.com/rocq-community/micromega-plugin/archive/refs/tags/v1.1.1.tar.gz"
   sha256 "5ed46c62dfb7c06ad1df2f744bca5a39282ac9787c57433478a87a706e6e4391"
   license "LGPL-2.1-only"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable

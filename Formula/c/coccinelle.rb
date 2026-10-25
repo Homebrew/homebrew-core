@@ -4,7 +4,7 @@ class Coccinelle < Formula
   url "https://coccinelle.gitlabpages.inria.fr/website/distrib/coccinelle-1.3.3.tar.gz"
   sha256 "265dba12a71e5169d49af9a2d8c3c4b8e2cae4c451c918beb2587c33d6128e3d"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
   head "https://github.com/coccinelle/coccinelle.git", branch: "master"
 
   livecheck do
