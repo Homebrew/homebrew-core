@@ -1,8 +1,8 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
   homepage "https://github.com/xgo-dev/llgo"
-  url "https://github.com/xgo-dev/llgo/archive/refs/tags/v1.0.6.tar.gz"
-  sha256 "b281815ad671b7d09fbb8be553433e28a23ba4496f8e7657616630a382b905be"
+  url "https://github.com/xgo-dev/llgo/archive/refs/tags/v1.0.7.tar.gz"
+  sha256 "c36331e74c8cd61ffd7315a1fcbf1210d5a4a073e609be8590a09f8d835602c9"
   license "Apache-2.0"
   head "https://github.com/xgo-dev/llgo.git", branch: "main"
 
@@ -23,15 +23,19 @@ class Llgo < Formula
   depends_on "bdw-gc" => :no_linkage
   depends_on "go"
   depends_on "libuv" => :no_linkage
-  depends_on "lld@22"
   depends_on "llvm@22"
   depends_on "openssl@4" => :no_linkage # runtime/internal/clite/openssl/openssl.go
   depends_on "pkgconf"
 
   uses_from_macos "libffi"
 
+  on_macos do
+    depends_on "lld" # LLD 23 is required for native links with macOS 27 SDK stubs
+  end
+
   on_linux do
     depends_on "libunwind"
+    depends_on "lld@22"
     depends_on "zlib-ng-compat"
   end
 
@@ -132,6 +136,19 @@ class Llgo < Formula
       module hello
     GOMOD
 
+    if OS.mac? && Hardware::CPU.arm64?
+      # Exercise macOS 27 SDK stub parsing even when testing with an older SDK.
+      (testpath/"libllgo-sdk.tbd").write <<~TBD
+        --- !tapi-tbd
+        tbd-version: 4
+        targets: [ arm64-macos, arm64e.x1-macos ]
+        install-name: '@rpath/libllgo-sdk.dylib'
+        current-version: 1.0.0
+        ...
+      TBD
+      ENV.append "LDFLAGS", "-Wl,#{testpath}/libllgo-sdk.tbd,-dead_strip_dylibs"
+    end
+
     expected = "Hello LLGo by fmt.Println\nHello LLGo by c.Printf\n"
     system go.opt_bin/"go", "get", "github.com/goplus/lib"
     # Test llgo run
@@ -140,6 +157,6 @@ class Llgo < Formula
     system bin/"llgo", "build", "-o", "hello", "."
     assert_equal expected, shell_output("./hello")
     # Test llgo test
-    assert_match "PASS", shell_output("#{bin}/llgo test .")
+    assert_match "PASS", shell_output("#{bin}/llgo test -v .")
   end
 end
