@@ -41,7 +41,6 @@ class Systemd < Formula
   depends_on "docbook-xsl" => :build
   depends_on "gettext" => :build
   depends_on "gperf" => :build
-  depends_on "icu4c@78" => :build # FIXME: brew should add to PKG_CONFIG_PATH as dependency of libxml2
   depends_on "libxml2" => :build
   depends_on "libxslt" => :build
   depends_on "meson" => :build
