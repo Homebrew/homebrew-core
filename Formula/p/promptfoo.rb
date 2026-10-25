@@ -1,8 +1,8 @@
 class Promptfoo < Formula
   desc "Test your LLM app locally"
   homepage "https://promptfoo.dev/"
-  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.124.1.tgz"
-  sha256 "be3fe4dd4cd78e61a2fc81a8bcaaad1c8f29b63ebed16f08e629a5856f0c270f"
+  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.125.0.tgz"
+  sha256 "0a77f65bb179f2ccc22a61016b29036238f74e60db67ee43b1a5e6b9aa31b709"
   license "MIT"
 
   bottle do
@@ -20,6 +20,11 @@ class Promptfoo < Formula
   resource "libsql-js" do
     url "https://github.com/tursodatabase/libsql-js/archive/refs/tags/v0.5.29.tar.gz"
     sha256 "e7ccf7f0ade06158bac3f5fffe69d9707741940678aadec75319713e21b57c21"
+
+    livecheck do
+      url :url
+      regex(/^v?(\d+(:?\.\d+)+)$/i)
+    end
   end
 
   def install
@@ -28,6 +33,8 @@ class Promptfoo < Formula
     # install and then symlink it using `brew link`.
     (libexec/"promptfoo").install buildpath.children
     cd libexec/"promptfoo" do
+      # openai 7.41+ declares a `google-auth-library <11` peer that conflicts with promptfoo's `^11`
+      inreplace "package.json", '"openai": "^7.20.0"', '"openai": "7.40.0"'
       system "npm", "install", "--omit=dev", "--omit=optional", *std_npm_args(prefix: false)
 
       resource("libsql-js").stage do
