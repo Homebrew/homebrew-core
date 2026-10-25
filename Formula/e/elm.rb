@@ -1,8 +1,8 @@
 class Elm < Formula
   desc "Functional programming language for building browser-based GUIs"
   homepage "https://elm-lang.org"
-  url "https://github.com/elm/compiler/archive/refs/tags/0.19.2.tar.gz"
-  sha256 "745b1edfea2f8e3b36cf6f77ae3b59fd86e8e397d427971f6d903f9fce6163a5"
+  url "https://github.com/elm/compiler/archive/refs/tags/0.19.3.tar.gz"
+  sha256 "e051f8700578a0920024ba9eb3496df6336119058ef996579b1b4a574b8313fa"
   license "BSD-3-Clause"
 
   bottle do
@@ -26,6 +26,10 @@ class Elm < Formula
   on_linux do
     depends_on "zlib-ng-compat"
   end
+
+  # The reactor frontend is compiled by Template Haskell, which downloads Elm packages,
+  # so this cannot use an offline `fetch` phase; `elm make` in the test downloads them too.
+  allow_network_access! [:build, :test]
 
   def install
     # Following the process from the Dockerfile for building elm binaries here:
