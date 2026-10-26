@@ -4,6 +4,7 @@ class ForgejoCli < Formula
   url "https://static.crates.io/crates/forgejo-cli/forgejo-cli-0.7.0.crate"
   sha256 "a5c2eb931ed0c208ee432601850968158fbb1963a57313192db881e082060c46"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://codeberg.org/forgejo-contrib/forgejo-cli.git", branch: "main"
 
   bottle do
@@ -16,6 +17,7 @@ class ForgejoCli < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  depends_on "libgit2"
   depends_on "openssl@4"
 
   on_linux do
@@ -29,6 +31,8 @@ class ForgejoCli < Formula
   end
 
   def install
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
+
     system "cargo", "install", *std_cargo_args
 
     generate_completions_from_executable(bin/"fj", "completion")
@@ -38,5 +42,10 @@ class ForgejoCli < Formula
     assert_match version.to_s, shell_output("#{bin}/fj version")
 
     assert_match "Beyond coding. We forge.", shell_output("#{bin}/fj repo view codeberg.org/forgejo/forgejo")
+
+    require "utils/linkage"
+    library = formula_opt_lib("libgit2")/shared_library("libgit2")
+    assert Utils.binary_linked_to_library?(bin/"fj", library),
+           "No linkage with #{library.basename}! Cargo is likely using a vendored version."
   end
 end
