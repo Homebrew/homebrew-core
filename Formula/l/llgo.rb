@@ -1,8 +1,8 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
   homepage "https://github.com/xgo-dev/llgo"
-  url "https://github.com/xgo-dev/llgo/archive/refs/tags/v1.0.6.tar.gz"
-  sha256 "b281815ad671b7d09fbb8be553433e28a23ba4496f8e7657616630a382b905be"
+  url "https://github.com/xgo-dev/llgo/archive/refs/tags/v1.0.8.tar.gz"
+  sha256 "ed2c35a009bd7c8f3b34d7860eded7be1033524fc373a8e5a4ea6bf8cd9a46fb"
   license "Apache-2.0"
   head "https://github.com/xgo-dev/llgo.git", branch: "main"
 
@@ -23,8 +23,8 @@ class Llgo < Formula
   depends_on "bdw-gc" => :no_linkage
   depends_on "go"
   depends_on "libuv" => :no_linkage
-  depends_on "lld@22"
-  depends_on "llvm@22"
+  depends_on "lld"
+  depends_on "llvm"
   depends_on "openssl@4" => :no_linkage # runtime/internal/clite/openssl/openssl.go
   depends_on "pkgconf"
 
@@ -42,8 +42,7 @@ class Llgo < Formula
   end
 
   def find_dep(name)
-    deps.find { |f| f.name.match?(/^#{name}(@\d+(\.\d+)*)?$/) }
-        .to_formula
+    deps.find { |f| f.name.match?(/^#{name}(@\d+(\.\d+)*)?$/) }.name
   end
 
   def install
@@ -52,11 +51,10 @@ class Llgo < Formula
     ldflags = %W[
       -X #{module_path}/internal/env.buildVersion=v#{version}
       -X #{module_path}/internal/env.buildTime=#{time.iso8601}
-      -X #{module_path}/xtool/env/llvm.ldLLVMConfigBin=#{llvm.opt_bin}/llvm-config
+      -X #{module_path}/xtool/env/llvm.ldLLVMConfigBin=#{formula_opt_bin(llvm)}/llvm-config
     ]
     tags = []
-    path_deps = %w[lld go pkgconf].map { |name| find_dep(name).opt_bin }
-    path_deps << llvm.opt_bin
+    path_deps = %w[lld llvm go pkgconf].map { |name| formula_opt_bin(name) }
     script_env = { PATH: "#{path_deps.join(":")}:${PATH}" }
 
     if OS.linux?
@@ -68,17 +66,17 @@ class Llgo < Formula
       end
 
       ENV.prepend "CGO_CPPFLAGS",
-        "-I#{llvm.opt_include} " \
+        "-I#{formula_opt_include(llvm)} " \
         "-D_GNU_SOURCE " \
         "-D__STDC_CONSTANT_MACROS " \
         "-D__STDC_FORMAT_MACROS " \
         "-D__STDC_LIMIT_MACROS"
-      ENV.prepend "CGO_LDFLAGS", "-L#{llvm.opt_lib} -lLLVM"
+      ENV.prepend "CGO_LDFLAGS", "-L#{formula_opt_lib(llvm)} -lLLVM"
 
       tags << "byollvm"
       libunwind = find_dep("libunwind")
-      script_env[:CFLAGS] = "-I#{libunwind.opt_include} ${CFLAGS}"
-      script_env[:LDFLAGS] = "-L#{libunwind.opt_lib} -Wl,-rpath,#{libunwind.opt_lib} ${LDFLAGS}"
+      script_env[:CFLAGS] = "-I#{formula_opt_include(libunwind)} ${CFLAGS}"
+      script_env[:LDFLAGS] = "-L#{formula_opt_lib(libunwind)} -Wl,-rpath,#{formula_opt_lib(libunwind)} ${LDFLAGS}"
     end
 
     system "go", "build", *std_go_args(ldflags:, tags:), "./cmd/llgo"
@@ -88,14 +86,14 @@ class Llgo < Formula
 
   test do
     go = find_dep("go")
-    goos = shell_output("#{go.opt_bin}/go env GOOS").chomp
-    goarch = shell_output("#{go.opt_bin}/go env GOARCH").chomp
+    goos = shell_output("#{formula_opt_bin(go)}/go env GOOS").chomp
+    goarch = shell_output("#{formula_opt_bin(go)}/go env GOARCH").chomp
     assert_equal "llgo v#{version} #{goos}/#{goarch}", shell_output("#{bin}/llgo version").chomp
 
     # Add bdw-gc library path to LD_LIBRARY_PATH, this is a workaround for the libgc.so not found issue
     # Will be fixed in the next release
     bdwgc = find_dep("bdw-gc")
-    ENV.prepend_path "LD_LIBRARY_PATH", bdwgc.opt_lib
+    ENV.prepend_path "LD_LIBRARY_PATH", formula_opt_lib(bdwgc)
 
     (testpath/"hello.go").write <<~'GO'
       package main
@@ -133,13 +131,13 @@ class Llgo < Formula
     GOMOD
 
     expected = "Hello LLGo by fmt.Println\nHello LLGo by c.Printf\n"
-    system go.opt_bin/"go", "get", "github.com/goplus/lib"
+    system formula_opt_bin(go)/"go", "get", "github.com/goplus/lib"
     # Test llgo run
     assert_equal expected, shell_output("#{bin}/llgo run .")
     # Test llgo build
     system bin/"llgo", "build", "-o", "hello", "."
     assert_equal expected, shell_output("./hello")
     # Test llgo test
-    assert_match "PASS", shell_output("#{bin}/llgo test .")
+    assert_match "PASS", shell_output("#{bin}/llgo test -v .")
   end
 end
