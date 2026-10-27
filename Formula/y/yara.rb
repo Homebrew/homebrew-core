@@ -1,10 +1,9 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://virustotal.github.io/yara/"
-  url "https://github.com/VirusTotal/yara/archive/refs/tags/v4.5.8.tar.gz"
-  sha256 "c322414975ff6f701149856613afdcd92a7e6939c284c798ae3c85618197efaa"
+  url "https://github.com/VirusTotal/yara/archive/refs/tags/v4.6.0.tar.gz"
+  sha256 "61ab80084e3f83e1b73a95057058e2ae1db5f87f291e32654e191d410297f0e5"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/VirusTotal/yara.git", branch: "master"
 
   # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
