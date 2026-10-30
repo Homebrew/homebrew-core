@@ -1,0 +1,14 @@
+Formula/s/sbomqs.rb
+  h_9df9c32c3f321d 1-54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5c31b2dae0f1bd1276faf86afc84b4186be61b08",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
