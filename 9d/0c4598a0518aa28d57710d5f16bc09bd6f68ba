@@ -1,0 +1,14 @@
+Formula/o/openskills.rb
+  h_9df9c32c3f321d 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9d0c4598a0518aa28d57710d5f16bc09bd6f68ba",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
