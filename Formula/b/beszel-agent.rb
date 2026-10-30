@@ -16,6 +16,7 @@ class BeszelAgent < Formula
 
   def install
     # Homebrew manages upgrades, so replace self-update with a notice
+    # TODO: switch to `no_self_update` tag in the next release
     inreplace "internal/cmd/agent/agent.go" do |s|
       s.gsub! "\tchinaMirrors := pflag.BoolP(\"china-mirrors\", \"c\", false, " \
               "\"Use mirror for update (gh.beszel.dev) instead of GitHub\")\n", ""
