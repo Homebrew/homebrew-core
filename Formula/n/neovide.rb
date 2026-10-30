@@ -4,15 +4,15 @@ class Neovide < Formula
   url "https://github.com/neovide/neovide/archive/refs/tags/0.16.2.tar.gz"
   sha256 "a2016cceab3cba50b6a8b2f6787ae9017a85923575e89a83ebb9d428e8f80ca9"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/neovide/neovide.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f70aefe0ac4f6aea19620681dbdcbadd00fdc2bad3ebd184c801628cefd31392"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eb128713d1da6d589f2b9497e90925f499870f3940b94c6beefe1bd497d7653f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a0d31361975e2f50ef1d17080167f9009da58b5ccba7e3df3c782145552c8aeb"
-    sha256 cellar: :any,                 arm64_linux:       "61e2d278c9d005c525d4f603e0ac234ed0c09981fcbfa05f4756e6dbb21b0884"
-    sha256 cellar: :any,                 x86_64_linux:      "8acbd21a7bb32aa6f7f4c66178986b267d7afdf861e7145636ab06f1ac1fb6a4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "57ad9e76f6f4c284dd75f29602bec986f23082a4614c3773dc9f66dcdd86ba45"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d8e3561f7aa061b77ecd1f11069c4dccaa69a8254c3988525afaa97a192edfdf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "28c3d611d88f129356ddbbd9385193581c19362160f5fb8a448e55ad72c40642"
+    sha256 cellar: :any,                 arm64_linux:       "22e0ec65b2d650eb3cba9dd4374e5b61b608ed4331e20dc2583961011789de98"
+    sha256 cellar: :any,                 x86_64_linux:      "34bbcc2e923778f1ebdc101253d22c9d3122a8202e289ccb38e6a6bb462e5262"
   end
 
   depends_on "ninja" => :build
@@ -29,6 +29,7 @@ class Neovide < Formula
 
   on_linux do
     depends_on "xorg-server" => :test
+    depends_on "desktop-file-utils"
     depends_on "expat"
     depends_on "fontconfig"
     depends_on "freetype"
@@ -67,12 +68,26 @@ class Neovide < Formula
 
     system "cargo", "install", *std_cargo_args
 
+    if OS.linux?
+      (share/"applications").install "assets/neovide.desktop"
+      (share/"icons/hicolor/scalable/apps").install "assets/neovide.svg"
+      %w[16x16 32x32 48x48 256x256].each do |size|
+        (share/"icons/hicolor/#{size}/apps").install "assets/neovide-#{size}.png" => "neovide.png"
+      end
+    end
+
     return unless OS.mac?
 
     # Use upstream's app template, as their release builds do
     prefix.install "extra/osx/Neovide.app"
     (prefix/"Neovide.app/Contents/MacOS").install bin/"neovide"
     bin.write_exec_script prefix/"Neovide.app/Contents/MacOS/neovide"
+  end
+
+  post_install_steps do
+    on_linux do
+      update_desktop_database
+    end
   end
 
   def nvim_ui_count(socket)
