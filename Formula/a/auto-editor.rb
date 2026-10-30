@@ -4,6 +4,7 @@ class AutoEditor < Formula
   url "https://github.com/WyattBlue/auto-editor/archive/refs/tags/31.8.0.tar.gz"
   sha256 "045944d594d611d367fafcf78de352483247dc413be86ee2125455119b3685fd"
   license "Unlicense"
+  revision 1
   head "https://github.com/WyattBlue/auto-editor.git", branch: "master"
 
   bottle do
@@ -18,6 +19,7 @@ class AutoEditor < Formula
   depends_on "pkgconf" => :build
   depends_on "ffmpeg"
   depends_on "ggml"
+  depends_on "libass"
   depends_on "whisper.cpp"
 
   def install
@@ -32,6 +34,12 @@ class AutoEditor < Formula
     system "ffmpeg", "-filter_complex", "testsrc=rate=1:duration=5", mp4in
     system bin/"auto-editor", mp4in, "--edit", "none"
     assert_match(/Duration: 00:00:05\.00,.*Video: h264/m, shell_output("ffprobe -hide_banner #{mp4out} 2>&1"))
+
+    # Linux builds need a font file given to draw text
+    if OS.mac?
+      system bin/"auto-editor", mp4in, "--edit", "none", "--when-normal", "text:Hello", "-o", testpath/"text.mp4"
+      assert_path_exists testpath/"text.mp4"
+    end
 
     whisper = Formula["whisper.cpp"]
     system bin/"auto-editor", "whisper", whisper.pkgshare/"jfk.wav",
