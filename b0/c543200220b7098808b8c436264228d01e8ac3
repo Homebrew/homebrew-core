@@ -1,20 +1,14 @@
 Formula/b/bkmr.rb
-  s_20ee2ac03ef1eb::t_1d8015c37c2d37 34-37
-  s_20ee2ac03ef1eb::t_89334c6db92684 38-39
+  h_9df9c32c3f321d 34-39
 ---
 {
   "schema_version": "authorship/3.0.0",
-  "git_ai_version": "1.7.4",
+  "git_ai_version": "1.7.5",
   "base_commit_sha": "b0c543200220b7098808b8c436264228d01e8ac3",
   "prompts": {},
-  "sessions": {
-    "s_20ee2ac03ef1eb": {
-      "agent_id": {
-        "tool": "codex",
-        "id": "01a0f20e-6f07-75f0-8662-3a1b08a3a7cb",
-        "model": "gpt-6.1-sol"
-      },
-      "human_author": "Rui Chen <rui@chenrui.dev>"
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
     }
   }
 }
