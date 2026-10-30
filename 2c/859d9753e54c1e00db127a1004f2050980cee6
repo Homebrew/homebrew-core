@@ -1,12 +1,18 @@
 Formula/b/bkmr.rb
   s_20ee2ac03ef1eb::t_1d8015c37c2d37 34-37
   s_20ee2ac03ef1eb::t_89334c6db92684 38-39
+  h_9df9c32c3f321d 34-39
 ---
 {
   "schema_version": "authorship/3.0.0",
   "git_ai_version": "1.7.4",
   "base_commit_sha": "2c859d9753e54c1e00db127a1004f2050980cee6",
   "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  },
   "sessions": {
     "s_20ee2ac03ef1eb": {
       "agent_id": {
