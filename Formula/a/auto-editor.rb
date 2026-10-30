@@ -18,7 +18,13 @@ class AutoEditor < Formula
   depends_on "pkgconf" => :build
   depends_on "ffmpeg"
   depends_on "ggml"
+  depends_on "libass"
   depends_on "whisper.cpp"
+
+  resource "homebrew-roboto", :test do
+    url "https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxP.ttf"
+    sha256 "466989fd178ca6ed13641893b7003e5d6ec36e42c2a816dee71f87b775ea097f"
+  end
 
   def install
     system "nimble", "brewmake"
@@ -32,6 +38,11 @@ class AutoEditor < Formula
     system "ffmpeg", "-filter_complex", "testsrc=rate=1:duration=5", mp4in
     system bin/"auto-editor", mp4in, "--edit", "none"
     assert_match(/Duration: 00:00:05\.00,.*Video: h264/m, shell_output("ffprobe -hide_banner #{mp4out} 2>&1"))
+
+    resource("homebrew-roboto").stage testpath
+    system bin/"auto-editor", mp4in, "--edit", "none", "-w:1",
+      "text:Hello:font=#{testpath}/KFOmCnqEu92Fr1Mu4mxP.ttf", "-o", testpath/"text.mp4"
+    assert_path_exists testpath/"text.mp4"
 
     whisper = Formula["whisper.cpp"]
     system bin/"auto-editor", "whisper", whisper.pkgshare/"jfk.wav",
