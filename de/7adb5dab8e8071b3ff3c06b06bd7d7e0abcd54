@@ -3,7 +3,7 @@ Formula/t/trivy.rb
 ---
 {
   "schema_version": "authorship/3.0.0",
-  "git_ai_version": "1.7.4",
+  "git_ai_version": "1.7.5",
   "base_commit_sha": "de7adb5dab8e8071b3ff3c06b06bd7d7e0abcd54",
   "prompts": {},
   "humans": {
