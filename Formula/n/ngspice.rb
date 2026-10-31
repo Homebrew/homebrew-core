@@ -42,6 +42,8 @@ class Ngspice < Formula
   # Disable the broken macOS memory check. upstream commit ref, https://sourceforge.net/p/ngspice/ngspice/ci/96404e993984065f9104d724672bcdcafd7f356f/
   patch :DATA
 
+  deny_network_access!
+
   def install
     # Xft #includes <ft2build.h>, not <freetype2/ft2build.h>, hence freetype2
     # must be put into the search path.
