@@ -20,6 +20,8 @@ class Mawk < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "bb785fa963052b93f5b6a5e730baee05d3ce373b9898db1f547014208a6301fa"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
