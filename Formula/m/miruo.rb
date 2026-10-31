@@ -31,6 +31,8 @@ class Miruo < Formula
     resolves "https://github.com/KLab/miruo/pull/19"
   end
 
+  deny_network_access!
+
   def install
     args = %W[
       --prefix=#{prefix}
