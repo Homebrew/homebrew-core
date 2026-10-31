@@ -1,0 +1,14 @@
+Formula/t/teleport.rb
+  h_9df9c32c3f321d 7-20,44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "05d6aef9781266b18e75fcc88c2bf37d59f8009e",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
