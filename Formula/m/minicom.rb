@@ -22,6 +22,7 @@ class Minicom < Formula
 
   head do
     url "https://salsa.debian.org/minicom-team/minicom.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
@@ -29,6 +30,8 @@ class Minicom < Formula
   depends_on "pkgconf" => :build
 
   uses_from_macos "ncurses"
+
+  deny_network_access!
 
   def install
     # There is a silly bug in the Makefile where it forgets to link to iconv. Workaround below.
