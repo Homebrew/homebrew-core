@@ -10,6 +10,8 @@ class Anyenv < Formula
     sha256 cellar: :any_skip_relocation, all: "be1c3998ca482ca2cf3377f5db6690f1c74877e5cdfc4266d62c5cc1627caacd"
   end
 
+  allow_network_access! :test
+
   def install
     inreplace "libexec/anyenv", "/usr/local", HOMEBREW_PREFIX
     prefix.install %w[bin completions libexec]
