@@ -22,6 +22,8 @@ class ApacheSpark < Formula
 
   depends_on "openjdk@21"
 
+  allow_network_access! :test
+
   def install
     # Rename beeline to distinguish it from hive's beeline
     mv "bin/beeline", "bin/spark-beeline"
