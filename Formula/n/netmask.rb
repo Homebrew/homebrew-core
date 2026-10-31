@@ -24,6 +24,8 @@ class Netmask < Formula
     depends_on "texinfo" => :build
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"
