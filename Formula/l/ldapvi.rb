@@ -6,6 +6,7 @@ class Ldapvi < Formula
   sha256 "359c84d61198c4b4b62930e21670c077c380a41a121f299313330907967949db"
   license "GPL-2.0-or-later"
   revision 1
+  head "https://github.com/ldapvi/ldapvi.git", branch: "master"
 
   livecheck do
     url :homepage
@@ -34,6 +35,8 @@ class Ldapvi < Formula
   on_macos do
     depends_on "gettext"
   end
+
+  deny_network_access!
 
   def install
     system "./configure", *std_configure_args
