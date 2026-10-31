@@ -406,6 +406,8 @@ class AwsSamCli < Formula
     end
   end
 
+  allow_network_access! :build
+
   def install
     ENV["AWS_CRT_BUILD_USE_SYSTEM_LIBCRYPTO"] = "1"
     ENV["AWS_CRT_BUILD_USE_SYSTEM_LIBS"] = "1"
