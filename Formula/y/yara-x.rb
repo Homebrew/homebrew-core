@@ -23,6 +23,13 @@ class YaraX < Formula
   depends_on "cargo-c" => :build
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    # Not using std_cargo_fetch_args as cbindgen needs all targets
+    system "cargo", "fetch", "--locked"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "cli")
     system "cargo", "cinstall", "-p", "yara-x-capi", "--jobs", ENV.make_jobs.to_s, "--release",
