@@ -8,12 +8,11 @@ class Sqlfluff < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "ce891fcd17c20b6a4cad481ec62fbfd5485d4b99a69a49fdb1c097fbc450eaac"
-    sha256 cellar: :any, arm64_tahoe:       "ca8b445abc3c1b1203d499790ee12e49f38ad10b29c9d13a31bf738c009431b6"
-    sha256 cellar: :any, arm64_sequoia:     "a3fb92284291eced431dc40938216ac8ed1f8656326e123a36cf30383e410a95"
-    sha256 cellar: :any, arm64_linux:       "6c8bb1e30cc47867db8cdb20aa2213ee0ee2d846d6203ce29862689f09dad960"
-    sha256 cellar: :any, x86_64_linux:      "d541c3e74813ff1cb8bb85681fd53cd59c295dc5b60eb11b2e58efc23cbe0877"
+    sha256 cellar: :any, arm64_golden_gate: "7114bfdc2fdc087bfa28be10a4e3e6ac37065a2c9d72d07ac96c889757086fd0"
+    sha256 cellar: :any, arm64_tahoe:       "b136f8afec98d6daf3393507ea253498631d8e655d6af9edafd28fa15655ecce"
+    sha256 cellar: :any, arm64_sequoia:     "b15738f8f9869b22523f4a017707f892a1172d08f1ee6b98198cf84c933ff415"
+    sha256 cellar: :any, arm64_linux:       "fcdbe95c01b5d6612ea5cc036cca72ffa1403c05a0f11573dc3ea765b5af341b"
+    sha256 cellar: :any, x86_64_linux:      "4567766b32009b0d581240c25098e8d05848f9b93fe3cc73f0019b4e33506aea"
   end
 
   depends_on "libyaml"
