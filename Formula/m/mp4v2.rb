@@ -21,13 +21,14 @@ class Mp4v2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "529cebb9ec595d2834e29ff7be7a29150453be53b55a1269284992cd8c35de06"
   end
 
-  conflicts_with "bento4",
-    because: "both install `mp4extract` and `mp4info` binaries"
+  conflicts_with "bento4", because: "both install `mp4extract` and `mp4info` binaries"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     file "Patches/libtool/configure-big_sur.diff"
   end
+
+  deny_network_access!
 
   def install
     system "./configure", *std_configure_args
