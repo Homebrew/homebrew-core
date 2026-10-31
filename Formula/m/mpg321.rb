@@ -43,6 +43,8 @@ class Mpg321 < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     # Fix compilation with GCC 11
     ENV.append_to_cflags "-fcommon" if OS.linux?
