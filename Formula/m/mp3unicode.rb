@@ -44,6 +44,8 @@ class Mp3unicode < Formula
   depends_on "pkgconf" => :build
   depends_on "taglib"
 
+  deny_network_access!
+
   def install
     ENV.append "ICONV_LIBS", "-liconv" if OS.mac?
     ENV.append "CXXFLAGS", "-std=c++17"
