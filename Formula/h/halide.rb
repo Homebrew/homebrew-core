@@ -1,9 +1,8 @@
 class Halide < Formula
   desc "Language for fast, portable data-parallel computation"
   homepage "https://halide-lang.org"
-  url "https://github.com/halide/Halide/archive/refs/tags/v22.0.0.post3.tar.gz"
-  version "22.0.0.post3"
-  sha256 "de3e1a168de2a326eb9739e59fb2305fab58cb55085c8f11b2764adc0e1463d2"
+  url "https://github.com/halide/Halide/archive/refs/tags/v22.1.0.tar.gz"
+  sha256 "35b59f91be6189645abf33078b1954740a434d97aaeaeaf5f15d162d86b74f6e"
   license "MIT"
   head "https://github.com/halide/Halide.git", branch: "main"
 
@@ -14,11 +13,11 @@ class Halide < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "483d21a8c38026326fc7df178c3638a6ec1127747843ebfca8e01a93fdef444f"
-    sha256 cellar: :any, arm64_tahoe:       "6937758a4d2af171e360bce5cba8dd44db8fb5e926772f62b3e86a4b80e6d655"
-    sha256 cellar: :any, arm64_sequoia:     "047b709baad9f86a23649d0ff35144363de844892ae30f76c3bf4fde98ab5167"
-    sha256 cellar: :any, arm64_linux:       "d18c5922f95e0ebd91f9c2c409349f9df7c49c036eac4968c75a7030d01d6e76"
-    sha256 cellar: :any, x86_64_linux:      "b7ee7ee561a16a951e36b010862b2c4dd88ffab75076d1d41cd0323e58dec242"
+    sha256 cellar: :any, arm64_golden_gate: "4b68d3644ef118b686d0f998652dbbf8efe2fca832dbb6fc273422a2e65bba8b"
+    sha256 cellar: :any, arm64_tahoe:       "7ea4d3d40a0104a7517436cf9dd9d4cf9171789cc15c4e49eabc50782b427964"
+    sha256 cellar: :any, arm64_sequoia:     "4f57547b5ca43b2f63767b40a5607fa76926f8e6bcdeb7564d90cf066a11d8df"
+    sha256 cellar: :any, arm64_linux:       "a49d99d5630a087cac32cfa2e10b289e78c1956d37238675201ea0c3e0c3f131"
+    sha256 cellar: :any, x86_64_linux:      "bda661c3abef669234824acd20b17338fc484199690cdde414c81cbe0cb60fad"
   end
 
   depends_on "cmake" => :build
