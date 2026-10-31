@@ -20,6 +20,8 @@ class Arttime < Formula
     depends_on "zsh"
   end
 
+  deny_network_access!
+
   def install
     ENV["TERM"]="xterm"
     system "./install.sh", "--noupdaterc", "--prefix", prefix, "--zcompdir", zsh_completion
