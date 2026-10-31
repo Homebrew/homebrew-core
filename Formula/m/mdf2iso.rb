@@ -26,6 +26,8 @@ class Mdf2iso < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "5a24e6b2c8771e9f5119bc4baa9bb8da4570df954d44782ba43e6b5c6f7e6a3a"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
