@@ -24,6 +24,8 @@ class Argon2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "58b4014f120e135a991f1023f210366ef3e9175a37a05a3fffb06a9fe3c23ff4"
   end
 
+  deny_network_access!
+
   def install
     system "make", "PREFIX=#{prefix}", "ARGON2_VERSION=#{version}", "LIBRARY_REL=lib"
     system "make", "test"
