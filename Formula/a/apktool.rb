@@ -16,6 +16,8 @@ class Apktool < Formula
     sha256 "b3159fd172d39c6b73d1c0f18e31ceeaf1fe25c638e8946eb1a9af9432e1fd24"
   end
 
+  deny_network_access!
+
   def install
     libexec.install "apktool_#{version}.jar"
     bin.write_jar_script libexec/"apktool_#{version}.jar", "apktool"

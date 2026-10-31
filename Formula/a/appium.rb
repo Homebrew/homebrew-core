@@ -35,6 +35,8 @@ class Appium < Formula
     sha256 "15663ca4944844139023390f057e86f1897d855959ea7e96f151d4873be8c71f"
   end
 
+  allow_network_access! :build
+
   def install
     ENV["APPIUM_SKIP_CHROMEDRIVER_INSTALL"] = "1"
 

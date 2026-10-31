@@ -13,6 +13,8 @@ class ApacheGeode < Formula
 
   depends_on "openjdk"
 
+  allow_network_access! :test
+
   def install
     rm("bin/gfsh.bat")
     bash_completion.install "bin/gfsh-completion.bash" => "gfsh"

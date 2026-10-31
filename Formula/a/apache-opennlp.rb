@@ -12,6 +12,8 @@ class ApacheOpennlp < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     # Remove Windows scripts
     rm(Dir["bin/*.bat"])

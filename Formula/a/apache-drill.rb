@@ -17,6 +17,8 @@ class ApacheDrill < Formula
 
   depends_on "openjdk@21"
 
+  allow_network_access! :test
+
   def install
     rm(Dir["bin/*.bat"])
     libexec.install Dir["*"]
