@@ -34,16 +34,18 @@ class MinimalRacket < Formula
   # these two files are amended when (un)installing packages
   skip_clean "lib/racket/launchers.rktd", "lib/racket/mans.rktd"
 
-  def racket_config
-    etc/"racket/config.rktd"
-  end
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
+  def racket_config = etc/"racket/config.rktd"
 
   def install
     # configure racket's package tool (raco) to do the Right Thing
     # see: https://docs.racket-lang.org/raco/config-file.html
     inreplace "etc/config.rktd", /\)\)\n$/, ") (default-scope . \"installation\"))\n"
 
-    # Prioritise OpenSSL 3 over OpenSSL 1.1.
+    # Prioritise OpenSSL 4 over OpenSSL 1.1/3.
     inreplace %w[libssl.rkt libcrypto.rkt].map { |file| buildpath/"collects/openssl"/file },
               /"(?:1\.1|3)"/, '"4"'
 
@@ -59,8 +61,8 @@ class MinimalRacket < Formula
         --enable-useprefix
       ]
 
-      ENV["LDFLAGS"] = "-rpath #{formula_opt_lib("openssl@4")}"
-      ENV["LDFLAGS"] = "-Wl,-rpath=#{formula_opt_lib("openssl@4")}" if OS.linux?
+      ENV["LDFLAGS"] = "-rpath #{formula_opt_lib(openssl)}"
+      ENV["LDFLAGS"] = "-Wl,-rpath=#{formula_opt_lib(openssl)}" if OS.linux?
 
       system "./configure", *args
       system "make"
@@ -68,7 +70,6 @@ class MinimalRacket < Formula
 
       # Link to the Homebrew ssl libraries, overwriting the bundled libraries
       if OS.mac?
-        openssl = Formula["openssl@4"]
         racket_libdir = lib/"racket"
 
         %w[libssl.4.dylib libcrypto.4.dylib].each do |dylib|
@@ -76,8 +77,8 @@ class MinimalRacket < Formula
           path.unlink if path.exist?
         end
 
-        ln_s openssl.opt_lib/"libssl.4.dylib",    racket_libdir/"libssl.4.dylib"
-        ln_s openssl.opt_lib/"libcrypto.4.dylib", racket_libdir/"libcrypto.4.dylib"
+        ln_s formula_opt_lib(openssl)/"libssl.4.dylib",    racket_libdir/"libssl.4.dylib"
+        ln_s formula_opt_lib(openssl)/"libcrypto.4.dylib", racket_libdir/"libcrypto.4.dylib"
       end
     end
 
@@ -126,7 +127,7 @@ class MinimalRacket < Formula
       assert_match(%r{.*openssl@4/.*/libssl.*\.dylib}, output)
     else
       output = shell_output("LD_DEBUG=libs #{bin}/racket -e '(require openssl)' 2>&1")
-      assert_match "init: #{formula_opt_lib("openssl@4")/shared_library("libssl")}", output
+      assert_match "init: #{formula_opt_lib(openssl)/shared_library("libssl")}", output
     end
   end
 end
