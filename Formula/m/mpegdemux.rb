@@ -27,6 +27,8 @@ class Mpegdemux < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "fd54e487becb88cdbd5e2acad97281980762b9de0c49f44df81d43d1273afcc1"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
