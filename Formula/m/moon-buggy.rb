@@ -32,6 +32,8 @@ class MoonBuggy < Formula
 
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     args = ["--mandir=#{man}", "--infodir=#{info}"]
     if build.head?
