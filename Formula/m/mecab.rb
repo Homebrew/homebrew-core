@@ -25,6 +25,8 @@ class Mecab < Formula
 
   conflicts_with "mecab-ko", because: "both install mecab binaries"
 
+  deny_network_access!
+
   def install
     # Put dic files in HOMEBREW_PREFIX/lib instead of lib
     inreplace "mecab-config.in", "@libdir@/mecab/dic", HOMEBREW_PREFIX/"lib/mecab/dic"
