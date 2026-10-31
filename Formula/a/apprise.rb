@@ -66,6 +66,8 @@ class Apprise < Formula
     sha256 "63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
 
