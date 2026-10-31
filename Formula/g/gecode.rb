@@ -1,10 +1,10 @@
 class Gecode < Formula
   desc "Toolkit for developing constraint-based systems and applications"
   homepage "https://www.gecode.dev/"
-  url "https://github.com/Gecode/gecode/archive/refs/tags/release-6.4.0.tar.gz"
-  sha256 "4cc0e4f440f821a643e637801094cd42ccb5946caf5248c905f29f5f3a16f260"
+  url "https://github.com/Gecode/gecode/archive/refs/tags/release-6.5.0.tar.gz"
+  sha256 "83d854613d356da9bc040864479e98d81d090087366219aa23832375a965d64a"
   license "MIT"
-  compatibility_version 1
+  compatibility_version 2
 
   bottle do
     rebuild 1
