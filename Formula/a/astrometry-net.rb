@@ -42,6 +42,8 @@ class AstrometryNet < Formula
     sha256 "92a02f0e63d539d85ca5a185ae0cc8d40029270858275964ee2539ee0136f0c3"
   end
 
+  deny_network_access!
+
   def install
     # astrometry-net doesn't support parallel build
     # See https://github.com/dstndstn/astrometry.net/issues/178#issuecomment-592741428
