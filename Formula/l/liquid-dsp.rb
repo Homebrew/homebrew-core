@@ -18,6 +18,8 @@ class LiquidDsp < Formula
   depends_on "automake" => :build
   depends_on "fftw"
 
+  deny_network_access!
+
   def install
     system "./bootstrap.sh"
     system "./configure", "--prefix=#{prefix}"
