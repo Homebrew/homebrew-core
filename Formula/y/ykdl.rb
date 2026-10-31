@@ -28,6 +28,8 @@ class Ykdl < Formula
     sha256 "7ade990a1667d7a653bcaf9413b16c3eb5cd618982ff46aaff57fe6d9fa9c0fd"
   end
 
+  deny_network_access! :postinstall
+
   def install
     virtualenv_install_with_resources
   end
