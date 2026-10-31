@@ -14,6 +14,8 @@ class Autojump < Formula
 
   depends_on "python@3.15"
 
+  deny_network_access!
+
   def install
     python_bin = formula_opt_libexec("python@3.15")/"bin"
     system python_bin/"python", "install.py", "-d", prefix, "-z", zsh_completion

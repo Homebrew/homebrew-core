@@ -26,6 +26,8 @@ class Automysqlbackup < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "eae5fa097a6796bd0aeb27e2a4026257d8b8a868263f292a693723c32404a0d3"
   end
 
+  deny_network_access!
+
   def install
     inreplace "automysqlbackup" do |s|
       s.gsub! "/etc", etc
