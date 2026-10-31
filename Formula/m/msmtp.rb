@@ -28,6 +28,8 @@ class Msmtp < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     # gnulib's base64.h uses `bool` without including
     # <stdbool.h>, assuming C23. Force the include for pre-C23 compilers.
