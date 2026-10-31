@@ -11,11 +11,11 @@ class Openkermit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fd4c015f1e4713f6d5ca3ee01867c00ce11b47b5b5219819ba2e391c2e1d9bc1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "03c5320aa114c192febc40597a35fc56198821b93c6630329b94a89fa290aacb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eca14317f7cc0aa490fbfc15f5260c23f75672ba3782361ef43b2ac912dfc2bc"
-    sha256 cellar: :any,                 arm64_linux:       "5e7e968678c333fab38ddba006531370ab29b4fca0998f0a4f14caf683d67cb6"
-    sha256 cellar: :any,                 x86_64_linux:      "f3dba795a148410af7e21d04e69da90b580545a50e7dfc1615a54ac13ef6e22f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "aace7c4e40cecaac4657f41ba3c30ae2ac5ecbf43245808879f3007185aeacfc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2f67d050e5220491048f38579ef408a37b0d73442b54bfcf86647706e288f8e1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9852c97d167e4124e2ff84e38c08c5e2429526f02456a0722675be1f6576b430"
+    sha256 cellar: :any,                 arm64_linux:       "5561690f5cf1145315b329f0ead3078f06a1094c40b0a35c9d927aa37b958165"
+    sha256 cellar: :any,                 x86_64_linux:      "5c74ca0df9e9c86b80ac5b4b693e1a295ce6516be1411b83362b16f03904c620"
   end
 
   uses_from_macos "libxcrypt"
