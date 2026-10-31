@@ -32,6 +32,8 @@ class Minimodem < Formula
   depends_on "libsndfile"
   depends_on "pulseaudio"
 
+  deny_network_access!
+
   def install
     system "./configure", "--without-alsa", *std_configure_args
     system "make", "install"
