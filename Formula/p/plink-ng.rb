@@ -1,9 +1,9 @@
 class PlinkNg < Formula
   desc "Whole-genome association analysis toolset (PLINK 2.0)"
   homepage "https://www.cog-genomics.org/plink/2.0/"
-  url "https://github.com/chrchang/plink-ng/archive/refs/tags/v2.0.0-b.1.2.tar.gz"
-  version "2.0.0-b.1.2"
-  sha256 "cae10bba9c470c1adb336d8871f1ca071b9e57e2bf6c86677c208184c7dc4a42"
+  url "https://github.com/chrchang/plink-ng/archive/refs/tags/v2.0.0-b.1.3.tar.gz"
+  version "2.0.0-b.1.3"
+  sha256 "e36dde2aad1f4b8980c8454f4b6a744016a1e4298eef8c130ffd433d92eaec23"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later"]
   head "https://github.com/chrchang/plink-ng.git", branch: "master"
 
@@ -34,7 +34,7 @@ class PlinkNg < Formula
       # Link against zstd rather than the bundled copy.
       args = ["STATIC_ZSTD="]
       # OpenBLAS ships LAPACK and LAPACKE, so a single -lopenblas is enough.
-      args << "BLASFLAGS=-L#{formula_opt_lib("openblas")} -lopenblas" if OS.linux?
+      args += ["BLASFLAGS=-L#{formula_opt_lib("openblas")}", "BLASLIBS=-lopenblas"] if OS.linux?
 
       system "make", *args
       bin.install "plink2", "pgen_compress"
