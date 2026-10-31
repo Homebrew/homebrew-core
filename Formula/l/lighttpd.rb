@@ -34,6 +34,8 @@ class Lighttpd < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   # default max. file descriptors; this option will be ignored if the server is not started as root
   MAX_FDS = 512
 
