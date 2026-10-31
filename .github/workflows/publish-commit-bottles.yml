@@ -308,7 +308,7 @@ jobs:
         id: git-user-config
         uses: Homebrew/actions/git-user-config@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
         with:
-          username: ${{ (github.actor != 'github-actions[bot]' && github.actor) || 'BrewTestBot' }}
+          username: ${{ case(github.actor == 'github-actions[bot]', 'BrewTestBot', github.actor) }}
 
       - name: Set up commit signing
         uses: Homebrew/actions/setup-commit-signing@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
@@ -329,7 +329,7 @@ jobs:
           HOMEBREW_GIT_COMMITTER_NAME: BrewTestBot
           HOMEBREW_GIT_COMMITTER_EMAIL: 1589480+BrewTestBot@users.noreply.github.com
           EXPECTED_SHA: ${{needs.check.outputs.head_sha}}
-          WARN_ON_UPLOAD_FAILURE_FLAG: ${{inputs.warn_on_upload_failure && '--warn-on-upload-failure' || ''}}
+          WARN_ON_UPLOAD_FAILURE_FLAG: ${{ case(inputs.warn_on_upload_failure, '--warn-on-upload-failure', '') }}
           MESSAGE: ${{inputs.message}}
         run: |
           local_git_head="$(git rev-parse HEAD)"
@@ -395,7 +395,7 @@ jobs:
           HOMEBREW_GIT_COMMITTER_NAME: BrewTestBot
           HOMEBREW_GIT_COMMITTER_EMAIL: 1589480+BrewTestBot@users.noreply.github.com
           REPO_PATH: ${{steps.set-up-homebrew.outputs.repository-path}}
-          WARN_ON_UPLOAD_FAILURE_FLAG: ${{inputs.warn_on_upload_failure && '--warn-on-upload-failure' || ''}}
+          WARN_ON_UPLOAD_FAILURE_FLAG: ${{ case(inputs.warn_on_upload_failure, '--warn-on-upload-failure', '') }}
         run: |
           git -C "$REPO_PATH" fetch --no-tags origin +refs/heads/main:refs/remotes/origin/main
 

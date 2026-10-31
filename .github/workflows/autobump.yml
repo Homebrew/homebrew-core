@@ -17,7 +17,7 @@ on:
     - cron: "45 1-23/3 * * *"
 
 concurrency:
-  group: autobump-${{ inputs.formulae && github.run_id || 'scheduled' }}
+  group: autobump-${{ case(!!inputs.formulae, github.run_id, 'scheduled') }}
   cancel-in-progress: true
 
 permissions:
@@ -47,7 +47,7 @@ jobs:
       - name: Configure Git user
         uses: Homebrew/actions/git-user-config@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
         with:
-          username: ${{ (github.event_name == 'workflow_dispatch' && github.actor) || 'BrewTestBot' }}
+          username: ${{ case(github.event_name == 'workflow_dispatch', github.actor, 'BrewTestBot') }}
 
       - name: Set up commit signing
         uses: Homebrew/actions/setup-commit-signing@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
