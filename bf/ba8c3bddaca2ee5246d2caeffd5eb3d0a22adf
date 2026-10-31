@@ -1,0 +1,14 @@
+Formula/v/vuls.rb
+  h_9df9c32c3f321d 7-43,57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "bfba8c3bddaca2ee5246d2caeffd5eb3d0a22adf",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
