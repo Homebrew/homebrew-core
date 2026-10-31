@@ -1,20 +1,17 @@
 class GuileFibers < Formula
   desc "Concurrent ML-like concurrency for Guile"
   homepage "https://codeberg.org/guile/fibers"
-  url "https://codeberg.org/guile/fibers/archive/v1.4.3.tar.gz"
-  sha256 "fd055e9cee7ec11f7d9a6009e5387c002e99beb9fa9d2da3eab1b4da92b5be91"
+  url "https://codeberg.org/guile/fibers/archive/v2.0.0.tar.gz"
+  sha256 "5cf63d8afbafe94b51fc94ccaf24f1643438dabfdd8f5fa83ff89cb0b2650b13"
   license "LGPL-3.0-or-later"
   compatibility_version 1
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "ac1f478f22ed4dea73f799382d2f77158fc17f6765695772c2cfa5239dd59e06"
-    sha256 arm64_tahoe:       "d7820b2b6dbae6c3db7b2d4491faa37bc2acc0678d9c6166da50cf3d7fa8d32e"
-    sha256 arm64_sequoia:     "296b5b70e909c339aa4e415bbb577976b45e14f1c04fe065ef888ba59d7f2d25"
-    sha256 arm64_sonoma:      "91386472691afd79272cc8ab3b4531caedcc265dc50e31b6a6dee0bfd7a60c1c"
-    sha256 sonoma:            "539cc161f1176fb5912e5d2f8ba01319d74a74145b1b0fc99b5bf29cc112b7e6"
-    sha256 arm64_linux:       "d0d723de5bacf5f31c01c24e8ba3709538bd9eca797e152a7dce35ec23f9b0e8"
-    sha256 x86_64_linux:      "0dbce87520b4f7f50ef10b2b4aed5f4607d2ca5e1bec164b3e8e46bcb17a6d6c"
+    sha256 arm64_golden_gate: "20d846a468f1f21cbb74fc73062e403d60df50b81fd6d9acec164051441f7393"
+    sha256 arm64_tahoe:       "a198ed5e9b09491ffd641bc6d77a21b6b257487a8f3712576ddd931bd854207e"
+    sha256 arm64_sequoia:     "68fa201fb2342fafa93418def0246e248796809a69e22f89dc58bbfbc0c4bae2"
+    sha256 arm64_linux:       "7dd25c6c684782a47c3982a2fde58a773cccde47c0d816f2f4f0ce6417053b44"
+    sha256 x86_64_linux:      "17dfc1fde0574fd509b3af79fb61e6b14b47e4d847a880580c3b725f31fbb6e6"
   end
 
   depends_on "autoconf" => :build
