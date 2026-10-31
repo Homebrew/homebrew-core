@@ -29,6 +29,8 @@ class Mrtg < Formula
   depends_on "gd"
   depends_on "libpng"
 
+  deny_network_access!
+
   def install
     # Exclude unrecognized options
     args = std_configure_args.reject { |s| s["--disable-debug"] || s["--disable-dependency-tracking"] }
