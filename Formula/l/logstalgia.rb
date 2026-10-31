@@ -36,6 +36,8 @@ class Logstalgia < Formula
     depends_on "mesa-glu"
   end
 
+  deny_network_access!
+
   def install
     ENV.cxx11 # to build with boost>=1.85
 

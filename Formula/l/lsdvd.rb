@@ -29,6 +29,8 @@ class Lsdvd < Formula
     file "Patches/lsdvd/logging.patch"
   end
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--mandir=#{man}", *std_configure_args

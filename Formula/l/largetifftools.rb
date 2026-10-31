@@ -31,6 +31,8 @@ class Largetifftools < Formula
     depends_on "zstd"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
@@ -38,6 +40,6 @@ class Largetifftools < Formula
 
   test do
     system bin/"tifffastcrop", "-p", "-E", "0,0,-1,-1", test_fixtures("test.tiff"), testpath/"output.png"
-    assert File.size?(testpath/"output.png")
+    assert_path_exists testpath/"output.png"
   end
 end

@@ -23,6 +23,8 @@ class Lbdb < Formula
   depends_on "abook"
   depends_on "khard"
 
+  deny_network_access!
+
   def install
     system "./configure", "--libexecdir=#{lib}/lbdb", *std_configure_args
     system "make", "install"

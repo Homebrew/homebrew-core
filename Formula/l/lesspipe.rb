@@ -21,6 +21,8 @@ class Lesspipe < Formula
     depends_on "bash"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}", "--shell=bash"
     system "make", "install"

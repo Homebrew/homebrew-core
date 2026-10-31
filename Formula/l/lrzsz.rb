@@ -21,6 +21,8 @@ class Lrzsz < Formula
 
   conflicts_with "lrzip", because: "both install `lrz` binaries"
 
+  deny_network_access!
+
   def install
     # Workaround for newer Clang
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403

@@ -23,6 +23,8 @@ class Latex2html < Formula
   depends_on "ghostscript"
   depends_on "netpbm"
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--without-mktexlsr",

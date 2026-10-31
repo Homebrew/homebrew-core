@@ -25,6 +25,8 @@ class Log4cpp < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  deny_network_access!
+
   def install
     args = []
     args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm64?

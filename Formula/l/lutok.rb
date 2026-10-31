@@ -28,6 +28,8 @@ class Lutok < Formula
 
   depends_on "lua"
 
+  deny_network_access!
+
   def install
     system "glibtoolize", "--force", "--install"
     system "autoreconf", "--force", "--install", "--verbose"

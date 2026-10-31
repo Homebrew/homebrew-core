@@ -24,6 +24,8 @@ class Log4cplus < Formula
 
   depends_on "pkgconf" => [:build, :test]
 
+  deny_network_access!
+
   def install
     ENV.cxx11
     system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
