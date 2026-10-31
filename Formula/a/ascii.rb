@@ -26,6 +26,8 @@ class Ascii < Formula
 
   depends_on "asciidoctor" => :build
 
+  deny_network_access!
+
   def install
     bin.mkpath
     man1.mkpath
