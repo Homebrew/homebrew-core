@@ -61,6 +61,8 @@ class ArgyllCms < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     resource("jam").stage do
       system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LOCATE_TARGET=bin"

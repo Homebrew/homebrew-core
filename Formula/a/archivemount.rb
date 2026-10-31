@@ -16,6 +16,8 @@ class Archivemount < Formula
   depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE
 
+  deny_network_access!
+
   def install
     system "make", "PREFIX=#{prefix}", "install"
   end

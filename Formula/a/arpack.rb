@@ -30,6 +30,8 @@ class Arpack < Formula
   depends_on "open-mpi"
   depends_on "openblas"
 
+  deny_network_access!
+
   def install
     args = %W[
       --with-blas=-L#{formula_opt_lib("openblas")}\ -lopenblas
