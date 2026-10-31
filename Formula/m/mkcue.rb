@@ -28,6 +28,8 @@ class Mkcue < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "1ffe89a918fbd678d1dd78349a5cc46d6496f2150215f698560b9e4453f13143"
   end
 
+  deny_network_access!
+
   def install
     ENV.cxx11
     args = []
