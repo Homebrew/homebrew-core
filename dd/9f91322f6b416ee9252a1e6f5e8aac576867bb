@@ -1,0 +1,14 @@
+Formula/c/cloudfoundry-cli.rb
+  h_9df9c32c3f321d 22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "dd9f91322f6b416ee9252a1e6f5e8aac576867bb",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
