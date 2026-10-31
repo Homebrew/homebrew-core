@@ -44,6 +44,8 @@ class Nload < Formula
   # Patch taken from MacPorts.
   patch :DATA
 
+  deny_network_access!
+
   def install
     system "./run_autotools"
     args = []
