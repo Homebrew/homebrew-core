@@ -1,10 +1,20 @@
 class Apptainer < Formula
   desc "Application container and unprivileged sandbox platform for Linux"
   homepage "https://apptainer.org/"
-  url "https://github.com/apptainer/apptainer/releases/download/v1.5.5/apptainer-1.5.5.tar.gz"
-  sha256 "d61347c9e554954ae662f40077a163d2af6422e65bbd254797606a8a36cf31c6"
   license "BSD-3-Clause"
   head "https://github.com/apptainer/apptainer.git", branch: "main"
+
+  stable do
+    url "https://github.com/apptainer/apptainer/releases/download/v1.5.5/apptainer-1.5.5.tar.gz"
+    sha256 "d61347c9e554954ae662f40077a163d2af6422e65bbd254797606a8a36cf31c6"
+
+    # Fix build compatibility with Go 1.27.
+    patch do
+      file "Patches/apptainer/go-1.27.diff"
+      type :backport
+      resolves "https://github.com/apptainer/apptainer/pull/3563"
+    end
+  end
 
   bottle do
     sha256 cellar: :any, arm64_linux:  "65cc255d5c32f25ee29bda0ce3f2ce8256eec4c435a9c8195f756b1e04c5aaca"
@@ -14,9 +24,7 @@ class Apptainer < Formula
   # No relocation, the localstatedir to find configs etc is compiled into the program
   pour_bottle? only_if: :default_prefix
 
-  # TODO: unpin go@1.26 when apptainer release supports go 1.27
-  # ref: https://github.com/apptainer/apptainer/pull/3563
-  depends_on "go@1.26" => :build
+  depends_on "go" => :build
   depends_on "pkgconf" => :build
   depends_on "libseccomp"
   depends_on :linux
@@ -25,7 +33,7 @@ class Apptainer < Formula
   deny_network_access!
 
   def fetch
-    system "go", "mod", "download"
+    system "go", "mod", "vendor"
   end
 
   def install
