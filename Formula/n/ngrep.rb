@@ -18,6 +18,8 @@ class Ngrep < Formula
   depends_on "libpcap"
   depends_on "pcre2"
 
+  deny_network_access!
+
   def install
     args = %w[
       --enable-ipv6
