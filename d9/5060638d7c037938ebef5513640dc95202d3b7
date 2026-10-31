@@ -1,0 +1,17 @@
+Patches/apptainer/go-1.27.diff
+  h_9df9c32c3f321d 1-88
+Formula/a/apptainer.rb
+  h_9df9c32c3f321d 7-18,27
+  h_9df9c32c3f321d 36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d95060638d7c037938ebef5513640dc95202d3b7",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
