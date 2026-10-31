@@ -38,6 +38,8 @@ class ArxivLatexCleaner < Formula
     sha256 "8b5fcc4771732191b2b7d1dd68d8f0353f47f8d90b6150f6dce58bf1112442cb"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end
