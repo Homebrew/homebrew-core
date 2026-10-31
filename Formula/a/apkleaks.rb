@@ -48,6 +48,8 @@ class Apkleaks < Formula
     sha256 "7851cf2a15230ea6ff076639c2273bc4ca4c3d81917d2e13c05edcc4d537cc04"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end
