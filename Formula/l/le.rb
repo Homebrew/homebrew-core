@@ -37,6 +37,8 @@ class Le < Formula
     resolves "https://github.com/lavv17/le/pull/39"
   end
 
+  deny_network_access!
+
   def install
     # Configure script makes bad assumptions about curses locations.
     # Future versions allow this to be manually specified:
