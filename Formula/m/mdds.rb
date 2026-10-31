@@ -20,6 +20,8 @@ class Mdds < Formula
 
   depends_on "boost" => :no_linkage
 
+  deny_network_access!
+
   def install
     args = ["--disable-openmp"] if OS.mac?
     configure = build.head? ? "./autogen.sh" : "./configure"
