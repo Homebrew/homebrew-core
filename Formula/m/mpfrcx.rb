@@ -34,6 +34,8 @@ class Mpfrcx < Formula
   depends_on "libmpc"
   depends_on "mpfr"
 
+  deny_network_access!
+
   def install
     # Regenerate configure to avoid building libraries with flat namespaces
     system "autoreconf", "--force", "--install", "--verbose"
