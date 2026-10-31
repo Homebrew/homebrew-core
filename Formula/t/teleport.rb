@@ -1,12 +1,22 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://goteleport.com/"
-  # Check https://goteleport.com/download/ for valid versions as some git tags
-  # aren't marked as GitHub releases but they correspond to official release
-  url "https://github.com/gravitational/teleport/archive/refs/tags/v18.11.1.tar.gz"
-  sha256 "a95bddd445dc3f93d91493b48e73d39959bbc4d4d00cd93fea34b3d02c3ba1da"
   license all_of: ["AGPL-3.0-or-later", "Apache-2.0"]
   head "https://github.com/gravitational/teleport.git", branch: "master"
+
+  stable do
+    # Check https://goteleport.com/download/ for valid versions as some git tags
+    # aren't marked as GitHub releases but they correspond to official release
+    url "https://github.com/gravitational/teleport/archive/refs/tags/v18.11.1.tar.gz"
+    sha256 "a95bddd445dc3f93d91493b48e73d39959bbc4d4d00cd93fea34b3d02c3ba1da"
+
+    # Update strcase for Go 1.27's Unicode tables.
+    patch do
+      file "Patches/teleport/go-1.27-strcase.diff"
+      type :backport
+      resolves "https://github.com/gravitational/teleport/pull/68801"
+    end
+  end
 
   # Teleport first does a commercial release and then has a delayed open-source
   # git tag. Not all tags are marked as GitHub releases so we check that the
@@ -31,9 +41,7 @@ class Teleport < Formula
   end
 
   depends_on "binaryen" => :build
-  # TODO: unpin go@1.26 when teleport bumps `charlievieth/strcase` to v0.0.6+
-  # ref: https://github.com/gravitational/teleport/pull/6880
-  depends_on "go@1.26" => :build
+  depends_on "go" => :build
   depends_on "lld" => :build
   depends_on "llvm" => :build
   depends_on "node" => :build
