@@ -7,11 +7,11 @@ class Act < Formula
   head "https://github.com/nektos/act.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bc6f111b75b7002c87506466aa920cce75d9f862870f138be80d0b32975a3505"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "78978b8c1b3a34917d5170d6dd52dc321d97fdc578c8e2bc21c07a05dac1aed1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e836b978b079763f463d2f754bf87f324abab6b440beb8e2cc5266c1dabdb4ab"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2ce5c4576b694b668fa3b4311252a404642a2730a3844720209ec48245bf4f70"
-    sha256 cellar: :any,                 x86_64_linux:      "2b391c9e26ef7eb2cd0ae29b326b8e34b4d7546dba0897c44ae56162943ad79b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82784edcb090fd27c8c0a3fd10b0bc8b0a8e144ebcb2ae08a5ceae1764e47af9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d2b3e54402e2ac85d7b6c65b27a2ea26b447a9163edd81f28c027e2b93d92378"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "de5925498e16bde9b55008348a2c205c635eda7c017192e3d0037c9a4347e316"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "2b716f73e7274799e25fda21e38f521a30949d4563a021dc62cae41e996c730b"
+    sha256 cellar: :any,                 x86_64_linux:      "0e82972fde56fe4d5340d75291252fd256732843c777c73ef3bebb8f78fd6253"
   end
 
   depends_on "go" => :build
