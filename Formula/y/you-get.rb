@@ -17,6 +17,7 @@ class YouGet < Formula
     sha256 cellar: :any,                 x86_64_linux:      "5c0bc5d85992d0d63c2ebc91b252784f7960862ce2d2889a08309a91e4e4caf6"
   end
 
+  depends_on "python-setuptools" => :build
   depends_on "python@3.15"
   depends_on "rtmpdump"
 
@@ -25,8 +26,13 @@ class YouGet < Formula
     sha256 "f8b1d1f75c6a5be9b525dc80f05b6c869a671481be689da146b2c6937b3450ee"
   end
 
+  allow_network_access! :test
+
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install resources, build_isolation: false
+    venv.pip_install_and_link buildpath, build_isolation: false
+
     bash_completion.install "contrib/completion/you-get-completion.bash" => "you-get"
     fish_completion.install "contrib/completion/you-get.fish"
     zsh_completion.install "contrib/completion/_you-get"
