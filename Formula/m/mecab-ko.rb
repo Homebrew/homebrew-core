@@ -24,6 +24,8 @@ class MecabKo < Formula
 
   conflicts_with "mecab", because: "both install mecab binaries"
 
+  deny_network_access!
+
   def install
     args = ["--sysconfdir=#{etc}"]
     # Help old config scripts identify arm64 linux
