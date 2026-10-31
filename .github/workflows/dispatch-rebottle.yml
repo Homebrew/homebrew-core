@@ -164,7 +164,7 @@ jobs:
         id: git-user-config
         uses: Homebrew/actions/git-user-config@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
         with:
-          username: ${{ (github.actor != 'github-actions[bot]' && github.actor) || 'BrewTestBot' }}
+          username: ${{ case(github.actor == 'github-actions[bot]', 'BrewTestBot', github.actor) }}
 
       - name: Set up commit signing
         uses: Homebrew/actions/setup-commit-signing@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1

@@ -38,11 +38,11 @@ jobs:
     strategy:
       matrix:
         stable: [false, true]
-    name: tap_syntax${{ matrix.stable && ' (stable)' || '' }}
+    name: tap_syntax${{ case(matrix.stable, ' (stable)', '') }}
     runs-on: ubuntu-24.04-arm
     continue-on-error: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'CI-no-fail-fast-syntax') }}
     container:
-      image: ghcr.io/homebrew/brew:${{ matrix.stable && 'latest' || 'main'}}
+      image: ghcr.io/homebrew/brew:${{ case(matrix.stable, 'latest', 'main') }}
     env:
       HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
     steps:
@@ -58,12 +58,13 @@ jobs:
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: /home/linuxbrew/.cache/Homebrew/style
-          key: style-cache-${{ matrix.stable && 'stable-' || 'main-' }}${{ github.sha }}
-          restore-keys: style-cache-${{ matrix.stable && 'stable-' || 'main-' }}
+          key: style-cache-${{ case(matrix.stable, 'stable', 'main') }}-${{ github.sha }}
+          restore-keys: style-cache-${{ case(matrix.stable, 'stable', 'main') }}-
 
-      - run: brew test-bot --only-tap-syntax ${{ matrix.stable && '--stable' || '' }}
+      - run: brew test-bot --only-tap-syntax ${STABLE:+"--stable"}
         env:
           HOMEBREW_SORBET_RECURSIVE: 1
+          STABLE: ${{ case(matrix.stable, '1', '') }}
 
   formulae_detect:
     if: github.repository_owner == 'Homebrew' && github.event_name != 'push'
@@ -399,7 +400,7 @@ jobs:
         if: always()
         uses: Homebrew/actions/post-build@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
         with:
-          runner: ${{ runner.os == 'Linux' && format('{0}-deps', matrix.runner) || matrix.runner }}
+          runner: ${{ case(runner.os == 'Linux', format('{0}-deps', matrix.runner), matrix.runner) }}
           cleanup: ${{ matrix.cleanup }}
           bottles-directory: ${{ env.BOTTLES_DIR }}
           logs-directory: ${{ format('{0}/logs', env.BOTTLES_DIR) }}

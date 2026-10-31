@@ -132,7 +132,7 @@ jobs:
       - name: Checkout replacement PR branch
         working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
         env:
-          START_POINT: ${{ inputs.autosquash && 'origin/main' || 'HEAD' }}
+          START_POINT: ${{ case(inputs.autosquash, 'origin/main', 'HEAD') }}
         run: |
           if git ls-remote --exit-code --heads origin "$REPLACEMENT_BRANCH"
           then
@@ -162,9 +162,9 @@ jobs:
           HOMEBREW_GIT_COMMITTER_NAME: BrewTestBot
           HOMEBREW_GIT_COMMITTER_EMAIL: 1589480+BrewTestBot@users.noreply.github.com
           MESSAGE: ${{ inputs.message }}
-          AUTOSQUASH_FLAG: ${{ inputs.autosquash && '--autosquash' || '' }}
-          CLEAN_FLAG: ${{ !inputs.autosquash && '--clean' || '' }}
-          NO_CHERRY_PICK_FLAG: ${{ !inputs.autosquash && '--no-cherry-pick' || '' }}
+          AUTOSQUASH_FLAG: ${{ case(inputs.autosquash, '--autosquash', '') }}
+          CLEAN_FLAG: ${{ case(inputs.autosquash, '', '--clean') }}
+          NO_CHERRY_PICK_FLAG: ${{ case(inputs.autosquash, '', '--no-cherry-pick') }}
         run: |
           # Don't quote arguments that might be empty; this causes errors.
           brew pr-pull \
@@ -196,7 +196,7 @@ jobs:
           HOMEBREW_GIT_COMMITTER_NAME: BrewTestBot
           HOMEBREW_GIT_COMMITTER_EMAIL: 1589480+BrewTestBot@users.noreply.github.com
           REPO_PATH: ${{ steps.set-up-homebrew.outputs.repository-path }}
-          WARN_ON_UPLOAD_FAILURE_FLAG: ${{ inputs.warn_on_upload_failure && '--warn-on-upload-failure' || '' }}
+          WARN_ON_UPLOAD_FAILURE_FLAG: ${{ case(inputs.warn_on_upload_failure, '--warn-on-upload-failure', '') }}
         run: |
           git -C "$REPO_PATH" fetch --no-tags origin +refs/heads/main:refs/remotes/origin/main
 
@@ -224,7 +224,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
           REVIEWERS: ${{ join(fromJson(steps.reviewers.outputs.reviewers)) }}
-          LABELS: ${{ inputs.upload && 'CI-published-bottle-commits' || '' }}
+          LABELS: ${{ case(inputs.upload, 'CI-published-bottle-commits', '') }}
         run: |
           cat <<MESSAGE > body.txt
           Created by [\`create-replacement-pr.yml\`]($RUN_URL)
