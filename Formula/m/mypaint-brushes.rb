@@ -15,6 +15,8 @@ class MypaintBrushes < Formula
 
   depends_on "libmypaint"
 
+  deny_network_access!
+
   def install
     ENV["ACLOCAL"] = "aclocal"
     ENV["AUTOMAKE"] = "automake"
