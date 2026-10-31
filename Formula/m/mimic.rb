@@ -38,6 +38,8 @@ class Mimic < Formula
     depends_on "alsa-lib"
   end
 
+  deny_network_access!
+
   def install
     system "./autogen.sh"
     system "./configure", "--enable-shared",
