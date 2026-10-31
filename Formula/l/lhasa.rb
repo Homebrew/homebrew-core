@@ -25,12 +25,12 @@ class Lhasa < Formula
 
   depends_on "pkgconf" => :build
 
+  deny_network_access!
+
   def install
-    if build.head?
-      system "./autogen.sh", "--prefix=#{prefix}"
-    else
-      system "./configure", "--prefix=#{prefix}"
-    end
+    configure = build.head? ? "./autogen.sh" : "./configure"
+
+    system configure, "--prefix=#{prefix}"
     system "make", "install"
   end
 
