@@ -23,6 +23,8 @@ class Lunzip < Formula
 
   depends_on "lzip" => :test
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
