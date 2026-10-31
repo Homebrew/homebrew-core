@@ -55,6 +55,8 @@ class Mdk < Formula
     cause "Requires relaxed variadic args"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "CFLAGS=-std=gnu2x"
