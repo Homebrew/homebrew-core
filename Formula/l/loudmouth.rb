@@ -54,6 +54,8 @@ class Loudmouth < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     system "./autogen.sh", "-n" if build.head?
     system "./configure", "--with-ssl=gnutls", *std_configure_args
