@@ -22,6 +22,8 @@ class ApacheFlink < Formula
   # See: https://github.com/apache/flink?tab=readme-ov-file#building-apache-flink-from-source
   depends_on "openjdk@21"
 
+  allow_network_access! :test
+
   def install
     inreplace "conf/config.yaml" do |s|
       s.sub!(/^env:/, "env.java.home: #{Language::Java.java_home("21")}\n\\0")
