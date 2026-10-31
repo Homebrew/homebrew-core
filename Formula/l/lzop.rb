@@ -28,6 +28,8 @@ class Lzop < Formula
 
   depends_on "lzo"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
