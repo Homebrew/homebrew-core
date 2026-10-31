@@ -48,6 +48,8 @@ class Mpfr < Formula
     depends_on "texinfo" => :build
   end
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
 
