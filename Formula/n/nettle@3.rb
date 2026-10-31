@@ -28,6 +28,8 @@ class NettleAT3 < Formula
 
   uses_from_macos "m4" => :build
 
+  deny_network_access!
+
   def install
     system "./configure", "--enable-shared", *std_configure_args
     system "make"
