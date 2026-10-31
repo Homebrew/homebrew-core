@@ -36,6 +36,8 @@ class Netcat < Formula
     end
   end
 
+  allow_network_access! :test
+
   def install
     # Regenerate configure script for arm64/Apple Silicon support.
     system "autoreconf", "--force", "--install", "--verbose"
