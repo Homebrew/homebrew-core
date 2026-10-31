@@ -24,6 +24,8 @@ class Lzip < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "1970bca2bc7ba6d62ba4aa7fe95d386d2277232d7ff57169691ba2297a6b3264"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "CXX=#{ENV.cxx}",
