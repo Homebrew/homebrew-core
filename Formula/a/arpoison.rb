@@ -31,6 +31,8 @@ class Arpoison < Formula
 
   depends_on "libnet"
 
+  deny_network_access!
+
   def install
     inreplace "Makefile", /gcc -lnet (.*)/, "gcc \\1 -lnet" if OS.linux?
     system "make"
