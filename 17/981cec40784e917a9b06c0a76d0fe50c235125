@@ -1,0 +1,16 @@
+Formula/t/teleport.rb
+  h_9df9c32c3f321d 7-20,44
+Patches/teleport/go-1.27-strcase.diff
+  h_9df9c32c3f321d 1-185
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "17981cec40784e917a9b06c0a76d0fe50c235125",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
