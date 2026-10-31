@@ -46,6 +46,8 @@ class Mcabber < Formula
     depends_on "libgpg-error"
   end
 
+  deny_network_access!
+
   def install
     if build.head?
       cd "mcabber"
