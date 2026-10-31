@@ -22,6 +22,8 @@ class M4 < Formula
 
   keg_only :provided_by_macos
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
