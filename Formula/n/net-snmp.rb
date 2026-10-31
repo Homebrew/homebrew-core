@@ -46,6 +46,10 @@ class NetSnmp < Formula
     end
   end
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     args = [
       "--disable-debugging",
@@ -58,7 +62,7 @@ class NetSnmp < Formula
       "--without-kmem-usage",
       "--disable-embedded-perl",
       "--without-perl-modules",
-      "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+      "--with-openssl=#{formula_opt_prefix(openssl)}",
     ]
 
     system "autoreconf", "--force", "--install", "--verbose" if Hardware::CPU.arm?
