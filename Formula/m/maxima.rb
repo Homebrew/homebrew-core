@@ -33,6 +33,8 @@ class Maxima < Formula
     depends_on "gnu-sed" => :build
   end
 
+  deny_network_access!
+
   def install
     ENV["LANG"] = "C" # per build instructions
     system "./configure", "--enable-gettext",
