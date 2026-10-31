@@ -4,7 +4,7 @@ class PyqtAT5 < Formula
   url "https://files.pythonhosted.org/packages/0e/07/c9ed0bd428df6f87183fca565a79fee19fa7c88c7f00a7f011ab4379e77a/PyQt5-5.15.11.tar.gz"
   sha256 "fda45743ebb4a27b4b1a51c6d8ef455c4c1b5d610c90d2934c7802b5c1557c52"
   license "GPL-3.0-only"
-  revision 2
+  revision 3
   compatibility_version 1
 
   bottle do
@@ -21,7 +21,7 @@ class PyqtAT5 < Formula
   disable! date: "2027-05-19", because: "is for end-of-life Qt 5"
 
   depends_on "pyqt-builder" => :build
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "qt@5"
 
   pypi_packages exclude_packages: %w[pyqt5-qt5 pyqt3d-qt5 pyqtchart-qt5
@@ -37,8 +37,8 @@ class PyqtAT5 < Formula
   end
 
   resource "pyqt5-sip" do
-    url "https://files.pythonhosted.org/packages/ea/08/88a20c862f40b5c178c517cdc7e93767967dec5ac1b994e226d517991c9b/pyqt5_sip-12.17.1.tar.gz"
-    sha256 "0eab72bcb628f1926bf5b9ac51259d4fa18e8b2a81d199071135458f7d087ea8"
+    url "https://files.pythonhosted.org/packages/cd/ab/835df8e6fb06a618a4b8664765c5598e933c8113e90448e294549c9447f7/pyqt5_sip-12.20.0.tar.gz"
+    sha256 "93e0622791f8d22cd4a32a29edfdd2ef6d6680f4c47f59b03ebf1c5da3c3e896"
   end
 
   resource "pyqtchart" do
@@ -59,6 +59,14 @@ class PyqtAT5 < Formula
   resource "pyqtpurchasing" do
     url "https://files.pythonhosted.org/packages/68/cf/005c9e79536473c8354c1c2b59a2adcae8aa5b7269b42c06514490aa47fb/PyQtPurchasing-5.15.6.tar.gz"
     sha256 "304b1ea3bfb6555202751220700d9a98d1de9eab464515dfccca96f306ddf00e"
+  end
+
+  # Python 3.15 support, backported from upstream commit 3aa6092c44cd17a3afcd9f8ca879c4e40d2662d1
+  patch do
+    url "https://salsa.debian.org/python-team/packages/pyqt5/-/raw/1c7499d1d4d79737ae367ec263a9be71ce2b76ee/debian/patches/Support-for-Python-v3.15.patch"
+    sha256 "14aa69d2e7e5cdbe9020eed753926f434a2f0569969236a1afd16e20ebf11fcd"
+    type :unofficial
+    resolves "https://bugs.debian.org/1144994"
   end
 
   def install
