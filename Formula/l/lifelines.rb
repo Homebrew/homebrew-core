@@ -18,6 +18,8 @@ class Lifelines < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"
