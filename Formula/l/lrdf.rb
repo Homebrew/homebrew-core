@@ -27,6 +27,8 @@ class Lrdf < Formula
   depends_on "pkgconf" => :build
   depends_on "raptor"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh"
     system "./configure", *std_configure_args
