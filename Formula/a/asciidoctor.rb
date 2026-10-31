@@ -152,6 +152,8 @@ class Asciidoctor < Formula
     sha256 "196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203"
   end
 
+  deny_network_access!
+
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|

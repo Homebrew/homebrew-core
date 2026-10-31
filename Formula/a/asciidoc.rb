@@ -21,6 +21,8 @@ class Asciidoc < Formula
 
   uses_from_macos "libxml2"
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end

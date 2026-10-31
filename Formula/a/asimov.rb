@@ -10,6 +10,8 @@ class Asimov < Formula
     sha256 cellar: :any_skip_relocation, all: "752278f6104a90ad8a42ede78f72583c85494a3e2601269d0388425f7228b8fb"
   end
 
+  deny_network_access!
+
   def install
     bin.install "bin/asimov"
     libexec.install "lib/asimov"
