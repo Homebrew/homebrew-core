@@ -28,6 +28,8 @@ class Archey4 < Formula
     sha256 "043a79146eb2907edf439899f262b3dfe41717d34124298ed281139a8b93ca32"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end
