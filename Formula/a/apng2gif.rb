@@ -24,6 +24,8 @@ class Apng2gif < Formula
 
   depends_on "libpng"
 
+  deny_network_access!
+
   def install
     system "make"
     bin.install "apng2gif"
