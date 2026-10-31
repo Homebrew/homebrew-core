@@ -36,6 +36,8 @@ class Lftp < Formula
     resolves "https://github.com/lavv17/lftp/pull/776"
   end
 
+  deny_network_access!
+
   def install
     # Fix compile with newer Clang
     # https://github.com/lavv17/lftp/issues/611
