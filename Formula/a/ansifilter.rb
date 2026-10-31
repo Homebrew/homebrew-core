@@ -18,6 +18,8 @@ class Ansifilter < Formula
     sha256 cellar: :any,                 x86_64_linux:      "cf3d002314bd6fa6f9ca475909141cfcc3b2bbbbf5b6b6055525a7879e0e4a50"
   end
 
+  deny_network_access!
+
   def install
     system "make", "PREFIX=#{prefix}"
     system "make", "PREFIX=#{prefix}", "install"
