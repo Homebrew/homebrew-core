@@ -33,6 +33,8 @@ class AnsibleCreator < Formula
     sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end
