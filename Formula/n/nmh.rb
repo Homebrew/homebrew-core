@@ -43,6 +43,8 @@ class Nmh < Formula
   conflicts_with "pick", because: "both install `pick` binaries"
   conflicts_with "repl", because: "both install `repl` binaries"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",

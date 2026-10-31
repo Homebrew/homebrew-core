@@ -21,6 +21,8 @@ class Nspr < Formula
     sha256 cellar: :any, x86_64_linux:      "0922c5d8889e433afa933295c1627185d6d92f2c87d422d6d6a84e074bf6340b"
   end
 
+  deny_network_access!
+
   def install
     ENV.deparallelize
     cd "nspr" do

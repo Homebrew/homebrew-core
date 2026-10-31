@@ -31,6 +31,8 @@ class Normalize < Formula
 
   conflicts_with "num-utils", because: "both install `normalize` binaries"
 
+  deny_network_access!
+
   def install
     args = []
     # Help old config scripts identify arm64 linux

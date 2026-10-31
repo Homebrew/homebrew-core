@@ -23,6 +23,8 @@ class Nopoll < Formula
 
   depends_on "openssl@4"
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"

@@ -25,6 +25,8 @@ class Nauty < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "b693b963faee39b702b4d157a7b412ce5d727acfec39f429eaa7fc932cdb0e09"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--enable-tls", "--includedir=#{include}/nauty", *std_configure_args
     system "make", "all", "TLSlibs"

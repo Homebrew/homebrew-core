@@ -48,6 +48,8 @@ class Ncmpcpp < Formula
              "https://github.com/ncmpcpp/ncmpcpp/issues/663"
   end
 
+  deny_network_access!
+
   def install
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
     ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("readline")}"

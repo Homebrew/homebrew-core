@@ -29,6 +29,8 @@ class Nfdump < Formula
     depends_on "libbsd"
   end
 
+  allow_network_access! :test
+
   def install
     # FIXME: the macOS 27 SDK `fts.h` includes `<fts_compat.h>`, which resolves to the bundled
     # `src/libnffile/fts_compat.h` instead, so build the bundled fts implementation there

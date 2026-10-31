@@ -13,6 +13,8 @@ class Numactl < Formula
 
   depends_on :linux
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"

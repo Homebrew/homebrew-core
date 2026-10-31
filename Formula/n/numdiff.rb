@@ -29,6 +29,8 @@ class Numdiff < Formula
 
   depends_on "gmp"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug", "--disable-nls", "--enable-gmp",
            "--prefix=#{prefix}", "--libdir=#{lib}"

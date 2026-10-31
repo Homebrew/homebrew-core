@@ -35,6 +35,8 @@ class Nsuds < Formula
 
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     # Work around failure from GCC 10+ using default of `-fno-common`
     # multiple definition of `showmarks'; nsuds-grid.o:(.bss+0x60): first defined here
