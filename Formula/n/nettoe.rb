@@ -21,6 +21,8 @@ class Nettoe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "f72b5ebf9338c0c725ee8df4e6843ec8f9a13fbb9935e3bd121ce8302c3ecbbc"
   end
 
+  deny_network_access!
+
   def install
     # Work around failure from GCC 10+ using default of `-fno-common`
     # multiple definition of `addrfamily'; nettoe.o:(.bss+0x68): first defined here
