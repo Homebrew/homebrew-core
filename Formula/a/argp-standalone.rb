@@ -26,6 +26,8 @@ class ArgpStandalone < Formula
   depends_on "ninja" => :build
   depends_on :macos # argp is provided by glibc on Linux
 
+  deny_network_access!
+
   def install
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
