@@ -18,6 +18,8 @@ class Antlr < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     prefix.install "antlr-#{version}-complete.jar"
 
