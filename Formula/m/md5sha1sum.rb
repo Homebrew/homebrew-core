@@ -37,10 +37,13 @@ class Md5sha1sum < Formula
     keg_only "Linux provides md5sum and sha1sum via GNU coreutils or BusyBox"
   end
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
-    openssl = Formula["openssl@4"]
-    ENV["SSLINCPATH"] = openssl.opt_include
-    ENV["SSLLIBPATH"] = openssl.opt_lib
+    ENV["SSLINCPATH"] = formula_opt_include(openssl)
+    ENV["SSLLIBPATH"] = formula_opt_lib(openssl)
 
     system "./configure", "--prefix=#{prefix}"
     system "make"

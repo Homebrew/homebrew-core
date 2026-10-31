@@ -29,6 +29,8 @@ class Most < Formula
 
   depends_on "s-lang"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

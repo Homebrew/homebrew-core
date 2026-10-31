@@ -30,6 +30,8 @@ class Mdbtools < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--enable-man",
                           "--with-unixodbc=#{formula_opt_prefix("unixodbc")}",

@@ -28,6 +28,8 @@ class Mtr < Formula
   depends_on "pkgconf" => :build
   depends_on "jansson"
 
+  allow_network_access! :test
+
   def install
     # Fix UNKNOWN version reported by `mtr --version`.
     inreplace "configure.ac",

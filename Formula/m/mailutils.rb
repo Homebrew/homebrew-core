@@ -29,6 +29,8 @@ class Mailutils < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     # This is hardcoded to be owned by `root`, but we have no privileges on installation.
     inreplace buildpath.glob("dotlock/Makefile.*") do |s|

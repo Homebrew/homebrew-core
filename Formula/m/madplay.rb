@@ -32,6 +32,8 @@ class Madplay < Formula
     file "Patches/madplay/patch-audio_carbon.c"
   end
 
+  deny_network_access!
+
   def install
     args = %W[
       --disable-debug

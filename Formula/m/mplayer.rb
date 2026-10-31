@@ -50,6 +50,8 @@ class Mplayer < Formula
     depends_on "nasm" => :build
   end
 
+  deny_network_access!
+
   def install
     # Work around build failure with newer Clang
     if DevelopmentTools.clang_build_version >= 1500

@@ -30,6 +30,8 @@ class Mhash < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  deny_network_access!
+
   def install
     # keygen.c:29:16: error: conflicting types for 'mhash_keygen_uses_hash_algorithm'
     ENV.append "CFLAGS", "-std=gnu17" if DevelopmentTools.clang_build_version >= 1700

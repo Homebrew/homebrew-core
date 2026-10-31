@@ -26,6 +26,8 @@ class Mercury < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "libedit"
 
+  deny_network_access!
+
   def install
     args = %w[--without-readline --with-editline]
     system "./configure", *args, *std_configure_args

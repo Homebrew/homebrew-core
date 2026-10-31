@@ -48,13 +48,17 @@ class MonitoringPlugins < Formula
     resolves "https://github.com/monitoring-plugins/monitoring-plugins/pull/2326"
   end
 
+  allow_network_access! :test
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     # workaround for Xcode 14.3
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     args = %W[
       --libexecdir=#{libexec}/sbin
-      --with-openssl=#{formula_opt_prefix("openssl@4")}
+      --with-openssl=#{formula_opt_prefix(openssl)}
       --with-netsnmpconfig-command=#{formula_opt_bin("net-snmp")}/net-snmp-config
     ]
 
