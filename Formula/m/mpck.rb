@@ -18,6 +18,8 @@ class Mpck < Formula
     sha256 cellar: :any,                 x86_64_linux:      "d6f410b7db70ddfdd09e5aa2d49b1104913bf7c21efe761c8a680a431c80649e"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
