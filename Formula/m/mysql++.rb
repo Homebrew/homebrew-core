@@ -25,10 +25,11 @@ class Mysqlxx < Formula
 
   depends_on "mariadb-connector-c"
 
+  deny_network_access!
+
   def install
-    mariadb = Formula["mariadb-connector-c"]
     system "./configure", "--with-field-limit=40",
-                          "--with-mysql=#{mariadb.opt_prefix}",
+                          "--with-mysql=#{formula_opt_prefix("mariadb-connector-c")}",
                           *std_configure_args
 
     # Delete "version" file incorrectly included as C++20 <version> header
