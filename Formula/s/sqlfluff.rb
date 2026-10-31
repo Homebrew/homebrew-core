@@ -3,30 +3,29 @@ class Sqlfluff < Formula
 
   desc "SQL linter and auto-formatter for Humans"
   homepage "https://docs.sqlfluff.com/"
-  url "https://files.pythonhosted.org/packages/a7/1d/7dbe97cda07244c1dc748c0a08ab9fddb068ca6b4fdff5b67256237de65c/sqlfluff-4.4.0.tar.gz"
-  sha256 "4d2607466624c8e6275d2bcafd3202c940a4bc6622955909b9a68411b03cd443"
+  url "https://files.pythonhosted.org/packages/e6/37/6fa8831fad5ffda6e5d3c2629b4c9ed1a4e480b4d8c9f127f132463d6d75/sqlfluff-4.5.0.tar.gz"
+  sha256 "0b0d5b2cca03e7d138b8d899249fed5fa54083e407bbd161449c0b30f901b7b8"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "ce891fcd17c20b6a4cad481ec62fbfd5485d4b99a69a49fdb1c097fbc450eaac"
-    sha256 cellar: :any, arm64_tahoe:       "ca8b445abc3c1b1203d499790ee12e49f38ad10b29c9d13a31bf738c009431b6"
-    sha256 cellar: :any, arm64_sequoia:     "a3fb92284291eced431dc40938216ac8ed1f8656326e123a36cf30383e410a95"
-    sha256 cellar: :any, arm64_linux:       "6c8bb1e30cc47867db8cdb20aa2213ee0ee2d846d6203ce29862689f09dad960"
-    sha256 cellar: :any, x86_64_linux:      "d541c3e74813ff1cb8bb85681fd53cd59c295dc5b60eb11b2e58efc23cbe0877"
+    sha256 cellar: :any, arm64_golden_gate: "7114bfdc2fdc087bfa28be10a4e3e6ac37065a2c9d72d07ac96c889757086fd0"
+    sha256 cellar: :any, arm64_tahoe:       "b136f8afec98d6daf3393507ea253498631d8e655d6af9edafd28fa15655ecce"
+    sha256 cellar: :any, arm64_sequoia:     "b15738f8f9869b22523f4a017707f892a1172d08f1ee6b98198cf84c933ff415"
+    sha256 cellar: :any, arm64_linux:       "fcdbe95c01b5d6612ea5cc036cca72ffa1403c05a0f11573dc3ea765b5af341b"
+    sha256 cellar: :any, x86_64_linux:      "4567766b32009b0d581240c25098e8d05848f9b93fe3cc73f0019b4e33506aea"
   end
 
   depends_on "libyaml"
   depends_on "python@3.15"
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/b1/51/cd61c567092a6cec796144510a68aff158ebfc1df82950a45bae65f28413/chardet-7.6.0.tar.gz"
-    sha256 "93d9df6089ded42ed1fe9f57e272c0b74bd0464d45c0c7d50f09f26f31105c3c"
+    url "https://files.pythonhosted.org/packages/47/92/3d893ac5d338b9a9af34c5b517d77492dcea8a10254254eead4215a96f3f/chardet-7.7.0.tar.gz"
+    sha256 "0ba38a05201b0abf7570c12d8af45c30b2af835bd5cc52bfc7105082eda82c1e"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "colorama" do
@@ -35,8 +34,8 @@ class Sqlfluff < Formula
   end
 
   resource "diff-cover" do
-    url "https://files.pythonhosted.org/packages/63/ef/479d5b18c5cd61c4fbb769c60d4829ea9d70aef1267e302d6de60deed7f3/diff_cover-10.6.0.tar.gz"
-    sha256 "8d1194dfb537f70480ac97c9c45dd40721cf4c326c9903fbe997db67a4db6195"
+    url "https://files.pythonhosted.org/packages/f5/95/eed8243dd7c3442661c57297b5b1097d463a9d0fdabad5f42200c7ca7548/diff_cover-11.0.0.tar.gz"
+    sha256 "5450247cc885ac0c252f0d7a4cf91608f454377c6f88e579bc9ead410af50c36"
   end
 
   resource "jinja2" do
@@ -55,13 +54,13 @@ class Sqlfluff < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
-    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
+    url "https://files.pythonhosted.org/packages/40/28/1c058a9143d2304b3078f8dadcbb9dc27f7d3581b5d05157c84869c4cc0d/platformdirs-4.14.0.tar.gz"
+    sha256 "83f009c1e8c5fc36869b5171755b291887bd2cade7965233cdfabd23d754720b"
   end
 
   resource "pluggy" do
-    url "https://files.pythonhosted.org/packages/f9/e2/3e91f31a7d2b083fe6ef3fa267035b518369d9511ffab804f839851d2779/pluggy-1.6.0.tar.gz"
-    sha256 "7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3"
+    url "https://files.pythonhosted.org/packages/bf/db/7fc19e6f2dc92a966727031389fc2e08b558f0f25eb7403c1119ad4713cd/pluggy-1.7.0.tar.gz"
+    sha256 "d1eaa46ebb595891b860ab086b4d09c8588af65ebd4361b8e8f4bb8920b90ba8"
   end
 
   resource "pygments" do
