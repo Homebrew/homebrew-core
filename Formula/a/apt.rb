@@ -60,6 +60,8 @@ class Apt < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     # Find our docbook catalog
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
