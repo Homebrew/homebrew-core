@@ -34,6 +34,8 @@ class MitScheme < Formula
     depends_on "texinfo" => :build
   end
 
+  deny_network_access!
+
   def install
     # Liarc builds must launch within the src dir, not using the top-level
     # Makefile
