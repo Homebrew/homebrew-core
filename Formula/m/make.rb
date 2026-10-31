@@ -39,6 +39,8 @@ class Make < Formula
     fails_with :clang # fails with invalid arguments sent to compiler
   end
 
+  deny_network_access!
+
   def install
     if build.head?
       system "./autopull.sh" # downloads gnulib files from git that autogen.sh needs
