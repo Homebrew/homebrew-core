@@ -27,6 +27,8 @@ class Lzo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "8413f94bb69f337f7e1837e7f525e703cac105d27ceeb29de5c08c7bbfa77b29"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
