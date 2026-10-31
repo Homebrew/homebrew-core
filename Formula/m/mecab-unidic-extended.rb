@@ -22,6 +22,8 @@ class MecabUnidicExtended < Formula
 
   link_overwrite "lib/mecab/dic"
 
+  deny_network_access!
+
   def install
     system "./configure", "--with-dicdir=#{lib}/mecab/dic/unidic-extended", *std_configure_args
     system "make", "install"
