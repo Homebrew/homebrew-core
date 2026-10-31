@@ -13,6 +13,8 @@ class Ansiweather < Formula
   uses_from_macos "bc-gh"
   uses_from_macos "jq", since: :sequoia
 
+  allow_network_access! :test
+
   def install
     bin.install "ansiweather"
     man1.install "ansiweather.1"

@@ -154,6 +154,8 @@ class AnsibleLint < Formula
     sha256 "09e5f29531daab93366bb061e76019d5e91691ef0a40328f04c927387d1d364d"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
     rm(bin/name)

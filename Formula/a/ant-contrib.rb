@@ -17,6 +17,8 @@ class AntContrib < Formula
 
   depends_on "ant"
 
+  deny_network_access!
+
   def install
     (share/"ant").install "ant-contrib-1.0b3.jar"
     share.install "docs"
