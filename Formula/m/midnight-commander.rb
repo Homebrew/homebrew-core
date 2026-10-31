@@ -43,6 +43,8 @@ class MidnightCommander < Formula
 
   conflicts_with "minio-mc", because: "both install an `mc` binary"
 
+  deny_network_access!
+
   def install
     args = %w[
       --disable-silent-rules
