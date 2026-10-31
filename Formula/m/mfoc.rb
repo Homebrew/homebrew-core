@@ -35,6 +35,8 @@ class Mfoc < Formula
     depends_on "libusb-compat"
   end
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
