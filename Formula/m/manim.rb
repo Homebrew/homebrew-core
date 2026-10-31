@@ -3,8 +3,8 @@ class Manim < Formula
 
   desc "Animation engine for explanatory math videos"
   homepage "https://www.manim.community"
-  url "https://files.pythonhosted.org/packages/98/fa/cef49e8c5c5617232ae8324a8ad14d8d724eb308dc898687240daca2800b/manim-0.22.0.tar.gz"
-  sha256 "e227aef6dab218c7fe68fa31ed1ff418e1c86a450f43509ed2630f3ffd06602d"
+  url "https://files.pythonhosted.org/packages/12/19/c28736c018d19511ebe53a365b26dfba737a2bb71fbe08a2f69e6c18d48e/manim-0.22.1.tar.gz"
+  sha256 "3245bb52f4dfaa6e74e91a765e38fcaeea7f3923fdef056c6424e173d30dfbc8"
   license "MIT"
   head "https://github.com/manimCommunity/manim.git", branch: "main"
 
@@ -59,8 +59,8 @@ class Manim < Formula
   end
 
   resource "av" do
-    url "https://files.pythonhosted.org/packages/90/bc/a2a40e503250fe5d4174471911828f31658864eb69a8a7cb960c715e17b7/av-19.0.1.tar.gz"
-    sha256 "08674930eaf1af78a3ed8f93d3ba49383323b3a867e84349d9c399e36f7497da"
+    url "https://files.pythonhosted.org/packages/23/01/76b6bf563fe907597cf58f10d10168e93fe588b6db9f2658db87e87efa7e/av-19.0.2.tar.gz"
+    sha256 "bebbc52598886480f4d861c575dc2b020785d6c04e1308680ddcc545e1b94c66"
   end
 
   resource "beautifulsoup4" do
@@ -99,8 +99,8 @@ class Manim < Formula
   end
 
   resource "manimpango" do
-    url "https://files.pythonhosted.org/packages/88/35/30bfde8a5fbb82392755d078e41d3f43b686fa2feb4f8c25c12435e23892/manimpango-0.7.0.tar.gz"
-    sha256 "64330c360f5040ed356b9eb289d52e8ae8cbc3d9c39297c5e77522e1b417f1c7"
+    url "https://files.pythonhosted.org/packages/13/a7/6e48da060ddf8b78765fb5ceb17deaee35a992f2805754e595340c6caccf/manimpango-0.7.1.tar.gz"
+    sha256 "4b2ef45b37a091ebc6775bcc660a91221f4cbd2c5361c5e872ddeb213a5c88bb"
   end
 
   resource "mapbox-earcut" do
@@ -139,8 +139,8 @@ class Manim < Formula
   end
 
   resource "pyglet" do
-    url "https://files.pythonhosted.org/packages/49/5f/cd70a861e9a9da09dd3449619393095f38c47ad63ce9dd1da8c6979f5eec/pyglet-2.1.17.tar.gz"
-    sha256 "3cae0682fc5180122800fce8ae86987c7b45ca154da85ff084bad8bfd00ae03e"
+    url "https://files.pythonhosted.org/packages/31/2a/683a5e2421287c7eaa8dd06866b19f56f372271bf820dcd342936c59b166/pyglet-2.1.19.tar.gz"
+    sha256 "77fae024df940c60917ba604bab9b7e26306d66734186634b698c708cdd9f4be"
   end
 
   resource "pyglm" do
@@ -154,13 +154,13 @@ class Manim < Formula
   end
 
   resource "pyobjc-core" do
-    url "https://files.pythonhosted.org/packages/a5/78/abc4ce5920305780aeb36b4067a86253378b36e29ba96673a3deb02eb03a/pyobjc_core-12.2.2.tar.gz"
-    sha256 "3906452339cd06a3bb07df103c2511d4cb0f7a22d8771c0b802eba15d9a642b6"
+    url "https://files.pythonhosted.org/packages/83/58/7bab095330b8893e1ac58f3cf9710462c3242b600f8fa5db0d5dda795775/pyobjc_core-13.0.tar.gz"
+    sha256 "ffe154462d14aa4852f424e9116f17b5f8d44f78fc0f6c4727e721a5fa7177da"
   end
 
   resource "pyobjc-framework-cocoa" do
-    url "https://files.pythonhosted.org/packages/75/76/49c6da2c6a831020b4854ba20079d5a1030474bffc776b7b73c2eeff8c15/pyobjc_framework_cocoa-12.2.2.tar.gz"
-    sha256 "c96c0ef69a71afbbb0e6a7d594b455c5fe47d62e0db376ee7a2b4b828c16ace9"
+    url "https://files.pythonhosted.org/packages/30/50/55a8779d35f1f86d795264cbd6fe62e35b2cf4fb8343fc888e99268c988a/pyobjc_framework_cocoa-13.0.tar.gz"
+    sha256 "bb7a23941fc8d7866578dbc84e56140efd343a1d28510f530dd1dbf80807daf4"
   end
 
   resource "rich" do
@@ -179,8 +179,8 @@ class Manim < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/71/c3/1b817965ac12dc002d7c9cd7dfffdd7d4fbf9b45763ef2ffe7b86ee94670/soupsieve-2.10.tar.gz"
-    sha256 "49e9380d7d2905463583bafe285e818c7366a9ed7b3aee221c1ac79c905d8bc0"
+    url "https://files.pythonhosted.org/packages/19/63/0b6bae54546aed98d72f12d09df57b19a287f01c84d22047fa2e23772ab9/soupsieve-3.0.4.tar.gz"
+    sha256 "924fab84ae21604c19e175e1f39815eb6fa83ba23836e09e9de180925e5bc4c0"
   end
 
   resource "srt" do
@@ -212,6 +212,8 @@ class Manim < Formula
     if OS.mac?
       # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
       ENV.append_to_cflags "-isysroot #{MacOS.sdk_path}"
+      # Make `pyobjc-core` detect the SDK that superenv compiles with rather than the newer Xcode one
+      ENV["SDKROOT"] = MacOS.sdk_path
     else
       without = resources.filter_map { |r| r.name if r.name.start_with?("pyobjc") }
     end
