@@ -55,6 +55,8 @@ class ArmNoneEabiGdb < Formula
     resolves "https://github.com/Homebrew/homebrew-core/issues/224294"
   end
 
+  deny_network_access!
+
   def install
     target = "arm-none-eabi"
     args = %W[
