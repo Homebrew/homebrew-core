@@ -16,6 +16,8 @@ class Arcadedb < Formula
 
   depends_on "openjdk"
 
+  allow_network_access! :test
+
   def install
     rm Dir["bin/*.bat"]
     libexec.install Dir["*"]
