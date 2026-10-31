@@ -53,6 +53,10 @@ class Neomutt < Formula
   # Ref: https://github.com/neomutt/neomutt/issues/5049
   patch :DATA
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
@@ -72,7 +76,7 @@ class Neomutt < Formula
       --with-idn2=#{formula_opt_prefix("libidn2")}
       --with-lua=#{formula_opt_prefix("lua")}
       --with-ncurses=#{formula_opt_prefix("ncurses")}
-      --with-ssl=#{formula_opt_prefix("openssl@4")}
+      --with-ssl=#{formula_opt_prefix(openssl)}
       --with-sqlite=#{formula_opt_prefix("sqlite")}
     ]
 
