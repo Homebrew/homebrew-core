@@ -62,6 +62,10 @@ class Mutt < Formula
 
   conflicts_with "tin", because: "both install mmdf.5 and mbox.5 man pages"
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     user_in_mail_group = Etc.getgrnam("mail").mem.include?(ENV["USER"])
     effective_group = Etc.getgrgid(Process.egid).name
@@ -82,7 +86,7 @@ class Mutt < Formula
       --with-idn2
       --with-lmdb
       --with-sasl
-      --with-ssl=#{formula_opt_prefix("openssl@4")}
+      --with-ssl=#{formula_opt_prefix(openssl)}
     ]
 
     configure = build.head? ? "./prepare" : "./configure"
