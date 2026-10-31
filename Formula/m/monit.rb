@@ -28,11 +28,15 @@ class Monit < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--localstatedir=#{var}/monit",
                           "--sysconfdir=#{etc}/monit",
-                          "--with-ssl-dir=#{formula_opt_prefix("openssl@4")}"
+                          "--with-ssl-dir=#{formula_opt_prefix(openssl)}"
     system "make"
     system "make", "install"
     etc.install "monitrc"
