@@ -26,6 +26,8 @@ class Mpgtx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "133e123b7b8f9956959847378b68fc0c68f1e591209bb060ab7c7d024426f343"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--parachute",
                           "--prefix=#{prefix}",
