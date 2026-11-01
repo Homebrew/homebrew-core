@@ -12,11 +12,12 @@ class DvrScan < Formula
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ee4a23161c4bc02f2ab6aeee61941e2cb443746be78d13126f34dd1dcca657fc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0d01ba2db412426cdbe4e3bb40d8ede869d629b7884179b10208be642ba636a7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e67893dd34d7300145a2d0479ef3824322ebce8c0b7931b2315fddadcba8f099"
-    sha256 cellar: :any,                 arm64_linux:       "0dc0d499bffd89c714f87cf19d933650b8742e107f21205d06a3837346778438"
-    sha256 cellar: :any,                 x86_64_linux:      "c244e33457c291546898ed21e1f704592df536955308b5e5d994fc2e1f4c62b8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f38c4470152c9254fbcc91002a0dab7aa25f7e13973fbd9d131e4746a31cb745"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1b6f19ec5d092c0b7b0168766c3bd5b00187571f335da1af8de3921671ffdf90"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "87b5d31db9341083f53ef9202dcf5e0294f7576db6c5541fe66d5c08a402ec33"
+    sha256 cellar: :any,                 arm64_linux:       "7611b01632af86dead773eec013697db382e5b09f326a3fa35d4578f2abd6e56"
+    sha256 cellar: :any,                 x86_64_linux:      "eedaa11e3d0100cdef763d210645ef363907cf1147d16121c68b94c6cccc8dd5"
   end
 
   depends_on "cmake" => :build
@@ -55,13 +56,13 @@ class DvrScan < Formula
   end
 
   resource "pyobjc-core" do
-    url "https://files.pythonhosted.org/packages/a5/78/abc4ce5920305780aeb36b4067a86253378b36e29ba96673a3deb02eb03a/pyobjc_core-12.2.2.tar.gz"
-    sha256 "3906452339cd06a3bb07df103c2511d4cb0f7a22d8771c0b802eba15d9a642b6"
+    url "https://files.pythonhosted.org/packages/83/58/7bab095330b8893e1ac58f3cf9710462c3242b600f8fa5db0d5dda795775/pyobjc_core-13.0.tar.gz"
+    sha256 "ffe154462d14aa4852f424e9116f17b5f8d44f78fc0f6c4727e721a5fa7177da"
   end
 
   resource "pyobjc-framework-cocoa" do
-    url "https://files.pythonhosted.org/packages/75/76/49c6da2c6a831020b4854ba20079d5a1030474bffc776b7b73c2eeff8c15/pyobjc_framework_cocoa-12.2.2.tar.gz"
-    sha256 "c96c0ef69a71afbbb0e6a7d594b455c5fe47d62e0db376ee7a2b4b828c16ace9"
+    url "https://files.pythonhosted.org/packages/30/50/55a8779d35f1f86d795264cbd6fe62e35b2cf4fb8343fc888e99268c988a/pyobjc_framework_cocoa-13.0.tar.gz"
+    sha256 "bb7a23941fc8d7866578dbc84e56140efd343a1d28510f530dd1dbf80807daf4"
   end
 
   resource "scenedetect" do
@@ -87,6 +88,8 @@ class DvrScan < Formula
   def install
     # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
     ENV.append_to_cflags "-isysroot #{MacOS.sdk_path}" if OS.mac?
+    # Make `pyobjc-core` detect the SDK that superenv compiles with rather than the newer Xcode one
+    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
 
     without = %w[pyobjc-core pyobjc-framework-cocoa] unless OS.mac?
     virtualenv_install_with_resources without:
