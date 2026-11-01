@@ -11,13 +11,11 @@ class Gpredict < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "8e1e9b3d606b6ffca8f39a36856dc84b85e83451556415739a06658b87985774"
-    sha256 arm64_tahoe:       "f8c9b2ea6c7c613968ed61ec00ef72cb897ede678f428ad5a2107c706504463b"
-    sha256 arm64_sequoia:     "9332a1c6ba2c43e207305c0bca832a84027895724c5e5149589aa47c183debfa"
-    sha256 arm64_sonoma:      "a0cdca7cc480453838f440fe8a2103b97ef89ff4bf49ae2c885ad202ed80bfda"
-    sha256 sonoma:            "5c0e019f9018ffe5ac78e68389b45c56dd3f33b9ffba0ffb0613e6234f71468c"
-    sha256 arm64_linux:       "c52fdcdfaa81e8a571176bc769d8a7360b29dcc04fc0409a974912ef5bbc27da"
-    sha256 x86_64_linux:      "6c985a8fb04516aac9e28e7bd717c20e784ca199bccea3a32a537c6028fa0420"
+    sha256 arm64_golden_gate: "853ff92e19db578d2daab8f38e1b836ef37b62db6d5ccc98085a25225cc17a8b"
+    sha256 arm64_tahoe:       "ca08f60f1d77d7d11636c8a866792e03d6035bbc94eaf4b0bc686fef0e8bd443"
+    sha256 arm64_sequoia:     "36d1de6214f153295991fe9be7e4fa8cc61fb433d01c9f305932f53719b6f97d"
+    sha256 arm64_linux:       "d8d2cebac568a0361b3fe44c262ca858e3172da6fe425ebf0959cba4ede27cfe"
+    sha256 x86_64_linux:      "9e0d73f9c585f31f5ce74f0b9820e09ff1cde0f7289e634bed0b3f868fe587f0"
   end
 
   head do
