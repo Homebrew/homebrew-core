@@ -7,11 +7,11 @@ class Vortix < Formula
   head "https://github.com/Harry-kp/vortix.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "77621d572cc46cfdc2aa431d6a09230c4f48d54f740a58c52485c7600575c8d0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "de151ab03dcda656b12a0c2fec0a42ebdcbe0ca94a17fbfa38b25092ecb0481e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e7526b101c7db1ef2c77bc04d4e259da3a39b8d4bcd51b250fac9d0d7dee5120"
-    sha256 cellar: :any,                 arm64_linux:       "a8a7afb6bc7330c1e2d181284229166daf2eaf07981a0a761b7d780ab7d1bc58"
-    sha256 cellar: :any,                 x86_64_linux:      "66059903399892b9414c17cfb85f422dccf6087b59e360e477435e6b65fd0f74"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8746c1c445b6d22d01fce78774d6cfb4de0aa10ed95882a3a52459ce9ec7daa4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a1e0a77d175b22f861f77a6559c5b858b5d4d95fa8d946693008eb2a0a736509"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b28da956f6eae908df95c37d03cab92a938fa5d1fb7dbba691c7134f601ec1e1"
+    sha256 cellar: :any,                 arm64_linux:       "f1759ca5780d4ef97fe9e1462bbbfb98606fe1136f8734c9da8e3618aa0a7656"
+    sha256 cellar: :any,                 x86_64_linux:      "90c6c97306132d80bedbd3522affa880b29c475214a21e29d175a9d2a4e70f88"
   end
 
   depends_on "rust" => :build
