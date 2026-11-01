@@ -40,6 +40,8 @@ class Xinit < Formula
     depends_on "util-linux"
   end
 
+  allow_network_access! :test
+
   def install_xquartz_resource
     resource("xquartz").stage do
       prefix.install Dir["base/opt/X11/*"]

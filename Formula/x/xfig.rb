@@ -40,6 +40,8 @@ class Xfig < Formula
     depends_on "gnu-sed" => :build
   end
 
+  deny_network_access!
+
   def install
     # Use GNU sed on macOS to avoid this build failure:
     # `sed: 1: " /^[ \t]*\(!\|$\)/ d; s ...": bad flag in substitute command: '}'`

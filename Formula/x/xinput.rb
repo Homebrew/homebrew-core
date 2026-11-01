@@ -29,6 +29,8 @@ class Xinput < Formula
   depends_on "libxinerama"
   depends_on "libxrandr"
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}

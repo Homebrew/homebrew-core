@@ -23,6 +23,8 @@ class Xevd < Formula
   depends_on "cmake" => :build
   depends_on "xeve" => :test
 
+  deny_network_access!
+
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DSET_PROF=MAIN", *std_cmake_args

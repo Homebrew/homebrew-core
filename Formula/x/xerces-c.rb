@@ -23,6 +23,8 @@ class XercesC < Formula
 
   uses_from_macos "curl"
 
+  deny_network_access!
+
   def install
     # Prevent opportunistic linkage to `icu4c`
     args = std_cmake_args + %W[
