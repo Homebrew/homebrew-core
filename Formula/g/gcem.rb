@@ -8,7 +8,8 @@ class Gcem < Formula
   head "https://github.com/kthohr/gcem.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4c337ac05dac7977ed331c345563b4ec5a023af3ec25a1fd9fe714fd812170e4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "9922cb2ea8c9e1410e66b74c11d2f9e5dbcb44670f96603594c63cf705d8d444"
   end
 
   depends_on "cmake" => :build
