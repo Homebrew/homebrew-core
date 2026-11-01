@@ -3,8 +3,8 @@ class Hk < Formula
   homepage "https://hk.jdx.dev"
   # pull from git tag to get submodules
   url "https://github.com/jdx/hk.git",
-      tag:      "v2.10.0",
-      revision: "fdf61b8e3409d72beef8726757ad4426a3ad8ef0"
+      tag:      "v2.11.0",
+      revision: "a0c22a90ac075f52c774cf8be8bf4e45d2b6a42a"
   license "MIT"
   head "https://github.com/jdx/hk.git", branch: "main"
 
