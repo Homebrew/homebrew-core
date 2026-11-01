@@ -28,6 +28,7 @@ class Ryl < Formula
 
   test do
     (testpath/"valid.yaml").write <<~YAML
+      %YAML 1.2
       ---
       ...
     YAML
