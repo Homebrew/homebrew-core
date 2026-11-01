@@ -6,7 +6,7 @@ class FernApi < Formula
   license "Apache-2.0"
 
   livecheck do
-    throttle 5
+    throttle days: 1
   end
 
   bottle do

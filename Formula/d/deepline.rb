@@ -6,7 +6,7 @@ class Deepline < Formula
   license "MIT"
 
   livecheck do
-    throttle 20
+    throttle days: 1
   end
 
   bottle do
