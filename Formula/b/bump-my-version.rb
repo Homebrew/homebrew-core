@@ -3,8 +3,8 @@ class BumpMyVersion < Formula
 
   desc "Version bump your Python project"
   homepage "https://callowayproject.github.io/bump-my-version/"
-  url "https://files.pythonhosted.org/packages/2f/ea/5ce9d814fbd532d8a5d8344bff688170c031f16ef11370b14b42fd3f8e7f/bump_my_version-1.6.7.tar.gz"
-  sha256 "ca21d720a4d951eb26354c9b62776a5481468c2319bd253c3494faf489f49c34"
+  url "https://files.pythonhosted.org/packages/cc/28/a3c548aa0f65db43ccb58e29eae97772f3ab70a5ada306718acb9659f5dc/bump_my_version-1.7.0.tar.gz"
+  sha256 "286e5755768a0d78596fa1854f4c16d258ec4b61a0aaa580cffe7f9ecf867f83"
   license "MIT"
   head "https://github.com/callowayproject/bump-my-version.git", branch: "master"
 
@@ -73,8 +73,8 @@ class BumpMyVersion < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/05/ca/7817b4bf0c4b15c6a6ab8cdf4cb96c268335a8ca2f525de93b6ebe4c7d28/pydantic_settings-2.16.1.tar.gz"
-    sha256 "aff602a1886338c2df3d1e958e2193a8dc33cec75b91f202e83fd98484b4b0da"
+    url "https://files.pythonhosted.org/packages/d0/31/21d21e0e38a8f5f7a7f0cde22820117b6d17d6bc36f348129527f915d7f4/pydantic_settings-2.16.2.tar.gz"
+    sha256 "3dc08ffabed2bbd5dc2dd55ead7b78b4e4c5cd776aecd04310db5f1224caaf46"
   end
 
   resource "pygments" do
