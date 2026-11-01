@@ -28,6 +28,8 @@ class Kona < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "2e0418f26e5be870a8be5747b920ae20db61707f110c3e63c992ab397b8b87dc"
   end
 
+  deny_network_access!
+
   def install
     system "make"
     bin.install "k"
