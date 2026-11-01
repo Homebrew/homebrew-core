@@ -9,7 +9,7 @@ class AwsSdkCpp < Formula
   head "https://github.com/aws/aws-sdk-cpp.git", branch: "main"
 
   livecheck do
-    throttle 15
+    throttle days: 1
   end
 
   bottle do
