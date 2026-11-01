@@ -8,12 +8,7 @@ class Checkov < Formula
   license "Apache-2.0"
 
   livecheck do
-    url "https://pypi.org/rss/project/checkov/releases.xml"
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-    strategy :xml do |xml, regex|
-      xml.get_elements("//item/title").map { |item| item.text[regex, 1] }
-    end
-    throttle 10
+    throttle days: 1
   end
 
   bottle do
