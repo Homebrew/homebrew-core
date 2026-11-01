@@ -11,12 +11,12 @@ class KeeperCommander < Formula
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "996eb28c2678ae0348b7ebcb78fe3282da5a137657c947d15793fa4e281faca0"
-    sha256 cellar: :any, arm64_tahoe:       "2e5ab0d2472a3d787f07d224619d2f9e2d7c0913be5f82dedc814246c9284e8c"
-    sha256 cellar: :any, arm64_sequoia:     "fda6e8365406207caa571d9cca802784f8e9b539e9c20f34ea14789dfd2eec0a"
-    sha256 cellar: :any, arm64_linux:       "16f9c43eb8d998e550eb7ad7f6b6a915e5ed86f1dfc2d453fb001deed240378b"
-    sha256 cellar: :any, x86_64_linux:      "4b240ddc5dbf9445fda5a9635e363dcc505dc573db9d884bcf385493230227a8"
+    rebuild 2
+    sha256 cellar: :any, arm64_golden_gate: "8620eabd647d6fc4038a1cfe3fb2998a77062a57e169c5c3b80633e716d62bc5"
+    sha256 cellar: :any, arm64_tahoe:       "8ff43a50a8757002c8bcbf4c709c975a255c83a36c6c0cb002b8f2ab925aa9e4"
+    sha256 cellar: :any, arm64_sequoia:     "a2b009f7bc3d9fa3f9404390f398b6aaf7962592bd39c1b4216327dca998853a"
+    sha256 cellar: :any, arm64_linux:       "6d535fb1f1f38b156a576dcd13f5f54c1795789d6296bd2be9f28f2783994a81"
+    sha256 cellar: :any, x86_64_linux:      "0985ec9cd9bc307a89b3dcef6f8af32bc9ad9b89fd7d81fe9d1262c601b958f0"
   end
 
   # `pkgconf` and `rust` are for bcrypt
@@ -248,23 +248,23 @@ class KeeperCommander < Formula
   end
 
   resource "pyobjc-core" do
-    url "https://files.pythonhosted.org/packages/a5/78/abc4ce5920305780aeb36b4067a86253378b36e29ba96673a3deb02eb03a/pyobjc_core-12.2.2.tar.gz"
-    sha256 "3906452339cd06a3bb07df103c2511d4cb0f7a22d8771c0b802eba15d9a642b6"
+    url "https://files.pythonhosted.org/packages/83/58/7bab095330b8893e1ac58f3cf9710462c3242b600f8fa5db0d5dda795775/pyobjc_core-13.0.tar.gz"
+    sha256 "ffe154462d14aa4852f424e9116f17b5f8d44f78fc0f6c4727e721a5fa7177da"
   end
 
   resource "pyobjc-framework-cocoa" do
-    url "https://files.pythonhosted.org/packages/75/76/49c6da2c6a831020b4854ba20079d5a1030474bffc776b7b73c2eeff8c15/pyobjc_framework_cocoa-12.2.2.tar.gz"
-    sha256 "c96c0ef69a71afbbb0e6a7d594b455c5fe47d62e0db376ee7a2b4b828c16ace9"
+    url "https://files.pythonhosted.org/packages/30/50/55a8779d35f1f86d795264cbd6fe62e35b2cf4fb8343fc888e99268c988a/pyobjc_framework_cocoa-13.0.tar.gz"
+    sha256 "bb7a23941fc8d7866578dbc84e56140efd343a1d28510f530dd1dbf80807daf4"
   end
 
   resource "pyobjc-framework-localauthentication" do
-    url "https://files.pythonhosted.org/packages/90/5a/24ee91edf0e34b83d847e22a1e66fa2869a29fbcfe0be5c7c1296256e620/pyobjc_framework_localauthentication-12.2.2.tar.gz"
-    sha256 "c7a020a38e6aa279e408f2242e21d7fed0bd66688523e380d9bd0ddd17802c0e"
+    url "https://files.pythonhosted.org/packages/04/68/d929404ce89508d81a6bdc28288fb6e5e345a06bcbc53512d99ccbe64de2/pyobjc_framework_localauthentication-13.0.tar.gz"
+    sha256 "81f6c6a777d094cfb586b0f2572ffb7400233e770e43e17200915b86a25ca2cd"
   end
 
   resource "pyobjc-framework-security" do
-    url "https://files.pythonhosted.org/packages/c2/92/c304b7fc3a0fe7484a2a3cf25711e70c8fa2b6969d82f4010e35b9af2164/pyobjc_framework_security-12.2.2.tar.gz"
-    sha256 "33efab1ff7d18570148f8f3ddd44eca305f733aee00b9115d5263bef81018f65"
+    url "https://files.pythonhosted.org/packages/63/3a/58e0d6ef73812d279a89858ffd06b64d08eebe30bf84441c4b4df6e9665d/pyobjc_framework_security-13.0.tar.gz"
+    sha256 "e5c3f90773fb53dcd525075011f80a83e6f38cb0ad0bcd13fb8f629bf35d22aa"
   end
 
   resource "pyperclip" do
@@ -341,6 +341,8 @@ class KeeperCommander < Formula
     if OS.mac?
       # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
       ENV.append_to_cflags "-isysroot #{MacOS.sdk_path}"
+      # Make `pyobjc-core` detect the SDK that superenv compiles with rather than the newer Xcode one
+      ENV["SDKROOT"] = MacOS.sdk_path
     else
       # `pyobjc-*` dependencies are only needed on macOS
       without = resources.filter_map { |r| r.name if r.name.start_with?("pyobjc") }
