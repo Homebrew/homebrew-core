@@ -1,18 +1,17 @@
 class Verilator < Formula
   desc "Verilog simulator"
   homepage "https://www.veripool.org/wiki/verilator"
-  url "https://github.com/verilator/verilator/archive/refs/tags/v5.052.tar.gz"
-  sha256 "8c8d2e11e6ad32f641dd250742a94195ddecb912e2e2dabe2f42ddbbb99c1092"
+  url "https://github.com/verilator/verilator/archive/refs/tags/v5.054.tar.gz"
+  sha256 "18658731b46922ef660bcb650be0aa503d751e5c17eb9d4644fdfabb11835198"
   license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
   head "https://github.com/verilator/verilator.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "66a097432fffcf28165bcce9b74beae19a3c5d86e931226ff0fa76f131b73054"
-    sha256 arm64_tahoe:       "e7feb1dd658e25f1fb18ee4b1ef4f54e865685041f59f02c1f1b19aa6acba3bb"
-    sha256 arm64_sequoia:     "94ddddacd076100014c0b238781046f965a9b388f1323dbd5b91d4fcd221b4a9"
-    sha256 arm64_linux:       "b45364801472a41bec00e3e088878d581d15e6a700e997e3a361cd7848ff5b3f"
-    sha256 x86_64_linux:      "57851f051cf12172e355fc7b7566d55dc69c76174a03937f2532409f4f93b72a"
+    sha256 arm64_golden_gate: "977c1c40552522c2dc5d71a190547b00a40f67a9e4ef7c5a7157dcb4a116c6d2"
+    sha256 arm64_tahoe:       "5b18598ea779983c69b09f65ff7d5cf7385470337b380d782ff82910ecb4f383"
+    sha256 arm64_sequoia:     "f3e0ae1fbed848217fc8d4151a98fbf5e6ddf0c7a15c1da092c69c369ec38b09"
+    sha256 arm64_linux:       "a15e7001126b0f915e00d4162d37791b2645ec4a4f492125698d464783cb60dc"
+    sha256 x86_64_linux:      "ae61306c19ea1b8f570bd02327b784a0787b0345adff1caf4b0fc4d3d37eac25"
   end
 
   depends_on "autoconf" => :build
@@ -27,12 +26,11 @@ class Verilator < Formula
 
   skip_clean "bin" # Allows perl scripts to keep their executable flag
 
+  deny_network_access!
+
   def install
-    # FIXME: Homebrew flex's `FlexLexer.h` keeps `int` signatures; skip flexfix's `size_t` rewrite for Apple's header
-    inreplace "src/flexfix", 'platform.system() == "Darwin"', "False"
-    system "autoconf"
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--prefix=#{prefix}"
-    ENV.deparallelize if OS.mac?
     # `make` and `make install` need to be separate for parallel builds
     system "make"
     system "make", "install"
