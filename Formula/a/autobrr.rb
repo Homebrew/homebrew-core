@@ -1,8 +1,8 @@
 class Autobrr < Formula
   desc "Modern, easy to use download automation for torrents and usenet"
   homepage "https://autobrr.com/"
-  url "https://github.com/autobrr/autobrr/archive/refs/tags/v1.89.0.tar.gz"
-  sha256 "3c314ccb3cf79ec7acc48dfa1859b3b8e99f07259fc5a51fa75d396c077707bb"
+  url "https://github.com/autobrr/autobrr/archive/refs/tags/v1.90.0.tar.gz"
+  sha256 "188462dcc05dd3781cd906f79708ffbbba5e058053cc24e27c0cec1059d23c02"
   license "GPL-2.0-or-later"
   head "https://github.com/autobrr/autobrr.git", branch: "develop"
 
