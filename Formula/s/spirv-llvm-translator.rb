@@ -1,8 +1,8 @@
 class SpirvLlvmTranslator < Formula
   desc "Tool and a library for bi-directional translation between SPIR-V and LLVM IR"
   homepage "https://github.com/KhronosGroup/SPIRV-LLVM-Translator"
-  url "https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v23.1.2.tar.gz"
-  sha256 "b657254b5e0a2dda7914a8cb1eace467f22847d75d877b83829026c1452f827a"
+  url "https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/refs/tags/v23.1.3.tar.gz"
+  sha256 "9ed57de3f31c575c836bef8f05ce5dfa98a8d80e64d948a02aac83c2e124f842"
   license "Apache-2.0" => { with: "LLVM-exception" }
   compatibility_version 2
 
@@ -16,21 +16,33 @@ class SpirvLlvmTranslator < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "spirv-headers" => :build
   depends_on "llvm"
+
+  resource "spirv-headers" do
+    # Match the upstream spirv-headers-tag.conf.
+    url "https://github.com/KhronosGroup/SPIRV-Headers/archive/cb42dec3830d3ac67fa449ecdc0c0f73d5e74498.tar.gz"
+    version "cb42dec3830d3ac67fa449ecdc0c0f73d5e74498"
+    sha256 "117010e525fe36b1ce006e0e58a6e0a3b415aabc9179d912b92737f41f3f994f"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/KhronosGroup/SPIRV-LLVM-Translator/refs/tags/v#{LATEST_VERSION}/spirv-headers-tag.conf"
+      regex(/^([0-9a-f]{40})$/i)
+    end
+  end
 
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }
   end
 
   def install
+    resource("spirv-headers").stage(buildpath/"spirv-headers")
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: llvm.opt_lib)}" if OS.linux?
     system "cmake", "-S", ".", "-B", "build",
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DCCACHE_ALLOWED=OFF",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-DLLVM_BUILD_TOOLS=ON",
-                    "-DLLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR=#{formula_opt_prefix("spirv-headers")}",
+                    "-DLLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR=#{buildpath}/spirv-headers",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
