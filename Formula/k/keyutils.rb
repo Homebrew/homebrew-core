@@ -13,6 +13,8 @@ class Keyutils < Formula
 
   depends_on :linux
 
+  deny_network_access!
+
   def install
     inreplace "request-key.conf" do |s|
       s.gsub! %r{(\s)/bin/key}, "\\1#{opt_bin}/key"
