@@ -3,17 +3,17 @@ class BumpMyVersion < Formula
 
   desc "Version bump your Python project"
   homepage "https://callowayproject.github.io/bump-my-version/"
-  url "https://files.pythonhosted.org/packages/2f/ea/5ce9d814fbd532d8a5d8344bff688170c031f16ef11370b14b42fd3f8e7f/bump_my_version-1.6.7.tar.gz"
-  sha256 "ca21d720a4d951eb26354c9b62776a5481468c2319bd253c3494faf489f49c34"
+  url "https://files.pythonhosted.org/packages/cc/28/a3c548aa0f65db43ccb58e29eae97772f3ab70a5ada306718acb9659f5dc/bump_my_version-1.7.0.tar.gz"
+  sha256 "286e5755768a0d78596fa1854f4c16d258ec4b61a0aaa580cffe7f9ecf867f83"
   license "MIT"
   head "https://github.com/callowayproject/bump-my-version.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "11b809b350664e22a96d7bc55471a9779e197d0d58f802201277a9fd26b86b5f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cb5b3ce5ad5af6d60fe4549a0c3e97de0ce00c8823707646b53ff56c8dbcd761"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b6d835b9ee3e0130d843e4acda40f76c540e69e67c0a2c349c80561f4db41d1b"
-    sha256 cellar: :any,                 arm64_linux:       "4e6a66338373d6f9c363677da3c690be580cd8fb914904b64f53d3d08778a6f5"
-    sha256 cellar: :any,                 x86_64_linux:      "c8a0180f1234b8c16314c6d8b191eaf532ab4dc772f72f2de0ce751d15db6995"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cd8ba62c3fb60c09bd40e8e7c60bcf64d82b03f40273949607110c0cce11267b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1d942a5201ac0f6d4e3c61d8a56198d00db38df266b8df378e7b0c28bf0a809d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dac2215bca00ad8946ac278377d0b48448696a8b9ad060d54c22925d3b124b0f"
+    sha256 cellar: :any,                 arm64_linux:       "c51c75c6e1810c335c9d50d271756ff91beb09a89a5d4aaa584cdcfb0f9ec20f"
+    sha256 cellar: :any,                 x86_64_linux:      "de21874a76b9c51987fe954577e5348d2ec99a7c848c55136e55ee3baa0c2701"
   end
 
   depends_on "certifi" => :no_linkage
@@ -73,8 +73,8 @@ class BumpMyVersion < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/05/ca/7817b4bf0c4b15c6a6ab8cdf4cb96c268335a8ca2f525de93b6ebe4c7d28/pydantic_settings-2.16.1.tar.gz"
-    sha256 "aff602a1886338c2df3d1e958e2193a8dc33cec75b91f202e83fd98484b4b0da"
+    url "https://files.pythonhosted.org/packages/d0/31/21d21e0e38a8f5f7a7f0cde22820117b6d17d6bc36f348129527f915d7f4/pydantic_settings-2.16.2.tar.gz"
+    sha256 "3dc08ffabed2bbd5dc2dd55ead7b78b4e4c5cd776aecd04310db5f1224caaf46"
   end
 
   resource "pygments" do
