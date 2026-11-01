@@ -1,8 +1,8 @@
 class Qo < Formula
   desc "Interactive minimalist TUI to query JSON, CSV, and TSV using SQL"
   homepage "https://github.com/kiki-ki/go-qo"
-  url "https://github.com/kiki-ki/go-qo/archive/refs/tags/v0.5.1.tar.gz"
-  sha256 "4ee239bd1dd9947b1b32d35c7f5cb79fe26a83c5d50d3b2a91e7496c3da294b7"
+  url "https://github.com/kiki-ki/go-qo/archive/refs/tags/v0.5.2.tar.gz"
+  sha256 "54e8634271f15f3dad74a2e4329e81c620fed11d81abd70f95795ceb76ba9304"
   license "MIT"
 
   bottle do
