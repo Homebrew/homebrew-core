@@ -8,7 +8,7 @@ class Joern < Formula
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
-    throttle 10
+    throttle days: 1
   end
 
   bottle do
