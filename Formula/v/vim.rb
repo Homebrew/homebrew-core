@@ -1,7 +1,7 @@
 class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
-  # vim should only be updated every 50 releases on multiples of 50
+  # vim should only be updated once a day
   url "https://github.com/vim/vim/archive/refs/tags/v9.2.1250.tar.gz"
   sha256 "2862e02dca705c440e10579fa10c81ede0cb6a35ba5aa05a4b22c2ce8f4c78a4"
   license "Vim"
@@ -10,19 +10,14 @@ class Vim < Formula
 
   # The Vim repository contains thousands of tags and the `Git` strategy isn't
   # ideal in this context. This is an exceptional situation, so this checks the
-  # first 50 tags using the GitHub API (to minimize data transfer).
+  # first 10 tags using the GitHub tags feed (to minimize data transfer).
   livecheck do
-    url "https://api.github.com/repos/vim/vim/tags?per_page=50"
+    url "https://github.com/vim/vim/tags.atom"
     regex(/^v?(\d+(?:\.\d+)+)$/i)
-    strategy :json do |json, regex|
-      json.map do |tag|
-        match = tag["name"]&.match(regex)
-        next if match.blank?
-
-        match[1]
-      end
+    strategy :xml do |xml, regex|
+      xml.get_elements("//title").map { |item| item.text[regex, 1] }
     end
-    throttle 50
+    throttle days: 1
   end
 
   bottle do
