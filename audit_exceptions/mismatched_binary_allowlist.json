@@ -8,6 +8,7 @@
   "ghidra": "libexec/docs/GhidraClass/ExerciseFiles/Advanced/*",
   "hashcat": "share/hashcat/extra/fpga/zc706-sdboot/fsbl.elf",
   "i686-elf-grub": "lib/i686-elf/grub/i386-pc/*",
+  "kandev": "libexec/bin/agentctl-{darwin,linux}-{amd64,arm64}",
   "lima": "share/lima/lima-guestagent.Linux-*",
   "picotool": "share/picotool/*.elf",
   "preevy": "libexec/lib/node_modules/preevy/node_modules/@preevy/compose-tunnel-agent/out/*.node",
