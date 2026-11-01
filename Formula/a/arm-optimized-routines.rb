@@ -9,6 +9,11 @@ class ArmOptimizedRoutines < Formula
   ]
   head "https://github.com/ARM-software/optimized-routines.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "062827cb07403531361eefd5f29d9df800b58cff8ab9e437bf217339968ddd3d"
     sha256 cellar: :any, arm64_tahoe:       "be47a663a9c8951e7d4e54d643dc1eef0f0b20342820527a90d06b839aa52739"
