@@ -3,8 +3,8 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/db/7a/baa6cff8bdf720f2af5a93e119d6fbc8421b2c0499521b42d425ff63c7a3/datalad-1.7.2.tar.gz"
-  sha256 "f475432cbdd04e9db01ffab2aa813d1f111907f5b3ff41d07c850c6626f0814a"
+  url "https://files.pythonhosted.org/packages/f1/c3/a8a699bc0dd354c7f4d50bae1c43d7263e9837d5352d53157d3eb9135e98/datalad-1.7.3.tar.gz"
+  sha256 "108f4484724d90b421d6ab44bc53a55a3a93ffa619e43f0831a0a955ca1e6ba3"
   license "MIT"
   head "https://github.com/datalad/datalad.git", branch: "maint"
 
@@ -37,13 +37,13 @@ class Datalad < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/02/1b/97f8ec6ce00ae49455797b8af9fde522624ecf80bc73c937596b558b1853/boto3-1.43.119.tar.gz"
-    sha256 "e12c3b1d81713e14bd6947b7412d9d0ea49b320642d795ded1d64d6483ca6f49"
+    url "https://files.pythonhosted.org/packages/fc/8a/64b46f075149f9160da44aa7e1052dd18431b9ad4435beb0cfb02cc48624/boto3-1.43.123.tar.gz"
+    sha256 "055fabb990c5d2f31fce4ca569255bd640cdd11a3ca68c9ecad35f4f8a5b83b5"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/a8/ab/8e6d1d97c086c127f725cdeffae3b44d92ca3ca40741fb90f245f11887d5/botocore-1.43.119.tar.gz"
-    sha256 "ed11934be6e6d398ac21b7fe03778c9584368eeff8ba5371581f19bb47db0b6a"
+    url "https://files.pythonhosted.org/packages/e0/de/011fc2a47fb066c47064b122498d2fd21f55bc90ea514acbddc37ca0f8c1/botocore-1.43.123.tar.gz"
+    sha256 "80948cb9b1cdf1a1a25809089a42e3a1bc4af0258d198222db6e97dcc660dd0c"
   end
 
   resource "chardet" do
@@ -147,8 +147,8 @@ class Datalad < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/1a/43/8c4b5fe23f0e119cf4e1b16c2d16240ab9057cdbb138568c91d5a48abf81/platformdirs-4.13.6.tar.gz"
-    sha256 "211d176e24674b5895dedf9021c262bcf9fad008a70610bfb147d4a8d6d8fe1b"
+    url "https://files.pythonhosted.org/packages/40/28/1c058a9143d2304b3078f8dadcbb9dc27f7d3581b5d05157c84869c4cc0d/platformdirs-4.14.0.tar.gz"
+    sha256 "83f009c1e8c5fc36869b5171755b291887bd2cade7965233cdfabd23d754720b"
   end
 
   resource "psutil" do
