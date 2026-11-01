@@ -22,6 +22,8 @@ class Lgeneral < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     # Applied in community , to remove in next release
     inreplace "configure", "#include <unistd.h>", "#include <sys/stat.h>\n#include <unistd.h>"

@@ -30,6 +30,8 @@ class LcdfTypetools < Formula
 
   conflicts_with "texlive", because: "both install a `cfftot1` executable"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

@@ -22,6 +22,8 @@ class Lowdown < Formula
 
   depends_on "bmake" => :build
 
+  deny_network_access!
+
   def install
     configure_args = %W[MANDIR=#{man} PREFIX=#{prefix}]
     if OS.mac?

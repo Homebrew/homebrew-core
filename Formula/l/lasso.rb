@@ -36,6 +36,8 @@ class Lasso < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     ENV["PYTHON"] = which("python3")
 

@@ -17,6 +17,8 @@ class Lzsa < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "372be0215ebb1371b04707ea21375a3c7acb2d2e34430455999a4c1f77eac999"
   end
 
+  deny_network_access!
+
   def install
     system "make"
     bin.install "lzsa"

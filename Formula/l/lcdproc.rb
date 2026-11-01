@@ -31,6 +31,8 @@ class Lcdproc < Formula
   # https://github.com/lcdproc/lcdproc/commit/695aa0f76173a03295a6d897d7260a09951931bc
   patch :DATA
 
+  deny_network_access!
+
   def install
     ENV.append_to_cflags "-fcommon" if ENV.compiler.to_s.start_with?("gcc")
 

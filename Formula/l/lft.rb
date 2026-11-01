@@ -24,6 +24,8 @@ class Lft < Formula
 
   uses_from_macos "libpcap"
 
+  allow_network_access! :test
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"

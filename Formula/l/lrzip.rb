@@ -31,6 +31,8 @@ class Lrzip < Formula
 
   conflicts_with "lrzsz", because: "both install `lrz` binaries"
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "SHELL=bash"

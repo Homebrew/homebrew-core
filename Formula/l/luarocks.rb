@@ -22,6 +22,8 @@ class Luarocks < Formula
 
   uses_from_macos "unzip"
 
+  allow_network_access! :test
+
   def install
     # Fix the lua config file missing issue for luarocks-admin build
     ENV.deparallelize

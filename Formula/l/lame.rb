@@ -26,6 +26,8 @@ class Lame < Formula
 
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     # LAME still calls undeclared legacy ID3 APIs, which do not compile as C23.
     # https://sourceforge.net/p/lame/bugs/517/

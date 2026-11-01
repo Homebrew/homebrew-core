@@ -23,6 +23,8 @@ class Lziprecover < Formula
 
   depends_on "lzip" => :test
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"
