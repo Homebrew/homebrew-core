@@ -4,7 +4,7 @@ class Gnuradio < Formula
   desc "SDK for signal processing blocks to implement software radios"
   homepage "https://www.gnuradio.org/"
   license "GPL-3.0-or-later"
-  revision 12
+  revision 13
 
   stable do
     url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.12.0.tar.gz"
@@ -29,14 +29,11 @@ class Gnuradio < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "5fcff9cda85dad90bbe0898e7ef188abd9d25d2e47ecd9de78e2570c431459ab"
-    sha256 cellar: :any, arm64_tahoe:       "c58f17fb1842b683ca2b1da90e1ce945ffbcc1a12fd3cd5d06f5f23181d00dcf"
-    sha256 cellar: :any, arm64_sequoia:     "3276915ae3de66a9e12a3438d9bf3218c656e597fedcfe7b0d17da500649ec7b"
-    sha256 cellar: :any, arm64_sonoma:      "ea636cd143aad90f1ac466764f31e6f6f4c1b51254bca2ba6c192641ac604fe0"
-    sha256 cellar: :any, sonoma:            "b9c9ca90bcc5392396f71e22906f037f843cc932966419d185f7a41d4de7e889"
-    sha256 cellar: :any, arm64_linux:       "8b67a7f5ec5eddc173271d488f83df23dd102c76c6cad2e626c572ace7de706c"
-    sha256 cellar: :any, x86_64_linux:      "a9275f625dc889a850fea0c1a2d74fb4700ece22c1010db2ac8ad2f30b881d92"
+    sha256 cellar: :any, arm64_golden_gate: "e86a68884ed012e785d99241e01372cf29d88000b64c8eba7702110eda6dc0a8"
+    sha256 cellar: :any, arm64_tahoe:       "01c8ca0800998201bc579f286d1016975609dcb2e3ca7adf7355dbec1e67d12e"
+    sha256 cellar: :any, arm64_sequoia:     "1e2d9b5fe5fe3f893b82c600845b6d957c8c3b0fcb2625eec8c2a9037e79f8f9"
+    sha256 cellar: :any, arm64_linux:       "bae262d40a864fff7dc9032394963d7d55cf0d05cd68892a9475965fa6c372b2"
+    sha256 cellar: :any, x86_64_linux:      "95cc9e6797b46c2ddd8f265623aa459cfa8e7addb0d6f85acd32635e213e0943"
   end
 
   head do
@@ -68,7 +65,7 @@ class Gnuradio < Formula
   depends_on "numpy" => :no_linkage
   depends_on "portaudio"
   depends_on "pygobject3" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
   depends_on "soapysdr"
   depends_on "spdlog"
@@ -103,18 +100,18 @@ class Gnuradio < Formula
   # * setuptools - gr-utils/modtool/cli/base.py
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz"
-    sha256 "16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"
+    url "https://files.pythonhosted.org/packages/9a/8e/82a0fe20a541c03148528be8cac2408564a6c9a0cc7e9171802bc1d26985/attrs-26.1.0.tar.gz"
+    sha256 "d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/46/61/de6cd827efad202d7057d93e0fed9294b96952e188f7384832791c7b2254/click-8.3.0.tar.gz"
-    sha256 "e7b8232224eba16f4ebe410c25ced9f7875cb5f3263ffc93cc3e8da705e229c4"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/74/69/f7185de793a29082a9f3c7728268ffb31cb5095131a9c139a74078e27336/jsonschema-4.25.1.tar.gz"
-    sha256 "e4a9655ce0da0c0b67a085847e00a3a51449e1157f4f75e9fb5aa545e122eb85"
+    url "https://files.pythonhosted.org/packages/b3/fc/e067678238fa451312d4c62bf6e6cf5ec56375422aee02f9cb5f909b3047/jsonschema-4.26.0.tar.gz"
+    sha256 "0c26707e2efad8aa1bfc5b7ce170f3fccc2e4918ff85989ba9ffa9facb2be326"
   end
 
   resource "jsonschema-specifications" do
@@ -123,23 +120,23 @@ class Gnuradio < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
-    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
+    url "https://files.pythonhosted.org/packages/23/ad/28ecd7cb894d172f3c9c80a075eeeb2017ac62e3632cee05a5f9493547eb/lxml-6.1.3.tar.gz"
+    sha256 "45222d94ddd511536f3b2f7d9deae3b2339b4ce0f075f1ca25703b07cad9dd21"
   end
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/9e/38/bd5b78a920a64d708fe6bc8e0a2c075e1389d53bef8413725c63ba041535/mako-1.3.10.tar.gz"
-    sha256 "99579a6f39583fa7e5630a28c3c1f440e4e97a414b80372649c0ce338da2ea28"
+    url "https://files.pythonhosted.org/packages/5a/09/e07c4b5579a79f4b16f8d4f29f6c54514ac787c4ad506b8c4f28a0e6b0bf/mako-1.4.3.tar.gz"
+    sha256 "cd6537fe88d5fec315c55c2f8529bc4ce7a9a352ad7db3eeaa6a66e2dd4ec37a"
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
-    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
+    url "https://files.pythonhosted.org/packages/38/9b/e422a865e1d5d57d0e509b4e0bf1c1a70a7f6382c29a5aa428df994c8bc8/markupsafe-3.0.4.tar.gz"
+    sha256 "2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz"
-    sha256 "d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "pygccxml" do
@@ -158,8 +155,8 @@ class Gnuradio < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+    url "https://files.pythonhosted.org/packages/70/b3/c19426f783614d625699a4b247faf628ea9ab1db228674491767b417f9e1/setuptools-84.2.1.tar.gz"
+    sha256 "3ff8b3b5492a0aa66960f4419365a86b84e013070d4313e4d4a6894f5d64d6bc"
   end
 
   def install
