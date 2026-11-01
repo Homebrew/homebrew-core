@@ -1,10 +1,28 @@
 class Minizinc < Formula
   desc "Medium-level constraint modeling language"
   homepage "https://www.minizinc.org/"
-  url "https://github.com/MiniZinc/libminizinc/archive/refs/tags/2.10.1.tar.gz"
-  sha256 "089ea94698cea94ed8396be77559b82d828437a808f5e37d10bccc9f1d39dd33"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/MiniZinc/libminizinc.git", branch: "develop"
+
+  stable do
+    url "https://github.com/MiniZinc/libminizinc/archive/refs/tags/2.10.1.tar.gz"
+    sha256 "089ea94698cea94ed8396be77559b82d828437a808f5e37d10bccc9f1d39dd33"
+
+    # Prerequisite for the C++14 backport.
+    patch do
+      url "https://github.com/MiniZinc/libminizinc/commit/7eeecc2edc019f554de80be62da9ba58c31b3eca.patch?full_index=1"
+      sha256 "51966edea574e3c985ee5b58c45e3d69199e6dafa8257a2865d8fe5c63d16d7e"
+      type :backport
+    end
+
+    # Build with C++14 for compatibility with Gecode 6.5.
+    patch do
+      url "https://github.com/MiniZinc/libminizinc/commit/ced572f764dd17973b5b3bcc14af647e8751a42d.patch?full_index=1"
+      sha256 "27d20337469464471773b63a468b58f9e7c4e7c6af204e3daca8d8bd2ad58938"
+      type :backport
+    end
+  end
 
   bottle do
     sha256 arm64_golden_gate: "7ce8ae49a7159112321f619709aadca67bbc8882d1b97b6e88e317849fdcffbc"
