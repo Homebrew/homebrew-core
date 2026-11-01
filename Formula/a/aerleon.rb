@@ -39,7 +39,7 @@ class Aerleon < Formula
 
   # Although the virtualenv_install_with_resources uses the package resources listed above,
   # pip still needs to fetch the project's chosen build system via the network.
-  deny_network_access! [:postinstall]
+  deny_network_access! :postinstall
 
   def install
     virtualenv_install_with_resources
