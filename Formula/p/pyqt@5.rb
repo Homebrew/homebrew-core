@@ -8,13 +8,11 @@ class PyqtAT5 < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "246495757c083b2460e0316b82ef8f42931c6d5725e322673e8113f60a04803f"
-    sha256 cellar: :any,                 arm64_tahoe:       "d3944d21d80b85aadc871416d4072fad865a21b7d19c213bcced248534c1c1c2"
-    sha256 cellar: :any,                 arm64_sequoia:     "b92c0343b0fe78cd9d028e0b8c8d3ba566b044482415cef4f359df8b6c2b3ae2"
-    sha256 cellar: :any,                 arm64_sonoma:      "b04e80d2ce51fbd1700e73cb12b733554a994cf297718b2b985f205de92aa377"
-    sha256 cellar: :any,                 sonoma:            "9071ce79a740aaf8fad54d9f28796bc76a1a81342a377df0c143647155f09eb5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "92f0b1de8c364103ad2bdca8a22f6b786960d0f3df2ca86ec981ad8908bc0f5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "cba9e3e411e7161d02642f0bf4cd4254d03b180a5c108f184d45e346b9c7c123"
+    sha256 cellar: :any, arm64_golden_gate: "0a5280ffc9e5ac25ad6088871564501c824f7d4bb62f36f55dbb43c8b972aa6c"
+    sha256 cellar: :any, arm64_tahoe:       "1b044957bf70664e41eb77bf4486bfd416a53c5fff348964e60df09f51f76b54"
+    sha256 cellar: :any, arm64_sequoia:     "3ef599ff47afa4f11570c7b6dc5b043e78d91c0ac9c419d8605f1c40b2a6a672"
+    sha256 cellar: :any, arm64_linux:       "3d6f7e138086aa8a72a6e1d709724d8f248e268d9b4485e728bee26c29b4750b"
+    sha256 cellar: :any, x86_64_linux:      "04ff33d9464d6ecf5e18010647b8a1cea8c95d850e5f47d3f848b18492e4511d"
   end
 
   deprecate! date: "2026-05-19", because: "is for end-of-life Qt 5"
