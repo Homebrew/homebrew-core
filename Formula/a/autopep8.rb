@@ -19,6 +19,8 @@ class Autopep8 < Formula
     sha256 "318f5db083869b4c4dad922d0b11124fb27ab181b6730b93371da671e31bd50e"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end
