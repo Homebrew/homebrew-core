@@ -2,9 +2,9 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://macvim.org"
-  url "https://github.com/macvim-dev/macvim/archive/refs/tags/release-183.tar.gz"
-  version "9.2.0321"
-  sha256 "72de6be82087cd4db8d7b5b27ee079fe80d504f12b53065d68d29366fc7025f1"
+  url "https://github.com/macvim-dev/macvim/archive/refs/tags/release-184.tar.gz"
+  version "9.2.1252"
+  sha256 "af1467e2d4c360bb8934815ac31259918f25f32b4787aaf9955443f14dc58bbd"
   license "Vim"
   head "https://github.com/macvim-dev/macvim.git", branch: "master"
 
@@ -25,10 +25,9 @@ class Macvim < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any, arm64_golden_gate: "abca432eac15404c2223bacdc7b60bd2a481922d9037e486f965b1f5f76907b6"
-    sha256 cellar: :any, arm64_tahoe:       "44580c714c403d69c93e95ad434dc782c071ebf2880493710acd7d413ccaf514"
-    sha256 cellar: :any, arm64_sequoia:     "c5ad3cafd62b8e458140a59bafeed5c5262ce5e7b01db2d8c208c5cd2e5233fe"
+    sha256 cellar: :any, arm64_golden_gate: "661234fd4eb2f71a096d9a43334381f7b6242126c6b31a1cfcb50f027094fe51"
+    sha256 cellar: :any, arm64_tahoe:       "370d2e7d96b1eb3eaf14222fda1c7c310f32169adfe1cf3d49d957169410af23"
+    sha256 cellar: :any, arm64_sequoia:     "d5d3094fd0e7439579eef6e8c503207d1395fbd8e3bfbadf0849e3bbfe2ae4b3"
   end
 
   depends_on "gettext" => :build
@@ -42,6 +41,8 @@ class Macvim < Formula
 
   conflicts_with "ex-vi", because: "both install `vi` and `view` binaries"
   conflicts_with "vim", "vim-classic", because: "both install vi* binaries"
+
+  deny_network_access!
 
   def install
     # We don't want the deployment target to include the minor version on Big Sur and newer.
