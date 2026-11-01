@@ -38,6 +38,8 @@ class Ncview < Formula
     depends_on "libxext"
   end
 
+  deny_network_access!
+
   def install
     # Bypass compiler check (which fails due to netcdf's nc-config being
     # confused by our clang shim)

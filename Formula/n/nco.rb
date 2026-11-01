@@ -42,6 +42,8 @@ class Nco < Formula
     sha256 "e37527146376716ef335d01d68efc8d0142bdebf8d9d7f4e8cbe6f880807bdef"
   end
 
+  deny_network_access!
+
   def install
     resource("antlr2").stage do
       args = ["--disable-csharp"]
@@ -76,6 +78,6 @@ class Nco < Formula
   test do
     testpath.install resource("homebrew-example_nc")
     output = shell_output("#{bin}/ncks --json -M WMI_Lear.nc")
-    assert_match "\"time\": 180", output
+    assert_match '"time": 180', output
   end
 end

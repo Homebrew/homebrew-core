@@ -23,6 +23,8 @@ class Ntl < Formula
 
   depends_on "gmp"
 
+  deny_network_access!
+
   def install
     args = ["PREFIX=#{prefix}", "SHARED=on"]
 
@@ -46,11 +48,10 @@ class Ntl < Formula
           return 0;
       }
     CPP
-    gmp = Formula["gmp"]
     flags = %W[
       -std=c++11
       -I#{include}
-      -L#{gmp.opt_lib}
+      -L#{formula_opt_lib("gmp")}
       -L#{lib}
       -lntl
       -lgmp

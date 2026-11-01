@@ -24,6 +24,8 @@ class Npth < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "dfe2b3f4f5fb1b8e05b3ddbc5dddbf44d3b03b95ca9712ff4fc33cbd045368b4"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"

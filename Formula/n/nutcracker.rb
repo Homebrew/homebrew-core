@@ -34,6 +34,8 @@ class Nutcracker < Formula
     file "Patches/nutcracker/use-system-libyaml.patch"
   end
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args

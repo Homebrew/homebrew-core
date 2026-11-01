@@ -28,6 +28,8 @@ class Nudoku < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules",

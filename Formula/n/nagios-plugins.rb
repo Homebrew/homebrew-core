@@ -28,10 +28,15 @@ class NagiosPlugins < Formula
 
   conflicts_with "monitoring-plugins", because: "both install their plugins to the same folder"
 
+  # `configure` script uses `ping6`
+  deny_network_access! :postinstall
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     args = %W[
       --libexecdir=#{libexec}/sbin
-      --with-openssl=#{formula_opt_prefix("openssl@3")}
+      --with-openssl=#{formula_opt_prefix(openssl)}
     ]
 
     system "./configure", *args, *std_configure_args(prefix: libexec)

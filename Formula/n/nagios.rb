@@ -26,6 +26,8 @@ class Nagios < Formula
     depends_on "jpeg-turbo"
   end
 
+  deny_network_access!
+
   def nagios_sbin = prefix/"cgi-bin"
 
   def nagios_etc = etc/"nagios"
@@ -33,6 +35,8 @@ class Nagios < Formula
   def nagios_var = var/"lib/nagios"
 
   def htdocs = pkgshare/"htdocs"
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
 
   def user
     Utils.safe_popen_read("id", "-un").chomp
@@ -55,7 +59,7 @@ class Nagios < Formula
       "--with-nagios-group='#{group}'",
       "--with-command-user=#{user}",
       "--with-httpd-conf=#{share}",
-      "--with-ssl=#{formula_opt_prefix("openssl@4")}",
+      "--with-ssl=#{formula_opt_prefix(openssl)}",
       "--disable-libtool",
     ]
     args << "--with-command-group=_www" if OS.mac?
