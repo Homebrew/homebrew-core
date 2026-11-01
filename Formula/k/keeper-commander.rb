@@ -337,6 +337,8 @@ class KeeperCommander < Formula
     sha256 "70392c0fff39459d7f55d0211151401e79e76fcc6e2c22b61add62900359c7c1"
   end
 
+  allow_network_access! :build
+
   def install
     if OS.mac?
       # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
