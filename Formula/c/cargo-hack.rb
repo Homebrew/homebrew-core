@@ -1,8 +1,8 @@
 class CargoHack < Formula
   desc "Cargo subcommand to provide options for testing and continuous integration"
   homepage "https://github.com/taiki-e/cargo-hack"
-  url "https://github.com/taiki-e/cargo-hack/archive/refs/tags/v0.6.45.tar.gz"
-  sha256 "b7b921beacdbb815dc89a04024f48f1b1735daef890d2398e04f27f006c1d38e"
+  url "https://github.com/taiki-e/cargo-hack/archive/refs/tags/v0.6.46.tar.gz"
+  sha256 "8d7b96cf5c9e57c615b514c42df034235b65fdcf2c6e285ec375065294e930be"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/taiki-e/cargo-hack.git", branch: "main"
 
@@ -39,9 +39,25 @@ class CargoHack < Formula
     system "rustup", "set", "profile", "minimal"
     system "rustup", "default", "beta"
 
-    system "cargo", "new", "hello_world"
-    cd "hello_world" do
-      assert_match "Finished `dev` profile [unoptimized + debuginfo]", shell_output("cargo hack check 2>&1")
-    end
+    (testpath/"Cargo.toml").write <<~TOML
+      [package]
+      name = "hello_world"
+      version = "0.1.0"
+      edition = "2021"
+
+      [features]
+      homebrew_fail = []
+    TOML
+    (testpath/"src").mkpath
+    (testpath/"src/main.rs").write <<~RUST
+      #[cfg(feature = "homebrew_fail")]
+      compile_error!("HOMEBREW_CARGO_HACK_FEATURE_ENUMERATION");
+
+      fn main() {}
+    RUST
+
+    system "cargo", "hack", "check"
+    assert_match "HOMEBREW_CARGO_HACK_FEATURE_ENUMERATION",
+                 shell_output("cargo hack check --each-feature 2>&1", 1)
   end
 end
