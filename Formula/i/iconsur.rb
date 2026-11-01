@@ -40,13 +40,13 @@ class Iconsur < Formula
                 extra_packages: ["pyobjc-core", "pyobjc-framework-cocoa"]
 
   resource "pyobjc-core" do
-    url "https://files.pythonhosted.org/packages/a5/78/abc4ce5920305780aeb36b4067a86253378b36e29ba96673a3deb02eb03a/pyobjc_core-12.2.2.tar.gz"
-    sha256 "3906452339cd06a3bb07df103c2511d4cb0f7a22d8771c0b802eba15d9a642b6"
+    url "https://files.pythonhosted.org/packages/83/58/7bab095330b8893e1ac58f3cf9710462c3242b600f8fa5db0d5dda795775/pyobjc_core-13.0.tar.gz"
+    sha256 "ffe154462d14aa4852f424e9116f17b5f8d44f78fc0f6c4727e721a5fa7177da"
   end
 
   resource "pyobjc-framework-cocoa" do
-    url "https://files.pythonhosted.org/packages/75/76/49c6da2c6a831020b4854ba20079d5a1030474bffc776b7b73c2eeff8c15/pyobjc_framework_cocoa-12.2.2.tar.gz"
-    sha256 "c96c0ef69a71afbbb0e6a7d594b455c5fe47d62e0db376ee7a2b4b828c16ace9"
+    url "https://files.pythonhosted.org/packages/30/50/55a8779d35f1f86d795264cbd6fe62e35b2cf4fb8343fc888e99268c988a/pyobjc_framework_cocoa-13.0.tar.gz"
+    sha256 "bb7a23941fc8d7866578dbc84e56140efd343a1d28510f530dd1dbf80807daf4"
   end
 
   def install
@@ -55,6 +55,8 @@ class Iconsur < Formula
     if MacOS.version >= :monterey
       # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
       ENV.append_to_cflags "-isysroot #{MacOS.sdk_path}"
+      # Make `pyobjc-core` detect the SDK that superenv compiles with rather than the newer Xcode one
+      ENV["SDKROOT"] = MacOS.sdk_path
       # `pyobjc-core` needs Apple's `libffi` extensions, so keep `node`'s `libffi` out of the link
       ENV.remove "HOMEBREW_LIBRARY_PATHS", formula_opt_lib("libffi")
 
