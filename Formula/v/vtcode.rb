@@ -7,7 +7,7 @@ class Vtcode < Formula
   head "https://github.com/vinhnx/vtcode.git", branch: "main"
 
   livecheck do
-    throttle 5
+    throttle days: 1
   end
 
   bottle do
