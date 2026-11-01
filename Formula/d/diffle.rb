@@ -6,11 +6,11 @@ class Diffle < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4eebf98f3de8848ea38186fa81af46fb49a6718cf223f50e48c9012d4c2c9929"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cbe8275e0b9fdd139b0f3717680ffe7d931d724b68d0a72c83fd69e8997da201"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "200e0fe924728e49ef79934290b9e73064ac3d5e8ac193c29e972289e45f6ef0"
-    sha256 cellar: :any,                 arm64_linux:       "03694b05dec61066d3f189e2feb616e98946608fb8d3368dea1cea0ff2e6a78d"
-    sha256 cellar: :any,                 x86_64_linux:      "4e9c1526746db39b8799866b29b24b0401b7a5ab33c2510c68929c6a173f2990"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c13373cb036408d40dab3507f68feb6fe55f6fa3202378ed2af4e09d93b7e8c7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "560a76a9e61442813c167d63b8c1f2b2a7253b51223ddf37a5ab7cb1c873642c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2d6f39eb3cdd74131ef9932eedee93b1e3495cf5ca103c077d6283fa3b0524e1"
+    sha256 cellar: :any,                 arm64_linux:       "e3a65a047656e0f5e40bd42a1c5c4a5ce35910e92435d7ef18cb8183bcb4b394"
+    sha256 cellar: :any,                 x86_64_linux:      "7e9e654599085aeb4f66181f741688f171a293be2b66c9211e437754f3cab944"
   end
 
   depends_on "node" => :build
