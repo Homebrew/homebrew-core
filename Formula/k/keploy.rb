@@ -7,7 +7,7 @@ class Keploy < Formula
   head "https://github.com/keploy/keploy.git", branch: "main"
 
   livecheck do
-    throttle 5
+    throttle days: 1
   end
 
   bottle do
