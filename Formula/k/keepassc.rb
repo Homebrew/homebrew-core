@@ -29,6 +29,8 @@ class Keepassc < Formula
     sha256 "0428f19f13452c6b89bbaf2c530f84f369873811dfa77f0cee0da4f40fb0474f"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end
