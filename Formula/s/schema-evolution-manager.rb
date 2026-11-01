@@ -1,12 +1,12 @@
 class SchemaEvolutionManager < Formula
   desc "Manage postgresql database schema migrations"
   homepage "https://github.com/mbryzek/schema-evolution-manager"
-  url "https://github.com/mbryzek/schema-evolution-manager/archive/refs/tags/0.9.64.tar.gz"
-  sha256 "bbfa4adc03bc725622e801ce20bc37703c111b3d9adbb40b982cba31692435d6"
+  url "https://github.com/mbryzek/schema-evolution-manager/archive/refs/tags/0.9.65.tar.gz"
+  sha256 "24e0506ad58c90e07b3f6e68b9eb5a12efbba8ca1432e3b1a4402a7d8dd551b4"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ec3eb9df578051e1f1adb896a3951db9aafdc200f069304c8bef76e61e9bfe07"
+    sha256 cellar: :any_skip_relocation, all: "e558d26ec4f89956e06303f281f8dece20cf73309192190e3edddf77496e396b"
   end
 
   uses_from_macos "ruby"
