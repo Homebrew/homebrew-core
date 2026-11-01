@@ -16,7 +16,11 @@ class Act < Formula
 
   depends_on "go" => :build
 
-  deny_network_access! [:postinstall]
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     system "make", "build", "VERSION=#{version}"
