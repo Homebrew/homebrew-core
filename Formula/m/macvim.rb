@@ -2,9 +2,9 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://macvim.org"
-  url "https://github.com/macvim-dev/macvim/archive/refs/tags/release-183.tar.gz"
-  version "9.2.0321"
-  sha256 "72de6be82087cd4db8d7b5b27ee079fe80d504f12b53065d68d29366fc7025f1"
+  url "https://github.com/macvim-dev/macvim/archive/refs/tags/release-184.tar.gz"
+  version "9.2.1252"
+  sha256 "af1467e2d4c360bb8934815ac31259918f25f32b4787aaf9955443f14dc58bbd"
   license "Vim"
   head "https://github.com/macvim-dev/macvim.git", branch: "master"
 
@@ -42,6 +42,8 @@ class Macvim < Formula
 
   conflicts_with "ex-vi", because: "both install `vi` and `view` binaries"
   conflicts_with "vim", "vim-classic", because: "both install vi* binaries"
+
+  deny_network_access!
 
   def install
     # We don't want the deployment target to include the minor version on Big Sur and newer.
