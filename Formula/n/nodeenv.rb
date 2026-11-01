@@ -8,7 +8,7 @@ class Nodeenv < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "06a9e9b6cdbf67369769908e9b7ab88110e0e1ac3a743c3437bf9c18a31da11e"
+    sha256 cellar: :any_skip_relocation, all: "9c8c160de1c363b8fd2c51adaaac767fa5245015a36a16fc909c67c521edc009"
   end
 
   depends_on "python@3.15"
