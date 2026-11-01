@@ -1,8 +1,8 @@
 class Verilator < Formula
   desc "Verilog simulator"
   homepage "https://www.veripool.org/wiki/verilator"
-  url "https://github.com/verilator/verilator/archive/refs/tags/v5.052.tar.gz"
-  sha256 "8c8d2e11e6ad32f641dd250742a94195ddecb912e2e2dabe2f42ddbbb99c1092"
+  url "https://github.com/verilator/verilator/archive/refs/tags/v5.054.tar.gz"
+  sha256 "18658731b46922ef660bcb650be0aa503d751e5c17eb9d4644fdfabb11835198"
   license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
   head "https://github.com/verilator/verilator.git", branch: "master"
 
@@ -27,12 +27,11 @@ class Verilator < Formula
 
   skip_clean "bin" # Allows perl scripts to keep their executable flag
 
+  deny_network_access!
+
   def install
-    # FIXME: Homebrew flex's `FlexLexer.h` keeps `int` signatures; skip flexfix's `size_t` rewrite for Apple's header
-    inreplace "src/flexfix", 'platform.system() == "Darwin"', "False"
-    system "autoconf"
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--prefix=#{prefix}"
-    ENV.deparallelize if OS.mac?
     # `make` and `make install` need to be separate for parallel builds
     system "make"
     system "make", "install"
