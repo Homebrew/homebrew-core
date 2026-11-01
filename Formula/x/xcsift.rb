@@ -20,6 +20,12 @@ class Xcsift < Formula
     depends_on xcode: ["16.0", :build]
   end
 
+  deny_network_access!
+
+  def fetch
+    system "swift", "package", "resolve", "--disable-sandbox"
+  end
+
   def install
     inreplace "Sources/xcsift/main.swift", "VERSION_PLACEHOLDER", version.to_s
 
