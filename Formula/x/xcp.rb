@@ -15,6 +15,12 @@ class Xcp < Formula
   depends_on xcode: ["15.0", :build]
   depends_on :macos
 
+  deny_network_access!
+
+  def fetch
+    system "swift", "package", "resolve", "--disable-sandbox"
+  end
+
   def install
     system "swift", "build", *std_swift_args
     bin.install ".build/release/xcp"
