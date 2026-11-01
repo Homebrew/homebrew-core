@@ -1,20 +1,18 @@
 class Dtools < Formula
   desc "D programming language tools"
   homepage "https://dlang.org/"
-  url "https://github.com/dlang/tools/archive/refs/tags/v2.113.0.tar.gz"
-  sha256 "9fae73963d16ab7330120588c0bbbd15919de087858bfcb1d75d7cc06970179e"
+  url "https://github.com/dlang/tools/archive/refs/tags/v2.113.1.tar.gz"
+  sha256 "d225f5436d3fd1bc06dbe7839e9e38f81e2510ad1a497ce4ab294800ccc42806"
   license "BSL-1.0"
   compatibility_version 1
   head "https://github.com/dlang/tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "533d29b9b72f3a6cf1e3166734313d5cc16c945a1bf3cdfd7f1929b909415526"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ce57fabe3b74014a9b10af7a84dc0f7c26909223dc12486534fc31c7b3f968ce"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ab910b3ac80d73e1927be18ade7f8b66ffa7a02f18e2c5a1e679477883fd772c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "f9052bc298e193fa8c4945d2006da1bcab1ae105d9e7600ebf955e35669152e2"
-    sha256 cellar: :any_skip_relocation, sonoma:            "2b111c1df115cb6c1dee5d544c1b1e4274baac630f722f4505d35e6222744e5a"
-    sha256 cellar: :any,                 arm64_linux:       "6a1b406dc0b848c9bfe3667d2d7357a4b95975ad12d5d38b952448a155eee1cf"
-    sha256 cellar: :any,                 x86_64_linux:      "0addf6f9dcf0b96ac06eb68e69af296235a13b6b419301b9877539f45d2c74b6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5dc0f6227ee3484ebb0fb7932da6da30e3371559b7c9bdfcb2fe02e229caed83"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c11580f33d09c09ae254bb0f312f7a7ee854d5c253344574e368f24b1a6bb225"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6939dcf366172f5df04740af834d518aadba6aa751fdb5ce7259c42fb3a7debb"
+    sha256 cellar: :any,                 arm64_linux:       "d74f59533587bff375a1ea7b5f876c69af1abb5326965233b537c0d7c23bc000"
+    sha256 cellar: :any,                 x86_64_linux:      "b8a5cd8be61b4314c6eca2d13ac14d0d58a4c60850fd614919e30e77e11382cd"
   end
 
   depends_on "dub" => :build
