@@ -26,6 +26,12 @@ class Xcdiff < Formula
     sha256 "c093e128873f1bb2605b14bf9100c5ad7855be17b14f2cad36668153110b1265"
   end
 
+  deny_network_access!
+
+  def fetch
+    system "swift", "package", "resolve", "--disable-sandbox"
+  end
+
   def install
     system "make", "update_version"
     system "make", "update_hash"
