@@ -181,8 +181,10 @@ class Qtwebengine < Formula
     inreplace "src/3rdparty/chromium/build/toolchain/apple/toolchain.gni",
               'rebase_path("$clang_base_path/bin/", root_build_dir)', '""'
 
+    # FEATURE_qtwebengine_build=ON prevents silently building only Qt PDF
     args = %W[
       -DCMAKE_STAGING_PREFIX=#{prefix}
+      -DFEATURE_qtwebengine_build=ON
       -DFEATURE_webengine_proprietary_codecs=ON
       -DFEATURE_webengine_kerberos=ON
       -DNinja_EXECUTABLE=#{which("ninja")}
