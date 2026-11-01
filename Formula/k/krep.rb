@@ -13,6 +13,8 @@ class Krep < Formula
     sha256 cellar: :any,                 x86_64_linux:      "654237f1367c27faecab1c7c4c0244cacf939fca00ef121b66a9d59bffd11941"
   end
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
