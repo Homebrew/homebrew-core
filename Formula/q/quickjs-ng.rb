@@ -8,11 +8,11 @@ class QuickjsNg < Formula
   head "https://github.com/quickjs-ng/quickjs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d16d3608d538b1b61f2fbc062a117d88dfb1f2857b99b43867bfd064d57ddebc"
-    sha256 cellar: :any, arm64_tahoe:       "87f8466998b94688d6991b40c1682f9dc44d1c83ea8d6fecee2e15eb00288983"
-    sha256 cellar: :any, arm64_sequoia:     "3b7ee057b20abf6a32ce66387946cb95037446c820032e9d9e2b7088f28e87a8"
-    sha256 cellar: :any, arm64_linux:       "ad399022c60c13a8b1bea2c72ef6dcacf6de9c46ce0b0d420fdabc621e39cf84"
-    sha256 cellar: :any, x86_64_linux:      "a8882caaf9b102caeccfa98a4cdbcb549ffad6fc41cefdf1fc6a247f26cb424d"
+    sha256 cellar: :any, arm64_golden_gate: "3548576e9dc7d1902a7eceb38e5064308e29d064f107b81440f6d1110dc58605"
+    sha256 cellar: :any, arm64_tahoe:       "fd7674dfed0b220af4314c5019c6269cafb24b9a1c5e0eae564b5fefafb27737"
+    sha256 cellar: :any, arm64_sequoia:     "afe831ce1bf92ee1be4e11bc028525f36f6892e0d231a67996144fda7377f8b0"
+    sha256 cellar: :any, arm64_linux:       "240705ce6d46ccb28d01a1fb2daf4897ade201e229d160c1d391401fbc77cf68"
+    sha256 cellar: :any, x86_64_linux:      "71d104947d327da1c9975df38b6d25bb9fa3b224669386c3294e78aa84e799aa"
   end
 
   depends_on "cmake" => :build
