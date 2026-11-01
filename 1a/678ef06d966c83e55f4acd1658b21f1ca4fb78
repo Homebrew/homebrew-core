@@ -1,0 +1,14 @@
+Formula/n/nodeenv.rb
+  h_9df9c32c3f321d 6-7,14,17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1a678ef06d966c83e55f4acd1658b21f1ca4fb78",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
