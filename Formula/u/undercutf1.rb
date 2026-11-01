@@ -7,13 +7,11 @@ class Undercutf1 < Formula
   head "https://github.com/JustAman62/undercut-f1.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ab0a05beac2a7901a9e29e4dcd6c1d71b8862477d8ce299f5ad80e53b1f7d1c3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4236250cad5a0f92a2c16b506395dccf4fa80fa6f7fe4fd60bddde95a609a55e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "65921338437761c35764d3218bd6fc0a38ec1292b02e708417405bb22951ea51"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "63b6f937574ba7454fdacea9af484e4832f634738cf7eee08cec202d77e2c03f"
-    sha256 cellar: :any_skip_relocation, sonoma:            "27c9d96db1f0288d5120f6ef9bf44f7d2c9cf069d36dd7da3cb6bd8bf341a8d4"
-    sha256 cellar: :any,                 arm64_linux:       "f0495ad3a7d79e73642d96690c883e7fcebc2d404b56b67f06a80fa5a6b06853"
-    sha256 cellar: :any,                 x86_64_linux:      "78803f5184454ff0bb05399f946a86efdad4f9204c6a067aec65ac843918cda3"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "302e10741259f18b9f721879691bda15959a9a49053f15ec878ae26058c4fd1c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "daed5f234b490217d0b48a58df0fadad2817ce037889d96a053172395e4aef89"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2429309a4acd4e1552be2bae62ff42c9fd321734979f0eecb881fb7dd27a378b"
+    sha256 cellar: :any,                 arm64_linux:       "6cf866e7b33e5118977f50494a715e8ed629d21d02ee653d90aeb39429d09a36"
+    sha256 cellar: :any,                 x86_64_linux:      "947e6963962f0c2648392c5e0bfcad7060905812c43be5fe6e9be4a23b837acc"
   end
 
   depends_on "dotnet"
