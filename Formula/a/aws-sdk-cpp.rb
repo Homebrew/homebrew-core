@@ -12,11 +12,11 @@ class AwsSdkCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "2bc2ffc775e6dcccd4f81da44d4ca98664ee210cf6b33e167765b0c57d1dfe02"
-    sha256 cellar: :any, arm64_tahoe:       "ff9a2a8ed44559a59ac15d41bfe8ed3a3b2ecf41da29801b3acd35aaf4998965"
-    sha256 cellar: :any, arm64_sequoia:     "31a394542719c86e8d04c342bc1a02c0a3563cfb67e89baea25740197659754a"
-    sha256 cellar: :any, arm64_linux:       "91950690f0b3ef0d5e3888a3c73150f9464f654f332d82528c177b963393ee18"
-    sha256 cellar: :any, x86_64_linux:      "2e3bf247ad65ce645ca6961ccbc1dae5bcd877477d8bd68f0d937b81ebb1b70b"
+    sha256 cellar: :any, arm64_golden_gate: "86d6b1c47297539e03cbda13c62bde1db5ddd64869444151183b909e80e73345"
+    sha256 cellar: :any, arm64_tahoe:       "4d92de3fa2bfde56ad12ae3ca1603f8e1969209ffcdf71cb7823f41fedeb2108"
+    sha256 cellar: :any, arm64_sequoia:     "dc765907244ddf0feafb70c8565aa05e89c45ed47f02aa8d92a5cc3e9628708f"
+    sha256 cellar: :any, arm64_linux:       "80d81b9fd52f12c486246141b2b4dd67b80890b1eff9d556327666e52fc2a417"
+    sha256 cellar: :any, x86_64_linux:      "7d48c4ec60cce4029fbb2bb711ef16f1c47d1dfaf91f50d8208af97bf446513a"
   end
 
   depends_on "cmake" => :build
