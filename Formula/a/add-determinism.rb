@@ -4,6 +4,7 @@ class AddDeterminism < Formula
   url "https://github.com/keszybz/add-determinism/archive/refs/tags/v0.7.3.tar.gz"
   sha256 "d1f5eac303807fa31e25b4f8ccb08fed23d15f4ffdbe3bb4ee35a29504c766b2"
   license "GPL-3.0-or-later"
+  head "https://github.com/keszybz/add-determinism.git", branch: "main"
 
   bottle do
     rebuild 1
@@ -26,9 +27,13 @@ class AddDeterminism < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # Although the virtualenv_install_with_resources uses the package resources listed above,
-  # pip still needs to fetch the project's chosen build system via the network.
-  deny_network_access! [:postinstall, :test]
+  deny_network_access!
+
+  def fetch
+    # `Cargo.lock` is ignored
+    system "cargo", "generate-lockfile"
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     ENV.append_to_rustflags "-C link-arg=-lselinux" if OS.linux?
