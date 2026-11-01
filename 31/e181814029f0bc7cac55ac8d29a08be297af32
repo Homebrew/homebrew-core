@@ -1,0 +1,14 @@
+Formula/m/minizinc.rb
+  h_9df9c32c3f321d 5,8-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "31e181814029f0bc7cac55ac8d29a08be297af32",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
