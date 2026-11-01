@@ -10,6 +10,8 @@ class Kommit < Formula
     sha256 cellar: :any_skip_relocation, all: "e27d05c078699c3a5c3ba379e6a598cd4b96142358bf41fca14cf2faa83251ff"
   end
 
+  deny_network_access!
+
   def install
     bin.install "bin/git-kommit"
   end
