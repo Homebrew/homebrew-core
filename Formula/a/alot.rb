@@ -7,15 +7,15 @@ class Alot < Formula
       tag:      "v0.12",
       revision: "40a190f4c5f18c1283fdb3186393c4a778f865a5"
   license "GPL-3.0-only"
-  revision 3
+  revision 4
   head "https://github.com/pazz/alot.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d5fe67b91d2ae31393ef57e24accf66529f585675e0e5586141f5de0f3aeeaac"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1293a542497a8886747637df81c82f1f1c0622efd2a37e55f5ef6170fa994932"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7a7de9a12c130b5cdf16c84a82abb2367b48f7ad20d6bab032b5ee771789d97e"
-    sha256 cellar: :any,                 arm64_linux:       "d2e0907e2d687d90c307199bd105d0da7bb67490b75cc3c8dd4b4f622c2179f5"
-    sha256 cellar: :any,                 x86_64_linux:      "2f3f6e9cd7ead4fc5ba3063c15226918cb306c4c29abe89351870353870d4dff"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "950e7bfd59a2336e80c88938d6391e907d36ada6fa70ba277fdab4115bfd16df"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2d4c3b50d87bd8a1cb07d597b7233105aae73e071487a7efa5a0cd51e192a1b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5eca46b580869353b7ad41f997021ad23c87e182a59a5ba5805d931555eaaa1d"
+    sha256 cellar: :any,                 arm64_linux:       "4f36986f60984088fce65e7c61be2f4419fc55059279d5f4118ed46854ad5bc9"
+    sha256 cellar: :any,                 x86_64_linux:      "b23d4a9fd081d19667aaabca7f3b6b5881ee0268428f2128e176e2db44de3c2a"
   end
 
   depends_on "sphinx-doc" => :build
@@ -80,8 +80,8 @@ class Alot < Formula
   end
 
   resource "twisted" do
-    url "https://files.pythonhosted.org/packages/db/97/6e9beb1e78247ae6dc34114f27d538cf2cb183c4afcd3609dfdf2b0439c8/twisted-26.4.0.tar.gz"
-    sha256 "dbfd0fe1ee409d0243fdd7a6a6ff14f4948cec1fd78e0376291f805e1501fae9"
+    url "https://files.pythonhosted.org/packages/fe/31/a5f99ae7f1550914b0702b8f78118d95a79da20525d26fbc1b2ab42bc8ae/twisted-26.10.0.tar.gz"
+    sha256 "5f0355403e507fc23ceea85e9dbb4bc59335aabde41dd324e8b8cea180dd38de"
   end
 
   resource "typing-extensions" do
@@ -90,8 +90,8 @@ class Alot < Formula
   end
 
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/3a/df/eb5dcbdf1638c38618096382b4a30b0423ed7d2aac97fd9469b51d6de43f/urwid-4.2.5.tar.gz"
-    sha256 "a1fea3a551953fae4e6b727536334233bbb8b88c45230bc91d9751b402a8c16d"
+    url "https://files.pythonhosted.org/packages/ee/16/8d5b79d05dc960ec6527bb58c773b1bfe68ac90c8ee551771765e87a3971/urwid-5.0.1.tar.gz"
+    sha256 "338d6a0f8e7c58c205dd823b9c777b0f7a290c7ea661fcf81b12c42e4072ca24"
   end
 
   resource "urwidtrees" do
@@ -100,13 +100,13 @@ class Alot < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
-    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
+    url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
+    sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
   end
 
   resource "zope-interface" do
-    url "https://files.pythonhosted.org/packages/26/39/a8481b926e42c44a6fcc670904f8251469ec42edbff1ba066719ca1e7fb4/zope_interface-8.6.tar.gz"
-    sha256 "b40ef9b4873afb5d0dec02b8d2dfde1cf18c72337b60c99cb735961e0bac05c0"
+    url "https://files.pythonhosted.org/packages/de/ff/a1f0021a26033da0df223fd05a7455d6d2881b67daf2c6dc897b4fe0a427/zope_interface-8.7.tar.gz"
+    sha256 "0b47b62e8d0d99b24bcdd32f4f2120425e5019c3bee2ad69a0e1d75737487a96"
   end
 
   # Python 3.15 removed `glob.glob1`
