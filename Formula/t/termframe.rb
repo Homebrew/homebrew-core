@@ -1,17 +1,17 @@
 class Termframe < Formula
   desc "Terminal output SVG screenshot tool"
   homepage "https://github.com/pamburus/termframe"
-  url "https://github.com/pamburus/termframe/archive/refs/tags/v0.9.1.tar.gz"
-  sha256 "b4d8a5360b87ecce3f5ce4ccbd78f2765bc20915ac703c65f4339c58dc585197"
+  url "https://github.com/pamburus/termframe/archive/refs/tags/v0.9.2.tar.gz"
+  sha256 "61ea5c940b83f9ca9cfaab98aa23d04e2bb29de4d3829d895c3e178836981040"
   license "MIT"
   head "https://github.com/pamburus/termframe.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "19675ed4351b4388300369f6d496b15809273d28d5c34c9566ab6a693dcdb631"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4ba621f9bd9971d7daa03fa27518928f3f7577c8b8f61928a89b0d8884f4e7f7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3ee388e0fa2ef061f04cf6eda92fb6adb291ed1a76d36f2602a33fb98bbc445b"
-    sha256 cellar: :any,                 arm64_linux:       "9fed47216a2ef888a5e5c8533356cf782a6af669009827d93123280aecec2320"
-    sha256 cellar: :any,                 x86_64_linux:      "2a72ae5492e02d7daf9359305f85c0bc9de218414657e6e6c5121dd6bb868516"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4fc65f02811280837d25dc6da5c11dfd64c3ad645d892050c6135fffd975d897"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b9d0502e0877855f83515604f488409f6e32317cc4f0d59e3d3d62bd53213cfe"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8a57b0102491cab7148978f44e161df6502642339a653479c01111fe9dd39eb7"
+    sha256 cellar: :any,                 arm64_linux:       "6ce147a30b27cfb5a40333ec7c5f23bef1311fdb1d6a76f17bc056270f948a96"
+    sha256 cellar: :any,                 x86_64_linux:      "979665e7b091a068342e050376cd692065272197ac271be2ee01d832a5db2910"
   end
 
   depends_on "rust" => :build
