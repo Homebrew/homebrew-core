@@ -12,13 +12,11 @@ class Ssocr < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "ba906ce505ab2e5355eec15f385cbf868515308cf02cf860e30a0ada9dbf6c0d"
-    sha256 cellar: :any,                 arm64_tahoe:       "e0f42e28996a17b2e29066ce478aca92a85073aeb25ab328ff67df768c825dd4"
-    sha256 cellar: :any,                 arm64_sequoia:     "1f276c84ac527ad48c93f5f7a9976d65b0a25e8a06f942966f9dde044d20a279"
-    sha256 cellar: :any,                 arm64_sonoma:      "ab621788f03af63c93a917b233bc96ac1059cab8f64d5befb01bd58efd05b597"
-    sha256 cellar: :any,                 sonoma:            "a839b147d3dfe88937947728b7bb457ae0eac4e43d1bbbafcbd90f7b3e43b6b2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c868a5ce5a5b44248c6c7868b504d0b0243ed1b9b39b4a0a4ba929bfe56f1aef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5b91a1ea88a60fa5037e2533228a0c489fb40cf4ca1d55a67b4fd03bd8c7b580"
+    sha256 cellar: :any, arm64_golden_gate: "62f822e0b036dc740d3d55b3188502240bad69afbf4f8837c7e89450e1949ec1"
+    sha256 cellar: :any, arm64_tahoe:       "9c5d02253b1109460215510129fbb505be2362076757262d70537ffe52fd9cbc"
+    sha256 cellar: :any, arm64_sequoia:     "cb74530da366cbf89ed8d2b33a50ee663001f7e07674a2fadbb1de1bdba1bc51"
+    sha256 cellar: :any, arm64_linux:       "410c6e6eef67d72360b16ab510b6e70cd7a818106437793ec9d5232b84e4c7a8"
+    sha256 cellar: :any, x86_64_linux:      "40a26f67342a25a83f85ed55bf9ddfaad5904c8f9be80388857bb2e81470d8b9"
   end
 
   depends_on "pkgconf" => :build
