@@ -24,6 +24,8 @@ class Kdoctor < Formula
   depends_on xcode: ["12.5", :build]
   depends_on :macos
 
+  allow_network_access! :build
+
   def install
     ENV["JAVA_HOME"] = formula_opt_prefix("openjdk@21")
     mac_suffix = Hardware::CPU.intel? ? "X64" : Hardware::CPU.arch.to_s.capitalize
