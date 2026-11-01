@@ -20,6 +20,8 @@ class XcodeKotlin < Formula
   depends_on xcode: ["12.5", :build]
   depends_on :macos
 
+  allow_network_access! :build
+
   def install
     suffix = Hardware::CPU.intel? ? "X64" : "Arm64"
     system "gradle", "--no-daemon", "linkReleaseExecutableMacos#{suffix}", "preparePlugin"
