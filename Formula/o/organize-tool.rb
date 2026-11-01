@@ -10,12 +10,12 @@ class OrganizeTool < Formula
   head "https://github.com/tfeldmann/organize.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "f7544c3755e944e11e8fcd35b864a1ca7db5ed992ea8ed36546f9fdf8a9c7071"
-    sha256 cellar: :any, arm64_tahoe:       "2b28fa48b3fc2eed7af983d8e6ca901a0fd18c801f998abb00e63d316860b848"
-    sha256 cellar: :any, arm64_sequoia:     "546a4304661082ef5a4a18acda7dcc72eb2702bf68b7de8cea3207dddaa9a52c"
-    sha256 cellar: :any, arm64_linux:       "3d040088e2ff0f9d2589e825292ea7d0188982bd8b5ed19a1e6b06d9da9b5dea"
-    sha256 cellar: :any, x86_64_linux:      "76bf5ebc30550eb57691ba9bdb12ff00665cb9ae922932139017e49f5ceb9214"
+    rebuild 2
+    sha256 cellar: :any, arm64_golden_gate: "7de4d66dc91b7ea559cee7b334f0f495b51e2393ae80eaacac2b6128e1292a8e"
+    sha256 cellar: :any, arm64_tahoe:       "d4c5ff42538271e96b60408dea48b10bc1fb8ec02e64a66a852fa4eee25878e9"
+    sha256 cellar: :any, arm64_sequoia:     "02ae5640212f3e4f0bf94a41ee567f11af364085d2a2e1d6cd0db335727428c2"
+    sha256 cellar: :any, arm64_linux:       "29a82af93ceecef1033ba91d0cc9cb35b1b38f5ac83cdb4d1bea01efba3046d2"
+    sha256 cellar: :any, x86_64_linux:      "0b86979f3eb66ce71ccc3eb5ddfd8b1fa7337f0f02373968d1cbad347ad85e40"
   end
 
   depends_on "cmake" => :build
@@ -106,8 +106,8 @@ class OrganizeTool < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
-    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
+    url "https://files.pythonhosted.org/packages/40/28/1c058a9143d2304b3078f8dadcbb9dc27f7d3581b5d05157c84869c4cc0d/platformdirs-4.14.0.tar.gz"
+    sha256 "83f009c1e8c5fc36869b5171755b291887bd2cade7965233cdfabd23d754720b"
   end
 
   resource "pygments" do
@@ -116,18 +116,18 @@ class OrganizeTool < Formula
   end
 
   resource "pyobjc-core" do
-    url "https://files.pythonhosted.org/packages/a5/78/abc4ce5920305780aeb36b4067a86253378b36e29ba96673a3deb02eb03a/pyobjc_core-12.2.2.tar.gz"
-    sha256 "3906452339cd06a3bb07df103c2511d4cb0f7a22d8771c0b802eba15d9a642b6"
+    url "https://files.pythonhosted.org/packages/83/58/7bab095330b8893e1ac58f3cf9710462c3242b600f8fa5db0d5dda795775/pyobjc_core-13.0.tar.gz"
+    sha256 "ffe154462d14aa4852f424e9116f17b5f8d44f78fc0f6c4727e721a5fa7177da"
   end
 
   resource "pyobjc-framework-cocoa" do
-    url "https://files.pythonhosted.org/packages/75/76/49c6da2c6a831020b4854ba20079d5a1030474bffc776b7b73c2eeff8c15/pyobjc_framework_cocoa-12.2.2.tar.gz"
-    sha256 "c96c0ef69a71afbbb0e6a7d594b455c5fe47d62e0db376ee7a2b4b828c16ace9"
+    url "https://files.pythonhosted.org/packages/30/50/55a8779d35f1f86d795264cbd6fe62e35b2cf4fb8343fc888e99268c988a/pyobjc_framework_cocoa-13.0.tar.gz"
+    sha256 "bb7a23941fc8d7866578dbc84e56140efd343a1d28510f530dd1dbf80807daf4"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
-    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
+    url "https://files.pythonhosted.org/packages/0e/df/f15f80383f152452d8985b36d95cb8751f901a3e0ff4cd27f7e118f168e2/python_dateutil-3.0.0.tar.gz"
+    sha256 "7ebcb3c29a92f3ceafe79a7a48a5c45677e9e004bbeec5742ac0bbb00560b7a2"
   end
 
   resource "pyyaml" do
@@ -156,8 +156,8 @@ class OrganizeTool < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/d9/68/f1b440335057bfce71b6e50a9d09445aa2ecbd08359a337976627b8409e7/tzdata-2026.5.tar.gz"
-    sha256 "8cc73c0a0bfca7dbfa59235d60b2eff82231dee33f53d206db1acd9173cfc0a7"
+    url "https://files.pythonhosted.org/packages/7a/29/6a1391d31cd00ff9e927215a224a880e1e84e826b64ba80a499e51c074d8/tzdata-2026.6.tar.gz"
+    sha256 "85d2cd9c09f81f0bb29db27759fc83af4f1e620efb814f8c5bf8b4cc4feece6d"
   end
 
   resource "xattr" do
@@ -169,6 +169,8 @@ class OrganizeTool < Formula
     if OS.mac?
       # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
       ENV.append_to_cflags "-isysroot #{MacOS.sdk_path}"
+      # Make `pyobjc-core` detect the SDK that superenv compiles with rather than the newer Xcode one
+      ENV["SDKROOT"] = MacOS.sdk_path
     else
       # `macos-tags` and `pyobjc-framework-cocoa` + dependencies are only needed on macOS
       # TODO: Currently requires manual check to confirm PyPI dependency tree
