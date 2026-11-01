@@ -1,8 +1,8 @@
 class FluidSynth < Formula
   desc "Real-time software synthesizer based on the SoundFont 2 specs"
   homepage "https://www.fluidsynth.org"
-  url "https://github.com/FluidSynth/fluidsynth/archive/refs/tags/v2.6.1.tar.gz"
-  sha256 "3d258a3bf97cc20c59eeebfe62c2432fae88adda74d3ad098681c76e0ebf446b"
+  url "https://github.com/FluidSynth/fluidsynth/archive/refs/tags/v2.6.2.tar.gz"
+  sha256 "ca376b42a3c1b186a4c8c248931789a455ac94a89b777394969d678010c2f91f"
   license "LGPL-2.1-or-later"
   compatibility_version 1
   head "https://github.com/FluidSynth/fluidsynth.git", branch: "master"
@@ -16,6 +16,7 @@ class FluidSynth < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "gcem" => :build
   depends_on "pkgconf" => [:build, :test]
   depends_on "libsndfile"
   depends_on "readline"
@@ -38,8 +39,11 @@ class FluidSynth < Formula
     sha256 "a1259360c48adc81f2c5b822f221044595632bd1a76302db1f9d983c44f45a30"
   end
 
+  deny_network_access!
+
   def install
     args = %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath}
       -Denable-alsa=#{OS.linux?}
       -Denable-aufile=ON
       -Denable-coverage=OFF
