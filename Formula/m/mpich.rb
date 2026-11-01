@@ -43,6 +43,8 @@ class Mpich < Formula
 
   conflicts_with "open-mpi", because: "both install MPI compiler wrappers"
 
+  allow_network_access! :test
+
   def install
     if build.head?
       # ensure that the consistent set of autotools built by homebrew is used to

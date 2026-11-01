@@ -32,6 +32,8 @@ class Metaproxy < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
+  deny_network_access!
+
   def install
     # Match C++ standard in boost to avoid undefined symbols at runtime
     # Ref: https://github.com/boostorg/regex/issues/150

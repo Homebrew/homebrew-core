@@ -22,13 +22,16 @@ class Modules < Formula
 
   uses_from_macos "less"
 
+  deny_network_access!
+
+  def tcltk = deps.map(&:name).find { |d| d.match?(/^tcl-tk(@\d+(\.\d+)*)?$/) }
+
   def install
-    tcltk = Formula["tcl-tk"]
     args = %W[
       --prefix=#{prefix}
       --datarootdir=#{share}
-      --with-tcl=#{tcltk.opt_lib}
-      --with-tclsh=#{tcltk.opt_bin}/tclsh
+      --with-tcl=#{formula_opt_lib(tcltk)}
+      --with-tclsh=#{formula_opt_bin(tcltk)}/tclsh
       --without-x
     ]
     args << "--with-pager=#{formula_opt_bin("less")}/less" if OS.linux?
