@@ -14,6 +14,14 @@ class Yap < Formula
   depends_on macos: :tahoe
   uses_from_macos "swift" => [:build, :test]
 
+  deny_network_access!
+
+  def fetch
+    # SwiftPM tries to apply its own sandbox, which cannot nest inside the
+    # build sandbox; Homebrew's sandbox still confines the whole process.
+    system "swift", "package", "resolve", "--disable-sandbox"
+  end
+
   def install
     system "swift", "build", "--product", "yap", *std_swift_args
     bin.install ".build/release/yap"
