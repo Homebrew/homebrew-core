@@ -5,16 +5,8 @@ class Renovate < Formula
   sha256 "ea64ea62136b048292e693f0dc1dee4fab3c7b8e9aa96412ffedaefbd36d679f"
   license "AGPL-3.0-only"
 
-  # livecheck needs to surface multiple versions for version throttling but
-  # there are thousands of renovate releases on npm. The package page showing
-  # versions is several MB in size (and the registry response is 10x that),
-  # so curl can time out before the response finishes. This checks releases on
-  # GitHub as a workaround, as it provides information on multiple versions
-  # but has a much smaller size.
   livecheck do
-    url :homepage
-    strategy :github_releases
-    throttle 10
+    throttle days: 1
   end
 
   bottle do
