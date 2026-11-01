@@ -1,8 +1,8 @@
 class Wails < Formula
   desc "Create beautiful applications using Go"
   homepage "https://wails.io"
-  url "https://github.com/wailsapp/wails/archive/refs/tags/v3.0.0.tar.gz"
-  sha256 "cd80ce78e70c2bb2580b8454230f068b2ba936bce3c17b4b12bb0b88dc6d3761"
+  url "https://github.com/wailsapp/wails/archive/refs/tags/v3.1.0.tar.gz"
+  sha256 "d98866b5f7a2e2378a3cc5ca76422bcef27d669bbe1dd5792a35db2589262e1f"
   license "MIT"
   head "https://github.com/wailsapp/wails.git", branch: "master"
 
@@ -12,11 +12,11 @@ class Wails < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0be646f0154dd387fec816f162703b117730ae6d3a39abce08e58acf97ec364f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "147319c9b2bba0e960bae4cc69c4fef9cd3019d9a33d3435f3deb9742c963d61"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8d2278b38796ea5d7f62a446ad6f2316b6ddf580fb201653a27142d934e037f2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "85067d82fd8cb6caa4b3d55b2c42bd9893171606fa7f63ed52e3c666a27bbb84"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9ce0375c3fdc6b7a5d79a7c006600e9c37e4ddcb2532f53a82ca80ec5296b414"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "462953e893404a7cb4cbca1432397f25f19cfc181055c025795fb90d81a21a05"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a307231ed629959d6379cb5bfcdda5996d798ea8741d82bc33e0f22ac6572698"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "416bcde673338f92762087174f58ffa0c5a73398b4810acc96543091b4db64a4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "0b5f6b600b4388a7a4e93062b6a424ffd471bbe6b2f673d9dbfd2bf2c1c43080"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ce3ba46f9d50b24a182e6db594a1cd9ebce398e7956f40de3ae01a6d48149b35"
   end
 
   depends_on "go"
