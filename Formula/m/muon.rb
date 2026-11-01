@@ -1,17 +1,17 @@
 class Muon < Formula
   desc "Meson-compatible build system"
   homepage "https://muon.build"
-  url "https://git.sr.ht/~lattis/muon/archive/0.7.0.tar.gz"
-  sha256 "e7095741dc11338f5ed8e0aa02e993fc34df4295dad4296127bbb212bcf56e07"
+  url "https://git.sr.ht/~lattis/muon/archive/0.7.1.tar.gz"
+  sha256 "967a99ade648a850807d5637c80d55043ded34556e9dcbfec8736d6de52f96c5"
   license "GPL-3.0-only"
   head "https://git.sr.ht/~lattis/muon", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b75e9e9651745f3f0d77ae7c3470fb2942f3ea5b6c0fef1508eb871bccc1bd94"
-    sha256 cellar: :any, arm64_tahoe:       "866dcb5260e54fc2781a325c9710a3829454eb2aaf25549bf24af6643b241ace"
-    sha256 cellar: :any, arm64_sequoia:     "0b0bea767ed852dd5b5f8d8e57cf5d1a669ade43aaed53a09224209a9787a09c"
-    sha256 cellar: :any, arm64_linux:       "9dff2a1e250bfd230b7e47f85a0c8ccd64c5652ccf18fcd0625e1a60a9b55fd9"
-    sha256 cellar: :any, x86_64_linux:      "34325a3d2399fa798f73627834c834c86e7e710f42d6427274afbb7805637183"
+    sha256 cellar: :any, arm64_golden_gate: "608de2f0b59f4f90f53bcb672f80fc5ef667c765fccd5fbd3b5757560c7270fe"
+    sha256 cellar: :any, arm64_tahoe:       "6a06d19a10745b5542c47fa256e1a4e2aad1ac463f26c934cd725a88e33ac100"
+    sha256 cellar: :any, arm64_sequoia:     "59f7bd9f474e181add4df42cb1f1aea5f47034a3efc9d2430945e8e01b07b525"
+    sha256 cellar: :any, arm64_linux:       "c65de661c70bcece4a36074d5d4813e19e015f5d5e18faf983c444b554695f50"
+    sha256 cellar: :any, x86_64_linux:      "19192c0d609d75bb852b84a33dca8e555f1a65200463595eacbcdd9d78daa49f"
   end
 
   depends_on "meson" => :build
