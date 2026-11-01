@@ -1,8 +1,8 @@
 class GitPkgsProxy < Formula
   desc "Lightweight caching proxy for package registries"
   homepage "https://github.com/git-pkgs/proxy"
-  url "https://github.com/git-pkgs/proxy/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "b07335586199df429dac55c0bfc2d1a3d9489ada00c8c1583817ffa491722189"
+  url "https://github.com/git-pkgs/proxy/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "9a66aacec64f02f850cf2f3106787045750f8556bdfac32442f44ff8ac781780"
   license "GPL-3.0-or-later"
   head "https://github.com/git-pkgs/proxy.git", branch: "main"
 
