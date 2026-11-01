@@ -20,6 +20,8 @@ class Kotlin < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     libexec.install "bin", "build.txt", "lib"
     rm Dir[libexec/"bin/*.bat"]
