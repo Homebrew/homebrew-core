@@ -1,0 +1,14 @@
+Formula/p/plink-ng.rb
+  h_9df9c32c3f321d 4-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "562d49412e4f892ea6924c3001a56064c52e4ca0",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
