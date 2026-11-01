@@ -1,8 +1,8 @@
 class LazyTmux < Formula
   desc "Save all your tmux sessions and lazy restore them"
   homepage "https://lazy-tmux.xyz"
-  url "https://github.com/alchemmist/lazy-tmux/archive/refs/tags/v0.3.2.tar.gz"
-  sha256 "3442416d6378fd4ca058b0819ed3c6e9c148d74d4bc52a45cbaa11d859f4ca75"
+  url "https://github.com/alchemmist/lazy-tmux/archive/refs/tags/v0.3.3.tar.gz"
+  sha256 "4f1e8066d7b246a2c1fe31e0f9661d56f7870f513ede44a52addc6d0094ad10d"
   license "MIT"
 
   bottle do
