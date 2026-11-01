@@ -3,8 +3,8 @@ class Toxcore < Formula
   homepage "https://tox.chat/"
   # This repo is a fork, but it is the source used by Debian, Fedora, and Arch,
   # and is the repo linked in the homepage.
-  url "https://github.com/TokTok/c-toxcore/releases/download/v0.2.23/c-toxcore-v0.2.23.tar.xz"
-  sha256 "a6c3d559ac06eb6b9d48b3edc72f64a97df823c9f64f7dd97c3999ffdc05381b"
+  url "https://github.com/TokTok/c-toxcore/releases/download/v0.2.24/c-toxcore-v0.2.24.tar.xz"
+  sha256 "abafde4c380598f01ef71592165e22c34a9dfa5ce88ad71dae0f949e0a994f99"
   license "GPL-3.0-or-later"
   compatibility_version 1
   head "https://github.com/TokTok/c-toxcore.git", branch: "master"
