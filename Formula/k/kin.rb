@@ -20,6 +20,8 @@ class Kin < Formula
     sha256 "3cd282f5ea7cfb841537fe01f143350fdb1c0b1ce7981443a2fa8513fddb6d1a"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end
