@@ -21,6 +21,8 @@ class Xkbcomp < Formula
   depends_on "libx11"
   depends_on "libxkbfile"
 
+  deny_network_access!
+
   def install
     system "./configure", "--with-xkb-config-root=#{HOMEBREW_PREFIX}/share/X11/xkb", *std_configure_args
     system "make"
