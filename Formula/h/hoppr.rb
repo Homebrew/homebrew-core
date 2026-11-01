@@ -8,6 +8,14 @@ class Hoppr < Formula
   license "MIT"
   head "https://gitlab.com/hoppr/hoppr.git", branch: "dev"
 
+  bottle do
+    sha256 cellar: :any, arm64_golden_gate: "46d39f739fa0a9cadfe011fb44d17fd389f5aa9934aa6aeb2389eeb6b71c0c6f"
+    sha256 cellar: :any, arm64_tahoe:       "724de0f629dfb76783fffe709dbb936941eb1164adc1cff6e4c2b615fa25d1ea"
+    sha256 cellar: :any, arm64_sequoia:     "d2394ecca879ed935a8042902c421de16ff7749a004d53714c1c4b7e4e52cc90"
+    sha256 cellar: :any, arm64_linux:       "b92bd69b479cb6e6cc0f4040952bf8c56bb99b18940260d3c533f5fe92994cbe"
+    sha256 cellar: :any, x86_64_linux:      "a2eb2192497b746400d3649eabffa491c5326a276c64a4e22bbe827794f6bd07"
+  end
+
   depends_on "cmake" => :build # for rapidfuzz
   depends_on "rust" => :build # for dnspython > uv_build > maturin
   depends_on "certifi" => :no_linkage
