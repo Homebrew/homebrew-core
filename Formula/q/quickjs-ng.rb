@@ -1,8 +1,8 @@
 class QuickjsNg < Formula
   desc "QuickJS, the Next Generation: a mighty JavaScript engine"
   homepage "https://quickjs-ng.github.io/quickjs/"
-  url "https://github.com/quickjs-ng/quickjs/archive/refs/tags/v0.17.0.tar.gz"
-  sha256 "559bc4c420475e55c7ab4510adbc562f55d7524d75e8e89d79ce4bb02f5687d9"
+  url "https://github.com/quickjs-ng/quickjs/archive/refs/tags/v0.18.0.tar.gz"
+  sha256 "28bcd89aa3683fd2a946537e5ce3f11cc46b5cbf3383c7561aaef3df5ff9f1dd"
   license "MIT"
   compatibility_version 1
   head "https://github.com/quickjs-ng/quickjs.git", branch: "master"
