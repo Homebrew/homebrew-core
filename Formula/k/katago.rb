@@ -82,6 +82,8 @@ class Katago < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     # `quick_exit` is absent from the macOS 14 SDK; map it to the equivalent `_Exit`.
     ENV.append_to_cflags "-Dquick_exit=_Exit" if OS.mac? && DevelopmentTools.clang_build_version <= 1600
