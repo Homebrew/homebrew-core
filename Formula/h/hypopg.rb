@@ -11,11 +11,11 @@ class Hypopg < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b954ed4d58f62479760b40c1f93028dbfda260db948249d1c4e8b30285f5d3a3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb28c5f0d1ae0025fcfb7f0d7f4894b534e62f3c3e66a723483f3b58938e9821"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5bf2150e57cf13e319df155b5ca5246ebf0c0f1170ee3f0bb8d2980936208651"
-    sha256 cellar: :any,                 arm64_linux:       "7926b105c30554364a92b68585a98b0cf71d45bc23e7dabdeeb53fab67e368b7"
-    sha256 cellar: :any,                 x86_64_linux:      "c46c73209be897e795c938d4018d61c162145e61051fc3be2780fc59ff4c9742"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bc7096a0f2486cc661a57eb1a7b1806a97697c2b9a947c8c895c6a470222fe69"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f7fb5f4b7b7c2e6ef1e7773a3d407ada87adec7ef5373fcc7438f72b892029d8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9d7cceb7175ad6ba870027ad5ea8b4a38f027f235a330f275ef634887051a265"
+    sha256 cellar: :any,                 arm64_linux:       "80950ebd8821836fb04046e4c96255c01232358e0cba5ea2f117f3a5b34fb655"
+    sha256 cellar: :any,                 x86_64_linux:      "751bb0ff6799880642a0109bf2ad31324e4c795ec954e5c5e267e542365e6fe4"
   end
 
   depends_on "postgresql@17" => [:build, :test]
