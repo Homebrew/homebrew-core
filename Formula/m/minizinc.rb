@@ -25,12 +25,11 @@ class Minizinc < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "7ce8ae49a7159112321f619709aadca67bbc8882d1b97b6e88e317849fdcffbc"
-    sha256 arm64_tahoe:       "0e399701db20c046b319387ab97f0928136a89b83401e939934862a0585d5f97"
-    sha256 arm64_sequoia:     "6decd5eebaa54328910cee5a32e580db6b0424c0b58c71d9044558f8ee77913c"
-    sha256 arm64_sonoma:      "981041ddb6bdb98f0b7d7cb52d81d291603bae2145d19aa399851584eca7f25e"
-    sha256 arm64_linux:       "33ef0af1f067f0cd1a6141aa2b5b17fc7d85a9aebe03107d6125ef3e8efbe29e"
-    sha256 x86_64_linux:      "c5c6631aab467d49232e52fee307c7bd641b0ffd6222887243abed1500c2820b"
+    sha256 arm64_golden_gate: "1a3cfd0f6a669898370629ad5678e49f544dcebfdac47d05e761d5f07087f7dd"
+    sha256 arm64_tahoe:       "31aeac75fa462a55dca0d810bdd8106338b63dfdf939db564f94554fc1691e0f"
+    sha256 arm64_sequoia:     "44f77ee6be4dc34ac587062704073a866aa0cc8ad052d3308dc50d9cb1a13a39"
+    sha256 arm64_linux:       "5f6bc4ac481fc5fe2f7103716ffb3dcb49cea9d4ef0c4b0c627217f903e8adfa"
+    sha256 x86_64_linux:      "85ee3fefa5887e1cd1bec8aa983e94a27a5c3338a64bf22e78f42bbb1979fce2"
   end
 
   depends_on "cmake" => :build
