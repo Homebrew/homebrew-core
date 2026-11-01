@@ -19,6 +19,8 @@ class Kawa < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     rm Dir["bin/*.bat"]
     inreplace "bin/kawa", "thisfile=`command -v $0`",
