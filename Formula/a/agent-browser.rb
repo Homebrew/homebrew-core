@@ -6,11 +6,11 @@ class AgentBrowser < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "30dd23fdcfcb6cfc512ad2b139e189c20a85380a972a2562eaceadb370c38744"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "02916d2d362c055ae76f051e33eacd5bb000508f82603e139b7c0646a662428f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a3da3c3a84e7c2241f6859a9596ee605fa816908f894c97f2556d5513f141864"
-    sha256 cellar: :any,                 arm64_linux:       "1e28f9b49524afa2a7e78f4176c855e45ce9fc93360daae8c82578dfcb3f1b1b"
-    sha256 cellar: :any,                 x86_64_linux:      "07dd2acb4a16d8e76a111330f4146d3787c99a5aab8fd1a18c4c1e05c5e4f389"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8cfca4e66eef223893780291b01cc550e606526fed9835c3279108fec22acf1d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0da6bf349d5e3515bdab88a7115b58833e51e4be05dfb563e9893d214d8f5f2d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fdd4967f31437f4d1fdda7b11054138ad40e468f54bb8064ad0345a4ec1b35cc"
+    sha256 cellar: :any,                 arm64_linux:       "4dc20edf8ae3cd3f86a21f7ba635fe5b3b6310fca8dae5c110f8320e82e2eaa3"
+    sha256 cellar: :any,                 x86_64_linux:      "21d41905e0c2ead1451a2bd9d00237c96eced52bbf8b9a76e4799e7e05bba69f"
   end
 
   depends_on "rust" => :build
