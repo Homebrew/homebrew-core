@@ -8,11 +8,11 @@ class GetIplayer < Formula
   head "https://github.com/get-iplayer/get_iplayer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f93f33e272adb05b019697a0f1327ba0fb21ed28102647f63a95bd4d8826250b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f93f33e272adb05b019697a0f1327ba0fb21ed28102647f63a95bd4d8826250b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f93f33e272adb05b019697a0f1327ba0fb21ed28102647f63a95bd4d8826250b"
-    sha256 cellar: :any,                 arm64_linux:       "872e946258c91ea8b7462d54f858fbbd3c7a761ede544a57ccba9d0318ec0d44"
-    sha256 cellar: :any,                 x86_64_linux:      "6d9a58ad052bb813fe5fa591c994ee4ae4a86f23921dff10fa7f8de8c7ee1ae7"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82ce824f54caf6a105dbcf29a9aa7b6effb5e4d5dd06a248a6e921ff483ca95f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "82ce824f54caf6a105dbcf29a9aa7b6effb5e4d5dd06a248a6e921ff483ca95f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "82ce824f54caf6a105dbcf29a9aa7b6effb5e4d5dd06a248a6e921ff483ca95f"
+    sha256 cellar: :any,                 arm64_linux:       "9154ceb31495bbfd0c304f0bf25c8fd5ea8772eaf4c176dc9a81adacde7f3511"
+    sha256 cellar: :any,                 x86_64_linux:      "a7db2af44941242c718fe795063c5ecc8b1cb79fea00918788b36664f6ba3b6b"
   end
 
   depends_on "atomicparsley"
