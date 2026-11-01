@@ -6,7 +6,7 @@ class PlaywrightCli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1065ed948f4b420fe5c962f968483bcad98c0e1b65d4073b935a3a05c79418d6"
+    sha256 cellar: :any_skip_relocation, all: "f36038e6b86257ca84a1d0815f44084b7e01928400416149bb49fb3b88aeea97"
   end
 
   depends_on "node"
