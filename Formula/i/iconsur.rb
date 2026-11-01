@@ -10,10 +10,10 @@ class Iconsur < Formula
   license "MIT"
 
   bottle do
-    rebuild 7
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4f60c044dafbbb7f75a1e0a9b55efc3d429749961044d245da05b4b96fc8187c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1f2cbd7f353be756075437e67072e0a3b57c89aea19e9b625c92d79f563f4be2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0abdcb49c8b930bb913ccfd43096e4b08899c0f97a3860f32ab7ca8c260beb7e"
+    rebuild 8
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "95a57fd84529fbaa169051164999120c9ee2c5b0aca6345517933afc631d8900"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f38016959ef7350e1a48d4648786df6a7d879c3ff95a81907b6319c2c071ddde"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5b59a779c2ede888dd03a5b8f50da0d2f821661c65af3443cc5a9e4b8abd9940"
   end
 
   deprecate! date: "2026-08-01", because: :repo_archived
@@ -40,13 +40,13 @@ class Iconsur < Formula
                 extra_packages: ["pyobjc-core", "pyobjc-framework-cocoa"]
 
   resource "pyobjc-core" do
-    url "https://files.pythonhosted.org/packages/a5/78/abc4ce5920305780aeb36b4067a86253378b36e29ba96673a3deb02eb03a/pyobjc_core-12.2.2.tar.gz"
-    sha256 "3906452339cd06a3bb07df103c2511d4cb0f7a22d8771c0b802eba15d9a642b6"
+    url "https://files.pythonhosted.org/packages/83/58/7bab095330b8893e1ac58f3cf9710462c3242b600f8fa5db0d5dda795775/pyobjc_core-13.0.tar.gz"
+    sha256 "ffe154462d14aa4852f424e9116f17b5f8d44f78fc0f6c4727e721a5fa7177da"
   end
 
   resource "pyobjc-framework-cocoa" do
-    url "https://files.pythonhosted.org/packages/75/76/49c6da2c6a831020b4854ba20079d5a1030474bffc776b7b73c2eeff8c15/pyobjc_framework_cocoa-12.2.2.tar.gz"
-    sha256 "c96c0ef69a71afbbb0e6a7d594b455c5fe47d62e0db376ee7a2b4b828c16ace9"
+    url "https://files.pythonhosted.org/packages/30/50/55a8779d35f1f86d795264cbd6fe62e35b2cf4fb8343fc888e99268c988a/pyobjc_framework_cocoa-13.0.tar.gz"
+    sha256 "bb7a23941fc8d7866578dbc84e56140efd343a1d28510f530dd1dbf80807daf4"
   end
 
   def install
@@ -55,6 +55,8 @@ class Iconsur < Formula
     if MacOS.version >= :monterey
       # Help `pyobjc-framework-cocoa` pick correct SDK after removing -isysroot from Python formula
       ENV.append_to_cflags "-isysroot #{MacOS.sdk_path}"
+      # Make `pyobjc-core` detect the SDK that superenv compiles with rather than the newer Xcode one
+      ENV["SDKROOT"] = MacOS.sdk_path
       # `pyobjc-core` needs Apple's `libffi` extensions, so keep `node`'s `libffi` out of the link
       ENV.remove "HOMEBREW_LIBRARY_PATHS", formula_opt_lib("libffi")
 
