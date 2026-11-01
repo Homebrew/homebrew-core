@@ -1,19 +1,17 @@
 class TodoistCliGo < Formula
   desc "CLI for Todoist"
   homepage "https://github.com/sachaos/todoist"
-  url "https://github.com/sachaos/todoist/archive/refs/tags/v0.24.0.tar.gz"
-  sha256 "1993d51b1d6fe85c521bc215584674631bef59fe1e9a4e29cf19d921e8df303f"
+  url "https://github.com/sachaos/todoist/archive/refs/tags/v0.25.0.tar.gz"
+  sha256 "4ff262c32714901a7f978f7d775f43874de5784bc8d28ca3eb163bddf83a815e"
   license "MIT"
   head "https://github.com/sachaos/todoist.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2473cd7f428baa34f3bd3867776c109f45d62c33636ac7bb715b1c55c1d93feb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "705fc9c1566919b2194cd3181d28bbd54b8e2adc244007ed6817df8990fdfcda"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "705fc9c1566919b2194cd3181d28bbd54b8e2adc244007ed6817df8990fdfcda"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "705fc9c1566919b2194cd3181d28bbd54b8e2adc244007ed6817df8990fdfcda"
-    sha256 cellar: :any_skip_relocation, sonoma:            "01abdd671c2f6e2419edc45945480b49e8ee2f6f6be4b7b88b8acecd275dd844"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "061e8e55f6db1d06adbf2aebd788bdcd783d0b835a9257db6a9595dc1bf0c27b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "4a90b3ad25e91084e4630a2d801670cc6b361f04b81ac30f74695072b165f5b2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "90791bd8a47694f6988629bdf75f2787116c77476d2d0b37f1facb1edf95e7c1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "90791bd8a47694f6988629bdf75f2787116c77476d2d0b37f1facb1edf95e7c1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "90791bd8a47694f6988629bdf75f2787116c77476d2d0b37f1facb1edf95e7c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "17ec90e8e4c101b2b802d0d7a4849c30433e3872a202d658bff4b80e864f7221"
+    sha256 cellar: :any,                 x86_64_linux:      "0d6b5d208ca961206807d90a70cd6e2e67855fcee4b0ed0dec73a1ec3b0a4165"
   end
 
   depends_on "go" => :build
