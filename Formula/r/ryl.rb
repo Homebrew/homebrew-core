@@ -1,8 +1,8 @@
 class Ryl < Formula
   desc "Fast YAML linter and formatter written in Rust"
   homepage "https://ryl-docs.pages.dev"
-  url "https://github.com/owenlamont/ryl/archive/refs/tags/v0.27.0.tar.gz"
-  sha256 "872d46e48c57c40dca67e734bb2d79c396f1ac23b2714028130010b1ea77846e"
+  url "https://github.com/owenlamont/ryl/archive/refs/tags/v0.28.0.tar.gz"
+  sha256 "4e652e61f38e9d563764774ac6d2e9eff0bde5641a350deaa2a94c861ad85959"
   license "MIT"
 
   bottle do
@@ -28,6 +28,7 @@ class Ryl < Formula
 
   test do
     (testpath/"valid.yaml").write <<~YAML
+      %YAML 1.2
       ---
       ...
     YAML
