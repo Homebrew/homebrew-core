@@ -1,0 +1,14 @@
+Formula/g/gecode.rb
+  h_9df9c32c3f321d 4-5,7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b4144956d63d96514209803fa75aa21dcb29c940",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
