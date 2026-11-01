@@ -1,17 +1,17 @@
 class VapoursynthVszip < Formula
   desc "VapourSynth Zig Image Process"
   homepage "https://github.com/dnjulek/vapoursynth-zip"
-  url "https://files.pythonhosted.org/packages/16/d0/7f54ac694e2895e6db2a7fa09f27936db9b8257847a12935078f60b38554/vapoursynth_vszip-23.1.0.tar.gz"
-  sha256 "1187c34e6965bd289c42eb96e6104288d59949723316c2730b118fa3b1e70d94"
+  url "https://files.pythonhosted.org/packages/73/15/da43c2789c6381fb98897617a7a9d9415b5fa4be198089e12900f7ee7d31/vapoursynth_vszip-24.0.0.tar.gz"
+  sha256 "b2d6157228d0e786a19ac9055814e6141841ffc2c7b42ac1858b0600fc4a69cb"
   license "MIT"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dd810cd37b335772be7ea9219e240146ad4baad213fb2d22a287bfcb574817ca"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bc02aee7ae5724a476a6f96b315172c496f8626d300bbea6bf5ec5ea8854c544"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "87443a9d918b108e0f691dcaf9417d1dc9e7d638ac4ea11d55a8d407d2ce11ac"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f4be4f576c338877ca9fd323cc91ac063c497eba746cb493d3fbab46f2923f2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8d8f14caf5709ff7995fb2cc5c8f61ea3f6f4b94f8ee80d4138f1a7cd70e0f2e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "42f59724273382f896d7155dce6a3dd689902a117bbf48e7b827e85814fe2fd8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e86fd962fa6e3e96da96cf9705b545f22305a97615f226d3681dd0cf540c33a0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2ea57078ea20485dfa311d932aefc0a876152548cd37eb442dde40d02699030d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "506ca5e7265004b889e898e3288595f65ad2b38df5f7c11e743efdba90ac3059"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "dc1e977b80b667927ddb8f70e2d2073ec7ee42d86249ce58ca1f5f7788502a13"
   end
 
   depends_on "zig" => :build
