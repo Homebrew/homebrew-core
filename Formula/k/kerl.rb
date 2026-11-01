@@ -10,6 +10,8 @@ class Kerl < Formula
     sha256 cellar: :any_skip_relocation, all: "9e44f6243554ba4b4ff9c6e84a77328a7fd893d842786f402d1a03dde413b3e9"
   end
 
+  allow_network_access! :test
+
   def install
     bin.install "kerl"
 
