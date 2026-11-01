@@ -1,8 +1,8 @@
 class Meli < Formula
   desc "Terminal e-mail client and e-mail client library"
   homepage "https://meli-email.org/"
-  url "https://git.meli-email.org/meli/meli/archive/v0.8.13.tar.gz"
-  sha256 "b1414defb7973a96ed0510b5cb888aa8671fe4f3f832c5baa0c79dcd61ba2edf"
+  url "https://git.meli-email.org/meli/meli/archive/v0.9.0.tar.gz"
+  sha256 "4eeca49cfef7c9a7c65f722d5fe1b17e3aae85703fb6cd6428c9a53edffb9edd"
   license any_of: ["EUPL-1.2", "GPL-3.0-or-later"]
 
   livecheck do
@@ -11,12 +11,11 @@ class Meli < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "400789dae19d4f25196ecb0b994b0ea72bf78e77a088db599ba6e291688f854a"
-    sha256 cellar: :any, arm64_tahoe:       "6ce8df59b35e71660cbd2ddc97b6fb88df0ed598b3281a34c5a605ea050ca2be"
-    sha256 cellar: :any, arm64_sequoia:     "9b198a2bf1bc14270f54d0c9769034bd873ba1bf645d84f5a815da36c702df0e"
-    sha256 cellar: :any, arm64_linux:       "1fe24e54576b6a811bb20ab8fd71cb480226c42b7d47588798a6ad2a077afcd0"
-    sha256 cellar: :any, x86_64_linux:      "2eaff77a02ca32d9b2beff3b050da071c8f6f876954e193ecab145e846a0059d"
+    sha256 cellar: :any, arm64_golden_gate: "9f23d84e82737440694c0f0cfd7fb3169024a9bf8bb8206d2d587f5e8daceed3"
+    sha256 cellar: :any, arm64_tahoe:       "8fbbfc465d353040699883c77d43b81094f4baca29f62fd3aa3c144ee1d06992"
+    sha256 cellar: :any, arm64_sequoia:     "c13ef814e01243533236abe641efc2cac46a82ba4bf8c711bb0a7a6a193716a2"
+    sha256 cellar: :any, arm64_linux:       "cf1a1b25f57355c71eb2fddfd2c45c8327892dabd8be56bbe652202cd5dd8bfe"
+    sha256 cellar: :any, x86_64_linux:      "691c0cc0e18bb0b648c644766622627c61101c698566b4f80c9f67500939f664"
   end
 
   depends_on "pkgconf" => :build
