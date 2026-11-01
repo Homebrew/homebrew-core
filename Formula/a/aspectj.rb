@@ -26,6 +26,8 @@ class Aspectj < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     mkdir_p "#{libexec}/#{name}"
     system formula_opt_bin("openjdk")/"java", "-jar", "#{name}-#{version}.jar", "-to", "#{libexec}/#{name}"

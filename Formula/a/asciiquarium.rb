@@ -34,6 +34,8 @@ class Asciiquarium < Formula
     sha256 "7d5c3c2d4f9b657a8b1dce7f5e2cbbe02ada2e97c72f3a0304bf3c99d084b045"
   end
 
+  deny_network_access!
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 

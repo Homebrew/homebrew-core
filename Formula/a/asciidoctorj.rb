@@ -17,6 +17,8 @@ class Asciidoctorj < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     rm_r(Dir["bin/*.bat"]) # Remove Windows files.
     libexec.install Dir["*"]
