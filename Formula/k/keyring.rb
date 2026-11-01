@@ -62,6 +62,8 @@ class Keyring < Formula
     sha256 "0637338723a8fc08ed1c2fd826d8432229924649c26e3247bb48c53d60ca3bf9"
   end
 
+  allow_network_access! :build
+
   def install
     without = %w[jeepney secretstorage] unless OS.linux?
     virtualenv_install_with_resources(without:)
