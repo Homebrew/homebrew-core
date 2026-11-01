@@ -94,6 +94,8 @@ class Kpcli < Formula
   # TODO: report upstream at https://sourceforge.net/p/kpcli/patches/ and add `resolves`
   patch :DATA
 
+  deny_network_access!
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV.prepend_path "PERL5LIB", libexec/"lib"
