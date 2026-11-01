@@ -17,6 +17,8 @@ class Xlsxio < Formula
   depends_on "libzip"
   uses_from_macos "expat"
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}", "V=1", "WITH_LIBZIP=1"
   end
