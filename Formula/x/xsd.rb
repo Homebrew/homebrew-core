@@ -27,6 +27,10 @@ class Xsd < Formula
   depends_on "libxsd-frontend"
   depends_on "xerces-c"
 
+  on_sequoia do
+    depends_on xcode: ["16.4", :build] # workaround for std::char_traits (149025504)
+  end
+
   conflicts_with "mono", because: "both install `xsd` binaries"
 
   resource "libxsd" do
@@ -37,6 +41,8 @@ class Xsd < Formula
       formula :parent
     end
   end
+
+  deny_network_access!
 
   def install
     odie "`libxsd` resource needs to be updated!" if version != resource("libxsd").version
