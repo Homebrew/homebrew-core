@@ -1,8 +1,8 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
   homepage "https://qmmp.ylsoftware.com/"
-  url "https://qmmp.ylsoftware.com/files/qmmp/2.4/qmmp-2.4.2.tar.bz2"
-  sha256 "8042f83a9ed810e170f7127e6eb53c6b29038dbf504a01c0867c19e5fd200e7d"
+  url "https://qmmp.ylsoftware.com/files/qmmp/2.4/qmmp-2.4.3.tar.bz2"
+  sha256 "4a50fe5df4704484e2855a39fe33f602e175e707d359bd92ca8a54008f2ecc25"
   license "GPL-2.0-or-later"
   livecheck do
     url "https://qmmp.ylsoftware.com/downloads.php"
@@ -10,12 +10,11 @@ class Qmmp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a262ba3189bedc3048bad4d9c8a09c5e5580d2293a2d245dec59798c0b8a1996"
-    sha256 cellar: :any, arm64_tahoe:       "f0d96a09ba5278b73e81b573f319499a7305df9be480787a0a5a2cacc6dcd05c"
-    sha256 cellar: :any, arm64_sequoia:     "75cc69d67b5465416bd6cbb02fb2c79fc599861b0c9ac5f2f3573f2e2436311e"
-    sha256 cellar: :any, arm64_sonoma:      "eac053ff1a3d57ce2e2567131075dbb7771e8f184ebfe88c12c09d1131d18c9c"
-    sha256 cellar: :any, arm64_linux:       "31fc14d853f140da9b585e651a514cc150d5d58a4433d34f61502f7594a9cdfc"
-    sha256 cellar: :any, x86_64_linux:      "8ee7983a03ac34d005e7b8972938a2246ed68a9fa6910b84782d55947a16c759"
+    sha256 cellar: :any, arm64_golden_gate: "15490ff8e399f16a3f3ad7947405d7ebda80390499ca033d046168136ab0c4b8"
+    sha256 cellar: :any, arm64_tahoe:       "5718bac95f840e5995bc6160476d1d32be56f1fdd10dc1d078450b30c0890836"
+    sha256 cellar: :any, arm64_sequoia:     "6af1a831444b75b57dec7ec7c0e6f93a0143e63ef6b614f88e56dbd6affd81ae"
+    sha256 cellar: :any, arm64_linux:       "f25e57d5dbb1784eed1ff054836b75c1a545323f87046eef7d23a57cf94bde6b"
+    sha256 cellar: :any, x86_64_linux:      "79bcd1a8fe529ac79deaf2cb0f5cf7e07f7402c68e9afdcf7f3969d63720be93"
   end
 
   depends_on "cmake" => :build
