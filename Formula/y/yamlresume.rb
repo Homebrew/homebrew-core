@@ -19,6 +19,8 @@ class Yamlresume < Formula
     depends_on "fontconfig" # for font-list to run fc-list
   end
 
+  allow_network_access! :build
+
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
