@@ -7,12 +7,11 @@ class Verilator < Formula
   head "https://github.com/verilator/verilator.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "66a097432fffcf28165bcce9b74beae19a3c5d86e931226ff0fa76f131b73054"
-    sha256 arm64_tahoe:       "e7feb1dd658e25f1fb18ee4b1ef4f54e865685041f59f02c1f1b19aa6acba3bb"
-    sha256 arm64_sequoia:     "94ddddacd076100014c0b238781046f965a9b388f1323dbd5b91d4fcd221b4a9"
-    sha256 arm64_linux:       "b45364801472a41bec00e3e088878d581d15e6a700e997e3a361cd7848ff5b3f"
-    sha256 x86_64_linux:      "57851f051cf12172e355fc7b7566d55dc69c76174a03937f2532409f4f93b72a"
+    sha256 arm64_golden_gate: "977c1c40552522c2dc5d71a190547b00a40f67a9e4ef7c5a7157dcb4a116c6d2"
+    sha256 arm64_tahoe:       "5b18598ea779983c69b09f65ff7d5cf7385470337b380d782ff82910ecb4f383"
+    sha256 arm64_sequoia:     "f3e0ae1fbed848217fc8d4151a98fbf5e6ddf0c7a15c1da092c69c369ec38b09"
+    sha256 arm64_linux:       "a15e7001126b0f915e00d4162d37791b2645ec4a4f492125698d464783cb60dc"
+    sha256 x86_64_linux:      "ae61306c19ea1b8f570bd02327b784a0787b0345adff1caf4b0fc4d3d37eac25"
   end
 
   depends_on "autoconf" => :build
