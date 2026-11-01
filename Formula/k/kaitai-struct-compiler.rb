@@ -17,6 +17,8 @@ class KaitaiStructCompiler < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     libexec.install Dir["*"]
     (bin/"kaitai-struct-compiler").write_env_script libexec/"bin/kaitai-struct-compiler",
