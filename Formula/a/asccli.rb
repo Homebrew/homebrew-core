@@ -1,8 +1,8 @@
 class Asccli < Formula
   desc "App Store Connect CLI to manage apps, versions, and screenshots"
   homepage "https://github.com/tddworks/asc-cli"
-  url "https://github.com/tddworks/asc-cli/archive/refs/tags/v0.18.6.tar.gz"
-  sha256 "46fcffa4b6a0e046fa71a6116028b04fb87ac760dd1481f4ad7852a00f3dc302"
+  url "https://github.com/tddworks/asc-cli/archive/refs/tags/v0.18.7.tar.gz"
+  sha256 "81164d13f25ea4fee3036be9473d438d228e4837e9a38df307db16d3a9ca6957"
   license "Apache-2.0"
 
   bottle do
