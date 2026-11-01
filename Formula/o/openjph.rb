@@ -1,10 +1,10 @@
 class Openjph < Formula
   desc "Open-source implementation of JPEG2000 Part-15 (or JPH or HTJ2K)"
   homepage "https://github.com/aous72/OpenJPH"
-  url "https://github.com/aous72/OpenJPH/archive/refs/tags/0.32.0.tar.gz"
-  sha256 "5cb1ebe18e5ee1322d23ff2130b37562d447d1ad5586c3d16cf84be3ae30f719"
+  url "https://github.com/aous72/OpenJPH/archive/refs/tags/0.33.0.tar.gz"
+  sha256 "3437f296ff8531b35558650b0ed7fde45cad39394329eef4064a3d4900cf101f"
   license "BSD-2-Clause"
-  compatibility_version 7
+  compatibility_version 8
   head "https://github.com/aous72/OpenJPH.git", branch: "master"
 
   bottle do
@@ -23,7 +23,15 @@ class Openjph < Formula
     sha256 "e4e36966d68a473a7f5f5719d9e41c8061f2d817f70a7de1c78d7e510a6391ff"
   end
 
-  allow_network_access! :test
+  # Find Threads in the installed CMake config as targets now link it publicly
+  patch do
+    url "https://github.com/daeho-ro/OpenJPH/commit/3dfa201688b96f3b5dab3057bce89975ba7f2ad5.patch?full_index=1"
+    sha256 "7cfd6ff20a8e86fa17a60132d3c1cacc7bd2c97d6b229cf26d4482488a1374c7"
+    type :unofficial
+    resolves "https://github.com/aous72/OpenJPH/pull/420"
+  end
+
+  deny_network_access!
 
   def install
     ENV["DYLD_LIBRARY_PATH"] = lib.to_s
