@@ -20,7 +20,11 @@ class Aerc < Formula
   depends_on "scdoc" => :build
   depends_on "notmuch"
 
-  deny_network_access! [:postinstall, :test]
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     # Workaround to avoid patchelf corruption when cgo is required
