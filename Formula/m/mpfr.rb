@@ -42,6 +42,7 @@ class Mpfr < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkgconf" => :test
   depends_on "gmp"
 
   on_system :linux, macos: :ventura_or_newer do
@@ -55,6 +56,10 @@ class Mpfr < Formula
     system "make"
     system "make", "check"
     system "make", "install"
+    # Propagate GMP's public headers and libraries to pkg-config consumers.
+    inreplace lib/"pkgconfig/mpfr.pc",
+              "Libs: -L${libdir} -lmpfr -lgmp",
+              "Requires: gmp\nLibs: -L${libdir} -lmpfr"
   end
 
   test do
@@ -77,8 +82,14 @@ class Mpfr < Formula
         return 0;
       }
     C
-    system ENV.cc, "test.c", "-L#{lib}", "-L#{formula_opt_lib("gmp")}",
-                   "-lgmp", "-lmpfr", "-o", "test"
+    requires = shell_output("pkgconf --print-requires mpfr").split
+    assert_includes requires, "gmp"
+
+    flags = shell_output("pkgconf --cflags --libs mpfr").shellsplit
+    assert_includes flags, "-lmpfr"
+    assert_includes flags, "-lgmp"
+
+    system ENV.cc, "test.c", *flags, "-o", "test"
     system "./test"
   end
 end
