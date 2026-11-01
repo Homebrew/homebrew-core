@@ -19,6 +19,8 @@ class XkeyboardConfig < Formula
 
   uses_from_macos "libxslt" => :build
 
+  deny_network_access!
+
   def install
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
