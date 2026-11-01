@@ -4,15 +4,15 @@ class GetIplayer < Formula
   url "https://github.com/get-iplayer/get_iplayer/archive/refs/tags/v3.36.tar.gz"
   sha256 "9a70383143b6e3f43ee079f551b7f5719037ada86eb48d9defc66e00e619d996"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/get-iplayer/get_iplayer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f93f33e272adb05b019697a0f1327ba0fb21ed28102647f63a95bd4d8826250b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f93f33e272adb05b019697a0f1327ba0fb21ed28102647f63a95bd4d8826250b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f93f33e272adb05b019697a0f1327ba0fb21ed28102647f63a95bd4d8826250b"
-    sha256 cellar: :any,                 arm64_linux:       "872e946258c91ea8b7462d54f858fbbd3c7a761ede544a57ccba9d0318ec0d44"
-    sha256 cellar: :any,                 x86_64_linux:      "6d9a58ad052bb813fe5fa591c994ee4ae4a86f23921dff10fa7f8de8c7ee1ae7"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82ce824f54caf6a105dbcf29a9aa7b6effb5e4d5dd06a248a6e921ff483ca95f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "82ce824f54caf6a105dbcf29a9aa7b6effb5e4d5dd06a248a6e921ff483ca95f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "82ce824f54caf6a105dbcf29a9aa7b6effb5e4d5dd06a248a6e921ff483ca95f"
+    sha256 cellar: :any,                 arm64_linux:       "9154ceb31495bbfd0c304f0bf25c8fd5ea8772eaf4c176dc9a81adacde7f3511"
+    sha256 cellar: :any,                 x86_64_linux:      "a7db2af44941242c718fe795063c5ecc8b1cb79fea00918788b36664f6ba3b6b"
   end
 
   depends_on "atomicparsley"
@@ -210,6 +210,14 @@ class GetIplayer < Formula
     sha256 "56ddea0c74f65ed17d3d5eff2b79ff2f151a0ccb2b6aa63e3fe94bdd52e1de09"
   end
 
+  # macOS perl's LWP::Protocol::https only finds CA certificates through Mozilla::CA
+  resource "Mozilla::CA" do
+    on_macos do
+      url "https://cpan.metacpan.org/authors/id/L/LW/LWP/Mozilla-CA-20261020.tar.gz"
+      sha256 "1aeed97a463389e582e085e82de03ae0bffae74d46cf8ee4c511341e5508c21d"
+    end
+  end
+
   deny_network_access!
 
   def install
@@ -240,5 +248,9 @@ class GetIplayer < Formula
     assert_match "INFO: 0 matching programmes", output, "Unexpected output"
     assert_match "INFO: Indexing tv programme schedules", output,
                          "Mojolicious not found"
+
+    # Programme downloads use LWP, which needs CA certificates to verify HTTPS
+    ENV["PERL5LIB"] = libexec/"lib/perl5"
+    system "perl", "-MLWP::UserAgent", "-e", 'LWP::Protocol::create("https", LWP::UserAgent->new)->_extra_sock_opts'
   end
 end
