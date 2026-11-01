@@ -1,18 +1,16 @@
 class Ccmux < Formula
   desc "Run all your AI coding agents in tmux"
   homepage "https://github.com/epilande/ccmux"
-  url "https://github.com/epilande/ccmux/archive/refs/tags/v1.4.4.tar.gz"
-  sha256 "e5e44bc18eab59ee68ffa33a398c6a254e11831b52a9c649201f36faaf3ee80b"
+  url "https://github.com/epilande/ccmux/archive/refs/tags/v1.4.5.tar.gz"
+  sha256 "ecbaf344319e6422d9b187ca74797e737d6f2177f20bb8176798c025b9bd9eab"
   license "MIT"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "6eb41629428fe4d0192b9c2349190875e5a9657b05b16bdf85ed9374f1704b9f"
-    sha256 arm64_tahoe:       "8cab1ff82132049391e16a88ce63cde2dbd75817d60dc45b74a17e80d8dc9e7a"
-    sha256 arm64_sequoia:     "678466d6b9716f84cb51ce661666ccef1498f737ad03b871b4a088ee19761f54"
-    sha256 arm64_linux:       "41640b181f84803271622db0801421ca8e9db6ecfb7b6f27fd2c16b3786d2aed"
-    sha256 x86_64_linux:      "a73f3113631a0709a316c45486d054296ba415b052191d8e64a063f73038b23d"
+    sha256 arm64_golden_gate: "f31fff43b12f79a016faa9a189a1dbc746a5123ecd35cb3059dbcc24a2c2f69f"
+    sha256 arm64_tahoe:       "c8d205ff33155194cfefa1326b601af0072d75dcd20896bfab7d4b102ad641cb"
+    sha256 arm64_sequoia:     "b7052d0b1ff7f0b4970c395adb540e72320ee058b4769d9d877a08871d5a649f"
+    sha256 arm64_linux:       "0feacaa042fa7a566260e5dcef92c0a401a118afb67882465ae221c0bf76a83e"
+    sha256 x86_64_linux:      "5ecc65102b21fe1a45a8912ab723ddffe31d4e40af854e27d13ba2b8d536700f"
   end
 
   depends_on "bun" => :build
