@@ -6,12 +6,11 @@ class Imapfilter < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "76613dfae6048733352e2d71778da1ad2c6b98534789bef6b44bd07a9768e64d"
-    sha256 arm64_tahoe:       "e4d9cb640ff502c91dd2aa79ecaf07751ee96810ae7e2773c0d4740787cd85fe"
-    sha256 arm64_sequoia:     "b8db295a4a69ac4db0a94e791d450f225beee8a7725178caf6ad932edd2fa267"
-    sha256 arm64_linux:       "c96f8f0fb5e75c8c9a358f167118974b8661474a732bf6947c8901d2e488942d"
-    sha256 x86_64_linux:      "f3a9917c776dfb842ec9410bfabc5e82a5296f72975c26ae69de2ba5d6305599"
+    sha256 arm64_golden_gate: "48e26b4902a45d642f75415357e62d453bda32b8a27a0e2c229c207f53d6235a"
+    sha256 arm64_tahoe:       "8b8f69bd94c85c52788b590fbee351bc5ff704ccb0ebbe9e11fc2a2a78b9d3f2"
+    sha256 arm64_sequoia:     "40e1c8d5263e657d0944a308a6aee9b8f2affefa4f9f282598eef4e2bdacc826"
+    sha256 arm64_linux:       "48ab64c893cc06729518c4bf41203da3eb745a80bfee02e2856f143098c5eae7"
+    sha256 x86_64_linux:      "5ead653172e238a390b43121d16f3ee7295287a8385d49745b2b7b91d4d98337"
   end
 
   depends_on "lua"
