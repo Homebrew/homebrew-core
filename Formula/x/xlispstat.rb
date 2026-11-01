@@ -33,6 +33,8 @@ class Xlispstat < Formula
 
   depends_on "libx11"
 
+  deny_network_access!
+
   def install
     # Fix compile with newer Clang
     ENV.append "CC", "-Wno-implicit-int -Wno-int-conversion" if DevelopmentTools.clang_build_version >= 1403
