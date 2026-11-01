@@ -22,6 +22,8 @@ class Awk < Formula
     conflicts_with "gawk", because: "both install an `awk` executable"
   end
 
+  deny_network_access!
+
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
     bin.install "a.out" => "awk"

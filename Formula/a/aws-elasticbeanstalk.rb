@@ -158,6 +158,8 @@ class AwsElasticbeanstalk < Formula
     sha256 "f595bb0185aab3e9dc31950c95d914f56ea8278810c3b928f3426e12ed6d27bc"
   end
 
+  allow_network_access! :build
+
   def install
     ENV["SODIUM_INSTALL"] = "system"
     virtualenv_install_with_resources
