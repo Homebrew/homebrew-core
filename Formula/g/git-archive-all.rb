@@ -3,8 +3,8 @@ class GitArchiveAll < Formula
 
   desc "Archive a project and its submodules"
   homepage "https://github.com/Kentzo/git-archive-all"
-  url "https://github.com/Kentzo/git-archive-all/archive/refs/tags/1.23.1.tar.gz"
-  sha256 "0c440d15be18e336672549231510fa3c66d0cb95069a5e4800fdd876ab6814df"
+  url "https://github.com/Kentzo/git-archive-all/archive/refs/tags/1.24.0.tar.gz"
+  sha256 "d7eb0c7ef3e908b6e666f0b8c9e583e4ea866dffb87a4590d4b8ff0fd136fb6f"
   license "MIT"
   head "https://github.com/Kentzo/git-archive-all.git", branch: "master"
 
