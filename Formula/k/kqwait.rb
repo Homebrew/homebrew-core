@@ -22,6 +22,8 @@ class Kqwait < Formula
 
   depends_on :macos
 
+  deny_network_access!
+
   def install
     system "make"
     bin.install "kqwait"
