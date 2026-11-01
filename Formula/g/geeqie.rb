@@ -1,10 +1,9 @@
 class Geeqie < Formula
   desc "Lightweight Gtk+ based image viewer"
   homepage "https://www.geeqie.org/"
-  url "https://github.com/BestImageViewer/geeqie/releases/download/v3.3/geeqie-3.3.tar.xz"
-  sha256 "45ea0ef3c2b93b754e33763a1074673ab380e088d8217c28be3779423f56fe48"
+  url "https://github.com/BestImageViewer/geeqie/releases/download/v3.4/geeqie-3.4.tar.xz"
+  sha256 "11da7a988ffae5c531f011d1efc10f8bb700fd26dc5bec6d175e7722ea6658cc"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,11 +11,11 @@ class Geeqie < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "2ac1c596142885943e9f9f7d7f720e1d9849253c68a8f207fb0d4d8f14f34e9a"
-    sha256 cellar: :any, arm64_tahoe:       "7dd58c0b569ce33b8d37006670f00e359425d316779ae4506cffe3680cee6742"
-    sha256 cellar: :any, arm64_sequoia:     "3085bb550bf0c5855e9e10b2f199d97544914df17bdda31827623ef539023a26"
-    sha256 cellar: :any, arm64_linux:       "b6450a8ae1440ab1886af320ead5c9fca42d3a4f4b5eec595a8d8c086b00eceb"
-    sha256 cellar: :any, x86_64_linux:      "35019ede0eabae940ac575f8378241213fcd739e0607349a75a282f6d2327f08"
+    sha256 cellar: :any, arm64_golden_gate: "fd1c44d2c206d179f87798ff021de864bebf9c622ecb8bb455c33df8f273fc66"
+    sha256 cellar: :any, arm64_tahoe:       "0f1013e60266b126e11aa1234bb6c573e57c05cd21a778ced65df88f690cf23f"
+    sha256 cellar: :any, arm64_sequoia:     "f2cd519aba6669d573163d29685258648c1cb6140e638fdf830749f68a78b331"
+    sha256 cellar: :any, arm64_linux:       "21ccddb95176abc9374dc39cedd7968ca57d00699a348eda2041d46155b936fb"
+    sha256 cellar: :any, x86_64_linux:      "8bfc05defda648c757442d76d48780d8ed1d0ceb608847a17ad22fb80bac66c5"
   end
 
   depends_on "gettext" => :build
