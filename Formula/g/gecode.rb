@@ -7,14 +7,11 @@ class Gecode < Formula
   compatibility_version 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "a99d6370a52f5db410e4e7907c3adf51f853805e618e88b134ffd103a0f466d5"
-    sha256 cellar: :any, arm64_tahoe:       "c1af270f7d409a951da92ca72fd36b6ef1e9e93309436bfe4d48abdb19ca4348"
-    sha256 cellar: :any, arm64_sequoia:     "9baaf5b2e7a92df403a8803df2b1f5af30167af6e05b1e2ca203237ef785c35e"
-    sha256 cellar: :any, arm64_sonoma:      "09c9a1c1cab4871e9d4579977f2d4cf223eeed16852a1df8d690c49a0784fe32"
-    sha256 cellar: :any, sonoma:            "f6f9fad598c2f3cc07dcc313fa2f35512cabd848bd32a52bfc1ee5bd7bdb229f"
-    sha256 cellar: :any, arm64_linux:       "7c006d234dfec33ffd670506904609655a71cb822be8fb05e1eb2ac917551477"
-    sha256 cellar: :any, x86_64_linux:      "177253ab8d6c6374ca31dc7d77d979784e256f9b8985f38110e120d41a2b1bee"
+    sha256 cellar: :any, arm64_golden_gate: "c4f0d6981bf2aecf9d46a19e647e0a95c9ddfd7857356a25d30927f076057225"
+    sha256 cellar: :any, arm64_tahoe:       "5fca902a52127fa46dcc4fcce8e204905b80d40801b9baf8167fd6f92ef2e8cf"
+    sha256 cellar: :any, arm64_sequoia:     "05345a73605109e672e866d924c7bdce16aef198681babbcc0845d10489c862b"
+    sha256 cellar: :any, arm64_linux:       "e63f4683937e62b07340af8be98367e4cfa4821110d6c675c63ffde3819ae0ea"
+    sha256 cellar: :any, x86_64_linux:      "07dd9d020ca0d3d307680514295a36a9d28b82dd2bb9cbfb880896db150cb495"
   end
 
   depends_on "cmake" => :build
