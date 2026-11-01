@@ -30,15 +30,21 @@ class Xpipe < Formula
     depends_on "libbsd"
   end
 
+  deny_network_access!
+
   def install
+    # FIXME: "buffer overflow detected" with Ubuntu gcc default of -D_FORTIFY_SOURCE=3
+    ENV.append_to_cflags "-D_FORTIFY_SOURCE=2" if OS.linux?
+
     inreplace "Makefile", "${PREFIX}/include/bsd", "#{formula_opt_include("libbsd")}/bsd"
     system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do
-    system "echo foo | xpipe -b 1 -J % /bin/sh -c 'cat >%'"
-    assert_path_exists testpath/"1"
-    assert_path_exists testpath/"2"
-    assert_path_exists testpath/"3"
+    pipe_output("#{bin}/xpipe -b 1 -J % /bin/sh -c 'cat >%'", "brew", 0)
+    assert_equal "b", (testpath/"1").read
+    assert_equal "r", (testpath/"2").read
+    assert_equal "e", (testpath/"3").read
+    assert_equal "w", (testpath/"4").read
   end
 end
