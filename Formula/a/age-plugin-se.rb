@@ -22,7 +22,13 @@ class AgePluginSe < Formula
     depends_on macos: :tahoe # cannot build on Sequoia with Swift 6.2
   end
 
-  deny_network_access! [:postinstall, :test]
+  deny_network_access!
+
+  def fetch
+    # SwiftPM tries to apply its own sandbox, which cannot nest inside the
+    # build sandbox; Homebrew's sandbox still confines the whole process.
+    system "swift", "package", "resolve", "--disable-sandbox"
+  end
 
   def install
     args = ["PREFIX=#{prefix}", "RELEASE=1", "SWIFT_BUILD_FLAGS=#{std_swift_args.join(" ")}"]

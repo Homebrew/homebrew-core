@@ -35,7 +35,7 @@ class Freeglut < Formula
   end
 
   allow_network_access! :test
-  deny_network_access! [:build, :postinstall]
+
   def install
     args = %W[
       -DFREEGLUT_BUILD_DEMOS=OFF

@@ -18,7 +18,11 @@ class DejaVu < Formula
 
   conflicts_with "deja", because: "both install `deja` binaries"
 
-  deny_network_access! [:postinstall, :test]
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
 
   def install
     ldflags = "-X main.version=#{version}"

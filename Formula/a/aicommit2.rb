@@ -11,7 +11,7 @@ class Aicommit2 < Formula
 
   depends_on "node"
 
-  deny_network_access! [:postinstall, :test]
+  allow_network_access! :build
 
   def install
     # Optional dependencies include `@github/copilot-sdk`

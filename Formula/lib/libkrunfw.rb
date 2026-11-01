@@ -48,7 +48,8 @@ class Libkrunfw < Formula
     sha256 "660d82dcbeb8e83d1702bd97f223f761625da06111c0cc988eac6b8ab0c1b61f"
   end
 
-  deny_network_access! [:postinstall, :test]
+  # For Python
+  allow_network_access! :build
 
   def install
     resource("kernel").stage buildpath/"tarballs"
