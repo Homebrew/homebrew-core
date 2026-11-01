@@ -45,6 +45,8 @@ class Khard < Formula
     sha256 "ac44e5d7e2079d84c1d52c50a615b9bec4b1ba958608c4c7fe40cbf33247b38e"
   end
 
+  allow_network_access! :build
+
   def install
     venv = virtualenv_install_with_resources without: "vobject"
 
