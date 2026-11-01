@@ -1,8 +1,8 @@
 class Chezmoi < Formula
   desc "Manage your dotfiles across multiple diverse machines, securely"
   homepage "https://chezmoi.io/"
-  url "https://github.com/twpayne/chezmoi/releases/download/v2.73.3/chezmoi-2.73.3.tar.gz"
-  sha256 "0c09db0e696857093d0d68c5f33adaafae63496e0b23fcbb1dd7edc4d2e2f3b1"
+  url "https://github.com/twpayne/chezmoi/releases/download/v2.74.0/chezmoi-2.74.0.tar.gz"
+  sha256 "737a86cf1816331665ce44a503307beb827bcdc7f59a321c13a75d4bfe96c0ca"
   license "MIT"
   head "https://github.com/twpayne/chezmoi.git", branch: "master"
 
@@ -14,11 +14,11 @@ class Chezmoi < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f9745598a7971392888a4a9ad2c5b753c6a64db0bd4588799319aded257a68d0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0093c29e40bc4b3d402889cf1e9520bcfedebcfe53db662a8ade4c9b042e1414"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f79755697eea52390dc379b162d5eb0a2aedb92127f572ea9f189dc1d0851904"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "fc54865df1ed5ddebd911035a20369710d4c77cc9522c25e993dc50434936d8e"
-    sha256 cellar: :any,                 x86_64_linux:      "a37b2e28e0370e1f40036ee75d020e26a4067426f19bc425f4533bb44a556c0c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b04fc243e1e9143c88480d4d3bab671578678082d89a8735efdc4a19f9ffcefc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "925bc98de5ce8a24b2ed6fb3e572f6091f006376349733d14c16901340a5ce0c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "95dca8882c7514a9ce6f6e446fefae0b6ec6611da915007a96c7cfd11cbd95b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4a7e7f168d4fac72bdd732c7ccb4937d1aad4992d95df58778ab01a918addfe1"
+    sha256 cellar: :any,                 x86_64_linux:      "4768d049ea5029ae621a4be854c66e25d10a6f97b80c6467630a8602b9ef37ba"
   end
 
   depends_on "go" => :build
