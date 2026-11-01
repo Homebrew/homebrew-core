@@ -4,6 +4,7 @@ class Wiiuse < Formula
   url "https://github.com/wiiuse/wiiuse/archive/refs/tags/0.16.0.tar.gz"
   sha256 "084e0afe3ecd392a2daf4392e62e171be7bdf404659c1bfee92e914f973be9a5"
   license "GPL-3.0-or-later"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "202c73205053c5693bf53258f36136a3aa513b41f98922a416da2ae96d53fa37"
