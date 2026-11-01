@@ -22,6 +22,8 @@ class Xe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "5b67d52094aa34b8882194aa6fa429b13ed8866abbc33ae906d3f0253b52ff61"
   end
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
