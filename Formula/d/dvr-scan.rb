@@ -12,11 +12,12 @@ class DvrScan < Formula
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ee4a23161c4bc02f2ab6aeee61941e2cb443746be78d13126f34dd1dcca657fc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0d01ba2db412426cdbe4e3bb40d8ede869d629b7884179b10208be642ba636a7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e67893dd34d7300145a2d0479ef3824322ebce8c0b7931b2315fddadcba8f099"
-    sha256 cellar: :any,                 arm64_linux:       "0dc0d499bffd89c714f87cf19d933650b8742e107f21205d06a3837346778438"
-    sha256 cellar: :any,                 x86_64_linux:      "c244e33457c291546898ed21e1f704592df536955308b5e5d994fc2e1f4c62b8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f38c4470152c9254fbcc91002a0dab7aa25f7e13973fbd9d131e4746a31cb745"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1b6f19ec5d092c0b7b0168766c3bd5b00187571f335da1af8de3921671ffdf90"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "87b5d31db9341083f53ef9202dcf5e0294f7576db6c5541fe66d5c08a402ec33"
+    sha256 cellar: :any,                 arm64_linux:       "7611b01632af86dead773eec013697db382e5b09f326a3fa35d4578f2abd6e56"
+    sha256 cellar: :any,                 x86_64_linux:      "eedaa11e3d0100cdef763d210645ef363907cf1147d16121c68b94c6cccc8dd5"
   end
 
   depends_on "cmake" => :build
