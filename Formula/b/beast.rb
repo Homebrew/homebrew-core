@@ -12,14 +12,12 @@ class Beast < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8e2ee4722cf200a65deacbcbb3e6606175faff5dc5034fd10cd1faf86d6651ad"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b107a5edd728816ef7165865357969675e088181f19e83c6a9a2b5ce2e116312"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4d872467d67eaf343cf3f19f857dcadf1801081fde1b0def66a5c5e6c1de0e12"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "e172d94ce8e6d5e1f4e71d96e3badd35a781f7de4a35ec9f3547ebecfb1ea821"
-    sha256 cellar: :any_skip_relocation, sonoma:            "271c25efad35403b8c49c6caa31c6a21a2f486624ea0f5203174691a6dfaa613"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "63b7d3b4fe5dc9a4468424a86832701ea99c690481040dc444d832528b6680f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7ac4f0df6c90dd7dddd0b19757f1c1ad14462b253743d09cafb94f6b20367b65"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b93ad7a4a3bbf61eddf37a461b6822b054b78f4f2abe839e20060a1df15e1661"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c13894f640c1c2308eb2c468433b6158f5be1e4ffc074c2e053523590166866"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "39171dbf213c7091c78db76063b50c0457ea42a3ee6c5c21a227815504fceeb3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "86a46f94d5a378aa2a3a657875c802b2e2be29b9e8c0cea634627eb5a00c16a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3fbe512596b1d7445bbf50d2f811a5e480d4ac645a86561f1aedd43459cc4d0c"
   end
 
   depends_on "ant" => :build
@@ -48,18 +46,16 @@ class Beast < Formula
     inreplace "testUCRelaxedClockLogNormal.xml", 'chainLength="10000000"',
                                                  'chainLength="100000"'
 
-    # OpenCL is not supported on virtualized arm64 macOS and causes all beast commands to fail
-    if OS.mac? && Hardware::CPU.arm? && Hardware::CPU.virtualized?
-      output = shell_output("#{bin}/beast testUCRelaxedClockLogNormal.xml 2>&1", 255)
-      assert_match "OpenCL error: CL_INVALID_VALUE", output
-      return
-    end
-
     system bin/"beast", "testUCRelaxedClockLogNormal.xml"
 
-    %w[ops log trees].each do |ext|
-      output = "testUCRelaxedClockLogNormal." + ext
-      assert_path_exists testpath/output, "Failed to create #{output}"
+    samples = (testpath/"testUCRelaxedClockLogNormal.log").read.lines.reject { |line| line.start_with?("#") }
+    columns = samples.shift.split
+    result = columns.zip(samples.last.split).to_h
+    assert_equal "100000", result.fetch("state")
+    %w[posterior prior likelihood].each do |statistic|
+      assert Float(result.fetch(statistic)).finite?, "Non-finite #{statistic}"
     end
+    assert_in_delta Float(result.fetch("prior")) + Float(result.fetch("likelihood")),
+                    Float(result.fetch("posterior")), 1e-5
   end
 end

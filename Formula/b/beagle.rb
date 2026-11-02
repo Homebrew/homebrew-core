@@ -1,8 +1,8 @@
 class Beagle < Formula
   desc "Evaluate the likelihood of sequence evolution on trees"
   homepage "https://github.com/beagle-dev/beagle-lib"
-  url "https://github.com/beagle-dev/beagle-lib/archive/refs/tags/v4.0.1.tar.gz"
-  sha256 "9d258cd9bedd86d7c28b91587acd1132f4e01d4f095c657ad4dc93bd83d4f120"
+  url "https://github.com/beagle-dev/beagle-lib/archive/refs/tags/v4.2.0.tar.gz"
+  sha256 "b62bcfce58dadacece78d140c0b2f0e2c255408c96cb95d23f01ea5b7eea1970"
   license "MIT"
   compatibility_version 1
 
@@ -12,16 +12,11 @@ class Beagle < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_golden_gate: "e62fb7e68269ed6efc9abb9a3b8f4333328522878ffbec8830521c429df552ef"
-    sha256 cellar: :any,                 arm64_tahoe:       "bc8e56cab2d1da3a82d01ba8a9e1b3976213a155667eec3e8a3ece160c0344fc"
-    sha256 cellar: :any,                 arm64_sequoia:     "fe362a0f25bf169bb507df13e17e4647a85b185383308fa2c6907bf57a0c3bc9"
-    sha256 cellar: :any,                 arm64_sonoma:      "a15730feb6101837d824ccc36397e4f777e450312e3e142b5e0a4752f44cfb4b"
-    sha256 cellar: :any,                 arm64_ventura:     "630068ff93debb8af7e06748abb07dc1637467795b01bbd04aca01212a23c683"
-    sha256 cellar: :any,                 sonoma:            "1a82a444e21aaf6ed87d13d100fe09bf5dada1f97794a349cb66e429d35ed7dd"
-    sha256 cellar: :any,                 ventura:           "a249e59ce098ccab24c15b794bcd148dca578ce4cb5aad253732c8e9466c7f89"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a23bc6a7ade9eaeda9911a39a644a45f081f215b080de725a322dabf2b803063"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "fc0660f81935172863061b141e4576bedc36db62b6b0c0b7f5bececc5ed40689"
+    sha256 cellar: :any, arm64_golden_gate: "35e618b7a630394fa473f08075790985ad00f14dd059af9df2aac93417871248"
+    sha256 cellar: :any, arm64_tahoe:       "81548097ee34e140208c725c10b40a03a1990054f5cfd14c58b275c8e7cc296e"
+    sha256 cellar: :any, arm64_sequoia:     "f828804240965d31b766693a5a424a614f53b6455b1e4ab4d418f50251fe00f8"
+    sha256 cellar: :any, arm64_linux:       "83129daa93c0d2d60e22c3bedcfd0c7ebaf9be441bda0854ce0910f1602b852f"
+    sha256 cellar: :any, x86_64_linux:      "cbbaf4d8d37e5ace48554a44968b7ca41a02781e4efa8a5943f0b90c309ac0fe"
   end
 
   depends_on "cmake" => :build
@@ -42,22 +37,8 @@ class Beagle < Formula
   end
 
   test do
-    if OS.mac? && Hardware::CPU.arm? && Hardware::CPU.virtualized?
-      # OpenCL is not supported on virtualized arm64 macOS which breaks all Beagle functionality
-      (testpath/"test.cpp").write <<~CPP
-        #include <iostream>
-        #include "libhmsbeagle/beagle.h"
-        int main() {
-          std::cout << beagleGetVersion();
-          return 0;
-        }
-      CPP
-      system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}/libhmsbeagle-1", "-L#{lib}", "-lhmsbeagle"
-      assert_match version.to_s, shell_output("./test")
-    else
-      system ENV.cxx, pkgshare/"tinytest.cpp", "-o", "test", "-I#{include}/libhmsbeagle-1", "-L#{lib}", "-lhmsbeagle"
-      assert_match "sumLogL = -1498.", shell_output("./test")
-    end
+    system ENV.cxx, pkgshare/"tinytest.cpp", "-o", "test", "-I#{include}/libhmsbeagle-1", "-L#{lib}", "-lhmsbeagle"
+    assert_match "sumLogL = -1498.", shell_output("./test")
 
     (testpath/"T.java").write <<~JAVA
       class T {
