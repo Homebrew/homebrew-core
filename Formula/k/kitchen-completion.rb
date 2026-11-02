@@ -11,6 +11,8 @@ class KitchenCompletion < Formula
     sha256 cellar: :any_skip_relocation, all: "2db54abff94a93a95e8cee31a46ad86210e556d2f2c25d1f7f3d8a8dd1853514"
   end
 
+  deny_network_access!
+
   def install
     bash_completion.install "kitchen-completion.bash" => "kitchen"
   end

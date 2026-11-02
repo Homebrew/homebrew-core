@@ -27,6 +27,8 @@ class KimApi < Formula
 
   uses_from_macos "xz"
 
+  deny_network_access!
+
   def install
     args = [
       "-DCMAKE_INSTALL_RPATH=#{rpath};#{loader_path}/../../..",

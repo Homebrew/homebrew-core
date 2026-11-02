@@ -13,6 +13,8 @@ class Keyd < Formula
 
   depends_on :linux
 
+  deny_network_access!
+
   def install
     args = %W[
       PREFIX=#{prefix}

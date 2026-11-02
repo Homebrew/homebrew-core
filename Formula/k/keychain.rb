@@ -17,10 +17,14 @@ class Keychain < Formula
     sha256 cellar: :any_skip_relocation, all: "15c6f195c141fc755953d3478b0980af2ed0f7cda1ca17cd82c3b0f4a980227f"
   end
 
+  depends_on "python-setuptools" => :build
   depends_on "python@3.15"
 
+  deny_network_access!
+
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install_and_link(buildpath, build_isolation: false)
   end
 
   test do
