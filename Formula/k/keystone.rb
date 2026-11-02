@@ -18,13 +18,14 @@ class Keystone < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.15" => :build
+
+  uses_from_macos "python" => :build
 
   deny_network_access!
 
   def install
     args = %W[
-      -DPYTHON_EXECUTABLE=#{python3}
+      -DPYTHON_EXECUTABLE=#{which("python3")}
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
 
