@@ -1,8 +1,8 @@
 class Tele < Formula
   desc "Telegram client for the terminal: a keyboard-first TUI and a CLI"
   homepage "https://github.com/sorokin-vladimir/tele"
-  url "https://github.com/sorokin-vladimir/tele/archive/refs/tags/v2.0.2.tar.gz"
-  sha256 "ff8586555bed5e6f20ec6f3e85d649acae962107609b1599d91d48a1b1d9f71f"
+  url "https://github.com/sorokin-vladimir/tele/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "2cafe356dce0778a10c62aa76f3d8d2931586f1bae6e615be1f7c2fdd1c6ce7d"
   license "GPL-3.0-only"
 
   bottle do
