@@ -1,8 +1,8 @@
 class Qdl < Formula
   desc "Flash firmware on Qualcomm-based devices via USB Emergency Download (EDL) mode"
   homepage "https://github.com/linux-msm/qdl"
-  url "https://github.com/linux-msm/qdl/archive/refs/tags/v2.8.tar.gz"
-  sha256 "48be6f6f7869fa73432dbdde20aefc2963f9c84a10e066ae523145c26314f88d"
+  url "https://github.com/linux-msm/qdl/archive/refs/tags/v2.9.tar.gz"
+  sha256 "81d75367ca55e7afa218cc95e6d09b43f70345e4f10dc501f832f2491d095681"
   license "BSD-3-Clause"
   head "https://github.com/linux-msm/qdl.git", branch: "master"
 
@@ -31,6 +31,7 @@ class Qdl < Formula
       -DVERSION=v#{version}
       -Dnbdkit=disabled
       -Dtests=disabled
+      -Dudevrulesdir=#{lib}/udev/rules.d
     ]
 
     system "meson", "setup", "build", *args, *std_meson_args
