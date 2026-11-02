@@ -1,8 +1,9 @@
 class Zfp < Formula
   desc "Compressed numerical arrays that support high-speed random access"
   homepage "https://zfp.llnl.gov"
-  url "https://github.com/llnl/zfp/archive/refs/tags/1.0.1.tar.gz"
-  sha256 "4984db6a55bc919831966dd17ba5e47ca7ac58668f4fd278ebd98cd2200da66f"
+  url "https://github.com/llnl/zfp/archive/refs/tags/1.0.1.post0.tar.gz"
+  version "1.0.1.post0"
+  sha256 "2c2d2ab18d78f8152159171f272177629ddff9b41e748ad88bee2d298d7292a5"
   license "BSD-3-Clause"
   head "https://github.com/llnl/zfp.git", branch: "develop"
 
