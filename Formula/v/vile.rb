@@ -25,6 +25,8 @@ class Vile < Formula
   uses_from_macos "ncurses"
   uses_from_macos "perl"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-imake",
                           "--enable-colored-menus",
