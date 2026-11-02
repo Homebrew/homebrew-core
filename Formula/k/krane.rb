@@ -261,6 +261,8 @@ class Krane < Formula
     sha256 "5e92534e8d0c8b8b5e6b16789c69dbea65c1d7b752269f71a39422e9546cea67"
   end
 
+  deny_network_access!
+
   def install
     ENV["GEM_HOME"] = libexec
 

@@ -43,6 +43,8 @@ class Kraken2 < Formula
     resolves "https://github.com/DerrickWood/kraken2/pull/1041"
   end
 
+  deny_network_access!
+
   def install
     system "./install_kraken2.sh", libexec
     %w[k2 kraken2 kraken2-build kraken2-inspect].each do |f|
