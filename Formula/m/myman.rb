@@ -35,6 +35,8 @@ class Myman < Formula
     depends_on "util-linux" => :build # for `col`
   end
 
+  deny_network_access!
+
   def install
     if OS.mac?
       ENV["RMDIR"] = "grmdir"

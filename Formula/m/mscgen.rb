@@ -31,6 +31,8 @@ class Mscgen < Formula
   depends_on "freetype"
   depends_on "gd"
 
+  deny_network_access!
+
   def install
     system "./configure", "--with-freetype", *std_configure_args
     system "make", "install"

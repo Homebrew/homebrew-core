@@ -26,13 +26,14 @@ class Msolve < Formula
     depends_on "libomp"
   end
 
+  deny_network_access!
+
   def install
     # avoid unsupported openmp
     if OS.mac?
-      libomp = Formula["libomp"]
-      ENV.append "CPPFLAGS", "-I#{libomp.opt_include}"
+      ENV.append "CPPFLAGS", "-I#{formula_opt_include("libomp")}"
       ENV.append_to_cflags "-Xpreprocessor -fopenmp"
-      ENV.append "LDFLAGS", "-L#{libomp.opt_lib} -lomp"
+      ENV.append "LDFLAGS", "-L#{formula_opt_lib("libomp")} -lomp"
     end
 
     # only compile with cpu baseline features for the pre-built binaries

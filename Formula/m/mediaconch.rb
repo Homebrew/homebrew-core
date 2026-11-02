@@ -37,6 +37,8 @@ class Mediaconch < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     cd "MediaConch/Project/GNU/CLI" do
       system "./configure", *std_configure_args

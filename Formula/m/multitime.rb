@@ -17,6 +17,8 @@ class Multitime < Formula
 
   depends_on "autoconf" => :build
 
+  deny_network_access!
+
   def install
     system "autoconf"
     system "autoheader"

@@ -46,6 +46,8 @@ class Md5deep < Formula
     resolves "https://github.com/jessek/hashdeep/pull/385"
   end
 
+  deny_network_access!
+
   def install
     system "sh", "bootstrap.sh"
     system "./configure", *std_configure_args

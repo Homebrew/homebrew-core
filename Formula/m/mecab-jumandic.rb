@@ -30,6 +30,8 @@ class MecabJumandic < Formula
 
   link_overwrite "lib/mecab/dic"
 
+  deny_network_access!
+
   def install
     args = %W[
       --disable-debug

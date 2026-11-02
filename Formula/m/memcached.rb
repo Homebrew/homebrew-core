@@ -30,6 +30,8 @@ class Memcached < Formula
   depends_on "libevent"
   depends_on "openssl@4"
 
+  allow_network_access! :test
+
   def install
     # Workaround to disable sandbox feature due to https://github.com/memcached/memcached/issues/1313
     ENV["ac_cv_header_sandbox_h"] = "no" if OS.mac? && MacOS.version >= :golden_gate

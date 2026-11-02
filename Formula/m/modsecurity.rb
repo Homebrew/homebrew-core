@@ -25,6 +25,8 @@ class Modsecurity < Formula
   uses_from_macos "curl", since: :monterey
   uses_from_macos "libxml2"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
 

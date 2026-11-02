@@ -23,6 +23,8 @@ class Msktutil < Formula
   uses_from_macos "cyrus-sasl"
   uses_from_macos "openldap"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules",
                           "--mandir=#{man}",

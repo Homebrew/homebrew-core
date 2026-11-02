@@ -32,6 +32,8 @@ class ManDb < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     man_db_conf = etc/"man_db.conf"
     args = %W[
