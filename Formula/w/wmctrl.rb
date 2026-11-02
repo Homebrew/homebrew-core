@@ -46,6 +46,8 @@ class Wmctrl < Formula
     resolves "https://bugs.debian.org/362068"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
