@@ -1,8 +1,8 @@
 class Aqua < Formula
   desc "Declarative CLI Version manager"
   homepage "https://aquaproj.github.io/"
-  url "https://github.com/aquaproj/aqua/archive/refs/tags/v2.65.2.tar.gz"
-  sha256 "a68c2cfdf2797b637801920759e3a31fb5197f2c60e1f98f4e0ad931c357fa27"
+  url "https://github.com/aquaproj/aqua/archive/refs/tags/v2.66.0.tar.gz"
+  sha256 "679aa3a1a610c8d6c21d5843a5a30179d60ad301e4c3fae9d1e7b05fd01df8f2"
   license "MIT"
   head "https://github.com/aquaproj/aqua.git", branch: "main"
 
@@ -15,11 +15,11 @@ class Aqua < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b08b2a040c2723673df2b1305004f3ffdf53b430670852f9e77878e176007b4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5b08b2a040c2723673df2b1305004f3ffdf53b430670852f9e77878e176007b4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5b08b2a040c2723673df2b1305004f3ffdf53b430670852f9e77878e176007b4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "17838fb81cb9395cf79ea47b41a4584dad72fc474c8cc6ab9fce5c6d9114b3a6"
-    sha256 cellar: :any,                 x86_64_linux:      "c2da88db1a9b5b384fc66a93142195088d90f1a620b0d1b72e828b77bdd98f8c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "021c1c907dc8d9196394d2e4bb0f8f3781263c0f98e1b4d9ff5e84f353944ed7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "021c1c907dc8d9196394d2e4bb0f8f3781263c0f98e1b4d9ff5e84f353944ed7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "021c1c907dc8d9196394d2e4bb0f8f3781263c0f98e1b4d9ff5e84f353944ed7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "df12892745528c91fbb2d54ccda660a9780bb406d77be62030d2d7ddb7587de8"
+    sha256 cellar: :any,                 x86_64_linux:      "439a290026eb515fcc07bb6681686212dfa4f63c50358d7c153d384850f0edb0"
   end
 
   depends_on "go" => :build
