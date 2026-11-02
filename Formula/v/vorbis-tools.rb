@@ -42,6 +42,8 @@ class VorbisTools < Formula
     depends_on "libtool" => :build
   end
 
+  deny_network_access!
+
   def install
     # vorbis-tools uses K&R function definitions, which C23 no longer supports
     # getopt.c:211:11: error: unknown type name 'str'
