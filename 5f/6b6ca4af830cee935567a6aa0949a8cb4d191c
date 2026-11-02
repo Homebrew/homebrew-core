@@ -1,0 +1,14 @@
+Formula/r/rmlint.rb
+  h_9df9c32c3f321d 4-5,32-33,44,50-60
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5f6b6ca4af830cee935567a6aa0949a8cb4d191c",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
