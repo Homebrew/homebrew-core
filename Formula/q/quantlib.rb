@@ -23,6 +23,8 @@ class Quantlib < Formula
 
   depends_on "boost"
 
+  deny_network_access!
+
   def install
     ENV.cxx11
     (buildpath/"QuantLib").install buildpath.children if build.stable?
