@@ -8,7 +8,7 @@ class Gcsfuse < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
+    strategy :github_releases
   end
 
   bottle do
