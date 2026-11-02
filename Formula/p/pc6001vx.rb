@@ -2,17 +2,17 @@ class Pc6001vx < Formula
   desc "PC-6001 emulator"
   # http://eighttails.seesaa.net/ gives 405 error
   homepage "https://github.com/eighttails/PC6001VX"
-  url "https://eighttails.up.seesaa.net/bin/PC6001VX_4.5.1_src.tar.gz"
-  sha256 "bd12d423ff5ab7e3eb947c1ea7fa9fd9789430bb9e28b185292dfcd6ed12c695"
+  url "https://eighttails.up.seesaa.net/bin/PC6001VX_4.6.0_src.tar.gz"
+  sha256 "a5d5961464064f899abc50ab41c6392f8488f62d9acd8dfd1aade2b27393fc24"
   license "LGPL-2.1-or-later"
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7e90692ae1c6131289e84208b2115e57c1829cb988b7e0156bcd9756ffbcc0b3"
-    sha256 cellar: :any, arm64_tahoe:       "1b0123eea633f126e50428d2addf5059a6966b86ff739417485a39576ce72461"
-    sha256 cellar: :any, arm64_sequoia:     "ced845d3261f125f4d7362f68026ab2c9f976f95fc80fc61f7b9f62cb6967997"
-    sha256 cellar: :any, arm64_linux:       "4f2697dca0cc0c149d814f2e7a8e5cdc7d7ac47a3fc91c5d204df698ad478298"
-    sha256 cellar: :any, x86_64_linux:      "72532608e13cfd58418acbd1038dea5db677a4a8d3b59ebb536d0a2b19a4628b"
+    sha256 cellar: :any, arm64_golden_gate: "4eb97be7123af4388e7be76738fcd391c75f9934986b64bc0bb57f8b4bbf3564"
+    sha256 cellar: :any, arm64_tahoe:       "f58926515a888997481b36bae4a43ba78d3ba9ead362a8eb45310994b5ac2978"
+    sha256 cellar: :any, arm64_sequoia:     "35f1ce08ba615c14e59996e6a3c5a4d2cf752bb056e5f57825476c4b01dd6d08"
+    sha256 cellar: :any, arm64_linux:       "f8cb5a55a8883b7d9f300ba17c48db106398d6eca4079654257a67e0508f55e2"
+    sha256 cellar: :any, x86_64_linux:      "37e09f4688a673d7303c795e0eadc10e97d3d50c19fb4aa39ac55be7506cef76"
   end
 
   depends_on "cmake" => :build
