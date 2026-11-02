@@ -1,0 +1,14 @@
+Formula/b/beagle.rb
+  h_9df9c32c3f321d 4-5,45-46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "97c457a5f38fc50289cfb68005da83cada10f440",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
