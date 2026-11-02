@@ -26,6 +26,8 @@ class Valgrind < Formula
 
   depends_on :linux
 
+  deny_network_access!
+
   def install
     args = %W[
       --disable-dependency-tracking
