@@ -28,6 +28,7 @@ class Neovide < Formula
 
   on_linux do
     depends_on "xorg-server" => :test
+    depends_on "desktop-file-utils"
     depends_on "expat"
     depends_on "fontconfig"
     depends_on "freetype"
@@ -66,12 +67,26 @@ class Neovide < Formula
 
     system "cargo", "install", *std_cargo_args
 
+    if OS.linux?
+      (share/"applications").install "assets/neovide.desktop"
+      (share/"icons/hicolor/scalable/apps").install "assets/neovide.svg"
+      %w[16x16 32x32 48x48 256x256].each do |size|
+        (share/"icons/hicolor/#{size}/apps").install "assets/neovide-#{size}.png" => "neovide.png"
+      end
+    end
+
     return unless OS.mac?
 
     # Use upstream's app template, as their release builds do
     prefix.install "extra/osx/Neovide.app"
     (prefix/"Neovide.app/Contents/MacOS").install bin/"neovide"
     bin.write_exec_script prefix/"Neovide.app/Contents/MacOS/neovide"
+  end
+
+  post_install_steps do
+    on_linux do
+      update_desktop_database
+    end
   end
 
   def nvim_ui_count(socket)
