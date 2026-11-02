@@ -1,16 +1,16 @@
 class Tele < Formula
   desc "Telegram client for the terminal: a keyboard-first TUI and a CLI"
   homepage "https://github.com/sorokin-vladimir/tele"
-  url "https://github.com/sorokin-vladimir/tele/archive/refs/tags/v2.0.2.tar.gz"
-  sha256 "ff8586555bed5e6f20ec6f3e85d649acae962107609b1599d91d48a1b1d9f71f"
+  url "https://github.com/sorokin-vladimir/tele/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "2cafe356dce0778a10c62aa76f3d8d2931586f1bae6e615be1f7c2fdd1c6ce7d"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e521cd3fcf452b65e115ac428944ba87317a308cf085d8d2b02e1014037d1ae3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fb6b816291cb9a9449d8f7a975014d91008089b67c50478184d381b4725ba135"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "83091d9dac0b0c82fdb4bfccccc43e1ca5b9bc519c1ff61f6d434f8cd7cb37b4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "da75fc98e071ced0572cdd1553c5e782f0055c26705e786b3e1e0c8b22e92f17"
-    sha256 cellar: :any,                 x86_64_linux:      "4828aa999ac0a77e02bc94f01a910473c0336cfcb968a39907437b7ce9426aa1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d274b1896a5832bb3d9d00b886b67a72196ec4c33d1f38e2483bfff12ce610f3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fce35b171e1fea4ab11ea4964d50cc9ba7404ea5e62aaf8ae9508fbde9f0400a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "299fac0589233a7e3e6f126be756b94a0814031b4972ccdb366a89ec1fc04b3f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "26e17e06b7515dc40432450fcc6b42ee2c656cffe723cb322cfa79d36d015f16"
+    sha256 cellar: :any,                 x86_64_linux:      "f027e862ea10a0542e69dac7063d3471dc3f6499263fde84271810a6aa7e7798"
   end
 
   depends_on "go" => :build
