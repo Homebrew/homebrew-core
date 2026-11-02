@@ -12,11 +12,11 @@ class Gost < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "56dc532091b071220e49fec3f492adaee3676873ccbaa3fe7069dfdef1c8dac7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "52c4479056b554b67c7ddd2b52bd0743a456d1dd01a4b640d2a5a87473b27ca2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "722a772e5f293d8ff19d0efdab1d4587a29dcd55cc63b4ce075233b2c4337caa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "068547dc78bfa25aea7c3ec768a23573d0afc9c24e128df12aa2f735176cac35"
-    sha256 cellar: :any,                 x86_64_linux:      "878202ee41daa66441039fb93a7bb75a1aae2a764d812649001b2f7571c1c7a9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "adb13bfc76e0932f92b344d81f0fd9f18fb6a82be3b379ec0e0d25010e7af6c6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8a3c880db2b207ada8a3a51e779a8a0e6e65c9d8d84da87882cf1fd131e40446"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8cfbc2edcf33ba62ec935dbca0d208a7b45c8f3032f59c2f2308ca9d7e584b6f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "1056c80d076fac6995eba1182fe7ec52c962e651b8d7b2f83fe903ec3895ba06"
+    sha256 cellar: :any,                 x86_64_linux:      "37493978bcad3e7350b8c294472ef8445fcedd3806e6fa5f016011044e7e828a"
   end
 
   depends_on "go" => :build
