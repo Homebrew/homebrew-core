@@ -13,6 +13,8 @@ class UtilMacros < Formula
 
   depends_on "pkgconf" => :test
 
+  deny_network_access!
+
   def install
     args = %W[
       --disable-silent-rules
