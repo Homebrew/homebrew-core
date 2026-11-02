@@ -12,13 +12,11 @@ class Cabin < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2f28462ca78d4f941ab5bdba0ec5104772ec63a56a54396ced5af31b57858bef"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f369754eb1361b9acdc63fe4da8573c6d833715a6ec22651641e85fbe59bc7c9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4624352ed3494fe3868cf2c1d2925917076935246f12c808d159f14bd04542fe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "efaf178a08487d67ed0c3704c60ea76cc5c30f01cd8a1399e8fde0d8f501b773"
-    sha256 cellar: :any_skip_relocation, sonoma:            "e26a8bf88ed3fa88d0a72393e4e163a96dda7216e461a6aecfacac567d401027"
-    sha256 cellar: :any,                 arm64_linux:       "6cf9cb6ace64814766b7cccc78220cfd23a179212450695b9b87a948bc0ba49d"
-    sha256 cellar: :any,                 x86_64_linux:      "45aac837e76eff62864ce15f44478065275ed080130298a8d200c8342b59138d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b65193a968d411685e81ea8dc673686df735c344279dcdd34f5cfed5daee86f5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9909541b79799233cc3db38c8130f767a7252dc77ad7dc74c4d40d2e55cb9f4f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bb4aa8ecf10573d5d529359ceffcec2ca357ea00abe77f24ed56d47a0fa7010a"
+    sha256 cellar: :any,                 arm64_linux:       "74e7ea7c8db56eb094e52bb67d04857eca222ae175a7f7795a561741c4cc84ae"
+    sha256 cellar: :any,                 x86_64_linux:      "8cdd7aaee70d854ebe9f696cca6bb108a8164233ce3e4d50a64ab2443b0b95b4"
   end
 
   depends_on "rust" => :build
