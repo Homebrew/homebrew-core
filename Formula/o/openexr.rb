@@ -4,6 +4,7 @@ class Openexr < Formula
   url "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.5.3.tar.gz"
   sha256 "ff1de95f4031c1c57c633e647dc97c15282d3aa3bc7fb90745f00f74de4a054f"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 2
 
   bottle do
