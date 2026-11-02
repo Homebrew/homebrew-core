@@ -1,8 +1,8 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
   homepage "https://qsv.dathere.com/"
-  url "https://github.com/dathere/qsv/archive/refs/tags/27.0.1.tar.gz"
-  sha256 "23631f14cce714bd1aed45d07a04e71471ab26851f469ce25a503b471c8d3b4c"
+  url "https://github.com/dathere/qsv/archive/refs/tags/28.0.0.tar.gz"
+  sha256 "7a0efbab2d7cd7923ac4d8613d3eff4b4aa6383993f5e1d8edc393208265348f"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/dathere/qsv.git", branch: "master"
 
@@ -15,11 +15,11 @@ class Qsv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f1dc5f2ac37762322f128b6e5682291aa34b56a480ed71ae18f3934603b10002"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e0141c8c58bedef9740b8b19df193b3ce8d89099deb81c7bcb69bf840bb58570"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "02eb5b082f6882495d689be213e06f331d16d012f0fe4fedadb6888c408e195d"
-    sha256 cellar: :any,                 arm64_linux:       "b9daa8ebcd55b983886f59183790245e1102e477578bef5f7b652564706998cd"
-    sha256 cellar: :any,                 x86_64_linux:      "5485715146f98d39b7ceba22338e6860a9841838847a03aaad0ee0a240488fa5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2140091f75c85fa2407d224cd50c5df4cf0e6ebf4f912fc58c8d4d3939638004"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2f1b48ee7b2aa0ae4a9d67b6e9bb2b342412b46088726b4d25c0adb6324a6dee"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "59e85f23943a5d8ac294ae4cd6c3020d47f35192fb15d33876b24a8fecf75f0e"
+    sha256 cellar: :any,                 arm64_linux:       "edfc05a3a876edf7778a0ad36594c906b32fa9c2182b1b8ea4e4d2349d487903"
+    sha256 cellar: :any,                 x86_64_linux:      "23dbe2b5b823e40b1793dccfa7f4f0fca43bd8bdcce0d67199cf890d947ab686"
   end
 
   depends_on "cmake" => :build # for libz-ng-sys
@@ -50,8 +50,7 @@ class Qsv < Formula
 
     # Build `viz_static` without plotly's build-time webdriver download and default the
     # runtime driver to the `chromedriver` cask (`WEBDRIVER_PATH` overrides it)
-    inreplace "Cargo.toml", '"plotly/static_export_default", "webdriver-downloader"',
-                            '"plotly/static_export_chromedriver"'
+    inreplace "Cargo.toml", '"plotly/static_export_default"', '"plotly/static_export_chromedriver"'
     ENV["WEBDRIVER_DOWNLOAD_PATH"] = HOMEBREW_PREFIX/"bin/chromedriver"
 
     features = %w[distrib_features lens]
