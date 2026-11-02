@@ -1,16 +1,16 @@
 class Rmlint < Formula
   desc "Extremely fast tool to remove dupes and other lint from your filesystem"
   homepage "https://rmlint.readthedocs.io/en/master/"
-  url "https://github.com/sahib/rmlint/archive/refs/tags/v2.10.4.tar.gz"
-  sha256 "cecb379b64e2abad7350db7030b945b5b0d021e7f9a1e8f14725ebffe049d041"
+  url "https://github.com/sahib/rmlint/archive/refs/tags/v2.11.0.tar.gz"
+  sha256 "e7a20caf7f0162791f947a89931de76750daadd72be7719477278f3e949f00df"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "16f7480d4c138e0258da076c1321d3e2070c8a8005824ae4bfc75906a077fe49"
-    sha256 cellar: :any, arm64_tahoe:       "84869952b1c95f0507c0faabed226bc17f4533da1f0fd861a64d04b4a96a1892"
-    sha256 cellar: :any, arm64_sequoia:     "46ca694d9c24978245a0c211c945579c46d222ab4dbbea18dd5e60ac55054e77"
-    sha256 cellar: :any, arm64_linux:       "5e01a4fba501524e4cc11d0015d0c39192331421fc79ccfcd80d18b8f2414375"
-    sha256 cellar: :any, x86_64_linux:      "b38f17083790b4de85e0fc3abaa6e787ca626f8d0a78e3c68ca65986ee50e5e8"
+    sha256 cellar: :any, arm64_golden_gate: "331ef960fb7ed5264bd9d46e6fe842e55954fcb3041070dcb66d26fa8a901a55"
+    sha256 cellar: :any, arm64_tahoe:       "07f50ddbf1af0b241e62ec1e6c30015d1c795dcb57ea611f6fe7dbe1169e8112"
+    sha256 cellar: :any, arm64_sequoia:     "db7662a9bb848c8d6d188fc2ef83f542647d26e35f77d942798303638b548b12"
+    sha256 cellar: :any, arm64_linux:       "d0870c56ae57abb9f574ff7d1942bebfd496b8e50c0f742dfe152dde92f0162c"
+    sha256 cellar: :any, x86_64_linux:      "1b168c4c73c3ee1ce1f35494e8f8d8f7d47f36a35c8b65959f2d77a4162cbf79"
   end
 
   depends_on "gettext" => :build
@@ -29,6 +29,8 @@ class Rmlint < Formula
     depends_on "util-linux"
   end
 
+  deny_network_access!
+
   def install
     if OS.linux?
       ENV.append_to_cflags "-I#{formula_opt_include("util-linux")}"
@@ -39,15 +41,22 @@ class Rmlint < Formula
       ENV.append "LDFLAGS", "-Wl,-rpath=#{formula_opt_lib("util-linux")}"
     end
 
-    system "scons", "config"
-    system "scons"
+    system "scons", "--without-gui"
     bin.install "rmlint"
     man1.install "docs/_build/man/rmlint.1"
   end
 
   test do
-    (testpath/"1.txt").write("1")
-    (testpath/"2.txt").write("1")
-    assert_match "# Duplicate(s):", shell_output(bin/"rmlint")
+    assert_match version.to_s, shell_output("#{bin}/rmlint --version 2>&1")
+
+    files = testpath/"files"
+    files.mkpath
+    (files/"first.txt").write("duplicate")
+    (files/"second.txt").write("duplicate")
+    (files/"unique.txt").write("unique")
+    output = shell_output("#{bin}/rmlint -T df -o json:stdout #{files}")
+    duplicates = JSON.parse(output)[1...-1]
+    assert_equal %w[first.txt second.txt].map { |name| (files/name).to_s }.sort,
+                 duplicates.map { |entry| entry.fetch("path") }.sort
   end
 end
