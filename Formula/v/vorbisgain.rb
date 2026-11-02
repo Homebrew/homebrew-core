@@ -29,6 +29,8 @@ class Vorbisgain < Formula
   depends_on "libogg"
   depends_on "libvorbis"
 
+  deny_network_access!
+
   def install
     # fix implicit-function-declaration errors
     ENV.append_to_cflags "-DGWINSZ_IN_SYS_IOCTL"
