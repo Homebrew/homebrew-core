@@ -1,22 +1,20 @@
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
-  url "https://github.com/sshock/AFFLIBv3/archive/refs/tags/v3.7.22.tar.gz"
-  sha256 "67481fc520ff927bf61aea0bf2d660feb73e24cc329335bebb064f8f12115dcb"
+  url "https://github.com/sshock/AFFLIBv3/archive/refs/tags/v3.7.23.tar.gz"
+  sha256 "b09334cd690ebe28ef182b00b59a426db662417b90bb9fd4985b11df5654fca4"
   license all_of: [
     "BSD-4-Clause", # AFFLIB 2.0a14 and before
     :public_domain, # contributions after 2.0a14
   ]
-  revision 2
   compatibility_version 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "b784f415c0153eb93255ebf0b03ede2dbd451f106994b63e0179999bea6fd86d"
-    sha256 cellar: :any, arm64_tahoe:       "96657dcee0d8338b2b38786a9f750b71f4baa78b994d28375aeb6e1956616fc2"
-    sha256 cellar: :any, arm64_sequoia:     "2b273ea2335bf183fdb60d40625cad40f9b5fb7f2683081d0bb9446d90f202ba"
-    sha256 cellar: :any, arm64_linux:       "c54ee296316ec0944d8e452a13ecd60f5c2fd55845fc2d932e89ec0bb3fbb2d8"
-    sha256 cellar: :any, x86_64_linux:      "8136600ece77d52143d1401a1d3363a4aa5a0a362e955b29bee680b40c519809"
+    sha256 cellar: :any, arm64_golden_gate: "90996fc8d4b5dbdbd9b02e3795fd0d886a360a7e891694319d76a0830f243e4c"
+    sha256 cellar: :any, arm64_tahoe:       "b73486404c29ee831a959795099c203fc73472382d834ef7586940f04e7a9dbd"
+    sha256 cellar: :any, arm64_sequoia:     "e68577d51e2fa64fd91ef49a0554df97aca13fde14cd69402c45a438cea5e6ba"
+    sha256 cellar: :any, arm64_linux:       "29c370451152489bb0a3e9891f6ec5373ba165b73e64ec597ef3f2b7e55da062"
+    sha256 cellar: :any, x86_64_linux:      "628ace6eb600f27c680b25b7c24bf202af029ac407cade8dd2834bf9e5403adc"
   end
 
   depends_on "autoconf" => :build
