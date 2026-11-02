@@ -20,6 +20,12 @@ class AutoEditor < Formula
   depends_on "ggml"
   depends_on "whisper.cpp"
 
+  deny_network_access!
+
+  def fetch
+    system "nimble", "install", "--depsOnly"
+  end
+
   def install
     system "nimble", "brewmake"
     bin.install "auto-editor"
