@@ -1,18 +1,17 @@
 class Neocmakelsp < Formula
   desc "Another cmake lsp"
   homepage "https://neocmakelsp.github.io/"
-  url "https://github.com/neocmakelsp/neocmakelsp/archive/refs/tags/v0.11.2.tar.gz"
-  sha256 "eb88d467816f67c22cfa864f3d3ecc4eb5cfbc1afa018fac61a23915f21745e6"
+  url "https://github.com/neocmakelsp/neocmakelsp/archive/refs/tags/v0.12.0.tar.gz"
+  sha256 "4852cb598c984e920c9e3a36dd23804c2515b778c14ebdfc9b8a85407402e569"
   license "MIT"
   head "https://github.com/neocmakelsp/neocmakelsp.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b4deb2f49ab382cbf77fb5e6d0076e034484e131b7571bf74923cbb3e8f206cc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5f749f0461dd6b7e001bd1b3c67ab0dac17b5f27221b092f459476da74b1b43b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "96bb38cdcb892308df24b1253c30e2355006bce9b2f22032f2ebe61ebd7ef13a"
-    sha256 cellar: :any,                 arm64_linux:       "eb538986b4ae959657d3b27330b12c5e94a50d93eb48e10b095cde2d3766b9eb"
-    sha256 cellar: :any,                 x86_64_linux:      "1a85ff2f5942930d606688fdb75830d34f9126dad8e30f172788901f7207bc90"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "961a9e9b5b845388cb9756fba960ac51c3fa86b80e77d17b87a97032ca36fc76"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2bc2cb500ba3ac3d237bcae1ce0b30cfad343ff36bd6c60f71b75e9cc9585b2a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f012bae5cb932655e22581ad5981e6b4bb15f60880ffd86106e64b9198d2c1d2"
+    sha256 cellar: :any,                 arm64_linux:       "19d2df917ea97e5202b2411106e2fe91c851053ab1f5bbd52fc71b6c83c857f7"
+    sha256 cellar: :any,                 x86_64_linux:      "def8f3c8d57c84cae13ced69a33bde01acad65797f1810c6a345474cbf7f40ff"
   end
 
   depends_on "rust" => :build
