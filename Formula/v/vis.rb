@@ -42,6 +42,8 @@ class Vis < Formula
     depends_on "acl"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--enable-lua", *std_configure_args
     system "make", "install"
@@ -63,11 +65,7 @@ class Vis < Formula
   end
 
   test do
-    binary = if OS.mac?
-      bin/"vise"
-    else
-      bin/"vis"
-    end
+    binary = OS.mac? ? bin/"vise" : bin/"vis"
 
     assert_match "vis #{version} +curses +lua", shell_output("#{binary} -v 2>&1")
   end
