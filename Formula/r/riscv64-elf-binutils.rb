@@ -32,6 +32,8 @@ class Riscv64ElfBinutils < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     target = "riscv64-elf"
     system "./configure", "--target=#{target}",
