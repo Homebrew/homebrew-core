@@ -6,8 +6,7 @@ class ZigAT016 < Formula
   license "MIT"
 
   livecheck do
-    url "https://ziglang.org/download/"
-    regex(/href=.*?zig[._-]v?(0\.16(?:\.\d+)+)\.t/i)
+    skip "No longer developed or maintained"
   end
 
   bottle do
