@@ -14,8 +14,9 @@ class MimoCode < Formula
   end
 
   depends_on "bun" => :build
-  depends_on "python@3.15" => :build # for node-gyp
   depends_on "ripgrep"
+
+  uses_from_macos "python" => :build # for node-gyp
 
   on_linux do
     depends_on "icu4c@79"
