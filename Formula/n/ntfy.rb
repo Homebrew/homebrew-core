@@ -1,8 +1,8 @@
 class Ntfy < Formula
   desc "Send push notifications to your phone or desktop via PUT/POST"
   homepage "https://ntfy.sh/"
-  url "https://github.com/binwiederhier/ntfy/archive/refs/tags/v2.36.0.tar.gz"
-  sha256 "a799cdcbb9eab1dfde89825b72312493d7e57462b84b1717da49ac891ba9836d"
+  url "https://github.com/binwiederhier/ntfy/archive/refs/tags/v2.37.0.tar.gz"
+  sha256 "a73c12770086f884327ed133b869ccaffe182910873f0718f101cf78847ea957"
   license any_of: ["Apache-2.0", "GPL-2.0-only"]
   head "https://github.com/binwiederhier/ntfy.git", branch: "main"
 
