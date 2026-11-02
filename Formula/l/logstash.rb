@@ -13,11 +13,11 @@ class Logstash < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b112302016d5a9a8fe6522b33e04b835d43f94ec0299cbe9c60905c4dee229d1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2962bafdb2d388bbd0ca06c75e95fd692b47c0befad3727277ca5d5a123adfe"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "477a65e0f09e55b66ded464b880d365957c659b566a68213cbf02f1a3e884e0f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "33a8ba0fd8f8f15d53a14b4154f08adb2297f6e2fcbe428c2860924dbcd61cc7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7c44f67ef0d4693f53438c2c934ed4a20c6abf5dd4f6a085bad063f7c2bbfa33"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "36017c2346cdc4a232a6c0b41cdfc8536162d3c9d06a90664c48106adeb0d107"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3c403c863d6e3b6257bdf53cdfdd8a2dc4ac5e5974901878f5cbe22c17779f62"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "631a36ed6cb578eb36cf62abf7e2d7fac78d8881f59d6b6a40dca664e99d9434"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f6b6dc6bc0b218955958c60c75d27f07b4b9df37e68094cfe26785d18460b75c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "b3244d108bffcd94ef5e7b03207242d9e7e470703a0c2eaa5b224d829f29353d"
   end
 
   depends_on "gradle@8" => :build # gradle 9 support issue, https://github.com/elastic/logstash/issues/16641
