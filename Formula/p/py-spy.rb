@@ -1,25 +1,23 @@
 class PySpy < Formula
   desc "Sampling profiler for Python programs"
   homepage "https://github.com/benfred/py-spy"
-  url "https://github.com/benfred/py-spy/archive/refs/tags/v0.4.2.tar.gz"
-  sha256 "ecf8d945f63b172126abcd68e21f3e5f250498cb774d88247d80a6f2cacdb998"
+  url "https://github.com/benfred/py-spy/archive/refs/tags/v0.4.3.tar.gz"
+  sha256 "dc73c284a54ace20e62cf3f032c98bbdda5e36ae57795d3b0e538cd3ba2eecef"
   license "MIT"
   head "https://github.com/benfred/py-spy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4f511d64991908c34e9ca0ae6e1191d8bd413f74d691b302f51f51ec2761884b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e2d8e585ccde05e30101c3e05807b0eedcf8202ebeeb08c60d84c7c37f01a38e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cdaff3d95a476c9c109fb357f67704199bf5b755a92cfaa5c153aa67a2e72298"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "d384def632170e7eda0fc52d3f3a1031a01c34bcdbede0597ab5db382f33a6ba"
-    sha256 cellar: :any_skip_relocation, sonoma:            "022ed6e3642bc99a07d0ee2cb651e462d52ad38efc09d9b57e742ec1009f2fb6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "dab65ae51452068513c73e6eab32f21c4063c9d112c6ca1008e1446e3fcc5023"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5b5b4e93ddb2157cd288149650ec9b700244376a99e3f98463c64a1cd2b15643"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6370cee53708d66ca7539e9e6a95f0a13b978262ec6fcc8a9a628bb3fa3ac8f1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "42f159f949ab8feefe35d75b50d66415b4926c0db421e13d8ee5f6159ad92786"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2d07ce1508957613c0624e91d9dd406cbbae796904002ce7fcefb4d10da48466"
+    sha256 cellar: :any,                 arm64_linux:       "fa3a928d93ced795a90a77ef5d34cdbba9740061f16dd649ca43119d978979b9"
+    sha256 cellar: :any,                 x86_64_linux:      "9acb3addeae800d8544c74775038ff5825c2b7b117cc7cd25dbc81a41e29404b"
   end
 
   depends_on "rust" => :build
 
   on_linux do
-    depends_on "python@3.14" => :test
+    depends_on "python@3.15" => :test
     depends_on "libunwind"
   end
 
