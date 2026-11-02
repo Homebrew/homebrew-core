@@ -7,6 +7,14 @@ class BeszelAgent < Formula
   license "MIT"
   head "https://github.com/henrygd/beszel.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "15db9b3e4cc882485997bb7eb828a91c3a0f094a994e85b2c03b07b92e126a8c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "15db9b3e4cc882485997bb7eb828a91c3a0f094a994e85b2c03b07b92e126a8c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "15db9b3e4cc882485997bb7eb828a91c3a0f094a994e85b2c03b07b92e126a8c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "c87a530fc256f430c45b77c3686ad41444106055f5f5ed45a90ed157d096c03e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "96fd10a673740ee3a5e8ef257addd942bb39f19f5f5ebb207236274266ee7210"
+  end
+
   depends_on "go" => :build
 
   deny_network_access!
