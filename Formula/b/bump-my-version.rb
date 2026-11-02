@@ -3,8 +3,8 @@ class BumpMyVersion < Formula
 
   desc "Version bump your Python project"
   homepage "https://callowayproject.github.io/bump-my-version/"
-  url "https://files.pythonhosted.org/packages/cc/28/a3c548aa0f65db43ccb58e29eae97772f3ab70a5ada306718acb9659f5dc/bump_my_version-1.7.0.tar.gz"
-  sha256 "286e5755768a0d78596fa1854f4c16d258ec4b61a0aaa580cffe7f9ecf867f83"
+  url "https://files.pythonhosted.org/packages/35/29/08b45e8606c496fb2927d97610b1d9ac8c73242abb0d683416a2bd0dc1a2/bump_my_version-1.8.0.tar.gz"
+  sha256 "2b6aded7a523014a20b7e4612bb6f6e8e2fd8c7d8a96bba529a31e24423ef09d"
   license "MIT"
   head "https://github.com/callowayproject/bump-my-version.git", branch: "master"
 
@@ -23,8 +23,8 @@ class BumpMyVersion < Formula
   pypi_packages exclude_packages: ["certifi", "pydantic"]
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "bracex" do
