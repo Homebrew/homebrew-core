@@ -40,6 +40,8 @@ class Uniutils < Formula
   # And emailed to the upstream source at billposer@alum.mit.edu
   patch :DATA
 
+  deny_network_access!
+
   def install
     # fix `./install-sh: Permission denied` issue
     system "autoreconf", "--force", "--install", "--verbose"
@@ -52,9 +54,8 @@ class Uniutils < Formula
     ENV["ac_cv_prog_cc_c23"] = "no"
 
     # fix `_libintl_bindtextdomain` and `_libintl_textdomain` symbols not found
-    gettext = Formula["gettext"]
-    ENV.append "CFLAGS", "-I#{gettext.include}"
-    ENV.append "LDFLAGS", "-L#{gettext.lib}"
+    ENV.append "CFLAGS", "-I#{formula_opt_include("gettext")}"
+    ENV.append "LDFLAGS", "-L#{formula_opt_lib("gettext")}"
     ENV.append "LDFLAGS", "-lintl" if OS.mac?
 
     system "./configure", "--disable-silent-rules", "--mandir=#{man}", *std_configure_args
