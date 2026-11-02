@@ -4,6 +4,7 @@ class Meilisearch < Formula
   url "https://github.com/meilisearch/meilisearch/archive/refs/tags/v1.56.1.tar.gz"
   sha256 "6af283d7205b9e8028cfb9a1552a28ac70d0a58e99f7312566652c7449c46b77"
   license "MIT"
+  head "https://github.com/meilisearch/meilisearch.git", branch: "main"
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created, so we check the "latest" release instead
@@ -22,6 +23,9 @@ class Meilisearch < Formula
   end
 
   depends_on "rust" => :build
+
+  # `:build` phase needs network access because of `lindera-ko-dic` crate
+  deny_network_access! :postinstall
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/meilisearch")
