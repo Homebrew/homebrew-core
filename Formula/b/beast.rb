@@ -48,18 +48,16 @@ class Beast < Formula
     inreplace "testUCRelaxedClockLogNormal.xml", 'chainLength="10000000"',
                                                  'chainLength="100000"'
 
-    # OpenCL is not supported on virtualized arm64 macOS and causes all beast commands to fail
-    if OS.mac? && Hardware::CPU.arm? && Hardware::CPU.virtualized?
-      output = shell_output("#{bin}/beast testUCRelaxedClockLogNormal.xml 2>&1", 255)
-      assert_match "OpenCL error: CL_INVALID_VALUE", output
-      return
-    end
-
     system bin/"beast", "testUCRelaxedClockLogNormal.xml"
 
-    %w[ops log trees].each do |ext|
-      output = "testUCRelaxedClockLogNormal." + ext
-      assert_path_exists testpath/output, "Failed to create #{output}"
+    samples = (testpath/"testUCRelaxedClockLogNormal.log").read.lines.reject { |line| line.start_with?("#") }
+    columns = samples.shift.split
+    result = columns.zip(samples.last.split).to_h
+    assert_equal "100000", result.fetch("state")
+    %w[posterior prior likelihood].each do |statistic|
+      assert Float(result.fetch(statistic)).finite?, "Non-finite #{statistic}"
     end
+    assert_in_delta Float(result.fetch("prior")) + Float(result.fetch("likelihood")),
+                    Float(result.fetch("posterior")), 1e-5
   end
 end
