@@ -27,6 +27,8 @@ class WirouterKeyrec < Formula
     sha256 x86_64_linux:      "1d3f91f6d9f53dda66211c8d0f01081e92a1b43dbbb98b2cabfb63d337cb7eea"
   end
 
+  deny_network_access!
+
   def install
     inreplace "src/agpf.h", %r{/etc}, "#{prefix}/etc"
     inreplace "src/teletu.h", %r{/etc}, "#{prefix}/etc"
