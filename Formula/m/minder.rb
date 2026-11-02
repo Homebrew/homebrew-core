@@ -7,11 +7,11 @@ class Minder < Formula
   head "https://github.com/mindersec/minder.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d882558bc56adae59c772d943045f19bebf546c44412449fec72093914eed461"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e32a93392c91502366584cda7a41421df7dbdde789e58d55015acc61d40dd5ca"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1a3c6c245216992c7c62d6abcc2769bf1c80b69e235a6b25a68207b7e80d7da7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "aa2c56f83110e9e9b54315cbbd4ffb2909682b8de80e73ef812873771c4b536b"
-    sha256 cellar: :any,                 x86_64_linux:      "a4a889f7e0f65444607c8eb0034dc4b07fa07ab47fc8a80737cc705d3830e0bf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "466b676ccb76f453e918338d36e88cc09d9240e7754f9b9f3cd72bc914e7f509"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "466b676ccb76f453e918338d36e88cc09d9240e7754f9b9f3cd72bc914e7f509"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "466b676ccb76f453e918338d36e88cc09d9240e7754f9b9f3cd72bc914e7f509"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "07e7de3a70fd1eb3f9ad7fa173d7445427bcb123de4d40458e5dfa37b7a19923"
+    sha256 cellar: :any,                 x86_64_linux:      "e9347db59d009d3a1f3d0640b09edd0d0a84b8999399e71b1b38e9f19d1a9a4f"
   end
 
   depends_on "go" => :build
