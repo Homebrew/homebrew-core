@@ -11,13 +11,11 @@ class HaproxyAT28 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ce92348c1c0118f5ede76d6fa7b255bee42b4ac32d638fe32941e846abd3f9bc"
-    sha256 cellar: :any, arm64_tahoe:       "78e1e20774a3513201e6297da3e3dcafdfaf75d92ecdad0c501a3abe8807295f"
-    sha256 cellar: :any, arm64_sequoia:     "6edb0d5fd2df20fabcfb6f4bb2e490cb7c9d66ab991c83fcac3570b3d22ccb87"
-    sha256 cellar: :any, arm64_sonoma:      "c9f17fbaab16625b0ee5f46dad8fbb81c3c982c14d641dbf0d7b395418bb68d5"
-    sha256 cellar: :any, sonoma:            "d6f5acb6555caf532c5dd120a8e53de10b63bfaa9b895ee1340fe70bdd475a6d"
-    sha256 cellar: :any, arm64_linux:       "5388a0faf6eefa1ab0073179805888c71c226a7edcddb5f57f6ddc64cebc15ea"
-    sha256 cellar: :any, x86_64_linux:      "84dd54d22dc80eebe99ffbaeb73a3ae9e849ba66488df751cce2d05fe8e8ba83"
+    sha256 cellar: :any, arm64_golden_gate: "76f74c2a62e638291449b38bd78a470fe07fc230d36719cdb0bfc8fb3ffc0b53"
+    sha256 cellar: :any, arm64_tahoe:       "c62d40851d800bc5a6374db799308bb02cbbc94e5316b92ce8a63663fd0cc25b"
+    sha256 cellar: :any, arm64_sequoia:     "26fbf6c8ae9d148140114c44b7a014aee9491fd0b9176b7edc0f48673ec9bebd"
+    sha256 cellar: :any, arm64_linux:       "2fd7aad333ca949bc2ae0a7c1ecb18b394fda3eec5ddca623d0365701b18ee8b"
+    sha256 cellar: :any, x86_64_linux:      "9477b4b9637ae3cb19a890f384418a54b096ea22ebda443e73373d834baa9995"
   end
 
   keg_only :versioned_formula
