@@ -7,13 +7,11 @@ class CargoHack < Formula
   head "https://github.com/taiki-e/cargo-hack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c03b69e30df57aea91790785050b63a4bd0fb73dc21555d984f07b9b603d9208"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9e50f3c181e6f16ada390245c44f98e5a144054641d204af6a58f1014a3e24e1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "837e30bbc7b1a77cbe4310087aa941565ccd8de3f254e3118fff947560034221"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "b6183f8ce8db9f71975f5083f30e4091f91aebd39cd1b70df67891684e95f09f"
-    sha256 cellar: :any_skip_relocation, sonoma:            "7f538aed8e5fa35d18617ddffb1038ba985c1302da7f2382da660b807545f486"
-    sha256 cellar: :any,                 arm64_linux:       "8d91afc015d47a8765077ec2f0e896ca995804522ad1986dc1214e9fdeebca81"
-    sha256 cellar: :any,                 x86_64_linux:      "2036d4b41c6932d54e701c28d7069c67ada44c8aa6bdf8d6a56ea571ae8f529e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8bfb3e486d8648054d8b2f6d1d6973d29469e65ac52c7bb57f811a4e0a405200"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9b61aaefdead7fb3ed166b76e07c030aad11d86f2b971cf38295c1a082f05128"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fea2d1266cc9eb68d769dfac2ca86a3e7a89c24de74b5c0d29b7af541654a89c"
+    sha256 cellar: :any,                 arm64_linux:       "b24fbe1dfa3271ad3babdb9c6cc94791b05daf39ee8d5a1cac76e886a02c2d25"
+    sha256 cellar: :any,                 x86_64_linux:      "fd8c7c1bbc8e1b38f843b976696065325b2924b27a2261b508f6c084dff77413"
   end
 
   depends_on "rust" => :build
