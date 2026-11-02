@@ -1,0 +1,14 @@
+Formula/b/beast.rb
+  h_9df9c32c3f321d 53-58,60-61
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4a25453a4ed9d635ee41b2db1e26d9b3b76b197b",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
