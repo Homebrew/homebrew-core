@@ -1,8 +1,8 @@
 class Titus < Formula
   desc "High-performance secrets scanner"
   homepage "https://github.com/praetorian-inc/titus"
-  url "https://github.com/praetorian-inc/titus/archive/refs/tags/v1.2.11.tar.gz"
-  sha256 "757f14f8d51a9a6e7d7b76bf26b3a5491925323b3b03d3e7cddaaed2d3815c3c"
+  url "https://github.com/praetorian-inc/titus/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "00b22bc9896f36351259153989ef1a5d1061598e56dfb009097e5a5115742fd5"
   license "Apache-2.0"
 
   bottle do
@@ -33,7 +33,7 @@ class Titus < Formula
     assert_match version.to_s, shell_output("#{bin}/titus version")
 
     output = shell_output("#{bin}/titus scan https://github.com/homebrew/.github 2>stderr")
-    assert_match "0/0 new matches", output
+    assert_match "0 new matches\n\nNo findings.", output
     assert_match %r{[1-9]\d*/[1-9]\d* rules compiled for Hyperscan}, File.read("stderr")
 
     require "utils/linkage"
