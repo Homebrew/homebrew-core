@@ -30,6 +30,8 @@ class Ucl < Formula
 
   depends_on "automake" => :build
 
+  deny_network_access!
+
   def install
     # Workaround to build with newer GCC
     ENV.append "CFLAGS", "-std=c90" if OS.linux?
