@@ -6,6 +6,11 @@ class Zfp < Formula
   license "BSD-3-Clause"
   head "https://github.com/llnl/zfp.git", branch: "develop"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_golden_gate: "7fdf4def606cbfbee06a1ceaafb9cfeb8b3c9dca075a23e460f0c4ac80c36fb7"
     sha256 cellar: :any,                 arm64_tahoe:       "dbdf86f2faa53f3b2ab4f9c66a298b1e24208f0a1a8231da5ee516f385d65d1d"
