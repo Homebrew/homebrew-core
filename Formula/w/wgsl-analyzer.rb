@@ -1,9 +1,15 @@
 class WgslAnalyzer < Formula
   desc "Language server implementation for WGSL and WESL"
   homepage "https://wgsl-analyzer.github.io"
-  url "https://github.com/wgsl-analyzer/wgsl-analyzer/archive/refs/tags/2026-09-30.tar.gz"
-  sha256 "656ca21fc1e37bc8c1bab25c434b315ba910d4f6702ee6905e20e9860e8f482c"
+  url "https://github.com/wgsl-analyzer/wgsl-analyzer/archive/refs/tags/2026-11-02.tar.gz"
+  sha256 "0ef0ec3f9a2cc4dc90bb6323b3b851e7d287895304cd8aaa95bd1c39ac1d1b23"
   license any_of: ["Apache-2.0", "MIT"]
+
+  livecheck do
+    url :stable
+    regex(/v?(\d+(:?[._-]\d+)+)/i)
+    strategy :github_latest
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "34bed1ecacf838bf87438076b5861512874281dc0379063d159d445a35cc4cc4"
