@@ -1,10 +1,10 @@
 class Openjph < Formula
   desc "Open-source implementation of JPEG2000 Part-15 (or JPH or HTJ2K)"
   homepage "https://github.com/aous72/OpenJPH"
-  url "https://github.com/aous72/OpenJPH/archive/refs/tags/0.32.0.tar.gz"
-  sha256 "5cb1ebe18e5ee1322d23ff2130b37562d447d1ad5586c3d16cf84be3ae30f719"
+  url "https://github.com/aous72/OpenJPH/archive/refs/tags/0.33.0.tar.gz"
+  sha256 "3437f296ff8531b35558650b0ed7fde45cad39394329eef4064a3d4900cf101f"
   license "BSD-2-Clause"
-  compatibility_version 7
+  compatibility_version 8
   head "https://github.com/aous72/OpenJPH.git", branch: "master"
 
   bottle do
@@ -23,7 +23,7 @@ class Openjph < Formula
     sha256 "e4e36966d68a473a7f5f5719d9e41c8061f2d817f70a7de1c78d7e510a6391ff"
   end
 
-  allow_network_access! :test
+  deny_network_access!
 
   def install
     ENV["DYLD_LIBRARY_PATH"] = lib.to_s
