@@ -18,6 +18,12 @@ class Logrotate < Formula
 
   depends_on "popt"
 
+  on_linux do
+    depends_on "acl"
+  end
+
+  deny_network_access!
+
   def install
     system "./configure", "--with-compress-command=/usr/bin/gzip",
                           "--with-uncompress-command=/usr/bin/gunzip",
