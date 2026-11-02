@@ -1,12 +1,12 @@
 class HaproxyAT28 < Formula
   desc "Reliable, high performance TCP/HTTP load balancer"
   homepage "https://www.haproxy.org/"
-  url "https://www.haproxy.org/download/2.8/src/haproxy-2.8.26.tar.gz"
-  sha256 "88c28dae25ea46672e66f8db0dadd1fb5920e06ee2415ceb9f281c256b537727"
+  url "https://www.haproxy.org/download/2.8/src/haproxy-2.8.31.tar.gz"
+  sha256 "8f2dd09cfdfe42bdc982c8615e7acb858e1815b10f296dfe5560e7f314dc6c80"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
-    url "https://www.haproxy.org/download/2.8/src"
+    url "https://www.haproxy.org/download/2.8/src/"
     regex(/haproxy[._-]v?(2\.8(?:\.\d+)+)\.t/i)
   end
 
@@ -34,6 +34,8 @@ class HaproxyAT28 < Formula
   on_linux do
     depends_on "zlib-ng-compat"
   end
+
+  deny_network_access!
 
   def install
     args = %w[
