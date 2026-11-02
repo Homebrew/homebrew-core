@@ -3,8 +3,8 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/e7/65/5851126cc23b4ab02282a805659bfd606103d91fee7a5df1a13d9600aa20/schemathesis-4.32.7.tar.gz"
-  sha256 "d9b85738621f860e03cb69c66529bfebe6e20474b13c2e57d946aa4ed23c729f"
+  url "https://files.pythonhosted.org/packages/23/1b/a8762062188992bf6c07396c40dedbe2a9ed600f09f600d23e3adfce1061/schemathesis-4.33.0.tar.gz"
+  sha256 "44b08505da5ae7f313562b63e6219559071327a0a33df9205424d5a54d839c88"
   license "MIT"
 
   bottle do
@@ -26,8 +26,8 @@ class Schemathesis < Formula
   pypi_packages exclude_packages: %w[certifi rpds-py]
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "charset-normalizer" do
@@ -51,13 +51,13 @@ class Schemathesis < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/11/02/d55560240dcb9f3e758213f0079b312271a6e832c5f84e767f7af6130898/hypothesis-6.170.12.tar.gz"
-    sha256 "92b353d21a010b50b638c730ce67cb631ca78a369b146bcc28b3488f83136e35"
+    url "https://files.pythonhosted.org/packages/d6/0f/10b2076a1314c554eee58c26e1dbe630fd26a32773df2a63bd5dba5d9947/hypothesis-6.170.14.tar.gz"
+    sha256 "8272913eb34c4399a88cf8a9ecdb351c9ef8f621c061f2ac323362d4a66b755d"
   end
 
   resource "hypothesis-graphql" do
-    url "https://files.pythonhosted.org/packages/cd/d4/0ff754287dff35bb675b13ab46f8fd179f4d0bddec63f1369f15388c41b2/hypothesis_graphql-0.13.5.tar.gz"
-    sha256 "d136615c0e11a4d50fd7212cbe69e9a78e2411aedcc945dba20f05df92e662f0"
+    url "https://files.pythonhosted.org/packages/0d/b2/12fcce1eb8aec4a3e75097079da23729f38d9858a3ba9dc387036569a526/hypothesis_graphql-0.13.6.tar.gz"
+    sha256 "8902f9ca57752466bf53d46cb1a9ab7bc45769838dd668c18379b867cc688435"
   end
 
   resource "idna" do
