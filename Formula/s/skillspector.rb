@@ -3,16 +3,17 @@ class Skillspector < Formula
 
   desc "Security scanner for AI agent skills"
   homepage "https://github.com/NVIDIA/SkillSpector"
-  url "https://github.com/NVIDIA/SkillSpector/archive/refs/tags/v2.13.2.tar.gz"
-  sha256 "ff5427ecee25fa32f1c98cf0179a3ebc585e429cc0602e825885ae10eaf24738"
+  url "https://github.com/NVIDIA/SkillSpector/archive/refs/tags/v2.13.3.tar.gz"
+  sha256 "07c2952a5d065c7c1a79985e81e41c3375debff92c3a96863083b5789e2e0d7a"
   license "Apache-2.0"
+  head "https://github.com/NVIDIA/SkillSpector.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "85d36575e59109d76573fb7df7508e9ef4c22f5a2376366ea6fb373fec4e6690"
-    sha256 cellar: :any, arm64_tahoe:       "943af95fd3b69c1cf06e26926c9e8606b14cf3589c6e2c5708e89db350e3bd31"
-    sha256 cellar: :any, arm64_sequoia:     "05f74476a54c04e036434da88c65a022c3b4156497e881d23a1e3af0f1f98a7e"
-    sha256 cellar: :any, arm64_linux:       "2d3aaadf594a1986c84c6112aaf20966477b0609015da5d088870e15dada40da"
-    sha256 cellar: :any, x86_64_linux:      "4b07b13e779a73829d6ed8250ff24da15a976576a9cd9eaff87a59102a1a0e33"
+    sha256 cellar: :any, arm64_golden_gate: "0a692cd3e87b4e4c8df05364313bc28011c48aff4bed30dda40a1cdfea513932"
+    sha256 cellar: :any, arm64_tahoe:       "f47d3a8a89e65077bba4abfc06d1baf404db34953d6f30fac11ead56e249d595"
+    sha256 cellar: :any, arm64_sequoia:     "2faefa064b19f51e5e5652aded767568a0f59f01dd0594b7af62b965428e2060"
+    sha256 cellar: :any, arm64_linux:       "72240ba8ebc45af595290bde3f7cb5c6b3f66860b39b2c2b3dfb78693ece1e6b"
+    sha256 cellar: :any, x86_64_linux:      "b6bd266a262108bc8e1c9a5f69c1234a352ed85a4b467d662a40f161133f1237"
   end
 
   depends_on "pkgconf" => :build
@@ -35,8 +36,8 @@ class Skillspector < Formula
   end
 
   resource "anthropic" do
-    url "https://files.pythonhosted.org/packages/ad/12/9a6ffa397b172adb040008d934a1dfd85d0e4cefc77489416db294ffc880/anthropic-1.11.0.tar.gz"
-    sha256 "3906fabac7ad7b5b46c6186040398fc7826885c77ce34e4dd7849de16fc8d0f8"
+    url "https://files.pythonhosted.org/packages/3e/ba/4c91947e0d0062d66d371db371597287153f7685fbed512d3294d0cde3c7/anthropic-2.3.0.tar.gz"
+    sha256 "edfdea1e3fa7b3ce25df1511953408b2f03bfa61eb6f6268f766101a9e18ad53"
   end
 
   resource "anyio" do
@@ -45,13 +46,13 @@ class Skillspector < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/48/59/fb93b6ebd9ad43eb9a58c7a6da51a0fe24ab0c04bc4d534a0bfc5eba7f59/boto3-1.43.108.tar.gz"
-    sha256 "03341f089158368acf83e921aca98b706095322ca52bc4c039a616940aa5ad41"
+    url "https://files.pythonhosted.org/packages/fc/8a/64b46f075149f9160da44aa7e1052dd18431b9ad4435beb0cfb02cc48624/boto3-1.43.123.tar.gz"
+    sha256 "055fabb990c5d2f31fce4ca569255bd640cdd11a3ca68c9ecad35f4f8a5b83b5"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/61/16/6b4477f433da2c11193802f538330ce080076c2f38d817ad437ed3cd1465/botocore-1.43.108.tar.gz"
-    sha256 "ee4f75cf3bdbb0da7912e089950e8112f692016539d939312c771499958e6cfd"
+    url "https://files.pythonhosted.org/packages/e0/de/011fc2a47fb066c47064b122498d2fd21f55bc90ea514acbddc37ca0f8c1/botocore-1.43.123.tar.gz"
+    sha256 "80948cb9b1cdf1a1a25809089a42e3a1bc4af0258d198222db6e97dcc660dd0c"
   end
 
   resource "charset-normalizer" do
@@ -85,8 +86,8 @@ class Skillspector < Formula
   end
 
   resource "httpcore2" do
-    url "https://files.pythonhosted.org/packages/cb/f3/1db7aa2bc2524062192bb0e0323969492d1883152a232fe36eea65f4e35c/httpcore2-2.13.1.tar.gz"
-    sha256 "e0aa977abe17e69a3b820a24542a6fa88702676d83880b8d194dcd18408e5103"
+    url "https://files.pythonhosted.org/packages/c0/61/afa9d6b7452f9eca73f73d45324eb0bb52f098fd5e6049bf6b8263be9b4e/httpcore2-2.16.0.tar.gz"
+    sha256 "c72cd0413563b17e1cd8354677dff887466f8ec2551679759e93126534428643"
   end
 
   resource "httpx" do
@@ -95,8 +96,8 @@ class Skillspector < Formula
   end
 
   resource "httpx2" do
-    url "https://files.pythonhosted.org/packages/d5/44/474bef2a0e9d90f1715d32cb98b0738695ca17ba324095fb2497ed7fbd59/httpx2-2.13.1.tar.gz"
-    sha256 "e48744a19e3af5ee48313d0ce5fe941d5422fae5705ea922a4aabf94d7800dfa"
+    url "https://files.pythonhosted.org/packages/43/73/5ca2cedf5e4e50423d1c258877865a6b62793633b561c58499f8aeb33b7e/httpx2-2.16.0.tar.gz"
+    sha256 "0d54c98128e8f2ff7fbbde0fca8c359e5f032edeaaaac443cdb7f31f685bcd7f"
   end
 
   resource "idna" do
@@ -105,8 +106,8 @@ class Skillspector < Formula
   end
 
   resource "jiter" do
-    url "https://files.pythonhosted.org/packages/9c/1f/8176d92e001f86505424b41664032ae26a882bc9ca41a32c803f373f9195/jiter-0.17.0.tar.gz"
-    sha256 "03e432f226a453851079fb84cd17c6da9991eab723e28d716f14ae3d906e0c12"
+    url "https://files.pythonhosted.org/packages/63/5b/f68319f4fe624311a744a33d10fdbcac4c971991e348223cba60d31780b2/jiter-0.18.0.tar.gz"
+    sha256 "a0ca63fd9450a212e4e658d4cfe0ab4977c4f9b0003c68828b843c65e27662ff"
   end
 
   resource "jmespath" do
@@ -115,63 +116,63 @@ class Skillspector < Formula
   end
 
   resource "jsonpatch" do
-    url "https://files.pythonhosted.org/packages/42/78/18813351fe5d63acad16aec57f94ec2b70a09e53ca98145589e185423873/jsonpatch-1.33.tar.gz"
-    sha256 "9fcd4009c41e6d12348b4a0ff2563ba56a2923a7dfee731d004e212e1ee5030c"
+    url "https://files.pythonhosted.org/packages/31/fd/359c6b0bf41d43eba15cafcd185fd82a11250f00606599ca8f296820fae2/jsonpatch-1.38.tar.gz"
+    sha256 "debc3e7bdc3d446468d64987f51a0e7a9deea42987ff90a6d1005a489b471c19"
   end
 
   resource "jsonpointer" do
-    url "https://files.pythonhosted.org/packages/18/c7/af399a2e7a67fd18d63c40c5e62d3af4e67b836a2107468b6a5ea24c4304/jsonpointer-3.1.1.tar.gz"
-    sha256 "0b801c7db33a904024f6004d526dcc53bbb8a4a0f4e32bfd10beadf60adf1900"
+    url "https://files.pythonhosted.org/packages/54/04/e35b34f4e441473e62d82d6ed9a8f748d93d895f4c05d4e645aa0fde51d7/jsonpointer-3.6.tar.gz"
+    sha256 "82e839a3ba3a9e2b54394fda8b3d276c2459d80408d06ef9a6fbc369d7544ffc"
   end
 
   resource "langchain-anthropic" do
-    url "https://files.pythonhosted.org/packages/91/e6/45ead93ef6d9f244b502a6a32bf9a185b3da1cc7fa8003896a102dadac09/langchain_anthropic-1.7.5.tar.gz"
-    sha256 "6016f38e5c4bf12c16ecfa76abf133a978f459f4d2887b8e28435ae1ff00beb3"
+    url "https://files.pythonhosted.org/packages/b2/36/a8988f6344c4222da68d74bfc7756f4ff7f7f41785f7a590bc7e3b848e41/langchain_anthropic-1.7.7.tar.gz"
+    sha256 "4d912c2eb6f20ede3fd38c956738b82ce30cabf5421ebb57639660031868b952"
   end
 
   resource "langchain-aws" do
-    url "https://files.pythonhosted.org/packages/9a/f9/7fc564afa32bb452f383bb5cc0244530ad330ffcecef157a534512138c40/langchain_aws-1.8.0.tar.gz"
-    sha256 "fac880f42a6904c30bbc59971e25fd27b732ec0a114baf24b5dca1a39c6d401a"
+    url "https://files.pythonhosted.org/packages/b6/bf/e0fe1e6f09ee89cd8c548565445764436c86fdc190e65e22e5b191c403d4/langchain_aws-1.9.1.tar.gz"
+    sha256 "e594476409f7fd41ae0989179866758338f7e5a9abbee93c0b2cff528aee2bb8"
   end
 
   resource "langchain-core" do
-    url "https://files.pythonhosted.org/packages/18/87/9e5d393bbcec068c51becc255a15aacfd8a14ac5826179751c1c320e5258/langchain_core-1.6.6.tar.gz"
-    sha256 "67616d984c085009be2c381c2efd330d32429a58aebab295b4f51b6573964511"
+    url "https://files.pythonhosted.org/packages/ac/90/f932d9c82d15033ae9676fb3670993e10e1b4d9c59fe1b7ae024dee11955/langchain_core-1.7.3.tar.gz"
+    sha256 "77f70b81e238c981bfd8405840b03fdf143735ac93c0729c2bdb39d6f0648024"
   end
 
   resource "langchain-openai" do
-    url "https://files.pythonhosted.org/packages/7c/2f/367068190b5a7d181996ad7899052394f0276468c92be48e0b7dab63716a/langchain_openai-1.6.7.tar.gz"
-    sha256 "b276a01b43c5287382f62070a4e1ca5bad5581fadab8c086e46b79daa4bf975d"
+    url "https://files.pythonhosted.org/packages/58/f5/a430230cb50b4b4ade021a5fe5df5a8c5adefa468435d460d2f77f2506ea/langchain_openai-1.7.3.tar.gz"
+    sha256 "c1d2d0fbd4f542ddcdf176c07abcf4d86c3b716513929250bbef04e3efc5e0b5"
   end
 
   resource "langchain-protocol" do
-    url "https://files.pythonhosted.org/packages/14/56/913599f2f9cec8524868929f12d72b2ede377a6056ca8a40a32bdadfa535/langchain_protocol-0.0.19.tar.gz"
-    sha256 "79d90a1425122ac87e8052e2ec054fbd09c3edbf341bdfb6397112a495c7bf8c"
+    url "https://files.pythonhosted.org/packages/cb/8b/d908d082c3cf5368ddd1816ed114de79c873f979ba7f98b95fab0e841643/langchain_protocol-0.0.20.tar.gz"
+    sha256 "0f5bd002474265648e91161771a9e0438fe9480bd55a416e51af0f60070637ec"
   end
 
   resource "langgraph" do
-    url "https://files.pythonhosted.org/packages/99/7e/c9e4431adb5eb78d15f0035aae162a113c80d037ceb433ddd78835217848/langgraph-1.2.12.tar.gz"
-    sha256 "5fae9fa4ce771e90f10ff19ce0d5aaef4b41d7632c713d769e89cbce1241a4b9"
+    url "https://files.pythonhosted.org/packages/ba/10/329dc49ce3fc40e36faafd407f08607fe3fab75613e709a66758b53faac2/langgraph-1.2.19.tar.gz"
+    sha256 "4a00fa1aad2b5fc2d3a789a8e9eaf993f76218ca924b434902ecf1bbaaf300f6"
   end
 
   resource "langgraph-checkpoint" do
-    url "https://files.pythonhosted.org/packages/dc/e1/089c4c9e0a2fec7f883f82ae8e6a727138d50074cfeb6644bc2d13b1019b/langgraph_checkpoint-4.2.0.tar.gz"
-    sha256 "51a593b6bee684b0818e5d6e58e28ab340c6db7794575056ce7bd1b746a84ed7"
+    url "https://files.pythonhosted.org/packages/f0/c4/f4107f50dd07169d08d95766cd69104231e694f44a1b25b68ad8b393712d/langgraph_checkpoint-4.3.1.tar.gz"
+    sha256 "625e7c78a72b33e7c47f7e87ca051060fb90aa66f5fd551c472c08376fb669cb"
   end
 
   resource "langgraph-prebuilt" do
-    url "https://files.pythonhosted.org/packages/29/66/ed9b93f56bc17ef22d551892f0ac2b225a97fe0fcf23a511b857f70d590b/langgraph_prebuilt-1.1.0.tar.gz"
-    sha256 "3c579cf6eed2d17f9c157c2d0fcaddcd8688524e7022d3b22b37a3bf4589d528"
+    url "https://files.pythonhosted.org/packages/ab/d9/e50d6e6b8d241b90564892afed8fac98d17da023c82810577cdb4530f87c/langgraph_prebuilt-1.1.1.tar.gz"
+    sha256 "f1b1a4772e7f9f15ba736411aad3877183ad40cd9349748df76bd2b9f58a83c7"
   end
 
   resource "langgraph-sdk" do
-    url "https://files.pythonhosted.org/packages/e8/9c/7ff305b366ce986052a27dc5946839bef2823b3567664cbad22e294dff5a/langgraph_sdk-0.4.5.tar.gz"
-    sha256 "d49a98a2ee8e0c494b101a7caf8061c8b4b94d3ee5ada0ea2dbe50903a5487b1"
+    url "https://files.pythonhosted.org/packages/64/a8/d5807df5976f2b8e181baddbddf857cc0ba501bba274e81711b10385c65b/langgraph_sdk-0.4.11.tar.gz"
+    sha256 "2550af3bc7cb78ac4facb97d141ec1a76568fa3eb3d29040cff70b45bda84740"
   end
 
   resource "langsmith" do
-    url "https://files.pythonhosted.org/packages/15/b9/10243797b942e7475ae21545fde1be484958672ae5c2f377f781c761a375/langsmith-0.14.4.tar.gz"
-    sha256 "a340199fcd2af60358f09dd1d7011bf7282f0d46a98aaa101bc7a521746da764"
+    url "https://files.pythonhosted.org/packages/f5/45/576803a72da96d9c0866b3815f08f447ed16c14acb52174129daca6847d6/langsmith-0.14.16.tar.gz"
+    sha256 "4e5816cbe1541f4d04d71f652eb8f4137889861bebcf7137bcba3553ae9e335e"
   end
 
   resource "markdown-it-py" do
@@ -185,13 +186,18 @@ class Skillspector < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/73/4f/e57670227cb7b61362d8f9bfba54d4e9f7bde799798c342782788bc12d6c/openai-3.24.0.tar.gz"
-    sha256 "1e7463f7d78773ab2ce4fe85710481aa5bd5ffefd54c8de4b067506cd2d42895"
+    url "https://files.pythonhosted.org/packages/f9/ef/c17c9ca921c1991b0a7185e8282da1996d09292b0caaf2e7cffd7e051eb6/openai-3.42.0.tar.gz"
+    sha256 "deffe27f9e20e4f1d9d471978d12f23aa119382494c0a9860795e66943d0fe42"
+  end
+
+  resource "opentelemetry-api" do
+    url "https://files.pythonhosted.org/packages/19/14/cf3a6b6448849656e1e5f4e2101f3988dc6789724050096aba1bc5ccf592/opentelemetry_api-1.45.2.tar.gz"
+    sha256 "d7b0008e21e5fd61cbe7a7f34ca3b6905a78ab677d9bc395e299359c75cda6b4"
   end
 
   resource "orjson" do
-    url "https://files.pythonhosted.org/packages/0f/f3/742fb1f62b825f2c010697eaf4e828004bc2a81e7e806666989c132c7c42/orjson-3.12.0.tar.gz"
-    sha256 "d14203fb1aae2ad9b3d52f8a0e82aeb10197ef1c9bc61da7f358bd70b00123d5"
+    url "https://files.pythonhosted.org/packages/f2/72/380b97dc45bd162d23afe5194721ef678d9eac7cfaa549fe2873f7f0a518/orjson-3.13.0.tar.gz"
+    sha256 "d1de5eb04485110c5da4c657e49168995d55e076b1ce60f1a042e254f4186c4f"
   end
 
   resource "ormsgpack" do
@@ -225,8 +231,8 @@ class Skillspector < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/fc/f2/af1da9d3ceed77bfcdce40427d49ba0be94e4fe84245e3bfef68c10e75b6/regex-2026.9.29.tar.gz"
-    sha256 "8b5fcc4771732191b2b7d1dd68d8f0353f47f8d90b6150f6dce58bf1112442cb"
+    url "https://files.pythonhosted.org/packages/dc/0e/49aee608ad09480e7fd276898c99ec6192985fa331abe4eb3a986094490b/regex-2026.5.9.tar.gz"
+    sha256 "a8234aa23ec39894bfe4a3f1b85616a7032481964a13ac6fc9f10de4f6fca270"
   end
 
   resource "requests" do
@@ -245,8 +251,8 @@ class Skillspector < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/76/43/35e4d8aa320bffe8287fe8f65f578fa2d2db0a64212f0e710dce58267854/s3transfer-0.19.2.tar.gz"
-    sha256 "ba0309fd86be3c27dbf78cdd813c13c5e1df16e5874b99d2535ebbdfb9892993"
+    url "https://files.pythonhosted.org/packages/49/c5/0a5ce655109cb96b8dfad36908a4e108d15f5dc2eff8fbc3146c4312e704/s3transfer-0.19.3.tar.gz"
+    sha256 "8326acc3d056d7f7b8a37110c7d2aea41f67e83f6ae79cd3b5fbcca34c726406"
   end
 
   resource "shellingham" do
@@ -265,8 +271,8 @@ class Skillspector < Formula
   end
 
   resource "tenacity" do
-    url "https://files.pythonhosted.org/packages/47/c6/ee486fd809e357697ee8a44d3d69222b344920433d3b6666ccd9b374630c/tenacity-9.1.4.tar.gz"
-    sha256 "adb31d4c263f2bd041081ab33b498309a57c77f9acf2db65aadf0898179cf93a"
+    url "https://files.pythonhosted.org/packages/82/9e/497c1c8ebe5a5b5d1d4a7511aea22c0bb1a97e3170d98abdef0e1b34265a/tenacity-9.2.1.tar.gz"
+    sha256 "a606b5c808d0cded4a359d5b9932d867ff2a6a6b64d37350260fd01bbdf83839"
   end
 
   resource "tiktoken" do
@@ -275,8 +281,8 @@ class Skillspector < Formula
   end
 
   resource "truststore" do
-    url "https://files.pythonhosted.org/packages/53/a3/1585216310e344e8102c22482f6060c7a6ea0322b63e026372e6dcefcfd6/truststore-0.10.4.tar.gz"
-    sha256 "9d91bd436463ad5e4ee4aba766628dd6cd7010cf3e2461756b3303710eebc301"
+    url "https://files.pythonhosted.org/packages/ee/9f/c5201d42a484c061e528825fc8e2d565f5abd50a4ced6fb7d29c4ec99b2b/truststore-0.10.5.tar.gz"
+    sha256 "30d36967ccaded5cbb38d602c433f53600036c79d502f4533a49b60a03bbefcd"
   end
 
   resource "typer" do
@@ -290,18 +296,18 @@ class Skillspector < Formula
   end
 
   resource "uuid-utils" do
-    url "https://files.pythonhosted.org/packages/4c/80/cf6934a2030a5f6763f604314c1105f851d90aa1fe344c2692c3b88a9d95/uuid_utils-0.17.1.tar.gz"
-    sha256 "10c51d54ecdf0617640e505eae6d2e6443d8e414d4f9d6e8d43949a450c56e6b"
+    url "https://files.pythonhosted.org/packages/f1/0f/cd9b3e495e514441e9af3a42c5c63436aee620f61412cafcce67e259228b/uuid_utils-0.19.0.tar.gz"
+    sha256 "4b2996bb9d12da9b62f6f4c64a066b26926fa75dbe47b4f8e309e24e187abf1d"
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/21/f7/bc3a25c5ec26ce62ce487690becc2f3710bbc7b33338f005ad390db0b986/websockets-16.1.1.tar.gz"
-    sha256 "db234eda965dcce15df96bb9709f587cd87d4d52aaf0e80e2f34ec04c7670c57"
+    url "https://files.pythonhosted.org/packages/75/79/590c5f0cc7d1661195aeefccb0e342b79f4c77d368d526d028821a390332/websockets-17.4.tar.gz"
+    sha256 "09d3939b70df0c8ad2da145ebd50978bccaee1d565e838b0e7921a34d38571eb"
   end
 
   resource "xxhash" do
-    url "https://files.pythonhosted.org/packages/f6/a5/1386f35da1475fcaeef42581deae73417c6d2a6a0b2d2e8914de18844dcd/xxhash-4.0.1.tar.gz"
-    sha256 "d55bf4ef10eb09b8b6866790e083d26d087d84caa3cc0946ba87c3ca7ecaf7b7"
+    url "https://files.pythonhosted.org/packages/39/e6/ed6c428055ffd3f9299db3ec8671fd78b70c24173c040b8faafb6348ebbb/xxhash-4.0.2.tar.gz"
+    sha256 "af3d1b3cfa5280e84d8968e9f30c9eca75781db4915eb6d6acb0dd4fc93e0f47"
   end
 
   resource "yara-python" do
