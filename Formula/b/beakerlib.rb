@@ -1,8 +1,8 @@
 class Beakerlib < Formula
   desc "Shell-level integration testing library"
   homepage "https://github.com/beakerlib/beakerlib"
-  url "https://github.com/beakerlib/beakerlib/archive/refs/tags/1.33.3.tar.gz"
-  sha256 "87a054194ddd2e073d50c15b0c4f7cf1373b1a5a82e78d9a8f16f13ade7ee00e"
+  url "https://github.com/beakerlib/beakerlib/archive/refs/tags/1.33.4.tar.gz"
+  sha256 "b4e1fd4a3ea39923583d9ac70d698b5313306f686020b857963e20b63e444d21"
   license "GPL-2.0-only"
   compatibility_version 1
 
@@ -22,6 +22,8 @@ class Beakerlib < Formula
     depends_on "gnu-getopt"
   end
 
+  deny_network_access!
+
   def install
     make_args = [
       "DD=#{prefix}",
@@ -32,7 +34,7 @@ class Beakerlib < Formula
   end
 
   test do
-    (testpath/"test.sh").write <<~SHELL
+    (testpath/"test.sh").write <<~SH
       #!/usr/bin/env bash
       source #{share}/beakerlib/beakerlib.sh || exit 1
       rlJournalStart
@@ -40,7 +42,7 @@ class Beakerlib < Formula
           rlPass "All works"
         rlPhaseEnd
       rlJournalEnd
-    SHELL
+    SH
     expected_journal = /\[\s*PASS\s*\]\s*::\s*All works/
     ENV["BEAKERLIB_DIR"] = testpath
     system "bash", testpath/"test.sh"
