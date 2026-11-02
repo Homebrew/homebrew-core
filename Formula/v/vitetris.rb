@@ -23,6 +23,8 @@ class Vitetris < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "a8081c35e8f308bd3c0bd5521edce69ed47a4af99700a9799ebffe8e52430989"
   end
 
+  deny_network_access!
+
   def install
     # workaround for newer clang
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403

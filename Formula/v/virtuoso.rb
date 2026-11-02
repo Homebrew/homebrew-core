@@ -52,6 +52,8 @@ class Virtuoso < Formula
 
   skip_clean :la
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
 

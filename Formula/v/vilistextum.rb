@@ -32,6 +32,8 @@ class Vilistextum < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "8b6ebe879dd14d1bf3482d057ab7364ff9851f2ab3d4af5d0a97a59c9c2ca8d8"
   end
 
+  deny_network_access!
+
   def install
     # Work around failure from GCC 10+ using default of `-fno-common`
     # multiple definition of `<symbol>`; <file>.o:<location>: first defined here

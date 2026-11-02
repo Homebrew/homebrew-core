@@ -15,6 +15,8 @@ class Vcsh < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     # Set GIT, SED, and GREP to prevent
