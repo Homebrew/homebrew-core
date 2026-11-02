@@ -7,11 +7,11 @@ class Bear < Formula
   head "https://github.com/rizsotto/Bear.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "2c445a926e272eb3ead9bdff8a2e4d3b62c7533baba77a8dbbd998541370b757"
-    sha256 cellar: :any, arm64_tahoe:       "7353e6f874632db78f123de076a7b30bd9015cd9fef74a01268e0045397a093b"
-    sha256 cellar: :any, arm64_sequoia:     "8b78d97468c9ab433b9df184d5b5bdc7f28b93473e3d7cd46296a6496c10c97b"
-    sha256 cellar: :any, arm64_linux:       "fb9c0b47e5bd2b286f23e570362cdf1a2df6f093f6a7b345f5c50eeaf8ab6de8"
-    sha256 cellar: :any, x86_64_linux:      "89693fb1a122301d8600c0a226d0eb89ae704ba9535e3633d902fd20ad09f052"
+    sha256 cellar: :any, arm64_golden_gate: "179961370d51510164f0a224b3a96085c85148d3b1bc98bbae113f0b2eb478dd"
+    sha256 cellar: :any, arm64_tahoe:       "f895e4ddea72676743f8477440816ab77d0369fb1f7cb23ab27b5dd7522452ed"
+    sha256 cellar: :any, arm64_sequoia:     "f05e97f4fa36e553db6ce2e9c011a12a2a07ab65fc2cc2631b3291cbc6ed5cc3"
+    sha256 cellar: :any, arm64_linux:       "e87c9299f1ee5a77adfde3f1e0eb8f42eba3a444e9854774bdea0ea6cd278348"
+    sha256 cellar: :any, x86_64_linux:      "0c28c8f660f57f19c5af70f1d74dc1a70139bb4998e49c8e16917bea486629d9"
   end
 
   depends_on "pkgconf" => :build
