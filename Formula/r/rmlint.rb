@@ -1,8 +1,8 @@
 class Rmlint < Formula
   desc "Extremely fast tool to remove dupes and other lint from your filesystem"
   homepage "https://rmlint.readthedocs.io/en/master/"
-  url "https://github.com/sahib/rmlint/archive/refs/tags/v2.10.4.tar.gz"
-  sha256 "cecb379b64e2abad7350db7030b945b5b0d021e7f9a1e8f14725ebffe049d041"
+  url "https://github.com/sahib/rmlint/archive/refs/tags/v2.11.0.tar.gz"
+  sha256 "e7a20caf7f0162791f947a89931de76750daadd72be7719477278f3e949f00df"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -29,6 +29,8 @@ class Rmlint < Formula
     depends_on "util-linux"
   end
 
+  deny_network_access!
+
   def install
     if OS.linux?
       ENV.append_to_cflags "-I#{formula_opt_include("util-linux")}"
@@ -39,15 +41,22 @@ class Rmlint < Formula
       ENV.append "LDFLAGS", "-Wl,-rpath=#{formula_opt_lib("util-linux")}"
     end
 
-    system "scons", "config"
-    system "scons"
+    system "scons", "--without-gui"
     bin.install "rmlint"
     man1.install "docs/_build/man/rmlint.1"
   end
 
   test do
-    (testpath/"1.txt").write("1")
-    (testpath/"2.txt").write("1")
-    assert_match "# Duplicate(s):", shell_output(bin/"rmlint")
+    assert_match version.to_s, shell_output("#{bin}/rmlint --version 2>&1")
+
+    files = testpath/"files"
+    files.mkpath
+    (files/"first.txt").write("duplicate")
+    (files/"second.txt").write("duplicate")
+    (files/"unique.txt").write("unique")
+    output = shell_output("#{bin}/rmlint -T df -o json:stdout #{files}")
+    duplicates = JSON.parse(output)[1...-1]
+    assert_equal %w[first.txt second.txt].map { |name| (files/name).to_s }.sort,
+                 duplicates.map { |entry| entry.fetch("path") }.sort
   end
 end
