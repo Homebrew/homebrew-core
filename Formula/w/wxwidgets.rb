@@ -56,6 +56,8 @@ class Wxwidgets < Formula
     resolves "https://github.com/wxWidgets/wxWidgets/pull/27203"
   end
 
+  deny_network_access!
+
   def install
     # Remove all bundled libraries excluding `nanosvg` which isn't available as formula
     %w[catch pcre libwebp].each { |l| rm_r(buildpath/"3rdparty"/l) }
