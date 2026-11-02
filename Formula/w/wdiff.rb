@@ -29,6 +29,8 @@ class Wdiff < Formula
 
   conflicts_with "montage", because: "both install an `mdiff` executable"
 
+  deny_network_access!
+
   def install
     system "./configure", "--enable-experimental", *std_configure_args
     system "make", "install"
