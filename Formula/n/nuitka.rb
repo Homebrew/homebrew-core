@@ -3,17 +3,17 @@ class Nuitka < Formula
 
   desc "Python compiler written in Python"
   homepage "https://nuitka.net"
-  url "https://files.pythonhosted.org/packages/c0/5b/b3ec9a3373f1f1ad546d31101b41fb07befee7ecf734bab6c75a935b43bf/nuitka-4.3.3.tar.gz"
-  sha256 "3bed65735d5cfc53dc13070f9f17c52dbe584c0f03de32b6ef011f5db674add9"
+  url "https://files.pythonhosted.org/packages/46/19/9e0a68ea7bf6124843eaf2163430edc80569d4ce33511928e3958c960fb3/nuitka-4.3.4.tar.gz"
+  sha256 "e98e0c9a3224b581cf8ec0fab92b039b90fb7fa78673550c22833a82de444b25"
   license "AGPL-3.0-only"
   head "https://github.com/Nuitka/Nuitka.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "05c5da58f27d6d4fa02de1b51bfd51b478496ea2ecec862890a3f89343b76ca1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7e347abbb67fe3981bc51b0ec7d588de519bbcbaf78a83f1e181eee7b61e2045"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f0b61f1d26cdcd66b2610a87206a2ff3a3f7faa22909532fae38fbbd10ee3c4b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b65b8d19a7a037a4a86d2d00c21d6d1e4bc5150c5a1724e519d551e617446e49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "eaccf9346e57bc7751e1d379851a98cf36269e230435448758acf0d24664bc5e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9e7902bff4ac7151b8d0e6f79b856590634412b43d129b2f9198fd3af23e4b39"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "90ec4d594a9a751721bb48c7178e7608c359961099410a6da67bb65d19f1d0bc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4e1e1b38b55c66abea9116d53d0a78bc2c2b02ea303830ed17acde83ef770132"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "90485b9086fd8c34f53b2e2d16e4018b86176363ac990cd7a3dd5a5695dc81c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "1c992e070043b291802c18cadc67311240895d54aa877bf84b4d9ee27faad2eb"
   end
 
   depends_on "ccache"
