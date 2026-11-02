@@ -5,11 +5,6 @@ class OpensslAT30 < Formula
   sha256 "67ebca7e50d17383028045486653492195b83db95f8558709701bb47b5c1ef81"
   license "Apache-2.0"
 
-  livecheck do
-    url "https://openssl-library.org/source/"
-    regex(/href=.*?openssl[._-]v?(3\.0(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 arm64_golden_gate: "3eb68288be3381f503aa67a95a34713544b8fc287fbeba77bd66f0115d7cd1a6"
     sha256 arm64_tahoe:       "2295775ec80d44056c25fa40fb496b049d7579dd6e69c0c1d7c65b282a37a789"
