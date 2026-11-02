@@ -19,6 +19,8 @@ class Wolfmqtt < Formula
   depends_on "libtool" => :build
   depends_on "wolfssl"
 
+  deny_network_access!
+
   def install
     args = %W[
       --disable-silent-rules

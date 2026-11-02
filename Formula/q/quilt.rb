@@ -31,6 +31,8 @@ class Quilt < Formula
     depends_on "gpatch"
   end
 
+  deny_network_access!
+
   def install
     args = [
       "--prefix=#{prefix}",

@@ -23,6 +23,8 @@ class Wy60 < Formula
 
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"

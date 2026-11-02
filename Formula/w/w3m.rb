@@ -31,6 +31,8 @@ class W3m < Formula
     depends_on "zlib-ng-compat"
   end
 
+  allow_network_access! :test
+
   def install
     system "./configure", "--disable-image",
                           "--with-ssl=#{formula_opt_prefix("openssl@4")}",

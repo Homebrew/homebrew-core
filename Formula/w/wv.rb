@@ -38,6 +38,8 @@ class Wv < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     # Work around build errors with newer Clang
     if DevelopmentTools.clang_build_version >= 1500

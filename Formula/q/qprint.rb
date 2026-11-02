@@ -26,6 +26,8 @@ class Qprint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "adea30e44e1c128bf4f466fbca2a3eaad7f71bd90a9868492b8365611bb76489"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"

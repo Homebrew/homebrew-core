@@ -29,6 +29,8 @@ class Qd < Formula
   depends_on "libtool" => :build
   depends_on "gcc" # for gfortran
 
+  deny_network_access!
+
   def install
     odie "check if autoreconf line can be removed" if version > "2.3.24"
     # regenerate since the files were generated using automake 1.16.5
