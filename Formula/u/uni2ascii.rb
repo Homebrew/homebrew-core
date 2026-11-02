@@ -34,11 +34,12 @@ class Uni2ascii < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     if OS.mac?
-      gettext = Formula["gettext"]
-      ENV.append "CFLAGS", "-I#{gettext.include}"
-      ENV.append "LDFLAGS", "-L#{gettext.lib}"
+      ENV.append "CFLAGS", "-I#{formula_opt_include("gettext")}"
+      ENV.append "LDFLAGS", "-L#{formula_opt_lib("gettext")}"
       ENV.append "LDFLAGS", "-lintl"
     end
 
