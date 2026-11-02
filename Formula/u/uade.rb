@@ -50,6 +50,8 @@ class Uade < Formula
   depends_on "pkgconf" => :build
   depends_on "libao"
 
+  deny_network_access!
+
   def install
     lib.mkdir # for libzakalwe
 

@@ -41,6 +41,8 @@ class Unixodbc < Formula
                  "include/sqltypes.h", "include/sqlucode.h"
   link_overwrite "lib/libodbc.a", "lib/libodbc.so"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-gui",

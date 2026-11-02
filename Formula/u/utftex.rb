@@ -15,6 +15,8 @@ class Utftex < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "733b373d361275776ee9e70d15b02336adb869b19401d4b700545000b144b3a0"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"

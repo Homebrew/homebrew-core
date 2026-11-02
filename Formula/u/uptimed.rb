@@ -4,6 +4,7 @@ class Uptimed < Formula
   url "https://github.com/rpodgorny/uptimed/archive/refs/tags/v0.4.7.tar.gz"
   sha256 "2f669d2968ca1d0865b7a97791c9dbcca759631a1afc5d6702964f070a57252b"
   license "GPL-2.0-only"
+  head "https://github.com/rpodgorny/uptimed.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_golden_gate: "0eaa92c8dd50e6622735b5eaf292c68cf50be9ac22898fd53f6882453fc4c9dc"
@@ -20,6 +21,8 @@ class Uptimed < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
+  deny_network_access!
 
   def install
     # The bundled `getopt.h` declares `getopt()` without a prototype, which C23 reads as taking no arguments
