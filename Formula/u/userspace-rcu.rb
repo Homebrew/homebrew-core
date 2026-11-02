@@ -19,6 +19,8 @@ class UserspaceRcu < Formula
     sha256 cellar: :any, x86_64_linux:      "e6740da2ad7f0accaa6992605ed6c5db2120d4be237fe54195fd9f278ed81800"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args.reject { |s| s["disable-debug"] }
     system "make", "install"
