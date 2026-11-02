@@ -14,11 +14,11 @@ class QobineWeb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b4fd31fdf53f8a72b995580035a42cd2b6165765ffb3c3262a7bc211169b4144"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bed886cfc9fdd33a78d2f161fa12939a10f7dfee2772e175c847e7647f3a9528"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2d0936e5d7ba61b49b020df668bf01b5acac1582752168a6f6085b2467e0cb03"
-    sha256 cellar: :any,                 arm64_linux:       "0d298831324eda2a9016db3baae6985e5f3cdf457b17b825b208a09a1e05d9ed"
-    sha256 cellar: :any,                 x86_64_linux:      "f31a47f7dbc872cee2fde0e689f3dc93786404b91021949e6a18590f24bc08a7"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "41c440f852535e032f7a2cbf51374f8987f51fee807a30c1e63cd9cd901c8f1d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a3540bafc96e0a702c174eae428d7519b4a74429af3b77bf301c4af0082885fc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9719f080e1692c50833df840aacdf7e98014e5d92d82b40478e061dceba8ff02"
+    sha256 cellar: :any,                 arm64_linux:       "1e6b881e2af1bad7dbf5d4a13d1b19b8df90108ccc0d1de711715d43936abb98"
+    sha256 cellar: :any,                 x86_64_linux:      "280f1d351aa1da36d5d327a77d19cd91ce05a944ccedfec7a50fc366f90bb7f7"
   end
 
   depends_on "pkgconf" => :build
