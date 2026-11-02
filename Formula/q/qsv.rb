@@ -1,8 +1,8 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
   homepage "https://qsv.dathere.com/"
-  url "https://github.com/dathere/qsv/archive/refs/tags/27.0.1.tar.gz"
-  sha256 "23631f14cce714bd1aed45d07a04e71471ab26851f469ce25a503b471c8d3b4c"
+  url "https://github.com/dathere/qsv/archive/refs/tags/28.0.0.tar.gz"
+  sha256 "7a0efbab2d7cd7923ac4d8613d3eff4b4aa6383993f5e1d8edc393208265348f"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/dathere/qsv.git", branch: "master"
 
@@ -50,8 +50,7 @@ class Qsv < Formula
 
     # Build `viz_static` without plotly's build-time webdriver download and default the
     # runtime driver to the `chromedriver` cask (`WEBDRIVER_PATH` overrides it)
-    inreplace "Cargo.toml", '"plotly/static_export_default", "webdriver-downloader"',
-                            '"plotly/static_export_chromedriver"'
+    inreplace "Cargo.toml", '"plotly/static_export_default"', '"plotly/static_export_chromedriver"'
     ENV["WEBDRIVER_DOWNLOAD_PATH"] = HOMEBREW_PREFIX/"bin/chromedriver"
 
     features = %w[distrib_features lens]
