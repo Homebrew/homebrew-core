@@ -1,8 +1,8 @@
 class UutilsFindutils < Formula
   desc "Cross-platform Rust rewrite of the GNU findutils"
   homepage "https://uutils.github.io/findutils/"
-  url "https://github.com/uutils/findutils/archive/refs/tags/0.10.0.tar.gz"
-  sha256 "e36ae3937f889bc59cfbd65820a642baa695c58d7fa1e387e41857e710f40419"
+  url "https://github.com/uutils/findutils/archive/refs/tags/0.11.0.tar.gz"
+  sha256 "43d1fbb69a0e67e708435bd104966d1dd61357755452b733db9dabfd66cbf974"
   license "MIT"
   head "https://github.com/uutils/findutils.git", branch: "main"
 
@@ -44,16 +44,6 @@ class UutilsFindutils < Formula
       next if unwanted_bin_link? cmd
 
       bin.install_symlink libexec/"uubin"/cmd => "uu-#{cmd}"
-
-      # Create a temporary compatibility executable for previous 'u' prefix.
-      # All users should get the warning in 0.9.0. Similar to brew's odeprecate
-      # timeframe, the removal can be done after 2 minor releases, i.e. 0.11.0.
-      odie "Remove compatibility exec scripts!" if build.stable? && version >= "0.11.0"
-      (bin/"u#{cmd}").write <<~SHELL
-        #!/bin/bash
-        echo "WARNING: u#{cmd} has been renamed to uu-#{cmd} and will be removed in 0.11.0" >&2
-        exec "#{bin}/uu-#{cmd}" "$@"
-      SHELL
     end
   end
 
@@ -70,7 +60,6 @@ class UutilsFindutils < Formula
     require "utils/linkage"
 
     touch "HOMEBREW"
-    assert_match "HOMEBREW", shell_output("#{bin}/ufind .") # TODO: remove in 0.11.0
     assert_match "HOMEBREW", shell_output("#{bin}/uu-find .")
     assert_match "HOMEBREW", shell_output("#{opt_libexec}/uubin/find .")
 
