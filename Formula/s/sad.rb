@@ -1,21 +1,17 @@
 class Sad < Formula
   desc "CLI search and replace | Space Age seD"
   homepage "https://github.com/ms-jpq/sad"
-  url "https://github.com/ms-jpq/sad/archive/refs/tags/v0.4.32.tar.gz"
-  sha256 "a67902b9edb287861668ee3e39482c17b41c60e244ece62b3f8016250286294f"
+  url "https://github.com/ms-jpq/sad/archive/refs/tags/v0.4.33.tar.gz"
+  sha256 "ec2b533aaa6c39b4f87d6154854ead4fc381fc9fc9b727b2fc82e6ec4f7c1d8b"
   license "MIT"
   head "https://github.com/ms-jpq/sad.git", branch: "senpai"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6fcc75ef21cd26f4e24d356a0bb6248b9eea0f85c8a30af86dbe90f4f811cc24"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6a86363c4e34a7ef28f442c18631477562f6b2e53b528dca842d89a61f72aafb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dc792df17bca12c265808a20efcbf4444fddf598e1b0671938f624d60a02f930"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "013696e18b0fd86010f790c555f8aa37c1f7058990fa4a4b2ceff65d17daaadc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "49df2026de6f61f870fc3c23d286214842af83b0bb92ea8e7f9a2e005e8b0d88"
-    sha256 cellar: :any_skip_relocation, sonoma:            "ac5f622402e313226339eb22f389fe826994ee8771b23cc28c2188ff81096f80"
-    sha256 cellar: :any_skip_relocation, ventura:           "5afe1a5fac8625f958c34c4b7b030c4d4d6d3c3b7c7212988f19a8e7f6928f39"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "db2a7e7543515e39ad52ebe32ebd9821e3eec5e0cd1a3b0096342682de0a1536"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5eb56b7ce0c1cd515a1e2492614a4cbe2b3ea8e3652f0a9ad2a2ed43d9eec43b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "266c3d05de32deb24e9da7aed1e720552cadd447a773383e231d75b5966deabe"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f0b1348345d5d3c258a156446aeed754ce919928e2db7bbe669480395242719f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92c50d3c1748622b63c9658c963d96574cb74cb27d771b7e58e916614b0fc962"
+    sha256 cellar: :any,                 arm64_linux:       "8fb74eff87307ea87714a2d9f3fd4bbaa162ae6d4e48cae9218de486ab205d0c"
+    sha256 cellar: :any,                 x86_64_linux:      "334f3df0c338027427787d7a45ca2fb86796937a132601468aab3d0cab591c69"
   end
 
   depends_on "rust" => :build
