@@ -28,6 +28,8 @@ class Unrtf < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     # C23 treats the upstream's unprototyped function pointers as zero-argument functions
     ENV["ac_cv_prog_cc_c23"] = "no"
