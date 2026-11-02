@@ -8,11 +8,11 @@ class Auditbeat < Formula
   head "https://github.com/elastic/beats.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6567b09c5acff7cc6b1b5b1c5996c811504e80598faaeb1815c97efd67fe50e3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c436d4dd9da8a46a841dcd3dae9b7d26c33377e6a04cc1f0989b71d8a0b80ad"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3e20b2d4a8022bc5674aea85a31a3a3b8b01ca62208f4bffea8881db849c7de2"
-    sha256 cellar: :any,                 arm64_linux:       "bbdfb9a8cb72f1bad45fe1130b65bed0b6f1fdd74c35136d1d87ee4a5bb2f4fb"
-    sha256 cellar: :any,                 x86_64_linux:      "8f9ae58a2c46f58041a4d1de653627083a1d8df19738795b126359045e7d5fd5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "87b8dc943fd55dc06fca09d2ecc2620786abceed1b43133a9d7931a8eb69d5c3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f5b0dd11e6c8e703d37ebe47848a1dbebb6d9d6e68b4b6eccd57e32af8a204bd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eff694b3e75d83043339d95be415709488e63c12c7c7494c19f22bf82a53028f"
+    sha256 cellar: :any,                 arm64_linux:       "33bff6449a13d912b2dce633d01cc4851fae6daf861df153048e7db43ceca1f2"
+    sha256 cellar: :any,                 x86_64_linux:      "12f4a64e1a0fd133e2a92e2aae99314ceeefd03c84f844525a6e7687ecb9139a"
   end
 
   depends_on "go" => :build
