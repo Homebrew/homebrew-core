@@ -8,11 +8,11 @@ class Heartbeat < Formula
   head "https://github.com/elastic/beats.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "20fb2b8f221d3164e0e8444870464a818bb04d212066efa05155c43049ce37d7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "77dd40331755c3b3335c26d9cb1e0dfe6c8720704e2f6516eef99e92e8d477b7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "79c53c177a5d516c161c43e822a222881539d2b55f899dbfb35d13dff361a5af"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "afbf16a2c88866895f43eb6e38b5745aeaf4c7c06e1081da49b1e0b1998fb30b"
-    sha256 cellar: :any,                 x86_64_linux:      "e44bc8038d85c833b505b3f7a37e762963b171ae70d4d43df6b04cca564ac026"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "30bd2e931fc5dff763491a0d3598254cf2e013388523e14030344a1acf6c8ff4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "84cfa486269d35359ce29ca7bab598999be84005201a1f3c4dd6d14c461a91a2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2d89389d0559159e95305f02bb12c52df44f453a97f2c233672e8279c24b24e9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "23e49bae65a3d62c03d5fa08e0f82ccecd6da6df6483e6aabf65bdb092ce17fc"
+    sha256 cellar: :any,                 x86_64_linux:      "7d27c33699b146fce83962dedf3da9d42ee2f5c12736037ada534c2d05a836fa"
   end
 
   depends_on "go" => :build
