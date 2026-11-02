@@ -1,12 +1,12 @@
 class Pwned < Formula
   desc "CLI for the 'Have I been pwned?' service"
   homepage "https://github.com/wKovacs64/pwned"
-  url "https://registry.npmjs.org/pwned/-/pwned-13.1.2.tgz"
-  sha256 "62e6c15eb81bedc7ff7d8c7cb0c85486e565c6d44f66f91e59af99b571910cce"
+  url "https://registry.npmjs.org/pwned/-/pwned-14.0.0.tgz"
+  sha256 "ff28cbf472891e333a7ba2b9ed499a0d1f8814b199d015a5c5ee6ec6a6917349"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "50643c261014d52089137b92323a9b5993a2e1c20b7b4a96617d46e275523cb0"
+    sha256 cellar: :any_skip_relocation, all: "9875f2c42b9825b0d0b31b792a2b3effd4de1e5e4c0d9ac7551a60482112073a"
   end
 
   depends_on "node"
