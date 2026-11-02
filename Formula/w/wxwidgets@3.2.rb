@@ -46,6 +46,8 @@ class WxwidgetsAT32 < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     # Remove all bundled libraries excluding `nanosvg` which isn't available as formula
     %w[catch pcre].each { |l| rm_r(buildpath/"3rdparty"/l) }
