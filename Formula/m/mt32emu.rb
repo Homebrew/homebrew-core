@@ -16,13 +16,11 @@ class Mt32emu < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "77b6745810599fb8cfe4b1314da315ce1801453fd862bf94c415827235afdac2"
-    sha256 cellar: :any, arm64_tahoe:       "c72627b553abc212c63efd0a279de21cc979bf81880fb96ed2d521c15af0abac"
-    sha256 cellar: :any, arm64_sequoia:     "a49a518125544c61c8e507c6ffa44c3c6c876dc87dfc6bfa3790cb7a18cf126c"
-    sha256 cellar: :any, arm64_sonoma:      "a1788beface4b91d9bb71df403c1e84a6b4ba50a3e475b4862066b3582714312"
-    sha256 cellar: :any, sonoma:            "45cc84af934a95c6889140ad2db5559caf324188515c1db135a308ab490b3149"
-    sha256 cellar: :any, arm64_linux:       "a3a63d148fc6418f2673dc151cd6f74b2003f1dc9ac0732dbb87dc4451f7906a"
-    sha256 cellar: :any, x86_64_linux:      "7df62e1e241f1946bb3a65e27f9c4c582b334d3bdcf90e982abe53979f70e6ce"
+    sha256 cellar: :any, arm64_golden_gate: "e768a3fd9308c5d9de58cc5c2d5562a154a97a65b4d936cd11711763b3dac983"
+    sha256 cellar: :any, arm64_tahoe:       "fef2bb7f6fd9329ea64579bfb16b9c38a793dc33cfc902c21758ab6b27becf35"
+    sha256 cellar: :any, arm64_sequoia:     "47f27472f2fb6c33054fd7ca9a754779177254e71cb25602deed5df01cda09f6"
+    sha256 cellar: :any, arm64_linux:       "b32b1f3b812d94cb8e73c64ef45c89a0afaa2cea40c4925f015f12e47b499284"
+    sha256 cellar: :any, x86_64_linux:      "8b56f514854749a0c571cb050694fdd3964533a30837182cf37f509a7a6963f7"
   end
 
   depends_on "cmake" => :build
