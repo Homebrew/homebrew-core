@@ -37,6 +37,8 @@ class Kakoune < Formula
     cause "Requires GCC >= 10.3"
   end
 
+  deny_network_access!
+
   def install
     system "make", "install", "debug=no", "PREFIX=#{prefix}"
   end

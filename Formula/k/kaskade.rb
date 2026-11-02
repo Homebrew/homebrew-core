@@ -238,6 +238,8 @@ class Kaskade < Formula
     sha256 "63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63"
   end
 
+  allow_network_access! :build
+
   def install
     # Allow 3.15: https://github.com/sauljabin/kaskade/issues/152
     inreplace "pyproject.toml", 'requires-python = ">=3.10,<3.15"', 'requires-python = ">=3.10"'

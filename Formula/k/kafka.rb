@@ -17,6 +17,8 @@ class Kafka < Formula
 
   depends_on "openjdk"
 
+  deny_network_access! :build
+
   def install
     data = var/"lib"
 
