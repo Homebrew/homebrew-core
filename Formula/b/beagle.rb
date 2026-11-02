@@ -1,8 +1,8 @@
 class Beagle < Formula
   desc "Evaluate the likelihood of sequence evolution on trees"
   homepage "https://github.com/beagle-dev/beagle-lib"
-  url "https://github.com/beagle-dev/beagle-lib/archive/refs/tags/v4.0.1.tar.gz"
-  sha256 "9d258cd9bedd86d7c28b91587acd1132f4e01d4f095c657ad4dc93bd83d4f120"
+  url "https://github.com/beagle-dev/beagle-lib/archive/refs/tags/v4.2.0.tar.gz"
+  sha256 "b62bcfce58dadacece78d140c0b2f0e2c255408c96cb95d23f01ea5b7eea1970"
   license "MIT"
   compatibility_version 1
 
@@ -42,22 +42,8 @@ class Beagle < Formula
   end
 
   test do
-    if OS.mac? && Hardware::CPU.arm? && Hardware::CPU.virtualized?
-      # OpenCL is not supported on virtualized arm64 macOS which breaks all Beagle functionality
-      (testpath/"test.cpp").write <<~CPP
-        #include <iostream>
-        #include "libhmsbeagle/beagle.h"
-        int main() {
-          std::cout << beagleGetVersion();
-          return 0;
-        }
-      CPP
-      system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}/libhmsbeagle-1", "-L#{lib}", "-lhmsbeagle"
-      assert_match version.to_s, shell_output("./test")
-    else
-      system ENV.cxx, pkgshare/"tinytest.cpp", "-o", "test", "-I#{include}/libhmsbeagle-1", "-L#{lib}", "-lhmsbeagle"
-      assert_match "sumLogL = -1498.", shell_output("./test")
-    end
+    system ENV.cxx, pkgshare/"tinytest.cpp", "-o", "test", "-I#{include}/libhmsbeagle-1", "-L#{lib}", "-lhmsbeagle"
+    assert_match "sumLogL = -1498.", shell_output("./test")
 
     (testpath/"T.java").write <<~JAVA
       class T {
