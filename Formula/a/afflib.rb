@@ -1,13 +1,12 @@
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
-  url "https://github.com/sshock/AFFLIBv3/archive/refs/tags/v3.7.22.tar.gz"
-  sha256 "67481fc520ff927bf61aea0bf2d660feb73e24cc329335bebb064f8f12115dcb"
+  url "https://github.com/sshock/AFFLIBv3/archive/refs/tags/v3.7.23.tar.gz"
+  sha256 "b09334cd690ebe28ef182b00b59a426db662417b90bb9fd4985b11df5654fca4"
   license all_of: [
     "BSD-4-Clause", # AFFLIB 2.0a14 and before
     :public_domain, # contributions after 2.0a14
   ]
-  revision 2
   compatibility_version 1
 
   bottle do
