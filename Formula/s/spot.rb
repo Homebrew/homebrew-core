@@ -18,6 +18,7 @@ class Spot < Formula
     sha256 cellar: :any, x86_64_linux:      "ae7a9d7ae8681eb04d4f7831e109ff42f8baadfb1ede99cfea323b7fd289a541"
   end
 
+  # Use Homebrew Python for C headers
   depends_on "python@3.15" => :build
 
   def install
