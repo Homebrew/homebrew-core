@@ -6,13 +6,11 @@ class Libversion < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "ac330f12782ebf9e6aaffcb2b53584a18d22575e9fa2d23cc3722dbb1db469a3"
-    sha256 cellar: :any,                 arm64_tahoe:       "aa0840340937ed717b88fd8e3d56d4ab747ad9b1eacbcfdf9b29d26b5e7fab11"
-    sha256 cellar: :any,                 arm64_sequoia:     "3b984810fe806bdb1ce1d8f965f9aff9771dfb5367412e964e730ad874f216f4"
-    sha256 cellar: :any,                 arm64_sonoma:      "0dc95a4d2de87071c6a8e34c3fdc63bafdd11884a64a2e1200bbbe7b91660635"
-    sha256 cellar: :any,                 sonoma:            "324dc710d1d88152a1ec19383fb20ca152e17c6dbe73ed699fd7dfdd9c604dd4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "70b5f6a09c1252dbc3b1d18705d38d54321577596ca79c10c45154ab71527784"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "1df6a367f5b16560ed8d822188d0a5ccfd2fc3dc59fa437104a821029ba10a1e"
+    sha256 cellar: :any, arm64_golden_gate: "b7a785b641ffb48e8213c90beaccaf3d01998d0894860abfd1fadf436613a5c6"
+    sha256 cellar: :any, arm64_tahoe:       "dbfb40139681cac0691d66561cf7d11b957389305112696eaf0376387fbf75f4"
+    sha256 cellar: :any, arm64_sequoia:     "df7613f81e181bbb65b0f934809ca2161b2d8b76041d8a5fbbcb13df15916a6e"
+    sha256 cellar: :any, arm64_linux:       "5b5413804cb77af9dbe725cdb9a70e190220b5355feb4dce90a3aeee30133375"
+    sha256 cellar: :any, x86_64_linux:      "4ce2af21bfb4d6910f1e337d68a7c0fcdc61911f09a71886548e0e75fc4a15ae"
   end
 
   depends_on "cmake" => :build
