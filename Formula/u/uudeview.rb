@@ -49,6 +49,8 @@ class Uudeview < Formula
     type :backport
   end
 
+  deny_network_access!
+
   def install
     # Fix for newer clang
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
