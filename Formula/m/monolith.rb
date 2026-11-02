@@ -7,11 +7,11 @@ class Monolith < Formula
   head "https://github.com/Y2Z/monolith.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3e8cb0e3bbe4321f25b821d4fe8daa945efa9a25e75973b86936c22de3a83026"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b7008d4021c549398d0675927ee54718f09f59a210fc86123f4a7b8e7cbdace1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "83450f47da8a944d949f4dc3438c48560a5800df53e0d8c03f253d97f257da82"
-    sha256 cellar: :any,                 arm64_linux:       "b6083ba71bccf4e7ddeb2b5981b504b248141bd35a869600fd8c088e67dc7402"
-    sha256 cellar: :any,                 x86_64_linux:      "b3cf92caceaa22296823297ccf1f2d8cf9132799ed0706ed0b342a8eac552fcc"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "25053bd4529fa990b48e8a23d716d9cfffc9ac8c77c38e7b57351120c4c0b062"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "19dbdbfd463caa6f94ee602a083712b6718ede072ac7d369235cd0f674ecab89"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c2d2df83fb0c13a9654419360f123494f30d348a206c9e9c01acf5196b7d30c6"
+    sha256 cellar: :any,                 arm64_linux:       "8aafc3eac7b777e0d1de6f7d64450e387e003c19a438f3a259710c4248f82506"
+    sha256 cellar: :any,                 x86_64_linux:      "a9c846fdb1fef0f5ec0a3218f03ea4342c03e0fa1e29d9818ce3c006ec4e8e00"
   end
 
   depends_on "pkgconf" => :build
