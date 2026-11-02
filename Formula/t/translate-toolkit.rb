@@ -3,8 +3,8 @@ class TranslateToolkit < Formula
 
   desc "Toolkit for localization engineers"
   homepage "https://toolkit.translatehouse.org/"
-  url "https://files.pythonhosted.org/packages/dc/8f/618a8b6589e67232feecbda4094fbfa3e076cdabd146519960453ea18b44/translate_toolkit-3.20.1.tar.gz"
-  sha256 "8626ab3def40f9db15e0481cf6afcd22aa15f1f12670608a0bcbca57777a2d0c"
+  url "https://files.pythonhosted.org/packages/7b/36/618e11497e18b74a8f2807594d17711ebe9a674aacf7c19624f17c8f3709/translate_toolkit-3.20.2.tar.gz"
+  sha256 "786ed210b262b0a94388f3bc824fa5b586b141d99cdd7db293e02c44ba146e7a"
   license "GPL-3.0-or-later"
   head "https://github.com/translate/translate.git", branch: "master"
 
@@ -28,8 +28,8 @@ class TranslateToolkit < Formula
   end
 
   resource "unicode-segmentation-rs" do
-    url "https://files.pythonhosted.org/packages/26/e4/28a415f71c7fe00f6b22254b3890442955bc720918c95d7b0c3ea0f5e12b/unicode_segmentation_rs-1.0.0.tar.gz"
-    sha256 "0c813bd38ab6bce5176f65d3b7c13b5d771f02dac09c09ff55ceb39728a995ee"
+    url "https://files.pythonhosted.org/packages/76/ce/3ea1a212af193525f26dfe40f419d67b734c52b43dd5214839c214dbefbe/unicode_segmentation_rs-1.0.1.tar.gz"
+    sha256 "9bd38cbd89338b5d16f8a029c37d4d5743e1c2c91602a1df860bb5661b8e8a0b"
   end
 
   def install
