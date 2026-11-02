@@ -11,11 +11,11 @@ class Slepc < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "4a0c1b72bc29bc5a7f6212b45827bfcb919d84d99d83fe993f7864e082534827"
-    sha256 arm64_tahoe:       "da6676e7738de42ab9e8882e9ac1c1bb7d528155e626c9a6b27206e784c22a43"
-    sha256 arm64_sequoia:     "83fe0503c1e1a300327dd32326ad37a188e865f97b69660b31e4f07558295aa6"
-    sha256 arm64_linux:       "7298d7127faff7145cce2f5809cfd348eae0ba40a07e5f905b6a24a58a0a0e2b"
-    sha256 x86_64_linux:      "d166222a0e79679142093e1dc5dc443d9b8f1fbbacaf067ba51142801a73ce05"
+    sha256 arm64_golden_gate: "b2d3679e2908d87c0b2c921ccd81b767e34fa773b84a6f41b05c994c3eb6e3cd"
+    sha256 arm64_tahoe:       "8a37985bac8805d059d829f644750f10fe4d3c049502ec3829cf4c08aa7667f5"
+    sha256 arm64_sequoia:     "2351ccbf993f718b851b37bc1903f8f2981ce881a6e63f66c4f0a9bc81d6535d"
+    sha256 arm64_linux:       "5554386cd4d1d57a2d8c4ca026b074a6428edff023d81c754d6048823a6147e0"
+    sha256 x86_64_linux:      "e9ca740b2b4b55e3835ca72d971d8af8d9b2da9c866de9413fd04becd0843ad7"
   end
 
   depends_on "open-mpi"
