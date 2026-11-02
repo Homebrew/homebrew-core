@@ -12,11 +12,11 @@ class WgslAnalyzer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "34bed1ecacf838bf87438076b5861512874281dc0379063d159d445a35cc4cc4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "845e9c529d8fa7a4e9eed470696bd8fa38bd37a2d4c2286579dadf6d29368111"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4f738f7e27f9de4ab7a09fc011ce10d7c280b6fae245aa4d4f1ca736a59345e7"
-    sha256 cellar: :any,                 arm64_linux:       "5c4f9d58f493035e81c90f08eaf873b7ab6ba358ca9cfadd4a3eedb822f18e8b"
-    sha256 cellar: :any,                 x86_64_linux:      "4bf8a18d111a68339fe8ce500827425f3519c9d23eceaa3b65a6aa4895b0c5a6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "65eacdcf243b6b59c9fd268022a08399f437d88a5eafbbc50eb27ad768a790f5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f8319716bdbb1731b13a2fb0e5899643b7a69d1905acd9c5d6002baac57d0fc0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "694720f7476e036c6865ef72cdca653f1a0acc2eea92b88a401bd25bb2397345"
+    sha256 cellar: :any,                 arm64_linux:       "9e7762d79037ae6b39816e383d5176e84a09e7b682a32d9eed0637199a49cac6"
+    sha256 cellar: :any,                 x86_64_linux:      "e14a20b6f99d626142571c2d502fe56be777ad025a58380cd3db606fbe350f89"
   end
 
   depends_on "rust" => :build
