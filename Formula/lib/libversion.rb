@@ -1,8 +1,8 @@
 class Libversion < Formula
   desc "Advanced version string comparison library"
   homepage "https://github.com/repology/libversion"
-  url "https://github.com/repology/libversion/archive/refs/tags/3.0.4.tar.gz"
-  sha256 "48c2a4a98b6f220dedd535979f1e9ab83f9bf869e06c0f5e7bb1be6d2e662fee"
+  url "https://github.com/repology/libversion/archive/refs/tags/3.0.5.tar.gz"
+  sha256 "b2da53a5adc8189332dbdf9bddd4f7ce897bcefac3755d8bcaf2a9a620682acd"
   license "MIT"
 
   bottle do
