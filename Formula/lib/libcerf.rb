@@ -1,27 +1,19 @@
 class Libcerf < Formula
   desc "Numeric library for complex error functions"
   homepage "https://jugit.fz-juelich.de/mlz/lib/cerf"
-  url "https://jugit.fz-juelich.de/mlz/lib/cerf/-/archive/v3.3/cerf-v3.3.tar.bz2"
-  sha256 "ea9ec1e114227d7d90dbf7985c8801d8ac00e2b696a45dd1058b40e80f283882"
+  url "https://jugit.fz-juelich.de/mlz/lib/cerf/-/archive/v3.9/cerf-v3.9.tar.bz2"
+  sha256 "a227f03379c8d811ef80c7e9b4c8fdac6bed696602cb38dff026c29cb012dbf7"
   license "MIT"
   version_scheme 1
   compatibility_version 1
   head "https://jugit.fz-juelich.de/mlz/lib/cerf.git", branch: "main"
 
-  livecheck do
-    url "https://jugit.fz-juelich.de/api/v4/projects/269/releases"
-    regex(/libcerf[._-]v?((?!2\.0)\d+(?:\.\d+)+)/i)
-  end
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "966acc4d4f8163ba8d184f29250a35d56536fb91a0b66594ad2b1139bb946b1f"
-    sha256 cellar: :any, arm64_tahoe:       "9a900691ec484b5b208be703da7a5f9035c89c7a075b3a4bad56fbe5ab4e96f1"
-    sha256 cellar: :any, arm64_sequoia:     "b7ff62cbac27ee100bb1fc7f0eaac9d4c3d0f9ec42b61db74e6ac365888b6539"
-    sha256 cellar: :any, arm64_sonoma:      "fa67893d311bf0ab0bb33b6c9e9db123665469451745e94a7b2ac8528c30b23f"
-    sha256 cellar: :any, sonoma:            "a7f380e212f00145f031f37500d46679bd5d153d39b6d09c50a11db8af1c47dd"
-    sha256 cellar: :any, arm64_linux:       "3ac71eb77e20d7bc5884e93179ef635e9391775fcef01cf80264850c6b4338db"
-    sha256 cellar: :any, x86_64_linux:      "9456b1c6425be1138bc4546603cd569415bb4d2b09d02467920e0a4deb1646c6"
+    sha256 cellar: :any, arm64_golden_gate: "955821a4bdb1937c1703fb07c743dd052b37b6274b8b71c89932f9cef4a8a540"
+    sha256 cellar: :any, arm64_tahoe:       "1d21b22ae2bdca5e41f98321291b3dec3f679ca50bfdd8342ae6c1a47fc16c5d"
+    sha256 cellar: :any, arm64_sequoia:     "c6520942d4bf1e8d8128aeb5a198684c9bd4cee1870142dd3a921fe3c7ea0c18"
+    sha256 cellar: :any, arm64_linux:       "3d410d47f56feadfa0faf23e3232bd4b8b7c69ac6f0e7847cfcf1d733db9505e"
+    sha256 cellar: :any, x86_64_linux:      "e4579e9349ac9126af7d8fd42f4e8747151f4670988ccf40b42f5a657a62e2a5"
   end
 
   depends_on "cmake" => :build
