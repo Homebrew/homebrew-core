@@ -5,11 +5,6 @@ class ZigAT014 < Formula
   sha256 "237f8abcc8c3fd68c70c66cdbf63dce4fb5ad4a2e6225ac925e3d5b4c388f203"
   license "MIT"
 
-  livecheck do
-    url "https://ziglang.org/download/"
-    regex(/href=.*?zig[._-]v?(0\.14(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "ed459b4f22e43748e723704ba25ed2019707082ecc27fffb9b2772c7ec8a6d56"
     sha256 cellar: :any,                 arm64_sequoia: "03851d2d9118608f887d97b3674d5a8929699855c73fa7bcf6f6dc7c72fdf70b"
