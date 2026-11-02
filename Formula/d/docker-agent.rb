@@ -1,17 +1,17 @@
 class DockerAgent < Formula
   desc "Agent Builder and Runtime by Docker Engineering"
   homepage "https://docker.github.io/docker-agent/"
-  url "https://github.com/docker/docker-agent/archive/refs/tags/v1.155.0.tar.gz"
-  sha256 "51c75e10fb4f6b531671c5610a4437fb81fb609fe41f19cc4c7e2348daa9f1b2"
+  url "https://github.com/docker/docker-agent/archive/refs/tags/v1.156.1.tar.gz"
+  sha256 "82fda1c3fdfd5afb830d44f5f260829402a9d1f8153ee0c5c384481858be2e62"
   license "Apache-2.0"
   head "https://github.com/docker/docker-agent.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4e26d15b6662a63db3e0bacaa613f120dc900d1328823a996505fca5cb684aea"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3f6f07e958039a8cd3928be4a5c9b46fde3e0d310a9b7f8d9a6296cc32b43961"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "353d68771afbb12c1d65b1a96dc78567a521979ff50f9b5a210fdd63bc94f123"
-    sha256 cellar: :any,                 arm64_linux:       "45ea61c75f17b3b7009bc82a45433b1712470d8b9960c5924fe3de413d67fd9d"
-    sha256 cellar: :any,                 x86_64_linux:      "a129b27149a4881f5ab7adfd3f4dbb1c6e4c4431d7d52421db2f8a1579da934d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "26321249133caac9f6e42ffabd06b6cc1f32ff572828f30477ce5c5853c166e7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8f2b8d686b54c1e976bb88f5eb61e0c368a40eb8349e2f89481836b99bb0a263"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3a8e83e3d41b3a2a493252f368df619212f9fe103b74293922e9e5e0614e06fa"
+    sha256 cellar: :any,                 arm64_linux:       "2d4ff7f4b82f1745b05a964a5c41d4f50b2f76f0d1487e7c57468a90012d6e91"
+    sha256 cellar: :any,                 x86_64_linux:      "fd9d625b21e150db74473f8582ca629da03e925d55495a0b6d2111c334f4c6e9"
   end
 
   depends_on "go" => :build
