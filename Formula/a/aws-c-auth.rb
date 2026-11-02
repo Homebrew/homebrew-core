@@ -7,11 +7,11 @@ class AwsCAuth < Formula
   compatibility_version 3
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8a49c8ba90483e1cf818fe63210aea252fc27d554d4c71ae1348a73451289881"
-    sha256 cellar: :any, arm64_tahoe:       "51b6ad399310aff27ffd1274cb969629ced78f7d5e7ac0624aed76c77a2f9dd3"
-    sha256 cellar: :any, arm64_sequoia:     "29e3956178e26914e3fa0a7215619d629e0dff316b3ee9fdbfe2d97876668d32"
-    sha256 cellar: :any, arm64_linux:       "2111615bb36e80eee142fd238fdc438fd37134bd1cdec7696417b6f7484d3bcc"
-    sha256 cellar: :any, x86_64_linux:      "8f0bac182bf3b1a069a1154009512866d182101a96fa01403a37bc1f8cc8cd59"
+    sha256 cellar: :any, arm64_golden_gate: "6ef67f9715a98b53d239c46439d8d1516fcba6e32b3657b747a4c710165f7d35"
+    sha256 cellar: :any, arm64_tahoe:       "97b8d5506f8e722ccc551dc7762b011bd2b61f6ff313c1f2b7f6b4f12503ef63"
+    sha256 cellar: :any, arm64_sequoia:     "7fc91987ef8e801688f55623f58816ea77737a41d7228fa95fc66d2ac7d3af98"
+    sha256 cellar: :any, arm64_linux:       "811a72e37687507a65c95764bdfcdd4921c333bfe6445f08245fc1180f2181fd"
+    sha256 cellar: :any, x86_64_linux:      "863b2cfffe48d6c608c9f478f8f323316451c9e7a9cce154093e79e7da1f8308"
   end
 
   depends_on "cmake" => :build
