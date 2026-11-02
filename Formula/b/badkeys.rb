@@ -3,18 +3,17 @@ class Badkeys < Formula
 
   desc "Tool to find common vulnerabilities in cryptographic public keys"
   homepage "https://badkeys.info"
-  url "https://files.pythonhosted.org/packages/a1/05/6f1939e3fb4b7cdf7799d7a200c0151ca6a1662042a283b658fe98627f9b/badkeys-0.0.21.tar.gz"
-  sha256 "a4323c2a3de67e81786e87271d8c1cb302eed89054b770f85dbf1f95ce4264ad"
+  url "https://files.pythonhosted.org/packages/7e/b7/b27f5d7e2c70301ed8f6bd743a5d830195aa1dd49b708d786261873e9b8f/badkeys-0.0.22.tar.gz"
+  sha256 "abf12aa9ecd253f7556959a966a4a39b35bd2d452c1a5b12e220b182fb0fb172"
   license "MIT"
   head "https://github.com/badkeys/badkeys.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "f7745b11a144fdaf59fbbde2ac8f09d0bd48d80de4ed7c5b846787ac2dbd954c"
-    sha256 cellar: :any, arm64_tahoe:       "19684ee467e099008191b249bd50e48d1e372403592550cdb5d74c0ecccc7ba1"
-    sha256 cellar: :any, arm64_sequoia:     "091e81418fcba127bb71caba86506de8d15cadf8f414978611b9a4cd58f2b2a3"
-    sha256 cellar: :any, arm64_linux:       "76d09360da1ef272f4ea89d40d4c2ac8c7b158f3cac7f0bafcd9ef9ef01caceb"
-    sha256 cellar: :any, x86_64_linux:      "47aa113209ead5eb41f85e9ef9d9e55b55a11adfbb3ca223c9a615d174ece102"
+    sha256 cellar: :any, arm64_golden_gate: "57222ae23f419feb7615f04ebccb0d0d3366cab46e1064746a901ca098065b95"
+    sha256 cellar: :any, arm64_tahoe:       "d1fab523955b353013e746a207924c01bfd07fccd806589275d59dcee2b376ea"
+    sha256 cellar: :any, arm64_sequoia:     "d45ca9eca953a54e91c64a99f13ec3eaa308b0b8974fa294ba85e7fb01169cae"
+    sha256 cellar: :any, arm64_linux:       "13117f68cb655993392c453416f1368769a96822b92652d5c2079f2587ff2455"
+    sha256 cellar: :any, x86_64_linux:      "8933edca489a921c6991f2e0b0d601518b0c6750ac1aa6134d6e702a30840d28"
   end
 
   depends_on "cryptography" => :no_linkage
