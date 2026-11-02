@@ -6,11 +6,11 @@ class Rmlint < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "16f7480d4c138e0258da076c1321d3e2070c8a8005824ae4bfc75906a077fe49"
-    sha256 cellar: :any, arm64_tahoe:       "84869952b1c95f0507c0faabed226bc17f4533da1f0fd861a64d04b4a96a1892"
-    sha256 cellar: :any, arm64_sequoia:     "46ca694d9c24978245a0c211c945579c46d222ab4dbbea18dd5e60ac55054e77"
-    sha256 cellar: :any, arm64_linux:       "5e01a4fba501524e4cc11d0015d0c39192331421fc79ccfcd80d18b8f2414375"
-    sha256 cellar: :any, x86_64_linux:      "b38f17083790b4de85e0fc3abaa6e787ca626f8d0a78e3c68ca65986ee50e5e8"
+    sha256 cellar: :any, arm64_golden_gate: "331ef960fb7ed5264bd9d46e6fe842e55954fcb3041070dcb66d26fa8a901a55"
+    sha256 cellar: :any, arm64_tahoe:       "07f50ddbf1af0b241e62ec1e6c30015d1c795dcb57ea611f6fe7dbe1169e8112"
+    sha256 cellar: :any, arm64_sequoia:     "db7662a9bb848c8d6d188fc2ef83f542647d26e35f77d942798303638b548b12"
+    sha256 cellar: :any, arm64_linux:       "d0870c56ae57abb9f574ff7d1942bebfd496b8e50c0f742dfe152dde92f0162c"
+    sha256 cellar: :any, x86_64_linux:      "1b168c4c73c3ee1ce1f35494e8f8d8f7d47f36a35c8b65959f2d77a4162cbf79"
   end
 
   depends_on "gettext" => :build
