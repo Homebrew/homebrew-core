@@ -7,11 +7,12 @@ class Neovide < Formula
   head "https://github.com/neovide/neovide.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e59fd63b01d72a18cf9db3cdde00abe6a707c7ac9a9ab686e97df5fe5191d1a1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1928970f86004510295acc71bb1ee37562bb80a5175a53a923b41fe989701e5e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "030d1e6f70c02c1dc1362e70cec35833191205a002fb6b361a11b96df876e5d4"
-    sha256 cellar: :any,                 arm64_linux:       "2eb1a3e7ff76cf28942abc11ba2daa19beadae7b1f8ccc95a36eae93d445498d"
-    sha256 cellar: :any,                 x86_64_linux:      "18898204145ee48b64b9c2ab7e541fb7eedcb3c54ac22a68e44c9e423ac13a8a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b90c52fff45b35fdb3d437104ceca8a5530bf74d9465e65660d14be95dab340"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d175dfbecede7cbaee7d6cda3c7ea23742cac75e2c88deed579576a664508399"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "90940f2c6d2ab1c7a8727da296af073304ccb07fd4a105726b66943f74912559"
+    sha256 cellar: :any,                 arm64_linux:       "110d5f9e12b69945392d03f42c9b024837646169cdcf1176b2cb752c5abc1e86"
+    sha256 cellar: :any,                 x86_64_linux:      "35a7b6cb2ed6f12983da89ad579b0f72a3b155351f83c327800b41e2eadfa150"
   end
 
   depends_on "ninja" => :build
