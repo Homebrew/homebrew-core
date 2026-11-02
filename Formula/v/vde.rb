@@ -27,6 +27,8 @@ class Vde < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  deny_network_access!
+
   def install
     ENV.append "CFLAGS", "-std=gnu17" if DevelopmentTools.clang_build_version >= 1700
     system "autoreconf", "--force", "--install", "--verbose"
