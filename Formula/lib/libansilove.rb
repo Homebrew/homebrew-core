@@ -1,8 +1,8 @@
 class Libansilove < Formula
   desc "Library for converting ANSI, ASCII, and other formats to PNG"
   homepage "https://www.ansilove.org"
-  url "https://github.com/ansilove/libansilove/releases/download/1.4.3/libansilove-1.4.3.tar.gz"
-  sha256 "f1d6f75e01aa44eaa79f8b63e9bb2c9d0f4d5d55b234e9abaf790314cccbfc18"
+  url "https://github.com/ansilove/libansilove/releases/download/1.4.4/libansilove-1.4.4.tar.gz"
+  sha256 "c07a20bd3bf4d495cc831206ec8fd4a64fdd899241893a771df6776e4109f912"
   license "BSD-2-Clause"
   compatibility_version 1
 
