@@ -27,6 +27,8 @@ class Virtualpg < Formula
   depends_on "libpq"
   depends_on "sqlite"
 
+  deny_network_access!
+
   def install
     # New SQLite3 extension won't load via SELECT load_extension('mod_virtualpg');
     # unless named mod_virtualpg.dylib (should actually be mod_virtualpg.bundle)
@@ -44,6 +46,6 @@ class Virtualpg < Formula
 
   test do
     # Verify mod_virtualpg extension can be loaded using Homebrew's SQLite
-    system "echo", "\" SELECT load_extension('#{opt_lib}/mod_virtualpg');\" | #{formula_opt_bin("sqlite")}/sqlite3"
+    pipe_output("#{formula_opt_bin("sqlite")}/sqlite3", "SELECT load_extension('#{opt_lib}/mod_virtualpg');", 0)
   end
 end
