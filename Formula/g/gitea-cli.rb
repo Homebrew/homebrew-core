@@ -1,8 +1,8 @@
 class GiteaCli < Formula
   desc "Official command-line tool for Gitea"
   homepage "https://gitea.com/gitea/cli"
-  url "https://gitea.com/gitea/cli/archive/v0.2.0.tar.gz"
-  sha256 "a5a9f8b7efdfc1404d8ba4a8d0228a498f6883ee415e44df9990178d4b2c76c3"
+  url "https://gitea.com/gitea/cli/archive/v1.0.0.tar.gz"
+  sha256 "587669217030aabf4f1c344187832dbd1c41cf849fc4525a1cdbc11a11390c84"
   license "MIT"
   head "https://gitea.com/gitea/cli.git", branch: "main"
 
