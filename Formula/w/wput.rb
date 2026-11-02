@@ -34,6 +34,8 @@ class Wput < Formula
     resolves "https://sourceforge.net/p/wput/patches/22/"
   end
 
+  deny_network_access!
+
   def install
     if Hardware::CPU.arm?
       # Workaround for ancient config files not recognizing aarch64 macos.
