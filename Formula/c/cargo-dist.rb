@@ -7,11 +7,11 @@ class CargoDist < Formula
   head "https://github.com/axodotdev/cargo-dist.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f44481eaf3607bd83a2f960a3ff51b1761aac603ee29f52d8c0231b6e0bc4bc8"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2f8baa5d51e987330b807d80ff8e820852463bb4b1f2420b3d41883e1f797a42"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7c34aa66a987b65c025a394809b1624bd31724e691f56027c9eaddc32cb0e898"
-    sha256 cellar: :any,                 arm64_linux:       "c4f9350fe2cefe243e49f5923d945a3eb089dbe4557860674dd20540d20b60de"
-    sha256 cellar: :any,                 x86_64_linux:      "e39ecf0b640ebe795340764b1a5f529d6ecd8bc8f7fd167850a980cc42ab30f9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d2d497bc7b33d10a90db7c137e86d8e1989ce8c49c3fcd4faf409d8f52aad1b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "25d7cb5606cee145bed9b88d7ebd3a2eb90a0a57a23845054533bdfa8030fbc2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e80a4e7fde668266311c6ac95d5deb904c374a4082b952161439e3fb1fad737f"
+    sha256 cellar: :any,                 arm64_linux:       "4fa15a99d6bf32fe86f5a231be2521e9c92d8644c199e66c4587665980d0b297"
+    sha256 cellar: :any,                 x86_64_linux:      "24ac37068faa4b2e5f65a3073e9033fcd0b003f7d628a034efac0e5de3b575a2"
   end
 
   depends_on "rust" => :build
