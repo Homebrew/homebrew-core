@@ -1,8 +1,8 @@
 class Supabase < Formula
   desc "Postgres development platform"
   homepage "https://supabase.com/docs/reference/cli/about"
-  url "https://github.com/supabase/cli/archive/refs/tags/v2.122.0.tar.gz"
-  sha256 "67aca53ea123ffa3d385800eb858e3bfad08923fa77347f8d611f5a0d63245fa"
+  url "https://github.com/supabase/cli/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "bf04fcd8ce0240d258ec0f9c72aaedb4cbabb54172a87cac82740bee4723cbf7"
   license "MIT"
   head "https://github.com/supabase/cli.git", branch: "develop"
 
@@ -21,7 +21,6 @@ class Supabase < Formula
   end
 
   depends_on "bun" => :build
-  depends_on "go" => :build
   depends_on "node" => :build
   depends_on "pnpm" => :build
 
@@ -32,7 +31,6 @@ class Supabase < Formula
   deny_network_access!
 
   def fetch
-    system "go", "mod", "download", "-C", "apps/cli-go"
     system "pnpm", "install", "--frozen-lockfile", "--ignore-scripts"
   end
 
@@ -48,20 +46,10 @@ class Supabase < Formula
     # The tag archive carries a placeholder version; upstream inject the real one at release.
     system "bun", "apps/cli/scripts/sync-versions.ts", "--version", version.to_s
 
-    libexec.mkpath
-    ldflags = "-X github.com/supabase/cli/internal/utils.Version=#{version}"
-    cd "apps/cli-go" do
-      system "go", "build", *std_go_args(output: libexec/"supabase-go", ldflags:)
-    end
-
     cd "apps/cli" do
       system "bun", "scripts/build-binary.ts"
-      libexec.install "dist/supabase"
+      bin.install "dist/supabase"
     end
-
-    # supabase-go must stay next to the shell binary: it is resolved relative to
-    # process.execPath (apps/cli/src/command-internal/go-proxy.layer.ts).
-    bin.install_symlink libexec/"supabase"
   end
 
   test do
