@@ -14,11 +14,11 @@ class Meilisearch < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a6002a6948046c9051da3bfec7b9191451e8928b76450bcd370c835b9b163a67"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a9e2aed6ade8661c7c8aa91361e98c38663136eeda0f25298d4b540cc00d55df"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "063f7472b3805621892247c20b70e1f8ec2489fcfda984498e22864664fa1ea3"
-    sha256 cellar: :any,                 arm64_linux:       "d9caa304ea60ac848b611c6af7b6647acbe6d59da59e973067dcd2f4076aa5c1"
-    sha256 cellar: :any,                 x86_64_linux:      "39af4dd173bb027e99629302c8cc1eeb633e6b5fa053d7a4eb32fc3f2abf0b64"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2ae7f101a92d68abd76efa36139f7f351f64d79871cc723cba0b5a22523f1010"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2906262206701f6570d336750512cab5c550922b161839cc35996d48dc0f8ad9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fbfc05782d5e0f4a3fc8d91f07a92753d51683b9d6a20d6de7b4d8bd8a28044c"
+    sha256 cellar: :any,                 arm64_linux:       "cc09a450768bfb78f26235beac7fc24bd20501b78bb2787d35800cb122139816"
+    sha256 cellar: :any,                 x86_64_linux:      "da4754164dfad1ef05af20b65a3b337c08eb5cd7949cb762d5334d1966f1e151"
   end
 
   depends_on "rust" => :build
