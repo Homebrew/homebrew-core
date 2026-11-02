@@ -18,6 +18,8 @@ class Vnstat < Formula
 
   uses_from_macos "sqlite"
 
+  deny_network_access!
+
   def install
     inreplace %w[src/cfg.c src/common.h man/vnstat.1 man/vnstatd.8 man/vnstati.1
                  man/vnstat.conf.5].each do |s|
