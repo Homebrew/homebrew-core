@@ -3,17 +3,17 @@ class BumpMyVersion < Formula
 
   desc "Version bump your Python project"
   homepage "https://callowayproject.github.io/bump-my-version/"
-  url "https://files.pythonhosted.org/packages/35/29/08b45e8606c496fb2927d97610b1d9ac8c73242abb0d683416a2bd0dc1a2/bump_my_version-1.8.0.tar.gz"
-  sha256 "2b6aded7a523014a20b7e4612bb6f6e8e2fd8c7d8a96bba529a31e24423ef09d"
+  url "https://files.pythonhosted.org/packages/d9/a1/b88d53a19df8cb724f3e6616a76869213b10307b60c6ed125fb623771d64/bump_my_version-1.8.1.tar.gz"
+  sha256 "6457f2a1b964df60ff7d532e61d41422f19dbf936c9752bdff25d79f63768069"
   license "MIT"
   head "https://github.com/callowayproject/bump-my-version.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4e241c05584de88959d1746c2f27ab4f00dc69a3da451240414f62b74a243aa6"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4a4481612f891c96701fc8bac1ee51d80aceecf0da05be0faeb23f9cc69d97a5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aa156c97968fe900aba9f75e1a89fc4eb7c1cc9b9cadfe18a29ee81a94fe8d18"
-    sha256 cellar: :any,                 arm64_linux:       "257c892643b214822adc7eae216a10fe11a3db34f5abd9067b9f84e06d42f322"
-    sha256 cellar: :any,                 x86_64_linux:      "fe523cae3a132ebc1aa0a5ff72a2170de5429ce8fe321d4ae6af179934c3a7e2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "59462d04d62e37df78e2233d0d758aac1f72882d7c9ae90f865e7ff559077694"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a9e1460984d73208838d30511a1f61ad3e4a9d4eb6c299e38896bc469ce7d585"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c7cf3d1dd53aec7ddc4609be438bfeef10f9558d3ec57cf90864704090b697b1"
+    sha256 cellar: :any,                 arm64_linux:       "fda4961dc23f62a6a45b552b81a855262e64612463ca66deb1b4856aacb1d8c9"
+    sha256 cellar: :any,                 x86_64_linux:      "2636242f5943e16db5f838c2581f2306b028d54b36bee8c98a9ed5605c95b302"
   end
 
   depends_on "certifi" => :no_linkage
