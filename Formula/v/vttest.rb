@@ -20,6 +20,8 @@ class Vttest < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "9608f0fae9a0f0d1abb464b8064ebb23c68223eae73adf82ec0d5e2f20d26c3b"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make"
