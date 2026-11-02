@@ -1,17 +1,17 @@
 class Hoverfly < Formula
   desc "API simulations for development and testing"
   homepage "https://hoverfly.io/"
-  url "https://github.com/SpectoLabs/hoverfly/archive/refs/tags/v1.12.16.tar.gz"
-  sha256 "3571f41cdc6f308a912130558d2a901b08f68cc81589a67313e40ef83fc79c54"
+  url "https://github.com/SpectoLabs/hoverfly/archive/refs/tags/v1.12.17.tar.gz"
+  sha256 "2f912ee7cb5b071a28eb7642b2bd70111f255355782b8750906cbd569984221d"
   license "Apache-2.0"
   head "https://github.com/SpectoLabs/hoverfly.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "590d5d50968a53693974f6b00d8d09451eb33832808f8b41dda008d312075e7c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "590d5d50968a53693974f6b00d8d09451eb33832808f8b41dda008d312075e7c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "590d5d50968a53693974f6b00d8d09451eb33832808f8b41dda008d312075e7c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8015b27c951a095936c497bf39c5b208603bcec010503b224056808cc3370d2e"
-    sha256 cellar: :any,                 x86_64_linux:      "58c3b4e4d0a1c7d3dec0b601d5901ec8d8cacba1c63ff22a14a8dd97ecd09274"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e06d3c16607d0350c1a3161f4f53bfc8cb06c66e2d956511f22ae5f97cad5e3c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e06d3c16607d0350c1a3161f4f53bfc8cb06c66e2d956511f22ae5f97cad5e3c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e06d3c16607d0350c1a3161f4f53bfc8cb06c66e2d956511f22ae5f97cad5e3c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f7a259110fdbe52e23ffae29b64ae7a7e0d6b63d55dc518dfaf44581eb209fbe"
+    sha256 cellar: :any,                 x86_64_linux:      "ce95b07d9a5582d42514f43a434f9e15134bb64b23fb1e03c1679b9e638a6419"
   end
 
   depends_on "go" => :build
