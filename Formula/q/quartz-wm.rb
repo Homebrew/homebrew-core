@@ -38,6 +38,8 @@ class QuartzWm < Formula
   depends_on :macos
   depends_on "pixman"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--with-bundle-id-prefix=#{Formula["xinit"].plist_name.chomp ".startx"}",
