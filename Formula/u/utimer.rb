@@ -41,6 +41,8 @@ class Utimer < Formula
     depends_on "perl-xml-parser" => :build
   end
 
+  deny_network_access!
+
   def install
     # Work around /usr/bin/ld: timer.o:(.bss+0x0): multiple definition of `ut_config'
     ENV.append_to_cflags "-fcommon" if OS.linux?
