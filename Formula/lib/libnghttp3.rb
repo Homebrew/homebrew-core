@@ -1,20 +1,19 @@
 class Libnghttp3 < Formula
   desc "HTTP/3 library written in C"
   homepage "https://nghttp2.org/nghttp3/"
-  url "https://github.com/ngtcp2/nghttp3/releases/download/v1.18.0/nghttp3-1.18.0.tar.xz"
-  mirror "http://fresh-center.net/linux/www/nghttp3-1.18.0.tar.xz"
-  sha256 "aad782c23d3f01bd4bb52c8bac7a553b631ef8115fd1612703df6183449fef19"
+  url "https://github.com/ngtcp2/nghttp3/releases/download/v1.19.0/nghttp3-1.19.0.tar.xz"
+  mirror "http://fresh-center.net/linux/www/nghttp3-1.19.0.tar.xz"
+  sha256 "228e17f5cc3d4de7bfced9912bd09de30e7f45741cc47503cf88d3fa9209e155"
   license "MIT"
   compatibility_version 1
   head "https://github.com/ngtcp2/nghttp3.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "b04718068d48592d75eac39237bc5c792313ac1bf267bf5a4c91f26c45aa45b1"
-    sha256 cellar: :any, arm64_tahoe:       "f06612abad603898100dfc4fdcff8464789a2b57593ec70255ed633d664020e7"
-    sha256 cellar: :any, arm64_sequoia:     "f0c56bcde3273d2599455d0ab18a281d6a329d63af4672fdbdf3f07633276475"
-    sha256 cellar: :any, arm64_linux:       "aabb9a105e6abaef3fb08330986306c71ff1716ff27a5edc29963b9279134657"
-    sha256 cellar: :any, x86_64_linux:      "70585a5cc3fd09d477862550303e6d356361da783605bc6854ac556be5047512"
+    sha256 cellar: :any, arm64_golden_gate: "4aa61da9837c8773e8548bac1f6956446eb5babb5efa70ec02d3955cf7713f43"
+    sha256 cellar: :any, arm64_tahoe:       "4d4260baf29ed38e74806c0e66a31e98af6e7afe4d66e0e9d29692d265751141"
+    sha256 cellar: :any, arm64_sequoia:     "a7e6e8dadb7a218166d75d2849a7afec01588e27fb53fb18f11d3fce7f1ec853"
+    sha256 cellar: :any, arm64_linux:       "3d5d1255df1065b9d1dd2f6cc5f45bf794181f263a83b976d12d70df27231255"
+    sha256 cellar: :any, x86_64_linux:      "a824afb5435ebc4fa4133b95adef827bcda9307455def65e56e88f81daab635c"
   end
 
   depends_on "cmake" => :build
