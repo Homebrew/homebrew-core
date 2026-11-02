@@ -26,6 +26,8 @@ class Unittest < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "253282b6d8bd11e9b124dea0b9356211b422502f0e809cd2f043f791275d7459"
   end
 
+  deny_network_access!
+
   def install
     ENV.append "CXX", "-std=c++03"
     system "./configure", *std_configure_args
