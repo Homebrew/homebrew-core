@@ -6,11 +6,6 @@ class Dxflib < Formula
   sha256 "e7208c9b67f5bc6727a0e3adf2162d8e67d80e0244dcda167fb7535556d944a1"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url "https://www.ribbonsoft.com/en/dxflib-downloads"
-    regex(/href=.*?dxflib[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_golden_gate: "c67b371ff4e84bea6a59ec51d213c56148f5e92b31f4b90b5e411ffd8160481f"
