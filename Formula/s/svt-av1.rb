@@ -1,8 +1,8 @@
 class SvtAv1 < Formula
   desc "AV1 encoder"
   homepage "https://gitlab.com/AOMediaCodec/SVT-AV1"
-  url "https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v4.2.0/SVT-AV1-v4.2.0.tar.bz2"
-  sha256 "512f2ea5649e3e76c2dddcc25c2556fb67a9582baaab207c9c96161c94659dad"
+  url "https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v4.3.0/SVT-AV1-v4.3.0.tar.bz2"
+  sha256 "9223ce06e6172ad41357ed23b3b00f036e03794b86b0e20ea9ccb3f648b8955d"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://gitlab.com/AOMediaCodec/SVT-AV1.git", branch: "master"
@@ -13,13 +13,11 @@ class SvtAv1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8d13b4e61bb2a1bc0c8222003c575ffeaf98e6759212747439709f92f88353d3"
-    sha256 cellar: :any, arm64_tahoe:       "bd6186cc963d1980f0d81d59ecef58c8fa6263eb1124211dd3537b224e04c9e0"
-    sha256 cellar: :any, arm64_sequoia:     "2e6f7cbf3ff42f59ca251f3c84d4ad5a3ecfd518340237a6f70a54a428de1676"
-    sha256 cellar: :any, arm64_sonoma:      "3aed847bbc1911739c73b53503bafa33bbf3aa15a792756db1b550738faf51db"
-    sha256 cellar: :any, sonoma:            "413ca9c3ca785dcebb9baae17b4b86a70f1c86e5881fa8af87f55ac7e5d8a5eb"
-    sha256 cellar: :any, arm64_linux:       "2ea5be1d189e4102b1e8c7e32c97ad01ed9958ffd898c8e6b4acbd88b6d435ef"
-    sha256 cellar: :any, x86_64_linux:      "ac3f7f9240381b15060529d4fed8ee1945afddb74a44f0cee8e8741e1d29c6a4"
+    sha256 cellar: :any, arm64_golden_gate: "23723b4bd9030c4bf9145e18c88778cdbe54e07a64bb606200086bd6ffa1189b"
+    sha256 cellar: :any, arm64_tahoe:       "8e980b08d0073e24fcd7ce255745020719396cc96f6ce83dee146722e210a5e2"
+    sha256 cellar: :any, arm64_sequoia:     "99c39895e407e8a344ceb3d4139b102cab2c35e1b380051b19b3896ad82975bc"
+    sha256 cellar: :any, arm64_linux:       "108d507b5c086765bada251c4f8fb8739841af3feafcced38db5e5ab7b5ece09"
+    sha256 cellar: :any, x86_64_linux:      "d9279e447a7181d5b8bc0950669477912f2bfb9e13871648eea688f00265fda2"
   end
 
   depends_on "cmake" => :build
