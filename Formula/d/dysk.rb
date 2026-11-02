@@ -1,17 +1,17 @@
 class Dysk < Formula
   desc "Linux utility to get information on filesystems, like df but better"
   homepage "https://dystroy.org/dysk/"
-  url "https://github.com/Canop/dysk/archive/refs/tags/v3.8.1.tar.gz"
-  sha256 "8da0e478a6027803043149c63c84abbb0dd4b3538372b8d854c2f8cab8215f41"
+  url "https://github.com/Canop/dysk/archive/refs/tags/v3.8.2.tar.gz"
+  sha256 "3e82c5d1624bf30a8c71e56f879d7e1af85c1a0a957d7a47ffa1194dbc281ea3"
   license "MIT"
   head "https://github.com/Canop/dysk.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b452a8815a396dc0ef3e453a975c6e58dfe3ba78fc1ea103a061d2863460f6ab"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "07dfd95a593070403a631565f23fa856cf2d1665862d1fd7b5fe57fc7c2d1c41"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dabf17608eb5849f7dda1d910395aa106705e204c87fe6fd2a5ced9b99aa6235"
-    sha256 cellar: :any,                 arm64_linux:       "2a34b761a1039041cadf412da6f40aaafe8fb860f9cb06aa7ed9afe4e7a0ec10"
-    sha256 cellar: :any,                 x86_64_linux:      "c0b1d6a56528a500018eada6305a4c6b22f5c29c0a10b117e4285b809dec5e6d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "83e82aa6ab4373826caf36c691bdcbe8fd022211be5be2fc9a0ade35a0933877"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e104444d8211287af92577f4363743677cd37cee24a7fea044fb35fa559d56fc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ed174398c2fee4ed7eac2d33f06d33efbb124b963209f350cc0251e28c8ca3d7"
+    sha256 cellar: :any,                 arm64_linux:       "f8b9f0afa271d1c7b725f5da5972d5f6ea5438c4c48b25a2d6a2f7b808dd2139"
+    sha256 cellar: :any,                 x86_64_linux:      "383e2296c3cf179a2e4feda492b3c8f52b4796f56d39289ef9cf8f4f4a8f7026"
   end
 
   depends_on "rust" => :build
