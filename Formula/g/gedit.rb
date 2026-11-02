@@ -43,25 +43,11 @@ class Gedit < Formula
     depends_on "gtk-mac-integration"
   end
 
-  resource "libgd" do
-    url "https://gitlab.gnome.org/GNOME/libgd/-/archive/c7c7ff4e05d3fe82854219091cf116cce6b19de0.tar.bz2"
-    version "c7c7ff4e05d3fe82854219091cf116cce6b19de0"
-    sha256 "343abb090461d011dfb1bce5b5da1dfbc9f6c7b6b3223a1b322adb33675212c1"
-
-    livecheck do
-      url "https://gitlab.gnome.org/api/v4/projects/World%2Fgedit%2Fgedit/repository/files/subprojects%2Flibgd?ref=#{LATEST_VERSION}"
-      strategy :json do |json|
-        json["blob_id"]
-      end
-    end
-  end
+  deny_network_access!
 
   def install
-    resource("libgd").stage buildpath/"subprojects/libgd"
-
     ENV["DESTDIR"] = "/"
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-    ENV.append_to_cflags "-Wno-implicit-function-declaration"
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/gedit" if OS.linux?
 
     system "meson", "setup", "build", *std_meson_args
