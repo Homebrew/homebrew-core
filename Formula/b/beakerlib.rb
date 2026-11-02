@@ -1,19 +1,17 @@
 class Beakerlib < Formula
   desc "Shell-level integration testing library"
   homepage "https://github.com/beakerlib/beakerlib"
-  url "https://github.com/beakerlib/beakerlib/archive/refs/tags/1.33.3.tar.gz"
-  sha256 "87a054194ddd2e073d50c15b0c4f7cf1373b1a5a82e78d9a8f16f13ade7ee00e"
+  url "https://github.com/beakerlib/beakerlib/archive/refs/tags/1.33.4.tar.gz"
+  sha256 "b4e1fd4a3ea39923583d9ac70d698b5313306f686020b857963e20b63e444d21"
   license "GPL-2.0-only"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a97429652f2d1a36d8d9d29449317ccdc3a7fe40a6106c5e49b4af3369e18dcf"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ac93e4fadcc6189134beb99c60e92fdc1885d08b7f7c63e96835687b1739d206"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b78f770906898cd4d9510122c1dc2ff241647206680fb158b2f986a8d1f3c236"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "34c3e5cf162dbce8b0b66aa1d01e61fe7e705a3a31f3cf6d8af69443fc913752"
-    sha256 cellar: :any_skip_relocation, sonoma:            "fa73a7790a93b61a2d4121817692cfd1be0d471cd9a3451342d74ef0fcd6c2d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "01657598bcc62619d68864f337989fbbb9cd1788a5e41dc20c8bf0adac80fddc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "298797a26432c9bea16a284a47c43b786c05ab71bd5a9ddbc26415de28b5c3fb"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a69831a8a5a170e2d3a2cb888a40429cacce5dad1caef1eb7040be3bcb0d72e6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8a489cceb18ba2a9b035810dd8af210e150915aa11937a1d6efd1a35a75d70c7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "20e1a9475a34b43787d529ce0c846ee8ea928514c2444a4afe0a1911b2febb54"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "158466dad405373a74fe8dda0ea27632949de3dfa721d8e2aaeba81b34b25ea2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "fc257afb53d16d696958b0351c09ffdae5a0ab3314d96d643ea55a18e5d779a5"
   end
 
   on_macos do
@@ -21,6 +19,8 @@ class Beakerlib < Formula
     depends_on "coreutils"
     depends_on "gnu-getopt"
   end
+
+  deny_network_access!
 
   def install
     make_args = [
@@ -32,7 +32,7 @@ class Beakerlib < Formula
   end
 
   test do
-    (testpath/"test.sh").write <<~SHELL
+    (testpath/"test.sh").write <<~SH
       #!/usr/bin/env bash
       source #{share}/beakerlib/beakerlib.sh || exit 1
       rlJournalStart
@@ -40,7 +40,7 @@ class Beakerlib < Formula
           rlPass "All works"
         rlPhaseEnd
       rlJournalEnd
-    SHELL
+    SH
     expected_journal = /\[\s*PASS\s*\]\s*::\s*All works/
     ENV["BEAKERLIB_DIR"] = testpath
     system "bash", testpath/"test.sh"
