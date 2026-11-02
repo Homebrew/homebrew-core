@@ -40,6 +40,8 @@ class Ucommon < Formula
   # Workaround for macOS 15 SDK adding SO_BINDTODEVICE in sys/socket.h
   patch :DATA
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules", "--with-sslstack=gnutls", "--with-pkg-config", *std_configure_args
