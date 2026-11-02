@@ -30,6 +30,9 @@ class Varnish < Formula
   uses_from_macos "libedit"
   uses_from_macos "ncurses"
 
+  # Both `:build` and `:test` phases need network access
+  deny_network_access! :postinstall
+
   def install
     system "./configure", "--localstatedir=#{var}", *std_configure_args
 
