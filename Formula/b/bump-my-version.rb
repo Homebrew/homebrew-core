@@ -3,17 +3,17 @@ class BumpMyVersion < Formula
 
   desc "Version bump your Python project"
   homepage "https://callowayproject.github.io/bump-my-version/"
-  url "https://files.pythonhosted.org/packages/cc/28/a3c548aa0f65db43ccb58e29eae97772f3ab70a5ada306718acb9659f5dc/bump_my_version-1.7.0.tar.gz"
-  sha256 "286e5755768a0d78596fa1854f4c16d258ec4b61a0aaa580cffe7f9ecf867f83"
+  url "https://files.pythonhosted.org/packages/35/29/08b45e8606c496fb2927d97610b1d9ac8c73242abb0d683416a2bd0dc1a2/bump_my_version-1.8.0.tar.gz"
+  sha256 "2b6aded7a523014a20b7e4612bb6f6e8e2fd8c7d8a96bba529a31e24423ef09d"
   license "MIT"
   head "https://github.com/callowayproject/bump-my-version.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cd8ba62c3fb60c09bd40e8e7c60bcf64d82b03f40273949607110c0cce11267b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1d942a5201ac0f6d4e3c61d8a56198d00db38df266b8df378e7b0c28bf0a809d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dac2215bca00ad8946ac278377d0b48448696a8b9ad060d54c22925d3b124b0f"
-    sha256 cellar: :any,                 arm64_linux:       "c51c75c6e1810c335c9d50d271756ff91beb09a89a5d4aaa584cdcfb0f9ec20f"
-    sha256 cellar: :any,                 x86_64_linux:      "de21874a76b9c51987fe954577e5348d2ec99a7c848c55136e55ee3baa0c2701"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4e241c05584de88959d1746c2f27ab4f00dc69a3da451240414f62b74a243aa6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4a4481612f891c96701fc8bac1ee51d80aceecf0da05be0faeb23f9cc69d97a5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aa156c97968fe900aba9f75e1a89fc4eb7c1cc9b9cadfe18a29ee81a94fe8d18"
+    sha256 cellar: :any,                 arm64_linux:       "257c892643b214822adc7eae216a10fe11a3db34f5abd9067b9f84e06d42f322"
+    sha256 cellar: :any,                 x86_64_linux:      "fe523cae3a132ebc1aa0a5ff72a2170de5429ce8fe321d4ae6af179934c3a7e2"
   end
 
   depends_on "certifi" => :no_linkage
@@ -23,8 +23,8 @@ class BumpMyVersion < Formula
   pypi_packages exclude_packages: ["certifi", "pydantic"]
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "bracex" do
