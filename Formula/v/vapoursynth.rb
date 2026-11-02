@@ -3,10 +3,9 @@ class Vapoursynth < Formula
 
   desc "Video processing framework with simplicity in mind"
   homepage "https://www.vapoursynth.com"
-  url "https://files.pythonhosted.org/packages/69/6a/f9441173c91a3355a32b870522726ed2252cd3c7b04b45e499f30b1a2c98/vapoursynth-81.tar.gz"
-  sha256 "3bf6c90ad737e8ffc5605b05a1ff29cd884f8632fbe0eb49a2705942073a96be"
+  url "https://files.pythonhosted.org/packages/25/2e/1a5cb192ce26077c5afe9056a11b3a2d936c4e413b4fec5eee74d45bdb01/vapoursynth-82.tar.gz"
+  sha256 "1128316620890ba8e5b69c924a665f98001b2ba4230dadead0f296446ea71843"
   license "LGPL-2.1-or-later"
-  revision 1
   compatibility_version 2
   head "https://github.com/vapoursynth/vapoursynth.git", branch: "master"
 
