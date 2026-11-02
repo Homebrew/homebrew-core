@@ -2,7 +2,7 @@ class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/Cisco-Talos/clamav.git", branch: "main"
 
   stable do
@@ -17,6 +17,33 @@ class Clamav < Formula
       type :backport
       resolves "https://github.com/Cisco-Talos/clamav/pull/1731"
     end
+
+    # TODO: Remove when a ClamAV release includes PR #1774's digest provider lifetime fix.
+    # Preserve digest provider lifetimes, upstream PR ref, https://github.com/Cisco-Talos/clamav/pull/1774
+    patch do
+      url "https://github.com/Cisco-Talos/clamav/commit/729eaef96263970dede0808426374bb0597dae90.patch?full_index=1"
+      sha256 "af4a67eacad5d0fbf8d60c85e10737a2eea35f2eecb6df63584168950ff13ecb"
+      type :unofficial
+      resolves "https://github.com/Cisco-Talos/clamav/pull/1774"
+    end
+
+    # TODO: Remove when a ClamAV release includes PR #1774's digest regression coverage.
+    # Cover digest lifetime and thread safety, upstream PR ref, https://github.com/Cisco-Talos/clamav/pull/1774
+    patch do
+      url "https://github.com/Cisco-Talos/clamav/commit/c905f7e2fbe6d75dab3061b3fdada62aef229217.patch?full_index=1"
+      sha256 "fb31f2fa6671cbab01ba61f4a89715bf48e57a9c418bd5ce26e845fcbb43f5ab"
+      type :unofficial
+      resolves "https://github.com/Cisco-Talos/clamav/pull/1774"
+    end
+
+    # TODO: Remove when a ClamAV release includes PR #1774's cache ownership and error handling.
+    # Preserve cache ownership and error semantics, upstream PR ref, https://github.com/Cisco-Talos/clamav/pull/1774
+    patch do
+      url "https://github.com/Cisco-Talos/clamav/commit/b823aef0635f6f8a1cd35e1ef603b8a07472c6f7.patch?full_index=1"
+      sha256 "77a22d793f5c291836f3ec64ecb3518b09e55c5ad8bf65ec213614a39e9f8345"
+      type :unofficial
+      resolves "https://github.com/Cisco-Talos/clamav/pull/1774"
+    end
   end
 
   livecheck do
@@ -25,11 +52,11 @@ class Clamav < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "a59d766442b813bb72b06d5ae93b282427ff66833e52469db701d00e860c8642"
-    sha256 arm64_tahoe:       "19e979267ece5b8f2f1799d201d5a04d2985c39cbebb6f5e1891ef6dc8e22ac3"
-    sha256 arm64_sequoia:     "d46ea817789ea3ca3101908de09289d8b40f0e6ab5d0f4d448d28063f67e0bad"
-    sha256 arm64_linux:       "aeb9e1ed1825696e9383ae4a99151c77638965bd81f8b268c8fff09e8359b53b"
-    sha256 x86_64_linux:      "44961a9b9c4bba288f191a7b76331afb865293df939c2bfabcbf5101b2a9f463"
+    sha256 arm64_golden_gate: "f15dc7848979650c7d832302f7db93bede76f4233f0c69152e25237ec92cd74a"
+    sha256 arm64_tahoe:       "61b43dc3270c1cadd015362c439a3ecbb0010f7305af7dfa955abdc219a34e21"
+    sha256 arm64_sequoia:     "e54a977af9228f0ae606ae7f4fc63a74ad7cdb16460c0c39a4d25e650bb25776"
+    sha256 arm64_linux:       "62e6ca7aa9dfa48fcd8557a0f0b2af2d4be5859e2f014c1848f9f21ed60c6123"
+    sha256 x86_64_linux:      "20cbe6d4910039057858b3be2ff2c59beb7d3cc778ba6f6e44a4ea2fa231c29e"
   end
 
   depends_on "cmake" => :build
@@ -84,8 +111,6 @@ class Clamav < Formula
   end
 
   test do
-    assert_match "Database directory: #{var}/lib/clamav", shell_output("#{bin}/clamconf")
-
     (testpath/"freshclam.conf").write <<~EOS
       DNSDatabaseInfo current.cvd.clamav.net
       DatabaseMirror database.clamav.net

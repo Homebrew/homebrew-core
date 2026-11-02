@@ -1,11 +1,10 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://virustotal.github.io/yara/"
-  url "https://github.com/VirusTotal/yara/archive/refs/tags/v4.5.8.tar.gz"
-  sha256 "c322414975ff6f701149856613afdcd92a7e6939c284c798ae3c85618197efaa"
+  url "https://github.com/VirusTotal/yara/archive/refs/tags/v4.6.0.tar.gz"
+  sha256 "61ab80084e3f83e1b73a95057058e2ae1db5f87f291e32654e191d410297f0e5"
   license "BSD-3-Clause"
-  revision 1
-  compatibility_version 1
+  compatibility_version 2
   head "https://github.com/VirusTotal/yara.git", branch: "master"
 
   # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
@@ -17,11 +16,11 @@ class Yara < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "51df3217fe9a17bb3a09e92b5171ec7a6998fa181e040b260ae114efb04aefb6"
-    sha256 cellar: :any, arm64_tahoe:       "425786155fe950576f98141fd741b9ea57ca99eb5660bb8d1c82fb7cb0be7a19"
-    sha256 cellar: :any, arm64_sequoia:     "8416d2d07809944a3eead36973a52fc68f61c0c0fb8fdc2ad50c88bef92ff161"
-    sha256 cellar: :any, arm64_linux:       "23208ac743de606132845fb6a16be5dacd19e9a2a6fe8c1e0d2f33c1858a90e6"
-    sha256 cellar: :any, x86_64_linux:      "2ecfe93de3109b8a8982dd671022a5dc8596fcad66473e28b9fbf6a170b94311"
+    sha256 cellar: :any, arm64_golden_gate: "0b6a8506b19961ad592de58a159e7536f342f0757ab571b70f8d55ae682b2b67"
+    sha256 cellar: :any, arm64_tahoe:       "006d93d63ba1ebbcdd7847324807e228d7af5f7b92fdfc65b4a24ac8ce474a75"
+    sha256 cellar: :any, arm64_sequoia:     "04400495022f7b652a9106d68b11a4e3cdd0bca047d88bcea5836c07009d61b2"
+    sha256 cellar: :any, arm64_linux:       "533a98575a135a89f9eb17fcb948227411754ff33cf5cbfac512d943d431e24d"
+    sha256 cellar: :any, x86_64_linux:      "d835f34553f142ef6bf31c5192be2841095905fccf44b78e0ab2a038d50c5c3c"
   end
 
   depends_on "autoconf" => :build
