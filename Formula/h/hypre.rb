@@ -1,8 +1,8 @@
 class Hypre < Formula
   desc "Library featuring parallel multigrid methods for grid problems"
   homepage "https://computing.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods"
-  url "https://github.com/hypre-space/hypre/archive/refs/tags/v3.2.0.tar.gz"
-  sha256 "5273205a310fb6aa3ae506ce216760fb67b30e02024874f3cdb8b811e4801de7"
+  url "https://github.com/hypre-space/hypre/archive/refs/tags/v3.2.1.tar.gz"
+  sha256 "3083cf943e1dab54517acae36afad72a4ada2c72c9567e525fc9c6efedb14e0c"
   license any_of: ["MIT", "Apache-2.0"]
   compatibility_version 1
   head "https://github.com/hypre-space/hypre.git", branch: "master"
@@ -13,13 +13,11 @@ class Hypre < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d9375b94f9772d532adeb1b42579d029637551398fec1ebaac315d0645225c78"
-    sha256 cellar: :any, arm64_tahoe:       "7f984a7002537f3f400ba750129cdcf043ae625b2dabec88ae7ed47dd489415c"
-    sha256 cellar: :any, arm64_sequoia:     "483fd6887392d95ba92c96a111d7a146cb6946b141c13674c39cc252a77267f3"
-    sha256 cellar: :any, arm64_sonoma:      "13fc79b0abcbd023c811881f3a0cdf93fb5cfa535fb5b2e89d98c228c6471870"
-    sha256 cellar: :any, sonoma:            "602deabd1ce19a42ebbb90e929377132c36952a75dcaeadbaf63206aa2207b7b"
-    sha256 cellar: :any, arm64_linux:       "979f97ca9207cb9388c2f49b3452e205afae1d6f39b72c82adbc80cceab9e72b"
-    sha256 cellar: :any, x86_64_linux:      "b97c5d3c68eb91205d4cd7ac65324ef020edcde64a2f92d2f199cf23db3b2cb0"
+    sha256 cellar: :any, arm64_golden_gate: "76e8fd2f733ce721de8616e1cf5eaec26bde3b668ca86024f950c6552ada6fac"
+    sha256 cellar: :any, arm64_tahoe:       "01e274188942d63d53f324e7729304d324867153608148f3d2191ef26261697e"
+    sha256 cellar: :any, arm64_sequoia:     "213c6d80f3a6fac2a3aabc13f35627dac04ca23be1621017c450cfbc2065a003"
+    sha256 cellar: :any, arm64_linux:       "bfea71969d4037f24d91fb74b32b07c7fea8f15cc2ae704ed6c2dfa9212b0a78"
+    sha256 cellar: :any, x86_64_linux:      "7649e1b89deb34720b5197e36fadcc876a1bc54a70b8e764b4c7eafe7e015903"
   end
 
   depends_on "cmake" => :build
