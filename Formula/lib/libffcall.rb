@@ -23,6 +23,8 @@ class Libffcall < Formula
 
   conflicts_with "epics-base", because: "both install `callback.h` header"
 
+  deny_network_access!
+
   def install
     ENV.deparallelize
     system "./configure", "--disable-silent-rules", *std_configure_args
