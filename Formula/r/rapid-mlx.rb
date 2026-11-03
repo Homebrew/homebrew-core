@@ -3,16 +3,16 @@ class RapidMlx < Formula
 
   desc "Fast local AI engine for Apple Silicon with an OpenAI-compatible API"
   homepage "https://github.com/raullenchai/Rapid-MLX"
-  url "https://files.pythonhosted.org/packages/44/96/1c8e55cf186f51e030e1d0be6dd42a1cfb1c779372b6269069bbd067c243/rapid_mlx-1.0.0.tar.gz"
-  sha256 "343669dd40aa07951c653ebf843a7b8d2982b274231059890b211b617e9858bd"
+  url "https://files.pythonhosted.org/packages/24/8c/562362cbfde180ec4c2764fb8243d5e76f33c3edbfdc7946a2fc0bce7290/rapid_mlx-1.0.1.tar.gz"
+  sha256 "59b9d1b5dd45be75c007a2690fb7fffad42882247020d4ba42f9d158ba1a2cb1"
   license "Apache-2.0"
 
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4656271c53f32e01c48280168050b5cd6ef097230f0e6064eafba6d0ab28e987"
-    sha256 cellar: :any, arm64_tahoe:       "0bb4e98522ac77927c3fb0de69e8a7961c53b8ce9b8409b538da5bc49773a6f5"
-    sha256 cellar: :any, arm64_sequoia:     "9f44ca4b4ef7a722b09fbd0e9794db5efa785a08756d81554a94a1c871e1cd1e"
+    sha256 cellar: :any, arm64_golden_gate: "d3a8caaed89497d636a0cb9b2c5a528cd731b0bab267d5a5d6010c6f9d9c4960"
+    sha256 cellar: :any, arm64_tahoe:       "9d48aa6c945b77fe0bf5632c017bab2b86092f58e571d58eda948a7f6d3ab74e"
+    sha256 cellar: :any, arm64_sequoia:     "4d58c17a8351bd7afda6f8ce34e3cbdda625b6f97ae23e231255b85f5990777f"
   end
 
   depends_on "cmake" => :build
@@ -50,8 +50,8 @@ class RapidMlx < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "argcomplete" do
@@ -80,8 +80,8 @@ class RapidMlx < Formula
   end
 
   resource "genai-prices" do
-    url "https://files.pythonhosted.org/packages/db/93/95297c8b37f0deec1780d7579e85915fd7fe4dbe0da38cb79bc0fcc16a2a/genai_prices-0.2.0.tar.gz"
-    sha256 "a0e92059e96492f2ffe55fa708908fe2fc0afe11d111f8051106d52ae8fd9c12"
+    url "https://files.pythonhosted.org/packages/48/1f/f5748da2ef5ce0a3d7735cbfc499cc76d8333876fd4d5942bf72e03e01f7/genai_prices-0.2.1.tar.gz"
+    sha256 "d3c19682e63ae3827e7d166fc92c0f69943f446aa58725f38090301ca1cae36d"
   end
 
   resource "griffelib" do
@@ -95,8 +95,8 @@ class RapidMlx < Formula
   end
 
   resource "hf-xet" do
-    url "https://files.pythonhosted.org/packages/a3/ed/54c8ef80981b548649edda8f1302e5a42edb4e97672d742ee020c97f4856/hf_xet-1.7.1.tar.gz"
-    sha256 "89d06f4975e807eefc6f6777180f452cfb86f6c79f2a6caa6fb28809c84c6777"
+    url "https://files.pythonhosted.org/packages/2f/18/d91c20f815df6cc496a5d0ad8db6d274dad5c0cfcd59babfa2440a9aba44/hf_xet-1.8.0.tar.gz"
+    sha256 "10ed23b51dacf7917d64f335c25048deb470efa755e9989b218fc0531386138e"
   end
 
   resource "httpcore" do
@@ -140,8 +140,8 @@ class RapidMlx < Formula
   end
 
   resource "imageio-ffmpeg" do
-    url "https://files.pythonhosted.org/packages/f6/ee/e3e0753f1054da1f115ee5d113307ed58faf4e31fa90d5d31739db15d125/imageio_ffmpeg-0.7.0.tar.gz"
-    sha256 "eec1f8b9bd873a2f179c994c653d5970ad560e245faf1a777e971933228b829a"
+    url "https://files.pythonhosted.org/packages/d0/c5/2ca1479972cc5f0526d673050ba829518c6db33d9a0d0749892209fdf81d/imageio_ffmpeg-0.8.0.tar.gz"
+    sha256 "0385d9bab7dc7d7141af7d0f160059e05f0d874116faf9ce91f6fcfd66e938f2"
   end
 
   resource "jiter" do
@@ -200,8 +200,8 @@ class RapidMlx < Formula
   end
 
   resource "mlx-audio" do
-    url "https://files.pythonhosted.org/packages/e8/bb/b7948154fce2ed21c0184407ccdec85ee91f44b4d41c91a625a2877ccaf8/mlx_audio-0.6.3.tar.gz"
-    sha256 "bed9a2801a4d500fd007b046bd0209ddcbe2cb0528a648ee7891486b30909df6"
+    url "https://files.pythonhosted.org/packages/cc/4a/ea4746d0c14b75d835dd5164d0e8bba19598248cb29831c0c8e8b98310b9/mlx_audio-0.5.9.tar.gz"
+    sha256 "ad2862464d2d5b8ab4b9394a226d044e7022da594329427ef16ca8e93c08e6b5"
   end
 
   resource "mlx-lm" do
@@ -220,8 +220,8 @@ class RapidMlx < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/8f/f1/3aaadae62d59a9b464f9d2e1deab74f9eb697244beb7dc37fff64df9c92c/openai-3.41.0.tar.gz"
-    sha256 "d065fc59d3d7d8537a77b3ceb527732952c6ff610158e8a2a95b246be637e86f"
+    url "https://files.pythonhosted.org/packages/9f/7b/e01d5288d13e3bae3714ed39df402f99f88f422dcd978c5ce94848037200/openai-3.42.1.tar.gz"
+    sha256 "4222d919374648ff572753626e942f26eb1ece8a5e0e9a2708c9be4d560f070f"
   end
 
   resource "openai-harmony" do
@@ -240,8 +240,8 @@ class RapidMlx < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/40/28/1c058a9143d2304b3078f8dadcbb9dc27f7d3581b5d05157c84869c4cc0d/platformdirs-4.14.0.tar.gz"
-    sha256 "83f009c1e8c5fc36869b5171755b291887bd2cade7965233cdfabd23d754720b"
+    url "https://files.pythonhosted.org/packages/9a/6e/886dc7c9d21e2d95aceb696f1e31271742033aeef3661f6e9c8921493592/platformdirs-4.14.3.tar.gz"
+    sha256 "021add1ab113483edbcd4694f5fbb2d688b893ea30d35e1155bb371cf4be0be8"
   end
 
   resource "prompt-toolkit" do
@@ -295,8 +295,8 @@ class RapidMlx < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/5b/42/55c32bb9b12693c092ad250a0e82edb5b31ddeda6eb772de5f308b3804ad/python_multipart-0.0.32.tar.gz"
-    sha256 "be54b7f3fa167bb83e4fcd936b887b708f4e57fe75911c02aebf53efaf8d938e"
+    url "https://files.pythonhosted.org/packages/9f/b7/15b905f6142a9a8a68f66900788da1a32e4d4254452783b37ad1eccb0506/python_multipart-0.0.33.tar.gz"
+    sha256 "b8112424a6abd162ec08d390565dd113ad699f2fe6fef3c987b8bbcbfe9e390d"
   end
 
   resource "pyyaml" do
@@ -420,8 +420,8 @@ class RapidMlx < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/30/4b/4692be6d5bf739ed049b3813901c42091f8c054df89d5c089343823dea0d/websockets-17.3.tar.gz"
-    sha256 "1c7dd93a1c9f89297471493674b1fc1d9467cafd45374f2172213046bdb3a329"
+    url "https://files.pythonhosted.org/packages/75/79/590c5f0cc7d1661195aeefccb0e342b79f4c77d368d526d028821a390332/websockets-17.4.tar.gz"
+    sha256 "09d3939b70df0c8ad2da145ebd50978bccaee1d565e838b0e7921a34d38571eb"
   end
 
   def install
