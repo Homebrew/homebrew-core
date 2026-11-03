@@ -21,6 +21,8 @@ class LibimobiledeviceGlue < Formula
   depends_on "pkgconf" => :build
   depends_on "libplist"
 
+  deny_network_access!
+
   def install
     configure = build.head? ? "./autogen.sh" : "./configure"
     system configure, "--disable-silent-rules", *std_configure_args
