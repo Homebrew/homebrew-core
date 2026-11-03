@@ -35,6 +35,8 @@ class Theora < Formula
   depends_on "libogg"
   depends_on "libvorbis"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
 
