@@ -3,18 +3,17 @@ class Vit < Formula
 
   desc "Full-screen terminal interface for Taskwarrior"
   homepage "https://github.com/vit-project/vit"
-  url "https://files.pythonhosted.org/packages/1c/11/5a62bb49c3f5086d0e3eb85cb66eae9c2cc49123b9eb9dadfa032ea9c67a/vit-2.3.4.tar.gz"
-  sha256 "346a210aa0de754cf7adaf73723bf7d2cc8ee754eeb785eb18370d33f74e5ce2"
+  url "https://files.pythonhosted.org/packages/7d/79/9f6482915a4204458816e2cfd18d8c9a907e13c2168a569e8b1de245d84f/vit-2.3.5.tar.gz"
+  sha256 "f0994d3097af290478b08abb11e6de6ef8461d5fc317bd95fd4a729a9dd57d1e"
   license "MIT"
   head "https://github.com/vit-project/vit.git", branch: "2.x"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bee3612b4ed1167592908b1de8c0fc09fb9ba357b7e19ebc19ff6f15bb6962e4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b273f35880db79cc22214d7101753422699edd6ac2be2ba1df48735a36c907b7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dd2da7be6f33595cb21195eac868e2c1870d1bf1fc6a22d2a8b75a5255220fac"
-    sha256 cellar: :any,                 arm64_linux:       "6d456ba23d3b36ec1877312e432b867ada08a5c492e8b0f28146ddc1e7201a31"
-    sha256 cellar: :any,                 x86_64_linux:      "844022406a96d6e95e26da3e217dcc64a4530f4c801a74db2df4d3b3b91a1edf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d813a5b4faee80010eacde0c21f3aade6168021f4df74dff18b8a2a23784debe"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "df0d8d3782c38c4c2f12ac57d86c431deb5b0074222d52d75b39b7f0e4b113fd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "af8ca56b40c28f82936cc701d4d3542908f5ce041070b011581841df4c44890a"
+    sha256 cellar: :any,                 arm64_linux:       "adbc3a0a98f2e1f502ed61d7ca3289da9edba325d815ed0634685d9fecd5183e"
+    sha256 cellar: :any,                 x86_64_linux:      "06ea33004dbe2174f1712c618bb647d7925820120a5b6cbd0be54685a49aa239"
   end
 
   depends_on "python@3.15"
@@ -25,19 +24,14 @@ class Vit < Formula
     sha256 "5ccd731b52636dd10457a8b8d858cb0d026ffaab1e3e751baf791bf803e37d7b"
   end
 
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
-    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
-  end
-
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/3a/df/eb5dcbdf1638c38618096382b4a30b0423ed7d2aac97fd9469b51d6de43f/urwid-4.2.5.tar.gz"
-    sha256 "a1fea3a551953fae4e6b727536334233bbb8b88c45230bc91d9751b402a8c16d"
+    url "https://files.pythonhosted.org/packages/ee/16/8d5b79d05dc960ec6527bb58c773b1bfe68ac90c8ee551771765e87a3971/urwid-5.0.1.tar.gz"
+    sha256 "338d6a0f8e7c58c205dd823b9c777b0f7a290c7ea661fcf81b12c42e4072ca24"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
-    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
+    url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
+    sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
   end
 
   def install
