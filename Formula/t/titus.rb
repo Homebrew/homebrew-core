@@ -6,11 +6,11 @@ class Titus < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a3ab9d71cbfbc8a90eb77af2b1cc3027c93813c0a0d7c1a1eeb3c6771d4e8391"
-    sha256 cellar: :any, arm64_tahoe:       "5523988ff8270965bb81199366e7adcc48cdc24d2048c92e448276de9500275c"
-    sha256 cellar: :any, arm64_sequoia:     "ff4d8ca75f2d173d5e89c961ecfc56cdb10a32938f7ebaa66d6a5886f06f0074"
-    sha256 cellar: :any, arm64_linux:       "efc35cec463fc095f08dfb91ba202b076912fd200828dc08e488b74e1c157013"
-    sha256 cellar: :any, x86_64_linux:      "79d88dea8c85422cfaf26bb01ea8f2a81d6e439e505eec9c19a1d3f5da106600"
+    sha256 cellar: :any, arm64_golden_gate: "d771130129b920f1bb6f348ebc967118c0030ade27d8b0c021f32a265179e268"
+    sha256 cellar: :any, arm64_tahoe:       "2355122f540cccc2baf019e0e101c171de401af47ce78bdfb2f982d0ac5ec2ce"
+    sha256 cellar: :any, arm64_sequoia:     "e83ddfea9f2fa8e6043652c14bb11994c82e62170adb07fd5573f69a34fd99a6"
+    sha256 cellar: :any, arm64_linux:       "f4fdc982aa7e5e449586b5c158e07dcec96085e151edb328522a4c852fdd9055"
+    sha256 cellar: :any, x86_64_linux:      "8370c278be8ad4fe58f28f386e4a4acd9a4bef9baf3afc28c3a76088649f61ff"
   end
 
   depends_on "go" => :build
