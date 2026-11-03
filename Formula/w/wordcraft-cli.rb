@@ -6,6 +6,14 @@ class WordcraftCli < Formula
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/storytold/wordcraft.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "32dab70e13f915d76b45f1cbf9d8bb4e0dd9db3136bc067c9135607a177a5cfa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "14705eb9d6937c789379072ae4a0878ba2efa9387c38b31d4317f96ff88015d6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2c3adf0b3ab6515e9bd290a922523c17f7b31b3eb8ec9ba6db48547178c2819b"
+    sha256 cellar: :any,                 arm64_linux:       "b13f6d1964d775e6b1eeab87c205c4c83f0bba8e0b6f5ba98dc48ca9be08b248"
+    sha256 cellar: :any,                 x86_64_linux:      "6bf097fe02d211c36fe935e35e6240a3f9d2d038cf85efc888a0612aad33151c"
+  end
+
   depends_on "rust" => :build
 
   deny_network_access!
