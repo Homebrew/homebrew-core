@@ -3,17 +3,17 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/c6/9d/fea7fe7e360b6a4992f00600445849374675d82d665ffc194aee50c314ab/ipython-9.18.0.tar.gz"
-  sha256 "93ec98e27d5ce494c962758111c7dff1ef45f9efdd55604ae70a7d4cabb3e1ea"
+  url "https://files.pythonhosted.org/packages/38/04/0d945c72d5b77527273ecb4c66aa2436de7a3b3bbe3da345bf053232b886/ipython-9.18.1.tar.gz"
+  sha256 "6319c0f5372c196397899479e6db1783dd7937abae06815d1317e8d5d51aaaaf"
   license "BSD-3-Clause"
   head "https://github.com/ipython/ipython.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "08586d5e8274423b4ff1996347603de9c006be1a0fd08d42c68683da221ece32"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9bee0c0dd95819045d7a93f8a6928ed3307ab8a4d212c346701d745df7c1ec2e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "42621e1fa689ad05faa2bcd14e581f6b3057590f6f8053f8ef9bfc2b11b22ac6"
-    sha256 cellar: :any,                 arm64_linux:       "083e27e14688807627e4fc7f88768fb11749b52168d8a2d70e53a7ff011ebbac"
-    sha256 cellar: :any,                 x86_64_linux:      "9cf4ab4911dfba376d8d573c868c041ac3a5ee58fc3c4df7eb37d644fa82bc9b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f623bddd7d6380fd544a7226f5a7c3fe2522e528492c7b2ab460cb34cf0ee7d3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "95e0fbca688ce50e60cf5457a671d569958faed8d12bc189307f4a461a5128f6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b78064b6a8d1cadc8dba64a4806ccc03a035fb9b93ecad338b178f6d15927ad2"
+    sha256 cellar: :any,                 arm64_linux:       "05118aa44444eca8cab10ac9d12b3faf4cee7157ffba46e1c0e03c65f5c469e5"
+    sha256 cellar: :any,                 x86_64_linux:      "f8af3b7b6bdcd68340ac29f23d7015cc815f990e655711a633d89b2f72e793f2"
   end
 
   depends_on "python@3.15"
