@@ -11,11 +11,11 @@ class CargoNextest < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8abead7e90a53fdb55dec111ee1377db8a1909fc6ecb5bb4048e7b7565181e47"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ef2c8545d322de17f8192017c5b4c9ee4fe756b65011a81b2c9c0e27a8fa6030"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6bdb0df4a16df2b05732b4c2611d756af5ea57adca234dca2af4c573c8a7b460"
-    sha256 cellar: :any,                 arm64_linux:       "046770197b988e98d924d5a906eba54854d13e0506549a1d107c22511fa5764c"
-    sha256 cellar: :any,                 x86_64_linux:      "27582b54114b885a8f0c424197a46a8f011bbb19fbd553c1e2e3cc3d1f358b8e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b2e61b95b654bc3a76b4b970b985dc64bba5b96a4c4f827a28e1c2f40cd0bac7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e27147257dbb08e78e336b40cdcbf60e414c298dde81fc58c02e252b7136f67d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f2c2465e1fdc4806549d8b6d5a5cb7f080f34c33fa346923e5fc2b58d448bf17"
+    sha256 cellar: :any,                 arm64_linux:       "8e7e6a24d3823eff1e46de3f545303129a394c26d74b469f3be0602a474c3ab3"
+    sha256 cellar: :any,                 x86_64_linux:      "64022d938a0fb7ea19a617b483e10333ddecd9af419b5427ad6688210848d1c8"
   end
 
   depends_on "rust" => :build
