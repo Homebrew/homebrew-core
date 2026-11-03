@@ -1,10 +1,9 @@
 class Libclc < Formula
   desc "Implementation of the library requirements of the OpenCL C programming language"
   homepage "https://libclc.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.4/llvm-project-23.1.4.src.tar.xz"
-  sha256 "819ecf7351f1a66f76b2d701d8942faaf5faeb324cb90c9d5b090de142434bb2"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.5/llvm-project-23.1.5.src.tar.xz"
+  sha256 "fb50b1eac93ddeb3aa8dab4cfe324dff74f4a9c2bdee6160c9e36188f8d06a6e"
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 1
   compatibility_version 1
 
   livecheck do
@@ -13,11 +12,11 @@ class Libclc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d01bb75e1befb15fb370ba715caf5f12b338af34d0776c76db39dc63d708cd4b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d01bb75e1befb15fb370ba715caf5f12b338af34d0776c76db39dc63d708cd4b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "63da17025a75cfa99964805fd86bf818d31f57b75c9c005aaf0e63ae31ffa07c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4c78c63f3bc44d009d68350f9abbda33de690cecf9d5101fc33b91d7f4fe4cca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "4f3e09173647a65a61316939f59de416bc2faf20e078935f5f1070d6429c8581"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c72cfb38ae7600500cca07310b9177cb8f29272afd28a42906d112b79f5ff52d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c72cfb38ae7600500cca07310b9177cb8f29272afd28a42906d112b79f5ff52d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d65d0bf51091cc53fcf4e8613fe5d467b359d665b7ff26b9ce76ddfa7092bc8c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "5af04b2231526463ed44a17f076c1e84b98f71ebf5c82c90131b609d2be88fab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "1c4f6090c89d999ea603c8e82cc6a2e2615ed5de7a67a332135b113b61956422"
   end
 
   depends_on "cmake" => :build
