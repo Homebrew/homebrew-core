@@ -1,11 +1,11 @@
 class Libaio < Formula
   desc "Linux-native asynchronous I/O access library"
-  homepage "https://pagure.io/libaio"
-  url "https://pagure.io/libaio/archive/libaio-0.3.113/libaio-libaio-0.3.113.tar.gz"
-  sha256 "716c7059703247344eb066b54ecbc3ca2134f0103307192e6c2b7dab5f9528ab"
+  homepage "https://codeberg.org/jmoyer/libaio"
+  url "https://codeberg.org/jmoyer/libaio/releases/download/libaio-0.3.113/libaio-0.3.113.tar.gz"
+  sha256 "2c44d1c5fd0d43752287c9ae1eb9c023f04ef848ea8d4aafa46e9aedb678200b"
   license "LGPL-2.1-or-later"
   compatibility_version 1
-  head "https://pagure.io/libaio.git", branch: "master"
+  head "https://codeberg.org/jmoyer/libaio.git", branch: "master"
 
   # This regex only captures the first three numeric parts of the version
   # (e.g., 0.3.110) and omits the optional trailing number (e.g., 0.3.110-1 or
