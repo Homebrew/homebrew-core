@@ -1,8 +1,8 @@
 class MongoCDriverAT1 < Formula
   desc "C driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-c-driver"
-  url "https://github.com/mongodb/mongo-c-driver/archive/refs/tags/1.30.14.tar.gz"
-  sha256 "4603a75b7433c00acd10d51ac9c9429a8e73d2f2aefda87b8a81e6abd5bda124"
+  url "https://github.com/mongodb/mongo-c-driver/archive/refs/tags/1.30.15.tar.gz"
+  sha256 "d449f570b99dcf12bc7561c5a295fa022dc56d77cb44c6811fbe7a46b5224387"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class MongoCDriverAT1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "994cdb46503abb27bca4884342d5987a7b9fb51be205f8db3a562bd5b42382e5"
-    sha256 cellar: :any, arm64_tahoe:       "ff9493d24bb8add1bca2441efc9f6a597f191dfaa5617d1ddab504fb7c964934"
-    sha256 cellar: :any, arm64_sequoia:     "56f32dc5d50eee67ddd0697fc16a7dcd7b507f6ea4df280f069993a2b0bc1f74"
-    sha256 cellar: :any, arm64_linux:       "4e4c29f8bb625a9277c72d3e9e895b08b60a08b7fff0eaf615a3ae0740d80197"
-    sha256 cellar: :any, x86_64_linux:      "deb85f8d93880fde53f4be5c33c0b43d44fb27dcc547d3161c44c6944ffbc506"
+    sha256 cellar: :any, arm64_golden_gate: "2dbe634a1db9114262585511886c3b2347735faf52d40f45ccba18f86780ab2a"
+    sha256 cellar: :any, arm64_tahoe:       "9b83bdb8622f405255b4e8186b3c31d59aff7b848e03f264f408ce6c28fe8588"
+    sha256 cellar: :any, arm64_sequoia:     "3117153b95a669af1cbb49cbb6d0bd81e3f856e8508b0528b624402e5ef71684"
+    sha256 cellar: :any, arm64_linux:       "2fa44307d64b1879398140410442e35acb3d446429521f112e9ed3829c15f6e9"
+    sha256 cellar: :any, x86_64_linux:      "288bf5d33147c2ddb4b5b4f563f50d6b281f30bc09f50fc2c2c78571cff2eea2"
   end
 
   keg_only :versioned_formula
