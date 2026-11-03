@@ -1,8 +1,8 @@
 class Minify < Formula
   desc "Minifier for HTML, CSS, JS, JSON, SVG, and XML"
   homepage "https://go.tacodewolff.nl/minify"
-  url "https://github.com/tdewolff/minify/archive/refs/tags/v2.24.24.tar.gz"
-  sha256 "2be8768d569413804e1e8d035a12cf925f671c776871b2ebfeb884f60f8ae17d"
+  url "https://github.com/tdewolff/minify/archive/refs/tags/v2.24.25.tar.gz"
+  sha256 "900bc080ae8a7da38eb6f78259392479abbf0a0ca8d81addd2230ff6dbbc9520"
   license "MIT"
   head "https://github.com/tdewolff/minify.git", branch: "master"
 
