@@ -3,8 +3,8 @@ class Checkov < Formula
 
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
-  url "https://files.pythonhosted.org/packages/18/79/2cd68b26af58038463b51ce0af448a5ceb861732ad829b928648df029aa3/checkov-3.4.0.tar.gz"
-  sha256 "02eb8564e8630ad2622f38079e6765aa187282bd023566536467538000b3b912"
+  url "https://files.pythonhosted.org/packages/11/7c/4dc8d64e4ea6ce07e5c34de4d0d7ed7b96ef900a0cd23b3049f634d0476e/checkov-3.4.3.tar.gz"
+  sha256 "2513d366c9b6bec3b91528faa6095b410be5f940277833771b427a6a56134915"
   license "Apache-2.0"
 
   livecheck do
@@ -12,11 +12,11 @@ class Checkov < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "272df1d441f1f486a8daae2d6272728d5d6803859c06ac98e1cb0f905da2d1db"
-    sha256 cellar: :any, arm64_tahoe:       "76ac2cd75c61237053f84b906ae73cda795a07cc823f13903004ccabbf2d6cc8"
-    sha256 cellar: :any, arm64_sequoia:     "b3d82fdeb4b9966ca499ffa4694d946640d2638a1c60a26352083fc516e98f95"
-    sha256 cellar: :any, arm64_linux:       "53382d66a567dd4ac49e68245cf642ba98d4cbc01e1ea21ca388cad31b272cd9"
-    sha256 cellar: :any, x86_64_linux:      "58e23354fa1f2e636c949e30a4c017c86b21bc0ce1f8ce9e6bb21ca2ae588361"
+    sha256 cellar: :any, arm64_golden_gate: "d3ec9de47f0dc2b76d5d6b9a6ed13a9b051e84d1f3d17bfc374442e60596ce5f"
+    sha256 cellar: :any, arm64_tahoe:       "7fa99bd3c7af2c339023c387438def0d49126bff81eb7acda5b791a66c00bd6d"
+    sha256 cellar: :any, arm64_sequoia:     "94ad1d6cd7d7bc07aa347a0e2cf1b075943a57bb400c5b321856dffd2d8ba887"
+    sha256 cellar: :any, arm64_linux:       "3b449bc3e53608c4722c1735b25f534cb0dd732f86619612100ba8acbb2ec66a"
+    sha256 cellar: :any, x86_64_linux:      "568b0ff9db6abfaf39e50815914e634b5da3776f126a9f182e7b0e04301c9ea1"
   end
 
   depends_on "cmake" => :build # for igraph
@@ -289,8 +289,8 @@ class Checkov < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/40/28/1c058a9143d2304b3078f8dadcbb9dc27f7d3581b5d05157c84869c4cc0d/platformdirs-4.14.0.tar.gz"
-    sha256 "83f009c1e8c5fc36869b5171755b291887bd2cade7965233cdfabd23d754720b"
+    url "https://files.pythonhosted.org/packages/9a/6e/886dc7c9d21e2d95aceb696f1e31271742033aeef3661f6e9c8921493592/platformdirs-4.14.3.tar.gz"
+    sha256 "021add1ab113483edbcd4694f5fbb2d688b893ea30d35e1155bb371cf4be0be8"
   end
 
   resource "ply" do
