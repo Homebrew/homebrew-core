@@ -22,6 +22,8 @@ class Libltc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "c160950aa4d33232070cb6607deec9ed4fc9b070dd5dcf0c3221404199016c46"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
