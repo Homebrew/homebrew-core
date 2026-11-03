@@ -3,9 +3,8 @@ class Cutadapt < Formula
 
   desc "Removes adapter sequences from sequencing reads"
   homepage "https://cutadapt.readthedocs.io"
-  url "https://github.com/marcelm/cutadapt.git",
-      tag:      "v5.2",
-      revision: "ef852629f667637439f28761499bb56126e390a1"
+  url "https://files.pythonhosted.org/packages/25/0a/2b4007e4577dd3e19affdf7aa716ebf9642e224d68a9205b2081d42ed08a/cutadapt-5.2.tar.gz"
+  sha256 "2394deead42ecae5fe0fdf369e35f3e2afed770e14059582272779c2e8295d3c"
   license "MIT"
 
   bottle do
