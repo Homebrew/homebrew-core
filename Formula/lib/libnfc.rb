@@ -35,6 +35,8 @@ class Libnfc < Formula
 
   uses_from_macos "pcsc-lite"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--enable-serial-autoprobe",
