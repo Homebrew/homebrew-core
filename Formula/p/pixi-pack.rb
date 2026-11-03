@@ -1,18 +1,17 @@
 class PixiPack < Formula
   desc "Pack and unpack conda environments created with pixi"
   homepage "https://pixi.sh/latest/advanced/production_deployment/#pixi-pack"
-  url "https://github.com/quantco/pixi-pack/archive/refs/tags/v0.7.11.tar.gz"
-  sha256 "142682512cc72af8f37fcda842f1d08078809f7d16eb5b85cbbf6d67a4554642"
+  url "https://github.com/quantco/pixi-pack/archive/refs/tags/v0.7.12.tar.gz"
+  sha256 "7cbef9759c399ecbc3b67ebf8c2ad8599bc41c425adb68e7556cbdc2d5a706ca"
   license "BSD-3-Clause"
   head "https://github.com/quantco/pixi-pack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c5a73d7bc251a0fa25d44d1bd60d5609213c779a52e21c865b1149429062bed4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fa03cbb6c6bb11aa3972ae83f01290fdd826a8d858960a1f9dbf98cfe0ac27a4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c6fbddde01dd48e3740f7e30c6f681aff9d7ced6619002091991b707f5d26211"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "7f2a68010daaac3f2f180859419c7a78f84fb65a1c1cfd4e526ac099308300c0"
-    sha256 cellar: :any,                 arm64_linux:       "53d2984ef0e5da7a9db1504d55e6d14d1ccae4dce7dc286bf44f179e0e7c3a4d"
-    sha256 cellar: :any,                 x86_64_linux:      "1026d3c697ce1b73113411880e1555766a22746a0941935b3e7530565aaeb391"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c497ad550466f5c73ca5e4b51b00f346f1feb7bac95a7157a7642b98d656243d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "abbca8c86337c32b83b09d15bfccf80364029084021c8d321e7f70d2fe32ab33"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8778ff7e5cf494ed7cb8318066be7d42c83247a497e3dfa3595badcae4bf509e"
+    sha256 cellar: :any,                 arm64_linux:       "de70e3865b0efb9b1eb40b4f821f34f5d5bb0100fcb266693eca23f8ede50f9c"
+    sha256 cellar: :any,                 x86_64_linux:      "a28e13f1747f4532ccda5362ab451c7006f489c85494ca348e73ef3abaa48a02"
   end
 
   depends_on "cmake" => :build
