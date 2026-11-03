@@ -3,13 +3,12 @@ class McpProxy < Formula
 
   desc "Bridge between Streamable HTTP and stdio MCP transports"
   homepage "https://github.com/sparfenyuk/mcp-proxy"
-  url "https://files.pythonhosted.org/packages/7d/19/0612c8ddd6d3274da0a73fa45d067d4dbaeebb0239a01c1c0055b8b2e5d2/mcp_proxy-0.13.0.tar.gz"
-  sha256 "16ab358a4da5aeb4377772e982d6258f5e9bcc9ad8efea990e74f6a76e443853"
+  url "https://files.pythonhosted.org/packages/d4/b6/871d4fa4533fc0dafe025ce0dbf6c8d49b00e21126a64ba3c634784d0dd3/mcp_proxy-0.13.2.tar.gz"
+  sha256 "8263f0ac632c24cc50d6bdf4923e48cda489433083923eb8543c6e7c71d3f140"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "3162fb959487d7c3842aeda406304c4add05c48cf0aba57407c59d8ca9d3346a"
+    sha256 cellar: :any_skip_relocation, all: "55265329143c66ec1dbfc81d066cb551746f4d1464727e1765996f62bae15548"
   end
 
   depends_on "certifi" => :no_linkage
@@ -23,8 +22,8 @@ class McpProxy < Formula
                 exclude_packages: %w[certifi cryptography pydantic rpds-py]
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "attrs" do
@@ -83,8 +82,8 @@ class McpProxy < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/68/ca/31c57507b13119d7d3cfa1576dad2911a4861e3be07b579395f4e9d393f9/pydantic_settings-2.15.0.tar.gz"
-    sha256 "694b793e84f766ba76a90ebdefc01d0a9a045dab0382bee70393da93712ad117"
+    url "https://files.pythonhosted.org/packages/d0/31/21d21e0e38a8f5f7a7f0cde22820117b6d17d6bc36f348129527f915d7f4/pydantic_settings-2.16.2.tar.gz"
+    sha256 "3dc08ffabed2bbd5dc2dd55ead7b78b4e4c5cd776aecd04310db5f1224caaf46"
   end
 
   resource "pyjwt" do
@@ -98,8 +97,8 @@ class McpProxy < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/5b/42/55c32bb9b12693c092ad250a0e82edb5b31ddeda6eb772de5f308b3804ad/python_multipart-0.0.32.tar.gz"
-    sha256 "be54b7f3fa167bb83e4fcd936b887b708f4e57fe75911c02aebf53efaf8d938e"
+    url "https://files.pythonhosted.org/packages/9f/b7/15b905f6142a9a8a68f66900788da1a32e4d4254452783b37ad1eccb0506/python_multipart-0.0.33.tar.gz"
+    sha256 "b8112424a6abd162ec08d390565dd113ad699f2fe6fef3c987b8bbcbfe9e390d"
   end
 
   resource "referencing" do
@@ -108,13 +107,13 @@ class McpProxy < Formula
   end
 
   resource "sse-starlette" do
-    url "https://files.pythonhosted.org/packages/e4/be/0123026f719d1a7936f214a88b553bb5701e04ff2511147c1dab0c5035eb/sse_starlette-3.5.0.tar.gz"
-    sha256 "75de713aa8a9441513cc283220826da079d982770965b951e9437720e8bafdb2"
+    url "https://files.pythonhosted.org/packages/71/7f/3b8ec4f27833f7b8c270a3ef960b6d435e1065439847bc0fcd1e58ae898b/sse_starlette-3.6.0.tar.gz"
+    sha256 "623151d6c20dc0eebf1b3379c27faae91fff883bac7ab6665f16f46440a88b3a"
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/7b/2b/3850dc6bf7ef71b088962eba31dafc6cffd2f96e577ebb0bb316df96da3e/starlette-1.7.0.tar.gz"
-    sha256 "c79f74ea63cff761804fbbfb182f1e0b440c2d07b164d24700c5a1bab5d6ff5d"
+    url "https://files.pythonhosted.org/packages/48/bb/3d8757f21e9a53d9035c9eb039a777047139a16bfdbedfc7a58241c3d914/starlette-1.10.0.tar.gz"
+    sha256 "b8399098d4c1e3522734f7235dc79b1fc967f96cf139c81e0fa30479e0685f9b"
   end
 
   resource "uvicorn" do
