@@ -20,6 +20,8 @@ class Libcddb < Formula
   depends_on "pkgconf" => :build
   depends_on "libcdio"
 
+  deny_network_access!
+
   def install
     args = []
     # Help old config scripts identify arm64 linux
