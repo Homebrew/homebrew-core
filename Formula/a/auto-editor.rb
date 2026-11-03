@@ -7,18 +7,25 @@ class AutoEditor < Formula
   head "https://github.com/WyattBlue/auto-editor.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d363f0788383d2979218190a57571feeb5a52cb0993a66ccdb23500857e4e00d"
-    sha256 cellar: :any, arm64_tahoe:       "b0755c556d971829d1580c30d36f4a0eb30b4d52f05b0cd85d7bd5d33da2401b"
-    sha256 cellar: :any, arm64_sequoia:     "fd580bcef4826b0cf80bfdae4f90ce747424b07efb39ba56c6f26124a3222214"
-    sha256 cellar: :any, arm64_linux:       "a4e54e40c0ae8d7df138d46dcf773f5223f6a5902fc7af3f44deb7742ff71539"
-    sha256 cellar: :any, x86_64_linux:      "0655032995aae3105136b0aa1e090fdec76bd22087cef5757d0f7319dae4e5da"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "10f4afe8f03ef549303677731b586a045a4f61acc50a067ddefff79d8ed8d6d3"
+    sha256 cellar: :any, arm64_tahoe:       "d04bb5ff2d12bc0e69a4adb8991a7b255e003d1921dd47df2bc495b2da195ca6"
+    sha256 cellar: :any, arm64_sequoia:     "17242bfe49135c0780e80934cca883fa04c3a6f76026ef254f5e67d7ccb6f883"
+    sha256 cellar: :any, arm64_linux:       "f0e4382c1ffd03d78fefdd40df217c88c9815fd309a7fc7bb41b8ac667fd24d1"
+    sha256 cellar: :any, x86_64_linux:      "e91468b88e3e5b3043c3381839be079fd10f5270cf80afa45bba41d05573eb97"
   end
 
   depends_on "nim" => :build
   depends_on "pkgconf" => :build
   depends_on "ffmpeg"
   depends_on "ggml"
+  depends_on "libass"
   depends_on "whisper.cpp"
+
+  resource "homebrew-roboto", :test do
+    url "https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxP.ttf"
+    sha256 "466989fd178ca6ed13641893b7003e5d6ec36e42c2a816dee71f87b775ea097f"
+  end
 
   deny_network_access!
 
@@ -38,6 +45,11 @@ class AutoEditor < Formula
     system "ffmpeg", "-filter_complex", "testsrc=rate=1:duration=5", mp4in
     system bin/"auto-editor", mp4in, "--edit", "none"
     assert_match(/Duration: 00:00:05\.00,.*Video: h264/m, shell_output("ffprobe -hide_banner #{mp4out} 2>&1"))
+
+    resource("homebrew-roboto").stage testpath
+    system bin/"auto-editor", mp4in, "--edit", "none", "-w:1",
+      "text:Hello:font=#{testpath}/KFOmCnqEu92Fr1Mu4mxP.ttf", "-o", testpath/"text.mp4"
+    assert_path_exists testpath/"text.mp4"
 
     whisper = Formula["whisper.cpp"]
     system bin/"auto-editor", "whisper", whisper.pkgshare/"jfk.wav",
