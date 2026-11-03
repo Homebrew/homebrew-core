@@ -18,6 +18,8 @@ class Tre < Formula
     sha256               x86_64_linux:      "29ffb52469a70317b5c0b010b3af90d3f3cc804fb28e856c7f112f9b8049a0ef"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
