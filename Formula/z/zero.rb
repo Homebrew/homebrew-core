@@ -1,10 +1,10 @@
 class Zero < Formula
   desc "Terminal coding agent you own"
-  homepage "https://zero.gitlawb.com/"
-  url "https://github.com/Gitlawb/zero/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "d253f69beb00cbc0fb23a302914caf960e2a1d94b045778ff2ed2671fab35f50"
+  homepage "https://zero.twigpine.com/"
+  url "https://github.com/Twigpine/zero/archive/refs/tags/v0.12.0.tar.gz"
+  sha256 "065a2bbcdce5e7fe597247e9a14fc41cb4ff0577461fd73bea72bc889af4d233"
   license "MIT"
-  head "https://github.com/Gitlawb/zero.git", branch: "main"
+  head "https://github.com/Twigpine/zero.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f96eb9fd9027489281842f9fffe2449c7d9c5f83d6c66bb4ebdf5ef492edc3a"
@@ -23,7 +23,7 @@ class Zero < Formula
   end
 
   def install
-    ldflags = %W[-X github.com/Gitlawb/zero/internal/cli.version=#{version}]
+    ldflags = %W[-X github.com/Twigpine/zero/internal/cli.version=#{version}]
     system "go", "build", *std_go_args(ldflags:), "./cmd/zero"
   end
 
