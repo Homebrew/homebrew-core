@@ -26,6 +26,8 @@ class Liblockfile < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "b40e192cdbc7b9ecbc0e6ea36a893f5de7b4d26f5f8a094bec6ab31b3dc86b03"
   end
 
+  deny_network_access!
+
   def install
     # brew runs without root privileges (and the group is named "wheel" anyway)
     inreplace "Makefile.in", " -g root ", " "
