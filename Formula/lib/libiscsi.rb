@@ -24,6 +24,8 @@ class Libiscsi < Formula
   depends_on "libtool" => :build
   depends_on "cunit"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
