@@ -48,6 +48,8 @@ class Libetonyek < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     resource("liblangtag").stage do
       system "./configure", "--disable-modules", "--disable-silent-rules", *std_configure_args(prefix: libexec)
