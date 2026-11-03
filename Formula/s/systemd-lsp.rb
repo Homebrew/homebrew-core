@@ -1,16 +1,16 @@
 class SystemdLsp < Formula
   desc "Language server for systemd unit files"
   homepage "https://github.com/JFryy/systemd-lsp"
-  url "https://github.com/JFryy/systemd-lsp/archive/refs/tags/v2026.09.28.tar.gz"
-  sha256 "d9fe3b5b81eb6d9363e2ed324909868810ffd2d7a49eb24233524d292db28de8"
+  url "https://github.com/JFryy/systemd-lsp/archive/refs/tags/v2026.11.02.tar.gz"
+  sha256 "2f8e31311e2c8b93a6e02d7be2b81691ffc02066fdf1a6d41529e7b53a4e80aa"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "80b2a768af752d0b2dcbf09ab246fe803234dd7951d599b2cf56c92988fb46ea"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f5c8671d9448c5f65a2c5fc494ec918068d14e029e89c464a320f4119a390a78"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "38a778843744a563d79e221d5378be7b924aa31ef5235bb29c678e3447170abe"
-    sha256 cellar: :any,                 arm64_linux:       "e52484569f94df219235476bce330ce71b12f1c55e642065590fe797dfd9b469"
-    sha256 cellar: :any,                 x86_64_linux:      "4ff06cef42d1c35dd44172b5c7d73c5d18a50a1841d881742d1a07b4a1e7ba10"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ad9ad0163a5e3e96a7b9d376da549d76f99da6e3c6e9449d823169c2e353067a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "51661f31271d52fa7de3bc6f55e81487475a9fd56b900210de455bcd0ea8898f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b51557f8828b4ca34329ffa481d6eabaca23565d9a0b80323ee002541fa59cd1"
+    sha256 cellar: :any,                 arm64_linux:       "d63ad88fad826f2c27113350c5be0d957d8c04719b091f3f77f04bf717b032f8"
+    sha256 cellar: :any,                 x86_64_linux:      "9ef950bb136689a3922d68a021ce4e29087002c72db5e0414dbceda98076ce47"
   end
 
   depends_on "rust" => :build
