@@ -30,8 +30,8 @@ class Newt < Formula
     end
   end
 
+  depends_on "python@3.15" => [:build, :test]
   depends_on "popt"
-  depends_on "python@3.15"
   depends_on "s-lang"
 
   on_macos do
