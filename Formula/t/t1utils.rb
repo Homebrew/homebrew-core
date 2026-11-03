@@ -29,6 +29,8 @@ class T1utils < Formula
     depends_on "automake" => :build
   end
 
+  deny_network_access!
+
   def install
     system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
