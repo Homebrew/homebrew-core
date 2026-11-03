@@ -32,6 +32,8 @@ class Treefrog < Formula
     depends_on "liburing"
   end
 
+  deny_network_access!
+
   def install
     rm_r("3rdparty")
     # Skip unneeded CMake check
