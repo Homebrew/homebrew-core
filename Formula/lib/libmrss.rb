@@ -28,6 +28,8 @@ class Libmrss < Formula
 
   uses_from_macos "curl"
 
+  allow_network_access! :test
+
   def install
     # need NEWS file for build
     touch "NEWS"
