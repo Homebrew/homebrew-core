@@ -41,6 +41,8 @@ class Libdvbpsi < Formula
     sha256 "64804df9d209528587e44d6ea49b72f74577fbe64334829de4e22f1f45c5074c"
   end
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking", "--enable-release"
@@ -51,9 +53,7 @@ class Libdvbpsi < Formula
   test do
     # Adjust headers to allow the test to build without the upstream source tree
     cp pkgshare/"dump_pids.c", testpath/"test.c"
-    inreplace "test.c",
-              "#include \"config.h\"\n",
-              "#include <inttypes.h>\n"
+    inreplace "test.c", '#include "config.h"', "#include <inttypes.h>"
 
     system ENV.cc, testpath/"test.c", "-I#{include}", "-L#{lib}", "-ldvbpsi", "-o", "test"
 
