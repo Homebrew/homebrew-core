@@ -5,6 +5,11 @@ class Dafny < Formula
   sha256 "05417a2250cea13494318a60d86bd0dc6d9622bd625d9f4fbeb42854462e6798"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "888a55cc59aad5be9c86602559b1a062b19fe6fa6f0b2c78325f05f47369162f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8e05c17dd373fc4990bfdbb912d8fa47eb1981a5fd34ec150283f53eddaa0c9e"
