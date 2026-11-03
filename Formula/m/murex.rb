@@ -12,11 +12,11 @@ class Murex < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ebec12002794e223cdc399161696710369675709e159db1c06364edd0f4e87d4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ebec12002794e223cdc399161696710369675709e159db1c06364edd0f4e87d4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ebec12002794e223cdc399161696710369675709e159db1c06364edd0f4e87d4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "731cdbaa96d155b1519715178c14f372803448817e8deaa255a7ffc67dad09c8"
-    sha256 cellar: :any,                 x86_64_linux:      "525c0d71c611fb36e689d81dfcf4b26dc21bb1ce0954e66343a91af3315250c5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "97e8187cfaa5895075ce2ed2f527befaebaa5b7851b8eb5ab05634011311687b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "97e8187cfaa5895075ce2ed2f527befaebaa5b7851b8eb5ab05634011311687b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "97e8187cfaa5895075ce2ed2f527befaebaa5b7851b8eb5ab05634011311687b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b65eea8106bee33d6e4a01dccc705a8e3becd974bf46971b534bb71ed973ab61"
+    sha256 cellar: :any,                 x86_64_linux:      "68a749c2bf170bbaf03cee7af7b19c34d3dc693fb8931164d81acf9846335064"
   end
 
   depends_on "go" => :build
