@@ -1,8 +1,8 @@
 class ContentfulCli < Formula
   desc "Contentful command-line tools"
-  homepage "https://www.contentful.com/developers/docs/tutorials/cli/"
-  url "https://registry.npmjs.org/contentful-cli/-/contentful-cli-4.0.13.tgz"
-  sha256 "afc3ebcc51e3074112b2e68c867655474e7d5c6e4728fb96e4841cc96b415b32"
+  homepage "https://github.com/contentful/contentful-cli"
+  url "https://registry.npmjs.org/contentful-cli/-/contentful-cli-4.0.14.tgz"
+  sha256 "6e3e5576ffc6e8c782778d1f79e6d27a08386213f631d295b51491f93cdc7a5b"
   license "MIT"
 
   bottle do
@@ -16,6 +16,11 @@ class ContentfulCli < Formula
   depends_on "node"
 
   def install
+    # The npm release is already transpiled; do not install its native build-only compiler.
+    package_json = JSON.parse((buildpath/"package.json").read)
+    package_json.fetch("dependencies").delete("typescript")
+    (buildpath/"package.json").atomic_write(JSON.generate(package_json))
+
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
   end
