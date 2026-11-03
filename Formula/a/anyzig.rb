@@ -1,8 +1,8 @@
 class Anyzig < Formula
   desc "Universal zig executable that runs any version of zig"
   homepage "https://github.com/marler8997/anyzig"
-  url "https://github.com/marler8997/anyzig/archive/refs/tags/v2026_10_23.tar.gz"
-  sha256 "9b515e94e9afa321c2966261aea490a729dd4358fa18ca63f5611b084df5f487"
+  url "https://github.com/marler8997/anyzig/archive/refs/tags/v2026_11_03.tar.gz"
+  sha256 "487939d1b2f81b08477ba133a706a0194e67f9a27ef7ed97451b02c9cdf31dc2"
   license "MIT"
 
   livecheck do
@@ -14,11 +14,11 @@ class Anyzig < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f51dbcf41f2217f026643ec67f8d155975eb442611831271074a465bfd98db62"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3121ab6006dfcc3b27553e23f5287e7e7a2695784ecd454ee2c168f97c86793c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c550139aaaa2b56d94c5e49cb32d8a808ac6e3f1216585491288ceb06b0a6074"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b6ee428c90bad65e2f29e2052ce4999df8ef0a81428b31c39a3a29b3d94d60e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "719a4540731b243edc39999616b62a417c2e2b18cb075b1ace9bdee0fbbde39f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4a7b9611e0e5a3ad8358e21d71eaad27f0b34c8bd15380927e187b77d15ceaf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3662964bd5b89a8d2879002d4ffac4155fb6fcf3e9caa3515429614fc05f8dcf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8ed236213836d3f1185077dde2817ffd21d1339c1396fb114e06bb1e10d85013"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "53f797212f335711a0cecf9acb462f17c7b1ca58dfea72ffc3e2ff6a28cbca03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "50ae08f6ce3bd06cf87bb16b3fd67d616d4ce85ebc755029b1e8d88229d8df41"
   end
 
   keg_only "it conflicts with zig"
