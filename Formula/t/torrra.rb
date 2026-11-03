@@ -3,23 +3,18 @@ class Torrra < Formula
 
   desc "Find and download torrents without leaving your CLI"
   homepage "https://torrra.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/49/90/c8e191a7152ec0010f1019d40d83c45a17dfa6fa3f736723d6b16453f882/torrra-2.5.1.tar.gz"
-  sha256 "0a966202f3d5ecf6868d7bd0ed5ff728d985daa6b955788a0d6f7e596625f85c"
+  url "https://files.pythonhosted.org/packages/9d/c6/b4cfa31a61bd4e4e1755f7471b6390f45352d2b921d54681dd5ae31b3b1e/torrra-2.6.1.tar.gz"
+  sha256 "ee802e9480dea9f296a26ff44aab777445426a004612606f2c842f3a85af3843"
   license "MIT"
   head "https://github.com/stabldev/torrra.git", branch: "main"
 
   # FIXME: Fails with "Could not find a version that satisfies the requirement libtorrent".
-  # This can be removed when libtorrent publishes a release with Python 3.14 wheels or an sdist.
+  # This can be removed when libtorrent publishes a release with Python 3.15 wheels or an sdist.
   # A temporary workaround to bump version is to resolve resources with Python 3.13.
   no_autobump! because: "`update-python-resources` cannot determine dependencies"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6c4c0e428b484bdd4620d8eb088715643f86eb800ee9a29602069259a0e43fcd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6c4c0e428b484bdd4620d8eb088715643f86eb800ee9a29602069259a0e43fcd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6c4c0e428b484bdd4620d8eb088715643f86eb800ee9a29602069259a0e43fcd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3085f27bb1e6133ae9422b2f3616660405e1d8c9dfa1eb72448004be992e1a86"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3085f27bb1e6133ae9422b2f3616660405e1d8c9dfa1eb72448004be992e1a86"
+    sha256 cellar: :any_skip_relocation, all: "acbcc39969a7c42c92cc449118bad1050cc324f98690d1d74fadcfb4779a7609"
   end
 
   depends_on "certifi" => :no_linkage
@@ -29,8 +24,8 @@ class Torrra < Formula
   pypi_packages exclude_packages: %w[certifi libtorrent libtorrent-windows-dll]
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "click" do
@@ -83,9 +78,14 @@ class Torrra < Formula
     sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+  end
+
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
-    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
+    url "https://files.pythonhosted.org/packages/9a/6e/886dc7c9d21e2d95aceb696f1e31271742033aeef3661f6e9c8921493592/platformdirs-4.14.3.tar.gz"
+    sha256 "021add1ab113483edbcd4694f5fbb2d688b893ea30d35e1155bb371cf4be0be8"
   end
 
   resource "pygments" do
@@ -114,6 +114,7 @@ class Torrra < Formula
   end
 
   def install
+    inreplace "pyproject.toml", 'requires-python = ">=3.10,<3.14"', 'requires-python = ">=3.10"'
     virtualenv_install_with_resources
 
     generate_completions_from_executable(bin/"torrra", shell_parameter_format: :click)
