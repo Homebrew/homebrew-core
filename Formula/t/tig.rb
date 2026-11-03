@@ -31,6 +31,8 @@ class Tig < Formula
   depends_on "pcre2"
   depends_on "readline"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}"
