@@ -20,6 +20,8 @@ class Libnftnl < Formula
   depends_on "libmnl"
   depends_on :linux
 
+  allow_network_access! :test
+
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
