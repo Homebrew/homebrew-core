@@ -22,6 +22,8 @@ class Libosip < Formula
     sha256 cellar: :any, x86_64_linux:      "c81d067b9c0e9c096860ecc6a5fc8ec3cbaef2eaa69f03a76c9f370575c9dcdc"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
