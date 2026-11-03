@@ -42,6 +42,8 @@ class Libpgm < Formula
 
   uses_from_macos "python" => :build
 
+  deny_network_access!
+
   def install
     workdir = build.stable? ? "openpgm/pgm" : "pgm"
     cd workdir do
