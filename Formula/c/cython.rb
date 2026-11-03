@@ -10,11 +10,11 @@ class Cython < Formula
   head "https://github.com/cython/cython.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "66f85e2a3c54639d600c5f09c388bb56faeaf83d742df30166075d8a7cca285d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "deea525b5975cf16e6fc8a3f21fdf4e03411686ea6ebef037ae57c5bc28e1336"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6bd1c91f24ac61ce04fd5114a59ab606ee62dd97c813fb85037ee0d9956478d7"
-    sha256 cellar: :any,                 arm64_linux:       "34e1c32b3315d379d68f07c608a2b2eb067d228d50a1f5b9f5edbbd638dc3176"
-    sha256 cellar: :any,                 x86_64_linux:      "dd564be2ef4792ec5c325228b40277a417f1098954144146ce69be5a1fe1ea53"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ec376b088188fab2a3541ee936c37e7ad603f75e6c6aba1ef961524e1fa7b10c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "347e0180b57746a528c6fa89905c88eaa4949541abf35df4a4c151a595634ec6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fffe7ff3859e2d5a29e389f89ecff6cad4b689a48d230db78bcfa1866af3a5d1"
+    sha256 cellar: :any,                 arm64_linux:       "a5b16ec3ed6c70e73bb6b75d3b70b4c4f16d8afb20762c7a39874d26baf8d392"
+    sha256 cellar: :any,                 x86_64_linux:      "a48a6b25bf63e74f9b14657570c5c39cf2dee58375988805fcd1e2d51405c8bc"
   end
 
   depends_on "python@3.15"
