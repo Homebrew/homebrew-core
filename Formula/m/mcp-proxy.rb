@@ -3,12 +3,12 @@ class McpProxy < Formula
 
   desc "Bridge between Streamable HTTP and stdio MCP transports"
   homepage "https://github.com/sparfenyuk/mcp-proxy"
-  url "https://files.pythonhosted.org/packages/d4/b6/871d4fa4533fc0dafe025ce0dbf6c8d49b00e21126a64ba3c634784d0dd3/mcp_proxy-0.13.2.tar.gz"
-  sha256 "8263f0ac632c24cc50d6bdf4923e48cda489433083923eb8543c6e7c71d3f140"
+  url "https://files.pythonhosted.org/packages/fe/b3/cc665c3e0ce00364bd4315c02d58363c23299300e21905ebc267caa9bded/mcp_proxy-0.13.3.tar.gz"
+  sha256 "a1f9d3992374db3646a4fe821d3c2da7d09996b8d88ad684a3a09a8b10ff67ff"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "55265329143c66ec1dbfc81d066cb551746f4d1464727e1765996f62bae15548"
+    sha256 cellar: :any_skip_relocation, all: "69d713d293c9699ff4dbd37325cc5f569d35c6a494707cfdd3c555df77ef5910"
   end
 
   depends_on "certifi" => :no_linkage
