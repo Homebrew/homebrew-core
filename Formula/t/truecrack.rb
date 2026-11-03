@@ -31,6 +31,8 @@ class Truecrack < Formula
     resolves "https://github.com/lvaccaro/truecrack/issues/41"
   end
 
+  deny_network_access!
+
   def install
     if OS.linux?
       # Issue ref: https://github.com/lvaccaro/truecrack/issues/56
