@@ -26,6 +26,8 @@ class Libmatio < Formula
     sha256 "a29df222605476dcfa660597a7805176d7cb6e6c60413a3e487b62b6dbf8e6fe"
   end
 
+  deny_network_access!
+
   def install
     args = %W[
       --enable-extended-sparse=yes
