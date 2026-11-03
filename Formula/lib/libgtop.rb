@@ -32,6 +32,8 @@ class Libgtop < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     # workaround for newer clang
     # upstream bug report, https://gitlab.gnome.org/GNOME/libgtop/-/issues/73
