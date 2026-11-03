@@ -29,6 +29,8 @@ class Tracebox < Formula
 
   uses_from_macos "libpcap"
 
+  deny_network_access!
+
   def install
     unless OS.mac?
       ENV.cxx11 # work around error: reference to 'byte' is ambiguous
