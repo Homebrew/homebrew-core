@@ -30,6 +30,8 @@ class Libassuan < Formula
 
   depends_on "libgpg-error"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules",
                           "--enable-static",
