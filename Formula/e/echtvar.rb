@@ -17,11 +17,11 @@ class Echtvar < Formula
   depends_on "openssl@4" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "python@3.15" => :test
 
   uses_from_macos "bzip2" => :build
   uses_from_macos "llvm" => :build # for `libclang`, used by `hts-sys` bindgen
   uses_from_macos "xz" => :build
+  uses_from_macos "python" => :test
   uses_from_macos "curl"
 
   on_linux do
@@ -41,6 +41,17 @@ class Echtvar < Formula
     sha256 "4ef184305ca098f3b8466b1c08e27354c346aa01653312af99cff657a7c2459b"
     type :unofficial
     resolves "https://github.com/brentp/echtvar/pull/59"
+  end
+
+  deny_network_access!
+
+  def fetch
+    # `Cargo.lock` file is ignored
+    system "cargo", "generate-lockfile"
+    system "cargo", "fetch", *std_cargo_fetch_args
+    resource("hts-sys").stage do
+      system "cargo", "fetch", *std_cargo_fetch_args
+    end
   end
 
   def install
@@ -63,7 +74,8 @@ class Echtvar < Formula
 
   test do
     cp_r pkgshare/"tests/.", testpath
-    system python3, "make-vcf.py", "2"
+    python = which("python3")
+    system python, "make-vcf.py", "2"
     system bin/"echtvar", "encode", "test.zip", "test0.hjson", "generated-subset0.vcf"
     assert_path_exists "test.zip"
   end
