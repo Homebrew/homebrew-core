@@ -20,6 +20,7 @@ class Virglrenderer < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
+  depends_on "python-setuptools" => :build
   depends_on "python@3.15" => :build
   depends_on "libepoxy"
   depends_on "mesa"
@@ -29,14 +30,19 @@ class Virglrenderer < Formula
     depends_on "libx11"
   end
 
+  pypi_packages package_name:   "",
+                extra_packages: "pyyaml"
+
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
     sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
+  deny_network_access!
+
   def install
     venv = virtualenv_create(buildpath/"venv", python3)
-    venv.pip_install resource("pyyaml")
+    venv.pip_install resource("pyyaml"), build_isolation: false
     ENV.prepend_path "PYTHONPATH", venv.site_packages
 
     system "meson", "setup", "build", *std_meson_args
