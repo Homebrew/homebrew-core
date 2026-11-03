@@ -24,6 +24,8 @@ class Libmps < Formula
     depends_on xcode: :build
   end
 
+  deny_network_access!
+
   def install
     if OS.mac?
       # macOS build process
