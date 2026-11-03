@@ -3,8 +3,8 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/f1/c3/a8a699bc0dd354c7f4d50bae1c43d7263e9837d5352d53157d3eb9135e98/datalad-1.7.3.tar.gz"
-  sha256 "108f4484724d90b421d6ab44bc53a55a3a93ffa619e43f0831a0a955ca1e6ba3"
+  url "https://files.pythonhosted.org/packages/67/ef/5f90c26dcfa301c6a72c0ef6a1f0d8c5ccd4a07268b8dee71e7ddc68f41a/datalad-1.7.4.tar.gz"
+  sha256 "502587719709eda8f7124dbd34760572a4f771b168289ebbd1cd185ea5ba0691"
   license "MIT"
   head "https://github.com/datalad/datalad.git", branch: "maint"
 
@@ -147,8 +147,8 @@ class Datalad < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/40/28/1c058a9143d2304b3078f8dadcbb9dc27f7d3581b5d05157c84869c4cc0d/platformdirs-4.14.0.tar.gz"
-    sha256 "83f009c1e8c5fc36869b5171755b291887bd2cade7965233cdfabd23d754720b"
+    url "https://files.pythonhosted.org/packages/9a/6e/886dc7c9d21e2d95aceb696f1e31271742033aeef3661f6e9c8921493592/platformdirs-4.14.3.tar.gz"
+    sha256 "021add1ab113483edbcd4694f5fbb2d688b893ea30d35e1155bb371cf4be0be8"
   end
 
   resource "psutil" do
