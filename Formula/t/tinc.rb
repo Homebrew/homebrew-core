@@ -32,9 +32,13 @@ class Tinc < Formula
   # fix build errors, upstream pr ref, https://github.com/gsliepen/tinc/pull/464
   patch :DATA
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     system "./configure", "--sysconfdir=#{etc}",
-                          "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-openssl=#{formula_opt_prefix(openssl)}",
                           *std_configure_args
     system "make", "install"
 
