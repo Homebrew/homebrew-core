@@ -7,11 +7,11 @@ class GridcraftCli < Formula
   head "https://github.com/storytold/gridcraft.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b6cad6009a6dc5ac6997813af86f41248e8d7ee194aa63f700efe67e510e8891"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ae205f17573492daa6049a083633d2b947c3160b7cc8ea8031ca384f28c35687"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2a4a2367cc9c9cc53a5de5038125689632581e9d91769fa743eda21c2a01482f"
-    sha256 cellar: :any,                 arm64_linux:       "02d2e1375bdc46b09b0b70779293042a76d46cb91e6532d84e8c5c4d74179367"
-    sha256 cellar: :any,                 x86_64_linux:      "0750aa1a019ab4d3cfd37a5930f8a42ff0c2954b93af435fd67a4e748f3fe26f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7319e87c2222e8c6f9d8cb23b2b470f5d239540ee06820c05cf7e9e9fdad4692"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "540b5dd5cd866230f58714cac6ce7c4c6f783f9fc67e699ab17016b2c2cdd32f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "81638c2c59068566539c924d85a63d55003c0cba01cc065d0edb1f9ee971ba75"
+    sha256 cellar: :any,                 arm64_linux:       "39f765e074bc82818c92fc0b8baf23c91c4db8aeae7c8d71d354c9b1ad9f597f"
+    sha256 cellar: :any,                 x86_64_linux:      "2aafff5a7fc9e0f83a1913ab1279b6b4b99335cfe73cf82662b914f5c27df6db"
   end
 
   depends_on "rust" => :build
