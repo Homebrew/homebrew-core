@@ -85,6 +85,8 @@ class TclTk < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     odie "tk resource needs to be updated" if version != resource("tk").version
 
