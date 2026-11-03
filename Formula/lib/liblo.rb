@@ -26,13 +26,12 @@ class Liblo < Formula
 
   depends_on "doxygen" => :build
 
-  def install
-    if build.head?
-      system "./autogen.sh", *std_configure_args
-    else
-      system "./configure", *std_configure_args
-    end
+  deny_network_access!
 
+  def install
+    configure = build.head? ? "./autogen.sh" : "./configure"
+
+    system configure, *std_configure_args
     system "make", "install"
   end
 
