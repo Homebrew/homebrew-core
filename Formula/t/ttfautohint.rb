@@ -40,6 +40,8 @@ class Ttfautohint < Formula
   depends_on "harfbuzz"
   depends_on "libpng"
 
+  deny_network_access!
+
   def install
     system "./bootstrap" if build.head?
     system "./configure", "--disable-silent-rules",

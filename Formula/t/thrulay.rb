@@ -23,6 +23,8 @@ class Thrulay < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "66cdfd861122990076cd447dea49124c4cf5a1629c3ca1a3540b98a12c19fb87"
   end
 
+  deny_network_access!
+
   def install
     # Fix flat namespace usage
     inreplace "configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress", "${wl}-undefined ${wl}dynamic_lookup"

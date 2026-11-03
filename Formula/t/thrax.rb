@@ -22,7 +22,10 @@ class Thrax < Formula
 
   depends_on :macos # Linux runners are unable to download tarball
   depends_on "openfst"
+
   uses_from_macos "python"
+
+  deny_network_access!
 
   def install
     system "./configure", *std_configure_args

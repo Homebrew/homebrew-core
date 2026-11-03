@@ -30,6 +30,8 @@ class Tractorgen < Formula
     type :backport
   end
 
+  deny_network_access!
+
   def install
     # Workaround for Xcode 14.3. Alternatively could autoreconf but that requires additional dependencies.
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403

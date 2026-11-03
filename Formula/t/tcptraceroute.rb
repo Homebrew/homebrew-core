@@ -48,6 +48,8 @@ class Tcptraceroute < Formula
 
   uses_from_macos "libpcap"
 
+  deny_network_access!
+
   def install
     # Regenerate configure script for arm64/Apple Silicon support.
     system "autoreconf", "--force", "--install", "--verbose"

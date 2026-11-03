@@ -31,6 +31,8 @@ class Termrec < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     # Work around build error: call to undeclared function 'forkpty'
     # Issue ref: https://github.com/kilobyte/termrec/issues/8

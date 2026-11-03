@@ -26,6 +26,8 @@ class Treecc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "4dbfb97ace2365eaa60578f1d0c7ae29b9d30d1a445040df285b9b9ca4fce263"
   end
 
+  deny_network_access!
+
   def install
     args = []
     # Help old config scripts identify arm64 linux

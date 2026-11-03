@@ -33,6 +33,8 @@ class Tnef < Formula
     resolves "https://github.com/verdammelt/tnef/pull/49"
   end
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args

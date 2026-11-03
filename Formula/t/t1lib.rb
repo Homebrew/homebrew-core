@@ -28,6 +28,8 @@ class T1lib < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "51b691773063f4f7c0e6cbfa5be259516c77ad7b1c52bb189d045b8056216bf9"
   end
 
+  deny_network_access!
+
   def install
     # Workaround for newer Clang
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
@@ -73,8 +75,8 @@ class T1lib < Formula
 
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lt1", "-o", "test"
 
-    testpath.install_symlink Formula["t1lib"].opt_share/"fonts/afm/bchr.afm"
-    testpath.install_symlink Formula["t1lib"].opt_share/"fonts/type1/bchr.pfb"
+    testpath.install_symlink opt_share/"fonts/afm/bchr.afm"
+    testpath.install_symlink opt_share/"fonts/type1/bchr.pfb"
     (testpath/"FontDataBase").write "1\nbchr.afm\n"
     (testpath/"t1lib.config").write <<~EOS
       FONTDATABASE=./FontDataBase

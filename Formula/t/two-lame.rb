@@ -22,6 +22,8 @@ class TwoLame < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "0a0261525798a434c29f332eaa62ed01cf06c4bb2bdf76a64cdf2e6a46fd1b0a"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

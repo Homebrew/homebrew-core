@@ -33,6 +33,8 @@ class Tgif < Formula
   # fixes the -Wimplicit-function-declaration error on Sonoma
   patch :DATA
 
+  deny_network_access!
+
   def install
     # Workaround for newer Clang
     inreplace "Makefile.in", "-Wall", "-Wall -Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403

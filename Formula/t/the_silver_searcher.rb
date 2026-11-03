@@ -34,6 +34,8 @@ class TheSilverSearcher < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     ENV.append_to_cflags "-fcommon" if ENV.compiler.to_s.start_with?("gcc")
     # Stable tarball does not include pre-generated configure script

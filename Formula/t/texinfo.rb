@@ -27,6 +27,8 @@ class Texinfo < Formula
     depends_on "libunistring"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-install-warnings", *std_configure_args
     system "make", "install"

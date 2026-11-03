@@ -31,6 +31,8 @@ class Twm < Formula
 
   uses_from_macos "bison" => :build
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"

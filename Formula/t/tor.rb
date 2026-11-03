@@ -36,12 +36,16 @@ class Tor < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     args = %W[
       --disable-silent-rules
       --sysconfdir=#{etc}
       --localstatedir=#{var}
-      --with-openssl-dir=#{formula_opt_prefix("openssl@4")}
+      --with-openssl-dir=#{formula_opt_prefix(openssl)}
     ]
 
     system "./configure", *args, *std_configure_args

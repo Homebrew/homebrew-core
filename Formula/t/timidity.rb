@@ -38,6 +38,8 @@ class Timidity < Formula
     sha256 "d79fa8719500880627b1b65286fde6ddb06274540a3eba21178d2058d525007e"
   end
 
+  deny_network_access!
+
   def install
     ENV.append_to_cflags "-DSTDC_HEADERS" if OS.mac?
     # autoconf 2.73 selects C23, which rejects the K&R declarations in this codebase

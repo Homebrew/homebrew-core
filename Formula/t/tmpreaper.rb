@@ -30,6 +30,8 @@ class Tmpreaper < Formula
     depends_on "util-linux"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}"
     system "make", "install"
