@@ -31,6 +31,8 @@ class Libigloo < Formula
   depends_on "pkgconf" => :build
   depends_on "rhash"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args
