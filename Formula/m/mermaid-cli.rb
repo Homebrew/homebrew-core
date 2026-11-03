@@ -1,8 +1,8 @@
 class MermaidCli < Formula
   desc "CLI for Mermaid library"
   homepage "https://github.com/mermaid-js/mermaid-cli"
-  url "https://registry.npmjs.org/@mermaid-js/mermaid-cli/-/mermaid-cli-12.0.0.tgz"
-  sha256 "b5b43bc60c2e6bc87f7d12ab3e6e78883c799213ea5b015363fecdd5e6363c84"
+  url "https://registry.npmjs.org/@mermaid-js/mermaid-cli/-/mermaid-cli-12.2.0.tgz"
+  sha256 "5aea6d89f3c54cfdff969430e1bcdc0212459806d74fd450d4a36d3144869a3b"
   license "MIT"
 
   bottle do
