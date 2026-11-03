@@ -40,6 +40,8 @@ class Libdbusmenu < Formula
     depends_on "perl-xml-parser" => :build
   end
 
+  deny_network_access!
+
   def install
     # add --disable-tests after https://bugs.launchpad.net/ubuntu/+source/libdbusmenu/+bug/1708938
     # otherwise a patch is necessary, see https://github.com/Homebrew/homebrew-core/pull/230809#issuecomment-3100671936
