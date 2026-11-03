@@ -6,17 +6,21 @@ class Logrotate < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_golden_gate: "cfea11d5be7c40fba2d3093263fe1753afa52f2e78e5c6e8f62e9678ac15b8ef"
-    sha256 cellar: :any,                 arm64_tahoe:       "956be5c37ef380ddac0212fb5016e5d4a6baaefb6abe55d081eb8d130e3c8790"
-    sha256 cellar: :any,                 arm64_sequoia:     "f23f3fac084d295e4c386d0e0a2a95af2b54adfb732aed1549f2ecf7fb1738e2"
-    sha256 cellar: :any,                 arm64_sonoma:      "29629b2a739cf74d95eaf260872024ffeaf7b194f461d74d20cd07afa4d7361b"
-    sha256 cellar: :any,                 sonoma:            "83bb9be87509907cbb33a7ae78a4ff40ac00ac9da01f99d85817d2391cb2439f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a65380b56872b8ac8acbedc3400a24c32b278b2e241f631bbeb88e7b485b1b0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d507205d500b30fedd4f60fccb2e4667985bfaf9348b26b641ff357ce89a442b"
+    rebuild 3
+    sha256 cellar: :any, arm64_golden_gate: "e85b9ccac8c53bf7990ff6f3b7f569c8dad8736bbd7b81ff9f41cc47e8c330b0"
+    sha256 cellar: :any, arm64_tahoe:       "78f780e907bf58fb974266ef98a7d5cf6707c89a3f3158132fa19e90755903eb"
+    sha256 cellar: :any, arm64_sequoia:     "02751c8972565a8ac4700289e9216b2570d3cefda92d97594f884db068e491d8"
+    sha256 cellar: :any, arm64_linux:       "cfa0e329b27481f9729ef8c5ad3c167f2c8161ca983986bf38b78b69228835c3"
+    sha256 cellar: :any, x86_64_linux:      "d33b1855513d0931deb474fbf16e233e5bdc98cb056e617f53a787edb79939a3"
   end
 
   depends_on "popt"
+
+  on_linux do
+    depends_on "acl"
+  end
+
+  deny_network_access!
 
   def install
     system "./configure", "--with-compress-command=/usr/bin/gzip",
