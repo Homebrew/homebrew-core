@@ -1,16 +1,16 @@
 class Cdxgen < Formula
   desc "Creates CycloneDX Software Bill-of-Materials (SBOM) for projects"
-  homepage "https://github.com/CycloneDX/cdxgen"
-  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-12.9.0.tgz"
-  sha256 "56a4d2b7042620e419617b6620f2b5ac7f61265d296601e5bda41e3a7c672b0f"
+  homepage "https://github.com/cdxgen/cdxgen"
+  url "https://registry.npmjs.org/@cdxgen/cdxgen/-/cdxgen-13.6.0.tgz"
+  sha256 "4076f70de6125235753c38494148cc173e5cc11f020936ef40bce2895ba329f9"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "5cdbe16a499f5290acc0119c9e4276025c4c8481ac8370730c1d5fc34bda88c3"
-    sha256 cellar: :any, arm64_tahoe:       "6e281322418ee75593ec662eac626500d6747e0fa25f30b154adf055c4b177f1"
-    sha256 cellar: :any, arm64_sequoia:     "15adda95fd1ffb18b0b0c21b815b646a6f1159aedbb1bfe8e91b98df51367c19"
-    sha256 cellar: :any, arm64_linux:       "5798cd75473b5cc4fd3898d6a9e869b23e26ce1948c9e6fdfd206cf8c13338c3"
-    sha256 cellar: :any, x86_64_linux:      "805a9d2760ee1899b74ce42600dedc145cceeba17f44081a564fdc7309184f26"
+    sha256 cellar: :any, arm64_golden_gate: "afc391977a7d3fd0830cb424bae34f4adc3af4d158bc3628363168db023f9585"
+    sha256 cellar: :any, arm64_tahoe:       "a1d9c6426e622c83c6d2c250a84bfb94cd3f80ccd793f72b6cbf47f69cc27235"
+    sha256 cellar: :any, arm64_sequoia:     "bbe5a4c848a9645215cdcd6eb7d7e98b3b2741ba416ee6cb81e9526dec7fa9b2"
+    sha256 cellar: :any, arm64_linux:       "bbb364dcb393cfff5cdd911da0f45b98c68eed76d7e60c61fbc337d330cd3c30"
+    sha256 cellar: :any, x86_64_linux:      "cb17611b000d79af2006f026db9eeaf1c30c8ce8aadf96dcf13a7a2f8e07aab1"
   end
 
   depends_on "dotnet" # for dosai
@@ -47,9 +47,11 @@ class Cdxgen < Formula
     # Remove/replace pre-built binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
-    node_modules = libexec/"lib/node_modules/@cyclonedx/cdxgen/node_modules"
+    node_modules = libexec/"lib/node_modules/@cdxgen/cdxgen/node_modules"
     cdxgen_plugins = node_modules/"@cdxgen/cdxgen-plugins-bin-#{os}-#{arch}/plugins"
-    paths_to_remove = %w[dosai sourcekitten trivy].map { |plugin| cdxgen_plugins/plugin }
+    paths_to_remove = %w[dosai trivy].map { |plugin| cdxgen_plugins/plugin }
+    # Pre-built sourcekitten is only shipped for macOS
+    paths_to_remove << (cdxgen_plugins/"sourcekitten") if OS.mac?
     # Remove pre-built osquery plugins for macOS arm builds
     paths_to_remove << (cdxgen_plugins/"osquery") if OS.mac? && Hardware::CPU.arm?
 
@@ -98,7 +100,7 @@ class Cdxgen < Formula
         2.4.12
     LOCK
 
-    assert_match "BOM includes 1 components and 2 dependencies", shell_output("#{bin}/cdxgen -p")
+    assert_match "BOM includes 2 components and 2 dependencies", shell_output("#{bin}/cdxgen -p 2>&1")
 
     assert_match version.to_s, shell_output("#{bin}/cdxgen --version")
   end
