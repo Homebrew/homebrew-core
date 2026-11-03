@@ -38,6 +38,8 @@ class Tin < Formula
 
   conflicts_with "mutt", because: "both install mmdf.5 and mbox.5 man pages"
 
+  deny_network_access!
+
   def install
     # Remove bundled libraries
     rm_r buildpath/"pcre"
