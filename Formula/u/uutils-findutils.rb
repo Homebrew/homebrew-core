@@ -1,19 +1,17 @@
 class UutilsFindutils < Formula
   desc "Cross-platform Rust rewrite of the GNU findutils"
   homepage "https://uutils.github.io/findutils/"
-  url "https://github.com/uutils/findutils/archive/refs/tags/0.10.0.tar.gz"
-  sha256 "e36ae3937f889bc59cfbd65820a642baa695c58d7fa1e387e41857e710f40419"
+  url "https://github.com/uutils/findutils/archive/refs/tags/0.11.0.tar.gz"
+  sha256 "43d1fbb69a0e67e708435bd104966d1dd61357755452b733db9dabfd66cbf974"
   license "MIT"
   head "https://github.com/uutils/findutils.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "96d290926be7ea57e8a7a4e2ab2d6a918df021ad817dd96891f0709420579b2c"
-    sha256 cellar: :any, arm64_tahoe:       "f0b963f1e968acadb40faf068299ff3d95d1141bb6a92b4014183cc001957333"
-    sha256 cellar: :any, arm64_sequoia:     "0ff84ee54e9adce4fac0eb5ec3c013eb6ce4e5f625a3b6d20cdb476e55ab38bf"
-    sha256 cellar: :any, arm64_sonoma:      "8f7b577688da476a71ee7f1e3e87457e73871cf38ae07aefe223ac3ed190ad47"
-    sha256 cellar: :any, sonoma:            "09f853a5fc9dae2cf13dc059d1e77126744b764a45ec94279709185442f1d47d"
-    sha256 cellar: :any, arm64_linux:       "f529b71887accd0166c7267a85bfbe978dcd420df91071026e9d2b26a1984919"
-    sha256 cellar: :any, x86_64_linux:      "ba0a289490eae870ea1ef1390d0c842cf87992e009d2616af029db57f877f717"
+    sha256 cellar: :any, arm64_golden_gate: "13aa41b6dc8193d4384839047e857168c29105a3a07984f8c8ffd871fb1a8d80"
+    sha256 cellar: :any, arm64_tahoe:       "ffab93a4a672cf3fea6c6184cde73db7f28b6c825f4b9ee28f38578aeddbdd48"
+    sha256 cellar: :any, arm64_sequoia:     "14bc09b33c21300ad37c0396695b97a12c4a7cbf6330ab2fba8fc88a044e61e0"
+    sha256 cellar: :any, arm64_linux:       "439de0165b45974a6f7b818db67400e99d112ee5fe57bd4549d3cd51d7f3171f"
+    sha256 cellar: :any, x86_64_linux:      "9572af4e16dc04cf1c96bf9aefd6f71548d71062fd02e47d7c0bb42eb562139a"
   end
 
   depends_on "pkgconf" => :build
@@ -44,16 +42,6 @@ class UutilsFindutils < Formula
       next if unwanted_bin_link? cmd
 
       bin.install_symlink libexec/"uubin"/cmd => "uu-#{cmd}"
-
-      # Create a temporary compatibility executable for previous 'u' prefix.
-      # All users should get the warning in 0.9.0. Similar to brew's odeprecate
-      # timeframe, the removal can be done after 2 minor releases, i.e. 0.11.0.
-      odie "Remove compatibility exec scripts!" if build.stable? && version >= "0.11.0"
-      (bin/"u#{cmd}").write <<~SHELL
-        #!/bin/bash
-        echo "WARNING: u#{cmd} has been renamed to uu-#{cmd} and will be removed in 0.11.0" >&2
-        exec "#{bin}/uu-#{cmd}" "$@"
-      SHELL
     end
   end
 
@@ -70,7 +58,6 @@ class UutilsFindutils < Formula
     require "utils/linkage"
 
     touch "HOMEBREW"
-    assert_match "HOMEBREW", shell_output("#{bin}/ufind .") # TODO: remove in 0.11.0
     assert_match "HOMEBREW", shell_output("#{bin}/uu-find .")
     assert_match "HOMEBREW", shell_output("#{opt_libexec}/uubin/find .")
 
