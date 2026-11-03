@@ -37,6 +37,8 @@ class Toilet < Formula
   depends_on "pkgconf" => :build
   depends_on "libcaca"
 
+  deny_network_access!
+
   def install
     system "./bootstrap" if build.head?
     system "./configure", *std_configure_args
