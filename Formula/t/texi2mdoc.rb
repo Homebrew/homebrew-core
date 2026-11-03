@@ -25,6 +25,8 @@ class Texi2mdoc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "f155dfc278556137351b12849d598130decfbf64e824f99de7dda813a731051f"
   end
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
     share.install prefix/"man"
