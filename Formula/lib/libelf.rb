@@ -36,6 +36,8 @@ class Libelf < Formula
   # `libelf` should never be used on Linux as `elfutils` is available.
   depends_on :macos
 
+  deny_network_access!
+
   def install
     # Workaround for ancient config files not recognising aarch64 macos.
     am = Formula["automake"]

@@ -23,6 +23,8 @@ class Libevent < Formula
   depends_on "pkgconf" => :build
   depends_on "openssl@4"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug-mode", *std_configure_args
     system "make"

@@ -40,6 +40,8 @@ class Libdv < Formula
   # remove SDL1 dependency by force
   patch :DATA
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
 

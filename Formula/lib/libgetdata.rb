@@ -30,6 +30,8 @@ class Libgetdata < Formula
     file "Patches/libtool/configure-big_sur.diff"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",

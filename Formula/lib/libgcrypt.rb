@@ -21,6 +21,8 @@ class Libgcrypt < Formula
 
   depends_on "libgpg-error"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-asm",
                           "--disable-silent-rules",

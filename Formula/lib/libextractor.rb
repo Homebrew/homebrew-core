@@ -26,6 +26,8 @@ class Libextractor < Formula
 
   conflicts_with "csound", because: "both install `extract` binaries"
 
+  deny_network_access!
+
   def install
     ENV.deparallelize
 

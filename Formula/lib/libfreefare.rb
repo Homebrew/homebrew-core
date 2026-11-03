@@ -37,9 +37,13 @@ class Libfreefare < Formula
     file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
   end
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
-    ENV.append_to_cflags "-I#{formula_opt_include("openssl@4")}"
-    ENV.append "LDFLAGS", "-L#{formula_opt_lib("openssl@4")}"
+    ENV.append_to_cflags "-I#{formula_opt_include(openssl)}"
+    ENV.append "LDFLAGS", "-L#{formula_opt_lib(openssl)}"
 
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"

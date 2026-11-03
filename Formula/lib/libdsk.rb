@@ -31,6 +31,8 @@ class Libdsk < Formula
     file "Patches/libtool/configure-big_sur.diff"
   end
 
+  deny_network_access!
+
   def install
     # Avoid lyx dependency
     inreplace "Makefile.in", "SUBDIRS = . include lib tools man doc",
