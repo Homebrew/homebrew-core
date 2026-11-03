@@ -1,8 +1,8 @@
 class T2sz < Formula
   desc "Compress a file into a seekable zstd with per-file seeking for tar archives"
   homepage "https://github.com/martinellimarco/t2sz"
-  url "https://github.com/martinellimarco/t2sz/archive/refs/tags/v1.2.5.tar.gz"
-  sha256 "4bdc590a8a2085951cfbe83ef6ab22b5fd4723163662e1aae41260c0b5a49a01"
+  url "https://github.com/martinellimarco/t2sz/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "088b4cc1896f1c85c92db572f0ac170a9231492e244305754ca9bd5287faaa69"
   license "GPL-3.0-or-later"
 
   bottle do
