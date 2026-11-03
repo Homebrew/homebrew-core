@@ -3,16 +3,16 @@ class ConfluenceMarkdownExporter < Formula
 
   desc "Export Atlassian Confluence pages as Markdown files"
   homepage "https://github.com/Spenhouet/confluence-markdown-exporter"
-  url "https://files.pythonhosted.org/packages/26/90/b9aca0af3953432af805da404f3a89ece351a6403671ad4cbb60cad4c007/confluence_markdown_exporter-5.5.1.tar.gz"
-  sha256 "5f19e926b4cbf0ffb1f0267507943d25cdfdcb5813b18bcdbee4e26e01cb717c"
+  url "https://files.pythonhosted.org/packages/eb/6e/44773ab9cfa53559d8e540b50322d7e09ed29ca4d37ea539b040a4491f89/confluence_markdown_exporter-5.5.2.tar.gz"
+  sha256 "12dc81b18c9034afe4482e09a7bd9bb8991513490b30d5df302cbaa695b7d07f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "561701ec99685203792fcd0e81f14ae6e8860a68f38e0d22ef3d72ccddaaba26"
-    sha256 cellar: :any, arm64_tahoe:       "4721f0df7f0c4609b8fa3040d5f229944267f3247806599f0a6d83f14dfe4936"
-    sha256 cellar: :any, arm64_sequoia:     "037e514b4550dd49627835fd88dabb462a16b8b9dcdb57e4310181d74a5a5000"
-    sha256 cellar: :any, arm64_linux:       "25551b718b76e35d75313ba9d4f8031368a8442271bb7c0334969b191cf499fd"
-    sha256 cellar: :any, x86_64_linux:      "950a21807fca20a5fdb0f1c9276b2ce241e1d6aa2dc46f5ae8c8703a7405499d"
+    sha256 cellar: :any, arm64_golden_gate: "4b43f5de36d2e116978440e18f79e79e35f4a59261407a17168e7dde1872e87b"
+    sha256 cellar: :any, arm64_tahoe:       "771c161304f26450aa4344cbb9dc49d0fac87e06f3c312fcbdc6ba4bcb547022"
+    sha256 cellar: :any, arm64_sequoia:     "d94c7bbe3576f7ec87b4204259f15d51a4b420c7b83c7d7aa3a577a3b548bf15"
+    sha256 cellar: :any, arm64_linux:       "180d2fbacd2c7efd3c9a80434c9c53bfeea24500339e4e13d1fc88967079246a"
+    sha256 cellar: :any, x86_64_linux:      "df465ed6c2b9e652ea093c2379afe0b79e370c5a643efe40f5e865d23842e3fa"
   end
 
   depends_on "certifi" => :no_linkage
