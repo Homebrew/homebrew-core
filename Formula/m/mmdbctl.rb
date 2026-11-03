@@ -7,11 +7,11 @@ class Mmdbctl < Formula
   head "https://github.com/ipinfo/mmdbctl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f33ffb2c5b6738eb995bac7ec62e5d83288165c50bfd5048ffc6c2188b1f0c46"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f33ffb2c5b6738eb995bac7ec62e5d83288165c50bfd5048ffc6c2188b1f0c46"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f33ffb2c5b6738eb995bac7ec62e5d83288165c50bfd5048ffc6c2188b1f0c46"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e63b4391a2e9508cad11b3540fcb606b676492f75cc6a8ac4e265d2ef6578cb0"
-    sha256 cellar: :any,                 x86_64_linux:      "13009e5c94a1bae84dc373bfb1847c89bfeaf0729fcb074918a1bb633a26fa78"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "62b3dbc96bbc5b8b8becc293fac30b31f64b4ad452a383f1b279125f3c5bc4e8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "62b3dbc96bbc5b8b8becc293fac30b31f64b4ad452a383f1b279125f3c5bc4e8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "62b3dbc96bbc5b8b8becc293fac30b31f64b4ad452a383f1b279125f3c5bc4e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b18e35d715b4108b76866afec681c09d5dc6a6326c1605cf5699335548ade0fc"
+    sha256 cellar: :any,                 x86_64_linux:      "f74bd008593a3da4c9e57e39a4e90a134943967b6cdd554dfc48e21c3610c511"
   end
 
   depends_on "go" => :build
