@@ -59,6 +59,8 @@ class Libidn2 < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     args = ["--disable-silent-rules", "--with-packager=Homebrew"]
     args << "--with-libintl-prefix=#{formula_opt_prefix("gettext")}" if OS.mac?
