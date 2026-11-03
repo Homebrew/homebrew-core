@@ -4,6 +4,7 @@ class Byobu < Formula
   url "https://github.com/dustinkirkland/byobu/archive/refs/tags/7.23.tar.gz"
   sha256 "2c6bb133d717cd3333fbddef22fc27f1d8914ffd066c1b044b233186cbb35aa0"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -22,6 +23,7 @@ class Byobu < Formula
   depends_on "automake" => :build
 
   depends_on "newt"
+  depends_on "python@3.15"
   depends_on "tmux"
 
   on_macos do
@@ -39,16 +41,11 @@ class Byobu < Formula
     system "make"
     ENV.deparallelize { system "make", "install" }
 
-    byobu_python = Formula["newt"].deps
-                                  .find { |d| d.name.match?(/^python@\d\.\d+$/) }
-                                  .to_formula
-                                  .libexec/"bin/python"
-
     lib.glob("byobu/include/*.py").each do |script|
       byobu_script = "byobu-#{script.basename(".py")}"
 
       libexec.install(bin/byobu_script)
-      (bin/byobu_script).write_env_script(libexec/byobu_script, BYOBU_PYTHON: byobu_python)
+      (bin/byobu_script).write_env_script(libexec/byobu_script, BYOBU_PYTHON: python3)
     end
   end
 
