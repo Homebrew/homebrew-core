@@ -1,8 +1,8 @@
 class Ketch < Formula
   desc "Web search and scraping for agents"
   homepage "https://github.com/1broseidon/ketch"
-  url "https://github.com/1broseidon/ketch/archive/refs/tags/v0.20.2.tar.gz"
-  sha256 "b26b7ebb03fad37c0089f91ef0004d9d0632f615484b536a0d2d3f4fab5e5ad8"
+  url "https://github.com/1broseidon/ketch/archive/refs/tags/v0.20.3.tar.gz"
+  sha256 "329e8d8b9eb9057c8d7acfc99569d61e3411d5ef4bc0bbbb4c3b4a873c4a0ba8"
   license "MIT"
   head "https://github.com/1broseidon/ketch.git", branch: "main"
 
