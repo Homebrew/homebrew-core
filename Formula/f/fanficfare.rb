@@ -3,18 +3,17 @@ class Fanficfare < Formula
 
   desc "Download fanfiction and original stories as e-books"
   homepage "https://github.com/JimmXinu/FanFicFare"
-  url "https://files.pythonhosted.org/packages/92/24/a394ed6de5daf39237ce371cac34a72cd6936608b278d7568a43ef99c288/fanficfare-4.62.0.tar.gz"
-  sha256 "eee865d46b0b863cab470c6c7e60d59e102d25d4cea096ca08491337ab81b69e"
+  url "https://files.pythonhosted.org/packages/ca/bc/987888bfdc83399441b972e5b556228d8322add50931a7f900799e3b21c6/fanficfare-4.63.0.tar.gz"
+  sha256 "21338d88297303b09a64f00dab5982b0760902d91829629d66c162c98feba9ef"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/JimmXinu/FanFicFare.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f565016b058b253dffe548e2c1881b7209f452c0327a51284786ad3fbcb0f0a9"
-    sha256 cellar: :any, arm64_tahoe:       "9049970d90bb3f511014372e12d8f38eb3e4a6e6e0c264d81c96a3b85904869e"
-    sha256 cellar: :any, arm64_sequoia:     "cd6f5ce826b3e3247709c4c7f703a5f82255f3561863d7b76ad910dad7d33220"
-    sha256 cellar: :any, arm64_linux:       "e574cf44f024eaff4b95e19ce154f20e58b30c066e5f3a152eb1ae60132dbf27"
-    sha256 cellar: :any, x86_64_linux:      "0f70d666e8fa2784b037007c6292f5db7b32969889fb7d73333c6b41a854968f"
+    sha256 cellar: :any, arm64_golden_gate: "d79320295d8a642ffa0dd0d6654b1b01695aff30de0d230df914c501342f9036"
+    sha256 cellar: :any, arm64_tahoe:       "e082b879fc3f75d26cfb41b1f1a89dee97ee43aafed643a2b180ae5ccf87df2f"
+    sha256 cellar: :any, arm64_sequoia:     "ece4a63d13667a9f2110e57e135ca13aeb3c51bdb31aac2d9b9f81a611384aa5"
+    sha256 cellar: :any, arm64_linux:       "578b5999a613655de527a9216c848ebca760aa0babd84ddd819ea17376045822"
+    sha256 cellar: :any, x86_64_linux:      "994f38a56998718fac6b6f3abbc0edede90168a36fda49561d76f99e4622e875"
   end
 
   depends_on "pkgconf" => :build
