@@ -2,9 +2,9 @@ class Rpiboot < Formula
   desc "Raspberry Pi USB boot tool for Compute Modules"
   homepage "https://github.com/raspberrypi/usbboot"
   url "https://github.com/raspberrypi/usbboot.git",
-      tag:      "20261002-115811",
-      revision: "51006f8d77dbb99c408737825dd0d57285b7d00d"
-  version "20261002-115811"
+      tag:      "20261103-150646",
+      revision: "8639e9da26db78fab8c53058e10b0ff1bf253483"
+  version "20261103-150646"
   license "Apache-2.0"
   head "https://github.com/raspberrypi/usbboot.git", branch: "master"
 
