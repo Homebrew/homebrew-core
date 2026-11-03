@@ -21,11 +21,14 @@ class Jdtls < Formula
   end
 
   depends_on "openjdk"
-  depends_on "python@3.15"
+
+  uses_from_macos "python"
+
+  deny_network_access!
 
   def install
     libexec.install buildpath.glob("*") - buildpath.glob("config*win*")
-    rewrite_shebang detected_python_shebang, libexec/"bin/jdtls"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), libexec/"bin/jdtls"
     (bin/"jdtls").write_env_script libexec/"bin/jdtls", Language::Java.overridable_java_home_env
   end
 
