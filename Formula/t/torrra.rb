@@ -14,12 +14,7 @@ class Torrra < Formula
   no_autobump! because: "`update-python-resources` cannot determine dependencies"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6c4c0e428b484bdd4620d8eb088715643f86eb800ee9a29602069259a0e43fcd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6c4c0e428b484bdd4620d8eb088715643f86eb800ee9a29602069259a0e43fcd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6c4c0e428b484bdd4620d8eb088715643f86eb800ee9a29602069259a0e43fcd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3085f27bb1e6133ae9422b2f3616660405e1d8c9dfa1eb72448004be992e1a86"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3085f27bb1e6133ae9422b2f3616660405e1d8c9dfa1eb72448004be992e1a86"
+    sha256 cellar: :any_skip_relocation, all: "acbcc39969a7c42c92cc449118bad1050cc324f98690d1d74fadcfb4779a7609"
   end
 
   depends_on "certifi" => :no_linkage
