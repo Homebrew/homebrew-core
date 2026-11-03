@@ -1,8 +1,8 @@
 class StressNg < Formula
   desc "Stress test a computer system in various selectable ways"
-  homepage "https://wiki.ubuntu.com/Kernel/Reference/stress-ng"
-  url "https://github.com/ColinIanKing/stress-ng/archive/refs/tags/V0.22.01.tar.gz"
-  sha256 "67e75894da3f634b85992069b0a888893221a77a3db5e3293cdddd0b1c0d4705"
+  homepage "https://github.com/ColinIanKing/stress-ng"
+  url "https://github.com/ColinIanKing/stress-ng/archive/refs/tags/V0.22.02.tar.gz"
+  sha256 "860004ce7484311b3296fc52796fbbc34dfb7f644a769bbd4e03935b7a1b0ccb"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -22,6 +22,7 @@ class StressNg < Formula
 
   on_linux do
     depends_on "acl"
+    depends_on "gmp"
     depends_on "zlib-ng-compat"
   end
 
