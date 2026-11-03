@@ -1,17 +1,17 @@
 class Salmon < Formula
   desc "Transcript-level quantification from RNA-seq reads"
   homepage "https://github.com/COMBINE-lab/salmon"
-  url "https://github.com/COMBINE-lab/salmon/archive/refs/tags/v2.10.0.tar.gz"
-  sha256 "69672e45ca0e60a8df0d0cd33d8cbb9b8cd1c8d8c6d980650ac751a753163dfc"
+  url "https://github.com/COMBINE-lab/salmon/archive/refs/tags/v2.11.0.tar.gz"
+  sha256 "2c1ac16c8e176772f714d78a74b80e4e86ef01f7c7e71e8e6b3341dd30a88492"
   license "BSD-3-Clause"
   head "https://github.com/COMBINE-lab/salmon.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eb129214e6da271bfd80bdf7ab73101323f3343681582596de4729eb5749abd2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd2e4543fd3da2d36e3c220d24f5aaa28257de15c1a0dcd4bd652e0399bee114"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "54059cd3f1c53469752c8847185933f1382126243a24a9b14db8eb65e5b155ac"
-    sha256 cellar: :any,                 arm64_linux:       "c9404be246d807168c48e03bf1166107a93c9e1d75ed098a3fedda6f66df1ac3"
-    sha256 cellar: :any,                 x86_64_linux:      "dc21397bffb64e019ce9ea0514abf72899a74c261802ff1f15f8047e1efa9e22"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "251af50093d2f139406240255862e0e87217f46281297c07e680a7b04b8dc330"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "745aa924dcec4c3b2369a289051339c8f2592f5d4769451692de0a7b25f96fc0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "08846021b77711e142cd4227367069111acf8a68cac0b469c6f95ad882022fd1"
+    sha256 cellar: :any,                 arm64_linux:       "1d0555df58a5bf66c207cffe092042c6c9a8dfed2667a3774871ba5153906fd2"
+    sha256 cellar: :any,                 x86_64_linux:      "7ba31c59c9591e3acc9b17a6522ace33a1b5b2a202657cef0f40cf7c1ba40f8b"
   end
 
   depends_on "rust" => :build
