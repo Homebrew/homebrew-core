@@ -44,6 +44,8 @@ class Libgeotiff < Formula
   depends_on "libtiff"
   depends_on "proj"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", *std_configure_args, "--with-jpeg"
