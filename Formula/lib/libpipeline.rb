@@ -25,6 +25,8 @@ class Libpipeline < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "d9767e66d73f174a20b3ea560643f30e3bb3e2b5764c0fc5de4196247e13feee"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
