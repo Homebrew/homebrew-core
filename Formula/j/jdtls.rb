@@ -17,15 +17,19 @@ class Jdtls < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d70ecc4536155c65108e9ea0825872e9a21b3818da4dfcad97fb12313505026e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "616f896aaebe3e85bfcc20a36e47496e1151ba473619c9a5e036f674a8f991b6"
   end
 
   depends_on "openjdk"
-  depends_on "python@3.15"
+
+  uses_from_macos "python"
+
+  deny_network_access!
 
   def install
     libexec.install buildpath.glob("*") - buildpath.glob("config*win*")
-    rewrite_shebang detected_python_shebang, libexec/"bin/jdtls"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), libexec/"bin/jdtls"
     (bin/"jdtls").write_env_script libexec/"bin/jdtls", Language::Java.overridable_java_home_env
   end
 
