@@ -19,6 +19,8 @@ class Libmtp < Formula
   depends_on "pkgconf" => :build
   depends_on "libusb"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-mtpz",
                           "--disable-silent-rules",
