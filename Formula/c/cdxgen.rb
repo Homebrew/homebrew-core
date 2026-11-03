@@ -1,8 +1,8 @@
 class Cdxgen < Formula
   desc "Creates CycloneDX Software Bill-of-Materials (SBOM) for projects"
-  homepage "https://github.com/CycloneDX/cdxgen"
-  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-12.9.0.tgz"
-  sha256 "56a4d2b7042620e419617b6620f2b5ac7f61265d296601e5bda41e3a7c672b0f"
+  homepage "https://github.com/cdxgen/cdxgen"
+  url "https://registry.npmjs.org/@cdxgen/cdxgen/-/cdxgen-13.6.0.tgz"
+  sha256 "4076f70de6125235753c38494148cc173e5cc11f020936ef40bce2895ba329f9"
   license "Apache-2.0"
 
   bottle do
@@ -47,9 +47,11 @@ class Cdxgen < Formula
     # Remove/replace pre-built binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
-    node_modules = libexec/"lib/node_modules/@cyclonedx/cdxgen/node_modules"
+    node_modules = libexec/"lib/node_modules/@cdxgen/cdxgen/node_modules"
     cdxgen_plugins = node_modules/"@cdxgen/cdxgen-plugins-bin-#{os}-#{arch}/plugins"
-    paths_to_remove = %w[dosai sourcekitten trivy].map { |plugin| cdxgen_plugins/plugin }
+    paths_to_remove = %w[dosai trivy].map { |plugin| cdxgen_plugins/plugin }
+    # Pre-built sourcekitten is only shipped for macOS
+    paths_to_remove << (cdxgen_plugins/"sourcekitten") if OS.mac?
     # Remove pre-built osquery plugins for macOS arm builds
     paths_to_remove << (cdxgen_plugins/"osquery") if OS.mac? && Hardware::CPU.arm?
 
@@ -98,7 +100,7 @@ class Cdxgen < Formula
         2.4.12
     LOCK
 
-    assert_match "BOM includes 1 components and 2 dependencies", shell_output("#{bin}/cdxgen -p")
+    assert_match "BOM includes 2 components and 2 dependencies", shell_output("#{bin}/cdxgen -p 2>&1")
 
     assert_match version.to_s, shell_output("#{bin}/cdxgen --version")
   end
