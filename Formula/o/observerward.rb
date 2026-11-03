@@ -1,18 +1,17 @@
 class Observerward < Formula
   desc "Web application and service fingerprint identification tool"
   homepage "https://blog.kali-team.cn/projects/observer_ward/"
-  url "https://github.com/emo-crab/observer_ward/archive/refs/tags/v2026.6.28.tar.gz"
-  sha256 "36be8c3c6e6169eb5dfff450fe9d16372dac5a5a8b5d47a6c466555772bd7f74"
+  url "https://github.com/emo-crab/observer_ward/archive/refs/tags/v2026.11.3.tar.gz"
+  sha256 "1e1f571be683b6698fb3fdaaf89ecc902a0f4ce862462ce343f2f6357f2aa878"
   license "GPL-3.0-only"
   head "https://github.com/emo-crab/observer_ward.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a255b83b1a397d744c0f2173f88abdf9d1c7be97a4b7c175b761f8e03ac6fcf3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7401b12b1c42742f2682484d7ff4320059a11d3b212521ca8623e3a718563e56"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0a35d6f9814f5e6123e93ba43438dcf16f1272689f00aad092a068ed35a30e65"
-    sha256 cellar: :any,                 arm64_linux:       "eb30c91e5c827c040d6a933130f74c2278cc931cbf9105205837d5e6865d85fa"
-    sha256 cellar: :any,                 x86_64_linux:      "04ff30946786bd3ff96d8799606ef46361cef1f9a9a91940fa05a16d138dce23"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "790f921122effe3f4fe4f0f4b5febc0237cf797c48e8668eac523bde7a8cd00c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ad45962a94360f7db14ec4faca26119e7ce57dda2d5d44fc8a1e7f759005563b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6c2e0a7b68b60d16c7fc1742c816388e4d28500a60313a205624210937b46901"
+    sha256 cellar: :any,                 arm64_linux:       "642535bbda7069d78928c04d69525a9efab01341b900a6427fe3aaaba395d1f0"
+    sha256 cellar: :any,                 x86_64_linux:      "de9fd16e1a9d2f2ee9900966bdca3124893a8ff8437e2d7e88eb1d5c2e57588a"
   end
 
   depends_on "pkgconf" => :build
