@@ -1,17 +1,17 @@
 class Gosu < Formula
   desc "Pragmatic language for the JVM"
   homepage "https://gosu-lang.github.io/"
-  url "https://github.com/gosu-lang/gosu-lang/archive/refs/tags/v1.18.13.tar.gz"
-  sha256 "b6d6f83270c6badea7baa882e2658399879fde3e4d695b93685d34853f30d1de"
+  url "https://github.com/gosu-lang/gosu-lang/archive/refs/tags/v1.18.14.tar.gz"
+  sha256 "ce40f23cd070e287c6d4954fe28557ef491b221533f3c0bfdd92a36e8fb14f18"
   license "Apache-2.0"
   head "https://github.com/gosu-lang/gosu-lang.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "36e48e107da00625d41827a3872eef49472e549fa630680d7475ae8e6627b4b9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1382e8e4ab8273733b1ac03a064ad9e4e4adf4dbb2cea9ec641c920373816810"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "189ad81eea88911b7006777cdca6260cc3796b9bc097199b19119cbc880c7a97"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "739eaa85d352d93c048335fb761715ec877cbf71d7cda9b83d4a17997d423ade"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a1c50ebef09bb19f39eb3d6080677d4999eeb9118344d387051871fb1030ca6c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "369c8a1d5caeefba66417a8009a93f1e9b21203d52dcf728db39aa77d47797de"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "71a55d239b80d6f8d4e8a95a11f034683243a7f4c93311a95045a253d3d3bed4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9fd4851974135577ded2e0738a786a5704d360a38d251f0a74bd388d72dfe72e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "5a350590734f47f5021230e461319d91d8b3daa7d18756a33780c84426665b31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7b48a732d14c7762473f53514c6c06a9448ef4612eccdde29d73e4f998ee1b0a"
   end
 
   depends_on "maven" => :build
