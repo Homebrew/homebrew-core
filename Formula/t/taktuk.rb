@@ -27,6 +27,8 @@ class Taktuk < Formula
 
   uses_from_macos "perl"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
