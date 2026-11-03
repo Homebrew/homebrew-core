@@ -1,18 +1,16 @@
 class T2sz < Formula
   desc "Compress a file into a seekable zstd with per-file seeking for tar archives"
   homepage "https://github.com/martinellimarco/t2sz"
-  url "https://github.com/martinellimarco/t2sz/archive/refs/tags/v1.2.5.tar.gz"
-  sha256 "4bdc590a8a2085951cfbe83ef6ab22b5fd4723163662e1aae41260c0b5a49a01"
+  url "https://github.com/martinellimarco/t2sz/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "088b4cc1896f1c85c92db572f0ac170a9231492e244305754ca9bd5287faaa69"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "7f878d9c310d5453de929fad151e7b49fc78420d3a1c51ee4acaf6189fbe6f02"
-    sha256 cellar: :any,                 arm64_tahoe:       "05420c0e03856beefe62395c7987b98b1b2228159938eeaa12c3a6e472e7d1d8"
-    sha256 cellar: :any,                 arm64_sequoia:     "471548c4ef9f8df185d042683ebe7a053ca37207442a1f7f923f0e2f40631fae"
-    sha256 cellar: :any,                 arm64_sonoma:      "0bd9e3cc02d9dde481284c82568e048d4940fb191b066dd6614432c2f4304664"
-    sha256 cellar: :any,                 sonoma:            "1154d2bf99a158b7aac817bb9722b728c5f68accec8199a91c937726bf3a0ada"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "fa3fe7e04b3f79638369d6d385a7a0cafeb14ca8538bb84958db43ebb8d55e60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d62971fe1bfb3abc690548725312eb45bff0208046c6a736bd19830024c24af8"
+    sha256 cellar: :any, arm64_golden_gate: "cbda59b07b8a22b87d700be96de0c4a4ade591c808645432758a033be175694a"
+    sha256 cellar: :any, arm64_tahoe:       "09ad7d5a2423360705f4d3b53991debd8b097ca206cc10b05fea1706b4902934"
+    sha256 cellar: :any, arm64_sequoia:     "cbca3f8e2099017e0be6ad89bc991ca0396b7fdeca472f7012a50d7ed339d4a9"
+    sha256 cellar: :any, arm64_linux:       "decf2a324270c8c207600aa653d4ac285c20d8c7b8120871b4c66ac5c6e07df5"
+    sha256 cellar: :any, x86_64_linux:      "fb0ed2d80e2bf80b7f7e19a84f9eb1fb5c09daa9b9f6bdba6f77f5f5264a2d10"
   end
 
   depends_on "cmake" => :build
