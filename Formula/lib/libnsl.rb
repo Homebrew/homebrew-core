@@ -20,6 +20,8 @@ class Libnsl < Formula
   link_overwrite "lib/libnsl.a"
   link_overwrite "lib/libnsl.so"
 
+  allow_network_access! :test
+
   def install
     system "./configure", *std_configure_args,
                           "--disable-silent-rules"
@@ -28,7 +30,7 @@ class Libnsl < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~'EOS'
+    (testpath/"test.c").write <<~'C'
       #include <rpcsvc/ypclnt.h>
 
       int main(int argc, char *argv[]) {
@@ -44,7 +46,7 @@ class Libnsl < Formula
            return 1;
          }
       }
-    EOS
+    C
 
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lnsl", "-o", "test"
 
