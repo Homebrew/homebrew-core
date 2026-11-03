@@ -27,10 +27,9 @@ class Mono < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
 
-  depends_on "python@3.15"
-
   uses_from_macos "unzip" => :build
   uses_from_macos "krb5"
+  uses_from_macos "python"
 
   on_macos do
     if DevelopmentTools.clang_build_version >= 1600
@@ -61,6 +60,8 @@ class Mono < Formula
 
   link_overwrite "lib/mono"
   link_overwrite "lib/cli"
+
+  deny_network_access!
 
   def install
     # Replace hardcoded /usr/share directory. Paths like /usr/share/.mono,
