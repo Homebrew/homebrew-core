@@ -3,8 +3,8 @@ class ConfluenceMarkdownExporter < Formula
 
   desc "Export Atlassian Confluence pages as Markdown files"
   homepage "https://github.com/Spenhouet/confluence-markdown-exporter"
-  url "https://files.pythonhosted.org/packages/eb/6e/44773ab9cfa53559d8e540b50322d7e09ed29ca4d37ea539b040a4491f89/confluence_markdown_exporter-5.5.2.tar.gz"
-  sha256 "12dc81b18c9034afe4482e09a7bd9bb8991513490b30d5df302cbaa695b7d07f"
+  url "https://files.pythonhosted.org/packages/75/0a/195fc63a991fa19d70aaed156aced9cfcb862aae987a9fb86b1c20d78a0d/confluence_markdown_exporter-5.6.0.tar.gz"
+  sha256 "36fe5102550b4652d05dd1e881733b8dad50148f117c21675563cf86bafe974f"
   license "MIT"
 
   bottle do
