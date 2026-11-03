@@ -6,14 +6,15 @@ class SigmaCli < Formula
   url "https://files.pythonhosted.org/packages/ec/37/3eef8688ca933f29b21eff6d9de4ddebe39b4521b62f17a51720d036d53e/sigma_cli-4.0.0.tar.gz"
   sha256 "161a84ea5fabd649701cedd5e49fd16f2debecbac43c56917d6180f32ac15d8d"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/SigmaHQ/sigma-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f3e049df6958a2f8f982610917e5da10777dcd695cd1c0c1da0f3d2072815550"
-    sha256 cellar: :any, arm64_tahoe:       "300662eea9c692d10528d96d775de5d86f0619292157bab4bdf519e89471cba6"
-    sha256 cellar: :any, arm64_sequoia:     "1af7af7f2480051d0edc064134b57eec609b5289bf09aed1187b0b663c4e10ef"
-    sha256 cellar: :any, arm64_linux:       "2299c38f72f519e89b9b6d4f488cb1704e9d9b093d09c5dcd72bbdca31d3c657"
-    sha256 cellar: :any, x86_64_linux:      "f21fc4912baa9093521659dfe8362afd3e232b2bbcb8d78fe98d9a4aa9b09200"
+    sha256 cellar: :any, arm64_golden_gate: "e71fbb4c1723c23b628df3d941c94cd38a8b84604ab12cbfdf63d0fd2d6c2740"
+    sha256 cellar: :any, arm64_tahoe:       "970f3f90080407251849b301cf6590e083810c6b97ac33cc346db38540cbc42d"
+    sha256 cellar: :any, arm64_sequoia:     "67f2b1d9616b79d4c9c918af955efcbfd145bcf5abb074760a51e1f036e028e8"
+    sha256 cellar: :any, arm64_linux:       "02cc5b50cc68a9d6f4ed17e6fb9b40425586fabed4bb211cbfc0482132bae288"
+    sha256 cellar: :any, x86_64_linux:      "98ab5a1f4d22e000d79c9496e4ef1b23256a00ee93beea395cc65186aae3ce71"
   end
 
   depends_on "pybind11" => :build # for `google-re2`
@@ -42,14 +43,9 @@ class SigmaCli < Formula
     sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
   end
 
-  resource "diskcache" do
-    url "https://files.pythonhosted.org/packages/3f/21/1c1ffc1a039ddcc459db43cc108658f32c57d271d7289a2794e401d0fdb6/diskcache-5.6.3.tar.gz"
-    sha256 "2c3a3fa2743d8535d832ec61c2054a1641f41775aa7c556758a109941e33e4fc"
-  end
-
-  resource "diskcache-stubs" do
-    url "https://files.pythonhosted.org/packages/cb/d6/b741a916707520349a3853a3f436aaf5df6e06a2c1499636072b1b3ce45d/diskcache_stubs-5.6.3.6.20240818.tar.gz"
-    sha256 "b6eb43899e906b3167a20ac09a9a226f30267a306a96542ea720ebbfc3282796"
+  resource "diskcache-community" do
+    url "https://files.pythonhosted.org/packages/9a/b1/ef17a29956f0208c5acbc30247c742739d37135531a0facf26a5752f9382/diskcache_community-5.8.1.tar.gz"
+    sha256 "b780ed4b8381487c53cc778599f745784391c4c7af23c528ece049e008be6197"
   end
 
   resource "google-re2" do
@@ -93,8 +89,8 @@ class SigmaCli < Formula
   end
 
   resource "pysigma" do
-    url "https://files.pythonhosted.org/packages/9b/c8/8c64a883e79d595a3239ecdaba62368dc1d57df2fa861998e09dfe6e9aa1/pysigma-2.0.1.tar.gz"
-    sha256 "7bb0188e1cfae1bec56da1f5703a091df158925caf32cf033594bab60b97f49f"
+    url "https://files.pythonhosted.org/packages/67/94/2463945ca70f2d5135768c1898545a0df85586d1b0e66cc1842a649134b7/pysigma-2.0.2.tar.gz"
+    sha256 "c8fac45d24adfa14aeebcbab95929066116b2dbcc0816498066af56dda039832"
   end
 
   resource "pysigma-backend-sqlite" do
@@ -113,13 +109,8 @@ class SigmaCli < Formula
   end
 
   resource "types-pyyaml" do
-    url "https://files.pythonhosted.org/packages/90/6e/abec85b9013db5b934b0280a6dd104904d84f7bcbaab2e2f3def87ac7463/types_pyyaml-6.0.12.20260906.tar.gz"
-    sha256 "f59c1cc05010b833d2d72287bbaa72610106b28d42d89a907313117faba85212"
-  end
-
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
-    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
+    url "https://files.pythonhosted.org/packages/c7/0c/72b85bc2e3a3cf23419a7f8861c1855893f02080e202b631e33cc0d1a94a/types_pyyaml-6.0.12.20261030.tar.gz"
+    sha256 "9123d707aa31a3883eeb2cb290537c75246dfcb1c00abed7a70f5419d3bd31ae"
   end
 
   resource "urllib3" do
