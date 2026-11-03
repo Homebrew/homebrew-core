@@ -3,17 +3,17 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/f1/c3/a8a699bc0dd354c7f4d50bae1c43d7263e9837d5352d53157d3eb9135e98/datalad-1.7.3.tar.gz"
-  sha256 "108f4484724d90b421d6ab44bc53a55a3a93ffa619e43f0831a0a955ca1e6ba3"
+  url "https://files.pythonhosted.org/packages/67/ef/5f90c26dcfa301c6a72c0ef6a1f0d8c5ccd4a07268b8dee71e7ddc68f41a/datalad-1.7.4.tar.gz"
+  sha256 "502587719709eda8f7124dbd34760572a4f771b168289ebbd1cd185ea5ba0691"
   license "MIT"
   head "https://github.com/datalad/datalad.git", branch: "maint"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "15e95470e554fdd7f344d8948ef2abc55b582ae70bc26008e9b6fd09e3e70bc2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c56fc75da2c3845653da7be68f68b8b5ba5756c414a55bbe2242f26f7b119408"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a978dc1d908ee9c1d7b1b60da2908c3a6e6ee811e3608609c956c6353f76f0bb"
-    sha256 cellar: :any,                 arm64_linux:       "af6c78d11460e011f4145e02a08d3db2a7fd616c92a0dd3ddd470c2e84ec8c99"
-    sha256 cellar: :any,                 x86_64_linux:      "8c35edf2073e8b0684a0535a86f487026ebce9b6c2f7d944686bc241aff4ef89"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "413cddd9636dc36873a660ee331397edfb0dd312117e905454679b15d1710830"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd987e070d3175b72f49aa6f59c6c093cc97e645b3ee1ad4418ebc556d1a000a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cce4210fdf9d149af71f1ed3e221963fe9941ce7d9e879598d3c2d6ad5a77402"
+    sha256 cellar: :any,                 arm64_linux:       "a0c1841737f8cc8239946aeab683765950474f7e4e9c9e84abf81909d4158e88"
+    sha256 cellar: :any,                 x86_64_linux:      "63686becded160219bd100152b9ec6128bdfa0ae93c77da80c8f05567ecfc908"
   end
 
   depends_on "certifi" => :no_linkage
@@ -147,8 +147,8 @@ class Datalad < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/40/28/1c058a9143d2304b3078f8dadcbb9dc27f7d3581b5d05157c84869c4cc0d/platformdirs-4.14.0.tar.gz"
-    sha256 "83f009c1e8c5fc36869b5171755b291887bd2cade7965233cdfabd23d754720b"
+    url "https://files.pythonhosted.org/packages/9a/6e/886dc7c9d21e2d95aceb696f1e31271742033aeef3661f6e9c8921493592/platformdirs-4.14.3.tar.gz"
+    sha256 "021add1ab113483edbcd4694f5fbb2d688b893ea30d35e1155bb371cf4be0be8"
   end
 
   resource "psutil" do
