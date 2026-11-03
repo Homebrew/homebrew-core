@@ -21,6 +21,8 @@ class Libgrapheme < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "ba1358d8b88e8ce243d39c7eadccbccd14b13b095d6a6be4ff5240cf36e5ac59"
   end
 
+  deny_network_access!
+
   def install
     system "./configure"
     system "make", "PREFIX=#{prefix}", "LDCONFIG=", "install"
