@@ -54,6 +54,8 @@ class Libpostal < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     pkgshare.install resource("libpostal_data")
     (pkgshare/"language_classifier").install resource("language_classifier")
