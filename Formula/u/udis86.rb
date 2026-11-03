@@ -20,7 +20,7 @@ class Udis86 < Formula
     sha256 cellar: :any, x86_64_linux:      "ada75abea63fda079ef0ad452a8d6cfafb7cf79ce3f4a707711380b50abd2629"
   end
 
-  depends_on "python@3.15" => :build
+  uses_from_macos "python" => :build
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -31,7 +31,7 @@ class Udis86 < Formula
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--enable-shared",
-                          "--with-python=#{python3}"
+                          "--with-python=#{which("python3")}"
     system "make"
     system "make", "install"
   end
