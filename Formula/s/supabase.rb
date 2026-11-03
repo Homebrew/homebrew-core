@@ -12,12 +12,11 @@ class Supabase < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "0b9f04b4d9fbeb2693c14e910e7d61368a8a7183c5d1ba1dbc96383baa534a6f"
-    sha256 arm64_tahoe:       "b86c8c19c914b8d2ffd3c4f9433354677fce683d8ac2b4813bb3fd51945dff3e"
-    sha256 arm64_sequoia:     "93648a15b41a22297cfa22710479b23e3dfaaafb9086376d4f61cc78e2fbe918"
-    sha256 arm64_linux:       "410cc544e9d3ea8308adb6a8c8a5eb7c7344047ed6912caf96b7dc6fa2173fb6"
-    sha256 x86_64_linux:      "487576c0fde9b06a828390457dd2b438c68c5725cb964c15bc322c1040e9b894"
+    sha256 arm64_golden_gate: "898bcddff939a72e179afc00c0d76d4fa13d9610471a32da5d78de59b25fe408"
+    sha256 arm64_tahoe:       "be93f61215970cabd516a0346c49ac7586486b8c4e3f840d70eddc96d640bac3"
+    sha256 arm64_sequoia:     "8968f5c97a9a2aa0a4e41d0986d7f006b28e477813415b85dd100d1732a0f2ee"
+    sha256 arm64_linux:       "82e96a1b65e607933149f04132438d4399de9a248df96f8b99da505e68adabcc"
+    sha256 x86_64_linux:      "b8c9930d617626184ddd0893f9e65cdec56686c2f4746ec0ac6187e1f970f91c"
   end
 
   depends_on "bun" => :build
