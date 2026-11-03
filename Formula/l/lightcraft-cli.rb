@@ -6,6 +6,14 @@ class LightcraftCli < Formula
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/storytold/lightcraft.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ae5aa584ec854569158b6957bcd293972be88786993f8e4e2e2001fb2e57600f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c37065cad12603d6a946d2cd29159d8c7c638850cb5638a7c4dfefa25a365946"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "33eabf1e1ee5125e22c7c7f1b856212c75ca4ea66187475a96bee5845a1ccce1"
+    sha256 cellar: :any,                 arm64_linux:       "4cc877a71b725de33f56dd05cc5ff6132a75f0acab619305a2a7aa106eaa531f"
+    sha256 cellar: :any,                 x86_64_linux:      "d588b8904cb5e9ed9d25973e6109cc1c785f9d5e659652ee37f619d2d5ae3e16"
+  end
+
   depends_on "rust" => :build
 
   deny_network_access!
