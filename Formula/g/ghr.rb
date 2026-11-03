@@ -2,17 +2,17 @@ class Ghr < Formula
   desc "Upload multiple artifacts to GitHub Release in parallel"
   # homepage bug report, https://github.com/tcnksm/ghr/issues/168
   homepage "https://github.com/tcnksm/ghr"
-  url "https://github.com/tcnksm/ghr/archive/refs/tags/v0.18.5.tar.gz"
-  sha256 "b176fb747a3316999883cdbbc3f48a7512ef4b31b622ca378b64f015dc95a439"
+  url "https://github.com/tcnksm/ghr/archive/refs/tags/v0.18.6.tar.gz"
+  sha256 "138a3a5e5c88268ff79cde69fd21c67af7c919d6b388da8e23f398f86871dbf8"
   license "MIT"
   head "https://github.com/tcnksm/ghr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2b8957473cc4ea3216491e79993300d010894f70d88d10cdff50a4a13500718a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2b8957473cc4ea3216491e79993300d010894f70d88d10cdff50a4a13500718a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2b8957473cc4ea3216491e79993300d010894f70d88d10cdff50a4a13500718a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "22dd5bab0cbd02b7017703eadeff166b61d4d7c681f70816c81216b96115a8c3"
-    sha256 cellar: :any,                 x86_64_linux:      "c97884cc0519bc001a679508f1edd89f6261b13dd192a9c37e7fde9e84f5480e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3ebbbe8bb5422b10ed67e8953469c6dbe26746f48cae356c1a9fb983dd58f82d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3ebbbe8bb5422b10ed67e8953469c6dbe26746f48cae356c1a9fb983dd58f82d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3ebbbe8bb5422b10ed67e8953469c6dbe26746f48cae356c1a9fb983dd58f82d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f4f15fa52e06c484c9b8126a93cd38b669fd994f5086b9638f4688c37b6361ed"
+    sha256 cellar: :any,                 x86_64_linux:      "1d8bdc9181ee529ecc04da326d9d049601159f253dbde4e79cfaaace5ddacb60"
   end
 
   depends_on "go" => :build
