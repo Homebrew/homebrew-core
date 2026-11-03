@@ -13,6 +13,14 @@ class Libgovirt < Formula
     regex(/libgovirt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 cellar: :any, arm64_golden_gate: "91db71b22fa5d555412e8b53caea35d9344fb8a489e86084f0ad026141317ade"
+    sha256 cellar: :any, arm64_tahoe:       "55bbab848a8611ad1243add6a52d72a72e3df60633e12cf3b9afa6fae3b5c13b"
+    sha256 cellar: :any, arm64_sequoia:     "cce3ae0c65ce6feb8cc6271b67c115e214648570f76991628e72afd78d528d0f"
+    sha256 cellar: :any, arm64_linux:       "72465a6fa26228e2ba11942caf244557e901d5525fbdbd1d3ae1be8c06dda846"
+    sha256 cellar: :any, x86_64_linux:      "7bb50bb3b6719ee8ab1bbc7033b891d7f21f467a7141c3f7aef6a557dac057ec"
+  end
+
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
