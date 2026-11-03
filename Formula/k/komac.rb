@@ -1,18 +1,17 @@
 class Komac < Formula
   desc "Community Manifest Creator for Windows Package Manager (WinGet)"
   homepage "https://github.com/russellbanks/Komac"
-  url "https://github.com/russellbanks/Komac/archive/refs/tags/v2.17.1.tar.gz"
-  sha256 "b87a4cec1c2dc8a334812d240c668692ab463f81ca58dc210b95f599f148b183"
+  url "https://github.com/russellbanks/Komac/archive/refs/tags/v2.17.2.tar.gz"
+  sha256 "389603a10151eceb5a424aea8339e39911111bcf385f90b140fea56275d47297"
   license "GPL-3.0-or-later"
   head "https://github.com/russellbanks/Komac.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a2704b7b8549287b71ad9df0f62555e176fed67e9bf3d7e9d726c8caadb6d475"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "647d7f8a44675c86dbe5bfe71de100a2da78c7f10438d6784824856ced374394"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "17bb460e323fa5b893b98e505f372984063925ccd21fb2004a7a4dfb3465b101"
-    sha256 cellar: :any,                 arm64_linux:       "b838ceab8feafb86b0721be77c2e699b25d9e80fc987533dafbaf1eee87ad229"
-    sha256 cellar: :any,                 x86_64_linux:      "849b3df1e76027bb651b8005f72d90520fbe869923079145567efe7767d9765a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "86dcf382b51d75c27fa966263eace30814c7cb9ef32afb6229f49b40b849308c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7df747656b1c5b2c20f51c982e30bf36dca7e0917a39f86284ac3ebbb044890d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "255c4d7fe632388ad7bbf115500289d223c882650e08d42ac0ec2a3ece96e867"
+    sha256 cellar: :any,                 arm64_linux:       "9ecc00f3d52258ed9afe9cbbb08f3694f35fa547e84aae17c0c0a19ce5789146"
+    sha256 cellar: :any,                 x86_64_linux:      "426ac339b23584c95760d8782fdd352be14c79221c5d4c64e19d9e14e1b96676"
   end
 
   depends_on "pkgconf" => :build
