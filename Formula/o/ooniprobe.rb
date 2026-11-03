@@ -1,8 +1,8 @@
 class Ooniprobe < Formula
   desc "Network interference detection tool"
   homepage "https://ooni.org/"
-  url "https://github.com/ooni/probe-cli/archive/refs/tags/v3.31.0.tar.gz"
-  sha256 "0c7aab87ef755c5c5454ba81df7fb800249fd3a26d1e7e77043be766e19013a0"
+  url "https://github.com/ooni/probe-cli/archive/refs/tags/v3.31.1.tar.gz"
+  sha256 "3bea44234f620073ba2510001c06e5345e5f27ecea03e6750adbac00e9d82c88"
   license "GPL-3.0-or-later"
   head "https://github.com/ooni/probe-cli.git", branch: "master"
 
@@ -12,11 +12,11 @@ class Ooniprobe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "11e6a463f3481b6d3e3a885cdf68e3d7bbe7bb1e30bb9e07e7b15e7978612de1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "86c390f8b0f456178742ec603be4bfac35be28c10d1edcd447ea9935fd0ab55d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6d4bebb6826d17522ebeeba957b13fe0b6bb362cb322e58d8158c566050f0cc3"
-    sha256 cellar: :any,                 arm64_linux:       "ad6812091a515f89e72eaac66e32ceccbe26995e82a606d1d630ff3c4e9b6720"
-    sha256 cellar: :any,                 x86_64_linux:      "722732095602a21a87de8409723156adeae81fb137c65c386766a23885cc9a25"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "31452cb0cddac474389a2b6a5455062d450d7c23fbb8220f381aa3f461aae0cc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2b2d73c6c941cd763e3207456c78ccde085b34dd9e02661fe113deaf0f2592b2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a358f6c53f72dce48d40754f9255635d5eee86471a80c0335d9e79c5e831bda9"
+    sha256 cellar: :any,                 arm64_linux:       "4db8948493284477b26f2321482df107269f6dbf66000c1c7b396bb6257b0a3f"
+    sha256 cellar: :any,                 x86_64_linux:      "ea3fdc6a53bc1c59e5c06134fb8cbed5fae2d08b9c731121fe128b0c774bf391"
   end
 
   depends_on "go" => :build
