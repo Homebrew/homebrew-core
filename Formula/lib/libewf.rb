@@ -25,6 +25,7 @@ class Libewf < Formula
 
   head do
     url "https://github.com/libyal/libewf.git", branch: "main"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gettext" => :build
@@ -39,6 +40,8 @@ class Libewf < Formula
   on_linux do
     depends_on "zlib-ng-compat"
   end
+
+  deny_network_access!
 
   def install
     if build.head?
