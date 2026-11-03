@@ -7,11 +7,11 @@ class WordcraftCli < Formula
   head "https://github.com/storytold/wordcraft.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "32dab70e13f915d76b45f1cbf9d8bb4e0dd9db3136bc067c9135607a177a5cfa"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "14705eb9d6937c789379072ae4a0878ba2efa9387c38b31d4317f96ff88015d6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2c3adf0b3ab6515e9bd290a922523c17f7b31b3eb8ec9ba6db48547178c2819b"
-    sha256 cellar: :any,                 arm64_linux:       "b13f6d1964d775e6b1eeab87c205c4c83f0bba8e0b6f5ba98dc48ca9be08b248"
-    sha256 cellar: :any,                 x86_64_linux:      "6bf097fe02d211c36fe935e35e6240a3f9d2d038cf85efc888a0612aad33151c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f28d1e6269e7fe19f6f2b8bb0417eebd05ae2ffde44838492eb6079487cb7ec6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "be7176b3777ed4341e00e19eb247242350abe3465093025c037af58ccf77c87b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "253564de9983f1af4caae8724d471a44f508b5c78a3b922aa3b16197c3a3e9b3"
+    sha256 cellar: :any,                 arm64_linux:       "2c0948ac3272ff513644fb268220a486e38563e12894d6248247ad05231c388a"
+    sha256 cellar: :any,                 x86_64_linux:      "510cdf41e80bcc598a19ba642907e8f9427cb1cca75bf517a4ae55bc5b443573"
   end
 
   depends_on "rust" => :build
