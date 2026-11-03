@@ -27,6 +27,8 @@ class Tevent < Formula
 
   uses_from_macos "python" => :build
 
+  deny_network_access!
+
   def install
     system "./configure", "--bundled-libraries=NONE",
                           "--disable-python",
