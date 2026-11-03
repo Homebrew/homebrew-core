@@ -1,8 +1,8 @@
 class Tirith < Formula
   desc "Detect terminal injection, homograph, and pipe-to-shell attacks"
   homepage "https://tirith.sh/"
-  url "https://github.com/sheeki03/tirith/archive/refs/tags/v0.4.2.tar.gz"
-  sha256 "84e1fdc35e60d684ab932e73c342b71e27d575bc70defcec4989c36957153b0a"
+  url "https://github.com/sheeki03/tirith/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "bcde1306c0229dff305f9469ce1a47bc05f588342e77e901a6cfaa04e29a0ccb"
   license "AGPL-3.0-only"
   compatibility_version 1
   head "https://github.com/sheeki03/tirith.git", branch: "main"
@@ -13,11 +13,11 @@ class Tirith < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "69e9943a7773c5d61031eece257baf2477f7c69a311244c031396db9b70d3a09"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "62e747e0292d0d06ab3ec42b5696e6d95591371913d7e5079ce7840aaaff9404"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5203a938e7bb3cd0ef7e73d19680631304e11df74f0ed94f010e2b0f2c64e491"
-    sha256 cellar: :any,                 arm64_linux:       "ada6a3e4caa24f66462107fa1d1ce763926f6d3133f3aea3a071ea9729dd8c92"
-    sha256 cellar: :any,                 x86_64_linux:      "3ea8e4d2ea975fd6058bd290f6b91c5ec0da0fdf6cd81ef4a5a14eb75e1bfd6a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "deb0fd62298eee14703bf3386c56b7270c08736fe2127743c475523ce6ff677d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ee5d9eff3a6d5479854173aa55f271ecaea697a5953470ef5d09969408f209e5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cc9803643bc14e745e71d24f57226a7d10fc61e4f30e94f432e4d300641b387d"
+    sha256 cellar: :any,                 arm64_linux:       "153b7a640b263619693825d4107beae2e8c6cbeee6929b89b1710b9e44e8bc63"
+    sha256 cellar: :any,                 x86_64_linux:      "2ed67475675191c0fa4343cb0ecf8d9720281d3a1a411a9351ade676e9b95ece"
   end
 
   depends_on "rust" => :build
