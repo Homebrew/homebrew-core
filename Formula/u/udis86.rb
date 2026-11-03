@@ -28,6 +28,8 @@ class Udis86 < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--enable-shared",
