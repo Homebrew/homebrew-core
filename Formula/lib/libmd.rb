@@ -28,6 +28,8 @@ class Libmd < Formula
     depends_on "libtool" => :build
   end
 
+  deny_network_access!
+
   def install
     system "./autogen" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args
