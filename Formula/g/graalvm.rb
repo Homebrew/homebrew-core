@@ -1,8 +1,8 @@
 class Graalvm < Formula
   desc "JDK distribution with Graal compiler and Native Image"
   homepage "https://www.graalvm.org/"
-  url "https://github.com/oracle/graal/archive/refs/tags/graal-25.4.4.1.1.tar.gz"
-  sha256 "be511fd2ff9bc64862c281f11bd1ad2a9f3c311c8551aba7bbe5700c71fe575d"
+  url "https://github.com/oracle/graal/archive/refs/tags/graal-25.5.5.0.3.tar.gz"
+  sha256 "aeeedf50bf8c65a150fab0ac719b2c7a829c206ec314af62296a89724aa899ba"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
   compatibility_version 1
 
@@ -56,9 +56,9 @@ class Graalvm < Formula
   end
 
   resource "labs-openjdk" do
-    url "https://github.com/graalvm/labs-openjdk/archive/refs/tags/jvmci-25.4-b23.tar.gz"
-    version "25.4-b23"
-    sha256 "b5a8db0ea7d5e1c1c46b0b0361fbd189bae93f4a4b0002fc63b2747d344cdbb9"
+    url "https://github.com/graalvm/labs-openjdk/archive/refs/tags/jvmci-25.5-b26.tar.gz"
+    version "25.5-b26"
+    sha256 "722989310da5d47fea8639a43e3c8884a06909f5f7777a4b36f9e5108b66cae4"
 
     livecheck do
       url "https://raw.githubusercontent.com/oracle/graal/refs/tags/graal-#{LATEST_VERSION}/common.json"
