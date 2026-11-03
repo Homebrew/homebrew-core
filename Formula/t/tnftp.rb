@@ -31,6 +31,8 @@ class Tnftp < Formula
 
   conflicts_with "inetutils", because: "both install `ftp' binaries"
 
+  allow_network_access! :test
+
   def install
     # Remove bundled libedit. Still need Makefile.in to configure
     rm_r(Dir["libedit/*"] - ["libedit/Makefile.in"])
