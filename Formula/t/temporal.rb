@@ -1,8 +1,8 @@
 class Temporal < Formula
   desc "Command-line interface for running and interacting with Temporal Server and UI"
   homepage "https://temporal.io/"
-  url "https://github.com/temporalio/cli/archive/refs/tags/v1.9.1.tar.gz"
-  sha256 "d0310b8f4ef26b8a2240aa2e783c67c099406be01f34cf4edb3ae8aa2d86b7bb"
+  url "https://github.com/temporalio/cli/archive/refs/tags/v1.10.0.tar.gz"
+  sha256 "eb9d85a95da1c391b5b5dfcb4ce6c745a937bbe14155297a60c81c7610d9fa66"
   license "MIT"
   head "https://github.com/temporalio/cli.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Temporal < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a8458821c49b8c5d50a4b9f2d5d2c587ae7a1da5a5e04da59410146fc8b6311e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1b1059bdcf06a2eb6bc835d70d583b3454c80d4cbf2781ee9e3fd97a6639a4b8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2825ad96b8aead509e4b3bdd347de25ec90965f9e584581dbdd9ccb3acf87d24"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "53023811e0a158eaf7b55d4197c7c969f9a7d9920c5dc132aa86dc883779bee5"
-    sha256 cellar: :any,                 x86_64_linux:      "6a4430177c0accca5f76215f8a7377571ec9ced4193542cce13a2873f3106850"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4559cd9f93df839524a83417bd6d17725f2c7b3553346aadc6e6d11e186ed73c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b189e001a6a92744f478d29fd858e26362b56f1782d297f6da78d1c8371c3581"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e16d33fcd7780e608fa520a0cd056dcfd9db6552b85a8520b00dbb1f290bca29"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "01a3f945e035239abe85a733e4b1c2c7d11492aaac61a0f070996c9a7b37891d"
+    sha256 cellar: :any,                 x86_64_linux:      "e9d8771287163b2a35f54e451d4457255b6a1c8a5936051fab6953a54c16e7d9"
   end
 
   depends_on "go" => :build
