@@ -6,11 +6,11 @@ class AgentDesktop < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "45b6e2dd181e84fed8496a72690cc15c558ef121a4dc98f47c025762df68ecfd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f3aed9a9db71e7208f28f447905cfae61302b46f44b1f92e1acbfbd578024c2c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "367f5693e0a12df939ec8c4b56150bd72b32eb074b0bc306f2b9d9568ff33610"
-    sha256 cellar: :any,                 arm64_linux:       "de0d456b08e672096db82492badcdd19aed3bb42a4ffa666e72772b783009520"
-    sha256 cellar: :any,                 x86_64_linux:      "9d9ba2708f69c14b7ed1218dbecb26056d8a049e4d8d0e1995cab7548fc12723"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7d8e613996a758e2c0859b7deb673e9f02e5031e04c7f0e95b10ae997e2e4e87"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6a75a7504b10be829feb8a7dafef8f7f69f47e86a898523bbd4dc52eb33d678e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "99f856d02784ace3ecc8258f2de01c655e6e7ac2438c7aac542edfba884dcb99"
+    sha256 cellar: :any,                 arm64_linux:       "789ec8832b29e116be5ac9420213801d337b788931013845ecfd1b8d991a322c"
+    sha256 cellar: :any,                 x86_64_linux:      "2b4f2166bf10ccb0c47631a9a271f6b2c2a1f4014f4b1380bbf401c7ee3aeb22"
   end
 
   depends_on "rust" => :build
