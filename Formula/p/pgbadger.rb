@@ -1,8 +1,8 @@
 class Pgbadger < Formula
   desc "Log analyzer for PostgreSQL"
   homepage "https://pgbadger.darold.net/"
-  url "https://github.com/darold/pgbadger/archive/refs/tags/v13.2.tar.gz"
-  sha256 "94074714bb4928c69c9e977da02d50e197a9d428fa3f235f25c103ef3c7d9a9d"
+  url "https://github.com/darold/pgbadger/archive/refs/tags/v13.3.tar.gz"
+  sha256 "a75368365056b129a7a74291a2af57f88a5fd423961cbb304790a09e8007dcef"
   license "PostgreSQL"
   head "https://github.com/darold/pgbadger.git", branch: "master"
 
