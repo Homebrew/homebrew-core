@@ -1,17 +1,17 @@
 class Pixtuoid < Formula
   desc "Terminal pixel-art office for AI coding agents"
   homepage "https://github.com/IvanWng97/pixtuoid"
-  url "https://github.com/IvanWng97/pixtuoid/archive/refs/tags/v0.21.0.tar.gz"
-  sha256 "ca7237be6ab3310b3c8ca6de2cdd6a03968144a201c9c254974ee2bda8c37329"
+  url "https://github.com/IvanWng97/pixtuoid/archive/refs/tags/v0.22.0.tar.gz"
+  sha256 "49a430b2b6725f788455e87de7d70feae8da2c4d9376696d37298c297242391b"
   license "MIT"
   head "https://github.com/IvanWng97/pixtuoid.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "08f4d1f0f15af034f7ad20f25bf1cab451a7d3d41fa7d64899f115b660961e18"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8309fa900268b62ecbaf6735228886fcf4642be6c8a63f03f5ab05e97c87cc00"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "176f28b8827d41eb01f5ec7ee7ac8f70594a64d6939097586ef9678360f16392"
-    sha256 cellar: :any,                 arm64_linux:       "ca1b455d016b3c13214aedde6bf8a4aead12a658276e4db1aa9bc9a78b99280b"
-    sha256 cellar: :any,                 x86_64_linux:      "5d61863b8ddd169d633269cfaf29f0e1bc68ed686d28d2da6a5d4f632f2602ee"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eafbcb1f07367672bf9c9d8f459ad58489f0254747d8032afe396652d46f112f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0853c8bf2c552b3fc5c0c2d680adb970b9f56784129f2e60f5c8c95b1aed2d00"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2639c09bbbbd1c94550fb56937a37f86cfc9786488e710c1e8c90fea673a1b2b"
+    sha256 cellar: :any,                 arm64_linux:       "290e8549ca81076f871a0f6eaa0e4a4a661a34a845bd3dcb15f3ea9b7efdf8f6"
+    sha256 cellar: :any,                 x86_64_linux:      "44dc5f45cc8f22aa6f0c179a871e15ec4fa90e1b7ae5a1cc491161bcc40ed319"
   end
 
   depends_on "pkgconf" => :build
