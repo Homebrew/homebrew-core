@@ -29,6 +29,8 @@ class Libdivecomputer < Formula
   depends_on "pkgconf" => :build
   depends_on "libusb"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *std_configure_args
