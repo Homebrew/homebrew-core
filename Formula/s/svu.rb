@@ -1,8 +1,8 @@
 class Svu < Formula
   desc "Semantic version utility"
   homepage "https://github.com/caarlos0/svu"
-  url "https://github.com/caarlos0/svu/archive/refs/tags/v3.4.1.tar.gz"
-  sha256 "b40fe73b43926051885045cdf72a3882d3b5e4826577532bd95ef15a9313e418"
+  url "https://github.com/caarlos0/svu/archive/refs/tags/v3.4.4.tar.gz"
+  sha256 "2b1a2fc5bf804c80a9261686370bf882dcc092b1cb8e1605920fce7da7562f0e"
   license "MIT"
   head "https://github.com/caarlos0/svu.git", branch: "main"
 
