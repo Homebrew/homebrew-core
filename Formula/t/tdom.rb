@@ -22,6 +22,8 @@ class Tdom < Formula
 
   depends_on "tcl-tk"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules", "--with-tcl=#{ENV["HOMEBREW_PREFIX"]}/lib", *std_configure_args
     system "make", "install"
