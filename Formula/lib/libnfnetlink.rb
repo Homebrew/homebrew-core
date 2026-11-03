@@ -19,6 +19,8 @@ class Libnfnetlink < Formula
 
   depends_on :linux
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
