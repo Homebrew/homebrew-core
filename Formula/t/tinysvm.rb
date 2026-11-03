@@ -34,6 +34,8 @@ class Tinysvm < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     # Needed to select proper getopt, per MacPorts
     ENV.append_to_cflags "-D__GNU_LIBRARY__"
