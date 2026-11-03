@@ -3,14 +3,14 @@ class PyqtBuilder < Formula
 
   desc "Tool to build PyQt"
   homepage "https://pyqt-builder.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/0a/19/d3dd62568bc69cd4b854f6a8607d3081aebe3b0c915230c3c11c9676930e/pyqt_builder-1.20.3.tar.gz"
-  sha256 "be65ff822a75d020fafc0edcaf9fd79b7e3f145a00995a177c98c3286a5f85d5"
+  url "https://files.pythonhosted.org/packages/b3/e7/f80f910dc39d8f87fd567ac22bc0921ed1c8950c4e898c2f6b3868f2c4c9/pyqt_builder-1.21.0.tar.gz"
+  sha256 "673efa27237a81ffefc7d9a6419565600a129b4f4cf4d358c89a348b39b3a454"
   license "BSD-2-Clause"
   compatibility_version 1
   head "https://github.com/Python-PyQt/PyQt-builder.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e23659a7ef5e49e28cb9fe2db5b798c1fd4e823aa69fafdf347e72ceeddb1a20"
+    sha256 cellar: :any_skip_relocation, all: "1a154e6a623e9b6dcc808c9e9e4440b9b79b9832be28145cd97d994dbbb3a1b4"
   end
 
   depends_on "python@3.15"
