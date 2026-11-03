@@ -13,12 +13,12 @@ class Mono < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 arm64_golden_gate: "bb3ced09c44ad6a265f35fbc4538151f340fe44c915042862b7557cd84f9d29d"
-    sha256 arm64_tahoe:       "599ff3c36efca4e2571c617384f96792f5286d6792b8bf1c7e48270f92c2480e"
-    sha256 arm64_sequoia:     "0cb30adb311d1acc39002eb8a69614b84462f3c4a9a4f799d0fce0acbed38c59"
-    sha256 arm64_linux:       "7acf75f6898683b38a47806cac02d04bb73323b77d651fbf34b8eec48615782e"
-    sha256 x86_64_linux:      "cc7138d13f44f75943f003dab7d7305ad79f9304e5607d2299983f1bd40441d2"
+    rebuild 4
+    sha256 arm64_golden_gate: "710ad3032ee9493e961458001dfb503eb161bb274514b0712d57c241e9a5e528"
+    sha256 arm64_tahoe:       "f5ea5ba70d06035e98457f490a33ac2e5e287c7fee8e788df009e6698702ed97"
+    sha256 arm64_sequoia:     "8a45ead0f2fb2e11f539178f69c96f2a6957c06823125d400bdd7faa04dfc27f"
+    sha256 arm64_linux:       "f24075baf414741460536dd1da9d1eb19285daa5aca034dd7d1e12de7714a3f5"
+    sha256 x86_64_linux:      "872a93b5529f12e089f5711ac6fb255c0da9cd69117c2c54b78fcd60cf95842f"
   end
 
   depends_on "autoconf" => :build
@@ -27,10 +27,9 @@ class Mono < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
 
-  depends_on "python@3.15"
-
   uses_from_macos "unzip" => :build
   uses_from_macos "krb5"
+  uses_from_macos "python"
 
   on_macos do
     if DevelopmentTools.clang_build_version >= 1600
@@ -61,6 +60,8 @@ class Mono < Formula
 
   link_overwrite "lib/mono"
   link_overwrite "lib/cli"
+
+  deny_network_access!
 
   def install
     # Replace hardcoded /usr/share directory. Paths like /usr/share/.mono,
