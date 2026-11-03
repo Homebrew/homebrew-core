@@ -1,8 +1,8 @@
 class Shiki < Formula
   desc "Beautiful yet powerful syntax highlighter"
   homepage "https://shiki.style/"
-  url "https://registry.npmjs.org/@shikijs/cli/-/cli-4.5.0.tgz"
-  sha256 "1e0abe72f8c477706f0c4fd82ff24af1feb8c34867695ddc03766ed5e5f8155f"
+  url "https://registry.npmjs.org/@shikijs/cli/-/cli-4.6.0.tgz"
+  sha256 "2e559524fddfb9d0d4802b68ca8276f9573f26c55a9d8b7155f873bd6397c224"
   license "MIT"
 
   bottle do
