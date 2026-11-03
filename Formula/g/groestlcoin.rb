@@ -7,12 +7,11 @@ class Groestlcoin < Formula
   head "https://github.com/groestlcoin/groestlcoin.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "f842203ed324c75c80f81e5cbe5bae4e0897a50524e8dc3f6506b446362689a3"
-    sha256 cellar: :any, arm64_tahoe:       "5603249caca6b7e2d060f652d92c48af4a9a8cf5d609d28af72069d780ce71e2"
-    sha256 cellar: :any, arm64_sequoia:     "e66e7156c3a7e83f287b038652c93d4c2fc0f9b1757fe1022b7055cb60e8564f"
-    sha256 cellar: :any, arm64_linux:       "5f48f10d3e82eab428618f95b1c337e179d66374c37f720c7dd7c6e419b3975f"
-    sha256 cellar: :any, x86_64_linux:      "b5417c6f7990e0db0b1dad5689862a0dfa5ae08eeb66b058e7b5352b6734dc78"
+    sha256 cellar: :any, arm64_golden_gate: "d34bbaa065438d8624e63afffd3c9198a7565b5904b215df6d964d1fc6b5f462"
+    sha256 cellar: :any, arm64_tahoe:       "8b4e6acc8d4ee2b3633fbf2d5c84b43e9b7638e72b323561dcef1447c3b27756"
+    sha256 cellar: :any, arm64_sequoia:     "df2c21f43d3f730fc2f4ceb082c718d33487438006154caeab8b9a2c30a0c4e3"
+    sha256 cellar: :any, arm64_linux:       "88cf7293d9e3592ece38ec19be462529f64f62a0548ff576fa442a6946df535c"
+    sha256 cellar: :any, x86_64_linux:      "0891ed60fc76049c27db7812629d57c824ab2430674e7a615540397d2da8b03c"
   end
 
   depends_on "boost" => :build
