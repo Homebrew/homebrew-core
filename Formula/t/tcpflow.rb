@@ -28,6 +28,7 @@ class Tcpflow < Formula
 
   head do
     url "https://github.com/simsong/tcpflow.git", branch: "main"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -42,6 +43,8 @@ class Tcpflow < Formula
   on_linux do
     depends_on "zlib-ng-compat"
   end
+
+  deny_network_access!
 
   def install
     system "bash", "./bootstrap.sh" if build.head?
