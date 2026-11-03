@@ -13,11 +13,12 @@ class Newt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "67659b3a88bab7a5b1e40959da03af86335721a3f902195fcdb6d863a36ee27e"
-    sha256 cellar: :any, arm64_tahoe:       "6c3b46b21e3e56eed7d1c15e3275fb9cba9566dcf8409ac612c01dc52798f75e"
-    sha256 cellar: :any, arm64_sequoia:     "5b85a5aed10e464fcc2c0340ce6307966b67df7f68826e977a5b57e479c82187"
-    sha256 cellar: :any, arm64_linux:       "5ed5248d6a95bc52f8c857ee415c8622d0fb8193e55b606498eec0e850c0667b"
-    sha256 cellar: :any, x86_64_linux:      "0251a43dc3ea6297353d273300315d92d3c9d2f1c68b50df80cbe39db136d796"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "a9f3e8cd8dde3c9954293d474798f020a3b7866a4073c11da7042a3ca871dfc9"
+    sha256 cellar: :any, arm64_tahoe:       "d0a7c444dc42b1d60566ba9c09075e15d849c8ab98ac200bf4ca3a4935904879"
+    sha256 cellar: :any, arm64_sequoia:     "81ed2a2917d7b6f396b3d48045e230f7919aba2217ce03a415f5c4274578dd97"
+    sha256 cellar: :any, arm64_linux:       "8c9167131e2c674b91b09bdee6fd7c77ca86e389d298ce4955c146c903e2ac1d"
+    sha256 cellar: :any, x86_64_linux:      "0fae30604b71c713b41ac6f768dbd883c35e1ad7e76f1db0c82cc54d6e887fde"
   end
 
   head do
@@ -30,8 +31,8 @@ class Newt < Formula
     end
   end
 
+  depends_on "python@3.15" => [:build, :test]
   depends_on "popt"
-  depends_on "python@3.15"
   depends_on "s-lang"
 
   on_macos do
