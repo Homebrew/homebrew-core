@@ -23,6 +23,8 @@ class Libice < Formula
   depends_on "libx11"=> :test
   depends_on "xorgproto"
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}
