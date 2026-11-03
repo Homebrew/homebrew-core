@@ -25,6 +25,8 @@ class LibgpgError < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     # NOTE: gpg-error-config is deprecated upstream, so we should remove this at some point.
     # https://dev.gnupg.org/T5683
