@@ -32,6 +32,8 @@ class Libdshconfig < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  deny_network_access!
+
   def install
     # Run autoreconf to regenerate the configure script and update outdated macros.
     # This ensures that the build system is properly configured on both macOS
