@@ -13,11 +13,11 @@ class ApacheArrowGlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "99f6aa8952dcf0135cb0d4bab2fe6236364c3dd15e14b7aabcd6e81200fb65b4"
-    sha256 cellar: :any, arm64_tahoe:       "7624542740086c2ab50a637be684d2b38a6691fa101aa3a1ab22d96eda2738b0"
-    sha256 cellar: :any, arm64_sequoia:     "4834d6f1e992c190cd419e985042b2c8afafd80ddcdd962a4767966ef33a85af"
-    sha256 cellar: :any, arm64_linux:       "d66a65af7658d0808a0ef344dd23cabd73dd7b2680d1252c7ef34fabc78532fe"
-    sha256 cellar: :any, x86_64_linux:      "66aa2f5b7d2f6257e861ce93a7c2b2cf8a9d212f94bf1aba48d5280b6fe9186c"
+    sha256 cellar: :any, arm64_golden_gate: "0fa11814e476620b7162422677b1d297a5d1a7ff38a46f4b6811a26516aa175f"
+    sha256 cellar: :any, arm64_tahoe:       "de4e39599d7e53f3bd384e7374c3afac7a53f0ef97c9e4980938dc9345195a3b"
+    sha256 cellar: :any, arm64_sequoia:     "0e00fad1c31493dd3e5077d1c91f9c32fa8c0f40fb834b0e9fa0c83346c47cc8"
+    sha256 cellar: :any, arm64_linux:       "fffeb225b17f3e5493e1f06056f70c9567b63333b61598699db19bd62525f3e3"
+    sha256 cellar: :any, x86_64_linux:      "b552037c1a46f94ff9bb46d6b76ac845345f47cf06e59d9bf46affc691ab518b"
   end
 
   depends_on "gobject-introspection" => :build
