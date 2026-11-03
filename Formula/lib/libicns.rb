@@ -31,6 +31,8 @@ class Libicns < Formula
     file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
   end
 
+  deny_network_access!
+
   def install
     # Fix for libpng 1.5
     inreplace "icnsutils/png2icns.c",
