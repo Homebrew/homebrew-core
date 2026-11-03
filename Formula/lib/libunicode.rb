@@ -1,16 +1,16 @@
 class Libunicode < Formula
   desc "Modern C++20 Unicode library"
   homepage "https://github.com/contour-terminal/libunicode"
-  url "https://github.com/contour-terminal/libunicode/archive/refs/tags/v0.9.4.tar.gz"
-  sha256 "aa6bc519712c541649553096c2b722c39a3ede765b9dc2d103012f1f90bec331"
+  url "https://github.com/contour-terminal/libunicode/archive/refs/tags/v0.9.5.tar.gz"
+  sha256 "7c619227c9866ee90c6443a7382df11306619a00c561a76b0a973882bc7b82e2"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d2f1804a670d8cf22d7ca18f3aea22125b302989fc84c6d55b46b946776ee1a9"
-    sha256 cellar: :any, arm64_tahoe:       "18a27e993661d55652d7ad6cd77659a24529ccbfe187e638edc6458d0a81ea2a"
-    sha256 cellar: :any, arm64_sequoia:     "3d31cf9950c1cd2c49405ed6429c6a164189ae6bff1feb4755b8066a256e6228"
-    sha256 cellar: :any, arm64_linux:       "961fdaf3a50a42d6e11729608ca9c665d4b061ca1dec9cbd2fe1eef671d4a7f7"
-    sha256 cellar: :any, x86_64_linux:      "39bdc083f2b2118dddfadcb0ff3ee72f05e61602d4a5581c36d7d64af63f829a"
+    sha256 cellar: :any, arm64_golden_gate: "c36eef01f17313f2c9daa223b25093031e0ec9f35f4b67b79007861a691762fa"
+    sha256 cellar: :any, arm64_tahoe:       "279e3ccddfa2ba7e14d30f54034cc52949fb9f4da6ab0f4711bce7e289ad4d15"
+    sha256 cellar: :any, arm64_sequoia:     "7f8c00ea732c7c1bd629f0d50d78b6dcc3b10de66bfe8332734c9e9510916a40"
+    sha256 cellar: :any, arm64_linux:       "8698f0fa266f2977de20b6d96038affcaf2b72a96ce3e3ed594a216a888144a7"
+    sha256 cellar: :any, x86_64_linux:      "1a15a6cd1ef8a0afdc162035e861db112a0f09eee0788bfa78ba619ded7c1023"
   end
 
   depends_on "cmake" => :build
