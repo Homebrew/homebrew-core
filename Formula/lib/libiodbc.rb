@@ -30,6 +30,8 @@ class Libiodbc < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
