@@ -44,6 +44,8 @@ class Libeatmydata < Formula
     depends_on "strace" => :test
   end
 
+  deny_network_access!
+
   def install
     # macOS before 12.3 does not support `readlink -f` as used by the `eatmydata` shell wrapper script
     if OS.mac? && MacOS.version <= :monterey
