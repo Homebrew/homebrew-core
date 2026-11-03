@@ -6,6 +6,14 @@ class VectorcraftCli < Formula
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/storytold/vectorcraft.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8214e93906fa1a88804455d174ee03dd52cd829f423eba3eabc18e6bdcaeac24"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e50390e159d7f447dfa1c1a364284a2b18804e36f0e8ca56808cd6ad30025d81"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f14f007e3b720739e1b8ff08fb3c2d37d124bf9d18910d6fd314d3b1ca490ab9"
+    sha256 cellar: :any,                 arm64_linux:       "31627fa040b3a5ebb6341dae0215d6ea708021c920573d1e96024bf58bc06d3a"
+    sha256 cellar: :any,                 x86_64_linux:      "140a418da0c30375e5233d0edb1d9392271f36e49c07d7aeefab7e689b88e711"
+  end
+
   depends_on "rust" => :build
 
   deny_network_access!
