@@ -1,17 +1,17 @@
 class StellarCli < Formula
   desc "Stellar command-line tool for interacting with the Stellar network"
   homepage "https://developers.stellar.org"
-  url "https://static.crates.io/crates/stellar-cli/stellar-cli-28.1.0.crate"
-  sha256 "ceb241c122707ff7678e07c3459d43714eeae6af0c82c125f6a448e856805139"
+  url "https://static.crates.io/crates/stellar-cli/stellar-cli-30.0.1.crate"
+  sha256 "c33c65392d9227c4628ecbb73041ae62bf81b25579badbabd27ebbbd6fa58992"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b010bc8d9b4415b010414502823e305d909d9401d97bfc50589a5227467a961a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a61e1fbc0be2f7f414bf9f84971d8c1696aa805a21fdb517c0be95d521149ff1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ed9693f2d9bb503cec192d77017a94fab8a49101edcca2b4909993632d8074ca"
-    sha256 cellar: :any,                 arm64_linux:       "e390eab10ef0680a76bebce46940a378614dfc2cad80667e638e646b5bf0eda7"
-    sha256 cellar: :any,                 x86_64_linux:      "fb05632afde89d60887f4f296c53a66efdf920e20a2a491aebade2ccec29785c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fd612a77fe8bb996d7dbe8805507de1597eafada542eb81b6cb0beb58d348aad"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3c751a89d17e98c91c3593ec845ed83b4d7f378288c9e9b6049beb2a7f26361d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1f267d407b19663e9202236e9fa6ded0006cc431d361400be6542444269543df"
+    sha256 cellar: :any,                 arm64_linux:       "f4a9b18920f7cd8fb030fed21794f577f29b9b55c9e08dd0019be4827a2ad2e4"
+    sha256 cellar: :any,                 x86_64_linux:      "93f036784808a30ed667f7fd0dc4c852cfb930276f9d4946fb01e7f6efacc8c1"
   end
 
   depends_on "rust" => :build
