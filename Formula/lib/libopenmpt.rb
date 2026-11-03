@@ -39,6 +39,8 @@ class Libopenmpt < Formula
     sha256 "e9a3a679e1c513e1d661b3093350ae3e35b065530d6ececc0a96e98d3ffffaf4"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules",
                           *std_configure_args
