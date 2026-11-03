@@ -3,18 +3,17 @@ class Dnsrobocert < Formula
 
   desc "Manage Let's Encrypt SSL certificates based on DNS challenges"
   homepage "https://dnsrobocert.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/a9/e5/7350bf0736df1f4adc205a34a1982682d3c2952989c88537e9b4ab101234/dnsrobocert-3.27.1.tar.gz"
-  sha256 "2aceadf82e023f8464740c9a00b3c0e36731286cb3792608c418e1f789f38e68"
+  url "https://files.pythonhosted.org/packages/c1/44/1adbcbe795b6cbaceaebdcb1eb3cc36cb2d02825d6870a0f04b730c6cc22/dnsrobocert-3.28.0.tar.gz"
+  sha256 "13f8d02305400273079e60d59f5e71e8c5d7648b6e14e1cf7d8a0629b6ab6c17"
   license "MIT"
-  revision 2
   head "https://github.com/adferrand/dnsrobocert.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4b226f4dc0063938b1a50ea32a48bb6feb41b4d54ad86bc33c46b7c91913fd01"
-    sha256 cellar: :any, arm64_tahoe:       "7ee3bde396b4ff526007817f3e23ad17d69e961bc481e8533c8983c6b66299aa"
-    sha256 cellar: :any, arm64_sequoia:     "45823c52ca8b70246ec43ef202044a834b1edcb00dfdb0d75064d3be2eb4a549"
-    sha256 cellar: :any, arm64_linux:       "81e9cc9e2fb1803b67290bde3fc468e8426a5a7203c4b46c7e75f971166fab3a"
-    sha256 cellar: :any, x86_64_linux:      "a4947b20fdaf51075354a8e356056bdb0cac922d8d8c85e4fa94d47cb0aaddbd"
+    sha256 cellar: :any, arm64_golden_gate: "82d06405399e6e47c21711b55a7e376dbd32a3d028cee90032e84ae365061e29"
+    sha256 cellar: :any, arm64_tahoe:       "690b31ae59c0de94af81a16d51baa0ec68cade1783d2cc199a2d2bcd93f064f7"
+    sha256 cellar: :any, arm64_sequoia:     "57fa50d99cc468f8ccf0c124cf31f998077bee91b412c452c821ebe71aaf9b72"
+    sha256 cellar: :any, arm64_linux:       "b66561a79d7e04fec1395cb88917008160329a5932aa9240fa445a58157cc48f"
+    sha256 cellar: :any, x86_64_linux:      "54ea48ceae06bb8b7ee6cfe01424e343dbe95d2dbe062429e3809bb559220881"
   end
 
   depends_on "rust" => :build
@@ -30,8 +29,8 @@ class Dnsrobocert < Formula
   pypi_packages exclude_packages: ["certifi", "cryptography", "rpds-py"]
 
   resource "acme" do
-    url "https://files.pythonhosted.org/packages/3a/b8/4ca6f1b0e04472d21b248d32a6abc5e24058dac68b513a8ab7526837b100/acme-5.8.0.tar.gz"
-    sha256 "44c4edb53acdd3fa8402cb29c78a6d1bd2005d777a4d2fcd12663bbc3c147b34"
+    url "https://files.pythonhosted.org/packages/dd/ad/da805f98b7b7fc0e9f9ec490ad743b2c8b5fca3fb8fcf3bf4a3012bc53f2/acme-5.9.0.tar.gz"
+    sha256 "bbfd9cf42797b5378a05833c0fd917de9418b69e03cbdb39abb7e85e5532fe75"
   end
 
   resource "aiohappyeyeballs" do
@@ -65,18 +64,18 @@ class Dnsrobocert < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/96/8b/5694c8433b5202f34a82def4edee274f7df1eba2919c66d9d389d2202ec8/boto3-1.43.118.tar.gz"
-    sha256 "c0620f799e0f0c222ba42c337b65cdbcd3da38a3121187f634d8926cbbb28a9c"
+    url "https://files.pythonhosted.org/packages/fc/8a/64b46f075149f9160da44aa7e1052dd18431b9ad4435beb0cfb02cc48624/boto3-1.43.123.tar.gz"
+    sha256 "055fabb990c5d2f31fce4ca569255bd640cdd11a3ca68c9ecad35f4f8a5b83b5"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/d4/b8/3e55154ddaf1a6d1d4ddda85c0e5983205a3b7657edacd8ebba8c6fd774c/botocore-1.43.118.tar.gz"
-    sha256 "7f3f9d88cc9e847587690f82a42e3c3c292c3026c92c1e60d68a9310018e003f"
+    url "https://files.pythonhosted.org/packages/e0/de/011fc2a47fb066c47064b122498d2fd21f55bc90ea514acbddc37ca0f8c1/botocore-1.43.123.tar.gz"
+    sha256 "80948cb9b1cdf1a1a25809089a42e3a1bc4af0258d198222db6e97dcc660dd0c"
   end
 
   resource "certbot" do
-    url "https://files.pythonhosted.org/packages/31/29/fbf5127d2b8d178d7add2b9145560436a69b437045c6197a4b6edbfcbb3c/certbot-5.8.0.tar.gz"
-    sha256 "a4a2c7b0459bb626b3791ef07b6df26bbb222d2324783ba3e60f76c0933eec87"
+    url "https://files.pythonhosted.org/packages/f1/4c/c7ba4e990f6bded907aaefbb079e8adf8181bd92051e24ba70051d73f2b9/certbot-5.9.0.tar.gz"
+    sha256 "bf7d096c8b7e595d8c8dd2c1374db2bd11f53ea33d1748aaea805e81007710d8"
   end
 
   resource "charset-normalizer" do
@@ -105,8 +104,8 @@ class Dnsrobocert < Formula
   end
 
   resource "configargparse" do
-    url "https://files.pythonhosted.org/packages/5d/ed/33c0ba7f0b5be384ff8a2101ce77728f219e816b2104819f1651477e1ad5/configargparse-1.8.0.tar.gz"
-    sha256 "22a417f4d7b00149f0af82ef7c491f8ecc4b1d5454633fd319b386f5eb806f92"
+    url "https://files.pythonhosted.org/packages/bc/d9/c591a80cf3335de7820c6762f8ee9298a43da5319803d319e16657b6fdf2/configargparse-1.9.0.tar.gz"
+    sha256 "48d9c22affe4ac419b4dd0691fa929d759e1f99574be41826785f2dbf3da63a5"
   end
 
   resource "configobj" do
@@ -125,18 +124,18 @@ class Dnsrobocert < Formula
   end
 
   resource "dns-lexicon" do
-    url "https://files.pythonhosted.org/packages/4b/37/291063606930c749681b2ad0612952b1bc5374ab2037346566812ba8f2c9/dns_lexicon-3.25.2.tar.gz"
-    sha256 "a377bf2b4017ee46de8d5515cf2c204bfda74b49032dc5420bd3100993f28deb"
+    url "https://files.pythonhosted.org/packages/df/2c/3f59d022b897477cbf2adcf15995609b5a9cd490a48cf032da64f85753bc/dns_lexicon-3.26.0.tar.gz"
+    sha256 "57d94f5d181fc30445b0428ddf548f750669f2002ae630410c17d5f425aa7be7"
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/ef/4a/50822184bd67cc6493f0fb6a880749158fcd31ab3fa07409acfd91f9fc85/dnspython-2.9.0.tar.gz"
-    sha256 "b44dc6b18f07a8b1c56676a19fbfdb5209415b046a9cece286baafa87ff3f7f1"
+    url "https://files.pythonhosted.org/packages/91/21/7fcd6780f61e9756aafaea760560509bb4111375daa2e23c1be7a89f33f1/dnspython-2.9.1.tar.gz"
+    sha256 "9a6d30e55f8dc63e6052597666112bff0586b95a2474a9deda03afbbf820d37a"
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/d8/28/3893324bcadf8f89b1616637468d766af3f625008c0735bf704fdfa86617/filelock-4.2.4.tar.gz"
-    sha256 "c6d8663535e1650ee430507b4ffbac7b464dd64b7647ea0112a9f406499d163d"
+    url "https://files.pythonhosted.org/packages/35/6c/730b340182f1fd74d4ef8d3f35431ce84f8f97b1a1f2afd145174b7bb047/filelock-4.2.6.tar.gz"
+    sha256 "ee7af8ede36dcaf12e1016d9f7c3a63ecd5497d46f85dab21b8c779b8f944e97"
   end
 
   resource "frozenlist" do
@@ -200,8 +199,8 @@ class Dnsrobocert < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/f9/79/84ddb5ba16c4eb2c69c71db76ae3c579fe546e511f7170c7e27eedbab7c1/multidict-7.1.0.tar.gz"
-    sha256 "61a4e5d81b8d4e4ad61964b230129e7a2b914793d96289029078fc9009f074ec"
+    url "https://files.pythonhosted.org/packages/7b/6b/29ef8e752f5854dcc267ded0652c475bec99b86f255957a0d4fcad657b18/multidict-7.2.1.tar.gz"
+    sha256 "e8af3e6f1bdbc31fd762b094133b478b89988eaebc63cbe82b1d9e3bbd15cede"
   end
 
   resource "oci" do
@@ -220,8 +219,8 @@ class Dnsrobocert < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/58/e6/d0abbb256b44e6a05748c6942511ff67db8dbb068de0c35b24bf1b395b09/platformdirs-4.13.5.tar.gz"
-    sha256 "05831adf87d392760f4b5c3a0a95579ab5a10b18b9b9bd43680dcb47544788a0"
+    url "https://files.pythonhosted.org/packages/9a/6e/886dc7c9d21e2d95aceb696f1e31271742033aeef3661f6e9c8921493592/platformdirs-4.14.3.tar.gz"
+    sha256 "021add1ab113483edbcd4694f5fbb2d688b893ea30d35e1155bb371cf4be0be8"
   end
 
   resource "prompt-toolkit" do
@@ -270,8 +269,8 @@ class Dnsrobocert < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/14/21/d83d6ef28c4c912c4bb4d1dcf591f7b8c6bde87b9c66f9f454677314e16d/pytz-2026.5.tar.gz"
-    sha256 "fa23724b9c486543b9ff54a327ee7569ac83ade54bb9afd0fc18676620401c86"
+    url "https://files.pythonhosted.org/packages/f5/b0/168030b0bfcc334cf09fa3313afdb888d892c8a0027324683d1de0ec277e/pytz-2026.6.tar.gz"
+    sha256 "3b0fc2727707663d6e517936f444fd8a8b240f1fc32f4bf7ee03274245945284"
   end
 
   resource "pyyaml" do
@@ -335,8 +334,8 @@ class Dnsrobocert < Formula
   end
 
   resource "tencentcloud-sdk-python" do
-    url "https://files.pythonhosted.org/packages/bc/ac/b591f44d52267ff4f4fdc3897ceec25485e1680f54763e42524e9d847624/tencentcloud_sdk_python-3.1.193.tar.gz"
-    sha256 "aa3adbbb40379b46dfe5160ff2a7096d16df547de891308969ca060489a16245"
+    url "https://files.pythonhosted.org/packages/23/de/012351cc4172642b667439e00c4abd8caa22a2b0233dc221a258de962931/tencentcloud_sdk_python-3.1.199.tar.gz"
+    sha256 "e6f64d1e58e9592f31a84559941c5c8e48a67b19607de410e3cfc84679a6a8d9"
   end
 
   resource "tldextract" do
@@ -355,8 +354,8 @@ class Dnsrobocert < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/69/4a/82d61476a1ccc20d43d0805724c5de4baa4971131a8db1816705ef53fe16/wcwidth-0.9.3.tar.gz"
-    sha256 "dfe7cfbd4cb59db9fe0931bd6091ab4a95b3acc5d56bfb50fa9fef0ccba5dc5c"
+    url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
+    sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
   end
 
   resource "yarl" do
