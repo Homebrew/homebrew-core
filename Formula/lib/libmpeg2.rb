@@ -33,6 +33,8 @@ class Libmpeg2 < Formula
     depends_on "libxext"
   end
 
+  deny_network_access!
+
   def install
     # Otherwise compilation fails in clang with `duplicate symbol ___sputc`
     ENV.append "CFLAGS", "-std=gnu89"
