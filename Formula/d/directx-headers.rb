@@ -1,8 +1,8 @@
 class DirectxHeaders < Formula
   desc "Official DirectX headers available under an open source license"
   homepage "https://devblogs.microsoft.com/directx/"
-  url "https://github.com/microsoft/DirectX-Headers/archive/refs/tags/v1.619.5.tar.gz"
-  sha256 "24a0b7d8079a2dbbc90753c0d8bc812040d052acce2302e69a97c5d873b313b8"
+  url "https://github.com/microsoft/DirectX-Headers/archive/refs/tags/v1.620.1.tar.gz"
+  sha256 "79cd6d5b87d940044b20a3f45e5fbf4a73e4c7eedc1bafabe1b5cabb97fef5bf"
   license "MIT"
   compatibility_version 1
 
@@ -12,13 +12,11 @@ class DirectxHeaders < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "48076cb85f5b74a45f1b13b2eb72ba14426838cbc066154c6b3093a64285f095"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd5e7e8ebf3d3bf84450a894a95b3ca913758f95b2c1796e8c76deb1175d3244"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f2888a9116bc867c66ad9d94c0d149b7ec21b164b45bf38f80282eed478dc3a9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "19703e065ce0876e7125e87b01d48f5c18879e1fd6f603861320b05a5b0a3835"
-    sha256 cellar: :any_skip_relocation, sonoma:            "b4b8cdf65fb30e94650cf13b10db7a09296b32bf11e7d56487177a3a1adae875"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "028b2b9cca85001727eaf6540f39f1ebb7a11a1b4dc4f2ff5056551ad5a51fe8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c8024298a47d80c9902f458d2d26e38fad7ed4f1132d0317e9f9c850f417c796"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "df985a8e398ab2eff82216f3398b198782a5872d9f7ee3c7e06a1573e5c1a844"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3a993ad2876bd75505e5c898932fa5e8bc24b5fa40345c29aadecf97d45837ff"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d8da6b81e074e277d2ecd8d648851b0c6bbda92f04296fd957651ee49b479560"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "1d9e99a6a11157107649ea1950c0680303a8f9e07ae482a9c417f8ed71b6b3cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "55e5d1cb9d19e8ff3398520b70c9ccc0117c3f46a7622a4659548e16d3fb446d"
   end
 
   depends_on "meson" => :build
@@ -28,6 +26,14 @@ class DirectxHeaders < Formula
   resource "test.cpp", :test do
     url "https://raw.githubusercontent.com/microsoft/DirectX-Headers/a7d19030b872967c4224607c454273a2e65a5ed4/test/test.cpp"
     sha256 "6ff077a364a5f0f96b675d21aa8f053711fbef75bfdb193b44cc10b8475e2294"
+  end
+
+  # Add missing SAL annotations to the non-Windows stubs
+  patch do
+    url "https://github.com/microsoft/DirectX-Headers/commit/d0b4f7936049872552249707a149dc2837ac03ef.patch?full_index=1"
+    sha256 "9beaeda49cc1fae1a0b9f43a2b2d5be8d517184a1635b3bde7cc4d808cc36ae8"
+    type :backport
+    resolves "https://github.com/microsoft/DirectX-Headers/issues/295"
   end
 
   def install
