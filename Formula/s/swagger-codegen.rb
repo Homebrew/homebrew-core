@@ -1,17 +1,17 @@
 class SwaggerCodegen < Formula
   desc "Generate clients, server stubs, and docs from an OpenAPI spec"
   homepage "https://swagger.io/tools/swagger-codegen/"
-  url "https://github.com/swagger-api/swagger-codegen/archive/refs/tags/v3.0.84.tar.gz"
-  sha256 "ba7056e1a2d920598c57c03585679d6198acf2a23e50b00491edfcb38354cbcc"
+  url "https://github.com/swagger-api/swagger-codegen/archive/refs/tags/v3.0.85.tar.gz"
+  sha256 "f75a67248a97f95ae4ee21d44f68ce244afe93b2d2284ddd88ed1e3647a7246b"
   license "Apache-2.0"
   head "https://github.com/swagger-api/swagger-codegen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ddeb5aa07746f2dc84d60de82dde902e50dfe307178a21d3a5b442327ccf9dba"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ddeb5aa07746f2dc84d60de82dde902e50dfe307178a21d3a5b442327ccf9dba"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ddeb5aa07746f2dc84d60de82dde902e50dfe307178a21d3a5b442327ccf9dba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0dba26630b13ea3e6df85e1a11f3a97549089491a0901c534d6c1cbb512f7325"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0dba26630b13ea3e6df85e1a11f3a97549089491a0901c534d6c1cbb512f7325"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "917b6d4d2b9d33e5fdee195856fb3d1614b13b0a872f5b6e43b02fdfab1a6ce0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "917b6d4d2b9d33e5fdee195856fb3d1614b13b0a872f5b6e43b02fdfab1a6ce0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "917b6d4d2b9d33e5fdee195856fb3d1614b13b0a872f5b6e43b02fdfab1a6ce0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "6ffe39f1bac4503df3f51a072e417a73de4283bac2b2df474c001d49aa89f6f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6ffe39f1bac4503df3f51a072e417a73de4283bac2b2df474c001d49aa89f6f6"
   end
 
   depends_on "maven" => :build
