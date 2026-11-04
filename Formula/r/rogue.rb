@@ -32,6 +32,8 @@ class Rogue < Formula
 
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     # Fix main.c:241:11: error: incomplete definition of type 'struct _win_st'
     ENV.append "CPPFLAGS", "-DNCURSES_OPAQUE=0 -DNCURSES_INTERNALS"
