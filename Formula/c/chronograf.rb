@@ -1,8 +1,8 @@
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/refs/tags/1.11.6.tar.gz"
-  sha256 "00756bde5e5a1b9e1201d93d4c5c3558cb3cf16d914acf9f8fa8165be7e30a55"
+  url "https://github.com/influxdata/chronograf/archive/refs/tags/1.11.7.tar.gz"
+  sha256 "06c3edd7cae1ab8668fff6cc723695b6929bdca37a290cd959a2be455946f626"
   license "AGPL-3.0-or-later"
   head "https://github.com/influxdata/chronograf.git", branch: "master"
 
