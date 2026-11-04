@@ -3,12 +3,12 @@ class McpProxy < Formula
 
   desc "Bridge between Streamable HTTP and stdio MCP transports"
   homepage "https://github.com/sparfenyuk/mcp-proxy"
-  url "https://files.pythonhosted.org/packages/fe/b3/cc665c3e0ce00364bd4315c02d58363c23299300e21905ebc267caa9bded/mcp_proxy-0.13.3.tar.gz"
-  sha256 "a1f9d3992374db3646a4fe821d3c2da7d09996b8d88ad684a3a09a8b10ff67ff"
+  url "https://files.pythonhosted.org/packages/f8/51/22df0ca8541a81bcad74796c5d02c4def086af0d9c7690c53a2508398770/mcp_proxy-0.14.0.tar.gz"
+  sha256 "72ea8795d3f572d22fe43878d69b088e88ff366d268f40ccc631cda13adc2e47"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "69d713d293c9699ff4dbd37325cc5f569d35c6a494707cfdd3c555df77ef5910"
+    sha256 cellar: :any_skip_relocation, all: "7a6bacc6c4e0ffc8b53fbf24099c1926f6d421fcfb65331d350e607347863540"
   end
 
   depends_on "certifi" => :no_linkage
@@ -128,7 +128,56 @@ class McpProxy < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/mcp-proxy --version")
 
-    output = shell_output("#{bin}/mcp-proxy http://localhost:8080/sse 2>&1", 1)
-    assert_match "All connection attempts failed", output
+    port = free_port
+    (testpath/"server.py").write <<~PYTHON
+      from mcp.server.fastmcp import FastMCP
+
+      server = FastMCP("Homebrew", host="127.0.0.1", port=#{port})
+
+      @server.tool()
+      def add(a: int, b: int) -> int:
+          return a + b
+
+      server.run(transport="sse")
+    PYTHON
+
+    (testpath/"client.py").write <<~PYTHON
+      import asyncio
+      import socket
+      import time
+      from mcp import ClientSession, StdioServerParameters
+      from mcp.client.stdio import stdio_client
+
+      for attempt in range(100):
+          try:
+              with socket.create_connection(("127.0.0.1", #{port}), timeout=1):
+                  break
+          except OSError:
+              time.sleep(0.1)
+      else:
+          raise RuntimeError("MCP server did not start")
+
+      async def main():
+          params = StdioServerParameters(
+              command="#{bin}/mcp-proxy",
+              args=["http://127.0.0.1:#{port}/sse"],
+          )
+          async with stdio_client(params) as (reader, writer):
+              async with ClientSession(reader, writer) as session:
+                  await session.initialize()
+                  result = await session.call_tool("add", {"a": 2, "b": 3})
+                  assert not result.isError
+                  assert result.content[0].text == "5"
+
+      asyncio.run(asyncio.wait_for(main(), timeout=15))
+    PYTHON
+
+    pid = spawn libexec/"bin/python", testpath/"server.py"
+    begin
+      system libexec/"bin/python", testpath/"client.py"
+    ensure
+      Process.kill "TERM", pid
+      Process.wait pid
+    end
   end
 end
