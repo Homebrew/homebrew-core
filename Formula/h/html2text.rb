@@ -16,6 +16,8 @@ class Html2text < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "023827730941513938e30fbcd440c0ee215b76abb7a2ac194cb4a56b26dec816"
   end
 
+  deny_network_access!
+
   def install
     # libiconv is not linked properly without this
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
