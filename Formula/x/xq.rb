@@ -30,6 +30,7 @@ class Xq < Formula
     ENV["CGO_ENABLED"] = "0"
     system "go", "build", *std_go_args(ldflags: :goreleaser)
     man1.install "docs/xq.man" => "xq.1"
+    generate_completions_from_executable(bin/"xq", shell_parameter_format: :cobra)
   end
 
   test do
