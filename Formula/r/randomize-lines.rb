@@ -26,6 +26,8 @@ class RandomizeLines < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "5d3ca6029fbd900632e5f09b68c583b1f441cf1bb711041ab00d519ee8fd323a"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
