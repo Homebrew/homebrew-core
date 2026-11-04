@@ -7,6 +7,7 @@ class Moreutils < Formula
     "GPL-2.0-or-later",
     { any_of: ["GPL-2.0-only", "Artistic-2.0"] },
   ]
+  compatibility_version 1
   head "https://git.joeyh.name/git/moreutils.git", branch: "master"
 
   livecheck do
