@@ -1,0 +1,15 @@
+Formula/c/croaring.rb
+  h_9df9c32c3f321d 7
+  h_9df9c32c3f321d 4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "af1e20baf43b5b744de5131150b4da40d5bd3cba",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
