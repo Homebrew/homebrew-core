@@ -24,10 +24,13 @@ class Scrub < Formula
 
   head do
     url "https://github.com/chaos/scrub.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  deny_network_access!
 
   def install
     args = []
