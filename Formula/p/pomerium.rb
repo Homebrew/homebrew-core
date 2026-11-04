@@ -1,10 +1,9 @@
 class Pomerium < Formula
   desc "Identity and context-aware access proxy"
   homepage "https://www.pomerium.com"
-  url "https://github.com/pomerium/pomerium/archive/refs/tags/v0.33.6.tar.gz"
-  sha256 "7e35be21f17751e878c4d7ed8428bb6e876d70d6573d5ec586a368919d359343"
+  url "https://github.com/pomerium/pomerium/archive/refs/tags/v0.34.0.tar.gz"
+  sha256 "75ef0eaa60d7e7bdc8a0b9173953a1b8fd2ec233fc7238813cd745dd4fbc47ec"
   license "Apache-2.0"
-
   head "https://github.com/pomerium/pomerium.git", branch: "main"
 
   bottle do
@@ -22,12 +21,6 @@ class Pomerium < Formula
   # https://github.com/pomerium/pomerium/pull/6141
   on_macos do
     depends_on arch: :arm64
-  end
-
-  # Fix build with Go 1.27, upstream PR ref, https://github.com/pomerium/pomerium/pull/6914
-  patch do
-    url "https://github.com/pomerium/pomerium/commit/73371215d5b0e0f21b5d9cf2fc909af1a179c60d.patch?full_index=1"
-    sha256 "0362774a70882d2ef078977ff1c50f90c33b34a1c9db5736ea7fcb960ace7b09"
   end
 
   # `test do` block runs a local HTTP server
