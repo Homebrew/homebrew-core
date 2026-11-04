@@ -31,6 +31,8 @@ class Sword < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     args = %W[
       --prefix=#{prefix}
