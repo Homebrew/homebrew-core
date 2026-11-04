@@ -25,6 +25,8 @@ class Ssed < Formula
     sha256                               x86_64_linux:      "3c4df17253d6bc34e6b2d0df8fc7bc9034185a67701b9bf29bf4d5dafd3fe266"
   end
 
+  deny_network_access!
+
   def install
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
