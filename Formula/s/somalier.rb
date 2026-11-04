@@ -1,8 +1,8 @@
 class Somalier < Formula
   desc "Relatedness, QC and ancestry checks from BAM/CRAM/VCF"
   homepage "https://github.com/brentp/somalier"
-  url "https://github.com/brentp/somalier/archive/refs/tags/v0.3.6.tar.gz"
-  sha256 "7dc3c8764d9dd962221b653353be0e444ac98e53d1c872e47d745674215f2da2"
+  url "https://github.com/brentp/somalier/archive/refs/tags/v0.3.7.tar.gz"
+  sha256 "d04c1a7f4fe3483664a6e4fa5403ca81e8cbbe7d8d5d75fa5633df8b0ac83fd6"
   license "MIT"
   head "https://github.com/brentp/somalier.git", branch: "master"
 
