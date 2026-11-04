@@ -3,17 +3,17 @@ class Gptme < Formula
 
   desc "AI assistant in your terminal"
   homepage "https://gptme.org/docs/"
-  url "https://files.pythonhosted.org/packages/d7/82/d0d00ed9d966614bf380981d68a5e38d9bc4adb162be4f6f2cedb4116da7/gptme-0.35.1.tar.gz"
-  sha256 "fa0c94fd63533d0828ce202c62c8fa9c3b57934ea7180f2f333a3769cbdacfb9"
+  url "https://files.pythonhosted.org/packages/61/c9/d47a36bc9f01070d1380f5e822e7c6be679f2aad884a32befd6bac4f3ca9/gptme-0.36.0.tar.gz"
+  sha256 "d1d4b1c6743ec67526d0f1a770b223e48e7bac1266062185e1f4eee40a8b6322"
   license "MIT"
   head "https://github.com/ErikBjare/gptme.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e18f06ff5367309ea27f51d75e1a14e5539085c75b3c7f9cfbd5f758f74bd1ba"
-    sha256 cellar: :any, arm64_tahoe:       "1c9d53762ef665c890be91d20e4207f49c3806639f0448eb8d0d1b8128b84ece"
-    sha256 cellar: :any, arm64_sequoia:     "4284e06d3479438af349647bdf615d6578ed1ede7d8e27f20c60382421dea459"
-    sha256 cellar: :any, arm64_linux:       "5a6fa4df400530763cc55cf05c5cd66ef4563d7ea4e1e1e0c524c91855e5aa10"
-    sha256 cellar: :any, x86_64_linux:      "84b6ba0a6d19b8f38fd09a8a435c4a114f9ee2c1b51e41f9c719a11959646ff3"
+    sha256 cellar: :any, arm64_golden_gate: "e15133946c7fcc0cb18fc5ef56413565703c8a56d62c03b988069424c7820310"
+    sha256 cellar: :any, arm64_tahoe:       "d5f217e4efdddd107be3df99be45f4f5d70b89745f6de6b78b1a9b4522f992cf"
+    sha256 cellar: :any, arm64_sequoia:     "4c817afb0ecdeefc6d1a1b3b1ef2753b75af661e75b6ad9b6363dbf852c225d6"
+    sha256 cellar: :any, arm64_linux:       "37fddf46649dc49d44f8e4e0afb89a96c91a0ee9333b9ea956b9885128212d2e"
+    sha256 cellar: :any, x86_64_linux:      "057fcb7d37b4cf99ac7d2ba7791fb5d2bcdbeeee49c571d3140eef00788b8d46"
   end
 
   depends_on "rust" => :build # for jitter
@@ -31,13 +31,13 @@ class Gptme < Formula
   pypi_packages exclude_packages: %w[certifi cryptography pillow pydantic rpds-py]
 
   resource "anthropic" do
-    url "https://files.pythonhosted.org/packages/10/37/5a2a4316df8babd28f096477a707cd75f240b4264c97fb128c32375105d6/anthropic-1.15.0.tar.gz"
-    sha256 "90caa9df83e2fc8bddb4ddeb83b7191bce255f635c03eae055deec521741df08"
+    url "https://files.pythonhosted.org/packages/4e/66/4ec271f7607460005276bb09b0d1c749a9ed0cead35a488a8676f15ed6d5/anthropic-1.17.0.tar.gz"
+    sha256 "dcf77a74dde89a9fd12405fca798b012725a107f7c9488454234a74e275c2163"
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "asttokens" do
@@ -96,8 +96,8 @@ class Gptme < Formula
   end
 
   resource "httpcore2" do
-    url "https://files.pythonhosted.org/packages/30/ff/b53af1b49bb2cb5fa97c92215614b173ca5c1a99ded80e2d52f15a94fa6d/httpcore2-2.14.0.tar.gz"
-    sha256 "4f57a1a8249fe6af589d935cfd456f1d13bbdcb0f0fc72af9142368fc94811d7"
+    url "https://files.pythonhosted.org/packages/c0/61/afa9d6b7452f9eca73f73d45324eb0bb52f098fd5e6049bf6b8263be9b4e/httpcore2-2.16.0.tar.gz"
+    sha256 "c72cd0413563b17e1cd8354677dff887466f8ec2551679759e93126534428643"
   end
 
   resource "httpx" do
@@ -111,8 +111,8 @@ class Gptme < Formula
   end
 
   resource "httpx2" do
-    url "https://files.pythonhosted.org/packages/e8/67/58353f1848b4ba568e1ec22ea1e0d8e039f0bca5fde7e2d1f07739fd83e7/httpx2-2.14.0.tar.gz"
-    sha256 "47ad61a3c40282cd8d0dc96311531f00f5bfc71a066c6fe3b36d8f63fb9e4f6e"
+    url "https://files.pythonhosted.org/packages/43/73/5ca2cedf5e4e50423d1c258877865a6b62793633b561c58499f8aeb33b7e/httpx2-2.16.0.tar.gz"
+    sha256 "0d54c98128e8f2ff7fbbde0fca8c359e5f032edeaaaac443cdb7f31f685bcd7f"
   end
 
   resource "idna" do
@@ -131,8 +131,8 @@ class Gptme < Formula
   end
 
   resource "jiter" do
-    url "https://files.pythonhosted.org/packages/9c/1f/8176d92e001f86505424b41664032ae26a882bc9ca41a32c803f373f9195/jiter-0.17.0.tar.gz"
-    sha256 "03e432f226a453851079fb84cd17c6da9991eab723e28d716f14ae3d906e0c12"
+    url "https://files.pythonhosted.org/packages/63/5b/f68319f4fe624311a744a33d10fdbcac4c971991e348223cba60d31780b2/jiter-0.18.0.tar.gz"
+    sha256 "a0ca63fd9450a212e4e658d4cfe0ab4977c4f9b0003c68828b843c65e27662ff"
   end
 
   resource "json-repair" do
@@ -181,8 +181,8 @@ class Gptme < Formula
   end
 
   resource "opentelemetry-api" do
-    url "https://files.pythonhosted.org/packages/2e/02/6e0ae9cc61bd3169d401077b507b3ebc344745171e1051ab430be012dcd9/opentelemetry_api-1.45.1.tar.gz"
-    sha256 "aa38ed19bcc084ba42782a73255b3582283eced7ad6dddbd6695189e69adfb75"
+    url "https://files.pythonhosted.org/packages/19/14/cf3a6b6448849656e1e5f4e2101f3988dc6789724050096aba1bc5ccf592/opentelemetry_api-1.45.2.tar.gz"
+    sha256 "d7b0008e21e5fd61cbe7a7f34ca3b6905a78ab677d9bc395e299359c75cda6b4"
   end
 
   resource "parso" do
@@ -201,8 +201,8 @@ class Gptme < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/b7/89/dfd269de936e76319cf27787d9eaaca513491f635d49b0fbe7cdb6d3bf6f/platformdirs-4.13.4.tar.gz"
-    sha256 "dd96496961684a7f42041923f842ec7494e09f5e87aded99117e1109cd40570e"
+    url "https://files.pythonhosted.org/packages/9a/6e/886dc7c9d21e2d95aceb696f1e31271742033aeef3661f6e9c8921493592/platformdirs-4.14.3.tar.gz"
+    sha256 "021add1ab113483edbcd4694f5fbb2d688b893ea30d35e1155bb371cf4be0be8"
   end
 
   resource "prompt-toolkit" do
@@ -221,8 +221,8 @@ class Gptme < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/2e/3b/a5d2294799b53b448319978cfb5bd139d5a9d45e862af91661614f14c922/pydantic_settings-2.16.0.tar.gz"
-    sha256 "5b6c578049ede4db0e2ef3b4eaa4ad4069cfa9211f83fb38df899dfade50a614"
+    url "https://files.pythonhosted.org/packages/d0/31/21d21e0e38a8f5f7a7f0cde22820117b6d17d6bc36f348129527f915d7f4/pydantic_settings-2.16.2.tar.gz"
+    sha256 "3dc08ffabed2bbd5dc2dd55ead7b78b4e4c5cd776aecd04310db5f1224caaf46"
   end
 
   resource "pygments" do
@@ -246,8 +246,8 @@ class Gptme < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/5b/42/55c32bb9b12693c092ad250a0e82edb5b31ddeda6eb772de5f308b3804ad/python_multipart-0.0.32.tar.gz"
-    sha256 "be54b7f3fa167bb83e4fcd936b887b708f4e57fe75911c02aebf53efaf8d938e"
+    url "https://files.pythonhosted.org/packages/9f/b7/15b905f6142a9a8a68f66900788da1a32e4d4254452783b37ad1eccb0506/python_multipart-0.0.33.tar.gz"
+    sha256 "b8112424a6abd162ec08d390565dd113ad699f2fe6fef3c987b8bbcbfe9e390d"
   end
 
   resource "pyyaml" do
@@ -291,8 +291,8 @@ class Gptme < Formula
   end
 
   resource "sse-starlette" do
-    url "https://files.pythonhosted.org/packages/e4/be/0123026f719d1a7936f214a88b553bb5701e04ff2511147c1dab0c5035eb/sse_starlette-3.5.0.tar.gz"
-    sha256 "75de713aa8a9441513cc283220826da079d982770965b951e9437720e8bafdb2"
+    url "https://files.pythonhosted.org/packages/71/7f/3b8ec4f27833f7b8c270a3ef960b6d435e1065439847bc0fcd1e58ae898b/sse_starlette-3.6.0.tar.gz"
+    sha256 "623151d6c20dc0eebf1b3379c27faae91fff883bac7ab6665f16f46440a88b3a"
   end
 
   resource "stack-data" do
@@ -301,8 +301,8 @@ class Gptme < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/ad/eb/4e197bf26b023abafc5e9043ec8710d7de0fcb032d0969045236d72aa0b1/starlette-1.9.0.tar.gz"
-    sha256 "3d931de246ed870e35ce605974440816ef895e592f255d1396cfdf191d4c4318"
+    url "https://files.pythonhosted.org/packages/48/bb/3d8757f21e9a53d9035c9eb039a777047139a16bfdbedfc7a58241c3d914/starlette-1.10.0.tar.gz"
+    sha256 "b8399098d4c1e3522734f7235dc79b1fc967f96cf139c81e0fa30479e0685f9b"
   end
 
   resource "tabulate" do
@@ -356,14 +356,11 @@ class Gptme < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
-    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
+    url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
+    sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
   end
 
   def install
-    # Allow Python 3.15
-    inreplace "pyproject.toml", 'requires-python = ">=3.10,<3.15"', 'requires-python = ">=3.10,<3.16"'
-
     virtualenv_install_with_resources
 
     generate_completions_from_executable(bin/"gptme", shell_parameter_format: :click)
