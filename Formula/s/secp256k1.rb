@@ -16,9 +16,11 @@ class Secp256k1 < Formula
     sha256 cellar: :any, x86_64_linux:      "d1e8e76c37b642980dc7ee04ebc87823daeca6417f0c920bfc2b03f3af812f41"
   end
 
-  depends_on "autoconf" => [:build]
-  depends_on "automake" => [:build]
-  depends_on "libtool" => [:build]
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
+  deny_network_access!
 
   def install
     system "./autogen.sh"
