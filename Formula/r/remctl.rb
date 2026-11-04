@@ -32,6 +32,8 @@ class Remctl < Formula
 
   uses_from_macos "krb5"
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
