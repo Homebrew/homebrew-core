@@ -1,8 +1,8 @@
 class Cx < Formula
   desc "CLI for querying and managing Coralogix observability data"
   homepage "https://github.com/coralogix/cx-cli"
-  url "https://github.com/coralogix/cx-cli/archive/refs/tags/v0.1.29.tar.gz"
-  sha256 "378f3b04506e172ee17e39322373a9d363771af27c4bcc14887e9f86fee4458a"
+  url "https://github.com/coralogix/cx-cli/archive/refs/tags/v0.1.30.tar.gz"
+  sha256 "099c7a4ed64264f8cd900c243392e305c0071f208dcc8d4b90584840205f7bfb"
   license "Apache-2.0"
 
   bottle do
