@@ -5,21 +5,6 @@ class PerconaXtrabackupAT80 < Formula
   sha256 "a73a5e3e055075524968b116f9c2ca7c49eedcae88f7c5ef8227ba84ea3364b6"
   license "GPL-2.0-only"
 
-  livecheck do
-    url "https://www.percona.com/wp-admin/admin-ajax.php", post_form: {
-      action:     "percona_downloads",
-      product_id: "Percona-XtraBackup-#{version.major_minor}",
-    }
-    regex(/^Percona-XtraBackup-v?(\d+(?:[.-]\d+)+)$/i)
-    strategy :json do |json, regex|
-      json.dig("data", "versions")&.filter_map do |version|
-        # Convert a version like 1.2.3-4.0 to 1.2.3-4 (but leave a version like
-        # 1.2.3-4.5 as-is).
-        version[regex, 1]&.sub(/(-\d+)\.0$/, '\1')
-      end
-    end
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_golden_gate: "f9853d6bfdd79bd0699790e088fcec09c7d89f1f0e68fb20c50946613603ac5a"
@@ -33,6 +18,7 @@ class PerconaXtrabackupAT80 < Formula
 
   # https://www.percona.com/services/policies/percona-software-support-lifecycle
   deprecate! date: "2026-04-01", because: :unsupported
+  disable! date: "2027-04-01", because: :unsupported
 
   depends_on "bison" => :build # needs bison >= 3.0.4
   depends_on "cmake" => :build
