@@ -8,11 +8,11 @@ class CondaLock < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a8a702b65e075eebc6d1501b112fad7792275021fbc066d175aa4c177b9ff8d1"
-    sha256 cellar: :any, arm64_tahoe:       "c6bd5afcc4f0582b706e4046c3201edc27437c5654aa7be0e48ac301e8d8e672"
-    sha256 cellar: :any, arm64_sequoia:     "5f1183e7ac14926456dc121ed4ecf03132ab71d6cf45b31713f60590038ed1e3"
-    sha256 cellar: :any, arm64_linux:       "fded2831d47e943a1dc86c77fcdb1fc60df682885e89a760fe4707a12de98736"
-    sha256 cellar: :any, x86_64_linux:      "51131d90def358b9199752cc25e3aec7c90ef94e1a4e3576bfefcee6f8e799fe"
+    sha256 cellar: :any, arm64_golden_gate: "15b3b912ecc9221bf3a04693f0d40b71868db4a998db47956eca0d9af393a7af"
+    sha256 cellar: :any, arm64_tahoe:       "0b70d79b63e6c1160a80f23d9fefb85a8050c465d9d7413df87afc82ff201f51"
+    sha256 cellar: :any, arm64_sequoia:     "eadeb99796b3a2a913c2cef33e6ba8bd794eac7de439d5dadaa5b81e77072861"
+    sha256 cellar: :any, arm64_linux:       "e3d9021fcc2ccf95315baf5f6cac1bc93238d8dcf3c960f78d95d8b0ae0d8bbb"
+    sha256 cellar: :any, x86_64_linux:      "cbe50c7b3d9161bf0666f4becae00179015ed712dec30012640396a1e80368cd"
   end
 
   depends_on "rust" => :build # for cachecontrol, uv-backend
