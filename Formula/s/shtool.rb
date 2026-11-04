@@ -11,6 +11,8 @@ class Shtool < Formula
     sha256 cellar: :any_skip_relocation, all: "3edcbc54268a95648cc37c6f08b9ccf66968d3a7b8f76966c4038a1559203a56"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
