@@ -6,6 +6,11 @@ class DirectxHeaders < Formula
   license "MIT"
   compatibility_version 1
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "48076cb85f5b74a45f1b13b2eb72ba14426838cbc066154c6b3093a64285f095"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd5e7e8ebf3d3bf84450a894a95b3ca913758f95b2c1796e8c76deb1175d3244"
