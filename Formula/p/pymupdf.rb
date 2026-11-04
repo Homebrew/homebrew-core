@@ -3,18 +3,17 @@ class Pymupdf < Formula
 
   desc "Python bindings for the PDF toolkit and renderer MuPDF"
   homepage "https://pymupdf.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/b0/23/3575cf6652171bba33fd4b41d34ab92c7ee75bb5e5790f5a2a044b9ba49b/pymupdf-2.0.tar.gz"
-  sha256 "7733136f626fffe98677daa53c906eb45f2eb486a6450dbcfd652cbbd760f1e2"
+  url "https://files.pythonhosted.org/packages/13/d9/5ae3cce31a4a62de4f6979331b4d8d5b86a8f2520f06754cf5e69065c887/pymupdf-2.1.tar.gz"
+  sha256 "9ac95f98016e83eafb8f1d786396f9c60e400d559590596e5b2df9eb6384948b"
   license "AGPL-3.0-only"
-  revision 1
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f74746d26f0297957c5d8ed057c7ddc295f0c3b94bc0a26f00a7ab1ab8e88f61"
-    sha256 cellar: :any, arm64_tahoe:       "cfbecbe86e0abb38331084f90a5bebf7120ecbd26a0f574e4e94fe91bf1eb918"
-    sha256 cellar: :any, arm64_sequoia:     "208b516d7217ebc94cbd52f54464b9472b6fca72babceeaa40a91e6f6837bdd9"
-    sha256 cellar: :any, arm64_linux:       "21468bb70abf05867dbaacb918398a85c87618dc1392a276c1a901c19c091fda"
-    sha256 cellar: :any, x86_64_linux:      "bbf9a0710ae7f1ee5bba7324dd231f8178ea357f69572fd37ccd5d3dfc93218b"
+    sha256 cellar: :any, arm64_golden_gate: "f3fc4c8a36f3ed75b4140380fe405afc5f18feb7f92dfd209ddf02cd20aae64e"
+    sha256 cellar: :any, arm64_tahoe:       "687d78d6b27e830e70f0d42fc08f4fa0e5b3087ce92d2fbbc6ee5f3434320437"
+    sha256 cellar: :any, arm64_sequoia:     "1ee65591867b17c785fa0e5c81d84e7839f41a31879fc064a0e7ceef310addd8"
+    sha256 cellar: :any, arm64_linux:       "b6d31defb3b7d42a5513fa6fa943bf05fde3d1f9870c56d42d879d20010c69c3"
+    sha256 cellar: :any, x86_64_linux:      "21a264b1d2afb5d7473e46a711ac2e4ee7c1f8f85d55eef4609ea5d9eaed0b80"
   end
 
   depends_on "freetype" => :build
