@@ -48,6 +48,8 @@ class Splint < Formula
 
   uses_from_macos "flex"
 
+  deny_network_access!
+
   def install
     ENV.deparallelize # build is not parallel-safe
 
