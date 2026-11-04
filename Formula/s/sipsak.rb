@@ -18,6 +18,8 @@ class Sipsak < Formula
 
   depends_on "openssl@4"
 
+  deny_network_access!
+
   def install
     ENV.append "CFLAGS", "-std=gnu89"
     system "./configure", "--disable-debug",
