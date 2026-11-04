@@ -23,6 +23,8 @@ class Lemon < Formula
   # Submitted the patch via email to the upstream
   patch :DATA
 
+  deny_network_access!
+
   def install
     pkgshare.install "tool/lempar.c"
 
