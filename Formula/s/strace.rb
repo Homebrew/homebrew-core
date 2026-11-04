@@ -13,11 +13,14 @@ class Strace < Formula
 
   head do
     url "https://github.com/strace/strace.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
 
   depends_on :linux
+
+  deny_network_access!
 
   def install
     system "./bootstrap" if build.head?
