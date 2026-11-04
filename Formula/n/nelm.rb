@@ -7,16 +7,12 @@ class Nelm < Formula
   license "Apache-2.0"
   head "https://github.com/werf/nelm.git", branch: "main"
 
-  # trdl_channels.yaml is used by official auto-updater to track latest version.
-  # See https://werf.io/about/release_channels.html
+  # Track the stable channel of official Nelm binaries. This accounts for the
+  # delay between a https://github.com/werf/nelm/blob/main/trdl_channels.yaml
+  # update and successful release:trdl-publish workflow run.
   livecheck do
-    url "https://raw.githubusercontent.com/werf/nelm/refs/heads/main/trdl_channels.yaml"
-    strategy :yaml do |yaml|
-      yaml["groups"]&.filter_map do |group|
-        channel = group["channels"]&.find { |channel| channel["name"] == "stable" }
-        channel&.[]("version")
-      end
-    end
+    url "https://tuf.nelm.sh/targets/channels/#{version.major}/stable"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
