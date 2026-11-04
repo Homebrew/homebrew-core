@@ -2,9 +2,9 @@ class Odin < Formula
   desc "Programming language with focus on simplicity, performance and modern systems"
   homepage "https://odin-lang.org/"
   url "https://github.com/odin-lang/Odin.git",
-      tag:      "dev-2026-11",
-      revision: "e28f5d1ff420ce2cfd7f1f5a9a91f8b37956445e"
-  version "2026-11"
+      tag:      "dev-2026-11a",
+      revision: "9a6991685ddf663956d9836602eb421e141fc443"
+  version "2026-11a"
   license "Zlib"
   compatibility_version 1
   head "https://github.com/odin-lang/Odin.git", branch: "master"
@@ -78,12 +78,6 @@ class Odin < Formula
 
     ln_s raylib.lib/"libraylib.a", vendor/raylib_dir/"libraylib.a"
     ln_s raylib.lib/shared_library("libraylib"), vendor/raylib_dir/shared_library("libraylib", "620")
-
-    # raylib 6.2's bundled glfw references `CAMetalLayer`, so static links need QuartzCore
-    if OS.mac?
-      inreplace vendor/"raylib.odin", "\"system:Cocoa.framework\",",
-                "\\0\n\t\t\"system:QuartzCore.framework\","
-    end
 
     raygui_dir = vendor/(OS.mac? ? "macos" : "linux")
     raygui_name = (OS.mac? && Hardware::CPU.arm?) ? "libraygui-arm64" : "libraygui"
