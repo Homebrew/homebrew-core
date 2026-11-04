@@ -1,19 +1,18 @@
 class Rsync < Formula
   desc "Utility that provides fast incremental file transfer"
   homepage "https://rsync.samba.org/"
-  url "https://github.com/RsyncProject/rsync/releases/download/v3.5.1/rsync-3.5.1.tar.gz"
-  mirror "https://rsync.samba.org/ftp/rsync/rsync-3.5.1.tar.gz"
-  sha256 "c55f9c9dc10fb8bec397b399a0fdded53cc9a2d8e30891bb0d63724d25c37bef"
+  url "https://github.com/RsyncProject/rsync/releases/download/v3.5.2/rsync-3.5.2.tar.gz"
+  mirror "https://rsync.samba.org/ftp/rsync/rsync-3.5.2.tar.gz"
+  sha256 "a10d591825251e070f74c98df3daad195def4ed81b4a2de16169026aea33f6c8"
   license "GPL-3.0-or-later"
   compatibility_version 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "ed7eaefb29afddb3caa23fa9fb196ce22970a80ed122f8f8e8a748c470751969"
-    sha256 cellar: :any, arm64_tahoe:       "d69be3a3d34872a903df96ab8767de96a407819f3d9b80b8d8a75dc738796033"
-    sha256 cellar: :any, arm64_sequoia:     "3398c5c1587212bf7a9d88efaa4728fca79586b8110c6c2fb52ebf2622446879"
-    sha256 cellar: :any, arm64_linux:       "785b41d1bb830876bd483268a7103b2199361c72de9ea6afd0a118e9232432cb"
-    sha256 cellar: :any, x86_64_linux:      "a4b03666566e0693e4cd2016ba8a0104c0ab5c71c8237aeb20d973e1bf6e4b96"
+    sha256 cellar: :any, arm64_golden_gate: "1c0313039284937a72b2e44e40286a6feaa5bf8716e72a10715977113d3195b3"
+    sha256 cellar: :any, arm64_tahoe:       "f8626ce976d60f1e87cf3399d25344859a98a0bacdf28b9fd3db2ac64a0f9f9e"
+    sha256 cellar: :any, arm64_sequoia:     "3f7f5f7187f553064968ca84e685d18c78b4e9234f081ecf4a21ae799adc62b3"
+    sha256 cellar: :any, arm64_linux:       "73f795714ec7ca9873cbad34d11acd0040cfbfaa3157d941e2b8e2e8f3c7766d"
+    sha256 cellar: :any, x86_64_linux:      "8499e94370d38687576613c3db7f3f7129540a526857cf5ba0e06dc30864c185"
   end
 
   depends_on "libidn2"
