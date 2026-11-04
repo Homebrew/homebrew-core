@@ -26,6 +26,8 @@ class Snownews < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     ENV.deparallelize # due to `install: mkdir /usr/local/Cellar/snownews/1.11_2/share: File exists`
