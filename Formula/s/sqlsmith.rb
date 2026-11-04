@@ -33,6 +33,8 @@ class Sqlsmith < Formula
 
   uses_from_macos "sqlite"
 
+  deny_network_access!
+
   def install
     ENV.append_to_cflags "-DNDEBUG"
     system "autoreconf", "--force", "--install", "--verbose"

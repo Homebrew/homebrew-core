@@ -37,10 +37,7 @@ class Svg2pdf < Formula
     depends_on "libsvg"
   end
 
-  resource("svg.svg") do
-    url "https://raw.githubusercontent.com/mathiasbynens/small/master/svg.svg"
-    sha256 "900fbe934249ad120004bd24adf66aad8817d89586273c0cc50e187bddebb601"
-  end
+  deny_network_access!
 
   def install
     # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
@@ -55,9 +52,7 @@ class Svg2pdf < Formula
   end
 
   test do
-    resource("svg.svg").stage do
-      system bin/"svg2pdf", "svg.svg", "test.pdf"
-      assert_path_exists Pathname.pwd/"test.pdf"
-    end
+    system bin/"svg2pdf", test_fixtures("test.svg"), "test.pdf"
+    assert_path_exists Pathname.pwd/"test.pdf"
   end
 end

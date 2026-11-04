@@ -20,6 +20,8 @@ class SstpClient < Formula
   depends_on "libevent"
   depends_on "openssl@4"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules",
                           "--disable-ppp-plugin",

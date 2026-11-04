@@ -15,6 +15,8 @@ class Stdman < Formula
     depends_on "man-db" => :test
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"

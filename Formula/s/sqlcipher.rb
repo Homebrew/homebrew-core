@@ -25,6 +25,8 @@ class Sqlcipher < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     # Build with full-text search enabled
     cflags = %w[

@@ -39,13 +39,14 @@ class SpatialiteTools < Formula
     depends_on "minizip"
   end
 
+  deny_network_access!
+
   def install
     # See: https://github.com/Homebrew/homebrew/issues/3328
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
     # Ensure Homebrew SQLite is found before system SQLite.
-    sqlite = Formula["sqlite"]
-    ENV.prepend "LDFLAGS", "-L#{sqlite.opt_lib} -lsqlite3"
-    ENV.prepend "CFLAGS", "-I#{sqlite.opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("sqlite")} -lsqlite3"
+    ENV.prepend "CFLAGS", "-I#{formula_opt_include("sqlite")}"
 
     args = []
     # Help old config scripts identify arm64 linux

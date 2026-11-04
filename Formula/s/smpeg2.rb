@@ -43,6 +43,8 @@ class Smpeg2 < Formula
   # We patch `libtool.m4` because we need to generate the `configure` script.
   patch :DATA
 
+  deny_network_access!
+
   def install
     args = ["--with-sdl-prefix=#{formula_opt_prefix("sdl2-compat")}", "--disable-sdltest"]
     # Help old config scripts identify arm64 linux

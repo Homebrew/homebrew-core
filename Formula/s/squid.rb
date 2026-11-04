@@ -36,6 +36,8 @@ class Squid < Formula
 
   uses_from_macos "libxcrypt"
 
+  allow_network_access! :test
+
   def install
     # https://stackoverflow.com/questions/20910109/building-squid-cache-on-os-x-mavericks
     ENV.append "LDFLAGS", "-lresolv"

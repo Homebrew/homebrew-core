@@ -38,6 +38,8 @@ class SofiaSip < Formula
     resolves "https://github.com/freeswitch/sofia-sip/pull/337"
   end
 
+  deny_network_access!
+
   def install
     system "./bootstrap.sh"
     system "./configure", "--disable-silent-rules", *std_configure_args

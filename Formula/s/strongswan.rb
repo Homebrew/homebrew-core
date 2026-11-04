@@ -34,6 +34,8 @@ class Strongswan < Formula
 
   uses_from_macos "curl"
 
+  deny_network_access!
+
   def install
     # Work around RPATH modifications corrupting binary. Upstream patchelf fixed this issue
     # https://github.com/NixOS/patchelf/issues/315 but it may be missing in patchelf.rb

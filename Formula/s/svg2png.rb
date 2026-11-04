@@ -36,6 +36,8 @@ class Svg2png < Formula
 
   conflicts_with "mapnik", because: "both install `svg2png` binaries"
 
+  deny_network_access!
+
   def install
     # svg2png.c:53:9: note: include the header <string.h> or explicitly provide a declaration for 'strcmp'
     inreplace("src/svg2png.c",

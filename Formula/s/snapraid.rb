@@ -20,6 +20,8 @@ class Snapraid < Formula
     depends_on "automake" => :build
   end
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}"

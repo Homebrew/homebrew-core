@@ -27,6 +27,8 @@ class Sparkey < Formula
   depends_on "libtool" => :build
   depends_on "snappy"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules", *std_configure_args

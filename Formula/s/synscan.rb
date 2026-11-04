@@ -29,6 +29,8 @@ class Synscan < Formula
 
   depends_on "libpcap"
 
+  deny_network_access!
+
   def install
     # Ideally we pass the prefix into --with-libpcap, but that option only checks "flat"
     # i.e. it only works if the headers and libraries are in the same directory.

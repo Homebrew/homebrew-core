@@ -35,6 +35,8 @@ class Swig < Formula
     depends_on "zlib-ng-compat"
   end
 
+  allow_network_access! :test
+
   def install
     ENV.append "CXXFLAGS", "-std=c++11" # Fix `nullptr` support detection.
     system "./autogen.sh" if build.head?

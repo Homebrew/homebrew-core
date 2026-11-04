@@ -21,6 +21,8 @@ class Ssdeep < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "d62ce2005fd901e4a363b3f6592dee0388e9114d323a058499d16e8dba9c4d38"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"

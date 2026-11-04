@@ -41,6 +41,8 @@ class Sqliteodbc < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     if Hardware::CPU.arm?
       # Workaround for ancient config files not recognizing aarch64 macos.

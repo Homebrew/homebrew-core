@@ -22,6 +22,8 @@ class Sshguard < Formula
     depends_on "docutils" => :build
   end
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules", "--sysconfdir=#{etc}", *std_configure_args

@@ -28,6 +28,8 @@ class StartupNotification < Formula
   depends_on "libxcb"
   depends_on "xcb-util"
 
+  deny_network_access!
+
   def install
     args = []
     # Help old config scripts identify arm64 linux
