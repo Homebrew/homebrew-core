@@ -35,6 +35,8 @@ class Rtptools < Formula
     depends_on "libnsl"
   end
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--verbose", "--install", "--force"
     system "./configure", "--disable-dependency-tracking",
