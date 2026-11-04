@@ -1,8 +1,8 @@
 class StressNg < Formula
   desc "Stress test a computer system in various selectable ways"
-  homepage "https://wiki.ubuntu.com/Kernel/Reference/stress-ng"
-  url "https://github.com/ColinIanKing/stress-ng/archive/refs/tags/V0.22.01.tar.gz"
-  sha256 "67e75894da3f634b85992069b0a888893221a77a3db5e3293cdddd0b1c0d4705"
+  homepage "https://github.com/ColinIanKing/stress-ng"
+  url "https://github.com/ColinIanKing/stress-ng/archive/refs/tags/V0.22.02.tar.gz"
+  sha256 "860004ce7484311b3296fc52796fbbc34dfb7f644a769bbd4e03935b7a1b0ccb"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,17 +11,18 @@ class StressNg < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ced5cd151919780b08fc206650f23dc01fb5cf1ad06f7d37e904b52f7f63ee20"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "89e5522a96b8ac5e7a6c2dfdf47d776dfe422d6afe74b9fb47c6c47b386d1771"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c0f6252ad12b0d9239f9598350fab913dc85416ca92f3b90ee31f0ab01b630c7"
-    sha256 cellar: :any,                 arm64_linux:       "924f9ff216b76ba6d4d4322a08324ce6de50a9efab1395c763c399a75338699f"
-    sha256 cellar: :any,                 x86_64_linux:      "51a1e51d71cc6c9f49c8fac0719e7405e5263c6954492b8f2029d3528eab0133"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fc37e8ae7f27f0d18d026b4554dbac54c79b217b08a8d05515632065753866bd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8ecb465d8d5f161536b609312f772c7d2d45b87f1e109ba05a7f6bbc04dd176e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0a68e10e4bd7b54adc836d3e4b06ec13fdbdc78fd0f4b683817a4039524afc0a"
+    sha256 cellar: :any,                 arm64_linux:       "b1d7336b61f50d0d8c8bc1f95dad4eda09ae2bbeccbd4e38c057cd4b97dc7ebb"
+    sha256 cellar: :any,                 x86_64_linux:      "1ddd158c578655076e75e6a9b199c4c71349907edea0c5da3c10b0ea882d64ff"
   end
 
   uses_from_macos "libxcrypt"
 
   on_linux do
     depends_on "acl"
+    depends_on "gmp"
     depends_on "zlib-ng-compat"
   end
 
