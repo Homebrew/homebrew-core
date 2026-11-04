@@ -25,6 +25,8 @@ class Stoken < Formula
 
   uses_from_macos "libxml2"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh"
     system "./configure", "--disable-silent-rules", *std_configure_args
