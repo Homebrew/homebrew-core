@@ -6,13 +6,11 @@ class Youtubedr < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fc02c5bd37341fec9acf7f47c8dda84817d3c03ac92ddfbbd7e2628c65f08410"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "049accac2a24feea5955585770e6dbdf33094ac2b5d2b72272c99066bab42db2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "049accac2a24feea5955585770e6dbdf33094ac2b5d2b72272c99066bab42db2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "049accac2a24feea5955585770e6dbdf33094ac2b5d2b72272c99066bab42db2"
-    sha256 cellar: :any_skip_relocation, sonoma:            "ebaa5b1f556aae997a5f09774620f28cda593faf13cf150db364ac1f070babe9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c2e1ef375afceeace7ee6847b8abb5c65e33b434e79211e1e7b5ed7f1f6d8e02"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d9fab3a1306590624f89889c85218e5e89b0a899b158a048a96a808b55955005"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a93213c7ef9a5be5a30e90094425325909dd78f120749057426dda4ddd784563"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a93213c7ef9a5be5a30e90094425325909dd78f120749057426dda4ddd784563"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a93213c7ef9a5be5a30e90094425325909dd78f120749057426dda4ddd784563"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "725d4c537634a584f3f724f0b6dceb93d1f7e7fd7f36aa7fe30de17322ac5a22"
+    sha256 cellar: :any,                 x86_64_linux:      "87b06787fcbf1b1f7ab94ba4be809ca6b976e7d9bd871c8022114e48602f0e91"
   end
 
   depends_on "go" => :build
