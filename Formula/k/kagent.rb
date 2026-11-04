@@ -1,8 +1,8 @@
 class Kagent < Formula
   desc "Kubernetes native framework for building AI agents"
   homepage "https://kagent.dev"
-  url "https://github.com/kagent-dev/kagent/archive/refs/tags/v0.10.4.tar.gz"
-  sha256 "6f4155a55f22b18b779a322646368f468c04dfbf7d100b5d638aae57dad16ace"
+  url "https://github.com/kagent-dev/kagent/archive/refs/tags/v0.10.5.tar.gz"
+  sha256 "396a13ff1eb03fe8093c2900617455124467742d9f3ca4fd19a87d589dd7411f"
   license "Apache-2.0"
   head "https://github.com/kagent-dev/kagent.git", branch: "main"
 
