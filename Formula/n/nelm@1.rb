@@ -14,6 +14,14 @@ class NelmAT1 < Formula
     regex(/^v?(1(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ae5eb227286911d5e949f1e94ee78360838f985b9b44c1b0837d63cb38cf2a47"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7dc31cfb79f8d7aca8040176ab230a4cbe71d37d0212ee7054ef7c748d5678f8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "854be436292d037848314dcd3c38235af901b814cd94e351ca6df0c6c1f177b4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7a75b9c985d58b4dcea384ba434b3b5272cf5428222c76413485d5058f2b92ef"
+    sha256 cellar: :any,                 x86_64_linux:      "0361eddcae4695f4a19e8709c8a84acb51d14684a486fc4b188b415d86229f48"
+  end
+
   keg_only :versioned_formula
 
   depends_on "go" => :build
