@@ -1,8 +1,8 @@
 class Bpftop < Formula
   desc "Dynamic real-time view of running eBPF programs"
   homepage "https://github.com/jfernandez/bpftop"
-  url "https://github.com/jfernandez/bpftop/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "a81bcc69a697ffa0919d63394d914d4b1f15b2ba33d2c28e6f6dae2187f59a5a"
+  url "https://github.com/jfernandez/bpftop/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "0663eaeda6999c248efd4f15e3a176f60a705dcbafdfc52dedacc12d770c088b"
   license "Apache-2.0"
   head "https://github.com/jfernandez/bpftop.git", branch: "main"
 
