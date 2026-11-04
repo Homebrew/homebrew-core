@@ -1,8 +1,8 @@
 class Onednn < Formula
   desc "Basic building blocks for deep learning applications"
   homepage "https://www.oneapi.io/open-source/"
-  url "https://github.com/uxlfoundation/oneDNN/archive/refs/tags/v3.14.1.tar.gz"
-  sha256 "3f2bc020ecc3d3ffcee48075d6bd0bf6894007b95a04bdf3531ebb0fd2ef00ac"
+  url "https://github.com/uxlfoundation/oneDNN/archive/refs/tags/v3.14.2.tar.gz"
+  sha256 "ed509c84b9d73bacabff00e6aaedbde570568e26dedb129030fee9c8c196f168"
   license "Apache-2.0"
   head "https://github.com/uxlfoundation/oneDNN.git", branch: "main"
 
