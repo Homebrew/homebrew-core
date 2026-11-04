@@ -1,8 +1,8 @@
 class Bkmr < Formula
   desc "Unified CLI Tool for Bookmark, Snippet, and Knowledge Management"
   homepage "https://github.com/sysid/bkmr"
-  url "https://github.com/sysid/bkmr/archive/refs/tags/v7.8.0.tar.gz"
-  sha256 "0427d3ee521a9ab0a333d8fe31cd47fba7eb15f5cf8a4e687857b0761078a2d8"
+  url "https://github.com/sysid/bkmr/archive/refs/tags/v7.9.1.tar.gz"
+  sha256 "814bd6efd092eafaee2d07a720c969ff7fe12706444cc33547c10219713d47f4"
   license "BSD-3-Clause"
   head "https://github.com/sysid/bkmr.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Bkmr < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d932f05ce03072bfc724e8110c4efd6976c53ae692a70cdcc0560b119fff328d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9af94e6496f2988e498cf74157b0fb8a4aef443614302e8667bdc3dc2182bafe"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7183762b7056f430ffa91b8383f47e94102a4e34639f0d73b7e23af6b62efc9a"
-    sha256 cellar: :any,                 arm64_linux:       "3f76b79d33b82adea61ea0e83494d98c380e42b6a99b8d92c3466691bce894fb"
-    sha256 cellar: :any,                 x86_64_linux:      "5ab83063209d60d29806debd4527aec0bbc7fd0400047a29f5f43b5b5fde05d5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b110d495f389290cbefe94e4015b5688dd1ac3c4e38845270fad4dc364427b90"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4bb6f0d32592ed0726747c8176cce174e2e354fe4d58abaa82caf28321a9d169"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0e97fbc49292029c30ab722fef41e32214db7e4dc876d6b63466a7706725c9da"
+    sha256 cellar: :any,                 arm64_linux:       "b1891491a9593418bc26c07e364c845fe7ad003393313a52a7f28b01e07a9365"
+    sha256 cellar: :any,                 x86_64_linux:      "1210a929a217d412e8dec54819c331bc85f6e9e5fc03b817b3e783e13a7bc0d6"
   end
 
   depends_on "rust" => :build
