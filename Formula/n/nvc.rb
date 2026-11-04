@@ -49,12 +49,8 @@ class Nvc < Formula
       system "../configure", "--with-llvm=#{formula_opt_bin("llvm")}/llvm-config",
                              "--disable-silent-rules",
                              *std_configure_args
-      args = ["V=1"]
-      # Use a two-level namespace for plugins while retaining runtime symbol lookup.
-      # TODO: Remove this override when https://github.com/nickg/nvc/issues/1663 is fixed upstream.
-      args << "SHLIB_LDFLAGS=-shared -undefined dynamic_lookup -Wl,-no_fixup_chains" if OS.mac?
-      system "make", *args
-      system "make", *args, "install"
+      system "make", "V=1"
+      system "make", "V=1", "install"
     end
 
     (pkgshare/"examples").install "test/regress/wait1.vhd"
