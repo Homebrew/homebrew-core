@@ -8,7 +8,7 @@ class Dlpack < Formula
   head "https://github.com/dmlc/dlpack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "30a717cecea8548dd3d1e77b92ebcd12f915717236ba86937170b75a29afd1c7"
+    sha256 cellar: :any_skip_relocation, all: "7a4bb23794feb82ebbb1f9707114f0bf02893d5d3fc6378172e6393a42409a58"
   end
 
   depends_on "cmake" => :build
