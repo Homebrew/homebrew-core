@@ -23,6 +23,8 @@ class Sqldiff < Formula
   uses_from_macos "tcl-tk" => :build
   uses_from_macos "sqlite" => :test
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "sqldiff"
