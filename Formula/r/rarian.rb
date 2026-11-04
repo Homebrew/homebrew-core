@@ -29,6 +29,8 @@ class Rarian < Formula
   depends_on "pkgconf" => :build
   depends_on "tinyxml2"
 
+  deny_network_access!
+
   def install
     # Regenerate `configure` to fix `-flat_namespace` bug.
     system "autoreconf", "--force", "--install", "--verbose"
