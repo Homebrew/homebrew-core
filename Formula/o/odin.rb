@@ -2,26 +2,31 @@ class Odin < Formula
   desc "Programming language with focus on simplicity, performance and modern systems"
   homepage "https://odin-lang.org/"
   url "https://github.com/odin-lang/Odin.git",
-      tag:      "dev-2026-10",
-      revision: "84bc3fc2100b0f7880a3af37f71bccdcda41c6f9"
-  version "2026-10"
+      tag:      "dev-2026-11",
+      revision: "e28f5d1ff420ce2cfd7f1f5a9a91f8b37956445e"
+  version "2026-11"
   license "Zlib"
-  revision 1
   compatibility_version 1
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   bottle do
-    sha256               arm64_golden_gate: "a3cf4e9713819e9c5da601e064de8f2f390a2fb32cdfe8e804aa7356073e780c"
-    sha256               arm64_tahoe:       "32476e4b7dcd6d79022ce3790b54093658c996d368ddc74287ac77026e04c444"
-    sha256               arm64_sequoia:     "d94266f7178b98bc95cb0617258b66a03fdf04511178da45f22db85371e94493"
-    sha256 cellar: :any, arm64_linux:       "1c7b8a43a060188b17aad14045b99e9edffed9a7787e83d443924bb7bd0e5019"
-    sha256 cellar: :any, x86_64_linux:      "c7bda2807a090ad4d5b810ed22b55f685085e7ee0013f9ff254f6c446841e174"
+    sha256               arm64_golden_gate: "2d8f8294e825d12cfa666ac5fc169d4f79c79ca9447292a47a1260d1ee6a8bce"
+    sha256               arm64_tahoe:       "0ba298f388b4bc9656733cc03d98ab7eb1809a416da17cda50349015e3ab22d1"
+    sha256               arm64_sequoia:     "fddcb7c4a04e075260fadeda5c440fc3b7c0c4838baae2c4325641e44db07289"
+    sha256 cellar: :any, arm64_linux:       "021f65f487bb31ac4b7af406079bdcb69ed9afc55ac0eda1f83319ee72300f2a"
+    sha256 cellar: :any, x86_64_linux:      "0cc1f3af76a4b5896c39f0dcd3c75e049983f167641127ff108242ed54c4b1df"
   end
 
   depends_on "glfw" => :no_linkage
   depends_on "lld@22"
   depends_on "llvm@22" # TODO: LLVM 23 - https://github.com/odin-lang/Odin/pull/7491
   depends_on "raylib"
+
+  on_linux do
+    # Upstream stopped shipping prebuilt Linux raygui libs and links `system:raygui` instead,
+    # so link the libraygui compiled from the header-only `raygui` resource below, as on macOS.
+    patch :DATA
+  end
 
   fails_with :gcc do
     cause "requires Clang"
@@ -72,7 +77,7 @@ class Odin < Formula
     end
 
     ln_s raylib.lib/"libraylib.a", vendor/raylib_dir/"libraylib.a"
-    ln_s raylib.lib/shared_library("libraylib"), vendor/raylib_dir/shared_library("libraylib", "600")
+    ln_s raylib.lib/shared_library("libraylib"), vendor/raylib_dir/shared_library("libraylib", "620")
 
     # raylib 6.2's bundled glfw references `CAMetalLayer`, so static links need QuartzCore
     if OS.mac?
@@ -191,3 +196,19 @@ class Odin < Formula
     system bin/"odin", "run", "glfw.odin", "-file", "-define:GLFW_SHARED=false"
   end
 end
+
+__END__
+--- a/vendor/raylib/raygui.odin
++++ b/vendor/raylib/raygui.odin
+@@ -10,8 +10,9 @@
+ 		"windows/rayguidll.lib" when RAYGUI_SHARED else "windows/raygui.lib",
+ 	}
+ } else when ODIN_OS == .Linux  {
+-	// No raygui libs are shipped for Linux: they depend on the glibc of the machine that builds them.
+-	foreign import lib "system:raygui"
++	foreign import lib {
++		"linux/libraygui.so" when RAYGUI_SHARED else "linux/libraygui.a",
++	}
+ } else when ODIN_OS == .Darwin {
+ 	when ODIN_ARCH == .arm64 {
+ 		foreign import lib {
