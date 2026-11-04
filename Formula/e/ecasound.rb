@@ -36,6 +36,8 @@ class Ecasound < Formula
     depends_on "alsa-lib"
   end
 
+  deny_network_access!
+
   def install
     args = %w[
       --enable-rubyecasound=no
