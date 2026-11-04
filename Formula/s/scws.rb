@@ -21,6 +21,8 @@ class Scws < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "146dd8b73ef91bcb9118130d13e30803b4213eddeda7d80b5f2a5d75e83f7c64"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
