@@ -21,7 +21,7 @@ class Pixtuoid < Formula
     depends_on "alsa-lib"
   end
 
-  allow_network_access! :test
+  deny_network_access!
 
   def fetch
     system "cargo", "fetch", "--locked", "--target", "host-tuple"
@@ -41,8 +41,6 @@ class Pixtuoid < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/pixtuoid --version")
 
-    connected = JSON.parse(shell_output("#{bin}/pixtuoid connect claude-code --json", 1)).first
-    assert_equal "claude-code", connected["id"]
-    assert_equal "failed", connected["outcome"]
+    assert_match "delivered a test event", shell_output("#{bin}/pixtuoid doctor")
   end
 end
