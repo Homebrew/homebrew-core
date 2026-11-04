@@ -26,6 +26,8 @@ class Sysbench < Formula
 
   uses_from_macos "vim" # needed for xxd
 
+  deny_network_access!
+
   def install
     # C23 rejects the K&R-style function definitions in the bundled crc32.c
     ENV.append_to_cflags "-std=gnu17"
