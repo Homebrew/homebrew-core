@@ -7,12 +7,11 @@ class LinkGrammar < Formula
   head "https://github.com/opencog/link-grammar.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "ccf8cad221341e3a5b430063b7f9458245584419a96873e4ba7fc3a952cd98e7"
-    sha256 arm64_tahoe:       "d33b0976e53138135d4f4630436298779f502f7aefc069bbc53259436ccd6626"
-    sha256 arm64_sequoia:     "03f694cdcdc9d2e6ce3265e8d08e61a59333be3c915b002f193b22ae9f3da479"
-    sha256 arm64_linux:       "f0d1ccffa7ff47795bcb97fba75d17757f1935621a28672a0efd126ddc478ebd"
-    sha256 x86_64_linux:      "9af0e02f2077e830d742f0028c5d30702188c943e931a021b0dd5f0f8a7a2146"
+    sha256 arm64_golden_gate: "df4989f8020fcf54254062dada9d39ef80ed6826afec3d8e13f4141131f79dd3"
+    sha256 arm64_tahoe:       "4cac74fb29fea4f6709a1905bc4f1caa6fc24910e93bd98a9c471e5bb950f33b"
+    sha256 arm64_sequoia:     "c9ff87eb8de5efef331db31ca20054748adac2bb18c690811732884293115ed0"
+    sha256 arm64_linux:       "da01a52e00f81a451a10d707f1647e94daee63a698b280c4fd33f4d7cfab0384"
+    sha256 x86_64_linux:      "01f361dbbeee35e05e0b72ef712fa349c2935cb29465bda6c4379baef4f9ef74"
   end
 
   depends_on "ant" => :build
