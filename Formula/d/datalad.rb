@@ -3,17 +3,17 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/67/ef/5f90c26dcfa301c6a72c0ef6a1f0d8c5ccd4a07268b8dee71e7ddc68f41a/datalad-1.7.4.tar.gz"
-  sha256 "502587719709eda8f7124dbd34760572a4f771b168289ebbd1cd185ea5ba0691"
+  url "https://files.pythonhosted.org/packages/c9/03/210e6d39dd146f2aab09236f8030959f5cd0de716d368e5bfd34496b0596/datalad-1.8.0.tar.gz"
+  sha256 "588a10c59b8a5a3af4bc13a2547db6778a1a5add618b60be038fba3757aa3e01"
   license "MIT"
   head "https://github.com/datalad/datalad.git", branch: "maint"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "413cddd9636dc36873a660ee331397edfb0dd312117e905454679b15d1710830"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd987e070d3175b72f49aa6f59c6c093cc97e645b3ee1ad4418ebc556d1a000a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cce4210fdf9d149af71f1ed3e221963fe9941ce7d9e879598d3c2d6ad5a77402"
-    sha256 cellar: :any,                 arm64_linux:       "a0c1841737f8cc8239946aeab683765950474f7e4e9c9e84abf81909d4158e88"
-    sha256 cellar: :any,                 x86_64_linux:      "63686becded160219bd100152b9ec6128bdfa0ae93c77da80c8f05567ecfc908"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3437b06e2a20a988fc57d6c7a64cf310c6e6655719a3795c280d721e2e3522de"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "96bdf12a94262c53564c69ddb3b10717d40424f717c6a5d560f4b0c7b1c3ae9b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "07e791336a871d1992915a774679c1856d83603f40245392e685bc216859cb9b"
+    sha256 cellar: :any,                 arm64_linux:       "5acfbafa4a158105ea10978e693993d2e55104e63b66176a5c5af5d000f29e17"
+    sha256 cellar: :any,                 x86_64_linux:      "2590932a0aa9e74cfad174cca613976810c3c1ef03f97e4d23f723f000a1cfec"
   end
 
   depends_on "certifi" => :no_linkage
