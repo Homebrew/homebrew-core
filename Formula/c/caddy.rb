@@ -1,24 +1,24 @@
 class Caddy < Formula
   desc "Powerful, enterprise-ready, open source web server with automatic HTTPS"
   homepage "https://caddyserver.com/"
-  url "https://github.com/caddyserver/caddy/archive/refs/tags/v2.11.7.tar.gz"
-  sha256 "86e39de5fa0bc433a9cd574a00e7751059903401f3389c61f8937fd0ad0180f5"
+  url "https://github.com/caddyserver/caddy/archive/refs/tags/v2.11.8.tar.gz"
+  sha256 "50d4fe822eeb7fb779fa37fdc15d50c18472e1d6dffd941cd11d3d26cdc9072b"
   license "Apache-2.0"
   head "https://github.com/caddyserver/caddy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7afb55ae0f5a46a9d76a8278ef999a8f7abc8fdf7fe55b7dae615af5de1ab5b5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7afb55ae0f5a46a9d76a8278ef999a8f7abc8fdf7fe55b7dae615af5de1ab5b5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7afb55ae0f5a46a9d76a8278ef999a8f7abc8fdf7fe55b7dae615af5de1ab5b5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "58964220f1b630583efd669d7181a7691d962ab8ee3c33c7c1025085534a2660"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "4b2f7b09cead0281082a9cc84fcd0a118f33fab46409a3ad6a9ac921b8d2f1ea"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d6ffeaebe6e98a0ef2b12a6e912160de0af1ab59d86ecbb9bad849ce87223f14"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d6ffeaebe6e98a0ef2b12a6e912160de0af1ab59d86ecbb9bad849ce87223f14"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d6ffeaebe6e98a0ef2b12a6e912160de0af1ab59d86ecbb9bad849ce87223f14"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "513681f6957dd736cee4df1dd17d5aaec7a2e3176eca309e022e47b040761102"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "fab6b480a78dc62080e867aca2ef7f8e733b44da8685d5b595311e8c1f89b63b"
   end
 
   depends_on "go" => :build
 
   resource "xcaddy" do
-    url "https://github.com/caddyserver/xcaddy/archive/refs/tags/v0.4.5.tar.gz"
-    sha256 "53c6a9e29965aaf19210ac6470935537040e782101057a199098feb33c2674f8"
+    url "https://github.com/caddyserver/xcaddy/archive/refs/tags/v0.4.7.tar.gz"
+    sha256 "a8a092d076ea70a42198d4b35c0872da893c6d32c2d02c9df5b8935ee8ffb7ec"
 
     livecheck do
       url :url
