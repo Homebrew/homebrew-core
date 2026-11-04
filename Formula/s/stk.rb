@@ -33,6 +33,8 @@ class Stk < Formula
     depends_on "alsa-lib"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args.reject { |s| s["--disable-dependency-tracking"] }
     system "make"
