@@ -41,6 +41,8 @@ class Libdill < Formula
     resolves "https://github.com/sustrik/libdill/pull/197"
   end
 
+  deny_network_access!
+
   def install
     # C23 treats the upstream's unprototyped function pointers as zero-argument functions
     ENV["ac_cv_prog_cc_c23"] = "no"
@@ -54,14 +56,14 @@ class Libdill < Formula
     # Issue ref: https://github.com/sustrik/libdill/issues/208
     ENV["CC"] = formula_opt_bin("llvm")/"clang" if Hardware::CPU.arm?
 
-    (testpath/"test.c").write <<~C
+    (testpath/"test.c").write <<~'C'
       #include <libdill.h>
       #include <stdio.h>
       #include <stdlib.h>
 
       coroutine void worker(const char *text) {
           while(1) {
-              printf("%s\\n", text);
+              printf("%s\n", text);
               msleep(now() + random() % 500);
           }
       }
