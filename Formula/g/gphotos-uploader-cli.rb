@@ -1,8 +1,8 @@
 class GphotosUploaderCli < Formula
   desc "Command-line tool to mass upload media folders to Google Photos"
   homepage "https://gphotosuploader.github.io/gphotos-uploader-cli/"
-  url "https://github.com/gphotosuploader/gphotos-uploader-cli/archive/refs/tags/v5.1.0.tar.gz"
-  sha256 "180ced2507d796b2305627097017aacd2b0206e1131e0b40da2a46563a823ec1"
+  url "https://github.com/gphotosuploader/gphotos-uploader-cli/archive/refs/tags/v6.0.0.tar.gz"
+  sha256 "99fdc60442f8ff39a01dc97544509749553279ea03caee230a055eb0fcdf0e7e"
   license "MIT"
 
   bottle do
