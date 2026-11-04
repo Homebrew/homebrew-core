@@ -1,10 +1,9 @@
 class Echidna < Formula
   desc "Ethereum smart contract fuzzer"
   homepage "https://secure-contracts.com/program-analysis/echidna/index.html"
-  url "https://github.com/crytic/echidna/archive/refs/tags/v2.3.3.tar.gz"
-  sha256 "fab7817640a613856365766031518a8bde5471a9fb14618dfb0b77e3820a7cba"
+  url "https://github.com/crytic/echidna/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "9d0e9340d8164704beb2472b02b25ff3cab1b9538d885f936d3199532a6d219c"
   license "AGPL-3.0-only"
-  revision 1
   head "https://github.com/crytic/echidna.git", branch: "master"
 
   livecheck do
@@ -13,13 +12,11 @@ class Echidna < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "dec5cb65da2fb71f3028a06ad848ead0aed029ae6450e8a49b406998b883a862"
-    sha256 cellar: :any, arm64_tahoe:       "301cc7a8227ea14f11273e2ee9824a06f0a64881267c2ddc528c10429a1cf786"
-    sha256 cellar: :any, arm64_sequoia:     "a108b24ec074234e2f97e2638ad918fcad080823f0ee60bc0b47377d5db11881"
-    sha256 cellar: :any, arm64_sonoma:      "d94158bc2ea76c2be300f055ba507dcbc378a06ff9222042d51b63781c849f75"
-    sha256 cellar: :any, sonoma:            "c218fbc7ec6693122117803febd2c42855ef3d576bd96669e7c354832616dc7e"
-    sha256 cellar: :any, arm64_linux:       "398632a21131bd0463663a246da6360940a94c29899987c22102bf0788039d7c"
-    sha256 cellar: :any, x86_64_linux:      "a0071a9a2d39c8aee9ae64feda8fe8d3ae700da51e220c2258eb15f78f3975f5"
+    sha256 cellar: :any, arm64_golden_gate: "625a1a2f9106a562dfa2b5cefaab18c9e3e220b223ff182cc8e932003cc4600e"
+    sha256 cellar: :any, arm64_tahoe:       "732961d8a2cd5705e2892030d504289fee67c3d297af1dd3f3b5b70f53a50b13"
+    sha256 cellar: :any, arm64_sequoia:     "8b03d9b5d50e7ead10c311bdd02823d10163d5ec61e214591f1a5a8bc9eb945f"
+    sha256 cellar: :any, arm64_linux:       "27ea65274433800d016b41973809f4a126f07559eff7caac6a266e7afa32a3e6"
+    sha256 cellar: :any, x86_64_linux:      "2a6849010b0b1fc28fad827f04580399256b13ae254577b4ee98b7a71d71e674"
   end
 
   depends_on "ghc@9.10" => :build
