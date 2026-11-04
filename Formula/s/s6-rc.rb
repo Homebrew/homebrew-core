@@ -19,6 +19,8 @@ class S6Rc < Formula
   depends_on "s6"
   depends_on "skalibs"
 
+  deny_network_access!
+
   def install
     # Shared libraries are linux targets and not supported on macOS.
     args = %W[
@@ -34,10 +36,10 @@ class S6Rc < Formula
 
   test do
     (testpath/"services/test").mkpath
-    (testpath/"services/test/up").write <<~SHELL
+    (testpath/"services/test/up").write <<~SH
       #!/bin/sh
       echo "test"
-    SHELL
+    SH
     (testpath/"services/test/type").write "oneshot"
     (testpath/"services/bundle/contents.d").mkpath
     (testpath/"services/bundle/type").write "bundle"
