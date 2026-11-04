@@ -1,8 +1,8 @@
 class VitePlus < Formula
   desc "Unified toolchain and entry point for web development"
   homepage "https://viteplus.dev"
-  url "https://github.com/voidzero-dev/vite-plus/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "c1d15c0b059753878b47816329f275274dbf42f958a071e4ada79fa0f54c4152"
+  url "https://github.com/voidzero-dev/vite-plus/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "1b0de3dc75ceecd073591b65f90479d18372aa8151089868a07baedc2d9c7ca7"
   license "MIT"
   head "https://github.com/voidzero-dev/vite-plus.git", branch: "main"
 
@@ -24,8 +24,8 @@ class VitePlus < Formula
 
   resource "rolldown" do
     url "https://github.com/rolldown/rolldown.git",
-        revision: "89d821ca07cf9ccd84dd92bd3f48af0f579ab21a"
-    version "89d821ca07cf9ccd84dd92bd3f48af0f579ab21a"
+        revision: "de6facf2228279718e042b801dd6b60dd6503918"
+    version "de6facf2228279718e042b801dd6b60dd6503918"
 
     livecheck do
       url "https://raw.githubusercontent.com/voidzero-dev/vite-plus/refs/tags/v#{LATEST_VERSION}/packages/tools/.upstream-versions.json"
@@ -50,8 +50,8 @@ class VitePlus < Formula
 
   resource "oxc-node" do
     url "https://github.com/oxc-project/oxc-node.git",
-        revision: "4759cedbda87f67ca646d3277166884cfcd62f81"
-    version "4759cedbda87f67ca646d3277166884cfcd62f81"
+        revision: "7ff14c3b1d15e2ef12310ee209d0b72b58fa880e"
+    version "7ff14c3b1d15e2ef12310ee209d0b72b58fa880e"
 
     livecheck do
       url "https://raw.githubusercontent.com/voidzero-dev/vite-plus/refs/tags/v#{LATEST_VERSION}/packages/tools/.upstream-versions.json"
@@ -65,6 +65,9 @@ class VitePlus < Formula
     resource("rolldown").stage buildpath/"rolldown"
     resource("vite").stage buildpath/"vite"
     resource("oxc-node").stage buildpath/"oxc-node"
+
+    # Apply Vite+'s branding and config patches to the staged Vite source, as upstream `sync-remote` does
+    system "node", "packages/tools/src/index.ts", "brand-vite"
 
     ENV["LIBSQLITE3_SYS_USE_PKG_CONFIG"] = "1"
     ENV["RUSTC_BOOTSTRAP"] = "1" # workaround to build with stable rust
