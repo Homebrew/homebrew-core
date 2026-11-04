@@ -54,6 +54,8 @@ class SpeechTools < Formula
 
   conflicts_with "align", because: "both install `align` binaries"
 
+  deny_network_access!
+
   def install
     ENV.deparallelize
     # Xcode doesn't include OpenMP directly any more, but with these
