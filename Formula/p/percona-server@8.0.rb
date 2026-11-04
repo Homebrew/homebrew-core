@@ -6,21 +6,6 @@ class PerconaServerAT80 < Formula
   license "BSD-3-Clause"
   revision 2
 
-  livecheck do
-    url "https://www.percona.com/wp-admin/admin-ajax.php", post_form: {
-      action:     "percona_downloads",
-      product_id: "Percona-Server-#{version.major_minor}",
-    }
-    regex(/^Percona-Server-v?(\d+(?:[.-]\d+)+)$/i)
-    strategy :json do |json, regex|
-      json.dig("data", "versions")&.filter_map do |version|
-        # Convert a version like 1.2.3-4.0 to 1.2.3-4 (but leave a version like
-        # 1.2.3-4.5 as-is).
-        version[regex, 1]&.sub(/(-\d+)\.0$/, '\1')
-      end
-    end
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_golden_gate: "de0f269c7f5f087d904eb8004f45df3e5bc343bdfcb5414adfd6ee2728c3fb0c"
@@ -34,6 +19,7 @@ class PerconaServerAT80 < Formula
 
   # https://www.percona.com/services/policies/percona-software-support-lifecycle
   deprecate! date: "2026-04-01", because: :unsupported
+  disable! date: "2027-04-01", because: :unsupported
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
