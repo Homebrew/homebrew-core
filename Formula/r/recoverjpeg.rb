@@ -27,6 +27,8 @@ class Recoverjpeg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "9a89fb65c4850f34a1885cd95da2fbd669f1af300fbbf940b5271c97551c9ce7"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
