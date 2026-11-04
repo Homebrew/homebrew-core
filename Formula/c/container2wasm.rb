@@ -7,13 +7,11 @@ class Container2wasm < Formula
   head "https://github.com/container2wasm/container2wasm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6aa905bdbd283e24f17b43ab7d595606645400cbd087f5124170e435c21e566c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1118f94154c26d2ce098ba8481631cd43db3fe12bd282c607ae7fa78c16165a5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1118f94154c26d2ce098ba8481631cd43db3fe12bd282c607ae7fa78c16165a5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "1118f94154c26d2ce098ba8481631cd43db3fe12bd282c607ae7fa78c16165a5"
-    sha256 cellar: :any_skip_relocation, sonoma:            "d20aab2ad4a9e7a728406c6854cbc60020dbcc7167a0f9b55c3d47de2114b734"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "aa11094c02860d51e340dc934db3a61a6e9b7a89bcb027a0c17c2886315dd065"
-    sha256 cellar: :any,                 x86_64_linux:      "21e5c39ec7555e99f5b4905c3baa1ecdb8c3ca772062abf4d14610967926a47f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9f04bbb7dd642539390da873a58e018235050314711e037a4481efbab7e08009"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9f04bbb7dd642539390da873a58e018235050314711e037a4481efbab7e08009"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9f04bbb7dd642539390da873a58e018235050314711e037a4481efbab7e08009"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a8b701ad561cb47a6ca140ddf1ae589ba2fec398cf4bc2b0baeca78e1ea901f3"
+    sha256 cellar: :any,                 x86_64_linux:      "18ee429982aeeef0fd9d25b3cd4076937aaf2f9f95946ca5327b27f9407c7206"
   end
 
   depends_on "go" => :build
