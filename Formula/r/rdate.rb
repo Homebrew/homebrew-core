@@ -27,6 +27,8 @@ class Rdate < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "ec0afe4b9ddec866160a04e76ce20f253c90a716c6a90c66c8185db9a32f5070"
   end
 
+  allow_network_access! :test
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
