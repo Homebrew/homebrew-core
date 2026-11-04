@@ -30,6 +30,7 @@ class Checkmake < Formula
     ENV["PREFIX"] = prefix
     # The default target runs an unpinned `golangci-lint@latest`, whose new checks fail on the test files
     system "make", "install", "VERSION=#{version}"
+    generate_completions_from_executable(bin/"checkmake", shell_parameter_format: :cobra)
   end
 
   test do
