@@ -7,11 +7,11 @@ class Delly < Formula
   head "https://github.com/dellytools/delly.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d766921909f3effeff3e66298ef947a1f4e56cc02f84d367e83e50dfa0a4fd53"
-    sha256 cellar: :any, arm64_tahoe:       "babbbcc264d24766f1e3d11351677fcbb6126eb442f76f0d0e04046c9265d24c"
-    sha256 cellar: :any, arm64_sequoia:     "87c5f97973e566e8c9c0b5021e54fee0b6c8f8bc9fc43113fb21fb69471c0b3e"
-    sha256 cellar: :any, arm64_linux:       "d94a7de7a48a344f029b9cae449c6194c986ab9759442e6bc391efb0124768f4"
-    sha256 cellar: :any, x86_64_linux:      "2da09f886505dfb7a7594a38bc64d7947b2295e7edcb3eff480aad64daa52a8a"
+    sha256 cellar: :any, arm64_golden_gate: "b852cc85193c35776db60aed6cadc00a026ffab6a9dceaea7a867b2ba61fe5ab"
+    sha256 cellar: :any, arm64_tahoe:       "34f240137f16396aa0491ae7d5cce6843d748c7c1eb5bc45de683c4ac1297b73"
+    sha256 cellar: :any, arm64_sequoia:     "ff96a3795c177c8781e31a20293e4732b49557955087b14eaf19f31997fcde68"
+    sha256 cellar: :any, arm64_linux:       "4121f97d23c44652df3a07a3fbe190f30f57ba0bdb237f223fdad1f755ae796f"
+    sha256 cellar: :any, x86_64_linux:      "4ce12c879a169d040b8459b673873c300cd18d7d69f7f644ac107b7b70ea763c"
   end
 
   depends_on "boost"
