@@ -2,8 +2,8 @@ class Kapacitor < Formula
   desc "Open source time series data processor"
   homepage "https://github.com/influxdata/kapacitor"
   url "https://github.com/influxdata/kapacitor.git",
-      tag:      "v1.8.8",
-      revision: "5795d00a62fa02bec66c4ae0ed0c572cb7d2fa69"
+      tag:      "v1.8.9",
+      revision: "acdeb951399e424437df095eea22d71422df8dd0"
   license "MIT"
   compatibility_version 1
   head "https://github.com/influxdata/kapacitor.git", branch: "master"
@@ -28,8 +28,8 @@ class Kapacitor < Formula
   # NOTE: The version here is specified in the go.mod of kapacitor.
   # If you're upgrading to a newer kapacitor version, check to see if this needs upgraded too.
   resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.12.tar.gz"
-    sha256 "23b2ed6a2f04d42906f5a8c28c8d681d03d47a1c32435b5df008adac5b935f1a"
+    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.3.1.tar.gz"
+    sha256 "11776c4f44b4d338619723cba1a6ef716573e80a358b0943ff2e2a86129ca8d5"
 
     livecheck do
       url "https://raw.githubusercontent.com/influxdata/kapacitor/v#{LATEST_VERSION}/go.mod"
