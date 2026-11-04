@@ -39,6 +39,8 @@ class R3 < Formula
   depends_on "jemalloc"
   depends_on "pcre2"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh"
     system "./configure", "--disable-silent-rules",
