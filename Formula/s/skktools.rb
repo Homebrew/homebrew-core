@@ -41,6 +41,8 @@ class Skktools < Formula
     depends_on "gdbm"
   end
 
+  deny_network_access!
+
   def install
     args = ["--with-skkdic-expr2"]
     if OS.linux?
