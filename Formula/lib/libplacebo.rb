@@ -28,6 +28,9 @@ class Libplacebo < Formula
   depends_on "shaderc"
   depends_on "vulkan-loader"
 
+  pypi_packages package_name:   "",
+                extra_packages: %w[glad2 jinja2]
+
   resource "glad2" do
     url "https://files.pythonhosted.org/packages/6e/5a/d62b24fe1c7c2f34e15c2aa4418a5327a8550fdc272999a59e0dddebc3ee/glad2-2.0.8.tar.gz"
     sha256 "b84079b9fa404f37171b961bdd1d8da21370e6c818defb8481c5b3fe3d6436da"
