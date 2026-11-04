@@ -1,14 +1,14 @@
 class Dlpack < Formula
   desc "Common in-memory tensor structure"
   homepage "https://dmlc.github.io/dlpack/latest"
-  url "https://github.com/dmlc/dlpack/archive/refs/tags/v1.3.tar.gz"
-  sha256 "f3d567f885f6c142183afc91a58873b31d0e0b36faa2e45c232b98c74596404f"
+  url "https://github.com/dmlc/dlpack/archive/refs/tags/v1.4.tar.gz"
+  sha256 "5886003d8558ebe94d94b2f72a191f9843164412ee1d06f2e410d042ea2bb88e"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/dmlc/dlpack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "30a717cecea8548dd3d1e77b92ebcd12f915717236ba86937170b75a29afd1c7"
+    sha256 cellar: :any_skip_relocation, all: "7a4bb23794feb82ebbb1f9707114f0bf02893d5d3fc6378172e6393a42409a58"
   end
 
   depends_on "cmake" => :build
