@@ -43,6 +43,8 @@ class Squashfs < Formula
     resolves "https://github.com/plougher/squashfs-tools/pull/356"
   end
 
+  deny_network_access!
+
   def install
     args = %W[
       EXTRA_CFLAGS=-std=gnu99
