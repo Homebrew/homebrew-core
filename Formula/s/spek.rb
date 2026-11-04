@@ -31,6 +31,8 @@ class Spek < Formula
     resolves "https://github.com/alexkay/spek/pull/338"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
