@@ -21,6 +21,8 @@ class Dtach < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "d7e64d6a2ccdcb1bf8c9de85f9542d228b2f12ca97807045c24d42d3fb2cf047"
   end
 
+  deny_network_access!
+
   def install
     # Includes <config.h> instead of "config.h", so "." needs to be in the include path.
     ENV.append "CFLAGS", "-I."
