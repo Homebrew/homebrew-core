@@ -1,16 +1,16 @@
 class MercuryCli < Formula
   desc "CLI interface for Mercury banking"
   homepage "https://github.com/MercuryTechnologies/mercury-cli"
-  url "https://github.com/MercuryTechnologies/mercury-cli/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "5719489d1e58962ebf1a209412b10fcdc2d0ee635527046423f8a2b62b2043b3"
+  url "https://github.com/MercuryTechnologies/mercury-cli/archive/refs/tags/v0.12.1.tar.gz"
+  sha256 "f4d23126528c7417842ac47fbb9592777312474dd95f36bb43db09ff7e44b078"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3d92320f421a5cb7aefaead017ace40841dc2d3c380257dedaead02b7dcf8020"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3d92320f421a5cb7aefaead017ace40841dc2d3c380257dedaead02b7dcf8020"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3d92320f421a5cb7aefaead017ace40841dc2d3c380257dedaead02b7dcf8020"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "471d99e08b6740de6c61b2dc61e5ecf9d022c7428cf8794dd39e56ab6cdceff3"
-    sha256 cellar: :any,                 x86_64_linux:      "7ac60726f11a15aa3a922bbdeee3729182fe6230cab52df9314af72262f4bb52"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f3f9c48d1dcb5c8bd6e4e44885df4c55dbaa21d323a9148942c0b7fde418bdc7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f3f9c48d1dcb5c8bd6e4e44885df4c55dbaa21d323a9148942c0b7fde418bdc7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f3f9c48d1dcb5c8bd6e4e44885df4c55dbaa21d323a9148942c0b7fde418bdc7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "34e9e80db88bdb4ca946ae8d292bdb4ca4f8cc1420f94736af2fff8eb4211c14"
+    sha256 cellar: :any,                 x86_64_linux:      "e7ff733a24308521840b1343cee27319d458fe6e677af9c0ce78fcadd9e3a8a3"
   end
 
   depends_on "go" => :build
