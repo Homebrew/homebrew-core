@@ -3,8 +3,8 @@ class TranslateToolkit < Formula
 
   desc "Toolkit for localization engineers"
   homepage "https://toolkit.translatehouse.org/"
-  url "https://files.pythonhosted.org/packages/7b/36/618e11497e18b74a8f2807594d17711ebe9a674aacf7c19624f17c8f3709/translate_toolkit-3.20.2.tar.gz"
-  sha256 "786ed210b262b0a94388f3bc824fa5b586b141d99cdd7db293e02c44ba146e7a"
+  url "https://files.pythonhosted.org/packages/f8/9a/060d7b777e3c76ffb0e5c41f7040ae597e3f9ddec739be61c35d095d9699/translate_toolkit-3.20.3.tar.gz"
+  sha256 "b14b1c92418ec2945296eb19d711f228519ed606e63f4a8801f6bcdfe4f5a6b2"
   license "GPL-3.0-or-later"
   head "https://github.com/translate/translate.git", branch: "master"
 
