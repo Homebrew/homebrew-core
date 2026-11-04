@@ -24,6 +24,8 @@ class Ccfits < Formula
 
   depends_on "cfitsio"
 
+  deny_network_access!
+
   def install
     args = %W[
       --disable-debug
