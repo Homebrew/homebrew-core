@@ -1,17 +1,17 @@
 class VitePlus < Formula
   desc "Unified toolchain and entry point for web development"
   homepage "https://viteplus.dev"
-  url "https://github.com/voidzero-dev/vite-plus/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "c1d15c0b059753878b47816329f275274dbf42f958a071e4ada79fa0f54c4152"
+  url "https://github.com/voidzero-dev/vite-plus/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "1b0de3dc75ceecd073591b65f90479d18372aa8151089868a07baedc2d9c7ca7"
   license "MIT"
   head "https://github.com/voidzero-dev/vite-plus.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "461edea9e67350d06870e347e923c44ccefaf75a5f1c35486a7a939d384a4a6b"
-    sha256 cellar: :any, arm64_tahoe:       "9fbf3fd6ae3981b779ee486e06124eaa17aa7f36842cef9517e3dd52a4f70a3a"
-    sha256 cellar: :any, arm64_sequoia:     "7aecbb69c0e2aa0b06a7675b5760d67fa340d3096f36248b57fc9a5d7ba61405"
-    sha256               arm64_linux:       "cf45083e25c8c5712a727fdf0f1bb8b490c22876a679ae72fc89c914de25c343"
-    sha256               x86_64_linux:      "07a3cd269d27bd949e7617fadb2cd64c1b8da42de5d358821d1086701988c50f"
+    sha256 cellar: :any, arm64_golden_gate: "48343cf7a214147c512f1e906f02cb6694a9862ce280d20fcc64fc265f50139b"
+    sha256 cellar: :any, arm64_tahoe:       "8146c7d52e133bd5c0e59e6cdd41c38ebedeaa6a85fc292651b57d489c8cb56d"
+    sha256 cellar: :any, arm64_sequoia:     "0b63b0bf2bf2a335800e2a089c60d536d012abe8780b5ac0b349251e8b71696b"
+    sha256               arm64_linux:       "1b86e7d3df41c8ee5b71f779640187d053cf477d137a4c14b9e0c08e3b101e74"
+    sha256               x86_64_linux:      "1a2bac8cbb0b57092efa059af2aba00533959ed9df466ca531b432fddc63fa64"
   end
 
   depends_on "cmake" => :build
@@ -24,8 +24,8 @@ class VitePlus < Formula
 
   resource "rolldown" do
     url "https://github.com/rolldown/rolldown.git",
-        revision: "89d821ca07cf9ccd84dd92bd3f48af0f579ab21a"
-    version "89d821ca07cf9ccd84dd92bd3f48af0f579ab21a"
+        revision: "de6facf2228279718e042b801dd6b60dd6503918"
+    version "de6facf2228279718e042b801dd6b60dd6503918"
 
     livecheck do
       url "https://raw.githubusercontent.com/voidzero-dev/vite-plus/refs/tags/v#{LATEST_VERSION}/packages/tools/.upstream-versions.json"
@@ -50,8 +50,8 @@ class VitePlus < Formula
 
   resource "oxc-node" do
     url "https://github.com/oxc-project/oxc-node.git",
-        revision: "4759cedbda87f67ca646d3277166884cfcd62f81"
-    version "4759cedbda87f67ca646d3277166884cfcd62f81"
+        revision: "7ff14c3b1d15e2ef12310ee209d0b72b58fa880e"
+    version "7ff14c3b1d15e2ef12310ee209d0b72b58fa880e"
 
     livecheck do
       url "https://raw.githubusercontent.com/voidzero-dev/vite-plus/refs/tags/v#{LATEST_VERSION}/packages/tools/.upstream-versions.json"
@@ -65,6 +65,9 @@ class VitePlus < Formula
     resource("rolldown").stage buildpath/"rolldown"
     resource("vite").stage buildpath/"vite"
     resource("oxc-node").stage buildpath/"oxc-node"
+
+    # Apply Vite+'s branding and config patches to the staged Vite source, as upstream `sync-remote` does
+    system "node", "packages/tools/src/index.ts", "brand-vite"
 
     ENV["LIBSQLITE3_SYS_USE_PKG_CONFIG"] = "1"
     ENV["RUSTC_BOOTSTRAP"] = "1" # workaround to build with stable rust
