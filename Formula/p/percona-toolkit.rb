@@ -1,11 +1,9 @@
 class PerconaToolkit < Formula
   desc "Command-line tools for MySQL, MariaDB and system tasks"
   homepage "https://www.percona.com/software/percona-toolkit/"
-  url "https://downloads.percona.com/downloads/percona-toolkit/3.7.1-4/source/debian/percona-toolkit_3.7.1.orig.tar.gz"
-  version "3.7.1-4"
-  sha256 "c4a2502bba0118c0e4a72faa58a3174d793431e65d9aee6c260eae49216ead14"
+  url "https://downloads.percona.com/downloads/percona-toolkit/percona-toolkit-3.7.2/source/tarball/percona-toolkit-3.7.2.tar.gz"
+  sha256 "40b53ef6887671228bbf3c9a3bed83b9ded71e56b702d339463ed29f4eb56db4"
   license any_of: ["GPL-2.0-only", "Artistic-1.0-Perl"]
-  revision 1
   head "https://github.com/percona/percona-toolkit.git", branch: "3.x"
 
   livecheck do
@@ -13,9 +11,9 @@ class PerconaToolkit < Formula
       action:     "percona_downloads",
       product_id: "percona-toolkit",
     }
-
-    strategy :json do |json|
-      json["data"]["versions"][0]
+    regex(/^(?:percona-toolkit[._-])?v?(\d+(?:\.\d+)+(?:-\d+)?)$/i)
+    strategy :json do |json, regex|
+      json.dig("data", "versions", 0)&.[](regex, 1)
     end
   end
 
@@ -36,8 +34,8 @@ class PerconaToolkit < Formula
 
   resource "JSON" do
     on_linux do
-      url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.10.tar.gz"
-      sha256 "df8b5143d9a7de99c47b55f1a170bd1f69f711935c186a6dc0ab56dd05758e35"
+      url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.11.tar.gz"
+      sha256 "713bdbe724dbb915ed50265ffe47e079a511980cb2427aa19076788bb64c3182"
     end
   end
 
