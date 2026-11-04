@@ -17,6 +17,8 @@ class ReFlex < Formula
 
   conflicts_with "reflex", because: "both install `reflex` binaries"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
