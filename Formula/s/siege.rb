@@ -24,6 +24,10 @@ class Siege < Formula
     depends_on "zlib-ng-compat"
   end
 
+  allow_network_access! :test
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     # workaround for newer clang
     # notified upstream on the site on 2024-09-10
@@ -35,7 +39,7 @@ class Siege < Formula
     zlib = OS.mac? ? "#{MacOS.sdk_path}/usr" : formula_opt_prefix("zlib-ng-compat")
     args = %W[
       --localstatedir=#{var}
-      --with-ssl=#{formula_opt_prefix("openssl@4")}
+      --with-ssl=#{formula_opt_prefix(openssl)}
       --with-zlib=#{zlib}
     ]
 
