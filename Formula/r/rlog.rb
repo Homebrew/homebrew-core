@@ -23,6 +23,8 @@ class Rlog < Formula
 
   patch :DATA
 
+  deny_network_access!
+
   def install
     # Fix flat namespace usage
     inreplace "configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress", "${wl}-undefined ${wl}dynamic_lookup"
