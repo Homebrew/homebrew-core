@@ -61,6 +61,8 @@ class R < Formula
   skip_clean "lib/R/bin", "lib/R/doc"
   skip_clean "lib/R/site-library"
 
+  allow_network_access! :test
+
   def install
     # `configure` doesn't like curl 8+, but convince it that everything is ok.
     # TODO: report this upstream.
@@ -99,7 +101,7 @@ class R < Formula
     end
 
     # Help CRAN packages find gettext and readline
-    ["gettext", "readline", "xz"].each do |f|
+    %w[gettext readline xz].each do |f|
       ENV.append "CPPFLAGS", "-I#{formula_opt_include(f)}"
       ENV.append "LDFLAGS", "-L#{formula_opt_lib(f)}"
     end
