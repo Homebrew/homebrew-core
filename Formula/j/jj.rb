@@ -8,11 +8,11 @@ class Jj < Formula
   head "https://github.com/jj-vcs/jj.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1aed89cfb22165a347faebdda3baf660c9680131adfd9eda9b3e917dc4e5aaae"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f319ad2e140cbdbe4c060ee314045bbb7980e88e29d8e0da2989695e12c26ef4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b9a6b11959bc50a72c28eae67be0eae5d3deda0bd4cb0624252df121e7d60382"
-    sha256 cellar: :any,                 arm64_linux:       "7232bbc3fb53615b6224f3d77c3dd47ed58f3f549c953d372fa11717ad94f035"
-    sha256 cellar: :any,                 x86_64_linux:      "e0386a85e6dec74c2d8241dac6cfe21887740b3b186f3e58a89dec7a4248a460"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bdf1fdb8048642b31c21ac4f2fee317767f2510a30c25bce81133f3165365fad"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8c813f42bb78caa6ca15b2da67b030d7007906795931a36f064aa8d42779220"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "14a25cc452e53e2f34c7069ea2365e0e0d97d43e59ebf49c8d48f12978a69d63"
+    sha256 cellar: :any,                 arm64_linux:       "b31e6a51b432ef36c54238bf2dbbdf319c4cf1ca257305b97f47fa659ec0262a"
+    sha256 cellar: :any,                 x86_64_linux:      "e77efd4f7ecbb0986e2ab69c54f5d6629bad6600835a7102e6ac729d328c51c1"
   end
 
   depends_on "rust" => :build
