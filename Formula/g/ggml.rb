@@ -1,18 +1,18 @@
 class Ggml < Formula
   desc "Tensor library for machine learning"
   homepage "https://github.com/ggml-org/ggml"
-  url "https://github.com/ggml-org/ggml/archive/refs/tags/v0.28.0.tar.gz"
-  sha256 "296a3533da2c6eaaac610008722572eb002a0f3b1aceb45b86a34f31ff4766c9"
+  url "https://github.com/ggml-org/ggml/archive/refs/tags/v0.29.0.tar.gz"
+  sha256 "b08d30d6685c5c90908e38dc279439fcc662b3b3f5a38c7bb2b447a31642c0f6"
   license "MIT"
   compatibility_version 1
   head "https://github.com/ggml-org/ggml.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "b9d73bb8371eb50e4459fd5bc7b33943e20d6a98630f376a7bb178cc8ef5df0f"
-    sha256 arm64_tahoe:       "2ecc724f544bbdc1fdfc7c6857d8187f1b1355e4179801a324c07f0fc14eebfb"
-    sha256 arm64_sequoia:     "ee231fd1bf41c5e1417b02e93d262e06433f3b27035c9697bfc1290dfad3bad8"
-    sha256 arm64_linux:       "bac9069d2497bdca4777a88b57f324e0ccb213b89696a6cca5b785ae9bc9d4ab"
-    sha256 x86_64_linux:      "2b004696ebc8fb605a3b9875158a51510db86cc10eb0e33fa430ca02d57a04fe"
+    sha256 arm64_golden_gate: "f615cffaadf4d3333bba51250ee3f8c43c89a134c5872b9cc0fe37282fca2adb"
+    sha256 arm64_tahoe:       "d1b27be65fc1a346a2c40cc21cb716d90b1cad2e219cceb8db33528ba356f6f2"
+    sha256 arm64_sequoia:     "9740f6d7093002a738af0bbd1e1b473175e963c1f200226c67573f5643b5d9ae"
+    sha256 arm64_linux:       "677547dffc656a723f44afe8584244b9e930e9e5057f0845f969f3ffdfddb05a"
+    sha256 x86_64_linux:      "ade95a1277d3b32f30915d35f9132cd2c42dc5dc8926501b62f7af05e78714af"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -41,8 +41,8 @@ class Ggml < Formula
 
   # Lengthy test so not worth installing. Shorter examples/tests haven't been ported to new DL backend
   resource "test-backend-ops.cpp", :test do
-    url "https://raw.githubusercontent.com/ggml-org/ggml/refs/tags/v0.28.0/tests/test-backend-ops.cpp"
-    sha256 "cc939ea00c5208ca825ca1f20d3dbbe79fbec69537baf3ac75ed78e05f73584e"
+    url "https://raw.githubusercontent.com/ggml-org/ggml/refs/tags/v0.29.0/tests/test-backend-ops.cpp"
+    sha256 "9e258a11b819e947570b5a08e0ae5786dc29b19ea5198ac7bb8ef4a7da51d9d4"
 
     livecheck do
       formula :parent
