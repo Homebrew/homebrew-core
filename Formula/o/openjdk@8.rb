@@ -16,9 +16,8 @@ class OpenjdkAT8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, sonoma:       "9db7c964ce0197b0b549a60888557737249bbd40a0622f9db38b7fa400050a9f"
-    sha256 cellar: :any, arm64_linux:  "e405a769ee7379ec5cfb4486de0942742a2dbf68098b85eaad1487c03da0007f"
-    sha256 cellar: :any, x86_64_linux: "588a7eeb97558af07b9d1443c0a543b35adb2332c8fff60eeb88a380ffea2bf9"
+    sha256 cellar: :any, arm64_linux:  "f83b1cf1b564860199893b06aba408f0f61a06e0626a1a3567c6d4b5fbe78c8a"
+    sha256 cellar: :any, x86_64_linux: "29fb859b4c687c5330f386f16921c52cd70b026ebc8966c9ef65ac56600d35f6"
   end
 
   keg_only :versioned_formula
