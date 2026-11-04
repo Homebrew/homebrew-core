@@ -9,11 +9,11 @@ class Gptme < Formula
   head "https://github.com/ErikBjare/gptme.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e18f06ff5367309ea27f51d75e1a14e5539085c75b3c7f9cfbd5f758f74bd1ba"
-    sha256 cellar: :any, arm64_tahoe:       "1c9d53762ef665c890be91d20e4207f49c3806639f0448eb8d0d1b8128b84ece"
-    sha256 cellar: :any, arm64_sequoia:     "4284e06d3479438af349647bdf615d6578ed1ede7d8e27f20c60382421dea459"
-    sha256 cellar: :any, arm64_linux:       "5a6fa4df400530763cc55cf05c5cd66ef4563d7ea4e1e1e0c524c91855e5aa10"
-    sha256 cellar: :any, x86_64_linux:      "84b6ba0a6d19b8f38fd09a8a435c4a114f9ee2c1b51e41f9c719a11959646ff3"
+    sha256 cellar: :any, arm64_golden_gate: "e15133946c7fcc0cb18fc5ef56413565703c8a56d62c03b988069424c7820310"
+    sha256 cellar: :any, arm64_tahoe:       "d5f217e4efdddd107be3df99be45f4f5d70b89745f6de6b78b1a9b4522f992cf"
+    sha256 cellar: :any, arm64_sequoia:     "4c817afb0ecdeefc6d1a1b3b1ef2753b75af661e75b6ad9b6363dbf852c225d6"
+    sha256 cellar: :any, arm64_linux:       "37fddf46649dc49d44f8e4e0afb89a96c91a0ee9333b9ea956b9885128212d2e"
+    sha256 cellar: :any, x86_64_linux:      "057fcb7d37b4cf99ac7d2ba7791fb5d2bcdbeeee49c571d3140eef00788b8d46"
   end
 
   depends_on "rust" => :build # for jitter
