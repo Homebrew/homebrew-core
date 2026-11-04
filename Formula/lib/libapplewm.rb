@@ -26,6 +26,8 @@ class Libapplewm < Formula
   depends_on "libxext"
   depends_on :macos
 
+  deny_network_access!
+
   def install
     # Use -iframeworkwithsysroot rather than -F to pick up
     # system headers from the SDK rather than the live filesystem

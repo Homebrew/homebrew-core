@@ -18,6 +18,8 @@ class Libdatrie < Formula
 
   depends_on "pkgconf" => :build
 
+  deny_network_access!
+
   def install
     system "./configure", "--enable-shared", *std_configure_args
     system "make"

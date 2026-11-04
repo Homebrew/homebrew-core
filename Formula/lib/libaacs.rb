@@ -38,6 +38,8 @@ class Libaacs < Formula
   # Fix missing include.
   patch :DATA
 
+  deny_network_access!
+
   def install
     system "./bootstrap" if build.head?
     system "./configure", "--disable-dependency-tracking",

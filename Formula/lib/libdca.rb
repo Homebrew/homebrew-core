@@ -35,6 +35,8 @@ class Libdca < Formula
     sha256 "d2911b34183f7379359cf914ee93228796894e0b0f0055e6ee5baefa4fd6a923"
   end
 
+  deny_network_access!
+
   def install
     # Fixes "duplicate symbol ___sputc" error when building with clang
     # https://github.com/Homebrew/homebrew/issues/31456

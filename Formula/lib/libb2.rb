@@ -27,6 +27,8 @@ class Libb2 < Formula
     file "Patches/libtool/configure-big_sur.diff"
   end
 
+  deny_network_access!
+
   def install
     # SSE detection is broken on arm64 macos
     # https://github.com/BLAKE2/libb2/issues/36

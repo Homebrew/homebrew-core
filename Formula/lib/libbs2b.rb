@@ -29,6 +29,8 @@ class Libbs2b < Formula
   depends_on "pkgconf" => :build
   depends_on "libsndfile"
 
+  deny_network_access!
+
   def install
     # fix 'error: support for lzma-compressed distribution archives has been removed'
     inreplace "configure.ac", "dist-lzma", ""

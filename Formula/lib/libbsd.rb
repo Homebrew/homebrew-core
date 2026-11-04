@@ -42,6 +42,8 @@ class Libbsd < Formula
     depends_on "libmd"
   end
 
+  deny_network_access!
+
   def install
     system "./autogen" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args

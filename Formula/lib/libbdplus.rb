@@ -38,6 +38,8 @@ class Libbdplus < Formula
   depends_on "libgcrypt"
   depends_on "libgpg-error"
 
+  deny_network_access!
+
   def install
     system "./bootstrap" if build.head?
     system "./configure", "--disable-dependency-tracking",

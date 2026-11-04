@@ -21,19 +21,21 @@ class Libcext < Formula
     sha256 cellar: :any, x86_64_linux:      "97189a77ae9c48a742fc50a75e3607b7a3b95f1e8c9bed299ef17a399f29c707"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"
   end
 
   test do
-    (testpath/"test.c").write <<~C
+    (testpath/"test.c").write <<~'C'
       #include <stdio.h>
       #include <cxstring.h>
 
       int main(void) {
         cx_string *s = cx_string_create("hello");
-        printf("%s %d\\n", cx_string_get(s), (int)cx_string_size(s));
+        printf("%s %d\n", cx_string_get(s), (int)cx_string_size(s));
         cx_string_delete(s);
         return 0;
       }

@@ -30,6 +30,8 @@ class Libdrawtext < Formula
     depends_on "mesa-glu"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dbg", "--enable-opt", "--prefix=#{prefix}"
 

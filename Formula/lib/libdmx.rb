@@ -26,6 +26,8 @@ class Libdmx < Formula
   depends_on "libxext"
   depends_on "xorgproto"
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}

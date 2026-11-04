@@ -19,6 +19,8 @@ class Libconfini < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "4f5987375e6a2d5de8d24c0dcb1dc175fa778fd52fd0000ca213ba989a6d42fc"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"

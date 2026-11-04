@@ -48,6 +48,8 @@ class Libcanberra < Formula
   depends_on "libtool"
   depends_on "libvorbis"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
 
