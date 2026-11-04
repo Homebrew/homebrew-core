@@ -1,8 +1,8 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://firefox-source-docs.mozilla.org/security/nss/index.html"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_132_RTM/src/nss-3.132.tar.gz"
-  sha256 "ee9cf4837ba801141a804321c4462ad8f452ff4314275c6d5108a6b05af227ff"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_133_RTM/src/nss-3.133.tar.gz"
+  sha256 "4d752526b9846a1d962588cfbd09b7cc2a4f6a4effbd9157d58a30e8a2573065"
   license "MPL-2.0"
   compatibility_version 1
 
@@ -15,11 +15,11 @@ class Nss < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a89c6da1324cafd1403d3636a3f0280aab5b57e34709db07f7e5cfc47db69079"
-    sha256 cellar: :any, arm64_tahoe:       "1f073aef9787a99f0466136888134a9b38ecc3aac0caf18f88adcb26d2807dc6"
-    sha256 cellar: :any, arm64_sequoia:     "4fd8e58614e3fa0071cb70d0a9f8c16e56e956d900831a08ac1bd5bb8786048a"
-    sha256 cellar: :any, arm64_linux:       "70b9bd23374f7f7623abf857ead92cff8b8c2df7c50257a86702c37a61562862"
-    sha256 cellar: :any, x86_64_linux:      "bb815b06549b6e56eae43e295db1695b87df7c6df5e668d24236aae242a9fa35"
+    sha256 cellar: :any, arm64_golden_gate: "32e9edd628d592b55049351c6b5d22bd1b7861522de5c3c7ae06335abecfbbe2"
+    sha256 cellar: :any, arm64_tahoe:       "1db797acdfe3bf4537e30ade265d6556fe80afb2085a3608609203928ac6f822"
+    sha256 cellar: :any, arm64_sequoia:     "bf93705a8dbe4ed57cec66a9550d9f8189690ae28da7ed642eb8e664f80da3b6"
+    sha256 cellar: :any, arm64_linux:       "34d766776388c7f971239f053af99f5043d6d801c7a44312151721c2dd8e8b98"
+    sha256 cellar: :any, x86_64_linux:      "c6e224826a0d27aac62a469369dd3c3cfff5ae73d73d4627ea544fba64d727d3"
   end
 
   depends_on "nspr"
