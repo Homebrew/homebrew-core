@@ -25,6 +25,7 @@ class RushParallel < Formula
 
   def install
     system "go", "build", *std_go_args(output: bin/"rush")
+    generate_completions_from_executable(bin/"rush", shell_parameter_format: :cobra)
   end
 
   test do
