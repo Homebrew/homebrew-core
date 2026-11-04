@@ -32,6 +32,8 @@ class Streamripper < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     # the Makefile ignores CPPFLAGS from the environment, which
     # breaks the build when HOMEBREW_PREFIX is not /usr/local
