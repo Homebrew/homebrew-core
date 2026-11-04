@@ -12,11 +12,12 @@ class Libarchive < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ff99dd8abf1c0dd5dda11165e8307eb3eadece22d4b8003562b5869f9a9fc4f0"
-    sha256 cellar: :any, arm64_tahoe:       "f9daa6da55d53558557ea005b19786be9a2153cf4cad43f5d0439c9d35ab7144"
-    sha256 cellar: :any, arm64_sequoia:     "503847a252e54cec2415ab329e3a9a7b5be9d5624823a0e28bfb2b42e129c5e7"
-    sha256 cellar: :any, arm64_linux:       "a4eb0407bd3595748cdaf0e96fe92f4bfb2b377937811a1b1fa8fea667b9c373"
-    sha256 cellar: :any, x86_64_linux:      "c43b97f198208e62d35b4e649e458cd38c1ec5741f0a1e536f374291e6071fd0"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "80ad35d8783fa7650af7f21d58473d6a9eaa1b9939de5d2da2c916b9e9d92f30"
+    sha256 cellar: :any, arm64_tahoe:       "ae94cc6cd4ecd7bed1cc80889b704806eba9d43c6e9afefc7f5ce7191f64ee92"
+    sha256 cellar: :any, arm64_sequoia:     "93fd0ff4cb92c465817383520120baae8d404fb1c97e7bd1c48ed2d23687ab4e"
+    sha256 cellar: :any, arm64_linux:       "fa164450c9f8f5d97e5293c232a91526a20f1cbc81d3851665ef1c8dbabf962e"
+    sha256 cellar: :any, x86_64_linux:      "36c26b84101e382d1e7035423167ab1e4584b68085782a14c1d3c346bdbbb502"
   end
 
   keg_only :provided_by_macos
@@ -30,8 +31,11 @@ class Libarchive < Formula
   uses_from_macos "expat"
 
   on_linux do
+    depends_on "acl"
     depends_on "zlib-ng-compat"
   end
+
+  deny_network_access!
 
   def install
     args = [
