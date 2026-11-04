@@ -7,7 +7,7 @@ class Nuxi < Formula
   head "https://github.com/nuxt/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "67ad9ad8de563cd2f1a306364efa55595b5562e0b935b931a7da2b71296ae65d"
+    sha256 cellar: :any_skip_relocation, all: "bebd3cb0a61448a3ed15b369b5d8e3856d55a0fbbcfec97c44dd7e63fbe2d9e2"
   end
 
   depends_on "node"
