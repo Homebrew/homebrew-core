@@ -20,6 +20,8 @@ class Shmcat < Formula
     sha256 cellar: :any,                 x86_64_linux:      "3b13cb57ab14e269ece886119d76470e54a64328bf164f3500f61d0a48e36b97"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
