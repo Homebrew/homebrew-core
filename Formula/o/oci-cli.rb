@@ -3,8 +3,8 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/8b/18/edefd9613dbd2501f6e95377ea55db169756a19e42fd375cb3b1c327eb7c/oci_cli-3.95.1.tar.gz"
-  sha256 "d73767295d697ca72f24cc500aa966465e2b37ea8c58d67c151cd7fb1ada15be"
+  url "https://files.pythonhosted.org/packages/78/f5/cad39510f55ed270bbc3ca298fd060d5477cb26723999eaeb12817a56857/oci_cli-3.96.0.tar.gz"
+  sha256 "334841612f1f31b5f7aba69bcf5fea7ee5283f17d1964c32a2965a6b560dc27e"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
@@ -84,13 +84,13 @@ class OciCli < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/f9/79/84ddb5ba16c4eb2c69c71db76ae3c579fe546e511f7170c7e27eedbab7c1/multidict-7.1.0.tar.gz"
-    sha256 "61a4e5d81b8d4e4ad61964b230129e7a2b914793d96289029078fc9009f074ec"
+    url "https://files.pythonhosted.org/packages/7b/6b/29ef8e752f5854dcc267ded0652c475bec99b86f255957a0d4fcad657b18/multidict-7.2.1.tar.gz"
+    sha256 "e8af3e6f1bdbc31fd762b094133b478b89988eaebc63cbe82b1d9e3bbd15cede"
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/b8/69/8845bfdfbf919ab93f9539f5433cf1ababa1a621167465f050ab089c031b/oci-2.189.0.tar.gz"
-    sha256 "0df9efe9eb0f18e66f1fdf05b46e60c5a77ddfbd46f5b274ad95b2afce4dc687"
+    url "https://files.pythonhosted.org/packages/3a/98/b1033d07a33c19c092bb734a40df3e72d5839b7a162bd360833c8d61eafc/oci-2.190.0.tar.gz"
+    sha256 "91570849c5f1920abd24e893435ccd78bef861951b846cbabde78c3a7be175c9"
   end
 
   resource "prompt-toolkit" do
@@ -149,8 +149,8 @@ class OciCli < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/d9/68/f1b440335057bfce71b6e50a9d09445aa2ecbd08359a337976627b8409e7/tzdata-2026.5.tar.gz"
-    sha256 "8cc73c0a0bfca7dbfa59235d60b2eff82231dee33f53d206db1acd9173cfc0a7"
+    url "https://files.pythonhosted.org/packages/7a/29/6a1391d31cd00ff9e927215a224a880e1e84e826b64ba80a499e51c074d8/tzdata-2026.6.tar.gz"
+    sha256 "85d2cd9c09f81f0bb29db27759fc83af4f1e620efb814f8c5bf8b4cc4feece6d"
   end
 
   resource "urllib3" do
@@ -159,8 +159,8 @@ class OciCli < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
-    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
+    url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
+    sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
   end
 
   resource "yarl" do
