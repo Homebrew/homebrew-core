@@ -7,12 +7,12 @@ class Checkmake < Formula
   head "https://github.com/checkmake/checkmake.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "039e9eca37bf85e2f4b86bf6297b7e28821087cc0c18730ad4638ff66402705b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3e44429a9d3605e6d61d1fc886e01e6f25b2eeeb70350b6e3340214d858f6c5a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "64d7b1cdeb8abbb4d9dbe1d56490b391b9233c9f3fb12f3e3ff07523d7c29186"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6dcdc8193870c49f52b7c684ae251ccfbed991a3d0d4830b582c5e563a720007"
-    sha256 cellar: :any,                 x86_64_linux:      "cc596704a788d87ef48ac1e1303ba308c6949707644b5bd7c1f1e4e4b122a173"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "03b0296c51a1a1591cfb4ba020fb11433650c830e1740bb5dbf9c93dd5bdfd36"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e5495d72ffcfc0321d0246cb8c413d9fb06d441342d4687b4d6439119acde275"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6b73e17530d40a205b4bcdba99d62074de8a667d84c2028fa54f2bec275f9604"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "e0d3fd2a9648ec4ca6786626bb78b19e332aa7690ea423d402c7b0675fbd3990"
+    sha256 cellar: :any,                 x86_64_linux:      "3df3736989476f56406c25e1537d61c442795abac9804c3106d2fb293818efea"
   end
 
   depends_on "go" => :build
@@ -30,6 +30,7 @@ class Checkmake < Formula
     ENV["PREFIX"] = prefix
     # The default target runs an unpinned `golangci-lint@latest`, whose new checks fail on the test files
     system "make", "install", "VERSION=#{version}"
+    generate_completions_from_executable(bin/"checkmake", shell_parameter_format: :cobra)
   end
 
   test do
