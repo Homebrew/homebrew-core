@@ -3,16 +3,16 @@ class CondaLock < Formula
 
   desc "Lightweight lockfile for conda environments"
   homepage "https://conda.github.io/conda-lock/"
-  url "https://files.pythonhosted.org/packages/67/22/9c9dc6543a2e180a438367f04d1e19eb1194e44f57c4f7da4a0d2898565c/conda_lock-4.0.4.tar.gz"
-  sha256 "90c1111958d756f1bb3480312cb0303d0dab909b04fda4aaaefb352e6621113f"
+  url "https://files.pythonhosted.org/packages/a2/f4/33f4168c8780cea6d16cca9fe3e37a40804e044c0e9af5daf3dba2c80f10/conda_lock-4.0.5.tar.gz"
+  sha256 "a5eecb0a5f57c122302eaaf0061d7df2304d5684e26f6beec8da885851cdd6ff"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a8a702b65e075eebc6d1501b112fad7792275021fbc066d175aa4c177b9ff8d1"
-    sha256 cellar: :any, arm64_tahoe:       "c6bd5afcc4f0582b706e4046c3201edc27437c5654aa7be0e48ac301e8d8e672"
-    sha256 cellar: :any, arm64_sequoia:     "5f1183e7ac14926456dc121ed4ecf03132ab71d6cf45b31713f60590038ed1e3"
-    sha256 cellar: :any, arm64_linux:       "fded2831d47e943a1dc86c77fcdb1fc60df682885e89a760fe4707a12de98736"
-    sha256 cellar: :any, x86_64_linux:      "51131d90def358b9199752cc25e3aec7c90ef94e1a4e3576bfefcee6f8e799fe"
+    sha256 cellar: :any, arm64_golden_gate: "15b3b912ecc9221bf3a04693f0d40b71868db4a998db47956eca0d9af393a7af"
+    sha256 cellar: :any, arm64_tahoe:       "0b70d79b63e6c1160a80f23d9fefb85a8050c465d9d7413df87afc82ff201f51"
+    sha256 cellar: :any, arm64_sequoia:     "eadeb99796b3a2a913c2cef33e6ba8bd794eac7de439d5dadaa5b81e77072861"
+    sha256 cellar: :any, arm64_linux:       "e3d9021fcc2ccf95315baf5f6cac1bc93238d8dcf3c960f78d95d8b0ae0d8bbb"
+    sha256 cellar: :any, x86_64_linux:      "cbe50c7b3d9161bf0666f4becae00179015ed712dec30012640396a1e80368cd"
   end
 
   depends_on "rust" => :build # for cachecontrol, uv-backend
@@ -81,8 +81,8 @@ class CondaLock < Formula
   end
 
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/3e/7c/cb4a5fb0d3d0f6585894759730ae9052e8dd9d2e5172bff544d369b24243/dulwich-0.24.10.tar.gz"
-    sha256 "30e028979b6fa7220c913da9c786026611c10746c06496149742602b36a11f6b"
+    url "https://files.pythonhosted.org/packages/18/92/e47acfff672d6219d1bba1c210f902c1ad4a58d8c68eb89fe0b786f00a68/dulwich-1.2.20.tar.gz"
+    sha256 "28e1f48098d2cb157e722588466070cbefdfe8093c2a141c568b01362296c0f3"
   end
 
   resource "ensureconda" do
@@ -91,8 +91,8 @@ class CondaLock < Formula
   end
 
   resource "fastjsonschema" do
-    url "https://files.pythonhosted.org/packages/33/a4/9473c7c3b87009d9c1d74034e4a0f6a35ff0d42dd0f9866d0c3ec4e9217b/fastjsonschema-2.22.2.tar.gz"
-    sha256 "72064e12356a7d6ef02165be2946b9abadbdf238536e07eb587e3dbaa33099cf"
+    url "https://files.pythonhosted.org/packages/1c/80/cc3c531dd70c8ffa1045aecf33c97c5581cc8fd0e824b3ecb2c1881550c1/fastjsonschema-2.22.3.tar.gz"
+    sha256 "8330c91b027dcf941efcb7b1f0998515ff95d177ea15bbabdfe8671965620901"
   end
 
   resource "filelock" do
@@ -176,8 +176,8 @@ class CondaLock < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/40/28/1c058a9143d2304b3078f8dadcbb9dc27f7d3581b5d05157c84869c4cc0d/platformdirs-4.14.0.tar.gz"
-    sha256 "83f009c1e8c5fc36869b5171755b291887bd2cade7965233cdfabd23d754720b"
+    url "https://files.pythonhosted.org/packages/9a/6e/886dc7c9d21e2d95aceb696f1e31271742033aeef3661f6e9c8921493592/platformdirs-4.14.3.tar.gz"
+    sha256 "021add1ab113483edbcd4694f5fbb2d688b893ea30d35e1155bb371cf4be0be8"
   end
 
   resource "pyproject-hooks" do
