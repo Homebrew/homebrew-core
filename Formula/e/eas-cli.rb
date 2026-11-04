@@ -1,16 +1,12 @@
 class EasCli < Formula
   desc "Command-line tool for working with Expo Application Services"
   homepage "https://docs.expo.dev/eas/"
-  url "https://registry.npmjs.org/eas-cli/-/eas-cli-27.2.0.tgz"
-  sha256 "45fa82fe75b4e6a50e77a86eb69722453ce5468a21254f1a7a02f8fac81765dc"
+  url "https://registry.npmjs.org/eas-cli/-/eas-cli-27.3.0.tgz"
+  sha256 "1439ecb15f6c39e3fdb40a1682bc035b9e2e389edd524e94a7bd62c9d36e50a9"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c3017e5fc75ab5e004ab82fb882c766a07988367e4d55d992c25e2b4122d6127"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c3017e5fc75ab5e004ab82fb882c766a07988367e4d55d992c25e2b4122d6127"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c3017e5fc75ab5e004ab82fb882c766a07988367e4d55d992c25e2b4122d6127"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4497de9613ecae9d149b62de97acbc521ac3aae1037c582a3880e666ee7c404b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "4497de9613ecae9d149b62de97acbc521ac3aae1037c582a3880e666ee7c404b"
+    sha256 cellar: :any_skip_relocation, all: "4be6d634444fceecb0d975813dd67e9a452d0b0173434a8efaa035f0812d19eb"
   end
 
   depends_on "node"
