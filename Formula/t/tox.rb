@@ -3,16 +3,16 @@ class Tox < Formula
 
   desc "Generic Python virtualenv management and test command-line tool"
   homepage "https://tox.wiki/en/latest/"
-  url "https://files.pythonhosted.org/packages/5f/bf/845a53f1e8e5d3f556056144e799fe0dafb4f6c566eee2c631a51d7b20ea/tox-4.67.7.tar.gz"
-  sha256 "a153a70dc7d31560e3b365b6ad945a6868ee9b3785295bc6385d960ac4308840"
+  url "https://files.pythonhosted.org/packages/a9/22/67230af2f6d13c4fada0c3bea05b31bfa813b24dbec9632c000908a1ed2e/tox-4.67.8.tar.gz"
+  sha256 "fcfa4d2e168ae37b30ed443b69e39a81736c6ee16389e6ece853ffb1eaa64bcc"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "51de7ce8a05ce6120d4a13100b5bb2b4883aaf5744d626016cead164cf7b494a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "51de7ce8a05ce6120d4a13100b5bb2b4883aaf5744d626016cead164cf7b494a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "51de7ce8a05ce6120d4a13100b5bb2b4883aaf5744d626016cead164cf7b494a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0db31f53a56e323fb005bfdfc8d3dbbd0418fc63e26db104d528105c300d4d61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0db31f53a56e323fb005bfdfc8d3dbbd0418fc63e26db104d528105c300d4d61"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3cb7b5aa1891f0298cae9bdee31a552283b77727a5ffbf7f3a64e58959caa208"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3cb7b5aa1891f0298cae9bdee31a552283b77727a5ffbf7f3a64e58959caa208"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3cb7b5aa1891f0298cae9bdee31a552283b77727a5ffbf7f3a64e58959caa208"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4eb1a6299bdb47a27e428f302df8cb58d6313b713fbe5abb9528842acafc6454"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "4eb1a6299bdb47a27e428f302df8cb58d6313b713fbe5abb9528842acafc6454"
   end
 
   depends_on "python@3.15"
@@ -58,8 +58,8 @@ class Tox < Formula
   end
 
   resource "python-discovery" do
-    url "https://files.pythonhosted.org/packages/e9/a2/c98905e39dfe464612b8032014fbe7b8b6e939217cd705d0152b981aeba6/python_discovery-1.9.1.tar.gz"
-    sha256 "83e3c0024b93e256809dc9cd053537a37df6d3badc3b68aa03006a224336b21f"
+    url "https://files.pythonhosted.org/packages/ea/87/77b17c6d289a551d682826e228e3efa3199305a080541d991cb7b268a527/python_discovery-1.9.2.tar.gz"
+    sha256 "de397b9c4b09a5fb8bb4c51db3c0da71fb81d2283718d74fd1efaabffc32afbc"
   end
 
   resource "tomli-w" do
