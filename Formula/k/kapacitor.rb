@@ -14,11 +14,11 @@ class Kapacitor < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6fbde5666d07e79d6bf9570434b225ebddd7639bfb054daee46311dbf069bbc7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a81557daaec013aa0297b6ce2b0daae7ca291a1ebdf14fbd884b8309d4e5f5df"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e7ae076f08d9895c6b48e4f10db375a0923e14a9f80f42add23c4d58a683fe7a"
-    sha256 cellar: :any,                 arm64_linux:       "22ece7e2ac1d8d7565b2c6fd4c170b4d6d4c87bf0364470a67e730222cea56c2"
-    sha256 cellar: :any,                 x86_64_linux:      "6dfc9e8f3c38ee4e785d43809c51bdcab0a5ac68109b01136f1115827f2261ad"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "69be42df44208979c89ab5757af10b71686458acfa99bfd59ef423de21956fab"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2428a28404fb19f38d9668ce56501c99070a200570d53cb61a29263f12a86c5e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "37cc0a50deff63ee105d9311dae6f783c637f00ea3431db6c094a4de8839f101"
+    sha256 cellar: :any,                 arm64_linux:       "dbaad8fab63e85890dc9fb3ef8b93c1ec2b8b004328e20133687a0dea5a111b9"
+    sha256 cellar: :any,                 x86_64_linux:      "6c65c502838dbc554f3c7092fda9c920620aaad0d161e8caa584642f3153bd10"
   end
 
   depends_on "go" => :build
