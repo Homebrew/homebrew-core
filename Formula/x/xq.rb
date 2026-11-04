@@ -7,13 +7,12 @@ class Xq < Formula
   head "https://github.com/sibprogrammer/xq.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "83f86d7fd6b23991856808a573ecf4fa085cad12de2ad9ab72a041b4cbc165b0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4af673959adac937d50059f1e5cb754e11c04a50bfca0ee47b19e7aa52006d85"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4af673959adac937d50059f1e5cb754e11c04a50bfca0ee47b19e7aa52006d85"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "4af673959adac937d50059f1e5cb754e11c04a50bfca0ee47b19e7aa52006d85"
-    sha256 cellar: :any_skip_relocation, sonoma:            "dbcc678d5b651a269af762a7c189715b7e725f3e0d2b06822ae2d5e4cb6d3e0f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "633c44f3ea1de2cc6c748d3a8b50896720606a75d594510e123f317d9bc7eb7e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f07e5e9a8140cd9e486d60cca64cb15f81aebf82ce268a499bd9e3e4ba84589b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ddab1a3e2afd9fd8b9ea33bd1244b04f4892f3ffd4223cf98942ca6ee941e1a9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ddab1a3e2afd9fd8b9ea33bd1244b04f4892f3ffd4223cf98942ca6ee941e1a9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ddab1a3e2afd9fd8b9ea33bd1244b04f4892f3ffd4223cf98942ca6ee941e1a9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "fe042f3ec87d8d1e08e9a0a38f6f4899a05e034a3810d2e24434939cc380e8b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7d52f7273c52658a5048ee471d8194bf82db1abe201b111b22195beee744a1cc"
   end
 
   depends_on "go" => :build
@@ -30,6 +29,7 @@ class Xq < Formula
     ENV["CGO_ENABLED"] = "0"
     system "go", "build", *std_go_args(ldflags: :goreleaser)
     man1.install "docs/xq.man" => "xq.1"
+    generate_completions_from_executable(bin/"xq", shell_parameter_format: :cobra)
   end
 
   test do
