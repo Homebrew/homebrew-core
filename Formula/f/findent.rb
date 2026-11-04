@@ -1,9 +1,9 @@
 class Findent < Formula
   desc "Indent and beautify Fortran sources and generate dependency information"
   homepage "https://www.ratrabbit.nl/ratrabbit/findent/index.html"
-  url "https://downloads.sourceforge.net/project/findent/findent-4.4.2.tar.gz"
-  mirror "https://www.ratrabbit.nl/downloads/findent/findent-4.4.2.tar.gz"
-  sha256 "005a0a8cb8e25c8aab10ba3e0735a26b00835281040ee4d3453580ca8604e078"
+  url "https://downloads.sourceforge.net/project/findent/findent-4.4.3.tar.gz"
+  mirror "https://www.ratrabbit.nl/downloads/findent/findent-4.4.3.tar.gz"
+  sha256 "37d86de682543ba5655c03907c2888c2d66f29a0699dd0d951f7d327b4678d28"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,11 +12,11 @@ class Findent < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e24bd6c232ba9d7b301aa0d4ddb9541971ab2446189dfcb9507b7be56cadfba7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "61c9de86f9854291e128eb29e62be7f6717e74e2db83a511d42202c9d1c335e1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2f9f4389e3e092320a864d2952c6ccf3e5f43e87de843e73b6d02c457ca9ffbd"
-    sha256 cellar: :any,                 arm64_linux:       "c88e4b623209f2a769d7feee8d35d2671591a3e63d16487470e9219d7a110cda"
-    sha256 cellar: :any,                 x86_64_linux:      "a988cfa29e896820e533174e7103ae459974067130ea7d44779039971467a6b2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e726560a0e5055f796ea549a6ca1d3f94b70aff4006ee7207f80b6906fbff521"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6e714cda7b64adfb3ba99668d9749724fae190016a5b4e995e33b02d6da58123"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cfd0f403a4e6b1ae42319f3911d51c7e027e223ec23078ebcddeff057f000034"
+    sha256 cellar: :any,                 arm64_linux:       "b458709775d092fa44f40bf40568071580fa5b62a77521ea5db0c4be3d20ec54"
+    sha256 cellar: :any,                 x86_64_linux:      "1a327150d14249db9db9d2c526b986f426d90244c82cb8a0bf1176f502bd7d5b"
   end
 
   deny_network_access!
