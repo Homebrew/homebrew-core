@@ -2,8 +2,8 @@ class Swiftly < Formula
   desc "Swift toolchain installer and manager"
   homepage "https://github.com/swiftlang/swiftly"
   url "https://github.com/swiftlang/swiftly.git",
-      tag:      "1.1.4",
-      revision: "24b20ba8a53aa9837a04e9393c035be33968b1e8"
+      tag:      "1.2.0",
+      revision: "fd76e26fe8ab7b6d5947a5fe1c33a34b760d39d8"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/swiftlang/swiftly.git", branch: "main"
@@ -21,10 +21,10 @@ class Swiftly < Formula
     sha256                               x86_64_linux:      "a93b0b266576df9f80861859fbdb0647f63f2ec21d31abaa202faca924fb486c"
   end
 
-  uses_from_macos "swift" => :build, since: :sonoma # swift 5.10+
+  uses_from_macos "swift" => :build, since: :sequoia # swift 6.2+
 
-  on_sonoma :or_older do
-    depends_on xcode: ["15.0", :build]
+  on_sequoia :or_newer do
+    depends_on xcode: ["26.0", :build]
   end
 
   on_linux do
@@ -34,7 +34,14 @@ class Swiftly < Formula
 
   def install
     args = %w[--product swiftly]
-    args += %W[-Xswiftc -I#{HOMEBREW_PREFIX}/include] if OS.linux?
+    if OS.linux?
+      # SwiftBuild bypasses Homebrew's linker shim, so pass library paths explicitly.
+      args += %W[
+        -Xswiftc -I#{HOMEBREW_PREFIX}/include
+        -Xlinker -L#{formula_opt_lib("zlib-ng-compat")}
+        -Xlinker -rpath -Xlinker #{HOMEBREW_PREFIX}/lib
+      ]
+    end
 
     system "swift", "build", *args, *std_swift_args
     bin.install ".build/release/swiftly"
