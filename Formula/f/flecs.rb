@@ -1,19 +1,17 @@
 class Flecs < Formula
   desc "Fast entity component system for C & C++"
   homepage "https://www.flecs.dev"
-  url "https://github.com/SanderMertens/flecs/archive/refs/tags/v4.1.6.tar.gz"
-  sha256 "29ccf56961b7ffbd38cce2227a06c0722c7df464422e86619a65ee37bb31bae7"
+  url "https://github.com/SanderMertens/flecs/archive/refs/tags/v4.2.0.tar.gz"
+  sha256 "4107b0a36aa25f80ddcd6f939451ccfe1bacafcccdd2695840a4a8c413d05b40"
   license "MIT"
   head "https://github.com/SanderMertens/flecs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "54bbdfdce24027e9235debbce054071f22d7f768db641831e34b3245bddfd305"
-    sha256 cellar: :any, arm64_tahoe:       "ff3072358d9b3dd138b664c538ef4e9ba0079a46a48cf701bccb7d43222b2dcc"
-    sha256 cellar: :any, arm64_sequoia:     "69ab4a56cd892d2741b1522f1208a14808bcd350424a994dce38bc60f916349d"
-    sha256 cellar: :any, arm64_sonoma:      "a86f72a1a82c9a6bc9f09abc8d6d95d4da8437bc4282d9cbe507437cfafe3c4f"
-    sha256 cellar: :any, sonoma:            "7c1a948ae4396736a9ec9dbc12d1807a6e4b71d4596b9f47c66cae70dfe7969e"
-    sha256 cellar: :any, arm64_linux:       "7a36d4e90582f7ed5106ddd56f2662cfd3bd158ad3f03647cc3492df4334f3a8"
-    sha256 cellar: :any, x86_64_linux:      "50ba973b76ba09922735c6ed903f5f93326dae73c2112dd62cce5d0543b84a23"
+    sha256 cellar: :any, arm64_golden_gate: "b6b3139b50c2923791debf442e03f5e8e05cb7b98103f65a609774e7e2cb9f03"
+    sha256 cellar: :any, arm64_tahoe:       "60d7e71aab61edc9ffa1bbd42fe91485903d39ed5e2911551b56ac5fe89c8114"
+    sha256 cellar: :any, arm64_sequoia:     "ee69c0ad9864e7773abfa164c62d1d0ae15ad5c952d61dc8220bdd7508180eef"
+    sha256 cellar: :any, arm64_linux:       "924377d3cb006e1b958e1d0c5f9ce65fc818ad96fb55efb2965dedfb0f145e7f"
+    sha256 cellar: :any, x86_64_linux:      "1ba10dff84a61f9033f40d0c6e598607d95938db6927b562a6af8bc9f2ad2ad4"
   end
 
   depends_on "cmake" => [:build, :test]
