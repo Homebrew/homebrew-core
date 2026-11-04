@@ -1,8 +1,8 @@
 class Lldb < Formula
   desc "Next generation, high-performance debugger"
   homepage "https://lldb.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.4/llvm-project-23.1.4.src.tar.xz"
-  sha256 "819ecf7351f1a66f76b2d701d8942faaf5faeb324cb90c9d5b090de142434bb2"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.5/llvm-project-23.1.5.src.tar.xz"
+  sha256 "fb50b1eac93ddeb3aa8dab4cfe324dff74f4a9c2bdee6160c9e36188f8d06a6e"
   license "Apache-2.0" => { with: "LLVM-exception" }
   compatibility_version 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
@@ -12,11 +12,11 @@ class Lldb < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "e0269b755d00972476985dd9146902056cac6678ade27f1ae9584ef73bb56331"
-    sha256 arm64_tahoe:       "4d846522b5e8b550f082f30923971d843c46557bda068359d0d4f0be33c69afc"
-    sha256 arm64_sequoia:     "5841485e97cd9ca7403a5e02c8f0bc9f91b8504bd87365477e0bab16fa736718"
-    sha256 arm64_linux:       "1ed8467e01933ddf66f7d624ac2bdc97cb03c42f176dfccc7f013b6c0af2ccdd"
-    sha256 x86_64_linux:      "dbc8377c7c17771c7be6d8b19ac114ceb3513a7f04e4c07079a2c24dcb332979"
+    sha256 arm64_golden_gate: "8581c0ad5907e1425e0df1ccbd9cf7fa5b5083468a33f1192e0b796eb7adcb87"
+    sha256 arm64_tahoe:       "35a8afe4976471e21cf3eafba847c0b4a04f2530295e3ac55d3b2e88c8d486d9"
+    sha256 arm64_sequoia:     "43a3f5347ec83c5471627ba209891252a51f88b58ca99e7c4d6beec770a208aa"
+    sha256 arm64_linux:       "313f6a34be0aa527be15d00fa424e44542f65c25842d6a3dfefaf625cce232be"
+    sha256 x86_64_linux:      "d01e6037cfbc513901b916b97237541a79677cd4b90eaa811ae6c83b2f2b990f"
   end
 
   keg_only :provided_by_macos
