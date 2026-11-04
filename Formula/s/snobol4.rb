@@ -31,6 +31,8 @@ class Snobol4 < Formula
 
   conflicts_with "sdb", because: "both install `sdb` binaries"
 
+  deny_network_access!
+
   def install
     ENV.append_to_cflags "-I#{MacOS.sdk_path}/usr/include/ffi" if OS.mac?
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
