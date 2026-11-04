@@ -14,11 +14,11 @@ class Openrtsp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "bafd825801f63419a7d238a3dc91f6a74337a927954c1df4505daae436180b7c"
-    sha256 cellar: :any, arm64_tahoe:       "c000244a0d142366fc1360b5a45c3ef78370679a96a7ad91d0b519fff7aac7b7"
-    sha256 cellar: :any, arm64_sequoia:     "cb6c8ca48c25ece86c5c5c4ea5d7dae882551675eb30a39629b3397576cb9dcf"
-    sha256 cellar: :any, arm64_linux:       "f24a30fda23c3c0c35e3f36039e5165c33a01853b091b5a5b683901167a021d9"
-    sha256 cellar: :any, x86_64_linux:      "db9280f92b874ac5efd6e8a595cd6860f7e54c9a452aea6d1ac603a2c13ac0fa"
+    sha256 cellar: :any, arm64_golden_gate: "037ffda3f2d24b2066571dbb1497011b65025b961dbca783af92af620cf30bd5"
+    sha256 cellar: :any, arm64_tahoe:       "36b631d214076cf17dc84f304f6f8819bba7e059812b5cc4bc260154a339327a"
+    sha256 cellar: :any, arm64_sequoia:     "ade4db6933e494c225d3c8b858e87f602bdf21ee4029618ea1abc32c03237b17"
+    sha256 cellar: :any, arm64_linux:       "6300624d3918c3ac05d36d1c7d82b1e64f5a97b0cc900d18597c0023a56c9a23"
+    sha256 cellar: :any, x86_64_linux:      "fc4885336362467897020ecd243889a668211f370d4619402ecc181c295d2f6d"
   end
 
   depends_on "openssl@4"
