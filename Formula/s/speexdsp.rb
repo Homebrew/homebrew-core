@@ -38,6 +38,8 @@ class Speexdsp < Formula
 
   depends_on "pkgconf" => :build
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", *std_configure_args
