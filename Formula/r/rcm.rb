@@ -17,6 +17,8 @@ class Rcm < Formula
     sha256 cellar: :any_skip_relocation, all: "bc964820b4e236614e4a76ea1a6913b25abbe68cfa00a106aae40944b3af8d3f"
   end
 
+  deny_network_access!
+
   def install
     ENV["CONFIG_SHELL"] = "/bin/bash"
     system "./configure", "--disable-silent-rules", *std_configure_args
