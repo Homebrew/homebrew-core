@@ -4,12 +4,11 @@ class CoreLightning < Formula
   desc "Lightning Network implementation focusing on spec compliance and performance"
   homepage "https://github.com/ElementsProject/lightning"
   license "MIT"
-  revision 1
   head "https://github.com/ElementsProject/lightning.git", branch: "master"
 
   stable do
-    url "https://github.com/ElementsProject/lightning/releases/download/v26.06.9/clightning-v26.06.9.zip"
-    sha256 "ac37b1b6c41b6c60cf06dd8cd7500f1fab04411cf2f3bc126838d8cafab4538d"
+    url "https://github.com/ElementsProject/lightning/releases/download/v26.06.10/clightning-v26.06.10.zip"
+    sha256 "4914561e6d108dacca0183d7e6b3b1c224c580597ddcbb397299ef5b0fcc3230"
 
     patch do
       url "https://github.com/ElementsProject/lightning/commit/d384750883216e7e19e01779d06bc36295380296.patch?full_index=1"
@@ -94,9 +93,11 @@ class CoreLightning < Formula
     venv = virtualenv_create(buildpath/"venv", python3)
     venv.pip_install resources
     ENV.prepend_path "PATH", venv.root/"bin"
+    ENV["PYTHON"] = python3
     ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin" if OS.mac?
 
-    system "./configure", "--prefix=#{prefix}"
+    # Avoid `uv run` syncing the workspace, whose test deps lack wheels for our Python
+    system "./configure", "--prefix=#{prefix}", "PYTEST="
     system "make", "install"
 
     rm_r Dir["#{bin}/*.dSYM"]
