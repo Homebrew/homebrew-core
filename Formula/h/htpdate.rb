@@ -1,18 +1,16 @@
 class Htpdate < Formula
   desc "Synchronize time with remote web servers"
   homepage "https://www.vervest.org/htp/"
-  url "https://github.com/twekkel/htpdate/archive/refs/tags/v2.0.2.tar.gz"
-  sha256 "3f5effa9355db140ef8ace6d17800d48815d1afdcef9d1096510451839dd8de4"
+  url "https://github.com/twekkel/htpdate/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "92a787338666d02d5b871444de5b0d5128f789d041342204f9c9837309da8080"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4bd8e7808b33a590a1258ce5b54fd6ce41412a982c6dda24d5f0de67590d3b6f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "057a11555cba28d5467be47618b77200d9cc31d647418dcf7694596f9667c24e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "66b2ec8f126efef94c917d220cf5eb8c74970a7e04b2c0ed35f2248dacc20d3a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "79f948f71b2c94302832be6196a143c9b629a9ab5a0414813b798dd75b09eb3f"
-    sha256 cellar: :any_skip_relocation, sonoma:            "61699fbc43e93d19b8982e48f909673c18ea6d1c6a7b9aa5f06836ab7443a40c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "97a122f3b6f5126971271bbcf905ec4f817cf8c778e055dc703574fbab471cc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "518af19c1c56c703bee6ca15e239fcf35fc70546a19b467075c279b5b5bae967"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c19851f27f2b44bdbe96c7bce23c908813692604d84a88c508b10907255bcf6f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c79aeaa809a1a655acfb947efbf82b08e05ab7129253c54876088713ef0fdb9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f125ebdf91cebf9321a700da992c6e9521bc1c658a751cf6c8bcf841b0f8c9e2"
+    sha256 cellar: :any,                 arm64_linux:       "cbdb3d9d6c1b5ebe0d3c4ddab0bc09859b211ee28d22e91a4fc2c905183956f2"
+    sha256 cellar: :any,                 x86_64_linux:      "6d9728c52b94d93db11904cff17a18df6ac4c4c3ad6bf145f50cc6b4f880da12"
   end
 
   def install
