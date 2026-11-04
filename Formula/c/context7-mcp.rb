@@ -6,7 +6,7 @@ class Context7Mcp < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e8c5772c8c7434518d799deae99b8b3658e7763a6a78640944e18d748307c649"
+    sha256 cellar: :any_skip_relocation, all: "920c4e4a5cf45abc8a3cdb62293ee276ab71873a4ac5e37d54df9f2369455d71"
   end
 
   depends_on "node"
