@@ -3,8 +3,8 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://esphome.io/"
-  url "https://files.pythonhosted.org/packages/3a/77/b273177895dda046106b5db323d11a566ad50bc2e59cf836228a17a87694/esphome-2026.10.1.tar.gz"
-  sha256 "c970e3790c0d8d09c077fa620a7114e104da5722d59ac06a02b9ac465e4a6c96"
+  url "https://files.pythonhosted.org/packages/84/74/04cb42f48a2e7a52b372c8c3c58948342c772915ff53d90a1e0a940f8f6b/esphome-2026.10.2.tar.gz"
+  sha256 "bc37f004a511886d93872dcdfbe7311337c4f48aee7bb71cf464bd054658e758"
   license "MIT"
   head "https://github.com/esphome/esphome.git", branch: "dev"
 
@@ -56,8 +56,8 @@ class Esphome < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "argcomplete" do
@@ -91,8 +91,8 @@ class Esphome < Formula
   end
 
   resource "cbor2" do
-    url "https://files.pythonhosted.org/packages/39/34/d443914ea562a985ccb357682e17b7190d5d58eff797c741379be47a8f31/cbor2-6.1.5.tar.gz"
-    sha256 "6eb06160c42315ac0c4ded461c7d84d92fa18c69d13d17fc1dfc1fae96580c95"
+    url "https://files.pythonhosted.org/packages/cd/eb/e2ef5f241f15131babf4854032953b97c88b2c2700d7712a0ba8f57cbe81/cbor2-6.2.0.post2.tar.gz"
+    sha256 "3b08ba9f3a556186515000949d478e47e6d55322f9d86bdaef5b4e3d27d48298"
   end
 
   resource "chacha20poly1305-reuseable" do
@@ -131,8 +131,8 @@ class Esphome < Formula
   end
 
   resource "esp-pylib" do
-    url "https://files.pythonhosted.org/packages/c6/af/ebfab3ce5babdf0bc068d13205c3b28a4fe55f41d7cc229e1991f3f07e43/esp_pylib-1.2.0.tar.gz"
-    sha256 "51f0c44a0f7a92fdded9cab54bde92441b22b464f7d684ed179afb57000bed70"
+    url "https://files.pythonhosted.org/packages/b7/f1/f01bc72408264940589976e1973ca0c978fdc77ef377cca01a0cc42c9418/esp_pylib-1.2.1.tar.gz"
+    sha256 "c0854cc57b86e2745e9f7ac820d5d5e8a9f2c2d93caf12623c419b8d08d852f6"
   end
 
   resource "esphome-glyphsets" do
@@ -411,8 +411,8 @@ class Esphome < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/30/4b/4692be6d5bf739ed049b3813901c42091f8c054df89d5c089343823dea0d/websockets-17.3.tar.gz"
-    sha256 "1c7dd93a1c9f89297471493674b1fc1d9467cafd45374f2172213046bdb3a329"
+    url "https://files.pythonhosted.org/packages/75/79/590c5f0cc7d1661195aeefccb0e342b79f4c77d368d526d028821a390332/websockets-17.4.tar.gz"
+    sha256 "09d3939b70df0c8ad2da145ebd50978bccaee1d565e838b0e7921a34d38571eb"
   end
 
   resource "wsproto" do
