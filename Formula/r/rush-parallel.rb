@@ -6,11 +6,12 @@ class RushParallel < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f6b47c3cb924b4df1a8428c1c03b05e7c5cab740a4cce9804d8ee58093817f78"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "06cb9440cb6e8384f8262d683ac5cb2418319f3556f7b80af4ef71bbee6c382e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d925e393da855eb2fffc83c896a8db4e3ce5ccc50812faf05ffe59795b557b8e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9ee3cadcf6298358f56f24999bae7320d63f8ba88966d4657d7c7f2639b75561"
-    sha256 cellar: :any,                 x86_64_linux:      "550090e6eacbf814699ca9cb63b3bdd3a996c7e377f69d1121c9bfc15fe83aa4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3ef36a242003edda3c94f614eb5a099d9b0ee4f1f3d89f419256c1c6ca7d8db8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "179ebdefcf1e5ad4cd8ef8eee61bd13aa889adc9e72d124b1807e01f78f5e6ee"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eb5756c2392cea2b8dcbda597c8d6e397138b71d653888b81d382e5483e99bcf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d6cca3d32cfa82089dfb94dcff71f5230655be217979f00135e086d1e3992f2c"
+    sha256 cellar: :any,                 x86_64_linux:      "68b09cb6deebe4ba8d3a5bd348a06d84115b300f823ae5ba3a8cda0c9f39be6c"
   end
 
   depends_on "go" => :build
@@ -25,6 +26,7 @@ class RushParallel < Formula
 
   def install
     system "go", "build", *std_go_args(output: bin/"rush")
+    generate_completions_from_executable(bin/"rush", shell_parameter_format: :cobra)
   end
 
   test do
