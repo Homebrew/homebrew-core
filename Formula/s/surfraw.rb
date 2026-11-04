@@ -30,6 +30,8 @@ class Surfraw < Formula
     depends_on "libtool" => :build
   end
 
+  allow_network_access! :test
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--sysconfdir=#{etc}",
