@@ -20,13 +20,11 @@ class Nelm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "149ccb985c378e0686ac67d555493eb2c16cec6d01723fcdc4baa85ede95e4a1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fc4e6521bd167c20078201423b75229abc3f023dca7d0975ca1afe6bcff38241"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6b35455b487bdabc4f9ff5c60bb3c239c3226d02e75d953ed5d8c054657f3393"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "32d7ffd0a436067951f599298bd73bc20e0f8fc6f0d4d2d05ce626a0ba6b2517"
-    sha256 cellar: :any_skip_relocation, sonoma:            "cc39f07dc47e0fe44fe148115f30598c791e92d4fb491b5b9b5e07366f2e4623"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "47f4cca19316306b758c246ca3f757a00a6ec21899300f80ec50ea57ad92e0bb"
-    sha256 cellar: :any,                 x86_64_linux:      "235773c8dab017a267bf354125538b44df88cf27ff9624dec930530004414542"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8b60070aeb6511c1b770f9423ad1552b81fca17caeed0b1b9ce78b865f3cb986"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6fd7b084b67f4c4301b281dfab184d8722c2cb2576ff7c675edc23a9f61c5e46"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "24f04543f9acde2c83aab15192ca5e2c5aef65940cac856a8547809d9bdae32a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "74235cb36f44f5c8ad0a943fcfa98493f3d7bda6c252ff635bb865840d916cec"
+    sha256 cellar: :any,                 x86_64_linux:      "bac4ab1646fd95abd678f5d35592be8cb0e7846e8061ae37a0eb1357b845909d"
   end
 
   depends_on "go" => :build
