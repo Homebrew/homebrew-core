@@ -35,6 +35,7 @@ class Wayback < Formula
       -X github.com/wabarc/wayback/version.BuildDate=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/wayback"
+    generate_completions_from_executable(bin/"wayback", shell_parameter_format: :cobra)
   end
 
   test do
