@@ -1,8 +1,8 @@
 class Youtubedr < Formula
   desc "Download Youtube Video in Golang"
   homepage "https://github.com/kkdai/youtube"
-  url "https://github.com/kkdai/youtube/archive/refs/tags/v2.10.6.tar.gz"
-  sha256 "c334c04c07c3576e911d78b65b068b574e81e33e385f63a86b4862022391240d"
+  url "https://github.com/kkdai/youtube/archive/refs/tags/v2.10.7.tar.gz"
+  sha256 "5a030e0192b988e886c2be2c74e426963fd727ce0d2d26815d47eb40f9ff7f43"
   license "MIT"
 
   bottle do
@@ -37,7 +37,7 @@ class Youtubedr < Formula
     output = pipe_output("#{bin}/youtubedr info https://www.youtube.com/watch?v=pOtd1cbOP7k 2>&1")
     if $CHILD_STATUS.exitstatus.nonzero? && ENV["HOMEBREW_GITHUB_ACTIONS"]
       # CI runners can be blocked by YouTube, https://github.com/kkdai/youtube/issues/336
-      assert_match "can't bypass age restriction:", output
+      assert_match "youtube requires a sign-in to confirm you're not a bot", output
     else
       info_output = output.split("\n")
       assert_match "Title:       History of homebrew-core", info_output[0]
