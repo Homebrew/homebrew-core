@@ -21,6 +21,8 @@ class Stress < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "ffa76db1094886481f76dcba90c949bd03f5d29971e943d9dce96a5f53f6da78"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
