@@ -13,6 +13,8 @@ class Sysstat < Formula
 
   depends_on :linux
 
+  deny_network_access!
+
   def install
     system "./configure",
            "--disable-file-attr", # Fix install: cannot change ownership
