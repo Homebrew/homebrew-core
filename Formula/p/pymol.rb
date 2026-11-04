@@ -4,7 +4,7 @@ class Pymol < Formula
   desc "Molecular visualization system"
   homepage "https://pymol.org/"
   license :cannot_represent
-  revision 4
+  revision 5
   head "https://github.com/schrodinger/pymol-open-source.git", branch: "master"
 
   stable do
@@ -17,6 +17,14 @@ class Pymol < Formula
       sha256 "639261ff5b4d9c930ead3179cbbf64bf1e8fa575678561a0287c11f5a6cfa4d6"
       type :backport
       resolves "https://github.com/schrodinger/pymol-open-source/issues/428"
+    end
+
+    # Fix PyQt6 gesture enum compatibility, remove on next release
+    patch do
+      url "https://github.com/schrodinger/pymol-open-source/commit/6786f099c877c31cab1b18ad768e9b6c4aa6afab.patch?full_index=1"
+      sha256 "d2ac61d66d92926c6dc8940563f546962b8b7d50c9b0c0b5532d898b8a33c175"
+      type :backport
+      resolves "https://github.com/schrodinger/pymol-open-source/issues/441"
     end
   end
 
