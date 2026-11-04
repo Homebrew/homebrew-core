@@ -55,6 +55,14 @@ class Ipmitool < Formula
     resolves "https://github.com/ipmitool/ipmitool/issues/332"
   end
 
+  deny_network_access!
+
+  # Download file with curl instead of using a resource as it is updated
+  # everyday without url change
+  def fetch
+    system "curl", "--output", buildpath/"enterprise-numbers", "http://www.iana.org/assignments/enterprise-numbers.txt"
+  end
+
   def install
     system "./bootstrap"
     system "./configure", *std_configure_args,
