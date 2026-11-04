@@ -32,6 +32,8 @@ class Slirp4netns < Formula
     sha256 "075f43c98d9a848ab5966d515174b3c996deec8c290873d92e200dc6ceae1500"
   end
 
+  deny_network_access!
+
   def install
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
