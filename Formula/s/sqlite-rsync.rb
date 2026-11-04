@@ -23,6 +23,8 @@ class SqliteRsync < Formula
   uses_from_macos "tcl-tk" => :build
   uses_from_macos "sqlite" => :test
 
+  deny_network_access!
+
   def install
     tcl = if OS.mac?
       MacOS.sdk_path/"System/Library/Frameworks/Tcl.framework"
