@@ -1,8 +1,8 @@
 class Sapling < Formula
   desc "Source control client"
   homepage "https://sapling-scm.com"
-  url "https://github.com/meta/sapling/archive/refs/tags/0.2.20261028-123539+7415fb2f.tar.gz"
-  sha256 "05aa40cca1a7ba29179a24d56738ba138db4267bf552c66f95e60c341599af3d"
+  url "https://github.com/meta/sapling/archive/refs/tags/0.2.20261103-145137+6282ac56.tar.gz"
+  sha256 "0dd35dba5f99bbb97fbfbb18075aa183ae7d63d28954c2d92160ed50bba9cdfb"
   license "GPL-2.0-or-later"
   head "https://github.com/facebook/sapling.git", branch: "main"
 
@@ -15,11 +15,11 @@ class Sapling < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_golden_gate: "49d475d60821550874721ff0d6ec14dfb5eccc1324f3c16c8a99c1e67d442548"
-    sha256 arm64_tahoe:       "c57a16590dada8fa4ddfe0d48aec0731bbc20e42a0e9229ba24deca3118ea21f"
-    sha256 arm64_sequoia:     "9d24566e77718b58cb0b3a94e9480c822a46d08ade090ee968a4444810a76b6a"
-    sha256 arm64_linux:       "243d8c296ada2debb5a82d92cfd37b76149e12a1a875dc71ed782f201283f500"
-    sha256 x86_64_linux:      "850a126ab60363148eb0445e3b60af92facfcab80529d2d70d12e584c0c0b3c5"
+    sha256 arm64_golden_gate: "6dca61c1fac4aafc98fe53f8e93ad1a53e647ab8700137643dd72239a85f475d"
+    sha256 arm64_tahoe:       "da1fe12a02ea54125c7a95fe5c37788f832279c490cca9cca7783d53b18d946a"
+    sha256 arm64_sequoia:     "7d498da8a2906c4ee2bb4c4792da413676ae6ade743070257886bd848462a720"
+    sha256 arm64_linux:       "dcbbf30d28be32495177893498227f3760dc60c51a571941935457d07034e759"
+    sha256 x86_64_linux:      "3b4744bea98831873e7293d07c20777254063b0aac3c99b681c1704cf522aed8"
   end
 
   depends_on "cmake" => :build
