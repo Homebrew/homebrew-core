@@ -23,6 +23,8 @@ class Snzip < Formula
 
   depends_on "snappy"
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
