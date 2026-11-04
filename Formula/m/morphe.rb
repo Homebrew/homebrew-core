@@ -1,16 +1,16 @@
 class Morphe < Formula
   desc "Desktop app and CLI for patching Android apps with Morphe"
   homepage "https://github.com/MorpheApp/morphe-desktop"
-  url "https://github.com/MorpheApp/morphe-desktop/archive/refs/tags/v1.20.0.tar.gz"
-  sha256 "3bb46ef82e4700693cb05c18288aa4041ef34ac5b0aef669f4c30649498a74e0"
+  url "https://github.com/MorpheApp/morphe-desktop/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "d9c130df8d41d665233c660d11cdc6fea05fd7793b200ea89729fa7943656caf"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "46f6ead367a94b622c8d65da0dda31b9d985175842a1a83dfd1754e9268b8c0f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "46f6ead367a94b622c8d65da0dda31b9d985175842a1a83dfd1754e9268b8c0f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "46f6ead367a94b622c8d65da0dda31b9d985175842a1a83dfd1754e9268b8c0f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "702bd3f08daed5b4997427b2b57fce6052c14ccd3a16b69d767456965970d172"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "702bd3f08daed5b4997427b2b57fce6052c14ccd3a16b69d767456965970d172"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1e3e80ca5ba36272ab3152ed30133dfda8661ef1e660be4fc066168051634982"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1e3e80ca5ba36272ab3152ed30133dfda8661ef1e660be4fc066168051634982"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1e3e80ca5ba36272ab3152ed30133dfda8661ef1e660be4fc066168051634982"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "77f611efe20a71b190f4074a50d1abc1d0b8016fc08ab5ba41d0e117043e75c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "77f611efe20a71b190f4074a50d1abc1d0b8016fc08ab5ba41d0e117043e75c6"
   end
 
   depends_on "gradle" => :build
@@ -18,8 +18,8 @@ class Morphe < Formula
   depends_on "openjdk"
 
   resource "morphe-patcher" do
-    url "https://github.com/MorpheApp/morphe-patcher/archive/refs/tags/v2.1.0.tar.gz"
-    sha256 "12c2b808990607f5fd019ac23f7bb48bf33c5b72bae5c355b1900b8d095d6a78"
+    url "https://github.com/MorpheApp/morphe-patcher/archive/refs/tags/v2.2.0.tar.gz"
+    sha256 "5d97b3383409b95607861c197ee1aa2dbd6a59262812dab4628598724e0b18b5"
 
     livecheck do
       url "https://raw.githubusercontent.com/MorpheApp/morphe-desktop/refs/tags/v#{LATEST_VERSION}/gradle/libs.versions.toml"
