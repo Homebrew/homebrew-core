@@ -5,6 +5,14 @@ class Godu < Formula
   sha256 "09869710652969b8a9d227dea4ac33893b1f538197b101affa6a8a9aa6a50474"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4797ae57c05cc0f50ffb1b613ec216197f3f4669fd0fd37e6c1136a64c8aaed0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4797ae57c05cc0f50ffb1b613ec216197f3f4669fd0fd37e6c1136a64c8aaed0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4797ae57c05cc0f50ffb1b613ec216197f3f4669fd0fd37e6c1136a64c8aaed0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b08a3477ee8779315331649419c3f31668cc2665051addf5c75720a2204197c6"
+    sha256 cellar: :any,                 x86_64_linux:      "eac901e3a735f9150f1a4f0ca13157992868aacce350e21094b5be3851ddf989"
+  end
+
   depends_on "go" => :build
 
   deny_network_access!
