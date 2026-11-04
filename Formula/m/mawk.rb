@@ -4,6 +4,7 @@ class Mawk < Formula
   url "https://invisible-mirror.net/archives/mawk/mawk-1.3.4-20260302.tgz"
   sha256 "e2c08a77d0a84a01f9be454d1ca3872d4f103f9ada683d075198b0c6e965633d"
   license "GPL-2.0-only"
+  compatibility_version 1
 
   livecheck do
     url "https://invisible-mirror.net/archives/mawk/?C=M&O=D"
