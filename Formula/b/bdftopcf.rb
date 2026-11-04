@@ -21,6 +21,8 @@ class Bdftopcf < Formula
   depends_on "pkgconf" => :build
   depends_on "xorgproto" => :build
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make"
