@@ -6,11 +6,11 @@ class Mp4ff < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a5055f757a115445453abd42e1f5e002bc80d15f0a22e29a4a4a10cccd17c8e7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a5055f757a115445453abd42e1f5e002bc80d15f0a22e29a4a4a10cccd17c8e7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a5055f757a115445453abd42e1f5e002bc80d15f0a22e29a4a4a10cccd17c8e7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b1171a31777aa3d2102e2cb102da1ddf3c4817830c138a7d2f3619d51e8148e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7b0f63fe57ec25834585931bad3a001925d67fe596e56e6ee7fb5aa07ffde2e4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "341bfb0fa1847b7f5cd7e08aa3f28a5122f58da44a83fe235ebcd9551e6d8cc7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "341bfb0fa1847b7f5cd7e08aa3f28a5122f58da44a83fe235ebcd9551e6d8cc7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "341bfb0fa1847b7f5cd7e08aa3f28a5122f58da44a83fe235ebcd9551e6d8cc7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f3f5078880eb6185fed749ec1a640bad4f03b047c4749eb66646d35ec037241c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "63eb90436018c729af8ea6cea8159776756ba4306c5b6a1bddc54012a9416de2"
   end
 
   depends_on "go" => :build
