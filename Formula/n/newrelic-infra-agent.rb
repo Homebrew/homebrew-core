@@ -2,8 +2,8 @@ class NewrelicInfraAgent < Formula
   desc "New Relic infrastructure agent"
   homepage "https://github.com/newrelic/infrastructure-agent"
   url "https://github.com/newrelic/infrastructure-agent.git",
-      tag:      "1.81.0",
-      revision: "0018b9dda39cfd1c79bf811502f399f0d28f7992"
+      tag:      "2.0.1",
+      revision: "6da860ddecfdad62c72133a22754ccca5e14e952"
   license "Apache-2.0"
   head "https://github.com/newrelic/infrastructure-agent.git", branch: "master"
 
@@ -15,11 +15,11 @@ class NewrelicInfraAgent < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9d4f5e47e7f6889f9c7d9e9ddc0188b732f20c5df6e0275ce5ac71e2967e4ee7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "57a6e91ffafbf5b4e0adc5571a4692d4c1dc6889171c5cdf482d759481b1ba06"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2bcc4980e70795f9cb9b746c330a225aea883ed2b8b94d4902fc0d3c964f8576"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "bb8e2e3a2cd2398842d3c2870e6f7bfcbfadf12559ed81152cb33dc75a79681f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6582c97dd63ad4505fa2d356ea22a5a53fab0697642e2cec14aa271d5b990b71"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4e886ad78746dd0286343e94f6653af1c8e31f703afab73ebba9bcfa17f15a07"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5fae880a80f7db0f491ce4c0f3695efc02a7bbb54774e67ba929fbb417931ecb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e06b62ba113d8b20691eaa49022d95c3c4ca61d6032e9014f4cb8fa89f8529cd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4de96d88a81d9de3056c143a8e5c450a9450413cb3d983fb540d6ee9ac0ac2a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "10cc5e60150bfa74664239fb1abc48378b64ea03c6560b733025c027b3cde834"
   end
 
   depends_on "go" => :build
