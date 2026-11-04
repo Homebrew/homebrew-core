@@ -1,19 +1,16 @@
 class GphotosUploaderCli < Formula
   desc "Command-line tool to mass upload media folders to Google Photos"
   homepage "https://gphotosuploader.github.io/gphotos-uploader-cli/"
-  url "https://github.com/gphotosuploader/gphotos-uploader-cli/archive/refs/tags/v5.1.0.tar.gz"
-  sha256 "180ced2507d796b2305627097017aacd2b0206e1131e0b40da2a46563a823ec1"
+  url "https://github.com/gphotosuploader/gphotos-uploader-cli/archive/refs/tags/v6.0.0.tar.gz"
+  sha256 "99fdc60442f8ff39a01dc97544509749553279ea03caee230a055eb0fcdf0e7e"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9bfcde3d787bcd5e7d690abb569fde61913c92ddb5f64e2c036c805daaabcfe8"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "619c45e2f8edb6b143cf1face0d0f1ec3850f84fda574a35678666f29811ea0e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "439dba9cb6761a9c18bca09c2211116175b3e97b4aad428cf83e585a350715c9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "1b263b761cbbc70a285ac6911ccbef19425eb53f9b04a01f7e36e73bf04f11d4"
-    sha256 cellar: :any_skip_relocation, sonoma:            "7d22f32e0a810b842b2e4732d6a75d862a71b2af77859919b87131f9947cdb79"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "210a7402f800452b5acf3c5759d03c3173fa775567377536cdada1ab962abf10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "54ba84dbd457e5fde7e704902489b5b2f98fcc3871f112599b8dad26c674bbf2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1c23351fe1a3a15f1619e7d3673191e04c588ba8a710b3f2f001c0591ca66026"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6df1ca0bee16f4a08e1b7b496e7abb8bc0315158dd3cd6203c41467417f09c6f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3c721cd99a4ede123a59eb987d186b758a99a56594b6ba3c1ffd7371b1f6fc4f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d14928daae187c279643068f15f9e75e22eaa6eadea0920d83603aa3c34595f8"
+    sha256 cellar: :any,                 x86_64_linux:      "ab35dd2c359515de0fc5aaf76b6fd3844849fcb52d5b29670eae0dacd797b8ad"
   end
 
   depends_on "go" => :build
