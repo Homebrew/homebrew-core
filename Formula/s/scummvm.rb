@@ -47,6 +47,8 @@ class Scummvm < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--enable-release", "--with-sdl-prefix=#{formula_opt_prefix("sdl3")}", *std_configure_args
     system "make", "install"
