@@ -5,6 +5,14 @@ class Netbird < Formula
   sha256 "9553375fdd487572a4fdfeefd4cce95622686a80b8f0d10077c9913bebefe021"
   license "BSD-3-Clause"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d9cda2ea118f6c6b7bdd2c8cb36ed8decc8d5b378bfa69fea558866f575014a1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d9cda2ea118f6c6b7bdd2c8cb36ed8decc8d5b378bfa69fea558866f575014a1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d9cda2ea118f6c6b7bdd2c8cb36ed8decc8d5b378bfa69fea558866f575014a1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b7fa188803d2da12044b84bfed295c3f256e4618eb4ac1c451baf5ea15c17f0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "267e35d7e5dac75bacb763ff6005caf250749d16200570a21b240a1f901570d0"
+  end
+
   depends_on "go" => :build
 
   deny_network_access!
