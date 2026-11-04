@@ -1,11 +1,11 @@
 class Libaio < Formula
   desc "Linux-native asynchronous I/O access library"
-  homepage "https://pagure.io/libaio"
-  url "https://pagure.io/libaio/archive/libaio-0.3.113/libaio-libaio-0.3.113.tar.gz"
-  sha256 "716c7059703247344eb066b54ecbc3ca2134f0103307192e6c2b7dab5f9528ab"
+  homepage "https://codeberg.org/jmoyer/libaio"
+  url "https://codeberg.org/jmoyer/libaio/releases/download/libaio-0.3.113/libaio-0.3.113.tar.gz"
+  sha256 "2c44d1c5fd0d43752287c9ae1eb9c023f04ef848ea8d4aafa46e9aedb678200b"
   license "LGPL-2.1-or-later"
   compatibility_version 1
-  head "https://pagure.io/libaio.git", branch: "master"
+  head "https://codeberg.org/jmoyer/libaio.git", branch: "master"
 
   # This regex only captures the first three numeric parts of the version
   # (e.g., 0.3.110) and omits the optional trailing number (e.g., 0.3.110-1 or
@@ -19,9 +19,9 @@ class Libaio < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "f4a891153d9b7a34ea5f63cf64361f78c81c3a56a9cb8af6c94f0911dda3d4ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "16a507765ad5025007d29b1a251ca01567a5e25ca82fe01aa4aae87e324646fc"
+    rebuild 2
+    sha256 cellar: :any, arm64_linux:  "71422db16966460328f8c89a349abcaecc642dc4c2b8643e04cc9a48a50de956"
+    sha256 cellar: :any, x86_64_linux: "4f4c61ab5f3face78661d57d5e988d47a37a4e7e1d7830889f0f50b511030651"
   end
 
   depends_on :linux
