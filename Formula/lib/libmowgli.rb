@@ -19,9 +19,13 @@ class Libmowgli < Formula
 
   depends_on "openssl@4"
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--with-openssl=#{formula_opt_prefix("openssl@4")}"
+                          "--with-openssl=#{formula_opt_prefix(openssl)}"
     system "make"
     system "make", "install"
   end

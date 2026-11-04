@@ -23,6 +23,8 @@ class Libpaper < Formula
 
   depends_on "help2man" => :build
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args, "--sysconfdir=#{etc}"
     system "make", "install"

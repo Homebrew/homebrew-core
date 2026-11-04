@@ -31,6 +31,8 @@ class Libopennet < Formula
     depends_on "automake" => :build
   end
 
+  allow_network_access! :test
+
   def install
     if Hardware::CPU.arm?
       # Workaround for ancient config files not recognizing aarch64 macos.

@@ -35,6 +35,8 @@ class Libmng < Formula
     file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"

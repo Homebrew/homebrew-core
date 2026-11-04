@@ -20,6 +20,8 @@ class Libmicrohttpd < Formula
   depends_on "pkgconf" => :build
   depends_on "gnutls"
 
+  allow_network_access! :test
+
   def install
     system "./configure", "--disable-silent-rules",
                           "--enable-https",

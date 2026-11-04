@@ -24,6 +24,8 @@ class Libntlm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "0ebc4d50ef8a904ec1c686c8e869a83d727c55fd490990fb5481d6a34b970ce1"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules",
                           *std_configure_args.reject { |s| s["--disable-debug"] }

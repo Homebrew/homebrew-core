@@ -25,6 +25,8 @@ class Libpsl < Formula
     depends_on "libunistring"
   end
 
+  deny_network_access!
+
   def install
     runtime = (OS.linux? || MacOS.version <= :monterey) ? "libidn2" : "libicucore"
     args = %W[

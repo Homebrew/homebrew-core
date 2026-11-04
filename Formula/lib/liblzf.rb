@@ -31,6 +31,8 @@ class Liblzf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "04201793eebd3ab8a64694c1422e4d5801be13fd26d1ed257b6c31d4a231124c"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

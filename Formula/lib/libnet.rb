@@ -23,6 +23,8 @@ class Libnet < Formula
   depends_on "doxygen" => :build
   depends_on "pkgconf" => :test
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"

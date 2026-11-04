@@ -21,6 +21,7 @@ class Libmpc < Formula
 
   head do
     url "https://gitlab.inria.fr/mpc/mpc.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -28,6 +29,8 @@ class Libmpc < Formula
 
   depends_on "gmp"
   depends_on "mpfr"
+
+  deny_network_access!
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?

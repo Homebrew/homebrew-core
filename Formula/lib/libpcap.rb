@@ -25,6 +25,8 @@ class Libpcap < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
+  deny_network_access!
+
   def install
     # Exclude unrecognized options
     std_args = std_configure_args.reject { |s| s["--disable-debug"] || s["--disable-dependency-tracking"] }

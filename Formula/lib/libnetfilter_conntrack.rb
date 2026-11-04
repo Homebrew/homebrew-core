@@ -21,6 +21,8 @@ class LibnetfilterConntrack < Formula
   depends_on "libnfnetlink"
   depends_on :linux
 
+  allow_network_access! :test
+
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"

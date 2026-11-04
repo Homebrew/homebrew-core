@@ -24,6 +24,8 @@ class Libnl < Formula
   depends_on "pkgconf" => [:build, :test]
   depends_on :linux # Netlink sockets are only available in Linux.
 
+  allow_network_access! :test
+
   def install
     system "./configure", "--disable-silent-rules", "--sysconfdir=#{etc}", *std_configure_args
     system "make", "install"

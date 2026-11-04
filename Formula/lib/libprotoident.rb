@@ -27,6 +27,8 @@ class Libprotoident < Formula
   depends_on "libflowmanager"
   depends_on "libtrace"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules", *std_configure_args

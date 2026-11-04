@@ -32,6 +32,8 @@ class Libkate < Formula
   depends_on "libogg"
   depends_on "libpng"
 
+  deny_network_access!
+
   def install
     configure = build.head? ? "./autogen.sh" : "./configure"
     system configure, "--disable-silent-rules",

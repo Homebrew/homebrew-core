@@ -30,6 +30,8 @@ class Libpagemaker < Formula
   depends_on "pkgconf" => :build
   depends_on "librevenge"
 
+  deny_network_access!
+
   def install
     system "./configure", "--without-docs",
                           "--enable-static=no",

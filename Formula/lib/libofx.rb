@@ -33,6 +33,8 @@ class Libofx < Formula
 
   depends_on "open-sp"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
 
