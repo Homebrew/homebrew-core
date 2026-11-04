@@ -36,6 +36,8 @@ class Swftools < Formula
   # https://lists.nongnu.org/archive/html/swftools-common/2022-06/msg00000.html
   patch :DATA
 
+  deny_network_access!
+
   def install
     # Work around failure from GCC 10+ using default of `-fno-common`
     # multiple definition of `voidclass'; ../lib/librfxswf.a(abc.o):(.bss+0x800): first defined here
