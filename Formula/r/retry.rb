@@ -13,6 +13,8 @@ class Retry < Formula
     sha256 cellar: :any,                 x86_64_linux:      "eb370252234a39ee8886942351dc1a1193d7dd0eb272bd1ffd2d223d5d7a39e5"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
