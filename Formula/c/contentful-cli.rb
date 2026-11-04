@@ -6,11 +6,11 @@ class ContentfulCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "451358c5ca5841eb5dcff4a3db8078f2560c08cf8c36bb089ba111ee187bc685"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "451358c5ca5841eb5dcff4a3db8078f2560c08cf8c36bb089ba111ee187bc685"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ec75d26ae9339f60648c31a30dfc420890871c664a13fa06d5f9fd06ab56a0c7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ed2146d7b88ea5091f50ff3a34e9bdab2d1255cf339b04b48fc96886b8022104"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9b8725d20aaf1165ab66c1a4f7ba9d2253deb68eed8ccf7475207a4789bc8ae0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eebf606c30412bbbf555108b60e4f068fbb63907b21f173ecab0941d2864ab10"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eebf606c30412bbbf555108b60e4f068fbb63907b21f173ecab0941d2864ab10"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eebf606c30412bbbf555108b60e4f068fbb63907b21f173ecab0941d2864ab10"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "eebf606c30412bbbf555108b60e4f068fbb63907b21f173ecab0941d2864ab10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ad5d61c076e7c897986b9908fab54483bbb3add01943282c5e3ca38b7c6ec971"
   end
 
   depends_on "node"
