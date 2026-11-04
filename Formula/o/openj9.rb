@@ -13,6 +13,7 @@ class Openj9 < Formula
   livecheck do
     url :stable
     regex(/^openj9-(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle do
