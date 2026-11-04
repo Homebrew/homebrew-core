@@ -1,8 +1,8 @@
 class Container2wasm < Formula
   desc "Container to WASM converter"
   homepage "https://ktock.github.io/container2wasm-demo/"
-  url "https://github.com/container2wasm/container2wasm/archive/refs/tags/v0.8.4.tar.gz"
-  sha256 "4216e148c88588924f4026d8359be35f5c861967ab8e55a733bb879cdca678e8"
+  url "https://github.com/container2wasm/container2wasm/archive/refs/tags/v0.8.5.tar.gz"
+  sha256 "a6846c11d8ebab255f530d70241fa28e26ce9afff5cd6a727d0fd33037d10970"
   license "Apache-2.0"
   head "https://github.com/container2wasm/container2wasm.git", branch: "main"
 
@@ -25,7 +25,7 @@ class Container2wasm < Formula
   end
 
   def install
-    ldflags = "-X github.com/ktock/container2wasm/version.Version=#{version}"
+    ldflags = "-X github.com/container2wasm/container2wasm/version.Version=#{version}"
 
     %w[c2w c2w-net].each do |cmd|
       system "go", "build", *std_go_args(ldflags:, output: bin/cmd), "./cmd/#{cmd}"
