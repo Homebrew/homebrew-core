@@ -4,7 +4,6 @@ class Imgdiet < Formula
   url "https://git.sr.ht/~jamesponddotco/imgdiet-go/archive/v0.2.0.tar.gz"
   sha256 "25fcdc40ad63ce2739fad6543c592d757dc59d5c7a409af87cb20884600984ce"
   license "MIT"
-  head "https://git.sr.ht/~jamesponddotco/imgdiet-go", branch: "trunk"
 
   bottle do
     sha256 cellar: :any,                 arm64_golden_gate: "3dc316c21dfe0a2f21114d57d4bee359835cddbd25a6b3e52b8f2f56d4b3fb8e"
@@ -17,6 +16,12 @@ class Imgdiet < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:       "88213cd44379f758de4930796e8006a2354fa4f6347205526bd139e0399f3f85"
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "a7c06e10203f59029e144945345f81e9efbbe4b758442441f35a9e6d85b603e7"
   end
+
+  # Upstream removed CLI tool on 2026-01-18.
+  # Commit message mentioned they would set up separate repo but this never happened
+  # https://git.sr.ht/~jamesponddotco/imgdiet-go/commit/68728cbf4011436cba4140600f52373cd3d52764
+  deprecate! date: "2026-11-03", because: :unsupported
+  disable! date: "2027-05-03", because: :unsupported
 
   depends_on "go" => :build
   depends_on "pkgconf" => :build
