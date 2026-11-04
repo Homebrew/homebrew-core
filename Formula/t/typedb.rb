@@ -1,16 +1,16 @@
 class Typedb < Formula
   desc "Strongly-typed database with a rich and logical type system"
   homepage "https://typedb.com/"
-  url "https://github.com/typedb/typedb/archive/refs/tags/3.14.1.tar.gz"
-  sha256 "05ebf16818fdf44075f4e64e4c01ba50bdd79b915e980b1bf2eefceb6871023f"
+  url "https://github.com/typedb/typedb/archive/refs/tags/3.14.2.tar.gz"
+  sha256 "60ce1fe64d221be05ea7e5455f60e85f79be0b488f61bcb40266b1dfec32f1b4"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3082d78ea6c37a6a3d62e3d0edc2f3ce2d734854f23844a01949ecc525b42e3b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ff398ebe840e9e94039471e3d908a70cbe49f6fa7971c6236578834af56b98f7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d6cb3ca6c3bad3fb5e1b9bbbd48659dc698cf89fe77b7117f1be731c72afd271"
-    sha256 cellar: :any,                 arm64_linux:       "f6b688f85e6e9631123f0982546e62ba62d9abad29bd0b91cac9e747d4a84996"
-    sha256 cellar: :any,                 x86_64_linux:      "ab657e8433213bd7f393ec101b27f8a3bd4f8a340a3ec2db49b0a83b4560cac5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1f0bd6a1d4aecb4b81611f5eaa6b4adc183a9a0f71c8786a677d99b52beff352"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1a82b35c46836409c163417e8a324544918a0d540e97fbf5f7ed0489235f1afe"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4ca324425ea7f2f24de54b8b4b835034a30b8de7de77b6c6837ac87965ede8af"
+    sha256 cellar: :any,                 arm64_linux:       "6da8cd8ec4cc4ca4aaba76bb6086cb11803cf60a6aed2101e129548fa2aefe09"
+    sha256 cellar: :any,                 x86_64_linux:      "83506a490f8ccf8167bfd7c8460699df7c1695158c83b78c397a6ffa2604a7f5"
   end
 
   depends_on "protobuf" => :build
