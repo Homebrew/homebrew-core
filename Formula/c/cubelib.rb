@@ -1,12 +1,12 @@
 class Cubelib < Formula
   desc "Performance report explorer for Scalasca and Score-P"
-  homepage "https://scalasca.org/software/cube-4.x/download.html"
+  homepage "https://scalasca.org/cube/"
   url "https://apps.fz-juelich.de/scalasca/releases/cube/4.9/dist/cubelib-4.9.1.tar.gz"
   sha256 "d82a899af07ec6c34c88665a0dfddbbc33a760031b1a79f12d168301e8ea1e46"
   license "BSD-3-Clause"
 
   livecheck do
-    url :homepage
+    url "https://scalasca.org/cube/download/"
     regex(/href=.*?cubelib[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
