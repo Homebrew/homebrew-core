@@ -1,41 +1,30 @@
 class Nelm < Formula
   desc "Kubernetes deployment tool that manages and deploys Helm Charts"
   homepage "https://github.com/werf/nelm"
-  url "https://github.com/werf/nelm/archive/refs/tags/v1.27.0.tar.gz"
-  sha256 "deb3878cbfd4889bba803cfe89ee34871b90ec4e283984972178344a7f43f514"
+  # Check stable version at https://github.com/werf/nelm/blob/main/trdl_channels.yaml
+  url "https://github.com/werf/nelm/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "b5a6e71cf5e936d0abb809ccf8daa5992976787b158bd7132c80e96c5b5a32c4"
   license "Apache-2.0"
   head "https://github.com/werf/nelm.git", branch: "main"
 
-  # Upstream may indicate an unstable release by marking it as pre-release,
-  # appending an unstable suffix to the tag (e.g. "v1.2.3-alpha.1"), or
-  # appending unstable text to the release title (e.g. "v1.2.3 [alpha]").
-  # Unstable versions are not always marked as pre-release, so we have to check
-  # multiple releases to reliably identify stable versions.
+  # trdl_channels.yaml is used by official auto-updater to track latest version.
+  # See https://werf.io/about/release_channels.html
   livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-    strategy :github_releases do |json, regex|
-      json.map do |release|
-        next if release["draft"] || release["prerelease"]
-
-        next if release["name"]&.match?(/(alpha|beta|dev|rc)/i)
-
-        match = release["tag_name"]&.match(regex)
-        next if match.blank?
-
-        match[1]
+    url "https://raw.githubusercontent.com/werf/nelm/refs/heads/main/trdl_channels.yaml"
+    strategy :yaml do |yaml|
+      yaml["groups"]&.filter_map do |group|
+        channel = group["channels"]&.find { |channel| channel["name"] == "stable" }
+        channel&.[]("version")
       end
     end
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "149ccb985c378e0686ac67d555493eb2c16cec6d01723fcdc4baa85ede95e4a1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fc4e6521bd167c20078201423b75229abc3f023dca7d0975ca1afe6bcff38241"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6b35455b487bdabc4f9ff5c60bb3c239c3226d02e75d953ed5d8c054657f3393"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "32d7ffd0a436067951f599298bd73bc20e0f8fc6f0d4d2d05ce626a0ba6b2517"
-    sha256 cellar: :any_skip_relocation, sonoma:            "cc39f07dc47e0fe44fe148115f30598c791e92d4fb491b5b9b5e07366f2e4623"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "47f4cca19316306b758c246ca3f757a00a6ec21899300f80ec50ea57ad92e0bb"
-    sha256 cellar: :any,                 x86_64_linux:      "235773c8dab017a267bf354125538b44df88cf27ff9624dec930530004414542"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8b60070aeb6511c1b770f9423ad1552b81fca17caeed0b1b9ce78b865f3cb986"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6fd7b084b67f4c4301b281dfab184d8722c2cb2576ff7c675edc23a9f61c5e46"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "24f04543f9acde2c83aab15192ca5e2c5aef65940cac856a8547809d9bdae32a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "74235cb36f44f5c8ad0a943fcfa98493f3d7bda6c252ff635bb865840d916cec"
+    sha256 cellar: :any,                 x86_64_linux:      "bac4ab1646fd95abd678f5d35592be8cb0e7846e8061ae37a0eb1357b845909d"
   end
 
   depends_on "go" => :build
@@ -47,7 +36,7 @@ class Nelm < Formula
   end
 
   def install
-    ldflags = %W[-X github.com/werf/nelm/pkg/common.Version=#{version}]
+    ldflags = %W[-X github.com/werf/nelm/v2/pkg/common.Version=#{version}]
     system "go", "build", *std_go_args(ldflags:), "./cmd/nelm"
 
     generate_completions_from_executable(bin/"nelm", shell_parameter_format: :cobra)
