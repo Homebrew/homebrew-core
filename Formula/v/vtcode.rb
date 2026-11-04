@@ -1,8 +1,8 @@
 class Vtcode < Formula
   desc "CLI Semantic Coding Agent"
   homepage "https://vinhnx.github.io"
-  url "https://static.crates.io/crates/vtcode/vtcode-0.181.2.crate"
-  sha256 "100afc8897e6bcd33c797824f2c05361c95bd08c2b6b7319d73faa6211dad709"
+  url "https://static.crates.io/crates/vtcode/vtcode-0.181.3.crate"
+  sha256 "c5452b1d0dc8aebb6b0f591e52935a481c67d6cf0bb04ffe6d76e33be029ecb7"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/vinhnx/vtcode.git", branch: "main"
 
