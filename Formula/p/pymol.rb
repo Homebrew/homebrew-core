@@ -4,7 +4,7 @@ class Pymol < Formula
   desc "Molecular visualization system"
   homepage "https://pymol.org/"
   license :cannot_represent
-  revision 4
+  revision 5
   head "https://github.com/schrodinger/pymol-open-source.git", branch: "master"
 
   stable do
@@ -18,14 +18,22 @@ class Pymol < Formula
       type :backport
       resolves "https://github.com/schrodinger/pymol-open-source/issues/428"
     end
+
+    # Fix PyQt6 gesture enum compatibility, remove on next release
+    patch do
+      url "https://github.com/schrodinger/pymol-open-source/commit/6786f099c877c31cab1b18ad768e9b6c4aa6afab.patch?full_index=1"
+      sha256 "d2ac61d66d92926c6dc8940563f546962b8b7d50c9b0c0b5532d898b8a33c175"
+      type :backport
+      resolves "https://github.com/schrodinger/pymol-open-source/issues/441"
+    end
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a1ab33e97cb4dcb0327a6cb948bc892508d44bacb3d081eac195e2f709167945"
-    sha256 cellar: :any, arm64_tahoe:       "2cbac63edda32ec9a972b9ee2f44078a41a110988fb715b1a9fd22803f77048e"
-    sha256 cellar: :any, arm64_sequoia:     "e1b1d9f6b903a69c91a8685b505c14dfe339e7e7de4444d77dfd1e949dd27112"
-    sha256 cellar: :any, arm64_linux:       "5fb04a54730abaf561b8dbbfa2711c1c4e2016e115fad84ef6a24d549a67c23b"
-    sha256 cellar: :any, x86_64_linux:      "daf8a0262938f3b8c67554b5082e32fbf6d386489c5e8ac80c50dffd5ec51c4d"
+    sha256 cellar: :any, arm64_golden_gate: "1f0b702c9a12588bfd196a002a63608e2eda0067288777b47c3c87d3d2ea244a"
+    sha256 cellar: :any, arm64_tahoe:       "a953b68a2aa0853934d60ddf01f9b75767249eeb61bd86af61d7ee3464a42aa5"
+    sha256 cellar: :any, arm64_sequoia:     "93af8d6fb3d4935c5705cf63477016fd55c2203b793d0053abacb9dc856ae912"
+    sha256 cellar: :any, arm64_linux:       "8d0711e57cd2a42eae33d8e5d4ad72af7ccb97d7c1e7e5fec05c404b7bc33229"
+    sha256 cellar: :any, x86_64_linux:      "8734eff661f17509979f54b41325acff16d9732888cdd96cdac44e12e21088bb"
   end
 
   depends_on "cmake" => :build
