@@ -1,10 +1,9 @@
 class Near < Formula
   desc "Human-friendly console utility for interacting with NEAR Protocol"
   homepage "https://near.cli.rs"
-  url "https://github.com/near/near-cli-rs/archive/refs/tags/v0.30.1.tar.gz"
-  sha256 "57e1249856b70b3cf6562becc618602d3c1a1f3aca98e7d909f33dfdb85e5439"
+  url "https://github.com/near/near-cli-rs/archive/refs/tags/v0.31.0.tar.gz"
+  sha256 "2e2b9b9c98fc511153c4486725b92e0dbc12ca0ca1cd3df76e18cb10ddf72059"
   license any_of: ["MIT", "Apache-2.0"]
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1918565d359e5641c05739646acc1dbdae6f55218cf9beeac967fa2a2b7afc71"
