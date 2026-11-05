@@ -1,8 +1,8 @@
 class Jruby < Formula
   desc "Ruby implementation in pure Java"
   homepage "https://www.jruby.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/jruby/jruby-dist/10.1.2.0/jruby-dist-10.1.2.0-src.zip"
-  sha256 "28b8c3655e3ed99ea1f067ccee71c747682d519349c424536946996bd71743b1"
+  url "https://search.maven.org/remotecontent?filepath=org/jruby/jruby-dist/10.1.3.0/jruby-dist-10.1.3.0-src.zip"
+  sha256 "8b33682fd33f0338e9435ed9941d60d5b1ad5b28bc3ee688c1a288d039252dc6"
   license any_of: ["EPL-2.0", "GPL-2.0-only", "LGPL-2.1-only"]
 
   livecheck do
@@ -29,8 +29,8 @@ class Jruby < Formula
   uses_from_macos "libffi" # for jffi
 
   resource "jffi" do
-    url "https://github.com/jnr/jffi/archive/refs/tags/1.4.3.tar.gz"
-    sha256 "81b36310b7c2e2ed590d1d818416a4cb98bc881294fabd304f7aa0c5f81b8416"
+    url "https://github.com/jnr/jffi/archive/refs/tags/jffi-1.4.7.tar.gz"
+    sha256 "be9b8369acac1baa1b08872ecfd64c7d8fe00206ad65bca830881edbb3293e52"
 
     livecheck do
       url "https://raw.githubusercontent.com/jruby/jruby/refs/tags/#{LATEST_VERSION}/pom.xml"
@@ -65,7 +65,9 @@ class Jruby < Formula
 
       system "ant", "-Duse.system.libffi=1", "jar"
       system "ant", "-Duse.system.libffi=1", "archive-platform-jar"
-      system "mvn", "package"
+      # jnr-parent sets `maven.compiler.release` to 8, which hides `sun.misc` from the class above.
+      # Javadoc is not needed and fails without that release value.
+      system "mvn", "package", "-Dmaven.compiler.release=", "-Dmaven.javadoc.skip=true"
 
       # Install JARs into local repository to be used by Maven when building JRuby
       system "mvn", "install:install-file", "-Dfile=target/jffi-#{r.version}.jar"
