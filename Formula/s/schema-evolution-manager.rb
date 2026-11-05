@@ -6,7 +6,7 @@ class SchemaEvolutionManager < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e2e49414fd04950d23a665e34b56018dcbf0e393fd7e8e64e0bd6e6ef6009ac2"
+    sha256 cellar: :any_skip_relocation, all: "0ab04af1e1e93d6b1f7fbe2402fd4236bcabebf1d03555121c1a91b2285cdd37"
   end
 
   uses_from_macos "ruby"
