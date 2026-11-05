@@ -1,19 +1,17 @@
 class Dasm < Formula
   desc "Macro assembler with support for several 8-bit microprocessors"
   homepage "https://dasm-assembler.github.io/"
-  url "https://github.com/dasm-assembler/dasm/archive/refs/tags/v2.20.17.tar.gz"
-  sha256 "4755532fe8c990c8616b4cfbe22c3fe5820e40476343da01e088b617bd2d1144"
+  url "https://github.com/dasm-assembler/dasm/archive/refs/tags/v2.20.18.tar.gz"
+  sha256 "6cae2ff107c7447d601366f75a1dad86504deff7fe4c0181c145dbc83e249aaf"
   license "GPL-2.0-or-later"
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4fb12c8264ccf568832ccaccde316f2d30aee64d095fc5a2d1fd04a4d42fb9ca"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3edd10ff681a6fea351120250dc02b0640ac24a85e5ea7e56d16ac8162801625"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ac5f1a65d96fcb5e45521a5b4ebde8d71a407a2e3223084fc568b4a7dbacf2b4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "891739375850c3e581f3c57cf22cc82d186a77f15a1d17b35a78054bd0065ade"
-    sha256 cellar: :any_skip_relocation, sonoma:            "246f772e93f80298df34cba524f046a29a8915ffc9ffb25576534f195e815697"
-    sha256 cellar: :any,                 arm64_linux:       "e80748c2143de6f164947545aecddd2444af087532e41bf41a75abd4bfe7ec3c"
-    sha256 cellar: :any,                 x86_64_linux:      "e095df956364650b7a98371f56b299d6695b2f30d0ada607fa899ad4032e098b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "611cebf8b3746e4151bceabb6277e6869f063b568befa7ddc7db1b386111861d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "131783feaefc2e3ad6f5528895640b78e9de7d824a9d9a383288791c7bebcfb8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ccd388fa7ab9a514c2ec04eb7799791e9ef627da59cab3ebb41f8f39c767297c"
+    sha256 cellar: :any,                 arm64_linux:       "6ae9be783ac1ed6abef2dedf0fb04d31ff51686b7c13b5827f1916853010e33b"
+    sha256 cellar: :any,                 x86_64_linux:      "154f8ae7147d1d5cadb79c70b0dcf10c154385ef23cbba036317998d5163dac5"
   end
 
   def install
