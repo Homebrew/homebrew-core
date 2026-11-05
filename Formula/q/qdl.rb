@@ -1,8 +1,8 @@
 class Qdl < Formula
   desc "Flash firmware on Qualcomm-based devices via USB Emergency Download (EDL) mode"
   homepage "https://github.com/linux-msm/qdl"
-  url "https://github.com/linux-msm/qdl/archive/refs/tags/v2.9.tar.gz"
-  sha256 "81d75367ca55e7afa218cc95e6d09b43f70345e4f10dc501f832f2491d095681"
+  url "https://github.com/linux-msm/qdl/archive/refs/tags/v2.9.1.tar.gz"
+  sha256 "0718e04e9c5dfd3228a9966e891ed5005a9f88b3b3e02cf13a5173296cf0e52d"
   license "BSD-3-Clause"
   head "https://github.com/linux-msm/qdl.git", branch: "master"
 
