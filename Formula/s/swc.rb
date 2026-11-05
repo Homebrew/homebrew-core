@@ -1,8 +1,8 @@
 class Swc < Formula
   desc "Super-fast Rust-based JavaScript/TypeScript compiler"
   homepage "https://swc.rs"
-  url "https://github.com/swc-project/swc/archive/refs/tags/v1.16.21.tar.gz"
-  sha256 "3b937dfd5fddbb8db4a7048420a4bd11989d0adde2523917a6143261387ef332"
+  url "https://github.com/swc-project/swc/archive/refs/tags/v1.16.22.tar.gz"
+  sha256 "11e82b947cd2e819dd988c740c5c3f3409cfcaaaec3ab686374774355b912aa6"
   license "Apache-2.0"
   head "https://github.com/swc-project/swc.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Swc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d63f14d63ae9718163853577a9ea2e1c53f9d81348efb2361327d33db4ed9b1b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "378254a1fd26f11a0b8cdd5e11d099d0206afe95bd29636273c2b74425cb1e72"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dfd2dacecf82dac9c0a16dab604484ada80ca428ee132d48bbb2a6462d1b63a6"
-    sha256 cellar: :any,                 arm64_linux:       "7687c0df4c14a6f431db4fdfa743eda2e7f900d9580fcb508f32441b429a3715"
-    sha256 cellar: :any,                 x86_64_linux:      "96c4dd4b6aa8226ef9f43f5189a991a0dd5f29bb2a039af4efce0527a6fc942b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "880b642a2d5551ce8fe04b9fe5e0c68a12d57837da3ac3573ac208802d6b64d6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d14da8ab8c45c3b44f3bd85b12725abc600ebae80a79f81e510555a45576b6b1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "949e55c79a6b8daabe6d232343b7be6223a89dacb458559b298d56b8321731c7"
+    sha256 cellar: :any,                 arm64_linux:       "6e66825c99b954f75a2fb75158a1ae27ee49e39f5c949640d0364de7dbea191f"
+    sha256 cellar: :any,                 x86_64_linux:      "33b62aa9e9041575562f6f7a840efd86fd200d14453e04add717a03410567085"
   end
 
   depends_on "rust" => :build
