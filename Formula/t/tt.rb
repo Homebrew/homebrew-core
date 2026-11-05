@@ -14,11 +14,11 @@ class Tt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3669ea46808a2a9c3d3db148b56a15089d61fe02e25e4d322609e3084600bded"
-    sha256 cellar: :any, arm64_tahoe:       "ac3d6433c925c4089b4a5a69cd54129253e4bcc28a5e4e3418c44eee20ad0a45"
-    sha256 cellar: :any, arm64_sequoia:     "4a5842f60358d1e95d916eb522124be14c52ec46a11b9d0f5f41300fc320556a"
-    sha256 cellar: :any, arm64_linux:       "3475f74b1c301ea8f3821814c21b80c6cb844021db8c15294c8ce0c919ca55e2"
-    sha256 cellar: :any, x86_64_linux:      "b0af315bd274c0cbf15398ae299de60f97288ebd00fa022a53cda5f6e84066d5"
+    sha256 cellar: :any, arm64_golden_gate: "d14326a0bf7e84cfd7013cd8330c77eed1b33929822eac06cc8ab0ac51d96eff"
+    sha256 cellar: :any, arm64_tahoe:       "aec53a3f79902fac47d7b21d082da1e78652c8056a9c894dfaadcf2263f6e34d"
+    sha256 cellar: :any, arm64_sequoia:     "9cd7840ce4cb09ecabe750c326e49bca690c8719ffc2dc807eed0fdd64e534ea"
+    sha256 cellar: :any, arm64_linux:       "018b2bdade45ff1f7bde29c0dd56328900ee1bf988e70c114fceb205948f5c50"
+    sha256 cellar: :any, x86_64_linux:      "4abffd12a755b9c4054cae7437dc368db7cc05183e7d58f8c6be84c2c5a0df53"
   end
 
   depends_on "go" => :build
