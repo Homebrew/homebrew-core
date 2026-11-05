@@ -1,29 +1,22 @@
 class Asyncapi < Formula
   desc "All in one CLI for all AsyncAPI tools"
   homepage "https://www.asyncapi.com/tools/cli"
-  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-6.2.2.tgz"
-  sha256 "03ea50b112007fa0b07a97518cd99ac39bf134ce33f7dcca504aed41df4c04fb"
+  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-6.2.3.tgz"
+  sha256 "34f6f2e1de94dc4bb3ad558d91447eb037a488594927f5263c54223267f0e681"
   license "Apache-2.0"
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9ff298c824d0b9b0bcc964c91bcd6b7034ead4dbc955b3dde490a08a807de4f4"
-    sha256 cellar: :any, arm64_tahoe:       "9ff298c824d0b9b0bcc964c91bcd6b7034ead4dbc955b3dde490a08a807de4f4"
-    sha256 cellar: :any, arm64_sequoia:     "9ff298c824d0b9b0bcc964c91bcd6b7034ead4dbc955b3dde490a08a807de4f4"
-    sha256 cellar: :any, arm64_linux:       "1fdc0f75930d4d2a2e534d5b0431b63b6d93bf68eaf9dbd435669d70259f879e"
-    sha256 cellar: :any, x86_64_linux:      "e25fedd51ce9bff097be40d42f7e89a7c1bd665642c8fe7cad23fdd410cbd4eb"
+    sha256 cellar: :any, arm64_golden_gate: "2a1534108af516b85fc817db00557b48b75acd58b233775d86d0ec22dd950158"
+    sha256 cellar: :any, arm64_tahoe:       "2a1534108af516b85fc817db00557b48b75acd58b233775d86d0ec22dd950158"
+    sha256 cellar: :any, arm64_sequoia:     "2a1534108af516b85fc817db00557b48b75acd58b233775d86d0ec22dd950158"
+    sha256 cellar: :any, arm64_linux:       "5dad1fd78578828f99c1f517e0712505e97d40677e91bfeaa60f418525c69f8d"
+    sha256 cellar: :any, x86_64_linux:      "f6174a7accf7b153deeb578764196603c307d768b26248379f8fa7e4ac51813d"
   end
 
   depends_on "node"
 
-  on_macos do
-    depends_on "macos-term-size"
-  end
-
   def install
-    # Set the log directory to var/log/asyncapi
-    inreplace "lib/utils/logger.js", /const logDir = .*;/, "const logDir = '#{var}/log/asyncapi';"
-
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
 
@@ -36,18 +29,6 @@ class Asyncapi < Formula
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
     node_modules.glob("{bare-fs,bare-os,bare-path,bare-url}/prebuilds/*")
                 .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
-
-    term_size_vendor_dir = node_modules/"term-size/vendor"
-    rm_r(term_size_vendor_dir) # remove pre-built binaries
-
-    if OS.mac?
-      macos_dir = term_size_vendor_dir/"macos"
-      macos_dir.mkpath
-      # Replace the vendored pre-built term-size with one we build ourselves
-      ln_sf (formula_opt_bin("macos-term-size")/"term-size").relative_path_from(macos_dir), macos_dir
-    end
-
-    (var/"log/asyncapi").mkpath
   end
 
   test do
