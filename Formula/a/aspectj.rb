@@ -1,8 +1,8 @@
 class Aspectj < Formula
   desc "Aspect-oriented programming for Java"
   homepage "https://eclipse.dev/aspectj/"
-  url "https://github.com/eclipse-aspectj/aspectj/releases/download/V1_9_26/aspectj-1.9.26.jar"
-  sha256 "8c207931b685a5fdd28a12d6579e08ec8728f88ebe6eb95c87ed4dca5b623fd0"
+  url "https://github.com/eclipse-aspectj/aspectj/releases/download/V1_9_27/aspectj-1.9.27.jar"
+  sha256 "903dd70ddf2ea2ac81efa29a2fbd5ed47d76af711557fc289f4664c77cbf1cab"
   license "EPL-2.0"
 
   livecheck do
@@ -17,11 +17,11 @@ class Aspectj < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3e26be6ec472d8128f6ebd44bce13314d63d31766ac35088bba3ab3067799f2e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9504e2eb3c162694ab2901e36dbfdf6c35aa3b15cb729ddf2ca6d84f044ff3ed"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dc02f745d688b4d710515fe84686f99b6b849a246d9ef698fad0ecf7cd00fed2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "12e6eb8e20d236449f0ab64dcff679bf4b41499b260a8aa0f5c058ea1325431b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5a8e5346b10cb09395f828f4c9c74015bfd1a35b56168d25c9759f61ad17adf8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d70e4f59ccaafeffa77427411e24b89925c396c67dbbe9328f1c089c8e92ac8a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ae28a75f1f27bff6a4306655002263f8474d91065966b44665d02baf167ff8ef"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ae28a75f1f27bff6a4306655002263f8474d91065966b44665d02baf167ff8ef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "9214a3c82901e5737f168a3e0b1d351e10f2a9f21d482e6fe75d24d816b71dd9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a4a1f36203a12cb62fd25bfefd43be31f75f8845e73d17b3e771371be6245d68"
   end
 
   depends_on "openjdk"
