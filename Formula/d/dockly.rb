@@ -1,8 +1,8 @@
 class Dockly < Formula
   desc "Immersive terminal interface for managing docker containers and services"
   homepage "https://lirantal.github.io/dockly/"
-  url "https://registry.npmjs.org/dockly/-/dockly-3.24.6.tgz"
-  sha256 "fb5b05378eec7d85a5710b44c24808bd60d1c38b417f52d7a92e7e25060d200b"
+  url "https://registry.npmjs.org/dockly/-/dockly-3.24.7.tgz"
+  sha256 "d529e0486fc708b60fed91ee9f4eec3a075a6e4780178f3ba16f1fd6b8f3b463"
   license "MIT"
 
   bottle do
