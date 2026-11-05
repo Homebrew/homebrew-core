@@ -2,12 +2,11 @@ class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
   homepage "https://freeciv.org/"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/freeciv/freeciv.git", branch: "main"
 
   stable do
-    url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.2/3.2.6/freeciv-3.2.6.tar.xz"
-    sha256 "b3ce15f54083b1fca146f62837a5f7d41d298537fa34940cca70eeb09c7a9c6e"
+    url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.2/3.2.7/freeciv-3.2.7.tar.xz"
+    sha256 "2720076d50f29db42cdc5e510e7c098f7793f7c0ac410fdf390a52bc57507917"
 
     # Backport support for Lua 5.5
     patch do
