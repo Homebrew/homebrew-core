@@ -93,7 +93,8 @@ class Rust < Formula
 
   depends_on "libgit2"
   depends_on "libssh2"
-  depends_on "llvm"
+  # Minimum from `check_llvm_version` in `src/bootstrap/src/core/build_steps/llvm.rs`.
+  depends_on "llvm" => { minimum_version: "21" }
   depends_on "openssl@4"
   depends_on "pkgconf"
   depends_on "sqlite"
