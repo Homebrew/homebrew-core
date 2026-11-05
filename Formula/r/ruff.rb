@@ -1,18 +1,18 @@
 class Ruff < Formula
   desc "Extremely fast Python linter, written in Rust"
   homepage "https://docs.astral.sh/ruff/"
-  url "https://github.com/astral-sh/ruff/archive/refs/tags/0.17.3.tar.gz"
-  sha256 "7281befde89b669bd92231064ceb3d3211d9094e20e6983bb3b92e641b305860"
+  url "https://github.com/astral-sh/ruff/archive/refs/tags/0.17.4.tar.gz"
+  sha256 "a466d837b406c888f4f76e4be808658f36846288aa87f81ac89afcf078ad386a"
   license "MIT"
   compatibility_version 1
   head "https://github.com/astral-sh/ruff.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "169ab3d15ad774ea3299ddd595ea32a3e2613bfbd1884dc36df975b38db49a22"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5e833ccdaddf26e0c1b6eca8733192e79ddb0433678f0c9a7c2f2d53f927f734"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "17b374b5142f14e7e4a50f696d44c8c3dc5886766d97874a365785cf397859e5"
-    sha256 cellar: :any,                 arm64_linux:       "13b776de76daa4d15c21c599d1cc8c9bd41d5518df3a69799bde22f9e6d2f194"
-    sha256 cellar: :any,                 x86_64_linux:      "098badf99a9226e76df4d05b6133237008b4b509ddb2ecd7324762d72e28a0a2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "947f72d243e360cab8ee08e36900bb03513a10084076c9d7aed4c3507349cd21"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2b29148b3e398cd826ff21932c9da36d3a4ce8a38dd2d81dcaa3a565715d3232"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "10736ee0f483294f489ba05370b3a245d4bbb66f9eacf566e6330cf5c6a5e2ad"
+    sha256 cellar: :any,                 arm64_linux:       "01e7fd02db4489a5916fd8eae6eb26662b74587da88193d674c4f6a7e2f30a00"
+    sha256 cellar: :any,                 x86_64_linux:      "56f2a228eb01bccbe229dc1233a6713bfdbb97a9ca79d8982ea83d6b4e43a1a8"
   end
 
   depends_on "rust" => :build
