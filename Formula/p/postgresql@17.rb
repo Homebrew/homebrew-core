@@ -56,6 +56,10 @@ class PostgresqlAT17 < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     # Modify Makefile to link macOS binaries using Cellar path. Otherwise, binaries are linked
     # using #{HOMEBREW_PREFIX}/lib path set during ./configure, which will cause audit failures
@@ -65,14 +69,16 @@ class PostgresqlAT17 < Formula
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     ENV.runtime_cpu_detection
     ENV.delete "PKG_CONFIG_LIBDIR"
-    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@4")} -L#{formula_opt_lib("readline")}"
-    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("openssl@4")} -I#{formula_opt_include("readline")}"
+
+    flag_libs = [openssl, "readline"]
 
     # Fix 'libintl.h' file not found for extensions
     # Update config to fix `error: could not find function 'gss_store_cred_into' required for GSSAPI`
-    if OS.mac?
-      ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("gettext")} -L#{formula_opt_lib("krb5")}"
-      ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("gettext")} -I#{formula_opt_include("krb5")}"
+    flag_libs += ["gettext", "krb5"] if OS.mac?
+
+    flag_libs.each do |l|
+      ENV.prepend "LDFLAGS", "-L#{formula_opt_lib(l)}"
+      ENV.prepend "CPPFLAGS", "-I#{formula_opt_include(l)}"
     end
 
     args = %W[
