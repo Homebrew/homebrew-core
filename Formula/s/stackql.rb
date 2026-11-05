@@ -1,8 +1,8 @@
 class Stackql < Formula
   desc "SQL interface for arbitrary resources with full CRUD support"
   homepage "https://stackql.io/"
-  url "https://github.com/stackql/stackql/archive/refs/tags/v0.12.824.tar.gz"
-  sha256 "6b8d56556c736aa75d2580b123099bda5013ba6a3799a84266a197eaa500c776"
+  url "https://github.com/stackql/stackql/archive/refs/tags/v1.0.888.tar.gz"
+  sha256 "69007fa7a2b2e742c26e671a668d7f56e6ba039d0301488092b5080132f129c5"
   license "MIT"
   head "https://github.com/stackql/stackql.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Stackql < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d9653de78bf28b90bc45163c4b6043606ed65c89228a09a323164b0b32238d2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8d9653de78bf28b90bc45163c4b6043606ed65c89228a09a323164b0b32238d2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8d9653de78bf28b90bc45163c4b6043606ed65c89228a09a323164b0b32238d2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9513abe735b83249104f0d421b059297dbfe6d4bb5acb288d31f0f729f43c8d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3973966a81946ae97f8c157450e34a3ede566622d2ce0291c45fc8460384aeaa"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b79e953fe2a8f4f7ced6ff750f25fc187b8ac7eaa1296c4b92c2f7ecd4e42f60"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b79e953fe2a8f4f7ced6ff750f25fc187b8ac7eaa1296c4b92c2f7ecd4e42f60"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b79e953fe2a8f4f7ced6ff750f25fc187b8ac7eaa1296c4b92c2f7ecd4e42f60"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "2b441dda86b95000ce070b75cb258264ed0f75aaf93d1d891a39afdbb50ccaa5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "337e17cadbc6ad57477f652db0bfd28b12e27731c9dcb7674fb075975b030429"
   end
 
   depends_on "go" => :build
