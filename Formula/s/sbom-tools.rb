@@ -6,6 +6,14 @@ class SbomTools < Formula
   license "MIT"
   head "https://github.com/sbom-tool/sbom-tools.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "70661b3a3a7883b5bdb5f23401430e74d2f331aeecdfcdee909aa61cf553fe5a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "10161501c7fa2102f0418cbfdffdf9f10251f005c978ea6698b054e29608eff8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cfb6ffa028471bc80ff6df8fdbaae4adb71e2e93036e35c09e02e4df556f0a87"
+    sha256 cellar: :any,                 arm64_linux:       "756acbd2d71b40f6f4f927a5393d5da9633c0dc3d014b5ab7ecd8f7affe031c2"
+    sha256 cellar: :any,                 x86_64_linux:      "b2605fe242ee44b08e314c6ea74ca52ab13fac990c81e197e61f10898abd2749"
+  end
+
   depends_on "rust" => :build
 
   deny_network_access!
