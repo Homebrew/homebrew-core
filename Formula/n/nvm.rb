@@ -7,7 +7,7 @@ class Nvm < Formula
   head "https://github.com/nvm-sh/nvm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9edfb9a0fe2e6e389b02766915dd2cd97764504de5742c799e6de5db2675d8f9"
+    sha256 cellar: :any_skip_relocation, all: "dfa46614b551c6bc46254ebee3445d09d953eb282d6ea3c855f429f9fb2724c7"
   end
 
   deny_network_access!
