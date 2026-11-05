@@ -4,15 +4,15 @@ class MathComp < Formula
   url "https://github.com/math-comp/math-comp/archive/refs/tags/mathcomp-2.6.0.tar.gz"
   sha256 "b2e8c5c93fdc9bb5ed9b8a06d1c028aa0096a45b1f3ac6c6509d7a6500c72253"
   license "CECILL-B"
-  revision 5
+  revision 6
   head "https://github.com/math-comp/math-comp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7d3144438d31c6be437e7c32ef2ea3106adb4d4adf34cc6fd5974a4ffa43a2c7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "273e510695540191133aa6e07ba33526dff91161acf1ba0439f789d9c7914977"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6d1f87332891e7942bc92301f48ac7906771f23554106c3fbbe8b162c8643b16"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "03b93870692eddc46c61bf0eae94046b2161c1b0f86b84262050558eacbd8a4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "bc856370b46bedef0f1e168c771f9a0a4c5e9cc77bc6ed737b6a77a99ffc7843"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1087eea832702d8615c81bc41ee7961f136791566e662e483657bd63ff12dc46"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cde6f1dbe7eb10969f11a565f04deb3abf3e3835f311c9771703f7ef90bad3db"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dc07567cac33180ec2deeed51680b405d5087e834e9d896671540596e2c73b80"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "0ba0e3a330c2964a5aa3c3ec98fd88106ad1dd85c4a3fd8f9a81524306958c93"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ee400ca04611202b1d6a800605a5b122eac566822093d09a551dc48f3bca1103"
   end
 
   depends_on "ocaml" => :build
