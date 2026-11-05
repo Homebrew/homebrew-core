@@ -1,8 +1,8 @@
 class Ascelerate < Formula
   desc "Command-line tool for the App Store Connect API"
   homepage "https://ascelerate.dev"
-  url "https://github.com/keremerkan/ascelerate/archive/refs/tags/v0.31.0.tar.gz"
-  sha256 "3b561c75789bc2fef19763a10bd07bf94e1f2b51f4d54e2d5a65eb659bc7a9cf"
+  url "https://github.com/keremerkan/ascelerate/archive/refs/tags/v0.32.0.tar.gz"
+  sha256 "256ab23be7ef9bbfa13f0751cf4649e6adedd7e66e2cb516465d63ebb69b838a"
   license "MIT"
   head "https://github.com/keremerkan/ascelerate.git", branch: "main"
 
