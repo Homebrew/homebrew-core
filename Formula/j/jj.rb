@@ -1,18 +1,18 @@
 class Jj < Formula
   desc "Git-compatible distributed version control system"
   homepage "https://github.com/jj-vcs/jj"
-  url "https://github.com/jj-vcs/jj/archive/refs/tags/v0.47.0.tar.gz"
-  sha256 "ae9a52956955f7dc72cc0f37dcc16f461a267b938e4fb4e14bf7cb9e7f16fc97"
+  url "https://github.com/jj-vcs/jj/archive/refs/tags/v0.47.1.tar.gz"
+  sha256 "838fb5ddbf474ccee6639ce68835cedf88c8285b5c812599c56688286fb0b7a6"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/jj-vcs/jj.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bdf1fdb8048642b31c21ac4f2fee317767f2510a30c25bce81133f3165365fad"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8c813f42bb78caa6ca15b2da67b030d7007906795931a36f064aa8d42779220"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "14a25cc452e53e2f34c7069ea2365e0e0d97d43e59ebf49c8d48f12978a69d63"
-    sha256 cellar: :any,                 arm64_linux:       "b31e6a51b432ef36c54238bf2dbbdf319c4cf1ca257305b97f47fa659ec0262a"
-    sha256 cellar: :any,                 x86_64_linux:      "e77efd4f7ecbb0986e2ab69c54f5d6629bad6600835a7102e6ac729d328c51c1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4a5c843061fd135beb9bbc2f2e311c9ea30e88e20e29c9c75a50d43e05900f97"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2203d5f7aa2f0bbd1b3798fd897e8c975a53078efaac67e8a6da81d7c5539884"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8f910a47ef794ed9cc75306042f347536424c6d49263ec380729484aef315612"
+    sha256 cellar: :any,                 arm64_linux:       "ee3b3f977ea01fdae4f7561960876bc29ebb254379e276fc83acc1f76d851626"
+    sha256 cellar: :any,                 x86_64_linux:      "ae80aeab653e558fe220d4be404f8752225dfecd30e2dbdf438f4e8e9a01d0e9"
   end
 
   depends_on "rust" => :build
