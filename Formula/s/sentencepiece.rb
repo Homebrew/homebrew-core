@@ -13,11 +13,11 @@ class Sentencepiece < Formula
   end
 
   bottle do
-    sha256               arm64_golden_gate: "c7650bbcaaa304e00863218a559c4f42acfb934fefb20a55429cb195e7237be1"
-    sha256               arm64_tahoe:       "a54e68373c9f95352fd076e21c9e80c18daa483d3a5b9429578a48176c92e164"
-    sha256               arm64_sequoia:     "7855f5914f78e4fd49e63e26e13449e39bf26edddb3370d897571bf90f4eb21b"
-    sha256               arm64_linux:       "acdb0952b8de289419ecf6631c0cf646388f8fac9a9ee14fd9d2486cbf4eb832"
-    sha256 cellar: :any, x86_64_linux:      "b98daa320603eaf5a187e4f1c3a475ef5bc63eeb878c69e4a3f9bc2d576dba79"
+    sha256               arm64_golden_gate: "15412518300368d569ceedd7328f5727cb65b7f4f48e7431688c5ec0fc47c61e"
+    sha256               arm64_tahoe:       "0d98818150326a68c6475201eadc63aa964c565a4f88370e44660e3fc7d059fc"
+    sha256               arm64_sequoia:     "7005bda46c44443d47b1c05d25e7f4f37e069acc86f38d53081a0f6dd2a4024e"
+    sha256               arm64_linux:       "3ea6ea21dc2de859c2aca3ea00d0a151d5993cc3df557e267c829f28085eb7f8"
+    sha256 cellar: :any, x86_64_linux:      "0b7c0e915c352e6642bd1b6d8ac68efe5f6148daed4434d1179ecd70cc395b94"
   end
 
   depends_on "cmake" => :build
