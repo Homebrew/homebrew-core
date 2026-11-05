@@ -1,18 +1,17 @@
 class SpotifyPlayer < Formula
   desc "Command driven spotify player"
   homepage "https://github.com/aome510/spotify-player"
-  url "https://github.com/aome510/spotify-player/archive/refs/tags/v0.25.1.tar.gz"
-  sha256 "2f9f28e7ea74e14eb3be91d2655dd4666f2821cc58f74ec5db7640580e6a73bb"
+  url "https://github.com/aome510/spotify-player/archive/refs/tags/v0.25.2.tar.gz"
+  sha256 "60cc7cd60f66729039c0a48b134d8032c14817c88210d420722ad08340ad15cc"
   license "MIT"
   head "https://github.com/aome510/spotify-player.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "87de5d8f3d29149224ac39f04c1c1e7988cc1b98ab57e7dc97cc61b695015ae7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "39105f6ba7355064d23f2764dbf6b58f23cb12c2c12faf716600ca47e5404e2b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c48e80b40cf6489be7aeb8dae09499114f030604f9eefefe16225d3f41c3eb2b"
-    sha256 cellar: :any,                 arm64_linux:       "0811b62641b633fab090151cfc7ed109b147b8798f6a739edc168222ce39707c"
-    sha256 cellar: :any,                 x86_64_linux:      "f33a5f80811ad9b3a5a404656dc43646deab883e58374826d7da23c675755968"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ef0bdc1161439fcc3ea673b05f2928690e2c4e962abc17a5a4aa08346e9fb523"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "04917bcdbefe0824841fb8dd6bf067da00abffaa0e7b4c3840d3f94697998e9b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e17806aa52cff776c7794e3904d0a8becbcc1587ed3fa39a44307c4a069c447f"
+    sha256 cellar: :any,                 arm64_linux:       "4f7b26ff1f6d62d923b5502d705d2f8f1ed0909bae4698912bffbca5d658ac9d"
+    sha256 cellar: :any,                 x86_64_linux:      "b49cf120c3cdf46df599e44ffe917f16d6959522a43951637e60151d7e73b9b4"
   end
 
   depends_on "pkgconf" => :build
