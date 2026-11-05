@@ -1,17 +1,17 @@
 class GiteaCli < Formula
   desc "Official command-line tool for Gitea"
   homepage "https://gitea.com/gitea/cli"
-  url "https://gitea.com/gitea/cli/archive/v1.0.0.tar.gz"
-  sha256 "587669217030aabf4f1c344187832dbd1c41cf849fc4525a1cdbc11a11390c84"
+  url "https://gitea.com/gitea/cli/archive/v1.1.0.tar.gz"
+  sha256 "b48b90f1427fac8779f87d1f014d62b2b7513725da11677910bb04577d3cd710"
   license "MIT"
   head "https://gitea.com/gitea/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "43a92e16830a1f63fdc95f5d68151b1aafcdac15aa8259187d5b347e1dddd03c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "43a92e16830a1f63fdc95f5d68151b1aafcdac15aa8259187d5b347e1dddd03c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43a92e16830a1f63fdc95f5d68151b1aafcdac15aa8259187d5b347e1dddd03c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e42dcc8b1d181ea455af2fb37cce26a285392aff15f86704926178c42c6f0a2f"
-    sha256 cellar: :any,                 x86_64_linux:      "0770d0be34866e1b69f55e9687e9e01ed52d61827d41377305de3538a76c4dd0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4228797002d7b2f0118ed9271cf8eb972b91d2dee72b75b60378b8f5b710cf0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d4228797002d7b2f0118ed9271cf8eb972b91d2dee72b75b60378b8f5b710cf0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d4228797002d7b2f0118ed9271cf8eb972b91d2dee72b75b60378b8f5b710cf0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7f577dd5393bef17917b7e627591e7f1dc605cb9a1ee4182a8984375263c7023"
+    sha256 cellar: :any,                 x86_64_linux:      "12d1d6b4f935afb9be5f54a8466b0e59a778b32e8fc9ef8d91e9a9216c451976"
   end
 
   depends_on "go" => :build
