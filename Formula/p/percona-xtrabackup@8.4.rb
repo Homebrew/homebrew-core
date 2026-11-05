@@ -18,6 +18,14 @@ class PerconaXtrabackupAT84 < Formula
     end
   end
 
+  bottle do
+    sha256 arm64_golden_gate: "6ceb749df11890bb0f641569830721ebff24b1cedf61eff86d1a7c6b462bcf5a"
+    sha256 arm64_tahoe:       "c907938a06f70b9b168021636d7623d3a2fa93ca377e175abc2ed491d7ffb986"
+    sha256 arm64_sequoia:     "b80aba00645bc4646ca790a807beed84307e5f15ad7fd06f799c1b3c6f28652b"
+    sha256 arm64_linux:       "c61375d5cc6d724bd1ca9ed41864e120a1506345fba4d6881480f29feb7d83cb"
+    sha256 x86_64_linux:      "df1dc8723ff32e3e37858cdd245466045b0a3fcdbb82180bde5b656b9e32e700"
+  end
+
   keg_only :versioned_formula
 
   # https://www.percona.com/services/policies/percona-software-support-lifecycle
