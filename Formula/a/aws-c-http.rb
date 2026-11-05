@@ -1,17 +1,17 @@
 class AwsCHttp < Formula
   desc "C99 implementation of the HTTP/1.1 and HTTP/2 specifications"
   homepage "https://github.com/awslabs/aws-c-http"
-  url "https://github.com/awslabs/aws-c-http/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "3074b3e022ed7daf14a550b8df80bf14428ee9af0b65773443407effa1c84812"
+  url "https://github.com/awslabs/aws-c-http/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "16452de1b6e88e526f29602879ee15e02f363561004c660f53696676cffa6981"
   license "Apache-2.0"
-  compatibility_version 3
+  compatibility_version 4
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "cbb0249c59129ff032416f2fdebb22c7d47b57f3d12a222924b7b2f33ddb5110"
-    sha256 cellar: :any, arm64_tahoe:       "e4d336f92e2029519c8ce45bb336dfcfe171aa3e051a1ef04ace339efd17f032"
-    sha256 cellar: :any, arm64_sequoia:     "185bc00f1e0a089119d9349eb2d8f439a4b68813d446b895199fc18aa9decc00"
-    sha256 cellar: :any, arm64_linux:       "b5854e9bad83b17c539a688fa208f864d990006e53595cb1e33b28de4c43aa8c"
-    sha256 cellar: :any, x86_64_linux:      "ba6c28eecdb8ee83c82f3eec42f2bc2e07b0d0d16b421da6092078c5a03c1578"
+    sha256 cellar: :any, arm64_golden_gate: "00ec54696534c37ae9f05c804c6dcc11784ade47366eae5e5334bd54c5da9835"
+    sha256 cellar: :any, arm64_tahoe:       "a9f86a0576c8265ce9921d091d462b65e56191fffa9e813e632fd7df1e3d68a3"
+    sha256 cellar: :any, arm64_sequoia:     "e593e2127c414f69ec0455c3eb0ee06fc4c7c1ce092258beaf8c6d9eddd34243"
+    sha256 cellar: :any, arm64_linux:       "9a89f8197401f248ff4c25c1d0b724d23fc6d540bf312d0b48e66b689cd9bd40"
+    sha256 cellar: :any, x86_64_linux:      "b4c5984a970d6f0f36ae36883951b727569d6f30cf789cb07c1b9ee81b323b62"
   end
 
   depends_on "cmake" => :build
