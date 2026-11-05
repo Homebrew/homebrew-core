@@ -56,6 +56,9 @@ class Czmq < Formula
   depends_on "lz4"
   depends_on "zeromq"
 
+  # Needs network access for `make check-verbose`
+  allow_network_access! :build
+
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 

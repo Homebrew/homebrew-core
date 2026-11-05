@@ -26,6 +26,8 @@ class Bibutils < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "95a5448e5df2d441e8e47dfb5115a9e16f8f239acce666093b85ec9ce7038c67"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--install-dir", bin,
                           "--install-lib", lib
