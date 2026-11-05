@@ -1,8 +1,8 @@
 class I2p < Formula
   desc "Anonymous overlay network - a network within a network"
   homepage "https://geti2p.net"
-  url "https://github.com/i2p/i2p.i2p/archive/refs/tags/i2p-2.14.0.tar.gz"
-  sha256 "603babd72d90f5ee5cd2c68349df29ec16a8d378c2a6cfced40150ca79002cbb"
+  url "https://github.com/i2p/i2p.i2p/archive/refs/tags/i2p-2.14.1.tar.gz"
+  sha256 "3db7a3fea2103fd79caf074d7608dfe83c5a026dff746282892805ad51ab7eaf"
   license :cannot_represent
 
   livecheck do
@@ -11,11 +11,11 @@ class I2p < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d0bc193e0be8c803247963f90529cc6b4cc674cde98fe59a98f06ef8f888ebb8"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4545b306ef003e9e962c50af731dbc220dee90a0e1abe16d41ba25a82ff55287"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "13491c51cd98d6a9a098155fbf5b437895baf33750d5db8e7bf57d79aee930f4"
-    sha256 cellar: :any,                 arm64_linux:       "a558c352e3d33c44d55eb3b0b567e083533a8fe508d2f688b8db11b2eefcb5a4"
-    sha256 cellar: :any,                 x86_64_linux:      "16e4447091c5735be76f33663b456cccbcf997042adae07864ed4ed10aad0bc3"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "793e798ff3a1ecb9b8ed8614db769b2e81f5c938c2f065dc161d6d3d202a1ae8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "00794a527eacd50af812e3b7eca0843a11e00559e950137cf87c767e56af1560"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1a2cca3beb80acd9de2ae5f4a3e1f4e2ba13b836d3876890bfee19068059c3d9"
+    sha256 cellar: :any,                 arm64_linux:       "83a09bc79380d3d7663575489ae2edbedff410481ebf8c9b0476a48b23eff9f1"
+    sha256 cellar: :any,                 x86_64_linux:      "a0d2fdc73661c8a47636b7750f22434eed69c06170160934c9d67a324794db09"
   end
 
   depends_on "ant" => :build
