@@ -3,18 +3,18 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/refs/tags/2.39.3.tar.gz"
-  sha256 "a1ad8d3c9504b3562bbc08ecd5c10a46960cac8eecaed1f4e4e72fc84ced0b8d"
+  url "https://github.com/aws/aws-cli/archive/refs/tags/2.39.4.tar.gz"
+  sha256 "070a12e621770b4b38c5136195db865f31448e0ced1963a8ab3944c2a9851fba"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "2856f8cde12c9002674047cb6ca6cbbbf7b3e8d4373165a8fe6ce20498bda562"
-    sha256 cellar: :any, arm64_tahoe:       "c7bb093c141c35eca064ac3235ea70066caceb3efec1717e285269a94fa12cd8"
-    sha256 cellar: :any, arm64_sequoia:     "99cbbb0931598ba831f23678a23ded387df57dd9f22061353073fa07bb9b878c"
-    sha256 cellar: :any, arm64_linux:       "8f418f9b99fcb51bfd73818ae8003e9fd7fe854470b8c936942b9387fc9005d3"
-    sha256 cellar: :any, x86_64_linux:      "0a04736a8fbbde31e08adeb99a86ee553a5bd1b15f9d109cd2eb31164e5c4e49"
+    sha256 cellar: :any, arm64_golden_gate: "d5590e46e71780001ae3126b37bdf2c0b68599e39a7b582343bbf59eed7873e9"
+    sha256 cellar: :any, arm64_tahoe:       "9f876d4d7813336859fb50012cf89aaf2fdbd14b6216838d2a98a12de460bf1e"
+    sha256 cellar: :any, arm64_sequoia:     "7a8acb68e5315619cf0bdd75fb59ce8961d53dbdd93299ab76d040870f743ccf"
+    sha256 cellar: :any, arm64_linux:       "1444f3fa56440d292a31c2ce5282dbbc1ed2c8102893a6980179c120dbad9012"
+    sha256 cellar: :any, x86_64_linux:      "d77e069a6624e226736926684e0be4e4d4243502ff3be6a553f297fdcc83c851"
   end
 
   depends_on "aws-c-auth"
@@ -53,8 +53,8 @@ class Awscli < Formula
   end
 
   resource "flit-core" do
-    url "https://files.pythonhosted.org/packages/e7/91/add211b38c357bf1b94900b4f79c34661a92be65c0243d2b0a3393c5092d/flit_core-4.1.0.tar.gz"
-    sha256 "62e12b63ead8335b37f59fabb977c7167fe476dafb5e41785dfa8c9aff843bc6"
+    url "https://files.pythonhosted.org/packages/d3/8b/0370578a456986d6995344967a479dd5c9d4e064681550c2a9594bb58b4a/flit_core-4.2.0.tar.gz"
+    sha256 "84e4e4d8fdd45ba2613800a3ebc6834de26d47ec9746efc3719f94181137b460"
   end
 
   resource "jmespath" do
