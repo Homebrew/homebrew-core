@@ -1,24 +1,11 @@
 class Sentencepiece < Formula
   desc "Unsupervised text tokenizer and detokenizer"
   homepage "https://github.com/google/sentencepiece"
+  url "https://github.com/google/sentencepiece/archive/refs/tags/v0.2.3.tar.gz"
+  sha256 "aeabf9b2ae1a77cda6e721ab1fb9f6e44b8ba4ddb8d7343dc5b02aec70fab324"
   license "Apache-2.0"
-  revision 1
   compatibility_version 1
   head "https://github.com/google/sentencepiece.git", branch: "master"
-
-  stable do
-    url "https://github.com/google/sentencepiece/archive/refs/tags/v0.2.2.tar.gz"
-    sha256 "92381f713e094a15a1ccff1ac4a5315a4c4b82a99ac1332d6ac53c9dc8e1bcf1"
-
-    # Backport protobuf changes that helps Python module link to built library
-    patch :DATA
-    patch do
-      url "https://github.com/google/sentencepiece/commit/b3138d9d6506394f953f69e4d333f02fe4ba7549.patch?full_index=1"
-      sha256 "10c9bb69fe6f175c739558706b48d2544af746c9aa4a0854e83f674e8fc18772"
-      type :backport
-      resolves "https://github.com/google/sentencepiece/pull/1296"
-    end
-  end
 
   livecheck do
     url :stable
@@ -34,6 +21,7 @@ class Sentencepiece < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "flatbuffers" => :build
   depends_on "pybind11" => :build
   depends_on "python-setuptools" => :build
   depends_on "python@3.15" => [:build, :test]
@@ -47,6 +35,11 @@ class Sentencepiece < Formula
                     "-DSPM_PROTOBUF_PROVIDER=package",
                     "-DSPM_ABSL_PROVIDER=package",
                     "-DSPM_ENABLE_TCMALLOC=OFF",
+                    # Use brewed `flatbuffers` instead of FetchContent, which needs brew's provider bypassed
+                    "-DHOMEBREW_ALLOW_FETCHCONTENT=ON",
+                    "-DFETCHCONTENT_FULLY_DISCONNECTED=ON",
+                    "-DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS",
+                    "-DSPM_FLATC_EXECUTABLE=#{formula_opt_bin("flatbuffers")}/flatc",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -80,14 +73,3 @@ class Sentencepiece < Formula
     EOS
   end
 end
-
-__END__
-diff --git a/.gitignore b/.gitignore
-index 9a96c8698..089f3e0e2 100644
---- a/.gitignore
-+++ b/.gitignore
-@@ -83,3 +83,4 @@ python/test/sp_*.pickle
- third_party/absl
- 
- test_tmp
-+build_cpp/
