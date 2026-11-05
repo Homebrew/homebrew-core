@@ -27,5 +27,9 @@ class Rumbledb < Formula
   test do
     (testpath/"test.query").write "1+1"
     assert_equal "2", shell_output("#{bin}/rumbledb run test.query").strip
+
+    assert_equal "2550",
+                 shell_output("#{bin}/rumbledb run -q " \
+                              "'sum(for $x in parallelize(1 to 100) where $x mod 2 eq 0 return $x)'").strip
   end
 end
