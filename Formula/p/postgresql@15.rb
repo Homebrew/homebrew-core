@@ -54,16 +54,23 @@ class PostgresqlAT15 < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     ENV.runtime_cpu_detection
     ENV.delete "PKG_CONFIG_LIBDIR"
-    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@4")} -L#{formula_opt_lib("readline")}"
-    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("openssl@4")} -I#{formula_opt_include("readline")}"
+
+    flag_libs = [openssl, "readline"]
 
     # Fix 'libintl.h' file not found for extensions
-    if OS.mac?
-      ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("gettext")}"
-      ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("gettext")}"
+    # Update config to fix `error: could not find function 'gss_store_cred_into' required for GSSAPI`
+    flag_libs += ["gettext", "krb5"] if OS.mac?
+
+    flag_libs.each do |l|
+      ENV.prepend "LDFLAGS", "-L#{formula_opt_lib(l)}"
+      ENV.prepend "CPPFLAGS", "-I#{formula_opt_include(l)}"
     end
 
     args = std_configure_args + %W[
