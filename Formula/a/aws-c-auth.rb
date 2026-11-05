@@ -4,6 +4,7 @@ class AwsCAuth < Formula
   url "https://github.com/awslabs/aws-c-auth/archive/refs/tags/v1.0.3.tar.gz"
   sha256 "c3accbe5df51610a320de103c18f16efa17fc7269e0bdbe5ef093b14671f9f6c"
   license "Apache-2.0"
+  revision 1
   compatibility_version 3
 
   bottle do
