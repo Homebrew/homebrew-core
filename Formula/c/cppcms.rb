@@ -8,12 +8,11 @@ class Cppcms < Formula
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any, arm64_golden_gate: "d84ae7fbc5f5842ac9c3f059ad7f472b093e4bd064ead67613400b13c8256ac5"
-    sha256 cellar: :any, arm64_tahoe:       "3e60d5df68d9b71a758c4d36e9eda5bd2c0e7e44336d19d676ad52b323b8f635"
-    sha256 cellar: :any, arm64_sequoia:     "5124b51085eb6a99626cacc8beb377bd0d485b26dc17be5dfb9051581f9fd563"
-    sha256 cellar: :any, arm64_linux:       "501e09db10d85110fd3b26e9af45cbf972957027a09b52dcde6101a1721baebd"
-    sha256 cellar: :any, x86_64_linux:      "3c2715739b78e7d6b2e9a1cf3281e8fc28bcd75bff5065aba20ae2c6c0c0d24e"
+    sha256 cellar: :any, arm64_golden_gate: "0d193ab4a71fec4a93c39b200b9208511d62f4265b99cea957091b8630698c91"
+    sha256 cellar: :any, arm64_tahoe:       "fdbe60780dff88f91746b900e55406d3882aa7aa2a6c44a1823cebc5e1640c51"
+    sha256 cellar: :any, arm64_sequoia:     "0e022eb61efcd8345ff984e1978dabee687bea4a071c22cdcd1c595050a45e5c"
+    sha256 cellar: :any, arm64_linux:       "6968bb4e80c512a3dace6e211b061abfd023a5b2c43f31eb843bc4a2082c2bde"
+    sha256 cellar: :any, x86_64_linux:      "14aa9e648c3bb21136239bd4f14f11bac81c4281447747d70b37aff2108cc439"
   end
 
   depends_on "cmake" => :build
