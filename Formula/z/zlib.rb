@@ -1,9 +1,9 @@
 class Zlib < Formula
   desc "General-purpose lossless data-compression library"
   homepage "https://zlib.net/"
-  url "https://zlib.net/zlib-1.3.2.tar.gz"
-  mirror "https://github.com/madler/zlib/releases/download/v1.3.2/zlib-1.3.2.tar.gz"
-  sha256 "bb329a0a2cd0274d05519d61c667c062e06990d72e125ee2dfa8de64f0119d16"
+  url "https://zlib.net/zlib-1.4.tar.gz"
+  mirror "https://github.com/madler/zlib/releases/download/v1.4/zlib-1.4.tar.gz"
+  sha256 "02dd159783677a749c04adbdd02b55b8a2bcc7e054f51b76b549199a916ad584"
   license "Zlib"
   compatibility_version 1
   head "https://github.com/madler/zlib.git", branch: "develop"
@@ -31,7 +31,7 @@ class Zlib < Formula
 
   # https://zlib.net/zlib_how.html
   resource "zpipe.c", :test do
-    url "https://raw.githubusercontent.com/madler/zlib/3f5d21e8f573a549ffc200e17dd95321db454aa1/examples/zpipe.c"
+    url "https://raw.githubusercontent.com/madler/zlib/99623ef7097352da7993ba614161fd6a311e046e/examples/zpipe.c"
     sha256 "e79717cefd20043fb78d730fd3b9d9cdf8f4642307fc001879dc82ddb468509f"
   end
 
