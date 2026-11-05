@@ -3,19 +3,17 @@ class Ldeep < Formula
 
   desc "LDAP enumeration utility"
   homepage "https://github.com/franc-pentest/ldeep"
-  url "https://files.pythonhosted.org/packages/8e/bf/cadc67e213fecdfc338a722dc51a04ec0e897e3b9738d8025f1a773b263c/ldeep-2.0.3.tar.gz"
-  sha256 "a7a085d495ba12edff9e0186a6d92a4a989aceabebcf79e321059ee124907021"
+  url "https://files.pythonhosted.org/packages/dc/ce/fc8e0894c94229434d324fbbb128f77d05fb2b8a8ac59bd64cfc6da4fa7f/ldeep-2.0.4.tar.gz"
+  sha256 "02164e530e27792249fbea496dfa8d312000f7d7bf9935a457e24e79983cb63f"
   license "MIT"
-  revision 1
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6f36afc20fbaa8c83a31dd83df3bcf2c235d9e83e4ddcd3939850689691fd42f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4f9a703a80874af8d6158dc114af7bdb2f349edcbbb7419cd682ddce1eb6a68e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "129141eeff1bbd55d29fb3708681daa2e93b36ef34abee94563dfbf4cca89cf1"
-    sha256 cellar: :any,                 arm64_linux:       "05f30d486896cd1e1681cb13c192362c0545338a2cccf9917ad1872f4f1466c2"
-    sha256 cellar: :any,                 x86_64_linux:      "a32cafc77b22ce748faeba276ad62b5e6a9006af32b48d6b6c3c084d73a10d72"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7595632fb1c25cd068f2900c08b2165533c8671655b23b8205c2ee904475c30b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1019cb59a3b033c012276dc574563c9fd4c67c49f537fd75220519b117c48ba7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "19dd32a3c9484a4d95fb519e6460b81059f89c135ff5c8971c3d3a07f48b3410"
+    sha256 cellar: :any,                 arm64_linux:       "aa63f8529e0424df24bdb827f69ac4cf8db1219a6a413ffc6b9a5d52f30e01ab"
+    sha256 cellar: :any,                 x86_64_linux:      "8bbbde0c567d9ed28871c1c77eda7587b8fc6c9cb91652277b7e0dac018fcbd0"
   end
 
   depends_on "rust" => :build # for `dnspython`
@@ -42,8 +40,8 @@ class Ldeep < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/ef/4a/50822184bd67cc6493f0fb6a880749158fcd31ab3fa07409acfd91f9fc85/dnspython-2.9.0.tar.gz"
-    sha256 "b44dc6b18f07a8b1c56676a19fbfdb5209415b046a9cece286baafa87ff3f7f1"
+    url "https://files.pythonhosted.org/packages/76/49/900383b471c645a3c397f47b3211d1fcecb3a540c98f683494cdf86b33de/dnspython-2.9.2.tar.gz"
+    sha256 "8d4d39a513e649d634004ce4d39ade2352efcea472a0247535a5c2d18a9d7ba9"
   end
 
   resource "gssapi" do
@@ -62,8 +60,8 @@ class Ldeep < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/a4/9a/23310166d960def5897e91fe20e5b724601b02a22e84ba1f94232c0b7f67/pyasn1-0.6.4.tar.gz"
-    sha256 "9c447d8431c947fe4c8febc4ed9e760bc29011a5b01e5c74b67025bd9fb8ce81"
+    url "https://files.pythonhosted.org/packages/88/7e/3c0da41061a2021cac7cd524fd57092adbe5b515e8bf9005702e366802e2/pyasn1-0.6.5.tar.gz"
+    sha256 "6b11616a6bcf3a40e635f082bb232fa57b5e0dd7f517bd7ddd69ec3794508a47"
   end
 
   resource "pycryptodome" do
@@ -74,11 +72,6 @@ class Ldeep < Formula
   resource "pycryptodomex" do
     url "https://files.pythonhosted.org/packages/f4/e7/50e72301e32acb73a314e663c2014e1ddefc019d5f434ff14ec89861d664/pycryptodomex-3.24.1.tar.gz"
     sha256 "09081666ffc599976c0b8b29caf2cf82212c0f05bed233c8f8ed53e4f6e1d356"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
-    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   resource "termcolor" do
