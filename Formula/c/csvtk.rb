@@ -1,17 +1,17 @@
 class Csvtk < Formula
   desc "Cross-platform, efficient and practical CSV/TSV toolkit in Golang"
   homepage "https://bioinf.shenwei.me/csvtk"
-  url "https://github.com/shenwei356/csvtk/archive/refs/tags/v0.38.0.tar.gz"
-  sha256 "0b2ed4c03b6082179b6c0d117a6d8e74d9bf53f334bb15d952fa059f58206d06"
+  url "https://github.com/shenwei356/csvtk/archive/refs/tags/v0.39.0.tar.gz"
+  sha256 "4c6cdae73e9ef357f2b511a9ff0c055d7abe6140afaf67e668008558425b1723"
   license "MIT"
   head "https://github.com/shenwei356/csvtk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "08ed5b1034c0afe10df4afc8b634456b58932d4c1962964f170a032463e23a2f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "08ed5b1034c0afe10df4afc8b634456b58932d4c1962964f170a032463e23a2f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "08ed5b1034c0afe10df4afc8b634456b58932d4c1962964f170a032463e23a2f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8ba06d80a231a00b0641e9fad4c6f5296edb00b961640d3e483de13337312367"
-    sha256 cellar: :any,                 x86_64_linux:      "755dabd3b62a979440799eb501c2a92bfeb7abda557816bbcc198392e308e452"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1cf8f1a09fb9999a1086e098c651210e1981c53d6233378ba2c4a493f66d6407"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1cf8f1a09fb9999a1086e098c651210e1981c53d6233378ba2c4a493f66d6407"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1cf8f1a09fb9999a1086e098c651210e1981c53d6233378ba2c4a493f66d6407"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "e032b48b04c7ed995d8a05668d9913c0a727eb5c26a71ffba32509e773eb617b"
+    sha256 cellar: :any,                 x86_64_linux:      "566812ba809a6829b2d015399f0a38c2aef347793bdb2863de794c86e45083ca"
   end
 
   depends_on "go" => :build
