@@ -7,8 +7,8 @@ class Bpftop < Formula
   head "https://github.com/jfernandez/bpftop.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "fb03dc650d61c112cc50dbaccb34a6458226b1420ac7074c543436a3542962f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "9644118483911436ac97875fec66ed2c85c8a92c7f50baf0d5cb057dfcde21cb"
+    sha256 cellar: :any, arm64_linux:  "bf83b22dbd360b168b04a94e9e840ed25812881d1cd0dd471ab7c6661211f8df"
+    sha256 cellar: :any, x86_64_linux: "bb886362785d2f3234f08500df78f3321aeb35115bfbec91e07e9a57f5ac677e"
   end
 
   depends_on "llvm" => :build
