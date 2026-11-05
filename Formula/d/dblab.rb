@@ -1,17 +1,17 @@
 class Dblab < Formula
   desc "Database client every command-line junkie deserves"
   homepage "https://dblab.app/"
-  url "https://github.com/danvergara/dblab/archive/refs/tags/v0.55.0.tar.gz"
-  sha256 "831741e5c108a9f4847e62c81af7998242e7acd08d6ff7575a7a71423575ffb1"
+  url "https://github.com/danvergara/dblab/archive/refs/tags/v0.55.1.tar.gz"
+  sha256 "69da3a5e71f3f3c0ef0bb5951b5bf0f7a2c662b5578a0a58e96a26122d48dfd9"
   license "MIT"
   head "https://github.com/danvergara/dblab.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d8899bf2bc3f054cc6b5b32ea892f2798a6485673944dc594947b33e11d094a7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d8899bf2bc3f054cc6b5b32ea892f2798a6485673944dc594947b33e11d094a7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d8899bf2bc3f054cc6b5b32ea892f2798a6485673944dc594947b33e11d094a7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "34294eaeafdeffe3ddd94f56aab149fc6c3ce0117da74060aedadaf6dbab799c"
-    sha256 cellar: :any,                 x86_64_linux:      "15cff1b6b0467e182ee4bf601cd620b600a6590be642f5e2ff7bab165ac27193"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1279fb4f7dc90a1d1520121326f41dc103d17536ae6f6515c32f4732b2bbaa1f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1279fb4f7dc90a1d1520121326f41dc103d17536ae6f6515c32f4732b2bbaa1f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1279fb4f7dc90a1d1520121326f41dc103d17536ae6f6515c32f4732b2bbaa1f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "501b49229cc9228f6d1172fb514cd44586a65e75e19de4e64a4d0972be711704"
+    sha256 cellar: :any,                 x86_64_linux:      "3e5bf4c39b676a88f0e27d89b00036b04daaa60ca3debc696e94fd775cf8ae29"
   end
 
   depends_on "go" => :build
