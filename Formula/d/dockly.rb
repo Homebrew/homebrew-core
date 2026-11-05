@@ -1,16 +1,16 @@
 class Dockly < Formula
   desc "Immersive terminal interface for managing docker containers and services"
   homepage "https://lirantal.github.io/dockly/"
-  url "https://registry.npmjs.org/dockly/-/dockly-3.24.6.tgz"
-  sha256 "fb5b05378eec7d85a5710b44c24808bd60d1c38b417f52d7a92e7e25060d200b"
+  url "https://registry.npmjs.org/dockly/-/dockly-3.24.7.tgz"
+  sha256 "d529e0486fc708b60fed91ee9f4eec3a075a6e4780178f3ba16f1fd6b8f3b463"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bb2d6094b9f7062867b32f8fa48d47027b7b193076b32c9e92eddc4f8541dabb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb2d6094b9f7062867b32f8fa48d47027b7b193076b32c9e92eddc4f8541dabb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bb2d6094b9f7062867b32f8fa48d47027b7b193076b32c9e92eddc4f8541dabb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8413c7b96ad9c29d740ffe31f5382a5b0d82d3faeeeb3d814cb9da51551ebaec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8413c7b96ad9c29d740ffe31f5382a5b0d82d3faeeeb3d814cb9da51551ebaec"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "653e38b6f26732b4285baf114f43a8ed0cd43a703135f033b4b8b3949b04ef74"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "653e38b6f26732b4285baf114f43a8ed0cd43a703135f033b4b8b3949b04ef74"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "653e38b6f26732b4285baf114f43a8ed0cd43a703135f033b4b8b3949b04ef74"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "0a0587ea6a61da26542c9493ea65683f2c520a67b56641ed7151d03688f7f7fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0a0587ea6a61da26542c9493ea65683f2c520a67b56641ed7151d03688f7f7fe"
   end
 
   depends_on "node"
