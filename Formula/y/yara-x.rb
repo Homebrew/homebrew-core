@@ -13,11 +13,11 @@ class YaraX < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7c6062124c983aec8510902cbbd640735ca1f103a647c3b60fe0160cd8944df1"
-    sha256 cellar: :any, arm64_tahoe:       "b6c3a49c9e8019b1c6ce3a58ec7730624f3d91aaffeba3d4b1d34260539f5941"
-    sha256 cellar: :any, arm64_sequoia:     "8e29b9db844d2a9da6d5d3294e20d5b8000da9bc08e0c5c1ad0ed224a724ed42"
-    sha256 cellar: :any, arm64_linux:       "f291a7bb8b4e708ef257baab331cd8f4a2fa5aa1862e6bfa67a81feec52c7484"
-    sha256 cellar: :any, x86_64_linux:      "373943f078df2ec56b02fa4cb07d49223ceda6103b66bffebc0e7b9fbd4cbbe2"
+    sha256 cellar: :any, arm64_golden_gate: "aec5a6fa948b7589ff57f000e15da81539586bbf9c03268e627bb3b57eb44dbc"
+    sha256 cellar: :any, arm64_tahoe:       "832341f7b6fd7e6e110118ef0e85fdb6ca2ffb60b2b5023bacc20c0ae87150f2"
+    sha256 cellar: :any, arm64_sequoia:     "f3ae760dfb001504fb38f52f9c3d43c376b023ae7c4668fc9b077bca49ab0c19"
+    sha256 cellar: :any, arm64_linux:       "328c447931f4db465d81a98540f6aac58ddf23de65aff4697e495d6ccea23a93"
+    sha256 cellar: :any, x86_64_linux:      "e6029064afef64572156e2dab001425ece3f8c455c71042ebbdc85aa3cca3261"
   end
 
   depends_on "cargo-c" => :build
