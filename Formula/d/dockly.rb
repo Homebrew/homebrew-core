@@ -6,11 +6,11 @@ class Dockly < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bb2d6094b9f7062867b32f8fa48d47027b7b193076b32c9e92eddc4f8541dabb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb2d6094b9f7062867b32f8fa48d47027b7b193076b32c9e92eddc4f8541dabb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bb2d6094b9f7062867b32f8fa48d47027b7b193076b32c9e92eddc4f8541dabb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8413c7b96ad9c29d740ffe31f5382a5b0d82d3faeeeb3d814cb9da51551ebaec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8413c7b96ad9c29d740ffe31f5382a5b0d82d3faeeeb3d814cb9da51551ebaec"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "653e38b6f26732b4285baf114f43a8ed0cd43a703135f033b4b8b3949b04ef74"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "653e38b6f26732b4285baf114f43a8ed0cd43a703135f033b4b8b3949b04ef74"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "653e38b6f26732b4285baf114f43a8ed0cd43a703135f033b4b8b3949b04ef74"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "0a0587ea6a61da26542c9493ea65683f2c520a67b56641ed7151d03688f7f7fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0a0587ea6a61da26542c9493ea65683f2c520a67b56641ed7151d03688f7f7fe"
   end
 
   depends_on "node"
