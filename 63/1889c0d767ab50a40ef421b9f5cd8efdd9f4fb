@@ -1,0 +1,14 @@
+Formula/r/rnp.rb
+  h_9df9c32c3f321d 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "631889c0d767ab50a40ef421b9f5cd8efdd9f4fb",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
