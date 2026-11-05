@@ -7,9 +7,9 @@ class Ascelerate < Formula
   head "https://github.com/keremerkan/ascelerate.git", branch: "main"
 
   bottle do
-    sha256 arm64_golden_gate: "3199c767b2e4e1ee8208735c06588a1ff554d51362bb903c1745343e89fd9ee8"
-    sha256 arm64_tahoe:       "0df88f897a9063ed5a255e20f5a688418f6fb067d0277d37346a8466574759c8"
-    sha256 arm64_sequoia:     "37007d36c58e297d644c5567affc876f59233b961af9a973de5a3aab69f134c2"
+    sha256 arm64_golden_gate: "5de02b42f2cd988d5557ad53f73b01f4c6db29f8447f541d3a2131a9603f4d2e"
+    sha256 arm64_tahoe:       "b86604af8df5458508d3cf7797c719c6b4d81e6198a8581cc53fc94abd596dde"
+    sha256 arm64_sequoia:     "5ac89d5cc94b3ecc2ffae2013bb536a108fb9171461f219443523eb5da8a410a"
   end
 
   depends_on xcode: ["26.0", :build]
