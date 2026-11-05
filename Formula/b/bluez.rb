@@ -1,8 +1,8 @@
 class Bluez < Formula
   desc "Bluetooth protocol stack for Linux"
-  homepage "https://www.bluez.org"
-  url "https://mirrors.edge.kernel.org/pub/linux/bluetooth/bluez-5.87.tar.xz"
-  sha256 "26bdcf2cebd7310c6f598850606b037ef0c515fe6608ebc54d22c50c4c32b35f"
+  homepage "https://bluez.github.io/"
+  url "https://mirrors.edge.kernel.org/pub/linux/bluetooth/bluez-5.88.tar.xz"
+  sha256 "6952c39eb5f8b0ee712cc50ab3bcff03be17c410dd97ca640f4849d9a1653ba3"
   license "GPL-2.0-or-later"
   compatibility_version 1
 
