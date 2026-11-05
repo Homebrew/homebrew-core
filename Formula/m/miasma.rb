@@ -7,11 +7,11 @@ class Miasma < Formula
   head "https://github.com/austin-weeks/miasma.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "769b2759cc1fa53a8b910eceb0f65f105d04a9a618e6dc1cc63d750e8d9b0f79"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b5dd9d32cd45cb1d5eda730c7a21927f006af72852cc164023a9e08d3befeaf6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c00dbefa1f3247f678d4ed0141c9e63373579c696b75908e23d97f73d1fc64ee"
-    sha256 cellar: :any,                 arm64_linux:       "9adc1d4e3b73748169cae9c409c1630e3b8eda4ca60cee2adaff4c0761781ba1"
-    sha256 cellar: :any,                 x86_64_linux:      "fde99c3c6f2894bfb8b61c5e0f058ea7b916fa88a42543aea9a21495c43e11e4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "88c37e192aec909ae1ebca7ff73f7bda6a10e3f253858f49c489a5f61b5142d9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "74756db53c6d2fcec363a9bb3d81ca3b6fd1ffdc38d64d42d3c6db7eb69d86c1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b85721569acd61cf9cb20a6f477b51325d970f4ff53f3d7a985a4813e7270342"
+    sha256 cellar: :any,                 arm64_linux:       "90ced09927460e39d1e478c095aa187d6a35abd0fdfc94c53445070bf3a51e00"
+    sha256 cellar: :any,                 x86_64_linux:      "ac0df4da53290ef5b89005298d59d75fee16d13eb89767de51c57b8ee207004f"
   end
 
   depends_on "rust" => :build
