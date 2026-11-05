@@ -3,16 +3,16 @@ class Llm < Formula
 
   desc "Access large language models from the command-line"
   homepage "https://llm.datasette.io/"
-  url "https://files.pythonhosted.org/packages/23/a1/dda38dd2a2aef2fd44183423a372fd8bd8fc5480dbefe8aa0264e8214daf/llm-0.37.tar.gz"
-  sha256 "a8178ad1441e8b0955d5789a4874d5eb30b54be7ba51d2fdfb612c78b05d05d7"
+  url "https://files.pythonhosted.org/packages/fd/62/922539af45ed35ebd6de6dcd5676891e75a6c1e94e4d76ac0d2460bd6ad7/llm-0.37.1.tar.gz"
+  sha256 "5c74c8dbeb404d18717a9724761dd1f70f36c3dc4176d4d33668f9e448369e29"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9a86f0146ca3d3cece10846ecb27f268e7d4976a55059d081de738f430ef5a2c"
-    sha256 cellar: :any, arm64_tahoe:       "eff7bff99a2ff286a8ccc3fab01f70f9ee097c8264d0314c2920734e514cfdd3"
-    sha256 cellar: :any, arm64_sequoia:     "57845d14fc289ebc59b21bfdd62a88f8523f613e964cef2d09a860f0d32aa903"
-    sha256 cellar: :any, arm64_linux:       "4565859d0219a9302ead3301b3145c8c1a00201e0bdfd321c16a32ff75f7edf5"
-    sha256 cellar: :any, x86_64_linux:      "c9454a8089dbe51719861ee1f0f001c97afb7766aa15c99607abe36d92046a6e"
+    sha256 cellar: :any, arm64_golden_gate: "40361d80512ea36b812f84166d8705956935ac107bfb47f2af104d09288e36dd"
+    sha256 cellar: :any, arm64_tahoe:       "4e32b5c7f746c6f3070b70345346e6b2dac185c36e3f8bc7ddf83cfdd91f429c"
+    sha256 cellar: :any, arm64_sequoia:     "106c3b04478ca3263b3628d386f725541417aac63ba09eec42a8decde99614eb"
+    sha256 cellar: :any, arm64_linux:       "22a08a72391cd701e063e08aebbbc21bf923619aef6cd9b627e6643df69c6128"
+    sha256 cellar: :any, x86_64_linux:      "9701abe33b43b5c344d0795b350a0cef1e35dcd5c116b17b5bff3eebb535e62a"
   end
 
   depends_on "rust" => :build # for jiter
@@ -69,8 +69,8 @@ class Llm < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/9f/7b/e01d5288d13e3bae3714ed39df402f99f88f422dcd978c5ce94848037200/openai-3.42.1.tar.gz"
-    sha256 "4222d919374648ff572753626e942f26eb1ece8a5e0e9a2708c9be4d560f070f"
+    url "https://files.pythonhosted.org/packages/de/ef/639821491538e8bb4c56f3367f00787e8aadc1665ce1598e7506bcb65663/openai-3.45.0.tar.gz"
+    sha256 "6cff2b5c7b463123fcb94d1bb7e4920e5fab9bb3ed4f837faa0d0bf1d6d6ea3b"
   end
 
   resource "pluggy" do
