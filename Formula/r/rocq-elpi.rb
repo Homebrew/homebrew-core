@@ -13,11 +13,11 @@ class RocqElpi < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "95a73100081df0c3399c5c0d7e2896e5e4b568e25b5ce121bb99b039b5c59d8b"
-    sha256 arm64_tahoe:       "9a3fbab480f89a79324a380eaba49ed9baaedf47f18879b702a473a9ae2ff127"
-    sha256 arm64_sequoia:     "007ae843309d48dad542a20cee7af58fb60358cedb90b0faf2efa418fccb2eb4"
-    sha256 arm64_linux:       "3d505203c0b0e278a083e5a864805736d86021716b897f6ee4208d1f1f3343a6"
-    sha256 x86_64_linux:      "c606449b6633e2175fb59161d930541e4ddde85214a8e8e9739856551b4c07ce"
+    sha256 arm64_golden_gate: "c86c5816abeb8f1eb3d1f4a7ad6df035bb0eadd73ff90ed754c6c197c4cfde55"
+    sha256 arm64_tahoe:       "6217e66bf965c0e89d7508e5d7c18135134f9afd94280b3f2c41de517148c17f"
+    sha256 arm64_sequoia:     "3e65831a3751e43e1bd284339c545bc0c5ee897d100f8dff84d08c944669d8da"
+    sha256 arm64_linux:       "48440a70d3eae2ce4d1e5f3562974bc7b6ec4052aa61f178cc5f1e142f744ec6"
+    sha256 x86_64_linux:      "c30b92e3e9deb3cc0597456a6cc814374bd485731a21203804922246794df219"
   end
 
   depends_on "dune" => :build
