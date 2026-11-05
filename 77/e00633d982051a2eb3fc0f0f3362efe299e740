@@ -1,0 +1,14 @@
+Formula/h/hierarchy-builder.rb
+  h_9df9c32c3f321d 7-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "77e00633d982051a2eb3fc0f0f3362efe299e740",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
