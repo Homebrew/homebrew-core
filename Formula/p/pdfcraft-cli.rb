@@ -1,17 +1,17 @@
 class PdfcraftCli < Formula
   desc "Headless PdfCraft CLI and MCP server to create, edit, inspect and fill PDFs"
   homepage "https://getartcraft.com/apps/pdfcraft"
-  url "https://github.com/storytold/pdfcraft/archive/refs/tags/v0.18.1.tar.gz"
-  sha256 "2f304a979eab593c9b01488a98b9f75a9b9f2e497b1c9cab368d49b6671e2038"
+  url "https://github.com/storytold/pdfcraft/archive/refs/tags/v0.18.2.tar.gz"
+  sha256 "59c862360ac738456ae12dafc2bf0b479bfae798f1115a6b6ff17661e3fcadb1"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/storytold/pdfcraft.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f36189b4345520e76fc51743669f5b76f2714570fa3cbf6e049bb26311cace43"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6c19ce8666e96966e6f345b29e0a0ef5d006f40f284dbbfcd90280021b7953ce"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3861b835a701914c81904ba7ebcf86510dbd793b8e7ba33d00db339e72d71898"
-    sha256 cellar: :any,                 arm64_linux:       "4b0266ff8582a4b7ee9d09f9e59014e9bea9eec998550f23a2a843e480ff1444"
-    sha256 cellar: :any,                 x86_64_linux:      "09a469fb5c3b4cfc088f395d9d8cdf68c3b8249afb3a3d86559b2f2fbd67724e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f06a00cdebb249a95e3a5fd93768f6bcee8862035de271b91bae282c656818b5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c0aa7de6f3efbceea3695553a49a0686520c362584d6894789d4f8cec290b957"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1e274389755e8ab0c49b46291ebfa9c394c331297c1d1787e1e7fbe51ad44ca6"
+    sha256 cellar: :any,                 arm64_linux:       "ea2c0f408f618e7eeef436b6183dc3296c0d4b8ce0b4c9d63371d536db046f27"
+    sha256 cellar: :any,                 x86_64_linux:      "47e837a55fd0dff85771f892ee41cec4f074388a5adee373e580fa50009b0306"
   end
 
   depends_on "rust" => :build
