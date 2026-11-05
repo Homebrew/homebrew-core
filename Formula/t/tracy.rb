@@ -3,8 +3,8 @@ class Tracy < Formula
   homepage "https://tracy.nereid.pl/"
   # NOTE: Do not report issues with dependencies upstream as they only support
   # vendored dependencies, see https://github.com/wolfpld/tracy/issues/1079
-  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.14.1.tar.gz"
-  sha256 "bf4af567e9c7524d07f3caa745fad02fb33bd5694f11910750382d1efbb251c1"
+  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.15.0.tar.gz"
+  sha256 "3d57da54aa67d7875da1e8fecd0bd5957675cef73c27dd52bffb6ab8d290a5e6"
   license "BSD-3-Clause"
 
   bottle do
@@ -56,8 +56,8 @@ class Tracy < Formula
 
   resource "usearch" do
     url "https://github.com/unum-cloud/USearch.git",
-        tag:      "v2.26.0",
-        revision: "cc23bbaf21ef52313c5a495adbc40cbd733cdcfb"
+        tag:      "v2.26.4",
+        revision: "1e8a19253138510f35ee2c68dc641e5b5c83c7b5"
   end
 
   def install
