@@ -1,16 +1,16 @@
 class AgentDesktop < Formula
   desc "Native desktop automation CLI for AI agents"
   homepage "https://agent-browser.dev/desktop"
-  url "https://github.com/vercel-labs/agent-desktop/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "5def2c52dc1e484920f6175eedaf4051dab4855f1a0c1b6148aeb560116d1296"
+  url "https://github.com/vercel-labs/agent-desktop/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "d6b5af85dc025bef4dfa8a7a16ae2e0271343d7d98e7e480bc9f74a4c831a783"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7d8e613996a758e2c0859b7deb673e9f02e5031e04c7f0e95b10ae997e2e4e87"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6a75a7504b10be829feb8a7dafef8f7f69f47e86a898523bbd4dc52eb33d678e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "99f856d02784ace3ecc8258f2de01c655e6e7ac2438c7aac542edfba884dcb99"
-    sha256 cellar: :any,                 arm64_linux:       "789ec8832b29e116be5ac9420213801d337b788931013845ecfd1b8d991a322c"
-    sha256 cellar: :any,                 x86_64_linux:      "2b4f2166bf10ccb0c47631a9a271f6b2c2a1f4014f4b1380bbf401c7ee3aeb22"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ffb3aaa08de557d63ede80a310289ed26c1174f2e69853ad05c366983ad60fdf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7fd4571195f3b2972034d0e6731066069d5bf6ffec7cd95521905ea0aac0ebd6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3ac78589e133c32283767002cd535b2901e3fbeb3c2bdae15da603bbac8f1fb1"
+    sha256 cellar: :any,                 arm64_linux:       "1cbf8a974a60e79b9c9f8a3abb0c2816afa616bc00895e4d2f3d88dfb3b19fa8"
+    sha256 cellar: :any,                 x86_64_linux:      "8117c126e258365695f60a1b25f19b0996207ee366e8ce01133c7bc1e3f5217c"
   end
 
   depends_on "rust" => :build
