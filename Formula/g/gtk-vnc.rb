@@ -1,8 +1,8 @@
 class GtkVnc < Formula
   desc "VNC viewer widget for GTK"
   homepage "https://gitlab.gnome.org/GNOME/gtk-vnc"
-  url "https://download.gnome.org/sources/gtk-vnc/1.5/gtk-vnc-1.5.0.tar.xz"
-  sha256 "c0beb4747528ad931da43acc567c6a0190f7fc624465571ed9ccece02c34dd23"
+  url "https://download.gnome.org/sources/gtk-vnc/1.6/gtk-vnc-1.6.0.tar.xz"
+  sha256 "0e1a1023f191a842e994e5d10053bbe0e76d5f5fb9ec2eb525e2f8fdea57347f"
   license "LGPL-2.1-or-later"
   compatibility_version 1
 
@@ -15,14 +15,11 @@ class GtkVnc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "ec38469708252ace9041172c7d3a4f7516f169b24ac23cd79cd9bddc8f456504"
-    sha256 arm64_tahoe:       "83712dce18d0595c9f12c0a24ee58c518d944b7ac1d6fa1211dc1c73504cb351"
-    sha256 arm64_sequoia:     "f7679b80723a22bbd7b1a376f248aac379ec54563fe81834170d18560cf344af"
-    sha256 arm64_sonoma:      "2745cda31a2d5808bff9a7a9b4b33396e035a4188d247249bf431e556291dfe9"
-    sha256 sonoma:            "812a78cc1831522196e0c032173f0ce36878b10270ac165bd7d9bfad1e00c110"
-    sha256 arm64_linux:       "83ecf718551bcb1caab684ab463cb3a3a2db17babf574aa3238fa3fd175d9124"
-    sha256 x86_64_linux:      "2eb555c0acfd1a52c26080031a4938a3107a16a5aea2b531b2e034ece167940d"
+    sha256 arm64_golden_gate: "086558051d9d13d59b802355b500173e1590d88bb3c463509b724c3444f09526"
+    sha256 arm64_tahoe:       "64d7a9f0644b29467c6e9fb3e51f9c5e92b4a7cf2f37f54ba7d67d48d42ea2f2"
+    sha256 arm64_sequoia:     "9b8cd5c44a6f0b1a0ae27922d8c93e365c61a9dedf42070d2d03eca897beccad"
+    sha256 arm64_linux:       "2aafe71d59f4eebb008f0bde9eb1fc4394728cd64646a3df0e05aae6f84bb82e"
+    sha256 x86_64_linux:      "82b2e88227c1c37784e0437c7f35cfa7674f60cb3f8e4cdcb7334b293fe4de31"
   end
 
   depends_on "gettext" => :build
