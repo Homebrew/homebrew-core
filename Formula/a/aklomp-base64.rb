@@ -1,8 +1,8 @@
 class AklompBase64 < Formula
   desc "Fast Base64 stream encoder/decoder in C99, with SIMD acceleration"
   homepage "https://github.com/aklomp/base64"
-  url "https://github.com/aklomp/base64/archive/refs/tags/v0.5.2.tar.gz"
-  sha256 "723a0f9f4cf44cf79e97bcc315ec8f85e52eb104c8882942c3f2fba95acc080d"
+  url "https://github.com/aklomp/base64/archive/refs/tags/v0.5.3.tar.gz"
+  sha256 "74f83a5396660dfe5a09f0339982c03c44ef018e459a8bfcde8b31ca7444aa42"
   license "BSD-2-Clause"
   compatibility_version 1
 
