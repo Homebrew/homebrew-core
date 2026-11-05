@@ -6,6 +6,7 @@ class Libkrunfw < Formula
   url "https://github.com/libkrun/libkrunfw/archive/refs/tags/v5.6.2.tar.gz"
   sha256 "df45d649fcbd07a4d0ca03fa836b2f640fdcf9b40187f3eb7023259c6e83d582"
   license all_of: ["LGPL-2.1-only", "GPL-2.0-only"]
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "8d4cd72051db87808843705c667a3c992d3a7a5d24ea268aece14b5577c901b7"
