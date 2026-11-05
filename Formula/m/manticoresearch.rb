@@ -5,7 +5,7 @@ class Manticoresearch < Formula
     "GPL-3.0-or-later",
     { any_of: ["Unlicense", "MIT"] }, # uni-algo (our formula is too new)
   ]
-  revision 4
+  revision 5
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "main"
 
@@ -36,11 +36,11 @@ class Manticoresearch < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "b98591d9b484c66c548bc2355d59665e8d7e8834b64e321930d9a5d90b213c18"
-    sha256 arm64_tahoe:       "642c63be9cb375ae62bb0fff04d4e7d4a9aad9d2e664b4395e9ce944a22e8976"
-    sha256 arm64_sequoia:     "ca24baa3efca479ec83155c829771cb0dd259ceb2ea3d74df9e0811de1b575a8"
-    sha256 arm64_linux:       "70b42cd6621d705e9d4bb63f9b3eb8389f378cca374b1c643caa001e0c561789"
-    sha256 x86_64_linux:      "366f2dd9ad5dceb59316f51f30e8e2efeb58c2f33ef4f8c7b7efca50bf8278d4"
+    sha256 arm64_golden_gate: "c7364aec1efdf78ef4cc7943dea60529ace63c9a5ca36542fdfc520fa26fab44"
+    sha256 arm64_tahoe:       "d04bcd57e1bd737648cd3824af73f66f89178f0ffd4cfff1a62c01351872d822"
+    sha256 arm64_sequoia:     "9f29087c5e886454f9462ca5f275b1422d600b956c4636333d8186e448fee51c"
+    sha256 arm64_linux:       "d8198c1c6d9abff8204f96b3d0c6d4870882bdb0b014eb1916f6c8105c80895f"
+    sha256 x86_64_linux:      "66b240962a4ecc6ff7d3c6d6af0358033c7f36f2b944b01afec93b4f4f8b9c32"
   end
 
   depends_on "cmake" => :build
@@ -86,7 +86,7 @@ class Manticoresearch < Formula
   # - searchdssl: support OpenSSL 4
   patch :DATA
 
-  deny_network_access!
+  allow_network_access! :test
 
   def install
     resource("mcl").stage("mcl") if build.stable?
@@ -142,16 +142,44 @@ class Manticoresearch < Formula
   end
 
   test do
+    port = free_port
+    (testpath/"data").mkpath
+    (testpath/"binlog").mkpath
     (testpath/"manticore.conf").write <<~EOS
       searchd {
-        pid_file = searchd.pid
-        binlog_path=#
+        listen = 127.0.0.1:#{port}:http
+        log = #{testpath}/searchd.log
+        pid_file = #{testpath}/searchd.pid
+        data_dir = #{testpath}/data
+        binlog_path = #{testpath}/binlog
       }
     EOS
-    pid = spawn(bin/"searchd")
-  ensure
-    Process.kill(9, pid)
-    Process.wait(pid)
+
+    query = lambda do |sql, retry_connection: false|
+      args = %w[--silent --show-error --fail]
+      # The first `searchd` launch on CI macOS VMs can spend 20s+ in dyld loading its many `abseil` dylibs
+      args += %w[--retry 60 --retry-connrefused --retry-delay 1] if retry_connection
+      system "curl", *args, "--output", testpath/"response.json",
+                     "--data-urlencode", "query=#{sql}", "--data", "mode=raw",
+                     "http://127.0.0.1:#{port}/sql"
+      response = JSON.parse((testpath/"response.json").read).first
+      assert_equal "", response.fetch("error")
+      response
+    end
+
+    pid = spawn bin/"searchd", "--config", testpath/"manticore.conf", "--nodetach"
+    begin
+      query.call("SHOW TABLES", retry_connection: true)
+      query.call("CREATE TABLE abi_test(body text, group_id uint)")
+      query.call("INSERT INTO abi_test(id,body,group_id) VALUES" \
+                 "(1,'roaring bitmap test',7),(2,'unrelated document',8)")
+      matches = query.call("SELECT id FROM abi_test WHERE MATCH('bitmap') AND group_id=7")
+      assert_equal [{ "id" => 1 }], matches.fetch("data")
+      assert_empty query.call("SELECT id FROM abi_test WHERE MATCH('bitmap') AND group_id=8").fetch("data")
+    ensure
+      Process.kill "TERM", pid
+      Process.wait pid
+    end
   end
 end
 
