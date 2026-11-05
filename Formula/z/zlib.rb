@@ -1,9 +1,9 @@
 class Zlib < Formula
   desc "General-purpose lossless data-compression library"
   homepage "https://zlib.net/"
-  url "https://zlib.net/zlib-1.3.2.tar.gz"
-  mirror "https://github.com/madler/zlib/releases/download/v1.3.2/zlib-1.3.2.tar.gz"
-  sha256 "bb329a0a2cd0274d05519d61c667c062e06990d72e125ee2dfa8de64f0119d16"
+  url "https://zlib.net/zlib-1.4.tar.gz"
+  mirror "https://github.com/madler/zlib/releases/download/v1.4/zlib-1.4.tar.gz"
+  sha256 "02dd159783677a749c04adbdd02b55b8a2bcc7e054f51b76b549199a916ad584"
   license "Zlib"
   compatibility_version 1
   head "https://github.com/madler/zlib.git", branch: "develop"
@@ -14,13 +14,11 @@ class Zlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "4c6a3c45500d0d1e91c6a6cdc1e889dc5776decd0fe5aa0bec1fbabae7311453"
-    sha256 cellar: :any,                 arm64_tahoe:       "5457abac7b01f56603e06b1cbc17fbca5cc34fb82c78bf503cee99e5028a1bc3"
-    sha256 cellar: :any,                 arm64_sequoia:     "c43efaa12e3d22914f41882679ad8c86b58958660852f1edd7b305daee5860f0"
-    sha256 cellar: :any,                 arm64_sonoma:      "ca032109db39a64b5eeb8d90a179c7d873f2de3f8b298f9546430d7b8cddc09f"
-    sha256 cellar: :any,                 sonoma:            "14940211b29d719bcabe03e43d7c06086c9c436c391c5b33f273763c3110f8e4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1e606565d4ae9f860a4d15992140a8cb48fc33408d65d4e5d061d5ef2715069e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "352c7d94d5b64b31b636b3d0b3252a1a8ca82e1020a5b71c7be829667e278dcf"
+    sha256 cellar: :any, arm64_golden_gate: "4fce88358803cd0dfdcc14e2afaf932af2a6a63927c197029e36bf13a072b002"
+    sha256 cellar: :any, arm64_tahoe:       "af30c0eda23564e812e00202ef7ae256584016dcbb0b88afb1120e768224de87"
+    sha256 cellar: :any, arm64_sequoia:     "89a6f0a9841c9d3b38fd8733bd905fe2f2b218f803c77c7043a6116dd9f3b037"
+    sha256 cellar: :any, arm64_linux:       "49e4dcb67cdd2c48deebe117d4cd1507641535d94f309e268b9e0e2ae9bf7a04"
+    sha256 cellar: :any, x86_64_linux:      "b3eb31f74b7bdd08a084eef995399d27553b97f9639aa59eb525c402db67becc"
   end
 
   keg_only :provided_by_macos
@@ -31,7 +29,7 @@ class Zlib < Formula
 
   # https://zlib.net/zlib_how.html
   resource "zpipe.c", :test do
-    url "https://raw.githubusercontent.com/madler/zlib/3f5d21e8f573a549ffc200e17dd95321db454aa1/examples/zpipe.c"
+    url "https://raw.githubusercontent.com/madler/zlib/99623ef7097352da7993ba614161fd6a311e046e/examples/zpipe.c"
     sha256 "e79717cefd20043fb78d730fd3b9d9cdf8f4642307fc001879dc82ddb468509f"
   end
 
