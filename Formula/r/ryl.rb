@@ -1,8 +1,8 @@
 class Ryl < Formula
   desc "Fast YAML linter and formatter written in Rust"
   homepage "https://ryl-docs.pages.dev"
-  url "https://github.com/owenlamont/ryl/archive/refs/tags/v0.28.0.tar.gz"
-  sha256 "4e652e61f38e9d563764774ac6d2e9eff0bde5641a350deaa2a94c861ad85959"
+  url "https://github.com/owenlamont/ryl/archive/refs/tags/v0.29.0.tar.gz"
+  sha256 "125a621004b0eef0963fbb4261a335de3f4afb82fb789297efbd0ff9de8249ab"
   license "MIT"
 
   bottle do
