@@ -1,8 +1,8 @@
 class AgentDesktop < Formula
   desc "Native desktop automation CLI for AI agents"
   homepage "https://agent-browser.dev/desktop"
-  url "https://github.com/vercel-labs/agent-desktop/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "5def2c52dc1e484920f6175eedaf4051dab4855f1a0c1b6148aeb560116d1296"
+  url "https://github.com/vercel-labs/agent-desktop/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "d6b5af85dc025bef4dfa8a7a16ae2e0271343d7d98e7e480bc9f74a4c831a783"
   license "Apache-2.0"
 
   bottle do
