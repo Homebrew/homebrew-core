@@ -6,11 +6,11 @@ class Baresip < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 arm64_golden_gate: "4069579dd1642f67fc0488b2f83f5dd97e3adc8ccdaf83d8bbdbb2bd191eafb6"
-    sha256 arm64_tahoe:       "63bba8620c3f888a896a6c6eb8ef21dd508f8b8298fd2e0eae832d10d8671079"
-    sha256 arm64_sequoia:     "17a733bd0b4a1a83a86e36d3a3656df21558f2b51f40155e77067388ea772bdc"
-    sha256 arm64_linux:       "7174109c0930bc6eb5c6da64d4bd3db2c90cf61d194d8d94cb4f5f1b3e016717"
-    sha256 x86_64_linux:      "ce455dc9a3038c34dbd129c249c63f8f875bdc63059c3d69b6cac9d51160e5f0"
+    sha256 arm64_golden_gate: "6aeb7a185595ea5cc105d40e0d559a5a7d137d86435ecd284dea0ba1db14b28c"
+    sha256 arm64_tahoe:       "feac662a7fc29c3c36c9073d3f669431c1f5e75dadc0faea4b756b556f471a2e"
+    sha256 arm64_sequoia:     "dd7e8aa9e2af2334577138bf8454d55a1471b8dd16ff86ce0368c37e52ba97bc"
+    sha256 arm64_linux:       "623c9f507dbbee2de2cb7fa40ee73a71621d2f61ed4055a0a35f049afa7b7332"
+    sha256 x86_64_linux:      "5801193d47d068327a59d69fd1df41d7bbdd8013d94554daf531e4ec16e23bb6"
   end
 
   depends_on "cmake" => :build
