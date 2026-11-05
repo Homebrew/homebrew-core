@@ -1,0 +1,14 @@
+Formula/m/mpv.rb
+  h_9df9c32c3f321d 5-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3e99c2d58c9c3d8a12ac5bd9f26b4fcfdd2f78a9",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
