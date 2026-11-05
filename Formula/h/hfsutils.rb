@@ -28,6 +28,8 @@ class Hfsutils < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "ec4614155fc7221a5410f47eac547e8c6c906bfa9965acfc03433fee57a997c9"
   end
 
+  deny_network_access!
+
   def install
     # Workaround for newer Clang
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
