@@ -1,8 +1,8 @@
 class Concord < Formula
   desc "Terminal user interface client for Discord"
   homepage "https://github.com/chojs23/concord"
-  url "https://github.com/chojs23/concord/archive/refs/tags/v2.6.4.tar.gz"
-  sha256 "fb238450a554c1b52a09d593b40c4ee2d98cd9eb7ca1e32345ee85b6035d2d29"
+  url "https://github.com/chojs23/concord/archive/refs/tags/v2.7.0.tar.gz"
+  sha256 "c3997c7f23fa9367baacf3b27c5b5bedf1b2c6c3a83a21bbf82b79754006c673"
   license "GPL-3.0-only"
 
   bottle do
@@ -13,6 +13,7 @@ class Concord < Formula
     sha256 cellar: :any, x86_64_linux:      "899cf139727f0c7bc23bcd8ec9d1202071fa1a630c5998b2d8a3bad465f76580"
   end
 
+  depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "opus"
