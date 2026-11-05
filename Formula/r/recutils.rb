@@ -32,6 +32,8 @@ class Recutils < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     # Fix compile with newer Clang. Remove in the next release.
     # Ref: http://git.savannah.gnu.org/cgit/recutils.git/commit/?id=e154822aeec19cb790f8618ee740875c048859e4

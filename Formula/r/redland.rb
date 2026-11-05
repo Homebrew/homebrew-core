@@ -46,6 +46,8 @@ class Redland < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--with-bdb=no",
                           "--with-mysql=no",

@@ -43,6 +43,10 @@ class RedwaxTool < Formula
     type :backport
   end
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     args = %w[
       --disable-silent-rules
@@ -71,8 +75,8 @@ class RedwaxTool < Formula
       "emailAddress" => "hello@example.com",
     }
 
-    openssl = formula_opt_bin("openssl@4")/"openssl"
-    system openssl, "req", "-x509", "-newkey", "rsa:4096", "-days", "1", "-nodes",
+    openssl_bin = formula_opt_bin(openssl)/"openssl"
+    system openssl_bin, "req", "-x509", "-newkey", "rsa:4096", "-days", "1", "-nodes",
            "-keyout", "key.pem", "-out", "cert.pem", "-sha256",
            "-subj", "/#{x509_args.map { |key, value| "#{key}=#{value}" }.join("/")}"
 

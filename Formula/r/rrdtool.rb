@@ -41,6 +41,8 @@ class Rrdtool < Formula
     depends_on "groff" => :build
   end
 
+  deny_network_access!
+
   def install
     args = %w[
       --disable-silent-rules

@@ -21,6 +21,8 @@ class Rgxg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "b2295a106e3ff336aef5f2fccd382d123351ca6e29f863bbf62afaa90072bb16"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"

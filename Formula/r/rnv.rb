@@ -26,6 +26,8 @@ class Rnv < Formula
 
   conflicts_with "arx-libertatis", because: "both install `arx` binaries"
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"

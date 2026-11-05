@@ -19,6 +19,8 @@ class Rhash < Formula
     sha256 x86_64_linux:      "924accaa51ffbf427905f37750a5aae05bb8fd7b22190653560b90d8e3388108"
   end
 
+  deny_network_access!
+
   def install
     # Exclude unrecognized options
     args = std_configure_args.reject { |s| s["--disable-dependency-tracking"] } + %W[

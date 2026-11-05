@@ -25,6 +25,8 @@ class Roll < Formula
     depends_on "pkgconf" => :build
   end
 
+  deny_network_access!
+
   def install
     system "./regen.sh" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

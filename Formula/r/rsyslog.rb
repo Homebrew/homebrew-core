@@ -32,6 +32,8 @@ class Rsyslog < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--enable-imfile",
                           "--enable-usertools",

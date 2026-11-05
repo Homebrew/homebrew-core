@@ -43,6 +43,8 @@ class Reprepro < Formula
     cause "No support for GNU C nested functions"
   end
 
+  deny_network_access!
+
   def install
     system "./autogen.sh"
     system "./configure", "--disable-silent-rules",

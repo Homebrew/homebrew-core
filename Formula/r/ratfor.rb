@@ -26,6 +26,8 @@ class Ratfor < Formula
 
   depends_on "gcc" # for gfortran
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"

@@ -25,6 +25,11 @@ class Raptor < Formula
   uses_from_macos "curl"
   uses_from_macos "libxml2"
 
+  resource "test-pdf", :test do
+    url "https://raw.githubusercontent.com/dajobe/raptor/b5e91dfdf7e1ea5ca5a5f7b48c428dd3da1219e0/tests/feeds/test01.rdf"
+    sha256 "d23e50335ba29c86a9724bdc6ed7c58f8c94e859abef2e39fe4ebc161bbd92c9"
+  end
+
   # Fix compilation with libxml2 2.11.0 or later. Patch is already applied upstream, remove on next release.
   patch do
     url "https://github.com/dajobe/raptor/commit/ac914399b9013c54572833d4818e6ce008136dc9.patch?full_index=1"
@@ -33,15 +38,16 @@ class Raptor < Formula
     resolves "https://github.com/dajobe/raptor/pull/58"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"
   end
 
   test do
-    test_url = "https://raw.githubusercontent.com/dajobe/raptor/" \
-               "b5e91dfdf7e1ea5ca5a5f7b48c428dd3da1219e0/tests/feeds/test01.rdf"
-    output = shell_output("#{bin}/rapper --output ntriples #{test_url}")
+    testpath.install resource("test-pdf")
+    output = shell_output("#{bin}/rapper --output ntriples test01.rdf")
     assert_match '_:genid2 <http://purl.org/dc/elements/1.1/title> "Example"', output
   end
 end

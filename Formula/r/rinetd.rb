@@ -25,6 +25,8 @@ class Rinetd < Formula
     sha256 x86_64_linux:      "b261f72637835eb98ed1773e236c664160528346a77e65fabef294766809def5"
   end
 
+  deny_network_access!
+
   def install
     # The daemon() function does exist but its deprecated so keep configure
     # away:

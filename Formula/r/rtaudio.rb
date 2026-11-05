@@ -25,6 +25,8 @@ class Rtaudio < Formula
     depends_on "alsa-lib"
   end
 
+  deny_network_access!
+
   def install
     ENV.cxx11
     system "./autogen.sh", "--no-configure"

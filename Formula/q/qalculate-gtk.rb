@@ -31,6 +31,8 @@ class QalculateGtk < Formula
     depends_on "harfbuzz"
   end
 
+  deny_network_access!
+
   def install
     if OS.mac?
       ENV.append_to_cflags "-I#{formula_opt_include("gtk-mac-integration")/"gtkmacintegration"}"

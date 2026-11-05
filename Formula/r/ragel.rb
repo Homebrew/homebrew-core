@@ -30,6 +30,8 @@ class Ragel < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"

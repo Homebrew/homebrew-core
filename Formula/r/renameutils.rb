@@ -43,6 +43,8 @@ class Renameutils < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     # Work around build failure on Apple Silicon due to trying to use deprecated stat64.
     # io-utils.c:93:19: error: variable has incomplete type 'struct stat64'

@@ -27,6 +27,8 @@ class RiemannClient < Formula
   depends_on "openssl@4"
   depends_on "protobuf-c"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--with-tls=openssl", *std_configure_args
