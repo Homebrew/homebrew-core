@@ -3,18 +3,17 @@ class Hyfetch < Formula
 
   desc "Fast, highly customisable system info script with LGBTQ+ pride flags"
   homepage "https://github.com/hykilpikonna/hyfetch"
-  url "https://files.pythonhosted.org/packages/69/a8/df23913bb5e6791f339ca477558e14d1a43a23ebe72336e80001e188179e/hyfetch-2.1.0.tar.gz"
-  sha256 "257eb5effcdd58bfaee9e7e6460e04c1fd5b5693385d6de1d32739085c44b4bf"
+  url "https://files.pythonhosted.org/packages/9a/2e/631d3a18c301573aa37b2ec2b212c7bac850bb0ae475f9875d69298901c8/hyfetch-2.1.1.tar.gz"
+  sha256 "3dbc5165eeb1790ff9abbc257f834ff9cc6b0f6edd57ea10fcdd2a691710bc20"
   license "MIT"
   head "https://github.com/hykilpikonna/hyfetch.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f5dfbd1a513b338279e54ad3e7ea03ead8e95c2ef91b59cd2cde5cd834e15bf9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2cb10da0647858066e0b5801b606f2a6d80448503436e1b501c07075f411fee6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "18a328e3f0f9fa1b58c9fe051770dac5ea9a3acfeba9cc3c5488384ba779fa14"
-    sha256 cellar: :any,                 arm64_linux:       "4ac2b1aa69bdb2fcb29bdb5319f8dfe70f00ccf89d39bfe3aaa002ec12598ad7"
-    sha256 cellar: :any,                 x86_64_linux:      "e5846904ce4697618de416eacb96cfbf214b48ed60d6b9f47a1e055835832402"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "328b50f6be9a86fcf9f8b91669d0d5567b20ca700613afb4a87178083622484f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7053413400ba74dbbb7558ceb66d6ff374e4099b36b76fd975824e2d79463ba4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ec1d7f53cbb44dea71e4c32806bb4d9f1e7e138c21d9c3d8c1ec8007b7c980f4"
+    sha256 cellar: :any,                 arm64_linux:       "2ce70e608e92411b082f11f05b22b8be4e5dd8907bd216129e1362db1389903a"
+    sha256 cellar: :any,                 x86_64_linux:      "557ef73d0e2e844ebf32bd5e8457d1ba1a3e858208d8af8e9208341993af4d66"
   end
 
   depends_on "rust" => :build
@@ -26,8 +25,8 @@ class Hyfetch < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
-    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
+    url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
+    sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
   end
 
   def install
