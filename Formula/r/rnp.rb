@@ -4,7 +4,7 @@ class Rnp < Formula
   url "https://github.com/rnpgp/rnp/releases/download/v0.18.1/rnp-v0.18.1.tar.gz"
   sha256 "423c8e32e1e591462f759adf8441b1c44bca96d9f5daff13b82e81a79f18ecfd"
   license all_of: ["MIT", "BSD-2-Clause", "BSD-3-Clause"]
-  revision 3
+  revision 4
   head "https://github.com/rnpgp/rnp.git", branch: "main"
 
   livecheck do
@@ -13,13 +13,11 @@ class Rnp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d325a5753bff5ecf4f6853bb05e3b97d7700a7190754a5febeb9ce2494a5c258"
-    sha256 cellar: :any, arm64_tahoe:       "3f2b6141a688892e9579a4c813ed4a7f312bf257d573b57925822e141b47e304"
-    sha256 cellar: :any, arm64_sequoia:     "3ff8644e0e279242192a466f881f164d9e0849b702a05b31dac8fc12fb093750"
-    sha256 cellar: :any, arm64_sonoma:      "d57f8eebf6e8b2fd2ed952744cc758b60e129937c75990ddd28fd30a76884d5e"
-    sha256 cellar: :any, sonoma:            "df6c649d0fc58be897ad9e4325c0f7e5eb38fb9cc6725004b2365d465ecbf3c8"
-    sha256 cellar: :any, arm64_linux:       "e96f385a7824ea86841aa35b745d5b7780d849cc89265afa49a71ccdb43b8c76"
-    sha256 cellar: :any, x86_64_linux:      "f772b9fdafa8fdd4caa31aab60ed6174064f8845f449bf10771a07d61572c970"
+    sha256 cellar: :any, arm64_golden_gate: "daafa7c464a3339103e4643094028c08a9a6443a21bd0887d64da2d656e5094d"
+    sha256 cellar: :any, arm64_tahoe:       "4964361b5ed77d10a016384d47afbfee1e2e7542221346c6584689ac693a7266"
+    sha256 cellar: :any, arm64_sequoia:     "3fab1d7a26b52b094c17977ca50cc3961ab725ad281488a0250adbe4b3da2c4e"
+    sha256 cellar: :any, arm64_linux:       "75be327927324dd1cf42f2afcab1109fdae77691a8f85d272b11b0867cf94a87"
+    sha256 cellar: :any, x86_64_linux:      "118f0e30273e9a3d157d4faa295a7d8529a9d6c0dfb4aff72569584548843326"
   end
 
   depends_on "cmake" => :build
