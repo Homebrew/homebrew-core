@@ -3,8 +3,8 @@ class Keychain < Formula
 
   desc "User-friendly front-end to ssh-agent(1)"
   homepage "https://www.funtoo.org/Keychain"
-  url "https://github.com/danielrobbins/keychain/archive/refs/tags/3.0.8.tar.gz"
-  sha256 "66bf1a3e3887b924a7649fbf4a72b4982a5345fdfb634ffffd772085e2ba72da"
+  url "https://github.com/danielrobbins/keychain/archive/refs/tags/3.0.9.tar.gz"
+  sha256 "e636a29b95381fc578f5d2d48c903a057baaf012e5b0b9979b3f12429446085e"
   license "GPL-3.0-only"
   head "https://github.com/danielrobbins/keychain.git", branch: "master"
 
