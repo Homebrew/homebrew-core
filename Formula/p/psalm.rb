@@ -1,8 +1,8 @@
 class Psalm < Formula
   desc "PHP Static Analysis Tool"
   homepage "https://psalm.dev"
-  url "https://github.com/vimeo/psalm/releases/download/6.20.6/psalm.phar"
-  sha256 "8910e5138585b2c608bd518f806b57e0d54886d22d60621b1d3b6390daccdd4e"
+  url "https://github.com/vimeo/psalm/releases/download/7.0.0/psalm.phar"
+  sha256 "fdca509b0e35514d95cc4802c0165c6e499abe36ef5694bf8f254ae961fdae7f"
   license "MIT"
 
   livecheck do
@@ -11,7 +11,7 @@ class Psalm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5adee455b3678c19800646b563f4420090de978dc541265cd7ac678089dcdec2"
+    sha256 cellar: :any_skip_relocation, all: "938f36cb108bdbf989b934574d6330293ccc6a560c0eb262cafe87b607afef26"
   end
 
   depends_on "composer" => :test
@@ -36,6 +36,8 @@ class Psalm < Formula
   end
 
   test do
+    require "rexml/document"
+
     (testpath/"composer.json").write <<~JSON
       {
         "name": "homebrew/psalm-test",
@@ -71,9 +73,6 @@ class Psalm < Formula
           $this->email = $email;
         }
 
-        /**
-        * @psalm-suppress PossiblyUnusedMethod
-        */
         public static function fromString(string $email): self
         {
           return new self($email);
@@ -98,10 +97,19 @@ class Psalm < Formula
       }
     PHP
 
+    (testpath/"src/main.php").write <<~PHP
+      <?php
+      require __DIR__ . '/../vendor/autoload.php';
+
+      echo (string) \\Homebrew\\PsalmTest\\Email::fromString('brew@example.com');
+    PHP
+
     system "composer", "install"
 
-    assert_match "Config file created successfully. Please re-run psalm.",
-                 shell_output("#{bin}/psalm --init")
+    system bin/"psalm", "--init"
+    config = REXML::Document.new((testpath/"psalm.xml").read)
+    assert_equal "src", config.root.elements["projectFiles/directory"].attributes["name"]
     system bin/"psalm", "--no-progress"
+    assert_equal "brew@example.com", shell_output("php src/main.php")
   end
 end
