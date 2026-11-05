@@ -1,8 +1,8 @@
 class Dasm < Formula
   desc "Macro assembler with support for several 8-bit microprocessors"
   homepage "https://dasm-assembler.github.io/"
-  url "https://github.com/dasm-assembler/dasm/archive/refs/tags/v2.20.17.tar.gz"
-  sha256 "4755532fe8c990c8616b4cfbe22c3fe5820e40476343da01e088b617bd2d1144"
+  url "https://github.com/dasm-assembler/dasm/archive/refs/tags/v2.20.18.tar.gz"
+  sha256 "6cae2ff107c7447d601366f75a1dad86504deff7fe4c0181c145dbc83e249aaf"
   license "GPL-2.0-or-later"
   version_scheme 1
 
