@@ -1,17 +1,16 @@
 class Near < Formula
   desc "Human-friendly console utility for interacting with NEAR Protocol"
   homepage "https://near.cli.rs"
-  url "https://github.com/near/near-cli-rs/archive/refs/tags/v0.30.1.tar.gz"
-  sha256 "57e1249856b70b3cf6562becc618602d3c1a1f3aca98e7d909f33dfdb85e5439"
+  url "https://github.com/near/near-cli-rs/archive/refs/tags/v0.31.0.tar.gz"
+  sha256 "2e2b9b9c98fc511153c4486725b92e0dbc12ca0ca1cd3df76e18cb10ddf72059"
   license any_of: ["MIT", "Apache-2.0"]
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1918565d359e5641c05739646acc1dbdae6f55218cf9beeac967fa2a2b7afc71"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1bedd2e7f3bcf98bd2cde565aa3bc3553646e213309a23b428e3076524655688"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5f9ec90712f734adf366edd9e4790a998b1823ee92f80d4ba747515b4536aa01"
-    sha256 cellar: :any,                 arm64_linux:       "39ba64c108e18433007f033d93f60b50068769fc5bf4400cd8321a2c8dc0e1ae"
-    sha256 cellar: :any,                 x86_64_linux:      "8dd188d6c42de851e24b0ddde97c74cd6802c6f0dc95fe9fdf0706d6191b6add"
+    sha256 cellar: :any, arm64_golden_gate: "83bbaed669c5a0e155c5851c7b516809822e1ea27154d0a4742003c1c870ce8b"
+    sha256 cellar: :any, arm64_tahoe:       "178dd4839610bc387d19951b7759788b2e549ae683246fc91e489f9a7610dac5"
+    sha256 cellar: :any, arm64_sequoia:     "dbe062c2696b4e9f283c0069682a49faf493e1e538d347d217449b7fac5516d2"
+    sha256 cellar: :any, arm64_linux:       "f8c13f377ed76dee16069d21c9063f33a86beb92d4a5a5eb2db7d8cd9942038c"
+    sha256 cellar: :any, x86_64_linux:      "340f0b1a9aaffe64c0abe1494020d92c6e44e5571d14cc012c6bf115796e982a"
   end
 
   depends_on "cmake" => :build
