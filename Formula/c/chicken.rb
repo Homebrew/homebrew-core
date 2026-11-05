@@ -1,8 +1,8 @@
 class Chicken < Formula
   desc "Compiler for the Scheme programming language"
   homepage "https://www.call-cc.org/"
-  url "https://code.call-cc.org/releases/6.0.0/chicken-6.0.0.tar.gz"
-  sha256 "92835552b1b687ad26737e429b5aba36510bf429f8816ec0f6d336c8cb41f443"
+  url "https://code.call-cc.org/releases/6.1.0/chicken-6.1.0.tar.gz"
+  sha256 "c6aee9a5374102ba318e0cfae62ded5e1825346577137952d7fb15b3094d49d8"
   license "BSD-3-Clause"
   head "https://code.call-cc.org/git/chicken-core.git", branch: "master"
 
@@ -12,13 +12,11 @@ class Chicken < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "c6f374a55e1084c5bb451d684b81c7ba8d0d2bb3e63ff05d7bf998647e98d30d"
-    sha256 arm64_tahoe:       "222f71803ccab1a36dd1db93e11a63e5ff54917098c6a2826dfe46efb21196f7"
-    sha256 arm64_sequoia:     "9302cc0087855d5915caec5ec30d7975a5b0e3c43ff9048d0efcca1414aa3e0e"
-    sha256 arm64_sonoma:      "3afeb2650c8f0108ce3a60bc5e4b1f6f4c1ea9f95a819b991e39edee5573ee40"
-    sha256 sonoma:            "3c33a164c6540c353475e0629771be3be03dc22415623aec54b8c401a3a3c8a3"
-    sha256 arm64_linux:       "09de34b0f11dbae0225d1f8a0c624bd04684f736137cc9dd6cc12ea34fbb378a"
-    sha256 x86_64_linux:      "4f34e4c4e7ac9860dbf93bab04c722cef7a6d6b6983a647babe89b45e1faa9db"
+    sha256 arm64_golden_gate: "0be5053995955c0b6cf1758ecc3235be6aa31e00e35650f30f9153c80fafb958"
+    sha256 arm64_tahoe:       "b0c4a636b36039f80d5fed3507de11fea9259807e90868168d68621576d43ae9"
+    sha256 arm64_sequoia:     "e35d8a7e579f006257e4b10932c19034e9b1629b23a923ae9fcb3682d522f72f"
+    sha256 arm64_linux:       "3747d49517df2252d3b0d8d6e094283477e5a3361bcb117083b8db7533773860"
+    sha256 x86_64_linux:      "046ed1ca1a2c3134b600e12488c76afc1cfa229aa4f137e81c7fcf6630bd250c"
   end
 
   conflicts_with "mono", because: "both install `csc`, `csi` binaries"
