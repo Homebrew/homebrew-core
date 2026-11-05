@@ -1,20 +1,17 @@
 class Committed < Formula
   desc "Nitpicking commit history since beabf39"
   homepage "https://github.com/crate-ci/committed"
-  url "https://github.com/crate-ci/committed/archive/refs/tags/v1.1.11.tar.gz"
-  sha256 "416aab32bf0cc2012259ee3ba264f3db0493164272694c6c4bef15e9258d4244"
+  url "https://github.com/crate-ci/committed/archive/refs/tags/v1.1.12.tar.gz"
+  sha256 "790c3d3a4cd65c0587e0aa5cfeebf3ad648bc5476f7d8ba2960dee114a30c3a5"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/crate-ci/committed.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cd26fcbab6a177262a964d0ca374f11db21c08509753fa3e63898c4f87b5c7a7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3d7c4964ba5f02e337add48870263525ab618dda39c5e69d8e51dc03320771d5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f4aced867d8d33a939457f3e171800d2fc996e558da920956c0ff8088d7154eb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "ef02f7b8ab4411a9fb0ed02e74abc573aa596043dce6bd30564df80157f9eff4"
-    sha256 cellar: :any_skip_relocation, sonoma:            "452aca8c27ab273d9acffc134b3b2bf8e059fc7918cd9d9e3ad8af951a8668fe"
-    sha256 cellar: :any,                 arm64_linux:       "06366f236d9d86d4370a9cf65c58a74aa8499a34ac5e09e676e50621aa59d525"
-    sha256 cellar: :any,                 x86_64_linux:      "f1846d0480f02007eabe6bcf1fb99f37e00d0fe526b724a3baf52976d2306a06"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "91ed5927b949d7b8e4322f68601a5db2350e8b331e3239fd1d9f99d7f3f8906d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fd2122a39de5b2bb0aba7fe997c11f2e6f75e6073d460a0eef4b5edccf43637d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "91a0a892be8fd45dab0b3fe0d9b3436595d9fd740f20cb8cf4bcbd8ddc705ee2"
+    sha256                               arm64_linux:       "f4464a69c1bcd9803aab21866c862379eadd33492d6a3c5ae6f6f51b8ef1c507"
+    sha256                               x86_64_linux:      "2c2662a3036cba8bfc52511a840358cae2104547608d6140bcd0b27867866a9a"
   end
 
   depends_on "rust" => :build
