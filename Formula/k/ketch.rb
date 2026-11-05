@@ -7,11 +7,11 @@ class Ketch < Formula
   head "https://github.com/1broseidon/ketch.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b47ceb2e692bdea7d7cdc9cc62e73f2aa694a157a107ee34ba624a577548974"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5b47ceb2e692bdea7d7cdc9cc62e73f2aa694a157a107ee34ba624a577548974"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5b47ceb2e692bdea7d7cdc9cc62e73f2aa694a157a107ee34ba624a577548974"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "fb9bd0253a50f77c3d8939de970e66e0acc83b8538f541a9292e1ab1cbd56a8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "93fae758d97caa24da658e79a1c30620680607d32c1d7879d8d0395329cd5c5c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5bce13af8b94effa79d439b84773150b2beaeba0b8398a550a45afd5a0876080"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5bce13af8b94effa79d439b84773150b2beaeba0b8398a550a45afd5a0876080"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5bce13af8b94effa79d439b84773150b2beaeba0b8398a550a45afd5a0876080"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "c6c08ee7d9b454492f1bdf9ba6b1416b6804a6dad6e9d06bf15e4f3a6e41727f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "bab9d30191112079fd71181a0a5cd7961574a71d57bef6bccbac613efeb67b91"
   end
 
   depends_on "go" => :build
