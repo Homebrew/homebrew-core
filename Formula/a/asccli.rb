@@ -6,9 +6,9 @@ class Asccli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8271ae11571cfcddb73066bf6c518d77797c964c633297cce16b66917fcdb859"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "83599637877452d0cee762d2aadbe0fac9f7c4a9bbef64aca4bd33df5b2e5f91"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5fecd47228f66335b7b8392510a091d0f607519fdccda1c484c904d9ea78aaf7"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "106bd0eab1f4e7022f567d36a87786900269b271b69ce8d030fc0aa5810c8628"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "063bc676d9f4f167a1e587bc793ca408db30ffa9ab5d3a3241d0882dbeb4bb51"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aa85bed0f4f9fc1dfd0802f2ad8a2d38c51ef647e8dbf3353eb2df34cc52decb"
   end
 
   depends_on xcode: ["26.0", :build]
