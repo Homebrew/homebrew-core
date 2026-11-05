@@ -9,11 +9,11 @@ class Skillspector < Formula
   head "https://github.com/NVIDIA/SkillSpector.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "0a692cd3e87b4e4c8df05364313bc28011c48aff4bed30dda40a1cdfea513932"
-    sha256 cellar: :any, arm64_tahoe:       "f47d3a8a89e65077bba4abfc06d1baf404db34953d6f30fac11ead56e249d595"
-    sha256 cellar: :any, arm64_sequoia:     "2faefa064b19f51e5e5652aded767568a0f59f01dd0594b7af62b965428e2060"
-    sha256 cellar: :any, arm64_linux:       "72240ba8ebc45af595290bde3f7cb5c6b3f66860b39b2c2b3dfb78693ece1e6b"
-    sha256 cellar: :any, x86_64_linux:      "b6bd266a262108bc8e1c9a5f69c1234a352ed85a4b467d662a40f161133f1237"
+    sha256 cellar: :any, arm64_golden_gate: "45744cfc2785b272644ebd360c8faa552a7f9abbf02bee37af296a4a90e04e22"
+    sha256 cellar: :any, arm64_tahoe:       "ad2d5116f2261df21f5eea71808e4b21ac337d961eb6edaa287d29facb9086d9"
+    sha256 cellar: :any, arm64_sequoia:     "9f51aaf164c2ac35302f67a546942c86eb5dfd1d16f9c14b0bf06432ade18a32"
+    sha256 cellar: :any, arm64_linux:       "91af477198c9df1be981ab2a4395f77c9200c9dae0a748fbf8b987e6440864ac"
+    sha256 cellar: :any, x86_64_linux:      "0c471bd4709df4cd938920d94da9ff347171fb0e1e19332d8ffbaf63d3b4690e"
   end
 
   depends_on "pkgconf" => :build
