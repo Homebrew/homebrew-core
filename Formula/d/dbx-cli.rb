@@ -33,7 +33,7 @@ class DbxCli < Formula
   end
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "crates/dbx-cli")
+    system "cargo", "install", *std_cargo_args(path: "crates/dbx-cli", features: "dbx-mcp/os-keyring")
   end
 
   test do
