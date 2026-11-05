@@ -1,0 +1,14 @@
+Formula/p/psalm.rb
+  h_9df9c32c3f321d 4-5,39-40,100-106,109-111,113
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d834ef54a87f276251151bfd905799eef43f5410",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
