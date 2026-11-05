@@ -6,11 +6,11 @@ class BazelDiff < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "175f6abf5c7b5b5188cc9bf669079fcefd066f6f63517a1da3bd3e5b7aae6ac1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "845ba4aaa721f3d15759ef9dabf91954066e64ee082241436b4bd791f6197a34"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "619c3960f3de3caaf51030284cded294660c802f6119a95bfec2cab7e1ec444e"
-    sha256 cellar: :any,                 arm64_linux:       "7cddf689d1e702f687d8c7bde031a13ef4ad7cbe31b376e3d575d581aa3fa229"
-    sha256 cellar: :any,                 x86_64_linux:      "512f7128a9fa2d8297c2376645fea7ab5b5e472544238c39425b2bfa2775edda"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "812f8987bb52fc8e20c839afa85925911142b09efddd0553f053c17f63b2e0ea"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7886e13d34f8e6a1ad12b61e1d9bf937afc73908971c0d24bd39289ece974af2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "21679af9b8af09d7b23a86574e08cc0d4eb475c93d37f55ccf1d2d34fef7f25a"
+    sha256 cellar: :any,                 arm64_linux:       "8543b5fb132d24aa97090383024efda27dc47928b3488dea798019cf244f4059"
+    sha256 cellar: :any,                 x86_64_linux:      "a07a81682dbae63d95733fcd7a9474872b8d2878da5a005a2041dbd809879a84"
   end
 
   depends_on "protobuf" => :build
