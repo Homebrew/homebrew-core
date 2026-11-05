@@ -1,19 +1,17 @@
 class Kubecm < Formula
   desc "KubeConfig Manager"
   homepage "https://kubecm.cloud"
-  url "https://github.com/sunny0826/kubecm/archive/refs/tags/v0.35.1.tar.gz"
-  sha256 "fe6c08075c45ee595c59b7f87e6e226c2ee8a0a237f22f409b55a1b83ffe037b"
+  url "https://github.com/sunny0826/kubecm/archive/refs/tags/v0.36.0.tar.gz"
+  sha256 "ae03e76d4401c1d705a4a2684d5ba2eef8e8eb47a30df5bb80abfb65ba19f34a"
   license "Apache-2.0"
   head "https://github.com/sunny0826/kubecm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8ce8c463f8ba0069d0a080ed6728f431f45d7af8c3732aa3ffc263a1113e137c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "47b5bf08e4d500aa7f6d5febe44b966222b011e7cd1683a58db6e24e06d6a4fb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "47b5bf08e4d500aa7f6d5febe44b966222b011e7cd1683a58db6e24e06d6a4fb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "47b5bf08e4d500aa7f6d5febe44b966222b011e7cd1683a58db6e24e06d6a4fb"
-    sha256 cellar: :any_skip_relocation, sonoma:            "e2a5651ff80b288a302298ac7039762dabae6f8a881067f4c8061a2cff8a03e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "dc2af32341935ac3b5218a09bbb8388edef3b9b9b66e02482ee1b6ff5f90f537"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d5713cd188a69e12bc4c3190c2302809357b8b5c04eda7ecf7ab7833ecd5c52c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "29c168a553c3504bb4389284cb38536b772eb80ad969d2f584eaf8b821686466"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "29c168a553c3504bb4389284cb38536b772eb80ad969d2f584eaf8b821686466"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "29c168a553c3504bb4389284cb38536b772eb80ad969d2f584eaf8b821686466"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "66efde356eb0be1587f763c9646afd315d04721cc9437eb395e4da35edb89910"
+    sha256 cellar: :any,                 x86_64_linux:      "d5eb5aa29bd3bbedbdfb9ef0876160a6690ed49ecdcf39e15d8f9e41acd3b4dd"
   end
 
   depends_on "go" => :build
