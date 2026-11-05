@@ -1,38 +1,18 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
+  url "https://github.com/mpv-player/mpv/archive/refs/tags/v0.42.0.tar.gz"
+  sha256 "bcfebbfa2b65a6d88dc97ea18117831072373e38b5785a2afb874ed4df5070dd"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 12
   compatibility_version 1
   head "https://github.com/mpv-player/mpv.git", branch: "master"
 
-  stable do
-    url "https://github.com/mpv-player/mpv/archive/refs/tags/v0.41.0.tar.gz"
-    sha256 "ee21092a5ee427353392360929dc64645c54479aefdb5babc5cfbb5fad626209"
-
-    # Backport support for Vapoursynth 74+
-    patch do
-      url "https://github.com/mpv-player/mpv/commit/75b2ccfeb1ce4ed5a40ac9860fa74f3d1265e13f.patch?full_index=1"
-      sha256 "3906b98b02071a0d5747a400406494ca69cef7afd8d3eee4a99fdbe40dc90c1f"
-      type :backport
-      resolves "https://github.com/mpv-player/mpv/pull/17731"
-    end
-
-    # Backport fix for use-after-free crash on audio device change (macOS 26/27)
-    patch do
-      url "https://github.com/mpv-player/mpv/commit/c5d391adba7bd024954d0df1e0405f5749f4d4ca.patch?full_index=1"
-      sha256 "769b218df220738cc1cf9f81cf696c16518c5dfe56a5ef028e33b22536e0e924"
-      type :backport
-      resolves "https://github.com/mpv-player/mpv/issues/18274"
-    end
-  end
-
   bottle do
-    sha256 arm64_golden_gate: "deedcfe84196ccf69c493a202f64da8431c91f1b015216d700b292e3575081d6"
-    sha256 arm64_tahoe:       "937f1a989bd7ea7183b1ffbd88704d11763fa9b3fafe0104636493ba20048106"
-    sha256 arm64_sequoia:     "53a5d8518e0ba873aa89054ccd91d88b89c5452c571a2918421343f12f3b7f19"
-    sha256 arm64_linux:       "3c972827588e9c9c6717b46e9c1f2b77bf2bc4bca2072d3198af88958fb1ae47"
-    sha256 x86_64_linux:      "5a9299aa52c84925615f85b731b60f8ae441a858487df5c47e20c50723ae870a"
+    sha256 arm64_golden_gate: "0d9ff71b2875fd4e816285816338399f6532f86e721c50fd369fb588f01fcce6"
+    sha256 arm64_tahoe:       "f5d6799317ea1d88a5339e318c335938b37615d1e1ae2cc1a048d7705bb2f79f"
+    sha256 arm64_sequoia:     "8b25fdd54ea368d97283e17f0ceab4ce713d670ebd8d410e5064da8dd6e9d891"
+    sha256 arm64_linux:       "054c749069bf73de193dc274d5bc6a89592ec0083debacea155d1d370d92b40e"
+    sha256 x86_64_linux:      "5b160ea629e2a143338c5292d2ba7ccaa5a5f70e820b918ccf9f1f54cd3661a3"
   end
 
   depends_on "docutils" => :build
