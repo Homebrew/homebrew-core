@@ -1,8 +1,8 @@
 class LightcraftCli < Formula
   desc "Headless LightCraft CLI and MCP server to develop and export photos"
   homepage "https://getartcraft.com/apps/lightcraft"
-  url "https://github.com/storytold/lightcraft/archive/refs/tags/v0.18.0.tar.gz"
-  sha256 "2d4121bee0dfc5d56479b777ff6e34ee1df8638bc37eaace775b5c258f111f0c"
+  url "https://github.com/storytold/lightcraft/archive/refs/tags/v0.18.1.tar.gz"
+  sha256 "da592ba01b21c8a281067e223826b62e3988a0c93032297c9b23e7b8fb844baa"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/storytold/lightcraft.git", branch: "main"
 
