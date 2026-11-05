@@ -4,8 +4,8 @@ class HierarchyBuilder < Formula
   url "https://github.com/math-comp/hierarchy-builder/releases/download/v1.10.3/hierarchy-builder-1.10.3.tar.gz"
   sha256 "577597528f25d217baee91040cc5d7e5f621be7e7a629cccf295e337f73a6d45"
   license "MIT"
-  revision 6
-  compatibility_version 1
+  revision 7
+  compatibility_version 2
 
   livecheck do
     url :stable
