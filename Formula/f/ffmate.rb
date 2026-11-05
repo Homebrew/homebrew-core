@@ -2,8 +2,8 @@ class Ffmate < Formula
   desc "FFmpeg automation layer"
   homepage "https://docs.ffmate.io"
   url "https://github.com/welovemedia/ffmate.git",
-      tag:      "2.0.18",
-      revision: "a420fb497cf131f97c875fadf35ed622bde5cc85"
+      tag:      "v2.1.0",
+      revision: "3466e0c6e2b1e4e7a713bd8406a2aca61517ff21"
   license "AGPL-3.0-only"
 
   bottle do
@@ -20,10 +20,17 @@ class Ffmate < Formula
   depends_on "node" => :build
   depends_on "pnpm" => :build
 
-  def install
-    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+  allow_network_access! :test
 
+  def fetch
     system "pnpm", "with", "current", "--dir", "ui", "install", "--ignore-scripts"
+    system "go", "mod", "download"
+  end
+
+  def install
+    rm buildpath/".version"
+    (buildpath/".version").write version.to_s
+
     system "pnpm", "with", "current", "--dir", "ui", "run", "generate"
 
     ui_build_path = buildpath/"internal/controller/ui/ui-build"
