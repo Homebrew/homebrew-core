@@ -2,12 +2,11 @@ class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
   homepage "https://freeciv.org/"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/freeciv/freeciv.git", branch: "main"
 
   stable do
-    url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.2/3.2.6/freeciv-3.2.6.tar.xz"
-    sha256 "b3ce15f54083b1fca146f62837a5f7d41d298537fa34940cca70eeb09c7a9c6e"
+    url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.2/3.2.7/freeciv-3.2.7.tar.xz"
+    sha256 "2720076d50f29db42cdc5e510e7c098f7793f7c0ac410fdf390a52bc57507917"
 
     # Backport support for Lua 5.5
     patch do
@@ -28,11 +27,11 @@ class Freeciv < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "55a6b9a129dbd02541eebc97c2c756bee277da597a89ad55dc4160a1b363ec5f"
-    sha256 arm64_tahoe:       "4fd1bd5686ac72f798a202b81535440e7cd75e76fe63ee8c4190c8ce0c2be15c"
-    sha256 arm64_sequoia:     "28d9b6dbf5405a6b0ee7c5b119c14356da94055cf417d463e75b47a3e65f81e8"
-    sha256 arm64_linux:       "551ce01c721324c066d360c5b0792bba649fed5d73c6c188d04a60fbfe02e281"
-    sha256 x86_64_linux:      "f28819b1a0ed582a5294f9bff80fe629e0caf37579936bec28ae61d64174803c"
+    sha256 arm64_golden_gate: "23add6a497ac8e9f22db314e622eead2899cf7c0aa8545103b9328bf498a94a5"
+    sha256 arm64_tahoe:       "3bf3f47bd721c6016056385f42eb081e7e25c3d48a23a2fd1aed7cf6f8f03f64"
+    sha256 arm64_sequoia:     "f28fe448562920102cdd043c55ae6584e383c2dcd94304c4cbca1f8850f95bd2"
+    sha256 arm64_linux:       "e37d66ca4f4babc3c2aed8284ac289c244a9ba7817465f53ff6fdd9884128213"
+    sha256 x86_64_linux:      "3cf6366672e9284816b1e407c9960a17c9478c29c95c1e4502a626804d055662"
   end
 
   depends_on "meson" => :build
