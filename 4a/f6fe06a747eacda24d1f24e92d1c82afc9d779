@@ -1,0 +1,14 @@
+Formula/o/opentofu.rb
+  h_9df9c32c3f321d 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4af6fe06a747eacda24d1f24e92d1c82afc9d779",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
