@@ -3,8 +3,8 @@ class MistralVibe < Formula
 
   desc "Minimal CLI coding agent"
   homepage "https://github.com/mistralai/mistral-vibe"
-  url "https://files.pythonhosted.org/packages/7b/3a/f3bfc56eaf62b113cfe85b7b28ddbe22adbfe0d7132388535442fa5c5d92/mistral_vibe-3.0.4.tar.gz"
-  sha256 "057293313217573d6138724586cbcff329e5e803b99ef59375db1c08438d4f9b"
+  url "https://files.pythonhosted.org/packages/72/de/4bebc1de32b8150bbcdb47c777a0a7042a209833048adc73e6d6bb11235b/mistral_vibe-3.1.0.tar.gz"
+  sha256 "5cce0504a81bbe11d63b45bec187857b30aaed0806bfbfe7cbe590b47bee4806"
   license "Apache-2.0"
   head "https://github.com/mistralai/mistral-vibe.git", branch: "main"
 
@@ -272,8 +272,8 @@ class MistralVibe < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/a4/9a/23310166d960def5897e91fe20e5b724601b02a22e84ba1f94232c0b7f67/pyasn1-0.6.4.tar.gz"
-    sha256 "9c447d8431c947fe4c8febc4ed9e760bc29011a5b01e5c74b67025bd9fb8ce81"
+    url "https://files.pythonhosted.org/packages/88/7e/3c0da41061a2021cac7cd524fd57092adbe5b515e8bf9005702e366802e2/pyasn1-0.6.5.tar.gz"
+    sha256 "6b11616a6bcf3a40e635f082bb232fa57b5e0dd7f517bd7ddd69ec3794508a47"
   end
 
   resource "pyasn1-modules" do
@@ -327,8 +327,8 @@ class MistralVibe < Formula
   end
 
   resource "sentry-sdk" do
-    url "https://files.pythonhosted.org/packages/60/31/b7341f156a5f6f36f0b4845d6f1c28a2ae4799171dba7007f3a1e9b234b4/sentry_sdk-2.64.0.tar.gz"
-    sha256 "68be2c29e14ae310f8a39e1a79916b6d85c6cb41dcce789d14ff05fe293e4c55"
+    url "https://files.pythonhosted.org/packages/c5/3b/1e47acf2456781c26e12007379ecc154bf310b8f64d40390d78b791d55c3/sentry_sdk-2.73.0.tar.gz"
+    sha256 "4a2ab97b16e4693c325ab361c7bbbb346dbc7d0bc0150922d795a25bac8d5280"
   end
 
   resource "setproctitle" do
