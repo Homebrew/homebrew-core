@@ -1,18 +1,18 @@
 class Daq < Formula
   desc "Network intrusion prevention and detection system"
   homepage "https://www.snort.org/"
-  url "https://github.com/snort3/libdaq/archive/refs/tags/v3.0.28.tar.gz"
-  sha256 "a72bc8882abdcfaf475b18d547b5a08785d574005584ce258e533d247bc62771"
+  url "https://github.com/snort3/libdaq/archive/refs/tags/v3.0.29.tar.gz"
+  sha256 "136deba78d195163687eb71a6dc81b725c27fde7765b7ef70eb741c371e887a8"
   license "GPL-2.0-only"
   compatibility_version 1
   head "https://github.com/snort3/libdaq.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7a89b4b16c0687a5a9be075ba323202356767735ee02a4ef6be699372a84ddcc"
-    sha256 cellar: :any, arm64_tahoe:       "8721db9bd1ec3ff068a556475be3906909eb0cdacceab4fe21a9a9128c1b012e"
-    sha256 cellar: :any, arm64_sequoia:     "1fc47bdc946014528761ec801507ae7a7201d166cfee5350b119bbf332a09e8e"
-    sha256 cellar: :any, arm64_linux:       "d3150d2c1d289fd74b6881984a5ac80cf8482a33f000c4fe44a104d6165e1d54"
-    sha256 cellar: :any, x86_64_linux:      "df08f47fd60d1ce98c54c9a58e73720fcfb3b10486771baf7c7ab06101641ede"
+    sha256 cellar: :any, arm64_golden_gate: "30ded0080accc1f12e29b4478ab4230b8bbc91a1a72960bd84daf42cefc20b24"
+    sha256 cellar: :any, arm64_tahoe:       "840d13d1d40d14a49178f292c243ee49b91879412fd2877b5fb922185fb02295"
+    sha256 cellar: :any, arm64_sequoia:     "0e3ff47c6024e57199b0d9fb4e3e1a873c73c5d800cf379a5b1e43955aa1e9a6"
+    sha256 cellar: :any, arm64_linux:       "27b1065702a8eb49e9e39d5b67deb187c78029e5db414799d0c8bc24072c9bcb"
+    sha256 cellar: :any, x86_64_linux:      "62cfd8d1370dad00879c6cb5c284b29f94e1def98b023953991bd899f3ceaff0"
   end
 
   depends_on "autoconf" => :build
