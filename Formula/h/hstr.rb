@@ -1,18 +1,16 @@
 class Hstr < Formula
   desc "Bash and zsh history suggest box"
   homepage "https://github.com/dvorka-oss/hstr"
-  url "https://github.com/dvorka-oss/hstr/releases/download/v3.2/hstr-3.2.0-tarball.tgz"
-  sha256 "abf0a8625545b2022d62bf0d1c576e3cc783c4ea7cc2ae2843c518743f77f4c9"
+  url "https://github.com/dvorka/hstr/releases/download/v.3.3/hstr-3.3.0-tarball.tgz"
+  sha256 "2e030cb0575d57d7d4010602b9bbaa1e7362c11ad349b109f823fad30c69dd10"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "8d1fa37547c3effc10a78bf346c7223ac1807bb4e16fc5f7aca73fea7a4a265c"
-    sha256 cellar: :any,                 arm64_tahoe:       "9348756624b912bde30a667b01d54dc146823647642f16783fd43b64172d19c1"
-    sha256 cellar: :any,                 arm64_sequoia:     "5c3cfaae97f048b41e25d9d79f9f2951bba6593872b13cab543ae5ec2c8518ef"
-    sha256 cellar: :any,                 arm64_sonoma:      "12764e0b6619fd95dcc2568ba75aea2629cea3fa11039acda82fd1cd4d55f0b2"
-    sha256 cellar: :any,                 sonoma:            "bb7c70afe249596ea8ddc54273638cce6f2bd59bc7e88680e922bd99f3e279cf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3c0f07a862b669a185a4da02d995fd01ff12d19945b3628e09c2f59b5a7d7a97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8b95920a4bed1c587f8c86e4d3e520ca1849da7cd53107c6890459c7763dca43"
+    sha256 cellar: :any, arm64_golden_gate: "ae32ff85108d4355f6ac8b2eca4b147fb615b7a11e575769b518d5663d91bcb6"
+    sha256 cellar: :any, arm64_tahoe:       "c0a9127495a86f09c7f828ad8c41dfa8ddce35f33515e9863a44bef64d502554"
+    sha256 cellar: :any, arm64_sequoia:     "a05c15326d66c23b9ab18e48f7bc050896fc74c923e605ad759af60b00a1204a"
+    sha256 cellar: :any, arm64_linux:       "48bd5ac3b1618d2a789eef3e33315042ad54b0aca05bc0534f4132d95c4fa9e3"
+    sha256 cellar: :any, x86_64_linux:      "c060fd8e48b73e4f488d8995ae80c76dcc5a6c2cd02f1aa1ee885f9e5b5d6b6d"
   end
 
   depends_on "pkgconf" => :build
