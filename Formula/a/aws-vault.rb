@@ -12,11 +12,11 @@ class AwsVault < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f8cd3381e333955f99e19598d3484f65b7cefbe6b1a3f0286326438073a4307f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "474f88e973d0b641b1359eb0c500a74951765a726471876ed6b5b2c97e011d4a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dd3cd0ad0f24c1117b009315bb9862172e214fef612e3b8be57666b8864d0e95"
-    sha256 cellar: :any,                 arm64_linux:       "0949e7dafd33bac615a8acc3726784ae9827d28223bac221a0dd3ca4421a4f91"
-    sha256 cellar: :any,                 x86_64_linux:      "b34d4a338208fe82fa1125e046a4c7ae0ad9d34a51536bbb7846c0c2335924ae"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b0be54f140096041ed275c8334bae018031798911450372e65a9634aa8c0a43"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "03c7a0f041396d061f53ab2a2ee5ad1ef1ccccf8fad5fa527a4e2dcfe3e3b3ec"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "39e25d2994ff4bf6170810dcce7b801bae245f67612aff9cf088c084665e709f"
+    sha256 cellar: :any,                 arm64_linux:       "96bc545d999f564c33dc159e5463be0f950a06226558fb8f9606cdd3afb5c6a3"
+    sha256 cellar: :any,                 x86_64_linux:      "ff0359ad351520a6e5310b0740f40758d8b042335946ba6d8d3c116c1642f90a"
   end
 
   depends_on "go" => :build
