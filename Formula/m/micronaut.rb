@@ -1,8 +1,8 @@
 class Micronaut < Formula
   desc "Modern JVM-based framework for building modular microservices"
   homepage "https://micronaut.io/"
-  url "https://github.com/micronaut-projects/micronaut-starter/archive/refs/tags/v5.2.4.tar.gz"
-  sha256 "a81a30daf3f1d4bdffdca4b5899dce2d550df5b545dda9a8226035e47a22c625"
+  url "https://github.com/micronaut-projects/micronaut-starter/archive/refs/tags/v5.2.5.tar.gz"
+  sha256 "e2a5979eddb2273704119087a0f8591e7d3deebd4bc03bd8094d52e185195786"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class Micronaut < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e19d10b6212b9d5ab26095917d5538e25c57fe71a8f0697e9a8c8c6e71c6a6ce"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e19d10b6212b9d5ab26095917d5538e25c57fe71a8f0697e9a8c8c6e71c6a6ce"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e19d10b6212b9d5ab26095917d5538e25c57fe71a8f0697e9a8c8c6e71c6a6ce"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0be24ae87125fb5d8a95de644aeb1569dec62a577a435b23b1f3fcc247e2f0c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0be24ae87125fb5d8a95de644aeb1569dec62a577a435b23b1f3fcc247e2f0c1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "292154d3d8b110d4c8d582e6ab3c0eb679f70138432bb02294a7e587779ef02a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "292154d3d8b110d4c8d582e6ab3c0eb679f70138432bb02294a7e587779ef02a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "292154d3d8b110d4c8d582e6ab3c0eb679f70138432bb02294a7e587779ef02a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ced9bb82366fbe43ef0a5c34cbf70e20dc113df04a4b93d777e1130ebc3fefbb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ced9bb82366fbe43ef0a5c34cbf70e20dc113df04a4b93d777e1130ebc3fefbb"
   end
 
   depends_on "gradle" => :build
