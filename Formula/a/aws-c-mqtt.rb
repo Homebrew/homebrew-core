@@ -4,6 +4,7 @@ class AwsCMqtt < Formula
   url "https://github.com/awslabs/aws-c-mqtt/archive/refs/tags/v1.1.2.tar.gz"
   sha256 "7ef8f2a031992cc42564bba4e3f937fec925247051da6e0c730aa964639d284f"
   license "Apache-2.0"
+  revision 1
   compatibility_version 4
 
   livecheck do
