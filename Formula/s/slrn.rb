@@ -26,6 +26,10 @@ class Slrn < Formula
   depends_on "openssl@4"
   depends_on "s-lang"
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     bin.mkpath
     man1.mkpath
@@ -35,7 +39,7 @@ class Slrn < Formula
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
 
     system "./configure", *std_configure_args,
-                          "--with-ssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-ssl=#{formula_opt_prefix(openssl)}",
                           "--with-slrnpull=#{var}/spool/news/slrnpull",
                           "--with-slang=#{HOMEBREW_PREFIX}"
     ENV.deparallelize

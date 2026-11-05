@@ -26,17 +26,15 @@ class Scamper < Formula
     depends_on "zlib-ng-compat"
   end
 
+  allow_network_access! :test
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"
   end
 
   test do
-    expected = if OS.mac?
-      "dl_bpf_open_dev"
-    else
-      "scamper_privsep_init"
-    end
+    expected = OS.mac? ? "dl_bpf_open_dev" : "scamper_privsep_init"
     assert_match expected, shell_output("#{bin}/scamper -i 127.0.0.1 2>&1", 255)
     assert_match version.to_s, shell_output("#{bin}/scamper -v")
   end

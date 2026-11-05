@@ -51,6 +51,8 @@ class SevenKingdoms < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     args = ["--disable-silent-rules"]
     args += ["--disable-curl", "--disable-enet", "--disable-multiplayer"] unless Hardware::CPU.intel?

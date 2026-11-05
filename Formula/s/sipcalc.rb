@@ -26,6 +26,8 @@ class Sipcalc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "32b27f7515668c3962b6f3e629928524026bf005b6ed247449779064bb65e1d7"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

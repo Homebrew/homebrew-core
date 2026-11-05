@@ -15,6 +15,8 @@ class Skalibs < Formula
     sha256 cellar: :any, x86_64_linux:      "c02de2dbba6a95bebabd422e6b7ceef7ceca626a2934ea1f047f15a2b29e5aaa"
   end
 
+  deny_network_access!
+
   def install
     args = %w[
       --disable-silent-rules

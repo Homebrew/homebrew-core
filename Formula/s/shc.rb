@@ -22,6 +22,8 @@ class Shc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "2a659b8f040806dcf7303f42a3cc50eb61acf894c9d2066acefd897dc71f1452"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install", "prefix=#{prefix}"

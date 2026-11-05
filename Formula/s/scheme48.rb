@@ -27,6 +27,8 @@ class Scheme48 < Formula
   # remove doc installation step
   patch :DATA
 
+  deny_network_access!
+
   def install
     # Workaround for newer Clang
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403

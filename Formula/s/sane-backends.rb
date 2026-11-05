@@ -48,6 +48,8 @@ class SaneBackends < Formula
     depends_on "systemd"
   end
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--enable-local-backends",

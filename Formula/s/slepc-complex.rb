@@ -33,6 +33,8 @@ class SlepcComplex < Formula
 
   conflicts_with "slepc", because: "slepc must be installed with either real or complex support, not both"
 
+  deny_network_access!
+
   def install
     ENV["PETSC_DIR"] = Formula["petsc-complex"].prefix.realpath
     ENV["SLEPC_DIR"] = buildpath

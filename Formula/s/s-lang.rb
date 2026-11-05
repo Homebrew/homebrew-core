@@ -24,11 +24,12 @@ class SLang < Formula
 
   depends_on "libpng"
 
+  deny_network_access!
+
   def install
-    png = Formula["libpng"]
     system "./configure", "--prefix=#{prefix}",
-                          "--with-pnglib=#{png.lib}",
-                          "--with-pnginc=#{png.include}",
+                          "--with-pnglib=#{formula_opt_lib("libpng")}",
+                          "--with-pnginc=#{formula_opt_include("libpng")}",
                           "--without-pcre" # avoid EOL `pcre`
     ENV.deparallelize
     system "make"

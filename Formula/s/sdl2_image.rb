@@ -35,6 +35,8 @@ class Sdl2Image < Formula
   depends_on "sdl2-compat"
   depends_on "webp"
 
+  deny_network_access!
+
   def install
     inreplace "SDL2_image.pc.in", "@prefix@", HOMEBREW_PREFIX
 

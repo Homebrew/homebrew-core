@@ -24,6 +24,8 @@ class Shepherd < Formula
     depends_on "gnu-sed" => :build
   end
 
+  deny_network_access!
+
   def install
     ENV["GUILE_LOAD_PATH"] = Formula["guile-fibers"].opt_share/"guile/site/3.0"
     ENV["GUILE_LOAD_COMPILED_PATH"] = formula_opt_lib("guile-fibers")/"guile/3.0/site-ccache"

@@ -28,6 +28,8 @@ class Shntool < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "ca983c20f607f60e0bd5f2ea6bc5d138606351fada22c01b315d388e8620c3c1"
   end
 
+  deny_network_access!
+
   def install
     args = []
     # Help old config scripts identify arm64 linux

@@ -25,6 +25,8 @@ class Sdl2Gfx < Formula
 
   depends_on "sdl2-compat"
 
+  deny_network_access!
+
   def install
     args = []
     args << "--disable-mmx" if Hardware::CPU.arm?

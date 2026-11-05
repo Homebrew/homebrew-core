@@ -23,6 +23,8 @@ class Sfk < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "cfdc12016754b27340f7e11d07912c36471a2645f4ac0c39e9eaddce5b599d6f"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"

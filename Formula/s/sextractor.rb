@@ -20,6 +20,8 @@ class Sextractor < Formula
   depends_on "fftw"
   depends_on "openblas"
 
+  deny_network_access!
+
   def install
     # Allow OpenBLAS header migration to subdirectory. Can remove once done
     openblas_incdir = formula_opt_include("openblas")/"openblas"

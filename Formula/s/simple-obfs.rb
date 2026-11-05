@@ -30,6 +30,8 @@ class SimpleObfs < Formula
   depends_on "xmlto" => :build
   depends_on "libev"
 
+  deny_network_access!
+
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     system "./autogen.sh"

@@ -41,6 +41,8 @@ class ShibbolethSp < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     ENV.cxx11
 

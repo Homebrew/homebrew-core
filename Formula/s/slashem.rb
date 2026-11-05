@@ -59,6 +59,8 @@ class Slashem < Formula
     resolves "https://sourceforge.net/p/slashem/bugs/895/"
   end
 
+  deny_network_access!
+
   def install
     ENV.deparallelize
     # Fix issue where ioctl is not declared and fails on Sonoma

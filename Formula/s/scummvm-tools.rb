@@ -33,6 +33,8 @@ class ScummvmTools < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     # configure will happily carry on even if it can't find wxwidgets,
     # so let's make sure the install method keeps working even when

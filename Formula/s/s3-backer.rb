@@ -21,6 +21,8 @@ class S3Backer < Formula
   depends_on "zlib-ng-compat"
   depends_on "zstd"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules",
             *std_configure_args.reject { |s| s["--disable-debug"] }

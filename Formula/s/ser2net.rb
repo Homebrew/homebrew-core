@@ -28,6 +28,8 @@ class Ser2net < Formula
     depends_on "linux-pam"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--sysconfdir=#{etc}",
                           "--datarootdir=#{HOMEBREW_PREFIX}/share",

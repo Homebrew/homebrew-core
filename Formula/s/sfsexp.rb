@@ -21,7 +21,10 @@ class Sfsexp < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
   uses_from_macos "m4" => :build
+
+  deny_network_access!
 
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
@@ -30,7 +33,7 @@ class Sfsexp < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~'EOS'
+    (testpath/"test.c").write <<~'C'
       #include <stdio.h>
       #include <string.h>
       #include <sexp.h>
@@ -58,7 +61,7 @@ class Sfsexp < Formula
         printf("S-expression test passed\n");
         return 0;
       }
-    EOS
+    C
     system ENV.cc, "-I#{include}/sfsexp", "-L#{lib}", "-o", "test", "test.c", "-lsexp"
     system "./test"
   end

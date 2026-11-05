@@ -21,6 +21,8 @@ class S3fs < Formula
   depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "openssl@4"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh"
     system "./configure", "--with-openssl", *std_configure_args

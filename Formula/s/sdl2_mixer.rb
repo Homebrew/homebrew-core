@@ -40,6 +40,8 @@ class Sdl2Mixer < Formula
   depends_on "sdl2-compat"
   depends_on "wavpack"
 
+  deny_network_access!
+
   def install
     inreplace "SDL2_mixer.pc.in", "@prefix@", HOMEBREW_PREFIX
 
