@@ -12,11 +12,11 @@ class Radare2 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "9248691bf8a04ab3e97eabe2ad20fe88f254d581d40e85f4df59d4fe90e78a0c"
-    sha256 arm64_tahoe:       "3776eaa0827790f571e63ecb9b8819405dc6dca965e41214de5278f1d79ae42d"
-    sha256 arm64_sequoia:     "ff68cee0af6b9274063fe09712a6a59182f31184d08f476664310351646bbe51"
-    sha256 arm64_linux:       "908d5253f2c64d5a43b278eeaa7fff25506f21e8d4d2f0033fa419016e612317"
-    sha256 x86_64_linux:      "234df2b07bb3c4174bce38e04d3d761148d9d6b43049e05086e8f37e718ddacf"
+    sha256 arm64_golden_gate: "0bed9020b7c86c96978a80d221fdec515465fc40cc18c57355b795c788a56c94"
+    sha256 arm64_tahoe:       "71ea634a42bc91f525bf64100e7e6a7289c469e9ce00a65bcafcb7a4aeef20cf"
+    sha256 arm64_sequoia:     "99e156b9163a7617f6573ac804cbecee9066db97a99c0d38f166ff1c610f16d4"
+    sha256 arm64_linux:       "620641c6471c49f1575cb15f767af30ae42652574228e6fb93259c471abf2af5"
+    sha256 x86_64_linux:      "cc6109ceb473994dd891c790512f357ec90b81e6d7a3aff2fcae7fe1459988db"
   end
 
   # Required for r2pm (https://github.com/radareorg/radare2-pm/issues/170)
