@@ -1,19 +1,17 @@
 class AklompBase64 < Formula
   desc "Fast Base64 stream encoder/decoder in C99, with SIMD acceleration"
   homepage "https://github.com/aklomp/base64"
-  url "https://github.com/aklomp/base64/archive/refs/tags/v0.5.2.tar.gz"
-  sha256 "723a0f9f4cf44cf79e97bcc315ec8f85e52eb104c8882942c3f2fba95acc080d"
+  url "https://github.com/aklomp/base64/archive/refs/tags/v0.5.3.tar.gz"
+  sha256 "74f83a5396660dfe5a09f0339982c03c44ef018e459a8bfcde8b31ca7444aa42"
   license "BSD-2-Clause"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "4e76cece69dae4cfec36993cb86fa36c0077204d9c3557452869683aa89e3ed2"
-    sha256 cellar: :any,                 arm64_tahoe:       "3daaafdc28fb46f6aa2f966dbc3215aac870cde7c32490c314ac22f284b0f065"
-    sha256 cellar: :any,                 arm64_sequoia:     "224ec7e34699c7e20fdeaf82fbc3c2f9095976aeeb9a3b3c2a1da51e6412cc71"
-    sha256 cellar: :any,                 arm64_sonoma:      "9280f92f3823ce2a46df639b8b2f3d8346f172f92cede706b1ff0bb3ecb95d7e"
-    sha256 cellar: :any,                 sonoma:            "315b527699ff71266db22bdd47d39a9de2f6043d17694f05554f316ac8f97fc3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "520b2d0968addeb42a64a90107bbd20d06a271dc305f0341638c4c3f61eae998"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "72f952c1e3ad8fd261cf9e76a8583f57855615a775044bce93b29c4f23cad175"
+    sha256 cellar: :any, arm64_golden_gate: "fb7897d5b01015c1c822eb377386e05e86aa88e3245b4985b2bb8296b5fcb271"
+    sha256 cellar: :any, arm64_tahoe:       "e8e07afc04ee9eff70174ff6fd2e81c805974b13c4eedb39084ff64d87c1eb10"
+    sha256 cellar: :any, arm64_sequoia:     "adce7d96d07a299cb3709876646c4c440bae5e166ea839c2868b97f74d61b514"
+    sha256 cellar: :any, arm64_linux:       "8229597aebc6724dcf70356b58a7773b8f28ab4cd86d6e2428f0902d0de7c652"
+    sha256 cellar: :any, x86_64_linux:      "9ea23400ac7c9a9559c269efae189bc9c16a846bfe05f03865ef85e42adb2b2a"
   end
 
   depends_on "cmake" => :build
