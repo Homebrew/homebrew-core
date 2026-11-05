@@ -7,11 +7,11 @@ class Caddy < Formula
   head "https://github.com/caddyserver/caddy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d6ffeaebe6e98a0ef2b12a6e912160de0af1ab59d86ecbb9bad849ce87223f14"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d6ffeaebe6e98a0ef2b12a6e912160de0af1ab59d86ecbb9bad849ce87223f14"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d6ffeaebe6e98a0ef2b12a6e912160de0af1ab59d86ecbb9bad849ce87223f14"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "513681f6957dd736cee4df1dd17d5aaec7a2e3176eca309e022e47b040761102"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "fab6b480a78dc62080e867aca2ef7f8e733b44da8685d5b595311e8c1f89b63b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9522302c4179ab5aa1cb2246dc8cb0a3d4668188de10bfaddd282ef82dda67fd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9522302c4179ab5aa1cb2246dc8cb0a3d4668188de10bfaddd282ef82dda67fd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9522302c4179ab5aa1cb2246dc8cb0a3d4668188de10bfaddd282ef82dda67fd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "199f0c473ff879b4e43f3821b1367a2c3de79f220f3ffbfcdfbe8d2c5ed12bdd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "00014376a9c22d92260efe9baf64b294a13f5d15bfbef1b4fe22c9a4852d308a"
   end
 
   depends_on "go" => :build
