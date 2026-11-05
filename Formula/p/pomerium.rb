@@ -1,18 +1,17 @@
 class Pomerium < Formula
   desc "Identity and context-aware access proxy"
   homepage "https://www.pomerium.com"
-  url "https://github.com/pomerium/pomerium/archive/refs/tags/v0.33.6.tar.gz"
-  sha256 "7e35be21f17751e878c4d7ed8428bb6e876d70d6573d5ec586a368919d359343"
+  url "https://github.com/pomerium/pomerium/archive/refs/tags/v0.34.0.tar.gz"
+  sha256 "75ef0eaa60d7e7bdc8a0b9173953a1b8fd2ec233fc7238813cd745dd4fbc47ec"
   license "Apache-2.0"
-
   head "https://github.com/pomerium/pomerium.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5838b147b04f1ef826ed1483de4d8b454b873e69886e41f7088b613ca319042b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6104560863460a8a3ad04e01ba19c4f638c83992853c956b0e5a262ea3a8d564"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "08d19ebc885ba92334b0bf3b8f74eb1ab030903a24b835c16ad5afc0222af1d0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2aa1b910bf6ca6ad3494429ab5033805bdbbd6ad5db3821832e13be1b96769ea"
-    sha256 cellar: :any,                 x86_64_linux:      "b840f226a7248670d826e9c163208357090fe6ac83982b4661e4553ca695f9bd"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9b2cabfafad372a54467f4e66ae9bc59fa2aea5731f7f802668c05cfebb10493"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f298e910886f6f228d480fb42f2da9e5dcb0ecdb171331d1596c7aa9356bec6f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43cd4dec34276d221f04e8ac1d9321c78029384a3062481ef34075d697e83421"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4c464bc6a6ecb8a5c43bf7329e8f931b9b9f14d04e07a9a6d12bf2f07d265580"
+    sha256 cellar: :any,                 x86_64_linux:      "ae812b6863dd5ee225f9767c66667f5351782773aa27118cb4e0d74b86d47c94"
   end
 
   depends_on "go" => :build
@@ -22,12 +21,6 @@ class Pomerium < Formula
   # https://github.com/pomerium/pomerium/pull/6141
   on_macos do
     depends_on arch: :arm64
-  end
-
-  # Fix build with Go 1.27, upstream PR ref, https://github.com/pomerium/pomerium/pull/6914
-  patch do
-    url "https://github.com/pomerium/pomerium/commit/73371215d5b0e0f21b5d9cf2fc909af1a179c60d.patch?full_index=1"
-    sha256 "0362774a70882d2ef078977ff1c50f90c33b34a1c9db5736ea7fcb960ace7b09"
   end
 
   # `test do` block runs a local HTTP server
