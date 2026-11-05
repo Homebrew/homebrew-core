@@ -1,17 +1,17 @@
 class Permify < Formula
   desc "Open-source authorization service & policy engine based on Google Zanzibar"
   homepage "https://permify.co/"
-  url "https://github.com/Permify/permify/archive/refs/tags/v1.7.5.tar.gz"
-  sha256 "bdb558b5890ded1da3aa311b6f34da3abbafa2b1c35c2365d902383970fcbbac"
+  url "https://github.com/Permify/permify/archive/refs/tags/v1.7.6.tar.gz"
+  sha256 "9a1cc5b77e9929820b1e1ed10fa6d57e2c665bdd3fb0f755cb9a7499e147c37d"
   license "AGPL-3.0-only"
   head "https://github.com/Permify/permify.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "27c3cb84cbf9f948b728f6d79e9eeae296642457240d8fe6be0de805c1d6d931"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c1d06220bd77cea546e49305437ce76542787176012a1e5063256cdb1f1a9497"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c1a0ad353a7b2a6e6b9d3ba84742b9cc34b4b2561d72ef386c74494f101e585b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2ceb668b1aeccb4d386478bbb868a4695b5ab9e412f218b685e8e7577d02989e"
-    sha256 cellar: :any,                 x86_64_linux:      "438189a95dd506756086f9fd4227c26e197f2640e75c6f018d4f6075638ffa37"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "325a1bc8dea04da4e0fbbf196de07d86f2d94c5e69957934daaa2d1be7250e12"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "29544133d92d635f2ff3e8988b7dd16441e5158302d15e08689e8eccda114d41"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b39f73a0a9c224280cc35240afee09bca0fbe1c3589ed0aee63fd7fd0d5254d5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "98acb456f871b6d6269b317673c515e91dcf39288d5f6cbc03e76c1e9533c8a4"
+    sha256 cellar: :any,                 x86_64_linux:      "b059540f85a8edafb417f4a2489556047b8b70b4e8168c43d469c1a1c20d7260"
   end
 
   depends_on "go" => :build
