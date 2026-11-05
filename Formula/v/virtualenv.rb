@@ -3,17 +3,17 @@ class Virtualenv < Formula
 
   desc "Tool for creating isolated virtual python environments"
   homepage "https://virtualenv.pypa.io/"
-  url "https://files.pythonhosted.org/packages/13/f3/08c61662e52a519eabd535148c7545705bab3e7954f1219d49083cdedbf0/virtualenv-21.15.3.tar.gz"
-  sha256 "cb83a84cedda6509c93ea5b381c3b5ecec666f7b500d34566503f5bfdc87f498"
+  url "https://files.pythonhosted.org/packages/69/74/745e612b69ad14a534b7bc233c4574b968eb2c21a276ea172e8f0fc13f51/virtualenv-21.15.5.tar.gz"
+  sha256 "fb869ea32930530ccc87549877b53268c2a4d4a7d7f2c384042eca05170350e6"
   license "MIT"
   head "https://github.com/pypa/virtualenv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "087fc1310fe14580d1962d2ff59afcc040b10d4c73437fa13bd521f770488b60"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "087fc1310fe14580d1962d2ff59afcc040b10d4c73437fa13bd521f770488b60"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "087fc1310fe14580d1962d2ff59afcc040b10d4c73437fa13bd521f770488b60"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c4e7548c874d146e5b05302ff6977939f97414a115927734219e8dbe018667b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c4e7548c874d146e5b05302ff6977939f97414a115927734219e8dbe018667b0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "45a20dcbccf6c37eca8c2ba4be89da255c96df9cc56c72e410358d7539b3659f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "45a20dcbccf6c37eca8c2ba4be89da255c96df9cc56c72e410358d7539b3659f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "45a20dcbccf6c37eca8c2ba4be89da255c96df9cc56c72e410358d7539b3659f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "896697c5196659768d6b96f89d5d76fcd325e34f718ce09a6f76534060936574"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "896697c5196659768d6b96f89d5d76fcd325e34f718ce09a6f76534060936574"
   end
 
   depends_on "python@3.15"
@@ -39,8 +39,8 @@ class Virtualenv < Formula
   end
 
   resource "python-discovery" do
-    url "https://files.pythonhosted.org/packages/ea/87/77b17c6d289a551d682826e228e3efa3199305a080541d991cb7b268a527/python_discovery-1.9.2.tar.gz"
-    sha256 "de397b9c4b09a5fb8bb4c51db3c0da71fb81d2283718d74fd1efaabffc32afbc"
+    url "https://files.pythonhosted.org/packages/0f/d7/1e94df7d1636bf00b9f261bf88a4adc0414f14931ff60511eb0f34c250d1/python_discovery-1.9.4.tar.gz"
+    sha256 "c01b45fe515c1d268b57c57d554bb0e1d320b8e9eb5490bb2f4f577be26e4380"
   end
 
   allow_network_access! :build
