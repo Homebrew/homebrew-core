@@ -9,6 +9,7 @@ class Openj9 < Formula
     { "GPL-2.0-only" => { with: "Classpath-exception-2.0" } },
     { "GPL-2.0-only" => { with: "OpenJDK-assembly-exception-1.0" } },
   ]
+  revision 1
 
   livecheck do
     url :stable
@@ -69,9 +70,8 @@ class Openj9 < Formula
 
   resource "omr" do
     url "https://github.com/eclipse-openj9/openj9-omr.git",
-        branch:   "v0.63.0-release",
+        tag:      "openj9-0.63.0",
         revision: "c2a3a9ae0f8f70ab32e489e453114f37136aa67e"
-    version "0.63.0"
 
     livecheck do
       formula :parent
@@ -83,9 +83,8 @@ class Openj9 < Formula
   # This matches official documentation and allows us to bootstrap from an OpenJDK formula
   resource "openj9-openjdk-jdk" do
     url "https://github.com/ibmruntimes/openj9-openjdk-jdk25.git",
-        branch:   "v0.63.0-release",
-        revision: "98052ba3b11d121ad5fa9cfed14f46006ef13030"
-    version "0.63.0"
+        tag:      "openj9-0.63.0",
+        revision: "3edbf43d7f7b5bd8a7dd24936da867d5ccb5257f"
 
     livecheck do
       formula :parent
