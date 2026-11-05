@@ -1,10 +1,9 @@
 class Minizip < Formula
   desc "C library for zip/unzip via zLib"
   homepage "https://www.winimage.com/zLibDll/minizip.html"
-  url "https://zlib.net/zlib-1.3.2.tar.gz"
-  sha256 "bb329a0a2cd0274d05519d61c667c062e06990d72e125ee2dfa8de64f0119d16"
+  url "https://zlib.net/zlib-1.4.tar.gz"
+  sha256 "02dd159783677a749c04adbdd02b55b8a2bcc7e054f51b76b549199a916ad584"
   license "Zlib"
-  revision 1
   compatibility_version 1
 
   livecheck do
@@ -12,13 +11,11 @@ class Minizip < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "28444db1b1cba37ed16762f2c68343b8ffff4d786e4bfc94fec5b386a879f900"
-    sha256 cellar: :any,                 arm64_tahoe:       "16451e526b90dcd6380df6003dec30796b9ebcc7fe8e62b9778a583e5b72cb47"
-    sha256 cellar: :any,                 arm64_sequoia:     "f90adff7167a19f53ef85ce23d46c5b5d016f58b9db126b02dc91c76a0fe744a"
-    sha256 cellar: :any,                 arm64_sonoma:      "3e3f68961e5480e0d314a8db8978029bbd1315e6c00b909669456fa3693b1914"
-    sha256 cellar: :any,                 sonoma:            "f6f4577f2f7c5d04fde8384f0ca43ee1cece548aa6abe0ae99b387058e79bbd3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c1d6d57105aa286c0347bc6a0dc3d80e86843e7c7b325467b8c1f76efd8a5dcf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8405db317fdfa195ffad20c51f5af22a0cc49c2076dd8f0b79f39ed5d5807222"
+    sha256 cellar: :any, arm64_golden_gate: "352533eca1a73f183aea5b82f3376a23efe5b0680a548393e7a36d107d26cd12"
+    sha256 cellar: :any, arm64_tahoe:       "cd8f7d8f6cf58ff023a0c24e03d7bc2e86284ede0ad9eb8867b3f2a4dea42d90"
+    sha256 cellar: :any, arm64_sequoia:     "e95a683f6693bbbd59053fa40d6f76779beffeadc1e68655dffb198ecd8fd596"
+    sha256 cellar: :any, arm64_linux:       "55879120ad4310d441832143c7b96f40818ed84fc4e6ee0931dd3cb3f7cf76a8"
+    sha256 cellar: :any, x86_64_linux:      "8f0441b4063253ff5e8e8ca06ea44756358013fd9f2c6f5fe952fcbae78ed4af"
   end
 
   depends_on "autoconf" => :build
