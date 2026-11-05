@@ -1,10 +1,9 @@
 class Biosig < Formula
   desc "Tools for biomedical signal processing and data conversion"
   homepage "https://biosig.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig-3.9.8.src.tar.xz"
-  sha256 "9d7298cb6e466eb3b9eb7f4c8bc501dc4c3a71dcdf2f4156bad0ca9797220422"
+  url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig-4.0.0.src.tar.xz"
+  sha256 "182a6dfe276f0217abd9cae81e1b515d590ddb9b44a98174ebbd4efe05927bac"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -40,10 +39,13 @@ class Biosig < Formula
               "gdf.o gdftime.o physicalunits.o getlogin.o",
               "gdf.o gdftime.o physicalunits.o getlogin.o string_isutf8.o"
 
+    # Tools are linked with `$(LD)`, which is `$(CXX) -shared` on macOS, so they become dylibs
+    args = OS.mac? ? ["LD=$(CXX)", "SHAREDLIB=-shared"] : []
+
     system "./configure", "--disable-silent-rules", *std_configure_args
-    system "make"
+    system "make", *args
     ENV.deparallelize if OS.mac? && MacOS.version >= :sonoma
-    system "make", "install"
+    system "make", "install", *args
   end
 
   test do
