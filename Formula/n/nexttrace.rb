@@ -14,11 +14,11 @@ class Nexttrace < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ca22935d5d82f0b2262c8d727ee9bfef022856a9c8ce3f9f18196020dc03c08f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a22b0cf4aa2c3f89aec13b5e7145776dc22c2f7a71c6cd9840b05663575c5325"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d48a09de0c9c088902593e63e81e62df8814e219122ed452e69fc89c7ddb0473"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "637fac418be9e8773d138808d473b1eba51529acde6549cff34a73854f95d056"
-    sha256 cellar: :any,                 x86_64_linux:      "30826d80e7762e6062b2d6b19d58b1173ee54d1ea2068ef1d7a57f55a7bc25b4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9e5d9d9138c543e1484cf5ec1e2b13b37d4666d1a2c74e9d6779cce7deb01690"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "82d2508ef7ec931422b18ee6ae63b12517e6b9c2ae002c5166a158cd55b77165"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "23b4f5c87c366f9447955b902afb9d3654f971c2da5c6836a3ea12d551a48a0c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "16cdae7298d3c8f1dfdbf5761490b0b728307bb28a900601cad1c4bd18abbf21"
+    sha256 cellar: :any,                 x86_64_linux:      "01aef744ce84fd3d473fa53e9532705782f9d00344ac37783f0a3c92a7467d2b"
   end
 
   depends_on "go" => :build
