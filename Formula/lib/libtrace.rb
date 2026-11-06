@@ -41,6 +41,8 @@ class Libtrace < Formula
     sha256 "aa036e997d7bec2fa3d387e3ad669eba461036b9a89b79dcf63017a2c4dac725"
   end
 
+  deny_network_access!
+
   def install
     system "./bootstrap.sh"
     system "./configure", *std_configure_args
