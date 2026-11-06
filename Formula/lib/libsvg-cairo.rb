@@ -43,6 +43,8 @@ class LibsvgCairo < Formula
   # (https://cgit.freedesktop.org/cairo/commit/?id=afdf3917ee86a7d8ae17f556db96478682674a76)
   patch :DATA
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
@@ -55,7 +57,7 @@ class LibsvgCairo < Formula
       <svg xmlns:svg="http://www.w3.org/2000/svg" height="72pt" width="144pt" viewBox="0 -20 144 72"><text font-size="12" text-anchor="left" y="0" x="0" font-family="Times New Roman" fill="green">sample text here</text></svg>
     XML
 
-    (testpath/"test.c").write <<~C
+    (testpath/"test.c").write <<~'C'
       #include <stdio.h>
       #include "svg-cairo.h"
 
@@ -63,63 +65,63 @@ class LibsvgCairo < Formula
           svg_cairo_t *svg = NULL;
           svg_cairo_status_t result = SVG_CAIRO_STATUS_SUCCESS;
           FILE *fp = NULL;
-          printf("1\\n");
+          printf("1\n");
           result = svg_cairo_create(&svg);
           if (SVG_CAIRO_STATUS_SUCCESS != result) {
-              printf ("svg_cairo_create failed: %d\\n", result);
+              printf ("svg_cairo_create failed: %d\n", result);
               /* Fail if alloc failed */
               return -1;
           }
-          printf("2\\n");
+          printf("2\n");
           result = svg_cairo_parse(svg, "test.svg");
           if (SVG_CAIRO_STATUS_SUCCESS != result) {
-              printf ("svg_cairo_parse failed: %d\\n", result);
+              printf ("svg_cairo_parse failed: %d\n", result);
               /* Fail if alloc failed */
               return -2;
           }
-          printf("3\\n");
+          printf("3\n");
           result = svg_cairo_destroy(svg);
           if (SVG_CAIRO_STATUS_SUCCESS != result) {
-              printf ("svg_cairo_destroy failed: %d\\n", result);
+              printf ("svg_cairo_destroy failed: %d\n", result);
               /* Fail if alloc failed */
               return -3;
           }
           svg = NULL;
-          printf("4\\n");
+          printf("4\n");
           result = svg_cairo_create(&svg);
           if (SVG_CAIRO_STATUS_SUCCESS != result) {
-              printf ("svg_cairo_create failed: %d\\n", result);
+              printf ("svg_cairo_create failed: %d\n", result);
               /* Fail if alloc failed */
               return -4;
           }
           fp = fopen("test.svg", "r");
           if (NULL == fp) {
-              printf ("failed to fopen test.svg\\n");
+              printf ("failed to fopen test.svg\n");
               /* Fail if alloc failed */
               return -5;
           }
-          printf("5\\n");
+          printf("5\n");
           result = svg_cairo_parse_file(svg, fp);
           if (SVG_CAIRO_STATUS_SUCCESS != result) {
-              printf ("svg_cairo_parse_file failed: %d\\n", result);
+              printf ("svg_cairo_parse_file failed: %d\n", result);
               /* Fail if alloc failed */
               return -6;
           }
-          printf("6\\n");
+          printf("6\n");
           result = svg_cairo_destroy(svg);
           if (SVG_CAIRO_STATUS_SUCCESS != result) {
-              printf ("svg_cairo_destroy failed: %d\\n", result);
+              printf ("svg_cairo_destroy failed: %d\n", result);
               /* Fail if alloc failed */
               return -7;
           }
           svg = NULL;
-          printf("SUCCESS\\n");
+          printf("SUCCESS\n");
           return 0;
       }
     C
 
-    cairo = Formula["cairo"]
-    system ENV.cc, "test.c", "-I#{include}", "-I#{cairo.opt_include}/cairo", "-L#{lib}", "-lsvg-cairo", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-I#{formula_opt_include("cairo")}/cairo", "-L#{lib}", "-lsvg-cairo",
+"-o", "test"
     assert_equal "1\n2\n3\n4\n5\n6\nSUCCESS\n", shell_output("./test")
   end
 end
