@@ -1,8 +1,8 @@
 class Baml < Formula
   desc "Programming language for agents"
   homepage "https://boundaryml.com/"
-  url "https://github.com/BoundaryML/baml/archive/refs/tags/baml-wrapper-0.2.5.tar.gz"
-  sha256 "f1539402dfeb4cfd6b4b14f4b21e5b290eb6fb23c965f61e0e5757570333f73d"
+  url "https://github.com/BoundaryML/baml/archive/refs/tags/baml-wrapper-0.3.0.tar.gz"
+  sha256 "e5bc34eb29f88a5089f3a7e1c811f95fcf12d0254a952810e04cf252b29b40ab"
   license "Apache-2.0"
   head "https://github.com/BoundaryML/baml.git", branch: "canary"
 
@@ -41,7 +41,7 @@ class Baml < Formula
     ENV["BAML_HOME"] = testpath/"baml-home"
     ENV.delete "BAML_VERSION"
 
-    system bin/"baml", "toolchain", "use", "canary"
+    system bin/"baml", "toolchain", "use", "--global", "canary"
     shell_output("#{bin}/baml run -e 'baml.sys.exit(42)'", 42)
     assert_match "self-update is disabled in this build",
                  shell_output("#{bin}/baml self-update 2>&1", 1)
