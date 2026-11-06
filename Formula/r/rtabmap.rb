@@ -4,6 +4,7 @@ class Rtabmap < Formula
   url "https://github.com/introlab/rtabmap/archive/refs/tags/0.24.2.tar.gz"
   sha256 "96cca356c37d50609d7e1bc6379ce0ff3f66ecbd153583669bd0ba23b91ba969"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/introlab/rtabmap.git", branch: "master"
 
   # Upstream doesn't create releases for all tagged versions, so we use the
@@ -48,6 +49,14 @@ class Rtabmap < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  # Replace `Mat_` comma initializers, which OpenCV 5.1 removed
+  patch do
+    url "https://github.com/introlab/rtabmap/commit/606d29dfdaac80fde22e9a49120e011b4a2d8bf4.patch?full_index=1"
+    sha256 "0443f61d3271b8f581d52f2b5dc058b519c3212661254c84f71bf2ba403c58b7"
+    type :unofficial
+    resolves "https://github.com/introlab/rtabmap/pull/1836"
   end
 
   def install
