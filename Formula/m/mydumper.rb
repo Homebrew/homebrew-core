@@ -1,8 +1,8 @@
 class Mydumper < Formula
   desc "MySQL logical backup tool"
   homepage "https://github.com/mydumper/mydumper"
-  url "https://github.com/mydumper/mydumper/archive/refs/tags/v1.0.17-1.tar.gz"
-  sha256 "6498cc5dfa3f3e7663ccaee9bdd6bdbe5555588d492838571f160212898f727a"
+  url "https://github.com/mydumper/mydumper/archive/refs/tags/v1.0.19-1.tar.gz"
+  sha256 "03c2db71c62af5db4b12ee0c50b43b841c45efab36c8f1073f6d0d0c92d9bcad"
   license "GPL-3.0-or-later"
   head "https://github.com/mydumper/mydumper.git", branch: "master"
 
@@ -13,11 +13,11 @@ class Mydumper < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "6a6dc634e0b5c4f061ac386ce1031e373f1a225755b599a7ecf306b95a81d252"
-    sha256 cellar: :any, arm64_tahoe:       "4012676da42e9f4ee6f6837d70156be59078600504d51954f9d1c4828fcb44f4"
-    sha256 cellar: :any, arm64_sequoia:     "2b4aa6285780db88965704640b465dc388226dedf8f6353223e1ed0da07205e6"
-    sha256 cellar: :any, arm64_linux:       "e6bcbf902fe8b39037bed397942f42c70611a8ce984fa1a6badb4f4587f428a4"
-    sha256 cellar: :any, x86_64_linux:      "22c311088723a58a73c4c39bfbb05b0411928fd4674f9cce7d36e38fb66f0994"
+    sha256 cellar: :any, arm64_golden_gate: "233af161a27e9117aa45375db2e16870ae6f7187abb85230b86c7e50b9aeaae2"
+    sha256 cellar: :any, arm64_tahoe:       "3e8448d791f07c24f3bdd8077532f85e9d5fee1bcb39ee73dfb498dacfdb56ce"
+    sha256 cellar: :any, arm64_sequoia:     "7e0c50087579b76b96bf4f7c6e6f61dd6900da199cdea709f1c00da58efa84dd"
+    sha256 cellar: :any, arm64_linux:       "7691149b7085d6cae4167e22d3c94631fadae7e9a9a34396180ba57bcea4e24b"
+    sha256 cellar: :any, x86_64_linux:      "9ca01016b6cc557b2e050e1bc6da3ae18fcda85b6c8af3ef297d2473d11b7262"
   end
 
   depends_on "cmake" => :build
