@@ -1,17 +1,17 @@
 class Hyphy < Formula
   desc "Hypothesis testing using Phylogenies"
   homepage "https://www.hyphy.org"
-  url "https://github.com/veg/hyphy/archive/refs/tags/2.5.103.tar.gz"
-  sha256 "e3602aa3add7f4d88c18038828bc49080a749dd377f9d41c92933fbf07d846c2"
+  url "https://github.com/veg/hyphy/archive/refs/tags/2.5.104.tar.gz"
+  sha256 "608b16322071453812be3c032d9ab575c74d245969c03dca298b2a041933d6a0"
   license "MIT"
   head "https://github.com/veg/hyphy.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "3697197128a0d8fa47732fcd170e00cad640128f566f6b4ed89e66dc6ab3c55d"
-    sha256 arm64_tahoe:       "b101d8a59fc60a19144aa60fc27c3b70634e2e2aa4f7ed849335290ec2657a6d"
-    sha256 arm64_sequoia:     "a222eaa19a6991771f70590c9b225c5f00bae1530970cff112859279099262e1"
-    sha256 arm64_linux:       "d1e4f009ac57e9b2afa5b6d42552419c38e6fb064fb4fbc046d8c7163cb972d5"
-    sha256 x86_64_linux:      "d792b20fbb7edf78f5e7466272c58b5ec56164f9325aef591acbdb2ebb903e33"
+    sha256 arm64_golden_gate: "b1018e682c0a1c86a6e520c2c66bcef1e77aad6934038f75bd6688374301b75a"
+    sha256 arm64_tahoe:       "b067ed0bbd1da88d831fa6b1c8a15ed4e293cd2b94132fc97f3e64e69cdd5c65"
+    sha256 arm64_sequoia:     "6090d09d58c263cc947290f1db06e7522902c571e4529c36cf0edd32ee61b729"
+    sha256 arm64_linux:       "244af4c673d50a544a923044f62105745dd87c9f949e5c5452e478dcb8affc37"
+    sha256 x86_64_linux:      "8e9080a29c53f7ae5343b661151af6c928b57c628f2e0c202d50e7730926827e"
   end
 
   depends_on "cmake" => :build
