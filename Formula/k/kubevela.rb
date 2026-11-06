@@ -2,19 +2,17 @@ class Kubevela < Formula
   desc "Application Platform based on Kubernetes and Open Application Model"
   homepage "https://kubevela.io"
   url "https://github.com/kubevela/kubevela.git",
-      tag:      "v1.11.0",
-      revision: "a1860544f0556828e165ef68701b2926730671a7"
+      tag:      "v1.11.1",
+      revision: "6552be81df471e35a612a5a0b3f38e5d6f944b02"
   license "Apache-2.0"
   head "https://github.com/kubevela/kubevela.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b92b428db06b36e8a8df9d86d40f8b7c292ef66d60a9f73ac5c464b9d0ab3a54"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1da421dd9805aa03e28bd3cc04d5b7457201c1247e88cabca303dba574efecc2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1da421dd9805aa03e28bd3cc04d5b7457201c1247e88cabca303dba574efecc2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "1da421dd9805aa03e28bd3cc04d5b7457201c1247e88cabca303dba574efecc2"
-    sha256 cellar: :any_skip_relocation, sonoma:            "5911ff4f6043b697b6642b87c30d8816dd232a2bf9709885d57fd37198eed110"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "74bf4c2db0bf524b0692c073c6903366ea80a1147a87611ad4296149d5032d43"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "4f6e0c0810ff9c97596622e63e59ae10f8b51104056f266bb426fe20d0c9b7f4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9ffd54135fa6fe6559de26f27bdc9a6359762a3589429a2bf90a55ca6b60c12c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9ffd54135fa6fe6559de26f27bdc9a6359762a3589429a2bf90a55ca6b60c12c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9ffd54135fa6fe6559de26f27bdc9a6359762a3589429a2bf90a55ca6b60c12c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "66fc7077f89a6d81b8807a80ef3a7d81ae28336fd465b981bc09ba244c291958"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c23706aade08b2dff6ceb27f2bab88d422b5971a008fcfc017a255a0c3e5490a"
   end
 
   depends_on "go" => :build
