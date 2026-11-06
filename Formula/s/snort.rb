@@ -1,8 +1,8 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://github.com/snort3/snort3/archive/refs/tags/3.12.4.0.tar.gz"
-  sha256 "5bab33f703ca09b74bc2de72d16d8be59c67ebb98dbd45e50c30989b5cdd510f"
+  url "https://github.com/snort3/snort3/archive/refs/tags/3.13.2.0.tar.gz"
+  sha256 "298367524a31f0d4725ef12b2b06265b4e76e6545f990ae3dc3b5e4c10f6e0ea"
   license "GPL-2.0-only"
   head "https://github.com/snort3/snort3.git", branch: "master"
 
@@ -15,11 +15,11 @@ class Snort < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "cc1bdc46cab2d0e8dfe91dbc2b4bc099ad9e9922434289fcfe8a54f6e1a7f077"
-    sha256 cellar: :any, arm64_tahoe:       "ba9d35f0404200941261b2b72ee4fc721d70210cafe11b51e733c9b73c12db0f"
-    sha256 cellar: :any, arm64_sequoia:     "e50af48297095b6d1698460fa90fb159b0a65a26ab93bb7f138cbcf10dc0efcf"
-    sha256 cellar: :any, arm64_linux:       "2a8d037c853d40691dc67dfd1a05a46d60e73a2c8bea5ca9b9903b9a8a271a05"
-    sha256 cellar: :any, x86_64_linux:      "9589d0ea20a7097a7cd557179cae739e3cf411bda149921410c4a4fa4088e762"
+    sha256 cellar: :any, arm64_golden_gate: "9441a8308463c20fca030126ee293a8a0f26ffe0429e338ce6881230e210d9b6"
+    sha256 cellar: :any, arm64_tahoe:       "2777e608b55393fc849f89c984e531915d4c4711fbca3e514ab0d5249999ae7b"
+    sha256 cellar: :any, arm64_sequoia:     "bb37500db1581246f882883c53c5edccbdebd0f7b1a4b2ac6d275ae31e81e29b"
+    sha256 cellar: :any, arm64_linux:       "20e9bd3503aa2638a5948e89d9899d5469fb8713ab84d55b07dece4a957cc804"
+    sha256 cellar: :any, x86_64_linux:      "030a3ffb9929d099e9145addbbfd2e3823c881ec999ee60764b9d64e0ef14de6"
   end
 
   depends_on "cmake" => :build
@@ -41,14 +41,6 @@ class Snort < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # Apply open PR for OpenSSL 4.0 support
-  patch do
-    url "https://github.com/snort3/snort3/commit/286352b0e3f3e0798666d4f78ca35668d8695ab5.patch?full_index=1"
-    sha256 "8707359cf1854a85bf7f48e8e8b5a949739e0965ee55078bfdef033055971fc7"
-    type :unofficial
-    resolves "https://github.com/snort3/snort3/pull/477"
-  end
-
   deny_network_access!
 
   def install
@@ -59,7 +51,11 @@ class Snort < Formula
     # https://github.com/snort3/snort3/pull/370
     inreplace "src/actions/actions_module.h", "#include <vector>", "#include <vector>\n#include <array>"
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DENABLE_JEMALLOC=ON"
+    args = ["-DENABLE_JEMALLOC=ON"]
+    # macOS libunwind lacks `unw_strerror` used by new backtrace.cc
+    args << "-DCMAKE_DISABLE_FIND_PACKAGE_Libunwind=ON" if OS.mac?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
