@@ -7,9 +7,9 @@ class AwscliAT1 < Formula
   sha256 "43e77f324745e760918dc3c6ffb73eef49e35e9f52a5c39fe4a6de854f7e1121"
   license "Apache-2.0"
 
+  # Need explicit livecheck to autobump deprecated formula
   livecheck do
-    url "https://github.com/aws/aws-cli.git"
-    regex(/^v?(1(?:\.\d+)+)$/i)
+    url :stable
   end
 
   bottle do
