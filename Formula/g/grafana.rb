@@ -60,6 +60,8 @@ class Grafana < Formula
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
     bin.install buildpath/"bin"/os/arch/"grafana"
 
+    # Require an explicit configuration change to accept remote connections.
+    inreplace ["conf/defaults.ini", "conf/sample.ini"], "http_addr =", "http_addr = 127.0.0.1"
     cp "conf/sample.ini", "conf/grafana.ini.example"
     pkgetc.install "conf/sample.ini" => "grafana.ini"
     pkgetc.install "conf/grafana.ini.example"
@@ -91,9 +93,11 @@ class Grafana < Formula
     pid = spawn bin/"grafana", "server", "--homepath", pkgshare,
             "cfg:server.http_port=#{port}",
             "cfg:default.paths.data=#{testpath}/data",
+            "cfg:default.paths.logs=#{testpath}/log",
             "cfg:log.mode=file"
     sleep 30
     assert_match "ok", shell_output("curl -fs http://localhost:#{port}/api/health")
+    assert_match "address=127.0.0.1:#{port}", (testpath/"log/grafana.log").read
   ensure
     Process.kill("TERM", pid)
   end
