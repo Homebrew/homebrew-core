@@ -42,13 +42,14 @@ class Libxslt < Formula
     depends_on "libgpg-error"
   end
 
+  deny_network_access!
+
   def install
-    libxml2 = Formula["libxml2"]
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules",
                           "--without-python",
                           "--with-crypto",
-                          "--with-libxml-prefix=#{libxml2.opt_prefix}",
+                          "--with-libxml-prefix=#{formula_opt_prefix("libxml2")}",
                           *std_configure_args
     system "make"
     system "make", "install"

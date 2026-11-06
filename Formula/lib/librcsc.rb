@@ -28,6 +28,8 @@ class Librcsc < Formula
   # Unbundle simdjson
   patch :DATA
 
+  deny_network_access!
+
   def install
     # Remove bundled nlohmann-json and simdjson
     rm_r(["rcsc/rcg/nlohmann", "rcsc/rcg/simdjson"])

@@ -23,6 +23,8 @@ class Libxdmcp < Formula
   depends_on "pkgconf" => :build
   depends_on "xorgproto"
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}

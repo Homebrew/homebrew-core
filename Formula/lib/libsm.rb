@@ -22,6 +22,8 @@ class Libsm < Formula
   depends_on "xtrans" => :build
   depends_on "libice"
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}
@@ -45,6 +47,5 @@ class Libsm < Formula
       }
     C
     system ENV.cc, "test.c"
-    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end

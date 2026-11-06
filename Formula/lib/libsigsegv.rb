@@ -26,6 +26,8 @@ class Libsigsegv < Formula
     depends_on "automake" => :build
   end
 
+  deny_network_access!
+
   def install
     system "./gitsub.sh", "pull" if build.head?
     system "./autogen.sh" if build.head?

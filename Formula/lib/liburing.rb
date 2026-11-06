@@ -15,6 +15,8 @@ class Liburing < Formula
 
   depends_on :linux
 
+  deny_network_access!
+
   def install
     # not autotools based configure, so std_configure_args is not suitable
     system "./configure", "--prefix=#{prefix}", "--libdir=#{lib}", "--mandir=#{man}"

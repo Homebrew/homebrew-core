@@ -27,6 +27,8 @@ class LibvoAacenc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "baed718396b9a19dea7de513f7991b72afcb2aae17504a7bbbaf9f0a40d355e4"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"

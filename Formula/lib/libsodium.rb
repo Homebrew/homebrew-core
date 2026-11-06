@@ -29,6 +29,8 @@ class Libsodium < Formula
     depends_on "libtool" => :build
   end
 
+  deny_network_access!
+
   def install
     # Allow type conversion between vectors on Arm Linux
     ENV.append_to_cflags "-flax-vector-conversions" if OS.linux? && Hardware::CPU.arm?

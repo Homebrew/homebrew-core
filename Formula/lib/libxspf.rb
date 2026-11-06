@@ -36,6 +36,8 @@ class Libxspf < Formula
     file "Patches/libtool/configure-big_sur.diff"
   end
 
+  deny_network_access!
+
   def install
     # src/XspfReader.cpp:65:3: error: uriparser 0.7.2 or later is required
     # https://sourceforge.net/p/libspiff/bugs/6/

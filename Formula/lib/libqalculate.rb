@@ -34,6 +34,8 @@ class Libqalculate < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     ENV.cxx11
     system "./configure", "--disable-silent-rules",

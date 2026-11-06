@@ -33,6 +33,8 @@ class Libxpresent < Formula
   depends_on "libxfixes"
   depends_on "libxrandr"
 
+  deny_network_access!
+
   def install
     configure = build.head? ? "./autogen.sh" : "./configure"
     system configure, "--disable-silent-rules", *std_configure_args
@@ -49,6 +51,5 @@ class Libxpresent < Formula
       }
     C
     system ENV.cc, "test.c"
-    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end

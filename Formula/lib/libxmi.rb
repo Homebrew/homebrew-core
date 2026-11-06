@@ -29,6 +29,8 @@ class Libxmi < Formula
     depends_on "libtool" => :build
   end
 
+  deny_network_access!
+
   def install
     # Workaround to avoid C23
     ENV["ac_cv_prog_cc_c23"] = "no"

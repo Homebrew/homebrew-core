@@ -33,6 +33,8 @@ class Librttopo < Formula
   depends_on "libtool" => :build
   depends_on "geos"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh"
     system "./configure", "--disable-debug",

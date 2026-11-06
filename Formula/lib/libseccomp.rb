@@ -27,6 +27,8 @@ class Libseccomp < Formula
   depends_on "gperf" => :build
   depends_on :linux
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", *std_configure_args, "--disable-silent-rules"

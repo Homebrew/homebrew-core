@@ -24,6 +24,8 @@ class Libxft < Formula
   depends_on "libx11"
   depends_on "libxrender"
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}

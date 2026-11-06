@@ -28,6 +28,8 @@ class Libsixel < Formula
   depends_on "jpeg-turbo"
   depends_on "libpng"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-python",
                           "--without-libcurl",

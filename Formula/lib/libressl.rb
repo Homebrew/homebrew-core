@@ -33,6 +33,8 @@ class Libressl < Formula
 
   depends_on "ca-certificates"
 
+  deny_network_access!
+
   def install
     args = %W[
       --disable-dependency-tracking
@@ -67,7 +69,7 @@ class Libressl < Formula
   test do
     # Make sure the necessary .cnf file exists, otherwise LibreSSL gets moody.
     assert_path_exists HOMEBREW_PREFIX/"etc/libressl/openssl.cnf",
-"LibreSSL requires the .cnf file for some functionality"
+      "LibreSSL requires the .cnf file for some functionality"
 
     # Check LibreSSL itself functions as expected.
     (testpath/"testfile.txt").write("This is a test file")

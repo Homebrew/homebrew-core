@@ -26,7 +26,12 @@ class Libxmlsec1 < Formula
   depends_on "gnutls" # Yes, it wants both ssl/tls variations
   depends_on "libxml2"
   depends_on "openssl@4"
+
   uses_from_macos "libxslt"
+
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
 
   def install
     args = %W[
@@ -36,7 +41,7 @@ class Libxmlsec1 < Formula
       --disable-mscng
       --without-nss
       --without-nspr
-      --with-openssl=#{formula_opt_prefix("openssl@4")}
+      --with-openssl=#{formula_opt_prefix(openssl)}
     ]
 
     system "./configure", *args, *std_configure_args

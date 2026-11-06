@@ -21,6 +21,8 @@ class Libxmu < Formula
   depends_on "libxext"
   depends_on "libxt"
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}
@@ -45,6 +47,5 @@ class Libxmu < Formula
       }
     C
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lXmu"
-    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end

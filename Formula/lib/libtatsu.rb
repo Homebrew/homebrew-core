@@ -23,6 +23,8 @@ class Libtatsu < Formula
 
   uses_from_macos "curl"
 
+  deny_network_access!
+
   def install
     configure = build.head? ? "./autogen.sh" : "./configure"
     system configure, "--disable-silent-rules", *std_configure_args

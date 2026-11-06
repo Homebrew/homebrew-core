@@ -24,6 +24,8 @@ class Libzdb < Formula
   depends_on "mariadb-connector-c"
   depends_on "sqlite"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules", "--enable-protected", "--enable-sqliteunlock", *std_configure_args
     system "make", "install"

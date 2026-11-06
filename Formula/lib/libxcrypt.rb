@@ -26,6 +26,8 @@ class Libxcrypt < Formula
   link_overwrite "include/crypt.h"
   link_overwrite "lib/libcrypt.so"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-static",
                           "--disable-obsolete-api",

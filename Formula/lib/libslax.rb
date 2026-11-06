@@ -39,6 +39,8 @@ class Libslax < Formula
   conflicts_with "gastown", "genometools", because: "both install `gt` binaries"
   conflicts_with "libxi", because: "both install `libxi.a`"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules", "--enable-libedit", *std_configure_args

@@ -33,6 +33,8 @@ class LibtorrentRakshasa < Formula
 
   conflicts_with "libtorrent-rasterbar", because: "both use the same libname"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules", *std_configure_args
@@ -42,7 +44,7 @@ class LibtorrentRakshasa < Formula
 
   test do
     (testpath/"test.cpp").write <<~CPP
-      #include <iostream>#{"  "}
+      #include <iostream>
       #include <torrent/runtime/runtime.h>
       int main(void)
       {

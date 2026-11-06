@@ -30,6 +30,8 @@ class Libsidplayfp < Formula
 
   depends_on "pkgconf" => :build
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args

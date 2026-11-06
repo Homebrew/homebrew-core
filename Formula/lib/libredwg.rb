@@ -24,6 +24,8 @@ class Libredwg < Formula
     sha256 "34574244d7556d1ef7b437443d9b3d1ad8662e1c669c42d80cff6a8a19799be9"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"

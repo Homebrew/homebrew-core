@@ -37,6 +37,8 @@ class Libwpd < Formula
   # Remove with next release.
   patch :DATA
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"
