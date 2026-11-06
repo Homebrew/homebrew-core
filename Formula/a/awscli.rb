@@ -3,18 +3,18 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/refs/tags/2.39.5.tar.gz"
-  sha256 "975af8397b93fabf3dc448a34e7c4a9ab6efb501930244fbc9f1aa2123230b1c"
+  url "https://github.com/aws/aws-cli/archive/refs/tags/2.39.6.tar.gz"
+  sha256 "d4cfa933d7ed916f9eca693ee9e863c0560021bd61bcf9f04963c56870313b4f"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c562c104614116628b80e3c10e597c205a50b89cd7c2aa9777e0b53c792c9ae0"
-    sha256 cellar: :any, arm64_tahoe:       "7377c63e83a82051c9db927ba0564faf1b211ab4603b06a75f2d230504e00f8d"
-    sha256 cellar: :any, arm64_sequoia:     "93bbd464e89f98d78a3762a18095375cd67ce5c0e5983894cd0ed842cdbd0a84"
-    sha256 cellar: :any, arm64_linux:       "9d6b51dbfc22bfe65122424bd50224518bfc7b12208cffc5532e9800109efd80"
-    sha256 cellar: :any, x86_64_linux:      "0fba2f70ab35571f133dd4f8be6194700618dbdd03c9403bb09419dee97a60e7"
+    sha256 cellar: :any, arm64_golden_gate: "dcca3d97f92a0027102e020e44979b23b42443c4ee9e314549796961052db8da"
+    sha256 cellar: :any, arm64_tahoe:       "be81a2f46e1972a0a36f3aeb00fee1961625ed063bdffb458d08346d0100e375"
+    sha256 cellar: :any, arm64_sequoia:     "48706d0ed7d7a09862c11c36ee4cc10b4d95190cebf5b2053a5418e28f819e87"
+    sha256 cellar: :any, arm64_linux:       "1a65f8e687d7678df53eb571f139c06df771570f971ef9d8a4837183a3c507ff"
+    sha256 cellar: :any, x86_64_linux:      "7e4c855c599b652a3750af7f7a618cbb6594459b1a74aea073b71be1f8bc981d"
   end
 
   depends_on "aws-c-auth"
@@ -33,8 +33,8 @@ class Awscli < Formula
   pypi_packages extra_packages: "flit-core"
 
   resource "awscrt" do
-    url "https://files.pythonhosted.org/packages/0c/c4/1f7c4161aa665b06ddb9c34acbe6b5ea8fc8bf72b78de474d65e6f494ca4/awscrt-0.38.0.tar.gz"
-    sha256 "4a8423c4a76390c6e5c4f386e3e367dccdcf67d6d1a0bc1c59776bb14cdc2ad9"
+    url "https://files.pythonhosted.org/packages/39/be/56e6646fe5e866b4df5b8d92ee35dc0cbc0888871c5755f86c33a91960ea/awscrt-0.38.1.tar.gz"
+    sha256 "0dcebfaa70cf079133cd2352119e3d05e9b8ca1d1621736cfb54c03f3d5fef0f"
   end
 
   resource "colorama" do
