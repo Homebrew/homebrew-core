@@ -40,10 +40,12 @@ class Libvorbis < Formula
   depends_on "pkgconf" => :build
   depends_on "libogg"
 
-  resource("oggfile") do
+  resource "oggfile", :test do
     url "https://upload.wikimedia.org/wikipedia/commons/c/c8/Example.ogg"
     sha256 "f57b56d8aae4c847cf01224fb45293610d801cfdac43d932b5eeab1cd318182a"
   end
+
+  deny_network_access!
 
   def install
     system "./autogen.sh" if build.head?
