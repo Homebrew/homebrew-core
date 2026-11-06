@@ -1,12 +1,12 @@
 class Gtl < Formula
   desc "Greg's Template Library of useful classes"
   homepage "https://github.com/greg7mdp/gtl"
-  url "https://github.com/greg7mdp/gtl/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "1547ab78f62725c380f50972f7a49ffd3671ded17a3cb34305da5c953c6ba8e7"
+  url "https://github.com/greg7mdp/gtl/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "e19a0a0d426a6a96d0fd4505c61f1b689ea12e37c1aa1729d4947493cfdc9d2b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "07f48a0ff25c60a6fd034c7027aa1cb362fe1aa48e767ddaa16ecbf47e9e68c0"
+    sha256 cellar: :any_skip_relocation, all: "d11b62022bdd621670a97c90a6bfc01be9ccedb898fbeec2be267f1f99889cfa"
   end
 
   depends_on "boost" => :build
