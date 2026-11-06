@@ -21,6 +21,8 @@ class Libxshmfence < Formula
   depends_on "pkgconf" => :build
   depends_on "xorgproto" => [:build, :test]
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}
@@ -43,6 +45,5 @@ class Libxshmfence < Formula
       }
     C
     system ENV.cc, "test.c"
-    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
