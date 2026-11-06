@@ -3,16 +3,16 @@ class LanggraphCli < Formula
 
   desc "Command-line interface for deploying apps to the LangGraph platform"
   homepage "https://www.github.com/langchain-ai/langgraph"
-  url "https://files.pythonhosted.org/packages/93/31/e7d40afcf50f45c9ae9f8dcacad534d7c756cdd8ebadf1d1ee2e2781841b/langgraph_cli-0.4.40.tar.gz"
-  sha256 "c0a75dc9816021e156362730286c926f5bdac478c85f3cceb441a425f80838af"
+  url "https://files.pythonhosted.org/packages/cd/31/0990103e3ffb91cecb9a4fd7916f039726e1907cc468ac6fb8d8a0e07004/langgraph_cli-0.4.41.tar.gz"
+  sha256 "777c66fbf7d7440da4b18f407c443939cfeaec4c0a673722c88edb6d0d946772"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9ffee348b660f944328847f8b996f7e2063b45ecf513a6a49c484714dd298203"
-    sha256 cellar: :any, arm64_tahoe:       "3658f32c0a9dedfbb6f5e5f111aa78e55a9047718f98307fffd4537588f041d5"
-    sha256 cellar: :any, arm64_sequoia:     "9d80408b498a2328dc90a5f492d1204794860da94af42bcf441e66d21f6cd0c2"
-    sha256 cellar: :any, arm64_linux:       "0e5b14581cde8958a7e28ab18f2539ab02ffa7044e9b6e5409c5961ade57822f"
-    sha256 cellar: :any, x86_64_linux:      "a54b5f7926e14d7891ebe1598c78e2460ce44b2ca163d1b3c020c0d61e246fec"
+    sha256 cellar: :any, arm64_golden_gate: "826971d31ad336fe5afdfc8e37848ce7d693472acbaf226c8ef9d1b1e656270c"
+    sha256 cellar: :any, arm64_tahoe:       "86324a3068806f93c59db36ed45e1a55982186a388839fdda3fb2bed3b5186ac"
+    sha256 cellar: :any, arm64_sequoia:     "2ae914e308c7cda158115c121e283704d256109a8f6386d9107e675c09c67af4"
+    sha256 cellar: :any, arm64_linux:       "8f51b3f24104b7cb63538f182e178d7bf5ce140924b5748751ca411399e83d2a"
+    sha256 cellar: :any, x86_64_linux:      "998af01427935cd16df34e3e7ce05efc6fa21d8648b6fe50ecf3f43ed62907fd"
   end
 
   depends_on "rust" => :build # for orjson
@@ -26,8 +26,8 @@ class LanggraphCli < Formula
   pypi_packages exclude_packages: %w[certifi pydantic]
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "charset-normalizer" do
@@ -76,18 +76,18 @@ class LanggraphCli < Formula
   end
 
   resource "jsonpatch" do
-    url "https://files.pythonhosted.org/packages/31/fd/359c6b0bf41d43eba15cafcd185fd82a11250f00606599ca8f296820fae2/jsonpatch-1.38.tar.gz"
-    sha256 "debc3e7bdc3d446468d64987f51a0e7a9deea42987ff90a6d1005a489b471c19"
+    url "https://files.pythonhosted.org/packages/67/f6/4b1c0352b99b71e80d3eac306b9431a46ff109a314ba0a48b4b4bd3b9761/jsonpatch-1.42.tar.gz"
+    sha256 "8d553ab33cc1e5d3da60b8be5224355fb28cde863cc8935c40f011a8c0d72ad4"
   end
 
   resource "jsonpointer" do
-    url "https://files.pythonhosted.org/packages/54/04/e35b34f4e441473e62d82d6ed9a8f748d93d895f4c05d4e645aa0fde51d7/jsonpointer-3.6.tar.gz"
-    sha256 "82e839a3ba3a9e2b54394fda8b3d276c2459d80408d06ef9a6fbc369d7544ffc"
+    url "https://files.pythonhosted.org/packages/c2/cf/5d665216bd9dea19dd26ea93ca525ef02936a9cccd0cd856f8408eb77f0b/jsonpointer-3.8.tar.gz"
+    sha256 "a627a255641390bfb4d51d4cfbb90648078ae855b45804ef7e19ea13a4cca355"
   end
 
   resource "langchain-core" do
-    url "https://files.pythonhosted.org/packages/64/cb/77d1dabe57d0dc0f96f65cba321366c341627295d1c09eefa58549e34391/langchain_core-1.7.0.tar.gz"
-    sha256 "c34e53358b103cd73f43c63f5f46f9b5c6c3467efdffcdf134892b89020494e4"
+    url "https://files.pythonhosted.org/packages/1e/13/eef86ab444e9e797bb0e41f583904510fb36416571f6fbb93b9255e1e125/langchain_core-1.7.6.tar.gz"
+    sha256 "0833781e3a8e6fe83073c8412c21180a0545d5ccdf3437889951caf9589ece6c"
   end
 
   resource "langchain-protocol" do
@@ -96,13 +96,13 @@ class LanggraphCli < Formula
   end
 
   resource "langgraph-sdk" do
-    url "https://files.pythonhosted.org/packages/0c/33/dd9cd2218197debafee7b305a975355afa1c14278200019122d11717ce96/langgraph_sdk-0.4.10.tar.gz"
-    sha256 "d8d7afd326b4df42ddc0878b7fbf53f03c3237c664c236bf5bac4ab16fc38ed9"
+    url "https://files.pythonhosted.org/packages/e0/30/ec5e936828dc1d0cdbd7b20fd3094feb79381fcc8470867cf69b82f3652a/langgraph_sdk-0.4.13.tar.gz"
+    sha256 "66586aab29426cfeab4f003f4215ec1cbcb88e08f437ec7c5d3f852b03826e6e"
   end
 
   resource "langsmith" do
-    url "https://files.pythonhosted.org/packages/a2/f7/07a02241b6e6ed3df4e31a64ed09cb522c47227816da3d71097e7cf94657/langsmith-0.14.12.tar.gz"
-    sha256 "b4d6a24ed74333095da476803ad9d22ee35f9dae1052cebf1e366d3889a9b675"
+    url "https://files.pythonhosted.org/packages/12/4b/c91526e3038d5d5869fa5dba647215826fb8b2b8a3c042d20581a3e5d735/langsmith-0.14.17.tar.gz"
+    sha256 "53efa2db8293d0a8d60efebe0945c595b635873774b302066ed0a746ddf87562"
   end
 
   resource "orjson" do
@@ -166,8 +166,8 @@ class LanggraphCli < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/30/4b/4692be6d5bf739ed049b3813901c42091f8c054df89d5c089343823dea0d/websockets-17.3.tar.gz"
-    sha256 "1c7dd93a1c9f89297471493674b1fc1d9467cafd45374f2172213046bdb3a329"
+    url "https://files.pythonhosted.org/packages/75/79/590c5f0cc7d1661195aeefccb0e342b79f4c77d368d526d028821a390332/websockets-17.4.tar.gz"
+    sha256 "09d3939b70df0c8ad2da145ebd50978bccaee1d565e838b0e7921a34d38571eb"
   end
 
   resource "xxhash" do
