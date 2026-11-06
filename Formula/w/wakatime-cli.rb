@@ -8,11 +8,11 @@ class WakatimeCli < Formula
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b7dd6d3e46caebf26b299f4fddaacae7b261dcd2908e2d16016f5cf2762489d2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b7dd6d3e46caebf26b299f4fddaacae7b261dcd2908e2d16016f5cf2762489d2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b7dd6d3e46caebf26b299f4fddaacae7b261dcd2908e2d16016f5cf2762489d2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "067667fa1524ad84f9fbda8089e11e72ab7b3ec4d7633d57f043f4e8f7104f00"
-    sha256 cellar: :any,                 x86_64_linux:      "9a5f7ef0486165975cab2db589f7ceb41e83855d3f18d7d758bcf49de58c531a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4b1ee21e0160316b220da54eb1bec3f47dfab8b4ead008557cadf1d5c2f19c73"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4b1ee21e0160316b220da54eb1bec3f47dfab8b4ead008557cadf1d5c2f19c73"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4b1ee21e0160316b220da54eb1bec3f47dfab8b4ead008557cadf1d5c2f19c73"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ecf45d475617ca5cb8bae36bf3d2de424c7e330f4a9935cbd8f49e679f4af942"
+    sha256 cellar: :any,                 x86_64_linux:      "7a9876760117a5115a6dcf058b34f1d6394927f8ac1ad4c101055b7996326ae1"
   end
 
   depends_on "go" => :build
