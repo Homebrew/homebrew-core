@@ -17,7 +17,7 @@ class ParallelHashmap < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "caa4a19542de0e778d7cb13ab955da943a9fd970124ab0d578971b0afe1e7a91"
+    sha256 cellar: :any_skip_relocation, all: "467ea7c77a227175572912f7b8e4e5491df72f219e51f97babca53b82809d96d"
   end
 
   depends_on "cmake" => :build
