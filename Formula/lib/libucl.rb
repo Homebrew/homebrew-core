@@ -18,6 +18,8 @@ class Libucl < Formula
   depends_on "libtool" => :build
   depends_on "pkgconf" => :build
 
+  deny_network_access!
+
   def install
     system "./autogen.sh"
 
