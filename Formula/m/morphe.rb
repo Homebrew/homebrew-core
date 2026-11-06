@@ -6,11 +6,11 @@ class Morphe < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1e3e80ca5ba36272ab3152ed30133dfda8661ef1e660be4fc066168051634982"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1e3e80ca5ba36272ab3152ed30133dfda8661ef1e660be4fc066168051634982"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1e3e80ca5ba36272ab3152ed30133dfda8661ef1e660be4fc066168051634982"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "77f611efe20a71b190f4074a50d1abc1d0b8016fc08ab5ba41d0e117043e75c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "77f611efe20a71b190f4074a50d1abc1d0b8016fc08ab5ba41d0e117043e75c6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5e189b02bb3e0ae42ddd92a9af7796f84dd34db0d73fcd2f46450ca20c1bb4c2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5e189b02bb3e0ae42ddd92a9af7796f84dd34db0d73fcd2f46450ca20c1bb4c2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5e189b02bb3e0ae42ddd92a9af7796f84dd34db0d73fcd2f46450ca20c1bb4c2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b6d6f0b0e820858ced0427b8bec67cb62efd25731a131e388c30824c450cac29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "b6d6f0b0e820858ced0427b8bec67cb62efd25731a131e388c30824c450cac29"
   end
 
   depends_on "gradle" => :build
