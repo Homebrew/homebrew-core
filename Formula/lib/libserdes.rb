@@ -21,6 +21,12 @@ class Libserdes < Formula
 
   uses_from_macos "curl"
 
+  on_macos do
+    depends_on "librdkafka"
+  end
+
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
