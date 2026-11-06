@@ -1,19 +1,17 @@
 class Awk < Formula
   desc "Text processing scripting language"
   homepage "https://www.cs.princeton.edu/~bwk/btl.mirror/"
-  url "https://github.com/onetrueawk/awk/archive/refs/tags/20260426.tar.gz"
-  sha256 "7ae5b9fc6a8149bc45ea0ba3ba434a69a16d1460d19f6d01b6f04cc885b8e02b"
+  url "https://github.com/onetrueawk/awk/archive/refs/tags/20261106.tar.gz"
+  sha256 "1b354fe6fa0089a959ef912085e7a064236d15a7d3c9e6ce86456c3b87d3f464"
   license "SMLNJ"
   head "https://github.com/onetrueawk/awk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "937c8cc19fcf54047d536caafbd055120dfabb6600dcea9c1bc8e68921e2b564"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3661f3ece005a2b68de7cdbdc202f986cc851e0840be63b09e0c247c651f4782"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "839ada88bfb7cbc5f89fe6dca83c80a4eb81265521630f98e6d6cc48e4e5c1c1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "c67e546df7fece3b3d1c4b6d7560da411deb078556d66789f8d0d414f4ae339a"
-    sha256 cellar: :any_skip_relocation, sonoma:            "a14e837db57634faa6d83211a01186f0430e0bc763aa7dfe5071ba4b6bda69bf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9a3b73db12b9c18dbc671906cca7202b94bff36af3a76f9d797f4a4f7d41a98b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "4434db0cc9a0303dc2c127eaf75117890297a8dcbab9784fbadd09d0952779f0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "51eca89676822cd75a52f56835af91a404dd0dd27fed0e3ace1db3cc94fad2eb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b93f9eeeee4d904d12c6175f4195551b098c1a9063030e602107d4ab6bd80359"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8312fd473efaa88c7553e68cdfc67e6644685ff7d30f0ea4d84b4704a473c3a1"
+    sha256 cellar: :any,                 arm64_linux:       "b2a92fafe75c38e4deb38b350e847919be7fa3b31b64afe31f8e4e13abb7c9a6"
+    sha256 cellar: :any,                 x86_64_linux:      "64d3733d6bc965e101f2a26d87ad42866b309615d426e80913dc778a87018aa0"
   end
 
   uses_from_macos "bison" => :build
