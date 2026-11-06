@@ -6,11 +6,11 @@ class Mcpc < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "133aa6123bc71e255a44929aa1b23928a5d6ce5b9a969efcfbe844f315801022"
-    sha256 cellar: :any,                 arm64_tahoe:       "7266522bd1ab9cd9056328cfd8cf7eb3d2623461736bd488f5e0f2ec58d82abd"
-    sha256 cellar: :any,                 arm64_sequoia:     "327ecbc304ff413de5e21406532d578676d1c867dc6b2089af890869f0b20727"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "84650f7bb2578e6b19367083d031917ec7ea5e8170b09be1d1d4455d35aadca2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "bb24070af515d7ae7ba4d4458c00658147ee18d6139985c3c966b3950b81e1c3"
+    sha256 cellar: :any,                 arm64_golden_gate: "9220739edcb5cb01b7709e27882204ac4f4b3835638e06a3740a7e45ec9102c3"
+    sha256 cellar: :any,                 arm64_tahoe:       "1774a5515217084fae88a48b43f5b28e0e78739c21033a8ce10231063c8243b5"
+    sha256 cellar: :any,                 arm64_sequoia:     "6609feb96edf54efabd26df35595d0d22b10362278ada43e44fce783fc271957"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "96955a63c8113fe0eebe12aa2f207f2a2aa3b64f705bfb503adda1a566317e1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e7f98a6361557a0ed72daeeb71d3564eb2f4038df6a60352a0a4458caa81d03a"
   end
 
   depends_on "node"
