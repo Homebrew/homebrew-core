@@ -25,6 +25,8 @@ class Libvisual < Formula
   depends_on "pkgconf" => :build
   depends_on "sdl12-compat" # SDL 2 issue: https://github.com/Libvisual/libvisual/issues/193
 
+  deny_network_access!
+
   def install
     # NOTE: Other formulae would not be able to install to libvisual's cellar
     #       so we rely on brew's auto-symlinking to
