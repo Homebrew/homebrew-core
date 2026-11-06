@@ -2,19 +2,17 @@ class Aztfexport < Formula
   desc "Bring your existing Azure resources under the management of Terraform"
   homepage "https://azure.github.io/aztfexport/"
   url "https://github.com/Azure/aztfexport.git",
-      tag:      "v0.20.0",
-      revision: "d52e1c50f4bd40dbd7c514a487afa09d6a2db560"
+      tag:      "v0.21.0",
+      revision: "102efbe46abb01649b7c6dbfa49da5a8704bf180"
   license "MPL-2.0"
   head "https://github.com/Azure/aztfexport.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "777c053005338a0ea1d01385bbad38d24a4e53550926a838e57ae8999b6c3580"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1abc92347edccae85771233af6fbee21ec60cd39f50520184c5823a65a6d9042"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1abc92347edccae85771233af6fbee21ec60cd39f50520184c5823a65a6d9042"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "1abc92347edccae85771233af6fbee21ec60cd39f50520184c5823a65a6d9042"
-    sha256 cellar: :any_skip_relocation, sonoma:            "c03fa865c45ee5eedf6358daae3991245779a5b332015727d8b1ae31243083a9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1dfcaf2b2cfffac99fc7a8b8b77628eb99b13ba1aebc18858d04b9d6c44510c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "13926213180bbdc676dd855cd0626eb92fe836c82faf094ac46faa6ce4ffe704"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9abbe5c279bfd4a7e413de5d2137d1d7d3ce229e4386c518227e82ef916b3482"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9abbe5c279bfd4a7e413de5d2137d1d7d3ce229e4386c518227e82ef916b3482"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9abbe5c279bfd4a7e413de5d2137d1d7d3ce229e4386c518227e82ef916b3482"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a7af68f8606ccf0e8bca9263953dd33ae11a8a9e60332c6ee0910049a9948602"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "61c57b219070a58188815db21fe3792f0351bb7008b5e9eec03a4f68258df5c1"
   end
 
   depends_on "go" => :build
