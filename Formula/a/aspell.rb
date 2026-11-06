@@ -5,6 +5,7 @@ class Aspell < Formula
   mirror "https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.3.tar.gz"
   sha256 "0534eae11132405120d11e46bf595bd5dd189bc124ba77a5dd6aae861b48a162"
   license "LGPL-2.1-only"
+  revision 1
   compatibility_version 1
 
   bottle do
@@ -561,7 +562,7 @@ class Aspell < Formula
 
     resources.each do |r|
       r.stage do
-        system "./configure", "--vars", "ASPELL=#{bin}/aspell", "PREZIP=#{bin}/prezip"
+        system "./configure", "--vars", "ASPELL=#{bin}/aspell"
         system "make", "install"
       end
     end
@@ -569,5 +570,6 @@ class Aspell < Formula
 
   test do
     assert_equal "worrd", pipe_output("#{bin}/aspell list -d en_US", "misspell worrd", 0).strip
+    assert_equal "bagika", pipe_output("#{bin}/aspell list -d id", "bagikan bagika", 0).strip
   end
 end
