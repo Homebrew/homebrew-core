@@ -26,6 +26,8 @@ class Libspectre < Formula
 
   depends_on "ghostscript"
 
+  deny_network_access!
+
   def install
     ENV.append "CFLAGS", "-I#{formula_opt_include("ghostscript")}/ghostscript"
     ENV.append "LIBS", "-L#{formula_opt_lib("ghostscript")}"
