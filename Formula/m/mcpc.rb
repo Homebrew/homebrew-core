@@ -1,8 +1,8 @@
 class Mcpc < Formula
   desc "Universal command-line client for the Model Context Protocol (MCP)"
   homepage "https://github.com/apify/mcpc"
-  url "https://registry.npmjs.org/@apify/mcpc/-/mcpc-0.7.0.tgz"
-  sha256 "f5a99edf633089474e3ca1dbd928c560eac63f1e8a5ff2d6f048b92d0cd4da8c"
+  url "https://registry.npmjs.org/@apify/mcpc/-/mcpc-0.8.0.tgz"
+  sha256 "593387a3026351ee1e529fb211740768029efcccfef6e62f9cb6d1c20b78947e"
   license "Apache-2.0"
 
   bottle do
@@ -20,8 +20,8 @@ class Mcpc < Formula
   end
 
   resource "keyring" do
-    url "https://github.com/Brooooooklyn/keyring-node/archive/refs/tags/v2.1.0.tar.gz"
-    sha256 "dcb0381cf252c577ff5c0c3bb0d5dd0750fd04a528484e5dbfdfb3c1add12467"
+    url "https://github.com/Brooooooklyn/keyring-node/archive/refs/tags/v2.1.2.tar.gz"
+    sha256 "b461a450df324a73219c6352186b95e4501b3f9099b876b023c9cdcf1d8cbf9d"
 
     livecheck do
       url "https://raw.githubusercontent.com/apify/mcpc/v#{LATEST_VERSION}/pnpm-lock.yaml"
