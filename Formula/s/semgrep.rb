@@ -5,8 +5,8 @@ class Semgrep < Formula
   homepage "https://semgrep.dev"
   # Pull from git tag to get submodules, https://github.com/semgrep/semgrep/issues/10877
   url "https://github.com/semgrep/semgrep.git",
-      tag:      "v1.183.0",
-      revision: "4fe07d805dd2a4b64fed486e95136923f08648d0"
+      tag:      "v1.184.0",
+      revision: "ac37d1f6e47b17648b8f854d6e2f2d72fade2567"
   license "LGPL-2.1-only"
   head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
@@ -16,11 +16,11 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "888c9c72870638865babf8b1e55bb1d127d6ee52e09762fbdc8c83b4ff3fc19d"
-    sha256 cellar: :any, arm64_tahoe:       "18ce06dd374618fbb5ec5b98e313f0c7b8ab437b147686b3b11ceede23348542"
-    sha256 cellar: :any, arm64_sequoia:     "d6d362d922036b4a231eb317d89f01ca4a79172561edec65c2f067c29f59119b"
-    sha256               arm64_linux:       "23be2aae6d5ff66473bdf7b598a1cb0251e00820a2a2c4c4c40ecf291e90eb85"
-    sha256               x86_64_linux:      "25e5b4e8b5537e34856523096bab0c19dbacfe04d0c871f3efc3fff36e7b3fce"
+    sha256 cellar: :any, arm64_golden_gate: "f2d31e283409aac572824d1f07bbc4a2eb010704eb525cfdcb8a55783a2c5952"
+    sha256 cellar: :any, arm64_tahoe:       "9c526d3c0a0ca82df6bef975890eb3846fbdd56e65ed05517457376bba6a24c3"
+    sha256 cellar: :any, arm64_sequoia:     "f0e565ee68c7b1c6b8b190168ee3a5556d962bda70fe788ad3391dc348bbcb1a"
+    sha256               arm64_linux:       "b50b53723ba8ed722ea8466160a94c8597544456d7c2f45e14362cd9c13dd74d"
+    sha256               x86_64_linux:      "ff1c0fbe257608fcc170b2b79d53879f776efcf6f9a92497327585a6608a1136"
   end
 
   depends_on "ocaml" => :build
@@ -51,8 +51,8 @@ class Semgrep < Formula
                 exclude_packages: %w[certifi cryptography pydantic rpds-py]
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "attrs" do
@@ -66,8 +66,8 @@ class Semgrep < Formula
   end
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/fb/37/adf8dd2cde958c2d086bdd87fc36b532fd824bf38f10be6348d65da0c8f9/bracex-3.2.tar.gz"
-    sha256 "0a3d40bfae4caae4d3bfd0ea715874799fab711c38fd4012cc35343e815405cd"
+    url "https://files.pythonhosted.org/packages/4d/fc/137095eb2f24ccf0b4db196abd9f5cfe74398a834af51d4bc4876e0beaf0/bracex-3.2.1.tar.gz"
+    sha256 "07a9b2100ceecc0c24afa1a1714bf8d4a6abb43d592939455f662b682ac9baa4"
   end
 
   resource "charset-normalizer" do
@@ -251,8 +251,8 @@ class Semgrep < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/5b/42/55c32bb9b12693c092ad250a0e82edb5b31ddeda6eb772de5f308b3804ad/python_multipart-0.0.32.tar.gz"
-    sha256 "be54b7f3fa167bb83e4fcd936b887b708f4e57fe75911c02aebf53efaf8d938e"
+    url "https://files.pythonhosted.org/packages/9f/b7/15b905f6142a9a8a68f66900788da1a32e4d4254452783b37ad1eccb0506/python_multipart-0.0.33.tar.gz"
+    sha256 "b8112424a6abd162ec08d390565dd113ad699f2fe6fef3c987b8bbcbfe9e390d"
   end
 
   resource "referencing" do
@@ -293,6 +293,11 @@ class Semgrep < Formula
   resource "starlette" do
     url "https://files.pythonhosted.org/packages/48/bb/3d8757f21e9a53d9035c9eb039a777047139a16bfdbedfc7a58241c3d914/starlette-1.10.0.tar.gz"
     sha256 "b8399098d4c1e3522734f7235dc79b1fc967f96cf139c81e0fa30479e0685f9b"
+  end
+
+  resource "structlog" do
+    url "https://files.pythonhosted.org/packages/5e/89/b4a0bcfdf4f71a3dea31379f095929613d7e4528a0996bca6aa964cd0dca/structlog-26.1.0.tar.gz"
+    sha256 "f63a716cbd1b1291cf7661de7794b455acfa4c43c5bcf1630e6ad5ddc1adb3b7"
   end
 
   resource "tomli" do
