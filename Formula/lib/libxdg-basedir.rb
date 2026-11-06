@@ -25,6 +25,8 @@ class LibxdgBasedir < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  deny_network_access!
+
   def install
     system "./autogen.sh"
     system "./configure", *std_configure_args
