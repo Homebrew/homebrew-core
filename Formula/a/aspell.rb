@@ -5,14 +5,15 @@ class Aspell < Formula
   mirror "https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.3.tar.gz"
   sha256 "0534eae11132405120d11e46bf595bd5dd189bc124ba77a5dd6aae861b48a162"
   license "LGPL-2.1-only"
+  revision 1
   compatibility_version 1
 
   bottle do
-    sha256 arm64_golden_gate: "4a7c8cd4d55b0dc6179cbf23841947f2ed6e7e9847f744533af8f7dcd3d3f510"
-    sha256 arm64_tahoe:       "959842249ce6867739a9dcb33e90a1c229390e9f7c9330000565a5fae6e8af95"
-    sha256 arm64_sequoia:     "69f5322ba8aa4f5ff42aaea572a99531921cb157456cf61cf423f83dfea78755"
-    sha256 arm64_linux:       "c111297f4961accb404a063bfd7b65c40a12517e57dbd433ba2d6095f0f8251d"
-    sha256 x86_64_linux:      "52107876f0603c51d19e5633a1ceb47bf1d921ff1dc05c520472da784186b56c"
+    sha256 arm64_golden_gate: "08436da282a6673d81b2c905da102df730e1c4a86e409088ab0892557a378aee"
+    sha256 arm64_tahoe:       "4c04fc9c8d318233b046b40e1937da1e18520e90a5c540b705ba44fc75d6a767"
+    sha256 arm64_sequoia:     "9c1f28c2289199cba0259868d64a72cf10d6d972f34fdf713a7451e1113beda9"
+    sha256 arm64_linux:       "710cab6fd71ed4e97fe14dd88f549ab84f5ce01a262caab36f1f5719b59223b4"
+    sha256 x86_64_linux:      "4588b75601d9c44d0dec206595808c6e6ecd013244b441fbe5e2682d5186a8a8"
   end
 
   uses_from_macos "ncurses"
@@ -561,7 +562,7 @@ class Aspell < Formula
 
     resources.each do |r|
       r.stage do
-        system "./configure", "--vars", "ASPELL=#{bin}/aspell", "PREZIP=#{bin}/prezip"
+        system "./configure", "--vars", "ASPELL=#{bin}/aspell"
         system "make", "install"
       end
     end
@@ -569,5 +570,6 @@ class Aspell < Formula
 
   test do
     assert_equal "worrd", pipe_output("#{bin}/aspell list -d en_US", "misspell worrd", 0).strip
+    assert_equal "bagika", pipe_output("#{bin}/aspell list -d id", "bagikan bagika", 0).strip
   end
 end
