@@ -22,6 +22,8 @@ class Libxtst < Formula
   depends_on "libxi"
   depends_on "xorgproto"
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}
@@ -46,6 +48,5 @@ class Libxtst < Formula
       }
     C
     system ENV.cc, "test.c"
-    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
