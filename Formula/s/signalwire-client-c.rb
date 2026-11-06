@@ -7,11 +7,11 @@ class SignalwireClientC < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d4266e744a8932d7f0b6c2c49cf3b10d43c1366848302301e6c0419c58f7ff11"
-    sha256 cellar: :any, arm64_tahoe:       "e09eaa096c08a57471edd369854a84abe47b512e93af7f0c5ba8a246f93e5f41"
-    sha256 cellar: :any, arm64_sequoia:     "5a040ba0824bca14a78575f224fc903692ebf2f7e42872820a93040b3d4fffe7"
-    sha256 cellar: :any, arm64_linux:       "dbe2c78a0fd750cb01b17dbc94dc67792e1b953ce194adaaf4f37ac52fa471a8"
-    sha256 cellar: :any, x86_64_linux:      "2c36c0ef7fa083a610e56d9b8af472f814e99fe06d8875306cda0dacab02d8d1"
+    sha256 cellar: :any, arm64_golden_gate: "244579c2acb67012e0ce31458b0eab069e962c0e1a92ecdbc390e357ea9c353c"
+    sha256 cellar: :any, arm64_tahoe:       "5fc4dabd44395ee6138c56b70983395ba02605039b7abcfd994596ce0a1032b3"
+    sha256 cellar: :any, arm64_sequoia:     "97bdf557640c8cb51188dffb81081d06df728fb9e4ccb6934d7d63da7da2c8c0"
+    sha256 cellar: :any, arm64_linux:       "5d91ece6b7924ab5e7bd5fa684fc53ef906162b658fff438059bf63eab6b4659"
+    sha256 cellar: :any, x86_64_linux:      "10a26e9f0dc4cc36d9b8f3dabb3e2657fd915e2f96f84d8357564a161924f3ed"
   end
 
   depends_on "cmake" => :build
