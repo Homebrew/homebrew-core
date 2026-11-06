@@ -22,6 +22,8 @@ class Libxres < Formula
   depends_on "libx11"
   depends_on "libxext"
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}
@@ -45,6 +47,5 @@ class Libxres < Formula
       }
     C
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lXRes"
-    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
