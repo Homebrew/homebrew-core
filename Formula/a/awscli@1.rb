@@ -3,8 +3,8 @@ class AwscliAT1 < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://files.pythonhosted.org/packages/a0/90/c289657c4d946f615063952a945e19d6acc50f493f42580ff77ebc423a35/awscli-1.46.2.tar.gz"
-  sha256 "43e77f324745e760918dc3c6ffb73eef49e35e9f52a5c39fe4a6de854f7e1121"
+  url "https://files.pythonhosted.org/packages/6d/b5/4024da68f7096bc2041f87dfce73b07f24b9cdb0d66cbf77675dfbb290d5/awscli-1.46.3.tar.gz"
+  sha256 "9b1146f4159bdf98688d900e2ffd0ac05c18f7fb28641c6b0817e64574e3ce1f"
   license "Apache-2.0"
 
   # Need explicit livecheck to autobump deprecated formula
@@ -47,8 +47,8 @@ class AwscliAT1 < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/a4/9a/23310166d960def5897e91fe20e5b724601b02a22e84ba1f94232c0b7f67/pyasn1-0.6.4.tar.gz"
-    sha256 "9c447d8431c947fe4c8febc4ed9e760bc29011a5b01e5c74b67025bd9fb8ce81"
+    url "https://files.pythonhosted.org/packages/88/7e/3c0da41061a2021cac7cd524fd57092adbe5b515e8bf9005702e366802e2/pyasn1-0.6.5.tar.gz"
+    sha256 "6b11616a6bcf3a40e635f082bb232fa57b5e0dd7f517bd7ddd69ec3794508a47"
   end
 
   resource "python-dateutil" do
