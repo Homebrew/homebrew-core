@@ -33,11 +33,11 @@ class DockerEngine < Formula
   end
 
   def install
-    ldflags = %W[
-      -X github.com/moby/moby/v2/dockerversion.BuildTime=#{time.iso8601}
-      -X github.com/moby/moby/v2/dockerversion.GitCommit=#{Utils.git_short_head}
-      -X github.com/moby/moby/v2/dockerversion.Version=#{version}
-      -X "github.com/moby/moby/v2/dockerversion.PlatformName=Docker Engine - Community"
+    ldflags = [
+      "-X", "github.com/moby/moby/v2/dockerversion.BuildTime=#{time.iso8601}",
+      "-X", "github.com/moby/moby/v2/dockerversion.GitCommit=#{Utils.git_short_head}",
+      "-X", "github.com/moby/moby/v2/dockerversion.Version=#{version}",
+      "-X", "\"github.com/moby/moby/v2/dockerversion.PlatformName=Docker Engine - Community\""
     ]
 
     system "go", "build", *std_go_args(output: bin/"dockerd", ldflags:),
