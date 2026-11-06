@@ -28,9 +28,9 @@ class Actionlint < Formula
   end
 
   def install
-    ldflags = %W[
-      -X "github.com/rhysd/actionlint.version=#{version}"
-      -X "github.com/rhysd/actionlint.installedFrom=installed from Homebrew"
+    ldflags = [
+      "-X", "github.com/rhysd/actionlint.version=#{version}",
+      "-X", "\"github.com/rhysd/actionlint.installedFrom=installed from Homebrew\""
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/actionlint"
     system "ronn", "man/actionlint.1.ronn"
