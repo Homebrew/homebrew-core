@@ -34,6 +34,7 @@ class Libspatialite < Formula
 
   head do
     url "https://www.gaia-gis.it/fossil/libspatialite", using: :fossil
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -60,6 +61,8 @@ class Libspatialite < Formula
     type :unofficial
     resolves "https://www.gaia-gis.it/fossil/libspatialite/tktview/ac85f0fca35de00b9aaadb5078061791fc799d9c"
   end
+
+  deny_network_access!
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
