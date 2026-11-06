@@ -1,8 +1,8 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
   homepage "https://botan.randombit.net/"
-  url "https://botan.randombit.net/releases/Botan-3.14.0.tar.xz"
-  sha256 "c22d66a08cd3c6dae683bdcb8384beaa9e2cbd75821e19a270047030fbe81ac7"
+  url "https://botan.randombit.net/releases/Botan-3.14.1.tar.xz"
+  sha256 "5b85cba0f014d344eb8e9919aee0a3bdc31e16acb05816410025be9bee1e0930"
   license "BSD-2-Clause"
   compatibility_version 4
   head "https://github.com/randombit/botan.git", branch: "master"
@@ -13,11 +13,11 @@ class Botan < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "fb4bc84bc613583dfe099d135ea720bbe41d85851ce56ce53db5a2a7dc515925"
-    sha256 arm64_tahoe:       "dcf729a1ae09a236017c146480d8d8a3e06c1eff4cc5a4a31a3448e3be748f90"
-    sha256 arm64_sequoia:     "77ccdc730f456dd4d7d37debbba457065be490a4fadbceeb3c994e279348c61a"
-    sha256 arm64_linux:       "b54a5f1e8b270ae2183e9b5f0dcce49f98a213d86f89ca1c4fd60a70497f19d2"
-    sha256 x86_64_linux:      "7bf26ce8360df5e15ea1998e11609e64bbe4487ed7965dfd69b59f2013ca8475"
+    sha256 arm64_golden_gate: "71c89d76ef109ad7eb1af4c7ff2bfb4a45594ad6642f46530d84d0ac2c282ae2"
+    sha256 arm64_tahoe:       "54de75c5085c7cb53e1dbd60d4942f933d6a99c3ffeef31bdfe53811a509e4f1"
+    sha256 arm64_sequoia:     "9abc6beedca224c8dd2759e65587ceea67614df645810f6272ee47f0b058e635"
+    sha256 arm64_linux:       "5fb1ffd5b8b05896ff9ce42f8dcca7bb274c9f06b06c751f340b986cb1ada711"
+    sha256 x86_64_linux:      "16452aad4ecf9bc4bbaae5a3172ccc9f0712fe81516edb0f6407bcd792a26aac"
   end
 
   depends_on "pkgconf" => :build
