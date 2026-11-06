@@ -1,8 +1,8 @@
 class Networkit < Formula
   desc "Performance toolkit for large-scale network analysis"
   homepage "https://networkit.github.io"
-  url "https://github.com/networkit/networkit/archive/refs/tags/11.2.2.tar.gz"
-  sha256 "04fffd0f801a91524a6dc2643f7d262e79600b086e4688bcb1b7988b2b5448dd"
+  url "https://github.com/networkit/networkit/archive/refs/tags/11.3.tar.gz"
+  sha256 "5aa5813110438270e9bb83c73f597943c4c5bedd5a9634fdaf5f2052a0053ba4"
   license "MIT"
 
   bottle do
@@ -29,15 +29,22 @@ class Networkit < Formula
     depends_on "libomp"
   end
 
-  # Fix build with Cython 3.3 (duplicate `__pyx_convert_vector_to_py_*` definitions)
-  patch do
-    url "https://github.com/networkit/networkit/commit/11bbe357057f886ef8864565f981c4f86a47b8ce.patch?full_index=1"
-    sha256 "495247630a1a1810c6db057b58c27a82777710e7a9ec77e2c6abdeff18e6919d"
-    type :unofficial
-    resolves "https://github.com/networkit/networkit/pull/1519"
+  # Must match the `extlibs/dhb` submodule pinned by this release
+  resource "dhb" do
+    url "https://github.com/hu-macsy/dhb/archive/fb413abb5936ccf30d47e30a448cb8799c63b127.tar.gz"
+    version "fb413abb5936ccf30d47e30a448cb8799c63b127"
+    sha256 "3a0b726ce537359568cdf5e9ac73ff9606d7e6def1bf208a51d8f6971b3c0c2b"
+
+    livecheck do
+      url "https://api.github.com/repos/networkit/networkit/contents/extlibs/dhb?ref=#{LATEST_VERSION}"
+      strategy :json do |json|
+        json["sha"]
+      end
+    end
   end
 
   def install
+    resource("dhb").stage buildpath/"extlibs/dhb"
     site_packages = Language::Python.site_packages(python3)
 
     ENV.prepend_create_path "PYTHONPATH", prefix/site_packages
