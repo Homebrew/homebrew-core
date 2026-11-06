@@ -22,10 +22,14 @@ class Libretls < Formula
 
   depends_on "openssl@4"
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--with-openssl=#{formula_opt_prefix("openssl@4")}"
+                          "--with-openssl=#{formula_opt_prefix(openssl)}"
     system "make", "install"
   end
 
