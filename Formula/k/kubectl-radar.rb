@@ -1,8 +1,8 @@
 class KubectlRadar < Formula
   desc "Missing open-source Kubernetes UI with a built-in MCP server for AI agents"
   homepage "https://radarhq.io"
-  url "https://github.com/skyhook-io/radar/archive/refs/tags/v1.19.0.tar.gz"
-  sha256 "c6a520d4450fe8ef7dc21b04982829187a3c558eb3f76dff7cd2ad5028ac7568"
+  url "https://github.com/skyhook-io/radar/archive/refs/tags/v1.20.0.tar.gz"
+  sha256 "7f103ed8d53b19ae8f1107cfcf6d19b9c1cc928a2fb1b8bad307278e1798a327"
   license "Apache-2.0"
 
   livecheck do
