@@ -22,6 +22,8 @@ class Libunibreak < Formula
     sha256 cellar: :any, x86_64_linux:      "b26dbb5d7886f37e4300d510a1d0947b5044ed4871039a4064cb258bf21e1083"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
