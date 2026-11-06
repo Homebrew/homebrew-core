@@ -3,8 +3,8 @@ class Overturemaps < Formula
 
   desc "Python tools for interacting with Overture Maps data"
   homepage "https://overturemaps.org"
-  url "https://files.pythonhosted.org/packages/d9/21/6ac72a357c1fc68f9ed7aeb7f3918915a285aa5f751bad12e58594ef3687/overturemaps-1.0.3.tar.gz"
-  sha256 "cb194ddf8ad355952cf9f9b1b6cbceaede44c85ea7e7e84131c4ac182d64a267"
+  url "https://files.pythonhosted.org/packages/30/56/1679b57f2564f7ff1c3da582cd14a76649293f81455b85d22263229af850/overturemaps-2.0.0.tar.gz"
+  sha256 "6f844720460697594acda4d87876a5f4da17f060bdd1ab1bbce967132a532845"
   license "MIT"
   head "https://github.com/OvertureMaps/overturemaps-py.git", branch: "main"
 
