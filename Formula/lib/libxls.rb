@@ -14,6 +14,8 @@ class Libxls < Formula
     sha256 cellar: :any, x86_64_linux:      "9cb179bee11e0651c57cd2706d27365c74ed895cf7a7dad4c6fa3ba088770408"
   end
 
+  deny_network_access!
+
   def install
     # Add program prefix `lib` to prevent conflict with another Unix tool `xls2csv`.
     # Arch and Fedora do the same.
