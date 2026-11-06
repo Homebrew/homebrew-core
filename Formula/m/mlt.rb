@@ -4,6 +4,7 @@ class Mlt < Formula
   url "https://github.com/mltframework/mlt/releases/download/v7.42.0/mlt-7.42.0.tar.gz"
   sha256 "8800e343f43aaa885bd5d9d23553030fa220aa3e2f0c94d9fd6a936d41638cdd"
   license "LGPL-2.1-only"
+  revision 1
   compatibility_version 1
   head "https://github.com/mltframework/mlt.git", branch: "master"
 
