@@ -1,8 +1,8 @@
 class Haraka < Formula
   desc "Fast, highly extensible, and event driven SMTP server"
   homepage "https://haraka.github.io/"
-  url "https://registry.npmjs.org/Haraka/-/Haraka-3.3.5.tgz"
-  sha256 "cf22799d7426632e6884ae109ca4ea7582f7828bb8366a08105c1e032f46e7a7"
+  url "https://registry.npmjs.org/Haraka/-/Haraka-3.4.0.tgz"
+  sha256 "8213ffc65e79eec76516a4083772fe4da83ee3d3eb72268dc445e1b49db60d12"
   license "MIT"
 
   bottle do
