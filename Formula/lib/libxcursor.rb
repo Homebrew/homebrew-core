@@ -24,6 +24,8 @@ class Libxcursor < Formula
   depends_on "libxfixes"
   depends_on "libxrender"
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}
