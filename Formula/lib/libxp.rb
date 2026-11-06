@@ -42,6 +42,8 @@ class Libxp < Formula
     sha256 "f2819d05a906a1bc2d2aea15e43f3d372aac39743d270eb96129c9e7963d648d"
   end
 
+  deny_network_access!
+
   def install
     resource("printproto").stage do
       system "sh", "autogen.sh"
