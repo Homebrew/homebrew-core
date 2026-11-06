@@ -2,28 +2,33 @@ class Ffmate < Formula
   desc "FFmpeg automation layer"
   homepage "https://docs.ffmate.io"
   url "https://github.com/welovemedia/ffmate.git",
-      tag:      "2.0.18",
-      revision: "a420fb497cf131f97c875fadf35ed622bde5cc85"
+      tag:      "v2.1.0",
+      revision: "3466e0c6e2b1e4e7a713bd8406a2aca61517ff21"
   license "AGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d78eeadcb0569172323c537993c029fb3855cade1fcd04b7ef0d02f8ee5036fc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a4f901c820ac104d4256c8d761f6f5bfec7b621b19327601c314f70e8551296f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ba198b85e92f28fceff9a8e5b2c9197f88600d7ec09b8b1a710152a388154b37"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "5542bce0d6c403efd40a50640f013c964559ee83b54f5ceb6e134cb5e0293bc0"
-    sha256 cellar: :any_skip_relocation, sonoma:            "df1a62ec4c813fd397ef41dbf05db9a6d635511e0631a992861491ec47d5cc1a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "31a81ab007e6ecb47a8fb319ad244c84b492173a0c96db789e510549cba3d5fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8871f212b527926a2ff1308b60d9ad8c3ce5e3c47edd793e8614512b9011a0bc"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a6f096c8773b0deadb6da0d4fb3ddd0f2f163e77dc9e4bc1f4a3699e99bf0b89"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "93fe148eaff85aef678d9090c51cfde519456a6a105f6b689e8a79f05ac9ad8f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5c3e8b33b1c60df4fc4e01a22b6948462353c5001843d344776aab91ab3ea77f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d2d5ab24739a7fbfe78ba5cbd9c5df8dc269f14de3cc9945699035abf06f8f92"
+    sha256 cellar: :any,                 x86_64_linux:      "cbf79b83cafd97544d0fbe3fe1e909198ba4854b8d9169fbbd3580876a87a4b5"
   end
 
   depends_on "go" => :build
   depends_on "node" => :build
   depends_on "pnpm" => :build
 
-  def install
-    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+  allow_network_access! :test
 
+  def fetch
     system "pnpm", "with", "current", "--dir", "ui", "install", "--ignore-scripts"
+    system "go", "mod", "download"
+  end
+
+  def install
+    rm buildpath/".version"
+    (buildpath/".version").write version.to_s
+
     system "pnpm", "with", "current", "--dir", "ui", "run", "generate"
 
     ui_build_path = buildpath/"internal/controller/ui/ui-build"
