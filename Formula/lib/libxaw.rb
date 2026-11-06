@@ -43,6 +43,8 @@ class Libxaw < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}
