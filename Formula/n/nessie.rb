@@ -1,8 +1,8 @@
 class Nessie < Formula
   desc "Transactional Catalog for Data Lakes with Git-like semantics"
   homepage "https://projectnessie.org"
-  url "https://github.com/projectnessie/nessie/archive/refs/tags/nessie-0.109.0.tar.gz"
-  sha256 "d674f6665c344d47c14c5ee33df29f2e814ef8d67acdfcd1ad2c176e17fefc84"
+  url "https://github.com/projectnessie/nessie/archive/refs/tags/nessie-0.110.0.tar.gz"
+  sha256 "ce25ee365697e8be771d5c46e6bab2c97a6e933f843e56d289a92cc08fcd6037"
   license "Apache-2.0"
 
   bottle do
@@ -22,8 +22,8 @@ class Nessie < Formula
   # TODO: Remove when Nessie's Quarkus Gradle plugin includes the Gradle 9.8 fix.
   # https://github.com/quarkusio/quarkus/pull/57352
   resource "quarkus-gradle-model" do
-    url "https://github.com/quarkusio/quarkus/archive/refs/tags/3.40.1.tar.gz"
-    sha256 "6f7ce8c9eda0bb470c69f407da89e7d02f745bfba3c8b13e7ad52750f9a46ce6"
+    url "https://github.com/quarkusio/quarkus/archive/refs/tags/3.40.1.1.tar.gz"
+    sha256 "a303ea57ade33812bea0122682bfb709177743676bc2fcca1b65771a1ac5013d"
 
     # Fix Gradle 9.8 dependency resolution, upstream PR ref, https://github.com/quarkusio/quarkus/pull/57352
     patch do
@@ -40,9 +40,10 @@ class Nessie < Formula
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home("21")
     maven_repo = "-Dmaven.repo.local=#{buildpath}/maven-repository"
-    resource("quarkus-gradle-model").stage do
+    quarkus_gradle_model = resource("quarkus-gradle-model")
+    quarkus_gradle_model.stage do
       system "gradle", "-p", "devtools/gradle", ":gradle-model:publishToMavenLocal",
-                      "-Pversion=3.40.1", maven_repo, "--no-daemon"
+                      "-Pversion=#{quarkus_gradle_model.version}", maven_repo, "--no-daemon"
     end
     system "gradle", ":nessie-quarkus:assemble", "-DwithMavenLocal=true", maven_repo, "--no-daemon"
     libexec.install Dir["servers/quarkus-server/build/quarkus-app/*"]
