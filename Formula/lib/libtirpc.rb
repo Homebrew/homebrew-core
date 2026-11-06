@@ -16,6 +16,8 @@ class Libtirpc < Formula
 
   depends_on "krb5"
 
+  deny_network_access!
+
   def install
     ENV.append_to_cflags "-D__APPLE_USE_RFC_3542" if OS.mac?
     system "./configure", "--disable-silent-rules", *std_configure_args.reject { |s| s["--disable-debug"] }
