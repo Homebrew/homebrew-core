@@ -12,11 +12,11 @@ class PopplerQt6 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "f06133a72222827953ed6bd29e8b5377cd63b1b4c715e645ab1e63569a2f2e19"
-    sha256 arm64_tahoe:       "551bf323f81935038d19fd73c2c5d772db03dd583c45068c982f35f49ca8110a"
-    sha256 arm64_sequoia:     "0b8f532478596ad548577cb2848e7a16d0c8f319f6fd0fa6ed83ebdb391564fb"
-    sha256 arm64_linux:       "dc227fb968be2a84c6bef5a30b4080fe2678e02653d2b6f2dd6bae6e020224c1"
-    sha256 x86_64_linux:      "634f1e881146fb5516f843b96b08db1e104288e14b8911f09702aea9bcfa05a1"
+    sha256 arm64_golden_gate: "ebe46149feec3aaf08a80dbf7dd98f95aca739a4d4c2afc4e9dee8815640d83e"
+    sha256 arm64_tahoe:       "2d978b0bccb6466410aef5876a76e4f83902232acbcf23c13540493ca5d8399c"
+    sha256 arm64_sequoia:     "5dd349bac231868894c2aa2d9ec36359334506823ca22631901538cefef16c77"
+    sha256 arm64_linux:       "2157a863abf10e51553ad9dc0351b553e3f0fda5db2c686af45b1a9908fefd55"
+    sha256 x86_64_linux:      "dd9eafd43d7555fa3e1a358edfbe6e94836e685a894f57645faad5d8607391a7"
   end
 
   keg_only "it conflicts with poppler"
