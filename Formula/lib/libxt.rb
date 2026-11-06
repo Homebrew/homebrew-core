@@ -23,6 +23,8 @@ class Libxt < Formula
   depends_on "libsm"
   depends_on "libx11"
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}
@@ -48,6 +50,5 @@ class Libxt < Formula
       }
     C
     system ENV.cc, "test.c"
-    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
