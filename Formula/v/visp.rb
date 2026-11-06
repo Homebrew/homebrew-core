@@ -4,7 +4,7 @@ class Visp < Formula
   url "https://visp-doc.inria.fr/download/releases/visp-3.7.0.tar.gz"
   sha256 "997f247f3702c83f0a8a6dc2f72ff98cfe3a5dcbd82f7c9f01d37ccd3b8ea97a"
   license "GPL-2.0-or-later"
-  revision 10
+  revision 11
 
   livecheck do
     url "https://visp.inria.fr/download/"
@@ -86,6 +86,11 @@ class Visp < Formula
       modules/core/src/camera/vpPixelMeterConversion.cpp
       modules/vision/src/key-point/vpKeyPoint.cpp
     ], "<opencv2/3d.hpp>", "<opencv2/geometry.hpp>"
+
+    # OpenCV 5.1.0 removed `Mat_` comma initializers, so build these matrices from `Matx` instead
+    # PR ref: https://github.com/lagadic/visp/pull/1962
+    inreplace "modules/vision/src/key-point/vpKeyPoint.cpp",
+              /\(cv::Mat_<(\w+)>\((\d+), (\d+)\) << ([^;]+)\);/, "cv::Mat(cv::Matx<\\1, \\2, \\3>(\\4));"
 
     # Avoid superenv shim references
     inreplace "CMakeLists.txt" do |s|
