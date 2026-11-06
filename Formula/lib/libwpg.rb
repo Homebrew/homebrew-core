@@ -32,6 +32,8 @@ class Libwpg < Formula
   depends_on "librevenge"
   depends_on "libwpd"
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"
