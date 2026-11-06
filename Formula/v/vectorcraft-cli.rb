@@ -1,17 +1,17 @@
 class VectorcraftCli < Formula
   desc "Headless VectorCraft CLI and MCP server to convert, inspect and script artwork"
   homepage "https://getartcraft.com/apps/vectorcraft"
-  url "https://github.com/storytold/vectorcraft/archive/refs/tags/v0.21.1.tar.gz"
-  sha256 "6735d662f8545c843bb671daa20f4378b405afa5e2aa681b3bf40f1e2c3abf58"
+  url "https://github.com/storytold/vectorcraft/archive/refs/tags/v0.22.0.tar.gz"
+  sha256 "a6b69244a4aeeb159b6ea21bac0ef6e9e51030fcd4a31acd49f9c994152c3ee4"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/storytold/vectorcraft.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1f33fa19f0d41f15dc2cfcec6136fd9909971a6cb8af13b77fdb6bce009be370"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "af10614eb0f279d0a7216b2e85388782d96cdc7625919698cd3a5463810f43a0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7704f3b552e32f62b972901ded2b59e494c68fe980df5e2a2a7868a8feec0bf0"
-    sha256 cellar: :any,                 arm64_linux:       "faf9e50b6fc676d12e23b64f3d2496aa8aa390a5bcc65579646c820e13f9e9be"
-    sha256 cellar: :any,                 x86_64_linux:      "7ef6420f8f760bdbcf6d062037a63a0880ea8ce63bd76c3ab39c67ca953fa743"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "22acd4c86f334a815833dbc43ee85d840a1b3e13132f3faea4a6f0ed510e55a4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "714f5d5e09c373050942decd352fb24e9adffbcc811166ad7d074f4077f3d7c4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "68f46f0d7b1fcea3a0fb5870864d40cd27ddc6a6cb70f1a7f51b4eaafcba5e37"
+    sha256 cellar: :any,                 arm64_linux:       "627ac6ebf1ba3a9b03711b83c3deb7ec9025d5b545f034b4141518cfdc231d17"
+    sha256 cellar: :any,                 x86_64_linux:      "0cfc868a39af0b73bd6c2ca72d4d6092a6eca2ada9945e7fbaf8e73426aa2319"
   end
 
   depends_on "rust" => :build
