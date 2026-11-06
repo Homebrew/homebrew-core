@@ -6,11 +6,11 @@ class OpenclawCli < Formula
   license "MIT"
 
   bottle do
-    sha256               arm64_golden_gate: "f2035a3ce256b5e1b634d4116a38d6193f28cecd1f60b2754d1be8cd9b048ee2"
-    sha256               arm64_tahoe:       "f2035a3ce256b5e1b634d4116a38d6193f28cecd1f60b2754d1be8cd9b048ee2"
-    sha256               arm64_sequoia:     "f2035a3ce256b5e1b634d4116a38d6193f28cecd1f60b2754d1be8cd9b048ee2"
-    sha256 cellar: :any, arm64_linux:       "0daef29207a3029649aa1ef4b23a70ba69db998be74f96edf08b5c179aa051d2"
-    sha256 cellar: :any, x86_64_linux:      "3afd9f000cb9f4e4c05b64a27ef4aca90735c4a290b71f87ed98ffd022c7262a"
+    sha256               arm64_golden_gate: "997d2fc7c3937ae4196b4d58ecc968d5ee082951dbf181d06a42a3641eb1ddeb"
+    sha256               arm64_tahoe:       "997d2fc7c3937ae4196b4d58ecc968d5ee082951dbf181d06a42a3641eb1ddeb"
+    sha256               arm64_sequoia:     "997d2fc7c3937ae4196b4d58ecc968d5ee082951dbf181d06a42a3641eb1ddeb"
+    sha256 cellar: :any, arm64_linux:       "b08796d1007304610b5cb730654ce4d80c215b33d816e3f0a252a4c07ed8fc28"
+    sha256 cellar: :any, x86_64_linux:      "a0aa5ab7cff1538361838185918c3c2d7160b33bffb306e6256a56edbacf17b0"
   end
 
   depends_on "node"
