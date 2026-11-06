@@ -42,6 +42,8 @@ class Libsvg < Formula
   # https://cgit.freedesktop.org/cairo/commit/?id=afdf3917ee86a7d8ae17f556db96478682674a76
   patch :DATA
 
+  deny_network_access!
+
   def install
     # Workaround to avoid segfault on arm64 linux. Upstream isn't actively maintained
     ENV.append_to_cflags "-include stdlib.h"
@@ -58,7 +60,7 @@ class Libsvg < Formula
       <?xml version="1.0" encoding="utf-8"?>
       <svg xmlns:svg="http://www.w3.org/2000/svg" height="72pt" width="144pt" viewBox="0 -20 144 72"><text font-size="12" text-anchor="left" y="0" x="0" font-family="Times New Roman" fill="green">sample text here</text></svg>
     XML
-    (testpath/"test.c").write <<~C
+    (testpath/"test.c").write <<~'C'
       #include <stdio.h>
       #include "svg.h"
 
@@ -67,63 +69,63 @@ class Libsvg < Formula
           svg_status_t result = SVG_STATUS_SUCCESS;
           FILE *fp = NULL;
 
-          printf("1\\n");
+          printf("1\n");
           result = svg_create(&svg);
           if (SVG_STATUS_SUCCESS != result) {
-              printf ("svg_create failed\\n");
+              printf ("svg_create failed\n");
               /* Fail if alloc failed */
               return -1;
           }
 
-          printf("2\\n");
+          printf("2\n");
           result = svg_parse(svg, "test.svg");
           if (SVG_STATUS_SUCCESS != result) {
-              printf ("svg_parse failed\\n");
+              printf ("svg_parse failed\n");
               /* Fail if alloc failed */
               return -2;
           }
 
-          printf("3\\n");
+          printf("3\n");
           result = svg_destroy(svg);
           if (SVG_STATUS_SUCCESS != result) {
-              printf ("svg_destroy failed\\n");
+              printf ("svg_destroy failed\n");
               /* Fail if alloc failed */
               return -3;
           }
           svg = NULL;
 
-          printf("4\\n");
+          printf("4\n");
           result = svg_create(&svg);
           if (SVG_STATUS_SUCCESS != result) {
-              printf ("svg_create failed\\n");
+              printf ("svg_create failed\n");
               /* Fail if alloc failed */
               return -4;
           }
 
           fp = fopen("test.svg", "r");
           if (NULL == fp) {
-              printf ("failed to fopen test.svg\\n");
+              printf ("failed to fopen test.svg\n");
               /* Fail if alloc failed */
               return -5;
           }
 
-          printf("5\\n");
+          printf("5\n");
           result = svg_parse_file(svg, fp);
           if (SVG_STATUS_SUCCESS != result) {
-              printf ("svg_parse_file failed\\n");
+              printf ("svg_parse_file failed\n");
               /* Fail if alloc failed */
               return -6;
           }
 
-          printf("6\\n");
+          printf("6\n");
           result = svg_destroy(svg);
           if (SVG_STATUS_SUCCESS != result) {
-              printf ("svg_destroy failed\\n");
+              printf ("svg_destroy failed\n");
               /* Fail if alloc failed */
               return -7;
           }
           svg = NULL;
-          printf("SUCCESS\\n");
+          printf("SUCCESS\n");
 
           return 0;
       }
