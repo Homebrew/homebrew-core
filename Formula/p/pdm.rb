@@ -3,17 +3,17 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm-project.org"
-  url "https://files.pythonhosted.org/packages/81/a0/ebcb4bf939e3c1bba9fcb698ec8237868bdb9402461682baced71325e020/pdm-2.29.5.tar.gz"
-  sha256 "39048cbf7f34cf586e2905b99a05f633fc892753d443181151787725542ee19c"
+  url "https://files.pythonhosted.org/packages/d2/19/81aef2ef9b8ae1d8293fae31684ac6df0238944dac7061bd09209d633161/pdm-2.29.6.tar.gz"
+  sha256 "1bdd5f0c2a98cb8eadccdf9d4b6c80a1e9b1c05e30bf9ab6f7828e6e4928b627"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f30b1c02fe2bfc8829e9d4156761e5f238981ba02eb7f372967c165a2ed98ef"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "db19badf02df4f3d6cc893a0eaa15851c4b6711ffdb40b9b77d7b159cdfe2ca9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8bc7ddd86edca3cf092fe5211d96703eb72bfeca33d4297f33d78d75103efb87"
-    sha256 cellar: :any,                 arm64_linux:       "6445e224a312457d2cf7dfba304109d72351cfcefe04bdd0890614c2cbe7e098"
-    sha256 cellar: :any,                 x86_64_linux:      "a905385b3351d412f55a7bdcf4e06a619689736e6af00b4fa93ab7f06dcfc081"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "449714d63932838ab2755d0ccd6f66780dd495f4b8e4b3e3e9e054e605cad0ff"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "55dde4fcfa3b54aa49e112702cfc29702ef99da58b0415915047fcf39dca6db6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1ada8935dc3e391b680c09833918846365d5e2e985942354f08611b30476033a"
+    sha256 cellar: :any,                 arm64_linux:       "bcd36262ab6885e633b0c8b0a85dc838739a980df763d77274e8107e7c07bf21"
+    sha256 cellar: :any,                 x86_64_linux:      "3beee58d4f41b2094be1bafb8a4373d0b5601b958a392668ae7682cdf178c9d0"
   end
 
   depends_on "certifi" => :no_linkage
@@ -22,8 +22,8 @@ class Pdm < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "anysqlite" do
@@ -52,8 +52,8 @@ class Pdm < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/d8/28/3893324bcadf8f89b1616637468d766af3f625008c0735bf704fdfa86617/filelock-4.2.4.tar.gz"
-    sha256 "c6d8663535e1650ee430507b4ffbac7b464dd64b7647ea0112a9f406499d163d"
+    url "https://files.pythonhosted.org/packages/a3/1d/d730c664fcb4f1d264a722722a3134cf0881854f73c1fd58abf87572f232/filelock-4.2.9.tar.gz"
+    sha256 "96530b7c538d4ea08493ab067247aab7948c54d8cd622cce711c97cccc5d9896"
   end
 
   resource "findpython" do
@@ -122,8 +122,8 @@ class Pdm < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/40/28/1c058a9143d2304b3078f8dadcbb9dc27f7d3581b5d05157c84869c4cc0d/platformdirs-4.14.0.tar.gz"
-    sha256 "83f009c1e8c5fc36869b5171755b291887bd2cade7965233cdfabd23d754720b"
+    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
+    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
   end
 
   resource "pygments" do
@@ -137,8 +137,8 @@ class Pdm < Formula
   end
 
   resource "python-discovery" do
-    url "https://files.pythonhosted.org/packages/a3/0b/908da9ef8a14b600fc188eee8d63ede071996114613721153f6fc9ea3cd5/python_discovery-1.6.7.tar.gz"
-    sha256 "7f7c28568c8ec3d988d8bddbdbec8e65f08e8767e52f734e18b8b498549b9b70"
+    url "https://files.pythonhosted.org/packages/0f/d7/1e94df7d1636bf00b9f261bf88a4adc0414f14931ff60511eb0f34c250d1/python_discovery-1.9.4.tar.gz"
+    sha256 "c01b45fe515c1d268b57c57d554bb0e1d320b8e9eb5490bb2f4f577be26e4380"
   end
 
   resource "python-dotenv" do
@@ -208,8 +208,8 @@ class Pdm < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/b2/24/20282bc8e69ff8dee680dc2b95e9dc81fa7e7894b14c1a8d06330e97fef7/virtualenv-21.15.1.tar.gz"
-    sha256 "e79c90b8f601701599c25905e02839924fede2c798d52325670d24fbdaab74ee"
+    url "https://files.pythonhosted.org/packages/69/74/745e612b69ad14a534b7bc233c4574b968eb2c21a276ea172e8f0fc13f51/virtualenv-21.15.5.tar.gz"
+    sha256 "fb869ea32930530ccc87549877b53268c2a4d4a7d7f2c384042eca05170350e6"
   end
 
   def install
