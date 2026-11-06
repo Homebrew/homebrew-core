@@ -140,13 +140,17 @@ class Libssh2 < Formula
     resolves "OSV-2022-24", "OSV-2024-847"
   end
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     args = %W[
       --disable-silent-rules
       --disable-examples-build
       --with-openssl
       --with-libz
-      --with-libssl-prefix=#{formula_opt_prefix("openssl@4")}
+      --with-libssl-prefix=#{formula_opt_prefix(openssl)}
     ]
 
     system "./buildconf" if build.head?
