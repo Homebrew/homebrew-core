@@ -29,6 +29,8 @@ class Libspiro < Formula
     depends_on "libtool" => :build
   end
 
+  deny_network_access!
+
   def install
     if build.head?
       system "autoreconf", "--force", "--install", "--verbose"
