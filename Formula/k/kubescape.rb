@@ -3,8 +3,8 @@ class Kubescape < Formula
   homepage "https://kubescape.io"
   # Use GitHub repo URL because the version for the build will be automatically fetched from git.
   url "https://github.com/kubescape/kubescape.git",
-      tag:      "v4.0.19",
-      revision: "9780473d81b3b3e036408d6323b162a197beee07"
+      tag:      "v4.0.20",
+      revision: "ec65d3184f6bab7d1ad6e5db9d970d452316d253"
   license "Apache-2.0"
   head "https://github.com/kubescape/kubescape.git", branch: "master"
 
@@ -14,11 +14,11 @@ class Kubescape < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1c339903ef57f500f25817a714371f4fd7a1a15d10361f30c525bc18b3e4361c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0f29d676bc17a0eda53756e5ac1fd84dc0dd4d02ccbe81940f9995350fb58277"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cd3e0ea0ec53bddd936ad6e1bfddc72ad7eac16adce5cb6909e3910b74497f9d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b484209102c85654e082759fb02d4c181b555b78565ddb14fc018da2a7c09c0d"
-    sha256 cellar: :any,                 x86_64_linux:      "cf671644c254c69373d5fe169757fc5b7c8b0c24eff4ac45bb1a9d4440e75510"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c7f7d514ffdb950ed24137c7cb93b76cc9d9a13a5eea6bd030b1a4c98349853c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1244b92d692e1959c714ff6e88bdb43ceca89d13f0a62959557eccb00125b67a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1410da902c954785690787a977e1367deed778d35188b6ce9f17c91e6afc2c24"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f4148709caf3f21befc07aa09706a583b8b8c8dc40d7123274330d6ddb16c9b8"
+    sha256 cellar: :any,                 x86_64_linux:      "b9dfd2351749d9e36fd8b3f66e711d8a2453b19e78582361fb724a2a7d6ed847"
   end
 
   depends_on "go" => :build
