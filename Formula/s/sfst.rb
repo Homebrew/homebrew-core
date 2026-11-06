@@ -1,8 +1,8 @@
 class Sfst < Formula
   desc "Toolbox for morphological analysers and other FST-based tools"
   homepage "https://www.cis.uni-muenchen.de/~schmid/tools/SFST/"
-  url "https://www.cis.uni-muenchen.de/~schmid/tools/SFST/data/SFST-1.4.7g.zip"
-  sha256 "5f3ab2d8190dc931813b5ba3cf94c72013cce7bf03e16d7fb2eda86bd99ce944"
+  url "https://www.cis.uni-muenchen.de/~schmid/tools/SFST/data/SFST-1.5.1.zip"
+  sha256 "155a66ffe45328269bbb2e6765c060a1c656d429f608d96a5e3ce6911ede12ae"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,19 +11,11 @@ class Sfst < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "78144d259c98da6917ec3825ccdc857c088ca7164ebe7d9ab3d5b33f136d1369"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7913420b0fd31f8a5a18276ea10f09781ad69727558f05ab053bd2a83ac1d11c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cb6e8457e5e8fabb6149537221ed7e08cbba522464b29b41fe26c59b730ed34c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "fd33725d7517fc287408916639bafd47f925e58e979464ac214f6eb66d9a927d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "106a7c45224fb209f3f3edffe1a31e82076469489a757ee2dd5cda9c3a8923c7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey:    "0926f2435695386b9c21b31c1d4c3feaea5468095c6138e73761e8f350a3226a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:     "27d6b2f85647df82d36dc6f15bfe23a11430d7b1904b8d76326b069f968b5529"
-    sha256 cellar: :any_skip_relocation, sonoma:            "9cf8a874a84091b23b6d3ac6afadbc4ec3c7f82dc1baf71f0c0470ddc4b6d317"
-    sha256 cellar: :any_skip_relocation, ventura:           "421805971042457553e42fd13f7d635a5b0cce6ef1de9cd5cf4fd73689394e9a"
-    sha256 cellar: :any_skip_relocation, monterey:          "68080e57fb6a26f0ce7d9bf5bde2e5d4eee3a14c311d93b9b78061e3694c7777"
-    sha256 cellar: :any_skip_relocation, big_sur:           "9a14fa009ece100cb685321c3c253c9f41c9ce18104babbba7eeeca18f6b28df"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "fc3eccf5f7d5e8d6c4898f86915cc6424f40dd64c41905dafbf24bb667f71b0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "990e2d47e4f9b5b5cefcf2fb08f30f32906895f147d2d82100e46ba354df36c4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "828d946db1ca69de2021906c808d18ed41b2e8c384446a0c9b39befcc42c0a7b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7a99c2a6f971ef8282e2196127b4a5b13415caa66df89cf5d5b2ff586a7bf2dc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f55745637948632398775bb967e65e61faf24c7d25edaefd72c1cdb3694358a3"
+    sha256 cellar: :any,                 arm64_linux:       "552fcbc9c57add1cfdce7141e78f0ffb2440f2a1746ca5690637a3eb267152e3"
+    sha256 cellar: :any,                 x86_64_linux:      "74c16885b11c5961fe0c91ab7e314a1345fd9eea050100d95ac993f122ff9151"
   end
 
   uses_from_macos "flex" => :build
