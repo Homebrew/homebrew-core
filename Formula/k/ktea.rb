@@ -1,8 +1,8 @@
 class Ktea < Formula
   desc "Kafka TUI client"
   homepage "https://github.com/jonas-grgt/ktea"
-  url "https://github.com/jonas-grgt/ktea/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "4ad435de5503d8aa1d3f9b08a43e32d0482310791a8904b843b49037f73375d8"
+  url "https://github.com/jonas-grgt/ktea/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "48ceec1fec901fea9e6b6ed10c1a73539dd9879d11ea5b1a7c1f128d8d955f08"
   license "Apache-2.0"
   head "https://github.com/jonas-grgt/ktea.git", branch: "main"
 
@@ -27,15 +27,28 @@ class Ktea < Formula
   end
 
   test do
-    output_log = testpath/"output.log"
-    pid = if OS.mac?
-      spawn bin/"ktea", testpath, [:out, :err] => output_log.to_s
-    else
-      require "pty"
-      PTY.spawn("#{bin}/ktea #{testpath} > #{output_log}").last
+    require "expect"
+    require "io/console"
+    require "io/wait"
+    require "pty"
+    require "timeout"
+
+    config_file = testpath/".config/ktea/config.yaml"
+    config_file.dirname.mkpath
+    config_file.write "{clusters: [], plainFonts: true, theme: dracula}\n"
+
+    r, w, pid = PTY.spawn({ "TERM" => "xterm-256color" }, bin/"ktea")
+    r.winsize = [30, 120]
+    r.expect(/Clusters/, 10)
+    w.write "\u000c" # Open Settings.
+    r.expect(/Themes/, 10)
+    w.write "\e[H\r" # Apply the first built-in theme.
+    Timeout.timeout(10) do
+      r.readpartial(4096) until YAML.load_file(config_file)["theme"] == "catppuccin"
+      r.read_nonblock(4096) while r.wait_readable(0.1)
     end
-    sleep 1
-    assert_match "No clusters configured. Please create your first cluster!", output_log.read
+    assert_equal({ "clusters" => [], "plainFonts" => true, "theme" => "catppuccin" },
+                 YAML.load_file(config_file))
   ensure
     Process.kill("TERM", pid)
     Process.wait(pid)
