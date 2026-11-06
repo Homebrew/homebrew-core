@@ -39,6 +39,8 @@ class Libxaw3d < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}
