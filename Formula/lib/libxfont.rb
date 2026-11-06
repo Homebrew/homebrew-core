@@ -29,6 +29,8 @@ class Libxfont < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     args = %W[
       --sysconfdir=#{etc}
@@ -55,6 +57,5 @@ class Libxfont < Formula
       }
     C
     system ENV.cc, "test.c"
-    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
