@@ -33,6 +33,9 @@ class Freetype < Formula
   deny_network_access!
 
   def install
+    # Avoid enabling macOS 15.4+ hvf feature for bottle compatibility
+    ENV["ac_cv_header_hvf_Scaler_h"] = "no" if OS.mac? && MacOS.version <= :sequoia
+
     # This file will be installed to bindir, so we want to avoid embedding the
     # absolute path to the pkg-config shim.
     inreplace "builds/unix/freetype-config.in", "%PKG_CONFIG%", "pkg-config"
