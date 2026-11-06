@@ -13,11 +13,11 @@ class Poppler < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "da507baf61cad7445687ba57f77c93aab61ae86ee83d6b762f9469ab85c65f94"
-    sha256 arm64_tahoe:       "b18684b27a7892b537548befc7494210779f54007633e611ea1c41b5c3f11f58"
-    sha256 arm64_sequoia:     "22f3925ca1c4338daae2775b48a7e4f658e340360b4c61d06b7835daf992e4ee"
-    sha256 arm64_linux:       "3ce602c59af9d46ffadbcc19270815230a7b126981422455578a73a874d44e8f"
-    sha256 x86_64_linux:      "6f7685481501e6eb0ee99ed7be324da7711e168e72d1f918ef1487fbb903a90a"
+    sha256 arm64_golden_gate: "e4dcbb310f8d7dc72a6e5f1152828a1a143a145fb5af1a3a0e3f5c646bc2bc0c"
+    sha256 arm64_tahoe:       "1b73ce15dc70132fa9cbeb5a490fbc129900a953cfda4ef8616da71f88702192"
+    sha256 arm64_sequoia:     "272b4cb499d85038dca1b650fd169482ff6856715480fd71783d7caa4d8172ed"
+    sha256 arm64_linux:       "96bca93113f728a5267e126fe18fc3278c6ebab31eeeb4c910e5497394bb394d"
+    sha256 x86_64_linux:      "26b481813ab8cd2cabda4ca4eb0c5b9fd4f8ef3228e8b52bc8db2f5ff4378147"
   end
 
   depends_on "cmake" => :build
