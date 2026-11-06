@@ -1,16 +1,16 @@
 class LazyTmux < Formula
   desc "Save all your tmux sessions and lazy restore them"
   homepage "https://lazy-tmux.xyz"
-  url "https://github.com/alchemmist/lazy-tmux/archive/refs/tags/v0.3.4.tar.gz"
-  sha256 "c2e0cb16de0292cc216cdae6a6e1610de4c131e1898eaf45adcb81fb30dcff33"
+  url "https://github.com/alchemmist/lazy-tmux/archive/refs/tags/v0.3.5.tar.gz"
+  sha256 "1a301dd58b8a443aeb38fd4e4f80cff411c075024203bbdc2f1bd41c6b7724d0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8fbdd78ad4fb186daff08a366a1e4f20f5dca6065ff3b9f22ee64c660a904d5f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8fbdd78ad4fb186daff08a366a1e4f20f5dca6065ff3b9f22ee64c660a904d5f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8fbdd78ad4fb186daff08a366a1e4f20f5dca6065ff3b9f22ee64c660a904d5f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "588560324be3ab6c837590524e74ed10a790bb4a88ffb9e7f70c6f3a1cfe0702"
-    sha256 cellar: :any,                 x86_64_linux:      "42b8f64c1405d9ed2f3abe5af453372781ff5ba22d2780b2856e3a9324f26c58"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e0771eeb7b408067a7cda97ec2a290faa4c5f10d3d2396bc90525e3dda63cd9a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e0771eeb7b408067a7cda97ec2a290faa4c5f10d3d2396bc90525e3dda63cd9a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e0771eeb7b408067a7cda97ec2a290faa4c5f10d3d2396bc90525e3dda63cd9a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "79401d9d2478955870fddc5015e993110f64998061a469c7f5fdcbede1716da4"
+    sha256 cellar: :any,                 x86_64_linux:      "8638b082e78645f6496ce058bfffd50fa1185ee7a5de96c113101b67a6f8d5c2"
   end
 
   depends_on "go" => :build
