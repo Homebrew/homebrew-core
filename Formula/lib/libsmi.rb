@@ -1,8 +1,9 @@
 class Libsmi < Formula
   desc "Library to Access SMI MIB Information"
   homepage "https://www.ibr.cs.tu-bs.de/projects/libsmi/"
-  url "https://www.ibr.cs.tu-bs.de/projects/libsmi/download/libsmi-0.5.0.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/libsmi/libsmi-0.5.0.tar.gz"
+  # Use mirror here as `https://www.ibr.cs.tu-bs.de/projects/libsmi/download/libsmi-0.5.0.tar.gz`
+  # does not have stable checksum (i.e. it changes every time we try to download it)
+  url "https://www.mirrorservice.org/sites/distfiles.macports.org/libsmi/libsmi-0.5.0.tar.gz"
   sha256 "f21accdadb1bb328ea3f8a13fc34d715baac6e2db66065898346322c725754d3"
   license all_of: ["TCL", "BSD-3-Clause", "Beerware"]
   compatibility_version 1
@@ -26,6 +27,8 @@ class Libsmi < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
+  deny_network_access!
 
   def install
     # Fix compile with newer Clang
