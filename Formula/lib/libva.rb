@@ -25,6 +25,8 @@ class Libva < Formula
   depends_on :linux
   depends_on "wayland"
 
+  deny_network_access!
+
   def install
     system "./configure", "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
