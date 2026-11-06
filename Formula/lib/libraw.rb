@@ -45,6 +45,8 @@ class Libraw < Formula
     sha256 "7886d8b0e1257897faa7404b98fe1086ee2d95606531b6285aed83a0939b768f"
   end
 
+  deny_network_access!
+
   def install
     # Work around "checking for OpenMP flag of C compiler... unknown".
     # Using -dead_strip_dylibs so `brew linkage` can show if OpenMP is actually used.
