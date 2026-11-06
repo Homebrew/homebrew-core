@@ -2,8 +2,8 @@ class Ffmate < Formula
   desc "FFmpeg automation layer"
   homepage "https://docs.ffmate.io"
   url "https://github.com/welovemedia/ffmate.git",
-      tag:      "v2.1.0",
-      revision: "3466e0c6e2b1e4e7a713bd8406a2aca61517ff21"
+      tag:      "v2.1.1",
+      revision: "e28b0fbab7c16cb0e95e5c05e8c05c98910da9d2"
   license "AGPL-3.0-only"
 
   bottle do
