@@ -1,10 +1,9 @@
 class Biosig < Formula
   desc "Tools for biomedical signal processing and data conversion"
   homepage "https://biosig.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig-3.9.8.src.tar.xz"
-  sha256 "9d7298cb6e466eb3b9eb7f4c8bc501dc4c3a71dcdf2f4156bad0ca9797220422"
+  url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig-4.0.0.src.tar.xz"
+  sha256 "182a6dfe276f0217abd9cae81e1b515d590ddb9b44a98174ebbd4efe05927bac"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,11 +11,11 @@ class Biosig < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "fbcebb16f18801a62104f57ac6aa7c897478520eec032e230f0957cfd228fe62"
-    sha256 cellar: :any, arm64_tahoe:       "b4427b3468999ddf9195a7e1dd6b6c973f457540b309ba8e3800d79540793503"
-    sha256 cellar: :any, arm64_sequoia:     "93f3265be17eb1a8a916036c99b15234320893f89985bbf092a7b4a575304e86"
-    sha256 cellar: :any, arm64_linux:       "d2d70ea3d7fa3511e95883f08f6a62dc2b6f81f211bbf3e72d1f88699902d64b"
-    sha256 cellar: :any, x86_64_linux:      "352815c9b25abac34d6f022e44735725cada7b8378b33f538a73cddc1ebb9593"
+    sha256 cellar: :any, arm64_golden_gate: "185a7085e73fbe08153a7733bf4f7e5d71bb9bfec565b45ef7dbbc41f700b50e"
+    sha256 cellar: :any, arm64_tahoe:       "ba1f148dd8fe9dcc8603bb5ad1d7e3a2ef104d8e50bf8e2b518009d8e587d3ec"
+    sha256 cellar: :any, arm64_sequoia:     "0f53af3ae1d5f588dc59394d79bf569f7234ceee8f8abeece5216572a0e21a42"
+    sha256 cellar: :any, arm64_linux:       "cc40ed7704bf3f129d0f0dfd4adb26bc8ec9db092b09ca956b84ec27f6c9e868"
+    sha256 cellar: :any, x86_64_linux:      "4985747d1468da710df1d6af52be18292b2902a25fcea6413e7832bca1c6464c"
   end
 
   depends_on "gawk" => :build
@@ -40,10 +39,13 @@ class Biosig < Formula
               "gdf.o gdftime.o physicalunits.o getlogin.o",
               "gdf.o gdftime.o physicalunits.o getlogin.o string_isutf8.o"
 
+    # Tools are linked with `$(LD)`, which is `$(CXX) -shared` on macOS, so they become dylibs
+    args = OS.mac? ? ["LD=$(CXX)", "SHAREDLIB=-shared"] : []
+
     system "./configure", "--disable-silent-rules", *std_configure_args
-    system "make"
+    system "make", *args
     ENV.deparallelize if OS.mac? && MacOS.version >= :sonoma
-    system "make", "install"
+    system "make", "install", *args
   end
 
   test do
