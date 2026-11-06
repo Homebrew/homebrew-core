@@ -26,6 +26,8 @@ class Libxmp < Formula
     sha256 "df8fca29ba116b10485ad4908cea518e0f688850b2117b75355ed1f1db31f580"
   end
 
+  deny_network_access!
+
   def install
     system "autoconf" if build.head?
     system "./configure", *std_configure_args
