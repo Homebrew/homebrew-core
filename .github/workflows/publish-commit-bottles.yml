@@ -231,7 +231,7 @@ jobs:
 
       - name: Post comment on failure
         if: ${{!success()}}
-        uses: Homebrew/actions/post-comment@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
+        uses: Homebrew/actions/post-comment@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
@@ -283,7 +283,7 @@ jobs:
       repository-projects: write # for `gh pr edit`
     steps:
       - name: Post comment once started
-        uses: Homebrew/actions/post-comment@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
+        uses: Homebrew/actions/post-comment@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
@@ -299,19 +299,19 @@ jobs:
 
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
+        uses: Homebrew/actions/setup-homebrew@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
         with:
           core: true
           cask: false
 
       - name: Configure Git user
         id: git-user-config
-        uses: Homebrew/actions/git-user-config@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
+        uses: Homebrew/actions/git-user-config@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
         with:
           username: ${{ case(github.actor == 'github-actions[bot]', 'BrewTestBot', github.actor) }}
 
       - name: Set up commit signing
-        uses: Homebrew/actions/setup-commit-signing@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
+        uses: Homebrew/actions/setup-commit-signing@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
         with:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
@@ -410,7 +410,7 @@ jobs:
           echo "head_sha=$(git -C "$REPO_PATH" rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Push commits
-        uses: Homebrew/actions/git-try-push@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
+        uses: Homebrew/actions/git-try-push@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
         with:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
           directory: ${{steps.set-up-homebrew.outputs.repository-path}}
@@ -429,7 +429,7 @@ jobs:
 
       - name: Post comment on failure
         if: failure()
-        uses: Homebrew/actions/post-comment@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
+        uses: Homebrew/actions/post-comment@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
@@ -509,7 +509,7 @@ jobs:
           (steps.approve.conclusion == 'failure' ||
            steps.wait-until-in-sync.conclusion == 'failure' ||
            steps.automerge.conclusion == 'failure')
-        uses: Homebrew/actions/post-comment@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
+        uses: Homebrew/actions/post-comment@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           issue: ${{inputs.pull_request}}
@@ -543,7 +543,7 @@ jobs:
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
+        uses: Homebrew/actions/setup-homebrew@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
         with:
           core: true
           cask: false
@@ -555,7 +555,7 @@ jobs:
         run: gh pr checkout "$PR" --repo "$GITHUB_REPOSITORY"
 
       - name: Install oras for interacting with GitHub Packages
-        uses: Homebrew/actions/cache-homebrew-prefix@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
+        uses: Homebrew/actions/cache-homebrew-prefix@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
         with:
           install: oras
           workflow-key: command-not-found-db-entry
@@ -614,19 +614,19 @@ jobs:
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
+        uses: Homebrew/actions/setup-homebrew@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
         with:
           core: true
           cask: false
 
       - name: Configure Git user
         id: git-user-config
-        uses: Homebrew/actions/git-user-config@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
+        uses: Homebrew/actions/git-user-config@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
         with:
           username: BrewTestBot
 
       - name: Set up commit signing
-        uses: Homebrew/actions/setup-commit-signing@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
+        uses: Homebrew/actions/setup-commit-signing@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
         with:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
@@ -696,7 +696,7 @@ jobs:
 
       - name: Push branch
         if: steps.commit.outputs.changes == 'true'
-        uses: Homebrew/actions/git-try-push@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
+        uses: Homebrew/actions/git-try-push@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
         with:
           token: ${{ steps.app-token.outputs.token }}
           directory: ${{ steps.resolve.outputs.brew_repo }}
