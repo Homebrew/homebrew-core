@@ -1,8 +1,8 @@
 class Baml < Formula
   desc "Programming language for agents"
   homepage "https://boundaryml.com/"
-  url "https://github.com/BoundaryML/baml/archive/refs/tags/baml-wrapper-0.3.0.tar.gz"
-  sha256 "e5bc34eb29f88a5089f3a7e1c811f95fcf12d0254a952810e04cf252b29b40ab"
+  url "https://github.com/BoundaryML/baml/archive/refs/tags/baml-wrapper-0.3.1.tar.gz"
+  sha256 "9948cd57ed830b200a955119b31fe48753464e7e0d2050105056705d425f74ab"
   license "Apache-2.0"
   head "https://github.com/BoundaryML/baml.git", branch: "canary"
 
@@ -12,11 +12,11 @@ class Baml < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d82836feb4ca1ee54706c10c4c66d9183efba4062388b24f0475c840f2de1327"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "394163ae77ce47b05fd4d9c29754d4d1609e6dc1079493708b0255eac4057fe5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4fc2bb7c646e6cf0962a190d512cfccc7222b5ac6977ef05cc79a784c5c942aa"
-    sha256 cellar: :any,                 arm64_linux:       "961ed1568f6fd8856960d8523024d6e9139a82e08d9e144c1a7446bfe872112a"
-    sha256 cellar: :any,                 x86_64_linux:      "744e02a811bd6ff606c063b10a576ce9b74775778a29e8fd58ef4cc60bda1173"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7850121d510b561832f56b89458467198c5b9e75dbd89959374de5f9791f33c3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9e792269e84d9fdd1dc819992bb8f854a888975cc0346dcab9264800762cbd80"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "56a650c20e893f8d89d9ded4d884659cc4d91df1583d6e591bdc1219949fb199"
+    sha256 cellar: :any,                 arm64_linux:       "a4a0ce2d2efd3219c0a5c9988a88b46fa985b18300776caac360b4ba99db9027"
+    sha256 cellar: :any,                 x86_64_linux:      "fee89ed477a062def6668cd7c0ca6a415855aa24d8ef0abad2004f3cc6a94d19"
   end
 
   depends_on "cmake" => :build
