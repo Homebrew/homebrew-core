@@ -1,8 +1,8 @@
 class PklLsp < Formula
   desc "Language server for Pkl"
   homepage "https://pkl-lang.org/lsp/current/index.html"
-  url "https://github.com/apple/pkl-lsp/releases/download/0.8.0/pkl-lsp-0.8.0.jar"
-  sha256 "06f9de45a21aa7a16bf5c052513521f98793cd9c57036b9368fcad799e96a8ff"
+  url "https://github.com/apple/pkl-lsp/releases/download/0.9.0/pkl-lsp-0.9.0.jar"
+  sha256 "41d74d907520d0a5051aea128b145e3c39695cf83a384e46d98c74eee2d39592"
   license "Apache-2.0"
 
   livecheck do
