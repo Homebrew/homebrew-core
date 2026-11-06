@@ -12,11 +12,12 @@ class Grafana < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "16240c0b2cd286e59e3a675e9cbe5d00b4eee82ecbe43e6b63034cf4ce309f4e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1ed2e5d83f54021befd70b69bd393289d9f518cb9e8b5ace319b1671277ed0cf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ff1e8e6139da129636ff0ed36f5358dcc4a2664c26105b963e8b3609c72d1ee4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "694a90ba9b567ead1859b3f36ed564f8605fb657e9739d556f5aab6dc763fa5e"
-    sha256 cellar: :any,                 x86_64_linux:      "7c5b886f40f7a4f0df60b9fc372bcd606d1d55a2a776731bbb38eee01f1a2f76"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a23f6c62f61665384886fd282568eb13ebcff3a627680f128d8dec1a28da6d5e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "af2362120a0d5f0e5830c1029029ede0df1a6a6b3e0ea1aca383b650e6ed98d8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2039336b0df29840c289d9f6baccfe7988d6161f8f20039b587f69230412bc04"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7905377388890e5ffdeaf4fddd3c8d8527ad25a002858fa3b5df4c1942a0b910"
+    sha256 cellar: :any,                 x86_64_linux:      "dcfc6e44d9f3e2a033a90091442c4992f173fba85e176d0e071f5123f17ac7c4"
   end
 
   depends_on "go" => :build
@@ -60,6 +61,8 @@ class Grafana < Formula
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
     bin.install buildpath/"bin"/os/arch/"grafana"
 
+    # Require an explicit configuration change to accept remote connections.
+    inreplace ["conf/defaults.ini", "conf/sample.ini"], "http_addr =", "http_addr = 127.0.0.1"
     cp "conf/sample.ini", "conf/grafana.ini.example"
     pkgetc.install "conf/sample.ini" => "grafana.ini"
     pkgetc.install "conf/grafana.ini.example"
@@ -91,9 +94,11 @@ class Grafana < Formula
     pid = spawn bin/"grafana", "server", "--homepath", pkgshare,
             "cfg:server.http_port=#{port}",
             "cfg:default.paths.data=#{testpath}/data",
+            "cfg:default.paths.logs=#{testpath}/log",
             "cfg:log.mode=file"
     sleep 30
     assert_match "ok", shell_output("curl -fs http://localhost:#{port}/api/health")
+    assert_match "address=127.0.0.1:#{port}", (testpath/"log/grafana.log").read
   ensure
     Process.kill("TERM", pid)
   end
