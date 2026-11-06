@@ -2,6 +2,7 @@ class Siril < Formula
   desc "Astronomical image processing tool"
   homepage "https://www.siril.org"
   license "GPL-3.0-or-later"
+  revision 1
 
   stable do
     url "https://free-astro.org/download/siril-1.4.5.tar.bz2"
@@ -70,6 +71,9 @@ class Siril < Formula
   deny_network_access!
 
   def install
+    # OpenCV 5.1.0 removed `Mat_` comma initializers, so build these vectors from `Matx` instead
+    inreplace "src/opencv/opencv.cpp", /\(Mat_<double>\(3,1\) << ([^()]+?)\)/, "Mat(Matx31d(\\1))"
+
     args = %w[
       --force-fallback-for=kplot
       -DlibXISF=false
