@@ -6,7 +6,7 @@ class Gtl < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "07f48a0ff25c60a6fd034c7027aa1cb362fe1aa48e767ddaa16ecbf47e9e68c0"
+    sha256 cellar: :any_skip_relocation, all: "d11b62022bdd621670a97c90a6bfc01be9ccedb898fbeec2be267f1f99889cfa"
   end
 
   depends_on "boost" => :build
