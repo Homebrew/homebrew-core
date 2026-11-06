@@ -23,9 +23,12 @@ class Libtar < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     # K&R function definitions in `compat/` are invalid in the C23 default that autoconf 2.73 picks
     ENV["ac_cv_prog_cc_c23"] = "no"
+
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
