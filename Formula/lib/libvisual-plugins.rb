@@ -34,6 +34,8 @@ class LibvisualPlugins < Formula
     depends_on "pulseaudio"
   end
 
+  deny_network_access!
+
   def install
     libvisual = Formula["libvisual"]
     configure_args = [
