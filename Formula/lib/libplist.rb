@@ -8,11 +8,11 @@ class Libplist < Formula
   head "https://github.com/libimobiledevice/libplist.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "321b77f9c5a6a7432162874392635b3a543ca4db397c422a49471d9762af86c9"
-    sha256 cellar: :any, arm64_tahoe:       "f013f0d6a0440dd4f2236afed2ffd2599f9519081a75a4d4bda8c6de33bb7e86"
-    sha256 cellar: :any, arm64_sequoia:     "a19201d621e6181184e7c77a0ba59ca08f7566b42e168f746509f370ae8dbbc5"
-    sha256 cellar: :any, arm64_linux:       "3d7d4814dc13e834074d6d36e1ababe85919660c8d0228117270c6cf7ab4f070"
-    sha256 cellar: :any, x86_64_linux:      "9d284d178d84186d816b342c71f08d88ec9d3d1bf6036cc0faea091c6bda12d9"
+    sha256 cellar: :any, arm64_golden_gate: "2321434c852fb7f232a377636d8ab168e546f720ea3628e695a05792065bf030"
+    sha256 cellar: :any, arm64_tahoe:       "6ff690a56dc4afd4aaf09d832a8ba64f7fc80ee6ecff64ad8b5673614ffaf3c8"
+    sha256 cellar: :any, arm64_sequoia:     "d88d984b12e68f8470e9f72631a4711df0f85b8728c53e6c04bf2956267e84cc"
+    sha256 cellar: :any, arm64_linux:       "3b79ee174bba2c391e206e86758a324b2e2fb3f9a6f366275075d5c4886ddb54"
+    sha256 cellar: :any, x86_64_linux:      "553bbd2e5b172dfcf89cd5a002e99a59ef0253ef933977ecab1d7dab2aaf2a93"
   end
 
   depends_on "autoconf" => :build
