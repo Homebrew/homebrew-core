@@ -17,6 +17,8 @@ class Libspnav < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "e770b50e19f7cdd6992eaea4a8595e6690074854396f371169787f5609a47d75"
   end
 
+  deny_network_access!
+
   def install
     args = %W[
       --disable-debug
