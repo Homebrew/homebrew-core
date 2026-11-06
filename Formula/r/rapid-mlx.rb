@@ -6,6 +6,7 @@ class RapidMlx < Formula
   url "https://files.pythonhosted.org/packages/24/8c/562362cbfde180ec4c2764fb8243d5e76f33c3edbfdc7946a2fc0bce7290/rapid_mlx-1.0.1.tar.gz"
   sha256 "59b9d1b5dd45be75c007a2690fb7fffad42882247020d4ba42f9d158ba1a2cb1"
   license "Apache-2.0"
+  revision 1
 
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
