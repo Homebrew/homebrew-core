@@ -1,8 +1,8 @@
 class Morphe < Formula
   desc "Desktop app and CLI for patching Android apps with Morphe"
   homepage "https://github.com/MorpheApp/morphe-desktop"
-  url "https://github.com/MorpheApp/morphe-desktop/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "30313a4fadc23f23c5fe417c31bf2acfa9d8acad6391c987ebb9c4924ce6a9c6"
+  url "https://github.com/MorpheApp/morphe-desktop/archive/refs/tags/v2.1.1.tar.gz"
+  sha256 "11534bd0919d9b23ca193b4f5d63b83c08323cbb2c9ed5e07f426b19ac5b75e5"
   license "GPL-3.0-only"
 
   bottle do
