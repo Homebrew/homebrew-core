@@ -1,18 +1,18 @@
 class Usage < Formula
   desc "Tool for working with usage-spec CLIs"
   homepage "https://usage.jdx.dev/"
-  url "https://github.com/jdx/usage/archive/refs/tags/v7.2.0.tar.gz"
-  sha256 "0e4ca6705f01cd22289b115557bdb972d01aa970de3ed0e7fbb058f843301db9"
+  url "https://github.com/jdx/usage/archive/refs/tags/v7.3.0.tar.gz"
+  sha256 "a299ec569b7f2dd7d3c2116f308a4bfbb6147b07ad0c05a88a46a408a16d7890"
   license "MIT"
   compatibility_version 1
   head "https://github.com/jdx/usage.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "81685e2c337ec426829e2bbed513c872fc00568b80bbe47857c310a129c12551"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "68a83a2fa33383ac4ab62d3b4923425e5cd53cbc8c57946afef65fba8c27e506"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ae05f2da18b4882ee94cddd54a23b5fb6de0ca2a74a70bf0f374e99f716178a6"
-    sha256 cellar: :any,                 arm64_linux:       "cc207faa34581ecfac742a34f9ca3e209d6d9c5cb2723d4fb9b3baa05a4fce4f"
-    sha256 cellar: :any,                 x86_64_linux:      "4bc7c20eb59c45fd99e310bab3b4e4895fc15e70c92e134ef09f09822265da0e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "99ea436346a5fe59dfcd15d4e48ca4698306bd7c00ad7efbc401ac88a4f5b1bd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f612491ee1196474483128823eb6c53b6506c43d329636bbbedeb6290879a097"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "45ba3690a07c6e34f3e1eede98d35867b1f594d974b5d903cd35b44d57759f6a"
+    sha256 cellar: :any,                 arm64_linux:       "3aeab5bc220bebdb4c6785a781de026bdbdd8a43e3854d31011eda81d377b290"
+    sha256 cellar: :any,                 x86_64_linux:      "d21ad3ec99420f6a20260f143d0d5b3ac2a2362960393aa7bc8e3afbee2f4d40"
   end
 
   depends_on "rust" => :build
