@@ -13,6 +13,8 @@ class LibxmpLite < Formula
     sha256 cellar: :any, x86_64_linux:      "aaa7543a5fd3e96675a2ce2f1d488936e6f7cc6a5e4568a4e80942751fbd396a"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"
