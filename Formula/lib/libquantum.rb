@@ -28,6 +28,8 @@ class Libquantum < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "2a528197ff682bb96434f58a4739f933e9010f7e76b368f43d1788fe22468deb"
   end
 
+  deny_network_access!
+
   def install
     args = []
     # Help old config scripts identify arm64 linux
