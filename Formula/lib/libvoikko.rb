@@ -38,6 +38,8 @@ class Libvoikko < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules",
                           "--with-dictionary-path=#{HOMEBREW_PREFIX}/lib/voikko",
