@@ -6,11 +6,11 @@ class Mighttpd2 < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "cf04edbfdba45430ff14877887c27bd53b0c1a72b18531710b091ed05a163657"
-    sha256 cellar: :any, arm64_tahoe:       "4a9888eab361ad5dcf7c70cce6547da656404326e5123d19146a16565b42a3ec"
-    sha256 cellar: :any, arm64_sequoia:     "86e9d0bdba78c1f82d2c19818fbe5148328288d4ca6f5a188acf98b56b260814"
-    sha256 cellar: :any, arm64_linux:       "60afb6558d55144b701d4347c9feb40e36e192047608f1af8d2f36e720c722ab"
-    sha256 cellar: :any, x86_64_linux:      "801c8c997298d157f48793b450594f70d0dcdcbe7c21908d42371f84579fd2f2"
+    sha256 cellar: :any, arm64_golden_gate: "6b0d0e75877ffb3e1465da94b8f9c72541484cc2ab4552b4135a32552383db5b"
+    sha256 cellar: :any, arm64_tahoe:       "b692e19ae6f1885dbee3e5f44309796d7bfbfbfc3f1944db350900ff682f67c4"
+    sha256 cellar: :any, arm64_sequoia:     "9207c53381f154bcb2de9e77aa7e84df98f6cc1f014a003c399b4b6751a32c23"
+    sha256 cellar: :any, arm64_linux:       "fe69e86f4065086ae71df1f877945321c69f0821107346564b561859b8a9279f"
+    sha256 cellar: :any, x86_64_linux:      "1fd699f0de46a38aedf4441e092136e745e41d186331937ea46fe356206e36bc"
   end
 
   depends_on "cabal-install" => :build
