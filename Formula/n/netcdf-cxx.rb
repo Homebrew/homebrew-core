@@ -1,11 +1,10 @@
 class NetcdfCxx < Formula
   desc "C++ libraries and utilities for NetCDF"
   homepage "https://www.unidata.ucar.edu/software/netcdf/"
-  url "https://github.com/Unidata/netcdf-cxx4/archive/refs/tags/v4.3.1.tar.gz"
-  sha256 "e3fe3d2ec06c1c2772555bf1208d220aab5fee186d04bd265219b0bc7a978edc"
+  url "https://github.com/Unidata/netcdf-cxx4/archive/refs/tags/v4.3.2.tar.gz"
+  sha256 "f7afc1a69b5d82b3892a2d4cf2823767657a5e51a8c1170bf14b0fc6648cf2b8"
   license "NetCDF"
-  revision 3
-  compatibility_version 1
+  compatibility_version 2
 
   bottle do
     sha256 cellar: :any,                 arm64_golden_gate: "5b35e7081ab06ad5441a628c86d99382eedf348608d2cf8bd314a63fde67a43b"
@@ -37,11 +36,8 @@ class NetcdfCxx < Formula
       -DENABLE_DOXYGEN=OFF
     ]
 
-    # https://github.com/Unidata/netcdf-cxx4/issues/151#issuecomment-2041111870
-    args << "-DHDF5_C_LIBRARY_hdf5=#{formula_opt_lib("hdf5")}"
-
-    # Workaround to build with CMake 4
-    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    # HDF5's CMake config does not set this variable, which is needed to link the filter plugins
+    args << "-DHDF5_C_LIBRARY_hdf5=#{formula_opt_lib("hdf5")}/#{shared_library("libhdf5")}"
 
     system "cmake", "-S", ".", "-B", "build_shared", *args, "-DBUILD_SHARED_LIBS=ON"
     system "cmake", "--build", "build_shared"
