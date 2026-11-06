@@ -30,6 +30,8 @@ class Libwps < Formula
   depends_on "pkgconf" => :build
   depends_on "librevenge"
 
+  deny_network_access!
+
   def install
     # Installing Doxygen docs trips up make install
     system "./configure", "--without-docs", *std_configure_args
