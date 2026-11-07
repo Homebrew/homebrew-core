@@ -6,17 +6,18 @@ class Duplicity < Formula
   url "https://files.pythonhosted.org/packages/48/af/f7790e2222213629076c3dc608f8b1175939cdbe0b78cabb818ef1b6d99d/duplicity-3.2.2.tar.gz"
   sha256 "2ab85e429c72d2398f6b7627b8e2b99026bcd5c909749c15085fc569777a2861"
   license "GPL-2.0-or-later"
+  revision 1
   compatibility_version 1
 
   # FIXME: Fails trying to resolve lxml as needs `libxml2`/`libxslt` installed
   no_autobump! because: "`update-python-resources` cannot determine dependencies"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "2d4268ae58b599294283a5edf06bc69334011da45e766cbc0d5baf56a8bcf105"
-    sha256 cellar: :any, arm64_tahoe:       "bd18ee4cc4a3a8443f0785d6246ad5a77a4d03ac8bc9a26aea517df0d223bb36"
-    sha256 cellar: :any, arm64_sequoia:     "30fc585e6c442a4df3303ef57aa65d7b402f438ee5d7d24e40ee59d68d8cc9d0"
-    sha256 cellar: :any, arm64_linux:       "5758635a7b00c0782f0f627856a56cf6c23af608be5abcf749ae0dcacb7b35e0"
-    sha256 cellar: :any, x86_64_linux:      "4e594f48363d7786621f6c328b004481d6e26c2eebf93f895621c79045a865b3"
+    sha256 cellar: :any, arm64_golden_gate: "111e393d7e9edc015d0d4e7d5ccdffe638cb15e7c944ffa9e8543870feaa5285"
+    sha256 cellar: :any, arm64_tahoe:       "cd3fb97eb06cc15ae6ad317af496c30f9f2d5a4769370db1d9824b43c2cacf7f"
+    sha256 cellar: :any, arm64_sequoia:     "168f7355a67dd49710f1a207e4d03f2fad8bccda18c7205c0fd52a4886cb43da"
+    sha256 cellar: :any, arm64_linux:       "50ec1aad9b08f73fd2406b835376afe97723fcb273e75814dd72766c7ad75853"
+    sha256 cellar: :any, x86_64_linux:      "0cd54c8d6b65d8b4498457e937aaf8fc506eed1333cdc328995b1b518a79278a"
   end
 
   # `pkgconf` and `rust` are for bcrypt
@@ -69,13 +70,13 @@ class Duplicity < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/d3/0b/6fb3820f86bf7d65313e85f7fb360147eb35170b5c306753eca69539b24f/boto3-1.43.122.tar.gz"
-    sha256 "c923650d09e4c445564ca14d5ce89466c3083884b6f6c189f0f445fc17f02eb5"
+    url "https://files.pythonhosted.org/packages/f2/c2/9285c749ca49c213ad90aa239884d0c5cbbdc58f02c4c44bcc4a3bf59023/boto3-1.43.125.tar.gz"
+    sha256 "5a635a0fbbd51f319e465b809cf043668705defbb9dddaf26ae66747f70b2a49"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/90/56/30404d13529fd3fc0a142f9ec2b6680778c0b8183eeef932401e7954dc9c/botocore-1.43.122.tar.gz"
-    sha256 "2fc53b68b35314b1738cad46e6170d0556496863913451428fc3afccb8c7fa95"
+    url "https://files.pythonhosted.org/packages/ad/57/6d638614c940c73a750b8a4203989b3edbde5ff7f83cd9031e65cb97d69b/botocore-1.43.125.tar.gz"
+    sha256 "e3ae5ebbfa8033015958a9cb16cef67a0592902ca8afb46ef06e8ae77475183f"
   end
 
   resource "boxsdk" do
@@ -119,8 +120,8 @@ class Duplicity < Formula
   end
 
   resource "google-api-core" do
-    url "https://files.pythonhosted.org/packages/a4/74/307919972c4dc84598f4128a8d6ae05ac3d9e6ca73fe60a7bb93c670931c/google_api_core-2.43.2.tar.gz"
-    sha256 "5dfc5e9d52982bcc03bd6af380a893365b5fdf907dc527f63d3a372833c33329"
+    url "https://files.pythonhosted.org/packages/72/ef/63d89cb580f3a42c51db53b3d151352aa61b9c87ea8cfdd8d24ee6caa09d/google_api_core-2.44.0.tar.gz"
+    sha256 "5ab9a396965c1227d7dea4581e562b7018aa2bca96d2de0be5eb70dc9c8ab3a1"
   end
 
   resource "google-api-python-client" do
@@ -129,8 +130,8 @@ class Duplicity < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/f5/b9/4b2528f30114b106e3c3a7298ba38d85e682fd1f83fe7c4a5b77c7677082/google_auth-2.62.0.tar.gz"
-    sha256 "0bef0ce54bdf9ce226c5d66e4264413bd918141c31bbe49fb52eac882f513d69"
+    url "https://files.pythonhosted.org/packages/c4/38/d79ab09dcfc1e1638d887c8f65657619d3ebc454165c558ef79355971ce3/google_auth-2.62.1.tar.gz"
+    sha256 "3c8e1ce2553784ae17fd220e6f88df3281d86ab98019278f436d06dffab17a9e"
   end
 
   resource "google-auth-httplib2" do
@@ -279,8 +280,8 @@ class Duplicity < Formula
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/7a/d8/a1bcc8ba112a627f8ffbdc212a78ce18d3ac07e91a5ca65d27918eee25a1/oauthlib-4.0.0.tar.gz"
-    sha256 "efb274799819440f95b4ab3b818869f1ce9ae26c5beacba0201d1a1b76b54f86"
+    url "https://files.pythonhosted.org/packages/33/17/2bb072de0b990303c985f26869fd47bb179024a051f47e7f9d208eb92f8e/oauthlib-4.0.1.tar.gz"
+    sha256 "3d73febdb6faa00f277c81fb04be7b7586fb96fc3b7f0b9c772dada69a25ede7"
   end
 
   resource "opentelemetry-api" do
