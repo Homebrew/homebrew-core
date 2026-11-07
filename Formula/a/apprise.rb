@@ -6,6 +6,7 @@ class Apprise < Formula
   url "https://files.pythonhosted.org/packages/56/ab/5dbbbdd190fc0a3b36e7b2a1aa2bca22b662b6cf2287c329b0e2acfbd026/apprise-2.1.0.tar.gz"
   sha256 "7eb453b31f37e6b24499b48320bf9d325038bbb1216e24ea7baaf73b062341c5"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "4e65b7ea0e57206cde49491819dd749f288a4918f96ae58b792ce351c49c1b29"
@@ -37,13 +38,13 @@ class Apprise < Formula
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/f4/32/0b4d0297064244f04af4331b65de16237cc3cce07474171ee14222a28981/markdown-3.11.2.tar.gz"
-    sha256 "87bf5d90f2d2882e2c02fcda182c2800456b985bff38913867c49706481514b0"
+    url "https://files.pythonhosted.org/packages/ca/eb/dc0fd6eff604bfb870b7fb68b90985a32caaf3c76f67736bbf7f438acd59/markdown-3.11.3.tar.gz"
+    sha256 "81eb91631dc97ad1efbc76019ef0f80fe90ca49ddf81546752d79989c3bfff3e"
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/7a/d8/a1bcc8ba112a627f8ffbdc212a78ce18d3ac07e91a5ca65d27918eee25a1/oauthlib-4.0.0.tar.gz"
-    sha256 "efb274799819440f95b4ab3b818869f1ce9ae26c5beacba0201d1a1b76b54f86"
+    url "https://files.pythonhosted.org/packages/33/17/2bb072de0b990303c985f26869fd47bb179024a051f47e7f9d208eb92f8e/oauthlib-4.0.1.tar.gz"
+    sha256 "3d73febdb6faa00f277c81fb04be7b7586fb96fc3b7f0b9c772dada69a25ede7"
   end
 
   resource "pyyaml" do
