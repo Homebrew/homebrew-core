@@ -5,8 +5,6 @@ class Riff < Formula
   sha256 "2d84d005f33444143eb8f68eb72024cd7eb9addd0b933665aaf44de7e071c175"
   license "MIT"
 
-  no_autobump! because: :bumped_by_upstream
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0986ad3f26b81b2f61d947fc56db3697eb1bd86796773789af2f041ba29abeca"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5aa412dccc395131028d01afc6e32c01347c7078d23a0ee558cadd7d5224c739"
