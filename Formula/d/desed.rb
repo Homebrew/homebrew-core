@@ -1,21 +1,17 @@
 class Desed < Formula
   desc "Debugger for Sed"
-  homepage "https://soptik.tech/articles/building-desed-the-sed-debugger.html"
-  url "https://github.com/SoptikHa2/desed/archive/refs/tags/v1.2.2.tar.gz"
-  sha256 "73c75eaa65cccde5065a947e45daf1da889c054d0f3a3590d376d7090d4f651a"
+  homepage "https://github.com/SoptikHa2/desed"
+  url "https://github.com/SoptikHa2/desed/archive/refs/tags/v1.2.3.tar.gz"
+  sha256 "10e7836f484d15e545e8c43298ca7f6c6de75278f9778e03ca73877f98c9d25f"
   license "GPL-3.0-or-later"
   head "https://github.com/SoptikHa2/desed.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f109759ad4440ab58eeb710153c8b8e50de9bee81e8ac69ac9102f13d982f1a4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "96d7601c2d5624d9675565db1db7cf42269d14f4c0020658042019738a126f45"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a633dbad86f2cacfe936a808372d3259ecbde4fcbb100d444d4dfe04b846c848"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "8f2a66cf69929b5532c8a46f34b39bb89edde7339f0e60523f613af7443e9b84"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "c94d25fc45f6e6e18e492b7a1b0a99bc050010ef581964235718147f41a8721d"
-    sha256 cellar: :any_skip_relocation, sonoma:            "2160dd4cfb4d6c16d5563112a6871a012c2968e2313514c48cf7323fa2d1e714"
-    sha256 cellar: :any_skip_relocation, ventura:           "8d561d9e6c8f3d55f5a708ce24cc786b2975f227ec86414cf312409adc5130c7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3d7939fa70a8187c637bc200bbdcf9f3ff97950032b92425a2c9ccdbdb8141f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "74c7143b9c97e0dfa4bd338b665434834ffd17d5c1cd3582f346ae7498b5f2ad"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "14452eeba16e2de5323d479c2845fb18691847306a8576d1cfdcaf8258456796"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7527e806a595841c4837ab662fc324ac33916307cf13bda079f24977af180141"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2979368a475b5c25858f1756a9e897133d6c082c349f187f633f99d3cf7844ab"
+    sha256 cellar: :any,                 arm64_linux:       "f56cc056aa2b336d1348fc253598d222a799a443b3b06280874045c126465981"
+    sha256 cellar: :any,                 x86_64_linux:      "10ae6f009ec7a51697370a983cbc6098ea77ef0b46bb53b17c7121f4451d9873"
   end
 
   depends_on "rust" => :build
