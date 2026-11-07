@@ -3,17 +3,17 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/13/1a/9bd7e804cb01d42e0b3c78e45c14c4d42311a7e8970aeeae494c58a35d17/cfn_lint-1.59.0.tar.gz"
-  sha256 "544e0bf49bcfe49da71aab8b770a50edaffeb4c317f35317a391353565e7187c"
+  url "https://files.pythonhosted.org/packages/c3/ec/3b58d77e21b0283aa9887f4c3f81aeaf3a839111f2ebabb34443c1c76f65/cfn_lint-1.60.0.tar.gz"
+  sha256 "8c12142205cdba8b63236cc6e61f06aff6b563ae957c83af76e56940a3a4fe6a"
   license "MIT-0"
   head "https://github.com/aws-cloudformation/cfn-lint.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "32b380614109c5515582d2f48bd018cf196913f62b524ac5aa18083fa270cfbf"
-    sha256 cellar: :any, arm64_tahoe:       "be1ae07fa2d918466ace17d15a08966f7aafda3824bb0f311bf345c7ea3162bd"
-    sha256 cellar: :any, arm64_sequoia:     "577d034aac2679610cc713312f93d219d9a5bb4b6a5c0cb0ebda7e9e91b4e40b"
-    sha256 cellar: :any, arm64_linux:       "a6e7a213dee4ce2780688fa547326fc540525d82a4597875f6a33a3479bc7ee4"
-    sha256 cellar: :any, x86_64_linux:      "00de1d38d7a7173e080b37efc42f054500d2a0c9a602e533b5ed4aa108783a4b"
+    sha256 cellar: :any, arm64_golden_gate: "cf968eb2d9cd12afe4a4eef8413d605bbc171ce902774e8dd6d906b71eb4f082"
+    sha256 cellar: :any, arm64_tahoe:       "2a41233ae949f5bf3b558787e5ed5a60dabb884c1fe51737c15febf2602fc56a"
+    sha256 cellar: :any, arm64_sequoia:     "4ad28bee09facdc0091d44119fb0ff3dad3f0c0c24daac225864d3e7c2a1991e"
+    sha256 cellar: :any, arm64_linux:       "b85587737e0ddf0b63ac8ddef696fb9784c659b7a3b11a7915966cca1dec9ced"
+    sha256 cellar: :any, x86_64_linux:      "46b7c5da72ed64de5c85d1e64cb1702ea3f186726392344adfdcd05ff71663b2"
   end
 
   depends_on "libyaml"
@@ -24,13 +24,13 @@ class CfnLint < Formula
   pypi_packages exclude_packages: %w[pydantic rpds-py]
 
   resource "jsonpatch" do
-    url "https://files.pythonhosted.org/packages/31/fd/359c6b0bf41d43eba15cafcd185fd82a11250f00606599ca8f296820fae2/jsonpatch-1.38.tar.gz"
-    sha256 "debc3e7bdc3d446468d64987f51a0e7a9deea42987ff90a6d1005a489b471c19"
+    url "https://files.pythonhosted.org/packages/63/d2/b8e85a5c18344f2885dffa0eef881617540000bb10212939e7b5e4b9e650/jsonpatch-1.43.tar.gz"
+    sha256 "0dbd831e9853e4ec9a3897a9cca87716533d2c05f8b5ca0f6cde70d83e5758b6"
   end
 
   resource "jsonpointer" do
-    url "https://files.pythonhosted.org/packages/54/04/e35b34f4e441473e62d82d6ed9a8f748d93d895f4c05d4e645aa0fde51d7/jsonpointer-3.6.tar.gz"
-    sha256 "82e839a3ba3a9e2b54394fda8b3d276c2459d80408d06ef9a6fbc369d7544ffc"
+    url "https://files.pythonhosted.org/packages/43/a1/33557aa08bb76a1d639db700b65b1aeb3ff10bece6da7bf034edf0262fc2/jsonpointer-3.9.tar.gz"
+    sha256 "b4c52dd58837669881f9677c0e83d73fa0b369feb67563ec4a8b1c13eb3c5a23"
   end
 
   resource "mpmath" do
