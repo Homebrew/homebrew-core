@@ -1,8 +1,8 @@
 class GitBug < Formula
   desc "Distributed, offline-first bug tracker embedded in git, with bridges"
   homepage "https://github.com/git-bug/git-bug"
-  url "https://github.com/git-bug/git-bug/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "31ae65e733e31fbf37ecea8f31966fe46cbeb1657a144876c855d5cf09cffb69"
+  url "https://github.com/git-bug/git-bug/archive/refs/tags/v0.12.0.tar.gz"
+  sha256 "d02f75b5ca4a6ab7d8cd0bf028cee8f090ccd7f07854b5edeb4953957b75e39a"
   license "GPL-3.0-or-later"
   head "https://github.com/git-bug/git-bug.git", branch: "trunk"
 
