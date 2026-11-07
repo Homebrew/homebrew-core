@@ -1,8 +1,8 @@
 class Ktea < Formula
   desc "Kafka TUI client"
   homepage "https://github.com/jonas-grgt/ktea"
-  url "https://github.com/jonas-grgt/ktea/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "48ceec1fec901fea9e6b6ed10c1a73539dd9879d11ea5b1a7c1f128d8d955f08"
+  url "https://github.com/jonas-grgt/ktea/archive/refs/tags/v0.9.2.tar.gz"
+  sha256 "ecf0eeadfc95aae9c1d812d4f52841dc8d5370cad72101cd33f5cf4d827acb3f"
   license "Apache-2.0"
   head "https://github.com/jonas-grgt/ktea.git", branch: "main"
 
