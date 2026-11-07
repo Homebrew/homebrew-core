@@ -1,18 +1,16 @@
 class Rura < Formula
   desc "Interactive TUI scratchpad for building shell pipelines"
   homepage "https://github.com/tlipinski/rura"
-  url "https://github.com/tlipinski/rura/archive/refs/tags/v1.13.0.tar.gz"
-  sha256 "b093146f744f3eb51a6903e37d0b7b36c147b4aa320a8887c3248bfa872f7a99"
+  url "https://github.com/tlipinski/rura/archive/refs/tags/v1.14.0.tar.gz"
+  sha256 "4ce5db5337faa6ebf50fd917b11347d3ff5367a554c1986472620fae4cc2c678"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "55a4053248a76e8246ef59acc36385162c356a3658f59ccccfc0de8a2626d29e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7d2eaab9d814b86ed769a8d01c6591db429a714618cad7c33a30090eb5609386"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "62858c394d6d5a7891c7ad17d4f71038ab2e5b19c62070fb0a023920ea7d08c1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "a04a9dacb535864652c69d9b52f9bfc6cdc1be54168b9e8721a49d69f19743b8"
-    sha256 cellar: :any_skip_relocation, sonoma:            "0139fa3c2c9de2472bc9d7484359ecef29c546297e01b869e89149e4e6f7427d"
-    sha256 cellar: :any,                 arm64_linux:       "487bd6a9734633956909a1d8607ba9c837dff6d6fc52acba3a140189bbdef00a"
-    sha256 cellar: :any,                 x86_64_linux:      "e14997ecd3354783a163a824a55ca7c8b1fd046304750637a4b577f21f8efdd8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f8e08ea527b02edae098744f484c30b467fc1a6341be8a1c7a00902cfd1f37e3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "50f73ccc63a08335c0352dcbbc56c8410d4b61aa19276f15ff1a22cdf86decec"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8dd4f255afc64e51c3b784a69b3c7a3741165c244e69309f4c9c7ff29ad9ab54"
+    sha256 cellar: :any,                 arm64_linux:       "cd67c2afea264984259feea992e89867a36a19b995621bf2f5c36f40fbb7bb2e"
+    sha256 cellar: :any,                 x86_64_linux:      "835a0adbbc64fec438ec3820a5ff5870278a756402f783c70b8d02462da82175"
   end
 
   depends_on "rust" => :build
