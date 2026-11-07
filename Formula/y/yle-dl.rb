@@ -3,8 +3,8 @@ class YleDl < Formula
 
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://files.pythonhosted.org/packages/9b/45/cc3e991162a1682c220319057d4145bd53ba61cd150eaffaa11039db8b41/yle_dl-20261002.tar.gz"
-  sha256 "c477dc042457f63252bfca743e0f6ed5528b1c4e1d48923c57520081473fa771"
+  url "https://files.pythonhosted.org/packages/03/7b/a8bb4db61ec4736c2f09397382090601c160eaff766f743a0d9ce8fd1ac6/yle_dl-20261106.tar.gz"
+  sha256 "924f0e49650f47d6753d819bd10fc7dd8fef8ae7019bbaafdbc3a59087db2797"
   license "GPL-3.0-or-later"
   head "https://github.com/aajanki/yle-dl.git", branch: "master"
 
@@ -33,8 +33,8 @@ class YleDl < Formula
   end
 
   resource "configargparse" do
-    url "https://files.pythonhosted.org/packages/5d/ed/33c0ba7f0b5be384ff8a2101ce77728f219e816b2104819f1651477e1ad5/configargparse-1.8.0.tar.gz"
-    sha256 "22a417f4d7b00149f0af82ef7c491f8ecc4b1d5454633fd319b386f5eb806f92"
+    url "https://files.pythonhosted.org/packages/bc/d9/c591a80cf3335de7820c6762f8ee9298a43da5319803d319e16657b6fdf2/configargparse-1.9.0.tar.gz"
+    sha256 "48d9c22affe4ac419b4dd0691fa929d759e1f99574be41826785f2dbf3da63a5"
   end
 
   resource "idna" do
