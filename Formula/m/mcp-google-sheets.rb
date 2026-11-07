@@ -6,14 +6,14 @@ class McpGoogleSheets < Formula
   url "https://files.pythonhosted.org/packages/b2/29/7f4c35619a25f39d27e133e39d0642fb9c9c44a419a9acc6fc2993b7a21d/mcp_google_sheets-0.6.3.tar.gz"
   sha256 "d41ca5b5367af1426a7db860010473d5c1a7f3df02e4f8db30f75f9c66030e18"
   license "MIT"
-  revision 7
+  revision 8
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7f847b383e4e76ba9c15682e5617accd712af7e4474dd12122db6d4100a06b55"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "66e8fb3d013f3d09103523fa067feb702771f704dddfc6de3144ff1e94074126"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2cb6b031ba0ee849d34fbf2159ae440fab626ba4f19f8d586e4d436d73f320eb"
-    sha256 cellar: :any,                 arm64_linux:       "11ea40e837071794b06cb56ecbdc8ea80ea54edd262855306b6d7034cd899847"
-    sha256 cellar: :any,                 x86_64_linux:      "18eb6de9e66fa68fbb671bb75b4d279d55a4cc6468b34f6a5df4642cb12c52cb"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b4dc9aa0631071c51c375babafe06808bfd20714c2b787e99cbe8c9958b34e94"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f7114d8945cd05897b4d26c4aaef7a0dcb8d1f74a320fda4432f1592d95fdbe9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d1e3f0319589e0ca1aab78e49b3c440b8010af94c4d4823ebe8d5195dcfae366"
+    sha256 cellar: :any,                 arm64_linux:       "46ee9b248af9d022aa20659b7e9696e007996913af7f41fd963fde7988acd5e2"
+    sha256 cellar: :any,                 x86_64_linux:      "12ff335287dd5a14b6a1da44a05586d9723de1d0fbabe1b62ea0d0942f8aabc0"
   end
 
   depends_on "certifi" => :no_linkage
@@ -27,8 +27,8 @@ class McpGoogleSheets < Formula
                 exclude_packages: %w[certifi cryptography pydantic rpds-py]
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "attrs" do
@@ -47,8 +47,8 @@ class McpGoogleSheets < Formula
   end
 
   resource "google-api-core" do
-    url "https://files.pythonhosted.org/packages/a4/74/307919972c4dc84598f4128a8d6ae05ac3d9e6ca73fe60a7bb93c670931c/google_api_core-2.43.2.tar.gz"
-    sha256 "5dfc5e9d52982bcc03bd6af380a893365b5fdf907dc527f63d3a372833c33329"
+    url "https://files.pythonhosted.org/packages/72/ef/63d89cb580f3a42c51db53b3d151352aa61b9c87ea8cfdd8d24ee6caa09d/google_api_core-2.44.0.tar.gz"
+    sha256 "5ab9a396965c1227d7dea4581e562b7018aa2bca96d2de0be5eb70dc9c8ab3a1"
   end
 
   resource "google-api-python-client" do
@@ -57,8 +57,8 @@ class McpGoogleSheets < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/f5/b9/4b2528f30114b106e3c3a7298ba38d85e682fd1f83fe7c4a5b77c7677082/google_auth-2.62.0.tar.gz"
-    sha256 "0bef0ce54bdf9ce226c5d66e4264413bd918141c31bbe49fb52eac882f513d69"
+    url "https://files.pythonhosted.org/packages/c4/38/d79ab09dcfc1e1638d887c8f65657619d3ebc454165c558ef79355971ce3/google_auth-2.62.1.tar.gz"
+    sha256 "3c8e1ce2553784ae17fd220e6f88df3281d86ab98019278f436d06dffab17a9e"
   end
 
   resource "google-auth-httplib2" do
@@ -122,8 +122,8 @@ class McpGoogleSheets < Formula
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/7a/d8/a1bcc8ba112a627f8ffbdc212a78ce18d3ac07e91a5ca65d27918eee25a1/oauthlib-4.0.0.tar.gz"
-    sha256 "efb274799819440f95b4ab3b818869f1ce9ae26c5beacba0201d1a1b76b54f86"
+    url "https://files.pythonhosted.org/packages/33/17/2bb072de0b990303c985f26869fd47bb179024a051f47e7f9d208eb92f8e/oauthlib-4.0.1.tar.gz"
+    sha256 "3d73febdb6faa00f277c81fb04be7b7586fb96fc3b7f0b9c772dada69a25ede7"
   end
 
   resource "opentelemetry-api" do
@@ -172,8 +172,8 @@ class McpGoogleSheets < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/5b/42/55c32bb9b12693c092ad250a0e82edb5b31ddeda6eb772de5f308b3804ad/python_multipart-0.0.32.tar.gz"
-    sha256 "be54b7f3fa167bb83e4fcd936b887b708f4e57fe75911c02aebf53efaf8d938e"
+    url "https://files.pythonhosted.org/packages/9f/b7/15b905f6142a9a8a68f66900788da1a32e4d4254452783b37ad1eccb0506/python_multipart-0.0.33.tar.gz"
+    sha256 "b8112424a6abd162ec08d390565dd113ad699f2fe6fef3c987b8bbcbfe9e390d"
   end
 
   resource "referencing" do
