@@ -1,17 +1,17 @@
 class LovableOj < Formula
   desc "Experimental next generation frontend tooling"
   homepage "https://github.com/lovablelabs/oj"
-  url "https://github.com/lovablelabs/oj/archive/refs/tags/v0.4.4.tar.gz"
-  sha256 "50d61099e6367ec3f6d6818c01d004f7ed5e145c2be5ce27903242a77deb5aa7"
+  url "https://github.com/lovablelabs/oj/archive/refs/tags/v0.4.5.tar.gz"
+  sha256 "88f8d4c4d6fef3982b61e6fc062a8d37cd465982d9899ebabbbbfd12956c72b6"
   license "MIT"
   head "https://github.com/lovablelabs/oj.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ed1cc4aaf6c451ac1c9201df140b5d4d408fa3c2419d43c379e4d7e22ea7c334"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3603b24c77815d8100e85b68299ed3231f54856215e511cf728b5dec2431dd0a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5182a9d009d345d53bb09650dfd7514e9f4f0d2dd02d112302f7469e02867d90"
-    sha256 cellar: :any,                 arm64_linux:       "9ab8ab84a217ec3707d4df6d1a0eb29eda502452a4d479123d88ffef53913368"
-    sha256 cellar: :any,                 x86_64_linux:      "f72ba426e63555bd6c38ef2544fdb6b61849ea7c9098900c0fbd09f4fabd0e81"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fd3096a5b90c6c89831a517e97ef64fd67db32434b76c160b41ab100ffb9686b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "effd9102bcf92cd89989ce4b367c8bab7c51f6d9c6cdeade7a7a4c2f231c1c49"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "128c418a7e695ebda4b0adbe2b69ab313b0f1685cdc95f758854dd36cb02b419"
+    sha256 cellar: :any,                 arm64_linux:       "3b5a5a5cedb64da8dfcc3f5d2ca14a4798452f1633efe228bf4c6dd46089ac08"
+    sha256 cellar: :any,                 x86_64_linux:      "7e2f69dab1df2160c00d55ca0a5a86b56da1f337df4d2bed8925f48d92a14646"
   end
 
   depends_on "cmake" => :build
