@@ -1,8 +1,8 @@
 class Rofi < Formula
   desc "Window switcher, application launcher and dmenu replacement"
   homepage "https://davatorium.github.io/rofi/"
-  url "https://github.com/davatorium/rofi/releases/download/2.0.0/rofi-2.0.0.tar.gz"
-  sha256 "f81659b175306ff487e35d88d6b36128e85a793bfb56b64fa22c62eb54c4abd0"
+  url "https://github.com/davatorium/rofi/releases/download/2.1.0/rofi-2.1.0.tar.gz"
+  sha256 "f093e6e1c99d78902d1f63ebe6d22c4d1440ce08dc303e60eca1a1a5353951e3"
   license "MIT"
   head "https://github.com/davatorium/rofi.git", branch: "next"
 
@@ -43,6 +43,14 @@ class Rofi < Formula
 
   uses_from_macos "flex" => :build
 
+  # Preserve drun's command launcher when GLib lacks its desktop-app-info backend.
+  patch do
+    url "https://github.com/davatorium/rofi/commit/6af0379a8dcb8dd3824b9806065825e43a75182f.patch?full_index=1"
+    sha256 "59c5003ae656ae69ce391ff9eb02fe3f5ac9501e1e371bd6f3c2bdc9a3f18c16"
+    type :unofficial
+    resolves "https://github.com/davatorium/rofi/pull/2350"
+  end
+
   def install
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
@@ -50,7 +58,18 @@ class Rofi < Formula
   end
 
   test do
-    # rofi is a GUI application
-    assert_match "Version: #{version}", shell_output("#{bin}/rofi -v")
+    IO.pipe do |read_io, write_io|
+      xvfb_pid = spawn(formula_opt_bin("xorg-server")/"Xvfb",
+                       "-displayfd", write_io.fileno.to_s, "-nolisten", "unix", "-listen", "tcp",
+                       write_io => write_io)
+      write_io.close
+      ENV["DISPLAY"] = "127.0.0.1:#{read_io.gets.strip}"
+
+      output = pipe_output("#{bin}/rofi -no-config -dmenu -filter brew -dump", "homebrew\nother\nbrew test\n")
+      assert_equal "homebrew\nbrew test\n", output
+    ensure
+      Process.kill("TERM", xvfb_pid)
+      Process.wait(xvfb_pid)
+    end
   end
 end
