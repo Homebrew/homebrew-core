@@ -24,11 +24,11 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "ccbb8bd78158190148c71eb0a240e6c2ad509961d9a8d0a035ab7d5ab6542b8d"
-    sha256 arm64_tahoe:       "6ceb6151229e97923224fe300668250bb8d6da3512f8d9850f3eef833b6bbcc7"
-    sha256 arm64_sequoia:     "6667d5349381bba291b055e8151a444bcd8a3747f0b7b207f31277eefc2fe0dd"
-    sha256 arm64_linux:       "bdd11db46cb51a406ef2d7cfbdb2846e92d9533c6ef048dcdb57b9b987e88135"
-    sha256 x86_64_linux:      "ee60ec4d65e059349279cb1ae3dcc8cf2bb0fd7f4d6adf6f88d615a0ff64a5a1"
+    sha256 arm64_golden_gate: "fbe6cb5e9894afacdf203d4b710d0441405c93742b01789a2e7e19b222512d3a"
+    sha256 arm64_tahoe:       "3ce8326191d1c3aeeb03d36d61a42257f1c8df273445f7de4d6132ad8b6538d6"
+    sha256 arm64_sequoia:     "535155d4d81537ba87b2ff2e089d838277be113275c7e15402bd241cf04da467"
+    sha256 arm64_linux:       "617cc3ec176399456139ff48228a804130123de5b744b7a903c5d2a7edc63a43"
+    sha256 x86_64_linux:      "12cc90b224e058d20e29c5e473e31a6a1b1ae01c8e6c7d65b85ec3cb47bfd7fa"
   end
 
   head do
