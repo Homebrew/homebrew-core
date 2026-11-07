@@ -292,6 +292,7 @@ jobs:
                 certifi|\
                 docbook-xsl|\
                 erlang|\
+                freetype|\
                 gettext|\
                 ghc|\
                 glib|\
