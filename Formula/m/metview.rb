@@ -4,6 +4,7 @@ class Metview < Formula
   url "https://confluence.ecmwf.int/download/attachments/3964985/Metview-5.27.0-Source.tar.gz"
   sha256 "075a8c420c4850bd6695637470ef4a4638486a82d77092c65cc7921a30cdd5f0"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://confluence.ecmwf.int/display/METV/Releases"
@@ -11,11 +12,11 @@ class Metview < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "55dea06ea5b4955dbb1487bf450a7582b5bd98b27bacefc4d63927253ce47a2b"
-    sha256 cellar: :any, arm64_tahoe:       "4057fcde198282a5df807e72dfd9ebca94d5eed333ee52d56231b0bf9dc4cddb"
-    sha256 cellar: :any, arm64_sequoia:     "2e41b93fda66bc5744d30db2fc8b0751513088f961be87d91bbf7602e9dd84bc"
-    sha256 cellar: :any, arm64_linux:       "0efe4526e5cefdfad2c78d90601f8a13d5972a79e64106b0af64790fb3adce3b"
-    sha256 cellar: :any, x86_64_linux:      "77a3da9cce7e0a31b7a3f68700f865d43469a31a8d835080f68796e105741ea3"
+    sha256 cellar: :any, arm64_golden_gate: "dfb282b1c5507e99fb619cde5a4c87802b82888db63dbfb8e4eed976e4a9ed9a"
+    sha256 cellar: :any, arm64_tahoe:       "4dee35909fa7bc6d88967a6912e0353ae2ecabb62d94d662fb0c5a4bc98d4a13"
+    sha256 cellar: :any, arm64_sequoia:     "2a203d99f7c6c5925331c1ff4bba1ed94657b65b23e1bdb326c079b2ec81da21"
+    sha256 cellar: :any, arm64_linux:       "580d042ccf9f5fb138a2e926881164f2322efd899c0ba15df093fcb3d87663cf"
+    sha256 cellar: :any, x86_64_linux:      "ea204f35e438b8a3d66bcdf364019603d48a22426c640f65d15bd38c722e2d7a"
   end
 
   depends_on "cmake" => :build
