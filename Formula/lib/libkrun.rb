@@ -5,6 +5,14 @@ class Libkrun < Formula
   sha256 "d4541fcd959ad43fb073bff61bc91b645ea6413a10b8319e9b61664a6102d20c"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any, arm64_golden_gate: "eb53700b590cb7621e19b4efe4e3d53db78daf118fa37a7914d90efa77e56c62"
+    sha256 cellar: :any, arm64_tahoe:       "27fd3b22bfab27d967bdce9a9742a3ae449807be0cb7e40dcc9978c37dbc4980"
+    sha256 cellar: :any, arm64_sequoia:     "558b669a8cb934fff9d11daeaf5343b398fcba93cdaa299a49b9b3d55b6dacba"
+    sha256 cellar: :any, arm64_linux:       "2f5512503a635463169c4d525732db2251040cc1be90463119b7160899ed31fa"
+    sha256 cellar: :any, x86_64_linux:      "50437accbd31c909bcf37cf67a067390e3801b75414d37f366f49f105cada717"
+  end
+
   depends_on "rust" => :build
   depends_on "zig" => :build
   depends_on "libkrunfw" => :no_linkage # via dlopen
