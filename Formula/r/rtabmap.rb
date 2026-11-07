@@ -15,11 +15,11 @@ class Rtabmap < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3f4094fe44665450b63f32eb792f27904f14b8db09436d8ff9ad6803ad08e27f"
-    sha256 cellar: :any, arm64_tahoe:       "dc07127e81e6f1717e4fcfb928695ad4ce5aafb1d091f381137427cada1ef058"
-    sha256 cellar: :any, arm64_sequoia:     "be6a56f4a47ec2316c09df3607ff0836652200a924bccf275d80d313da89be89"
-    sha256 cellar: :any, arm64_linux:       "b6a86c165f8954e4147be0a9853e570f2b964842a20864c52c783bbee10d9821"
-    sha256 cellar: :any, x86_64_linux:      "3de08205dea3eadce14f222f4a9b3fa9021b11cd4ce42abacdbb987f94b0b554"
+    sha256 cellar: :any, arm64_golden_gate: "af0d41d1fdf50c62e10c342807be1db09107e5e4314582214ac81fbc9836d404"
+    sha256 cellar: :any, arm64_tahoe:       "46c35686c663d8dd60fb5996555cbe1538048d1f383db1f39c1a55b1254406f0"
+    sha256 cellar: :any, arm64_sequoia:     "e5fb69c572640e73ff8db09b9f38add435db9a190a81e256c47c48b99a45c7df"
+    sha256 cellar: :any, arm64_linux:       "dd1b9b4d8753e93eb12a06c6fb3cf2e73f747105b50e9a5be53c996be95c0c68"
+    sha256 cellar: :any, x86_64_linux:      "755d4de5a72fd886fbf8481ca74e78882dc8cd86b95d1c957b337db88f7d27de"
   end
 
   depends_on "cmake" => [:build, :test]
