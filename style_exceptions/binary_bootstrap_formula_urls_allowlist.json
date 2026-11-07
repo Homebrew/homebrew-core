@@ -11,6 +11,7 @@
   "ghc@9.4",
   "ghc@9.6",
   "ghc@9.8",
+  "gnat",
   "go",
   "ldc",
   "mlkit",
