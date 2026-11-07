@@ -3,16 +3,16 @@ class RobotFrameworkRobocop < Formula
 
   desc "Static code analysis tool (linter) and code formatter for Robot Framework"
   homepage "https://robocop.dev"
-  url "https://files.pythonhosted.org/packages/24/90/248070b2def441f19f8f936024c62ebbdb90c1a610f5b5470f0ea1118d9c/robotframework_robocop-9.1.2.tar.gz"
-  sha256 "ce93c6a46434bd5e2a40f6fec81514cb9fe1c9ee4fa97db03d1d3bed541688b3"
+  url "https://files.pythonhosted.org/packages/68/0e/fae2dbcee0bd3e05a9281fc8cada68c791bc6c1cc646f95ede15a6151b93/robotframework_robocop-9.2.0.tar.gz"
+  sha256 "d74f493ef5f53a9c51c9f36b7bb79b7eb716b951a1f68a82632924d651077464"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8666ece8b90fd189f08936709500db60ea6f5c5b537d6fd7ffa4316f1f486d4d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "04474ba3a27ffc0749f1de410c1e9262674f1a964b076747523bdc3a899223dc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d19ddc0173a48a7ee550d2b3ee4dfc055cb7ff5c693aed936750a0aa6ec6a86f"
-    sha256 cellar: :any,                 arm64_linux:       "377139662a57debc3d644b2f98ce4d5571d58803bc91ffd852f9d4b2026204b6"
-    sha256 cellar: :any,                 x86_64_linux:      "9ae9bf414dd92c91d484c587c0be4bec1a5455ce71b29c2ee10a0514c902cbdf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b73de8c239b2a906f2c9148d8e2444aacc863f1a64aea822577460d9e51038cf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "83233126d3bd6fe788c3d75ad16339a2583b2b969065d40abc6dfdd57cf1358d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0943d24f92738209464c3c98d67bc3ad0746d2cb006494dd62e65e8cd381c524"
+    sha256 cellar: :any,                 arm64_linux:       "61b1361c09d644afc2707267e15082516508646ccc7160497d8f108a415b5bb3"
+    sha256 cellar: :any,                 x86_64_linux:      "b4b3bd271accdade8e4aa831330327def925a75005bcc3dfae89a191b57c1c66"
   end
 
   depends_on "python@3.15"
@@ -43,8 +43,8 @@ class RobotFrameworkRobocop < Formula
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/0a/e7/bb605a7bab2d8425a64b3fa762b39dc1bf1c7e3f11ba6fb5413d6db0ff8c/msgpack-1.2.3.tar.gz"
-    sha256 "32edb81a2b5eb7cd7c9d941b2bfbbb082fd2cd09e0e725930316af6b708db186"
+    url "https://files.pythonhosted.org/packages/cc/52/1ec7ead2c7528bf3d1db73e886fa4df10f9e6f0eb7854a448b7090cfcef7/msgpack-1.2.4.tar.gz"
+    sha256 "475c44e12f2a5de766a8448783f149c9b33f3f49b88953c6cd739a77d93c732c"
   end
 
   resource "pathspec" do
@@ -53,8 +53,8 @@ class RobotFrameworkRobocop < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/58/e6/d0abbb256b44e6a05748c6942511ff67db8dbb068de0c35b24bf1b395b09/platformdirs-4.13.5.tar.gz"
-    sha256 "05831adf87d392760f4b5c3a0a95579ab5a10b18b9b9bd43680dcb47544788a0"
+    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
+    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
   end
 
   resource "pygments" do
@@ -68,8 +68,8 @@ class RobotFrameworkRobocop < Formula
   end
 
   resource "robotframework" do
-    url "https://files.pythonhosted.org/packages/66/77/5f60e5619082d387971d111c1354f1f529d2959ee742877982002d38d53d/robotframework-7.5.tar.gz"
-    sha256 "ff6233ff752a200ece4d0a6c59f6f9f7d0e96dcff0a7a3458296b997b812482e"
+    url "https://files.pythonhosted.org/packages/99/82/c7e3f8acb173c63e17cbdffdadf95a55520c0139cc548ce9ac963424361b/robotframework-7.5.1.tar.gz"
+    sha256 "00f63dc7b0477a137f8a9c1f2e14db8084a4d187a76f3fec6c2567875c32b932"
   end
 
   resource "shellingham" do
@@ -83,8 +83,8 @@ class RobotFrameworkRobocop < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/03/51/d33db42cc72ffd8c30777547b42d01f0cbf9d95a770457698d0174b3ed71/typer-0.27.3.tar.gz"
-    sha256 "d0396f770a560ab1b0a8504e13b5f254b728cedb05c61cf0359e944e50ce8901"
+    url "https://files.pythonhosted.org/packages/ad/8f/21021859316f44289101638dc74d82e13d722d8533e4b8708a3ab7c8461a/typer-0.28.0.tar.gz"
+    sha256 "69ab84ef79fd601cff071bbd2566d855ecadfd93adbc4b3360b9924359bdd857"
   end
 
   resource "typing-extensions" do
