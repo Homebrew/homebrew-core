@@ -3,17 +3,17 @@ class Overturemaps < Formula
 
   desc "Python tools for interacting with Overture Maps data"
   homepage "https://overturemaps.org"
-  url "https://files.pythonhosted.org/packages/d9/21/6ac72a357c1fc68f9ed7aeb7f3918915a285aa5f751bad12e58594ef3687/overturemaps-1.0.3.tar.gz"
-  sha256 "cb194ddf8ad355952cf9f9b1b6cbceaede44c85ea7e7e84131c4ac182d64a267"
+  url "https://files.pythonhosted.org/packages/30/56/1679b57f2564f7ff1c3da582cd14a76649293f81455b85d22263229af850/overturemaps-2.0.0.tar.gz"
+  sha256 "6f844720460697594acda4d87876a5f4da17f060bdd1ab1bbce967132a532845"
   license "MIT"
   head "https://github.com/OvertureMaps/overturemaps-py.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "75bac3d3ed8c3f02708f5daed997d231f5c3411950a6b3a32ff6a48b5bd122b1"
-    sha256 cellar: :any, arm64_tahoe:       "f899b79e6f53e45afd06821269b940e75ce069c981d84835d7ed57a495059299"
-    sha256 cellar: :any, arm64_sequoia:     "53102a1e2e563ef52d351d8b320d80d0b542d3ff584faea6992b461d2a4abe2d"
-    sha256 cellar: :any, arm64_linux:       "deb6b5d546bdba0af7ebe18a8777b2e59cfdc771bf74c8d4790fe2e570d51e66"
-    sha256 cellar: :any, x86_64_linux:      "e809b9117f2796abf4fcb6a1d8a930b5e1ed2d34a9e724df8d45439d037215e9"
+    sha256 cellar: :any, arm64_golden_gate: "b7d29fef72f470c536f971e6153f56a3884a6f62ada100f73b12e5409cc8afb9"
+    sha256 cellar: :any, arm64_tahoe:       "6f7faa12a435d4298841a15ab4c7ced163f71478f9ae8f27e66e2980bca2bfec"
+    sha256 cellar: :any, arm64_sequoia:     "722bf853b1053b95493a4e338db67e4b74b111aa611fb7be5b0088119009e8dd"
+    sha256 cellar: :any, arm64_linux:       "a5b2ca5a7fc4cfd87ae5c15cf3972ef3d592a326c881476e4b8413fe0fc21beb"
+    sha256 cellar: :any, x86_64_linux:      "40940bfdf9b1fa1ac9a9fdbed9f1082982621eb6f3195bd7ee0e67d3f6e85d4a"
   end
 
   depends_on "cmake" => :build  # for pyarrow
