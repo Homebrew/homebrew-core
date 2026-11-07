@@ -2,17 +2,16 @@ class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 1
   compatibility_version 1
 
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.28.8/gstreamer-1.28.8.tar.bz2"
-    sha256 "f181a8e3115326fc9e0abf132c19db7e6b71648c8c001e15d13fd9402ba61625"
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.28.9/gstreamer-1.28.9.tar.bz2"
+    sha256 "6f4074f5bdd071a074220a3642b5861410aa6929c179d903feff4af82d9a05d7"
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.28.8/gst-plugins-rs-gstreamer-1.28.8.tar.bz2"
-      sha256 "1c0406a1b0e2e5ca71611347273fe584629cf59e874ffcea07f8b82729793b0e"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.28.9/gst-plugins-rs-gstreamer-1.28.9.tar.bz2"
+      sha256 "e49ff884f5736a4123cd9a988112f5077c7448dacf74b9390c92d45b67a085a1"
 
       livecheck do
         formula :parent
@@ -26,11 +25,11 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "6e828b3ce12f10260b8df4de3236564a7950dd4c79b7b191562d05539be5232c"
-    sha256 arm64_tahoe:       "1c0f1ed663251c654b8a1a76cdd8305874a2bd13f5d2bcbff1dd5f56afb26e12"
-    sha256 arm64_sequoia:     "5ae3cdb0f56b6b73d89ba2d7982e5518d9e9a53e0799f702e8362fd7e2ec4e7b"
-    sha256 arm64_linux:       "47fa680a32e96a4a475d7bf5a52632d438a0bb0865549dcf8fe61a74c6579b4e"
-    sha256 x86_64_linux:      "7aeac0022e7fcdd4bac3ae56e8cd6a252d79300509feca3194b72cb317bc813b"
+    sha256 arm64_golden_gate: "496d3bb3aaa971637f9fc5d541e1c595b8c25453537dc9f125f5fe3281b499e6"
+    sha256 arm64_tahoe:       "a20f45ed31059eacd962fbbb1e5e28a195fe149a70115e51d3018fa58f197e79"
+    sha256 arm64_sequoia:     "1b23e3d429d32411476efe6fb0e69be45201e2a661eac5a0a3d3370a1937b7ae"
+    sha256 arm64_linux:       "1a92586fc41439d2ea22b56e34572ec38ffd9a0f6f8faaf1f0f0ae156c68967f"
+    sha256 x86_64_linux:      "735e4353792077b684c332348528baa8f4a87b5bd0e2db2303bd9910a9b83477"
   end
 
   head do
@@ -148,22 +147,6 @@ class Gstreamer < Formula
   link_overwrite "lib/pkgconfig/gst*.pc", "lib/python3.15/site-packages/gi/overrides/*", "include/gstreamer-1.0/*"
   link_overwrite "share/gir-1.0/Gst*.gir", "share/gir-1.0/GES-1.0.gir", "share/gstreamer-1.0/*"
   link_overwrite "share/locale/*/LC_MESSAGES/gst-*.mo", "share/man/man1/g*"
-
-  # Support faac 2.0 API
-  patch do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/49b4b4129e3b488f246493d3a57dc70652ec9dcf.diff"
-    sha256 "25ef9fc417878e0aac46ffb0f16c5a5d1a44341cd3364c97111980fb5bfd64b8"
-    type :unofficial
-    resolves "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/12148"
-  end
-
-  # Support faac 2.2 `faac_params_init` signature
-  patch do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/commit/2890668a8e8aec2f41f36a62036e4e7daf93f976.diff"
-    sha256 "b39d939f1b614dfcb9bfd89e259779196ba64f9d0277588c42be4d16b84486f8"
-    type :unofficial
-    resolves "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/12148"
-  end
 
   # Avoid overlinking of `gst-python` python extension module.
   # https://gitlab.freedesktop.org/gstreamer/gst-python/-/merge_requests/41
