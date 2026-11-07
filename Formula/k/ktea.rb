@@ -1,17 +1,17 @@
 class Ktea < Formula
   desc "Kafka TUI client"
   homepage "https://github.com/jonas-grgt/ktea"
-  url "https://github.com/jonas-grgt/ktea/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "48ceec1fec901fea9e6b6ed10c1a73539dd9879d11ea5b1a7c1f128d8d955f08"
+  url "https://github.com/jonas-grgt/ktea/archive/refs/tags/v0.9.2.tar.gz"
+  sha256 "ecf0eeadfc95aae9c1d812d4f52841dc8d5370cad72101cd33f5cf4d827acb3f"
   license "Apache-2.0"
   head "https://github.com/jonas-grgt/ktea.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a4aefe083c3b815451a1ea956fc91e59812825150c902f37e4cfee221134b62a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a4aefe083c3b815451a1ea956fc91e59812825150c902f37e4cfee221134b62a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a4aefe083c3b815451a1ea956fc91e59812825150c902f37e4cfee221134b62a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "189fbb60cad62e6fa90ef390181f7bbe2995ce6243b42cbcfe8f71302ef7bad4"
-    sha256 cellar: :any,                 x86_64_linux:      "20470aca0f245fea2ff1a76ba7339e77a1e32a002081d164643497cd3a795dd7"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e2284654e3c343a9b43d735ef47f75d088ee0c7be1c943ba1f3b7522c610b026"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e2284654e3c343a9b43d735ef47f75d088ee0c7be1c943ba1f3b7522c610b026"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e2284654e3c343a9b43d735ef47f75d088ee0c7be1c943ba1f3b7522c610b026"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "94d3a5fbaeb6b46c2338da6efaa7ae42dce7f62ec69756cf823fe8342e4fe870"
+    sha256 cellar: :any,                 x86_64_linux:      "4be9cc5475299c0edd2eec1ecf635b9f7aaad6ce7ea97f3db4eb8be13be8d907"
   end
 
   depends_on "go" => :build
