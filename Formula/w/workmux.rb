@@ -6,11 +6,11 @@ class Workmux < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ed7519999e4b4080c8d9a69e5e7e6bff5a1655dbabaed06737d0d326a275cc3a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1c8267a59cd095ec9568cee11a5ea6eb8aab4b255f77eb083499146c19114b25"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5364aa1366e5627c67aef876d91ae6bf8f2cc6c9589418815608f51e015ae46e"
-    sha256 cellar: :any,                 arm64_linux:       "d1faa073306421e905918f45b1e560819e0a877b7bcfa3b8ceae4ee86771bc0f"
-    sha256 cellar: :any,                 x86_64_linux:      "a8a425ef5dc6048be29f8f6a29606234026f55e45f48a0f5d83f5598ed67dbbb"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1ca786ea51031513a746dab0f41803a32dc744ceb7f53fb5b4a565ce9f1bf5fd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8d5698e681a15dd2e3c8b87093ce72f1ad0a00e0d146c8fe6f17851521da555d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "52c20f75948940f0f37f30efee87aff9d3171c2fa3b9e52820673fb445be1680"
+    sha256 cellar: :any,                 arm64_linux:       "6b57b0e3e8182faa44bb33b31d6bc2a725b59dcde17ed6ff2eff0075692f4ee2"
+    sha256 cellar: :any,                 x86_64_linux:      "b1b8cf6ea2398418973b8ff8af2ecb1966fb56fa99f64f20be9cc438f7960613"
   end
 
   depends_on "rust" => :build
