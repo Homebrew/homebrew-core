@@ -1,20 +1,18 @@
 class Fmt < Formula
   desc "Open-source formatting library for C++"
   homepage "https://fmt.dev/"
-  url "https://github.com/fmtlib/fmt/releases/download/12.2.0/fmt-12.2.0.zip"
-  sha256 "a2f4a8d51178f954e4c339007f77edd76ba0cb2e36f87a48e5a5403d9be5878f"
+  url "https://github.com/fmtlib/fmt/releases/download/12.2.1/fmt-12.2.1.zip"
+  sha256 "870a49acec5bcdab236aeea834ebd7f0b8548a7d8cea33c996b6873a37f2d50c"
   license "MIT"
   compatibility_version 2
   head "https://github.com/fmtlib/fmt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "66fbd8c0b2ec37c091c8e7a2704513854f309111e525dea5dfa69a0203037537"
-    sha256 cellar: :any, arm64_tahoe:       "a218679bf77ccb0c76b316556f71a0bc5d5a1980d8cd3d2ea197a5829a140d65"
-    sha256 cellar: :any, arm64_sequoia:     "301a1bbf99d3401d4e971d957eeab6c07d08fe304a690b269e04df5424fcc9d9"
-    sha256 cellar: :any, arm64_sonoma:      "2e7c7c3093a62b44a4ba23a73463558b6073ee7a63e9162403701edab9403739"
-    sha256 cellar: :any, sonoma:            "125d40bb96aec4f198a16252ec5358ba1c96243003e2f05d74826d867e012ddd"
-    sha256 cellar: :any, arm64_linux:       "95ede71090e1b588dc9accf17d79730b8a99e82abce47bfd580fb2b7c6a32cd5"
-    sha256 cellar: :any, x86_64_linux:      "9d7617cdafe71a36c5371511cdeffbe0d171c1eb93eea555a1e4028af440f5c2"
+    sha256 cellar: :any, arm64_golden_gate: "8401e362ca031b083150a1853a6dfd4c65573b3d2acef6c188528492d5a8f6a8"
+    sha256 cellar: :any, arm64_tahoe:       "25bdf7d81b112069ba5729c5f8901a6233cd2b6672ff1bbe7a9ca3a63ed2f90e"
+    sha256 cellar: :any, arm64_sequoia:     "8a8c73c17025670d13e28efe475ddaf4c9aa6cebb9104fdc18b28f96693df82c"
+    sha256 cellar: :any, arm64_linux:       "eddf6744630de1406e88200bde0e326f38292bb8919e455673294e794786c27a"
+    sha256 cellar: :any, x86_64_linux:      "b9b63eab0ea3bb8aec944e69ae336b55b7fd86d26dc469e137fa67dcd874398d"
   end
 
   depends_on "cmake" => :build
