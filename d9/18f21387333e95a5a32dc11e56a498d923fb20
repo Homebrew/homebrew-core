@@ -1,0 +1,15 @@
+Formula/k/ktea.rb
+  h_9df9c32c3f321d 4-5,31-48
+  h_9df9c32c3f321d 30,50-51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d918f21387333e95a5a32dc11e56a498d923fb20",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
