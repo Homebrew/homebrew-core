@@ -4,6 +4,7 @@ class Xgrammar < Formula
   url "https://github.com/mlc-ai/xgrammar/archive/refs/tags/v0.2.8.tar.gz"
   sha256 "16c06f7cef8f13ae597b007cce515991725603bded6ebce5f1828e6a9c9685be"
   license "Apache-2.0"
+  compatibility_version 1
   head "https://github.com/mlc-ai/xgrammar.git", branch: "main"
 
   bottle do
