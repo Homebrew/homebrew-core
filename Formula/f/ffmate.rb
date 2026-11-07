@@ -2,16 +2,16 @@ class Ffmate < Formula
   desc "FFmpeg automation layer"
   homepage "https://docs.ffmate.io"
   url "https://github.com/welovemedia/ffmate.git",
-      tag:      "v2.1.0",
-      revision: "3466e0c6e2b1e4e7a713bd8406a2aca61517ff21"
+      tag:      "v2.1.1",
+      revision: "e28b0fbab7c16cb0e95e5c05e8c05c98910da9d2"
   license "AGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a6f096c8773b0deadb6da0d4fb3ddd0f2f163e77dc9e4bc1f4a3699e99bf0b89"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "93fe148eaff85aef678d9090c51cfde519456a6a105f6b689e8a79f05ac9ad8f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5c3e8b33b1c60df4fc4e01a22b6948462353c5001843d344776aab91ab3ea77f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d2d5ab24739a7fbfe78ba5cbd9c5df8dc269f14de3cc9945699035abf06f8f92"
-    sha256 cellar: :any,                 x86_64_linux:      "cbf79b83cafd97544d0fbe3fe1e909198ba4854b8d9169fbbd3580876a87a4b5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6c05808a09d4c1d29fcf1e70a6a8f3cdab07070a6503b16b8209c45e3f62baa7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "694078c893cbe70a68fc18656a286169f9f8e6f787d0619455805b9011f604d1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2659f026a220fd368d9f90f1678755a496834e993b389d4353a46c6b1d69d90e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "13e4a237bb6f79d807def84947ae94f1bb796d44f0ec1c82a57b4a27f7dbf61f"
+    sha256 cellar: :any,                 x86_64_linux:      "be231df830ddced7358e3d838cce8a94a5905e59d82b175808f3d9e323a29031"
   end
 
   depends_on "go" => :build
