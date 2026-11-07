@@ -1,17 +1,17 @@
 class GridcraftCli < Formula
   desc "Headless GridCraft CLI and MCP server to inspect, convert and script workbooks"
   homepage "https://getartcraft.com/apps/gridcraft"
-  url "https://github.com/storytold/gridcraft/archive/refs/tags/v0.16.1.tar.gz"
-  sha256 "191e0b8ef1e519a2ebed782937125330a1ed73e9b3ec8ebc2287b88cbd44e388"
+  url "https://github.com/storytold/gridcraft/archive/refs/tags/v0.17.0.tar.gz"
+  sha256 "eabb7f383f45b98d852b5a4787ff16a6fcbaca3dd1aaf9213a69de78f14fdc75"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/storytold/gridcraft.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e580a21090bbbbe75758db121454f84d79b3a57a2a0f52dd1b89f34fe8b06869"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d643860ac3b2411177d057e63ab29b781c9b2b2d96b8f57deeea80bfbd98e4f5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "166e0ae4a7f8248027a99501b80bc3cf4bd01b89e6f1698fc794fe306df9ad48"
-    sha256 cellar: :any,                 arm64_linux:       "4248eea127fa74167f04ab6377d7748ceb74b0ce636fe66cfff335d6d7cabb9d"
-    sha256 cellar: :any,                 x86_64_linux:      "4853ad577f56b2b541d6facd2740700f0503facb9385e226eab45d343a16390e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "90d653d25c0f60cd8f8b8f63d0ced380541db33ab70d6d4d32ba5269b03476be"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "27d244c49f9e054bbc93db462eeef7444cf720c3ca3371d7424e0bc71689afc1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "69292889a4696c9e4d470e10dca82c2f50ea2c22cc7094ffbed577056349f88d"
+    sha256 cellar: :any,                 arm64_linux:       "adb9818ce0ac042229de3f9ed393b5410199bb3b73fd319a465283282c3b7a6f"
+    sha256 cellar: :any,                 x86_64_linux:      "4dec110f93b3157e618d603e9eaa4722da8064869cec3c29c5d73b121a533625"
   end
 
   depends_on "rust" => :build
