@@ -6,12 +6,11 @@ class Networkit < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "059710b0c965b189255a4835dfa00581368d05caff093c83a5c014d641bf06ff"
-    sha256 cellar: :any, arm64_tahoe:       "b4a97fe8392462ce1f5911048941876f84e5880cc0624ccb937359ed78571c00"
-    sha256 cellar: :any, arm64_sequoia:     "35381f2336244806798ce5d858e467987ed1b674e7f841fc45d4accccd1c56ea"
-    sha256               arm64_linux:       "fc8409d586e1a06ee7558a1f05dde0b97f0c3559b9dc531a114f8a520f4a731d"
-    sha256               x86_64_linux:      "63d9a7c0219912d782a4cae207e5101746dd8a9053b859ef842b15094e91a43d"
+    sha256 cellar: :any, arm64_golden_gate: "c9985e3080312d841e42b6b7a74d72e49bd339b770941dde3aa8bb17d47ced89"
+    sha256 cellar: :any, arm64_tahoe:       "aaff02040deb0eb23b43404e86e3034b8c34008737742ade042180253353e4cf"
+    sha256 cellar: :any, arm64_sequoia:     "b971d6acbc5939fadb29fa7fe4971176262616ed316f0694a4bc9e011bb4be8c"
+    sha256 cellar: :any, arm64_linux:       "6928954e1fb4ec0e4086db2b023821f3b6e486f8a2ad57698ca33983b2d1197b"
+    sha256 cellar: :any, x86_64_linux:      "2410efe3e9b974b2fb2ef33442f436fa9e3bdfe4f472c314cf29e30ce1c26e0c"
   end
 
   depends_on "cmake" => :build
