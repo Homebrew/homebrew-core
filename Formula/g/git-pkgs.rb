@@ -7,11 +7,11 @@ class GitPkgs < Formula
   head "https://github.com/git-pkgs/git-pkgs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cdec30b4b912564c350378fbad6f3515fd3bb5997804bb9ceca6371694ede7ca"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cdec30b4b912564c350378fbad6f3515fd3bb5997804bb9ceca6371694ede7ca"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cdec30b4b912564c350378fbad6f3515fd3bb5997804bb9ceca6371694ede7ca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f505d357c0525f7d2631122a57dfff6e3574fa3b412db8871bd29c4109fe2958"
-    sha256 cellar: :any,                 x86_64_linux:      "a16c67cfb0c138287164a716f84c8e839be06423af74e9eeff18f39dc7599420"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c8a3d0c480cc8553f9516f55994db008876b602bff4494c1d61a8eb41fbe7752"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8a3d0c480cc8553f9516f55994db008876b602bff4494c1d61a8eb41fbe7752"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c8a3d0c480cc8553f9516f55994db008876b602bff4494c1d61a8eb41fbe7752"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "449f8868d964f527769ebc218fe4f91dc763e2a498f0c1e13554bfb75c1129b0"
+    sha256 cellar: :any,                 x86_64_linux:      "28cd7bbbe25f295cdc3f2855133b79580b780f39a6e25af67b7e5bd0ce1934c5"
   end
 
   depends_on "go" => :build
