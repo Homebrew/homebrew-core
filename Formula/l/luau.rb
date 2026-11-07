@@ -1,8 +1,8 @@
 class Luau < Formula
   desc "Fast, safe, gradually typed embeddable scripting language derived from Lua"
   homepage "https://luau.org"
-  url "https://github.com/luau-lang/luau/archive/refs/tags/0.745.tar.gz"
-  sha256 "53c22773bace6cabbabaead576fbc08d11a0317fce11a3dbf9d027dda6849248"
+  url "https://github.com/luau-lang/luau/archive/refs/tags/0.746.tar.gz"
+  sha256 "5bdfb1fb6f5bbd0af7056ba07f4e91043dd5615a7a9a61ed1498f8f67b991ac1"
   license "MIT"
   version_scheme 1
   head "https://github.com/luau-lang/luau.git", branch: "master"
