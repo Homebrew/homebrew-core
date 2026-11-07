@@ -6,15 +6,15 @@ class Gcalcli < Formula
   url "https://files.pythonhosted.org/packages/68/b8/c3f3b8c73c9740eeb592e31f3f1092485ce8809fd7137d7c776a0b0d3567/gcalcli-4.5.1.tar.gz"
   sha256 "bbc8d6b9ce40d0be0535ffec3bb3384761400c7fbf1d67716e7d0e5fe9c6f2d5"
   license "MIT"
-  revision 15
+  revision 16
   head "https://github.com/insanum/gcalcli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3b65e400d870741b539581b63383ba5e4a71596d5c4fdecc4ff08f59fd7a62c5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ab53d8c2f04b48e6c065e145542b69a3f43d609b7bf1c70a37da093ab51a3a06"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8e608f3610baff553981ff9946dcbd15f44ab4f3bcc6d3b6e365b178a3c1d03f"
-    sha256 cellar: :any,                 arm64_linux:       "3c7b584ae16aa61bf707aec3259b28e47628a4748f87cfd7a3474415479941f0"
-    sha256 cellar: :any,                 x86_64_linux:      "d1d5bd587ec28d0c674553f1f59935960370cbb7d59ef1c59eb54571ed092578"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "26e9c81458e5fb27ab9f532fcf2b0752f6066d51aa5f30142c71c920ab4ddb87"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3a134dd4e957385a99868708f94987f6ba71def88aaf3772110e3d0c0c30a5be"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1a2d97544b9ef0c5ebfb928c6752f11ecdf9741fac40d0757beb9689823cf339"
+    sha256 cellar: :any,                 arm64_linux:       "944d38c8e55c59acd7fec2f1c2656ce1b66b5736c55b923ff9f40cf4c2c12317"
+    sha256 cellar: :any,                 x86_64_linux:      "0c1c0f9d30b471abbf335ae5eb415a0c2cc13c19c5c0d02b2aebd8066ab30091"
   end
 
   depends_on "certifi" => :no_linkage
@@ -41,8 +41,8 @@ class Gcalcli < Formula
   end
 
   resource "google-api-core" do
-    url "https://files.pythonhosted.org/packages/a4/74/307919972c4dc84598f4128a8d6ae05ac3d9e6ca73fe60a7bb93c670931c/google_api_core-2.43.2.tar.gz"
-    sha256 "5dfc5e9d52982bcc03bd6af380a893365b5fdf907dc527f63d3a372833c33329"
+    url "https://files.pythonhosted.org/packages/72/ef/63d89cb580f3a42c51db53b3d151352aa61b9c87ea8cfdd8d24ee6caa09d/google_api_core-2.44.0.tar.gz"
+    sha256 "5ab9a396965c1227d7dea4581e562b7018aa2bca96d2de0be5eb70dc9c8ab3a1"
   end
 
   resource "google-api-python-client" do
@@ -51,8 +51,8 @@ class Gcalcli < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/f5/b9/4b2528f30114b106e3c3a7298ba38d85e682fd1f83fe7c4a5b77c7677082/google_auth-2.62.0.tar.gz"
-    sha256 "0bef0ce54bdf9ce226c5d66e4264413bd918141c31bbe49fb52eac882f513d69"
+    url "https://files.pythonhosted.org/packages/c4/38/d79ab09dcfc1e1638d887c8f65657619d3ebc454165c558ef79355971ce3/google_auth-2.62.1.tar.gz"
+    sha256 "3c8e1ce2553784ae17fd220e6f88df3281d86ab98019278f436d06dffab17a9e"
   end
 
   resource "google-auth-httplib2" do
@@ -81,8 +81,8 @@ class Gcalcli < Formula
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/7a/d8/a1bcc8ba112a627f8ffbdc212a78ce18d3ac07e91a5ca65d27918eee25a1/oauthlib-4.0.0.tar.gz"
-    sha256 "efb274799819440f95b4ab3b818869f1ce9ae26c5beacba0201d1a1b76b54f86"
+    url "https://files.pythonhosted.org/packages/33/17/2bb072de0b990303c985f26869fd47bb179024a051f47e7f9d208eb92f8e/oauthlib-4.0.1.tar.gz"
+    sha256 "3d73febdb6faa00f277c81fb04be7b7586fb96fc3b7f0b9c772dada69a25ede7"
   end
 
   resource "opentelemetry-api" do
@@ -96,8 +96,8 @@ class Gcalcli < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/40/28/1c058a9143d2304b3078f8dadcbb9dc27f7d3581b5d05157c84869c4cc0d/platformdirs-4.14.0.tar.gz"
-    sha256 "83f009c1e8c5fc36869b5171755b291887bd2cade7965233cdfabd23d754720b"
+    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
+    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
   end
 
   resource "proto-plus" do
@@ -126,8 +126,8 @@ class Gcalcli < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/0e/df/f15f80383f152452d8985b36d95cb8751f901a3e0ff4cd27f7e118f168e2/python_dateutil-3.0.0.tar.gz"
-    sha256 "7ebcb3c29a92f3ceafe79a7a48a5c45677e9e004bbeec5742ac0bbb00560b7a2"
+    url "https://files.pythonhosted.org/packages/18/39/b3927f3616f6223832f9b760e4208e8a7c7e1dea2b4d9ad7d32a5d214c3a/python_dateutil-4.0.0.tar.gz"
+    sha256 "d7295ff14fdc0f92f662100bfb6c551d160ca090f2939f1ec5b9794265c03f06"
   end
 
   resource "requests" do
@@ -138,11 +138,6 @@ class Gcalcli < Formula
   resource "requests-oauthlib" do
     url "https://files.pythonhosted.org/packages/42/f2/05f29bc3913aea15eb670be136045bf5c5bbf4b99ecb839da9b422bb2c85/requests-oauthlib-2.0.0.tar.gz"
     sha256 "b3dffaebd884d8cd778494369603a9e7b58d29111bf6b41bdc2dcd87203af4e9"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
-    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   resource "truststore" do
