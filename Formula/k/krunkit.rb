@@ -4,6 +4,7 @@ class Krunkit < Formula
   url "https://github.com/libkrun/krunkit/archive/refs/tags/v1.3.2.tar.gz"
   sha256 "ce714476e62db927cc872e4d2f066f5f756f6f54fef2f0cc4fc82329be75c86d"
   license "Apache-2.0"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "32a6807ffae8921c923d922136f097432e8133856b62a7da9dd730db6238fdda"
