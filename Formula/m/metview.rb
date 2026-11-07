@@ -4,6 +4,7 @@ class Metview < Formula
   url "https://confluence.ecmwf.int/download/attachments/3964985/Metview-5.27.0-Source.tar.gz"
   sha256 "075a8c420c4850bd6695637470ef4a4638486a82d77092c65cc7921a30cdd5f0"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://confluence.ecmwf.int/display/METV/Releases"
