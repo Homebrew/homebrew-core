@@ -1,8 +1,8 @@
 class Termframe < Formula
   desc "Terminal output SVG screenshot tool"
   homepage "https://github.com/pamburus/termframe"
-  url "https://github.com/pamburus/termframe/archive/refs/tags/v0.9.3.tar.gz"
-  sha256 "6e33bfb8c4b8fc741a736b596342797d82e87d4335cc3932dffacce16c4197b8"
+  url "https://github.com/pamburus/termframe/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "95c4328f90b829e1927db3a51a887c65a460e455d00cebb54ba2f532feba2a67"
   license "MIT"
   head "https://github.com/pamburus/termframe.git", branch: "main"
 
