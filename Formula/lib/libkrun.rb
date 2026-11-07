@@ -4,13 +4,15 @@ class Libkrun < Formula
   url "https://github.com/containers/libkrun/archive/refs/tags/v1.19.8.tar.gz"
   sha256 "8896c71117462f868f41d26efd157c3270091814eaab3af27ca70c6857a85eb2"
   license "Apache-2.0"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "040790c401d18b584957ead5aa2af24545c373ad6154148ce5b39521af1d2ec3"
-    sha256 cellar: :any, arm64_tahoe:       "a6f13778fcdaa8ea106ebccabf7a4c9fe1ab4a08e2c9e4025f0c27e69c2f0ee1"
-    sha256 cellar: :any, arm64_sequoia:     "516700738faaf5a152e8dde1d877d824ce4a74881f39bc425692769b61afe02f"
-    sha256 cellar: :any, arm64_linux:       "81bc8b0fe6383cd50a9c58227f09ef949fed848d0a8edd3cedcb53a55143df70"
-    sha256 cellar: :any, x86_64_linux:      "30f2d5170550a705d0a83fffa88287a6756dfffb8a60883087bbe64e1bdb8ef4"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "2fb39b9ca45eaeba82a0ec11af8575f3577e0ceaf1e8d2c289fdab64bb0a4364"
+    sha256 cellar: :any, arm64_tahoe:       "5b95ca7f72b490afda382247646d82c5906e3c764d1c8841df672ef517efa955"
+    sha256 cellar: :any, arm64_sequoia:     "fe35cf544d2e0cf454fa3bb5edffac7e0994f853271db3b8f5241cf798a15c48"
+    sha256 cellar: :any, arm64_linux:       "0f517b8fec8a313ae939366ce4881bf9f4bbcbba4dad77f7ad91aa3ad5340972"
+    sha256 cellar: :any, x86_64_linux:      "f2f20987a94e20e215c07d42acd4c3b7ff27e7b84627e2588ebe4dbe928129fd"
   end
 
   depends_on "rust" => :build
