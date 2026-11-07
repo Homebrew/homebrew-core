@@ -1,8 +1,8 @@
 class Mq < Formula
   desc "Jq-like command-line tool for markdown processing"
   homepage "https://mqlang.org/"
-  url "https://github.com/harehare/mq/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "f389f117526965917bc7f313de8da825a993b8b7ff321068b5270baa7e20f760"
+  url "https://github.com/harehare/mq/archive/refs/tags/v0.10.1.tar.gz"
+  sha256 "dec41709b9cf8db0995ff8157501264f0545597da80a7dae214970669c7e1f18"
   license "MIT"
   head "https://github.com/harehare/mq.git", branch: "main"
 
@@ -15,6 +15,13 @@ class Mq < Formula
   end
 
   depends_on "rust" => :build
+
+  # Sync stale workspace versions in `Cargo.lock`
+  patch do
+    url "https://github.com/harehare/mq/commit/598e258355adc47ff0550d9a29bc23ef47b44633.patch?full_index=1"
+    sha256 "62cce5ecdd76438abcca477a16eda4222d2befc77d434f101cd131571b143f84"
+    type :backport
+  end
 
   deny_network_access!
 
