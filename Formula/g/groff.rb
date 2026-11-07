@@ -8,11 +8,11 @@ class Groff < Formula
   compatibility_version 1
 
   bottle do
-    sha256 arm64_golden_gate: "6137ba5da230ae248b2ef6e7c9559059c555f8318401667eaa5692765bb02a10"
-    sha256 arm64_tahoe:       "c40cfaa1386664af0e5744ae609a83e278abf21b1fcac4e112ea5442b618525b"
-    sha256 arm64_sequoia:     "f7ee5153d808e5bdf5b7e7f0bf825c6afd2cda29970a8e45dabfb7c24bc07994"
-    sha256 arm64_linux:       "58ffd88667d41052d6ee88d40abdf08d78e33ef529454d7f7cd0bb7a421e3fb2"
-    sha256 x86_64_linux:      "f3f305a3916a841d50df9d05d0367e1871f96d2cc2f3f2358b4e57911e342a49"
+    sha256 arm64_golden_gate: "ea2d8950c93c1e203086905878ff6f277e8faaf4fa45e4da82e98d7b8d16d492"
+    sha256 arm64_tahoe:       "68e14746516c3e7381cf92b3b3402421c407ae552cfacfa97953921343c5d91d"
+    sha256 arm64_sequoia:     "831040cedb3140fd0293677be39198e162211db7bc40aeae5c8b9844b9f756d0"
+    sha256 arm64_linux:       "a267648fd295b705e90feffa7803e91953c976c791d2c8fadb0e22181bf31fd0"
+    sha256 x86_64_linux:      "c62748d70e2c9565f1b41388308ae80e823d6b1ffe493220b07548c3859a6e67"
   end
 
   depends_on "pkgconf" => :build
