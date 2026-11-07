@@ -10,10 +10,23 @@ class Amcp < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
+
+    generate_completions_from_executable(bin/"amcp", "completion")
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/amcp --version")
-    assert_match "amcp", shell_output("#{bin}/amcp --help")
+
+    # The management API catalogue ships with the CLI, so this works offline.
+    assert_match %r{GET\s+/api/connectors}, shell_output("#{bin}/amcp api --list connectors")
+
+    # Without a saved profile the CLI must refuse with a clear error and exit code 2.
+    assert_match "Profile not found", shell_output("#{bin}/amcp whoami 2>&1", 2)
+
+    # A server that cannot be reached is reported with exit code 4.
+    ENV["AMCP_URL"] = "http://127.0.0.1:#{free_port}"
+    ENV["AMCP_SERVER"] = "test"
+    ENV["AMCP_API_KEY"] = "mcp_test"
+    assert_match "Could not connect", shell_output("#{bin}/amcp tools ls 2>&1", 4)
   end
 end
