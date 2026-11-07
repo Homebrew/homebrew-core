@@ -6,11 +6,11 @@ class Libkrun < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "eb53700b590cb7621e19b4efe4e3d53db78daf118fa37a7914d90efa77e56c62"
-    sha256 cellar: :any, arm64_tahoe:       "27fd3b22bfab27d967bdce9a9742a3ae449807be0cb7e40dcc9978c37dbc4980"
-    sha256 cellar: :any, arm64_sequoia:     "558b669a8cb934fff9d11daeaf5343b398fcba93cdaa299a49b9b3d55b6dacba"
-    sha256 cellar: :any, arm64_linux:       "2f5512503a635463169c4d525732db2251040cc1be90463119b7160899ed31fa"
-    sha256 cellar: :any, x86_64_linux:      "50437accbd31c909bcf37cf67a067390e3801b75414d37f366f49f105cada717"
+    sha256 cellar: :any, arm64_golden_gate: "040790c401d18b584957ead5aa2af24545c373ad6154148ce5b39521af1d2ec3"
+    sha256 cellar: :any, arm64_tahoe:       "a6f13778fcdaa8ea106ebccabf7a4c9fe1ab4a08e2c9e4025f0c27e69c2f0ee1"
+    sha256 cellar: :any, arm64_sequoia:     "516700738faaf5a152e8dde1d877d824ce4a74881f39bc425692769b61afe02f"
+    sha256 cellar: :any, arm64_linux:       "81bc8b0fe6383cd50a9c58227f09ef949fed848d0a8edd3cedcb53a55143df70"
+    sha256 cellar: :any, x86_64_linux:      "30f2d5170550a705d0a83fffa88287a6756dfffb8a60883087bbe64e1bdb8ef4"
   end
 
   depends_on "rust" => :build
