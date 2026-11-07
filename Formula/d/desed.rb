@@ -1,8 +1,8 @@
 class Desed < Formula
   desc "Debugger for Sed"
-  homepage "https://soptik.tech/articles/building-desed-the-sed-debugger.html"
-  url "https://github.com/SoptikHa2/desed/archive/refs/tags/v1.2.2.tar.gz"
-  sha256 "73c75eaa65cccde5065a947e45daf1da889c054d0f3a3590d376d7090d4f651a"
+  homepage "https://github.com/SoptikHa2/desed"
+  url "https://github.com/SoptikHa2/desed/archive/refs/tags/v1.2.3.tar.gz"
+  sha256 "10e7836f484d15e545e8c43298ca7f6c6de75278f9778e03ca73877f98c9d25f"
   license "GPL-3.0-or-later"
   head "https://github.com/SoptikHa2/desed.git", branch: "master"
 
