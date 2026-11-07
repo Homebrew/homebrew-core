@@ -39,11 +39,11 @@ class CoreLightning < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "a7b0b04ca9e808c2462367ba4627ae2ef7bd607094187f8f4f0a7de169261848"
-    sha256 arm64_tahoe:       "cbbd3b398f348069ef8bfe08a0abf914b3d97ae38eb35fbdfe1c6be8ce0fbe60"
-    sha256 arm64_sequoia:     "9d4f04fe2dc3f6dfd26c1e44307c2e82aed29bce3a15ce773d720ff7743ec1d2"
-    sha256 arm64_linux:       "a55af05e7a8ff965a63d3212f06f63ac1a89ad3aca097cbc51c1496b97fb7767"
-    sha256 x86_64_linux:      "57c3a56ba582d4bd1e60a483e54cbf88eedd7ec73e563ce2a80bc08ea6c49008"
+    sha256 arm64_golden_gate: "d8a15513f0a04638918fca293bf6080f7c130a86803155b2f4e5d7f33e219e11"
+    sha256 arm64_tahoe:       "094f13975c8d7e0885bb4322b046f4e9bacbd34fe92c7b70183144d2cd3e16d2"
+    sha256 arm64_sequoia:     "b33c331289541f19780acee7ed3a24f126ecbb3cf98bb0f6ce355d9abe9adda2"
+    sha256 arm64_linux:       "1dcddd11ec8a7a7618450e4c9e236db840f8393b8bdead017833f7e4bc4596a9"
+    sha256 x86_64_linux:      "4a2f8973aa9a54164460edab4c965bae12f2c03a9ef9d14ba9da84ab2651f27e"
   end
 
   depends_on "autoconf" => :build
