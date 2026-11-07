@@ -1,8 +1,8 @@
 class KubectlRadar < Formula
   desc "Missing open-source Kubernetes UI with a built-in MCP server for AI agents"
   homepage "https://radarhq.io"
-  url "https://github.com/skyhook-io/radar/archive/refs/tags/v1.20.0.tar.gz"
-  sha256 "7f103ed8d53b19ae8f1107cfcf6d19b9c1cc928a2fb1b8bad307278e1798a327"
+  url "https://github.com/skyhook-io/radar/archive/refs/tags/v1.20.1.tar.gz"
+  sha256 "dbd0ef17b1a0d0d329c34887e6926842f6c61406d1355e3ba3aadea85f1dc65f"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class KubectlRadar < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "47e04ddd7d1b656f9f8ba6ab9b36ba6bc27d7045f1e93505783b236b09b1c2bc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2208422f95b50bf4f1e0912a7922ed2cc9759c5cf491ab800bdf12b53575779e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f51d9b97d75721877471ecd32289055f8c7fd3a59247f450830099c46df09b25"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "bfa0a647b4194e1cfff3c1daa72bf5d464143cfcc39bcf27b93c0fe6a64c5aae"
-    sha256 cellar: :any,                 x86_64_linux:      "e7080b1e1a6b170acea0c978ba30b998a32d21f11ea44e33310f06d30b7c1ad9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5f4e69141990316b8d0e9977b63425fa07b2ec852b45bdc148234e2c1c6080a5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "faf20d0b503e29fa94a464218f22cc6a16af9a6ebe32522a4a0e4b2a6d9e0440"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a7320bcdb96ba9477fc49db357c2d97048b7955fb2bc95de492b519ace5c49a8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "62221c7b0670710e6b6e9009452f9e3bb2cb264859f377b8c0e26d5b661f17d6"
+    sha256 cellar: :any,                 x86_64_linux:      "f2dc93590a4036eac04c4c5f74e6494934ba148ab7c1a38d2ab294fd63b49978"
   end
 
   depends_on "go" => :build
