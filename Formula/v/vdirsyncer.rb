@@ -6,7 +6,7 @@ class Vdirsyncer < Formula
   url "https://files.pythonhosted.org/packages/79/05/b99b25ab9280fdd56b591ee58bd53b00da3e536c8e07fa714c95276b15a3/vdirsyncer-0.21.0.tar.gz"
   sha256 "b6ac040b880da6758f65c17a369572f62e7323be8d21cd330c26fa134d1b1373"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/pimutils/vdirsyncer.git", branch: "main"
 
   bottle do
@@ -80,13 +80,13 @@ class Vdirsyncer < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/f9/79/84ddb5ba16c4eb2c69c71db76ae3c579fe546e511f7170c7e27eedbab7c1/multidict-7.1.0.tar.gz"
-    sha256 "61a4e5d81b8d4e4ad61964b230129e7a2b914793d96289029078fc9009f074ec"
+    url "https://files.pythonhosted.org/packages/7b/6b/29ef8e752f5854dcc267ded0652c475bec99b86f255957a0d4fcad657b18/multidict-7.2.1.tar.gz"
+    sha256 "e8af3e6f1bdbc31fd762b094133b478b89988eaebc63cbe82b1d9e3bbd15cede"
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/7a/d8/a1bcc8ba112a627f8ffbdc212a78ce18d3ac07e91a5ca65d27918eee25a1/oauthlib-4.0.0.tar.gz"
-    sha256 "efb274799819440f95b4ab3b818869f1ce9ae26c5beacba0201d1a1b76b54f86"
+    url "https://files.pythonhosted.org/packages/33/17/2bb072de0b990303c985f26869fd47bb179024a051f47e7f9d208eb92f8e/oauthlib-4.0.1.tar.gz"
+    sha256 "3d73febdb6faa00f277c81fb04be7b7586fb96fc3b7f0b9c772dada69a25ede7"
   end
 
   resource "propcache" do
