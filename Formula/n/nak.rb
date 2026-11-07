@@ -1,8 +1,8 @@
 class Nak < Formula
   desc "CLI for doing all things nostr"
   homepage "https://github.com/fiatjaf/nak"
-  url "https://github.com/fiatjaf/nak/archive/refs/tags/v0.22.2.tar.gz"
-  sha256 "f40f6ea1c41731d64e5d5c47d207bcfafd3106e80148edc4d121a1f1c8270291"
+  url "https://github.com/fiatjaf/nak/archive/refs/tags/v0.22.3.tar.gz"
+  sha256 "6bc8d39d4411dfc481b4c894932b76f55eeb152073adb4e55fe375c5ca049e5a"
   license "Unlicense"
   head "https://github.com/fiatjaf/nak.git", branch: "master"
 
@@ -12,11 +12,11 @@ class Nak < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bb577ca0fe9be9a7f6c22554c9560c06dda8778625a9ea32bf1e7e24da10ad25"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb577ca0fe9be9a7f6c22554c9560c06dda8778625a9ea32bf1e7e24da10ad25"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bb577ca0fe9be9a7f6c22554c9560c06dda8778625a9ea32bf1e7e24da10ad25"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d386b02f7d4969093c2b63f374e7e1a1e0bafea22789d0e63fa1f6686468e992"
-    sha256 cellar: :any,                 x86_64_linux:      "6fd18835aef7101a1b91fa6881c70614e6acb56bd40c4b9546394f7859278978"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6272bb74ceed6bcb079c5681ca309bc3f9fb0f26d725aee85781d1b8df0ccd2c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6272bb74ceed6bcb079c5681ca309bc3f9fb0f26d725aee85781d1b8df0ccd2c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6272bb74ceed6bcb079c5681ca309bc3f9fb0f26d725aee85781d1b8df0ccd2c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "bb55a27e7e63741e70702ced43bbcbee0b863a46d5f75b3ce3dc4f61fc4727f5"
+    sha256 cellar: :any,                 x86_64_linux:      "daba9da35b543d215b2188d5d4019868d6f2be0ebd9654885de5805a42b19a09"
   end
 
   depends_on "go" => :build
