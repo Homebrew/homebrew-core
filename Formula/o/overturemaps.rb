@@ -3,8 +3,8 @@ class Overturemaps < Formula
 
   desc "Python tools for interacting with Overture Maps data"
   homepage "https://overturemaps.org"
-  url "https://files.pythonhosted.org/packages/30/56/1679b57f2564f7ff1c3da582cd14a76649293f81455b85d22263229af850/overturemaps-2.0.0.tar.gz"
-  sha256 "6f844720460697594acda4d87876a5f4da17f060bdd1ab1bbce967132a532845"
+  url "https://files.pythonhosted.org/packages/1f/c2/a360363af901739f18eec60315b5fa87fdce8ebfbfce3294f154a3ca3d27/overturemaps-2.1.0.tar.gz"
+  sha256 "41b3a1e324d3f0cfccf0212288b544f0965722c601261ee17b3f19124d7a23ad"
   license "MIT"
   head "https://github.com/OvertureMaps/overturemaps-py.git", branch: "main"
 
@@ -31,8 +31,8 @@ class Overturemaps < Formula
   pypi_packages exclude_packages: "numpy"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "colorama" do
