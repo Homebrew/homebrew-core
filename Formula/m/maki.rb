@@ -7,11 +7,11 @@ class Maki < Formula
   head "https://github.com/tontinton/maki.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bef9293130bd1a676a9c0228c86db3505632ecdcfdc9efcb54b1294f306e9e38"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1435c465d4e2aca4aa51ccfb0dd77d6c402e8fa4c58dc263d200e843e2bcc01c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9e0d2678cf123124dcb4dd5070a1e56277aac19368632b8b84ab9ecef7a64f36"
-    sha256 cellar: :any,                 arm64_linux:       "b02c0ba767c3e7e59b7a9b40ac9ce218bc2942d1e9938c518018f92264d172cc"
-    sha256 cellar: :any,                 x86_64_linux:      "6c83176edf56bf7e6202d8753255faa70415c4012045f824b827290cf8d50f9c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f7cfbd1a38e26228d7836da5d6a92ab33a5f706619857e1c9cfeb3a88a490a70"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "337713abf61c3b85c10fccc3cebd39820ffec38bf693a61bb781c804f63a1a89"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0582aabe94161055afbc552a14138436e38d09a845b7b7bdfc7cbbec4ebd3956"
+    sha256 cellar: :any,                 arm64_linux:       "5c6578f1b448eff7d436261f34a47f0c4fe7996045f0fefaae7b68832364b103"
+    sha256 cellar: :any,                 x86_64_linux:      "5cf4f08c0a145279f40568ee6894a3f2d0fb869fa6eb968d049810047e198b91"
   end
 
   depends_on "pkgconf" => :build
