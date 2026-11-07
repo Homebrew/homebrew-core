@@ -3,17 +3,17 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm-project.org"
-  url "https://files.pythonhosted.org/packages/d2/19/81aef2ef9b8ae1d8293fae31684ac6df0238944dac7061bd09209d633161/pdm-2.29.6.tar.gz"
-  sha256 "1bdd5f0c2a98cb8eadccdf9d4b6c80a1e9b1c05e30bf9ab6f7828e6e4928b627"
+  url "https://files.pythonhosted.org/packages/c1/a0/8771df689a3bc27932641dfba6597309a917c07d5dbd8bbd3203d240017e/pdm-2.29.7.tar.gz"
+  sha256 "cc58224755ef310d2c7f0f0276782b0068da9a7d5bc70da995c1bf55c1a8296a"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "449714d63932838ab2755d0ccd6f66780dd495f4b8e4b3e3e9e054e605cad0ff"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "55dde4fcfa3b54aa49e112702cfc29702ef99da58b0415915047fcf39dca6db6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1ada8935dc3e391b680c09833918846365d5e2e985942354f08611b30476033a"
-    sha256 cellar: :any,                 arm64_linux:       "bcd36262ab6885e633b0c8b0a85dc838739a980df763d77274e8107e7c07bf21"
-    sha256 cellar: :any,                 x86_64_linux:      "3beee58d4f41b2094be1bafb8a4373d0b5601b958a392668ae7682cdf178c9d0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "04c845211ee1df4d0ca2b3e436215f2a13861318a4aa28b27d9283dabcf47b1a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3854b663965e2a154fdca17d1c7be8cd5329d8152e924094f3b72e67a2366ed5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d2fadf7e0d1dad58c6071c967e91920d988f8d3f6e3d7efa87cae84f505cbddf"
+    sha256 cellar: :any,                 arm64_linux:       "ba835681c01f7f837bcd4cfc74b53e4d86885344314c40c8c41be6c922276257"
+    sha256 cellar: :any,                 x86_64_linux:      "1b7f6a6283c27be466fae01453ea2d7ae8293d3d00391e466b1ed0af00789c66"
   end
 
   depends_on "certifi" => :no_linkage
@@ -67,8 +67,8 @@ class Pdm < Formula
   end
 
   resource "hishel" do
-    url "https://files.pythonhosted.org/packages/c6/ff/efba29288e1d304359491fa3aab83174c3ef24a63819e6acad6873d8c0a9/hishel-1.4.0.tar.gz"
-    sha256 "e406b052c658ce28629fc31423b9914b637d47d7c923f5fe9e288ec47e4823d1"
+    url "https://files.pythonhosted.org/packages/13/83/e8c4e482b6f5e9c2f9d1c7a1503137eed81b689d358ae0df6ac50d79f172/hishel-2.0.0.tar.gz"
+    sha256 "f043c88acf9b476fdbf203986253cd4e27e2468a3319b43c3946a641e1cb7696"
   end
 
   resource "httpcore2" do
