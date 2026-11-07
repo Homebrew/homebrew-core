@@ -1,8 +1,8 @@
 class DartSass < Formula
   desc "Reference implementation of Sass, written in Dart"
   homepage "https://sass-lang.com/dart-sass"
-  url "https://github.com/sass/dart-sass/archive/refs/tags/1.108.0.tar.gz"
-  sha256 "0dfc78bf094ee144a4f40f91c693c67fec990bac366a28eb856a669074fbd4af"
+  url "https://github.com/sass/dart-sass/archive/refs/tags/1.108.1.tar.gz"
+  sha256 "a00bf6aeb0fc22183140728b72fa1f8603ff6e9e314e6fb816c3dbf5ddd5d614"
   license "MIT"
   compatibility_version 1
 
@@ -13,11 +13,11 @@ class DartSass < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "7d605e27d0a6d2fa265fdea1e8b208410c689cf7a3db20aeeacf812f50000211"
-    sha256 cellar: :any,                 arm64_tahoe:       "3832c0dca1f99b4fb371568b57f2fa96c8faf5eabf0e5d14321859b49669422b"
-    sha256 cellar: :any,                 arm64_sequoia:     "4797c88ea336df376f776e4c3c7532baca0cd3e99a4af3cdeaea6d0b320bc4a9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4eabc1175f52695ebad2c7dcf801b51af403101924788eef25012c418a6e59dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "da893d60246c1a4e1ec1a43ec825500c68f3418fc2b27882325876f421c7c74c"
+    sha256 cellar: :any,                 arm64_golden_gate: "439ccb5b1dfd4dbce92f7f41ffe9ca4e9e264359b93afe6427e52d27e4ee00a6"
+    sha256 cellar: :any,                 arm64_tahoe:       "27f9367d9972caa2fd72359a45189ab2e7d878424e765dfb39b3ebf26280eb39"
+    sha256 cellar: :any,                 arm64_sequoia:     "5ef4f85d64c0fea9c22134e0a71904f88fcbfc5389c01491881971db7a4ae8e5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "1dd7dfb65603b02e14899dc020c60d9b57da14020b926c2c275732bc502b9d65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6a2dce9572f68efaad2579c74f588bccc3a4c2fe56f4e1a857e51c983813f66e"
   end
 
   depends_on "buf" => :build
