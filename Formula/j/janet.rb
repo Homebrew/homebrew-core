@@ -1,17 +1,17 @@
 class Janet < Formula
   desc "Dynamic language and bytecode vm"
   homepage "https://janet-lang.org"
-  url "https://github.com/janet-lang/janet/archive/refs/tags/v1.42.1.tar.gz"
-  sha256 "2391f8c6565742dad1c5e8872ad1d570b64a239d5d1ef11a188fc6b400457a04"
+  url "https://github.com/janet-lang/janet/archive/refs/tags/v1.43.0.tar.gz"
+  sha256 "9e01a7df04ef9b36c103238ac687e57ceeb5645fb7cc8782325a2844f6bb6a79"
   license "MIT"
   head "https://github.com/janet-lang/janet.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "cbd4a7b0e9f28a7f090601d82a004190e118bc653dde78f3ff5aee93917211c8"
-    sha256 cellar: :any, arm64_tahoe:       "267d85b4b6d1b3c4a5235d67fb02146f23492a4919db333c269a4f8c7d03e162"
-    sha256 cellar: :any, arm64_sequoia:     "8f5f852b961d8f534fd9b7306cfed455e30de3480f2084077347e4af39470e06"
-    sha256 cellar: :any, arm64_linux:       "9cc4c9fa3975819540214a4ff96cf3273430c84f8a70bf74dcb578c29b456f88"
-    sha256 cellar: :any, x86_64_linux:      "cb114ceac753570c9c940f776389f0d4c787953b1d905801b66f04c1c4f703dc"
+    sha256 cellar: :any, arm64_golden_gate: "248ec6ff95d3bad5d21c391b66fcf466152a800f1f0b2f86286ecb155f13f144"
+    sha256 cellar: :any, arm64_tahoe:       "8db3b5561e833a9283cc88ffc7232a97fef314c20b03ee12b2907b24d61e9f9e"
+    sha256 cellar: :any, arm64_sequoia:     "f02ae45f22671f1433828c4c124b2871e489dc59701b2c568c79f27c0aec3341"
+    sha256 cellar: :any, arm64_linux:       "22dd6079305ec09233b11f4ba1b3048bc5c5f2087e216549ee8cb8635e738783"
+    sha256 cellar: :any, x86_64_linux:      "859f11ec6d1915b4215388d82f6cc0f3df75379f623dcd620e397284df6ed2c8"
   end
 
   resource "jpm" do
