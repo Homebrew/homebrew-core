@@ -6,11 +6,11 @@ class Osslsigncode < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "01017a613a2c1f9d66aaca6c9b3755bd62b7e7a98d5d8c7d188db7676690f638"
-    sha256 cellar: :any, arm64_tahoe:       "15320a1a67389c01a3a8c39dcc57a2a0afae8d412e6a3b6897c643c39429e474"
-    sha256 cellar: :any, arm64_sequoia:     "f824d313b5f2b806519dfd3cf23e8c115fb87346f1640e18fe8f1dabc1d7d514"
-    sha256 cellar: :any, arm64_linux:       "476003fa37abd6c83c9b00eb2bcb2abe0c46bfde0898aa842e117e6669903642"
-    sha256 cellar: :any, x86_64_linux:      "c06645ae3c34ca1fba1195f5bfa2455f46dd3cbe4b185afc608b7e74f6239f53"
+    sha256 cellar: :any, arm64_golden_gate: "4cfbedffb917025ea1dcc5aecc8d3fd25e1e8a32bc580f3b82284343ddb14b63"
+    sha256 cellar: :any, arm64_tahoe:       "036ef921d91718e80760d34494c6b1263c1685121d85d17ebd46c00f06d4c228"
+    sha256 cellar: :any, arm64_sequoia:     "60a8ab9d41b2579e685442c8d22f6cbde6c4a2fce6e3f07dfb2387eb0e4f2237"
+    sha256 cellar: :any, arm64_linux:       "48310ddfdf8c93fae163eb2c35ce536f304cdf43a79c0bd995da0663542af1ec"
+    sha256 cellar: :any, x86_64_linux:      "5ff48de5b0ea0c4551b9b1b76b42fa344c0de15d7a5ce3f32f911a97c46e07e6"
   end
 
   depends_on "cmake" => :build
