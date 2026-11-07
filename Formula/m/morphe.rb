@@ -1,16 +1,16 @@
 class Morphe < Formula
   desc "Desktop app and CLI for patching Android apps with Morphe"
   homepage "https://github.com/MorpheApp/morphe-desktop"
-  url "https://github.com/MorpheApp/morphe-desktop/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "30313a4fadc23f23c5fe417c31bf2acfa9d8acad6391c987ebb9c4924ce6a9c6"
+  url "https://github.com/MorpheApp/morphe-desktop/archive/refs/tags/v2.1.1.tar.gz"
+  sha256 "11534bd0919d9b23ca193b4f5d63b83c08323cbb2c9ed5e07f426b19ac5b75e5"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5e189b02bb3e0ae42ddd92a9af7796f84dd34db0d73fcd2f46450ca20c1bb4c2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5e189b02bb3e0ae42ddd92a9af7796f84dd34db0d73fcd2f46450ca20c1bb4c2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5e189b02bb3e0ae42ddd92a9af7796f84dd34db0d73fcd2f46450ca20c1bb4c2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b6d6f0b0e820858ced0427b8bec67cb62efd25731a131e388c30824c450cac29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "b6d6f0b0e820858ced0427b8bec67cb62efd25731a131e388c30824c450cac29"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "420e3323e6d0c8f7a8b7bfc3ef63389a17d96938bf0b3927ed6402c34f4364ac"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "420e3323e6d0c8f7a8b7bfc3ef63389a17d96938bf0b3927ed6402c34f4364ac"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "420e3323e6d0c8f7a8b7bfc3ef63389a17d96938bf0b3927ed6402c34f4364ac"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f92b7c0857542ebb4bafe850cf94196f2de221fd8b94cd3404164185fb15af27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f92b7c0857542ebb4bafe850cf94196f2de221fd8b94cd3404164185fb15af27"
   end
 
   depends_on "gradle" => :build
