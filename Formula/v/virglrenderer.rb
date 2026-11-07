@@ -6,14 +6,15 @@ class Virglrenderer < Formula
   url "https://gitlab.freedesktop.org/virgl/virglrenderer/-/archive/1.3.0/virglrenderer-1.3.0.tar.bz2"
   sha256 "088040d130eaa0458a978fe7867fbfb1fcf1fdff52bf3b27a00658828bc4189f"
   license "MIT"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "849ad1a3ed02849c4a2d066d1284cd07624da4baa412759c4088e53bc5fbd01e"
-    sha256 cellar: :any, arm64_tahoe:       "d82b1e4e7af7e434e07548417e5555deb27142fe20d4e1adef1c5a72b43c3a89"
-    sha256 cellar: :any, arm64_sequoia:     "dcdc6584a0748af2e5abd4ba5532fb14944adf2a153ae353515cd076555ba7d4"
-    sha256 cellar: :any, arm64_sonoma:      "6a062481a04adba4b4d96b5e5e17362c8b47f3882aa40c969ace63c8713301ce"
-    sha256 cellar: :any, arm64_linux:       "d29f701ea302f35ef37d4a7438816525b1e3d9d0e72f127d00bf779cb6eeef24"
-    sha256 cellar: :any, x86_64_linux:      "370ad6b6163a93b02ab9114e21b385863694ebdcac010e6e8d53416e36a809c6"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "66b8d1919b5b787dea68a3c7671ecdfaef2c89b877c776ab7032ca41d1b06dc1"
+    sha256 cellar: :any, arm64_tahoe:       "869be31d85a28d0a4bcfaec116a2c76ae4026082d84c0a9aeadb3a9143650d09"
+    sha256 cellar: :any, arm64_sequoia:     "2d6979a2108089d81fd4233b396efcf287b90748fc68495de15506dd676be7c0"
+    sha256 cellar: :any, arm64_linux:       "7ea884047325265d193f860ca05f32f6b5aa6eda7feaf92161a25d8b79afb89b"
+    sha256 cellar: :any, x86_64_linux:      "1f54147705c80e23255785c958974b8796bc81614a7c7a4cc720c8afa86a1dc6"
   end
 
   depends_on "libyaml" => :build

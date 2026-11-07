@@ -6,13 +6,15 @@ class Libkrunfw < Formula
   url "https://github.com/libkrun/libkrunfw/archive/refs/tags/v5.6.2.tar.gz"
   sha256 "df45d649fcbd07a4d0ca03fa836b2f640fdcf9b40187f3eb7023259c6e83d582"
   license all_of: ["LGPL-2.1-only", "GPL-2.0-only"]
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8d4cd72051db87808843705c667a3c992d3a7a5d24ea268aece14b5577c901b7"
-    sha256 cellar: :any, arm64_tahoe:       "bc287d2702399aeca644a9aa37c015e5294cb9f87ee7324f1f75230e2b4175ef"
-    sha256 cellar: :any, arm64_sequoia:     "7ae8b88c80ed555bf2a71cc4eb3311db7e7c3b188fa3cb5b8b41694d1c8dfb33"
-    sha256 cellar: :any, arm64_linux:       "a41c4c317993e54d90da89e221cc8621ad17e536a2a71b458e7c468eeb5b7643"
-    sha256 cellar: :any, x86_64_linux:      "b3e1b3eab7d80456a75fc5e3e39d2cbef810d92ec2b45ae1b1c2520c08d4c0a6"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "53c6c0476b5e26fd1b76719a6ee88fa5aeab2b39031180180609e65e5edfe882"
+    sha256 cellar: :any, arm64_tahoe:       "56aa900085e33205c9072d6736f32060f22471b0199b1f51b6f8acd672cef874"
+    sha256 cellar: :any, arm64_sequoia:     "efa37bf44ae5684de5b97041c75c66609fa92664cafa783a935a7f8425cf60bf"
+    sha256 cellar: :any, arm64_linux:       "6fbfaedd8ce0aa551c6afa175f7107f9589d76eac3b254c5705390a6265be8f7"
+    sha256 cellar: :any, x86_64_linux:      "998b611b60d8debe34b1f814755f816007d8495cf52ed3ec250653561dd0f0ea"
   end
 
   depends_on "python@3.15" => :build
