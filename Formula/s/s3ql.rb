@@ -6,7 +6,7 @@ class S3ql < Formula
   url "https://github.com/s3ql/s3ql/releases/download/s3ql-6.3.1/s3ql-6.3.1.tar.gz"
   sha256 "79d805de38ab0501f1457149e888c143f08ccd3aba7283d0cc845ca5bb662de6"
   license "GPL-3.0-only"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -14,8 +14,8 @@ class S3ql < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "ec47c8216360e22d26119dbe052698bb436f82958cef3ea6a6601afb7e9e1372"
-    sha256 cellar: :any, x86_64_linux: "82e1458535f6324458a62a21dca5375d71ace1dc4e85575cbd4fa8f6c3c30aae"
+    sha256 cellar: :any, arm64_linux:  "0e6aab2e0e23aecac310c7d69243ba0dd115fd15c8be298c5ea7529e9318ae46"
+    sha256 cellar: :any, x86_64_linux: "cd64916374bd6164402abdcc48ecb1f78662f2a93a2a2455d679cb14b6d5e52e"
   end
 
   depends_on "pkgconf" => :build
@@ -36,8 +36,8 @@ class S3ql < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "apsw" do
@@ -61,8 +61,8 @@ class S3ql < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/f5/b9/4b2528f30114b106e3c3a7298ba38d85e682fd1f83fe7c4a5b77c7677082/google_auth-2.62.0.tar.gz"
-    sha256 "0bef0ce54bdf9ce226c5d66e4264413bd918141c31bbe49fb52eac882f513d69"
+    url "https://files.pythonhosted.org/packages/c4/38/d79ab09dcfc1e1638d887c8f65657619d3ebc454165c558ef79355971ce3/google_auth-2.62.1.tar.gz"
+    sha256 "3c8e1ce2553784ae17fd220e6f88df3281d86ab98019278f436d06dffab17a9e"
   end
 
   resource "google-auth-oauthlib" do
@@ -101,8 +101,8 @@ class S3ql < Formula
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/7a/d8/a1bcc8ba112a627f8ffbdc212a78ce18d3ac07e91a5ca65d27918eee25a1/oauthlib-4.0.0.tar.gz"
-    sha256 "efb274799819440f95b4ab3b818869f1ce9ae26c5beacba0201d1a1b76b54f86"
+    url "https://files.pythonhosted.org/packages/33/17/2bb072de0b990303c985f26869fd47bb179024a051f47e7f9d208eb92f8e/oauthlib-4.0.1.tar.gz"
+    sha256 "3d73febdb6faa00f277c81fb04be7b7586fb96fc3b7f0b9c772dada69a25ede7"
   end
 
   resource "outcome" do
@@ -161,8 +161,8 @@ class S3ql < Formula
   end
 
   resource "trio" do
-    url "https://files.pythonhosted.org/packages/92/dc/a2d25ed73ad49cfd79bf18d262577c3731c98e382284e28d522f49a0df35/trio-0.34.0.tar.gz"
-    sha256 "63b9485408bdfdde544fced107045a8c0086cdc4bd0ef2f797b9e0dd111b964b"
+    url "https://files.pythonhosted.org/packages/9c/e2/1db4e79abb730bbf048c1024a622b0e1e895f5b0e18c59f3f6b3e4b296ef/trio-0.35.0.tar.gz"
+    sha256 "7efb295c78a0ecd1235c5759e620b5da564ca80d2efcb0055423588547248b96"
   end
 
   resource "typer" do
