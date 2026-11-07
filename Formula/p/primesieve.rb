@@ -7,11 +7,11 @@ class Primesieve < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "5e0073096319b9fb4a8754e000c4d04c4539ec857601fe1442fea4a10801e9ea"
-    sha256 cellar: :any, arm64_tahoe:       "ccaa74654491bce29f25e245ce362d5a3b310847542269f60733a9e510edf092"
-    sha256 cellar: :any, arm64_sequoia:     "c795a6ee982185ed9fb0bdf2a93c70dae0529fb3174fbd9dfa9ccfac07dbb653"
-    sha256 cellar: :any, arm64_linux:       "56dda390e93be389d7c13daac6afea28f1445d6bac774be8f17d923ca895abbc"
-    sha256 cellar: :any, x86_64_linux:      "91814951c855ec14c9fd7371054803ea99c8dfd0bc37826592589233ac98c2da"
+    sha256 cellar: :any, arm64_golden_gate: "8184f7c917acfc1468c2ed31bfe11c8def3ee9879a6861eceaabeb170e7438f1"
+    sha256 cellar: :any, arm64_tahoe:       "36638f62f0aa156f4852e977bf42364bd8db89d44df3f471828322bb81dcb15d"
+    sha256 cellar: :any, arm64_sequoia:     "bc63bfa1e655b6e8299b8e1b024591538c112f49e6f2d0732d1dc3d8bf381fb4"
+    sha256 cellar: :any, arm64_linux:       "63f8d6c4e25c4d955abe56a19db6bb7bd0726de58fa4bebde24931a917cce45c"
+    sha256 cellar: :any, x86_64_linux:      "74b2ac7d24a5819635f18b26d1182986b7258aa0bb6ccf38b9c4f8c384ec7209"
   end
 
   depends_on "cmake" => :build
