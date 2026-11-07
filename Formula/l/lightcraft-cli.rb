@@ -1,17 +1,17 @@
 class LightcraftCli < Formula
   desc "Headless LightCraft CLI and MCP server to develop and export photos"
   homepage "https://getartcraft.com/apps/lightcraft"
-  url "https://github.com/storytold/lightcraft/archive/refs/tags/v0.18.1.tar.gz"
-  sha256 "da592ba01b21c8a281067e223826b62e3988a0c93032297c9b23e7b8fb844baa"
+  url "https://github.com/storytold/lightcraft/archive/refs/tags/v0.19.0.tar.gz"
+  sha256 "3d09c282ee23d4369a18044e810d15b55d5067da86bd6aba348289765f0f631e"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/storytold/lightcraft.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1ca9977d1617b4175f0b93052f7c2e89c1882420ac51348071b47600e61639f3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f8d90cf4f51f6afad78e4a0db155f00cd2a8cec02cd177d07f6ff7ceb3f8a778"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c0db4e009da7c3d0820ee5d716ed167dcafc9c94b4cf1456a5677da8b718bab1"
-    sha256 cellar: :any,                 arm64_linux:       "a6ef68d32312f7f5798e4fcdb3c4ee1daa2609409317c521f93d66486aa929e9"
-    sha256 cellar: :any,                 x86_64_linux:      "8ef39833749ae7df9967981194ac61673d3a3e35fba8804e80f86853da31506f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "47b4edb0c52937eb3857da11fcedf079c4d84ef3d42413e3825033ac4a563a10"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dae6dbf9330d8918dbb15f3f0c91120c55666f93e1bb5786bd6df001cb32f745"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "820fb02224a93a539c2d2a0591bdf5f459cddaa763f735b067c4445b1b980251"
+    sha256 cellar: :any,                 arm64_linux:       "c0eeea7a186f22faf2938770339b3ae1061e8848553fe377bb4ef56f1828fd86"
+    sha256 cellar: :any,                 x86_64_linux:      "0111e445c20eae0ab488751f349f5e48e8b39a5e733f0f5ff1bc61d1a1187f61"
   end
 
   depends_on "rust" => :build
