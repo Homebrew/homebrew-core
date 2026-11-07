@@ -1,8 +1,8 @@
 class GitPkgsForge < Formula
   desc "Go library and CLI for working with git forges"
   homepage "https://github.com/git-pkgs/forge"
-  url "https://github.com/git-pkgs/forge/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "4e6674f10c84da580776d3b3c4eb6fcd46ef76828b43a2caa602f2cdcf483047"
+  url "https://github.com/git-pkgs/forge/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "eb3b7ba99ed4e459aa10df347bb95f782106062816833a157a3c2f62a96a4d20"
   license "MIT"
   head "https://github.com/git-pkgs/forge.git", branch: "main"
 
@@ -33,7 +33,7 @@ class GitPkgsForge < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/forge version")
 
-    output = shell_output("#{bin}/forge repo view 2>&1", 1)
+    output = shell_output("#{bin}/forge repo view 2>&1", 128)
     assert_match "Error: reading remote \"origin\"", output
   end
 end
