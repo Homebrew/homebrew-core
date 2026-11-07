@@ -1,17 +1,17 @@
 class Portop < Formula
   desc "Terminal UI showing which processes are using TCP and UDP ports"
   homepage "https://github.com/padovanl/portop"
-  url "https://github.com/padovanl/portop/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "8d4c16916bd753bbef92df290678b67030332f0f931ab38511f09bccc532c531"
+  url "https://github.com/padovanl/portop/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "95413106c84c14e658e3e6992da78cd8892b1a11d83cfdb24da3b0dab9d667cb"
   license "MIT"
   head "https://github.com/padovanl/portop.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "868c8700c1e4715ebe39e78ca2f05cbf97d9641174fabeb14d79f1a9b943b9cd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "868c8700c1e4715ebe39e78ca2f05cbf97d9641174fabeb14d79f1a9b943b9cd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "868c8700c1e4715ebe39e78ca2f05cbf97d9641174fabeb14d79f1a9b943b9cd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a8d082622dfc0129d267f76f77757c41c1b3060bb4310ba0011166dd911d1578"
-    sha256 cellar: :any,                 x86_64_linux:      "fd4c8331a687a05467e07c367cffc59e250eb7181dcb381a52f0230837f7e4fd"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7b4889d3d68ca705e3a884bdbe6e2ead9aa91ecb940ef328c2a590e1d5755864"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7b4889d3d68ca705e3a884bdbe6e2ead9aa91ecb940ef328c2a590e1d5755864"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7b4889d3d68ca705e3a884bdbe6e2ead9aa91ecb940ef328c2a590e1d5755864"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b4da77dadb1e6a7e4b227b95055701a4af3099f4238581128fbb98deee4bf40e"
+    sha256 cellar: :any,                 x86_64_linux:      "25ff93781f5e43910f6118d1b4c87b881cf8e155b282fce9b0074db6f934f793"
   end
 
   depends_on "go" => :build
