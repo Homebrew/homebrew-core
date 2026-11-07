@@ -11,11 +11,11 @@ class Libnetworkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3fb12d60ade5660a3e813d9be1c6768dd16f5d17aff4cced23d82cc60a0671ed"
-    sha256 cellar: :any, arm64_tahoe:       "0b16dca753bec93f58f09b63ec7449c1fc361bca83f1722f6b77f1b691c9fde1"
-    sha256 cellar: :any, arm64_sequoia:     "f43a37fc50f836ba1bc754448bbdf7aa7038c2d65fc31cfb950ab3f6744a2d4a"
-    sha256 cellar: :any, arm64_linux:       "a46d3d36083b57d66cd56a24239b89aa1cda60a077ecd914533c323c214b304a"
-    sha256 cellar: :any, x86_64_linux:      "7eb623aae119b462f9ff7b12ccbfccb26c3b6772ae78971e8d22f490066fd75e"
+    sha256 cellar: :any, arm64_golden_gate: "b1c4aee8b66167207a5f62aee082bfaabfcb9e178f3e836e829af8f199391c2e"
+    sha256 cellar: :any, arm64_tahoe:       "bf10d3a4fe3552ca92ffdf6e790a6a7031179f18aa52e15b7899cb530a9e4edf"
+    sha256 cellar: :any, arm64_sequoia:     "e5f5148869a241cf86959f0a37f8cd3f12989d363c08ebb50f208e2ab12ce0dd"
+    sha256 cellar: :any, arm64_linux:       "ff30d644ee7dc57760d8017546933ed9437dd357e7d1e9b49354f161b4704fcc"
+    sha256 cellar: :any, x86_64_linux:      "a2e4f0d17af1c82ae577416e3d2a2b741c611ac8bbb5062c2532e815a065b3c7"
   end
 
   depends_on "cmake" => :build
