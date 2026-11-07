@@ -8,11 +8,11 @@ class Automake < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "23c091faee8dac047b0670d8c10da030bf104610fc064b904407de1a1ff8f437"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23c091faee8dac047b0670d8c10da030bf104610fc064b904407de1a1ff8f437"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "23c091faee8dac047b0670d8c10da030bf104610fc064b904407de1a1ff8f437"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a2b499128c61273de05a0d19251baca23de0c29abd15a74c8f495de2aeec3b40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a2b499128c61273de05a0d19251baca23de0c29abd15a74c8f495de2aeec3b40"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4f537192c9c75892b2b7b87fa9f74db0949365a7991554ac9c3120dba44d949b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4f537192c9c75892b2b7b87fa9f74db0949365a7991554ac9c3120dba44d949b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4f537192c9c75892b2b7b87fa9f74db0949365a7991554ac9c3120dba44d949b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "58ad63e21db904ff6e0ad954328cfe145b36d9900dbebe610a57ba3541dd8370"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "58ad63e21db904ff6e0ad954328cfe145b36d9900dbebe610a57ba3541dd8370"
   end
 
   depends_on "autoconf"
