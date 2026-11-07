@@ -1,17 +1,17 @@
 class Gdu < Formula
   desc "Disk usage analyzer with console interface written in Go"
   homepage "https://github.com/dundee/gdu"
-  url "https://github.com/dundee/gdu/archive/refs/tags/v5.38.0.tar.gz"
-  sha256 "44589852e4b1a82fc766182f654e4269d469ec2f9a9f2755a72a7991a5a5ac37"
+  url "https://github.com/dundee/gdu/archive/refs/tags/v5.39.0.tar.gz"
+  sha256 "1ee1bfacb8771ba8bf094f0f8be31f2749066882a2f1f73360c664d82bba6e4a"
   license "MIT"
   head "https://github.com/dundee/gdu.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "81148adb5a876bb46ddb366e0aee802602d607677ca53e4fe885c37db91ae35b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "31f13067a9e650f4914cd674e58f26e2a13773541b81c4f965ba447c3d856ef0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ac45990f6d9f9271e8d56a61a250ebde5a39eaeb8bfd9340246a055c985a89ee"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "287d8a2596c4418ea43e422ccc8d6ff90e7b1674a9a28b018913eaed9f5de66e"
-    sha256 cellar: :any,                 x86_64_linux:      "b35ee0126abbdd6c4e45eefad9e15d94c9ac1d8dedfc19526b70d7896e8ed162"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "48e974ae1efdb197a2232ff9879859ca3ea1f73ec6736e0c9f523bea7b53d224"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a71f9a0640f01accaa779fa9242b633b02fd0e6a78a551db5f33f798cbff9113"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d124525e284fa7b4a2a989a8f468d19ca3b0625bd3b2daa58f661d937cf2c4aa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "9e5878757751a19aa6e4de5bec0ea56280d1ea1e3b6523621a441c2f3d5b6070"
+    sha256 cellar: :any,                 x86_64_linux:      "356a1154ad93d39bee4c4c67abc18fe5011bf7a216299ea2767c54266715ceaa"
   end
 
   depends_on "go" => :build
