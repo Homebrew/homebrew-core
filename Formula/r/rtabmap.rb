@@ -4,6 +4,7 @@ class Rtabmap < Formula
   url "https://github.com/introlab/rtabmap/archive/refs/tags/0.24.2.tar.gz"
   sha256 "96cca356c37d50609d7e1bc6379ce0ff3f66ecbd153583669bd0ba23b91ba969"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/introlab/rtabmap.git", branch: "master"
 
   # Upstream doesn't create releases for all tagged versions, so we use the
@@ -14,11 +15,11 @@ class Rtabmap < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3f4094fe44665450b63f32eb792f27904f14b8db09436d8ff9ad6803ad08e27f"
-    sha256 cellar: :any, arm64_tahoe:       "dc07127e81e6f1717e4fcfb928695ad4ce5aafb1d091f381137427cada1ef058"
-    sha256 cellar: :any, arm64_sequoia:     "be6a56f4a47ec2316c09df3607ff0836652200a924bccf275d80d313da89be89"
-    sha256 cellar: :any, arm64_linux:       "b6a86c165f8954e4147be0a9853e570f2b964842a20864c52c783bbee10d9821"
-    sha256 cellar: :any, x86_64_linux:      "3de08205dea3eadce14f222f4a9b3fa9021b11cd4ce42abacdbb987f94b0b554"
+    sha256 cellar: :any, arm64_golden_gate: "af0d41d1fdf50c62e10c342807be1db09107e5e4314582214ac81fbc9836d404"
+    sha256 cellar: :any, arm64_tahoe:       "46c35686c663d8dd60fb5996555cbe1538048d1f383db1f39c1a55b1254406f0"
+    sha256 cellar: :any, arm64_sequoia:     "e5fb69c572640e73ff8db09b9f38add435db9a190a81e256c47c48b99a45c7df"
+    sha256 cellar: :any, arm64_linux:       "dd1b9b4d8753e93eb12a06c6fb3cf2e73f747105b50e9a5be53c996be95c0c68"
+    sha256 cellar: :any, x86_64_linux:      "755d4de5a72fd886fbf8481ca74e78882dc8cd86b95d1c957b337db88f7d27de"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -48,6 +49,14 @@ class Rtabmap < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
+  end
+
+  # Replace `Mat_` comma initializers, which OpenCV 5.1 removed
+  patch do
+    url "https://github.com/introlab/rtabmap/commit/606d29dfdaac80fde22e9a49120e011b4a2d8bf4.patch?full_index=1"
+    sha256 "0443f61d3271b8f581d52f2b5dc058b519c3212661254c84f71bf2ba403c58b7"
+    type :unofficial
+    resolves "https://github.com/introlab/rtabmap/pull/1836"
   end
 
   def install

@@ -4,15 +4,16 @@ class Mlt < Formula
   url "https://github.com/mltframework/mlt/releases/download/v7.42.0/mlt-7.42.0.tar.gz"
   sha256 "8800e343f43aaa885bd5d9d23553030fa220aa3e2f0c94d9fd6a936d41638cdd"
   license "LGPL-2.1-only"
+  revision 1
   compatibility_version 1
   head "https://github.com/mltframework/mlt.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "a6ea73abbd41e37949bec755e903419f980c564489184671f09adf87c95ce3d3"
-    sha256 arm64_tahoe:       "0c00321c3a3386c36fc2261b06ba58feee58d19cc48ccdaab4c86ef74df2063b"
-    sha256 arm64_sequoia:     "7bd54eca36d6e54488df31bef435dfd8a46b221921db3472eaee91e7d459311b"
-    sha256 arm64_linux:       "f08671f700480ca084a9add436469eb1ff02905ec631ec8a213e559c720c812b"
-    sha256 x86_64_linux:      "bb934f133afc4027b691ab2ff856b2c756009bb98e95dab99d0069d898fdf729"
+    sha256 arm64_golden_gate: "f8c2b582ab2106dab0be2c3e21fadf3cd59ae4690162e7bc2396816620b4cbcb"
+    sha256 arm64_tahoe:       "cf8d5587e2b0bedac5b12d164dcb53eb1989b1a990095ec940e42428a91dbf3f"
+    sha256 arm64_sequoia:     "e6794e1dcf2b135c681701a73d4e1acd842334f331426317ed6debb304c961b6"
+    sha256 arm64_linux:       "823601198cd6a9e735e4ea1f720787ee4367391e62a9f244ef68ab2fc51e8509"
+    sha256 x86_64_linux:      "88864417787456fdcd3300cd3a42a36fb93a1a541afbea7c1b34947ce6933184"
   end
 
   depends_on "cmake" => :build

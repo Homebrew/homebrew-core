@@ -6,13 +6,14 @@ class RapidMlx < Formula
   url "https://files.pythonhosted.org/packages/24/8c/562362cbfde180ec4c2764fb8243d5e76f33c3edbfdc7946a2fc0bce7290/rapid_mlx-1.0.1.tar.gz"
   sha256 "59b9d1b5dd45be75c007a2690fb7fffad42882247020d4ba42f9d158ba1a2cb1"
   license "Apache-2.0"
+  revision 1
 
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d3a8caaed89497d636a0cb9b2c5a528cd731b0bab267d5a5d6010c6f9d9c4960"
-    sha256 cellar: :any, arm64_tahoe:       "9d48aa6c945b77fe0bf5632c017bab2b86092f58e571d58eda948a7f6d3ab74e"
-    sha256 cellar: :any, arm64_sequoia:     "4d58c17a8351bd7afda6f8ce34e3cbdda625b6f97ae23e231255b85f5990777f"
+    sha256 cellar: :any, arm64_golden_gate: "c66853dabce081300d09be308bb93cda0bdae347b5e31f5e3fa822576a54e979"
+    sha256 cellar: :any, arm64_tahoe:       "ecb0b5498fb286aeb2d4cfb504b7dce309d10edb23d2bef65bf5b96fd9d45e63"
+    sha256 cellar: :any, arm64_sequoia:     "719550b5fa12e8a16ccc6b177adb75514f215807dea25c6235f5bbc1b3ac5db8"
   end
 
   depends_on "cmake" => :build

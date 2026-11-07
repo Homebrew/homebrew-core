@@ -4,7 +4,7 @@ class Visp < Formula
   url "https://visp-doc.inria.fr/download/releases/visp-3.7.0.tar.gz"
   sha256 "997f247f3702c83f0a8a6dc2f72ff98cfe3a5dcbd82f7c9f01d37ccd3b8ea97a"
   license "GPL-2.0-or-later"
-  revision 10
+  revision 11
 
   livecheck do
     url "https://visp.inria.fr/download/"
@@ -12,12 +12,11 @@ class Visp < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "b065c22e850e2d98a9b1c5f0d4e3c9c199eb7de7aa3f8b6cd29076afe8d241ef"
-    sha256 cellar: :any, arm64_tahoe:       "983d6e3a003bdb1ad8ab6cc3529678f3e48fa783b1d1e70eeef607b1837695df"
-    sha256 cellar: :any, arm64_sequoia:     "8ee1190da346cf6a4d165985fe39410acfe5ea412d5bcebef1c92bfbca921ecf"
-    sha256 cellar: :any, arm64_linux:       "c0cc834389ea23b2c82376ea0ef25f9ee28ce92536c3dd0bbb8412a076fd7fd5"
-    sha256 cellar: :any, x86_64_linux:      "5e7086ca6ed82c6f9de2a1e59ea9f1bfb1a27bd382e25c7576129f2ee65f5fd8"
+    sha256 cellar: :any, arm64_golden_gate: "c74f019c376df94c4ddf5f8d78c678fbfc8534283a3b81c4e0359396e7ea9eca"
+    sha256 cellar: :any, arm64_tahoe:       "689c8caaa07945e2c155cba794915143941d65a1c2d2327af69c8264ae7ff602"
+    sha256 cellar: :any, arm64_sequoia:     "c1759f5cf0e780adb55ccef2dc4c8d7a6d34270824d99e8b367ac45e714baf05"
+    sha256 cellar: :any, arm64_linux:       "7e1009b7d0b90367a5304aadb2777da6c20652cf6bfabd03853f0eb744eec6fa"
+    sha256 cellar: :any, x86_64_linux:      "cf18583040641ff01d2015bd09b2c5a1d036038f565a40ca07866b1a9e8544df"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -86,6 +85,11 @@ class Visp < Formula
       modules/core/src/camera/vpPixelMeterConversion.cpp
       modules/vision/src/key-point/vpKeyPoint.cpp
     ], "<opencv2/3d.hpp>", "<opencv2/geometry.hpp>"
+
+    # OpenCV 5.1.0 removed `Mat_` comma initializers, so build these matrices from `Matx` instead
+    # PR ref: https://github.com/lagadic/visp/pull/1962
+    inreplace "modules/vision/src/key-point/vpKeyPoint.cpp",
+              /\(cv::Mat_<(\w+)>\((\d+), (\d+)\) << ([^;]+)\);/, "cv::Mat(cv::Matx<\\1, \\2, \\3>(\\4));"
 
     # Avoid superenv shim references
     inreplace "CMakeLists.txt" do |s|

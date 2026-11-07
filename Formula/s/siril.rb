@@ -2,6 +2,7 @@ class Siril < Formula
   desc "Astronomical image processing tool"
   homepage "https://www.siril.org"
   license "GPL-3.0-or-later"
+  revision 1
 
   stable do
     url "https://free-astro.org/download/siril-1.4.5.tar.bz2"
@@ -17,11 +18,11 @@ class Siril < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "8a9757701dbddc9620c0523011db3cae33093166a6622b79c516adf4cee4e03f"
-    sha256 arm64_tahoe:       "428994d960a776743c14d6b32509947cc9972d2e282dba264f14cd0b62d5d608"
-    sha256 arm64_sequoia:     "fec7fceac9e45cf5a53083d8013d148a3d5791eb6fd6c62e74134c9620c4def8"
-    sha256 arm64_linux:       "33dd2268f368cf6258f0f5251907ad9fd49409187c9d6dda1e8365ba6c61dfdb"
-    sha256 x86_64_linux:      "bba9f3a79d668e73b5459da7e88ac6fb8e0bd7cc291e764844bd22ea11e41b26"
+    sha256 arm64_golden_gate: "fa8880730ba8f64b99d850011e287b7abab66cef5225913c1c1347834bf0b100"
+    sha256 arm64_tahoe:       "66711a55eb413d0742ec8bf155b912619cfe006168cc7f1995f43c3c24f8949b"
+    sha256 arm64_sequoia:     "5cc2577b70bf4d042ee44e4882201c3a81057d2cc5df8ee8b001bae798ab5f2f"
+    sha256 arm64_linux:       "524b882a3f4e05cfc0bbf53d7925f8a98972d896bf836b04d7533cf7a1728386"
+    sha256 x86_64_linux:      "268a2fb79a07bce00062a1fd4104c092ec71225014b8d2d268be50518028fdaa"
   end
 
   head do
@@ -70,6 +71,9 @@ class Siril < Formula
   deny_network_access!
 
   def install
+    # OpenCV 5.1.0 removed `Mat_` comma initializers, so build these vectors from `Matx` instead
+    inreplace "src/opencv/opencv.cpp", /\(Mat_<double>\(3,1\) << ([^()]+?)\)/, "Mat(Matx31d(\\1))"
+
     args = %w[
       --force-fallback-for=kplot
       -DlibXISF=false

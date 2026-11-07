@@ -2,16 +2,15 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   license "Apache-2.0"
-  revision 12
-  compatibility_version 2
+  compatibility_version 3
 
   stable do
-    url "https://github.com/opencv/opencv/archive/refs/tags/5.0.0.tar.gz"
-    sha256 "b0528f5a1d379d59d4701cb28c36e22214cc51cf64594e5b56f2d3e6c0233095"
+    url "https://github.com/opencv/opencv/archive/refs/tags/5.1.0.tar.gz"
+    sha256 "638c1dae7e37e45afea21aa217dc667ad7cf57acc66cdf652c074f1e0e5ad6d2"
 
     resource "contrib" do
-      url "https://github.com/opencv/opencv_contrib/archive/refs/tags/5.0.0.tar.gz"
-      sha256 "c58f6344170c39abf187c56f3843b59cab1fd3e89cf19ba2ce25dc061659b27f"
+      url "https://github.com/opencv/opencv_contrib/archive/refs/tags/5.1.0.tar.gz"
+      sha256 "6aee68285f0e7b7bf77d3656bc6568820c6f15704860fc0922def357d40ebeff"
 
       livecheck do
         formula :parent
@@ -25,11 +24,11 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "ccbb8bd78158190148c71eb0a240e6c2ad509961d9a8d0a035ab7d5ab6542b8d"
-    sha256 arm64_tahoe:       "6ceb6151229e97923224fe300668250bb8d6da3512f8d9850f3eef833b6bbcc7"
-    sha256 arm64_sequoia:     "6667d5349381bba291b055e8151a444bcd8a3747f0b7b207f31277eefc2fe0dd"
-    sha256 arm64_linux:       "bdd11db46cb51a406ef2d7cfbdb2846e92d9533c6ef048dcdb57b9b987e88135"
-    sha256 x86_64_linux:      "ee60ec4d65e059349279cb1ae3dcc8cf2bb0fd7f4d6adf6f88d615a0ff64a5a1"
+    sha256 arm64_golden_gate: "fbe6cb5e9894afacdf203d4b710d0441405c93742b01789a2e7e19b222512d3a"
+    sha256 arm64_tahoe:       "3ce8326191d1c3aeeb03d36d61a42257f1c8df273445f7de4d6132ad8b6538d6"
+    sha256 arm64_sequoia:     "535155d4d81537ba87b2ff2e089d838277be113275c7e15402bd241cf04da467"
+    sha256 arm64_linux:       "617cc3ec176399456139ff48228a804130123de5b744b7a903c5d2a7edc63a43"
+    sha256 x86_64_linux:      "12cc90b224e058d20e29c5e473e31a6a1b1ae01c8e6c7d65b85ec3cb47bfd7fa"
   end
 
   head do
@@ -82,57 +81,25 @@ class Opencv < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # Drop the Caffe protobuf leftovers so DNN builds against external protobuf.
-  patch do
-    url "https://github.com/opencv/opencv/commit/f7ad23157f1b99b59bc9a706e9c7e4c8394947ac.patch?full_index=1"
-    sha256 "3813186a3e0c7f8c366b11c64f112d31a4f8c9709de333a2532e85142bea25bf"
-    type :backport
-    resolves "https://github.com/opencv/opencv/pull/29425"
-  end
-
-  # Fix builds with FFmpeg 9.
-  patch do
-    url "https://github.com/opencv/opencv/commit/7551012b4e1c854c1dc36483c893f90b1c236977.patch?full_index=1"
-    sha256 "0e662fbfd9949c4588138fcdb49bff124bf5e092ecfaa4db07938f50bb3ee1de"
-    type :backport
-    resolves "https://github.com/opencv/opencv/pull/29533"
-  end
-
-  patch do
-    url "https://github.com/opencv/opencv/commit/a6f17e1f6a53f8bb016acfbcd55b61cbe220f5c8.patch?full_index=1"
-    sha256 "f9fc79e1783debed6530600044c73f9a7d816c3b3095c260e1769bd04a62eb7d"
-    type :backport
-    resolves "https://github.com/opencv/opencv/pull/29662"
-  end
-
   def install
     resource("contrib").stage buildpath/"opencv_contrib"
-
-    # Finish PR #29425's file renames that `patch` leaves undone, then drop the emptied Caffe sources.
-    { "modules/dnn/src/caffe/caffe_io.hpp"      => "modules/dnn/src/protobuf_io.hpp",
-      "modules/dnn/src/caffe/glog_emulator.hpp" => "modules/dnn/src/glog_emulator.hpp" }
-      .each { |from, to| mv from, to if File.exist?(from) && !File.exist?(to) }
-    rm_r Dir["modules/dnn/src/caffe", "modules/dnn/misc/caffe"]
 
     # Avoid Accelerate.framework
     ENV["OpenBLAS_HOME"] = formula_opt_prefix("openblas")
 
     # Remove bundled libraries to make sure formula dependencies are used
-    libdirs = %w[ffmpeg libjasper libjpeg-turbo libpng libtiff libwebp openjpeg protobuf tbb zlib]
+    libdirs = %w[ffmpeg harfbuzz libjasper libjpeg-turbo libpng libtiff libwebp openjpeg protobuf tbb zlib]
     libdirs.each { |l| rm_r(buildpath/"3rdparty"/l) }
 
-    # VTK 9.6 stopped transitively including <iostream>;
-    # viz uses std::cout/endl directly.
-    # PR refs: https://github.com/opencv/opencv_contrib/pull/4085
-    inreplace "opencv_contrib/modules/viz/src/vtk/vtkVizInteractorStyle.cpp" do |s|
-      s.sub! '#include "../precomp.hpp"', "#include <iostream>\n\\0"
-      s.gsub!(/^(\s*)cout (<<.* )endl;$/, "\\1std::cout \\2std::endl;")
-    end
-    inreplace "opencv_contrib/modules/viz/src/widget.cpp", '#include "precomp.hpp"', "#include <iostream>\n\\0"
+    # contrib freetype's own harfbuzz check overwrites the `HARFBUZZ_LIBRARIES` set for imgproc,
+    # dropping `harfbuzz-raster` and leaving `hb_raster_*` symbols undefined
+    # Issue ref: https://github.com/opencv/opencv/issues/29458
+    inreplace "opencv_contrib/modules/freetype/CMakeLists.txt", "HARFBUZZ", "FT_HARFBUZZ"
 
     args = %W[
       -DCMAKE_CXX_STANDARD=17
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
+      -DBUILD_HARFBUZZ=OFF
       -DBUILD_JASPER=OFF
       -DBUILD_JPEG=OFF
       -DBUILD_OPENEXR=OFF
