@@ -4,6 +4,7 @@ class Libkrun < Formula
   url "https://github.com/containers/libkrun/archive/refs/tags/v1.19.8.tar.gz"
   sha256 "8896c71117462f868f41d26efd157c3270091814eaab3af27ca70c6857a85eb2"
   license "Apache-2.0"
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "040790c401d18b584957ead5aa2af24545c373ad6154148ce5b39521af1d2ec3"
