@@ -13,11 +13,12 @@ class Freetype < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e95cd1f10672199f21f824b4f8a848c3a4f733df2fcd6e3d88b08446131eeed3"
-    sha256 cellar: :any, arm64_tahoe:       "75125d33e1fa0ea106b138e0458aba3054abd86ad7fbadd86ee4ed81fc8a2174"
-    sha256 cellar: :any, arm64_sequoia:     "7e7a7bb07a484cf6fccb168587d697ed24b98cce52e6ac735debb22adb422237"
-    sha256 cellar: :any, arm64_linux:       "da5494c91d3d359701c6af3bb2c0c3525aa512d1f90fee0fd915c92497b5387d"
-    sha256 cellar: :any, x86_64_linux:      "0f637083d41afca2d7b9b8aae297fc08583897b4659b170f5495f96bdf696c11"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "14bc1768b07e0c28391877d3ead21f66f76fd70fea699ad996a693c01a5f660f"
+    sha256 cellar: :any, arm64_tahoe:       "ebd689edade12b47b19101a31ee018dc6c156b0f4fb2f852741c0c44fbf99fd0"
+    sha256 cellar: :any, arm64_sequoia:     "74ee3577ff475f019e379070f89dca205e9d90742fe18623722ea455482a4d05"
+    sha256 cellar: :any, arm64_linux:       "ba8302f77365b87d28b3863f220b18a008dea8b99056d130696f62f0df861b1d"
+    sha256 cellar: :any, x86_64_linux:      "5d26870c73d88cba6bb55b200d4156a9eb24c8ad4ef9cff547cf0da65163a2f9"
   end
 
   depends_on "pkgconf" => :build
@@ -33,6 +34,9 @@ class Freetype < Formula
   deny_network_access!
 
   def install
+    # Avoid enabling macOS 15.4+ hvf feature for bottle compatibility
+    ENV["ac_cv_header_hvf_Scaler_h"] = "no" if OS.mac? && MacOS.version <= :sequoia
+
     # This file will be installed to bindir, so we want to avoid embedding the
     # absolute path to the pkg-config shim.
     inreplace "builds/unix/freetype-config.in", "%PKG_CONFIG%", "pkg-config"
