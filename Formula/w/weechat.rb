@@ -1,17 +1,17 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://weechat.org/"
-  url "https://weechat.org/files/src/weechat-4.10.2.tar.xz"
-  sha256 "6fcd05f350c808a4206d6951af36a9eec11b145b6a1a2a8a2b29dd3502e07022"
+  url "https://weechat.org/files/src/weechat-4.10.3.tar.xz"
+  sha256 "a5bf6d57fd8b45ac663b8cac6642ebe89dfa0365d2a00fdf3953f0e2d84dce29"
   license "GPL-3.0-or-later"
   head "https://github.com/weechat/weechat.git", branch: "main"
 
   bottle do
-    sha256 arm64_golden_gate: "44a7c867217b29fb4a5327e6ecce39abed4e87ac2a8669653fbf2283d8b3c605"
-    sha256 arm64_tahoe:       "e947ec4e185b71df11972ce1fda47b0426a59874962443e30d846bbddb51868e"
-    sha256 arm64_sequoia:     "bf28483b6893be8a0c48af68110cb503ba03c5ec7642012eec474ae3a872b706"
-    sha256 arm64_linux:       "9fe2f790e8e301199e70a4c2275f17a5af7ed493490a6d2b51b9fb167b822591"
-    sha256 x86_64_linux:      "3be8e1d31b55b246bf8187d7540cba94faa0d9f41dbf0b136a86a04bda0e83e7"
+    sha256 arm64_golden_gate: "4795b25ff7a7683b9ee8b9737f430ac0823fa57aedd6cc5519c9ed74bb9f3694"
+    sha256 arm64_tahoe:       "f87c20db5c4d6e0d2be56bc291e0107b33c20a9b69a0510f368b75b882861953"
+    sha256 arm64_sequoia:     "6dbd3dfd87177403d6444006c7297980721865d2b3b6d0bb3007ea86634a92d4"
+    sha256 arm64_linux:       "15c883cf181283667296c2f07e539434dee072b07ef2bd0ed01902e8c7b277d1"
+    sha256 x86_64_linux:      "51bd0eeeef69283a25683d806a07769619c67becae89e7a5d62403c4e03feb70"
   end
 
   depends_on "asciidoctor" => :build
