@@ -6,11 +6,11 @@ class Nessie < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "25822d48b068ccad97580165abd163fc5f4fb67f4855a3bc366a01ac795566bb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "461c827d3d142a080aa7e834b451990447daac6f8206d91a6bd75ceac45daaed"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6cad5187d960aae520784dffe442aeccfd422d43ae43ff22957031ca143b5e6b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a7fd95420510023085f186ee47042014293e19271f6ba15754d790aca451a976"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "31240555d8b183edf9f3069888d9b73878f63bc3bfa433d799efb9633b6d050a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3a9e11b3dadd250570466b47d23ed057c6ea850aac1fe8dd48b16e480a478fe5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ef20d8f81bbb08f4eb7841e99e5b3197d18882e0c7c45e87130b6f1da35ce9d3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2a5e7c77f84b252f115b830de449d2e2e0068ea3f375ee85029201bc8acc0ec9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "97bf2881b126f19acc5d07d387b1f73817dbd1e6187a72bbea0ec03128898951"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "620063e8aac6c3a11ec9a134827d12c0b8ddf7d2769a66b82fd52c8664fb246e"
   end
 
   depends_on "gradle" => :build
