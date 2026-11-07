@@ -1,8 +1,8 @@
 class Libkrun < Formula
   desc "Dynamic library providing KVM-based process isolation capabilities"
   homepage "https://github.com/libkrun/libkrun"
-  url "https://github.com/containers/libkrun/archive/refs/tags/v1.19.7.tar.gz"
-  sha256 "d4541fcd959ad43fb073bff61bc91b645ea6413a10b8319e9b61664a6102d20c"
+  url "https://github.com/containers/libkrun/archive/refs/tags/v1.19.8.tar.gz"
+  sha256 "8896c71117462f868f41d26efd157c3270091814eaab3af27ca70c6857a85eb2"
   license "Apache-2.0"
 
   bottle do
