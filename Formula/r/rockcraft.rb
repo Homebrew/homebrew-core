@@ -8,7 +8,7 @@ class Rockcraft < Formula
       tag:      "1.20.0",
       revision: "289c48bc6bbf5c9132897d22785e7d5a2b2666b1"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/canonical/rockcraft.git", branch: "main"
 
   livecheck do
@@ -17,12 +17,11 @@ class Rockcraft < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "7033d6ef407a53ab6601ab4439ca23fca420031678e9645f8834c34e835ab7e4"
-    sha256 cellar: :any, arm64_tahoe:       "30fe4669fa21f8de219583cf491af149a453a907416785506956d1ee59b1ea58"
-    sha256 cellar: :any, arm64_sequoia:     "54cb565f0f49838008d6e8a32d6198fd99e97b8f7b6ffdd7cb186a17ec29288c"
-    sha256 cellar: :any, arm64_linux:       "63a7dfe88396a6e174c785a81a3542b41e4f2988e9fa34fba157227c16cc9849"
-    sha256 cellar: :any, x86_64_linux:      "0d1f26b5f504a2487af254dc0a4cceacc40182316653be058a7e2f3e95726d43"
+    sha256 cellar: :any, arm64_golden_gate: "22a713b3dbba146d6454a1bd01e1cf445b7d3047ebb04d42442a3105a2d8de68"
+    sha256 cellar: :any, arm64_tahoe:       "d341e8eb5d7753bb7ef13494d5f2bbe30bc5180b50655ef8485515e8d8e4d262"
+    sha256 cellar: :any, arm64_sequoia:     "cf6b7986b48884d47d29d0d8331b69c469af2408f054f13eadad19d4c392fba6"
+    sha256 cellar: :any, arm64_linux:       "4f0c93fd6c94af2417578851bc8a778f59968e1b05dfa9d6e8baf80e314c023b"
+    sha256 cellar: :any, x86_64_linux:      "67cf86c8f4fb6ec7e5e2ce155e0e8156e27baa4f271a4d5016732e02ee05abd4"
   end
 
   depends_on "certifi" => :no_linkage
@@ -84,8 +83,8 @@ class Rockcraft < Formula
   end
 
   resource "craft-providers" do
-    url "https://files.pythonhosted.org/packages/86/f5/81525f63af39d73be1fae45fc169eb036781d745a0220f95d9b7f6165549/craft_providers-3.7.1.tar.gz"
-    sha256 "473e6228720dda9f042eae8b9584a1f1c41d6fd987c0fd9db0d69609d3c5f283"
+    url "https://files.pythonhosted.org/packages/2d/87/5f58341bd8305aef586e65e34ffcd725d96aaf28352b220dd4e1e45e83d3/craft_providers-3.8.0.tar.gz"
+    sha256 "fb93e64e6e62df0e96ee9402eeb16c2f8fe699512122e196556a547b178ed271"
   end
 
   resource "distro" do
@@ -99,8 +98,8 @@ class Rockcraft < Formula
   end
 
   resource "httplib2" do
-    url "https://files.pythonhosted.org/packages/84/f5/ccf58de92d61e3ad921119668f54ed36ca1d0cf5dcc5c1657dfb164fd78b/httplib2-0.32.0.tar.gz"
-    sha256 "48a0ef30a42db65d8f3399045e1d09ab0ba66e3b9efc360d07f80ea55d286025"
+    url "https://files.pythonhosted.org/packages/93/da/affa4b2adc11468c7d88d9b4258cac432479046edcf212284b55d4528593/httplib2-0.32.1.tar.gz"
+    sha256 "37900eb8a74576bd99fc39ae1dc8409f95f965d45b56cbcb2194bb55f58a90e1"
   end
 
   resource "idna" do
@@ -119,13 +118,13 @@ class Rockcraft < Formula
   end
 
   resource "launchpadlib" do
-    url "https://files.pythonhosted.org/packages/17/05/79115eea3f46a2048552b766d2e031740b53baff5a084d6a3f6318642ffe/launchpadlib-2.2.0.tar.gz"
-    sha256 "d4f7bb6b95739d4667dd6093d410220317b2415b6c2ef5b143379ebc5f5363a9"
+    url "https://files.pythonhosted.org/packages/5a/46/f5f8b44b85eede380d3ac2bfc1a5e90df0d33fb3ef9bf82b6406aabed9e7/launchpadlib-2.3.0.tar.gz"
+    sha256 "a39261632baa060872f65fe149a8acd6e1ada55964ee1afc9f25915e3b95e68b"
   end
 
   resource "lazr-restfulclient" do
-    url "https://files.pythonhosted.org/packages/8c/9e/1e8005ee1c8450b428d48a242d0180f22e3dff5a18091c69a72699257158/lazr_restfulclient-4.0.0.tar.gz"
-    sha256 "79577938dabce496675454105c37c5aa06deed7928818a98411adfb22f9e294b"
+    url "https://files.pythonhosted.org/packages/41/2e/8e05d1dcb68750b963227e8955ee6c8a10fbff71ab4137bf7a4af5308c0e/lazr_restfulclient-4.1.0.tar.gz"
+    sha256 "12d49afd48123f509958f26f757121bb37548cb2b1dc585f547bae2ce73f45c1"
   end
 
   resource "lazr-uri" do
@@ -149,8 +148,8 @@ class Rockcraft < Formula
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/7a/d8/a1bcc8ba112a627f8ffbdc212a78ce18d3ac07e91a5ca65d27918eee25a1/oauthlib-4.0.0.tar.gz"
-    sha256 "efb274799819440f95b4ab3b818869f1ce9ae26c5beacba0201d1a1b76b54f86"
+    url "https://files.pythonhosted.org/packages/33/17/2bb072de0b990303c985f26869fd47bb179024a051f47e7f9d208eb92f8e/oauthlib-4.0.1.tar.gz"
+    sha256 "3d73febdb6faa00f277c81fb04be7b7586fb96fc3b7f0b9c772dada69a25ede7"
   end
 
   resource "overrides" do
@@ -164,8 +163,8 @@ class Rockcraft < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
-    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
+    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
+    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
   end
 
   resource "pylxd" do
@@ -184,8 +183,8 @@ class Rockcraft < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
-    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
+    url "https://files.pythonhosted.org/packages/18/39/b3927f3616f6223832f9b760e4208e8a7c7e1dea2b4d9ad7d32a5d214c3a/python_dateutil-4.0.0.tar.gz"
+    sha256 "d7295ff14fdc0f92f662100bfb6c551d160ca090f2939f1ec5b9794265c03f06"
   end
 
   resource "python-debian" do
@@ -233,11 +232,6 @@ class Rockcraft < Formula
     sha256 "025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
-    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
-  end
-
   resource "snap-helpers" do
     url "https://files.pythonhosted.org/packages/50/2a/221ab0a9c0200065bdd8a5d2b131997e3e19ce81832fdf8138a7f5247216/snap-helpers-0.4.2.tar.gz"
     sha256 "ef3b8621e331bb71afe27e54ef742a7dd2edd9e8026afac285beb42109c8b9a9"
@@ -261,6 +255,11 @@ class Rockcraft < Formula
   resource "tabulate" do
     url "https://files.pythonhosted.org/packages/46/58/8c37dea7bbf769b20d58e7ace7e5edfe65b849442b00ffcdd56be88697c6/tabulate-0.10.0.tar.gz"
     sha256 "e2cfde8f79420f6deeffdeda9aaec3b6bc5abce947655d17ac662b126e48a60d"
+  end
+
+  resource "tzdata" do
+    url "https://files.pythonhosted.org/packages/7a/29/6a1391d31cd00ff9e927215a224a880e1e84e826b64ba80a499e51c074d8/tzdata-2026.6.tar.gz"
+    sha256 "85d2cd9c09f81f0bb29db27759fc83af4f1e620efb814f8c5bf8b4cc4feece6d"
   end
 
   resource "urllib3" do
