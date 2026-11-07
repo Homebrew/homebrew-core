@@ -1,18 +1,18 @@
 class Automake < Formula
   desc "Tool for generating GNU Standards-compliant Makefiles"
   homepage "https://www.gnu.org/software/automake/"
-  url "https://ftpmirror.gnu.org/automake/automake-1.19.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/automake/automake-1.19.tar.xz"
-  sha256 "e3e2c2e3abf37898138db5b6c1d1dc35c9160c5978be7947d2c741705251d445"
-  license "GPL-2.0-or-later"
+  url "https://ftpmirror.gnu.org/automake/automake-1.20.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/automake/automake-1.20.tar.xz"
+  sha256 "f6f34dad4cbe395715762b0710f7c511e39bd5cf777e6b95818ccbecf7714248"
+  license "GPL-3.0-or-later"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "23c091faee8dac047b0670d8c10da030bf104610fc064b904407de1a1ff8f437"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23c091faee8dac047b0670d8c10da030bf104610fc064b904407de1a1ff8f437"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "23c091faee8dac047b0670d8c10da030bf104610fc064b904407de1a1ff8f437"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a2b499128c61273de05a0d19251baca23de0c29abd15a74c8f495de2aeec3b40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a2b499128c61273de05a0d19251baca23de0c29abd15a74c8f495de2aeec3b40"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4f537192c9c75892b2b7b87fa9f74db0949365a7991554ac9c3120dba44d949b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4f537192c9c75892b2b7b87fa9f74db0949365a7991554ac9c3120dba44d949b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4f537192c9c75892b2b7b87fa9f74db0949365a7991554ac9c3120dba44d949b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "58ad63e21db904ff6e0ad954328cfe145b36d9900dbebe610a57ba3541dd8370"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "58ad63e21db904ff6e0ad954328cfe145b36d9900dbebe610a57ba3541dd8370"
   end
 
   depends_on "autoconf"
