@@ -3,8 +3,8 @@ class AwscliAT1 < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://files.pythonhosted.org/packages/a0/90/c289657c4d946f615063952a945e19d6acc50f493f42580ff77ebc423a35/awscli-1.46.2.tar.gz"
-  sha256 "43e77f324745e760918dc3c6ffb73eef49e35e9f52a5c39fe4a6de854f7e1121"
+  url "https://files.pythonhosted.org/packages/6d/b5/4024da68f7096bc2041f87dfce73b07f24b9cdb0d66cbf77675dfbb290d5/awscli-1.46.3.tar.gz"
+  sha256 "9b1146f4159bdf98688d900e2ffd0ac05c18f7fb28641c6b0817e64574e3ce1f"
   license "Apache-2.0"
 
   # Need explicit livecheck to autobump deprecated formula
@@ -13,11 +13,11 @@ class AwscliAT1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3f437096cb53653d99a675ba339ab0c6cf8a43b278e817084fcd82653327d7d4"
-    sha256 cellar: :any, arm64_tahoe:       "39efa3d859b7c8989ffde7374d8a3492f7889ae2cab8e286e1485b17e9a415b5"
-    sha256 cellar: :any, arm64_sequoia:     "3e84d38af28ccfbd03642facb8302eaf383cc77903089e625950f8b9d9872b0a"
-    sha256 cellar: :any, arm64_linux:       "b3b1d10f40e8187b0b9fd61166f1f0be12a06d3be71b24439faccf718e297c38"
-    sha256 cellar: :any, x86_64_linux:      "de7877117910720349ce8f22db1aa964d252f5468555930cb1b952907cb1b5dc"
+    sha256 cellar: :any, arm64_golden_gate: "b1c68c8be5e24710be727aca6aa62eea054bc774807916417d119c84809b0414"
+    sha256 cellar: :any, arm64_tahoe:       "b8e674857ac716ed070569e86dcb91e6d52124a437bdde08a3769fa3afa53d2f"
+    sha256 cellar: :any, arm64_sequoia:     "2470b912305c96c9a5286465a4761110dcffa97173b6dd40997a55ee27f6bf60"
+    sha256 cellar: :any, arm64_linux:       "d03dab7912d633f1bcd8111cf36e58f272740942eacb75e2eca8774a7db9dc3a"
+    sha256 cellar: :any, x86_64_linux:      "e7d256a45d086da72530efde761fbf95866561d47c5ece28cd18e3131191f13d"
   end
 
   keg_only :versioned_formula
@@ -47,8 +47,8 @@ class AwscliAT1 < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/a4/9a/23310166d960def5897e91fe20e5b724601b02a22e84ba1f94232c0b7f67/pyasn1-0.6.4.tar.gz"
-    sha256 "9c447d8431c947fe4c8febc4ed9e760bc29011a5b01e5c74b67025bd9fb8ce81"
+    url "https://files.pythonhosted.org/packages/88/7e/3c0da41061a2021cac7cd524fd57092adbe5b515e8bf9005702e366802e2/pyasn1-0.6.5.tar.gz"
+    sha256 "6b11616a6bcf3a40e635f082bb232fa57b5e0dd7f517bd7ddd69ec3794508a47"
   end
 
   resource "python-dateutil" do
