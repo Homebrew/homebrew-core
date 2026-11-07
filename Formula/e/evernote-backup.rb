@@ -6,7 +6,7 @@ class EvernoteBackup < Formula
   url "https://files.pythonhosted.org/packages/fe/fb/77e7a39fda8f28b795b91959b963afbbb137221b1d25408514ae0848bbb1/evernote_backup-1.14.0.tar.gz"
   sha256 "d62240730c6444072b2011aa5e63fbd15e2246959324fec3e58f86a3e313a962"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     rebuild 1
@@ -70,13 +70,13 @@ class EvernoteBackup < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/de/1d/f4da6f02cdffe04d6362210b807146a26044c88d839208aec273bb0d9184/more_itertools-11.1.0.tar.gz"
-    sha256 "48e8f4d9e7e5878571ecf6f2b4e57634f93cd474cc8cfbd2376f2d11b396e30d"
+    url "https://files.pythonhosted.org/packages/52/b8/c63995bebbb9ac9c059350e0fb8c82c2420c85aeca7d34e40aecf3df9281/more_itertools-11.2.1.tar.gz"
+    sha256 "cbf08fd0af284dc69718b9b76a8e6203df624d70209ea511e4219d350c856f63"
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/7a/d8/a1bcc8ba112a627f8ffbdc212a78ce18d3ac07e91a5ca65d27918eee25a1/oauthlib-4.0.0.tar.gz"
-    sha256 "efb274799819440f95b4ab3b818869f1ce9ae26c5beacba0201d1a1b76b54f86"
+    url "https://files.pythonhosted.org/packages/33/17/2bb072de0b990303c985f26869fd47bb179024a051f47e7f9d208eb92f8e/oauthlib-4.0.1.tar.gz"
+    sha256 "3d73febdb6faa00f277c81fb04be7b7586fb96fc3b7f0b9c772dada69a25ede7"
   end
 
   resource "pycryptodome" do
