@@ -37,11 +37,21 @@ class BeszelAgent < Formula
     ENV["GOPROXY"] = "off"
     system "go", "build", *std_go_args, "./internal/cmd/agent"
 
+    (bin/"beszel-agent-launcher").write <<~BASH
+      #!/bin/bash
+      set -a
+      if [ -f "$HOME/.config/beszel/beszel-agent.env" ]; then
+        source "$HOME/.config/beszel/beszel-agent.env"
+      fi
+      set +a
+      exec #{bin}/beszel-agent "$@"
+    BASH
+
     (var/"lib/beszel-agent").mkpath
   end
 
   service do
-    run [opt_bin/"beszel-agent"]
+    run [opt_bin/"beszel-agent-launcher"]
     keep_alive true
     restart_delay 5
     process_type :background
@@ -66,5 +76,15 @@ class BeszelAgent < Formula
     refute_path_exists data_dir/"fingerprint"
     assert_equal fingerprint, shell_output("#{bin}/beszel-agent fingerprint").strip
     assert_path_exists data_dir/"fingerprint"
+
+    env_data_dir = testpath/"env-data"
+    env_data_dir.mkpath
+    (testpath/"home/.config/beszel").mkpath
+    (testpath/"home/.config/beszel/beszel-agent.env").write <<~EOS
+      DATA_DIR="#{env_data_dir}"
+    EOS
+    ENV["HOME"] = testpath/"home"
+    assert_match(/\A\h{48}\z/, shell_output("#{bin}/beszel-agent-launcher fingerprint").strip)
+    assert_path_exists env_data_dir/"fingerprint"
   end
 end
