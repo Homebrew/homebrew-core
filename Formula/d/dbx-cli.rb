@@ -11,11 +11,12 @@ class DbxCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "07a2ce790cbe3f91f9857d784a359717874c943959b07683da044aa137424763"
-    sha256 cellar: :any, arm64_tahoe:       "48dfb8fcb6d7585fc451046f3f68fab7e90c16d56f622cdfbee94b58cdd300ae"
-    sha256 cellar: :any, arm64_sequoia:     "1c05361c2471e308bfbf31d1b23e55ffd21919a455729f5d59692238eb04a1ef"
-    sha256 cellar: :any, arm64_linux:       "d1ef216cf3777d279d96f886e08f8d317aa971dae341e08edcd10c0cbff9af91"
-    sha256 cellar: :any, x86_64_linux:      "0514e36d46fe1f2c402e2ae511e65ad54cd06c49b9e15def4e51e23317369705"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "4c523bd61bbefb1e952a19979897cfe2f9a87a5806ce02575e7765645d341c01"
+    sha256 cellar: :any, arm64_tahoe:       "c00c3d4c34801f0c3d656671f257f32ad009b19bb599ebd34be05bf8ab4721d5"
+    sha256 cellar: :any, arm64_sequoia:     "2293250405c68f7f2b4fa710cedd081cec00373276ef76702d1851cd695b9760"
+    sha256 cellar: :any, arm64_linux:       "328615ab719c25031d7b61fe03b505184dac59642fc057c944058ae103b5d8ec"
+    sha256 cellar: :any, x86_64_linux:      "31179727473b4b867615b29b4fc767d0bd14222ce9236682a216d93b739891ef"
   end
 
   depends_on "pkgconf" => :build
@@ -33,7 +34,7 @@ class DbxCli < Formula
   end
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "crates/dbx-cli")
+    system "cargo", "install", *std_cargo_args(path: "crates/dbx-cli", features: "dbx-mcp/os-keyring")
   end
 
   test do
