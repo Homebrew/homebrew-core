@@ -1,8 +1,8 @@
 class Swctl < Formula
   desc "Apache SkyWalking CLI (Command-line Interface)"
   homepage "https://skywalking.apache.org/"
-  url "https://github.com/apache/skywalking-cli/archive/refs/tags/0.15.0.tar.gz"
-  sha256 "2b167a3f32939a6fa03363720e94d5c44e2e66563a5991627b109a2377883c7d"
+  url "https://github.com/apache/skywalking-cli/archive/refs/tags/0.16.0.tar.gz"
+  sha256 "712a4f484121b518abde7f98a2a0cc4cc4d03ce0e28f59636376630c8a2aabc1"
   license "Apache-2.0"
   head "https://github.com/apache/skywalking-cli.git", branch: "master"
 
