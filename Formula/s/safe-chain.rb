@@ -5,6 +5,10 @@ class SafeChain < Formula
   sha256 "141d989b18df553b6b77175d4bcb51c51f8fb043192b5f9aa4194a3eb79a3c7e"
   license "AGPL-3.0-or-later"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "5cd73cae1be7b1077dda597d4238829f654390e1c1cd946c7bd4bbb428d7f907"
+  end
+
   depends_on "node"
 
   # The test starts a local proxy, which the network sandbox blocks.
