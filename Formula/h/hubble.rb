@@ -1,8 +1,8 @@
 class Hubble < Formula
   desc "Network, Service & Security Observability for Kubernetes using eBPF"
   homepage "https://github.com/cilium/hubble"
-  url "https://github.com/cilium/hubble/archive/refs/tags/v1.20.2.tar.gz"
-  sha256 "929ee40b4b3e5087a88c448970509c626f46ce8080b6e36f829658765a803800"
+  url "https://github.com/cilium/hubble/archive/refs/tags/v1.20.4.tar.gz"
+  sha256 "c3041595f6db56021d7b427d069c7175380d706e9bd96597d67911be6c95bcf2"
   license "Apache-2.0"
   head "https://github.com/cilium/hubble.git", branch: "main"
 
@@ -15,11 +15,11 @@ class Hubble < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ba68ca94bdf9877fc38aa8b433149f145145d2edc66967f46e825fc8b3491741"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d8410afe1378a9e3e9e0a07d91b7babd0c8a73df91626055aa84dcf2f78224e4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "218570f6f3228b9bdf28b8cdb2c89c5f1713d3ba2d91ab455e86d17c3d29481d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3cf1cf836071a993c81d142a7565a00fce0fe35452c59a3f40b3efd60218dda9"
-    sha256 cellar: :any,                 x86_64_linux:      "324a48155df75f132a1092d333b1a8e970c4ebac34730828b61c6f18df57ef49"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a8752f6a3da7d8d83d1a36a0adc0f3aabf9896934b7e84d07e3ea5ff5a6e336a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "327e65c1b8f2ec76c566211eaaf84d9ea716ae4a8679e8a4583b1b10f2424854"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f24cdeb8c3230ebddfeddff65061d880f2757a117894ab2e383da7ef748c69f0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b35ddb87ad41f31562aad2de9cf771c5615e57ad7f95b169c385332e9b1c6f08"
+    sha256 cellar: :any,                 x86_64_linux:      "26e7ac4bdd79af7d10717484f5f24cb78a301ab221393698f833887734a92adc"
   end
 
   depends_on "go" => :build
