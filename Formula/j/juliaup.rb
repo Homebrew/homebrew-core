@@ -1,8 +1,8 @@
 class Juliaup < Formula
   desc "Julia installer and version multiplexer"
   homepage "https://github.com/JuliaLang/juliaup"
-  url "https://github.com/JuliaLang/juliaup/archive/refs/tags/v1.23.0.tar.gz"
-  sha256 "d18228e0fff256863d0aabb71d72c2664601647dbd582c29b51b437f6bfb9bac"
+  url "https://github.com/JuliaLang/juliaup/archive/refs/tags/v1.24.0.tar.gz"
+  sha256 "e33d53a71cd3c54537af21ffa935f60046a2b6e84708b533d7c5876f5ce5ffe5"
   license "MIT"
   head "https://github.com/JuliaLang/juliaup.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Juliaup < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b4b58c454bdc8189d61593df4de97f66cc3694b71be80f1d17a7ef1ee2c6512"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fc74cd0622e435aa531d6b6e24993d88e0187e854f2e16f8eb941d38fe6f5be4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "63e2edec7f45b62c7e900cdbb31ff11566707ed9e3fdd190d5d27abe2397fc93"
-    sha256 cellar: :any,                 arm64_linux:       "6148a6e415af69728884e56d3321cb27395bde9689374ddedd6f776aa9797bc7"
-    sha256 cellar: :any,                 x86_64_linux:      "dc7d8046624da117abb2ad71481a7ac6893271622bbf258a74c95d8a5b332c4f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "911246c090445d0465fd1621379533ff1007880f62d1df886bc37c92763150f1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "104d37d949b16e17810a6747caf627cf28c9ac0225c7497d172bcab98e297dc9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7704096f7c7c2c734337dd3700e7c9ac81ca40ae29bb59772a8497903c780cf9"
+    sha256 cellar: :any,                 arm64_linux:       "2e1b82b5ff1430f53a3ff450d6ed696d79f43f25d8167c9df5e9c82adc56f2c8"
+    sha256 cellar: :any,                 x86_64_linux:      "c3818ba414715943dc273291f68d3c982039b07b7128258a3b152c42f4ded115"
   end
 
   depends_on "rust" => :build
