@@ -4,6 +4,7 @@ class Stk < Formula
   url "https://ccrma.stanford.edu/software/stk/release/stk-5.0.1.tar.gz"
   sha256 "afc35faea3bb8baacacb8d9db3fa745e4f7d8dd46f36aac5436ca377d565a184"
   license "MIT"
+  compatibility_version 1
 
   livecheck do
     url "https://ccrma.stanford.edu/software/stk/download.html"
