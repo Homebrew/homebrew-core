@@ -2,8 +2,8 @@ class Ollama < Formula
   desc "Create, run, and share large language models (LLMs)"
   homepage "https://ollama.com/"
   url "https://github.com/ollama/ollama.git",
-      tag:      "v0.40.14",
-      revision: "9a3e8177767245acc62b735eba7d5d8a553606d0"
+      tag:      "v0.40.15",
+      revision: "02480ca2a47153e1f9c31cbe1e05536da97ce1ba"
   license "MIT"
   compatibility_version 1
   head "https://github.com/ollama/ollama.git", branch: "main"
@@ -17,11 +17,11 @@ class Ollama < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d47005d5322876084a24787fb92f10fa12c9e29769a46d2c55ace09b5e1bf48e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "03c2752b044276c1c90bcac9a824ed7979f90667fdd5118f70b013b7879237f1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "33613e96ee503d9708569f7fda4d7678c9eec00903104362baa0e5395b2e47da"
-    sha256 cellar: :any,                 arm64_linux:       "06d5375152c99c88e493986f5f6f3245adc661162c777bf629f1f8ad238bac53"
-    sha256 cellar: :any,                 x86_64_linux:      "11093b9b91a31ac0907a23cf47c530f7a93671569ceecd9e5f41d2dbe80bcba5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8963ad2e6240ebbdfe52771aaedf8ad6717a4971b70376ddd4bdf9647c89af38"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1d2e4bf65fd44cfe90316969bb37a5b4329461be1695d786dd7aba6f5ebbbdeb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "20667db90cc003c7d241488b99ab65f84d2dced8d57c0cac2c93dfc2ca92ec48"
+    sha256 cellar: :any,                 arm64_linux:       "df683e4d4d0c834eff092b2d87a07cce93fb09d5d3ba0baafe5482ea02fb059e"
+    sha256 cellar: :any,                 x86_64_linux:      "5f1e1ccdfa42ecd2b5698ff85303f0eb8d9d461f8faa01a682b5a790448d558e"
   end
 
   depends_on "ccache" => :build
@@ -36,6 +36,8 @@ class Ollama < Formula
       # https://github.com/ollama/ollama/commit/66ab8482e08035a3238dff04a5739c4371c61bfe
       # `mlx_fast_scaled_dot_product_attention` has no `window_size` in mlx-c 0.8.0, so apply the window as a mask:
       # https://github.com/ollama/ollama/blob/v0.40.12/mlx/compat/mlx-c/0001-mlx-c-sdpa-window-size.patch
+      # mlx-c 0.8.0 also lacks `mlx_cuda_get_arch_list`, only needed for CUDA builds:
+      # https://github.com/ollama/ollama/blob/v0.40.15/mlx/compat/mlx-c/0002-cuda-get-arch-list.patch
       patch :DATA
     end
   end
@@ -43,8 +45,8 @@ class Ollama < Formula
   # Pinned dependency required by llama-server
   resource "llama.cpp" do
     url "https://github.com/ggml-org/llama.cpp.git",
-        tag:      "b11963",
-        revision: "39febd2adb947b70da35e95f9351b3bf58ad170a"
+        tag:      "b12111",
+        revision: "52e53a76df0298d2c316ae7e704eeec03b0bf478"
 
     livecheck do
       url "https://raw.githubusercontent.com/ollama/ollama/refs/tags/v#{LATEST_VERSION}/LLAMA_CPP_VERSION"
@@ -200,6 +202,32 @@ class Ollama < Formula
 end
 
 __END__
+diff --git a/mlx/cuda.go b/mlx/cuda.go
+--- a/mlx/cuda.go
++++ b/mlx/cuda.go
+@@ -117,21 +117,7 @@
+ }
+ 
+ func cudaCompilationTargets() ([]string, error) {
+-	targets := mlxCheck(C.mlx_vector_string_new())
+-	defer freeVectorString(targets)
+-	if err := mlxError(C.mlx_cuda_get_arch_list(&targets)); err != nil {
+-		return nil, err
+-	}
+-
+-	result := make([]string, int(mlxCheck(C.mlx_vector_string_size(targets))))
+-	for i := range result {
+-		var value *C.char
+-		if err := mlxError(C.mlx_vector_string_get(&value, targets, C.size_t(i))); err != nil {
+-			return nil, err
+-		}
+-		result[i] = C.GoString(value)
+-	}
+-	return result, nil
++	return nil, fmt.Errorf("mlx_cuda_get_arch_list is not available in this mlx-c")
+ }
+ 
+ func deviceInfoString(info C.mlx_device_info, key string) (string, error) {
 diff --git a/mlx/fast.go b/mlx/fast.go
 index f9927ca..20012fa 100644
 --- a/mlx/fast.go
