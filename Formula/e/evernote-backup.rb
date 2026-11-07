@@ -6,15 +6,14 @@ class EvernoteBackup < Formula
   url "https://files.pythonhosted.org/packages/fe/fb/77e7a39fda8f28b795b91959b963afbbb137221b1d25408514ae0848bbb1/evernote_backup-1.14.0.tar.gz"
   sha256 "d62240730c6444072b2011aa5e63fbd15e2246959324fec3e58f86a3e313a962"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b943c9862b1bbb0f142abe2d2838597ff5ecb13e12bda09fd5c62734c7e1e151"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4e02fe8720057f50b9c399ae9018cc6a6790dd02d6c713291957868de8b0c580"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "75837d6bacd68ad5e6498c452821b68e5625ddbc0a6a86c9e1ac10f7157bbb0a"
-    sha256 cellar: :any,                 arm64_linux:       "a9cccba1f8bf313368fc12489bd76f572ecb3ef699a233c6749d8b5cd76c5b9e"
-    sha256 cellar: :any,                 x86_64_linux:      "c84476b09cf1457a1534238f53369a4d536b0becc9aab5e0b0c9161968157884"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a656da9101f275e439aebd2849b9811cc8db5e57c056cd41b85be37d760e0d67"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "482e424aa050a5b2742b9bbb266cc9126044f50e8ce6b27c2e60a3ec28efc598"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f5a7369760a72f808ea572422645bb58bc796c8d5af25652e1fed10552761b6f"
+    sha256 cellar: :any,                 arm64_linux:       "513db6402e2c3369462afee150625e38ff12dfe164860d06b6782bb4aee538a7"
+    sha256 cellar: :any,                 x86_64_linux:      "7ee98e26f28491ba4783daf7151d9c0dede7a4d61dbc3d0d0a0c238c69b38806"
   end
 
   depends_on "rust" => :build
@@ -70,13 +69,13 @@ class EvernoteBackup < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/de/1d/f4da6f02cdffe04d6362210b807146a26044c88d839208aec273bb0d9184/more_itertools-11.1.0.tar.gz"
-    sha256 "48e8f4d9e7e5878571ecf6f2b4e57634f93cd474cc8cfbd2376f2d11b396e30d"
+    url "https://files.pythonhosted.org/packages/52/b8/c63995bebbb9ac9c059350e0fb8c82c2420c85aeca7d34e40aecf3df9281/more_itertools-11.2.1.tar.gz"
+    sha256 "cbf08fd0af284dc69718b9b76a8e6203df624d70209ea511e4219d350c856f63"
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/7a/d8/a1bcc8ba112a627f8ffbdc212a78ce18d3ac07e91a5ca65d27918eee25a1/oauthlib-4.0.0.tar.gz"
-    sha256 "efb274799819440f95b4ab3b818869f1ce9ae26c5beacba0201d1a1b76b54f86"
+    url "https://files.pythonhosted.org/packages/33/17/2bb072de0b990303c985f26869fd47bb179024a051f47e7f9d208eb92f8e/oauthlib-4.0.1.tar.gz"
+    sha256 "3d73febdb6faa00f277c81fb04be7b7586fb96fc3b7f0b9c772dada69a25ede7"
   end
 
   resource "pycryptodome" do
