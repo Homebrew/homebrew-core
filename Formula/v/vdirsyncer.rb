@@ -6,16 +6,15 @@ class Vdirsyncer < Formula
   url "https://files.pythonhosted.org/packages/79/05/b99b25ab9280fdd56b591ee58bd53b00da3e536c8e07fa714c95276b15a3/vdirsyncer-0.21.0.tar.gz"
   sha256 "b6ac040b880da6758f65c17a369572f62e7323be8d21cd330c26fa134d1b1373"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/pimutils/vdirsyncer.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d1562c7443979f6bb6a4d3bfcd1166bcda05d7529ae6c11be5e953f2bb38afef"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a92a80d9d79e9a76a830619b48fe4b3f46f0d5960149ed3e94824efbf89efcf5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a38209baf4cfc1a07fea3d191b494bef32ed7c3b729c33a239f20b7a2e304dfe"
-    sha256 cellar: :any,                 arm64_linux:       "fb37833d8e3d9cf2720bacb9ce8d0296893cd9ec84b311309675e35203907288"
-    sha256 cellar: :any,                 x86_64_linux:      "f316b74ad3b2933d8ec6aeb4d36815ba7fef077a97078ffaa11a8e9a1ce60134"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e4621e7fd782e8f04fe36127896955fde8f0d3f727d28d025bf3752a1e3f28a4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9dbdc3c05d14b21c787774490d1c8aa2fe7e57e93679379454818cd8d932f91c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "91889d8e2b5779b125dbcf67ec405fcacc9180a03bddfd90412ee848f81c78ba"
+    sha256 cellar: :any,                 arm64_linux:       "9f17eb616d7b6644b6070c0e5f1730d176c3e460757396857893837a9972c6b5"
+    sha256 cellar: :any,                 x86_64_linux:      "5115efed6449fc3a145f6f0fadb8d6c5b3642cc7406b06e7c1c765fe33ba5b47"
   end
 
   depends_on "certifi"
@@ -80,13 +79,13 @@ class Vdirsyncer < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/f9/79/84ddb5ba16c4eb2c69c71db76ae3c579fe546e511f7170c7e27eedbab7c1/multidict-7.1.0.tar.gz"
-    sha256 "61a4e5d81b8d4e4ad61964b230129e7a2b914793d96289029078fc9009f074ec"
+    url "https://files.pythonhosted.org/packages/7b/6b/29ef8e752f5854dcc267ded0652c475bec99b86f255957a0d4fcad657b18/multidict-7.2.1.tar.gz"
+    sha256 "e8af3e6f1bdbc31fd762b094133b478b89988eaebc63cbe82b1d9e3bbd15cede"
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/7a/d8/a1bcc8ba112a627f8ffbdc212a78ce18d3ac07e91a5ca65d27918eee25a1/oauthlib-4.0.0.tar.gz"
-    sha256 "efb274799819440f95b4ab3b818869f1ce9ae26c5beacba0201d1a1b76b54f86"
+    url "https://files.pythonhosted.org/packages/33/17/2bb072de0b990303c985f26869fd47bb179024a051f47e7f9d208eb92f8e/oauthlib-4.0.1.tar.gz"
+    sha256 "3d73febdb6faa00f277c81fb04be7b7586fb96fc3b7f0b9c772dada69a25ede7"
   end
 
   resource "propcache" do
