@@ -1,18 +1,17 @@
 class Libspelling < Formula
   desc "Spellcheck library for GTK 4"
   homepage "https://gitlab.gnome.org/GNOME/libspelling"
-  url "https://gitlab.gnome.org/GNOME/libspelling/-/archive/0.4.10/libspelling-0.4.10.tar.bz2"
-  sha256 "d6388f3dc207269743ec920b14bb3be55ab4bd97a18e167b52a09cec0554dc2b"
+  url "https://gitlab.gnome.org/GNOME/libspelling/-/archive/0.4.11/libspelling-0.4.11.tar.bz2"
+  sha256 "304ff82faaeb0ba131765a819f2db8ba5655bdbadc78fea64c12033274acebec"
   license "LGPL-2.1-or-later"
-  revision 1
   compatibility_version 1
 
   bottle do
-    sha256               arm64_golden_gate: "b7eea5b77dd069c25fee933c36d061f411ec41a7e0c607c9def5e95c09e71e71"
-    sha256               arm64_tahoe:       "f16e238a9d129c0a343b9ef2ec24bb6b317257355ae7a48fab3248c52bf673b8"
-    sha256               arm64_sequoia:     "291ef77d7b7133dee4afcb5e66c72157b4e62345e5f47fba1ce0f896d5e5b462"
-    sha256 cellar: :any, arm64_linux:       "7f387bf9183fbf64e84077207b7b79d30ac89fc6a1a195409b3f1e6a5eafd725"
-    sha256 cellar: :any, x86_64_linux:      "fc89779d454e77b4534bcf7b611b19dda54fe36e2d50e3ebcc6c902a3f90285d"
+    sha256               arm64_golden_gate: "7ee514eeebb10157850cd04be5156b6fc51e29cef0a883f5e7589337b9e00efa"
+    sha256               arm64_tahoe:       "834242b29b778542bf45c68fc0e9e52f5083d39d116e0a69a3c12a507b5a9896"
+    sha256               arm64_sequoia:     "602be0b10d2e3fc888db00eb7d315df05585399ed9671b0812500c4f7d2341da"
+    sha256 cellar: :any, arm64_linux:       "553b79de5ee13d5689e3a7ef17693b06172b8e71860ce35a09cd649b21738b57"
+    sha256 cellar: :any, x86_64_linux:      "dca2abf8ddec5f34bb1f10f7e3553d08be4b29f773e501499f7611cba14a1152"
   end
 
   depends_on "gobject-introspection" => :build
