@@ -1,11 +1,11 @@
 class Openrtsp < Formula
   desc "Command-line RTSP client"
   homepage "http://www.live555.com/openRTSP"
-  url "https://download.live555.com/live.2026.11.05.tar.gz"
-  mirror "https://download.videolan.org/pub/videolan/testing/contrib/live555/live.2026.11.05.tar.gz"
-  mirror "https://pkg.freebsd.org/ports-distfiles/live.2026.11.05.tar.gz"
+  url "https://download.live555.com/live.2026.11.08.tar.gz"
+  mirror "https://download.videolan.org/pub/videolan/testing/contrib/live555/live.2026.11.08.tar.gz"
+  mirror "https://pkg.freebsd.org/ports-distfiles/live.2026.11.08.tar.gz"
   # Keep a mirror as upstream tarballs are removed after each version
-  sha256 "a9001fed451a2e5bc429f1f4cb4efd3eb9840ca429891f7e64f743a5a44b7333"
+  sha256 "95eb2ad572a5f88d817717c00c534dbdfdeb2df0afaa0e0052a52c4f9f041a7c"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -14,11 +14,11 @@ class Openrtsp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "60d858e6e9927dd91cc756d894ef905b9dfb5be28a7e778093096c3f50e0fb5d"
-    sha256 cellar: :any, arm64_tahoe:       "02c7aab39aebe9a90eb734dac388d3ee097681d5089792224884a39e71ac86aa"
-    sha256 cellar: :any, arm64_sequoia:     "3659ed4007bb6824a868ee97eeabd54c3b2199de94078fb01d71a4f240206f27"
-    sha256 cellar: :any, arm64_linux:       "a122101b250ac154507e358c3b1a43b70f60d90461b7166a7615f412bdc5744a"
-    sha256 cellar: :any, x86_64_linux:      "df49d38a4c1b47c44470da574aa021980b86592b4e1c864b0ab0ead3015f13fb"
+    sha256 cellar: :any, arm64_golden_gate: "d1cb86b55c8b6232323774328ad18098bdaf9594203cfb09233897427a32d1c7"
+    sha256 cellar: :any, arm64_tahoe:       "acad60ee5fe0c26edbaadcac332b619eaa0c2611205339f33d8777ffb8609b41"
+    sha256 cellar: :any, arm64_sequoia:     "3beb51433a1b1610876913eeccee781194137e676fc06d272d9b556d83b9aae2"
+    sha256 cellar: :any, arm64_linux:       "6543c13f6954113944e3c70aec5634ec187b023129e2a5fff238cd666aaec009"
+    sha256 cellar: :any, x86_64_linux:      "9a22c6adb434f7f6664eb80696f7f445d685f6f39f4e12e4835dc87a3e968e81"
   end
 
   depends_on "openssl@4"
