@@ -4,6 +4,7 @@ class Faust < Formula
   url "https://github.com/grame-cncm/faust/releases/download/2.88.0/faust-2.88.0.tar.gz"
   sha256 "e4e175cf236924b5b7d4784cbb8c50cc01e211159e169655dd9e6d8f92b871d9"
   license "GPL-2.0-or-later"
+  compatibility_version 1
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
   # labeled as "pre-release" on GitHub before the version is released, so it's
@@ -14,12 +15,12 @@ class Faust < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "5b05245a38d6aa8d4a441ab1564a465548e0a0a344b206ef93a1d33e21d41031"
-    sha256 cellar: :any, arm64_tahoe:       "b7e0914dc4fa0a5f70a2aac8dd2c316a11b739c4412443d66b320bf684c28f69"
-    sha256 cellar: :any, arm64_sequoia:     "a2427d5014545bbaf1178b359b31476c3e36d28e8e2265a7bd5f18e1c74a5b15"
-    sha256 cellar: :any, arm64_sonoma:      "d7d5dc625f46bb77294e36c3839a037a73921b96d2b1d1f1422825d6f997c746"
-    sha256 cellar: :any, arm64_linux:       "0bfdaaa307c4490068663fa388dde9a12f7ee9c349efa999069d242f2b140dc7"
-    sha256 cellar: :any, x86_64_linux:      "be88c0cf33b7816e014727ddfb272bed9007d7b4a9be7e12c93aea70f48ad87a"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "34a3941af70ab72e0e60629b3fdb71d1c66ab73668c0e42168e8149ed590ed02"
+    sha256 cellar: :any, arm64_tahoe:       "112897551733808454cde5b271078ca8dab4fc7081a537cb3ce5b047420c1495"
+    sha256 cellar: :any, arm64_sequoia:     "aebcac66afe6236c588f226d09438f2a6d69eb4f92547594682820b77c406b40"
+    sha256 cellar: :any, arm64_linux:       "1a449a635c33a19d03a20b8803218a7d5e6f69b5cf462ccd0865b4c4942a8269"
+    sha256 cellar: :any, x86_64_linux:      "d75ed501338f8c8f1404a2dd8295dc58e6b7b6e63e5e5be074b656103934c3cf"
   end
 
   depends_on "cmake" => :build

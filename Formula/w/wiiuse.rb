@@ -4,13 +4,15 @@ class Wiiuse < Formula
   url "https://github.com/wiiuse/wiiuse/archive/refs/tags/0.16.0.tar.gz"
   sha256 "084e0afe3ecd392a2daf4392e62e171be7bdf404659c1bfee92e914f973be9a5"
   license "GPL-3.0-or-later"
+  compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "202c73205053c5693bf53258f36136a3aa513b41f98922a416da2ae96d53fa37"
-    sha256 cellar: :any, arm64_tahoe:       "c3799c163d4e1ac54f1dcadacdbd4efe6be1b17ea241c8a26ce9d04e16c3045d"
-    sha256 cellar: :any, arm64_sequoia:     "96402711a377e57842d8d00d97031162828270e23c61d50604cba4d3efc13b36"
-    sha256 cellar: :any, arm64_linux:       "45e1cac29dd121e10b42b68919a2bbd97593f2138267e4904f71d8a427726243"
-    sha256 cellar: :any, x86_64_linux:      "69110bbdc0be45011b7957145783023cdd56bf8406f38fd0b2bc232c75014c99"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "f7cb495f77d3c10593a9ee7047829389808d9fdb8d279f5f70fd5827ef371941"
+    sha256 cellar: :any, arm64_tahoe:       "fd5a82ce640c286677832fa788bbe784370c41b13425a619e2480873aa205ac1"
+    sha256 cellar: :any, arm64_sequoia:     "b7a924dd8a993b16522c7a871afd957ffa717d9af11ebec54bf17bbd0c2ce046"
+    sha256 cellar: :any, arm64_linux:       "8b18075a1a1ec4935b8d2b644b99261d50ad8ae32d9ff4ef4f5eca970c694922"
+    sha256 cellar: :any, x86_64_linux:      "263628707d76c8a9c98aed1803fcfca64b9ef111fbd152c62d4d0517e50400e5"
   end
 
   depends_on "cmake" => :build

@@ -4,6 +4,7 @@ class Stk < Formula
   url "https://ccrma.stanford.edu/software/stk/release/stk-5.0.1.tar.gz"
   sha256 "afc35faea3bb8baacacb8d9db3fa745e4f7d8dd46f36aac5436ca377d565a184"
   license "MIT"
+  compatibility_version 1
 
   livecheck do
     url "https://ccrma.stanford.edu/software/stk/download.html"
@@ -11,19 +12,12 @@ class Stk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "db22db7aacd99cd46b8ca8c1ec8494c4fbdace7b72a0a4f94fd47b519f998cf2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "33c29e2a776f2b13912844ce37fd744fc1b4f0866f134b2a3ec62bd7d5333fc3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "140113c25ddb581acbd291f3671b2657562ff8237c62abe8db42ba2e3e3297f7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "2b50969de86e485eb0ea91411ecfa5ef8c531fa5da68a0d8f1df49c196339aed"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "8cf614b99101345ec67c8bf4d63bee7b765ce0025cff30b9e61487b112768437"
-    sha256 cellar: :any_skip_relocation, arm64_monterey:    "d55edfca37504873b9b03ee40c0b369a804c6623b33e0e46937f4c97f9513efe"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:     "5755ac96f6b41e1cb2b94c4e112fad6ce671ce4bdb146fa1324e923f9e092bf0"
-    sha256 cellar: :any_skip_relocation, sonoma:            "68cf2df4d1e9ba32def2c769a1a82933b4b4a93c609b42531a2fcb4874cbd577"
-    sha256 cellar: :any_skip_relocation, ventura:           "18f8a96c836e1e8f9431e9940314f18774492625bc1c51813ebc029b57cd8eca"
-    sha256 cellar: :any_skip_relocation, monterey:          "9f175bb0213ef53e309396354a64c1cc400728a4023cd7d153d67124cfbddeb0"
-    sha256 cellar: :any_skip_relocation, big_sur:           "d2dc36b8b8616a0f43bff5137e924c63606ab52509329f1e2df8d4b75aea28f4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d940bdd5baa984fa5773f4e3a88fbadc294cbbad08cb13cd802fcfae2c93fba4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "64cfa5d539dc990021c45a9848fc8d34252138791ffb7f3a1bba0dd13d76489c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "824f5a67e81886214168ec94e8d38f93bb169013e182aff5d1c3aa1b832f63a7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "14b11f68c2557197e095d18b4ef4165afee87aec1d094e11665ee4f3ba457fab"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8050290142b2bd021e4ab23875affcc51996f459f8dbad28b6428df44383afdb"
+    sha256 cellar: :any,                 arm64_linux:       "2b816f2bfaee8682d4717e0ad0118efa11a04e92b9aff21b9f089f9ea9cc8138"
+    sha256 cellar: :any,                 x86_64_linux:      "ac6eb9225f58b77cd508c338154016eac3d9d83f9eb7b511aa9adaf34b196d4a"
   end
 
   depends_on "autoconf" => :build
