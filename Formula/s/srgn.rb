@@ -1,19 +1,17 @@
 class Srgn < Formula
   desc "Code surgeon for precise text and code transplantation"
   homepage "https://github.com/alexpovel/srgn"
-  url "https://github.com/alexpovel/srgn/archive/refs/tags/srgn-v0.14.2.tar.gz"
-  sha256 "2f39cbb6e86e3bfe0a01d7727b6d287a2c2399a9ceeda7ee2f47e7c00503b194"
+  url "https://github.com/alexpovel/srgn/archive/refs/tags/srgn-v0.14.3.tar.gz"
+  sha256 "10b26f3c28b25ab2adcd5a43b4dabf59109f370f60b6e65948fb8c006da49f68"
   license "MIT"
   head "https://github.com/alexpovel/srgn.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "765a092919e2454c269d52f9b43a62afefb5de109284e9257f7d76d2d0b91dc3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3f5107accdec90fde7867d0221c94e00f7fca9fa241dcd2a81dcfcd7524a4e57"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "193685484025a92debef55ac8d25d9d39733fe15ca3d83a50de43961dd9c220b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "f2ee1a107c6cc81d82a822bad3e25ae902fe5e162e84ad97d1e6297695609450"
-    sha256 cellar: :any_skip_relocation, sonoma:            "d683f84a05fad0c898297cf994169d84597a1008198e6123467a43e6e65fceae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "bd17abab9141b6d7e6c616f8391794bce236dafda6c61dfbaf3d19ae831ed737"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "97ee55a9233b7d6fac1e1c5ad81d17d3d311ed86f9da3fc93967b1ae02c81e68"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ad1ef4732e87045ce0dcadd96ee930769e0f12d7d216b8f9e94d6e48eb981a56"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "db362ce0319620f975fdc345de6b70de9b43ae87a9ea7d2b1a557cde9e9dd0ba"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f4ddc812d04334f9b9567d13afbfb9e7ed463ce4e957fdc26b1503889ee9ac72"
+    sha256 cellar: :any,                 arm64_linux:       "c0d73b191cce8908e70e65d0f5183ed3f6db29b20f0a636648f1707a66bd2933"
+    sha256 cellar: :any,                 x86_64_linux:      "e6b69e2bdaddd485fa29bc68598008f9fb45ddd3f2d196f60f8299a4221bbcb2"
   end
 
   depends_on "rust" => :build
