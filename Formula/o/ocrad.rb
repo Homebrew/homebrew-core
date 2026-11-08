@@ -22,6 +22,8 @@ class Ocrad < Formula
 
   depends_on "libpng"
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install", "CXXFLAGS=#{ENV.cxxflags}"
