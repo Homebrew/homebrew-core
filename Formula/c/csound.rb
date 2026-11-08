@@ -16,11 +16,11 @@ class Csound < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "4eeb66353b17e65389ad1655d838f4d27e7efdd2eb68af8ecf488c835d7ddc4b"
-    sha256 arm64_tahoe:       "837bea4f223728b672dfe441764fef6f473eb4ecdec6dc386b6d92af5eec44dc"
-    sha256 arm64_sequoia:     "067a471c056b0f8104e6e5cd65a7d8afd3b34c9448c14378c9250743e5e3dc5b"
-    sha256 arm64_linux:       "da11afcf999246360aeb9dca9f5fe1a82a04254690436b99a71247ce459b8255"
-    sha256 x86_64_linux:      "516e75cebba359abab4a8eb002dce0c9f1ad6367ce79f3644651cdc5d92d32b7"
+    sha256 arm64_golden_gate: "7709c6410f805f7f2e5d6beb8d1cb375faefd1e73c083d5fb791dcc8e683d155"
+    sha256 arm64_tahoe:       "85145fdf22bcc9615baceea4717b8ed96fc01d38d8c84778d7e2dbb72189d3fa"
+    sha256 arm64_sequoia:     "7868cf70cee80c7209c9bc5e76b3801c978e78b147b96c72fa9cac914fe35c57"
+    sha256 arm64_linux:       "12d5059cc8ad64c50aaacc20037f9f122caa5627e8b0a7dcc55d3926fa9f604f"
+    sha256 x86_64_linux:      "6be0996a84845a6e6bfa0d09d0765c441fd902e94a18309ba14df3105fc374d5"
   end
 
   depends_on "asio" => :build
