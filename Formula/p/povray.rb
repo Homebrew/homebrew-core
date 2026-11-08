@@ -40,6 +40,7 @@ class Povray < Formula
 
   head do
     url "https://github.com/POV-Ray/povray.git", branch: "master"
+
     depends_on "boost" => :build
   end
 
@@ -55,6 +56,8 @@ class Povray < Formula
   on_linux do
     depends_on "zlib-ng-compat"
   end
+
+  deny_network_access!
 
   def install
     ENV.cxx11
