@@ -38,11 +38,16 @@ class XcbUtilCursor < Formula
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-silent-rules",
+                          "--datadir=#{HOMEBREW_PREFIX}/share",
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}",
                           *std_configure_args
     system "make"
     system "make", "install"
+
+    # Workaround to allow brew to record binary_relocation_files as directory needs to exist
+    (share/"icons").mkpath
+    touch share/"icons/.keepme.#{name}"
   end
 
   test do
