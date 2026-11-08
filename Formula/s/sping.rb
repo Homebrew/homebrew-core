@@ -6,6 +6,14 @@ class Sping < Formula
   license "MIT"
   head "https://github.com/LambdaBytes/sping.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "adb925e96c9942a1ae0c733e62b0cde52df56b668ad1a479ccc3f6dead821319"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "70ba163ac3bef70a4cefa7d8a6a48316697a6572b6f354f8b4967af0a6e753c9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92d99ef7fd3e4f94ecabd399d95774c79339d64f17717edcdbddc057d2c47d6b"
+    sha256 cellar: :any,                 arm64_linux:       "99a32251365bee58e27f77de53ff0ea648a8afaaea694a83c0713f20db8f4713"
+    sha256 cellar: :any,                 x86_64_linux:      "216ab52ae6cc7a0c4738ddcf811b0854acdcbcedefff9137138d8c128cec7d33"
+  end
+
   depends_on "rust" => :build
 
   deny_network_access!
