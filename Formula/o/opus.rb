@@ -30,6 +30,8 @@ class Opus < Formula
     depends_on "libtool" => :build
   end
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-doc", *std_configure_args
