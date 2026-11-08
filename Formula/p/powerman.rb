@@ -30,6 +30,8 @@ class Powerman < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "curl"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--localstatedir=#{var}",
