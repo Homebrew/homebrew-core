@@ -5,6 +5,14 @@ class CsoundPlugins < Formula
   sha256 "5f00ccc3fa28437d2206bbf49136ec0a4fa0f0fd2104f56506232c49219b0df9"
   license "LGPL-2.1-or-later"
 
+  bottle do
+    sha256 arm64_golden_gate: "a5d7fb7c2700679a0407972da0607d7540bac9cc5fcbd8a0fad48279d9fa4dc4"
+    sha256 arm64_tahoe:       "b00abf374beaf23b853c36b37984c8234ff470ade121aff86c77ec9f1ada60e7"
+    sha256 arm64_sequoia:     "076029ed4d523b26b5e5502b181ff8830cc91128aa61f8120e2d498fde314048"
+    sha256 arm64_linux:       "2fedac6766cca16f17f4d1277e0d2e4392051c4a12c6a3f3803b9e5ccc50b252"
+    sha256 x86_64_linux:      "fb84be7e950b4f30dd3d5e9c14e9c2d3afa6b744f64fb33b3ad99b766320a7b7"
+  end
+
   depends_on "cmake" => :build
   depends_on "csound"
   depends_on "faust"
