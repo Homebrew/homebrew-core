@@ -1,0 +1,14 @@
+Formula/u/upmd.rb
+  h_9df9c32c3f321d 1-33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "86bd9aff08e91fdff8ec778ac7b0471eeca418e4",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
