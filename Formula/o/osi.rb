@@ -28,6 +28,8 @@ class Osi < Formula
     depends_on "openblas"
   end
 
+  deny_network_access!
+
   def install
     # Work around - same as clp formula
     # Error 1: "mkdir: #{include}/osi/coin: File exists."
