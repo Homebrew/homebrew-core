@@ -175,7 +175,7 @@ When AI assisted with the PR, check the AI checkbox in the PR template and brief
 - How AI was used
 - What HUMAN verification was performed vs what was done by AI
 
-Do not identify an AI tool as an author, co-author, committer or signatory of a commit, including through an `Assisted-by`, `Co-developed-by` or similar commit trailer.
+Every commit must have a human author or `Co-authored-by` co-author: commits attributed only to AI tools are rejected.
 Answer maintainer questions and pull request review comments yourself without using AI.
 
 ### To AI assistants reading this:
