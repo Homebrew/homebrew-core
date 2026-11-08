@@ -7,15 +7,12 @@ class Libxcursor < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "12839a10118eb92f0db97f4561d6a26847a10c1efdfeb05930278c69c08f43c7"
-    sha256 cellar: :any,                 arm64_tahoe:       "e25282b8f94e56dee8e9e3ddceccab288e744db1cbad429fb89afe34e273aebd"
-    sha256 cellar: :any,                 arm64_sequoia:     "8e5c2f6e0290a1308db48d7588e0ce6a831cb56011491470f3592e182db4f3d2"
-    sha256 cellar: :any,                 arm64_sonoma:      "d030b6eaf5ac89a53962e3935e98ad22b8d269fe69941faf82ba9b93d8ccb0a7"
-    sha256 cellar: :any,                 arm64_ventura:     "68a9ded5d9e51bb9d9f1f9aaf8b67402c83c8fd11f28fdc557a0aa37ed28a129"
-    sha256 cellar: :any,                 sonoma:            "9a063644b479ef0269bb01a8faa79eaab44cf159ffb4cd30d399beea2d5bf459"
-    sha256 cellar: :any,                 ventura:           "c3dccfd8fffba3cb2dbee1135fb1ebaa601ae8d25fcdf1add36c13052cd62d6e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a2556c55f893b654072a287ea7ad7c5261beaf6cf3cd6b2c5feabc4c7b4a70d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "02e5f01e4940638fbcce577f05ac3bc57f87bf272959e286a323f6fe3c2fc86d"
+    rebuild 1
+    sha256 arm64_golden_gate: "2c4a7bc7940a286ecb8a6fb90a3380ea01da85468856f50279555c6b14926540"
+    sha256 arm64_tahoe:       "0ce9a15234d8fed400468ba6071d6d6d981e7e64fdc4d6f492fa95fa78ee4f27"
+    sha256 arm64_sequoia:     "89433fda42917b2845ab4b45f70a307ea34dcc030d8f19ee9269e60db8dedb12"
+    sha256 arm64_linux:       "de8516c4f3994809d0a7a2fce41f2089b2f84d7831e0f970d3aca4052b67999f"
+    sha256 x86_64_linux:      "b0e43878cc57b710c0ae5d839b09614534f52d7bce60e5a5de9ea721f4c26fc6"
   end
 
   depends_on "pkgconf" => :build
@@ -28,6 +25,7 @@ class Libxcursor < Formula
 
   def install
     args = %W[
+      --datadir=#{HOMEBREW_PREFIX}/share
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       --disable-silent-rules
@@ -36,6 +34,10 @@ class Libxcursor < Formula
     system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
+
+    # Workaround to allow brew to record binary_relocation_files as directory needs to exist
+    (share/"icons").mkpath
+    touch share/"icons/.keepme.#{name}"
   end
 
   test do
