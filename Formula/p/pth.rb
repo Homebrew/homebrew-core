@@ -23,6 +23,8 @@ class Pth < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "66cd52703b09b137d33237be545677ba50729264ef0ad34d5f4c3891bba86173"
   end
 
+  deny_network_access!
+
   def install
     ENV.deparallelize
 
