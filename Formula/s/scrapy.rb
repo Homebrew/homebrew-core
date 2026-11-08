@@ -3,20 +3,21 @@ class Scrapy < Formula
 
   desc "Web crawling & scraping framework"
   homepage "https://scrapy.org"
-  url "https://files.pythonhosted.org/packages/7a/bd/5a65f4d9319bf1533472a446915b941f393f6d2d547bf88cec23207beddf/scrapy-2.19.0.tar.gz"
-  sha256 "34130726582b64c91531162ab277c4053e558876d49ba219cb43679e71d80a87"
+  url "https://files.pythonhosted.org/packages/1f/8a/361c59bf1ca22f4be27a034181663ab1b200f620707e662e72b73d893d46/scrapy-2.20.0.tar.gz"
+  sha256 "27af677573787a15800332f1998b3e05c48eb06f0e02c1702542e71ccd327b1a"
   license "BSD-3-Clause"
-  revision 3
   head "https://github.com/scrapy/scrapy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e10c3bc7c5a4be0438f87ec21ba64f7ce9e42365ee5d2135d4d6cd5d296fc1e7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "34d773f24338db65ee3d9b7f8e02a3177c841b4d3e5f63116d4b3ac446040976"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2afcab2ca642ea896f9fbf88735fde5fa6e3e3cf324c54003d73e206558650d6"
-    sha256 cellar: :any,                 arm64_linux:       "062e581cd0d87348c718f3bce9ebc6ae44d01cc15eeae19d196a0511f1aba313"
-    sha256 cellar: :any,                 x86_64_linux:      "a69dd38a064d213b556c0e971c9072940957091630beaab637a7f67935eca255"
+    sha256 cellar: :any, arm64_golden_gate: "d9bead151f0936a17afcc4d19c6b604f69ee2e0ba440bc2a21f4fc33990973a7"
+    sha256 cellar: :any, arm64_tahoe:       "155d557dc4014edb39503a486abe243998ffd6c3c9a7bfcf415a36cc61ee8518"
+    sha256 cellar: :any, arm64_sequoia:     "43475d21a3cb67499dbe53f9abaebc636d3088428a040d97b1662712d68a5bf4"
+    sha256 cellar: :any, arm64_linux:       "24469c482c73e8b17c6b58000aadf9ac189f74e4e8f890c38a05d49272662ff6"
+    sha256 cellar: :any, x86_64_linux:      "e3d34302b6332625153c500147f4ad828c7c0074263760a7740608f4c6bf86cc"
   end
 
+  depends_on "cmake" => :build # for pycares
+  depends_on "rust" => :build # for frostwork
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "python@3.15"
@@ -25,6 +26,16 @@ class Scrapy < Formula
   uses_from_macos "libxslt"
 
   pypi_packages exclude_packages: %w[certifi cryptography]
+
+  resource "aiodns" do
+    url "https://files.pythonhosted.org/packages/9b/22/a2d928e0e42baad0471d12ec44c71152ac870486e8298dddb2893b888c29/aiodns-4.0.4.tar.gz"
+    sha256 "cb10e0c0d2591636716ad2fe402e977c16d71bdaf76bb8cb49e8a6633596f736"
+  end
+
+  resource "aioftp" do
+    url "https://files.pythonhosted.org/packages/aa/ee/eafe937266180209a5d503c51693381e551d708cc933bb42436a3d11f5ca/aioftp-0.28.3.tar.gz"
+    sha256 "f054f3af285b4958621220f04ce755e58907140181e95efa859369091c92d040"
+  end
 
   resource "aiohappyeyeballs" do
     url "https://files.pythonhosted.org/packages/ce/f4/eec0465c2f67b2664688d0240b3212d5196fd89e741df67ddb81f8d35658/aiohappyeyeballs-2.7.1.tar.gz"
@@ -77,8 +88,18 @@ class Scrapy < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/aa/4b/2320d9fa03b65b4beb43b521fe1b12b7f87ab91ee42de3a286075016d205/filelock-4.2.5.tar.gz"
-    sha256 "37d8fa4f8b5e9233612e68ab23bf64cae41771322c8797361088ae2895b12894"
+    url "https://files.pythonhosted.org/packages/a3/1d/d730c664fcb4f1d264a722722a3134cf0881854f73c1fd58abf87572f232/filelock-4.2.9.tar.gz"
+    sha256 "96530b7c538d4ea08493ab067247aab7948c54d8cd622cce711c97cccc5d9896"
+  end
+
+  resource "formerly" do
+    url "https://files.pythonhosted.org/packages/7f/7b/7bab9bed04fb9f08e0e8c9081e5ca0068d40bb913260f09b28b643876528/formerly-0.1.0.tar.gz"
+    sha256 "e30ce1f317b3a05689aea057faa3bc4ec89a105ba5a48433ca9899ac1bf69a62"
+  end
+
+  resource "frostwork" do
+    url "https://files.pythonhosted.org/packages/00/df/dc5971ef6c3025ac0734eb4552abbb45adaa6a410733f8119293d99f4e84/frostwork-0.2.2.tar.gz"
+    sha256 "da4ac35a703b68a6fd1ad92dba53abeed4d38bcfaa5125b6f7f50b4405de7066"
   end
 
   resource "frozenlist" do
@@ -137,8 +158,8 @@ class Scrapy < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/40/28/1c058a9143d2304b3078f8dadcbb9dc27f7d3581b5d05157c84869c4cc0d/platformdirs-4.14.0.tar.gz"
-    sha256 "83f009c1e8c5fc36869b5171755b291887bd2cade7965233cdfabd23d754720b"
+    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
+    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
   end
 
   resource "propcache" do
@@ -149,6 +170,11 @@ class Scrapy < Formula
   resource "protego" do
     url "https://files.pythonhosted.org/packages/7a/d9/5026b9e75db1172f02441a84eaf42efb199b4cea14dda7651a620d1acd40/protego-0.7.0.tar.gz"
     sha256 "2c032d9736a1f4f0c4318f3558353ae34da5cd038f1a5e064ded7548df315e5a"
+  end
+
+  resource "pycares" do
+    url "https://files.pythonhosted.org/packages/c9/f3/4df974f2f902fdcec81087773f37eaedc7c8308291fb3f15da7ff21a5b88/pycares-5.2.1.tar.gz"
+    sha256 "3e89edc56a3745046676207958bf3dbf2971c5df0d64de9f7a893eba8bf255b4"
   end
 
   resource "pydispatcher" do
@@ -202,8 +228,8 @@ class Scrapy < Formula
   end
 
   resource "w3lib" do
-    url "https://files.pythonhosted.org/packages/be/77/5138921cc21adf763e941671b4cc6bbf00813663c983aa3fb8dac273f081/w3lib-2.5.0.tar.gz"
-    sha256 "a7ddf714508ddc1b8563bd19ace2feb28080bbaca39326cbc964359f6754f615"
+    url "https://files.pythonhosted.org/packages/c1/4a/76a2b98d6d93eb1d7e69b382faf3290f571547d9eb13f612d5ddab740f60/w3lib-2.6.0.tar.gz"
+    sha256 "821f78cfdeb9e675c736ffe0b874bd1e50e9e02997e675ce046b373c009f27be"
   end
 
   resource "yarl" do
