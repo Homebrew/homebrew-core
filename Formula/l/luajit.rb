@@ -10,14 +10,14 @@ class Luajit < Formula
   # Get the latest commit with:
   #   `git ls-remote --heads https://github.com/LuaJIT/LuaJIT.git v2.1`
   # This is a rolling release model so take care not to ignore CI failures that may be regressions.
-  url "https://github.com/LuaJIT/LuaJIT/archive/ea9eb7edb5eac4a9d175d74523db34fac0fa5180.tar.gz"
+  url "https://github.com/LuaJIT/LuaJIT/archive/39207edda83ba24d6fbd582b8d9f2d02674ad25d.tar.gz"
   # Use the version scheme `2.1.timestamp` where `timestamp` is the Unix timestamp of the
   # latest commit at the time of updating.
   # `brew livecheck luajit` will generate the correct version for you automatically.
-  version "2.1.1793383622"
-  sha256 "338a5640be00b89fd0a2a027a7433fcbbb4d006be840d216d84151386b5bcdf7"
+  version "2.1.1794160931"
+  sha256 "74071a03a167d3125b14aeace43b436ac406c1251d30bd83dd7443541cc54243"
   license "MIT"
-  compatibility_version 36
+  compatibility_version 37
   head "https://github.com/LuaJIT/LuaJIT.git", branch: "v2.1"
 
   livecheck do
@@ -31,11 +31,11 @@ class Luajit < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "48e3d80ecf4064248442543aaac19e95892660addf1148cacb8c66609b0301e0"
-    sha256 cellar: :any, arm64_tahoe:       "397d2443f1d92cca21205782fbc886876bf2617e6595df2bb5386865cdc62a3f"
-    sha256 cellar: :any, arm64_sequoia:     "be7795d3cf7196053e93774dd559260ad02cdb9d6025e95ff0b2685494c6729a"
-    sha256 cellar: :any, arm64_linux:       "a74c3c341661b3fcbb9b02aa45ed5a319856bdfa61c5701dc9607eb034f3fc98"
-    sha256 cellar: :any, x86_64_linux:      "0ae7e8bcd9c6c3eda47c70a20469f87a4f2776459bfb1aab97385b4918b48261"
+    sha256 cellar: :any, arm64_golden_gate: "8507ca07d1465777d3d505ed313289ae0ea5556949ee1e2ad8aaeb0ab1191599"
+    sha256 cellar: :any, arm64_tahoe:       "0ab9a7273983b6d00f55fda7029ac050bddf3100062240723380e8c6bd5a0846"
+    sha256 cellar: :any, arm64_sequoia:     "b7d9df7cbc23793c41a429fadf6cf5195ac9173a4e76d3d08de50da4311e5a2d"
+    sha256 cellar: :any, arm64_linux:       "a1ece9600960979741a3e89e69af6179778662bf8c5ce5a3a77a042edda35c84"
+    sha256 cellar: :any, x86_64_linux:      "f94045a052c385b423e9c462af37c0b477000cd07b45e8a8e38d5f0bd24bf4c7"
   end
 
   deny_network_access!
