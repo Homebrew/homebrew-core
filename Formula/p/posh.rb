@@ -23,6 +23,8 @@ class Posh < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
+  deny_network_access!
+
   def install
     # Upstream still uses K&R function definitions, which do not compile as C23.
     ENV["ac_cv_prog_cc_c23"] = "no"
