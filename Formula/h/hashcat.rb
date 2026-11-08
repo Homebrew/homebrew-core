@@ -18,15 +18,13 @@ class Hashcat < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "38a531805276812b858abe2b15995e5a9c5141ed81a2abce41a2802878689333"
-    sha256 arm64_tahoe:       "f10544272c35b63688c259cb2a86da8c57dc42a13d6946888b05c1b64346ecbc"
-    sha256 arm64_sequoia:     "93fbe0438776d0d0763f103f86b74a6c4f5464f332ac1c002cad03125386e44c"
-    sha256 arm64_linux:       "276913be2c7c5043bab207c731df894147b8aed3e06f38306af7e5e6dd8332af"
-    sha256 x86_64_linux:      "95612765d78ff6b467a7812c3fd12a71e1b939bdce5aceef175d5d5c0208e18b"
+    rebuild 1
+    sha256 arm64_golden_gate: "98924135cea4a887449031a186fcc22d8967572c25061f9b55029c86146b8099"
+    sha256 arm64_tahoe:       "38daa2ea7751cecfe4b549e29dd0cdbe37b50d8843e50d563d3249a009d9b1de"
+    sha256 arm64_sequoia:     "4fbcff6248005a9a3b08b37317ebfb77d1f009a2c1a04ebb9dc304c00fc1e035"
+    sha256 arm64_linux:       "357f13c840cb85216ad65d3b05eb62ee8bf070d40ff28c39901e0818749ec6dd"
+    sha256 x86_64_linux:      "a00c85a7af9fe4673a7507c69256063aaba49edfffe0b5f4d90b42c59234ab76"
   end
-
-  depends_on "minizip"
-  depends_on "xxhash"
 
   uses_from_macos "python"
 
@@ -42,10 +40,7 @@ class Hashcat < Formula
   end
 
   def install
-    # Remove some bundled dependencies that are not needed
-    (buildpath/"deps").each_child do |dep|
-      rm_r(dep) if %w[OpenCL-Headers unrar xxHash zlib].include?(dep.basename.to_s)
-    end
+    rm_r buildpath/"deps/OpenCL-Headers"
     # The ZC706 bootloader is board firmware, so retain its redistribution notices.
     (buildpath/"docs/license_libs").each_child do |dep|
       rm(dep) unless %w[SSE2NEON LZMA XILINX_FSBL].any? { |dep_name| dep.basename.to_s.start_with?(dep_name) }
@@ -55,10 +50,7 @@ class Hashcat < Formula
       CC=#{ENV.cc}
       COMPTIME=#{ENV["SOURCE_DATE_EPOCH"]}
       PREFIX=#{prefix}
-      USE_SYSTEM_XXHASH=1
       USE_SYSTEM_OPENCL=1
-      USE_SYSTEM_ZLIB=1
-      ENABLE_UNRAR=0
     ]
     system "make", *args
     system "make", "install", *args
@@ -72,9 +64,7 @@ class Hashcat < Formula
     (testpath/"hashcat").mkpath
 
     # OpenCL is not supported on virtualized arm64 macOS
-    # Metal on macOS 27 doesn't seem to work yet
     no_opencl = OS.mac? && Hardware::CPU.virtualized?
-    no_metal = !OS.mac? || MacOS.version >= :golden_gate
 
     args = %w[
       --benchmark
@@ -82,9 +72,10 @@ class Hashcat < Formula
       --workload-profile=2
     ]
     args << (no_opencl ? "--backend-ignore-opencl" : "--opencl-device-types=1,2")
-    args << "--backend-ignore-metal" if OS.mac? && no_metal
+    # Metal fails to find included kernel headers on current macOS, https://github.com/hashcat/hashcat/issues/4968
+    args << "--backend-ignore-metal" if OS.mac?
 
-    if no_opencl && no_metal
+    if no_opencl
       no_platform_message = "No OpenCL, Metal, HIP or CUDA compatible platform found"
       assert_match no_platform_message, shell_output("#{bin}/hashcat_bin #{args.join(" ")} 2>&1", 255)
     else
