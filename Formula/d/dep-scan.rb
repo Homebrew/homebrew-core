@@ -3,16 +3,16 @@ class DepScan < Formula
 
   desc "Security and risk audit tool for project dependencies and container images"
   homepage "https://github.com/owasp-dep-scan/dep-scan"
-  url "https://files.pythonhosted.org/packages/d9/7f/9841c25bf3b66151fc91d4a301a5d068c25f8591b80975b31e4afda5e3a0/owasp_depscan-6.3.0.tar.gz"
-  sha256 "534254287e29d58768e1a7db2c1132ff4d964865b213fbe75f9cf7293ddd36b9"
+  url "https://files.pythonhosted.org/packages/31/ae/8835e551a4acb07e2e8513211ad2ca501f6654b96d9887238c9c6889d4ec/owasp_depscan-6.3.1.tar.gz"
+  sha256 "b7bd36f9fb83be60838704dbb474a61623c199535140178e5004c7832e861017"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "529ef9d8776f72c73e36928aa96110a37dc0cf0d6c66e6ba66c73d169f8443af"
-    sha256 cellar: :any, arm64_tahoe:       "4d6d10dc8e293dcbf3cd21b8988e03b1c54480bc83f39f53eaecc97fec2a79c2"
-    sha256 cellar: :any, arm64_sequoia:     "00ca36bde61fe2c76cc8428fc40979de09485abb1504a3ac2ce3bf689cfe8609"
-    sha256 cellar: :any, arm64_linux:       "29c1ee8d9dcfd450c2340de03af454693326f31ffca1b7f3c54d1fe476c790f9"
-    sha256 cellar: :any, x86_64_linux:      "080b5da1416dc29a7d60966bc7e99da7a619540e13822e0a591013d96c8e747d"
+    sha256 cellar: :any, arm64_golden_gate: "a2f02aefe46263f8126c6a019c68e584c328bdbd1eef594d20d553fb7c985413"
+    sha256 cellar: :any, arm64_tahoe:       "6baf48d9be138eac769017f45d696ef5593822b1b4734bfe3de3688ae39bbf55"
+    sha256 cellar: :any, arm64_sequoia:     "e8a1433e5e78032a2f1ffde5d02fbfdbf1b50ff07beda4aee95e11cfbc37c516"
+    sha256 cellar: :any, arm64_linux:       "3e74d360d2372721a5bbeee59b706d7bcadee85948b56b5de2be4080ae366303"
+    sha256 cellar: :any, x86_64_linux:      "1336c6c7f16792d6643285b00196919f8e20e322cf6d420dfc143300721982cc"
   end
 
   depends_on "rust" => :build
@@ -32,8 +32,8 @@ class DepScan < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "appdirs" do
@@ -42,8 +42,8 @@ class DepScan < Formula
   end
 
   resource "appthreat-vulnerability-db" do
-    url "https://files.pythonhosted.org/packages/c2/64/c98eea45dcc2af65e9764dea1b7ec91e6ce80f625dd664b52a873c021cb9/appthreat_vulnerability_db-6.7.3.tar.gz"
-    sha256 "f3908543be404875855a9ca025f56bb60b90a041bca003ca70aeb6fd7186d3d6"
+    url "https://files.pythonhosted.org/packages/fa/a8/4513a9c3ddf51c2958c930a6cc1ba97797fbf08066bb414eb7d70970265d/appthreat_vulnerability_db-6.7.6.tar.gz"
+    sha256 "bb849c56c61d28a1df1258f5803830550bb449dc5d268dd762491db97245a800"
   end
 
   resource "apsw" do
@@ -67,8 +67,8 @@ class DepScan < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "custom-json-diff" do
@@ -87,28 +87,28 @@ class DepScan < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/ef/4a/50822184bd67cc6493f0fb6a880749158fcd31ab3fa07409acfd91f9fc85/dnspython-2.9.0.tar.gz"
-    sha256 "b44dc6b18f07a8b1c56676a19fbfdb5209415b046a9cece286baafa87ff3f7f1"
+    url "https://files.pythonhosted.org/packages/76/49/900383b471c645a3c397f47b3211d1fcecb3a540c98f683494cdf86b33de/dnspython-2.9.2.tar.gz"
+    sha256 "8d4d39a513e649d634004ce4d39ade2352efcea472a0247535a5c2d18a9d7ba9"
   end
 
   resource "ds-analysis-lib" do
-    url "https://files.pythonhosted.org/packages/bd/10/8612ec4a934251f626f87e2c2df34e7c9d7ce537e94b97d637be95cf040e/ds_analysis_lib-6.3.0.tar.gz"
-    sha256 "d7c4eac857aa0ed680b6e5e54a5ef7c15da880d4c09550982f1e15d3367f17ce"
+    url "https://files.pythonhosted.org/packages/e6/ec/d95d3e31958f3b357e45e525ae2f05c33a77dd9b9068d018c675e932c1af/ds_analysis_lib-6.3.1.tar.gz"
+    sha256 "eb24db1167111a4644be25c7dd2f7f3156990958d86b62f36db0efbf5a52f9f5"
   end
 
   resource "ds-reporting-lib" do
-    url "https://files.pythonhosted.org/packages/a6/3f/ee9e3a3b30a30ca709938284794c12f210c1f9d4f38840a4c38f95dfa478/ds_reporting_lib-6.3.0.tar.gz"
-    sha256 "bc41a7ea0187835b37ecd36d5eba5182da2494e1893fe01b1ed57a4f9abea1f1"
+    url "https://files.pythonhosted.org/packages/d0/aa/d6ed96b1c3ab18912e23fb27aa1f2284de6fd5ad09fc6bb7560266892f25/ds_reporting_lib-6.3.1.tar.gz"
+    sha256 "a79f99d15890fedd6c87ec3a1c73e5644990b05f01109c96774baea94764d8c9"
   end
 
   resource "ds-server-lib" do
-    url "https://files.pythonhosted.org/packages/9f/44/a5a9b882a7b05d9304601f25e2ada975d98b90c0327594231faf17c05974/ds_server_lib-6.3.0.tar.gz"
-    sha256 "d81a1b57640995335c1ea316d75a4f29c1524572240eb416c57296718b72a4ee"
+    url "https://files.pythonhosted.org/packages/c4/c6/781c4de56f07a82945f523f00db710e4755d0eb86b5e7945f5de0355b21e/ds_server_lib-6.3.1.tar.gz"
+    sha256 "f9e41739b739804e7ea90235fd1ff34c9f0e67d4d87468662cc777fc5e21976e"
   end
 
   resource "ds-xbom-lib" do
-    url "https://files.pythonhosted.org/packages/e2/ab/4af0973a77369cf3c1a5c3067fa6103bb4576139b389ce904ce95527b922/ds_xbom_lib-6.3.0.tar.gz"
-    sha256 "b45957b990df43bb6c0175ada6acac04d7254fd5c6e8d860caa7e4c50f5c7392"
+    url "https://files.pythonhosted.org/packages/0e/9b/2249812cd747ca03fd1eec84337fad5c3a8c089cbdb60332bddc41e64af5/ds_xbom_lib-6.3.1.tar.gz"
+    sha256 "209bd8f1dfdd6c0e4c7131f8da2ea6568c1472a283eb532b7e0dd7f6ea3d7554"
   end
 
   resource "email-validator" do
