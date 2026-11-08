@@ -33,6 +33,8 @@ class Ode < Formula
   # We patch `libtool.m4` and not `configure` because we call `./bootstrap`.
   patch :DATA
 
+  deny_network_access!
+
   def install
     inreplace "bootstrap", "libtoolize", "glibtoolize"
     system "./bootstrap"
