@@ -83,6 +83,8 @@ class PythonAT313 < Formula
     end
   end
 
+  deny_network_access!
+
   def site_packages_cellar = lib_cellar/"site-packages"
 
   # The HOMEBREW_PREFIX location of site-packages.
