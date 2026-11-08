@@ -132,6 +132,8 @@ class Airshare < Formula
     sha256 "28c2ec9d772007eedf11b41a9c9fd3d5c684c17b00721ff8f1ee31b20ad286a1"
   end
 
+  allow_network_access! [:build, :test]
+
   def install
     virtualenv_install_with_resources
 
