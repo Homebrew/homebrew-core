@@ -41,6 +41,8 @@ class Pqiv < Formula
     depends_on "libx11"
   end
 
+  deny_network_access!
+
   def install
     args = *std_configure_args.reject { |s| s["--disable-debug"]|| s["--disable-dependency-tracking"] }
     system "./configure", *args
