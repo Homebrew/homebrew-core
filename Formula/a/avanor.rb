@@ -29,6 +29,8 @@ class Avanor < Formula
     type :cherry_pick # from 0.5 branch
   end
 
+  deny_network_access!
+
   def install
     system "make", "DATA_DIR=#{pkgshare}/", "CC=#{ENV.cxx}", "LD=#{ENV.cxx}"
     bin.install "avanor"
