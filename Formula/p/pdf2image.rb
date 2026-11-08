@@ -29,6 +29,8 @@ class Pdf2image < Formula
   conflicts_with "pdftohtml", "poppler", "xpdf",
     because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}"
 
