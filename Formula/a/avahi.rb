@@ -40,6 +40,8 @@ class Avahi < Formula
   depends_on :linux
   depends_on "systemd"
 
+  deny_network_access!
+
   def install
     system "./bootstrap.sh", "--disable-silent-rules",
                              "--sysconfdir=#{prefix}/etc",
