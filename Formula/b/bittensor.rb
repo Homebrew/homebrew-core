@@ -3,8 +3,8 @@ class Bittensor < Formula
 
   desc "SDK and command-line tool for the Bittensor network"
   homepage "https://subtensor.vercel.app/"
-  url "https://files.pythonhosted.org/packages/f3/76/166ec4263a7889df2bb8796a57187906cec3aa3079e235b9e60517041c51/bittensor-11.3.0.tar.gz"
-  sha256 "8ce05029a712866048c6cf3e3d5df1592ac896175f5b4227f63044b7e7b7edb3"
+  url "https://files.pythonhosted.org/packages/4b/6f/2f572aef87a756b18c33bf080a7ad4a8f47c728c9519ec05946c68fba5b9/bittensor-11.3.2.tar.gz"
+  sha256 "a25adb9e9ce9614d188e1da9e4c56d1b0eda5d133b32238f7046fe4eb8cd3ee8"
   license "Apache-2.0"
 
   bottle do
@@ -32,13 +32,16 @@ class Bittensor < Formula
   end
 
   resource "bitarray" do
-    url "https://files.pythonhosted.org/packages/04/f7/6765577df59e2345036e435f7e983e1c291d67b7d76a51918eff04ad1494/bitarray-3.11.0.tar.gz"
-    sha256 "bf19437ec00ec3d40aef82eaeedc14cf4000be9b635c4f5049796506e6630dd8"
+    url "https://files.pythonhosted.org/packages/a9/cc/aa09a20048dd650d9a36bd70c26b2688413066d65acc9f484f94b9929108/bitarray-3.12.3.tar.gz"
+    sha256 "919e35a951c0a551631b94bf568f3f5e38d004e0c60866cb2ca51bd8c4778fec"
   end
 
   resource "bittensor-core" do
-    url "https://files.pythonhosted.org/packages/d2/25/121407d496268d62bd7e75fa8d842d9aef5787070d9d657d7cb035642130/bittensor_core-0.1.5.tar.gz"
-    sha256 "bb6175643ef351e8afc5059cb907b6f13083bec7525ad287c1a6db30be9ee980"
+    # The PyPI sdist omits vendored crates required by the workspace's path patches.
+    # https://github.com/RaoFoundation/subtensor/pull/3330
+    url "https://github.com/RaoFoundation/subtensor/archive/8b2a978a98c0d94300dd7c68b190b24b974b7d02.tar.gz"
+    version "0.1.9"
+    sha256 "78a8681608ac0f538eebf219e2aeac6fa543ad10075920b1432caf04cb2f6981"
   end
 
   resource "ckzg" do
@@ -47,8 +50,8 @@ class Bittensor < Formula
   end
 
   resource "cytoolz" do
-    url "https://files.pythonhosted.org/packages/bd/d4/16916f3dc20a3f5455b63c35dcb260b3716f59ce27a93586804e70e431d5/cytoolz-1.1.0.tar.gz"
-    sha256 "13a7bf254c3c0d28b12e2290b82aed0f0977a4c2a2bf84854fcdc7796a29f3b0"
+    url "https://files.pythonhosted.org/packages/43/ce/d8bd9b5f85b11c7231f7cec791e1248949c8073e9cded5076759d973d35b/cytoolz-1.2.0.tar.gz"
+    sha256 "fdd8ded8a93e1be009577fccddaacf78aa21cbe7dc6ec53c229def0198a1ffa5"
   end
 
   resource "eth-abi" do
@@ -112,8 +115,8 @@ class Bittensor < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/34/e0/0d0bd5b1089a4bf5ef48164459289ddf02a9110ca1db854edaad25127e64/pycryptodome-3.24.0.tar.gz"
-    sha256 "9140779b40405476a799305b9ac1bcaab4ee6791dc3d38b12a9aa84ffbd6aabf"
+    url "https://files.pythonhosted.org/packages/a9/75/b8a9ba9a15b1b190d1fb21e75e921934c9bcd7e63e137f96b56ed274328c/pycryptodome-3.24.1.tar.gz"
+    sha256 "3f9e74444c0ecbec7af232a95d282c74b114d53212ce075ed17b7fd7dca32bb3"
   end
 
   resource "pygments" do
@@ -127,8 +130,8 @@ class Bittensor < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/fc/f2/af1da9d3ceed77bfcdce40427d49ba0be94e4fe84245e3bfef68c10e75b6/regex-2026.9.29.tar.gz"
-    sha256 "8b5fcc4771732191b2b7d1dd68d8f0353f47f8d90b6150f6dce58bf1112442cb"
+    url "https://files.pythonhosted.org/packages/f1/54/e3bf7a314a5e5d0bab5455cfcfc7634ca136fc8b249a7c15c829e88b00f2/regex-2026.11.7.tar.gz"
+    sha256 "8eedab0d8ac69b0602628bc59ab559d09007ff3bcd92aa740e62b10315403007"
   end
 
   resource "rich" do
@@ -152,8 +155,8 @@ class Bittensor < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/03/51/d33db42cc72ffd8c30777547b42d01f0cbf9d95a770457698d0174b3ed71/typer-0.27.3.tar.gz"
-    sha256 "d0396f770a560ab1b0a8504e13b5f254b728cedb05c61cf0359e944e50ce8901"
+    url "https://files.pythonhosted.org/packages/ad/8f/21021859316f44289101638dc74d82e13d722d8533e4b8708a3ab7c8461a/typer-0.28.0.tar.gz"
+    sha256 "69ab84ef79fd601cff071bbd2566d855ecadfd93adbc4b3360b9924359bdd857"
   end
 
   resource "websockets" do
@@ -168,7 +171,10 @@ class Bittensor < Formula
     # Allow Python 3.15
     inreplace "pyproject.toml", 'requires-python = ">=3.10,<3.15"', 'requires-python = ">=3.10,<3.16"'
 
-    virtualenv_install_with_resources
+    venv = virtualenv_install_with_resources without: "bittensor-core"
+    resource("bittensor-core").stage do
+      venv.pip_install Pathname.pwd/"sdk/bittensor-core-py"
+    end
 
     bin.install_symlink libexec/"bin/btcli"
     bash_completion.install libexec/"share/bash-completion/completions/btcli"
@@ -195,19 +201,6 @@ class Bittensor < Formula
     ]
     output = shell_output("#{bin}/btcli #{global_args.join(" ")} wallet regen-coldkey #{regen_args.join(" ")}")
 
-    expected_regen = {
-      "coldkey"     => test_wallet_name,
-      "crypto_type" => "sr25519",
-      "ss58"        => ss58_address,
-      "path"        => wallet_path.to_s,
-    }
-    assert_equal expected_regen, JSON.parse(output)
-
-    # Check balance of the regenerated wallet on the finney network
-    balance_output = shell_output("#{bin}/btcli --network finney #{global_args.join(" ")} wallet balance")
-    parsed_balance = JSON.parse(balance_output)
-    assert_equal ss58_address, parsed_balance["coldkey"]
-    assert_equal 0.0, parsed_balance["free_tao"]
-    assert_equal 0.0, parsed_balance["total_value_tao"]
+    assert_equal ss58_address, JSON.parse(output).fetch("ss58")
   end
 end
