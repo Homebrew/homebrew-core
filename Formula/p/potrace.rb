@@ -26,10 +26,12 @@ class Potrace < Formula
     depends_on "zlib-ng-compat"
   end
 
-  resource "head.pbm" do
+  resource "head.pbm", :test do
     url "https://potrace.sourceforge.net/img/head.pbm"
     sha256 "3c8dd6643b43cf006b30a7a5ee9604efab82faa40ac7fbf31d8b907b8814814f"
   end
+
+  deny_network_access!
 
   def install
     system "./configure", "--mandir=#{man}",
