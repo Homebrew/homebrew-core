@@ -11,6 +11,8 @@ class AwsCdk < Formula
 
   depends_on "node"
 
+  allow_network_access! :test
+
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
