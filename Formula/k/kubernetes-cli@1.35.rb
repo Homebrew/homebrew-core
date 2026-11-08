@@ -31,6 +31,9 @@ class KubernetesCliAT135 < Formula
     depends_on "coreutils" => :build
   end
 
+  # Go dependencies are vendored
+  deny_network_access!
+
   def install
     ENV.prepend_path "PATH", formula_opt_libexec("coreutils")/"gnubin" if OS.mac? # needs GNU date
     ENV["FORCE_HOST_GO"] = "1"

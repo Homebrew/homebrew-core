@@ -17,6 +17,8 @@ class Kumo < Formula
 
   depends_on "openjdk"
 
+  allow_network_access! :test
+
   def install
     libexec.install "kumo-cli-#{version}.jar"
     bin.write_jar_script libexec/"kumo-cli-#{version}.jar", "kumo"

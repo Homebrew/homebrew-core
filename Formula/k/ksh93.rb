@@ -20,6 +20,8 @@ class Ksh93 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "6e1e57baceef185a21b476c489ec150cbf00729c4b0b31243dd13d5f560376b1"
   end
 
+  deny_network_access!
+
   def install
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}"
     ENV.append "LDFLAGS", "-Wl,-headerpad_max_install_names" if OS.mac?

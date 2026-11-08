@@ -49,6 +49,8 @@ class Ktoblzcheck < Formula
     end
   end
 
+  allow_network_access! :build
+
   def install
     ENV.append_path "PYTHONPATH", buildpath/Language::Python.site_packages(python3)
     resources.each do |r|

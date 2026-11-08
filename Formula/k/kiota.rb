@@ -16,10 +16,17 @@ class Kiota < Formula
 
   depends_on "dotnet"
 
-  def install
+  allow_network_access! :test
+
+  def fetch
+    ENV["XDG_RUNTIME_DIR"] = buildpath
     # Ignore dotnet version specification and use homebrew one
     rm "global.json"
 
+    system "dotnet", "restore", "src/kiota/kiota.csproj", "--use-current-runtime"
+  end
+
+  def install
     # .NET named mutexes need `XDG_RUNTIME_DIR` (or `USER`) on Linux, which build containers may lack
     ENV["XDG_RUNTIME_DIR"] = buildpath
 

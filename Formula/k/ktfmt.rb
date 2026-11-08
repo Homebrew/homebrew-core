@@ -16,6 +16,8 @@ class Ktfmt < Formula
   depends_on "gradle" => :build
   depends_on "openjdk@17"
 
+  allow_network_access! :build
+
   def install
     ENV["JAVA_HOME"] = formula_opt_prefix("openjdk@17")
 
