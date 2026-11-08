@@ -11,6 +11,8 @@ class Amy < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     libexec.install Dir["*"]
     (bin/"amy").write_env_script libexec/"bin/amy", Language::Java.overridable_java_home_env
