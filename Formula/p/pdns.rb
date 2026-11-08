@@ -40,12 +40,16 @@ class Pdns < Formula
 
   uses_from_macos "curl"
 
+  deny_network_access!
+
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def install
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}/powerdns
       --with-lua
-      --with-libcrypto=#{formula_opt_prefix("openssl@4")}
+      --with-libcrypto=#{formula_opt_prefix(openssl)}
       --with-sqlite3
       --with-modules=gsqlite3
     ]
