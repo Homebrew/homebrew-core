@@ -1,8 +1,8 @@
 class Kepubify < Formula
   desc "Convert ebooks from epub to kepub"
   homepage "https://pgaskin.net/kepubify/"
-  url "https://github.com/pgaskin/kepubify/archive/refs/tags/v4.0.4.tar.gz"
-  sha256 "a3bf118a8e871b989358cb598746efd6ff4e304cba02fd2960fe35404a586ed5"
+  url "https://github.com/pgaskin/kepubify/archive/refs/tags/v5.0.0.tar.gz"
+  sha256 "bd8053d3927440a9bd54022bbda697b937ab0365e55ad70b73c998233e57c030"
   license "MIT"
   head "https://github.com/pgaskin/kepubify.git", branch: "master"
 
@@ -37,13 +37,8 @@ class Kepubify < Formula
   end
 
   def install
-    %w[
-      kepubify
-      covergen
-      seriesmeta
-    ].each do |p|
-      system "go", "build", *std_go_args(output: bin/p, ldflags: "-X main.version=#{version}"), "./cmd/#{p}"
-    end
+    ldflags = "-X github.com/pgaskin/kepubify/v#{version.major}/internal/version.Version=#{version}"
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
