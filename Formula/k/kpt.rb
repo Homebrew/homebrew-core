@@ -8,6 +8,7 @@ class Kpt < Formula
 
   livecheck do
     url :stable
+    regex(/^v?(\d+(:?\.\d+)+)$/i)
     # Cannot use `github_latest` here as this might be "API" release
     strategy :github_releases do |json, regex|
       json.map do |release|
