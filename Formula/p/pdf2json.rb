@@ -21,6 +21,8 @@ class Pdf2json < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "ddf26e386ef0d0916e59bb3aea14ccbaf5e08e87fbc043692d7a445ff481f9d7"
   end
 
+  deny_network_access!
+
   def install
     system "./configure"
     system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}"
