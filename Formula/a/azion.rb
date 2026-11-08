@@ -16,6 +16,12 @@ class Azion < Formula
 
   depends_on "go" => :build
 
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ldflags = %W[
       -X github.com/aziontech/azion-cli/pkg/cmd/version.BinVersion=#{version}
@@ -25,8 +31,6 @@ class Azion < Formula
       -X github.com/aziontech/azion-cli/pkg/constants.ApiV4URL=https://api.azion.com/v4
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/azion"
-
-    generate_completions_from_executable(bin/"azion", shell_parameter_format: :cobra)
   end
 
   test do
