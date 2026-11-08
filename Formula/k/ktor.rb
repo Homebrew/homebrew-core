@@ -17,10 +17,18 @@ class Ktor < Formula
 
   depends_on "go" => :build
 
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     ldflags = "-X main.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:), "./cmd/ktor"
-    generate_completions_from_executable(bin/"ktor", "completions")
+
+    # TODO: https://github.com/ktorio/ktor-cli/issues/50
+    # generate_completions_from_executable(bin/"ktor", "completions")
   end
 
   test do
