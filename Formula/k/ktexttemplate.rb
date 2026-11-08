@@ -20,6 +20,8 @@ class Ktexttemplate < Formula
   depends_on "qtbase"
   depends_on "qtdeclarative"
 
+  deny_network_access!
+
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
