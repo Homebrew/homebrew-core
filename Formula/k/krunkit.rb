@@ -17,6 +17,12 @@ class Krunkit < Formula
   depends_on "libkrun"
   depends_on :macos
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install "edk2/KRUN_EFI.silent.fd"
