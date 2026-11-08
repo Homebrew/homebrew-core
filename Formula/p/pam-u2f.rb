@@ -32,6 +32,8 @@ class PamU2f < Formula
     depends_on "linux-pam"
   end
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
 
