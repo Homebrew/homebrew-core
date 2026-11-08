@@ -28,6 +28,8 @@ class PureFtpd < Formula
     depends_on "linux-pam"
   end
 
+  deny_network_access!
+
   def install
     args = %W[
       --disable-dependency-tracking
