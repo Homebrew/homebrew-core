@@ -1,20 +1,27 @@
 class Mq < Formula
   desc "Jq-like command-line tool for markdown processing"
   homepage "https://mqlang.org/"
-  url "https://github.com/harehare/mq/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "f389f117526965917bc7f313de8da825a993b8b7ff321068b5270baa7e20f760"
+  url "https://github.com/harehare/mq/archive/refs/tags/v0.10.1.tar.gz"
+  sha256 "dec41709b9cf8db0995ff8157501264f0545597da80a7dae214970669c7e1f18"
   license "MIT"
   head "https://github.com/harehare/mq.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0815958f2dec76d1023aa191da174899e3ee51aeed5bda425dc4917608de9d4c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e4a4e866ee3b8aaeffa56e681cf9e54004657c1bfd810d14145c4dbe1924aeec"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "65bfb302093ef2d5710690c65b7acffec9125bb70876f1284935680e98851606"
-    sha256 cellar: :any,                 arm64_linux:       "7747937b7472e6b48f04335a21174a78b8a61b383a3497d9fafdef25da739ab4"
-    sha256 cellar: :any,                 x86_64_linux:      "d444db5a6c3f8d921d81334848fa648f3092c30f96b3dae4586b3921e68ad043"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "39289fada9e556a9568ac96540faa0d0999cb1996d2809c3174c858936dc27d7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "70c7abf6908f1baf540501e83f3e30fe77ff528de2fee4cf5913a0a8b95340d5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "35268c0c0c64ef7be173d2a94857c083f08419a69f9afe03460b6aba24d2c6cb"
+    sha256 cellar: :any,                 arm64_linux:       "2be96f7d908d498ef7e2717db33ea37e09fb0c92242cf2d59cee5c98652600bb"
+    sha256 cellar: :any,                 x86_64_linux:      "0965baf0cdded551d18d8e6791cdfb1de049e3a1d6828559093d502ae154fecb"
   end
 
   depends_on "rust" => :build
+
+  # Sync stale workspace versions in `Cargo.lock`
+  patch do
+    url "https://github.com/harehare/mq/commit/598e258355adc47ff0550d9a29bc23ef47b44633.patch?full_index=1"
+    sha256 "62cce5ecdd76438abcca477a16eda4222d2befc77d434f101cd131571b143f84"
+    type :backport
+  end
 
   deny_network_access!
 
