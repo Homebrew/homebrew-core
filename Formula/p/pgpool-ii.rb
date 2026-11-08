@@ -23,6 +23,8 @@ class PgpoolIi < Formula
 
   uses_from_macos "libxcrypt"
 
+  deny_network_access!
+
   def install
     if OS.mac?
       # Work around old libtool's macOS 11+ version detection:
