@@ -26,6 +26,8 @@ class Opensaml < Formula
   depends_on "xml-security-c"
   depends_on "xml-tooling-c"
 
+  deny_network_access!
+
   def install
     ENV.cxx11
 
