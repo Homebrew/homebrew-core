@@ -6,6 +6,11 @@ class Kepubify < Formula
   license "MIT"
   head "https://github.com/pgaskin/kepubify.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(:?\.\d+)+)$/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8352e5b51540b0ebbc1932d3f911c7029941b1f155fb87e6622ef2053a9a1506"
