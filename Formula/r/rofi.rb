@@ -1,8 +1,8 @@
 class Rofi < Formula
   desc "Window switcher, application launcher and dmenu replacement"
   homepage "https://davatorium.github.io/rofi/"
-  url "https://github.com/davatorium/rofi/releases/download/2.0.0/rofi-2.0.0.tar.gz"
-  sha256 "f81659b175306ff487e35d88d6b36128e85a793bfb56b64fa22c62eb54c4abd0"
+  url "https://github.com/davatorium/rofi/releases/download/2.1.0/rofi-2.1.0.tar.gz"
+  sha256 "f093e6e1c99d78902d1f63ebe6d22c4d1440ce08dc303e60eca1a1a5353951e3"
   license "MIT"
   head "https://github.com/davatorium/rofi.git", branch: "next"
 
@@ -12,15 +12,11 @@ class Rofi < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "fb3bf2381c89541030d8259389a51e908b5f08138f4254a5be50b8a5f4605848"
-    sha256 arm64_tahoe:       "56cf0ce09c7e1c24b44a42074ce27963461dc6f1494a231d67878607cc4445da"
-    sha256 arm64_sequoia:     "d0b9f23ea3e63509aaa2dd9bf00c033973ead42dc9e3a4f25c3d62726195ec66"
-    sha256 arm64_sonoma:      "0fd77e4788c2add3bc3b4b9ff0ccd525c18ee084da1aa236ed788e0ba4c89e33"
-    sha256 arm64_ventura:     "d428713688ec3c0966f0ad16c465bb683db9fa66690ff1b906694b63963d5fbd"
-    sha256 sonoma:            "9b93ea8da34ccd6ba683b62e20d354377704b272e5f288fc09e786d549a027f2"
-    sha256 ventura:           "4fece57aedd09cdb2b7c65ddcd55f42eecb446570ba26d58d46416ed39b99c05"
-    sha256 arm64_linux:       "481b5771288fe8bdda79947b5662d8660b3db1d497259bcf251954d3a9ec000d"
-    sha256 x86_64_linux:      "fcfbd2f40d45b02ada2b790949354a4b17382edd6fb84a16815f57045e1e6793"
+    sha256 arm64_golden_gate: "3f7e5d593c586b89cf9040b012e2a06ff867dd250bedd0d7079d5961f99e0c0e"
+    sha256 arm64_tahoe:       "5e4370e5629d6e689603fa92f1d638673e6f2da0086b867463e0142682d1fd7a"
+    sha256 arm64_sequoia:     "aba0c508a865803a915310f4d26229502b54c404ed323e3bfa76f7dabebcb65d"
+    sha256 arm64_linux:       "f8be91ab0d17ecb880ff4fa1a1640577a7897b98b6f8f118f14cb6e4ccfcb587"
+    sha256 x86_64_linux:      "ce477a194ed6f2b2014dc6749b41ae705a3f40e068d65178f7c37078fc898819"
   end
 
   depends_on "bison" => :build
@@ -43,6 +39,14 @@ class Rofi < Formula
 
   uses_from_macos "flex" => :build
 
+  # Preserve drun's command launcher when GLib lacks its desktop-app-info backend.
+  patch do
+    url "https://github.com/davatorium/rofi/commit/6af0379a8dcb8dd3824b9806065825e43a75182f.patch?full_index=1"
+    sha256 "59c5003ae656ae69ce391ff9eb02fe3f5ac9501e1e371bd6f3c2bdc9a3f18c16"
+    type :unofficial
+    resolves "https://github.com/davatorium/rofi/pull/2350"
+  end
+
   def install
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
@@ -50,7 +54,18 @@ class Rofi < Formula
   end
 
   test do
-    # rofi is a GUI application
-    assert_match "Version: #{version}", shell_output("#{bin}/rofi -v")
+    IO.pipe do |read_io, write_io|
+      xvfb_pid = spawn(formula_opt_bin("xorg-server")/"Xvfb",
+                       "-displayfd", write_io.fileno.to_s, "-nolisten", "unix", "-listen", "tcp",
+                       write_io => write_io)
+      write_io.close
+      ENV["DISPLAY"] = "127.0.0.1:#{read_io.gets.strip}"
+
+      output = pipe_output("#{bin}/rofi -no-config -dmenu -filter brew -dump", "homebrew\nother\nbrew test\n")
+      assert_equal "homebrew\nbrew test\n", output
+    ensure
+      Process.kill("TERM", xvfb_pid)
+      Process.wait(xvfb_pid)
+    end
   end
 end
