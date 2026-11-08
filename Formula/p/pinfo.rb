@@ -37,6 +37,8 @@ class Pinfo < Formula
     depends_on "texinfo" => :build
   end
 
+  deny_network_access!
+
   def install
     # Work around failure from GCC 10+ using default of `-fno-common`
     # multiple definition of `use_manual'; pinfo-pinfo.o:(.bss+0x8): first defined here
