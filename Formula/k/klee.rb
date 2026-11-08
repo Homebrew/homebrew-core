@@ -47,6 +47,15 @@ class Klee < Formula
     sha256 "e2cfde8f79420f6deeffdeda9aaec3b6bc5abce947655d17ac662b126e48a60d"
   end
 
+  deny_network_access!
+
+  def fetch
+    resource("tabulate").stage do
+      pip_args = std_pip_args(prefix: false, build_isolation: true) - %w[--ignore-installed --no-compile]
+      system python3, "-m", "pip", "wheel", "--wheel-dir=#{buildpath}/wheels", *pip_args, "."
+    end
+  end
+
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
   end
@@ -121,7 +130,7 @@ class Klee < Formula
     system "cmake", "--install", "build"
 
     venv = virtualenv_create(libexec/"venv", python3)
-    venv.pip_install resource("tabulate")
+    venv.pip_install buildpath/"wheels/tabulate-#{resource("tabulate").version}-py3-none-any.whl"
     rewrite_shebang python_shebang_rewrite_info(venv.root/"bin/python"), *bin.children
   end
 
