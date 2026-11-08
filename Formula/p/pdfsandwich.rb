@@ -32,6 +32,8 @@ class Pdfsandwich < Formula
   depends_on "tesseract"
   depends_on "unpaper"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
