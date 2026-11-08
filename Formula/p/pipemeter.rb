@@ -21,6 +21,8 @@ class Pipemeter < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "3bcb2fe10310749fb1afdee597abd956efefd6ad1b501440c322a7c876a7ad36"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
