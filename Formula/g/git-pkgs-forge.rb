@@ -1,17 +1,17 @@
 class GitPkgsForge < Formula
   desc "Go library and CLI for working with git forges"
   homepage "https://github.com/git-pkgs/forge"
-  url "https://github.com/git-pkgs/forge/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "4e6674f10c84da580776d3b3c4eb6fcd46ef76828b43a2caa602f2cdcf483047"
+  url "https://github.com/git-pkgs/forge/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "eb3b7ba99ed4e459aa10df347bb95f782106062816833a157a3c2f62a96a4d20"
   license "MIT"
   head "https://github.com/git-pkgs/forge.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d96f910f964e5500a31ea6951ee2891605159dc6c0b434af83c8658f8d34d7cd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d96f910f964e5500a31ea6951ee2891605159dc6c0b434af83c8658f8d34d7cd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d96f910f964e5500a31ea6951ee2891605159dc6c0b434af83c8658f8d34d7cd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e5ef82351a06e58f354b14cb62a305735c4617af23a6ac7d0979c61956400d51"
-    sha256 cellar: :any,                 x86_64_linux:      "c6e22c760966bd9d694078e46d7990a6161c787f300fff15beb1f125c87aa4e2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f2f6f4b9d5cd4247528891bbcfd364f71fb6bcaa394ffe0a27d7c9cd52fd2837"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f2f6f4b9d5cd4247528891bbcfd364f71fb6bcaa394ffe0a27d7c9cd52fd2837"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f2f6f4b9d5cd4247528891bbcfd364f71fb6bcaa394ffe0a27d7c9cd52fd2837"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "40e2204a1d88fc22c8d372453ed0e40ee16e5ae16c04df6d7784dda10c1708c6"
+    sha256 cellar: :any,                 x86_64_linux:      "070d21565e565efa0451dc09952577d31b2c56196be8f1a070f6f65e3dc8f405"
   end
 
   depends_on "go" => :build
@@ -33,7 +33,7 @@ class GitPkgsForge < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/forge version")
 
-    output = shell_output("#{bin}/forge repo view 2>&1", 1)
+    output = shell_output("#{bin}/forge repo view 2>&1", 128)
     assert_match "Error: reading remote \"origin\"", output
   end
 end
