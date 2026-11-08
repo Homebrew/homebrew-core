@@ -16,6 +16,8 @@ class AwsAmplify < Formula
 
   depends_on "node"
 
+  allow_network_access! :build
+
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
@@ -30,7 +32,7 @@ class AwsAmplify < Formula
     # Remove incompatible pre-built `bare-fs`/`bare-os`/`bare-url` binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    node_modules.glob("{bare-fs,bare-os,bare-path,bare-url}/prebuilds/*")
+    node_modules.glob("bare-{buffer,fs,os,path,url}/prebuilds/*")
                 .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
 
     # Remove non-native libsqlite4java files
