@@ -1,18 +1,16 @@
 class BehaviortreeCpp < Formula
   desc "Behavior Trees Library in C++"
   homepage "https://www.behaviortree.dev/"
-  url "https://github.com/BehaviorTree/BehaviorTree.CPP/archive/refs/tags/4.10.0.tar.gz"
-  sha256 "c758fdedb3666f7ca4c9998a4c0b243251e0a5fb5d03c99e2ee63d615af7a71d"
+  url "https://github.com/BehaviorTree/BehaviorTree.CPP/archive/refs/tags/4.11.0.tar.gz"
+  sha256 "90a57a10c31beb95e8c5acc34521fc6bc55ce2c662ddba8cd2d53358b37586e7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8bfbb3de6c0efc0b87d78dc43ffaeca9c8823142660f35a58edcad4c69559187"
-    sha256 cellar: :any, arm64_tahoe:       "9cab59f5d9d6738c492aa63f6c27892805dd6b2d36d882dee2b7023d0cb09088"
-    sha256 cellar: :any, arm64_sequoia:     "2818f89a6312b0ca18797e437b42ad3de3fb4285d513228aaff120e5e7343959"
-    sha256 cellar: :any, arm64_sonoma:      "12874a455228ef604d858a26bfc47214282bde9f5dbbc9df80934cdf07e71795"
-    sha256 cellar: :any, sonoma:            "690672df523641c56960df0ab602becd78384071a1b6f2460bce9851023ce96d"
-    sha256 cellar: :any, arm64_linux:       "89c307daaa7df946e0232ca672cc6b58b4c61847e98eae8516401f7d07cd26ae"
-    sha256 cellar: :any, x86_64_linux:      "7bdee9018bc6a23069b2b9876149c22fa500abc145fbaadd5b845310f8123314"
+    sha256 cellar: :any, arm64_golden_gate: "34a03e9d15fa1f63c9011301978a77a6ddc21035e71866948e0c0858617d0af8"
+    sha256 cellar: :any, arm64_tahoe:       "fbe058839c8b8a3d9e3134c244043233aa6653ff4f4152a399d8bb768a6b0263"
+    sha256 cellar: :any, arm64_sequoia:     "4b9ae44f3c00b0ec98bf850527cb3b8dc5098f907a8d442e90c2b00b920c9cf3"
+    sha256 cellar: :any, arm64_linux:       "184c048012307335e785eb4caa82e3448e1bc3e60827f8e4e51fd34888ee3121"
+    sha256 cellar: :any, x86_64_linux:      "07d42b8a0b251f8af7fe0f10b2890bc3e34d72083e3917079fbd80c674cd5c06"
   end
 
   depends_on "cmake" => :build
