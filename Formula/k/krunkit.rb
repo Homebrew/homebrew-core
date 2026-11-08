@@ -7,9 +7,10 @@ class Krunkit < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "32a6807ffae8921c923d922136f097432e8133856b62a7da9dd730db6238fdda"
-    sha256 cellar: :any, arm64_tahoe:       "e8b8c00fff6405e0cdbdf5f94c16ac60f50be5f0de2af87c2534becc6518a2b0"
-    sha256 cellar: :any, arm64_sequoia:     "a3614fd6d52fa40fb5eb697d689613a498bfe8420c002e4109691ce2b63082c9"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "4c4d642f464057ca963cd9c2052084c41ee9bf083647bb91237aa31dc5ae86cd"
+    sha256 cellar: :any, arm64_tahoe:       "4903df907de9473730db8039a8e737ec25422413831f2aba484abb9a87335a5c"
+    sha256 cellar: :any, arm64_sequoia:     "9c296146afa55c183290349e869d6e9f712e83cb2aa2e9a91ec0df6f9ffef0d2"
   end
 
   depends_on "rust" => :build
