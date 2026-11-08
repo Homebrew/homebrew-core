@@ -14,6 +14,8 @@ class KubePs1 < Formula
 
   uses_from_macos "zsh" => :test
 
+  deny_network_access!
+
   def install
     share.install "kube-ps1.sh"
   end
