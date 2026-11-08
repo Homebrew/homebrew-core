@@ -31,6 +31,8 @@ class Proftpd < Formula
     depends_on "gettext"
   end
 
+  allow_network_access! :test
+
   def install
     install_user = ENV["USER"]
     install_group = Utils.safe_popen_read("groups").split.first
