@@ -1,19 +1,17 @@
 class Woxi < Formula
   desc "Interpreter for a subset of the Wolfram Language"
   homepage "https://github.com/ad-si/Woxi"
-  url "https://github.com/ad-si/Woxi/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "227a3712067071454658802d724ace2bee92572d9a371d456f51c480df9e93b6"
+  url "https://github.com/ad-si/Woxi/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "f66f6897873fe8b2cb77864f9bab9cbdeb28195169c0db3e97060eba3f38c57d"
   license "AGPL-3.0-or-later"
   head "https://github.com/ad-si/Woxi.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e5d8a9c9ff84553ed98b6d5a0c9dd075e4c57ee2fa5620d7305f8f646a74d6bc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "573efbee30cf59899d9c52ee0a27a4f2f5c0407a643228ca07803a49c39e2a10"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b8bd65ccdf116b4becf2f524ea4ce61f72b3a9b5ba8164595330704ec12f03d5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "8090b35d77f00ccac550db8e2b0fc0671ab2c0e43d89be5c020e79ee19123e3b"
-    sha256 cellar: :any_skip_relocation, sonoma:            "184d0f148115fa5ec0943b56b296355cd857b1cd8600965dfd8946adff560856"
-    sha256 cellar: :any,                 arm64_linux:       "072ac24bedd0444706576ed9c68fedf95f041aef3d2723afdf01c3b20a8d78a1"
-    sha256 cellar: :any,                 x86_64_linux:      "c9b35676a133464230a2e4d9162cd95413eab709b9da4446738719992547aab3"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a7c6b9dd0082a03feadf3107e7e617ae3c59703fd5ec4b02ac1b6af09992ea3c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "59c63a311e330c7b7720926ac737873d550372ad008aa113b25a456c52d9a45c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "98d190efe1ba3597910d02b1d936c0a570714d268c64b8d173d9ad4a54e18505"
+    sha256 cellar: :any,                 arm64_linux:       "a687b0d36c72fcaf964ef60544a6f982ad89a467ac078525635c948640a6b228"
+    sha256 cellar: :any,                 x86_64_linux:      "c695b8bee9d95873e3b6eca18e19b056fc2247bf0a5566f5196e862959bf358a"
   end
 
   depends_on "rust" => :build
