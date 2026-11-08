@@ -34,6 +34,8 @@ class Plotutils < Formula
     depends_on "libxt"
   end
 
+  deny_network_access!
+
   def install
     # Fix usage of libpng to be 1.5 compatible
     inreplace "libplot/z_write.c", "png_ptr->jmpbuf", "png_jmpbuf (png_ptr)"
