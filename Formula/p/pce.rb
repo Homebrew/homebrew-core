@@ -30,11 +30,15 @@ class Pce < Formula
 
   head do
     url "git://git.hampa.ch/pce.git", branch: "master"
+
     depends_on "sdl2-compat"
   end
 
   depends_on "nasm" => :build
+
   uses_from_macos "libedit" # readline's license is incompatible with GPL-2.0-only
+
+  deny_network_access!
 
   def install
     # Work around failure from GCC 10+ using default of `-fno-common`
