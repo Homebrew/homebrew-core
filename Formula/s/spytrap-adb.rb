@@ -1,8 +1,8 @@
 class SpytrapAdb < Formula
   desc "Test a phone for stalkerware and suspicious configuration using usb debugging"
   homepage "https://github.com/spytrap-org/spytrap-adb"
-  url "https://github.com/spytrap-org/spytrap-adb/releases/download/v0.3.5/spytrap-adb-0.3.5.tar.gz"
-  sha256 "e33a342aa461b56a8d857c2c29b743658bd87b4ade7bed20399dea2cea01b0f8"
+  url "https://github.com/spytrap-org/spytrap-adb/releases/download/v0.3.6/spytrap-adb-0.3.6.tar.gz"
+  sha256 "8a6e9d43d1495fc052e4724500b43ff19e8bdaa097dde3a716413fe0bb9100fa"
   license "GPL-3.0-or-later"
   head "https://github.com/spytrap-org/spytrap-adb.git", branch: "main"
 
