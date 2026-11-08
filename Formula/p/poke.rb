@@ -23,6 +23,8 @@ class Poke < Formula
 
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules", "--with-lispdir=#{elisp}", *std_configure_args
     system "make"
@@ -35,10 +37,7 @@ class Poke < Formula
       dump :size 4#B :ruler 0 :ascii 0
       .exit
     PK
-    if OS.mac?
-      assert_match "00000000: cffa edfe", shell_output("#{bin}/poke --quiet -s test.pk")
-    else
-      assert_match "00000000: 7f45 4c46", shell_output("#{bin}/poke --quiet -s test.pk")
-    end
+    expected_output = OS.mac? ? "00000000: cffa edfe" : "00000000: 7f45 4c46"
+    assert_match expected_output, shell_output("#{bin}/poke --quiet -s test.pk")
   end
 end
