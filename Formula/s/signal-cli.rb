@@ -11,11 +11,11 @@ class SignalCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "755ec857ec3afc9454bfc10e2c99a017bd109b76cbd524d58d1cfdc045ad15d3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a0de875ca0bd04700733848af01f0cd72cb4cce57ea15b3fb68fdbdea12c8b6f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "26dbf9e093c752c42c77a1a4cbdd37ba12cb408e9bba856b6766ddd15269c048"
-    sha256                               arm64_linux:       "cffe44d2432f455c3447cf3135ba989b25f94a0620defed0a1b78eda151e36d3"
-    sha256                               x86_64_linux:      "6b220cb64201e88affa41b732562d0cf14cc3805e9782284ce5e543ce0856ee6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6bc858db7ee24f40a60faeec98d542e3adcc60636871f039e096e161f95652ed"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fc54ed93185a8bc9ea1ab50bcd8f0b9ea40143a2b883ac6175f004636c05db3a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "257715ef129215a1a974644d5920144ea471265f339fca1c6d3d9a8d9a33cab1"
+    sha256                               arm64_linux:       "86524778a1448804e0f22bd23500fb2e6596fe0b1587e0cb2049171be38505fc"
+    sha256                               x86_64_linux:      "4f80a0327840552889ce2d70e7f3209694d10ee198bc4b62742e7527e76b2b52"
   end
 
   depends_on "asciidoc" => :build
