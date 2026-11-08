@@ -1,8 +1,8 @@
 class Woxi < Formula
   desc "Interpreter for a subset of the Wolfram Language"
   homepage "https://github.com/ad-si/Woxi"
-  url "https://github.com/ad-si/Woxi/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "227a3712067071454658802d724ace2bee92572d9a371d456f51c480df9e93b6"
+  url "https://github.com/ad-si/Woxi/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "f66f6897873fe8b2cb77864f9bab9cbdeb28195169c0db3e97060eba3f38c57d"
   license "AGPL-3.0-or-later"
   head "https://github.com/ad-si/Woxi.git", branch: "main"
 
