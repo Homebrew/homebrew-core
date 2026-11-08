@@ -28,6 +28,7 @@ class Libxcursor < Formula
 
   def install
     args = %W[
+      --datadir=#{HOMEBREW_PREFIX}/share
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       --disable-silent-rules
@@ -36,6 +37,10 @@ class Libxcursor < Formula
     system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
+
+    # Workaround to allow brew to record binary_relocation_files as directory needs to exist
+    (share/"icons").mkpath
+    touch share/"icons/.keepme.#{name}"
   end
 
   test do
