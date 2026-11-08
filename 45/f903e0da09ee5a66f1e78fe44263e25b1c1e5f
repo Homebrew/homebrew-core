@@ -1,0 +1,14 @@
+Formula/r/rofi.rb
+  h_9df9c32c3f321d 4-5,46-53,61-73
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "45f903e0da09ee5a66f1e78fe44263e25b1c1e5f",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
