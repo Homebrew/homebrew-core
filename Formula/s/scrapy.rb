@@ -9,11 +9,11 @@ class Scrapy < Formula
   head "https://github.com/scrapy/scrapy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e10c3bc7c5a4be0438f87ec21ba64f7ce9e42365ee5d2135d4d6cd5d296fc1e7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "34d773f24338db65ee3d9b7f8e02a3177c841b4d3e5f63116d4b3ac446040976"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2afcab2ca642ea896f9fbf88735fde5fa6e3e3cf324c54003d73e206558650d6"
-    sha256 cellar: :any,                 arm64_linux:       "062e581cd0d87348c718f3bce9ebc6ae44d01cc15eeae19d196a0511f1aba313"
-    sha256 cellar: :any,                 x86_64_linux:      "a69dd38a064d213b556c0e971c9072940957091630beaab637a7f67935eca255"
+    sha256 cellar: :any, arm64_golden_gate: "d9bead151f0936a17afcc4d19c6b604f69ee2e0ba440bc2a21f4fc33990973a7"
+    sha256 cellar: :any, arm64_tahoe:       "155d557dc4014edb39503a486abe243998ffd6c3c9a7bfcf415a36cc61ee8518"
+    sha256 cellar: :any, arm64_sequoia:     "43475d21a3cb67499dbe53f9abaebc636d3088428a040d97b1662712d68a5bf4"
+    sha256 cellar: :any, arm64_linux:       "24469c482c73e8b17c6b58000aadf9ac189f74e4e8f890c38a05d49272662ff6"
+    sha256 cellar: :any, x86_64_linux:      "e3d34302b6332625153c500147f4ad828c7c0074263760a7740608f4c6bf86cc"
   end
 
   depends_on "cmake" => :build # for pycares
