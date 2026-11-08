@@ -20,6 +20,8 @@ class Atasm < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     cd "src" do
       system "make"
