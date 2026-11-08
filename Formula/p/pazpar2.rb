@@ -21,6 +21,7 @@ class Pazpar2 < Formula
 
   head do
     url "https://github.com/indexdata/pazpar2.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -33,6 +34,8 @@ class Pazpar2 < Formula
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
+
+  allow_network_access! :test
 
   def install
     system "./buildconf.sh" if build.head?
