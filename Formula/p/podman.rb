@@ -1,11 +1,36 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
-  url "https://github.com/podman-container-tools/podman/archive/refs/tags/v6.1.4.tar.gz"
-  sha256 "200fd9b4b6d820cae24fc99d8e290ec945512365cf3cda8283b3905c0c284ea8"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
+  revision 1
   compatibility_version 1
   head "https://github.com/podman-container-tools/podman.git", branch: "main"
+
+  stable do
+    url "https://github.com/podman-container-tools/podman/archive/refs/tags/v6.1.4.tar.gz"
+    sha256 "200fd9b4b6d820cae24fc99d8e290ec945512365cf3cda8283b3905c0c284ea8"
+
+    patch do
+      url "https://github.com/podman-container-tools/podman/commit/379f3205cae2cf6242b9aa697a827a569beacc1a.patch?full_index=1"
+      sha256 "db15962e8bce4b4e1fa556b30ff87d23971077a9eb890b0e15130930e79e8e0e"
+      type :backport
+      resolves "https://github.com/podman-container-tools/podman/pull/29900"
+    end
+
+    patch do
+      url "https://github.com/podman-container-tools/podman/commit/c49605df323f8e5ed447bd25c6e553c7976a065f.patch?full_index=1"
+      sha256 "01eaa02f0d41b620f90e0ce73593e21ba08fee1264d421afbe6e95f24481ea6b"
+      type :backport
+      resolves "https://github.com/podman-container-tools/podman/pull/29900"
+    end
+
+    patch do
+      url "https://github.com/podman-container-tools/podman/commit/7c8b70047be1d919b4343e8945ee5eb80fc531fa.patch?full_index=1"
+      sha256 "6283077d985011d28eb80c99802e686b2be854eb872011740d1cfc90bba04d7f"
+      type :backport
+      resolves "https://github.com/podman-container-tools/podman/pull/29900"
+    end
+  end
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created and upstream uses GitHub releases to
@@ -18,21 +43,23 @@ class Podman < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7b2b9fbb29eca8b313534b8939bfc107ffb6b42254fd5ea587e7fb65034a4404"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8338573355c42dcfc3e50ec686480af6545d10e367f24f7cb8399bdb428a703b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "661e345a5d1cf10e92372cc9e514d5a1c94c6fc0e756c9d973a3e44d501af0ab"
-    sha256                               arm64_linux:       "10d0a3987f09d63eaeb0b292cebb4be2a72c8b5cb533d9ae75bcf89cbf95fdbe"
-    sha256                               x86_64_linux:      "b4130feb9ed055a0037c301a0bcb1a373d58a77048eb22f8baff3e63669e6e64"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "246809d498dca59bb7d90c2c7c06b1dfdf7b38bc0f56dd51ff4422b2eb59b1b2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5781d11ca8e6f097b6d5124b82483f808ed64b36269328158baa9f9cf358648f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4b5f81376943283b7d83d361e47074388640508a69dc04619e10a229cae12f6b"
+    sha256                               arm64_linux:       "fe406925ef64a7fac5ca04c0f760c126c0a01fac456c4e17c7067409400b5882"
+    sha256                               x86_64_linux:      "74eab4b2edfa350d0e2613cacc4ab77aa39ea21226a6caaaf2cb4e3d7fdd1687"
   end
 
   depends_on "go" => :build
   depends_on "go-md2man" => :build
 
+  uses_from_macos "perl" => :build
   uses_from_macos "python" => :build
 
   on_macos do
     depends_on "make" => :build
     depends_on arch: :arm64
+    depends_on "krunkit" => :no_linkage
     depends_on macos: :ventura # see discussions in https://github.com/containers/podman/issues/22121
   end
 
@@ -115,17 +142,6 @@ class Podman < Formula
         regex(/^v?(\d+(?:\.\d+)+)$/i)
       end
     end
-  end
-
-  # Starting in podman 6.0.0, libkrun (via krunkit) is the default machine
-  # driver on macOS. krunkit is not yet available in homebrew-core, so continue
-  # using the previous default driver applehv.
-  #
-  # See https://github.com/Homebrew/homebrew-core/issues/291552
-  # Remove once krunkit is available in homebrew-core.
-  patch do
-    file "Patches/podman/revert-libkrun-default.patch"
-    type :unofficial
   end
 
   # `test do` block needs local sockets for machine setup
@@ -268,11 +284,6 @@ class Podman < Formula
       # See https://github.com/Homebrew/homebrew-core/pull/166471
       out = shell_output("#{bin}/podman-remote machine init homebrew-testvm")
       assert_match "Machine init complete", out
-
-      # Remove once krunkit is available and we follow the upstream behavior of using it
-      # by default
-      cfg_output = shell_output("#{bin}/podman-remote machine inspect homebrew-testvm --format {{.ConfigDir.Path}}")
-      assert_equal (testpath/".config/containers/podman/machine/applehv").to_s, cfg_output.chomp
 
       system bin/"podman-remote", "machine", "rm", "-f", "homebrew-testvm"
     else
