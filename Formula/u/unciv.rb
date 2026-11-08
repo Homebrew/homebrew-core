@@ -13,7 +13,7 @@ class Unciv < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "bcba8f5e40e13f7a0f13bac27eb8eea0bb7f0194587f5ba53977dcd3daecbbd0"
+    sha256 cellar: :any_skip_relocation, all: "9900568a68bfa9626dd679243c8fb3b175f3f33cb469a1d5307d431de1a922ac"
   end
 
   depends_on "openjdk"
