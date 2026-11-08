@@ -22,8 +22,7 @@ class Libxc < Formula
   def install
     args = %w[
       -DENABLE_FORTRAN=ON
-      -DDISABLE_KXC=OFF
-      -DDISABLE_LXC=OFF
+      -DMAXORDER=4
       -DBUILD_SHARED_LIBS=ON
     ]
     # Workaround to build with CMake 4
