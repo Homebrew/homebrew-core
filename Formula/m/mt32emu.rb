@@ -1,8 +1,8 @@
 class Mt32emu < Formula
   desc "Multi-platform software synthesiser"
   homepage "https://github.com/munt/munt"
-  url "https://github.com/munt/munt/archive/refs/tags/libmt32emu_2_8_5.tar.gz"
-  sha256 "801fa771d7384dc462a626d16c8a4d5b9ff73921ff946ea1f042f1a569ee5e11"
+  url "https://github.com/munt/munt/archive/refs/tags/libmt32emu_2_8_6.tar.gz"
+  sha256 "9d351ccc4671027bdaf62ddc08aafdec8971ecb61835d9324bce949916cb0775"
   license "LGPL-2.1-or-later"
   compatibility_version 1
   head "https://github.com/munt/munt.git", branch: "master"
@@ -16,11 +16,11 @@ class Mt32emu < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "5fdd6065afa02bee30942c5fdc81f01443f37fe9d34e3b67b18cf9d5168c53bf"
-    sha256 cellar: :any, arm64_tahoe:       "b4d6491f1d7414abc1036b3c8ecc0192d6e47ae14983d1e5f24eb5ad615c98b2"
-    sha256 cellar: :any, arm64_sequoia:     "7218dca26c5e188ee963b6eb2f815ae294490cde5d6a46c6f47fcbb7405f495e"
-    sha256 cellar: :any, arm64_linux:       "f620e8800567ea1a1594fef8d4b39e1d25f42c3050f9d5b05eccbac99ee19224"
-    sha256 cellar: :any, x86_64_linux:      "55275c9d842b4eebd48e52d92d24cea9c856cfa65f1a1c6864aa514d1fbf31fc"
+    sha256 cellar: :any, arm64_golden_gate: "dc6558c0fa7a50037252e9e702ab3da1e6d7bea349c3f6862831ac7eb93c0038"
+    sha256 cellar: :any, arm64_tahoe:       "9331d8b6c89d41c2134a29a06e4e037822288952f2d1880ac42f066d338df89f"
+    sha256 cellar: :any, arm64_sequoia:     "37eab2ccf702b957b92e2e6b03c8ee87d7ec361ed8754d4043edbdc99849063e"
+    sha256 cellar: :any, arm64_linux:       "6cf529d43744cfbf17e10811eb66bd15602bb79e9e3f84b6b11b42944d65d3e6"
+    sha256 cellar: :any, x86_64_linux:      "91ba1d484e04c625a402024d97eaa639fd3b462dd9912f0873a78603e158aa6c"
   end
 
   depends_on "cmake" => :build
