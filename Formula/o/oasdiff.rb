@@ -1,8 +1,8 @@
 class Oasdiff < Formula
   desc "OpenAPI Diff and Breaking Changes"
   homepage "https://www.oasdiff.com/"
-  url "https://github.com/oasdiff/oasdiff/archive/refs/tags/v1.36.0.tar.gz"
-  sha256 "253f54eab83a4c00c656c98eadb1de18186b40c6870965ccd3035318be4270a3"
+  url "https://github.com/oasdiff/oasdiff/archive/refs/tags/v1.37.0.tar.gz"
+  sha256 "cc8d7a4df7b7ef2947361af703e6deca1ac5739069f5618cb98f91627a5199d4"
   license "Apache-2.0"
   head "https://github.com/oasdiff/oasdiff.git", branch: "main"
 
@@ -13,11 +13,11 @@ class Oasdiff < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "26d91191c758fa2b0d7ad238fef0216272575f65d02688c100edcc86f49a8495"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "26d91191c758fa2b0d7ad238fef0216272575f65d02688c100edcc86f49a8495"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "26d91191c758fa2b0d7ad238fef0216272575f65d02688c100edcc86f49a8495"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "39c1b3f13135124283a5399db96ea72d7c4801842231e1574e5316825b987361"
-    sha256 cellar: :any,                 x86_64_linux:      "af9362deda45ce41133ad4c4cf0696d809859070dc23118773a94772b01f1dd1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4cf96f2a5a56e0aaa7f84dc616f11a23046e0b2a4831bd7f9330966a4d0b895c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4cf96f2a5a56e0aaa7f84dc616f11a23046e0b2a4831bd7f9330966a4d0b895c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4cf96f2a5a56e0aaa7f84dc616f11a23046e0b2a4831bd7f9330966a4d0b895c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "164e182ffd70f449053f49b56ad24d72a6d99a87d80e9b87c91196fb8b831833"
+    sha256 cellar: :any,                 x86_64_linux:      "d5d42f6aeeec640f5e8e5d03e61ae8ebb95a325edb7000b62a347afc88a01365"
   end
 
   depends_on "go" => :build
