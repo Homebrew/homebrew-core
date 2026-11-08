@@ -3,8 +3,8 @@ class RobotFrameworkRobocop < Formula
 
   desc "Static code analysis tool (linter) and code formatter for Robot Framework"
   homepage "https://robocop.dev"
-  url "https://files.pythonhosted.org/packages/68/0e/fae2dbcee0bd3e05a9281fc8cada68c791bc6c1cc646f95ede15a6151b93/robotframework_robocop-9.2.0.tar.gz"
-  sha256 "d74f493ef5f53a9c51c9f36b7bb79b7eb716b951a1f68a82632924d651077464"
+  url "https://files.pythonhosted.org/packages/76/72/c6caa328a81cae1c7d8f9211fd46565e2656deafa095cd5f87e5638e8c73/robotframework_robocop-9.3.0.tar.gz"
+  sha256 "af2993d98aebca96f9ef7ed78e12ef8e878b2ce741579ad26f35207d4d528696"
   license "Apache-2.0"
 
   bottle do
