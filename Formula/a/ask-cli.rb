@@ -16,6 +16,8 @@ class AskCli < Formula
 
   depends_on "node"
 
+  allow_network_access! :build
+
   def install
     system "npm", "install", *std_npm_args
     bin.write_exec_script libexec/"bin/ask"
