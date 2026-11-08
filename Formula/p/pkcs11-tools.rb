@@ -33,6 +33,8 @@ class Pkcs11Tools < Formula
     resolves "https://github.com/Mastercard/pkcs11-tools/issues/103"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
@@ -53,7 +55,7 @@ class Pkcs11Tools < Formula
     CONF
 
     ENV["SOFTHSM2_CONF"] = softhsm_conf
-    ENV["PKCS11LIB"] = Formula["softhsm"].lib/"softhsm/libsofthsm2.so"
+    ENV["PKCS11LIB"] = formula_opt_lib("softhsm")/"softhsm/libsofthsm2.so"
     ENV["PKCS11TOKENLABEL"] = "test"
     ENV["PKCS11PASSWORD"] = "0000"
 
