@@ -1,8 +1,8 @@
 class Tailwindcss < Formula
   desc "Utility-first CSS framework"
   homepage "https://tailwindcss.com"
-  url "https://registry.npmjs.org/@tailwindcss/cli/-/cli-4.3.4.tgz"
-  sha256 "3e3cfc6452192414f67f2feb58503d4651efc2b78c7390689a9ed4e125d54207"
+  url "https://registry.npmjs.org/@tailwindcss/cli/-/cli-4.3.5.tgz"
+  sha256 "889bc319dc2650a68aed225fac2b4d017f64d3964e3b9e66fd87f2737fc38f32"
   license "MIT"
   head "https://github.com/tailwindlabs/tailwindcss.git", branch: "main"
 
@@ -15,11 +15,11 @@ class Tailwindcss < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "20759c1d1c19d81663b508345b2a61ce704156311c821d939b5caf2ed3823bd7"
-    sha256 cellar: :any,                 arm64_tahoe:       "20759c1d1c19d81663b508345b2a61ce704156311c821d939b5caf2ed3823bd7"
-    sha256 cellar: :any,                 arm64_sequoia:     "20759c1d1c19d81663b508345b2a61ce704156311c821d939b5caf2ed3823bd7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3d4cd5fc32b2b5ecccbe733dabf43fd2d0ef3d8367417de8eb8ada24f49b6374"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "070cb871ecf66042118fde5e357263886cea2b9a10cffc21ca97f285dbfcc32a"
+    sha256 cellar: :any,                 arm64_golden_gate: "c16b2dbc4151f2e39b77063afc398a6cd8b26f2c12c01e58484c3b060037da5a"
+    sha256 cellar: :any,                 arm64_tahoe:       "c16b2dbc4151f2e39b77063afc398a6cd8b26f2c12c01e58484c3b060037da5a"
+    sha256 cellar: :any,                 arm64_sequoia:     "c16b2dbc4151f2e39b77063afc398a6cd8b26f2c12c01e58484c3b060037da5a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f3a15e3795eb83b951fe5300b4a181635e84a20e2478b0f760c27ef0195ed00f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "706cb4d7c77f3ed5ab1b9d848b174bf43d3a1c1ba72f987bc184b8824be1c2f3"
   end
 
   depends_on "node"
