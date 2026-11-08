@@ -33,13 +33,19 @@ class Koka < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
+  def fetch
+    system "cabal", "v2-update"
+    system "cabal", "v2-build", "--only-download", *std_cabal_v2_args(installdir: false)
+  end
+
   def install
     inreplace "src/Compile/Options.hs" do |s|
       s.gsub! '["/usr/local/lib"', "[\"#{HOMEBREW_PREFIX}/lib\""
       s.gsub! '"-march=haswell"', "\"-march=#{ENV.effective_arch}\"" if Hardware::CPU.intel?
     end
 
-    system "cabal", "v2-update"
     system "cabal", "v2-build", *std_cabal_v2_args(installdir: false)
     system "cabal", "v2-run", "koka", "--",
            "-e", "util/bundle.kk", "--",
