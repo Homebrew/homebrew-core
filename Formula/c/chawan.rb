@@ -1,17 +1,17 @@
 class Chawan < Formula
   desc "TUI web browser with CSS, inline image and JavaScript support"
   homepage "https://sr.ht/~bptato/chawan/"
-  url "https://git.sr.ht/~bptato/chawan/archive/v0.5.1.tar.gz"
-  sha256 "67a54f10acd2dcda6c62bca825ccaf228f94d04ba9dc85c9369930c58d12ec21"
+  url "https://git.sr.ht/~bptato/chawan/archive/v0.5.2.tar.gz"
+  sha256 "21201936aa3a5ff0117fd55bfa1805ab77647761f4341fd2f77eca15bb66c807"
   license "Unlicense"
   head "https://git.sr.ht/~bptato/chawan", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8d7012cea4f4de35062af9b6b911567612c6e9dac2f760e3448487690e9b161a"
-    sha256 cellar: :any, arm64_tahoe:       "45c110d2af487d402c9fcda873bb30365a79237d58d02e3ae82a174bee1e3754"
-    sha256 cellar: :any, arm64_sequoia:     "0ddf2c1740e85f0b9d5ab55cd898f283f7b1d116a6e303ea5e99e37bda5ed775"
-    sha256 cellar: :any, arm64_linux:       "c6540b38307bfa48527bd440798dfdb796fb78387d3d35ce5bd93e4271ad6d77"
-    sha256 cellar: :any, x86_64_linux:      "f51f142e82544ba5ba0aab91701567a1aa18ec249f0cb0fc25c146081a64959b"
+    sha256 cellar: :any, arm64_golden_gate: "aff9eab6a17a31ca2ca4e8accde7f2a00cb41df239a7dcc4722e9423a5684e2c"
+    sha256 cellar: :any, arm64_tahoe:       "715d381152f6b436ef22e45328bcca6b707ac3bfcd93590359be5f1e4d11f52c"
+    sha256 cellar: :any, arm64_sequoia:     "e53d2e84957a1e267f3f9df832a21b15ca2fb760744d6c05409fc6728a7180b7"
+    sha256 cellar: :any, arm64_linux:       "7534a69a8201f5db2ee950ebaebb2405aa73eb224c48e4a0148de76b0d39df1e"
+    sha256 cellar: :any, x86_64_linux:      "532d3dd8ad4673b30d51d7e494b02ab4fa177ace33b4c5b5dc0a15896ac96407"
   end
 
   depends_on "nim" => :build
