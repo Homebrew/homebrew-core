@@ -28,12 +28,14 @@ class KotlinLanguageServer < Formula
     resolves "https://github.com/fwcd/kotlin-language-server/pull/611"
   end
 
+  allow_network_access! :build
+
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home("21")
     #  Remove Windows files
     rm "gradlew.bat"
 
-    system "gradle", ":server:installDist", "-PjavaVersion=#{Formula["openjdk@21"].version.major}"
+    system "gradle", "--no-daemon", ":server:installDist", "-PjavaVersion=#{Formula["openjdk@21"].version.major}"
 
     libexec.install Dir["server/build/install/server/*"]
 
