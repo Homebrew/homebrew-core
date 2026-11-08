@@ -19,10 +19,14 @@ class Kubespy < Formula
 
   depends_on "go" => :build
 
+  allow_network_access! :test
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "go", "build", *std_go_args(ldflags: "-X github.com/pulumi/kubespy/version.Version=#{version}")
-
-    generate_completions_from_executable(bin/"kubespy", shell_parameter_format: :cobra)
   end
 
   test do
