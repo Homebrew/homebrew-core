@@ -42,6 +42,8 @@ class Oscats < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     args = []
     # Help old config scripts identify arm64 linux
