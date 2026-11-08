@@ -22,6 +22,8 @@ class OilsForUnix < Formula
 
   conflicts_with "etsh", "omake", because: "both install 'osh' binaries"
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--datarootdir=#{share}",
