@@ -1,12 +1,11 @@
 class Cryptominisat < Formula
   desc "Advanced SAT solver"
   homepage "https://www.msoos.org/cryptominisat5/"
-  url "https://github.com/msoos/cryptominisat/archive/refs/tags/release/v5.17.0.tar.gz"
-  sha256 "376f3ee70815037a175e54631162232785da343ca9436faa929e6863648e5f92"
+  url "https://github.com/msoos/cryptominisat/archive/refs/tags/release/v5.18.0.tar.gz"
+  sha256 "44b960a43c4eefc7f800ab5f3ec5c43f670c669e6bdec6a87b49138fedb0c34b"
   # Everything that's needed to run/build/install/link the system is MIT licensed. This allows
   # easy distribution and running of the system everywhere.
   license "MIT"
-  revision 1
   compatibility_version 1
 
   livecheck do
@@ -15,11 +14,11 @@ class Cryptominisat < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "98123e138ebaa54ea98ed4af772b815e463a16070f84499f93958cbba2e4e573"
-    sha256 cellar: :any, arm64_tahoe:       "f27be39f2ecf402ed302d5b9eb9b259a04212235d1c3275e3d57dbbc9bcd34da"
-    sha256 cellar: :any, arm64_sequoia:     "e00b73ab613b015a1aa370c2d75d541f4477e27375e5c101a60b77cb2bf471fb"
-    sha256 cellar: :any, arm64_linux:       "b8bfc3d85508d13dbcfba6387d9be9669361d76370fcc7dab0f5123ece36ddaa"
-    sha256 cellar: :any, x86_64_linux:      "d5978f9a937f31d3ea855cd97cc092095e64f4b39b2ca4d2143a4aec7f36aa59"
+    sha256 cellar: :any, arm64_golden_gate: "0254439ef6fca7d293141eb0649f4e8eadfa3f1d5040d37e2bffed911c1a1767"
+    sha256 cellar: :any, arm64_tahoe:       "5f4b2fb751dbeb4d71bedcba41c795306af4e75a7c75f71d271ca0b6a49ba8e6"
+    sha256 cellar: :any, arm64_sequoia:     "a4c1ec409bdeba093c2f089c102accdd84c9723b2c0056fce7bd0b5b82c01fc4"
+    sha256 cellar: :any, arm64_linux:       "990d098ed30a7d7125993d8180af23c8dfb2e5ac295eef69f871723bcaef960d"
+    sha256 cellar: :any, x86_64_linux:      "604bedae01b51f2cda2152c8cbd624da46ddf9a20ebdc65f27a7e0e872eabe09"
   end
 
   depends_on "cmake" => :build
@@ -47,9 +46,9 @@ class Cryptominisat < Formula
 
   # Currently using revision in flake.lock
   resource "cadiback" do
-    url "https://github.com/meelgroup/cadiback/archive/445ddc2f2b5e54421af64e0652c2eb8444175322.tar.gz"
-    version "445ddc2f2b5e54421af64e0652c2eb8444175322"
-    sha256 "9682f83ead35e1339a2fafdfdbc8d4047b313ee64cafa9285861c0d13f5aa2a1"
+    url "https://github.com/meelgroup/cadiback/archive/802e1f6d34b6e613828e591a8359298cd99e6429.tar.gz"
+    version "802e1f6d34b6e613828e591a8359298cd99e6429"
+    sha256 "e9b29931f4d8e12a18eb12b862054af462332cf747be174eb9f7bdfdf4658918"
 
     livecheck do
       url "https://raw.githubusercontent.com/msoos/cryptominisat/refs/tags/release/v#{LATEST_VERSION}/flake.lock"
