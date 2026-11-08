@@ -3,17 +3,17 @@ class MailDeduplicate < Formula
 
   desc "CLI to deduplicate mails from mail boxes"
   homepage "https://kdeldycke.github.io/mail-deduplicate/"
-  url "https://files.pythonhosted.org/packages/95/ae/a0cf07f5c0dcc1c6f763fd3a09504c552a86be70a179d4031fac3fef0621/mail_deduplicate-9.5.0.tar.gz"
-  sha256 "4a4499b285a3fc272a20f626450aa14fb56a56afc1766ba1baf69e42e42b1a70"
+  url "https://files.pythonhosted.org/packages/6b/92/1ca219adac449af52e072853092d8e315da97c102ad77651a8c56877caac/mail_deduplicate-9.6.0.tar.gz"
+  sha256 "9bca8c396d62c7adf61e0f3c3fd12b3818c52df6f06aa9c86262a0e99c762116"
   license "GPL-2.0-or-later"
   head "https://github.com/kdeldycke/mail-deduplicate.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "790f0e3b90b245517305b0bd1e9a6c3421f7812783457326814919f6b0f43293"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "43e859bf8c458785f59cdd9d94369455c3f5860e4e9c9bc44c77709f8d9c81c0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "42e3c7f956f95109bf02bd833513b1b98a9480344b144ee1fa2ae42ffa1f261f"
-    sha256 cellar: :any,                 arm64_linux:       "e1f0f5f731738f7c4024133efb3aa390ae94472933261c8a1cf112ae1a25c234"
-    sha256 cellar: :any,                 x86_64_linux:      "f3604377594e8c896c955da2a7cbc1b8eee78e7df3cfbd73af2128e5c2106adf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eab52fa01e56b05569f1a6a501a0a9a47734eab988c679ad25fa06dd0ae3d419"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "08cb6600c140138bdc8b83f0486b01b3f67f0435e7908752ac0f20d35425f56f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d0784afdec16498f46e7aa1f6b824b359f26efaf4731772a8db4de9ccb6147a4"
+    sha256 cellar: :any,                 arm64_linux:       "baa7557bce3c0722f070c4f30ddd46a74e470132d4e28cc73aa9ef8a6f8ecbf6"
+    sha256 cellar: :any,                 x86_64_linux:      "0de3a8bc80b2abb3efcd184ced949a4958b1ce94753b010c276ac1abfe3dc8b8"
   end
 
   depends_on "rust" => :build # for click_extra > uv_build
@@ -24,18 +24,18 @@ class MailDeduplicate < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/fb/37/adf8dd2cde958c2d086bdd87fc36b532fd824bf38f10be6348d65da0c8f9/bracex-3.2.tar.gz"
-    sha256 "0a3d40bfae4caae4d3bfd0ea715874799fab711c38fd4012cc35343e815405cd"
+    url "https://files.pythonhosted.org/packages/4d/fc/137095eb2f24ccf0b4db196abd9f5cfe74398a834af51d4bc4876e0beaf0/bracex-3.2.1.tar.gz"
+    sha256 "07a9b2100ceecc0c24afa1a1714bf8d4a6abb43d592939455f662b682ac9baa4"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "click-extra" do
-    url "https://files.pythonhosted.org/packages/a6/de/aee972d458aafadb49a7cb17d145df990c318ab1835b37172841fa9aaf4a/click_extra-10.1.1.tar.gz"
-    sha256 "c383baa8e2046d151e16158f77440e0dc42e893a73b03040728b5adf676ef075"
+    url "https://files.pythonhosted.org/packages/de/5e/db9986517ce10c38bb224b24f18f64bf6061effc295a2c28fc1569843bcd/click_extra-10.2.0.tar.gz"
+    sha256 "499b8ad73f9fa9182f799fbb14ebbc7e61a6dde9c2977954173fdcef4b32994e"
   end
 
   resource "cloup" do
@@ -59,8 +59,8 @@ class MailDeduplicate < Formula
   end
 
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/bd/07/b7a9162a804bc0f7d03fe84c93e374d3e1c4d828043d5f9b797f7d4e30e0/wcmatch-11.2.tar.gz"
-    sha256 "1605bde546fbde4c063628c7d89eda486909fd4337e51d73a873987fbcb2554c"
+    url "https://files.pythonhosted.org/packages/60/81/eb96ce41e8def4ff3b02cec7d1d92e3682597de5064d8687ac88d1734f18/wcmatch-12.0.tar.gz"
+    sha256 "80ebfdf510d5fef580c4fc662b9eba76b331cff20d7913fc6e722edcb199cbe6"
   end
 
   resource "wcwidth" do
