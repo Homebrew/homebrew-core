@@ -1,21 +1,17 @@
 class SpytrapAdb < Formula
   desc "Test a phone for stalkerware and suspicious configuration using usb debugging"
   homepage "https://github.com/spytrap-org/spytrap-adb"
-  url "https://github.com/spytrap-org/spytrap-adb/releases/download/v0.3.5/spytrap-adb-0.3.5.tar.gz"
-  sha256 "e33a342aa461b56a8d857c2c29b743658bd87b4ade7bed20399dea2cea01b0f8"
+  url "https://github.com/spytrap-org/spytrap-adb/releases/download/v0.3.6/spytrap-adb-0.3.6.tar.gz"
+  sha256 "8a6e9d43d1495fc052e4724500b43ff19e8bdaa097dde3a716413fe0bb9100fa"
   license "GPL-3.0-or-later"
   head "https://github.com/spytrap-org/spytrap-adb.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a83c932cf265c9dc820fb5cbc5c68eccee220817e12cb036fa112c2e187e275a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8428084b606a2e3833254e703fbe4008de6dfaaf89ca1f8ff87e6fe2f70425cb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4309532f2c887a32ef4a0f85176b3b767c4205a5b23b2df774f44372f41c8ced"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "9405e4ed5fbe1ca731a3680a79c5ade64b34b1f7400564e547aa61b4865170d8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "43d5058fc2de380c055716f508f140ba0eff5a282841be511a538aabde113834"
-    sha256 cellar: :any_skip_relocation, sonoma:            "135532f2cab5daf44e7317ef497934ed9bebfa524143bb9b7634af8be0a682f7"
-    sha256 cellar: :any_skip_relocation, ventura:           "8720d4e3019e969e56bca91c765a19a89fc1f7ece8aee8afd951493fe62fd9a8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c8eb6db8813e8a10e0b5df9d66beab230cc98e19a3282969f3607f986bfbcf3e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0d2341a2950197714739dc5f7f7be663e31429d7fa187abe2086006171c96367"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e9970883677097abb76a26ca42b3e06f71a686239a42a983cb876ca9137f21a3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5bb3d333766ead455c117b439428997e1d8eed5dc9e2ccc7081ae2cb5c1c2524"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "475f9bf6c484f44912e55aa27fbf4539601ed52f5550661974848171612c5dbb"
+    sha256 cellar: :any,                 arm64_linux:       "adaef40a1f62dea12c0e07b0a8e919af5306e5cf511a041f9befb2290e5c5c96"
+    sha256 cellar: :any,                 x86_64_linux:      "41f1d35118158c47ef71083b3d73486829026ce29a8d35de4afa9e18a8df28e3"
   end
 
   depends_on "rust" => :build
