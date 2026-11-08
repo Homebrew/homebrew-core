@@ -18,6 +18,7 @@ class Pdfgrep < Formula
 
   head do
     url "https://gitlab.com/pdfgrep/pdfgrep.git", branch: "master"
+
     depends_on "asciidoc" => :build
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -31,6 +32,8 @@ class Pdfgrep < Formula
   on_macos do
     depends_on "libgpg-error"
   end
+
+  deny_network_access!
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
