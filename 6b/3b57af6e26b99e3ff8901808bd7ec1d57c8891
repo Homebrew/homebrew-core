@@ -1,0 +1,14 @@
+Formula/s/sqlmux.rb
+  h_9df9c32c3f321d 1-17,18,19-22,23,24-27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "6b3b57af6e26b99e3ff8901808bd7ec1d57c8891",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
