@@ -16,6 +16,8 @@ class Ktlint < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     libexec.install "bin/ktlint"
     (libexec/"ktlint").chmod 0755
