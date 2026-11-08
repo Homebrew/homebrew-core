@@ -8,6 +8,14 @@ class Gam < Formula
   sha256 "7e0064f3476add526978b09f54781102206e2d2c69d169fa410219d982b91607"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "10b9f1e922f9b48f9f73b61b4a1238cb46ca7138bbe2281df9edd23404c87dfa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eac7eabc473334698547671607a6230ad1c1644fbaafc8ae14fccae2c35d3fbc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6f5a2416c5de78294f146d86be8bf882f9fe51dca993f74a8ad9aba9a3a89f5f"
+    sha256 cellar: :any,                 arm64_linux:       "edc0d410aeba53db4020f67ae9e7f2bfa077cfc92e15ca70749f280ec9f19457"
+    sha256 cellar: :any,                 x86_64_linux:      "fa1330c5b5305d26b7ceee96078e3eb349272eced0d03571a49f2a62d6d6d429"
+  end
+
   depends_on "cmake" => :build # for pyscard
   depends_on "swig" => :build # for pyscard
   depends_on "certifi" => :no_linkage
