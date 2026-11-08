@@ -41,6 +41,8 @@ class Owamp < Formula
   # https://lists.internet2.edu/sympa/arc/perfsonar-user/2014-11/msg00131.html
   patch :DATA
 
+  deny_network_access!
+
   def install
     # fix implicit-function-declaration error
     # reported upstream by email
