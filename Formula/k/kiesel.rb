@@ -17,8 +17,16 @@ class Kiesel < Formula
   depends_on "rust" => :build
   depends_on "zig" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args, "--manifest-path", "pkg/zement/Cargo.toml"
+    system "zig", "build", "--fetch=all"
+  end
+
   def install
-    system "zig", "build", "-Dversion-string=#{version}", *std_zig_args
+    args = ["-Dversion-string=#{version}"] if build.stable?
+    system "zig", "build", *args, *std_zig_args
   end
 
   test do
