@@ -35,6 +35,8 @@ class OathToolkit < Formula
   depends_on "libxml2"
   depends_on "libxmlsec1"
 
+  deny_network_access!
+
   def install
     ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac? # avoid openssl linkage
 
