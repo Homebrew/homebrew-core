@@ -6,6 +6,14 @@ class Sqlmux < Formula
   license "MIT"
   head "https://github.com/kackerx/sqlmux.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8650c702f43df9af9b41a2ca046cdf295b064d102544f9bf18df66cb97e8dbfb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8650c702f43df9af9b41a2ca046cdf295b064d102544f9bf18df66cb97e8dbfb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8650c702f43df9af9b41a2ca046cdf295b064d102544f9bf18df66cb97e8dbfb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b43fac0aeaedba798a9c5f600b61e163ce1da18ed4c20298fd5c71ea039111c9"
+    sha256 cellar: :any,                 x86_64_linux:      "fcf87187f0f7853bcd97f907d63ea39cde05b7923a7c3f87c1bde7c31a36bba3"
+  end
+
   depends_on "go" => :build
 
   deny_network_access!
