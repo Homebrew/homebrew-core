@@ -1,8 +1,8 @@
 class Texres < Formula
   desc "Fast TeX engine written in Rust"
   homepage "https://github.com/leoliu0/texres"
-  url "https://github.com/leoliu0/texres/archive/refs/tags/v0.7.9.tar.gz"
-  sha256 "8505a07e31ae4ab9277e39c83fb1a0be862dc8f1c787a77cc22d86b93dfd32f9"
+  url "https://github.com/leoliu0/texres/archive/refs/tags/v0.7.10.tar.gz"
+  sha256 "2740ada8d9cd7084a59880d35206206de0d8264b6e94d68ce2828e32261d76f5"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/leoliu0/texres.git", branch: "main"
 
