@@ -56,6 +56,8 @@ class Prrte < Formula
   link_overwrite "share/man/man1/prte*.1", "share/man/man1/prun.1",
                  "share/man/man5/prte.5", "share/doc/prrte/", "share/prte/"
 
+  allow_network_access! :test
+
   def install
     # Avoid references to the Homebrew shims directory
     inreplace "src/tools/prte_info/prte_info.c", "PRTE_CC_ABSOLUTE", "\"#{ENV.cc}\""
