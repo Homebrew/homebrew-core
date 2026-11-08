@@ -1,8 +1,8 @@
 class Fheroes2 < Formula
   desc "Recreation of the Heroes of Might and Magic II game engine"
   homepage "https://ihhub.github.io/fheroes2/"
-  url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.1.17.tar.gz"
-  sha256 "29f0be1a15ecce658e647b8c3d3fe2e6acddf6fa2144b1e05c82984846f568a1"
+  url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.1.18.tar.gz"
+  sha256 "5ea493f0120962d52ea042ba2f0593417a9643d16102445c2eb6ffc4ada0b4a5"
   license "GPL-2.0-or-later"
   head "https://github.com/ihhub/fheroes2.git", branch: "master"
 
@@ -12,13 +12,11 @@ class Fheroes2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "5fdb5350078b777e6f221c7e45a515fd42923ef677e7d1ef2e4bf7e0ccb5a361"
-    sha256 cellar: :any, arm64_tahoe:       "878cfa8eb85196e83fd74b55f83c5d97c36e0edc93984fadd876104cf2b61f7f"
-    sha256 cellar: :any, arm64_sequoia:     "69fd136cb1953c8411b8177bb0d9585d410deed4fc59c46a2bd2cdcf7f9d7817"
-    sha256 cellar: :any, arm64_sonoma:      "e7a134f5a1d7a129fbde3d23ac64a12154c7d5615c2ddf82a5f5b1fc18b12ff4"
-    sha256 cellar: :any, sonoma:            "805c8fe3209c3956dc3cd20c114b768335a94fdaa5b0b5f2e81751d1441d0ada"
-    sha256               arm64_linux:       "5a90b5be8f3d31374d1958624cce9d94a168baae2997f82d5b0e89894d88f39b"
-    sha256               x86_64_linux:      "5709d2a7e0caf309bc449450e7986f949eee70dc2e886d2cbf920e5796beea47"
+    sha256 cellar: :any, arm64_golden_gate: "979a0550b236b29a76b703deaf4f6ac57d5cab5cf552e33f5aad1ca16f96fd3f"
+    sha256 cellar: :any, arm64_tahoe:       "1d106935e8d78fd6cf547df6d61b2c8c52517d010299610528d2bac1a70e59cb"
+    sha256 cellar: :any, arm64_sequoia:     "965575020e258e941605f223279cda81bea985cf7c1b27236b5811a58fa59755"
+    sha256               arm64_linux:       "82c1c7f71dcc36111504a03b8ee139192a83c0dcb1de5a690dba1bc2a29a9183"
+    sha256               x86_64_linux:      "f217c3471f81c5da9f2740f6d9ed34525abb66b82d2940a41469f8760dcd2e08"
   end
 
   depends_on "cmake" => :build
