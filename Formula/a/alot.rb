@@ -117,6 +117,8 @@ class Alot < Formula
     resolves "https://github.com/pazz/alot/pull/1713"
   end
 
+  allow_network_access! :build
+
   # Check for any changes needed in `extra_packages`
   def check_pypi_extra_packages
     pypi_deps = File.read("pyproject.toml")[/^dependencies\s*=\s*\[\s*"([^\]]*)"\s*,?\s*\]/, 1]
