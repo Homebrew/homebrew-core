@@ -2,8 +2,8 @@ class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
   # vim should only be updated once a day
-  url "https://github.com/vim/vim/archive/refs/tags/v9.2.1302.tar.gz"
-  sha256 "a9d2a2f57d5d3149cff8342b8a0b063d410df5d5a4b46d898610059648b6a17e"
+  url "https://github.com/vim/vim/archive/refs/tags/v9.2.1308.tar.gz"
+  sha256 "ae5e0a12b2b56a58866fdaeba397645b7075f4d836a35cd2bdeb8218ed08522d"
   license "Vim"
   compatibility_version 1
   head "https://github.com/vim/vim.git", branch: "master"
@@ -21,11 +21,11 @@ class Vim < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "300ebac684e967e0f19f85fb40f381ba880547347553664e8825d0bdca298f1d"
-    sha256 arm64_tahoe:       "db90a8f1975b25d145ddc7c976871764710885e1893d41ef9e8cd995d1326733"
-    sha256 arm64_sequoia:     "fd31d1df81bc34d15d53d6fbc554bf537bf2d0eb95481ed9ee0415bb357ba1d3"
-    sha256 arm64_linux:       "3308c4c5f52ddf6a80c9b5ac7e0167792dadd4f96cb971d473726eabfd3e2665"
-    sha256 x86_64_linux:      "932febe23bb6019a9e738624d8b59939f510f7128a60961f504052add835127c"
+    sha256 arm64_golden_gate: "aa75749f4d41744177528abea3ce7f5f354369147f778311f9e9262ec47c3ad3"
+    sha256 arm64_tahoe:       "88b098e255564f119b1b465f4076d20bbe366d44867d10aa22e22ed40292e0f3"
+    sha256 arm64_sequoia:     "0255cb3e38d53ad31367354825002d16913ca56ccb4b3930a069116416ada321"
+    sha256 arm64_linux:       "eb44631f50eb4a33af66d6733339d6fbe1ef025e0b1447b289f55f99b2c41f13"
+    sha256 x86_64_linux:      "f8fac9871fc9fe1b52aeda9fee75fa63d3614bff9ab398214a15405aa686f784"
   end
 
   depends_on "gettext" => :build
