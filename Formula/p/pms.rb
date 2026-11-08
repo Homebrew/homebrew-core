@@ -41,6 +41,12 @@ class Pms < Formula
     depends_on "go" => :build
   end
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download" if build.head?
+  end
+
   def install
     if build.head?
       system "go", "build", *std_go_args(ldflags: "-X main.buildVersion=#{version}")
