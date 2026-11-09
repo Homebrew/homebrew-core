@@ -44,6 +44,8 @@ class Portaudio < Formula
     depends_on "jack"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--enable-mac-universal=no",
                           "--enable-cxx",

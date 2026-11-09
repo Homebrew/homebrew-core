@@ -17,6 +17,8 @@ class Polyml < Formula
     sha256 x86_64_linux:      "cce638901b7e6baf678c145347a882cbc4589d92e52b61e0dc45ea5b30199592"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
@@ -24,13 +26,13 @@ class Polyml < Formula
   end
 
   test do
-    (testpath/"hello.ml").write <<~EOS
+    (testpath/"hello.ml").write <<~ML
       let
         fun concatWithSpace(a,b) = a ^ " " ^ b
       in
         TextIO.print(concatWithSpace("Hello", "World"))
       end
-    EOS
+    ML
     assert_match "Hello World", shell_output("#{bin}/poly --script hello.ml")
   end
 end

@@ -36,6 +36,8 @@ class ProtobufC < Formula
     resolves "https://github.com/protobuf-c/protobuf-c/pull/797"
   end
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *std_configure_args

@@ -39,6 +39,8 @@ class PbcSig < Formula
   # https://groups.google.com/forum/#!topic/pbc-devel/ZmFCHZmrhcw
   patch :DATA
 
+  deny_network_access!
+
   def install
     # Disable -fnested-functions CFLAG on ARM, which will cause it to fail with:
     # incompatible redeclaration of library function 'pow'
@@ -71,7 +73,7 @@ class PbcSig < Formula
         return 0;
       }
     C
-    system ENV.cc, "test.c", "-o", "test", "-L#{Formula["pbc"].lib}",
+    system ENV.cc, "test.c", "-o", "test", "-L#{formula_opt_lib("pbc")}",
                    "-L#{lib}", "-lpbc", "-lpbc_sig"
     system "./test"
   end

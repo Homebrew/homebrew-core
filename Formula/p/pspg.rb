@@ -19,6 +19,8 @@ class Pspg < Formula
   depends_on "ncurses"
   depends_on "readline"
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}"

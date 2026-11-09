@@ -21,6 +21,8 @@ class Puf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "e0dccb5f5a95571338a440abdc6df58db883ad1ce1b4a3ddc8bae95da82be9de"
   end
 
+  allow_network_access! :test
+
   def install
     args = []
     # Help old config scripts identify arm64 linux

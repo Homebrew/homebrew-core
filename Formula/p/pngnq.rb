@@ -24,6 +24,8 @@ class Pngnq < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     # Starting from libpng 1.5, the zlib.h header file
     # is no longer included internally by libpng.

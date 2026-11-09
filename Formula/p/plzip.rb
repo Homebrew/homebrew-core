@@ -36,6 +36,8 @@ class Plzip < Formula
     cause "'make check' fails with '(stdin): Not enough memory'"
   end
 
+  deny_network_access!
+
   def install
     # Not an autotools configure script
     system "./configure", "--prefix=#{prefix}"

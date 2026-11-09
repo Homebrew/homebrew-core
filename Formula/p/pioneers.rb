@@ -43,6 +43,8 @@ class Pioneers < Formula
     depends_on "perl-xml-parser" => :build
   end
 
+  allow_network_access! :test
+
   def install
     ENV.prepend_path "PERL5LIB", formula_opt_libexec("perl-xml-parser")/"lib/perl5" unless OS.mac?
 

@@ -28,6 +28,8 @@ class Pstoedit < Formula
   depends_on "libzip"
   depends_on "plotutils"
 
+  deny_network_access!
+
   def install
     # Workaround for windows only header `io.h`
     inreplace "src/drvsvg.cpp", "#include <io.h>", "#include <unistd.h>\n#include <fcntl.h>"

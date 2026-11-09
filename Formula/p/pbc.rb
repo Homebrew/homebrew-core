@@ -36,6 +36,8 @@ class Pbc < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
+  deny_network_access!
+
   def install
     # fix flex yywrap function detection issue
     ENV["ac_cv_search_yywrap"] = "yes"
@@ -77,7 +79,7 @@ class Pbc < Formula
         return 0;
       }
     C
-    system ENV.cc, "test.c", "-L#{Formula["gmp"].lib}", "-lgmp", "-L#{lib}",
+    system ENV.cc, "test.c", "-L#{formula_opt_lib("gmp")}", "-lgmp", "-L#{lib}",
                    "-lpbc", "-o", "test"
     system "./test"
   end

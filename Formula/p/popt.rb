@@ -31,6 +31,8 @@ class Popt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "eaf6aef4cf756e5ad7d75b04d51efb181e673be05bbc40053123b7e8f975db76"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"

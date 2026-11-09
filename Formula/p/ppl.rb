@@ -46,6 +46,8 @@ class Ppl < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

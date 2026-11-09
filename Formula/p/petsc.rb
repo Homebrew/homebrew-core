@@ -33,6 +33,8 @@ class Petsc < Formula
 
   conflicts_with "petsc-complex", because: "petsc must be installed with either real or complex support, not both"
 
+  deny_network_access!
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--with-debugging=0",

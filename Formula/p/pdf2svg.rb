@@ -26,6 +26,8 @@ class Pdf2svg < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"

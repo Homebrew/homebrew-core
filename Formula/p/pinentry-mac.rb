@@ -26,8 +26,10 @@ class PinentryMac < Formula
   depends_on "libgpg-error"
   depends_on :macos
 
+  deny_network_access!
+
   def install
-    ENV.append_path "ACLOCAL_PATH", Formula["gettext"].pkgshare/"m4"
+    ENV.append_path "ACLOCAL_PATH", Formula["gettext"].opt_pkgshare/"m4"
 
     system "./autogen.sh"
     system "./configure", "--disable-doc",

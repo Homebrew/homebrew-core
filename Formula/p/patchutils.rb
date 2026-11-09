@@ -17,12 +17,15 @@ class Patchutils < Formula
 
   head do
     url "https://github.com/twaugh/patchutils.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "docbook" => :build
   end
 
   depends_on "xmlto" => :build
+
+  deny_network_access!
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

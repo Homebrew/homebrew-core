@@ -42,10 +42,12 @@ class Psftools < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  resource "pc8x8font" do
+  resource "pc8x8font", :test do
     url "https://www.zone38.net/font/pc8x8.zip"
     sha256 "13a17d57276e9ef5d9617b2d97aa0246cec9b2d4716e31b77d0708d54e5b978f"
   end
+
+  deny_network_access!
 
   def install
     # Regenerate `configure` to fix `-flat_namespace`.

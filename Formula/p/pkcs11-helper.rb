@@ -39,6 +39,8 @@ class Pkcs11Helper < Formula
   depends_on "pkgconf" => :build
   depends_on "openssl@4"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args

@@ -23,10 +23,13 @@ class Par2 < Formula
     depends_on "libomp"
   end
 
+  deny_network_access!
+
   def install
     if OS.mac?
-      libomp = Formula["libomp"]
-      ENV.append_to_cflags "-Xpreprocessor -fopenmp -I#{libomp.opt_include} -L#{libomp.opt_lib} -lomp"
+      libomp_include = formula_opt_include("libomp")
+      libomp_lib = formula_opt_lib("libomp")
+      ENV.append_to_cflags "-Xpreprocessor -fopenmp -I#{libomp_include} -L#{libomp_lib} -lomp"
     end
 
     system "./configure", *std_configure_args
