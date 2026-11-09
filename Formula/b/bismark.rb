@@ -1,19 +1,17 @@
 class Bismark < Formula
   desc "Bisulfite read mapper and methylation caller"
   homepage "https://github.com/FelixKrueger/Bismark"
-  url "https://github.com/FelixKrueger/Bismark/archive/refs/tags/bismark-rust-v3.1.0.tar.gz"
-  sha256 "638d7b068031b23fca9c3b3ca5a6b0db675a4da9d48975420fa642b584b5e411"
+  url "https://github.com/FelixKrueger/Bismark/archive/refs/tags/bismark-rust-v3.2.0.tar.gz"
+  sha256 "8b7261a2071a7c73e7b7e0337c243da126aacdb4feb526cac0d1d6a3431b65e5"
   license "GPL-3.0-only"
   head "https://github.com/FelixKrueger/Bismark.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "df268f910c5ed8cf757d9a12a5853ff3b8d858bf78ee9ac0c37f4ae25c42bd85"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "293fda0368b8b74019e9999819cd01eaa624b4acec7394e590cb4ba8af0ac1d3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d9ef6da69cbacb0b255dbae4b26a2a360c47862da106b45ec1a80fe3322686fd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "ef1a51e4e571ea64730c9c5d57cafe3c245d49ed42f8bdee14a1338e7ac5234a"
-    sha256 cellar: :any_skip_relocation, sonoma:            "2831e88732c534227cde21ca650ba6b6522948b30dd522d52c6786e3ef0c1e1e"
-    sha256 cellar: :any,                 arm64_linux:       "ebd1d990d2b691b3f5fa28fa47432d93cc93bb6f845731a168e9ddf564f26e58"
-    sha256 cellar: :any,                 x86_64_linux:      "d235111cdfe3f691965eabe31f6cee0a0442fa1d6145da3be3f6aa7ad02c0824"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7206699650e4a46404abbf068a181a449f0797f8d378ef3ad89fe7ed20187141"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1cf73ac9b3c7a76ee6e37e1eb7b6a22f9e0252fb20ee6f27e5147ff4cbd7be87"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "49440033fde2c39954670e0ce46c061d0b18e4d3f59093cb4b8b528cd2d64b31"
+    sha256 cellar: :any,                 arm64_linux:       "a57ca8f4092bf7c3a7cd06f4694f31b4ec229b2c1ec307642afb7dbfd48b7603"
+    sha256 cellar: :any,                 x86_64_linux:      "d6e3cb0a263b3805344b2ca5a6805e3a3a6e1acd02e3d94b04753b9e7ca89fef"
   end
 
   depends_on "rust" => :build
