@@ -8,6 +8,11 @@ class Gam < Formula
   sha256 "7e0064f3476add526978b09f54781102206e2d2c69d169fa410219d982b91607"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "10b9f1e922f9b48f9f73b61b4a1238cb46ca7138bbe2281df9edd23404c87dfa"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eac7eabc473334698547671607a6230ad1c1644fbaafc8ae14fccae2c35d3fbc"
