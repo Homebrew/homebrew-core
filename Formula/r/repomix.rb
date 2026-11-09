@@ -6,7 +6,7 @@ class Repomix < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6eb74443768e6dd789611daa6bbc0413aef569b1fbe9e28aa44fd35e3f3437dc"
+    sha256 cellar: :any_skip_relocation, all: "25ba7c7613dc7d6e58c216814d099c6fdfec14f2a4e991704e36596cdecc46c4"
   end
 
   depends_on "node"
