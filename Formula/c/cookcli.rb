@@ -1,8 +1,8 @@
 class Cookcli < Formula
   desc "CLI-tool for cooking recipes formated using Cooklang"
   homepage "https://cooklang.org"
-  url "https://github.com/cooklang/cookcli/archive/refs/tags/v0.41.0.tar.gz"
-  sha256 "233f3a349c21936d89eca66daf9e61009dff745fbeabf1fb591c5e33dccabe0e"
+  url "https://github.com/cooklang/cookcli/archive/refs/tags/v0.41.1.tar.gz"
+  sha256 "1e5c4160245d91f1667c5e55d0c6bbd977ac6b7565889bc01b38c462d7e2d95d"
   license "MIT"
   head "https://github.com/cooklang/cookcli.git", branch: "main"
 
