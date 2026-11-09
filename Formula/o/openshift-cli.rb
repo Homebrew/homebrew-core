@@ -1,9 +1,9 @@
 class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
-  url "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.22.22/openshift-client-src.tar.gz"
+  url "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/5.0.1/openshift-client-src.tar.gz"
   # This project employs synchronized versioning so the sha256 may not change on version bumps
-  sha256 "88c3b70294daf27f4ab59b340726d467eb3138cc99450acc9452db8146da9b6e"
+  sha256 "58e63e4aaf8059b7c9edb28570eba1f105ce3c15897d3a4bb4bb7d7c1a3a730e"
   license "Apache-2.0"
   head "https://github.com/openshift/oc.git", shallow: false, branch: "main"
 
@@ -55,7 +55,10 @@ class OpenshiftCli < Formula
     assert_match version_json["clientVersion"]["gitVersion"], "v#{version}"
 
     # Get remote release details
-    release_raw = shell_output("#{bin}/oc adm release info #{version} --output=json")
+    # TODO: Restore the semantic version lookup once `oc` resolves versions beyond 4.x from the update graph
+    # release_raw = shell_output("#{bin}/oc adm release info #{version} --output=json")
+    release_image = "quay.io/openshift-release-dev/ocp-release:#{version}-x86_64"
+    release_raw = shell_output("#{bin}/oc adm release info #{release_image} --output=json")
     release_json = JSON.parse(release_raw)
 
     # Verify the formula matches the release data for the version
