@@ -1,8 +1,8 @@
 class Gsoap < Formula
   desc "SOAP stub and skeleton compiler for C and C++"
   homepage "https://www.genivia.com/products.html"
-  url "https://downloads.sourceforge.net/project/gsoap2/gsoap_2.8.146.zip"
-  sha256 "821af2ecfb93ca9dbd9bdae67fa0d57f9165fb4252bb40e23cd510dc4d49ec98"
+  url "https://downloads.sourceforge.net/project/gsoap2/gsoap_2.8.147.zip"
+  sha256 "112e92a40e734566f57f782b61e39b4ebbe9049f0f1cae49893272f59dd096e2"
   # Parts of the software are alternatively licensed under gSOAP-1.3b, but this
   # license is considered non-free by Debian and Fedora due to section 3.2:
   #
