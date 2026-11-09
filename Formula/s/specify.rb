@@ -3,16 +3,16 @@ class Specify < Formula
 
   desc "Toolkit to help you get started with Spec-Driven Development"
   homepage "https://github.github.com/spec-kit/"
-  url "https://github.com/github/spec-kit/archive/refs/tags/v1.3.2.tar.gz"
-  sha256 "2ebbc4b21ea7bc529c9b7a0806ddff4058249a33668a15679e6bba11672ca92a"
+  url "https://github.com/github/spec-kit/archive/refs/tags/v1.3.3.tar.gz"
+  sha256 "cdb3f0a3947b6514c6e8a270cdaab46d4b330c1ab4b29dbcee33a56b8bff3948"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "0eb75b2b7cf4facee63507ad843b323bf5a0c96f6b17becaa6a62ac9990a09b2"
-    sha256 cellar: :any, arm64_tahoe:       "3ef31fab6de54cac0495fb87b6adb5cb9021984444fac0fca1c653be200d24cb"
-    sha256 cellar: :any, arm64_sequoia:     "b9b3296aef70111a4df649934ccfde1102a167a4983f499976c64e844c16c5bb"
-    sha256 cellar: :any, arm64_linux:       "786bc873e683c9f1b44a9b4caf72cb389b31a19508447d3e72ffa93455a710f8"
-    sha256 cellar: :any, x86_64_linux:      "a9ed09b48ef115d2b4c54d48e19a8dd0bfc87b8687d5f02b7cd7123fbbc38b83"
+    sha256 cellar: :any, arm64_golden_gate: "bd06f0fa6d0e04a4e9c86a633787af85cfde30d047d381cb43ecd99a65c2641e"
+    sha256 cellar: :any, arm64_tahoe:       "ec7a00e4a641cb2fed7c6ca311a9cf0d062a8504df9eb52cf3829146e023eb24"
+    sha256 cellar: :any, arm64_sequoia:     "031efe9113f9186e32e5ebda3345c3c240b5bdb416d41e5d5f4012580b734873"
+    sha256 cellar: :any, arm64_linux:       "a5c1a5b1bb511c9618dac3ba429a656cf38eef48d4ad7887016e88e24a52fda8"
+    sha256 cellar: :any, x86_64_linux:      "b40f67e9ae3d75f62827db579edfe7f3a9217da127dab85fb5dfc2909f28b597"
   end
 
   depends_on "certifi" => :no_linkage
@@ -40,8 +40,8 @@ class Specify < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "h11" do
@@ -160,8 +160,8 @@ class Specify < Formula
   end
 
   resource "sse-starlette" do
-    url "https://files.pythonhosted.org/packages/71/7f/3b8ec4f27833f7b8c270a3ef960b6d435e1065439847bc0fcd1e58ae898b/sse_starlette-3.6.0.tar.gz"
-    sha256 "623151d6c20dc0eebf1b3379c27faae91fff883bac7ab6665f16f46440a88b3a"
+    url "https://files.pythonhosted.org/packages/41/43/a232e3cd804293bd4f6d01e8895bc0f6f83ea148d712baf9d783c7d93d23/sse_starlette-3.7.0.tar.gz"
+    sha256 "326416da2ab52e9a41b3f409d3ff897eda45aa68c9f3b7b17d0913aab8d219c3"
   end
 
   resource "starlette" do
@@ -175,8 +175,8 @@ class Specify < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/03/51/d33db42cc72ffd8c30777547b42d01f0cbf9d95a770457698d0174b3ed71/typer-0.27.3.tar.gz"
-    sha256 "d0396f770a560ab1b0a8504e13b5f254b728cedb05c61cf0359e944e50ce8901"
+    url "https://files.pythonhosted.org/packages/ad/8f/21021859316f44289101638dc74d82e13d722d8533e4b8708a3ab7c8461a/typer-0.28.0.tar.gz"
+    sha256 "69ab84ef79fd601cff071bbd2566d855ecadfd93adbc4b3360b9924359bdd857"
   end
 
   resource "uvicorn" do
