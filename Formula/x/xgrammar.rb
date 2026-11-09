@@ -1,17 +1,17 @@
 class Xgrammar < Formula
   desc "Structured generation and reasoning engine for LLMs"
   homepage "https://xgrammar.mlc.ai/"
-  url "https://github.com/mlc-ai/xgrammar/archive/refs/tags/v0.2.8.tar.gz"
-  sha256 "16c06f7cef8f13ae597b007cce515991725603bded6ebce5f1828e6a9c9685be"
+  url "https://github.com/mlc-ai/xgrammar/archive/refs/tags/v0.2.9.tar.gz"
+  sha256 "a653eb2b372d4efe1ed6677b0f2be61b7606196052cc88f4c77ae0ca48f307fb"
   license "Apache-2.0"
   head "https://github.com/mlc-ai/xgrammar.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "921e5a484331059d72fb152ad0c12356c57238b40a36ad9e596acd2daf1b21fb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5309800d87a4a4b08070443761f873dd484e20a42774b302f59ece483e1d6a26"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9b5bf98c998e84eac0bf7b090c5f988291a10efa780b2d181f502544e58b6ea8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "587161526b68d13c6e9625b30e10e9d64ed634ca477913bc22ef5bb63d04c69c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "1790cc96475ae4122e6e65660846c215c0fae90b2ca71979799c7143f1bfecd0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7d2d352576787d5c1dc36c494b1baaf535d6d701ce45d95d1d88caf217423192"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d2bd6170875e29dabf1e5eabf7cf78c70ba306c796f240b3d78ae5753e896f82"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0bc8f3ebdd7018180eb7ae0c75834b91215353e2c451ce155d96d7a8c1272a21"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "2c99436f1f8566baafb9f79956a51347a95fa0d3dd7cfc096a585e62a9f538aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "217f168fcbf7d4f91a0f274790e90ba40fd5d9d1a44f997f7005ebf5dd0eb93a"
   end
 
   depends_on "cmake" => :build
