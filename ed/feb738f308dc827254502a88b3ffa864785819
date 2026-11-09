@@ -1,0 +1,14 @@
+Formula/m/mesa.rb
+  h_9df9c32c3f321d 6-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "edfeb738f308dc827254502a88b3ffa864785819",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
