@@ -1,8 +1,8 @@
 class Mise < Formula
   desc "Polyglot runtime manager (asdf rust clone)"
   homepage "https://mise.jdx.dev/"
-  url "https://github.com/jdx/mise/archive/refs/tags/v2026.11.4.tar.gz"
-  sha256 "c3537e2f2be1f0a5b7df6392393a3508309fae1db458176e7540e3f48b1f3e92"
+  url "https://github.com/jdx/mise/archive/refs/tags/v2026.11.5.tar.gz"
+  sha256 "3f90095c12ac22453bbfcc8fed8c4331a76c590252e30236ac4e7eb1553eee26"
   license "MIT"
   head "https://github.com/jdx/mise.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Mise < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "20ffec58a7f3e87b4637c14256cd4eb654503459e99943959b67889ac1ee9f48"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2453eb79eb79c63ddd371ff9697cf58512459b4e491171586f038e2b2e9c89da"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ade659078cc5140fae37874d83577b78249fc4b4003c8a17050bb5422e29baae"
-    sha256 cellar: :any,                 arm64_linux:       "9a25f289400f05f65e477c9e504db5e40f4696d5cdd3b414649e814af31d979b"
-    sha256 cellar: :any,                 x86_64_linux:      "5f69ff6b1506be7cec024371761e12134a660f7cc0248003ee6999c88e00a94b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "75153e507bf8b28401db756af84adb87765d00a0bd8889f90d5b6e57d789424d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4b1f195986da8e40968e5a75a8370606615baf1725b029a831fdabc004c316ce"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a0723b0c7eef1a75d4b814fa21de6b23ec79b212cd3e4f0f710bab5ece9de3da"
+    sha256 cellar: :any,                 arm64_linux:       "7a61bce2cd82ce5001a9595f8b945ad6db5979ce6b250b64ec7619ac9c8caa0b"
+    sha256 cellar: :any,                 x86_64_linux:      "2084014a05ff067d323b216f407bed88a4fc122f3c06cc3f303368ce895e5a39"
   end
 
   depends_on "cmake" => :build
