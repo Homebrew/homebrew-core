@@ -1,6 +1,6 @@
 class UutilsDiffutils < Formula
   desc "Cross-platform Rust rewrite of the GNU diffutils"
-  homepage "https://uutils.github.io/diffutils/"
+  homepage "https://uutils.org/diffutils/"
   url "https://github.com/uutils/diffutils/archive/refs/tags/v0.6.0.tar.gz"
   sha256 "74f9c60ae86a63433bc82190e473b943057153d63f6ad39e646cc84350a3d9fa"
   license any_of: ["Apache-2.0", "MIT"]
