@@ -7,11 +7,11 @@ class PhotocraftCli < Formula
   head "https://github.com/storytold/photocraft.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a4cafbaf41a99f42d101a76ef322d4dd507120359ba1b2d67888f8f5b39080de"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "32fdff964195796f3f1b8cf0bcff1a54f3324b9302fe0ed09c5b0a3e7e4b8cf3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b7f53a95601017259b9257883a9259e7430185872c896e8cea5d00ad23ebee3e"
-    sha256 cellar: :any,                 arm64_linux:       "aed661d374a1450ebb4fa1273cae8af5c67198022cca2386377ccbf68bec9076"
-    sha256 cellar: :any,                 x86_64_linux:      "c6b67ec2494407b16bf72060b9cd497f1318a331db690aa212f0a8c04a26ee30"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fbed5e604d4bc77e7cdd69fc2ce96223ea07547647916a485b78b9413e43564e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c5f1d059c22ef63371cc35b36a5466af1c1f7a4192849cbd10d747664ab2ae9f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3cdcd1ecde70903ebbd8abbcbdee0cc5e0e3b98f8c82efa779f414834fc71637"
+    sha256 cellar: :any,                 arm64_linux:       "ec659f2e409623b086f14683073bd02a10521b9ae64af598eb0dc7c9e285fcf1"
+    sha256 cellar: :any,                 x86_64_linux:      "8b1d83d3c8c2ad2cf3d8fea3dd41fae51295914ea24e6edca9dad837a66be93a"
   end
 
   depends_on "rust" => :build
