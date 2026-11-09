@@ -19,6 +19,8 @@ class OcamlZarith < Formula
   depends_on "gmp"
   depends_on "ocaml"
 
+  deny_network_access!
+
   def install
     # Work around for https://github.com/Homebrew/homebrew-test-bot/issues/805
     if ENV["HOMEBREW_GITHUB_ACTIONS"] && !(Formula["ocaml-findlib"].etc/"findlib.conf").exist?
