@@ -12,11 +12,11 @@ class Sqlmux < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8650c702f43df9af9b41a2ca046cdf295b064d102544f9bf18df66cb97e8dbfb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8650c702f43df9af9b41a2ca046cdf295b064d102544f9bf18df66cb97e8dbfb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8650c702f43df9af9b41a2ca046cdf295b064d102544f9bf18df66cb97e8dbfb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b43fac0aeaedba798a9c5f600b61e163ce1da18ed4c20298fd5c71ea039111c9"
-    sha256 cellar: :any,                 x86_64_linux:      "fcf87187f0f7853bcd97f907d63ea39cde05b7923a7c3f87c1bde7c31a36bba3"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a8693d64e956f3d71b780a88562104205be70d3bf8d0a5dfb5e642d924e91eee"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a8693d64e956f3d71b780a88562104205be70d3bf8d0a5dfb5e642d924e91eee"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a8693d64e956f3d71b780a88562104205be70d3bf8d0a5dfb5e642d924e91eee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "821184f9f1c405705e61cffd02c95e0d2de904ae8d40e7129e99f8c852e44698"
+    sha256 cellar: :any,                 x86_64_linux:      "d9b8904c2aadae5cdcf30fabfbcd30c2934ca086be7f699006c9f1e0ac3fb12d"
   end
 
   depends_on "go" => :build
