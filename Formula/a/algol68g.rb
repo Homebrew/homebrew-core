@@ -1,8 +1,8 @@
 class Algol68g < Formula
   desc "Algol 68 compiler-interpreter"
   homepage "https://algol68genie.nl/en/algol-68-genie/"
-  url "https://algol68genie.nl/algol68g-3.13.4.tar.gz"
-  sha256 "2fc732e6f11e63f492371f6414ae0cb2205370eb4250fb9d42b74be51b81a031"
+  url "https://algol68genie.nl/algol68g-3.14.0.tar.gz"
+  sha256 "4f3117d07f4314f1551ae0c865543466bcff7309f31b6f5819a297923f765737"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,11 +11,11 @@ class Algol68g < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "edaecdf6dbba983026cd1a26249eeb5115f4ee3159c87b2eddfcaf8c3b621d05"
-    sha256 arm64_tahoe:       "7d25747e1823e90d02584d31d75361eadb62ff41539e79ace1144a786510adac"
-    sha256 arm64_sequoia:     "2a1000bd9201322a20a4350bcb438a928a66d4ab4e4d428047308b828da8463e"
-    sha256 arm64_linux:       "16de22fdc0b4536307f9578c4d122ca827d4f11fd95392a621fe073663787fb1"
-    sha256 x86_64_linux:      "e86499b6ebd4ccb55dc8df33ea4e0887212aabadb5e030d4c928e662afe859b8"
+    sha256 cellar: :any, arm64_golden_gate: "e8c4f631637031c10947d6e9ad2f4f78415a7ec3f0c83b7e2667c6e8483cc3a7"
+    sha256 cellar: :any, arm64_tahoe:       "c41cb3b3181b7786567c03df7c762a28534a52e2faefbabce440975131d69b36"
+    sha256 cellar: :any, arm64_sequoia:     "e876c9e38fb99023508d17c022518ea52e8201fdd0542207905f9ecce1b6bc80"
+    sha256               arm64_linux:       "125ec12f604b8026bc231ed72247b2ca31a2db989a194d6a86bc189ef09cd44f"
+    sha256               x86_64_linux:      "d419d2d2ba6147ff7c0096d0be10f3ccce85a4b5847ec6ac291ec2718ed707bf"
   end
 
   depends_on "readline"
