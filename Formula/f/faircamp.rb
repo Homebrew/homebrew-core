@@ -1,8 +1,8 @@
 class Faircamp < Formula
   desc "Static site generator for audio producers"
   homepage "https://codeberg.org/simonrepp/faircamp"
-  url "https://codeberg.org/simonrepp/faircamp/archive/2.0.1.tar.gz"
-  sha256 "c3518bb1a54609475ba7452f2e4b0fe82199818700083a0cd69d8997f59a4585"
+  url "https://codeberg.org/simonrepp/faircamp/archive/2.0.2.tar.gz"
+  sha256 "97046d78d8c09837067ae9290fe7aecf5dbb3eb107c1346583534fcb715349f0"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -13,6 +13,7 @@ class Faircamp < Formula
     sha256 cellar: :any, x86_64_linux:      "8773bc2008a0e65fb224749dfa61d2bf731b9d1a4c126abf56c91588fca2f171"
   end
 
+  depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "ffmpeg"
@@ -29,13 +30,10 @@ class Faircamp < Formula
     ENV.append_to_rustflags Utils.safe_popen_read("pkgconf", "--libs", "opus").chomp
 
     system "cargo", "install", *std_cargo_args(path: "cli")
-
-    # TODO: drop backward compatibility symlink for the pre-2.0 `faircamp` CLI name
-    bin.install_symlink "faircamp-cli" => "faircamp"
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/faircamp --version")
+    assert_match version.to_s, shell_output("#{bin}/faircamp-cli --version")
 
     site_dir = testpath/"site"
     release_dir = site_dir/"release"
