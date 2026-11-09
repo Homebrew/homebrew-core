@@ -3,17 +3,16 @@ class Apprise < Formula
 
   desc "Send notifications from the command-line to popular notification services"
   homepage "https://pypi.org/project/apprise/"
-  url "https://files.pythonhosted.org/packages/56/ab/5dbbbdd190fc0a3b36e7b2a1aa2bca22b662b6cf2287c329b0e2acfbd026/apprise-2.1.0.tar.gz"
-  sha256 "7eb453b31f37e6b24499b48320bf9d325038bbb1216e24ea7baaf73b062341c5"
+  url "https://files.pythonhosted.org/packages/a4/92/461f16f50118a99953aed66d5c1c5dc462261bd6cca15862f2eae7b5fcf5/apprise-2.2.0.tar.gz"
+  sha256 "711382b7c366e575276863da72f5473e34db1735a9980f6df464b337a8003ebc"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f4e39ccc7f1fd610725a4d1e779f1fe92db19210187125b932657de976dcab34"
-    sha256 cellar: :any, arm64_tahoe:       "fc991376983a485a8d0a3c5178f7a865c2a31c58ed642310cd0f6a3da9912dcd"
-    sha256 cellar: :any, arm64_sequoia:     "49f2a1c8b840dff4dc6da8e4968fbeb9b4ace748c42217459c94a66a0e01f749"
-    sha256 cellar: :any, arm64_linux:       "d38cf8166b6c6ebaae302f7c10c33195cf1950833bddf471b5e18bc39b2b1da1"
-    sha256 cellar: :any, x86_64_linux:      "6b21b9e586731de93a8209fceb48ebc4cd3667f6e8111665af4a74b57a795b54"
+    sha256 cellar: :any, arm64_golden_gate: "4635ca46b2af2881b5e6ea9d46837f6d09943b8033324130a34e1cb20b443270"
+    sha256 cellar: :any, arm64_tahoe:       "a44e247f607d3811badc0926642bb0ba0dae365659e0cf5510d127e58056d011"
+    sha256 cellar: :any, arm64_sequoia:     "08dd79ca3f85b625ac45dc09f696079f19577baf363cea759bb94782986d8152"
+    sha256 cellar: :any, arm64_linux:       "c1efbe8683d37f057a7a4081a1941fd03db770eb864887907251c9e8026635c0"
+    sha256 cellar: :any, x86_64_linux:      "9ce94bfb4526f3ee9f0782f47c75e61535dbd5efd318d2518146b7f40a086cbc"
   end
 
   depends_on "certifi"
@@ -28,8 +27,8 @@ class Apprise < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "idna" do
