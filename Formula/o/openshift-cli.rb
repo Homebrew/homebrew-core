@@ -1,9 +1,9 @@
 class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
-  url "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.22.18/openshift-client-src.tar.gz"
+  url "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.22.22/openshift-client-src.tar.gz"
   # This project employs synchronized versioning so the sha256 may not change on version bumps
-  sha256 "7c28591a2ea76c4564fcca1d90be073feff1bd3084ec5093d94cd79a2bea85e2"
+  sha256 "88c3b70294daf27f4ab59b340726d467eb3138cc99450acc9452db8146da9b6e"
   license "Apache-2.0"
   head "https://github.com/openshift/oc.git", shallow: false, branch: "main"
 
@@ -13,11 +13,11 @@ class OpenshiftCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "de13f07a0ccea0593960bf9dd7959bd6fb7c12f3519ebe891ff18f9cbc0d5ef7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ebabbe7e63ffbadb782bbc477ba233eed4ccc6746cf0af85b70342ec00c305c6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5be18403217744ca86cf7f96546f782363a7c85b69c590a1d761910ff5a11da4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c466c397aa63af2ee1abf017e31db9b9963b3f82e7edaf03bfcf83d0dcd8026a"
-    sha256 cellar: :any,                 x86_64_linux:      "947a9ff3dcf3932877749f2c146828a7b310858db260b5f4c06109b2f6db0d82"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0d1badc869c17354a8a00386964ee0ed5529ca8f84b8791bc1148ec0345f4f5f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "898fdd9b50ac51ddc483069c3872206653d259fcf6d6056d1833e65037cbd53b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f3fe5298be43569d99dde4a3400dd27a11bc9329d9a9ea908fdb67b0c3d17ef3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "32496e71be020c47400ba382c037ac9018ace1ca0cb3631f774066870c348e69"
+    sha256 cellar: :any,                 x86_64_linux:      "ddccd88c0e2e51bdd3f53410b47df7e04f6ba26db644c8051e676faaeab7baaa"
   end
 
   depends_on "go" => :build
