@@ -18,6 +18,12 @@ class Hwatch < Formula
 
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
     man1.install "man/hwatch.1"
@@ -26,9 +32,7 @@ class Hwatch < Formula
 
   test do
     begin
-      pid = fork do
-        system bin/"hwatch", "--interval", "1", "date"
-      end
+      pid = spawn bin/"hwatch", "--interval", "1", "date"
       sleep 2
     ensure
       Process.kill("TERM", pid)
