@@ -1,17 +1,17 @@
 class Qshell < Formula
   desc "Shell Tools for Qiniu Cloud"
   homepage "https://github.com/qiniu/qshell"
-  url "https://github.com/qiniu/qshell/archive/refs/tags/v2.20.1.tar.gz"
-  sha256 "8d1fa856a5580ec95a9552f5d691bc8d4aefa9b0712f0a75af86f71ca43b9983"
+  url "https://github.com/qiniu/qshell/archive/refs/tags/v2.21.0.tar.gz"
+  sha256 "13fd7aa7b6eb980541cfff49a94d9fececa324ffef67a20e763fc7b5ea5ba738"
   license "MIT"
   head "https://github.com/qiniu/qshell.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2db1edd858d6c7e0a20bce8c7f3cb085037afe5abed013a053b7fa26009422a5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2db1edd858d6c7e0a20bce8c7f3cb085037afe5abed013a053b7fa26009422a5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2db1edd858d6c7e0a20bce8c7f3cb085037afe5abed013a053b7fa26009422a5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "fbb5aedcbe759f7b59657250ab204e0a602ad61aa713c2377f3d8130caee43b1"
-    sha256 cellar: :any,                 x86_64_linux:      "06fb2802d7c865393b26255315db999dabb5ac9f1d5bf010fa97e090d9100a06"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "144739940a4759dcbb67f43e3b43f981aac015d3009d0ae80848efab688360e8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "144739940a4759dcbb67f43e3b43f981aac015d3009d0ae80848efab688360e8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "144739940a4759dcbb67f43e3b43f981aac015d3009d0ae80848efab688360e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "8c275cbdb956d046743c2d762b9dccc30c09f3153193e2f54b7f04cb5ac78a15"
+    sha256 cellar: :any,                 x86_64_linux:      "4504cf9185549a3f31fe40c04bc2da3f7d6beacb6e0785880b43aa9a2740719a"
   end
 
   depends_on "go" => :build
