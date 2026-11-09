@@ -1,13 +1,13 @@
 class Kontext < Formula
   desc "Identity, credentials, and governance for AI agents"
   homepage "https://kontext.security"
-  url "https://github.com/kontext-security/kontext/archive/refs/tags/v1.19.0.tar.gz"
-  sha256 "354d8984d0976d7f5d1259e90e1e533efbbcbb772b47d937fc0dff3b87780dfc"
+  url "https://github.com/kontext-security/kontext/archive/refs/tags/v1.20.0.tar.gz"
+  sha256 "bae0098940380ec9f6e507243387abc9f91c6694fedd19d7237edde5a6f13008"
   license "MIT"
   head "https://github.com/kontext-security/kontext.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "dcce1920938f40682596a6c80a72890371b8cd40616ee073dd9acd3d9ad7d9b7"
+    sha256 cellar: :any_skip_relocation, all: "5fba24c39f89e468b63355aa07c549b6ffba9d3096736a96582aa7d1993ad991"
   end
 
   depends_on "go" => :build
