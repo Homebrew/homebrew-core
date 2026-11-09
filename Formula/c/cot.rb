@@ -1,8 +1,8 @@
 class Cot < Formula
   desc "Rust web framework for lazy developers"
   homepage "https://cot.rs"
-  url "https://github.com/cot-rs/cot/archive/refs/tags/cot-v0.7.0.tar.gz"
-  sha256 "8d84e6645e05b213c64e21de4e21200e04cbdcdf934d7b8aa40fa885a1ee74ef"
+  url "https://github.com/cot-rs/cot/archive/refs/tags/cot-v0.8.0.tar.gz"
+  sha256 "89530ac4e9b49df21679b55f9d7fb392bbc9b167da9707fbd6862365f85c009b"
   license "Apache-2.0"
 
   bottle do
