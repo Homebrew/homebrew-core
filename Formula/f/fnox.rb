@@ -1,8 +1,8 @@
 class Fnox < Formula
   desc "Fort Knox for your secrets - flexible secret management tool"
   homepage "https://fnox.jdx.dev/"
-  url "https://github.com/jdx/fnox/archive/refs/tags/v1.47.0.tar.gz"
-  sha256 "371aa8540f5d701157771c36bca5ac3e564e54d39ca9218d4cd1d9e1122387ef"
+  url "https://github.com/jdx/fnox/archive/refs/tags/v1.48.0.tar.gz"
+  sha256 "f870de49eb15bba6531f6e7014c1013f703d3cca7ff77d56ebeacc488f6b6c8e"
   license "MIT"
   head "https://github.com/jdx/fnox.git", branch: "main"
 
@@ -20,6 +20,10 @@ class Fnox < Formula
   depends_on "openssl@4"
   depends_on "sqlcipher"
   depends_on "usage"
+
+  on_macos do
+    depends_on "node" => :build # Touch ID approval UI header generation
+  end
 
   on_linux do
     depends_on "aws-lc"
