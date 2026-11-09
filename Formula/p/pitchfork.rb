@@ -7,11 +7,11 @@ class Pitchfork < Formula
   head "https://github.com/jdx/pitchfork.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0b05825d9ad9087c6dc905e28d5536ca18efda5634eceabfee91d88f40fa0e56"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8dd540e85bf08ee7b40e21772629118d5b2837b0c6a514aae00f8eab52af7bf2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "66640af219102929f7934d59ad7c4b979b55cfd16948a1c3af7cde599c065b9d"
-    sha256 cellar: :any,                 arm64_linux:       "d57864694b811e763dfc5a1f6c8edf75851090dcb2892f1e145e4911e8086f5a"
-    sha256 cellar: :any,                 x86_64_linux:      "9cf86dcbddedf5ddfa9bf58866d06ee2f3778a001b842809202df1d91e65b7bc"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2d1512c0009dcfa6fae9d6a03946ad561e2d5be203c4fa5f3d18fa4adddf5b35"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2fde615ab21b1792b29fe00438ae541d078497f92210161ed70414f28d1bcc66"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9cceda938e196e19cd83de58b4256c4d0d9235ee4ca456d9881521df52463562"
+    sha256 cellar: :any,                 arm64_linux:       "20f1ca614c4db593f2e7fee10c8ed58a414352c848e1f8ed635cdd3820db1e46"
+    sha256 cellar: :any,                 x86_64_linux:      "84e76e7f3e6d27f41c5db81cc7d2f4b0d2ec93772755f8c39f5e5982d1adb101"
   end
 
   depends_on "node" => :build
