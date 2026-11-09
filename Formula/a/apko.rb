@@ -1,8 +1,8 @@
 class Apko < Formula
   desc "Build OCI images from APK packages directly without Dockerfile"
   homepage "https://github.com/chainguard-dev/apko"
-  url "https://github.com/chainguard-dev/apko/archive/refs/tags/v1.4.17.tar.gz"
-  sha256 "0719c9eecb189dc7c22cd61852091ec44329c31a16750ed575d560c79f356ada"
+  url "https://github.com/chainguard-dev/apko/archive/refs/tags/v1.4.18.tar.gz"
+  sha256 "f1619106590be6cc493141083200894dda1f8f25d00ffba1e7afc55e98c0534b"
   license "Apache-2.0"
   head "https://github.com/chainguard-dev/apko.git", branch: "main"
 
@@ -15,11 +15,11 @@ class Apko < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "66c50fd63fd36501382d8aa5555e0c18112b44116c97ed87c6632fa7eef7a7eb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4b0ada668be286ccb6736402c19ecadd3e93660e66b11acfc69cbe2cccb9bcb9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8055828be698607b44c9f8896d7f79a4b257a1b547749d458ac5fc271b2d7ebb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2a6487fc82b0b10cf7797bae64d0ddbffedef5c3831dccb915dc79ead62927dc"
-    sha256 cellar: :any,                 x86_64_linux:      "06848cb47b363898650fbf4912ab62ad4a1b841a72b8d0df6c4bc587953a6bf1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "194aec1af7c4df272032198c91a963abfc7b283b6897854f34fe43a9c4912867"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f51cde3b2493a529ddfff4df398ae1ee96c4a655816f1bc0817f564c9339d415"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dedc880f9e1cb0ed16745f5cf7ee939c54419e29d7fc090cde771b0bdb2f6bd8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a5b889c6c3260e7868acaebe6469abb3bbdd7a4616d557ee41bbff7b14eea7e1"
+    sha256 cellar: :any,                 x86_64_linux:      "ddcaf9609f48e681c1517bba65b040c6c9551466a1861ca0dc745b720a362bcc"
   end
 
   depends_on "go" => :build
