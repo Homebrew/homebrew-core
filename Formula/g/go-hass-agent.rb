@@ -1,16 +1,16 @@
 class GoHassAgent < Formula
   desc "Native Home Assistant agent for desktop/laptop devices"
   homepage "https://github.com/joshuar/go-hass-agent"
-  url "https://github.com/joshuar/go-hass-agent/archive/refs/tags/v14.18.0.tar.gz"
-  sha256 "a6637642cec0a64955460f5ee8e8a879194a34c462e17e809f4439eae78c14ff"
+  url "https://github.com/joshuar/go-hass-agent/archive/refs/tags/v14.19.0.tar.gz"
+  sha256 "43eac861d8e8765dfacc803e64ac3b73c8b5ef74683c621e4ab08283e0df99aa"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "60d413fe25d39cb1049873aebdd11344ee6c994e3e1d879e253f397ab788c043"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3cc2252527e1800e8b34b66af7f44a30a1f740de7e18809256115a0ce55e63b3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "40c61dd0a09b29014e19fd06850dd29df99a368378157f128d57af7d4d562dc0"
-    sha256 cellar: :any,                 arm64_linux:       "df0a84a83f5b3b54b3c51071019b0e59488021c0369aa22d77eca9c1e5200ceb"
-    sha256 cellar: :any,                 x86_64_linux:      "f4a5e4a33bb0222e8935bc39d8b122975c37bbd86e01f015368c7eb8e7edbfbc"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cf0298d5c0a7d2d13cf799b80db3141146bab25aef5e303b131df91041ace23c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0c45fd2e28fe3a53fc9d5e84769ca40a8dab16cd3797661ace913b8425ba6300"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b2f4e108904abff277ab95fec8d6a01f5e4fcedf49cca5547bee005f9592730b"
+    sha256 cellar: :any,                 arm64_linux:       "27a070f1a2024376e2460cb5cae17b98216c0ac437500a5ec3f00c10c3528ec9"
+    sha256 cellar: :any,                 x86_64_linux:      "582b42fb0d09a25ab35717f57e8672095befb7d485a66e3d29f3bcfa5540a4c1"
   end
 
   depends_on "go" => :build
