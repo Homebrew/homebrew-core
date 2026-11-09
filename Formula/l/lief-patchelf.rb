@@ -17,6 +17,9 @@ class LiefPatchelf < Formula
 
   depends_on "rust" => :build
 
+  # `leif-ffi` crate downloads pre-built binaries
+  allow_network_access! :build
+
   def install
     system "cargo", "install", *std_cargo_args(path: "tools/lief-patchelf")
     system bin/"lief-patchelf", "--generate-manpage", man1.mkpath/"lief-patchelf.1"
