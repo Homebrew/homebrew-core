@@ -1,9 +1,9 @@
 class Krb5 < Formula
   desc "Network authentication protocol"
   homepage "https://web.mit.edu/kerberos/"
-  url "https://kerberos.org/dist/krb5/1.22/krb5-1.22.2.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/krb5-1.22.2.tar.gz"
-  sha256 "3243ffbc8ea4d4ac22ddc7dd2a1dc54c57874c40648b60ff97009763554eaf13"
+  url "https://kerberos.org/dist/krb5/1.22/krb5-1.22.3.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/krb5-1.22.3.tar.gz"
+  sha256 "fe90af8441ad9fa9b064b8e53077cefb782a96f8a68276b031dc54af1789ff0b"
   # From Fedora: https://src.fedoraproject.org/rpms/krb5/blob/rawhide/f/krb5.spec
   license all_of: [
     "BSD-2-Clause",
@@ -25,7 +25,6 @@ class Krb5 < Formula
     "OpenVision",
     any_of: ["BSD-2-Clause", "GPL-2.0-or-later"],
   ]
-  revision 2
   compatibility_version 1
 
   livecheck do
@@ -51,17 +50,20 @@ class Krb5 < Formula
     depends_on "keyutils"
   end
 
-  # Add support for OpenSSL 4
-  patch do
-    url "https://github.com/krb5/krb5/commit/ceee5d558a2be93a9b2df717be1ea42c5d83ee51.patch?full_index=1"
-    sha256 "f7af91992fa6c825a4d42bcc138cd521aa8b98d723f9301c3d39acc4e780d249"
-    type :backport
-  end
-
   deny_network_access!
 
   def install
     cd "src" do
+      # libgssrpc calls secure_getenv, which falls back to k5_secure_getenv
+      # from libkrb5support where libc lacks it (e.g. macOS).
+      inreplace "lib/rpc/Makefile.in", "-lk5crypto $(COM_ERR_LIB)", "-lk5crypto $(SUPPORT_LIB) $(COM_ERR_LIB)"
+
+      # OpenSSL 4.1 returns const pointers from X509_get_ext() and X509_get_subject_name().
+      inreplace "plugins/tls/k5tls/openssl.c" do |s|
+        s.sub! "    X509_EXTENSION *san_ext;", "    const X509_EXTENSION *san_ext;"
+        s.sub! "    X509_NAME *name;", "    const X509_NAME *name;"
+      end
+
       system "./configure", "--disable-nls",
                             "--disable-silent-rules",
                             "--without-system-verto",
