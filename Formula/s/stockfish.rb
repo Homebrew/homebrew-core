@@ -27,12 +27,12 @@ class Stockfish < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0d3d7d7e4412f4326f1393aadfa8476dadd265072e976a53a63c284342ce65ad"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cff11c467e56926956e5042db854523ea3a8dae6625db4fe58215b911bf2cb6b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8fa31b8efc0156a64877eeb79c93386bf063520c27b5e51bf97eb28ff6846e05"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "9af19bcd8571d9d28b878191839a147914933f82195f27c053444645f05d5046"
-    sha256 cellar: :any,                 arm64_linux:       "ef719fa41ee73e2f5ae3f556791745218543e53be25242a7e66e7a4cfc7307c5"
-    sha256 cellar: :any,                 x86_64_linux:      "2f2fa24960bb944c41f4b09503c36dffd7495206201cf1dabe7606691a96d31d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1d8feeb40839678eacfd6a8afbc6d1b077ae4f690c0266f772ad48660a4ea85f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ed9abf25a13559c8c171dd4956998da30e46be61c5eb1642f91686af8b7cf60e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "17f082147af64d5b5f53cec7f368b39e2716cfe38556f890146510e2557e44ac"
+    sha256 cellar: :any,                 arm64_linux:       "beefac0079e9ac5bc76b3791f7c70a4ac5d6b8c2d8a06a60da37f4f21f335aed"
+    sha256 cellar: :any,                 x86_64_linux:      "fd5c4e86f30f72837e1a65b01cd40ca029a1ec3c6d849a89d772965fc4be11c5"
   end
 
   deny_network_access!
