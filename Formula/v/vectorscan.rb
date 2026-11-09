@@ -1,20 +1,18 @@
 class Vectorscan < Formula
   desc "High-performance regular expression matching library"
   homepage "https://github.com/VectorCamp/vectorscan"
-  url "https://github.com/VectorCamp/vectorscan/archive/refs/tags/vectorscan/5.4.13.tar.gz"
-  sha256 "11bfcd2dde32d8a08d1a2eebb09294b12a3fa2be140078f8091b751fa1fabd89"
+  url "https://github.com/VectorCamp/vectorscan/archive/refs/tags/vectorscan/5.4.14.tar.gz"
+  sha256 "8a035e5a7e769f3793d50645a17042bcd601a2f9835b32c535eae7b1a9b9f0e0"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/VectorCamp/vectorscan.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "58f6a8e480e6e020cbc4f3422ca8145b1065e20cdb9d48ecb75732024d71ab61"
-    sha256 cellar: :any, arm64_tahoe:       "422ca8a342116bd13c7cdac401d327a34b6ffafc93ef2560fa304bc8eb7c5436"
-    sha256 cellar: :any, arm64_sequoia:     "1459d77a94f01430355978b4a2519434eef87339d082b11f7ae16ff1bd06a00c"
-    sha256 cellar: :any, arm64_sonoma:      "0fe9a72aabf7e5b1f887630e91a59b6107178c057acef4ac179cae8b6f35787f"
-    sha256 cellar: :any, sonoma:            "a56065eff0d449ad3969617f59521999fed19a8ed706dbc10e2558abacca3a38"
-    sha256 cellar: :any, arm64_linux:       "ce523ca550de06bb5cc49ea5aa1226e5e85ace38aa99161c1e7de75ba53ec1f9"
-    sha256 cellar: :any, x86_64_linux:      "2f5c9f4baf2f68b0f23da72c6e700dc0898debbba1f3dd1f4a407f480c4c4423"
+    sha256 cellar: :any, arm64_golden_gate: "be51d7a3b1140b8a673aa6c6da9c9f48e0ad81cb42e056f4f2589b61724c5b87"
+    sha256 cellar: :any, arm64_tahoe:       "df6b7e60803aba7c1f10e2f05628a5e4302b85e39954df64a29f184c89493f11"
+    sha256 cellar: :any, arm64_sequoia:     "4bf3e1e734efb30d41e0a1ed42eee43538860ef56eb0500cdaf30a0d6bbc1254"
+    sha256 cellar: :any, arm64_linux:       "9ff3ff25f30ada840226a47367c41a716271ce86de4167f8f62fe95c03f01f04"
+    sha256 cellar: :any, x86_64_linux:      "338effe7bba5a5308f57e3b2f2520220d54097c2632ceb17a31bed796ba93743"
   end
 
   depends_on "boost" => :build
