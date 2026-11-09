@@ -6,6 +6,11 @@ class Llamastash < Formula
   license "MIT"
   head "https://github.com/llamastash/llamastash.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(:?\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e527e5367e39ebe7fa3ab5ba391fccc5c9ec58f98ff7a9417e88bc1b4a323835"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7bad7753c48fb6162b2ec8bd32a30879e9fc75e871da42fd820d56202a4bf8ba"
