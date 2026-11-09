@@ -7,11 +7,11 @@ class DejaVu < Formula
   head "https://github.com/vshulcz/deja-vu.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "45816a581e272515d3cf53a26bbe0da6bb21077c9e29a8417f12dfa609bebbc0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "45816a581e272515d3cf53a26bbe0da6bb21077c9e29a8417f12dfa609bebbc0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "45816a581e272515d3cf53a26bbe0da6bb21077c9e29a8417f12dfa609bebbc0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c0b11625c12d62c87adef390331b4d8763f963da9ab7f43d3eee59215fbbb4ec"
-    sha256 cellar: :any,                 x86_64_linux:      "ff0d0456a5c5e572f0600345c0b02eed20d31250bf00fddba44187df95d8dbcb"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "030c93bb3ec73dcb106de45b1afb5a23ed761eaf319651d9b4dde9444d70ca4e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "030c93bb3ec73dcb106de45b1afb5a23ed761eaf319651d9b4dde9444d70ca4e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "030c93bb3ec73dcb106de45b1afb5a23ed761eaf319651d9b4dde9444d70ca4e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4e99fcf3246e45c182d31cf7a747990efa836677cfb033b52b5f007adfe62a7f"
+    sha256 cellar: :any,                 x86_64_linux:      "1453777f2a43578b53a6f6550c351bbd6fc6253717a79f70e8fb5a617c41a6da"
   end
 
   depends_on "go" => :build
