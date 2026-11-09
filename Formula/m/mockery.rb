@@ -15,11 +15,11 @@ class Mockery < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f5df492e56e3bb5fd071e00795903c56e6d2e6d27eb458612e57270d1dd67dd6"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f5df492e56e3bb5fd071e00795903c56e6d2e6d27eb458612e57270d1dd67dd6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f5df492e56e3bb5fd071e00795903c56e6d2e6d27eb458612e57270d1dd67dd6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "7f9c38223e12f03c645dfb6a88bb8b42c96107400dfdeff2f155ea4e0001ef9d"
-    sha256 cellar: :any,                 x86_64_linux:      "d772433b8c69905eb0742171e30658e4eb898e6c26497dabb7bd7cd8c66474cd"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b52772f24c326d38bfb532e7ef3502f8e7d588f42c30ccca519c5a0bae804d88"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b52772f24c326d38bfb532e7ef3502f8e7d588f42c30ccca519c5a0bae804d88"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b52772f24c326d38bfb532e7ef3502f8e7d588f42c30ccca519c5a0bae804d88"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "588c8bd29e95c81dd49dded0cfec417e145dbf2921d1bfb5d1bd60d5fb6baf00"
+    sha256 cellar: :any,                 x86_64_linux:      "3f38d757f7789f144cf4724964c1f7702f01b53d2c45e1391359ba251f814c90"
   end
 
   depends_on "go" => :build
