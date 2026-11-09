@@ -1,8 +1,8 @@
 class TrimGalore < Formula
   desc "Quality and adapter trimming for FastQ sequencing reads"
   homepage "https://github.com/FelixKrueger/TrimGalore"
-  url "https://github.com/FelixKrueger/TrimGalore/archive/refs/tags/v2.3.0.tar.gz"
-  sha256 "6dd4d99c10a2d1e740d8e49ee870b1f9a7ccb8ee94c0bc5183d2ae507492aab0"
+  url "https://github.com/FelixKrueger/TrimGalore/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "e88fa19e71781792e469f7f0ed8a85272b4ede9518a0f41d7babc81be6e32dd1"
   license "GPL-3.0-only"
   head "https://github.com/FelixKrueger/TrimGalore.git", branch: "master"
 
@@ -12,13 +12,11 @@ class TrimGalore < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1e02d0c3d7cde50a819432af2e169f332867c59f48b0505e6ff4dc2ce2c9361f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "21715e4c80f487a2e3e4ad673e12cdfa872bde5685597b6790e062be97a275ed"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4be9dd3a0cba6a7671eb0e3cbc426e30e621c3754831bcdbf25dfcafed47e9df"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "981fa7a134a77f9ed8af9e91eaf7dfe6e37536a2bea3eb1baab6345fa55b331f"
-    sha256 cellar: :any_skip_relocation, sonoma:            "c2475710430a340a61d03036f9b626226e3e2cd7f9a6544fc2ddbfe404488f19"
-    sha256 cellar: :any,                 arm64_linux:       "95e72c2c77cb70c6348c5f5b4ff4053fb9a455ad61ac3ed42e5ea42789cfebdd"
-    sha256 cellar: :any,                 x86_64_linux:      "5b67d87bfc3fd3e780117d9c7aa98485a02f0c39d99f3c0ce1df3df2957efa05"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3500933be041fb5a2fb1d8c9ed5a525cbe2b649bd079c0c1acbf9203aeeb96d3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "38581836c7b2b22c709e59d395587fe0cfeee03836b80aed64f5fb318289c002"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eb30b443fdae6cc166618ca9d998daaffdd9e33847c1bc774bf1f96ab5860c48"
+    sha256 cellar: :any,                 arm64_linux:       "83d3ea32e44f60ed98aceae4269e953699acae915860b1bd5b49445e819419ad"
+    sha256 cellar: :any,                 x86_64_linux:      "32d7754e5fc8e7d84d01fdedfe5fb2df947d255ee498836badab6234e85420a1"
   end
 
   depends_on "rust" => :build
