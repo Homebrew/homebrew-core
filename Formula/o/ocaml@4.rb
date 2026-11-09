@@ -39,6 +39,8 @@ class OcamlAT4 < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     ENV.deparallelize # Builds are not parallel-safe, esp. with many cores
 

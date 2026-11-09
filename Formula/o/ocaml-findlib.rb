@@ -24,6 +24,8 @@ class OcamlFindlib < Formula
 
   uses_from_macos "m4" => :build
 
+  deny_network_access!
+
   def install
     # Specify HOMEBREW_PREFIX here so those are the values baked into the compile,
     # rather than the Cellar
