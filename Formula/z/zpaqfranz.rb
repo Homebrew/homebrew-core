@@ -1,8 +1,8 @@
 class Zpaqfranz < Formula
   desc "Deduplicating command-line archiver and backup tool"
   homepage "https://github.com/fcorbelli/zpaqfranz"
-  url "https://github.com/fcorbelli/zpaqfranz/archive/refs/tags/65.18.tar.gz"
-  sha256 "4853475062695300351e2b16f472ed4f462a108007d671338617e073d3810078"
+  url "https://github.com/fcorbelli/zpaqfranz/archive/refs/tags/65.19.tar.gz"
+  sha256 "0c97c26d34ae5437e30ed528607d0b47adb2685b40b6d8883c94ea24c81adea8"
   license all_of: [:public_domain, "MIT", "Zlib", "Unlicense", "BSD-2-Clause", "Apache-2.0"]
   head "https://github.com/fcorbelli/zpaqfranz.git", branch: "main"
 
@@ -29,7 +29,7 @@ class Zpaqfranz < Formula
     # JIT only works on Intel (might work on Linux aarch64, but not Apple Silicon)
     ENV.append_to_cflags "-DNOJIT" unless Hardware::CPU.intel?
 
-    system "make", "install", "-f", "NONWINDOWS/Makefile", "BINDIR=#{bin}/#{name}"
+    system "make", "install", "-f", "NONWINDOWS/Makefile", "PREFIX=#{prefix}"
     man1.install Utils::Gzip.compress("man/zpaqfranz.1")
   end
 
