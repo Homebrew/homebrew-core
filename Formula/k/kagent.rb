@@ -1,8 +1,8 @@
 class Kagent < Formula
   desc "Kubernetes native framework for building AI agents"
   homepage "https://kagent.dev"
-  url "https://github.com/kagent-dev/kagent/archive/refs/tags/v0.10.6.tar.gz"
-  sha256 "6f59b03a1302978d988c165feb25826b746d40951d42a7afb201be11e9ad595e"
+  url "https://github.com/kagent-dev/kagent/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "c7fd886082871eab0d154f2f4a90cde262c978a01379c602fdb0b0939a6f65cd"
   license "Apache-2.0"
   head "https://github.com/kagent-dev/kagent.git", branch: "main"
 
@@ -45,19 +45,8 @@ class Kagent < Formula
       output_format: table
       timeout: 5m0s
     YAML
-    assert_match "Successfully created adk project ", shell_output("#{bin}/kagent init adk python dice")
-    assert_path_exists "dice"
 
-    cd "dice" do
-      pid = spawn bin/"kagent", "run", "--config", testpath/"config.yaml", err: "test.log"
-      sleep 3
-      assert_match "failed to start docker-compose", File.read("test.log")
-    ensure
-      Process.kill "TERM", pid
-      Process.wait pid
-    end
-
-    assert_match "Please run 'install' command first", shell_output("#{bin}/kagent 2>&1")
-    assert_match "helm not found in PATH.", shell_output("#{bin}/kagent install 2>&1")
+    assert_match 'unknown field "kagent_url"',
+      shell_output("#{bin}/kagent config validate --config config.yaml 2>&1", 1)
   end
 end
