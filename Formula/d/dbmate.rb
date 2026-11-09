@@ -7,11 +7,11 @@ class Dbmate < Formula
   head "https://github.com/amacneil/dbmate.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4e5f3e43334664bd29b284230008c6042e448e1401222cc9e81ba895d5ca18ec"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9f07aaacc670e1c1257364b260c0d51c0037438d7cd63ab2cf161a66f5b27c61"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c7d6eccb28ff6c1e19989989d9a24d32c36af142d932ec0ad1b1972431992edb"
-    sha256 cellar: :any,                 arm64_linux:       "c5920d16efc40a2d6187430556de77899c74685795c4b8ce675080f5c82128e0"
-    sha256 cellar: :any,                 x86_64_linux:      "a31f175631df9a1010bf61e34827ab2a43823856f51602176b127af671d26c74"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6440a5308c7ac821997fa5228a2bed70618891dff0a1ee9015ae9e130f0013b9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6b2090fd26bf4d8d8ea47775c7738834c6098adf4911d31cbed7f6852c42cbb5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "01fe80fc5f4ffbd8d84cadeb72f8051502a41ee17bd6d0735bfa1425c7fa6128"
+    sha256 cellar: :any,                 arm64_linux:       "451267c1007d649b1aa63c4d2af865afab46a97c5c03f065b22dda62931f2511"
+    sha256 cellar: :any,                 x86_64_linux:      "28e85c030664cee21ab03a02d483be48d6232dbefa3f422552963ce61f69276f"
   end
 
   depends_on "go" => :build
