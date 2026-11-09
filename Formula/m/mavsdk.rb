@@ -68,6 +68,10 @@ class Mavsdk < Formula
     end
   end
 
+  # For `generate_from_protos` script
+  # and `mavlink` which downloads PyPI packages
+  allow_network_access! :build
+
   def install
     # Fix version being reported as `v#{version}-dirty`
     inreplace "cpp/CMakeLists.txt", "OUTPUT_VARIABLE VERSION_STR", "OUTPUT_VARIABLE VERSION_STR_IGNORED"
