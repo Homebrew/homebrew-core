@@ -4,6 +4,7 @@ class Container < Formula
   url "https://github.com/apple/container/archive/refs/tags/1.7.1.tar.gz"
   sha256 "ef497b524624048ee45d57b0f7fdd675d6d420fcb30ab4a039779d752d9dea66"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
   head "https://github.com/apple/container.git", branch: "main"
 
@@ -37,6 +38,8 @@ class Container < Formula
 
     plugins = {
       "container-core-images"   => { source: "CoreImages",       entitlements: false },
+      "container-core-clusters" => { source: "CoreClusters",     entitlements: false },
+      "cluster-hoststore"       => { source: "ClusterHostStore", entitlements: false },
       "container-network-vmnet" => { source: "NetworkVMNet",     entitlements: true  },
       "container-runtime-linux" => { source: "RuntimeLinux",     entitlements: true  },
       "machine-apiserver"       => { source: "MachineAPIServer", entitlements: false,
