@@ -8,11 +8,11 @@ class Proteinortho < Formula
   depends_on "diamond"
   depends_on "openblas"
 
+  uses_from_macos "perl"
+
   on_macos do
     depends_on "libomp"
   end
-
-  uses_from_macos "perl"
 
   resource "DBI" do
     url "https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/DBI-1.647.tgz"
@@ -53,7 +53,7 @@ class Proteinortho < Formula
     # Make the bundled perl modules (DBI/DBD::SQLite) available at runtime
     libexec_perl5 = libexec/"lib/perl5"
     Dir[bin/"*.pl"].each do |script|
-      inreplace script, "use strict;", "use strict;\nuse lib #{libexec_perl5.to_s.dump};"
+      inreplace script, /\A#!.*$/, "\\0\nuse lib #{libexec_perl5.to_s.dump};"
     end
 
     doc.install "manual.html"
