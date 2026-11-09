@@ -9,11 +9,11 @@ class McpAtlassian < Formula
   head "https://github.com/sooperset/mcp-atlassian.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4928754b1764ab103fdd62aa2620d9a8549eadc889560462af875031436eda20"
-    sha256 cellar: :any, arm64_tahoe:       "dd9a60f0181992b4c1ed42b7e8f9e2b46b30ae38577c5b098ea052f40f57ec5b"
-    sha256 cellar: :any, arm64_sequoia:     "d2a43d7808e482ab50b1d9f337a77cb9d5e7bba5f5832de0b4cda1dfff580f8a"
-    sha256 cellar: :any, arm64_linux:       "c27498c316ed1de947cb8be2a29d2f6aee9049ef4306b73372cd9c82d5ed1d1e"
-    sha256 cellar: :any, x86_64_linux:      "17995fc7a83da0c51545e75a9c03d6e59639f83dd9150ba3fc35b0715ef30658"
+    sha256 cellar: :any, arm64_golden_gate: "c64ea2e9399009f02ed0e6b677b9d8c61c6c4ff21a28c4b0328700cde4ade987"
+    sha256 cellar: :any, arm64_tahoe:       "bd4351a233ae586d334370e3770699bbe16f754d11bba3a190356cb97b986fda"
+    sha256 cellar: :any, arm64_sequoia:     "264fde3520fdbcb7e7262b213afc89647dbcb9d57e8e3e96c0d9c454df6646bf"
+    sha256 cellar: :any, arm64_linux:       "a93f277dcb0bc0031ff587c99ba1474815c2186f0063296aa029edd2b40147a4"
+    sha256 cellar: :any, x86_64_linux:      "d4ae50b7b478f233b6cbe611f882c5d3e01ca25b8fc70e1c2b740d14ce81d441"
   end
 
   depends_on "pkgconf" => :build
