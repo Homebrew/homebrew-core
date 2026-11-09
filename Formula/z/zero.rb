@@ -1,8 +1,8 @@
 class Zero < Formula
   desc "Terminal coding agent you own"
   homepage "https://zero.twigpine.com/"
-  url "https://github.com/Twigpine/zero/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "065a2bbcdce5e7fe597247e9a14fc41cb4ff0577461fd73bea72bc889af4d233"
+  url "https://github.com/Twigpine/zero/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "6b826c0189e117c6ae4b8adfd1199fa41bf2e3a14c1d030ead18d82e22c20b65"
   license "MIT"
   head "https://github.com/Twigpine/zero.git", branch: "main"
 
