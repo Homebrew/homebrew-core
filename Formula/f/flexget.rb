@@ -3,16 +3,16 @@ class Flexget < Formula
 
   desc "Multipurpose automation tool for content"
   homepage "https://www.flexget.com"
-  url "https://files.pythonhosted.org/packages/e9/9f/f85468e9c1b05ce593a550d3db2b2333e5992f6c0d81030db03a607b32bd/flexget-3.22.10.tar.gz"
-  sha256 "501ad746d0c227cf83ca66f48728f634d5629482ba60063dfea8d04ebbedbe24"
+  url "https://files.pythonhosted.org/packages/ec/72/dbe0e8a04a321a03d720b0d78cca8268ff325880f4bbe9a48a53f02db6b0/flexget-3.22.11.tar.gz"
+  sha256 "d3b183acaf320f2b5d9267cd7002fa40ef5907462ae7fb759d12134564859a4d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "6bd8eb9b85e8d904ab7f96b97733a4005086a93e9a8b02fb0454e0e2c25b715e"
-    sha256 cellar: :any, arm64_tahoe:       "cf195e570e02f8e4d0cd085e0b6b4b664b68617fedb15cae3932f8897a3153ba"
-    sha256 cellar: :any, arm64_sequoia:     "967dcaae3c8155ddc6160d1b3b272d95019356acaa99d518bb4cfe91ddd27a4c"
-    sha256 cellar: :any, arm64_linux:       "8617b4a7484fcf2a8b4a2a4b5315d0e0c1f045b50b8f92580e6662369d4f2fda"
-    sha256 cellar: :any, x86_64_linux:      "df212fb79277e0a1d16db835da98ea7bda7d151e0f4c01f9ab35657146ca51af"
+    sha256 cellar: :any, arm64_golden_gate: "74c04d7b3faa3dff222b210fa5b4cfa9988f4b968c25cecba262eae0ca1f3e5a"
+    sha256 cellar: :any, arm64_tahoe:       "715bf9e340311efa362036b5cf3f93b88075db747bbd7fb04c829137e20de90e"
+    sha256 cellar: :any, arm64_sequoia:     "bb25b20a321aac7f2e366c71e4d662476e60ab8836284b673b9e1035da7f01e4"
+    sha256 cellar: :any, arm64_linux:       "1930334a8a4d4f7b1f352560d5e0972674719d7340798a57cbe01349dcbf0afa"
+    sha256 cellar: :any, x86_64_linux:      "c9e14703d1cc1a60594a6aa4a159ffd5669c4810e76dddffd3f8a487a6414574"
   end
 
   depends_on "rust" => :build
@@ -82,8 +82,8 @@ class Flexget < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "curl-cffi" do
@@ -328,13 +328,13 @@ class Flexget < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/19/63/0b6bae54546aed98d72f12d09df57b19a287f01c84d22047fa2e23772ab9/soupsieve-3.0.4.tar.gz"
-    sha256 "924fab84ae21604c19e175e1f39815eb6fa83ba23836e09e9de180925e5bc4c0"
+    url "https://files.pythonhosted.org/packages/01/7c/a64eedae0b7776cb9602d2da9cb8f8caae8e1b4c1da5e8e87bf1e68121ec/soupsieve-4.0.1.tar.gz"
+    sha256 "7621e3c5f6b371ed2c5eabaac5de300ac3d66d05e6d7f34783e31b63c4f90c75"
   end
 
   resource "sqlalchemy" do
-    url "https://files.pythonhosted.org/packages/36/dc/9addbf490110b5727380059ee542ad8353bdcee45a37ba6a5e0976966ae0/sqlalchemy-2.1.6.tar.gz"
-    sha256 "499eae5c9051efe96cb9a73ec2fbde8ffa4186f102b9094ebab8fcc9d3b99f52"
+    url "https://files.pythonhosted.org/packages/9c/e7/2855174facf54a83b4fa3eddcece3631c6bdae43605dacd69cc3b6794319/sqlalchemy-2.1.8.tar.gz"
+    sha256 "8bc4081dd7c17c073f2384ad0f5ee968e63b43507b2e024a3523c000a06d70da"
   end
 
   resource "tempora" do
@@ -348,8 +348,8 @@ class Flexget < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/03/51/d33db42cc72ffd8c30777547b42d01f0cbf9d95a770457698d0174b3ed71/typer-0.27.3.tar.gz"
-    sha256 "d0396f770a560ab1b0a8504e13b5f254b728cedb05c61cf0359e944e50ce8901"
+    url "https://files.pythonhosted.org/packages/ad/8f/21021859316f44289101638dc74d82e13d722d8533e4b8708a3ab7c8461a/typer-0.28.0.tar.gz"
+    sha256 "69ab84ef79fd601cff071bbd2566d855ecadfd93adbc4b3360b9924359bdd857"
   end
 
   resource "typer-slim" do
@@ -388,8 +388,8 @@ class Flexget < Formula
   end
 
   resource "zc-lockfile" do
-    url "https://files.pythonhosted.org/packages/10/9a/2fef89272d98b799e4daa50201c5582ec76bdd4e92a1a7e3deb74c52b7fa/zc_lockfile-4.0.tar.gz"
-    sha256 "d3ab0f53974296a806db3219b9191ba0e6d5cbbd1daa2e0d17208cb9b29d2102"
+    url "https://files.pythonhosted.org/packages/f8/3f/9def84ea337e9ad911ac7b16c069d755f6b02961a297068c08f05f3c6700/zc_lockfile-4.1.tar.gz"
+    sha256 "498f37d33a36d1b1534ea31a0fbe3b5d371c862baeb8805f467a6d39948011ef"
   end
 
   resource "zxcvbn" do
