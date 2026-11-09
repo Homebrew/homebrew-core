@@ -1,8 +1,8 @@
 class Verapdf < Formula
   desc "Open-source industry-supported PDF/A validation"
   homepage "https://verapdf.org/home/"
-  url "https://github.com/veraPDF/veraPDF-apps/archive/refs/tags/v1.30.3.tar.gz"
-  sha256 "feb399e0140a13b743144009e6cde61625c08dd15633d259ad360788d3b5ce57"
+  url "https://github.com/veraPDF/veraPDF-apps/archive/refs/tags/v1.30.4.tar.gz"
+  sha256 "306343acfb2ec4686460f7fcf755e0c1d18883106f052dc64989317bd0480253"
   license any_of: ["GPL-3.0-or-later", "MPL-2.0"]
   head "https://github.com/veraPDF/veraPDF-apps.git", branch: "integration"
 
@@ -12,11 +12,11 @@ class Verapdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7cb9987474b55c0e9974d6b4189b181c620d1417b41831b558d817e15e0aea39"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e2d9ad4654281dfb6519e386e143f9d2d0c85b79fc1c6d28eb8f0eccfddc1a84"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7ca7c9d6ce1f535be641a9d2b6cb8991bd4b7403cf0be4b57e88b2d2c55d71f5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "01677fadc649a4077ab2b3f5fbcb34432a3ba7ae181072119bb2e3077e5b6aed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "96b282ac2c81e5619d5508eff06c3df2d5ff3c336c0f50f4c381382dc20e2e32"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "38d27f278d7bfc58ba5dae932e6564e2fe859961e0bab31d53365468a7330b7b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b75306d0a3543a7fba70241ef295a3743911d1fc45d4aba53358946e2f757357"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "758fd615119ba60d715edf48d4c186e5e9e37f44d470714d9453574d7a292435"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "c954b84b175ea7705964985721d8271ba0b42e8f7dd854aa3ff0bc2c6747ff7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "cef74906d8577f600271757cbd2c6383a2a3acd8431e65a766be30aa53be12a2"
   end
 
   depends_on "maven" => :build
