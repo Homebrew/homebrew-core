@@ -1,8 +1,8 @@
 class OsvScanner < Formula
   desc "Vulnerability scanner which uses the OSV database"
   homepage "https://google.github.io/osv-scanner/"
-  url "https://github.com/google/osv-scanner/archive/refs/tags/v2.7.0.tar.gz"
-  sha256 "acd8ebbf345a9a04eb299cb8e1339512fd4f2ad402f8f40972edcffa3eb45109"
+  url "https://github.com/google/osv-scanner/archive/refs/tags/v2.7.1.tar.gz"
+  sha256 "35472c072bca6571df8019843c3d2c2c7379160cc2c32fa1fe4c68f86cdd7704"
   license "Apache-2.0"
   head "https://github.com/google/osv-scanner.git", branch: "main"
 
@@ -14,7 +14,15 @@ class OsvScanner < Formula
     sha256 cellar: :any,                 x86_64_linux:      "72dfc42b3183928e8be9d40f53df78806ba0303d6e3e69a55145cd0876d32fe0"
   end
 
-  depends_on "go" => [:build, :test]
+  depends_on "go" => :build
+
+  # Avoid opening the host filesystem root during sandboxed source scans.
+  patch do
+    url "https://github.com/google/osv-scanner/commit/3acb3df177c53aa6be3e3a611608ed2b405a2bbc.patch?full_index=1"
+    sha256 "5336c703db656024d968a5990f55a3ae277e861baf54e0688d25d090107dfc30"
+    type :unofficial
+    resolves "https://github.com/google/osv-scanner/pull/3269"
+  end
 
   # `test do` block queries api.osv.dev
   allow_network_access! :test
@@ -36,7 +44,10 @@ class OsvScanner < Formula
       )
     GOMOD
 
-    scan_output = shell_output("#{bin}/osv-scanner --lockfile #{testpath}/go.mod")
-    assert_match "Scanned #{testpath}/go.mod file and found 1 package", scan_output
+    output = shell_output("#{bin}/osv-scanner scan source --no-call-analysis=go --format=json " \
+                          "--all-packages --lockfile=#{testpath}/go.mod")
+    packages = JSON.parse(output).fetch("results").flat_map { |result| result.fetch("packages") }
+    assert_equal [{ "name" => "github.com/BurntSushi/toml", "version" => "1.0.0", "ecosystem" => "Go" }],
+                 packages.map { |package| package.fetch("package").slice("name", "version", "ecosystem") }
   end
 end
