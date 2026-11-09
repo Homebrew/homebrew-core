@@ -12,11 +12,11 @@ class DirectxHeaders < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "df985a8e398ab2eff82216f3398b198782a5872d9f7ee3c7e06a1573e5c1a844"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3a993ad2876bd75505e5c898932fa5e8bc24b5fa40345c29aadecf97d45837ff"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d8da6b81e074e277d2ecd8d648851b0c6bbda92f04296fd957651ee49b479560"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1d9e99a6a11157107649ea1950c0680303a8f9e07ae482a9c417f8ed71b6b3cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "55e5d1cb9d19e8ff3398520b70c9ccc0117c3f46a7622a4659548e16d3fb446d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ec41f95deb8169fcef40a02676bec9e6ab59a7a30d073c4299b9e5b456789fae"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e00b2f5dd2346d2d84483aff9a58b8926d04b0bdaa44ec693d04bb6e182453e5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2df2ad2dd4af8212d6c4adc5de2434adccd4333c8da4dfbca8fc30058b96343b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "599d990b2325335b828f57e7c635b105aabbfee53ad0ec196867a68eb8be5ee6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "54f92c42ee20cc1f813e1b63ba24288d5152aab64333d17d8c7e28ba9eb55cfd"
   end
 
   depends_on "meson" => :build
