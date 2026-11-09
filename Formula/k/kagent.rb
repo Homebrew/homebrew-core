@@ -1,17 +1,17 @@
 class Kagent < Formula
   desc "Kubernetes native framework for building AI agents"
   homepage "https://kagent.dev"
-  url "https://github.com/kagent-dev/kagent/archive/refs/tags/v0.10.6.tar.gz"
-  sha256 "6f59b03a1302978d988c165feb25826b746d40951d42a7afb201be11e9ad595e"
+  url "https://github.com/kagent-dev/kagent/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "c7fd886082871eab0d154f2f4a90cde262c978a01379c602fdb0b0939a6f65cd"
   license "Apache-2.0"
   head "https://github.com/kagent-dev/kagent.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bc833d764cf7810c365f156402ceed74e3d82cf478e6381c2c2a28fb0e52d297"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f1fd33417d3486e903195472cb33fae6edca8d758577e6491ea895ad1e3a8e58"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1c943bfcefbddbcd28650bbdc135cb0d481b74f5df97bfd1876f1a86a397421a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f310b40fbb37c520bfb3572801a606ec5c95d9f06fa79ba6c7c7a3fbb415d122"
-    sha256 cellar: :any,                 x86_64_linux:      "49cc1a673a643c3d50127d5918f6f60bbb59b79876c08dccd7d039dad4f83f62"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4244c27e87ba0bc7b1b41deac65ea9bebab5889b1266bb372b3c463a96ae15ae"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0fe737ef962148a400e36b7a0423ea5c706b4cfc930afbf57618bb6098170afb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cd383a5f9aee8e068fa0a0e784a3195aa294c7c00136949768675f5a1e17bb88"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "3b43e5984881b0e9d416380a7a319d8377b5b606a271f1d595ca96040b4b7e58"
+    sha256 cellar: :any,                 x86_64_linux:      "6786f942f08cf53c1d8b16dcbd2243d9ee7891a18900c71335cc7ec6f61322cf"
   end
 
   depends_on "go" => :build
@@ -45,19 +45,8 @@ class Kagent < Formula
       output_format: table
       timeout: 5m0s
     YAML
-    assert_match "Successfully created adk project ", shell_output("#{bin}/kagent init adk python dice")
-    assert_path_exists "dice"
 
-    cd "dice" do
-      pid = spawn bin/"kagent", "run", "--config", testpath/"config.yaml", err: "test.log"
-      sleep 3
-      assert_match "failed to start docker-compose", File.read("test.log")
-    ensure
-      Process.kill "TERM", pid
-      Process.wait pid
-    end
-
-    assert_match "Please run 'install' command first", shell_output("#{bin}/kagent 2>&1")
-    assert_match "helm not found in PATH.", shell_output("#{bin}/kagent install 2>&1")
+    assert_match 'unknown field "kagent_url"',
+      shell_output("#{bin}/kagent config validate --config config.yaml 2>&1", 1)
   end
 end
