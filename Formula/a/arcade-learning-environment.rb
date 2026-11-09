@@ -39,6 +39,8 @@ class ArcadeLearningEnvironment < Formula
     end
   end
 
+  allow_network_access! :build
+
   def install
     # NOTE: Do not enable vector feature as it uses OpenCV (Apache-2.0) which is incompatible with GPL-2.0-only
     # https://www.gnu.org/licenses/license-list.html#apache2
