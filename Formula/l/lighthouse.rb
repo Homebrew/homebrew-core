@@ -29,8 +29,38 @@ class Lighthouse < Formula
     depends_on "zlib-ng-compat"
   end
 
+  resource "specs" do
+    url "https://raw.githubusercontent.com/ethereum/eth2.0-specs/v0.12.1/deposit_contract/contracts/validator_registration.json"
+    sha256 "66c9407b5c249a483c4ee6bf0269847c19a3a8c55c1888981f08be5acb04c1af"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/sigp/lighthouse/refs/tags/v#{LATEST_VERSION}/common/deposit_contract/build.rs"
+      regex(/const TAG: &str = "v(\d+(:?\.\d+)+)";/)
+    end
+  end
+
+  resource "deposit-contract" do
+    url "https://raw.githubusercontent.com/sigp/unsafe-eth2-deposit-contract/v0.9.2.1/unsafe_validator_registration.json"
+    sha256 "69e4de1d14f742dc4145234c0884c85a6c7cf6f1ada31d8ecd27dff2f67e4586"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/sigp/lighthouse/refs/tags/v#{LATEST_VERSION}/common/deposit_contract/build.rs"
+      regex(/const UNSAFE_TAG: &str = "v(\d+(:?\.\d+)+)";/)
+    end
+  end
+
+  allow_network_access! :test
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
+    resources.each { |r| r.stage buildpath/"resources" }
+
     ENV["PROTOC_NO_VENDOR"] = "1"
+    ENV["LIGHTHOUSE_DEPOSIT_CONTRACT_SPEC_URL"] = "file://#{buildpath}/resources/validator_registration.json"
+    ENV["LIGHTHOUSE_DEPOSIT_CONTRACT_TESTNET_URL"] ="file://#{buildpath}/resources/unsafe_validator_registration.json"
 
     system "cargo", "install", "--no-default-features", *std_cargo_args(path: "lighthouse")
   end
