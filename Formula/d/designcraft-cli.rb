@@ -1,8 +1,8 @@
 class DesigncraftCli < Formula
   desc "Headless DesignCraft CLI and MCP server to script, export and validate layouts"
   homepage "https://getartcraft.com/apps/designcraft"
-  url "https://github.com/storytold/designcraft/archive/refs/tags/v0.18.0.tar.gz"
-  sha256 "b990dcc761c1324dcc9bbd964eec152535e2e2ffb64879958b0acf4c81064326"
+  url "https://github.com/storytold/designcraft/archive/refs/tags/v0.19.0.tar.gz"
+  sha256 "b67858d003db4cc3324bbafebf077b3ffa7314dc37fa4cffbd190876a7a0e4da"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/storytold/designcraft.git", branch: "main"
 
