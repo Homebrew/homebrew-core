@@ -1,21 +1,17 @@
 class DesktopFileUtils < Formula
   desc "Command-line utilities for working with desktop entries"
   homepage "https://wiki.freedesktop.org/www/Software/desktop-file-utils/"
-  url "https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.28.tar.xz"
-  sha256 "4401d4e231d842c2de8242395a74a395ca468cd96f5f610d822df33594898a70"
+  url "https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.29.tar.xz"
+  sha256 "661f225be4c667abc4962f075717db4252b63c84480f6d37b26050d029da8fa0"
   license "GPL-2.0-or-later"
   compatibility_version 1
 
   bottle do
-    sha256 arm64_golden_gate: "7d488b90983d9ee0ad3b0a66397a0edb54ea9b0d8987b6126bd408aeb2395331"
-    sha256 arm64_tahoe:       "58ea38ae424ae85f68fef1140c866a220bee2ade0ec766bc833a23a4b66a554b"
-    sha256 arm64_sequoia:     "8bb73bc697264796509115e1b1e59f08624c671897793b6f2ca099441bb98c39"
-    sha256 arm64_sonoma:      "3edd064195ecd88f224ddb354c5ddca08ccb5b3834ced11f6a32d70c684ee2f9"
-    sha256 arm64_ventura:     "742e551aae92506d4b627e8f34ef64ab38620c07fe776a8d8a9fe2a7fb564cbc"
-    sha256 sonoma:            "0cc6bbad9d64a2b2edc4c55c06a5417e55c2566b15f3401828d1d64a7ad0953f"
-    sha256 ventura:           "4d17379ae5028f3dfebc90aa1f4747edebb77f38ed58d53712e688bd05a0d864"
-    sha256 arm64_linux:       "afe8ceef438b1ce5f1199ed7aab6c5ed1e0fe9478bba9b4c230246d11e21f2f7"
-    sha256 x86_64_linux:      "ea37203ffdaf572e7da0e0991f31dad7effa361f41ed2eb9b549b1745996f308"
+    sha256 arm64_golden_gate: "13a8ed5b67571a08e0cc77c6c403eb94bb364cde3e1ecb47d250e9f04939422c"
+    sha256 arm64_tahoe:       "672164493b9d75d0165c82965299a0a14fd13a5d37c7a9dbf9ec790aae184938"
+    sha256 arm64_sequoia:     "affde13278895c14a46fc275448917d94f07acdcfadf7882808c5f238e98846e"
+    sha256 arm64_linux:       "ead45e3d8224efa1d79fe4c080fa492878d56d525930a29d48c4f423f0d88348"
+    sha256 x86_64_linux:      "f8af999b6bffa3fcf398297667a9441385c4a6fac26c2ac319e594021f8e0050"
   end
 
   depends_on "meson" => :build
