@@ -1,10 +1,10 @@
 class Filebrowser < Formula
   desc "Web File Browser"
-  homepage "https://filebrowser.org/"
-  url "https://github.com/filebrowser/filebrowser/archive/refs/tags/v2.63.23.tar.gz"
-  sha256 "18020983f6a4e43d679738738c3f95c52a333a282144046ec152491f2341a152"
+  homepage "https://filebrowsernext.github.io/filebrowserNEXT/"
+  url "https://github.com/FilebrowserNext/filebrowserNEXT/archive/refs/tags/v3.0.1-next.tar.gz"
+  sha256 "c70c39e9bd43494cd93f912844fa034e1235c36978decab0210986dc8d78738c"
   license "Apache-2.0"
-  head "https://github.com/filebrowser/filebrowser.git", branch: "master"
+  head "https://github.com/FilebrowserNext/filebrowserNEXT.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fad797c2f580c6ec91b61d5f5c224648c7902c3b7262b96a014f6ae6661f6040"
@@ -15,9 +15,6 @@ class Filebrowser < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:       "639a8f3c6ab1e304030542e019c80a5d15f7d38fb872af02b10fd96e897a823e"
     sha256 cellar: :any,                 x86_64_linux:      "6977f455d22496075ddc355d6b8dc41cb4c16afcfd938c16953c60432379b138"
   end
-
-  deprecate! date: "2026-11-02", because: :repo_archived
-  disable! date: "2027-05-02", because: :repo_archived
 
   depends_on "go" => :build
 
