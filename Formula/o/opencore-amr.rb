@@ -27,6 +27,8 @@ class OpencoreAmr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "63626c6d52b176f1289a792a8dea8845104f85e86538054e88efadbf920a9835"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"

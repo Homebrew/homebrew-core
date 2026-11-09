@@ -33,6 +33,8 @@ class Openvpn < Formula
     depends_on "net-tools"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-silent-rules",
                           "--with-crypto-library=openssl",

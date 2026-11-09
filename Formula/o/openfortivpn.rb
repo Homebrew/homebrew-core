@@ -25,6 +25,8 @@ class Openfortivpn < Formula
   # awaiting formula creation
   # uses_from_macos "pppd"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh"
     system "./configure", "--disable-silent-rules",

@@ -57,6 +57,8 @@ class Openmotif < Formula
     resolves "https://github.com/justinmeiners/classic-colors/issues/12"
   end
 
+  deny_network_access!
+
   def install
     if OS.linux?
       # This patch is needed for Ubuntu 16.04 LTS, which uses

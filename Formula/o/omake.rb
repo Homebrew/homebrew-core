@@ -29,6 +29,8 @@ class Omake < Formula
   conflicts_with "oils-for-unix", because: "both install 'osh' binaries"
   conflicts_with "etsh", because: "both install 'osh' binaries"
 
+  deny_network_access!
+
   def install
     system "./configure", "-prefix", prefix
     system "make"

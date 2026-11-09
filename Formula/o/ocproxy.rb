@@ -32,6 +32,8 @@ class Ocproxy < Formula
   depends_on "automake" => :build
   depends_on "libevent"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh"
     system "./configure", "--disable-debug",

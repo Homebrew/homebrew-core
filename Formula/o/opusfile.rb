@@ -34,10 +34,12 @@ class Opusfile < Formula
   depends_on "openssl@4"
   depends_on "opus"
 
-  resource "sample" do
+  resource "sample", :test do
     url "https://dl.espressif.com/dl/audio/gs-16b-1c-44100hz.opus"
     sha256 "f80fabebe4e00611b93019587be9abb36dbc1935cb0c9f4dfdf5c3b517207e1b"
   end
+
+  deny_network_access!
 
   def install
     system "./autogen.sh" if build.head?

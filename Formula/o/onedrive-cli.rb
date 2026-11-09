@@ -18,6 +18,8 @@ class OnedriveCli < Formula
   depends_on "sqlite"
   depends_on "systemd"
 
+  allow_network_access! :test
+
   def install
     system "./configure", "--with-systemdsystemunitdir=no", *std_configure_args
     system "make", "install"

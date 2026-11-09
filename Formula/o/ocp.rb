@@ -57,6 +57,8 @@ class Ocp < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     # Required for SDL3
     resource("unifont").stage do |r|

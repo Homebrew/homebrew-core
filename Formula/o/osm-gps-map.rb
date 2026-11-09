@@ -43,6 +43,8 @@ class OsmGpsMap < Formula
     depends_on "xorg-server" => :test
   end
 
+  deny_network_access!
+
   def install
     configure = build.head? ? "./autogen.sh" : "./configure"
     system configure, "--disable-silent-rules", "--enable-introspection", *std_configure_args

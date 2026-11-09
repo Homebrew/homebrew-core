@@ -31,6 +31,8 @@ class OclIcd < Formula
 
   conflicts_with "opencl-icd-loader", because: "both install `lib/libOpenCL.so` library"
 
+  deny_network_access!
+
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     system "./bootstrap"

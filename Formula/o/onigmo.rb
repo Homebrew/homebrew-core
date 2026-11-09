@@ -24,6 +24,8 @@ class Onigmo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "0f13dd8f0e389c3210abc32b970ab87259f40b37a057bc10a0cd6b4416f4b8fb"
   end
 
+  deny_network_access!
+
   def install
     system "./configure", *std_configure_args
     system "make", "install"

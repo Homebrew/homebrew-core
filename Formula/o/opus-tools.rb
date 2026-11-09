@@ -39,6 +39,8 @@ class OpusTools < Formula
   depends_on "opus"
   depends_on "opusfile"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", *std_configure_args

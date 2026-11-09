@@ -41,6 +41,8 @@ class OpenMpi < Formula
 
   conflicts_with "mpich", because: "both install MPI compiler wrappers"
 
+  allow_network_access! :test
+
   def install
     ENV.runtime_cpu_detection
 

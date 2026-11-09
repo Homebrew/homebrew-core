@@ -37,6 +37,8 @@ class OsspUuid < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     # upstream ticket: http://cvs.ossp.org/tktview?tn=200
     # pkg-config --cflags uuid returns the wrong directory since we override the

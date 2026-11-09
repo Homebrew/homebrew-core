@@ -46,6 +46,8 @@ class Openldap < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     args = %W[
       --disable-dependency-tracking

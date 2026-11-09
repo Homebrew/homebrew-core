@@ -83,6 +83,9 @@ class Ola < Formula
     resolves "https://github.com/OpenLightingProject/ola/pull/2077"
   end
 
+  # For `make check`
+  allow_network_access! :build
+
   def install
     # Workaround to build with newer Protobuf due to Abseil C++ standard
     # Issue ref: https://github.com/OpenLightingProject/ola/issues/1879

@@ -32,6 +32,8 @@ class Otf2bdf < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     chmod 0755, "mkinstalldirs"
 

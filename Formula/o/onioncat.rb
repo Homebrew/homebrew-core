@@ -30,6 +30,8 @@ class Onioncat < Formula
 
   depends_on "tor"
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *std_configure_args

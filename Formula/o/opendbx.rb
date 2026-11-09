@@ -33,6 +33,8 @@ class Opendbx < Formula
   depends_on "readline"
   depends_on "sqlite"
 
+  deny_network_access!
+
   def install
     ENV.cxx11
 
