@@ -4,12 +4,13 @@ class Container < Formula
   url "https://github.com/apple/container/archive/refs/tags/1.7.1.tar.gz"
   sha256 "ef497b524624048ee45d57b0f7fdd675d6d420fcb30ab4a039779d752d9dea66"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
   head "https://github.com/apple/container.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e16b4797ba830a5bc5a7a0a57904544302286ea748d9cd568cc31e20811b9314"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "57dc2df3c3bff2dccf62d68aed0d423e36a69b5b92dc3691e06e3d496be3fa6d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7014505d31e6a115beff8719713bbe26da76d95dcb33baa8b6e2d2cf52839d8c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7fc6e937a659dd42d807fd4badfc7ca2ccf95b2f9cdc7744adf626037490699e"
   end
 
   depends_on xcode: ["26.0", :build]
@@ -37,6 +38,8 @@ class Container < Formula
 
     plugins = {
       "container-core-images"   => { source: "CoreImages",       entitlements: false },
+      "container-core-clusters" => { source: "CoreClusters",     entitlements: false },
+      "cluster-hoststore"       => { source: "ClusterHostStore", entitlements: false },
       "container-network-vmnet" => { source: "NetworkVMNet",     entitlements: true  },
       "container-runtime-linux" => { source: "RuntimeLinux",     entitlements: true  },
       "machine-apiserver"       => { source: "MachineAPIServer", entitlements: false,
