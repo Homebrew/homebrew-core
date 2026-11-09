@@ -4,7 +4,7 @@ class NetSnmp < Formula
   url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.9.5.2/net-snmp-5.9.5.2.tar.gz"
   sha256 "16707719f833184a4b72835dac359ae188123b06b5e42817c00790d7dc1384bf"
   license all_of: ["MIT-CMU", "MIT", "BSD-3-Clause"]
-  revision 2
+  revision 3
   compatibility_version 1
   head "https://github.com/net-snmp/net-snmp.git", branch: "master"
 
@@ -44,6 +44,15 @@ class NetSnmp < Formula
       type :unofficial
       resolves "https://github.com/net-snmp/net-snmp/issues/434"
     end
+  end
+
+  # Fix reusing a session after it was closed, e.g. a PHP `SNMP` object
+  # failing every request after the first with "Can't assign requested address"
+  patch do
+    url "https://github.com/net-snmp/net-snmp/commit/6a16c2df17e9479de822b42a30dca345c9e746f5.patch?full_index=1"
+    sha256 "aa729ad0a91cf2d8ba00c437d88b0179b70fa5ab42f8855735ba1e73c84c099c"
+    type :backport
+    resolves "https://github.com/net-snmp/net-snmp/issues/1055"
   end
 
   deny_network_access!
