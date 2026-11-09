@@ -4,6 +4,7 @@ class ZigAT016 < Formula
   url "https://ziglang.org/download/0.16.0/zig-0.16.0.tar.xz"
   sha256 "43186959edc87d5c7a1be7b7d2a25efffd22ce5807c7af99067f86f99641bfdf"
   license "MIT"
+  compatibility_version 1
 
   livecheck do
     skip "No longer developed or maintained"
