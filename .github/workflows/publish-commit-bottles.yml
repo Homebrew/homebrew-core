@@ -134,12 +134,6 @@ jobs:
             exit 1
           fi
 
-          if [[ "$base_branch" = "master" ]]
-          then
-            echo "::error ::PR #$PR targets the \`master\` branch!"
-            exit 1
-          fi
-
           bottles=true
           while IFS='' read -r label
           do

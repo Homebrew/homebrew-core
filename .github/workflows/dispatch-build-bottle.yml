@@ -67,7 +67,7 @@ jobs:
           cask: false
 
       - name: Ensure homebrew/core is up-to-date
-        if: endsWith(github.ref, 'main') || endsWith(github.ref, 'master')
+        if: endsWith(github.ref, 'main')
         run: brew update
 
       - name: Prepare runner matrix

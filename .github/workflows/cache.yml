@@ -9,7 +9,6 @@ on:
       - .github/workflows/cache.yml
     branches:
       - main
-      - master
   schedule:
     - cron: '30 19/6 * * *'
   workflow_dispatch:
