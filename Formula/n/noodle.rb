@@ -1,7 +1,7 @@
 class Noodle < Formula
   desc "Terminal REST client with file-based collections"
   homepage "https://noodlerest.dev"
-  url "https://github.com/wilfredinni/noodle/archive/refs/tags/v0.10.4.tar.gz"
+  url "https://github.com/noodle-rest/noodle/archive/refs/tags/v0.10.4.tar.gz"
   sha256 "e00a6cc6e01c57dc49e3c9ffa004f88daf6d77d9043674b257aa5b5c59e25c63"
   license "Apache-2.0"
 
@@ -27,7 +27,7 @@ class Noodle < Formula
     sha256 "0e092b7405934c3a30f6eca2cb6e35eb00d9d8948d15daa69af2371e1e641a6e"
 
     livecheck do
-      url "https://raw.githubusercontent.com/wilfredinni/noodle/refs/tags/v#{LATEST_VERSION}/package.json"
+      url "https://raw.githubusercontent.com/noodle-rest/noodle/refs/tags/v#{LATEST_VERSION}/package.json"
       strategy :json do |json|
         json.dig("dependencies", "@opentui/core")
       end
