@@ -1,8 +1,8 @@
 class BalenaCli < Formula
   desc "Command-line tool for interacting with the balenaCloud and balena API"
   homepage "https://docs.balena.io/reference/balena-cli/latest/"
-  url "https://registry.npmjs.org/balena-cli/-/balena-cli-25.2.9.tgz"
-  sha256 "dd152566027746d6eb59ad84cb81cfeaab4337dbd1030840d995ca9f516a3373"
+  url "https://registry.npmjs.org/balena-cli/-/balena-cli-25.2.11.tgz"
+  sha256 "b49747e7ead667f656eb375ba4c2f285a8d65d94844de39bd79bee20eb136bc8"
   license "Apache-2.0"
 
   livecheck do
@@ -45,6 +45,7 @@ class BalenaCli < Formula
     # Remove incompatible pre-built binaries
     os = OS.kernel_name.downcase
     modules = %w[
+      bare-buffer
       bare-fs
       bare-os
       bare-path
