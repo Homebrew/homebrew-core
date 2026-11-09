@@ -8,11 +8,11 @@ class RustAnalyzer < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "10d747116a6b3ded48b4af518527d68e5033fc83254f769d4a851a259f2749d4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d43e98cafad34480ed901f8324a944bc3586627a87a51583836b74c5f170a466"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a90b58c7f6470e2016e1e4fc56af49630fbe085d577bd3b381810eeffbe2ab3f"
-    sha256 cellar: :any,                 arm64_linux:       "456b52efe64f54b91effa985b061fe163fc7b9286771979b823b10e8cc94afc5"
-    sha256 cellar: :any,                 x86_64_linux:      "898f83fe06ccda6d1bd92109aa0b7f69113ba7ba2587581b7040a3a2b6999c95"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cf025050f6ae09b93122b83f25456c89c06a535bc3ebfc38c112824bce9af6b5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f094a419feea87c32330892cddaa06a721dae20640529a92f094fc3003d8cef8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3f231638c75342211251bd3f8a1b6c32f8ce360a201e957d1a69a8a4ac7fc0e8"
+    sha256 cellar: :any,                 arm64_linux:       "d726fd389217b937fdf6e57fd8672ba1e23ec156448f1d88e8ad491a3098770f"
+    sha256 cellar: :any,                 x86_64_linux:      "88df72fa28b25c2040e03ffa30d6a89c13875a778d00539e0ab1589a1612707e"
   end
 
   depends_on "rust" => :build
