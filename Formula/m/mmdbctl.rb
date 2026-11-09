@@ -1,17 +1,17 @@
 class Mmdbctl < Formula
   desc "MMDB file management CLI supporting various operations on MMDB database files"
   homepage "https://github.com/ipinfo/mmdbctl"
-  url "https://github.com/ipinfo/mmdbctl/archive/refs/tags/mmdbctl-1.5.2.tar.gz"
-  sha256 "6dda2fb069eb310bb3a22fe79daf15950f2e87d01bedfd05d4a6fb0df264993f"
+  url "https://github.com/ipinfo/mmdbctl/archive/refs/tags/mmdbctl-1.5.3.tar.gz"
+  sha256 "2928e3c4c1210e04bf4069d719c81fa13eed923763957f5c3922f702fbf2d5f9"
   license "Apache-2.0"
   head "https://github.com/ipinfo/mmdbctl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "62b3dbc96bbc5b8b8becc293fac30b31f64b4ad452a383f1b279125f3c5bc4e8"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "62b3dbc96bbc5b8b8becc293fac30b31f64b4ad452a383f1b279125f3c5bc4e8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "62b3dbc96bbc5b8b8becc293fac30b31f64b4ad452a383f1b279125f3c5bc4e8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b18e35d715b4108b76866afec681c09d5dc6a6326c1605cf5699335548ade0fc"
-    sha256 cellar: :any,                 x86_64_linux:      "f74bd008593a3da4c9e57e39a4e90a134943967b6cdd554dfc48e21c3610c511"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bb3c7b9b3847287e8bf65859d86e9c2d64f0dc43ded1296a2c45f483ebc7702e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb3c7b9b3847287e8bf65859d86e9c2d64f0dc43ded1296a2c45f483ebc7702e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bb3c7b9b3847287e8bf65859d86e9c2d64f0dc43ded1296a2c45f483ebc7702e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "12cda76234e53dd669c0811d47a05ee924c864f4f2b128b915355136f4bf03a9"
+    sha256 cellar: :any,                 x86_64_linux:      "9908c060fa4ee9bae8c078e74ca44a942262277fa68a34813d9dbcbc4259e781"
   end
 
   depends_on "go" => :build
