@@ -6,6 +6,11 @@ class Sqlmux < Formula
   license "MIT"
   head "https://github.com/kackerx/sqlmux.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(:?\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8650c702f43df9af9b41a2ca046cdf295b064d102544f9bf18df66cb97e8dbfb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8650c702f43df9af9b41a2ca046cdf295b064d102544f9bf18df66cb97e8dbfb"
