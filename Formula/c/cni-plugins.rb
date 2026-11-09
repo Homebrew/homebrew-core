@@ -1,14 +1,14 @@
 class CniPlugins < Formula
   desc "Container Network Interface plugins"
   homepage "https://www.cni.dev"
-  url "https://github.com/containernetworking/plugins/archive/refs/tags/v1.9.1.tar.gz"
-  sha256 "34bd82d47e981940751619c9cc44c095bb90bfcaf8d71865cbb822c37690a764"
+  url "https://github.com/containernetworking/plugins/archive/refs/tags/v1.10.0.tar.gz"
+  sha256 "15a36f0a88e90704126d2d523a9704c4cab2439a4a19c9ac23961b31c2a311c6"
   license "Apache-2.0"
   head "https://github.com/containernetworking/plugins.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "58fea2ae3068fdf46c1cf84a585366785a46bef334f4b6bc88e5383e2891bbc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "cd14e4979a63ef1371aa5999d680b2a799dee7db41648024c5bc56023bda941a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "9384e41b4f5d791dff9407dc851a97fc79a10229e6692c4a4abedb714bb4f35f"
+    sha256 cellar: :any,                 x86_64_linux: "26bce17624be1acbaa85052ed436a36e1d0069b04a92ef9ae1d858799d96eea6"
   end
 
   keg_only "plugin binaries are not intended to be under the $PATH"
