@@ -7,11 +7,11 @@ class Zero < Formula
   head "https://github.com/Twigpine/zero.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ef61d8450910618a4572c17aebfc373bab93106ae052f0d213c4a4602fb1681b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ef61d8450910618a4572c17aebfc373bab93106ae052f0d213c4a4602fb1681b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ef61d8450910618a4572c17aebfc373bab93106ae052f0d213c4a4602fb1681b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b963e98b778044e428938b92f346484c4d4135554544a7f84a456e10972cd10f"
-    sha256 cellar: :any,                 x86_64_linux:      "822e19ea86f3e0877f191aa78735f2ae69c13e8883bead7e4d680ac3ec1335a6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e6565a0044dff0eea1ea7515ecd0acee35d4adb452cfc83dd169fdd05c627a78"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e6565a0044dff0eea1ea7515ecd0acee35d4adb452cfc83dd169fdd05c627a78"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e6565a0044dff0eea1ea7515ecd0acee35d4adb452cfc83dd169fdd05c627a78"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7189633d1a509e5b1ab9e77ff4ce744d6453ee80d950f97db708642641a51df7"
+    sha256 cellar: :any,                 x86_64_linux:      "8c1f3050030ba236309d6bd0f13daec5264b0bce36733c6275cf9de63794e299"
   end
 
   depends_on "go" => :build
