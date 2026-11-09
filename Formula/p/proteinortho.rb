@@ -1,4 +1,4 @@
-gclass Proteinortho < Formula
+class Proteinortho < Formula
   desc "Detecting orthologous genes within different species"
   homepage "https://gitlab.com/paulklemm_PHD/proteinortho"
   url "https://gitlab.com/paulklemm_PHD/proteinortho/-/archive/v6.3.7/proteinortho-v6.3.7.tar.gz"
