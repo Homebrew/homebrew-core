@@ -1,8 +1,8 @@
 class Libpathrs < Formula
   desc "C-friendly API to make path resolution safer on Linux"
   homepage "https://github.com/cyphar/libpathrs"
-  url "https://github.com/cyphar/libpathrs/archive/refs/tags/v0.2.6.tar.gz"
-  sha256 "ae274cd296b863d538e28ee42e612f40723f9f0b2601a41c5b796ac074e5eb9c"
+  url "https://github.com/cyphar/libpathrs/releases/download/v0.2.6/libpathrs-0.2.6.tar.xz"
+  sha256 "7b1e3a2c3cc0bd9f94187edbb6d1ba9737deb2bf7f724df1ee37653ea405b2b0"
   license any_of: ["MPL-2.0", "LGPL-3.0-or-later"]
   compatibility_version 1
   head "https://github.com/cyphar/libpathrs.git", branch: "main"
@@ -16,6 +16,12 @@ class Libpathrs < Formula
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on :linux
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     # Not parallelizable because hack/with-crate-type.sh modifies Cargo.toml in-place
