@@ -3,6 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
+  url "https://archive.mesa3d.org/mesa-26.3.0.tar.xz"
+  sha256 "91d729aa68bb89e4ec857841300bbe922bcb3e52b1f97566ca83930d3b28343a"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -20,31 +22,6 @@ class Mesa < Formula
   ]
   compatibility_version 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
-
-  stable do
-    url "https://archive.mesa3d.org/mesa-26.2.6.tar.xz"
-    sha256 "b9436b3e1a8be76fbd4823dc884f90596ab7c6ac5e1867a305e66ffccfb31a92"
-
-    # Backport support for libclc 23
-    patch do
-      url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/1219dc3f7fe83b1f7f200190bf02a86ab57b3d4f.diff"
-      sha256 "fc37a2bd7b90ece96891b243f04cdeedfcb6b7174acade63265b75fa21ace948"
-      type :backport
-      resolves "https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/44624"
-    end
-    patch do
-      url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/62ee563fd398169005906245831db680f813b19f.diff"
-      sha256 "c34a45743e5426b89c869853c4989c856118bbc21b2556444df14f80c30c2679"
-      type :backport
-      resolves "https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/44624"
-    end
-    patch do
-      url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/6b9cd5ab9cc3bfd0c79d9500a07a5e74351c72d1.diff"
-      sha256 "873a8d0d632902604f9c46465e9dab58738092af18a6b748af529eb91fc26116"
-      type :backport
-      resolves "https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/44624"
-    end
-  end
 
   bottle do
     rebuild 1
@@ -169,6 +146,8 @@ class Mesa < Formula
   def fetch
     # Fetching all Rust subprojects since Meson doesn't recursively download subprojects
     system "meson", "subprojects", "download", "*-rs"
+    # Venus protocol headers moved out of tree in 26.3 and are required by the virtio Vulkan driver
+    system "meson", "subprojects", "download", "venus-protocol" if OS.linux?
   end
 
   def install
@@ -223,7 +202,7 @@ class Mesa < Formula
         -Dvalgrind=enabled
         -Dvulkan-drivers=#{drivers}
         -Dvulkan-layers=device-select,intel-nullhw,overlay,screenshot,vram-report-limit
-        --force-fallback-for=indexmap,paste,pest_generator,roxmltree,rustc-hash,syn
+        --force-fallback-for=indexmap,paste,pest_generator,roxmltree,rustc-hash,syn,venus-protocol
       ]
     end
 
