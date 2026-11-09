@@ -1,8 +1,8 @@
 class Atasm < Formula
   desc "Atari MAC/65 compatible assembler for Unix"
   homepage "https://sourceforge.net/projects/atasm/"
-  url "https://github.com/CycoPH/atasm/archive/refs/tags/V1.30.tar.gz"
-  sha256 "c3ae8ea1f824e0ee65e123b33982572277207d1749bcd04da3af8f06af977db5"
+  url "https://github.com/CycoPH/atasm/archive/refs/tags/V1.32.tar.gz"
+  sha256 "711af3d28b93046471c04afb09b39fffd16ab57f0129bf02a784ff84cf78f9c6"
   license "GPL-2.0-or-later"
 
   bottle do
