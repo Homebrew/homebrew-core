@@ -1,17 +1,17 @@
 class Gammu < Formula
   desc "Command-line utility to control a phone"
   homepage "https://wammu.eu/gammu/"
-  url "https://github.com/gammu/gammu/releases/download/1.45.1/Gammu-1.45.1.tar.gz"
-  sha256 "09c32e0573db6c26b23c185ce0e5600677bd57bf98cf7ec69557e24a5cad7c40"
+  url "https://github.com/gammu/gammu/releases/download/1.45.2/Gammu-1.45.2.tar.gz"
+  sha256 "92478c1c6d8df193f3d5e36648fd05fc3eff26254034f025cad2a0ffba5aec23"
   license "GPL-2.0-or-later"
   head "https://github.com/gammu/gammu.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "35d4acffc29b3ee3ffe6be4ab7cb6048e644a95763db37c327fdd605f6bee502"
-    sha256 arm64_tahoe:       "9f2e763c4563c3a8b3d80970ef4e80c0a529a795788e39b06aaf5ca5b0dbfb70"
-    sha256 arm64_sequoia:     "2f7277db3fd8f6004e0943ff77cd28956e5da7d4601b2bcea872cfed20ee2db0"
-    sha256 arm64_linux:       "4cfbcee77564701ae9655cc324185184e6457d35059694ad249289ef6cc738c9"
-    sha256 x86_64_linux:      "01917cac3b76d618dfd98a33f14a43e6d7d58ca169b749830cc2dad6cc9d102d"
+    sha256 arm64_golden_gate: "394a8dad1c655a3a025560db9693561889bcfff9537997fe43a3e30040eb4d7a"
+    sha256 arm64_tahoe:       "490f0fe54de8609559b84810b73bf98144043d0091836c341581539b9ffd6292"
+    sha256 arm64_sequoia:     "fca07192c895b768276f6bb63ee6abd0906225fa9e49398423effce6f851c6c5"
+    sha256 arm64_linux:       "ee21913609a57603e77de17d2e86b8276647bd4d527f35cc544ddbfdcfbf8619"
+    sha256 x86_64_linux:      "d2a925217e0b2a6bd9ed9cd4bf7cdb3041ac83be4e168c599e379ae7ce1cdda3"
   end
 
   depends_on "cmake" => :build
