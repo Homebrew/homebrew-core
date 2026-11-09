@@ -34,6 +34,8 @@ class Ocaml < Formula
   # brew detection doesn't find, and so needs to be explicitly blocked.
   pour_bottle? only_if: :default_prefix
 
+  deny_network_access!
+
   def install
     ENV.deparallelize # Builds are not parallel-safe, esp. with many cores
 
