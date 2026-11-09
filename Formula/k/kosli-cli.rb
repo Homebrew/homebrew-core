@@ -12,11 +12,11 @@ class KosliCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "151721069dfa9d94502c762c630038b4b2d125893cb9eb3a3d14f756dfce5638"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f09e222ef47518993ca1fa1202dcb3bf6b41c87d01ec01eb34c480caaeaf800b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dd3a3c9895b2c5b97b3fa83965233f7b7b35ab6498a5bd566ae886a874f297c5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "7d20f3ac97ddb7fcb9417569d951dab30da1857daa6294ed9be18ae9b0070188"
-    sha256 cellar: :any,                 x86_64_linux:      "67e104246c4b40ede3a47ae8cba4c89a51212953d08a0db9be52034a5e9fbe31"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0e90a342061f981cbb5aefdc08b4e122213e9b2729ee6d1649aa554a835b1f88"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a23213b733eb277fff95a547992f520749efb2bace189ba2b06369a3ba16978a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cdd0b3f915fd7286dad2b54a2ebaf1306dfa6a3657383633beb86017c86be7dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "2bff81a51e5507a34058bd29e8d1dfe0770d2708f95e183ff9c6036dc9c2ea1b"
+    sha256 cellar: :any,                 x86_64_linux:      "c1f0a8a176e8f95b6b3d263495aa5ecdead2a66b5df0b4ccd7d8bce17a58fe84"
   end
 
   depends_on "go" => :build
