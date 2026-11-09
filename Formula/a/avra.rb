@@ -24,6 +24,8 @@ class Avra < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}", "OS=osx"
     pkgshare.install Dir["includes/*"]

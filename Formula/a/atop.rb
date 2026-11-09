@@ -17,6 +17,8 @@ class Atop < Formula
   depends_on "ncurses"
   depends_on "zlib-ng-compat"
 
+  deny_network_access!
+
   def install
     inreplace "version.h", /"$/, "-#{Utils.git_short_head}\"", global: false if build.head?
     # As this project does not use configure, we have to configure manually:

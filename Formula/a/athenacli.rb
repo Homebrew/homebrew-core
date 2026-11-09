@@ -109,6 +109,8 @@ class Athenacli < Formula
     sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
 

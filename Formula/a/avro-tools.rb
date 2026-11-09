@@ -12,6 +12,8 @@ class AvroTools < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     libexec.install "avro-tools-#{version}.jar"
     bin.write_jar_script libexec/"avro-tools-#{version}.jar", "avro-tools"
