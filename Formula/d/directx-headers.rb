@@ -1,8 +1,8 @@
 class DirectxHeaders < Formula
   desc "Official DirectX headers available under an open source license"
   homepage "https://devblogs.microsoft.com/directx/"
-  url "https://github.com/microsoft/DirectX-Headers/archive/refs/tags/v1.620.1.tar.gz"
-  sha256 "79cd6d5b87d940044b20a3f45e5fbf4a73e4c7eedc1bafabe1b5cabb97fef5bf"
+  url "https://github.com/microsoft/DirectX-Headers/archive/refs/tags/v1.620.2.tar.gz"
+  sha256 "2b916ef1be5db35313f56d60499274fed39db37b54a1f0befa8aa49041c14855"
   license "MIT"
   compatibility_version 1
 
@@ -26,14 +26,6 @@ class DirectxHeaders < Formula
   resource "test.cpp", :test do
     url "https://raw.githubusercontent.com/microsoft/DirectX-Headers/a7d19030b872967c4224607c454273a2e65a5ed4/test/test.cpp"
     sha256 "6ff077a364a5f0f96b675d21aa8f053711fbef75bfdb193b44cc10b8475e2294"
-  end
-
-  # Add missing SAL annotations to the non-Windows stubs
-  patch do
-    url "https://github.com/microsoft/DirectX-Headers/commit/d0b4f7936049872552249707a149dc2837ac03ef.patch?full_index=1"
-    sha256 "9beaeda49cc1fae1a0b9f43a2b2d5be8d517184a1635b3bde7cc4d808cc36ae8"
-    type :backport
-    resolves "https://github.com/microsoft/DirectX-Headers/issues/295"
   end
 
   def install
