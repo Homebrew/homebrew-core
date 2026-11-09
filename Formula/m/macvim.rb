@@ -61,7 +61,6 @@ class Macvim < Formula
                           "--enable-cscope",
                           "--enable-luainterp",
                           "--with-lua-prefix=#{formula_opt_prefix("lua")}",
-                          "--enable-luainterp",
                           "--enable-python3interp",
                           "--disable-sparkle",
                           "--with-macarchs=#{Hardware::CPU.arch}"
