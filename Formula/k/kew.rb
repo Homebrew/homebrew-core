@@ -7,11 +7,11 @@ class Kew < Formula
   head "https://github.com/ravachol/kew.git", branch: "main"
 
   bottle do
-    sha256 arm64_golden_gate: "7f8c45f26dd1efb671a5e1d1b1004e1b2cb9a841d2e16516825762d54f188f47"
-    sha256 arm64_tahoe:       "f2128b9f4fe5f757b117c3a4f041ee5beeacb4003db56a44dd000c09dab4a224"
-    sha256 arm64_sequoia:     "2d39b19a3a113c8c98a707e3c69d8ec1fd4d472b39f44cf468f2a7e723c46415"
-    sha256 arm64_linux:       "4b05c5dfe699b88a2e5320caa86d7fe2d66710235609e6522ec827c7d4d17c5c"
-    sha256 x86_64_linux:      "f3de65b7eec153bc4cff06b5996468449968bd28b494f598d22c5b6b931ae8d3"
+    sha256 arm64_golden_gate: "d5526152a0701a0dc01fa34b084baf11f70e51fa3a58082ed766afdbb3fd1e39"
+    sha256 arm64_tahoe:       "b9dc5769b1228540cc03b300c3f182808a1eb82c0a60592598a31b1c6538fcba"
+    sha256 arm64_sequoia:     "5faa54a2c22f617fc625dad49ba673efa0a74c660daf58bf70503aaceb9ed9af"
+    sha256 arm64_linux:       "0ca5d997d8f67cc47482d64772620d0f10d0aca01fc2cb96036d9ba57fd9ba0a"
+    sha256 x86_64_linux:      "ffdcd450947e0486e27bd5f02ec3a9bfde5494d76ab09da6016150298353d536"
   end
 
   depends_on "pkgconf" => :build
