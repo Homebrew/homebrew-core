@@ -7,7 +7,7 @@ class CppHttplib < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "768f04ca39b4ac8595ee36fb6400cfc05bdf0feab6e1bc6c82555c0d2e6b40bc"
+    sha256 cellar: :any_skip_relocation, all: "c6042a750a47170ebe075a66206d023ed6b3460f13bd194e68131dbad0bcd517"
   end
 
   depends_on "cmake" => :build
