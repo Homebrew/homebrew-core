@@ -1,8 +1,8 @@
 class Libtcod < Formula
   desc "API for roguelike developers"
   homepage "https://github.com/libtcod/libtcod"
-  url "https://github.com/libtcod/libtcod/archive/refs/tags/2.3.0.tar.gz"
-  sha256 "a14fdb3f5f0d2baab8a8d2ccd1819e4f757bc3181203f6e12890efffe0c072ef"
+  url "https://github.com/libtcod/libtcod/archive/refs/tags/2.3.1.tar.gz"
+  sha256 "dbde843dfdc117bc77a35f6f7321b2aca95196702f468c40286b27996e900ac7"
   license all_of: [
     "BSD-3-Clause",
     "Zlib", # src/vendor/lodepng.c
@@ -11,11 +11,11 @@ class Libtcod < Formula
   ]
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ee037c1f7288a33f943ad07a0cb5c94a642e0beab6bdbd49680183ba3c80c586"
-    sha256 cellar: :any, arm64_tahoe:       "05b2b3708b72eab1dff670bc08841912d8833b0a20272967d68ec7c984b76d00"
-    sha256 cellar: :any, arm64_sequoia:     "32f8d79c69d20e1445d4f4d21a1510718c6a2dbc934ca879e6cd01df15948e59"
-    sha256 cellar: :any, arm64_linux:       "5e137c1424f92303e51ea657d1191bae2c320a14790855d8ba60858b31adde9a"
-    sha256 cellar: :any, x86_64_linux:      "72e2ae467e8e944fc1e7fbaead9388855ed20413e562da0ad2c8e6854232d658"
+    sha256 cellar: :any, arm64_golden_gate: "fdeba208c6be8a170926847eae6f6e9de5926b4a0463382760fa1e1e782e1578"
+    sha256 cellar: :any, arm64_tahoe:       "6f6d013bbd2bbf46241db852aa17aa0b0265c9932e09b45407060f0629bfae29"
+    sha256 cellar: :any, arm64_sequoia:     "7d2c80482bf9d8db6375ed3dc2935de0ff6ad8cccb6f2f808f777c3afeeda5fc"
+    sha256 cellar: :any, arm64_linux:       "a43042ade31d1a9fe3aa424acc82ecf374ab3ec9318a671860d1fdea4c081239"
+    sha256 cellar: :any, x86_64_linux:      "9b99edc4372dff2e16bf3b3bcfb595c64ac0e4f5c4b2a5bf7f5306d2e8e297a6"
   end
 
   depends_on "cmake" => :build
@@ -25,14 +25,6 @@ class Libtcod < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
-  end
-
-  # Fix build failure when using `vendored` deps
-  patch do
-    url "https://github.com/libtcod/libtcod/commit/0c96fb729b0c787966e4f1edf3ad0dc095f653f6.patch?full_index=1"
-    sha256 "a4fc5863843f55f442fcb772ef2a0d34fd586619a865268c8e791764cb64402d"
-    type :unofficial
-    resolves "https://github.com/libtcod/libtcod/pull/206"
   end
 
   deny_network_access!
