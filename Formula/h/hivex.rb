@@ -1,10 +1,9 @@
 class Hivex < Formula
   desc "Library and tools for extracting the contents of Windows Registry hive files"
   homepage "https://libguestfs.org"
-  url "https://download.libguestfs.org/hivex/hivex-1.3.24.tar.gz"
-  sha256 "a52fa45cecc9a78adb2d28605d68261e4f1fd4514a778a5473013d2ccc8a193c"
+  url "https://download.libguestfs.org/hivex/hivex-1.3.25.tar.gz"
+  sha256 "10fe3b31c0c6ee8bd82749d3161321bfc2e2f3b986a77cdce1ef8987d1296605"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-only"]
-  revision 1
 
   livecheck do
     url "https://download.libguestfs.org/hivex/"
@@ -12,13 +11,11 @@ class Hivex < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "27c46156f3dead89206d55b10b629133a5b93cd6ef9b61a4e74729f930949575"
-    sha256 cellar: :any, arm64_tahoe:       "513f520b5576ba24f182a2de912bfa318f37f7f792976b5bef917af066113820"
-    sha256 cellar: :any, arm64_sequoia:     "8af38ad8bd4300148430887052eb5f84fdbe094a2bf1e9a049b6e5d5f344d96a"
-    sha256 cellar: :any, arm64_sonoma:      "103d76ee907491f3082f1225740be40d1de8c6b8f39d3f55d417a10ea41c2522"
-    sha256 cellar: :any, sonoma:            "8b0a01c675005731b25f5c38719cc69e9f3eb77bcb92c2883b88adeb90daf5c6"
-    sha256               arm64_linux:       "2e399093f65da88d153957e646969f331e252eff7863a5af3e4055dbf342ed88"
-    sha256               x86_64_linux:      "ffdf125155e8818f0a520df7b9da7da779737af046214192e16bf25be5774c07"
+    sha256 cellar: :any, arm64_golden_gate: "c5487e5f00f415838d08d5f85332e7050263ebd865661068a3b287c079a2558a"
+    sha256 cellar: :any, arm64_tahoe:       "388c7e0f254b34c93a7b4c06461cecdc74da595a13cdd8e5fc1f9f394341a117"
+    sha256 cellar: :any, arm64_sequoia:     "92f96d59734b9ff898f9f6dd03279ad085cce2a0c1a5f8c3385c4530590a09ed"
+    sha256               arm64_linux:       "cc78ca46f50b0e79a7a4d52b1836b24b13f3915aaf106093889292bd7ed17315"
+    sha256               x86_64_linux:      "f0b14ab9bd2b5be5bce7e53252ae80fdc4210e1ddc4cfa9a4a5200d281fce144"
   end
 
   depends_on "pkgconf" => :build
