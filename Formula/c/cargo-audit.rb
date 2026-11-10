@@ -1,8 +1,8 @@
 class CargoAudit < Formula
   desc "Audit Cargo.lock files for crates with security vulnerabilities"
   homepage "https://rustsec.org/"
-  url "https://github.com/rustsec/rustsec/archive/refs/tags/cargo-audit/v0.22.2.tar.gz"
-  sha256 "85c368a4d166b2cc4972108d50abc5fad605013b65098929a06122439488beb5"
+  url "https://github.com/rustsec/rustsec/archive/refs/tags/cargo-audit/v0.23.0.tar.gz"
+  sha256 "9d3950c98058e14c3ee82d73632581dc12d2e0f655c270169ce95ab3bc9d0cc7"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rustsec/rustsec.git", branch: "main"
 
@@ -12,13 +12,11 @@ class CargoAudit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5ce3a548f702aac04f247b93329dd3c970e0d5e501d35d62f5c7cdeaeaf452d7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6d9e5dd5e65645fb52c168c0336328dbad40abc2fc170a5baa4307bf8c1c28c9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "498ba346f9b85632bdd109d01628b55e14f9bbd1029a5c825fd9a99ea6366553"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "da51f6641e369d800fbca0ed01c6944c00a6b231aeba6fd46e6f29ebdca8f9fe"
-    sha256 cellar: :any_skip_relocation, sonoma:            "938d5e29897d011acdb211a3b39147333a9b5159066c9063471a3280e86422d3"
-    sha256 cellar: :any,                 arm64_linux:       "0a61da38fe81174eeba45b913fe59b913c576bc3ed14fc749fb4f4f9a511ed91"
-    sha256 cellar: :any,                 x86_64_linux:      "dd32d845e0faf9522cc25ee4863f3790b80f8a2d22ceda099d83c5918cadc90d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "26c2e643ca2abb08b56753b1a28cec486037824e7748b24d9e272047ad24d5c5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1c08a2fae8ff011004dd9ea11e52477b73b4e018311df0d71d8f4cec98ee5d12"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a342d6b5697760b0bceecdda756fdb471863bf4a5696c353e7307a91de185ea9"
+    sha256 cellar: :any,                 arm64_linux:       "5583125dd151ff69ff640d254660bc9af32ce1820021f6caed439837fe431241"
+    sha256 cellar: :any,                 x86_64_linux:      "77f81635a0a6acd3315533a78717bf8b1ac010513da3b5dcc01bbeff53d20f45"
   end
 
   depends_on "rust" => :build
