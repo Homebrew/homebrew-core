@@ -1,17 +1,17 @@
 class Appstream < Formula
   desc "Tools and libraries to work with AppStream metadata"
   homepage "https://www.freedesktop.org/wiki/Distributions/AppStream/"
-  url "https://github.com/ximion/appstream/archive/refs/tags/v1.2.2.tar.gz"
-  sha256 "6b554b90c2139aceef65e1aebe811cfe398af4ea749eb5ffa0b7286053ff9e50"
+  url "https://github.com/ximion/appstream/archive/refs/tags/v1.2.3.tar.gz"
+  sha256 "12f01e127081c485a3e3056b6d30f54d003101689ff815adac6f1ef2b19af6ab"
   license "LGPL-2.1-or-later"
   compatibility_version 1
 
   bottle do
-    sha256 arm64_golden_gate: "ffce96fbbc01854eab40b42840edfe857ced38dc0c690fa4f7126bc5eb2433f3"
-    sha256 arm64_tahoe:       "51cafd8c1a3d566d73f009552d10b0f66f26845ab0087263faa4bba5ead9ef68"
-    sha256 arm64_sequoia:     "aa6d1e7f944bd97f111c922d88a05cbc670f4cb7a7e844e113463e56a9b37693"
-    sha256 arm64_linux:       "00e810875c2cee520d476d3805f278b25cd93d2f8b430ccc7979f63f09724b04"
-    sha256 x86_64_linux:      "bcc70ccd7eef144111ca3d7cacd9e164286d895326115d83ca1e48cec526cf42"
+    sha256 arm64_golden_gate: "0960ca171fa051e95e7299828d174457be5c9b0bc7adee39496235e63b723c7a"
+    sha256 arm64_tahoe:       "3529a8d73c8565daf22bea0d7a8f2834619894e30e116fde46645bec9cf15579"
+    sha256 arm64_sequoia:     "703ba59e3f4b4110ae6a801fac545d6990efdcc464cabf045c50e1d0ad93c3a4"
+    sha256 arm64_linux:       "ca684a2b402cd6b7a34013208c3364fdd43335c7390b9b68ae310385ae3b97b1"
+    sha256 x86_64_linux:      "d941bdb0bc8cde0bde51db066ae0bc999558da7f61e464a2195608c4be0e8674"
   end
 
   depends_on "docbook-xsl" => :build
