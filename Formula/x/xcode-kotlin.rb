@@ -1,19 +1,15 @@
 class XcodeKotlin < Formula
   desc "Kotlin Native Xcode Plugin"
   homepage "https://touchlab.co/xcodekotlin"
-  url "https://github.com/touchlab/xcode-kotlin/archive/refs/tags/2.2.1.tar.gz"
-  sha256 "3789d886022509cb232616679835a7dd67e4adb4983a24f1ce268aa244978aa8"
+  url "https://github.com/touchlab/xcode-kotlin/archive/refs/tags/2.2.2.tar.gz"
+  sha256 "551f3f450f4fcfbddb01134e8ca666ef26a0a6144b88a654070c1ac31b064a99"
   license "Apache-2.0"
   head "https://github.com/touchlab/xcode-kotlin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "44eace7bfe36f24f01e8466a6cadce555a84c1db464b025325c6180746ba18b9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8432e2d622a06bacb457053e063480f63879c3e73abf22fe40b3114291ad881"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7d3b032937ee2f5e72a80cff85d9bb0b257178e6498b050f3f45919910c7bc77"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "e21566ddcf5a53e5f3320fe660a0b6c67d70a6ed3e6fc5ca82b72087ed80d7db"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "693d8c42c635a9560ceb4ca9e6a9512123fbada905b3068deef8e38f4340a355"
-    sha256 cellar: :any_skip_relocation, sonoma:            "95af928c785a49d772eef8755d4854e7a89f5f8179a65dd0a5b2e512c63d0eb6"
-    sha256 cellar: :any_skip_relocation, ventura:           "2386514c4fbb8166b6e9ed4f016abecef6a69a8684ad84d890db0f9b66b36021"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "22f392f78aae37ed58af4801eddb074dd425c8f649f1f71ca2501002e8e3e9d3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7d88a6e3af582f712880a1453081103f989e1e9728683547d03af4bb2bd8d245"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "05a57dab8857e9542897904ccecf2634101de62105caf9e3a8a65a26c7a420a7"
   end
 
   depends_on "gradle" => :build
