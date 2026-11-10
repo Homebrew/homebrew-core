@@ -1,8 +1,8 @@
 class Joern < Formula
   desc "Open-source code analysis platform based on code property graphs"
   homepage "https://joern.io/"
-  url "https://github.com/joernio/joern/archive/refs/tags/v4.0.677.tar.gz"
-  sha256 "79b044b1613828c6a59586282670daa90d4070f8dbe8b9ed965ddc1c5721d298"
+  url "https://github.com/joernio/joern/archive/refs/tags/v4.0.678.tar.gz"
+  sha256 "6c6f5a29026c6da6e0e084a0e5a71f152cf4ca5a787640d46ef452448376c3a5"
   license "Apache-2.0"
 
   livecheck do
@@ -12,11 +12,11 @@ class Joern < Formula
   end
 
   bottle do
-    sha256               arm64_golden_gate: "42a78d1834fb141e83e6a6a0f754032e6fd597eec2a12fa30ab10e21311be5a4"
-    sha256               arm64_tahoe:       "91084acd6e1ce7216ce652c75bad3b762ea6ddcf4ceedacb80a0014ff9c9f61c"
-    sha256               arm64_sequoia:     "d126fb02480de04f34ae329cdae819d6c9863dc77a4eeda9a6bba3a30195b355"
-    sha256 cellar: :any, arm64_linux:       "71ba423edbcc7d5e00e1f3d970afb0c4a7ed86ac0f6b9c7889e62cf172794e6d"
-    sha256 cellar: :any, x86_64_linux:      "8116520b75fb4cdd58f3d792c478598f795b750fd3c9f3da9de570056cc3f7bc"
+    sha256               arm64_golden_gate: "4fa079cf11302ebcb10f9c293f3916620cb0a144d54e9f2ec7ff585354474b9a"
+    sha256               arm64_tahoe:       "f6ee09216a62c76d1fa7bdbc96f5000f49a85afc4b84db036600b05bfdb19171"
+    sha256               arm64_sequoia:     "687927209a61f772755884ca85d72622b979c95789a29e7608ba82a07497c4f6"
+    sha256 cellar: :any, arm64_linux:       "dc9f5bbbd59504bf5d9ef87caa5bfeaa5087e794a2f51c42864591479130dbd0"
+    sha256 cellar: :any, x86_64_linux:      "24d6dcfcb3ab986443be2d19b8d706df1e37603747d1ef2b368844cde2f4af75"
   end
 
   depends_on "sbt" => :build
