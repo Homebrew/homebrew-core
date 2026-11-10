@@ -1,8 +1,8 @@
 class Skylighting < Formula
   desc "Flexible syntax highlighter using KDE XML syntax descriptions"
   homepage "https://github.com/jgm/skylighting"
-  url "https://hackage.haskell.org/package/skylighting-0.15/skylighting-0.15.tar.gz"
-  sha256 "2929c28a042453ee67785201dda234308ef19e068fb474cc1db69dd5f67c4dab"
+  url "https://hackage.haskell.org/package/skylighting-0.15.0.1/skylighting-0.15.0.1.tar.gz"
+  sha256 "b84691c7e2e619e0f98e28a3f468bb7a57c68293efe9d6c66174f4123b8d570e"
   license "GPL-2.0-only"
 
   bottle do
