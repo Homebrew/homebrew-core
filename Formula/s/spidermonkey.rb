@@ -16,11 +16,11 @@ class Spidermonkey < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "792257b3c4fdbf501c4411a49224e89200659fdba2864e74c567a8fa73f7c51e"
-    sha256 cellar: :any, arm64_tahoe:       "5cf1930afd625004efa8686f8eae3bc29f7b4921373d4bda29fb121b1ea311cb"
-    sha256 cellar: :any, arm64_sequoia:     "60371c27fd3a5a08fa1c39d303a7ded4e4d49a6263e8218119339fc9438a9861"
-    sha256               arm64_linux:       "2e7835d5c3e8f314188e40de1e6de6710b49911c1bcae799d111ae5b24fbf142"
-    sha256               x86_64_linux:      "b5e23bf27004cb2d56d110f16e97d3fa2cc4206c7d2034f6acf6169350d43baf"
+    sha256 cellar: :any, arm64_golden_gate: "6f25f17c9058ec8cd3c9b5812fce83b5dafa15bf31ddcf3510e89b512252b103"
+    sha256 cellar: :any, arm64_tahoe:       "eae49eaa19b71ef010bfe152eb0dff5cc9c4f785cef6bc6d1d6c3c22c725051d"
+    sha256 cellar: :any, arm64_sequoia:     "5881128688aa98f0744f44f84551debb7f3ad9d196c5e99ae1239aac2d9cddb7"
+    sha256               arm64_linux:       "bc96ca5f4c161ed9f828960c20e7f92272e37bfb27a96b7566153ee46c50c10c"
+    sha256               x86_64_linux:      "a80d768a8a26deb245be778d86bdc4de9925fbd43833cdd380e5e0ec61ea9c90"
   end
 
   depends_on "cbindgen" => :build
