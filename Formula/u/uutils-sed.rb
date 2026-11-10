@@ -11,6 +11,14 @@ class UutilsSed < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7abb69093fefa114e7ff36c84f41862abe994785abf0aceabddc9e7e28cc102c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6988b38caad8d732881bda8576227216cae2de5b3f3850c50fa76f0fd820fb5c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bf93a351fc747944a9a77c9cf0d2f53d09725d6fad66a20cdee0751ca1ec7b01"
+    sha256 cellar: :any,                 arm64_linux:       "f5cdd5536a60769e8a03b16c2404a19c5c5551f89b64dbb6e1c6cfa57d6d0267"
+    sha256 cellar: :any,                 x86_64_linux:      "9426b0b3dd1f5c470139448e7458177d212486dd1940cc733b7ba82ccc6d87ec"
+  end
+
   depends_on "rust" => :build
 
   deny_network_access!
