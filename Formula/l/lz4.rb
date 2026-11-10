@@ -1,10 +1,10 @@
 class Lz4 < Formula
   desc "Extremely Fast Compression algorithm"
   homepage "https://lz4.github.io/lz4/"
-  url "https://github.com/lz4/lz4/archive/refs/tags/v1.11.0.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/lz4-1.11.0.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/lz4-1.11.0.tar.gz"
-  sha256 "247e5fa64da5f7b75ee3dd3bed484076396c9ebe8254d9ccf693eb62800c5e26"
+  url "https://github.com/lz4/lz4/archive/refs/tags/v1.11.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/lz4-1.11.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/lz4-1.11.1.tar.gz"
+  sha256 "683fed08a844ad012196381e40badf80c0bbe4962959761416d41c9e67d77ec7"
   license "BSD-2-Clause"
   compatibility_version 1
   head "https://github.com/lz4/lz4.git", branch: "dev"
