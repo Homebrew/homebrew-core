@@ -4,6 +4,7 @@ class Solidity < Formula
   url "https://github.com/argotorg/solidity/releases/download/v0.8.38/solidity_0.8.38.tar.gz"
   sha256 "a96f89d20525724acd9717032a0315466078c0176d5d13016d81f4cc81fd4115"
   license all_of: ["GPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0", "CC0-1.0"]
+  revision 1
   compatibility_version 1
 
   livecheck do
