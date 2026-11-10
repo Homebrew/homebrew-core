@@ -4,6 +4,7 @@ class Wuppiefuzz < Formula
   url "https://github.com/TNO-S3/WuppieFuzz/releases/download/v1.8.1/source.tar.gz"
   sha256 "2b16baf2344f23cbcbbcdb3f1546c838c99ea76634c691d3cace2e6542014d38"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "c3b05fa456dbeff547c77ade1dc6970a37cb6d38578f9dfe645d608ff61610b5"
