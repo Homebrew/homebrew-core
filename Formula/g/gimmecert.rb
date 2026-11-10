@@ -4,16 +4,13 @@ class Gimmecert < Formula
   desc "Quickly issue X.509 server and client certificates using locally-generated CA"
   # Original homepage `https://projects.majic.rs/gimmecert` is down
   homepage "https://github.com/azaghal/gimmecert"
-  url "https://files.pythonhosted.org/packages/94/b3/f8d0d4fc8951d7ff02f1d3653ba446ad0edf14ab1a18cff4fbe1d1b62086/gimmecert-1.0.0.tar.gz"
-  sha256 "eb00848fab5295903b4d5ef997c411fe063abc5b0f520a78ca2cd23f77e3fd99"
+  url "https://files.pythonhosted.org/packages/aa/7e/30e458ef1fa9cb5de414294d9990538c4e3b1faa4ac5ca8f1926c3633455/gimmecert-2.0.0.tar.gz"
+  sha256 "3887e8f41067fba232c9be5525c3b541966314e1fd20c8c4c1fdc6f05c296b3e"
   license "GPL-3.0-or-later"
   head "https://github.com/azaghal/gimmecert.git", branch: "master"
 
-  no_autobump! because: "`update-python-resources` cannot determine dependencies"
-
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, all: "3452280005eb736af46246438648ffae995ac82c3301b977428557ddb07d4fde"
+    sha256 cellar: :any_skip_relocation, all: "2b05dc239a921ac47ef10829bdfe96e1e9b5cbb13e6c8b219c9612f851188691"
   end
 
   depends_on "certifi" => :no_linkage
@@ -23,17 +20,16 @@ class Gimmecert < Formula
   pypi_packages exclude_packages: %w[certifi cryptography]
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
-    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+    url "https://files.pythonhosted.org/packages/18/39/b3927f3616f6223832f9b760e4208e8a7c7e1dea2b4d9ad7d32a5d214c3a/python_dateutil-4.0.0.tar.gz"
+    sha256 "d7295ff14fdc0f92f662100bfb6c551d160ca090f2939f1ec5b9794265c03f06"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  resource "tzdata" do
+    url "https://files.pythonhosted.org/packages/7a/29/6a1391d31cd00ff9e927215a224a880e1e84e826b64ba80a499e51c074d8/tzdata-2026.6.tar.gz"
+    sha256 "85d2cd9c09f81f0bb29db27759fc83af4f1e620efb814f8c5bf8b4cc4feece6d"
   end
 
   def install
-    inreplace "setup.py", 'python_requirements = ">=3.8,<3.13"', 'python_requirements = ">=3.8"'
     virtualenv_install_with_resources
   end
 
