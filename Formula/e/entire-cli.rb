@@ -1,8 +1,8 @@
 class EntireCli < Formula
   desc "Capture AI agent sessions in your Git workflow"
   homepage "https://entire.com"
-  url "https://github.com/entireio/cli/archive/refs/tags/v0.13.1.tar.gz"
-  sha256 "cc689387a5552621178e4a69317bc86096502b05694047deecc0b085ad5e079c"
+  url "https://github.com/entireio/cli/archive/refs/tags/v0.13.2.tar.gz"
+  sha256 "15ccd6b51fd0e64d1d72bda561b9a0028e496a1a642b1e1585e5b99871a9af9f"
   license "MIT"
 
   livecheck do
@@ -11,11 +11,11 @@ class EntireCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c8dac3ec39631b9469d3d6d7457a6afc1f523d367f269b127ed9ba3d38d74d47"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8dac3ec39631b9469d3d6d7457a6afc1f523d367f269b127ed9ba3d38d74d47"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c8dac3ec39631b9469d3d6d7457a6afc1f523d367f269b127ed9ba3d38d74d47"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "dd2f46df980d760a39b7c390288b6b19671aa68bbb790c48a4473bac925a4e7e"
-    sha256 cellar: :any,                 x86_64_linux:      "630d13d4423036dee5bbaad40afe3f1c347858b8d02d2ed2d82fcdcfd4077c12"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3952037f66461e3382f6bc4bcac629201379eb43d5b7603e1a5f625a9c676ccd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3952037f66461e3382f6bc4bcac629201379eb43d5b7603e1a5f625a9c676ccd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3952037f66461e3382f6bc4bcac629201379eb43d5b7603e1a5f625a9c676ccd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "31350b22d2373a9ddab95c7cdfa5edc99ab1698231cb88df9dde76c3649acbf0"
+    sha256 cellar: :any,                 x86_64_linux:      "fd392e84532cf160467c76df022626c864b154276f9271785b38c065be83ab86"
   end
 
   depends_on "go" => :build
