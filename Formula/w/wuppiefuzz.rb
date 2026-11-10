@@ -1,10 +1,9 @@
 class Wuppiefuzz < Formula
   desc "Coverage-guided REST API fuzzer developed on top of LibAFL"
   homepage "https://github.com/TNO-S3/WuppieFuzz"
-  url "https://github.com/TNO-S3/WuppieFuzz/releases/download/v1.8.0/source.tar.gz"
-  sha256 "8405309fc4b51fbabda282540c25605a00e741b4f3c0c73fe8e7a594ed23ca9c"
+  url "https://github.com/TNO-S3/WuppieFuzz/releases/download/v1.8.1/source.tar.gz"
+  sha256 "2b16baf2344f23cbcbbcdb3f1546c838c99ea76634c691d3cace2e6542014d38"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "4911d8c8538fa900ed5b1acffc0edf3e7a95c001e60218e8d138c7da4ca63e80"
