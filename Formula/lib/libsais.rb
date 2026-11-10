@@ -1,17 +1,17 @@
 class Libsais < Formula
   desc "Fast linear time suffix array, lcp array and bwt construction"
   homepage "https://github.com/IlyaGrebnov/libsais"
-  url "https://github.com/IlyaGrebnov/libsais/archive/refs/tags/v2.12.1.tar.gz"
-  sha256 "d3779d60976f1e7112c1cba711250a88b731d3c5e0611592cafb8954c71b32e5"
+  url "https://github.com/IlyaGrebnov/libsais/archive/refs/tags/v2.12.2.tar.gz"
+  sha256 "9a3ab90beb94ef4d9cf633f39f3d45fe355401dcffcda067a4e330895afc20d7"
   license "Apache-2.0"
   head "https://github.com/IlyaGrebnov/libsais.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "880daf7bc6a7f03adfaf6f49a0cf391cabac103be308db8f0c12b4ec4e869940"
-    sha256 cellar: :any, arm64_tahoe:       "05b05573fdabd0c7b2ed680b142a4e644dd0c7684ee43ffe7db176ef80653192"
-    sha256 cellar: :any, arm64_sequoia:     "d28c1cf9505515b0e0ecab6bdf4dc913b3b4eb8bd1fcbac5d3dee20c803c4ba1"
-    sha256 cellar: :any, arm64_linux:       "d80dccac8ff9d8253d75a9e534a37e08d6959dd1765cd151fb7968bf5b0b2478"
-    sha256 cellar: :any, x86_64_linux:      "ba79b5080d30c062557384d6a54cf2f71d54d6d68875a06a6241df3c4b3d675e"
+    sha256 cellar: :any, arm64_golden_gate: "15b39446e38955cada574e9cfd31ebb7214a280e0eb2b691b60e1593ce2d98c7"
+    sha256 cellar: :any, arm64_tahoe:       "030536bce11b4b2e65020b83e9435d2a352c0961c4adc7fadfdb1dfdf38c9676"
+    sha256 cellar: :any, arm64_sequoia:     "0f1bf2bef152e9bf1e3c16e86f8b0da198536e6abf8d146e10a0e2441cda268e"
+    sha256 cellar: :any, arm64_linux:       "c4502234aab79b4cf272ea81f7f099a1afae1c93d3c93deb87c8e338e1fe730e"
+    sha256 cellar: :any, x86_64_linux:      "d7067423e1c3cc4f97a2421d97baeef0f06c8e798c20fc97a4906fc720fb66d9"
   end
 
   depends_on "cmake" => :build
