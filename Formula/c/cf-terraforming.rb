@@ -1,8 +1,8 @@
 class CfTerraforming < Formula
   desc "CLI to facilitate terraforming your existing Cloudflare resources"
   homepage "https://github.com/cloudflare/cf-terraforming"
-  url "https://github.com/cloudflare/cf-terraforming/archive/refs/tags/v0.30.0.tar.gz"
-  sha256 "6f90684359f9f7f5d2e6013aebc49aa58d38f27a4d1477e108a93ae0ac41a876"
+  url "https://github.com/cloudflare/cf-terraforming/archive/refs/tags/v0.31.0.tar.gz"
+  sha256 "62c7186f2c83b8065d0b3429635d1947f4b8271e44ff76acb9a7a0726bb61517"
   license "MPL-2.0"
   head "https://github.com/cloudflare/cf-terraforming.git", branch: "master"
 
