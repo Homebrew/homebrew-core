@@ -8,7 +8,7 @@ class Faker < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b3a31ad01fd56365bab6ff1fcf2c1da9499988cca8707a4c048d4470b9ec736b"
+    sha256 cellar: :any_skip_relocation, all: "caf573617f09d7fd3973831194f014547be990151877511bc6bb6b22078896f5"
   end
 
   depends_on "python@3.15"
