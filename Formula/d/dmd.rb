@@ -4,12 +4,12 @@ class Dmd < Formula
   license "BSL-1.0"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/refs/tags/v2.113.1.tar.gz"
-    sha256 "1902ac87b33586b4ce1ce3d6095181b2002e620cc337f6511ae01a4779faa707"
+    url "https://github.com/dlang/dmd/archive/refs/tags/v2.114.0.tar.gz"
+    sha256 "54f1a8528dba28eebe7d2b69c19ebf76410a03432655a0713d2a1d7acb78fab0"
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/refs/tags/v2.113.1.tar.gz"
-      sha256 "7a516c5c9c6bc8f20a6e1576a98770e8ab18867066e2f31996fdf4cbb9571c80"
+      url "https://github.com/dlang/phobos/archive/refs/tags/v2.114.0.tar.gz"
+      sha256 "c02e654d57059547d3ccc41b4e2bb8d0ba0fad4604c67632259983bcdfdffdaf"
 
       livecheck do
         formula :parent
@@ -23,7 +23,7 @@ class Dmd < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "823a7450eb2a24b11a41d1e6b6dad283a40f92404a04124cf911f9d760e5c461"
+    sha256 x86_64_linux: "d5c219e279810bea09eab40787f9d6fee321d965545eb2687c2ec2b3ac309c97"
   end
 
   head do
