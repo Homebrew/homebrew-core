@@ -4,6 +4,7 @@ class Kiota < Formula
   url "https://github.com/microsoft/kiota/archive/refs/tags/v1.38.0.tar.gz"
   sha256 "b69b1981d4405224a5dbe02c21f43be9c753e5dd99c1f499b8af269a24fc1488"
   license "MIT"
+  revision 1
   head "https://github.com/microsoft/kiota.git", branch: "main"
 
   bottle do
@@ -14,7 +15,7 @@ class Kiota < Formula
     sha256 cellar: :any,                 x86_64_linux:      "0b325347e657868ff57d9a9f32c8f95dd8ade2a27c205a22d3ec93656199cecb"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@10"
 
   allow_network_access! :test
 
@@ -30,7 +31,7 @@ class Kiota < Formula
     # .NET named mutexes need `XDG_RUNTIME_DIR` (or `USER`) on Linux, which build containers may lack
     ENV["XDG_RUNTIME_DIR"] = buildpath
 
-    dotnet = Formula["dotnet"]
+    dotnet = Formula["dotnet@10"]
 
     args = %W[
       --configuration Release
