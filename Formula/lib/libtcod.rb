@@ -1,8 +1,8 @@
 class Libtcod < Formula
   desc "API for roguelike developers"
   homepage "https://github.com/libtcod/libtcod"
-  url "https://github.com/libtcod/libtcod/archive/refs/tags/2.3.0.tar.gz"
-  sha256 "a14fdb3f5f0d2baab8a8d2ccd1819e4f757bc3181203f6e12890efffe0c072ef"
+  url "https://github.com/libtcod/libtcod/archive/refs/tags/2.3.1.tar.gz"
+  sha256 "dbde843dfdc117bc77a35f6f7321b2aca95196702f468c40286b27996e900ac7"
   license all_of: [
     "BSD-3-Clause",
     "Zlib", # src/vendor/lodepng.c
@@ -25,14 +25,6 @@ class Libtcod < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
-  end
-
-  # Fix build failure when using `vendored` deps
-  patch do
-    url "https://github.com/libtcod/libtcod/commit/0c96fb729b0c787966e4f1edf3ad0dc095f653f6.patch?full_index=1"
-    sha256 "a4fc5863843f55f442fcb772ef2a0d34fd586619a865268c8e791764cb64402d"
-    type :unofficial
-    resolves "https://github.com/libtcod/libtcod/pull/206"
   end
 
   deny_network_access!
