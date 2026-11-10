@@ -1,11 +1,11 @@
 class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.27.3.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.27.3.src.tar.gz"
-  sha256 "6e7749035cf360f06b2575d162ea79df9fda8ef671889e5c375f8e50777f26bb"
+  url "https://go.dev/dl/go1.27.4.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.27.4.src.tar.gz"
+  sha256 "73cfb8571aec0c01177687db87163d46aa20e9779672772891aa17654d9a6099"
   license "BSD-3-Clause"
-  compatibility_version 13
+  compatibility_version 14
   head "https://go.googlesource.com/go.git", branch: "master"
 
   livecheck do
@@ -22,11 +22,11 @@ class Go < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c7bf84a6f727873581b3e1b5f79c1254cd5856f1241534e2f6943a8acc193e6e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c7bf84a6f727873581b3e1b5f79c1254cd5856f1241534e2f6943a8acc193e6e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c7bf84a6f727873581b3e1b5f79c1254cd5856f1241534e2f6943a8acc193e6e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9ae86aba2107b26b5cf76658117eefa9803e9e2d3800872b93e81dac8f6dbae1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "979baea7402fd8b6b172fcb19a12477c4ee3db46d8d910af512d380121b063e9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6cbe7f3b629237e298acfe86250a88da6221f869cfdc775273ab623fe93e9a91"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6cbe7f3b629237e298acfe86250a88da6221f869cfdc775273ab623fe93e9a91"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6cbe7f3b629237e298acfe86250a88da6221f869cfdc775273ab623fe93e9a91"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "15967a8d83a30831dd063706198aad5a668278dd04c60174022884d0ed04c9c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "faf6fcd9deaa48d49da313ae0aaf174da327396dbd363ff4d3def6b22d1d89ff"
   end
 
   on_macos do
