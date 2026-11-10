@@ -12,11 +12,11 @@ class Lisette < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "30591b28eac7458c7fe82f690f9abf26ff89f6c77e5d80b937e5af19810fe97c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7d03f6c784f2af92a6a6067c50673f48a45b2eddf263bd7073e0781613d33177"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "11bc9657c4b37453c36b390b0b36b9d05b1baafd8551babaa39a4e0d8079a4f6"
-    sha256 cellar: :any,                 arm64_linux:       "c9503cf5857cd16be6847a245076c2c421b31018268c73f0aeb8d464a8c680f6"
-    sha256 cellar: :any,                 x86_64_linux:      "0623d5f5fa220c1292e8e49f4429936d3f0929ecc4cdc40e4967124852c03738"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f2827f3b5584f0d2c2eb4f76fadef7b93518bb899063f717739a2ce0804ce064"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "87cfb31ded9a7c75a3325ef7b56b8dfa3c2c14c653f11bcd2dd147b39e621a59"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0dc94fe4dd8ad9b2982a1a0859cd7f8216c2c62ea31b45f71bf5684b6ecc507f"
+    sha256 cellar: :any,                 arm64_linux:       "46cfb089f3667b12db29cc9a26916a9aa7c589057f1cdb50647d46f6e50b7199"
+    sha256 cellar: :any,                 x86_64_linux:      "e36ee9b5a244e6d5f43b925efcaf1179bd46af0acca1a7de0ca026f65f40040b"
   end
 
   depends_on "rust" => :build
