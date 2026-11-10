@@ -4,8 +4,8 @@ class Gam < Formula
   desc "Command-line management for Google Workspace"
   homepage "https://github.com/GAM-team/GAM"
   # PyPI package has different version `7.50.0` with the github release `7.50.00`, so we use the github one here.
-  url "https://github.com/GAM-team/GAM/archive/refs/tags/v7.50.00.tar.gz"
-  sha256 "7e0064f3476add526978b09f54781102206e2d2c69d169fa410219d982b91607"
+  url "https://github.com/GAM-team/GAM/archive/refs/tags/v7.51.00.tar.gz"
+  sha256 "51a1dd5da3e3d51c7ce5a3b12de8a811f733d9b50bff573aa02afff08d58fdc8"
   license "Apache-2.0"
 
   livecheck do
@@ -14,11 +14,11 @@ class Gam < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "10b9f1e922f9b48f9f73b61b4a1238cb46ca7138bbe2281df9edd23404c87dfa"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eac7eabc473334698547671607a6230ad1c1644fbaafc8ae14fccae2c35d3fbc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6f5a2416c5de78294f146d86be8bf882f9fe51dca993f74a8ad9aba9a3a89f5f"
-    sha256 cellar: :any,                 arm64_linux:       "edc0d410aeba53db4020f67ae9e7f2bfa077cfc92e15ca70749f280ec9f19457"
-    sha256 cellar: :any,                 x86_64_linux:      "fa1330c5b5305d26b7ceee96078e3eb349272eced0d03571a49f2a62d6d6d429"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "90a820b813c1fe3070a57b16c80dfb0f818884bd42f5ae035ffac3097513c78b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4eb6d6dcbd6f37aaeaf7d1bb9c434e70aeed50d84ae98f04352c929a0e2ae18f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "49f5a2208d9b84d6cc09bb17138f850648b0009e627fa37476d1b8967202194a"
+    sha256 cellar: :any,                 arm64_linux:       "3960821bd44cc61c3198e9cbcee92347e2bb634766af4c34296942303f8c247a"
+    sha256 cellar: :any,                 x86_64_linux:      "43dd6d9802c1429b9f9f6fa87bb2dd2e4bbea1052d0359d67963f493fd6ac45a"
   end
 
   depends_on "cmake" => :build # for pyscard
@@ -31,8 +31,7 @@ class Gam < Formula
   uses_from_macos "libxslt"
   uses_from_macos "pcsc-lite"
 
-  pypi_packages package_name:     "gam7",
-                exclude_packages: %w[certifi cryptography],
+  pypi_packages exclude_packages: %w[certifi cryptography],
                 extra_packages:   %w[distro jeepney secretstorage yubikey-manager]
 
   resource "anyio" do
@@ -46,8 +45,8 @@ class Gam < Formula
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/b1/51/cd61c567092a6cec796144510a68aff158ebfc1df82950a45bae65f28413/chardet-7.6.0.tar.gz"
-    sha256 "93d9df6089ded42ed1fe9f57e272c0b74bd0464d45c0c7d50f09f26f31105c3c"
+    url "https://files.pythonhosted.org/packages/47/92/3d893ac5d338b9a9af34c5b517d77492dcea8a10254254eead4215a96f3f/chardet-7.7.0.tar.gz"
+    sha256 "0ba38a05201b0abf7570c12d8af45c30b2af835bd5cc52bfc7105082eda82c1e"
   end
 
   resource "charset-normalizer" do
@@ -56,8 +55,8 @@ class Gam < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "distro" do
@@ -71,13 +70,13 @@ class Gam < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/f4/a9/1af41b37c3279712b22cdc63aac78a52432202b6fe1f9666a2a3d2831fb4/filelock-4.2.0.tar.gz"
-    sha256 "7a60906c75227cf04d0c273afadc8219400f11aeb13cc69591d4f6cdc6c8036e"
+    url "https://files.pythonhosted.org/packages/d8/28/3893324bcadf8f89b1616637468d766af3f625008c0735bf704fdfa86617/filelock-4.2.4.tar.gz"
+    sha256 "c6d8663535e1650ee430507b4ffbac7b464dd64b7647ea0112a9f406499d163d"
   end
 
   resource "google-api-core" do
-    url "https://files.pythonhosted.org/packages/a4/74/307919972c4dc84598f4128a8d6ae05ac3d9e6ca73fe60a7bb93c670931c/google_api_core-2.43.2.tar.gz"
-    sha256 "5dfc5e9d52982bcc03bd6af380a893365b5fdf907dc527f63d3a372833c33329"
+    url "https://files.pythonhosted.org/packages/72/ef/63d89cb580f3a42c51db53b3d151352aa61b9c87ea8cfdd8d24ee6caa09d/google_api_core-2.44.0.tar.gz"
+    sha256 "5ab9a396965c1227d7dea4581e562b7018aa2bca96d2de0be5eb70dc9c8ab3a1"
   end
 
   resource "google-api-python-client" do
