@@ -6,6 +6,14 @@ class Strobealign < Formula
   license "MIT"
   head "https://github.com/ksahlin/strobealign.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a4f415254e1472484b6e6070657e7f88349c39a6c17611a6ac10542b87772c12"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5cb2dce176d5d2988f635fd900ae9f2f787344c649b38dfe52ba3ad825ec6b46"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9eda3dec5153a68631b3609f56d513aeda0cb11bf48b2d60916590f20c1abf2f"
+    sha256 cellar: :any,                 arm64_linux:       "c41ff50b2dfe289942fb2d73f1d1dd6e8bbaf6fbab5a3cd033c62b3dec437bda"
+    sha256 cellar: :any,                 x86_64_linux:      "a996e8c408cce86a63009cb168281dd3fb2330d51bfd464136b81c40c411c0b1"
+  end
+
   depends_on "rust" => :build
 
   deny_network_access!
