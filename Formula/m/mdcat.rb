@@ -7,11 +7,11 @@ class Mdcat < Formula
   head "https://github.com/BIRSAx2/mdcat.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8ec48e3625ce7ef829e28c74f0c41fd4e120209c2b793574cb97ab93827d2c61"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1107532868a674eb74dc29c728a346a35f3f515cdda12e24f5f51a384b039ca3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d2bc088b350921156da726de602b7056556dff9e21e7a45f372923d7a75238c0"
-    sha256 cellar: :any,                 arm64_linux:       "c785fbfb0a53dee7d428b762297fef09ff66fe2091fcff844a317fe061a3356d"
-    sha256 cellar: :any,                 x86_64_linux:      "c9a4ef930ea3b9c721d357de6dd5faa37920cba1aa622f481e26718493291c51"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2cd3eeac82c6359c3ad92f756f6be9abaefecbff2ebb6eeb9fa9169b470b121e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0daeeaed233f440acab7f02e668e1fe7fc6c718eeb4645567ee0f97d13fec2af"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "adb5c284979b50443b6db96c1dfab84f1d2ab554e7529352823d9b69b04cef98"
+    sha256 cellar: :any,                 arm64_linux:       "f4d16ab10e5c3d39c3d3de8571018fcad6748648c508b7d61dd15b0fb86eddb5"
+    sha256 cellar: :any,                 x86_64_linux:      "dda538de6b6fcb22f9bf5ebc9bceca6dacc4160b6c055e9bb3c9a90276043344"
   end
 
   depends_on "asciidoctor" => :build
