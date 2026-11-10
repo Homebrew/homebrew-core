@@ -1,17 +1,17 @@
 class Tock < Formula
   desc "Powerful time tracking tool for the command-line"
   homepage "https://github.com/kriuchkov/tock"
-  url "https://github.com/kriuchkov/tock/archive/refs/tags/v2.0.8.tar.gz"
-  sha256 "d0b3f3796df9dbfc7366f01a9eea54204cf9a6617b23d3ea6cb1e79b07dbeed8"
+  url "https://github.com/kriuchkov/tock/archive/refs/tags/v2.0.9.tar.gz"
+  sha256 "0d4183ac42302b48bc40e59ce0d7144ff0fad2492c1764385d87bd0ee539d82b"
   license "GPL-3.0-or-later"
   head "https://github.com/kriuchkov/tock.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "30cacfc6a152a386dba241ec06a28d11aa6fc87f183e1bebdb776b038377c019"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "29efc3578d4f29b6d83aec736d5dd3c9d908d83936ee9c4d39ede99791b0de9a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ee76bacbce5f463ff09dc8bbc26d71d80c9a834d36acc270387e4b43cd8d0b3a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "7130b38ec37077a8261da866920c9af7ebf96f57c0c5f3038ae297af6b0cbce0"
-    sha256 cellar: :any,                 x86_64_linux:      "f4d324e366ec172c0f2fa4554801ec7659ec67053a66102ece4984ace598bfd9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "282ee6fe9c8669813419d8a9bb264fd5014eaeca78b5fc61065f7b28c2792913"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "645512ad2cd22f1ccccec3521a7d76cd4033437fd44d3d75a49ee0deb2dc7b9b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "09a0d4ebef38d1f7abafeed81835e21378d8ea3addfdfa15d9741ff00c132b5c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "1b32bc18341d011b22c2d8460a38810edb54a1352d7c2fe2096a041f2783ca05"
+    sha256 cellar: :any,                 x86_64_linux:      "11791bf4336e6751cad096bd13b31c9235c17a5451a064604a74add0717a9e90"
   end
 
   depends_on "go" => :build
