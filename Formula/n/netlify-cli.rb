@@ -1,8 +1,8 @@
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-27.16.2.tgz"
-  sha256 "e96fd5fc99c2d2754c3d42817ede895ab54512209506ea8d7af7821f99eed0f5"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-27.16.3.tgz"
+  sha256 "3e639315cac8a6b9518b0e98775af74704ca1fbbac198810e0d811e7035a5aeb"
   license "MIT"
 
   bottle do
@@ -67,7 +67,7 @@ class NetlifyCli < Formula
     # Remove incompatible pre-built `bare-fs`/`bare-os`/`bare-url` binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    node_modules.glob("{bare-fs,bare-os,bare-path,bare-url}/prebuilds/*")
+    node_modules.glob("{bare-buffer,bare-fs,bare-os,bare-path,bare-url}/prebuilds/*")
                 .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
   end
 
