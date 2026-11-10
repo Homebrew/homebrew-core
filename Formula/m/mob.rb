@@ -1,8 +1,8 @@
 class Mob < Formula
   desc "Tool for smooth Git handover in mob programming sessions"
   homepage "https://mob.sh"
-  url "https://github.com/remotemobprogramming/mob/archive/refs/tags/5.4.2.tar.gz"
-  sha256 "be6adc58ffd92cc21fd3fa96bb8eba48f9d3669ed3c1de1df568c37f3625664c"
+  url "https://github.com/remotemobprogramming/mob/archive/refs/tags/5.4.3.tar.gz"
+  sha256 "06c28a01ea0f88bbdd5f203ffe42e5865e42d04ff2374c3699fbb1c0ea82ae9d"
   license "MIT"
   head "https://github.com/remotemobprogramming/mob.git", branch: "main"
 
