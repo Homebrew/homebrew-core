@@ -1,8 +1,8 @@
 class PlaywrightMcp < Formula
   desc "MCP server for Playwright"
   homepage "https://github.com/microsoft/playwright-mcp"
-  url "https://registry.npmjs.org/@playwright/mcp/-/mcp-0.0.84.tgz"
-  sha256 "4e749bdc5a19138fed51cf0f51e43dca265c1bfc0fc388220fc70756aac60c26"
+  url "https://registry.npmjs.org/@playwright/mcp/-/mcp-0.0.85.tgz"
+  sha256 "fd79194bb184b92d4f580e0c291b21573d7bbb368402bdb505c101ecc10a4094"
   license "Apache-2.0"
 
   bottle do
