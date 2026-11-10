@@ -1,8 +1,8 @@
 class Skopeo < Formula
   desc "Work with remote images registries"
   homepage "https://github.com/podman-container-tools/skopeo"
-  url "https://github.com/podman-container-tools/skopeo/archive/refs/tags/v1.24.1.tar.gz"
-  sha256 "6a3f342a327ec7684198eb0e15114940b6101506db48d9a96590f5942cb3b335"
+  url "https://github.com/podman-container-tools/skopeo/archive/refs/tags/v1.25.1.tar.gz"
+  sha256 "8e889df322ec3d9457a2e3b61ba9fa77759dd81dac857514333fb3b837e98b65"
   license "Apache-2.0"
 
   bottle do
@@ -66,7 +66,7 @@ class Skopeo < Formula
 
     # https://github.com/Homebrew/homebrew-core/pull/47766
     # https://github.com/Homebrew/homebrew-core/pull/45834
-    assert_match(/Invalid destination name test: Invalid image name .+, expected colon-separated transport:reference/,
-                 shell_output("#{bin}/skopeo copy docker://alpine test 2>&1", 1))
+    output = shell_output("#{bin}/skopeo copy docker://alpine test 2>&1", 1)
+    assert_match(/invalid destination name test: Invalid image name .+, expected colon-separated/i, output)
   end
 end
