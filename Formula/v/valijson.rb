@@ -7,7 +7,7 @@ class Valijson < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3ec954911f843d9b5090b0b36b59aabb4e20dae934b2a4c9f81b88faf3fccdf4"
+    sha256 cellar: :any_skip_relocation, all: "35da7cbb2ef13300e02b51f1ac618f1155a6383b3fb5e11ebcf8e519c5f55a83"
   end
 
   depends_on "cmake" => :build
