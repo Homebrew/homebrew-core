@@ -14,11 +14,11 @@ class Gwenhywfar < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 arm64_golden_gate: "3b92731f6fd0fe933cd77e872320900eda7feea94a0c410f2134d3dff9a08f44"
-    sha256 arm64_tahoe:       "379b9a8b986fe25ea938d6d3a71bd9a71c8d6e4a36cd6f5ceef0ee38b7ee758b"
-    sha256 arm64_sequoia:     "bcdf51cb7f01ea83217aaba3c44a5bc5eab04dfe3b1856f8d93f39ed277be915"
-    sha256 arm64_linux:       "a110f1688dd95355dac2d7c2138e2073c5d3119338bc91395a798116a15613e8"
-    sha256 x86_64_linux:      "6865071211fc5538357cd7f248d815ecc04b832d66cc837dc63e92cfb456d9cf"
+    sha256 arm64_golden_gate: "210d28b8bc1231fb24225a099f0c5ba83e0fdd53f1ea75134bcc77a3d8ab1932"
+    sha256 arm64_tahoe:       "2693677711d7c3eed0981283783a3978e4c9d7b440d9831609cf3429c2e6bb73"
+    sha256 arm64_sequoia:     "3bed7f030e8a66acd8a255872080dc1c6c0339e607429886bc6acdff3ffba417"
+    sha256 arm64_linux:       "890c6df806158aa78c6c14ad7dc6481b5136dff0d0cf5a25f887a3f243f5a67a"
+    sha256 x86_64_linux:      "3024113d904408059bacbebcf6bf14fb67d52efc323838c4377b5ffcc691820c"
   end
 
   depends_on "gettext" => :build
