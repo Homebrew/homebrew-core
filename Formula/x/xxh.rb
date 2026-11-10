@@ -3,7 +3,7 @@ class Xxh < Formula
 
   desc "Bring your favorite shell wherever you go through the ssh"
   homepage "https://github.com/xxh/xxh"
-  # TODO: check if we can switch back to PyPI in next release
+  # TODO: check if we can switch back to PyPI in next release and remove pypi_packages
   url "https://github.com/xxh/xxh/archive/refs/tags/0.8.16.tar.gz"
   sha256 "a8100a831049be3131146da6a26d8cdb2fb15afc8d637521fcbdba37a3429a50"
   license "BSD-2-Clause"
@@ -18,6 +18,8 @@ class Xxh < Formula
 
   depends_on "libyaml"
   depends_on "python@3.15"
+
+  pypi_packages
 
   resource "pexpect" do
     url "https://files.pythonhosted.org/packages/42/92/cc564bf6381ff43ce1f4d06852fc19a2f11d180f23dc32d9588bee2f149d/pexpect-4.9.0.tar.gz"
