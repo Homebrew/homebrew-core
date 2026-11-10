@@ -10,8 +10,7 @@ class Gimmecert < Formula
   head "https://github.com/azaghal/gimmecert.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, all: "3452280005eb736af46246438648ffae995ac82c3301b977428557ddb07d4fde"
+    sha256 cellar: :any_skip_relocation, all: "2b05dc239a921ac47ef10829bdfe96e1e9b5cbb13e6c8b219c9612f851188691"
   end
 
   depends_on "certifi" => :no_linkage
