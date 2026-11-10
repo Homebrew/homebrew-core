@@ -1,10 +1,9 @@
 class RxvtUnicode < Formula
   desc "Rxvt fork with Unicode support"
   homepage "https://software.schmorp.de/pkg/rxvt-unicode.html"
-  url "https://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.31.tar.bz2"
-  sha256 "aaa13fcbc149fe0f3f391f933279580f74a96fd312d6ed06b8ff03c2d46672e8"
+  url "https://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.32.tar.bz2"
+  sha256 "2f81c16bffb16f97c4633032e08a7ef08c000f81eb05853e950febc6c33328dd"
   license "GPL-3.0-only"
-  revision 4
 
   livecheck do
     url "https://dist.schmorp.de/rxvt-unicode/"
@@ -12,13 +11,11 @@ class RxvtUnicode < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "96a7650756f1a4a76124ed7d47392bccb7d7a218687e12cde782641a6d011af8"
-    sha256 arm64_tahoe:       "e4f9b55040a461f3017d12e2582fc0b6860c34ef8f0009685047b6994cfd8ff3"
-    sha256 arm64_sequoia:     "e6faed2630b784a751f9d66fbcc2da0bc787c6bae2e302bb37824e78ad51ef11"
-    sha256 arm64_sonoma:      "3f8197d22312bb97d38faba3b20c2f5130c7d174684fe7306a9053755019a1ce"
-    sha256 sonoma:            "dfd46b5f344974ca6f788c07f9c227b155f4812a3e46a7b8c0505e2b9cfc1278"
-    sha256 arm64_linux:       "d08cc5bcacab747de54e7c232cdb1e0d85cf4591d0b79fd5442f3aef83ef184b"
-    sha256 x86_64_linux:      "b07157e0dc01f637521fce47ee9cdcdbad295f4af457ac8347cfb6366133413b"
+    sha256 arm64_golden_gate: "95c9f33b6c07894afe1c840447f8f9ef823b78cab62daf16c9c36997dc89faa1"
+    sha256 arm64_tahoe:       "f01e13ec624a599fec75704162cc3aca71a2c9f178614479d23f337949a0015b"
+    sha256 arm64_sequoia:     "1bca4e20ce69c4bdc1f42fc9a288802358b1f764fb0e381dd96c71c582d6ff74"
+    sha256 arm64_linux:       "5fa2f714fd0900e8981eaeca2808c86aee37f8e49c65e1280ebfbb3c3b1f0694"
+    sha256 x86_64_linux:      "d83b8e7dc5b2541564707159d1c7e81891623939887d53a7926799936f81bd77"
   end
 
   depends_on "cmake" => :build
