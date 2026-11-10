@@ -1,17 +1,17 @@
 class Zot < Formula
   desc "Lightweight coding agent harness written in Go"
   homepage "https://www.zot.sh/"
-  url "https://github.com/patriceckhart/zot/archive/refs/tags/v0.4.70.tar.gz"
-  sha256 "22b456c4e2589aa1ace60c641e47112433c544239eedf114623a58ffbc29a8a3"
+  url "https://github.com/patriceckhart/zot/archive/refs/tags/v0.4.72.tar.gz"
+  sha256 "6beedb0b21a36d29614e1a2b348cf83bc1c2d255cc737ecbe01a933690bdf700"
   license "MIT"
   head "https://github.com/patriceckhart/zot.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c5b7fdcbfa491e4935ba14e3494d81efe612ce64dc246ce523e9f3907ad90ddb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c5b7fdcbfa491e4935ba14e3494d81efe612ce64dc246ce523e9f3907ad90ddb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c5b7fdcbfa491e4935ba14e3494d81efe612ce64dc246ce523e9f3907ad90ddb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ee0518bfaeb473709854490c70eb98d5b1c123f1add9b4a9dde93dc188478a18"
-    sha256 cellar: :any,                 x86_64_linux:      "1f7eb625e414f2f4bb46ba5b84530c7d5809a8c65845497d274e631be4b353ad"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "953cb3f7133e4bde6f080a7bb34e4d54a88bbe696587d77d2c69867b8c713f86"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "953cb3f7133e4bde6f080a7bb34e4d54a88bbe696587d77d2c69867b8c713f86"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "953cb3f7133e4bde6f080a7bb34e4d54a88bbe696587d77d2c69867b8c713f86"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d71b1ab4350c6974034bea68b59e91b39af4b23304bb18c04afa71371dd7b2b1"
+    sha256 cellar: :any,                 x86_64_linux:      "69554fb20aa04625e46c17e1ce08b6f5bb0edf076699823c655d9739709d5940"
   end
 
   depends_on "go" => :build
