@@ -3,6 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
+  url "https://archive.mesa3d.org/mesa-26.3.0.tar.xz"
+  sha256 "91d729aa68bb89e4ec857841300bbe922bcb3e52b1f97566ca83930d3b28343a"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -21,38 +23,12 @@ class Mesa < Formula
   compatibility_version 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
-  stable do
-    url "https://archive.mesa3d.org/mesa-26.2.6.tar.xz"
-    sha256 "b9436b3e1a8be76fbd4823dc884f90596ab7c6ac5e1867a305e66ffccfb31a92"
-
-    # Backport support for libclc 23
-    patch do
-      url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/1219dc3f7fe83b1f7f200190bf02a86ab57b3d4f.diff"
-      sha256 "fc37a2bd7b90ece96891b243f04cdeedfcb6b7174acade63265b75fa21ace948"
-      type :backport
-      resolves "https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/44624"
-    end
-    patch do
-      url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/62ee563fd398169005906245831db680f813b19f.diff"
-      sha256 "c34a45743e5426b89c869853c4989c856118bbc21b2556444df14f80c30c2679"
-      type :backport
-      resolves "https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/44624"
-    end
-    patch do
-      url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/6b9cd5ab9cc3bfd0c79d9500a07a5e74351c72d1.diff"
-      sha256 "873a8d0d632902604f9c46465e9dab58738092af18a6b748af529eb91fc26116"
-      type :backport
-      resolves "https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/44624"
-    end
-  end
-
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "897e0d3f764d267662bde849fa4cf7d51ef7878e2a792b4ad29330990a52c4ed"
-    sha256 arm64_tahoe:       "5108b036f37f60527e13cd9e4b9a6b8b03c580bd9fe4f2b03bea6acb07e46bd2"
-    sha256 arm64_sequoia:     "04f8a08bd1fff4311e8014ca89054d0bfd4967548a76f3a5903295917884d484"
-    sha256 arm64_linux:       "2f887b328f704e50cbd546176edecae4ac63379cc58495e2ce2314b5b359a260"
-    sha256 x86_64_linux:      "3fd20b664ea4f77c4588e5714f3394df8647a42eacf3c945efd0334711ed1920"
+    sha256 arm64_golden_gate: "50f68aeab7a2cb37e07bac0ba1227d27bcd156d6c52966d7f8e16fc2933517ee"
+    sha256 arm64_tahoe:       "f774ca38347701f9861c1a080e3002b46fc4bbc937d2df73c066f3b68f31c72c"
+    sha256 arm64_sequoia:     "c2b4af6ecc9ba7fd9151028a83029a13e1244cd3322f14d707fc410ebacb5ace"
+    sha256 arm64_linux:       "88a7a8b5168fadcf1136c64c48f131160dbdb9e592f0a145c309d05868ff42b0"
+    sha256 x86_64_linux:      "660a4dd88e42ded5efac67443384355ec219bfc9c96fa350c7ffe15bb38a861a"
   end
 
   depends_on "bindgen" => :build
@@ -169,6 +145,8 @@ class Mesa < Formula
   def fetch
     # Fetching all Rust subprojects since Meson doesn't recursively download subprojects
     system "meson", "subprojects", "download", "*-rs"
+    # Venus protocol headers moved out of tree in 26.3 and are required by the virtio Vulkan driver
+    system "meson", "subprojects", "download", "venus-protocol" if OS.linux?
   end
 
   def install
@@ -223,7 +201,7 @@ class Mesa < Formula
         -Dvalgrind=enabled
         -Dvulkan-drivers=#{drivers}
         -Dvulkan-layers=device-select,intel-nullhw,overlay,screenshot,vram-report-limit
-        --force-fallback-for=indexmap,paste,pest_generator,roxmltree,rustc-hash,syn
+        --force-fallback-for=indexmap,paste,pest_generator,roxmltree,rustc-hash,syn,venus-protocol
       ]
     end
 
