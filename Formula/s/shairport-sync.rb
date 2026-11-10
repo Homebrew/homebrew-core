@@ -1,8 +1,8 @@
 class ShairportSync < Formula
   desc "AirTunes emulator that adds multi-room capability"
   homepage "https://github.com/mikebrady/shairport-sync"
-  url "https://github.com/mikebrady/shairport-sync/archive/refs/tags/5.6.2.tar.gz"
-  sha256 "0747706e19a64ec550ec8a6a5c26bf8e231a4d032de31644f5a5daa0632c41c4"
+  url "https://github.com/mikebrady/shairport-sync/archive/refs/tags/5.6.3.tar.gz"
+  sha256 "670f9cefdb9c2d70f7df71890e63ab0a31d08a815dd0734245d935bfd01e766e"
   license "MIT"
   head "https://github.com/mikebrady/shairport-sync.git", branch: "master"
 
