@@ -1,8 +1,8 @@
 class OsctrlCli < Formula
   desc "Fast and efficient osquery management"
   homepage "https://osctrl.net"
-  url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.6.2.tar.gz"
-  sha256 "81e8ae96525845d56ac98c4a1c3764f6bb59993f50d0d6011ba1d5979173c26c"
+  url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.6.3.tar.gz"
+  sha256 "7f6e4a260f24d37f19bc955d42bb0babfc1224af43e8db7d017f21c326404df0"
   license "MIT"
   head "https://github.com/jmpsec/osctrl.git", branch: "develop"
 
@@ -23,7 +23,13 @@ class OsctrlCli < Formula
   end
 
   def install
-    system "go", "build", *std_go_args, "./cmd/cli"
+    commit = build.head? ? Utils.git_head : Utils::Git.get_tar_commit_id(cached_download)
+    ldflags = %W[
+      -X main.buildVersion=#{version}
+      -X main.buildCommit=#{commit}
+      -X main.buildDate=#{time.iso8601}
+    ]
+    system "go", "build", *std_go_args(ldflags:), "./cmd/cli"
   end
 
   test do
