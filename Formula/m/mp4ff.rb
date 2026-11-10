@@ -1,16 +1,16 @@
 class Mp4ff < Formula
   desc "Tools for parsing and manipulating MP4/ISOBMFF files"
   homepage "https://github.com/Eyevinn/mp4ff"
-  url "https://github.com/Eyevinn/mp4ff/archive/refs/tags/v0.62.0.tar.gz"
-  sha256 "66facdd9dee5cc43ded9141b2bfc20044299f56dcab1d126afde4b45dbfe4512"
+  url "https://github.com/Eyevinn/mp4ff/archive/refs/tags/v0.62.1.tar.gz"
+  sha256 "c4223b02798e8b1040a0f6c2d76b5dec7d7336b1c7e8ea4da9389682b60f7e59"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "341bfb0fa1847b7f5cd7e08aa3f28a5122f58da44a83fe235ebcd9551e6d8cc7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "341bfb0fa1847b7f5cd7e08aa3f28a5122f58da44a83fe235ebcd9551e6d8cc7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "341bfb0fa1847b7f5cd7e08aa3f28a5122f58da44a83fe235ebcd9551e6d8cc7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f3f5078880eb6185fed749ec1a640bad4f03b047c4749eb66646d35ec037241c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "63eb90436018c729af8ea6cea8159776756ba4306c5b6a1bddc54012a9416de2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "78073765f594b365127e0af02d9936cdf4f771cfc778207b188b4581864dee21"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "78073765f594b365127e0af02d9936cdf4f771cfc778207b188b4581864dee21"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "78073765f594b365127e0af02d9936cdf4f771cfc778207b188b4581864dee21"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "0eb4e34c8b2a8bc7cb732431ec6432b8529231324e92523d3726c5e935c3d449"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "688b9694ffa3f587d5106c199227d6082ce19ae1fb5eb9207f5cf9399c30a2dd"
   end
 
   depends_on "go" => :build
