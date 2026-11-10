@@ -4,17 +4,17 @@ class MetaPackageManager < Formula
 
   desc "Wrapper around all package managers with a unifying CLI"
   homepage "https://kdeldycke.github.io/meta-package-manager/"
-  url "https://files.pythonhosted.org/packages/9e/d5/2efe713f05e8999d338f34750abf36b0c22fd669be6eedd72b0ae2b4440b/meta_package_manager-8.2.0.tar.gz"
-  sha256 "8685fb34eaccc9471047e67adc1d2ddd42b92a5be9df5b9e12f166396b7f72b5"
+  url "https://files.pythonhosted.org/packages/43/e6/ea650344bb8ff68dc85b0303b2e10db97b67727d0c595b4289a63ed4d7f6/meta_package_manager-8.3.0.tar.gz"
+  sha256 "dd06527de24f718ab141a37b920b88c3018f205175fbecf5f50a712008d5f606"
   license "GPL-2.0-or-later"
   head "https://github.com/kdeldycke/meta-package-manager.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f203757f105f2eb0f080b4e2f5229c7e1d2491f3ceabd23510836823834e29ad"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fb83ceb748f1bc2da49e0ee15203c9ffbd98d94232c65c59a133c575eae44023"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "95227274e615335b404aa9dddbca198a6fca75c43414fcfe65fa24e9375fbb3c"
-    sha256 cellar: :any,                 arm64_linux:       "72eda9bb7f3e8c4816494fd085225e7ca060991805c7a01e9548bf1ed6bc6179"
-    sha256 cellar: :any,                 x86_64_linux:      "3c6bade4d999b4743c91f11ebf97e6ff12c72ce499da0f8bd7a3fd66b1dd570f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "176b14991329b037ec0fccaf96272aff8a49dd0cf66c38b67a51034dae0f34dd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3ed8d80ae9cf65958d023cd1ab9af94ce78ba41f987e5c7c05321778639a1b54"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "05b3cc11dafe7e44426f06e23e36a023f2f0d4686404f054ead5333d8c84815f"
+    sha256 cellar: :any,                 arm64_linux:       "b8548be82c2c12f63a9aaa7cd2bc623c32f31cf5342c4f21ab4b078e114e268d"
+    sha256 cellar: :any,                 x86_64_linux:      "d9dde8b61977e9fdd64f4c01665386e2f7c14fe0a742b0dc95ddc48e2a8c7f09"
   end
 
   depends_on "rust" => :build
@@ -29,24 +29,19 @@ class MetaPackageManager < Formula
 
   pypi_packages exclude_packages: ["certifi", "rpds-py"]
 
-  resource "boltons" do
-    url "https://files.pythonhosted.org/packages/71/56/14c4a4931910a81ddeccfbe227925ea738e3c445d3e2af960f0bcbba1616/boltons-26.2.0.tar.gz"
-    sha256 "d39cfd15c1a1c3bd4d705c82252fa9edb8e4f5e8cc039f8e39afac7b1b47e92c"
-  end
-
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/fb/37/adf8dd2cde958c2d086bdd87fc36b532fd824bf38f10be6348d65da0c8f9/bracex-3.2.tar.gz"
-    sha256 "0a3d40bfae4caae4d3bfd0ea715874799fab711c38fd4012cc35343e815405cd"
+    url "https://files.pythonhosted.org/packages/2d/1f/b7ce2efe406b87bb3693d587b91bcd8fa9030888870ceff29e4a0d233cb2/bracex-3.2.2.tar.gz"
+    sha256 "d18976160b3ba01a57d5c53a5c8c3aa2506efa9e0a3a62467251f82b8f563fde"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "click-extra" do
-    url "https://files.pythonhosted.org/packages/94/49/8f08a9dcff02255ade9898d7972e07a0e227b4151e040baac7c6499c4d07/click_extra-9.5.0.tar.gz"
-    sha256 "d3187fddf72c3f2cffc0c38d345e3bdbec989a7b790a5fec473d85cd4d497943"
+    url "https://files.pythonhosted.org/packages/de/5e/db9986517ce10c38bb224b24f18f64bf6061effc295a2c28fc1569843bcd/click_extra-10.2.0.tar.gz"
+    sha256 "499b8ad73f9fa9182f799fbb14ebbc7e61a6dde9c2977954173fdcef4b32994e"
   end
 
   resource "cloup" do
@@ -54,19 +49,9 @@ class MetaPackageManager < Formula
     sha256 "83b0870ee863bcc85129e40e1b208bcfdebe4cd2142e9ce1d0daf7d276cab038"
   end
 
-  resource "deepmerge" do
-    url "https://files.pythonhosted.org/packages/38/6e/5cb3548b4d3112fea529375e55e6f3cdc52b8054e3a66f203b1f888ba885/deepmerge-3.0.1.tar.gz"
-    sha256 "35b39a4cb92cf328d6eca61cbbf65f68a37c2ceb3085f0f853cbb2e52a59fc23"
-  end
-
   resource "extra-platforms" do
-    url "https://files.pythonhosted.org/packages/3e/2f/c8f34db12c09070b47885d51e4f5cf722107442c3c423cb9a1eb5ec7047a/extra_platforms-13.13.0.tar.gz"
-    sha256 "77f9927d5c3ca286241ccba049d4ac6d8256e3df123779e036148fc94d0ff583"
-  end
-
-  resource "packageurl-python" do
-    url "https://files.pythonhosted.org/packages/f5/d6/3b5a4e3cfaef7a53869a26ceb034d1ff5e5c27c814ce77260a96d50ab7bb/packageurl_python-0.17.6.tar.gz"
-    sha256 "1252ce3a102372ca6f86eb968e16f9014c4ba511c5c37d95a7f023e2ca6e5c25"
+    url "https://files.pythonhosted.org/packages/99/37/5c2fde6d7c6036fd53144e63b37d8632314f791f3d681d3fcf0456d06292/extra_platforms-14.0.1.tar.gz"
+    sha256 "c58c5cb5dab87ee907b977be403ed2fa2e923bdc27bd39c76c6b60c99ea0700c"
   end
 
   resource "tabulate" do
@@ -80,18 +65,13 @@ class MetaPackageManager < Formula
   end
 
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/bd/07/b7a9162a804bc0f7d03fe84c93e374d3e1c4d828043d5f9b797f7d4e30e0/wcmatch-11.2.tar.gz"
-    sha256 "1605bde546fbde4c063628c7d89eda486909fd4337e51d73a873987fbcb2554c"
+    url "https://files.pythonhosted.org/packages/2e/17/bf44790f97414e37885830139933b4e96faac71560768ae9f9e458dbd936/wcmatch-12.0.1.tar.gz"
+    sha256 "4ea6acef75b657bf71ac8fa9520165bf5ae55120c4e655895a5b7d4c69896c5e"
   end
 
   resource "wcwidth" do
     url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
     sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
-  end
-
-  resource "xmltodict" do
-    url "https://files.pythonhosted.org/packages/19/70/80f3b7c10d2630aa66414bf23d210386700aa390547278c789afa994fd7e/xmltodict-1.0.4.tar.gz"
-    sha256 "6d94c9f834dd9e44514162799d344d815a3a4faec913717a9ecbfa5be1bb8e61"
   end
 
   def install
