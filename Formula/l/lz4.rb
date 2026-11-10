@@ -15,11 +15,11 @@ class Lz4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "464d0e2782c24627a2ffa99093daaf8a7f9e2acbdae1ac4587d8724b85f2dbf9"
-    sha256 cellar: :any, arm64_tahoe:       "f25384fe48be399693954cf6b1b48da50ae795a29058ca7abfe91fc4c3e8b623"
-    sha256 cellar: :any, arm64_sequoia:     "8c311d5e93bca17d53f8225dd8fabbb2626fa6ade09ff5713e3b85d428fec3bf"
-    sha256 cellar: :any, arm64_linux:       "73e9aabe8d8050adae8f0d71946169b0e915fb9d627e956b2377558d48285ae1"
-    sha256 cellar: :any, x86_64_linux:      "48865122616cc54135b0605f93ebc56a6fc7aecffb112019e91a90a5893b6903"
+    sha256 cellar: :any, arm64_golden_gate: "b2422bda202e4a59007a9189493902ac7a75423640081da43de9281a89770d5c"
+    sha256 cellar: :any, arm64_tahoe:       "9ab0175d769ca830f573defafb22b020f3e9b4e0862ee6ee9f47e0b46a29468d"
+    sha256 cellar: :any, arm64_sequoia:     "69c0c38e660f81b36bbd165a77d7619d2b8b6b175bf670a4840aaaaddd86a520"
+    sha256 cellar: :any, arm64_linux:       "14205882471527eb17656af9519512f70b76e9f944f6b68f3395253a175e15f4"
+    sha256 cellar: :any, x86_64_linux:      "f89740f8da822dda3870cefc3993db46d721944f4c8eb10755aee79ec5b0706e"
   end
 
   depends_on "cmake" => :build
