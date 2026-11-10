@@ -1,10 +1,9 @@
 class Libgnt < Formula
   desc "NCurses toolkit for creating text-mode graphical user interfaces"
   homepage "https://pidgin.im/"
-  url "https://downloads.sourceforge.net/project/pidgin/libgnt/2.14.4/libgnt-2.14.4-dev.tar.xz"
-  sha256 "195933a9a731d3575791b881ba5cc0ad2a715e1e9c4c23ccaaa2a17e164c96ec"
+  url "https://downloads.sourceforge.net/project/pidgin/libgnt/2.15.0/libgnt-2.15.0.tar.xz"
+  sha256 "6dce3d4f2fb33c242d8223ddda5f1042f3dfb0ad7c395d4e33a73f92423a58a3"
   license "GPL-2.0-or-later"
-  revision 1
   compatibility_version 1
 
   livecheck do
@@ -35,12 +34,10 @@ class Libgnt < Formula
     depends_on "gettext"
   end
 
-  def install
-    # upstream bug report on this workaround, https://issues.imfreedom.org/issue/LIBGNT-15
-    inreplace "meson.build", "ncurses_sys_prefix = '/usr'",
-                             "ncurses_sys_prefix = '#{formula_opt_prefix("ncurses")}'"
+  deny_network_access!
 
-    system "meson", "setup", "build", "-Ddoc=false", "-Dpython2=false", *std_meson_args
+  def install
+    system "meson", "setup", "build", "-Ddoc=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
