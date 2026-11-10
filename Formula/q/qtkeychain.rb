@@ -1,8 +1,8 @@
 class Qtkeychain < Formula
   desc "Platform-independent Qt API for storing passwords securely"
   homepage "https://github.com/frankosterfeld/qtkeychain"
-  url "https://github.com/frankosterfeld/qtkeychain/archive/refs/tags/0.17.0.tar.gz"
-  sha256 "3b85c3929034b0a99da777130c34d99f006fcd3a9d56564159399a33fee0e504"
+  url "https://github.com/frankosterfeld/qtkeychain/archive/refs/tags/0.18.0.tar.gz"
+  sha256 "837af59f2b950760a73eff81ccae817f7d3051183b447438dc610bb984a41691"
   license "BSD-2-Clause"
 
   bottle do
