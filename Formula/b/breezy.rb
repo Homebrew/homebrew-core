@@ -3,8 +3,8 @@ class Breezy < Formula
 
   desc "Version control system implemented in Python with multi-format support"
   homepage "https://www.breezy-vcs.org/"
-  url "https://files.pythonhosted.org/packages/01/8c/2cef999acc8cc0e1015d9a3a92d648243989865ae80e10e8051b51d6d05e/breezy-3.3.24.tar.gz"
-  sha256 "aad679ebdd2f75bef15ec1fafe9d5bca81dca16bacb6b8fc4b677a64cfa5ba7b"
+  url "https://files.pythonhosted.org/packages/e4/31/8b72e0d4588dac3b0c09fb31844bddf51c512be445f733fa55c640c46fa5/breezy-3.3.25.tar.gz"
+  sha256 "01932bc4f7e4c15f6b57b208224e78490d3f4af777869aaeb877a965637c8095"
   license "GPL-2.0-or-later"
   compatibility_version 1
   head "https://github.com/breezy-team/breezy.git", branch: "main"
@@ -33,8 +33,8 @@ class Breezy < Formula
   end
 
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/18/92/e47acfff672d6219d1bba1c210f902c1ad4a58d8c68eb89fe0b786f00a68/dulwich-1.2.20.tar.gz"
-    sha256 "28e1f48098d2cb157e722588466070cbefdfe8093c2a141c568b01362296c0f3"
+    url "https://files.pythonhosted.org/packages/01/d1/01adf1db003374db4c2a70f7bae757ddfc39a33d9fb5ab765522b4d339e6/dulwich-1.2.21.tar.gz"
+    sha256 "5d3939f64883e6799614cab708ef4ee9ef415dd6dcad47527cdbb0eea43bf3a2"
   end
 
   resource "fastbencode" do
