@@ -1,10 +1,10 @@
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
-  url "https://github.com/Z3Prover/z3/archive/refs/tags/z3-5.3.3.tar.gz"
-  sha256 "f8373e6a753da6e336f0955fca65c7a56346f3de68a56fd353acb4abf33d4823"
+  url "https://github.com/Z3Prover/z3/archive/refs/tags/z3-5.4.0.tar.gz"
+  sha256 "93fd02f69cb4e2811cc20f20a9b34d4f511c21177ac9f8c288a18d6e7ada885e"
   license "MIT"
-  compatibility_version 5
+  compatibility_version 6
   head "https://github.com/Z3Prover/z3.git", branch: "master"
 
   livecheck do
