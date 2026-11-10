@@ -5,6 +5,7 @@ class Civl < Formula
   version "1.22-5854"
   sha256 "daf5c5a7295909d45a26d8775a8e7677495d69ab9c303638394ec189c4956b0e"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "BSD-3-Clause"]
+  revision 1
 
   livecheck do
     url "https://vsl.cis.udel.edu/lib/sw/civl/current/latest/release/"
