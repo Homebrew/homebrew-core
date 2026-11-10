@@ -1,10 +1,9 @@
 class RxvtUnicode < Formula
   desc "Rxvt fork with Unicode support"
   homepage "https://software.schmorp.de/pkg/rxvt-unicode.html"
-  url "https://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.31.tar.bz2"
-  sha256 "aaa13fcbc149fe0f3f391f933279580f74a96fd312d6ed06b8ff03c2d46672e8"
+  url "https://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.32.tar.bz2"
+  sha256 "2f81c16bffb16f97c4633032e08a7ef08c000f81eb05853e950febc6c33328dd"
   license "GPL-3.0-only"
-  revision 4
 
   livecheck do
     url "https://dist.schmorp.de/rxvt-unicode/"
