@@ -1,8 +1,8 @@
 class Rofi < Formula
   desc "Window switcher, application launcher and dmenu replacement"
   homepage "https://davatorium.github.io/rofi/"
-  url "https://github.com/davatorium/rofi/releases/download/2.1.0/rofi-2.1.0.tar.gz"
-  sha256 "f093e6e1c99d78902d1f63ebe6d22c4d1440ce08dc303e60eca1a1a5353951e3"
+  url "https://github.com/davatorium/rofi/releases/download/2.1.1/rofi-2.1.1.tar.gz"
+  sha256 "5fe33afce841994eebfc0302ba869e7b9c035b97c26858fb0142a54a1627d3e4"
   license "MIT"
   head "https://github.com/davatorium/rofi.git", branch: "next"
 
@@ -38,14 +38,6 @@ class Rofi < Formula
   depends_on "xorg-server"
 
   uses_from_macos "flex" => :build
-
-  # Preserve drun's command launcher when GLib lacks its desktop-app-info backend.
-  patch do
-    url "https://github.com/davatorium/rofi/commit/6af0379a8dcb8dd3824b9806065825e43a75182f.patch?full_index=1"
-    sha256 "59c5003ae656ae69ce391ff9eb02fe3f5ac9501e1e371bd6f3c2bdc9a3f18c16"
-    type :unofficial
-    resolves "https://github.com/davatorium/rofi/pull/2350"
-  end
 
   def install
     system "meson", "setup", "build", *std_meson_args
