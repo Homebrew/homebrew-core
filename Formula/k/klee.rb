@@ -7,7 +7,7 @@ class Klee < Formula
   url "https://github.com/klee/klee/archive/refs/tags/v3.3.tar.gz"
   sha256 "baa73ad3d4bc345d28434c9aa54c639bfb504cd71c26852d1da1dd7cb22bfb48"
   license "NCSA"
-  revision 1
+  revision 2
   head "https://github.com/klee/klee.git", branch: "master"
 
   bottle do
