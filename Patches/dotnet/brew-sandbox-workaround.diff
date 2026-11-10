@@ -1,0 +1,26 @@
+diff --git a/src/msbuild/src/Framework/BackEnd/NamedPipeUtil.cs b/src/msbuild/src/Framework/BackEnd/NamedPipeUtil.cs
+index 987a9d4ebe3..833384aa110 100644
+--- a/src/msbuild/src/Framework/BackEnd/NamedPipeUtil.cs
++++ b/src/msbuild/src/Framework/BackEnd/NamedPipeUtil.cs
+@@ -28,7 +28,7 @@ internal static class NamedPipeUtil
+             // can be quite long, leaving very little room for the actual pipe name. Fortunately,
+             // '/tmp' is mandated by POSIX to always be a valid temp directory, so we can use that
+             // instead.
+-            return Path.Combine("/tmp", pipeName);
++            return Path.Combine(Path.GetTempPath().Length < 38 ? Path.GetTempPath() : "/tmp", pipeName);
+         }
+         else
+         {
+diff --git a/src/msbuild/src/Shared/NamedPipeUtil.cs b/src/msbuild/src/Shared/NamedPipeUtil.cs
+index b62192b4449..a466e7f3e3e 100644
+--- a/src/msbuild/src/Shared/NamedPipeUtil.cs
++++ b/src/msbuild/src/Shared/NamedPipeUtil.cs
+@@ -31,7 +31,7 @@ namespace Microsoft.Build.Shared
+                 // can be quite long, leaving very little room for the actual pipe name. Fortunately,
+                 // '/tmp' is mandated by POSIX to always be a valid temp directory, so we can use that
+                 // instead.
+-                return Path.Combine("/tmp", pipeName);
++                return Path.Combine(Path.GetTempPath().Length < 38 ? Path.GetTempPath() : "/tmp", pipeName);
+             }
+             else
+             {

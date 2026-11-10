@@ -7,23 +7,29 @@ class Dotnet < Formula
 
   stable do
     # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-    url "https://github.com/dotnet/dotnet/releases/download/v10.0.403/release.json"
-    sha256 "e27293d0409222c9add9b03f0de0f4a61c231d9584b3d0aa74dba291435acfd5"
+    url "https://github.com/dotnet/dotnet/releases/download/v11.0.100/release.json"
+    sha256 "007b0ad9b0cf567e35fab4db99fd01310e906e8566f57b437141ca314edc30cd"
 
     resource "src" do
-      url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.403.tar.gz"
-      sha256 "23750f9fd06dc1ef277b261af88101a8c12159596206f04e46bf5f3883aa8ca2"
+      url "https://github.com/dotnet/dotnet/archive/refs/tags/v11.0.100.tar.gz"
+      sha256 "d133a74d6bb0b7eccdbfc96bf81950767691c08f88f9e25a374de92ab4d31b34"
 
       livecheck do
         formula :parent
       end
+
+      on_macos do
+        # FIXME: Workaround for brew sandbox. See if upstream can add support to override /tmp
+        patch do
+          file "Patches/dotnet/brew-sandbox-workaround.diff"
+          type :unofficial
+        end
+      end
     end
 
-    # NOTE: 1xx band resources are only used when on 2xx/3xx/4xx band.
-    # Can leave in formula even when unused to simplify version bumps.
     resource "1xx" do
-      url "https://github.com/dotnet/dotnet/archive/refs/tags/v10.0.114.tar.gz"
-      sha256 "359ee3bbfdd2572488b675e55b20b82d8f7eec93ae84c31e2385282406adc7fa"
+      url "https://github.com/dotnet/dotnet/archive/refs/tags/v11.0.100.tar.gz"
+      sha256 "d133a74d6bb0b7eccdbfc96bf81950767691c08f88f9e25a374de92ab4d31b34"
 
       livecheck do
         url "https://github.com/dotnet/dotnet/releases/download/v#{LATEST_VERSION}/release.json"
@@ -40,27 +46,34 @@ class Dotnet < Formula
         end
       end
 
-      # Backport OpenSSL 4 support
-      patch do
-        url "https://github.com/dotnet/runtime/commit/73ae2764c385c0f7dd6ecd53aeaa961fd6db508c.patch?full_index=1"
-        sha256 "5238ab26337672635a0ffc969680ef1db8399fa38e769a563a01a39568dbaf28"
-        directory "src/runtime"
-        type :backport
-        resolves "https://github.com/dotnet/runtime/pull/135534"
+      on_macos do
+        # FIXME: Workaround for brew sandbox. See if upstream can add support to override /tmp
+        patch do
+          file "Patches/dotnet/brew-sandbox-workaround.diff"
+          type :unofficial
+        end
+
+        # FIXME: Skip installer build on macOS - prevents CreatePkg target errors
+        patch do
+          file "Patches/dotnet/skipinstallerbuild.diff"
+          type :unofficial
+          resolves "https://github.com/dotnet/runtime/issues/122832"
+        end
       end
 
       # Avoid OpenSSL APIs missing from the shim with OpenSSL 4.1
       patch do
-        file "Patches/dotnet/openssl-4.1-ocsp-bio.patch"
+        url "https://github.com/dotnet/runtime/commit/d89205572858c883d9ab16a3089a13782e7f4d7e.patch?full_index=1"
+        sha256 "9228a8475b8e6e2b21b007ef86fc059d0885f52cef456781a2b223e6767e6b36"
         directory "src/runtime"
-        type :unofficial
+        type :backport
         resolves "https://github.com/dotnet/runtime/pull/136435"
       end
     end
 
     resource "1xx-manifest" do
-      url "https://github.com/dotnet/dotnet/releases/download/v10.0.114/release.json"
-      sha256 "f738a3e57fd14c37b262b2cb18eb6051688898b02ac03a6c8e380a4ffd08b53c"
+      url "https://github.com/dotnet/dotnet/releases/download/v11.0.100/release.json"
+      sha256 "007b0ad9b0cf567e35fab4db99fd01310e906e8566f57b437141ca314edc30cd"
 
       livecheck do
         url "https://github.com/dotnet/dotnet/releases/download/v#{LATEST_VERSION}/release.json"
@@ -103,20 +116,19 @@ class Dotnet < Formula
   head do
     url "https://github.com/dotnet/dotnet.git", branch: "main"
 
-    depends_on "ninja" => :build
-    depends_on "zstd"
-
     on_macos do
       depends_on xcode: :build # for xcodebuild
     end
   end
 
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "rapidjson" => :build
   depends_on "brotli"
   depends_on "icu4c@79"
   depends_on "openssl@4"
+  depends_on "zstd"
 
   uses_from_macos "cpio" => :build
   uses_from_macos "python" => :build
@@ -142,8 +154,8 @@ class Dotnet < Formula
   end
 
   resource "docfx", :test do
-    url "https://github.com/dotnet/docfx/archive/refs/tags/v2.78.5.tar.gz"
-    sha256 "79f9e2c4bb8de2225d91a812a4e9d2cc71a8ed5613b3b4b2940d2a1d5db38793"
+    url "https://github.com/dotnet/docfx/archive/refs/tags/v2.81.0.tar.gz"
+    sha256 "55b492cab70a7f883ea5e9a7a134a23d25d70e97153b61d1083ad6b5fa6e2d68"
 
     livecheck do
       url "https://formulae.brew.sh/api/formula/docfx.json"
@@ -156,6 +168,7 @@ class Dotnet < Formula
   # Perform "1xx" or "2xx/3xx/4xx" Band Bootstrap. Skipping stage 2 as didn't work via documented steps
   # https://github.com/dotnet/source-build/blob/main/Documentation/feature-band-source-building.md
   def bootstrap_build(with_shared_components: nil)
+    prep_args = %w[--no-shared-components] if with_shared_components
     args = %w[
       --clean-while-building
       --source-only
@@ -169,21 +182,19 @@ class Dotnet < Formula
 
     # FIXME: Workaround for brew sandbox. See if upstream can add support to override /tmp
     on_macos do
-      inreplace Dir["src/msbuild/src/{Shared,Framework/BackEnd}/NamedPipeUtil.cs"],
-                'Path.Combine("/tmp", pipeName)',
-                'Path.Combine(Path.GetTempPath().Length < 38 ? Path.GetTempPath() : "/tmp", pipeName)'
       # `prep-source-build.sh` runs binary detection with the prebuilt SDK, so patch its MSBuild first
-      system "./prep-source-build.sh", "--no-binary-removal"
-      # Avoid worker nodes, which the unpatched bootstrap MSBuild cannot reach
+      system "./prep-source-build.sh", "--no-binary-removal", *prep_args
+      # Avoid worker nodes and the task hosts of `Directory.Build.rsp`'s `/mt`,
+      # which the unpatched bootstrap MSBuild cannot reach
       system ".dotnet/dotnet", "build", "src/msbuild/src/MSBuild/MSBuild.csproj", "--configuration", "Release",
-             "-maxcpucount:1"
+             "-maxcpucount:1", "-noAutoResponse"
       # Replace the bootstrap SDK's MSBuild with the patched one
       cp Dir["src/msbuild/artifacts/bin/MSBuild/Release/net*/{MSBuild,Microsoft.Build*}.dll"],
          Dir[".dotnet/sdk/*"].first
       # `build.sh` builds MSBuild again into the same directory
       rm_r "src/msbuild/artifacts"
     end
-    system "./prep-source-build.sh"
+    system "./prep-source-build.sh", *prep_args
     system "./build.sh", *args
     buildpath.install "artifacts/assets/Release"
   end
@@ -208,9 +219,9 @@ class Dotnet < Formula
 
     if build.head?
       (buildpath/"dotnet").install buildpath.children
-    elsif version.patch.to_i < 200
-      (buildpath/"dotnet").install resource("src"), "release.json"
     else
+      odie "Update src resource to #{version}!" if version != resource("src").version
+      odie "Update 1xx resource to #{version}!" if version != resource("1xx").version && version.patch.to_i < 200
       odie "Update 1xx and/or 1xx-manifest resource!" if resource("1xx").version != resource("1xx-manifest").version
       (buildpath/"dotnet").install resource("1xx"), resource("1xx-manifest")
 
@@ -220,30 +231,6 @@ class Dotnet < Formula
     end
 
     cd "dotnet" do
-      if build.stable?
-        # Fixes build error where member names shadow type names
-        # Error: declaration of '...' changes meaning of '...'
-        inreplace "src/runtime/src/coreclr/jit/gentree.h" do |s|
-          s.gsub! "    ExecutionContextHandling    ExecutionContextHandling",
-                  "    ::ExecutionContextHandling    ExecutionContextHandling"
-          s.gsub! "= ExecutionContextHandling::None;",
-                  "= ::ExecutionContextHandling::None;"
-
-          s.gsub! "    ContinuationContextHandling ContinuationContextHandling",
-                  "    ::ContinuationContextHandling ContinuationContextHandling"
-          s.gsub! "= ContinuationContextHandling::None;",
-                  "= ::ContinuationContextHandling::None;"
-        end
-      end
-
-      # Skip installer build on macOS - prevents CreatePkg target errors
-      # See: https://github.com/dotnet/runtime/issues/122832
-      if OS.mac?
-        inreplace ["src/aspnetcore/Directory.Build.props", "src/runtime/Directory.Build.props"],
-                  "</Project>",
-                  "<PropertyGroup>\n    <SkipInstallerBuild>true</SkipInstallerBuild>\n  </PropertyGroup>\n</Project>"
-      end
-
       bootstrap_build
     end
 
@@ -254,7 +241,6 @@ class Dotnet < Formula
       (buildpath/"dotnet").install resource("src"), "release.json"
 
       cd "dotnet" do
-        chmod "+x", "src/diagnostics/eng/common/build.sh"
         bootstrap_build with_shared_components: buildpath/"1xx-artifacts"
       end
     end
