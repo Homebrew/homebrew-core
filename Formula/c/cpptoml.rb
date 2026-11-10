@@ -23,6 +23,16 @@ class Cpptoml < Formula
     resolves "https://github.com/skystrife/cpptoml/pull/123"
   end
 
+  # Add CMake 4.x compatibility
+  patch do
+    url "https://github.com/skystrife/cpptoml/commit/5e3493f7c8eea6e4d61134b42db232a63771be95.patch?full_index=1"
+    sha256 "df368939c01a4f33981b69412800a2fa44d8423aedea24cb46a4dc557bafa7d2"
+    type :unofficial
+    resolves "https://github.com/skystrife/cpptoml/pull/132"
+  end
+
+  deny_network_access!
+
   def install
     args = %W[
       -DENABLE_LIBCXX=#{(ENV.compiler == :clang) ? "ON" : "OFF"}
