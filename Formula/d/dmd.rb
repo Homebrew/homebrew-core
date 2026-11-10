@@ -23,7 +23,7 @@ class Dmd < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "823a7450eb2a24b11a41d1e6b6dad283a40f92404a04124cf911f9d760e5c461"
+    sha256 x86_64_linux: "d5c219e279810bea09eab40787f9d6fee321d965545eb2687c2ec2b3ac309c97"
   end
 
   head do
