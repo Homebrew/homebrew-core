@@ -3,16 +3,16 @@ class RobotFrameworkRobocop < Formula
 
   desc "Static code analysis tool (linter) and code formatter for Robot Framework"
   homepage "https://robocop.dev"
-  url "https://files.pythonhosted.org/packages/76/72/c6caa328a81cae1c7d8f9211fd46565e2656deafa095cd5f87e5638e8c73/robotframework_robocop-9.3.0.tar.gz"
-  sha256 "af2993d98aebca96f9ef7ed78e12ef8e878b2ce741579ad26f35207d4d528696"
+  url "https://files.pythonhosted.org/packages/1c/de/ec2aefd98a4c22ab8f62dbb00baba2f072e39ffdc7a4559310ecf55c2abe/robotframework_robocop-9.4.0.tar.gz"
+  sha256 "e8a94dddb4b254bdff675c18dce212512ab38bc332883bf855ec3467bbe5af33"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "95ab0119aa2ce3840ace480f465aefd485e027070da7f600a194f55fbb84632b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "744b109761bdc19bb52e09eee503b12ab39b18f88794f0a88808273e3b10427f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c843e16c525e1b256f5aac7c0e8b69c71e48bacc2c0a1706bb5eeee3eba6233c"
-    sha256 cellar: :any,                 arm64_linux:       "89761f5efc8a96b201bcbd577ae2dbabbd2a44154704b461a63e8e574d505463"
-    sha256 cellar: :any,                 x86_64_linux:      "b4dfc5d2443111da8d058763a745c8ad4e3920e9221634659e9c257f99c0a7b9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2c75148dc292ec3671839067ffd45e36fc11a7f908cfb68f615e8c758968a124"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d2261eb349c92028d59b69cd23ec99d8cf961c34ac1599a67d2941dcd7eb91a3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c411ec9e64adc65feba5cadc379664d175dd964900b82bbc11eee0426938db1c"
+    sha256 cellar: :any,                 arm64_linux:       "8be098a2be7c66f5e570e9138023ac2978e626f66a70e81b2a4481300e23df4c"
+    sha256 cellar: :any,                 x86_64_linux:      "cdd2b36c91089a76943482715309ffb30040ff706d7634dc13b3c57a6c600599"
   end
 
   depends_on "python@3.15"
