@@ -1,36 +1,11 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
+  url "https://github.com/podman-container-tools/podman/archive/refs/tags/v6.2.0.tar.gz"
+  sha256 "cb182273c5c5e3ea079f8f88a9a30a574d247f80e0b9dd9c02df1d2e6f6f3705"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
-  revision 1
   compatibility_version 1
   head "https://github.com/podman-container-tools/podman.git", branch: "main"
-
-  stable do
-    url "https://github.com/podman-container-tools/podman/archive/refs/tags/v6.1.4.tar.gz"
-    sha256 "200fd9b4b6d820cae24fc99d8e290ec945512365cf3cda8283b3905c0c284ea8"
-
-    patch do
-      url "https://github.com/podman-container-tools/podman/commit/379f3205cae2cf6242b9aa697a827a569beacc1a.patch?full_index=1"
-      sha256 "db15962e8bce4b4e1fa556b30ff87d23971077a9eb890b0e15130930e79e8e0e"
-      type :backport
-      resolves "https://github.com/podman-container-tools/podman/pull/29900"
-    end
-
-    patch do
-      url "https://github.com/podman-container-tools/podman/commit/c49605df323f8e5ed447bd25c6e553c7976a065f.patch?full_index=1"
-      sha256 "01eaa02f0d41b620f90e0ce73593e21ba08fee1264d421afbe6e95f24481ea6b"
-      type :backport
-      resolves "https://github.com/podman-container-tools/podman/pull/29900"
-    end
-
-    patch do
-      url "https://github.com/podman-container-tools/podman/commit/7c8b70047be1d919b4343e8945ee5eb80fc531fa.patch?full_index=1"
-      sha256 "6283077d985011d28eb80c99802e686b2be854eb872011740d1cfc90bba04d7f"
-      type :backport
-      resolves "https://github.com/podman-container-tools/podman/pull/29900"
-    end
-  end
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created and upstream uses GitHub releases to
