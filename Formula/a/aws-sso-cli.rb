@@ -1,17 +1,17 @@
 class AwsSsoCli < Formula
   desc "Securely manage AWS API credentials using AWS SSO"
   homepage "https://synfinatic.github.io/aws-sso-cli/"
-  url "https://github.com/synfinatic/aws-sso-cli/archive/refs/tags/v2.3.4.tar.gz"
-  sha256 "b52ef033fa140d26689234f62e7112d79f5bc5778c95ef159d15ad7164f283d6"
+  url "https://github.com/synfinatic/aws-sso-cli/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "1f82a50e23b2963811d59e0a64bba214d48bf82fba17e52aa35cfbf0a4d65334"
   license "GPL-3.0-only"
   head "https://github.com/synfinatic/aws-sso-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ab8ab9eea5f95373b1d07d1fde194d7a74c278fb8a38365b373fbed3695a36a0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0d0966c8a46e8a66e48be41f3b2a19cae51dcbb6ea0da55a027cae59cc0dcfa1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "22566d49e38cd86499510354b4f79181dfeacc591531691cd0af517bebb47034"
-    sha256 cellar: :any,                 arm64_linux:       "5820007464a52409907202d6173132de1afe61aa08a6c5119b555eeb33a50dfe"
-    sha256 cellar: :any,                 x86_64_linux:      "c853ceb195872cf1e47c31752b4dd2afd0d99a33095617e71b23ec9c38a50ce4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "50a5bd9080c1b9412fc9257651a43e9f47cd971dc5945790a821a241281cbd9a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ff2c6b53e5c7b9eab1f2d2e5b8c1dee4f56a12330364fac0c5fba45932d07df8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c7ce127bd4d52e770dbdf7409d8e5c706cd1508174ca061267e4e834c15590a0"
+    sha256 cellar: :any,                 arm64_linux:       "de06148c4e31064fef2a69eb7cb314d1c107ca273510be7ae3b2b199de628a01"
+    sha256 cellar: :any,                 x86_64_linux:      "fd00d808c8cc144950ff2ee06c3e1d2c4dd34c2f84faad4325559a01df4ebd24"
   end
 
   depends_on "go" => :build
