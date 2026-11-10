@@ -1,9 +1,9 @@
 class GoAT126 < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.26.10.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.26.10.src.tar.gz"
-  sha256 "fd63e883ba2f2bfca93c1646b31ebef63e2b1e4d2b317c9789d976a68d81f36f"
+  url "https://go.dev/dl/go1.26.11.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.26.11.src.tar.gz"
+  sha256 "d44101b0ff27ed2a4c75ad46c17b9c74359209e2eb2ca7c9df6cb4fdb68e1969"
   license "BSD-3-Clause"
   compatibility_version 1
 
@@ -21,11 +21,11 @@ class GoAT126 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "099d8441c76253d9d3aa9c057597d4e9feaa4fa80826fbe96f56790ef590500e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "099d8441c76253d9d3aa9c057597d4e9feaa4fa80826fbe96f56790ef590500e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "099d8441c76253d9d3aa9c057597d4e9feaa4fa80826fbe96f56790ef590500e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5d80350a37fd860c05222ce884f57aefc381bcc4616172facc7f906efac1f2ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3cae21734bfa28285f480327b576138cb80c550ab20fbbe26a9c18e2484560a0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c6aef8d7399b4f83f90615a14e37ab0d9d77254f751a4f4af8becccf45a24ea9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c6aef8d7399b4f83f90615a14e37ab0d9d77254f751a4f4af8becccf45a24ea9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c6aef8d7399b4f83f90615a14e37ab0d9d77254f751a4f4af8becccf45a24ea9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "609bf2a1bfeff56d1742bf5851c36014d688ef0c2a360b7d67c56151122f28fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a7953b8c19e0c8575a651fcfae700d0c131c5457e340b1fc13c5aa9ec1a319f2"
   end
 
   keg_only :versioned_formula
