@@ -1,9 +1,9 @@
 class TomeeWebprofile < Formula
   desc "All-Apache Java EE 7 Web Profile stack"
   homepage "https://tomee.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-10.2.0/apache-tomee-10.2.0-webprofile.tar.gz"
-  mirror "https://archive.apache.org/dist/tomee/tomee-10.2.0/apache-tomee-10.2.0-webprofile.tar.gz"
-  sha256 "b1143cbf3647160e88ba925bf0de5668d089d96e4f563bf3eeba2a33daf005ec"
+  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-10.3.0/apache-tomee-10.3.0-webprofile.tar.gz"
+  mirror "https://archive.apache.org/dist/tomee/tomee-10.3.0/apache-tomee-10.3.0-webprofile.tar.gz"
+  sha256 "66735d3ae0c48deb41d44d2c8f3c6c475a929eed9bfc96eaf7b1c89ff8ddef43"
   license "Apache-2.0"
 
   bottle do
