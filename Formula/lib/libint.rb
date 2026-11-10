@@ -1,8 +1,8 @@
 class Libint < Formula
   desc "Library for computing electron repulsion integrals efficiently"
   homepage "https://github.com/evaleev/libint"
-  url "https://github.com/evaleev/libint/archive/refs/tags/v2.13.1.tar.gz"
-  sha256 "9651705c79f77418ef0230aafc0cf1b71b17c1c89e413ee0e5ee7818650ce978"
+  url "https://github.com/evaleev/libint/archive/refs/tags/v2.14.0.tar.gz"
+  sha256 "0697b5861a3539e44c04b7a23634b935782e2dd50da76be49034119b83dd1c6d"
   # The generator is GPLv3 but it doesn't impact the license of packaged library
   license "LGPL-3.0-only"
   compatibility_version 1
@@ -18,14 +18,16 @@ class Libint < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc" => :build # for gfortran
   depends_on "gmp" => :build
   depends_on "pkgconf" => :build
 
   depends_on "boost" => :no_linkage
   depends_on "eigen" => :no_linkage
+  depends_on "gcc" # for libgfortran
 
   uses_from_macos "python" => :build
+
+  deny_network_access!
 
   def install
     args = %w[
