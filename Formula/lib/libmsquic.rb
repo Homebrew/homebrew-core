@@ -1,8 +1,8 @@
 class Libmsquic < Formula
   desc "Cross-platform, C implementation of the IETF QUIC protocol"
   homepage "https://github.com/microsoft/msquic"
-  url "https://github.com/microsoft/msquic/archive/refs/tags/v2.6.3.tar.gz"
-  sha256 "8584e3918f2e3c43c97b3c5ee036a14783581906d1b18d103982b1ccf54266cf"
+  url "https://github.com/microsoft/msquic/archive/refs/tags/v2.6.4.tar.gz"
+  sha256 "08dac7af2cebb41460d0b716dce82c9c923149b8f29ea6d32321c8794c440994"
   license "MIT"
   compatibility_version 1
 
