@@ -1,19 +1,22 @@
 class Zimfw < Formula
   desc "Zsh plugin manager"
   homepage "https://zimfw.sh"
-  url "https://github.com/zimfw/zimfw/releases/download/v1.20.2/zimfw.zsh.gz"
-  sha256 "61f65ca3d69f5ba6a1349be161e8e18be61366e869056352f8ba0d7065c263ff"
+  url "https://github.com/zimfw/zimfw/archive/refs/tags/v1.21.0.tar.gz"
+  sha256 "1772f20f893b8181a60855e988c16b24b10e6c537b1e27d859d443c20ea7be57"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "553a5ccd48dd8ebfad9d53f849fdc1acace18d6317e731390f50fc18d0c4d1e3"
+    sha256 cellar: :any_skip_relocation, all: "d041d1486a6bcb2502e58088c308dde7e358e017a0428683674c4d1b6aa4a6e5"
   end
 
+  uses_from_macos "ruby" => :build
   uses_from_macos "zsh" => :test
 
   deny_network_access!
 
   def install
+    ENV["ZIMFW_VENDOR"] = tap.user
+    system "make", "-B"
     share.install "zimfw.zsh"
   end
 
@@ -26,6 +29,8 @@ class Zimfw < Formula
   test do
     assert_match version.to_s,
       shell_output("zsh -c 'ZIM_HOME=#{testpath}/.zim source #{share}/zimfw.zsh version'")
+    assert_match "zimfw version:        #{version} (#{tap.user})",
+      shell_output("zsh -c 'ZIM_HOME=#{testpath}/.zim source #{share}/zimfw.zsh info'")
 
     (testpath/".zimrc").write("zmodule test --use mkdir --on-pull '>init.zsh <<<\"print test\"'")
     system "zsh -c 'ZIM_HOME=#{testpath}/.zim source #{share}/zimfw.zsh init -q'"
