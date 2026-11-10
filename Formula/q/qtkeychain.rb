@@ -1,18 +1,16 @@
 class Qtkeychain < Formula
   desc "Platform-independent Qt API for storing passwords securely"
   homepage "https://github.com/frankosterfeld/qtkeychain"
-  url "https://github.com/frankosterfeld/qtkeychain/archive/refs/tags/0.17.0.tar.gz"
-  sha256 "3b85c3929034b0a99da777130c34d99f006fcd3a9d56564159399a33fee0e504"
+  url "https://github.com/frankosterfeld/qtkeychain/archive/refs/tags/0.18.0.tar.gz"
+  sha256 "837af59f2b950760a73eff81ccae817f7d3051183b447438dc610bb984a41691"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b343bd24045af60e877d7d233a2bd198e704b6188ccb849df9e8d045abe8547a"
-    sha256 cellar: :any, arm64_tahoe:       "8e9469126a98d8041fd8b093a8df0f929cbf97ececfcc9e80b7a3d79df3b27e7"
-    sha256 cellar: :any, arm64_sequoia:     "40f012d8e0e7f63981808b5661449cd4fdc0e84b588e49ea32de91ce2321435b"
-    sha256 cellar: :any, arm64_sonoma:      "462c46b3dbc6bbf23128e7a323906818700aebdab5c80c7bf82bc680ee3d1f93"
-    sha256 cellar: :any, sonoma:            "969cf3e7a55a06e227c165f0d155c28d63c1dfbed321c57a1ee06f3f64975cbe"
-    sha256 cellar: :any, arm64_linux:       "b6382871174cde2b776ff6a79feef7431706af8d3a73302f284b23ac867eb128"
-    sha256 cellar: :any, x86_64_linux:      "378481561da9a13eafd6e87e32aa5ec0c4570c42cbfd9a4c0b2426f9b0215ffa"
+    sha256 cellar: :any, arm64_golden_gate: "2a48353eef242e0905926c1932b30129528e1337e4e9230b06af17e843fbaeca"
+    sha256 cellar: :any, arm64_tahoe:       "3809c5025f66848434dc45ae64b869403c03d8305ced079299d71bf3afce78b6"
+    sha256 cellar: :any, arm64_sequoia:     "25ecdc4937b3b4231b7bfc3815ac22153ec8a3550e06413bcb2a5261ca179a40"
+    sha256 cellar: :any, arm64_linux:       "8c225ab9fdc158b65d76ea694f3b81a79ecefb4c270f7a607c8852717a395487"
+    sha256 cellar: :any, x86_64_linux:      "62641dd7cc0d7d4b38ed49c23a1e2e1048ce18ac64daed3bf815df10127c7f23"
   end
 
   depends_on "cmake" => :build
