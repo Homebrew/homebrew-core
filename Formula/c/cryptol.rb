@@ -4,6 +4,7 @@ class Cryptol < Formula
   url "https://hackage.haskell.org/package/cryptol-3.6.0/cryptol-3.6.0.tar.gz"
   sha256 "cc0a7ef3b20f4543386209b9077c0d9064c22e0db81f30e8ab4cc8f5dc4a8d93"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/GaloisInc/cryptol.git", branch: "master"
 
   bottle do
