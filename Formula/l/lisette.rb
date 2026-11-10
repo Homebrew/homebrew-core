@@ -1,8 +1,8 @@
 class Lisette < Formula
   desc "Language inspired by Rust that compiles to Go"
   homepage "https://lisette.run"
-  url "https://github.com/ivov/lisette/archive/refs/tags/lisette-v0.12.5.tar.gz"
-  sha256 "5ab490663d2b8704eaf13363ed9a6ed222ecc7a562fd480ba505b3fc9bc7c393"
+  url "https://github.com/ivov/lisette/archive/refs/tags/lisette-v0.13.0.tar.gz"
+  sha256 "b44d00a0f9b4d0ee4cdf8b7874285ef47876651847ac4b26e28b07ed1338e185"
   license "MIT"
   head "https://github.com/ivov/lisette.git", branch: "main"
 
