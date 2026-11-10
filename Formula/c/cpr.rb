@@ -15,11 +15,14 @@ class Cpr < Formula
   end
 
   depends_on "cmake" => :build
+
   uses_from_macos "curl", since: :monterey # Curl 7.68+
 
   on_linux do
     depends_on "openssl@4"
   end
+
+  allow_network_access! :test
 
   def install
     args = %W[
