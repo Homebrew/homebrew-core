@@ -11,6 +11,14 @@ class UutilsGrep < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "984801484e5d2a0f49f770ef2e9102d6abd760a58be266fba5ba388c4eb83227"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1b768cb03db8c9e3decfa900cd1daf4428809d0386eafcf8f6dd16f66d901797"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "802f217809f43e0b9a796955d91dbd2fe01a4a125ea4448daef0f13587560c1a"
+    sha256 cellar: :any,                 arm64_linux:       "cd22a674cf11a2fffdc22e6743518c4ebdea8aa4bd4a7d4c3ba36f960a9c157c"
+    sha256 cellar: :any,                 x86_64_linux:      "37ca6377df555841573f8f3de61ba901c772f1e94e058764e779766810c91995"
+  end
+
   depends_on "rust" => :build
 
   deny_network_access!
