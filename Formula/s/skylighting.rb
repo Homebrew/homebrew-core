@@ -6,11 +6,11 @@ class Skylighting < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a37b774907c122728226b0b35e3d762dc7353b6935bdc3b960e112d28ebcffe6"
-    sha256 cellar: :any, arm64_tahoe:       "4c3fa2611a6f4069f850943622ce507aa06598b79492f8e8276c0386d836d9e6"
-    sha256 cellar: :any, arm64_sequoia:     "e6fd10b2a8c031cbd3d2fa40f0e6baf99eeb677c280ba956d6d615a8f3c57773"
-    sha256 cellar: :any, arm64_linux:       "074da3fb40d1647c0504b50dead72fba5735f8732fca3b5231e423b66f069b89"
-    sha256 cellar: :any, x86_64_linux:      "bd01fc200102922d4923cbc5f249ad86497cc98aeb1adc37d9e66679ece8aa10"
+    sha256 cellar: :any, arm64_golden_gate: "847411e10873ad306943ebb698367e3c01863c6e4521589570235ae51812412f"
+    sha256 cellar: :any, arm64_tahoe:       "97e2362843abfeace57c206c68ebd59168773a8c15042576a79a715b32b2775e"
+    sha256 cellar: :any, arm64_sequoia:     "a07712f08675e94a754cc5976657defb1f9e25b7b35fd6605faa09e94b9b5863"
+    sha256 cellar: :any, arm64_linux:       "369c3bde6095b16362e962bfbe1dac42e84342a01241bafb13914e7495a30ad6"
+    sha256 cellar: :any, x86_64_linux:      "a48c29d01158b15072e3a73c6e88c97d6e726e9afa3c50d4c0ca8a20ca0efe32"
   end
 
   depends_on "cabal-install" => :build
