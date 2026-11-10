@@ -2,10 +2,9 @@ class Powershell < Formula
   desc "Command-line shell and scripting language"
   homepage "https://github.com/PowerShell/PowerShell"
   url "https://github.com/PowerShell/PowerShell.git",
-      tag:      "v7.6.9",
-      revision: "bf5fc434120666e5f1a8d1dfd6ecac7efc17a4be"
+      tag:      "v7.7.0",
+      revision: "5c95ed61735c05eb99543aabf196529b5f267602"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
@@ -187,7 +186,7 @@ class Powershell < Formula
 
     # If this produces an error try compiling powershell from source and increment revision
     refute_match(/InternalWebProxy/, module_output,
-                                     "Probbably newer .NET runtime version than last build. Try recompiling")
+                                     "Probably newer .NET runtime version than last build. Try recompiling")
     module_output = module_output.lines.last.chomp
     assert_equal "True", module_output
   end
