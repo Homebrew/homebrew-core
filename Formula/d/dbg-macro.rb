@@ -12,11 +12,18 @@ class DbgMacro < Formula
 
   depends_on "cmake" => :build
 
+  deny_network_access!
+
   def install
     args = %w[
       -DCATCH_BUILD_TESTING=OFF
       -DDBG_MACRO_ENABLE_TESTS=OFF
     ]
+
+    # CMake 4.x compatibility
+    # https://github.com/sharkdp/dbg-macro/commit/aeca93c064792c38ababe0128372cf6d3387466b.patch?full_index=1
+    # TODO: remove in the next release
+    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5" if build.stable?
 
     system "cmake", "-S", ".", "-B", "builddir", *args, *std_cmake_args
     system "cmake", "--build", "builddir"
