@@ -20,6 +20,8 @@ class Kotlin < Formula
 
   depends_on "openjdk"
 
+  conflicts_with "kotlin-toolchain", because: "both install a `kotlin` executable"
+
   deny_network_access!
 
   def install
