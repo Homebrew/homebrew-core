@@ -7,11 +7,11 @@ class AstGrep < Formula
   head "https://github.com/ast-grep/ast-grep.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "31ba16e32d8b4bacf937b303c559d3c8b946ed2d6430e865786d9d174177e6c9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "47aa87982b51b7a9048bec48e4c019a4fa698af5a03d7146d8de73fb3768af19"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "00c63154bf8dc02af8ca993093619565a82182a2f205af34bf4ff3e621717a16"
-    sha256 cellar: :any,                 arm64_linux:       "acc4fa819eceae52f49fee4167fa141b8317e3e76af436cbc7e0dbb617f4a894"
-    sha256 cellar: :any,                 x86_64_linux:      "9b18884f2ceea7c96e4d7426954f4d4e354ca03c4276e71aa873618e08339a25"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "80bba946d2f88becd715943817d0960066216451ce04c26ad445386b86e5a4fc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f0804adbe873a2794bb15e1dbb1cf6214e145cfaa6b8ad48bfe988f2bb6e0c45"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dee575394398cf69509a03e590a09a54301e314b36241fbedacd5e2de80cadf4"
+    sha256 cellar: :any,                 arm64_linux:       "061e72483319f9832f37823ac7b5a7b168eddd78b59a593b9bae302fb3ebc292"
+    sha256 cellar: :any,                 x86_64_linux:      "12483c1d0fb3bbb87d93bcbb4b578aeabfbc1e8c6dcbc1f66863911355a9da99"
   end
 
   depends_on "rust" => :build
