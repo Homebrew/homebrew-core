@@ -9,12 +9,11 @@ class Libkrunfw < Formula
   compatibility_version 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "53c6c0476b5e26fd1b76719a6ee88fa5aeab2b39031180180609e65e5edfe882"
-    sha256 cellar: :any, arm64_tahoe:       "56aa900085e33205c9072d6736f32060f22471b0199b1f51b6f8acd672cef874"
-    sha256 cellar: :any, arm64_sequoia:     "efa37bf44ae5684de5b97041c75c66609fa92664cafa783a935a7f8425cf60bf"
-    sha256 cellar: :any, arm64_linux:       "6fbfaedd8ce0aa551c6afa175f7107f9589d76eac3b254c5705390a6265be8f7"
-    sha256 cellar: :any, x86_64_linux:      "998b611b60d8debe34b1f814755f816007d8495cf52ed3ec250653561dd0f0ea"
+    sha256 cellar: :any, arm64_golden_gate: "c7a362ed6926e30278d4d4dc4264ae70bb1749da8f9686cc52549270a9ec6cb7"
+    sha256 cellar: :any, arm64_tahoe:       "e156185f54dce656ef1ef5ae532f8ab230c2a2cc7c8ca7b9410251b1e580a16d"
+    sha256 cellar: :any, arm64_sequoia:     "12dc1eed17d8c09beb2148e83769ab54ddd524f9b34c594a6ed227998a81680a"
+    sha256 cellar: :any, arm64_linux:       "bfb135c3d42e3f40146abbe05ba7228ad44cb9f387a859dfbb9c5d7eb6709dbf"
+    sha256 cellar: :any, x86_64_linux:      "1c86fa6baf590590da1f7caaf0109b1736aaa0464e80e4ba13661354350dda24"
   end
 
   depends_on "python@3.15" => :build
