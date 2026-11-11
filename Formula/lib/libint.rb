@@ -1,18 +1,18 @@
 class Libint < Formula
   desc "Library for computing electron repulsion integrals efficiently"
   homepage "https://github.com/evaleev/libint"
-  url "https://github.com/evaleev/libint/archive/refs/tags/v2.14.0.tar.gz"
-  sha256 "0697b5861a3539e44c04b7a23634b935782e2dd50da76be49034119b83dd1c6d"
+  url "https://github.com/evaleev/libint/archive/refs/tags/v2.14.1.tar.gz"
+  sha256 "d40f15a1e3c271d5520ec06028f76152fa9ed796f7fc27fd36ee4f93b940605a"
   # The generator is GPLv3 but it doesn't impact the license of packaged library
   license "LGPL-3.0-only"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "141b82e9f2106d4c4b2797121c832faf9a54521ebfe0faeaa8999540c7d095dd"
-    sha256 cellar: :any, arm64_tahoe:       "f23cfd8b177ebc167e9c7aa3002ea05d1192d1da3eea7bcfc8b00dd3edd9ebb2"
-    sha256 cellar: :any, arm64_sequoia:     "2c8c6bf72fee3ccfff9deafea234d594c2aea865638d88b109ef3450587ad025"
-    sha256 cellar: :any, arm64_linux:       "1ab1d1572077d6335584c0fe3286755f956f08425c24901be456c2eade6dcbd5"
-    sha256 cellar: :any, x86_64_linux:      "4bb17b738e047930fd5841ef09d55b0e0fe4616c75e50fdcf41421168f425760"
+    sha256 cellar: :any, arm64_golden_gate: "eaa0f4507ea2ec6ff553c312ef71a06c8d90cbe86e81f6f541aaae275d9311dc"
+    sha256 cellar: :any, arm64_tahoe:       "23c21254ea701d450b269710213fe19d9ff8cdcb42c9f5b50a00fff60e00d030"
+    sha256 cellar: :any, arm64_sequoia:     "91d3c20a49eb0bbc4443915847833d9ba95a152ad3d9f5a343a69f6aee6a038e"
+    sha256 cellar: :any, arm64_linux:       "09a8d105908457d6f8ea49cabdb6c40aa6b6058bbf13231fca11bedff242e58b"
+    sha256 cellar: :any, x86_64_linux:      "821069df17d6ea3c16a8e18107dc7096b74c36269b9b7958cb96dc35c9c5c551"
   end
 
   depends_on "cmake" => :build
