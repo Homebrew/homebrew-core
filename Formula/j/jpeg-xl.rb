@@ -12,11 +12,11 @@ class JpegXl < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f5613d8fd10ef72372c1fe2b14ccb51fa332f4119f916deabb9fa07b8a1f3f3a"
-    sha256 cellar: :any, arm64_tahoe:       "1da12f614c4db97c3afa09d7dec5b9e719dca06bb1a3f545358ff38ce6dbb33b"
-    sha256 cellar: :any, arm64_sequoia:     "3c193d49dacde5e78331ff37462b5ef7f09d44279801ad2df911a7a5d618c109"
-    sha256 cellar: :any, arm64_linux:       "164c7ce15a5764ec30fc41ccb62229e9f88896e5c05f0391a67a225e8fc1a92a"
-    sha256 cellar: :any, x86_64_linux:      "10819cf13cf5b5fcc5c8170c5c857fd6903dfcc02f328899c76f69ddd4ee8fbe"
+    sha256 cellar: :any, arm64_golden_gate: "599b27d853dba6c1f0a16b18e195e33140f470376e4e224d86c2d72e49b2bb54"
+    sha256 cellar: :any, arm64_tahoe:       "138aa37344d6ed5690616ece9a901a88d5ebd8871e083771692e6b00d1e631d5"
+    sha256 cellar: :any, arm64_sequoia:     "e11d2fe169633d3d6a5efeb8fc3ceb253eb310c48af5c1dad619556ad5f400d8"
+    sha256 cellar: :any, arm64_linux:       "82803c5517888c437de43ebc04f5ddc6fb8b3ce36b4f799cf0583af211c0fbae"
+    sha256 cellar: :any, x86_64_linux:      "5284759405feca44f4971bb81848fc0c19b4e034a4748950039d02eb00bf277f"
   end
 
   depends_on "asciidoc" => :build
