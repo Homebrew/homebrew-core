@@ -3,9 +3,9 @@ class Storm < Formula
 
   desc "Distributed realtime computation system to process data streams"
   homepage "https://storm.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=storm/apache-storm-3.1.0/apache-storm-3.1.0.tar.gz"
-  mirror "https://archive.apache.org/dist/storm/apache-storm-3.1.0/apache-storm-3.1.0.tar.gz"
-  sha256 "4fd7853462cb591e94dc594f95effe8e107842d8d6041482cc0b3e01ece5198c"
+  url "https://www.apache.org/dyn/closer.lua?path=storm/apache-storm-3.2.0/apache-storm-3.2.0.tar.gz"
+  mirror "https://archive.apache.org/dist/storm/apache-storm-3.2.0/apache-storm-3.2.0.tar.gz"
+  sha256 "7b5faff7d38dd85edf56c919af852e0c8f42244426f5d700c3bbb7c13a841231"
   license "Apache-2.0"
 
   bottle do
