@@ -1,8 +1,8 @@
 class Infisical < Formula
   desc "CLI for Infisical"
   homepage "https://infisical.com/docs/cli/overview"
-  url "https://github.com/Infisical/cli/archive/refs/tags/v0.45.5.tar.gz"
-  sha256 "16d22e7478a89c12fbd07a84b8c0ac72ebd46e229cbb2cd3b2888dd4220d17c3"
+  url "https://github.com/Infisical/cli/archive/refs/tags/v0.45.6.tar.gz"
+  sha256 "b32544794942112ad1e65fb16c00c700220a14b3ee69445c03a8020ff403bcee"
   license "MIT"
   head "https://github.com/Infisical/cli.git", branch: "main"
 
