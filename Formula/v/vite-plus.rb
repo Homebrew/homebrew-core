@@ -1,8 +1,8 @@
 class VitePlus < Formula
   desc "Unified toolchain and entry point for web development"
   homepage "https://viteplus.dev"
-  url "https://github.com/voidzero-dev/vite-plus/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "2ce42df9434fb3d76bde6cc7ed5b452a3da9356439e04f580dec5412da6fce55"
+  url "https://github.com/voidzero-dev/vite-plus/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "8bb73c2ff33523675c66e9d87d8694754e4def7d7bbaff2ee95f274fb48de946"
   license "MIT"
   head "https://github.com/voidzero-dev/vite-plus.git", branch: "main"
 
