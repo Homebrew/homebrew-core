@@ -4,8 +4,8 @@ class SwiftProtobuf < Formula
   # We use a git checkout as swift needs to find submodule files specified
   # in Package.swift even though they aren't built for `protoc-gen-swift`
   url "https://github.com/apple/swift-protobuf.git",
-      tag:      "1.39.0",
-      revision: "3d537cb81aef272a03cb3be815439e9bf0eb3bd3"
+      tag:      "1.40.0",
+      revision: "c7d117246c8cd5f93daa873a68659cfe23c93a1e"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/apple/swift-protobuf.git", branch: "main"
