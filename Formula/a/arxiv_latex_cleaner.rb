@@ -9,12 +9,11 @@ class ArxivLatexCleaner < Formula
   head "https://github.com/google-research/arxiv-latex-cleaner.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "2fc9ab5c6aef51a16c88dc4787c21637ab8b560318145c276fd2507e2ba28a11"
-    sha256 cellar: :any, arm64_tahoe:       "666587976b4bc709943301ecb1c55179921e8bd42a60aedeb53dc592f57bdeca"
-    sha256 cellar: :any, arm64_sequoia:     "86b523b5c56016bcdc50af12a8e9cc8edf7ce08edc425f36527eb539a726d82b"
-    sha256 cellar: :any, arm64_linux:       "e199f01464c44e1567e224076a94ec43a49b8dc75d321999d9b5c507ed94e8b7"
-    sha256 cellar: :any, x86_64_linux:      "2246623194dde8398d6905ecf8f288694673abade4e2d9af11c8ced7fac71786"
+    sha256 cellar: :any, arm64_golden_gate: "fc4e996ba5f0406c8babbc4d69a0729d4ee17ce22bf70138fcb276e5035768f1"
+    sha256 cellar: :any, arm64_tahoe:       "5237da8b89611f4ba53b3e424231b49b273e7dfea4b12cf6c49f76a2e47bc7db"
+    sha256 cellar: :any, arm64_sequoia:     "1d0c5997b25c44e334cf3628e09278c3c3ec9fe251f5ff29cdf6dc4b3ce07fa1"
+    sha256 cellar: :any, arm64_linux:       "1ecec4f0d6144e994a22e06e73fa56f288d87a7c3f357c9a086a794355267db4"
+    sha256 cellar: :any, x86_64_linux:      "f83c5e7d5aa81971cd3e3b475b5f4e66a3270be455bceaaefb30cc608f8ce8e4"
   end
 
   depends_on "libyaml"
