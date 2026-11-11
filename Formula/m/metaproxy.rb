@@ -1,8 +1,8 @@
 class Metaproxy < Formula
   desc "Z39.50 proxy and router utilizing Yaz toolkit"
   homepage "https://www.indexdata.com/resources/software/metaproxy/"
-  url "https://ftp.indexdata.com/pub/metaproxy/metaproxy-1.22.5.tar.gz"
-  sha256 "e3abcf302aecd05d53c11287df1a7330f6484320855ef626af090528bab61684"
+  url "https://ftp.indexdata.com/pub/metaproxy/metaproxy-1.22.6.tar.gz"
+  sha256 "9d28790771a5591d546ec24b1b4df6894d9ff95031dcd3db9814f65636cc1081"
   license "GPL-2.0-or-later"
 
   # The homepage doesn't link to the latest source file, so we have to check
@@ -13,11 +13,11 @@ class Metaproxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3081f8d1b59739530ea4bb6cf5114f793fb3e8e141957e8a63944fcaf507e63f"
-    sha256 cellar: :any, arm64_tahoe:       "6030b95911ad0caf7ffc2b6d8c9736af0b99317d2a18a2a20111d31421d89076"
-    sha256 cellar: :any, arm64_sequoia:     "d95442eb7c1570b70171f999c959193bba21861d11dcda4f822faa3b82575650"
-    sha256 cellar: :any, arm64_linux:       "ea6738681e8dc60d7d66c0fc392cfbb791cecee147e509560156b2eedb186112"
-    sha256 cellar: :any, x86_64_linux:      "19d1aef80a1809cbaabafcf63ea1f7d732a87f051124bb356265394d5e50d35f"
+    sha256 cellar: :any, arm64_golden_gate: "9c51140d7ecfca5e7d1d759934596ab050bb82cbde37d065398ade10d5a911b4"
+    sha256 cellar: :any, arm64_tahoe:       "a3b3de88d330fa735075471ad5e50262c57ef195c24c1e9b2c51ca829fec746d"
+    sha256 cellar: :any, arm64_sequoia:     "2ecf2023469f197da35250a30bc93d2bb604995e094039fe753b7bc34e94f119"
+    sha256 cellar: :any, arm64_linux:       "b3ed0ebf094790ab8ac8f6e0e9880e5ee32bafd4a052b54325cacbb293f09a8d"
+    sha256 cellar: :any, x86_64_linux:      "9a2f0df20d599311fc2a96975a7479d6d495a1e0d14159bff6a44d0da08b971b"
   end
 
   depends_on "pkgconf" => :build
