@@ -4,7 +4,7 @@ class Sdl2Image < Formula
   url "https://github.com/libsdl-org/SDL_image/releases/download/release-2.8.12/SDL2_image-2.8.12.tar.gz"
   sha256 "393f5efb50536ec13ca4f4affb69cc9966d3c3f969e6c5e701faddf9f9785381"
   license "Zlib"
-  revision 1
+  revision 2
   compatibility_version 1
   head "https://github.com/libsdl-org/SDL_image.git", branch: "main"
 
