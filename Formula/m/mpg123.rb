@@ -5,6 +5,7 @@ class Mpg123 < Formula
   mirror "https://downloads.sourceforge.net/project/mpg123/mpg123/1.33.7/mpg123-1.33.7.tar.bz2"
   sha256 "31d0e35a4ca567ec9b5ebda6c3062bb4435d6d3eacd6ef0d95cadd7854dc03ee"
   license "LGPL-2.1-only"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -20,6 +21,10 @@ class Mpg123 < Formula
     sha256 arm64_linux:       "0de606c35f2bf02345bccfc76794d332ae69abe87e62bd40c8ff6ad00f774cd4"
     sha256 x86_64_linux:      "ce54f5c88411e9986a0a5dca95579a1342e19011c8220355961c3074c823f4f4"
   end
+
+  # Skip the thread-unsafe SIGILL NEON probe when the compiler already targets NEON (all Homebrew ARM builds).
+  # Upstream bug: https://sourceforge.net/p/mpg123/bugs/394/
+  patch :DATA
 
   deny_network_access!
 
@@ -43,5 +48,22 @@ class Mpg123 < Formula
 
   test do
     system bin/"mpg123", "--test", test_fixtures("test.mp3")
+    assert_match "generic_dither", shell_output("#{bin}/mpg123 --list-cpu")
   end
 end
+
+__END__
+--- a/src/libmpg123/getcpuflags_arm.c
++++ b/src/libmpg123/getcpuflags_arm.c
+@@ -36,7 +36,10 @@
+ 
+ unsigned int INT123_getcpuflags(struct cpuflags* cf)
+ {
+-#ifndef _M_ARM
++#if defined(__ARM_NEON)
++	// The compiler may emit NEON anywhere, so it must be present. The SIGILL probe below is not thread-safe.
++	cf->has_neon = 1;
++#elif !defined(_M_ARM)
+ 	struct sigaction act, act_old;
+ 	act.sa_handler = mpg123_arm_catch_sigill;
+ 	act.sa_flags = SA_RESTART;
