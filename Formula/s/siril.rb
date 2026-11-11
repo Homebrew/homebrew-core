@@ -2,7 +2,7 @@ class Siril < Formula
   desc "Astronomical image processing tool"
   homepage "https://www.siril.org"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   stable do
     url "https://free-astro.org/download/siril-1.4.5.tar.bz2"
