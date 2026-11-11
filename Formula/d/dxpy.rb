@@ -3,17 +3,16 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/d4/c1/2074d1d29a58a056860aff931e4bb06f0fbd960ec0d1ff4d13a8447afba8/dxpy-0.418.0.tar.gz"
-  sha256 "325f72008804d22d04dc38ef085495c55d3ad7dd367bf7bd5e342f649644c996"
+  url "https://files.pythonhosted.org/packages/2e/3b/481347ef444726c9dc6ad6e4b4b2faee795dae89b132a4e9daeb1865abd8/dxpy-0.419.0.tar.gz"
+  sha256 "977bd62ee56bebc9fbd875243613e42229742535f03876c1cbb048aaf4a5d673"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d60d181e9387eef2a20bd3bf58ee4af918ba7adc49d57a6a4b37586f79d6d310"
-    sha256 cellar: :any, arm64_tahoe:       "9b40831dd09fde6eb7be61c0233c9d05d57c6c0670cdcf6ff3abe4c0361accce"
-    sha256 cellar: :any, arm64_sequoia:     "2baad404b466266d635fae2e2790a0ea17a52ded72a4e4069f2a82ba29d6db08"
-    sha256 cellar: :any, arm64_linux:       "fde9e3a5beeba95bd7f44d33fae2cebaead944e6f35535e7ed7345ed6dfc05ab"
-    sha256 cellar: :any, x86_64_linux:      "c7bf9653380fa6c8318759f9845cb97de50464638dfa0c0fc2756ed94b681233"
+    sha256 cellar: :any, arm64_golden_gate: "5d1de8a78534e4ed0593b193dccae3ab151da6b8b5c196b29175bc8442e0830e"
+    sha256 cellar: :any, arm64_tahoe:       "4f4f43ad4604f91a2d3d293bef975a4a182c3efd85a1835aab075641d9bf6c83"
+    sha256 cellar: :any, arm64_sequoia:     "03193b9ece195fa3954983b3360a4fa3e7d39643c6823ea622e21d03232edf28"
+    sha256 cellar: :any, arm64_linux:       "2f4e95cb97058814f593c26ec31a61face570d1c41d1851f7028400bded4cd60"
+    sha256 cellar: :any, x86_64_linux:      "fef14e730862410026d0f5be074d322aedd9e10ef41c74ab067fddb6ddccbaaf"
   end
 
   depends_on "aws-c-auth"
