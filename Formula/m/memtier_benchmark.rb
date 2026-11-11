@@ -1,14 +1,13 @@
 class MemtierBenchmark < Formula
   desc "Redis and Memcache traffic generation and benchmarking tool"
   homepage "https://github.com/redis/memtier_benchmark"
-  url "https://github.com/redis/memtier_benchmark/archive/refs/tags/2.5.2.tar.gz"
-  sha256 "a3667000d14d3226dff234d4d215d304d3ccd42e960e14dd7225efe1dcb6bbd0"
+  url "https://github.com/redis/memtier_benchmark/archive/refs/tags/2.6.0.tar.gz"
+  sha256 "80cd749a0661a51d60cc61b7b2541c5022dab952629e456dfa6b91a48475f1a4"
   # https://github.com/redis/memtier_benchmark/blob/master/debian/copyright
   license all_of: [
     "GPL-2.0-or-later" => { with: "cryptsetup-OpenSSL-exception" },
     any_of: ["CC0-1.0", "BSD-2-Clause"], # deps/hdr_histogram/LICENSE.txt
   ]
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "705b113657eba372349cc0bc4a8247ac1657af0c60fc26f7c77d7b5d2062e900"
@@ -40,6 +39,6 @@ class MemtierBenchmark < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/memtier_benchmark --version")
-    assert_match "ALL STATS", shell_output("#{bin}/memtier_benchmark -c 1 -t 1")
+    assert_match "ALL STATS", shell_output("#{bin}/memtier_benchmark -c 1 -t 1", 1)
   end
 end
