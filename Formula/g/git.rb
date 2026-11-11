@@ -1,8 +1,8 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.56.0.tar.xz"
-  sha256 "26c56c296b38c0695b26fa95f475f1d01704d2d38e73465ca30b0b2f5dc789d3"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.56.1.tar.xz"
+  sha256 "f0b0bf89264b9bd2e1c640363e7529643989da76281600473c50745cd34a607f"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later",  # imap-send.c; trace.c; ...
@@ -10,7 +10,6 @@ class Git < Formula
     "BSD-3-Clause",      # xdiff/xhistogram.c; reftable/
     "MIT",               # khash.h; sha1dc/
   ]
-  revision 2
   compatibility_version 1
   head "https://github.com/git/git.git", branch: "master"
 
@@ -53,8 +52,8 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.56.0.tar.xz"
-    sha256 "c20a04cffce877e29ec532c5453f3fd2ce1f3daaf7f3b65d1f2fa73e95986d11"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.56.1.tar.xz"
+    sha256 "e4ef5070b48658d72a301a69c72c7a227e6444258663ee8f93ddfa5ae9d6ff02"
 
     livecheck do
       formula :parent
@@ -62,8 +61,8 @@ class Git < Formula
   end
 
   resource "man" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.56.0.tar.xz"
-    sha256 "1f62a7fabaa36a0469c4d51fe247d12e7e246b890d2b8b49aec91df610f417c7"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.56.1.tar.xz"
+    sha256 "6ea093f15745a9ac85fe1b1d4fe488413d54e68d0fcb10bab62f047f362cf6de"
 
     livecheck do
       formula :parent
