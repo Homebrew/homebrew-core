@@ -1,9 +1,9 @@
 class Chkrootkit < Formula
   desc "Rootkit detector"
   homepage "https://www.chkrootkit.org/"
-  url "ftp://ftp.chkrootkit.org/pub/seg/pac/chkrootkit-0.59.tar.gz"
-  mirror "https://fossies.org/linux/misc/chkrootkit-0.59.tar.gz"
-  sha256 "bd38f1d7f543a2aa6dd8c7ad6bb88df7c0d7dc101df57377dac24415cbc8c5ee"
+  url "ftp://ftp.chkrootkit.org/pub/seg/pac/chkrootkit-0.60.tar.gz"
+  mirror "https://fossies.org/linux/misc/chkrootkit-0.60.tar.gz"
+  sha256 "bf43d227f99d6d9dd28c629a4e5f85d6a5de3cf83010feba5a04f4e1c5c5de28"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -27,6 +27,8 @@ class Chkrootkit < Formula
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
+    # Remove prebuilt Linux binaries shipped in the release archive.
+    system "make", "clean"
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}",
                    "STATIC=", "sense", "all"
 
@@ -35,7 +37,7 @@ class Chkrootkit < Formula
   end
 
   test do
-    assert_equal "chkrootkit version #{version}",
-                 shell_output("#{bin}/chkrootkit -V 2>&1", 1).strip
+    (testpath/"sample").write "\0homebrew\0chkrootkit\0"
+    assert_equal "homebrew\nchkrootkit\n", shell_output("#{bin}/strings-static -a sample")
   end
 end
