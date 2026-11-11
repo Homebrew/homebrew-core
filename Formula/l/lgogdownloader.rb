@@ -1,8 +1,8 @@
 class Lgogdownloader < Formula
   desc "Unofficial downloader for GOG.com games"
   homepage "https://sites.google.com/site/gogdownloader/"
-  url "https://github.com/Sude-/lgogdownloader/releases/download/v3.19/lgogdownloader-3.19.tar.gz"
-  sha256 "0fd3622f1cee4627048aafbbebd17dc38fd3ddb220c979e4a118eeab2cc665d4"
+  url "https://github.com/Sude-/lgogdownloader/releases/download/v3.20/lgogdownloader-3.20.tar.gz"
+  sha256 "14dbbaf7d6764143444dbb5be8a53d8fdea6d8647204e05ed81f8dd5e80a4fde"
   license "WTFPL"
   head "https://github.com/Sude-/lgogdownloader.git", branch: "master"
 
@@ -12,11 +12,11 @@ class Lgogdownloader < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "47028108297724eb3289612cc4a51b1e435fa1dd85053a5f7a20fbd47bfac21b"
-    sha256 cellar: :any, arm64_tahoe:       "d51953f9f373e941a492932d0cc107f9714bd234335ae5dd8384ed177e4b96fa"
-    sha256 cellar: :any, arm64_sequoia:     "2049eaa34dbbabeb299453b901f8675b1ea3261e29d20d6a8a60977de7e678a7"
-    sha256 cellar: :any, arm64_linux:       "018aacdff45c62d39da2c28cefed81145ecae59ed1a1eff25f0b1ec92be2e1d4"
-    sha256 cellar: :any, x86_64_linux:      "f5e45b068e0b6d73c87c02afa51ab8c06df0e802eec9e26fdfef9060e70766df"
+    sha256 cellar: :any, arm64_golden_gate: "8bf70da100e92a4c09baa77da04cc4c10fde6b8371d058508392cf7e5c990d3d"
+    sha256 cellar: :any, arm64_tahoe:       "a86e8af5d486fa9e76deda6eaffe935ba194cfcfe50c179784d12723177e58e2"
+    sha256 cellar: :any, arm64_sequoia:     "0e57ddd27354578ba087a0326b386fc9793c94361eb92f89e668da49bcb23d1d"
+    sha256 cellar: :any, arm64_linux:       "9b089f82d5c9a31b81948a32267484c90fd2e59718ec4b2ea7e0a0766a675cda"
+    sha256 cellar: :any, x86_64_linux:      "37ca9c6083cd7a30cbc40640b772c9d035409ca2db0413e2f2eff2f578998423"
   end
 
   depends_on "cmake" => :build
