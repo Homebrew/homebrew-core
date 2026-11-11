@@ -4,13 +4,14 @@ class Libsail < Formula
   url "https://github.com/HappySeaFox/sail/archive/refs/tags/v1.3.1.tar.gz"
   sha256 "bf2905717c06b4ff4269dec010339a85994be9cc524fa3dcde3734b4df376089"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 arm64_golden_gate: "d96d61570d4526332936b81290e8fc878acb54c7c867df01f5f5646a21181174"
-    sha256 arm64_tahoe:       "3b91a115670d4cc6574fe642342dfcee1b70ef69104a93a86129ed5d54b17d93"
-    sha256 arm64_sequoia:     "f23bb14fa37b29695cd953eeb1e657880a9ea494974f75b6067b47d0198b9174"
-    sha256 arm64_linux:       "8345d4937bd9c5f5921c67dea2694758692fd5bda4fd05b68ca9a8d5137b7f59"
-    sha256 x86_64_linux:      "5761de7ed9b9c107b00b0a40614df03cf9c47b92e8941850590a4f251850186b"
+    sha256 arm64_golden_gate: "b6c0379133ed0777a036a396ac8943e4356be192d605423cdc42a55daa5e4854"
+    sha256 arm64_tahoe:       "ca6e628223807e265f5c2db8f42936b0e27b72d120cd7b09a8e1de41965d6588"
+    sha256 arm64_sequoia:     "2bef5c187f9d81948cc2ffb9603dec48be725d08657fcf75780f27f776556142"
+    sha256 arm64_linux:       "528555c125fc4bdd971fcb580df238e96d4b0c156c0e45330722437df509be94"
+    sha256 x86_64_linux:      "532ddb04c8c26ec5a1b64cf61a9000fa5f5753a7e09f5302bc6aedaa39ba32d4"
   end
 
   depends_on "cmake" => :build

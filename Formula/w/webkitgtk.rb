@@ -4,7 +4,7 @@ class Webkitgtk < Formula
   url "https://webkitgtk.org/releases/webkitgtk-2.54.2.tar.xz"
   sha256 "a76345b391bef6211fb5ab6cfab2e86b285d18cda17cbb9ade595f1252b86065"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   compatibility_version 1
 
   livecheck do
@@ -13,8 +13,8 @@ class Webkitgtk < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "b00cb79e9c43adf36c1409db2002f4d2fd6619f4573c6c0f9f7d37a37a2105be"
-    sha256 x86_64_linux: "6dde3cba126dc03bad79a35ae350f7e8e6fad4031173a6a8c357366fbff24d29"
+    sha256 arm64_linux:  "b54d979a9cc24925b79aa857ec49622784122fb5a6bae538c715e56195042a25"
+    sha256 x86_64_linux: "df0ed929e27499ff309928f1d82570ef7639637f67c44d1493493b6606a582ca"
   end
 
   depends_on "cmake" => :build

@@ -4,7 +4,7 @@ class Sdl2Image < Formula
   url "https://github.com/libsdl-org/SDL_image/releases/download/release-2.8.12/SDL2_image-2.8.12.tar.gz"
   sha256 "393f5efb50536ec13ca4f4affb69cc9966d3c3f969e6c5e701faddf9f9785381"
   license "Zlib"
-  revision 1
+  revision 2
   compatibility_version 1
   head "https://github.com/libsdl-org/SDL_image.git", branch: "main"
 
@@ -14,13 +14,11 @@ class Sdl2Image < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "31646b3f5e3848f272c08a2f42a3325e7b815810374f3c2fc970ca0451bda346"
-    sha256 cellar: :any, arm64_tahoe:       "b62a3b5eee874ca79f59bf3b8444f114639b84abc377e6d9ee6559d38a5eff91"
-    sha256 cellar: :any, arm64_sequoia:     "58de60b25e63f6acfef778af04786cd581bf5dc31c87160f0fc77cf6624795fb"
-    sha256 cellar: :any, arm64_sonoma:      "962472d826e05684e5325f887cde05082d87688851586deeb414ceb1377bc065"
-    sha256 cellar: :any, sonoma:            "6123fe46d70f72623fbbc8c6f9817f91596034de03fce70cfb4af2f42261e04a"
-    sha256 cellar: :any, arm64_linux:       "232052f2ea239606d2e4eccedd5cd682f7fcbf1034a306271421f6a7676957e8"
-    sha256 cellar: :any, x86_64_linux:      "ccac7716bddf53e05caf908f1ea32aeea13623ce285f1e85477d73a64233ca45"
+    sha256 cellar: :any, arm64_golden_gate: "94c3a842c63996b271c6c6571e809cfc3d0382b3e87650ea198635c0ccad8edf"
+    sha256 cellar: :any, arm64_tahoe:       "5be50d7cb3c3f91fdf5a7b9dcab8d034c811103bce8f1d4f48009afec59dc4a3"
+    sha256 cellar: :any, arm64_sequoia:     "e73feaab1d1de793669c299620346dd1b6f126834aab3c9efac01d3bcfb66efd"
+    sha256 cellar: :any, arm64_linux:       "eae08400b9b6fa326b70e45470a0559616e67f52c14eb8062d841ebda6a7fdc1"
+    sha256 cellar: :any, x86_64_linux:      "057ee12f097549b27c32c6ecd1a5d6288f1d29de699f7b823a5a893d78abd578"
   end
 
   depends_on "autoconf" => :build

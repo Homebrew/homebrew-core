@@ -7,7 +7,7 @@ class FfmpegAT7 < Formula
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   # Passing `--enable-version3` changes the license to GPL v3+.
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -15,13 +15,11 @@ class FfmpegAT7 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "e8ce99d17ed208844f5315c6aaa44c3b32917fb2669a86af74d03bc72d49748c"
-    sha256 arm64_tahoe:       "d749053ce58efb23f6aecf53cc923523561c3a32a1fb2e5ccd690b4b7fb8f240"
-    sha256 arm64_sequoia:     "406fff85c8de693aebb92cbcce3830d538dc912e63a65dd39e9c023f49823dc1"
-    sha256 arm64_sonoma:      "173d2c9d8793a78a0e19a6135fd8e3ca2cc13f7c9d915506a7f30373df6d86ae"
-    sha256 sonoma:            "4c4b49b30121f9cfe00ea53f3a503da382095f540077b5cd4e8d43190789124e"
-    sha256 arm64_linux:       "630000657febcda4d66320f5d8fb03719ef6d4cda4bcd8c4ada7261d08028ab6"
-    sha256 x86_64_linux:      "ab03a467a44d08eb910c35e7f192f4402748017ef6bf47a94cb5ba29a53b6704"
+    sha256 arm64_golden_gate: "1675011a4fbea0f17c05b7e6cc42d18e05b920ab3276dd45819da6f373ea9e62"
+    sha256 arm64_tahoe:       "760367f9d153e6fd55374bc90b409bf1edd2203cd00f3da230b32bdcf3dc17c1"
+    sha256 arm64_sequoia:     "5e522552795adb85a2d3fb22b503380af11fda974998c84d8d08bd294203707a"
+    sha256 arm64_linux:       "5d49da2893495849295a2f20d27cd9b45685108bcfd58423f8a1ed4111983d2a"
+    sha256 x86_64_linux:      "49d1ff8e1c57c5c7ae4dd968458a391bdfb44677d0a179a2ca0c5731f068bf7c"
   end
 
   keg_only :versioned_formula
