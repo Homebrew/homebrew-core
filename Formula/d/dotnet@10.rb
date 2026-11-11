@@ -14,6 +14,14 @@ class DotnetAT10 < Formula
     end
   end
 
+  bottle do
+    sha256 cellar: :any, arm64_golden_gate: "3b820aad1ba0859db5ab9b5cba4678f7eacc92862715c6c89a537e556dc83e4f"
+    sha256 cellar: :any, arm64_tahoe:       "a0846d2bd5c5577b3bb8c58e4b9b8a21a5ce96f0dad568c54e178faa5482ed2b"
+    sha256 cellar: :any, arm64_sequoia:     "157118d4c8d95d6cdd7552309e17dad712b2ceaeda8e6b5db053b7d8df4b1294"
+    sha256 cellar: :any, arm64_linux:       "8f509716a7b697be5ce25b6012ff6367e64e87b7bbfe605c4f8c10ddb008099b"
+    sha256 cellar: :any, x86_64_linux:      "3eb4b72e4e4984063ba55c0b50995de2580c3dab4fcee698972e959175aa2492"
+  end
+
   keg_only :versioned_formula
 
   # https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core#lifecycle
