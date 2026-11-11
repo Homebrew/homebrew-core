@@ -4,8 +4,8 @@ class Gam < Formula
   desc "Command-line management for Google Workspace"
   homepage "https://github.com/GAM-team/GAM"
   # PyPI package has different version `7.50.0` with the github release `7.50.00`, so we use the github one here.
-  url "https://github.com/GAM-team/GAM/archive/refs/tags/v7.51.00.tar.gz"
-  sha256 "51a1dd5da3e3d51c7ce5a3b12de8a811f733d9b50bff573aa02afff08d58fdc8"
+  url "https://github.com/GAM-team/GAM/archive/refs/tags/v7.52.00.tar.gz"
+  sha256 "23ade46e5be62b16e3c8aee8d847ba621dad37975983b831d6b2447fbc5d6252"
   license "Apache-2.0"
 
   livecheck do
@@ -14,11 +14,11 @@ class Gam < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "90a820b813c1fe3070a57b16c80dfb0f818884bd42f5ae035ffac3097513c78b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4eb6d6dcbd6f37aaeaf7d1bb9c434e70aeed50d84ae98f04352c929a0e2ae18f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "49f5a2208d9b84d6cc09bb17138f850648b0009e627fa37476d1b8967202194a"
-    sha256 cellar: :any,                 arm64_linux:       "3960821bd44cc61c3198e9cbcee92347e2bb634766af4c34296942303f8c247a"
-    sha256 cellar: :any,                 x86_64_linux:      "43dd6d9802c1429b9f9f6fa87bb2dd2e4bbea1052d0359d67963f493fd6ac45a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "02512008480f18b5be628e6ebe98e593d336a4080e1d0b0be0822a7511242ee9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6da89c1e06ae65707d32307bfccda3a78d020eaef0fc1025de03b40582766711"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5a4163d72083885de8aaa20a0a068554ae4a8b4d5b1d6f4f92692dbb38ec1c59"
+    sha256 cellar: :any,                 arm64_linux:       "ddbcda297a8717dd270615750ab01964b815afe95dac221eb4a36d5ff92f3047"
+    sha256 cellar: :any,                 x86_64_linux:      "0c0d576ad9512436d3aff410f10b4152d758bac797b9509a44cf50bf0eef9a64"
   end
 
   depends_on "cmake" => :build # for pyscard
