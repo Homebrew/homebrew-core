@@ -1,8 +1,8 @@
 class ClaudeCodeTemplates < Formula
   desc "CLI tool for configuring and monitoring Claude Code"
   homepage "https://www.aitmpl.com/agents"
-  url "https://registry.npmjs.org/claude-code-templates/-/claude-code-templates-1.33.0.tgz"
-  sha256 "a06832ba91bc54014ef0494da2839a80b83a1aa65730dfa3229bf23cce93dfff"
+  url "https://registry.npmjs.org/claude-code-templates/-/claude-code-templates-1.33.1.tgz"
+  sha256 "7ffbfde312c78f7efeec5e4596d625b3bb1e52f20f355d95dffd6552036a3a41"
   license "MIT"
 
   bottle do
@@ -19,9 +19,9 @@ class ClaudeCodeTemplates < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/cct --version")
+    assert_match version.to_s, shell_output("#{bin}/claude-code-templates --version")
 
-    output = shell_output("#{bin}/cct --command testing/generate-tests --yes")
+    output = shell_output("#{bin}/claude-code-templates --command testing/generate-tests --yes")
     assert_match "Installed 1 of 1", output
     assert_path_exists testpath/".claude/commands/generate-tests.md"
   end
