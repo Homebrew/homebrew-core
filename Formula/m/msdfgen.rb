@@ -1,8 +1,8 @@
 class Msdfgen < Formula
   desc "Multi-channel signed distance field generator"
   homepage "https://github.com/Chlumsky/msdfgen"
-  url "https://github.com/Chlumsky/msdfgen/archive/refs/tags/v1.13.tar.gz"
-  sha256 "93cd1ad8918c1a78c5c96e82d4f4c77f0eb86c2e7e8579a0967e54196c4b7167"
+  url "https://github.com/Chlumsky/msdfgen/archive/refs/tags/v1.13.1.tar.gz"
+  sha256 "ad381b09ef61af235690ea96eefafd01fd35f5163bcb6ad73db7904997675b71"
   license "MIT"
   compatibility_version 1
   head "https://github.com/Chlumsky/msdfgen.git", branch: "master"
