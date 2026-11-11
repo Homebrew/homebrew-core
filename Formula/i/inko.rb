@@ -5,7 +5,7 @@ class Inko < Formula
   sha256 "f883b34b404fbc977775b6d38c2bcf89580fe7afe11f58f8391fa72188625cda"
   license "MPL-2.0"
   revision 1
-  head "https://github.com/inko-lang/inko.git", branch: "main"
+  head "https://codeberg.org/inko-lang/inko.git", branch: "main"
 
   # The upstream website doesn't provide easily accessible version information
   # or link to release tarballs, so we check the release manifest file that
