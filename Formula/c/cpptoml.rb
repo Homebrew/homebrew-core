@@ -9,8 +9,8 @@ class Cpptoml < Formula
   head "https://github.com/skystrife/cpptoml.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "c7277d9959d90daba22c6e5e464e5d9877c6dce18d25932a5a7d53feac061139"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "e72f93b179af9b4fa32b68d95740bf75b33e35fe035c25f05f63e625f7658a0d"
   end
 
   depends_on "cmake" => :build
