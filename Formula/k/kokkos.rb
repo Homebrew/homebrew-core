@@ -1,10 +1,10 @@
 class Kokkos < Formula
   desc "C++ Performance Portability Ecosystem for parallel execution and abstraction"
   homepage "https://kokkos.org"
-  url "https://github.com/kokkos/kokkos/releases/download/5.2.2/kokkos-5.2.2.tar.gz"
-  sha256 "d6557aaef39302282a15f9c770433d1fcdf4e961dfd6d9ed726b9d0d0f546b9f"
+  url "https://github.com/kokkos/kokkos/releases/download/5.3.0/kokkos-5.3.0.tar.gz"
+  sha256 "f1875cacec93d4d4cbd6f391a38994abb67ccffea5ecee2b4be7a8191941ef88"
   license "Apache-2.0"
-  compatibility_version 1
+  compatibility_version 2
   head "https://github.com/kokkos/kokkos.git", branch: "develop"
 
   livecheck do
@@ -22,6 +22,7 @@ class Kokkos < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "mdspan" => :no_linkage
 
   on_macos do
     depends_on "libomp"
@@ -35,6 +36,7 @@ class Kokkos < Formula
       -DKokkos_ENABLE_TESTS=OFF
       -DKokkos_ENABLE_EXAMPLES=OFF
       -DKokkos_ENABLE_BENCHMARKS=OFF
+      -DKokkos_ENABLE_MDSPAN_EXTERNAL=ON
       -DBUILD_SHARED_LIBS=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
