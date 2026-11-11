@@ -1,8 +1,8 @@
 class Libint < Formula
   desc "Library for computing electron repulsion integrals efficiently"
   homepage "https://github.com/evaleev/libint"
-  url "https://github.com/evaleev/libint/archive/refs/tags/v2.14.0.tar.gz"
-  sha256 "0697b5861a3539e44c04b7a23634b935782e2dd50da76be49034119b83dd1c6d"
+  url "https://github.com/evaleev/libint/archive/refs/tags/v2.14.1.tar.gz"
+  sha256 "d40f15a1e3c271d5520ec06028f76152fa9ed796f7fc27fd36ee4f93b940605a"
   # The generator is GPLv3 but it doesn't impact the license of packaged library
   license "LGPL-3.0-only"
   compatibility_version 1
