@@ -15,11 +15,11 @@ class Buildkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3b866c28e0fdcab88290f879fcaea334983bf60cc1786cfe4ea1b2f57e48d1d9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3b866c28e0fdcab88290f879fcaea334983bf60cc1786cfe4ea1b2f57e48d1d9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3b866c28e0fdcab88290f879fcaea334983bf60cc1786cfe4ea1b2f57e48d1d9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9b49bc534a5bda2db7c8f4e6e647b23e322b6c4ce5bfc8a8e481c6969baeceaa"
-    sha256 cellar: :any,                 x86_64_linux:      "b5bae3c40998cc125f89749f0a4f7606a98f66b33094c3f42a23960cd80c7b26"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ba0b7082f60b5d4a3b6c0110b4f32bf9822a3afcbf4aaa2a9c6170853f32dee2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ba0b7082f60b5d4a3b6c0110b4f32bf9822a3afcbf4aaa2a9c6170853f32dee2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ba0b7082f60b5d4a3b6c0110b4f32bf9822a3afcbf4aaa2a9c6170853f32dee2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4d7eaab316f9bbd62c077e8978c120f8c0617ce78e7601b30a132be07a757847"
+    sha256 cellar: :any,                 x86_64_linux:      "f12c75bc11ba2e193538f8c45a6f96a347c7c599d4f225f3b2921dae013d5bb7"
   end
 
   depends_on "go" => :build
