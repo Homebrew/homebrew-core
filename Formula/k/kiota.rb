@@ -4,17 +4,18 @@ class Kiota < Formula
   url "https://github.com/microsoft/kiota/archive/refs/tags/v1.38.0.tar.gz"
   sha256 "b69b1981d4405224a5dbe02c21f43be9c753e5dd99c1f499b8af269a24fc1488"
   license "MIT"
+  revision 1
   head "https://github.com/microsoft/kiota.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "05961bdf93ea6918d19c79736ff97e98063773f86427f447f542d4c71ea56372"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "58a41e7b0c27922570221f09a7c9a9a9906417b125bbb0fb15aa74810a948cbc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d0539e33319b3813aca8ad065f8dd8ba9dec1a635a0756287899cd488995309f"
-    sha256 cellar: :any,                 arm64_linux:       "7ddf320263d50bb16ba8b6f66fff7beb6dd3f9d9cd5c7615797a0ad2e08da7b1"
-    sha256 cellar: :any,                 x86_64_linux:      "0b325347e657868ff57d9a9f32c8f95dd8ade2a27c205a22d3ec93656199cecb"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bac61d14a170d7a7acced599b19f4a97509f20fc8d34733288c2df9bc1c114f8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "27bcb685f6056af1c2f6cff65e9db1cd07a3c7974e5131031b9345e0fdc0946b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cf340bb3ec32c8caf2c5aa92b7dd58cf3518c7641837c8b0d956620392c9d765"
+    sha256 cellar: :any,                 arm64_linux:       "59ca8306ec812a288353316bf8afba06b88faa6830ce90563a923f456acd243f"
+    sha256 cellar: :any,                 x86_64_linux:      "53a71bcc5490da8fd3941019d09c2a82d54b97c49c21922bddb908ddc4db0dbc"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@10"
 
   allow_network_access! :test
 
@@ -30,7 +31,7 @@ class Kiota < Formula
     # .NET named mutexes need `XDG_RUNTIME_DIR` (or `USER`) on Linux, which build containers may lack
     ENV["XDG_RUNTIME_DIR"] = buildpath
 
-    dotnet = Formula["dotnet"]
+    dotnet = Formula["dotnet@10"]
 
     args = %W[
       --configuration Release
