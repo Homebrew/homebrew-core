@@ -27,6 +27,10 @@ class Aldo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "660548eb8c93e2c78a50b925143a9b24400ee578790b62e7acde1d1aed360a98"
   end
 
+  # Last activity on 2013-07-16 and build needs unofficial patch
+  deprecate! date: "2026-11-11", because: :unmaintained
+  disable! date: "2027-05-11", because: :unmaintained
+
   depends_on "libao"
 
   patch do
