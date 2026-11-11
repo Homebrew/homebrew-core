@@ -19,19 +19,19 @@ class Git < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "d90df15703d2ad5118294d5566b71f57cc6bd5871edcd9833a92cfb471ba570f"
-    sha256 arm64_tahoe:       "732e1feccb25e1ff12a7e25d756077d2f51123a928778871535c709c1e418142"
-    sha256 arm64_sequoia:     "d83ae791d1e30d2b9c5541d4f84f46dc2867d0dc0a23ae765af404b84fe4eff5"
-    sha256 arm64_linux:       "fcf452b532836489205d9ea71592087252f1450a31fdef7b45406d3dea24c88f"
-    sha256 x86_64_linux:      "88002dc3465e790162c5ed074069bf4d62d767041b62074b37f9ef8f463fb06e"
+    rebuild 1
+    sha256 arm64_golden_gate: "8caaa00047a7ca648393c4f4d2903c847803af37d0ee62cec2108889d1d80b6d"
+    sha256 arm64_tahoe:       "af9b2944636a6e8652de99fb695822c2ef0a71d022959e2601eab9853a02fa91"
+    sha256 arm64_sequoia:     "a564068b6421007b7140189381ff070270964669b2128be09e8110e7f9327516"
+    sha256 arm64_linux:       "cfd7672ea738aa6a03cd934959dd155080c83536fcb4f03ef66795c3c63e1078"
+    sha256 x86_64_linux:      "35689124b38ec283646c1ff25836b119c1c73a72aa797614cd9699d472ba7637"
   end
 
   depends_on "gettext" => :build
   depends_on "pkgconf" => :build
-  # TODO: Replace with `uses_from_macos` once Apple fixes their CA bundle.
-  depends_on "curl"
   depends_on "pcre2"
 
+  uses_from_macos "curl"
   uses_from_macos "expat"
 
   # Don't try to add a libiconv dependency without reading this PR first:
