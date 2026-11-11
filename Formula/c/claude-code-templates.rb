@@ -11,8 +11,6 @@ class ClaudeCodeTemplates < Formula
 
   depends_on "node"
 
-  conflicts_with "proj", because: "both install `cct` binaries"
-
   def install
     system "npm", "install", *std_npm_args(ignore_scripts: false)
     bin.install_symlink libexec.glob("bin/*")
