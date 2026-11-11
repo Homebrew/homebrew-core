@@ -6,7 +6,7 @@ class SafeChain < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5cd73cae1be7b1077dda597d4238829f654390e1c1cd946c7bd4bbb428d7f907"
+    sha256 cellar: :any_skip_relocation, all: "6f7d34dee1f197e95ff57e45d79b1e05bee1bd79a1e1fdfd653aeeb7747e1ac7"
   end
 
   depends_on "node"
