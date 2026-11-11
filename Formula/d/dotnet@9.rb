@@ -2,8 +2,8 @@ class DotnetAT9 < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-  url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.123.tar.gz"
-  sha256 "3efd44c23bfd86305ea5a9484c5cc637f74c12f1eb914c497307109d5b528ed7"
+  url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.124.tar.gz"
+  sha256 "fd055e20d087763e500538af70742f8f9d4c61395b38eca5c0ebf76722232a9c"
   license "MIT"
   compatibility_version 1
 
@@ -13,11 +13,11 @@ class DotnetAT9 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "dac3302dd20041e45a0802ccb39125434162d688a326f86f3274e934c2c414b1"
-    sha256 cellar: :any, arm64_tahoe:       "1df264506c67b96f5c9df34f841e47315994b0900691fe35660b17c350e34050"
-    sha256 cellar: :any, arm64_sequoia:     "066800689451c11022680986e6ddb8714c550cf5e9b426d1c27d91491e078a64"
-    sha256 cellar: :any, arm64_linux:       "8756185c095877dc36d5ad0f95103a8d7a022524bb3690c6ddc463d43bf87758"
-    sha256 cellar: :any, x86_64_linux:      "e60fccc21993253868127524f69196ac0d8fb3e98ef740cf7fca4b9521c4ba05"
+    sha256 cellar: :any, arm64_golden_gate: "b249703853d4c677f043266c011e74505636f5ffc514a43ead1af950a983c9b6"
+    sha256 cellar: :any, arm64_tahoe:       "3c14a61a78d45081ec616cb4fa9581fea01d04b0697bcd4d3196ad6737c77dd3"
+    sha256 cellar: :any, arm64_sequoia:     "7547d7e1c6dcdfd4f1fa244311a65b303e511f850aca253619b26a1bb08d4d9c"
+    sha256 cellar: :any, arm64_linux:       "78f511e71aaaef61dfcdf9fbb53e4a5ca1969366e0bd1aa30cb49760c168f86d"
+    sha256 cellar: :any, x86_64_linux:      "47ea0987fb773cd29c3047a84c46f704e8400574d5e198dd29405a7bcc8ceebd"
   end
 
   keg_only :versioned_formula
@@ -56,8 +56,8 @@ class DotnetAT9 < Formula
   end
 
   resource "release.json" do
-    url "https://github.com/dotnet/dotnet/releases/download/v9.0.123/release.json"
-    sha256 "2029e2cf03b317733645004c85c103ac3a9cb3ecc48a7227e2f0dc48f39b8d3f"
+    url "https://github.com/dotnet/dotnet/releases/download/v9.0.124/release.json"
+    sha256 "3cfe914c6ff85c834ba6839a5490dabe361c2122b6ec357a51fbfb9c937a21b6"
 
     livecheck do
       formula :parent
