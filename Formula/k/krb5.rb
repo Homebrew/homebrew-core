@@ -33,11 +33,11 @@ class Krb5 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "678c05de46229f5b35631196808a7f6e4a32f9a18bc9574ec447f6c8290dfff7"
-    sha256 arm64_tahoe:       "8fc14b442b666d56a994cfddb47cd86071b6408905be70f10f7fcf668fc9e1cf"
-    sha256 arm64_sequoia:     "8bc2adf379fd6e0d0dd3bbe663effe87f625f25b9aa5a1bac71aef4b450ccc23"
-    sha256 arm64_linux:       "ac8557d7c89e6ee7e4d736baf925469fefe3837b1aa804623b0638a227f5567d"
-    sha256 x86_64_linux:      "587ada42216850382fedbfa4707b7aed405fb6934d8ed0650567a7a488162d1c"
+    sha256 arm64_golden_gate: "9ee71115230780fcf77473cbe412f3abea1b7ec672b0d9c34c70b59d39902dbc"
+    sha256 arm64_tahoe:       "4827d11086d9f6d699be5403572eb6e9fbef3699c2f8c7001947eb78f2d6b384"
+    sha256 arm64_sequoia:     "465873b2f5bb5751fc01e086648cb54fc30a4b975e3bc00e393e00e763931015"
+    sha256 arm64_linux:       "aa9e5353cb1afed5c356c3741005707f7658ba5062f8cdbe3f094cce09af5a08"
+    sha256 x86_64_linux:      "6bea50f9570bb1e8e9fb3d9e8a2eab31c5ee01edb700b347e63679e0659ee61b"
   end
 
   keg_only :provided_by_macos
