@@ -7,11 +7,11 @@ class Dbxcli < Formula
   head "https://github.com/dropbox/dbxcli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3395966895e25f8051fa3db5ba40a5d3fa36884c348d3d60cdf73a047f19aa10"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3395966895e25f8051fa3db5ba40a5d3fa36884c348d3d60cdf73a047f19aa10"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3395966895e25f8051fa3db5ba40a5d3fa36884c348d3d60cdf73a047f19aa10"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ece0f3d4f3a10edb54cb431ea8c59710706511b7087bcdcc82b680ef9fc8abc0"
-    sha256 cellar: :any,                 x86_64_linux:      "5b0aac11956a9dd84c10a2e1bc9b66b12618f2f1234cda1d279de1081c54d21b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b88270d5757863e666386aa9bea39d2873a5958a841774d1e79049d44f0a1ce"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5b88270d5757863e666386aa9bea39d2873a5958a841774d1e79049d44f0a1ce"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5b88270d5757863e666386aa9bea39d2873a5958a841774d1e79049d44f0a1ce"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f0f6f035535a22d5397fe575cc57aabc8d877926c53c1a3b7299e2c2728d0b8d"
+    sha256 cellar: :any,                 x86_64_linux:      "f60a7f1abffff9d4d450b1df15c95579e32271ac718e4b6c0b97bc3abe4b07bb"
   end
 
   depends_on "go" => :build
