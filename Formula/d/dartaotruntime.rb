@@ -2,10 +2,10 @@ class Dartaotruntime < Formula
   desc "Command-line tool for running AOT-compiled snapshots of Dart code"
   homepage "https://dart.dev/tools/dartaotruntime"
   url "https://github.com/dart-lang/sdk.git",
-      tag:      "3.13.7",
-      revision: "416e33b0ffaef062a60ec966bb8c82ed2b83f128"
+      tag:      "3.14.0",
+      revision: "fa8c1270c374c1346931583a17c3b7f278d3822d"
   license "BSD-3-Clause"
-  compatibility_version 3
+  compatibility_version 4
 
   livecheck do
     formula "dart-sdk"
@@ -32,8 +32,8 @@ class Dartaotruntime < Formula
   # always pull the latest commit from https://chromium.googlesource.com/chromium/tools/depot_tools.git/+/refs/heads/main
   resource "depot-tools" do
     url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
-        revision: "b1c2e86792a7f2b6576c181b7327ddd53b1a42a8"
-    version "b1c2e86792a7f2b6576c181b7327ddd53b1a42a8"
+        revision: "43956b3e74de59b07bf8931ba9a472d622fe86a7"
+    version "43956b3e74de59b07bf8931ba9a472d622fe86a7"
 
     livecheck do
       url "https://chromium.googlesource.com/chromium/tools/depot_tools.git/+/refs/heads/main?format=JSON"
@@ -51,11 +51,7 @@ class Dartaotruntime < Formula
     ENV["DEPOT_TOOLS_UPDATE"] = "0"
     ENV.append_path "PATH", buildpath/"depot-tools"
 
-    # Roll clang to include lld support for arm64e.x1 targets in the macOS 27 SDK (llvm/llvm-project#222721)
-    # TODO: Remove when upstream rolls clang past that commit, see https://github.com/dart-lang/sdk/issues/64264
-    system "gclient", "config", "--name", "sdk",
-           "--custom-var", 'clang_version="git_revision:07d67299a15ce03b053736e2d31a668ee0576987"',
-           "file://#{buildpath}/sdk"
+    system "gclient", "config", "--name", "sdk", "file://#{buildpath}/sdk"
     system "gclient", "sync", "--no-history"
   end
 
