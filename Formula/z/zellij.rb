@@ -1,8 +1,8 @@
 class Zellij < Formula
   desc "Pluggable terminal workspace, with terminal multiplexer as the base feature"
   homepage "https://zellij.dev"
-  url "https://github.com/zellij-org/zellij/archive/refs/tags/v0.45.1.tar.gz"
-  sha256 "5cbe711437d2a61afd9287165f6aca0bcccb9ab1473633665a5b11ed55467852"
+  url "https://github.com/zellij-org/zellij/archive/refs/tags/v0.46.0.tar.gz"
+  sha256 "2dfa237fea447f3cc98954e81b0097b9d25841010036720e11f67880fe7861f0"
   license "MIT"
   head "https://github.com/zellij-org/zellij.git", branch: "main"
 
@@ -29,19 +29,18 @@ class Zellij < Formula
 
   deny_network_access!
 
+  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+
   def fetch
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4") if OS.linux?
+    ENV["OPENSSL_DIR"] = formula_opt_prefix(openssl) if OS.linux?
 
     # Remove vendored_curl from default features
-    features = ["plugins_from_target", "web_server_capability"]
-    features << "window" if build.head?
-    odie "Add window feature which is included in default features!" if build.stable? && version >= "0.46.0"
-
+    features = %w[plugins_from_target web_server_capability terminal]
     system "cargo", "install", "--no-default-features", *std_cargo_args(features:)
 
     generate_completions_from_executable(bin/"zellij", "setup", "--generate-completion")
