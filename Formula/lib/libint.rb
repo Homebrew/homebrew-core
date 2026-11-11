@@ -1,31 +1,31 @@
 class Libint < Formula
   desc "Library for computing electron repulsion integrals efficiently"
   homepage "https://github.com/evaleev/libint"
-  url "https://github.com/evaleev/libint/archive/refs/tags/v2.13.1.tar.gz"
-  sha256 "9651705c79f77418ef0230aafc0cf1b71b17c1c89e413ee0e5ee7818650ce978"
+  url "https://github.com/evaleev/libint/archive/refs/tags/v2.14.0.tar.gz"
+  sha256 "0697b5861a3539e44c04b7a23634b935782e2dd50da76be49034119b83dd1c6d"
   # The generator is GPLv3 but it doesn't impact the license of packaged library
   license "LGPL-3.0-only"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "01fa33c66fb9272687ab65ec0c9c1207a664c255067408313d003589d84eb912"
-    sha256 cellar: :any,                 arm64_tahoe:       "4b03a7d26170b597d8420de0020de22fca8622a1a5990f6139b11df4727722df"
-    sha256 cellar: :any,                 arm64_sequoia:     "a46b2a128693e96482d182bd7ba1a28c146e5aaa591c264fca7bcdd0b8c7ae79"
-    sha256 cellar: :any,                 arm64_sonoma:      "69d323511bf9d7556ed922c1b623a7777dc7bdebecd77fb4d85cae61af2e0e17"
-    sha256 cellar: :any,                 sonoma:            "8f26efba8c16c3e353832d6b9a070cf68a005a853fe473feacad779aaf5f65a7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "963b6d12f7047ea666a2b5f18f021bde6578bdcebc25f5007a49137b157d023e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "34def8f50947bcdf2d36667e9bbb9bed785d9b52f62a7ebfef7020dd02f52b5b"
+    sha256 cellar: :any, arm64_golden_gate: "141b82e9f2106d4c4b2797121c832faf9a54521ebfe0faeaa8999540c7d095dd"
+    sha256 cellar: :any, arm64_tahoe:       "f23cfd8b177ebc167e9c7aa3002ea05d1192d1da3eea7bcfc8b00dd3edd9ebb2"
+    sha256 cellar: :any, arm64_sequoia:     "2c8c6bf72fee3ccfff9deafea234d594c2aea865638d88b109ef3450587ad025"
+    sha256 cellar: :any, arm64_linux:       "1ab1d1572077d6335584c0fe3286755f956f08425c24901be456c2eade6dcbd5"
+    sha256 cellar: :any, x86_64_linux:      "4bb17b738e047930fd5841ef09d55b0e0fe4616c75e50fdcf41421168f425760"
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc" => :build # for gfortran
   depends_on "gmp" => :build
   depends_on "pkgconf" => :build
 
   depends_on "boost" => :no_linkage
   depends_on "eigen" => :no_linkage
+  depends_on "gcc" # for libgfortran
 
   uses_from_macos "python" => :build
+
+  deny_network_access!
 
   def install
     args = %w[
