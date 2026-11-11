@@ -7,7 +7,8 @@ class DbgMacro < Formula
   head "https://github.com/sharkdp/dbg-macro.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "45a4f08e47ff977a2979b29715ffe68e0dc3654a33697bcbaf53bae69b6846e5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "c3b797e721c386d0f07439cb9d8cfa7617f467e1e577aa8bda1127094c08e87e"
   end
 
   depends_on "cmake" => :build
