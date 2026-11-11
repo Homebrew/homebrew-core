@@ -3,17 +3,20 @@ class Fobis < Formula
 
   desc "KISS build tool for automatically building modern Fortran projects"
   homepage "https://github.com/szaghi/FoBiS"
-  url "https://files.pythonhosted.org/packages/3f/7a/9f77c75a1102f619a5ee1c48d1941c72583eab06016c2df70fd7b36374dd/fobis_py-3.16.1.tar.gz"
-  sha256 "8d8084a049e151dc4f88923232ddba7412df340f9cb112340ba52358c3e9d8f6"
+  url "https://files.pythonhosted.org/packages/f8/07/73e9777c31f581b9009b6ac26ad6adce01e0e46ffaff2b70c22597a030e9/fobis_py-3.16.3.tar.gz"
+  sha256 "c86249bdc085acbfbf03057490b98f086128ce97e6fbbef1e986ffa2bb5ce280"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4e90dc26fb24d402bbbbba31b21ebcc727dac89a0958bc003828682985e537b3"
+    sha256 cellar: :any_skip_relocation, all: "126a571e3b377587bd69960d11d89c106f40aca5c0c1b6a0a8481525cdd5c2b2"
   end
 
   depends_on "gcc" # for gfortran
   depends_on "graphviz"
+  depends_on "pydantic" => :no_linkage
   depends_on "python@3.15"
+
+  pypi_packages exclude_packages: "pydantic"
 
   resource "annotated-doc" do
     url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
@@ -46,8 +49,8 @@ class Fobis < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/ad/8f/21021859316f44289101638dc74d82e13d722d8533e4b8708a3ab7c8461a/typer-0.28.0.tar.gz"
-    sha256 "69ab84ef79fd601cff071bbd2566d855ecadfd93adbc4b3360b9924359bdd857"
+    url "https://files.pythonhosted.org/packages/ed/db/401793a0d5345409a28de2c571d4ef8bea9a08700c20ea7f7b6af3b050d2/typer-0.29.0.tar.gz"
+    sha256 "6871960a1603fba66af2ff751be48a6735af6480a67660afaf2fab2f7e008ed4"
   end
 
   def install
