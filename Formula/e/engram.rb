@@ -1,17 +1,17 @@
 class Engram < Formula
   desc "Persistent memory system for AI coding agents"
   homepage "https://engram.gentlemanprogramming.com/"
-  url "https://github.com/Gentleman-Programming/engram/archive/refs/tags/v3.7.0.tar.gz"
-  sha256 "f1661d963bd4c8970b1b12e501d8a50dfa27c1afea45ab27a2755129fba7ef14"
+  url "https://github.com/Gentleman-Programming/engram/archive/refs/tags/v3.7.1.tar.gz"
+  sha256 "f718361040689c79c78b14baca351791063d6e21986a4b419e7de3f0fa126d34"
   license "MIT"
   head "https://github.com/Gentleman-Programming/engram.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d22eb184f65a9f8ed3726d484724d2b88a4af5b4f3cbb6120dfca6cdbbfc7920"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d22eb184f65a9f8ed3726d484724d2b88a4af5b4f3cbb6120dfca6cdbbfc7920"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d22eb184f65a9f8ed3726d484724d2b88a4af5b4f3cbb6120dfca6cdbbfc7920"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "bb965095748db9fd0ccc30d4caf2b3dab4c0437da59d2d9b435f9f8b9e48146f"
-    sha256 cellar: :any,                 x86_64_linux:      "3d75f5fa3ac7ecaa0b71ea6896cc21464fe321b558839a80c0e3aa6dbc4bb5f2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c2a7944137f0f410534c4ed99a32f006f50a179d621644f07d1f4821e8bd166f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c2a7944137f0f410534c4ed99a32f006f50a179d621644f07d1f4821e8bd166f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c2a7944137f0f410534c4ed99a32f006f50a179d621644f07d1f4821e8bd166f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "9d87841a194130ec29ecd273706a12a35c6f6b4df5d1d10f2fe6a45bf2db9e22"
+    sha256 cellar: :any,                 x86_64_linux:      "fe5433d940b2d316519688e6dd6f431eafd8f0c4681715978fda6cccfc0836e7"
   end
 
   depends_on "go" => :build
