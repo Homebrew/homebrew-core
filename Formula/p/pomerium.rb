@@ -1,8 +1,8 @@
 class Pomerium < Formula
   desc "Identity and context-aware access proxy"
   homepage "https://www.pomerium.com"
-  url "https://github.com/pomerium/pomerium/archive/refs/tags/v0.34.0.tar.gz"
-  sha256 "75ef0eaa60d7e7bdc8a0b9173953a1b8fd2ec233fc7238813cd745dd4fbc47ec"
+  url "https://github.com/pomerium/pomerium/archive/refs/tags/v0.34.1.tar.gz"
+  sha256 "edcde54671715fce9428c94bce98c55f204ed83e5206a002793501034e1d3938"
   license "Apache-2.0"
   head "https://github.com/pomerium/pomerium.git", branch: "main"
 
