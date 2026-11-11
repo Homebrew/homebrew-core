@@ -1,10 +1,9 @@
 class Omniorb < Formula
   desc "IOR and naming service utilities for omniORB"
   homepage "https://omniorb.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/omniorb/omniORB/omniORB-4.3.4/omniORB-4.3.4.tar.bz2"
-  sha256 "79720d415d23cd8da99287a4ef4da0aa1bd34d3e4c7b1530715600adc5ed3dc3"
+  url "https://downloads.sourceforge.net/project/omniorb/omniORB/omniORB-4.3.5/omniORB-4.3.5.tar.bz2"
+  sha256 "d57c5ec43030b31eeb620b4c8e47d62bf08eab4945dbeab0e094f10c8447bf93"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
 
   livecheck do
     url :stable
@@ -30,18 +29,12 @@ class Omniorb < Formula
   end
 
   resource "bindings" do
-    url "https://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-4.3.4/omniORBpy-4.3.4.tar.bz2"
-    sha256 "a709c3c77b9c6b08616e1c9e12a5a9b9d5ccc1f2dcf6f647f205018d77f819a7"
+    url "https://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-4.3.5/omniORBpy-4.3.5.tar.bz2"
+    sha256 "7ad8138c471b45132dc1bcd5b1b429b5fe07eefe9e8579558f1b3606bdda4172"
 
     livecheck do
       formula :parent
     end
-  end
-
-  # OpenSSL 4 support: https://sourceforge.net/p/omniorb/svn/6818/
-  patch do
-    file "Patches/omniorb/r6818.diff"
-    type :backport
   end
 
   def install
