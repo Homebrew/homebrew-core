@@ -1,8 +1,8 @@
 class Engram < Formula
   desc "Persistent memory system for AI coding agents"
   homepage "https://engram.gentlemanprogramming.com/"
-  url "https://github.com/Gentleman-Programming/engram/archive/refs/tags/v3.7.0.tar.gz"
-  sha256 "f1661d963bd4c8970b1b12e501d8a50dfa27c1afea45ab27a2755129fba7ef14"
+  url "https://github.com/Gentleman-Programming/engram/archive/refs/tags/v3.7.1.tar.gz"
+  sha256 "f718361040689c79c78b14baca351791063d6e21986a4b419e7de3f0fa126d34"
   license "MIT"
   head "https://github.com/Gentleman-Programming/engram.git", branch: "main"
 
