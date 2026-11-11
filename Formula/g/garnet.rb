@@ -11,11 +11,11 @@ class Garnet < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7ded978e95337af95e794c1ee0e0f335f0aa5898ca99d17e7ad326fb5321a393"
-    sha256 cellar: :any, arm64_tahoe:       "521014438ac4c42a626d216d0c583b2537db1b5d0eba78d5a6e1c539dc36b983"
-    sha256 cellar: :any, arm64_sequoia:     "63e6a09e53ed5d72ee7d4314fcbb168a08e9b7fb2218ce0ebc859c8c39778a07"
-    sha256 cellar: :any, arm64_linux:       "ed6c2bcb8cd181e318754820c7e5f0f1e4c906962e31f7c79e259a603f031264"
-    sha256 cellar: :any, x86_64_linux:      "591b2c8e1a6bc1b93b41e47a2c45cb17cdc84ca83b5af34b3135884f5cca2e6b"
+    sha256 cellar: :any, arm64_golden_gate: "dad7765cec25f7d78479929c3425c21d3f66c248bcadc514d562d059fba45245"
+    sha256 cellar: :any, arm64_tahoe:       "39e568243180b1676ad3865f163868dd308b08cf66ed34557e42535911cb4188"
+    sha256 cellar: :any, arm64_sequoia:     "0d802699a384ca24a0601ff2474d3c4797f9386a94a8436ad5bc124649770995"
+    sha256 cellar: :any, arm64_linux:       "5e6d6bb2ca66ac0c8488809647c0bec3658920c00dfa90a0593458acaacfe8c5"
+    sha256 cellar: :any, x86_64_linux:      "4b605f74c91abf9120107a1f734908ab0769b4fd7db220748fcc68bdc49c63d1"
   end
 
   depends_on "rust" => :build
