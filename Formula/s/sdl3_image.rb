@@ -4,6 +4,7 @@ class Sdl3Image < Formula
   url "https://github.com/libsdl-org/SDL_image/releases/download/release-3.4.8/SDL3_image-3.4.8.tar.gz"
   sha256 "e8223b424bc7541cf84ffff5cf7e4f24ec3711c60462cb1bd6dc1d7bd7f25477"
   license "Zlib"
+  revision 1
   compatibility_version 1
   head "https://github.com/libsdl-org/SDL_image.git", branch: "main"
 
