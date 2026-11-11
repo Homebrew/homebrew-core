@@ -1,8 +1,8 @@
 class SbomTools < Formula
   desc "SBOM multi-tool: diff, quality, compliance, vulnerability tracking, VEXes, etc."
   homepage "https://sbom.tools"
-  url "https://github.com/sbom-tool/sbom-tools/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "0d5594bb6c4698afce319c62a09198df8826cc701dbbe522ef0a5ef09cc1649e"
+  url "https://github.com/sbom-tool/sbom-tools/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "249607a385ae5feeb91637c047827480983b6580fd56cdbeae605de0640b9582"
   license "MIT"
   head "https://github.com/sbom-tool/sbom-tools.git", branch: "main"
 
