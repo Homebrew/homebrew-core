@@ -4,13 +4,14 @@ class Wuppiefuzz < Formula
   url "https://github.com/TNO-S3/WuppieFuzz/releases/download/v1.8.1/source.tar.gz"
   sha256 "2b16baf2344f23cbcbbcdb3f1546c838c99ea76634c691d3cace2e6542014d38"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c3b05fa456dbeff547c77ade1dc6970a37cb6d38578f9dfe645d608ff61610b5"
-    sha256 cellar: :any, arm64_tahoe:       "b81f2345e74ff8587ffa161ec29b9b3b0bb9a1a82ba14c31c5081b6156d124a1"
-    sha256 cellar: :any, arm64_sequoia:     "0ff4168d91bcf473e507b6860135f875fc76295c0e2f6907f16ecbcb8a641cce"
-    sha256 cellar: :any, arm64_linux:       "9759b19dc6bfe445bb3f2fb52034feb96ce45bed8d447712cd6cab4a75612422"
-    sha256 cellar: :any, x86_64_linux:      "928f4651611f840fba91c177ba5ba121462c2e90a82e2e0c576bc80f8734d096"
+    sha256 cellar: :any, arm64_golden_gate: "001d5857aec873a9f3cb372eceb02abf3d3b6f3813c13e9be7ef8919a88e0563"
+    sha256 cellar: :any, arm64_tahoe:       "31219042a09597715868dbc9705eb7c36c5e42525b52ffdb40e9e47f6bb196b5"
+    sha256 cellar: :any, arm64_sequoia:     "37d9c1d0b9ed3629e849e193a4aca603e2645ea69dd4fd4c90018079bdd56629"
+    sha256 cellar: :any, arm64_linux:       "0ae1bb3d601ca427be43b3c57afbc6c405cec90a958f81bf6aa883192f76377c"
+    sha256 cellar: :any, x86_64_linux:      "7f280993fb25f08acebd4c9467abbd60d779ffd5170ae93d81825da9b68c64c0"
   end
 
   depends_on "cmake" => :build

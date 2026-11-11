@@ -5,6 +5,7 @@ class Civl < Formula
   version "1.22-5854"
   sha256 "daf5c5a7295909d45a26d8775a8e7677495d69ab9c303638394ec189c4956b0e"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "BSD-3-Clause"]
+  revision 1
 
   livecheck do
     url "https://vsl.cis.udel.edu/lib/sw/civl/current/latest/release/"
@@ -15,8 +16,7 @@ class Civl < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "71c991aa3a7b29a8c41578d2220e02bbaad9b42d000b3119a0f054bd57892f82"
+    sha256 cellar: :any_skip_relocation, all: "44e062dda01ba92cb637e50391eecc53acb2e70514186b9e56ec8dee853e3b24"
   end
 
   depends_on "openjdk"

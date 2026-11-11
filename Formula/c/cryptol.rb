@@ -4,15 +4,15 @@ class Cryptol < Formula
   url "https://hackage.haskell.org/package/cryptol-3.6.0/cryptol-3.6.0.tar.gz"
   sha256 "cc0a7ef3b20f4543386209b9077c0d9064c22e0db81f30e8ab4cc8f5dc4a8d93"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/GaloisInc/cryptol.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "303f6348e97a04a95a8ead0a78a9d7bdbaab60d377083b0a66cc3e382113fba2"
-    sha256 cellar: :any, arm64_tahoe:       "1e0748ff426bc45146700c63c6a8ea62ae1a6658a8f37edb8c1baced0d9ad864"
-    sha256 cellar: :any, arm64_sequoia:     "11956f02bd241b63274e4766a199a41ca5af5dd7df1ec039ece66226cc5abb3f"
-    sha256 cellar: :any, arm64_sonoma:      "53b5ac834ca52aeb3042bb5c9c90a0e9e706e08a846f0c8e4e8a113344182110"
-    sha256 cellar: :any, arm64_linux:       "92e70eb1a9cbd848f549ff66ae0f402de72cd91f3e17580552dddedba91a1d3b"
-    sha256 cellar: :any, x86_64_linux:      "9f098fca45d638c40553d0bb166fb0a1b3c377d131758047f26b2b9501b604cb"
+    sha256 cellar: :any, arm64_golden_gate: "e0954bc152744c95e1a4fcc9906413003dd04f0656c214dbd0a8a2f42e13fab0"
+    sha256 cellar: :any, arm64_tahoe:       "f3d0a0295ad14f3049a3c90d1b9c18d946c3a28efd25ab41820d1037f9c31077"
+    sha256 cellar: :any, arm64_sequoia:     "27d07d49485c5507677ece6f0e73f2c2237b521eb758698c3d500949515db27a"
+    sha256 cellar: :any, arm64_linux:       "06943dea01ca9f8b1e30a85668ac35ad210352f777b48f9b35635d19a77424a8"
+    sha256 cellar: :any, x86_64_linux:      "31b45aacbf5cf51fb3aa3bf364b268f5e37a16c4d1776e7176d3b154a3c05c08"
   end
 
   depends_on "cabal-install" => :build
