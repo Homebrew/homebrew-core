@@ -1,8 +1,8 @@
 class Xfr < Formula
   desc "Modern network bandwidth testing with TUI"
   homepage "https://github.com/lance0/xfr"
-  url "https://github.com/lance0/xfr/archive/refs/tags/v0.14.1.tar.gz"
-  sha256 "fc32357dd5f55d88a6b453b829ff2266efca53871487846c3eb8ae14650a017e"
+  url "https://github.com/lance0/xfr/archive/refs/tags/v0.15.0.tar.gz"
+  sha256 "9b974caec05289531ed5e713c0a2041c1f675c66c5be4f2ec4138b5b12e455d6"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/lance0/xfr.git", branch: "master"
 
