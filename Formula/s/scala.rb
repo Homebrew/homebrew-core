@@ -12,7 +12,7 @@ class Scala < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f027c1ef459a0c8f8dfae51dc03d48180274ceec0387ffa03e4e0c61d0ee4c9c"
+    sha256 cellar: :any_skip_relocation, all: "ee2c41cfe2baf01fb6f5d1df758cdf9b7276fa620447a7794ca7b01bdefa7efe"
   end
 
   # JDK Compatibility: https://docs.scala-lang.org/overviews/jdk-compatibility/overview.html
