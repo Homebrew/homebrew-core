@@ -4,6 +4,7 @@ class Chafa < Formula
   url "https://hpjansson.org/chafa/releases/chafa-1.18.3.tar.xz"
   sha256 "fb995ef21dce6c73dd0dd454ba3e0f7fac08e053ea16060a2e5ce69a3746ee27"
   license "LGPL-3.0-or-later"
+  revision 1
   compatibility_version 1
 
   livecheck do
