@@ -4,7 +4,7 @@ class VapoursynthImwri < Formula
   url "https://github.com/vapoursynth/vs-imwri/archive/refs/tags/R2.tar.gz"
   sha256 "f4d2965d32877005d0709bd8339828f951885a0cb51e0c006d123ede0b74307b"
   license "LGPL-2.1-or-later"
-  revision 5
+  revision 6
   version_scheme 1
   head "https://github.com/vapoursynth/vs-imwri.git", branch: "master"
 
