@@ -3,18 +3,17 @@ class ArxivLatexCleaner < Formula
 
   desc "Clean LaTeX code to submit to arXiv"
   homepage "https://github.com/google-research/arxiv-latex-cleaner"
-  url "https://files.pythonhosted.org/packages/73/ad/a58581c70d89cd1b26dffb87ff4722e3607dad8884a507da25401fb921c0/arxiv_latex_cleaner-1.0.11.tar.gz"
-  sha256 "13884594a0fadbe4a055e594a67b9a9be9a418453edadc8db1810bf801322f9b"
+  url "https://files.pythonhosted.org/packages/e9/0f/a3fe5b578a633043e0ba3a5f62f22f504c22adb72df97dc32e22b363b347/arxiv_latex_cleaner-1.0.12.tar.gz"
+  sha256 "e9ebb423ebca5351b5f7caadd7746eec450a8d6f9909cfca57d7379bd1be2281"
   license "Apache-2.0"
   head "https://github.com/google-research/arxiv-latex-cleaner.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "2fc9ab5c6aef51a16c88dc4787c21637ab8b560318145c276fd2507e2ba28a11"
-    sha256 cellar: :any, arm64_tahoe:       "666587976b4bc709943301ecb1c55179921e8bd42a60aedeb53dc592f57bdeca"
-    sha256 cellar: :any, arm64_sequoia:     "86b523b5c56016bcdc50af12a8e9cc8edf7ce08edc425f36527eb539a726d82b"
-    sha256 cellar: :any, arm64_linux:       "e199f01464c44e1567e224076a94ec43a49b8dc75d321999d9b5c507ed94e8b7"
-    sha256 cellar: :any, x86_64_linux:      "2246623194dde8398d6905ecf8f288694673abade4e2d9af11c8ced7fac71786"
+    sha256 cellar: :any, arm64_golden_gate: "fc4e996ba5f0406c8babbc4d69a0729d4ee17ce22bf70138fcb276e5035768f1"
+    sha256 cellar: :any, arm64_tahoe:       "5237da8b89611f4ba53b3e424231b49b273e7dfea4b12cf6c49f76a2e47bc7db"
+    sha256 cellar: :any, arm64_sequoia:     "1d0c5997b25c44e334cf3628e09278c3c3ec9fe251f5ff29cdf6dc4b3ce07fa1"
+    sha256 cellar: :any, arm64_linux:       "1ecec4f0d6144e994a22e06e73fa56f288d87a7c3f357c9a086a794355267db4"
+    sha256 cellar: :any, x86_64_linux:      "f83c5e7d5aa81971cd3e3b475b5f4e66a3270be455bceaaefb30cc608f8ce8e4"
   end
 
   depends_on "libyaml"
@@ -34,8 +33,8 @@ class ArxivLatexCleaner < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/fc/f2/af1da9d3ceed77bfcdce40427d49ba0be94e4fe84245e3bfef68c10e75b6/regex-2026.9.29.tar.gz"
-    sha256 "8b5fcc4771732191b2b7d1dd68d8f0353f47f8d90b6150f6dce58bf1112442cb"
+    url "https://files.pythonhosted.org/packages/61/27/a5afeb952577b84ee5fe48b8b9ce47ae662dbb69cc5b76c28eff98f83b1e/regex-2026.11.9.tar.gz"
+    sha256 "316a70fbd70e999c9664681cb0eb5b4982b2cc0f623c7c86a8a112e1bd4c6277"
   end
 
   allow_network_access! :build
