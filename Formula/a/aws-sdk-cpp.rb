@@ -1,8 +1,8 @@
 class AwsSdkCpp < Formula
   desc "AWS SDK for C++"
   homepage "https://github.com/aws/aws-sdk-cpp"
-  url "https://github.com/aws/aws-sdk-cpp/archive/refs/tags/1.11.925.tar.gz"
-  sha256 "505fec59a4c47e8b5d0724701b2fa242a6c2f514d47e3121dbb28ab08f7b514a"
+  url "https://github.com/aws/aws-sdk-cpp/archive/refs/tags/1.11.926.tar.gz"
+  sha256 "de83bb2a4da508c09f50a12144a0d154af09d4b98bb23cb876d626390b6ff1af"
   license "Apache-2.0"
   compatibility_version 3
   head "https://github.com/aws/aws-sdk-cpp.git", branch: "main"
@@ -12,11 +12,11 @@ class AwsSdkCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "372f829403c38e7bf80f6bf25e74f30a35ccedda6c48552c2725ca610d93e794"
-    sha256 cellar: :any, arm64_tahoe:       "ff0f12fe3da9c8aea4235fab2ae53fbe957eecd1017de4ddde920a313420b69e"
-    sha256 cellar: :any, arm64_sequoia:     "1354b8754158fa7dc3f3f0e1b052bf16ca6c61bfddcd4866609b6a5e5f60e6cb"
-    sha256 cellar: :any, arm64_linux:       "e92d5138bde0b00bf074bd88927d7877766b327f1b3aa98d50f55b31e6c40884"
-    sha256 cellar: :any, x86_64_linux:      "f87d09513358fbe47ec6016427526ec1bd450376c709944131ab02e3bf823947"
+    sha256 cellar: :any, arm64_golden_gate: "51bd2d1464d2f93a87993defe6c02e40ef38c3aa28a94cc10637dbdf10cb9e2f"
+    sha256 cellar: :any, arm64_tahoe:       "9170daf4afd211ded374b0b62581df95d78de2e3066f301b9ebec0d92a2aa605"
+    sha256 cellar: :any, arm64_sequoia:     "ccc65a7ba6844e1a8cca427b3cf163a8c96947b121c8268117731cda62a34b42"
+    sha256 cellar: :any, arm64_linux:       "9555f0076e7e7c5e1fad486c8201bccc848cc68a9ac408fd961d5909bebccbd5"
+    sha256 cellar: :any, x86_64_linux:      "95e150f2b85d0a91e16eb0555c625bf22365a460f063daf4a49e5a9e936e0f08"
   end
 
   depends_on "cmake" => :build
