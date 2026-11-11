@@ -1,8 +1,8 @@
 class Fetch < Formula
   desc "Download assets from a commit, branch, or tag of GitHub repositories"
   homepage "https://www.gruntwork.io/"
-  url "https://github.com/gruntwork-io/fetch/archive/refs/tags/v0.4.8.tar.gz"
-  sha256 "8192dddb375e2a8765e54e27c65b544068b35bd349f9ad669d6269734f3b5f76"
+  url "https://github.com/gruntwork-io/fetch/archive/refs/tags/v0.4.9.tar.gz"
+  sha256 "4d0a62de2afe4519324815570fbf0eea75edb7b29734844f403d91f13b32e034"
   license "MIT"
   head "https://github.com/gruntwork-io/fetch.git", branch: "master"
 
