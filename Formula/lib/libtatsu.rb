@@ -1,18 +1,18 @@
 class Libtatsu < Formula
   desc "Library handling the communication with Apple's Tatsu Signing Server (TSS)"
   homepage "https://libimobiledevice.org/"
-  url "https://github.com/libimobiledevice/libtatsu/releases/download/1.1.0/libtatsu-1.1.0.tar.bz2"
-  sha256 "96c8abd97552a4a0c487c701aba9a65d590c338dd331058ffb38304290b696c7"
+  url "https://github.com/libimobiledevice/libtatsu/releases/download/1.1.1/libtatsu-1.1.1.tar.bz2"
+  sha256 "18f471f131c1d55ccc02fa09565d870030c6ce92f737b89fe1b3849941ebb303"
   license "LGPL-2.1-or-later"
   compatibility_version 1
   head "https://github.com/libimobiledevice/libtatsu.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "04de393a1757ad619de94bc636091920ecd18c4dcc5a7b59739e1b027c751e2d"
-    sha256 cellar: :any, arm64_tahoe:       "c2c9378a90a8d95d160a1d8c044719a12ec11f87608cce3ad7f94de50e27efb8"
-    sha256 cellar: :any, arm64_sequoia:     "c6220731852f43f37d34164579d16e139192387249b1751a4abf1cbb47ddfcda"
-    sha256 cellar: :any, arm64_linux:       "d7ec4206f131fe610a0ba60afe544762492b89ac24a9f1382e03d6dc4e75bb66"
-    sha256 cellar: :any, x86_64_linux:      "53039b809871d21fa1185003922f6337c134280a466cb22b4bd6e748400d0752"
+    sha256 cellar: :any, arm64_golden_gate: "b98c6d0a8be78ef52e8960b7d696dff98e45018e54f9551e7a237307b77dce6d"
+    sha256 cellar: :any, arm64_tahoe:       "eeb81f1250a7a1da79ea72e6511a37637a1e1bd1d0848ce0fd62819152f5fe3a"
+    sha256 cellar: :any, arm64_sequoia:     "5a56f78092905876385d4b32a91fae011e288fb6de414551af905f33ffaa4792"
+    sha256 cellar: :any, arm64_linux:       "8734e918eb67b666b3216424a424f2b68d413419b0fbfdc71397005c8ca28b7b"
+    sha256 cellar: :any, x86_64_linux:      "a31b28255dfa9d816b95c1a6ce0edd04a00a248cf3d685002a5a55a94041aba2"
   end
 
   depends_on "autoconf" => :build
