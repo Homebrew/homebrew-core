@@ -1,8 +1,8 @@
 class Aoe < Formula
   desc "Terminal session manager for AI coding agents"
   homepage "https://github.com/agent-of-empires/agent-of-empires"
-  url "https://github.com/agent-of-empires/agent-of-empires/archive/refs/tags/v1.22.3.tar.gz"
-  sha256 "1cc30b8d1f10a79ebbf9015f3c0f6698fab923f83e42aac2e08a4d7caed8b340"
+  url "https://github.com/agent-of-empires/agent-of-empires/archive/refs/tags/v1.23.0.tar.gz"
+  sha256 "3e8580fdcd07e940c219a2b6c76c57e0368eb6e409550e313b48154f67b59a21"
   license "MIT"
   head "https://github.com/agent-of-empires/agent-of-empires.git", branch: "main"
 
@@ -21,7 +21,7 @@ class Aoe < Formula
   depends_on "openssl@4"
   depends_on "tmux" => :no_linkage
 
-  uses_from_macos "sqlite"
+  uses_from_macos "sqlite", since: :tahoe # requires sqlite3_set_clientdata
 
   on_linux do
     depends_on "aws-lc" # cannot use on macOS due to openssl symbol conflict
