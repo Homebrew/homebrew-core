@@ -6,11 +6,11 @@ class Ctrld < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1d8281bde63ff935f0909ffaf0b577ad6fc1a01ddca05e301fe5602304e03a5c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1d8281bde63ff935f0909ffaf0b577ad6fc1a01ddca05e301fe5602304e03a5c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1d8281bde63ff935f0909ffaf0b577ad6fc1a01ddca05e301fe5602304e03a5c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "96ea8eb2803467b3d5019ab2ded332524d7d84eb91ae1686bccd71ab4bbd8cf3"
-    sha256 cellar: :any,                 x86_64_linux:      "7f9e9ed65366d3928cfc4cd65dd8eb35903642e942cc9b0938b1a4bc75f2638e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ff8855ec21564596582079205919222dfa67fdb9f65e758e6a66027ac6a0014a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ff8855ec21564596582079205919222dfa67fdb9f65e758e6a66027ac6a0014a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ff8855ec21564596582079205919222dfa67fdb9f65e758e6a66027ac6a0014a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "588a00b0aa207040f9a656ee1de882fa9a0ffbc21c2a791a5c3787d77f4b488b"
+    sha256 cellar: :any,                 x86_64_linux:      "89a7bd3bd945b4e9af93036426b724c38af25dc16871ca85d06dc9c9e6005f1e"
   end
 
   depends_on "go" => :build
