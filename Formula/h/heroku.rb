@@ -1,8 +1,8 @@
 class Heroku < Formula
   desc "CLI for Heroku"
   homepage "https://www.npmjs.com/package/heroku/"
-  url "https://registry.npmjs.org/heroku/-/heroku-11.12.1.tgz"
-  sha256 "a1a781e4153f52ace677f45f05d6c70c0d96123870b80c6a75ddde34d3cde3a5"
+  url "https://registry.npmjs.org/heroku/-/heroku-11.13.0.tgz"
+  sha256 "401e22e1f0ffd3c9e42ad6ac0c54d5ef97f310e1da5110b76935be7b9cc217db"
   license "ISC"
 
   bottle do
@@ -27,7 +27,7 @@ class Heroku < Formula
 
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    node_modules.glob("{bare-fs,bare-path,bare-os,bare-url}/prebuilds/*")
+    node_modules.glob("{bare-buffer,bare-fs,bare-path,bare-os,bare-url}/prebuilds/*")
                 .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
 
     # Replace universal binaries with their native slices.
