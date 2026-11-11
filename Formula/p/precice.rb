@@ -1,10 +1,9 @@
 class Precice < Formula
   desc "Coupling library for partitioned multi-physics simulations"
   homepage "https://precice.org/"
-  url "https://github.com/precice/precice/archive/refs/tags/v3.4.1.tar.gz"
-  sha256 "ef4713c938a1b2000d0b071175e1b45f9ec55c7aec4bbe7b65c3992edcc74ac7"
+  url "https://github.com/precice/precice/archive/refs/tags/v3.5.0.tar.gz"
+  sha256 "cf60ae64b5f738a45c5bc06e39321c3b3a987f4115b401a30246222194797e99"
   license "LGPL-3.0-or-later"
-  revision 5
   head "https://github.com/precice/precice.git", branch: "develop"
 
   bottle do
