@@ -1,9 +1,9 @@
 class AutoconfArchive < Formula
   desc "Collection of over 500 reusable autoconf macros"
   homepage "https://savannah.gnu.org/projects/autoconf-archive/"
-  url "https://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2024.10.16.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-2024.10.16.tar.xz"
-  sha256 "7bcd5d001916f3a50ed7436f4f700e3d2b1bade3ed803219c592d62502a57363"
+  url "https://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2026.11.11.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-2026.11.11.tar.xz"
+  sha256 "2c18f15e2b3bb79e09622b27391df07d8608ce9f07fbfc7c1143fa683891ab26"
   license "GPL-3.0-or-later"
   compatibility_version 1
 
@@ -22,15 +22,6 @@ class AutoconfArchive < Formula
 
   # autoconf-archive is useless without autoconf
   depends_on "autoconf"
-
-  # Fix quoting of `m4_fatal`
-  # https://github.com/Homebrew/homebrew-core/issues/202234
-  patch do
-    url "https://github.com/autoconf-archive/autoconf-archive/commit/fadde164479a926d6b56dd693ded2a4c36ed89f0.patch?full_index=1"
-    sha256 "4d9a4ca1fc9dc9e28a765ebbd1fa0e1080b6c8401e048b28bb16b9735ff7bf77"
-    type :backport
-    resolves "https://github.com/autoconf-archive/autoconf-archive/pull/312"
-  end
 
   deny_network_access!
 
