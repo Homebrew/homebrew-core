@@ -2,13 +2,12 @@ class Node < Formula
   desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
   license "MIT"
-  revision 2
   compatibility_version 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
   stable do
-    url "https://nodejs.org/dist/v26.13.0/node-v26.13.0.tar.xz"
-    sha256 "263f639ecfa7a17b49438d76cdbf9aff73179e3c7cb789da69b900718427fa2e"
+    url "https://nodejs.org/dist/v26.13.1/node-v26.13.1.tar.xz"
+    sha256 "a7f6204ff63b6a2cd274d48903285abb86ed53a99070e532d4c2fd787457d9e6"
 
     # https://github.com/v8/v8/commit/f607706154eabc4a949628a88b38dbe95cd2274c
     patch do
