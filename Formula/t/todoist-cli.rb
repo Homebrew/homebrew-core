@@ -1,8 +1,8 @@
 class TodoistCli < Formula
   desc "Official command-line interface for Todoist"
-  homepage "https://github.com/Doist/todoist-cli"
-  url "https://registry.npmjs.org/@doist/todoist-cli/-/todoist-cli-5.12.1.tgz"
-  sha256 "11e556ad9074cbd0d9abb44f157a9420017a073fe039450d824956c92d88c718"
+  homepage "https://github.com/todoist/todoist-cli"
+  url "https://registry.npmjs.org/@todoist/cli/-/cli-6.0.1.tgz"
+  sha256 "bbecd398a29fdf49b462d9219d23e9680eb8d994c33fc951b064229b19718a89"
   license "MIT"
 
   bottle do
@@ -21,7 +21,7 @@ class TodoistCli < Formula
     sha256 "b461a450df324a73219c6352186b95e4501b3f9099b876b023c9cdcf1d8cbf9d"
 
     livecheck do
-      url "https://raw.githubusercontent.com/Doist/todoist-cli/v#{LATEST_VERSION}/package-lock.json"
+      url "https://raw.githubusercontent.com/todoist/todoist-cli/v#{LATEST_VERSION}/package-lock.json"
       regex(/^v?(\d+(?:\.\d+)+)$/i)
       strategy :json do |json, regex|
         json.dig("packages", "node_modules/@napi-rs/keyring", "version")&.[](regex, 1)
@@ -35,12 +35,12 @@ class TodoistCli < Formula
 
     return unless OS.mac?
 
-    node_modules = libexec/"lib/node_modules/@doist/todoist-cli/node_modules"
+    node_modules = libexec/"lib/node_modules/@todoist/cli/node_modules"
 
     resource("keyring").stage do
       system "cargo", "build", "--lib", "--release"
       dylib = Pathname.pwd/"target/release/libnapi_keyring.dylib"
-      node_modules.glob("@doist/cli-core/node_modules/@napi-rs/keyring-darwin-*/*.node").each do |prebuilt|
+      node_modules.glob("@napi-rs/keyring-darwin-*/*.node").each do |prebuilt|
         cp dylib, prebuilt
       end
     end
