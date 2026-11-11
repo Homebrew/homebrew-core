@@ -3,17 +3,17 @@ class Otterdog < Formula
 
   desc "Manage GitHub organizations at scale using an infrastructure as code approach"
   homepage "https://otterdog.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/97/ed/0aab520521cc8e210c8f50fca3a0b2d01afe922fbc24ac7e34d337cc9309/otterdog-1.7.1.tar.gz"
-  sha256 "7b732c97a4eb149893624fc1d0a5bc700f765e27678deaeb8843c05dd41a377e"
+  url "https://files.pythonhosted.org/packages/0e/7c/39a0ca5cf9ca1060d10570564cf77e990d7a161d0f265876fe1d16327782/otterdog-1.8.0.tar.gz"
+  sha256 "ee650753f9e2e13be4e9140b06d010a3b9104b038c7c26c69c65fbe7166c4430"
   license "EPL-2.0"
   head "https://github.com/eclipse-csi/otterdog.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c7e2dbac833b9587899df5da987acf567123f6da8fe61a9829f46368884ac483"
-    sha256 cellar: :any, arm64_tahoe:       "b23d60940012ac63428302cde76b6ad86720e21a5175e9336c528fcd95e39988"
-    sha256 cellar: :any, arm64_sequoia:     "33d8ea6482b97cac8c0b2d051ffb22e2a0520b431b26c68587e07ce21858a5a3"
-    sha256 cellar: :any, arm64_linux:       "38fb0dd3b7a416a5a3472ca74bc77b3dcf267a3f80aea588ccf956ec5c890a73"
-    sha256 cellar: :any, x86_64_linux:      "8a58e97e33972c6c31a2cbdaaee0b7d58c01060e7924c884ca0c10a29d4fbf7c"
+    sha256 cellar: :any, arm64_golden_gate: "06cdf808293503ec58af17518b9f6e65da22076ee4fc82165421245556a7ed87"
+    sha256 cellar: :any, arm64_tahoe:       "66e816eee0f2aea86fe387acba991887f776be134ccf3ce2bc003da73da4a8f2"
+    sha256 cellar: :any, arm64_sequoia:     "b53f42c6c915254a20f57943fe9a07f2f58d8c35d22c4a2fc03a00fde3bf881c"
+    sha256 cellar: :any, arm64_linux:       "d80d24cc7a91d54b69207b2ffda6d4cbe603375b82e1b5ad79a145ff6be7e8ee"
+    sha256 cellar: :any, x86_64_linux:      "f3a29b01f34631357f4191ffe703092b9f1328f940b45d2835c181bcc7dec4e8"
   end
 
   depends_on "rust" => :build # for rjsonnet
@@ -82,8 +82,8 @@ class Otterdog < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "asyncer" do
@@ -107,8 +107,8 @@ class Otterdog < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "frozenlist" do
@@ -197,8 +197,8 @@ class Otterdog < Formula
   end
 
   resource "pyee" do
-    url "https://files.pythonhosted.org/packages/1d/f1/fdedc2c75c3e31a330659c85e5793bb18b3397981fbf0844c6dee5b18926/pyee-14.0.0.tar.gz"
-    sha256 "76dd0f4314ecd27f02dc73589dea7fd3853f9b6176d8ef9b122860657e3602de"
+    url "https://files.pythonhosted.org/packages/25/f7/c05c22ce87ee176fca235850788cfd1a9241adce21fdfb3326c1ae838bf5/pyee-16.0.1.tar.gz"
+    sha256 "bdc6e9214429ae5ec10b8a51604cf68c363b11cbc105e3da72204fce8c111e59"
   end
 
   resource "pygments" do
@@ -257,8 +257,8 @@ class Otterdog < Formula
   end
 
   resource "url-normalize" do
-    url "https://files.pythonhosted.org/packages/33/26/b60cce0211e94bb130e88dbcba87583f61c6ddf386fa6adc10a167461f6a/url_normalize-3.0.1.tar.gz"
-    sha256 "1655cd214159d9d47dc37aa6ce993c2149da44fa35cac6bafd90036a4eda3ac3"
+    url "https://files.pythonhosted.org/packages/84/d3/af36d36d189cb33237732a7fe6bba2df08189ac8c5975dab0510d5c6a5f2/url_normalize-3.1.0.tar.gz"
+    sha256 "138912833c0005ec77e756ec220590f8971ff046227280790ceb00f5ab9d56b6"
   end
 
   resource "urllib3" do
