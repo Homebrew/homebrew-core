@@ -3,21 +3,19 @@ class DvrScan < Formula
 
   desc "Extract scenes with motion from videos"
   homepage "https://www.dvr-scan.com/"
-  url "https://files.pythonhosted.org/packages/47/84/a3256473a827f0c17e3e724c409a33146a26d6515f87df38c3a649547b7d/dvr_scan-1.8.2.1.tar.gz"
-  sha256 "e424eaa8f2502a773588c97722bfe163f1317129e6e7073c25c4282bcf5f8e40"
+  url "https://files.pythonhosted.org/packages/99/0c/adc2d879b29d557007191d30b4d573744a0f2c0e76f1cdfc426260b26c2c/dvr_scan-2.0.tar.gz"
+  sha256 "f48f4365fff3dd56b84dde6d4e02e1164fe86462cd142cf522d4acfaea51672e"
   license "BSD-2-Clause"
-  revision 2
   head "https://github.com/Breakthrough/DVR-Scan.git", branch: "main"
 
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f38c4470152c9254fbcc91002a0dab7aa25f7e13973fbd9d131e4746a31cb745"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1b6f19ec5d092c0b7b0168766c3bd5b00187571f335da1af8de3921671ffdf90"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "87b5d31db9341083f53ef9202dcf5e0294f7576db6c5541fe66d5c08a402ec33"
-    sha256 cellar: :any,                 arm64_linux:       "7611b01632af86dead773eec013697db382e5b09f326a3fa35d4578f2abd6e56"
-    sha256 cellar: :any,                 x86_64_linux:      "eedaa11e3d0100cdef763d210645ef363907cf1147d16121c68b94c6cccc8dd5"
+    sha256 cellar: :any, arm64_golden_gate: "d6ee83a2a8a1d8a37688a1d8d793cefbe0d45e2ece7746c70a2e5b7698b4f896"
+    sha256 cellar: :any, arm64_tahoe:       "54e3caa9c1c48e2470ae76829f8201ef75d88ea3f9f5608117c16fa178029fac"
+    sha256 cellar: :any, arm64_sequoia:     "2f93ab1e508fb51ce760cae089650cc38abdf28f228302f0993ddf5dbf8a3db5"
+    sha256 cellar: :any, arm64_linux:       "00e919ecf5b0cf24166d6574279bad22aa98de4a88d625343432079ea14f289b"
+    sha256 cellar: :any, x86_64_linux:      "1ed188b46d2fc503bb950cc9a48f8eb5553c6376d434e8f9fccb71bb521a1bf9"
   end
 
   depends_on "cmake" => :build
@@ -37,22 +35,27 @@ class DvrScan < Formula
     cause "pyobjc-core uses `-fdisable-block-signature-string`"
   end
 
-  pypi_packages exclude_packages: %w[numpy opencv-contrib-python pillow],
+  pypi_packages exclude_packages: %w[numpy opencv-contrib-python opencv-python pillow tkinterdnd2],
                 extra_packages:   "pyobjc-framework-cocoa"
 
+  resource "av" do
+    url "https://files.pythonhosted.org/packages/23/01/76b6bf563fe907597cf58f10d10168e93fe588b6db9f2658db87e87efa7e/av-19.0.2.tar.gz"
+    sha256 "bebbc52598886480f4d861c575dc2b020785d6c04e1308680ddcc545e1b94c66"
+  end
+
   resource "click" do
-    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
-    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "cython" do
-    url "https://files.pythonhosted.org/packages/a9/d8/4981ef716ad0e3ff0d3ef383aefc6b03c4a88dee33b272bf8e0d833001ca/cython-3.3.0.tar.gz"
-    sha256 "eed0d93fbca7087f143b42c34b05a825849bdf17f101572c2105acfa49aa88b8"
+    url "https://files.pythonhosted.org/packages/99/ca/18e324972e5cac914816fdd7bb03e19a455b90039c277a538f7781b50c85/cython-3.3.1.tar.gz"
+    sha256 "e0e45989e821bef6aa9ae15c7d583ab5e055f7406c4b3624e49e06d24e90375a"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/58/e6/d0abbb256b44e6a05748c6942511ff67db8dbb068de0c35b24bf1b395b09/platformdirs-4.13.5.tar.gz"
-    sha256 "05831adf87d392760f4b5c3a0a95579ab5a10b18b9b9bd43680dcb47544788a0"
+    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
+    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
   end
 
   resource "pyobjc-core" do
@@ -66,8 +69,8 @@ class DvrScan < Formula
   end
 
   resource "scenedetect" do
-    url "https://files.pythonhosted.org/packages/f0/b4/e77e1812ae89bc4864ff54efb6a8232eabebd471e372096cb711f03cca52/scenedetect-0.6.7.1.tar.gz"
-    sha256 "07833b0cb83a0106786a88136462580e9865e097f411f01501a688714c483a4e"
+    url "https://files.pythonhosted.org/packages/10/8b/53ba2573a4daf9697d9e5c7892d10cfce0c189063ab4df7fd74286ee029d/scenedetect-0.7.3.tar.gz"
+    sha256 "14c0bd6872fb4fd284817d77187f8164dc79ef403067840d5337660f3e9aa9fa"
   end
 
   resource "screeninfo" do
@@ -97,8 +100,9 @@ class DvrScan < Formula
 
   test do
     resource("sample-vid").stage do
-      # https://github.com/Breakthrough/DVR-Scan/blob/main/tests/resources/traffic_camera.txt
-      output = shell_output("#{bin}/dvr-scan -i traffic_camera.mp4 -so -roi 631 532 210, 127")
+      # https://github.com/Breakthrough/DVR-Scan/blob/v2.0-release/tests/test_cli.py#L46-L58
+      output = shell_output("#{bin}/dvr-scan -i traffic_camera.mp4 -so -a 631 532 841 532 841 659 631 659 " \
+                            "--min-event-length 4 --time-before-event 0 --threshold 0.2 --ignore-user-config")
       assert_match "Detected 3 motion events", output
     end
   end
