@@ -7,8 +7,8 @@ class Crun < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "da0321c50b3b008dd1a51e43502ad845703059e31cddbe88ae9b0c1261ab843c"
-    sha256 cellar: :any, x86_64_linux: "f77798bd644bac0e43ff1a10369f04ca924d9af7c5b682572b006f6441954081"
+    sha256 cellar: :any, arm64_linux:  "f8a9d708662d31dfb3e0ff95110cd47cb19dbb31972e4d00dcf6d99b496ad5bf"
+    sha256 cellar: :any, x86_64_linux: "757087841988beb70fe3be6f5a6315e45be8c66fc8cb488f5677b2acb7632f76"
   end
 
   head do
