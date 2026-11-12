@@ -1,8 +1,8 @@
 class Beast < Formula
   desc "Bayesian Evolutionary Analysis Sampling Trees"
   homepage "https://beast.community/"
-  url "https://github.com/beast-dev/beast-mcmc/archive/refs/tags/v10.5.0.tar.gz"
-  sha256 "6287ebbe85e65e44f421b7e9ec3fd17d9a736ff909dfa3b4ab6b1b1fd361b52b"
+  url "https://github.com/beast-dev/beast-mcmc/archive/refs/tags/v10.6.0.tar.gz"
+  sha256 "1b012f15d90438a532950e5156ba495f763157478edd46853b763ac53a0831af"
   license "LGPL-2.1-or-later"
   head "https://github.com/beast-dev/beast-mcmc.git", branch: "main"
 
@@ -22,18 +22,19 @@ class Beast < Formula
 
   depends_on "ant" => :build
   depends_on "beagle"
-  depends_on "openjdk@25"
+  depends_on "openjdk"
 
   deny_network_access!
 
   def install
-    ENV["JAVA_HOME"] = Language::Java.java_home("25")
-    system "ant", "linux"
+    ENV["JAVA_HOME"] = Language::Java.java_home
+    system "ant"
+    system "ant", "package-linux", "-f", "build_release.xml"
     libexec.install Dir["release/Linux/BEAST_X_v*/*"]
     pkgshare.install_symlink libexec/"examples"
     bin.install Dir[libexec/"bin/*"]
 
-    env = Language::Java.overridable_java_home_env("25")
+    env = Language::Java.overridable_java_home_env
     env["PATH"] = "${JAVA_HOME}/bin:${PATH}" if OS.linux?
     bin.env_script_all_files libexec/"bin", env
     inreplace libexec/"bin/beast", "/usr/local", HOMEBREW_PREFIX
