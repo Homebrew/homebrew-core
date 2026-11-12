@@ -1,8 +1,8 @@
 class CiliumCli < Formula
   desc "CLI to install, manage & troubleshoot Kubernetes clusters running Cilium"
   homepage "https://cilium.io"
-  url "https://github.com/cilium/cilium-cli/archive/refs/tags/v0.20.2.tar.gz"
-  sha256 "78d4442defa00b91538dd784f96fbc957d48fb3622f9e784af9667a2974f124c"
+  url "https://github.com/cilium/cilium-cli/archive/refs/tags/v0.20.3.tar.gz"
+  sha256 "bbb768efce3591d6f701b47dee9140dc4945c055e3626c98cfa670878e1c62e6"
   license "Apache-2.0"
   head "https://github.com/cilium/cilium-cli.git", branch: "main"
 
@@ -15,11 +15,11 @@ class CiliumCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "158cd6c2a5391eeb551381d7861303a15270717d2478b1549e139b9c522396dd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f9e84392e4df584545e522886d5c9d52e9995f494cc4caa57bfd93b440275fe9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3db0341bc0b1f34c52bfcdf0ca7f025af2921d27fb0c927574af62b0d4b62bbd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ab36834d3902041a19549d63ae4e8c909ef6575aeab2e6c226a6ed1be48e80ce"
-    sha256 cellar: :any,                 x86_64_linux:      "60369011c121fe80dca6f66acd849551237113cd6dde9f082bfd31e856acb2f0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "16ddb3115382631494d93f21bd14128f2215264ab8738cd19d23928929c0a06a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "813cd825372b5aa2d636ca77b23c90bbbe6ef4843bc5e4e3c67af646c235d679"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ad3c42001808f207eb0ecf0224c4d93835320a445a46711d31614d7bed4ff898"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "85859cca0c06e86c9a6db509f3945512252f2988fea45ac591e4afacc0ff4bc0"
+    sha256 cellar: :any,                 x86_64_linux:      "1c01baa1533440e2b345103b89b2983d8c89f618377a2de39e5414bcd15d4663"
   end
 
   depends_on "go" => :build
