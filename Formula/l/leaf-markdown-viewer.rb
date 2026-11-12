@@ -7,11 +7,11 @@ class LeafMarkdownViewer < Formula
   head "https://github.com/RivoLink/leaf.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "123d68b3d016cf3b7b0c553ea854f695f177f4f6bc986e68b182b6d0ee026fca"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a601133856ad253ed32fc8a590b061ce1e5a7d3b5bbaee7a9e6eb4877f0bd051"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3d3c7477a285cc58660d267e72ba2c7315bd46c6c822c072802a977f7216cd11"
-    sha256 cellar: :any,                 arm64_linux:       "85a3b5693c58dd62b5a82da12cf87dbdbfd68273e508705e257ee50638569a32"
-    sha256 cellar: :any,                 x86_64_linux:      "c67016049fe41ff5e5196f5d08e1df2902b2e82c3bb72fd42e9932749af3c027"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7ee8b2d452d675982672d359fdc610e14cd6468afceb0fa4292e88a645e13c4b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "13a958f07cc5e6de1ffecabcc4079d9fb5f9babc7c3454a0dec901eda856c8b9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a3ee6e92ef49f2e3936c5a0c13f0fca1187a13cb441f2268c8fb026e0e264a59"
+    sha256 cellar: :any,                 arm64_linux:       "6779e879b8a5e80d2a7dc02b32c8956424f3e09469930c03eac0b73028623b53"
+    sha256 cellar: :any,                 x86_64_linux:      "d7b9480bc9bc9647ea4d790fdaa7998ff8bf663e42f1b3ddc52e440f221589e5"
   end
 
   depends_on "rust" => :build
