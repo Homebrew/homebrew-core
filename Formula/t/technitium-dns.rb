@@ -4,6 +4,7 @@ class TechnitiumDns < Formula
   url "https://github.com/TechnitiumSoftware/DnsServer/archive/refs/tags/v15.6.2.tar.gz"
   sha256 "7fe162a7c1db828ca3ce0d754e9739118e5d666ddac526d2302509b47c3d513b"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1bd7da4ce294a6024bb095e6cbbbaa03c3f6a855b247bda743f44ef71dbb876c"
@@ -13,7 +14,7 @@ class TechnitiumDns < Formula
     sha256 cellar: :any,                 x86_64_linux:      "3edf0c1262bf7d89558dc6aa0a1e4b65fab7b4d684c3855916ef4be089465ce3"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@10"
   depends_on "libmsquic"
   depends_on "technitium-library"
 
@@ -23,7 +24,7 @@ class TechnitiumDns < Formula
 
   allow_network_access! :test
 
-  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
+  def dotnet = deps.find { |d| d.name.match? Version.formula_optionally_versioned_regex(:dotnet) }.to_formula
 
   def fetch
     ENV["XDG_RUNTIME_DIR"] = buildpath
