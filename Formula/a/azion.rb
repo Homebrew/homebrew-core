@@ -1,17 +1,17 @@
 class Azion < Formula
   desc "CLI for the Azion service"
   homepage "https://github.com/aziontech/azion"
-  url "https://github.com/aziontech/azion/archive/refs/tags/4.25.0.tar.gz"
-  sha256 "cba985f168d78d82bfebbb3d399e649dffa1833b11f3b7145a41f1f716c7f2bb"
+  url "https://github.com/aziontech/azion/archive/refs/tags/4.26.0.tar.gz"
+  sha256 "b688052d1b822a470409721643979db386f11f69a219b07343e12a78a1eb516a"
   license "MIT"
   head "https://github.com/aziontech/azion.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a2f3d9c1f49d6f33013e904895c64bbb1846e00db9e9a45b2b06213aba3b315d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a2f3d9c1f49d6f33013e904895c64bbb1846e00db9e9a45b2b06213aba3b315d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a2f3d9c1f49d6f33013e904895c64bbb1846e00db9e9a45b2b06213aba3b315d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5e9d1b1d01c52214367cc3a221d72d6d76009f323739c9e84052949d7dac3ac1"
-    sha256 cellar: :any,                 x86_64_linux:      "5641fd563e4193c6c323a0db8e567d921074f9534d572bb7b3f5d5576806212e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "edb36164106b64ffba144cbbf6c55b681af1a0b2e81e223654c9ccdb4385277e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "edb36164106b64ffba144cbbf6c55b681af1a0b2e81e223654c9ccdb4385277e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "edb36164106b64ffba144cbbf6c55b681af1a0b2e81e223654c9ccdb4385277e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d505a5e58457b14a71c08b1683258e9d1e01be8c6795baf9982945911f533b95"
+    sha256 cellar: :any,                 x86_64_linux:      "7fea72d987faed9c6b9b683019b22764c640e2424dec351f2562ff3bdac1ab0d"
   end
 
   depends_on "go" => :build
