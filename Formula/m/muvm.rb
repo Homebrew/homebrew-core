@@ -4,6 +4,12 @@ class Muvm < Formula
   url "https://github.com/AsahiLinux/muvm/archive/refs/tags/muvm-0.7.0.tar.gz"
   sha256 "3cf9ffe550a01ed6438d1f0a4ab31a5b98af4855655f603f71a84d57e7913c3f"
   license "MIT"
+  head "https://github.com/AsahiLinux/muvm.git", branch: "main"
+
+  livecheck do
+    url :stable
+    regex(/^muvm-v?(\d+(:?\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_linux:  "3656663dc227a4d05ec516cbdc9c872f5062fdfa46101f4dd7a2506a44a16c44"
