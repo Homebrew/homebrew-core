@@ -1,8 +1,8 @@
 class Mmdbinspect < Formula
   desc "Look up records for one or more IPs/networks in one or more .mmdb databases"
   homepage "https://github.com/maxmind/mmdbinspect"
-  url "https://github.com/maxmind/mmdbinspect/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "589cf517b61b3837ae59a5b4875db30974dfcaee6c533ee91768286967ade8e8"
+  url "https://github.com/maxmind/mmdbinspect/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "ac165806226de6d6c221b1bc8b29fda1fd6d45574acea8178c338d9716d1b604"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/maxmind/mmdbinspect.git", branch: "main"
 
