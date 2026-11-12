@@ -1,17 +1,17 @@
 class Betterleaks < Formula
   desc "Secrets scanner built for configurability and speed"
   homepage "https://betterleaks.com"
-  url "https://github.com/betterleaks/betterleaks/archive/refs/tags/v1.10.0.tar.gz"
-  sha256 "1889be5033c4de90694a0e7fe4e5d21e53c7f779bea0405d309f28db5de673b3"
+  url "https://github.com/betterleaks/betterleaks/archive/refs/tags/v1.10.1.tar.gz"
+  sha256 "a2ef12e63d0218b99bab1aa1a5767fc8395d6e3d33c537a30d1f13c7bae0f5c9"
   license "MIT"
   head "https://github.com/betterleaks/betterleaks.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "18d62173e6a4a29180d6e475a4daa8ed34146a8dd0043d2ce12c5fa06f9a8fd2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "18d62173e6a4a29180d6e475a4daa8ed34146a8dd0043d2ce12c5fa06f9a8fd2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "18d62173e6a4a29180d6e475a4daa8ed34146a8dd0043d2ce12c5fa06f9a8fd2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9bab820406684d80b6ae0493efe4a25582eb6faae7d2fe05d4863dc862d4296e"
-    sha256 cellar: :any,                 x86_64_linux:      "f4c5d5466f1c1aac1932c1621a0f37e672640fde298286ff7e71f6ac01e5bdbc"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "69e4f80c2258b775ab2f8b67eafd954c19679889c495cef28221386625a56ce4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "69e4f80c2258b775ab2f8b67eafd954c19679889c495cef28221386625a56ce4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "69e4f80c2258b775ab2f8b67eafd954c19679889c495cef28221386625a56ce4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "c8844bee300a851ce3b256671b358630ad0ffe317054e94854002c8058308442"
+    sha256 cellar: :any,                 x86_64_linux:      "3931a1b6b5491e5dcde19f8f04a47ec72ed67d10e9a0e8bc15c8ffd55805d6fe"
   end
 
   depends_on "go" => :build
