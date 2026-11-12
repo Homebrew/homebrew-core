@@ -8,11 +8,11 @@ class BeszelAgent < Formula
   head "https://github.com/henrygd/beszel.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "15db9b3e4cc882485997bb7eb828a91c3a0f094a994e85b2c03b07b92e126a8c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "15db9b3e4cc882485997bb7eb828a91c3a0f094a994e85b2c03b07b92e126a8c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "15db9b3e4cc882485997bb7eb828a91c3a0f094a994e85b2c03b07b92e126a8c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c87a530fc256f430c45b77c3686ad41444106055f5f5ed45a90ed157d096c03e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "96fd10a673740ee3a5e8ef257addd942bb39f19f5f5ebb207236274266ee7210"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fe9c5eecad2bad92924633afa7cbb90af81314d54b57dbfa4b9572d039b71162"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fe9c5eecad2bad92924633afa7cbb90af81314d54b57dbfa4b9572d039b71162"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fe9c5eecad2bad92924633afa7cbb90af81314d54b57dbfa4b9572d039b71162"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a30085320ce5eebbdf48b48515675e5eeb14d4e2eb9f3220e74c7581f307d097"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "771087efd4334dd66ae60284b2f0a64db884ea81c0bcac11175655cc5223d5d0"
   end
 
   depends_on "go" => :build
