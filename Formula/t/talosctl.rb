@@ -1,8 +1,8 @@
 class Talosctl < Formula
   desc "CLI for out-of-band management of Kubernetes nodes created by Talos"
   homepage "https://www.talos.dev/"
-  url "https://github.com/siderolabs/talos/archive/refs/tags/v1.14.5.tar.gz"
-  sha256 "cb44b8cfcb73d300f8d50d94f075d68cb072a8ebff6d4d4b6ef5c4355a57dfc0"
+  url "https://github.com/siderolabs/talos/archive/refs/tags/v1.14.6.tar.gz"
+  sha256 "7c52caa465e64e04c124be7a7580d34cd7d0ab7a4a257b6785cfc2bb1d626380"
   license "MPL-2.0"
   head "https://github.com/siderolabs/talos.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Talosctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2411efbf5a580304e528385c82702d87fb6aef3bb897725c1c27df19df5d8f75"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b019778697850b2cecace0f681fef3951fce39542d5d6beaf9672fc49b115fd8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "00c0095aa61327fcd8ad28acc55162badd3452feb3bfc16407ccf39630450d92"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ca21a3d2778c01d03cd9bd099d90543183ab2b14eceec2462b6509e74db338da"
-    sha256 cellar: :any,                 x86_64_linux:      "d7ccce85651111ba21ad9d853d462f77b07256100c233bf103259aaac81ce121"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ac8c1beaa47d4837d4a666f30d8bd615d9fed5423fcd62f1f1520d2e906fb62d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "76d250dff24c66ef4a767dfc051d362abbff43cd40e9d1774111904139c32b87"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0ffbc2cecc8b6e8c170ecd9b70f5cdc75db3ead71efe92c73e69c74782cfd2b5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "edb5bbcbcb348a988a9bcad3be080f932f09fed4b792e9239838093e54140754"
+    sha256 cellar: :any,                 x86_64_linux:      "55961574b4945f4add07737d3886673a959a80bc783d7d9911849e8407361f80"
   end
 
   depends_on "go" => :build
