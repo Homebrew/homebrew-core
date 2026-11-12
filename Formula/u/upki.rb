@@ -1,17 +1,17 @@
 class Upki < Formula
   desc "Implements platform-independent browser-grade certificate infrastructure"
   homepage "https://github.com/rustls/upki"
-  url "https://github.com/rustls/upki/archive/refs/tags/v1.0.1.tar.gz"
-  sha256 "c6aa6e5519fb4d6be662d21809d86e9b006e1a4ed98380e4d27dd4c29d84542e"
+  url "https://github.com/rustls/upki/archive/refs/tags/v1.0.2.tar.gz"
+  sha256 "41f22e15eaa85044edb3a291270702e04f46e4d1c464c47459affe964f66bf7e"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rustls/upki.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f63762c14c587321f93c77c46ade2c62ebee31ab6f81894d20f731faa1fcdfae"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "db282ce2e884226f663b69d68750c5cfa827cd9c0521c7749773d8d111fb2d6d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "934200e02001b9654e768c45a10e5e1399606a90bd4637d2a5afd25ca59c39a7"
-    sha256 cellar: :any,                 arm64_linux:       "0e98aff119cb383b1d39afb75918454c656ab3aaab8003d5fa57aa06bb6277c9"
-    sha256 cellar: :any,                 x86_64_linux:      "b6495a7da4a093588ab618dd22e4c9cde2216863d965e31cad713cbc645b4f94"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3ac8d283957fe7b757d5914f0b611a2280dc8ccb9cd13f1907bbf53ff1761013"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7c7ad9ce05cebf6d4affa22ae5b5e4887157357d6f8853426462de371465d843"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0700b28a430587f388792f83efbd527afdf136ca30e035c19683bb3baaf6145b"
+    sha256 cellar: :any,                 arm64_linux:       "2cacd70bcbcb34ab68b710e10eff7241ff3960ed7cb33f171580311f77b8891e"
+    sha256 cellar: :any,                 x86_64_linux:      "5c4cb95b730e035642994267604e32783f85b73332feb80e8f791c5bf3bc422a"
   end
 
   depends_on "rust" => :build
