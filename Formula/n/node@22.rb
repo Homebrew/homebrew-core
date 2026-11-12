@@ -1,10 +1,9 @@
 class NodeAT22 < Formula
   desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v22.23.4/node-v22.23.4.tar.xz"
-  sha256 "7b9adc82d612d0a2a863d96c46de2292552e250cee51956ebbe0146c42aacae9"
+  url "https://nodejs.org/dist/v22.23.5/node-v22.23.5.tar.xz"
+  sha256 "6cce7c58bf058700c643944903d60a325e8c9ceede1f5c2c088b435f2ada091a"
   license "MIT"
-  revision 2
   compatibility_version 1
 
   livecheck do
@@ -13,11 +12,11 @@ class NodeAT22 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7fa586e1eada0d063ed00d3de0b766383e7368ddfdb1d80c971cb39d22d3fb23"
-    sha256 cellar: :any, arm64_tahoe:       "36a6cc8c336c11dbf41dfb95ebc153ca498acd880ecfd7de22d07cfc27f1733c"
-    sha256 cellar: :any, arm64_sequoia:     "9ac9046385e9263fc979cb20cdf1f05d6c3ba176539ca22293ebcbbfdf3eb356"
-    sha256 cellar: :any, arm64_linux:       "fa1f8d0720f4796f97328d6c202938987c34a25ed13be11bef2485eebb57b95c"
-    sha256 cellar: :any, x86_64_linux:      "5b135a8b798150f00ff0fb35fb2f3ef4b88662524859873486aa6fde167d901c"
+    sha256 cellar: :any, arm64_golden_gate: "93c80488234c8e754bf362be15aa45bcc5b4f61635350f0dbad32caa475476b8"
+    sha256 cellar: :any, arm64_tahoe:       "f479a022bfe59f8c5d98e8ebbd901a0a65baaca771557a40398491838bb34511"
+    sha256 cellar: :any, arm64_sequoia:     "f22956fd669bcf3603a319cd2af69a66e644247b0112330d060c057b9f30aae6"
+    sha256 cellar: :any, arm64_linux:       "3f0c5b00a0d322a007cc22b51934970f81f17572722646ea1be609db7576e56f"
+    sha256 cellar: :any, x86_64_linux:      "2bc3fdc4b9d38a42dd65ab4cd79b02f0c6c578160172d44de8d25ebfb3275780"
   end
 
   keg_only :versioned_formula
