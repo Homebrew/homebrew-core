@@ -8,12 +8,11 @@ class P11Kit < Formula
   head "https://github.com/p11-glue/p11-kit.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "a7c4679040141c7c8cb0861e164126871f7e0eb485df6da5ebecc3665e185ce2"
-    sha256 arm64_tahoe:       "fd108a936783ac40b4c3ea4dda639e7d22faa063e9f40f92b0ed2b2a7e99efa6"
-    sha256 arm64_sequoia:     "6a61302c1be785c331903fe9252f87d0d4ca722fda0697c4e22f6063cd4f1be2"
-    sha256 arm64_linux:       "ddcba9bb43653115779bb59a0ffa39b54b38342fba6791c84211fc205df0918f"
-    sha256 x86_64_linux:      "4e8df948a2da3c78610d58f669b8dde39f2ef8ed879579cc7c338c44980209c6"
+    sha256 arm64_golden_gate: "a0751e0579ea06c14793f5b95093c34921df22e74cfe9101d0d396e44b7d378c"
+    sha256 arm64_tahoe:       "9ed312a272c9972e1122b0957e63e944d2875d38bec6c865cc9248114487d2cc"
+    sha256 arm64_sequoia:     "5d529f086a87a2d2e6dc22b48e43502943cbd900bc2e3350a32b1337078eabb2"
+    sha256 arm64_linux:       "7f0e904b2199b43ee0734afac6c137a3a65a93a5d50b8716f7129e279433281b"
+    sha256 x86_64_linux:      "2c308eee58e480734ec818cc86f8634cded3b81a7d3d539acf07ff322f29617a"
   end
 
   depends_on "meson" => :build
