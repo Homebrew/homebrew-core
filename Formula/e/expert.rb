@@ -1,17 +1,17 @@
 class Expert < Formula
   desc "Official Elixir Language Server Protocol implementation"
   homepage "https://expert-lsp.org"
-  url "https://github.com/expert-lsp/expert/archive/refs/tags/v0.2.2.tar.gz"
-  sha256 "386b87925978899128fcd0282dbd7c8fb45698f378e1513d849d8b4a8920b486"
+  url "https://github.com/expert-lsp/expert/archive/refs/tags/v0.2.3.tar.gz"
+  sha256 "7841bcb8ffdddf055c45e790bb3e2bf8abe775b41d8b38e203a7c147fd8af14e"
   license "Apache-2.0"
   head "https://github.com/expert-lsp/expert.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c076e5ede26b1a36a0bc701769bacd8e1d3d973968fe5db798ddd06b305f59ff"
-    sha256 cellar: :any, arm64_tahoe:       "e32caa47eb8eb7080c1e634853e70308d170f66e9211b9e4a499848b5d15cd7b"
-    sha256 cellar: :any, arm64_sequoia:     "ccae87aff3ac4eeb5d813fd6ee18e8fb8d6297a047845ed813b636d4c5244342"
-    sha256 cellar: :any, arm64_linux:       "b6e7f0f90d76b78d71925b6032ee96b50a968734fcc42e4ec1e207d13f15b7e0"
-    sha256 cellar: :any, x86_64_linux:      "8018721aa90a94da04e4e8a022686444593be857ddfba8972c2b1a16359dc785"
+    sha256 cellar: :any, arm64_golden_gate: "8d05d0f092538bc0a3e5472a6602c0a27f5b86c48b5b3a3ed72d176813a770ed"
+    sha256 cellar: :any, arm64_tahoe:       "3fed0ad522f651d5bae134626ecadd63e8d251591710f5d37d40046b1c4a2d04"
+    sha256 cellar: :any, arm64_sequoia:     "f04226a4163ee365622ea88dd3f8f7f9445aec07b67fa18f2355a85be620b717"
+    sha256 cellar: :any, arm64_linux:       "0e977632d2628294c9718131b11cd41ea6e32d134aeba9e2b06fd188c7b9bf5a"
+    sha256 cellar: :any, x86_64_linux:      "621872b25d4ab7f55515363e73ee75583ddccf0f59b97614eefe9eeebb531e6f"
   end
 
   depends_on "elixir" => :build
