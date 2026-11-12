@@ -27,13 +27,15 @@ class Dotnet < Formula
 
       livecheck do
         url "https://github.com/dotnet/dotnet/releases/download/v#{LATEST_VERSION}/release.json"
-        strategy :json do |json|
+        regex(/^v?(\d+\.\d+\.1\d\d)$/i)
+        strategy :json do |json, regex|
           channel_url = "https://builds.dotnet.microsoft.com/dotnet/release-metadata/#{json["channel"]}/releases.json"
           channel_json = JSON.parse(Homebrew::Livecheck::Strategy.page_content(channel_url)[:content])
-          latest_release = channel_json["releases"].find { |release| release["release-version"] == json["release"] }
-          latest_release["sdks"].filter_map do |sdk|
-            v = Version.new(sdk["version"])
-            v if v.patch.to_i.between?(100, 199)
+          latest_release = channel_json["releases"]&.find { |release| release["release-version"] == json["release"] }
+          next if latest_release.blank?
+
+          latest_release["sdks"]&.filter_map do |sdk|
+            sdk["version"]&.[](regex, 1)
           end
         end
       end
@@ -62,25 +64,32 @@ class Dotnet < Formula
 
       livecheck do
         url "https://github.com/dotnet/dotnet/releases/download/v#{LATEST_VERSION}/release.json"
-        strategy :json do |json|
+        regex(/^v?(\d+\.\d+\.1\d\d)$/i)
+        strategy :json do |json, regex|
           channel_url = "https://builds.dotnet.microsoft.com/dotnet/release-metadata/#{json["channel"]}/releases.json"
           channel_json = JSON.parse(Homebrew::Livecheck::Strategy.page_content(channel_url)[:content])
-          latest_release = channel_json["releases"].find { |release| release["release-version"] == json["release"] }
-          latest_release["sdks"].filter_map do |sdk|
-            v = Version.new(sdk["version"])
-            v if v.patch.to_i.between?(100, 199)
+          latest_release = channel_json["releases"]&.find { |release| release["release-version"] == json["release"] }
+          next if latest_release.blank?
+
+          latest_release["sdks"]&.filter_map do |sdk|
+            sdk["version"]&.[](regex, 1)
           end
         end
       end
     end
   end
 
-  # Upstream has unstable tags that use the same version scheme as stable
-  # releases so we cannot use the default :git strategy.
+  # Check blob storage JSON so that resources' livechecks work during version bump
   livecheck do
-    url :stable
+    url "https://builds.dotnet.microsoft.com/dotnet/release-metadata/releases-index.json"
     regex(/^v?(\d+\.\d+\.\d{3})$/i)
-    strategy :github_releases
+    strategy :json do |json, regex|
+      json["releases-index"]&.filter_map do |channel|
+        next if channel["support-phase"] != "active"
+
+        channel["latest-sdk"]&.[](regex, 1)
+      end
+    end
   end
 
   bottle do
@@ -132,6 +141,18 @@ class Dotnet < Formula
     end
   end
 
+  resource "docfx", :test do
+    url "https://github.com/dotnet/docfx/archive/refs/tags/v2.78.5.tar.gz"
+    sha256 "79f9e2c4bb8de2225d91a812a4e9d2cc71a8ed5613b3b4b2940d2a1d5db38793"
+
+    livecheck do
+      url "https://formulae.brew.sh/api/formula/docfx.json"
+      strategy :json do |json|
+        json.dig("versions", "stable")
+      end
+    end
+  end
+
   # Perform "1xx" or "2xx/3xx/4xx" Band Bootstrap. Skipping stage 2 as didn't work via documented steps
   # https://github.com/dotnet/source-build/blob/main/Documentation/feature-band-source-building.md
   def bootstrap_build(with_shared_components: nil)
@@ -146,10 +167,11 @@ class Dotnet < Formula
       args << "-p:PortableBuild=true"
     end
 
+    # FIXME: Workaround for brew sandbox. See if upstream can add support to override /tmp
     on_macos do
       inreplace Dir["src/msbuild/src/{Shared,Framework/BackEnd}/NamedPipeUtil.cs"],
-                      'Path.Combine("/tmp", pipeName)',
-                      'Path.Combine(Path.GetTempPath().Length < 38 ? Path.GetTempPath() : "/tmp", pipeName)'
+                'Path.Combine("/tmp", pipeName)',
+                'Path.Combine(Path.GetTempPath().Length < 38 ? Path.GetTempPath() : "/tmp", pipeName)'
       # `prep-source-build.sh` runs binary detection with the prebuilt SDK, so patch its MSBuild first
       system "./prep-source-build.sh", "--no-binary-removal"
       # Avoid worker nodes, which the unpatched bootstrap MSBuild cannot reach
@@ -164,13 +186,6 @@ class Dotnet < Formula
     system "./prep-source-build.sh"
     system "./build.sh", *args
     buildpath.install "artifacts/assets/Release"
-  end
-
-  # Test to avoid uploading broken Intel Sonoma bottle which has stack overflow on restore.
-  # See https://github.com/Homebrew/homebrew-core/issues/197546
-  resource "docfx", :test do
-    url "https://github.com/dotnet/docfx/archive/refs/tags/v2.78.5.tar.gz"
-    sha256 "79f9e2c4bb8de2225d91a812a4e9d2cc71a8ed5613b3b4b2940d2a1d5db38793"
   end
 
   def install
@@ -188,7 +203,7 @@ class Dotnet < Formula
       ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path
     else
       icu4c_dep = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
-      ENV.append_path "LD_LIBRARY_PATH", icu4c_dep.to_formula.opt_lib
+      ENV.append_path "LD_LIBRARY_PATH", formula_opt_lib(icu4c_dep.name)
     end
 
     if build.head?
@@ -196,12 +211,12 @@ class Dotnet < Formula
     elsif version.patch.to_i < 200
       (buildpath/"dotnet").install resource("src"), "release.json"
     else
+      odie "Update 1xx and/or 1xx-manifest resource!" if resource("1xx").version != resource("1xx-manifest").version
       (buildpath/"dotnet").install resource("1xx"), resource("1xx-manifest")
 
       release = JSON.parse(File.read("release.json"))["release"]
       release_1xx = JSON.parse(File.read("dotnet/release.json"))["release"]
       odie "1xx resource uses .NET Runtime #{release_1xx} but was expecting #{release}!" if release != release_1xx
-      odie "Update 1xx and/or 1xx-manifest resource!" if resource("1xx").version != resource("1xx-manifest").version
     end
 
     cd "dotnet" do
@@ -321,6 +336,7 @@ class Dotnet < Formula
     output = shell_output("#{bin}/dotnet run --framework #{target_framework} #{testpath}/test.dll a b c")
     assert_equal "#{testpath}/test.dll,a,b,c\n", output
 
+    # Test to avoid uploading broken bottle, see https://github.com/Homebrew/homebrew-core/issues/197546
     resource("docfx").stage do
       system bin/"dotnet", "restore", "src/docfx", "--disable-build-servers", "--no-cache"
     end
