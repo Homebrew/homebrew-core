@@ -4,7 +4,7 @@ class Gitversion < Formula
   url "https://github.com/GitTools/GitVersion/archive/refs/tags/6.8.2.tar.gz"
   sha256 "02b7efc0b9cfee26971c0f89b27724eb51d33c3230788963e77dc94070173c21"
   license "MIT"
-  revision 1
+  revision 2
 
   no_autobump! because: :bumped_by_upstream
 
@@ -16,7 +16,7 @@ class Gitversion < Formula
     sha256 cellar: :any, x86_64_linux:      "d9a08ba35f4c80a141529f090071640dc1bb20525dbcd02149b4e371cc2b72f6"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@10"
   depends_on "openssl@4"
 
   deny_network_access!
