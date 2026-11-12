@@ -7,11 +7,11 @@ class Xfr < Formula
   head "https://github.com/lance0/xfr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "93c873f1da7c3ff2ccd2df5b1d5696df0bc2ed19d2fde4dd5bb03ed7f2d362c0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "91f853c6c3095c0ac29d404ad0d15fb34c68edcd191d54b285d4f799f97622ed"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ab3a9ba6830bd1494f940fa14e9234dd89709f621d70925dc06f8e5181afc191"
-    sha256 cellar: :any,                 arm64_linux:       "c8d44bda504be3549d60fe3d48b9d775b4401f03dc817effe377de27d12bd60a"
-    sha256 cellar: :any,                 x86_64_linux:      "b6505187a67db005b035e52a6d9b83554cc9a3f763c83afa8bc3e39bfdf66258"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "529fef810b52517fc9015f2455c97fb6fe7ee448d4befdda08bd4f78b8f05a8a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "61c3ff4ccc616efcb87282392761dae750832859bcdf59061db36e584fdfdd5b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "13271f0f279e83e4d2058971cafc79171bfab2a4d85ee003668bf1ebba76567e"
+    sha256 cellar: :any,                 arm64_linux:       "01ba72a758da44e073258d8dd9a7ba6a92dd3cd93f7ad6bf458dca371c2f6e2a"
+    sha256 cellar: :any,                 x86_64_linux:      "82216e0964ffb932f8c36c69f9b861fe3939e609d06d33a7ce3fe70034933f0d"
   end
 
   depends_on "rust" => :build
