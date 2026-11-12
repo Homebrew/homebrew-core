@@ -18,23 +18,37 @@ class Fracturedjson < Formula
     sha256 cellar: :any,                 x86_64_linux:      "d798f9509531b3f2dd32a4eb9a5ec6c7d09c28c30f64d0657bc8f647951071d9"
   end
 
-  depends_on "dotnet" => :build
+  # Aligned to .NET dependency. Can remove if updated to latest .NET
+  deprecate! date: "2026-11-12", because: "needs end-of-life .NET 8"
+  disable! date: "2027-11-10", because: "needs end-of-life .NET 8"
+
+  depends_on "dotnet@8"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
+  def fetch
+    ENV["XDG_RUNTIME_DIR"] = buildpath
+    system "dotnet", "restore", "Cli/Cli.csproj", "--use-current-runtime"
+  end
+
   def install
-    arch = Hardware::CPU.arm? ? "arm64" : "x64"
-    os_tag = OS.mac? ? "osx" : "linux"
+    ENV["XDG_RUNTIME_DIR"] = buildpath
+
+    dotnet = deps.find { |d| d.name.match? Version.formula_optionally_versioned_regex(:dotnet) }.to_formula
     args = %W[
       --configuration Release
-      --runtime #{os_tag}-#{arch}
+      --framework net#{dotnet.version.major_minor}
+      --no-self-contained
       --output #{libexec}
       --property InvariantGlobalization=true
+      --use-current-runtime
     ]
     system "dotnet", "publish", "Cli/Cli.csproj", *args
-    bin.install_symlink libexec/"fracjson"
+    (bin/"fracjson").write_env_script libexec/"fracjson", DOTNET_ROOT: dotnet.opt_libexec
   end
 
   test do
