@@ -1,8 +1,8 @@
 class Astyle < Formula
   desc "Source code beautifier for C, C++, C#, and Java"
   homepage "https://astyle.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%203.6/astyle-3.6.23.tar.bz2"
-  sha256 "9c29649223429d0a8a9fd775767f9d268e2624ccc39aaba7571493c5787c00af"
+  url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%203.6/astyle-3.6.24.tar.bz2"
+  sha256 "972034b036e387de23639b796a06826d78a2c8646be3454b60e48af138e90336"
   license "MIT"
   compatibility_version 1
   head "https://svn.code.sf.net/p/astyle/code/trunk/AStyle"
