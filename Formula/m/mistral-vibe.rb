@@ -3,17 +3,17 @@ class MistralVibe < Formula
 
   desc "Minimal CLI coding agent"
   homepage "https://github.com/mistralai/mistral-vibe"
-  url "https://files.pythonhosted.org/packages/72/de/4bebc1de32b8150bbcdb47c777a0a7042a209833048adc73e6d6bb11235b/mistral_vibe-3.1.0.tar.gz"
-  sha256 "5cce0504a81bbe11d63b45bec187857b30aaed0806bfbfe7cbe590b47bee4806"
+  url "https://files.pythonhosted.org/packages/9a/f8/0dbebaaf73c8219740bf0bbbe9961a7b43aade14f186feb8df9dcc646f20/mistral_vibe-3.1.2.tar.gz"
+  sha256 "72556ec308389f885a663e43958fcba0108063edddb28256e3808961acba838c"
   license "Apache-2.0"
   head "https://github.com/mistralai/mistral-vibe.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "26e558ffb8021de8d5e7c19f4870327c9370419fee2974ccf5b9096e603d5413"
-    sha256 cellar: :any, arm64_tahoe:       "ca83b27e51bfd12ad6127cfa7bfc5f8b3b0cd0ab7ff34aeec996a023a1c70ef4"
-    sha256 cellar: :any, arm64_sequoia:     "53c139388421a490d918022ca21367d4644c697b72a6cc9b12bc45c870962d8e"
-    sha256 cellar: :any, arm64_linux:       "11ca0f8e38b81dc42ee8dfb843a2d712a4d05b6cd329d17673a70ce66775edbb"
-    sha256 cellar: :any, x86_64_linux:      "308537316d3705dc89fb4380a53f584291dfa761354b7fad4dac31646bc0bd8f"
+    sha256 cellar: :any, arm64_golden_gate: "03333309646f5a530c365b68040ba594cf4e3afa4d019a663665a15224d41e44"
+    sha256 cellar: :any, arm64_tahoe:       "1d5fa58c8f9751b899e2df94e45f81624f9b07fa118040f27a1091452965d2ca"
+    sha256 cellar: :any, arm64_sequoia:     "cda2f71c0627270ab180d47293be1a37734a9910df641c6c66d20007bc936432"
+    sha256 cellar: :any, arm64_linux:       "acc8bc1b0152edc271acbf1a528a84a12b8e5a10fd0549aac7736474b45c5fc0"
+    sha256 cellar: :any, x86_64_linux:      "047e4541b7128a788fbfb8bdbfa495b4cd4060fa7ea9c62792126b95c486a4b0"
   end
 
   depends_on "pkgconf" => :build
@@ -425,11 +425,6 @@ class MistralVibe < Formula
   resource "websockets" do
     url "https://files.pythonhosted.org/packages/04/24/4b2031d72e840ce4c1ccb255f693b15c334757fc50023e4db9537080b8c4/websockets-16.0.tar.gz"
     sha256 "5f6261a5e56e8d5c42a4497b364ea24d94d9563e8fbd44e78ac40879c60179b5"
-  end
-
-  resource "zstandard" do
-    url "https://files.pythonhosted.org/packages/fd/aa/3e0508d5a5dd96529cdc5a97011299056e14c6505b678fd58938792794b1/zstandard-0.25.0.tar.gz"
-    sha256 "7713e1179d162cf5c7906da876ec2ccb9c3a9dcbdffef0cc7f70c3667a205f0b"
   end
 
   def install
