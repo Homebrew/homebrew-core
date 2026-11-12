@@ -1,17 +1,17 @@
 class Octl < Formula
   desc "Modern CLI for Outscale"
   homepage "https://github.com/outscale/octl"
-  url "https://github.com/outscale/octl/archive/refs/tags/v0.0.35.tar.gz"
-  sha256 "404287fb14eca8f614e02d2449c6e1ac148adbce236fdf85617e40088a468557"
+  url "https://github.com/outscale/octl/archive/refs/tags/v0.0.36.tar.gz"
+  sha256 "48227f33d83c02f9b688eb965e8c7d8c1718a89545d7b3a1ee4968112357e718"
   license "BSD-3-Clause"
   head "https://github.com/outscale/octl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ba9a288d8f042eded35c8b66438ce83d2eaf01a15486053b5ee633c3d891832d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9f176d454bd9148e9b4b6a58366429ae10b6e6af9f756206560a7b0249a88529"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "75797bdca7836e2b26b9902ab62139b87dbaf3704d8b22b9d8e4e7da7bbed8de"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c7c35411337ec71821b9d1d2bcf384a40886c64d2434e916f99847e3ebd88548"
-    sha256 cellar: :any,                 x86_64_linux:      "0d82b77f9d561d492c8d13f255ed35abd4e2307c71b0b23eac1cb1830dcec97a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fb9a31deee34b765e919ed262f53d50271c19b5212e5add1a3ddb087b9723079"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "49a4a2547c941c6b5a8308134aa3703845698ad72bc9e16f2c4712d8ad328522"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2b7612ed30905492a2622f4c0de8eccd0806ad2cd65c2009a695031e231d546f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "c4dc20633fb4a183ae62dd4e47817481b2ec8aa03c8a7db73b16489a44bccdef"
+    sha256 cellar: :any,                 x86_64_linux:      "26d0cd0c758dcf553a5275807779df9b656fe31b0f117f036ac6545eb294820a"
   end
 
   depends_on "go" => :build
