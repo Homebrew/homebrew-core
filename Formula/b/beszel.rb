@@ -1,8 +1,8 @@
 class Beszel < Formula
   desc "Lightweight server monitoring with historical data, Docker stats, and alerts"
   homepage "https://beszel.dev"
-  url "https://github.com/henrygd/beszel/archive/refs/tags/v0.21.1.tar.gz"
-  sha256 "92dac1dd5faed2fe47fe6cdec831ccf5b04032c33438e88fc354666f563090ff"
+  url "https://github.com/henrygd/beszel/archive/refs/tags/v0.21.2.tar.gz"
+  sha256 "8613c593fd447b4602644a73f1ec26d5d8233fa91109192c05a2406e22316c34"
   license "MIT"
   head "https://github.com/henrygd/beszel.git", branch: "main"
 
