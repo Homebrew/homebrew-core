@@ -1,17 +1,17 @@
 class Descope < Formula
   desc "Command-line utility for performing common tasks on Descope projects"
   homepage "https://www.descope.com"
-  url "https://github.com/descope/descopecli/archive/refs/tags/v0.8.16.tar.gz"
-  sha256 "aa86702720bddb5bf2a7402cf08872103b05a11e56f9d887d5a4da4015a0209e"
+  url "https://github.com/descope/descopecli/archive/refs/tags/v0.8.17.tar.gz"
+  sha256 "e278edf374cd286ad0b644834bb3f9aa8c8b21fa5a47ed40622ab9fe7fff22cf"
   license "MIT"
   head "https://github.com/descope/descopecli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "184c281c96839cf6d7bd0afc60e3f9f3b03fde966e6dcd2dd94529e5d08bec56"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "184c281c96839cf6d7bd0afc60e3f9f3b03fde966e6dcd2dd94529e5d08bec56"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "184c281c96839cf6d7bd0afc60e3f9f3b03fde966e6dcd2dd94529e5d08bec56"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "467ffee9e5faa790e45916887804440653005e9827950fd0b61dc8cc12b5c2b3"
-    sha256 cellar: :any,                 x86_64_linux:      "c3b61ec2b3b6abceb445d88515a442dcde2e34fd53fdd79567cbaea215422706"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5f059873b27df725abb37fc212c5d50006994c381dccd3c7a8fa81cd05ec4c34"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5f059873b27df725abb37fc212c5d50006994c381dccd3c7a8fa81cd05ec4c34"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5f059873b27df725abb37fc212c5d50006994c381dccd3c7a8fa81cd05ec4c34"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "3277f563a4b73bcd07bd7495e6e2986803887975e87304775b408e94ea01805c"
+    sha256 cellar: :any,                 x86_64_linux:      "b46c4c7d95ee98dc83728074deee33c613a817ce9733dbc9df0f328373c18e16"
   end
 
   depends_on "go" => :build
