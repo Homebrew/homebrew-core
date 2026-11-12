@@ -7,11 +7,11 @@ class Nx < Formula
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "286173e7bde321eae67d04fa341fe32423f7cf116f13b8d96a22c35a71d07c0d"
-    sha256 cellar: :any,                 arm64_tahoe:       "286173e7bde321eae67d04fa341fe32423f7cf116f13b8d96a22c35a71d07c0d"
-    sha256 cellar: :any,                 arm64_sequoia:     "286173e7bde321eae67d04fa341fe32423f7cf116f13b8d96a22c35a71d07c0d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "7b19996bfb021f0c1ebc7baa26041be5f41c42e14ceb1d05d230a47dc06f186f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3065e655b32a6d74fde74d8615f95e38c3103cef2253e83da5a0f19be8c9ca26"
+    sha256 cellar: :any,                 arm64_golden_gate: "13211846052cf65d6eb8b3076826b0ba9bd2b6f8f44b79e65d80d828e5c3dc19"
+    sha256 cellar: :any,                 arm64_tahoe:       "13211846052cf65d6eb8b3076826b0ba9bd2b6f8f44b79e65d80d828e5c3dc19"
+    sha256 cellar: :any,                 arm64_sequoia:     "13211846052cf65d6eb8b3076826b0ba9bd2b6f8f44b79e65d80d828e5c3dc19"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "e9584c281e5858e7a04c5a7b0ae1613f89018cc122cc73305fec41728749bdce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "91ab18061a6f83bf485427b4f2ba585645173d0974bbb461815f17cb708df6b7"
   end
 
   depends_on "node"
