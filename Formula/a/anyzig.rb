@@ -1,8 +1,8 @@
 class Anyzig < Formula
   desc "Universal zig executable that runs any version of zig"
   homepage "https://github.com/marler8997/anyzig"
-  url "https://github.com/marler8997/anyzig/archive/refs/tags/v2026_11_03.tar.gz"
-  sha256 "487939d1b2f81b08477ba133a706a0194e67f9a27ef7ed97451b02c9cdf31dc2"
+  url "https://github.com/marler8997/anyzig/archive/refs/tags/v2026_11_12.tar.gz"
+  sha256 "5403be7549905990e98f036f920536cbf5948008a818cfb1587e408029333133"
   license "MIT"
 
   livecheck do
@@ -28,10 +28,15 @@ class Anyzig < Formula
   deny_network_access!
 
   def fetch
-    system "zig", "build", "--fetch"
+    system "zig", "build", "--fetch=all"
   end
 
   def install
+    # zig-patch preserves the read-only permissions of Homebrew's Zig standard library.
+    cp_r formula_opt_lib("zig")/"zig", buildpath/"zig-lib"
+    chmod_R "u+w", buildpath/"zig-lib"
+    ENV["ZIG_LIB_DIR"] = buildpath/"zig-lib"
+
     args = %W[-Dforce-version=v#{version.to_s.tr(".", "_")}]
     system "zig", "build", *args, *std_zig_args
   end
