@@ -1,17 +1,17 @@
 class Autocycler < Formula
   desc "Tool for generating consensus long-read assemblies for bacterial genomes"
   homepage "https://github.com/rrwick/Autocycler"
-  url "https://github.com/rrwick/Autocycler/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "19bde509dee7f972b171b230e471f5cfec651cf6341dbb0a6f91458aee801550"
+  url "https://github.com/rrwick/Autocycler/archive/refs/tags/v0.8.1.tar.gz"
+  sha256 "086e307fa45978ceac16c4916e36455d8796a930acc4d6ec911ca3e034a81c23"
   license "GPL-3.0-or-later"
   head "https://github.com/rrwick/Autocycler.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f64acab88516e134c934f69a438a77545d4c67e097fa4bdd306a608e1d401a21"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0748c366e780d31d525d222433384c027c41e09cdf384ea986959c0287c8122e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "158a9115d7fc2d00a81bd908219d6a7945ab285fd31332e25d9b1cbee69bdf83"
-    sha256 cellar: :any,                 arm64_linux:       "c5e52202ede956138b5881b329f42927e051def595f658d6a3b13fe75171e4d2"
-    sha256 cellar: :any,                 x86_64_linux:      "3ce380cce8038843a3f26e1946dc29fec0a71bbb3bfa81505c1beb887b15a168"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "97b3c91f4fe5d4368d2e43152e74eef0712dbe918156db03b0cede19594796ae"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dbfd910f9d141af573222e4e54ca5b7df9b965a23f86405565c975ff4ee002da"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9517eaf0df3c86c836c80f337a57b016fcccd1c5bdb632fa3c310d1ef84a57e5"
+    sha256 cellar: :any,                 arm64_linux:       "858fc9dd777b61a8872b9baf78ec8b33fa682cdad2f370803e7092eaaa50d3e9"
+    sha256 cellar: :any,                 x86_64_linux:      "cd33b5123a9e3e4347544904c32cdcceeb4729af6f200e8bb7cf7800f13a89d1"
   end
 
   depends_on "rust" => :build
