@@ -12,6 +12,8 @@ class Autoenv < Formula
 
   depends_on "bash"
 
+  deny_network_access!
+
   def install
     prefix.install "activate.sh"
   end
