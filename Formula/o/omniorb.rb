@@ -1,10 +1,9 @@
 class Omniorb < Formula
   desc "IOR and naming service utilities for omniORB"
   homepage "https://omniorb.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/omniorb/omniORB/omniORB-4.3.4/omniORB-4.3.4.tar.bz2"
-  sha256 "79720d415d23cd8da99287a4ef4da0aa1bd34d3e4c7b1530715600adc5ed3dc3"
+  url "https://downloads.sourceforge.net/project/omniorb/omniORB/omniORB-4.3.5/omniORB-4.3.5.tar.bz2"
+  sha256 "d57c5ec43030b31eeb620b4c8e47d62bf08eab4945dbeab0e094f10c8447bf93"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
 
   livecheck do
     url :stable
@@ -12,12 +11,11 @@ class Omniorb < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "2f295a5b5815b86ad2e9c61fabe16bf0b7cec0216dab957c377054bed0a2f12d"
-    sha256 cellar: :any, arm64_tahoe:       "ce64157802869aae85e73fe2cd9ea5518b845762eeaa64fa714a085d3112ad4c"
-    sha256 cellar: :any, arm64_sequoia:     "bd2c60e99cb87a30a3512ec0752264695994848b6f52816f05ce6ca7580cd99f"
-    sha256 cellar: :any, arm64_linux:       "d8c353d71b184c88feb2a65276664bca66dc76505a4d3baadd5212968f68aa6b"
-    sha256 cellar: :any, x86_64_linux:      "2fa39f3e59ea67986bf78b2fb3c81b57c082eeb02e2fe7b52aa0ef58e646618f"
+    sha256 cellar: :any, arm64_golden_gate: "f512703e96c09b0ae7625247f3de3fbb811879cb6fc558349733e96f67e9b3c2"
+    sha256 cellar: :any, arm64_tahoe:       "7278bdfb6df53e89c83a3ff17beb9e1a0b050acf61385094d78126eefea129d8"
+    sha256 cellar: :any, arm64_sequoia:     "1c740fc7f6c8909049c716f4df8eeddf1fe0128e978281d8625992c907f41d72"
+    sha256 cellar: :any, arm64_linux:       "3b583aaeecd7a724b030711030f3c02667d513a693b1e321e879687acaf50ea5"
+    sha256 cellar: :any, x86_64_linux:      "f06427c8ac5593771f2e95479301a97b0d0571f768b0a097f4faaed8a27bab29"
   end
 
   depends_on "pkgconf" => :build
@@ -30,18 +28,12 @@ class Omniorb < Formula
   end
 
   resource "bindings" do
-    url "https://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-4.3.4/omniORBpy-4.3.4.tar.bz2"
-    sha256 "a709c3c77b9c6b08616e1c9e12a5a9b9d5ccc1f2dcf6f647f205018d77f819a7"
+    url "https://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-4.3.5/omniORBpy-4.3.5.tar.bz2"
+    sha256 "7ad8138c471b45132dc1bcd5b1b429b5fe07eefe9e8579558f1b3606bdda4172"
 
     livecheck do
       formula :parent
     end
-  end
-
-  # OpenSSL 4 support: https://sourceforge.net/p/omniorb/svn/6818/
-  patch do
-    file "Patches/omniorb/r6818.diff"
-    type :backport
   end
 
   def install
