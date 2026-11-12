@@ -1,8 +1,8 @@
 class Templ < Formula
   desc "Language for writing HTML user interfaces in Go"
   homepage "https://templ.guide"
-  url "https://github.com/a-h/templ/archive/refs/tags/v0.3.1100.tar.gz"
-  sha256 "9f1b7f1aa87f10d2eab5ade1e732a6c48d3a26b40762f6e005bbc9efdcfeca99"
+  url "https://github.com/a-h/templ/archive/refs/tags/v0.3.1118.tar.gz"
+  sha256 "b4c5560a8148634e37030c3bce1a9d64a7f75657480a2725c3bd7b25f3aab5ad"
   license "MIT"
 
   bottle do
