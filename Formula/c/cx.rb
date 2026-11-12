@@ -6,11 +6,11 @@ class Cx < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ec2866e3cf1b8963533977df6b8bb220ada52c86052d6b80f7c292a11de3638d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ac4c37cc582a1d0b0e2a68c3d293f2a631d31f67c392323005c7ac09ed8fd28a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bb3905773ce387986422e43f7b7651b1986ca5bb77570de2c7c66fc4156e45dc"
-    sha256 cellar: :any,                 arm64_linux:       "c8bf6e1fb431548dd0dafc1c1e812505fc22dc03ea06163c2cd436b4cc2c2bb8"
-    sha256 cellar: :any,                 x86_64_linux:      "9d63df1790f49736647720764f3b5764cea4c7a26989d2f01c4d6906c6416d94"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7cf51ee6d6ccffa56540e95eea3af11ecabaed2fd5d62cafc6a889248e7f7b1a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5cedbece4ad42547bc4270ee532f90d9743df83c3b5ed88afc402fdb7e6169e1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7cf6d85ed14c5151b6236f63d39e00bfe7e746cca02e9ecbfbbbb0857e351f46"
+    sha256 cellar: :any,                 arm64_linux:       "7d32544274f1385a60e89c343aea3d5831b7ae72491681d6d56eaacfdd1ffdec"
+    sha256 cellar: :any,                 x86_64_linux:      "c9a955478ae8e665328cdbf77294a2329ab193910f5239bda964248ca20da407"
   end
 
   depends_on "rust" => :build
