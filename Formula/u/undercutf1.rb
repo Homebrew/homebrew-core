@@ -4,6 +4,7 @@ class Undercutf1 < Formula
   url "https://github.com/JustAman62/undercut-f1/archive/refs/tags/v4.0.105.tar.gz"
   sha256 "b2fcaa200a7f6a0a7046f32846bec457e01080b8bd7bab78e1fdc53d6b4feb4d"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/JustAman62/undercut-f1.git", branch: "master"
 
   bottle do
@@ -14,23 +15,31 @@ class Undercutf1 < Formula
     sha256 cellar: :any,                 x86_64_linux:      "947e6963962f0c2648392c5e0bfcad7060905812c43be5fe6e9be4a23b837acc"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@10"
   depends_on "ffmpeg"
   depends_on "fontconfig"
   depends_on "mpg123"
+
+  deny_network_access!
+
+  def fetch
+    ENV["XDG_RUNTIME_DIR"] = buildpath
+    system "dotnet", "restore", "UndercutF1.Console/UndercutF1.Console.csproj", "--use-current-runtime"
+  end
 
   def install
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
     # .NET named mutexes need `XDG_RUNTIME_DIR` (or `USER`) on Linux, which build containers may lack
     ENV["XDG_RUNTIME_DIR"] = buildpath
 
-    dotnet = Formula["dotnet"]
+    dotnet = deps.find { |d| d.name.match? Version.formula_optionally_versioned_regex(:dotnet) }.to_formula
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
       --output #{libexec}
       --no-self-contained
       --use-current-runtime
+      -p:AppHostRelativeDotNet=#{dotnet.opt_libexec.relative_path_from(libexec)}
       -p:PublishSingleFile=true
       -p:IncludeAllContentForSelfExtract=true
       -p:IncludeNativeLibrariesForSelfExtract=true
@@ -40,13 +49,11 @@ class Undercutf1 < Formula
       -p:PublishTrimmed=false
       -p:PublishAot=false
     ]
-
     # Version override is not needed if cloning from HEAD
     args << "-p:OverridePackageVersion=#{version}" if build.stable?
 
     system "dotnet", "publish", "UndercutF1.Console/UndercutF1.Console.csproj", *args
-
-    (bin/"undercutf1").write_env_script libexec/"undercutf1", DOTNET_ROOT: "${DOTNET_ROOT:-#{dotnet.opt_libexec}}"
+    bin.install_symlink libexec/"undercutf1"
   end
 
   test do
