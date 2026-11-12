@@ -3,8 +3,8 @@ class Checkov < Formula
 
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
-  url "https://files.pythonhosted.org/packages/11/7c/4dc8d64e4ea6ce07e5c34de4d0d7ed7b96ef900a0cd23b3049f634d0476e/checkov-3.4.3.tar.gz"
-  sha256 "2513d366c9b6bec3b91528faa6095b410be5f940277833771b427a6a56134915"
+  url "https://files.pythonhosted.org/packages/44/78/7d8cbaf04c25d7c160cdead3e16d7e3f57a8540183256ff0d1e23e9cc4a3/checkov-3.4.4.tar.gz"
+  sha256 "aed7a98c32b1d860a36c980a120eb16bec983d77140039ea2ac6ba091b7b29ac"
   license "Apache-2.0"
 
   livecheck do
@@ -12,11 +12,11 @@ class Checkov < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d3ec9de47f0dc2b76d5d6b9a6ed13a9b051e84d1f3d17bfc374442e60596ce5f"
-    sha256 cellar: :any, arm64_tahoe:       "7fa99bd3c7af2c339023c387438def0d49126bff81eb7acda5b791a66c00bd6d"
-    sha256 cellar: :any, arm64_sequoia:     "94ad1d6cd7d7bc07aa347a0e2cf1b075943a57bb400c5b321856dffd2d8ba887"
-    sha256 cellar: :any, arm64_linux:       "3b449bc3e53608c4722c1735b25f534cb0dd732f86619612100ba8acbb2ec66a"
-    sha256 cellar: :any, x86_64_linux:      "568b0ff9db6abfaf39e50815914e634b5da3776f126a9f182e7b0e04301c9ea1"
+    sha256 cellar: :any, arm64_golden_gate: "0f866a6af9accd53c07323afc586bda955c3cf1b88073a9084c2c9a427072d7d"
+    sha256 cellar: :any, arm64_tahoe:       "cddd576167143f15469555454f18c51645dbc54a210c61486fa8b73e5ddf8d5d"
+    sha256 cellar: :any, arm64_sequoia:     "c62dcc7250499e36f36ce4e653fde56f5020d57780f3a3518436edc8c346eead"
+    sha256 cellar: :any, arm64_linux:       "a8d7e0a2ab71bb4ab437648245fdd997969ae4e4097518be5f13508f280b15df"
+    sha256 cellar: :any, x86_64_linux:      "384e9fdc6aebde30a0846c18ebcaa7b2d876a6ada03f011b7aa96a89e6a72cee"
   end
 
   depends_on "cmake" => :build # for igraph
@@ -129,8 +129,8 @@ class Checkov < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "click-option-group" do
@@ -254,8 +254,8 @@ class Checkov < Formula
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/f4/32/0b4d0297064244f04af4331b65de16237cc3cce07474171ee14222a28981/markdown-3.11.2.tar.gz"
-    sha256 "87bf5d90f2d2882e2c02fcda182c2800456b985bff38913867c49706481514b0"
+    url "https://files.pythonhosted.org/packages/ca/eb/dc0fd6eff604bfb870b7fb68b90985a32caaf3c76f67736bbf7f438acd59/markdown-3.11.3.tar.gz"
+    sha256 "81eb91631dc97ad1efbc76019ef0f80fe90ca49ddf81546752d79989c3bfff3e"
   end
 
   resource "markupsafe" do
@@ -289,8 +289,8 @@ class Checkov < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/9a/6e/886dc7c9d21e2d95aceb696f1e31271742033aeef3661f6e9c8921493592/platformdirs-4.14.3.tar.gz"
-    sha256 "021add1ab113483edbcd4694f5fbb2d688b893ea30d35e1155bb371cf4be0be8"
+    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
+    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
   end
 
   resource "ply" do
@@ -354,8 +354,8 @@ class Checkov < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/fc/f2/af1da9d3ceed77bfcdce40427d49ba0be94e4fe84245e3bfef68c10e75b6/regex-2026.9.29.tar.gz"
-    sha256 "8b5fcc4771732191b2b7d1dd68d8f0353f47f8d90b6150f6dce58bf1112442cb"
+    url "https://files.pythonhosted.org/packages/61/27/a5afeb952577b84ee5fe48b8b9ce47ae662dbb69cc5b76c28eff98f83b1e/regex-2026.11.9.tar.gz"
+    sha256 "316a70fbd70e999c9664681cb0eb5b4982b2cc0f623c7c86a8a112e1bd4c6277"
   end
 
   resource "requests" do
@@ -399,8 +399,8 @@ class Checkov < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/19/63/0b6bae54546aed98d72f12d09df57b19a287f01c84d22047fa2e23772ab9/soupsieve-3.0.4.tar.gz"
-    sha256 "924fab84ae21604c19e175e1f39815eb6fa83ba23836e09e9de180925e5bc4c0"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "spdx-tools" do
@@ -429,8 +429,8 @@ class Checkov < Formula
   end
 
   resource "uritools" do
-    url "https://files.pythonhosted.org/packages/a3/0d/20d02264b6682f07e92cbf7ee43e5e803670d101a03ef204ba18368c321f/uritools-6.1.3.tar.gz"
-    sha256 "3a498e7e85ef3249343d5710618d641a414da0fbae6d23053ada7976ee83ea5f"
+    url "https://files.pythonhosted.org/packages/3e/e1/b07a86b2bc864fce392709659881f3bad0be9729e06e276299b12e20ee03/uritools-7.0.0.tar.gz"
+    sha256 "110b773e3f8fbaebcdcbe1377d04e418b1985adf69deeca4ed569f3e328cbf48"
   end
 
   resource "urllib3" do
