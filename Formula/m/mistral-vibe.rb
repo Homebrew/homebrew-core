@@ -3,8 +3,8 @@ class MistralVibe < Formula
 
   desc "Minimal CLI coding agent"
   homepage "https://github.com/mistralai/mistral-vibe"
-  url "https://files.pythonhosted.org/packages/72/de/4bebc1de32b8150bbcdb47c777a0a7042a209833048adc73e6d6bb11235b/mistral_vibe-3.1.0.tar.gz"
-  sha256 "5cce0504a81bbe11d63b45bec187857b30aaed0806bfbfe7cbe590b47bee4806"
+  url "https://files.pythonhosted.org/packages/9a/f8/0dbebaaf73c8219740bf0bbbe9961a7b43aade14f186feb8df9dcc646f20/mistral_vibe-3.1.2.tar.gz"
+  sha256 "72556ec308389f885a663e43958fcba0108063edddb28256e3808961acba838c"
   license "Apache-2.0"
   head "https://github.com/mistralai/mistral-vibe.git", branch: "main"
 
@@ -425,11 +425,6 @@ class MistralVibe < Formula
   resource "websockets" do
     url "https://files.pythonhosted.org/packages/04/24/4b2031d72e840ce4c1ccb255f693b15c334757fc50023e4db9537080b8c4/websockets-16.0.tar.gz"
     sha256 "5f6261a5e56e8d5c42a4497b364ea24d94d9563e8fbd44e78ac40879c60179b5"
-  end
-
-  resource "zstandard" do
-    url "https://files.pythonhosted.org/packages/fd/aa/3e0508d5a5dd96529cdc5a97011299056e14c6505b678fd58938792794b1/zstandard-0.25.0.tar.gz"
-    sha256 "7713e1179d162cf5c7906da876ec2ccb9c3a9dcbdffef0cc7f70c3667a205f0b"
   end
 
   def install
