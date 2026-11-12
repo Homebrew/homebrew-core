@@ -4,6 +4,7 @@ class Dug < Formula
   url "https://github.com/unfrl/dug/archive/refs/tags/0.0.100.tar.gz"
   sha256 "bc7df36788cc4bb1ee01cfbaa670e4f8f97280d1906710360b5702764dcbda28"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -21,7 +22,7 @@ class Dug < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "da85a1f5e058349b15af0b48d9dd17b2ae3e8654f2f5f4170959cf3657c3e4d9"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@10"
 
   on_linux do
     depends_on "zlib-ng-compat"
