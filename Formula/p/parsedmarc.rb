@@ -3,8 +3,8 @@ class Parsedmarc < Formula
 
   desc "DMARC report analyzer and visualizer"
   homepage "https://domainaware.github.io/parsedmarc/"
-  url "https://files.pythonhosted.org/packages/dd/c4/d9c1330aa45f89d12ad219c81404f2605f356ec1436cb664577dc4f4e302/parsedmarc-11.2.2.tar.gz"
-  sha256 "df380e4ef11dfacf2a46d9d4f4ea6518de35deacc116e3c226425c63d200ab4b"
+  url "https://files.pythonhosted.org/packages/52/c1/761a36dfefba52adb344ba6cfdee021920b41bb59ee171181078f2fc3755/parsedmarc-11.3.0.tar.gz"
+  sha256 "489cd4ea9ab76bd3b894c78f322228858eda6ae00d36414ca043010097ed52f0"
   license "Apache-2.0"
   head "https://github.com/domainaware/parsedmarc.git", branch: "master"
 
@@ -74,13 +74,13 @@ class Parsedmarc < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ca/6b/2bc953d6f0b87505636d0a7c16e46a47ab6c49df4a278ac9c0b1c1732e65/boto3-1.43.127.tar.gz"
-    sha256 "b5417e81d439b35ccf3a1eb51fa06cf9c97167c9a6beaa1929175ee9840d505a"
+    url "https://files.pythonhosted.org/packages/e7/b4/da0e5fd912f51d04e9f019fea50cbb859a4ba07947c6e28262ff59c98360/boto3-1.44.0.tar.gz"
+    sha256 "5d311d2988ae560f83e5fb8a284cb57b48e2c8d444ecb78a6d6752ae1740e04a"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/8f/45/b4e606b0f66c11c6bd44e91381aa562c6b4dacf478b97b461a429036a89a/botocore-1.43.127.tar.gz"
-    sha256 "93bae360fb3a6f1b8e36593faa8bbbfa05b19866f7a37e9606a98f13394156f8"
+    url "https://files.pythonhosted.org/packages/4d/92/480a2c685a9b02a947541a217ae615d5e78f287d833cc1b9f23dfc39e313/botocore-1.44.0.tar.gz"
+    sha256 "224efbd3ee978856da460585533ebf1b97831960e575857ca2424f33e554917b"
   end
 
   resource "charset-normalizer" do
@@ -129,13 +129,13 @@ class Parsedmarc < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/b6/47/077e889d3c618d971d3bce4ab198c645a607276b8d4bb151cfe78d2c92bb/google_api_python_client-2.201.0.tar.gz"
-    sha256 "d5691982abd7287f53cb0b0e0c6a9984d4103cf864ea0a88cb6e4347bbaf70de"
+    url "https://files.pythonhosted.org/packages/22/59/70df770dd367e268f0382fc98c6976d1e210e47351f263cced5b95989ee0/google_api_python_client-2.202.0.tar.gz"
+    sha256 "ae126c8e91f43c331e23dbd83bc4a8075699dd48089cebc7295f6ab2f5850fc5"
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/c4/38/d79ab09dcfc1e1638d887c8f65657619d3ebc454165c558ef79355971ce3/google_auth-2.62.1.tar.gz"
-    sha256 "3c8e1ce2553784ae17fd220e6f88df3281d86ab98019278f436d06dffab17a9e"
+    url "https://files.pythonhosted.org/packages/4a/d4/87353e950d653d87360176363d51f316e8e368e1ddbb7ba7aa5503c30c3e/google_auth-2.62.2.tar.gz"
+    sha256 "046c61a72d3a847d6df6417a7f0d5cf054e3b82bbcb54fb1e69d47880964049c"
   end
 
   resource "google-auth-httplib2" do
@@ -244,8 +244,8 @@ class Parsedmarc < Formula
   end
 
   resource "mailsuite" do
-    url "https://files.pythonhosted.org/packages/c6/79/19533c5a7d99f2d5ff02881b8ff1362e046b3e23dbfb2cced306aec961bd/mailsuite-2.3.6.tar.gz"
-    sha256 "fe91357edbd16f8bf67052d6bdd5ed480c362ab63ef94c3a5dd91f9637c82d26"
+    url "https://files.pythonhosted.org/packages/85/28/82c6fe092d33d0bcd598532f9f3b7e8088ce9f9429b6874dbfd354b1e4fa/mailsuite-2.3.7.tar.gz"
+    sha256 "d5e5cb2fbd384c17f2989a01fd98c9eb7f81ff4df5875c13c4bb521534c31770"
   end
 
   resource "maxminddb" do
