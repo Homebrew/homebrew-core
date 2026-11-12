@@ -39,6 +39,8 @@ class Cp2k < Formula
     depends_on "libomp"
   end
 
+  allow_network_access! :test
+
   def install
     # Avoid over-optimizing fortran code as we don't have a shim for gfortran
     optflags = ENV["HOMEBREW_OPTFLAGS"].to_s.split.join(";")

@@ -64,6 +64,8 @@ class Devil < Formula
   # allow compiling against jasper >= 3.0.0
   patch :DATA
 
+  deny_network_access!
+
   def install
     system "cmake", "-S", "DevIL", "-B", "build",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
