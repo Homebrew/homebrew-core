@@ -1,16 +1,16 @@
 class McpServerKubernetes < Formula
   desc "MCP Server for kubernetes management commands"
   homepage "https://github.com/Flux159/mcp-server-kubernetes"
-  url "https://registry.npmjs.org/mcp-server-kubernetes/-/mcp-server-kubernetes-4.2.1.tgz"
-  sha256 "2bbc1aa4531a1d05bde0b9603fa9ce2f274f78dfa4fc1581b6132c93f69d8f96"
+  url "https://registry.npmjs.org/mcp-server-kubernetes/-/mcp-server-kubernetes-4.2.2.tgz"
+  sha256 "8032168a480e98b6debf31aa35626a0863514c2172deb8f9a45c66da35e87f3f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ec3a1caef84b1d9165355a8d1a58c888a9d99ad1e1b2e39a159ae5cf5064da92"
-    sha256 cellar: :any, arm64_tahoe:       "ec3a1caef84b1d9165355a8d1a58c888a9d99ad1e1b2e39a159ae5cf5064da92"
-    sha256 cellar: :any, arm64_sequoia:     "ec3a1caef84b1d9165355a8d1a58c888a9d99ad1e1b2e39a159ae5cf5064da92"
-    sha256 cellar: :any, arm64_linux:       "2cc10385ff95d60a8296af1d12d131857ce82b765c6f98409ac06de4fff389fb"
-    sha256 cellar: :any, x86_64_linux:      "9c83bd0e57b36588a32ed5e7a915451dcdbf18cd896f013947302f0f51fc07d5"
+    sha256 cellar: :any, arm64_golden_gate: "c6a82f63ca6e043fca3f60a624f82cb182b0554d446c356bebd63cbd5fff3aca"
+    sha256 cellar: :any, arm64_tahoe:       "c6a82f63ca6e043fca3f60a624f82cb182b0554d446c356bebd63cbd5fff3aca"
+    sha256 cellar: :any, arm64_sequoia:     "c6a82f63ca6e043fca3f60a624f82cb182b0554d446c356bebd63cbd5fff3aca"
+    sha256 cellar: :any, arm64_linux:       "89e9424893d5d142b7b795dce9c49f48721be7cc84d1d0b148929e7603c1cd43"
+    sha256 cellar: :any, x86_64_linux:      "a7a55d18ef1ee35a52b16ed0008925fcd8a015695f2c902bb031a939c2b210a9"
   end
 
   depends_on "node"
@@ -23,7 +23,7 @@ class McpServerKubernetes < Formula
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
     node_modules = libexec/"lib/node_modules/mcp-server-kubernetes/node_modules"
-    node_modules.glob("{bare-fs,bare-path,bare-os,bare-url}/prebuilds/*")
+    node_modules.glob("{bare-buffer,bare-fs,bare-path,bare-os,bare-url}/prebuilds/*")
                 .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
   end
 
