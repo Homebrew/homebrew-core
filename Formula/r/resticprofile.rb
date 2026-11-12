@@ -1,8 +1,8 @@
 class Resticprofile < Formula
   desc "Configuration profiles manager and scheduler for restic backup"
   homepage "https://creativeprojects.github.io/resticprofile/"
-  url "https://github.com/creativeprojects/resticprofile/archive/refs/tags/v0.33.1.tar.gz"
-  sha256 "3b8a26dbc17ac9268108de59ce0fedf831fe5bc8c41f7b36b8341fa9157b8f5a"
+  url "https://github.com/creativeprojects/resticprofile/archive/refs/tags/v0.34.0.tar.gz"
+  sha256 "343b956215e3a9124d0ac3d94740668a905eb4b9210e9f50f91baec67144f693"
   license "GPL-3.0-only"
   head "https://github.com/creativeprojects/resticprofile.git", branch: "master"
 
@@ -30,7 +30,7 @@ class Resticprofile < Formula
 
     bash_completion.install "contrib/completion/bash-completion.sh" => "resticprofile"
     fish_completion.install "contrib/completion/fish-completion.fish" => "resticprofile.fish"
-    zsh_completion.install "contrib/completion/zsh-completion.sh" => "_resticprofile"
+    zsh_completion.install "contrib/completion/zsh-completion.zsh" => "_resticprofile"
   end
 
   test do
