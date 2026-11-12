@@ -17,6 +17,12 @@ class Gocryptfs < Formula
   depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "openssl@4"
 
+  deny_network_access!
+
+  def fetch
+    system "go", "mod", "download"
+  end
+
   def install
     system "./build.bash"
     bin.install "gocryptfs", "gocryptfs-xray/gocryptfs-xray"

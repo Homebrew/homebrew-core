@@ -12,7 +12,6 @@ class Conmon < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "08eafee8471ae1ac41c2a408fefdb5059b5d180f84ad17ece149976a661c034b"
   end
 
-  depends_on "go" => :build
   depends_on "go-md2man" => :build
   depends_on "pkgconf" => :build
 
@@ -20,6 +19,8 @@ class Conmon < Formula
   depends_on "libseccomp"
   depends_on :linux
   depends_on "systemd"
+
+  deny_network_access!
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "LIBEXECDIR=#{libexec}"
