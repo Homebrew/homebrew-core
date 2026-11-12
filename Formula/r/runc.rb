@@ -1,8 +1,8 @@
 class Runc < Formula
   desc "CLI tool for spawning and running containers according to the OCI specification"
   homepage "https://github.com/opencontainers/runc"
-  url "https://github.com/opencontainers/runc/releases/download/v1.5.2/runc-1.5.2.tar.xz"
-  sha256 "46eba094e45fc37d96a1b1dc150971fe8d076d6e23bae09dd35443141bed31a1"
+  url "https://github.com/opencontainers/runc/releases/download/v1.5.3/runc-1.5.3.tar.xz"
+  sha256 "b46692550bfd6a6d69e15068d153446dfd401810809eecb767481fba90561b59"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/opencontainers/runc.git", branch: "main"
@@ -13,8 +13,8 @@ class Runc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "f370734f0cf708c1b5054172ede921028533113058ed0458641e613b290a1f3c"
-    sha256 cellar: :any, x86_64_linux: "797f36ef3d314f879d8fb837cca98d7bf452ff69a3f22b04e464c53409fc9f95"
+    sha256 cellar: :any, arm64_linux:  "f933125c1be5c0e7058b726df8db544e58e67227e498541eea7d849040b45f95"
+    sha256 cellar: :any, x86_64_linux: "04306f7ca38d1293da8219449ecd0532957204d342b2cb678a57bf96a7b22e11"
   end
 
   depends_on "go" => :build
