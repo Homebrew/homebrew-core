@@ -1,8 +1,8 @@
 class Vale < Formula
   desc "Syntax-aware linter for prose"
   homepage "https://vale.sh/"
-  url "https://github.com/vale-cli/vale/archive/refs/tags/v3.26.0.tar.gz"
-  sha256 "c63c9c9b415d55616c112c04ddd98fba5e94bec0e266bc576e36da6aa7d6b53e"
+  url "https://github.com/vale-cli/vale/archive/refs/tags/v3.27.0.tar.gz"
+  sha256 "66636c2528aac28c173f9449e3f4f1429b84d5be8d7877bf52fa6c5fd50ce5a0"
   license "MIT"
 
   bottle do
@@ -22,8 +22,6 @@ class Vale < Formula
   end
 
   def install
-    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
-
     system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}"), "./cmd/vale"
   end
 
