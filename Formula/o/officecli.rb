@@ -4,6 +4,7 @@ class Officecli < Formula
   url "https://github.com/iOfficeAI/OfficeCLI/archive/refs/tags/v1.0.161.tar.gz"
   sha256 "87d6954541e25fdbe56dce3328d497e6b397108f11ad0f1979818f4bd8a44201"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3343366cccc5be0fb45c5e4229537aad7878d898b60c1df09671530bd6a7556d"
@@ -13,13 +14,13 @@ class Officecli < Formula
     sha256 cellar: :any,                 x86_64_linux:      "c8290a41b28b8e46a3d75a8960c27c8046bc1fed5e23ea5dbc279ba7512478bf"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@10"
 
   def install
     # .NET named mutexes need `XDG_RUNTIME_DIR` (or `USER`) on Linux, which build containers may lack
     ENV["XDG_RUNTIME_DIR"] = buildpath
 
-    dotnet = Formula["dotnet"]
+    dotnet = Formula["dotnet@10"]
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
