@@ -2,8 +2,8 @@ class NelmAT1 < Formula
   desc "Kubernetes deployment tool that manages and deploys Helm Charts"
   homepage "https://github.com/werf/nelm"
   # Check stable version at https://github.com/werf/nelm/blob/main/trdl_channels.yaml
-  url "https://github.com/werf/nelm/archive/refs/tags/v1.29.0.tar.gz"
-  sha256 "67c5e9ac812a66c82fbd3f7293e287cf837967791ebcfb4579420873bae8910e"
+  url "https://github.com/werf/nelm/archive/refs/tags/v1.30.4.tar.gz"
+  sha256 "23d7af4dbd8e0a1f39e6e377008bc9f7f0a014c9351a1d0139ddbbaded22e752"
   license "Apache-2.0"
 
   # Track the stable channel of official Nelm binaries. This accounts for the
