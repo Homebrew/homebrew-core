@@ -4,10 +4,9 @@ class Nanopb < Formula
 
   desc "C library for encoding and decoding Protocol Buffer messages"
   homepage "https://jpa.kapsi.fi/nanopb/docs/index.html"
-  url "https://jpa.kapsi.fi/nanopb/download/nanopb-0.4.9.2.tar.gz"
-  sha256 "98b8cadce538f37230ca0d5d8796894e3067d58dd2fb2618e6712c7362bdd8bb"
+  url "https://jpa.kapsi.fi/nanopb/download/nanopb-0.4.9.3.tar.gz"
+  sha256 "3dcfe9e47b7ae5f5e567ca8df7a5d1c8e43996898ad20c7ef9f61c4054b2d250"
   license "Zlib"
-  revision 1
   compatibility_version 1
   head "https://github.com/nanopb/nanopb.git", branch: "master"
 
