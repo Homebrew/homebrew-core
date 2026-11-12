@@ -1,17 +1,17 @@
 class Zeroclaw < Formula
   desc "Rust-first autonomous agent runtime"
   homepage "https://www.zeroclawlabs.ai/"
-  url "https://github.com/zeroclaw-labs/zeroclaw/archive/refs/tags/v0.8.7.tar.gz"
-  sha256 "352f97ddcf0a03864089d8311fddd1bc5b5c2e1f1595a5e407a96fe0d2b62c79"
+  url "https://github.com/zeroclaw-labs/zeroclaw/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "b39010ba7bf95b69dc483cc9e083adfa08affc6bb2dacc9792b834b52ec63c44"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/zeroclaw-labs/zeroclaw.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "999bb31d3f49eb1a3f5ba8853023694c285e8bc1a1afe30d61a9036f7969baa5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "090053167d12a9f3c198f9066c4a760203c73a471edd8b94e64326258be3f300"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5cd18864cde1f401e28f19812db13cfb67f76e98feebdd02b4af37323761f69f"
-    sha256 cellar: :any,                 arm64_linux:       "8d2e8ad8eb4ac1cc5df35df166a8e8c79dc5060b39a52b0bfb31db1c9bec94f1"
-    sha256 cellar: :any,                 x86_64_linux:      "7da71b843d33b9f8480604cf4943b13121c188aabe1e12d676f7872011ce159a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a9e2bc2c3124b667712645992c001453386d4a2b5d90deb41ed0cf0493cac361"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2c3ac45a441372ce7529f614cb25f1bf1e13ec54b6f37a16e4c9d27b99c97d12"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "45762192064ea1a504be8db829bab51d224c8b497b74f5d8148ce747166fc7c1"
+    sha256 cellar: :any,                 arm64_linux:       "cfd2546c2cc26465aa7bdd96d7702a3bd396177103cffcc0283aba6c0313049a"
+    sha256 cellar: :any,                 x86_64_linux:      "bdd6f41ff8e5d4c1dfa7708771fbe7b81f78c5ae49d26fbe4f1b16e084457ec5"
   end
 
   depends_on "rust" => :build
