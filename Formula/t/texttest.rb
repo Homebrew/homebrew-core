@@ -3,8 +3,8 @@ class Texttest < Formula
 
   desc "Tool for text-based Approval Testing"
   homepage "https://www.texttest.org/"
-  url "https://files.pythonhosted.org/packages/30/11/5b6c9ce24c1b23effa0db201babf7610f15a98ecf6a7c3a00fa68db7a1fe/texttest-4.4.7.tar.gz"
-  sha256 "448d7f2d5c2883841df421d84b325b90067c0d385c4d6a700a6fd1cbe0972318"
+  url "https://files.pythonhosted.org/packages/c4/9c/cadeaa5532612a66269139e4826cbbbd9c646c228ec4caf2efb0c35591d3/texttest-4.5.0.tar.gz"
+  sha256 "1b8f5c4b456a6a2decb5a3e68e976768d1b37201893251ec11f332a0b1767e31"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -24,14 +24,6 @@ class Texttest < Formula
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/aa/c6/d1ddf4abb55e93cebc4f2ed8b5d6dbad109ecb8d63748dd2b20ab5e57ebe/psutil-7.2.2.tar.gz"
     sha256 "0746f5f8d406af344fd547f1c8daa5f5c33dbc293bb8d6a16d80b4bb88f59372"
-  end
-
-  # Fix import on Python 3.15
-  patch do
-    url "https://github.com/texttest/texttest/commit/f1ccd0a9dd5086f1e1e32587250aeef59e8db3b3.patch?full_index=1"
-    sha256 "d7395ab06ea5ebf86bbd4c8ea0d1eaabf4f821df52116c409ae7088387978749"
-    type :unofficial
-    resolves "https://github.com/texttest/texttest/pull/160"
   end
 
   def install
