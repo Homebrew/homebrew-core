@@ -1,8 +1,8 @@
 class Proxsuite < Formula
   desc "Advanced Proximal Optimization Toolbox"
   homepage "https://github.com/Simple-Robotics/proxsuite"
-  url "https://github.com/Simple-Robotics/proxsuite/archive/refs/tags/v0.8.2.tar.gz"
-  sha256 "57201b1b2d175e120f9fd27e0d024c1b087b65004da84ee65f0317256f1ac235"
+  url "https://github.com/Simple-Robotics/proxsuite/archive/refs/tags/v0.8.3.tar.gz"
+  sha256 "8bd4818895e66784c7f86e73997df4f9b318a9b06c233798f9ec169776656e07"
   license "BSD-2-Clause"
   head "https://github.com/Simple-Robotics/proxsuite.git", branch: "devel"
 
@@ -26,8 +26,12 @@ class Proxsuite < Formula
   depends_on "simde" => :no_linkage
 
   resource "jrl-cmakemodules" do
-    url "https://github.com/jrl-umi3218/jrl-cmakemodules/archive/refs/tags/v2.3.0.tar.gz"
-    sha256 "840cfba922b9589695ee3da4da3f9472ceeefe8fe4bccbb7ed3e885d1ca978cf"
+    url "https://github.com/jrl-umi3218/jrl-cmakemodules/archive/refs/tags/v2.4.0.tar.gz"
+    sha256 "1e810d43d471e9a172458187fd5ec0746d3155e173f4fb387e6c7fb56906d359"
+
+    livecheck do
+      url :url
+    end
   end
 
   deny_network_access!
