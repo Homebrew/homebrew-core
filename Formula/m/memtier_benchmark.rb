@@ -1,21 +1,20 @@
 class MemtierBenchmark < Formula
   desc "Redis and Memcache traffic generation and benchmarking tool"
   homepage "https://github.com/redis/memtier_benchmark"
-  url "https://github.com/redis/memtier_benchmark/archive/refs/tags/2.5.2.tar.gz"
-  sha256 "a3667000d14d3226dff234d4d215d304d3ccd42e960e14dd7225efe1dcb6bbd0"
+  url "https://github.com/redis/memtier_benchmark/archive/refs/tags/2.6.0.tar.gz"
+  sha256 "80cd749a0661a51d60cc61b7b2541c5022dab952629e456dfa6b91a48475f1a4"
   # https://github.com/redis/memtier_benchmark/blob/master/debian/copyright
   license all_of: [
     "GPL-2.0-or-later" => { with: "cryptsetup-OpenSSL-exception" },
     any_of: ["CC0-1.0", "BSD-2-Clause"], # deps/hdr_histogram/LICENSE.txt
   ]
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "705b113657eba372349cc0bc4a8247ac1657af0c60fc26f7c77d7b5d2062e900"
-    sha256 cellar: :any, arm64_tahoe:       "4de4357f63724d5198bad0da24df2768550b2f8b7eac317dceb99894edbe854b"
-    sha256 cellar: :any, arm64_sequoia:     "fac3ae4ef2b4ba88c07f77ce9aecb94e62ab9b23092723bed7e4260a87b0c719"
-    sha256 cellar: :any, arm64_linux:       "90cd75974c98f86c48b0067f49021ecc20ca8a26601f8d0064fe2083fb643e7c"
-    sha256 cellar: :any, x86_64_linux:      "11ede46ebe29cda797a703c8ad27eeb6a694c44c8a9975d980adf26f38016d16"
+    sha256 cellar: :any, arm64_golden_gate: "793d956c312e8d840cc9d5582b7de4309fda0cfa512325d6c6106510eaccc6fd"
+    sha256 cellar: :any, arm64_tahoe:       "120bb635255e032ecd20a369f864f888798f385087e375eca4ae3777412ffb86"
+    sha256 cellar: :any, arm64_sequoia:     "0ab4d4464e265dbd327d9641870053e5896bf76bbfc70437bd7932a6d6e608ba"
+    sha256 cellar: :any, arm64_linux:       "df99eb23350d8a2a3299babe1249d892d0ddd1279596dc86167bad81e86f1efe"
+    sha256 cellar: :any, x86_64_linux:      "7f5e2da9402e5ab85b14fde7084d0669cf357b68f887cbdd5cab49351b1b3ee2"
   end
 
   depends_on "autoconf" => :build
@@ -40,6 +39,6 @@ class MemtierBenchmark < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/memtier_benchmark --version")
-    assert_match "ALL STATS", shell_output("#{bin}/memtier_benchmark -c 1 -t 1")
+    assert_match "ALL STATS", shell_output("#{bin}/memtier_benchmark -c 1 -t 1", 1)
   end
 end
