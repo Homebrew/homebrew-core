@@ -20,19 +20,13 @@ class Atop < Formula
   deny_network_access!
 
   def install
-    inreplace "version.h", /"$/, "-#{Utils.git_short_head}\"", global: false if build.head?
-    # As this project does not use configure, we have to configure manually:
-    ENV["BINPATH"] = bin.to_s
-    ENV["SBINPATH"] = bin.to_s
-    ENV["MAN1PATH"] = man1.to_s
-    ENV["MAN5PATH"] = man5.to_s
-    ENV["MAN8PATH"] = man8.to_s
-    ENV["DEFPATH"] = "prev"
-    ENV["LOGPATH"] = "prev"
-    # It would try to install some files suid, which is not good for users:
-    inreplace "Makefile", "chmod", "true"
-    # RPM and Debian packages do not use the Makefile for users, but it ensures we forget nothing:
-    system "make", "-e", "genericinstall"
+    system "make", "genericinstall", "BINPATH=#{bin}",
+                                     "SBINPATH=#{bin}",
+                                     "MAN1PATH=#{man1}",
+                                     "MAN5PATH=#{man5}",
+                                     "MAN8PATH=#{man8}",
+                                     "DEFPATH=prev",
+                                     "LOGPATH=prev"
   end
 
   test do
