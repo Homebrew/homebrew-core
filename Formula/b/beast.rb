@@ -12,12 +12,11 @@ class Beast < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b93ad7a4a3bbf61eddf37a461b6822b054b78f4f2abe839e20060a1df15e1661"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c13894f640c1c2308eb2c468433b6158f5be1e4ffc074c2e053523590166866"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "39171dbf213c7091c78db76063b50c0457ea42a3ee6c5c21a227815504fceeb3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "86a46f94d5a378aa2a3a657875c802b2e2be29b9e8c0cea634627eb5a00c16a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3fbe512596b1d7445bbf50d2f811a5e480d4ac645a86561f1aedd43459cc4d0c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b01984684bec8c75f9f340b3316742ce2749c1134c5bfd44e32fae12888d1b48"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "852287f0b7c92e35e11319fab8d0d52d298bb27fcb4a6c562e5b6c85611a014b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "63cfce71d6837a9a31d27471b8b8c9be64be2aebd355f9ebefebe989aa41d445"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "73371051eaf4191dd96937212f4e4ab907ee5c9b44c1b635fff8e7d39c06eeba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "45ef71fa01bca5bceeae0208a58fbd97163f437efb7e3c1206e9666d3d11a272"
   end
 
   depends_on "ant" => :build
