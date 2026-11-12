@@ -4,6 +4,7 @@ class Fvm < Formula
   url "https://github.com/leoafarias/fvm/archive/refs/tags/4.3.2.tar.gz"
   sha256 "e16b1e76eb4df5b22d00ab40fe77cfd8c261be6f968e94eb081ad39af5615059"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_golden_gate: "61449e6d995559059dc4b12d2da037d3ce7d709e3dc300f1d0c099ede7e797d3"
