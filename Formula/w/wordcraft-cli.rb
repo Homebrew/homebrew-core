@@ -1,17 +1,17 @@
 class WordcraftCli < Formula
   desc "Headless WordCraft CLI and MCP server to convert, inspect and script documents"
   homepage "https://getartcraft.com/apps/wordcraft"
-  url "https://github.com/storytold/wordcraft/archive/refs/tags/v0.18.0.tar.gz"
-  sha256 "0f2ef27987a129bcd78e600131f16443491e7a38bf8aabf09a48d35c8298567f"
+  url "https://github.com/storytold/wordcraft/archive/refs/tags/v0.18.1.tar.gz"
+  sha256 "55e6e6ca0e988a7ba320bef506e3910d2e2e5c1d1599a79571e144947438ab92"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/storytold/wordcraft.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c933d10a2048b37bd54e41f6c270bad155642489ab7bfc5c60802502a5bb1cc0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d972e9f8b61f3dcc117bd6b804d759a3c0ce087b7e330d7e6d36036d1599ec82"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1e76e7fba0834594a75628810ca5122b6bda1f3cfdb9cf2a621e4c19300d0ccc"
-    sha256 cellar: :any,                 arm64_linux:       "1edbe65fd96875f437aa7605fa25feba38b5d91e19b080fcca6eadc432ed2a6a"
-    sha256 cellar: :any,                 x86_64_linux:      "d45812ac44333df9632410b06c4fa28d3f5f64763e5894a7d71d5ccdd1315922"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "67611ff2194577a4ba1bdceac08e43c006ff0a639371cd19f52ac139e5678883"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3bbe80ca953ded7783bd7fcfa0f47147f67263fe965491b4c66494240ecc05c5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "12e851b2fe33920b74cd92682852ecb4c44d1983a69d8398bd36a41dbe4ee2b4"
+    sha256 cellar: :any,                 arm64_linux:       "8de0d939ed5fa19a728ce52e02dc11cafa67a0bc818354b21fa0ff6ca7f78e64"
+    sha256 cellar: :any,                 x86_64_linux:      "0bf68826a24bd53ccd234aaab49fe35c4cd2f2ac466387ecfd2da20305b49a12"
   end
 
   depends_on "rust" => :build
