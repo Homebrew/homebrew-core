@@ -2,8 +2,8 @@ class ScalaCli < Formula
   desc "Scala language runner and build tool"
   homepage "https://scala-cli.virtuslab.org/"
   url "https://github.com/VirtusLab/scala-cli.git",
-      tag:      "v1.18.0",
-      revision: "65126b818f5a135ed3d18eb77e8010cbdb0daae9"
+      tag:      "v1.19.0",
+      revision: "3540735716df1be4e3db6c0f721c5c6b075e8a38"
   license "Apache-2.0"
   compatibility_version 1
 
@@ -28,7 +28,6 @@ class ScalaCli < Formula
 
   def install
     ENV["JAVA_HOME"] = formula_opt_prefix("openjdk@17")
-    ENV["USE_NATIVE_IMAGE_JAVA_PLATFORM_MODULE_SYSTEM"] = "false"
     ENV["COURSIER_CACHE"] = "#{HOMEBREW_CACHE}/coursier/v1"
     ENV["COURSIER_ARCHIVE_CACHE"] = "#{HOMEBREW_CACHE}/coursier/arc"
     ENV["COURSIER_JVM_CACHE"] = "#{HOMEBREW_CACHE}/coursier/jvm"
