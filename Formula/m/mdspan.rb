@@ -7,6 +7,10 @@ class Mdspan < Formula
   compatibility_version 1
   head "https://github.com/kokkos/mdspan.git", branch: "develop"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "3d399e86060ce7fb382eab770752f8d56408da0b30bf2d3d0b80b235d23b4315"
+  end
+
   depends_on "cmake" => [:build, :test]
 
   deny_network_access!
