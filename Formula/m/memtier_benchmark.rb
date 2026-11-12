@@ -1,8 +1,8 @@
 class MemtierBenchmark < Formula
   desc "Redis and Memcache traffic generation and benchmarking tool"
   homepage "https://github.com/redis/memtier_benchmark"
-  url "https://github.com/redis/memtier_benchmark/archive/refs/tags/2.6.0.tar.gz"
-  sha256 "80cd749a0661a51d60cc61b7b2541c5022dab952629e456dfa6b91a48475f1a4"
+  url "https://github.com/redis/memtier_benchmark/archive/refs/tags/2.6.1.tar.gz"
+  sha256 "355ba99f511a45dc12edbffa963ed186b6a20554ace98dfcd72814565cf6eea7"
   # https://github.com/redis/memtier_benchmark/blob/master/debian/copyright
   license all_of: [
     "GPL-2.0-or-later" => { with: "cryptsetup-OpenSSL-exception" },
@@ -10,11 +10,11 @@ class MemtierBenchmark < Formula
   ]
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "793d956c312e8d840cc9d5582b7de4309fda0cfa512325d6c6106510eaccc6fd"
-    sha256 cellar: :any, arm64_tahoe:       "120bb635255e032ecd20a369f864f888798f385087e375eca4ae3777412ffb86"
-    sha256 cellar: :any, arm64_sequoia:     "0ab4d4464e265dbd327d9641870053e5896bf76bbfc70437bd7932a6d6e608ba"
-    sha256 cellar: :any, arm64_linux:       "df99eb23350d8a2a3299babe1249d892d0ddd1279596dc86167bad81e86f1efe"
-    sha256 cellar: :any, x86_64_linux:      "7f5e2da9402e5ab85b14fde7084d0669cf357b68f887cbdd5cab49351b1b3ee2"
+    sha256 cellar: :any, arm64_golden_gate: "6a51da7c122049b5c29d8a4425b45f740923c488757f470a2ce4310901218bf5"
+    sha256 cellar: :any, arm64_tahoe:       "ae40da1fdff8aa72c39fa0758f74ac7d1a0135558f5e6d0082b73b69d394e29c"
+    sha256 cellar: :any, arm64_sequoia:     "a590b1b16b663598a3e20934c6c84d812d7ed7a1531b9317dcb9be32d5f419df"
+    sha256 cellar: :any, arm64_linux:       "6c0bc5141039bccb5399f8d858f91492fee28730bad5c0c4ad79ba08327448ce"
+    sha256 cellar: :any, x86_64_linux:      "daa668a5eb67b043e8089db5cf58ad0d12907a96db6326d38b7af5987a78f17a"
   end
 
   depends_on "autoconf" => :build
