@@ -1,16 +1,16 @@
 class Netbird < Formula
   desc "Securely connects across any network with one identity-based platform"
   homepage "https://netbird.io"
-  url "https://github.com/netbirdio/netbird/archive/refs/tags/v0.82.1.tar.gz"
-  sha256 "faea65ed0321a285818ad4458da5b0441c6f6f766c9fd963cb7dfc5cd9bf4445"
+  url "https://github.com/netbirdio/netbird/archive/refs/tags/v0.83.0.tar.gz"
+  sha256 "2e90e715c774a056f0b4e5bf5650000bb5ec21d773ee70ef73fb2f44eb109d4a"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6a02bf0700c0bfd7e5f744612efe04c13a04f3ec8f4eada6e734dbe8624ae0a4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6a02bf0700c0bfd7e5f744612efe04c13a04f3ec8f4eada6e734dbe8624ae0a4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6a02bf0700c0bfd7e5f744612efe04c13a04f3ec8f4eada6e734dbe8624ae0a4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "031cbdeaca9a00036c353966c168ed768388ad6af798aa61118d2fe6e5437029"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e38ada1a9aede5817702b105d457fb523b49a7d0d67ba6521b8796ee1fb724c6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4f899fd039ffacbf40c170b4b48c636363958d3ca9faee6299425f813ca1ddc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d4f899fd039ffacbf40c170b4b48c636363958d3ca9faee6299425f813ca1ddc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d4f899fd039ffacbf40c170b4b48c636363958d3ca9faee6299425f813ca1ddc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b9114b5cbbf25bb51b2f82d30f1d2048ccd246b35612e1446eac398d86496f6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "bf097f707b49e5be39c3323203d642cc18ed2b7a495d80a2e9559100e6bdc546"
   end
 
   depends_on "go" => :build
