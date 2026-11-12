@@ -1,19 +1,17 @@
 class Mmdbinspect < Formula
   desc "Look up records for one or more IPs/networks in one or more .mmdb databases"
   homepage "https://github.com/maxmind/mmdbinspect"
-  url "https://github.com/maxmind/mmdbinspect/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "589cf517b61b3837ae59a5b4875db30974dfcaee6c533ee91768286967ade8e8"
+  url "https://github.com/maxmind/mmdbinspect/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "ac165806226de6d6c221b1bc8b29fda1fd6d45574acea8178c338d9716d1b604"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/maxmind/mmdbinspect.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eb56e7c12d39f8915c46eb099f8d96bede50d5e4e6ad812e603b521fa16b4357"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "32ea559ea3db8ed663b41e20b5d3db3c3982fd92acfcec7235de26b3be73bb9e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "32ea559ea3db8ed663b41e20b5d3db3c3982fd92acfcec7235de26b3be73bb9e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "32ea559ea3db8ed663b41e20b5d3db3c3982fd92acfcec7235de26b3be73bb9e"
-    sha256 cellar: :any_skip_relocation, sonoma:            "e5d866271963d5a0a7152f47a41e8b1da2046e2f7e395287d65c3f1cb2cf78f4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "657f79c53a27815dbbc4ef247beae40307111f4d814d9751e1f3e02aec247bfb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "807a8b443eb151b0c5e9fa87b7cff7af1df3f8255d5b3ab8d067ac7e422f50df"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d10d700b7e8501142e38dc674a89285f05a7a7af069af12bf0845a27ddaedbdd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d10d700b7e8501142e38dc674a89285f05a7a7af069af12bf0845a27ddaedbdd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d10d700b7e8501142e38dc674a89285f05a7a7af069af12bf0845a27ddaedbdd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "73298ad4f21e4091aeda312e955a7fe4df2a1243eaaedd90d353b602ce11e5ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "1102c203aab32f3332605f5270454678b48be22aa3f4ed51cf0479619778bfd8"
   end
 
   depends_on "go" => :build
