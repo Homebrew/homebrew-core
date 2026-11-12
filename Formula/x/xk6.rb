@@ -1,8 +1,8 @@
 class Xk6 < Formula
   desc "Build k6 with extensions"
   homepage "https://k6.io"
-  url "https://github.com/grafana/xk6/releases/download/v1.5.0/xk6_1.5.0_source.tar.gz"
-  sha256 "ec4c09b261a26a48f3834518d3ffbf8dedf47750e2583fe5cc1b9637af2d3c51"
+  url "https://github.com/grafana/xk6/releases/download/v1.5.1/xk6_1.5.1_source.tar.gz"
+  sha256 "e36fe66e7c74da3143086d443373ae0199105a10cf54e7e9d05fab70f45a904e"
   license "Apache-2.0"
   head "https://github.com/grafana/xk6.git", branch: "master"
 
@@ -12,11 +12,11 @@ class Xk6 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6fff4f3bedda0cf4fbab3dff79391685a437351a378cb32be93a84689db3c22d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6fff4f3bedda0cf4fbab3dff79391685a437351a378cb32be93a84689db3c22d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6fff4f3bedda0cf4fbab3dff79391685a437351a378cb32be93a84689db3c22d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c8978572d97a5a35556a04f178c593b8b5978bfbeee989af781d0408d95d1562"
-    sha256 cellar: :any,                 x86_64_linux:      "253b6270c57c540fe28b944c82d48b71f25ea35e17537fe8b3ff8f3071ba3eb8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7b44182fb5efaeecaf0f4361a828d522fc74a25275676525d2c5e9dd9afde3b4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7b44182fb5efaeecaf0f4361a828d522fc74a25275676525d2c5e9dd9afde3b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7b44182fb5efaeecaf0f4361a828d522fc74a25275676525d2c5e9dd9afde3b4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f83a0d07591e3f393312611351f9c73bb39e4c5abd5eef0a83550add1a751afd"
+    sha256 cellar: :any,                 x86_64_linux:      "2c892dcf2a7b2afb45ccf92a2bf3f53d0b9cbeef43ac1ef76865987d9c55425f"
   end
 
   depends_on "go"
