@@ -11,12 +11,11 @@ class PostgresqlAT17 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "bcdda4612176c086fff454f1ec138a0dd24eba06494e1cdcaff09632c5d90de7"
-    sha256 arm64_tahoe:       "1003c465a0cb345b984b90c0560248534bea8100a92999e83bc12fa54113b9e7"
-    sha256 arm64_sequoia:     "bc3813998ab6e2888b4e9c2525304331f116f1c93acbdfc4c572a91bf417c383"
-    sha256 arm64_linux:       "f124c0ec82e7286a965b93aee0bed3c9517f5e12d37cdb5325ff87a8b1406d02"
-    sha256 x86_64_linux:      "29a3c24b1e11e29315f33d1d7e5948824c153f2e21d0865ee312bc240a29e589"
+    sha256 arm64_golden_gate: "11db98ebfada77d52ed6bf142e0646f5bcbc05f599e698ce22b3582cf6e79dd1"
+    sha256 arm64_tahoe:       "3397650718a1162408707c4687228f3305f785e9af8c53e9872b155e8ee6a23c"
+    sha256 arm64_sequoia:     "f17b6e907936d9e02b6b860e876feb66c5da3cc89906c1b80e52d5b849d56138"
+    sha256 arm64_linux:       "0f391f91780d377f4900a88582ad446cfdaa9dfa91a2a2cd3ae5879bd267ae73"
+    sha256 x86_64_linux:      "d088cb1b43322c41b8600ecb57fcb93278c1354d2928132e949b149ffee410a0"
   end
 
   keg_only :versioned_formula
