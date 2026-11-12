@@ -7,11 +7,11 @@ class VectorcraftCli < Formula
   head "https://github.com/storytold/vectorcraft.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "768a439c668beb37bc625db69b8cab82754034d97e1f0d99a9afcc6fa524a9e8"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "405d4de1c560969641b98b3ea7bf877933ab77aac3e49f1edaed10f1401a0111"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bc5c3d510536bb6bb5ca8015ea7aee451e7a8aaae4fd344ef8234603508d6af6"
-    sha256 cellar: :any,                 arm64_linux:       "11d20456e8f672ab7e800c2d4b18042643bd7ab60b7fcfe48c136c13fd5815ac"
-    sha256 cellar: :any,                 x86_64_linux:      "60ec9366d7ad5f5dbf7a095bd5f99bad3f23fa8a86dcbd413c981bbe5000fb55"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e450d3548acb16accfafe0191157be0c5cd27c0afeb024793964d08c03250104"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "55750016238cd62ecd0d6aad989c1c9340304d77b5bda0dd645418a41d40b16e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "28a745a01c5983d812ae045d25b1cfe398563ef8b1d2909f97674ebbcdd26e54"
+    sha256 cellar: :any,                 arm64_linux:       "b0d1f2818f1ba04f09231d29c74d33fc9f7f2636bff4aa7b5237bde15ad131fb"
+    sha256 cellar: :any,                 x86_64_linux:      "072799f5f39397a64c8e5fa7f9075fb92afe39836fbe11bd3df3cf2e499933a8"
   end
 
   depends_on "rust" => :build
