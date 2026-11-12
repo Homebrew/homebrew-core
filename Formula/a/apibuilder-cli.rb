@@ -11,6 +11,8 @@ class ApibuilderCli < Formula
 
   uses_from_macos "ruby"
 
+  deny_network_access!
+
   def install
     system "./install.sh", prefix
   end
