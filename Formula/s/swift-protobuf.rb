@@ -4,8 +4,8 @@ class SwiftProtobuf < Formula
   # We use a git checkout as swift needs to find submodule files specified
   # in Package.swift even though they aren't built for `protoc-gen-swift`
   url "https://github.com/apple/swift-protobuf.git",
-      tag:      "1.39.0",
-      revision: "3d537cb81aef272a03cb3be815439e9bf0eb3bd3"
+      tag:      "1.40.0",
+      revision: "c7d117246c8cd5f93daa873a68659cfe23c93a1e"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/apple/swift-protobuf.git", branch: "main"
@@ -16,11 +16,11 @@ class SwiftProtobuf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c36fe0110251be806be013a57013efc95178bc5aecace8043088551f007b9f7c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23e2a614c306c04d56c8efb2ceba53d9451c3a8d53e16542aefebb3e206fc7dd"
-    sha256 cellar: :any,                 arm64_sequoia:     "0df15f5637eb488c691c5d59ab466b23d150a56ab3f795ea5f77ee693093810d"
-    sha256 cellar: :any,                 arm64_linux:       "646512d0fcb762fa964cb22ab210bad51823c5baf732c32c785eabbda6603e7d"
-    sha256 cellar: :any,                 x86_64_linux:      "373019a3b45b5613e8c9709e35ece9764ee4499ed8579bf01a2d5745b6d15e4d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ac2b91c79befeaeb1da0910556bdc6efc6020e66e37440d3898a7a0d507e2778"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "da9e400cd752ac4d5e3c205d19fbc837f9d8e02e31b48fd3d9e144324015ba74"
+    sha256 cellar: :any,                 arm64_sequoia:     "c84e1bd129bdc56887939bb9acf66790c68efaefdc7f3b54a60621cc92607b96"
+    sha256 cellar: :any,                 arm64_linux:       "932049f5cdc032e920badbcfd1462b439a844ce8860da2e8601c563be37faac1"
+    sha256 cellar: :any,                 x86_64_linux:      "b7c3aa04df8551284404b238ee0f8c55d4f10470c9478f31d5ee598c74e83182"
   end
 
   depends_on "protobuf"
