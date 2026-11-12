@@ -1,8 +1,8 @@
 class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "https://www.gethomebank.org/en/index.php"
-  url "https://www.gethomebank.org/public/sources/homebank-5.10.3.tar.gz"
-  sha256 "574de504cceafdb6138ffa2e03be567ad66b8a2ceaef3434e07ca695e82dd9e3"
+  url "https://www.gethomebank.org/public/sources/homebank-5.10.4.tar.gz"
+  sha256 "f8072131328e7c1d6ca336f809e265e483c6d6d21f3654bc520700d27deae2d8"
   license "GPL-2.0-or-later"
 
   livecheck do
