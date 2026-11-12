@@ -1,15 +1,9 @@
 class PostgresqlAT14 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v14.24/postgresql-14.24.tar.bz2"
-  sha256 "a7fa7ed3d558172355f51406097a7bd4f6b473be80f311ef7cda96bf383d8897"
+  url "https://ftp.postgresql.org/pub/source/v14.25/postgresql-14.25.tar.bz2"
+  sha256 "09af980eb3a5d0a8ad7a34b95031b1988bbcd430c87700a62d6234c0ed97ae4c"
   license "PostgreSQL"
-  revision 1
-
-  livecheck do
-    url "https://ftp.postgresql.org/pub/source/"
-    regex(%r{href=["']?v?(14(?:\.\d+)+)/?["' >]}i)
-  end
 
   bottle do
     rebuild 1
@@ -23,7 +17,7 @@ class PostgresqlAT14 < Formula
   # deprecating one year before the last release,
   # see: https://www.postgresql.org/support/versioning/
   deprecate! date: "2025-11-12", because: :unsupported
-  disable! date: "2026-11-12", because: :unsupported
+  disable! date: "2026-11-30", because: :unsupported
 
   depends_on "pkgconf" => :build
   depends_on "icu4c@79"
