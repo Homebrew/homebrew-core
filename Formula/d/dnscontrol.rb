@@ -1,8 +1,8 @@
 class Dnscontrol < Formula
   desc "Synchronize your DNS to multiple providers from a simple DSL"
   homepage "https://dnscontrol.org/"
-  url "https://github.com/DNSControl/dnscontrol/archive/refs/tags/v5.8.1.tar.gz"
-  sha256 "71d0a9e71487dce36ece540bba14920d9ea6fb4dea3d1873aac0eeb250e63757"
+  url "https://github.com/DNSControl/dnscontrol/archive/refs/tags/v5.8.2.tar.gz"
+  sha256 "6a99160430ce10090cdfe21668e26953df12c34198d98685d42716cce2890c95"
   license "MIT"
   version_scheme 1
   head "https://github.com/DNSControl/dnscontrol.git", branch: "main"
@@ -16,11 +16,11 @@ class Dnscontrol < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e7eeaa35b04adb6c76e18796d5c08f8589fb78d2e534d6836f7e780daa9c7d95"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8151f194470c588744b0a0a0f127a831bb78ce8f257acf5122617fd653c97b89"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "94bb41dfb07db7e0ec8773e11e7a935a2f481ffb86aa8b459bfd7701f5af956c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "21ceb8eb4d6dd5f45df00f95746548ae5b08c13f8911e52fd2ace5d15a056626"
-    sha256 cellar: :any,                 x86_64_linux:      "52b385c05d94531d6c59259259afea71fb3782d341a9bc3f0dc848f673d26b5b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3e09e916a3114fec4f653c296af42ab2670f8cb9ccca79173bd9646018fb50d1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a13768f42aca74e70d3fd27d22683e073320544913a2f260c0b2e1e921cb8e84"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9010b47f45852fbdc5a3df672c798a90f21712ac5b50abd8b381475e133203e9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d27b5a7f036a2fe29bfff9e056b91ad0870fdacae194f186ea247cd36bc05322"
+    sha256 cellar: :any,                 x86_64_linux:      "085b334a9044a6da7c1a3682c5bd074ab6511bbaa482316e795700f2b620d1ee"
   end
 
   depends_on "go" => :build
