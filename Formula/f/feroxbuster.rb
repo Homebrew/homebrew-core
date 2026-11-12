@@ -1,8 +1,8 @@
 class Feroxbuster < Formula
   desc "Fast, simple, recursive content discovery tool written in Rust"
   homepage "https://epi052.github.io/feroxbuster"
-  url "https://github.com/epi052/feroxbuster/archive/refs/tags/v2.13.1.tar.gz"
-  sha256 "6f1f3466319ea5485b9d6f05000718c6ccbe1210c1cea7b2af83a5343d068a23"
+  url "https://github.com/epi052/feroxbuster/archive/refs/tags/v2.14.0.tar.gz"
+  sha256 "1d6cc31d5ce3bd21e8b58ef32ac5745f6684682278be4b905b229cf49990887d"
   license "MIT"
 
   bottle do
@@ -22,9 +22,6 @@ class Feroxbuster < Formula
   on_linux do
     depends_on "openssl@4"
   end
-
-  # Update to openssl 0.10.78 and openssl-sys 0.9.114 for minimum needed to use OpenSSL 4
-  patch :DATA
 
   allow_network_access! :test
 
@@ -65,33 +62,3 @@ class Feroxbuster < Formula
     end
   end
 end
-
-__END__
-diff --git a/Cargo.lock b/Cargo.lock
-index 0af50e8..443710b 100644
---- a/Cargo.lock
-+++ b/Cargo.lock
-@@ -2227,9 +2227,9 @@ checksum = "a4895175b425cb1f87721b59f0f286c2092bd4af812243672510e1ac53e2e0ad"
- 
- [[package]]
- name = "openssl"
--version = "0.10.73"
-+version = "0.10.78"
- source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "8505734d46c8ab1e19a1dce3aef597ad87dcb4c37e7188231769bd6bd51cebf8"
-+checksum = "f38c4372413cdaaf3cc79dd92d29d7d9f5ab09b51b10dded508fb90bb70b9222"
- dependencies = [
-  "bitflags",
-  "cfg-if",
-@@ -2274,9 +2274,9 @@ dependencies = [
- 
- [[package]]
- name = "openssl-sys"
--version = "0.9.109"
-+version = "0.9.114"
- source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "90096e2e47630d78b7d1c20952dc621f957103f8bc2c8359ec81290d75238571"
-+checksum = "13ce1245cd07fcc4cfdb438f7507b0c7e4f3849a69fd84d52374c66d83741bb6"
- dependencies = [
-  "cc",
-  "libc",
