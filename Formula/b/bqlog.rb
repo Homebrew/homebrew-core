@@ -12,11 +12,11 @@ class Bqlog < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7d1d00fd71ba6fe058a7ee594503276a27ff4f05afb13a7095412c14130dca3c"
-    sha256 cellar: :any, arm64_tahoe:       "d9b17dc7fd785a3b2a4a3168eb4315552253af50aed389867980dd052a7918ed"
-    sha256 cellar: :any, arm64_sequoia:     "88b3fbcd4d87aaeaf8be1af851ad2eab4bdbf5c42fe5b9f355df1120832cfcbf"
-    sha256 cellar: :any, arm64_linux:       "a0530a097ccaa0258a4fe476f6a701d7c91050b692a7cca686474e7c72b1cacb"
-    sha256 cellar: :any, x86_64_linux:      "a5dda47c4482362ba327ff1da148dcc79dfdf010715d30b2f20247659dd6975d"
+    sha256 cellar: :any, arm64_golden_gate: "4c803b1c48acd426a4b433145ee9d9b687c4deeadc5f59dec9057afe94621894"
+    sha256 cellar: :any, arm64_tahoe:       "16450e88c860361e2a290ec96fe504e56017a7aad53c06c3a27aa8fbcb596b4b"
+    sha256 cellar: :any, arm64_sequoia:     "e9c3ab9fad92df5c2b4a0cedb5077577ae963011897f9560d4fb5d1be64f74a4"
+    sha256 cellar: :any, arm64_linux:       "138fd6b301ec0a7e75a521b86fc3f3c49ea8adcf3ac491ec7ba30f75af123257"
+    sha256 cellar: :any, x86_64_linux:      "e98a3f5418116ac50e5578865f3a519dec36c61bca964c3cb406c1815c207da6"
   end
 
   depends_on "cmake" => :build
