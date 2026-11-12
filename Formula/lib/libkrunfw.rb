@@ -3,8 +3,8 @@ class Libkrunfw < Formula
 
   desc "Dynamic library bundling the guest payload consumed by libkrun"
   homepage "https://github.com/libkrun/libkrunfw"
-  url "https://github.com/libkrun/libkrunfw/archive/refs/tags/v5.6.3.tar.gz"
-  sha256 "955e53c6de7241949495c790fbd0b9ec308c6fcbdadcd83460e36c7507fe0fd7"
+  url "https://github.com/libkrun/libkrunfw/archive/refs/tags/v5.6.4.tar.gz"
+  sha256 "5b92b6f2a5ee6a16583bd37014a37794451a00d120fceee104f84404118757d0"
   license all_of: ["LGPL-2.1-only", "GPL-2.0-only"]
   compatibility_version 1
 
@@ -40,8 +40,8 @@ class Libkrunfw < Formula
   end
 
   resource "kernel" do
-    url "https://github.com/libkrun/linux/archive/refs/tags/v5.6.3-6.12.115.tar.gz", using: :nounzip
-    sha256 "62841e8af1a0e6630c12dd2f36d4f2bd352b32715780308bd9c364a8e1fd4ede"
+    url "https://github.com/libkrun/linux/archive/refs/tags/v5.6.4-6.12.115.tar.gz", using: :nounzip
+    sha256 "050fcea96b607e49f135f270472bc95346c172c9d6df5f9256aeb6f7972675d5"
 
     livecheck do
       url "https://raw.githubusercontent.com/libkrun/libkrunfw/refs/tags/v#{LATEST_VERSION}/Makefile"
