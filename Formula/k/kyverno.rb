@@ -1,8 +1,8 @@
 class Kyverno < Formula
   desc "Kubernetes Native Policy Management"
   homepage "https://kyverno.io/"
-  url "https://github.com/kyverno/kyverno/archive/refs/tags/v1.19.2.tar.gz"
-  sha256 "9c09a8cf176357852aaf9b81df0c609099ba72d6591b9e2148984a5b8cfe1dda"
+  url "https://github.com/kyverno/kyverno/archive/refs/tags/v1.20.0.tar.gz"
+  sha256 "03285a7ed3f24ee99d62b5e00829441627219f9f81702e4c8adef741c1d83707"
   license "Apache-2.0"
   head "https://github.com/kyverno/kyverno.git", branch: "main"
 
@@ -14,11 +14,11 @@ class Kyverno < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "67d311a6f158a85e5a6740172b3e7aaabda2934806ab1a2478b3f2ecae5c4d25"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6f2145f577c4131e72c57f0474e9d100cd4bf384f215fd47f0e6d33723c7f35b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1bf9bfc8e6cbbf2e421193e76aebcbe44e734e2479cfd780a6fe6595cf2be987"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "22dc9b4c2522c00ed451539161194c96ccd1856837669afad01dc18a17bed29b"
-    sha256 cellar: :any,                 x86_64_linux:      "20a48e61baf679f328a8ececac1e98369d7675c214ab855905fc56b604f1a846"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3c50af350beda536ee8cce8e75709c1307f87da8dd664d3a94d397611f4597d1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5420fc6363ee3cd17f5901fcdc97907f8488d0afa81225f7a77bf6f399f3ad38"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1383b5d97f3231db49e9dfcac38c5c105c228e7f96253d84e575fde8ec618cd4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "aabbd69fba029b8b0f50909e76a67c6e6137863c4dd76f8325fdac502f242672"
+    sha256 cellar: :any,                 x86_64_linux:      "ea00c89ff3a089f4091caa63f55695bbdf2ad337eb430f3f3a1fe676aa7dc5ef"
   end
 
   depends_on "go" => :build
