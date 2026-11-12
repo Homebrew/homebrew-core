@@ -1,17 +1,17 @@
 class GoParquetTools < Formula
   desc "Utility to deal with Parquet data"
   homepage "https://github.com/hangxie/parquet-tools"
-  url "https://github.com/hangxie/parquet-tools/archive/refs/tags/v1.57.3.tar.gz"
-  sha256 "0ccff478d9ceb1b73a2593aa1ec48044ef6dccd1a8cb71741fbc583e4d77fadb"
+  url "https://github.com/hangxie/parquet-tools/archive/refs/tags/v1.57.4.tar.gz"
+  sha256 "1af87863f2ed760670b8fb016890ec2e3146884d089ef466dd4099cd5133d613"
   license "BSD-3-Clause"
   head "https://github.com/hangxie/parquet-tools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5050af6cca42a76e92d6bcda29d69feb112c502060cbe69f0120653448b75431"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5050af6cca42a76e92d6bcda29d69feb112c502060cbe69f0120653448b75431"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5050af6cca42a76e92d6bcda29d69feb112c502060cbe69f0120653448b75431"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e2d54a31032db71afc9afbd499ff87e530775368b1e6fd1cc232dbcf15a455ab"
-    sha256 cellar: :any,                 x86_64_linux:      "037c654d56d0e82036d8b5e303ddc302a935d8da999dc4a47cc4c682ac275e55"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d6e10d47d6da7df66b1f55dac118e38eac0234036b26dc82dee13e7a69b69a10"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d6e10d47d6da7df66b1f55dac118e38eac0234036b26dc82dee13e7a69b69a10"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d6e10d47d6da7df66b1f55dac118e38eac0234036b26dc82dee13e7a69b69a10"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "db1facb85dc10321ae1ff4c8b357c32ceeab0dc1a74a24de33ca1aa59d789ffc"
+    sha256 cellar: :any,                 x86_64_linux:      "d00327bd651facd54965d15b59f27b284ad70f879bc1c652b68c0ed52632b938"
   end
 
   depends_on "go" => :build
