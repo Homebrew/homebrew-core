@@ -1,8 +1,8 @@
 class ApifyCli < Formula
   desc "Apify command-line interface"
   homepage "https://docs.apify.com/cli/"
-  url "https://registry.npmjs.org/apify-cli/-/apify-cli-1.11.0.tgz"
-  sha256 "bdb2adfc374aeb876e0d183c6c4fb4975691b795a6e28b5758abf2277d15bb70"
+  url "https://registry.npmjs.org/apify-cli/-/apify-cli-1.12.0.tgz"
+  sha256 "8df95135c12e62d162650da7bbfebd319945e0675675c641df0c7951256ba233"
   license "Apache-2.0"
 
   no_autobump! because: :bumped_by_upstream
@@ -28,7 +28,7 @@ class ApifyCli < Formula
     # Remove incompatible pre-built `bare-fs`/`bare-path`/`bare-os`/`bare-url` binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    node_modules.glob("{bare-fs,bare-path,bare-os,bare-url}/prebuilds/*")
+    node_modules.glob("{bare-buffer,bare-fs,bare-path,bare-os,bare-url}/prebuilds/*")
                 .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
   end
 
