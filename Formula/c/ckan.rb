@@ -4,6 +4,7 @@ class Ckan < Formula
   url "https://github.com/KSP-CKAN/CKAN/archive/refs/tags/v1.36.4.tar.gz"
   sha256 "5b7d4257ccd760b809cd75a6b2b7bfb2fcf42c8bd492d6c1b61b04e7649b2aaf"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,17 +20,19 @@ class Ckan < Formula
     sha256 cellar: :any,                 x86_64_linux:      "f997195e4880fb61ce3f592c41ec09f83e417381ebc0e2d0a0e967b065c81904"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@10"
 
   def install
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
+    # .NET's user-scoped named mutexes need a writable runtime directory on Linux.
+    ENV["XDG_RUNTIME_DIR"] = buildpath
 
-    dotnet = Formula["dotnet"]
+    dotnet = deps.find { |d| d.name.match? Version.formula_optionally_versioned_regex(:dotnet) }.to_formula
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
-      --output #{libexec}
       --no-self-contained
+      --output #{libexec}
       --use-current-runtime
       -p:AppHostRelativeDotNet=#{dotnet.opt_libexec.relative_path_from(libexec)}
     ]
