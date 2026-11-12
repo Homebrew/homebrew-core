@@ -4,6 +4,7 @@ class TechnitiumLibrary < Formula
   url "https://github.com/TechnitiumSoftware/TechnitiumLibrary/archive/refs/tags/dns-server-v15.6.2.tar.gz"
   sha256 "e7f5add92da555fc3120991fabd802c0605ab9c45cb4b56137dfb0699a006cec"
   license "GPL-3.0-only"
+  revision 1
   compatibility_version 1
 
   bottle do
@@ -14,11 +15,11 @@ class TechnitiumLibrary < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "13e3ccc67a1c2bf59b423f2e4d744effc6d3f4032f1e8cdb145638b70d58389c"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@10"
 
   deny_network_access!
 
-  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
+  def dotnet = deps.find { |d| d.name.match? Version.formula_optionally_versioned_regex(:dotnet) }.to_formula
 
   def libraries
     %w[
