@@ -4,6 +4,7 @@ class CyclonedxCli < Formula
   url "https://github.com/CycloneDX/cyclonedx-cli/archive/refs/tags/v0.33.1.tar.gz"
   sha256 "01574e2e7d1cfe88ed50bbe7e87663af45a6b261ba11518a6c8eb34f809e1309"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "362850158bd607f1cd8d90433f69b8d008791620a22399e8ca6314c7348b01f9"
@@ -15,7 +16,7 @@ class CyclonedxCli < Formula
     sha256 cellar: :any,                 x86_64_linux:      "7fbd6f25855a93759926a25257efffc1293e6a6b9247303f98f4b5bc53338d57"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@10"
 
   resource "document.spdx.json", :test do
     url "https://raw.githubusercontent.com/CycloneDX/cyclonedx-cli/refs/tags/v0.32.0/tests/cyclonedx.tests/Resources/document.spdx.json"
@@ -24,7 +25,7 @@ class CyclonedxCli < Formula
 
   deny_network_access!
 
-  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
+  def dotnet = deps.find { |d| d.name.match? Version.formula_optionally_versioned_regex(:dotnet) }.to_formula
 
   def fetch
     ENV["XDG_RUNTIME_DIR"] = buildpath
