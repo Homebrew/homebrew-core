@@ -44,7 +44,7 @@ class Cwb3 < Formula
     depends_on "gettext"
   end
 
-  resource("tutorial_data") do
+  resource "tutorial_data", :test do
     url "https://cwb.sourceforge.io/files/encoding_tutorial_data.zip"
     sha256 "bbd37514fdbdfd25133808afec6a11037fb28253e63446a9e548fb437cbdc6f0"
   end

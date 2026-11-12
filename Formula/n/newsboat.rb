@@ -51,7 +51,7 @@ class Newsboat < Formula
   # They do not want to be the new upstream, but use that fork as a temporary
   # workaround until they migrate to some rust crate
   # https://github.com/newsboat/newsboat/issues/232
-  resource("libstfl") do
+  resource "libstfl" do
     url "https://github.com/newsboat/stfl.git",
         revision: "bbb2404580e845df2556560112c8aefa27494d66"
   end

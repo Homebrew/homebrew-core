@@ -17,7 +17,7 @@ class GoParquetTools < Formula
   depends_on "go" => :build
 
   # `test do` block downloads a test fixture resource
-  resource("test-parquet", :test) do
+  resource "test-parquet", :test do
     url "https://github.com/hangxie/parquet-tools/raw/950d21759ff3bd398d2432d10243e1bace3502c5/testdata/good.parquet"
     sha256 "daf5090fbc5523cf06df8896cf298dd5e53c058457e34766407cb6bff7522ba5"
   end
