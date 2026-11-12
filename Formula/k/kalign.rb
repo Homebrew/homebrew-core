@@ -1,19 +1,16 @@
 class Kalign < Formula
   desc "Fast multiple sequence alignment program for biological sequences"
   homepage "https://github.com/TimoLassmann/kalign"
-  url "https://github.com/TimoLassmann/kalign/archive/refs/tags/v3.5.1.tar.gz"
-  sha256 "983bfd7da76010d59c3de3bae3d977cac78642c5eb061009dd12b11b9db5190d"
+  url "https://github.com/TimoLassmann/kalign/archive/refs/tags/v4.0.0.tar.gz"
+  sha256 "3292ac61a6d2af195e5100650b26cf87dcab75d14167ce39d5b4d5b78ebe5b77"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "d203129700963af1e0c53b7145f662c83b11a0b407726829a323164f816e27d4"
-    sha256 cellar: :any, arm64_tahoe:       "11bcedd722af4c6c3703fbac5785f7e8c6b6fbe24d618fc4d56f54c088a8a0c0"
-    sha256 cellar: :any, arm64_sequoia:     "fbbac6301fca1689cbcb009a337d5f3f592f344e99d88c554e000322b4406fe6"
-    sha256 cellar: :any, arm64_sonoma:      "bdda94dc4686d7f8321b0ecea9546b46af48e70ec16a0e90425dade6b42d37dd"
-    sha256 cellar: :any, sonoma:            "31ded0e6f6a5be3ff4722b577735dbf1680b02207034bad00450540bc47c209f"
-    sha256 cellar: :any, arm64_linux:       "2ff9b4489430c6f92b8f7c2bda793cea799e70a086d149316ed3c3f17dc4f617"
-    sha256 cellar: :any, x86_64_linux:      "f13dc7d95b1f7e5696259cea071a1a3e79233ab2f75d6d1ddc4fc46309ecf3f2"
+    sha256 cellar: :any, arm64_golden_gate: "4c43619c7d280716e5d59e91a1858ebb2e0ce2a234968aa6ee8ff147655fc88e"
+    sha256 cellar: :any, arm64_tahoe:       "a7484a3ce74c4fc64389e85ef0420f0c646c58b754228f72764069e0149bddda"
+    sha256 cellar: :any, arm64_sequoia:     "2eaf0722a0781be6c30838c5c5848c44fc940dfaf51b27b4cf8c82861009f958"
+    sha256 cellar: :any, arm64_linux:       "8f252500d42988e39bd5ebef2954a8cf0f7a024996433100857c56ba050f117f"
+    sha256 cellar: :any, x86_64_linux:      "75ca80be9c96ef176d284818c7899a7a1f5af839f08eff8175a3e90317131dd3"
   end
 
   depends_on "cmake" => :build
