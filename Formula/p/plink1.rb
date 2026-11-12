@@ -1,8 +1,8 @@
 class Plink1 < Formula
   desc "Whole-genome association analysis toolset"
   homepage "https://www.cog-genomics.org/plink/1.9/"
-  url "https://github.com/chrchang/plink-ng/archive/refs/tags/v1.9.0.tar.gz"
-  sha256 "07f74f8c588e9cdc95f60b3b665976852e27db1f188a3bb75ff5ff4cba075d9d"
+  url "https://github.com/chrchang/plink-ng/archive/refs/tags/v1.9.1.tar.gz"
+  sha256 "c1da6fc12829108743affc94866391d96021d3c55ed52735e110b89654af85b3"
   license "GPL-3.0-or-later"
   head "https://github.com/chrchang/plink-ng.git", branch: "master"
 
