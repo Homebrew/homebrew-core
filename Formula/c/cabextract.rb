@@ -1,8 +1,8 @@
 class Cabextract < Formula
   desc "Extract files from Microsoft cabinet files"
   homepage "https://www.cabextract.org.uk/"
-  url "https://www.cabextract.org.uk/cabextract-1.11.tar.gz"
-  sha256 "b5546db1155e4c718ff3d4b278573604f30dd64c3c5bfd4657cd089b823a3ac6"
+  url "https://www.cabextract.org.uk/cabextract-1.12.tar.gz"
+  sha256 "8f39ad5f9c076b9c62c67dea4f8649e75dcc16899a2d8122ca32ba68262cb713"
   license "GPL-3.0-or-later"
   compatibility_version 1
 
@@ -12,19 +12,11 @@ class Cabextract < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cbf265aceed60b81e6b07d34c4fd19f0432480c836f254a0752cde40e6ef2ba7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dc0b66c1f358e20b4eac4f6c9d44c6bcc62143732eddb9bc998db15d892e37b3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8101eb79dccd718a2568420757be4c4f191ee6e11a8c8107a000f1691b081456"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "624bed1dfb0c77ecba2f8d6bd3deb022caae6d47af7d4edc314008aa001b036b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "8e4cd53d32db9ea97656f399dd9033eaa5ef5c8cc3226de8de09865e6c610435"
-    sha256 cellar: :any_skip_relocation, arm64_monterey:    "371a13fefca5fbd78edd570020e5f0eaf82536c55e54a8efd01fe7570103cd01"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:     "3d71ed3ba74cc371c392104c0f9c8f2fdc8e504e046140f5c1c74e95680fd6db"
-    sha256 cellar: :any_skip_relocation, sonoma:            "dc0647788eb36c731bcd20897ac0e15b64d8cc51a950910098e2ef4ccaca0d4a"
-    sha256 cellar: :any_skip_relocation, ventura:           "2e30506702df76799a4c685f6004e58cbf06b27a1bbb25fb401f802aa95bd80b"
-    sha256 cellar: :any_skip_relocation, monterey:          "add98c9cb4c6d920c8acb6378ad9bec3bf1f95f531a522c07e4cfc6bf00c687f"
-    sha256 cellar: :any_skip_relocation, big_sur:           "af25a0c0dadcae5b550953a5c2857533c65013ff65daaa67555d6bf0b204249c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f8b8544edc056eb3c18bfb480b135d6375c1a6ae50e5ab6faa31db9eb96248e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5631eaa72da365accb3b576606fcfcc619879e83bfdd97c74233c073f6f42374"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a72af65513457bedcdadf111fcb022502ffee4cac6eb0f674a7cf449016f81f5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9bf0dafabe848673f7b1501467f1fd99ae9cc11427c1056621e375031ae5dc5c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4d45444d69bd2332701100c27601e5a009a2f8ccea0b30b159ac4c3c9696f64b"
+    sha256 cellar: :any,                 arm64_linux:       "e57ed13cbc70dc64d8146f7650be017e0d422d6286431e5573c6da89cf60bf78"
+    sha256 cellar: :any,                 x86_64_linux:      "7cbb01222097fe982c50869945cb672488b367b152fbcbfd460157f0ccda0b38"
   end
 
   deny_network_access!
