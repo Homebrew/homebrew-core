@@ -6,7 +6,7 @@ class Enex2notion < Formula
   url "https://files.pythonhosted.org/packages/de/5c/c0ce22d810226345411b03177f9b43c35b82c3a671d5d73f56fc43b0858e/enex2notion-0.3.1.tar.gz"
   sha256 "f11d8a7b6c135b4d08c63e1256279d56b3798cdd48ad3b6e39c0770dc3bd82e6"
   license "MIT"
-  revision 25
+  revision 26
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "91c2ec66cef42ca95aff923f94e59e12de7e48e17f4f653387f3441e97fdc4c1"
@@ -16,6 +16,7 @@ class Enex2notion < Formula
     sha256 cellar: :any,                 x86_64_linux:      "5c30721eed68f5305bd52b8aa45dc6b1fcdd564bba6c25120f2327fda43de716"
   end
 
+  depends_on "rust" => :build
   depends_on "certifi" => :no_linkage
   depends_on "pymupdf"
   depends_on "python@3.15"
@@ -53,6 +54,11 @@ class Enex2notion < Formula
   resource "dictdiffer" do
     url "https://files.pythonhosted.org/packages/61/7b/35cbccb7effc5d7e40f4c55e2b79399e1853041997fcda15c9ff160abba0/dictdiffer-0.9.0.tar.gz"
     sha256 "17bacf5fbfe613ccf1b6d512bd766e6b21fb798822a133aa86098b8ac9997578"
+  end
+
+  resource "frostwork" do
+    url "https://files.pythonhosted.org/packages/00/df/dc5971ef6c3025ac0734eb4552abbb45adaa6a410733f8119293d99f4e84/frostwork-0.2.2.tar.gz"
+    sha256 "da4ac35a703b68a6fd1ad92dba53abeed4d38bcfaa5125b6f7f50b4405de7066"
   end
 
   resource "idna" do
@@ -101,8 +107,8 @@ class Enex2notion < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/71/c3/1b817965ac12dc002d7c9cd7dfffdd7d4fbf9b45763ef2ffe7b86ee94670/soupsieve-2.10.tar.gz"
-    sha256 "49e9380d7d2905463583bafe285e818c7366a9ed7b3aee221c1ac79c905d8bc0"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "text-unidecode" do
@@ -126,8 +132,8 @@ class Enex2notion < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/d9/68/f1b440335057bfce71b6e50a9d09445aa2ecbd08359a337976627b8409e7/tzdata-2026.5.tar.gz"
-    sha256 "8cc73c0a0bfca7dbfa59235d60b2eff82231dee33f53d206db1acd9173cfc0a7"
+    url "https://files.pythonhosted.org/packages/7a/29/6a1391d31cd00ff9e927215a224a880e1e84e826b64ba80a499e51c074d8/tzdata-2026.6.tar.gz"
+    sha256 "85d2cd9c09f81f0bb29db27759fc83af4f1e620efb814f8c5bf8b4cc4feece6d"
   end
 
   resource "tzlocal" do
@@ -141,8 +147,8 @@ class Enex2notion < Formula
   end
 
   resource "w3lib" do
-    url "https://files.pythonhosted.org/packages/be/77/5138921cc21adf763e941671b4cc6bbf00813663c983aa3fb8dac273f081/w3lib-2.5.0.tar.gz"
-    sha256 "a7ddf714508ddc1b8563bd19ace2feb28080bbaca39326cbc964359f6754f615"
+    url "https://files.pythonhosted.org/packages/c1/4a/76a2b98d6d93eb1d7e69b382faf3290f571547d9eb13f612d5ddab740f60/w3lib-2.6.0.tar.gz"
+    sha256 "821f78cfdeb9e675c736ffe0b874bd1e50e9e02997e675ce046b373c009f27be"
   end
 
   resource "webencodings" do
