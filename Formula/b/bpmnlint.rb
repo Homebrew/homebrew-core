@@ -1,8 +1,8 @@
 class Bpmnlint < Formula
   desc "Validate BPMN diagrams based on configurable lint rules"
   homepage "https://github.com/bpmn-io/bpmnlint"
-  url "https://registry.npmjs.org/bpmnlint/-/bpmnlint-12.1.0.tgz"
-  sha256 "6fbe02d26c2ec2592bbef5bd910b798e4d04e4e81482d090a78beddd814da9f8"
+  url "https://registry.npmjs.org/bpmnlint/-/bpmnlint-12.1.1.tgz"
+  sha256 "cd73aede9eff6aa71048f224809d88286f7182206897e87df116b058216819b0"
   license "MIT"
 
   bottle do
