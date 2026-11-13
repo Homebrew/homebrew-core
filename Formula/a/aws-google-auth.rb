@@ -6,15 +6,15 @@ class AwsGoogleAuth < Formula
   url "https://files.pythonhosted.org/packages/32/4c/3a1dd1781c9d3bb4a85921b3d3e6e32fc0f0bad61ace6a8e1bd1a59c5ba0/aws-google-auth-0.0.38.tar.gz"
   sha256 "7a044636df2f0ce6ceb01f8f57aba0b6a79ae58a91bef788b0ccc6474914e8ee"
   license "MIT"
-  revision 25
+  revision 26
   head "https://github.com/cevoaustralia/aws-google-auth.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d9c1096d98a626d61a51acabb14c7e8ceb0a221d8ad027ea3f56bc29180250b9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "78f877bc9e14c8722dd80e57ef905b0776a9d04fc4a03bee0894927be1afb8ec"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cdefe2cee6db54aa31dd0b3ac7b81b0233b2e1634aff75ee61f6a6b69c2258fa"
-    sha256 cellar: :any,                 arm64_linux:       "e5565ee6330861de53e31de6648b844cdf9d7d95fdf153ee1e1f6eaae50f4343"
-    sha256 cellar: :any,                 x86_64_linux:      "e226c27005b472a8edb98c63a5d4f92b685185ee9e76a7ab8e6a46cf91ac31a4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b7f6873a41fdf74f84104038b1446ed3b9123c21259c772dcd6c62b7f416016e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5b8a08b70f1bf217ac2b6dd67a50e26b4a4d08fae5a2a546ae1c2eddf7aa0239"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c2317181db14c0b54e80f7b71544efc8f9405abe8ad00a4a87d2080fb6fe5f7d"
+    sha256 cellar: :any,                 arm64_linux:       "7643ab890e76f9668132d26b38a118ca74cd44eb6091ccacb0eb572f1478bd87"
+    sha256 cellar: :any,                 x86_64_linux:      "d88c963a59d567b6e85b1581eab4902959d670b563f8e77158ae8fa5b3011148"
   end
 
   depends_on "certifi" => :no_linkage
@@ -37,13 +37,13 @@ class AwsGoogleAuth < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/96/8b/5694c8433b5202f34a82def4edee274f7df1eba2919c66d9d389d2202ec8/boto3-1.43.118.tar.gz"
-    sha256 "c0620f799e0f0c222ba42c337b65cdbcd3da38a3121187f634d8926cbbb28a9c"
+    url "https://files.pythonhosted.org/packages/91/02/d46523af0a933c35604e2bbb33e4ca8f69a00f9990af6d6b29ed84db64aa/boto3-1.44.1.tar.gz"
+    sha256 "c81dfdaab894cbcba78aa3773fe3fb27a13b576f49ff5552b91190072fc7dac0"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/d4/b8/3e55154ddaf1a6d1d4ddda85c0e5983205a3b7657edacd8ebba8c6fd774c/botocore-1.43.118.tar.gz"
-    sha256 "7f3f9d88cc9e847587690f82a42e3c3c292c3026c92c1e60d68a9310018e003f"
+    url "https://files.pythonhosted.org/packages/b1/61/07918ec258ab7131dd601cb1aaffcd7fa008fa8bb0143fd195ecc4b4435d/botocore-1.44.1.tar.gz"
+    sha256 "e71f6249be2a7324899ba81c5958ac1809a78498ea2c8f60e00fc0e62262ab83"
   end
 
   resource "charset-normalizer" do
@@ -57,8 +57,8 @@ class AwsGoogleAuth < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/d8/28/3893324bcadf8f89b1616637468d766af3f625008c0735bf704fdfa86617/filelock-4.2.4.tar.gz"
-    sha256 "c6d8663535e1650ee430507b4ffbac7b464dd64b7647ea0112a9f406499d163d"
+    url "https://files.pythonhosted.org/packages/a1/cf/05bcdacabdc0aec7dc8e19d76281bd82325df62dae3b6430e9ba57397689/filelock-4.2.10.tar.gz"
+    sha256 "fcc3c0cb8bfe7f4b3bb0e231c04b15dbad068cb3c2515f343d8fde4dce93bd5d"
   end
 
   resource "idna" do
@@ -137,8 +137,8 @@ class AwsGoogleAuth < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/19/63/0b6bae54546aed98d72f12d09df57b19a287f01c84d22047fa2e23772ab9/soupsieve-3.0.4.tar.gz"
-    sha256 "924fab84ae21604c19e175e1f39815eb6fa83ba23836e09e9de180925e5bc4c0"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "tabulate" do
