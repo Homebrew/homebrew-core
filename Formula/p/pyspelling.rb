@@ -6,6 +6,7 @@ class Pyspelling < Formula
   url "https://files.pythonhosted.org/packages/1d/49/4a80f24e1188286e65c2c5005415ddac0d64a8c2cc975f00b5758ca51db1/pyspelling-2.13.tar.gz"
   sha256 "6464afb9da9d3fd35b11a47d0297b67f4f1e3ba73a98d948326b34a85deb4ab1"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "12db2ce810e6f3cfa64f7c94718cc5bdbdb58fa91c2d43685f4e3536e9b45b5d"
@@ -28,8 +29,8 @@ class Pyspelling < Formula
   end
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/e1/60/e2a6409041cb3f8ce7ac3d6917b5b30c39f81a0a5b2d414ec30f36fd96bf/bracex-3.1.tar.gz"
-    sha256 "35c69fc105f08d77c02722e8ae707c656ff298dd4d26c89bcb3c98fca8bc3614"
+    url "https://files.pythonhosted.org/packages/2d/1f/b7ce2efe406b87bb3693d587b91bcd8fa9030888870ceff29e4a0d233cb2/bracex-3.2.2.tar.gz"
+    sha256 "d18976160b3ba01a57d5c53a5c8c3aa2506efa9e0a3a62467251f82b8f563fde"
   end
 
   resource "html5lib" do
@@ -51,8 +52,8 @@ class Pyspelling < Formula
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/f8/4f/700155c8c20d9e655dd0732b5fc3c7614f291b9148da271d7388e50bf774/markdown-3.11.tar.gz"
-    sha256 "180224db6aed87ba9ce1f2781ebcd5826253de8ff637112090e24b84502bbf9f"
+    url "https://files.pythonhosted.org/packages/ca/eb/dc0fd6eff604bfb870b7fb68b90985a32caaf3c76f67736bbf7f438acd59/markdown-3.11.3.tar.gz"
+    sha256 "81eb91631dc97ad1efbc76019ef0f80fe90ca49ddf81546752d79989c3bfff3e"
   end
 
   resource "pyyaml" do
@@ -66,8 +67,8 @@ class Pyspelling < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/e2/28/d05a6e0818f302952dc80fb1054a1e617ec6cba9dd8f9cba75df445f3be8/soupsieve-3.0.2.tar.gz"
-    sha256 "841ce01c8e80b3bf95c2f2657f191b024be1cdd9d6c0d24a663af247da81911a"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "typing-extensions" do
@@ -76,8 +77,8 @@ class Pyspelling < Formula
   end
 
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/78/cd/0e028d8b7d906d51acdac537334fbe85f8284f2a8147d48bc9403af77a0d/wcmatch-11.1.tar.gz"
-    sha256 "f2b6f0fad6f5e2571498723fcb3c8facdd0fba0dcc139f31d32f592eb648153e"
+    url "https://files.pythonhosted.org/packages/2e/17/bf44790f97414e37885830139933b4e96faac71560768ae9f9e458dbd936/wcmatch-12.0.1.tar.gz"
+    sha256 "4ea6acef75b657bf71ac8fa9520165bf5ae55120c4e655895a5b7d4c69896c5e"
   end
 
   resource "webencodings" do
