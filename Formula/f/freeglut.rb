@@ -29,7 +29,7 @@ class Freeglut < Formula
     depends_on "mesa-glu"
   end
 
-  resource "init_error_func.c" do
+  resource "init_error_func.c", :test do
     url "https://raw.githubusercontent.com/dcnieho/FreeGLUT/c63102d06d09f8a9d4044fd107fbda2034bb30c6/freeglut/freeglut/progs/demos/init_error_func/init_error_func.c"
     sha256 "74ff9c3f722043fc617807f19d3052440073b1cb5308626c1cefd6798a284613"
   end

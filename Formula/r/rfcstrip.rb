@@ -11,7 +11,7 @@ class Rfcstrip < Formula
     sha256 cellar: :any_skip_relocation, all: "19d81dc32428b71ea0c78047c6036eba4381ab7e6305051f3790d2dfc34ce2be"
   end
 
-  resource "rfc1149" do
+  resource "rfc1149", :test do
     url "https://www.ietf.org/rfc/rfc1149.txt"
     sha256 "a8660fa4f47bd5e3db1cd5d5baad983d8b6f3f1e8a1a04b8552f3c2ce8f33c18"
   end

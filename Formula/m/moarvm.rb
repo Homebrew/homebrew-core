@@ -34,7 +34,7 @@ class Moarvm < Formula
   conflicts_with "moor", because: "both install `moar` binaries"
   conflicts_with "rakudo-star", because: "rakudo-star currently ships with moarvm included"
 
-  resource "nqp" do
+  resource "nqp", :test do
     url "https://github.com/Raku/nqp/releases/download/2026.09/nqp-2026.09.tar.gz"
     sha256 "25aea7f4a510efca52f55bd9703aa29ed20dec6003d01268fd1cdf477f9aead9"
 
