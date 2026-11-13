@@ -2,8 +2,8 @@ class ScalaCli < Formula
   desc "Scala language runner and build tool"
   homepage "https://scala-cli.virtuslab.org/"
   url "https://github.com/VirtusLab/scala-cli.git",
-      tag:      "v1.18.0",
-      revision: "65126b818f5a135ed3d18eb77e8010cbdb0daae9"
+      tag:      "v1.19.0",
+      revision: "3540735716df1be4e3db6c0f721c5c6b075e8a38"
   license "Apache-2.0"
   compatibility_version 1
 
@@ -13,11 +13,11 @@ class ScalaCli < Formula
   end
 
   bottle do
-    sha256               arm64_golden_gate: "d989e808208d4fe3cf022f666ab7850912e192f49b50086f2af8fdd9c6b08f5a"
-    sha256               arm64_tahoe:       "193f069a5563b5fab34c38ba3b2a25211f6a72cf8a9ad02784cea7de2f72b021"
-    sha256               arm64_sequoia:     "ee515205dd48abdf0c1ef1d41f3bf5d85267708f17856931fdfcf11493ce9f50"
-    sha256 cellar: :any, arm64_linux:       "a521182ffd350da54bf17b2a59845513877330be70e51a9e23a29f3564fab938"
-    sha256 cellar: :any, x86_64_linux:      "3d80b5f266a64a5e9f6504e3a2a07323ec5c89ad9f7b6d70ec28ee3ba6c25b56"
+    sha256               arm64_golden_gate: "46b3a4f6aa560615579b6ae7b2b65c39b834e3ab47ccdc2bd67eabed0cc9a67c"
+    sha256               arm64_tahoe:       "72f6130bbfa4938b50a1c900d2153d4f726ec25e717df832024a55a4ed2b4198"
+    sha256               arm64_sequoia:     "45edffa1b57cbb607c5372008416cdff2d925f4fd498832b1666eb5124510f82"
+    sha256 cellar: :any, arm64_linux:       "314f37f8c8be58c4e50875c21a30129c41c1f2eaf7829489c81f865eec4abf19"
+    sha256 cellar: :any, x86_64_linux:      "2a494902c635cc149494b6367b6d334f5b407223cbf3be938e317b83638d7f91"
   end
 
   depends_on "openjdk@17" => [:build, :test]
@@ -28,7 +28,6 @@ class ScalaCli < Formula
 
   def install
     ENV["JAVA_HOME"] = formula_opt_prefix("openjdk@17")
-    ENV["USE_NATIVE_IMAGE_JAVA_PLATFORM_MODULE_SYSTEM"] = "false"
     ENV["COURSIER_CACHE"] = "#{HOMEBREW_CACHE}/coursier/v1"
     ENV["COURSIER_ARCHIVE_CACHE"] = "#{HOMEBREW_CACHE}/coursier/arc"
     ENV["COURSIER_JVM_CACHE"] = "#{HOMEBREW_CACHE}/coursier/jvm"
