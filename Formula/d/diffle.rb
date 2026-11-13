@@ -1,8 +1,8 @@
 class Diffle < Formula
   desc "Keyboard-first diff viewer with LSP support and GitHub integration"
   homepage "https://github.com/moritzwilksch/diffle"
-  url "https://github.com/moritzwilksch/diffle/archive/refs/tags/v0.5.1.tar.gz"
-  sha256 "3c2d4abab0f381b7dab64dc04a7a1b834869c294cf6ce74f3dee50a34b4d541d"
+  url "https://github.com/moritzwilksch/diffle/archive/refs/tags/v0.5.2.tar.gz"
+  sha256 "fdf4619d0b138b74ad1a32c31701de8c8d144d3d1130aba07f7e859e00973237"
   license "Apache-2.0"
 
   bottle do
