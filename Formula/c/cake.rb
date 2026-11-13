@@ -6,11 +6,11 @@ class Cake < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eab86942aefd359d3492bf7ab0e634994ef5077b9663cdc5ab18022d0be4a21b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2035b88305f7e1b4d6f600d152715ccf4384e67257e48af96a20005990d14a3c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "03a1dfb9fb1d45c686d239b2f3aa7ab2c2c0bd2ae5b2676f1ee79839cd94680b"
-    sha256 cellar: :any,                 arm64_linux:       "75a1e6f8322a7320f6046cc739be111931e6516f9b9b72f87de49627c65b7d0b"
-    sha256 cellar: :any,                 x86_64_linux:      "49dadedc8d28580466aa31f021d0c4f22c24adf1ecfafc83aeb5f67ee532f3a6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "10d9c11dad1a5f67e2cb7fba77eb7e18a04559bdd5a3891868076d97bab7b163"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "af2ef0b8938b0c1865ccbeec6605d04e129ca7615dde2f074119f512076bf2eb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "369eebbb28824d236d3153f20aff058daeaae056096d39c5ec38f6c804492af9"
+    sha256 cellar: :any,                 arm64_linux:       "dfba519f5a2aed827898d8d4556f5609b0f98ae5ad7a94edcbcf948e1f648b40"
+    sha256 cellar: :any,                 x86_64_linux:      "e25c0a91a368d87066629cf99c4bf71ca1f006307a79f6ebbdb591403910bc8c"
   end
 
   depends_on "dotnet"
