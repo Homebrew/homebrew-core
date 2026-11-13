@@ -1,8 +1,8 @@
 class Rea < Formula
   desc "Reverse engineering CLI and MCP server for agents"
   homepage "https://github.com/morluto/rea"
-  url "https://registry.npmjs.org/rea-agents/-/rea-agents-6.8.0.tgz"
-  sha256 "8d542ec76a9cb350584b60a6c9c088706ff812d5bb5b094c20c95b6dc25698bb"
+  url "https://registry.npmjs.org/rea-agents/-/rea-agents-6.9.0.tgz"
+  sha256 "322338a1505e2557702a16012e7d46abdb5729641d98938662762dfbfb79262a"
   license "MIT"
 
   bottle do
@@ -23,7 +23,16 @@ class Rea < Formula
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
 
-    rm_r libexec/"lib/node_modules/rea-agents/node_modules/frida/test"
+    node_modules = libexec/"lib/node_modules/rea-agents/node_modules"
+    os = OS.mac? ? "darwin" : "linux"
+    arch = Hardware::CPU.arm? ? "arm64" : "x64"
+
+    rm_r node_modules/"frida/test"
+    node_modules.glob("@lydell/*").each do |dir|
+      dirname = dir.basename.to_s
+      rm_r dir if dirname != "node-pty" || dirname != "node-pty-#{os}-#{arch}"
+    end
+
     rm_r libexec/"lib/node_modules/rea-agents/native/windows"
   end
 
