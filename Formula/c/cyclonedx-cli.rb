@@ -4,18 +4,17 @@ class CyclonedxCli < Formula
   url "https://github.com/CycloneDX/cyclonedx-cli/archive/refs/tags/v0.33.1.tar.gz"
   sha256 "01574e2e7d1cfe88ed50bbe7e87663af45a6b261ba11518a6c8eb34f809e1309"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "362850158bd607f1cd8d90433f69b8d008791620a22399e8ca6314c7348b01f9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "88789392e58285e6a27ab278bef389be13d591e5bdca3c2682fa67eebe4c7122"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8c21eabe200a5b8ada0f28d3b3cd28d2699341e9b1ffbe8b1d1246d3a569af37"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "8c443efde24a363ce5892f49e00a53d94a0e9ae1a6cd3dc37b093088501e2df2"
-    sha256 cellar: :any_skip_relocation, sonoma:            "4cecb41f57fa5bbe1f27eb3939517a4907e4cec7a22f16cf8486eceba2e04e9e"
-    sha256 cellar: :any,                 arm64_linux:       "d50b34cd4e8fbdfb73263e7b75368de51d95f256e3c1b76229434ca0759f8a87"
-    sha256 cellar: :any,                 x86_64_linux:      "7fbd6f25855a93759926a25257efffc1293e6a6b9247303f98f4b5bc53338d57"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3e60d340729ff074fdea36fe60af23b8b48d2913cb262f7ae6191334936ed727"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fccebcfc177e5593aabe03abfc950a9887118b868113f1fb87fc73f929bc9aba"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "87099c60d6548f5fddf1899e73fbaa669620d16132591b8fdd0672d9b00f8983"
+    sha256 cellar: :any,                 arm64_linux:       "5114aded123a330ee216546ab7351b3a023cf3b8f77ce933335b5995cee3b98f"
+    sha256 cellar: :any,                 x86_64_linux:      "1191a27a3dae32ad630047735b4b2b216fd30115c4929c13ed6b242bd288170b"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@10"
 
   resource "document.spdx.json", :test do
     url "https://raw.githubusercontent.com/CycloneDX/cyclonedx-cli/refs/tags/v0.32.0/tests/cyclonedx.tests/Resources/document.spdx.json"
@@ -24,7 +23,7 @@ class CyclonedxCli < Formula
 
   deny_network_access!
 
-  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
+  def dotnet = deps.find { |d| d.name.match? Version.formula_optionally_versioned_regex(:dotnet) }.to_formula
 
   def fetch
     ENV["XDG_RUNTIME_DIR"] = buildpath

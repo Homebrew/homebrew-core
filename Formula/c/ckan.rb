@@ -4,6 +4,7 @@ class Ckan < Formula
   url "https://github.com/KSP-CKAN/CKAN/archive/refs/tags/v1.36.4.tar.gz"
   sha256 "5b7d4257ccd760b809cd75a6b2b7bfb2fcf42c8bd492d6c1b61b04e7649b2aaf"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,25 +12,26 @@ class Ckan < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d58c9014f39a3e847cc0feea02a216b13c9aa5ef77036686f80d131ec2389f4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dffad48ff1aaadcb51aa576f692df0b79476e6a914b7eec5234afceb2614198a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "49a0e9dfbc380cafacd0fd2b5bf714f4f4dd94f93a7f4800e376913525018a9e"
-    sha256 cellar: :any,                 arm64_linux:       "ec6e13e5494f3fc369897206f024ebe87575c4797b285a6189d138bf0feec742"
-    sha256 cellar: :any,                 x86_64_linux:      "f997195e4880fb61ce3f592c41ec09f83e417381ebc0e2d0a0e967b065c81904"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e82842b138c68f3bf99c799358d0a99453f558c2196c41172835b7ed76d1bfbf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ec6124396ab9a00b540e0b925643213a50be95c54b365f98247959622a0fd825"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ef595601d00d07c7f0d4f765583a804e532f1336059e23b8eba6db18ef0addb1"
+    sha256 cellar: :any,                 arm64_linux:       "3135db5229dac64223fbeb1219db3d3e36c762dd85ace11b9a40937f2c377c35"
+    sha256 cellar: :any,                 x86_64_linux:      "a5e4c28ebc6392e72117889d138fca22c59bc0d6fcda3853120c29ed94b12008"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@10"
 
   def install
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
+    # .NET's user-scoped named mutexes need a writable runtime directory on Linux.
+    ENV["XDG_RUNTIME_DIR"] = buildpath
 
-    dotnet = Formula["dotnet"]
+    dotnet = deps.find { |d| d.name.match? Version.formula_optionally_versioned_regex(:dotnet) }.to_formula
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
-      --output #{libexec}
       --no-self-contained
+      --output #{libexec}
       --use-current-runtime
       -p:AppHostRelativeDotNet=#{dotnet.opt_libexec.relative_path_from(libexec)}
     ]

@@ -4,33 +4,42 @@ class Undercutf1 < Formula
   url "https://github.com/JustAman62/undercut-f1/archive/refs/tags/v4.0.105.tar.gz"
   sha256 "b2fcaa200a7f6a0a7046f32846bec457e01080b8bd7bab78e1fdc53d6b4feb4d"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/JustAman62/undercut-f1.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "302e10741259f18b9f721879691bda15959a9a49053f15ec878ae26058c4fd1c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "daed5f234b490217d0b48a58df0fadad2817ce037889d96a053172395e4aef89"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2429309a4acd4e1552be2bae62ff42c9fd321734979f0eecb881fb7dd27a378b"
-    sha256 cellar: :any,                 arm64_linux:       "6cf866e7b33e5118977f50494a715e8ed629d21d02ee653d90aeb39429d09a36"
-    sha256 cellar: :any,                 x86_64_linux:      "947e6963962f0c2648392c5e0bfcad7060905812c43be5fe6e9be4a23b837acc"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d1f456ce62a2bdad70713410b13986b21d344a5ba6eb91925c2d09baafe2fdaa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9803c171167e49a072d6f27e0ea9f4e17091c337dafb685835aab98cede4f762"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "509c5ec5d6f9340863f1dfc168ba4fc396048b35116f9bbece986415020c420d"
+    sha256 cellar: :any,                 arm64_linux:       "d7d1b30fd98acddb31906d354d3dbd14395d76abf48375aba1ed43ddf914644c"
+    sha256 cellar: :any,                 x86_64_linux:      "1c794daff31ef6840b714a6f3f09fc39500ba0c3c9596ae23e231e1e1b902443"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@10"
   depends_on "ffmpeg"
   depends_on "fontconfig"
   depends_on "mpg123"
+
+  deny_network_access!
+
+  def fetch
+    ENV["XDG_RUNTIME_DIR"] = buildpath
+    system "dotnet", "restore", "UndercutF1.Console/UndercutF1.Console.csproj", "--use-current-runtime"
+  end
 
   def install
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
     # .NET named mutexes need `XDG_RUNTIME_DIR` (or `USER`) on Linux, which build containers may lack
     ENV["XDG_RUNTIME_DIR"] = buildpath
 
-    dotnet = Formula["dotnet"]
+    dotnet = deps.find { |d| d.name.match? Version.formula_optionally_versioned_regex(:dotnet) }.to_formula
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
       --output #{libexec}
       --no-self-contained
       --use-current-runtime
+      -p:AppHostRelativeDotNet=#{dotnet.opt_libexec.relative_path_from(libexec)}
       -p:PublishSingleFile=true
       -p:IncludeAllContentForSelfExtract=true
       -p:IncludeNativeLibrariesForSelfExtract=true
@@ -40,13 +49,11 @@ class Undercutf1 < Formula
       -p:PublishTrimmed=false
       -p:PublishAot=false
     ]
-
     # Version override is not needed if cloning from HEAD
     args << "-p:OverridePackageVersion=#{version}" if build.stable?
 
     system "dotnet", "publish", "UndercutF1.Console/UndercutF1.Console.csproj", *args
-
-    (bin/"undercutf1").write_env_script libexec/"undercutf1", DOTNET_ROOT: "${DOTNET_ROOT:-#{dotnet.opt_libexec}}"
+    bin.install_symlink libexec/"undercutf1"
   end
 
   test do
