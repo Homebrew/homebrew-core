@@ -6,12 +6,11 @@ class BandcampDl < Formula
   url "https://files.pythonhosted.org/packages/78/c2/2c11878a494ceef38ed5ac51dede216547cb14ef40a30f8f009fca0ceab6/bandcamp_downloader-0.0.17.tar.gz"
   sha256 "d5e47777d0b1a14e49ba72d78ffa9b150e72af51d28e981231a0bd32c1c2e159"
   license "Unlicense"
-  revision 9
+  revision 10
   head "https://github.com/evolution0/bandcamp-dl.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "30589ce1b682bd1ce82da09538a6cec4a2a77c5af5ef4ba5f39f13214dcd2159"
+    sha256 cellar: :any_skip_relocation, all: "d4ef13f929283ae83d5d9d7f0faa90712336783015bdab3e88ddfcc5cba14aab"
   end
 
   depends_on "certifi"
@@ -55,8 +54,8 @@ class BandcampDl < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/71/c3/1b817965ac12dc002d7c9cd7dfffdd7d4fbf9b45763ef2ffe7b86ee94670/soupsieve-2.10.tar.gz"
-    sha256 "49e9380d7d2905463583bafe285e818c7366a9ed7b3aee221c1ac79c905d8bc0"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "typing-extensions" do
