@@ -1,18 +1,17 @@
 class Openexr < Formula
   desc "High dynamic-range image file format"
   homepage "https://www.openexr.com/"
-  url "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.5.3.tar.gz"
-  sha256 "ff1de95f4031c1c57c633e647dc97c15282d3aa3bc7fb90745f00f74de4a054f"
+  url "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.5.4.tar.gz"
+  sha256 "cedafe3171176d20baea4e887ceacc74cbe3a5a06fbb30d9f0a394a4416e5f7b"
   license "BSD-3-Clause"
-  revision 1
   compatibility_version 2
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8b3c31336f78d66f7d3f9e009df226f89466898425ba4342958b9ca8c46a41c3"
-    sha256 cellar: :any, arm64_tahoe:       "aaa393713c18c01cd3aad38ec469026c279bf22e255413b816f227167db1abf0"
-    sha256 cellar: :any, arm64_sequoia:     "3ad2bf6770cdf438f118e30d78ad0d75100156337d0d59a85f2215a150bd6249"
-    sha256 cellar: :any, arm64_linux:       "f81283826fdcc89f1bdfa17ca3c65f2cf0b7e6f9396aae897fdd63d3dcf52aaa"
-    sha256 cellar: :any, x86_64_linux:      "860810a9a2dd6661ae5b55d0d335bf648f7d56654e5b89e341a8d9dc3cfc52a5"
+    sha256 cellar: :any, arm64_golden_gate: "c50df52fc1d9e18f876f47872da09982ebacd7a5215d21e2a316f30eda6517b1"
+    sha256 cellar: :any, arm64_tahoe:       "492e8a795883eddaa56078a257bdb349b328d5c9e3c0d30e0b59eea09fab190e"
+    sha256 cellar: :any, arm64_sequoia:     "5b674285b4bc5afe8d2f8904fd600970ae461fd544f7819aaebf836f4b63ff34"
+    sha256 cellar: :any, arm64_linux:       "c8d5613feead8d9563a375cd68d31783086e9d3d467e9c0aa34e8ec225b9beda"
+    sha256 cellar: :any, x86_64_linux:      "2c488e44fdaf41db692107aa468aa10bcb429fe9bcee7e125aca72c7a56296fa"
   end
 
   depends_on "cmake" => :build
@@ -38,6 +37,8 @@ class Openexr < Formula
     url "https://github.com/AcademySoftwareFoundation/openexr-images/raw/f17e353fbfcde3406fe02675f4d92aeae422a560/TestImages/AllHalfValues.exr"
     sha256 "eede573a0b59b79f21de15ee9d3b7649d58d8f2a8e7787ea34f192db3b3c84a4"
   end
+
+  deny_network_access!
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

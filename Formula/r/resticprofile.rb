@@ -1,19 +1,17 @@
 class Resticprofile < Formula
   desc "Configuration profiles manager and scheduler for restic backup"
   homepage "https://creativeprojects.github.io/resticprofile/"
-  url "https://github.com/creativeprojects/resticprofile/archive/refs/tags/v0.33.1.tar.gz"
-  sha256 "3b8a26dbc17ac9268108de59ce0fedf831fe5bc8c41f7b36b8341fa9157b8f5a"
+  url "https://github.com/creativeprojects/resticprofile/archive/refs/tags/v0.34.0.tar.gz"
+  sha256 "343b956215e3a9124d0ac3d94740668a905eb4b9210e9f50f91baec67144f693"
   license "GPL-3.0-only"
   head "https://github.com/creativeprojects/resticprofile.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9af0b5dc4f3fca7d8d9f9bae373ab7a5652daf9af7e67577b6fe6ae6a03f80d1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f986d017c8ce9414c2f1ad6b1b0c16287decbcd5f923e8bf82d36a9f098cbeb2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "08755807092ca3abb8bef66adb739364686facc2bf82884a9e0d657d7467be7b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "253287995bf155d81c1a21df23eff213f46dce7fdbeb593253f0ed5d5924d42f"
-    sha256 cellar: :any_skip_relocation, sonoma:            "a48b32ea01fff0fb9d80f038b201b96ee36b99c43feffc831d4a39b943a22f4b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c7e2912941204582a3c1f6229dda13ab9b5e3d9e7878f78f8b09862f1a454727"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "867d857a556e6e0fc36fcf1aa7eae9257dd70a097248762130787fcfe0647ae7"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "86f10fca650dddb8aacf40286a5c2b6bc02a0a8dc8cc42257b5a189ccfa74339"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dc074b46b0683539ef914135ddebf410555f52af4a0c63a8b832021c23d076f8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fb322474d629e7d7848af6691d59a342ac32dfe9d65453641fbf286d26c5fda8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "cbabcf4e759799a8904660f79523f145eb9b1c2e5d44b3e642d0af52547e2f83"
+    sha256 cellar: :any,                 x86_64_linux:      "9b1ce2fa6cf8d23c3dd5c4307e597c33365625c408aefd2b8d84d24ef6f4de49"
   end
 
   depends_on "go" => :build
@@ -30,7 +28,7 @@ class Resticprofile < Formula
 
     bash_completion.install "contrib/completion/bash-completion.sh" => "resticprofile"
     fish_completion.install "contrib/completion/fish-completion.fish" => "resticprofile.fish"
-    zsh_completion.install "contrib/completion/zsh-completion.sh" => "_resticprofile"
+    zsh_completion.install "contrib/completion/zsh-completion.zsh" => "_resticprofile"
   end
 
   test do

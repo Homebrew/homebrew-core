@@ -11,30 +11,45 @@ class Fracturedjson < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e8adda3b3832506cc4ded6d7b28edad8fc15ab7709a9e503bcd735451bf81ab5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f3f8570519d75f23aa9c577b20f6f56bac177781fff191bab9484b6850f3c5f3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d43a181c4c59244a196430507ab6b573ce64c98f9b83d4d569a9c70a5eb06e50"
-    sha256 cellar: :any,                 arm64_linux:       "6de70475655e71fe8b9f3aa0f976c504e7fc76a0dac6bd8959f1c3e6bd7fb609"
-    sha256 cellar: :any,                 x86_64_linux:      "d798f9509531b3f2dd32a4eb9a5ec6c7d09c28c30f64d0657bc8f647951071d9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "86aaf461427214793d4dd980e9b7e1551056ee8a309c17e59aa22613aab4fb75"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c016d2004045b7295e0cb9b061eda412f51b0e6dba344f82954299b5e61b68bb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a7d9fc03eb134805ebad5306bfc5df6478153b4fc9a820fdce1de529c45d8eaa"
+    sha256 cellar: :any,                 arm64_linux:       "3d4986a30904cb6e67a77d3178e862bfa21bc0a561dbd4e2aa0c98257ec771ac"
+    sha256 cellar: :any,                 x86_64_linux:      "6af75e8c10d4b66d06b16bf5f2c04d8eb73b1f115802f50d8959b788a339014f"
   end
 
-  depends_on "dotnet" => :build
+  # Aligned to .NET dependency. Can remove if updated to latest .NET
+  deprecate! date: "2026-11-12", because: "needs end-of-life .NET 8"
+  disable! date: "2027-11-10", because: "needs end-of-life .NET 8"
+
+  depends_on "dotnet@8"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
+  def fetch
+    ENV["XDG_RUNTIME_DIR"] = buildpath
+    system "dotnet", "restore", "Cli/Cli.csproj", "--use-current-runtime"
+  end
+
   def install
-    arch = Hardware::CPU.arm? ? "arm64" : "x64"
-    os_tag = OS.mac? ? "osx" : "linux"
+    ENV["XDG_RUNTIME_DIR"] = buildpath
+
+    dotnet = deps.find { |d| d.name.match? Version.formula_optionally_versioned_regex(:dotnet) }.to_formula
     args = %W[
       --configuration Release
-      --runtime #{os_tag}-#{arch}
+      --framework net#{dotnet.version.major_minor}
+      --no-self-contained
       --output #{libexec}
       --property InvariantGlobalization=true
+      --use-current-runtime
     ]
     system "dotnet", "publish", "Cli/Cli.csproj", *args
-    bin.install_symlink libexec/"fracjson"
+    (bin/"fracjson").write_env_script libexec/"fracjson", DOTNET_ROOT: dotnet.opt_libexec
   end
 
   test do
