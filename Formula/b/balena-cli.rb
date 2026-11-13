@@ -13,11 +13,11 @@ class BalenaCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c2232367e81e947bb9ecec1429cbff75808047acb726c5dab94192cddf984e40"
-    sha256 cellar: :any, arm64_tahoe:       "c2232367e81e947bb9ecec1429cbff75808047acb726c5dab94192cddf984e40"
-    sha256 cellar: :any, arm64_sequoia:     "c2232367e81e947bb9ecec1429cbff75808047acb726c5dab94192cddf984e40"
-    sha256 cellar: :any, arm64_linux:       "3e6c6cc6c5c126ed7e3f003c55f10b6b06c125b3353fc00a91f00fdea69cfb70"
-    sha256 cellar: :any, x86_64_linux:      "fff262554912bcface4e66cdc2b7e56e303ac776d8fe0dc95e6293fef77eb903"
+    sha256 cellar: :any, arm64_golden_gate: "205ff7471a556e67203b579d6b3857d0ce90a18afebdeb1e82f1619d575a1403"
+    sha256 cellar: :any, arm64_tahoe:       "205ff7471a556e67203b579d6b3857d0ce90a18afebdeb1e82f1619d575a1403"
+    sha256 cellar: :any, arm64_sequoia:     "205ff7471a556e67203b579d6b3857d0ce90a18afebdeb1e82f1619d575a1403"
+    sha256 cellar: :any, arm64_linux:       "a707b6a21181d7468993f3b013c66f638bc441f72f39b219f87996d0ca793714"
+    sha256 cellar: :any, x86_64_linux:      "e9e1b7dc05e1669070df7cc223a39f4ea39df7466887a04699bd8c03e9aca2ce"
   end
 
   depends_on "go" => :build
