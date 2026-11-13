@@ -4,7 +4,12 @@ class Arturo < Formula
   url "https://github.com/arturo-lang/arturo/archive/refs/tags/v0.10.0.tar.gz"
   sha256 "408646496895753608ad9dc6ddfbfa25921c03c4c7356f2832a9a63f4a7dc351"
   license "MIT"
-  revision 1
+  revision 2
+
+  # TODO: remove if undeprecated
+  livecheck do
+    url :stable
+  end
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "6b1c3b757f0f08a102426ff62459c80886e7333b829ffbeba13b941b270c4844"
@@ -19,14 +24,14 @@ class Arturo < Formula
   depends_on "mpfr"
   depends_on "openssl@4"
 
-  # accessed via dlsym
-  depends_on "pcre2" => :no_linkage
-
   on_linux do
+    disable! date: "2027-11-13", because: "needs EOL `pcre`"
+
     depends_on "pkgconf" => :build
     depends_on "glib"
     depends_on "gtk+3"
     depends_on "libxcb"
+    depends_on "pcre" # https://github.com/arturo-lang/arturo/issues/2027
     depends_on "webkitgtk"
   end
 
@@ -37,6 +42,8 @@ class Arturo < Formula
     type :backport
   end
 
+  deny_network_access!
+
   def install
     # Remove bundled libraries
     rm_r("src/deps")
@@ -46,10 +53,9 @@ class Arturo < Formula
               /\{\.passL: "[^"]*(-lcrypto|libcrypto\.a)[^"]*"\.\}/,
               "{.passL: \"-Wl,-rpath,#{formula_opt_lib("openssl@4")} -lssl -lcrypto\".}"
 
-    # Workaround to use pcre2 after patching `nimble`
     inreplace "src/vm/values/custom/vregex.nim",
               /\{\.passL: "[^"]*(-lpcre|libpcre\.a)[^"]*"\.\}/,
-              "{.passL: \"-Wl,-rpath,#{formula_opt_lib("pcre2")}\"}"
+              "{.passL: \"-lpcre\"}"
 
     # Adjust installation path to homebrew one
     inreplace "build.nims", 'targetDir = getHomeDir()/".arturo"', "targetDir=\"#{prefix}\""
