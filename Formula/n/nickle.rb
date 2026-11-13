@@ -1,8 +1,8 @@
 class Nickle < Formula
   desc "Desk calculator language"
   homepage "https://www.nickle.org/"
-  url "https://nickle.org/release/nickle-2.108.tar.xz"
-  sha256 "0b68a2f3e123f27c32b971029658abaae00b4c3ae6e79c3f2c18c5dbbfe554d3"
+  url "https://nickle.org/release/nickle-2.111.tar.xz"
+  sha256 "e1f41c6a08aaf9fc283c282dfba6520fb621b02aaa58b40740d7b87bdad17870"
   license "MIT"
 
   livecheck do
@@ -20,15 +20,23 @@ class Nickle < Formula
     sha256 x86_64_linux:      "57f71c8ef976c7f3be7f27897b7a7cb3b9292e6f8ea5f804182088a035908d5b"
   end
 
+  depends_on "bison" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "gmp"
 
   uses_from_macos "bc-gh" => :build
-  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "libedit"
+
+  # Remove an unused declaration that conflicts with Flex's input function.
+  patch do
+    url "https://github.com/keith-packard/nickle/commit/1d319e603813f3a78ec83440584a901d603346e8.patch?full_index=1"
+    sha256 "04828738e17813ebd5fd9aa9e38a549f2b5de9a707bdf1b6ae062c5d5d1388b9"
+    type :unofficial
+    resolves "https://github.com/keith-packard/nickle/pull/1"
+  end
 
   def install
     # Fix to ERROR: None of values ['gnu23'] are supported by the C compiler
