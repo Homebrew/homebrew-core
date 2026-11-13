@@ -7,7 +7,7 @@ class Buku < Formula
   url "https://github.com/jarun/buku/archive/refs/tags/v5.1.tar.gz"
   sha256 "0f1a3e15f882fe9a0f8e550abae7388d3cb81d4718a1b4309dcf4363633cb7b1"
   license "GPL-3.0-or-later"
-  revision 8
+  revision 9
   head "https://github.com/jarun/buku.git", branch: "master"
 
   livecheck do
@@ -18,12 +18,11 @@ class Buku < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "7745577563ca5da5fe49b9fe3db472b80c1fb1b0b1cd6411f87d500f359dc1f9"
-    sha256 cellar: :any, arm64_tahoe:       "8f25d4e1eaac7be11043050ec562cea552fbdd50ccbf7585b12f63b8de30fccc"
-    sha256 cellar: :any, arm64_sequoia:     "4f37f749eb029b33a7a24f7c621089fd14912f56fe9f1eaad35aceee94a45841"
-    sha256 cellar: :any, arm64_linux:       "2c378de29ad71a415dac7eaa0af1d1e2a9cae9f355a7a2bb224b9792a6f3d731"
-    sha256 cellar: :any, x86_64_linux:      "47df1b8e33c52f0f2c86deebadbb1fe3d100f121d849e3c9ca0d0ba84d64b7f6"
+    sha256 cellar: :any, arm64_golden_gate: "9222efd0015ac3b4328f27cfa5ea67fb893de249cbc1d2313dea64b2a002591a"
+    sha256 cellar: :any, arm64_tahoe:       "4bd16839a2a544e81bb730bcc72c0742ec7eaa645d3b9f5968f52a45b8b17508"
+    sha256 cellar: :any, arm64_sequoia:     "3d48780bd81ffa0d72aae2db3c3c0515e01dd6ee923af2081a31c72ace297c5a"
+    sha256 cellar: :any, arm64_linux:       "187c3c9f39e3ded17f1a0a1c0982c9381b07a3b7bb5f15ff3c1e686921ee1cf1"
+    sha256 cellar: :any, x86_64_linux:      "d5b0ea0b7449c17083f83bf03ebc5d9185a8dbc5fe79ce013f0416030a759a44"
   end
 
   depends_on "certifi" => :no_linkage
@@ -58,8 +57,8 @@ class Buku < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "flasgger" do
@@ -78,8 +77,8 @@ class Buku < Formula
   end
 
   resource "flask-paginate" do
-    url "https://files.pythonhosted.org/packages/5c/d0/aca9153b109f0062eaadb497448f5e596f87cc89474d77347a1d931c8842/flask-paginate-2024.4.12.tar.gz"
-    sha256 "2de04606b061736f0fc8fbe73d9d4d6fc03664638eca70a57728b03b3e2c9577"
+    url "https://files.pythonhosted.org/packages/b8/8c/5987ebd69586d107b76b86fde8c8f0d6847795e1ab677f26828beada7a53/flask_paginate-2026.10.22.tar.gz"
+    sha256 "231eee20ccf8abe1dc2abadc0349f21e2a328ac359fe7e945ffe33c8fa8c3509"
   end
 
   resource "flask-wtf" do
@@ -127,8 +126,8 @@ class Buku < Formula
   end
 
   resource "mistune" do
-    url "https://files.pythonhosted.org/packages/7b/92/328a294a6de83bacb95bed01f04e0eaff4e3616ee359fc821a5dfc539b02/mistune-3.3.4.tar.gz"
-    sha256 "58b5c96d6fcb61190dfe5fae498d2b2065f99cf61e9649418fd54cf1ada86dfe"
+    url "https://files.pythonhosted.org/packages/96/eb/749a4e69bf7396e751ae37444abe997eff2254e695a8095b84d1c89c1181/mistune-3.4.0.tar.gz"
+    sha256 "2eaf7952af928ca8d33b779762effc1da517b62c6ad85ec8ca957e3b07b9782a"
   end
 
   resource "packaging" do
@@ -137,8 +136,8 @@ class Buku < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
-    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
+    url "https://files.pythonhosted.org/packages/18/39/b3927f3616f6223832f9b760e4208e8a7c7e1dea2b4d9ad7d32a5d214c3a/python_dateutil-4.0.0.tar.gz"
+    sha256 "d7295ff14fdc0f92f662100bfb6c551d160ca090f2939f1ec5b9794265c03f06"
   end
 
   resource "pyyaml" do
@@ -157,8 +156,8 @@ class Buku < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/71/c3/1b817965ac12dc002d7c9cd7dfffdd7d4fbf9b45763ef2ffe7b86ee94670/soupsieve-2.10.tar.gz"
-    sha256 "49e9380d7d2905463583bafe285e818c7366a9ed7b3aee221c1ac79c905d8bc0"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "typing-extensions" do
@@ -167,8 +166,8 @@ class Buku < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/d9/68/f1b440335057bfce71b6e50a9d09445aa2ecbd08359a337976627b8409e7/tzdata-2026.5.tar.gz"
-    sha256 "8cc73c0a0bfca7dbfa59235d60b2eff82231dee33f53d206db1acd9173cfc0a7"
+    url "https://files.pythonhosted.org/packages/7a/29/6a1391d31cd00ff9e927215a224a880e1e84e826b64ba80a499e51c074d8/tzdata-2026.6.tar.gz"
+    sha256 "85d2cd9c09f81f0bb29db27759fc83af4f1e620efb814f8c5bf8b4cc4feece6d"
   end
 
   resource "urllib3" do
@@ -187,8 +186,8 @@ class Buku < Formula
   end
 
   resource "wtforms" do
-    url "https://files.pythonhosted.org/packages/e9/91/ed9b517da898e3fb747566aa3c12a734bd64ea7449a0d25ec74ce8f8b8eb/wtforms-3.2.2.tar.gz"
-    sha256 "7b00c73f8670f35d4edb0293dcd81b980528bee72fd662b182aaba27ae570b93"
+    url "https://files.pythonhosted.org/packages/52/3f/742cb21320840bcd80bf9de3d0486126f364664fff12b805086371b1fd1a/wtforms-3.3.2.tar.gz"
+    sha256 "49bb51d10b7832d497e758736da4d56f7d129a015db24756f36f28992f175404"
   end
 
   # Fix type error and missing apidocs
