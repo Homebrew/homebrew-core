@@ -17,11 +17,11 @@ class Mimirtool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4c2f4fe6a5729b75a5b6955198a9423364f0de43d74a4394a3a88c78680b6bc6"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8da966cc6732f0c96b827134a5559f193b44c3f6ed2f70081534dbb409d3b98b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c3460f29986544889d36634ff8c92af75e91fb8a2045e1017546028416e0bb08"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "042eb10d42dea5a1406bce470bb196a25d1f8fa1e41ff135a9a48db8a1e89663"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "bdf93a061ed43b2ba6f37d39200621a622d97592875592d29f9ab716450e1063"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5bf023fa034330f2301c16bbef289b1a7bed91b1fac2dab8252cf7ec529574a9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e894ec1e72fdd5bf004eb6ad5d3872610635ba12f583901fd6eb14867c6eb37e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0b1e551446fd985975aa799fa594751c01df26bee06470f391c8e5ecaa0c75cc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "3c94ae591c8bb0c4a4878a4a5180afb27d220e41e6333281fc5f5523eb124e64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "2ea25aa265f3b129e6542084e90ce4668aa81be3a60c6bf9fc95d391a1ef4cbf"
   end
 
   depends_on "go" => :build
