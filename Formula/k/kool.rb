@@ -1,17 +1,17 @@
 class Kool < Formula
   desc "Web apps development with containers made easy"
   homepage "https://kool.dev"
-  url "https://github.com/kool-dev/kool/archive/refs/tags/3.8.1.tar.gz"
-  sha256 "8b66c38fc4c03f09563f70badd5d52c961b6706152f760483099fa9a44caf64f"
+  url "https://github.com/kool-dev/kool/archive/refs/tags/3.9.0.tar.gz"
+  sha256 "af98db1eb6b7e90f528ae5802a059c563881de77477909a90f7bf9d2b47e70de"
   license "MIT"
   head "https://github.com/kool-dev/kool.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "925e50b91292e72223a83724cc69b3788866f3640bfe662af865a4d26a494612"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "925e50b91292e72223a83724cc69b3788866f3640bfe662af865a4d26a494612"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "925e50b91292e72223a83724cc69b3788866f3640bfe662af865a4d26a494612"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f672ea370c5604e6d3eb2a0398684f8245e2ada3afbb18a33d4cada65edafdd3"
-    sha256 cellar: :any,                 x86_64_linux:      "acb89f82659956643662db44d8d25a2dda5090811dcdfa4d406f47076fda869c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9d62e1a9905ea31f7d225809f47ec27d8c467a725324c21215b1bf2ff9252475"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9d62e1a9905ea31f7d225809f47ec27d8c467a725324c21215b1bf2ff9252475"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9d62e1a9905ea31f7d225809f47ec27d8c467a725324c21215b1bf2ff9252475"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "de1fce509214aae1e972b70155252050b9e89bfe24c61fc1ad7536938650d2c2"
+    sha256 cellar: :any,                 x86_64_linux:      "e9cb5afed0d628b2c2f071e04c3f8c9d6d9512a137ac88475d7680418151f95e"
   end
 
   depends_on "go" => :build
