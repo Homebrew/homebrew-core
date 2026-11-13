@@ -2,8 +2,8 @@ class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
   # Use the `-full` tarball to avoid having to download during the build.
-  url "https://github.com/JuliaLang/julia/releases/download/v1.13.3/julia-1.13.3-full.tar.gz"
-  sha256 "13c4cd067962d6c81fea60081925be9e2992a4204289cc30dee3ddd9692cf31b"
+  url "https://github.com/JuliaLang/julia/releases/download/v1.13.4/julia-1.13.4-full.tar.gz"
+  sha256 "55bb4442c887a3e99f287b53c467fdd5e78e376344ea2a84865742d13a27d71c"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
