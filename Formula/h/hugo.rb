@@ -1,8 +1,8 @@
 class Hugo < Formula
   desc "Configurable static site generator"
   homepage "https://gohugo.io/"
-  url "https://github.com/gohugoio/hugo/archive/refs/tags/v0.169.0.tar.gz"
-  sha256 "47edb66f76f2c3653210bdac09883fa0a232eba2de43a0a6fdea9855e8e542d9"
+  url "https://github.com/gohugoio/hugo/archive/refs/tags/v0.170.0.tar.gz"
+  sha256 "dac429f01212d06979a1e939307f5bffdbfd3f75a63eba0fe3c817383d0525fe"
   license "Apache-2.0"
   head "https://github.com/gohugoio/hugo.git", branch: "master"
 
@@ -28,15 +28,14 @@ class Hugo < Formula
   end
 
   def install
-    # Needs CGO (which is disabled by default on Linux Arm)
-    ENV["CGO_ENABLED"] = "1" if OS.linux? && Hardware::CPU.arm?
+    ENV["CGO_ENABLED"] = "0"
 
     ldflags = %W[
       -X github.com/gohugoio/hugo/common/hugo.commitHash=#{tap.user}
       -X github.com/gohugoio/hugo/common/hugo.buildDate=#{time.iso8601}
       -X github.com/gohugoio/hugo/common/hugo.vendorInfo=#{tap.user}
     ]
-    tags = %w[extended withdeploy]
+    tags = %w[withdeploy]
     system "go", "build", *std_go_args(ldflags:, tags:)
 
     generate_completions_from_executable(bin/"hugo", shell_parameter_format: :cobra)
