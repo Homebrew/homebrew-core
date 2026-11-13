@@ -1,22 +1,12 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://goteleport.com/"
+  # Check https://goteleport.com/download/ for valid versions as some git tags
+  # aren't marked as GitHub releases but they correspond to official release
+  url "https://github.com/gravitational/teleport/archive/refs/tags/v18.11.10.tar.gz"
+  sha256 "59462f339440cda54cef30e554e0e1322a05eadbff84d062d1085e4a8ed7eb6d"
   license all_of: ["AGPL-3.0-or-later", "Apache-2.0"]
   head "https://github.com/gravitational/teleport.git", branch: "master"
-
-  stable do
-    # Check https://goteleport.com/download/ for valid versions as some git tags
-    # aren't marked as GitHub releases but they correspond to official release
-    url "https://github.com/gravitational/teleport/archive/refs/tags/v18.11.1.tar.gz"
-    sha256 "a95bddd445dc3f93d91493b48e73d39959bbc4d4d00cd93fea34b3d02c3ba1da"
-
-    # Update strcase for Go 1.27's Unicode tables.
-    patch do
-      file "Patches/teleport/go-1.27-strcase.diff"
-      type :backport
-      resolves "https://github.com/gravitational/teleport/pull/68801"
-    end
-  end
 
   # Teleport first does a commercial release and then has a delayed open-source
   # git tag. Not all tags are marked as GitHub releases so we check that the
@@ -65,6 +55,14 @@ class Teleport < Formula
     end
   end
 
+  # Use native-only Rust archives with Go's linker-input validation.
+  patch do
+    url "https://github.com/gravitational/teleport/commit/16490c6cdc8b3846aa71a4ba893643072bca0663.patch?full_index=1"
+    sha256 "18b85d1c3f65875b903bd7b9f9d79f47e85e4efc307605caa03ff0cf822be9ea"
+    type :unofficial
+    resolves "https://github.com/gravitational/teleport/pull/69975"
+  end
+
   def install
     # Workaround to avoid patchelf corruption when cgo is required
     if OS.linux? && Hardware::CPU.arm64?
@@ -91,6 +89,7 @@ class Teleport < Formula
     # Build C code in wasm crates with LLVM as the host `CC` (GCC on Linux) cannot target wasm
     ENV["CC_wasm32_unknown_unknown"] = formula_opt_bin("llvm")/"clang"
     ENV["AR_wasm32_unknown_unknown"] = formula_opt_bin("llvm")/"llvm-ar"
+    ENV["OBJCOPY"] = formula_opt_bin("llvm")/"llvm-objcopy"
 
     # Workaround for error: The CPU Jitter random number generator must not be compiled with optimizations.
     # Issue ref: https://github.com/aws/aws-lc-rs/issues/1097
