@@ -6,11 +6,11 @@ class MimoCode < Formula
   license "MIT"
 
   bottle do
-    sha256 arm64_golden_gate: "eff3915982f7a651a23c7774489756685c4f97940e7be5d52a43a09dc2d4fe73"
-    sha256 arm64_tahoe:       "98b81835e414d6572e457558d9c93e35f94546c5f57667d33bf6e58733ce6b51"
-    sha256 arm64_sequoia:     "c0a26eca958bedc1cdf73c50dd54d2229e0491e2ebcf2265258172d8d6c46b77"
-    sha256 arm64_linux:       "6ea98cb741ff9f3f5b25e729214f894c91587a71b7d4c54a051e86cf1b57230d"
-    sha256 x86_64_linux:      "2d01aff12d4db0b3ea580940fef72e53a408122751dce56d15ef147d41bfe758"
+    sha256 arm64_golden_gate: "17bb02569607d389a8b0b42283d1f796c6b36acc2ce8cb901abdc2de01619179"
+    sha256 arm64_tahoe:       "ca2a1195e5d683b2abc9c43a40696f0ed02d5990c4fce146009496c1c66904da"
+    sha256 arm64_sequoia:     "a488a9c80509e3541a151be7cc384c76876079135092122a55d5376ecda3d6ec"
+    sha256 arm64_linux:       "5269a6d4db16412a0a208286bee5ba929366a79904fa25fd0b007d3f0e4efa87"
+    sha256 x86_64_linux:      "04e1557a5c169824affeb2ed6df733dea099ff5b411898d0a7aa703f63b72e3e"
   end
 
   depends_on "bun" => :build
