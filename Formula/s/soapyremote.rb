@@ -6,11 +6,11 @@ class Soapyremote < Formula
   license "BSL-1.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "959e8c989590505c99f5689c2ad84e6a320a71d467c7932cdb8e40eb4db9030f"
-    sha256 cellar: :any, arm64_tahoe:       "55e369064ec119a4dfa60c431cd91731f5b18c297370f7b8d3b5788130f91d09"
-    sha256 cellar: :any, arm64_sequoia:     "feb1662facc60fb7d3b6a75500b688700887ddcfbf1559b3e31d519a39e27139"
-    sha256 cellar: :any, arm64_linux:       "b01873eb5becf5e4e601abf7ba8ada34d697ef0014496291889b86b5750846dc"
-    sha256 cellar: :any, x86_64_linux:      "129c00a601d93b2fb46e25a6dd46d73016de1ccddf828658e09ce390d560215f"
+    sha256 cellar: :any, arm64_golden_gate: "4943dfc0d665c54bba5e24601133e351172911e2310ba7fde0b44155361680b5"
+    sha256 cellar: :any, arm64_tahoe:       "611bd6e2f6785920e55bed0bee8ef652dc31ff4d53640f88a091f4db7d406692"
+    sha256 cellar: :any, arm64_sequoia:     "6e62f4dc506f0d52211ac5368cbda8a6ef88c74617086ebd1cdb2d97c9e34b8f"
+    sha256 cellar: :any, arm64_linux:       "3e40f55fb2cb25402275ddf56ede8cd0d83419d9b51c3d589aa9f26703b3e559"
+    sha256 cellar: :any, x86_64_linux:      "9614ce6c5dc95128b542ceb41ab2365bbe46626ebdc372af40bcd64c7d86e2cc"
   end
 
   depends_on "cmake" => :build
