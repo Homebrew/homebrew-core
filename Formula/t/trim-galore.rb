@@ -1,8 +1,8 @@
 class TrimGalore < Formula
   desc "Quality and adapter trimming for FastQ sequencing reads"
   homepage "https://github.com/FelixKrueger/TrimGalore"
-  url "https://github.com/FelixKrueger/TrimGalore/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "e88fa19e71781792e469f7f0ed8a85272b4ede9518a0f41d7babc81be6e32dd1"
+  url "https://github.com/FelixKrueger/TrimGalore/archive/refs/tags/v2.5.0.tar.gz"
+  sha256 "decc7a884b8504a216d739e8a9e26d62e855e5827bc81876bff612281f92917b"
   license "GPL-3.0-only"
   head "https://github.com/FelixKrueger/TrimGalore.git", branch: "master"
 
@@ -12,11 +12,11 @@ class TrimGalore < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3500933be041fb5a2fb1d8c9ed5a525cbe2b649bd079c0c1acbf9203aeeb96d3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "38581836c7b2b22c709e59d395587fe0cfeee03836b80aed64f5fb318289c002"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eb30b443fdae6cc166618ca9d998daaffdd9e33847c1bc774bf1f96ab5860c48"
-    sha256 cellar: :any,                 arm64_linux:       "83d3ea32e44f60ed98aceae4269e953699acae915860b1bd5b49445e819419ad"
-    sha256 cellar: :any,                 x86_64_linux:      "32d7754e5fc8e7d84d01fdedfe5fb2df947d255ee498836badab6234e85420a1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "30545c8ad3e3f8ffed51e4eb9f693d1f3e4b35238f7c8219104b984978621ee8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c3f2a3a15649fed1c875a18b97aa025899ab1ea87b92ae2c42215de762b6138"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "27af74954fedb1a00cb2e6d5f105ce2e2e7154308cceef40476b0dc989932c89"
+    sha256 cellar: :any,                 arm64_linux:       "0a3c634acea39bce7bf8f777f5cc46406680a28652d6e69b40605a65034a730f"
+    sha256 cellar: :any,                 x86_64_linux:      "2c5bc2cb9e8bf838571b1286933ca4d9ac92a41a99d8021526458325020a9742"
   end
 
   depends_on "rust" => :build
