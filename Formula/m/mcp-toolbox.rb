@@ -1,8 +1,8 @@
 class McpToolbox < Formula
   desc "MCP server for databases"
   homepage "https://github.com/googleapis/mcp-toolbox"
-  url "https://github.com/googleapis/mcp-toolbox/archive/refs/tags/v1.16.0.tar.gz"
-  sha256 "17090c37ff486feb8bc860f40792147891976301d576cf4ecc9b0df889019e88"
+  url "https://github.com/googleapis/mcp-toolbox/archive/refs/tags/v1.17.0.tar.gz"
+  sha256 "ccb0b0b2af10a3b15e23ec68e65583a876cb631f93635cfe7d458382d98fdcbc"
   license "Apache-2.0"
 
   bottle do
