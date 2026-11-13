@@ -9,12 +9,11 @@ class AdrViewer < Formula
   revision 8
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5d8bb1382787cd123f00930ebfef8eafc21b9da10898920b9d7a0ed88cf935fe"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "255c4cc409a6ecacdebbc53744ebe5b522279ef3acb14e7bb6f70638ac2cf89d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c48e2fc75221815f5f59fab4193bd0cff6608de141b2beaf22f5087d0b259579"
-    sha256 cellar: :any,                 arm64_linux:       "6e2830998c66c73e948d886a50d41f894b0d35e0f8bb008626486c11d12ed4d0"
-    sha256 cellar: :any,                 x86_64_linux:      "726a47c0caf0eb548c6e0457130d1c820fa426f206d8ae8b57d41677049172db"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9c7dd7b39d030d47e8b60cf129b36eda9222db3571fd29ce5d99c5cf9966bc04"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0723fdc0c58e5f0332c5f88b5e9a6b8a747b444e85b54a3b5fe73b3db4b14ce7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "83b9194259570a51ac4e2c5137753932aecc30d89d28885d7ff3659b995338c5"
+    sha256 cellar: :any,                 arm64_linux:       "c6c921dbd030772367ab575d2c2341acc036fea28f7ea1b6498143755e315f26"
+    sha256 cellar: :any,                 x86_64_linux:      "3bf6a71b8fa789f8a53046dd208229ae592343e8722c2228e5401f6718d04b73"
   end
 
   depends_on "python@3.15"
