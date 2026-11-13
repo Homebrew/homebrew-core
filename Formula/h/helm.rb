@@ -9,11 +9,11 @@ class Helm < Formula
   head "https://github.com/helm/helm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e2ba44293255a42d4e736e58981ee4dc35aa4d1111868f8f4a4aba3490d81873"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "76ebaa1d4e17459aa02de1d28f9e1060c6ac33f7490f2210ee5d5ed7eb0f5e6a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "120a700cd8c66b216b785405a02be19601615fcb8e72cdd04a6dd202a1ff3ee6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0f16e372ec512b839c5dfd032709dc8d893ee33f9fa7d46becda987ad08dc413"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9906d449b62a423b5332a7ec2f8f5e27e6c7e06a53ff8543b9f559e99b69d855"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cff5caefbfd08404330a1679c60fe89a462e049af91d83cd6d89b0da7f4da254"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a40e13154a16f464555e36378de2a0a2cc08a1728d4a2d853abf96632f0c7d8e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a230eb29d4d682673a4aa046c353802544d81bc8f45583b2e44f88e4af3075cb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "81245b63a70b91ba4c1903bcbee8b777a73e95ce3f1bcb0336af8b76e7dceb17"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "62bc12b19b217941e36f3eefb008f49b4ca4cce51a7a8695ac6b8350fcc13aa1"
   end
 
   depends_on "go" => :build
