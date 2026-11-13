@@ -6,6 +6,7 @@ class LlamaCpp < Formula
       tag:      "v0.9.0",
       revision: "cd959bae99ff4bed22bef2604f45241c09bbb8c8"
   license "MIT"
+  revision 1
   version_scheme 1
   compatibility_version 1
   head "https://github.com/ggml-org/llama.cpp.git", branch: "master"
