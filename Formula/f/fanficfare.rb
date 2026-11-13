@@ -10,11 +10,11 @@ class Fanficfare < Formula
   head "https://github.com/JimmXinu/FanFicFare.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d79320295d8a642ffa0dd0d6654b1b01695aff30de0d230df914c501342f9036"
-    sha256 cellar: :any, arm64_tahoe:       "e082b879fc3f75d26cfb41b1f1a89dee97ee43aafed643a2b180ae5ccf87df2f"
-    sha256 cellar: :any, arm64_sequoia:     "ece4a63d13667a9f2110e57e135ca13aeb3c51bdb31aac2d9b9f81a611384aa5"
-    sha256 cellar: :any, arm64_linux:       "578b5999a613655de527a9216c848ebca760aa0babd84ddd819ea17376045822"
-    sha256 cellar: :any, x86_64_linux:      "994f38a56998718fac6b6f3abbc0edede90168a36fda49561d76f99e4622e875"
+    sha256 cellar: :any, arm64_golden_gate: "2f289397e36cfbccbf41ba3622fc88670723f2d7de8c77a55519c248dffdbd26"
+    sha256 cellar: :any, arm64_tahoe:       "fce02858d240194be6dab52bf2d4a76e3f772e60ae04295895fb8e9ba84a9464"
+    sha256 cellar: :any, arm64_sequoia:     "f1f668b16eca3f80afbdf9981b780c606644673a60c21044f16ddfc1c7106562"
+    sha256 cellar: :any, arm64_linux:       "8df76c192089761ba560a29b816e1031d58badb7df7837ae15c9432901600152"
+    sha256 cellar: :any, x86_64_linux:      "954dc0fdfa0da0e668b3992429e9a3707207eb91e753e6e708bc6206d8f20dac"
   end
 
   depends_on "pkgconf" => :build
