@@ -4,6 +4,7 @@ class WhisperCpp < Formula
   url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.9.5.tar.gz"
   sha256 "ff1a9053feb509ff9d7729703355541ae9690073a6b1c40eb692c962e0dc1720"
   license "MIT"
+  revision 1
   compatibility_version 1
   head "https://github.com/ggml-org/whisper.cpp.git", branch: "master"
 
