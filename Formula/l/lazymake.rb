@@ -1,8 +1,8 @@
 class Lazymake < Formula
   desc "Modern TUI for Makefiles"
   homepage "https://lazymake.vercel.app/"
-  url "https://github.com/rshelekhov/lazymake/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "49dc29635990385fef22717d23c986a62803dc2afeeb428e0a1910711b169c37"
+  url "https://github.com/rshelekhov/lazymake/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "b141ede0499a7ec41c21782d41ebc08a87a95074e9c8c8efc7007d2ebf5e8f9e"
   license "MIT"
 
   bottle do
