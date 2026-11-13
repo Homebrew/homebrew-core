@@ -6,7 +6,7 @@ class PolicySentry < Formula
   url "https://files.pythonhosted.org/packages/87/fb/1d8cd9672d757481f6ffbdb18ca92d628d8d2b08cbf1829a1c4d700bc1ab/policy_sentry-0.15.2.tar.gz"
   sha256 "6e16f059dde400c856815be9368052102993499e66754207f9a9a1cdcf996dd2"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/salesforce/policy_sentry.git", branch: "master"
 
   bottle do
@@ -36,8 +36,8 @@ class PolicySentry < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "idna" do
@@ -66,8 +66,8 @@ class PolicySentry < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/71/c3/1b817965ac12dc002d7c9cd7dfffdd7d4fbf9b45763ef2ffe7b86ee94670/soupsieve-2.10.tar.gz"
-    sha256 "49e9380d7d2905463583bafe285e818c7366a9ed7b3aee221c1ac79c905d8bc0"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "typing-extensions" do
