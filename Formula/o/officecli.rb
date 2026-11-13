@@ -7,11 +7,11 @@ class Officecli < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3343366cccc5be0fb45c5e4229537aad7878d898b60c1df09671530bd6a7556d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "438cd5e80551bd360b8c77aabe519227636b0e2537cb22bdf8ab8872ce410389"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "49e02b8417257e4916b03b152f95954770d21261ed3e8bbe87224c3ac7b1fd70"
-    sha256 cellar: :any,                 arm64_linux:       "88ad15bba300c34028d9dd5b61ec753de35f55ff10df0f2a120f002b071e5b26"
-    sha256 cellar: :any,                 x86_64_linux:      "c8290a41b28b8e46a3d75a8960c27c8046bc1fed5e23ea5dbc279ba7512478bf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f3c9f2e88311c0febe28f189ef20494345f238c5a404162db9b3dea98194904"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5ffc4f1182f81cb4d0490cece3e58eb3b7c62b27fd15d14562310fea19516868"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "10d23ca2d560aef06b430f8a41c0e2cc7e0acc8f2e594ff46f64833040089364"
+    sha256 cellar: :any,                 arm64_linux:       "387c5e01ad751ab2ae7a9227734d083cd0f84dc6a09028e69800e0d7b921d21b"
+    sha256 cellar: :any,                 x86_64_linux:      "0fb7726024fd3b69583d6f312cab7a507e6b0c4ebe93eaa3b1c82cdfbc993aec"
   end
 
   depends_on "dotnet@10"
