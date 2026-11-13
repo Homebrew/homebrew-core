@@ -12,11 +12,11 @@ class Cozypkg < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f6fb6fc7240cbae281703b80c856acce60e19b68f12d77a90b7031177fe2fa74"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5b5e542fdb1ef1e747d9d9e0fa0462e3e258ce5a5d47e83bf3ffbbaf65022f28"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4a7d0ff53fb66369d9d900376c5c8e7e59d19669a308d6d45e76dcb4febb40eb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "77eef4ae8169bb2f16becb0099b3e563e58bd6be4e0bdb200c422b97d0abe891"
-    sha256 cellar: :any,                 x86_64_linux:      "2a8939532d23fa66899ce4d7f5131299bad8648dbbe5ccf3312e7024148953f3"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fdf6ddaa767d82d1600dd37c4deab60ebc42cd9916c7b0bce2dc172ef44f3888"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b52f764462c07864ce3fde538c065799e8b4994ede1f4532b5541dc360fa203f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c0a0e494c5f528082e35bcb5df57fec56c362aad5c242f6bcb8ac0dd874e46e8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "206e2f415054db4b1d33e04f841fa06bb11ce3f10a800521fe80eed2b08f61cb"
+    sha256 cellar: :any,                 x86_64_linux:      "9a68147e2bc92ce1cf88486e483c35c2c82cb632c910a6f05b68c62f1cdb11b2"
   end
 
   depends_on "go" => :build
