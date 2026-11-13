@@ -6,16 +6,15 @@ class Cloudsplaining < Formula
   url "https://files.pythonhosted.org/packages/7c/89/bf53630e908aef0680a4c843c4e8acd0b96a22b196ffec5a94bcc5249f80/cloudsplaining-0.9.1.tar.gz"
   sha256 "14ef4f786144b8a2147372aeaa810822dc70f75d3d7c53dd965a12d1a1167cb9"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/salesforce/cloudsplaining.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "f5bd0f686b9b62808c7906696267378119fa05dbbb295ae2d11ed1e8eed2771c"
-    sha256 cellar: :any, arm64_tahoe:       "939e35cd5c4f847ac689deb7f81ca31c6e95ec2abc96d74f5fd49c16dd5861b2"
-    sha256 cellar: :any, arm64_sequoia:     "6c21dcc388dde8076acea56066d75240b1490dcbce62d63b1e576f1447fac9b5"
-    sha256 cellar: :any, arm64_linux:       "ee8884f3afe48198e4adf79d810f89e7e6269638a67d552645a7872f72735144"
-    sha256 cellar: :any, x86_64_linux:      "b8351e68db126ab0c48fc19dfaf8b5a32c27bf32e76957dcba5b29ec45a85939"
+    sha256 cellar: :any, arm64_golden_gate: "2c42862d6c2c204bdec821b241322c7aee058b644dd992315f235d77da8404f6"
+    sha256 cellar: :any, arm64_tahoe:       "f652c0c8e81031b86f2e7be763ac613887003c8e7be51720beed998200eac0a3"
+    sha256 cellar: :any, arm64_sequoia:     "b8a57c10b1754b4bc0f59b6bb14f4a4d75c2abcf1343b783fe01aa0e4a2fff7c"
+    sha256 cellar: :any, arm64_linux:       "5465409c4cb6f11d35a30e22bc532134319b53b6328babdf4f70bcad32ac7b9c"
+    sha256 cellar: :any, x86_64_linux:      "03e878f9e22f814a69070707ffb60a4257a184fb2a9784d4ecc2f07fcb06d9aa"
   end
 
   depends_on "rust" => :build # for orjson
@@ -31,13 +30,13 @@ class Cloudsplaining < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/59/d3/fa092ae1c109100d0c5c14c69a316cd6d53c05fb57183fa77b1fcdef86ce/boto3-1.43.111.tar.gz"
-    sha256 "5ae342a16c848909cd42d4be404f69d9082e5705460198d4d3327eca5f6cddcb"
+    url "https://files.pythonhosted.org/packages/91/02/d46523af0a933c35604e2bbb33e4ca8f69a00f9990af6d6b29ed84db64aa/boto3-1.44.1.tar.gz"
+    sha256 "c81dfdaab894cbcba78aa3773fe3fb27a13b576f49ff5552b91190072fc7dac0"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/6c/43/257e97270ddd6833fd54b11e544a09b441b02f8c731bdeb29b90479be565/botocore-1.43.111.tar.gz"
-    sha256 "44d5e80962ac6cb9e85af72667b77c9586451e3328ab0ce33195380767e213d8"
+    url "https://files.pythonhosted.org/packages/b1/61/07918ec258ab7131dd601cb1aaffcd7fa008fa8bb0143fd195ecc4b4435d/botocore-1.44.1.tar.gz"
+    sha256 "e71f6249be2a7324899ba81c5958ac1809a78498ea2c8f60e00fc0e62262ab83"
   end
 
   resource "charset-normalizer" do
@@ -46,8 +45,8 @@ class Cloudsplaining < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "click-option-group" do
@@ -101,8 +100,8 @@ class Cloudsplaining < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/76/43/35e4d8aa320bffe8287fe8f65f578fa2d2db0a64212f0e710dce58267854/s3transfer-0.19.2.tar.gz"
-    sha256 "ba0309fd86be3c27dbf78cdd813c13c5e1df16e5874b99d2535ebbdfb9892993"
+    url "https://files.pythonhosted.org/packages/49/c5/0a5ce655109cb96b8dfad36908a4e108d15f5dc2eff8fbc3146c4312e704/s3transfer-0.19.3.tar.gz"
+    sha256 "8326acc3d056d7f7b8a37110c7d2aea41f67e83f6ae79cd3b5fbcca34c726406"
   end
 
   resource "schema" do
@@ -116,8 +115,8 @@ class Cloudsplaining < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/71/c3/1b817965ac12dc002d7c9cd7dfffdd7d4fbf9b45763ef2ffe7b86ee94670/soupsieve-2.10.tar.gz"
-    sha256 "49e9380d7d2905463583bafe285e818c7366a9ed7b3aee221c1ac79c905d8bc0"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "typing-extensions" do
