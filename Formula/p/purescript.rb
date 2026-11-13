@@ -3,8 +3,8 @@ class Purescript < Formula
   homepage "https://www.purescript.org/"
   # NOTE: If the build fails due to dependency resolution, do not report issue
   # upstream as we modify upstream's constraints in order to use a newer GHC.
-  url "https://github.com/purescript/purescript/archive/refs/tags/v0.15.16.tar.gz"
-  sha256 "36abaef46aa3cd0316d924c872987aa186d95654d05aa66060948ab47b161f18"
+  url "https://github.com/purescript/purescript/archive/refs/tags/v0.15.17.tar.gz"
+  sha256 "9c397f31c6864491d3f2588acb8e58ecde493c39ec380aaf845458213f1ddab0"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/purescript/purescript.git", branch: "master"
@@ -15,14 +15,11 @@ class Purescript < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "cfaba8c0cdc54ac7b1f18f05a0c05e9eb753f03ca1d138484b48c23e2252602b"
-    sha256 cellar: :any, arm64_tahoe:       "dc46630c86957ab0f8713bb673ebd8b3176cb8374e23d82b9a4613d64e269c88"
-    sha256 cellar: :any, arm64_sequoia:     "9f8d22b204a736137f79983004a77f3995f274f24f5c716b5801c627b0600d56"
-    sha256 cellar: :any, arm64_sonoma:      "f0ce77a28523acecc9e492cf6d1f9c05fd54e3c07fe3dfa82d1b2f418a35feaf"
-    sha256 cellar: :any, sonoma:            "8f6a356e26d75d58cb5612b0e7a881e964c1e7e95d37085001432a8a823aead0"
-    sha256 cellar: :any, arm64_linux:       "dad0e46be82b7fcd262ed011ef76c2f9535e81847d958bc1a73d3057fe0b8f64"
-    sha256 cellar: :any, x86_64_linux:      "88d8bb115d51ef1bb8fda45c3dd9fdc87abf0f82a5722f94b776ba103d30f681"
+    sha256 cellar: :any, arm64_golden_gate: "4e72779d2a8eb53130a068d910252049522cea40808c689c118ee9689c298b82"
+    sha256 cellar: :any, arm64_tahoe:       "e4c221120015d3fd023a9203a494a212891a773adb3d6bbaf4555d6d5c5e9f74"
+    sha256 cellar: :any, arm64_sequoia:     "197217b63df2f12b97d25c3fedb75b484555296b9aafafd167e41f28af72801e"
+    sha256 cellar: :any, arm64_linux:       "1a7bf3e4e1e9b44beb11b4c4d31852dc7a7e2361739dd4ccb6eda494af067214"
+    sha256 cellar: :any, x86_64_linux:      "876ea1c2d6d86e4af19942318c59c56ec3cc2cc5c55d04c2802d323b831af0d6"
   end
 
   depends_on "cabal-install" => :build
