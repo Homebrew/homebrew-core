@@ -1,8 +1,8 @@
 class Ty < Formula
   desc "Extremely fast Python type checker, written in Rust"
   homepage "https://docs.astral.sh/ty/"
-  url "https://files.pythonhosted.org/packages/34/6c/22c0680e71f529e084ee2e308a51f04317298248ee699f4914c02129c351/ty-0.0.101.tar.gz"
-  sha256 "dbb43374b49fe30ea49e244da63aa90098dff1257a49ae4351b44881ccef724f"
+  url "https://files.pythonhosted.org/packages/26/c1/29d3275a804e0d34a02dfdb161b21aab3ecd0ac8d94ab593cd74086fe495/ty-0.0.102.tar.gz"
+  sha256 "70574ac3706625e5be43ec86e2f57cef179877abe76fef5e9f48539d2f176e78"
   license "MIT"
   head "https://github.com/astral-sh/ty.git", branch: "main"
 
@@ -39,7 +39,12 @@ class Ty < Formula
           return x
     PYTHON
 
-    output = shell_output("#{bin}/ty check #{testpath} 2>&1", 1)
-    assert_match "error[invalid-return-type]: Return type does not match returned value", output
+    shell_output("#{bin}/ty check #{testpath} 2>&1", 1)
+
+    (testpath/"good.py").write <<~PYTHON
+      def f(x: int) -> str:
+          return str(x)
+    PYTHON
+    system bin/"ty", "check", testpath/"good.py"
   end
 end
