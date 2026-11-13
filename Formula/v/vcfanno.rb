@@ -1,8 +1,8 @@
 class Vcfanno < Formula
   desc "Annotate a VCF with other VCFs/BEDs/tabixed files"
   homepage "https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0973-5"
-  url "https://github.com/brentp/vcfanno/archive/refs/tags/v0.3.9.tar.gz"
-  sha256 "a5119f39a70a3872067e00be2f20ac69ec8c2688fc9f4cf603b3de12c90cba4d"
+  url "https://github.com/brentp/vcfanno/archive/refs/tags/v0.3.10.tar.gz"
+  sha256 "6a13fc9fe247f2726b6294e55e713281e62e4a5c279501e60763c52c4c921d45"
   license "MIT"
 
   bottle do
