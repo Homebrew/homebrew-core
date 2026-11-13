@@ -6,12 +6,11 @@ class Feroxbuster < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "39aadacc8e2b71f1f51f967612f8c17ae2d0d15d7686046c57d564c6351d9c18"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e3b5d4c06230ab1df92d7551894d3d6d75f746f602e03956ba7f612bb16aa3c8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5d092fa8ea2c9e0c2c0ff512e7539eb342a79f29c78162be9e880d6768c9d12c"
-    sha256 cellar: :any,                 arm64_linux:       "9b20f6cef7334d9951d8aadd0d4fd183708bd0e2c0a251b8a653c4d5ae9300b4"
-    sha256 cellar: :any,                 x86_64_linux:      "360dc98dc0a6b0a664a1093b9b82a1a3c122e10376e56131bd949f18e83f16ec"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d10158ff551d838481f26ef80f5a90ae643340bf6968d96b57adc62b06f9e0b0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e7cad76ca6438ee744b26fb8b18506e5b95dfeb4430894adad724394a591d80f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "11cbc814e32b12539004720dc865b62ac5a0c8b1fafee4c25859982854ff60a8"
+    sha256 cellar: :any,                 arm64_linux:       "98567bbf9e7e3270c17725118dfb798cc6d5ed5289a4d0f30a79357c3c3085ff"
+    sha256 cellar: :any,                 x86_64_linux:      "237326dc35e6a5f99dbfea3493222d7170f67be93a5d5e619b7bbe05109d3051"
   end
 
   depends_on "openssl@4" => :build
