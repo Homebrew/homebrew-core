@@ -12,11 +12,11 @@ class Orbiton < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cde5a2fa058fd6935a813760ccaf428999e307c9bd7babadd5112b7dd75c2866"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cde5a2fa058fd6935a813760ccaf428999e307c9bd7babadd5112b7dd75c2866"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cde5a2fa058fd6935a813760ccaf428999e307c9bd7babadd5112b7dd75c2866"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "03e3bf683c55f6f74296a01d1679f45f6261c339e9ac691f250bfe2604d988ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9c44fb041c23b1b0e56169e7984bae6fa83d3cd38b77e4d1a041db5f41fa8d89"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "613a11a1e024856175564516349b636cd7b736825a1799a3a47615d9a802e9b4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "613a11a1e024856175564516349b636cd7b736825a1799a3a47615d9a802e9b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "613a11a1e024856175564516349b636cd7b736825a1799a3a47615d9a802e9b4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ad4f96db963fc062dc521b0354629481ca514d96db9ab45875d21808b54afee1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7fbe712831b6b3ddcc34c12c16c3f9eaf50fc816b075d1fa25899af23671883f"
   end
 
   depends_on "go" => :build
