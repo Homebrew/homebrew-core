@@ -3,8 +3,8 @@ class Checkov < Formula
 
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
-  url "https://files.pythonhosted.org/packages/44/78/7d8cbaf04c25d7c160cdead3e16d7e3f57a8540183256ff0d1e23e9cc4a3/checkov-3.4.4.tar.gz"
-  sha256 "aed7a98c32b1d860a36c980a120eb16bec983d77140039ea2ac6ba091b7b29ac"
+  url "https://files.pythonhosted.org/packages/aa/c6/c73340877d4c223737ca6ff6e45323377d333aeba4916e986bd7ddeb4af6/checkov-3.4.5.tar.gz"
+  sha256 "c4e38f5781482426981edc626bbeb7c37b850be2ac3a03723b2f99da52a3bc52"
   license "Apache-2.0"
 
   livecheck do
@@ -12,11 +12,11 @@ class Checkov < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "0f866a6af9accd53c07323afc586bda955c3cf1b88073a9084c2c9a427072d7d"
-    sha256 cellar: :any, arm64_tahoe:       "cddd576167143f15469555454f18c51645dbc54a210c61486fa8b73e5ddf8d5d"
-    sha256 cellar: :any, arm64_sequoia:     "c62dcc7250499e36f36ce4e653fde56f5020d57780f3a3518436edc8c346eead"
-    sha256 cellar: :any, arm64_linux:       "a8d7e0a2ab71bb4ab437648245fdd997969ae4e4097518be5f13508f280b15df"
-    sha256 cellar: :any, x86_64_linux:      "384e9fdc6aebde30a0846c18ebcaa7b2d876a6ada03f011b7aa96a89e6a72cee"
+    sha256 cellar: :any, arm64_golden_gate: "a1bbc19c042c175b56e024680bf49f76388519c7b149ed091ffaf12d079e3614"
+    sha256 cellar: :any, arm64_tahoe:       "d094f34ac3cee784417864a77fbc776743ce8152344937f407c6a792bb8df8db"
+    sha256 cellar: :any, arm64_sequoia:     "d2dcd613d91ccf4079634291825602f415ffcf8322ebd774b36475bd519dea38"
+    sha256 cellar: :any, arm64_linux:       "959546e1ff7c39b642249b79e7a733e6c1da1515173bdd6266628dc3112142d5"
+    sha256 cellar: :any, x86_64_linux:      "c9ea95e13ee5994af0b0f7465038dbca43efbdcff3d865a52d91e36ae8b40a46"
   end
 
   depends_on "cmake" => :build # for igraph
