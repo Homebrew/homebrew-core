@@ -12,11 +12,11 @@ class Abcmidi < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "65b2f0d1dbd3ebecd4d6eda3c87cfe2a3b792ee59981f293674f44310a48060d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c31ba861d4213fbf7adf4f0a5f92c81915cdfdd5183aa968593ca3c61019d401"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fb8523260e76a7cfcbe6cc0a9111179db4d15519336de55ccf8c5a28a7b398ea"
-    sha256 cellar: :any,                 arm64_linux:       "c36ff933fb866159d4d1d18ae8e827498ba5b30f8764232f2f766d72bddacd52"
-    sha256 cellar: :any,                 x86_64_linux:      "e0f54246e9d142792b04197e348dd00abeadea45c82c5f6ba373a61ece53c069"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ea73dcd4210e106eae5cd5063bf764b2801a5ec809b8db5a21b7c8ff59a8d54e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ed08319127f1dc7fc89ce0e62077edd864817dc1a0d53b267213f09fa809dd43"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "462a05154809b5b3d1cbf78dfbeec2fd1704ddb3628c2f104f8635daacedd060"
+    sha256 cellar: :any,                 arm64_linux:       "bee3155c6e52a2d7c62f5c6d93c2aebddfad4be3db4b095f1935d3b99f69deca"
+    sha256 cellar: :any,                 x86_64_linux:      "be542ebe45247ccb791282a46a0eb46f825318c86adaaf60eea7b9d6c586452c"
   end
 
   deny_network_access!
