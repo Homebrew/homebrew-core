@@ -2,11 +2,10 @@ class Dbus < Formula
   # releases: even (1.12.x) = stable, odd (1.13.x) = development
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
-  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.16.2.tar.xz"
-  mirror "https://deb.debian.org/debian/pool/main/d/dbus/dbus_1.16.2.orig.tar.xz"
-  sha256 "0ba2a1a4b16afe7bceb2c07e9ce99a8c2c3508e5dec290dbb643384bd6beb7e2"
+  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.16.4.tar.xz"
+  mirror "https://deb.debian.org/debian/pool/main/d/dbus/dbus_1.16.4.orig.tar.xz"
+  sha256 "d08b05526c2cb7966a5fb79210d6112b1aca3d135f315c1b302e14b4b0297dac"
   license any_of: ["AFL-2.1", "GPL-2.0-or-later"]
-  revision 1
   compatibility_version 1
   head "https://gitlab.freedesktop.org/dbus/dbus.git", branch: "main"
 
@@ -16,15 +15,11 @@ class Dbus < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "a5c1ed4bc84b205b8d161905108ce307b76376037d07d0ce9a6377e7f13d6c38"
-    sha256 arm64_tahoe:       "708eed3cc7031e486c760cc9debe777b7e8de93faf74320b66d3bc42e27499c3"
-    sha256 arm64_sequoia:     "5a51451acabb5ae56b5682e88a82dfa43cc6a2b653ca068198546bb72324bd0c"
-    sha256 arm64_sonoma:      "1be729814991108cc593bb8472e376947898f8bf94b73271c2238c329514a3ba"
-    sha256 arm64_ventura:     "29098b5b3f154677a61c30b402b17fe2912e9efe1cd7917ee6ae754209fe1f29"
-    sha256 sonoma:            "438a1da22c323246b958e0fbc63c5e7405dba77e9274809ebd73ab8c886a19d7"
-    sha256 ventura:           "2f10ec74399e7ffb843022aa22bf11b088ab6b00d34da46d623fca78900f166b"
-    sha256 arm64_linux:       "f636ed77fc07ab232ec75012b8b5a69cee10f8f239d48b1d5622baa83d9d9d7e"
-    sha256 x86_64_linux:      "42841a5373f596cbccd52b4cf3eae4f3ec6a853309b14e36e869a7030fabd21a"
+    sha256 arm64_golden_gate: "9f8972653845f2bfa57068ec941f0b036587e5d2f1d8415909899759fada1dae"
+    sha256 arm64_tahoe:       "3d1593d9f05133c8e58571cc3270a5a1ede8c6d977c1bc3fe10516514a021acd"
+    sha256 arm64_sequoia:     "cb4cb9ffcc60f6dbc1631df589c4d37c9d8db68c6def04d547963e8979d8aefc"
+    sha256 arm64_linux:       "2461579d34d6fc487215889602d3f14a1466e1f84b1c6a8a2f78424173d5c23e"
+    sha256 x86_64_linux:      "e41521843753f3185efa28311acf0bac57ee06341cb3bb51fbc22bcfee739404"
   end
 
   depends_on "docbook" => :build
