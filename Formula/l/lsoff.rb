@@ -1,8 +1,8 @@
 class Lsoff < Formula
   desc "List listening TCP and UDP ports"
   homepage "https://github.com/yutat23/lsoff"
-  url "https://github.com/yutat23/lsoff/archive/refs/tags/v0.1.5.tar.gz"
-  sha256 "25117f42705801040ea63bf09cf6396a063d54c0087a7ce6a57554195b5f17ae"
+  url "https://github.com/yutat23/lsoff/archive/refs/tags/v0.1.6.tar.gz"
+  sha256 "d6acf3cace6fce7d56e02c3310023fb9bebf82d8a99ff672f1c4270141c25641"
   license "MIT"
   head "https://github.com/yutat23/lsoff.git", branch: "main"
 
