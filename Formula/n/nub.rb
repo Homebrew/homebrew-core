@@ -11,11 +11,11 @@ class Nub < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ad46b3ec9112432814b05a6dbe32025028e63e9f1b4c55e7b566934860bf9d5e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9683bd62d97b5dad41cfd343e7d1510fad4dc1978219ac813eb62fd45783fed7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "335ae3a75b7a20cb01ac79e493d3e398cfcff2b47d8aace0256e66ac03f1ee34"
-    sha256 cellar: :any,                 arm64_linux:       "fab6897b9de6992591c20a0974c198f091855c04fce444315239c357ca95ec36"
-    sha256 cellar: :any,                 x86_64_linux:      "f440eddbb3300755a06f62016e8acd877abf690aff7cc27b266a7418a7f1db57"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3a498f9fa9b6fa0de8e888a52c217a8d6dccfbdd69524fc64b5766d0415fe08f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9e313dbe860d1126717e3a9cc8c679daa72ae7172cdae84205fe589305da661c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ceea7885a8b1eb61cb86619baf2d6116e06367f0d449eb4dc4ceee32c856d7d9"
+    sha256 cellar: :any,                 arm64_linux:       "a1e9df621a90feb71a680d5a4714dbc637b3464a0d950bf95187c1d17196deca"
+    sha256 cellar: :any,                 x86_64_linux:      "5cb3390ad82028bbaca82d7a5e235a878087dcf993a1b56cb987fa1fa8de6a4e"
   end
 
   depends_on "cmake" => :build
