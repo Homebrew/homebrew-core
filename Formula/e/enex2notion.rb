@@ -9,11 +9,11 @@ class Enex2notion < Formula
   revision 26
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "91c2ec66cef42ca95aff923f94e59e12de7e48e17f4f653387f3441e97fdc4c1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "aa8a0363a80cd7d2dcac94bd3f673b6b3e9ad9a9dc358e6592a6d2a634cfe6c6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9e572a296eaa4d8bf76cf6beb2b3902bca3484c25ef28903c24a53d763bf8b7a"
-    sha256 cellar: :any,                 arm64_linux:       "165ee2a17d122e402a1a23cc2b379bb452b0930098d25ce1bbbfd208236fcae0"
-    sha256 cellar: :any,                 x86_64_linux:      "5c30721eed68f5305bd52b8aa45dc6b1fcdd564bba6c25120f2327fda43de716"
+    sha256 cellar: :any, arm64_golden_gate: "689df4d2bef1f361e1d71686f0f5b243f9505b6773c13b76a2968cccb3c4c9e0"
+    sha256 cellar: :any, arm64_tahoe:       "a2b4a95f5be8d7869733b35a89ad58f2b6710e76f6f1cf703ff41fe88a5befb4"
+    sha256 cellar: :any, arm64_sequoia:     "95654c103e96143222ef7e28367f6a0cfc5fcac15b6513b50b1d0ac74c9f34fe"
+    sha256 cellar: :any, arm64_linux:       "53ca204c656d47bf1b5e4121a5f803b9892b71d28a269e11d39103139403fedd"
+    sha256 cellar: :any, x86_64_linux:      "3151fc5e50ee90c6c5aac47bcd4bfea9e6f3224641700365cce3f2ededeabf26"
   end
 
   depends_on "rust" => :build
