@@ -7,11 +7,11 @@ class Oarfish < Formula
   head "https://github.com/COMBINE-lab/oarfish.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3148f6ccf7184d24d1554602e6c98c5a74958aa70262e0845d74b5c1fb1d71f4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b4856ee8bcb3799bc683bf2de6a4bd374d564b1d1d29db7427548ca22316ea7e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "58dd318f98acfabe47db2c8d76fb0673f6028573713fd5e2805c930e7c3f17e5"
-    sha256 cellar: :any,                 arm64_linux:       "4a39d6b575da15677af9739f08ddec91c5bab675fde7dde63aed693ec5870818"
-    sha256 cellar: :any,                 x86_64_linux:      "42158355141cc230409e54f67e76378b4bf1403df1bc327e9094a754400d3ee9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "51fa51ce2171f22c8f0eaf8427303e5be029b0d6277e4a848e1ae8dd777635bb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "658c270cb1debfebf92f32a984140c289869943889173b1a4d668e34200663d2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b5eb00275aff717e240fd5b7e70f6fa8dc4fb29e6509865ed921e9af90f93bd6"
+    sha256 cellar: :any,                 arm64_linux:       "8685a95b29c787ba14f8edc5670e32fd4f6a5641653cbff6c5b58c514e31a4cf"
+    sha256 cellar: :any,                 x86_64_linux:      "36f8fcdeb8f79b1d4d78ff5823352b957520234f68fcb7281cebaeeac54d3b01"
   end
 
   depends_on "rust" => :build
