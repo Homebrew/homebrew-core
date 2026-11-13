@@ -25,6 +25,7 @@ class YtDlp < Formula
   depends_on "pkgconf" => :build
   depends_on "certifi"
   depends_on "cffi"
+  depends_on "curl-impersonate"
   depends_on "deno"
   depends_on "pycparser"
   depends_on "python@3.15"
@@ -85,6 +86,8 @@ class YtDlp < Formula
   deny_network_access! :postinstall
 
   def install
+    ENV["IMPERSONATE_BUILD_DIR"] = formula_opt_lib("curl-impersonate")
+    ENV["IMPERSONATE_LINK_TYPE"] = "dynamic"
     system "make", "lazy-extractors", "pypi-files" if build.head?
     virtualenv_install_with_resources
     bash_completion.install libexec/"share/bash-completion/completions/yt-dlp"
@@ -96,5 +99,10 @@ class YtDlp < Formula
     system bin/"yt-dlp", "https://raw.githubusercontent.com/Homebrew/brew/refs/heads/main/Library/Homebrew/test/support/fixtures/test.gif"
 
     system bin/"yt-dlp", "--simulate", "https://x.com/X/status/1922008207133671652"
+
+    require "utils/linkage"
+    curl_cffi = (libexec/Language::Python.site_packages(python3)).glob("curl_cffi/_wrapper.abi3-*.so").first
+    curl_impersonate = formula_opt_lib("curl-impersonate")/shared_library("libcurl-impersonate")
+    assert Utils.binary_linked_to_library?(curl_cffi, curl_impersonate), "Missing linkage to curl-impersonate!"
   end
 end
