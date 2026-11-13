@@ -4,7 +4,7 @@ class MinLang < Formula
   url "https://git.sr.ht/~h3rald/min/archive/v0.48.1.tar.gz"
   sha256 "baec4d176ff138fcf39784ad97a6a9125454a8d3ccb4db3e6ea59aa2d6716a45"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -21,15 +21,26 @@ class MinLang < Formula
 
   depends_on "nim"
   depends_on "openssl@4"
-  depends_on "pcre2" => :no_linkage
+
+  on_linux do
+    disable! date: "2027-11-13", because: "needs EOL `pcre`"
+
+    depends_on "pcre"
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "nimble", "install", "--depsOnly"
+  end
 
   def install
     # Remove bundled libraries
     rm_r(["minpkg/vendor/openssl", "minpkg/vendor/pcre"])
-    inreplace ["minpkg/lib/min_crypto.nim", "minpkg/lib/min_http.nim"], /passL: "-B?static /, 'passL: "'
-    inreplace "minpkg/lib/min_global.nim", /passL: "-B?static (.*) -lpcre([" ])/, "passL: \"\\1\\2"
+    inreplace_files = ["minpkg/lib/min_crypto.nim", "minpkg/lib/min_http.nim", "minpkg/lib/min_global.nim"]
+    inreplace inreplace_files, /passL: "-B?static /, 'passL: "'
 
-    system "nimble", "build", "--passL:\"-lssl -lcrypto -Wl,-rpath,#{rpath(target: formula_opt_lib("pcre2"))}\""
+    system "nimble", "build"
     bin.install "min"
   end
 
