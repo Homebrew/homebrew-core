@@ -1,17 +1,17 @@
 class Proxsuite < Formula
   desc "Advanced Proximal Optimization Toolbox"
   homepage "https://github.com/Simple-Robotics/proxsuite"
-  url "https://github.com/Simple-Robotics/proxsuite/archive/refs/tags/v0.8.2.tar.gz"
-  sha256 "57201b1b2d175e120f9fd27e0d024c1b087b65004da84ee65f0317256f1ac235"
+  url "https://github.com/Simple-Robotics/proxsuite/archive/refs/tags/v0.8.3.tar.gz"
+  sha256 "8bd4818895e66784c7f86e73997df4f9b318a9b06c233798f9ec169776656e07"
   license "BSD-2-Clause"
   head "https://github.com/Simple-Robotics/proxsuite.git", branch: "devel"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "213c593f88d799d03e98aec318c61406a11c4a2e700be6ab7d1fd28bffc7b4bd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dde6d7b24f3b1810804ba282d5eed4b784f0fe4ca1af16e6114a679441b1bee2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8adeb0bd1fe77cd351303c6620b49d8cd27713e03d3b4aba2f943b99fb8d78fb"
-    sha256 cellar: :any,                 arm64_linux:       "a90d9b4c7ba9dc3f428bd044948c0c313290cd09085d71de09145d604610f3ea"
-    sha256 cellar: :any,                 x86_64_linux:      "a1c0e8d3e7b9241000db40aff86dbe073fd7ec85f5e303794ff29bf62fe767d9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "40b5d7935c4a53416e33744f669279824559f0149125c0f29d718882008a4e37"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "233a6486d36942c9e72878a6b81381c6e0e7fb035514fd8b54c54ab990110a9a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2bb324498cb2a017885c6c7b0b94dfc7e1b101e6017cba6290998cada7554a80"
+    sha256 cellar: :any,                 arm64_linux:       "1491f5742a385d95248eaf7bffd36b11baa34cdcc7d750d9fb03d4df001be66d"
+    sha256 cellar: :any,                 x86_64_linux:      "a6ae06fbab97a98e0961fa4d64f38f09ee3d218ec0cf709ebe5c649c26c66b4c"
   end
 
   depends_on "cmake" => :build
@@ -26,8 +26,12 @@ class Proxsuite < Formula
   depends_on "simde" => :no_linkage
 
   resource "jrl-cmakemodules" do
-    url "https://github.com/jrl-umi3218/jrl-cmakemodules/archive/refs/tags/v2.3.0.tar.gz"
-    sha256 "840cfba922b9589695ee3da4da3f9472ceeefe8fe4bccbb7ed3e885d1ca978cf"
+    url "https://github.com/jrl-umi3218/jrl-cmakemodules/archive/refs/tags/v2.4.0.tar.gz"
+    sha256 "1e810d43d471e9a172458187fd5ec0746d3155e173f4fb387e6c7fb56906d359"
+
+    livecheck do
+      url :url
+    end
   end
 
   deny_network_access!
