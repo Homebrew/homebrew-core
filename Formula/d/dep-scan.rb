@@ -8,11 +8,11 @@ class DepScan < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a2f02aefe46263f8126c6a019c68e584c328bdbd1eef594d20d553fb7c985413"
-    sha256 cellar: :any, arm64_tahoe:       "6baf48d9be138eac769017f45d696ef5593822b1b4734bfe3de3688ae39bbf55"
-    sha256 cellar: :any, arm64_sequoia:     "e8a1433e5e78032a2f1ffde5d02fbfdbf1b50ff07beda4aee95e11cfbc37c516"
-    sha256 cellar: :any, arm64_linux:       "3e74d360d2372721a5bbeee59b706d7bcadee85948b56b5de2be4080ae366303"
-    sha256 cellar: :any, x86_64_linux:      "1336c6c7f16792d6643285b00196919f8e20e322cf6d420dfc143300721982cc"
+    sha256 cellar: :any, arm64_golden_gate: "97068f229d4396bede760ba474b0f764ff0a1e15279080bcace05c590f2633f7"
+    sha256 cellar: :any, arm64_tahoe:       "a65ec6c1fdfb4f2244150d17d1a52b9c92b8317836ac7eb48d0d015cc02e6776"
+    sha256 cellar: :any, arm64_sequoia:     "acda365609ab5f994c5271cbed021762beae1f475415da9d780ef76450e56721"
+    sha256 cellar: :any, arm64_linux:       "ca249a4df14bc0f699faba029a790c1f26c50665f7638761615b09d41e7898fc"
+    sha256 cellar: :any, x86_64_linux:      "76e99b11041362431b00ca70f9cdda91033f60bb8c8a0bd3a9424c1216c24ab8"
   end
 
   depends_on "rust" => :build
