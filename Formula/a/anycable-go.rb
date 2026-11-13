@@ -12,11 +12,11 @@ class AnycableGo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0bbff3113f6d5eea2cdcf132bad61ac7d2f35061dd297af5d60a29f2d3ec3061"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0bbff3113f6d5eea2cdcf132bad61ac7d2f35061dd297af5d60a29f2d3ec3061"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0bbff3113f6d5eea2cdcf132bad61ac7d2f35061dd297af5d60a29f2d3ec3061"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "45f0197c4860167ee3547015571717172287faeec59aa2bf2ea6a7f4c5b4e2c3"
-    sha256 cellar: :any,                 x86_64_linux:      "421f7da28f3fe54e23afa94c9d8ca01e25b9eb95bba3acb3882b3d823143a627"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "931bf9f1b9813bf6153ce88d18e7cf52385abd052176cea9ab5d7a90575cd4b8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "931bf9f1b9813bf6153ce88d18e7cf52385abd052176cea9ab5d7a90575cd4b8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "931bf9f1b9813bf6153ce88d18e7cf52385abd052176cea9ab5d7a90575cd4b8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7ea916daeb4cf3d5a3b613f4c5740018f62911265e49ee6d00ba1cb03efe4d36"
+    sha256 cellar: :any,                 x86_64_linux:      "26fb9eb514b431e11509a9fda678f7826f2dbc85e1645d3e1e29051bc1720b89"
   end
 
   depends_on "go" => :build
