@@ -18,6 +18,7 @@ class Flexget < Formula
   depends_on "rust" => :build
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
+  depends_on "curl-impersonate"
   depends_on "libyaml"
   depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
@@ -419,6 +420,8 @@ class Flexget < Formula
 
   def install
     ENV["BUNDLE_WEBUI"] = "true"
+    ENV["IMPERSONATE_BUILD_DIR"] = formula_opt_lib("curl-impersonate")
+    ENV["IMPERSONATE_LINK_TYPE"] = "dynamic"
     # `pendulum` builds a PyO3 extension through maturin.
     ENV.append_to_rustflags "-C link-arg=-Wl,-undefined,dynamic_lookup" if OS.mac?
     virtualenv_install_with_resources
@@ -444,5 +447,10 @@ class Flexget < Formula
           transmission: yes
     YAML
     system bin/"flexget", "-c", testpath/"config.yml", "check"
+
+    require "utils/linkage"
+    curl_cffi = (libexec/Language::Python.site_packages(python3)).glob("curl_cffi/_wrapper.abi3-*.so").first
+    curl_impersonate = formula_opt_lib("curl-impersonate")/shared_library("libcurl-impersonate")
+    assert Utils.binary_linked_to_library?(curl_cffi, curl_impersonate), "Missing linkage to curl-impersonate!"
   end
 end
