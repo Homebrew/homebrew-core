@@ -11,11 +11,11 @@ class TektoncdCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a98297736b72e4f91d2f28011c3813b35e71dc2ad5e0cd510027db2bc301b4d3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "621846a5517f10e57fef96186fcc451fde249586f1e7b98e68149c90c2630080"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "90792397a5252c6f5c39a664279e55aa349978ff90f5f180965212577dc14b1a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "38886b115e2e2be91c7583f2a123f28963ac9893352d32f66a282a240423eb12"
-    sha256 cellar: :any,                 x86_64_linux:      "923de021f94f5f62c60b19115d1a66badeace31ffdf6571fb7845e1d7d1dcb6b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "55676c9b4551cff4c7626bba50fda0bed2f254f61bcbb66199576d1a0aad3b5a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "97ed4aebcb5e450118c28fd04448c7ac7be98686c520af950afef0fee070b2e7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "beab28e9eb6ee05168046b86f9647cc0c58ee0019e479b7e5408e7dfbb0fe2dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "25d4ccd7277170cd69febb8b41a349a400cafbbcfee4f5cd6e32cfebebe7f3d0"
+    sha256 cellar: :any,                 x86_64_linux:      "a8cbf15958948fd092dbfa69aaf4705e819481825ea587683c969d3f8670776c"
   end
 
   depends_on "go" => :build
