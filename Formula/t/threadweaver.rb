@@ -12,11 +12,11 @@ class Threadweaver < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "305546048e7e96940a90805f8a8585ce3b117d3b10a2d882a4a247b6ec01c9f9"
-    sha256 cellar: :any, arm64_tahoe:       "336299469231fa5c74773529683b1451d5764491fa35b904ad59d577ed300fed"
-    sha256 cellar: :any, arm64_sequoia:     "610cb982a1e5ba60855deb90a5ac20c09e80b29ffc61c7114f06f191e2a71508"
-    sha256 cellar: :any, arm64_linux:       "08137a3c8340eb51ac233b8a6d1238474cd600388daa74d27c3f524f9a9ccccb"
-    sha256 cellar: :any, x86_64_linux:      "f775ed346b48760135c3485d2e54ba11bdee8c42bf9416aa4ab103b8976f6130"
+    sha256 cellar: :any, arm64_golden_gate: "1b2a737109308dd9a68d33675eab25addd5cada00aa53d4eb6dc360343b35db4"
+    sha256 cellar: :any, arm64_tahoe:       "76dce7506e6d698e4229cdca6ced2686ceecf47ed3f8798caa57c61a5a218152"
+    sha256 cellar: :any, arm64_sequoia:     "4c4c4109b5944b1656ab46fb122068df9e2e7bb59d98b6a5cccff5cb9972c98b"
+    sha256 cellar: :any, arm64_linux:       "75e95a42069fd4ff13ce4a102b6f1c95f7612dbfb2dd5eba9b859e791a945c20"
+    sha256 cellar: :any, x86_64_linux:      "ac2f1c4d5fc4c6ca5c0430d55327aa95b17aa66926c4ac9caa718cb41f8bd4ec"
   end
 
   depends_on "cmake" => [:build, :test]
