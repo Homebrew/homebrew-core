@@ -16,11 +16,11 @@ class SwiftProtobuf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ac2b91c79befeaeb1da0910556bdc6efc6020e66e37440d3898a7a0d507e2778"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "da9e400cd752ac4d5e3c205d19fbc837f9d8e02e31b48fd3d9e144324015ba74"
-    sha256 cellar: :any,                 arm64_sequoia:     "c84e1bd129bdc56887939bb9acf66790c68efaefdc7f3b54a60621cc92607b96"
-    sha256 cellar: :any,                 arm64_linux:       "932049f5cdc032e920badbcfd1462b439a844ce8860da2e8601c563be37faac1"
-    sha256 cellar: :any,                 x86_64_linux:      "b7c3aa04df8551284404b238ee0f8c55d4f10470c9478f31d5ee598c74e83182"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5a381e7a32d29722c1b71e3c28f6203846d589c2bae75a457ea954c2158f71b3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2be933e858ee1a4c059147b92a14dddf89c4d66421b64901e27ed8b2fbbb69fd"
+    sha256 cellar: :any,                 arm64_sequoia:     "1d1b10040f31ea241f672c6a183616d3c9c7d67fcc77364297a9db4985bc9301"
+    sha256 cellar: :any,                 arm64_linux:       "cb176a2087cd025111df8a13b689cf2598bb45b9f2512450704d45b4db016072"
+    sha256 cellar: :any,                 x86_64_linux:      "a5c2f98f6054784b23acb2c5317346510947ef96fab80666648eeecd377ea6a0"
   end
 
   depends_on "protobuf"
