@@ -9,11 +9,11 @@ class Gitversion < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "53dd452592c6c061609ed3ebc09588213ad73e42d082aedb7745d6e529f27f61"
-    sha256 cellar: :any, arm64_tahoe:       "67dc8435b985c3f4b81d60c87f61a4daad680471a453574c62b64f4243ffdaac"
-    sha256 cellar: :any, arm64_sequoia:     "f983efd2abb47dd6ae67aafb15c0d45dc87852cf2a2dc3bc3b1a44abf7f76375"
-    sha256 cellar: :any, arm64_linux:       "41ac3fea51b94565a08fa4f9ae6d4d10717ecad319efe979d69779731096c007"
-    sha256 cellar: :any, x86_64_linux:      "d9a08ba35f4c80a141529f090071640dc1bb20525dbcd02149b4e371cc2b72f6"
+    sha256 cellar: :any, arm64_golden_gate: "b353a708491ea11f18d320492dea6abb397980416311ca5f93269fe4171a2f39"
+    sha256 cellar: :any, arm64_tahoe:       "b4b4f16cccdfd11606e0397be312d4396618de8f6ae4ebe1523b3fdf8940a1b2"
+    sha256 cellar: :any, arm64_sequoia:     "181b7a089993b5fbf726a8e99460ca158ed210f0032f35b34c3303296782e045"
+    sha256 cellar: :any, arm64_linux:       "bbfbe387f180e2e92456e9e3026a52e1fe2e31161dc5e060b2af6d0378fd44fb"
+    sha256 cellar: :any, x86_64_linux:      "621b08d9d2775cd360015800c045e0b794f68ed2eaef453142bae08ffb5142d1"
   end
 
   depends_on "dotnet@10"
