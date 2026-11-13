@@ -8,11 +8,11 @@ class Tunnelite < Formula
   head "https://github.com/cristipufu/tunnelite.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b126dc90c30463d364f91736b88446df87aa9d9b02a00cf2a445ac70e063112e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a18badf65cd39aba46dc0499aa79ea6a03e30a52119fa41e9dd7b53869de48b6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c628cf1689732558ff2f85b1cba48e1a9bb83e5702be897d34a1bce66dff0c8d"
-    sha256 cellar: :any,                 arm64_linux:       "b2990d86ac84a8016d7d81678d4e1c39d02aa62d9f18612fde7829500d5faf0c"
-    sha256 cellar: :any,                 x86_64_linux:      "61bedc654efca0804d5d00bdbd468dbab10eca300174389ddd3b2d7bafe7e69e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "385f05239ee2e68b1fb7761733270a7118f7be2d3b3cd8e8d24281c61d2ffa3c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eb199688b93d47ecfcbaad2d7d44934383458f2a5e02cf06cad30e83e09a697d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d78dd84b3bc1ad4f0b2c86e9a5a3aa2b5b4b475337e7c544a2ac999ed9949735"
+    sha256 cellar: :any,                 arm64_linux:       "1ce8d713e7febf6fc88f106c2fbb268017edf09fd1d8c696aba235ff61324ed2"
+    sha256 cellar: :any,                 x86_64_linux:      "5911cab9ee7d0db3616ec9fd865c6488061b5e658752f68d5eae2609c0075410"
   end
 
   depends_on "dotnet@10"
