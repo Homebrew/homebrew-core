@@ -3,8 +3,8 @@ class Purescript < Formula
   homepage "https://www.purescript.org/"
   # NOTE: If the build fails due to dependency resolution, do not report issue
   # upstream as we modify upstream's constraints in order to use a newer GHC.
-  url "https://github.com/purescript/purescript/archive/refs/tags/v0.15.16.tar.gz"
-  sha256 "36abaef46aa3cd0316d924c872987aa186d95654d05aa66060948ab47b161f18"
+  url "https://github.com/purescript/purescript/archive/refs/tags/v0.15.17.tar.gz"
+  sha256 "9c397f31c6864491d3f2588acb8e58ecde493c39ec380aaf845458213f1ddab0"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/purescript/purescript.git", branch: "master"
