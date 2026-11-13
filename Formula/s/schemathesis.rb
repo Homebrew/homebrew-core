@@ -3,8 +3,8 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/3c/77/2d8490407aa8cc367068674df9fe4414764378f6b3fd5eae614fd47865da/schemathesis-4.33.2.tar.gz"
-  sha256 "c3386b8494c7e4dc6fcaa6f84d22860689b3f2d63fa64148db892750457cd94f"
+  url "https://files.pythonhosted.org/packages/0f/15/6012017d650cbd543355eec7b51540c4e523fad87e37d3f059b3cab97634/schemathesis-4.33.3.tar.gz"
+  sha256 "0651700aba86b355acc087233002583b08d454823a8d44763299dc9ff7a5ff4f"
   license "MIT"
 
   bottle do
@@ -71,8 +71,8 @@ class Schemathesis < Formula
   end
 
   resource "jsonschema-rs" do
-    url "https://files.pythonhosted.org/packages/30/2f/ad39e5efef29bb236c50e8d3b537588296e2181e5e1837c982336292ff4e/jsonschema_rs-0.61.1.tar.gz"
-    sha256 "bb2ba8ff6e282205a81775dce969856b05e3445f7568f9f335e30420f351d6e5"
+    url "https://files.pythonhosted.org/packages/30/d3/fedab55fadf17359ed45d7c347e13839b79aa5c85c083c417b6a0e8b12a9/jsonschema_rs-0.61.2.tar.gz"
+    sha256 "8ea236493450c013f095d5d4d9d3b8e56fa0153fb305107f9a7134ea16bcf56b"
   end
 
   resource "markdown-it-py" do
