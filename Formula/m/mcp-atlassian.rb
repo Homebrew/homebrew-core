@@ -3,17 +3,17 @@ class McpAtlassian < Formula
 
   desc "MCP server for Atlassian tools (Confluence, Jira)"
   homepage "https://github.com/sooperset/mcp-atlassian"
-  url "https://files.pythonhosted.org/packages/72/9a/8d093970c753099c59a3985faf971079fb8d6efe09b5456dd8ce35bec996/mcp_atlassian-0.24.2.tar.gz"
-  sha256 "ef690378cf120c8900bce539b2c950fd639eae72ec1c3ab0a1743fefa1da95cc"
+  url "https://files.pythonhosted.org/packages/02/88/6c4c6e06cb25ec1b975650a71f01398794d68542adf7e5d7fcd65d432d7a/mcp_atlassian-0.24.3.tar.gz"
+  sha256 "1ffe97f4d1e96f47708323feab8ce67f6a7471bff99efcdead4844c376ad4466"
   license "MIT"
   head "https://github.com/sooperset/mcp-atlassian.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "59bff24aae4c89175ae366eb43059d53f7d32f66b633e0dfb625cd4e658d6294"
-    sha256 cellar: :any, arm64_tahoe:       "94921ff4cfbe0bbbef7d3227f526820b27a8934b957305d9cd1ad9553dfba8f3"
-    sha256 cellar: :any, arm64_sequoia:     "08ff9fd3709aa97217a0d106a10e955569d566dca6e534fcfe11275e2a26c1ca"
-    sha256 cellar: :any, arm64_linux:       "1f338b952ef81fa8060a987fa11ca27099d39b419e3e709df58fb18319431792"
-    sha256 cellar: :any, x86_64_linux:      "853a07c622174c2ccdbceb08ffbbe4cd07370d535a9ca1968c14b466b098a28d"
+    sha256 cellar: :any, arm64_golden_gate: "fe0e53abfedf13c61aee17b56dee3ccc7c2fb53d2e76f3637ed191a1c3862370"
+    sha256 cellar: :any, arm64_tahoe:       "74a103ce6b7780cd053b44def0677016fac6f045d7b49cd2f0f4a957421aa07b"
+    sha256 cellar: :any, arm64_sequoia:     "ac836c689547ed5f20d01f09ea1e65c2d4434246ae8249fbcbdb5308530e835a"
+    sha256 cellar: :any, arm64_linux:       "83f55eaa7758915026a9c73c120fcdcc5d062b80f83197483ac802fb4d35abb9"
+    sha256 cellar: :any, x86_64_linux:      "cdfa13e7af4e97a5b5c3bf35c3b1fafb36ccc490da616a13e50a2f5e62c99d65"
   end
 
   depends_on "pkgconf" => :build
@@ -92,8 +92,8 @@ class McpAtlassian < Formula
   end
 
   resource "cyclopts" do
-    url "https://files.pythonhosted.org/packages/4d/b2/b6d6f3a5fc8b16e274eefc5c89d8e555d5bf8d3c0e4c0a770236d9d54722/cyclopts-5.4.1.tar.gz"
-    sha256 "5872925e9a6ff3ed2344b91abe0c3593b853a647c0c17adebb0939cf6a5a8385"
+    url "https://files.pythonhosted.org/packages/49/a2/34a66cdd2c2a5ffcfb15c195091bb944cf25bc8c1c0faeb4726ecb906c18/cyclopts-5.4.2.tar.gz"
+    sha256 "f0374ffae32bba180db7eae1d17a97a1bcd656455a3b7436f2133c4132f7c5b5"
   end
 
   resource "deprecated" do
