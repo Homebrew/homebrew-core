@@ -8,7 +8,7 @@ class Tomcat < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4934238705b7345b130325815b6ceb6d2fd7614dad9ad9ebc2b8baad78ca6646"
+    sha256 cellar: :any_skip_relocation, all: "60775f0d58330776a7219603cdc8527b5892a2651d87ef763feecf0e99f1f132"
   end
 
   depends_on "openjdk"
