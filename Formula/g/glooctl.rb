@@ -16,11 +16,11 @@ class Glooctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "615fa9fe39e26129e5cb45091ca234a97a9631ce1cd086a3685cc2568cf6a6f7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "efe5eeeac3b824ae354c6d7165fd165be85a6727aa86734c7ed83d0aebc9f374"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6107bde6266fd82356d0b98218694fa720500d5f157a800713808408c4fe5d5e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a96e4bb7414f1e8824cb2568bf6f5393ae70b05030b3cdbfc2195ae46d8396cd"
-    sha256 cellar: :any,                 x86_64_linux:      "dcd352ca1bf00fa3bbf4bff861459b90d3de3227318163b89e6003b71e2d132b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "38b6ce4c4f0bcb0049510d6e9caa2015daab75d415715093fb37b7665f086bfd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f13f5f604e6a3018da54aac7067e356dbfaa0421a1e06680e78b22090e4144c9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c92ade8d6116f24680fa3a8fbd745f3c17065fc4c628a8fc2f1d6d6a3846a258"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f095585def40a7f433e7cc19bec14e1e0e89a549bceb7eda6f101ef2d1a87e18"
+    sha256 cellar: :any,                 x86_64_linux:      "dd20a3082db1a1823fb9a075d7a5438120ecf6b20a237e2a395b10ab136e9781"
   end
 
   deprecate! date: "2026-12-31", because: :deprecated_upstream
