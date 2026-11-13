@@ -1,8 +1,8 @@
 class EntireCli < Formula
   desc "Capture AI agent sessions in your Git workflow"
   homepage "https://entire.com"
-  url "https://github.com/entireio/cli/archive/refs/tags/v0.13.3.tar.gz"
-  sha256 "8a502337be115b042e0b873006f0280243a29e1bec650bcfe21e8e890dc814cd"
+  url "https://github.com/entireio/cli/archive/refs/tags/v0.13.4.tar.gz"
+  sha256 "3897cb720b07b9ba3e57415d603e7a54de88efcb6998f5ba4bb59b583549fd88"
   license "MIT"
 
   livecheck do
