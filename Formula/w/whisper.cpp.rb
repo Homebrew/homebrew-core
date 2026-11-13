@@ -4,6 +4,7 @@ class WhisperCpp < Formula
   url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.9.5.tar.gz"
   sha256 "ff1a9053feb509ff9d7729703355541ae9690073a6b1c40eb692c962e0dc1720"
   license "MIT"
+  revision 1
   compatibility_version 1
   head "https://github.com/ggml-org/whisper.cpp.git", branch: "master"
 
@@ -13,11 +14,11 @@ class WhisperCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4960b2068b6c9820ab0e686fc4fe58e2edeb19c58c9613751b417a4ea9ab7ec3"
-    sha256 cellar: :any, arm64_tahoe:       "8c72ed8b6624aab6d9058ae4de65e73190265fdaeb3a7cd3f7d96417dc67325b"
-    sha256 cellar: :any, arm64_sequoia:     "a6691f811f613d79d1e508a89c7523e69f5b13a58c10e26083e77f8909b6db1e"
-    sha256 cellar: :any, arm64_linux:       "da1155a46b4d2e8ede1d4bd9da94d17b3b5aeeff473701a4859d7de3ffb5c507"
-    sha256 cellar: :any, x86_64_linux:      "f4d28a5d683ad92571dc089d1e2ce0168ebd0dcfaef117311742714e61b2bd1b"
+    sha256 cellar: :any, arm64_golden_gate: "e44296ed9c6d2ef97d08c4fd584f3ec648cfc5855fc1aebb205d4d095878172e"
+    sha256 cellar: :any, arm64_tahoe:       "1b28da297367ecbd4a819d1683028d4ee443a1ea879d67059573c130ec2cbe3c"
+    sha256 cellar: :any, arm64_sequoia:     "6928249d28f1855323280f9a8fe3963a9703814878a7f7345d6e4e2ca7394f59"
+    sha256 cellar: :any, arm64_linux:       "7c5880687356b963d22b644e0df899e8025ae0dda50226e9b3908945d9ac5ec8"
+    sha256 cellar: :any, x86_64_linux:      "b56724e7c6e522895f06f45e18817e9e384551754b4e1b9d09d6b1bb4ada1aa7"
   end
 
   depends_on "cmake" => :build
