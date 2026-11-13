@@ -1,8 +1,8 @@
 class FoxgloveCli < Formula
   desc "Foxglove command-line tool"
   homepage "https://github.com/foxglove/foxglove-cli"
-  url "https://github.com/foxglove/foxglove-cli/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "e0119c482828d9b54702cbada860d35349aa362aa8ab97a0f7d977c20574d56c"
+  url "https://github.com/foxglove/foxglove-cli/archive/refs/tags/v2.2.0.tar.gz"
+  sha256 "2c6295a593ba1714e9e75ba3c48820fb526e951ce63d64ec4d0de0ce6f45122f"
   license "MIT"
   head "https://github.com/foxglove/foxglove-cli.git", branch: "main"
 
@@ -33,9 +33,9 @@ class FoxgloveCli < Formula
   end
 
   test do
+    assert_match "Not signed in", shell_output("#{bin}/foxglove auth info 2>&1", 1)
     system bin/"foxglove", "auth", "configure-api-key", "--api-key", "foobar"
-    expected = "Authenticated with API key"
-    assert_match expected, shell_output("#{bin}/foxglove auth info")
+    assert_match "bearer_token: foobar", (testpath/".foxgloverc").read
     assert_match version.to_s, shell_output("#{bin}/foxglove version")
   end
 end
