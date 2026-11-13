@@ -1,10 +1,9 @@
 class Soapyremote < Formula
   desc "Use any Soapy SDR remotely"
   homepage "https://github.com/pothosware/SoapyRemote/wiki"
-  url "https://github.com/pothosware/SoapyRemote/archive/refs/tags/soapy-remote-0.5.3.tar.gz"
-  sha256 "de5bdf209dc93bf7c341077e1e21353037fc387e7c6a9ee41eace3390669dcc1"
+  url "https://github.com/pothosware/SoapyRemote/archive/refs/tags/soapy-remote-0.5.4.tar.gz"
+  sha256 "7109077f9f64c530c26604d2f30437d4403d6133df50e600c3c7e022a622521c"
   license "BSL-1.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "959e8c989590505c99f5689c2ad84e6a320a71d467c7932cdb8e40eb4db9030f"
