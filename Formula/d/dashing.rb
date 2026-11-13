@@ -26,7 +26,7 @@ class Dashing < Formula
 
   depends_on "go" => :build
 
-  resource "redux_saga_docs_tarball" do
+  resource "redux_saga_docs_tarball", :test do
     url "https://github.com/dmitrytut/redux-saga-docset/archive/7df9e3070934c0f4b92d66d2165312bf78ecd6a0.tar.gz"
     sha256 "08e5cc1fc0776fd60492ae90961031b1419ea6ed02e2c2d9db2ede67d9d67852"
   end
