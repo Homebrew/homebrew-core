@@ -1,8 +1,8 @@
 class GitAnnex < Formula
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-10.20261026/git-annex-10.20261026.tar.gz"
-  sha256 "fc080a8a556d364e3e9e6255e4ec1540cc53d568df01de30d93d4322e311d028"
+  url "https://hackage.haskell.org/package/git-annex-10.20261113/git-annex-10.20261113.tar.gz"
+  sha256 "af4add021bac4e9e9bc3087529837bb2291509dd1aae116b5dec754b36ebdf6b"
   license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
                    "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
   compatibility_version 1
@@ -24,20 +24,21 @@ class GitAnnex < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "pkgconf" => :build
+  depends_on "botan"
   depends_on "gmp"
   depends_on "libmagic"
+  depends_on "sqlite"
 
   uses_from_macos "libffi"
-  uses_from_macos "sqlite"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
 
-  allow_network_access! :build
+  deny_network_access!
 
-  def install
-    args = [
+  def args
+    [
       # Workaround to build with GHC 9.14
       "--allow-newer=base,template-haskell",
       # Workaround build failing if memory flag falls back to negated resolution
@@ -45,8 +46,14 @@ class GitAnnex < Formula
       # Unbundle sqlite
       "--constraint=persistent-sqlite +systemlib +use-pkgconfig",
     ]
+  end
 
+  def fetch
     system "cabal", "v2-update"
+    system "cabal", "v2-install", "--only-download", *args, *std_cabal_v2_args
+  end
+
+  def install
     system "cabal", "v2-install", *args, *std_cabal_v2_args
     bin.install_symlink "git-annex" => "git-annex-shell"
     bin.install_symlink "git-annex" => "git-remote-annex"
