@@ -6,16 +6,15 @@ class OnionLocation < Formula
   url "https://files.pythonhosted.org/packages/72/0d/e2656bdb8c66dc590da40622ca843f0513cd6f4b78bb1f9b6ed4592d283e/onion_location-0.1.0.tar.gz"
   sha256 "37dc14eab3a22b8948f8301542344144682108d1564289482827dc45106ee1d5"
   license "AGPL-3.0-or-later"
-  revision 4
+  revision 5
   head "https://codeberg.org/Freso/python-onion-location.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7691662320756b6a087b25ae765603ec9a2584a383c5e86370bd0f7d9e06d283"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "262e38dd420593b5e6e24ff9de2b417c19a08d8346cc4d72c3eb56d405c3f949"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d4c3afe2151a0ff9554292872d9f0a350e2c4e35132201a7e4ebf37b274d32a4"
-    sha256 cellar: :any,                 arm64_linux:       "73c815c4d0f88a6a6e43e59bdc5da6f25e5496d88e4c1c92490d62ceb26f74fa"
-    sha256 cellar: :any,                 x86_64_linux:      "2a37969b83a7e6a1125359b9fad16c7b9fc46eba654d5e82d56d8a96b8725f87"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0d4fd8e91908a2d138a90ea5613c45b2a2cca0d73f622db132c0f031b07ea2de"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "aec527dc6d7341ddd3debe439da5c25db21e8cea1cd89411eba038f555591a20"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "97ef20712fe4aae69f68f64a86adacea5491b518dfc0e7eb2b806babbf9a09e5"
+    sha256 cellar: :any,                 arm64_linux:       "05b5da97cae2deac2dd36a0c7d1c648acfef7476594cc81c4f7d13ed360cc913"
+    sha256 cellar: :any,                 x86_64_linux:      "0ed1bb9d948f6e342a02dd876e53df3301eb79cd0d8d72fe79ddad84da2f35c0"
   end
 
   depends_on "python@3.15"
@@ -39,8 +38,8 @@ class OnionLocation < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/0e/b9/014459776d0be4dd5f0c196fd2c8dc523a4b817a561667fae4f330b04b48/soupsieve-3.0.1.tar.gz"
-    sha256 "713d5c69f90ef84deffec0b9c6244796575e3c9fc9081cefb96091ce1200a308"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "typing-extensions" do
