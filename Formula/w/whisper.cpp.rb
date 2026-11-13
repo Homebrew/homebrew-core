@@ -14,11 +14,11 @@ class WhisperCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e44296ed9c6d2ef97d08c4fd584f3ec648cfc5855fc1aebb205d4d095878172e"
-    sha256 cellar: :any, arm64_tahoe:       "1b28da297367ecbd4a819d1683028d4ee443a1ea879d67059573c130ec2cbe3c"
-    sha256 cellar: :any, arm64_sequoia:     "6928249d28f1855323280f9a8fe3963a9703814878a7f7345d6e4e2ca7394f59"
-    sha256 cellar: :any, arm64_linux:       "7c5880687356b963d22b644e0df899e8025ae0dda50226e9b3908945d9ac5ec8"
-    sha256 cellar: :any, x86_64_linux:      "b56724e7c6e522895f06f45e18817e9e384551754b4e1b9d09d6b1bb4ada1aa7"
+    sha256 cellar: :any, arm64_golden_gate: "d1b38766f30e6eb78c502ec9fab921b39838fcd10fe084b9bff4d335ed592557"
+    sha256 cellar: :any, arm64_tahoe:       "7ac257aafd3586b79ed3be9cf150b3650c2f94a097c9dce9a75139914cc4a429"
+    sha256 cellar: :any, arm64_sequoia:     "5a28079052309e287e3f7d98ddc74f3f5ee2f2a31bce193f6e1ac068de79dcf5"
+    sha256 cellar: :any, arm64_linux:       "0d8d7ade355581a9bb7dff7c9306e7e3c52252f0276aedee19227f2315d33cde"
+    sha256 cellar: :any, x86_64_linux:      "dccee89fee5df5013d5cb8008a38142cfeb3f4d3f924786667ea77fa71981940"
   end
 
   depends_on "cmake" => :build
