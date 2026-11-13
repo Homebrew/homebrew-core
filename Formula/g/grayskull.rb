@@ -6,7 +6,7 @@ class Grayskull < Formula
   url "https://files.pythonhosted.org/packages/89/45/abdddfb30303923b3abb01f21d2da114d582f2df299b71124687dac9b7c7/grayskull-3.2.0.tar.gz"
   sha256 "467bb43a7de610fc8719e520c9e9049f597a28d9e72c0ff047127b5340569ddb"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/conda/grayskull.git", branch: "main"
 
   bottle do
@@ -56,18 +56,18 @@ class Grayskull < Formula
   end
 
   resource "pkginfo" do
-    url "https://files.pythonhosted.org/packages/3e/25/5ebd69526479b3684e210f441b05d2d68ce38a4a8c26788bd238cbb0ef54/pkginfo-1.13.3.tar.gz"
-    sha256 "ad74cc8184b28b77b06cccc49361fd0fdc56fd87e307425ce1c2b7596dbe3185"
+    url "https://files.pythonhosted.org/packages/30/37/7580f0accc77d450a53ff7856fe142a89fc11467c2f22105dd06e088a5d1/pkginfo-2.0.tar.gz"
+    sha256 "f7b4f267881785582c923631a0fa7e275b0d390a5cbab54aa4ec0ecc7eddb375"
   end
 
   resource "progressbar2" do
-    url "https://files.pythonhosted.org/packages/0c/1e/5bd376abe32a392e74fffd82feb42ee1472d263bd358d628af20663d0346/progressbar2-4.6.0.tar.gz"
-    sha256 "fe48c8955a84428af77bff2642ba47041e1b8f7c867a5b7cc94f8bc255a8f0cf"
+    url "https://files.pythonhosted.org/packages/1e/dd/63ac006e821594bf6ec5cd7557f16c44d8c209108578ea01bc1f715baafc/progressbar2-4.7.0.tar.gz"
+    sha256 "f4122439b00dca41424f787ea5148478685d265742078c1c7c3ede31f06bd001"
   end
 
   resource "python-utils" do
-    url "https://files.pythonhosted.org/packages/c9/e7/064880019d2f205b837e5c463eb472b36e220d380e5733e49911975f7072/python_utils-4.1.4.tar.gz"
-    sha256 "a8c01f8c0b5a113fa1ab663308bb8a4773afec3cc8f9e6baeb756ac97377f8ce"
+    url "https://files.pythonhosted.org/packages/86/9b/84f99b984fe17108049d990afb36a594688d50564ea1033dd2e0e65eb175/python_utils-4.2.0.tar.gz"
+    sha256 "f3d53b05640136e5eb2e685840e084071347f127f9bf30ddd05c81a6d00f01ad"
   end
 
   resource "rapidfuzz" do
@@ -96,8 +96,8 @@ class Grayskull < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/19/63/0b6bae54546aed98d72f12d09df57b19a287f01c84d22047fa2e23772ab9/soupsieve-3.0.4.tar.gz"
-    sha256 "924fab84ae21604c19e175e1f39815eb6fa83ba23836e09e9de180925e5bc4c0"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "stdlib-list" do
