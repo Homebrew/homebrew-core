@@ -1,8 +1,8 @@
 class TrimGalore < Formula
   desc "Quality and adapter trimming for FastQ sequencing reads"
   homepage "https://github.com/FelixKrueger/TrimGalore"
-  url "https://github.com/FelixKrueger/TrimGalore/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "e88fa19e71781792e469f7f0ed8a85272b4ede9518a0f41d7babc81be6e32dd1"
+  url "https://github.com/FelixKrueger/TrimGalore/archive/refs/tags/v2.5.0.tar.gz"
+  sha256 "decc7a884b8504a216d739e8a9e26d62e855e5827bc81876bff612281f92917b"
   license "GPL-3.0-only"
   head "https://github.com/FelixKrueger/TrimGalore.git", branch: "master"
 
