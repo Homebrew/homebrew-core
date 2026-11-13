@@ -12,11 +12,11 @@ class MinLang < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9ba7d908e8927e6e24c9d67c47e42dd0b93b78134ca7f71ce008d378836dccfd"
-    sha256 cellar: :any, arm64_tahoe:       "85d885093ce1e6278883aad1c181aff2697ab6d31ea824c0a8fc45829ff424a2"
-    sha256 cellar: :any, arm64_sequoia:     "b67aaaf74e17823951657eaafb271c530bbb73ef69c5e135bb7a2316c4d99839"
-    sha256 cellar: :any, arm64_linux:       "6769211ce2049d407d41d7d1f5f4973f22b22112c16b23f33d31dc15c99b2766"
-    sha256 cellar: :any, x86_64_linux:      "86dbf1981a452a9abcc2371b1b3de738071cea459c4248402965ef0a7de8fddd"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "42bb96674527a495de466c096dbe2036e57c5171d48b4c6ff7bc02e25c916e8b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "acd0b9d8103075210e4a98887b144d37c8e1bfac09b68a0377610b34e800fad5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5653b9a583a31ef5927eb66f72422322c2d7de976d26f4ab75a68b2dca986313"
+    sha256 cellar: :any,                 arm64_linux:       "7aafcc785fbdd38851e4085b64dad3764e4de537320d6714bfafeba9c233693b"
+    sha256 cellar: :any,                 x86_64_linux:      "7f9117649bcbac5c30d8f2c4f1437e91c93a96c6ce952f1a03987c7e23c1df61"
   end
 
   depends_on "nim"
