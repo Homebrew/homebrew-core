@@ -6,13 +6,14 @@ class ConfluenceMarkdownExporter < Formula
   url "https://files.pythonhosted.org/packages/75/0a/195fc63a991fa19d70aaed156aced9cfcb862aae987a9fb86b1c20d78a0d/confluence_markdown_exporter-5.6.0.tar.gz"
   sha256 "36fe5102550b4652d05dd1e881733b8dad50148f117c21675563cf86bafe974f"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a3c7ec0ff1fd9debdf5522b909af73200cdbfe9fca8f6061ea9e45f15240c98d"
-    sha256 cellar: :any, arm64_tahoe:       "b3c663bd4e5db9d3d6ed02b5777eb6849c4f69da79f95570a1592848adf2b699"
-    sha256 cellar: :any, arm64_sequoia:     "e020a992096dbcbb431b6e5859440582b5598400d93e1fb19048bedd31f3c39f"
-    sha256 cellar: :any, arm64_linux:       "20ecd5d6c1c264410c5613651c186ab082cdbd4aefa07a2f1ad793e09d35de7f"
-    sha256 cellar: :any, x86_64_linux:      "91f673bec51ac4843e43fdd193a8e6efd88925db9141e2c8b4459962600373e5"
+    sha256 cellar: :any, arm64_golden_gate: "4be591cb6ca506073363909a6ccd516cdd271bfa8740540e5ae491bf3610dd34"
+    sha256 cellar: :any, arm64_tahoe:       "75046f46dbbe752a2df1ff059815133ed90ea9e4feffa26130b00fe8866b357f"
+    sha256 cellar: :any, arm64_sequoia:     "af6fa8c76520dff9e4ff92749e3a6eba0ced056f62b8231f1ad4c88bb284edd4"
+    sha256 cellar: :any, arm64_linux:       "979ec07947ad7af5977533b2c53f298608358a972257efc8896eebb5bac6dce2"
+    sha256 cellar: :any, x86_64_linux:      "e62e128e61a72f4723bdb4529a866af6e496eb0d57ff2f532400da1afb44d149"
   end
 
   depends_on "certifi" => :no_linkage
@@ -26,8 +27,8 @@ class ConfluenceMarkdownExporter < Formula
   pypi_packages exclude_packages: %w[certifi pydantic]
 
   resource "annotated-doc" do
-    url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
-    sha256 "c7e58ce09192557605d8bbd92836d7e1d520ac9580096042c0bfd197efacf1bb"
+    url "https://files.pythonhosted.org/packages/0f/6e/a61e86e43bb6039b31a33a8f5fba76fe1cdacf3661e7b9756d4ff1b28cdc/annotated_doc-0.0.6.tar.gz"
+    sha256 "7969bb69912085b2285849c0dcac0b4b374fd180c13cf10a87f284ffcf347bbf"
   end
 
   resource "atlassian-python-api" do
@@ -66,8 +67,8 @@ class ConfluenceMarkdownExporter < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "markdownify" do
@@ -146,8 +147,8 @@ class ConfluenceMarkdownExporter < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/19/63/0b6bae54546aed98d72f12d09df57b19a287f01c84d22047fa2e23772ab9/soupsieve-3.0.4.tar.gz"
-    sha256 "924fab84ae21604c19e175e1f39815eb6fa83ba23836e09e9de180925e5bc4c0"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "tabulate" do
@@ -156,8 +157,8 @@ class ConfluenceMarkdownExporter < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/03/51/d33db42cc72ffd8c30777547b42d01f0cbf9d95a770457698d0174b3ed71/typer-0.27.3.tar.gz"
-    sha256 "d0396f770a560ab1b0a8504e13b5f254b728cedb05c61cf0359e944e50ce8901"
+    url "https://files.pythonhosted.org/packages/6c/aa/0de7986aa1fa856adb961c67345189b97d13f6e250b34ba68884df865f07/typer-0.29.1.tar.gz"
+    sha256 "ab6eb3880bf67ce96147734717f9ec333c06f66e361f3ea947d0be43da39f242"
   end
 
   resource "tzdata" do
