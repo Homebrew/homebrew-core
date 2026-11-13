@@ -12,13 +12,11 @@ class Autotrace < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "4f84ad4b3ca847f0b107f9d38303b5ccc6e66093634e920bb57db32ab874bf3d"
-    sha256 arm64_tahoe:       "ab9f30deffcfe2b3eadbb7a1483f29f5ab1fff7bf4518d0ecf9062fa2839d39b"
-    sha256 arm64_sequoia:     "b36ba642259814567ac88161df1330c8e1e1160d0022eb0ff8556992a9ff6c0c"
-    sha256 arm64_sonoma:      "b9725af1513a0da94e283765802022e0e9ae80b0d785a0d5c78da4981a16496e"
-    sha256 sonoma:            "e4d9f47afb4b508a32cbcb02bcb2266c70bc15103337a502c1a5b0b064a1ff8a"
-    sha256 arm64_linux:       "55965727c03a1092493b6e0affc35fcebd8a86e2a4d74b928c9b931ca03ede47"
-    sha256 x86_64_linux:      "b8b573bdd4ece3b522e921a559424bea53474d39b7d0b6484a0719a9c6653f53"
+    sha256 cellar: :any, arm64_golden_gate: "81a33f0be76186e8d6ed2c6533a0e502d9f9747ec69424958b7fed2c51349a09"
+    sha256 cellar: :any, arm64_tahoe:       "70726ee0cc68faf87b08106363a0d89b7a82184916ba6806139f4d8fbbf86bf0"
+    sha256 cellar: :any, arm64_sequoia:     "239cf73c61aa90bc71a7581d470aad88b5aead2c6e459217807b859af999af3e"
+    sha256               arm64_linux:       "8a71cfd4c2cf335753439f535056b5e62dcb01a3905af6cab63b47ce66fbba75"
+    sha256               x86_64_linux:      "b7d2b7ca67f69ce83f9b3c9cfb28644e1453d911d382c10b1110cbba53ebb69f"
   end
 
   depends_on "autoconf" => :build
