@@ -1,8 +1,8 @@
 class Flowpipe < Formula
   desc "Cloud scripting engine"
   homepage "https://flowpipe.io"
-  url "https://github.com/turbot/flowpipe/archive/refs/tags/v1.2.3.tar.gz"
-  sha256 "5a658b8e4fe9681692376424feb500684629550076038d33f16dd3ff8a3262d0"
+  url "https://github.com/turbot/flowpipe/archive/refs/tags/v1.2.4.tar.gz"
+  sha256 "7a73d678bcf32c3694ce01916f9154c07f189705338d9194b5e47a2858fa52df"
   license "AGPL-3.0-only"
   head "https://github.com/turbot/flowpipe.git", branch: "develop"
 
@@ -15,11 +15,11 @@ class Flowpipe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9a20a94582b9248e563621840575da44134e7d2668d7e30fd88cba8b7df4824e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "170dc64c328c729ca3af24bf436a2d8ebe9f1d02f91c94d22ae54d1dfa97dee7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c0568a41cbd63a05c7eaac28d05cf00b355bd55b577286ff894af7085eb206f9"
-    sha256 cellar: :any,                 arm64_linux:       "da62d55897224de31f9c60abe7162556cf3b1a6374cabafaf90e3c1530f8b654"
-    sha256 cellar: :any,                 x86_64_linux:      "58950f43f718594b6bf158a2c10ef427eaecdcbff27cbedf9e39b3db22f3f57a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a32ee434dcf9b4b6c83f7c15ae659baf8ea65d5f8be8d3294b2ff5117d9e9ac3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "70bc6f8f2afa61fed554fe1bdd2e0efb9ba4fdca432611e137f86b39e3353dad"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bba8cb3add69179292bd283a3cfd9a7e46b4bb9f76a63c2b3bb6f1534d03ddd4"
+    sha256 cellar: :any,                 arm64_linux:       "ae5891e2ab186b0d29bff4ecfbbf732f9b4a16be548ecc9681e6d5cbfadf2119"
+    sha256 cellar: :any,                 x86_64_linux:      "bd6e9080c0183600e96c5464810c826a792b81849cb926aec81bcdfd62e371d6"
   end
 
   depends_on "corepack" => :build
