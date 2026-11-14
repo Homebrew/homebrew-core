@@ -128,6 +128,8 @@ class Rust < Formula
       # for -stdlib=libc++ (requires OS X 10.7 or later)"
       ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
+      ENV["MACOSX_STD_DEPLOYMENT_TARGET"] = Hardware::CPU.arm? ? "11.0" : "10.12"
+
       inreplace "src/tools/cargo/Cargo.toml",
                 /^curl\s*=\s*"(.+)"$/,
                 'curl = { version = "\\1", features = ["force-system-lib-on-osx"] }'
