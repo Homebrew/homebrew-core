@@ -7,11 +7,11 @@ class Termframe < Formula
   head "https://github.com/pamburus/termframe.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6fd534463a9eecbcb10a7feedc625576d5d115c20cfa01b9c14a50be03b8a47e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "817b5610cd2e0b543009379aa793ea916afc06004c8613d47bf07fe6d2437feb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cf63a2a6eb3018ea93898cb06802cb4e828a49226cfc2989a4d7fca3037ca46c"
-    sha256 cellar: :any,                 arm64_linux:       "ef23a7717619e01a9d6885fb86a16fa956134effe01fd407f1ca94dc04785bb9"
-    sha256 cellar: :any,                 x86_64_linux:      "d8a6aafd2ee7660dccd5419912dac7d31ee29f8f5c4bb308e12b631bb887bc5c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b6b0b6f4b7d4f7a9a920747fa9cc774e5254dc435f7ab91e1c3559e47c7063a4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "158094f47a6bb5bcb89f32179e66ac6bbd081d0a58e4027314074f7bef68aba6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e2c422cb234fcd4271c51302db099af85dc819e0e3e30adf352bcbe5daecb241"
+    sha256 cellar: :any,                 arm64_linux:       "35386a3d3932673d820852e38df65b29cce99039c508fa1c0d28cd96dc5dab3b"
+    sha256 cellar: :any,                 x86_64_linux:      "c8dcdcec5123b4ecf179291fa95a97a84fdea54fe78299a9f2a9af458423f3b2"
   end
 
   depends_on "rust" => :build
