@@ -26,6 +26,12 @@ class Upki < Formula
     system "cargo", "install", *std_cargo_args(path: "upki-cli")
   end
 
+  service do
+    run [opt_bin/"upki", "fetch"]
+    run_type :interval
+    interval 7200
+  end
+
   test do
     assert_match version.to_s, shell_output("#{bin}/upki --version")
 
