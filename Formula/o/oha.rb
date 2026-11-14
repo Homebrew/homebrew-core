@@ -7,12 +7,11 @@ class Oha < Formula
   head "https://github.com/hatoo/oha.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ba96c188ec0840ebcf0792664e3d4b83700e661ba05c9d876c831b9d5309b0b8"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a644297f3e813ab4974f38282ed0104590df190217f696661201a4701ed67cc5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b1d2c4299f5098bf755201cd92ad1ac01b45bb9df25d36196150925acde4a107"
-    sha256 cellar: :any,                 arm64_linux:       "3823f546041e48409e602513759eca910a7b89e876fd8b724104775e7a208606"
-    sha256 cellar: :any,                 x86_64_linux:      "48cc6ef50f18b6b9f72737baa95a6b851e60d4fd66efab5fdf2542fe49c64b1a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4a13fba7f72795e7a2ce5817558ffef55944a1a488fc8c0b72acc799d394a21"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e4956395053d93642c680e7a6bfa57893720a8988c9460f036c09e4d3086804b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "77c55016ffcde619acb6c58da9cd03d33adf96c93841b867b178c482265fe3d3"
+    sha256 cellar: :any,                 arm64_linux:       "fbb2e8f15a5bdfd671feb02204adf23a2cd54240eddfb3b5cd8b98651096a2c4"
+    sha256 cellar: :any,                 x86_64_linux:      "9f39b0b91ef34bdba5132bdf31c6ffa76341225085e96b91a259cb0090f26eb9"
   end
 
   depends_on "pkgconf" => :build
