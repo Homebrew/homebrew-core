@@ -1,8 +1,8 @@
 class Noodle < Formula
   desc "Terminal REST client with file-based collections"
   homepage "https://noodlerest.dev"
-  url "https://github.com/noodle-rest/noodle/archive/refs/tags/v0.10.4.tar.gz"
-  sha256 "e00a6cc6e01c57dc49e3c9ffa004f88daf6d77d9043674b257aa5b5c59e25c63"
+  url "https://github.com/noodle-rest/noodle/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "5f6bbf259008ce1c76faf29ea8176985dd64c72535ced78ecde9ab37fea67eda"
   license "Apache-2.0"
 
   bottle do
@@ -15,17 +15,15 @@ class Noodle < Formula
   end
 
   depends_on "bun" => :build
-  # TODO: Use zig when Noodle's OpenTUI build supports Zig 0.17.
-  # https://github.com/anomalyco/opentui/pull/1586
-  depends_on "zig@0.16" => :build
+  depends_on "zig" => :build
 
   on_linux do
     depends_on "icu4c@79"
   end
 
   resource "opentui" do
-    url "https://github.com/anomalyco/opentui/archive/refs/tags/v0.5.14.tar.gz"
-    sha256 "0e092b7405934c3a30f6eca2cb6e35eb00d9d8948d15daa69af2371e1e641a6e"
+    url "https://github.com/anomalyco/opentui/archive/refs/tags/v0.9.0.tar.gz"
+    sha256 "d341c779acf0ee265500fdddf74ab6704b95715dd918d0c019d0749a5b30be40"
 
     livecheck do
       url "https://raw.githubusercontent.com/noodle-rest/noodle/refs/tags/v#{LATEST_VERSION}/package.json"
@@ -48,7 +46,7 @@ class Noodle < Formula
     system "bun", "run", "build:homebrew",
            "--offline",
            "--opentui-source", buildpath/"opentui",
-           "--zig", formula_opt_bin("zig@0.16")/"zig",
+           "--zig", formula_opt_bin("zig")/"zig",
            "--cc", ENV.cc
     bin.install "noodle"
     pkgshare.install "LICENSE"
