@@ -14,12 +14,12 @@ class Bento4 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b0d0741e077625e3f78334e3d877c5dacbb45f1b7c56050b029b52b0ffe6b0cd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "882958ba23fa8075fbb4df3057afc4ebef96342f54c41e2b9f87a51db734224f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6086fe613e55e496651ff30414e41ed8f7cf6ae772c9d3764bcaed2e1244c161"
-    sha256 cellar: :any,                 arm64_linux:       "daa34fb4d1bef9545fdcac787031c6628078caba276460c664f0701a5d31e65e"
-    sha256 cellar: :any,                 x86_64_linux:      "8b7956e1d2d64701850e5904c41f807ef7f7b74a7c2574c00571bc77674cb0d9"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "23f5b127edf77c6247dbf4e12a18674b293ea73a8d5328d8a1bcd693edf16ba3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bd7908ec30ff3ccd37b5b6d884614d59eff3f6b828db0d88968611e86b9b1d36"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eea70d3d08878646439061a6e419630e41ca3d90b22ac6f235582bc2e03c3567"
+    sha256 cellar: :any,                 arm64_linux:       "e1b52385b464ed058e97ead071bbd65a6f03f343d033585821250e2101e46885"
+    sha256 cellar: :any,                 x86_64_linux:      "8218133aff9f4f40ebe98369a8ff052fdde498e27fbbd2e8b2fd5353a73f8eba"
   end
 
   depends_on "cmake" => :build
