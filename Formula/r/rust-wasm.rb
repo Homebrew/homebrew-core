@@ -1,8 +1,8 @@
 class RustWasm < Formula
   desc "Rust standard library and sysroot for WebAssembly targets"
   homepage "https://www.rust-lang.org/"
-  url "https://static.rust-lang.org/dist/rustc-1.99.1-src.tar.gz"
-  sha256 "db56bbc64db491ceda6b78a2811a6d121c639338906fd944f720289cbd02245c"
+  url "https://static.rust-lang.org/dist/rustc-1.100.0-src.tar.gz"
+  sha256 "e8904548563117043c24a67c4967119b7c9ed304821988283e7681122ceec98b"
   license any_of: ["Apache-2.0", "MIT"]
   compatibility_version 1
 
@@ -84,7 +84,8 @@ class RustWasm < Formula
                       "-Zbuild-std=std,panic_abort"
 
       target_lib = lib/"rustlib"/target/"lib"
-      buildpath.glob("target/#{target}/release/deps/*.rlib").each do |rlib|
+      # Cargo 1.100 nests artifacts by build unit rather than in `deps`.
+      buildpath.glob("target/#{target}/release/**/*.rlib").each do |rlib|
         # Skip the stub crate itself; keep `std` and all of its dependencies.
         next if rlib.basename.to_s.start_with?("librust_wasm_stub")
 
