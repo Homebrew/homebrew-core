@@ -1,8 +1,8 @@
 class McpServerKubernetes < Formula
   desc "MCP Server for kubernetes management commands"
   homepage "https://github.com/Flux159/mcp-server-kubernetes"
-  url "https://registry.npmjs.org/mcp-server-kubernetes/-/mcp-server-kubernetes-4.2.2.tgz"
-  sha256 "8032168a480e98b6debf31aa35626a0863514c2172deb8f9a45c66da35e87f3f"
+  url "https://registry.npmjs.org/mcp-server-kubernetes/-/mcp-server-kubernetes-4.2.3.tgz"
+  sha256 "6c483fd6482ebdb2099ce43be6a5390621988f46fc4899a3ba1edf0c46410c65"
   license "MIT"
 
   bottle do
