@@ -4,6 +4,7 @@ class Memex < Formula
   url "https://github.com/nicosuave/memex/archive/refs/tags/v0.34.0.tar.gz"
   sha256 "f6f2ea783bc5b95419bcc747aeefb792eed5a0c7496d434a6a2f4a80607a73b3"
   license "MIT"
+  revision 1
   head "https://github.com/nicosuave/memex.git", branch: "main"
 
   bottle do
