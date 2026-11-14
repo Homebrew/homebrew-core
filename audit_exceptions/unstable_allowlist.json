@@ -10,5 +10,6 @@
   "recode": "3.7-beta",
   "spatialite-gui": "2.1.0-beta",
   "tcptraceroute": "1.5beta",
-  "vbindiff": "3.0_beta"
+  "vbindiff": "3.0_beta",
+  "vips": "8.19.0-rc"
 }
