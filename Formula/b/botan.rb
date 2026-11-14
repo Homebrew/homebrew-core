@@ -13,11 +13,12 @@ class Botan < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "71c89d76ef109ad7eb1af4c7ff2bfb4a45594ad6642f46530d84d0ac2c282ae2"
-    sha256 arm64_tahoe:       "54de75c5085c7cb53e1dbd60d4942f933d6a99c3ffeef31bdfe53811a509e4f1"
-    sha256 arm64_sequoia:     "9abc6beedca224c8dd2759e65587ceea67614df645810f6272ee47f0b058e635"
-    sha256 arm64_linux:       "5fb1ffd5b8b05896ff9ce42f8dcca7bb274c9f06b06c751f340b986cb1ada711"
-    sha256 x86_64_linux:      "16452aad4ecf9bc4bbaae5a3172ccc9f0712fe81516edb0f6407bcd792a26aac"
+    rebuild 1
+    sha256 arm64_golden_gate: "49fbebcc201dafbb3e69a9f9c3f1f0f201ad23483959c617571ab2848ab1c8b7"
+    sha256 arm64_tahoe:       "72b1c1c5aeba3f20e6ce13d54bc6b22427827976c20c747b9228bd066f9f9628"
+    sha256 arm64_sequoia:     "bcdee762b2a0e8a901cd041c754ab6198b7c8b54cc33877a668b447f48cc41db"
+    sha256 arm64_linux:       "f4af003a0926688c332b3a12c0cbfee658b05271f4dc4ed7988245397dbe1b07"
+    sha256 x86_64_linux:      "928063c7cc99d6be7e4fdbf06f20392fa7498777929ecfc404d60039b0dfe3b3"
   end
 
   depends_on "pkgconf" => :build
