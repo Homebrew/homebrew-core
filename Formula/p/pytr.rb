@@ -9,12 +9,12 @@ class Pytr < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3a8a86c8613d923b6b8e7ae8e217dd5fa1ef073fb0e0a7ed829f7d818adf72a7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "521b3f2fc0edcf6124a99f5b7739b63043b3376e6e1aa3c5228129fee6eb1926"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dbb821d3fdbe391956d3d1a9d23adc4e45c2bc30a0eaea1e9c3aa14e10eb458d"
-    sha256 cellar: :any,                 arm64_linux:       "4e56954c66a25ecda0b765a48cfdbd2190313d62f495a105b28ccaa212bf3c82"
-    sha256 cellar: :any,                 x86_64_linux:      "636b851ba1a25bd46dda6cd826fe0e9dddd863bdfbe6227310b2b6228bea19ae"
+    rebuild 2
+    sha256 cellar: :any, arm64_golden_gate: "b8eb009b3585f7933ab5e9b5b9710dd0822f9f94546a99375625959ffb74d0a4"
+    sha256 cellar: :any, arm64_tahoe:       "299ff6898875a190d22154d25881a3570a8bf9e9c7e4936d9c7f78695e9189e0"
+    sha256 cellar: :any, arm64_sequoia:     "1c39f7e3e83f081a18590b7a5b127e66f8c45555ffe508d77df54b67915e7e96"
+    sha256 cellar: :any, arm64_linux:       "5b25812d875e6e4ba1b892c122cccaf21e49e0178339fd2890edae1cb497c81d"
+    sha256 cellar: :any, x86_64_linux:      "f97ebdf22805b760b621b4419fff9be6faf14d87cb91f7aae95659190e2e8c46"
   end
 
   depends_on "certifi" => :no_linkage
