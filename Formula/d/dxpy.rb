@@ -6,6 +6,7 @@ class Dxpy < Formula
   url "https://files.pythonhosted.org/packages/2e/3b/481347ef444726c9dc6ad6e4b4b2faee795dae89b132a4e9daeb1865abd8/dxpy-0.419.0.tar.gz"
   sha256 "977bd62ee56bebc9fbd875243613e42229742535f03876c1cbb048aaf4a5d673"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "5d1de8a78534e4ed0593b193dccae3ab151da6b8b5c196b29175bc8442e0830e"
