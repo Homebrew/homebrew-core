@@ -6,15 +6,15 @@ class MongoOrchestration < Formula
   url "https://files.pythonhosted.org/packages/c9/3b/6e579eb7aae04e95c194e6ca57666bc4d1cd0dff4f81de0b3f7e663222b5/mongo_orchestration-0.11.2.tar.gz"
   sha256 "6f0996e5bb072e8dbd0009289b31debb88a647f562c486cfc2c73583ab059993"
   license "Apache-2.0"
-  revision 5
+  revision 6
   head "https://github.com/mongodb-labs/mongo-orchestration.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "70bf33e68dbd8117c4a46adfa4ae12fa431cb302a61eb64c6ff68dd34e99d796"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5b656f8b598f39ef443a9e6f0be64c2b64ddf82f1b6af2cf3df59ba12d777573"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8a1c0638c5f49bf773de2feec2ee9a245f568746efff11692bd20b229a1b7f65"
-    sha256 cellar: :any,                 arm64_linux:       "5743f2477761b914f5efed3bba1a123e7f4e31efcc0ba3d06b58b035248c51a5"
-    sha256 cellar: :any,                 x86_64_linux:      "2567c35b27f20154a504f3962b4f3e2f11a3cd366839b35ac093c474fa00bb03"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c9175f1e4989bb76d59c117abfb28049913917c19e8e455bb09bb35d81de7d4d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2a51d6913444ee1328b36a0d5c1069d56c37fd4ce5bc4316506b555cf4e5fe91"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9134e2d7bceed0b22a94a86b9844686d6ede82809f35b0417ac5ae32539c4529"
+    sha256 cellar: :any,                 arm64_linux:       "9718d77ee7267a28df10234078881653f14a64be8fd0e7b782579ffcbd05dc49"
+    sha256 cellar: :any,                 x86_64_linux:      "2f6d9f85172ab2e98e0184a6b63bb503f8d001708b4204c406a7a63b0b18d0b2"
   end
 
   depends_on "rust" => :build
@@ -39,8 +39,8 @@ class MongoOrchestration < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/ef/4a/50822184bd67cc6493f0fb6a880749158fcd31ab3fa07409acfd91f9fc85/dnspython-2.9.0.tar.gz"
-    sha256 "b44dc6b18f07a8b1c56676a19fbfdb5209415b046a9cece286baafa87ff3f7f1"
+    url "https://files.pythonhosted.org/packages/76/49/900383b471c645a3c397f47b3211d1fcecb3a540c98f683494cdf86b33de/dnspython-2.9.2.tar.gz"
+    sha256 "8d4d39a513e649d634004ce4d39ade2352efcea472a0247535a5c2d18a9d7ba9"
   end
 
   resource "idna" do
@@ -59,8 +59,8 @@ class MongoOrchestration < Formula
   end
 
   resource "pymongo" do
-    url "https://files.pythonhosted.org/packages/42/8b/a9d214044153cb7d9141229d3e1b171cdf4f460fa07cade9354c4ce2f84d/pymongo-4.19.0.tar.gz"
-    sha256 "3c510dd3c5d9b392d3b33bb5d2a594758acfe8f026fca654253f947ce0af9d40"
+    url "https://files.pythonhosted.org/packages/8b/a6/a1ae45c0469af85f2c6793961b5d14de05176ce6265a909a90a0a81aea18/pymongo-4.20.0.tar.gz"
+    sha256 "f773b0aec28687587cdeda490463a82debc4566a4a3620dcc8dada9d2c0a1acd"
   end
 
   resource "requests" do
